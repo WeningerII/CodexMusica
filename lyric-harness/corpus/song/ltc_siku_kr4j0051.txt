@@ -1,0 +1,994 @@
+# collection: 竹屋癡語 (KR4j0051), 集部/詞曲類 of the Kanseki Repository.
+#          49 ci, 23 詞牌.
+#          Author, from the collection's own title page: 高觀國.
+# source: kanripo/KR4j0051 md5 9b460e73c098b248eac75e3bf73188eb over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0051 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 高觀國 as 撰. Every poem carries it.
+
+
+--- TITLE: 玉樓春  [air: 玉樓春]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 玉樓春
+[VERSE 1]
+幾雙海燕來金屋。
+香滿離宫三十六。
+春風剪草碧纖纖，
+春雨浥花紅撲撲。
+[VERSE 2]
+衛姫鄭女腰如束。
+齊唱陽春新製曲。
+曲終移宴起笙簫，
+花下晩寒生翠縠。
+
+--- TITLE: 玉樓春 其2  [air: 玉樓春]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+胭脂染出春風錦。
+生怕黄昏人有恨。
+雨難揩淚玉環嬌，
+煙不遮愁紅袖冷。
+[VERSE 2]
+醉魂吹斷香魂靜。
+拂拂翠睂羞帶粉。
+最憐新燕識風流，
+只為春寒消瘦損。
+
+--- TITLE: 玉樓春 其3  [air: 玉樓春]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+多時不踏章臺路。
+依舊東風芳草渡。
+鸎聲喚起水邊情，
+日影炙開花上霧。
+[VERSE 2]
+謝娘不信佳期誤。
+認得馬嘶迎繡戸。
+今宵翠被不春寒，
+只恐香穠春又去。
+
+--- TITLE: 玉樓春 其4  [air: 玉樓春]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+春煙澹澹生春水。
+曾記芳洲蘭棹艤。
+岸花香到舞衣邊，
+汀草色分歌扇底。
+[VERSE 2]
+棹沉雲去情千里。
+愁壓雙鴛飛不起。
+十年春事十年心，
+怕說濺裙當日意。
+
+--- TITLE: 菩薩蠻  [air: 菩薩蠻]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 菩薩蠻
+[VERSE 1]
+春風吹緑湖邊草。
+春光依舊湖邊道。
+玉勒錦障泥。
+少年遊冶時。
+[VERSE 2]
+煙明花似繡。
+且醉旗亭酒。
+斜日照花西。
+歸鴉花外啼。
+
+--- TITLE: 菩薩蠻 其2  [air: 菩薩蠻]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+紅雲半壓秋波碧。
+豔粧泣露嬌啼色。
+佳夢入仙城。
+風流石曼卿。
+[VERSE 2]
+宫袍呼醉醒。
+休捲西風錦。
+明日粉香殘。
+六橋煙水寒。
+
+--- TITLE: 菩薩蠻 其3  [air: 菩薩蠻]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉鱗熬出香凝軟。
+并刀斷處氷絲顫。
+紅縷間堆盤。
+輕明相映寒。
+[VERSE 2]
+纖柔分勸處。
+膩滑難停筯。
+一洗醉魂清。
+真成醒酒氷。
+
+--- TITLE: 菩薩蠻 其4  [air: 菩薩蠻]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉欄秋色知誰主。
+隔欄一架蒲萄雨。
+緑蘚怕啼螿。
+可堪宫漏長。
+[VERSE 2]
+烏絲吟古怨。
+清淚消塵硯。
+夢冷不成雲。
+楚峯峯外情。
+
+--- TITLE: 菩薩蠻 其5  [air: 菩薩蠻]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+何須急管吹雲暝。
+高寒灩灩開金餅。
+今夕不登樓。
+一年空過秋。
+[VERSE 2]
+桂花香霧冷。
+梧葉西風影。
+客醉倚河橋。
+清光愁玉簫。
+
+--- TITLE: 菩薩蠻 其6  [air: 菩薩蠻]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雲嬌雲嫩羞相倚。
+凌波共酌春風醉。
+的皪玉臺寒。
+肯敎金醆單。
+[VERSE 2]
+只疑雙蝶夢。
+翠袖和香擁。
+香外有鴛鴦。
+風流煙水鄉。
+
+--- TITLE: 青玉案  [air: 青玉案]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 青玉案 67字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.9.11.12
+--- JU: 4.10
+--- HEADING-AS-PRINTED: 青玉案
+[VERSE 1]
+平生似欠西湖債。
+每拚了金貂解。
+嫵媚煙雲多變態。
+雕鞍來處，
+畫舩歸去。
+花桞春風隘。
+[VERSE 2]
+玉京相接蓬壺界。
+入畫遥山翠分黛。
+蘇小不來時節改。
+一堤風月，
+六橋煙水。
+鷺約鷗盟在。
+
+--- TITLE: 醉落魄  [air: 醉落魄]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 醉落魄 57字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 醉落魄
+[VERSE 1]
+鈎簾翠溼。
+寒江上雨晴風急。
+亂峰低處明殘日。
+㕍字成行，
+界破暮天碧。
+[VERSE 2]
+故人天外長為客。
+倚欄一望情何極。
+新來得個歸消息。
+去棹回舟，
+數過幾千隻。
+
+--- TITLE: 杏花天  [air: 杏花天]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 杏花天 54字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 杏花天
+[VERSE 1]
+霽煙消處寒猶嫩。
+乍門巷愔愔晝永。
+池塘芳草魂初醒。
+秀句吟春未穩。
+[VERSE 2]
+仙源阻春風瘦損。
+又燕子來無芳信。
+小桃也自知人恨。
+滿面羞紅難問。
+
+--- TITLE: 杏花天 其2  [air: 杏花天]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 杏花天 54字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+遠山學得修睂翠。
+看睂展春愁無際。
+雨痕半溼東風外。
+不管梨花有淚。
+[VERSE 2]
+西園路青鞵暗記。
+怕行入秋千徑裏。
+一春多少相思意。
+說與新來燕子。
+
+--- TITLE: 杏花天 其3  [air: 杏花天]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 杏花天 54字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+花凝露溼胭脂透。
+是綵筆丹青染就。
+粉綃帕入班姫手。
+舒巻清寒時候。
+[VERSE 2]
+春禽靜來窺晴晝。
+閒冷落芳心知否。
+不愁院宇東風驟。
+日日嬌紅如舊。
+
+--- TITLE: 杏花天 其4  [air: 杏花天]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 杏花天 54字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉壇消息春寒淺。
+露紅玉嬌生靚豓。
+小憐鬢溼胭脂染。
+只隔粉墻相見。
+[VERSE 2]
+花隂外故宫夢逺。
+想未識鸎鸎燕燕。
+飄寒翠徑紅千㸃。
+桃李春風已晚。
+
+--- TITLE: 祝英臺近  [air: 祝英臺近]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 祝英臺近 77字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.9.11.13.16
+--- JU: 1.2.4.6.7.10.12.14.15
+--- HEADING-AS-PRINTED: 祝英臺近
+[VERSE 1]
+擁紅粧，
+翻翠葢，
+花影暗南浦。
+波面澄霞，
+蘭艇採香去。
+有人水濺紅裙，
+相招晩醉，
+正月上涼生風露。
+[VERSE 2]
+兩凝佇。
+别後歌斷雲閒，
+嬌姿黯無語。
+魂夢西風，
+端的此心苦。
+遥想芳臉輕顰，
+凌波微歩，
+鎮輸與沙邊鷗鷺。
+
+--- TITLE: 祝英臺近 其2  [air: 祝英臺近]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 祝英臺近 77字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.9.11.13.16
+--- JU: 1.2.4.6.7.10.12.14.15
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一窻閒，
+孤燼冷，
+獨自箇春睡。
+繡被薰香，
+不似舊風味。
+靜聽滴滴簷聲，
+驚愁攪夢，
+更不管庾郎心醉。
+[VERSE 2]
+念芳意。
+一併十日春寒，
+梅花㬠顦顇。
+嬾做新詞，
+春在可憐裏。
+幾時挑菜踏青，
+雲沉雨斷，
+盡分付楚天之外。
+
+--- TITLE: 江城子  [air: 江城子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 江城子
+[VERSE 1]
+緑樷籬菊㸃嬌黄。
+過重陽。
+轉愁傷。
+風急天高歸雁不成行。
+此去郎邊知近逺，
+秋水闊，
+碧天長。
+[VERSE 2]
+郎心如妾妾如郎。
+兩離腸。
+一思量。
+春到春愁秋色亦淒涼。
+近得新詞知見怨，
+妾無訴，
+泣蘭房。
+
+--- TITLE: 生查子  [air: 生查子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 生查子
+[VERSE 1]
+野泉春吐芽，
+泥溼隨飛燕。
+碧澗一盃羮，
+夜韭無人剪。
+玉釵和露香，
+鵝管隨春軟。
+野意重慇懃，
+持以君王獻。
+
+--- TITLE: 生查子 其2  [air: 生查子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+芙蓉羞粉香，
+倚竹窺煙霽。
+眼帶楚波寒，
+骨豓春風醉。
+誰傳側㡌情，
+想解遺鞭意。
+紅葉可憐秋，
+不寄相思字。
+
+--- TITLE: 生查子 其3  [air: 生查子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+蓬萊一捻雲，
+徹骨龍涎染。
+風味韻而芳，
+笑語柔而婉。
+花嬌緑鬢寒，
+酒凝清歌怨。
+翠幄已煙穠，
+銀燭重休剪。
+
+--- TITLE: 生查子 其4  [air: 生查子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+春籠雲潤香，
+露溼青蛟瘦。
+偷學漢宫粧，
+舞徹霓裳後。
+酥胸紫領巾，
+氷剪柔荑手。
+有意入羅囊，
+不肯成春酒。
+
+--- TITLE: 生查子 其5  [air: 生查子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+飛花澹澹風，
+被㬉疎疎雨。
+香潤玉堦塵，
+翠溼紗窻霧。
+鈿筝離雁行，
+寶篋留釵股。
+唯有鳯樓魂，
+夜夜江南路。
+
+--- TITLE: 生查子 其6  [air: 生查子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+香驚楚驛寒，
+瘦倚湘筠暮。
+一笛已黄昏，
+片月尤清楚。
+沉沉氷玉魂，
+漠漠煙雲浦。
+酸淚不成弹，
+又向春心聚。
+
+--- TITLE: 燭影搖紅  [air: 燭影搖紅]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 燭影搖紅 96字
+--- RHYME: 2.4.5.6.9.11.13.14.15.18
+--- JU: 1.3.7.8.10.12.16.17
+--- HEADING-AS-PRINTED: 燭影揺紅
+[VERSE 1]
+别浦潮平，
+逺村㠶落煙江冷。
+征鴻相喚著行飛，
+不耐霜風緊。
+雪意垂垂未定。
+正慘慘雲横疎影。
+酒醒情緒，
+日晚登臨，
+凄涼誰問。
+[VERSE 2]
+行樂京華，
+軟紅不斷香塵噴。
+試將心事卜歸期，
+終是無慿準。
+寥落年華將盡。
+誤玉人高樓凝恨。
+第一休負，
+西子湖邊，
+江梅春信。
+
+--- TITLE: 憶秦娥  [air: 憶秦娥]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 憶秦娥 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 憶秦娥
+[VERSE 1]
+棲鳥驚。
+隔窻月色寒於氷。
+寒於氷。
+澹移梅影，
+冷印疎櫺。
+[VERSE 2]
+幽香未覺魂先清。
+無端勾起相思情。
+相思情。
+惱人無睡，
+直到天明。
+
+--- TITLE: 憶秦娥 其2  [air: 憶秦娥]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 憶秦娥 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+歌聲闌。
+蘭舟只隔芙蓉灣。
+芙容灣。
+扇揺波影，
+風捲雲鬟。
+[VERSE 2]
+餘音嫋嫋留餘歡。
+雙鴛飛處傳情難。
+傳情難。
+曲終人去，
+愁寄湖山。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+盤枝剪翠。
+葉葉西風意。
+吹上玉人雲鬢底。
+無限新涼氣味。
+[VERSE 2]
+飄蕭露捲煙柔。
+絶憐不逐宫流。
+寄語多情宋玉，
+悲秋得似宜秋。
+
+--- TITLE: 清平樂 其2  [air: 清平樂]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+春蕪雨溼。
+燕子低飛急。
+雲壓前山羣翠失。
+煙水滿湖輕碧。
+[VERSE 2]
+小蓮相見灣頭。
+清寒不到青樓。
+請上琵琶絃索，
+今朝破得春愁。
+
+--- TITLE: 更漏子  [air: 更漏子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 更漏子 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/5.6/7.8.9/11.12
+--- JU: 1.4.10
+--- HEADING-AS-PRINTED: 更漏子
+[VERSE 1]
+玉簫閒，
+清韵咽。
+人倚畫欄愁絶。
+雲惱月，
+月羞雲。
+半溪梅影昏。
+[VERSE 2]
+恨春風。
+蕭散後。
+夜夜數殘更漏。
+情悄悄，
+思依依。
+天寒一雁飛。
+
+--- TITLE: 山花子  [air: 山花子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 山花子 48字
+--- RHYME: 1.2.4.6.8
+--- JU: 3.5.7
+--- HEADING-AS-PRINTED: 山花子
+[VERSE 1]
+嫋嫋天風響珮環。
+鵲橋有女夜乘鸞。
+也恨别多相見少，
+似人間。
+[VERSE 2]
+銀浦無聲雲路𣺌，
+金風有信玉機閒。
+生怕河梁分袂處，
+曉光寒。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+遮坐銀屏度水沉。
+障風羅幙皺沉金。
+日遲宫院靜愔愔。
+[VERSE 2]
+繁杏半窺紅日薄，
+小憐低唱緑窻深。
+試拈犀管寫春心。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+魂是湘雲骨是蘭。
+春風氷玉注芳顔。
+誰招仙子在人間。
+[VERSE 2]
+濺水裙兒香霧皺，
+唾花衫子碧雲寒。
+洞簫聲絶却驂鸞。
+
+--- TITLE: 浣溪沙 其3  [air: 浣溪沙]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+偷得韓香惜未燒。
+吹簫人在月明橋。
+草芳似待玉驄驕。
+[VERSE 2]
+吹絮繡簾春澹澹，
+隔香羅帳夜迢迢。
+楚魂湏著楚詞招。
+
+--- TITLE: 浣溪沙 其4  [air: 浣溪沙]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雲外峰巒翠欲埋。
+雨沾黄葉溼青鞋。
+小驚春色入寒荄。
+[VERSE 2]
+風月愁新空雁字，
+神仙夢冷憶鸞釵。
+淒涼不是好情懐。
+
+--- TITLE: 浣溪沙 其5  [air: 浣溪沙]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一色煙雲澹不消。
+兩峰睂黛為誰嬌。
+春寒猶占木蘭橈。
+[VERSE 2]
+燕子似甘愁寂寞，
+海棠未肯醉妖嬈。
+小園嫩約尚蕭條。
+
+--- TITLE: 御街行  [air: 御街行]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 御街行 81字
+--- RHYME: 1.2.4.7.8.9.11.14
+--- JU: 3.5.6.10.12.13
+--- HEADING-AS-PRINTED: 御街行
+[VERSE 1]
+香波半窣深深院。
+正日上花隂淺。
+青絲不動玉鈎閒，
+看翠額輕籠葱蒨。
+鸎聲似隔，
+篆煙微度，
+愛横影參差滿。
+那回低挂朱欄畔。
+念悶損無人捲。
+窺春偷倚不勝情，
+彷彿見如花嬌面。
+纖柔緩掲，
+瞥然飛去，
+不似春風燕。
+
+--- TITLE: 御街行 其2  [air: 御街行]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 御街行 81字
+--- RHYME: 1.2.4.7.8.9.11.14
+--- JU: 3.5.6.10.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+藤筠巧織花紋細。
+稱穩歩如流水。
+踏青陌上雨初晴，
+嫌怕溼文鴛雙履。
+要人送上，
+逢花須住，
+纔過處香風起。
+裙兒挂在簾兒底。
+更不把窻兒閉。
+紅紅白白簇花枝，
+恰稱得尋春芳意。
+歸來時晩，
+紗籠引道，
+扶下人微醉。
+
+--- TITLE: 眼兒媚  [air: 眼兒媚]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 眼兒媚 48字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.5.7.10
+--- JU: 3.4.6.8.9
+--- HEADING-AS-PRINTED: 眼兒媚
+[VERSE 1]
+輕雲終被斷雲留。
+不肯放春愁。
+翠樓舊倚，
+粉墻重見，
+歌酒風流。
+[VERSE 2]
+今朝畢竟吟情澹，
+芳意未全酬。
+東風向晚，
+鸎花有意，
+吹轉舩頭。
+
+--- TITLE: 卜算子  [air: 卜算子]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 卜算子
+[VERSE 1]
+屈指數春來，
+弹指驚春去。
+檐外蛛絲網落花，
+也要留春住。
+[VERSE 2]
+幾日喜春晴，
+幾夜愁春雨。
+十二雕窓六曲屏，
+題遍傷春句。
+
+--- TITLE: 西江月  [air: 西江月]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 西江月
+[VERSE 1]
+小舫半簾山色，
+斷橋兩岸秋隂。
+芙容消息已愁深。
+紅染雲機翠錦。
+[VERSE 2]
+幾度煙波共酌，
+半生風月闗心。
+飛來鷗鷺是知因。
+一笑歌邊醉醒。
+
+--- TITLE: 踏莎行  [air: 踏莎行]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 踏莎行 58字
+--- RHYME: 2.3.5.7.8.10
+--- JU: 1.4.6.9
+--- HEADING-AS-PRINTED: 踏莎行
+[VERSE 1]
+水減堤痕，
+秋生屐齒。
+瘦笻喚起登高意。
+翠微煙冷夢凄涼，
+黄花香晚人顦顇。
+[VERSE 2]
+懐古風流，
+悲秋情味。
+紫茰勸入旗亭醉。
+玉人相見說新愁，
+可憐又溼西風淚。
+
+--- TITLE: 踏莎行 其2  [air: 踏莎行]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 踏莎行 58字
+--- RHYME: 2.3.5.7.8.10
+--- JU: 1.4.6.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+花染煙香，
+桞揺風翠。
+春工寫出清明意。
+翠灣還趂畫舩開，
+粉墻到處驕驄繫。
+[VERSE 2]
+歌喚紅裙，
+酒招青斾。
+吟情又許春風醉。
+何妨日日爛芳遊，
+今宵先向西城睡。
+
+--- TITLE: 戀繡衾  [air: 戀繡衾]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 戀繡衾 54字
+--- RHYME: 1.2.4.6.8
+--- JU: 3.5.7
+--- HEADING-AS-PRINTED: 戀繡衾
+[VERSE 1]
+碧梧偷戀小窓隂。
+恨芭蕉不展寸心。
+暗語近陽臺逺，
+奈秋宵砧斷漏沉。
+[VERSE 2]
+月明欲敎吹簫去，
+隔驂鸞空留怨音。
+從此是天涯阻，
+這一場愁夢更深。
+
+--- TITLE: 風入松  [air: 風入松]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 風入松 74字
+--- RHYME: 1.2.4.6.7.8.10.12
+--- JU: 3.5.9.11
+--- HEADING-AS-PRINTED: 風入松
+[VERSE 1]
+捲簾日日恨春隂。
+寒食新晴。
+馬蹄只向南山去，
+長橋愛花桞多情。
+紅外風嬌日㬉，
+翠邊水秀山明。
+[VERSE 2]
+杜郎歌酒過平生。
+到處蓬瀛。
+醉魂不入重城晩，
+穠歡寄桃葉桃根。
+繡被嫩寒清晩，
+鸎聲喚醒春酲。
+
+--- TITLE: 風入松 其2  [air: 風入松]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 風入松 74字
+--- RHYME: 1.2.4.6.7.8.10.12
+--- JU: 3.5.9.11
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+粉嬌曾隔翠簾看。
+横玉聲寒。
+夜深不管柔荑冷，
+櫻朱度香噴雲鬟。
+霜月揺揺吹落，
+梅花簌簌驚殘。
+[VERSE 2]
+蕭郎且放鳯簫閒。
+何處驂鸞。
+靜聽三弄霓裳罷，
+魂飛斷愁裏闗山。
+三十六宫天近，
+念奴却在人間。
+
+--- TITLE: 太常引  [air: 太常引]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 太常引 50字
+--- RHYME: 1.2.3.4.7.8.9
+--- JU: 5.6
+--- HEADING-AS-PRINTED: 太常引
+[VERSE 1]
+玉肌輕襯碧霞衣。
+似爭駕翠鸞飛。
+羞問武陵溪。
+笑女伴東風醉時。
+[VERSE 2]
+不飄紅雨，
+不貪青子，
+冷淡却相宜。
+春晚湧金池。
+問一片將愁寄誰。
+
+--- TITLE: 意難忘  [air: 意難忘]
+--- AUTHOR: 高觀國
+--- SOURCE: KR4j0051 竹屋癡語 / JUAN 竹屋癡語
+--- GE: 欽定詞譜 意難忘 92字
+--- RHYME: 1.3.5.6.7.9.10.12.14.15.16.18
+--- JU: 2.4.8.11.13.17
+--- HEADING-AS-PRINTED: 意難忘
+[VERSE 1]
+仙子竒容。
+是名花第一，
+美占春風。
+煙香籠淺罩，
+露靚浥芳紅。
+憐舞燕惜驚鴻。
+想獨歩吳宫。
+料認得嬌雲媚雨，
+來自巫峰。
+[VERSE 2]
+風流正與歡濃。
+羡高樓並倚，
+曲影欄東。
+燭揺留醉枕，
+塵墜戀歌鐘。
+三弄笛五花驄。
+莫行樂匆匆。
+但看取天長地久，
+笑語相逢。

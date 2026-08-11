@@ -1,0 +1,498 @@
+# collection: 石屏詞 (KR4j0057), 集部/詞曲類 of the Kanseki Repository.
+#          22 ci, 12 詞牌.
+#          Author, from the collection's own title page: 戴復古.
+# source: kanripo/KR4j0057 md5 cd3d93b3fc6f15c05389dc1bbdf8b081 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0057 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 戴復古 as 撰. Every poem carries it.
+
+
+--- TITLE: 錦帳春  [air: 錦帳春]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 錦帳春 56字
+--- RHYME: 2.3.5.6.8.9.11.12
+--- JU: 1.4.7.10
+--- HEADING-AS-PRINTED: 錦帳春
+[VERSE 1]
+處處逢花，
+家家插栁。
+政寒食清明時候。
+奉板輿行樂，
+使星隨後。
+人間稀有。
+[VERSE 2]
+出郭尋仙，
+繡衣春晝。
+馬上列兩行紅袖。
+對韶華一笑，
+勸國夫酒。
+百千長壽。
+
+--- TITLE: 柳梢青  [air: 柳梢青]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 柳梢青 49字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.8.11
+--- JU: 2.4.5.9.10
+--- HEADING-AS-PRINTED: 栁梢青
+[VERSE 1]
+袖劎飛吟。
+洞庭青草，
+秋水深深。
+萬頃波光，
+岳陽樓上，
+一快披襟。
+[VERSE 2]
+不湏攜酒登臨。
+問有酒何人共斟。
+變盡人間，
+君山一㸃，
+自古如今。
+
+--- TITLE: 行香子  [air: 行香子]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 行香子
+[VERSE 1]
+萬石崔嵬，
+二水漣漪。
+此江山天下之奇。
+太平氣象，
+百姓熙熙。
+有文章公，
+經綸手，
+把州麾。
+[VERSE 2]
+滿斟壽酒，
+笑撚梅枝，
+管年年長見花時。
+佳人休唱，
+淺近歌詞。
+讀浯溪頌，
+愚谷記，
+澹岩詩。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+圉圉洋洋各自由。
+或行或舞或沉浮。
+觀魚未必知魚樂，
+政恐清波照白頭。
+[VERSE 2]
+休結網，
+莫垂鈎。
+機心一露使魚愁。
+終知不是池中物，
+掉尾江湖汗漫游。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+病起無聊倚繡牀。
+玉容清痩嬾梳粧。
+水沉烟冷橘花香。
+[VERSE 2]
+說箇話兒方有味，
+喫些酒子又何妨。
+一聲鶗鴂斷人腸。
+
+--- TITLE: 祝英臺近  [air: 祝英臺近]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 祝英臺近 77字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.9.11.13.16
+--- JU: 1.2.4.6.7.10.12.14.15
+--- HEADING-AS-PRINTED: 祝英臺近
+[VERSE 1]
+泛杭州，
+臨塵水，
+幾日共游戲。
+歌笑開懐，
+酒醒又還醉。
+奈何一旦分攜，
+連宵風雨，
+剪不斷客愁千里。
+[VERSE 2]
+水雲際。
+遥望一片飛鴻，
+苦是失羣地。
+滿眼春風，
+管甚閒桃李。
+此行歸老家山，
+相逢難又，
+但一味相思而已。
+
+--- TITLE: 鵲橋仙  [air: 鵲橋仙]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 鵲橋仙 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.10
+--- JU: 1.2.4.6.7.9
+--- HEADING-AS-PRINTED: 鵲橋仙
+[VERSE 1]
+西山岩壑，
+東湖亭館，
+盡是經行舊路。
+别時相見有荷花，
+還又見梅花歳莫。
+[VERSE 2]
+宋家兄弟，
+黄家兄弟，
+一一煩君傳語。
+相忘不寄一行書，
+元自有不相忘處。
+
+--- TITLE: 鵲橋仙 其2  [air: 鵲橋仙]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 鵲橋仙 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.10
+--- JU: 1.2.4.6.7.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+新荷池沼，
+綠槐庭院，
+檐前雨聲初斷。
+喧喧兩部亂哇鳴，
+怎得似啼鸎睍睆。
+[VERSE 2]
+風光流轉，
+客游汗漫，
+莫問鬢絲長短。
+醒時盃酒醉時歌，
+算省得閒愁一半。
+
+--- TITLE: 減字木蘭花  [air: 減字木蘭花]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 減字木蘭花
+[VERSE 1]
+羊城舊路。
+檀板一聲驚客去。
+不擬重來。
+白髪飄飄上越臺。
+[VERSE 2]
+故人居處。
+曲巷深深通竹所。
+問訊桃花。
+欲訪劉郎不在家。
+
+--- TITLE: 減字木蘭花 其2  [air: 減字木蘭花]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+天台狂客。
+醉裏不知秋髪白。
+應接風光。
+憶在江亭醉幾場。
+[VERSE 2]
+吳姬勸酒。
+唱得㢘頗能飯否。
+西雨東晴。
+人道無情又有情。
+
+--- TITLE: 減字木蘭花 其3  [air: 減字木蘭花]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+阻風中酒。
+流落江湖成白首。
+歴盡間闗。
+嬴得虗名滿世間。
+[VERSE 2]
+浩然歸去。
+憶著石屏茅屋趣。
+想見山村。
+樹有交柯犢有孫。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+今朝欲去。
+忽有留人處。
+說與江頭楊栁樹。
+繫我扁舟且住。
+[VERSE 2]
+十分酒興詩腸。
+難禁冷落秋光。
+借取春風一笑，
+狂夫到老猶狂。
+
+--- TITLE: 清平樂 其2  [air: 清平樂]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+醉狂癡作。
+誤信青樓約。
+酒醒梅花吹畫角。
+翻得一塲寂莫。
+[VERSE 2]
+相如謾賦凌雲。
+琴臺不遇文君。
+江上琵琶舊曲，
+只堪分付商人。
+
+--- TITLE: 醉太平  [air: 醉太平]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 醉太平 38字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 醉太平
+[VERSE 1]
+長亭短亭。
+春風酒醒。
+無端惹起離情。
+有黄鸝數聲。
+[VERSE 2]
+芙蓉綉茵。
+江上畫屏。
+夢中昨夜分明。
+悔先行一程。
+
+--- TITLE: 望江南  [air: 望江南]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 望江南
+[VERSE 1]
+壺山好，
+博古又通今。
+結屋三間藏萬巻，
+揮毫一字值千金。
+四海有知音。
+[VERSE 2]
+門外路，
+咫尺是湖陰。
+萬栁堤邊行處樂，
+百花洲上醉時吟。
+不負一生心。
+
+--- TITLE: 望江南 其2  [air: 望江南]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+壺山好，
+膽氣不妨麄。
+手奮空拳成活計，
+眼穿故紙下工夫。
+處世未全疎。
+[VERSE 2]
+生涯事，
+近日果何如。
+背錦奚奴能撿㸃，
+畫眉老婦出交租。
+且喜有贏餘。
+
+--- TITLE: 望江南 其3  [air: 望江南]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+壺山好，
+文字滿胸中。
+詩律變成長慶體，
+歌詞綽有稼軒風。
+最㑹說窮通。
+[VERSE 2]
+中年後，
+雖老未成翁。
+兒大相傳書種在，
+客來不放酒樽空。
+相對醉顔紅。
+
+--- TITLE: 望江南 其4  [air: 望江南]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+壺山好，
+也解憶狂夫。
+轉手便成千里别，
+經年不寄一行書。
+渾似不相疎。
+[VERSE 2]
+催歸曲，
+一唱一愁予。
+有劎賣來酤酒喫，
+無錢歸去買山居。
+一向作狂徒。
+
+--- TITLE: 望江南 其5  [air: 望江南]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+石屏老，
+家住海東雲。
+本是尋常田舍子，
+如何呼喚作詩人。
+無益費精神。
+[VERSE 2]
+千首富，
+不救一生貧。
+賈島形模元自痩，
+杜陵言語不妨村。
+誰解學西崐。
+
+--- TITLE: 望江南 其6  [air: 望江南]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+石屏老，
+長憶少年遊。
+自謂虎頭須食肉，
+誰知猿臂不封侯。
+身世一虗舟。
+[VERSE 2]
+平生事，
+說著也堪羞。
+四海九州雙脚底，
+千愁萬恨兩眉頭。
+白髪早歸休。
+
+--- TITLE: 望江南 其7  [air: 望江南]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+石屏老，
+悔不住山林。
+注定一生知有命，
+老來萬事付無心。
+巧語不如瘖。
+[VERSE 2]
+貧亦樂，
+莫負好光陰。
+但願有頭生白髪，
+何愁無地覓黄金。
+遇酒且須斟。
+
+--- TITLE: 沁園春  [air: 沁園春]
+--- AUTHOR: 戴復古
+--- SOURCE: KR4j0057 石屏詞 / JUAN 石屏詞
+--- GE: 欽定詞譜 沁園春 113字
+--- RHYME: 3.7.9.12.14.18.20.23
+--- JU: 1.2.4.5.6.8.10.11.13.15.16.17.19.21.22
+--- HEADING-AS-PRINTED: 沁園春
+[VERSE 1]
+一曲狂歌，
+有百餘言，
+說盡平生。
+費十年燈火，
+讀書讀史，
+四方奔走，
+求利求名。
+蹭蹬歸來閉門獨，
+坐贏得竆吟詩句清。
+夫詩者，
+皆吾儂平日，
+愁歎之聲。
+[VERSE 2]
+空餘豪氣崢嶸，
+安得良田二頃畊。
+向臨卭滌器，
+可憐司馬，
+成都賣卜，
+誰識君平。
+分則宜然吾何敢，
+怨螻蟻逍遥戴笠行。
+開懐抱，
+有青梅薦酒，
+緑樹啼鸎。

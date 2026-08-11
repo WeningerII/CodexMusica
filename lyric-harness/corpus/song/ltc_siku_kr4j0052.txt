@@ -1,0 +1,235 @@
+# collection: 山中白雲詞 (KR4j0052), 集部/詞曲類 of the Kanseki Repository.
+#          10 ci, 9 詞牌.
+# source: kanripo/KR4j0052 md5 467a3bdd45906af3932ce3431b00f5a1 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0052 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: POSITIONAL, and it may be one poet out at a boundary. This is a 選本: the poet is the nearest preceding name heading the woodblock prints, exactly as the page presents it. Treat per-poet counts here as approximate.
+
+
+--- TITLE: 菩薩蠻  [air: 菩薩蠻]
+--- AUTHOR: 浣溪紗
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 2
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 菩薩蠻
+[VERSE 1]
+蕊香不戀琵琶結。
+舞衣折損藏花蝶。
+春夢未堪憑。
+幾時春夢真。
+[VERSE 2]
+愁把殘更數。
+淚落燈前雨。
+歌酒可曾忺。
+情懷似去年。
+
+--- TITLE: 四字令  [air: 四字令]
+--- AUTHOR: 浣溪紗
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 2
+--- GE: 欽定詞譜 四字令 38字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 四字令
+[VERSE 1]
+鶯吟翠屏。
+簾吹絮雲。
+東風也怕花嗔。
+帶飛花趕春。
+[VERSE 2]
+隣娃笑迎。
+嬉遊趁晴。
+明朝何處相尋。
+那人家栁隂。
+
+--- TITLE: 醉落魄  [air: 醉落魄]
+--- AUTHOR: 賦疎杏
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 3
+--- GE: 欽定詞譜 醉落魄 57字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 醉落魄
+[VERSE 1]
+栁侵䦨角。
+晝簾風軟紅香泊。
+引人蝴蜨翻輕薄。
+巳自關情，
+和夢近來惡。
+[VERSE 2]
+眉梢輕把閒愁着。
+如今愁重眉梢弱。
+雙眉不畫愁消却。
+不道愁痕，
+來傍眼邉覺。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 壺中天
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 3
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+候蛩凄斷。
+人語西風岸。
+月落沙平江似練。
+望盡蘆花無鴈。
+[VERSE 2]
+暗教愁損蘭成。
+可憐夜夜䦨情。
+只有一枝梧葉，
+不知多少秋聲。
+
+--- TITLE: 踏莎行  [air: 踏莎行]
+--- AUTHOR: 寄車秀卿
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 3
+--- GE: 欽定詞譜 踏莎行 58字
+--- RHYME: 2.3.5.7.8.10
+--- JU: 1.4.6.9
+--- HEADING-AS-PRINTED: 踏莎行
+[VERSE 1]
+栁未三眠，
+風纔一汎。
+催人步屧吹笙徑。
+可曾中酒似當時，
+如今却是看花病。
+[VERSE 2]
+老願春遲，
+愁嫌晝靜。
+秋千院落寒猶剰。
+捲簾休問海棠開，
+相傳燕子歸來近。
+
+--- TITLE: 採桑子  [air: 採桑子]
+--- AUTHOR: 竹居
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 6
+--- GE: 欽定詞譜 採桑子 44字
+--- RHYME: 2.3.4.6.7.8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 采桑子
+[VERSE 1]
+西園冷罥秋千索，
+雨透花嚬。
+雨過花皴。
+近覺江南無好春。
+[VERSE 2]
+杜郎不恨尋芳晚，
+夢裏行雲。
+陌上行塵。
+最是多愁老得人。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 詠湯
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 6
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+樓上誰將玉笛吹。
+山前水闊瞑雲低。
+勞勞燕子人千里，
+落落棃花雨一枝。
+[VERSE 2]
+修禊近，
+賣餳時。
+故鄉惟有夢相隨。
+夜來折得江頭栁，
+不是蘇堤也皺眉。
+
+--- TITLE: 清平樂 其2  [air: 清平樂]
+--- AUTHOR: 壺中天
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 6
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+采芳人杳。
+頓覺遊情少。
+客裏看春多草草。
+總被詩愁分了。
+[VERSE 2]
+去年燕子天涯。
+今年燕子誰家。
+三月休聽夜雨，
+如今不是催花。
+
+--- TITLE: 西江月  [air: 西江月]
+--- AUTHOR: 别陳行之
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 7
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 前題
+[VERSE 1]
+落落竒花未吐，
+離離瑶草偏幽。
+蓬山元是不知秋。
+却笑人間春痩。
+[VERSE 2]
+瀟灑寒犀麈尾，
+玲瓏潤玉搔頭。
+半窗晴日水痕收。
+不怕杜鵑啼後。
+
+--- TITLE: 一剪梅  [air: 一剪梅]
+--- AUTHOR: 别苖仲通
+--- SOURCE: KR4j0052 山中白雲詞 / JUAN 7
+--- GE: 欽定詞譜 一剪梅 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.9.12
+--- JU: 2.4.5.8.10.11
+--- HEADING-AS-PRINTED: 一剪梅
+[VERSE 1]
+悶蕊驚寒減豔痕。
+蜂也消魂，
+蝶也消魂。
+醉歸無月傍黄昏，
+知是花村，
+知是前村。
+[VERSE 2]
+留得閒枝葉半存。
+好似桃根，
+不似桃根。
+小樓昨夜雨聲渾，
+春到三分，
+秋到三分。

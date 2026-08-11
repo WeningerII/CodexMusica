@@ -1,0 +1,422 @@
+# collection: 散花菴詞 (KR4j0056), 集部/詞曲類 of the Kanseki Repository.
+#          19 ci, 11 詞牌.
+#          Author, from the collection's own title page: 黄昇.
+# source: kanripo/KR4j0056 md5 1be2cce85e51df605bda5b2999f907b1 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0056 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 黄昇 as 撰. Every poem carries it.
+
+
+--- TITLE: 行香子  [air: 行香子]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 行香子
+[VERSE 1]
+寒意方濃，
+㬉信才通。
+是晴陽暗拆花封。
+氷霜作骨，
+玉雪為容。
+看體清癯，
+香淡泞，
+影朦朧。
+[VERSE 2]
+孤城小驛，
+斷角殘鐘，
+又無邊散與春風。
+芳心一㸃，
+幽恨千重。
+任雪霏霏，
+雲漠漠，
+月溶溶。
+
+--- TITLE: 賣花聲  [air: 賣花聲]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 賣花聲 54字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 賣花聲
+[VERSE 1]
+鸎蝶太囱囱。
+惱殺衰翁。
+牡丹開盡狀元紅。
+俯仰之間増感慨，
+花事成空。
+[VERSE 2]
+垂栁緑隂中。
+粉絮濛濛。
+多情多病轉疎慵。
+不是東風孤負我，
+我負東風。
+
+--- TITLE: 賣花聲 其2  [air: 賣花聲]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 賣花聲 54字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+秋色滿層霄。
+剪剪寒飈。
+一襟殘照兩無聊。
+數盡歸鴉人不見，
+落木蕭蕭。
+[VERSE 2]
+往事欲魂消。
+夢想風標。
+春江緑漲水平橋。
+側帽停鞭沽酒處，
+栁軟鸎嬌。
+
+--- TITLE: 長相思  [air: 長相思]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 長相思 36字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 長相思
+[VERSE 1]
+天悠悠。
+水悠悠。
+月印金甌曉未收。
+笛聲人倚樓。
+[VERSE 2]
+蘆花秋。
+蓼花秋。
+催得呉霜㸃鬢稠。
+香箋莫寄愁。
+
+--- TITLE: 長相思 其2  [air: 長相思]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 長相思 36字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+砧聲齊。
+杵聲齊。
+金井欄邊敗葉飛。
+夜寒烏不栖。
+[VERSE 2]
+風淒淒。
+露淒淒。
+影轉梧桐月巳西。
+花冠窓外啼。
+
+--- TITLE: 長相思 其3  [air: 長相思]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 長相思 36字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+惜春歸。
+愛春歸。
+脱了羅衣著苧衣。
+緑隂黄鳥啼。
+[VERSE 2]
+酒醒時。
+夢醒時。
+清簟疎簾一局棊。
+丁東風馬兒。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+百計留春春不住。
+褪粉吹香，
+日日催教去。
+心事欲憑鸎語訴。
+流鸎剗地無憑據。
+[VERSE 2]
+緑玉䦨干圍綺户。
+一㸃柔紅，
+應在深深處。
+想倚翠簾吹栁絮。
+淺顰惆悵芳期誤。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+珠簾寂寂。
+愁背銀缸泣。
+記得小年初選入。
+三十六宫第一。
+[VERSE 2]
+當年掌上承恩。
+而今冷落長門。
+又是羊車過也，
+月明花落黄昏。
+
+--- TITLE: 清平樂 其2  [air: 清平樂]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+深深禁籞。
+霽日明鸎羽。
+風動槐龍交翠舞。
+恰恰花隂亭午。
+[VERSE 2]
+一簾㬉絮悠颺。
+金爐旋炷沈香。
+天子方看諫疏，
+内人休鬬新粧。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+沈水香銷夢半醒。
+斜陽恰照竹間亭。
+戲臨小艸書團扇，
+自揀殘花揷淨瓶。
+[VERSE 2]
+鸎宛轉，
+燕丁寧。
+晴波不動晩山青。
+玉人只怨春歸去，
+不道槐雲緑滿庭。
+
+--- TITLE: 鷓鴣天 其2  [air: 鷓鴣天]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雨過芙蕖葉葉涼。
+摩挲短髪照横塘。
+一行歸鷺拖秋色，
+幾樹鳴蟬餞夕陽。
+[VERSE 2]
+花側畔，
+柳旁相。
+微雲澹月又昏黄。
+風流不在談鋒勝，
+袖手無言味最長。
+
+--- TITLE: 秦樓月  [air: 秦樓月]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 秦樓月 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 秦樓月
+[VERSE 1]
+心如結。
+西風老盡黄花節。
+黄花節。
+塞鴻聲斷，
+冷煙淒月。
+[VERSE 2]
+漢朝陵廟唐宫闕。
+興衰萬變從誰説。
+從誰説。
+千年青史，
+幾人華髪。
+
+--- TITLE: 重疊金  [air: 重疊金]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 重疊金 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 重疊金
+[VERSE 1]
+西風半夜驚羅扇。
+蛩聲入夢傳幽怨。
+碧藕試初涼。
+露痕啼粉香。
+[VERSE 2]
+清氷凝簟竹。
+不許雙鴛宿。
+又是五更鐘。
+鴉啼金井桐。
+
+--- TITLE: 重疊金 其2  [air: 重疊金]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 重疊金 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+南山未解松梢雪。
+西山巳挂梅梢月。
+説似玉林人。
+人間無此清。
+[VERSE 2]
+此身元是客。
+小住娯今夕。
+拍手凭闌干。
+霜風吹鬢寒。
+
+--- TITLE: 重疊金 其3  [air: 重疊金]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 重疊金 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+銀幡綵勝參差剪。
+東風吹上釵頭燕。
+一笑繞花身。
+小桃先報春。
+[VERSE 2]
+新春今日是。
+明日新年至。
+擘繭莫探官。
+人間行路難。
+
+--- TITLE: 花發沁園春  [air: 花發沁園春]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 花發沁園春 105字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.6.7.8.10.11.13.16.17.18.20
+--- JU: 1.2.4.5.9.12.14.15.19
+--- HEADING-AS-PRINTED: 花發沁園春
+[VERSE 1]
+曉燕傳情，
+午鸎喧夢，
+起來撿挍芳事。
+荼&KR1048;褪雪，
+楊柳吹綿，
+迤邐麥秋天氣。
+翻階傍砌。
+看芍藥新粧嬌媚。
+正鳯紫匀染綃裳，
+猩紅輕透羅袂。
+[VERSE 2]
+晝㬉朱䦨困倚。
+是天姿妖嬈，
+不減姚魏。
+隨蜂惹粉，
+趂蝶棲香，
+引動少年情味。
+花濃酒美。
+人正在翠紅圍裏。
+問誰是第一風流，
+折花簪向雲髻。
+
+--- TITLE: 阮郎歸  [air: 阮郎歸]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 阮郎歸 47字
+--- RHYME: 1.2.3.4.6.7.8.9
+--- JU: 5
+--- HEADING-AS-PRINTED: 阮郎歸
+[VERSE 1]
+粉香吹㬉透單衣。
+金泥雙鳯飛。
+閒來花下立多時。
+春風酒醒遲。
+[VERSE 2]
+桃葉曲，
+栁枝詞。
+芳心空自知。
+湘皋月冷佩聲微。
+雁歸人不歸。
+
+--- TITLE: 鵲橋仙  [air: 鵲橋仙]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 鵲橋仙 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.10
+--- JU: 1.2.4.6.7.9
+--- HEADING-AS-PRINTED: 鵲橋仙
+[VERSE 1]
+青林雨歇，
+珠簾風細，
+人在緑隂庭院。
+夜來能有幾多寒，
+巳瘦了梨花一半。
+[VERSE 2]
+寶釵無據，
+玉琴難托，
+合造一襟幽怨。
+雲窗霧閣事茫茫，
+試與問杏梁雙燕。
+
+--- TITLE: 清平樂 其3  [air: 清平樂]
+--- AUTHOR: 黄昇
+--- SOURCE: KR4j0056 散花菴詞 / JUAN 散花菴詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+今朝欲去。
+忽有留人處。
+説與江頭楊栁樹。
+繫我扁舟且住。
+[VERSE 2]
+十分酒興詩腸。
+難禁冷落秋光。
+借取春風一笑，
+狂夫到老猶狂。

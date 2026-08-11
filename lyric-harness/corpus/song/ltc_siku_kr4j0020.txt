@@ -1,0 +1,881 @@
+# collection: 石林詞 (KR4j0020), 集部/詞曲類 of the Kanseki Repository.
+#          42 ci, 13 詞牌.
+#          Author, from the collection's own title page: 葉夢得.
+# source: kanripo/KR4j0020 md5 0b1d0b054d19ce3be076bec8a7b91db6 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0020 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 葉夢得 as 撰. Every poem carries it.
+
+
+--- TITLE: 八聲甘州  [air: 八聲甘州]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 八聲甘州 97字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.5.7.9.12.14.16.18
+--- JU: 1.3.4.6.8.10.11.13.15.17
+--- HEADING-AS-PRINTED: 八聲甘州
+[VERSE 1]
+故都迷㟁草望長淮，
+依然繞孤城。
+想烏衣年少，
+芝蘭秀發，
+戈㦸雲横。
+坐看驕兵南渡，
+沸浪駭犇鯨。
+轉眄東流水，
+一顧功成。
+[VERSE 2]
+千載八公山下，
+尚斷崕草木，
+遙擁崢嶸。
+漫雲濤吞吐，
+無處問豪英。
+信勞生空成今古，
+笑我來何事愴遺情。
+東山老可堪嵗晚，
+獨聽桓箏。
+
+--- TITLE: 八聲甘州 其2  [air: 八聲甘州]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 八聲甘州 97字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.5.7.9.12.14.16.18
+--- JU: 1.3.4.6.8.10.11.13.15.17
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+又新正過了問東風，
+消息幾時來。
+笑春工多思，
+留連底事，
+猶未輕回。
+應為瑤刀裁剪，
+容易惜花開。
+試向湖邊望，
+幾處寒梅。
+[VERSE 2]
+好是緑莎新徑，
+剰安排芳意，
+特地重栽。
+便從今追賞，
+莫遣暫停盃。
+有千株深紅淺白，
+倩緩歌急管特相催。
+憑看取暖煙細靄，
+先到髙臺。
+
+--- TITLE: 八聲甘州 其3  [air: 八聲甘州]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 八聲甘州 97字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.5.7.9.12.14.16.18
+--- JU: 1.3.4.6.8.10.11.13.15.17
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+問浮家泛宅自𤣥真，
+去後有誰來。
+漫煙波千頃，
+雲峰倒影，
+空翠成堆。
+可是溪山無主，
+佳處且徘徊。
+莫雨捲晴野，
+落照天開。
+[VERSE 2]
+老去餘生江海，
+伴逺公香火，
+猶有宗雷。
+便何妨元亮，
+攜酒間相陪。
+寄清談芒鞵笻杖，
+更盡驅風月入尊罍。
+江村路我歌君和，
+莫棹船回。
+
+--- TITLE: 八聲甘州 其4  [air: 八聲甘州]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 八聲甘州 97字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.5.7.9.12.14.16.18
+--- JU: 1.3.4.6.8.10.11.13.15.17
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+寄知還倦鳥對飛雲，
+無心兩難齊。
+漫飄然欲去，
+悠然且止，
+依舊山西。
+十畝荒園未遍，
+趂雨却鋤犁。
+敢忘鄰翁約，
+有酒同攜。
+[VERSE 2]
+況是巖前新建，
+帶小軒横絶，
+松桂成蹊。
+試憑髙東望，
+雲海與天低。
+送滄波浮空千里，
+照斷霞明滅捲晴霓。
+君休笑此生心事，
+老更沈迷。
+
+--- TITLE: 應天長  [air: 應天長]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 應天長 94字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.5.6.7.10.11.13.15.16.17.18.20
+--- JU: 2.4.8.9.12.14.19
+--- HEADING-AS-PRINTED: 應天長
+[VERSE 1]
+松陵秋已老。
+正柳㟁田家，
+酒醅初熟。
+鱸膾蓴羮，
+萬里水天相續。
+扁舟波浩𣺌。
+寄一葉莫濤吞沃。
+青篛笠，
+西塞山前，
+自翻新曲。
+[VERSE 2]
+來往未應足。
+便細雨斜風，
+有誰拘束。
+陶寫中年，
+何待更須絲竹。
+鴟夷千古意。
+算入手比來尤速。
+最好是。
+千㸃雲峰，
+半篙澄渌。
+
+--- TITLE: 江城子  [air: 江城子]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 江城子
+[VERSE 1]
+碧潭浮影蘸紅旗。
+日初遲。
+漾晴漪。
+我欲㝷芳先遣報春知。
+盡放百花連夜發，
+休更待，
+曉風吹。
+[VERSE 2]
+滿攜尊酒弄繁枝。
+與佳期。
+伴羣嬉。
+猶有邦人爭唱醉翁詞。
+應笑今年狂太守，
+能痛飲，
+似當時。
+
+--- TITLE: 江城子 其2  [air: 江城子]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+跰躚飛舞半空來。
+曉風催。
+巧縈迴。
+野曠天遙回望興悠哉。
+欲問玉京知逺近，
+試攜手，
+上髙臺。
+[VERSE 2]
+雲濤無際巻崔嵬。
+斂浮埃。
+照瓊瑰。
+㸃綴林花真箇是多才。
+說與化工留妙手，
+休盡放，
+一時開。
+
+--- TITLE: 江城子 其3  [air: 江城子]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+芙蓉開過雨初晴。
+曲池平。
+畫橋横。
+耿耿銀河遙下蘸空明。
+一舸呉松歸未得，
+聊共住，
+小蓬瀛。
+[VERSE 2]
+問君何事引前旌。
+趣歸程。
+背髙城。
+魚鳥三年誰道總無情。
+試遣他年歌此曲，
+應尚記，
+别時聲。
+
+--- TITLE: 江城子 其4  [air: 江城子]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+生涯何有但青山。
+小溪灣。
+轉潺湲。
+投老歸來終寄此山間。
+茅舍半敧風雨横，
+荒徑晚，
+亂榛菅。
+[VERSE 2]
+强扶衰病上巉顛。
+水雲閒。
+伴躋攀。
+湖海蒼茫千里在呉闗。
+漫有一盃聊自醉，
+休更問，
+鬢毛斑。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+小雨初回昨夜涼。
+繞籬新菊已催黄。
+碧空無際巻蒼茫。
+[VERSE 2]
+千里斷鴻供遠目，
+十年芳草掛愁腸。
+緩歌聊與送瑤觴。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+睡粉輕消露臉新。
+醉紅初破玉肌勻。
+尊前留得兩州春。
+[VERSE 2]
+剰挽雕盤敧醉帽，
+重催飛騎走紅塵。
+十年蘭&KR0581;笑騷人。
+
+--- TITLE: 浣溪沙 其3  [air: 浣溪沙]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+荷葉荷花水底天。
+玉壺冰酒釀新泉。
+一歡聊復記他年。
+[VERSE 2]
+我亦故山歸去客，
+與君分手暫流連。
+佳人休唱好因縁。
+
+--- TITLE: 浣溪沙 其4  [air: 浣溪沙]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+休笑山翁不住山。
+二年偷向此中閒。
+歸來贏得鬢毛斑。
+[VERSE 2]
+甕底新醅供酩酊，
+城頭曲檻俯淙潺。
+山翁元在此山間。
+
+--- TITLE: 浣溪沙 其5  [air: 浣溪沙]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+絳蠟燒殘夜未分。
+寳箏聲暖拍初勻。
+斗樞光照坐生春。
+[VERSE 2]
+便恐賜還歸衮繡，
+莫辭揮翰落煙雲。
+鳳城西去斷離魂。
+
+--- TITLE: 浣溪沙 其6  [air: 浣溪沙]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+緑野歌歡喜見分。
+驟驚和氣曉來勻。
+妙歌誰敢和陽春。
+[VERSE 2]
+梅蕋舊年迎臘雪，
+月華今夜破寒雲。
+獨醒爭笑楚人魂。
+
+--- TITLE: 浣溪沙 其7  [air: 浣溪沙]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+物外光隂不屬春。
+斷留風景伴佳辰。
+醉歸誰管斷腸人。
+[VERSE 2]
+柳絮尙飄庭下雪，
+梨花空作夢中雲。
+竹間籬落水邊門。
+
+--- TITLE: 浣溪沙 其8  [air: 浣溪沙]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+千古風流詠白蘋。
+二千歌笑擁朱輪。
+翩翩却憶上林春。
+[VERSE 2]
+劒履便應陪北闕，
+袴襦那更假西人。
+玉堂金殿要詞臣。
+
+--- TITLE: 虞美人  [air: 虞美人]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 虞美人
+[VERSE 1]
+落花巳作風前舞。
+又送黄昏雨。
+曉來庭院半殘紅。
+惟有游絲千丈罥晴空。
+[VERSE 2]
+慇懃花下同攜手。
+更盡盃中酒。
+美人不用斂蛾睂。
+我亦多情無奈酒闌時。
+
+--- TITLE: 虞美人 其2  [air: 虞美人]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+翻翻翠葉梧桐老。
+雨後涼生早。
+葛巾藜杖正闗情。
+莫遣繁蟬容易作秋聲。
+[VERSE 2]
+遙空不盡青天去。
+一抹殘霞莫。
+病餘無力厭躋攀。
+為寄曲欄幽意到西山。
+
+--- TITLE: 虞美人 其3  [air: 虞美人]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一聲鶗鴂催春晚。
+芳草連空逺。
+年年餘恨怨殘紅。
+可是無情容易愛隨風。
+[VERSE 2]
+茂林脩竹山隂道。
+千載誰重到。
+半湖流水夕陽前。
+猶有一觴一詠似當年。
+
+--- TITLE: 虞美人 其4  [air: 虞美人]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+東風一夜催春到。
+楊柳朝来好。
+莫辭尊酒重攜持。
+老去情懷能有幾人知。
+[VERSE 2]
+鳳臺園裏新詩伴。
+不用相追喚。
+一聲清唱落瓊巵。
+千頃西風煙浪晩雲遲。
+
+--- TITLE: 虞美人 其5  [air: 虞美人]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+數聲㣲雨風驚曉。
+燭影敧殘照。
+客愁不奈五更寒。
+明日梨花開盡有誰看。
+[VERSE 2]
+追尋猶記清明近。
+為向花前問。
+東風正使解欺儂。
+不道花應有恨也匆匆。
+
+--- TITLE: 虞美人 其6  [air: 虞美人]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+平波漲緑春堤滿。
+渡口人歸晩。
+短篷輕楫費追尋。
+始信十年歸夢是如今。
+[VERSE 2]
+故人回望高陽里。
+遙想車連騎。
+尊前㸃檢舊年春。
+應有海棠猶記插花人。
+
+--- TITLE: 虞美人 其7  [air: 虞美人]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+緑隂初過黃梅雨。
+隔葉聞鶯語。
+睡餘誰遣夕陽斜。
+時有㣲涼風動入牕紗。
+[VERSE 2]
+天涯走徧終何有。
+白髮空搔首。
+未須錦瑟怨年華。
+為寄一聲長笛怨梅花。
+
+--- TITLE: 虞美人 其8  [air: 虞美人]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+梅花落盡桃花小。
+春事餘多少。
+新亭風景尙依然。
+白髮故人相遇且留連。
+[VERSE 2]
+家山應在層林外。
+悵望花前醉。
+半天煙霧尙連空。
+笑取扁舟歸去與君同。
+
+--- TITLE: 減字木蘭花  [air: 減字木蘭花]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 減字木蘭花
+[VERSE 1]
+黄花暫老。
+秋色欲歸還草草。
+花下前期。
+花老空歌鵲踏枝。
+[VERSE 2]
+狂酲易醒。
+不似舊時長酩酊。
+玉簟新涼。
+數盡更籌夜更長。
+
+--- TITLE: 減字木蘭花 其2  [air: 減字木蘭花]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+前村夜半。
+毎為江梅腸欲斷。
+淺紫深紅。
+誰信漫天雪裏逢。
+[VERSE 2]
+醉頭扶起。
+宿酒闌干猶困倚。
+便莫催殘。
+明日東風為埽看。
+
+--- TITLE: 減字木蘭花 其3  [air: 減字木蘭花]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+粉消粧半。
+一曲陽春歌始斷。
+便覺香紅。
+十倍光華昔未逢。
+[VERSE 2]
+楊花吹起。
+猶自風前相枕倚。
+莫恨春殘。
+留取新詩仔細看。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+不怕微霜㸃玉肌。
+恨無流水照冰姿。
+與君著意從頭看，
+初見今年第一枝。
+[VERSE 2]
+人醉後，
+雪消時。
+江南春色寄來遲。
+使君盡是花前客，
+莫怪慇懃為賦詩。
+
+--- TITLE: 鷓鴣天 其2  [air: 鷓鴣天]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+夾路行歌盡落梅。
+篆煙香細裊寒灰。
+雲移碧海三山近，
+月破中天九陌開。
+[VERSE 2]
+追樂事，
+惜多才。
+車聲遙聽走隨雷。
+十年夢斷鈞天奏，
+猶記流霞醉後盃。
+
+--- TITLE: 鷓鴣天 其3  [air: 鷓鴣天]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+小雨初収報夕陽。
+歸雲欲渡轉横塘。
+空回雨葢翻新影，
+不見瓊肌洗暗香。
+[VERSE 2]
+追落景，
+弄㣲涼。
+尙餘殘淚浥空床。
+祇應自有東風恨，
+長遣啼痕破晩粧。
+
+--- TITLE: 鷓鴣天 其4  [air: 鷓鴣天]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+曉日初開露未晞。
+夕陽輕散雨還㣲。
+暗搖綿霧游鯈戲，
+斜映紅雲屬玉飛。
+[VERSE 2]
+情脈脈，
+恨依依。
+沙邊空見棹船歸。
+何人解舞新聲曲，
+一試纖腰六尺圍。
+
+--- TITLE: 鷓鴣天 其5  [air: 鷓鴣天]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+蘭&KR0581;空悲楚客秋。
+旌旗誰見使君遊。
+凌雲不隔三山路，
+破浪聊憑萬里舟。
+[VERSE 2]
+公欲去，
+尙能留。
+盃行到手未宜休。
+新詩無物堪倫比，
+願探珊瑚出寳鈎。
+
+--- TITLE: 鷓鴣天 其6  [air: 鷓鴣天]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+天末殘霞巻莫紅。
+波間時見没鳬翁。
+斜風細雨家何在，
+老矣生涯盡箇中。
+[VERSE 2]
+惟此意，
+與公同。
+未須持酒祝牛宫。
+傍人不解青蓑意，
+猶說黄金寳帶重。
+
+--- TITLE: 鷓鴣天 其7  [air: 鷓鴣天]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一曲青山映小池。
+緑荷隂盡雨離披。
+何人解識秋堪美，
+莫為悲秋浪賦詩。
+[VERSE 2]
+攜濁酒，
+遶東籬。
+菊殘猶有傲霜枝。
+一年好景君須記，
+正是橙黄橘緑時。
+
+--- TITLE: 驀山溪  [air: 驀山溪]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 驀山溪 82字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.9.11.13.18
+--- JU: 1.3.5.6.7.8.10.12.14.15.16.17
+--- HEADING-AS-PRINTED: 驀山溪
+[VERSE 1]
+一年春事，
+常恨風和雨。
+趂取未殘時，
+醉花前春應相許。
+山翁倒載，
+日莫習池回，
+問東風，
+春知否，
+莫道空歸去。
+滿城歌吹，
+也似春和豫。
+爭笑使君狂，
+占風光不敎飛絮。
+明朝酒醒，
+滿地落殘紅，
+唱新詞，
+追好景，
+猶有君収聚。
+
+--- TITLE: 卜算子  [air: 卜算子]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 卜算子
+[VERSE 1]
+新月挂林梢，
+暗水鳴枯沼。
+時見疎星落畫簷，
+幾㸃流螢小。
+[VERSE 2]
+歸意已無多，
+故作連環繞。
+欲寄新聲問採蓮，
+水濶煙波𣺌。
+
+--- TITLE: 卜算子 其2  [air: 卜算子]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+曉雨洗新粧，
+豔豔驚衰眼。
+不趂東風取次開，
+待得清霜晚。
+[VERSE 2]
+曲港照回流，
+影亂㣲波淺。
+作態低昻好自持，
+水濶煙波遠。
+
+--- TITLE: 菩薩蠻  [air: 菩薩蠻]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 菩薩蠻
+[VERSE 1]
+平波不盡蒹葭逺。
+清霜半落沙痕淺。
+煙樹晚微茫。
+孤鴻下夕陽。
+[VERSE 2]
+梅花消息近。
+試向南枝問。
+記得水邊春。
+江南别後人。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+薄雪消時春已半。
+踏遍蒼苔，
+手挽花枝看。
+一縷遊絲牽不斷。
+多情更覺蜂兒亂。
+[VERSE 2]
+盡日平波回逺㟁。
+倒影浮光，
+却記冰初泮。
+酒力無多吹易散。
+餘寒向晩風驚幔。
+
+--- TITLE: 南歌子  [air: 南歌子]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 南歌子 52字
+--- RHYME: 2.3.4.6.7.8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 南歌子
+[VERSE 1]
+雨惜山容斂，
+雲矜棹影開。
+忽看霽色射林隈。
+為問明亭清影為誰來。
+[VERSE 2]
+盡洗歸時路，
+重傾醉後盃。
+未應霜雪遽相催。
+留得佳期猶在共徘徊。
+
+--- TITLE: 採桑子  [air: 採桑子]
+--- AUTHOR: 葉夢得
+--- SOURCE: KR4j0020 石林詞 / JUAN 石林詞
+--- GE: 欽定詞譜 採桑子 44字
+--- RHYME: 2.3.4.6.7.8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 採桑子
+[VERSE 1]
+山蹊小路歸來晚，
+莫雪繽紛。
+尊酒慇懃。
+邂逅相從只有君。
+[VERSE 2]
+全家住處無人到，
+元在重雲。
+此景誰分。
+萬玉參差更作羣。

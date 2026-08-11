@@ -1,0 +1,298 @@
+# collection: 樵隱詞 (KR4j0042), 集部/詞曲類 of the Kanseki Repository.
+#          12 ci, 9 詞牌.
+#          Author, from the collection's own title page: 毛幵.
+# source: kanripo/KR4j0042 md5 38a4d06f9e4fc46202658ae1c5a23456 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0042 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 毛幵 as 撰. Every poem carries it.
+
+
+--- TITLE: 燕山亭  [air: 燕山亭]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 燕山亭 99字
+--- RHYME: 3.6.8.9.11.14.17.19.20.21
+--- JU: 1.2.4.5.7.10.12.13.15.16.18
+--- HEADING-AS-PRINTED: 燕山亭
+[VERSE 1]
+㬉靄輝遲，
+雨過夜來，
+簾外春風徐轉。
+霞散錦舒，
+密映㣲窺，
+亭亭萬枝開遍。
+一笑嫣然，
+猶記有畫圖曾見。
+無伴。
+初睡起昭陽，
+弄粧日晚。
+[VERSE 2]
+長是相趂佳期，
+有尋舊流鸎，
+貪新雙燕。
+惆悵共誰，
+細繞花隂，
+空懷紫簫淒怨。
+銀燭光中，
+且更待夜深重看。
+留戀。
+愁酒醒緋桃千片。
+
+--- TITLE: 江城子  [air: 江城子]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 江城子
+[VERSE 1]
+神仙樓觀梵王宫。
+月當中。
+望難窮。
+坐聽三通譙鼓報籠銅。
+還憶當年京輦舊，
+車馬㑹，
+五門東。
+[VERSE 2]
+華堂歌舞間笙鐘。
+夕香濛。
+度花風。
+翠袖傳盃爭勸紫髯翁。
+歸去不堪春夢斷，
+煙雨曉，
+亂山重。
+
+--- TITLE: 江城子 其2  [air: 江城子]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+倚牆高樹落驚禽。
+小窗深。
+夜沉沉。
+酒醒燈昏人靜更愁霖。
+惆悵行雲留不住，
+攜手處，
+却分襟。
+[VERSE 2]
+悠悠風月兩闗心。
+擁孤衾。
+恨難禁。
+何況一春顦顇到如今。
+最苦清宵無寐極，
+相見夢，
+也難尋。
+
+--- TITLE: 漁家傲  [air: 漁家傲]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 漁家傲
+[VERSE 1]
+極目丹楓迎霽曉。
+山明水淨新霜早。
+燕去鴻歸無事了。
+天𣺌𣺌。
+風吹平野低寒草。
+[VERSE 2]
+漸過初冬時節好。
+尋梅踏雪城南道。
+追憶舊遊人已老。
+懽更少。
+孤懷擬共誰傾倒。
+
+--- TITLE: 漁家傲 其2  [air: 漁家傲]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+楊子津頭風色莫。
+孤舟𣺌𣺌江南去。
+憶得佳人臨别處。
+愁返顧。
+青山幾㸃斜陽樹。
+[VERSE 2]
+可忍歸期無定㨿。
+天涯已聽邊鴻度。
+昨夜鄉心留不住。
+無驛數。
+夢中行了來時路。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+羅襪匆匆曾一過。
+烏鵲歸來，
+怨感流年度。
+别袖空看啼粉涴。
+相思待倩誰分付。
+[VERSE 2]
+殘雪江村迴馬路。
+嫋嫋春寒，
+簾晚空凝佇。
+人在梅花深處住。
+梅花落盡愁無數。
+
+--- TITLE: 醉落魄  [air: 醉落魄]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 醉落魄 57字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 醉落魄
+[VERSE 1]
+莫寒淒冽。
+春風探繞南枝發。
+更無人處增清絶。
+冷蕋孤香，
+竹外朦朧月。
+[VERSE 2]
+西洲昨夢憑誰説。
+攀翻&KR1233;憶經年别。
+新愁悵望催華髮。
+雀啅江頭，
+一樹垂垂雪。
+
+--- TITLE: 玉樓春  [air: 玉樓春]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 玉樓春
+[VERSE 1]
+日長澹澹光風轉。
+小尾黄蜂隨早燕。
+行尋香逕不逢人，
+惟有落紅千萬片。
+[VERSE 2]
+酒成顦顇花成怨。
+閒殺羽觴難㑹面。
+可堪春事已無多，
+新笋遮牆苔滿院。
+
+--- TITLE: 玉樓春 其2  [air: 玉樓春]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+曲房小院匆匆過。
+急鼓疎鐘催又去。
+來如春夢幾多時，
+去似朝雲無覔處。
+[VERSE 2]
+金瓶落井翻相誤。
+可惜馨香隨手故。
+錦囊空有斷腸書，
+彩筆不傳長恨句。
+
+--- TITLE: 眼兒媚  [air: 眼兒媚]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 眼兒媚 48字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.5.7.10
+--- JU: 3.4.6.8.9
+--- HEADING-AS-PRINTED: 眼兒媚
+[VERSE 1]
+小溪微月淡無痕。
+殘雪擁孤村。
+攀條弄蕋，
+春愁相值，
+寂黙無言。
+[VERSE 2]
+忍寒竚立何人見，
+應怯過黄昏。
+朝陽夢斷，
+熏殘沉水，
+誰為招魂。
+
+--- TITLE: 畫堂春  [air: 畫堂春]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 畫堂春 47字
+--- RHYME: 1.2.3.4.6.7.8
+--- JU: 5
+--- HEADING-AS-PRINTED: 畫堂春
+[VERSE 1]
+華燈取盡雪初殘。
+踏青還爾遊盤。
+落梅强半已飛翻。
+剗地春寒。
+[VERSE 2]
+多病故人日遠，
+幾時雙燕來還。
+可憐樓上一凭欄。
+不見長安。
+
+--- TITLE: 好事近  [air: 好事近]
+--- AUTHOR: 毛幵
+--- SOURCE: KR4j0042 樵隱詞 / JUAN 樵隠詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 好事近
+[VERSE 1]
+飛蓋滿南園，
+想見八仙遥集。
+幾樹海棠開徧，
+正新晴天色。
+[VERSE 2]
+休辭一醉任無還，
+衣上酒痕濕。
+便恐嵗華催去，
+聽秋蟲相泣。

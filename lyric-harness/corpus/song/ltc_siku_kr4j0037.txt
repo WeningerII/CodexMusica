@@ -1,0 +1,361 @@
+# collection: 歸愚詞 (KR4j0037), 集部/詞曲類 of the Kanseki Repository.
+#          16 ci, 12 詞牌.
+#          Author, from the collection's own title page: 葛立方.
+# source: kanripo/KR4j0037 md5 85906979a32da16ff94cf6675515d55b over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0037 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 葛立方 as 撰. Every poem carries it.
+
+
+--- TITLE: 錦堂春慢  [air: 錦堂春慢]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 錦堂春慢 98字
+--- RHYME: 3.5.7.10.13.15.17.20
+--- JU: 1.2.4.6.8.9.11.12.14.16.18.19
+--- HEADING-AS-PRINTED: 錦堂春慢
+[VERSE 1]
+氣應三陽，
+氛澄六幕，
+翔烏初上雲端。
+問朝来何事，
+喜動門䦨。
+田父占来好嵗，
+星説道宜官擬。
+更慿髙望逺，
+春在烟波，
+春在晴巒。
+[VERSE 2]
+歌管雕堂宴喜，
+任重簾不捲，
+交䕶春寒。
+況金釵整整玉，
+樹團團柏。
+葉輕浮重醑梅，
+枝巧綴新幡共。
+祝年年如願，
+壽過松椿，
+壽過彭𣆀。
+
+--- TITLE: 春光好  [air: 春光好]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 春光好 48字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 春光好
+[VERSE 1]
+去年曾壽生朝。
+正黄菊初舒翠翹。
+今嵗雕堂重預宴，
+梨雪香飄。
+[VERSE 2]
+明年應傍丹霄。
+看寶胯重重在腰。
+鵲尾吹香籠繡段，
+且醉金蕉。
+
+--- TITLE: 春光好 其2  [air: 春光好]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 春光好 48字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+禁烟却釀春愁。
+正繫馬清淮渡頭。
+後日清明催疊鼓，
+應在揚州。
+[VERSE 2]
+歸時元已臨流。
+要綺陌芳郊恣遊。
+三月羇懐當一洗，
+莫放觥籌。
+
+--- TITLE: 西江月  [air: 西江月]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 西江月
+[VERSE 1]
+風送丹楓巻地，
+霜乾枯葦鳴溪。
+獸爐重展向深閨。
+紅入麒麟方熾。
+[VERSE 2]
+翠箔低垂銀蒜，
+羅幃小釘金泥。
+笙歌送我玉東西。
+誰管瑶花舞砌。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+緹室羣隂清曉散。
+灰動葭莩，
+漸覺㣲陽扇。
+日永繡工才一線。
+挈壺已報添銀箭。
+[VERSE 2]
+六幕無塵開碧漢。
+非霧非煙，
+彷彿登䑓見。
+梅萼飄香縈小宴。
+霞漿莫放琉璃淺。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+文章驚世。
+半挹南宫第。
+蟾窟澄輝天似洗。
+折得窅窊丹桂。
+[VERSE 2]
+當年蓬矢生賢。
+流霞滿祝長年。
+更願巨鰲連釣，
+楓宸第一臚傳。
+
+--- TITLE: 減字木蘭花  [air: 減字木蘭花]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 減字木蘭花
+[VERSE 1]
+揺毫鑄藻。
+縱有徽之應壓倒。
+萬里鵬程。
+南省今書淡墨名。
+[VERSE 2]
+臚傳丹陛。
+月裏桂花先著袂。
+雁墖髙題。
+玉季巍科尚覺低。
+
+--- TITLE: 減字木蘭花 其2  [air: 減字木蘭花]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+張南周北。
+漫説清漳搖紺碧。
+何似幽棲。
+甥舅相望共一溪。
+[VERSE 2]
+璇題沙版。
+不用買隣糜百萬。
+餘户增輝。
+庭列芝蘭户㦸枝。
+
+--- TITLE: 行香子  [air: 行香子]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 行香子
+[VERSE 1]
+風透紗窗，
+葉落銀床。
+夾纈林吹下嚴霜。
+新篘浮蟻，
+班坐飛觴。
+有岩中秀，
+籬中艷，
+洛中香。
+[VERSE 2]
+金鈿放蕊，
+玉粒爭芳，
+噴年年来趂清商。
+不應素節，
+還有花王。
+看正封詩，
+龜年調，
+太真狂。
+
+--- TITLE: 玉樓春  [air: 玉樓春]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 玉樓春
+[VERSE 1]
+靑女飛花濃剪水。
+寒氣霏微度窗紙。
+人間那得骨為簾，
+罏有麒麟樽有蟻。
+[VERSE 2]
+笙簧凍澀閒纎指。
+香霧㬉薰羅帳底。
+却教試作忽雷聲，
+往往驚開桃與李。
+
+--- TITLE: 卜算子  [air: 卜算子]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 卜算子
+[VERSE 1]
+明鏡葢紅蕖，
+軒户臨煙渚。
+窣窣珠簾淡淡風，
+香裡開樽俎。
+[VERSE 2]
+莫把碧筒彎，
+恐帶荷心苦。
+喚我溪邊太乙舟，
+㶑灧盛芳醑。
+
+--- TITLE: 卜算子 其2  [air: 卜算子]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+裊裊水芝紅，
+脈脈蒹葭浦。
+淅淅西風淡淡煙，
+幾㸃疎疎雨。
+[VERSE 2]
+草草展盃觴，
+對此盈盈女。
+葉葉紅衣當酒船，
+細細流霞舉。
+
+--- TITLE: 夜行船  [air: 夜行船]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 夜行船 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.5.6.7.10
+--- JU: 3.4.8.9
+--- HEADING-AS-PRINTED: 夜行船
+[VERSE 1]
+百尺雕堂懸蜀繡。
+珠簾外玉䦨瓊甃。
+調鼎名家，
+吹簫賢胄，
+新卜鳯凰佳耦。
+[VERSE 2]
+銀葉添香香滿袖。
+滿金盃壽君芳酒。
+喜動蟾宫，
+祥生熊帳，
+應在細君歸後。
+
+--- TITLE: 好事近  [air: 好事近]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 好事近
+[VERSE 1]
+幾騎漢旌迴，
+喜動滿川花木。
+遥睇淸淮古岸，
+散離愁千斛。
+[VERSE 2]
+煙籠沙嘴定連艘，
+鵲脚蘸波綠。
+歸話隔年心事，
+秉夜䦨銀燭。
+
+--- TITLE: 好事近 其2  [air: 好事近]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+歸日指清明，
+肯把話言輕食。
+已是飛花時候，
+頼東風無力。
+[VERSE 2]
+靑帘沽酒送春歸，
+莫惜萬金擲。
+屈指明年春事，
+有紅梅消息。
+
+--- TITLE: 眼兒媚  [air: 眼兒媚]
+--- AUTHOR: 葛立方
+--- SOURCE: KR4j0037 歸愚詞 / JUAN 歸愚詞
+--- GE: 欽定詞譜 眼兒媚 48字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.5.7.10
+--- JU: 3.4.6.8.9
+--- HEADING-AS-PRINTED: 眼兒媚
+[VERSE 1]
+暫時莫蕩出燕然。
+氷柱凍層簷。
+時節馬蹄，
+歸路楊花，
+亂樸征韀。
+[VERSE 2]
+如今歸去銀鐺宜，
+見七寶床邊。
+待得退朝，
+花底家人，
+爭捲珠簾。

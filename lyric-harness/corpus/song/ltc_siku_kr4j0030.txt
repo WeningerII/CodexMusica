@@ -1,0 +1,319 @@
+# collection: 東浦詞 (KR4j0030), 集部/詞曲類 of the Kanseki Repository.
+#          13 ci, 11 詞牌.
+#          Author, from the collection's own title page: 韓玉.
+# source: kanripo/KR4j0030 md5 2896ea281bc16dae5c8c5757675cb4a1 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0030 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 韓玉 as 撰. Every poem carries it.
+
+
+--- TITLE: 曲江秋  [air: 曲江秋]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 曲江秋 103字
+--- RHYME: 1.3.6.7.9.12.13.14.15.18.20.22
+--- JU: 2.4.5.8.10.11.16.17.19.21
+--- HEADING-AS-PRINTED: 曲江秋
+[VERSE 1]
+明軒快目。
+正雨過湘溪，
+秋来澤國。
+波面鑑開，
+山光澱拂，
+竹聲揺寒玉。
+鷗鷺戲晚日。
+芰荷動，
+香紅蓛。
+千古興亡意，
+凄凉颺舟，
+望迷南北。
+[VERSE 2]
+髣髴。
+煙籠霧簇。
+認何處當年繡轂。
+沈香花蕚事，
+蕭然傷感，
+宫殿三十六。
+忍聴向晚菱歌，
+依稀猶似新畨曲。
+試與問如今新蒲細栁，
+為誰揺緑。
+
+--- TITLE: 一剪梅  [air: 一剪梅]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 一剪梅 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.9.12
+--- JU: 2.4.5.8.10.11
+--- HEADING-AS-PRINTED: 一剪梅
+[VERSE 1]
+鏡裏新粧鏡外情。
+小眉幽恨，
+淺緑低横。
+只怨閒縱繡鞍塵，
+不道天涯，
+縈絆歸程。
+[VERSE 2]
+夢裏蘭閨相見驚。
+玉香花痩，
+春艷盈盈。
+覺来欹枕轉愁人，
+門外瀟瀟，
+風雨三更。
+
+--- TITLE: 西江月  [air: 西江月]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 西江月
+[VERSE 1]
+捍撥聲傳酒緑，
+薔薇面襯宫黄。
+嬌波斜入髩雲長。
+眉與春山一様。
+[VERSE 2]
+瀟灑不禁疎痩，
+低回猶似思量。
+桃花梨葉晚隂凉。
+説與三年夢想。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+梅花照雪。
+渾似人清絶。
+香疊紺螺雙背結。
+曾侍霓旌絳節。
+[VERSE 2]
+如今却向塵寰。
+碁中寄箇蕭閒。
+縱便阿郎多病，
+也須偷畫春山。
+
+--- TITLE: 減字木蘭花  [air: 減字木蘭花]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 減字朩蘭花
+[VERSE 1]
+香檀素手。
+緩理新詞来伴酒。
+音調凄凉。
+便是無情也㫁腸。
+[VERSE 2]
+莫歌楊栁。
+記得渭城朝雨後。
+客路茫茫。
+幾度東風春草長。
+
+--- TITLE: 行香子  [air: 行香子]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 行香子
+[VERSE 1]
+一剪梅花，
+一見銷魂。
+況溪橋雪裏前村。
+香傳細蘂，
+春透靈根。
+更水清冷，
+雲黯淡，
+月黄昏。
+[VERSE 2]
+幽過溪蘭，
+清勝山礬，
+對東風獨立無言。
+霜寒塞壘，
+風靜譙門。
+聴角聲悲，
+笛聲怨，
+恨難論。
+
+--- TITLE: 太常引  [air: 太常引]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 太常引 50字
+--- RHYME: 1.2.3.4.7.8.9
+--- JU: 5.6
+--- HEADING-AS-PRINTED: 太常引
+[VERSE 1]
+荒山連水水連天。
+憶曾上桂江船。
+風雨過吳川。
+又却在瀟湘岸邉。
+[VERSE 2]
+不堪追念，
+浪萍蹤跡，
+虚度夜如年。
+風外曉鐘傳。
+尚獨對殘燈未眠。
+
+--- TITLE: 太常引 其2  [air: 太常引]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 太常引 50字
+--- RHYME: 1.2.3.4.7.8.9
+--- JU: 5.6
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+東城歸路水雲間。
+幾曾放夢魂閒。
+何日整歸鞍。
+又人對西風凭欄。
+[VERSE 2]
+温柔情性，
+繫懷傷感，
+欲訴訴應難。
+愁聚兩眉端。
+又疊起千山萬山。
+
+--- TITLE: 且坐令  [air: 且坐令]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 且坐令 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.12.13
+--- JU: 5.6
+--- HEADING-AS-PRINTED: 且坐令
+[VERSE 1]
+閒院落。
+悞了清明約。
+杏花雨過臙脂綽。
+𦂳了秋千索。
+鬬草人歸，
+朱門悄掩，
+梨花寂寞。
+[VERSE 2]
+書萬紙恨憑誰託。
+纔封了又揉却。
+寃家何處貪歡樂。
+引得我心兒惡。
+怎生全不思量著。
+那人人情薄。
+
+--- TITLE: 風入松  [air: 風入松]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 風入松 73字
+--- RHYME: 1.2.4.6.7.8.10.12
+--- JU: 3.5.9.11
+--- HEADING-AS-PRINTED: 風入松
+[VERSE 1]
+栁隂亭院杏梢長。
+依約巫陽。
+鳳簫已逺秦樓在，
+水沉煙暖全香。
+臨鏡舞鸞窺沼，
+倚筝飛鴈排行。
+[VERSE 2]
+醉邉人去自凄凉。
+淚眼愁腸。
+㫁雲殘雨當年事，
+到而今好處難忘。
+兩袖曉風花陌，
+一簾夜雨蘭堂。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+披拂芝蘭便㫁金。
+頓成南北豈勝任。
+三年尊酒半生話，
+千里雲山一寸心。
+[VERSE 2]
+休悵望，
+莫登臨。
+夢魂何處不相尋。
+柔腸欲問愁多少，
+未比湘江烟水深。
+
+--- TITLE: 鷓鴣天 其2  [air: 鷓鴣天]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+愛日烘晴旬日間。
+謾邀朋軰為躋攀。
+無窮望眼無窮恨，
+不盡長江不盡山。
+[VERSE 2]
+星㸃㸃，
+月團團。
+倒流河漢入杯盤。
+飽吟風月三千首，
+寄與吳姬忍淚㸔。
+
+--- TITLE: 生查子  [air: 生查子]
+--- AUTHOR: 韓玉
+--- SOURCE: KR4j0030 東浦詞 / JUAN 東浦詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 生查子
+[VERSE 1]
+裙拖簇石榴，
+髻綰偏荷葉。
+頭上短金釵，
+輕重還相壓。
+輕顰月入眉，
+淺笑花生頰。
+夫壻不風流，
+取次㸔承别。

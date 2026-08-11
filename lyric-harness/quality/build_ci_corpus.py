@@ -38,10 +38,12 @@ what a rhyme detector reads.
 WHAT IS *NOT* USED HERE, and why each was rejected rather than forgotten:
 
   * the 平仄 template as a tie-break.  Measured on the poems that ARE
-    unambiguous: 4.8% of the positions the template mandates are violated and
-    only 64.6% of poems violate none.  A strict falsifier would therefore
-    eliminate the TRUE 格 in about a third of cases and hand the poem to a
-    wrong one.  MEASURED AND REFUSED (--selftest prints it).
+    unambiguous, over the 66 WYG collections, 2026-08-11: 6.0% of the 219,944
+    positions the template mandates are violated, and only 3,256 of 5,573
+    poems violate none.  A strict falsifier would therefore eliminate the TRUE
+    格 about two times in five and hand the poem to a wrong one.  MEASURED AND
+    REFUSED; `--measure` reprints both numbers on every run, so the figure is a
+    coordinate of the corpus rather than a remembered constant (doctrine 58).
   * any minimum-violation or best-fit scoring.  That is the "loosen the matcher
     until something comes out" move the brief forbids, and it would put guessed
     line boundaries into a file whose only value is that its boundaries are not
@@ -85,6 +87,11 @@ NUM = "一二三四五六七八九十"
 
 #: headings that mean "same tune as the last one named"
 REPEAT = {"又", "前調", "前題", "又一體", "前腔"}
+
+#: the ordinal form of the same thing -- `其二`, or a bare `二`, heading the
+#: second poem the collection prints to the tune just named.  No 詞牌 in the
+#: 1715 spec is a bare numeral, so this cannot collide with a tune.
+ORDINAL = re.compile(r"^其?[二三四五六七八九十]{1,3}$")
 
 #: repos in kanripo's 集部/詞曲類 that are NOT a ci text and must not be parsed
 #: as one.  0086/0087/0089 are 詞譜/曲譜 (the spec, not the corpus -- using
@@ -436,34 +443,47 @@ class Resolver(object):
 # the 白文 parser
 # --------------------------------------------------------------------------
 
-def parse_repo(repo_dir):
+def parse_repo(repo_dir, res):
     """-> [item].  An item is one ci: a 詞牌 heading plus the running text under it.
 
     THE STRUCTURE THE 四庫 PRINTS, and nothing more.  A line indented by one or
     more FW spaces whose non-FW content is at most ten characters is a HEADING;
-    everything else is body.  Length is counted with FW removed because the
-    anthologies set two fields on one line (`　　秋閨　　　　　　秦少㳺`), and
+    everything else is body.  Length is counted with FW REMOVED because the
+    anthologies set two fields on one line (`　　　　清平樂　…　李　白`), and
     counting the spaces made those look like body text and swallowed them into
-    the previous poem.
+    the previous poem -- which cost 御選歷代詩餘 and 草堂詩餘 entirely.
 
-    An item is opened ONLY by a heading that names a tune, or by 又/前調/前題,
-    or by a two-field title+author line under a tune already named.  Text under
-    a 宫調 or a 卷 heading with no tune of its own is dropped rather than
-    guessed at.
+    An item is opened ONLY by a heading whose first field is a tune the 1715
+    spec names, by 又/前調/前題, or by a two-field line under a tune already
+    named.  A heading that is NOT a tune the spec names -- a 宫調, a 卷 title, a
+    poet -- closes the current item AND CLEARS the carried tune, so a later 又
+    can never re-attach text to a tune two headings back.  Losing a poem is the
+    cheap error here; attributing one to the wrong 詞牌 puts fabricated line
+    breaks in the file.
     """
     items = []
+    diag = collections.Counter()
+    orphan = ""
     rid = os.path.basename(repo_dir)
+
+    def clean_person(s):
+        s = re.sub(r"[(（][^)）]*[)）]", "", s).replace(FW, "").strip()
+        s = re.sub(r"(撰|編|著|奉|校刋|校刊)$", "", s)
+        return s or None
+
     for f in sorted(glob.glob(os.path.join(repo_dir, "KR4j*_*.txt"))):
         juan = None
         depth = 0
         cur = None
         last_tune = None
+        last_tune_ind = None
         last_person = None
         collection_author = None
 
-        def close():
-            if cur is not None and cur["raw"]:
-                items.append(cur)
+        def open_item(tune, head):
+            return {"tune": tune, "raw": "", "juan": juan, "file": f,
+                    "person": last_person, "head": head,
+                    "author": collection_author}
 
         for line in open(f, encoding="utf-8"):
             line = line.rstrip("\n")
@@ -486,47 +506,75 @@ def parse_repo(repo_dir):
                     continue                    # blank column, or a pure note
                 bare = content.replace(FW, "")
                 if len(bare) <= 10:
-                    close()
+                    if cur is not None and cur["raw"]:
+                        items.append(cur)
                     cur = None
-                    if content in REPEAT:
+                    parts = [x for x in re.split(FW + "{2,}", content.strip(FW)) if x]
+                    two = len(parts) > 1
+                    first = parts[0].replace(FW, "")
+                    if two:
+                        p = clean_person(parts[-1])
+                        if p:
+                            last_person = p
+                    if first in REPEAT or ORDINAL.match(first):
                         if last_tune:
-                            cur = {"tune": last_tune, "raw": "", "juan": juan,
-                                   "file": f, "person": last_person,
-                                   "head": content, "author": collection_author}
+                            cur = open_item(last_tune, content)
                         continue
-                    if re.search(FW + "{2,}", content.strip(FW)):
-                        parts = [x for x in re.split(FW + "{2,}", content.strip(FW)) if x]
-                        if parts:
-                            last_person = parts[-1]
+                    if res.resolve(first):
+                        last_tune = first
+                        last_tune_ind = ind
+                        cur = open_item(first, content)
+                        continue
+                    if two:
+                        # tune already named, this line is a poem title + poet
                         if last_tune:
-                            cur = {"tune": last_tune, "raw": "", "juan": juan,
-                                   "file": f, "person": last_person,
-                                   "head": content, "author": collection_author}
+                            cur = open_item(last_tune, content)
                         continue
                     m = re.search(r"[宋唐元明金清]" + FW + r"?(.{2,4})" + FW + r"?撰", content)
                     if m:
-                        collection_author = m.group(1)
-                        last_person = m.group(1)
+                        collection_author = clean_person(m.group(1))
+                        last_person = collection_author
                         continue
-                    yield_tune = bare
-                    if 2 <= len(bare) <= 4 and not re.search(
-                            r"[卷巻部集調宫宮令慢引近序目録錄提要跋]", bare):
-                        last_person = bare
-                    last_tune = yield_tune
-                    cur = {"tune": yield_tune, "raw": "", "juan": juan,
-                           "file": f, "person": last_person, "head": content,
-                           "author": collection_author}
+                    # THE WOODBLOCK'S INDENTATION IS ITS HIERARCHY, and it is
+                    # the only thing that separates a poem TITLE from a section
+                    # heading. 十五家詞 prints `　　滿江紅` then `　　　題畫壽總憲
+                    # 龔芝麓` -- one deeper, so it is that tune's next poem; the
+                    # sibling `　　吳偉業梅村詞下` is level, so it is a new
+                    # section and the carried tune is stale. A tune the 1715
+                    # spec does not name is always printed level with the tunes
+                    # around it, so this rule refuses it rather than handing its
+                    # poem to the previous tune.
+                    if last_tune and last_tune_ind is not None and ind > last_tune_ind:
+                        diag["headings_title"] += 1
+                        cur = open_item(last_tune, content)
+                        continue
+                    diag["headings_unresolved"] += 1
+                    last_tune = None
+                    last_tune_ind = None
+                    # A bare heading is read as a POET only where the collection
+                    # has not already named one on its title page.  In a
+                    # single-author 別集 it is far more often a 詞牌 the 1715
+                    # spec does not carry -- 點絳唇 was being recorded as the
+                    # author of the 蘇軾 poem after it.
+                    if (collection_author is None and 2 <= len(bare) <= 4
+                            and not re.search(
+                                r"[卷巻部集調宫宮令慢引近序目録錄提要跋]", bare)):
+                        last_person = clean_person(bare) or last_person
                     continue
             if cur is not None:
                 cur["raw"] += b
-        close()
+            else:
+                orphan += b
+        if cur is not None and cur["raw"]:
+            items.append(cur)
+    diag["orphan_chars"] = len(tokenize(strip_notes(orphan))[0])
     for it in items:
         toks, pian = tokenize(strip_notes(it["raw"]))
         it["toks"] = toks
         it["pian"] = pian
         it["n"] = len(toks)
         it["repo"] = rid
-    return items
+    return items, diag
 
 
 def wyg_repos(clones):
@@ -619,7 +667,9 @@ def build(clones, ge, res):
     staged = []
     refused = collections.Counter()
     for d in wyg_repos(clones):
-        for it in parse_repo(d):
+        its, diag = parse_repo(d, res)
+        refused.update(diag)
+        for it in its:
             refused["items"] += 1
             g, uniq, why = match(it, res)
             if g is None:
@@ -756,7 +806,9 @@ def write_files(kept, outdir, clones, dry=False):
             ju = ".".join(str(idx[p]) for p in sorted(ge["ju_pos"]) if p in idx)
             title_s = s["tune"] if k == 1 else "%s 其%d" % (s["tune"], k)
             body.append("\n--- TITLE: %s  [air: %s]" % (title_s, s["tune"]))
-            body.append("--- AUTHOR: %s" % (it.get("person") or it.get("author") or "(unnamed)"))
+            # the collection's own title page wins over a positional heading
+            body.append("--- AUTHOR: %s"
+                        % (it.get("author") or it.get("person") or "(unnamed)"))
             body.append("--- SOURCE: %s %s / JUAN %s" % (rid, title, it.get("juan") or "-"))
             body.append("--- GE: 欽定詞譜 %s %d字%s" % (
                 s["tune"], ge["nchars"],
@@ -815,11 +867,15 @@ def measure(kept, seed=20260811):
             return {"mandated": len(pairs), "judged": T + F, "refused": R,
                     "true": T, "rate": (100.0 * T / (T + F)) if T + F else None}
 
-        yun, ju, ends = [], [], []
+        yun, ju, adj, ends = [], [], [], []
         for s in kept:
             if not s["unique"]:
                 continue
             t, g = s["it"]["toks"], s["ge"]
+            of_group = {}
+            for i, grp in enumerate(g["groups_f"]):
+                for p in grp:
+                    of_group[p] = i
             for grp in g["groups_f"]:
                 ps = sorted(grp)
                 for x, y in zip(ps, ps[1:]):
@@ -827,11 +883,19 @@ def measure(kept, seed=20260811):
             ps = sorted(g["ju_pos"])
             for x, y in zip(ps, ps[1:]):
                 ju.append((t[x], t[y]))
+            # ADJACENT line ends the spec does NOT put in one rhyme group.
+            # Same adjacency as most 韻 pairs, same kind of position, and the
+            # 1715 spec mandates no rhyme between them: the tightest control
+            # available (doctrine 41).
+            for x, y in zip(g["ends"], g["ends"][1:]):
+                if of_group.get(x, -1) != of_group.get(y, -2):
+                    adj.append((t[x], t[y]))
             for e in g["ends"]:
                 ends.append(t[e])
         random.seed(seed)
         null = [(random.choice(ends), random.choice(ends)) for _ in range(20000)]
-        out[std] = {"yun": arm(yun), "ju": arm(ju), "null": arm(null),
+        out[std] = {"yun": arm(yun), "ju": arm(ju), "adj": arm(adj),
+                    "null": arm(null),
                     "poems_measured": sum(1 for s in kept if s["unique"])}
 
     ltc = MiddleChinese(standard="cilin")
@@ -988,6 +1052,9 @@ def main():
     staged, counts = build(args.clones, ge, res)
     kept, ex, nr = dedupe(staged)
     print("\nSEGMENTATION YIELD (doctrine 79: refused is its own count)")
+    print("  headings the spec does not name  %6d (their text is dropped, "
+          "%d characters)"
+          % (counts["headings_unresolved"], counts["orphan_chars"]))
     print("  items parsed              %6d" % counts["items"])
     for k in REFUSALS:
         print("  REFUSED %-24s %6d" % (k[2:], counts[k]))
@@ -1016,10 +1083,13 @@ def main():
             d = m[std]
             print("\nRHYME, standard=%r  (%d poems with a unique 韻/句 partition)"
                   % (std, d["poems_measured"]))
-            for arm in ("yun", "ju", "null"):
+            for arm in ("yun", "ju", "adj", "null"):
                 x = d[arm]
-                print("  %-5s mandated %6d  judged %6d  refused %5d  True %5.1f%%"
-                      % ({"yun": "韻", "ju": "句", "null": "null"}[arm],
+                print("  %-22s mandated %6d  judged %6d  refused %5d  True %5.1f%%"
+                      % ({"yun": "韻 (spec mandates)",
+                          "ju": "句 (control)",
+                          "adj": "adjacent non-group",
+                          "null": "null (cross-poem)"}[arm],
                          x["mandated"], x["judged"], x["refused"], x["rate"]))
         r = m["readability"]
         print("\nREADABILITY  total %d  read %d (%.2f%%)  refused %d  unread %d  %s"

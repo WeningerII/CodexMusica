@@ -1,0 +1,296 @@
+# collection: 天籟集 (KR4j0059), 集部/詞曲類 of the Kanseki Repository.
+#          11 ci, 9 詞牌.
+#          Author, from the collection's own title page: 白檏.
+# source: kanripo/KR4j0059 md5 5babc67062102031bb545c478b391ef5 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0059 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 白檏 as 撰. Every poem carries it.
+
+
+--- TITLE: 奪錦標  [air: 奪錦標]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷上
+--- GE: 欽定詞譜 奪錦標 108字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.6.8.10.11.13.16.18.20
+--- JU: 1.2.4.5.7.9.12.14.15.17.19
+--- HEADING-AS-PRINTED: 得友人王仲常李文蔚書
+[VERSE 1]
+孤影長嗟，
+憑髙眺逺，
+落日新亭西北。
+幸有山河在眼，
+風景留人，
+楚囚何泣。
+儘紛華蝸角，
+算都輸林泉閒適。
+澹悠悠流水行雲，
+任我平生蹤跡。
+[VERSE 2]
+誰念江州司馬。
+淪落天涯，
+青衫未免沾濕。
+夢裏卧龍舊隱，
+經巻琴囊，
+酒樽詩筆。
+對中天凉月，
+且髙歌徘徊今夕。
+隴頭人應也相思，
+萬里梅花消息。
+
+--- TITLE: 燭影搖紅  [air: 燭影搖紅]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 燭影搖紅 96字
+--- RHYME: 2.4.5.6.9.11.13.14.15.18
+--- JU: 1.3.7.8.10.12.16.17
+--- HEADING-AS-PRINTED: 前事用吕東忩韻
+[VERSE 1]
+三尺枯桐，
+古來長恨知音少。
+玉簫吹斷鳯樓雲，
+此恨何時了。
+落日飛鴻聲悄。
+眄長江離魂浩渺。
+贈環留佩，
+宿粉棲香，
+此情誰表。
+[VERSE 2]
+風雨紅稀，
+夢囘别院鸎啼曉。
+一生辜負㸔花心，
+惆悵人空老。
+待訪還丹瑞草。
+駕飇輪蓬萊去好。
+又愁滄海，
+恍惚塵揚，
+難尋仙島。
+
+--- TITLE: 讌瑶池  [air: 讌瑶池]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 讌瑶池 97字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.5.7.9.12.14.16.18
+--- JU: 1.3.4.6.8.10.11.13.15.17
+--- HEADING-AS-PRINTED: 仍改其名
+[VERSE 1]
+玉龜山阿母統羣仙，
+幽閒志蕭然。
+有金城千里，
+瓊樓十二，
+紫翠霏烟。
+穆滿當時西狩，
+八駿戲芝田。
+駐驛瑶池上，
+命賜華筵。
+[VERSE 2]
+天樂雲璈鼎沸，
+㸔飛瓊舞態，
+醉飲留連。
+漸月斜河漢，
+霞綺布晴天。
+望神州東囘玉輦，
+杏花風數里響鳴鞭。
+長安近依稀桞色，
+翠㸃秦川。
+
+--- TITLE: 垂楊  [air: 垂楊]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 垂楊 98字
+--- RHYME: 1.3.5.7.9.10.12.14.16.17
+--- JU: 2.4.6.8.11.13.15
+--- HEADING-AS-PRINTED: 真承平家世之舊也
+[VERSE 1]
+關山杜宇。
+甚年年喚得，
+韶光歸去。
+怕上髙城望逺，
+烟水迷南浦。
+賣花聲動天街曉，
+總吹入東風庭户。
+正紗忩濃睡覺來，
+驚翠蛾愁聚。
+[VERSE 2]
+一夜狂風横雨。
+恨西園媚景，
+匆匆難駐。
+試把芳菲㸃檢，
+鸎燕渾無語。
+玉纎空折梨花撚，
+對寒食厭厭心緒。
+問東君落花誰是主。
+
+--- TITLE: 西江月  [air: 西江月]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 九江送劉牧之同知之杭
+[VERSE 1]
+我自紉蘭為佩，
+君方剖竹分符。
+才情風調有誰如。
+彷彿三生小杜。
+[VERSE 2]
+置酒昔登峴首，
+題詩今對匡廬。
+青衫恨不到西湖。
+共濕黄梅細雨。
+
+--- TITLE: 西江月 其2  [air: 西江月]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 李元讓赴廣東帥幕
+[VERSE 1]
+皎皎風前玉樹，
+煌煌腰下金符。
+陳琳檄草右軍書。
+香滿紅蓮幕府。
+[VERSE 2]
+正自雄心撫劍，
+不妨雅唱投壺。
+長纓繫越在須㬰。
+㸔掃蠻煙瘴雨。
+
+--- TITLE: 漁父  [air: 漁父]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 漁父 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.6.8.9.11.12
+--- JU: 1.4.7.10
+--- HEADING-AS-PRINTED: 漁父
+[VERSE 1]
+世故重，
+重厄網。
+生涯小小漁舩白。
+鷗波底，
+五湖天。
+别是秋光一片。
+[VERSE 2]
+竹葉醅，
+浮綠釅。
+桃花浪漬紅鮮醉。
+鄉日月，
+武陵邉。
+管甚陵遷谷變。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 詠木犀花
+[VERSE 1]
+碧雲葉底。
+萬㸃黄金蘂。
+更㸔薔薇清露洗。
+澤國秋光如水。
+[VERSE 2]
+餘生牢落江南。
+幽香鼻觀曽叅。
+見説小山招隐，
+夢魂夜夜雲巖。
+
+--- TITLE: 清平樂 其2  [air: 清平樂]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 詠水仙花
+[VERSE 1]
+玉肌消痩。
+徹骨熏香透。
+不是銀臺金盞酒。
+愁殺天寒翠袖。
+[VERSE 2]
+遺珠悵望江皋。
+飲漿夢到藍橋。
+露下風清月慘，
+相思魂斷誰招。
+
+--- TITLE: 踏莎行  [air: 踏莎行]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 踏莎行 58字
+--- RHYME: 2.3.5.7.8.10
+--- JU: 1.4.6.9
+--- HEADING-AS-PRINTED: 詠雪
+[VERSE 1]
+凍結南雲，
+寒風朔吹。
+紛紛六出飛花墜。
+海仙剪水看施工，
+仙人種玉來呈瑞。
+[VERSE 2]
+梅蕚清香，
+竹梢㸃地。
+畫欄倚濕湖山翠。
+先生方喜就烹茶，
+銷金帳裏人何醉。
+
+--- TITLE: 風入松  [air: 風入松]
+--- AUTHOR: 白檏
+--- SOURCE: KR4j0059 天籟集 / JUAN 卷下
+--- GE: 欽定詞譜 風入松 76字
+--- RHYME: 1.2.4.6.7.8.10.12
+--- JU: 3.5.9.11
+--- HEADING-AS-PRINTED: 詠紅梅將橙子皮作酒杯
+[VERSE 1]
+使君髙宴出紅梅。
+腰鼓掲春雷。
+更將紅酒澆濃艷，
+風流夢不負花魁。
+千里江山呉楚，
+一時人物鄒枚。
+[VERSE 2]
+軟金杯襯硬金杯。
+香挽洞邉囘。
+西溪不減東山興，
+歡揺動北海樽罍。
+老我天涯倦客，
+一杯醉玉先頽。

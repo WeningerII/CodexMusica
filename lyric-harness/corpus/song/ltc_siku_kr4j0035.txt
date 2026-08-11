@@ -1,0 +1,848 @@
+# collection: 審齋詞 (KR4j0035), 集部/詞曲類 of the Kanseki Repository.
+#          42 ci, 18 詞牌.
+#          Author, from the collection's own title page: 王千秋.
+# source: kanripo/KR4j0035 md5 5186ccaf213ec18f062d4dfef6c86dcc over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0035 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 王千秋 as 撰. Every poem carries it.
+
+
+--- TITLE: 沁園春  [air: 沁園春]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 沁園春 113字
+--- RHYME: 3.7.9.12.14.18.20.23
+--- JU: 1.2.4.5.6.8.10.11.13.15.16.17.19.21.22
+--- HEADING-AS-PRINTED: 沁園春
+[VERSE 1]
+荳蔲嬌春，
+煙花羞暖，
+物華漸嘉。
+也不須鶯怨，
+桃封絳蕚，
+不須蜂恨，
+蘭鬱金芽。
+料是東君都將和，
+氣分付清豐詩禮家。
+充閭慶，
+有青氊事業，
+丹鳳才華。
+[VERSE 2]
+乗槎早上雲霞，
+侍祠甘泉瞻羽車。
+試笑憑熊軾，
+嘉禾合穗，
+進思魚鑰，
+菡蓞駢花。
+蕭冦勲名龔黄模，
+様入拜行趨堤上沙。
+今宵裏，
+且觥船滿棹，
+醉㡌欹斜。
+
+--- TITLE: 西江月  [air: 西江月]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 西江月
+[VERSE 1]
+心事幾多白髪，
+客情無數青山。
+㢘纎細雨褪餘寒。
+正是花期酒限。
+[VERSE 2]
+一自缾簮信杳，
+空留鈿帶香殘。
+我今多病寄江干。
+痩似東陽也慣。
+
+--- TITLE: 西江月 其2  [air: 西江月]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+老去頻驚節物，
+亂来依舊江山。
+清明雨過杏花寒。
+紅紫芳菲何限。
+[VERSE 2]
+春病無人消遣，
+芳心有酒摧殘。
+此情拍手問闌干。
+為甚多愁我慣。
+
+--- TITLE: 南歌子  [air: 南歌子]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 南歌子 52字
+--- RHYME: 2.3.4.6.7.8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 南歌子
+[VERSE 1]
+鵲起驚紅雨，
+潮生漲碧瀾。
+水晶城館月方圓。
+誰喚騎鯨仙伯下三山。
+[VERSE 2]
+筆勢翔鸞媚，
+詞鋒射斗寒。
+向来文價重賢闗。
+便令披風支月紫薇間。
+
+--- TITLE: 虞美人  [air: 虞美人]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 虞美人
+[VERSE 1]
+流蘇斗帳泥金額。
+我亦花前客。
+謫仙標韻勝瓊枝。
+一詠一觴常是得追隨。
+[VERSE 2]
+自從風借雲帆便。
+冷落青樓宴。
+石橋風月也應猜。
+過盡中秋不見晚歸来。
+
+--- TITLE: 青玉案  [air: 青玉案]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 青玉案 67字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.9.11.12
+--- JU: 4.10
+--- HEADING-AS-PRINTED: 青玉案
+[VERSE 1]
+雪堂不逺臨臯路。
+悵仙伯騎鯨去。
+燕麥桃花更幾度。
+横橋雖在，
+種松無有。
+誰是闗心處。
+[VERSE 2]
+解鞍君到冬雖暮。
+傳語無忘曬簑句。
+起手栽花花定許。
+藝香披翠，
+灌紅疏緑。
+趁取清明雨。
+
+--- TITLE: 減字木蘭花  [air: 減字木蘭花]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 減字木蘭花
+[VERSE 1]
+隂簷雪在。
+小雨㢘纎寒又㬠。
+莫上危樓。
+樓迥空低鴈更愁。
+[VERSE 2]
+一杯濁酒。
+萬事世間無不有。
+待早歸田。
+欲買田無使鬼錢。
+
+--- TITLE: 憶秦娥  [air: 憶秦娥]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 憶秦娥 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 憶秦娥
+[VERSE 1]
+雲破碧。
+作霜天氣西風急。
+西風急。
+一行征鴈，
+數聲横笛。
+[VERSE 2]
+挑燈試問今何夕。
+柔腸底事愁如織。
+愁如織。
+紫苔庭院，
+悄無人跡。
+
+--- TITLE: 憶秦娥 其2  [air: 憶秦娥]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 憶秦娥 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雲葉舞。
+寒林淺淡圍煙雨。
+圍煙雨。
+三三兩兩，
+鴈投沙渚。
+[VERSE 2]
+征帆暫落知何所。
+短蓬靜聴舟人語。
+舟人語。
+夜寒如許，
+客能眠否。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+吹花何處。
+桃葉江頭路。
+碧錦障泥衝暮雨。
+一霎峭寒如許。
+[VERSE 2]
+歸来索酒澆春。
+潮紅秋水増明。
+却是不禁春惱，
+偎人低度歌聲。
+
+--- TITLE: 好事近  [air: 好事近]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 好事近
+[VERSE 1]
+六幕凍雲凝，
+誰翦玉花為雪。
+寒入竹窻茅舎，
+聴琴絃聲絶。
+[VERSE 2]
+從他拂面去尋梅，
+香吐是時節。
+歸晚楚天不夜，
+抺牆腰横月。
+
+--- TITLE: 好事近 其2  [air: 好事近]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+明日發驪駒，
+共起為傳杯緑。
+十嵗女兒嬌小，
+倚琵琶翻曲。
+[VERSE 2]
+絶憐啄木欲飛時，
+絃響顫鳴玉。
+雖是未知離恨，
+亦晴峰㣲蹙。
+
+--- TITLE: 虞美人 其2  [air: 虞美人]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 虞美人
+[VERSE 1]
+琵琶絃畔春風面。
+曽向尊前見。
+彩雲初散燕空樓。
+蕭寺相逄各認兩眉愁。
+[VERSE 2]
+舊時曲譜曽翻否。
+好在曹綱手。
+老来心緒怯么絃。
+出塞移船莫遣到愁邉。
+
+--- TITLE: 菩薩蠻  [air: 菩薩蠻]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 菩薩蠻
+[VERSE 1]
+流鶯不許青春住。
+催得春歸花亦去。
+何物慰儂懷。
+荼䕷最後開。
+[VERSE 2]
+青衫氷雪面。
+細雨斜橋見。
+莫浪送香来。
+等閑蜂蝶猜。
+
+--- TITLE: 驀山溪  [air: 驀山溪]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 驀山溪 82字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.9.11.13.18
+--- JU: 1.3.5.6.7.8.10.12.14.15.16.17
+--- HEADING-AS-PRINTED: 驀山溪
+[VERSE 1]
+清明池館，
+側卧簾初卷。
+還是海棠開，
+睡未足餘酲滿面。
+低頭不語，
+渾似怨東風，
+心始吐，
+又驚飛，
+交現垂楊眼。
+少陵情淺，
+花草題評徧。
+賦得惡因縁，
+沒一字聊通繾綣。
+黄昏時候，
+凝竚怯春寒，
+籠翠袖，
+減豐肌，
+脉脉情何限。
+
+--- TITLE: 漁家傲  [air: 漁家傲]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 漁家傲
+[VERSE 1]
+黄栗留鳴春已暮。
+西園無著清隂處。
+昨日驟寒風又雨。
+花良苦。
+信縁吹落誰家去。
+[VERSE 2]
+病起日長無意緒。
+等閒還與春相負。
+魏紫姚黄無恙否。
+栽培取。
+開時我欲聴金縷。
+
+--- TITLE: 生查子  [air: 生查子]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 生查子
+[VERSE 1]
+枝垂雲碧長，
+心展鵝黄嫩。
+無力倚闌時，
+掃盡漫山杏。
+玲瓏影結隂，
+藴藉香成陣。
+誰為祝東風，
+更莫催花信。
+
+--- TITLE: 生查子 其2  [air: 生查子]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+花飛錦繡香，
+茗碾槍旗嫩。
+是處緑連雲，
+又摘斑斑杏。
+愁來苦酒腸，
+老去閑花陣。
+燕子不知人，
+尚説行雲信。
+
+--- TITLE: 生查子 其3  [air: 生查子]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+鶯聲恰恰嬌，
+草色纎纎嫩。
+詩髩已驚霜，
+鏡葉慵拈杏。
+因何積恨山，
+著底攻愁陣。
+春事到荼䕷，
+還是無音信。
+
+--- TITLE: 生查子 其4  [air: 生查子]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+睡起髻雲鬆，
+枕印香腮嫩。
+愁思到眉尖，
+齒軟嘗新杏。
+都無魚鴈書，
+又過鶯花陣。
+寛盡縷金衣，
+説與伊爭信。
+
+--- TITLE: 生查子 其5  [air: 生查子]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+春江波面渾，
+春岸蘆芽嫩。
+不見木蘭舟，
+羞帶駢枝杏。
+輕綃揾淚痕，
+急雨衝花陣。
+暗禱紫姑神，
+覓箇巴陵信。
+
+--- TITLE: 生查子 其6  [air: 生查子]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雄姿畫麒麟，
+朽骨分螻蟻。
+爭似及生前，
+常為鶯花醉。
+雲山靜有情，
+天地寛無際。
+且放兩眉開，
+萬事非人意。
+
+--- TITLE: 生查子 其7  [air: 生查子]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+功名竹上魚，
+富貴槐根蟻。
+三萬六千塲，
+排日扶頭醉。
+髙懷隘世間，
+壮氣横天際。
+常是惜春殘，
+不㑹東君意。
+
+--- TITLE: 解佩令  [air: 解佩令]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 解佩令 65字
+--- RHYME: 1.2.3.5.6.7.8.9.11.12
+--- JU: 4.10
+--- HEADING-AS-PRINTED: 解佩令
+[VERSE 1]
+花兒不大。
+葉兒不美。
+只一叚風流標致。
+淡淡梳粧，
+已賽過騷人蘭。
+芷古龍涎怎敢氣。
+[VERSE 2]
+開時無奈。
+風斜雨細。
+壞得来零零碎碎。
+著意收拾，
+安頓在膽瓶兒裏。
+且圖敎夢魂旖旎。
+
+--- TITLE: 清平樂 其2  [air: 清平樂]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+喚雲且住。
+莫作龍池舞。
+五月人間須好雨。
+為掃無邉煩暑。
+[VERSE 2]
+畦秧針緑重生。
+壺天表裏俱清。
+林外桔橰閒掛，
+省渠多少心情。
+
+--- TITLE: 憶秦娥 其3  [air: 憶秦娥]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 憶秦娥 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 憶秦娥
+[VERSE 1]
+闌干側。
+當時我亦凝香客。
+凝香客。
+而今老大，
+髩蒼頭白。
+[VERSE 2]
+揚州夢覺渾無迹。
+舊逰英俊今南北。
+今南北。
+斷鴻沈鯉，
+更無消息。
+
+--- TITLE: 西江月 其3  [air: 西江月]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 西江月
+[VERSE 1]
+夢幻影泡有限，
+風花雪月無涯。
+莫分粗俗與精華。
+日醉石間松下。
+[VERSE 2]
+菜盡鄰家解與，
+杯空稚子能賖。
+通幽即步儘横斜。
+不問墩猶姓謝。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+殢玉偎香倚翠屏。
+當年嘗喚在凝春。
+豈知雲雨散逡巡。
+[VERSE 2]
+不止恨伊唯準擬，
+也先傷我太因循。
+而今頭過總休論。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+親染柔毛劈彩牋。
+自憐探得惡因縁。
+一尊重許笑凭肩。
+[VERSE 2]
+往事已同花屢褪，
+新歡聞似月常圓。
+休休休更苦縈牽。
+
+--- TITLE: 瑞鶴仙  [air: 瑞鶴仙]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 瑞鶴仙 100字
+--- RHYME: 1.3.4.6.8.10.11.14.15.17.20.22
+--- JU: 2.5.7.9.12.13.16.18.19.21
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+紅消梅雨潤。
+正榴花照眼，
+荷香成陣。
+爐薰炷芳燼。
+記于門今日，
+長庚占慶。
+文摛艷錦，
+笑班楊用字未。
+穩果青雲快上黄，
+屝地譽髙英俊。
+[VERSE 2]
+名盛。
+都期持槖，
+却借乘軺，
+布宣寛政。
+除書已進。
+歸寵異，
+侍嚴近。
+且金船滿，
+酌雲翹低，
+祝比椿齡更永。
+任月斜未放笙歌，
+翠桐轉影。
+
+--- TITLE: 青玉案 其2  [air: 青玉案]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 青玉案 67字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.9.11.12
+--- JU: 4.10
+--- HEADING-AS-PRINTED: 青玉案
+[VERSE 1]
+鳴鼉欲引魚龍戲。
+先自作長江儡。
+頭管一聲天外起。
+羣仙俱上，
+有人殊麗。
+認得分明是。
+[VERSE 2]
+欲相問勞来無計。
+但隔爐煙屢凝睇。
+擲我胸前方寸紙。
+擁翹欲去，
+顰蛾還住。
+不盡徘徊意。
+
+--- TITLE: 醉落魄  [air: 醉落魄]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 醉落魄 57字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 醉落魄
+[VERSE 1]
+驚鷗撲蓛。
+蕭蕭卧聴鳴幽屋。
+窻明怪得雞啼速。
+牆角爛斑，
+一半露松緑。
+[VERSE 2]
+歌樓管竹誰翻曲。
+丹屑氷面噴餘馥。
+遺珠滿地無人掬。
+歸著紅靴，
+踏碎一街玉。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+翠杓銀鍋饗夜逰。
+萬燈初上月當樓。
+溶溶琥珀流匙滑，
+璨璨蠙珠著面浮。
+[VERSE 2]
+香入手，
+煖生甌。
+依然京國舊風流。
+翠娥且放杯行緩，
+甘味雖濃欲少留。
+
+--- TITLE: 鷓鴣天 其2  [air: 鷓鴣天]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+比屋燒燈作好春。
+先須歌舞賽蠺神。
+便将簇上如霜樣，
+来餉尊前似玉人。
+[VERSE 2]
+絲饀細，
+粉肌匀。
+從他犀筯破花紋。
+慇懃又作梅羮送，
+酒力消除笑語新。
+
+--- TITLE: 浣溪沙 其3  [air: 浣溪沙]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+買市宣和預賞時。
+流蘓垂盖寳燈圍。
+小鐺烹玉鼔聲隨。
+[VERSE 2]
+金彈玲瓏今夕是，
+鼇山縹緲昔逰非。
+馬行遺老想沾衣。
+
+--- TITLE: 浣溪沙 其4  [air: 浣溪沙]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+燈火闌珊欲曉時。
+夜逰人倦總思歸。
+更須氷蛹替挼絲。
+[VERSE 2]
+玉篆古文光燦爛，
+花垂零露影參差。
+月寒煙淡最相宜。
+
+--- TITLE: 好事近 其3  [air: 好事近]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 好事近
+[VERSE 1]
+人物又無雙，
+餘事錦機閒織。
+著就兩都新賦，
+笑一生聨輯。
+[VERSE 2]
+来年秋色起鵬程，
+一舉上晴碧。
+須洗玉荷為夀，
+助穿楊飛的。
+
+--- TITLE: 浣溪沙 其5  [air: 浣溪沙]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+疊雪裁霜越紵勻。
+美人親翦稱腰身。
+暑天寜數越羅春。
+[VERSE 2]
+兩臂輕籠燕玉膩，
+一胸斜露塞酥温。
+不教香汗濕歌塵。
+
+--- TITLE: 西江月 其4  [air: 西江月]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 西江月
+[VERSE 1]
+四俊鄉書薦鶚，
+一䕫曹府登賢。
+明年春晚栁如煙。
+㸔取臚傳金殿。
+[VERSE 2]
+冊府牙籖晝閲，
+詞垣紫誥宵傳。
+青樓買酒定無縁。
+且放金杯瀲灔。
+
+--- TITLE: 虞美人 其3  [air: 虞美人]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 虞美人
+[VERSE 1]
+風花南北知何據。
+常是将春負。
+海棠開盡野棠開。
+疋馬﨑嶇還入亂山来。
+[VERSE 2]
+尊前人物勝前度。
+誰記桃花句。
+老来情事不禁濃。
+玉珮行雲切莫易丁東。
+
+--- TITLE: 虞美人 其4  [air: 虞美人]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+要津去去無由據。
+已分平生負。
+擬将懷抱向誰開。
+萬水千山聊為借書来。
+[VERSE 2]
+𤣥都晝永閑難度。
+欲正書中句。
+黄琮丹璧已磨濃。
+發篋煩君早送過橋東。
+
+--- TITLE: 西江月 其5  [air: 西江月]
+--- AUTHOR: 王千秋
+--- SOURCE: KR4j0035 審齋詞 / JUAN 審齋詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 西江月
+[VERSE 1]
+璀璨雕籠灑筆，
+聮翩薦鶚飛書。
+翻階紅藥試粧梳。
+管取不言温樹。
+[VERSE 2]
+容我一杯為夀，
+㸔君九萬鵬圖。
+髻鬟人小串璣珠。
+嵗嵗緑窻朱戸。

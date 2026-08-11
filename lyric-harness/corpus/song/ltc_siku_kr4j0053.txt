@@ -1,0 +1,772 @@
+# collection: 竹山詞 (KR4j0053), 集部/詞曲類 of the Kanseki Repository.
+#          32 ci, 22 詞牌.
+#          Author, from the collection's own title page: 蔣捷.
+# source: kanripo/KR4j0053 md5 7407f775b7dc3f01b4287833fc24d34e over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0053 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 蔣捷 as 撰. Every poem carries it.
+
+
+--- TITLE: 女冠子  [air: 女冠子]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 女冠子 112字
+--- RHYME: 1.2.6.7.9.11.12.14.15.17.18.20.23
+--- JU: 3.4.5.8.10.13.16.19.21.22
+--- HEADING-AS-PRINTED: 女冠子
+[VERSE 1]
+蕙花香也。
+雪晴池館如畫。
+春風飛到，
+寳釵樓上，
+一片笙簫，
+琉璃光射。
+而今燈謾掛。
+不是暗塵明月，
+那時元夜。
+况年來心嬾意怯，
+羞與蛾兒爭耍。
+[VERSE 2]
+江城人悄初更打。
+問繁華誰解，
+再向天公借。
+剔殘紅灺。
+但夢裏隱隱，
+鈿車羅帕。
+吳牋銀粉砑。
+待把舊家風景，
+寫成閒話。
+笑綠鬟隣女，
+綺窗猶唱，
+夕陽西下。
+
+--- TITLE: 女冠子 其2  [air: 女冠子]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 女冠子 112字
+--- RHYME: 1.2.6.7.9.11.12.14.15.17.18.20.23
+--- JU: 3.4.5.8.10.13.16.19.21.22
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+電旂飛舞。
+雙雙還又爭渡。
+湘灕雲外，
+獨醒何在，
+翠葯紅蘅，
+芳菲如故。
+深衷全未語。
+不似素車白馬，
+巻潮起怒。
+但悄然千載舊跡，
+時有閒人弔古。
+[VERSE 2]
+生平慣受椒蘭苦。
+甚魄沉寒浪，
+更被饞蛟妬。
+結瓊紉璐。
+料貝闕隱隱，
+騎鯨煙霧。
+楚妃花倚暮。
+莫便玉簫吹了，
+凌波同歩。
+待月明洲渚，
+小留旌節，
+朗吟騷賦。
+
+--- TITLE: 春夏兩相期  [air: 春夏兩相期]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 春夏兩相期 100字
+--- RHYME: 1.2.4.6.9.10.12.14.16.19
+--- JU: 3.5.7.8.11.13.15.17.18
+--- HEADING-AS-PRINTED: 春夏兩相期
+[VERSE 1]
+聽深深謝家庭館。
+東風對語雙燕。
+似説朝來，
+天上婺星光現。
+金裁花誥紫泥香，
+繡裹藤輿紅茵軟。
+散蠟宫輝，
+行鱗厨品，
+至今人羨。
+[VERSE 2]
+西湖萬栁如線。
+料月仙當此，
+小停飈輦。
+付與長年，
+敎見海心波淺。
+縈雲玉佩五侯門，
+洗雲華洞三春苑。
+慢拍調鸎，
+急鼓催鸞，
+翠隂生院。
+
+--- TITLE: 尾犯  [air: 尾犯]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 尾犯 95字
+--- RHYME: 3.5.7.10.12.14.16.18
+--- JU: 1.2.4.6.8.9.11.13.15.17
+--- HEADING-AS-PRINTED: 尾犯
+[VERSE 1]
+夜倚讀書床，
+敲碎唾壺，
+燈暈明滅。
+多事西風，
+把亝鈴頻掣。
+人共語温温芋火，
+㕍孤飛蕭蕭蘆雪。
+徧䦨干外，
+萬頃魚天，
+未了予愁絶。
+[VERSE 2]
+雞邊長劒舞，
+念不到此様豪傑。
+瘦骨稜稜，
+但淒其衾鐵。
+是非夢無痕堪記，
+似雙瞳繽紛翠纈。
+浩然心在，
+我逢著梅花便説。
+
+--- TITLE: 最高樓  [air: 最高樓]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 最高樓 81字
+--- RHYME: 2.3.5.8/9.10/11.13.16
+--- JU: 1.4.6.7.12.14.15
+--- HEADING-AS-PRINTED: 最髙樓
+[VERSE 1]
+新春景，
+明媚在何時。
+宜早不宜遲。
+軟塵巷陌青油幰，
+重簾深院畫羅衣。
+要些兒，
+晴日照，
+暖風吹。
+[VERSE 2]
+一片片雪兒休要下。
+一㸃㸃雨兒休要灑。
+纔恁地越愆期。
+悠悠不趂梅花到，
+囱囱枉帶栁花飛。
+倩黄鸎，
+將我話，
+報春歸。
+
+--- TITLE: 風入松  [air: 風入松]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 風入松 76字
+--- RHYME: 1.2.4.6.7.8.10.12
+--- JU: 3.5.9.11
+--- HEADING-AS-PRINTED: 風入松
+[VERSE 1]
+東風方到舊桃枝。
+仙夢已雲迷。
+畫䦨紅子樗蒲處，
+依然是春晝簾垂。
+恨殺河東獅子，
+驚回海底鷗兒。
+[VERSE 2]
+尋芳小歩莫嫌遲。
+此去却慵移。
+斷腸不在分襟後，
+元來在襟未分時。
+栁㟁猶攜素手，
+蘭房早掩朱扉。
+
+--- TITLE: 一剪梅  [air: 一剪梅]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 一剪梅 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.9.12
+--- JU: 2.4.5.8.10.11
+--- HEADING-AS-PRINTED: 一剪梅
+[VERSE 1]
+小巧樓臺眼界寛。
+朝巻簾看，
+莫巻簾看。
+故鄉一望一心酸，
+雲又迷漫，
+水又迷漫。
+[VERSE 2]
+天不敎人客夢安。
+昨夜春寒，
+今夜春寒。
+梨花月底兩眉攢，
+敲遍闌干，
+拍遍䦨干。
+
+--- TITLE: 一剪梅 其2  [air: 一剪梅]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 一剪梅 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.9.12
+--- JU: 2.4.5.8.10.11
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一片春愁待酒澆。
+江上舟揺，
+樓上帘招。
+秋娘度與泰娘嬌，
+風又飄飄，
+雨又蕭簫。
+[VERSE 2]
+何日歸家洗客袍。
+銀字笙調，
+心字香燒。
+流光容易把人抛，
+紅了櫻桃，
+綠了芭蕉。
+
+--- TITLE: 唐多令  [air: 唐多令]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 唐多令 60字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 唐多令
+[VERSE 1]
+秋碧瀉晴灣。
+樓臺雲影閒。
+記仙家元在蓬山。
+飛到雁峯塵更少，
+三萬頃玉無邊。
+[VERSE 2]
+金醆倒垂蓮。
+歌揺香霧鬟。
+任芙容月轉朱䦨。
+天氣已涼猶未冷，
+重九後小春前。
+
+--- TITLE: 柳梢青  [air: 柳梢青]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 柳梢青 49字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.8.11
+--- JU: 2.4.5.9.10
+--- HEADING-AS-PRINTED: 栁梢青
+[VERSE 1]
+小飲微吟。
+殘燈斷雨，
+靜戸幽窗。
+幾度花開，
+幾番花謝，
+又到昏黄。
+[VERSE 2]
+潘娘不是潘郎。
+料應也霜黏鬢傍。
+鸚鵡闌空，
+鴛鴦壺破，
+煙𣺌雲茫。
+
+--- TITLE: 阮郎歸  [air: 阮郎歸]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 阮郎歸 47字
+--- RHYME: 1.2.3.4.6.7.8.9
+--- JU: 5
+--- HEADING-AS-PRINTED: 阮郎歸
+[VERSE 1]
+雪飛燈背雁聲低。
+寒生紅被池。
+小屏風畔立多時。
+閒看番馬兒。
+[VERSE 2]
+新搵淚，
+舊題詩。
+一般羅帶垂。
+瓊簫夜夜挾愁吹。
+梅花知不知。
+
+--- TITLE: 金蕉葉  [air: 金蕉葉]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 金蕉葉 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 金蕉葉
+[VERSE 1]
+雲褰翠幙。
+滿天星碎珠迸索。
+孤蟾䦨外照我。
+看看過轉角。
+[VERSE 2]
+酒醒寒砧正作。
+待眠來夢魂怕惡。
+枕屏那更畫了。
+平沙斷雁落。
+
+--- TITLE: 小重山  [air: 小重山]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 小重山 58字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 小重山
+[VERSE 1]
+晴浦溶溶明斷霞。
+樓臺揺影處是誰家。
+銀紅裙襇皺宫紗。
+風前坐閒鬬鬱金芽。
+[VERSE 2]
+人散樹啼鴉。
+粉團黏不住舊繁華。
+雙龍尾上月痕斜。
+而今照冷淡白菱花。
+
+--- TITLE: 小重山 其2  [air: 小重山]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 小重山 58字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+曾伴芳卿鏘珮環。
+西風吹夢斷墮人寰。
+假饒無分入雕䦨。
+窺粧鏡也令小溪灣。
+[VERSE 2]
+此地有誰憐。
+斜陽半卧處牧童攀。
+勸花休苦恨天慳。
+從來道薄命是朱顔。
+
+--- TITLE: 白薴  [air: 白薴]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 白薴 121字
+--- RHYME: 3.5.6.7.9.11.12.13.16.18.21.24.26
+--- JU: 1.2.4.8.10.14.15.17.19.20.22.23.25
+--- HEADING-AS-PRINTED: 白苧
+[VERSE 1]
+正春晴，
+又春冷，
+雲低欲落。
+瓊苞未剖，
+早是東風作惡。
+旋安排一雙銀蒜鎮羅幙。
+幽壑。
+水生漪，
+皺嫩綠潛鱗初躍。
+愔愔門巷，
+桃樹紅纔約畧。
+知甚時霽華烘破青青萼。
+憶昨。
+引蝶花邊，
+近來重見，
+身學垂楊瘦削。
+問小翠眉山，
+為誰攢却。
+斜陽杜宇，
+任蛛絲罥徧，
+玉箏絃索。
+戸外惟聞，
+放剪刀聲，
+深在粧閣。
+料想裁縫，
+白苧春衫薄。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+我愛荷花花最軟。
+錦拶雲挨，
+朶朶嬌如顫。
+一陣微風來自逺。
+紅低欲蘸涼波淺。
+[VERSE 2]
+莫是羊家張靜婉。
+抱月飄煙，
+舞得腰肢倦。
+偷把翠羅香被展。
+無眠却又頻翻轉。
+
+--- TITLE: 虞美人  [air: 虞美人]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 虞美人
+[VERSE 1]
+絲絲楊栁絲絲雨。
+春在溟濛處。
+樓兒忒小不藏愁。
+幾度和雲飛去覓歸舟。
+[VERSE 2]
+天憐客子鄉闗逺。
+借與花消遣。
+海棠紅近綠䦨干。
+纔巻朱簾却又晩風寒。
+
+--- TITLE: 虞美人 其2  [air: 虞美人]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+少年聽雨歌樓上。
+紅燭昏羅帳。
+壯年聽雨客舟中。
+江闊雲低斷雁呌西風。
+[VERSE 2]
+而今聽雨僧廬下。
+鬢已星星也。
+悲歡離合總無情。
+一任堦前㸃滴到天明。
+
+--- TITLE: 步蟾宮  [air: 步蟾宮]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 步蟾宮 56字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 歩蟾宫
+[VERSE 1]
+綠華剪碎嬌雲瘦。
+賸粧㸃菊前蓉後。
+涓涓月也染成香，
+又何況纖羅襟袖。
+[VERSE 2]
+秋窗一夜西風驟。
+翠奩鎖瓊珠花鏤。
+人間富貴總浮雲，
+且和露攀花三嗅。
+
+--- TITLE: 步蟾宮 其2  [air: 步蟾宮]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 步蟾宮 56字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉窗掣鎖香雲漲。
+喚綠袖低敲方響。
+流蘇拂處字微訛，
+但斜倚紅梅一晌。
+[VERSE 2]
+濛濛月在簾衣上。
+做池館春隂模様。
+春隂模様不如晴，
+這催雪曲兒休唱。
+
+--- TITLE: 玉樓春  [air: 玉樓春]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 玉樓春
+[VERSE 1]
+秦人占得桃源地。
+説道花深堪避世。
+桃花灣内豈無花，
+吕政馬來攔不住。
+[VERSE 2]
+明朝與子穿花去。
+去看霜蹄剜石處。
+茫茫秦事是耶非，
+萬一問花花解語。
+
+--- TITLE: 燕歸梁  [air: 燕歸梁]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 燕歸梁 52字
+--- RHYME: 1.2.3.4.6.7.8
+--- JU: 5
+--- HEADING-AS-PRINTED: 燕歸梁
+[VERSE 1]
+我夢唐宫春晝遲。
+正舞到曵裙時。
+翠雲隊仗絳霞衣。
+慢騰騰手雙垂。
+[VERSE 2]
+忽然急鼓催將起，
+似綵鳯亂驚飛。
+夢回不見萬瓊妃。
+見荷花被風吹。
+
+--- TITLE: 步蟾宮 其3  [air: 步蟾宮]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 步蟾宮 56字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 歩蟾宫
+[VERSE 1]
+去年雲揜氷輪皎。
+喜今歳微隂俱埽。
+乾坤一片玉琉璃，
+怎算得清光多少。
+[VERSE 2]
+無歌無酒癡頑老。
+對愁影翻嫌分曉。
+天公元不負中秋，
+我自把中秋誤了。
+
+--- TITLE: 行香子  [air: 行香子]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 行香子
+[VERSE 1]
+紅了櫻桃，
+綠了芭蕉。
+送春歸客尚蓬飄。
+昨宵穀水，
+今夜蘭臯。
+奈雲溶溶，
+風淡淡，
+雨瀟瀟。
+[VERSE 2]
+銀字笙調，
+心字香燒，
+料芳踪乍整還凋。
+待將春恨，
+都付春潮。
+過窈娘堤，
+秋娘渡，
+泰娘橋。
+
+--- TITLE: 翠羽吟  [air: 翠羽吟]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 翠羽吟 126字
+--- RHYME: 1.2.3.5.7.9.10.12.15.17.19.20.21.24
+--- JU: 4.6.8.11.13.14.16.18.22.23
+--- HEADING-AS-PRINTED: 翠羽吟
+[VERSE 1]
+紺露濃。
+映素空。
+樓觀峭玲瓏。
+粉凍霽英，
+冷光揺蕩古青松。
+半規黄昏淡月，
+梅氣山影溟濛。
+有麗人歩依脩竹，
+瀟然態若游龍。
+[VERSE 2]
+綃袂微皺水溶溶。
+仙莖清瀣，
+淨洗斜紅。
+勸我浮香桂酒，
+環珮暗解，
+聲飛芳靄中。
+弄春弱栁垂絲，
+慢按翠舞嬌童。
+醉不知何處，
+驚剪剪淒緊霜風。
+夢醒尋痕訪蹤。
+但留殘月掛蒼穹。
+梅花未老，
+翠羽雙吟，
+一片曉峯。
+
+--- TITLE: 沁園春  [air: 沁園春]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 沁園春 113字
+--- RHYME: 3.7.9.12.14.18.20.23
+--- JU: 1.2.4.5.6.8.10.11.13.15.16.17.19.21.22
+--- HEADING-AS-PRINTED: 沁園春
+[VERSE 1]
+昔裴晉公，
+生甲辰歳，
+秉唐相鈞。
+向東都治第，
+纔娛老眼，
+北門建節，
+又絆閒身。
+燠館花濃涼臺月，
+淡不記弓刀千騎塵。
+誰堪羡，
+羨南塘居士，
+做㪚仙人。
+[VERSE 2]
+南塘水滿晴雲，
+三百樹鳯洲楊栁。
+春有緑衣奏，
+曲金小雁，
+綵衣勸酒，
+玉跪雙麟。
+前後同年逸勞異，
+趨中立翻成雌甲辰。
+斯言也，
+是梅花説與，
+竹里山民。
+
+--- TITLE: 玉漏遲  [air: 玉漏遲]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 玉漏遲 93字
+--- RHYME: 1.3.5.7.8.10.13.15.17.18.19
+--- JU: 2.4.6.9.11.12.14.16
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+翠鴛雙穗冷。
+鸎聲喚轉，
+春風芳景。
+花湧袖香，
+此度徐粧偏稱。
+水月仙人院宇，
+到處有西湖如鏡。
+煙岫暝。
+纖蔥誤指，
+蓮峰篁嶺。
+[VERSE 2]
+料想小閣初逢，
+正浪拍紅猊，
+袖飛金餅。
+樓倚斜暉，
+賸把佳期重省。
+萬種惺忪笑語，
+一㸃溫柔情性。
+釵倦整。
+盈盈背燈嬌影。
+
+--- TITLE: 秋夜雨  [air: 秋夜雨]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 秋夜雨 51字
+--- RHYME: 1.2.4.6.7.8
+--- JU: 3.5
+--- HEADING-AS-PRINTED: 秋夜雨
+[VERSE 1]
+黄雲水驛秋笳咽。
+吹人雙鬢如雪。
+愁多無奈處，
+謾碎把寒花輕撧。
+[VERSE 2]
+紅雲轉入香心裏，
+夜漸深人語初歇。
+此際愁更别。
+雁落影西窗殘月。
+
+--- TITLE: 秋夜雨 其2  [air: 秋夜雨]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 秋夜雨 51字
+--- RHYME: 1.2.4.6.7.8
+--- JU: 3.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+金衣露溼鸎喉咽。
+春情不解分雪。
+寳箏絃斷盡，
+但萬縷閒愁難撧。
+[VERSE 2]
+長紅小白誰亭館，
+過禁煙彈指芳歇。
+今夜休要别。
+且醉宿緗桃花月。
+
+--- TITLE: 秋夜雨 其3  [air: 秋夜雨]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 秋夜雨 51字
+--- RHYME: 1.2.4.6.7.8
+--- JU: 3.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+髹車轉急風吹咽。
+氷絲鬆藕新雪。
+有人涼滿袖，
+怕汗溼紅綃猶撧。
+[VERSE 2]
+三更夢斷敲荷雨，
+細聽來疎㸃還歇。
+茉莉標致别。
+占斷了紗㡡香月。
+
+--- TITLE: 秋夜雨 其4  [air: 秋夜雨]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 秋夜雨 51字
+--- RHYME: 1.2.4.6.7.8
+--- JU: 3.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+紅麟不㬉缾笙咽。
+爐灰一片晴雪。
+醉無香嗅醒，
+但手把新橙閒撧。
+[VERSE 2]
+更深凍損梅花也，
+聽畫堂簫鼓方歇。
+想是天氣别。
+豫借與春風三月。
+
+--- TITLE: 柳梢青 其2  [air: 柳梢青]
+--- AUTHOR: 蔣捷
+--- SOURCE: KR4j0053 竹山詞 / JUAN 竹山詞
+--- GE: 欽定詞譜 柳梢青 49字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.8.11
+--- JU: 2.4.5.9.10
+--- HEADING-AS-PRINTED: 栁梢青
+[VERSE 1]
+學唱新腔。
+秋千架上，
+釵股敲雙。
+栁雨花風，
+翠鬆裙褶，
+紅膩鞵幫。
+[VERSE 2]
+歸來門揜銀釭。
+淡月裏疎鐘漸撞。
+嬌欲人扶，
+醉嫌人問，
+斜倚樓窗。
