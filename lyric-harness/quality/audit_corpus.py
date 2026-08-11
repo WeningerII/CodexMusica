@@ -575,7 +575,7 @@ class Probe:
 
     def __init__(self, name, destroys, preserves, why, doctrine,
                  rule="word-final letter string", vowel_break=False,
-                 mode=ALTERNANT, whole_token=False):
+                 mode=ALTERNANT, whole_token=False, token_pattern=None):
         self.name = name
         self.destroys = tuple(destroys)   # spellings the constraint cannot read
         self.preserves = tuple(preserves)  # spellings it can
@@ -584,6 +584,19 @@ class Probe:
         self.rule = rule
         self.mode = mode
         self.whole_token = whole_token
+        #: THE TOKENISATION IS A COORDINATE OF THE COUNT, and doctrine 70's
+        #: amendment cost a round to exactly that: three documents quoted three
+        #: different `-ong` figures and the thing nobody had written down was
+        #: the tokenisation.  So a probe may carry its own, and where the
+        #: repo has ALREADY recorded a rule beside a number, the probe uses
+        #: that rule and not the module's default.
+        #:
+        #: Measured cost of getting this wrong, on the one file it applies to:
+        #: the module default reads `munchong-'kau` as `munchong` + `kau` and
+        #: counts 39 `-ong`; doctrine 70's rule keeps the hyphen inside the
+        #: token and counts 38.  One token, and it is the difference between
+        #: reproducing the record and quietly disagreeing with it.
+        self.token_pattern = token_pattern
         #: doctrine 70's load-bearing restriction: `gaung`, `lauk`, `bernaung`
         #: end in the bare letter string and have the diphthong /au/ as their
         #: nucleus, which is a different vowel and not what the probe is about.
@@ -640,7 +653,10 @@ PROBE = {
         "restored the underlying phoneme. Rhyme is a fact about surface "
         "sound, so the OLDER spelling is the better guide",
         "70", rule="final syllable nucleus o/u + coda ng/k, the vowel NOT "
-                   "preceded by another vowel", vowel_break=True),
+                   "preceded by another vowel; tokens are maximal runs of "
+                   "[A-Za-z'`’-], lowercased, over verse lines only "
+                   "(doctrine 70's amended rule, verbatim)",
+        vowel_break=True, token_pattern=re.compile(r"[A-Za-z'`’-]+")),
     "non": Probe(
         "Modern Icelandic epenthetic -ur against Old Norse -r",
         ("ur", "ir"), ("r",),
@@ -1286,7 +1302,11 @@ def check_orthography(files, src):
         probe = PROBE.get(lang)
         if probe is None:
             continue
-        toks = cf.tokens(lang=lang)
+        if probe.token_pattern is not None:
+            toks = [m.group(0).lower()
+                    for m in probe.token_pattern.finditer(cf.verse_text)]
+        else:
+            toks = cf.tokens(lang=lang)
         if not toks:
             continue
         m = _measure_probe(probe, lang, toks)

@@ -161,6 +161,16 @@ def test_doctrine_70_figure_on_the_staged_file():
     check("-ung 0 and -uk 0 ON THIS FILE",
           counts["ung"][0] == 0 and counts["uk"][0] == 0,
           (counts["ung"], counts["uk"]))
+    # and check G must report the SAME numbers, on the SAME tokenisation.
+    # It did not at first: the module's default token rule reads
+    # `munchong-'kau` as `munchong` + `kau` and counts 39 `-ong` where
+    # doctrine 70's rule counts 38. One token, and it is the difference
+    # between reproducing the record and quietly disagreeing with it.
+    fs = AC.check_orthography([(AC.display_path(p), cf)], AC.Sources())
+    check("check G reports doctrine 70's 66 preserving over 2,111 tokens",
+          any("66 preserving" in f.measured and "2111 tokens" in f.measured
+              for f in fs),
+          [f.measured for f in fs])
 
 
 # ---------------------------------------------------------------------------

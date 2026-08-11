@@ -1,7 +1,7 @@
 # RESULTS — the corpus audit (adversary 5)
 
 `quality/audit_corpus.py`, run 2026-08-11 over `corpus/` at 269 files.
-Pins: `quality/test_corpus_audit.py`, 32 assertions, all holding.
+Pins: `quality/test_corpus_audit.py`, 33 assertions, all holding.
 
 Six adversaries attack everything downstream of the text. This one attacks the
 text. Every corpus-level finding this project owns — doctrines 50, 51, 52, 53,
@@ -94,9 +94,12 @@ declaration this module makes rather than a complaint.
 | D | LANGUAGE — the declared phonology's readable fraction | 50 | **1** | 0 | 0 | one finding |
 | E | DISTINCT — count distinct BYTES | 51 | **2** | 1 | 0 | **two findings, §0** |
 | F | CHANNEL — the channel, not the legibility | 52 | **0** | 1 | 0 | PASS |
-| G | ORTHOGRAPHY — the destroying alternant | 50, 70 | **0** | 0 | 182 | PASS, one live cost §4 |
+| G | ORTHOGRAPHY — the destroying alternant | 50, 70 | **0** | 0 | 182 | PASS, one live cost §5.1 |
 
-Exit status is 1, on E's two.
+**423 findings: 3 FAIL, 227 WARN, 193 NOTE.** Exit status is 1, on the three
+FAILs — E's two duplications (§0) and D's one mislabelled file. The audit takes
+19 seconds over 26 MB; the calibration takes half a second, with the real
+trees present or absent, so there is no excuse for skipping it.
 
 ### A · ROW (doctrine 34) — 0 failures
 
@@ -311,7 +314,28 @@ in §0, which nobody knew about.
 
 ---
 
-## 3. A header claim that does not reproduce
+## 3. The tokenisation is a coordinate, and the auditor got it wrong first
+
+Check G's first version read the Malay file with the module's default token
+rule and reported **39** `-ong` where doctrine 70 records **38**. The whole
+difference is one token: `munchong-'kau`. The module default splits it into
+`munchong` + `kau`; doctrine 70's amended rule — *"tokens are maximal runs of
+`[A-Za-z'`’-]`, lowercased, over verse lines only"* — keeps the hyphen inside
+the token, and then nothing ends in `-ong`.
+
+**This is doctrine 58 landing on the instrument written to enforce it**, and
+the same shape as the disagreement doctrine 70's amendment was written about:
+three documents quoted three different `-ong` figures and the coordinate nobody
+had written down was the tokenisation. A `Probe` now carries its own
+`token_pattern`, the Malay probe carries doctrine 70's rule verbatim, the rule
+is printed beside every count, and the pin
+`test_corpus_audit.py::test_doctrine_70_figure_on_the_staged_file` requires
+check G to print "66 preserving over … 2111 tokens" — 38 + 28, on 2,111 tokens,
+which is the record.
+
+---
+
+## 4. A header claim that does not reproduce
 
 `corpus/song/msa_skeat_pantun.txt`'s own header states:
 
@@ -328,9 +352,9 @@ would catch if the header wrote it as a field instead of as prose.
 
 ---
 
-## 4. What the audit found that the record did not have
+## 5. What the audit found that the record did not have
 
-### 4.1 · The most `<w>`-mixed book in the corpus arrived today, and it costs 2.11 pp
+### 5.1 · The most `<w>`-mixed book in the corpus arrived today, and it costs 2.11 pp
 
 `corpus/song/fin_wahanen_laulukirja.txt` — *Wähänen Laulu-kirja*, Turku 1864,
 staged by a sibling cell during this session — writes **175 word-initial `w`
@@ -361,7 +385,7 @@ tokens in `fin_paavo_cajander.txt` are `weberin`, `wecksell`, `windsorin`,
 `walleniukselta` — foreign proper names, correctly spelled `w` — while the 175
 in the Wähänen are `waan`, `wahinko`, `waeltain`, Finnish common words.
 
-### 4.2 · The language code namespace in `data/sources.tsv` is not one namespace
+### 5.2 · The language code namespace in `data/sources.tsv` is not one namespace
 
 108 of 386 rows open their `note` with a language code, and the table carries
 `en` beside `eng`, `fi` beside `fin`, `sa` beside `san`, and **`lzh` beside
@@ -372,7 +396,7 @@ now in `audit_corpus.ROW_LANG_ALIAS` where a future consumer will find it.
 
 ---
 
-## 5. Doctrines: one extended, one qualified, none falsified outright
+## 6. Doctrines: one extended, one qualified, none falsified outright
 
 **Doctrine 51 EXTENDS (§0.3).** Corroboration across repositories can be a
 single file; corroboration across AUTHORS can be a single volume. Whole-file
@@ -389,12 +413,20 @@ The language test is check F, which is doctrine 52 applied to a mislabelled
 text rather than a corrupted one.
 
 **Doctrine 79 held against its own instrument.** The first version of check B
-compared an extract's md5 to its source's and reported 8 defects. The rule that
-found that error is the rule the check was built to enforce.
+compared an extract's md5 to its source's and reported 11 defects. The rule
+that found that error is the rule the check was built to enforce.
+
+**Doctrine 58 held against its own instrument, twice (§B.1, §3).** The auditor
+read a prose sentence as a declared count and raised 22 failures that were its
+own; and it read the Malay file on a tokenisation one token away from the one
+doctrine 70 records, and got 39 where the record says 38. Both are the exact
+error the doctrines describe, committed by the module written to catch them.
+Recorded rather than quietly fixed, because a fix that is not written down is a
+fix that comes back — and both are now pinned.
 
 ---
 
-## 6. Reproduce
+## 7. Reproduce
 
 ```
 python3 quality/audit_corpus.py                       # every check, corpus/
@@ -403,7 +435,7 @@ python3 quality/audit_corpus.py --check C             # the 217 unhashed files
 python3 quality/audit_corpus.py --calibrate           # the three known cases
 python3 quality/audit_corpus.py --baseline            # the number that makes D weak
 python3 quality/audit_corpus.py --only 'msa*' --check G
-python3 quality/test_corpus_audit.py                  # 30 pins
+python3 quality/test_corpus_audit.py                  # 33 pins
 ```
 
 Exit status is meaningful: non-zero on any FAIL, and non-zero when
