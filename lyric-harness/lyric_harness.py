@@ -760,6 +760,241 @@ def span_label(prov):
     return lab
 
 
+#: How a scored span stands to the END WORD a report prints beside it.
+#: These four names are the partition adversary 7 measures over; they are
+#: exhaustive and disjoint by construction in `span_kind`.
+SPAN_EXACT = "exact"          #: the span IS the end word, whole
+SPAN_PART = "part"            #: the span is INSIDE the end word (anchor cut)
+SPAN_REACH = "reach"          #: the span reaches back PAST the end word
+SPAN_UNATTRIBUTED = "unattributed"   #: no provenance; nothing may be claimed
+
+
+def span_kind(prov):
+    """-> which of the four SPAN_* names describes this span.
+
+    The question is not "is this mosaic". It is the reporting question: **may
+    a reader be shown the end word as the evidence for this number?** Three
+    ways the answer is no, and they are different defects:
+
+      `reach` — the span covers MORE than the end word (`get to go`), so the
+        printed word is one member of the evidence and the number is not
+        about it alone;
+      `part`  — the span covers LESS (`-ceipt` of `receipt`), so the printed
+        word claims evidence that was never compared;
+      `unattributed` — the anchor was not built by `line_anchors`, so there is
+        nothing to check the claim against and a guess would be worse than a
+        refusal (`span_provenance`).
+
+    `part` is the common case and it is not a bug — it is the declared anchor
+    rule, visible. It is still a case where the printed label and the compared
+    span are different objects, and doctrine 45 is about saying so.
+    """
+    if prov is None:
+        return SPAN_UNATTRIBUTED
+    if not prov["endword_only"]:
+        return SPAN_REACH
+    if prov["partial_word"]:
+        return SPAN_PART
+    return SPAN_EXACT
+
+
+def _norm_word(w):
+    """A word as `line_tokens` would leave it, for comparing a printed label
+    against a span's own record of what it covered."""
+    return fold_apostrophes(w or "").lower().strip("'\".,;:!?()[]")
+
+
+class Attribution(dict):
+    """WHICH two spans produced a number — one immutable record.
+
+    A dict subclass so every existing reader keeps working, and FROZEN after
+    construction so the record cannot be edited into agreement with whatever
+    a caller wished it said. `span_provenance` already refuses to invent a
+    provenance; a mutable record would let one be invented a step later.
+
+    Reachable as attributes rather than only as keys, because the two
+    questions a report has to answer -- `exact` (may I print the end words as
+    the evidence?) and `differs` (must I print the spans instead?) -- are
+    derived, and a derived value stored as a bare key is a value someone
+    recomputes differently. Doctrine 45.
+    """
+
+    def __init__(self, *a, **kw):
+        super().__init__(*a, **kw)
+        self._frozen = True
+
+    # -- frozen -----------------------------------------------------------
+    # `_frozen` is set at the END of __init__ and read with getattr(...,
+    # False), so copy/pickle -- which build the object without calling
+    # __init__ and then fill it -- still work. The guard is against a LATER
+    # caller rewriting the record, which is the only way it could lie.
+    def _locked(self):
+        if getattr(self, "_frozen", False):
+            raise TypeError(
+                "Attribution is frozen: a provenance record that can be "
+                "edited after the fact is a provenance record that can be "
+                "invented. Build a new one.")
+
+    def __setitem__(self, k, v):
+        self._locked()
+        super().__setitem__(k, v)
+
+    def __delitem__(self, k):
+        self._locked()
+        super().__delitem__(k)
+
+    def update(self, *a, **kw):
+        self._locked()
+        super().update(*a, **kw)
+
+    def pop(self, *a):
+        self._locked()
+        return super().pop(*a)
+
+    def popitem(self):
+        self._locked()
+        return super().popitem()
+
+    def clear(self):
+        self._locked()
+        super().clear()
+
+    def setdefault(self, *a):
+        self._locked()
+        return super().setdefault(*a)
+
+    # -- the reporting questions ------------------------------------------
+    @property
+    def kind_a(self):
+        return self["kind_a"]
+
+    @property
+    def kind_b(self):
+        return self["kind_b"]
+
+    @property
+    def kinds(self):
+        return (self["kind_a"], self["kind_b"])
+
+    @property
+    def exact(self):
+        """-> True when BOTH spans are exactly their end word, whole, so a
+        report may print the two end words as the evidence."""
+        return self["kind_a"] == SPAN_EXACT and self["kind_b"] == SPAN_EXACT
+
+    @property
+    def differs(self):
+        """-> True when the pair a report would print is NOT the pair that
+        was compared. The measured quantity of adversary 7."""
+        return not self.exact
+
+    @property
+    def mosaic(self):
+        return self["mosaic"]
+
+    @property
+    def tied(self):
+        """-> True when the named span is ONE OF SEVERAL at the maximum."""
+        return self["tied_at_max"] > 1
+
+    def claims(self, word_a, word_b):
+        """-> True when `word_a`/`word_b` really are what was compared.
+
+        The check a report line makes about itself. Two words and a number on
+        one line is an assertion; this is the assertion, evaluated.
+        """
+        return (self._side(self["a"], word_a)
+                and self._side(self["b"], word_b))
+
+    @staticmethod
+    def _side(prov, word):
+        if prov is None or word is None:
+            return False
+        return (span_kind(prov) == SPAN_EXACT
+                and _norm_word(prov["words"][0]) == _norm_word(word))
+
+    def note(self):
+        return spans_note({"spans": self})
+
+
+class Scored(dict):
+    """A score and the two spans that produced it, as ONE object.
+
+    Adversary 7's floor was "every score carries the two spans that produced
+    it". Carrying them as a KEY on a plain dict meets the words and not the
+    point: a key is a flag, and this file's own history is a list of flags
+    nobody read. `check_scheme` copied `s["total"]` into a field called
+    `score` and left the provenance behind in a sibling field; the violation
+    tuples carried the float alone; `battery.py` then printed `it / it` twice
+    in its failing-pair table, and both were `enjoys it` ~ `destroys it`.
+
+    So the TYPE is the marker, exactly as `Readings` is a frozenset rather
+    than a list-with-a-flag and `FitRefusal.__bool__` RAISES rather than
+    being quietly falsy. `best_score` returns a `Scored`; `score` returns a
+    plain dict; the difference between "this number came out of a search over
+    k hypotheses" and "this number is one comparison" is now visible to
+    `isinstance` rather than to whoever remembers to look for a key.
+
+    Two hostilities, both aimed at separation rather than at reading:
+
+      - `spans` cannot be removed, and cannot be replaced by anything that is
+        not an `Attribution`. A caller may not strip the provenance and hand
+        on a number that looks the same;
+      - `str()` renders the number WITH its provenance, so a consumer that
+        formats the object rather than digging out `["total"]` cannot print a
+        bare number by accident.
+
+    Everything a reader did before still works: `s["total"]`, `s["relation"]`,
+    `s["flags"]`, `s["spans"]["a"]`. Nothing about the verdict moves; this is
+    a reporting change and `battery.py` is the pin on that (test 7 of
+    `quality/test_spans.py`).
+    """
+
+    def __setitem__(self, k, v):
+        if k == "spans" and not isinstance(v, Attribution):
+            raise TypeError(
+                "Scored['spans'] must be an Attribution: replacing it with a "
+                "plain value is how a provenance record stops being one.")
+        super().__setitem__(k, v)
+
+    def __delitem__(self, k):
+        if k == "spans":
+            raise TypeError(
+                "a Scored cannot be separated from its spans -- that "
+                "separation IS the defect (BACKLOG 1.2, doctrine 45)")
+        super().__delitem__(k)
+
+    def pop(self, k, *a):
+        if k == "spans":
+            raise TypeError(
+                "a Scored cannot be separated from its spans -- that "
+                "separation IS the defect (BACKLOG 1.2, doctrine 45)")
+        return super().pop(k, *a)
+
+    @property
+    def total(self):
+        return self["total"]
+
+    @property
+    def relation(self):
+        return self["relation"]
+
+    @property
+    def spans(self):
+        """-> the `Attribution`. Never None on a `Scored`: an anchor with no
+        word tags gives an Attribution whose sides are None, which is a
+        REFUSAL to attribute and not an absent record."""
+        return self["spans"]
+
+    def claims(self, word_a, word_b):
+        return self.spans.claims(word_a, word_b)
+
+    def __str__(self):
+        note = spans_note(self)
+        head = f"{self['total']}  {self['relation']}"
+        return f"{head}   {note}" if note else head
+
+
 def spans_note(s):
     """The provenance of a `best_score` number, as one printable line.
 
@@ -789,16 +1024,66 @@ def spans_note(s):
     return note
 
 
+def report_pair(s, word_a, word_b, indent="        "):
+    """A score, the two words a caller wants to print beside it, and the
+    CHECK that those two words are what produced it -> lines of text.
+
+    The one sanctioned way to render a number next to a pair of words. It
+    exists because the defect was never that the provenance was unavailable
+    after `best_score` recorded it -- it was that a consumer holding both
+    printed only one, and nothing in the shape of the data objected. Here the
+    label and the evidence are rendered by the same call, and when they are
+    not the same thing the line says which is which:
+
+        (go/receipt): 0.579  RHYME
+            NAMED PAIR IS NOT THE EVIDENCE: left reaches past `go`,
+            right is part of `receipt`
+            scored on: get to go  ~  -receipt [last 1 of 2 syllables ...]
+
+    Returns a list of lines, first line unindented, so callers keep their own
+    prefixes. Doctrine 24's shape: it RELABELS the line rather than
+    suppressing the number, because the mosaic reach is correct behaviour and
+    only the report was wrong.
+    """
+    head = f"({word_a}/{word_b}): {s['total']}  {s['relation']}"
+    sp = (s or {}).get("spans")
+    if not sp:
+        return [head]
+    out = [head]
+    claimed = (sp.claims(word_a, word_b) if isinstance(sp, Attribution)
+               else True)
+    if not claimed:
+        why = []
+        for which, prov, word in (("left", sp["a"], word_a),
+                                  ("right", sp["b"], word_b)):
+            k = span_kind(prov)
+            if k == SPAN_REACH:
+                why.append(f"{which} reaches past `{word}`")
+            elif k == SPAN_PART:
+                why.append(f"{which} is part of `{word}`")
+            elif k == SPAN_UNATTRIBUTED:
+                why.append(f"{which} cannot be attributed")
+            elif _norm_word(prov["words"][0]) != _norm_word(word):
+                why.append(f"{which} is `{prov['words'][0]}`, not `{word}`")
+        if why:
+            out.append(f"{indent}NAMED PAIR IS NOT THE EVIDENCE: "
+                       + ", ".join(why))
+    note = spans_note(s)
+    if note:
+        out.append(f"{indent}{note}")
+    return out
+
+
 def best_score(ancs_a, ancs_b, decl, word_a=None, word_b=None, profile=None):
     """Max score over pronunciation variants of both sides — and a record of
-    WHICH pair of spans produced the number.
+    WHICH pair of spans produced the number, in the SAME object.
 
     The selection is unchanged (first strict maximum wins, so no verdict
-    moves); what is added is the `spans` key on the returned score, naming the
-    winning span pair, the words each covers, and the size of the search it
-    won. Without it a consumer can only print the end words, and when the
-    winner is an interior mosaic reach those name a pair that had nothing to
-    do with the number. BACKLOG 1.2 / adversary 7.
+    moves); what is added is that the return value is a `Scored` carrying an
+    `Attribution`, naming the winning span pair, the words each covers, and
+    the size of the search it won. Without it a consumer can only print the
+    end words, and when the winner is an interior mosaic reach those name a
+    pair that had nothing to do with the number. BACKLOG 1.2 / adversary 7.
     """
     cand_a = ancs_a or [[]]
     cand_b = ancs_b or [[]]
@@ -816,7 +1101,8 @@ def best_score(ancs_a, ancs_b, decl, word_a=None, word_b=None, profile=None):
     pa, pb = span_provenance(won[0]), span_provenance(won[1])
     mosaic_a = bool(pa and not pa["endword_only"])
     mosaic_b = bool(pb and not pb["endword_only"])
-    best["spans"] = {
+    out = Scored(best)
+    dict.__setitem__(out, "spans", Attribution({
         "a": pa, "b": pb,
         "anchor_a": won[0], "anchor_b": won[1],
         # doctrine 56: k is the size of the search the max was taken over.
@@ -829,8 +1115,11 @@ def best_score(ancs_a, ancs_b, decl, word_a=None, word_b=None, profile=None):
         "tied_at_max": ties,
         "mosaic_a": mosaic_a, "mosaic_b": mosaic_b,
         "mosaic": mosaic_a or mosaic_b,
-    }
-    return best
+        # The reporting verdict, computed HERE so every consumer reads the
+        # same one. `kind_*` is the four-way partition adversary 7 sweeps.
+        "kind_a": span_kind(pa), "kind_b": span_kind(pb),
+    }))
+    return out
 
 
 # ---------------------------------------------------------------------------
