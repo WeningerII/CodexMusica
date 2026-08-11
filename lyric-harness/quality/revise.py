@@ -98,16 +98,32 @@ from quality.schemes import Mandate, NoMandate  # noqa: E402
 #: have to import two modules to declare what a draft is held to, or to catch
 #: the refusal when it declares nothing.
 __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
-           "RHYME_FINDINGS", "THETA_COLLISION"]
+           "COLLISION_FINDINGS", "RHYME_FINDINGS", "THETA_COLLISION"]
 
 #: Findings that mean "this line's RHYME needs replacing". Each earns a
 #: candidate field with the modal region excluded.
+#:
+#: NO COLLISION CODE IS IN HERE, AND THAT IS A DECISION RATHER THAN AN
+#: OVERSIGHT — see `Reviser.brief`'s "WHY A COLLISION EARNS NO FIELD".
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE"}
 
+#: The three things a band-passing pair that shares no mandated group can BE.
+#: One code said all three until 2026-08-11 and its message said "rhyme" for
+#: every one of them; doctrine 3 says identity is not rhyme and a near-relation
+#: is not rhyme, and doctrine 24 says a rule that would delete a category must
+#: relabel instead. Measured on this repo's two songs: of 38 collisions, 15
+#: (39.5%) are ASSONANCE — pairs THIS MODULE'S OWN `grade()` calls a violation
+#: when they are mandated — and 8 are REPEAT. So the single code was making a
+#: claim the same module contradicts three functions away.
+COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
+                      "REPEAT_ACROSS_GROUPS"}
+
 #: Score at or above which two lines that share NO group are reported as an
 #: unintended rhyme. Same constant the spine's `check_scheme` uses, kept equal
-#: on purpose: the two must not drift.
+#: on purpose: the two must not drift — and the SET this module reports is
+#: still exactly `check_scheme`'s. What changed is only what each member is
+#: CALLED. Typing a finding is not moving a threshold (doctrine 58).
 THETA_COLLISION = 0.9
 
 
@@ -178,6 +194,24 @@ class ReviseDeclaration:
     #: of this grader rather than approximately one.
     promote: bool = None
 
+    #: WHERE A WHOLESALE COLLISION BETWEEN TWO GROUPS IS REPORTED. "report" —
+    #: when EVERY cross pair of two disjoint mandated groups is a collision
+    #: AND the union would satisfy the mandate as one group, the loop says
+    #: that once, about the MANDATE, instead of N times about N lines.
+    #: "off" — every edge is reported on its own line, which is what this
+    #: module did until 2026-08-11 and which is kept reachable so the defect
+    #: is demonstrable rather than a sentence nobody can check (doctrine 84,
+    #: the same argument as `modal_exclusion=0` and `field_band='scalar'`).
+    #:
+    #: It ABSORBS AND NEVER ADDS: a merge is only reported over edges the
+    #: loop was already emitting, so no setting of this makes the loop say
+    #: something about a pair it was previously silent on. That guard is not
+    #: cosmetic — without it the rule fires on `cherokee_bill`'s C[5,6] and
+    #: H[15,16] (`man`~`gun` at 0.878), which satisfy the mandate jointly and
+    #: are NOT collisions, and the loop would be volunteering an opinion about
+    #: a rhyme the writer did not make on a song that passes 14/14.
+    group_merge: str = "report"          # "report" | "off"
+
 
 @dataclass
 class Brief:
@@ -211,7 +245,15 @@ class Brief:
     def __str__(self):
         out = [f"L{self.line_no}: {self.text}"]
         for f in self.findings:
-            out.append(f"    - {f.code}: {f.message}")
+            # THE EVIDENCE IS THE PART A WRITER CAN ACT ON, and it was not
+            # printed. A brief that says `SCHEME_VIOLATION: L15 and L19 do not
+            # rhyme` withholds the score, the two words and the reason —
+            # everything the finding actually measured — and a reader cannot
+            # tell a 0.74 from a 0.20 or a refusal from a miss. Doctrine 6:
+            # what comes back is a location and a measurement, never a mark.
+            out.append(f"    - [{f.severity}] {f.code}: {f.message}")
+            if f.evidence:
+                out.append(f"        {f.evidence}")
         for lab, mem, calls in self.must_answer:
             shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
             out.append(f"    must answer group {lab} {mem}: {shown}")
@@ -455,6 +497,170 @@ class Reviser:
                 "pairs_refused": len(refusals),
                 "pairs_judged": len(pairs) - len(refusals)}
 
+    # -- the collision set, partitioned -----------------------------------
+
+    def _declared_return(self, m, a, b):
+        """Does the MANDATE ITSELF say groups `a` and `b` are one section
+        coming back? -> (bool, how it was learnt).
+
+        IT READS `Mandate.returns`, WHICH IS THE SIBLING CONTRACT AND NOT ONE
+        THIS MODULE INVENTED. A return class is a set of line numbers that are
+        THE SAME LINE — `quality/schemes.py`'s generalisation of
+        `RefrainScheme.refrains` off a single line class. Two groups are one
+        section coming back exactly when return classes LINK them: some member
+        of `a` is the same line as some member of `b`. On this song's chorus
+        that is L13=L33 and L17=L37, and it is the fact no letter scheme can
+        hold.
+
+        WHY IT ASKS AT ALL, rather than deciding. Whether a wholesale
+        collision between two groups is a REFRAIN is a fact about the song's
+        FORM, and the graph cannot know it: a section returning and a rhyme
+        sound reused by accident are the same picture in a score. So when the
+        mandate states it the finding says DECLARED and stops being an
+        accusation; when it does not, the merge is DERIVED from the graph and
+        the finding NAMES BOTH READINGS and asks. A harness that guessed
+        "refrain" because two groups rhyme would be reading intent out of a
+        number, which is the one thing this project refuses to do.
+
+        A `Mandate` with no `returns` — every mandate written before the
+        coordinate existed — is read exactly as it was, and the older
+        duck-typed shapes are still accepted so this does not become a second
+        place where the two modules can disagree about a name.
+        """
+        ga, gb = set(m.groups[a]), set(m.groups[b])
+        classes = getattr(m, "returns", None)
+        if classes and not callable(classes):
+            linked = []
+            for cls in classes:
+                s = set(cls)
+                if s & ga and s & gb:
+                    linked.append(sorted(s))
+            if linked:
+                return True, (f"the mandate's own return class(es) "
+                              f"{linked} — lines the mandate says are THE "
+                              f"SAME LINE, linking the two groups")
+        elif callable(classes):                  # older shape: returns(a, b)
+            try:
+                if classes(a, b) or classes(b, a):
+                    return True, "the mandate's own `returns(a, b)`"
+            except Exception:                    # a mandate that cannot say
+                pass                             # is a mandate that does not
+        pairs = getattr(m, "group_returns", None)
+        if pairs:
+            try:
+                want = {(a, b), (b, a)}
+                if any(tuple(p) in want for p in pairs):
+                    return True, "the mandate's own `group_returns`"
+            except TypeError:
+                pass
+        return False, ""
+
+    def group_merges(self, lines, mandate=None, profile=None):
+        """-> [merge], the group pairs the MANDATE splits and the GRAPH does
+        not. A statement about the mandate, never about a line.
+
+        A merge is reported for two DISJOINT mandated groups X and Y when
+
+          (a) every cross pair (x, y) is already a COLLISION — it clears
+              `THETA_COLLISION` and shares no group — and
+          (b) every cross pair would SATISFY the mandate: `admits()` or
+              REPEAT, which is exactly what `grade()` requires of a mandated
+              pair.
+
+        Together those say something a reader can check in one step: *merge
+        these two groups into one and the mandate still holds.* (a) is what
+        keeps the rule honest — the merge only ever re-describes findings the
+        loop was already emitting, so turning it on cannot make the loop
+        speak about a pair it was silent on.
+
+        WHY THIS IS THE SHAPE. Doctrine 2: the graph is the object and a
+        letter scheme is a lossy projection. A letter is a property of a
+        LINE, so a scheme cannot say "these two groups are the same words
+        coming back" — it is FORCED to spend two letters on one returning
+        section, and the collision detector then reports, as unintended rhyme
+        across groups, the identity the projection was forced to hide. On
+        `never_been_to_a_scene` that is 16 of 26 collisions and on
+        `cherokee_bill` 4 of 12: one true sentence about the mandate,
+        rendered as twenty accusations against sixteen innocent lines.
+
+        AND IT DOES NOT DECIDE WHETHER THE RETURN WAS INTENDED. Two groups
+        being indistinguishable in the graph is compatible with a refrain and
+        with an accidentally reused rhyme sound, and nothing in a score
+        separates them. So the finding names the alternative and stops. When
+        the mandate can state the return itself (`_declared_return`), the
+        finding says the licence was DECLARED — the shape `REFRAIN_REPEAT`
+        already uses, and doctrine 18's requirement that a licence granted by
+        pattern be earned rather than assumed.
+        """
+        m = self.mandate(lines, mandate)
+        if self.rdecl.group_merge == "off":
+            return []
+        if self.rdecl.group_merge != "report":
+            raise ValueError(
+                f"ReviseDeclaration.group_merge must be 'report' or 'off', "
+                f"got {self.rdecl.group_merge!r}")
+        rep = self.grade(lines, m, profile=profile)
+        _, endwords, _, matrix = self._matrix(lines, profile=profile)
+        edges = {tuple(c["lines"]) for c in rep["collisions"]}
+        th = self.decl.theta_rhyme
+        out = []
+        for a in range(len(m.groups)):
+            for b in range(a + 1, len(m.groups)):
+                ga, gb = m.groups[a], m.groups[b]
+                if set(ga) & set(gb):
+                    continue
+                cross = sorted({(min(i, j), max(i, j))
+                                for i in ga for j in gb})
+                if not cross:
+                    continue
+                ok = True
+                for i, j in cross:
+                    s = matrix[i - 1][j - 1]
+                    if (i, j) not in edges or not (
+                            admits(s, th) or s["relation"] == "REPEAT"):
+                        ok = False
+                        break
+                if not ok:
+                    continue
+                declared, how = self._declared_return(m, a, b)
+                out.append({
+                    "groups": (a, b),
+                    "labels": (m.labels[a], m.labels[b]),
+                    "members": (list(ga), list(gb)),
+                    "lines": sorted(set(ga) | set(gb)),
+                    "edges": [(i, j, matrix[i - 1][j - 1]["total"],
+                               matrix[i - 1][j - 1]["relation"],
+                               endwords[i - 1], endwords[j - 1])
+                              for i, j in cross],
+                    "declared": declared,
+                    "how": how or ("derived from the rhyme graph; the mandate "
+                                   "cannot state a return")})
+        return out
+
+    @staticmethod
+    def _collision_code(relation):
+        """One code per RELATION, because they are three different reports.
+
+        `SCHEME_COLLISION`      the pair is a rhyme the mandate did not ask
+                                for. The only one of the three the old single
+                                code was ever right about.
+        `NEAR_COLLISION`        the scalar clears `THETA_COLLISION` and the
+                                relation is ASSONANCE or CONSONANCE, so this
+                                module's own `grade()` would call it a
+                                VIOLATION if the pair were mandated. Calling
+                                it an unintended RHYME is the brief and the
+                                verdict asking different questions
+                                (`RESULTS_REVISION_LOOP.md` §1) surviving in
+                                a second place.
+        `REPEAT_ACROSS_GROUPS`  the same word twice. Doctrine 3's first
+                                sentence: identity is not rhyme.
+        """
+        if relation in RHYME_RELATIONS:
+            return "SCHEME_COLLISION"
+        if relation == "REPEAT":
+            return "REPEAT_ACROSS_GROUPS"
+        return "NEAR_COLLISION"
+
     # -- inspection -------------------------------------------------------
 
     def _floor_for(self, m):
@@ -570,14 +776,109 @@ class Reviser:
                     f"not read an end word, so this rhyme is UNKNOWN rather "
                     f"than absent",
                     r["reason"], [i, j]))
+        # THE COLLISION SET, PARTITIONED. Two moves and neither changes the
+        # SET: it is still every pair at or above `THETA_COLLISION` sharing no
+        # group, still exactly `check_scheme`'s. What changes is which LAYER
+        # each member is charged to, which is this repo's own triage rule
+        # (ingestion / projection / anchor / comparator / band / structure /
+        # value) applied to the only output the loop has on a passing song.
+        merges = self.group_merges(lines, m, profile=profile)
+        absorbed = {(i, j) for mg in merges for i, j, *_ in mg["edges"]}
+        near = 0
+        for mg in merges:
+            la, lb = mg["labels"]
+            ma, mb = mg["members"]
+            ev = "; ".join(f"L{i}~L{j} {wa!r}~{wb!r} {sc:.3f} {rel}"
+                           for i, j, sc, rel, wa, wb in mg["edges"])
+            if mg["declared"]:
+                whole.append(Finding(
+                    "GROUPS_DECLARED_RETURN", "note",
+                    f"groups {la} {ma} and {lb} {mb} are the same section "
+                    f"returning, and the mandate SAYS SO, so the "
+                    f"{len(mg['edges'])} cross pair(s) below are the form "
+                    f"and not a defect",
+                    f"{mg['how']}. Reported once, about the mandate, rather "
+                    f"than once per line: {ev}", list(mg["lines"])))
+            else:
+                whole.append(Finding(
+                    "MANDATE_GROUPS_INDISTINGUISHABLE", "note",
+                    f"groups {la} {ma} and {lb} {mb} would pass as ONE group "
+                    f"— every cross pair rhymes — so the mandate splits a "
+                    f"group the graph does not, and each of the "
+                    f"{len(mg['edges'])} cross pairs is reported as a "
+                    f"collision purely because the letters differ",
+                    f"{mg['how']} (doctrine 2: a letter is a property of a "
+                    f"LINE, so no letter scheme can say 'these two groups are "
+                    f"the same words coming back'). THIS DOES NOT SAY WHICH "
+                    f"IT IS: a section returning and a rhyme sound reused by "
+                    f"accident are the same picture in the graph, and the "
+                    f"loop does not read intent out of a score. If it is a "
+                    f"return, declare it and these stop being findings; if it "
+                    f"is not, one of the two groups needs a different sound. "
+                    f"Edges: {ev}", list(mg["lines"])))
         for c in rep["collisions"]:
             i, j = c["lines"]
-            add(j, Finding(
-                "SCHEME_COLLISION", "note",
-                f"L{i} and L{j} rhyme but share no mandated group",
-                f"unintended rhyme across groups (score {c['score']:.3f}; "
-                f"{c['endwords'][0]!r} ~ {c['endwords'][1]!r})", [i, j]))
-        return {"per_line": per, "whole": whole, "mandate": m, "grade": rep}
+            if (i, j) in absorbed:
+                continue
+            code = self._collision_code(c["relation"])
+            pair = (f"{c['endwords'][0]!r} ~ {c['endwords'][1]!r} "
+                    f"{c['score']:.3f} {c['relation']}")
+            gi = ", ".join(m.labels[k] for k in m.groups_of(i)) or "free"
+            gj = ", ".join(m.labels[k] for k in m.groups_of(j)) or "free"
+            if code == "SCHEME_COLLISION":
+                msg = (f"L{i} ({gi}) and L{j} ({gj}) RHYME and share no "
+                       f"mandated group — {pair}")
+                ev = ("an unintended rhyme across groups. Whether that is a "
+                      "defect is the writer's call and the loop does not "
+                      "take it: an unmandated rhyme is quite often the best "
+                      "thing in a song, and doctrine 7 makes this a floor "
+                      "rather than a ranking. It is reported because it is "
+                      "the one thing here that IS about the writing")
+            elif code == "REPEAT_ACROSS_GROUPS":
+                msg = (f"L{i} ({gi}) and L{j} ({gj}) END ON THE SAME WORD and "
+                       f"share no mandated group — {pair}")
+                ev = ("REPEAT, not rhyme. Doctrine 3's first sentence, and "
+                      "the relation that inverts by context: a violation "
+                      "inside a verse, the REQUIREMENT across chorus "
+                      "instances, licensed as radif or refrain. Nothing in a "
+                      "score separates those, so the loop names the relation "
+                      "and stops")
+            else:
+                near += 1
+                msg = (f"L{i} ({gi}) and L{j} ({gj}) collide as "
+                       f"{c['relation']}, WHICH IS NOT A RHYME — {pair}")
+                ev = (f"scalar {c['score']:.3f} >= {THETA_COLLISION} (the "
+                      f"collision cut) but `admits()` is FALSE (the mandate "
+                      f"cut), so this same module would call the pair a "
+                      f"VIOLATION if L{i} and L{j} were mandated together. "
+                      f"See the whole-draft note below")
+            add(j, Finding(code, "note", msg, ev, [i, j]))
+        if near:
+            # Said ONCE. The argument is a property of the cut, not of any
+            # one pair, and repeating it under every line is the shape of the
+            # duplicate-findings defect BACKLOG 1.5 was about: it does not
+            # hide a finding, it hides the OTHER findings underneath it.
+            whole.append(Finding(
+                "COLLISION_CUT_IS_SCALAR_ONLY", "note",
+                f"{near} of the {len(rep['collisions'])} collision(s) on this "
+                f"draft are NOT rhymes under this harness's own band, and the "
+                f"collision detector reported them anyway",
+                f"the collision cut is `total >= {THETA_COLLISION}` — the "
+                f"SCALAR alone — while `grade()` accepts a mandated pair only "
+                f"when `admits()` does: the scalar AND a relation in "
+                f"RHYME_RELATIONS. So the two halves of this module ask "
+                f"different questions about the same pair, which is the "
+                f"defect `RESULTS_REVISION_LOOP.md` §1 found in `_field` and "
+                f"fixed there, surviving here. The SET is not changed: it is "
+                f"still exactly `check_scheme`'s, and the two constants must "
+                f"not drift. What is changed is that each member is now "
+                f"typed, because doctrine 24 says a rule that would delete a "
+                f"category must relabel instead — an ASSONANCE running across "
+                f"a song is a real sonic event and deleting it would be the "
+                f"worse defect. `lyric_harness.check_scheme` carries the same "
+                f"untyped message and is not this cell's file", []))
+        return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
+                "merges": merges}
 
     # -- the brief --------------------------------------------------------
 
@@ -740,6 +1041,50 @@ class Reviser:
 
         RAISES `NoMandate` when handed nothing to check against. It used to
         return `[]`, which a caller printed as "nothing flagged".
+
+        WHY A COLLISION EARNS NO FIELD — asked as an open question and
+        answered by measurement rather than by taste.
+
+        The proposal was that the collision codes join `RHYME_FINDINGS` so
+        they get a candidate field like the rest. They do not, and the reason
+        is mechanical rather than aesthetic: **a candidate field is generated
+        from a POSITIVE call.** `joint_field` intersects the rhyme fields of
+        the words a line must ANSWER, which is why it is small enough to hand
+        to a writer — on this song's own lines the intersection runs from 1
+        word to a few dozen. A collision is the opposite constraint: do NOT
+        rhyme with this word. Measured against the shipped lexicon of 18,010
+        entries, the satisfying set of that constraint is
+
+            does   17,713 words (98.35%)      will   17,795 (98.81%)
+            ear    17,873 (99.24%)            floor  17,878 (99.27%)
+
+        so a "candidate field" for a collision is not a field, it is a copy of
+        the dictionary with a rhyme class deleted. And doctrine 9's mechanism
+        on top of it is worse than useless: the modal head of 98% of English
+        is `the, of, and, to, a, in` — the six commonest words in
+        `wordfreq20k.txt` — so the exclusion that exists to push a writer off
+        the predictable RHYME would be forbidding the six commonest words in
+        the language. The mechanism is aimed at a positive field; a negative
+        constraint has no modal head worth excluding, at any distribution.
+        (Which is also why the verse-frequency work happening elsewhere does
+        not change this: the defect is the polarity of the constraint, not the
+        ranking over it.)
+
+        The second reason is doctrine 7, and it is the one that decides what
+        the loop IS. The loop is a floor: rejection, not selection. A
+        collision on a draft with zero violations is not a rejection — the
+        mandate was satisfied — so offering replacement words would be
+        ordering the permitted region, which is the one thing the floor is
+        forbidden to do. It would also be the harness deciding that an
+        unmandated rhyme is a defect, and an unmandated rhyme is quite often
+        the best thing in a song.
+
+        So the collision half of the brief is made useful the other way: by
+        PARTITIONING it and naming the layer each part belongs to
+        (`group_merges`, `_collision_code`), which is what this harness
+        promises on its first page — locate the defect, name the layer, hand
+        the line back. On this repo's two songs that takes 38 undifferentiated
+        "unintended rhyme" notes down to 3 that are about the writing.
         """
         found = self.inspect(lines, mandate, profile=profile)
         m = found["mandate"]
@@ -821,8 +1166,23 @@ class Reviser:
         f_after = self.inspect(after, m, profile=profile)
 
         def codes(f):
+            """The finding set, keyed so a diff can tell two of a kind apart.
+
+            A whole-draft finding used to key on `(0, code)` alone. That was
+            right while every one of them was unique per draft
+            (`OUT_OF_CALIBRATED_LENGTH`, `MANDATE_NOT_INDEPENDENT`), and it
+            stopped being right when a draft could carry FOUR
+            `MANDATE_GROUPS_INDISTINGUISHABLE` at once: dissolving one of the
+            four would leave the code present and `verify` would report
+            "nothing was fixed" about a revision that fixed something. So a
+            whole finding that carries locations keys on its FIRST line —
+            still a 2-tuple, still sorts, and now one key per finding.
+            Doctrine 47: a loop that cannot see the change it asked for is a
+            rubber stamp in the other direction.
+            """
             return {(ln, x.code) for ln, fs in f["per_line"].items()
-                    for x in fs} | {(0, x.code) for x in f["whole"]}
+                    for x in fs} | {(min(x.locations) if x.locations else 0,
+                                     x.code) for x in f["whole"]}
 
         cb, ca = codes(f_before), codes(f_after)
         fixed, new = cb - ca, ca - cb
@@ -896,23 +1256,51 @@ class Reviser:
                 state = "FLAGGED" if ln in flagged else "answers all of them"
                 print(f"  PIVOT L{ln} in groups {', '.join(labs)} — {state}",
                       file=stream)
-        print(f"\nREVISION BRIEF — {len(briefs)} line(s) flagged of "
-              f"{len(lines)}", file=stream)
+        # A NOTE IS NOT A FLAG, and this header counted them the same. On the
+        # mandate `never_been_to_a_scene` was written to, it printed "17
+        # line(s) flagged" while every one of the 17 carried nothing but
+        # severity-"note" collisions and not one earned a candidate field — a
+        # certificate of 17 problems on a draft with zero. Doctrine 79's shape
+        # one layer up: report the counts SEPARATELY rather than summing
+        # things that ask different things of a writer.
+        revise_me = sorted(b.line_no for b in briefs
+                           if any(f.severity == "flag" for f in b.findings))
+        noted = [b.line_no for b in briefs if b.line_no not in set(revise_me)]
+        print(f"\nREVISION BRIEF — {len(revise_me)} line(s) TO REVISE, "
+              f"{len(noted)} carrying notes only, of {len(lines)}",
+              file=stream)
+        if not revise_me and noted:
+            print(f"  NO LINE REQUIRES REVISION. The draft satisfies every "
+                  f"one of the {rep['pairs_mandated']} pair(s) its mandate "
+                  f"declares. The {len(noted)} line(s) below carry NOTES — "
+                  f"things the loop observed and does not ask you to change. "
+                  f"None of them earns a candidate field and that is a "
+                  f"decision, not a gap: see `brief`'s 'WHY A COLLISION "
+                  f"EARNS NO FIELD'.", file=stream)
         print(f"  candidate field: {self.field_declaration()}; "
               f"modal_exclusion={self.rdecl.modal_exclusion}; "
+              f"group_merge={self.rdecl.group_merge!r}; "
               f"frequency source wordfreq20k.txt (web ranks — see "
               f"`modal_field`)", file=stream)
         for f in found["whole"]:
-            print(f"  [whole draft] {f.code}: {f.message}", file=stream)
+            loc = (f" (lines {', '.join(map(str, f.locations))})"
+                   if f.locations else "")
+            print(f"  [whole draft] {f.code}: {f.message}{loc}", file=stream)
+            if f.locations:
+                print(f"      {f.evidence}", file=stream)
         for b in briefs:
             print(b, file=stream)
         if not briefs and not found["whole"]:
             print("  nothing flagged; the draft passes the floor and every "
                   f"one of the {rep['pairs_mandated']} pair(s) the declared "
                   f"mandate requires", file=stream)
-        print("\n  The loop does not write. Revise the flagged lines, then "
-              "call verify(before, after, mandate, targeted=...).",
-              file=stream)
+        if revise_me:
+            print(f"\n  The loop does not write. Revise lines {revise_me}, "
+                  f"then call verify(before, after, mandate, targeted=...).",
+                  file=stream)
+        else:
+            print("\n  The loop does not write, and here it is not asking "
+                  "you to. Nothing above is a line to revise.", file=stream)
         return briefs
 
 

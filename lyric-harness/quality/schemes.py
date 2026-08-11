@@ -282,6 +282,39 @@ class RefrainScheme:
                         f"L{i} {a!r} vs L{j} {b!r}"))
         return out
 
+    def to_mandate(self, source="declared", origin=None, rule=None):
+        """-> a `Mandate` carrying BOTH partitions. The bridge that was missing.
+
+        THE A-1 NOTATION SHIPPED AND COULD NOT REACH THE LOOP. `parse_refrain`
+        reads it, `lyric_harness.py refrain` prints it, and `check_identity`
+        grades it -- but `mandate()` routed a notation string through `parse()`,
+        which returns the RHYME partition and drops the identity one on the
+        floor in silence. So `brief FILE A1bA2abA1abA2abA1abA2abA1A2` mandated
+        the villanelle's rhyme and said nothing whatever about the twelve lines
+        that have to come back, which is the requirement the form is FOR.
+
+        The identity half is deliberately NOT folded into `Mandate.groups` --
+        the note above `check_identity` is right that handing REPEAT pairs to a
+        rhyme grader flags every correct refrain. It goes into
+        `Mandate.returns`, where doctrine 3's inversion is stated per PAIR and
+        the grader can be told which of the two readings applies.
+
+        A capital used ONCE declares a verbatim requirement with nothing to be
+        verbatim against; it is not a return and is recorded as skipped rather
+        than promoted to one.
+        """
+        rets = [Return(lines=tuple(sorted(v)), label=k, verbatim=True,
+                       origin=f"A-1 notation mark {k!r}")
+                for k, v in sorted(self.refrains.items()) if len(v) >= 2]
+        lone = sorted(k for k, v in self.refrains.items() if len(v) < 2)
+        note = origin or f"A-1 refrain notation {self.render()!r}"
+        if lone:
+            note += (f" (marks {lone} appear once each and are NOT returns: "
+                     f"a line that comes back zero times mandates no identity)")
+        return mandate([list(b) for b in blocks(self.code) if len(b) >= 2],
+                       n_lines=self.n_lines, source=source, origin=note,
+                       returns=rets, rule=rule)
+
     def render(self):
         """-> the notation string. Round-trips through `parse_refrain`."""
         return "".join(self.marks)
@@ -668,6 +701,485 @@ class Cover:
 
 
 # ---------------------------------------------------------------------------
+# THE MANDATE LANGUAGE SAYS ONE THING AND HAS TO SAY THREE
+#
+# MEASURED, on this repo's own song, with this repo's own mandate — the letter
+# string `SONG_SCHEME` at `quality/test_revise.py:63`:
+#
+#     Reviser().inspect(lines, "XXXXXXXXXXXXABCBADCDXXXXXXXXXXXXEFGFEHGHX")
+#     -> 27 distinct findings, 26 of them SCHEME_COLLISION
+#     -> 16 of those 26 are the chorus (L13-L20) against its own return
+#        (L33-L40), and 7 of the 16 are REPEAT on an IDENTICAL WORD:
+#        slow/slow, five/five, ear/ear, go/go, went/went, clear/clear, sent/sent
+#
+# Nothing is wrong with the song. A letter scheme is a per-LINE annotation, so
+# it MUST give `chorus` and `chorus2` different letters; the collision detector
+# then correctly reports the identity the projection was forced to hide. That
+# is doctrine 2 arriving as noise: the graph is the object, letter schemes are
+# lossy projections, and this one is losing exactly the thing the song is about.
+#
+# THE THREE STATEMENTS, WHICH CURRENTLY COLLAPSE INTO ONE
+#
+#   1. these lines must RHYME               -- `Mandate.groups`, and all it says
+#   2. this line must return VERBATIM       -- only `RefrainScheme.refrains`,
+#                                              which `Mandate` deliberately
+#                                              refused to carry
+#   3. this group is a RETURN of that group -- nowhere at all
+#
+# Doctrine 3 already knows the distinction: "REPEAT is a violation inside a
+# verse, the requirement across chorus instances, licensed as radif/refrain."
+# The TAXONOMY inverts by context. The MANDATE had no way to state a context,
+# so `ReviseDeclaration.repeat_licence` had to be a SONG-WIDE string —
+# "unlicensed" flags all seven correct chorus returns, "refrain" licenses every
+# REPEAT in the lyric including one inside a verse, which is the defect the flag
+# exists to catch. A per-song switch cannot express a per-pair inversion.
+#
+# SO A MANDATE IS A FUNCTION FROM A LINE PAIR TO A REQUIREMENT, AND THE
+# REQUIREMENT IS A CLOSED SET OF FIVE VALUES WITH A REAL UNKNOWN IN IT.
+#
+# Doctrine 28 binds here, and it is the reason the answer is not a boolean:
+# "distinguish none from cannot tell, MECHANICALLY". An unmandated pair and a
+# mandated-identical pair are different states; so is a pair the mandate never
+# reached. Three states, three values, and the unknown PROPAGATES.
+#
+# Doctrine 48 says the distinction is only real once it is mechanical, so
+# `UNKNOWN` is not `None`: it RAISES on `bool()`. A consumer that writes
+#
+#     if req.identity_required:            # <- TypeError, with the reason
+#
+# gets an exception naming doctrine 28 rather than silently reading the unknown
+# as "no". That is the whole point of the sentinel — `None` is falsy, and every
+# convention that asks a caller to remember it gets remembered exactly as often
+# as somebody remembers it.
+# ---------------------------------------------------------------------------
+
+
+class _Unknown:
+    """The third truth value, and it will not let you spend it as the second.
+
+    `None` is falsy, so `if x:` reads a missing declaration as a denial. This
+    object raises instead, because doctrine 28 is a claim about MECHANISM: a
+    mandate that does not say whether identity is required must not be read as
+    saying it is not.
+    """
+
+    __slots__ = ()
+    _singleton = None
+
+    def __new__(cls):
+        if cls._singleton is None:
+            cls._singleton = super().__new__(cls)
+        return cls._singleton
+
+    def __repr__(self):
+        return "UNKNOWN"
+
+    def __str__(self):
+        return "UNKNOWN"
+
+    def __bool__(self):
+        raise TypeError(
+            "this value is UNKNOWN and has no truth value. The mandate does "
+            "not declare it, and reading an undeclared requirement as False is "
+            "doctrine 28 — 'none' collapsed into 'cannot tell'. Branch on it "
+            "explicitly:\n"
+            "    if v is UNKNOWN: ...        # the mandate does not say\n"
+            "    elif v: ...                 # declared true\n"
+            "    else: ...                   # declared false\n"
+            "or call `Requirement.decided(field)` to get the pair "
+            "(is_declared, value).")
+
+
+#: The single UNKNOWN. `is UNKNOWN` is the test; `== UNKNOWN` also works.
+UNKNOWN = _Unknown()
+
+
+@dataclass(frozen=True)
+class Requirement:
+    """What the mandate requires of ONE pair of lines. A closed set of five.
+
+    A letter scheme could only ever say "same letter" or "different letter",
+    which is two states for a question that has five answers. The five are
+    module-level singletons below; `Mandate.requirement(i, j)` returns one of
+    them and never anything else.
+
+    Every field is TRUE, FALSE or `UNKNOWN`, and `UNKNOWN` raises on `bool()`.
+    """
+
+    name: str
+    #: must these two lines stand in a RHYME relation?
+    rhyme_required: object
+    #: must they be the SAME LINE, verbatim?
+    identity_required: object
+    #: is an identical end word here a VIOLATION? Doctrine 3's inversion, moved
+    #: off the song-wide `repeat_licence` switch and onto the pair, which is
+    #: where doctrine 3 always put it.
+    repeat_is_violation: object
+    #: did the mandate SPEAK about this pair at all? False means out of scope,
+    #: which is "cannot tell" and is not the same as `FREE`'s "nothing here".
+    declared: bool
+    gloss: str = ""
+
+    def decided(self, field):
+        """-> (is_declared, value). The branch-free way to read a tri-state."""
+        v = getattr(self, field)
+        return (False, None) if v is UNKNOWN else (True, v)
+
+    def __str__(self):
+        return self.name
+
+
+#: Rhyme required, identity FORBIDDEN. What every letter scheme has always
+#: meant by "these two lines share a letter", and what `Mandate.groups` has
+#: always meant. Doctrine 3: inside a verse, REPEAT is the violation.
+REQUIRE_RHYME = Requirement(
+    "REQUIRE_RHYME", True, False, True,
+    True,
+    "these lines must RHYME and must not be the same word (doctrine 3: "
+    "REPEAT is a violation inside a verse)")
+
+#: Identity required. The refrain, the chorus return, the radif. Rhyme follows
+#: from identity, so it is required too; REPEAT is not a violation here, it is
+#: the requirement, and a pair that FAILS to be identical is the finding.
+REQUIRE_RETURN = Requirement(
+    "REQUIRE_RETURN", True, True, False,
+    True,
+    "this line must RETURN VERBATIM; REPEAT is the REQUIREMENT here "
+    "(doctrine 3), and a non-identical return is the finding")
+
+#: Rhyme required, REPEAT licensed, identity NOT declared. The honest value for
+#: a return whose verbatim requirement the caller declined to state — and for
+#: every pair that a return edge merged into a rhyme class without the two
+#: lines corresponding to each other. `identity_required` is UNKNOWN and
+#: propagates.
+LICENSE_REPEAT = Requirement(
+    "LICENSE_REPEAT", True, UNKNOWN, False,
+    True,
+    "these lines must RHYME and an identical word is LICENSED, but whether "
+    "identity is REQUIRED was not declared — the unknown propagates "
+    "(doctrine 28)")
+
+#: Declared unmandated. The author has said, by writing different letters or by
+#: leaving the line out of every group, that nothing is required here. An
+#: observed rhyme IS reportable: that is what SCHEME_COLLISION is for.
+FREE = Requirement(
+    "FREE", False, False, UNKNOWN,
+    True,
+    "the mandate declares NO requirement here; an observed rhyme is a "
+    "collision and an identical word is a question for the value layer, "
+    "not for the mandate")
+
+#: Out of the mandate's scope. NOT `FREE`. A mandate written over the chorus
+#: says nothing about the verses, and reporting a verse rhyme as "unintended"
+#: against it charges the writer for a question nobody asked (doctrine 20:
+#: inconclusive by construction is not a null).
+UNDECLARED = Requirement(
+    "UNDECLARED", UNKNOWN, UNKNOWN, UNKNOWN,
+    False,
+    "the mandate does not reach this pair. This is 'cannot tell', not "
+    "'nothing required' — see FREE for the other one (doctrine 28)")
+
+#: The closed set, in strength order. A sixth value is a change to this list.
+REQUIREMENTS = (REQUIRE_RETURN, REQUIRE_RHYME, LICENSE_REPEAT, FREE,
+                UNDECLARED)
+
+
+# ---------------------------------------------------------------------------
+# THE RETURN — the one new primitive
+#
+# A RETURN CLASS is a set of line numbers that are THE SAME LINE. That is all.
+# It is the generalisation of `RefrainScheme.refrains` off a single line class
+# and onto any correspondence, and it is deliberately ONE primitive rather than
+# two, because the two shapes a song actually has both reduce to it:
+#
+#   a villanelle refrain returning four times   -> one class {1, 6, 12, 18}
+#   an eight-line chorus returning once         -> eight classes of two,
+#                                                  {13,33} {14,34} ... {20,40}
+#
+# A return class states THREE things at once, which is exactly the three the
+# mandate language could not say:
+#
+#   (a) IDENTITY   every pair inside it must be VERBATIM identical.
+#   (b) LICENCE    REPEAT at every pair inside it is the REQUIREMENT, not a
+#                  violation. Doctrine 3, per-pair at last.
+#   (c) TRANSPORT  a line in a return class inherits the rhyme obligations of
+#                  every OTHER member of that class. This is what dissolves the
+#                  sixteen collisions: L33 is L13, L13 must rhyme with L17, so
+#                  L33 must rhyme with L17 and it is not a coincidence.
+#
+# (c) is not optional reasoning, it is forced: identity is an equivalence
+# relation and rhyme is a property of the words. Declaring (a) and denying (c)
+# would be incoherent. The coordinate `ReturnRule.return_rhyme` exists anyway,
+# because the interesting case is a return the author declares NON-verbatim.
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Return:
+    """A class of lines that are THE SAME LINE. >= 2 members, 1-based."""
+
+    lines: tuple
+    label: str = ""
+    #: TRUE (must be verbatim), FALSE (a return that need only keep its rhyme),
+    #: or `UNKNOWN` (the caller declines to say, and the unknown propagates).
+    verbatim: object = True
+    origin: str = ""
+
+    # A return class IS its lines, so `set(r)`, `for i in r` and `i in r` all
+    # work on it directly. That is not sugar: `quality/revise.py` reads
+    # `Mandate.returns` duck-typed, as `set(cls)` over each class, and a
+    # dataclass that could only be reached through `.lines` would make the two
+    # modules disagree about a name in the one place doctrine 78 says a
+    # parallel round costs most. The richer object satisfies the plainer
+    # contract rather than replacing it.
+    def __iter__(self):
+        return iter(self.lines)
+
+    def __len__(self):
+        return len(self.lines)
+
+    def __contains__(self, line):
+        return line in self.lines
+
+    def pairs(self):
+        return list(itertools.combinations(sorted(self.lines), 2))
+
+    def describe(self):
+        v = ("VERBATIM required" if self.verbatim is True else
+             "verbatim NOT required — rhyme only" if self.verbatim is False
+             else "verbatim requirement UNDECLARED (unknown propagates)")
+        return f"{self.label or '(unlabelled)'}: lines {list(self.lines)} — {v}"
+
+
+@dataclass(frozen=True)
+class ReturnRule:
+    """The declared coordinates of what a RETURN means. Doctrine 1.
+
+    Both defaults are argued rather than assumed, and both alternatives are
+    reachable so the choice is measurable rather than settled by fiat — the
+    shape `overlap_rule` and `field_band` already use in `quality/revise.py`.
+    """
+
+    #: What an undecorated return declaration requires. "verbatim" — the
+    #: returned line must come back word for word, and a drifted one is a
+    #: FINDING. "rhyme" — the return need only keep its rhyme, and a changed
+    #: word is licensed. "unknown" — the caller declines to say and every
+    #: identity question at those pairs returns UNKNOWN.
+    #:
+    #: DEFAULT "verbatim", because a refrain that has drifted by a word is the
+    #: commonest way a fixed form fails and it is INVISIBLE to every other
+    #: check in this repo — the rhyme partition passes, the band passes, and
+    #: the line that was supposed to come back did not. `check_identity` has
+    #: said so since it was written. Defaulting to "rhyme" would make the
+    #: language unable to state the requirement it exists to state.
+    return_verbatim: str = "verbatim"
+
+    #: How a return edge reaches the RHYME layer. "union" — each rhyme group
+    #: is merged with the image of its members under the return, so the
+    #: chorus's four classes become four classes spanning both instances.
+    #: "positional" — only the corresponding pairs are mandated and the cross
+    #: pairs stay FREE.
+    #:
+    #: DEFAULT "union", for the same reason `overlap_rule` defaults to
+    #: conjunctive: it is STRICTLY STRONGER. Under "positional" the mandate
+    #: would require five/five (an identity, trivially true) while leaving
+    #: drive/alive unmandated — the projection defect one level down, where
+    #: the pair that actually carries a risk is the one nobody checks.
+    return_rhyme: str = "union"
+
+    def __post_init__(self):
+        if self.return_verbatim not in ("verbatim", "rhyme", "unknown"):
+            raise NoMandate(
+                f"return_verbatim must be 'verbatim', 'rhyme' or 'unknown'; "
+                f"got {self.return_verbatim!r}")
+        if self.return_rhyme not in ("union", "positional"):
+            raise NoMandate(
+                f"return_rhyme must be 'union' or 'positional'; got "
+                f"{self.return_rhyme!r}")
+
+    @property
+    def default_verbatim(self):
+        return {"verbatim": True, "rhyme": False,
+                "unknown": UNKNOWN}[self.return_verbatim]
+
+
+def parse_returns(text, n_lines=None, rule=None):
+    """The text spelling of a return declaration -> [`Return`].
+
+    Two forms, `;`-separated, each optionally `LABEL:`-prefixed:
+
+      `33-40<=13-20`   a BLOCK return. Lines 33..40 are a return of 13..20,
+                       aligned by position: 33 returns 13, 34 returns 14, and
+                       so on. Expands to eight two-line classes. `<-` is an
+                       accepted spelling of `<=`.
+      `1,6,12,18`      a REFRAIN class: all four are the same line. This is
+                       `RefrainScheme.refrains` written out, and
+                       `parse_refrain` produces exactly this.
+
+    A block whose two runs have DIFFERENT LENGTHS is a REFUSAL, not a zip
+    truncated to the shorter one. Doctrine 20: a correspondence that cannot be
+    established is not a weak correspondence, and silently dropping the tail
+    would mandate nothing about the lines it dropped while looking as though
+    it had.
+    """
+    rule = rule or ReturnRule()
+    if isinstance(text, Return):
+        return [text]
+    out = []
+    for k, chunk in enumerate(str(text).split(";")):
+        chunk = chunk.strip()
+        if not chunk:
+            continue
+        label = ""
+        if ":" in chunk:
+            label, chunk = (x.strip() for x in chunk.split(":", 1))
+        body = chunk.replace("<-", "<=")
+        if "<=" in body:
+            tgt, src = (x.strip() for x in body.split("<=", 1))
+            t, s = _run(tgt, body), _run(src, body)
+            if len(t) != len(s):
+                raise NoMandate(
+                    f"the return {chunk!r} puts {len(t)} line(s) against "
+                    f"{len(s)}. A return is a CORRESPONDENCE — line by line, "
+                    f"in order — and one that cannot be established is a "
+                    f"REFUSAL, not a zip cut to the shorter run (doctrine 20). "
+                    f"If the return really is a different length, declare the "
+                    f"classes that DO correspond, one per ';'.")
+            if set(t) & set(s):
+                raise NoMandate(
+                    f"the return {chunk!r} has line(s) "
+                    f"{sorted(set(t) & set(s))} on both sides. A line cannot "
+                    f"be a return of itself.")
+            for a, b in zip(s, t):
+                out.append(Return(
+                    lines=(a, b),
+                    label=label or f"R{k + 1}",
+                    verbatim=rule.default_verbatim,
+                    origin=f"block return {chunk!r}"))
+        else:
+            mem = _run(body, body)
+            if len(mem) < 2:
+                raise NoMandate(
+                    f"the return class {chunk!r} names {len(mem)} line(s). A "
+                    f"return needs at least two: one line is not a return of "
+                    f"anything, and declaring it mandates nothing while "
+                    f"looking as though it does.")
+            out.append(Return(lines=tuple(sorted(set(mem))),
+                              label=label or f"R{k + 1}",
+                              verbatim=rule.default_verbatim,
+                              origin=f"return class {chunk!r}"))
+    if not out:
+        raise NoMandate(
+            f"{text!r} declares no return. Use `33-40<=13-20` for a block "
+            f"return or `1,6,12,18` for a refrain class.")
+    if n_lines is not None:
+        for r in out:
+            for i in r.lines:
+                if not 1 <= i <= n_lines:
+                    raise NoMandate(
+                        f"return line {i} is outside 1..{n_lines}. Return line "
+                        f"numbers are 1-BASED over the WHOLE song, for the "
+                        f"same reason mandate groups are.")
+    return out
+
+
+def _run(text, whole):
+    """'13-20' or '1,6,12,18' or '13-16,19' -> [ints], in written order."""
+    out = []
+    for part in text.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        try:
+            if "-" in part:
+                a, b = (int(x) for x in part.split("-", 1))
+                out.extend(range(a, b + 1) if a <= b else range(a, b - 1, -1))
+            else:
+                out.append(int(part))
+        except ValueError:
+            raise NoMandate(
+                f"{part!r} in {whole!r} is not a line number or a `a-b` run.")
+    return out
+
+
+def _normalise_returns(raw, n_lines, rule):
+    """-> tuple of `Return`, transitively closed, or RAISE.
+
+    Identity is an EQUIVALENCE RELATION, so two declared classes that share a
+    line are one class: `{13,33}` and `{33,53}` force `{13,33,53}`. Merging
+    them is not a degradation, it is the arithmetic. What IS refused is a merge
+    whose parts carry CONTRADICTORY verbatim declarations — two statements that
+    cannot both hold, which doctrine 20 says to refuse loudly rather than
+    resolve by whichever was declared last.
+    """
+    items = []
+    for r in raw:
+        if isinstance(r, Return):
+            items.append(r)
+        elif isinstance(r, str):
+            items.extend(parse_returns(r, n_lines, rule))
+        else:
+            mem = sorted({int(x) for x in r})
+            if len(mem) < 2:
+                raise NoMandate(
+                    f"return class {list(r)!r} has fewer than two lines; a "
+                    f"line is not a return of anything on its own.")
+            items.append(Return(lines=tuple(mem), label="",
+                                verbatim=rule.default_verbatim,
+                                origin="declared return class"))
+    for r in items:
+        for i in r.lines:
+            if not 1 <= i <= n_lines:
+                raise NoMandate(
+                    f"return line {i} is outside 1..{n_lines}.")
+
+    # union-find over the declared classes
+    parent = {}
+
+    def find(x):
+        parent.setdefault(x, x)
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    def union(a, b):
+        ra, rb = find(a), find(b)
+        if ra != rb:
+            parent[rb] = ra
+
+    for r in items:
+        first = r.lines[0]
+        for i in r.lines[1:]:
+            union(first, i)
+
+    buckets = {}
+    for r in items:
+        buckets.setdefault(find(r.lines[0]), []).append(r)
+
+    merged = []
+    for root, group in sorted(buckets.items()):
+        lines = tuple(sorted({i for r in group for i in r.lines}))
+        marks = {r.verbatim for r in group}
+        if len(marks) > 1:
+            raise NoMandate(
+                f"lines {list(lines)} are transitively ONE return class "
+                f"(identity is an equivalence relation), and the declarations "
+                f"that produced it disagree about whether it must be "
+                f"VERBATIM: {sorted(str(m) for m in marks)}. Two requirements "
+                f"that cannot both hold are a REFUSAL, not a tie broken by "
+                f"declaration order (doctrine 20; and a tie broken by "
+                f"iterating a set is doctrine 66).")
+        labels = sorted({r.label for r in group if r.label})
+        merged.append(Return(
+            lines=lines,
+            label="+".join(labels) if labels else "",
+            verbatim=group[0].verbatim,
+            origin="; ".join(sorted({r.origin for r in group if r.origin}))))
+    return tuple(merged)
+
+
+# ---------------------------------------------------------------------------
 # THE MANDATE — what a draft is HELD TO
 #
 # Everything above describes a structure. This names one as a REQUIREMENT, and
@@ -759,6 +1271,18 @@ class Mandate:
     source: str = "declared"          # "declared" | "derived"
     origin: str = ""                  # how it was obtained, in words
 
+    #: RETURN CLASSES -- lines that are THE SAME LINE. The second requirement
+    #: the language could not state. Empty is the old object exactly.
+    returns: tuple = ()
+    #: The lines this mandate SPEAKS ABOUT. `()` means all of 1..n_lines.
+    #: A pair touching a line outside it is `UNDECLARED`, not `FREE`
+    #: (doctrine 28). A mandate written over a chorus says NOTHING about the
+    #: verses, and reporting a verse rhyme as unintended against it charges
+    #: the writer for a question that was never asked.
+    scope: tuple = ()
+    #: the declared coordinates of what a return MEANS (doctrine 1)
+    rule: "ReturnRule" = field(default_factory=lambda: ReturnRule())
+
     # -- what it requires -------------------------------------------------
 
     def pairs(self):
@@ -792,6 +1316,202 @@ class Mandate:
         return sorted(i for i in range(1, self.n_lines + 1)
                       if len(self.groups_of(i)) > 1)
 
+    # -- returns: the second and third statements -------------------------
+
+    def in_scope(self, line):
+        """Does the mandate SPEAK about this line? Empty scope means all."""
+        return (not self.scope) or line in self.scope
+
+    def return_of(self, line):
+        """-> the `Return` class containing `line`, or None."""
+        for r in self.returns:
+            if line in r.lines:
+                return r
+        return None
+
+    def return_pairs(self):
+        """-> [(i, j, Return)] every pair the mandate says is the SAME LINE.
+
+        These are the REPEAT relations doctrine 3 calls a violation inside a
+        verse and the requirement here. Handing them to a rhyme grader with no
+        label would flag every correct refrain, which is precisely what was
+        happening: 7 of this song's 16 chorus collisions are REPEAT on an
+        identical word.
+        """
+        out = []
+        for r in self.returns:
+            for i, j in r.pairs():
+                out.append((i, j, r))
+        return sorted(out, key=lambda t: (t[0], t[1]))
+
+    def identity_pairs(self):
+        """-> [(i, j, label)] pairs that must be VERBATIM. Skips returns
+        declared non-verbatim or undeclared -- those mandate no identity."""
+        return [(i, j, r.label) for i, j, r in self.return_pairs()
+                if r.verbatim is True]
+
+    def expanded_groups(self):
+        """-> the rhyme groups with each return's class merged in.
+
+        THE ONE COMPUTATION THAT DISSOLVES THE NOISE. L33 IS L13, and L13 must
+        rhyme with L17, so L33 must rhyme with L17 and it is not a collision.
+        Under `return_rhyme="positional"` the groups are returned untouched and
+        each return class is added as a group of its own instead.
+
+        Kept as a DERIVED VIEW rather than folded into `groups`, so
+        `to_letters()` still reports the letters the author wrote and the
+        expansion is visible as a separate object (doctrine 2: say that the
+        projection is a projection).
+        """
+        if not self.returns:
+            return tuple(self.groups)
+        if self.rule.return_rhyme == "positional":
+            extra = [r.lines for r in self.returns]
+            seen, out = set(), []
+            for g in list(self.groups) + extra:
+                key = tuple(sorted(set(g)))
+                if key not in seen:
+                    seen.add(key)
+                    out.append(key)
+            return tuple(out)
+        cls = {}
+        for r in self.returns:
+            for i in r.lines:
+                cls[i] = r.lines
+        seen, out = set(), []
+        for g in self.groups:
+            wide = set(g)
+            for i in g:
+                wide |= set(cls.get(i, ()))
+            key = tuple(sorted(wide))
+            if key not in seen:
+                seen.add(key)
+                out.append(key)
+        for r in self.returns:                 # a return with no rhyme group
+            if not any(set(r.lines) <= set(g) for g in out):
+                key = tuple(sorted(r.lines))
+                if key not in seen:
+                    seen.add(key)
+                    out.append(key)
+        return tuple(out)
+
+    def expanded_pairs(self):
+        """-> sorted DISTINCT 1-based (i, j) over `expanded_groups()`."""
+        out = set()
+        for g in self.expanded_groups():
+            for a in range(len(g)):
+                for b in range(a + 1, len(g)):
+                    out.add((g[a], g[b]))
+        return sorted(out)
+
+    def requirement(self, i, j):
+        """-> one of the five `Requirement` singletons. THE mechanical answer.
+
+        This is the whole point of the object. One call, one value out of a
+        closed set, and every tri-state inside it raises rather than reads
+        false. A caller can no longer collapse "these must rhyme", "this must
+        return", "nothing is required" and "I was not asked" into one boolean,
+        because there is no boolean to collapse them into.
+        """
+        if i == j:
+            raise NoMandate(
+                f"a requirement is a statement about TWO lines; L{i} was "
+                f"given twice.")
+        a, b = (i, j) if i < j else (j, i)
+        if not (1 <= a and b <= self.n_lines):
+            raise NoMandate(
+                f"L{a}/L{b} is outside 1..{self.n_lines}; a requirement can "
+                f"only be asked of lines the mandate is written over.")
+        if not (self.in_scope(a) and self.in_scope(b)):
+            return UNDECLARED
+        r = self.return_of(a)
+        if r is not None and b in r.lines:
+            if r.verbatim is True:
+                return REQUIRE_RETURN
+            if r.verbatim is False:
+                return LICENSE_REPEAT
+            return LICENSE_REPEAT              # UNKNOWN verbatim, same value
+        if not any(a in g and b in g for g in self.expanded_groups()):
+            return FREE
+        # In a shared group. THE LICENCE TRANSPORTS THROUGH THE RETURN, which
+        # is the whole reason a return is not merely a bigger group: L37 IS
+        # L17, and L13/L17 is a pair the mandate says must RHYME and must not
+        # repeat, so L13/L37 inherits that and an identical word there is
+        # still a violation. Ask the question of the REPRESENTATIVES.
+        ra, rb = self._rep(a), self._rep(b)
+        if ra != rb and any(ra in g and rb in g for g in self.groups):
+            return REQUIRE_RHYME
+        if any(a in g and b in g for g in self.groups):
+            return REQUIRE_RHYME
+        # In an expanded group, but no declared group holds the two
+        # representatives: the mandate put these lines in one rhyme class
+        # without ever saying whether an identical word between them is a
+        # defect. UNKNOWN, and it propagates (doctrine 28).
+        return LICENSE_REPEAT
+
+    def _rep(self, line):
+        """-> the first line of `line`'s return class, or `line` itself.
+
+        Identity's canonical member. Every question about a returned line is
+        really a question about the line it returns."""
+        r = self.return_of(line)
+        return min(r.lines) if r is not None else line
+
+    def repeat_is_violation(self, i, j):
+        """-> True / False / `UNKNOWN`. Doctrine 3, per PAIR.
+
+        The song-wide `repeat_licence` switch had two settings and needed
+        three answers: "unlicensed" flags all seven correct chorus returns on
+        this repo's own song, and "refrain" licenses every REPEAT in the lyric
+        INCLUDING one inside a verse, which is the defect the flag exists to
+        catch. A per-song switch cannot express a per-pair inversion.
+        """
+        return self.requirement(i, j).repeat_is_violation
+
+    def returns_check(self, lines, variation=True):
+        """-> findings for return pairs that are not what the mandate says.
+
+        THE FIXTURE FOR DOCTRINE 94, and it is not constructed: this makes a
+        zero (16 collisions -> 0) and it has to be able to fire on the same
+        text. It does. Four of the eight declared returns in
+        `examples/never_been_to_a_scene.txt` are NOT verbatim -- L14/L34,
+        L15/L35, L16/L36 and L20/L40 -- and each comes back as a NAMED KIND of
+        variation from `quality.grid.compare_returns` rather than a boolean,
+        because a return that keeps its rhyme and changes a word is a move and
+        a broken refrain is a defect, and doctrine 24 says name them apart.
+
+        Returns declared non-verbatim or UNDECLARED are skipped and reported
+        as skipped: the mandate does not require identity there, so silence
+        about them would be an answer the mandate never gave.
+        """
+        from quality.grid import compare_returns, normalise_line
+        out = []
+        for i, j, r in self.return_pairs():
+            if r.verbatim is not True:
+                continue
+            if i > len(lines) or j > len(lines):
+                out.append((r.label, i, j, "OUT_OF_RANGE",
+                            f"the mandate declares {self.n_lines} lines and "
+                            f"{len(lines)} were given"))
+                continue
+            a, b = lines[i - 1], lines[j - 1]
+            if normalise_line(a) == normalise_line(b):
+                continue
+            kind = (compare_returns([a], [b]).kind if variation
+                    else "NOT_VERBATIM")
+            out.append((r.label, i, j, kind,
+                        f"return {r.label} must come back VERBATIM: "
+                        f"L{i} {a!r} vs L{j} {b!r}"))
+        return out
+
+    def undeclared_returns(self):
+        """-> return pairs whose verbatim requirement is UNKNOWN.
+
+        Doctrine 20 in report shape: a caller must be able to tell "checked
+        and identical" from "never asked". These were never asked."""
+        return [(i, j, r.label) for i, j, r in self.return_pairs()
+                if r.verbatim is UNKNOWN]
+
     # -- what it is -------------------------------------------------------
 
     def is_partition(self):
@@ -809,37 +1529,176 @@ class Mandate:
         return Cover(n_lines=self.n_lines,
                      groups=[list(g) for g in self.groups])
 
-    def to_letters(self):
-        """-> the letter string, or None when no letter scheme exists.
+    def rhyme_partition_groups(self):
+        """-> the groups whose PAIRS the mandate requires to rhyme.
 
-        None is the doctrine 2 answer and it is not a failure: this structure
-        has no letter representation, and inventing one would delete the
-        overlap that makes it what it is.
+        The expansion, not the declaration. Writing `13-20` and
+        `33-40<=13-20` does not leave L33..L40 unrhymed -- L33 IS L13, so it
+        is in L13's class -- and a projection built off the declared groups
+        alone would report exactly that, which is the same silent drop the
+        return primitive exists to stop.
         """
-        if not self.is_partition():
+        return self.expanded_groups()
+
+    def expanded_overlapping_lines(self):
+        """Pivots AFTER the returns are transported. A declaration can be a
+        partition and its expansion a genuine cover -- two sections that
+        return into each other's rhyme classes -- and the letters have to
+        refuse on the object they are actually projecting."""
+        count = {}
+        for g in self.expanded_groups():
+            for i in g:
+                count[i] = count.get(i, 0) + 1
+        return sorted(i for i, c in count.items() if c > 1)
+
+    def to_rhyme_letters(self):
+        """-> the letter string of the RHYME layer, or None when none exists.
+
+        NAMED for what it drops. None is the doctrine 2 answer and it is not a
+        failure: an overlapping cover has no letter representation, and
+        inventing one would delete the overlap that makes it what it is. What
+        this one ALSO drops, when `returns` is non-empty, is every identity
+        requirement -- which is why the honest spelling of "give me the
+        letters" is `to_letters()`, and it refuses.
+        """
+        groups = self.expanded_groups()
+        if self.expanded_overlapping_lines():
             return None
         out = ["X"] * self.n_lines
-        for k, g in enumerate(self.groups):
+        for k, g in enumerate(groups):
+            lab = self.labels[k] if k < len(self.labels) else label((k,))
             for i in g:
-                out[i - 1] = self.labels[k]
+                out[i - 1] = lab
         return "".join(out)
 
+    def to_letters(self):
+        """-> the letter string, None if it overlaps, or REFUSE if it returns.
+
+        DOCTRINE 20: A REFUSAL IS NOT A NULL, AND IT IS NOT A DEGRADED ANSWER
+        EITHER. A letter is a property of a LINE and it has exactly one thing
+        to say -- which rhyme class. It cannot say "and this line is that line
+        come back", so a mandate carrying returns has no letter string, and
+        handing one back would be the projection quietly deleting the
+        requirement all over again. That deletion is not hypothetical: it is
+        the measured 16 collisions this module's return primitive exists to
+        dissolve.
+
+        `to_rhyme_letters()` is the same projection with the loss in its name,
+        and `to_notation()` is the A-1 notation, which CAN carry a verbatim
+        return and is what to reach for instead.
+        """
+        if self.returns:
+            raise NoMandate(
+                f"this mandate declares {len(self.returns)} return class(es) "
+                f"and there is no letter string for it. A letter is a "
+                f"property of a LINE and says one thing -- which rhyme class; "
+                f"it has no way to say that L{self.returns[0].lines[-1]} IS "
+                f"L{self.returns[0].lines[0]} come back. Degrading to letters "
+                f"here would silently drop "
+                f"{len(self.return_pairs())} identity requirement(s), which "
+                f"is exactly the deletion the return primitive exists to "
+                f"undo, so this REFUSES instead (doctrine 20).\n"
+                f"  `to_notation()`      -> the A-1 notation, which carries "
+                f"verbatim returns\n"
+                f"  `to_rhyme_letters()` -> the rhyme projection, with the "
+                f"loss named")
+        return self.to_rhyme_letters()
+
     def to_code(self):
-        """-> canonical restricted growth string, or None if it overlaps."""
-        letters = self.to_letters()
+        """-> canonical RGS of the RHYME layer, or None if it overlaps.
+
+        The rhyme projection deliberately, and it says so: `Coordinates` is a
+        description of a rhyme partition and has never had a place to put an
+        identity requirement.
+        """
+        letters = self.to_rhyme_letters()
         return None if letters is None else parse(letters)
 
     def coordinates(self, sections=None):
         code = self.to_code()
         return None if code is None else coordinates(code, sections)
 
+    def to_notation(self):
+        """-> the A-1 refrain notation string, or REFUSE with the reason.
+
+        The A-1 notation already ships (`parse_refrain`, `refrain villanelle`)
+        and a CAPITAL in it means a line that must come back VERBATIM, so it
+        can carry statements 1 and 2 of the three. It cannot carry statement 3
+        in general -- a return the author declares NON-verbatim has no mark in
+        it, because the only mark it has is "must be identical" -- and it
+        cannot carry an overlapping cover at all, because its rhyme layer is
+        still one letter per line.
+
+        Both of those REFUSE and name themselves. Neither degrades.
+        """
+        if self.expanded_overlapping_lines():
+            raise NoMandate(
+                f"lines {self.expanded_overlapping_lines()} are in more than "
+                f"one rhyme group, and the A-1 notation's rhyme layer is still "
+                f"ONE LETTER PER LINE. There is no notation for this structure "
+                f"(doctrine 2); the `Mandate` itself is the object.")
+        soft = [r for r in self.returns if r.verbatim is not True]
+        if soft:
+            raise NoMandate(
+                f"return class(es) "
+                f"{[list(r.lines) for r in soft]} are declared with "
+                f"verbatim={soft[0].verbatim!r}. The A-1 notation's ONLY mark "
+                f"is a capital, which means MUST BE VERBATIM; a return that "
+                f"keeps its rhyme and changes its word, and a return whose "
+                f"identity requirement was never declared, both have no mark "
+                f"in it. Writing them as capitals would state a requirement "
+                f"nobody made and writing them as lowercase would drop one "
+                f"that was made, so this REFUSES (doctrine 20).")
+        letters = self.to_rhyme_letters()
+        cls = {}
+        for r in self.returns:
+            for i in r.lines:
+                cls[i] = r
+        # one index per return class, numbered per rhyme letter in line order
+        counter, mark_of = {}, {}
+        out = []
+        for i in range(1, self.n_lines + 1):
+            ch = letters[i - 1]
+            r = cls.get(i)
+            if r is None:
+                out.append(ch.lower() if ch != "X" else "X")
+                continue
+            key = (ch, r.lines)
+            if key not in mark_of:
+                counter[ch] = counter.get(ch, 0) + 1
+                mark_of[key] = f"{ch.upper()}{counter[ch]}"
+            out.append(mark_of[key])
+        text = "".join(out)
+        # THE NOTATION HAS TO ROUND-TRIP, AND THAT IS CHECKED, NOT PROMISED.
+        # `is_refrain_notation` settles an ambiguity the module declared: an
+        # ALL-UPPERCASE string keeps the >26-sound reading, so a song with no
+        # unrhymed lowercase line -- this repo's own, whose verses are all X --
+        # would render as `A1B1C1...` and be read straight back as eight
+        # separate SOUNDS. The `^` spelling is the discriminator the module
+        # already ships for exactly this, so reach for it rather than emit a
+        # string that means something else.
+        if not is_refrain_notation(text):
+            text = "".join(t[0] + "^" + t[1:] if len(t) > 1 else t
+                           for t in out)
+        got = parse_refrain(text)
+        if got.marks != tuple(out) or got.code != parse(self.to_rhyme_letters()):
+            raise NoMandate(
+                f"this mandate has no A-1 notation that reads back as itself: "
+                f"{text!r} re-parses to {got.render()!r}. Emitting it would be "
+                f"a notation that means something other than the mandate, "
+                f"which is worse than having none (doctrine 20).")
+        return text
+
     # -- reporting --------------------------------------------------------
 
     def describe(self):
-        letters = self.to_letters()
+        letters = self.to_rhyme_letters()
         head = (f"mandate: {len(self.groups)} group(s) over {self.n_lines} "
                 f"lines, {len(self.pairs())} mandated pair(s), "
                 f"{len(self.free)} free line(s)")
+        if self.returns:
+            head += (f", {len(self.returns)} return class(es) / "
+                     f"{len(self.return_pairs())} identity pair(s)")
         rows = [head, f"  source: {self.source} ({self.origin})"]
         if not self.independent():
             rows.append(
@@ -849,13 +1708,47 @@ class Mandate:
                 "not a verdict (doctrine 14).")
         for k, g in enumerate(self.groups):
             rows.append(f"  {self.labels[k]}: lines {list(g)}")
+        if self.scope:
+            rows.append(
+                f"  SCOPE: this mandate speaks about {len(self.scope)} of "
+                f"{self.n_lines} lines. Every pair touching one of the other "
+                f"{self.n_lines - len(self.scope)} is UNDECLARED — 'cannot "
+                f"tell', which is not 'nothing required' (doctrine 28).")
+        for r in self.returns:
+            rows.append(f"  RETURN {r.describe()}")
+        if self.returns:
+            rows.append(
+                f"  doctrine 3, per PAIR: REPEAT is the REQUIREMENT at the "
+                f"{len(self.return_pairs())} pair(s) above and a VIOLATION at "
+                f"the {len(self.pairs())} rhyme pair(s); the mandate no longer "
+                f"needs one song-wide licence to mean both.")
+            exp = self.expanded_groups()
+            rows.append(
+                f"  rhyme groups after the returns are transported "
+                f"(return_rhyme={self.rule.return_rhyme!r}): "
+                f"{[list(g) for g in exp]}")
         if letters is None:
-            piv = self.overlapping_lines()
+            piv = self.expanded_overlapping_lines()
             rows.append(
                 f"  NO LETTER SCHEME EXISTS: lines {piv} belong to more than "
                 f"one group, and a letter is a property of a LINE, so no "
                 f"assignment of one letter per line can carry this "
                 f"(doctrine 2). Each pivot must answer every group it is in.")
+            if self.returns and not self.overlapping_lines():
+                rows.append(
+                    "  and the DECLARED groups do not overlap — the RETURN "
+                    "made them a cover. A returning line carries its own "
+                    "rhyme obligations into the class it returns into, and "
+                    "rhyme is not transitive, so the two classes stay two. "
+                    "This mandate had a letter scheme until it stated what "
+                    "the song actually does.")
+        elif self.returns:
+            try:
+                rows.append(f"  A-1 notation: {self.to_notation()}")
+            except NoMandate as e:
+                rows.append(f"  NO NOTATION: {str(e).splitlines()[0]}")
+            rows.append(
+                f"  rhyme projection only (drops every return): {letters}")
         else:
             rows.append(f"  letters: {letters}")
         return "\n".join(rows)
@@ -891,21 +1784,76 @@ def _normalise_groups(raw, n_lines):
     return tuple(groups), free
 
 
-def mandate(spec, n_lines=None, source="declared", origin=None):
-    """Anything that can name a rhyme requirement -> a `Mandate`.
+def mandate(spec, n_lines=None, source="declared", origin=None,
+            returns=None, scope=None, rule=None, carry_returns=True):
+    """Anything that can name a song's requirements -> a `Mandate`.
 
-    Accepted, and all four are the SAME kind of object once here:
+    Accepted, and all of them are the SAME kind of object once here:
 
       - a letter string      'ABAB', 'XXXXABCB...' (X / . = free singleton)
+      - an A-1 notation      'A1bA2abA1abA2abA1abA2abA1A2' -- rhyme AND the
+                             verbatim returns, which used to be dropped here
+      - a `RefrainScheme`    the parsed form of the same
       - a canonical RGS code (0, 1, 0, 1)   -- see `parse`/`canonical`
       - a list of groups     [[1, 3], [2, 4]]  -- MAY OVERLAP
       - a `Cover`            the general, overlap-carrying case
       - a `Mandate`          idempotent
 
+    `returns` declares statements 2 and 3 -- which lines are the SAME LINE, and
+    therefore which group is a return of which. It takes the text spelling
+    (`'33-40<=13-20'`, `'1,6,12,18'`; see `parse_returns`), a list of `Return`,
+    or a list of line lists. `scope` declares which lines the mandate speaks
+    about; pairs outside it are `UNDECLARED` rather than `FREE`, which is
+    doctrine 28's distinction made mechanical.
+
+    `carry_returns=False` restores the OLD reading of an A-1 string -- rhyme
+    only, identity silently dropped. It is reachable so the defect is
+    demonstrable rather than a sentence nobody can check (the shape
+    `modal_exclusion=0` and `field_band='scalar'` already use); it is not the
+    default, because the default was the bug.
+
     `None` RAISES `NoMandate`. That is the point of the function: a grader
     with no mandate has been given nothing to check against, and saying
     "nothing flagged" about it is a vacuous pass (doctrine 20).
     """
+    rule = rule or ReturnRule()
+    extra_returns = []
+
+    if isinstance(spec, RefrainScheme):
+        if not carry_returns:
+            spec = spec.code
+        else:
+            m = spec.to_mandate(source=source, origin=origin, rule=rule)
+            if n_lines is not None and n_lines != m.n_lines:
+                raise NoMandate(
+                    f"the notation is written over {m.n_lines} lines and the "
+                    f"draft has {n_lines}.")
+            spec = m
+    elif isinstance(spec, str) and carry_returns and is_refrain_notation(spec):
+        # THE FIX. `parse()` returns the rhyme partition and silently discards
+        # the identity one, so a notation whose whole point is that certain
+        # lines must come back mandated only that they rhyme.
+        rs = parse_refrain(spec)
+        m = rs.to_mandate(source=source, origin=origin, rule=rule)
+        if n_lines is not None and n_lines != m.n_lines:
+            raise NoMandate(
+                f"the notation {spec!r} is {m.n_lines} lines and the draft is "
+                f"{n_lines}.")
+        spec = m
+
+    if isinstance(spec, Mandate) and (returns or scope):
+        # re-open an existing mandate to add the statements it lacked
+        n = spec.n_lines if n_lines is None else n_lines
+        rets = list(spec.returns)
+        if returns is not None:
+            rets += _list_returns(returns)
+        sc = spec.scope if scope is None else tuple(sorted(set(scope)))
+        return Mandate(n_lines=n, groups=spec.groups, labels=spec.labels,
+                       free=spec.free, source=spec.source,
+                       origin=spec.origin + " + returns",
+                       returns=_normalise_returns(rets, n, rule),
+                       scope=sc, rule=rule)
+
     if spec is None:
         raise NoMandate(
             "no mandate was declared, so there is NOTHING to check this draft "
@@ -977,8 +1925,37 @@ def mandate(spec, n_lines=None, source="declared", origin=None):
             "plainly that the song has no rhyme requirement and do not run "
             "the loop.")
     labels = tuple(label((k,)) for k in range(len(groups)))
+    rets = _normalise_returns(
+        extra_returns + (_list_returns(returns) if returns else []), n, rule)
+    if rets:
+        # `free` means "in no group at all", and a returned line IS in one --
+        # the group its own first instance is in. Computing it off the
+        # DECLARED groups would report L33..L40 as mandating nothing while the
+        # mandate requires them to be L13..L20 word for word.
+        probe = Mandate(n_lines=n, groups=groups, labels=labels, free=(),
+                        source=source, origin=org, returns=rets, rule=rule)
+        covered = {i for g in probe.expanded_groups() for i in g}
+        free = tuple(i for i in range(1, n + 1) if i not in covered)
+    if scope is not None:
+        sc = tuple(sorted(set(int(x) for x in scope)))
+        for i in sc:
+            if not 1 <= i <= n:
+                raise NoMandate(
+                    f"scope line {i} is outside 1..{n}.")
+    else:
+        sc = ()
     return Mandate(n_lines=n, groups=groups, labels=labels, free=free,
-                   source=source, origin=org)
+                   source=source, origin=org, returns=rets, scope=sc,
+                   rule=rule)
+
+
+def _list_returns(spec):
+    """-> a list of things `_normalise_returns` accepts, from one argument."""
+    if spec is None:
+        return []
+    if isinstance(spec, (Return, str)):
+        return [spec]
+    return list(spec)
 
 
 __all__ = ["bell", "stirling2", "rgs", "label", "parse", "canonical",
@@ -987,4 +1964,8 @@ __all__ = ["bell", "stirling2", "rgs", "label", "parse", "canonical",
            "Mandate", "mandate", "NoMandate",
            # the A-1 refrain notation
            "SUPERSCRIPTS", "is_refrain_notation", "RefrainScheme",
-           "parse_refrain", "REFRAIN_FORMS", "refrain_form"]
+           "parse_refrain", "REFRAIN_FORMS", "refrain_form",
+           # the three statements: rhyme, return, and the licence per PAIR
+           "UNKNOWN", "Requirement", "REQUIREMENTS", "REQUIRE_RHYME",
+           "REQUIRE_RETURN", "LICENSE_REPEAT", "FREE", "UNDECLARED",
+           "Return", "ReturnRule", "parse_returns"]

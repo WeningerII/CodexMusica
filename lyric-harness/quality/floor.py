@@ -62,6 +62,48 @@ here and may not carry a rejection.
 Every finding therefore carries the evidence that supports it, and the module
 exposes `CALIBRATION` so a caller can see what the numbers came from. Do not
 quote a threshold without it.
+
+THE SONG PROFILE, ADDED 2026-08-11, IS A DIFFERENT KIND OF CALIBRATION
+
+Everything above describes the `section` and `sonnet` profiles, which are
+human-vs-generated separations on 152 Shakespeare sonnets against 40 model
+sonnets. The `song` profile is not that and must not be read as that. There is
+no generated song class in this repo, so the song profile has NO AUC and never
+will until one exists. What it has instead is a false-positive rate measured on
+held-out human song text, which is the doctrine-22 statement of a threshold and
+is a weaker claim than a separation: it says how often the gate interrupts a
+human songwriter, and says NOTHING about whether it catches a machine.
+
+Its calibration set is `corpus/song/eng_*.txt` -- 143 files, one author each,
+4,930 `--- TITLE:` items, 152,325 sung lines -- restricted to items of 150-400
+tokens. Held out BY AUTHOR, never by item, because items by one author are not
+independent of each other (doctrine 13); the item-level split was run alongside
+purely to price what the wrong split would have bought, and it understates the
+seed-to-seed spread by roughly a factor of two. Every rate below is a median
+over 200 author-held-out splits with the 5th-95th percentile of seeds beside
+it, because one seed is a coin flip reported as a verdict (doctrine 73).
+
+Two limits on it, both measured rather than assumed, both in the profile note:
+
+  - The corpus is pre-1931 by construction (the provenance gate). Its
+    latest-born author is 1872 and its latest death is 1929, so it contains no
+    song composed by anyone alive in the last century. ANAPHORA carries a real
+    period slope inside that window (author-level Spearman +0.275 against birth
+    year, p_perm 0.0042 over 10,000 label permutations at seed 20260811, which
+    survives Bonferroni over the four checks) -- so this is a THIRD feature
+    caught reading period rather than quality, after the two doctrine 11
+    already names.
+  - Threshold transfer across the corpus's own period cohorts fails
+    asymmetrically and in the direction that matters here: thresholds fitted on
+    earlier-born authors OVER-flag later-born ones (function-word ratio 12.39%
+    against a cohort-label permutation null median of 5.17%, mattr 10.62%
+    against 4.92%), while the reverse direction runs at or below nominal.
+    Neither survives Bonferroni over the eight cross-cohort comparisons, so
+    this is a DIRECTION and not a finding. But a 2026 lyric sits further along
+    the same axis than any author in the corpus, and the only measured gradient
+    points at a HIGHER false-positive rate there, not a lower one.
+
+`quality/RESULTS_SONG_FLOOR.md` carries the full tables and the commands.
 """
 
 import os
@@ -90,7 +132,11 @@ CALIBRATION = {
     "known_limits": "one form, one language, one generator, 400-year register "
                     "gap. Reads register and period as well as craft; five of "
                     "ten features separated with the wrong sign, and removing "
-                    "level effects dropped joint AUC from 0.971 to 0.877.",
+                    "level effects dropped joint AUC from 0.971 to 0.877. The "
+                    "`song` profile is NOT part of this: it has no generated "
+                    "class, no AUC, and its evidence is a held-out "
+                    "false-positive rate on human song text -- see that "
+                    "profile's own source and note.",
     #: LENGTH IS A COORDINATE, not a detail. MATTR is a moving average over a
     #: 50-token window; below that the implementation falls back to plain TTR,
     #: which is the length-confounded statistic MATTR exists to avoid. A
@@ -138,12 +184,29 @@ class Profile:
     n_human: int
     n_generated: int
     percentiles: dict
+    #: separation against a GENERATED class. Empty where no such class exists,
+    #: and then `held_out_fpr` is the only evidence the profile has. The two
+    #: are different claims and the finding text says which one it is holding.
     measured_auc: dict
     note: str = ""
     #: how far outside [lo, hi] the profile may still be applied, as a
     #: multiplier. Inside the band but outside the range, every finding is
     #: DOWNGRADED to a note: an extrapolated measurement may not reject.
+    #:
+    #: 2.0 is what the first two profiles shipped with and it is a constant
+    #: nobody measured -- it appears in no results document. Measured for the
+    #: first time on 2026-08-11 against the song corpus: carrying the 150-400
+    #: thresholds out to 2.0x raises the union false-positive rate from 17.66%
+    #: to 22.05% and every single check with it. The `song` profile therefore
+    #: declares 1.25 (19.36%) and the other two keep 2.0 because re-measuring
+    #: them needs the sonnet classes and that was not this cell's to move.
     tolerance: float = 2.0
+    #: what text the percentiles were read off, and how they were held out.
+    source: str = ""
+    #: {check: (median, seed_5th, seed_95th)} as PERCENTAGES, on held-out
+    #: human text. This is the doctrine-22 statement of the threshold; a
+    #: percentile on a scale is not one.
+    held_out_fpr: dict = field(default_factory=dict)
 
     def band(self):
         return int(self.lo / self.tolerance), int(self.hi * self.tolerance)
@@ -154,6 +217,28 @@ class Profile:
     def reaches(self, n):
         a, b = self.band()
         return a <= n <= b
+
+    def evidence_for(self, key):
+        """One phrase naming what this profile's threshold for `key` rests on.
+
+        A profile with a generated class can quote a separation. A profile
+        without one may only quote how often it fires on held-out human text,
+        and has to say that it is the weaker claim -- otherwise a reader
+        carries "AUC 0.870" over to a profile that never measured anything of
+        the kind.
+        """
+        auc = self.measured_auc.get(key)
+        if auc is not None:
+            return "AUC %s against the generated class at this length" % auc
+        f = self.held_out_fpr.get(key)
+        if f is None:
+            return ("no separation and no false-positive rate measured at "
+                    "this length")
+        return ("NO generated class exists at this length, so there is no "
+                "AUC and no separation claim; the evidence is a false-positive "
+                "rate of %.2f%% on HELD-OUT human song (5th-95th percentile of "
+                "seeds %.2f-%.2f%%). It says how often this fires on a human "
+                "songwriter, not whether it catches a machine" % f)
 
 
 #: Both profiles come from the SAME two classes -- the 152 sonnets and the 40
@@ -194,6 +279,86 @@ PROFILES = [
                       "anaphora": 0.147, "line_length_cv": 0.350,
                       "predictability": 0.440},
         note="The domain the ten pre-registered features were run on."),
+    Profile(
+        name="song", unit="whole lyric sheet, 150-400 tokens",
+        lo=150, hi=400, n_human=1859, n_generated=0,
+        tolerance=1.25,
+        percentiles={
+            "mattr_min": 0.7226,                # human 5th
+            "function_word_ratio_max": 0.4716,  # human 95th
+            "anaphora_max": 0.3000,             # human 95th
+            "line_length_cv_min": 0.1123,       # human 5th
+        },
+        #: EMPTY ON PURPOSE. There is no generated song class in this repo, so
+        #: there is no separation to report and this profile may not borrow the
+        #: sonnet's. `held_out_fpr` is what it has instead.
+        measured_auc={},
+        held_out_fpr={
+            # (median, 5th percentile of seeds, 95th percentile of seeds)
+            "mattr": (5.43, 1.51, 11.07),
+            "function_word_ratio": (5.23, 1.86, 10.64),
+            "anaphora": (5.01, 1.44, 11.15),
+            "line_length_cv": (5.13, 3.04, 7.81),
+            "ANY": (17.66, 10.78, 25.58),
+        },
+        source="corpus/song/eng_*.txt: 143 files, one author each, 4,930 "
+               "`--- TITLE:` items, 152,325 sung lines, deduplicated "
+               "2026-08-11. Restricted to items of 150-400 tokens: 1,859 "
+               "items over 108 authors. Thresholds are the 5th/95th percentile "
+               "of that human class, held out BY AUTHOR (50/50, 200 seeds).",
+        note=(
+            "READ THIS BEFORE QUOTING ANY NUMBER FROM IT.\n"
+            "  * It is NOT a separation. The other two profiles separate 152 "
+            "Shakespeare sonnets from 40 model sonnets and can quote an AUC. "
+            "This one has no generated song class, so it has no AUC and makes "
+            "no claim to catch generated text. It only says how often it "
+            "interrupts a human songwriter: per check 5.0-5.4% median, and "
+            "17.66% for the UNION of the four (5th-95th percentile of seeds "
+            "10.78-25.58%). One human song in six trips something.\n"
+            "  * The band was chosen by a rule declared before it was read "
+            "off: the widest contiguous token range in which every 50-token "
+            "sub-bin holds >=100 items and every sub-bin threshold sits within "
+            "0.02 (0.03 for anaphora) of the band-wide one. 150-400 is what "
+            "that rule returns. It was not widened to admit any particular "
+            "lyric, and 100-400 and 150-450 both FAIL it -- on mattr, whose "
+            "5th percentile runs 0.6400 at 50-80 tokens to 0.7719 at 700-1200 "
+            "and is only flat above ~150.\n"
+            "  * PERIOD. The corpus is pre-1931 by construction; latest birth "
+            "1872, latest death 1929. ANAPHORA has a real period slope inside "
+            "that window -- author-level Spearman +0.275 against birth year, "
+            "p_perm 0.0042 over 10,000 label permutations at seed 20260811, "
+            "which survives Bonferroni over the four checks. That is a THIRD "
+            "feature caught "
+            "reading period rather than quality (doctrine 11). Cross-cohort "
+            "threshold transfer fails asymmetrically: fitted on earlier-born "
+            "authors it over-flags later-born ones (function-word ratio "
+            "12.39% against a cohort-permutation null median of 5.17%, mattr "
+            "10.62% against 4.92%), and the reverse direction sits at or below "
+            "nominal. Neither survives Bonferroni over the eight cross-cohort "
+            "comparisons, so it is a direction and not a finding -- but a "
+            "2026 lyric is further along that axis than any author here, and "
+            "the only measured gradient points at a HIGHER false-positive rate "
+            "there.\n"
+            "  * The unit is the WHOLE SHEET with any [VERSE n] / [CHORUS] "
+            "marker line removed, which is how the corpus items were counted. "
+            "A refrain printed twice is INSIDE the calibration, so a chorus "
+            "that repeats does not by itself cost anything here. That also "
+            "means these thresholds may not be applied to one section of a "
+            "sheet: for that, the section profile, at its own length.\n"
+            "  * PREDICTABLE_RHYME is absent, like it is from the section "
+            "profile, and for a second reason on top of doctrine 11's OOV "
+            "artifact: it is computed against `wordfreq20k.txt`, which is "
+            "being replaced this round, so a threshold measured on it today "
+            "would be a coordinate of a file that will not exist tomorrow.\n"
+            "  * The 5th/95th percentiles are ITEM-weighted, and the band is "
+            "not evenly authored -- Watts is 15.3% of it, and the top five "
+            "authors are 51.7%. Leave-one-author-out moves the thresholds by "
+            "at most 0.0052 (mattr), 0.0018 (fwr), 0.0172 (anaphora), 0.0013 "
+            "(cv). An author-weighted alternative -- one median per author, "
+            "n=108 -- gives 0.7262 / 0.4801 / 0.2679 / 0.1194, so the two "
+            "disagree most on anaphora. Item-weighted ships because the rate "
+            "the gate delivers is an item rate."),
+    ),
 ]
 
 CALIBRATION["profiles"] = {p.name: p for p in PROFILES}
@@ -214,7 +379,15 @@ def declaration_for(n_tokens):
     reach = [p for p in PROFILES if p.reaches(n_tokens)]
     if not reach:
         return None, False
-    return min(reach, key=lambda p: abs((p.lo + p.hi) / 2 - n_tokens)), False
+    # Nearest MEASURED EDGE, not nearest midpoint. The midpoint rule was fine
+    # while the two profiles were narrow and far apart, and it broke as soon as
+    # a third one was added with a 250-token range: at 149 tokens it chose the
+    # sonnet, extrapolating 23 tokens past a measured 126, over the song
+    # profile whose measured range starts at 150. What is being minimised here
+    # is the SIZE OF THE EXTRAPOLATION, so that is what the rule should read.
+    def gap(p):
+        return p.lo - n_tokens if n_tokens < p.lo else n_tokens - p.hi
+    return min(reach, key=lambda p: (gap(p), p.hi - p.lo)), False
 
 
 @dataclass
@@ -289,11 +462,26 @@ class SlopFloor:
     # -- individual checks ------------------------------------------------
 
     def _anaphora(self, lines):
+        """Share of lines opening with the most frequent opening word.
+
+        The tie break is FIRST OCCURRENCE, and that is not cosmetic. This read
+        `max(set(firsts), key=firsts.count)` until 2026-08-11, and iterating a
+        set of strings is iterating a hash order that Python randomises per
+        process: on a four-line text opening Alpha/Beta/Alpha/Beta the RATE was
+        a stable 0.5 and the reported word alternated between 'alpha' and
+        'beta' across `PYTHONHASHSEED` 0-5, taking the finding's `locations`
+        with it. A tie broken by iterating a set is a result that does not
+        reproduce (doctrine 66) -- and here it was the evidence and the line
+        numbers, i.e. exactly the part a writer acts on.
+        """
         firsts = [(l.split() or [""])[0].lower().strip(",.;:!?—-")
                   for l in lines]
         if not firsts:
             return 0.0, ""
-        top = max(set(firsts), key=firsts.count)
+        first_at = {}
+        for i, w in enumerate(firsts):
+            first_at.setdefault(w, i)
+        top = min(firsts, key=lambda w: (-firsts.count(w), first_at[w]))
         return firsts.count(top) / len(firsts), top
 
     @staticmethod
@@ -355,8 +543,7 @@ class SlopFloor:
                 "LEXICAL_MONOTONY", sev("flag"),
                 "vocabulary repeats more than human verse did in calibration",
                 f"MATTR {m:.3f} < {thr:.4f} (human 5th percentile, {prof.name} "
-                f"profile); AUC {prof.measured_auc.get('mattr')} at this "
-                f"length, the strongest single check here. Caveat: within "
+                f"profile); {prof.evidence_for('mattr')}. Caveat: within "
                 f"Shakespeare the direction REVERSES (0.366), so low MATTR is "
                 f"not evidence against a poem, only outside the range this "
                 f"corpus occupied"))
@@ -369,9 +556,9 @@ class SlopFloor:
                 "FUNCTION_WORD_HEAVY", sev("flag"),
                 "a high share of the text is closed-class filler",
                 f"function-word ratio {f:.3f} > {thr:.4f} (human 95th "
-                f"percentile, {prof.name} profile); AUC "
-                f"{prof.measured_auc.get('function_word_ratio')} with "
-                f"generated higher. Null within Shakespeare (0.536), so this "
+                f"percentile, {prof.name} profile); "
+                f"{prof.evidence_for('function_word_ratio')}. Null within "
+                f"Shakespeare (0.536), so this "
                 f"is a register signal with no within-tradition support. "
                 f"Presumes a clean function/content split and does not "
                 f"transfer to agglutinative or polysynthetic languages"))
@@ -387,10 +574,17 @@ class SlopFloor:
                 f"{int(a * len(lines))} of {len(lines)} lines open with the "
                 f"same word",
                 f"opening {word!r} at {a:.0%} of lines > {thr:.0%} (human 95th "
-                f"percentile, {prof.name} profile); AUC "
-                f"{prof.measured_auc.get('anaphora')} with generated higher. "
+                f"percentile, {prof.name} profile); "
+                f"{prof.evidence_for('anaphora')}. "
                 f"POST-HOC: this check was not pre-registered, so it needs its "
-                f"own replication before it is trusted. Deliberate anaphora is "
+                f"own replication before it is trusted"
+                + (". And on the song corpus it carries a measured PERIOD "
+                   "slope -- author-level Spearman +0.275 against birth year, "
+                   "p_perm 0.0042 over 10,000 label permutations at seed "
+                   "20260811 -- so at this length part of what it reads "
+                   "is when the words were written (doctrine 11)"
+                   if prof.name == "song" else "")
+                + f". Deliberate anaphora is "
                 f"a figure — Whitman, the Psalms and every blues refrain trip "
                 f"this — so the finding is a decision handed back, not a "
                 f"verdict", hits))
@@ -406,8 +600,8 @@ class SlopFloor:
                 f"{prof.name} profile). NOT slop evidence: this check was "
                 f"built expecting metronomic lines to be a generated-text tell "
                 f"and the measurement came out BACKWARDS — Shakespeare is more "
-                f"uniform than the model (AUC "
-                f"{prof.measured_auc.get('line_length_cv')}). In a fixed form "
+                f"uniform than the model. "
+                f"{prof.evidence_for('line_length_cv')}. In a fixed form "
                 f"uniformity is the form. Retained only as 'outside the human "
                 f"range', and meaningful, if at all, in free verse"))
 
@@ -584,7 +778,21 @@ class SlopFloor:
         for p in PROFILES:
             a, b = p.band()
             print(f"  profile {p.name:<8} {p.unit:<32} measured {p.lo}-{p.hi} "
-                  f"tok, applied {a}-{b}", file=stream)
+                  f"tok, applied {a}-{b} ({p.tolerance:g}x)", file=stream)
+            # A profile with no generated class cannot be read as a separation
+            # and the banner has to say so where the reader is, not only in a
+            # docstring three hundred lines up.
+            if p.n_generated == 0:
+                fp = p.held_out_fpr.get("ANY")
+                print(f"           NO generated class: no AUC, no separation "
+                      f"claim. Evidence is a HELD-OUT false-positive rate on "
+                      f"human text"
+                      + (f" — {fp[0]:.2f}% of held-out human items trip at "
+                         f"least one check (5th-95th percentile of seeds "
+                         f"{fp[1]:.2f}-{fp[2]:.2f}%)" if fp else "")
+                      + ".", file=stream)
+                if p.source:
+                    print(f"           from {p.source}", file=stream)
         # The checks that did not do what they were built to do are printed
         # every run, beside the ones that did. A gate that only shows its
         # working results is advertising.
@@ -630,6 +838,41 @@ if __name__ == "__main__":
             print(f"\n=== [{nm}] {len(ls)} lines, {n} tokens")
             sc = scheme if scheme and len(scheme) == len(ls) else None
             floor.report(ls, sc, banner=False)
+        # The SHEET pass, for the length-sensitive half only.
+        #
+        # A marked-up sheet never reaches the song profile section by section:
+        # each section is 20-60 tokens and lands in `section` or in nothing.
+        # But the song profile was calibrated on WHOLE corpus items with their
+        # refrains printed, so the sheet is the length its thresholds were
+        # measured at and the sections are not. Both passes therefore run and
+        # both are labelled.
+        #
+        # Only the length-sensitive codes are reported here, and that is
+        # doctrine 3: the REPEAT band inverts across a section boundary, so a
+        # pooled self-rhyme count over a sheet with two chorus instances is a
+        # false accusation by construction. The per-section pass above owns
+        # that half.
+        if len(secs) > 1:
+            SIZED = {"LEXICAL_MONOTONY", "FUNCTION_WORD_HEAVY",
+                     "ANAPHORA_OVERLOAD", "UNIFORM_LINE_LENGTH",
+                     "PREDICTABLE_RHYME", "OUT_OF_CALIBRATED_LENGTH",
+                     "EXTRAPOLATED_LENGTH"}
+            allls = [l for _, ls in secs for l in ls]
+            n = sum(len(floor.qf._tokens(x)) for x in allls)
+            print(f"\n=== WHOLE SHEET {len(allls)} lines, {n} tokens — "
+                  f"length-sensitive checks only")
+            print("    the relation-level half is NOT pooled: the REPEAT band "
+                  "inverts across a section boundary (doctrine 3), so a "
+                  "self-rhyme count over the whole sheet would flag every "
+                  "chorus. See the per-section reports above for that half.")
+            found = [f for f in floor.check(allls) if f.code in SIZED]
+            flags = [f for f in found if f.severity == "flag"]
+            print(f"\nSLOP FLOOR — {len(flags)} flag(s), "
+                  f"{len(found) - len(flags)} note(s)")
+            for f in found:
+                print(f"  {f}")
+            if not found:
+                print("  no findings")
         floor.banner()
         sys.exit(0)
     print("DECLARATION")

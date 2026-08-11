@@ -69,6 +69,41 @@ CONSONANTS = {
     "W": (1, 0.90, "glide"), "Y": (1, 0.60, "glide"),
 }
 
+# The English regular -s suffix (plural, 3sg, possessive) has ONE form whose
+# realisation is fixed by the base's last phone. `transcribe_word`'s OOV
+# fallback used to append a hard-coded Z to every base, which is right for the
+# voiced class and impossible for the other two: it produced `wights` =
+# W AY1 T Z, and English has no /tz/ coda.
+#
+# MEASURED AGAINST CMUDICT ITSELF, which is the only test that means anything
+# here (doctrine 37 -- test a phonology against its tradition, not against its
+# own rules). Over the 12,470 dictionary words ending in orthographic -s whose
+# base is a true phonetic PREFIX of them, the rule below predicts the suffix
+# for 96.61% against the append-Z fallback's 66.03%. By class:
+#     class            n     rule    append-Z
+#     voiceless     3,322   99.8%        0.2%
+#     voiced/other  8,342   98.6%       98.6%
+#     sibilant        806   62.8%        0.0%
+# The sibilant residue is not a competing rule: CMUdict writes that syllable
+# IH0 Z 506 times and AH0 Z 211 times, and AH~IH is precisely the pair
+# `Declaration.nucleus_licence` already declares as one reduced vowel written
+# two ways, so the remainder is absorbed one channel down rather than lost.
+PLURAL_S_SIBILANT = ("S", "Z", "SH", "ZH", "CH", "JH")   # -> a syllable, IH0 Z
+PLURAL_S_VOICELESS = ("P", "T", "K", "F", "TH")          # -> S
+# everything else (voiced obstruents, nasals, liquids, glides, vowels) -> Z
+
+
+def plural_s_tail(base):
+    """The phones the regular -s suffix adds after `base`. -> list."""
+    if not base:
+        return ["Z"]
+    if base[-1] in PLURAL_S_SIBILANT:
+        return ["IH0", "Z"]
+    if base[-1] in PLURAL_S_VOICELESS:
+        return ["S"]
+    return ["Z"]
+
+
 MANNER_DIST = {
     ("stop", "stop"): 0.0, ("fricative", "fricative"): 0.0,
     ("affricate", "affricate"): 0.0, ("nasal", "nasal"): 0.0,
@@ -189,6 +224,118 @@ class Declaration:
     # beats the hand-set value held out; this one does, in both halves, in the
     # same direction. Doctrine 22: the number now carries a rate.
     theta_coda: float = 0.80      # coda AGREEMENT, not coda evidence
+    # --- THE SHAPE OF THE CODA QUESTION (doctrine 1, 84, 94) ----------------
+    # DECLARED 2026-08-11. `theta_coda` above is a cut on `cluster_sim`, and
+    # NO VALUE OF IT REACHES `wall`/`floor`: `cons_sim('R','L')` is 0.9875 and
+    # is the ARGMAX of the entire 276-pair consonant matrix, so the only cuts
+    # that refuse a lateral against a rhotic are the cuts that refuse every
+    # non-identical pair in English. That is not a threshold problem, and two
+    # cells found it from different directions on the same day -- `ear`/`will`
+    # from the revision loop, `wall`/`floor`/`call`/`more` from a song.
+    #
+    # The construction is why, and it is general rather than a liquid quirk:
+    #   d = 0.30*(voicing differs) + 0.25*|place difference| + 0.45*MANNER_DIST
+    # Manner IDENTITY is worth 0.45 of a 1.0 budget while the whole place axis
+    # can take away at most 0.25, so EVERY same-manner same-voicing pair scores
+    # >= 0.75 whatever its place distance (measured floor 0.7750, F~HH). At
+    # `theta_coda` 0.80 that admits 36 of 276 unordered non-identical pairs as
+    # AGREEING codas -- 15 fricative, 6 stop, 3 nasal, 1 glide, 1 liquid and 10
+    # affricate crossings. `S`~`TH` (0.975, miss/myth), `P`~`T` (0.925,
+    # cap/cat), `M`~`N` (0.925), `B`~`D` (0.925, rob/rod), `K`~`T` (0.875,
+    # back/bat). None of those is a General American rhyme. R~L is not one
+    # defect; it is the top row of a class.
+    #
+    # THE SCALAR'S ADMITTED SET AND THE ATTESTED SET ARE ALMOST DISJOINT, which
+    # is the finding that decides the shape rather than the cut. Over the 1003
+    # readable mandated sonnet pairs, exactly 4 distinct non-identical coda
+    # pairs clear 0.80 (5 observations: words/affords, deserts/parts,
+    # costs/boast, remember'd/tender'd) while the ones the corpus actually
+    # attests -- S~Z x8, D~RD x4, RT~T x3, RTH~TH x3 -- are all REFUSED by it.
+    # In the fit half, of the 25 distinct non-identical coda pairs the scalar
+    # admits anywhere, 4 occur at all in mandated positions; in the held-out
+    # half, 1 of 26 does. Spearman(cluster_sim, lift) is +0.156 and +0.122
+    # across the two halves -- the same "no ordering information" verdict
+    # `vowel_sim` got at +0.02/-0.03, and read the same way (doctrine 57):
+    # what reproduces is that it is small, not the digit.
+    #
+    #   "scalar"    min cluster_sim over the aligned syllables >= theta_coda.
+    #               The incumbent from the first commit. REACHABLE, and kept
+    #               reachable on purpose (doctrine 84) so the leak above stays
+    #               demonstrable rather than optimised away.
+    #   "identity"  the coda tuples must be equal. The redteam's REFERENCE LINE
+    #               on this channel, promoted to a shape, and SHIPPED -- see the
+    #               held-out table below.
+    #   "licensed"  identity plus `coda_licence`, the two-tier rule the nucleus
+    #               channel has. Reachable, and its licence is EMPTY by default,
+    #               which is a measured result and not an oversight. See
+    #               `coda_licence`.
+    #
+    # PRICED HELD-OUT, fit half 0 / held half 1, both arms, before shipping
+    # (`quality/redteam_band.py` §7). FPR is against the strict-identity
+    # reference on 4,000 random CMUdict pairs, seed 20260810; `refused` is the
+    # share of the sonnets' readable mandated pairs the band declines:
+    #        shape             FIT FPR  FIT refused   HELD FPR  HELD refused
+    #        scalar 0.80         3.55%       12.28%      3.65%         9.44%
+    #        scalar 0.90         2.55%       12.28%      2.60%         9.44%
+    #        scalar 0.95         2.25%       12.48%      2.30%         9.44%
+    #        identity            2.05%       12.48%      2.15%         9.44%
+    # Identity cuts the false-positive rate by a third in BOTH halves and costs
+    # +0.20pp of mandated pairs in the fit half and EXACTLY ZERO in the held-out
+    # half. Doctrine 5's bar is that a change must beat the incumbent held out;
+    # this does, in the same direction in both halves, which is the same
+    # standard `theta_coda` 0.60 -> 0.80 was shipped on (doctrine 94).
+    #
+    # Note what the sweep rows show and the ratchet does not: `scalar 0.95`
+    # already pays the full true-positive cost and still admits `wall`/`floor`.
+    # There is no cut that buys the fix, which is why this is a SHAPE change.
+    #
+    # Doctrine 24 still governs the consequence: this decides RHYME vs
+    # ASSONANCE, it does not reject. `wall`/`floor` is ASSONANCE now -- a named
+    # member of the taxonomy, identical nucleus, differing coda -- not a
+    # non-relation, and the graph keeps the edge and the name.
+    coda_agreement: str = "identity"          # "scalar"|"identity"|"licensed"
+    # Unordered consonant pairs that AGREE in a coda without being identical.
+    #
+    # EMPTY, AND THE EMPTINESS IS THE RESULT. The nucleus channel has exactly
+    # one licensed pair (AH~IH) because CMUdict demonstrably writes one reduced
+    # vowel two ways, checkable against the dictionary with no poem involved.
+    # This cell went looking for the coda's equivalent and there is not one.
+    #
+    # S~Z was the candidate: 8 observations, the best-attested non-identical
+    # coda pair in the mandated sonnet positions. Held out it is a real trade --
+    # FPR 2.10%/2.40% against identity's 2.05%/2.15%, mandated refusals
+    # 11.49%/8.84% against 12.48%/9.44% -- so it buys true positives and pays
+    # false ones, and neither shape dominates. What decides it is WHAT THE EIGHT
+    # OBSERVATIONS ARE, and every one is some other layer's defect wearing a
+    # coda mismatch:
+    #   * `wights`/`knights` is not CMUdict at all. `wights` is absent from the
+    #     dictionary and reaches the comparator through `transcribe_word`'s OOV
+    #     plural fallback, which appended a hard-coded Z after ANY base. English
+    #     -s is /s/ after a voiceless obstruent, so `W AY1 T Z` is a phone
+    #     sequence English does not have. That is the INGESTION layer and it is
+    #     fixed there, in `PLURAL_S_VOICELESS` (515 distinct words across the
+    #     corpora had the same impossible coda).
+    #   * `muse`/`use` is a HOMOGRAPH: CMUdict lists `use` only as the noun
+    #     Y UW1 S, and Shakespeare's is the verb /juːz/, which rhymes exactly.
+    #   * `glass`/`was`, `pass`/`was`, `is`/`amiss`, `this`/`is` are Early
+    #     Modern English, the same class as love/prove -- and doctrine 94's own
+    #     warning says a threshold cannot be calibrated on a corpus whose
+    #     dialect differs from the declared one on the channel the difference
+    #     lives in.
+    # So the licence would have been a comparator-shaped patch over an
+    # ingestion bug, a homograph and a dialect gap: doctrine 79's triage error
+    # made three times in one tuple. The MECHANISM ships and stays reachable
+    # (doctrine 84) so a later cell with real evidence can fill it; the licence
+    # does not, for the same reason the fitted matrix does not (known gap 2) --
+    # nothing showed it helped.
+    coda_licence: tuple = ()
+    # ...and where a licence IS declared it applies only when the licensed pair
+    # is the LAST phone of both codas. That is the restriction that keeps a
+    # licence a claim about a word-final morpheme rather than a claim that two
+    # phones are interchangeable everywhere. It moves NO number on either
+    # corpus at the shipped empty licence, and it is declared rather than
+    # assumed so that the claim a future licence makes is bounded in advance.
+    coda_licence_final_only: bool = True
     # NOT CALIBRATED, and now DECLARED as uncalibrated rather than left
     # unexamined (BACKLOG 1.3). `five`/`of` passes at nucleus similarity 0.603
     # against this 0.600, which is a coin flip wearing a verdict; `bed`/`bead`
@@ -348,10 +495,21 @@ class Lexicon:
             return [], False
         if w in self.entries:
             return list(self.entries[w][0]), False
-        # crude OOV fallback: strip trailing s / 's
-        for suffix, tail in (("'s", ["Z"]), ("s", ["Z"])):
+        # OOV fallback: strip trailing s / 's and re-attach the suffix with
+        # its VOICING, which is fixed by the base's last phone (see
+        # PLURAL_S_SIBILANT / PLURAL_S_VOICELESS). This used to append a
+        # hard-coded ["Z"], which produced phone sequences English does not
+        # have -- `wights` came out W AY1 T Z, and /tz/ is not an English
+        # coda. Found by cell BA from the comparator end: `wights`/`knights`
+        # was the best-attested non-identical coda pair in the sonnets'
+        # mandated positions and looked like evidence for licensing S~Z in the
+        # band, when it was this line. That is doctrine 79's triage error
+        # arriving at the comparator from the ingestion layer, and the fix
+        # belongs here.
+        for suffix in ("'s", "s"):
             if w.endswith(suffix) and w[: -len(suffix)] in self.entries:
-                return list(self.entries[w[: -len(suffix)]][0]) + tail, False
+                base = list(self.entries[w[: -len(suffix)]][0])
+                return base + plural_s_tail(base), False
         # elision: crown'd -> crowned
         if w.endswith("'d"):
             for cand in (w[:-2] + "ed", w[:-2] + "d"):
@@ -1463,6 +1621,49 @@ def nucleus_agrees(ta, tb, decl):
     return True
 
 
+def coda_agrees(ta, tb, decl):
+    """The coda channel's PREDICATE shapes: `identity` and `licensed`.
+
+    The exact mirror of `nucleus_agrees`, and it exists for the same reason:
+    "a cut on a graded similarity matrix" is a SHAPE, and on this channel it
+    was the function rather than a declared coordinate. The scalar shape is
+    still the `min(cluster_sim(...))` in `channel_agreement`.
+
+    THE CLUSTER RULE IS SAME-LENGTH, POSITION-WISE. Two codas agree if they
+    have the same number of phones and each aligned phone is identical or an
+    unordered member of `decl.coda_licence`. A licence is a claim about ONE
+    segment, so extending it to a Needleman-Wunsch alignment over unequal
+    lengths would let a licence buy a DELETION, which is a different claim
+    entirely -- that is `nelms`/`seashells` (LMZ ~ LZ), admitted by the scalar
+    at exactly 0.800, and it is not an English rhyme.
+
+    Two ABSENT codas agree, here as in the scalar (doctrine 25): `see`/`free`.
+    That falls out of `() == ()` and needs no special case.
+    """
+    if decl.coda_agreement not in ("scalar", "identity", "licensed"):
+        # Same reason as nucleus_agrees: an undeclared shape must be loud.
+        raise ValueError(
+            f"Declaration.coda_agreement must be 'scalar', 'identity' or "
+            f"'licensed', got {decl.coda_agreement!r}")
+    lic = {tuple(sorted(p)) for p in decl.coda_licence}
+    for x, y in zip(ta, tb):
+        ca, cb = tuple(x["coda"]), tuple(y["coda"])
+        if ca == cb:
+            continue
+        if decl.coda_agreement != "licensed":
+            return False
+        if len(ca) != len(cb):
+            return False
+        for k, (p, q) in enumerate(zip(ca, cb)):
+            if p == q:
+                continue
+            if tuple(sorted((p, q))) not in lic:
+                return False
+            if decl.coda_licence_final_only and k != len(ca) - 1:
+                return False
+    return True
+
+
 def channel_agreement(anc_a, anc_b, decl):
     """Does each channel AGREE across the whole anchor? -> (nucleus, coda).
 
@@ -1517,7 +1718,14 @@ def channel_agreement(anc_a, anc_b, decl):
     for i in range(n):
         ca, cb = ta[i]["coda"], tb[i]["coda"]
         codas.append(1.0 if (not ca and not cb) else cluster_sim(ca, cb))
-    return nuc >= decl.theta_nucleus, min(codas) >= decl.theta_coda
+    cod = min(codas)
+    if decl.coda_agreement != "scalar":
+        # Same construction as the nucleus four lines up, and for the same
+        # reason: a non-scalar SHAPE answers with a predicate, not a
+        # magnitude, and infinities keep `theta_coda` from being able to
+        # invert it.
+        cod = float("inf") if coda_agrees(ta, tb, decl) else float("-inf")
+    return nuc >= decl.theta_nucleus, cod >= decl.theta_coda
 
 
 def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
