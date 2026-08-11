@@ -168,9 +168,29 @@ class ReviseDeclaration:
     #: same argument as `modal_exclusion=0`); it is not the default.
     field_band: str = "grader"
 
+    #: How many full write-check-fix ROUNDS `quality/loop.py` runs before it
+    #: stops and hands back whatever is still flagged, regardless of the
+    #: reason. Declared since the first commit of this file and unread by
+    #: anything until `quality/loop.py`: a bound on effort has to exist
+    #: before the loop that spends it does, or the loop's own author decides
+    #: it ad hoc the day it is finally driven end to end.
     max_rounds: int = 4
     #: a revision is rejected if it introduces MORE new findings than it fixes
     allow_net_new: int = 0
+
+    #: TIER 1's retry budget, per flagged line, per round. `quality/loop.py`
+    #: proposes a replacement, and if `verify()` rejects it, tries again —
+    #: up to this many times — before moving on to the next flagged line
+    #: rather than exhausting the whole candidate field on one.
+    attempts_per_line: int = 3
+    #: TIER 2's search width. A joint-conflict pivot is backtracked by trying
+    #: a NEW word for the anchor line and seeing whether the pivot's OTHER
+    #: groups then have a non-empty field — this is the number of anchor
+    #: candidates AND the number of pivot candidates per anchor tried before
+    #: giving up on one 2-member group and moving to the next. Bounded
+    #: because the search is O(width^2) `joint_field`/`modal_field` calls per
+    #: group, not because a wider search is wrong.
+    backtrack_width: int = 5
 
     #: WHAT A MANDATE MEANS WHERE THE GROUPS OVERLAP. "conjunctive" — a line
     #: in k groups must answer ALL k. "disjunctive" — answering one of them

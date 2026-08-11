@@ -3190,6 +3190,13 @@ the quality layer (each says which module answered):
                           nothing mandated, and "nothing flagged" about that
                           is a vacuous pass (doctrine 20)
   verify BEFORE AFTER [MANDATE] [lines]  did the revision earn it
+  revise FILE [MANDATE]   the automated write-check-fix LOOP: brief() and
+                          verify() driven to convergence with a mechanical
+                          stub proposer (quality/loop.py). Two tiers -- swap
+                          a flagged line's own word, or BACKTRACK an anchor
+                          when `joint_conflict` says no word answers a pivot
+                          at all -- and three stop conditions: success,
+                          no_progress, or the declared max_rounds
   readability FILE        what the ingestion layer could not read"""
 
 
@@ -3210,6 +3217,8 @@ VERB_LAYERS = (
     ("cycle", "quality/meter.py", "exact-rational metric cycles"),
     ("relations", "quality/relations.py", "77 named relation schemas"),
     ("brief / verify", "quality/revise.py", "the revision loop"),
+    ("revise", "quality/loop.py", "the automated write-check-fix loop, "
+     "driven on top of brief/verify"),
     ("readability", "quality/readability.py", "ingestion refusals"),
     ("grid", "quality/grid.py", "bar grid, stanza lock"),
     ("function", "quality/grid.py", "section function, returns, hook"),
@@ -4045,7 +4054,8 @@ def main():
               f"end word, {rep['lines_unreadable_final_piece']} the LAST "
               f"piece of a compound")
 
-    elif cmd in ("brief", "verify"):
+    elif cmd in ("brief", "verify", "revise"):
+        from quality import loop as LP
         from quality.revise import Reviser
         from quality.schemes import NoMandate
         rv = Reviser(lex=lex, decl=decl)
@@ -4159,7 +4169,7 @@ def main():
                               f"{', '.join(b.forbidden_modal)}")
                     if b.candidates:
                         print(f"      offered: {', '.join(b.candidates[:12])}")
-            else:
+            elif cmd == "verify":
                 before = [l.rstrip() for l in open(args[1]).read().splitlines()
                           if l.strip() and not l.strip().startswith("[")]
                 after = [l.rstrip() for l in open(args[2]).read().splitlines()
@@ -4177,6 +4187,28 @@ def main():
                 for k in ("fixed", "broken", "untargeted", "modal_taken"):
                     if v.get(k):
                         print(f"    {k}: {v[k]}")
+
+            else:
+                # `revise` — quality/loop.py driven end to end, with the
+                # STOCK mechanical proposer (quality/loop.py's own docstring:
+                # it swaps one word and writes nothing, which is enough to
+                # prove the loop's accept/reject/retry/backtrack/stop control
+                # flow -- not a way to get a good line). A caller wanting
+                # real writing supplies its own `propose`/`propose_pair`
+                # through the Python API; this verb exists so the control
+                # flow itself is runnable and inspectable without one.
+                lines = [l.rstrip() for l in open(args[1]).read().splitlines()
+                         if l.strip() and not l.strip().startswith("[")]
+                scheme = _mandate_arg(args[2] if len(args) > 2 else None,
+                                      lines)
+                _say_derived(scheme)
+                result = LP.revise_loop(rv, lines, scheme)
+                print(result)
+                if result.lines != lines:
+                    print("\n  FINAL DRAFT:")
+                    for i, l in enumerate(result.lines, 1):
+                        mark = "*" if l != lines[i - 1] else " "
+                        print(f"  {mark} L{i}: {l}")
         except NoMandate as e:
             # Exit 2, not 0. A refusal is not a pass and a caller in a
             # pipeline has to be able to tell them apart; the traceback this

@@ -406,6 +406,7 @@ def test_every_verb_runs():
         "refrain": ["refrain", "villanelle"],
         "brief": ["brief", quat, "ABAB"],
         "verify": ["verify", quat, quat, "ABAB"],
+        "revise": ["revise", quat, "ABAB"],
         "readability": ["readability", quat],
     }
     missing = sorted(lh._dispatched_verbs() - set(cases))
@@ -416,7 +417,7 @@ def test_every_verb_runs():
         rc, out, err = run(*argv)
         if "Traceback" in err or rc not in (0, 2):
             bad.append(f"{verb} (rc {rc})")
-    check("none of the 27 verbs raises",
+    check(f"none of the {len(cases)} verbs raises",
           not bad, f"raised: {bad or 'none'}")
     # The specific one that did, and for how long: `blueprint.json` was
     # rewritten to the bar-grid shape and `check_song` reads a per-section

@@ -61,6 +61,33 @@ tier as an unintended rhyme collision, because they are a style call and not
 a contradiction. Omit `blueprint=` and nothing changes — meter is opt-in.
 `quality/test_revise.py` test 25.
 
+**THE LOOP IS AUTOMATED: quality/loop.py, tests in test_loop.py.**
+`brief`/`verify` graded one round at a time by hand; `revise_loop(reviser,
+lines, mandate, ...)` drives them to convergence. It still never writes: text
+generation is a `propose`/`propose_pair` callable the caller supplies, and
+the one shipped here (`swap_end_word`, a single-word splice) exists to prove
+the loop's OWN control flow, not to write a good line.
+
+TWO TIERS, matching what backspacing through a draft actually does. TIER 1
+swaps a flagged line's own word for an offered candidate. TIER 2
+BACKTRACKS: `Brief.joint_conflict` means `joint_field` already searched the
+complete pool and nothing answers every group a pivot is in at once —
+retrying tier 1 there is re-running a search already proven empty, which is
+why the brief says "the mandate, not the line, is what needs revising."
+Tier 2 instead revises the WORD of the line the pivot has to match, bounded
+to a two-line group (the pivot and one anchor): a group of three or more
+would mean rewriting the whole group to keep it mutually rhyming, which is a
+bigger move this tier does not attempt, and it says so rather than pretend
+the search was wider than it was.
+
+THREE STOP CONDITIONS, and they are not one thing. SUCCESS — nothing left
+carries a flag finding. NO_PROGRESS — a whole round fixed nothing, so
+another identical round is not run. ROUND_LIMIT — `ReviseDeclaration.
+max_rounds` (declared since the first commit of `quality/revise.py`,
+default 4, unread by anything until this module) is reached. A single
+unsolved line is NEVER a stop condition — the loop keeps going on every
+other flagged line and reports the dead end in the result.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner
@@ -88,7 +115,7 @@ fit BLUEPRINT [--subdivision N] [--isochronous] [-v] |
 function BLUEPRINT [--function=SECTION:FN,...] [--title=T] [--hook=H]
 [--rhyme-key=cmudict] | refrain NOTATION|FORM [FILE] |
 brief FILE [MANDATE] | verify BEFORE AFTER [MANDATE] [lines] |
-readability FILE
+revise FILE [MANDATE] | readability FILE
 
 Four of those shipped on 2026-08-11 and closed the gap that had reopened
 underneath the quality layer:
