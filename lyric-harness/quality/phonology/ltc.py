@@ -82,6 +82,62 @@ label. That is an INGESTION defect. 怎 and 做 are also unreadable, and there
 refusing is CORRECT: the rime book has no such graph. Reporting one refusal
 rate over both is doctrine 79's error one layer down, so `refusal()` names the
 cause and `readability()` returns three counts, never two.
+
+THE OVERLAP OVER READINGS IS A COORDINATE TOO
+=============================================
+
+`rhymes()` ended `return bool(ka & kb)`, and `ka` is the set of keys over ALL
+readings of a 多音字. That is an **OR over readings**: a character with two
+rime-group readings rhymed with anything either reading rhymed with, and the
+result never said which reading had answered. 4,716 of the 19,499 characters in
+the table carry more than one reading and 825 of the 3,481 line-end characters
+of the 四庫 ci corpus do, so this is not an edge case.
+
+MEASURED, `quality/ltc_overlap.py`, 5,573 poems, `standard='cilin'`: of the
+28,330 TRUEs at the 33,321 positions the 1715 詞譜 mandates rhyme, **8,326
+(29.4%) rest on an overlap the readings do not settle** -- some reading pair
+agrees and some does not. No FALSE moves under any setting, because a verdict
+of False already means no reading pair agreed.
+
+So the fold is declared, exactly as `standard` is (doctrine 45), and an
+undeclared value raises:
+
+  'any'      True where SOME reading pair shares a key. The OR, and THE
+             DEFAULT, because every committed number was produced under it and
+             a default changed without a held-out price is a silent re-scoring
+             of the record.
+  'all'      True only where EVERY reading pair shares a key. A 多音字 that
+             could be read another way is False.
+  'settled'  the ternary of doctrine 84 and of `quality/relations.py`'s
+             `Agree`/`Differ`: True where every pair agrees, False where none
+             does, **None where some do and some do not**. A refusal, visible,
+             instead of a verdict on a reading nobody declared.
+
+WHAT THE SETTING DOES NOT CHANGE, and it is the point of doctrine 41: the three
+controls -- the 句 line ends the same spec mandates NOT to rhyme, adjacent line
+ends in no common rhyme group, and the cross-poem null -- go through the same
+function and move in the same direction. The 83-point separation is reported
+under each setting rather than under one.
+
+THIRD SWALLOW, NAMED BUT NOT LOAD-BEARING. `rhyme_keys` DROPS a reading whose
+(韻, 聲) cell the standard has no entry for, so a two-reading character could
+present a one-key set and look settled. Under 'cilin' that is 2 characters in
+19,499 (湩, 𪁪 -- both have a 冬上 reading, the cell with three characters and
+no clean vote) and 1 more where no reading resolves; under 'pingshui' it is
+zero, because `GROUP_OF` backstops every cell. NONE of the three occurs at any
+line end of the measured corpus. `unresolved_readings()` counts them and
+'all'/'settled' refuse to call such a pair settled.
+
+PROPAGATING tone_class's REFUSAL. `tone_class()` returned None for 383 of the
+3,481 line-end characters -- readings that disagree on 平 vs 仄 -- while
+`syllabify()` handed out `readings[0]`'s 平/仄 for every one of them, so one
+method refused and everything reading the other got a confident number. The
+`prominence` channel is now `tone_class()`'s answer, None included; `Syllable`
+already declares None on that channel to mean "no binary prominence the grid
+can use", which is a refusal and not a zero. `nucleus` still carries
+`readings[0]`'s 韻 and that residue is NOT fixed here -- it is what the overlap
+coordinate exists to measure, and `rhyme_keys()` is the method that reads all
+of them.
 """
 
 import os
@@ -99,6 +155,11 @@ VARIANTS_TABLE = os.path.join(DATA, "qieyun_variants.tsv")
 LEVEL = "平"
 
 STANDARDS = ("qieyun", "pingshui", "cilin")
+
+#: How `rhymes()` folds the readings of a 多音字. See the module docstring.
+#: 'any' is the OR every committed number was produced under; 'settled' is the
+#: ternary doctrine 84 asks for and returns None on an unsettled overlap.
+OVERLAPS = ("any", "all", "settled")
 
 #: Refusal causes. `readings()` returns None for all of them; they differ in
 #: WHOSE defect they are, which is the entire reason the column exists.
@@ -222,15 +283,23 @@ class MiddleChinese(Phonology):
     prominence_rule = "平 (level) = 1, 仄 (上去入, oblique) = 0. NOT stress."
     relation = "rhyme category = (韻部 under a DECLARED standard, 聲)"
 
-    def __init__(self, standard="pingshui", variants=True):
+    def __init__(self, standard="pingshui", variants=True, overlap="any"):
         if standard not in STANDARDS:
             raise ValueError(
                 f"standard must be one of {STANDARDS}, not {standard!r}. "
                 f"'pingshui' is the 詩 standard and 'cilin' the 詞 standard; "
                 f"a checker that silently picks one is making a claim it "
                 f"never states (doctrine 45).")
+        if overlap not in OVERLAPS:
+            raise ValueError(
+                f"overlap must be one of {OVERLAPS}, not {overlap!r}. It says "
+                f"how the readings of a 多音字 are folded: 'any' ORs them "
+                f"(the default, and what every committed number was measured "
+                f"under), 'all' requires every reading pair to agree, "
+                f"'settled' returns None where some agree and some do not.")
         self.standard = standard
         self.variants = variants
+        self.overlap = overlap
         self._t = _load_table()
         self._std = _load_standards()
         self._sub, self._why, self._haz = _load_variants()
@@ -248,6 +317,8 @@ class MiddleChinese(Phonology):
         d["standard"] = self.standard
         d["variant_map"] = self.variants
         d["standard_options"] = list(STANDARDS)
+        d["overlap"] = self.overlap
+        d["overlap_options"] = list(OVERLAPS)
         return d
 
     def variant_of(self, ch):
@@ -307,7 +378,24 @@ class MiddleChinese(Phonology):
     def syllabify(self, word):
         """One character, one syllable. A character with several readings is
         ambiguous and every reading is kept -- the first is returned here and
-        `readings()` exposes the rest."""
+        `readings()` exposes the rest.
+
+        `prominence` IS `tone_class()`, refusal included. It used to be
+        `readings[0]`'s 平/仄, so on a 多音字 whose readings disagree on the
+        tone class this module refused in one method and answered confidently
+        in the other; on the 四庫 ci line ends that was 383 characters of
+        3,481. `Syllable` already declares None on this channel to mean "no
+        binary prominence the grid can use", so the refusal has somewhere to
+        land and needs no new type.
+
+        `nucleus` is still `readings[0]`'s 韻 and is NOT refused with it. That
+        is deliberate and it is named rather than hidden: the rhyme question is
+        answered by `rhyme_keys()`, which reads EVERY reading, and by
+        `rhymes(overlap=...)`, which declares how they are folded. Refusing the
+        nucleus here would delete the channel path doctrine 84 requires to stay
+        reachable, which is doctrine 24's error -- a rule that removes a
+        category instead of naming it.
+        """
         out = []
         for ch in word:
             rs = self.readings(ch)
@@ -316,7 +404,7 @@ class MiddleChinese(Phonology):
                 continue
             r = rs[0]
             out.append(Syllable(ch, (r["initial"],), r["rhyme"], (),
-                                1 if r["tone"] == LEVEL else 0, 1))
+                                self.tone_class(ch), 1))
         return out
 
     def tone_class(self, ch):
@@ -365,12 +453,74 @@ class MiddleChinese(Phonology):
                 out.add(key)
         return out or None
 
-    def rhymes(self, a, b, grouped=True, standard=None):
-        ka = self.rhyme_keys(a[-1] if a else "", grouped, standard)
-        kb = self.rhyme_keys(b[-1] if b else "", grouped, standard)
+    def unresolved_readings(self, ch, grouped=True, standard=None):
+        """-> how many readings of `ch` the standard has NO key for.
+
+        `rhyme_keys` drops them, so without this a two-reading character one of
+        whose readings the standard cannot place presents a ONE-key set and
+        looks settled. Under 'cilin' this is 湩 and 𪁪 (a 冬上 reading, the cell
+        with three characters and no clean vote) plus 1 character where nothing
+        resolves; under 'pingshui' it is zero, `GROUP_OF` backstopping every
+        cell. None of the three is a line end anywhere in the measured corpus,
+        so it moves no number -- it is counted because a swallowed refusal that
+        happens to be small is still a swallowed refusal.
+        """
+        std = self._resolve(grouped, standard)
+        rs = self.readings(ch)
+        if rs is None:
+            return None
+        if std == "qieyun":
+            return 0
+        n = 0
+        for r in rs:
+            row = self._std.get((r["rhyme"], r["tone"]))
+            key = row.get(std) if row else None
+            if key is None and std == "pingshui":
+                key = (GROUP_OF.get(r["rhyme"], r["rhyme"]), r["tone"])
+            if key is None:
+                n += 1
+        return n
+
+    def rhymes(self, a, b, grouped=True, standard=None, overlap=None):
+        """-> True / False / None under a DECLARED fold over the readings.
+
+        `overlap` defaults to the instance's, which defaults to 'any' -- the OR
+        this method has always applied and every committed number rests on. See
+        the module docstring for what the three settings mean and for what the
+        fold costs; `quality/ltc_overlap.py` re-runs the measurement.
+
+        The three counts doctrine 79 asks for come out of the three RETURN
+        VALUES here and a caller must keep them apart: None is the instrument
+        declining, not a failure to rhyme, and under 'settled' it is now
+        reachable for a second reason -- the readings do not agree with each
+        other.
+        """
+        ov = self.overlap if overlap is None else overlap
+        if ov not in OVERLAPS:
+            raise ValueError(
+                f"overlap must be one of {OVERLAPS}, not {ov!r}; a fold over "
+                f"the readings of a 多音字 that is not declared is a claim "
+                f"the result never states (doctrine 45).")
+        ca = a[-1] if a else ""
+        cb = b[-1] if b else ""
+        ka = self.rhyme_keys(ca, grouped, standard)
+        kb = self.rhyme_keys(cb, grouped, standard)
         if ka is None or kb is None:
             return None
-        return bool(ka & kb)
+        hit = bool(ka & kb)
+        if ov == "any":
+            return hit
+        # Every reading pair agrees iff both sides hold exactly one key and it
+        # is the same key -- AND no reading was dropped for want of a standard
+        # entry, which would be agreement asserted over knowledge we do not
+        # have.
+        gaps = (self.unresolved_readings(ca, grouped, standard)
+                or 0) + (self.unresolved_readings(cb, grouped, standard) or 0)
+        if not gaps and len(ka) == 1 and ka == kb:
+            return True
+        if not hit and not gaps:
+            return False                # no reading pair agrees: settled False
+        return False if ov == "all" else None
 
     # ------------------------------------------------------------ reporting
 

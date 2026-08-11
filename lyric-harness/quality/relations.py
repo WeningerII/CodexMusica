@@ -422,8 +422,79 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
 # ---------------------------------------------------------------------------
 
 
+# --- THE SEAM.  A READER MUST NOT SPEND THE UNCERTAINTY IT IS HANDED.
+#
+# Section 3 below closed defect P11 for the PREDICATES: a channel may hold a
+# `frozenset` of readings and `Agree`/`Differ` answer True where all agree,
+# False where none can, and None where some do and some do not.  Four readers
+# here then undid it, and the defect had the shape a representation defect
+# always has -- the type survived and the MEANING did not:
+#
+#     _rd_coda(close)   tuple(Readings({('S',), ('Z',)}))  ==  (('S',), ('Z',))
+#
+# which is not two readings of a coda, it is ONE coda of two clusters, and
+# `_set_agree` then compares it for equality and answers a confident False.  A
+# representation built to say "we cannot tell" was converted into a wrong
+# certainty by the layer that consumes it, and `_rd_nucleus` -- which returns
+# its channel raw and is the only reason the wind/find case worked at all --
+# was three lines away.  Measured before the fix (`quality/test_readings_seam.py`
+# §1): `Agree(phones(wind), phones(find)).value is False`.
+#
+# TWO SHAPES, TWO FIXES.
+#
+# `onset` and `coda` are SCALAR channels whose value happens to be an ordered
+# cluster, so the set passes through exactly as the nucleus does.
+#
+# `consonants` and `phones` DERIVE a sequence by concatenating channels, and
+# there is no pass-through: a set cannot be spliced into a tuple, because a
+# tuple containing a frozenset is one value to `_set_agree` and compares
+# unequal to everything.  They take the product instead -- the set of the
+# sequences the readings permit -- which keeps the tri-state whole:
+# `phones(wind)` and `phones(sand)` are still a definite False (disjoint under
+# every reading) where a flat refusal would have thrown that decision away.
+# `_seq` still refuses the SEQUENCE-scoped case at line ~1341 for its own
+# stated reason, and it now actually fires, because `uncertain()` sees a
+# frozenset where it used to see a tuple.
+#
+# `Alternatives` is `quality.phonology.Readings` on this side of the seam and
+# is duplicated rather than imported ON PURPOSE: this module transcribes
+# nothing and imports no phonology (see the module docstring), and `_alts`
+# keys on `isinstance(x, frozenset)`, so a production `Readings` arriving from
+# the other side needs no conversion and flows through unchanged.  Its
+# `__iter__` is sorted by `repr` for doctrine 66's reason and no other.
+
+
+class Alternatives(frozenset):
+    """A derived channel's set of readings.  `|self| == 1` is certainty.
+
+    Iteration order is FIXED (sorted by `repr`) and arbitrary and stated,
+    which is the whole of what doctrine 66 asks of a tie-break.  Nothing in
+    this module's set algebra depends on the order; the guarantee exists so
+    that a consumer which iterates cannot differ between PYTHONHASHSEEDs
+    without saying so.
+    """
+
+    __slots__ = ()
+
+    def __iter__(self):
+        return iter(sorted(frozenset.__iter__(self), key=repr))
+
+    def __repr__(self):
+        return "Alternatives({%s})" % ", ".join(repr(v) for v in self)
+
+
+def _collapse(vals):
+    """A derived set of readings -> the sole reading, or `Alternatives`."""
+    s = Alternatives(vals)
+    return next(iter(s)) if len(s) == 1 else s
+
+
 def _rd_onset(u):
-    return tuple(u.syl.onset)
+    # A knowledge set is passed THROUGH, exactly as `_rd_nucleus` does.  A
+    # `tuple()` here would turn two readings of a cluster into one cluster of
+    # two readings and `_set_agree` would answer a confident False about it.
+    v = u.syl.onset
+    return v if isinstance(v, frozenset) else tuple(v)
 
 
 def _rd_nucleus(u):
@@ -431,7 +502,8 @@ def _rd_nucleus(u):
 
 
 def _rd_coda(u):
-    return tuple(u.syl.coda)
+    v = u.syl.coda
+    return v if isinstance(v, frozenset) else tuple(v)
 
 
 def _rd_prominence(u):
@@ -444,16 +516,35 @@ def _rd_moras(u):
 
 def _rd_consonants(u):
     """Welsh: onsets and codas are NOT distinguished; the skeleton is one
-    ordered consonant sequence gathered across word and syllable boundaries."""
-    return tuple(u.syl.onset) + tuple(u.syl.coda)
+    ordered consonant sequence gathered across word and syllable boundaries.
+
+    A DERIVED sequence, so an uncertain onset or coda yields the set of
+    skeletons the readings permit rather than one skeleton with a set inside
+    it.  A Welsh skeleton built from one guessed reading is a skeleton nobody
+    declared, and a skeleton with a frozenset spliced into it is worse: it
+    looks certain."""
+    o, c = u.syl.onset, u.syl.coda
+    if not (isinstance(o, frozenset) or isinstance(c, frozenset)):
+        return tuple(o) + tuple(c)
+    return _collapse(tuple(oo) + tuple(cc) for oo in _alts(o) for cc in _alts(c))
 
 
 def _rd_phones(u):
     """The syllable flattened to its ordered phone sequence.  A span is a
     selection of SYLLABLE indices; a sequence-scoped channel on this reader is
-    how a phone-level relation is reached without a second stream."""
-    n = u.syl.nucleus
-    return tuple(u.syl.onset) + ((n,) if n else ()) + tuple(u.syl.coda)
+    how a phone-level relation is reached without a second stream.
+
+    Uncertain on any of the three channels -> the set of phone sequences the
+    readings permit.  `phones(wind)` is
+    `Alternatives({('W','AY','N','D'), ('W','IH','N','D')})`, so wind/find is
+    None and wind/sand is still False; before the fix the frozenset was
+    spliced in as a single element and BOTH were a confident False."""
+    o, n, c = u.syl.onset, u.syl.nucleus, u.syl.coda
+    if not (isinstance(o, frozenset) or isinstance(n, frozenset)
+            or isinstance(c, frozenset)):
+        return tuple(o) + ((n,) if n else ()) + tuple(c)
+    return _collapse(tuple(oo) + ((nn,) if nn else ()) + tuple(cc)
+                     for oo in _alts(o) for nn in _alts(n) for cc in _alts(c))
 
 
 def _rd_grapheme(u):
@@ -565,10 +656,21 @@ def _empty(x):
 # some agree and some do not -> **None**, which is the ternary this module
 # exists to preserve.  A homograph is UNDECIDED, not silently resolved.
 #
-# WHAT REMAINS OPEN IS NOT HERE.  `quality.phonology.Syllable.nucleus` is a
-# `str`, so no shipped phonology can PRODUCE a two-reading syllable.  The
-# representation gap is closed in the layer that compares; the production gap
-# is in a module this file does not own and does not import.
+# THE PRODUCTION HALF IS CLOSED TOO, on 2026-08-11, in
+# `quality/phonology/__init__.py`: `Syllable` may hold a `Readings` on any
+# channel, `Phonology.parses()` is the hook a language overrides to declare
+# more than one reading, and `merge_readings` folds them.  Nine of nine shipped
+# modules still declare ONE reading and are byte-identical; `quality/
+# test_homograph.py` wires `eng` and `ltc` the other way and pins what changes.
+#
+# The seam BETWEEN the two halves was the last thing open and it is closed as
+# of 2026-08-11 as well: `_rd_onset`, `_rd_coda`, `_rd_consonants` and
+# `_rd_phones` all coerced the set with `tuple()` and answered a confident
+# False about the result.  See the long comment above the readers in section 2
+# and `quality/test_readings_seam.py`, which pins each of the four and the
+# corpus counts the fix moves.  What remains open is not a defect in this file:
+# `quality/phonology` ships no module that EMITS a set, so every count below is
+# reached through a declared opt-in reader and the default numbers do not move.
 
 
 def _alts(x):
