@@ -72,11 +72,18 @@ a defect is found by hand — a defect found by hand is a mutation the suite
 should have caught.
 **Acceptance:** M1 is caught. The runner is in CI-shaped form (`__main__`) and
 its surviving-mutation list is empty or explicitly declared.
-**MET.** `quality/mutate.py` declares **30** mutations; **29 are caught**,
-including M1 and M30. The one survivor is **M4, proved equivalent rather than
-missed**, allowlisted in `quality/test_mutation.py` with the proof — and the
-allowlist entry's premise is itself under test, since M11 mutates the
-`cluster_sim` line M4's equivalence depends on and is caught.
+**MET.** `quality/mutate.py` declares ~~**30** mutations; **29 are caught**~~
+**33 mutations, all 33 applying cleanly to the current source**
+(`python3 quality/mutate.py --dry-run`), including M1 and M30. The one survivor
+is **M4, proved equivalent rather than missed**, allowlisted in
+`quality/test_mutation.py` with the proof — and the allowlist entry's premise is
+itself under test, since M11 mutates the `cluster_sim` line M4's equivalence
+depends on and is caught.
+**The CAUGHT count is deliberately not written down here.** It forks the whole
+suite once per mutation, so `quality/counters.py` REFUSES it on the cheap path
+for COST and reaches it with `python3 quality/counters.py --slow`. A number that
+costs money to check is exactly the number that gets copied forward instead of
+re-derived — which is how `30 / 29` survived three mutations being added.
 **And the three coordinates declared on 2026-08-11 — `scalar_alignment`,
 `nucleus_agreement`, `nucleus_licence_unstressed_only` — now have M31/M32/M33,
 each caught by the file that declares it.** A new coordinate with a default is a
@@ -414,10 +421,12 @@ and it is deliberately SMALL. It carries **eight declared claim SHAPES**
 rather than re-parsing them, and reports `audit_register.py`'s 26 derivations
 without re-deriving one of them.
 
-**What is still owed is the refused count, and it is the honest headline.** On
-the run that closed this section it asked 867 claims, answered 79 and refused
-788 — and 788 of the refusals are `NO_SHAPE`: no declared shape recognises the
-sentence. That number is not a defect to be optimised away. Some of that
+**What is still owed is the refused count, and it is the honest headline.** At
+commit `ad7edca` it asked **881** claims, answered **81** and refused **800** —
+every one of the refusals `NO_SHAPE`, meaning no declared shape recognises the
+sentence. **Those three counts move with every entry anyone writes**, so they are
+pinned to a commit here and re-derived by running the command, never read off
+this page. That number is not a defect to be optimised away. Some of that
 remainder is not mechanically checkable at all (doctrine 6's "the exchange rate
 between surprise and clarity is not derivable" has no instrument and never
 will), and the checker deliberately does NOT try to separate "unshaped because
@@ -528,7 +537,7 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | REFUSED (cost) — the instrument did not answer: ValueError: could not read audit_register's entry count out of the runner's output; the line this counter parses has changed shape and the counter must be repaired, not guessed | `python3 quality/counters.py` |
+| MISSING entries by status | 50 OPEN / 12 PARTIAL / 3 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,566 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
 | mutations declared | **33 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
@@ -539,7 +548,7 @@ never one (doctrine 79).
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | sonnet battery | 81/1014 = 8.0% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
 | band FPR on random pairs | **3.60%** (144 of 4,000 at seed 20260810, the runner's own default n; 3.57% = 107 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
-| register-audit findings | REFUSED (cost) — the instrument did not answer: ValueError: could not read the register-audit finding count out of the runner's output; the line this counter parses has changed shape and the counter must be repaired, not guessed | `python3 quality/audit_register.py` |
+| register-audit findings | **2** — D8 (M-4), D9 (M-4); both are the deliberate M-4 calibration pair | `python3 quality/audit_register.py` |
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |
 <!-- /COUNTERS -->
 
