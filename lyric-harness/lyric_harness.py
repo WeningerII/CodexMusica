@@ -611,7 +611,48 @@ def _phone_owners(lex, words):
     return owners
 
 
-def _tag_span_words(sylls, phones, owners, words):
+HYPHEN_SPLIT = re.compile(r"[-‑]")
+
+
+def token_pieces(lex, token):
+    """A hyphenated token -> (pieces READ, pieces NOT read).
+
+    `Lexicon.transcribe` splits a token on its hyphens and looks each piece up
+    on its own, so a compound whose pieces do not all read still yields
+    phones -- from the pieces that do. Nothing downstream could see that:
+    `line_anchors` found an anchor, `line_readability` set
+    `final_unreadable = False`, and the span's own provenance recorded the
+    WHOLE token as the word it covered.
+
+    MEASURED 2026-08-11 over the 143 `corpus/song/eng_*.txt` files, 153,115
+    line ends taken as `line_tokens`-non-empty lines outside the `#`/`---`/`[`
+    markers (190,441 counting every non-blank line -- doctrine 91, the count is
+    a coordinate of the rendering): **328 line ends report READABLE with an
+    unread piece inside the end token**, and the split by WHICH piece is the
+    triage:
+
+      179 the LAST piece is unread, so the anchor is built from an earlier
+          one and the rhyme verdict is on the wrong syllable -- `hill-zide`
+          anchors on `hill`, `a-vound` on the participial `a-`. ANCHOR layer,
+          a wrong answer;
+      149 an earlier piece is unread and the last one reads, so the anchor is
+          on the right piece and only the LABEL overstates -- `threshing-floor`
+          scored on `floor`. REPORT layer, this cell's.
+
+    Cell U measured the union at 293 and triaged all of it as ingestion; the
+    two halves have different remedies, which is doctrine 44's separation
+    applied to a defect rather than to a corpus.
+    """
+    read, unread = [], []
+    for p in HYPHEN_SPLIT.split(token):
+        if not p:
+            continue
+        ph, is_oov = lex.transcribe_word(p)
+        (unread if (is_oov or not ph) else read).append(p)
+    return read, unread
+
+
+def _tag_span_words(sylls, phones, owners, words, lex=None):
     """Tag each syllable with the word its NUCLEUS came from.
 
     The nucleus, not the onset: `syllabify` maximises the onset of the next
@@ -619,6 +660,11 @@ def _tag_span_words(sylls, phones, owners, words):
     word is never in doubt is the vowel. Tagging is best-effort -- if the
     phone list and the owner list have drifted apart, nothing is tagged and
     `span_provenance` then returns None rather than a guess.
+
+    `word_unread` is the hyphen half of the same idea: a span may name a token
+    that is only partly the string it was built from, and a provenance record
+    that cannot say so is the defect it exists to fix, one level down. See
+    `token_pieces`.
     """
     nuclei = [i for i, ph in enumerate(phones) if split_phone(ph)[0] in VOWELS]
     if len(nuclei) != len(sylls) or len(owners) != len(phones):
@@ -626,6 +672,12 @@ def _tag_span_words(sylls, phones, owners, words):
     total = {}
     for ni in nuclei:
         total[owners[ni]] = total.get(owners[ni], 0) + 1
+    pieces = {}
+    if lex is not None:
+        for w in set(owners[ni] for ni in nuclei):
+            tok = words[w]
+            if HYPHEN_SPLIT.search(tok):
+                pieces[w] = token_pieces(lex, tok)
     seen = {}
     for k, ni in enumerate(nuclei):
         w = owners[ni]
@@ -634,6 +686,9 @@ def _tag_span_words(sylls, phones, owners, words):
         sylls[k]["word"] = words[w]
         sylls[k]["syl_in_word"] = seen[w]
         sylls[k]["word_syllables"] = total[w]
+        rd, un = pieces.get(w, (None, None))
+        sylls[k]["word_read"] = tuple(rd) if rd is not None else ()
+        sylls[k]["word_unread"] = tuple(un) if un is not None else ()
 
 
 def line_anchors(lex, text, promote=False):
@@ -679,7 +734,8 @@ def line_anchors(lex, text, promote=False):
         sylls = syllabify(full)
         if pre_owners is not None:
             _tag_span_words(sylls, full,
-                            pre_owners + [len(words) - 1] * len(v), words)
+                            pre_owners + [len(words) - 1] * len(v), words,
+                            lex=lex)
         stressed = [i for i, s in enumerate(sylls)
                     if s["stress"] in (1, 2)]
         starts = stressed[-2:] if stressed else [len(sylls) - 1]
@@ -723,6 +779,8 @@ def span_provenance(anc):
             runs.append({"widx": s["widx"], "word": s["word"],
                          "first_syllable": s["syl_in_word"],
                          "word_syllables": s["word_syllables"],
+                         "read": tuple(s.get("word_read") or ()),
+                         "unread": tuple(s.get("word_unread") or ()),
                          "syllables": 0})
         runs[-1]["syllables"] += 1
     return {"words": [r["word"] for r in runs],
@@ -731,6 +789,11 @@ def span_provenance(anc):
             "runs": runs,
             "syllables": len(anc),
             "partial_word": runs[0]["first_syllable"] > 1,
+            # A token whose hyphen pieces did not all read: the span's own
+            # label names more STRING than was ever transcribed, which is this
+            # module's defect inside a single word. `token_pieces`.
+            "substituted": any(r["unread"] for r in runs),
+            "unread": tuple(p for r in runs for p in r["unread"]),
             "endword_only": len(runs) == 1}
 
 
@@ -757,6 +820,15 @@ def span_label(prov):
         r = prov["runs"][0]
         lab += (f" [last {r['syllables']} of {r['word_syllables']} syllables"
                 f" of {r['word']!r}]")
+    # The hyphen case, printed at the SAME place, because a reader shown
+    # `hill-zide` has no way to know the harness read `hill`. The word that
+    # was actually transcribed is named; the pieces that were not are named
+    # too, since which piece failed is the whole triage (`token_pieces`).
+    for r in prov["runs"]:
+        if r["unread"]:
+            lab += (f" [read as {' '.join(r['read']) or 'nothing'!s}: "
+                    f"{', '.join(r['unread'])} not in the lexicon, "
+                    f"inside {r['word']!r}]")
     return lab
 
 
@@ -766,16 +838,26 @@ def span_label(prov):
 SPAN_EXACT = "exact"          #: the span IS the end word, whole
 SPAN_PART = "part"            #: the span is INSIDE the end word (anchor cut)
 SPAN_REACH = "reach"          #: the span reaches back PAST the end word
+SPAN_SUBSTITUTED = "substituted"     #: the token did not all read (hyphen)
 SPAN_UNATTRIBUTED = "unattributed"   #: no provenance; nothing may be claimed
+
+#: The order the kinds are checked in, worst first. Exhaustive and disjoint.
+SPAN_KINDS = (SPAN_UNATTRIBUTED, SPAN_SUBSTITUTED, SPAN_REACH, SPAN_PART,
+              SPAN_EXACT)
 
 
 def span_kind(prov):
-    """-> which of the four SPAN_* names describes this span.
+    """-> which of the five SPAN_* names describes this span.
 
     The question is not "is this mosaic". It is the reporting question: **may
-    a reader be shown the end word as the evidence for this number?** Three
+    a reader be shown the end word as the evidence for this number?** Four
     ways the answer is no, and they are different defects:
 
+      `substituted` — a hyphenated token did not all read, so the label names
+        a string the harness never transcribed: `hill-zide` is anchored on
+        `hill`. Ranked worst because the other three name the right string
+        and get its extent wrong, while this one names a different string.
+        See `token_pieces` for the 328 measured instances and their split;
       `reach` — the span covers MORE than the end word (`get to go`), so the
         printed word is one member of the evidence and the number is not
         about it alone;
@@ -783,7 +865,8 @@ def span_kind(prov):
         word claims evidence that was never compared;
       `unattributed` — the anchor was not built by `line_anchors`, so there is
         nothing to check the claim against and a guess would be worse than a
-        refusal (`span_provenance`).
+        refusal (`span_provenance`). Ranked first because it is the only one
+        where the answer is "cannot tell" rather than a defect (doctrine 28).
 
     `part` is the common case and it is not a bug — it is the declared anchor
     rule, visible. It is still a case where the printed label and the compared
@@ -791,6 +874,8 @@ def span_kind(prov):
     """
     if prov is None:
         return SPAN_UNATTRIBUTED
+    if prov.get("substituted"):
+        return SPAN_SUBSTITUTED
     if not prov["endword_only"]:
         return SPAN_REACH
     if prov["partial_word"]:
@@ -1021,6 +1106,13 @@ def spans_note(s):
                  else "left" if sp["mosaic_a"] else "right")
         note += (f"   MOSAIC ({which}): the winning span reaches back past "
                  f"the end word")
+    if sp.get("substituted"):
+        which = ("both sides"
+                 if sp.get("substituted_a") and sp.get("substituted_b")
+                 else "left" if sp.get("substituted_a") else "right")
+        note += (f"   SUBSTITUTED ({which}): a hyphen piece of the token "
+                 f"never reached the lexicon, so the label names a string "
+                 f"the harness did not read")
     return note
 
 
@@ -1053,19 +1145,36 @@ def report_pair(s, word_a, word_b, indent="        "):
     claimed = (sp.claims(word_a, word_b) if isinstance(sp, Attribution)
                else True)
     if not claimed:
-        why = []
+        why, loud = [], False
         for which, prov, word in (("left", sp["a"], word_a),
                                   ("right", sp["b"], word_b)):
             k = span_kind(prov)
-            if k == SPAN_REACH:
+            if k == SPAN_SUBSTITUTED:
+                why.append(f"{which} `{word}` was read as "
+                           f"`{' '.join(prov['runs'][-1]['read'])}` "
+                           f"({', '.join(prov['unread'])} unread)")
+                loud = True
+            elif k == SPAN_REACH:
                 why.append(f"{which} reaches past `{word}`")
-            elif k == SPAN_PART:
-                why.append(f"{which} is part of `{word}`")
+                loud = True
             elif k == SPAN_UNATTRIBUTED:
                 why.append(f"{which} cannot be attributed")
+                loud = True
+            elif k == SPAN_PART:
+                why.append(f"{which} is part of `{word}`")
             elif _norm_word(prov["words"][0]) != _norm_word(word):
                 why.append(f"{which} is `{prov['words'][0]}`, not `{word}`")
-        if why:
+                loud = True
+        # THE BANNER IS GRADED AND THE MEASUREMENT IS NOT. `part` alone --
+        # the declared anchor cut, `-again` of `again` -- is 380 of the
+        # sonnets' 1014 judged pairs, so banging a NOT THE EVIDENCE drum on
+        # every one of them would train a reader to skip the line that
+        # matters. It is still counted as not-claimed by `spans_claim`, and
+        # the anchor cut is still printed in the span label below. Doctrine
+        # 91: the count is a coordinate of the RENDERING, so the rendering
+        # says less than the count and the two are named separately rather
+        # than reconciled by quietly dropping cases.
+        if why and loud:
             out.append(f"{indent}NAMED PAIR IS NOT THE EVIDENCE: "
                        + ", ".join(why))
     note = spans_note(s)
@@ -1115,8 +1224,13 @@ def best_score(ancs_a, ancs_b, decl, word_a=None, word_b=None, profile=None):
         "tied_at_max": ties,
         "mosaic_a": mosaic_a, "mosaic_b": mosaic_b,
         "mosaic": mosaic_a or mosaic_b,
+        # The hyphen half: the label names a string that was not all read.
+        "substituted_a": bool(pa and pa["substituted"]),
+        "substituted_b": bool(pb and pb["substituted"]),
+        "substituted": bool((pa and pa["substituted"])
+                            or (pb and pb["substituted"])),
         # The reporting verdict, computed HERE so every consumer reads the
-        # same one. `kind_*` is the four-way partition adversary 7 sweeps.
+        # same one. `kind_*` is the five-way partition adversary 7 sweeps.
         "kind_a": span_kind(pa), "kind_b": span_kind(pb),
     }))
     return out
@@ -1609,9 +1723,31 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                  # actually compared, and they differ whenever the winning
                  # anchor is a mosaic reach.
                  "spans": matrix[i][j].get("spans"),
-                 "spans_note": spans_note(matrix[i][j])}
+                 "spans_note": spans_note(matrix[i][j]),
+                 # The CLAIM the report line makes, evaluated. `endwords` and
+                 # `score` on one row is an assertion that those two words
+                 # produced that number; this is that assertion's verdict, so
+                 # a consumer does not have to re-derive it and derive it
+                 # differently. Adversary 7.
+                 "spans_claim": matrix[i][j]["spans"].claims(
+                     endwords[i], endwords[j]),
+                 "spans_kinds": matrix[i][j]["spans"].kinds}
                 for i in range(n) for j in range(i + 1, n)],
-            "violations": violations, "collisions": collisions,
+            "violations": violations,
+            # Index-aligned with `violations`, exactly as `edge_spans` is with
+            # `edges`, because the violation tuple's arity is what battery.py
+            # and every triage script unpack and a fifth field would break
+            # them. A violation whose number came from other spans is a
+            # violation somebody will triage to the wrong layer.
+            "violation_spans": [
+                {"lines": (v[0], v[1]),
+                 "endwords": (endwords[v[0] - 1], endwords[v[1] - 1]),
+                 "spans": matrix[v[0] - 1][v[1] - 1]["spans"],
+                 "claim": matrix[v[0] - 1][v[1] - 1]["spans"].claims(
+                     endwords[v[0] - 1], endwords[v[1] - 1]),
+                 "note": spans_note(matrix[v[0] - 1][v[1] - 1])}
+                for v in violations],
+            "collisions": collisions,
             "refusals": refusals,
             "readability": records,
             "pairs_mandated": len(mandated),
@@ -2422,11 +2558,26 @@ def _qafiya_parts(lex, line):
     `word_syllable_map(...)[-1]["word"]`, the last word the DICTIONARY COULD
     READ, and called it the rhyme word. When the line's real last word is out
     of dictionary the two disagree and an earlier word is silently promoted to
-    rhyme word -- measured at 9,812 of 190,804 corpus/song/ lines (5.14%) and
-    61 of 2,128 sonnet lines (2.87%). Shakespeare's `grow'st` lines reported
-    their rhyme word as `thou`; `zun` reported `the`. The whole qafiya profile
-    is a MAJORITY over these, so a few substituted function words move the
-    established rawi for every other line as well.
+    rhyme word -- REMEASURED 2026-08-11 at **9,806 of 189,985** corpus/song/
+    lines (5.16%) and 61 of 2,128 sonnet lines (2.87%). Shakespeare's `grow'st`
+    lines reported their rhyme word as `thou`; `zun` reported `the`. The whole
+    qafiya profile is a MAJORITY over these, so a few substituted function
+    words move the established rawi for every other line as well.
+
+    Both figures here were `9,812 of 190,804` until the attribution cell
+    removed 819 duplicated lines from the two Lyrical Ballads files and one
+    hymn from the Tate file. The DIRECTION is the part worth keeping: the
+    corpus lost 819 lines and the unreadable end-word rate went UP, 5.2677% ->
+    5.2873%, because only 6 of the 819 that left had an unreadable end word.
+    Every rate this repo measured over corpus/song/ before that date was
+    diluted by text that was in it twice. `quality/test_readability.py` pins
+    all four numbers.
+
+    THE SUBSTITUTION IS NOT ONLY BETWEEN WORDS. It survives INSIDE one, on a
+    hyphen, where `raw_final_token` and the syllable map agree and there is
+    nothing left to disagree: 328 song line ends read a compound whose pieces
+    did not all reach the lexicon. See `token_pieces` and `span_kind`'s
+    `substituted`.
 
     It now refuses instead. Returning None was also not safe: `check_qafiya`
     read None as "radif/refrain line: licensed", turning 241 unreadable
@@ -2957,20 +3108,25 @@ def main():
             rest = rest[2:]
         lines = rest
         res = check_scheme(lex, lines, scheme, decl, profile=profile)
-        by_pair = {p["lines"]: p for p in res["pair_scores"]}
         print(f"scheme {scheme}  endwords {res['endwords']}")
         for p in res["pair_scores"]:
-            print(f"  L{p['lines'][0]}-L{p['lines'][1]} "
-                  f"({p['endwords'][0]}/{p['endwords'][1]}): "
-                  f"{p['score']}  {p['relation']}"
+            head, *rest = report_pair(
+                {"total": p["score"], "relation": p["relation"],
+                 "spans": p["spans"]},
+                p["endwords"][0], p["endwords"][1])
+            print(f"  L{p['lines'][0]}-L{p['lines'][1]} {head}"
                   + (f"  [{', '.join(p['flags'])}]" if p["flags"] else ""))
-            if p["spans_note"]:
-                print(f"        {p['spans_note']}")
-        for v in res["violations"]:
+            for line in rest:
+                print(line)
+        for v, vs in zip(res["violations"], res["violation_spans"]):
             print(f"  VIOLATION L{v[0]}-L{v[1]} score {v[2]}: {v[3]}")
-            note = (by_pair.get((v[0], v[1])) or {}).get("spans_note")
-            if note:
-                print(f"        {note}")
+            if not vs["claim"]:
+                print(f"        the MANDATE names "
+                      f"{vs['endwords'][0]}/{vs['endwords'][1]}; that is not "
+                      f"what was compared -- triage the SPANS below, not "
+                      f"those two words")
+            if vs["note"]:
+                print(f"        {vs['note']}")
         for r in res["refusals"]:
             print(f"  REFUSED   L{r['lines'][0]}-L{r['lines'][1]}: "
                   f"{r['reason']}")
@@ -3547,6 +3703,28 @@ def main():
                                       lines)
                 _say_derived(scheme)
                 briefs = rv.brief(lines, scheme)
+                # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
+                # BACKLOG 1.2's acceptance names `brief` as well as
+                # `check_scheme`, and a brief is where the misattribution
+                # costs most: it tells a writer WHICH WORD to change, and if
+                # the number came from `enjoys it` the word to change is not
+                # `it`. Read off `grade`'s own cached matrix -- the same
+                # `Scored` objects it graded, never a second comparison. The
+                # proper home for this is a `spans` field on the verdict
+                # dict, which lives in `quality/revise.py` and is filed as a
+                # patch; this reads the object rather than recomputing it, so
+                # the two cannot disagree, and it degrades to silence rather
+                # than raising if that file is refactored underneath it.
+                span_by_pair = {}
+                try:
+                    graded = rv.grade(lines, scheme)
+                    _, _, _, mx = rv._matrix(lines)
+                    for v in graded["violations"]:
+                        i, j = v["lines"]
+                        s = mx[i - 1][j - 1]
+                        span_by_pair[(i, j)] = (v, s)
+                except Exception:                # pragma: no cover
+                    span_by_pair = {}
                 if not briefs:
                     print("  nothing flagged — every mandated pair passes the "
                           "band on the lines the harness could read")
@@ -3554,6 +3732,15 @@ def main():
                     print(f"  L{b.line_no}: {b.text}")
                     for f in dedupe_findings(b.findings):
                         print(f"      FINDING {f}")
+                    for (i, j), (v, s) in sorted(span_by_pair.items()):
+                        if b.line_no not in (i, j):
+                            continue
+                        head, *rest = report_pair(
+                            s, v["endwords"][0], v["endwords"][1],
+                            indent="          ")
+                        print(f"      FAILS L{i}-L{j} {head}  — {v['why']}")
+                        for ln in rest:
+                            print(ln)
                     for lab, mem, calls in b.must_answer:
                         shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
                         print(f"      must answer group {lab} {mem}: {shown}")

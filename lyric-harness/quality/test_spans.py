@@ -24,6 +24,26 @@ WHAT IS PINNED HERE
 7. the consumers actually print it: check_scheme, the graph, the chains
 8. THE SONNET ORACLE DOES NOT MOVE — this is a reporting change
 
+and, added 2026-08-11 when the floor turned out not to be the ceiling:
+
+10. THE SPANS CANNOT BE SEPARATED FROM THE NUMBER. Carrying them as a KEY met
+   the acceptance and not the point: a key is a flag, and a flag gets dropped.
+   `best_score` returns a `Scored` whose TYPE is the marker (the `Readings`
+   precedent) and whose `spans` cannot be deleted, popped, or replaced by
+   anything that is not an `Attribution` (the `FitRefusal.__bool__` precedent:
+   the separation RAISES rather than quietly succeeding).
+11. the report line CHECKS ITS OWN CLAIM. `report_pair` renders the number and
+   the two words a caller wants beside it in one call, and says so when they
+   are not the pair that was compared.
+12. the five-way span partition, and the SUBSTITUTED member of it: a
+   hyphenated token whose pieces did not all reach the lexicon is a label
+   naming a string the harness never read — `hill-zide` anchored on `hill`.
+   Found by the G2P cell over the song corpus, folded in here because it is
+   `go/receipt` one level down, and pinned on the SONNETS, where it also
+   occurs and where nothing was looking for it.
+13. the sweep itself: `quality/audit_spans.py`, adversary 7's instrument, and
+   the numbers it reports over the oracle.
+
 and, separately (BACKLOG 2.4), that the refrain-pointer stub is not an English
 printing convention and its language is a declared coordinate.
 """
@@ -261,6 +281,221 @@ def test_the_oracle_does_not_move():
           f"pair of words that did not produce their number")
 
 
+def test_the_spans_cannot_be_separated_from_the_number():
+    print("\n10. the spans are not a KEY on the score, they are the OBJECT")
+    aa = anchors("I don't get to go")
+    bb = anchors("how they read the address like a receipt")
+    s = lh.best_score(aa, bb, DECL, "go", "receipt")
+    check("best_score returns a Scored — the TYPE is the marker, so there is "
+          "no flag to forget", isinstance(s, lh.Scored),
+          f"{type(s).__name__}; and a Scored is still a dict, so every "
+          f"existing reader works: {isinstance(s, dict)}")
+    check("a single-pair `score` is NOT a Scored — the two are "
+          "distinguishable by isinstance, not by remembering a key",
+          not isinstance(lh.score(aa[0], bb[0], DECL, "go", "receipt"),
+                         lh.Scored))
+    for op, fn in (("del s['spans']", lambda: s.__delitem__("spans")),
+                   ("s.pop('spans')", lambda: s.pop("spans")),
+                   ("s['spans'] = None",
+                    lambda: s.__setitem__("spans", None))):
+        try:
+            fn()
+            check(f"{op} RAISES", False, "it did not")
+        except TypeError:
+            check(f"{op} RAISES rather than quietly succeeding", True)
+    check("...and the record survived all three attempts",
+          s["spans"]["a"]["words"] == ["get", "to", "go"])
+    check("an Attribution is FROZEN: a provenance record that can be edited "
+          "after the fact is one that can be invented",
+          _raises(lambda: s["spans"].__setitem__("mosaic", False), TypeError)
+          and _raises(lambda: s["spans"].update({"kind_a": "exact"}),
+                      TypeError))
+    check("the derived questions are on the object, not recomputed by each "
+          "consumer", s.spans.differs and not s.spans.exact
+          and s.spans.kinds == ("reach", "part"))
+    check("`claims` evaluates the assertion a report line makes",
+          not s.claims("go", "receipt"),
+          "two words and a number on one line IS an assertion")
+    check("str(Scored) cannot print a bare number",
+          "get to go" in str(s) and str(s).startswith("0.579"), str(s)[:70])
+
+
+def test_the_report_line_checks_its_own_claim():
+    print("\n11. `report_pair` — one call renders the label AND the evidence")
+    aa = anchors("I don't get to go")
+    bb = anchors("how they read the address like a receipt")
+    s = lh.best_score(aa, bb, DECL, "go", "receipt")
+    out = lh.report_pair(s, "go", "receipt")
+    check("the head line is the number beside the words, as before",
+          out[0] == "(go/receipt): 0.579  NO_RELATION", out[0])
+    check("and the line BELOW it says the named pair is not the evidence",
+          any("NAMED PAIR IS NOT THE EVIDENCE" in ln for ln in out),
+          out[1] if len(out) > 1 else "")
+    check("naming which side and how", "reaches past `go`" in out[1]
+          and "is part of `receipt`" in out[1], out[1])
+    ok = lh.best_score(anchors("the cat"), anchors("a hat"), DECL,
+                       "cat", "hat")
+    check("a pair whose words ARE the evidence gets no banner",
+          not any("NOT THE EVIDENCE" in ln
+                  for ln in lh.report_pair(ok, "cat", "hat")),
+          str(lh.report_pair(ok, "cat", "hat")))
+    # The banner is graded and the COUNT is not: `part` alone is 380 of the
+    # sonnets' 1014 judged pairs, so a banner on every one would train a
+    # reader to skip the line that matters (doctrine 91).
+    q = lh.best_score(anchors("dawn"), anchors("again"), DECL, "dawn", "again")
+    r = lh.report_pair(q, "dawn", "again")
+    check("an anchor cut alone is printed in the label and does NOT raise "
+          "the banner — the rendering says less than the count, on purpose",
+          not any("NOT THE EVIDENCE" in ln for ln in r)
+          and "last 1 of 2 syllables" in r[-1]
+          and not q.spans.exact, r[-1])
+
+
+def test_a_hyphen_can_substitute_the_rhyme_word():
+    print("\n12. SUBSTITUTED — the label names a string that was never read")
+    # `Lexicon.transcribe` splits a token on its hyphens and looks each piece
+    # up separately, so a compound whose pieces do not all read still yields
+    # phones from the ones that do. Found by the G2P cell over the song
+    # corpus; this is the same defect as `go/receipt` one level down, and the
+    # first instrument that can SEE it is the span record.
+    read, unread = lh.token_pieces(LEX, "hill-zide")
+    check("token_pieces splits the compound and says which half read",
+          read == ["hill"] and unread == ["zide"], f"{read} / {unread}")
+    a = anchors("Upon the zunny hill-zide")
+    b = anchors("Do teake his pleace by my wife-zide")
+    s = lh.best_score(a, b, DECL, "hill-zide", "wife-zide")
+    check("the span is typed SUBSTITUTED on both sides",
+          s.spans.kinds == ("substituted", "substituted"), str(s.spans.kinds))
+    check("and it outranks `exact`, which is what the record used to say — "
+          "the other kinds name the right string and get its extent wrong; "
+          "this one names a different string",
+          lh.span_kind(s["spans"]["a"]) == lh.SPAN_SUBSTITUTED
+          and s["spans"]["a"]["endword_only"]
+          and not s["spans"]["a"]["partial_word"],
+          "endword_only and not partial: the OLD partition called this exact")
+    check("the label names the piece that was read and the piece that was not",
+          "read as hill" in lh.span_label(s["spans"]["a"])
+          and "zide not in the lexicon" in lh.span_label(s["spans"]["a"]),
+          lh.span_label(s["spans"]["a"]))
+    check("two Dorset words that DO rhyme are scored `hill` against `wife` "
+          "and the report line now says why",
+          s["total"] < DECL.theta_rhyme
+          and "SUBSTITUTED" in lh.spans_note(s),
+          f"{s['total']} {s['relation']}")
+    check("`line_readability` still says READABLE — this cell does not move "
+          "a verdict, it makes the verdict's evidence legible",
+          lh.line_readability(LEX, "Upon the zunny hill-zide")["readable"],
+          "refusing instead is an INGESTION change with a measured price; "
+          "see quality/RESULTS_SPANS.md and the patches file")
+    # AND IT IS IN THE SONNETS. Sonnet 51 L13 and sonnet 81 L10 are mandated,
+    # judged, and both pass CORRECTLY on the last piece -- so the oracle could
+    # never have caught this, which is doctrine 95's shape exactly.
+    import battery
+    sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
+    tokens, mand = set(), []
+    scheme = "ABABCDCDEFEFGG"
+    for si, sn in enumerate(sonnets, 1):
+        res = lh.check_scheme(LEX, sn, scheme, DECL)
+        refl = {r["lines"] for r in res["refusals"]}
+        for p in res["pair_scores"]:
+            if lh.SPAN_SUBSTITUTED not in p["spans_kinds"]:
+                continue
+            for sp in (p["spans"]["a"], p["spans"]["b"]):
+                for r in (sp or {"runs": []})["runs"]:
+                    if r["unread"]:
+                        tokens.add((si, r["word"]))
+            i, j = p["lines"]
+            if lh.same_scheme_class(scheme[i - 1], scheme[j - 1]) \
+               and (i, j) not in refl:
+                mand.append((si, p["lines"], p["endwords"], p["score"]))
+    check("three sonnet tokens carry an unread hyphen piece",
+          sorted(tokens) == [(28, "swart-complexion'd"), (51, "wilful-slow"),
+                             (81, "o'er-read")], str(sorted(tokens)))
+    check("2 pairs are MANDATED and JUDGED on one, and both score 1.0 — "
+          "correct answers on a label that overstates, which is exactly why "
+          "152 sonnets could never have caught this (doctrine 95's shape)",
+          len(mand) == 2 and all(h[3] == 1.0 for h in mand), str(mand))
+    check("the third is NOT an end word: sonnet 28 L11 ends on `night` and "
+          "`swart-complexion'd` is reached by a MOSAIC span, so the "
+          "substitution rides inside a span label rather than an end-word "
+          "label — two defects of this cell's compounding",
+          not any("swart" in w for _, _, ew, _ in mand for w in ew),
+          "and it is not mandated with anything, so it costs no verdict")
+
+
+def test_the_sweep_runs_and_reports_three_counts():
+    print("\n13. adversary 7's instrument: quality/audit_spans.py")
+    import audit_spans
+    r = audit_spans.sweep_battery(LEX, DECL, verbose=False)
+    check("three counts, always (doctrine 79)",
+          (r["mandated"], r["judged"], r["refused"]) == (1064, 1014, 50),
+          f"mandated {r['mandated']} judged {r['judged']} "
+          f"refused {r['refused']}")
+    check("violations 81 — the sweep reads the same oracle the battery does",
+          r["violations"] == 81, str(r["violations"]))
+    check("632 of the 1014 JUDGED pairs name the two words that produced "
+          "their number", r["claimed"] == 632,
+          f"{r['claimed']} / {r['judged']}; the other "
+          f"{r['judged'] - r['claimed']} name a pair that did not")
+    check("35 of the 81 VIOLATIONS do — this is the number that decides "
+          "whether a triage lands on the right layer",
+          r["violations_claimed"] == 35,
+          f"{r['violations_claimed']} / {r['violations']}")
+    severe = sum(v for k, v in r["viol_kinds"].items()
+                 if any(x in (lh.SPAN_REACH, lh.SPAN_SUBSTITUTED,
+                              lh.SPAN_UNATTRIBUTED) for x in k))
+    check("9 of them could not be reconstructed from the printed words even "
+          "in principle (reach / substituted / unattributed)", severe == 9,
+          f"{severe} / {r['violations']}; the remaining "
+          f"{81 - 35 - severe} are the declared anchor cut, visible in the "
+          f"label")
+    check("the partition is exhaustive over the judged pairs",
+          sum(r["pair_kinds"].values()) == r["judged"],
+          f"{sum(r['pair_kinds'].values())} == {r['judged']}")
+    check("121 judged pairs had a TIE at the maximum — a second, "
+          "independent way the named span is one of several",
+          r["ties"] == 121, str(r["ties"]))
+    rec = audit_spans.sweep_record(LEX, DECL, verbose=False)
+    check("the record sweep finds this project's own canonical bad report "
+          "line and cannot reproduce it from the words it names",
+          any(x["a"] == "go" and x["b"] == "receipt"
+              and abs(x["total"] - 0.272) < 5e-4 for x in rec["disagrees"]),
+          "recorded 0.579, measured 0.272 from `go` and `receipt`")
+    # PINNED STRUCTURALLY, NOT BY COUNT. Sibling cells write markdown into
+    # this repo while this file runs, so a pinned `refused == 5` fails on
+    # somebody else's document rather than on a defect (doctrine 78: a
+    # parallel round moves the corpus under every cell). What must hold is
+    # the shape: refusals are named and never charged, and the three outcomes
+    # partition the adjudicable rows with no remainder.
+    check("and it REFUSES the rows whose number is a different quantity "
+          "rather than calling them wrong (doctrine 79)",
+          rec["refused"] and all("CHANNEL" in x["why"]
+                                 for x in rec["refused"]),
+          f"{len(rec['refused'])} refused, "
+          f"{len(rec['reproduces'])} reproduce, "
+          f"{len(rec['disagrees'])} disagree, of {rec['found']} adjudicable")
+    check("the three outcomes partition the adjudicable rows",
+          len(rec["refused"]) + len(rec["reproduces"])
+          + len(rec["disagrees"]) == rec["found"])
+    check("the sweep EXCLUDES its own report by name, and says so — an "
+          "instrument that swept its own findings would report its output "
+          "as fresh evidence and grow every time the prose was edited",
+          all(r["file"] != audit_spans.SELF_REPORT
+              for r in rec["reproduces"] + rec["refused"]
+              + rec["disagrees"]),
+          audit_spans.SELF_REPORT)
+
+
+def _raises(fn, exc):
+    try:
+        fn()
+    except exc:
+        return True
+    except Exception:
+        return False
+    return False
+
+
 def test_the_refrain_stub_is_not_english():
     print("\n8. BACKLOG 2.4 — the refrain pointer's LANGUAGE is a coordinate")
     eng = ("Oh, my poor Nelly Gray, &c.",
@@ -356,6 +591,10 @@ if __name__ == "__main__":
     test_provenance_is_absent_rather_than_invented()
     test_the_consumers_print_it()
     test_the_oracle_does_not_move()
+    test_the_spans_cannot_be_separated_from_the_number()
+    test_the_report_line_checks_its_own_claim()
+    test_a_hyphen_can_substitute_the_rhyme_word()
+    test_the_sweep_runs_and_reports_three_counts()
     test_the_refrain_stub_is_not_english()
     test_the_brief_does_not_print_one_finding_six_times()
     print("=" * 62)
