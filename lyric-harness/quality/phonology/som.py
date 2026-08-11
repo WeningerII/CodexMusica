@@ -21,6 +21,35 @@ That refusal is the point. Carrying English's stress grid into a pitch-accent
 language and reading the output as if it meant something is exactly the
 monoculture error the corpus specification exists to avoid, and it would be
 invisible in the numbers.
+
+AND THE REFUSAL IS FREE, WHICH IS NOT WHAT THIS REPO ASSUMED
+------------------------------------------------------------
+
+Doctrine 59 says refusing on SCRIPT has a measurable cost that should be paid
+in the open, and K-5 read this module's stress refusal as one. Measured
+(`quality/som_channel_audit.py`), it is not. The gabay constrains exactly two
+channels — word-initial consonant identity (higaad) and syllable weight — and
+prominence is in NEITHER. A refusal only costs something when the relation
+needs the channel refused (doctrine 60). This one refuses a channel the form
+never reads, so it buys the doctrine 35 protection at zero cost to the
+constraint. `MISSING.md` K-5 and `quality/RESULTS_SOM_BLOCKER.md`.
+
+WEIGHT IS VOWEL LENGTH, AND NOTHING ELSE — DECLARED, NOT INFERRED
+------------------------------------------------------------------
+
+Somali scansion is quantitative and a syllable is long iff its VOWEL is long.
+A CLOSED SHORT SYLLABLE IS LIGHT: `shan` is one mora, `buur` is two, and the
+coda contributes nothing either way. Measured over all 4,620 (C)V(V)(C)
+shapes the inventory below can build, `moras` is a total function of vowel
+length and is invariant under the coda.
+
+That rule lived here only as the arithmetic `2 if len(nuc) == 2 else 1`, which
+is the shape doctrine 35 warns about one axis further out: it is RIGHT for
+Somali and WRONG for most quantitative traditions — Greek, Latin, Sanskrit and
+Arabic all close a heavy syllable with a consonant — and the identical two
+lines of code would have produced plausible mora counts in any of them with
+nothing in the numbers to catch it. So it is declared as `weight_rule` and a
+reader no longer has to derive a modelling decision from an expression.
 """
 
 import re
@@ -64,7 +93,14 @@ class Somali(Phonology):
     grid_unit = "mora"
     prominence_rule = ("NONE — Somali has pitch accent, not stress. Prominence "
                        "is left None rather than faked, and a stress grid is "
-                       "refused.")
+                       "refused. The gabay constrains higaad and weight and "
+                       "reads no prominence channel, so the refusal costs the "
+                       "constraint nothing.")
+    weight_rule = ("VOWEL LENGTH ONLY — a syllable is heavy iff its vowel is "
+                   "long. A closed short syllable is LIGHT and the coda never "
+                   "contributes a mora. Correct for Somali; wrong for Greek, "
+                   "Latin, Sanskrit and Arabic, which is why it is declared "
+                   "rather than left as arithmetic.")
     relation = "gabay higaad: one fixed alliterating consonant for the whole poem"
     source = "rules only; no external resource, so nothing to licence"
 
@@ -127,12 +163,47 @@ class Somali(Phonology):
             return True                  # all vowel-initial words are one class
         return ha == hb
 
+    def readability(self, lines):
+        """-> dict of token counts: how much of `lines` this module could read.
+
+        DOCTRINE 28, AND IT IS THE PREDICATE K-5 TURNS ON. `higaad` below
+        silently DROPS a word it cannot read: `_head` returns None and the
+        word never joins a line's head set, so the share is computed over
+        whatever stayed inside the 1972 inventory. Nothing raises and nothing
+        returns None, so a text in a pre-1972 or non-Latin notation comes back
+        as a plausible-looking LOW SHARE rather than as a refusal — the poem
+        gets blamed for the orthography, which is doctrine 79's error moved
+        into a phonology.
+
+        Call this beside `higaad` and the two causes separate: a low share
+        with `read == total` is a fact about the POEM, a low share with
+        `read < total` is a fact about the NOTATION. Additive on purpose —
+        `higaad`'s three return values are unchanged.
+        """
+        total = read = 0
+        unread = []
+        for ln in lines:
+            for w in _tokens(ln):
+                total += 1
+                if self.syllabify(w):
+                    read += 1
+                else:
+                    unread.append(w)
+        return {"tokens": total, "read": read,
+                "unread": total - read,
+                "read_share": (read / total) if total else 0.0,
+                "notation": self.notation,
+                "sample_unread": unread[:8]}
+
     def higaad(self, lines):
         """-> (fixed consonant, share of lines carrying it, per-line hits).
 
         The gabay constraint is GLOBAL: one consonant across the whole poem.
         So the measure is the share of lines that contain it, not a per-line
         yes/no, and a real gabay approaches 1.0.
+
+        THIS DOES NOT REFUSE ON AN UNREADABLE TEXT — it shrinks. Read
+        `readability()` above before believing a low share.
         """
         per, counts = [], {}
         for ln in lines:

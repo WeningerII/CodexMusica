@@ -516,21 +516,221 @@ fall inside one line-permutation null spanning 6.7–27.3%. Replacement is the
 corpus's own shuffled self, plus a multi-author positive spanning more than one
 scheme.
 
-### K-4 · Old Norse has a phonology and no licensed corpus `BLOCKED`
+### K-4 · Old Norse has a phonology and no licensed corpus `BLOCKED` (doctrine 92: disjoint sets, and the disjointness is contingent on the channel map)
 **Constraint:** the only complete Háttatal is inside a 1974 editor's copyright;
 the 1848 edition that clears the gate has OCR that destroyed the consonants a
 hending detector reads.
 
-### K-5 · Somali can never have a corpus `BLOCKED`
-**Constraint:** the Latin orthography dates from 1972 and the provenance cutoff
-is 1931. Every written gabay is a modern transcription and in copyright.
-**Now quantified:** 18 named Somali poets are staged in `data/lyricists.tsv` and
-**every one of them is unusable**, by two independent routes. 13 fail the DATE
-gate on their own — their lives are recorded only as "19th–20th century", whose
-upper bound is 1900+70 past the term, and one (Muuse Xaaji Ismaaciil Galaal,
-c. 1910–1980) fails outright with life+70 = 2050. The remaining 5 clear the date
-and are marked `BLOCKED_ORTHOGRAPHY`, because K-5 bites regardless of when the
-poet died. Two gates, and the poets who pass the first are stopped by the second.
+> **VERIFIED BY EXECUTION 2026-08-11, and both halves reproduce exactly — but
+> the entry named one blocker where there are three, stacked, and priced none
+> of them.** Full working: `quality/RESULTS_NON_HATTATAL.md`. Runners under
+> `scratchpad/cellAJ/`. Six rows appended to `data/sources.tsv`.
+>
+> **1 · It is NOT doctrine 44.** `quality/phonology/non.py` is 959 lines and
+> complete — six syllables, stuðlar/höfuðstafr, skothending, aðalhending, the
+> penultimate viðrhending, oddhending/hluthending, Snorri's málfylling list,
+> moraic weight, and a tri-state that refuses on a merged vowel. 16 of 16
+> hendingar on Snorri's two demonstration vísur. Nothing here is hard to build.
+>
+> **2 · For the CORPUS it is doctrine 92, and the arithmetic is now on the
+> page.** P1 = clears the gate; P2 = 102 vísur with the channel intact.
+>
+> | witness | P1 | P2 | reachable |
+> |---|:--:|:--:|:--:|
+> | `cltk` pair (Guðni Jónsson d.1974, edns 1935–54) | ✗ (to 2044) | ✓ | ✓ |
+> | Faulkes / VSNR | ✗ (express reservation, living) | ✓ | ✗ |
+> | `latin-ocr` Arnamagnæan **1848** | **✓** | ✗ (**0** channel chars) | ✓ |
+> | Finnur Jónsson (d. **1934**) | **✓** | ✓ | **✗** |
+>
+> **|P1 ∩ P2 ∩ reachable| = 0.** Strike the egress row and the set is
+> non-empty — so the disjointness is contingent on the **channel map**, not on
+> the world (doctrine 49). Re-probed 2026-08-11: `archive.org`,
+> `is.wikisource.org`, `septentrionalia.net`, `skaldic.org`, `baekur.is` all
+> `000`. Doctrine 51 still holds on the left column: the two `cltk` rows are
+> ONE file, md5 `c221b3761633838018e24ccf4e43e7fd`, re-confirmed today by
+> `python3 quality/audit_corpus.py --calibrate`.
+>
+> **3 · The wipe reproduces, and its CAUSE is recorded in the artifact.**
+> 121 pages, **0** occurrences of `þ ð æ ǫ ø œ á é í ó ú ý` in the window and
+> in all 746 pages, **3,474** Greek-block substitutions — `--calibrate` says
+> `REDISCOVERED`, and `test_corpus_audit.py` passes. Nobody had opened the 746
+> `.hocr` files beside them. Their header: `tesseract 3.04.00`, and over the
+> window **`lang=lat` 21,926 words (94.05 %) and `lang=grc` 1,387 (5.95 %),
+> total 23,313, and nothing else.** The book was OCR'd with a Latin-plus-Greek
+> model and **no Norse model at all** — so the channel characters are not in
+> either charset and *could not have been emitted*, and the Greek is the `grc`
+> model firing on Old Norse. The scan is fine: word confidence **75.6** mean on
+> the Norse verso against **81.3** on the Latin recto. Doctrine 45 committed by
+> an OCR engine — the language is a declared coordinate and it was silently
+> declared wrong. The damage is in the **recognition pass**, not the images.
+>
+> **4 · Route "repair the wipe" is DEAD, and now has a price.** Aligned against
+> an independent witness (the REFUSED `cltk` text, used as a ruler and never as
+> a repair): 707 of 905 verse lines. The fan-in kills it — 60 OCR images have a
+> channel character in their pre-image and **16 also stand for themselves**.
+> `b` ← `ð`×133, `b`×122, `ö`×80, `þ`×56, `ó`×27, `Þ`×10, so rewriting every
+> `b` to its modal source **corrupts 316 characters to fix 133**. The wipe is
+> many-to-one *into the ambient alphabet*; its image has no free symbol. The
+> **Bayes-optimal** inverse, fitted on the answer key itself, reproduces
+> **12.6 %** of verse lines, **50.8 %** of words and **63.6 %** of line-final
+> words — a pair ceiling near 0.32, and an upper bound a real repair cannot
+> reach. It could not ship in any case: fitted on Guðni Jónsson it is both a
+> derivative of the refused edition and non-independent of what it would score
+> (doctrine 13).
+>
+> **5 · The real unblock is on the SPEC axis, and doctrine 62 says that is
+> worth more than corpus volume. The 1848 edition is BILINGUAL.** Old Norse on
+> the verso, a facing Latin translation headed `CLAVIS METRICA` on the recto —
+> and Latin uses none of the destroyed characters. Over the same 121 pages:
+> **62 Latin pages** against 44 Norse, Greek substitutions **11.39 per 1,000
+> characters against 40.05**, clean tokens **84.7 % against 67.2 %**. All NINE
+> rules `non.py` implements are legible there, including the two doctrine 62
+> exists for — skothending's `diversae sunt vocales, diversaeque literae
+> initiales, sed in utraque voce eaedem consonantes vocalem excipiunt` and
+> aðalhending's `literae vero initiales distinguunt voces`, which is
+> *upphafstafir greina orðin* — plus the málfylling list as `particulis
+> hypermetris, verbi caussa: ek, aut: en, er, at, í, á, of, af, um`. The book's
+> own praefatio names the translator in its bytes (scan 0013, Sveinbjörn
+> Egilsson, rector of the Reykjavík school). **So `non.py`'s rules no longer
+> rest on an edition the gate refuses**, and the two witnesses are 87 years and
+> one language apart with no shared bytes — doctrine 87: the point of
+> corroboration was never agreement, it was independence.
+>
+> **6 · The corpus half is smaller than the title implies.** Doctrine 32: the
+> corpus is defined by the property under test, and the property is the
+> hending, not Háttatal. `sveinbjornt/sagadb.org` already carries an **express
+> PD affirmation** over **585 extracted dróttkvætt lines**, already measured at
+> 55.63 % skothending against a null median of 30.72 %. It is `contested=true`
+> and **awaiting a human call nobody has made**. That decision, not a search,
+> is the cheapest thing between this project and a staged
+> `corpus/song/non_*.txt` — and `corpus/song/` still holds **zero** `non_`
+> files, confirmed today.
+>
+> **7 · Still BLOCKED, and here is what would move it**, in cost order:
+> (a) make the sagadb call; (b) get `archive.org` on the egress allowlist and
+> **re-OCR scans 0610–0730 with an Icelandic model** — §3 says the images are
+> intact; (c) name the edition behind `is.wikisource.org`'s Old Norse, reached
+> this session through the HuggingFace MCP tools (a channel no earlier Norse
+> search had used) and carrying **`ǫ`, `ø` and `œ`** — the unmerged classical
+> orthography that **no text this project has ever held contains**, and the
+> whole reason `non.py` needs a merged-vowel tri-state. Not staged: the dump
+> names no edition, and the same 4,900-row file carries `Andvökur, úrval
+> Sigurðar Nordals, 2. útgáfa 1980` four rows away, which is doctrine 40 at its
+> sharpest — a CC-BY-SA-3.0 licence on a compilation that demonstrably mixes
+> admissible and in-copyright editions.
+
+### K-5 · Somali has no REACHABLE corpus `BLOCKED` (doctrine 44: cannot obtain)
+**Retitled 2026-08-11 from "Somali can never have a corpus". "Never" is a
+universal, it was tested, and it is FALSE — while the block itself survives,
+reclassified.** Measured: `python3 quality/som_channel_audit.py`. Full working
+in `quality/RESULTS_SOM_BLOCKER.md`; seven probe rows in `data/sources.tsv`.
+
+**Which of the three blocker kinds (doctrine 44/92): `cannot obtain`.** Not
+`hard to build` — `som.py` is built and is measured below to record both
+channels the form constrains. Not `disjoint` — that was the hypothesis, it was
+tested, and it failed.
+
+**The doctrine 92 route was tested first, because it would have closed K-5
+without any date argument. IT DOES NOT HOLD.** The gabay constrains exactly two
+channels: **higaad** (one consonant fixed for the whole poem → word-initial
+consonant identity) and **quantitative metre** (the grid is the mora → syllable
+weight). Somali metre is keyed on **vowel length**, and the 1972 orthography
+writes vowel length by DOUBLING — so the script records the constraint, and an
+admissible text in it would be usable. Measured over all **4,620** (C)V(V)(C)
+shapes `som.py`'s own inventory builds: 0 unreadable, vowel length 1 → moras
+{1}, vowel length 2 → moras {2}, while has-coda and no-coda both give {1,2}.
+Weight is a total function of vowel length and blind to the coda — the Somali
+rule, wrong for Greek/Latin/Sanskrit/Arabic, and it existed only as the
+expression `2 if len(nuc) == 2 else 1` until it was declared as `weight_rule`.
+**Corollary that inverts this entry's own reading of the module:** `som.py`
+refuses a stress grid (doctrine 35) and K-5 counted that as part of the
+blockage. Prominence is in NEITHER constrained channel, so the refusal costs the
+constraint **nothing** (doctrine 60). Somali is the one language here whose
+pitch accent is irrelevant to its own form.
+
+**So K-5 rests entirely on DATE and REACHABILITY — and the universal breaks on
+an instance.** J. W. C. Kirk (b. 1878), *A grammar of the Somali language, with
+examples in prose and verse*, Cambridge University Press, **1905** — a
+Latin-script transcription of Somali VERSE published 26 years inside the cutoff
+and 67 years before the 1972 orthography. "Every written gabay is a modern
+transcription" is false. Doctrine 38's bind ("any text `som` can read was
+written down in or after 1972") is a claim about the 1972 **script**, not about
+Latin script, and does not carry the universal it was asked to carry.
+**It is unreachable, and that is now the blocker.** Re-probed 2026-08-11:
+`archive.org` (3 paths), `web.archive.org`, `openlibrary.org`,
+`books.google.com`, `cambridge.org`, `hathitrust.org` — all curl `000`; the
+proxy names it verbatim as `gateway answered 403 to CONNECT`. `WebFetch` on the
+same hosts returns `EGRESS_BLOCKED`, reconfirming on a second date that the
+block is per-host, not per-tool. **Two things stay unverified and they are the
+whole risk:** whether the verse includes *gabay* rather than only
+*geeraar*/*hees*, and **whether Kirk's transcription records vowel length and
+the four pharyngeals** — the title page has not been seen and his death year was
+not found, so only route 3 (publication ≤ 1931) is in play. Unblock route
+(doctrine 85): one fetch of the `grammarofsomalil00kirkuoft` djvu text from any
+host with egress, then the channel table, then the gate.
+
+**What the channel table says a pre-1931 witness will do**, scoring recovery of
+the 1972 value rather than legibility, because a shape can stay readable and
+read WRONG: a **macron** notation keeps 440/880 higaad classes and **0/2310** of
+the weight channel; a **diacritic** notation keeps 1530/2310 of weight and
+**0/880** higaad classes — and those four are `c`, `x`, `q`, `kh`, four distinct
+alliterating consonants in a language whose entire form is one fixed
+alliterating consonant. Doctrine 53: the file will very likely be admissible for
+higaad and refused for the mora grid.
+
+**The arithmetic, recomputed — and it moves against Somali, not for it.**
+The counts are **14 fail the DATE gate and 4 clear**, not 13 and 5.
+`data/lyricists.tsv` computes `pd_expired` as `died + 70` (verified: across all
+424 rows with both, the difference is exactly 70 and no other value occurs)
+while `provenance.py` declares `term_years = 95`, which IS the 1931 cutoff.
+Cilmi Boodheri (1900–1940) expires 2010 at life+70 and **2035** at the declared
+term; his row is corrected to `REFUSED_DATE`. **Across all 551 ledger rows
+exactly one flips between the two terms — 423 clear at 70, 422 at 95 — and it is
+this one**, so the undeclared term is load-bearing in precisely the entry whose
+count turns on it and nowhere else (doctrine 58).
+**And this entry's stated REASON for the 13 was wrong and pointed the opposite
+way from its own verdict.** It read: lives "recorded only as '19th–20th
+century', whose upper bound is 1900+70 past the term". 1900+70 = **1970**, which
+expired 56 years ago — the sentence as written *admits* the poets it refuses.
+The rows apply doctrine 81 correctly: the END of a "19th–20th century" window is
+**2000**, they say `life+70 = 2070 has not expired`, and 2070 is what refuses.
+The prose had copied the bound of the OTHER Somali group — the three "19th
+century" poets, correctly bounded at 1900 — onto the thirteen. Two bounds, one
+sentence, the wrong one quoted; the enumeration was right and nobody added it
+up. (Muuse Xaaji Ismaaciil Galaal, c. 1910–1980, does fail outright as stated:
+1980+70 = 2050, and 1980+95 = 2075.)
+**`BLOCKED_ORTHOGRAPHY` also names the wrong thing** and the note on the 4
+surviving rows is corrected in place: the label names the date of the
+TRANSCRIPTION, not a defect in the script.
+
+**A defect found on the way, in `som.py`.** `higaad()` silently DROPS a word it
+cannot read, so a text in a non-1972 notation yields a plausible low share
+instead of a refusal — and it is a WRONG ANSWER, not a lost one. On six shape
+lines carrying a perfect higaad on `g` by construction, a macron notation
+reports **`higaad='x'` at share 50.0%** with 18 of 30 words read, where the
+truth is `'g'` at 100.0%. Nothing raises and nothing returns None. Doctrine 79
+inside a phonology: the orthography's miss was billed to the poet. Fixed
+additively by `som.Somali.readability()`, so `higaad()`'s three return values
+and `test_phonology.py` test 8 are untouched. This matters here specifically —
+the moment a pre-1931 witness is reachable it will be in a pre-1972 notation.
+
+**Probes recorded so the next session does not repeat them** (doctrine 39, seven
+rows): the four GITenberg Somaliland holdings fetched and read (2.27 MB, **zero**
+occurrences of gabay/gabei/gabai — Swayne 1895 describes the *gerara* minstrel
+at length and renders every song as English prose paraphrase, which is doctrine
+93's cleanest instance here); Hugging Face 50 Somali datasets, **zero literary**,
+and `wikimedia/wikisource` carries 72 language editions with **no `so`**; GitHub
+code search `gabei` → 45 hits, all wordlists; three modern Somali GitHub corpora
+**refused on 12 × 404 for any licence file** — silence is not permission, and
+modern web text besides. `SEARCH:somali-gabay-corpus` (2026-08-10) was re-probed
+under doctrine 49 and **stands**; its argument is confirmed and its framing is
+superseded.
+
+**What the evidence supports, since "never" does not:** no admissible Somali
+verse text is reachable *from this container*; one admissible-by-date candidate
+is known to exist and to be digitised; and the only thing between this project
+and testing it is an egress block, which doctrine 49 says is a claim about the
+network at a moment rather than about the world.
 
 ### K-6 · Eight non-English phonologies, ZERO songs `OPEN`
 **Found 2026-08-10, while closing K-1.** K-1 built a song corpus and every one
