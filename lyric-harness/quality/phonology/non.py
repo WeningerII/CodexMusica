@@ -49,6 +49,48 @@ both are load-bearing:
    rule is chosen by measurement against three alternatives rather than
    asserted.
 
+WHOSE EDITION THESE RULES REST ON -- AND IT IS NO LONGER A REFUSED ONE
+
+Every Old Norse sentence quoted above was read out of Guðni Jónsson's text
+(`cltk/non_texts`), which `data/sources.tsv` REFUSES: he died in 1974 and the
+IS/EU term runs to 2044. A checker whose specification comes from a text it may
+not use is a real defect, and as of 2026-08-11 it is closed.
+
+**The 1848 Arnamagnæan Edda is BILINGUAL.** Old Norse on the verso, a facing
+Latin translation headed `CLAVIS METRICA` on the recto. It clears the gate
+outright on its printed 1848 -- and Latin uses NONE of `þ ð æ ǫ ø œ` or the
+accented vowels, so the OCR failure that made the Norse half unusable (see THE
+ORTHOGRAPHY below, and `quality/RESULTS_NON_HATTATAL.md`) had nothing to bite
+on in the Latin. Over the same 121 pages: 62 Latin pages against 44 Norse, 11.39
+Greek-block substitutions per 1000 characters against 40.05, 84.7% clean tokens
+against 67.2%. Doctrine 52 says the destruction is channel-specific; this is its
+positive instance, and what survives is the SPEC.
+
+All nine rules this module implements are legible there. The two above,
+verbatim from scan 0615 of `latin-ocr/eddasnorrasturlu01hafnuoft`:
+
+  skothending  "una syllaba in utroque loco, in quibus syllabis DIVERSAE SUNT
+               VOCALES, DIVERSAEQUE LITERAE INITIALES, sed in utraque voce
+               eaedem consonantes vocalem excipiunt"
+  aðalhending  "hic eadem vocalis est, eaedemque omnes consequentes literae in
+               utraque voce, LITERAE VERO INITIALES DISTINGUUNT VOCES"
+
+`literae initiales distinguunt voces` is `upphafstafir greina orðin`, and
+`eaedem consonantes vocalem excipiunt` -- the consonants that TAKE UP the vowel
+-- is consequence 2 stated as a rule rather than inferred from an example.
+Scan 0613 carries the rest: six syllables to the line ("Quemlibet versum
+faciunt sex syllabae"), twelve stafir three to the fjórðungr, the höfuðstafr as
+`LITERA PRINCEPS`, the two stuðlar as `LITERAE SERVAE`, the fegra rule
+("elegantius est, diversas esse vocales"), and the málfylling list below as
+"particulis hypermetris, verbi caussa: ek, aut: en, er, at, í, á, of, af, um".
+Scan 0615 also fixes the viðrhending on the penultimate ("quae secundana
+dicitur, syllabam versus extremae proximam (penultimam) occupet") and the
+frumhending as initial or medial ("primana ... in initio versus ... interdum in
+medio").
+
+Two witnesses, 87 years and one language apart, sharing no bytes. Doctrine 87:
+the point of corroboration was never agreement, it was independence.
+
 ALLITERATION, in the Germanic way
 
   "Í öðru vísuorði eru settr sá stafr fyrst í vísuorðinu, er vér köllum
@@ -100,6 +142,18 @@ is here:
 An unmerged text is unaffected: `ǫ`, `ø`, `œ` are read exactly when they
 appear, and give True/False. "This edition cannot tell me" and "these vowels
 differ" are different answers and the module says which it means.
+
+**AN UNMERGED TEXT WAS SIGHTED ON 2026-08-11 AND IS NOT STAGED.** Reached
+through the HuggingFace MCP tools -- a channel no earlier Old Norse search had
+used -- `wikimedia/wikisource` config `20231201.is` prints Egill's lausavísur
+as `gengr ulfr ok ǫrn of ynglings bǫrn`, `heitu, hrœrikytjur`,
+`fox es illt í øxi`, `undvargs flǫsur margar`. All three of `ǫ`, `ø` and `œ`
+are present, in verse this project already holds in the MERGED spelling
+(`Mjǫk` there, `Mjök` in `scratchpad/non_sagadb_drottkvaett.txt`). It is not
+staged because the dump names no edition for the Norse verse while the same
+file carries a 1980 one four rows away, so the tri-state above is still the
+operative path and not a legacy. Row `wikimedia/wikisource#20231201.is` in
+`data/sources.tsv` carries the evidence and the unblock route.
 
 WHAT IS REFUSED, AND WHAT CANNOT BE
 

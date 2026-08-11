@@ -58,6 +58,35 @@ for `language` (doctrine 45):
               module's two existing callers are Tang regulated-verse arms.
   'cilin'     詞林正韻 (戈載, 1821), the standard for 詞.
 
+THE EDITION IS A COORDINATE TOO, added 2026-08-11 and OFF BY DEFAULT.
+
+`data/qieyun_variants.tsv` files a refusal under 異體 / 簡化 / 後起 / 混同, and
+that taxonomy is a property of the CHARACTER. On the staged 1782 四庫 ci corpus
+it is a property of the character IN AN EDITION, and the difference costs
+16,681 of 582,677 characters: 黄 (1,205 tokens) is filed 簡化, "a 1956
+simplified form", and 逺 (946) and 緑 (862) are filed 後起, "no 廣韻 headword
+and no warranted 異體". They are the ordinary 18th-century hand for 黃, 遠 and
+綠. Refusing them is right for a modern simplified corpus and wrong for this
+one; nothing in the table could tell the two cases apart because it does not
+model an edition (doctrine 38 says the same of `provenance.py`).
+
+  edition=None     the default. Every committed number was measured under it
+                   and it reproduces them exactly.
+  edition='siku'   the 文淵閣四庫全書 hand, from data/siku_orthography.tsv --
+                   108 graphs, each carrying its witness. It is consulted ONLY
+                   after the general 異體 map and ONLY for a character the
+                   table cannot read at all, so it can never change a reading
+                   the module already had, and every substitution still carries
+                   `via`.
+
+Two witnesses build that table and NEITHER IS SUFFICIENT ALONE: Unihan's
+variant fields (88 types / 3,810 tokens, refusing every source with more than
+one reading target -- the 发 -> 發/髮 trap) and a Needleman-Wunsch alignment of
+KR4j0086's 1782 目録 against couyun's independent transcription of the same
+1715 詞譜 (28 types / 8,024 tokens). They overlap on 8 types and AGREE ON 8 OF
+8. The union reaches 52.8% of the unreadable tokens; 441 types / 7,646 tokens
+neither reaches, and that is stated in the table rather than smoothed over.
+
 A key literally names the standard that produced it -- `('平水第4部', '平')`
 against `('詞林第3部', '平')` -- so two standards' keys can never silently
 compare equal, and a result carries the claim rather than leaving it implicit.
@@ -86,6 +115,19 @@ label. That is an INGESTION defect. 怎 and 做 are also unreadable, and there
 refusing is CORRECT: the rime book has no such graph. Reporting one refusal
 rate over both is doctrine 79's error one layer down, so `refusal()` names the
 cause and `readability()` returns three counts, never two.
+
+AND THE SAME ERROR WAS IN THE DENOMINATOR, found 2026-08-11 by cell AL.
+`coverage()` and `readability()` both filtered `"一" <= c <= "鿿"` -- U+4E00 to
+U+9FFF, the BMP Unified Repertoire ALONE -- so an Extension A graph landed in
+NO count at all: not read, not refused, not unread, and not in `total`. 3,703
+characters of the staged 四庫 ci corpus (0.64% of 582,677) sat outside all
+four, of which 343 read and 3,360 did not; on the 花間集 all 58 such characters
+READ. The published rate was therefore OVERSTATED on one corpus and
+UNDERSTATED on the other, which is doctrine 79's second lesson exactly: a rate
+polluted this way is not even conservative in a predictable direction. The
+sharpest instance is that **䰟 -- the variant 魂 maps TO, the character this
+whole doctrine is named for -- is U+4C1F, in Extension A, and was itself
+outside the denominator of the rate that quotes it**. See IDEOGRAPH_RANGES.
 
 THE OVERLAP OVER READINGS IS A COORDINATE TOO
 =============================================
@@ -174,9 +216,47 @@ TABLE = os.path.join(DATA, "qieyun_mc.tsv")
 STANDARDS_TABLE = os.path.join(DATA, "ltc_rhyme_standards.tsv")
 VARIANTS_TABLE = os.path.join(DATA, "qieyun_variants.tsv")
 
+#: edition -> its own orthography table. See `edition` in __init__.
+EDITION_TABLES = {"siku": os.path.join(DATA, "siku_orthography.tsv")}
+EDITIONS = (None, "siku")
+
 #: 平 is level; 上去入 are collectively 仄 (oblique). This binary, not stress,
 #: is what the regulated-verse template constrains.
 LEVEL = "平"
+
+#: The CJK ideograph blocks, as ranges. `coverage()` and `readability()` used
+#: `"一" <= c <= "鿿"` -- U+4E00..U+9FFF, the BMP Unified Repertoire ALONE --
+#: and everything outside it fell into NO bucket: not read, not refused, not
+#: unread, and not in `total` either. That is doctrine 79's error moved into
+#: the DENOMINATOR, and it lands exactly where it does most damage, because
+#: the 異體字 forms an 18th-century manuscript prints are disproportionately
+#: Extension A: 䰟 (U+4C1F) -- the variant doctrine 88 is built on, the one
+#: 魂 maps TO -- is in Ext A and was invisible to the rate that doctrine
+#: quotes. MEASURED 2026-08-11 over the two staged ltc corpora, and the bias
+#: RUNS IN BOTH DIRECTIONS, so the old figure was not even conservative:
+#:   corpus/song/ltc_huajianji.txt    +58 characters, 58 of them READ
+#:                                    (䆫 x49, 䗶 x7, 㘅 x2) -- rate understated
+#:   corpus/song/ltc_siku_kr4j*.txt   +3,703 characters, 343 read and 3,360
+#:                                    not -- rate OVERstated by ~0.5 pp
+#: `quality/build_ci_corpus.py --verify-staged` prints both denominators.
+IDEOGRAPH_RANGES = (
+    (0x3400, 0x4DBF),      # Extension A
+    (0x4E00, 0x9FFF),      # Unified Repertoire
+    (0xF900, 0xFAFF),      # Compatibility Ideographs
+    (0x20000, 0x2FA1F),    # Extensions B-F and Compatibility Supplement
+)
+
+#: Positions that are NOT an ideograph and are not the module's business to
+#: read: a `□`/`○` lacuna in a manuscript, and any residue. They occupy a
+#: character position in a ci -- the 詞譜 counts them -- so they are reported
+#: as their own count rather than dropped, which is the same rule doctrine 79
+#: states for a refusal.
+LACUNA = "□○"
+
+
+def is_ideograph(ch):
+    o = ord(ch)
+    return any(lo <= o <= hi for lo, hi in IDEOGRAPH_RANGES)
 
 STANDARDS = ("qieyun", "pingshui", "cilin")
 
@@ -277,6 +357,34 @@ def _load_standards():
     return out
 
 
+def _load_editions():
+    """-> {edition: {char: target}} from the edition-scoped orthography tables.
+
+    An 異體字 verdict is a property of the character IN AN EDITION, not of the
+    character, and `data/qieyun_variants.tsv` models only the second. On the
+    1782 四庫 manuscript that costs 16,681 of 582,677 characters: 黄 (1,205
+    tokens) is filed there as 簡化, a 1956 simplification, and 逺 (946) and 緑
+    (862) as 後起, no 廣韻 headword and no warranted variant. They are the
+    ordinary 18th-century hand for 黃, 遠, 綠.
+
+    Each table names its own two witnesses in its header and refuses where they
+    are silent or disagree; see data/siku_orthography.tsv.
+    """
+    out = {}
+    for name, path in EDITION_TABLES.items():
+        m = {}
+        if os.path.exists(path):
+            with open(path, encoding="utf-8") as fh:
+                for line in fh:
+                    if line.startswith("#") or line.startswith("char\t"):
+                        continue
+                    p = line.rstrip("\n").split("\t")
+                    if len(p) >= 2 and p[0] and p[1]:
+                        m[p[0]] = p[1]
+        out[name] = m
+    return out
+
+
 def _load_variants():
     """-> ({char: target}, {char: relation}, {char: target})."""
     subs, why, hazards = {}, {}, {}
@@ -307,7 +415,8 @@ class MiddleChinese(Phonology):
     prominence_rule = "平 (level) = 1, 仄 (上去入, oblique) = 0. NOT stress."
     relation = "rhyme category = (韻部 under a DECLARED standard, 聲)"
 
-    def __init__(self, standard="pingshui", variants=True, overlap="any"):
+    def __init__(self, standard="pingshui", variants=True, overlap="any",
+                 edition=None):
         if standard not in STANDARDS:
             raise ValueError(
                 f"standard must be one of {STANDARDS}, not {standard!r}. "
@@ -321,9 +430,18 @@ class MiddleChinese(Phonology):
                 f"(the default, and what every committed number was measured "
                 f"under), 'all' requires every reading pair to agree, "
                 f"'settled' returns None where some agree and some do not.")
+        if edition not in EDITIONS:
+            raise ValueError(
+                f"edition must be one of {EDITIONS}, not {edition!r}. It names "
+                f"the ORTHOGRAPHY the text is written in, which is a different "
+                f"coordinate from the script: 'siku' is the 文淵閣四庫全書 hand "
+                f"of 1782, where 黄 is 黃 and not a 1956 simplification. None "
+                f"is the default and reproduces every committed number.")
         self.standard = standard
         self.variants = variants
         self.overlap = overlap
+        self.edition = edition
+        self._ed = _load_editions().get(edition, {}) if edition else {}
         self._t = _load_table()
         self._std = _load_standards()
         self._sub, self._why, self._haz = _load_variants()
@@ -332,7 +450,10 @@ class MiddleChinese(Phonology):
             f"{standard!r} from data/ltc_rhyme_standards.tsv (derived from "
             f"hulbji/couyun, MIT); 異體 map "
             f"{'ON' if variants else 'OFF'} from data/qieyun_variants.tsv "
-            f"(Unihan, Unicode License v3, filtered by couyun)")
+            f"(Unihan, Unicode License v3, filtered by couyun)"
+            + (f"; edition {edition!r} from "
+               f"{os.path.basename(EDITION_TABLES[edition])}"
+               if edition else "; no edition orthography (default)"))
 
     # ---------------------------------------------------------------- lookup
 
@@ -343,6 +464,8 @@ class MiddleChinese(Phonology):
         d["standard_options"] = list(STANDARDS)
         d["overlap"] = self.overlap
         d["overlap_options"] = list(OVERLAPS)
+        d["edition"] = self.edition
+        d["edition_options"] = list(EDITIONS)
         return d
 
     def variant_of(self, ch):
@@ -352,10 +475,15 @@ class MiddleChinese(Phonology):
         neither more nor less: both members sit in the same cell of both
         standards, so the verdict cannot change. At RAW Qieyun granularity it
         warrants nothing, which is why every substituted reading carries `via`.
+
+        The declared EDITION is consulted only after the general 異體 map, and
+        only for a character the table cannot read at all, so turning it on can
+        never change a reading the module already had. Every substitution it
+        makes still carries `via`, so a result says which graph answered.
         """
         if not self.variants or ch in self._t:
             return None
-        return self._sub.get(ch)
+        return self._sub.get(ch) or self._ed.get(ch)
 
     def readings(self, ch):
         """-> [reading, ...] or None. A reading reached through the 異體 map
@@ -552,7 +680,7 @@ class MiddleChinese(Phonology):
         """-> (known, total) characters. The two-count form, kept because
         callers unpack it; `readability()` is the one that separates a defect
         from a correct refusal."""
-        chars = [c for c in text if "一" <= c <= "鿿"]
+        chars = [c for c in text if is_ideograph(c)]
         return sum(1 for c in chars if self.readings(c) is not None), len(chars)
 
     def readability(self, text):
@@ -565,15 +693,24 @@ class MiddleChinese(Phonology):
                     no such graph) or 簡化 (a script the table is not keyed on)
           unread    the residue: absent, and nothing accounts for it. THIS is
                     the ingestion defect, and it is the number to drive down.
+          lacuna    a `□`/`○` in the witness: a position the 詞譜 counts and
+                    the manuscript does not carry. NOT in `total`, because the
+                    question `readability` answers is about characters, and
+                    reported so a caller can see the position existed at all.
           via_variant / hazard_if_simplified are diagnostics on the `read`
                     half. The hazard count is CONDITIONAL and says so in its
                     name: in a traditional text 冬 is simply 冬, and it is
                     flagged only because 鼕 simplifies onto it. The number is
                     an upper bound on how much a SIMPLIFIED text could be
                     reading as the wrong word.
+
+        WIDENED 2026-08-11. The denominator was U+4E00..U+9FFF alone, so every
+        Extension A graph fell outside all four counts -- see
+        IDEOGRAPH_RANGES for what that cost and in which direction.
         """
-        chars = [c for c in text if "一" <= c <= "鿿"]
+        chars = [c for c in text if is_ideograph(c)]
         out = {"total": len(chars), "read": 0, "refused": 0, "unread": 0,
+               "lacuna": sum(1 for c in text if c in LACUNA),
                "via_variant": 0, "hazard_if_simplified": 0, "by_cause": {}}
         for c in chars:
             if self.hazard(c):

@@ -79,6 +79,18 @@ if ROOT not in sys.path:
 
 GE_TSV = os.path.join(ROOT, "data", "qindingcipu_ge.tsv")
 
+#: The 詞牌 name links that `data/qindingcipu_ge.tsv` does NOT carry, written
+#: out so the corpus's segmentation is re-checkable from the repository alone.
+#: Doctrine 34's rule one level up: a corpus file needs a row, and a corpus
+#: file whose PROVENANCE CHAIN has a link stored only in a clone that no longer
+#: exists has a row that cannot be checked.  436 of the 10,029 staged poems
+#: (4.3%, 80 distinct names) head a 詞牌 the committed spec does not print --
+#: 醉落魄 for 一斛珠, 江神子 for 江城子, 醉桃源 for 阮郎歸 -- and until this file
+#: existed the link lived only in a `git clone` of KR4j0086.
+ALIAS_TSV = os.path.join(ROOT, "data", "qindingcipu_aliases.tsv")
+
+SONGDIR = os.path.join(ROOT, "corpus", "song")
+
 FW = "　"          # ideographic space: 片 break in the 四庫 body, field
                        # separator in its heading lines
 PILCROW = "¶"     # mandoku's end-of-woodblock-column mark
@@ -437,6 +449,323 @@ class Resolver(object):
             if k and k in self.by_name:
                 return k
         return None
+
+
+# --------------------------------------------------------------------------
+# the name witness, written out so the chain is re-checkable offline
+# --------------------------------------------------------------------------
+
+ALIAS_HEADER = """\
+# 詞牌 NAME LINKS the 1715 spec table does not itself carry.
+#
+# WHY THIS FILE EXISTS. 479 of the 10,029 poems in corpus/song/ltc_siku_kr4j*
+# (4.8%, 88 distinct names) head a 詞牌 the committed spec table cannot resolve
+# to their 格 -- 醉落魄 (80 poems), 江神子 (36), 小桃紅 (20), 掃花遊 (17),
+# 醉桃源 (16). Their `--- GE:` header therefore named a tune nothing in this
+# repository had a row for, and their segmentation could not be re-derived from
+# anything committed: the link lived only in a `git clone
+# https://github.com/kanripo/KR4j0086`. Doctrine 34 says a corpus file with no
+# row is the defect; this is the same rule one level in -- a row whose chain
+# has a link outside the repo is a claim nobody here can check.
+# `python3 quality/build_ci_corpus.py --verify-staged` went from 436
+# UNVERIFIABLE poems to 0 when this file landed.
+#
+# WHAT THE SEGMENTATION ITSELF NEVER DEPENDED ON: all 436 of the printed break
+# vectors already landed on a real 格 of exactly their character count
+# somewhere in the spec, 436 of 436, so what was missing was the NAME, not the
+# line breaks. That is the difference between an unverifiable claim and a
+# wrong one, and it is worth stating which this was.
+#
+# A ROW IS A LINK, NOT A NAME. 玉連環 is a 104-character 詞牌 of its own AND a
+# 又名 the 1782 目録 gives 一落索; 12 staged poems at 46-48 characters are
+# matched through the second sense. Writing out only the names the spec table
+# LACKS lost exactly those, and left 16 poems unverifiable after the first
+# pass of this file. 春草碧/番槍子 and 清商怨/擷芳詞 are the other two.
+#
+# WITNESS. KR4j0086 = 御定詞譜 (the 四庫's own title for the 欽定詞譜),
+# '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, 1782. No LICENSE file
+# anywhere in the Kanseki Repository, so admission rests on term expiry of the
+# WORK (1715) and of the EDITION (1782) and on nothing else -- the same footing
+# every corpus/song/ltc_siku_* file was admitted on (doctrine 54).
+# Re-probed 2026-08-11: plain `git clone` returns HTTP 200, repo md5 over its
+# KR4j0086_*.txt files is 393834975a9c374150cc68bd5a3da4a9, no licence file.
+#
+# HOW EACH ROW WAS DERIVED, and none of it from memory.
+#   catalogue    a 又名 note printed in KR4j0086's own 卷N目録, taken ONLY
+#                where the mandoku double-column note has an EMPTY second
+#                column. `(又名江神子/)` is unambiguous; `(又名重疊金花子夜歌溪
+#                菩薩鬘雲/花間意 梅 句 花 碧 晚)` interleaves six aliases across
+#                two half-columns and decoding it is a guess, so it is refused
+#                rather than resolved (doctrine 66).
+#   orthography  the 四庫 catalogue and the couyun tune sequence aligned
+#                (Needleman-Wunsch) and the residual character substitutions
+#                collected: 栁->柳, 黄->黃, 巻->卷, 㸃->點, 逺->遠. 638 names
+#                align exactly; the map is REFUSED outright if it would merge
+#                two distinct spec names (0 collisions).
+#
+# A row is EVIDENCE, not a decision: `tune` may name more than one primary,
+# and where it does the matcher REFUSES the poem rather than picking one.
+# 5 of these rows are such cases (小桃紅, 慶宫春, 清平樂令, 錦堂春, 陽春曲).
+#
+# Rows whose `alias` still carries a 一名/乂名/义名 prefix are the witness as
+# printed: the 目録 does not use 又名 everywhere and the extractor strips only
+# 又名. They are kept rather than cleaned, because a name no heading can match
+# costs nothing and editing the witness to look tidy is the thing this file
+# exists to prevent.
+#
+# COLUMNS
+#   alias         the name as the 1782 目録 prints it
+#   tune          the 詞譜 primary 詞牌 it names, '|' separated if more than one
+#   route         catalogue | orthography | catalogue+orthography
+#   staged_poems  poems in corpus/song/ltc_siku_kr4j*.txt whose --- GE: header
+#                 uses this name. 0 means the link is recorded and unused.
+"""
+
+
+def alias_rows(ge, res):
+    """-> [(alias, [tune, ...], route)] for every NAME->詞牌 link the Resolver
+    reaches that the committed spec table does not already carry.
+
+    A name already IN the spec can still gain links: 玉連環 is a 104-character
+    tune of its own AND a 又名 the 1782 目録 gives another tune, and 16 staged
+    poems (玉連環 at 46-48 characters, 春草碧 at 75, 清商怨 at 58) are matched
+    through the second sense. Writing out only the names the spec lacks lost
+    exactly those, so the row is per LINK, not per name.
+    """
+    have = collections.defaultdict(set)
+    for x in ge:
+        have[x["tune"]].add(x["tune"])
+        for a in x["aliases"].split("|"):
+            if a:
+                have[a].add(x["tune"])
+    out = []
+    for nm in sorted(res.by_name):
+        prim = sorted({g["tune"] for g in res.by_name[nm]} - have.get(nm, set()))
+        if not prim:
+            continue
+        route = []
+        if any(nm in als for als in res.aliases.values()):
+            route.append("catalogue")
+        if res.norm(nm) != nm or nm in res.name_map:
+            route.append("orthography")
+        out.append((nm, prim, "+".join(route) or "catalogue"))
+    return out
+
+
+def staged_ge_names(songdir=SONGDIR):
+    """-> Counter of the 詞牌 named in every staged poem's `--- GE:` header."""
+    c = collections.Counter()
+    for f in sorted(glob.glob(os.path.join(songdir, "ltc_siku_kr4j*.txt"))):
+        for line in open(f, encoding="utf-8"):
+            m = re.match(r"^--- GE: 欽定詞譜 (\S+) (\d+)字", line)
+            if m:
+                c[m.group(1)] += 1
+    return c
+
+
+def write_aliases(ge, res, path=ALIAS_TSV, songdir=SONGDIR):
+    used = staged_ge_names(songdir)
+    rows = alias_rows(ge, res)
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(ALIAS_HEADER)
+        fh.write("alias\ttune\troute\tstaged_poems\n")
+        for nm, prim, route in rows:
+            fh.write("%s\t%s\t%s\t%d\n" % (nm, "|".join(prim), route,
+                                           used.get(nm, 0)))
+    return rows, used
+
+
+ORTH_TSV = os.path.join(ROOT, "data", "siku_orthography.tsv")
+
+UNIHAN_FIELDS = ("kTraditionalVariant", "kZVariant", "kSemanticVariant",
+                 "kSpecializedSemanticVariant")
+
+ORTH_HEADER = """\
+# THE 四庫 SCRIBAL FORMS, and the two witnesses that resolve them.
+#
+# WHY THIS FILE EXISTS. `data/qieyun_variants.tsv` classifies a refusal by a
+# `relation` column -- 異體 / 簡化 / 後起 / 混同 -- and the taxonomy is a
+# property of the CHARACTER. On a 1782 manuscript it is a property of the
+# character IN AN EDITION, and the difference is not academic: 黄 (1,205
+# tokens here) is filed 簡化, "a 1956 simplified form", and 逺 (946) and 緑
+# (862) are filed 後起, "no 廣韻 headword and no warranted 異體". They are the
+# ordinary 18th-century hand for 黃, 遠 and 綠. Refusing them is right for a
+# modern simplified corpus and wrong for this one, and 16,681 of the corpus's
+# 582,677 characters are unreadable with that taxonomy applied.
+#
+# So EDITION is a coordinate, exactly as `standard` and `overlap` already are
+# in quality/phonology/ltc.py, and this file is what `edition='siku'` reads.
+# It is NOT the default: every committed number was measured without it, and a
+# default changed without a held-out price is a silent re-scoring of the
+# record (doctrine 84's argument for keeping `consult=False` reachable).
+#
+# TWO WITNESSES, NEITHER OF THEM MEMORY, AND NEITHER SUFFICIENT ALONE.
+#
+#   unihan     unicode-org/unihan-database, Unicode License v3 -- an express
+#              redistribution grant, conditioned on the notice travelling with
+#              the data. kTraditionalVariant / kZVariant / kSemanticVariant /
+#              kSpecializedSemanticVariant. A source character with MORE THAN
+#              ONE reading target is REFUSED, never tie-broken (doctrine 66):
+#              that is the 发 -> 發 / 髮 trap, and it is the exact failure
+#              doctrine 88 records as "silently returns a different word's
+#              rhyme". Reaches 88 types / 3,810 tokens.
+#              ITS LIMIT IS STRUCTURAL: kTraditionalVariant is a field about
+#              the SIMPLIFIED character, so on a traditional manuscript it is
+#              answering a question nobody asked. It is silent on 逺, 緑, 㸃,
+#              鳯, 㑹 -- the five commonest 四庫 forms in this corpus.
+#
+#   alignment  the 1782 witness against itself. KR4j0086's 卷N目録 (the 四庫's
+#              own copy of the 詞譜) and hulbji/couyun's independent
+#              transcription of the SAME 1715 work, aligned by
+#              Needleman-Wunsch over the tune sequence: 638 names align
+#              character-for-character and the residual substitutions in the
+#              rest are what the two witnesses spell differently. The map is
+#              refused outright if it would merge two distinct spec names (0
+#              collisions). Reaches 28 types / 8,024 tokens.
+#
+# THEY CORROBORATE. Both speak on 8 types / 3,034 tokens and AGREE ON 8 OF 8,
+# zero disagreements -- two derivations with nothing in common, one a Unicode
+# variant database and one an alignment of two 詞譜 witnesses. Doctrine 87:
+# agreement was never the point, independence was, and here it is independent.
+# The union reaches 108 types / 8,800 tokens = 52.8% of the unreadable set.
+#
+# WHAT IS STILL REFUSED, and it is the larger half.
+#   * 8 types / 235 tokens where Unihan gives more than one reading target and
+#     the alignment is silent: 强 95, 叠 66, 戯 27, 厮 26, 﨑 10, 麄 7,
+#     塡 3, 㟢 1.
+#   * 441 types / 7,646 tokens neither witness reaches -- 䦨 462, 㡬 321,
+#     曽 279, 顔 243, 懐 241, 牎 230, 痩 215, 怎 207. A third witness (a 四庫
+#     orthography table, or the 廣韻 字頭 list read for its own variants) is
+#     what would move that, and it is not in this repository. So this file
+#     buys 52.8% of the refusal and the majority is still owed.
+#   * 怎 樣 褪 做 你 and their class stay refused under every setting: they are
+#     Song-Yuan vernacular graphs that postdate the rime book and refusing
+#     them is CORRECT (doctrine 88).
+#
+# ONE ROW OVERRIDES UNIHAN AND SAYS SO: 别 (1,037 tokens). Unihan refuses it,
+# giving 別 and 彆 -- but that is a SIMPLIFICATION merge, a fact about the 1956
+# reform, and this corpus predates it by 174 years. The 1782 witness prints
+# 别 where couyun prints 別 in the same tune name, which is direct evidence
+# about THIS edition. `witness` records that the row is alignment-only.
+#
+# COLUMNS
+#   char      the graph the 1782 manuscript prints
+#   target    the graph data/qieyun_mc.tsv can read
+#   witness   unihan | alignment | both
+#   fields    the Unihan field(s), where unihan is a witness
+#   tokens    occurrences in corpus/song/ltc_siku_kr4j*.txt
+#   refused   what ltc.refusal() says without this file -- kept so the
+#             falsified taxonomy stays visible rather than overwritten
+"""
+
+
+def load_unihan_variants(clones):
+    """-> {field: {char: {target}}} from a clone of unicode-org/unihan-database."""
+    rel = collections.defaultdict(lambda: collections.defaultdict(set))
+    base = os.path.join(clones, "unihan-database")
+    for f in UNIHAN_FIELDS:
+        path = os.path.join(base, f + ".txt")
+        if not os.path.exists(path):
+            continue
+        for line in open(path, encoding="utf-8"):
+            if line.startswith("#") or not line.strip():
+                continue
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) < 3:
+                continue
+            src = parts[0].split()[0]
+            for tok in parts[2].split():
+                tgt = tok.split("<")[0]
+                if not (src.startswith("U+") and tgt.startswith("U+")):
+                    continue
+                try:
+                    a, b = chr(int(src[2:], 16)), chr(int(tgt[2:], 16))
+                except ValueError:
+                    continue
+                if a != b:
+                    rel[f][a].add(b)
+    return rel
+
+
+def write_orthography(res, clones, path=ORTH_TSV, songdir=SONGDIR):
+    """Build the edition-scoped map from the two witnesses. Returns a report."""
+    from quality.phonology.ltc import MiddleChinese, is_ideograph
+    ltc = MiddleChinese(standard="cilin")
+    unread = collections.Counter()
+    for p in read_staged(songdir):
+        for t in p["toks"]:
+            if len(t) == 1 and is_ideograph(t) and ltc.readings(t) is None:
+                unread[t] += 1
+
+    rel = load_unihan_variants(clones)
+    rows, refused_amb = [], collections.Counter()
+    for ch in unread:
+        tg, fields = set(), []
+        for f in UNIHAN_FIELDS:
+            for t in rel[f].get(ch, ()):
+                if ltc.readings(t) is not None:
+                    tg.add(t)
+                    fields.append(f)
+        uh = sorted(tg)[0] if len(tg) == 1 else None
+        al = res.charmap.get(ch)
+        if al is not None and ltc.readings(al) is None:
+            al = None
+        if uh and al and uh != al:
+            refused_amb["witnesses_disagree"] += unread[ch]
+            continue
+        if uh and al:
+            w, tgt = "both", uh
+        elif al:
+            # Unihan may have SPOKEN and been refused as multi-valued here --
+            # 别 -> 別/彆 is a 1956 merge and this corpus predates it by 174
+            # years. The row is alignment-only and `fields` says so by being
+            # empty, so the file never credits a witness that did not answer.
+            w, tgt, fields = "alignment", al, []
+        elif uh:
+            w, tgt = "unihan", uh
+        else:
+            if len(tg) > 1:
+                refused_amb["unihan_multivalued"] += unread[ch]
+            else:
+                refused_amb["no_witness"] += unread[ch]
+            continue
+        rows.append((ch, tgt, w, ",".join(sorted(set(fields))) or "-",
+                     unread[ch], ltc.refusal(ch) or "-"))
+    rows.sort(key=lambda r: (-r[4], r[0]))
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(ORTH_HEADER)
+        fh.write("char\ttarget\twitness\tfields\ttokens\trefused\n")
+        for r in rows:
+            fh.write("%s\t%s\t%s\t%s\t%d\t%s\n" % r)
+    return {"rows": rows, "unread_types": len(unread),
+            "unread_tokens": sum(unread.values()),
+            "refused": refused_amb,
+            "recovered_tokens": sum(r[4] for r in rows)}
+
+
+def load_orthography(path=ORTH_TSV):
+    """-> {char: target}. Absent file is not an error; it is the default."""
+    out = {}
+    if not os.path.exists(path):
+        return out
+    with open(path, encoding="utf-8") as fh:
+        rows = [l for l in fh if not l.startswith("#")]
+    for r in csv.DictReader(rows, delimiter="\t"):
+        out[r["char"]] = r["target"]
+    return out
+
+
+def load_aliases(path=ALIAS_TSV):
+    """-> {alias: [tune, ...]}.  Absent file is not an error: the spec table
+    alone covers 95.7% of the corpus and the verifier says so."""
+    out = {}
+    if not os.path.exists(path):
+        return out
+    with open(path, encoding="utf-8") as fh:
+        rows = [l for l in fh if not l.startswith("#")]
+    for r in csv.DictReader(rows, delimiter="\t"):
+        out[r["alias"]] = [t for t in r["tune"].split("|") if t]
+    return out
 
 
 # --------------------------------------------------------------------------
@@ -1021,16 +1350,359 @@ def template_diagnostic(kept):
 
 
 # --------------------------------------------------------------------------
+# the STAGED corpus, re-derived from committed data alone
+# --------------------------------------------------------------------------
+
+STAGED_RE = re.compile(r"^--- GE: 欽定詞譜 (\S+) (\d+)字")
+
+
+def read_staged(songdir=SONGDIR):
+    """-> [poem] parsed out of the staged files, with NO reference to the
+    builder's own state.  A poem is its headers plus a token sequence in which
+    an `&KRnnnn;` entity and a `□` lacuna are ONE position each, exactly as
+    `tokenize()` counted them when the file was written."""
+    out = []
+    for path in sorted(glob.glob(os.path.join(songdir,
+                                              "ltc_siku_kr4j*.txt"))):
+        cur = None
+        for raw in open(path, encoding="utf-8"):
+            line = raw.rstrip("\n")
+            if line.startswith("#"):
+                continue
+            if line.startswith("--- TITLE:"):
+                if cur:
+                    out.append(cur)
+                cur = {"path": path, "title": line[10:].strip(),
+                       "toks": [], "marks": {}, "pian": []}
+                continue
+            if cur is None:
+                continue
+            m = STAGED_RE.match(line)
+            if m:
+                cur["tune"], cur["nchars"] = m.group(1), int(m.group(2))
+                cur["unique"] = "partition NOT unique" not in line
+                continue
+            for k in ("AUTHOR", "SOURCE", "RHYME", "JU", "HEADING-AS-PRINTED"):
+                if line.startswith("--- %s:" % k):
+                    cur[k.lower()] = line.split(":", 1)[1].strip()
+                    break
+            else:
+                if line.startswith("[VERSE"):
+                    if cur["toks"]:
+                        cur["pian"].append(len(cur["toks"]))
+                elif line.strip():
+                    marked = False
+                    for t in tokenize(line)[0]:
+                        cur["toks"].append(t)
+                    for ch in line:
+                        if ch in "。，":
+                            cur["marks"][len(cur["toks"]) - 1] = ch
+                            marked = True
+                    cur["ok_line"] = cur.get("ok_line", True) and marked
+        if cur:
+            out.append(cur)
+    return out
+
+
+def verify_staged(songdir=SONGDIR, gepath=GE_TSV, aliaspath=ALIAS_TSV):
+    """Re-derive every staged poem's segmentation from the 1715 spec.
+
+    WHAT THIS CHECKS THAT NOTHING ELSE DOES.  `quality/ltc_overlap.py` rebuilds
+    the rhyme measurement from the `--- RHYME` / `--- JU` headers and checks it
+    against `data/sources.tsv` -- but it TRUSTS those headers.  They are the
+    only record of where the 1715 spec put a line end, and they were written by
+    a pipeline that needs 66 `git clone`s to run again.  This asks the spec
+    itself, offline: does the character count match, does the printed break
+    vector equal the 格's line-end vector, is that vector the only one the
+    詞牌 admits at that length once the 1782 woodblock's own 片 has voted, and
+    do the headers say what the marks say.
+
+    Doctrine 79 throughout: checked / confirmed / unverifiable are three
+    counts, and a poem whose 詞牌 name is not in either committed table is
+    UNVERIFIABLE here, not wrong.
+    """
+    ge = load_ge(gepath)
+    alias = load_aliases(aliaspath)
+    by_name = collections.defaultdict(list)
+    for x in ge:
+        for n in {x["tune"]} | {a for a in x["aliases"].split("|") if a}:
+            by_name[n].append(x)
+    for a, tunes in alias.items():
+        for t in tunes:
+            for x in ge:
+                if x["tune"] == t:
+                    by_name[a].append(x)
+
+    poems = read_staged(songdir)
+    st = collections.Counter()
+    bad = collections.defaultdict(list)
+    lac = collections.Counter()
+    ent = collections.Counter()
+    for p in poems:
+        st["poems"] += 1
+        n = len(p["toks"])
+        nl = sum(1 for t in p["toks"] if t in "□○")
+        ne = sum(1 for t in p["toks"] if ENT.fullmatch(t))
+        if nl:
+            lac[(os.path.basename(p["path"]), p["title"])] = (nl, n)
+        if ne:
+            ent[(os.path.basename(p["path"]), p["title"])] = (ne, n)
+        st["lacuna_tokens"] += nl
+        st["entity_tokens"] += ne
+        if n != p.get("nchars"):
+            bad["count_vs_own_header"].append((p["path"], p["title"], n,
+                                               p.get("nchars")))
+            continue
+        cands = [x for x in by_name.get(p["tune"], []) if x["nchars"] == n]
+        if not cands:
+            st["unverifiable_no_such_tune"] += 1
+            continue
+        st["checked"] += 1
+        printed = tuple(sorted(p["marks"]))
+        if p["pian"]:
+            cands = [x for x in cands
+                     if all(q in {e + 1 for e in x["ends"]} for q in p["pian"])]
+        if not cands:
+            bad["pian_contradicts_every_ge"].append((p["path"], p["title"]))
+            continue
+        vec = {x["ends"] for x in cands}
+        if len(vec) > 1:
+            bad["ends_ambiguous"].append((p["path"], p["title"],
+                                          p["tune"], n, len(vec)))
+            continue
+        if tuple(list(vec)[0]) != printed:
+            bad["break_vector_mismatch"].append((p["path"], p["title"]))
+            continue
+        st["segmentation_confirmed"] += 1
+        # 。 exactly at 韻 and ， exactly at 句, where the partition is unique
+        sig = {x["sig"] for x in cands}
+        if len(sig) == 1:
+            x = cands[0]
+            yun = sorted(i for i, m in p["marks"].items() if m == "。")
+            ju = sorted(i for i, m in p["marks"].items() if m == "，")
+            if sorted(x["rhyme_pos"]) != yun or sorted(x["ju_pos"]) != ju:
+                bad["mark_partition_mismatch"].append((p["path"], p["title"]))
+            else:
+                st["partition_confirmed"] += 1
+            if not p["unique"]:
+                bad["header_says_ambiguous_but_spec_is_unique"].append(
+                    (p["path"], p["title"]))
+            idx = {e: i + 1 for i, e in enumerate(x["ends"])}
+            hr = sorted(int(v) for v in re.findall(r"\d+", p.get("rhyme", "")))
+            hj = sorted(int(v) for v in re.findall(r"\d+", p.get("ju", "")))
+            if hr != sorted(idx[i] for i in x["rhyme_pos"]):
+                bad["rhyme_header_mismatch"].append((p["path"], p["title"]))
+            if hj != sorted(idx[i] for i in x["ju_pos"]):
+                bad["ju_header_mismatch"].append((p["path"], p["title"]))
+        else:
+            st["partition_ambiguous"] += 1
+            if p["unique"]:
+                bad["ambiguous_partition_undeclared"].append(
+                    (p["path"], p["title"]))
+    return {"stats": st, "defects": bad, "lacuna": lac, "entity": ent,
+            "poems": poems}
+
+
+def yun_rhyme_arms(poems, standard="cilin", edition=None):
+    """The 韻 arm and its matched 句 control, over the staged corpus.
+
+    Same construction as `measure()` -- consecutive positions inside a rhyme
+    group against consecutive 句 line ends of the same poems -- but read off
+    the staged files, so it runs with no clones. `edition` is threaded through
+    so the price of the orthography coordinate is measurable rather than
+    asserted (doctrine 84).
+    """
+    from quality.phonology.ltc import MiddleChinese
+    ltc = MiddleChinese(standard=standard, edition=edition)
+    out = {}
+    pairs = {"yun": [], "ju": []}
+    for p in poems:
+        if not p.get("unique"):
+            continue
+        groups = collections.defaultdict(list)
+        for g, spec in enumerate(p.get("rhyme", "").split("/")):
+            for v in re.findall(r"\d+", spec):
+                groups[g].append(int(v))
+        ends = sorted(p["marks"])
+        for g in groups.values():
+            idx = [ends[i - 1] for i in sorted(g) if 0 < i <= len(ends)]
+            for x, y in zip(idx, idx[1:]):
+                pairs["yun"].append((p["toks"][x], p["toks"][y]))
+        ju = [ends[int(v) - 1] for v in re.findall(r"\d+", p.get("ju", ""))
+              if 0 < int(v) <= len(ends)]
+        for x, y in zip(ju, ju[1:]):
+            pairs["ju"].append((p["toks"][x], p["toks"][y]))
+    for arm, ps in pairs.items():
+        T = F = R = 0
+        for a, b in ps:
+            v = ltc.rhymes(a, b, standard=standard) if (
+                len(a) == 1 and len(b) == 1) else None
+            if v is None:
+                R += 1
+            elif v:
+                T += 1
+            else:
+                F += 1
+        out[arm] = {"mandated": len(ps), "judged": T + F, "refused": R,
+                    "true": T, "rate": 100.0 * T / (T + F) if T + F else None}
+    return out
+
+
+def staged_readability(poems):
+    """Doctrine 79 on the COVERAGE number, with the denominator stated.
+
+    Three counts over the characters, plus the two token classes that occupy a
+    character POSITION and are not characters at all -- a `&KRnnnn;` glyph with
+    no Unicode code point, and a `□` lacuna in the 1782 manuscript.  Both were
+    invisible to every coverage figure this project has published for this
+    corpus, and so was every Extension A graph, until 2026-08-11.
+    """
+    from quality.phonology.ltc import MiddleChinese, is_ideograph
+    ltc = MiddleChinese(standard="cilin")
+    toks = [t for p in poems for t in p["toks"]]
+    text = "".join(t for t in toks if len(t) == 1 and is_ideograph(t))
+    r = ltc.readability(text)
+    r["positions"] = len(toks)
+    r["lacuna"] = sum(1 for t in toks if t in "□○")
+    r["entity"] = sum(1 for t in toks if ENT.fullmatch(t))
+    r["narrow_total"] = sum(1 for t in text if "一" <= t <= "鿿")
+    # the same three counts restricted to the positions the spec mandates rhyme
+    return r
+
+
+def yun_readability(poems, gepath=GE_TSV, aliaspath=ALIAS_TSV):
+    """The same three counts AT THE POSITIONS THAT CARRY THE SIGNAL.
+
+    A corpus-wide coverage figure averages the rhyme positions in with every
+    other character.  What a ci rhyme measurement can actually use is the
+    characters the 1715 spec marks 韻, and doctrine 67 says measure WHERE the
+    refusal falls rather than quoting one rate.
+    """
+    from quality.phonology.ltc import MiddleChinese, is_ideograph
+    ltc = MiddleChinese(standard="cilin")
+    out = collections.Counter()
+    for p in poems:
+        if not p.get("unique"):
+            continue
+        for i, mk in sorted(p["marks"].items()):
+            if mk != "。":
+                continue
+            out["mandated"] += 1
+            t = p["toks"][i]
+            if len(t) != 1 or not is_ideograph(t):
+                out["lacuna_or_entity"] += 1
+                continue
+            if ltc.readings(t) is not None:
+                out["read"] += 1
+            elif ltc.refusal(t) in ("簡化", "後起"):
+                out["refused"] += 1
+            else:
+                out["unread"] += 1
+    return out
+
+
+# --------------------------------------------------------------------------
+
+def report_verify(songdir=SONGDIR):
+    """`--verify-staged`: the whole check, network-free and clone-free."""
+    v = verify_staged(songdir)
+    st, bad = v["stats"], v["defects"]
+    print("VERIFY THE STAGED CORPUS AGAINST THE 1715 SPEC")
+    print("  reading   %s/ltc_siku_kr4j*.txt" % songdir)
+    print("  against   data/qindingcipu_ge.tsv + data/qindingcipu_aliases.tsv")
+    print("  network   none. clones   none.")
+    print()
+    print("  poems                                    %6d" % st["poems"])
+    print("  CHECKED (詞牌 resolves in a committed table)  %6d" % st["checked"])
+    print("  UNVERIFIABLE (詞牌 in neither table)      %6d"
+          % st["unverifiable_no_such_tune"])
+    print("  segmentation CONFIRMED against the spec  %6d" % st["segmentation_confirmed"])
+    print("     of which 韻/句 partition also unique  %6d" % st["partition_confirmed"])
+    print("     partition ambiguous (declared so)     %6d" % st["partition_ambiguous"])
+    print()
+    print("  positions that are not a character:")
+    print("     &KRnnnn; entity tokens                %6d in %d poems"
+          % (st["entity_tokens"], len(v["entity"])))
+    print("     □/○ lacuna tokens                     %6d in %d poems"
+          % (st["lacuna_tokens"], len(v["lacuna"])))
+    for k, (nl, n) in v["lacuna"].most_common(4):
+        print("        %-46s %3d of %3d = %.0f%%"
+              % ("%s %s" % k, nl, n, 100.0 * nl / n))
+    print()
+    print("  DEFECTS")
+    if not bad:
+        print("     none")
+    for k in sorted(bad):
+        print("     %-40s %5d" % (k, len(bad[k])))
+        for row in bad[k][:3]:
+            print("        %s" % (row,))
+
+    r = staged_readability(v["poems"])
+    print()
+    print("COVERAGE, as three counts and with the denominator stated "
+          "(doctrine 79)")
+    print("  character POSITIONS in the corpus         %6d" % r["positions"])
+    print("    ideograph characters (the denominator)  %6d" % r["total"])
+    print("      read                                  %6d (%.2f%%)"
+          % (r["read"], 100.0 * r["read"] / r["total"]))
+    print("      refused -- 簡化/後起, correctly         %6d" % r["refused"])
+    print("      unread  -- the ingestion residue      %6d" % r["unread"])
+    print("      by cause                              %s" % r["by_cause"])
+    print("    □/○ lacuna, a position with no character %6d" % r["lacuna"])
+    print("    &KRnnnn;, a glyph with no code point     %6d" % r["entity"])
+    print("  the OLD denominator, U+4E00..U+9FFF only  %6d  (%d characters "
+          "fell outside every count)"
+          % (r["narrow_total"], r["total"] - r["narrow_total"]))
+    y = yun_readability(v["poems"])
+    print()
+    print("COVERAGE AT THE 韻 POSITIONS -- where the signal is (doctrine 67)")
+    print("  mandated by the 1715 spec                 %6d" % y["mandated"])
+    print("    read                                    %6d (%.2f%%)"
+          % (y["read"], 100.0 * y["read"] / y["mandated"]))
+    print("    refused -- 簡化/後起, correctly           %6d" % y["refused"])
+    print("    unread  -- the ingestion residue        %6d" % y["unread"])
+    print("    lacuna or entity, no character at all   %6d"
+          % y["lacuna_or_entity"])
+
+    print()
+    print("WHAT THE EDITION COORDINATE COSTS AND BUYS, standard='cilin'")
+    print("  the 韻 arm and its MATCHED 句 control (doctrine 41). If the "
+          "orthography\n  map were manufacturing agreement the control would "
+          "rise with the result.")
+    for ed in (None, "siku"):
+        a = yun_rhyme_arms(v["poems"], "cilin", ed)
+        print("    edition=%-6s 韻 %5.1f%% (%d/%d judged, %d refused)   "
+              "句 %4.1f%% (%d/%d, %d refused)   separation %5.1f pp"
+              % (repr(ed), a["yun"]["rate"], a["yun"]["true"],
+                 a["yun"]["judged"], a["yun"]["refused"], a["ju"]["rate"],
+                 a["ju"]["true"], a["ju"]["judged"], a["ju"]["refused"],
+                 a["yun"]["rate"] - a["ju"]["rate"]))
+    return 1 if bad else 0
+
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--clones", required=True)
-    ap.add_argument("--out", default=os.path.join(ROOT, "corpus", "song"))
+    ap.add_argument("--clones")
+    ap.add_argument("--out", default=SONGDIR)
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--measure", action="store_true")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--aliases", action="store_true",
+                    help="rewrite data/qindingcipu_aliases.tsv from the "
+                         "KR4j0086 witness under --clones")
+    ap.add_argument("--orthography", action="store_true",
+                    help="rewrite data/siku_orthography.tsv from the Unihan "
+                         "clone and the 1782 alignment under --clones")
+    ap.add_argument("--verify-staged", action="store_true",
+                    help="re-derive the staged corpus's segmentation from the "
+                         "committed spec. Needs no clones and no network.")
     ap.add_argument("--report")
     args = ap.parse_args()
+
+    if args.verify_staged:
+        return report_verify(args.out)
+    if not args.clones:
+        ap.error("--clones is required unless --verify-staged is given")
 
     ge = load_ge()
     res = Resolver(ge, args.clones)
@@ -1045,6 +1717,33 @@ def main():
           "links from single-column notes"
           % (res.aligned_exact, len(res.name_map), len(res.charmap),
              len(res.charmap_collisions), res.n_alias))
+
+    if args.aliases:
+        rows, used = write_aliases(ge, res)
+        print("\nNAME WITNESS written to %s" % ALIAS_TSV)
+        print("  links absent from data/qindingcipu_ge.tsv   %5d" % len(rows))
+        print("  of them used by a staged poem               %5d"
+              % sum(1 for nm, _p, _r in rows if used.get(nm)))
+        print("  staged poems the file makes checkable       %5d"
+              % sum(used.get(nm, 0) for nm, _p, _r in rows))
+        print("  names resolving to MORE THAN ONE 詞牌        %5d  (the "
+              "matcher refuses those, it does not pick)"
+              % sum(1 for _n, p, _r in rows if len(p) > 1))
+        return 0
+
+    if args.orthography:
+        r = write_orthography(res, args.clones)
+        w = collections.Counter(x[2] for x in r["rows"])
+        print("\nEDITION ORTHOGRAPHY written to %s" % ORTH_TSV)
+        print("  unreadable in the staged corpus   %4d types %6d tokens"
+              % (r["unread_types"], r["unread_tokens"]))
+        print("  rows written                      %4d types %6d tokens "
+              "(%.1f%%)"
+              % (len(r["rows"]), r["recovered_tokens"],
+                 100.0 * r["recovered_tokens"] / r["unread_tokens"]))
+        print("     by witness                     %s" % dict(w))
+        print("  STILL REFUSED, by cause           %s" % dict(r["refused"]))
+        return 0
 
     if args.selftest:
         selftest(args.clones, ge, res)
