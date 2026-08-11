@@ -1,0 +1,69 @@
+{
+  "title": "Moonlight and Lead",
+  "hooks": ["billy, billy, faster than sin"],
+  "placement_note": "SIMPLIFIED, disclosed rather than hidden: every line starts on beat 1 (no hand-placed pickup/anacrusis analysis, unlike examples/never_been_to_a_scene.blueprint.json's per-line placement declaration). subdivision=2 is declared at the CLI, not in this file -- see CLAUDE.md, mandate is call-site declared the same way.",
+  "sections": [
+    {"name": "verse1", "bars": 8, "start_bar": 1, "function": "verse",
+     "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+    {"name": "verse2", "bars": 8, "start_bar": 9, "function": "verse",
+     "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+    {"name": "chorus", "bars": 8, "start_bar": 17, "function": "chorus",
+     "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+    {"name": "verse3", "bars": 8, "start_bar": 25, "function": "verse",
+     "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+    {"name": "chorus2", "bars": 8, "start_bar": 33, "function": "chorus",
+     "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+    {"name": "bridge", "bars": 4, "start_bar": 41, "function": "bridge",
+     "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+    {"name": "verse4", "bars": 8, "start_bar": 45, "function": "verse",
+     "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+    {"name": "chorus3", "bars": 8, "start_bar": 53, "function": "chorus",
+     "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+    {"name": "outro", "bars": 4, "start_bar": 61, "function": "outro",
+     "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}
+  ],
+  "lines": [
+    {"text": "His mother's grave was cold before his boots wore thin", "bar": 1, "beat": 1, "duration": 8, "section": "verse1"},
+    {"text": "and the men who called him puny would learn to run", "bar": 3, "beat": 1, "duration": 8, "section": "verse1"},
+    {"text": "he stood five foot seven with a temper like a struck match", "bar": 5, "beat": 1, "duration": 8, "section": "verse1"},
+    {"text": "first blood at seventeen, and the trouble had begun", "bar": 7, "beat": 1, "duration": 8, "section": "verse1"},
+
+    {"text": "Tunstall gave him work and gave him something like a home", "bar": 9, "beat": 1, "duration": 8, "section": "verse2"},
+    {"text": "the only roof a drifting boy could trust", "bar": 11, "beat": 1, "duration": 8, "section": "verse2"},
+    {"text": "they shot the Englishman down on a New Mexico road", "bar": 13, "beat": 1, "duration": 8, "section": "verse2"},
+    {"text": "and every gentle thing the Kid had built turned into dust", "bar": 15, "beat": 1, "duration": 8, "section": "verse2"},
+
+    {"text": "Billy, Billy, faster than sin", "bar": 17, "beat": 1, "duration": 8, "section": "chorus"},
+    {"text": "they write his name wherever the bullet's been", "bar": 19, "beat": 1, "duration": 8, "section": "chorus"},
+    {"text": "the law calls it murder, the ballad calls it fate", "bar": 21, "beat": 1, "duration": 8, "section": "chorus"},
+    {"text": "and New Mexico's never made peace with the debate", "bar": 23, "beat": 1, "duration": 8, "section": "chorus"},
+
+    {"text": "They say he killed a man for every year he'd lived", "bar": 25, "beat": 1, "duration": 8, "section": "verse3"},
+    {"text": "twenty-one notches by the time he hit the ground", "bar": 27, "beat": 1, "duration": 8, "section": "verse3"},
+    {"text": "that's the kind of arithmetic a legend needs to breathe", "bar": 29, "beat": 1, "duration": 8, "section": "verse3"},
+    {"text": "truer than the truth and twice as widely passed around", "bar": 31, "beat": 1, "duration": 8, "section": "verse3"},
+
+    {"text": "Billy, Billy, faster than sin", "bar": 33, "beat": 1, "duration": 8, "section": "chorus2"},
+    {"text": "they write his name wherever the bullet's been", "bar": 35, "beat": 1, "duration": 8, "section": "chorus2"},
+    {"text": "the law calls it murder, the ballad calls it fate", "bar": 37, "beat": 1, "duration": 8, "section": "chorus2"},
+    {"text": "and New Mexico's never made peace with the debate", "bar": 39, "beat": 1, "duration": 8, "section": "chorus2"},
+
+    {"text": "Two men stood at the door", "bar": 41, "beat": 1, "duration": 4, "section": "bridge"},
+    {"text": "now there's two men less than before", "bar": 42, "beat": 1, "duration": 4, "section": "bridge"},
+    {"text": "he walked out whistling low", "bar": 43, "beat": 1, "duration": 4, "section": "bridge"},
+    {"text": "into a night that let him go", "bar": 44, "beat": 1, "duration": 4, "section": "bridge"},
+
+    {"text": "Pat Garrett knew the moon better than he knew the man", "bar": 45, "beat": 1, "duration": 8, "section": "verse4"},
+    {"text": "and waited in a borrowed house for one footstep in the dark", "bar": 47, "beat": 1, "duration": 8, "section": "verse4"},
+    {"text": "one shot in Pete Maxwell's room, and the legend split in two", "bar": 49, "beat": 1, "duration": 8, "section": "verse4"},
+    {"text": "the boy who died at twenty-one, and the one that left a mark", "bar": 51, "beat": 1, "duration": 8, "section": "verse4"},
+
+    {"text": "Billy, Billy, faster than sin", "bar": 53, "beat": 1, "duration": 8, "section": "chorus3"},
+    {"text": "they write his name wherever the bullet's been", "bar": 55, "beat": 1, "duration": 8, "section": "chorus3"},
+    {"text": "the law calls it murder, the ballad calls it fate", "bar": 57, "beat": 1, "duration": 8, "section": "chorus3"},
+    {"text": "and New Mexico's never made peace with the debate", "bar": 59, "beat": 1, "duration": 8, "section": "chorus3"},
+
+    {"text": "Silver City sand and a Fort Sumner moon", "bar": 61, "beat": 1, "duration": 8, "section": "outro"},
+    {"text": "one made the boy, and the other made the tune", "bar": 63, "beat": 1, "duration": 8, "section": "outro"}
+  ]
+}
