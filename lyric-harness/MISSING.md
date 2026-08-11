@@ -875,7 +875,14 @@ entry were WRONG — corrected below rather than quietly restated.
 |---|---|---:|---|
 | English | `&c.` / `etc.` | 941 | handled by `is_chorus_stub` |
 | Finnish | `j. n. e.` (*ja niin edelleen*) | 8 | `fin_kanteletar` 14 → **0**; all ten `fin_*` 155 → 139 |
-| Welsh | `&c.` | 30 | Mynyddog, foot of a stanza |
+| Welsh | `&c.` | 30 (see note) | Mynyddog, foot of a stanza |
+
+**The Welsh 30 is `UNVERIFIABLE` and no rule tried reproduces it.** A bare
+`&c\.` regex over the five `cym_song_*` files gives **41**, all of them in
+`cym_song_mynyddog.txt`; the register audit reports 33 under a rule it does not
+state. Three values, three unstated tokenisations, and the row is left at 30
+rather than silently moved to whichever number the last person measured —
+doctrine 58, and M-18's population clause. **Owed: the rule, beside the number.**
 | Malay | `d. s. b.` / `d.s.b.` | **108 in the SOURCE** | see the reversal below |
 
 **THE MALAY ROW WAS WITHDRAWN ON 2026-08-11 AND THE WITHDRAWAL WAS ITSELF
@@ -1103,15 +1110,21 @@ which is the right shape for the P11 homograph gap and for partial nuclei.
 Decision owed: mine the idea into `relations.py` and delete the file, or give it
 a `__main__` and keep it as a comparison runner.
 
-> **"GENUINELY STRANDED" NO LONGER HOLDS, measured 2026-08-11.** The file is
+> **DECIDED 2026-08-11, and "genuinely stranded" no longer holds.** The file is
 > **1,566 lines** (not 1,325 — a line count is a coordinate of the counting
-> convention AND of the date), it **has an `if __name__ == "__main__"`** as of
-> commit `ade8546`, and it has callers: `quality/relations.py` and
-> `quality/test_relations.py`. So the second branch of the decision has been
-> taken in the code without being taken in the register. **The decision this
-> entry asks for is still owed** — the knowledge-set idea was mined into
-> `relations.py` as proposed, and nothing has said whether the 1,566 lines now
-> stay as a comparison runner deliberately or by default.
+> convention AND of the date), it now has an `if __name__ == "__main__"`, and it
+> has callers: `quality/relations.py` and `quality/test_relations.py`.
+> **Both branches of the decision were taken, deliberately.** The knowledge sets
+> were mined into `relations.py` — `Syllable.onset/nucleus/coda/prominence/moras`
+> may each hold a scalar or a `Readings` frozenset, with the TYPE as the marker
+> so there is no flag to forget, and backward compatibility proven by a
+> byte-identical fingerprint over 2,489 real syllabifications across all nine
+> modules. **And the module is KEPT as a comparison runner, on an argument that
+> names its own price:** its P6 defect (`apply_pred`'s `PRESENT_ON` testing
+> whole-channel emptiness) is left unfixed on purpose, because patching it to
+> agree with `relations.py` would spend the only property that justifies keeping
+> a second implementation. That is what a "keep it" decision has to look like to
+> be a decision rather than a default.
 
 ### M-10 · GITenberg enumeration misses about a third by any single method `OPEN`
 Repo-name WebFetch → 5 Welsh holdings; `filename:metadata.yaml "language: cy"`

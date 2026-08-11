@@ -64,11 +64,10 @@ including M1 and M30. The one survivor is **M4, proved equivalent rather than
 missed**, allowlisted in `quality/test_mutation.py` with the proof — and the
 allowlist entry's premise is itself under test, since M11 mutates the
 `cluster_sim` line M4's equivalence depends on and is caught.
-**Owed, small:** three coordinates declared on 2026-08-11 —
-`scalar_alignment`, `nucleus_agreement`, `nucleus_licence_unstressed_only` —
-have defaults and no mutation. Each is caught today by the file that declares
-it, so none is a hole; they belong in the list so that stays true. Proposed
-M31/M32/M33 are in cell H's patch note.
+**And the three coordinates declared on 2026-08-11 — `scalar_alignment`,
+`nucleus_agreement`, `nucleus_licence_unstressed_only` — now have M31/M32/M33,
+each caught by the file that declares it.** A new coordinate with a default is a
+new place for a silent drift; it belongs in the list so that stays true.
 
 ### 1.2 · `best_score` does not report which span won `M-17, OPEN`
 `line_anchors` returns several candidate spans per line; `best_score` takes the
@@ -273,14 +272,17 @@ rows off 77 schemas and every `Tradition.source` is an `R<n>` pointer back into
 that document. **The gap it found is now `MISSING.md` M-15a and is OPEN**; the
 runner is done, the repair is not.
 
-### 4.4 · ~~`rhyme_constraints.py` — 1,325 stranded lines~~ 1,566, and no longer stranded
-~~The only genuinely stranded module.~~ Measured 2026-08-11: **1,566 lines**, it
-has an `if __name__ == "__main__"` as of commit `ade8546`, and it has two
-callers (`relations.py`, `test_relations.py`). Decision still owed: mine its
-**knowledge sets** (a `frozenset` per channel — the right shape for the
-homograph gap) into `relations.py` and delete it, or keep it deliberately as a
-comparison runner. The second branch has been taken in the code without being
-taken here.
+### 4.4 · ~~`rhyme_constraints.py` — 1,325 stranded lines~~ `DECIDED 2026-08-11`
+~~The only genuinely stranded module.~~ Measured today: **1,566 lines**, an
+`if __name__ == "__main__"`, and two callers (`relations.py`,
+`test_relations.py`). **Both branches were taken, and the file says which and
+why:** the knowledge sets are mined into `relations.py` — `Syllable` fields may
+now each hold a scalar or a `Readings` frozenset, with the TYPE as the marker so
+there is no flag to forget — **and** the module is kept as a comparison runner
+on a stated argument. Its P6 defect (`apply_pred`'s `PRESENT_ON` testing
+whole-channel emptiness) is deliberately left unfixed, because patching it to
+agree would spend the only property that justifies keeping it. That is the shape
+a "keep it" decision has to have.
 
 ### 4.5 · Doctrine has drifted to auditing `L-5` — SPLIT UNDER WAY
 **102 numbered doctrines**, and roughly half the recent ones are about null
@@ -316,7 +318,9 @@ No hook. The floor has two length profiles and both are stanzas (L-4).
 | register-audit findings | **2**, both of them the deliberate M-4 calibration pair — was 9 on 2026-08-11 |
 
 > **"surviving mutations 1 of 3 tested" was the state of §1.1 before it was
-> done.** The harness now declares **30** mutations and catches 29. The one
+> done.** The harness now declares **33** mutations and catches 32 — M31/M32/M33
+> cover the three coordinates declared on 2026-08-11 (`scalar_alignment`,
+> `nucleus_agreement`, `nucleus_licence_unstressed_only`). The one
 > survivor is **M4, proved EQUIVALENT rather than missed**: dropping
 > `channel_agreement`'s `not ca and not cb` clause ought to delete every
 > open-syllable rhyme in English and deletes nothing, because `cluster_sim`
