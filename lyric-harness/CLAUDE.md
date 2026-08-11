@@ -107,6 +107,60 @@ that breaks a declared return. No new rejection rule was written for
 either direction. `quality/test_revise.py` test 26, on a real 19-line
 villanelle.
 
+**TWO MORE CAPABILITIES WERE BUILT AND NEVER WIRED TO THE SPINE THEY WERE
+BUILT FOR — WIRED 2026-08-11, ALONGSIDE THE REFRAIN FIX ABOVE.** Both were
+found the same way that one was: asking "out of everything already built,
+what is declared but unread" rather than building something new.
+
+- **`quality/g2p.py`'s `Fallback` reaches `Lexicon.transcribe_word`.**
+  `Lexicon(fallback="high"|"low")` is a DECLARED coordinate, `None` by
+  default and reproducing every transcription this class has ever returned
+  unchanged when omitted. Wiring it naively would recurse forever:
+  `Fallback._dictionary` calls `lex.transcribe_word`, and the real
+  `Lexicon.transcribe_word` is what would be calling INTO the fallback — OOV
+  -> ask the fallback -> the fallback asks `transcribe_word` -> still OOV ->
+  ask the fallback again. `_DictionaryOnlyLexicon` is the non-recursive base
+  case `Fallback` is built to wrap: a bare view over `Lexicon.entries` and
+  `Lexicon.freq_rank` (shared by IDENTITY, so it sees every entry once the
+  real constructor's loops finish, without a second copy) with none of
+  `transcribe_word`'s own heuristics. A second, sharper bug caught before it
+  shipped: `transcribe_word`'s own boundary-apostrophe strip removes the
+  trailing `'` that `Fallback._final_apostrophe` keys off to find `groun'`/
+  `thro'` — passing it the ALREADY-stripped word would silently disable that
+  layer, so the fallback call passes the RAW word and lets `Fallback.read`
+  do its own normalization, which does not strip apostrophes for exactly
+  this reason. See known gap 1, above, for what this does and does not
+  close. `quality/test_g2p.py` §14-20.
+- **`quality/grid.py`'s `song_function_report` joins the same `blueprint=`
+  coordinate meter already rides, not a fourth parameter.** A blueprint
+  section has always been able to declare `"function"` and a blueprint has
+  always been able to carry a top-level `"hooks"` list —
+  `examples/moonlight_and_lead.blueprint.json` has both — and nothing past
+  `quality/fit.py` ever read either field, because `fit.py` places lines in
+  bars and does not know or need to know what a section is FOR.
+  `Reviser._function_findings` reads them with a new `grid.song_from_blueprint`
+  (independent of `fit.py`'s own reader, matching that module's choice not
+  to import this one — `fit.py` builds `Placement`/`SectionFit`, which carry
+  WHERE a line sits and nothing about what it is FOR), then REBUILDS that
+  `Song`'s lines with THIS DRAFT's current words before grading: `grid.py`'s
+  `compare_returns`/`hook_occurrences` both read `Line.text`, and grading
+  the blueprint's own stored text would silently stop reacting to every
+  revision after the first (`quality/test_revise.py` test 27 proves both
+  directions — a hook moved INTO the current draft is found there, and one
+  removed FROM it is seen missing, even though the blueprint's stored text
+  says the opposite in each case). SEVERITY: everything is a `note` except
+  `HOOK_ABSENT`, which is a `flag`. The rest — `RETURN_LOCKED`,
+  `BRIDGE_IS_A_VERSE`, `RETURN_LENGTH_DRIFT` and the like — are
+  measurements against `POPULAR_SONG`, a labelled CONVENTION
+  (`grid.FormConvention`, the same move `Meter.conventional_grouping`
+  makes), not a mandate the writer declared, and doctrine 6 says a
+  convention a writer is free to depart from cannot be the thing that fails
+  `verify()`. `HOOK_ABSENT` is different in kind: the writer supplied the
+  exact hook TEXT, and whether it occurs in the draft at all is a factual
+  question with no convention in it — the same shape `RETURN_NOT_VERBATIM`
+  already is. `quality/test_revise.py` test 27, `quality/test_grid.py`
+  §11-15 for `song_from_blueprint` itself.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner
@@ -456,7 +510,23 @@ rather than this paragraph — a roster copied into two files drifts in both.
 ## Known gaps, priority order
 1. **G2P for OOV.** CMUdict lacks hypotenuse, shiesty, coinages.
    Canary test: score "lot o' news" -- "hypotenuse" (currently
-   NO_ANCHOR). Fix: g2p-en or equivalent as transcribe fallback.
+   NO_ANCHOR). `quality/g2p.py`'s `Fallback` (dictionary -> morphology ->
+   elision -> compound -> letter, in that load-bearing order) was built and
+   tested standalone against exactly this canary (`quality/test_g2p.py`);
+   `Lexicon(fallback="high"|"low")` (`lyric_harness.py`, WIRED 2026-08-11)
+   is the "equivalent as transcribe fallback" this entry used to ask for as
+   a TODO. THE CANARY IS STILL NOT FIXED, on purpose: `hypotenuse` has no
+   CMUdict-derived stem or elision pattern, so it still refuses at the
+   shipped default (`min_confidence="high"`); only `"low"` reaches the
+   letter-to-sound layer, which `test_g2p.py`'s
+   `test_letter_layer_costs_more_than_it_buys` measures as net harmful (it
+   answers Shakespeare's own real refusals wrong about 40% of the time,
+   against ~3% for the derived layers) and which the wiring does not
+   default to. What the wiring closes: known DICTIONARY-DERIVED refusals
+   (`viewest`, `o'er`, `savour`, `groun'`) now read correctly wherever a
+   caller opts in; what it does not close is this gap's own canary, and
+   the gap entry stays open on that basis, not closed on the strength of
+   the easier cases around it.
 2. **Fitted substitution matrix — BUILT, and it does not help.**
    quality/fit_matrix.py, RESULTS_MATRIX.md. The floor IS removed: the
    free 0.15 stress gift became -0.0999 bits, and empty/empty coda went

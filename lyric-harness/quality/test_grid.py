@@ -17,9 +17,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 
 from quality import schemes as S                                  # noqa: E402
-from quality.grid import (Line, Meter, Section, Song,              # noqa: E402
-                          line_pickup, phrase_profile, stanza_lock,
-                          tokens, uniformity)
+from quality.grid import (Line, Meter, Section, Song, UNDECLARED,  # noqa: E402
+                          UnknownFunction, line_pickup, phrase_profile,
+                          song_from_blueprint, stanza_lock, tokens,
+                          uniformity)
 
 FAILURES = []
 
@@ -368,6 +369,107 @@ def test_the_shipped_blueprint_is_declared_honestly():
           "measurement blind to it too")
 
 
+# ---------------------------------------------------------------------------
+# `song_from_blueprint` -- the reader `song_function_report`'s wiring needs
+#
+# `scene_song()` above is the hand-rolled version of exactly this reader,
+# written before this function existed because nothing needed `.function` or
+# hooks from a blueprint yet. These tests hold the new reader to the SAME
+# blueprint that one already parses, so a divergence between the two is
+# caught rather than shipped as two silently-different readings of one file.
+# ---------------------------------------------------------------------------
+
+MOONLIGHT = os.path.join(HERE, "..", "examples",
+                         "moonlight_and_lead.blueprint.json")
+
+
+def test_song_from_blueprint_matches_the_hand_rolled_reader():
+    print("\n11. song_from_blueprint agrees with the hand-rolled reader on "
+          "the shipped scene blueprint")
+    hand = scene_song()
+    got, hooks = song_from_blueprint(BLUEPRINT)
+    check("same section count, names, bars, start bars and meters",
+          [(s.name, s.bars, s.start_bar, s.meter) for s in hand.sections]
+          == [(s.name, s.bars, s.start_bar, s.meter) for s in got.sections])
+    check("every section comes back UNDECLARED — this blueprint sets no "
+          "\"function\" key and none is inferred from the name",
+          all(s.function == UNDECLARED for s in got.sections),
+          [(s.name, s.function) for s in got.sections])
+    check("same line count, text, bar, beat, duration and section",
+          [(l.text, l.bar, l.beat, l.duration, l.section)
+           for l in hand.lines]
+          == [(l.text, l.bar, l.beat, l.duration, l.section)
+              for l in got.lines])
+    check("no hooks key in this blueprint -> the empty list, not a KeyError",
+          hooks == [])
+    check("no title key either -> the empty string, the same UNDECLARED "
+          "shape Song.title already uses",
+          got.title == "")
+
+
+def test_song_from_blueprint_reads_function_and_hooks():
+    print("\n12. song_from_blueprint reads a blueprint that DOES declare "
+          "function and hooks")
+    got, hooks = song_from_blueprint(MOONLIGHT)
+    check("every section's declared function survives",
+          [s.function for s in got.sections]
+          == ["verse", "verse", "chorus", "verse", "chorus", "bridge",
+              "verse", "chorus", "outro"],
+          [(s.name, s.function) for s in got.sections])
+    check("hooks pass through verbatim, as raw strings",
+          hooks == ["billy, billy, faster than sin"], hooks)
+    check("title passes through", got.title == "Moonlight and Lead")
+    check("a path and an already-loaded dict give the same answer",
+          song_from_blueprint(MOONLIGHT)[0].sections
+          == song_from_blueprint(__import__("json").load(open(MOONLIGHT)))[0]
+          .sections)
+
+
+def test_song_from_blueprint_rejects_an_undeclared_function():
+    print("\n13. an unrecognised \"function\" value RAISES, the same "
+          "contract Section() itself holds")
+    check("a bogus function name is not silently dropped to UNDECLARED",
+          _raises(lambda: song_from_blueprint(
+              {"sections": [{"name": "x", "bars": 4, "function": "verse-ish",
+                            "meter": {}}], "lines": []})),
+          "doctrine 45's move for `language`: an unknown value raises "
+          "rather than being coerced or ignored")
+
+
+def test_song_from_blueprint_owns_lines_by_bar_when_unnamed():
+    print("\n14. a line naming no section, or an unknown one, is owned by "
+          "BAR RANGE — the same fallback quality.fit.from_blueprint uses")
+    obj = {"sections": [{"name": "a", "bars": 4, "meter": {}},
+                        {"name": "b", "bars": 4, "start_bar": 5,
+                         "meter": {}}],
+           "lines": [{"text": "in a, named", "bar": 2, "section": "a"},
+                     {"text": "in b, unnamed", "bar": 6},
+                     {"text": "in b, wrong name given", "bar": 7,
+                      "section": "nonexistent"}]}
+    song, _ = song_from_blueprint(obj)
+    check("a correctly-named line is owned by that section",
+          song.lines[0].section == "a")
+    check("an unnamed line is owned by whichever section its BAR falls in",
+          song.lines[1].section == "b")
+    check("a line naming a section that does not exist falls back to bar "
+          "range too, rather than raising or being silently dropped",
+          song.lines[2].section == "b")
+
+
+def test_song_from_blueprint_float_beats_are_exact():
+    print("\n15. a float beat/duration in the JSON becomes the DECIMAL "
+          "fraction, not its nearest binary neighbour")
+    obj = {"sections": [{"name": "a", "bars": 4, "meter": {}}],
+           "lines": [{"text": "x", "bar": 1, "beat": 1.1, "duration": 0.1}]}
+    song, _ = song_from_blueprint(obj)
+    from fractions import Fraction as Fr
+    check("beat 1.1 -> exactly 11/10, not the ~3602879701896397/... IEEE "
+          "double closest to it",
+          song.lines[0].beat == Fr(11, 10), str(song.lines[0].beat))
+    check("duration 0.1 -> exactly 1/10",
+          song.lines[0].duration == Fr(1, 10), str(song.lines[0].duration))
+
+
 def _drift_reads_function():
     """Two spans NAMED 'x' and 'y' and both DECLARED chorus, at two lengths:
     the length-drift finding must fire on the declaration."""
@@ -389,7 +491,12 @@ if __name__ == "__main__":
                test_function_and_bar_range_are_two_different_keys,
                test_a_uniform_anacrusis_is_a_finding_and_not_a_pass,
                test_four_four_does_not_read_the_grouping,
-               test_the_shipped_blueprint_is_declared_honestly):
+               test_the_shipped_blueprint_is_declared_honestly,
+               test_song_from_blueprint_matches_the_hand_rolled_reader,
+               test_song_from_blueprint_reads_function_and_hooks,
+               test_song_from_blueprint_rejects_an_undeclared_function,
+               test_song_from_blueprint_owns_lines_by_bar_when_unnamed,
+               test_song_from_blueprint_float_beats_are_exact):
         fn()
     print("=" * 62)
     if FAILURES:

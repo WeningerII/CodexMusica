@@ -489,10 +489,65 @@ class Declaration:
 # Dictionary + transcription  (projection pi, prominence rho)
 # ---------------------------------------------------------------------------
 
+class _DictionaryOnlyLexicon:
+    """`Fallback._dictionary`'s view of a `Lexicon`, with no fallback and none
+    of `transcribe_word`'s own suffix/elision heuristics -- just the bare
+    entries.
+
+    `quality.g2p.Fallback.read` starts by trying `lex.transcribe_word(w)`, so
+    handing it the REAL `Lexicon` whose `transcribe_word` is the one calling
+    INTO the fallback would recurse: OOV -> ask the fallback -> the fallback
+    asks `transcribe_word` -> still OOV -> ask the fallback again, forever.
+    This is the non-recursive base case `Fallback` is built to wrap, standing
+    in only for the one method it calls.
+    """
+    def __init__(self, entries, freq_rank):
+        self.entries = entries
+        self.freq_rank = freq_rank
+
+    def transcribe_word(self, word):
+        w = fold_apostrophes(word).lower().strip("'\"“”‘’.,;:!?()[]")
+        if w in self.entries:
+            return list(self.entries[w][0]), False
+        return [], True
+
+
 class Lexicon:
-    def __init__(self):
+    def __init__(self, fallback=None):
+        """`fallback` is a DECLARED coordinate, `None` by default -- omitting
+        it reproduces every transcription this class has ever returned,
+        unchanged. Passing `"high"` or `"low"` (the same vocabulary
+        `quality.g2p.Fallback.min_confidence` uses) builds one and consults
+        it for a word the dictionary and this class's own suffix/elision
+        heuristics both still refuse.
+
+        THIS DOES NOT CLOSE KNOWN GAP 1. `Fallback` reads morphology
+        (`viewest`, `savour`), elision (`o'er`, `groun'`) and compounds --
+        every layer that is dictionary-derived. A genuine coinage
+        (`hypotenuse`, `shiesty`) has no stem or elision pattern to derive
+        from and still refuses at `min_confidence="high"`; only
+        `min_confidence="low"` reaches the letter-to-sound layer, which
+        `quality/test_g2p.py`'s `test_letter_layer_costs_more_than_it_buys`
+        measures as net harmful and which this wiring does not change the
+        default away from. `lex.g2p_fallback`,
+        when set, is the `Fallback` instance itself, so a caller can read
+        `.counts` afterward and see exactly how many words were read at
+        which layer -- this class keeps no second, shadow tally.
+        """
         fetch_data()
         self.entries = {}          # word -> list of pronunciations (phone lists)
+        self.freq_rank = {}
+        self.g2p_fallback = None
+        if fallback is not None:
+            from quality.g2p import Fallback
+            # `self.entries`/`self.freq_rank` are populated below, AFTER this
+            # call -- but the shim holds the SAME dict objects, so it sees
+            # every entry once the loops below finish. Order relative to
+            # those loops does not matter; identity of the dict objects is
+            # what makes this work.
+            self.g2p_fallback = Fallback(
+                _DictionaryOnlyLexicon(self.entries, self.freq_rank),
+                min_confidence=fallback)
         with open(CMUDICT_PATH, encoding="utf-8", errors="replace") as f:
             for line in f:
                 line = line.split("#")[0].strip()
@@ -506,7 +561,6 @@ class Lexicon:
         # data/opensubtitles_en_50k.tsv: `# ...` provenance comments, then a
         # literal `word\tcount\trank` header, then data rows in descending-
         # frequency order -- rank 0 is the first data row, not the header.
-        self.freq_rank = {}
         if os.path.exists(FREQ_PATH):
             with open(FREQ_PATH, encoding="utf-8") as f:
                 for line in f:
@@ -549,6 +603,17 @@ class Lexicon:
             if p and p[-1] == "NG":
                 p[-1] = "N"
             return p, False
+        if self.g2p_fallback is not None:
+            # `word`, not `w`: this method's own `.strip()` above removes a
+            # BOUNDARY apostrophe (needed so dictionary lookups aren't keyed
+            # on punctuation), but that is exactly the character
+            # `Fallback._final_apostrophe` reads to find `groun'`/`thro'` --
+            # `read()` does its own normalization, and its strip set omits
+            # apostrophes for that reason. Passing the already-stripped `w`
+            # here would silently disable that layer.
+            r = self.g2p_fallback.read(word)
+            if r is not None:
+                return list(r.phones), False
         return [], True
 
     def transcribe(self, text, phrase_final=True):

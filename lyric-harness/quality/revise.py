@@ -92,6 +92,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            line_anchors, readability_records,
                            refusals_for_pairs)
 from quality import fit as FT  # noqa: E402
+from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
 from quality import schemes as SC  # noqa: E402
 from quality.floor import Finding, SlopFloor  # noqa: E402
@@ -775,6 +776,59 @@ class Reviser:
                 sorted(lns)))
         return per, whole
 
+    # -- section function ---------------------------------------------------
+
+    def _function_findings(self, lines, blueprint):
+        """-> [Finding], all whole-draft. `quality/grid.py`'s FUNCTION layer
+        (verse/chorus/bridge/hook/return) read off the SAME blueprint
+        `_meter_findings` already requires.
+
+        A blueprint section has always been able to carry `"function"`, and
+        a blueprint has always been able to carry a top-level `"hooks"`
+        list — `examples/moonlight_and_lead.blueprint.json` has both, and
+        until now NOTHING past `quality/fit.py` read either field.
+        `fit.py` has no reason to: it places lines in bars and time, and
+        does not know or need to know what a section is FOR. This is that
+        gap closed, on the same opt-in coordinate — pass no `blueprint` and
+        this method is not called, exactly like `_meter_findings`.
+
+        Rebuilds the blueprint's `Song` with THIS DRAFT'S current words,
+        not the blueprint's own stored text: `compare_returns` and
+        `hook_occurrences` both read `Line.text`, and grading the
+        blueprint's ORIGINAL wording would silently stop reacting to every
+        revision after the first. Lines correlate to the blueprint by
+        POSITION, the same correlation `_meter_findings` enforces with its
+        own length check — call this only after that one has already
+        passed (`inspect()` always does, in that order).
+
+        SEVERITY: everything here is a `note` except `HOOK_ABSENT`, which
+        is a `flag`. The rest — RETURN_LOCKED, BRIDGE_IS_A_VERSE,
+        RETURN_LENGTH_DRIFT and the like — are measurements against
+        `POPULAR_SONG`, a CONVENTION (`grid.FormConvention`, explicitly
+        labelled one, the same move `Meter.conventional_grouping` makes),
+        not a mandate the writer declared; doctrine 6 says this loop does
+        not turn a convention into a score, and a convention a writer is
+        free to depart from cannot be the thing that fails `verify()`.
+        `HOOK_ABSENT` is different in kind: the writer supplied the exact
+        hook TEXT, and it is a factual question — found in the draft's own
+        words or not — with no convention in it at all, the same shape as
+        `RETURN_NOT_VERBATIM` being a flag while `RETURN_LENGTH_DRIFT`'s
+        sibling `RETURN_OUT_OF_RANGE` is a note.
+        """
+        song, hooks = GR.song_from_blueprint(blueprint)
+        for l, text in zip(song.lines, lines):
+            l.text = text
+        rep = GR.song_function_report(song, hooks=hooks,
+                                      rhyme_key=GR.rime_cmudict(self.lex))
+        whole = []
+        for f in rep["findings"]:
+            whole.append(Finding(
+                f.code, "flag" if f.code == "HOOK_ABSENT" else "note",
+                f.message, f.evidence, []))
+        for r in rep["refusals"]:
+            whole.append(Finding(r.code, "note", r.message, r.evidence, []))
+        return whole
+
     # -- inspection -------------------------------------------------------
 
     def _floor_for(self, m):
@@ -817,6 +871,13 @@ class Reviser:
         without one, `_meter_findings` still runs and reports (once, not per
         line) that the subdivision-dependent findings were not answered,
         rather than silently skipping the layer.
+
+        THE SAME `blueprint` ALSO ADDS `quality/grid.py`'s FUNCTION layer —
+        does the chorus return the same shape, does the bridge contrast, does
+        the declared hook actually recur. Not a fourth parameter: a
+        blueprint's sections have always been able to declare `"function"`
+        and a blueprint has always been able to carry top-level `"hooks"`,
+        and nothing before this read either. See `_function_findings`.
         """
         m = self.mandate(lines, mandate)
         per, whole = {}, []
@@ -1040,6 +1101,7 @@ class Reviser:
                 for f in fs:
                     add(ln, f)
             whole.extend(m_whole)
+            whole.extend(self._function_findings(lines, blueprint))
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
                 "merges": merges}
 

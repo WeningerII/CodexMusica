@@ -113,6 +113,21 @@ SONG_SCHEME = "XXXXXXXXXXXXABCBADCDXXXXXXXXXXXXEFGFEHGHX"
 SONG_BLUEPRINT = os.path.join(HERE, "..", "examples",
                               "never_been_to_a_scene.blueprint.json")
 
+#: The one shipped blueprint that DECLARES section function and a hook --
+#: `SONG_BLUEPRINT` above declares neither, which is exactly right for a
+#: pure-meter test and useless for this file's function-report tests.
+MOONLIGHT_SONG = os.path.join(HERE, "..", "examples",
+                              "moonlight_and_lead.txt")
+MOONLIGHT_BLUEPRINT = os.path.join(HERE, "..", "examples",
+                                   "moonlight_and_lead.blueprint.json")
+
+
+def moonlight_lines():
+    with open(MOONLIGHT_SONG, encoding="utf-8") as fh:
+        return [l.rstrip() for l in fh.read().splitlines()
+                if l.strip() and not l.strip().startswith("[")
+                and not l.strip().startswith("#")]
+
 #: A REAL villanelle -- ABA rhyme throughout, two verbatim refrains (A1 at
 #: lines 1/6/12/18, A2 at 3/9/15/19) -- written for test 26, checked for
 #: correctness the same way: every "a"/"b" line takes a DISTINCT rhyming
@@ -1150,6 +1165,109 @@ def test_grade_asks_the_mandate_before_the_switch():
           "'unlicensed' setting")
 
 
+def test_song_function_folds_into_the_same_finding_set():
+    print("\n27. `quality/grid.py`'s FUNCTION layer joins rhyme and meter in "
+         "ONE finding set — a blueprint section's `function` and a "
+         "blueprint's `hooks` have always been readable and nothing past "
+         "`fit.py` ever read them")
+    lines = moonlight_lines()
+    m = R.mandate_from_graph(lines)
+
+    no_bp = {w.code for w in R.inspect(lines, m)["whole"]}
+    check("with no blueprint, no song-function code appears at all",
+          not (no_bp & {"HOOK_ABSENT", "HOOK_CONFINED", "HOOK_DOES_NOT_RECUR",
+                       "TITLE_NOT_IN_HOOK", "RETURN_LOCKED",
+                       "RETURNS_WITH_SAME_WORDS", "RETURN_LENGTH_DRIFT",
+                       "BRIDGE_IS_A_VERSE", "FUNCTION_UNDECLARED"}),
+          sorted(no_bp))
+
+    found = R.inspect(lines, m, blueprint=MOONLIGHT_BLUEPRINT)
+    whole = {w.code: w for w in found["whole"]}
+    check("the clean draft reports RETURN_LOCKED — three verbatim choruses "
+          "in an identical slot — as a NOTE, not a flag",
+          "RETURN_LOCKED" in whole and whole["RETURN_LOCKED"].severity
+          == "note", sorted(whole))
+    check("and HOOK_CONFINED — the hook never leaves the chorus — also a "
+          "NOTE: a measurement against `POPULAR_SONG`, a labelled "
+          "CONVENTION, not a mandate the writer declared (doctrine 6)",
+          "HOOK_CONFINED" in whole
+          and whole["HOOK_CONFINED"].severity == "note")
+    check("no HOOK_ABSENT on the clean draft — the declared hook is right "
+          "there, three times", "HOOK_ABSENT" not in whole)
+
+    # Break the hook: all three occurrences rewritten, nothing else touched.
+    hook_line = "Billy, Billy, faster than sin"
+    changed_lines = {i + 1 for i, l in enumerate(lines) if l == hook_line}
+    check("the fixture actually contains the hook 3 times, or this proves "
+          "nothing", len(changed_lines) == 3, sorted(changed_lines))
+    # end word chosen to AVOID "sin" -- the hook's own end word, and a
+    # forbidden modal candidate at these exact lines (doctrine 9) -- so this
+    # exercises the net-negative diff itself rather than being intercepted
+    # earlier by the modal-exclusion rule (both pre-existing, but the point
+    # here is specifically the diff).
+    after = [("Riders came at moonrise, chasing him instead"
+             if l == hook_line else l) for l in lines]
+    broken = R.inspect(after, m, blueprint=MOONLIGHT_BLUEPRINT)
+    b_whole = {w.code: w for w in broken["whole"]}
+    check("HOOK_ABSENT now fires, as a FLAG — the writer supplied exact "
+          "hook TEXT and it is a factual question with no convention in "
+          "it, the same shape RETURN_NOT_VERBATIM already is",
+          "HOOK_ABSENT" in b_whole
+          and b_whole["HOOK_ABSENT"].severity == "flag", sorted(b_whole))
+
+    res = R.verify(lines, after, m, targeted=changed_lines,
+                   blueprint=MOONLIGHT_BLUEPRINT)
+    check("verify()'s EXISTING net-negative diff — the same one meter (test "
+          "25) and RETURN_NOT_VERBATIM (test 26) both ride — rejects "
+          "erasing the hook, with NO new veto rule",
+          not res["accepted"] and (0, "HOOK_ABSENT") in res["new"],
+          res["reasons"])
+
+    # THE STALENESS PROOF: `_function_findings` must grade THIS DRAFT's
+    # words, never the blueprint's own stored text -- `compare_returns` and
+    # `hook_occurrences` both read `Line.text`, and a stale copy would
+    # silently stop reacting to every revision after the first one.
+    stale_hook_obj = {
+        "title": "T", "hooks": ["shine on"],
+        "sections": [{"name": "v", "bars": 4, "function": "verse",
+                     "meter": {"beats": 4, "unit": 4}},
+                    {"name": "c", "bars": 4, "function": "chorus",
+                     "meter": {"beats": 4, "unit": 4}}],
+        # the BLUEPRINT's own stored text carries the hook in the verse and
+        # nowhere else -- if this method ever reads THIS text instead of
+        # the draft handed to `inspect`, the assertions below invert.
+        "lines": [{"text": "shine on", "bar": 1, "section": "v"},
+                 {"text": "shine on", "bar": 2, "section": "v"},
+                 {"text": "a decoy line the blueprint stored", "bar": 5,
+                  "section": "c"},
+                 {"text": "another decoy the blueprint stored", "bar": 6,
+                  "section": "c"}]}
+    draft_with_hook_moved = [
+        "a brand new verse line with no hook in it",
+        "a second brand new verse line, still no hook",
+        "shine on", "shine on"]
+    dm = R.mandate_from_graph(draft_with_hook_moved)
+    moved = {w.code for w in
+             R.inspect(draft_with_hook_moved, dm,
+                      blueprint=stale_hook_obj)["whole"]}
+    check("the hook is found where THIS DRAFT put it, not where the "
+          "blueprint's stored text put it",
+          "HOOK_ABSENT" not in moved, sorted(moved))
+
+    draft_hook_removed = [
+        "a brand new verse line with no hook in it",
+        "a second brand new verse line, still no hook",
+        "a brand new chorus line, still no hook",
+        "a second brand new chorus line, still none"]
+    dr = R.mandate_from_graph(draft_hook_removed)
+    removed = {w.code for w in
+              R.inspect(draft_hook_removed, dr,
+                       blueprint=stale_hook_obj)["whole"]}
+    check("and REMOVING the hook from the draft is seen even though the "
+          "blueprint's own stored text still carries it verbatim",
+          "HOOK_ABSENT" in removed, sorted(removed))
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -1176,7 +1294,8 @@ if __name__ == "__main__":
                test_the_collision_set_is_partitioned_not_silenced,
                test_why_a_collision_earns_no_field,
                test_meter_folds_into_the_same_finding_set,
-               test_grade_asks_the_mandate_before_the_switch):
+               test_grade_asks_the_mandate_before_the_switch,
+               test_song_function_folds_into_the_same_finding_set):
         fn()
     print("=" * 62)
     if FAILURES:

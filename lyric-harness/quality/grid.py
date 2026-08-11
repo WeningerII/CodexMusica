@@ -71,6 +71,7 @@ to say that a chorus came back with one word changed.
 """
 
 import itertools
+import json
 import re
 import unicodedata
 from dataclasses import dataclass, field
@@ -433,6 +434,74 @@ class Song:
         """
         return tuple((l.bar - section.start_bar, l.beat, l.duration)
                      for l in self.lines_in(section))
+
+
+def _frac(x):
+    """Like `Fraction(x)`, except a FLOAT goes through `str` first.
+
+    `Fraction(0.1)` is `3602879701896397/36028797018963968` -- binary
+    floating point's nearest neighbour to a tenth, not a tenth. A blueprint's
+    `"beat": 2.5` survives `Fraction(2.5)` exactly (2.5 IS a power-of-two
+    fraction), but nothing here should depend on which JSON numbers happen to
+    be. `quality.fit._frac` makes the same move for the same reason; this is
+    a second copy rather than an import, matching that module's own choice
+    not to depend on this one.
+    """
+    if isinstance(x, Fraction):
+        return x
+    if isinstance(x, float):
+        return Fraction(str(x))
+    return Fraction(x)
+
+
+def song_from_blueprint(obj):
+    """-> (Song, hooks) from a blueprint dict or path.
+
+    Reads the same `sections`/`lines` shape `quality.fit.from_blueprint`
+    reads, independently -- `fit.py` builds `SectionFit`/`Placement`, which
+    carry WHERE a line sits and nothing about what a section IS FOR; this
+    builds `Section`/`Line` with `function` declared, which is what
+    `song_function_report` needs and `fit.py` has no reason to carry. A
+    section with no `"function"` key comes back UNDECLARED, exactly like a
+    hand-built `Section(...)` that never set one -- this reader adds no
+    inference of its own.
+
+    `hooks`, the second item, is the blueprint's own top-level `"hooks"` list
+    verbatim (a list of raw phrase strings) -- `hook_findings` already
+    coerces each one to a `Hook`, so no wrapping happens here.
+    """
+    if isinstance(obj, str):
+        with open(obj) as fh:
+            obj = json.load(fh)
+    secs, bar = [], 1
+    for s in obj.get("sections", []):
+        md = s.get("meter", {})
+        meter = Meter(beats=int(md.get("beats", 4)), unit=int(md.get("unit", 4)),
+                      groups=tuple(md.get("groups", ())))
+        start = int(s.get("start_bar", bar))
+        secs.append(Section(name=s["name"], bars=int(s["bars"]), meter=meter,
+                            start_bar=start,
+                            function=s.get("function", UNDECLARED)))
+        bar = start + int(s["bars"])
+    by_name = {s.name: s for s in secs}
+
+    def owner(l):
+        if l.get("section") in by_name:
+            return by_name[l["section"]]
+        for s in secs:
+            if s.start_bar <= int(l["bar"]) < s.start_bar + s.bars:
+                return s
+        return secs[-1] if secs else None
+
+    lines = []
+    for l in obj.get("lines", []):
+        s = owner(l)
+        lines.append(Line(text=l.get("text", ""), bar=int(l["bar"]),
+                          beat=_frac(l.get("beat", 1)),
+                          duration=_frac(l.get("duration", 4)),
+                          section=s.name if s else ""))
+    return Song(sections=secs, lines=lines, title=obj.get("title", "")), \
+        list(obj.get("hooks", []))
 
 
 # ---------------------------------------------------------------------------
@@ -1786,6 +1855,7 @@ def read_marked_songs(path, language=""):
 
 
 __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
+           "song_from_blueprint",
            "uniformity", "stanza_lock", "phrase_profile", "line_pickup",
            # section function -- MISSING.md D-1
            "UNDECLARED", "UnknownFunction", "FunctionSpec",
