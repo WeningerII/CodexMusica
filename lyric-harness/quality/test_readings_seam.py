@@ -337,7 +337,7 @@ def test_the_tri_state():
           "the certain path is unchanged, which is what section 8's "
           "`untouched` column counts.")
     check("Differ inverts the same three answers rather than collapsing them",
-          D(_read(wind, "phones"), _read(find, "phones")).value is None
+          D(_read(wind, "phones"), _read(wined, "phones")).value is None
           and D(_read(wind, "phones"), _read(sand, "phones")).value is True,
           "None must not become True on inversion; that is how a refusal "
           "turns into a finding.")
@@ -420,19 +420,30 @@ def test_the_guards_now_fire():
           f"at `if uncertain(v)` was unreachable through onset/coda/phones/"
           f"consonants, because those four handed it a tuple.")
 
-    sch = R.REGISTRY["perfect rhyme"]
-    wsp = R.Span(idx=(st.lines[0][-1],))
+    # `consonance` keys on the CODA, which is the case that was pruned. A
+    # NUCLEUS-keyed schema was already wildcarded before the fix, because
+    # `_rd_nucleus` never coerced -- so keying this check on `perfect rhyme`
+    # would have passed vacuously, old value None and new value None.
+    st2 = R.build_stream(["a door left close"], E_UNC,
+                         declaration={"language": "eng"})
+    csp = R.Span(idx=(st2.lines[0][-1],))
     use("old")
-    old_key = R._bucket_key(sch, wsp, st, R.DEFAULT_CHANNELS)
+    old_key = R._bucket_key(R.REGISTRY["consonance"], csp, st2,
+                            R.DEFAULT_CHANNELS)
     use("new")
-    new_key = R._bucket_key(sch, wsp, st, R.DEFAULT_CHANNELS)
+    new_key = R._bucket_key(R.REGISTRY["consonance"], csp, st2,
+                            R.DEFAULT_CHANNELS)
     check("_bucket_key treats an uncertain read as a WILDCARD, so a "
           "homograph is no longer bucketed onto one of its readings",
-          new_key is None,
-          f"before: {old_key!r}\n          after:  {new_key!r}. This is why "
-          f"section 8 has an ADDED column: pruning a homograph onto one "
-          f"reading deletes exactly the pairs P11 is about, so the fix "
-          f"creates instances as well as refusing them.")
+          old_key is not None and new_key is None,
+          f"before: {old_key!r}\n          after:  {new_key!r}. `consonance` "
+          f"buckets on the coda, and `close` was being filed under one "
+          f"cluster made of BOTH its readings -- a bucket nothing else can "
+          f"ever land in, so every candidate pair for it was deleted before "
+          f"any predicate ran. This is why section 7 and section 8 have an "
+          f"ADDED column: the fix RECOVERS pairs as well as refusing them, "
+          f"and deleting the pairs P11 is about is the worse of the two "
+          f"failure modes because nothing downstream can see it happen.")
 
 
 # ---------------------------------------------------------------------------
@@ -440,25 +451,58 @@ def test_the_guards_now_fire():
 #    test is the fourth inert coordinate wearing a fix
 # ---------------------------------------------------------------------------
 
+#: the 63 of 77 schemas whose channel map touches a patched reader.  Measured
+#: rather than listed, so a new schema is covered the day it lands.
+AFFECTED = sorted(n for n, s in R.REGISTRY.items()
+                  if {cr.channel for cr in s.channels} &
+                  {"onset", "coda", "consonants", "phones"})
+
+
+def _instances(st, schemas=None):
+    out = {}
+    for n in (schemas or AFFECTED):
+        r = R.realise(R.REGISTRY[n], st, keep="all")
+        if isinstance(r, R.Refusal):
+            continue
+        for i in r:
+            out[(n, i.a.idx, i.b.idx)] = i.verdict
+    return out
+
+
+def _instance_moves(lines, phon):
+    st = R.build_stream(lines, phon, declaration={"language": phon.language})
+    use("old")
+    old = _instances(st)
+    use("new")
+    new = _instances(st)
+    moved = {k: (old[k], new[k]) for k in set(old) & set(new)
+             if old[k] is not new[k]}
+    return old, new, moved
+
+
 def test_end_to_end():
-    print("\n7. end to end through realise(), on the CONSONANCE schemas that "
-          "read the patched channels")
-    st = R.build_stream(["the winter wind", "i could not find"], E_UNC,
-                        declaration={"language": "eng"})
-    for name in ("parechesis / general consonance", "consonance"):
-        use("old")
-        old = {(i.a.idx, i.b.idx): i.verdict
-               for i in R.realise(R.REGISTRY[name], st, keep="all")}
-        use("new")
-        new = {(i.a.idx, i.b.idx): i.verdict
-               for i in R.realise(R.REGISTRY[name], st, keep="all")}
-        moved = {k: (old[k], new[k]) for k in old & new.keys()
-                 if old[k] is not new[k]}
-        check(f"{name}: at least one instance moves off a confident verdict, "
-              f"and none moves ONTO one",
-              all(nv is None for _, nv in moved.values()),
-              f"{len(moved)} of {len(old)} instances move; "
-              f"{sorted(set(moved.values()))}")
+    print("\n7. end to end through realise(), over all "
+          f"{len(AFFECTED)} schemas that read a patched channel")
+    check(f"{len(AFFECTED)} of {len(R.REGISTRY)} schemas read onset / coda / "
+          f"consonants / phones", len(AFFECTED) == 63,
+          "the seam is not a corner of the module: it is two thirds of the "
+          "declared inventory.")
+    for lines in (["he counts the years", "she hides her tears"],
+                  ["a door left close", "a wilted rose"]):
+        old, new, moved = _instance_moves(lines, E_UNC)
+        vals = Counter(moved.values())
+        check(f"{lines[0]!r} / {lines[1]!r}: instances move, and every move "
+              f"lands on None",
+              moved and all(nv is None for _, nv in moved.values()),
+              f"{len(moved)} of {len(set(old) & set(new))} shared instances "
+              f"move: {dict(vals)}; {len(set(new) - set(old))} instance(s) "
+              f"exist only under the NEW readers (bucket_key no longer prunes "
+              f"a homograph), {len(set(old) - set(new))} only under the old.")
+        check("...and no instance is LOST, which a refusal must not do",
+              not (set(old) - set(new)),
+              "an instance that disappears is a pair the producer stopped "
+              "looking at, which is a different and worse change than a "
+              "verdict withdrawn.")
 
     hom = R.realise(R.REGISTRY["perfect rhyme"],
                     R.build_stream(["the wind", "i could not find"], E_UNC,
