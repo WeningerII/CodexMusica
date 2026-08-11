@@ -1,0 +1,517 @@
+#!/usr/bin/env python3
+"""THE REPLACEMENT NEGATIVE CONTROL.  MISSING.md K-2 / K-3, BACKLOG §3.5.
+
+WHAT WAS WRONG.  Every negative-control figure this project has recorded came
+from ONE author: `corpus/whitman.txt`, 150 lines.  K-3 records the verdict —
+all four figures (18.0, 20.0, 21.3, 26.0%) fall inside one line-permutation
+null spanning 6.7–27.3%, so the control never separated from its own null and
+"the band tightened the negative control" was never a measurement.  K-2 names
+the replacement in one sentence: **the corpus's own shuffled self, plus a
+multi-author positive spanning more than one scheme.**  This file is that arm.
+
+THE THREE THINGS THAT CHANGE
+  1. THE NEGATIVE IS NO LONGER A TEXT, IT IS AN OPERATION.  The negative
+     control is every quatrain in the positive corpus with its own four lines
+     permuted.  It is therefore matched on author, period, vocabulary, line
+     length, metre, diction and readability by construction, which no second
+     poet can be.  Whitman is still run, unchanged, as the LEGACY arm, so the
+     replacement is comparable to the record it replaces rather than merely
+     different from it.
+  2. THE POSITIVE IS MULTI-AUTHOR AND SPANS MORE THAN ONE SCHEME.  Quatrains
+     are drawn from `corpus/song/eng_*.txt` — 143 files, one author each, 1567
+     to 1929 — capped per file so no author dominates.  The scheme axis is
+     NOT the statistic: quatrains are selected by LINE COUNT, a typographic
+     property fixed before any rhyme is scored, and the arm is then reported
+     per TRADITION GROUP (american / british / celtic / hymn / scots), a
+     grouping taken from the filename.  Doctrine 14: a control may not be
+     defined in terms of the quantity it controls, and neither may the strata
+     a positive is broken into.
+  3. THE NULL IS CHOSEN PER PREDICATE AND THE DEGENERATE ONE IS RUN ANYWAY,
+     because a null that cannot move is a finding and not a mistake to be
+     hidden (doctrines 63, 68, 75).
+
+THE PREDICATES, AND WHAT EACH NULL PRESERVES AND DESTROYS
+
+  line_permutation  PRESERVES every line verbatim, every line-final word, the
+                    line count, the vocabulary, every within-line arrangement,
+                    and THE WHOLE MULTISET OF RHYMING PAIRS.
+                    DESTROYS which line index each line sits at, hence every
+                    line DISTANCE between two rhyming lines, hence the scheme.
+
+  P1 · pair count     — the number of rhyming line-pairs in a quatrain.
+                        A symmetric function of the four line-final anchors,
+                        so line_permutation is THE IDENTITY MAP.  Predicted
+                        degenerate, and MEASURED degenerate: differ = 0.0%.
+                        It is run and printed rather than omitted, because
+                        this is the third mechanism of the same trap
+                        (doctrine 63 in Finnish, 68 in Persian, and
+                        `quality/relations_null.py` in the relations layer)
+                        and a reader needs to see it fail on the material it
+                        would actually be reached for.
+  P2 · distance profile — the share of rhyming pairs at line distance 1, 2, 3.
+                        Reads POSITION, so the same null bites.  Summarised
+                        as the total-variation distance between the observed
+                        profile and the null's own mean profile, which is
+                        scheme-AGNOSTIC: an AABB corpus and an ABAB corpus
+                        both deviate, in opposite directions, and a mixture of
+                        the two still deviates.  That is what lets one number
+                        serve a positive that spans more than one scheme.
+                        Doctrine 90: the statistic changes with the null.
+  P3 · chain capture   — `infer_chains` share of lines inside a chain >= 2,
+                        the statistic `quality/audit_band_control.py` uses, so
+                        the legacy Whitman figure and the new corpus figure
+                        are the same measurement.  Reads line ADJACENCY, so
+                        line_permutation is not degenerate here.
+
+WHY THE PAIR VERDICTS ARE COMPUTED ONCE.  P1 and P2 permute LINE POSITIONS,
+and a rhyme verdict between two line-final anchors does not depend on where
+the lines sit.  So the six verdicts of a quatrain are scored once and the
+replicates permute indices.  This is not an optimisation bolted on afterwards;
+it is the same invariance that makes P1 degenerate, used deliberately, and it
+means the observation and every replicate are built from ONE set of verdicts
+(doctrine 91: build the population the same way before calling it a
+comparison).
+
+READING THE OUTPUT.  Every arm prints `differ`, the fraction of replicates
+that differ from the observation at all (doctrine 68), and the GAP TO THE
+NULL'S MAX rather than a p (doctrine 57 — at n=200 the smallest p obtainable
+is 0.005 and it says nothing about how far above the observation sat).
+
+Run: python3 quality/negative_control.py            (all arms, n=200)
+     python3 quality/negative_control.py --n=50 --cap=6 --skip-chains
+"""
+import os
+import random
+import re
+import sys
+from collections import Counter
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+if os.path.dirname(HERE) not in sys.path:
+    sys.path.insert(0, os.path.dirname(HERE))
+
+from lyric_harness import (Declaration, Lexicon, admits, best_score,   # noqa: E402
+                           infer_chains, line_anchors,
+                           readability_records)
+
+#: Doctrine 66. A randomisation with no stated seed is a result that does not
+#: reproduce. Replicate r is seeded SEED+r, so replicate 7 is replicate 7 on
+#: every machine.
+SEED = 20260811
+
+CORPUS = os.path.join(os.path.dirname(HERE), "corpus")
+SONG = os.path.join(CORPUS, "song")
+
+#: A quatrain has three distinct line distances and this many pairs at each,
+#: which is the CHANCE profile a permutation null must reproduce. It is not
+#: used as the null — the null measures its own — but printing it beside the
+#: measured one is how a reader checks the null did what it says.
+COMBINATORIAL_CHANCE = {1: 3 / 6, 2: 2 / 6, 3: 1 / 6}
+
+
+# ---------------------------------------------------------------------------
+# 1. MATERIAL.  Selected on a TYPOGRAPHIC property, never on a rhyme verdict.
+# ---------------------------------------------------------------------------
+
+def _blocks(path):
+    """Yield stanzas: maximal runs of non-blank text lines inside a song file.
+
+    `--- MARKER:` header lines, `#` comment lines and `[VERSE n]` / `[REFRAIN]`
+    structure markers are separators, not text. They are the corpus's own
+    notation, so treating them as lines would put the harness's markup into
+    the poet's stanza.
+    """
+    cur = []
+    with open(path, encoding="utf-8") as fh:
+        for raw in fh:
+            s = raw.strip()
+            if (not s or s.startswith("#") or s.startswith("--- ")
+                    or (s.startswith("[") and s.endswith("]"))):
+                if cur:
+                    yield cur
+                    cur = []
+                continue
+            cur.append(s)
+    if cur:
+        yield cur
+
+
+GROUP = re.compile(r"^eng_([a-z]+)_")
+
+
+def load_quatrains(cap_per_file=8, min_chars=12):
+    """-> [(group, filename, [4 lines])].
+
+    `cap_per_file` bounds one author's contribution so the corpus is not
+    Longfellow with a fringe (doctrine 8: never fit on one tradition, and its
+    corpus-level form is never MEASURE on one author). The cap is applied to
+    the file's quatrains in FILE ORDER, not to a random draw, so the selection
+    is a function of the corpus and not of the seed.
+    """
+    out = []
+    for name in sorted(os.listdir(SONG)):
+        m = GROUP.match(name)
+        if not m:
+            continue
+        taken = 0
+        for blk in _blocks(os.path.join(SONG, name)):
+            if taken >= cap_per_file:
+                break
+            if len(blk) != 4:
+                continue
+            if any(len(x) < min_chars for x in blk):
+                continue
+            out.append((m.group(1), name, blk))
+            taken += 1
+    return out
+
+
+def whitman_lines():
+    """Exactly `quality/audit_band_control.py`'s slice, so the legacy arm's
+    number is comparable to the four figures K-3 puts in the dock."""
+    path = os.path.join(CORPUS, "whitman.txt")
+    lines = [l.strip() for l in open(path, encoding="utf-8")]
+    start = next(i for i, l in enumerate(lines)
+                 if l.startswith("I celebrate myself"))
+    return [l for l in lines[start:start + 220] if l and len(l) > 15][:150]
+
+
+# ---------------------------------------------------------------------------
+# 2. THE VERDICTS.  Scored ONCE per quatrain; the nulls permute positions.
+# ---------------------------------------------------------------------------
+
+class Quatrain:
+    """Six pairwise verdicts over four line-final anchors, plus the bookkeeping
+    that keeps REFUSED separate from NOT-RHYMING (doctrine 79: refused /
+    detected / not-detected are three counts, never two)."""
+
+    __slots__ = ("group", "file", "pairs", "refused", "n_read", "scheme")
+
+    def __init__(self, lex, decl, group, fname, lines):
+        self.group, self.file = group, fname
+        data = []
+        for line in lines:
+            ancs, last, _ = line_anchors(lex, line, promote=decl.final_promotion)
+            data.append((ancs, last))
+        recs = readability_records(lex, lines, [d[0] for d in data])
+        self.n_read = sum(0 if r["final_unreadable"] else 1 for r in recs)
+        self.pairs = set()
+        self.refused = set()
+        for i in range(4):
+            for j in range(i + 1, 4):
+                if recs[i]["final_unreadable"] or recs[j]["final_unreadable"]:
+                    self.refused.add((i, j))
+                    continue
+                s = best_score(data[i][0], data[j][0], decl,
+                               data[i][1], data[j][1])
+                if admits(s, decl.theta_rhyme) or s["relation"] == "REPEAT":
+                    self.pairs.add((i, j))
+        self.scheme = self._label()
+
+    def _label(self):
+        """Read the partition off the graph — never argmax over candidate
+        schemes, which would be doctrine 19's biased sweep wearing a letter."""
+        comp = {}
+        nxt = 0
+        for i in range(4):
+            if i in comp:
+                continue
+            stack, lab = [i], nxt
+            nxt += 1
+            while stack:
+                v = stack.pop()
+                if v in comp:
+                    continue
+                comp[v] = lab
+                for w in range(4):
+                    if w == v:
+                        continue
+                    e = (min(v, w), max(v, w))
+                    if e in self.pairs and w not in comp:
+                        stack.append(w)
+        seen, ren = {}, []
+        for i in range(4):
+            if comp[i] not in seen:
+                seen[comp[i]] = chr(ord("A") + len(seen))
+            ren.append(seen[comp[i]])
+        return "".join(ren)
+
+    def distances(self, perm):
+        """Line distances of the rhyming pairs once the lines sit at `perm`."""
+        pos = {orig: k for k, orig in enumerate(perm)}
+        return [abs(pos[i] - pos[j]) for (i, j) in self.pairs]
+
+
+IDENT = (0, 1, 2, 3)
+
+
+# ---------------------------------------------------------------------------
+# 3. THE STATISTICS
+# ---------------------------------------------------------------------------
+
+def stat_pair_count(quats, perms):
+    """P1. Number of rhyming pairs. Symmetric in the four anchors, so `perms`
+    cannot touch it — which is the point of running it."""
+    return sum(len(q.pairs) for q in quats)
+
+
+def stat_profile(quats, perms):
+    """P2. -> {distance: share}. Reads POSITION."""
+    c = Counter()
+    for q, p in zip(quats, perms):
+        c.update(q.distances(p))
+    tot = sum(c.values())
+    return {d: (c.get(d, 0) / tot if tot else 0.0) for d in (1, 2, 3)}
+
+
+def tv(profile, ref):
+    """Total variation between two distance profiles. Scheme-AGNOSTIC: AABB
+    and ABAB deviate from chance in opposite directions and both score > 0,
+    so ONE number serves a positive that spans more than one scheme."""
+    return 0.5 * sum(abs(profile[d] - ref[d]) for d in (1, 2, 3))
+
+
+# ---------------------------------------------------------------------------
+# 4. REPORTING.  Doctrine 57 and doctrine 68 are enforced here, once.
+# ---------------------------------------------------------------------------
+
+def report(name, obs, nulls, differ, n, unit="", lower_is_better=False):
+    nulls = sorted(nulls)
+    lo, mid, hi = nulls[0], nulls[len(nulls) // 2], nulls[-1]
+    beat = sum(1 for x in nulls if (x <= obs if lower_is_better else x >= obs))
+    p = (beat + 1) / (n + 1)
+    floor = 1.0 / (n + 1)
+    gap = (lo - obs) if lower_is_better else (obs - hi)
+    print("  %s" % name)
+    print("    observed              %.4f%s" % (obs, unit))
+    print("    null  n=%-4d min %.4f  median %.4f  MAX %.4f"
+          % (n, lo, mid, hi))
+    print("    gap to null %-6s  %+.4f%s"
+          % ("MIN" if lower_is_better else "MAX", gap, unit))
+    print("    lift over null median %s"
+          % ("%.3f" % (obs / mid) if mid else "n/a (null median is 0)"))
+    print("    differ                %.1f%% of replicates%s"
+          % (100.0 * differ / n,
+             "   <- IDENTITY MAP, this null tests NOTHING here"
+             if differ == 0 else ""))
+    print("    empirical p           %.4f (floor %.4f)%s"
+          % (p, floor, "   <- AT THE FLOOR, read the gap" if
+             abs(p - floor) < 1e-12 else ""))
+    # Read the DIRECTION, not just the size. `quality/relations_null.py` found
+    # internal rhyme 20,472 against a null median of 22,820 -- below chance --
+    # and the headline count had been quoted as evidence FOR the effect. A
+    # statistic that sits under its own null is not a weak positive.
+    if differ and not lower_is_better and obs < mid:
+        print("    *** BELOW ITS OWN NULL (obs %.4f < null median %.4f). "
+              "This is not a\n        weak positive; the statistic moves the "
+              "WRONG WAY on this material." % (obs, mid))
+    return {"obs": obs, "min": lo, "median": mid, "max": hi,
+            "gap": gap, "differ": differ / n, "p": p}
+
+
+# ---------------------------------------------------------------------------
+# 5. THE ARMS
+# ---------------------------------------------------------------------------
+
+def arm_scheme(quats, n, label):
+    """P1 and P2 over one stratum, under the SAME null.
+
+    The pairing is the exhibit: one null, one corpus, two statistics, and the
+    null is the identity map for one of them and not for the other. Doctrine
+    75 said choose the null per predicate; this is that sentence with a number
+    beside it, on this repo's own English corpus.
+    """
+    print("\n%s  (%d quatrains, %d files/authors, %d tradition groups)"
+          % (label, len(quats), len({q.file for q in quats}),
+             len({q.group for q in quats})))
+    if not quats:
+        print("  EMPTY STRATUM — nothing measured, and that is a count, "
+              "not a zero.")
+        return None
+    n_pairs = sum(len(q.pairs) for q in quats)
+    n_ref = sum(len(q.refused) for q in quats)
+    print("  pairs judged %d, rhyming %d, REFUSED %d (unreadable final; a "
+          "refusal is not a non-rhyme)"
+          % (6 * len(quats) - n_ref, n_pairs, n_ref))
+    print("  schemes read off the graph: %s"
+          % ", ".join("%s=%d" % kv for kv in
+                      Counter(q.scheme for q in quats).most_common()))
+    if n_pairs == 0:
+        print("  NO RHYMING PAIR IN THE STRATUM — the distance profile is "
+              "undefined and no null can rescue it (doctrine 20: "
+              "inconclusive by construction is not a null).")
+        return None
+
+    ident = [IDENT] * len(quats)
+    obs_count = stat_pair_count(quats, ident)
+    obs_prof = stat_profile(quats, ident)
+
+    # ---- the null, drawn once and reused by both statistics ---------------
+    null_perms = []
+    for r in range(n):
+        rng = random.Random(SEED + r)
+        null_perms.append([tuple(rng.sample(range(4), 4)) for _ in quats])
+
+    counts = [stat_pair_count(quats, p) for p in null_perms]
+    d_count = sum(1 for c in counts if c != obs_count)
+    print("\n  P1 · RHYMING-PAIR COUNT   null = line_permutation")
+    print("      PRESERVES every line verbatim, every line-final word, the "
+          "whole\n      multiset of rhyming pairs.  DESTROYS line order.")
+    r1 = report("pair count", obs_count, counts, d_count, n)
+
+    profs = [stat_profile(quats, p) for p in null_perms]
+    ref = {d: sum(pr[d] for pr in profs) / n for d in (1, 2, 3)}
+    obs_tv = tv(obs_prof, ref)
+    tvs = [tv(pr, ref) for pr in profs]
+    d_tv = sum(1 for x in tvs if abs(x - obs_tv) > 1e-12)
+    print("\n  P2 · RHYME-DISTANCE PROFILE   same null, different statistic")
+    print("      observed  d1 %.4f  d2 %.4f  d3 %.4f"
+          % (obs_prof[1], obs_prof[2], obs_prof[3]))
+    print("      null mean d1 %.4f  d2 %.4f  d3 %.4f"
+          % (ref[1], ref[2], ref[3]))
+    print("      combinatorial chance for a 4-line stanza: d1 %.4f  d2 %.4f  "
+          "d3 %.4f" % (COMBINATORIAL_CHANCE[1], COMBINATORIAL_CHANCE[2],
+                       COMBINATORIAL_CHANCE[3]))
+    r2 = report("TV(profile, null mean)", obs_tv, tvs, d_tv, n)
+    return {"P1": r1, "P2": r2, "profile": obs_prof, "null_profile": ref,
+            "schemes": Counter(q.scheme for q in quats)}
+
+
+def arm_chains(lex, decl, stanzas, n, theta=0.82, max_items=120):
+    """P3. `infer_chains` capture, the statistic the record's four Whitman
+    figures are in. Reads ADJACENCY, so the same null is NOT degenerate — and
+    that is measured here rather than assumed.
+
+    `max_items` bounds the run: the chain search is quadratic in the item and
+    the replicate loop is n x items, so the slice is a coordinate of the
+    number and it is printed beside it (doctrine 58)."""
+    def captured(lines):
+        ch = infer_chains(lex, lines, decl, theta_chain=theta)
+        return sum(c["length"] for c in ch if c["length"] >= 2) / len(lines)
+
+    src = stanzas[:max_items]
+    print("\nP3 · CHAIN CAPTURE, corpus's own shuffled self   "
+          "(%d of %d quatrains, theta_chain=%.2f)"
+          % (len(src), len(stanzas), theta))
+    print("     The negative control is the SAME quatrains with their own "
+          "four\n     lines permuted — matched on author, period, diction and "
+          "line\n     length by construction, which no second poet can be.")
+    obs = sum(captured(b) for b in src) / len(src)
+    nulls, differ = [], 0
+    for r in range(n):
+        rng = random.Random(SEED + r)
+        tot = 0.0
+        for b in src:
+            s = list(b)
+            rng.shuffle(s)
+            tot += captured(s)
+        v = tot / len(src)
+        nulls.append(v)
+        if abs(v - obs) > 1e-12:
+            differ += 1
+    return report("corpus chain capture", obs, nulls, differ, n)
+
+
+def arm_whitman(lex, decl, n, theta=0.82):
+    def captured(lines):
+        ch = infer_chains(lex, lines, decl, theta_chain=theta)
+        return sum(c["length"] for c in ch if c["length"] >= 2) / len(lines)
+    wl = whitman_lines()
+    obs = captured(wl)
+    nulls, differ = [], 0
+    for r in range(n):
+        rng = random.Random(SEED + r)
+        s = list(wl)
+        rng.shuffle(s)
+        v = captured(s)
+        nulls.append(v)
+        if abs(v - obs) > 1e-12:
+            differ += 1
+    print("\nP3-LEGACY · WHITMAN, %d lines, theta_chain=%.2f  "
+          "(the control K-3 puts in the dock)" % (len(wl), theta))
+    return report("Whitman chain capture", obs, nulls, differ, n)
+
+
+# ---------------------------------------------------------------------------
+
+def main(argv):
+    n = 200
+    cap = 8
+    do_chains = True
+    for a in argv:
+        if a.startswith("--n="):
+            n = int(a.split("=", 1)[1])
+        elif a.startswith("--cap="):
+            cap = int(a.split("=", 1)[1])
+        elif a == "--skip-chains":
+            do_chains = False
+
+    lex = Lexicon()
+    decl = Declaration()
+    raw = load_quatrains(cap_per_file=cap)
+    print("=" * 74)
+    print("THE REPLACEMENT NEGATIVE CONTROL — MISSING K-2/K-3, BACKLOG 3.5")
+    print("=" * 74)
+    print("seed %d, replicates %d, cap %d quatrains per file" % (SEED, n, cap))
+    print("material: %d quatrains from %d files across %d tradition groups; "
+          "selected\n          by LINE COUNT (a typographic property), never "
+          "by a rhyme verdict" % (len(raw), len({r[1] for r in raw}),
+                                  len({r[0] for r in raw})))
+    quats = [Quatrain(lex, decl, g, f, b) for g, f, b in raw]
+
+    out = {}
+    out["ALL"] = arm_scheme(quats, n, "STRATUM: ALL ENGLISH SONG")
+    groups = sorted({q.group for q in quats})
+    print("\n" + "-" * 74)
+    print("PER-TRADITION STRATA — the 'more than one scheme' claim, made")
+    print("checkable. The grouping is the FILENAME, fixed before any rhyme was")
+    print("scored, so the strata are not a function of the statistic.")
+    print("-" * 74)
+    for g in groups:
+        sub = [q for q in quats if q.group == g]
+        if len(sub) < 20:
+            print("\nSTRATUM: eng_%s — %d quatrains, BELOW THE n=20 FLOOR, "
+                  "not measured\n  (doctrine 72: a calibration measured at "
+                  "n=6 is not a calibration)." % (g, len(sub)))
+            continue
+        out[g] = arm_scheme(sub, n, "STRATUM: eng_%s" % g)
+
+    if do_chains:
+        out["chains"] = arm_chains(lex, decl, [b for _, _, b in raw], n)
+        out["whitman"] = arm_whitman(lex, decl, n)
+
+    print("\n" + "=" * 74)
+    print("WHAT THE ARM SAYS")
+    print("=" * 74)
+    if out.get("ALL"):
+        a = out["ALL"]
+        print("* P1 differ = %.1f%%.  %s" % (
+            100 * a["P1"]["differ"],
+            "line_permutation is the IDENTITY MAP for the pair count, exactly "
+            "as\n  predicted from the predicate. A cell that had reached for "
+            "the obvious\n  null and stopped would have reported p=1.0 and "
+            "concluded English song\n  does not rhyme."
+            if a["P1"]["differ"] == 0 else
+            "the pair count MOVED under a null that should not touch it — "
+            "the\n  invariance argument is wrong somewhere and the number "
+            "below is void."))
+        print("* P2 differ = %.1f%%, observed TV %.4f against a null MAX of "
+              "%.4f\n  (gap %+.4f). Same corpus, same null, a statistic that "
+              "reads POSITION\n  instead of the anchor multiset."
+              % (100 * a["P2"]["differ"], a["P2"]["obs"], a["P2"]["max"],
+                 a["P2"]["gap"]))
+    if "whitman" in out and "chains" in out:
+        print("* P3: corpus %.4f vs its own shuffled self (MAX %.4f, gap "
+              "%+.4f);\n  Whitman %.4f vs MAX %.4f, gap %+.4f. Two arms, one "
+              "statistic, one null."
+              % (out["chains"]["obs"], out["chains"]["max"],
+                 out["chains"]["gap"], out["whitman"]["obs"],
+                 out["whitman"]["max"], out["whitman"]["gap"]))
+    print("* Every gap above is the number to read; every p at %.4f is the "
+          "resolution\n  floor of n=%d and says nothing about size "
+          "(doctrine 57)." % (1.0 / (n + 1), n))
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv[1:]))

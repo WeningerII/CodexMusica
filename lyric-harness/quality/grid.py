@@ -586,13 +586,27 @@ VARIATION_KINDS = (
     ("RHYME_PRESERVING_REWRITE", "line count and rhyme partition held, words "
                                  "rewritten (Hanby, 'Darling Nelly Gray')"),
     ("PARTIAL_RETURN", "at least one line invariant and nothing above holds"),
+    ("ANAPHORIC_RETURN", "the block's FIRST line keeps a shared opening and "
+                         "the rest of the block does not. Bilhana's "
+                         "Caurapancasika opens all 47 of its refrains on "
+                         "`adyapi tam` and shares nothing in the second line; "
+                         "under a rule that asks every line to keep a run, "
+                         "that refrain disappears, so it gets a name instead "
+                         "of being deleted (doctrine 24). The source's own "
+                         "header calls it `line-initial anaphora`."),
+    ("EPIPHORIC_RETURN", "the block's LAST line keeps a shared close and the "
+                         "rest does not -- the radif shape at block scale"),
     ("RESTATEMENT", "same line count, nothing invariant, token overlap above "
                     "`restatement_overlap` -- the same material said again"),
-    ("UNRELATED", "no line, no rhyme, no token run and no slot survived. This "
-                  "is a NAMED kind and it names what was tested: it is the "
-                  "answer 'these two blocks are marked as one section and "
-                  "share nothing measurable', which is a finding about the "
-                  "MARKING, not a shrug."),
+    ("REWRITTEN_RETURN", "no line, no rhyme, no token run and no slot "
+                         "survived: the return shares its position and its "
+                         "label and not its words. Hogg's 'Donald Macdonald' "
+                         "rewrites its whole chorus on every return and keeps "
+                         "the syntax. This is a NAMED kind, not a shrug -- it "
+                         "says what was tested and what failed, and it has "
+                         "two readings the harness cannot choose between: a "
+                         "chorus that rewrites, or a mark that groups two "
+                         "different sections."),
 )
 _KIND_GLOSS = dict(VARIATION_KINDS)
 
@@ -718,6 +732,11 @@ def rime_orthographic(word):
     return w[m[-1].start():] if m else w
 
 
+rime_orthographic.declared_name = (
+    "orthographic rime PROXY (last vowel letter to end); reads `slow` and "
+    "`go` as different rimes, and they rhyme")
+
+
 def rime_cmudict(lex=None):
     """-> a key function on the project's declared phonology.
 
@@ -760,6 +779,10 @@ def rime_cmudict(lex=None):
             return None
         return " ".join(re.sub(r"[012]$", "", ph) for ph in p[idx:])
 
+    key.declared_name = ("CMUdict General American; phones from the last "
+                         "stressed vowel of the end word, stress dropped. "
+                         "IDENTITY key -- perfect rhyme only, stricter than "
+                         "the graded band")
     return key
 
 
@@ -799,8 +822,16 @@ class Return:
     invariant_lines: tuple = ()
     #: (index_first, index_again, before, after, token_edits) for lines that moved
     varied_lines: tuple = ()
-    #: (head_run, tail_run) shared token runs, minimum over the varied lines
+    #: (head_run, tail_run) shared token runs, MINIMUM over the varied lines
+    #: -- the strict claim "every line that moved kept this much"
     invariant_runs: tuple = (0, 0)
+    #: shared head of the FIRST aligned pair and shared tail of the LAST,
+    #: reported separately because a refrain can be anaphoric at its opening
+    #: without every one of its lines agreeing, and the corpus has 46 of those
+    opening_run: int = 0
+    closing_run: int = 0
+    #: (line, head, tail) for every line that moved
+    line_runs: tuple = ()
     rhyme_scheme_preserved: bool = None
     tune_slot_preserved: bool = None
     declaration: VariationDeclaration = field(
@@ -824,7 +855,9 @@ class Return:
                 f"   (key: {d.rhyme_key or 'NONE DECLARED'})",
                 f"  tune slot preserved     "
                 f"{flag(self.tune_slot_preserved)}",
-                f"  shared head/tail runs   {self.invariant_runs} tokens",
+                f"  shared head/tail runs   {self.invariant_runs} tokens "
+                f"(min over moved lines); block opening {self.opening_run}, "
+                f"closing {self.closing_run}",
                 f"  declaration: normalisation={d.normalisation!r} "
                 f"lexical_max_tokens={d.lexical_max_tokens} "
                 f"min_invariant_run={d.min_invariant_run} "
@@ -859,7 +892,9 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
         decl = VariationDeclaration(
             decl.normalisation, decl.lexical_max_tokens,
             decl.min_invariant_run, decl.restatement_overlap,
-            rhyme_key="UNNAMED KEY -- declare its name")
+            rhyme_key=getattr(rhyme_key, "declared_name",
+                              "UNNAMED KEY -- a result that cannot say which "
+                              "phonology produced it (doctrine 45)"))
     a = [l for l in first if normalise_line(l)]
     b = [l for l in again if normalise_line(l)]
     na = [normalise_line(l) for l in a]
@@ -872,18 +907,27 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
             stub_test = LH.is_chorus_stub
         except Exception:
             stub_test = lambda _l: False          # noqa: E731
-    if b and any(stub_test(l) for l in b) and len(b) < len(a):
+    stubbed = [l for l in a + b if stub_test(l)]
+    if stubbed:
+        # EITHER SIDE. Two abbreviated returns are two POINTERS, and their
+        # texts agreeing says nothing about whether the choruses they point at
+        # agree: Burns prints `Lal de daudle, &c.` against `Sing hey, &c.` in
+        # one song and both stand for full refrains nobody reproduced. The
+        # first version of this rule required the return to be SHORTER, and
+        # over the corpus that read 69 pairs as stubs and silently graded 117
+        # more -- 94 of them as HEAD_PRESERVED, which is a measurement of the
+        # printer's abbreviation and not of the song.
         return Return(
             kind="STUB", qualities=frozenset({"STUB"}),
             line_distance=None, token_distance=None,
             declaration=decl,
             refusals=(Refusal(
                 "STUB_RETURN",
-                "the return is an abbreviated reference, not a reproduction",
-                f"{b[0]!r} points at the {len(a)}-line block it abbreviates. "
+                "an abbreviated reference is a POINTER, not a reproduction",
+                f"{stubbed[0]!r} stands for a block it does not print. "
                 f"Reporting an edit distance here would charge the PRINTER's "
                 f"space-saving convention to the writer (doctrine 79); the "
-                f"stub must be resolved against its target before any "
+                f"stub must be RESOLVED against its target before any "
                 f"distance means anything, and only the exclusion is built "
                 f"(MISSING.md A-1)."),))
 
@@ -918,6 +962,15 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
     runs = [(_run(tokens(v[2]), tokens(v[3]))) for v in varied]
     head_run = min((r[0] for r in runs), default=0)
     tail_run = min((r[1] for r in runs), default=0)
+    line_runs = tuple((v[0], r[0], r[1]) for v, r in zip(varied, runs))
+    aligned = [(i, j) for i, j in pairs if i is not None and j is not None]
+    varied_at = {v[0] - 1 for v in varied}
+    opening_run = closing_run = 0
+    if aligned and aligned[0][0] in varied_at:
+        opening_run = _run(tokens(a[aligned[0][0]]), tokens(b[aligned[0][1]]))[0]
+    if aligned and aligned[-1][0] in varied_at:
+        closing_run = _run(tokens(a[aligned[-1][0]]),
+                           tokens(b[aligned[-1][1]]))[1]
 
     rhyme_ok = None
     if rhyme_key is None:
@@ -965,8 +1018,12 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
         q.add("FRAME_PRESERVED")
     if varied and head_run >= decl.min_invariant_run:
         q.add("HEAD_PRESERVED")
+    elif varied and opening_run > 0:
+        q.add("ANAPHORIC_RETURN")
     if varied and tail_run >= decl.min_invariant_run:
         q.add("TAIL_PRESERVED")
+    elif varied and closing_run > 0:
+        q.add("EPIPHORIC_RETURN")
     if "HEAD_PRESERVED" in q and "TAIL_PRESERVED" in q:
         q.add("HEAD_AND_TAIL_PRESERVED")
     if rhyme_ok and len(na) == len(nb) and varied:
@@ -981,7 +1038,7 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
             and overlap >= decl.restatement_overlap):
         q.add("RESTATEMENT")
     if not q:
-        q.add("UNRELATED")
+        q.add("REWRITTEN_RETURN")
 
     kind = next(k for k, _ in VARIATION_KINDS if k in q)
     return Return(kind=kind, qualities=frozenset(q),
@@ -989,10 +1046,633 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
                   invariant_lines=tuple(invariant),
                   varied_lines=tuple(varied),
                   invariant_runs=(head_run, tail_run),
+                  opening_run=opening_run, closing_run=closing_run,
+                  line_runs=line_runs,
                   rhyme_scheme_preserved=rhyme_ok,
                   tune_slot_preserved=slot_ok,
                   declaration=decl, refusals=tuple(refusals))
 
 
+# ---------------------------------------------------------------------------
+# THE HOOK (MISSING.md D-2)
+#
+# "The hook appears nowhere in the codebase" was exactly true. A hook is not a
+# section: it is a FRAGMENT that recurs, possibly inside other sections,
+# possibly shorter than a line. So it is its own object, it is DECLARED (the
+# harness never decides for you what your hook is), and what it supports is
+# counting, placing and asking whether the title is in it.
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Hook:
+    """A declared fragment. `text` may be shorter than a line."""
+    text: str
+
+    @property
+    def key(self):
+        return normalise_line(self.text)
+
+    def __post_init__(self):
+        if not normalise_line(self.text):
+            raise ValueError(
+                "a hook must have text. The harness does not guess what your "
+                "hook is -- deciding that for you is writing for you, and "
+                "this harness never writes for you.")
+
+
+@dataclass(frozen=True)
+class HookOccurrence:
+    hook: str
+    line_index: int          # 0-based index into song.lines
+    text: str
+    section: str
+    function: str
+    bar: int
+    beat: Fraction
+    token_offset: int        # where in the line the fragment starts
+
+
+def hook_occurrences(song, hook):
+    """-> every place the fragment lands, in bar order. Sub-line, so a hook
+    that is three words inside a longer line is found."""
+    h = hook if isinstance(hook, Hook) else Hook(str(hook))
+    need = h.key.split()
+    out = []
+    for i, l in enumerate(song.lines):
+        ts = tokens(l.text)
+        for k in range(len(ts) - len(need) + 1):
+            if ts[k:k + len(need)] == need:
+                sec = l.section or song.section_at(l.bar)
+                fn = next((s.function for s in song.sections
+                           if s.start_bar <= l.bar <= s.end_bar), UNDECLARED)
+                out.append(HookOccurrence(h.text, i, l.text, sec, fn,
+                                          l.bar, l.beat, k))
+                break
+    return sorted(out, key=lambda o: (o.bar, o.beat))
+
+
+def hook_findings(song, hooks=(), title=None):
+    """-> (findings, refusals). The writer's questions: does it recur, where,
+    and is the title in it?"""
+    findings, refusals = [], []
+    hooks = [h if isinstance(h, Hook) else Hook(h) for h in hooks]
+    if not hooks:
+        refusals.append(Refusal(
+            "HOOK_UNDECLARED",
+            "no hook was declared, so no hook question was asked",
+            "A hook is a FRAGMENT (MISSING.md D-2) and it is the writer's to "
+            "name. Reporting 'no hook problems' here would be a pass earned "
+            "by asking nothing (doctrine 20)."))
+        return findings, refusals
+
+    title = song.title if title is None else title
+    for h in hooks:
+        occ = hook_occurrences(song, h)
+        if not occ:
+            findings.append(GridFinding(
+                "HOOK_ABSENT", f"the declared hook does not appear in the "
+                f"lyric at all", f"{h.text!r} occurs 0 times"))
+            continue
+        if len(occ) == 1:
+            findings.append(GridFinding(
+                "HOOK_DOES_NOT_RECUR",
+                "the declared hook occurs once, so it is a line and not a "
+                "hook",
+                f"{h.text!r} at bar {occ[0].bar}, in "
+                f"{occ[0].section!r} ({occ[0].function or 'UNDECLARED'}). A "
+                f"hook is defined by RETURN; one occurrence is a phrase."))
+            continue
+        fns = {o.function for o in occ}
+        if fns == {UNDECLARED}:
+            refusals.append(Refusal(
+                "HOOK_PLACEMENT_UNDECLARED",
+                "the hook recurs but no section it lands in declares a "
+                "function",
+                f"{h.text!r} at bars {[o.bar for o in occ]}; 'where does the "
+                f"hook live' cannot be answered without Section.function."))
+        elif len(fns - {UNDECLARED}) == 1 and len(occ) > 2:
+            findings.append(GridFinding(
+                "HOOK_CONFINED",
+                f"the hook returns {len(occ)} times and never leaves one "
+                f"function",
+                f"{h.text!r} occurs only in {sorted(fns)[0]!r} sections, at "
+                f"bars {[o.bar for o in occ]}. A hook that leaks into a verse "
+                f"or a bridge is placed; one that only ever appears where it "
+                f"is expected is a section, not a hook."))
+
+    if not title:
+        refusals.append(Refusal(
+            "TITLE_UNDECLARED",
+            "'is the title in the hook?' was not asked: Song.title is empty",
+            "The question needs a declared title; guessing one from the first "
+            "line is inference, which is the error this cell exists to "
+            "avoid."))
+        return findings, refusals
+
+    tkey = tokens(title)
+    for h in hooks:
+        hk = h.key.split()
+        if any(tkey[k:k + len(hk)] == hk
+               for k in range(len(tkey) - len(hk) + 1)) or \
+           any(hk[k:k + len(tkey)] == tkey
+               for k in range(len(hk) - len(tkey) + 1)):
+            continue
+        t_occ = hook_occurrences(song, Hook(title))
+        where = (f"the title phrase occurs {len(t_occ)} time(s)"
+                 + (f", at bar {t_occ[0].bar} in {t_occ[0].section!r} "
+                    f"({t_occ[0].function or 'UNDECLARED'})" if t_occ else ""))
+        findings.append(GridFinding(
+            "TITLE_NOT_IN_HOOK",
+            f"the title is not in the hook",
+            f"title {title!r} vs hook {h.text!r}; {where}. A listener who "
+            f"wants to find this song again has the hook and not the title."))
+    return findings, refusals
+
+
+# ---------------------------------------------------------------------------
+# THE FUNCTION CHECKS
+#
+# Each of these is a QUESTION A WRITER ASKS, and none of them could be asked
+# before `Section.function` existed, because each one needs to know which spans
+# are the same thing.
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class FormConvention:
+    """Which expectations are in force. Labelled a convention, like
+    `Meter.conventional_grouping`, and overridable for the same reason."""
+    name: str = "popular song, Anglo-American, 20th century"
+    #: functions whose instances are expected to hold one length and one slot
+    fixed_return: tuple = ("chorus", "postchorus", "refrain", "burden", "tag")
+    #: functions expected to occur at most once
+    single_use: tuple = ("intro", "outro", "bridge", "coda", "false_ending")
+    #: channels a bridge is expected to differ from the verses on
+    contrast_channels: tuple = ("meter", "bars", "line_count",
+                                "line_duration", "downbeat_rate",
+                                "rhyme_inventory", "line_length")
+    #: a run of this many identical returns with no variation is the strophic
+    #: default; below it, saying so would be noise
+    return_lock_min: int = 2
+
+
+POPULAR_SONG = FormConvention()
+
+
+def function_profile(song):
+    """-> what the form IS, by declared function. The answer to D-1's own
+    example questions."""
+    counts = {}
+    for s in song.sections:
+        counts[s.function] = counts.get(s.function, 0) + 1
+    prof = {
+        "form": song.form(),
+        "counts": counts,
+        "declared": len(song.declared_sections()),
+        "undeclared": len(song.undeclared_sections()),
+        "total_bars": song.total_bars,
+    }
+    for fn in ("chorus", "prechorus", "bridge", "hook"):
+        bars, sec = song.bars_until(fn)
+        prof[f"bars_until_first_{fn}"] = bars
+        prof[f"has_{fn}"] = bool(song.instances_of(fn))
+    return prof
+
+
+def return_findings(song, function="chorus", convention=POPULAR_SONG,
+                    rhyme_key=None, decl=None):
+    """Does this function land in the same place, and the same shape, each
+    time it returns?  -> (findings, refusals, returns).
+
+    Three separate questions, and before `function` existed none of them had a
+    subject: two spans named "chorus" and "chorus2" were two strings.
+    """
+    fn = as_function(function)
+    findings, refusals, rets = [], [], []
+    inst = song.instances_of(fn)
+    if not inst:
+        refusals.append(Refusal(
+            "FUNCTION_UNDECLARED",
+            f"no section declares function {fn!r}",
+            f"{len(song.undeclared_sections())} of {len(song.sections)} "
+            f"sections are UNDECLARED. The names present are "
+            f"{[s.name for s in song.sections]} -- and a name is not a "
+            f"function. Nothing was checked."))
+        return findings, refusals, rets
+    if len(inst) == 1:
+        refusals.append(Refusal(
+            "SINGLE_INSTANCE",
+            f"{fn!r} occurs once, so 'does it land in the same place each "
+            f"time' has no second time",
+            f"bars {inst[0].start_bar}-{inst[0].end_bar}. This is CANNOT "
+            f"TELL, not clean (doctrine 28)."))
+        if fn in convention.fixed_return:
+            findings.append(GridFinding(
+                "RETURN_NEVER_RETURNS",
+                f"the song declares a {fn} and never comes back to it",
+                f"one instance, bars {inst[0].start_bar}-{inst[0].end_bar}. "
+                f"Under {convention.name!r} a {fn} is a returning function; "
+                f"declared once, it is a section with a chorus's name."))
+        return findings, refusals, rets
+
+    if fn in convention.single_use and len(inst) > 1:
+        findings.append(GridFinding(
+            "SINGLE_USE_RECURRED",
+            f"{fn!r} is declared {len(inst)} times and the convention expects "
+            f"one",
+            f"bars {[s.start_bar for s in inst]}. Under {convention.name!r} a "
+            f"{fn} appears once; {len(inst)} of them is either a different "
+            f"form or a mislabelling, and the harness cannot tell which -- it "
+            f"reports the collision and stops."))
+
+    lens = {s.bars for s in inst}
+    if len(lens) > 1:
+        findings.append(GridFinding(
+            "RETURN_LENGTH_DRIFT",
+            f"the {fn} is not the same length every time",
+            f"bar counts {[s.bars for s in inst]} at bars "
+            f"{[s.start_bar for s in inst]}. Neither answer is wrong -- a "
+            f"final chorus that gains four bars is a decision -- but it was "
+            f"unsayable, so it could not be a decision."))
+    meters = {(s.meter.beats, s.meter.unit, s.meter.groups) for s in inst}
+    if len(meters) > 1:
+        findings.append(GridFinding(
+            "RETURN_METER_DRIFT",
+            f"the {fn} does not keep one time signature across its returns",
+            f"{[str(s.meter) for s in inst]}"))
+
+    slots = [song.slot_profile(s) for s in inst]
+    if len({tuple(x) for x in slots}) > 1:
+        first_diff = None
+        for k in range(max(len(x) for x in slots)):
+            vals = {x[k] if k < len(x) else None for x in slots}
+            if len(vals) > 1:
+                first_diff = (k + 1, sorted(map(str, vals)))
+                break
+        findings.append(GridFinding(
+            "RETURN_SLOT_DRIFT",
+            f"the {fn} does not land in the same metric position each time",
+            f"line {first_diff[0]} sits at {first_diff[1]} across the "
+            f"returns (offset-from-section-start, beat, duration). This is "
+            f"the TUNE SLOT: a singer learning the second return has to learn "
+            f"a new placement." if first_diff else str(slots)))
+
+    for k in range(1, len(inst)):
+        r = compare_returns(
+            [l.text for l in song.lines_in(inst[0])],
+            [l.text for l in song.lines_in(inst[k])],
+            decl=decl, rhyme_key=rhyme_key,
+            first_slot=slots[0], again_slot=slots[k])
+        rets.append((inst[0], inst[k], r))
+
+    kinds = {r.kind for _, _, r in rets}
+    spec = SECTION_FUNCTIONS[fn]
+    if spec.returns_as == "new words" and kinds == {"VERBATIM"}:
+        findings.append(GridFinding(
+            "RETURNS_WITH_SAME_WORDS",
+            f"every {fn} returns with IDENTICAL words",
+            f"under {convention.name!r} a {fn} returns with new words on the "
+            f"same tune; identical words are a chorus's job. This is the "
+            f"mirror of BRIDGE_IS_A_VERSE and it is a finding about the "
+            f"LABEL, not about the lines."))
+    if (spec.returns_as == "verbatim"
+            and len(rets) >= convention.return_lock_min - 1
+            and kinds == {"VERBATIM"}
+            and all(r.tune_slot_preserved for _, _, r in rets)):
+        findings.append(GridFinding(
+            "RETURN_LOCKED",
+            f"every {fn} return is verbatim in an identical slot",
+            f"{len(rets)} return(s), all VERBATIM. This is the strophic "
+            f"default and it is not a defect -- it is the majority of the "
+            f"corpus. It is reported because the OTHER answers exist and were "
+            f"unsayable: Hanby rewrites the words and keeps the rhyme, "
+            f"Russell holds the first and last lines and rewrites the "
+            f"interior, the Gitagovinda holds a head and a tail and varies "
+            f"the middle. Variation-on-return is a channel this song does "
+            f"not use."))
+    return findings, refusals, rets
+
+
+def _channel_values(song, sections, rhyme_key=None):
+    """-> per-channel measurement over a set of sections, for contrast."""
+    lines = [l for s in sections for l in song.lines_in(s)]
+    if rhyme_key is None:
+        ends = None            # CANNOT TELL: no phonology was declared
+    else:
+        ends = {rhyme_key(_end_word(l.text)) for l in lines
+                if _end_word(l.text)}
+        ends.discard(None)
+    dur = [float(l.duration) for l in lines]
+    lens = [len(tokens(l.text)) for l in lines]
+    return {
+        "meter": {(s.meter.beats, s.meter.unit, s.meter.groups)
+                  for s in sections},
+        "bars": {s.bars for s in sections},
+        "line_count": {len(song.lines_in(s)) for s in sections},
+        "line_duration": round(sum(dur) / len(dur), 3) if dur else None,
+        "downbeat_rate": (round(sum(1 for l in lines if l.on_downbeat())
+                                / len(lines), 3) if lines else None),
+        "rhyme_inventory": ends,
+        "line_length": round(sum(lens) / len(lens), 3) if lens else None,
+    }
+
+
+def bridge_contrast(song, function="bridge", against=("verse",),
+                    convention=POPULAR_SONG, rhyme_key=None):
+    """Does the bridge actually contrast, or is it a verse wearing a label?
+    -> (findings, refusals, channels).
+
+    The question is only askable once both sides have a declared function. It
+    was the one D-1 could not phrase at all: with `name` a free string, "the
+    bridge" and "a verse" were two spellings.
+    """
+    fn = as_function(function)
+    findings, refusals = [], []
+    br = song.instances_of(fn)
+    ref = [s for a in against for s in song.instances_of(a)]
+    if not br:
+        refusals.append(Refusal(
+            "FUNCTION_UNDECLARED", f"no section declares {fn!r}",
+            f"declared functions present: "
+            f"{sorted({s.function for s in song.sections if s.declared})}"))
+        return findings, refusals, {}
+    if not ref:
+        refusals.append(Refusal(
+            "NO_COMPARATOR",
+            f"{fn!r} is declared but nothing declares "
+            f"{' or '.join(against)}, so there is nothing to contrast WITH",
+            "Contrast is a relation. Reporting a bridge as contrasting "
+            "against an empty set would be a pass earned by asking nothing."))
+        return findings, refusals, {}
+
+    bv = _channel_values(song, br, rhyme_key)
+    rv = _channel_values(song, ref, rhyme_key)
+    channels, separating, unmeasured = {}, [], []
+    for ch in convention.contrast_channels:
+        x, y = bv.get(ch), rv.get(ch)
+        if x is None or y is None:
+            # CANNOT TELL. The rhyme inventory needs a phonology, and reading
+            # it off spelling because none was declared would be doctrine 45's
+            # exact failure: a claim about sound made by whoever guessed.
+            channels[ch] = {"bridge": None, "against": None,
+                            "separates": None,
+                            "why": "not measured: no key was declared for "
+                                   "this channel"}
+            unmeasured.append(ch)
+            continue
+        if isinstance(x, set):
+            shared = x & y
+            diff = bool(x) and bool(y) and not shared
+            channels[ch] = {"bridge": sorted(map(str, x))[:6],
+                            "against": sorted(map(str, y))[:6],
+                            "shared": sorted(map(str, shared))[:6],
+                            "separates": diff}
+        else:
+            diff = (x != y)
+            channels[ch] = {"bridge": x, "against": y, "separates": diff}
+        if channels[ch]["separates"]:
+            separating.append(ch)
+
+    if unmeasured:
+        refusals.append(Refusal(
+            "CHANNEL_NOT_MEASURED",
+            f"{len(unmeasured)} contrast channel(s) were not measured",
+            f"{unmeasured}. They are excluded from the verdict rather than "
+            f"scored as 'no difference' -- an unmeasured channel that votes "
+            f"is a guess with a number on it."))
+    if not separating:
+        tested = [c for c in convention.contrast_channels
+                  if c not in unmeasured]
+        findings.append(GridFinding(
+            "BRIDGE_IS_A_VERSE",
+            f"the {fn} does not differ from the {'/'.join(against)} on any "
+            f"measured channel",
+            f"channels measured: {tested}; none separated"
+            + (f"; not measured: {unmeasured}" if unmeasured else "")
+            + f". Same meter, same bar count, same line count, same phrase "
+              f"length. It is labelled a {fn} and it is a {against[0]}. This "
+              f"is a finding about the LABEL, and the label is the only "
+              f"thing that says otherwise."))
+    channels["_separating"] = separating
+    return findings, refusals, channels
+
+
+def song_function_report(song, hooks=(), rhyme_key=None,
+                         convention=POPULAR_SONG, decl=None):
+    """Every function-dependent question, asked once. -> dict.
+
+    Three counts, always, and they are not interchangeable: questions ASKED,
+    questions ANSWERED, questions REFUSED (doctrine 79).
+    """
+    findings, refusals, asked = [], [], 0
+    prof = function_profile(song)
+    detail = {}
+    # `chorus` is ALWAYS asked, declared or not: a song with no declared
+    # chorus is a fact about the song, and not asking is how a report comes
+    # back clean because nobody said anything (doctrine 20).
+    ask = {"chorus"} | {s.function for s in song.sections if s.declared
+                        and (SECTION_FUNCTIONS[s.function].recurrence
+                             == "returns"
+                             or s.function in convention.fixed_return)}
+    for fn in sorted(ask):
+        asked += 1
+        f, r, rets = return_findings(song, fn, convention, rhyme_key, decl)
+        findings += f
+        refusals += r
+        detail[fn] = rets
+    asked += 1
+    f, r, ch = bridge_contrast(song, convention=convention,
+                               rhyme_key=rhyme_key)
+    findings += f
+    refusals += r
+    asked += 1
+    f, r = hook_findings(song, hooks)
+    findings += f
+    refusals += r
+    return {"profile": prof, "findings": findings, "refusals": refusals,
+            "returns": detail, "contrast": ch,
+            "asked": asked, "answered": asked - len(refusals),
+            "refused": len(refusals), "convention": convention.name}
+
+
+# ---------------------------------------------------------------------------
+# READING A SOURCE'S OWN MARKS (doctrine 37 -- validate against the corpus)
+#
+# `corpus/song/` holds 258 files with 181,480 marked blocks. The marks are the
+# PRINTER's declaration, not ours, and reading one is ingestion, not inference.
+# The distinction is enforceable: the table below is closed and enumerable, and
+# a mark that is not in it is REFUSED with a reason rather than mapped to the
+# nearest-looking function. Mapping `[BAYT]` to `verse` because both are
+# stanza-shaped would import a song-form vocabulary into a form that has no
+# chorus and no verse -- doctrine 43, a checker that implements a tradition's
+# rules and never read that tradition.
+# ---------------------------------------------------------------------------
+
+#: source mark -> declared function
+MARK_FUNCTION = {
+    "VERSE": "verse",
+    "CHORUS": "chorus",
+    "BURDEN": "burden",
+    "BURDEN-TAIL": "burden",
+    "REFRAIN": "refrain",
+}
+
+#: source mark -> why it is NOT a section function. Every entry is a decision
+#: with a reason attached, which is what makes it a table rather than a filter.
+MARK_REFUSED = {
+    "BAYT": "a bayt is the couplet-unit of a ghazal. A ghazal has no chorus "
+            "and no verse; calling it `verse` would be this vocabulary "
+            "claiming a form it does not describe (doctrine 43).",
+    "RADIF": "a radif is a RHYME DEVICE -- the repeated word after the rhyme "
+             "-- not a span of the song. It has no bars and no return.",
+    "SLOKA": "a sloka is a metrical stanza-unit. In the Gitagovinda it is an "
+             "interleaved narrative verse, and the source says so; that is a "
+             "position in a text, not a function in a form.",
+    "PANTUN": "a pantun is a whole quatrain FORM, not a section of a song.",
+    "QUATRAIN": "a printing/metrical unit, and the mark carries its rhyme "
+                "scheme rather than a function.",
+    "VARIANT": "Lonnrot's numbered alternative READING of the same passage. "
+               "An editor's variant is not a performed return, and treating "
+               "it as one would count editorial apparatus as structure.",
+    "PART": "a speaker or role attribution in the Kalevala wedding songs "
+            "(`[PART: Kaason puoli]`), not a section function.",
+    "PATTER": "a music-hall function this vocabulary does not declare. It is "
+              "refused rather than folded into `verse`, because folding it in "
+              "would delete the distinction the printer made.",
+    "NOTE": "editorial apparatus.",
+    "SIDENOTE": "editorial apparatus.",
+    "MUSIC": "editorial apparatus.",
+    "GOTHIC": "editorial apparatus.",
+    "CYWYDD": "a Welsh METRE name, not a section.",
+}
+
+
+@dataclass
+class Block:
+    """One marked block of a printed song, as the source marked it."""
+    mark: str                # the raw mark, e.g. 'CHORUS 2'
+    base: str                # normalised head, e.g. 'CHORUS'
+    index: int               # the numeral the mark carries; 1 when bare
+    function: str            # a declared function, or UNDECLARED
+    lines: list = field(default_factory=list)
+    refusal: Refusal = None
+    source_line: int = 0
+    #: text printed on the MARK's own line. In this corpus's convention that
+    #: is apparatus, never sung text -- `[CHORUS 2] (differs from CHORUS 1 --
+    #: repetition with variation)` is an editor speaking. Reading it as a
+    #: fifth line of a four-line chorus made Hanby's variant compare 5 against
+    #: 4 and report REWRITTEN_RETURN, which is the one answer it is not.
+    annotation: str = ""
+
+
+@dataclass
+class MarkedSong:
+    title: str = ""
+    path: str = ""
+    language: str = ""
+    blocks: list = field(default_factory=list)
+
+    def instances(self, function):
+        """-> {index: [Block]} for a function. Two blocks with the same
+        function AND the same index are RETURNS of one another; different
+        indices are different instances.
+
+        That reading is DECLARED and it is what the corpus means: `[VERSE 1]`
+        and `[VERSE 2]` are two verses with new words, and `[CHORUS]` beside
+        `[CHORUS 2]` is one chorus and its variant -- which is precisely the
+        A-2 case, already marked, in the printed record.
+        """
+        fn = as_function(function)
+        out = {}
+        for b in self.blocks:
+            if b.function == fn:
+                out.setdefault(b.index, []).append(b)
+        return out
+
+
+_MARK_RE = re.compile(r"^\[([^\]]*)\]")
+_INDEX_RE = re.compile(r"(\d+)\s*$")
+
+
+def ingest_mark(mark):
+    """-> (base, index, function, refusal). Reads a printed mark; never a name.
+
+    The numeral is an INSTANCE INDEX, declared: `[CHORUS 2]` is the song's
+    second chorus, not the chorus's second return. `[PANTUN ABAB]` and
+    `[QUATRAIN AAAA]` carry a rhyme scheme after the head, so the base is the
+    FIRST token; `[CHORUS: abbreviated return, printed "&c."]` carries an
+    editorial note after a colon, so the head stops there.
+    """
+    head = re.split(r"[:(]", mark, 1)[0].strip()
+    m = _INDEX_RE.search(head)
+    index = int(m.group(1)) if m else 1
+    head = _INDEX_RE.sub("", head).strip()
+    base = head.split()[0].upper() if head.split() else ""
+    if base in MARK_FUNCTION:
+        return base, index, MARK_FUNCTION[base], None
+    if not base:
+        return base, index, UNDECLARED, Refusal(
+            "MARK_IS_A_NUMERAL",
+            f"the mark {mark!r} is a bare numeral",
+            "A numbered bracket in a printed text is a footnote reference or "
+            "a stanza number, not a section. Reading it as a function would "
+            "make the apparatus into structure.")
+    reason = MARK_REFUSED.get(base)
+    return base, index, UNDECLARED, Refusal(
+        "MARK_NOT_A_FUNCTION" if reason else "MARK_UNRECOGNISED",
+        f"the source mark {base!r} is not read as a section function",
+        reason or (f"{base!r} is in no declared table. It is refused rather "
+                   f"than guessed: a mark that looks stanza-shaped is not "
+                   f"evidence of a function, and the table is closed on "
+                   f"purpose so that additions are decisions."))
+
+
+def read_marked_songs(path, language=""):
+    """-> [MarkedSong] from one `corpus/song/*.txt` file.
+
+    The file conventions: `#` header lines are metadata, `--- TITLE:` opens a
+    song, `--- ` otherwise is a per-song source note, `[MARK]` opens a block.
+    """
+    songs, cur = [], None
+    with open(path, encoding="utf-8", errors="replace") as f:
+        for n, raw in enumerate(f, 1):
+            line = raw.rstrip("\n")
+            if line.startswith("--- TITLE:"):
+                cur = MarkedSong(title=line[len("--- TITLE:"):].strip(),
+                                 path=path, language=language)
+                songs.append(cur)
+                continue
+            if line.startswith("#") or line.startswith("--- "):
+                continue
+            if cur is None:
+                continue
+            s = line.strip()
+            m = _MARK_RE.match(s)
+            if m:
+                base, idx, fn, ref = ingest_mark(m.group(1))
+                cur.blocks.append(Block(mark=m.group(1), base=base, index=idx,
+                                        function=fn, refusal=ref,
+                                        source_line=n))
+                cur.blocks[-1].annotation = s[m.end():].strip()
+            elif s and cur.blocks:
+                cur.blocks[-1].lines.append(s)
+    return songs
+
+
 __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
-           "uniformity", "stanza_lock", "phrase_profile"]
+           "uniformity", "stanza_lock", "phrase_profile",
+           # section function -- MISSING.md D-1
+           "UNDECLARED", "UnknownFunction", "FunctionSpec",
+           "SECTION_FUNCTIONS", "as_function", "FormConvention",
+           "POPULAR_SONG", "function_profile", "return_findings",
+           "bridge_contrast", "song_function_report", "Refusal",
+           # repetition with variation -- MISSING.md A-2, D-3
+           "VARIATION_KINDS", "VariationDeclaration", "Return",
+           "compare_returns", "normalise_line", "tokens",
+           "rime_orthographic", "rime_cmudict",
+           # the hook -- MISSING.md D-2
+           "Hook", "HookOccurrence", "hook_occurrences", "hook_findings",
+           # reading the corpus's own marks
+           "MARK_FUNCTION", "MARK_REFUSED", "ingest_mark", "Block",
+           "MarkedSong", "read_marked_songs"]

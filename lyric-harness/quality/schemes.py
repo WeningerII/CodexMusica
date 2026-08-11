@@ -131,12 +131,214 @@ def label(code, alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"):
     return "".join(out)
 
 
+# ---------------------------------------------------------------------------
+# THE REFRAIN NOTATION (MISSING.md A-1)
+#
+# Capital = a line repeated VERBATIM. Lowercase = rhyme only. A superscript
+# distinguishes two refrains that share a rhyme: `A¹` and `A²` both rhyme in
+# class a and are two DIFFERENT lines, each identical to its own returns. This
+# is the standard prosodic convention and the villanelle is written in it:
+#
+#     A1bA2  abA1  abA2  abA1  abA2  abA1A2
+#
+# and until now it could not be written down in this repo at all. `schemes.py`
+# said so in a note on its own villanelle entry and did not act on it.
+#
+# WHY IT IS A SECOND PARTITION AND NOT A LONGER ALPHABET
+#
+# A refrain is line IDENTITY. Doctrine 3 already names the relation -- REPEAT,
+# "a violation inside a verse, the requirement across chorus instances" -- so
+# the notation carries TWO partitions over the same lines: a RHYME partition
+# (which is what `parse` has always returned, and still returns) and an
+# IDENTITY partition (which lines are the same words). A¹ and A² collapse to
+# one rhyme class and stay two identity classes. One letter string cannot hold
+# both, which is why this is an object.
+#
+# THE ONE AMBIGUITY, NAMED RATHER THAN RESOLVED BY FIAT
+#
+# `label()` renders the 27th rhyme sound as `A1` (A-3), and the refrain
+# notation renders the first refrain of class A as `A1` too. Same characters,
+# two readings. The discriminator is declared and it is MIXED CASE: refrain
+# notation marks non-refrain lines in lowercase, so a string containing both
+# cases -- or any explicit superscript or `^` mark -- is read as refrain
+# notation, and an all-uppercase string keeps the >26-sound reading it has
+# always had. `parse` returns the same rhyme code under either reading in
+# every case except that one, and `parse_refrain` is always available
+# explicitly.
+# ---------------------------------------------------------------------------
+
+#: Unicode superscript digits, in value order.
+SUPERSCRIPTS = "⁰¹²³⁴⁵⁶⁷⁸⁹"
+_SUP_MAP = {c: str(i) for i, c in enumerate(SUPERSCRIPTS)}
+
+
+def _tokenise(text):
+    """-> [(letter, mark)] where mark is the refrain/sound index as a string
+    ('' when bare). Accepts `A1`, `A^1` and `A¹` alike."""
+    t = "".join(str(text).split())
+    toks, i = [], 0
+    while i < len(t):
+        c = t[i]
+        j = i + 1
+        mark = ""
+        if j < len(t) and t[j] == "^":
+            j += 1
+        while j < len(t) and (t[j].isdigit() or t[j] in _SUP_MAP):
+            mark += _SUP_MAP.get(t[j], t[j])
+            j += 1
+        toks.append((c, mark))
+        i = j
+    return toks
+
+
+def is_refrain_notation(text):
+    """-> True when `text` is to be read with capital-means-verbatim.
+
+    The declared discriminator, in order: an explicit superscript or `^` mark
+    settles it; otherwise MIXED CASE settles it; otherwise the string is the
+    plain rhyme reading `parse` has always given.
+    """
+    t = "".join(str(text).split())
+    if any(c in _SUP_MAP or c == "^" for c in t):
+        return True
+    letters = [c for c in t if c.isalpha()]
+    return (any(c.isupper() for c in letters)
+            and any(c.islower() for c in letters))
+
+
+@dataclass
+class RefrainScheme:
+    """A scheme in the A-1 notation: a rhyme partition AND an identity one.
+
+    `code` is the rhyme partition -- exactly what `parse` returns, so every
+    consumer downstream is unaffected. `identity` is the second partition:
+    lines that are THE SAME LINE. A lowercase line is a singleton there.
+    """
+    n_lines: int
+    code: tuple                    # rhyme partition (RGS)
+    marks: tuple = ()              # per line: 'A1', 'b', 'X' ... as written
+    #: refrain label -> 1-based line numbers that must be VERBATIM identical
+    refrains: dict = field(default_factory=dict)
+
+    @property
+    def identity(self):
+        """-> RGS over line IDENTITY. Non-refrain lines are singletons."""
+        seen, code = {}, []
+        for i, m in enumerate(self.marks):
+            if m in self.refrains:
+                seen.setdefault(m, len(seen))
+                code.append(seen[m])
+            else:
+                code.append(-(i + 1))
+        return canonical(code)
+
+    def repeat_pairs(self):
+        """-> [(i, j, label)] pairs the notation says are the SAME LINE.
+
+        These are REPEAT relations (doctrine 3), which the band treats as a
+        violation inside a verse and as the requirement here. A rhyme checker
+        handed these pairs and no label would flag every one of them.
+        """
+        out = []
+        for lab, lines in sorted(self.refrains.items()):
+            for a, b in itertools.combinations(sorted(lines), 2):
+                out.append((a, b, lab))
+        return sorted(out)
+
+    def check_identity(self, lines, variation=True):
+        """-> findings for refrain lines that are not what the notation says.
+
+        THIS IS WHY THE NOTATION IS NOT MERELY READABLE. A villanelle whose
+        second refrain has drifted by a word is the commonest way the form
+        fails, and it was undetectable here: the rhyme partition passes, the
+        band passes, and the line that was supposed to come back did not.
+
+        `variation=True` sends every non-identical pair to
+        `quality.grid.compare_returns`, so the answer is a NAMED KIND of
+        variation rather than a boolean (doctrine 24) -- a refrain that keeps
+        its rhyme and changes a word is Hanby's move, not a broken villanelle,
+        and the two have to be distinguishable.
+
+        The identity requirement is deliberately NOT folded into `Mandate`.
+        A Mandate is a RHYME requirement, and doctrine 3 says REPEAT is a
+        violation inside a verse and the requirement across returns. Handing
+        these pairs to a rhyme grader would flag every correct refrain.
+        """
+        from quality.grid import compare_returns, normalise_line
+        out = []
+        for i, j, lab in self.repeat_pairs():
+            if i > len(lines) or j > len(lines):
+                out.append((lab, i, j, "OUT_OF_RANGE",
+                            f"the notation declares {self.n_lines} lines and "
+                            f"{len(lines)} were given"))
+                continue
+            a, b = lines[i - 1], lines[j - 1]
+            if normalise_line(a) == normalise_line(b):
+                continue
+            kind = (compare_returns([a], [b]).kind if variation
+                    else "NOT_VERBATIM")
+            out.append((lab, i, j, kind,
+                        f"refrain {lab} must return VERBATIM: "
+                        f"L{i} {a!r} vs L{j} {b!r}"))
+        return out
+
+    def render(self):
+        """-> the notation string. Round-trips through `parse_refrain`."""
+        return "".join(self.marks)
+
+    def describe(self):
+        rows = [f"{self.render()}   ({self.n_lines} lines)",
+                f"  rhyme partition : {label(self.code)}",
+                f"  refrains        : "
+                f"{ {k: sorted(v) for k, v in sorted(self.refrains.items())} }"]
+        if not self.refrains:
+            rows.append("  no capital marks: this scheme states rhyme only, "
+                        "and says nothing about line identity")
+        return "\n".join(rows)
+
+
+def parse_refrain(text):
+    """A-1 notation -> `RefrainScheme`. Capital = verbatim, lowercase = rhyme.
+
+    `X` and `.` stay what they have always been: a forced singleton, unrhymed
+    and unrepeated. A bare capital `A` is a refrain whose label is `A`; `A1`
+    and `A2` are two refrains inside rhyme class a.
+    """
+    toks = _tokenise(text)
+    seen, code, marks, refrains = {}, [], [], {}
+    for k, (c, mark) in enumerate(toks):
+        written = c + (mark if mark else "")
+        marks.append(written)
+        if c.upper() in ("X", ".") or not c.isalpha():
+            code.append(-(k + 1))
+            continue
+        key = c.upper()                 # rhyme class ignores the mark
+        if key not in seen:
+            seen[key] = len(seen)
+        code.append(seen[key])
+        if c.isupper():
+            refrains.setdefault(written, []).append(k + 1)
+    return RefrainScheme(n_lines=len(toks), code=canonical(code),
+                         marks=tuple(marks),
+                         refrains={k: tuple(v) for k, v in refrains.items()})
+
+
 def parse(text):
     """'ABAB' or 'abab' or 'A B A B' -> canonical code. X/x/. = unrhymed.
 
     An unrhymed line is a SINGLETON BLOCK, not a missing value -- 'ABXB' and
     'ABCB' are the same partition, and this returns the same code for both.
+
+    ALSO ACCEPTS THE A-1 REFRAIN NOTATION and returns its RHYME partition:
+    `parse('A1bA2 abA1 abA2 abA1 abA2 abA1A2')` is the villanelle's 19-line
+    scheme with the two refrains collapsed into rhyme class a, which is what a
+    partition can hold. Use `parse_refrain` for the identity half -- and note
+    that discarding it here is not a loss of information so much as a
+    statement of doctrine 2: a letter scheme is a lossy projection, and this
+    one is losing exactly the thing the villanelle is about.
     """
+    if is_refrain_notation(text):
+        return parse_refrain(text).code
     toks, i = [], 0
     t = "".join(text.split())
     while i < len(t):
@@ -272,6 +474,26 @@ def crossing_rhymes(code, sections):
 
 NAMED = {}
 
+#: THE FORMS THAT ARE ABOUT LINE IDENTITY, written in the A-1 notation.
+#: Each one is over-determined by its refrain positions, which is why writing
+#: them down is a check and not merely a record: `parse_refrain(v).n_lines`
+#: and `.refrains` either agree with the form or they do not.
+REFRAIN_FORMS = {
+    "villanelle": "A1bA2 abA1 abA2 abA1 abA2 abA1A2",
+    "triolet": "ABaAabAB",
+    "rondel": "ABbaabABabbaA",
+    "rondeau (13 + 2 rentrement)": "aabba aabR aabbaR",
+    "kyrielle quatrain": "abaB cbcB dbdB",
+    "ballade": "ababbcbC ababbcbC ababbcbC bcbC",
+    "pantoum quatrain pair": "aB1aB2 B1cB2c",
+    "burden-first carol": "A1A2 bbbA1 cccA1 dddA1",
+}
+
+
+def refrain_form(key):
+    """-> the `RefrainScheme` for a named identity-form."""
+    return parse_refrain(REFRAIN_FORMS[key])
+
 
 def name(pattern, *names, tradition="", note=""):
     code = parse(pattern)
@@ -345,15 +567,34 @@ name("AABAAABAAABA", "AABA over three, song-length view",
      note="the 32-bar standard seen as ONE partition of 12 lines, which is "
           "what it is -- not three separate stanzas")
 
-# -- refrain forms: the refrain is line IDENTITY, not just rhyme, so these are
-#    recorded with a note that the partition under-describes them
-name("ABAABAABAABAABAABAABAA", "villanelle (rhyme only)",
-     note="the villanelle's substance is two REFRAIN LINES repeating verbatim "
-          "at fixed positions. A partition records that they rhyme; it cannot "
-          "record that they are the same line. See Cover and doctrine 3 -- "
-          "REPEAT is a relation, and here it is the form's whole point.")
-name("ABAAABABAB", "triolet (rhyme only)",
-     note="lines 1,4,7 and 2,8 are verbatim repeats; partition under-describes")
+# -- refrain forms: the refrain is line IDENTITY, not just rhyme.
+#
+# BOTH ENTRIES BELOW WERE WRONG UNTIL THE NOTATION EXISTED, AND WRONG IN THE
+# SAME WAY: they had the right letters and the wrong LENGTH. The villanelle
+# stood at 22 lines and it is 19 (five tercets and a quatrain); the triolet
+# stood at 10 and it is 8. Nothing could catch that, because the only thing
+# either entry could be checked against was itself -- a rhyme-only string has
+# no structure that pins its length, whereas `A1bA2 abA1 abA2 abA1 abA2
+# abA1A2` is over-determined: the refrain positions fix the line count, and a
+# 22-line villanelle cannot be written in it. Doctrine 37, arriving from an
+# unexpected direction: the FORM is the tradition to test against, and a
+# notation that can express the form is what makes the test possible.
+name(REFRAIN_FORMS["villanelle"], "villanelle (rhyme only)",
+     note="19 lines. The villanelle's substance is two REFRAIN LINES "
+          "repeating verbatim at fixed positions: A1 at 1,6,12,18 and A2 at "
+          "3,9,15,19. A partition records that they rhyme; it cannot record "
+          "that they are the same line. Doctrine 3 -- REPEAT is a relation, "
+          "and here it is the form's whole point. Written in full: "
+          "A1bA2 abA1 abA2 abA1 abA2 abA1A2, and `parse_refrain` holds it.")
+name(REFRAIN_FORMS["triolet"], "triolet (rhyme only)",
+     note="8 lines, ABaAabAB. Lines 1,4,7 and 2,8 are verbatim repeats; the "
+          "partition under-describes and `parse_refrain` does not.")
+name(REFRAIN_FORMS["rondel"], "rondel (rhyme only)",
+     note="13 lines; the opening couplet returns at 7-8 and line 1 again at "
+          "13. Refrain notation: ABbaabABabbaA.")
+name(REFRAIN_FORMS["kyrielle quatrain"], "kyrielle quatrain (rhyme only)",
+     note="the fourth line is a burden repeating across every stanza -- the "
+          "shape 1,776 BURDEN blocks in corpus/song carry.")
 
 
 def identify(code):
@@ -743,4 +984,7 @@ def mandate(spec, n_lines=None, source="declared", origin=None):
 __all__ = ["bell", "stirling2", "rgs", "label", "parse", "canonical",
            "blocks", "Coordinates", "coordinates", "crossing_rhymes",
            "NAMED", "identify", "unnamed_fraction", "Cover",
-           "Mandate", "mandate", "NoMandate"]
+           "Mandate", "mandate", "NoMandate",
+           # the A-1 refrain notation
+           "SUPERSCRIPTS", "is_refrain_notation", "RefrainScheme",
+           "parse_refrain", "REFRAIN_FORMS", "refrain_form"]
