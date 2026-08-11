@@ -87,6 +87,24 @@ than a number for it to print:
      the p resolution floor of 1/(n+1)=0.005, so the GAP is the number to read
      and the p is not (doctrine 57).
 
+THE TABLE ABOVE IS UNMOVED BY THE 2026-08-11 TEXT-ORDER CHANGE, and that is a
+measurement rather than an expectation.  `realise()` stopped filtering reversed
+pairs on position and started de-duplicating them against `mirrored()`, which
+recovers instances on ASYMMETRIC schemas only.  All three arm schemas are
+SYMMETRIC -- `internal rhyme`, `perfect rhyme` and `Kalevala alliteration
+(weak)` each have `spans[0] == spans[1]` -- and `order_burden()` reports
+`recovered_instances = 0` on each over this file's own slices (200 lines of
+Poe, 400 of the Kalevala).  Since the only behavioural difference is the
+reversed pairs it keeps, zero recovered means the output is identical span for
+span, so no row above can have moved.  Re-derive with:
+
+    python3 -c "import sys; sys.path.insert(0,'.'); \
+from quality import relations as R, relations_null as N; \
+from quality.phonology import get as g; \
+print([(s, R.order_burden(R.REGISTRY[s], R.build_stream(N._read(p,l), g(la), \
+declaration={'language':la}))['recovered_instances']) \
+for p,la,l,s,_,_ in N.ARMS])"
+
 Run: python3 quality/relations_null.py             (all three arms, ~25 min)
      python3 quality/relations_null.py --arm=0 --null=global_redeal
 """

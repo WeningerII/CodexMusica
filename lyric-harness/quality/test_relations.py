@@ -956,6 +956,26 @@ def test_known_open_defects():
           "and the branch is unreachable from any shipped constraint. A read "
           "whose values do not exist is not a wiring — which is why the "
           "inventory of inert coordinates has to be MEASURED and not grepped.")
+    _reach = [m for c in C.REGISTRY.values() for m in c.members
+              if not isinstance(m.span.magnitude, str)]
+    check("...and the SEVENTH shape, which neither a grep nor a coverage "
+          "report can find: a branch that RUNS and cannot branch",
+          any(e.field == "rhyme_constraints.Span.terminator@branch"
+              for e in R.INERT)
+          and len(_reach) == 11
+          and not any(m.span.terminator == "locus_edge" for m in _reach)
+          and {m.span.terminator for c in C.REGISTRY.values()
+               for m in c.members} == {"count", "locus_edge", "frame_edge"},
+          f"`_extent_from` reads terminator to choose the locus edge over the "
+          f"frame edge, and the read is reachable only on the {len(_reach)} "
+          f"of 40 member spans with an INT magnitude. None of those "
+          f"{len(_reach)} declares 'locus_edge', and 'count' and 'frame_edge' "
+          f"both take the frame side — so three declared values and full line "
+          f"coverage produce ONE behaviour. Instrumented on lyric.txt the "
+          f"line executes 1,054 times and takes the discriminating side 0 "
+          f"times. check_inert() censuses the BRANCH each value selects "
+          f"rather than the values, because counting values would report this "
+          f"field LIVE while its behaviour is a constant.")
 
     # ---- text-order. CLOSED 2026-08-11 BY WIRING, and the DECLINE it -----
     # replaces was FALSE. It was recorded as "a NAMING decision, not a defect:

@@ -3134,6 +3134,30 @@ INERT = (
             "one declared value away and this one is not."),
         blocker="build",
         measured="python3 quality/relations.py --inert lyric.txt"),
+    Inert(
+        field="rhyme_constraints.Span.terminator@branch",
+        reason=(
+            "A SEVENTH SHAPE, and the nastiest so far: a branch that RUNS and "
+            "cannot branch. `_extent_from` reads terminator to pick between "
+            "the locus edge and the frame edge, and the read is reachable "
+            "only where magnitude is an int -- 11 of that registry's 40 "
+            "member spans. Instrumented on lyric.txt the read fires 1,054 "
+            "times and takes the locus_edge side ZERO times, because 'count' "
+            "(994) and 'frame_edge' (60) both fall through to the frame side "
+            "and 'locus_edge' occurs only on `to_locus_end` members, where "
+            "the read is unreachable. So the field has three values, full "
+            "line coverage, and one behaviour. Neither a grep for a read nor "
+            "a coverage report can find this; only censusing the BRANCH does, "
+            "which is what the entry below does and why its census maps "
+            "values through the branch they select rather than counting "
+            "them."),
+        activates_when=(
+            "a constraint declares an INTEGER magnitude together with "
+            "terminator='locus_edge'. That combination is what the field was "
+            "written for -- take n units but stop at the token boundary -- "
+            "and no shipped constraint asks for it."),
+        blocker="build",
+        measured="python3 quality/relations.py --inert lyric.txt"),
 )
 
 #: `Span.unit`'s blocker is 'disjoint' and NOT 'build', which is the whole
@@ -3185,9 +3209,24 @@ def inert_census(stream):
                 continue
             members = [m for con in _C.REGISTRY.values()
                        for m in getattr(con, "members", ()) or ()]
-            out[e.field] = (len(members),
-                            sorted({repr(getattr(m.span, name))
-                                    for m in members}))
+            if name == "terminator@branch":
+                # Census the BRANCH, not the field. The field has three values
+                # and two of them select the same side, so counting values
+                # would report it LIVE while its behaviour is a constant --
+                # which is the entry's whole point. Only members with an INT
+                # magnitude reach the read at all; the rest are censused as
+                # unreachable rather than silently counted as agreeing.
+                reach = [m for m in members
+                         if not isinstance(m.span.magnitude, str)]
+                out[e.field] = (
+                    len(reach),
+                    sorted({"locus-edge side"
+                            if m.span.terminator == "locus_edge"
+                            else "frame side" for m in reach}))
+            else:
+                out[e.field] = (len(members),
+                                sorted({repr(getattr(m.span, name))
+                                        for m in members}))
         else:
             out[e.field] = (0, ["<no census for this class>"])
     return out
