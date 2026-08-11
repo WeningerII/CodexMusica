@@ -88,6 +88,25 @@ default 4, unread by anything until this module) is reached. A single
 unsolved line is NEVER a stop condition — the loop keeps going on every
 other flagged line and reports the dead end in the result.
 
+**A DECLARED REFRAIN WAS BEING ATTACKED, NOT PROTECTED — FIXED 2026-08-11.**
+`Mandate.returns` (the villanelle/triolet/radif machinery in
+`quality/schemes.py`) was read by the REPORTING layer only
+(`group_merges`'s "is this collision a declared return") and never by the
+GRADER: `grade()` decided whether an identical end word was a violation with
+one song-wide `rdecl.repeat_licence` switch, so a CORRECT verbatim refrain —
+required by the mandate itself — was flagged as a violation under the
+default setting, and `revise_loop` would have tried to "fix" a refrain that
+was already right. Two changes, both required: `grade()` now asks the
+mandate's own `Mandate.repeat_is_violation(i, j)` per pair before falling
+back to the switch (a plain letter scheme with no declared returns is
+completely unaffected — the fallback is exactly the old behaviour); and
+`inspect()` now emits `Mandate.returns_check()` findings
+(`RETURN_NOT_VERBATIM`, a flag), so `verify()`'s existing net-negative diff
+— the same mechanism meter rides — can for the first time see a revision
+that breaks a declared return. No new rejection rule was written for
+either direction. `quality/test_revise.py` test 26, on a real 19-line
+villanelle.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner

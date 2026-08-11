@@ -1337,9 +1337,24 @@ class Mandate:
         label would flag every correct refrain, which is precisely what was
         happening: 7 of this song's 16 chorus collisions are REPEAT on an
         identical word.
+
+        SKIPS an element of `self.returns` that is not a `Return` object.
+        `_declared_return` in `quality/revise.py` documents that the OLDER
+        duck-typed shape -- a bare iterable of line numbers, no verbatim flag,
+        no label -- is still an accepted way to populate this field (a caller
+        may write `dataclasses.replace(m, returns=((13, 33), ...))` to state
+        only WHICH lines are one class, same as `test_revise.py` does, for a
+        check that only ever asked `set(cls)`). This method asks MORE of each
+        entry than that shape carries -- whether the return is verbatim is
+        exactly what a bare tuple does not say -- so it cannot report a pair
+        from one and skipping is the honest answer, not a raise: the mandate
+        did not fail to declare a requirement, it declared one in a shape this
+        method cannot read yet.
         """
         out = []
         for r in self.returns:
+            if not hasattr(r, "pairs"):
+                continue
             for i, j in r.pairs():
                 out.append((i, j, r))
         return sorted(out, key=lambda t: (t[0], t[1]))
@@ -1362,22 +1377,28 @@ class Mandate:
         `to_letters()` still reports the letters the author wrote and the
         expansion is visible as a separate object (doctrine 2: say that the
         projection is a projection).
+
+        Reads EITHER shape `self.returns` may hold: a `Return` object's
+        `.lines`, or the older duck-typed bare iterable of line numbers
+        `_declared_return` (`quality/revise.py`) already accepts -- a class
+        with no verbatim flag still says WHICH lines are one class, which is
+        all this method's own merge needs.
         """
         if not self.returns:
             return tuple(self.groups)
+        rlines = [getattr(r, "lines", r) for r in self.returns]
         if self.rule.return_rhyme == "positional":
-            extra = [r.lines for r in self.returns]
             seen, out = set(), []
-            for g in list(self.groups) + extra:
+            for g in list(self.groups) + rlines:
                 key = tuple(sorted(set(g)))
                 if key not in seen:
                     seen.add(key)
                     out.append(key)
             return tuple(out)
         cls = {}
-        for r in self.returns:
-            for i in r.lines:
-                cls[i] = r.lines
+        for lines_ in rlines:
+            for i in lines_:
+                cls[i] = lines_
         seen, out = set(), []
         for g in self.groups:
             wide = set(g)
@@ -1387,9 +1408,9 @@ class Mandate:
             if key not in seen:
                 seen.add(key)
                 out.append(key)
-        for r in self.returns:                 # a return with no rhyme group
-            if not any(set(r.lines) <= set(g) for g in out):
-                key = tuple(sorted(r.lines))
+        for lines_ in rlines:                   # a return with no rhyme group
+            if not any(set(lines_) <= set(g) for g in out):
+                key = tuple(sorted(lines_))
                 if key not in seen:
                     seen.add(key)
                     out.append(key)

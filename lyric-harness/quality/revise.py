@@ -474,10 +474,32 @@ class Reviser:
             if why:
                 satisfied[k] = False
 
-        # Doctrine 3, resolved by DECLARATION rather than by guess.
-        licensed = self.rdecl.repeat_licence == "refrain"
-        violations = [v for v in verdicts if v["why"] and
-                      not (licensed and v["relation"] == "REPEAT")]
+        # Doctrine 3, resolved PER PAIR by the mandate's own declaration
+        # first, and by the song-wide `repeat_licence` switch only where the
+        # mandate does not decide. A `Return` object says, per pair, whether
+        # an identical word there is REQUIRED (a verbatim return), LICENSED
+        # (a declared-but-not-verbatim return), or neither -- and a pair the
+        # mandate never put in a `Return` at all (a plain letter scheme, or
+        # a `Cover` with no returns) is UNDECLARED for this question on every
+        # pair, which is exactly the switch's old blanket behaviour and
+        # keeps every caller that never declared a return unaffected.
+        # BEFORE THIS FIX: the switch applied to every REPEAT in the song at
+        # once, so a declared VERBATIM return -- required to repeat by the
+        # mandate itself -- was flagged as a violation under the default
+        # "unlicensed" setting, and `revise_loop` would then try to "fix" a
+        # refrain that was already correct.
+        default_licensed = self.rdecl.repeat_licence == "refrain"
+        violations = []
+        for v in verdicts:
+            if not v["why"]:
+                continue
+            if v["relation"] == "REPEAT":
+                i, j = v["lines"]
+                declared, is_violation = m.requirement(i, j).decided(
+                    "repeat_is_violation")
+                if not (is_violation if declared else not default_licensed):
+                    continue
+            violations.append(v)
         repeats = [v for v in verdicts if v["relation"] == "REPEAT"]
 
         # The DISJUNCTIVE reading, kept reachable so the default is a measured
@@ -842,17 +864,48 @@ class Reviser:
                 f"{v['members']} but do not rhyme",
                 f"{v['why']} (score {v['score']:.3f}; "
                 f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})", [i, j]))
-        if self.rdecl.repeat_licence == "refrain":
-            for v in rep["repeats"]:
-                i, j = v["lines"]
-                add(j, Finding(
-                    "REFRAIN_REPEAT", "note",
-                    f"L{i} and L{j} are the same end word inside group "
-                    f"{v['label']}, licensed as a refrain",
-                    "the licence was DECLARED (repeat_licence='refrain'), not "
-                    "earned: doctrine 18 wants a count AND a declared fraction "
-                    "of the item's pairs before a repetend is a form, and this "
-                    "loop measures neither", [i, j]))
+        default_licensed = self.rdecl.repeat_licence == "refrain"
+        for v in rep["repeats"]:
+            i, j = v["lines"]
+            declared, is_violation = m.requirement(i, j).decided(
+                "repeat_is_violation")
+            if declared:
+                if is_violation:
+                    continue          # SCHEME_VIOLATION already covers it
+                req = m.requirement(i, j)
+                ev = (f"the MANDATE requires this: {req.gloss}. Doctrine 18's "
+                      f"count-and-fraction test does not apply here — this "
+                      f"is not a claim earned by measurement, it is a "
+                      f"declared `Return`.")
+            elif default_licensed:
+                ev = ("the licence was DECLARED (repeat_licence='refrain'), "
+                      "not earned: doctrine 18 wants a count AND a declared "
+                      "fraction of the item's pairs before a repetend is a "
+                      "form, and this loop measures neither")
+            else:
+                continue              # unlicensed and undeclared: a violation
+            add(j, Finding(
+                "REFRAIN_REPEAT", "note",
+                f"L{i} and L{j} are the same end word inside group "
+                f"{v['label']}, licensed as a refrain", ev, [i, j]))
+        # A DECLARED VERBATIM RETURN THAT DID NOT COME BACK VERBATIM. This is
+        # the other half of the fix above: `grade()` now correctly stops
+        # flagging a CORRECT refrain as a violation, and this is what makes
+        # `verify()` able to see a BROKEN one -- without it, a revision that
+        # rewrites a return's words and leaves its rhyme intact introduces no
+        # finding at all, and the net-negative diff (doctrine 47) has nothing
+        # to catch. Doctrine 24: named as the KIND of variation
+        # (`quality.grid.compare_returns`), not a bare "changed" boolean, so a
+        # word-order shift and a dropped line are not the same finding.
+        from quality.grid import _KIND_GLOSS
+        for label, i, j, kind, msg in m.returns_check(lines):
+            ev = _KIND_GLOSS.get(kind, "")
+            if kind == "OUT_OF_RANGE":
+                whole.append(Finding("RETURN_OUT_OF_RANGE", "note", msg, ev,
+                                     []))
+                continue
+            add(j, Finding("RETURN_NOT_VERBATIM", "flag", msg,
+                           f"{kind}: {ev}" if ev else kind, [i, j]))
         for v in rep["excused"]:
             i, j = v["lines"]
             add(j, Finding(

@@ -54,6 +54,20 @@ existing "a revision may not trade one defect for another" diff (test 3)
 already catches a fix that breaks the meter, the moment a meter finding is a
 member of the same set that diff reads.
 
+Test 26 is a BUG FIX, not a new feature: `grade()` decided doctrine 3's
+REPEAT-is-a-violation question with one song-wide switch
+(`rdecl.repeat_licence`) instead of asking the mandate's own per-pair
+`repeat_is_violation(i, j)`. Consequence, verified on a real villanelle: a
+CORRECT verbatim refrain was flagged as a violation under the default
+setting, and `revise_loop` would have tried to "fix" a refrain that was
+already right. Two changes, both required: `grade()` now asks the mandate
+first and falls back to the switch only where the mandate does not decide
+(a plain letter scheme or `Cover` with no `Return` objects, unaffected by
+either half of this fix); `inspect()` now also emits
+`Mandate.returns_check()` findings, so `verify()`'s existing net-negative
+diff — the SAME mechanism test 25 reused for meter — can see a revision
+that breaks a declared return, which it could not see at all before.
+
 Run: python3 quality/test_revise.py
 """
 
@@ -98,6 +112,34 @@ SONG = os.path.join(HERE, "..", "examples", "never_been_to_a_scene.txt")
 SONG_SCHEME = "XXXXXXXXXXXXABCBADCDXXXXXXXXXXXXEFGFEHGHX"
 SONG_BLUEPRINT = os.path.join(HERE, "..", "examples",
                               "never_been_to_a_scene.blueprint.json")
+
+#: A REAL villanelle -- ABA rhyme throughout, two verbatim refrains (A1 at
+#: lines 1/6/12/18, A2 at 3/9/15/19) -- written for test 26, checked for
+#: correctness the same way: every "a"/"b" line takes a DISTINCT rhyming
+#: word, verified empirically (`grade(..., S.REFRAIN_FORMS["villanelle"])`
+#: reports 0 violations over 93 mandated pairs) rather than assumed from
+#: writing it by hand.
+VILLANELLE = [
+    "The tide comes in and takes the sand away",
+    "I watch the gulls go wheeling toward the shore",
+    "I count the boats that will not choose to stay",
+    "The pier lights flicker at the end of day",
+    "and no one walks here who has walked before",
+    "The tide comes in and takes the sand away",
+    "My father used to say the sea would pay",
+    "for every ruined thing it dragged onto the floor",
+    "I count the boats that will not choose to stay",
+    "The rope goes slack, the anchor starts to sway",
+    "the harbor empties like an open door",
+    "The tide comes in and takes the sand away",
+    "I used to think the tide had come today",
+    "a permanent thing, and owed us nothing more",
+    "I count the boats that will not choose to stay",
+    "There's nothing left to keep, and less to delay",
+    "the water met the rocks and gave a roar",
+    "The tide comes in and takes the sand away",
+    "I count the boats that will not choose to stay",
+]
 
 
 def song_lines():
@@ -1052,6 +1094,62 @@ def test_meter_folds_into_the_same_finding_set():
               "wrong line")
 
 
+def test_grade_asks_the_mandate_before_the_switch():
+    print("\n26. BUG FIX — a declared verbatim return is not a REPEAT "
+         "violation, and grade() now asks the mandate to find that out")
+    m = SC.mandate(SC.REFRAIN_FORMS["villanelle"])
+    rep = R.grade(VILLANELLE, m)
+    check("the correct villanelle has ZERO violations",
+          rep["violations"] == [],
+          f"{len(rep['violations'])} violation(s); BEFORE this fix the "
+          f"default repeat_licence='unlicensed' flagged all 12 refrain-pair "
+          f"REPEATs (C(4,2)=6 pairs per 4-line return, A1 and A2) as "
+          f"violations, because grade() applied one song-wide switch "
+          f"instead of asking the mandate")
+    check("mandated/judged agree — nothing was silently dropped, only "
+          "reclassified",
+          (rep["pairs_mandated"], rep["pairs_judged"]) == (93, 93))
+
+    found = R.inspect(VILLANELLE, m)
+    refrain_notes = [(ln, f) for ln, fs in found["per_line"].items()
+                     for f in fs if f.code == "REFRAIN_REPEAT"]
+    check("all 12 refrain-pair REPEATs (C(4,2)=6 pairs x 2 returns) are "
+          "reported as licensed NOTES, sourced to the MANDATE, not to the "
+          "(unset) rdecl switch",
+          len(refrain_notes) == 12
+          and all(f.severity == "note" and "MANDATE requires this" in
+                  f.evidence for _, f in refrain_notes),
+          [(ln, f.evidence[:50]) for ln, f in refrain_notes[:2]])
+
+    drifted = list(VILLANELLE)
+    drifted[17] = "The tide comes in and steals the sand away"   # was L18
+    d_found = R.inspect(drifted, m)
+    broken = [(ln, f) for ln, fs in d_found["per_line"].items()
+             for f in fs if f.code == "RETURN_NOT_VERBATIM"]
+    check("a BROKEN return is flagged — one finding per pair the drifted "
+          "line was in (L18 vs its 3 A1 co-members)",
+          len(broken) == 3 and all(f.severity == "flag" for _, f in broken)
+          and all(ln == 18 for ln, _ in broken),
+          [f.message[:70] for _, f in broken])
+
+    res = R.verify(VILLANELLE, drifted, m, targeted={18})
+    check("verify()'s EXISTING net-negative diff — the same one meter "
+          "rides in test 25 — catches the broken return with NO new "
+          "veto rule",
+          not res["accepted"] and (18, "RETURN_NOT_VERBATIM") in res["new"],
+          res["reasons"])
+
+    check("a PLAIN letter scheme (no Return objects) is completely "
+          "unaffected — the fallback to rdecl.repeat_licence still "
+          "applies exactly as before this fix",
+          R.grade(["a cat sat on the mat", "a cat sat on the mat",
+                  "a bird flew off the sill", "a bird flew off the sill"],
+                 "AABB")["violations"].__len__() == 2,
+          "AABB with two identical-word pairs and NO declared mandate "
+          "returns still reports both as violations under the default "
+          "'unlicensed' setting")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -1077,7 +1175,8 @@ if __name__ == "__main__":
                test_the_modal_set_against_a_declared_reference,
                test_the_collision_set_is_partitioned_not_silenced,
                test_why_a_collision_earns_no_field,
-               test_meter_folds_into_the_same_finding_set):
+               test_meter_folds_into_the_same_finding_set,
+               test_grade_asks_the_mandate_before_the_switch):
         fn()
     print("=" * 62)
     if FAILURES:
