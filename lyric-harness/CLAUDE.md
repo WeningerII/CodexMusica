@@ -86,8 +86,14 @@ verify BEFORE AFTER [SCHEME] [lines] | readability FILE
 ## Test discipline
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
   Lear limerick known-answers, Whitman negative control.
-- Current baselines, WITH the conjunctive band: sonnets **7.2%
-  violations (73/1014 JUDGED pairs, up from 3.5% pre-band)** — the rise
+- Current baselines, WITH the conjunctive band: sonnets **8.0%
+  violations (81/1014 JUDGED pairs; 73/1014 = 7.2% before `theta_coda`
+  was calibrated 0.60 -> 0.80 on 2026-08-11, and 35/1014 = 3.5% pre-band)**
+  — MEASURED, not recalled: `python3 battery.py` prints
+  `mandated 1064, judged 1014, refused 50` and `violations 81`. This line
+  said 7.2% for a day after the calibration shipped, which is doctrine 58's
+  own disease inside the doctrine file, found by the mutation runner. The
+  rise
   is the typed residue: love/prove and its class are CONSONANCE in the
   declared General American dialect, which is correct and now named.
   **THE OLD FIGURES 11.6% AND 8.0% WERE 123/1064 AND 85/1064 AND BOTH
