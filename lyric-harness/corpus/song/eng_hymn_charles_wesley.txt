@@ -3,7 +3,25 @@
 # licence: public domain - Gutenberg; edition published 1848
 # source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
 # licence: public domain - Gutenberg; edition published 1892
-# songs: 50
+# songs: 49
+# dedup: ONE ITEM REMOVED 2026-08-11 by cell AC. `Show pity, Lord, O Lord,
+#       forgive` (27 lines) is ISAAC WATTS, not Charles Wesley, and it was
+#       also in corpus/song/eng_hymn_watts.txt at 70% line containment.
+#       WHERE THE ERROR CAME FROM, because it is a source error and not an
+#       extraction error: PG 16455, The Otterbein Hymnal (1892), prints this
+#       as hymn 233 and signs it 'Charles Wesley, 1742.' under its last
+#       stanza -- the same signature it prints under hymn 232, which IS
+#       Wesley's. WHAT OVERTURNS IT is Watts's own book: PG 13166, The
+#       Psalms of David Imitated (1719), md5 87732df6c1725b8d7c16f5fbcbd32b5e,
+#       prints it at 'Psalm 51:1. First Part. L. M. / A penitent pleading for
+#       pardon.' -- the author publishing his own paraphrase, 173 years
+#       earlier and under his own name on the title page. A hymnal's
+#       signature line is an editor's claim; the poet's own volume is the
+#       poet. The hymn survives in corpus/song/eng_hymn_watts.txt.
+#       Doctrine 51 as this round extends it: the two copies were NOT
+#       byte-identical -- the 1892 text reads 'My crimes, though great,
+#       cannot surpass' against Watts's 'My crimes are great, but not
+#       surpass' -- so check E's item-body hash never saw them.
 
 --- TITLE: Ye servants of God, your Master proclaim
 [VERSE 1]
@@ -255,33 +273,6 @@ I would, but thou must give the power;
 My heart from every sin release;
 Bring near, bring near the joyful hour,
 And fill me with thy perfect peace.
-
---- TITLE: Show pity, Lord, O Lord, forgive
-[VERSE 1]
-Show pity, Lord, O Lord, forgive;
-Let a repenting rebel live;
-Are not thy mercies large and free?
-May not a sinner trust in thee?
-[VERSE 2]
-My crimes, though great, cannot surpass
-The power and glory of thy grace;
-Great God, thy nature hath no bound,
-So let thy pard'ning love be found.
-[VERSE 3]
-Oh, wash my soul from every sin,
-And make my guilty conscience clean;
-Here, on my heart, the burden lies
-And past offenses pain mine eyes.
-[VERSE 4]
-My lips with shame my sins confess,
-Against thy law, against thy grace;
-Lord, should thy judgment grow severe,
-I am condemned, but thou art clear.
-[VERSE 5]
-Yet save a trembling sinner, Lord,
-Whose hope, still hovering round thy word,
-Would light on some sweet promise there,
-Some sure support against despair.
 
 --- TITLE: Stay, thou insulted Spirit, stay
 [VERSE 1]

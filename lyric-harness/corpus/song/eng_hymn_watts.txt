@@ -9,34 +9,212 @@
 # licence: public domain - Gutenberg; edition published 1892
 # source: GITenberg/The-Psalms-of-DavidImitated-in-the-Language-of-the-New-Testament-and-Applied-to-the-Christian__13166 13166.n.txt md5 87732df6c1725b8d7c16f5fbcbd32b5e
 # licence: public domain - Gutenberg; Watts 1719, transcription of pre-1800 text
-# songs: 741
-
---- TITLE: Before Jehovah's awful throne
-[VERSE 1]
-Before Jehovah's awful throne,
-Ye nations, bow with sacred joy;
-Know that the Lord is God alone;
-He can create, and he destroy.
-[VERSE 2]
-His sovereign power, without our aid,
-Made us of clay, and formed us men;
-And when like wandering sheep we strayed,
-He brought us to his fold again.
-[VERSE 3]
-We are his people, we his care--
-Our souls, and all our mortal frame;
-What lasting honors shall we rear,
-Almighty Maker, to thy name?
-[VERSE 4]
-We'll crowd thy gates with thankful songs,
-High as the heavens our voices raise;
-And earth, with her ten thousand tongues,
-Shall fill thy courts with sounding praise.
-[VERSE 5]
-Wide as the world is thy command;
-Vast as eternity thy love;
-Firm as a rock thy truth shall stand,
-When rolling years shall cease to move.
+# songs: 693
+# dedup: DEDUPLICATED 2026-08-11 by cell AC. 48 items removed, 836 body lines.
+#       EVERY ONE was the same poem as another item in this same file, at or
+#       above 60%% containment of its distinct verse lines (the cut is declared
+#       in quality/audit_corpus.py ITEM_OVERLAP_FLOOR, with the whole series
+#       from 0.30 to 1.00 beside it, doctrine 16). WHICH COPY WENT IS DECIDED
+#       BY THE SOURCE CLASS, and not by which copy was longer or listed first:
+#       where one comes from an ANTHOLOGY, HYMNAL or monograph that reprints
+#       the poet, and the other from a volume of the poet's own, the poet's own
+#       volume is the nearer witness and the reprint goes. Each removed item is
+#       named below with the printing it came from and the printing that was
+#       kept. Where BOTH copies were reprints, or both were the poet's own
+#       volumes, THE SOURCE DOES NOT DECIDE and nothing was removed; those
+#       pairs are open and counted in data/sources.tsv.
+#         REMOVED Before Jehovah's awful throne
+#           20 lines, 70% contained in the copy kept, which is titled Sing to the Lord with joyful voice
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Now to the Lord, a noble song
+#           16 lines, 94% contained in the copy kept, which is titled Glory and grace in the person of Christ
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED My God! my King! thy various praise
+#           12 lines, 100% contained in the copy kept, which is titled The greatness of God
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Sweet is the work, my God! my King
+#           12 lines, 75% contained in the copy kept, which is titled A psalm for the Lord's day
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Sing to the Lord Jehovah's name
+#           16 lines, 88% contained in the copy kept, which is titled A psalm before prayer
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Oh, bless the Lord, my soul
+#           16 lines, 67% contained in the copy kept, which is titled Praise for spiritual and temporal mercies
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Come, sound his praise abroad
+#           16 lines, 81% contained in the copy kept, which is titled A psalm before sermon
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Great God! attend while Zion sings
+#           20 lines, 90% contained in the copy kept, which is titled God and his church; or, Grace and glory
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Behold! the morning sun
+#           16 lines, 81% contained in the copy kept, which is titled God's word most excellent; or
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Lord! I have made thy word my choice
+#           16 lines, 94% contained in the copy kept, which is titled The word of God is the saint's portion; or
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED How shall the young secure their hearts
+#           16 lines, 88% contained in the copy kept, which is titled Instruction from scripture
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Begin, my tongue, some heavenly theme
+#           16 lines, 94% contained in the copy kept, which is titled The faithfulness of God in his promises
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Great God! how infinite art thou
+#           20 lines, 81% contained in the copy kept, which is titled God's eternal dominion
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Blest be the Father and his love
+#           16 lines, 94% contained in the copy kept, which is titled Divine glories, and our graces
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED O God! our help in ages past
+#           20 lines, 70% contained in the copy kept, which is titled Man frail, and God eternal
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Joy to the world! the Lord is come
+#           16 lines, 94% contained in the copy kept, which is titled The Messiah's coming and kingdom
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED My dear Redeemer and my Lord
+#           16 lines, 88% contained in the copy kept, which is titled The example of Christ
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Behold! the blind their sight receive
+#           16 lines, 88% contained in the copy kept, which is titled Miracles in the life, death
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED When I survey the wondrous cross
+#           16 lines, 88% contained in the copy kept, which is titled Crucifixion to the world by the
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Alas! and did my Savior bleed?
+#           28 lines, 60% contained in the copy kept, which is titled Godly sorrow arising from the sufferings of Christ
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Deep in our hearts let us record
+#           16 lines, 69% contained in the copy kept, which is titled Christ's passion, and sinners' salvation
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Hosanna to the Prince of Light
+#           16 lines, 69% contained in the copy kept, which is titled The resurrection and ascension of Christ
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Now for a tune of lofty praise
+#           12 lines, 67% contained in the copy kept, which is titled Christ's sufferings and glory
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED With joy we meditate the grace
+#           16 lines, 88% contained in the copy kept, which is titled Christ's compassion to the weak and tempted, Heb. 4
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Come, Holy Spirit, heavenly Dove
+#           20 lines, 83% contained in the copy kept, which is titled Breathing after the Holy Spirit
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Why should the children of a King
+#           16 lines, 94% contained in the copy kept, which is titled The witnessing and sealing Spirit, Rom. 8. 14 16
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED How sad our state by nature is
+#           20 lines, 75% contained in the copy kept, which is titled Faith in Christ for pardon and sanctification
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Buried in shadows of the night
+#           16 lines, 75% contained in the copy kept, which is titled Christ our wisdom, righteousness, &c. 1 Cor. 1. 30
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Vain are the hopes, the sons of men
+#           16 lines, 94% contained in the copy kept, which is titled Justification by faith, not by works; or, The law
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Broad is the road that leads to death
+#           16 lines, 81% contained in the copy kept, which is titled Few saved; or, The almost Christian
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Mine eyes and my desire
+#           16 lines, 62% contained in the copy kept, which is titled Distress of soul; or, Backsliding and desertion
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Behold what wondrous grace
+#           20 lines, 85% contained in the copy kept, which is titled Adoption, 1 John 3. 1 &c. Gal. 4. 6
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED The pity of the Lord
+#           16 lines, 88% contained in the copy kept, which is titled Abounding compassion of God; or
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED God is the refuge of his saints
+#           16 lines, 81% contained in the copy kept, which is titled The church's safety and triumph
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED So let our lips and lives express
+#           12 lines, 83% contained in the copy kept, which is titled Holiness and grace, Titus 2. 10-13
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Blest is the man whose heart doth move
+#           16 lines, 75% contained in the copy kept, which is titled Charity to the poor; or, Pity to the afflicted
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Come, we that love the Lord
+#           20 lines, 60% contained in the copy kept, which is titled Heavenly joy on earth
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Jesus shall reign where'er the sun
+#           24 lines, 67% contained in the copy kept, which is titled Christ's kingdom among the Gentiles
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Great God! whose universal sway
+#           12 lines, 83% contained in the copy kept, which is titled The kingdom of Christ
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Why do we mourn departing friends
+#           24 lines, 79% contained in the copy kept, which is titled The death and burial of a saint
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED That awful day will surely come
+#           16 lines, 69% contained in the copy kept, which is titled The everlasting absence of God intolerable
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED There is a land of pure delight
+#           24 lines, 88% contained in the copy kept, which is titled A prospect of heaven makes death easy
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED When I can read my title clear
+#           16 lines, 69% contained in the copy kept, which is titled The hope of heaven our support under trials on earth
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Arise, O King of grace, arise
+#           20 lines, 90% contained in the copy kept, which is titled A church established
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED Lord of the worlds above
+#           32 lines, 81% contained in the copy kept, which is titled Longing for the house of God
+#           reprint dropped: Book of Hymns for Public and Private Devotion
+#           printing kept:   Watts, Psalms of David Imitated
+#         REMOVED My God! permit me not to be
+#           16 lines, 88% contained in the copy kept, which is titled Retirement and meditation
+#           reprint dropped: Book of Hymns for Public and Private Devotion
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Not to the terrors of the Lord
+#           16 lines, 62% contained in the copy kept, which is titled Sinai and Sion, Heb. 12. 18 &c
+#           reprint dropped: Book of Hymns for Public and Private Devotion
+#           printing kept:   Watts, Hymns and Spiritual Songs
+#         REMOVED Awake, our souls, away, our fears
+#           16 lines, 88% contained in the copy kept, which is titled The Christian race, Isa. 40. 28-31
+#           reprint dropped: Book of Hymns for Public and Private Devotion
+#           printing kept:   Watts, Hymns and Spiritual Songs
 
 --- TITLE: From all that dwell below the skies
 [VERSE 1]
@@ -59,319 +237,6 @@ In every land begin the song;
 To every land the strains belong;
 In cheerful sounds all voices raise,
 And till the world with loudest praise.
-
---- TITLE: Now to the Lord, a noble song
-[VERSE 1]
-Now to the Lord, a noble song!
-Awake, my soul! awake, my tongue,
-Hosanna to th' eternal name,
-And all his boundless love proclaim.
-[VERSE 2]
-See where it shines in Jesus' face,--
-The brightest image of his grace!
-God, in the person of his Son,
-Has all his mightiest works outdone.
-[VERSE 3]
-Grace!--'tis a sweet, a charming theme;
-My thoughts rejoice at Jesus' name:
-Ye angels! dwell upon the sound;
-Ye heavens! reflect it to the ground.
-[VERSE 4]
-Oh! may I live to reach the place,
-Where he unveils his lovely face,
-Where all his beauties you behold,
-And sing his name to harps of gold.
-
---- TITLE: My God! my King! thy various praise
-[VERSE 1]
-My God! my King! thy various praise
-Shall fill the remnant of my days;
-Thy grace employ my humble tongue,
-Till death and glory raise the song.
-[VERSE 2]
-The wings of every hour shall bear
-Some thankful tribute to thine ear;
-And every setting sun shall see
-New works of duty, done for thee.
-[VERSE 3]
-But who can speak thy wondrous deeds?
-Thy greatness all our thoughts exceeds;
-Vast and unsearchable thy ways--
-Vast and immortal be thy praise.
-
---- TITLE: Sweet is the work, my God! my King
-[VERSE 1]
-Sweet is the work, my God! my King!
-To praise thy name, give thanks and sing;
-To show thy love by morning light,
-And talk of all thy truth at night.
-[VERSE 2]
-Sweet is the day of sacred rest;
-No mortal care shall seize my breast;
-O may my heart in tune be found,
-Like David's harp of solemn sound.
-[VERSE 3]
-My heart shall triumph in the Lord,
-And bless his works, and bless his word;
-Thy works of grace, how bright they shine!
-How deep thy counsels! how divine!
-
---- TITLE: Sing to the Lord Jehovah's name
-[VERSE 1]
-Sing to the Lord Jehovah's name,
-And in his strength rejoice;
-When his salvation is our theme,
-Exalted be our voice.
-[VERSE 2]
-With thanks approach his awful sight,
-And psalms of honor sing;
-The Lord's a God of boundless might--
-The whole creation's King.
-[VERSE 3]
-Come, and with humble souls adore;
-Come, kneel before his face;
-Oh, may the creatures of his power
-Be children of his grace.
-[VERSE 4]
-Now is the time--he bends his ear,
-And waits for your request;
-Come, lest he rouse his wrath, and swear,
-"Ye shall not see my rest."
-
---- TITLE: Oh, bless the Lord, my soul
-[VERSE 1]
-Oh, bless the Lord, my soul!
-Let all within me join,
-And aid my tongue to bless his name,
-Whose favors are divine.
-[VERSE 2]
-Oh, bless the Lord, my soul,
-Nor let his mercies lie
-Forgotten in unthankfulness,
-And without praises die.
-[VERSE 3]
-'Tis he forgives thy sins--
-'Tis he relieves thy pain--
-'Tis he that heals thy sicknesses,
-And gives thee strength again.
-[VERSE 4]
-He crowns thy life with love,
-When ransomed from the grave;
-He who redeemed my soul from hell,
-Hath sovereign power to save.
-
---- TITLE: Come, sound his praise abroad
-[VERSE 1]
-Come, sound his praise abroad,
-And hymns of glory sing;
-Jehovah is the sov'reign God,
-The universal king.
-[VERSE 2]
-He formed the deeps unknown;
-He gave the seas their bound;
-The watery worlds are all his own,
-And all the solid ground.
-[VERSE 3]
-Come, worship at his throne;
-Come, bow before the Lord;
-We are his works, and not our own;
-He formed us by his word.
-[VERSE 4]
-To-day attend his voice,
-Nor dare provoke his rod;
-Come, like the people of his choice,
-And own your gracious God.
-
---- TITLE: Great God! attend while Zion sings
-[VERSE 1]
-Great God! attend while Zion sings
-The joy that from thy presence springs;
-To spend one day with thee on earth
-Exceeds a thousand days of mirth.
-[VERSE 2]
-Might I enjoy the meanest place
-Within thy house, O God of grace!
-Not tents of ease, nor thrones of power,
-Should tempt my feet to leave thy door.
-[VERSE 3]
-God is our sun, he makes our day;
-God is our shield, he guards our way
-From all th' assaults of hell and sin,
-From foes without and foes within.
-[VERSE 4]
-All needful grace will God bestow,
-And crown that grace with glory too;
-He gives us all things, and withholds
-No real good from upright souls.
-[VERSE 5]
-O God, our King! whose sovereign sway
-The glorious hosts of heaven obey,
-And devils at thy presence flee;
-Blest is the man that trusts in thee!
-
---- TITLE: Behold! the morning sun
-[VERSE 1]
-Behold! the morning sun
-Begins his glorious way;
-His beams thro' all the nations run,
-And life and light convey.
-[VERSE 2]
-But, where the gospel comes,
-It spreads diviner light;
-It calls dead sinners from the tombs
-And gives the blind their sight.
-[VERSE 3]
-How perfect is thy word!
-And all thy judgments just;
-Forever sure thy promise, Lord!
-And men securely trust.
-[VERSE 4]
-My gracious God! how plain
-Are thy directions given!
-Oh! may I never read in vain,
-But find the path to heaven.
-
---- TITLE: Lord! I have made thy word my choice
-[VERSE 1]
-Lord! I have made thy word my choice,
-My lasting heritage;
-There shall my noblest powers rejoice,
-My warmest thoughts engage.
-[VERSE 2]
-I'll read the histories of thy love,
-And keep thy laws in sight,
-While through the promises I rove,
-With ever fresh delight.
-[VERSE 3]
-'Tis a broad land of wealth unknown
-Where springs of life arise;
-Seeds of immortal bliss are sown,
-And hidden, glory lies.
-[VERSE 4]
-The best relief that mourners have--
-It makes our sorrows blest;
-Our fairest hope, beyond the grave,
-And our eternal rest.
-
---- TITLE: How shall the young secure their hearts
-[VERSE 1]
-How shall the young secure their hearts,
-And guard their lives from sin?
-Thy word the choicest rules imparts
-To keep the conscience clean.
-[VERSE 2]
-'Tis like the sun, a heavenly light,
-That guides us all the day;
-And, through the dangers of the night,
-A lamp to lead our way.
-[VERSE 3]
-Thy precepts make me truly wise;
-I hate the sinners' road;
-I hate my own vain thoughts that rise
-But love thy law, my God!
-[VERSE 4]
-Thy word is everlasting truth;
-How pure is every page!
-That holy book shall guide our youth,
-And well support our age.
-
---- TITLE: Begin, my tongue, some heavenly theme
-[VERSE 1]
-Begin, my tongue, some heavenly theme,
-And speak some boundless thing;
-The mighty works or mightier name
-Of our eternal King.
-[VERSE 2]
-Tell of his wondrous faithfulness,
-And sound his power abroad;
-Sing the sweet promise of his grace,
-And the performing God.
-[VERSE 3]
-His very word of grace is strong,
-As that which built the skies;
-The voice that rolls the stars along,
-Speaks all the promises.
-[VERSE 4]
-Oh, might I hear thy heavenly tongue
-But whisper, "Thou art mine!"
-Those gentle words should raise my song
-To notes almost divine.
-
---- TITLE: Great God! how infinite art thou
-[VERSE 1]
-Great God! how infinite art thou!
-What worthless worms are we!
-Let the whole race of creatures bow,
-And pay their praise to thee.
-[VERSE 2]
-Thy throne eternal ages stood,
-Ere seas or stars were made:
-Thou art the ever-living God,
-Were all the nations dead.
-[VERSE 3]
-Eternity, with all its years,
-Stands present in thy view;
-To thee there's nothing old appears--
-Great God! there's nothing new.
-[VERSE 4]
-Our lives through various scenes are drawn,
-And vexed with trifling cares;
-While thine eternal thought moves on
-Thine undisturbed affairs.
-[VERSE 5]
-Great God! how infinite art thou!
-What worthless worms are we!
-Let the whole race of creatures bow.
-And pay their praise to thee.
-
---- TITLE: Blest be the Father and his love
-[VERSE 1]
-Blest be the Father and his love,
-To whose celestial source we owe
-Rivers of endless joy above,
-And rills of comfort here below.
-[VERSE 2]
-Glory to thee, great Son of God!
-From whose dear, wounded body rolls
-A precious stream of vital blood--
-Pardon and life for dying souls
-[VERSE 3]
-We give the sacred Spirit praise,
-Who, in our hearts of sin and woe,
-Makes living springs of grace arise,
-And into boundless glory flow.
-[VERSE 4]
-Thus, God, the Father, God, the Son,
-And God, the Spirit, we adore;
-That sea of life and love unknown,
-Without a bottom or a shore.
-
---- TITLE: O God! our help in ages past
-[VERSE 1]
-O God! our help in ages past,
-Our hope for years to come;
-Our shelter from the stormy blast,
-And our eternal home.
-[VERSE 2]
-Under the shadow of thy throne,
-Still may we dwell secure;
-Sufficient is thine arm alone,
-And our defense is sure.
-[VERSE 3]
-Before the hills in order stood,
-Or earth received her frame,
-From everlasting thou art God,
-To endless years the same.
-[VERSE 4]
-A thousand ages in thy sight
-Are like an evening gone;
-Short as the watch that ends the night,
-Before the rising sun.
-[VERSE 5]
-The busy tribes of flesh and blood,
-With all their cares and fears,
-Are carried downward by the flood,
-And lost in following years.
 
 --- TITLE: I sing th' almighty power of God
 [VERSE 1]
@@ -439,263 +304,6 @@ Our softer passions move;
 Pity divine, in Jesus' face,
 We see, adore, and love.
 
---- TITLE: Joy to the world! the Lord is come
-[VERSE 1]
-Joy to the world! the Lord is come:
-Let earth receive her King;
-Let every heart prepare him room,
-And heaven and nature sing.
-[VERSE 2]
-Joy to the earth! the Savior reigns:
-Let men their songs employ;
-While fields and floods, rocks, hills, and plains,
-Repeat the sounding joy.
-[VERSE 3]
-No more let sins and sorrows grow,
-Nor thorns infest the ground;
-He comes to make his blessings flow,
-Far as the curse is found.
-[VERSE 4]
-He rules the world with truth and grace,
-And makes the nations prove
-The glories of his righteousness,
-And wonders of his love.
-
---- TITLE: My dear Redeemer and my Lord
-[VERSE 1]
-My dear Redeemer and my Lord,
-I read my duty in thy Word;
-But in thy life the law appears,
-Drawn out in living characters.
-[VERSE 2]
-Such was thy truth, and such thy zeal,
-Such deference to thy Father's will,
-Such love and meekness so divine,
-I would transcribe and make them mine.
-[VERSE 3]
-Cold mountains and the midnight air
-Witnessed the fervor of thy prayer;
-The desert thy temptations knew;
-Thy conflict and thy victory too.
-[VERSE 4]
-Be thou my pattern, make me bear
-More of thy gracious image here;
-Then God, the Judge, shall own my name
-Among the followers of the Lamb.
-
---- TITLE: Behold! the blind their sight receive
-[VERSE 1]
-Behold! the blind their sight receive;
-Behold! the dead awake and live;
-The dumb speak wonders, and the lame
-Leap, like the hart, and bless his name.
-[VERSE 2]
-Thus doth th' eternal Spirit own
-And seal the mission of the Son;
-The Father vindicates his cause,
-While he hangs bleeding on the cross.
-[VERSE 3]
-He dies! the heavens in mourning stood;
-He rises, the triumphant God!
-Behold the Lord ascending high,
-No more to bleed, no more to die.
-[VERSE 4]
-Hence, and forever, from my heart,
-I bid my doubts and fears depart;
-And to those hands my soul resign,
-Which bear credentials so divine.
-
---- TITLE: When I survey the wondrous cross
-[VERSE 1]
-When I survey the wondrous cross,
-On which the Prince of Glory died,
-My richest gain I count but loss,
-And pour contempt on all my pride.
-[VERSE 2]
-Forbid it, Lord, that I should boast,
-Save in the death of Christ, my God;
-All the vain things that charm me most,
-I sacrifice them to his blood.
-[VERSE 3]
-See, from his head, his hands, his feet
-Sorrow and love flow mingled down;
-Did e'er such love and sorrow meet,
-Or thorns compose so rich a crown?
-[VERSE 4]
-Were all the realms of nature mine,
-That were a present far too small;
-Love so amazing, so divine.
-Demands my soul, my life, my all.
-
---- TITLE: Alas! and did my Savior bleed?
-[VERSE 1]
-Alas! and did my Savior bleed?
-And did my Sovereign die?
-Would he devote that sacred head
-For such a worm as I?
-[VERSE 2]
-Was it for crimes that I have done
-He groaned upon the tree?
-Amazing pity! grace unknown!
-And love beyond degree!
-[VERSE 3]
-Well might the sun in darkness hide,
-And shut his glories in,
-When Christ, the mighty Maker, died
-For man, the creature's sin!
-[VERSE 4]
-Thus might I hide my blushing face
-While his dear cross appears;
-Dissolve my heart in thankfulness,
-And melt mine eyes to tears.
-[VERSE 5]
-But drops of grief can ne'er repay
-The debt of love I owe;
-Here, Lord, I give myself away;
-'Tis all that I can do.
-[REFRAIN]
-Jesus died for you,
-And Jesus died for me,
-Yes, Jesus died for all mankind;
-Bless God, salvation's free.
-[REFRAIN]
-Help me, dear Savior, thee to own,
-And ever faithful be;
-And when thou sittest on thy throne.
-O Lord, remember me.
-
---- TITLE: Deep in our hearts let us record
-[VERSE 1]
-Deep in our hearts let us record
-The deeper sorrows of our Lord;
-Behold the rising billows roll,
-To overwhelm his holy soul.
-[VERSE 2]
-Yet, gracious God, thy power and love
-Have made the curse a blessing prove;
-Those dreadful sufferings of thy Son
-Atoned for sins that we have done.
-[VERSE 3]
-The pangs of our expiring Lord
-The honors of thy law restored;
-His sorrows made thy justice known.
-And paid for follies not his own.
-[VERSE 4]
-Oh, for his sake our guilt forgive,
-And let the mourning sinner live;
-The Lord will hear us in his name,
-Nor shall our hope be turned to shame.
-
---- TITLE: Hosanna to the Prince of Light
-[VERSE 1]
-Hosanna to the Prince of Light,
-Who clothed himself in clay,
-Entered the iron gates of death,
-And tore the bars away.
-[VERSE 2]
-Death is no more the king of dread,
-Since our Immanuel rose;
-He took the tyrant's sting away,
-And spoiled our hellish foes.
-[VERSE 3]
-See how the conqueror mounts aloft
-And to his Father flies,
-With scars of honor in his flesh,
-And triumph in his eyes.
-[VERSE 4]
-There our exalted Savior reigns,
-And scatters blessings down;
-Our Jesus fills the middle seat
-Of the celestial throne.
-
---- TITLE: Now for a tune of lofty praise
-[VERSE 1]
-Now for a tune of lofty praise
-To great Jehovah's equal Son;
-Awake, my voice, in heavenly lays,
-And tell the wonders he hath done.
-[VERSE 2]
-Sing how he left the worlds of light,
-And those bright robes he wore above;
-How swift and joyful was his flight,
-On wings of everlasting love.
-[VERSE 3]
-Among a thousand harps and songs,
-Jesus, the God, exalted reigns;
-His sacred name fills all their tongues
-And echoes through the heavenly plains.
-
---- TITLE: With joy we meditate the grace
-[VERSE 1]
-With joy we meditate the grace
-Of our High Priest above;
-His heart is made of tenderness,
-His bowels melt with love.
-[VERSE 2]
-Touched with a sympathy within,
-He knows our feeble frame;
-He knows what sore temptations mean,
-For he has felt the same.
-[VERSE 3]
-He, in the days of feeble flesh,
-Poured out his cries and tears;
-And, in his measure, feels afresh
-What every member bears.
-[VERSE 4]
-Then let our humble faith address
-His mercy and his power;
-We shall obtain delivering grace
-In the distressing hour.
-
---- TITLE: Come, Holy Spirit, heavenly Dove
-[VERSE 1]
-Come, Holy Spirit, heavenly Dove!
-With all thy quickening powers,--
-Kindle a flame of sacred love,
-In these cold hearts of ours.
-[VERSE 2]
-Look--how we grovel here below,
-Fond of these trifling toys!
-Our souls, how heavily they go,
-To reach eternal joys.
-[VERSE 3]
-In vain we tune our formal songs,
-In vain we strive to rise;
-Hosannas languish on our tongues,
-And our devotion dies.
-[VERSE 4]
-Dear Lord! and shall we ever live,
-At this poor dying rate?
-Our love so faint, so cold to thee,
-And thine to us so great?
-[VERSE 5]
-Come, Holy Spirit, heavenly Dove
-With all thy quickening powers;
-Come, shed abroad a Savior's love,
-And that shall kindle ours.
-
---- TITLE: Why should the children of a King
-[VERSE 1]
-Why should the children of a King
-Go mourning all their days?
-Great Comforter, descend, and bring
-Some tokens of thy grace.
-[VERSE 2]
-Dost thou not dwell in all the saints,
-And seal the heirs of heaven?
-When wilt thou banish my complaints,
-And show my sins forgiven?
-[VERSE 3]
-Assure my conscience of her part
-In the Redeemer's blood;
-And bear thy witness with my heart,
-That I am born of God.
-[VERSE 4]
-Thou art the earnest of his love,
-The pledge of joys to come;
-And thy soft wings, celestial Dove,
-Will safe convey me home.
-
 --- TITLE: Ah! how shall fallen man
 [VERSE 1]
 Ah! how shall fallen man
@@ -740,77 +348,6 @@ To bring us near to God,
 Thy sovereign power, thy healing grace,
 And thine atoning blood.
 
---- TITLE: How sad our state by nature is
-[VERSE 1]
-How sad our state by nature is!
-Our sin--how deep it stains!
-And Satan binds our captive minds,
-Fast in his slavish chains.
-[VERSE 2]
-But there's a voice of sovereign grace
-Sounds from the sacred word;--
-"Ho! ye despairing sinners! come
-And trust a faithful Lord."
-[VERSE 3]
-My soul obeys the gracious call
-And runs to this relief;
-I would believe thy promise, Lord!
-Oh! help my unbelief.
-[VERSE 4]
-To the blest fountain of thy blood,
-Incarnate God! I fly;
-Here let me wash my spotted soul,
-From crimes of deepest dye.
-[VERSE 5]
-A guilty, weak, and helpless worm,
-On thy kind arms I fall;
-Be thou my strength and righteousness
-My Jesus, and my all.
-
---- TITLE: Buried in shadows of the night
-[VERSE 1]
-Buried in shadows of the night
-We lie, till Christ restores the light;
-Till he descends to heal the blind,
-And chase the darkness of the mind.
-[VERSE 2]
-Our guilty souls are drowned in tears,
-Till his atoning blood appears;
-Then we awake from deep distress,
-And sing the Lord our righteousness.
-[VERSE 3]
-Jesus beholds where Satan reigns,
-And binds his slaves in heavy chains;
-He sets the prisoners free, and breaks
-The iron bondage from our necks.
-[VERSE 4]
-Poor, helpless worms in thee possess
-Grace, wisdom, power, and righteousness
-Thou art our mighty all, and we
-Give our whole selves, O Lord, to thee.
-
---- TITLE: Vain are the hopes, the sons of men
-[VERSE 1]
-Vain are the hopes, the sons of men
-On their own works have built;
-Their hearts by nature all unclean,
-And all their actions, guilt.
-[VERSE 2]
-Let Jew and Gentile stop their mouths,
-Without a murm'ring word;
-And the whole race of Adam stand
-Guilty before the Lord.
-[VERSE 3]
-In vain we ask God's righteous law
-To justify us now,
-Since to convince, and to condemn,
-Is all the law can do.
-[VERSE 4]
-Jesus! how glorious is thy grace!
-When in thy name we trust,
-Our faith receives a righteousness,
-That makes the sinner just.
-
 --- TITLE: Salvation! oh, the joyful sound
 [VERSE 1]
 Salvation! oh, the joyful sound!
@@ -827,121 +364,6 @@ Salvation! O thou bleeding Lamb!
 To Thee the praise belongs:
 Salvation shall inspire our hearts,
 And dwell upon our tongues.
-
---- TITLE: Broad is the road that leads to death
-[VERSE 1]
-Broad is the road that leads to death,
-And thousands walk together there;
-But wisdom shows a narrow path,
-With here and there a traveler.
-[VERSE 2]
-"Deny thyself and take thy cross,"
-Is the Redeemer's great command;
-Nature must count her gold but dross,
-If she would gain this heavenly land.
-[VERSE 3]
-The fearful soul that tires and faints,
-And walks the ways of God no more,
-Is but esteemed almost a saint.
-And makes his own destruction sure.
-[VERSE 4]
-Lord, let not all my hopes be vain;
-Create my heart entirely new--
-Which hypocrites could ne'er attain,
-Which false apostates never knew.
-
---- TITLE: Mine eyes and my desire
-[VERSE 1]
-Mine eyes and my desire
-Are ever to the Lord;
-I love to plead his promises,
-And rest upon his word.
-[VERSE 2]
-Lord, turn thee to my soul;
-Bring thy salvation near;
-When will thy hand release my feet
-From sin's destructive snare?
-[VERSE 3]
-When shall the sov'reign grace
-Of my forgiving God
-Restore me from those dangerous ways
-My wand'ring feet have trod?
-[VERSE 4]
-Oh, keep my soul from death,
-Nor put my hope to shame;
-For I have placed my only trust
-In my Redeemer's name.
-
---- TITLE: Behold what wondrous grace
-[VERSE 1]
-Behold what wondrous grace
-The Father has bestowed
-On sinners of a mortal race,
-To call them sons of God!
-[VERSE 2]
-Nor doth it yet appear
-How great we must be made;
-But when we see our Savior there,
-We shall be like our Head.
-[VERSE 3]
-A hope so much divine
-May trials well endure,
-May purge our souls from sense and sin,
-As Christ the Lord is pure.
-[VERSE 4]
-If in my Father's love
-I share a filial part,
-Send down thy Spirit, like a dove,
-To rest upon my heart.
-[VERSE 5]
-We would no longer lie
-Like slaves beneath the throne;
-Our faith shall Abba, Father! cry
-And thou the kindred own.
-
---- TITLE: The pity of the Lord
-[VERSE 1]
-The pity of the Lord,
-To those that fear his name,
-Is such as tender parents feel;
-He knows our feeble frame.
-[VERSE 2]
-He knows we are but dust,
-Scattered with ev'ry breath;
-His anger, like a rising wind,
-Can send us swift to death.
-[VERSE 3]
-Our days are as the grass,
-Or like the morning flow'r;
-If one sharp blast sweep o'er the field,
-It withers in an hour.
-[VERSE 4]
-But thy compassions, Lord,
-To endless years endure;
-And children's children ever find
-Thy words of promise sure.
-
---- TITLE: God is the refuge of his saints
-[VERSE 1]
-God is the refuge of his saints,
-When storms of sharp distress invade.
-Ere we can offer our complaints,
-Behold him present with his aid.
-[VERSE 2]
-Let mountains from their seats be hurled
-Down to the deep, and buried there;
-Convulsions shake the solid world;--
-Our faith shall never yield to fear.
-[VERSE 3]
-There is a stream whose gentle flow
-Supplies the city of our God;
-Life, love, and joy still gliding through,
-And watering our divine abode:--
-[VERSE 4]
-That sacred stream, thy holy word,--
-That all our raging fear controls:
-Sweet peace thy promises afford,
-And give new strength to fainting souls.
 
 --- TITLE: The Lord my Shepherd is
 [VERSE 1]
@@ -965,72 +387,6 @@ I cannot yield to fear;
 Tho' I should walk thro' death's dark shade,
 My Shepherd's with me there.
 
---- TITLE: So let our lips and lives express
-[VERSE 1]
-So let our lips and lives express
-The holy gospel we profess;
-So let our works and virtues shine
-To prove the doctrine all divine.
-[VERSE 2]
-Thus shall we best proclaim abroad
-The honors of our Savior God;
-When his salvation reigns within,
-And grace subdues the power of sin.
-[VERSE 3]
-Religion bears our spirits up,
-While we expect that blessed hope,--
-The bright appearance of the Lord;
-And faith stands leaning on his word.
-
---- TITLE: Blest is the man whose heart doth move
-[VERSE 1]
-Blest is the man whose heart doth move,
-And melt with pity to the poor;
-Whose soul, by sympathizing love,
-Feels what his fellow-saints endure.
-[VERSE 2]
-His heart contrives, for their relief,
-More good than his own hands can do;
-He, in the time of general grief,
-Shall find the Lord has pity too.
-[VERSE 3]
-His soul shall live secure on earth,
-With secret blessings on his head,
-When drought, and pestilence, and dearth
-Around him multiply their dead.
-[VERSE 4]
-Or, if he languish on his couch,
-God will pronounce his sins forgiven,
-Will save him with a healing touch,
-Or take his willing soul to heaven.
-
---- TITLE: Come, we that love the Lord
-[VERSE 1]
-Come, we that love the Lord,
-And let our joys be known,
-Join in a song with sweet accord,
-And thus surround the throne.
-[REFRAIN]
-We're marching to Zion,
-Beautiful, beautiful Zion,
-We're marching upward to Zion,
-The beautiful city of God.
-[VERSE 2]
-Let those refuse to sing
-Who never knew our God;
-But children of the heavenly King
-May speak their joys abroad.
-[VERSE 3]
-The hill of Zion yields
-A thousand sacred sweets,
-Before we reach the heavenly fields,
-Or walk the golden streets.
-[VERSE 4]
-Then let our songs abound,
-And ev'ry tear be dry;
-We're marching thro' Immanuel's ground
-To fairer worlds on high.
-
 --- TITLE: With stately towers and bulwarks strong
 [VERSE 1]
 With stately towers and bulwarks strong,
@@ -1052,55 +408,6 @@ Fear not; though hostile bands alarm,
 Thy God is thy defense;
 And weak and powerless every arm
 Against Omnipotence.
-
---- TITLE: Jesus shall reign where'er the sun
-[VERSE 1]
-Jesus shall reign where'er the sun
-Does his successive journeys run;
-His kingdom spread from shore to shore,
-Till moons shall wax and wane no more.
-[VERSE 2]
-From north to south the princes meet,
-To pay their homage at his feet;
-While western empires own their Lord,
-And savage tribes attend his word.
-[VERSE 3]
-To him shall endless prayer be made,
-And endless praises crown his head;
-His name, like sweet perfume, shall rise,
-With every morning sacrifice.
-[VERSE 4]
-People and realms of every tongue
-Dwell on his love with sweetest song,
-And infant voices shall proclaim
-Their early blessings on his name.
-[VERSE 5]
-Blessings abound where'er he reigns;
-The prisoner leaps to lose his chains;
-The weary find eternal rest,
-And all the sons of want are blest.
-[VERSE 6]
-Let every creature rise and bring
-Peculiar honors to our King;
-Angels descend with songs again,
-And earth repeat the loud Amen!
-
---- TITLE: Great God! whose universal sway
-[VERSE 1]
-Great God! whose universal sway
-The known and unknown worlds obey;
-Now give the kingdom to thy Son;
-Extend his power, exalt his throne.
-[VERSE 2]
-The heathen lands, that lie beneath
-The shades of over-spreading death,
-Revive at his first dawning light,
-And deserts blossom at the sight.
-[VERSE 3]
-The saints shall flourish in his days,
-Dressed in the robes of joy and praise;
-Peace, like a river, from his throne,
-Shall flow to nations yet unknown.
 
 --- TITLE: 'Twas on that dark, that dreadful night
 [VERSE 1]
@@ -1150,136 +457,6 @@ Break from his throne, illustrious morn;
 Attend, O earth, his sovereign word;
 Restore thy trust; a glorious form
 Shall then arise to meet the Lord.
-
---- TITLE: Why do we mourn departing friends
-[VERSE 1]
-Why do we mourn departing friends,
-Or shake at death's alarms?
-'Tis but the voice that Jesus sends,
-To call them to his arms.
-[VERSE 2]
-Are we not tending upward, too,
-As fast as time can move?
-Nor would we wish the hours more slow,
-To keep us from our love.
-[VERSE 3]
-Why should we tremble to convey
-Their bodies to the tomb?
-There the dear flesh of Jesus lay,
-And scattered all the gloom.
-[VERSE 4]
-The graves of all the saints be blessed,
-And softened every bed;
-Where should the dying members rest,
-But with the dying Head?
-[VERSE 5]
-Thence he arose, ascending high,
-And showed our feet the way;
-Up to the Lord we, too, shall fly
-At the great rising-day.
-[VERSE 6]
-Then let the last loud trumpet sound,
-And bid our kindred rise;
-Awake! ye nations under ground;
-Ye saints! ascend the skies.
-
---- TITLE: That awful day will surely come
-[VERSE 1]
-That awful day will surely come,
-Th' appointed hour makes haste,
-When I must stand before the Judge
-And pass the solemn test.
-[VERSE 2]
-Thou lovely Chief of all my joys,
-Thou Sovereign of my heart,
-How could I bear to hear thy voice
-Pronounce the sound, "Depart!"
-[VERSE 3]
-Oh, wretched state of deep despair,
-To see my God remove,
-And fix my dreadful station where
-I must not taste his love!
-[VERSE 4]
-Oh, tell me that my worthless name
-Is graven on thy hands;
-Show me some promise in thy book
-Where my salvation stands.
-
---- TITLE: There is a land of pure delight
-[VERSE 1]
-There is a land of pure delight,
-Where saints immortal reign;
-Infinite day excludes the night,
-And pleasures banish pain.
-There everlasting spring abides,
-And never-withering flowers;
-Death, like a narrow sea, divides,
-This heavenly land from ours.
-[VERSE 2]
-Sweet fields beyond the swelling flood
-Stand dressed in living green;
-So to the Jews old Canaan stood,
-While Jordan rolled between.
-But timorous mortals start and shrink
-To cross this narrow sea,
-And linger, shivering on the brink,
-And fear to launch away.
-[VERSE 3]
-O could we make our doubts remove,
-Those gloomy doubts that rise,
-And see the Canaan that we love,
-With unbeclouded eyes--
-Could we but climb where Moses stood,
-And view the landscape o'er,
-Not Jordan's stream, nor death's cold flood,
-Should fright us from the shore.
-
---- TITLE: When I can read my title clear
-[VERSE 1]
-When I can read my title clear
-To mansions in the skies,
-I'll bid farewell to every fear
-And wipe my weeping eyes.
-Should earth against my soul engage,
-And fiery darts be hurled,
-Then I can smile at Satan's rage.
-And face a frowning world.
-[VERSE 2]
-Let cares like a wild deluge come
-Let storms of sorrow fall--
-So I but safely reach my home,
-My God, my heaven, my all.
-There I shall bathe my weary soul
-In seas of heavenly rest,
-And not a wave of trouble roll
-Across my peaceful breast.
-
---- TITLE: Arise, O King of grace, arise
-[VERSE 1]
-Arise, O King of grace, arise,
-And enter to thy rest;
-Lo! thy church waits, with longing eyes,
-Thus to be owned and blest.
-[VERSE 2]
-Enter with all thy glorious train.
-Thy Spirit and thy word;
-All that the ark did once contain
-Could no such grace afford.
-[VERSE 3]
-Here, mighty God, accept our vows,
-Here let thy praise be spread;
-Bless the provisions of thy house
-And fill thy poor with bread.
-[VERSE 4]
-Here let the Son of David reign,
-Let God's Anointed shine;
-Justice and truth his court maintain
-With love and power divine.
-[VERSE 5]
-Here let him hold a lasting throne,
-And as his kingdom grows,
-Fresh honors shall adorn his crown.
-And shame confound his foes.
 
 --- TITLE: A new song to the Lamb that was slain
 [VERSE 1]
@@ -25710,66 +24887,6 @@ And every tear be dry;
 We're travelling through the paths of peace
 To fairer worlds on high.
 
---- TITLE: Lord of the worlds above
-[VERSE 1]
-Lord of the worlds above,
-How pleasant and how fair
-The dwellings of Thy love,
-Thine earthly temples are!
-To Thine abode
-My heart aspires,
-With warm desires
-To see my God.
-[VERSE 2]
-The sparrow for her young
-With pleasure seeks a nest,
-And wandering swallows long
-To find their wonted rest:
-My spirit faints,
-With equal zeal
-To rise and dwell
-Among Thy saints.
-[VERSE 3]
-O happy souls that pray
-To Him that heareth prayer!
-O happy men that pay
-Their constant service there!
-They praise Thee still;
-And happy they
-Who love the way
-To Zion's hill.
-[VERSE 4]
-They go from strength to strength,
-Though oft through pain and tears,
-Till each arrives at length,
-Till each in heaven appears:
-O glorious seat!
-Our God and King
-Shall thither bring
-Our willing feet.
-
---- TITLE: My God! permit me not to be
-[VERSE 1]
-My God! permit me not to be
-A stranger to myself and Thee;
-Amidst a thousand thoughts I rove,
-Forgetful of my highest love.
-[VERSE 2]
-Why should my passions mix with earth,
-And thus debase my heavenly birth?
-Why should I cleave to things below,
-And let my God, my Saviour, go?
-[VERSE 3]
-Call me away from flesh and sense;
-One sovereign word can draw me thence;
-I would obey Thy voice divine,
-And all inferior joys resign.
-[VERSE 4]
-Be earth, with all her strife, withdrawn;
-Let noise and vanity be gone;
-In secret silence of the mind,
-My heaven, and there my God, I find.
-
 --- TITLE: Am I a soldier of the cross
 [VERSE 1]
 Am I a soldier of the cross,
@@ -25801,48 +24918,3 @@ When Thy illustrious day shall rise,
 And all Thy armies shine
 In robes of victory through the skies,
 The glory shall be Thine.
-
---- TITLE: Not to the terrors of the Lord
-[VERSE 1]
-Not to the terrors of the Lord,
-The tempest, fire, and smoke;
-Not to the thunder of that word
-Which God on Sinai spoke;--
-[VERSE 2]
-But we are come to Zion's hill,
-The city of our God,
-Where milder words declare His will,
-And spread His love abroad.
-[VERSE 3]
-Behold the great, the glorious host
-Of angels, clothed in light!
-Behold the spirits of the just,
-Whose faith is turned to sight!
-[VERSE 4]
-In such society as this,
-My weary soul would rest;
-For he who dwells where Jesus is
-Must be forever blest.
-
---- TITLE: Awake, our souls, away, our fears
-[VERSE 1]
-Awake, our souls, away, our fears;
-Let every trembling thought be gone.
-Awake and run the heavenly race,
-And put a cheerful courage on.
-[VERSE 2]
-True 'tis a strait and thorny road,
-And mortal spirits tire and faint;
-But they forget the mighty God,
-That feeds the strength of every saint.
-[VERSE 3]
-From Thee, the overflowing spring,
-Our souls shall drink a fresh supply,
-While such as trust in human strength
-Shall melt away, and droop, and die.
-[VERSE 4]
-Swift as an eagle cuts the air,
-We'll mount aloft to Thine abode;
-On wings of love our souls shall fly,
-Nor tire amidst the heavenly road.
-

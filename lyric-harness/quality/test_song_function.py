@@ -452,18 +452,27 @@ def test_the_corpus_holds():
     # and those want opposite responses: the first is fine, the second is a
     # number that has been wrong in every rate quoted over this corpus. So
     # these are equalities now, and moving one is meant to cost a reading.
+    # REPINNED AGAIN 2026-08-11, cell AC. 2,747 -> 2,732 whole corpus,
+    # 2,443 -> 2,428 eng_*; BURDEN 1,784 -> 1,772, REFRAIN 716 -> 713.
+    # The 15 that went are marks inside 63 near-duplicate items -- the same
+    # poem in two printings, which the item-body hash could not see because an
+    # editor's comma moved. THE COUNT WAS THEREFORE WRONG IN THE SAME
+    # DIRECTION TWICE, from two different duplication mechanisms, and an
+    # equality is what makes the second one cost a reading. It is also why
+    # this is not a `>=`: a lower bound would have absorbed both silently.
     check("the repeat-block families are all expressible, none collapsed",
-          rep_total == 2747 and c["functions"]["chorus"] == 247
-          and c["functions"]["burden"] == 1784
-          and c["functions"]["refrain"] == 716,
+          rep_total == 2732 and c["functions"]["chorus"] == 247
+          and c["functions"]["burden"] == 1772
+          and c["functions"]["refrain"] == 713,
           f"{rep_total:,} repeat blocks held, and BURDEN is kept SEPARATE "
           f"from REFRAIN because the corpus marks them differently "
-          f"(doctrine 24). BURDEN was 1,795 until 2026-08-11; the 11 that "
-          f"went were marks inside the duplicated Lyrical Ballads poems, so "
+          f"(doctrine 24). BURDEN was 1,795 until 2026-08-11, then 1,784: the "
+          f"first 11 that went were marks inside the duplicated Lyrical "
+          f"Ballads poems and the next 12 inside near-duplicate items, so "
           f"they were being counted twice and no rate over them was right.")
     check("the register's `2,454 marked repeat blocks` reproduces, and the "
           "unwritten coordinate was LANGUAGE SCOPE",
-          eng_total == 2443 and c["eng_repeat"]["chorus"] == 247,
+          eng_total == 2428 and c["eng_repeat"]["chorus"] == 247,
           f"eng_* only gives {eng_total:,} "
           f"({dict(c['eng_repeat'])}); the recorded 1,603/604/247 is the "
           f"state at commit ef0baa4 restricted to `eng_*`, and the whole "
@@ -471,7 +480,7 @@ def test_the_corpus_holds():
           f"{len(c['blocks_by_language'])} language prefixes. Doctrine 58 "
           f"with SCOPE as the coordinate nobody wrote down -- and now with a "
           f"SECOND one: the same scope over a deduplicated corpus gives "
-          f"1,592/604/247, so the register's figure needs both a scope and a "
+          f"1,580/601/247, so the register's figure needs both a scope and a "
           f"corpus state to be re-derivable.")
 
     print(f"\n   RETURNS: {c['pairs']:,} return pairs over "

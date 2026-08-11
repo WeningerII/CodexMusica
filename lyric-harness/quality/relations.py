@@ -2959,13 +2959,47 @@ class Tradition:
     `lang` is a language code so a declaration can be compared against it; it
     is "" where the canon names a tradition but this repo has no code for its
     language.  `source` is a key into `CANON`.
+
+    `witness` IS TRI-STATE AND THE THIRD VALUE IS THE POINT (M-15a, doctrine
+    28).  `source` says which canon entry names this tradition; it never said
+    whether anything OUTSIDE this project ever did, and for one round every
+    `Tradition.source` in the file was an `R<n>` pointing back into a document
+    whose own `from:` lines pointed at an array that was not in the repository.
+    The array is now inlined as `quality/canon_index.tsv`, so the question is
+    answerable:
+
+      'external'  every survey index the canon entry cites IN THIS LANGUAGE'S
+                  inventory cell records a witness outside this project, so
+                  whichever of them carries the name, the name is not ours
+      'project'   every one of them records only a `quality/*` module, a
+                  `CLAUDE.md` doctrine, or the author's recollection.  This is
+                  the `gabay higaad` class and it is LABELLED rather than
+                  quietly dropped: an invented name that says it was invented
+                  is fine, an invented name that reads as attested is not
+      None        cannot tell -- the entry cites nothing in that cell, or the
+                  cited indices disagree, or they were never recovered.  None
+                  PROPAGATES; it is never rendered as 'no'
+
+    `cites` is the cell-restricted index set the verdict was computed over and
+    `why` is the sentence that computed it, so a reader can disagree with the
+    verdict without re-deriving it.  A canon entry names its traditions in one
+    line and its indices in another and NEVER attributes a name to an index --
+    so a per-name citation would be a fabrication, and the honest object is the
+    SET plus a verdict that holds however the attribution falls.
     """
     name: str
     lang: str
     source: str
+    witness: object = None
+    cites: tuple = ()
+    why: str = ""
 
     def __str__(self):
         return f"{self.name}" + (f" [{self.lang}]" if self.lang else "")
+
+    def attested(self):
+        """True / False / None -- never collapse the last two."""
+        return None if self.witness is None else (self.witness == "external")
 
 
 #: RHYME_CANON.md §2 entries cited below, with each entry's `from:` line
@@ -3532,20 +3566,58 @@ UNSOURCED = {
 }
 
 
+def _canon_sources():
+    """The inlined survey index, or None.
+
+    Imported LAZILY and allowed to fail.  `None` means the index could not be
+    loaded, which makes every `Tradition.witness` below `None` -- CANNOT TELL.
+    That is the correct degradation and it is not the same as `project`: a
+    checkout without the file knows it does not know, rather than reporting an
+    absence of witnesses it never looked for (doctrine 28).
+    """
+    try:
+        from quality import canon_sources as CS
+    except ImportError:                                  # run as a script
+        try:
+            import canon_sources as CS                   # type: ignore
+        except ImportError:
+            return None
+    return CS if CS.loaded() else None
+
+
 def _build_traditions():
     """Attach the sourced traditions to the registry AT IMPORT, and fail loud
     if a schema is in neither table.  A new schema must be sourced or must be
-    refused in writing; there is no third state that silently ships empty."""
+    refused in writing; there is no third state that silently ships empty.
+
+    The witness verdict is computed here rather than written into `_SOURCED`,
+    because a citation typed by hand into a table is the defect this whole
+    section exists to close.  It is DERIVED from the canon entry's own `from:`
+    line and the inlined index, every time the module imports.
+    """
+    CS = _canon_sources()
     for name, (entries, rows) in _SOURCED.items():
         if name not in REGISTRY:
             raise KeyError(f"_SOURCED names {name!r}, which is not a schema")
         for e in entries:
             if e not in CANON:
                 raise KeyError(f"{name!r} cites {e!r}, absent from CANON")
-        REGISTRY[name] = replace(
-            REGISTRY[name],
-            traditions=tuple(Tradition(n, lg, "+".join(entries))
-                             for n, lg in rows))
+        froms = " ".join(CANON[e][1] for e in entries)
+        built = []
+        for n, lg in rows:
+            w, why, cites = None, "the canon index is not loaded", ()
+            if CS is not None:
+                cell = LANG_CELL.get(lg)
+                if cell is None:
+                    why = ("no inventory cell is declared for this language, "
+                           "so the citation cannot be located at all"
+                           if lg else
+                           "the canon names this tradition without glossing "
+                           "its language, so no cell can be chosen")
+                else:
+                    w, why, cites = CS.scope_witness(froms, cell, n)
+            built.append(Tradition(n, lg, "+".join(entries), w, cites, why))
+        REGISTRY[name] = replace(REGISTRY[name], traditions=tuple(built))
     missing = set(REGISTRY) - set(_SOURCED) - set(UNSOURCED)
     if missing:
         raise AssertionError(
@@ -3639,6 +3711,50 @@ def tradition_scope(schema, language):
 
 
 SCOPES = ("in_tradition", "cell_cited", "rule_shape", "unsourced")
+
+
+def tradition_provenance():
+    """M-15a. Where does the evidence for each scoped tradition actually sit?
+
+    THREE COUNTS, never two (doctrine 79 applied to a register rather than to a
+    rate): a tradition nobody could attribute is not a tradition with no
+    witness, and neither is one whose only witness is us.
+
+    -> {'attachments', 'distinct', 'external', 'project', 'cannot_tell',
+        'index_loaded', 'coined': [...], 'unknown_reasons': {...}}
+
+    `coined` is the deliverable and the dangerous set: every tradition whose
+    every cited survey index records nothing but a `quality/*` module, a
+    `CLAUDE.md` doctrine or the author's recollection.  It is printed by name
+    so an invented tradition cannot pass as an attested one.  `index_loaded`
+    False means every verdict is `cannot_tell` for want of
+    `quality/canon_index.tsv`, which is a different sentence from `no witness`.
+    """
+    CS = _canon_sources()
+    seen, ext, proj, unk = set(), 0, 0, 0
+    coined, reasons, n = [], {}, 0
+    for sname, s in REGISTRY.items():
+        for t in s.traditions:
+            n += 1
+            key = (t.name, t.lang, t.source)
+            if key in seen:
+                continue
+            seen.add(key)
+            if t.witness == "external":
+                ext += 1
+            elif t.witness == "project":
+                proj += 1
+                coined.append({"schema": sname, "tradition": t.name,
+                               "lang": t.lang, "canon": t.source,
+                               "cites": list(t.cites)})
+            else:
+                unk += 1
+                reasons[t.why] = reasons.get(t.why, 0) + 1
+    return {"attachments": n, "distinct": len(seen), "external": ext,
+            "project": proj, "cannot_tell": unk,
+            "index_loaded": CS is not None,
+            "coined": sorted(coined, key=lambda d: (d["lang"], d["tradition"])),
+            "unknown_reasons": reasons}
 
 
 def tradition_report(language):

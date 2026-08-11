@@ -1,0 +1,602 @@
+idx	name	tradition	witness	basis	self_doubt	source
+E1	perfect rhyme	English/Scots literary + all vernacular	external	named	no	en-academic mirror of the Wikipedia Rhyme taxonomy; Turco list via search; quality/phonology/non.py primary quotation of Háttatal
+E2	rime riche	English/Scots literary (naturalised from French)	external	named	no	en-academic Rhyme article; Turco list ('rich rhyme, rime riche, false rhyme'); Holorime search results on rime richissime
+E3	repetition (same-word rhyme)	English/Scots literary + song (constitutive in refrain forms)	project	module	no	CLAUDE.md doctrine 3, 18; quality/rhyme_types.py IDENTITY axis
+E4	assonance	English/Scots literary; constitutive in folk ballad, blues, rap	external	named	no	en-academic Rhyme article; Pattison six-type scheme; CLAUDE.md doctrine 3/24
+E5	consonance (coda-aligned)	English/Scots literary (Owen, Dickinson, Yeats); blues and rap	external	named	no	en-academic Rhyme article; quality/phonology/non.py _hending_consonants; CLAUDE.md doctrine 61
+E6	general consonance / parechesis	English/Scots literary and rhetorical	external	named	no	Wikipedia Parechesis / Paroemion search results; Oregon State literary-terms glossary via search
+E7	pararhyme	English literary (Owen's coinage), used in modern song	external	named	no	Wikipedia Pararhyme via search; Rhyme Genie type list; quality/phonology/non.py on skothending's differ-requirement
+E8	reverse rhyme	English literary + songwriting-dictionary practice	external	named	no	Rhyme Genie reverse-rhyme definition via search ('bat/back, yum/yuck'); Rhyme Genie 30-type list
+E9	alliteration (onset agreement)	Old English / Middle English / Scots alliterative verse; ornament in all later English and Scots verse; heavy in rap	external	named	no	quality/phonology/non.py (Háttatal on stuðlar/höfuðstafr, vowel-with-vowel, sk/sp/st declared separately); alliteration.net Field Guide via search; reproduced in-repo
+E10	half rhyme / slant / near / oblique / off rhyme	English/Scots literary; the default in blues, folk and rap	external	named	no	en-academic Rhyme article ('oblique (or slant/forced)'); Turco ('consonance, slant-rhyme, off-rhyme, near-rhyme')
+E11	family rhyme	English-language songwriting pedagogy (Pattison/Berklee); descriptively common in blues and rap	external	named	no	Pattison six rhyme types via search; Rhyme Genie FAMILY RHYME page definition (plosive/fricative/nasal clusters)
+E12	additive rhyme	English-language songwriting pedagogy (Pattison); vernacular song generally	external	named	no	Pattison via search ('a consonant ending has been added to the matching vowel sounds'); verified repo behaviour
+E13	subtractive rhyme	English-language songwriting pedagogy (Pattison)	external	named	yes	Pattison via search; Rhyme Genie type list (diminished rhyme name only, definition unverified)
+E14	semirhyme	English/Scots literary; common in song	external	named	no	en-academic Rhyme article ('a rhyme with an extra syllable on one word (bend, ending)'); Rhyme Genie TRAILING RHYME page ('also referred to as semirhyme')
+E15	apocopated rhyme	English/Scots literary; ballad and hymn	external	named	no	Everything2 / Rhyme Genie definitions via search ('imperfect rhyme between the final syllable of a word and the penultimate syllable of another'); Turco list via search (CONFLICTING)
+E16	light rhyme	English/Scots literary; extremely common in sung verse	external	named	no	Wikipedia Light rhyme via search; anisobaric search results (Simpson 1943, C. S. Lewis)
+E17	wrenched rhyme	Folk ballad, hymn, music hall, early rap	external	named	no	Turco list ('wrenched rhyme'); Wikipedia Light rhyme via search; verified repo behaviour in classify_pair
+E18	syllabic rhyme	English/Scots literary (Hopkins, moderns)	external	named	no	quality/rhyme_types.py STRESS axis; en-academic Rhyme article on unstressed pairings
+E19	amphisbaenic rhyme	English literary (Turco); experimental/Filipino-English (José García Villa)	external	named	no	Wikipedia Amphisbaenic rhyme via search; Turco list ('amphisbaenic rhyme (or backward rhyme)'); Villa 'reversed consonance' noted in the same results
+E20	eye rhyme	English/Scots literary; hymnody	external	named	no	en-academic Rhyme article; MISSING.md E-2
+E21	historical rhyme	English/Scots literary	external	named	no	CLAUDE.md test-discipline section (love/prove); en-academic Rhyme article
+E22	conventional-licence rhyme	English/Scots literary, 17c-19c especially	project	memory	yes	inferred distinction; NOT verified against a named authority — treat as uncertain
+E23	dialect rhyme	Scots; English regional (Lancashire, Dorset, Northern, AAVE)	external	named	no	MISSING.md F-1, F-3, F-5; Dictionaries of the Scots Language style page via search
+E24	Scots vowel-length rhyme (Aitken's Law)	Scots and Scottish English	external	named	no	Wikipedia Scottish vowel length rule / A. J. Aitken 'The Scottish Vowel-length Rule' (1981) via search
+E25	forced / bent / transformative rhyme	Rap/hip-hop centrally; music hall and comic verse; blues	external	named	no	Adam Bradley, Book of Rhymes, via search ('transformative rhymes'; birthday/thirstay); word-bending technique summaries
+E26	masculine rhyme	English/Scots literary + all vernacular	external	named	no	Turco list; en-academic Rhyme article
+E27	feminine rhyme	English/Scots literary; heavy in comic and music-hall verse	external	named	no	Turco list ('falling rhyme … falling/calling'); quality/rhyme_types.py
+E28	dactylic rhyme	English/Scots literary; comic verse, Gilbert, patter song	external	named	no	Turco list; quality/rhyme_types.py SPAN
+E29	multisyllabic rhyme	Rap/hip-hop centrally; also Byron, Gilbert, Hood	external	named	no	Wikipedia Multisyllabic rhymes via search; Paul Edwards, How to Rap / How to Rap 2 via search; Adam Bradley, Book of Rhymes
+E30	mosaic rhyme	English/Scots literary comic verse (Byron, Hood, Gilbert); Broadway lyric; rap	external	named	no	Turco list ('compound rhyme — treats groups of words as though they were one word'; 'mosaic rhyme — compound + normal'); Wikipedia Multisyllabic rhymes for the hip-hop sense
+E31	compound / phrasal rhyme	English/Scots literary comic verse; Broadway; rap	external	named	no	Turco list
+E32	broken rhyme	English literary (Hopkins seriously; Browning, Gilbert, Hood comically)	external	named	no	Wikipedia Broken rhyme via search; Hull AWE and Poem Analysis summaries via search
+E33	enjambed rhyme	English literary (Hopkins, Turco's taxonomy)	external	named	no	Turco list ('enjambed rhyme — uses first sound of next line to make rhyming unit')
+E34	holorhyme	English comic verse; French literary (Allais, Hugo) where it originates	external	named	no	Wikipedia Holorime via search; quality/rhyme_types.py POSITION axis
+E35	end rhyme	all	project	memory	yes	quality/rhyme_types.py classify_pair signature (position='end' default, unverified)
+E36	internal rhyme	English/Scots literary; constitutive in rap; heavy in music hall and blues	external	named	no	MISSING.md E-3; Turco list
+E37	leonine rhyme	English literary (Poe, Coleridge, Swinburne); medieval Latin origin	external	named	no	Wikipedia Leonine verse / Britannica via search; CLAUDE.md doctrine 55, 56
+E38	cross rhyme	English literary (Turco's taxonomy); Swinburne	external	named	no	Turco list ('cross rhyme — rhymes ending of one line with middle of adjacent line'; 'interlaced rhyme — rhymes middle of one line with middle of next line'); quality/rhyme_types.py aliasing
+E39	interlaced rhyme	English literary	external	named	no	Turco list; CLAUDE.md doctrine 42
+E40	linked rhyme	English literary (Turco); Welsh-influenced practice	external	named	no	Turco list ('linked rhyme — rhyme end of one line with beginning of next')
+E41	head rhyme (positional)	English literary (Turco); rap ('starting' rhymes)	external	named	no	Turco list ('head rhyme — rhymes syllables at the beginning of lines'); quality/rhyme_types.py CELL_NAMES and POSITION
+E42	offbeat / off-centred internal rhyme	Rap/hip-hop; blues and R&B phrasing	external	named	no	Paul Edwards, How to Rap, on offbeat rhymes via search; CLAUDE.md doctrine 4 (no beat grid); MISSING.md C-4, C-5, E-4, G-1
+E43	chain rhyme (rap sense)	Rap/hip-hop	external	named	no	Bradley, Book of Rhymes, via search ('extends a single rhyme over a succession of lines by deleting word boundaries and even consonants'); quality/rhyme_types.py line 253
+E44	chain rhyme (interlocking-scheme sense)	English literary (Shelley, Frost)	unrecorded	appeal	no	standard prosody; schemes.py scope statement
+E45	monorhyme / leash rhyme	English literary (Skelton); Scots flyting; rap	project	module	no	standard prosody; quality/schemes.py partition model
+E46	tail rhyme (rime couée)	Scots centrally (Fergusson, Ramsay, Burns); Middle English romance	external	named	no	Wikipedia Burns stanza; Poetry Magnum Opus and Writer's Digest summaries via search
+E47	bob and wheel	Middle English alliterative romance (Gawain); taken up and modified by Scots poets	external	named	no	Wikipedia Bob and wheel via search; Dictionaries of the Scots Language style page on the alliterative revival passing into Scots
+E48	alliterative long line	Old English; Middle English revival; Scots 15c-16c continuation	external	named	no	alliteration.net Field Guide (OE and ME) via search; O'Donnell Old English Metre guide; quality/phonology/non.py for the Germanic parallel and the sk/sp/st rule
+E49	paroemion	English rhetorical tradition; music hall and comic patter	external	named	no	Wikipedia Paroemion via search; CLAUDE.md doctrine 63
+E50	cynghanedd in English (Hopkins's imitation)	Welsh in origin; naturalised English literary practice (Hopkins, and after him)	project	module	no	CLAUDE.md doctrine 43, 45, 55, 56; quality/phonology/cym.py; quality/cynghanedd_rate.py
+E51	vowelling on / vowelling off (Hopkins)	English literary (Hopkins), Welsh-influenced	project	memory	yes	NOT VERIFIED — recalled from the Hopkins critical tradition; no reachable source confirmed the structural definition
+E52	analysed rhyme	English literary (Turco); modernist practice	external	named	no	Turco list ('analyzed rhyme — moon/divine/chide/brood'); channel analysis of the example done here
+E53	Lyon rhyme	English literary (Turco's taxonomy)	external	named	yes	Turco list via search only — SINGLE UNVERIFIED SOURCE
+E54	refrain / burden / chorus	Folk ballad, hymn, music hall, blues, all popular song	project	module	no	MISSING.md A-1; CLAUDE.md doctrine 3, 18
+E55	repetend	Folk ballad; free-verse practice	project	module	no	CLAUDE.md doctrine 18
+E56	incremental repetition	English and Scots folk ballad (Child ballads centrally)	project	module	no	MISSING.md A-2; standard Child-ballad scholarship
+E57	blues AAB stanza	Blues; carried into R&B, rock and rap	external	named	no	blues AAB form summaries via search; CLAUDE.md doctrine 2, 3
+E58	anaphora	Hymn, folk, blues, rap, all English rhetorical verse	project	module	no	CLAUDE.md doctrine 15; quality/floor.py
+E59	epistrophe	Hymn, gospel, blues, rap	project	module	no	CLAUDE.md doctrine 58 on radif; quality/hafez_rate.py; the brief's own note on qafiya-before-radif
+E60	symploce	Hymn, gospel, rap	project	memory	no	standard rhetorical taxonomy; parallel drawn here
+E61	anadiplosis	Ballad, hymn, rap	external	named	no	standard rhetorical taxonomy; Turco linked rhyme for the parallel
+E62	epanalepsis	Ballad, hymn, song	unrecorded	appeal	no	standard rhetorical taxonomy
+E63	homoioteleuton	English/Scots literary; endemic in weak song and rap writing	external	named	no	Wiktionary/Merriam-Webster homoioteleuton definitions via search; Turco list ('omoioteleton'); CLAUDE.md doctrine 4 value layer
+E64	polyptoton	English/Scots literary; blues and gospel ('love that loves', 'done did')	external	named	no	Wikipedia Polyptoton / Figura etymologica via search
+E65	antanaclasis	English literary; music hall, blues double-entendre, rap punchlines	project	memory	no	standard rhetorical taxonomy; parallel to rime riche drawn here
+E66	trite rhyme	English/Scots literary; named as a fault in all vernacular pedagogy	external	named	no	Turco list ('trite rhyme'); CLAUDE.md doctrine 9, 48; quality/revise.py
+E67	rhyming slang	London vernacular (Cockney); Australian and American offshoots	external	named	no	Wikipedia Rhyming slang and multiple Cockney sources via search ('omitting, from the end of the phrase, the secondary rhyming word')
+E68	rhyming reduplication	Nursery, playground, music hall, everyday English	external	named	no	reduplication surveys via search (Minkova cited on the 15c emergence of rhyming and ablaut types); CLAUDE.md doctrine 65; MISSING.md F-3
+E69	ablaut reduplication	Nursery, playground, everyday English	external	named	no	multiple reduplication surveys via search (I-A-O order; Minkova on historical emergence)
+E70	exact reduplication	Nursery, playground, everyday English	external	named	no	reduplication surveys via search
+E71	double / triple assonance and consonance	English/Scots literary; songwriting dictionaries; rap	external	named	no	Rhyme Genie 30-type list via search
+E72	feminine pararhyme	English literary; songwriting dictionaries	external	named	no	Rhyme Genie 30-type list via search
+E73	Rhyme Genie residue: half double rhyme, elided rhyme, related rhyme, diminished rhyme	English-language songwriting dictionary practice (Rhyme Genie's 30-type catalogue)	external	named	yes	Rhyme Genie 30-type list, names only; definitions NOT obtained — see notes for the blocked-host list
+E74	sung-delivery rhyme	Blues, gospel, soul, country, rock — anywhere the tune outranks the text	project	memory	yes	NOT VERIFIED as a named type — phenomenon asserted, terminology deliberately not invented
+C1	cyfatebiaeth gytsain (the consonant skeleton) — SUBSTRATE, not itself a named cynghanedd	Welsh	external	named	no	quality/phonology/cym.py (skeleton(), primary implementation + declared digraph inventory); corroborated by WebSearch summaries of Clywed Cynghanedd (cs.ox.ac.uk/people/geraint.jones/rhydychen.org) and the standard descriptions
+C2	cynghanedd groes	Welsh	external	named	no	quality/phonology/cym.py; WebSearch summaries of standard descriptions
+C3	cynghanedd groes o gyswllt	Welsh	external	named	yes	WebSearch summary of Clywed Cynghanedd gwers 11 / gwers 3 (cs.ox.ac.uk); not verifiable by direct fetch — host egress-blocked
+C4	cynghanedd groes o gyswllt ewinog (provection at the seam)	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd gwers 11 (cs.ox.ac.uk)
+C5	cynghanedd draws (traws)	Welsh	project	module	no	quality/phonology/cym.py cynghanedd(); standard descriptions
+C6	cynghanedd draws fantach	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd gwers 3 (cs.ox.ac.uk)
+C7	accentuation classes of croes/traws: cytbwys acennog, cytbwys ddiacen, anghytbwys ddisgynedig (and the ABSENT anghytbwys ddyrchafedig)	Welsh	external	named	no	WebSearch summaries (languageisavirus.com poetry guide; Talk:Cynghanedd; academia.edu 'Poetic correspondence and the cynghanedd meter' which independently reports the absent anghytbwys cell as a harmonic-bounding result)
+C8	cynghanedd sain	Welsh	external	named	no	quality/phonology/cym.py _sain(); WebSearch summaries of cy.wikipedia Cynghanedd sain and standard descriptions
+C9	cynghanedd sain gadwynog	Welsh	external	named	yes	WebSearch summary of cy.wikipedia Cynghanedd sain (host egress-blocked to direct fetch)
+C10	cynghanedd sain lafarog	Welsh	external	named	no	WebSearch summary of cy.wikipedia Cynghanedd sain; the vowel-alliterates-vowel principle corroborated by non.py's Háttatal quotation
+C11	cynghanedd sain drosgl	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd gwers 8/9 (cs.ox.ac.uk)
+C12	cynghanedd sain ddwbl / sain deirodl	Welsh	external	named	no	names only, from a WebSearch result listing; no definition obtained
+C13	cynghanedd lusg	Welsh	project	module	no	quality/phonology/cym.py llusg(); standard descriptions
+C14	cynghanedd lusg gudd / lusg gyswllt	Welsh	external	named	yes	WebSearch summary of cy.wikipedia Cynghanedd lusg (unverified example)
+C15	cynghanedd lusg wyrdro	Welsh	external	named	yes	WebSearch summary; definition partial and flagged
+C16	cynghanedd bengoll	Welsh	external	named	no	WebSearch summary of cy.wikipedia Cynghanedd bengoll
+C17	braidd gyffwrdd / egin-gynghanedd	Welsh	external	named	no	WebSearch summary of cy.wikipedia / WICI
+C18	goddefiad: n wreiddgoll	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd (cs.ox.ac.uk), Welsh text quoted in the result
+C19	goddefiad: n ganolgoll	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd (cs.ox.ac.uk), Welsh text quoted in the result
+C20	goddefiad: two consonants answered by one	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd (cs.ox.ac.uk), Welsh text quoted in the result
+C21	goddefiad: h is not counted	Welsh	project	memory	yes	unverified — my own knowledge, flagged
+C22	odl (prifodl) — Welsh full rhyme	Welsh	unrecorded	appeal	no	standard; corroborated by the fault definitions below
+C23	proest — Welsh half rhyme	Welsh	external	named	no	WebSearch summaries (Britannica half-rhyme; goodreads englyn form notes; grandiloquentwretch)
+C24	lleddf a thalgron as a vowel-CLASS partition (englyn proest dalgron vs englyn lleddfbroest)	Welsh	external	named	yes	WebSearch summaries; membership flagged uncertain
+C25	proest cadwynog / proest cyfnewidiog (scheme-level arrangements)	Welsh	external	named	no	WebSearch summary (goodreads englyn series)
+C26	cywydd deuair hirion couplet rhyme (accented against unaccented)	Welsh	unrecorded	appeal	no	standard description of cywydd deuair hirion; corroborated by the Irish parallel
+C27	gair cyrch	Welsh	external	named	no	WebSearch summary (englyn descriptions); corroborated by cynghanedd bengoll's surviving licence
+C28	englyn cyrch / awdl gywydd cross rhyme	Welsh	external	named	no	WebSearch summary (englyn cyrch / awdl gywydd descriptions)
+C29	cymeriad llythrennol	Welsh	external	named	no	WebSearch summary of WICI 'Cymeriad (cynghanedd)'
+C30	cymeriad geiriol	Welsh	external	named	no	WebSearch summary of WICI 'Cymeriad (cynghanedd)'
+C31	cymeriad cynganeddol	Welsh	external	named	no	WebSearch summary of WICI 'Cymeriad (cynghanedd)'
+C32	cymeriad synhwyrol	Welsh	project	memory	yes	standard listing; FLAG: definition from my own knowledge, not verified this session
+C33	cyrch-gymeriad (and the awdl's closing return)	Welsh	external	named	no	WebSearch summary of WICI 'Cymeriad (cynghanedd)'
+C34	bai: trwm ac ysgafn	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd 'Beiau Gwaharddedig' (cs.ox.ac.uk)
+C35	bai: lleddf a thalgron	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd 'Beiau Gwaharddedig' (cs.ox.ac.uk)
+C36	bai: rhy debyg	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd 'Beiau Gwaharddedig' (cs.ox.ac.uk)
+C37	bai: twyll gynghanedd	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd 'Beiau Gwaharddedig' (cs.ox.ac.uk)
+C38	bai: camosodiad	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd 'Beiau Gwaharddedig' (cs.ox.ac.uk)
+C39	bai: crych a llyfn	Welsh	external	named	no	WebSearch summary of Clywed Cynghanedd 'Beiau Gwaharddedig' (cs.ox.ac.uk)
+C40	bai: proest i'r odl, gorodl, ymsathr odlau (rhyme-hygiene faults)	Welsh	unrecorded	appeal	yes	partially verified — proest i'r odl standard; the other two flagged
+C41	Welsh orthographic substrate: the eight digraphs, the elision apostrophe, the gwant	Welsh	project	module	no	quality/phonology/cym.py (primary, in-repo)
+C42	comhardadh slán (comharda) — Irish full rhyme	Irish	external	named	yes	WebSearch summaries (dán díreach descriptions; scoilgaeilge.org; stfx.ca bardic metres) — direct fetch of all of them egress-blocked
+C43	the Irish consonant-class quotient and the caol/leathan channel	Irish and Scottish Gaelic (classical)	external	named	no	WebSearch summaries citing the six-class list verbatim, twice, from different pages; corroborated by my own knowledge of Murphy, Early Irish Metrics
+C44	comhardadh briste — Irish broken rhyme	Irish	project	memory	yes	standard Classical Modern Irish terminology; FLAG: not independently verified this session
+C45	amus (amas) — Irish assonance	Irish	external	named	no	WebSearch summary quoting the rule that assonance concerns only stressed vowels 'with no regard to consonants or syllabic length of the word'
+C46	uaithne — Irish consonance	Irish	external	named	no	WebSearch summaries (two, disagreeing in strictness); conflict recorded rather than smoothed
+C47	uaim — Irish alliteration	Irish	external	named	no	WebSearch summaries (multiple, agreeing on the unstressed-intervener rule); cluster rules corroborated by non.py's declared Germanic rule
+C48	aicill (aichill) — Irish end-to-interior rhyme	Irish	external	named	no	WebSearch summaries (rannaigheacht descriptions; Blankenhorn 'Irish Song-Craft' abstract for the mid-line sense)
+C49	rinn agus airdrinn — Irish stressed-against-unstressed rhyme	Irish	external	named	no	WebSearch summaries (deibhidhe descriptions; multiple, agreeing)
+C50	dúnad — Irish closure	Irish	external	named	no	WebSearch summary (dán díreach requirements; consistent across sources)
+C51	conachlonn (conachlann) — Irish chaining	Irish	external	named	no	WebSearch summary; conflation with fidrad freccomail noted in the source and corrected here
+C52	fidrad freccomail — Irish linking alliteration between stanzas	Irish	external	named	yes	WebSearch summary; separation flagged as my reading
+C53	the séadna line-1 tail link	Irish	external	named	no	WebSearch summary of a séadna description (poetscollective / stfx.ca); FLAG: single-source
+C54	amhrán / caoineadh vowel skeleton	Irish (post-classical, 17th c. onward)	external	named	no	my own knowledge of the amhrán metres, partially corroborated by a WebSearch summary of Blankenhorn 'Irish Song-Craft and Metrical Practice Since 1600' reporting mid-line assonance (aicill) plus vertical assonance and end-rhyme creating stanzaic unity
+C55	initial mutation as a channel-transforming operation	Irish, Scottish Gaelic, and Welsh	unrecorded	appeal	no	standard Goidelic/Brythonic phonology; the fh/sh and eclipsis-ordering points are the ones a checker gets wrong silently
+C56	Goidelic orthographic substrate: digraphs, silent lenition, and the caol-le-caol spelling rule	Irish and Scottish Gaelic	project	module	no	standard Irish orthography; the normalisation hazard is already recorded in CLAUDE.md doctrine 50
+C57	classical common Gaelic (dán díreach as practised in Scotland)	Scottish Gaelic (classical)	external	named	no	standard; corroborated by WebSearch results on classical literary Gaelic being shared between Ireland and Scotland
+C58	Scottish Gaelic vernacular end assonance (vowel rhyme)	Scottish Gaelic (vernacular)	external	named	no	WebSearch summaries (tonguefire/amyjophilip 'Rhyme in Gaelic'; Blankenhorn 'Verse structure and performance in Scottish Gaelic vernacular poetry' abstract)
+C59	Scottish Gaelic strophic metre: the contrasting final line	Scottish Gaelic (vernacular)	external	named	no	WebSearch summary of a description of strophic metre used for clan eulogy and elegy (Matheson/Blankenhorn line of work)
+C60	Scottish Gaelic cadence assonance across unequal line types (two-stress vs three-stress)	Scottish Gaelic (vernacular)	external	named	no	WebSearch summary of Blankenhorn, 'Verse structure and performance in Scottish Gaelic vernacular poetry'
+C61	internal assonance / aicill in Gaelic song	Scottish Gaelic (vernacular)	external	named	no	WebSearch summaries; FLAG: less well corroborated than the cadence entry above
+C62	òran luaidh (waulking song) vocable refrain	Scottish Gaelic (vernacular)	external	named	no	WebSearch summaries (waulking song descriptions; multiple, agreeing)
+C63	òran luaidh verse overlap (chaining between verses)	Scottish Gaelic (vernacular)	external	named	no	WebSearch summary of waulking song structure (grokipedia/wikipedia-derived; FLAG: single line of provenance)
+C64	sèist (chorus) in Gaelic song	Scottish Gaelic (vernacular)	unrecorded	appeal	no	standard; low risk
+G1	skothending	Old Norse (skaldic, dróttkvætt odd lines)	external	named	yes	repo quality/phonology/non.py — quotes Háttatal prose verbatim; corroborated by WebSearch summaries of skaldic.org (host egress-blocked)
+G2	aðalhending	Old Norse (skaldic, dróttkvætt even lines)	external	named	no	repo quality/phonology/non.py (Háttatal prose quoted); WebSearch confirms odd=skot / even=aðal distribution
+G3	frumhending / viðrhending pairing rule	Old Norse (skaldic)	external	named	no	repo quality/phonology/non.py, quoting Háttatal
+G4	oddhending	Old Norse (skaldic)	external	named	no	repo quality/phonology/non.py — Snorri: 'stendr stundum í upphafi orðs, köllum vér þá oddhending'
+G5	hluthending	Old Norse (skaldic)	external	named	no	repo quality/phonology/non.py — Snorri: 'stundum í miðju orði, köllum vér þá hluthending'
+G6	stuðlar	Old Norse (skaldic and eddic)	external	named	no	repo quality/phonology/non.py, quoting Háttatal prose
+G7	höfuðstafr	Old Norse (skaldic and eddic); shared with Old English/Old Saxon/OHG as the head-stave rule	external	named	no	repo quality/phonology/non.py; WebSearch (German Stabreim sources) confirms the same rule for Anvers/Abvers
+G8	sk / sp / st cluster stave rule	Germanic shared: Old Norse, Old English (sc sp st), Old High German / Old Saxon	external	named	no	repo quality/phonology/non.py (declared, tested); WebSearch confirms for Old English
+G9	hljóðstafr (vowel alliteration) with the 'fegra' preference	Old Norse; shared with Old English, Old Saxon, OHG, and Finnic (independently)	external	named	no	repo quality/phonology/non.py, quoting Háttatal
+G10	málfylling licence (stave-ineligible word class)	Old Norse (attested list in Háttatal); parallel to Welsh proclitics and English WEAK_ALWAYS	external	named	no	repo quality/phonology/non.py, quoting Háttatal prose after stanza 1
+G11	dunhent	Old Norse (dróttkvætt variant, Háttatal)	external	named	yes	WebSearch 2026-08-10, skaldic.org summaries (host egress-blocked, snippet only)
+G12	liðhent	Old Norse (dróttkvætt variant, Háttatal)	external	named	yes	WebSearch 2026-08-10, skaldic.org summaries (snippet only; host blocked)
+G13	alhent	Old Norse (dróttkvætt variant, Háttatal)	external	named	no	WebSearch 2026-08-10, skaldic.org summaries
+G14	iðurmælt	Old Norse (dróttkvætt variant, Háttatal)	external	named	no	WebSearch 2026-08-10, skaldic.org summary (snippet only)
+G15	detthent	Old Norse (dróttkvætt variant, Háttatal)	external	named	yes	WebSearch 2026-08-10, skaldic.org summary (snippet only) — NOT verified against Faulkes
+G16	skjálfhent	Old Norse (dróttkvætt variant, Háttatal)	external	named	no	WebSearch 2026-08-10, two skaldic.org summaries that partly disagree
+G17	tvískelft	Old Norse (dróttkvætt variant, Háttatal)	external	named	no	WebSearch 2026-08-10, skaldic.org summary
+G18	riðhent	Old Norse (dróttkvætt variant, Háttatal)	external	named	yes	name attested via WebSearch; definition NOT obtained
+G19	munnvǫrp	Old Norse (dróttkvætt variant, Háttatal)	external	named	no	WebSearch 2026-08-10, skaldic.org summary
+G20	hálfhnept	Old Norse (metre, Háttatal / Háttalykill)	external	named	no	WebSearch 2026-08-10, skaldic.org summary
+G21	alhnept	Old Norse (metre, Háttatal 78 / Háttalykill)	external	named	no	WebSearch 2026-08-10, skaldic.org summary
+G22	runhent	Old Norse (skaldic; Egill's Höfuðlausn; also a rhymed fornyrðislag)	external	named	no	WebSearch 2026-08-10, skaldic.org summaries; repo non.py notes dróttkvætt has NO end rhyme
+G23	haðarlag	Old Norse (metre, Háttatal)	external	named	no	WebSearch 2026-08-10, skaldic.org summary
+G24	hrynhent	Old Norse (metre; much Christian skaldic verse)	external	named	no	WebSearch 2026-08-10, skaldic.org summaries
+G25	tøglag	Old Norse (metre, Háttatal)	external	named	yes	WebSearch 2026-08-10, skaldic.org summary (detail unverified)
+G26	stef	Old Norse (skaldic long poem)	external	named	no	WebSearch 2026-08-10, skaldic.org technical-terms summary
+G27	klofastef	Old Norse (skaldic long poem)	external	named	no	WebSearch 2026-08-10, skaldic.org technical-terms summary
+G28	fornyrðislag stave placement	Old Norse (eddic)	external	named	no	repo quality/phonology/non.py (rule shape); WebSearch for the metre inventory
+G29	ljóðaháttr full-line (Vollzeile) alliteration	Old Norse (eddic)	project	memory	yes	standard description of ljóðaháttr; NOT re-verified in this session — flagged
+G30	galdralag	Old Norse (eddic)	project	memory	yes	standard description; NOT re-verified this session — flagged
+G31	hringhenda (rímur)	Icelandic rímur (post-medieval descendant of the skaldic system)	external	named	yes	WebSearch 2026-08-10, Icelandic bragfræði summaries (primary hosts blocked)
+G32	oddhenda (rímur)	Icelandic rímur	external	named	no	WebSearch 2026-08-10, Icelandic bragfræði summaries
+G33	samhenda / stafhenda (rímur)	Icelandic rímur	external	named	no	WebSearch 2026-08-10, Icelandic bragfræði summaries
+G34	dunhenda (rímur)	Icelandic rímur	unrecorded	appeal	yes	name attested; definition NOT obtained
+G35	sléttubönd	Icelandic rímur	external	named	yes	WebSearch 2026-08-10 (Icelandic sources; primary hosts blocked)
+G36	Old English alliterative long line (head-stave rule)	Old English (and structurally identical in Old Saxon and OHG)	external	named	no	WebSearch 2026-08-10 (multiple OE-metre summaries); matches the repo's Norse rule shape
+G37	double alliteration (a-verse)	Old English / Middle English	external	named	no	WebSearch 2026-08-10
+G38	single alliteration	Old English	external	named	no	WebSearch 2026-08-10
+G39	crossed alliteration	Old English (rare, marked)	external	named	no	WebSearch 2026-08-10 (OE verse-forms cheat sheet summary)
+G40	transverse alliteration	Old English (rare, marked)	external	named	no	WebSearch 2026-08-10
+G41	forbidden patterns (aa|aa, xa|xa) and the fourth-lift prohibition	Old English	external	named	no	WebSearch 2026-08-10 (OE verse-forms summaries)
+G42	palatal/velar equivalence for c and g	Old English	external	named	no	WebSearch 2026-08-10
+G43	extra (ornamental) alliteration on non-structural stresses	Old English (studied by Orchard and others)	external	named	no	WebSearch 2026-08-10 (Cambridge/ORA article summaries)
+G44	Old English end rhyme	Old English (marginal but attested)	external	named	no	WebSearch 2026-08-10 (The Rhyming Poem, Exeter Book, 87 lines in rhyming couplets)
+G45	Middle English alliterative long line (revival)	Middle English c.1350–1500	external	named	no	WebSearch 2026-08-10
+G46	bob and wheel	Middle English (Sir Gawain and the Green Knight)	external	named	no	WebSearch 2026-08-10
+G47	Pearl concatenation (link word)	Middle English (Pearl)	external	named	no	WebSearch 2026-08-10
+G48	alliterative binomial formula	Germanic shared: English, German, Dutch, Scandinavian	external	named	no	WebSearch 2026-08-10 (German Stabreim sources); standard for English/Dutch
+G49	Stabreim (Old High German / Old Saxon)	Old High German (Hildebrandslied, Muspilli) and Old Saxon (Heliand, Genesis)	external	named	no	WebSearch 2026-08-10 (German Stabreim references)
+G50	Schwellvers	Old Saxon (Heliand) and Old English	external	named	yes	WebSearch 2026-08-10; detail on OS practice not independently verified
+G51	Otfrid's end rhyme	Old High German (Evangelienbuch, c. 865) — the changeover point	external	named	no	WebSearch 2026-08-10 (Otfrid references)
+G52	Endreim with cadence class	German (MHG to modern); Dutch parallel: staand / slepend / glijdend rijm	external	named	no	WebSearch 2026-08-10 (German and Dutch prosody summaries)
+G53	reiner vs unreiner Reim	German and Dutch	external	named	no	WebSearch 2026-08-10
+G54	Assonanz / klinkerrijm	German, Dutch (and the Scandinavian ballad)	external	named	no	WebSearch 2026-08-10 (Dutch rijmsoorten summaries)
+G55	Konsonanz / medeklinkerrijm	German, Dutch	external	named	no	WebSearch 2026-08-10 (Dutch summaries; ambiguity observed in sources)
+G56	rührender Reim	German and Dutch	external	named	no	WebSearch 2026-08-10
+G57	äquivoker Reim	German (Minnesang, Meistersang)	external	named	yes	WebSearch 2026-08-10 (German Reim references); Meistersang fault list NOT verified
+G58	grammatischer Reim	German (MHG Minnesang)	external	named	no	WebSearch 2026-08-10
+G59	reicher Reim	German	external	named	no	WebSearch 2026-08-10 (usage differs between sources consulted)
+G60	Doppelreim	German	external	named	no	WebSearch 2026-08-10
+G61	Schüttelreim	German (attested since the 13th c.)	external	named	no	WebSearch 2026-08-10 (multiple German dictionary and prosody sources agree on the swap rule)
+G62	Schlagreim	German and Dutch	external	named	no	WebSearch 2026-08-10
+G63	Binnenreim / Innenreim	German and Dutch	external	named	no	WebSearch 2026-08-10
+G64	Mittelreim	German and Dutch	external	named	no	WebSearch 2026-08-10 (German and Dutch sources agree)
+G65	Zäsurreim	German (and the Dutch/Middle Dutch long line)	external	named	no	WebSearch 2026-08-10
+G66	Anfangsreim / Eingangsreim	German and Dutch	external	named	no	WebSearch 2026-08-10 (German Anfangsreim; Dutch voorrijm)
+G67	Pausenreim / übergehender Reim	German	external	named	no	WebSearch 2026-08-10 (terminology overlap observed, not resolved)
+G68	gebrochener Reim	German	external	named	no	WebSearch 2026-08-10
+G69	gespaltener Reim	German	external	named	yes	WebSearch 2026-08-10 (label assignment uncertain, structures are not)
+G70	Augenreim / oogrijm	German and Dutch	external	named	no	WebSearch 2026-08-10
+G71	Waise / weesrijm	German (Minnesang, Meistersang) and Dutch	external	named	no	WebSearch 2026-08-10 (German Waise; Dutch weesrijm)
+G72	Körner / Kornreim	German (Meistersang, Minnesang)	external	named	no	WebSearch 2026-08-10
+G73	end-rhyme SCHEME names (Paarreim, Kreuzreim, umarmender/Blockreim, Schweifreim, verschränkter Reim, Haufenreim, Kettenreim; Dutch gepaard, gekruist, omarmend, slagrijm-schema)	German and Dutch	external	named	no	WebSearch 2026-08-10
+G74	Stollen parallelism (Bar form)	German (Minnesang, Meistersang), with the Dutch parallel in rederijker strophic forms	external	named	no	WebSearch 2026-08-10 (Meistersang/Kanzone references)
+G75	Kehrreim / Refrain (German), refereyn stok (Dutch)	German and Dutch (rederijker refereyn especially)	external	named	no	WebSearch 2026-08-10 (rederijker sources)
+G76	ketendicht / kettinggedicht	Dutch (rederijkers)	external	named	no	WebSearch 2026-08-10 (rederijker sources)
+G77	rondeel	Dutch (rederijkers) and French-derived European practice	external	named	no	WebSearch 2026-08-10 (rederijker dichtvormen listings)
+G78	dubbelsteert	Dutch (rederijkers)	external	named	yes	name attested via WebSearch; definition NOT obtained
+G79	stafrijm / alliteratie	Dutch	external	named	no	WebSearch 2026-08-10 (source conflict observed)
+G80	dubbelrijm	Dutch	external	named	no	WebSearch 2026-08-10
+G81	gebroken rijm (Dutch)	Dutch	external	named	no	WebSearch 2026-08-10 (Dutch source gives the scheme reading; German sources give the word-splitting reading)
+G82	Kalevala weak alliteration	Finnic (Kalevala-metre: Finnish, Karelian, Estonian regilaul)	project	module	no	repo quality/phonology/fin.py; CLAUDE.md doctrines 63/64
+G83	Kalevala strong alliteration	Finnic (Kalevala-metre)	external	named	no	repo quality/phonology/fin.py; WebSearch corroborates the weak/strong split and the rarity of strong
+G84	Finnic vowel-initial alliteration class	Finnic (Kalevala-metre)	project	module	yes	repo quality/phonology/fin.py; cluster question flagged as open
+G85	kerto / parallelism	Finnic (Kalevala-metre)	external	named	no	WebSearch 2026-08-10 (Kalevala-metre characterised by alliteration and parallelisms of many kinds)
+G86	rekilaulu end rhyme	Finnic (post-Kalevala Finnish folk song; also tsastuska, ballads)	external	named	no	WebSearch 2026-08-10 (rekilaulu described as rhymed and tetrametric, unlike Kalevala-metre)
+G87	Estonian regilaul alliteration (algriim)	Finnic (Estonian)	external	named	yes	WebSearch 2026-08-10 for the system; Estonian term names NOT verified
+G88	Scandinavian ballad omkvæd	Medieval Scandinavian ballad (adjacent to Old Norse; Danish/Swedish/Norwegian/Faroese)	project	memory	yes	standard description of the Scandinavian ballad; NOT re-verified this session — flagged
+G89	Scandinavian ballad assonance binding	Medieval Scandinavian ballad	project	memory	yes	standard description; NOT re-verified this session — flagged
+S1	qāfiya (al-Khalīl's definition — the DEFAULT span)	Arabic	external	named	yes	WebSearch snippet quoting al-Khalīl: 'from the last letter in the verse to the first quiescent letter that follows it, including the voweled letter that comes before the quiescent letter' (uomustansiriyah.edu.iq lecture PDF, themar.ahlamontada.net; full fetch egress-blocked)
+S2	qāfiya as the last WORD (al-Akhfash's definition)	Arabic	external	named	yes	Standard in the qawāfī literature; surfaced in WebSearch results on تعريف القافية (hosts egress-blocked)
+S3	qāfiya as the RAWĪ alone	Arabic	external	named	no	Naming convention (qaṣīda lāmiyya etc.) is universal; WebSearch on huruf al-qafiya
+S4	rawī	Arabic; inherited by Persian, Ottoman Turkish, Urdu, Andalusian Hebrew	external	named	no	WebSearch (neliti Hijai journal PDF; wakidyusuf balaghah); Persian: Shams-i Qays al-Muʿjam via Dal Bianco 2023 abstract
+S5	ridf	Arabic	external	named	no	WebSearch (neliti; wakidyusuf). The ū/ī interchange is already implemented in this repo at lyric_harness.py:1372 as `{p['ridf'], prof['ridf']} <= {'waw','ya'}`.
+S6	taʾsīs	Arabic	external	named	no	WebSearch (neliti Hijai; wakidyusuf): 'Ta'sis: an alif letter where there is one letter between the rawi and this alif'
+S7	dakhīl	Arabic	external	named	no	WebSearch (neliti Hijai): 'Dakhil: a voweled letter that comes after the ta'sis'
+S8	waṣl	Arabic	external	named	no	WebSearch (neliti Hijai): 'Washal: a soft letter that arises from the voweling of the rawi or the ha' adjacent to it'
+S9	khurūj	Arabic	external	named	no	WebSearch (neliti Hijai): 'Khuruj: a letter that arises from the voweling of the ha' washal'
+S10	majrā	Arabic	external	named	no	WebSearch (neliti Hijai): 'Majra: the vowelization of the rawi muthlaqoh'; Persian non-application per beytoote/persianatlas snippets
+S11	nafādh	Arabic	external	named	no	WebSearch (neliti Hijai): 'Nafadz: the vowelization of the ha' washal'
+S12	ḥadhw	Arabic	external	named	no	WebSearch (neliti Hijai): 'Hadzwu: the vowelization of the letter before the ridif'
+S13	ishbāʿ	Arabic	external	named	no	WebSearch (neliti Hijai): 'Isyba': the vowelization of the dakhil'
+S14	rass	Arabic	external	named	no	WebSearch (neliti Hijai; wakidyusuf) lists rass among the six ḥarakāt
+S15	tawjīh	Arabic	external	named	no	WebSearch (neliti Hijai; wakidyusuf)
+S16	qāfiya muṭlaqa	Arabic; Persian	external	named	no	WebSearch (khoiriyyah.blogspot 'Macam-Macam Qofiyah'; wakidyusuf)
+S17	qāfiya muqayyada	Arabic; Persian	external	named	no	WebSearch (khoiriyyah.blogspot; wakidyusuf)
+S18	qāfiya mutarādifa	Arabic	external	named	no	WebSearch: 'Mutaradif is when the two silent letters meet directly without being separated by a voweled letter'
+S19	qāfiya mutawātira	Arabic	external	named	no	WebSearch (same source as mutarādif)
+S20	qāfiya mutadārika	Arabic	external	named	no	WebSearch (same source)
+S21	qāfiya mutarākiba	Arabic	external	named	no	WebSearch (same source)
+S22	qāfiya mutakāwisa	Arabic	external	named	no	WebSearch (same source)
+S23	īṭāʾ jalī	Arabic	external	named	no	WebSearch (mahmoudqahtan 'علم القافية: عيوب القافية'; anasedu). Distance figure reported variously — treat 'seven lines' as CONTESTED.
+S24	īṭāʾ khafī	Arabic	external	named	no	WebSearch (mahmoudqahtan; loghate). The fault/ornament conflict is stated in the badīʿ literature on jinās tāmm.
+S25	iqwāʾ	Arabic	external	named	no	WebSearch: 'Al-Iqwa: difference in the preceding element's vowel with kasra and damma' (mahmoudqahtan; ar.wikipedia إجازة)
+S26	iṣrāf	Arabic	external	named	no	WebSearch: 'Al-Israf: difference in the vowel ... with fatha and other vowels' (mahmoudqahtan)
+S27	ikfāʾ	Arabic	external	named	no	WebSearch: 'Al-Ikfa: difference in the rhyme letter using phonetically close articulation points'. NOTE: some sources swap the ikfāʾ/ijāza definitions — the SPLIT is certain, the label assignment is CONTESTED.
+S28	ijāza	Arabic	external	named	no	WebSearch: 'Al-Ijaza: difference in the rhyme letter using phonetically distant articulation points' (ar.wikipedia إجازة (شعر))
+S29	sinād al-ridf	Arabic	external	named	no	WebSearch (mahmoudqahtan; wakidyusuf)
+S30	sinād al-taʾsīs	Arabic	external	named	no	WebSearch (mahmoudqahtan)
+S31	sinād al-ishbāʿ	Arabic	external	named	no	WebSearch (wakidyusuf; neliti)
+S32	sinād al-ḥadhw	Arabic	external	named	no	WebSearch (wakidyusuf; neliti)
+S33	sinād al-tawjīh	Arabic	external	named	no	WebSearch (mahmoudqahtan; wakidyusuf). Tolerance level reported variously.
+S34	taḍmīn (as a rhyme defect)	Arabic	external	named	no	WebSearch listing of عيوب القافية includes التضمين (mahmoudqahtan; loghate)
+S35	luzūm mā lā yalzam	Arabic (al-Maʿarrī)	external	named	no	WebSearch: en.wikipedia Luzūmiyyāt — 'a novel double-consonant rhyme scheme ... requiring not only double rhymes in each letter of the alphabet, but also all possible vowel endings'
+S36	taṣrīʿ	Arabic; Persian (muṣarraʿ); Ottoman Turkish	external	named	no	WebSearch: en.wikipedia Matla' — 'the defining feature of the matla' is that both verses of the couplet rhyme ... to definitively set the qafiya and radif'
+S37	tadwīr	Arabic	external	named	yes	NOT VERIFIED THIS SESSION — WebSearch returned no definition. Recall only.
+S38	qaṣīda monorhyme	Arabic; Persian; Ottoman Turkish; Andalusian Hebrew	project	module	no	Universal; this repo already ingests 495 Hafez ghazals on this shape (data/sources.tsv row local:corpus/fas_hafez.json)
+S39	muzdawij / mathnawī couplet rhyme	Arabic; Persian; Ottoman Turkish; Urdu	external	named	no	Standard; grokipedia/en.wikipedia Masnavi surfaced in WebSearch
+S40	musammaṭ / tasmīṭ	Arabic; Persian; Ottoman Turkish	external	named	no	Standard; muwashshaḥ literature via WebSearch (en.wikipedia Muwashshah)
+S41	ghuṣn / dawr rhyme (muwashshaḥ stanza-local)	Arabic (Andalusi); Hebrew (shir ezor)	external	named	no	WebSearch: en.wikipedia Muwashshah — 'five aghsan (branches) with uniform rhyme within each strophe'
+S42	qufl / simṭ rhyme (muwashshaḥ common)	Arabic (Andalusi); Hebrew (shir ezor)	external	named	no	WebSearch: en.wikipedia Muwashshah — 'interspersed with asmat (threads for stringing pearls) with common rhyme throughout the song'; 'six common-rhyme sections (aqfāl) and five changing-rhyme sections (abyāt)'
+S43	kharja	Arabic (Andalusi); Hebrew (Andalusi)	external	named	no	WebSearch: en.wikipedia Muwashshah; Zwartjes 'The Andalusian Xarja-s: Poetry at the Crossroads of Two Systems?'
+S44	zajal	Arabic (Andalusi, vernacular)	external	named	no	WebSearch (Monroe, 'Which Came First, the Zajal or the Muwaššaḥa?', journal.oraltradition.org)
+S45	jinās tāmm	Arabic; and via Arabic into Persian, Turkish (cinas), Hebrew	external	named	no	WebSearch (wakidyusuf balaghah; neliti 'Jinās dalam Kitab Fathul Muin')
+S46	jinās muḥarraf	Arabic	external	named	no	WebSearch (neliti; wakidyusuf): 'two words that differ in letter form but maintain the same letter count and sequence'; repo: quality/phonology/fas.py
+S47	jinās nāqiṣ (mutarraf)	Arabic	external	named	no	WebSearch (neliti; wakidyusuf): 'Jinas naqis: a reduction in letters between two words'
+S48	jinās nāqiṣ (mardūf)	Arabic	external	named	no	WebSearch (neliti; wakidyusuf). Label assignment CONTESTED.
+S49	jinās nāqiṣ (muktanaf)	Arabic	external	named	no	WebSearch (neliti; wakidyusuf)
+S50	jinās muḍāriʿ	Arabic	external	named	no	WebSearch (neliti; wakidyusuf): 'perbedaan huruf dengan makhraj dekat'
+S51	jinās lāḥiq	Arabic	external	named	no	WebSearch (neliti): 'perbedaannya terdapat pada satu huruf, namun berjauhan (tidak dalam satu makhorijul huruf)'
+S52	jinās qalb	Arabic	external	named	no	WebSearch (neliti; wakidyusuf)
+S53	jinās al-ishtiqāq	Arabic; Hebrew (root play)	external	named	no	WebSearch (neliti; wakidyusuf): 'kemiripan kata yang berasal dari akar yang sama'; corroborated by the Hebrew Qillirian norm's 'discontinuity of the rhymeme' (Open Book Publishers, obp.0207.16)
+S54	jinās shibh al-ishtiqāq	Arabic	project	memory	yes	Standard in badīʿ taxonomies; NOT independently verified this session — flag as recall.
+S55	jinās mustawfā	Arabic	project	memory	yes	Standard in badīʿ taxonomies; NOT independently verified this session — flag as recall.
+S56	jinās murakkab (mutashābih)	Arabic	external	named	no	WebSearch (neliti; wakidyusuf) — mafrūq/mutashābih split
+S57	jinās murakkab (mafrūq)	Arabic	external	named	no	WebSearch (neliti): 'Jinas murakkab yang tidak sama tulisannya (Mafruq)'
+S58	jinās muṣaḥḥaf	Arabic; Persian; Ottoman Turkish (all Arabic-script)	external	named	no	WebSearch (neliti; wakidyusuf): 'perbedaan titik huruf (Musahhaf)'
+S59	al-ḥurūf al-muhmala / muʿjama / raqṭāʾ	Arabic	project	memory	yes	Standard in the ḥīlī/badīʿ literature; NOT independently verified this session — flag as recall.
+S60	saj' muṭarraf	Arabic (rhymed prose; also enters Persian and Ottoman prose)	external	named	no	WebSearch (dergipark Firat Univ. theology journal): 'al-muṭarraf: two phrases have the same ending letter but different metrical patterns'
+S61	saj' mutawāzī	Arabic	external	named	no	WebSearch (dergipark Firat Univ.): 'the metrical pattern and ending letter are the same in the final words of phrases, while the preceding words differ'
+S62	saj' muraṣṣaʿ / tarṣīʿ	Arabic; Persian; Ottoman Turkish prose and verse	external	named	no	WebSearch (dergipark Firat Univ.): saj' has three types, al-muṭarraf, al-mutawāzī, al-muraṣṣaʿ
+S63	muwāzana	Arabic	external	named	no	WebSearch (dergipark Firat Univ.) lists muwāzana beside the saj' types
+S64	radd al-ʿajuz ʿalā al-ṣadr	Arabic; Persian; Ottoman Turkish	external	named	no	WebSearch (dergipark Firat Univ.): 'a form of repetition of the first word in the last part of a phrase'
+S65	tashābuh al-aṭrāf	Arabic; Persian; Urdu	project	memory	yes	Standard badīʿ figure; NOT independently verified this session — flag as recall.
+S66	tardīd	Arabic	project	memory	yes	Standard badīʿ figure; NOT independently verified this session — flag as recall.
+S67	takrār / iʿāda	Arabic; Persian; Turkish	project	module	no	Standard; the fault/requirement inversion is CLAUDE.md doctrine 3
+S68	tashrīʿ / tawʾam	Arabic (al-Ḥarīrī and the maqāma tradition)	project	memory	yes	Attested in the maqāma/badīʿ tradition; NOT independently verified this session — flag as recall, and as the least certain entry in the Arabic set.
+S69	root-skeleton agreement (structural type, tradition-independent)	Semitic generally: Arabic and Hebrew	external	named	no	WebSearch: Open Book Publishers, 'Marginalia to the Qillirian Rhyme System' — 'the principle of discontinuity of the rhymeme is based on the nature of the Hebrew lexical morpheme, which is discontinuous, consisting merely of consonants'
+S70	pattern/wazn agreement (structural type, tradition-independent)	Arabic; Hebrew	external	named	no	Derived from the muwāzana/tarṣīʿ definitions (dergipark Firat Univ.) and the Qillirian discussion (obp.0207.16)
+S71	morphological rhyme (rhyme carried by inflection)	Arabic; Persian; Hebrew (biblical and early piyyut); Turkish	external	named	no	Converging: WebSearch on عیوب قافیه (beytoote/persianatlas), Turkish kafiye/redif definitions (turkedebiyati.org, TÜBİTAK ansiklopedi), Qillirian norm (obp.0207.16)
+S72	radīf (Persian)	Persian; Ottoman Turkish; Urdu; Chagatai	external	named	no	quality/phonology/fas.py module docstring; data/sources.tsv rows for kavehbc/hafez (radif in 297–315 of 495 ghazals depending on min_fraction); WebSearch fa.wikipedia ردیف (شعر)
+S73	ḥājib	Persian	external	named	yes	WebSearch (Arabic-language summary of Persian sources): 'الحاجب عبارة عن كلمة أو كلمات تُكرر حرفياً تماماً مثل الردف، لكنها تأتي قبل القافية' — surfaced via sheram.blogfa/persian-nod; full fetch egress-blocked. MODERATELY CONFIDENT; re-verify.
+S74	qāfiya (Persian)	Persian	external	named	no	WebSearch: 'عیوب قافیه مانند ایطا، اکفا، اقوا و غیره که همگی در شعر عرب صدق می‌کنند، کاربردی در شعر پارسی ندارند. شایگان تنها موردیست که در فارسی تا حدی معمول است' (beytoote/persianatlas snippets)
+S75	ridf-i aṣlī	Persian	external	named	no	WebSearch Arabic-language summary of Persian prosody: 'الردف الأصلي هو أحد حروف المد (و، ا، ي) الذي يسبق حرف الروي'
+S76	ridf-i zāʾid	Persian (an addition to the Arabic scheme)	external	named	no	WebSearch: 'الردف الزائد هو أي حرف ساكن يقع بين حروف المد وحرف الروي'
+S77	qayd	Persian	external	named	no	WebSearch (Persian): 'هرگاه حرف ماقبل روی ساکن باشد و قبل از حرف ساکن هم مصوت‌های (ا ـ و ـ ی) قرار نگرفته باشد، حرف پیش از روی قید نام دارد. مانند حرف (س) در (دست، بست، مست)'
+S78	taʾsīs (Persian)	Persian	external	named	no	WebSearch: Persian mnemonic 'حرف تاسیس و دخیل و ردف و قید آنگه روی، بعد از آن وصل و خروج است و مزید و نایره'
+S79	dakhīl (Persian)	Persian	external	named	no	WebSearch: same Persian mnemonic
+S80	waṣl (Persian)	Persian	external	named	no	WebSearch (Persian): 'حرف وصل: حرفی است که بدون فاصله بعد از رَویّ می آید و پیوستن این حرف، رَویّ ساکن را متحرک می‌گرداند'
+S81	khurūj (Persian)	Persian	external	named	no	WebSearch (Persian): 'حرف خروج: حرفی است که به وصل می پیوندد'
+S82	mazīd	Persian (an addition to the Arabic scheme)	external	named	no	WebSearch (Persian): 'حرف مزید: حرفی است که به خروج می پیوندد'
+S83	nāʾira	Persian (an addition to the Arabic scheme)	external	named	yes	WebSearch (Persian): 'حرف نایره: یک یا چند حرف است که به مزید می پیوندد'; the nāʾira/radīf boundary is MY inference, flagged as such.
+S84	dhū al-qāfiyatayn	Persian; Ottoman Turkish; Urdu	external	named	no	WebSearch (Arabic summary of Persian sources): 'القافية الثنائية (ذوقافیتین) تُطلق على الأشعار التي تحتوي على قافيتين قريبتين أو متجاورتين'. MODERATELY CONFIDENT.
+S85	īṭā-yi jalī (Persian)	Persian	external	named	no	WebSearch (Persian): 'در ایطای جلی، تکرار قافیه پیدا و واضح است؛ مانند قافیه کردن هنرمند و دانشمند' (beytoote/persianatlas/wikijoo snippets)
+S86	īṭā-yi khafī (Persian)	Persian	external	named	no	WebSearch (Persian): 'در ایطای خفی، جزئی که با کلمه اصلی ترکیب شده، به نظر جزو کلمه می‌آید. مانند قافیه کردن گلاب و غرقاب یا رنجور و مزدور'
+S87	shāyagān	Persian	external	named	no	WebSearch (Persian): 'شایگان معادل فارسی ایطای جلی است ولی معمولاً آن را در مورد تکرار علامت جمع به کار می‌برند ... تکرار این نوع قافیه‌ها تنها با فاصله زیاد مجاز است'
+S88	maṭlaʿ / muṣarraʿ opening	Persian; Ottoman Turkish; Urdu; Arabic	external	named	no	quality/phonology/fas.py ghazal_rhyme_lines(); WebSearch en.wikipedia Matla'
+S89	maqṭaʿ with takhalluṣ	Persian; Ottoman Turkish (mahlas); Urdu	project	memory	yes	Universal in the ghazal literature; NOT independently verified this session — well attested, low risk.
+S90	tarjīʿ-band	Persian; Ottoman Turkish	project	memory	yes	Standard Persian form; NOT independently verified this session — well attested.
+S91	tarkīb-band	Persian; Ottoman Turkish	project	memory	yes	Standard Persian form; NOT independently verified this session — well attested.
+S92	mustazād	Persian; Ottoman Turkish; Urdu	project	memory	yes	Standard Persian form; NOT independently verified this session.
+S93	rubāʿī / dūbaytī quatrain rhyme	Persian; Ottoman Turkish (tuyuğ); Urdu	external	named	no	Standard; the Turkish AABA parallel confirmed by WebSearch (turkedebiyati.org: 'Düz mani ... aaba şeklinde kafiyelenir')
+S94	hā-yi ghayr-i malfūẓ as rawī (the silent-h dispute)	Persian	project	module	yes	quality/phonology/fas.py VOWEL_SETS docstring; the prosodic dispute is MY characterisation from the module's own description — flag as UNVERIFIED against a Persian prosody source.
+S95	biblical Hebrew: no systematic rhyme	Hebrew (biblical)	external	named	yes	Standard; WebSearch surfaced Gray, 'The Forms of Hebrew Poetry' and the Encyclopaedia Judaica 'Prosody, Hebrew' article (both hosts egress-blocked for full fetch)
+S96	biblical Hebrew homoioteleuton	Hebrew (biblical)	project	memory	yes	Standard; characterisation is MINE from the parallelism literature — flag as reasoned, not quoted.
+S97	Qillirian rhyme (classical piyyuṭ)	Hebrew (Palestinian piyyuṭ, 6th–7th c.; revived 10th c. in Babylonia, Italy, Franco-Germany; abandoned late 11th c.)	external	named	no	WebSearch, Open Book Publishers 'Marginalia to the Qillirian Rhyme System' (obp.0207.16): 'demands the participation of two root consonants in the rhymeme ... in addition to identity of sound from the consonant preceding the last vowel onwards'; 'the Qillirian norm activates both the phonetic as well as the morphological layers'
+S98	Yannaic morphological rhyme (early piyyuṭ)	Hebrew (Yannai, late 5th–6th c.)	external	named	no	WebSearch: 'In most cases there is rhyme in Yannai's poetry, but of a peculiar variety; a morphological rhyme based on a suffix' (encyclopedia.com 'Yannai', en.wikipedia Yannai (Payetan))
+S99	terminal Hebrew rhyme (the simplified medieval norm)	Hebrew (post-Qillirian, from the 8th c.; dominant after the late 11th c.)	external	named	no	WebSearch, obp.0207.16 (Marginalia to the Qillirian Rhyme System)
+S100	Andalusian Hebrew monorhyme (Spanish school)	Hebrew (al-Andalus, 10th–12th c.)	external	named	yes	WebSearch: en.wikipedia Dunash ben Labrat ('drawing a parallel between the šəwâ and ḥāṭēp̄ and the Arabic short vowels'); Sáenz-Badillos, 'The Poetics of the Hebrew Muwashshaḥ Revisited' (host egress-blocked)
+S101	delet / soger hemistich rhyme	Hebrew (Andalusian)	external	named	yes	Terminology standard in Hebrew Andalusian scholarship; NOT verified this session (library.osu.edu egress-blocked).
+S102	shir ezor (Hebrew girdle poem)	Hebrew (Andalusian, from the mid-11th c.; ~250 survive)	external	named	no	WebSearch: en.wikipedia Muwashshah — 'Muwashshah is often translated as girdle poem (Hebrew: shir ezor)'; ~250 Hebrew examples
+S103	Hebrew kharja	Hebrew (Andalusian)	external	named	no	WebSearch: Zwartjes, 'The Andalusian Xarja-s: Poetry at the Crossroads of Two Systems?' (repository.ubn.ru.nl); en.wikipedia Muwashshah
+S104	alphabetic acrostic	Hebrew (biblical and piyyuṭ)	external	named	no	Standard; surfaced repeatedly in WebSearch on piyyuṭ ('rich in acrostics')
+S105	reverse and doubled acrostics	Hebrew (piyyuṭ)	project	memory	yes	Standard in piyyuṭ scholarship; NOT independently verified this session.
+S106	name / signature acrostic	Hebrew (piyyuṭ; Yannai is credited with the first)	external	named	no	WebSearch: 'Yannai ... was the first poet of piyyut to sign his name in an acrostic' (encyclopedia.com / en.wikipedia Yannai)
+S107	Ashkenazi vs Sephardi stress placement	Hebrew (post-medieval through modern)	external	named	yes	WebSearch: 'in European or modern Hebrew poetry, the basis of rhyme is the stressed syllable rather than the final one, whereas earlier systems cover the final syllable of each rhyming member' (encyclopedia.com 'Prosody, Hebrew'; host egress-blocked for full fetch)
+S108	ṣimmud	Hebrew (Andalusian and later)	project	memory	yes	NOT VERIFIED THIS SESSION — flag as recall; the sub-types are deliberately not listed.
+S109	shibbuṣ	Hebrew (Andalusian)	project	memory	yes	Standard; NOT independently verified this session.
+S110	yarım kafiye	Turkish	external	named	no	WebSearch: 'Yarım Kafiye: when there is one sound similarity' (turkedebiyati.org, TÜBİTAK ansiklopedi, ogmmateryal.eba.gov.tr)
+S111	tam kafiye	Turkish	external	named	no	WebSearch: 'Tam Kafiye: when there are two sound similarities'
+S112	zengin kafiye	Turkish	external	named	no	WebSearch: 'Zengin Kafiye: when there are more than two sound similarities'
+S113	tunç kafiye	Turkish	external	named	no	WebSearch: 'Tunç Kafiye: when one word is contained within another word' (turkedebiyati.org, kunduz.com, dedemindili)
+S114	cinaslı kafiye	Turkish	external	named	no	WebSearch: 'Cinaslı Kafiye: when words have the same writing and pronunciation but different meanings'
+S115	redif — ek hâlinde (suffix redif)	Turkish	external	named	no	WebSearch: 'Redif is sound similarity in suffixes ... While kafiye is found in word roots, redif is found in suffixes' (turkedebiyati.org, sonersadikoglu.com, TÜBİTAK)
+S116	redif — kelime hâlinde (word redif)	Turkish	external	named	no	WebSearch (same sources): 'ek hâlinde redif ... kelime hâlinde redif ... like repeated verbs such as açar'
+S117	iç kafiye	Turkish	external	named	no	WebSearch (sonersadikoglu.com 'UYAK (KAFİYE) – REDİF – İÇ KAFİYE')
+S118	ayak	Turkish (halk / aşık poetry)	external	named	no	WebSearch: TDV İslâm Ansiklopedisi 'AYAK (halk şiiri)' — 'Saz şâirleri arasındaki atışmalarda belli bir ayak (kāfiye) ile şiire ve saza başlamaya ayak açmak denir'
+S119	kapanık ayak	Turkish (aşık poetry, atışma)	external	named	no	WebSearch: TDV İslâm Ansiklopedisi 'AYAK' — 'kapanık ayak ... ayak yapılacak sözün bütün dilde sayısı dörtten fazla olmayan ve tam kafiye teşkil eden kelimeler arasından seçilmesine dikkat edilir'
+S120	cinaslı mani / ayaklı mani / kesik mani	Turkish (anonymous folk quatrain)	external	named	no	WebSearch: truvaedebiyatdergisi.com 'Cinaslı Mâni / Ayaklı Mâni' — 'ilk dizesinde cinas yapmak için kullanılan bir hazırlık sözü yer alır. Bu yapı, manide ayak görevini üstlenir'
+S121	tuyuğ	Turkish (Chagatai and Ottoman divan)	external	named	no	WebSearch: edebiyatvesanatakademisi.com — 'Tuyug, anonim halk şiirimizdeki cinaslı manilerin divan şiirimize yansıması ile oluşmuştur'
+S122	nakarat	Ottoman Turkish (şarkı, a sung form)	project	memory	yes	Standard for the şarkı form; NOT independently verified this session.
+S123	aliterasyon / asonans	Turkish	external	named	no	WebSearch (Turkish school taxonomy, 'şiirde ahenk unsurları': aliterasyon, asonans); the null-design point is from CLAUDE.md doctrine 63
+S124	vowel harmony as a rhyme base-rate	Turkish (and structurally comparable in Hungarian, Finnish)	unrecorded	appeal	yes	Reasoned from the Turkish kafiye/redif definitions (kafiye = root, redif = suffix); the null-design consequence is MINE, flagged as inference.
+S125	Turkish kafiye şemaları	Turkish	external	named	no	WebSearch (dedemindili.blogspot; knowunity; kunduz.com)
+S126	ghazal rhyme-line eligibility	Persian; Ottoman Turkish; Urdu	external	named	no	quality/phonology/fas.py; WebSearch en.wikipedia Matla'
+I1	anuprāsa (cover term)	Sanskrit (śabdālaṅkāra); inherited by Hindi as anuprās, Kannada, Telugu	external	named	yes	quality/phonology/san.py (module docstring and alliterates()); web search summary of wisdomlib.org definitions of anuprāsa (host itself egress-blocked, read from search snippets)
+I2	chekānuprāsa	Sanskrit / Hindi (chhekānuprās)	external	named	yes	web search summary of wisdomlib chekānuprāsa definition (Udbhaṭa-derived); host blocked, snippet only
+I3	vṛttyanuprāsa	Sanskrit / Hindi (vṛttyanuprās)	external	named	no	web search summary of wisdomlib/Sanskrit poetics; corroborated by the standard five-fold list
+I4	śrutyanuprāsa	Sanskrit / Hindi (śrutyanuprās)	external	named	no	web search summary of the standard five-fold anuprāsa list
+I5	lāṭānuprāsa	Sanskrit / Hindi (lāṭānuprās)	external	named	no	web search summary of wisdomlib lāṭānuprāsa definition
+I6	antyānuprāsa / antya-prāsa	Sanskrit, Prakrit, Apabhraṃśa, Kannada, later Indic generally	external	named	no	quality/phonology/san.py rhymes(), prasa_depth(), antya_prasa(); Kannada prosody search summary (Nāgavarma, Chandombudhi)
+I7	ādi-prāsa / ādyakṣara-prāsa	Kannada (ādiprāsa), Sanskrit, Telugu	external	named	no	web search summary of Kannada prosody (sreenivasaraos / Kannada prosody references)
+I8	dvitīyākṣara-prāsa	Kannada, Telugu, Marathi, Sanskrit stotra practice	external	named	yes	quality/phonology/san.py prasa_anchor()/prasa(); Telugu prosody web search summary (memorylines.wordpress via search snippet, host blocked)
+I9	Telugu prāsa consonant equivalence	Telugu	external	named	no	Telugu prosody web search summary; single source, not corroborated
+I10	yati (Telugu/Kannada)	Telugu, Kannada	external	named	no	Telugu prosody web search summary (equivalence sets quoted verbatim from the snippet)
+I11	prāsa-yati	Telugu	project	memory	yes	memory of Telugu chandassu; NOT verified in this session — flag before use
+I12	yamaka (cover term)	Sanskrit; Tamil (maṭakku); Hindi (yamak)	external	named	no	web search summary of wisdomlib yamaka and Bhāmaha/Daṇḍin classification
+I13	yamaka positional subtypes	Sanskrit (Bhāmaha, Daṇḍin Kāvyādarśa ch.3, Nāṭyaśāstra ch.17)	external	named	no	web search summary: Bhāmaha's five kinds and the 'seven sub-varieties depending on the place Adi/Madhya/Anta' quoted from wisdomlib snippets
+I14	mahāyamaka / samudga	Sanskrit	external	named	no	web search summary (Bhāmaha pādābhyāsa; Balacandra Sūri's Vasantavilāsa cited as a yamaka showpiece)
+I15	ślesa	Sanskrit; Hindi (ślesh)	external	named	no	web search summary of śabdālaṅkāra lists (vakrokti, anuprāsa, yamaka, ślesa, punaruktavadābhāsa)
+I16	punaruktavadābhāsa	Sanskrit	external	named	no	web search summary of śabdālaṅkāra list; definition not located in a primary source this session
+I17	citra-bandha / phonemic inventory constraint	Sanskrit citra-kāvya (Daṇḍin Kāvyādarśa III)	external	named	no	web search summary: 'the bulk of the third Pariccheda of Kāvyādarśa is devoted to Chitrakavya … Yamaka, matra and Chitra, and Prahelika'
+I18	mōṉai	Tamil (toṭai system, Tolkāppiyam / Yāpparuṅkalakkārikai)	external	named	yes	web search summaries (Tamil prosody references; 'mōnai in Tamil is known as Prathama Akshara Prasa'); primary Tamil sources tamilvu.org, tamilsurangam.in and projectmadurai were egress-blocked
+I19	etukai	Tamil	external	named	no	web search summaries ('etukai … occurs on the second consonant of each line'); the length rule from secondary Tamil prosody sources only
+I20	iyaipu	Tamil	external	named	no	web search summary listing the five toṭai: mōṉai, etukai, muraṇ, iyaipu, aḷapeṭai
+I21	muraṇ	Tamil	external	named	no	web search summary of the five toṭai and of relative frequencies (mōṉai 1019, etukai 2473, muraṇ 2, iyaipu 182, aḷapeṭai 159, pozhippu 654, oruūu 654)
+I22	aḷapeṭai (as toṭai)	Tamil	external	named	no	web search summary of the five toṭai
+I23	toṭai placement variants	Tamil	external	named	yes	web search summaries of wisdomlib toṭai/iṇaimōṉai/kaṭai-iṇaittoṭai entries; three assignments unverified
+I24	aṭi-toṭai vs cīr-toṭai (scope)	Tamil	unrecorded	appeal	no	Tamil prosody secondary sources; standard in descriptions of the toṭai system
+I25	antāti	Tamil (also Sanskrit/Telugu as antādi)	external	named	no	web search summary listing antāti among the toṭai types; well attested as a Tamil genre
+I26	maṭakku (Tamil yamaka)	Tamil	project	memory	yes	memory / cross-tradition inference from the Sanskrit ornament; NOT verified this session
+I27	iraṭṭaik kiḷavi	Tamil	external	named	no	web search summary ('iraṭṭai kiḷavi (parallelism)' listed with mōṉai, etukai, toṭai)
+I28	radīf	Persian → Urdu, Hindi, Punjabi, Turkish ghazal	external	named	no	quality/phonology/fas.py; CLAUDE.md doctrine 58; Urdu ghazal web search summary
+I29	qāfiya	Persian, Urdu, Hindi ghazal	external	named	no	quality/phonology/fas.py module docstring; Urdu ghazal web search summary ('the qāfiya must directly precede it'; 'Qafiya must not repeat in ghazals')
+I30	rawī	Arabic ʿilm al-qāfiya → Persian, Urdu	external	named	yes	classical ʿilm al-qāfiya; web search located Qafiya/Radif references but the detailed letter list was not reachable this session (wikipedia, google groups blocked) — treat the offset names below as from memory
+I31	ridf	Arabic/Persian/Urdu rhyme apparatus	project	memory	yes	memory; unverified this session
+I32	qayd	Arabic/Persian/Urdu rhyme apparatus	unrecorded	no_source_field		
+I33	taʾsīs and daxīl	Arabic/Persian/Urdu rhyme apparatus	unrecorded	no_source_field		
+I34	waṣl, xurūj, mazīd, nāʾira	Arabic/Persian/Urdu rhyme apparatus	unrecorded	no_source_field		
+I35	the qāfiya vowels	Arabic/Persian/Urdu rhyme apparatus	unrecorded	no_source_field		
+I36	muqayyad vs muṭlaq qāfiya	Arabic/Persian/Urdu	unrecorded	no_source_field		
+I37	ʿuyūb al-qāfiya (rhyme faults)	Arabic/Persian/Urdu; taught in Urdu ʿarūż	unrecorded	no_source_field		
+I38	zamīn	Urdu, Persian	external	named	no	Urdu ghazal web search summary ('In the opening couplet the poet establishes the radif, qaafiya, and beher')
+I39	tuk / tukānt	Hindi, Braj, Awadhi	project	memory	yes	memory of Hindi chhand practice; partially unverified
+I40	Hindi anuprās subtypes	Hindi rīti poetics (Keśavdās and after)	unrecorded	no_source_field		
+I41	yamak (Hindi) and ślesh (Hindi)	Hindi rīti poetics	unrecorded	no_source_field		
+I42	muṣammat internal rhyme	Urdu, Persian	unrecorded	no_source_field		
+I43	pantun ABAB end rhyme	Malay	project	module	no	quality/phonology/msa.py; CLAUDE.md doctrine 58, 70
+I44	rima penuh vs rima separa	Malay	unrecorded	no_source_field		
+I45	pembayang↔maksud sound echo	Malay	external	named	no	quality/phonology/msa.py (Skeat footnote 431 quoted); MISSING.md H-2; pantun web search summary
+I46	pantun berkait	Malay	external	named	no	pantun berkait web search summary; MISSING.md A-1
+I47	syair monorhyme quatrain	Malay	unrecorded	no_source_field		
+I48	gurindam	Malay	unrecorded	no_source_field		
+I49	talibun and seloka	Malay	unrecorded	no_source_field		
+I50	hamzah as a rime segment	Malay (1900 Straits Rumi)	project	module	no	quality/phonology/msa.py; CLAUDE.md doctrine 65
+I51	Malay reduplication	Malay	project	module	no	quality/phonology/msa.py
+I52	สัมผัสสระ (samphat sara)	Thai	external	named	no	raw.githubusercontent PyThaiNLP khavee/core.py (check_sara + check_marttra, rhyme iff BOTH match); spksoft/thai-suno-song-writer-claude-skill references/thai-rhyme-craft.md (nine มาตรา listed; 'tone does NOT have to match')
+I53	สัมผัสอักษร (samphat akson)	Thai	external	named	no	thai-rhyme-craft.md via raw.githubusercontent
+I54	สัมผัสนอก (samphat nok)	Thai	external	named	no	thai-rhyme-craft.md; PyThaiNLP khavee/core.py
+I55	สัมผัสใน (samphat nai)	Thai	unrecorded	appeal	no	thai-rhyme-craft.md
+I56	klon suphap linkage	Thai	external	named	no	raw.githubusercontent PyThaiNLP khavee/core.py check_klon (k_type=8); thai-rhyme-craft.md
+I57	สัมผัสระหว่างบท (inter-stanza rhyme)	Thai	external	named	no	PyThaiNLP khavee/core.py (cross-stanza rhyme with previous stanza's final word)
+I58	rai (ร่าย) chain rhyme	Thai	unrecorded	no_source_field		
+I59	khlong si suphap rhyme geometry	Thai	external	named	no	web search summary of khlong si suphap ('line one syllable seven A, line two syllable five A, syllable seven B, line three syllable five A, line four syllable five B')
+I60	khlong tone-mark constraint	Thai	external	named	yes	PyThaiNLP khavee/core.py check_aek_too (dead_syllable_as_aek parameter); counts from memory, indices unverified
+I61	chan (ฉันท์) quantitative template	Thai (borrowed from Sanskrit/Pali)	project	module	no	quality/phonology/san.py (guru/laghu); Thai chan from memory
+I62	kap yani 11 and the kap family	Thai	unrecorded	no_source_field		
+I63	คำเป็น / คำตาย (live and dead syllables)	Thai	external	named	no	PyThaiNLP khavee/core.py (dead_syllable_as_aek); thai-rhyme-craft.md
+I64	Thai named rhyme faults	Thai	external	named	no	thai-rhyme-craft.md via raw.githubusercontent; ชิงสัมผัส and สัมผัสเผลอ from memory
+I65	vần chân (cước vận)	Vietnamese	external	named	no	web search summaries of lục bát / Vietnamese poetry forms; corroborated by AVPoetica prompt.py rules via raw.githubusercontent
+I66	vần lưng (yêu vận)	Vietnamese	external	named	no	web search summaries; AVPoetica prompt.py
+I67	lục bát linkage	Vietnamese	external	named	no	raw.githubusercontent tph-kds/AVPoetica avp/sub_agents/spa/prompt.py (explicit position/tone table); corroborated by web search summaries
+I68	the bát 6-vs-8 different-tone rule	Vietnamese	external	named	no	web search summary ('although the sixth and eighth syllables of the eight-syllable line have the same bằng tone, one word will be marked by huyền and the other will carry no accent')
+I69	song thất lục bát	Vietnamese	unrecorded	no_source_field		
+I70	Đường luật độc vận	Vietnamese (from Chinese regulated verse)	external	named	no	raw.githubusercontent AVPoetica prompt.py (explicit line list and bằng requirement)
+I71	luật bằng trắc at positions 2/4/6	Vietnamese regulated verse and lục bát	external	named	no	AVPoetica prompt.py ('If Line 1 = T-B-T, then Line 2 = B-T-B …')
+I72	vần chính / vần thông / vần ép	Vietnamese	external	named	yes	web search summary; table unverified
+I73	vần liền / vần cách / vần ôm / vần hỗn	Vietnamese (thơ mới and modern practice)	unrecorded	no_source_field		
+I74	điệp vận / lạc vận	Vietnamese	unrecorded	no_source_field		
+X1	韻腳 yùnjiǎo — regulated-verse end rhyme	Chinese (近體詩 regulated verse, Tang)	external	named	no	quality/phonology/ltc.py in this repo (verified: ltc.rhymes('流','樓') → True, tone_class('流') → 1); cls.lib.ntu.edu.tw 唐詩入門; newton.com.tw 押韻
+X2	仄聲韻 — oblique-tone rhyme	Chinese (古體詩, 詞)	external	named	no	epochtimes 詩詞常識(四) 押韻; 詞林正韻 (ctext.org)
+X3	入聲韻 — entering-tone rhyme	Chinese (詞, 古體詩)	external	named	no	詞林正韻 (19 部: 14 for 平上去, 5 for 入); zhihu 填词押韵
+X4	首句入韻 / 借韻 — first-line rhyme and neighbouring-group licence	Chinese (近體詩)	external	named	no	cls.lib.ntu.edu.tw 唐詩入門; newton.com.tw 押韻 (首韻借韻)
+X5	一韻到底 — obligatory monorhyme through the whole poem	Chinese (近體詩)	external	named	no	newton.com.tw 押韻 (中間不能換韻); jendow.com.tw 近體詩押韻
+X6	換韻 — rhyme change	Chinese (古體詩, 歌行, 詞)	external	named	no	newton.com.tw 古詩詞韻律; 詞林正韻
+X7	叶韻 / 平仄通協格 — level and oblique rhyme alternating inside one rhyme group	Chinese (詞)	external	named	no	zhihu 填词押韵有什么讲究 (平仄通协格); 詞林正韻
+X8	同用 / 通押 — rhyme-group merging	Chinese (近體詩, 詞, 曲)	external	named	no	quality/phonology/ltc.py GROUP_OF; 詞林正韻; 中原音韻
+X9	出韻 / 落韻 — rhyme falling outside the group (fault)	Chinese (近體詩)	external	named	no	newton.com.tw 押韻 (避忌); cls.lib.ntu.edu.tw
+X10	撞韻 zhuàngyùn — the non-rhyming line-end colliding with the rhyme (fault)	Chinese (近體詩)	external	named	no	blog.sina.com.cn 什么是挤韵、撞韵、连韵; 163.com 古诗词押韵忌讳谈
+X11	擠韻 jǐyùn / 犯韻 / 冒韻 — the rhyme sound leaking into non-rhyme positions (fault)	Chinese (近體詩)	external	named	no	blog.sina.com.cn 什么是挤韵、撞韵、连韵
+X12	連韻 liányùn — consecutive rhyme words sharing an onset (fault)	Chinese (近體詩)	external	named	no	blog.sina.com.cn 什么是挤韵、撞韵、连韵
+X13	重韻 chóngyùn — same character reused as rhyme (fault)	Chinese (近體詩)	external	named	no	newton.com.tw 押韻 (避忌); 163.com 押韻忌諱談
+X14	平仄 template — the line's tone-class pattern	Chinese (近體詩)	external	named	no	quality/phonology/ltc.py prominence_rule; blog.sina.com.cn 近体诗格律 对和粘
+X15	對 duì — tonal opposition between the two lines of a couplet	Chinese (近體詩)	external	named	no	blog.sina.com.cn 近体诗格律 对和粘; gmw.cn 怎样学写古诗词之粘对
+X16	黏 nián — tonal adhesion across the couplet boundary	Chinese (近體詩)	external	named	no	blog.sina.com.cn 近体诗格律 对和粘; jianshu.com 替，对，粘
+X17	孤平 gūpíng — the isolated level tone (fault)	Chinese (近體詩)	external	named	no	zhihu 近体诗声律简明教程; yunqi 詩律 平仄協調
+X18	三平調 / 三仄尾 — three level or three oblique tones at the line end (fault)	Chinese (近體詩)	external	named	no	zhihu 近体诗声律简明教程
+X19	拗救 àojiù — compensation for a broken tone template	Chinese (近體詩)	external	named	no	zhihu 近体诗声律简明教程; yunqi 詩律
+X20	對仗 duìzhàng — the parallel couplet	Chinese (近體詩, esp. couplets 3–4 and 5–6 of a 律詩)	external	named	no	blog.sina.com.cn 近体诗格律; gmw.cn 粘对
+X21	雙聲 shuāngshēng — alliterative binome	Chinese (all periods; 詩經 onward)	external	named	yes	Standard Chinese philology (雙聲疊韻); zhihu 近体诗声律; not verified against a primary edition this session
+X22	疊韻 diéyùn — rhyming binome	Chinese (all periods)	external	named	yes	Standard Chinese philology (雙聲疊韻); tone requirement NOT verified
+X23	疊字 diézì — reduplication	Chinese (詩經 onward; heavy in 詞)	external	named	no	Standard; 李清照 聲聲慢
+X24	疊句 diéjù — verbatim line repetition	Chinese (詞, 曲, 樂府)	project	memory	yes	Standard 詞/曲 prosody; not verified against a primary edition this session
+X25	頂真 dǐngzhēn — anadiplosis across the line seam	Chinese (詩, 詞, 曲, 民歌)	external	named	no	zhuanlan.zhihu.com 古诗词中的顶真格; blog.sina.com.cn 顶真体诗（联珠体）
+X26	迴文 huíwén — palindromic verse	Chinese (蘇軾, 蘇蕙 璇璣圖)	external	named	no	blog.sina.com.cn 顶真体诗 (双句回文); 蘇蕙 璇璣圖
+X27	藏頭 cángtóu — acrostic verse	Chinese	project	memory	yes	Standard; not verified against a primary edition this session
+X28	和韻 / 次韻 / 用韻 — answering another poet with his rhymes	Chinese (Tang–Song social verse)	external	named	no	newton.com.tw 押韻 (唱和, 次韻, 用韻)
+X29	曲 sanqu rhyme — every line rhymes, 中原音韻 granularity	Chinese (元曲 / 散曲)	external	named	yes	中原音韻; 詞林正韻 (ctext.org); not verified against a primary 曲 edition this session
+X30	THE ABSENCE OF RHYME IN JAPANESE — and why	Japanese (waka, renga, haikai — native forms)	external	named	no	medium.com/the-universal-artist-guild One Syllable Two Morae; sljfaq.org mora; Sengoku Daimyo Poetry; Korean parallel from encykorea 운율
+X31	音数律 — mora count as the organising constraint	Japanese (waka, haiku, chōka, imayō, ryūka)	external	named	no	medium.com One Syllable Two Morae; sljfaq.org mora; tofugu haiku
+X32	枕詞 makurakotoba — pillow word	Japanese (Man'yōshū, waka)	external	named	no	japanesewiki.com Makurakotoba; Sengoku Daimyo Poetry
+X33	序詞 jokotoba — preface phrase	Japanese (waka)	external	named	no	Wikipedia/dbpedia Jokotoba (via search snippet); Sengoku Daimyo Poetry
+X34	掛詞 kakekotoba — pivot word	Japanese (waka, renga, nō)	external	named	no	Wikipedia Kakekotoba (via search snippet); Sengoku Daimyo Poetry
+X35	縁語 engo — associated words	Japanese (waka)	project	memory	yes	Standard waka poetics; not verified against a primary edition this session
+X36	頭韻 tōin — alliteration	Japanese (norito, kayō, some Man'yōshū, modern verse and advertising)	external	named	no	kotoripiyopiyo.com 日本語ラップ以前にも「韻を踏む」文化は; sheer.jp 韻を踏む (頭韻法)
+X37	脚韻 kyakuin — imported end rhyme	Japanese (kanshi, Meiji shintaishi, modern lyric)	external	named	no	kotoripiyopiyo.com; Sengoku Daimyo Poetry
+X38	母音韻 — modern Japanese vowel-sequence rhyme	Japanese (hip-hop, modern lyric, from c. 1990)	external	named	no	sheer.jp 韻を踏むとは; rude-alpha.com 韻 種類; asukaksk.hatenablog.com ラップの基本
+X39	対句 tsuiku — parallel couplet	Japanese (chōka, norito, senmyō — borrowed from Chinese)	external	named	no	Standard Japanese poetics; Sengoku Daimyo Poetry
+X40	折句 oriku — acrostic	Japanese (Ise monogatari かきつばた poem onward)	external	named	no	伊勢物語 9段 (かきつばた); standard
+X41	沓冠 kutsukanmuri — double acrostic, head and tail	Japanese (waka)	external	named	yes	Standard waka poetics (沓冠); not verified against a primary edition this session
+X42	物名 / 隠題 mono no na — hidden-word poem	Japanese (Kokinshū book 10)	external	named	no	古今集 巻十 物名; standard
+X43	本歌取り honkadori — allusive variation	Japanese (Shinkokinshū, Fujiwara no Teika's rules)	external	named	no	藤原定家 詠歌大概 / 近代秀歌; standard
+X44	囃子詞 hayashi-kotoba — semantically empty refrain syllables	Japanese (kayō, min'yō, imayō, saibara)	external	named	no	Standard; Korean parallel from journal.kci.go.kr 고려가요 후렴구·여음구
+X45	語呂合わせ goroawase — homophone substitution	Japanese (popular, mnemonic, advertising, and in verse as a low register)	external	named	no	news.mynavi.jp 韻を踏むとは; sheer.jp
+X46	尻取り shiritori — mora chaining	Japanese (game; also a compositional device in kotobaasobi verse)	external	named	no	Standard; kotoripiyopiyo.com
+X47	回文 kaibun — Japanese palindrome	Japanese	project	memory	yes	Standard; not verified against a primary edition this session
+X48	去嫌 sarikirai — the renga rules FORBIDDING repetition	Japanese (renga, haikai no renga)	external	named	yes	Standard renga codes (連歌新式, 応安新式); distances NOT verified per category this session
+X49	いろは — the pangram constraint	Japanese	external	named	no	いろは歌; standard
+X50	THE ABSENCE OF RHYME IN KOREAN — and why	Korean (sijo, gasa, hyangga, Goryeo gayo)	external	named	no	encykorea.aks.ac.kr 운율; kci.go.kr 압운이라는 과제
+X51	음보율 eumbo — the metrical foot as the organising unit	Korean (sijo, gasa, minyo)	external	named	no	encykorea.aks.ac.kr 시조; sejongculturalsociety.org sijo structure
+X52	시조 종장 제약 — the fixed shape of the sijo's final line	Korean (sijo)	external	named	no	encykorea.aks.ac.kr 시조; sejongculturalsociety.org sijo guide; masterclass sijo
+X53	여음구 / 후렴구 — refrain syllables, largely semantically empty	Korean (Goryeo gayo, minyo)	external	named	no	journal.kci.go.kr 고려가요 후렴구·여음구의 구성과 기능; korean.go.kr 가시리 후렴구
+X54	두운 duun — alliteration	Korean (occasional, all periods; systematic in modern verse and in 의태어)	external	named	no	encykorea.aks.ac.kr 운율; elearning.kocw.net 현대시의 운율
+X55	각운 gagun — end rhyme	Korean (marginal in classical, deliberate in modern verse, systematic in Korean-language 한시? no — see notes)	external	named	no	encykorea.aks.ac.kr 운율; kci.go.kr 압운이라는 과제
+X56	요운 yoeun — internal / waist rhyme	Korean (modern verse; occasional classical)	external	named	no	encykorea.aks.ac.kr 운율; elearning.kocw.net 현대시의 운율
+X57	동어반복 — word repetition as the primary cohesive device	Korean (all periods)	external	named	no	encykorea.aks.ac.kr 운율 (동어반복, 의태어와 의성어, 호음조, 여음)
+X58	대구법 daegubeop — parallel couplet	Korean (sijo, gasa, 한시 by Korean authors)	external	named	no	encykorea.aks.ac.kr 시조; standard
+X59	의성어 · 의태어 with vowel-harmony ablaut	Korean (all periods; extremely productive)	external	named	no	encykorea.aks.ac.kr 운율 (의성어와 의태어); namu.wiki 한국어/특징
+X60	첩어 — reduplication	Korean	external	named	no	Standard; encykorea 운율
+X61	향가 낙구 감탄사 — the fixed exclamation opening the final couplet	Korean (10-line hyangga)	external	named	no	encykorea.aks.ac.kr 향가; studocu 향가와 고려가요 정리
+X62	한시 by Korean authors — the Chinese system imported wholesale	Korean (composed in Literary Chinese)	project	memory	yes	Standard; not verified against a Sino-Korean reading table this session
+X63	라임 — modern Korean rap rhyme	Korean (from c. 1990)	project	memory	yes	General knowledge of the genre; NOT verified against a source this session — flagged
+X64	rima perfetta / consonante	Italian	external	named	no	treccani.it Rima (Enciclopedia dell'Italiano); letteratour.it Dizionario di metrica italiana
+X65	rima piana (parossitona)	Italian	external	named	no	treccani.it Rima; skuola.net metrica
+X66	rima tronca (ossitona)	Italian	external	named	no	treccani.it Rima; letteratour.it
+X67	rima sdrucciola (proparossitona)	Italian	external	named	no	treccani.it Rima; skuola.net
+X68	rima bisdrucciola	Italian	external	named	no	letteratour.it Dizionario di metrica
+X69	rima ipermetra (eccedente)	Italian (Pascoli, then Montale)	external	named	no	treccani.it Rima; letteratour.it; dizionario.internazionale.it rima ipermetra
+X70	rima ricca	Italian	external	named	no	skuola.net Esplorazione delle rime; treccani.it Rima
+X71	rima inclusiva	Italian	external	named	no	skuola.net; letteratour.it
+X72	rima equivoca	Italian (Dante, Petrarch)	external	named	no	skuola.net; treccani.it Rima
+X73	rima identica	Italian (Dante)	external	named	no	skuola.net; treccani.it Rima
+X74	rima derivativa	Italian	external	named	no	skuola.net; treccani.it Rima
+X75	rima grammaticale	Italian	external	named	no	skuola.net; treccani.it Rima
+X76	rima composta / franta / spezzata / rotta	Italian (Dante)	external	named	yes	skuola.net; letteratour.it (rima composita o franta, rotta, spezzata); TERM AMBIGUITY unresolved
+X77	rima siciliana	Italian (from the Sicilian School; licensed throughout the tradition)	external	named	no	skuola.net (una e chiusa rima con una i, una o chiusa con una u); treccani.it Rima
+X78	assonanza	Italian (medieval; revived by Pascoli, Ungaretti, Montale)	external	named	no	library.weschool.com metrica italiana; treccani.it Rima
+X79	consonanza	Italian	external	named	no	library.weschool.com; treccani.it Rima
+X80	rima imperfetta / quasi-rima	Italian (modern)	external	named	no	library.weschool.com; treccani.it Rima
+X81	rima al mezzo / rimalmezzo	Italian (canzone, Petrarch; Leopardi)	external	named	no	letteratour.it (parola finale di un verso con una parola a metà del verso successivo); treccani.it Rima
+X82	rima interna	Italian	external	named	no	treccani.it Rima; library.weschool.com
+X83	rima per l'occhio	Italian (rare)	external	named	yes	treccani.it Rima; open/close e-o instance NOT verified against a manual this session
+X84	parola-rima (sestina)	Italian (Dante, Petrarch; from Arnaut Daniel)	external	named	no	treccani.it Rima; letteratour.it; Arnaut Daniel
+X85	rima irrelata	Italian (canzone)	external	named	no	treccani.it Rima; Occitan rims estramps (same object)
+X86	rima in eco / rima replicata	Italian	external	named	no	letteratour.it; treccani.it Rima
+X87	rima aspra (rime petrose)	Italian (Dante's rime petrose)	project	memory	yes	Standard Dante criticism; not verified against a metrics manual this session
+X88	rima baciata / alternata / incrociata / incatenata / invertita / replicata	Italian	external	named	no	library.weschool.com metrica italiana; skuola.net
+X89	rima consonante	Spanish	external	named	no	escritores.org rima consonante y asonante; concepto.de rima asonante
+X90	rima asonante	Spanish	external	named	no	lasnuevemusas.com La rima asonante; concepto.de; lifeder.com rima asonante
+X91	rima aguda (oxítona)	Spanish	external	named	no	concepto.de; escritores.org
+X92	rima llana / grave (paroxítona)	Spanish	external	named	no	concepto.de; escritores.org
+X93	rima esdrújula (proparoxítona)	Spanish	external	named	no	lasnuevemusas.com; concepto.de
+X94	versos de cabo roto — apocopated rhyme	Spanish (Álvarez de Soria 1603; Cervantes, Quijote preliminaries)	external	named	no	cvc.cervantes.es Los versos de cabo roto en el Quijote; lenguaurelio.blogspot.com; airesgalegos forum
+X95	rima pobre / rima rica	Spanish	external	named	no	portugues.com.br (Portuguese equivalent, same criterion); normaculta.com.br; Spanish manuals concur
+X96	rima del mismo vocablo	Spanish	external	named	no	Standard Spanish preceptiva; escritores.org
+X97	rima en eco	Spanish (Baroque; Góngora, Calderón)	external	named	no	Standard Spanish preceptiva; letteratour.it for the Italian cognate
+X98	estribillo / mudanza / verso de vuelta (zéjel, villancico)	Spanish (zéjel from the Andalusi moaxaja; villancico)	external	named	no	hispanoteca.eu ZÉJEL; edu.xunta.gal Lírica castellana; xunta VILLANCICO pdf
+X99	romance assonance — even lines only	Spanish (romancero, from the 14th c.)	external	named	no	Standard; edu.xunta.gal Lírica castellana
+X100	seguidilla assonance	Spanish	external	named	no	edu.xunta.gal Lírica castellana; standard
+X101	aliteración	Spanish	external	named	no	Standard Spanish retórica; Sinesio Delgado / Zorrilla exempla
+X102	similicadencia	Spanish (retórica)	project	memory	yes	Standard Spanish retórica; not verified against a manual this session
+X103	paronomasia	Spanish (and all Romance)	unrecorded	appeal	no	Standard Spanish retórica
+X104	calambur	Spanish (Quevedo)	external	named	no	Standard Spanish retórica; Quevedo exempla
+X105	derivación / políptoton	Spanish (and all Romance)	unrecorded	appeal	no	Standard Spanish retórica; Occitan and Galician-Portuguese cognates verified separately
+X106	retruécano / quiasmo	Spanish	external	named	no	Standard Spanish retórica; Quevedo
+X107	anáfora / epífora / concatenación	Spanish (and all Romance)	project	module	no	Standard Spanish retórica; quality/features.py anaphora in this repo
+X108	verso suelto / verso blanco / verso libre	Spanish	external	named	no	Standard Spanish preceptiva; edu.xunta.gal
+X109	acróstico	Spanish (Celestina's prologue verses)	external	named	no	La Celestina, versos acrósticos; standard
+X110	rima consoante	Portuguese	external	named	no	normaculta.com.br Classificação de rimas; portugues.com.br Rimas pobres, ricas, raras
+X111	rima toante / assoante	Portuguese	external	named	no	ciberduvidas.iscte-iul.pt Rima toante vs. rima soante; normaculta.com.br
+X112	rima aguda / grave / esdrúxula	Portuguese	external	named	no	normaculta.com.br; daaula.blogspot.com Rimas
+X113	rima rica / rima pobre	Portuguese	external	named	no	ciberduvidas.iscte-iul.pt Rima rica e rima pobre; portugues.com.br; normaculta.com.br
+X114	rima rara / preciosa	Portuguese	external	named	no	portugues.com.br Rimas pobres, ricas e raras; normaculta.com.br
+X115	nasal rhyme agreement	Portuguese	external	named	yes	normaculta.com.br; -ão/-am equivalence standard; -ão/-ã licence NOT verified
+X116	rima interna	Portuguese	external	named	no	daaula.blogspot.com Rimas; normaculta.com.br
+X117	rima ecoada / rima em eco	Portuguese	external	named	yes	daaula.blogspot.com Rimas (listed); definition NOT verified
+X118	refrán — cantiga de refram vs cantiga de meestria	Galician-Portuguese (cantigas, 12th–14th c.)	external	named	no	ciberduvidas.iscte-iul.pt O paralelismo nas cantigas de amigo; prof-augustosousa.blogspot.com Tipos de Cantigas
+X119	leixa-pren	Galician-Portuguese (cantigas de amigo)	external	named	no	portugues-fcr.blogspot.com O leixa-pren da cantiga de amigo; ciberduvidas.iscte-iul.pt
+X120	paralelismo (perfeito) with rhyme substitution	Galician-Portuguese (cantigas de amigo)	external	named	no	ciberduvidas.iscte-iul.pt O paralelismo nas cantigas de amigo; sentirportugus.blogspot.com; portugues-fcr.blogspot.com Paralelismo perfeito
+X121	dobre	Galician-Portuguese (cantigas de amor, from Occitan practice)	external	named	no	edtl.fcsh.unl.pt DOBRE; infopedia.pt dobre; ciberduvidas Sobre dobre, mozdobre e coplas
+X122	mordobre / mozdobre	Galician-Portuguese (cantigas)	external	named	no	infopedia.pt mordobre; ciberduvidas.iscte-iul.pt Sobre dobre, mozdobre e coplas
+X123	fiinda / finda	Galician-Portuguese (cantigas)	external	named	no	prof-augustosousa.blogspot.com Tipos de Cantigas; ciberduvidas; standard
+X124	palavra perduda	Galician-Portuguese (cantigas)	project	memory	yes	Standard Galician-Portuguese metrics terminology; frequency NOT verified
+X125	mote e glosa	Portuguese (cancioneiro, 15th–16th c.)	external	named	yes	Standard; Camões and Sá de Miranda practice; not verified against an edition this session
+X126	rima emparelhada / alternada / interpolada / encadeada / misturada	Portuguese	external	named	no	normaculta.com.br Classificação de rimas; daaula.blogspot.com
+X127	aliteração / assonância (as figures)	Portuguese	external	named	no	normaculta.com.br; standard
+X128	verso branco / verso solto	Portuguese	external	named	no	normaculta.com.br; standard
+X129	rime pauvre	French	external	named	no	Standard French versification; etudes-litteraires.com Vocabulaire de la poésie: la rime
+X130	rime suffisante	French	external	named	no	etudes-litteraires.com; the vowel-final case NOT resolved
+X131	rime riche	French	external	named	no	etudes-litteraires.com Vocabulaire de la poésie; standard
+X132	rime léonine	French (and medieval Latin)	external	named	no	etudes-litteraires.com; databac.fr rime glossary; medieval Latin sense standard
+X133	rime masculine	French	external	named	no	etudes-litteraires.com; spafenlorraine.unblog.fr L'alternance; darius-hyperion.over-blog.com
+X134	rime féminine	French	external	named	no	etudes-litteraires.com; darius-hyperion.over-blog.com Essai sur la rime
+X135	règle de l'alternance des rimes	French (Molinet late 15th c.; Ronsard and the Pléiade recommend; Malherbe makes it law)	external	named	no	spafenlorraine.unblog.fr 3/ L'alternance; darius-hyperion.over-blog.com; books.openedition.org Histoire du vers français V ch. IV
+X136	rime pour l'œil / the orthographic-agreement rule	French (classical, Malherbe onward)	external	named	no	etudes-litteraires.com Vocabulaire de la poésie; standard classical rule
+X137	rime normande	French (licensed archaism)	external	named	no	etudes-litteraires.com; standard
+X138	rime équivoquée	French (Grands Rhétoriqueurs, 15th–16th c.)	external	named	no	databac.fr rime glossary (la dernière syllabe de chaque vers est reprise en une autre signification au commencement ou à la fin du vers qui suit)
+X139	rime batelée	French (Grands Rhétoriqueurs)	external	named	no	databac.fr; lacompagniedesvers.lescigales.org Rime batelée
+X140	rime brisée	French (Grands Rhétoriqueurs)	external	named	no	databac.fr (les vers riment ensemble non seulement par la fin de vers, mais aussi par la césure)
+X141	rime couronnée	French (Grands Rhétoriqueurs)	external	named	no	databac.fr (qui redouble la ou les syllabes de rime); lacompagniedesvers.lescigales.org
+X142	rime emperière / empérière	French (Grands Rhétoriqueurs)	external	named	no	databac.fr rime glossary
+X143	rime annexée / enchaînée	French (Grands Rhétoriqueurs)	external	named	no	databac.fr (qui reprend la syllabe de rime au début du vers suivant); lacompagniedesvers.lescigales.org Rime annexée
+X144	rime fratrisée	French (Grands Rhétoriqueurs)	external	named	no	databac.fr (rime à la fois annexée et équivoquée)
+X145	rime senée	French (Grands Rhétoriqueurs)	external	named	no	databac.fr (listed); definition from standard rhétoriqueur descriptions; letter-vs-syllable NOT resolved
+X146	rime dérivative / rime de même famille	French	external	named	no	databac.fr rime glossary; etudes-litteraires.com
+X147	rime du même au même	French	external	named	no	databac.fr rime glossary; etudes-litteraires.com
+X148	holorime	French (Marc Monnier, Alphonse Allais, Victor Hugo)	external	named	no	Standard; Marc Monnier attribution; etudes-litteraires.com
+X149	rime intérieure	French	external	named	no	etudes-litteraires.com; databac.fr
+X150	rime orpheline	French	external	named	no	databac.fr rime glossary
+X151	rime en écho / vers échoïques	French	external	named	no	databac.fr rime glossary; Romance cognates verified separately
+X152	assonance de laisse	French (Chanson de Roland and the chansons de geste, 11th–12th c.)	project	module	no	Standard Old French versification; Chanson de Roland; MISSING.md gap 5 in this repo
+X153	rime plate / croisée / embrassée / redoublée / mêlée	French	external	named	no	etudes-litteraires.com; standard
+X154	rime kyrielle / refrain	French (ballade, rondeau, villanelle, chant royal)	project	module	no	Standard French fixed forms; MISSING.md A-1 in this repo
+X155	vers rétrogrades	French (Grands Rhétoriqueurs)	project	memory	yes	Rhétoriqueur repertory (standard); exemplar NOT verified
+X156	rims maschles / rims femenins	Occitan (troubadour, 12th–13th c.)	external	named	yes	Standard Old Occitan versification (Chambers, Frank); alternation-rule absence NOT independently verified
+X157	rim ric	Occitan	external	named	no	Standard Old Occitan versification; Academia.edu Di Girolamo, La versification catalane médiévale
+X158	rim car	Occitan (trobar ric; Arnaut Daniel, Raimbaut d'Aurenga)	external	named	no	Standard Old Occitan versification; Arnaut Daniel practice
+X159	rim derivatiu	Occitan	external	named	no	Academia.edu Di Girolamo, La versification catalane médiévale (rim derivatiu discussed); standard
+X160	rim equivoc	Occitan and medieval Catalan	external	named	no	Academia.edu Di Girolamo; Di Luca, Le fonti dei non-rimanti degli estramps catalani
+X161	rims estramps	Occitan and Catalan (Arnaut Daniel; Jaume March; Ausiàs March)	external	named	no	researchgate.net Els versos estramps a la lírica catalana medieval; Di Luca (Academia.edu); Di Girolamo
+X162	coblas unissonans	Occitan	external	named	no	phicksblog.wordpress.com Medieval Verse: The Canso; es.wikipedia Cobla (via search snippet)
+X163	coblas singulars	Occitan	external	named	no	phicksblog.wordpress.com; es.wikipedia Cobla
+X164	coblas doblas	Occitan	external	named	no	phicksblog.wordpress.com; academia.edu Rinoldi, coblas doblas
+X165	coblas ternas	Occitan	external	named	no	phicksblog.wordpress.com; es.wikipedia Cobla
+X166	coblas alternadas	Occitan	external	named	no	phicksblog.wordpress.com; es.wikipedia Cobla
+X167	coblas capcaudadas	Occitan	external	named	no	phicksblog.wordpress.com (the last rhyme sound of one cobla becomes the first of the next); es.wikipedia Cobla
+X168	coblas capfinidas	Occitan	external	named	no	phicksblog.wordpress.com (the last rhyme word of one stanza appears in the first line of the next); es.wikipedia Cobla
+X169	coblas capdenals	Occitan	project	memory	yes	Standard Old Occitan versification; NOT independently verified this session — flagged
+X170	coblas retrogradadas	Occitan	external	named	no	phicksblog.wordpress.com (the rhymes change position in accordance with an algorithm); es.wikipedia Cobla
+X171	coblas esparsas	Occitan	external	named	no	Wikipedia Cobla esparsa (via search snippet); phicksblog.wordpress.com
+X172	refranh / coblas retronchadas	Occitan	external	named	no	phicksblog.wordpress.com; standard Old Occitan versification; radif parallel from quality/phonology/fas.py in this repo
+X173	tornada	Occitan	external	named	no	phicksblog.wordpress.com Medieval Verse: The Canso; standard
+X174	sestina (retrogradatio cruciata)	Occitan (Arnaut Daniel) → Italian (Dante, Petrarch) → all Romance	external	named	no	phicksblog.wordpress.com; treccani.it Rima (sestina); Arnaut Daniel, Lo ferm voler

@@ -9,6 +9,31 @@
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
+# dedup: DEDUPLICATED 2026-08-11 by cell AC. 3 items removed, 68 body lines.
+#       EVERY ONE was the same poem as another item in this same file, at or
+#       above 60%% containment of its distinct verse lines (the cut is declared
+#       in quality/audit_corpus.py ITEM_OVERLAP_FLOOR, with the whole series
+#       from 0.30 to 1.00 beside it, doctrine 16). WHICH COPY WENT IS DECIDED
+#       BY THE SOURCE CLASS, and not by which copy was longer or listed first:
+#       where one comes from an ANTHOLOGY, HYMNAL or monograph that reprints
+#       the poet, and the other from a volume of the poet's own, the poet's own
+#       volume is the nearer witness and the reprint goes. Each removed item is
+#       named below with the printing it came from and the printing that was
+#       kept. Where BOTH copies were reprints, or both were the poet's own
+#       volumes, THE SOURCE DOES NOT DECIDE and nothing was removed; those
+#       pairs are open and counted in data/sources.tsv.
+#         REMOVED To Violets
+#           16 lines, 91% contained in the copy kept, which is titled To Violets
+#           reprint dropped: The Oxford Book of English Verse 1250-1900
+#           printing kept:   Herrick, Hesperides and Noble Numbers
+#         REMOVED To Daisies, not to shut so soon
+#           12 lines, 83% contained in the copy kept, which is titled To Daisies, Not To Shut So Soon
+#           reprint dropped: The Oxford Book of English Verse 1250-1900
+#           printing kept:   Herrick, Hesperides and Noble Numbers
+#         REMOVED Litany to the Holy Spirit
+#           40 lines, 94% contained in the copy kept, which is titled His Litany To The Holy Spirit
+#           reprint dropped: The Oxford Book of English Verse 1250-1900
+#           printing kept:   Herrick, Hesperides and Noble Numbers
 --- TITLE: The Argument Of His Book
 [VERSE 1]
 I sing of brooks, of blossoms, birds and bowers,
@@ -9733,45 +9758,6 @@ And night's afraid of the sounding.
 _Lace_, leash.
 _Boar-cat_, tom-cat.
 
---- TITLE: To Violets
-[VERSE 1]
-Welcome, maids of honour!
-You do bring
-In the spring,
-And wait upon her.
-[VERSE 2]
-She has virgins many,
-Fresh and fair;
-Yet you are
-More sweet than any.
-[VERSE 3]
-You’re the maiden posies,
-And so graced
-To be placed
-’Fore damask roses.
-[VERSE 4]
-Yet, though thus respected,
-By-and-by
-Ye do lie,
-Poor girls, neglected.
-
---- TITLE: To Daisies, not to shut so soon
-[VERSE 1]
-Shut not so soon; the dull-eyed night
-Has not as yet begun
-To make a seizure on the light,
-Or to seal up the sun.
-[VERSE 2]
-No marigolds yet closèd are,
-No shadows great appear;
-Nor doth the early shepherd’s star
-Shine like a spangle here.
-[VERSE 3]
-Stay but till my Julia close
-Her life-begetting eye,
-And let the whole world then dispose
-Itself to live or die.
-
 --- TITLE: To Œnone
 [VERSE 1]
 What conscience, say, is it in thee,
@@ -9788,65 +9774,3 @@ Covet not both; but if thou dost
 Resolve to part with neither,
 Why, yet to show that thou art just,
 Take me and mine together!
-
---- TITLE: Litany to the Holy Spirit
-[VERSE 1]
-In the hour of my distress,
-When temptations me oppress,
-And when I my sins confess,
-[BURDEN]
-Sweet Spirit, comfort me!
-[VERSE 2]
-When I lie within my bed,
-Sick in heart and sick in head,
-And with doubts discomforted,
-[BURDEN]
-Sweet Spirit, comfort me!
-[VERSE 3]
-When the house doth sigh and weep,
-And the world is drown’d in sleep,
-Yet mine eyes the watch do keep,
-[BURDEN]
-Sweet Spirit, comfort me!
-[VERSE 4]
-When the passing bell doth toll,
-And the Furies in a shoal
-Come to fright a parting soul,
-[BURDEN]
-Sweet Spirit, comfort me!
-[VERSE 5]
-When the tapers now burn blue,
-And the comforters are few,
-And that number more than true,
-[BURDEN]
-Sweet Spirit, comfort me!
-[VERSE 6]
-When the priest his last hath pray’d,
-And I nod to what is said,
-’Cause my speech is now decay’d,
-[BURDEN]
-Sweet Spirit, comfort me!
-[VERSE 7]
-When, God knows, I’m toss’d about
-Either with despair or doubt;
-Yet before the glass be out,
-[BURDEN]
-Sweet Spirit, comfort me!
-[VERSE 8]
-When the tempter me pursu’th
-With the sins of all my youth,
-And half damns me with untruth,
-[BURDEN]
-Sweet Spirit, comfort me!
-[VERSE 9]
-When the flames and hellish cries
-Fright mine ears and fright mine eyes,
-And all terrors me surprise,
-[BURDEN]
-Sweet Spirit, comfort me!
-[VERSE 10]
-When the Judgment is reveal’d,
-And that open’d which was seal’d,
-When to Thee I have appeal’d,
-[BURDEN]
-Sweet Spirit, comfort me!

@@ -648,6 +648,134 @@ def test_traditions():
           "one obtained by lookup.")
 
 
+def test_tradition_provenance():
+    """M-15a. `Tradition.source` was an `R<n>` pointer into a document whose
+    own `from:` lines pointed at an array that was not in the repository.
+
+    Every check here was a MEASURED failure of the first repair attempt, and
+    two of them would have shipped a FABRICATED citation, which is worse than
+    the gap they were closing.
+    """
+    from quality import canon_sources as CS
+    print("\nM-15a. the survey index, inlined — and the ways it went wrong")
+
+    check("the index is present and complete over the six DECLARED cells",
+          CS.loaded() and len(CS.index()) == sum(n for _, _, n in CS.DECLARED)
+          == 601,
+          f"{len(CS.index())} rows. `loaded()` False would make every witness "
+          f"below `None` — cannot tell — which is not `no witness`.")
+
+    rows, why = CS.rebuild(write=False)
+    check("the POSITIONAL reading is checked against the canon's own prose",
+          rows is not None and len(CS.POSITION_CHECKS) >= 30, why or "")
+
+    # The shift that a head-only check set cannot see.
+    check("the checks reach PAST the first sourceless indic entry (position 32)",
+          any(i[0] == "I" and int(i[1:]) > 32 for i, _ in CS.POSITION_CHECKS),
+          "18 of the indic cell's 74 entries carry no `source` key and are "
+          "INTERLEAVED from 32, so a source-keyed reader renumbers the tail "
+          "while I1 and I6 still look right. It put `chan (ฉันท์)` on I47, "
+          "where the array holds `syair monorhyme quatrain`.")
+
+    check("`md` is NOT a top-level domain here",
+          not CS.HOST.search("CLAUDE.md doctrine 18"),
+          "with Moldova in the TLD list, `CLAUDE.md doctrine 18` parses as a "
+          "hostname and six names — anaphora, epistrophe, repetend, "
+          "repetition, refrain/burden/chorus, cynghanedd in English — read as "
+          "externally attested on a citation to this repo's own doctrine file.")
+
+    ix = CS.index()
+    check("four witness states, and the last two are not `no`",
+          {r["witness"] for r in ix.values()} <= set(CS.WITNESSES)
+          and {"external", "project", "unrecorded"}
+          <= {r["witness"] for r in ix.values()},
+          "doctrine 28: `we checked and it is us` and `nobody recorded a "
+          "witness` are different sentences with different remedies.")
+
+    bases = set(r["basis"] for r in ix.values())
+    check("`unrecorded` splits into an APPEAL and a missing FIELD",
+          {"unrecorded/appeal"} and "no_source_field" in bases
+          and "appeal" in bases,
+          "`standard rhetorical taxonomy` and `no source key at all` both "
+          "resolve to nothing, and only one of them is answerable by reading "
+          "harder.")
+
+    check("every ADJUDICATED override names the entry it expects",
+          all(len(v) == 4 and v[0] for v in CS.ADJUDICATED.values()),
+          "the first draft was keyed on position alone, and when the recovery "
+          "was corrected the `Thai named rhyme faults` override landed on "
+          "`talibun and seloka`. An index is a position; a position is not an "
+          "identity. `adjudicate()` raises on drift and on a no-op override.")
+
+    prim = CS.check_primary()
+    check("every PRIMARY_IN_REPO citation is still quotable from its file",
+          prim and all(p["state"] == "quoted" for p in prim),
+          "; ".join("%s %s" % (p["idx"], p["state"]) for p in prim
+                    if p["state"] != "quoted")
+          or f"{len(prim)} rows, each re-checked by running its own grep — "
+             f"Snorri's Háttatal c. 1222-25 in quality/phonology/non.py and "
+             f"平水韻 (1252) / 詞林正韻 (1821) in quality/phonology/ltc.py. "
+             f"Doctrine 62: the primary source is a spec.")
+
+    prov = R.tradition_provenance()
+    check("THREE counts over the traditions, never two (doctrine 79)",
+          prov["external"] + prov["project"] + prov["cannot_tell"]
+          == prov["distinct"] and prov["cannot_tell"] > 0,
+          f"external {prov['external']}, THIS PROJECT'S OWN "
+          f"{prov['project']}, cannot tell {prov['cannot_tell']}, of "
+          f"{prov['distinct']} distinct on {prov['attachments']} attachments.")
+
+    check("`attested()` is True/False/None and never collapses the last two",
+          {t.attested() for s in R.REGISTRY.values() for t in s.traditions}
+          == {True, False, None},
+          "None PROPAGATES. A schema nobody could attribute and a schema "
+          "whose tradition this project invented are different values.")
+
+    check("the traditions this project invented are LABELLED, not dropped",
+          prov["project"] > 0
+          and all(c["tradition"] and c["cites"] for c in prov["coined"]),
+          "an invented name that says it was invented is fine; an invented "
+          "name that reads as attested is the defect. "
+          + ", ".join(c["tradition"] for c in prov["coined"][:4]) + " …")
+
+    # The false-attribution guard, which is the one that would fabricate.
+    attributed = [(t, s) for s in R.REGISTRY.values() for t in s.traditions
+                  if t.why.startswith("attributed")]
+    bad = [t.name for t, _ in attributed
+           if not (CS._distinctive(t.name)
+                   & CS._distinctive(ix[t.cites[0]]["name"]))]
+    check("every attribution shares a distinctive token with the survey "
+          "entry's own NAME, not merely with its tradition field",
+          attributed and not bad,
+          f"{len(attributed)} attributions, {len(bad)} matched on the "
+          f"tradition field alone: {bad[:4]}. Filtering by language BEFORE "
+          f"testing uniqueness put `English refrain / burden / chorus` on "
+          f"`E3 repetition (same-word rhyme)` and `Finnish Kalevala vahva "
+          f"alkusointu` (vahva = STRONG) on `G82 Kalevala WEAK alliteration`.")
+
+    check("a name whose only cell candidate contradicts its language gloss is "
+          "NOT attributed",
+          CS.attribute("Vietnamese vần chân", ["I61"]) is None,
+          "`I61` is `chan (ฉันท์) quantitative template`, Thai. Folding "
+          "diacritics makes `chân` and `chan` the same token, and a filter "
+          "that can only delete is what stops that becoming a citation.")
+
+    check("the multi-line `from:` reader finds more than the single-line one",
+          sum(len(CS.refs_in(f)) for _, _, _, f in CS.canon_blocks()) == 781,
+          "audit_register.py --provenance counted 611 with a single-line "
+          "regex on the first occurrence only. R1's from-line runs onto a "
+          "second line, R29's onto three, and §H/§I write `from:` inline. "
+          "Doctrine 58 inside the adversary built to find doctrine-58 errors.")
+
+    check("RHYME_CANON.md now carries publication YEARS, and they are the "
+          "real ones",
+          all(y in open(CS.CANON_MD, encoding="utf-8").read()
+              for y in ("1222-25", "1252", "1821")),
+          "the audit's sharpest single finding was `0 publication-year tokens "
+          "in 94 KB`. Every year in §8 comes from a repo file that prints it, "
+          "never from recollection (doctrine 39).")
+
+
 def test_null_module():
     """BACKLOG §2.6. The counts had no matched control."""
     print("\n§2.6. the matched control — and the null that is the IDENTITY MAP")
@@ -921,6 +1049,7 @@ if __name__ == "__main__":
     test_refusal_is_not_false()
     test_rhyme_constraints_unreadable_nucleus()
     test_traditions()
+    test_tradition_provenance()
     test_null_module()
     test_known_open_defects()
     print("=" * 66)

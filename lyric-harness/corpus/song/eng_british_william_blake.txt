@@ -11,6 +11,31 @@
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
+# dedup: DEDUPLICATED 2026-08-11 by cell AC. 3 items removed, 56 body lines.
+#       EVERY ONE was the same poem as another item in this same file, at or
+#       above 60%% containment of its distinct verse lines (the cut is declared
+#       in quality/audit_corpus.py ITEM_OVERLAP_FLOOR, with the whole series
+#       from 0.30 to 1.00 beside it, doctrine 16). WHICH COPY WENT IS DECIDED
+#       BY THE SOURCE CLASS, and not by which copy was longer or listed first:
+#       where one comes from an ANTHOLOGY, HYMNAL or monograph that reprints
+#       the poet, and the other from a volume of the poet's own, the poet's own
+#       volume is the nearer witness and the reprint goes. Each removed item is
+#       named below with the printing it came from and the printing that was
+#       kept. Where BOTH copies were reprints, or both were the poet's own
+#       volumes, THE SOURCE DOES NOT DECIDE and nothing was removed; those
+#       pairs are open and counted in data/sources.tsv.
+#         REMOVED Reeds of Innocence
+#           20 lines, 85% contained in the copy kept, which is titled Introduction
+#           reprint dropped: The Oxford Book of English Verse 1250-1900
+#           printing kept:   Blake, Songs of Innocence and of Experience
+#         REMOVED Hear the Voice
+#           20 lines, 95% contained in the copy kept, which is titled Introduction
+#           reprint dropped: The Oxford Book of English Verse 1250-1900
+#           printing kept:   Blake, Songs of Innocence and of Experience
+#         REMOVED Cradle Song
+#           16 lines, 94% contained in the copy kept, which is titled A Cradle Song
+#           reprint dropped: The Oxford Book of English Verse 1250-1900
+#           printing kept:   Blake, Songs of Innocence and of Experience
 --- TITLE: Introduction
 [VERSE 1]
 Piping down the valleys wild,
@@ -1460,81 +1485,6 @@ When I my grave have made,
 Let winds and tempests beat:
 Then down I’ll lie, as cold as clay:
 True love doth pass away!
-
---- TITLE: Reeds of Innocence
-[VERSE 1]
-Piping down the valleys wild,
-Piping songs of pleasant glee,
-On a cloud I saw a child,
-And he laughing said to me:
-[VERSE 2]
-‘Pipe a song about a Lamb!’
-So I piped with merry cheer.
-‘Piper, pipe that song again;’
-So I piped: he wept to hear.
-[VERSE 3]
-‘Drop thy pipe, thy happy pipe;
-Sing thy songs of happy cheer!’
-So I sung the same again,
-While he wept with joy to hear.
-[VERSE 4]
-‘Piper, sit thee down and write
-In a book that all may read.’
-So he vanish’d from my sight;
-And I pluck’d a hollow reed,
-[VERSE 5]
-And I made a rural pen,
-And I stain’d the water clear,
-And I wrote my happy songs
-Every child may joy to hear.
-
---- TITLE: Hear the Voice
-[VERSE 1]
-Hear the voice of the Bard,
-Who present, past, and future, sees;
-Whose ears have heard
-The Holy Word
-That walk’d among the ancient trees;
-[VERSE 2]
-Calling the lapsèd soul,
-And weeping in the evening dew;
-That might control
-The starry pole,
-And fallen, fallen light renew!
-[VERSE 3]
-‘O Earth, O Earth, return!
-Arise from out the dewy grass!
-Night is worn,
-And the morn
-Rises from the slumbrous mass.
-[VERSE 4]
-‘Turn away no more;
-Why wilt thou turn away?
-The starry floor,
-The watery shore,
-Is given thee till the break of day.’
-
---- TITLE: Cradle Song
-[VERSE 1]
-Sleep, sleep, beauty bright,
-Dreaming in the joys of night;
-Sleep, sleep; in thy sleep
-Little sorrows sit and weep.
-[VERSE 2]
-Sweet babe, in thy face
-Soft desires I can trace,
-Secret joys and secret smiles,
-Little pretty infant wiles.
-[VERSE 3]
-As thy softest limbs I feel
-Smiles as of the morning steal
-O’er thy cheek, and o’er thy breast
-Where thy little heart doth rest.
-[VERSE 4]
-O the cunning wiles that creep
-In thy little heart asleep!
-When thy little heart doth wake,
-Then the dreadful night shall break.
 
 --- TITLE: Love’s Secret
 [VERSE 1]

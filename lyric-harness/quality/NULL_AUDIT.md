@@ -94,6 +94,76 @@ comparator. It is also the `infer_chains` band-fairness bug one level up — tha
 fix made the *two comparators* comparable; it never asked whether the number
 either of them produced was above chance.
 
+#### AMENDED 2026-08-11 — THREE OF THE FOUR FIGURES ARE A COMPARATOR THAT NO LONGER SHIPS, AND THE SIGN OF THE RESULT FLIPS
+
+Full account and commands: **`quality/RESULTS_NULL_SHAPES.md`**. The three
+things this section got wrong, all of them found by re-execution:
+
+**1. There is a FIFTH figure and it is today's: 17.3%.** `battery.py`,
+`audit_band_control.captured()` and `negative_control.py`'s P3 arm are one
+statistic at three call sites — the share of lines inside a chain ≥ 2 — and all
+three return 17.3% now. The 2×2 over `{head, tail}` alignment × `theta_coda`
+`{0.60, 0.80}` recovers the record in exactly one cell:
+
+```
+band ON        theta_chain 0.82   theta_chain 0.85
+HEAD + 0.60          20.0%              18.0%      <- BOTH RECORDED FIGURES
+HEAD + 0.80          18.0%              16.7%
+TAIL + 0.60          19.3%              17.3%
+TAIL + 0.80          17.3%              16.0%      <- SHIPPED TODAY
+band OFF is 26.0% at theta 0.82 in ALL FOUR cells  <- recorded, and invariant
+```
+
+So 20.0% and 18.0% are coordinates of the **pre-`b1d7f64` flush-LEFT
+comparator at `theta_coda 0.60`**, retired on 2026-08-11. 26.0% survives
+because band-OFF does not read either coordinate. The decomposition is
+additive: `theta_coda` costs −2.0 pp, the alignment fix −0.7 pp, together
+−2.7 pp. Neither change was ever run against this control. **Doctrine 58 gains
+the axis doctrine 91 gave it, one further out: a recorded rate is a coordinate
+of the COMPARATOR.**
+
+**2. Under the shipped comparator the control SEPARATES, and the band's effect
+on the separation flips sign.** Same script, same n, same seed:
+
+```
+$ python3 quality/audit_band_control.py 200          # 2026-08-11
+  band OFF  obs 26.0%  null med 19.3%  max 27.3%  excess +6.7 pp  p 0.0547
+  band ON   obs 17.3%  null med  8.0%  max 16.7%  excess +9.3 pp  p 0.0050
+```
+
+The band-OFF row reproduces to the decimal — which is the check that the null
+is the same null — and the band-ON row does not. The null MEDIAN halves,
+16.7% → 8.0%. **Whitman excess band OFF → ON: recorded +6.7 → +3.3 pp,
+measured +6.7 → +9.3 pp.** Sonnets: recorded +23.6 → +23.5, measured
++23.6 → +26.2. At n = 2000, two seeds, band ON gives p = 0.0055 and 0.0065.
+
+The sentence in doctrine 71 — *"a filter that lowers chance and signal together
+has not tightened anything"* — is true of the comparator it was written
+against, and the numbers it is stated in no longer reproduce.
+
+**3. The gap-to-null-MAX is the wrong headline on a result this close.**
+Whitman's gap to the null MAX changes SIGN with the seed (+0.0067, +0.0267,
+−0.0267, +0.0200, +0.0200 over five seeds at n = 200) while p stays at
+0.005–0.010; at n = 2000 the gap is −0.03 and p is 0.006, because a maximum
+grows with n. The statistic's granularity is one line in 150 = 0.667 pp, so
+every one of those gaps is one to five lines. This is why
+`audit_band_control.py` and `negative_control.py` disagreed about whether the
+observation cleared the null while running the same null on the same text.
+Doctrine 57's mirror: **a gap to a null MAXIMUM reports the sample size.**
+
+**WHAT DOES NOT CHANGE, AND IT IS THE PART THAT MATTERS.** The band's
+empirical warrant stays withdrawn. It is withdrawn harder: §2 of
+`RESULTS_NULL_SHAPES.md` decomposes Whitman's 14 detected chain links into
+**7 RHYME and 7 REPEAT, with 7 of 14 on an identical token** — `now` closes
+four consecutive lines of `Song of Myself`, which `battery.py` has been
+printing under the heading `false chains (should be near zero)` since the
+first commit. A negative control is a text in which the property is ABSENT.
+This one carries it as epistrophe, in the one relation doctrine 3 says cannot
+be read without a declared context. **`corpus/whitman.txt` was never eligible
+for the role, at any rate, under any comparator, and that conclusion needs no
+null at all.** A control that is not a control does not become evidence by
+acquiring a p-value.
+
 **What is NOT overturned.** P1, P2, P3 and P5 of `RESULTS_BAND.md` stand: the
 typing of `sun`/`much` as ASSONANCE, the vocabulary growing from three names to
 five, the sonnet residue decomposing, and the both-empty-coda tripwire (251 of
@@ -531,3 +601,14 @@ corpus, where the comparator was another rate rather than a null.** Whitman
 In each case the number was reproducible and the reading of it was not
 supported. Doctrine 56 says a search needs a null under the same search;
 these say a **rate** needs a null under the same instrument.
+
+**AND THE AUDIT'S OWN NUMBERS NEEDED THE SAME TREATMENT, 2026-08-11.** This
+document was written on 2026-08-10 and the comparator changed on 2026-08-11
+(`b1d7f64`: tail alignment, `theta_coda` 0.60 → 0.80). §1.1's band-ON row does
+not reproduce under the shipped comparator and the sign of its conclusion
+flips; §1.1's amendment carries the 2×2 and
+`quality/RESULTS_NULL_SHAPES.md` carries the run. So the closing sentence
+above needs its own third clause: a rate needs a null under the same
+instrument, **and both need a date, because the instrument moves.** Every
+figure in this file is a coordinate of the comparator that was shipped when it
+was measured, and only §1.1 has been re-run against the current one.

@@ -11,43 +11,23 @@
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
---- TITLE: The Lost Chord
-[VERSE 1]
-Seated one day at the Organ,
-I was weary and ill at ease,
-And my fingers wandered idly
-Over the noisy keys.
-[VERSE 2]
-I do not know what I was playing,
-Or what I was dreaming then;
-But I struck one chord of music,
-Like the sound of a great Amen.
-[VERSE 3]
-It flooded the crimson twilight
-Like the close of an Angel's Psalm,
-And it lay on my fevered spirit
-With a touch of infinite calm.
-[VERSE 4]
-It quieted pain and sorrow,
-Like love overcoming strife;
-It seemed the harmonious echo
-From our discordant Life.
-[VERSE 5]
-It linked all perplexèd meanings
-Into one perfect peace,
-And trembled away into silence
-As if it were loth to cease.
-[VERSE 6]
-I have sought, but I seek it vainly,
-That one lost chord divine,
-Which came from the soul of the Organ,
-And entered into mine.
-[VERSE 7]
-It may be that Death's bright angel
-Will speak in that chord again,--
-It may be that only in Heaven
-I shall hear that grand Amen.
-
+# dedup: DEDUPLICATED 2026-08-11 by cell AC. 1 items removed, 28 body lines.
+#       EVERY ONE was the same poem as another item in this same file, at or
+#       above 60%% containment of its distinct verse lines (the cut is declared
+#       in quality/audit_corpus.py ITEM_OVERLAP_FLOOR, with the whole series
+#       from 0.30 to 1.00 beside it, doctrine 16). WHICH COPY WENT IS DECIDED
+#       BY THE SOURCE CLASS, and not by which copy was longer or listed first:
+#       where one comes from an ANTHOLOGY, HYMNAL or monograph that reprints
+#       the poet, and the other from a volume of the poet's own, the poet's own
+#       volume is the nearer witness and the reprint goes. Each removed item is
+#       named below with the printing it came from and the printing that was
+#       kept. Where BOTH copies were reprints, or both were the poet's own
+#       volumes, THE SOURCE DOES NOT DECIDE and nothing was removed; those
+#       pairs are open and counted in data/sources.tsv.
+#         REMOVED The Lost Chord
+#           28 lines, 96% contained in the copy kept, which is titled Verse: A Lost Chord
+#           reprint dropped: Victorian Songs, ed. Gosse
+#           printing kept:   Procter, Legends and Lyrics, Part 2
 --- TITLE: Sent To Heaven
 [REFRAIN]
 I had a Message to send her,

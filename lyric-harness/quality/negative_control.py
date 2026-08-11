@@ -146,8 +146,8 @@ if os.path.dirname(HERE) not in sys.path:
     sys.path.insert(0, os.path.dirname(HERE))
 
 from lyric_harness import (Declaration, Lexicon, admits, best_score,   # noqa: E402
-                           infer_chains, line_anchors,
-                           readability_records)
+                           infer_chains, line_anchors, line_tokens,
+                           readability_records, word_syllable_map)
 
 #: Doctrine 66. A randomisation with no stated seed is a result that does not
 #: reproduce. Replicate r is seeded SEED+r, so replicate 7 is replicate 7 on
@@ -559,7 +559,357 @@ def arm_whitman(lex, decl, n, theta=0.82):
             differ += 1
     print("\nP3-LEGACY · WHITMAN, %d lines, theta_chain=%.2f  "
           "(the control K-3 puts in the dock)" % (len(wl), theta))
-    return report("Whitman chain capture", obs, nulls, differ, n)
+    out = report("Whitman chain capture", obs, nulls, differ, n)
+    whitman_link_relations(lex, decl, wl, theta)
+    return out
+
+
+def whitman_link_relations(lex, decl, wl, theta=0.82):
+    """P3-LEGACY's THIRD verdict, and it is the one that ends the argument.
+
+    K-3 rejects `corpus/whitman.txt` because its figure does not clear its own
+    null. That is a statement about POWER. This is a statement about the
+    MATERIAL, it needs no null, and it is prior: decompose the detected chain
+    links by RELATION and half of them are REPEAT on an identical token.
+
+    `now` closes four consecutive lines of `Song of Myself`; `it`, `end`,
+    `own` and `laps` close two each. That is epistrophe, and doctrine 3 says
+    REPEAT is a violation inside a verse, the REQUIREMENT across chorus
+    instances, and licensed as radif — a relation whose sign is set by
+    context. A negative control is a text in which the property under test is
+    ABSENT. Whitman's line ends carry the property, in the one form the
+    taxonomy says cannot be read without a declared context, so the file was
+    never eligible for the role whatever its rate had been.
+    """
+    anc = {}
+    for i, line in enumerate(wl):
+        a, last, _ = line_anchors(lex, line, promote=decl.final_promotion)
+        anc[i] = (a, last)
+    rel, same = Counter(), 0
+    for c in infer_chains(lex, wl, decl, theta_chain=theta):
+        if c["length"] < 2:
+            continue
+        for k in range(len(c["lines"]) - 1):
+            i, j = c["lines"][k] - 1, c["lines"][k + 1] - 1
+            s = best_score(anc[i][0], anc[j][0], decl, anc[i][1], anc[j][1])
+            rel[s["relation"]] += 1
+            a = c["endwords"][k].lower().strip(".,;:!?")
+            b = c["endwords"][k + 1].lower().strip(".,;:!?")
+            same += (a == b)
+    tot = sum(rel.values()) or 1
+    print("    WHAT THE CHAINS ARE MADE OF — %d adjacent links:" % tot)
+    for r, k in rel.most_common():
+        print("      %-10s %3d  (%.0f%%)" % (r, k, 100.0 * k / tot))
+    print("      links on the SAME TOKEN at both ends: %d (%.0f%%)"
+          % (same, 100.0 * same / tot))
+    if rel.get("REPEAT", 0) * 2 >= tot:
+        print("      *** HALF OR MORE OF THIS CONTROL'S SIGNAL IS REPEAT, not "
+              "rhyme.\n          A negative control is a text where the "
+              "property is ABSENT.\n          This one carries it as "
+              "epistrophe, and doctrine 3 says REPEAT's\n          sign is a "
+              "function of a context this file does not declare.")
+    return rel, same, tot
+
+
+# ---------------------------------------------------------------------------
+# 6. THE OWED NULL — BACKLOG 4.2 / MISSING L-2.  The other half of the brief.
+# ---------------------------------------------------------------------------
+
+def _shape(lex, w):
+    """(stress pattern) of a word: the bucket a redeal may swap it inside.
+    Matching on it preserves the syllable stream and the stress grid EXACTLY,
+    so slots, candidate pairs and window geometry are identical between the
+    observation and the null and only the phonetic CONTENT changes."""
+    return tuple(s["stress"] for s in word_syllable_map(lex, w))
+
+
+def _rime(lex, w):
+    sy = word_syllable_map(lex, w)
+    return None if not sy else (sy[-1]["nucleus"], tuple(sy[-1]["coda"]))
+
+
+def arm_spans(lex, decl, n_items=20, redeals=8, seed=SEED):
+    """`MISSING.md` L-2 owes "a null that destroys the span multiset — across
+    items rather than within one". This builds it, and reports that it is an
+    identity map too, with the arithmetic and the detection floor.
+
+    The three columns are the whole argument and they are three DIFFERENT
+    questions, kept apart on purpose:
+      preservation  n_slots / n_pairs — did the null keep the geometry?
+      destruction   band_pass / r@theta / min_p — did it move the quantity the
+                    statistic is a function of?
+      the statistic sat_corr at both family settings.
+    A null that fails the second column has tested nothing however well it
+    passes the first, which is the mistake the word scramble made.
+    """
+    from quality.corpus import load_sonnets
+    from quality.fwer_family import probe, scrambled_sonnets
+    from quality.time_layer import TimeDeclaration
+    from quality.controls import cross_item_redeal, rime_pool_redeal
+
+    son = [l for _, l in sorted(load_sonnets().items())][:n_items]
+    tok = lambda ln: line_tokens(ln)                        # noqa: E731
+    shp = lambda w: _shape(lex, w)                          # noqa: E731
+    rim = lambda w: _rime(lex, w)                           # noqa: E731
+
+    print("\n" + "=" * 74)
+    print("THE OWED NULL — BACKLOG 4.2 / MISSING L-2: destroy the span")
+    print("multiset ACROSS items")
+    print("=" * 74)
+    print("material: %d Shakespeare sonnets; time layer at theta 0.80, "
+          "window 32" % n_items)
+
+    red, stats = cross_item_redeal(son, tok, shp, seed=seed)
+    print("cross-item redeal draws: exact stress-shape %d, "
+          "syllable-count-only %d, kept %d\n  (three counts, never one — the "
+          "fallbacks are how matched the redeal\n  actually was, doctrine 79)"
+          % (stats["exact"], stats["count_only"], stats["kept"]))
+
+    arms = [("REAL sonnets", son),
+            ("word scramble", scrambled_sonnets(n_items)),
+            ("cross-item redeal", red)]
+    floor = [("mono-rime redeal", rime_pool_redeal(son, tok, shp, rim,
+                                                   "mono", seed)),
+             ("dispersed redeal", rime_pool_redeal(son, tok, shp, rim,
+                                                   "dispersed", seed))]
+
+    t = TimeDeclaration(theta=0.80, window=32, family="scored")
+    print("\nPRESERVATION (left) and DESTRUCTION (right). `band_pass` and "
+          "`r@theta`\nARE the quantity L-2 names: the share of chance "
+          "re-pairings of the item's\nown spans that are rhyme relations, and "
+          "that clear theta.")
+    print("%-22s %8s %8s | %9s %9s %9s"
+          % ("arm", "n_slots", "n_pairs", "band_pass", "r@theta", "min_p"))
+    print("-" * 74)
+    rows = {}
+    for label, arm in arms + floor:
+        ps = [probe(it, decl, t) for it in arm]
+        rows[label] = ps
+        m = len(ps)
+        print("%-22s %8.1f %8.1f | %9.4f %9.4f %9.5f"
+              % (label, sum(p["n_slots"] for p in ps) / m,
+                 sum(p["n_pairs"] for p in ps) / m,
+                 sum(p["band_pass"] for p in ps) / m,
+                 sum(p["r"] for p in ps) / m,
+                 sum(p["min_p"] for p in ps) / m))
+        if label == "cross-item redeal":
+            print("  -- DETECTION FLOOR below (doctrines 31/76): NEITHER arm "
+                  "is admissible as a\n     null, because both change the "
+                  "language's rime distribution. They are\n     here to show "
+                  "the measurement CAN move.")
+
+    mean = lambda k: sum(p["min_p"] for p in rows[k]) / n_items  # noqa: E731
+    base = mean("REAL sonnets")
+    print("\nmin_p relative to REAL, which is the number to read:")
+    for label in ("word scramble", "cross-item redeal", "mono-rime redeal",
+                  "dispersed redeal"):
+        print("   %-20s %.5f   %5.2fx"
+              % (label, mean(label), mean(label) / base if base else 0.0))
+    cand = [mean(k) / base for k in ("word scramble", "cross-item redeal")]
+    print("   The two floor arms span %.0fx. The two candidate nulls move it "
+          "%.2f-%.2fx.\n   The instrument is not blind (doctrines 31/76); the "
+          "randomisations are\n   not nulls."
+          % (mean("mono-rime redeal") / max(1e-12, mean("dispersed redeal")),
+             min(cand), max(cand)))
+
+    print("\nTHE STATISTIC, both family settings. `candidate` is the honest "
+          "family\n(BACKLOG 4.1); at it the layer cannot produce an event in "
+          "ANY arm, so no\nnull can separate anything there and the question "
+          "is arithmetic, not data.")
+    print("%-11s %-22s %8s %10s %9s" % ("family", "arm", "mute", "mean sat",
+                                        "items>0"))
+    print("-" * 66)
+    for fam in ("scored", "candidate"):
+        t2 = TimeDeclaration(theta=0.80, window=32, family=fam)
+        for label, arm in arms + floor:
+            ps = [probe(it, decl, t2) for it in arm]
+            print("%-11s %-22s %4d/%-3d %9.1f%% %9d"
+                  % (fam, label,
+                     sum(1 for x in ps if x["cannot_tell"] or x["refused"]),
+                     len(ps), 100 * sum(x["sat_corr"] for x in ps) / len(ps),
+                     sum(1 for x in ps if x["sat_corr"] > 0)))
+
+    print("\nREDEAL SEED BAND — the redeal is itself random, so the single "
+          "number\nabove needs its own distribution (doctrine 73).")
+    band = []
+    for r in range(redeals):
+        rr, _ = cross_item_redeal(son, tok, shp, seed=seed + r)
+        ps = [probe(it, decl, t) for it in rr]
+        band.append(sum(p["min_p"] for p in ps) / n_items)
+    band.sort()
+    print("   min_p over %d redeal seeds: min %.5f median %.5f max %.5f"
+          % (redeals, band[0], band[len(band) // 2], band[-1]))
+    inside = band[0] <= base <= band[-1]
+    print("   REAL sits at %.5f — %s the redeal band."
+          % (base, "INSIDE" if inside else "OUTSIDE"))
+    if not inside:
+        print("   So the redeal DOES move the quantity, consistently and in "
+              "the expected\n   direction, by %.1f%%. Against a detection "
+              "floor spanning %.0fx that is\n   negligible, not zero — which "
+              "is the honest verdict and a different one\n   from the word "
+              "scramble's byte-identity. A null can be REAL and USELESS."
+              % (100.0 * abs(base - band[len(band) // 2]) / base,
+                 mean("mono-rime redeal") / max(1e-12,
+                                                mean("dispersed redeal"))))
+    return rows
+
+
+# ---------------------------------------------------------------------------
+# 7. THE POSITIVE, PAST ENGLISH.  Doctrine 32.
+# ---------------------------------------------------------------------------
+
+LANG = re.compile(r"^([a-z]{3})_")
+
+
+def load_lang_quatrains(lang, cap_per_file=8):
+    out = []
+    for name in sorted(os.listdir(SONG)):
+        m = LANG.match(name)
+        if not m or m.group(1) != lang:
+            continue
+        taken = 0
+        for blk in _blocks(os.path.join(SONG, name)):
+            if taken >= cap_per_file:
+                break
+            if len(blk) == 4:
+                out.append((name, blk))
+                taken += 1
+    return out
+
+
+WORD = re.compile(r"[^\W\d_]+", re.UNICODE)
+
+
+def arm_langs(n, cap=8):
+    """P2 — the rhyme-distance profile — run through each language's OWN
+    declared phonology, on the same null.
+
+    DOCTRINE 32 IS THE WHOLE POINT. The property under test is "sound
+    repetition constrained to fixed positions inside a four-line unit". That
+    property is not English, and the arm above measures it only in English —
+    which is `MISSING.md` K-6, and it is the single-language half of the error
+    doctrine 32 names. `corpus/song/` holds 260 files under seven language
+    prefixes, so the arm can be widened without fetching anything.
+
+    THE VERDICT IS ASKED OF `quality.phonology.get(lang).rhymes`, never of
+    CMUdict: commitment 3 of that package forbids a language falling back to
+    English, and a null run through the wrong phonology would be doctrine 50 —
+    an orthographic layer silently destroying the constraint being measured.
+    Where a phonology declines the question the pair is REFUSED, and refused /
+    judged / mandated are printed as three counts (doctrine 79).
+
+    WHAT THIS ARM CANNOT DO, MEASURED RATHER THAN GUESSED. `eng` and `cym`
+    do not override `Phonology.rhymes`, so through this path they refuse
+    100% (4758/4758 and 108/108). English is not thereby unmeasured — it has
+    the whole arm above, through `lyric_harness.best_score` — but Welsh is,
+    and the blocker is the MODULE, not the text or the licence: doctrine 44's
+    "hard to build" and not its "cannot obtain". `fas` and `san` yield zero
+    four-line blocks under `_blocks`, which is a claim about the FILE's
+    layout, not about the form; Bābā Ṭāhir's do-baytī IS four hemistichs and
+    the file does not lay them out as four lines.
+    """
+    from quality import phonology
+    print("\n" + "=" * 74)
+    print("THE POSITIVE, PAST ENGLISH — doctrine 32, MISSING K-6")
+    print("=" * 74)
+    print("Each language is asked in its OWN declared phonology. A language "
+          "with no\n`rhymes` predicate REFUSES; a refusal is not a "
+          "non-rhyme (doctrine 79).")
+    langs = sorted({m.group(1) for m in
+                    (LANG.match(f) for f in os.listdir(SONG)) if m})
+    out = {}
+    for lang in langs:
+        quats = load_lang_quatrains(lang, cap)
+        try:
+            ph = phonology.get(lang)
+        except Exception as exc:
+            print("\n%s — %d four-line blocks; NO DECLARED PHONOLOGY (%s)"
+                  % (lang, len(quats), type(exc).__name__))
+            continue
+        overrides = type(ph).rhymes is not phonology.Phonology.rhymes
+        if not quats:
+            print("\n%-4s (%s) — 0 four-line blocks in %d files. The form may "
+                  "still be a\n     quatrain; this says the FILE does not lay "
+                  "it out as four lines."
+                  % (lang, ph.name, len([f for f in os.listdir(SONG)
+                                         if f.startswith(lang + "_")])))
+            continue
+        if not overrides:
+            print("\n%-4s (%s) — %d four-line blocks, and this module declares "
+                  "no `rhymes`\n     predicate, so every pair REFUSES. "
+                  "Mandated %d, judged 0, refused %d.\n     Doctrine 44: the "
+                  "blocker is the MODULE, not the text."
+                  % (lang, ph.name, len(quats), 6 * len(quats),
+                     6 * len(quats)))
+            continue
+
+        pairs, mandated, judged, refused = [], 0, 0, 0
+        for _, blk in quats:
+            fw = [(WORD.findall(l) or [None])[-1] for l in blk]
+            got = set()
+            for i in range(4):
+                for j in range(i + 1, 4):
+                    mandated += 1
+                    if not fw[i] or not fw[j]:
+                        refused += 1
+                        continue
+                    try:
+                        v = ph.rhymes(fw[i], fw[j])
+                    except Exception:
+                        v = None
+                    if v is None:
+                        refused += 1
+                    else:
+                        judged += 1
+                        if v:
+                            got.add((i, j))
+            pairs.append(got)
+        n_rh = sum(len(p) for p in pairs)
+        print("\n%-4s (%s) — %d quatrains from %d files"
+              % (lang, ph.name, len(quats), len({f for f, _ in quats})))
+        print("     mandated %d, judged %d, refused %d; rhyming pairs %d"
+              % (mandated, judged, refused, n_rh))
+        if n_rh < 30:
+            print("     BELOW THE n=30 PAIR FLOOR — not measured "
+                  "(doctrine 72).")
+            continue
+
+        def prof(perms):
+            c = Counter()
+            for got, p in zip(pairs, perms):
+                pos = {o: k for k, o in enumerate(p)}
+                for (i, j) in got:
+                    c[abs(pos[i] - pos[j])] += 1
+            tot = sum(c.values()) or 1
+            return {d: c.get(d, 0) / tot for d in (1, 2, 3)}
+
+        obs_prof = prof([IDENT] * len(pairs))
+        nulls_prof = []
+        for r in range(n):
+            rng = random.Random(SEED + r)
+            perms = []
+            for _ in pairs:
+                p = list(IDENT)
+                rng.shuffle(p)
+                perms.append(tuple(p))
+            nulls_prof.append(prof(perms))
+        ref = {d: sum(x[d] for x in nulls_prof) / n for d in (1, 2, 3)}
+        obs = tv(obs_prof, ref)
+        nulls = [tv(x, ref) for x in nulls_prof]
+        differ = sum(1 for x in nulls if abs(x - obs) > 1e-12)
+        print("     observed  d1 %.4f  d2 %.4f  d3 %.4f"
+              % (obs_prof[1], obs_prof[2], obs_prof[3]))
+        print("     null mean d1 %.4f  d2 %.4f  d3 %.4f"
+              % (ref[1], ref[2], ref[3]))
+        out[lang] = report("TV(pooled profile, null mean) — %s" % lang,
+                           obs, nulls, differ, n)
+    if out:
+        sep = [k for k, v in out.items() if v["gap"] > 0]
+        print("\n%d language(s) measured; %d separate from their own line "
+              "permutation:\n  %s. Doctrine 32: the corpus is the PROPERTY, "
+              "and the property now has\n  more than one language in it."
+              % (len(out), len(sep), ", ".join(sorted(out))))
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -568,6 +918,7 @@ def main(argv):
     n = 200
     cap = 8
     do_chains = True
+    only = None
     for a in argv:
         if a.startswith("--n="):
             n = int(a.split("=", 1)[1])
@@ -575,6 +926,14 @@ def main(argv):
             cap = int(a.split("=", 1)[1])
         elif a == "--skip-chains":
             do_chains = False
+        elif a in ("--spans", "--langs"):
+            only = a
+
+    if only == "--spans":
+        return 0 if arm_spans(Lexicon(), Declaration()) else 0
+    if only == "--langs":
+        arm_langs(n, cap)
+        return 0
 
     lex = Lexicon()
     decl = Declaration()

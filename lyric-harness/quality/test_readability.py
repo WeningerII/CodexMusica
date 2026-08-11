@@ -297,16 +297,46 @@ def test_corpus_song_rate_is_pinned():
     # 819 lines that left had an unreadable end word. The duplicated material
     # was the readable kind, so every rate measured over this corpus before
     # 2026-08-11 was diluted by text that was in it twice.
-    check("countable lines 189985", r["lines_countable"] == 189985,
-          f"{r['lines_countable']}  (was 190804)")
-    check("unreadable end word 10045", r["unreadable_final"] == 10045,
-          f"{r['unreadable_final']} ({r['rate']:.4%})  (was 10051)")
-    check("rate is 5.29%", abs(r["rate"] - 0.052873) < 1e-5,
-          f"{r['rate']:.4%}  (was 5.2677% over a corpus with 819 duplicated "
-          f"lines in it)")
-    check("9806 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 9806,
-          f"{r['substituted_end_word']}  (was 9812)")
+    #
+    # REPINNED AGAIN 2026-08-11, cell AC, after 63 further near-duplicate
+    # items came out — the same poem in two printings, which no hash sees.
+    # 189,985 -> 188,805 countable, 10,045 -> 10,044 unreadable, 5.2873% ->
+    # 5.3198%. THE DIRECTION REPLICATES, and on a population three times the
+    # size of the one that first showed it: 1,221 VERSE lines left and only 10
+    # of them had an unreadable end word, 0.8% against the corpus's 6.0%.
+    #
+    # AND THE DENOMINATOR IS NOT WHAT THE PIN'S NAME SAYS IT IS, which cell AC
+    # measured while repinning and which the next person to quote this number
+    # needs told. `read_lines` is "stripped, non-empty, has a Latin letter",
+    # so the 188,805 countable lines are:
+    #
+    #     VERSE                  151,898   9,078 unreadable    5.9764%
+    #     [VERSE n] markers       29,990      27               0.09%
+    #     --- TITLE: lines         4,930     612              12.41%
+    #     other `--- ` lines         449     183              40.76%
+    #     `#` header lines         1,538     144               9.36%
+    #     ------------------------------------------------------------
+    #     TOTAL                  188,805  10,044               5.3198%
+    #
+    # 19.5% of the denominator is not verse. The headline 5.32% is 5.98% on
+    # verse alone, diluted by 29,990 `[VERSE n]` markers that are countable,
+    # almost always readable, and are not lines of a poem. Doctrine 58 in its
+    # sharpest form: the population is a setting nobody wrote down. It also
+    # means a cell that writes a LONGER PROVENANCE HEADER moves this number —
+    # this one did, by +9 on `# ` lines ending in `data/sources.tsv` and the
+    # like. The proposed one-line fix to `quality/readability.read_lines` is
+    # in cell AC's PATCHES-not-mine.md; it is not applied here because moving
+    # a shared line definition mid-round would move every other pin with it.
+    check("countable lines 188805", r["lines_countable"] == 188805,
+          f"{r['lines_countable']}  (was 189985)")
+    check("unreadable end word 10044", r["unreadable_final"] == 10044,
+          f"{r['unreadable_final']} ({r['rate']:.4%})  (was 10045)")
+    check("rate is 5.32%", abs(r["rate"] - 0.053198) < 1e-5,
+          f"{r['rate']:.4%}  (was 5.2873%; 5.9764% on VERSE LINES ONLY, and "
+          f"the gap between those two is 29,990 `[VERSE n]` markers)")
+    check("9805 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 9805,
+          f"{r['substituted_end_word']}  (was 9806)")
     check("the rate is not uniform across files — a subset rate is a "
           "different number",
           max(d["rate"] for d in r["per_file"]) > 0.20

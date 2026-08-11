@@ -90,6 +90,7 @@ kyakuin · rima piana as the unmarked case*
   GRAIN identity by default. MAP monotone, index-to-index. NORM mandatory.
 - from: ✓E1 ✓E10(as its commonest reading) C22 G22 G32 G33 G44 G52 G53 G86 X37 X55 X64 X89 X110 I39
   I43 I47 I48 I52 I65 S99 X129 X130
+- witness: 24 cited indices — external 19, project 2, unrecorded 3. names outside this project: Turco, Háttatal, skaldic.org, kotoripiyopiyo.com. only-this-project: I39 I43. no checkable referent: C22 I47 I48.
 - **R1-polarity is a real variable, not a detail.** Welsh (`C22`: "identity of onset is a fault"),
   Old Norse (`G2`: "rime riche is excluded by rule, not merely disfavoured"), German (`G52`: "onset
   free — and must differ, else it becomes rührender Reim") and Italian (`X64`: "conventionally
@@ -105,6 +106,7 @@ kyakuin · rima piana as the unmarked case*
   mandatory-and-self-imposed (`S35` al-Maʿarrī: the pre-rawī consonant must be identical throughout
   a whole collection).
 - from: ✓E2 X131 X70 X157 G56 G59 S35 S112
+- witness: 8 cited indices — external 8. names outside this project: Turco, etudes-litteraires.com, skuola.net, treccani.it.
 
 **R3 · whole-final-unit agreement, onset included by definition**
 *antyānuprāsa / antya-prāsa · iyaipu · tam kafiye*
@@ -114,6 +116,7 @@ kyakuin · rima piana as the unmarked case*
   vacuous in Sanskrit because inflection ends every accusative singular neuter in -am". The
   agreeing unit is the whole syllable and always was.
 - from: I6 I20 S111
+- witness: 3 cited indices — external 3. names outside this project: Nāgavarma.
 - **Correction to the previous canon.** Synthesis #81 gave antya-prāsa as "nucleus and coda AGREE"
   and collision #10 merged it with English perfect rhyme and Welsh odl. That merge is **wrong**:
   the recovered `I6` makes onset inclusion constitutive. Three of the four members of collision #10
@@ -125,6 +128,7 @@ kyakuin · rima piana as the unmarked case*
   definition." This is a distinct way of carrying the same space: the coordinate is magnitude, and
   the channel identities fall out of it.
 - from: X129 X130 X131 S110 S111 S112
+- witness: 6 cited indices — external 6. names outside this project: etudes-litteraires.com, turkedebiyati.org, eba.gov.
 
 **R5 · assonance** *assonance · amus (amas) · Assonanz / klinkerrijm · assonanza · rima asonante ·
 rima toante/assoante · assonance de laisse · asonans · Scandinavian ballad binding · Gaelic
@@ -135,6 +139,7 @@ vernacular end assonance · aliteración's vowel twin*
   differ-reading, assonance and perfect rhyme are disjoint cells; under the free-reading, perfect
   rhyme is a *sub-case* of assonance. Six cells state it one way, four the other.
 - from: ✓E4 C45 C58 G54 G89 X78 X90(see R7) X111 X152 S123 X127
+- witness: 11 cited indices — external 9, project 2. names outside this project: Pattison, Blankenhorn, weschool.com, treccani.it. only-this-project: G89 X152.
 
 **R6 · run assonance** *double/triple assonance · multisyllabic rhyme's vowel core · 母音韻 · 라임 ·
 rap multis*
@@ -144,6 +149,7 @@ rap multis*
   morae. Onsets are explicitly FREE." NORM mandatory in Japanese and Korean rap, ornamental
   elsewhere.
 - from: ✓E29 ✓E71 X38 X63
+- witness: 4 cited indices — external 3, project 1. names outside this project: How to Rap, Bradley, Book of Rhymes, Rhyme Genie. only-this-project: X63.
 
 **R7 · gapped-projection assonance** *rima asonante (Spanish, strictly)*
 - SPAN a **non-contiguous extraction**: the vowel projection of the tail with declared positions
@@ -153,6 +159,7 @@ rap multis*
   structure or R5 at a declared grain plus a declared extraction; I split it because the extraction
   is not a quotient on values, it is a change of the span's *support*.
 - from: X90 X93
+- witness: 2 cited indices — external 2. names outside this project: lasnuevemusas.com, concepto.de, lifeder.com.
 
 **R8 · vowel-vector over a whole line** *amhrán / caoineadh vowel skeleton*
 - FIG single edge between two whole lines. SPAN the ordered sequence of **stressed vowels** across
@@ -162,11 +169,13 @@ rap multis*
 - from: C54 (with C60, C61 as its reduced within-line and cadence forms) ✓E51(Hopkins's vowelling on
   and off is the same shape with **no positional anchor fixed** — the English cell flags that as
   UNCERTAIN, and it is the one member of this family whose alignment is not declared)
+- witness: 4 cited indices — external 3, project 1. names outside this project: Blankenhorn. only-this-project: E51.
 - This is the structure the repo's suffix comparator is furthest from, and it was invisible.
 
 **R9 · consonance** *consonance · uaithne · Konsonanz / medeklinkerrijm · consonanza*
 - CHAN coda AGREE; nucleus MUST DIFFER; onset free. MAP index-to-index through the consonant tail.
 - from: ✓E5 G55 X79
+- witness: 3 cited indices — external 3. names outside this project: weschool.com, treccani.it.
 
 **R10 · cluster consonance across the syllable boundary** *skothending · the Norse reading of
 consonance*
@@ -175,6 +184,7 @@ consonance*
   span may **end mid-word**. Distinct from R9 by SPAN unit and terminator, and the difference is
   measurable on real text.
 - from: G1 ✓E5(as an unmeasured English variant)
+- witness: 2 cited indices — external 2. names outside this project: skaldic.org, Háttatal. PRIMARY held in this repo: G1 Snorri Sturluson, Háttatal, c. 1222-25.
 
 **R11 · consonance with a class requirement on the differing channel** *proest · uaithne (strict)*
 - CHAN coda AGREE; nucleus MUST DIFFER **and** the two differing nuclei must be of the same class —
@@ -182,6 +192,7 @@ consonance*
   ("a long vowel answered by a long vowel"). `C23`: "one channel must agree, one must differ, and
   the differing channel carries a SECOND agreement requirement on a feature of itself."
 - from: C23 C46 (and C24 supplies the partition; see D-grain)
+- witness: 3 cited indices — external 3.
 - Forced twice from two Celtic branches independently. The previous canon's #100 has the length
   clause (reconstructed correctly from repo code) but not the lleddf/talgron clause, and does not
   register that the predicate shape — *differ-but-agree-on-a-feature-of-the-difference* — is a
@@ -191,6 +202,7 @@ consonance*
 - CHAN onset AGREE and coda AGREE; nucleus MUST DIFFER. MAP both edges flush simultaneously.
 - from: ✓E7 ✓E72 S46(*jinās muḥarraf*: the whole consonant skeleton agrees in identity, count and
   order while the vowelling differs — R12 taken over a whole word rather than a syllable)
+- witness: 3 cited indices — external 3. names outside this project: Rhyme Genie.
 
 **R13 · directional-difference pararhyme** *ablaut reduplication · 의성어·의태어 ablaut pairs ·
 rim derivatiu*
@@ -199,6 +211,7 @@ rim derivatiu*
   `rim derivatiu` requires the inflection to change in the declared direction (-atz : -ada).
   `X59`: "one channel must differ, and it must differ in a DIRECTION, not merely differ."
 - from: ✓E69 X59 X159
+- witness: 3 cited indices — external 3. names outside this project: Minkova, ac.kr, Academia.edu.
 - **Forced three times, from three unrelated families, and only one of the three was visible.**
   The previous run recorded "an ORDERING CONSTRAINT on the differing channel" only inside its
   English entry #43 and never lifted it to a predicate value.
@@ -208,6 +221,7 @@ algriim (strong grade) · 頭韻 in its whole-mora form*
 - CHAN onset AGREE and nucleus AGREE; coda MUST DIFFER (English statement) or FREE (Finnic and
   Japanese statement). MAP left-edge flush from the anchor onset.
 - from: ✓E8 G83 G84 G87 X36
+- witness: 5 cited indices — external 4, project 1. names outside this project: Rhyme Genie, kotoripiyopiyo.com, sheer.jp. only-this-project: G84.
 - The synthesis found this collision (its #6) from English + repo alone; the recovered Finnic and
   Japanese entries confirm it three-fold.
 
@@ -218,6 +232,7 @@ algriim (strong grade) · 頭韻 in its whole-mora form*
   over the line's segment multiset."
 - from: ✓E6 S123 X101 X127 I3 I45(*pembayang↔maksud*: the same unanchored predicate between two
   **spans of lines** rather than two words)
+- witness: 6 cited indices — external 6. names outside this project: Zorrilla, normaculta.com.
 
 **R16 · homorganic / place-class agreement** *śrutyanuprāsa*
 - CHAN consonants agree by **place of articulation**, explicitly NOT by identity. Distinct from
@@ -225,17 +240,22 @@ algriim (strong grade) · 頭韻 in its whole-mora form*
   GRAIN must be a coordinate rather than a fact baked into a structure. I list it once, here, and
   note the parallel.
 - from: I4 ✓E11(manner-class twin)
+- witness: 2 cited indices — external 2. names outside this project: Pattison, Rhyme Genie.
 
 ### B. Span-shape / cadence classes
 
 **R17 · masculine cadence** (span 1 syllable, prominence final)
 - from: ✓E26 G52 X66 X91 X112 X133 X156 C49(rinn)
+- witness: 8 cited indices — external 8. names outside this project: Turco, treccani.it, letteratour.it, concepto.de.
 **R18 · feminine cadence** (span 2, prominence penult)
 - from: ✓E27 G52 X65 X92 X112 X134 X156 G80 I44
+- witness: 9 cited indices — external 8, unrecorded 1. names outside this project: Turco, treccani.it, skuola.net, concepto.de. no checkable referent: I44.
 **R19 · dactylic cadence** (span 3, prominence antepenult)
 - from: ✓E28 G52 X67 X93 X112
+- witness: 5 cited indices — external 5. names outside this project: Turco, treccani.it, skuola.net, lasnuevemusas.com.
 **R20 · quadrisyllabic cadence** (span 4) — attested once. `X68` *rima bisdrucciola*. NORM comic.
 - from: X68
+- witness: 1 cited indices — external 1. names outside this project: letteratour.it.
 - These four are one structure at four magnitudes plus a prominence-position channel. I keep them
   separate because five traditions name all of them and two (Italian, Spanish) make the magnitude
   **interact with the metre**: a *tronca* ending subtracts a syllable from the line count, an
@@ -250,11 +270,13 @@ cynghanedd lusg's excluded final syllable*
   **not** right-edge flush: `X69`: "Head-anchored at the tonic vowel and NOT tail-to-tail — the two
   tails end at different distances from the anchor."
 - from: ✓E14 ✓E15 X69 C13
+- witness: 4 cited indices — external 3, project 1. names outside this project: Rhyme Genie, Turco, treccani.it, letteratour.it. only-this-project: C13.
 
 **R22 · containment** *tunç kafiye · rima inclusiva*
 - SPAN one member is a **proper suffix** of the other; the relation is asymmetric. `S113`:
   "CONTAINMENT, not equality: tail-aligned with one side strictly longer."
 - from: S113 X71
+- witness: 2 cited indices — external 2. names outside this project: turkedebiyati.org, kunduz.com, skuola.net, letteratour.it.
 
 **R23 · additive / subtractive** *additive rhyme · subtractive rhyme · jinās nāqiṣ (mutarraf) ·
 jinās nāqiṣ (mardūf)*
@@ -262,12 +284,14 @@ jinās nāqiṣ (mardūf)*
   (English) or **which END the extra segment sits at** is a coordinate (Arabic: mutarraf = extra at
   the end and head-aligned; mardūf = extra at the head and tail-aligned).
 - from: ✓E12 ✓E13 S47 S48
+- witness: 4 cited indices — external 4. names outside this project: Pattison, Rhyme Genie.
 
 **R24 · medial insertion** *jinās nāqiṣ (muktanaf)*
 - An epenthetic segment inside one word. `S49`: "Neither head- nor tail-aligned: an edit-distance-1
   insertion. No fixed-offset comparator can express it." **This structure has no counterpart
   anywhere in the visible 15% and none in the previous 106.**
 - from: S49
+- witness: 1 cited indices — external 1.
 
 **R25 · one-segment substitution, graded by articulatory distance** *jinās muḍāriʿ · jinās lāḥiq ·
 paronomasia · ikfāʾ · ijāza*
@@ -277,6 +301,7 @@ paronomasia · ikfāʾ · ijāza*
   differing channel.** `ikfāʾ`/`ijāza` are the same pair again, evaluated as faults at the rawī.
   This is the single sharpest witness for GRAIN as an axis.
 - from: S50 S51 S27 S28 X103
+- witness: 5 cited indices — external 4, unrecorded 1. no checkable referent: X103.
 
 **R26 · prominence MUST DIFFER** *light rhyme · cywydd deuair hirion couplet rhyme ·
 rinn agus airdrinn*
@@ -285,6 +310,7 @@ rinn agus airdrinn*
   mismatch is mandatory, not tolerated." Irish adds a mandated syllable-count offset of exactly +1
   (`C49`).
 - from: ✓E16 C26 C49
+- witness: 3 cited indices — external 2, unrecorded 1. no checkable referent: C26.
 - The previous canon has light rhyme (#17) as an English/song type. Two Celtic traditions make the
   same structure **constitutive of a named metre**. Its normative status therefore inverts across
   traditions, which is evidence for NORM and against reading it off the phonology.
@@ -292,9 +318,11 @@ rinn agus airdrinn*
 **R27 · prominence coerced by the delivered surface** *wrenched rhyme · sung-delivery rhyme ·
 transformative/bent rhyme*
 - from: ✓E17 ✓E25 ✓E74 (see also R70, transform layer)
+- witness: 3 cited indices — external 2, project 1. names outside this project: Turco, Bradley, Book of Rhymes. only-this-project: E74.
 
 **R28 · anchor rule DISABLED, both anchors unstressed** *syllabic rhyme*
 - from: ✓E18
+- witness: 1 cited indices — external 1.
 
 ### D. Head-anchored and fixed-index segmental relations
 
@@ -309,6 +337,7 @@ mōṉai · ādi-prāsa · 雙聲 · 頭韻 · 두운 · aliteración · alitera
   classes (Norse, OE, OHG, Irish); OE merges palatal and velar c/g.
 - from: ✓E9 ✓E48 C1(as the 2-3 link) C29 C47 G6 G7 G8 G9 G28 G29 G36 G37 G38 G43 G45 G49 G50 G79
   G82 G84 G87 I1 I2 I7 I18 I40 X21 X36 X54 X101 X127 X145 I53 S123
+- witness: 35 cited indices — external 31, project 3, unrecorded 1. names outside this project: alliteration.net, Háttatal, O'Donnell, ac.uk. PRIMARY held in this repo: G6 Snorri Sturluson, Háttatal, c. 1222-25; G9 Snorri Sturluson, Háttatal, c. 1222-25. only-this-project: G29 G82 G84. no checkable referent: I40.
 - **CARDINALITY is a coordinate of the figure here, and one tradition makes it the sole
   differentiator.** `I2` chekānuprāsa requires *exactly two* occurrences; `I3` vṛttyanuprāsa requires
   *three or more*; they are otherwise the same relation. Sanskrit names the count.
@@ -324,6 +353,7 @@ prāsa-yati · yati*
   1 has 'ka', the others may have ki, ku, ke, kau"). Tamil `etukai` additionally requires the
   *first* letter to agree in metrical LENGTH while its identity is deliberately FREE.
 - from: I7 I8 I9 I10 I11 I18 I19
+- witness: 7 cited indices — external 6, project 1. names outside this project: tamilvu.org, tamilsurangam.in. only-this-project: I11.
 - The synthesis had this (its #79/#80) reconstructed from repo doctrine, and its collision #16 is
   correct as far as it goes. What it could not have: `I19`'s split predicate — one segment
   contributing a length agreement with a *free identity*, the next contributing full identity. That
@@ -336,6 +366,7 @@ prāsa-yati · yati*
   METRE, so the placement is a lookup, not a rule." PLACE determinacy = **table lookup**, a value
   the previous run's {printed, rule-fixed, searched} does not have.
 - from: I10 I11
+- witness: 2 cited indices — external 1, project 1. only-this-project: I11.
 
 **R32 · offset-from-an-anchor-segment slot system** *the qāfiya apparatus: rawī, ridf, ridf-i zāʾid,
 qayd, taʾsīs, dakhīl, waṣl, khurūj, mazīd, nāʾira, majrā, nafādh, ḥadhw, ishbāʿ, rass, tawjīh*
@@ -354,6 +385,7 @@ qayd, taʾsīs, dakhīl, waṣl, khurūj, mazīd, nāʾira, majrā, nafādh, ḥ
     explicitly UNBOUNDED" (`S83`).
 - from: S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 S12 S13 S14 S15 S16 S17 S74 S75 S76 S77 S78 S79 S80 S81
   S82 S83 S94 I30 I31 I32 I33 I34 I35 I36 I29 S100
+- witness: 37 cited indices — external 29, project 2, unrecorded 6. names outside this project: uomustansiriyah.edu, ahlamontada.net, al-Khalīl. only-this-project: S94 I31. no checkable referent: I30 I32 I33 I34 I35 I36.
 - **This is the largest single structure the truncation cost.** 40 of the 601 entries describe it.
   The previous canon has one entry for it (#77 `qāfiya`), reconstructed from `fas.py`, whose whole
   content is "anchor=the rawī consonant; magnitude=the rawī plus what precedes and follows it under
@@ -366,12 +398,14 @@ mutadārika / mutarākiba / mutakāwisa*
   letters sit between the two delimiting quiescents** (0,1,2,3,4). It is a *measurement* of the span,
   named and taught. PLACE line end. CHAN none.
 - from: S18 S19 S20 S21 S22
+- witness: 5 cited indices — external 5.
 
 **R34 · line-head rhyme** *head rhyme (positional) · Anfangsreim / Eingangsreim · cymeriad
 llythrennol(as rhyme) · coblas capdenals(sound reading)*
 - Both members are the FIRST word of their lines; the cell is a rime cell, not an onset cell.
   `G66`: "this is a rime relation at the head of the line, not alliteration."
 - from: ✓E41 G66 C29
+- witness: 3 cited indices — external 3. names outside this project: Turco, WICI.
 
 ### E. Sequence relations over a skeleton string
 
@@ -381,6 +415,7 @@ cynghanedd groes · cynghanedd in English (Hopkins)*
   syllable boundaries, up to a stress-determined stop. MAP sequence-order, head-anchored, one-to-one,
   **total over A**. GRAIN the Welsh phoneme (the eight digraphs are one consonant each).
 - from: ✓C1 ✓C2 ✓E50
+- witness: 3 cited indices — external 2, project 1. names outside this project: ac.uk, rhydychen.org, Clywed Cynghanedd. only-this-project: E50.
 
 **R36 · skeleton with an unanswered bridge** *cynghanedd draws · draws fantach · bengoll ·
 braidd gyffwrdd*
@@ -388,14 +423,17 @@ braidd gyffwrdd*
   bridge extended to the whole middle of the line (draws fantach), or the unanswered material at the
   line END (bengoll). `C5`: "A is head-anchored, B is TAIL-anchored — an asymmetric alignment."
 - from: ✓C5 ✓C6 C16 C17 (C16, C17 invisible)
+- witness: 4 cited indices — external 3, project 1. names outside this project: ac.uk, Clywed Cynghanedd, WICI. only-this-project: C5.
 
 **R37 · skeleton whose split point falls inside a cluster** *cynghanedd groes o gyswllt*
 - from: ✓C3
+- witness: 1 cited indices — external 1. names outside this project: ac.uk, Clywed Cynghanedd.
 
 **R38 · skeleton whose answering consonant is generated by sandhi** *groes o gyswllt ewinog*
 - The answered consonant "exists only in the joined pronunciation. Orthography alone does not supply
   it" (`C4`). See R70.
 - from: ✓C4
+- witness: 1 cited indices — external 1. names outside this project: ac.uk, Clywed Cynghanedd.
 
 **R39 · discontinuous root-consonant skeleton** *jinās al-ishtiqāq · jinās shibh al-ishtiqāq ·
 root-skeleton agreement · ṣimmud (root variety) · Qillirian rhymeme (its morphological half)*
@@ -404,6 +442,7 @@ root-skeleton agreement · ṣimmud (root variety) · Qillirian rhymeme (its mor
   (`S53`, `S69`). MAP skeleton-to-skeleton after extraction — neither head-, tail- nor index-aligned
   in the surface string.
 - from: S53 S54 S69 S108 S97
+- witness: 5 cited indices — external 3, project 2. names outside this project: Qillirian. only-this-project: S54 S108.
 - **Nothing in the visible 15% forces a span whose support is discontinuous in both members.**
 
 **R40 · prosodic-template agreement with the root free** *pattern/wazn agreement · muwāzana ·
@@ -412,17 +451,20 @@ saj' mutawāzī · tarṣīʿ's weight half*
   normally DIFFER**. `S63` muwāzana: "WAZN AGREES; the rhyme letter DIFFERS. Explicitly a
   metrical-template relation with NO sound-identity at the end." The exact dual of R39.
 - from: S70 S63 S61 S62
+- witness: 4 cited indices — external 4. names outside this project: Qillirian.
 
 **R41 · word-by-word index correspondence across two cola** *saj' muraṣṣaʿ / tarṣīʿ*
 - FIG a matching, not an edge: word *k* of span A against word *k* of span B, one-for-one, each pair
   agreeing in wazn AND final letter. `S62`: "the only relation in this survey with a strict
   positional word-by-word correspondence." Occurs in **prose**.
 - from: S62
+- witness: 1 cited indices — external 1.
 
 **R42 · colon-final rhyme in prose** *saj' muṭarraf*
 - PLACE frame = **colon**, whose boundaries are set by syntax and not by any metrical template.
   There is no line. CHAN final letter AGREES, wazn DIFFERS.
 - from: S60
+- witness: 1 cited indices — external 1.
 - The previous PLACEMENT value space has no frame below the line that is syntactic rather than
   metrical. Rhymed prose is a whole mode of rhyme organisation that the truncation removed entirely.
 
@@ -435,6 +477,7 @@ saj' mutawāzī · tarṣīʿ's weight half*
   three-valued in practice (平 / 上去 / 入), not binary" (`X3`). Vietnamese requires partners to be in
   the same bằng/trắc group.
 - from: X1 X2 X3 X29 X62 I65 I70 I72
+- witness: 8 cited indices — external 7, project 1. names outside this project: ntu.edu, newton.com, ctext.org, AVPoetica. only-this-project: X62.
 
 **R44 · tone-class template over a line** *平仄 · luật bằng trắc · khlong tone-mark constraint ·
 chan quantitative template · 音数律 · 음보율 · 시조 종장 제약*
@@ -443,30 +486,35 @@ chan quantitative template · 音数律 · 음보율 · 시조 종장 제약*
   syllable weight guru/laghu (Thai chan, Sanskrit), mora count (Japanese), syllable count per foot
   (Korean).
 - from: X14 I71 I60 I61 X31 X51 X52 I63
+- witness: 8 cited indices — external 7, project 1. names outside this project: sina.com, AVPoetica, PyThaiNLP, medium.com. only-this-project: I61.
 
 **R45 · required tonal OPPOSITION across a line pair** *對 duì · 對仗's tone half ·
 luật's đối clause*
 - CHAN tone class MUST DIFFER at each binding index. `X15`. A required-difference relation across a
   whole line, index-to-index.
 - from: X15 X20 I71
+- witness: 3 cited indices — external 3. names outside this project: sina.com, gmw.cn, AVPoetica.
 
 **R46 · required tonal ADHESION across a couplet seam** *黏 nián*
 - CHAN tone class must AGREE at exactly one index (position 2) across the couplet boundary. `X16`:
   "Exactly the channel that must differ within a couplet must agree across couplets." Same channel,
   same unit, opposite predicate, distinguished **only by placement**.
 - from: X16
+- witness: 1 cited indices — external 1. names outside this project: sina.com, jianshu.com.
 
 **R47 · tonal compensation** *拗救 àojiù*
 - A violation at one index is **licensed by a counter-violation at a specified other index**.
   `X19`. FIG a two-node figure whose second node is *determined by* the first. Nothing in the
   visible 15% has a repair relation.
 - from: X19
+- witness: 1 cited indices — external 1.
 
 **R48 · agree-in-class and differ-in-value simultaneously** *the bát 6-vs-8 different-tone rule*
 - `I68`: syllables 6 and 8 of one line "must both be bằng, and they MUST CARRY DIFFERENT TONES —
   one ngang and the other huyền. A channel that is required to agree at the class level and to
   DIFFER at the value level, simultaneously."
 - from: I68
+- witness: 1 cited indices — external 1.
 - **This is a predicate the previous run's {AGREE, DIFFER, FREE} cannot express**, and it is the
   clean formal dual of R11 (differ-but-agree-on-a-feature). Together the two prove the channel
   predicate must be able to reference the *grain* explicitly. See §4.
@@ -474,20 +522,24 @@ luật's đối clause*
 **R49 · nasality as a channel** *rima nasal*
 - `X115`: "a nasal vowel does not rhyme an oral one even when the oral quality matches."
 - from: X115
+- witness: 1 cited indices — external 1. names outside this project: normaculta.com.
 
 **R50 · vowel length / quantity as a channel** *bai trwm ac ysgafn · Scots vowel-length rhyme ·
 ridf · aḷapeṭai · Thai vowel length · reiner Reim's quantity clause*
 - from: C34 ✓E24 S5 I22 I52 G53
+- witness: 6 cited indices — external 6. names outside this project: ac.uk, Clywed Cynghanedd, PyThaiNLP.
 
 **R51 · palatalisation (caol/leathan) as a channel** *the Irish consonant quality requirement*
 - `C43`: "each consonant carries palatalisation or non-palatalisation and the two members must agree
   in it" — "a secondary-articulation channel with no slot in an onset/nucleus/coda model."
 - from: C43
+- witness: 1 cited indices — external 1.
 
 **R52 · syllable count as a channel of the rhyme** *comhardadh slán's count clause ·
 rinn/airdrinn's +1*
 - `C42`: "the two words must have the SAME NUMBER OF SYLLABLES." `C49`: exactly one more.
 - from: C42 C49
+- witness: 2 cited indices — external 2. names outside this project: scoilgaeilge.org, stfx.ca.
 
 **R53 · grapheme channel** *eye rhyme · Augenreim/oogrijm · rima per l'occhio · rime pour l'œil ·
 rime normande · jinās muṣaḥḥaf · al-ḥurūf al-muhmala/muʿjama/raqṭāʾ*
@@ -495,6 +547,7 @@ rime normande · jinās muṣaḥḥaf · al-ḥurūf al-muhmala/muʿjama/raqṭ
   rasm** is identical and the sound differs, and in `S59` a single binary graphic feature
   (dotted/undotted) is constrained across every letter of a whole poem.
 - from: ✓E20 G70 X83 X136 X137 S58 S59
+- witness: 7 cited indices — external 6, project 1. names outside this project: treccani.it, etudes-litteraires.com. only-this-project: S59.
 - French `X136` is the strongest form and was invisible: the written final consonant must agree
   **even when silent**, and a singular may not rhyme a plural though homophonous. That is a
   grapheme requirement layered *in parallel* with the phonetic one, not instead of it.
@@ -507,6 +560,7 @@ similicadencia · morphological rhyme · Yannaic rhyme · biblical Hebrew homoio
   fault in Persian (`S85`, `S86`, `S87`), the default case in Finnish (`G86`) and Korean (`X55`),
   a device in MHG (`G58`), a fault in English pedagogy (`E63`).
 - from: ✓E63 G58 G86 X75 X102 S71 S96 S98 S85 S86 S87 S115 X55
+- witness: 13 cited indices — external 11, project 2. names outside this project: Turco, skuola.net, treccani.it, turkedebiyati.org. only-this-project: X102 S96.
 
 **R55 · shared-root, differing-inflection** *polyptoton · derivación · rima derivativa ·
 rim derivatiu · rime dérivative · mordobre / mozdobre · jinās al-ishtiqāq's identity value ·
@@ -516,6 +570,7 @@ radd al-ʿajuz's ishtiqāq variant*
   Arabic independently. MAP root-to-root, anchored on a **morpheme**, not on a metrical position or
   a word edge (`X105`).
 - from: ✓E64 G58 X74 X105 X122 X146 X159 S53
+- witness: 8 cited indices — external 7, unrecorded 1. names outside this project: skuola.net, treccani.it, infopedia.pt, iscte-iul.pt. no checkable referent: X105.
 
 **R56 · same form, different sense** *antanaclasis · äquivoker Reim · rima equivoca · rim equivoc ·
 rime équivoquée · cinaslı kafiye · jinās tāmm · jinās mustawfā · tardīd · yamaka · maṭakku ·
@@ -530,6 +585,7 @@ rime équivoquée · cinaslı kafiye · jinās tāmm · jinās mustawfā · tard
   - **different etymology under identical skeleton** (`S54` jinās shibh al-ishtiqāq)
   - apparent identity that dissolves (`I16` punaruktavadābhāsa) — the inverse case
 - from: ✓E65 G57 X72 X138 X160 S114 S45 S55 S66 I12 I13 I14 I26 I5 I15 I41 I16 S24 S108 X34 X45
+- witness: 21 cited indices — external 15, project 5, unrecorded 1. names outside this project: skuola.net, treccani.it, databac.fr, Academia.edu. only-this-project: E65 S55 S66 I26 S108. no checkable referent: I41.
 - `X34` is the structurally decisive one: **the two members occupy the same position**. Every
   relation in the previous 106 has two spans somewhere; this one has one span read twice.
 
@@ -540,10 +596,12 @@ parallelismus membrorum · muraṇ · kerto · Stollen (semantic half)*
   index-to-index exactly as its sound siblings. `S95` biblical parallelism aligns over syntactic
   slots and is "sometimes chiastically REVERSED".
 - from: X20 X39 X58 S95 I21 G85
+- witness: 6 cited indices — external 6. names outside this project: sina.com, gmw.cn, Sengoku Daimyo, ac.kr.
 
 **R58 · associative (non-phonological, non-positional) linkage** *縁語 engo · makurakotoba ·
 jokotoba*
 - from: X35 X32 X33
+- witness: 3 cited indices — external 2, project 1. names outside this project: japanesewiki.com, Sengoku Daimyo. only-this-project: X35.
 - `X32`: the link is "sometimes SOUND, sometimes semantic, and for many pairs the link is lost and
   the convention is all that survives." A relation whose channel is **unrecoverable and whose
   membership is carried by tradition alone**. There is no such object in the previous canon.
@@ -556,6 +614,7 @@ preciosa · kapanık ayak · rima pobre / rica · trite rhyme*
   in the ENTIRE LANGUAGE forming a tam kafiye with it is at most four."
 - from: ✓E66 X114 X158 S119 X95 X113 X87(*rima aspra*: a claim about the phonotactic texture of the
   agreeing material, not about which channels agree)
+- witness: 7 cited indices — external 6, project 1. names outside this project: Turco, portugues.com, normaculta.com, Arnaut Daniel. only-this-project: X87.
 - The previous run called this "frequency facts on a VALUE axis orthogonal to all six" and treated
   it as English pedagogical residue. **Four unrelated traditions name it and one quantifies it.**
   The orthogonality verdict was right; the dismissal of it as English-specific was an artefact of
@@ -581,6 +640,7 @@ rondeel · mote e glosa · musammaṭ's global member*
     against `S90` tarjīʿ-band) — identity of *slot* with non-identity of *content*
 - from: ✓E3 ✓E54 ✓E55 C62 C64 G14 G26 G27 G75 G77 G88 S67 S90 S91 S122 X24 X44 X53 X118 X125 X154
   X172 X98 S40 I42
+- witness: 25 cited indices — external 13, project 10, unrecorded 2. names outside this project: skaldic.org, go.kr, iscte-iul.pt, blogspot.com. only-this-project: E3 E54 E55 G88 S67 S90 S91 S122 X24 X154. no checkable referent: C64 I42.
 
 **R61 · verbatim span at the line tail, after the rhyme** *radīf · redif (ek and kelime) ·
 epistrophe · epífora · mustazād's second system · ḥājib (mirror case)*
@@ -589,6 +649,7 @@ epistrophe · epífora · mustazād's second system · ḥājib (mirror case)*
   order is *ḥājib, qāfiya, radīf* — **three ordered slots, two of them identity-constitutive and the
   one between them identity-forbidden.**
 - from: S72 S73 S115 S116 I28 ✓E59 X107 S92
+- witness: 8 cited indices — external 5, project 3. names outside this project: turkedebiyati.org, sonersadikoglu.com. only-this-project: E59 X107 S92.
 - The synthesis's collision #1 (epistrophe = radīf) is correct and is its best single result. It
   did not have `ḥājib`, which is the entry that proves the tail is a **slot sequence** and not a
   single position.
@@ -605,6 +666,7 @@ rai chain · concatenación · séadna line-1 link · fidrad freccomail · rime 
   rime annexée, capcaudadas, shiritori). `C53` licenses **either** channel for one slot.
 - from: ✓E61 ✓E40 C33 C27 C51 C52 C53 G11 G34 G47 G67 G76 X25 X143 X144 X167 X168 X119 I46 I25 X46
   I58 X107 S65
+- witness: 24 cited indices — external 20, project 2, unrecorded 2. names outside this project: Turco, WICI, stfx.ca, skaldic.org. only-this-project: X107 S65. no checkable referent: G34 I58.
 - Unit varies from **one mora** (shiritori) through word, syllable, line, **two lines** (`C63` òran
   luaidh overlap) to **a whole stanza-to-stanza displacement of +2** (`X119` leixa-pren).
 
@@ -613,10 +675,12 @@ pantun berkait (closed form) · 回文 as a loop*
 - The poem's FIRST word/line against its LAST, closing a loop. `C50`: "the poem is judged
   incomplete without it." PLACE frame = **whole poem**, both extremes.
 - from: C50 C33 G47 I46
+- witness: 4 cited indices — external 4. names outside this project: WICI.
 
 **R64 · anaphora / head-to-head identity** *anaphora · anáfora · cymeriad geiriol ·
 coblas capdenals · Stollen's opening · 동어반복(matched-index case)*
 - from: ✓E58 C30 X107 X169 X57
+- witness: 5 cited indices — external 2, project 3. names outside this project: WICI, ac.kr. only-this-project: E58 X107 X169.
 
 **R65 · epanalepsis / symploce / double-edge identity** *epanalepsis · symploce ·
 radd al-ʿajuz ʿalā al-ṣadr · rime couronnée · rime emperière*
@@ -624,6 +688,7 @@ radd al-ʿajuz ʿalā al-ṣadr · rime couronnée · rime emperière*
   for the partner**, each a named sub-variety. `X141`/`X142` are the same structure with the copy
   **immediately adjacent** and doubled or tripled.
 - from: ✓E60 ✓E62 S64 X141 X142
+- witness: 5 cited indices — external 3, project 1, unrecorded 1. names outside this project: databac.fr, lescigales.org. only-this-project: E60. no checkable referent: E62.
 
 **R66b · echo verse** *rima in eco / replicata · rima en eco · rima ecoada / em eco ·
 rime en écho / vers échoïques*
@@ -633,12 +698,14 @@ rime en écho / vers échoïques*
   name it and it is structurally unlike anything in the visible 15%: one member is a suffix of a
   line and the other is a line.
 - from: X86 X97 X117 X151
+- witness: 4 cited indices — external 4. names outside this project: letteratour.it, treccani.it, blogspot.com, databac.fr.
 
 **R66 · reduplication inside one token** *rhyming reduplication · exact reduplication ·
 iraṭṭaik kiḷavi · Malay kata ganda · 疊字 · 첩어 · alliterative binomial formula*
 - PLACE frame = **token**; there is no line. `I27`: the single form "is not a word of the language"
   — reduplication as an obligatory lexical fact rather than a device.
 - from: ✓E68 ✓E70 I27 I51 X23 X60 G48
+- witness: 7 cited indices — external 6, project 1. names outside this project: Minkova. only-this-project: I51.
 
 **R67 · repetition-with-one-controlled substitution** *incremental repetition · galdralag ·
 kerto/parallelism · paralelismo perfeito with rhyme substitution · leixa-pren (near-verbatim)*
@@ -646,6 +713,7 @@ kerto/parallelism · paralelismo perfeito with rhyme substitution · leixa-pren 
   must DIFFER." `X120` is the strictest statement: an entire stanza repeated word for word except
   at the rhyme position, where a synonym with a **different rhyme sound** is substituted.
 - from: ✓E56 G30 G85 X120 X119
+- witness: 5 cited indices — external 3, project 2. names outside this project: iscte-iul.pt, blogspot.com. only-this-project: E56 G30.
 - Forced four times from four families. The previous canon has it once (#56, English ballad) and
   flags it as MISSING.md A-2. It is not an English gap; it is a cross-linguistic structure.
 
@@ -656,6 +724,7 @@ name acrostic · takhalluṣ · 藏頭 · 折句 · 沓冠 · acróstico · い�
   poet's name, the syllabary, another author's text, the Bible, or the tradition's stock of fixed
   epithets. MAP index-to-index against an external sequence.
 - from: S104 S105 S106 S89 X27 X40 X41 X109 X49 S109 X43 X28 X42 X61 X32 S43 S103
+- witness: 17 cited indices — external 13, project 4. names outside this project: encyclopedia.com, Yannai, La Celestina, newton.com. only-this-project: S105 S89 X27 S109.
 - Three sub-shapes: against a **sequence** (acrostics — including reversed and *n*-fold repeated
   alphabets, `S105`), against a **set with exhaustiveness and non-repetition** (`X49` iroha: each
   of 47 morae exactly once — a bijection constraint), and against **another text** (`X28` 次韻: the
@@ -673,6 +742,7 @@ name acrostic · takhalluṣ · 藏頭 · 折句 · 沓冠 · acróstico · い�
   distance "commonly stated as at least seven lines apart; the distance threshold is itself
   variously reported" **[DISPUTED — the sources disagree on the number]**.
 - from: X48 C40 S23 S24 X13 X96 X147 I74 I64 I37 S74
+- witness: 11 cited indices — external 7, project 1, unrecorded 3. names outside this project: newton.com, 163.com, escritores.org, databac.fr. only-this-project: I64. no checkable referent: C40 I74 I37.
 - **Identity at the rhyme position is constitutive in eleven traditions and forbidden in nine.**
   Several traditions do both at once: a Persian ghazal *requires* verbatim identity of the radīf and
   *forbids* it of the qāfiya eight syllables to its left (`I37`). This is the strongest possible
@@ -684,62 +754,84 @@ Each of these is R1/R5/R9's channel map at a different placement. They are separ
 because placement is a coordinate; nothing else about them differs.
 
 **R70 · end rhyme** — both members line-final. from: ✓E35 X1 X88 X126 X153 S125 I73
+- witness: 7 cited indices — external 5, project 1, unrecorded 1. names outside this project: ntu.edu, newton.com, weschool.com, skuola.net. only-this-project: E35. no checkable referent: I73.
 **R71 · internal rhyme** — at least one member line-internal. from: ✓E36 G63 X82 X116 X149 S117 I55 X56
+- witness: 8 cited indices — external 7, unrecorded 1. names outside this project: Turco, treccani.it, weschool.com, blogspot.com. no checkable referent: I55.
 **R72 · leonine / caesura-to-line-end within one line** *leonine rhyme · Zäsurreim · rime léonine
 (medieval sense) · taṣrīʿ · maṭlaʿ / muṣarraʿ · delet/soger · muzdawij · Otfrid's end rhyme* — the
 relation binds the two hemistichs of one line. `G51` is the historically loaded case: in Otfrid the
 rhyme **replaces the stave that had bound them**, at the changeover point of the whole Germanic
 system. from: ✓E37 G65 G51 X132 S36 S88 S101 S39
+- witness: 8 cited indices — external 8. names outside this project: etudes-litteraires.com, databac.fr, osu.edu.
 **R73 · line-end into next-line interior** *cross rhyme · aicill · englyn cyrch · rima al mezzo ·
 rime batelée · vần lưng · สัมผัสนอก · klon's tail-to-index* — from: ✓E38 C28 C48 X81 X139 I66 I54 I56 I62
+- witness: 9 cited indices — external 8, unrecorded 1. names outside this project: Turco, Blankenhorn, letteratour.it, treccani.it. no checkable referent: I62.
 **R74 · interior-to-interior across lines** *interlaced rhyme · Mittelreim · 요운* — from: ✓E39 G64 X56
+- witness: 3 cited indices — external 3. names outside this project: Turco, ac.kr, kocw.net.
 **R75 · adjacent-word rhyme at zero distance** *Schlagreim* — "adjacency is the defining
 coordinate" (`G62`). from: G62 X21 X22
+- witness: 3 cited indices — external 3.
 **R76 · internal member fixed by metrical index, the other floating** *frumhending / viðrhending ·
 oddhending · hluthending · hringhenda's miðrím* — the **fixed member is the LATER one**, "the
 opposite anchor from every end-rhyme tradition" (`G3`). from: G3 G4 G5 G16 G17 G31 G23 G24 G25
+- witness: 9 cited indices — external 9. names outside this project: Háttatal, Snorri, skaldic.org. PRIMARY held in this repo: G3 Snorri Sturluson, Háttatal, c. 1222-25; G4 Snorri Sturluson, Háttatal, c. 1222-25; G5 Snorri Sturluson, Háttatal, c. 1222-25.
 **R77 · beat-grid placement** *offbeat / off-centred internal rhyme* — from: ✓E42
+- witness: 1 cited indices — external 1. names outside this project: How to Rap.
 **R78 · stanza-position placement** *tail rhyme (rime couée) · Körner/Kornreim · rima irrelata ·
 rims estramps · palavra perduda · Waise · rime orpheline · verso suelto* — a member whose partner is
 at the **same index in another stanza** or nowhere at all. from: ✓E46 G72 G71 X85 X161 X124 X150 X108 X128
+- witness: 9 cited indices — external 8, project 1. names outside this project: treccani.it, researchgate.net, Academia.edu, databac.fr. only-this-project: X124.
 **R79 · rhyme across a language or script boundary** *kharja · Hebrew kharja* — the rhyme holds
 "ACROSS A LANGUAGE AND SCRIPT BOUNDARY (Romance written in Hebrew characters)" (`S103`).
 from: S43 S103
+- witness: 2 cited indices — external 2. names outside this project: ubn.ru.
 - No structure in the previous canon crosses a language boundary.
 
 ### I. Multi-edge figures
 
 **R80 · chained pivot: two different relations sharing one member** *cynghanedd sain*
 - from: ✓C8
+- witness: 1 cited indices — external 1.
 **R81 · interleaved two-relation figure at stride 2** *cynghanedd sain gadwynog* — from: ✓C9
+- witness: 1 cited indices — external 1.
 **R82 · sain with a zero-onset pivot** *sain lafarog* — from: ✓C10
+- witness: 1 cited indices — external 1. names outside this project: Háttatal.
 **R83 · sain with anchor-mismatched members** *sain drosgl* — "one member is located by word
 boundary, the other by stress" (`C11`). from: ✓C11
+- witness: 1 cited indices — external 1. names outside this project: ac.uk, Clywed Cynghanedd.
 **R84 · sain with a doubled rhyme link** *sain ddwbl / sain deirodl* **[UNVERIFIED — the Celtic cell
 itself marked span and alignment unknown]**. from: C12
+- witness: 1 cited indices — external 1.
 **R85 · four-place grid** *analysed rhyme* — from: ✓E52
+- witness: 1 cited indices — external 1. names outside this project: Turco.
 **R86 · channel-dependent permutation** *Schüttelreim*
 - "the rime channel aligns index-to-index and the ONSET channel aligns index-to-SWAPPED-index."
   (`G61`). from: G61
+- witness: 1 cited indices — external 1.
 **R87 · two independent pairings inside one line** *alhent · Doppelreim · rime brisée · crossed
 alliteration ab|ab* — `G39` is the case that also **breaks its own tradition's polarity rule**: lift
 4 alliterates here, which the base rule of R113 forbids. from: G13 G39 G60 X140
+- witness: 4 cited indices — external 4. names outside this project: skaldic.org, databac.fr.
 **R88 · two coexisting regimes in one stanza** *bob and wheel · hringhenda · liðhent · muwashshaḥ ·
 shir ezor · musammaṭ · mustazād · dhū al-qāfiyatayn · zéjel* — two rhyme classes with **different
 scopes** (one stanza-local and resetting, one poem-global and persistent) running simultaneously.
 from: ✓E47 ✓E57 G46 G31 G12 S41 S42 S44 S102 S40 S92 S84 X98 I42
+- witness: 14 cited indices — external 12, project 1, unrecorded 1. names outside this project: skaldic.org, oraltradition.org, hispanoteca.eu, xunta.gal. only-this-project: S92. no checkable referent: I42.
 **R89 · one line read two ways under two metre+rhyme systems** *tashrīʿ / tawʾam*
 - `S68`: "read in full it scans in metre X and rhymes on rhyme X; read only up to an internal point
   it scans in metre Y and rhymes on rhyme Y." Two complete systems on one segment string, at two
   different right boundaries. from: S68
+- witness: 1 cited indices — project 1. only-this-project: S68.
 **R90 · n-ary class over a run** *monorhyme · laisse · qaṣīda monorhyme · 一韻到底 · syair ·
 samhenda/stafhenda · Haufenreim · rap chain rhyme · Skeltonics · Đường luật độc vận ·
 ayak · musammaṭ's local class* — every member laid against the established class, not against a
 partner. from: ✓E43 ✓E45 S38 X5 I47 G33 G73 I70 S118 X152 X99
+- witness: 11 cited indices — external 7, project 3, unrecorded 1. names outside this project: Bradley, Book of Rhymes, newton.com, jendow.com. only-this-project: E45 S38 X152. no checkable referent: I47.
 **R91 · ∀-members-of-a-frame** *paroemion · rime senée · gabay-type whole-poem alliteration ·
 citra-bandha inventory constraint · muhmala/muʿjama*
 - The predicate quantifies over **every** token of the frame. `I17`: ekākṣara admits **one
   consonant in the entire verse**; niroṣṭhya forbids labials. from: ✓E49 X145 I17 S59
+- witness: 4 cited indices — external 3, project 1. names outside this project: databac.fr. only-this-project: S59.
 **R92 · self-relation under an involution** *amphisbaenic rhyme · jinās qalb · 迴文 huíwén ·
 回文 kaibun · sléttubönd · vers rétrogrades · retruécano/quiasmo · transverse alliteration ab|ba ·
 gomūtrikā / sarvatobhadra*
@@ -747,6 +839,7 @@ gomūtrikā / sarvatobhadra*
   reversal, or a grid transposition. `G35` sléttubönd: the quatrain must remain metrical,
   alliterating **and** rhyming when read backwards. `I17` sarvatobhadra: the verse reads the same by
   row and by column. from: ✓E19 S52 X26 X47 G35 X155 X106 G40 I17
+- witness: 9 cited indices — external 7, project 2. names outside this project: Turco, sina.com, Quevedo. only-this-project: X47 X155.
 **R93 · self-relation under a declared non-involutive permutation** *sestina / retrogradatio
 cruciata · parola-rima · coblas retrogradadas*
 - MAP a permutation generating a cyclic group of order 6, applied stanza to stanza. CHAN **no sound
@@ -755,33 +848,40 @@ cruciata · parola-rima · coblas retrogradadas*
   at a declared symmetric pair of indices across stanzas — and `X122` *mordobre* is the same rule
   with the inflection required to vary, which is why the two are named separately.
   from: X174 X84 X170 X121
+- witness: 4 cited indices — external 4. names outside this project: wordpress.com, treccani.it, Arnaut Daniel, letteratour.it.
 **R94 · one form carrying three different alignments at once** *klon suphap · song thất lục bát ·
 khlong si suphap · lục bát*
 - `I56`: "a mixture: tail-to-index (into the next line), tail-to-tail (wak 2↔3), and tail-to-tail
   across a stanza boundary. One form, three alignments." `I67`: the lục bát chain "never closes" —
   an **unbounded** figure. from: I56 I69 I59 I67 I57 I62 I58
+- witness: 7 cited indices — external 4, unrecorded 3. names outside this project: PyThaiNLP, AVPoetica. no checkable referent: I69 I62 I58.
 **R95 · overlapping members** *croes o gyswllt (one consonant on both sides of the seam) ·
 lusg gudd* — from: ✓C3 C14
+- witness: 2 cited indices — external 2. names outside this project: ac.uk, Clywed Cynghanedd.
 **R96 · rhyme member assembled across a word boundary (mosaic)** *mosaic rhyme · compound/phrasal
 rhyme · comhardadh briste · gespaltener Reim · rima composta/franta/spezzata · jinās murakkab
 (mutashābih and mafrūq) · rim equivoc contrafet · lusg gudd*
 - One lexical item against several, or several against several re-cut at different boundaries.
   `S56`/`S57` split it by whether the **orthography** also agrees — a grapheme channel riding on a
   boundary structure. from: ✓E30 ✓E31 C44 C14 G69 X76 S56 S57 X160
+- witness: 9 cited indices — external 8, project 1. names outside this project: Turco, skuola.net, letteratour.it, Academia.edu. only-this-project: C44.
 **R97 · whole-line phonetic identity with different segmentation** *holorhyme · holorime ·
 mahāyamaka / samudga · calambur · goroawase*
 - "EVERY segment agrees across the whole line; the WORD BOUNDARIES DIFFER — that difference is
   constitutive." `I14` is the Sanskrit form (a whole pāda or half-verse re-cut into different
   words); `X104` calambur is the Spanish sentence-level form. from: ✓E34 X148 I14 X104 X45
+- witness: 5 cited indices — external 5. names outside this project: etudes-litteraires.com, Quevedo, mynavi.jp, sheer.jp.
 **R98 · member split by the line break** *broken rhyme · gebrochener Reim · enjambed rhyme ·
 tadwīr · versos de cabo roto*
 - The member is a **prefix** of a lexical item (broken), or is **completed by material belonging to
   the next line** (enjambed), or a word straddles the hemistich seam and thereby changes what is
   available at the rhyme (`S37` tadwīr). from: ✓E32 ✓E33 G68 G81 S37 X94
+- witness: 6 cited indices — external 6. names outside this project: Turco, cervantes.es, blogspot.com.
 
 ### J. Class-level (block) relations — the arguments are equivalence classes, not spans
 
 **R99 · block inventory identical across stanzas** *coblas unissonans* — from: X162
+- witness: 1 cited indices — external 1. names outside this project: wordpress.com.
 **R100 · block inventory required to DIFFER across stanzas** *coblas singulars · 換韻 ·
 coblas doblas · coblas ternas · coblas alternadas*
 - "The PATTERN is constant; the SOUNDS must DIFFER in every stanza" (`X163`) — a required-difference
@@ -790,26 +890,32 @@ coblas doblas · coblas ternas · coblas alternadas*
   of a Gaelic strophe agree and the nth "is defined by its DIFFERENCE from them", metrically and
   ornamentally at once.
   from: X163 X164 X165 X166 X6 C59
+- witness: 6 cited indices — external 6. names outside this project: wordpress.com, academia.edu, newton.com, Blankenhorn.
 **R101 · partition-shape isomorphism with the sounds free** *Stollen parallelism (Bar form)*
 - `G74`: "the relation is between two schemes, not between two sounds… the partition restricted to
   Stollen 1 is isomorphic to the partition restricted to Stollen 2… it is the pattern that repeats,
   not the sound." from: G74
+- witness: 1 cited indices — external 1.
 **R102 · a block PROPERTY required to alternate** *règle de l'alternance des rimes*
 - `X135`: "the GENDER of rhyme block *n* against the gender of block *n+1*… a required-DIFFERENCE
   constraint on a channel orthogonal to the rhyme sound itself, applied over the sequence of
   blocks." from: X135
+- witness: 1 cited indices — external 1. names outside this project: unblog.fr, over-blog.com, openedition.org.
 **R103 · one channel held constant while another alternates on a schedule** *叶韻 / 平仄通協格*
 - `X7`: "the FINAL is held constant across the whole poem while the TONE CLASS deliberately
   alternates 平/仄 within the same 韻部." from: X7
+- witness: 1 cited indices — external 1.
 **R104 · block inheritance by a closing unit** *tornada · fiinda / finda · envoi · congedo*
 - A short closing stanza whose rhyme sounds must reproduce those of **a specified index range of the
   preceding stanza**. `X173`: "a suffix-alignment relation, but between STANZAS rather than words."
   from: X173 X123
+- witness: 2 cited indices — external 2. names outside this project: wordpress.com, blogspot.com.
 **R105 · scheme declarations as set partitions over line indices** *Reimschemata · rima baciata etc ·
 rime plate etc · rima emparelhada etc · Turkish kafiye şemaları · vần liền/cách/ôm/hỗn ·
 proest cadwynog/cyfnewidiog · rubāʿī AABA · muzdawij · pantun ABAB · talibun/seloka ·
 seguidilla · romance · rekilaulu schemes · gebroken rijm (Dutch reading)*
 - from: ✓E44 G73 X88 X153 X126 S125 I73 C25 S93 S121 I43 I49 X100 X99 G81 X125
+- witness: 16 cited indices — external 12, project 1, unrecorded 3. names outside this project: weschool.com, skuola.net, etudes-litteraires.com, normaculta.com. only-this-project: I43. no checkable referent: E44 I73 I49.
 - `G81` is a **[DISPUTED]** case worth preserving: one Dutch source defines *gebroken rijm* as an
   interrupted rhyme SCHEME (abac/abcb), German *gebrochener Reim* as a word split at the line break.
   Two readings, one name, and the Germanic cell recorded both rather than choosing. I follow it.
@@ -817,6 +923,7 @@ seguidilla · romance · rekilaulu schemes · gebroken rijm (Dutch reading)*
 - `X29`: "EVERY line-end, not alternate ones. Density is the defining difference from 詩 and 詞."
   Density over a frame is a coordinate of the figure's selection rule, and this is its only
   independent witness. from: X29
+- witness: 1 cited indices — external 1. names outside this project: ctext.org.
 
 ### K. Transform-bearing relations — the comparison runs on a derived string
 
@@ -824,19 +931,24 @@ seguidilla · romance · rekilaulu schemes · gebroken rijm (Dutch reading)*
 - `C55`: "the segment that the relation reads is the MUTATED surface consonant, not the dictionary
   radical… the SAME LEXEME alliterates differently in different syntactic environments."
   from: C55 C47
+- witness: 2 cited indices — external 1, unrecorded 1. no checkable referent: C55.
 **R108 · sandhi/provection generating material present in neither member** *groes o gyswllt ewinog*
 - from: ✓C4
+- witness: 1 cited indices — external 1. names outside this project: ac.uk, Clywed Cynghanedd.
 **R109 · resyllabification / liaison creating a non-lexical member** *lusg gudd · lusg gyswllt*
 - from: C14
+- witness: 1 cited indices — external 1.
 **R110 · destructive truncation applied to both members** *versos de cabo roto*
 - `X94`: words truncated after the stressed vowel rhyme **as truncated**, and "typically words that
   would NOT rhyme in full." from: X94
+- witness: 1 cited indices — external 1. names outside this project: cervantes.es, blogspot.com.
 **R111 · reading tradition as a transform** *Ashkenazi vs Sephardi stress · Sino-Korean readings ·
 historical rhyme · dialect rhyme · conventional-licence rhyme · rime normande*
 - `S107`: the same written words under two stress traditions give a **feminine rhyme in one reading
   and a masculine one in the other** — the anchor itself moves by one syllable. `X62`: Sino-Korean
   readings preserve the 入聲 stop codas Mandarin lost, so the same poem rhymes differently.
   from: S107 X62 ✓E21 ✓E22 ✓E23 X137
+- witness: 6 cited indices — external 4, project 2. names outside this project: encyclopedia.com, etudes-litteraires.com. only-this-project: X62 E22.
 **R112 · relaxation of a channel in a declared direction** *cynghanedd lusg wyrdro*
 - "the vowel channel is RELAXED in a specified direction: a diphthong in the goben is answered by a
   near or reduced vowel" (`C15`). A directional, non-symmetric grain. from: C15
@@ -929,6 +1041,7 @@ Each maps to a structure already in the canon with NORM=forbidden or deprecated,
 R48, R69, R100, R112 and the two below (R113, R114), which are structures in their own right.
 - from: C34 C35 C36 C37 C38 C39 C40 S23 S24 S25 S26 S27 S28 S29 S30 S31 S32 S33 S34 I37 I64 I74
   X9 X10 X11 X12 X13 X17 X18 S85 S86 S87 X96 X147 X73 ✓E66
+- witness: 116 cited indices — external 98, project 12, unrecorded 6. names outside this project: ac.uk, Clywed Cynghanedd, normaculta.com, PyThaiNLP. PRIMARY held in this repo: G10 Snorri Sturluson, Háttatal, c. 1222-25 (the málfylling list); G9 Snorri Sturluson, Háttatal, c. 1222-25; X8 平水韻 (1252) and 詞林正韻 (戈載, 1821). only-this-project: I61 S59 S55 S54 G84 C21 C41 C56 I50 I43 X124 I64. no checkable referent: S124 I24 I62 C40 I37 I74.
 
 **R113 · required difference at a NON-rhyming position** *撞韻 zhuàngyùn · 擠韻 / 犯韻 / 冒韻 ·
 the OE fourth-lift prohibition · bai rhy debyg*
@@ -938,6 +1051,7 @@ the OE fourth-lift prohibition · bai rhy debyg*
   agreement is the fault.
 - FIG one position (or every non-rhyme position) against a **class**, with polarity FORBIDDEN.
 - from: X10 X11 G41 C36
+- witness: 4 cited indices — external 4. names outside this project: sina.com, 163.com, ac.uk, Clywed Cynghanedd.
 - The previous run has this as PLACEMENT's POLARITY value, forced from the OE fourth lift alone
   (which it had from repo doctrine, not from the inventory). It is forced four times, from three
   families, and in `X11` it quantifies over **every internal position**, which polarity on a single
@@ -952,6 +1066,7 @@ bai crych a llyfn · bai twyll gynghanedd*
   position — as three separate faults with three separate names. **This is the tradition treating
   the correspondence map as a first-class declared object**, and all three entries were invisible.
 - from: C37 C38 C39
+- witness: 3 cited indices — external 3. names outside this project: ac.uk, Clywed Cynghanedd.
 
 **R115 · rhyme licensing a lexical substitution and then deleted from the surface**
 *rhyming slang*
@@ -960,6 +1075,7 @@ bai crych a llyfn · bai twyll gynghanedd*
   first word**, so the rhyming member is elided too ('me plates' for *feet*, via *plates of meat*).
   `E67`: "the relation is lexical substitution licensed by a rhyme that is never spoken."
 - from: ✓E67
+- witness: 1 cited indices — external 1.
 - Visible to the synthesis and dropped from its 106. Recorded here because it is the limiting case
   of R68's shape — a relation with an argument outside the text — arrived at from the other
   direction, and because it is the only structure in the 601 whose *evidence is systematically
@@ -976,6 +1092,7 @@ bai crych a llyfn · bai twyll gynghanedd*
 - FIG unchanged; the declaration adds an **eligibility predicate on the span's carrier** — a shape,
   a weight, or a length that the bearing word must have, independent of what it must agree with.
 - from: G15 G20 G21 S120 I59
+- witness: 5 cited indices — external 5. names outside this project: skaldic.org, truvaedebiyatdergisi.com.
 - Distinct from D3 (a selector picks *which positions* participate) and from D4 (a licence *relaxes*
   a requirement). This constrains *what kind of word may stand there at all*, and four unrelated
   traditions declare it.
@@ -1331,3 +1448,332 @@ cites the inventory entries it merges; coverage of all 601 indices was checked m
 entry is accounted for in exactly one of R1–R116/R66b or D1–D9, with none missing and none double-
 counted. Entries marked ✓ were visible to the previous synthesis; the rest were not. This file
 writes no code and changes none; it is the evidence a corrected model would be built against.*
+
+---
+
+## 8. The survey index, recovered and inlined — and what it does not settle
+
+**Added 2026-08-11 in answer to `MISSING.md` M-15a. Every number in this section is COMPUTED**
+by `python3 quality/canon_sources.py --render`, from `quality/canon_index.tsv` and from §2's
+own `from:` lines. None of it is transcribed, because a figure transcribed into prose is a
+figure that disagrees with the code by the next round (doctrine 58) and a citation transcribed
+into prose is the defect this section exists to close.
+
+Every `from:` line in §2 indexes the six-agent survey array of workflow `wf_c1e2a9c5-60b`, and
+that array was not in the repository. From inside a clone the citation graph was CLOSED: 117 of
+117 named structures and 298 of 298 `Tradition` rows resolved to nothing, and
+`quality/relations.py` called an `R<n>` pointer back into this file a *source*. The array
+survived only in the inventory agents' session transcripts, which no checkout, no `git log`
+and no future reader inherits.
+
+It is now `quality/canon_index.tsv` — **601 rows, one per declared index**, each carrying the
+survey entry's NAME, its TRADITION field and its `source` string VERBATIM.
+
+### 8.1 The index is POSITIONAL, and that is checked rather than assumed
+
+Each `inventory:*` agent emitted one JSON array; `E1` is that array's first element. The
+mapping was not adopted on plausibility — it is checked against **37 attributions this file
+and `relations.py` make in their own prose**, and `--rebuild` refuses to write if any fails.
+R10 cites `G1` and says the span is Snorri's `fyrð` out of *fyrðum*, so `G1` must be
+`skothending`; R32 calls `I29`–`I36` the qāfiya slot apparatus, so `I34` must be inside it;
+R1 cites `I39` and `I65` and `_SOURCED` names exactly *Hindi-Urdu tuk / tukānt* and
+*Vietnamese vần chân* under `perfect rhyme`. All 37 hold.
+
+**A plausible-looking mapping is what the first attempt produced, and it is worth recording**
+**how.** It built each array from objects carrying a `source` key — and 18 of the
+indic-seasian cell's 74 entries carry no `source` key at all, *interleaved* from position 32
+onward. Every `I` index past 32 was silently renumbered while the low checks still passed,
+putting `chan (ฉันท์) quantitative template` at `I47` where the array actually holds `syair
+monorhyme quatrain`. Checks that all land near the head of an array cannot detect a shift in
+its tail, and an override addressed by position alone follows whichever row is standing there.
+
+### 8.2 What the references actually are
+
+| | count |
+|---|---:|
+| `from:` references in §2 | **781** |
+| distinct indices cited | 594 |
+| declared indices (74+64+89+126+74+174) | 601 |
+| declared but never cited by any entry | 7 |
+
+**781, not 611.** `quality/audit_register.py --provenance` reported 611 because it read the
+`from:` matter with a single-line regex and only its first occurrence — and R1's from-line runs
+onto a second line, R29's onto three, and §H/§I write `from:` inline at the end of the entry's
+own prose rather than as a bullet. That is doctrine 58 inside the adversary built to find
+doctrine-58 errors, and both numbers are now printed side by side rather than one replacing
+the other.
+
+### 8.3 The witness census, and the states that are not `no`
+
+Four states, because *nobody recorded a witness*, *the witness is us*, and *the entry was
+never recovered* are three different sentences and only one of them is about the tradition
+(doctrine 28).
+
+| state | n | meaning |
+|---|---:|---|
+| `external` | 501 | the recorded source names an identifiable artifact outside this project |
+| `project` | 68 | every recorded source is a `quality/*` module, a `CLAUDE.md` doctrine, or recollection |
+| `unrecorded` | 32 | no checkable referent at all |
+| `unrecovered` | 0 | inside a declared cell and not recovered — currently none |
+
+Both middle states split by BASIS, because doctrine 44's remedies differ:
+
+| basis | n | remedy |
+|---|---:|---|
+| `project/module` | 24 | a repo module is the witness — a self-confirmation risk, since the code being graded is the evidence |
+| `project/memory` | 44 | the source says outright it is recollection — a search nobody has run |
+| `unrecorded/appeal` | 14 | *"standard rhetorical taxonomy"* — an appeal to an authority nobody identified |
+| `unrecorded/no_source_field` | 18 | the survey emitted the entry with **no `source` key whatever** |
+
+**97 of 601 rows carry the survey's own doubt flag** — *NOT independently verified*,
+*egress-blocked*, *flag as recall* — kept verbatim, because a check whose premise weakened may
+be kept but never quoted as if it had not (doctrine 17).
+
+**The classifier is conservative in a stated direction.** An artifact it fails to recognise
+falls to `unrecorded`, never to `external`. So `unrecorded` means *the mechanical rule found no
+checkable referent*, not *none exists*. Its regexes are coordinates of every number in this
+section (doctrine 58) and they are named constants in `quality/canon_sources.py`. One of them
+was wrong in the dangerous direction and is worth naming: with `md` (Moldova) in the
+top-level-domain list, `CLAUDE.md doctrine 18` parses as a HOSTNAME, and six names — `anaphora`,
+`epistrophe`, `repetend`, `repetition`, `refrain / burden / chorus`, `cynghanedd in English` —
+read as externally attested on the strength of a citation to this repository's own doctrine
+file. A register that launders `CLAUDE.md` into a foreign TLD is the exact failure it exists
+to detect.
+
+### 8.4 What it settles for the 117
+
+| | n |
+|---|---:|
+| named structures reaching at least one witness outside this project | **116** |
+| named structures reaching NONE | **1** |
+| named structures citing nothing at all | 0 |
+
+A single external witness among thirty cited indices is not the same claim as thirty, so the
+`- witness:` line under each entry in §2 prints the whole count vector and never a verdict
+alone. The 1 that reach none is named rather than counted:
+
+- **R89** (line 820): `S68` tashrīʿ / tawʾam — Attested in the maqāma/badīʿ tradition; NOT independently verified this session — flag as recall, and as the least certain entry in the Arabic set.
+
+### 8.5 A PRIMARY source, with its date, for the entries that have one
+
+This file carried **zero publication-year tokens across 94 KB**, which was the sharpest single
+finding of the provenance audit. **9** indices resolve to a primary source that is not merely
+named but **stored in this repository and quotable**. Each row is re-checked on every render by
+running the command in its last column against the named file; 9 of 9 pass today.
+
+| index | primary source | held in | check |
+|---|---|---|---|
+| `G1` skothending | Snorri Sturluson, Háttatal, c. 1222-25 | `quality/phonology/non.py` | `grep -n 'köllum vér skothending' quality/phonology/non.py` |
+| `G2` aðalhending | Snorri Sturluson, Háttatal, c. 1222-25 | `quality/phonology/non.py` | `grep -n 'ein hljóðstafr' quality/phonology/non.py` |
+| `G3` frumhending / viðrhending pairing rule | Snorri Sturluson, Háttatal, c. 1222-25 | `quality/phonology/non.py` | `grep -n 'Háttatal' quality/phonology/non.py` |
+| `G4` oddhending | Snorri Sturluson, Háttatal, c. 1222-25 | `quality/phonology/non.py` | `grep -n 'köllum vér þá oddhending' quality/phonology/non.py` |
+| `G5` hluthending | Snorri Sturluson, Háttatal, c. 1222-25 | `quality/phonology/non.py` | `grep -n 'köllum vér þá hluthending' quality/phonology/non.py` |
+| `G6` stuðlar | Snorri Sturluson, Háttatal, c. 1222-25 | `quality/phonology/non.py` | `grep -n 'Þá stafi köllum vér stuðla' quality/phonology/non.py` |
+| `G9` hljóðstafr (vowel alliteration) with t | Snorri Sturluson, Háttatal, c. 1222-25 | `quality/phonology/non.py` | `grep -n 'ef hljóðstafr er höfuðstafrinn' quality/phonology/non.py` |
+| `G10` málfylling licence (stave-ineligible w | Snorri Sturluson, Háttatal, c. 1222-25 (the málfylling list) | `quality/phonology/non.py` | `grep -n 'málfylling þeiri' quality/phonology/non.py` |
+| `X8` 同用 / 通押 — rhyme-group merging | 平水韻 (1252) and 詞林正韻 (戈載, 1821) | `quality/phonology/ltc.py` | `grep -n '詞林正韻' quality/phonology/ltc.py` |
+
+This is doctrine 62 with the receipts attached: Snorri's own prose supplies the
+ONSETS-MUST-DIFFER rule and the málfylling list, and `quality/phonology/non.py` quotes both
+verbatim — so eight Old Norse indices that a Latin-only external regex had filed as *sourced
+only to this project* are in fact sourced to a text of c. 1222-25 that the repository carries,
+and `X8`'s 同用 grouping to two rime books, 平水韻 (1252) and 詞林正韻 (1821). The converse holds
+in the same module and is the reason to trust it: the `sk`/`sp`/`st` cluster rule is **not** in
+that passage of Háttatal, and `non.py` says so rather than letting the quotation cover it.
+
+### 8.6 The names whose only witness is this project
+
+**68 of the 601 entries.** They are LISTED, not deleted and not quietly filled in. An invented
+name that says it was invented is a fine thing to have in a register; an invented name that
+reads as attested is the defect. A plausible fill here would be the `gabay higaad` error
+repeated 68 times.
+
+| index | basis | name |
+|---|---|---|
+| `C5` | module | cynghanedd draws (traws) |
+| `C13` | module | cynghanedd lusg |
+| `C21` | memory | goddefiad: h is not counted |
+| `C32` | memory | cymeriad synhwyrol |
+| `C41` | module | Welsh orthographic substrate: the eight digraphs, the elision apostrophe, the gwant |
+| `C44` | memory | comhardadh briste — Irish broken rhyme |
+| `C56` | module | Goidelic orthographic substrate: digraphs, silent lenition, and the caol-le-caol spelling rule |
+| `E3` | module | repetition (same-word rhyme) |
+| `E22` | memory | conventional-licence rhyme |
+| `E35` | memory | end rhyme |
+| `E45` | module | monorhyme / leash rhyme |
+| `E50` | module | cynghanedd in English (Hopkins's imitation) |
+| `E51` | memory | vowelling on / vowelling off (Hopkins) |
+| `E54` | module | refrain / burden / chorus |
+| `E55` | module | repetend |
+| `E56` | module | incremental repetition |
+| `E58` | module | anaphora |
+| `E59` | module | epistrophe |
+| `E60` | memory | symploce |
+| `E65` | memory | antanaclasis |
+| `E74` | memory | sung-delivery rhyme |
+| `G29` | memory | ljóðaháttr full-line (Vollzeile) alliteration |
+| `G30` | memory | galdralag |
+| `G82` | module | Kalevala weak alliteration |
+| `G84` | module | Finnic vowel-initial alliteration class |
+| `G88` | memory | Scandinavian ballad omkvæd |
+| `G89` | memory | Scandinavian ballad assonance binding |
+| `I11` | memory | prāsa-yati |
+| `I26` | memory | maṭakku (Tamil yamaka) |
+| `I31` | memory | ridf |
+| `I39` | memory | tuk / tukānt |
+| `I43` | module | pantun ABAB end rhyme |
+| `I50` | module | hamzah as a rime segment |
+| `I51` | module | Malay reduplication |
+| `I61` | module | chan (ฉันท์) quantitative template |
+| `I64` | memory | Thai named rhyme faults |
+| `S38` | module | qaṣīda monorhyme |
+| `S54` | memory | jinās shibh al-ishtiqāq |
+| `S55` | memory | jinās mustawfā |
+| `S59` | memory | al-ḥurūf al-muhmala / muʿjama / raqṭāʾ |
+| `S65` | memory | tashābuh al-aṭrāf |
+| `S66` | memory | tardīd |
+| `S67` | module | takrār / iʿāda |
+| `S68` | memory | tashrīʿ / tawʾam |
+| `S89` | memory | maqṭaʿ with takhalluṣ |
+| `S90` | memory | tarjīʿ-band |
+| `S91` | memory | tarkīb-band |
+| `S92` | memory | mustazād |
+| `S94` | module | hā-yi ghayr-i malfūẓ as rawī (the silent-h dispute) |
+| `S96` | memory | biblical Hebrew homoioteleuton |
+| `S105` | memory | reverse and doubled acrostics |
+| `S108` | memory | ṣimmud |
+| `S109` | memory | shibbuṣ |
+| `S122` | memory | nakarat |
+| `X24` | memory | 疊句 diéjù — verbatim line repetition |
+| `X27` | memory | 藏頭 cángtóu — acrostic verse |
+| `X35` | memory | 縁語 engo — associated words |
+| `X47` | memory | 回文 kaibun — Japanese palindrome |
+| `X62` | memory | 한시 by Korean authors — the Chinese system imported wholesale |
+| `X63` | memory | 라임 — modern Korean rap rhyme |
+| `X87` | memory | rima aspra (rime petrose) |
+| `X102` | memory | similicadencia |
+| `X107` | module | anáfora / epífora / concatenación |
+| `X124` | memory | palavra perduda |
+| `X152` | module | assonance de laisse |
+| `X154` | module | rime kyrielle / refrain |
+| `X155` | memory | vers rétrogrades |
+| `X169` | memory | coblas capdenals |
+
+And **32 further entries record no checkable referent at all**. These are a DIFFERENT gap and
+take a different remedy: a search, not a coinage label.
+
+| index | basis | name |
+|---|---|---|
+| `C22` | appeal | odl (prifodl) — Welsh full rhyme |
+| `C26` | appeal | cywydd deuair hirion couplet rhyme (accented against unaccented) |
+| `C40` | appeal | bai: proest i'r odl, gorodl, ymsathr odlau (rhyme-hygiene faults) |
+| `C55` | appeal | initial mutation as a channel-transforming operation |
+| `C64` | appeal | sèist (chorus) in Gaelic song |
+| `E44` | appeal | chain rhyme (interlocking-scheme sense) |
+| `E62` | appeal | epanalepsis |
+| `G34` | appeal | dunhenda (rímur) |
+| `I24` | appeal | aṭi-toṭai vs cīr-toṭai (scope) |
+| `I30` | appeal | rawī |
+| `I32` | no_source_field | qayd |
+| `I33` | no_source_field | taʾsīs and daxīl |
+| `I34` | no_source_field | waṣl, xurūj, mazīd, nāʾira |
+| `I35` | no_source_field | the qāfiya vowels |
+| `I36` | no_source_field | muqayyad vs muṭlaq qāfiya |
+| `I37` | no_source_field | ʿuyūb al-qāfiya (rhyme faults) |
+| `I40` | no_source_field | Hindi anuprās subtypes |
+| `I41` | no_source_field | yamak (Hindi) and ślesh (Hindi) |
+| `I42` | no_source_field | muṣammat internal rhyme |
+| `I44` | no_source_field | rima penuh vs rima separa |
+| `I47` | no_source_field | syair monorhyme quatrain |
+| `I48` | no_source_field | gurindam |
+| `I49` | no_source_field | talibun and seloka |
+| `I55` | appeal | สัมผัสใน (samphat nai) |
+| `I58` | no_source_field | rai (ร่าย) chain rhyme |
+| `I62` | no_source_field | kap yani 11 and the kap family |
+| `I69` | no_source_field | song thất lục bát |
+| `I73` | no_source_field | vần liền / vần cách / vần ôm / vần hỗn |
+| `I74` | no_source_field | điệp vận / lạc vận |
+| `S124` | appeal | vowel harmony as a rhyme base-rate |
+| `X103` | appeal | paronomasia |
+| `X105` | appeal | derivación / políptoton |
+
+### 8.7 What it settles for `relations.py`
+
+`Tradition.witness` is now tri-state and DERIVED at import from this index and the canon
+entry's own `from:` line — never typed into a table, because a citation typed by hand is the
+defect this whole section exists to close. Over **298 distinct traditions on 319 attachments**:
+
+| verdict | n |
+|---|---:|
+| externally witnessed | **212** |
+| **this project's own** | **26** |
+| cannot be told | **60** |
+
+A canon entry names its traditions in an alias line and its indices in a `from:` line and
+NEVER attributes one to the other, so a per-name citation would be a fabrication. Two
+readings are used and both are stated on every row. Where a tradition name and exactly one
+cited survey entry in that language's cell share a distinctive token — `Turkish nakarat` and
+`S122 nakarat` — the attribution is not a guess and the row quotes that entry's source.
+Otherwise the verdict is taken over the SET and holds however the attribution falls:
+all-external is `external`, all-project is `project`, anything mixed is `None`.
+
+Two false attributions were produced and killed during construction. Filtering candidates by
+language BEFORE testing uniqueness put `English refrain / burden / chorus` on `E3 repetition
+(same-word rhyme)` — because `E54 refrain / burden / chorus`, the correct entry, does not
+carry the word *English* in its own tradition field and was vetoed out of a two-candidate
+set, leaving one survivor that then looked unique. The same ordering put `Finnish Kalevala
+vahva alkusointu` (*vahva* = STRONG) on `G82 Kalevala WEAK alliteration`. A filter that can
+only delete is safe; a filter that decides which of two candidates wins is a guess wearing a
+mechanism. Every surviving attribution shares a distinctive token with the survey entry's own
+NAME, never with its tradition field alone, and `quality/test_relations.py` pins that.
+
+The traditions whose only witness is this project, listed for the same reason as §8.6:
+
+| language | tradition | schema | index |
+|---|---|---|---|
+| `ara` | Arabic al-ḥurūf al-muhmala / al-muʿjama | paroemion | `S59` |
+| `ara` | Arabic qaṣīda monorhyme | monorhyme / leash | `S38` |
+| `ara` | Arabic tashābuh al-aṭrāf | linked rhyme | `S65` |
+| `cym` | Welsh cynghanedd lusg | cynghanedd lusg | `C13` |
+| `cym` | Welsh cynghanedd lusg (its excluded final syllable) | semirhyme | `C13` |
+| `eng` | English anaphora | anaphora | `E58` |
+| `eng` | English antanaclasis | antanaclasis | `E65` |
+| `eng` | English cynghanedd after Hopkins (an imitation, doctrine 45) | cynghanedd groes | `E50` |
+| `eng` | English epistrophe | epistrophe / radif | `E59` |
+| `eng` | English incremental repetition (ballad) | incremental repetition | `E56` |
+| `eng` | English monorhyme / Skeltonics | monorhyme / leash | `E45` |
+| `eng` | English refrain / burden / chorus | repetition | `E3,E54,E55` |
+| `fra` | French assonance de laisse | assonance | `X152` |
+| `fra` | French laisse | monorhyme / leash | `X152` |
+| `fra` | French vers rétrogrades | amphisbaenic rhyme | `X155` |
+| `gle` | Irish comhardadh briste | mosaic rhyme | `C44` |
+| `hin` | Hindi-Urdu tuk / tukānt | perfect rhyme | `I39` |
+| `jpn` | Japanese 回文 kaibun | amphisbaenic rhyme | `X47` |
+| `kor` | Korean 라임 | multisyllabic rhyme | `X63` |
+| `msa` | Malay pantun ABAB | pantun ABAB | `I43` |
+| `non` | Old Norse galdralag | incremental repetition | `G30` |
+| `oci` | Occitan coblas capdenals | anaphora | `X169` |
+| `spa` | Spanish anáfora | anaphora | `X107` |
+| `spa` | Spanish epífora | epistrophe / radif | `X107` |
+| `spa` | Spanish similicadencia | homoioteleuton | `X102` |
+| `tur` | Turkish nakarat | repetition | `S122` |
+
+### 8.8 What this does NOT do
+
+1. **It does not make the canon primarily sourced.** 307 of the 601 recovered `source` strings
+   name a search rather than a work. A search summary is a witness that something outside this
+   project exists; it is not the tradition's own statement of its rule, and §8.5 lists the 9
+   indices where the repository actually holds one.
+2. **It does not re-verify anything.** The index records what the 2026-08-10 inventory agents
+   recorded, including the 97 rows where they flagged their own uncertainty. Re-verification
+   is a separate job and this file must not be read as having done it.
+3. **It does not invent a source for the 18 entries the survey emitted with no `source` key.**
+   They are `unrecorded / no_source_field`. `audit_register.py` did worse than drop them: its
+   single regex ran past the object boundary and paired each such name with the NEXT entry's
+   source string, which is how `Hindi anuprās subtypes` and `syair monorhyme quatrain` arrived
+   in a list of names *whose only witness is this project*. They have no recorded witness of
+   any kind and a neighbour's was read onto them.
+4. **It does not touch `gabay higaad`.** §0 records that Somali appears in no inventory cell and
+   that the name entered the canon from repo doctrine alone. There is no index to inline and no
+   witness to recover; `relations.py` scopes Somali to zero of the 77 schemas, which is what the
+   source says, and the mechanical form of that is a zero rather than a plausible list.

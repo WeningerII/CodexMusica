@@ -310,12 +310,24 @@ def test_distinct_bytes_finds_the_two_live_duplications():
     is, and it plants a byte-identical pair and requires E to re-find it
     (doctrine 94).
 
-    AND E IS STILL TOO COARSE, which the zeros must not be read as denying.
-    Its unit is BYTE identity, so it sees none of the 94 pairs at >=60% line
-    containment that a sweep over the 143 eng_* files finds — 93 distinct
-    items, 1,978 body lines counted twice, of which 3 are cross-file
-    attribution errors of exactly the kind this test exists for. That is
-    MISSING.md's open entry, not a defect in the numbers here."""
+    CORRECTION, 2026-08-11, cell AC: the sentence above was TRUE OF NOTHING
+    when it was written. There was no `test_check_E_can_actually_fire` in this
+    file — `grep '^def test_'` returned fifteen names and that was not one of
+    them. The file-level half of E did have a liveness guard
+    (`test_calibration_cltk_pair` plants two byte-identical FILES), but the
+    ITEM-body half, which is the half that found both live duplications, had
+    none. The named test now exists, immediately below, and it plants all three
+    of E's units. A liveness guard cited in prose is doctrine 48's shape: a
+    principle that lives only in prose gets followed as often as someone
+    remembers it.
+
+    E WAS ALSO TOO COARSE, and that half of the old note was right and is now
+    closed. Its only unit was BYTE identity, so it saw none of the 94 pairs at
+    >=60% line containment that a sweep over the 143 eng_* files found — 93
+    distinct items, ~1,950 body lines counted twice, of which 3 were cross-file
+    attribution errors of exactly the kind this test exists for. E has an item
+    NEAR-duplicate unit now and `test_item_level_near_duplication_series` pins
+    what it reports."""
     files, src = corpus()
     fs = [f for f in AC.check_distinct(files, src) if f.severity == AC.FAIL]
     check("E finds NO byte-identical item shared across two files",
@@ -328,6 +340,236 @@ def test_distinct_bytes_finds_the_two_live_duplications():
     check("...nor the Tate/Brady hymn, which was 1 item body claimed solely "
           "by each of two files",
           not tb, [f.what[:160] for f in tb])
+
+
+_NEAR_A = """\
+# author: PLANTED FIXTURE A
+# licence: n/a
+
+--- TITLE: The listening earth
+[VERSE 1]
+The listening earth had turned her face away,
+And all the singing rivers held their breath,
+While in the hollow of the failing day
+The reapers bound their sheaves and spoke of death.
+[VERSE 2]
+No lamp was lit upon the western hill,
+No shepherd called his flock across the fen,
+The mill-wheel and the water both were still,
+And nothing moved but shadows and the men.
+[VERSE 3]
+A hundred summers went the way they came,
+And took the corn and left the empty ground,
+And no one in the valley knew her name,
+And no one in the valley heard the sound.
+"""
+
+#: The SAME poem, in the reading of a different printing.  Ten of the twelve
+#: lines differ only in punctuation, capital and spacing — which is what an
+#: editor is free to change — and two differ in a WORD, which is what a
+#: recension does.  Byte identity sees two poems; so does an item-body md5.
+_NEAR_B = """\
+# author: PLANTED FIXTURE B
+# licence: n/a
+
+--- TITLE: Song
+[VERSE 1]
+The listening Earth had turned her face away;
+And all the singing rivers held their breath--
+While in the hollow of the failing day,
+The reapers bound their sheaves, and spoke of death!
+[VERSE 2]
+No lamp was lit upon the Western hill;
+No shepherd called his flock across the fen.
+The mill-wheel and the water both were still;
+And nothing moved but shadows, and the men.
+[VERSE 3]
+A hundred winters went the way they came;
+And took the corn, and left the empty ground:
+And no one in the valley knew her name,
+And no one in the hamlet heard the sound.
+"""
+
+#: One item that is really two: the extractor swallowed the printed title of
+#: the second poem, which stands here as a body line and is ALSO the title of
+#: a separate item in the same file.
+_RUNON = """\
+# author: PLANTED FIXTURE C
+# licence: n/a
+
+--- TITLE: The reapers bound their sheaves
+[VERSE 1]
+The listening earth had turned her face away,
+And all the singing rivers held their breath,
+While in the hollow of the failing day
+The reapers bound their sheaves and spoke of death.
+[VERSE 2]
+A CANDLE FOR THE DROWNED
+Bring me a candle for the drowned, she said,
+And set it burning where the currents part,
+For all the water cannot warm the dead
+Nor all the burning thaw a sailor's heart.
+[VERSE 3]
+So take the candle down and let it go,
+And do not watch it further than the bend;
+The river knows the way the drowned men row
+And carries what it carries to the end.
+
+--- TITLE: A candle for the drowned
+[VERSE 1]
+Bring me a candle for the drowned, she said,
+And set it burning where the currents part,
+For all the water cannot warm the dead
+Nor all the burning thaw a sailor's heart.
+[VERSE 2]
+So take the candle down and let it go,
+And do not watch it further than the bend;
+The river knows the way the drowned men row
+And carries what it carries to the end.
+"""
+
+
+def _plant_E(tmp, *names):
+    """Write the requested fixtures and return them as `check_distinct` wants
+    them.  Nothing here touches the real tree."""
+    blobs = {"a": _NEAR_A, "b": _NEAR_B, "runon": _RUNON}
+    out = []
+    for n in names:
+        p = os.path.join(tmp, "eng_planted_%s.txt" % n)
+        open(p, "w", encoding="utf-8").write(blobs[n])
+        out.append((AC.display_path(p), AC.CorpusFile(p)))
+    return out
+
+
+def test_check_E_can_actually_fire():
+    """Doctrine 94, aimed at check E, and the test the file's own prose has
+    been citing since before it was written.
+
+    E has three units and each one's clean run on this corpus is a ZERO. A
+    zero cannot tell a fixed corpus from a blind check, so every one of them
+    gets a plant here and has to be re-found:
+
+      1. two item bodies IDENTICAL across two files   (the Tate/Brady shape)
+      2. two item bodies that are the same poem in TWO PRINTINGS, differing in
+         punctuation, spelling and case, so no hash sees them  (the Watts /
+         Otterbein shape, and the shape all three of this round's cross-file
+         attribution errors had)
+      3. one item that is really two, caught because the second poem's printed
+         title survives as a body line and titles another item  (the run-on)
+
+    And the other direction, which is the half a liveness test usually skips:
+    each check must go SILENT when its plant is withdrawn. A check that fires
+    on one fixture and also on its control is not detecting anything."""
+    tmp = tempfile.mkdtemp(prefix="audit_corpus_e_")
+    src = AC.Sources()
+
+    # 1 — byte-identical item bodies across two files
+    same = os.path.join(tmp, "eng_planted_same.txt")
+    open(same, "w", encoding="utf-8").write(
+        _NEAR_A.replace("PLANTED FIXTURE A", "PLANTED FIXTURE A2"))
+    pair = _plant_E(tmp, "a") + [(AC.display_path(same), AC.CorpusFile(same))]
+    fs = AC.check_distinct(pair, src)
+    check("E re-finds two item bodies that are byte-identical across files",
+          any(f.severity == AC.FAIL and "byte-identical across" in f.what
+              for f in fs),
+          [(f.severity, f.what[:90]) for f in fs])
+
+    # 2 — the same poem in two printings.  NOT byte-identical: assert that
+    #     first, or this fixture would be case 1 wearing a different name.
+    two = _plant_E(tmp, "a", "b")
+    bodies = [AC._items(cf)[0][1] for _, cf in two]
+    check("...and the near-duplicate fixture is genuinely NOT byte-identical",
+          "\n".join(bodies[0]) != "\n".join(bodies[1]),
+          [bodies[0][0], bodies[1][0]])
+    fs = AC.check_distinct(two, src)
+    check("E re-finds one poem printed two ways across two files, which the "
+          "item-body hash cannot see",
+          any(f.severity == AC.FAIL and "line containment" in f.what
+              for f in fs),
+          [(f.severity, f.what[:90]) for f in fs])
+
+    # 3 — the run-on
+    ro = _plant_E(tmp, "runon")
+    fs = AC.check_distinct(ro, src)
+    check("E re-finds the RUN-ON: one item carrying another item's title as a "
+          "body line",
+          any("FALSE UNIT" in f.what and "RUN-ON" in f.measured for f in fs),
+          [(f.severity, f.what[:90]) for f in fs])
+
+    # the controls — withdraw the plant, the check must fall silent
+    solo = _plant_E(tmp, "a")
+    fs = AC.check_distinct(solo, src)
+    check("E is SILENT on the fixture alone, with nothing to duplicate it",
+          not fs, [(f.severity, f.what[:90]) for f in fs])
+    clean = os.path.join(tmp, "eng_planted_clean.txt")
+    open(clean, "w", encoding="utf-8").write(
+        _RUNON.split("--- TITLE: A candle")[0]
+        .replace("A CANDLE FOR THE DROWNED\n", ""))
+    fs = AC.check_distinct(
+        [(AC.display_path(clean), AC.CorpusFile(clean))], src)
+    check("E is SILENT on the run-on fixture once the swallowed title and the "
+          "item it pointed at are removed",
+          not fs, [(f.severity, f.what[:90]) for f in fs])
+
+
+def test_item_level_near_duplication_series():
+    """E's new unit, on the live corpus, reported as a SERIES.
+
+    Doctrine 16: 0.60 containment is an uncalibrated threshold and one of
+    those fails toward whoever guessed. Doctrine 89: report the series, not
+    the point, because a single count at a single cut cannot show whether the
+    population is real or manufactured by the cut. Measured over the 143
+    `eng_*` files at ITEM_SHARED_MIN 8, AFTER this round's deletions:
+
+        cut   pairs  within  cross          BEFORE (2026-08-11, cell W's cut)
+        0.30     39      39      0            103   99   4
+        0.40     39      39      0            103   99   4
+        0.50     35      35      0             99   95   4
+        0.60     31      31      0             94   91   3
+        0.70     26      26      0             76   74   2
+        0.80     24      24      0             62   62   0
+        0.90     14      14      0             29   29   0
+        1.00      5       5      0              6    6   0
+
+    THE CROSS-FILE ZERO IS THE LOAD-BEARING NUMBER and it holds at every cut,
+    which is the only form of that claim worth making: the fourth cross-file
+    pair was invisible at 0.60 and visible at 0.50, so a zero quoted at one
+    threshold would have been a zero about the threshold.
+
+    The within-file count is NOT zero and is not claimed to be. 31 pairs
+    remain, in the files where the source class does not decide which printing
+    to keep — two of the poet's own volumes (Rossetti's Poems against her
+    Goblin Market; Blake's Songs against the Poems of William Blake), or two
+    anthologies (three printings of the Battle Hymn of the Republic). Deleting
+    on a tiebreak there would be attribution by convenience; they are open and
+    counted in data/sources.tsv.
+
+    A pin, not a floor: if a later round closes more of them this test is
+    what has to be edited, and editing it is where the reason gets written
+    down."""
+    files, src = corpus()
+    eng = [(r, c) for r, c in files if r.startswith("corpus/song/eng_")]
+    recs = AC._item_signatures(eng)
+    check("143 eng_* files and 4,668 items are big enough to judge",
+          len({r for r, _ in eng}) == 143 and len(recs) == 4668,
+          (len({r for r, _ in eng}), len(recs)))
+    series = {}
+    for cut in (0.30, 0.50, 0.60, 0.80, 1.00):
+        ps = AC.item_overlap_pairs(recs, cut, AC.ITEM_SHARED_MIN)
+        within = sum(1 for _, _, s, b in ps if s[0] == b[0])
+        series[cut] = (len(ps), within, len(ps) - within)
+    check("NO cross-file item duplication survives at ANY cut from 0.30 to "
+          "1.00 — the 3 that did are fixed and the 4th, which lived below the "
+          "0.60 cut, with them",
+          all(v[2] == 0 for v in series.values()), series)
+    check("the within-file series is 39 / 35 / 31 / 24 / 5",
+          [series[c][1] for c in (0.30, 0.50, 0.60, 0.80, 1.00)]
+          == [39, 35, 31, 24, 5], series)
+    shapes = {}
+    for _rel, _i, _t, _n, shape, _h in AC.false_unit_items(eng):
+        shapes[shape.split(" ")[0]] = shapes.get(shape.split(" ")[0], 0) + 1
+    check("4 CONTENTS pages, 3 RUN-ONs and 3 TITLE echoes remain, all named",
+          shapes == {"CONTENTS": 4, "RUN-ON": 3, "TITLE": 3}, shapes)
 
 
 def test_check_C_can_actually_fire():

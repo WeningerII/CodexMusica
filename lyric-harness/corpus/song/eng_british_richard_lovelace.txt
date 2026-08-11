@@ -7,6 +7,24 @@
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
+# dedup: ONE ITEM REMOVED 2026-08-11 by cell AC, and the SOURCE'S OWN EDITOR
+#       is what removed it. `To His Fairest Valentine Mrs. A. L` (23 lines)
+#       was also in corpus/song/eng_hall_thomas_durfey.txt as `[v.5] To his
+#       fairest VALENTINE Mrs. A.L.`, 78% line containment, and the two are
+#       one printing. It is not a Lovelace poem in Hazlitt's Lucasta at all:
+#       it stands inside FOOTNOTE <53.1> of PG 703, where Hazlitt writes --
+#         "The following poem is printed in Durfey's PILLS TO PURGE
+#          MELANCHOLY, v. 120, but whether it was written by Lovelace, and
+#          addressed to the same lady ... or whether it was the production
+#          of another pen, I cannot at all decide. ... I give these lines
+#          just as I find them in Durfey, where they are set to music"
+#       So the editor who printed it (a) DECLINES to attribute it to Lovelace
+#       and (b) names D'Urfey's Wit and Mirth as the copy he took it from.
+#       The corpus had it as Lovelace's on no authority but the filename it
+#       had been extracted into. It survives, once, in the D'Urfey file,
+#       whose own header already declares 'ATTRIBUTION IS COLLECTIVE ... Do
+#       not treat any single song here as evidenced D'Urfey autograph'. That
+#       is what the source says and it is all the source says.
 --- TITLE: Sonnet. Set By Mr. Hudson
 [VERSE 1]
 Depose your finger of that ring,
@@ -1243,29 +1261,6 @@ But this way you may gaine the field,
 Oppose but sorrow, and 'twill yield;
 One gallant thorough-made resolve
 Doth starry influence dissolve.
-
---- TITLE: To His Fairest Valentine Mrs. A. L
-[VERSE 1]
-"Come, pretty birds, present your lays,
-And learn to chaunt a goddess praise;
-Ye wood-nymphs, let your voices be
-Employ'd to serve her deity:
-And warble forth, ye virgins nine,
-Some music to my Valentine.
-[VERSE 2]
-"Her bosom is love's paradise,
-There is no heav'n but in her eyes;
-She's chaster than the turtle-dove,
-And fairer than the queen of love:
-Yet all perfections do combine
-To beautifie my Valentine.
-[VERSE 3]
-"She's Nature's choicest cabinet,
-Where honour, beauty, worth and wit
-Are all united in her breast.
-The graces claim an interest:
-All virtues that are most divine
-Shine clearest in my Valentine."
 
 --- TITLE: Do--Ibid
 [VERSE 1]

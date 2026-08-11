@@ -5,7 +5,24 @@
 # licence: public domain - Gutenberg; edition published 1892
 # source: GITenberg/The-Works-of-William-Cowper-His-life-letters-and-poems-now-first-completed-by-the-introductio__47790 47790.n.txt md5 dcf01d1e11d3ee963cb4c684cbb5b657
 # licence: public domain - Gutenberg; Olney Hymns 1779, transcription of pre-1800 text
-# songs: 70
+# songs: 69
+# dedup: DEDUPLICATED 2026-08-11 by cell AC. 1 items removed, 24 body lines.
+#       EVERY ONE was the same poem as another item in this same file, at or
+#       above 60%% containment of its distinct verse lines (the cut is declared
+#       in quality/audit_corpus.py ITEM_OVERLAP_FLOOR, with the whole series
+#       from 0.30 to 1.00 beside it, doctrine 16). WHICH COPY WENT IS DECIDED
+#       BY THE SOURCE CLASS, and not by which copy was longer or listed first:
+#       where one comes from an ANTHOLOGY, HYMNAL or monograph that reprints
+#       the poet, and the other from a volume of the poet's own, the poet's own
+#       volume is the nearer witness and the reprint goes. Each removed item is
+#       named below with the printing it came from and the printing that was
+#       kept. Where BOTH copies were reprints, or both were the poet's own
+#       volumes, THE SOURCE DOES NOT DECIDE and nothing was removed; those
+#       pairs are open and counted in data/sources.tsv.
+#         REMOVED My Savior, whom absent I love
+#           24 lines, 62% contained in the copy kept, which is titled To Jesus, the Crown of my hope
+#           reprint dropped: The Otterbein Hymnal
+#           printing kept:   The Works of William Cowper
 
 --- TITLE: God moves in a mysterious way
 [VERSE 1]
@@ -70,35 +87,6 @@ And when this feeble, faltering tongue
 Lies silent in the grave,
 Then in a nobler, sweeter song,
 I'll sing thy power to save.
-
---- TITLE: My Savior, whom absent I love
-[VERSE 1]
-My Savior, whom absent I love,
-Whom, not having seen, I adore
-Whose name is exalted above
-All glory, dominion, and power,--
-Dissolve thou these bands that detain
-My soul from her portion in thee;
-Ah! strike off this adamant chain,
-And make me eternally free!
-[VERSE 2]
-When that happy era begins,
-When arrayed in thy glories I shine,
-Nor grieve any more, by my sins,
-The bosom on which I recline,
-Oh! then shall the veil be removed,
-And round me thy brightness be poured!
-I shall meet him, whom absent I loved,
-I shall see, whom unseen I adored.
-[VERSE 3]
-And then, nevermore shall the fears,
-The trials, temptations, and woes,
-Which darken this valley of tears,
-Intrude on my blissful repose;
-To Jesus, the crown of my hope,
-My soul is in haste to be gone;
-Oh! bear me, ye cherubim, up,
-And waft me away to his throne!
 
 --- TITLE: Oh, for a closer walk with God
 [VERSE 1]

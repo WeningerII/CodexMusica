@@ -6,50 +6,38 @@
 # attribution-note: Henry Russell was a COMPOSER, not a lyricist. Every text in this file is by another hand, named per song. The file is grouped under Russell because the songs are catalogued as his; do NOT treat these words as Russell's authorship for lyricist-level statistics.
 # structure: [VERSE n] / [CHORUS] marked from the source. "&c." in the source is an abbreviated chorus return and is marked as such.
 
---- TITLE: Woodman Spare that Tree
---- source: Beadle's Dime Song Book No. 3 (1860); WORDS BY GEORGE P. MORRIS; Russell wrote the music only
-[VERSE 1]
-Woodman, spare that tree
-Touch not a single bough,
-In youth it shelter’d me,
-And I’ll protect it now;
-’Twas my forefather’s hand
-That placed it near his cot;
-There, woodman, let it stand,
-Thy ax shall harm it not.
-
-[VERSE 2]
-That old familiar tree,
-Whose glory and renown
-Are spread o’er land and sea,--
-And wouldst thou hack it down?
-Woodman, forbear thy stroke!
-Cut not its earth-bound ties;
-Oh! spare that aged oak
-Now towering to the skies!
-
-[VERSE 3]
-When but an idle boy
-I sought its grateful shade;
-In all their gushing joy,
-Here, too, my sisters play’d.
-My mother kiss’d me here;
-My father press’d my hand:
-Forgive this foolish tear,
-But let the old oak stand!
-
-[VERSE 4]
-My heart-strings round thee cling,
-Close as thy bark, old friend!
-Here shall the wild birds sing,
-And still thy branches bend.
-Old tree! the storms still brave!
-And, woodman, leave the spot!
-While I have hand to save,
-Thy ax shall harm it not.
+# dedup: TWO ITEMS' WORTH OF TEXT REMOVED 2026-08-11 by cell AC, and one
+#       RUN-ON SPLIT. Neither is a change of attribution: this file has said
+#       since it was written that Russell composed and did not write, and
+#       data/lyricists.tsv has carried him as COMPOSER_NOT_LYRICIST with the
+#       words 'by another hand (Morris, Mackay, Cook, Dickens)'. THE RECORD
+#       ALREADY KNEW AND THE CORPUS DID NOT: two of the four songs here were
+#       ALSO in the files of the poets who wrote them, so every corpus-wide
+#       rate counted them twice.
+#         `Woodman Spare that Tree` -- REMOVED. This file's own item line said
+#           'WORDS BY GEORGE P. MORRIS'; the poem is in George P. Morris's own
+#           Poems (PG 2558, md5 2b1c7ef9adcfa51e4be5064e84846618) and in
+#           corpus/song/eng_american_george_pope_morris.txt. 63% containment;
+#           not byte-identical, because Beadle prints 'shelter'd' where Morris
+#           prints 'sheltered', which is why check E's hash never saw it.
+#         `The Old Arm-Chair` -- WAS A RUN-ON OF TWO SONGS and is now split.
+#           Verses 1-4 were Eliza Cook's poem, already in
+#           corpus/song/eng_british_eliza_cook.txt (PG 29732), 50% containment
+#           -- BELOW the 60% cut, and below it only because the run-on made
+#           the item twice its true length. Removed. What followed them was a
+#           DIFFERENT SONG whose printed title the extractor swallowed into a
+#           one-line [VERSE 5]: PG 50878 sets 'Grave of Bonaparte.' as a
+#           heading and the book's own index lists 'The Old Arm-Chair, 50' and
+#           'The Grave of Bonaparte, 51' as two songs on two pages. It is now
+#           its own item, which is the remedy a segmentation error takes --
+#           deleting it would have been the remedy for a different defect.
+# attribution: EVERY ITEM CARRIES ITS OWN `--- AUTHOR:` LINE. Where the source
+#       names the lyricist it is quoted; where it names nobody the line SAYS
+#       nobody, and no name is supplied by elimination from the three that
+#       happen to be in this file.
 
 --- TITLE: Cheer, Boys, Cheer
---- source: Beadle's Dime Song Book No. 5 (1860); WORDS BY CHARLES MACKAY; Russell wrote the music only
+--- AUTHOR: Charles Mackay -- NAMED BY THE SOURCE: Beadle's Dime Song Book No. 5 (1860) prints 'WORDS BY CHARLES MACKAY'; Russell wrote the music only
 [VERSE 1]
 Cheer, boys, cheer, no more of idle sorrow,
 Courage, true hearts shall bear us on our way,
@@ -82,52 +70,10 @@ Cheer, boys, cheer, united heart and hand;
 Cheer, boys, cheer, there’s wealth for honest labor,
 Cheer, boys, cheer for the new and happy land.
 
---- TITLE: The Old Arm-Chair
---- source: Beadle's Dime Song Book No. 5 (1860); WORDS BY ELIZA COOK; Russell wrote the music only
+--- TITLE: Grave of Bonaparte
+--- AUTHOR: NOT NAMED BY THE SOURCE. PG 50878 prints this song's title and, under it, 'Copied by permission of OLIVER DITSON & CO. 227 Washington St., Boston, owners of the copyright.' -- a music publisher's permission line, not an authorship claim. The book names no author for any of its songs (`words by` occurs 0 times in it). Nothing else on disk closes it, so it is left open rather than attributed by elimination from Morris, Mackay, Cook and Dickens.
+--- SPLIT: separated 2026-08-11 from the item titled `The Old Arm-Chair`, on the break the source itself prints (PG 50878 line 1968, 'Grave of Bonaparte.') and its own index confirms (two titles, two page numbers).
 [VERSE 1]
-I love it, I love it! and who shall dare
-To chide me for loving that old arm-chair?
-I’ve treasured it long as a sainted prize,
-I’ve bedew’d it with tears, I’ve embalm’d it with sighs!
-’Tis bound by a thousand bands to my heart;
-Not a tie will break, not a link will start;
-Would you know the spell?--a mother sat there!
-A sacred thing is that old arm-chair.
-
-[VERSE 2]
-In childhood’s hour I linger’d near
-The hallow’d seat with listening ear;
-And gentle words that mother would give
-To fit me to die, and teach me to live.
-She told me that shame would never betide,
-With truth for my creed, and God for my guide;
-She taught me to lisp my earliest prayer,
-As I knelt beside that old arm-chair.
-
-[VERSE 3]
-I sat and watch’d her many a day,
-When her eye grew dim, and her locks were gray;
-And I almost worship’d her when she smiled,
-And turn’d from her Bible to bless her child.
-Years roll’d on, but the last one sped--
-My idol was shatter’d, my earth-star fled!
-I learnt how much the heart can bear,
-When I saw her die in the old arm-chair.
-
-[VERSE 4]
-’Tis past, ’tis past! but I gaze on it now,
-With quivering breath and throbbing brow;
-’Twas there she nursed, ’twas there she died,
-And memory flows with lava tide.
-Say it is folly, and deem me weak,
-Whilst scalding drops start down my cheek;
-But I love it, I love it! and can not tear
-My soul from a mother’s old arm-chair.
-
-[VERSE 5]
-Grave of Bonaparte.
-
-[VERSE 6]
 On a lone barren isle, where the wild roaring billow,
 Assail the stern rock and the loud tempests rave,
 The hero lies still, while the dew drooping willow,
@@ -138,7 +84,7 @@ He sleeps his last sleep, he has fought his last battle,
 No sound can awake him to glory again,
 No sound can awake him to glory again.
 
-[VERSE 7]
+[VERSE 2]
 Yet spirit immortal, the tomb can not bind thee,
 For like thine own eagle that soar’d to the sun,
 Thou springest from bondage, and leavest behind thee
@@ -149,7 +95,7 @@ Thou sleep’st thy last sleep, thou hast fought thy last battle,
 No sound can awake thee to glory again,
 No sound can awake thee to glory again.
 
-[VERSE 8]
+[VERSE 3]
 Oh, shade of the mighty, where now are the legions,
 That rush’d but to conquer when thou led’st them on?
 Alas! they have perish’d in far hilly regions,
@@ -161,7 +107,7 @@ No sound can awake them to glory again,
 No sound can awake them to glory again.
 
 --- TITLE: The Ivy Green
---- source: Beadle's Dime Song Book No. 5 (1860); WORDS BY CHARLES DICKENS (from Pickwick Papers); Russell wrote the music only
+--- AUTHOR: Charles Dickens -- NAMED BY THE SOURCE: Beadle's Dime Song Book No. 5 (1860) prints 'WORDS BY CHARLES DICKENS (from Pickwick Papers)'; Russell wrote the music only
 [VERSE 1]
 Oh! a dainty plant is the ivy green,
 That creepeth o’er the ruins old;

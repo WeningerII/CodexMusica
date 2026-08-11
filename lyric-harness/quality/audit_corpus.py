@@ -1174,6 +1174,162 @@ def _items(cf):
     return out
 
 
+# ---------------------------------------------------------------------------
+# E's second unit: the item that is in the corpus TWICE without being in it
+# twice byte-for-byte.
+# ---------------------------------------------------------------------------
+
+_NOT_WORD = re.compile(r"[^a-z0-9 ']+")
+
+
+def _norm_line(s):
+    """Doctrine 26 first (U+2019 is an apostrophe), then everything an EDITION
+    is free to change: case, punctuation, spacing.  What survives is the words,
+    which is what makes the same poem in two printings one poem."""
+    s = unicodedata.normalize("NFC", s).replace("’", "'")
+    return " ".join(_NOT_WORD.sub(" ", s.lower()).split())
+
+
+#: A line shorter than this collides by chance ("and so am I", "O Lord!").
+ITEM_LINE_MIN_CHARS = 12
+#: An item with fewer distinct long lines than this is too small to judge.
+ITEM_SIG_MIN = 8
+#: How many distinct long lines two items must SHARE before the pair is
+#: reported at all.  Both this and the containment floor are cuts, so both are
+#: swept in quality/test_corpus_audit.py rather than asserted.
+ITEM_SHARED_MIN = 8
+
+#: Containment of the SMALLER item's line set in the larger.  Containment and
+#: not Jaccard, because a run-on item legitimately dwarfs the poem inside it.
+#:
+#: THE CUT IS DECLARED AND THE SERIES IS RECORDED, because 0.60 is an
+#: uncalibrated threshold and doctrine 16 says one of those fails toward
+#: whoever guessed.  Measured over the 143 `eng_*` files on 2026-08-11 BEFORE
+#: this round's deletions, at ITEM_SHARED_MIN 8:
+#:
+#:      cut   pairs  within  cross
+#:      0.30    103      99      4
+#:      0.40    103      99      4
+#:      0.50     99      95      4
+#:      0.60     94      91      3
+#:      0.70     76      74      2
+#:      0.80     62      62      0
+#:      0.90     29      29      0
+#:      1.00      6       6      0
+#:
+#: The curve is FLAT from 0.30 to 0.60 and falls after: the population is real
+#: duplication, not threshold-manufactured, and 0.60 is inside the plateau
+#: rather than on its edge.  It is not free of consequences either — the fourth
+#: CROSS-FILE pair lives between 0.50 and 0.60 (Eliza Cook's `The Old Arm-Chair`
+#: also under the composer Henry Russell, at 0.50 because the Russell copy is a
+#: RUN-ON with a second song glued to it), so the guessed cut hid one live
+#: attribution error.  That is doctrine 16 with a name.
+ITEM_OVERLAP_FLOOR = 0.60
+
+#: A shared line that occurs in more than this many items is a formula
+#: ("Glory be to the Father"), not evidence that two items are one poem.
+ITEM_LINE_UBIQUITY = 40
+
+
+def _item_signatures(files, prefix=None):
+    """-> [(rel, index, title, body, {normalised long lines})]."""
+    recs = []
+    for rel, cf in files:
+        if prefix and os.path.basename(rel).split("_")[0] not in prefix:
+            continue
+        for i, (title, body) in enumerate(_items(cf)):
+            sig = {n for n in (_norm_line(l) for l in body)
+                   if len(n) > ITEM_LINE_MIN_CHARS}
+            if len(sig) >= ITEM_SIG_MIN:
+                recs.append((rel, i, title, body, sig))
+    return recs
+
+
+def item_overlap_pairs(recs, floor=ITEM_OVERLAP_FLOOR,
+                       shared_min=ITEM_SHARED_MIN):
+    """Every pair of items above the cut, blocked on an inverted index so this
+    is O(shared lines) rather than O(items^2) — 4,700 items would otherwise be
+    11 million comparisons on every audit run."""
+    inv = collections.defaultdict(list)
+    for k, r in enumerate(recs):
+        for l in r[4]:
+            inv[l].append(k)
+    cand = collections.Counter()
+    for ks in inv.values():
+        if len(ks) > ITEM_LINE_UBIQUITY:
+            continue
+        for a in range(len(ks)):
+            for b in range(a + 1, len(ks)):
+                cand[(ks[a], ks[b])] += 1
+    out = []
+    for (i, j), inter in cand.items():
+        if inter < shared_min:
+            continue
+        a, b = recs[i], recs[j]
+        small, big = (a, b) if len(a[4]) <= len(b[4]) else (b, a)
+        cont = inter / len(small[4])
+        if cont >= floor:
+            out.append((cont, inter, small, big))
+    out.sort(key=lambda t: (-t[0], -t[1]))
+    return out
+
+
+#: A body line at or before this position is the item's OPENING, so a match
+#: there is the same poem titled two ways, not a second poem glued on.
+TITLE_ECHO_HEAD = 3
+
+
+def false_unit_items(files):
+    """-> [(rel, index, title, n_body, shape, [(position, line, other title)])].
+
+    A `--- TITLE:` item is a FALSE UNIT when it contains, as a body line, the
+    TITLE of a DIFFERENT item in the same file.  One signal, three shapes:
+
+      CONTENTS PAGE half or more of the body lines are other items' titles:
+                    a table of contents staged as if it were verse.
+      RUN-ON        a match past the item's opening with a poem's worth of
+                    body still to come — the extractor missed a section break
+                    and glued the next poem onto the end of this one.  The
+                    item then misreports its own line count, its scheme and
+                    the file's `# songs:`, and NO HASH SEES IT, which is why
+                    this is here and not in a one-off script.
+      TITLE ECHO    a match in the item's first lines: the same poem is staged
+                    twice, once under its subject heading and once under its
+                    first line.  Reported at NOTE because the near-duplicate
+                    pair check above already carries it.
+
+    The file's own titles are the reference, so the check calibrates itself
+    against the extraction it is auditing rather than against a word list."""
+    out = []
+    for rel, cf in files:
+        its = _items(cf)
+        by_title = collections.defaultdict(list)
+        for i, (title, _) in enumerate(its):
+            n = _norm_line(title)
+            if len(n) >= 12:
+                by_title[n].append(i)
+        for i, (title, body) in enumerate(its):
+            hits = []
+            for k, l in enumerate(body):
+                if k == 0:
+                    continue
+                for j in by_title.get(_norm_line(l), ()):
+                    if j != i:
+                        hits.append((k, l, its[j][0]))
+                        break
+            if not hits:
+                continue
+            if len(hits) >= 0.5 * max(1, len(body)):
+                shape = "CONTENTS PAGE staged as verse"
+            elif any(k >= TITLE_ECHO_HEAD
+                     and len(body) - k > ITEM_MIN_LINES for k, _, _ in hits):
+                shape = "RUN-ON — a missed section break"
+            else:
+                shape = "TITLE ECHO — one poem staged under two titles"
+            out.append((rel, i, title, len(body), shape, hits))
+    return out
+
+
 def check_distinct(files, src, overlap_floor=0.60):
     """E · doctrine 51 — count DISTINCT BYTES, not distinct names."""
     out = []
@@ -1258,6 +1414,82 @@ def check_distinct(files, src, overlap_floor=0.60):
                     "an extract and the file it was cut from are one source, "
                     "and any statistic quoted over 'both' double-counts",
                     "51"))
+
+    # ITEM-level NEAR duplication.  Everything above this line is a hash: two
+    # files with one md5, two item bodies with one md5, or a line set compared
+    # as a set of `hash(str)`.  That unit is the defect this block closes —
+    # the SAME POEM IN TWO PRINTINGS is one poem counted twice, and no hash
+    # sees it, because an editor's comma moved.
+    #
+    # Every rate this project has quoted over corpus/song/ was computed over
+    # text that is in it more than once, and the bias does not cancel: cell W
+    # removed 819 duplicated lines and the unreadable-end-word rate went UP,
+    # 5.2677% -> 5.2873%, because only 6 of the 819 had an unreadable end word.
+    # Duplicated material is not a random sample of the corpus.  Doctrine 13's
+    # neighbourhood: an item counted twice is not independent of itself.
+    recs = _item_signatures(files)
+    pairs = item_overlap_pairs(recs)
+    cross = collections.defaultdict(list)
+    within = collections.defaultdict(list)
+    for cont, inter, small, big in pairs:
+        if small[0] == big[0]:
+            within[small[0]].append((cont, inter, small, big))
+        else:
+            cross[tuple(sorted((small[0], big[0])))].append(
+                (cont, inter, small, big))
+    for names, ps in sorted(cross.items()):
+        lines = sum(len(p[2][3]) for p in ps)
+        out.append(Finding(
+            "E", FAIL, names[0],
+            "%d item%s appear%s in BOTH %s and %s at >=%.0f%% line containment"
+            % (len(ps), "" if len(ps) == 1 else "s",
+               "s" if len(ps) == 1 else "", names[0], names[1],
+               100 * ITEM_OVERLAP_FLOOR),
+            "%d duplicated body lines. %s"
+            % (lines, "; ".join("%.0f%% %s | %s"
+                                % (100 * c, s[2][:38], b[2][:38])
+                                for c, _, s, b in ps[:8])),
+            "THE SAME TEXT UNDER TWO AUTHORS IS AN ATTRIBUTION CLAIM, and one "
+            "of the two is wrong. The item-body hash above catches this only "
+            "when the two files quote the same EDITION; where they quote two "
+            "printings the bytes differ and the claim survives unaudited. "
+            "Decide it from the source, and where the source declines to "
+            "decide say so in the file rather than attributing by elimination",
+            "51"))
+    for rel, ps in sorted(within.items()):
+        lines = sum(len(p[2][3]) for p in ps)
+        out.append(Finding(
+            "E", WARN, rel,
+            "%d pairs of items INSIDE this file are the same poem at >=%.0f%% "
+            "line containment" % (len(ps), 100 * ITEM_OVERLAP_FLOOR),
+            "%d duplicated body lines. %s"
+            % (lines, "; ".join("%.0f%% %s | %s"
+                                % (100 * c, s[2][:34], b[2][:34])
+                                for c, _, s, b in ps[:6])),
+            "A STAGING ERROR, not an attribution one: the extractor ran twice "
+            "over one poem — under its first line and under its subject "
+            "heading, or out of the poet's own volume and out of an anthology "
+            "that reprints him. The file's `# songs:` count, every per-item "
+            "scheme and every corpus-wide rate all count it twice",
+            "51"))
+
+    # RUN-ONS, CONTENTS PAGES and TITLE ECHOES — the item that is a FALSE UNIT.
+    for rel, _i, title, nlines, shape, hits in false_unit_items(files):
+        out.append(Finding(
+            "E", NOTE if shape.startswith("TITLE ECHO") else WARN, rel,
+            "item %r is a FALSE UNIT: %d of its %d body lines %s the title of "
+            "another item in this file"
+            % (title[:52], len(hits), nlines,
+               "are" if len(hits) != 1 else "is"),
+            "%s. At %s: %s"
+            % (shape, ", ".join(str(h[0]) for h in hits[:6]),
+               "; ".join("%r -> item %r" % (h[1][:40], h[2][:34])
+                         for h in hits[:3])),
+            "an item that is really two items misreports the item count, the "
+            "per-item scheme and the file's `# songs:`, and NO HASH SEES IT. "
+            "The file's own titles are the reference, so this calibrates "
+            "against the extraction it audits rather than against a word list",
+            "51"))
     return out
 
 

@@ -7,6 +7,31 @@
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
+# dedup: DEDUPLICATED 2026-08-11 by cell AC. 3 items removed, 58 body lines.
+#       EVERY ONE was the same poem as another item in this same file, at or
+#       above 60%% containment of its distinct verse lines (the cut is declared
+#       in quality/audit_corpus.py ITEM_OVERLAP_FLOOR, with the whole series
+#       from 0.30 to 1.00 beside it, doctrine 16). WHICH COPY WENT IS DECIDED
+#       BY THE SOURCE CLASS, and not by which copy was longer or listed first:
+#       where one comes from an ANTHOLOGY, HYMNAL or monograph that reprints
+#       the poet, and the other from a volume of the poet's own, the poet's own
+#       volume is the nearer witness and the reprint goes. Each removed item is
+#       named below with the printing it came from and the printing that was
+#       kept. Where BOTH copies were reprints, or both were the poet's own
+#       volumes, THE SOURCE DOES NOT DECIDE and nothing was removed; those
+#       pairs are open and counted in data/sources.tsv.
+#         REMOVED The Sands Of Dee
+#           24 lines, 77% contained in the copy kept, which is titled The Sands Of Dee
+#           reprint dropped: Victorian Songs, ed. Gosse
+#           printing kept:   Kingsley, Andromeda and Other Poems
+#         REMOVED Three Fishers Went Sailing
+#           21 lines, 80% contained in the copy kept, which is titled The Three Fishers
+#           reprint dropped: Victorian Songs, ed. Gosse
+#           printing kept:   Kingsley, Andromeda and Other Poems
+#         REMOVED A Farewell
+#           13 lines, 75% contained in the copy kept, which is titled A Farewell: To C. E. G
+#           reprint dropped: Victorian Songs, ed. Gosse
+#           printing kept:   Kingsley, Andromeda and Other Poems
 --- TITLE: Airly Beacon
 [REFRAIN]
 Airly Beacon, Airly Beacon;
@@ -26,81 +51,6 @@ Airly Beacon, Airly Beacon;
 Oh the weary haunt for me,
 All alone on Airly Beacon,
 With his baby on my knee!
-
---- TITLE: The Sands Of Dee
-[VERSE 1]
-"Oh, Mary, go and call the cattle home,
-And call the cattle home,
-And call the cattle home
-Across the sands of Dee;"
-The western wind was wild and dark with foam,
-And all alone went she.
-[VERSE 2]
-The western tide crept up along the sand,
-And o'er and o'er the sand,
-And round and round the sand,
-As far as eye could see.
-The rolling mist came down and hid the land:
-And never home came she.
-[VERSE 3]
-"Oh! is it weed, or fish, or floating hair--
-A tress of golden hair,
-A drownèd maiden's hair
-Above the nets at sea?"
-Was never salmon yet that shone so fair
-Among the stakes on Dee.
-[VERSE 4]
-They rowed her in across the rolling foam,
-The cruel crawling foam,
-The cruel hungry foam,
-To her grave beside the sea:
-But still the boatmen hear her call the cattle home
-Across the sands of Dee.
-
---- TITLE: Three Fishers Went Sailing
-[VERSE 1]
-Three fishers went sailing away to the West,
-Away to the West as the sun went down;
-Each thought on the woman who loved him the best,
-And the children stood watching them out of the town;
-For men must work, and women must weep,
-And there 's little to earn, and many to keep,
-Though the harbor bar be moaning.
-[VERSE 2]
-Three wives sat up in the lighthouse tower,
-And they trimmed the lamps as the sun went down;
-They looked at the squall, and they looked at the shower,
-And the night-rack came rolling up ragged and brown.
-But men must work, and women must weep,
-Though storms be sudden, and waters deep,
-And the harbor bar be moaning.
-[VERSE 3]
-Three corpses lay out on the shining sands
-In the morning gleam as the tide went down,
-And the women are weeping and wringing their hands
-For those who will never come home to the town;
-For men must work, and women must weep,
-And the sooner it 's over, the sooner to sleep;
-And good-bye to the bar and its moaning.
-
---- TITLE: A Farewell
-[VERSE 1]
-To C. E. G.--1856.
-[VERSE 2]
-My fairest child, I have no song to give you;
-No lark could pipe in skies so dull and gray;
-Yet, if you will, one quiet hint I 'll leave you,
-For every day.
-[VERSE 3]
-I 'll tell you how to sing a clearer carol
-Than lark who hails the dawn of breezy down;
-To earn yourself a purer poet's laurel
-Than Shakespeare's crown.
-[VERSE 4]
-Be good, sweet maid, and let who can be clever;
-Do lovely things, not dream them, all day long;
-And so make Life, and Death, and that For Ever,
-One grand sweet song.
 
 --- TITLE: Trehill Well
 [VERSE 1]

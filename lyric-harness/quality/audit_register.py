@@ -589,24 +589,80 @@ def _song_stats(files):
     return songs, lines, tags
 
 
+#: K-1's figures, READ OUT OF THE REGISTER rather than transcribed into this
+#: file.  Four of them moved on 2026-08-11 when 819 duplicated Lyrical Ballads
+#: lines and one joint-attribution hymn came out of `corpus/song/`, and a
+#: transcribed constant would have gone on comparing the corpus against a
+#: number the register itself had already struck through -- reporting MOVED and
+#: naming the wrong side as the thing that moved.  A register-checker whose
+#: register-side figures are typed in is the defect it exists to detect, one
+#: layer up.  Struck-through spans (`~~5,006~~ 4,993`) are removed first, so
+#: the claim read is the entry's CURRENT claim.
+def _k1_claims(entries):
+    t = entry_text(entries, "K-1")
+    if not t:
+        return {}
+    t = " ".join(re.sub(r"~~[^~]*~~", "", t).split())
+    out = {}
+
+    def grab(key, pat, *groups):
+        m = re.search(pat, t)
+        if m:
+            out[key] = tuple(int(m.group(g).replace(",", "")) for g in groups)
+
+    grab("authors", r"\*\*\s*([\d,]+)\s+authors", 1)
+    grab("songs", r"authors,\s*([\d,]+)\s*songs", 1)
+    grab("lines", r"([\d,]+)\s+sung lines", 1)
+    grab("repeats", r"([\d,]+)\s+marked repeat blocks\s*\(\s*([\d,]+)\s*BURDEN,"
+                    r"\s*([\d,]+)\s*REFRAIN,\s*([\d,]+)\s*CHORUS", 1, 2, 3, 4)
+    grab("eng_status", r"([\d,]+)\s+of the\s+([\d,]+)\s+listed lyricists "
+                       r"SOURCED,\s*([\d,]+)\s+NOT_FOUND", 1, 2, 3)
+    grab("rows", r"Of\s+\*\*([\d,]+)\*\*\s+rows", 1)
+    return out
+
+
+def _claim_or_unverifiable(entries, key, measured, fmt):
+    """-> (verdict, measured, register-side text).
+
+    THREE outcomes, not two.  If the entry no longer states the figure in a
+    parseable form the answer is UNVERIFIABLE and says so, rather than falling
+    back on a constant nobody re-read (doctrine 79: a refusal is not a failure,
+    and it must not be scored as one).
+    """
+    c = _k1_claims(entries).get(key)
+    if c is None:
+        return UNVERIFIABLE, measured, ("K-1 no longer states this figure in a "
+                                        "form this checker can read")
+    want = c[0] if len(c) == 1 else c
+    got = measured[0] if isinstance(measured, tuple) and len(measured) == 1 \
+        else measured
+    return (CONFIRMED if got == want else MOVED), measured, fmt % c
+
+
 def _d_songs():
     songs, _, _ = _song_stats(_song_files("eng_"))
-    return CONFIRMED if songs == 5006 else MOVED, songs, "5,006 English songs"
+    return _claim_or_unverifiable(read_entries(), "songs", songs,
+                                  "%d English songs, per K-1")
 
 
 def _d_sung_lines():
     _, lines, _ = _song_stats(_song_files("eng_"))
-    v = CONFIRMED if lines == 154346 else MOVED
-    return v, lines, ("154,346 sung lines; counting rule here is non-blank lines "
-                      "that are not #, --- or [ -- the entry states no rule")
+    return _claim_or_unverifiable(
+        read_entries(), "lines", lines,
+        "%d sung lines, per K-1; counting rule here is non-blank lines that "
+        "are not #, --- or [")
 
 
 def _d_repeat_blocks():
     _, _, tags = _song_stats(_song_files("eng_"))
     got = (tags["BURDEN"], tags["REFRAIN"], tags["CHORUS"])
-    v = CONFIRMED if got == (1603, 604, 247) else MOVED
-    return v, "BURDEN %d REFRAIN %d CHORUS %d (sum %d)" % (got + (sum(got),)), \
-        "1,603 BURDEN / 604 REFRAIN / 247 CHORUS, sum 2,454"
+    c = _k1_claims(read_entries()).get("repeats")
+    detail = "BURDEN %d REFRAIN %d CHORUS %d (sum %d)" % (got + (sum(got),))
+    if c is None:
+        return UNVERIFIABLE, detail, "K-1's repeat-block sentence not readable"
+    v = CONFIRMED if (got == c[1:] and sum(got) == c[0]) else MOVED
+    return v, detail, ("%d BURDEN / %d REFRAIN / %d CHORUS, sum %d, per K-1"
+                       % (c[1], c[2], c[3], c[0]))
 
 
 def _d_authors():
@@ -705,10 +761,18 @@ def _d_lyricists():
 def _d_eng_status():
     _, rows, _ = _d_lyricists()
     c = collections.Counter(r["status"] for r in rows if r["lang"] == "eng")
-    ok = (c["SOURCED"] == 142 and c["NOT_FOUND"] == 70
-          and sum(1 for r in rows if r["lang"] == "eng") == 220)
-    return (CONFIRMED if ok else MOVED), \
-        "220 eng rows: %s" % dict(c), "142 SOURCED, 70 NOT_FOUND, of 220"
+    n = sum(1 for r in rows if r["lang"] == "eng")
+    claims = _k1_claims(read_entries())
+    st, tot = claims.get("eng_status"), claims.get("rows")
+    detail = "%d eng rows, %d distinct statuses: %s" % (n, len(c), dict(c))
+    if st is None:
+        return UNVERIFIABLE, detail, "K-1's SOURCED/NOT_FOUND sentence not readable"
+    ok = (c["SOURCED"] == st[0] and c["NOT_FOUND"] == st[2]
+          and (tot is None or n == tot[0]))
+    return (CONFIRMED if ok else MOVED), detail, \
+        ("%d SOURCED, %d NOT_FOUND of the %d that divide two ways%s, per K-1"
+         % (st[0], st[2], st[1],
+            "" if tot is None else "; %d rows in all" % tot[0]))
 
 
 def _d_somali():
@@ -1120,7 +1184,38 @@ _INTERNAL_REF = re.compile(r"[✓]?[ECGSIX]\d+|R\d+[a-z]?|repo doctrine|"
 
 
 def provenance_report():
-    """The list of names whose only witness is this project."""
+    """The list of names whose only witness is this project.
+
+    **AMENDED 2026-08-11, and both halves of the amendment are findings about
+    this runner rather than about the register.**
+
+    1. `canon_cell_ref_total` read 611.  It counted `from:` matter with
+       `re.search(r"from:\\s*([^\\n]*)")` -- ONE occurrence, and only to the end
+       of its line.  R1's from-line runs onto a second line and R29's onto
+       three, and §H/§I write `from:` inline at the end of the entry's own
+       prose rather than as a bullet.  Counted properly the file carries
+       **781** references over 594 distinct indices.  A single-line regex
+       standing in for a multi-line field is doctrine 58 inside the adversary
+       built to find doctrine-58 errors, so the old number is kept beside the
+       new one under `canon_cell_ref_total_singleline` rather than quietly
+       replaced.
+    2. `entries_sourced_only_to_this_project` returned 19 and is a coordinate
+       of two regexes nobody had written down.  Re-run with the component-level
+       classifier in `quality/canon_sources.py` the answer is different in BOTH
+       directions and the two rules agree on only 14 of a 25-name union.  The
+       old rule missed `X8 同用/通押`, whose recorded source names 詞林正韻 and
+       中原音韻 -- two rime books -- because its external regex is Latin-only;
+       and it missed `I46`'s PyThaiNLP, a real external implementation.  It
+       over-counted six Old Norse entries whose source is
+       `quality/phonology/non.py` **quoting Háttatal verbatim**, which is a
+       primary source stored in the repository, not a self-confirmation
+       (doctrine 62).  Both counts are reported.
+
+    The report now also measures the REPAIR: `quality/canon_index.tsv` inlines
+    the survey index, so `resolved_*` says how many of the 117 named structures
+    and 298 traditions now resolve to a witness outside this project, how many
+    resolve to this project, and how many cannot be told either way.
+    """
     ents = canon_entries()
     canon = []
     for e in ents:
@@ -1151,16 +1246,72 @@ def provenance_report():
         sch = [{"name": "<relations.py did not import>", "n_traditions": 0,
                 "sources": [str(e)], "external": False}]
 
-    return {
+    out = {
         "canon_entries": canon,
         "canon_unsourced": [c for c in canon if not c["external"]],
         "canon_year_tokens": len(years),
         "canon_cell_refs": dict(cellrefs),
+        "canon_cell_ref_total_singleline": sum(cellrefs.values()),
         "canon_cell_ref_total": sum(cellrefs.values()),
         "survey_array_on_disk": _find_survey_array(),
         "schemas": sch,
         "schemas_unsourced": [s for s in sch if s["n_traditions"] and not s["external"]],
         "schemas_no_tradition": [s for s in sch if not s["n_traditions"]],
+    }
+    out.update(_resolved_report())
+    return out
+
+
+def _resolved_report():
+    """What the inlined index turns the 117 and the 298 into.
+
+    Three counts everywhere and never two (doctrine 79): resolved to an outside
+    witness, resolved to THIS PROJECT, and cannot be told.  `index_loaded`
+    False collapses everything into the third, and says so, because a checkout
+    without `canon_index.tsv` does not know that nothing is attested -- it does
+    not know anything.
+    """
+    blank = {"index_loaded": False, "index_rows": 0,
+             "canon_cell_ref_total_multiline": None,
+             "canon_distinct_indices": None,
+             "entries_external": 0, "entries_none_external": 0,
+             "entries_cites_nothing": 0, "entry_detail": [],
+             "index_witness": {}, "coined_indices": [], "unrecorded_indices": [],
+             "traditions": {}, "coined_traditions": []}
+    try:
+        from quality import canon_sources as CS
+        from quality import relations as R
+    except ImportError:                                       # pragma: no cover
+        return blank
+    if not CS.loaded():
+        return blank
+    blocks = CS.canon_blocks()
+    refs = [i for _, _, _, f in blocks for i in CS.refs_in(f)]
+    er = CS.entry_report()
+    v = collections.Counter(e["verdict"] for e in er)
+    cen = CS.census()
+    tp = R.tradition_provenance()
+    return {
+        "index_loaded": True,
+        "index_rows": cen["rows"],
+        "canon_cell_ref_total_multiline": len(refs),
+        "canon_distinct_indices": len(set(refs)),
+        "entries_external": v.get("external", 0),
+        "entries_none_external": v.get("none_external", 0),
+        "entries_cites_nothing": v.get("cites_nothing", 0),
+        "entry_detail": [e for e in er if e["verdict"] != "external"],
+        "index_witness": cen["witness"],
+        "index_basis": cen["basis"],
+        "coined_indices": [(r["idx"], r["name"], r["basis"])
+                           for r in sorted(CS.project_only(),
+                                           key=lambda r: r["idx"])],
+        "unrecorded_indices": [(r["idx"], r["name"])
+                               for r in sorted(CS.unrecorded(),
+                                               key=lambda r: r["idx"])],
+        "traditions": {k: tp[k] for k in
+                       ("attachments", "distinct", "external", "project",
+                        "cannot_tell")},
+        "coined_traditions": tp["coined"],
     }
 
 
@@ -1346,19 +1497,34 @@ def main(argv=None):
             n = len(pr["canon_entries"])
             u = len(pr["canon_unsourced"])
             print("  RHYME_CANON.md: %d named structures, %d with NO external "
-                  "citation (%.0f%%)" % (n, u, 100.0 * u / max(1, n)))
-            print("  publication-year tokens in the whole 94 KB file: %d"
+                  "citation IN THE §2 BLOCK ITSELF (%.0f%%) -- this detector "
+                  "reads a year or one of six repo names and nothing else, so "
+                  "it does not see the `- witness:` lines' hosts and work "
+                  "titles. §4b is the repair's measure; this is not."
+                  % (n, u, 100.0 * u / max(1, n)))
+            print("  publication-year tokens in the whole file: %d (it was 0, "
+                  "and that was the sharpest single finding here)"
                   % pr["canon_year_tokens"])
             print("  every `from:` line indexes a six-agent survey array: %d "
                   "references, %s" % (pr["canon_cell_ref_total"], pr["canon_cell_refs"]))
             sa = pr["survey_array_on_disk"]
             print("  that array (%s): %s" % (sa["workflow"], sa["verdict"]))
-            print("     %d named survey entries recovered from the transcripts; "
-                  "the repository contains none of them"
+            print("     %d named survey entries recovered from the transcripts"
                   % sa["entries_recovered"])
             print("     of those, %d record NO source but this project "
                   "(a phonology module, a CLAUDE.md doctrine, or 'from memory')"
                   % len(sa["entries_sourced_only_to_this_project"]))
+            print("     ^^ BOTH FIGURES ARE SUPERSEDED BY §4b AND ARE KEPT SO "
+                  "THE DEFECT STAYS DEMONSTRABLE.")
+            print("     This reader matches `{\"name\":\"…\" … \"source\":\"…\"}` "
+                  "with a 4000-character non-greedy gap, which RUNS PAST THE "
+                  "OBJECT BOUNDARY when an entry has no `source` key: 18 "
+                  "indic-seasian entries have none, so each of their names was "
+                  "paired with the NEXT entry's source. `Hindi anuprās "
+                  "subtypes` and `syair monorhyme quatrain` are in the list "
+                  "below for that reason and for no other -- they record no "
+                  "witness of any kind. It also drops those 18 from the count, "
+                  "which is why 578 is not 601.")
             sch = pr["schemas"]
             su = pr["schemas_unsourced"]
             print("  relations.py: %d schemas, %d carry traditions, %d of those "
@@ -1375,6 +1541,51 @@ def main(argv=None):
                   "all: RHYME_CANON.md \u00a70 records that Somali appears in no "
                   "inventory cell and that the name entered the canon from repo "
                   "doctrine alone.")
+
+            _hr("4b \u00b7 THE REPAIR  (M-15a: the survey index, inlined)")
+            if not pr["index_loaded"]:
+                print("  quality/canon_index.tsv is NOT PRESENT. Every verdict "
+                      "above is `cannot tell`, which is not `no witness`.")
+            else:
+                print("  quality/canon_index.tsv: %d declared indices, %s"
+                      % (pr["index_rows"], pr["index_witness"]))
+                print("  basis: %s" % pr["index_basis"])
+                print("  from: references counted MULTI-LINE %d over %d "
+                      "distinct indices  (the single-line rule above gives "
+                      "%d, and that is this runner's own doctrine-58 error)"
+                      % (pr["canon_cell_ref_total_multiline"],
+                         pr["canon_distinct_indices"],
+                         pr["canon_cell_ref_total_singleline"]))
+                print("  named structures RESOLVED: %d of %d now reach at "
+                      "least one witness outside this project; %d reach none; "
+                      "%d cite nothing at all"
+                      % (pr["entries_external"], len(pr["canon_entries"]),
+                         pr["entries_none_external"],
+                         pr["entries_cites_nothing"]))
+                for e in pr["entry_detail"]:
+                    print("     %-6s line %-5d %-14s %s"
+                          % (e["id"], e["line"], e["verdict"], e["counts"]))
+                t = pr["traditions"]
+                print("  Tradition rows: %d distinct over %d attachments -- "
+                      "%d externally witnessed, %d THIS PROJECT'S OWN, %d "
+                      "cannot be told (three counts, doctrine 79)"
+                      % (t["distinct"], t["attachments"], t["external"],
+                         t["project"], t["cannot_tell"]))
+                print("\n  TRADITIONS WHOSE ONLY WITNESS IS THIS PROJECT -- "
+                      "labelled, not deleted:")
+                for c in pr["coined_traditions"]:
+                    print("     %-4s %-52s %s  <- %s"
+                          % (c["lang"], c["tradition"][:52], c["schema"][:26],
+                             ",".join(c["cites"])))
+                print("\n  SURVEY INDICES WHOSE ONLY WITNESS IS THIS PROJECT "
+                      "(%d), by basis:" % len(pr["coined_indices"]))
+                for idx, nm, basis in pr["coined_indices"]:
+                    print("     %-6s [%-6s] %s" % (idx, basis, nm[:62]))
+                print("\n  SURVEY INDICES WHOSE SOURCE NAMES NO CHECKABLE "
+                      "REFERENT AT ALL (%d) -- an appeal to authority is not a "
+                      "citation:" % len(pr["unrecorded_indices"]))
+                for idx, nm in pr["unrecorded_indices"]:
+                    print("     %-6s %s" % (idx, nm[:62]))
 
     if do_cov:
         _hr("5 · COVERAGE")

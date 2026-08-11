@@ -12,6 +12,23 @@
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
+# dedup: DEDUPLICATED 2026-08-11 by cell AC. 1 items removed, 48 body lines.
+#       EVERY ONE was the same poem as another item in this same file, at or
+#       above 60%% containment of its distinct verse lines (the cut is declared
+#       in quality/audit_corpus.py ITEM_OVERLAP_FLOOR, with the whole series
+#       from 0.30 to 1.00 beside it, doctrine 16). WHICH COPY WENT IS DECIDED
+#       BY THE SOURCE CLASS, and not by which copy was longer or listed first:
+#       where one comes from an ANTHOLOGY, HYMNAL or monograph that reprints
+#       the poet, and the other from a volume of the poet's own, the poet's own
+#       volume is the nearer witness and the reprint goes. Each removed item is
+#       named below with the printing it came from and the printing that was
+#       kept. Where BOTH copies were reprints, or both were the poet's own
+#       volumes, THE SOURCE DOES NOT DECIDE and nothing was removed; those
+#       pairs are open and counted in data/sources.tsv.
+#         REMOVED La Belle Dame sans Merci
+#           48 lines, 71% contained in the copy kept, which is titled La Belle Dame Sans Merci
+#           reprint dropped: The Oxford Book of English Verse 1250-1900
+#           printing kept:   Keats, Poems 1820
 --- TITLE: To Some Ladies
 [VERSE 1]
 What though while the wonders of nature exploring,
@@ -775,70 +792,6 @@ To know the change and feel it,
 When there is none to heal it,
 Nor numbèd sense to steal it,
 Was never said in rhyme.
-
---- TITLE: La Belle Dame sans Merci
-[VERSE 1]
-‘O what can ail thee, knight-at-arms,
-Alone and palely loitering?
-The sedge is wither’d from the lake,
-[BURDEN]
-And no birds sing.
-[VERSE 2]
-‘O what can ail thee, knight-at-arms,
-So haggard and so woe-begone?
-The squirrel’s granary is full,
-And the harvest’s done.
-[VERSE 3]
-‘I see a lily on thy brow
-With anguish moist and fever dew;
-And on thy cheek a fading rose
-Fast withereth too.’
-[VERSE 4]
-‘I met a lady in the meads,
-Full beautiful--a faery’s child,
-Her hair was long, her foot was light,
-And her eyes were wild.
-[VERSE 5]
-‘I made a garland for her head,
-And bracelets too, and fragrant zone;
-She look’d at me as she did love,
-And made sweet moan.
-[VERSE 6]
-‘I set her on my pacing steed
-And nothing else saw all day long,
-For sideways would she lean, and sing
-A faery’s song.
-[VERSE 7]
-‘She found me roots of relish sweet,
-And honey wild and manna dew,
-And sure in language strange she said,
-“I love thee true!”
-[VERSE 8]
-‘She took me to her elfin grot,
-And there she wept and sigh’d full sore;
-And there I shut her wild, wild eyes
-With kisses four.
-[VERSE 9]
-‘And there she lullèd me asleep,
-And there I dream’d--Ah! woe betide!
-The latest dream I ever dream’d
-On the cold hill’s side.
-[VERSE 10]
-‘I saw pale kings and princes too,
-Pale warriors, death-pale were they all;
-Who cried--“La belle Dame sans Merci
-Hath thee in thrall!”
-[VERSE 11]
-‘I saw their starved lips in the gloam
-With horrid warning gapèd wide,
-And I awoke and found me here
-On the cold hill’s side.
-[VERSE 12]
-‘And this is why I sojourn here
-Alone and palely loitering,
-Though the sedge is wither’d from the lake,
-[BURDEN]
-And no birds sing.’
 
 --- TITLE: On first looking into Chapman’s Homer
 [VERSE 1]
