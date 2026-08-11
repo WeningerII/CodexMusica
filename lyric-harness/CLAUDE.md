@@ -325,17 +325,37 @@ descriptors in any generation-facing output — era+region+technique.
   author's assumptions; canon corrects the checker (8 rule errors
   found this way: strict groes final-consonant rule, sain any-stressed
   link, radif licensing, hyphen splitting **x3**, collision bar, mosaic
-  anchor reach, prefix phrase-final seam). The third hyphen error is the
-  expensive one and it is a different KIND from the first two: they produced
-  a refusal, this produces a WRONG ANSWER. In 179 English song line ends the
-  last piece of a hyphenated word is unread, so the anchor is built from an
-  earlier piece and the line is reported READABLE -- `hill-zide` scored on
-  `hill`. A further 149 are the report-layer half (`threshing-floor` reads
-  `floor`; the anchor is right and the record of what was read is not), and
-  `line_readability` misfiled the unread piece as INTERIOR unreadable in 328
-  of 328 cases. Both hyphenated pairs in the sonnet battery score 1.0
-  correctly, because their last piece reads -- so the oracle was structurally
-  incapable of finding this, which is why it took a corpus sweep.
+  anchor reach, prefix phrase-final seam). The third hyphen error was the
+  expensive one and it was a different KIND from the first two: they produced
+  a refusal, this produced a WRONG ANSWER. **FIXED 2026-08-11, and it is a
+  refusal now.** In **174** English song line ends the LAST letter-bearing
+  piece of a hyphenated word is unread, so the anchor was built from an
+  earlier piece and the line was nonetheless reported READABLE --
+  `hill-zide` scored on `hill`, and `hill-zide`/`wife-zide 0.472 NO_RELATION`
+  was `hill` against `wife`. The sharpest case is `a-vound`, where the only
+  piece that reads is the participial prefix whose only phone is a schwa, so
+  ANY TWO of Barnes's participles scored as a rhyme with each other on it:
+  the harness was MANUFACTURING rhymes, not mislabelling them. One predicate,
+  `unread_final_piece`, is read by the anchor path and by the record, so they
+  cannot disagree. The 149 report-layer cases (`threshing-floor` reads
+  `floor`; the anchor is right and the record of what was read is not) are
+  NOT refused.
+  Price, measured on both populations rather than argued: **zero on the
+  sonnets** -- `wilful-slow` and `o'er-read` read on their LAST piece and stay
+  judged at 1.0 -- and +0.099pp on the song corpus, 1.83% of all end-word
+  refusals. It falls on 28 of 143 files and 63.8% of it on two, Barnes and
+  Burns, which is dialect; doctrine 67 says measure WHERE and the answer is
+  that those 28 files already refused at 8.26% against the other 115's 2.08%,
+  so the rule lands where CMUdict was ALREADY failing. And it is not purely
+  dialectal: 88 of the 174 are ordinary compounds, half of them standard
+  literary English CMUdict does not list (`high-souled`, `star-inwrought`,
+  `dew-pearled`) in Keats, Shelley, Arnold, Rossetti, Blake, Browning.
+  `line_readability` had misfiled the unread piece as INTERIOR unreadable in
+  328 of 328 cases; `interior_unreadable` is derived by POSITION now, so no
+  string coincidence can put a final piece in it, and 0 of 323 are misfiled.
+  Both hyphenated pairs in the sonnet battery score 1.0 correctly because
+  their last piece reads -- so the oracle was structurally incapable of
+  finding any of this, which is why it took a corpus sweep.
 
 ## Quality layer (quality/)
 Separate from the correctness engine above and deliberately so: the harness

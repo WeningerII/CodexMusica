@@ -9,8 +9,11 @@ Measured 2026-08-11 at commit `2f2d26c`, against the shipped `cmudict.dict`
 and `Declaration()` defaults (dialect CMUdict General American, `theta_rhyme`
 0.75, conjunctive band on, `fitted` False). Pinned to a COMMIT and not to a
 date: a corpus cell was de-duplicating `corpus/song/` in the same round, so
-every denominator below moves under anyone who re-runs it later. The commands
-are given so it can be re-run rather than believed.
+every denominator below moves under anyone who re-runs it later. (`git diff
+2f2d26c b609ba0 -- corpus/song/` is empty, so the figures still hold at the
+commit that carries this file; the next de-duplication will move them and the
+`RESULTS_SPANS.md` figures beside them.) The commands are given so it can be
+re-run rather than believed.
 
     python3 battery.py
     python3 quality/audit_spans.py --only corpus

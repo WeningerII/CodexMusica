@@ -351,11 +351,22 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all):
         print("  NOTE  every test file is green at baseline; the detector set "
               "is the whole suite")
     bat = sum(1 for r in results if "battery.py" in r["caught_by"])
-    print(f"  NOTE  battery.py caught {bat} of {len(results)} mutations. Its "
-          f"`__main__` prints and returns, so its exit status is 0 whatever "
-          f"the sonnet numbers say -- the oracle every result in CLAUDE.md is "
-          f"quoted against has never been an assertion. "
-          f"quality/test_mut_oracle.py is the assertion it never had.")
+    print(f"  NOTE  battery.py caught {bat} of {len(results)} mutations, AND "
+          f"THAT NUMBER MEANS ALMOST NOTHING -- read the next two sentences "
+          f"before quoting it.")
+    print("        It USED to mean something. Until 9396946 battery.py's "
+          "`__main__` printed and returned, so its exit status was 0 whatever "
+          "the sonnet numbers said, and the oracle every result in CLAUDE.md "
+          "is quoted against had never been an assertion. That is fixed: "
+          "battery.py pins the four counts, exits 1 on drift, and `run_test` "
+          "decides on returncode -- so it IS a detector now.")
+    print("        But the count above is an artifact of the PLAN, not a "
+          "measurement of the detector. battery.py is appended last and the "
+          "escalation only runs when the declared subset MISSED, so on a run "
+          "where the subset catches everything battery.py is never executed "
+          "and scores 0. A perfect detector and a useless one produce the "
+          "same number here. To measure it, run a mutant against battery.py "
+          "alone. quality/test_mut_oracle.py is the standing assertion.")
     return results
 
 
