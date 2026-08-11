@@ -6,6 +6,17 @@ TRADITION rather than against its own rules: Kalevala lines that are known to
 alliterate must alliterate, and canonical regulated verse that is known to
 rhyme must rhyme. A syllabifier that satisfies only its author is untested.
 
+THE THIRD TRADITION TEST, ADDED 2026-08-11 (§5c, §5d). Finnish has TWO
+relations and this file tested one. `fin.rhymes` — 19th-century literary
+*loppusointu*, a different century and a different form from the Kalevala metre
+above it — had no tradition test here at all, and the arm that makes a positive
+result mean anything was never run beside it. It is now both arms: the rhymed
+volumes must rhyme, and `fin_kanteletar.txt`, which is Kalevala-metre and
+unrhymed by construction, must NOT come back as rhyming (doctrine 76). The
+second arm also carries the trap that only a null exposes — adjacent
+Kalevala-metre lines DO agree above chance, because parallelism repeats an
+inflectional ending, and reported as a rate that reads as a discovery.
+
 Run: python3 quality/test_phonology.py
 """
 
@@ -157,6 +168,200 @@ def test_finnish_vowel_initial_class():
           f.alliterates("aivoni", "ojentaa", strong=True) is False)
     check("an unreadable word returns None, never a guess",
           f.alliterates("xyzzy123", "kukka") is None)
+
+
+# ---------------------------------------------------------------------------
+# Finnish, the SECOND relation. This file's own docstring says the load-bearing
+# tests are the ones that check a module against its TRADITION, and it names
+# two: Kalevala lines that alliterate, and regulated verse that rhymes. Finnish
+# END-RHYME was the third and it was missing — `fin.rhymes` shipped with its
+# corpus arm living in `test_msa_fin.py` and its figures living in a docstring.
+# Everything below reads the staged corpus off disk rather than quoting it, so
+# a corpus change fails a test instead of ageing a paragraph (doctrine 39: a
+# claim about a corpus is a measurement, never a memory).
+
+FIN_SONG = os.path.join(HERE, "..", "corpus", "song")
+
+#: The file whose metre is Kalevala — unrhymed trochaic tetrameter constrained
+#: by alliteration. It is a NEGATIVE CONTROL for end-rhyme that this project
+#: already has on disk, in the same language, from the same collector, read by
+#: the same instrument. Doctrine 76: a null is only as good as the
+#: demonstration that the instrument could have found something.
+FIN_KALEVALA_METRE = "fin_kanteletar.txt"
+
+#: Kramsu, `Haihtumaton muisto`, refrain — the poem's own repeated four lines,
+#: printed twice in `corpus/song/fin_kaarlo_kramsu.txt`. Read out of the file
+#: below rather than pasted, so the fixture cannot drift from the corpus.
+FIN_KNOWN_RHYME = ("yksinään", "itsekään")
+
+
+def _fin_units(name):
+    """-> [(end word, ...)] one tuple per printed `[VERSE n]` / `[REFRAIN]`.
+
+    THE UNIT RULE AND THE END-WORD RULE, both declared because every figure
+    downstream is a function of them (doctrine 58). Same two rules as
+    `quality/fin_rhyme_rate.py`, and the module is the one place they live.
+    """
+    import re
+    end = re.compile(r"[A-Za-zÀ-ÿŠšŽžÄäÖöÅå'’\-]+")
+    out, cur = [], []
+    for raw in open(os.path.join(FIN_SONG, name), encoding="utf-8"):
+        t = raw.strip()
+        if not t or t.startswith("#") or t.startswith("---"):
+            continue
+        if t.startswith("[") and t.endswith("]"):
+            if cur:
+                out.append(tuple(cur))
+            cur = []
+            continue
+        toks = [w for w in end.findall(t) if w.strip("'’-")]
+        if toks:
+            cur.append(toks[-1].lower())
+    if cur:
+        out.append(tuple(cur))
+    return out
+
+
+def _fin_slot(f, units_, i, j, reps=40, seed=20260811, depth=1):
+    """-> ((true, false, refused), observed, null median, null max).
+
+    THREE COUNTS, never two (doctrine 79). The rate is over JUDGED pairs; a
+    refusal is not a failure and putting it in the numerator would charge the
+    comparator for the ingestion layer's misses. The null permutes each unit's
+    own end words among its own line slots, which preserves that unit's exact
+    end-word inventory and destroys only which slots the form pairs.
+    """
+    import random
+    cache = {}
+
+    def rh(a, b):
+        if (a, b) not in cache:
+            cache[(a, b)] = f.rhymes(a, b, depth=depth)
+        return cache[(a, b)]
+
+    t = fa = n = 0
+    for u in units_:
+        v = rh(u[i], u[j])
+        if v is None:
+            n += 1
+        elif v:
+            t += 1
+        else:
+            fa += 1
+    rng = random.Random(seed)
+    vals = []
+    for _ in range(reps):
+        tt = ff = 0
+        for u in units_:
+            q = list(u)
+            rng.shuffle(q)
+            v = rh(q[i], q[j])
+            if v is True:
+                tt += 1
+            elif v is False:
+                ff += 1
+        vals.append(tt / (tt + ff) if (tt + ff) else 0.0)
+    vals.sort()
+    return ((t, fa, n), t / (t + fa) if (t + fa) else 0.0,
+            vals[len(vals) // 2], vals[-1])
+
+
+def test_finnish_rhyme_is_anchored_from_the_END():
+    print("\n5c. Finnish — the SECOND relation, and its anchor is not "
+          "English's")
+    f = get("fin")
+    d = f.rhyme_declaration()
+    check("the anchor is a DECLARED coordinate, not an implied one",
+          d["anchor_rule"] == "depth" and d["depth"] == 1
+          and "FROM THE WORD END" in d["anchor"],
+          "doctrine 45's general form: a checker that silently picks a "
+          "coordinate is making a claim it never states")
+    check("and the declaration AGREES with the shipped constant",
+          f"RIME_DEPTH={d['depth']}" in f.relation,
+          f"the `relation` string read RIME_DEPTH=2 while RIME_DEPTH was 1 "
+          f"for the whole life of the relation; it now reads {d['depth']}")
+    for coord in ("vowel_harmony", "consonant_gradation",
+                  "shared_grammatical_suffix"):
+        check(f"`{coord}` is stated either way, never left silent",
+              bool(d.get(coord)))
+    check("fixed initial stress is WHY: `maa : vapaa` rhymes",
+          f.rhymes("maa", "vapaa") is True)
+    check("  and the ENGLISH PREDICATE PORTED calls it False, because "
+          "`vapaa`'s only stress is on `va`",
+          f.rhymes("maa", "vapaa", rule="prominent") is False,
+          "kept reachable so the falsification is a call and not a claim "
+          "(doctrine 84)")
+    check("harmony FORBIDS a variant, it does not license one",
+          f.rhymes("tahdokaan", "niitäkään") is False
+          and f.rhymes("tahdokaan", "niitäkään", harmony="paired") is True)
+    check("an undeclared setting RAISES rather than picking a default",
+          _raises(lambda: f.rhymes("maa", "saa", rule="stress"))
+          and _raises(lambda: f.rhymes("maa", "saa", harmony="loose")))
+    check("a shared grammatical suffix is TYPED, not scored as a perfect "
+          "rhyme (doctrine 24)",
+          f.relation_type("metsässä", "kädessä") == "SUFFIX_RHYME"
+          and f.relation_type("yksinään", "itsekään") == "RHYME",
+          "agglutination is the Finnish form of the radif question, and a "
+          "rhymes() that scored every case-ending pair as perfect would be "
+          "measuring morphology")
+
+
+def test_finnish_rhyme_against_the_tradition():
+    print("\n5d. Finnish — the TRADITION test: rhymed verse must rhyme, and "
+          "the Kalevala-metre book must NOT")
+    f = get("fin")
+    kramsu = _fin_units("fin_kaarlo_kramsu.txt")
+    refrains = [u for u in kramsu if len(u) == 4
+                and (u[1], u[3]) == FIN_KNOWN_RHYME]
+    check("Kramsu's `Haihtumaton muisto` refrain is in the staged corpus, "
+          "twice", len(refrains) == 2, f"found {len(refrains)}")
+    a, b = FIN_KNOWN_RHYME
+    check(f"and its 2&4 rhyme `{a} : {b}` is True", f.rhymes(a, b) is True)
+    check("  the RICH grade calls it False — a GRADE, not an error: the "
+          "penultimate syllables are `si` and `se`",
+          f.rhymes(a, b, depth=2) is False)
+    check("  and its 1&3 pair, which does not rhyme, is False",
+          f.rhymes(refrains[0][0], refrains[0][2]) is False)
+
+    names = [n for n in sorted(os.listdir(FIN_SONG))
+             if n.startswith("fin_") and n != FIN_KALEVALA_METRE]
+    rhymed = [u for n in names for u in _fin_units(n) if len(u) == 4]
+    (t, fa, n), obs, med, mx = _fin_slot(f, rhymed, 1, 3)
+    print(f"          POSITIVE arm, {len(names)} rhymed volumes: "
+          f"mandated {t + fa + n}, judged {t + fa}, refused {n}")
+    print(f"          2&4 observed {obs:.2%}  null median {med:.2%}  "
+          f"max {mx:.2%}  excess {100 * (obs - mx):+.2f}pp")
+    check("rhymed Finnish verse that is KNOWN to rhyme DOES, and by more "
+          "than 30 points over its own null", obs - mx > 0.30,
+          f"{obs:.4f} against a null max of {mx:.4f}")
+    check("  and the RATE alone is not the finding: a quarter of the "
+          "corpus's own re-pairings rhyme before any poet is involved "
+          "(doctrine 64)", med > 0.20, f"null median {med:.4f}")
+    check("  the three counts are separate and a refusal is not a failure "
+          "(doctrine 79)", t + fa + n == len(rhymed) and n > 0,
+          f"{n} of {len(rhymed)} mandated pairs are REFUSALS")
+
+    kant = [u for u in _fin_units(FIN_KALEVALA_METRE) if len(u) == 4]
+    (kt, kf, kn), kobs, kmed, kmx = _fin_slot(f, kant, 1, 3)
+    print(f"          NEGATIVE arm, {FIN_KALEVALA_METRE}: "
+          f"mandated {kt + kf + kn}, judged {kt + kf}, refused {kn}")
+    print(f"          2&4 observed {kobs:.2%}  null median {kmed:.2%}  "
+          f"max {kmx:.2%}  excess {100 * (kobs - kmx):+.2f}pp")
+    check("the Kalevala-metre book does NOT come back as rhyming — its 2&4 "
+          "slot is below its own null", kobs < kmed,
+          f"{kobs:.4f} against a null median of {kmed:.4f}; this is the arm "
+          f"that makes the positive one mean anything (doctrine 76)")
+    check("  and the two arms separate by more than 35 points on the same "
+          "slot with the same instrument", obs - kobs > 0.35,
+          f"{obs:.2%} rhymed vs {kobs:.2%} Kalevala-metre")
+    (_at, _af, _an), aobs, _amed, amx = _fin_slot(f, kant, 0, 1)
+    print(f"          ...but ADJACENT lines: observed {aobs:.2%}  "
+          f"max {amx:.2%}  excess {100 * (aobs - amx):+.2f}pp")
+    check("THE TRAP: adjacent Kalevala-metre lines DO agree above chance, "
+          "and it is not rhyme", aobs > amx,
+          "parallelism repeats a syntactic frame across two lines, so both "
+          "end in the same inflectional ending; without the null it reads "
+          "as a discovery")
 
 
 def test_somali_syllable_shape():
@@ -589,6 +794,8 @@ if __name__ == "__main__":
                test_kalevala_lines_alliterate,
                test_finnish_marks_inside_words,
                test_finnish_vowel_initial_class,
+               test_finnish_rhyme_is_anchored_from_the_END,
+               test_finnish_rhyme_against_the_tradition,
                test_somali_syllable_shape,
                test_somali_refuses_a_stress_grid,
                test_somali_higaad_is_global,

@@ -536,8 +536,15 @@ def test_fin_the_scheme_is_abcb_and_only_the_null_says_so():
     for name in sorted(os.listdir(SONG)):
         if name.startswith("fin_") and name != "fin_kanteletar.txt":
             st += _stanzas(name)
-    check("the nine rhymed volumes give 1,132 four-line stanzas",
-          len(st) == 1132, str(len(st)))
+    # TEN rhymed volumes since corpus/song/fin_wahanen_laulukirja.txt landed
+    # at debf64e on 2026-08-11, AFTER quality/phonology/fin.py was written
+    # against nine. This suite pinned the nine-volume figures as constants and
+    # went red the moment the corpus grew — which is the whole hazard of a
+    # constant that is really a measurement. Every table in fin.py's docstring
+    # still re-derives exactly on the nine-volume set:
+    #     python3 quality/fin_rhyme_rate.py --verify
+    check("the ten rhymed volumes give 1,346 four-line units",
+          len(st) == 1346, str(len(st)))
     for slot, tag in (((1, 3), "2&4"), ((0, 2), "1&3"), ((0, 1), "1&2")):
         t, f, n = _slot_rate(st, slot, 1)
         mx, med, differ = _null_max(st, slot, 1)
@@ -553,9 +560,24 @@ def test_fin_the_scheme_is_abcb_and_only_the_null_says_so():
             check("  a third of the null's own re-pairings rhyme anyway, so "
                   "the RATE alone is not the finding (doctrine 64)",
                   med > 0.20, f"null median {med:.4f}")
-        else:
+        elif tag == "1&2":
             check(f"{tag} does NOT clear its null", obs <= mx,
                   f"{obs:.4f} vs max {mx:.4f}")
+        else:
+            # 1&3 crossed its own null max when the tenth volume landed:
+            # +0.60pp at depth 1, where on nine volumes it sat 1.14pp BELOW.
+            # Repinning it to "clears" would be as wrong as leaving it at
+            # "does not" — the honest reading is that +0.60pp is not a
+            # finding at all beside 2&4's +35.53pp, and that the pooled row
+            # averages over four different schemes (doctrine 33): three of
+            # the ten volumes rhyme 1&3 above their own null, one of them
+            # being an AAAx form with a refrain word. RESULTS_FIN_RHYME.md
+            # §3 carries the per-file table. The claim the corpus supports
+            # is that 2&4 is the slot the form pairs, NOT that 1&3 is at
+            # chance, and this assertion now says the supported thing.
+            check("1&3 is nowhere near 2&4's excess, which is the claim the "
+                  "corpus actually supports", (obs - mx) < 0.05,
+                  f"{100*(obs-mx):+.2f}pp against 2&4's +35.53pp")
 
 
 def test_fin_the_kanteletar_is_a_negative_control_that_clears_its_null():

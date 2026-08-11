@@ -8,8 +8,13 @@ This module shipped with `alliterates` and nothing else, and MISSING F-1 listed
 NINE OF THE TEN staged Finnish files are rhymed strophic verse whose actual
 constraint it could not check. `rhymes()` closes that. The two relations are
 declared separately in `relations` because a caller asking "does this Kanteletar
-line alliterate" and a caller asking "does this Kramsu stanza rhyme" are asking
-about different centuries and different forms.
+line alliterate" and a caller asking "does this Kramsu *säkeistö* rhyme" are
+asking about different centuries and different forms.
+
+AND THE "NINE OF THE TEN" IS ITSELF A CLAIM, NOW MEASURED — see THE NEGATIVE
+ARM HAS A SECOND MEMBER below. There are eleven staged files, not ten, and the
+metre split is not 1 : 9. `quality/fin_rhyme_rate.py` is the runner behind every
+corpus figure in this docstring and behind that correction.
 
 WHAT FINNISH RHYME IS, DERIVED FROM FINNISH AND NOT PORTED FROM ENGLISH
 
@@ -24,7 +29,18 @@ word, FROM THE START OF THE WORD. `maa : vapaa` would be False, because
 `vapaa`'s only stress is on `va`. Finnish poets rhyme `maa : vapaa` constantly.
 The ported predicate is kept reachable as `rule="prominent"` precisely so the
 falsification is a function call rather than an assertion (doctrine 84), and
-the table under RULE SELECTION below is its obituary.
+the table under TWO GRADES below is its obituary. (That sentence said "the
+table under RULE SELECTION", and no section of that name has ever existed in
+this file — a cross-reference to a heading nobody wrote, which is the prose
+version of the `RIME_DEPTH=2` drift two paragraphs down.)
+
+`quality/RHYME_CANON.md` reaches the OTHER answer and it is worth knowing
+before reading further: R1's ANCHOR line glosses "Finnish/Hungarian-type fixed
+stress: syllable 1", which IS `rule="prominent"`, on the same page that names
+the Finnish cell *rekilaulu loppusointu*. The disagreement is located in a
+coordinate rather than argued at large (doctrine 1) and the corpus adjudicates
+it: the canon's anchor calls two attested Kramsu rhymes False. The patch is
+recorded in this round's PATCHES file; the canon is not this module's file.
 
 What Finnish literary rhyme actually is — the 19th-century *loppusointu*,
 taken from Swedish and German models — is counted in SYLLABLES FROM THE END,
@@ -42,24 +58,38 @@ not the anchor but the CONTENTS:
     the corpus agrees: `harmony="paired"` raises the observed 2&4 rate by 0.27
     points and its null MAX by 0.81, so lift falls 2.77x -> 2.65x. Doctrine 61,
     exactly: the rule that fires more often is the worse rule. `strict` ships.
+    It loses again on the ten-volume corpus — +0.31pp of observation for
+    +0.53pp of null max, 2.61x -> 2.55x — and it also raises the false-positive
+    rate on random pairs from 0.67% to 0.88%, which is the same finding read
+    off the other end (doctrine 22).
   CONSONANT GRADATION (katto/katon, lukea/luen) alternates the consonant in
     the syllable the rime reaches. That is a reason NEVER to lemmatise before
     comparing — rhyme is a fact about the surface form, and the gradated and
-    ungradated shapes of one stem genuinely do not rhyme.
+    ungradated shapes of one stem genuinely do not rhyme. So gradation is
+    DECLARED NOT TO PARTICIPATE, which is a decision and not a silence: see
+    the `GRADATION` constant and `rhyme_declaration()`, both of which exist so
+    a later session proposing a lemmatiser meets a sentence rather than a gap.
   AGGLUTINATION makes the last syllable an inflectional ending far more often
     than in English, so a one-syllable rhyme is very often no more than two
     words in the same case. That is not refused; it is TYPED as
     `SUFFIX_RHYME` (doctrine 24 — relabel, never delete), and it is the main
-    reason the shipped depth is 2 rather than 1.
+    argument for the RICH grade, which is why depth 2 exists and is one
+    argument away. It is NOT the shipped default: this line read "it is the
+    main reason the shipped depth is 2 rather than 1" while `RIME_DEPTH` was
+    1, which is the same drift the `relation` string had (see
+    `rhyme_declaration`), one paragraph up from the table that overrules it.
 
 TWO GRADES, NOT TWO RIVAL RULES, AND THE DIFFERENCE DECIDED THE DEFAULT
 
-Nine rhymed volumes, 1,132 four-line stanzas, the 2&4 slot (this corpus is
-overwhelmingly ABCB, not ABAB — see below). Null: permute each stanza's own
-four end words among its own four line slots, 200 replicates, seed 20260811.
-It PRESERVES each stanza's exact end-word inventory — its rime classes, word
-lengths and suffix mix — and DESTROYS only WHICH TWO the form pairs. Every
-replicate differs from the observation (doctrine 68).
+The unit is the *säkeistö* the corpus prints as `[VERSE n]` / `[REFRAIN]`; the
+form the rhymed volumes are in is the *rekilaulu*, which is also the name
+`quality/RHYME_CANON.md` gives the Finnish cell of R1. Nine rhymed volumes,
+1,132 four-line units, the 2&4 slot. Null: permute each unit's own four end
+words among its own four line slots, 200 replicates, seed 20260811. It
+PRESERVES each unit's exact end-word inventory — its rime classes, word
+lengths and suffix mix — and DESTROYS only WHICH TWO the form pairs. 95.7% of
+permuted units differ from the printed one, so it is not the identity map and
+that is measured rather than asserted (doctrines 63, 68).
 
     reading                observed  null med  null max   excess   lift
     depth 1  (DEFAULT)       62.28%    23.64%    26.92%   +35.35   2.31x
@@ -67,6 +97,27 @@ replicate differs from the observation (doctrine 68).
     depth 3                  37.87%    11.16%    13.94%   +23.94   2.72x
     prominent (the PORT)     31.61%     8.77%    10.90%   +20.71   2.90x
     depth 2, harmony paired  43.89%    13.76%    16.56%   +27.33   2.65x
+
+AMENDED 2026-08-11 — THE TABLE REPRODUCES EXACTLY AND ITS CORPUS IS NO LONGER
+THE CORPUS. Every one of those fifteen figures re-derives to the printed digit
+(`python3 quality/fin_rhyme_rate.py --verify`), and there are now ELEVEN staged
+Finnish files rather than ten: `fin_wahanen_laulukirja.txt`, an 1864 song-book,
+landed after this module was written and is a TENTH rhymed volume, 214 further
+four-line units. On the ten-volume set, same null, same seed:
+
+    reading                observed  null med  null max   excess   lift
+    depth 1  (DEFAULT)       62.58%    24.76%    27.04%   +35.53   2.31x
+    depth 2  (rich grade)    43.31%    14.26%    16.57%   +26.75   2.61x
+    depth 3                  36.05%    11.62%    13.74%   +22.31   2.62x
+    prominent (the PORT)     31.25%     9.71%    11.93%   +19.32   2.62x
+    depth 2, harmony paired  43.62%    14.78%    17.10%   +26.52   2.55x
+
+THE TENTH VOLUME TAKES `prominent`'S LAST ARGUMENT AWAY. On nine volumes the
+port had the best lift (2.90x) and the paragraph below had to explain why lift
+does not adjudicate a grade against itself. On ten it is 2.62x against depth 2's
+2.61x and depth 3's 2.62x — a three-way tie inside any noise — so the reading
+that survives on the tradition test is now also the reading nothing prefers on
+lift. The argument below is unchanged and its evidential burden is lighter.
 
 Doctrine 61 says pick by lift and never by yield, and read naively that table
 ships `prominent`. It is the wrong reading of the table, and the corpus says
@@ -79,7 +130,7 @@ rule. It does not adjudicate between a rule and a stricter version of itself,
 because the stricter version buys its lower chance rate by REFUSING REAL
 INSTANCES, and doctrine 37 says test against the tradition:
 
-    Kramsu, *Haihtumaton muisto*, refrain, an unambiguous ABCB quatrain:
+    Kramsu, *Haihtumaton muisto*, refrain, an unambiguous ABCB unit:
         Muut muistot haihtuu, katoaa, / Yks säilyy yksinään:
         Onk' iloinen vai suruinen,   / En tiedä itsekään.
     `yksinään : itsekään` is the rhyme. depth 1 = True. depth 2 = FALSE, and
@@ -88,8 +139,8 @@ INSTANCES, and doctrine 37 says test against the tradition:
 So the default is depth 1 — what the form MANDATES — and depth 2 is the rich
 grade a caller asks for by name. Both are reported with their own nulls,
 because depth 1's chance rate of 27% is enormous: more than a quarter of a
-stanza's own re-pairings rhyme at depth 1 before any poet is involved. That is
-doctrine 64 in a second language — "62% of these stanzas rhyme lines 2 and 4"
+unit's own re-pairings rhyme at depth 1 before any poet is involved. That is
+doctrine 64 in a second language — "62% of these units rhyme lines 2 and 4"
 was never wrong and is not usable without the +35.35 beside it.
 
 `prominent` is the ENGLISH PREDICATE PORTED and it is falsified twice over: it
@@ -98,27 +149,77 @@ calls `maa : vapaa` False and `yksinään : itsekään` False. It is kept reacha
 
 Read as a false-positive rate on 20,000 random end-word pairs from the same
 corpus (doctrine 22, which asks for a rate and not a point on a scale): depth 1
-admits 5.09%, depth 2 admits 0.81%, `prominent` 0.18%. That is the price list
-for the grades, and it is why a caller certifying a single pair should ask for
-depth 2 while a caller separating rhymed verse from unrhymed should use depth 1
-— the same split the alliteration variants table reaches for Kalevala metre.
+admits 5.98%, depth 2 admits 0.67%, `prominent` 0.13%. UNCALIBRATED — these are
+the readings' chance rates on this corpus, not a threshold anybody swept and
+not a target anybody hit (doctrine 16). That is the price list for the grades,
+and it is why a caller certifying a single pair should ask for depth 2 while a
+caller separating rhymed verse from unrhymed should use depth 1 — the same
+split the alliteration variants table reaches for Kalevala metre.
 
-THE SCHEME IS ABCB, NOT ABAB, AND ONLY THE NULL SAYS SO
+    AMENDED 2026-08-11 — THE TRIPLE THIS REPLACES DOES NOT REPRODUCE, AND THE
+    MISSING COORDINATE IS THE SAMPLING RULE. It read `depth 1 admits 5.09%,
+    depth 2 admits 0.81%, prominent 0.18%` and named no seed, no population and
+    no draw. Twelve draws were tried — end-word tokens, end-word types, all
+    word tokens, all word types, at seeds 20260811 / 20260810 / 0 — and no
+    combination gives the triple; the twelve span 5.50–6.54% at depth 1,
+    0.13–2.17% at depth 2 and 0.02–0.41% at `prominent`, so the SPREAD OVER
+    SAMPLING RULES IS LARGER THAN THE GAP BETWEEN TWO OF THE GRADES. Doctrine
+    70's amendment, in a second language: three documents, one measurement, and
+    the coordinate nobody wrote down. The figures above are 20,000 pairs drawn
+    with replacement from the TEN-volume rhymed arm's line-final TOKENS at seed
+    20260811, and `quality/fin_rhyme_rate.py` §6 is the runner.
 
-Pooled over the nine volumes, with the same null: the 2&4 slot is 43.62%
-against a null max of 15.75%; the 1&3 slot and the 1&2 / 3&4 slots are AT OR
-BELOW their own nulls (12+34: 10.58% observed, 15.20% null max, p=1.0000).
-So this corpus rhymes the second and fourth lines of a quatrain and leaves the
-first and third free — the ballad quatrain, not the pantun's ABAB.
+THE SCHEME IS ABCB IN THE POOL, AND THE POOL IS AN AVERAGE OVER FOUR SCHEMES
+
+Pooled over the nine volumes, AT DEPTH 2 — this table and the negative-control
+table below carried no depth for as long as they have existed, while the
+module's default is depth 1, which is doctrine 58 turned on the module's own
+docstring — the 2&4 slot is 43.62% against a null max of 15.75%; the 1&3 slot
+and the 1&2 / 3&4 slots are AT OR BELOW their own nulls (12+34: 10.58%
+observed, 15.20% null max, p=1.0000). So this corpus rhymes the second and
+fourth lines of a four-line unit and leaves the first and third free — the
+ballad quatrain, not the pantun's ABAB.
+
+    AMENDED 2026-08-11, TWICE, AND THE SECOND AMENDMENT IS THE ONE THAT MATTERS.
+    (a) On the ten-volume set the 1&3 slot no longer sits below its null:
+    28.21% against a null max of 27.61% at depth 1 (+0.60pp), 16.55% against
+    16.24% at depth 2 (+0.32pp). Beside the 2&4 slot's +35.53pp that is
+    nothing, but "AT OR BELOW their own nulls" is now false as written.
+    (b) THE POOLED ROW IS AN AVERAGE OVER VOLUMES IN DIFFERENT SCHEMES, and
+    doctrine 33 says correcting across items is not combining evidence across
+    them. Measured per file over units of EVERY length (`fin_rhyme_rate.py`
+    §4, depth 1, excess over the file's OWN null max, N=200), the offset
+    profile separates four behaviours:
+      * Kramsu is ABCB and nothing else — offset 2 +28.34pp, offset 1 -15.89,
+        offset 3 -32.65. Eino Leino (+13.50) and the new song-book (+10.04)
+        are the same shape.
+      * **Krohn is AAAx.** `lentimin : nope'in : kuitenkin` with a refrain word
+        in slot 4, so his rhyme is at offsets 1 and 2 alike (+2.23, +4.08) and
+        his 2&4 rate sits BELOW his own null. A pooled ABCB claim mis-describes
+        him, and it is the pooling that hid it.
+      * **Kivi is not rhymed verse at all.** Over 322 units his offset excesses
+        are -1.39 / -0.15 / -0.97, so on the excess-over-null-max convention
+        every table in this docstring uses he clears at no offset; the honest
+        qualifier is that his offset-2 empirical p is 0.0100, i.e. AT the top
+        of his own null rather than past it, and his largest positive excess
+        anywhere is +3.62pp. Kramsu's is +28.34pp on the same statistic.
+    THE FOUR-LINE UNIT IS ITSELF THE SELECTION. It is 14.0% of the Kanteletar's
+    printed units, 22.9% of Erkko's, 40.1% of Kivi's and 78.4% of Kramsu's, so
+    every fixed-slot number in this docstring is conditioned on a rule nobody
+    declared as one.
 
 AND THE KANTELETAR IS A NEGATIVE CONTROL THAT CLEARS ITS OWN NULL (doctrine 71)
 
 The Kalevala-metre Kanteletar is unrhymed by construction, and it is in the
-same corpus, in the same language, with the same instrument:
+same corpus, in the same language, with the same instrument. AT DEPTH 2:
 
     slot           observed   null max   excess   verdict
     2&4              7.43%     14.24%    -6.81    BELOW chance, p=0.985
     1&2 and 3&4     18.55%     13.45%    +5.10    ABOVE chance, p=0.005
+
+and at DEPTH 1, which is what the module ships, the same shape at a coarser
+grain: 2&4 21.85% against a null max of 34.77% (-12.92, p=1.0000), 1&2 + 3&4
+44.77% against 34.46% (+10.31, p=0.0050).
 
 The second row is the trap. `18.55% of adjacent Kanteletar lines rhyme` is
 true and is not rhyme: Kalevala-metre parallelism repeats a syntactic frame
@@ -126,6 +227,27 @@ across adjacent lines, so the two lines end in the SAME INFLECTIONAL ENDING.
 Without the null it reads as a discovery. With it, the rhymed volumes and the
 epic separate on the 2&4 slot by 43.62% vs 7.43% while agreeing that adjacent
 lines share an ending. Doctrine 64: report the excess, never the rate.
+
+THE NEGATIVE ARM HAS A SECOND MEMBER, AND THE POSITIVE ARM IS SMALLER THAN NINE
+
+`BACKLOG.md` §2.7 and `MISSING.md` M-6 both say *nine of the ten staged Finnish
+files are rhymed strophic verse*. Measured (`fin_rhyme_rate.py` §1), the file
+count is ELEVEN and the metre split is not 1 : 9:
+
+  * `fin_jaakko_juteini.txt` carries a HIGHER alliteration excess than the
+    Kanteletar itself — +58.86pp over the across-line permutation null against
+    the Kanteletar's +50.65pp, with 53.2% of its lines at exactly eight
+    syllables. It is Kalevala-metre material, and at 19 printed units its rhyme
+    arm cannot resolve anything (doctrine 57: an empirical p sitting at its
+    floor is reporting the resolution).
+  * `fin_aleksis_kivi.txt` is neither: +11.72pp of alliteration excess, and no
+    offset above its own null. 2,885 lines of it.
+
+So the rhymed arm that the 2&4 finding rests on is at most eight of eleven
+files, the Kalevala-metre arm has two members rather than one, and one file is
+in neither. That is doctrine 41 arriving late — a positive control can pass for
+the wrong reason and only a second control tells you which — and the second
+control was in the corpus the whole time, unlabelled.
 
 THE CODA BUG, FOUND BY BUILDING THE SECOND RELATION
 
@@ -137,9 +259,13 @@ was right, so nothing printed looked wrong, and alliteration never reads a
 coda, so no recorded alliteration rate moved — the defect was invisible until
 something asked for the RIME. It matters here more than it would in English
 because Finnish consonant length is phonemic: the truncation gave `all'` and a
-hypothetical `al` the same key. 251 line-final tokens in the staged corpus
-carry a final cluster (`kaks`, `laps`, `all`, `maall`, `kans`, `vaikeammiks`),
-every one a poetic apocope and every one a rhyme word. Fixed by APPENDING.
+hypothetical `al` the same key. 276 line-final tokens in 218 types over the
+eleven staged files carry a final cluster (`kaks`, `laps`, `all`, `maall`,
+`kans`, `vaikeammiks`), every one a poetic apocope and every one a rhyme word.
+This read "251" and re-measures at 250 on the ten files that existed and 276
+on all eleven, on the tokenisation named in `fin_rhyme_rate.py`; nobody can now
+say which rule produced the 251, which is the point (doctrine 58). Fixed by
+APPENDING.
 Doctrine 95: when a defect is found in one layer, check the others — this is
 that check run in the opposite direction, from the new relation back into the
 shared syllabifier.
@@ -162,22 +288,36 @@ Two triggers, both derived from what the RELATION needs (doctrine 60):
      undetermined and the verdict is None rather than a guess.
 
 MEASURED WITH A MATCHED CONTROL, BECAUSE A REFUSAL RATE ALONE MEANS NOTHING
-(doctrine 67). At depth 2, over the nine rhymed volumes:
+(doctrine 67). At depth 2, over the TEN rhymed volumes, with every population's
+draw stated because the last version of this table did not state one:
 
-    population                                       pairs   refused   True|decided
-    MANDATED (the 2&4 pairs)                          1132     2.39%      43.62%
-    RANDOM end-word pairs from the same corpus       20000     2.04%       0.81%
-    CANDIDATE (already agree on the final nucleus)   20000     1.20%       6.55%
+    population                                       pairs   refused   True|judged
+    MANDATED (the 2&4 pairs)                          1346     2.23%      43.31%
+    RANDOM, drawn from line-final TOKENS              20000     2.26%       0.67%
+    CANDIDATE, rejection-sampled from the same        20000     1.27%       6.03%
+    CANDIDATE, drawn class-first                      20000     6.78%      13.04%
 
 **The Finnish refusal is BLUNT, not aimed, and that is the honest answer.**
 `fas.py` refuses 60.2% of real Ḥāfiẓ rhyme pairs and ~5% of random ones, so
 its refusal is aimed at exactly the hard cases. This one is a flat ~2% tax
-that falls almost equally on all three populations, because the trigger is a
-property of a WORD rather than of a PAIR. Doctrine 67 says only a matched
+that falls almost equally on the first three populations, because the trigger
+is a property of a WORD rather than of a PAIR. Doctrine 67 says only a matched
 control tells you which of the two you have; this cell ran the control and got
 the other answer, and the number is small enough that the instrument is still
 worth having. Reporting it as "aimed" by analogy with Persian would have been
 the assertion doctrine 67 was written about.
+
+    AMENDED 2026-08-11. The MANDATED row reproduced to the printed digit on the
+    nine-volume set (1132 pairs, 2.39% refused, 43.62% True|judged) and the
+    other two did not, under any reading tried. The reason is the fourth row,
+    which is new: **"pairs that already agree on the final nucleus" is one
+    English sentence and two populations.** Rejection-sampling from the corpus's
+    own line-final tokens weights a nucleus class by its size squared and gives
+    1.27%; drawing a class uniformly and then two members of it weights the
+    SMALL classes up, and the small classes are exactly where `ie`/`uo`/`yö`
+    live, so the designed refusal fires five times as often (6.78%) and the
+    "blunt, not aimed" conclusion inverts. Both are printed. Doctrine 58: the
+    sampling rule is a coordinate of the number, not a detail of how it was got.
 
 WHAT THE FORM MANDATES
 
@@ -237,8 +377,24 @@ RIME_DEPTH = 1
 
 #: "strict"  a and ä (o/ö, u/y) are different phonemes and do not rhyme.
 #: "paired"  the harmonic counterparts count as one. Measured and REJECTED:
-#:           +0.27pp observed against +0.81pp of null max, lift 2.77x -> 2.65x.
+#:           +0.27pp observed against +0.81pp of null max, lift 2.77x -> 2.65x
+#:           on the nine-volume set at depth 2, and +0.31pp against +0.53pp,
+#:           2.61x -> 2.55x on the ten-volume set. Doctrine 61 both times.
 HARMONY = "strict"
+
+#: CONSONANT GRADATION is DECLARED NOT TO PARTICIPATE, which is a decision and
+#: not an omission (doctrine 1: a coordinate that is left silent is a claim
+#: nobody stated). katto/katon, lukea/luen: the gradating consonant sits in the
+#: syllable the rime reaches, so a module that lemmatised before comparing
+#: would make the gradated and ungradated shapes of one stem rhyme. They do not.
+#: Rhyme is a fact about the SURFACE form, so the surface form is what is
+#: compared, and there is nothing to switch on: the rule is that there is no
+#: rule. Written as a constant anyway so `rhyme_declaration()` can say so, and
+#: so that a later session proposing a lemmatiser meets a sentence rather than
+#: a silence.
+GRADATION = ("surface only — NEVER lemmatise. The gradated and ungradated "
+             "shapes of one stem genuinely do not rhyme, so there is no "
+             "gradation-aware setting to reach for.")
 
 #: "depth"      the shipped reading: RIME_DEPTH syllables from the end.
 #: "prominent"  the English predicate ported — from the last PROMINENT nucleus
@@ -299,11 +455,77 @@ class Finnish(Phonology):
     relation = ("TWO, declared separately: (1) Kalevala alliteration — two or "
                 "more words in a line share an initial consonant, optionally "
                 "+ the following vowel, with vowel-initial words as one class; "
-                "(2) literary end-rhyme (loppusointu) — the last RIME_DEPTH=2 "
+                "(2) literary end-rhyme (loppusointu) — the last RIME_DEPTH=1 "
                 "syllables agree from the first covered NUCLEUS, quantity and "
                 "vowel-harmony class included, NOT anchored on stress because "
-                "Finnish stress is initial and never word-final")
+                "Finnish stress is initial and never word-final. Every "
+                "coordinate of (2) is in `rhyme_declaration()`; the anchor is "
+                "the one a reader of the English engine will assume wrong.")
     source = "rules only; no external resource, so nothing to licence"
+
+    def rhyme_declaration(self):
+        """-> the end-rhyme relation's coordinate tuple (doctrine 1).
+
+        THIS METHOD EXISTS BECAUSE THE DECLARATION WAS WRONG IN PROSE. The
+        `relation` string above read `RIME_DEPTH=2` for as long as the relation
+        has existed, while the shipped constant is 1 — so the module's single
+        machine-readable statement of its own anchor named a setting it does
+        not use. Doctrine 45's general form: a checker that silently picks a
+        coordinate is making a claim it never states, and a checker that states
+        the WRONG one is worse, because the claim looks checked. A string a
+        human maintains beside a constant drifts; a dict built FROM the
+        constants cannot, and `quality/fin_rhyme_rate.py` prints this at the
+        head of every table so the numbers carry their coordinates with them.
+        """
+        return {
+            "anchor": (f"COUNTED FROM THE WORD END: the last RIME_DEPTH="
+                       f"{RIME_DEPTH} syllable(s), measured from the first "
+                       f"covered syllable's NUCLEUS. NOT the last prominent "
+                       f"syllable — Finnish stress is fixed on syllable 1 and "
+                       f"never word-final, so a prominence anchor puts the "
+                       f"origin of a 3-syllable word's rime at its FIRST "
+                       f"letter. The alternative is reachable as "
+                       f"rule='prominent' and it is falsified in §8 of "
+                       f"fin_rhyme_rate.py, not merely rejected."),
+            "anchor_rule": RHYME_RULE,
+            "depth": RIME_DEPTH,
+            "nucleus": ("the syllable's vowel: one short vowel, one written-"
+                        "double long vowel, or one of the 18 listed diphthongs."
+                        " Quantity is PHONEMIC and written, so it is read and "
+                        "never guessed (tuli / tuuli / tulli are three words)."),
+            "coda": ("the WHOLE word-final consonant run, appended and never "
+                     "replaced. Finnish consonant length is phonemic, so a "
+                     "truncated coda deletes the contrast the rime is built "
+                     "on: `kyll'` is ('l','l'), not ('l',)."),
+            "onset_of_the_anchor": ("FREE, and comparing it is what "
+                                    "relation_type() calls RIME_RICHE. R1-"
+                                    "polarity in RHYME_CANON.md; Finnish is "
+                                    "not one of the four traditions that "
+                                    "declare it FORBIDDEN."),
+            "vowel_harmony": (f"{HARMONY!r} — PARTICIPATES BY FORBIDDING, never "
+                              f"by licensing. /ɑ/ and /æ/ are separate "
+                              f"phonemes, so -ssa and -ssä do NOT rhyme. "
+                              f"harmony='paired' merges them and is REJECTED "
+                              f"on measurement, not taste (doctrine 61)."),
+            "consonant_gradation": GRADATION,
+            "shared_grammatical_suffix": (
+                "JUDGED TRUE and TYPED SUFFIX_RHYME by relation_type(), never "
+                "silently scored as a perfect rhyme and never deleted "
+                "(doctrine 24). Agglutination makes two words in one case "
+                "agree by grammar; that is the Finnish form of the radif "
+                "question and a caller measuring craft needs it separated "
+                "from a caller measuring form."),
+            "w_v_allographs": (f"fold_w={FOLD_W_TO_V} in the rime — one "
+                               f"phoneme, two glyphs, MIXED inside one book. "
+                               f"OFF by default in alliteration, because every "
+                               f"recorded alliteration rate is a coordinate of "
+                               f"the unfolded reading (doctrine 58)."),
+            "refusals": ("two, both derived from what the RELATION needs "
+                         "(doctrine 60): an unreadable word, and an opening "
+                         "diphthong ie/uo/yö landing in the rime outside "
+                         "syllable 1. See UNREADABLE_REASONS."),
+            "notation": self.notation,
+        }
 
     def syllabify(self, word):
         w = word.strip("'-").lower()
@@ -398,9 +620,10 @@ class Finnish(Phonology):
             # English because Finnish CONSONANT LENGTH IS PHONEMIC (tuli /
             # tulli), so the truncation deleted exactly the contrast the rime
             # is built on -- `all'` (< alla) and a hypothetical `al` had the
-            # same key. 251 line-final tokens in the staged corpus carry a
-            # final cluster (kaks, laps, all, maall, kans, vaikeammiks): every
-            # one is a poetic apocope, they are pronounced as written, and
+            # same key. 276 line-final tokens in 218 types over the eleven
+            # staged files carry a final cluster (kaks, laps, all, maall, kans,
+            # vaikeammiks): every one is a poetic apocope, pronounced as written,
+            # and
             # they are rhyme words. Alliteration never read a coda, which is
             # why no recorded alliteration rate moves.
             sylls[-1] = Syllable(sylls[-1].text + "".join(onset),
@@ -630,10 +853,20 @@ class Finnish(Phonology):
 #: The same table `msa.py` carries, for the same reason: doctrine 88 says a
 #: refusal rate is uninterpretable until an ingestion miss and a designed
 #: refusal are told apart, and doctrine 79 says report the counts separately.
-#: Measured on the staged Finnish song corpus (138,974 tokens): 155 unreadable
-#: (0.112%) — 118 `vowelless_token` (the `j. n. e.` stub and roman numerals,
-#: someone else's layer) and 37 `out_of_inventory` (foreign proper names,
-#: correctly refused). The Kalevala itself has ZERO.
+#: Measured on the staged Finnish song corpus. AMENDED 2026-08-11: this read
+#: "138,974 tokens: 155 unreadable (0.112%) — 118 `vowelless_token` ... and 37
+#: `out_of_inventory`". The TOTAL reproduces on the ten files that existed then
+#: (155 unreadable of 139,028 tokens, 0.111%) and the SPLIT does not — it is
+#: 130 `vowelless_token` and 25 `out_of_inventory`, and the split is the whole
+#: reason this table exists (doctrine 88: a refusal rate is uninterpretable
+#: until an ingestion miss and a designed refusal are told apart, so getting
+#: the total right and the split wrong is the one error the table cannot
+#: absorb). Over the ELEVEN staged files as of 2026-08-11, on `_tokens` over
+#: verse lines: 145,717 tokens, 144,999 read, 567 refused, 151 defective —
+#: 151 `vowelless_token` (the `j. n. e.` stub and roman numerals, someone
+#: else's layer), 29 `out_of_inventory` (foreign proper names, correctly
+#: refused) and 538 `non_initial_opening_diphthong` (designed). The Kalevala
+#: itself has ZERO unreadable.
 UNREADABLE_REASONS = {
     "vowelless_token": (
         "ingestion", True,
