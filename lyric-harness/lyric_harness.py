@@ -429,9 +429,12 @@ class Declaration:
     # It is NOT a defect, and that is measured rather than assumed. Held out
     # (quality/test_align.py, and the corpora it prints): on a random-pair FPR
     # corpus and on the sonnets' mandated pairs, split in half,
-    #   * the sonnet oracle does not move at all -- 81/1014 either way, in both
-    #     halves, because a mandated pair's best alignment is already the
-    #     equal-length one (doctrine 95's own blind spot, from the other side);
+    #   * the sonnet oracle does not move at all -- 82/1014 either way, in both
+    #     halves (43 and 39), because a mandated pair's best alignment is
+    #     already the equal-length one (doctrine 95's own blind spot, from the
+    #     other side). RE-MEASURED 2026-08-11 under `coda_agreement`
+    #     "identity": the invariant survives the shape change and only the
+    #     digit moved, 81 -> 82, which is the repin argued in `battery.py`;
     #   * the RELATION never flips, because the relation is decided by
     #     `channel_agreement`, which tail-aligns on its own regardless;
     #   * the scalar `total` moves on ~61% of random pairs, i.e. on essentially
@@ -1718,14 +1721,20 @@ def channel_agreement(anc_a, anc_b, decl):
     for i in range(n):
         ca, cb = ta[i]["coda"], tb[i]["coda"]
         codas.append(1.0 if (not ca and not cb) else cluster_sim(ca, cb))
-    cod = min(codas)
     if decl.coda_agreement != "scalar":
-        # Same construction as the nucleus four lines up, and for the same
-        # reason: a non-scalar SHAPE answers with a predicate, not a
-        # magnitude, and infinities keep `theta_coda` from being able to
-        # invert it.
-        cod = float("inf") if coda_agrees(ta, tb, decl) else float("-inf")
-    return nuc >= decl.theta_nucleus, cod >= decl.theta_coda
+        # A non-scalar SHAPE answers this channel with a predicate instead of
+        # a magnitude, exactly as the nucleus does above, and infinities keep
+        # any value of `theta_coda` from inverting it.
+        #
+        # PER SYLLABLE, deliberately, even though `coda_agrees` would happily
+        # take the whole span: the conjunction across syllables has to stay in
+        # the `min(...)` below, where the band's other channel reads it and
+        # where `quality/mutate.py` M3 and M5 test it. Hiding it inside the
+        # predicate would leave two mutants with nothing to break and the
+        # suite would report that as strength.
+        codas = [float("inf") if coda_agrees([x], [y], decl)
+                 else float("-inf") for x, y in zip(ta, tb)]
+    return nuc >= decl.theta_nucleus, min(codas) >= decl.theta_coda
 
 
 def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):

@@ -266,6 +266,24 @@ def test_the_true_positives_that_must_survive():
           rel("bad", "bat") == "ASSONANCE",
           "doctrine 94 priced this cost out loud when theta_coda moved "
           "0.60 -> 0.80; a T~D licence would have undone it and is refused")
+    # quality/mutate.py M3 (`min(codas)` -> `max(codas)`) reported SURVIVED on
+    # 2026-08-11 having run 34 checks with none failing, and it is a hole in
+    # the suite rather than an equivalent mutant: it lets ONE agreeing
+    # syllable carry a whole multi-syllable anchor, which is doctrine 21's
+    # compensation defect moved from the comparator into the band. Verified
+    # pre-existing rather than introduced -- the battery reports 81/81 under
+    # the old comparator with and without M3, and 82/82 under the new one, so
+    # nothing in the oracle was ever going to see it. It needs an anchor whose
+    # syllables DISAGREE about the coda, and every comparator example in this
+    # repo is a monosyllable or a pair that agrees throughout.
+    check("a two-syllable anchor may not have one agreeing coda carry the "
+          "other (mutate.py M3)",
+          rel("nation", "nasal") == "ASSONANCE",
+          "`nation` EY-SH-AH-N against `nasal` EY-Z-AH-L: the first aligned "
+          "syllable has two ABSENT codas and agrees, the second is N against "
+          "L and does not. Under `max(codas)` this reads RHYME. The band is "
+          "conjunctive ACROSS SYLLABLES as well as across channels, and this "
+          "is the check that says so.")
 
 
 # ---------------------------------------------------------------------------
