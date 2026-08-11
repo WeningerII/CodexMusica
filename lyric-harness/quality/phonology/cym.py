@@ -86,7 +86,69 @@ DECLARED AMBIGUITIES, rather than resolved ones
   It is recorded on the syllable so a caller can see it, and it does not affect
   the consonant skeleton, which is what cynghanedd is built on.
 - **i** and **w** are consonantal before a vowel in some environments and
-  vocalic in others; the vocalic reading is taken and flagged.
+  vocalic in others; the vocalic reading is taken and flagged. `syllabify` is
+  UNCHANGED and still takes it -- see `glide=` below, which is where the
+  end-rhyme relation stops taking it and holds both readings instead.
+
+THE SECOND RELATION: END-RHYME (*odl*), ADDED 2026-08-11
+
+Until this was written the module implemented cynghanedd and nothing else, so
+`quality/negative_control.py --langs` recorded Welsh at **mandated 108, judged
+0, refused 108** -- a 100% refusal, and the only one of the seven staged
+language prefixes with no other route to a verdict. English refuses through the
+same path and is not thereby unmeasured, because `lyric_harness.best_score` and
+the whole comparator stack answer for it. Welsh had nothing. Doctrine 44: the
+blocker was the MODULE, the cheap kind.
+
+FIVE COORDINATES, EVERY ONE DECLARED AND EVERY ONE MEASURED. See
+`rhyme_declaration()` for the machine-readable tuple and
+`quality/RESULTS_CYM_RHYME.md` for the table that chose each one.
+
+1. **The anchor is counted FROM THE WORD END** (`rule="depth"`,
+   `RIME_DEPTH=1`), never from the last prominent syllable. Welsh stress is
+   PENULTIMATE, so the rhyme-bearing final syllable of a polysyllable is
+   UNSTRESSED and the English predicate -- "from the last stressed vowel to the
+   end of the word" -- reads a two-syllable span there and a one-syllable span
+   on a monosyllable. The *cywydd deuair hirion* pairs exactly those two: one
+   line of the couplet ends accented, the other unaccented. Measured on the
+   staged cywydd, 54 attested couplets: the shipped rule answers TRUE on 51 and
+   the English port on 2. It is not rejected, it is FALSIFIED, and
+   `rule="prominent"` keeps the falsification a function call (doctrine 84).
+2. **The circumflex is FOLDED** (`diacritics="fold"`). It is a LENGTH mark, and
+   the staged corpus writes the same language both ways: `cym_song_alun.txt`
+   and `cym_song_mynyddog.txt` are ISO-646-US transcriptions with the
+   circumflexes FLATTENED (0 in 92,519 and 6,243 characters of verse), while
+   `cym_song_hwiangerddi.txt`, `cym_song_twm_or_nant.txt` and the cywydd carry
+   real ones. That is `fin.py`'s w/v case (MISSING M-5) in a second language --
+   one distinction, two transcriptions, MIXED ACROSS the corpus -- and it is
+   settled by the tradition rather than by taste: unfolded, 12 of 78 couplets
+   of `corpus/cym_twm_or_nant_cywydd.txt` come back False on nothing but a
+   circumflex (`gân : ddatgan`, `sôn : gofion`, `uchel : chêl`). A form whose
+   end-rhyme is obligatory does not miss one couplet in six. `diacritics="keep"`
+   is reachable and it is what produces that 12.
+3. **A word-initial `w`/`i` glide is UNDECIDED, not decided** (`glide=
+   "undecided"`). `wych` is `w`+`ych` or the diphthong `wy`+`ch` and no rule in
+   this orthography tells them apart; the module's own docstring has flagged
+   the ambiguity since it was written and `syllabify` still takes the vocalic
+   reading. In the RIME the two readings are held together and `rhymes` returns
+   True where both agree, False where neither can and **None where they
+   disagree** -- which is `relations.py`'s ternary and doctrine 53's rule, a
+   verdict that depends on a distinction the orthography has collapsed is
+   refused rather than guessed. It fires on 32 of 5,246 staged line-ends.
+   `glide="vocalic"` reproduces the pre-existing reading and `glide=
+   "consonantal"` the other, so the choice is measurable and not settled by
+   fiat.
+4. **Initial consonant mutation (treiglad) DOES NOT PARTICIPATE, and cannot.**
+   See `MUTATION`. Surface only, never lemmatise -- the parallel decision to
+   `fin.GRADATION`, reached by a different route: in Finnish the gradating
+   consonant sits INSIDE the rime and the decision is a judgement, here the
+   mutating consonant is provably outside it and the decision is a derivation.
+5. **A shared grammatical ending is NOT typed**, and that is a refusal to
+   invent rather than a silence. See `rhyme_declaration()['shared_ending']`:
+   no dated source stating the Welsh odl rule or listing the productive endings
+   was reachable from this cell, and the search is recorded rather than
+   remembered (doctrine 39). `shared_tail()` reports the raw diagnostic so a
+   caller with such a list can apply it.
 """
 
 import itertools
@@ -120,6 +182,79 @@ DIPHTHONGS = {
     "ae", "ai", "au", "aw", "ei", "eu", "ew", "ey", "iw", "oe", "oi",
     "ou", "ow", "uw", "wy", "yw", "yb", "aw",
 }
+#: `"yb"` is UNREACHABLE and is left in place rather than quietly deleted: the
+#: merge in `syllabify` fires only where BOTH members are classed `V`, and `b`
+#: is in CONSONANTS, so no input can ever match it. Removing it is provably a
+#: no-op and so is keeping it; it is recorded here because an inventory with a
+#: dead entry is a small claim nobody checked, and `aw` is listed twice for the
+#: same reason (a set, so the duplicate collapses).
+
+# ---------------------------------------------------------------------------
+# THE END-RHYME RELATION (*odl*).  Its five coordinates, as constants, so
+# `rhyme_declaration()` is built FROM them and cannot drift away from them --
+# `fin.py` shipped a `relation` string naming RIME_DEPTH=2 while the constant
+# was 1 for the whole life of that relation, and a dict built from the constant
+# is the fix that a hand-maintained sentence is not.
+# ---------------------------------------------------------------------------
+
+#: Syllables of the rime, COUNTED FROM THE WORD END, clamped by `rhymes` to the
+#: shorter of the two words.  1 is the shipped grade.  Welsh stress is
+#: penultimate, so this is deliberately NOT the last-prominent-syllable rule
+#: that `eng` uses; see RHYME_RULE.
+RIME_DEPTH = 1
+
+#: "depth"      the shipped reading: RIME_DEPTH syllables from the END.
+#: "prominent"  the English predicate ported -- from the last PROMINENT nucleus
+#:              to the end of the word.  Kept reachable so its falsification is
+#:              a call rather than a claim (doctrine 84).  Under penultimate
+#:              stress it reads TWO syllables of a polysyllable and ONE of a
+#:              monosyllable, so it cannot answer a cywydd couplet, which pairs
+#:              exactly those two; and it REFUSES outright on a line ending in
+#:              a proclitic, because a proclitic has no prominent syllable at
+#:              all (doctrine 46 -- the function-word list is part of the
+#:              phonology, and here it decides whether the port can answer).
+RHYME_RULE = "depth"
+
+#: "fold"  strip the combining marks before the rime is built.  Welsh writes
+#:         the circumflex on a vowel to mark LENGTH; the staged corpus contains
+#:         both a transcription that keeps it and two that flattened it to
+#:         ASCII, so the SAME distinction is present in one file and absent in
+#:         the next.  Folding makes the corpus one corpus.  It is applied ONLY
+#:         in the rime path -- `syllabify`, `skeleton` and every cynghanedd
+#:         number are untouched, which is checked rather than trusted.
+#: "keep"  do not fold.  Reachable, and it is the reading that calls 12 of the
+#:         78 attested couplets of `corpus/cym_twm_or_nant_cywydd.txt` False.
+DIACRITICS = "fold"
+
+#: What to do when the rime's anchor begins with a word-initial `w`/`i` that
+#: could be a consonant (a glide) or the first element of a diphthong.  There
+#: is no orthographic signal, so:
+#: "undecided"    hold BOTH readings; True where they agree True, False where
+#:                they agree False, None where they disagree.  Shipped.
+#: "vocalic"      the diphthong reading -- what `syllabify` has always taken.
+#: "consonantal"  the glide reading.
+#: The last two exist so the shipped refusal can be measured against both
+#: decided readings instead of being asserted better than them.
+GLIDE = "undecided"
+
+#: TREIGLAD IS DECLARED NOT TO PARTICIPATE, and unlike `fin.GRADATION` this is
+#: a DERIVATION rather than a judgement, which is why it needs no setting.
+#:
+#: Welsh initial consonant mutation replaces or deletes the WORD-INITIAL
+#: consonant, and nothing else: `tân` / `dân` / `thân`, `brân` / `frân`,
+#: `môr` / `fôr`, `cân` / `gân` / `chân` are all in the staged corpus.  A rime
+#: begins at a NUCLEUS.  The only onset it could ever reach is that of its own
+#: first covered syllable, and it excludes that one by construction -- that
+#: exclusion is what makes it a rhyme rather than an identity.  So a change
+#: confined to the word-initial consonant run is INVISIBLE to every rime this
+#: module can build, at any depth and under either anchor rule, and there is
+#: nothing for a mutation-aware setting to do.  Surface only, never lemmatise:
+#: `quality/test_phonology.py` §10g pins the corpus-attested triples.
+MUTATION = ("does not participate, and CANNOT: treiglad changes only the "
+            "word-INITIAL consonant, which is the onset of syllable 0, and a "
+            "rime never reads the onset of its first covered syllable. "
+            "Surface only -- never lemmatise. There is no mutation-aware "
+            "setting to reach for because there is nothing for one to do.")
 
 
 #: Letters that may occur inside a word, derived from the inventories above so
@@ -151,6 +286,44 @@ def normalise(text):
     for dash in ("—", "–", "‒"):
         t = t.replace(dash, "--")
     return t
+
+
+def fold_diacritics(text):
+    """Strip the combining marks. -> str.
+
+    Welsh writes the circumflex on a vowel to mark LENGTH (`tân`, `dŵr`,
+    `gŵr`), and over the seven staged Welsh files this is 191 combining
+    circumflexes against 2 combining diaereses -- so the mark that folds here
+    is overwhelmingly the length mark. Two of the five files in
+    `corpus/song/cym_*` are ISO-646-US transcriptions in which it has been
+    flattened away already, which is the reason folding is the default: the
+    alternative is a comparator whose answer depends on which volume a line
+    came out of.
+
+    NOT applied by `syllabify` and NOT applied anywhere in the cynghanedd path.
+    Folding CAN change a syllable count -- `â'u` normalises to `âu`, two nuclei,
+    and folds to `au`, which is a listed diphthong and one -- so applying it
+    globally would move numbers in a relation that never asked for it
+    (doctrine 58: write the setting next to the number, do not silently move
+    the number).
+
+    **ONLY OVER A VOWEL.** A blanket "strip every combining mark" would turn
+    `ñ` into `n` and quietly admit a foreign proper name that `units()`
+    correctly refuses -- the monoculture error arriving through the back door
+    of a normaliser. The mark is dropped only where the base letter is one of
+    the seven Welsh vowels, which is where Welsh writes one, so an
+    out-of-inventory character stays out of inventory.
+    """
+    out, base = [], ""
+    for c in unicodedata.normalize("NFD", text):
+        if unicodedata.combining(c):
+            if base in "aeiouwyAEIOUWY":
+                continue          # a Welsh length/hiatus mark: drop it
+            out.append(c)
+            continue
+        base = c
+        out.append(c)
+    return unicodedata.normalize("NFC", "".join(out))
 
 
 def units(word):
@@ -201,8 +374,18 @@ class Welsh(Phonology):
     prominence_rule = ("penultimate syllable, the regular Welsh rule; "
                        "monosyllables are stressed. Known exceptions "
                        "(Cymraeg, verbs in -hau) are NOT lexicalised here")
-    relation = ("cynghanedd: consonant skeleton answered across the caesura "
-                "(croes/traws), or rhyme-then-alliteration (sain)")
+    relation = ("TWO, declared separately: (1) cynghanedd -- consonant "
+                "skeleton answered across the caesura (croes/traws), or "
+                "rhyme-then-alliteration (sain), or lusg; (2) end-rhyme "
+                "(odl) -- the last RIME_DEPTH=1 syllable(s) agree from the "
+                "first covered NUCLEUS, counted FROM THE WORD END and NOT "
+                "anchored on prominence, because Welsh stress is penultimate "
+                "and a rhyme-bearing final syllable is therefore normally "
+                "UNSTRESSED. Every coordinate of (2) is in "
+                "`rhyme_declaration()`; the anchor is the one a reader of the "
+                "English engine will assume wrong, and the cywydd is the form "
+                "that proves it, because it pairs an accented end with an "
+                "unaccented one on purpose.")
     source = "rules only; no external resource, so nothing to licence"
 
     def syllabify(self, word):
@@ -649,6 +832,383 @@ class Welsh(Phonology):
             return "llusg", why
         return None, (f"{ans['class']}: {sa} not answered by {sb}; "
                       f"llusg: {why}")
+
+    # -- the SECOND relation: end-rhyme (odl) -----------------------------
+
+    def rhyme_declaration(self):
+        """-> the end-rhyme relation's coordinate tuple (doctrine 1).
+
+        Built FROM the module constants, never beside them. `fin.py` records
+        why: its `relation` string named a depth it did not ship, for the
+        whole life of the relation, and a sentence a human maintains beside a
+        constant drifts while a dict built from the constant cannot.
+        """
+        return {
+            "anchor": (
+                f"COUNTED FROM THE WORD END: the last RIME_DEPTH="
+                f"{RIME_DEPTH} syllable(s), measured from the first covered "
+                f"syllable's NUCLEUS, clamped to the SHORTER of the two "
+                f"words. NOT the last prominent syllable. Welsh stress is "
+                f"PENULTIMATE, so the syllable that carries the rhyme is "
+                f"normally UNSTRESSED, and a prominence anchor reads two "
+                f"syllables of a polysyllable against one of a monosyllable "
+                f"-- which is exactly the pair a cywydd couplet is built "
+                f"from. Reachable as rule='prominent' and FALSIFIED there, "
+                f"not merely rejected."),
+            "anchor_rule": RHYME_RULE,
+            "depth": RIME_DEPTH,
+            "nucleus": (
+                "the syllable's vowel: one of a e i o u w y, or one of the "
+                "listed diphthongs. `w` and `y` ARE vowels in Welsh and the "
+                "inventory says so. `y` is clear in a final syllable and "
+                "obscure elsewhere; that alternation is NOT written and is "
+                "NOT read here, so two `y` nuclei compare equal whatever "
+                "their position -- a declared loss, and the one place this "
+                "module's nucleus is coarser than the language."),
+            "coda": (
+                "every consonant unit after the nucleus in that syllable, "
+                "with the EIGHT DIGRAPHS (ch dd ff ng ll ph rh th, plus the "
+                "nasal-mutation ngh mh nh) kept WHOLE. `mynydd` has coda "
+                "('dd',) and not ('d','d'); splitting them is the one error "
+                "that makes every Welsh skeleton wrong while still looking "
+                "plausible."),
+            "onset_of_the_anchor": (
+                "FREE, and comparing it is what relation_type() calls "
+                "RIME_RICHE. It is also the whole of why treiglad cannot "
+                "participate -- see `mutation`."),
+            "diacritics": (
+                f"{DIACRITICS!r} -- the circumflex is a LENGTH mark and it is "
+                f"FOLDED. Not a taste: the staged corpus mixes an ASCII "
+                f"transcription that flattened it with a UTF-8 one that kept "
+                f"it, so the distinction is present in one volume and absent "
+                f"in the next. diacritics='keep' is reachable and it is the "
+                f"reading under which one attested cywydd couplet in six "
+                f"fails on nothing but a circumflex."),
+            "glide": (
+                f"{GLIDE!r} -- a word-initial `w`/`i` before a vowel may be a "
+                f"consonant or the first element of a diphthong and the "
+                f"orthography does not say which. Both readings are held; the "
+                f"verdict is True where they agree, False where they agree, "
+                f"and None where they DISAGREE. That is the only refusal here "
+                f"that is a property of the PAIR rather than of a word, so it "
+                f"is an AIMED refusal in doctrine 67's sense -- it falls on "
+                f"the pairs where the collapsed distinction decides the "
+                f"answer, and nowhere else."),
+            "mutation": MUTATION,
+            "shared_ending": (
+                "NOT TYPED, and that is a refusal to invent rather than a "
+                "silence. `fin.relation_type` returns SUFFIX_RHYME because it "
+                "has a declared list of Finnish endings; no comparable Welsh "
+                "list was reachable from this cell and writing a plausible "
+                "one from memory is the thing this repo forbids. What is "
+                "reachable is recorded: `shared_tail(a, b)` returns the "
+                "longest common written tail so a caller holding such a list "
+                "can apply it, and RESULTS_CYM_RHYME.md tables the tail "
+                "distribution so the size of the unanswered question is "
+                "visible rather than assumed away. The unblock route is a "
+                "SOURCE, not a build (doctrine 44)."),
+            "refusals": (
+                "three, each derived from what the RELATION needs (doctrine "
+                "60): an out-of-inventory character, a token with no vowel, "
+                "and a glide the two readings disagree about. See "
+                "UNREADABLE_REASONS; the third is the only one that needs a "
+                "pair to detect."),
+            "notation": self.notation,
+        }
+
+    def _rime_start(self, sylls, rule, depth):
+        """-> index of the first syllable the rime covers, or None.
+
+        `depth` is clamped by the CALLER to the shorter of the two words.
+        `prominent` is per-MEMBER (doctrine 83): each word declares its own
+        anchor off its own prominence grid, and under a PENULTIMATE rule that
+        is a different span on each side of a cywydd couplet, which is why it
+        cannot answer one. It returns None on a word with no prominent
+        syllable at all -- a proclitic -- rather than falling back.
+        """
+        if rule == "prominent":
+            p = [k for k, s in enumerate(sylls) if s.prominence == 1]
+            return max(p) if p else None
+        if rule != "depth":
+            raise ValueError(f"unknown rhyme rule {rule!r}; "
+                             f"declared: 'depth', 'prominent'")
+        return len(sylls) - depth
+
+    @staticmethod
+    def _glide_split(syl):
+        """-> the CONSONANTAL reading of a word-initial glide syllable, or None.
+
+        The ambiguity is `wych`: `w` + `ych`, or the diphthong `wy` + `ch`.
+        It exists only where the syllable has NO onset (so the `w`/`i` is the
+        first thing in the word) and a multi-letter nucleus starting `w` or
+        `i`. The alternative reading moves that letter into the onset -- where
+        the rime does not read it -- so the two readings differ in exactly one
+        place, the NUCLEUS, which is what makes them worth holding rather than
+        collapsing.
+        """
+        if syl.onset or not isinstance(syl.nucleus, str):
+            return None
+        if len(syl.nucleus) < 2 or syl.nucleus[0] not in "wi":
+            return None
+        return Syllable(syl.text, (syl.nucleus[0],), syl.nucleus[1:],
+                        syl.coda, syl.prominence, syl.moras)
+
+    def _sylls_for_rime(self, word, diacritics):
+        if diacritics not in ("fold", "keep"):
+            raise ValueError(
+                f"diacritics={diacritics!r}; declared values are 'fold' (the "
+                f"circumflex is a length mark and the corpus mixes two "
+                f"transcriptions of it) and 'keep'.")
+        return self.syllabify(
+            fold_diacritics(word) if diacritics == "fold" else word)
+
+    def rimes(self, word, depth=RIME_DEPTH, rule=RHYME_RULE,
+              diacritics=DIACRITICS, glide=GLIDE):
+        """-> a TUPLE of the rime readings this word permits. () is a refusal.
+
+        One entry under a decided `glide`; one or two under `glide=
+        "undecided"`. Each reading runs from the first covered syllable's
+        NUCLEUS to the end of the word: (nucleus, coda, onset, nucleus, coda,
+        ...). The first syllable's ONSET is deliberately absent -- that is what
+        makes this a rhyme rather than an identity, and it is also why
+        treiglad cannot reach it.
+        """
+        if glide not in ("undecided", "vocalic", "consonantal"):
+            raise ValueError(
+                f"glide={glide!r}; declared values are 'undecided' (hold both "
+                f"readings and refuse where they disagree), 'vocalic' (the "
+                f"diphthong reading, which is what syllabify takes) and "
+                f"'consonantal' (the glide reading).")
+        s = self._sylls_for_rime(word, diacritics)
+        if not s:
+            return ()
+        d = max(1, min(depth, len(s)))
+        i = self._rime_start(s, rule, d)
+        if i is None:
+            return ()
+        readings = [s]
+        alt = self._glide_split(s[i]) if i == 0 else None
+        if alt is not None:
+            if glide == "vocalic":
+                pass
+            elif glide == "consonantal":
+                readings = [[alt] + s[1:]]
+            else:
+                readings = [s, [alt] + s[1:]]
+        out = []
+        for r in readings:
+            t = [r[i].nucleus, "".join(r[i].coda)]
+            for x in r[i + 1:]:
+                t += ["".join(x.onset), x.nucleus, "".join(x.coda)]
+            t = tuple(t)
+            if t not in out:
+                out.append(t)
+        return tuple(out)
+
+    def rime(self, word, depth=RIME_DEPTH, rule=RHYME_RULE,
+             diacritics=DIACRITICS, glide=GLIDE):
+        """-> the single rime tuple, or None.
+
+        None where the word is unreadable AND where it holds more than one
+        reading: a caller that wants one value must say which reading it
+        means, via `glide='vocalic'` or `glide='consonantal'`. Returning the
+        first of two would be `prons[0]` -- the defect the whole knowledge-set
+        machinery in `quality/phonology/__init__.py` exists to prevent.
+        """
+        r = self.rimes(word, depth, rule, diacritics, glide)
+        return r[0] if len(r) == 1 else None
+
+    def rhymes(self, a, b, depth=RIME_DEPTH, rule=RHYME_RULE,
+               diacritics=DIACRITICS, glide=GLIDE):
+        """-> True / False / None. None means 'cannot tell', never a guess.
+
+        The depth is clamped to the SHORTER word, so a monosyllabic rhyme word
+        drags the comparison to one syllable rather than failing on length --
+        which is not an accommodation but the form's own rule: a cywydd
+        couplet pairs an *acennog* end with a *diacen* one, so the two sides
+        are of different lengths BY CONSTRUCTION.
+
+        Three ways to get None, and they are different (doctrine 88): either
+        word unreadable; `rule='prominent'` on a word with no prominent
+        syllable; or the two glide readings disagreeing, which is the only one
+        that needs both words to detect.
+        """
+        ra = self.rimes(a, depth, rule, diacritics, glide)
+        rb = self.rimes(b, depth, rule, diacritics, glide)
+        if not ra or not rb:
+            return None
+        sa = self._sylls_for_rime(a, diacritics)
+        sb = self._sylls_for_rime(b, diacritics)
+        if rule == "depth":
+            d = max(1, min(depth, len(sa), len(sb)))
+            if d != depth:
+                ra = self.rimes(a, d, rule, diacritics, glide)
+                rb = self.rimes(b, d, rule, diacritics, glide)
+        verdicts = {x == y for x in ra for y in rb}
+        return verdicts.pop() if len(verdicts) == 1 else None
+
+    def shared_tail(self, a, b, diacritics=DIACRITICS):
+        """-> the longest common WRITTEN tail of two words.
+
+        A diagnostic, never a verdict. It is what a caller holding a list of
+        Welsh grammatical endings would test against; this module holds no
+        such list and says so in `rhyme_declaration()['shared_ending']`
+        rather than inventing one.
+        """
+        x = normalise(a).replace("'", "").replace("-", "").lower()
+        y = normalise(b).replace("'", "").replace("-", "").lower()
+        if diacritics == "fold":
+            x, y = fold_diacritics(x), fold_diacritics(y)
+        k = 0
+        while k < min(len(x), len(y)) and x[-1 - k] == y[-1 - k]:
+            k += 1
+        return x[len(x) - k:]
+
+    def relation_type(self, a, b, depth=RIME_DEPTH, rule=RHYME_RULE,
+                      diacritics=DIACRITICS, glide=GLIDE):
+        """-> REPEAT / RIME_RICHE / RHYME / NONE / None.
+
+        Doctrine 3: identity is not rhyme, and this repo has already been bitten
+        by not typing it -- half of `corpus/whitman.txt`'s detected chain links
+        are REPEAT on an identical token, which is why that file was never an
+        eligible negative control. A Welsh song corpus is full of refrains, so
+        the same trap is live here and the same answer applies: TYPE it, do not
+        delete it (doctrine 24).
+
+        SUFFIX_RHYME is deliberately absent. `fin` can return it because it has
+        a declared list of Finnish endings; this module has no sourced Welsh
+        equivalent, and a type nobody can compute is worse than a type nobody
+        offers -- `length='apocopated'` (doctrine 83) is this repo's precedent
+        for that. `shared_tail()` is what a caller uses instead.
+        """
+        v = self.rhymes(a, b, depth, rule, diacritics, glide)
+        if v is None:
+            return None
+        if not v:
+            return "NONE"
+        sa = self._sylls_for_rime(a, diacritics)
+        sb = self._sylls_for_rime(b, diacritics)
+        if [s.text for s in sa] == [s.text for s in sb]:
+            return "REPEAT"
+        d = max(1, min(depth, len(sa), len(sb))) if rule == "depth" else depth
+        i, j = self._rime_start(sa, rule, d), self._rime_start(sb, rule, d)
+        if [s.text for s in sa[i:]] == [s.text for s in sb[j:]]:
+            return "RIME_RICHE"
+        return "RHYME"
+
+    def refusal_reason(self, word, depth=RIME_DEPTH, rule=RHYME_RULE,
+                       diacritics=DIACRITICS, glide=GLIDE):
+        """-> None if the word supplies a rime, else a code naming WHY.
+
+        Doctrine 88 one layer down: a refusal rate is uninterpretable until an
+        ingestion miss and a designed refusal are told apart, and that has to
+        be a function call rather than a paragraph. The codes are in
+        UNREADABLE_REASONS.
+
+        `undecided_glide` is NOT reported here, and that is the point of this
+        docstring: it is a property of a PAIR, so a word-level census cannot
+        see it. `glide_ambiguous()` reports the word-level marker; only
+        `rhymes` can report the refusal.
+        """
+        src = fold_diacritics(word) if diacritics == "fold" else word
+        if units(src) is None:
+            return "out_of_inventory"
+        if not self._sylls_for_rime(word, diacritics):
+            return "vowelless_token"
+        if not self.rimes(word, depth, rule, diacritics, glide):
+            return "no_prominent_syllable"
+        return None
+
+    def glide_ambiguous(self, word, diacritics=DIACRITICS):
+        """-> True where this word's FIRST syllable carries the undecided
+        word-initial `w`/`i`. A marker, not a refusal: it only becomes one when
+        the ambiguous syllable is inside the rime AND the two readings give
+        different answers against the other word."""
+        s = self._sylls_for_rime(word, diacritics)
+        return bool(s) and self._glide_split(s[0]) is not None
+
+
+#: code -> (layer that OWNS it, is it a defect at all, one-line reason).
+#: The same table `fin.py` and `msa.py` carry, for the same reason: doctrine 88
+#: says a refusal rate is uninterpretable until an ingestion miss and a designed
+#: refusal are told apart, and doctrine 79 says report the counts separately.
+UNREADABLE_REASONS = {
+    "vowelless_token": (
+        "ingestion", True,
+        "no vowel, so no nucleus and no word: in this corpus these are "
+        "footnote and plate markers left behind by the extraction (`c`, `v`, "
+        "`jpg`) and bare elision fragments. Owned by the tokenizer, not by "
+        "this module."),
+    "out_of_inventory": (
+        "notation", False,
+        "a character outside the declared Welsh alphabet. Notation is "
+        "declared, never sniffed: a correct refusal."),
+    "no_prominent_syllable": (
+        "phonology", False,
+        "rule='prominent' only: the word has no prominent syllable, which "
+        "under the Welsh rule means it is a PROCLITIC (doctrine 46). The "
+        "shipped anchor does not ask the question and so never hits this."),
+    "undecided_glide": (
+        "phonology", False,
+        "DESIGNED refusal, and the only one that is a property of the PAIR: a "
+        "word-initial `w`/`i` is a glide or a diphthong member, the "
+        "orthography does not say which, and the two readings disagree about "
+        "THIS pair. Refused rather than guessed -- doctrine 53, a verdict "
+        "that turns on a distinction the orthography has collapsed."),
+}
+
+
+def readability_census(phon, tokens, **kw):
+    """-> the THREE counts doctrine 79 demands, never two.
+
+    `read` + `refused` + `defective` == `total`. Same shape as
+    `fin.readability_census`, so the two languages' rows are comparable.
+    `undecided_glide` cannot appear here: it needs a pair. See
+    `pair_census` for the count that can see it.
+    """
+    out = {"total": 0, "read": 0, "refused": 0, "defective": 0, "by_code": {},
+           "by_layer": {}}
+    for t in tokens:
+        out["total"] += 1
+        code = phon.refusal_reason(t, **kw)
+        if code is None:
+            out["read"] += 1
+            continue
+        layer, defect, _why = UNREADABLE_REASONS[code]
+        out["by_code"][code] = out["by_code"].get(code, 0) + 1
+        out["by_layer"][layer] = out["by_layer"].get(layer, 0) + 1
+        if defect:
+            out["defective"] += 1
+        else:
+            out["refused"] += 1
+    return out
+
+
+def pair_census(phon, pairs, **kw):
+    """-> mandated / judged / refused over PAIRS, with the refusals split by
+    cause (doctrines 79 and 88).
+
+    The word-level census above cannot see `undecided_glide`, because it takes
+    two words to disagree. Reporting one without the other would understate
+    the refusal and mis-attribute it, which is doctrine 79's error moved one
+    layer out: a refusal in the numerator charges the comparator for something
+    the notation did.
+    """
+    out = {"mandated": 0, "judged": 0, "refused": 0, "true": 0, "false": 0,
+           "by_code": {}}
+    for a, b in pairs:
+        out["mandated"] += 1
+        v = phon.rhymes(a, b, **kw)
+        if v is None:
+            out["refused"] += 1
+            ca = phon.refusal_reason(a, **kw)
+            cb = phon.refusal_reason(b, **kw)
+            code = ca or cb or "undecided_glide"
+            out["by_code"][code] = out["by_code"].get(code, 0) + 1
+            continue
+        out["judged"] += 1
+        out["true" if v else "false"] += 1
+    return out
 
 
 register(Welsh())

@@ -24,6 +24,21 @@ things, none of them a refusal:
      lines. An entirely unreadable line was reported as
      "radif/refrain line: licensed" — an unreadable line passing as a refrain.
 
+  4. `line_readability` ITSELF, until 2026-08-11, and this was the worst of
+     the four because it was not a missing relation but an INVENTED one.
+     `Lexicon.transcribe` splits a token on its hyphens and looks each piece
+     up alone, so a compound whose LAST piece is missing still yields phones
+     from the earlier ones: `hill-zide` was anchored on `hill`, scored against
+     `wife-zide` anchored on `wife`, banded, and the line reported READABLE.
+     Measured over the 143 English song files at commit `2f2d26c`: 174 line
+     ends of 151,894. The refusal is now in `line_anchors`
+     (`lyric_harness.unread_final_piece`) and the cause is recorded here as
+     `final_unreadable_cause = "piece"`. Its price on both populations is in
+     `quality/RESULTS_HYPHEN_REFUSAL.md` — zero on the sonnet oracle, +0.099pp
+     on the song corpus, 63.8% of it in two dialect files whose end words
+     CMUdict was already failing to read at 4.0x the rate of the files this
+     rule does not touch (doctrine 67).
+
 The rule this enforces: AN UNREADABLE WORD PRODUCES A RECORDED REFUSAL, NEVER A
 MISSING RELATION. A caller must always be able to tell "these lines do not
 rhyme" from "I could not read one of them".
@@ -126,18 +141,23 @@ def report(lex, lines):
         "records": records,
         "findings": [],
     }
-    if unread_final:
+    # THE TWO FLAGS PARTITION, they do not overlap: `UNREADABLE_END_WORD` is
+    # cause `token` and `UNREADABLE_END_WORD_PIECE` is cause `piece`. Emitting
+    # the first over BOTH would print the compound cases twice under two
+    # sentences that say different things about them, which is the misfiling
+    # this module just finished fixing, re-committed in the rendering.
+    if by_token:
         out["findings"].append(Finding(
             code="UNREADABLE_END_WORD",
             severity="flag",
-            message=(f"{len(unread_final)} of {n} lines end in a word CMUdict "
+            message=(f"{len(by_token)} of {n} lines end in a word CMUdict "
                      f"cannot read; their end-rhyme is UNKNOWN, not absent"),
             evidence=("No pronunciation is guessed (no G2P fallback). Every "
                       "relation these lines would have entered is REFUSED and "
                       "recorded, not silently dropped. Words: "
                       + ", ".join(sorted({r["final_token"]
-                                          for r in unread_final})[:20])),
-            locations=[r["line"] for r in unread_final],
+                                          for r in by_token})[:20])),
+            locations=[r["line"] for r in by_token],
         ))
     if by_piece:
         out["findings"].append(Finding(

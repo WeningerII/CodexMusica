@@ -70,8 +70,29 @@ bounded line-distance placement.
 CLOSED HERE, and each is asserted in `test_relations.py` so the close is
 readable: P10, the chorus stub, as a DECLARED `Stream.line_status` with no
 detector shipped in this file; P11's comparison half, as knowledge sets on the
-channel reads.  Still OPEN and named there: `Span.unit`, `SpanRule.terminator`,
-the text-order convention.
+channel reads.
+
+THE OTHER THREE CLOSED ON 2026-08-11, one per outcome, because an inert
+declared coordinate has exactly three honest ends and picking the right one
+per field is the work:
+  DELETED   `SpanRule.terminator`.  A strict function of `magnitude` over all
+            154 member rules, and `_spans_at` has no edge left for it to
+            choose between.  Two coordinates meaning one thing is a worse
+            defect than one inert coordinate, and the honest close of a
+            duplicate is a deletion, not a wiring.
+  WIRED     the text-order convention.  It was never a naming decision: on the
+            17 ASYMMETRIC schemas the `a.head() > b.head()` skip DELETED
+            instances rather than de-duplicating them, 102 of them on the
+            shipped example lyric, 8 with a TRUE verdict, and `mosaic rhyme`
+            reported 4 of its 12 true instances.  `mirrored()` replaces it and
+            `order_burden()` counts what it costs.  All 60 symmetric schemas
+            are byte-identical before and after.
+  DECLARED  `Span.unit`, in the `INERT` table above section 11, WITH the
+            reason, what would activate it, and which of doctrine 44/92's
+            three blockers it is -- 'disjoint', not 'build', so "build the
+            granularity ladder" is the wrong instruction.  `check_inert()`
+            MEASURES the claim so the declaration is a test and not a
+            paragraph (doctrine 48), and it fails in both directions.
 """
 
 import itertools
@@ -1729,8 +1750,89 @@ def _frame_key(schema, span, stream):
     return None
 
 
+def mirrored(a, b, a_keys, b_keys):
+    """Is the (b, a) spelling of this pair ALSO a candidate of this schema?
+
+    THE TEXT-ORDER CONVENTION, WHICH USED TO BE A SILENT FILTER (2026-08-11).
+
+    `realise()` skipped every pair whose A-member started after its B-member,
+    on the stated ground that "members are in TEXT ORDER".  On a SYMMETRIC
+    schema -- `spans[0] == spans[1]`, 60 of the 77 shipped -- that is exact
+    de-duplication: A and B are the same list, so (b, a) is enumerated too and
+    one of the two orderings has to go.  On an ASYMMETRIC schema the two
+    members come from DIFFERENT rules, so (b, a) is generally NOT enumerated
+    and the skip DELETED the instance instead of canonicalising it.
+
+    Measured on `lyric.txt` (30 non-blank lines, `eng`, 55 of the 77 schemas
+    realising): the rule drops 135,600 candidate pairs whose mirror is a
+    candidate, and RECOVERS 102 instances the positional rule deleted.  All
+    102 fall on 4 ASYMMETRIC schemas and NONE on any of the 60 symmetric ones,
+    which is the separation this function makes mechanical.  Eight of the 102
+    carry a TRUE verdict, all on `mosaic rhyme`: `deed`/`we'd need` was
+    reported at L8/L9 and deleted at L28/L9 -- the same relation, invisible
+    because the multi-word run happened to print first -- and `seed`/`we'd
+    need` appeared in no output at all.  So the convention was not a naming
+    decision: it made an asymmetric schema's recall a function of which member
+    the text prints first, and `mosaic rhyme` reported 4 of its 12 TRUE
+    instances.  `cynghanedd lusg` returned zero candidates where three exist,
+    which reads from outside exactly like a schema that found nothing
+    (doctrine 20).  The two counts sit on DIFFERENT denominators -- candidates
+    and instances -- and `order_burden`'s key names say which.
+
+    The rule that replaces it drops a reversed pair only where the mirror is
+    genuinely available, so de-duplication is preserved everywhere it was ever
+    doing that job and nothing else is thrown away.  Symmetric schemas are
+    byte-identical before and after, which is what keeps every count in this
+    repo that was taken over them.
+
+    NOT closed by this: whether a schema's two members may be the SAME TOKEN.
+    The three `cynghanedd lusg` pairs recovered here are one word against its
+    own penult and all read False; excluding them is a job for a declared
+    `IdentityRule`, not for an ordering rule doing it by accident.
+    """
+    return b.idx in a_keys and a.idx in b_keys
+
+
+def order_burden(schema, stream, chans=DEFAULT_CHANNELS):
+    """What the text-order convention costs this schema, in INSTANCES.
+
+    The sibling of `search_burden` (doctrine 56) for a different silent loss.
+    -> {'symmetric', 'instances', 'deduplicated_candidates',
+        'recovered_instances', 'recovered_true'}
+
+    It runs `realise()` rather than re-deriving the loop, and reads the tally
+    `realise()` keeps.  Counting the raw A x B cross product instead would be
+    a different denominator dressed as the same one: it skips the frame and
+    bucket join, so it reports candidate pairs where the schema reports
+    instances, and the two differ by two orders of magnitude on `mosaic
+    rhyme` -- 9,044 against 15.  Adversary 7: the number, the label and the
+    evidence have to name the same thing.
+
+    TWO LEVELS, AND THEY ARE NOT THE SAME DENOMINATOR.
+    `deduplicated_candidates` is candidate pairs, counted before evaluation,
+    because a de-duplicated pair is never evaluated and there is no instance
+    to count.  `recovered_instances` is INSTANCES, counted after evaluation.
+    On `lyric.txt` they read 135,600 and 102, and dividing one by the other
+    would mean nothing.
+
+    `recovered_instances` is what the pre-2026-08-11 positional rule DELETED
+    and this one keeps; `recovered_true` is how many of those carry a TRUE
+    verdict.  A nonzero `recovered_true` means every count taken from that
+    schema before that date is LOW, and says by how much.
+    """
+    t = {}
+    out = realise(schema, stream, chans, keep="all", tally=t)
+    base = {"symmetric": schema.spans[0] == schema.spans[1],
+            "deduplicated_candidates": t.get("deduplicated_candidates", 0),
+            "recovered_instances": t.get("recovered_instances", 0),
+            "recovered_true": t.get("recovered_true", 0)}
+    if isinstance(out, Refusal):
+        return dict(base, instances=0, refused=out.capability)
+    return dict(base, instances=len(out))
+
+
 def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
-            keep=("true", "none")):
+            keep=("true", "none"), tally=None):
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
 
     THE ALGORITHM
@@ -1738,8 +1840,9 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
       2. enumerate candidate spans per member from the member's OWN SpanRule.
       3. bucket by (frame, schema's first AGREE channel).  Unknown keys are
          wildcards and join everything.
-      4. for each candidate pair in text order: placement -> align -> channels
-         -> ternary verdict.
+      4. for each candidate pair, DE-DUPLICATED by `mirrored()` rather than
+         filtered on text order: placement -> align -> channels -> ternary
+         verdict.
       5. figures beyond the pair are assembled from the surviving edges.
 
     `keep` defaults to True and None instances.  Pass keep="all" for the
@@ -1791,15 +1894,29 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
         for b in cands:
             if a.idx == b.idx or (a.idx, b.idx) in seen:
                 continue
-            if a.head() > b.head() and mirrored(a, b, a_keys, b_keys):
-                continue         # the mirror carries it; see mirrored()
             seen.add((a.idx, b.idx))
+            reversed_pair = a.head() > b.head()
+            if reversed_pair and mirrored(a, b, a_keys, b_keys):
+                # CANDIDATE level: a de-duplicated pair is never evaluated, so
+                # this count and `recovered_instances` below sit on different
+                # denominators and must never be compared or summed. The key
+                # names say which, because a number whose label outruns its
+                # evidence is adversary 7's whole remit.
+                if tally is not None:
+                    tally["deduplicated_candidates"] = (
+                        tally.get("deduplicated_candidates", 0) + 1)
+                continue         # the mirror carries it; see mirrored()
             n += 1
             if n > max_pairs:
                 raise RuntimeError("candidate explosion; tighten the schema")
             inst = evaluate(schema, a, b, stream, chans)
             if inst is None:
                 continue
+            if reversed_pair and tally is not None:      # INSTANCE level
+                tally["recovered_instances"] = (
+                    tally.get("recovered_instances", 0) + 1)
+                if inst.verdict is True:
+                    tally["recovered_true"] = tally.get("recovered_true", 0) + 1
             tag = {True: "true", False: "false", None: "none"}[inst.verdict]
             if keep == "all" or tag in keep:
                 out.append(inst)
@@ -2942,6 +3059,173 @@ def capability_report(stream):
 
 
 # ---------------------------------------------------------------------------
+# 10a. INERT DECLARED COORDINATES -- declared, and CHECKED to be inert
+#
+# Doctrine 1 says every analysis states its assumptions and they live in a
+# coordinate.  The failure mode this section exists for is the inverse: a
+# coordinate NOBODY READS is a stated assumption that is not in force, so the
+# declaration lies about what the analysis depends on.  This repo has found
+# six of them -- `Span.unit`, `SpanRule.terminator`, `RelationSchema.
+# traditions`, `Span.search_k`, `grid.Line.beat`/`.duration`, and
+# `rhyme_constraints.Span.unit`.  Four were closed by WIRING, one by
+# DELETION, and the remainder are declared here.
+#
+# Doctrine 48 is why this is a table and a function rather than a paragraph:
+# "declared inert, with the reason" is a principle that lives only in prose
+# and gets followed exactly as often as someone remembers it.  `check_inert()`
+# MEASURES the claim on a real stream, so the declaration is a test.  It fails
+# in BOTH directions, which is the part that matters -- if a later session
+# starts setting one of these fields, the entry saying it is inert becomes
+# false and this says so, instead of the field quietly acquiring a semantics
+# nobody declared.
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Inert:
+    """A field that is declared and read by nothing, KEPT on a stated
+    argument.
+
+    `blocker` is doctrine 44/92's three-way split and is the load-bearing
+    coordinate: "build the thing" is the answer to only one of them.
+      'build'    -- hard to build, and nothing else is in the way.
+      'obtain'   -- the input cannot be obtained at all.
+      'disjoint' -- both halves exist and never co-occur in one object.
+    """
+    field: str
+    reason: str
+    activates_when: str
+    blocker: str            # 'build' | 'obtain' | 'disjoint'
+    measured: str           # the command that produced the numbers above
+
+
+INERT = (
+    Inert(
+        field="Span.unit",
+        reason=(
+            "declared on every Span and read by nothing in this module, and "
+            "not merely unread -- NOT SETTABLE. All five `Span(...)` sites in "
+            "`_spans_at` pass the literal 'syllable', so the field takes "
+            "exactly one value over every span the registry can produce "
+            "(census printed by the command below, so the count is measured "
+            "rather than recorded -- doctrine 58). That is a constant wearing "
+            "a coordinate's name. `SpanRule` has no `unit` either, so no "
+            "schema can ask for a different one."),
+        activates_when=(
+            "a SpanRule gains `unit` AND the Stream carries a parallel index "
+            "stream at that granularity. Wiring the field to the syllable "
+            "stream it already indexes would close nothing: it would be the "
+            "same constant, assigned instead of defaulted."),
+        blocker="disjoint",
+        measured="python3 quality/relations.py --inert lyric.txt"),
+    Inert(
+        field="rhyme_constraints.Span.unit",
+        reason=(
+            "the SAME field in the sibling module, where it IS read -- "
+            "`read_channel` branches on `extent.unit != 'syllable'` into "
+            "`_phone_projection`. Measured over that module's registry the "
+            "branch is DEAD: 40 of 40 member spans declare 'syllable', so the "
+            "projection path is unreachable from any shipped constraint. The "
+            "read exists and the values do not, which is why grepping for a "
+            "read is not a measurement of one."),
+        activates_when=(
+            "a constraint in that registry declares unit='phone' or "
+            "'grapheme'. The consumer is already written, so that module is "
+            "one declared value away and this one is not."),
+        blocker="build",
+        measured="python3 quality/relations.py --inert lyric.txt"),
+)
+
+#: `Span.unit`'s blocker is 'disjoint' and NOT 'build', which is the whole
+#: content of the entry.  A granularity ladder needs two properties in ONE
+#: object -- a phonology that declares a sub-syllabic or supra-syllabic unit,
+#: and a stream indexed in that unit -- and the repo has each of them
+#: separately and never together.  Three of the nine shipped phonologies (fas,
+#: san, som) declare `grid_unit='mora'`, so the DECLARATION half exists; all
+#: nine return `Syllable`s from `syllabify()` and `build_stream` indexes those,
+#: so the STREAM half is the syllable for every one of them, including the
+#: three that declared otherwise.  Meanwhile the CONSUMER half exists in
+#: `rhyme_constraints.read_channel`, in a module whose own registry never sets
+#: the field.  Every piece is built; no two are in the same object.  So "build
+#: the granularity ladder" is the wrong instruction: what is owed is a
+#: `Phonology.units(word, unit=...)` seam that lets a phonology return its
+#: DECLARED unit, and the three mora languages are where it would be tested
+#: (doctrine 37 -- against the tradition, not against its own rules).
+
+
+def inert_census(stream):
+    """-> {field: (n_observations, sorted values)} for every INERT entry.
+
+    The census is the measurement and the entries do not carry the number,
+    because a count written into a docstring is a threshold nobody wrote down
+    (doctrine 58) and this one moves with the text it is taken over.
+    """
+    out = {}
+    for e in INERT:
+        cls, _, name = e.field.rpartition(".")
+        if cls == "Span":
+            if name not in Span.__dataclass_fields__:
+                out[e.field] = (0, ["<field deleted>"])
+                continue
+            vals, n = set(), 0
+            for schema in REGISTRY.values():
+                for rule in schema.spans:
+                    try:
+                        for sp in enumerate_spans(rule, stream):
+                            vals.add(getattr(sp, name))
+                            n += 1
+                    except NoReferent:
+                        continue
+            out[e.field] = (n, sorted(map(repr, vals)))
+        elif cls == "rhyme_constraints.Span":
+            try:
+                from quality import rhyme_constraints as _C
+            except Exception as exc:                        # noqa: BLE001
+                out[e.field] = (0, [f"<unimportable: {exc}>"])
+                continue
+            members = [m for con in _C.REGISTRY.values()
+                       for m in getattr(con, "members", ()) or ()]
+            out[e.field] = (len(members),
+                            sorted({repr(getattr(m.span, name))
+                                    for m in members}))
+        else:
+            out[e.field] = (0, ["<no census for this class>"])
+    return out
+
+
+def check_inert(stream, chans=DEFAULT_CHANNELS):
+    """MEASURE every INERT claim on a real stream. -> list of finding strings,
+    empty when every declaration holds.
+
+    A declaration that has quietly become false is a finding here, in EITHER
+    direction: a field that gained a second value is no longer inert and its
+    entry now lies in the other direction, and a field that vanished has been
+    closed without its entry being retired.
+    """
+    out = []
+    census = inert_census(stream)
+    for e in INERT:
+        n, vals = census[e.field]
+        if vals == ["<field deleted>"]:
+            out.append(f"{e.field}: DECLARED INERT and no longer exists — the "
+                       f"entry outlived the field, retire it")
+        elif vals and vals[0].startswith("<"):
+            out.append(f"{e.field}: cannot be measured — {vals[0]}")
+        elif len(vals) > 1:
+            out.append(f"{e.field}: DECLARED INERT and takes {len(vals)} "
+                       f"values over {n} observations ({', '.join(vals)}) — "
+                       f"it is LIVE now, so the declaration is false and the "
+                       f"reason must be replaced by what reads it")
+        elif n == 0:
+            out.append(f"{e.field}: no observations on this stream, so the "
+                       f"inertness claim was not tested — not a pass")
+        if e.blocker not in ("build", "obtain", "disjoint"):
+            out.append(f"{e.field}: blocker {e.blocker!r} is not one of "
+                       f"doctrine 44/92's three")
+    return out
+
+
+# ---------------------------------------------------------------------------
 # 11. TRADITIONS.  M-15: `RelationSchema.traditions` was declared on all 77
 #     schemas and populated on ZERO, so "Middle Chinese end rhyme (同用 group)"
 #     fired on four lines of English and nothing in the output could say that
@@ -3899,6 +4183,7 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "DirectedDiffer", "PresentVsAbsent", "SequenceEqual",
            "SequenceSuffix", "SubsequenceOf", "Read", "ChannelSet",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
+           "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "mark_refrain_tail", "search_caesura", "mark_printed_caesura",
            "REGISTRY", "QUERIES", "declare", "all_schemas",
            "capability_report", "tri_and", "tri_or",
@@ -3919,12 +4204,14 @@ def main(argv):
     library.
     """
     from quality.phonology import get as get_phonology
-    lang, paths, limit = "eng", [], None
+    lang, paths, limit, inert = "eng", [], None, False
     for a in argv:
         if a.startswith("--lang="):
             lang = a.split("=", 1)[1]
         elif a.startswith("--limit="):
             limit = int(a.split("=", 1)[1])
+        elif a == "--inert":
+            inert = True
         else:
             paths.append(a)
     if not paths:
@@ -3946,8 +4233,60 @@ def main(argv):
                       stanzas=stanzas_from_blank_lines(raw))
     print(f"  {paths[0]}   lines {sum(1 for l in raw if l.strip())}   units "
           f"{len(st.units)}   UNREADABLE tokens {len(st.unreadable)}")
+    if inert:
+        return print_inert_report(st)
     print_relation_report(relation_report(st), limit=limit)
     return 0
+
+
+def print_inert_report(stream):
+    """`--inert`: the declared-inert fields, MEASURED, plus what the text-order
+    convention costs each schema.  Exit 1 on any finding, so a declaration that
+    has become false is a failing command and not a paragraph somebody reads.
+    """
+    print("\nDECLARED INERT (section 10a) — reason, activation, blocker")
+    census = inert_census(stream)
+    for e in INERT:
+        n, vals = census[e.field]
+        print(f"\n  {e.field}   blocker={e.blocker}")
+        print(f"      MEASURED  : {len(vals)} value(s) over {n} observations "
+              f"— {', '.join(vals)}")
+        print(f"      why inert : {e.reason}")
+        print(f"      activates : {e.activates_when}")
+    bad = check_inert(stream)
+    print(f"\n  VERDICT: "
+          f"{'every declaration holds' if not bad else str(len(bad)) + ' FALSE'}")
+    for b in bad:
+        print(f"      FAIL {b}")
+
+    print("\nTEXT-ORDER BURDEN — INSTANCES, from realise()'s own tally")
+    print("  `recovered` = instances the pre-2026-08-11 positional skip "
+          "DELETED\n  rather than de-duplicated. Only an ASYMMETRIC schema "
+          "can have any.")
+    print("  dedup is CANDIDATE pairs, recov is INSTANCES — two "
+          "denominators, never a ratio.")
+    rows = []
+    for name in sorted(REGISTRY):
+        s = order_burden(REGISTRY[name], stream)
+        if s["recovered_instances"]:
+            rows.append((name, s))
+    sym_orphans = [n for n, s in rows if s["symmetric"]]
+    print(f"\n  schemas recovering at least one deleted instance: {len(rows)} "
+          f"(SYMMETRIC among them: {len(sym_orphans)} — must be 0)")
+    print(f"      {'schema':40s} {'sym':>5s} {'inst':>7s} {'dedup':>8s} "
+          f"{'recov':>6s} {'rec=T':>6s}")
+    for name, s in rows:
+        print(f"      {name[:40]:40s} {str(s['symmetric']):>5s} "
+              f"{s['instances']:7d} {s['deduplicated_candidates']:8d} "
+              f"{s['recovered_instances']:6d} {s['recovered_true']:6d}")
+    print(f"  TOTAL recovered {sum(s['recovered_instances'] for _, s in rows)} "
+          f"instances, of which TRUE "
+          f"{sum(s['recovered_true'] for _, s in rows)}")
+    if sym_orphans:
+        bad.append(f"symmetric schemas recovered instances: {sym_orphans} — "
+                   f"de-duplication is not exact")
+        print(f"      FAIL {bad[-1]}")
+    return 1 if bad else 0
 
 
 if __name__ == "__main__":

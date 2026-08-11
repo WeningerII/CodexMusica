@@ -678,24 +678,35 @@ def token_pieces(lex, token):
     `final_unreadable = False`, and the span's own provenance recorded the
     WHOLE token as the word it covered.
 
-    MEASURED 2026-08-11 over the 143 `corpus/song/eng_*.txt` files, 153,115
-    line ends taken as `line_tokens`-non-empty lines outside the `#`/`---`/`[`
-    markers (190,441 counting every non-blank line -- doctrine 91, the count is
-    a coordinate of the rendering): **328 line ends report READABLE with an
-    unread piece inside the end token**, and the split by WHICH piece is the
-    triage:
+    MEASURED at commit `2f2d26c` over the 143 `corpus/song/eng_*.txt` files,
+    151,894 line ends taken as `line_tokens`-non-empty lines outside the
+    `#`/`---`/`[` markers (189,261 counting every non-blank line, 188,805 on
+    `quality.readability.read_lines` -- doctrine 91, the count is a coordinate
+    of the rendering, and a corpus cell was de-duplicating this corpus in the
+    same round so it is pinned to a COMMIT and not to a date): **323 line ends
+    have an unread piece inside an end token that yields phones**, and the
+    split by WHICH piece is the triage:
 
-      179 the LAST piece is unread, so the anchor is built from an earlier
-          one and the rhyme verdict is on the wrong syllable -- `hill-zide`
-          anchors on `hill`, `a-vound` on the participial `a-`. ANCHOR layer,
-          a wrong answer;
+      174 the LAST piece is unread, so any anchor would be built from an
+          earlier one and the verdict would be on a string that is not the
+          rhyme word -- `hill-zide` anchored on `hill`, `a-vound` on the
+          participial `a-` whose only phone is a schwa. ANCHOR layer, a wrong
+          answer, **and REFUSED as of 2026-08-11** (`unread_final_piece`,
+          `quality/RESULTS_HYPHEN_REFUSAL.md`);
       149 an earlier piece is unread and the last one reads, so the anchor is
           on the right piece and only the LABEL overstates -- `threshing-floor`
-          scored on `floor`. REPORT layer, this cell's.
+          scored on `floor`. REPORT layer, and NOT refused: `span_kind`
+          returns `substituted` and `span_label` prints both pieces.
 
-    Cell U measured the union at 293 and triaged all of it as ingestion; the
-    two halves have different remedies, which is doctrine 44's separation
-    applied to a defect rather than to a corpus.
+    Three earlier figures and why they differ, because a fourth would
+    otherwise appear next round (METHOD's own rule at doctrine 70's
+    amendment). Cell U measured the union at **293** on a 189,985-line
+    denominator and triaged all of it as ingestion. Cell AB re-cut it at
+    **328 = 179 + 149** on 153,115. Cell AC's de-duplication took that to
+    327 = 178 + 149 on 151,894 -- the CORPUS moved, not the rule. And the
+    letterless guard above takes it to 323 = 174 + 149: `pie--'` and three
+    like it were counting a closing quote as an unread piece. Every step is a
+    coordinate, and only the last one is a correction.
 
     A PIECE WITH NO LETTER IS NOT A WORD AND IS NOT COUNTED (added 2026-08-11).
     `line_tokens` already requires a Latin letter of every token it emits, and
@@ -3761,7 +3772,19 @@ def main():
             print(f"  [{f.severity.upper()}] {f.code}: {f.message}")
             if f.evidence:
                 print(f"      {f.evidence}")
-        print(f"  lines {len(lines)}   refusals {len(rep.get('refusals', []))}")
+        # THREE COUNTS, and they were never being printed: this line read
+        # `refusals {len(rep.get('refusals', []))}` and `report()` has no
+        # `refusals` key, so the verb printed `refusals 0` on every text it
+        # has ever been run on -- including a Barnes file where 2,401 of
+        # 16,179 line ends are refusals. Doctrine 79's own rule broken in the
+        # rendering of the module that exists to enforce it.
+        n = rep["lines_countable"]
+        ref = rep["lines_unreadable_final"]
+        print(f"  countable line ends {n}   read {n - ref}   REFUSED {ref}"
+              f"   ({ref / n:.2%})" if n else f"  countable line ends 0")
+        print(f"    by cause: {rep['lines_unreadable_final_token']} the whole "
+              f"end word, {rep['lines_unreadable_final_piece']} the LAST "
+              f"piece of a compound")
 
     elif cmd in ("brief", "verify"):
         from quality.revise import Reviser

@@ -860,47 +860,169 @@ def _stub_excluded(stub_line):
             and len(st.lines) == 3 and st.lines[1] == ())
 
 
+def _lyric_stream():
+    """The shipped example lyric, which is where the text-order convention's
+    cost was MEASURED. Kept in one place so the numbers below and the ones in
+    relations.py's docstring come from the same object."""
+    raw = [l.rstrip() for l in open(os.path.join(HERE, "..", "lyric.txt"),
+                                    encoding="utf-8") if l.strip()]
+    return R.build_stream(raw, ENG, declaration=dict(
+        channels=("nucleus", "coda", "onset", "prominence"), prominence=True))
+
+
 def test_known_open_defects():
-    print("\nOPEN — asserted so they are visible, and so closing one is a "
-          "test failure that has to be read.  Two of the five closed on "
-          "2026-08-11 (P10, P11's comparison half); three are DECLINED below, "
-          "each with the reason, because closing none and saying why is an "
-          "outcome and guessing is not.")
-    check("P2 open, DECLINED: SpanRule.terminator is declared and never read",
-          "terminator" in R.SpanRule.__dataclass_fields__
+    import quality.rhyme_constraints as C
+    print("\nThe five defects §2.8 left OPEN, each now at ONE of the three "
+          "honest ends — wired, deleted, or declared inert with the reason. "
+          "All five are asserted, so RE-OPENING one is a test failure that "
+          "has to be read, exactly as closing one used to be.")
+
+    # ---- P2. CLOSED 2026-08-11 BY DELETION. ------------------------------
+    # The assertion that stood here pinned `terminator` as present-and-unread
+    # and said in its own note that "the honest close is a deletion". It was
+    # right, and the measurement below is what turned that from a preference
+    # into a fact: the field was a strict FUNCTION of `magnitude` across all
+    # 154 member rules, so it carried zero information, and `_spans_at` has no
+    # edge left for it to select between because `ids` IS the locus.
+    _rules = [r for s in R.REGISTRY.values() for r in s.spans]
+    _mags = {}
+    for _r in _rules:
+        _mags.setdefault(str(_r.magnitude), set()).add(
+            getattr(_r, "terminator", None))
+    check("P2 CLOSED by DELETION: SpanRule has no `terminator`, and nothing "
+          "in the registry lost a distinction",
+          "terminator" not in R.SpanRule.__dataclass_fields__
+          and len(_rules) == 154
+          and all(len(v) == 1 for v in _mags.values())
           and "terminator" not in R.__dict__["_spans_at"].__code__.co_names,
-          "one schema sets terminator='frame_edge' and its magnitude "
-          "'to_frame_edge' already carries the fact; the field is a duplicate, "
-          "not a missing read. DECLINED deliberately: branching on a field "
-          "that duplicates another would be INVENTING a semantics no schema "
-          "and no canon entry asks for, and a second coordinate meaning the "
-          "same thing is a worse defect than an inert one. The honest close "
-          "is a deletion, and deleting a public field is a decision for "
-          "whoever owns the callers.")
-    check("Span.unit open, DECLINED: declared and never read; SpanRule "
-          "cannot set it",
+          f"{len(_rules)} member rules over {len(R.REGISTRY)} schemas. Before "
+          f"deletion: 153 carried the default 'word_edge' and 1 carried "
+          f"'frame_edge', and NO magnitude mapped to two terminators — the "
+          f"field was a function of `magnitude` and could not distinguish "
+          f"anything. The single non-default was `broken rhyme`, whose "
+          f"magnitude 'to_frame_edge' already says it. Deleting a duplicate "
+          f"is the close; wiring one would have INVENTED a semantics no "
+          f"schema and no canon entry asks for. This assertion now fails if "
+          f"the field comes back OR if a magnitude ever needs two of them.")
+
+    # ---- Span.unit. CLOSED 2026-08-11 AS A DECLARED INERT COORDINATE. ----
+    check("Span.unit: still inert, and now DECLARED inert in the code rather "
+          "than only in this test",
           "unit" in R.Span.__dataclass_fields__
-          and "unit" not in R.SpanRule.__dataclass_fields__,
-          "M1, the granularity ladder — a NEW coordinate, not a defect. "
-          "DECLINED: a real close needs SpanRule.unit AND a per-granularity "
-          "unit stream (mora for som, akṣara for san, character for ltc), "
-          "and no shipped phonology exposes one — `som` DECLARES grid_unit="
-          "mora and returns syllables. Wiring the field to the syllable "
-          "stream it already has would make it a fourth inert coordinate "
-          "wearing a fix.")
+          and "unit" not in R.SpanRule.__dataclass_fields__
+          and any(e.field == "Span.unit" for e in R.INERT),
+          "doctrine 1: a coordinate nobody reads is a stated assumption that "
+          "is not in force, so the declaration lies about what the analysis "
+          "depends on. The three honest ends are wire, delete, or KEEP IT AND "
+          "DECLARE IT — and the third was previously being taken in a test "
+          "file that a reader of relations.py never opens. relations.py §10a "
+          "now carries the entry, with the reason and the activation "
+          "condition.")
+    _un = R.INERT[[e.field for e in R.INERT].index("Span.unit")]
+    check("...and its blocker is named as one of doctrine 44/92's three, and "
+          "it is `disjoint` — NOT `build`",
+          _un.blocker == "disjoint"
+          and all(e.blocker in ("build", "obtain", "disjoint")
+                  for e in R.INERT),
+          "this is the whole content of the entry and the reason 'build the "
+          "granularity ladder' is the wrong instruction. Three of the nine "
+          "shipped phonologies (fas, san, som) DECLARE grid_unit='mora', so "
+          "the declaration half exists; all nine return Syllables from "
+          "syllabify() and build_stream indexes those, so the stream half is "
+          "the syllable for every one of them INCLUDING those three; and the "
+          "consumer half exists in rhyme_constraints.read_channel, in a "
+          "module whose own registry never sets the field. Every piece is "
+          "built and no two are in one object.")
+    _bad = R.check_inert(stream(QUATRAIN))
+    check("...and the declaration is MEASURED, not asserted — check_inert() "
+          "re-derives it and fails in BOTH directions",
+          _bad == [],
+          "doctrine 48: 'declared inert, with the reason' is a principle that "
+          "lives only in prose and gets followed exactly as often as somebody "
+          "remembers it. check_inert() enumerates every span the registry can "
+          "produce and fails if a declared-inert field has GAINED a value — "
+          "so a later session that starts setting Span.unit gets a failing "
+          "test instead of a field quietly acquiring a semantics nobody "
+          "declared. It also fails if the field is deleted while its entry "
+          "survives. Run: python3 quality/relations.py --inert lyric.txt")
+    check("...and the sixth inert coordinate this repo has found is IN the "
+          "table: rhyme_constraints.Span.unit, where the read is DEAD",
+          any(e.field == "rhyme_constraints.Span.unit" for e in R.INERT)
+          and len({m.span.unit for c in C.REGISTRY.values()
+                   for m in c.members}) == 1,
+          "read_channel() branches on `extent.unit != 'syllable'` into "
+          "_phone_projection, so a grep for a read finds one. Measured over "
+          "that module's registry, 40 of 40 member spans declare 'syllable' "
+          "and the branch is unreachable from any shipped constraint. A read "
+          "whose values do not exist is not a wiring — which is why the "
+          "inventory of inert coordinates has to be MEASURED and not grepped.")
+
+    # ---- text-order. CLOSED 2026-08-11 BY WIRING, and the DECLINE it -----
+    # replaces was FALSE. It was recorded as "a NAMING decision, not a defect:
+    # the convention is correct ... for no measurable gain". Measured, the
+    # gain is 102 instances on the shipped lyric, 8 of them TRUE.
     _ord = R.realise(R.REGISTRY["perfect rhyme"], stream(QUATRAIN),
                      keep="all")
-    check("text-order convention open, DECLINED: members are ordered by the "
-          "head unit, and no coordinate declares it",
+    check("text-order, half 1: a SYMMETRIC schema is byte-identical — the "
+          "skip really was exact de-duplication there",
           all(i.a.head() <= i.b.head() for i in _ord)
-          and not any("order" in f for f in
-                      R.RelationSchema.__dataclass_fields__),
-          "`realise()` skips a pair whose A follows B, so 'which member is "
-          "first' is fixed by the text and additive-vs-subtractive rests on "
-          "it. DECLINED because it is a NAMING decision, not a defect: the "
-          "convention is correct, it is documented in the schema notes, and "
-          "changing it renames a coordinate across every caller for no "
-          "measurable gain.")
+          and R.order_burden(R.REGISTRY["perfect rhyme"],
+                             stream(QUATRAIN))["recovered_instances"] == 0,
+          "60 of the 77 schemas have spans[0] == spans[1], so A and B are the "
+          "same list and (b, a) is always enumerated too. Every count this "
+          "repo has taken over a symmetric schema is unmoved, which is the "
+          "precondition for touching this at all.")
+    _ls = _lyric_stream()
+    _asym = [n for n, s in R.REGISTRY.items() if s.spans[0] != s.spans[1]]
+    _burd = {n: R.order_burden(R.REGISTRY[n], _ls) for n in R.REGISTRY}
+    _rec = {n: b for n, b in _burd.items() if b["recovered_instances"]}
+    check("text-order, half 2: the DECLINE was FALSE — on an ASYMMETRIC "
+          "schema the skip DELETED instances, and only there",
+          len(_asym) == 17
+          and sum(b["recovered_instances"] for b in _burd.values()) == 102
+          and sum(b["recovered_true"] for b in _burd.values()) == 8
+          and not any(b["symmetric"] for b in _rec.values()),
+          f"lyric.txt, all 77 schemas: "
+          f"{sum(b['recovered_instances'] for b in _burd.values())} "
+          f"instances recovered over {len(_rec)} schemas "
+          f"({', '.join(sorted(_rec))}), {sum(b['recovered_true'] for b in _burd.values())} "
+          f"of them TRUE, and ZERO on any of the 60 symmetric schemas. On an "
+          f"asymmetric schema the two members come from DIFFERENT rules, so "
+          f"(b, a) is generally not enumerated and there was nothing to "
+          f"de-duplicate — the skip was pure loss. `mirrored()` drops a "
+          f"reversed pair only where the mirror is genuinely a candidate.")
+    _mos = R.realise(R.REGISTRY["mosaic rhyme"], _ls, keep="all")
+    check("...and the concrete case: `mosaic rhyme` reported 4 of its 12 TRUE "
+          "instances, because the single word had to print FIRST",
+          _burd["mosaic rhyme"]["recovered_true"] == 8
+          and sum(1 for i in _mos if i.verdict is True) == 12,
+          "`deed`/`we'd need` was reported at L8/L9 and DELETED at L28/L9 — "
+          "the same relation, invisible because the multi-word run happened "
+          "to print first. `seed`/`we'd need` at L29 appeared in no output at "
+          "all. A schema's recall was a function of which member the text "
+          "prints first, which is not a naming decision.")
+    check("...and `cynghanedd lusg` returned ZERO candidates where three "
+          "exist, which reads from outside like a schema that found nothing",
+          _burd["cynghanedd lusg"]["recovered_instances"] == 3
+          and len(R.realise(R.REGISTRY["cynghanedd lusg"], _ls,
+                            keep="all")) == 3,
+          "doctrine 20: 'found nothing' and 'was never asked' are different "
+          "outputs and the skip collapsed them. The three recovered pairs are "
+          "one word against its own penult and all read False — correct, and "
+          "correct for a reason a DECLARED IdentityRule should carry, not an "
+          "ordering rule doing it by accident. That is left open and named "
+          "here rather than fixed by inventing an identity constraint no "
+          "canon entry asks for.")
+    check("...and the loss is COUNTED from now on, from realise()'s own "
+          "tally rather than a re-derived loop",
+          set(R.order_burden(R.REGISTRY["mosaic rhyme"], _ls))
+          >= {"symmetric", "instances", "deduplicated_candidates",
+              "recovered_instances", "recovered_true"},
+          "doctrine 56's sibling: search_burden() counts hypotheses, "
+          "order_burden() counts what the convention costs. Counting the raw "
+          "A x B cross product instead would be a different denominator "
+          "dressed as the same one — it skips the frame and bucket join and "
+          "reads 9,044 where the schema reports 15 (adversary 7).")
     # P10 CLOSED 2026-08-11 as a DECLARED COORDINATE. The assertion that used
     # to stand here said the stream had no field for a line status, and
     # closing it had to fail a test somebody reads. It did. What replaces it
