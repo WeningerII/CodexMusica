@@ -99,8 +99,16 @@ Malay is neither, and the choice here is made knowingly:
                         'nak < hendak, 'Che < Inche, 'laman < halaman).
                         Nothing is pronounced; it is dropped.
   medial `'` after a
-  consonant           = SYNCOPE, a deleted vowel (anak'nda < anakanda). It
-                        marks a boundary, so the word splits there.
+  consonant           = SYNCOPE, a deleted vowel (anak'nda < anakanda).
+  after a HYPHEN      = the apheresis case again, and it is a FIFTH position,
+                        not one of the four doctrine 65 names (darah-'kau,
+                        munchong-'kau, hati-'ku, mata-'kau). `_split_word`
+                        cuts the hyphen first, so this module has ALWAYS read
+                        them correctly — the defect is in the DESCRIPTION, and
+                        an audit checking only the four named positions reports
+                        unclassified marks in a module that gets them all
+                        right. `apostrophe_positions()` enumerates all five so
+                        the claim is a function call rather than a paragraph.
 
 The load-bearing half is the first: a word-final apostrophe is a SEGMENT and it
 enters the rime. The medial-before-a-vowel case is safe either way — glottal
@@ -108,6 +116,81 @@ onset or bare hiatus, both force the same break and differ only in an onset,
 which no rime sees. Skeat's backtick (`adat, `Ijrail) is `ayn; it is folded to
 the same glyph and, being word-initial in every instance, dropped. That fold
 loses the hamzah/`ayn distinction, which Malay does not use contrastively.
+
+THE SYNCOPE MARK DOES NOT ALWAYS MARK A BOUNDARY — MISSING M-3
+
+This file used to say the syncope apostrophe "marks a boundary, so the word
+splits there", full stop. That is right for `anak'nda` — anak + -nda, and both
+halves are well-formed Malay words. It is FATAL for `s'ri` (< seri, 29 tokens
+in the 330 Malay verse blocks; 75 in the whole file), `t'ada` (8), `b'ras` (3),
+`k'ladi` (2), `t'rap` (2), `g'lombang` (2), `k'ris`, `k'luar`, `b'lakang`,
+`b'layer`, `b'rita`, `d'ras`, `p'leherakan`, `p'rut`, `sa-g'lap`: the
+split leaves a VOWELLESS fragment, a fragment with no nucleus cannot be
+syllabified, and one unreadable part refuses the whole word. Every one of them
+was dropped from every class this module reports, silently.
+
+And the module ALREADY ACCEPTED THE IDENTICAL PROCESS SPELLED WITHOUT THE
+APOSTROPHE. Four sections down: "word-initial cluster ACCEPTED ... It is a
+pepet syncope of Straits printing (prang=perang, Brapa=berapa, 'Plam=Pelam)".
+The same deletion of the same /ə/, two printing habits, opposite verdicts —
+doctrine 65's lesson arriving INSIDE one language, between two spellings of
+one process, rather than between two languages.
+
+The rule that separates the two cases needs no lexicon and no list. Skeat's
+apostrophe stands WHERE THE VOWEL WAS, so the consonant before it was the
+ONSET of the syllable that lost its nucleus, and it re-attaches to what
+FOLLOWS:
+
+    s'ri   ->  s + ri   ->  sri     one syllable, rime `i`    (seri)
+    b'ras  ->  b + ras  ->  bras    one syllable, rime `as`   (beras)
+    p'rut  ->  p + rut  ->  prut    one syllable, rime `ut`   (perut)
+
+whereas `anak'nda` keeps its split, because `anak` is a well-formed Malay word
+on its own. Mechanically: **a part with no vowel is not a word, so it merges
+into the part that FOLLOWS** (`_merge_vowelless`). That is the whole fix, and
+it is deliberately narrower than "merge anything unsyllabifiable": `ters'lit`
+(< terselit) still refuses, because merging would give a medial /rsl/ and a
+medial cluster is a refusal this module makes on purpose. `indra`, `anggrek`,
+`chandrawasi`, `mentri` are untouched — those are `ndr`/`nggr` loans and the
+complex-coda rule is right about them.
+
+The same rule reads the Arabic proclitic article in Skeat's invocations:
+`bismillahi-'l-rahmani` has `'l` as a whole hyphen element with no vowel, so
+it merges forward into `lrahmani` and the article lands in the ONSET, which no
+rime sees. `bi-smi-llahi-r-rahmani-r-rahim` shows the assimilated spelling of
+the same article in the same text and now reads the same way.
+
+The cost, declared rather than discovered later: the merged form is one
+syllable SHORT of the unsyncopated word (`glombang` reads glom.bang where
+gelombang is ge.lom.bang), so `line_syllables` under-counts such a line by
+one. That cost was already being paid for `prang` and `Brapa`, which this
+module has accepted since it was written; the fix makes the two spellings
+agree rather than introducing a new error. The RIME is unaffected in every
+case, which is the coordinate this module exists to report.
+
+WHAT THE UNREADABLE TOKENS ACTUALLY ARE, MACHINE-READABLY
+
+Doctrine 88: nothing told an ingestion defect from a correct refusal, and a
+refusal rate is uninterpretable until its two causes are separated.
+`unreadable_reason()` returns a code from a FIXED vocabulary and
+`UNREADABLE_REASONS` maps each code to the layer that owns it, so the split is
+a function call. Measured over the 330 Malay verse blocks of PG47873 (3,415
+lines, 15,519 tokens, 458 unreadable) BEFORE this fix:
+
+    vowelless_token                            305   66.6%   ingestion, ELSEWHERE
+    complex_medial + complex_coda               77   16.8%   CORRECT REFUSAL
+    vowelless part left by the apostrophe rule  76   16.6%   THIS MODULE'S DEFECT
+
+and the 305 are `b` (101), `d` (100), `s` (99): the `d. s. b.` refrain stub,
+which belongs to `lyric_harness`'s tokenizer and not here. MISSING M-3 records
+rows two and three POOLED — "384 of 471 Malay token failures are the syncope
+split leaving a vowelless fragment" — while M-4 separately bills 300 of the
+same 471 to `d. s. b.`. Both cannot be true of one token. The pooling is the
+error: the earlier classifier keyed on "this part has no vowel" instead of on
+"an apostrophe split produced it", and so charged this module for 305 tokens
+it never touched. M-3's headline, that 82% of msa.py's unreadability is its
+own apostrophe rule, is **16.6%** — doctrine 79 one layer down, inside a
+document written to record doctrine 79.
 
 THE HYPHEN IS A SEAM, NOT A JOINER
 
@@ -331,6 +414,39 @@ def detect_orthography(text):
 
 # ------------------------------------------------------------ word -> units
 
+def _merge_vowelless(parts):
+    """A part with NO VOWEL is not a word; merge it into the part that FOLLOWS.
+
+    This is the M-3 fix and its whole argument is in the module docstring. A
+    Malay syllable needs a nucleus, so a vowelless fragment is never a
+    phonological word — it is the ONSET the syncope stranded (`s'ri` -> s + ri)
+    or a proclitic (`-'l-` in the Arabic invocations). Both attach rightwards,
+    so the merge is forward.
+
+    Two cases are deliberately NOT merged, and each is a refusal that stands:
+
+    * a vowelless part with nothing after it stays as its own part and refuses
+      as `vowelless_token`. `hi-r-rahm` is a macron-truncated fragment of the
+      basmala, not a word, and inventing a syllable for it would be a guess.
+    * a whole token with no vowel (`b`, `d`, `s` — the `d. s. b.` refrain stub)
+      has no following part to merge into and refuses the same way. That is the
+      correct verdict here: the fix belongs in the tokenizer that produced the
+      letter, and `unreadable_reason` says so by code.
+    """
+    if len(parts) < 2:
+        return parts
+    out, carry = [], ""
+    for p in parts:
+        if not any(c in VOWELS for c in p):
+            carry += p
+            continue
+        out.append(carry + p)
+        carry = ""
+    if carry:
+        out.append(carry)                 # trailing: left to refuse, not merged
+    return out
+
+
 def _split_word(w):
     """Split a written word on the marks that record DELETED material.
 
@@ -338,6 +454,13 @@ def _split_word(w):
     and a word-medial apostrophe after a CONSONANT (syncope) all mark something
     that is not there. An apostrophe after a VOWEL is left in place: that one
     is a glottal stop and belongs to the phonology.
+
+    The hyphen is cut FIRST, which is why the fifth apostrophe position —
+    after a hyphen, `darah-'kau`, `hati-'ku` — has always been read correctly
+    even though doctrine 65 names only four. See `apostrophe_positions`.
+
+    The syncope split is then repaired by `_merge_vowelless`: it is a boundary
+    only where the left half is a word, and `s'ri` is not `s` + `ri`.
     """
     parts = []
     for chunk in w.split("-"):
@@ -353,7 +476,7 @@ def _split_word(w):
                 cur += ch
         out.append(cur)
         parts.extend(p for p in out if p)
-    return parts
+    return _merge_vowelless(parts)
 
 
 def units(word):
@@ -385,14 +508,27 @@ def _with_coda(s, coda):
 
 def _syllabify_part(p):
     """-> list of Syllable, or None if out of inventory or out of shape."""
+    return _parse_part(p)[0]
+
+
+def _parse_part(p):
+    """-> (list of Syllable, None) or (None, reason code).
+
+    The reason is the whole point: doctrine 88 says a refusal rate is
+    uninterpretable until an ingestion defect and a correct refusal are told
+    apart, and this is where the two are distinguished. Codes are the keys of
+    `UNREADABLE_REASONS`.
+    """
     # Straits `ei` is /ai/ word-finally (bunglei=bunglai, selesei=selesai).
     # Positional, so it is applied here and not in normalise(): `aleikum` must
     # not be rewritten.
     if p.endswith("ei"):
         p = p[:-2] + "ai"
     u = units(p)
+    if u is None:
+        return None, "out_of_inventory"
     if not u:
-        return None
+        return None, "empty"
 
     # 1. runs of vowels and runs of consonants; a vowel run becomes nuclei,
     #    and only the last two vowels of a WORD-FINAL run may be a diphthong.
@@ -434,7 +570,7 @@ def _syllabify_part(p):
             onset = tuple(val)          # word-initial cluster: kept whole
         elif k == last:
             if len(val) > 1:
-                return None             # complex coda: the rime is at risk
+                return None, "complex_coda"     # the rime is at risk
             sylls[-1] = _with_coda(sylls[-1], tuple(val))
         elif len(val) == 1:
             onset = (val[0],)
@@ -442,8 +578,147 @@ def _syllabify_part(p):
             sylls[-1] = _with_coda(sylls[-1], (val[0],))
             onset = (val[1],)
         else:
-            return None                 # complex coda
-    return sylls or None
+            # three or more medial consonants: one coda + a complex onset is
+            # not a Malay shape. `indra`, `anggrek`, `chandrawasi`, `mentri`
+            # are ndr/nggr loans and refusing them is BY DESIGN.
+            return None, "complex_medial"
+    if not sylls:
+        return None, "vowelless_token"
+    return sylls, None
+
+
+# --------------------------------------- WHY a token is unreadable, by code
+# Doctrine 88: "nothing currently tells an ingestion defect from a correct
+# refusal, which is doctrine 79's error in a second layer -- a refusal rate is
+# uninterpretable until its two causes are separated." This is that separation,
+# as a table rather than as prose, so a caller can compute the split.
+
+#: code -> (layer that OWNS the defect, is it a defect at all, one-line reason)
+UNREADABLE_REASONS = {
+    "out_of_inventory": (
+        "notation", False,
+        "a character outside the declared Straits-Rumi alphabet. Notation is "
+        "declared, never sniffed (phonology commitment 1), so this is a "
+        "correct refusal and not a miss."),
+    "empty": (
+        "ingestion", True,
+        "nothing left after print punctuation was stripped. The token was "
+        "never a word; whatever produced it is upstream."),
+    "vowelless_token": (
+        "ingestion", True,
+        "no vowel anywhere in the token, so it has no nucleus and is not a "
+        "Malay word. In this corpus these are `b`/`d`/`s` from the `d. s. b.` "
+        "refrain stub and macron-truncated fragments of the Arabic basmala. "
+        "Owned by the tokenizer, NOT by this module."),
+    "complex_coda": (
+        "phonology", False,
+        "a word-final consonant run of more than one unit. Native Malay has "
+        "no complex coda and THE CODA IS THE RIME, so a guess here would "
+        "corrupt the one thing this module reports. Correct refusal."),
+    "complex_medial": (
+        "phonology", False,
+        "three or more medial consonants, which cannot be split into one coda "
+        "plus one onset. `indra`, `anggrek`, `chandrawasi`, `mentri` are "
+        "ndr/nggr loans. Correct refusal."),
+}
+
+
+def unreadable_reason(word):
+    """-> None if the word is readable, else a dict naming WHY.
+
+    Keys: `code` (a key of UNREADABLE_REASONS), `part` (the offending piece
+    after `_split_word`), `layer`, `is_defect`, `explanation`. The first
+    offending part wins, because one unreadable part refuses the whole word.
+    """
+    w = normalise(word).lower().strip()
+    w = w.strip('".,;:!?()[]«»“”').strip("-")
+    parts = _split_word(w)
+    if not parts:
+        layer, defect, why = UNREADABLE_REASONS["empty"]
+        return {"code": "empty", "part": "", "layer": layer,
+                "is_defect": defect, "explanation": why}
+    for p in parts:
+        sylls, code = _parse_part(p)
+        if sylls is None:
+            layer, defect, why = UNREADABLE_REASONS[code]
+            return {"code": code, "part": p, "layer": layer,
+                    "is_defect": defect, "explanation": why}
+    return None
+
+
+def readability_census(tokens):
+    """-> the THREE counts doctrine 79 demands, never two, plus the split.
+
+    `read` + `refused` + `defective` = `total`. `refused` is the module
+    declining on its declared shape or notation, which is a result; `defective`
+    is an ingestion miss, which is a bug in some layer and is named by layer.
+    Collapsing the two is exactly what charged this module for the `d. s. b.`
+    refrain stub (see the module docstring).
+    """
+    out = {"total": 0, "read": 0, "refused": 0, "defective": 0,
+           "by_code": {}, "by_layer": {}}
+    for t in tokens:
+        out["total"] += 1
+        r = unreadable_reason(t)
+        if r is None:
+            out["read"] += 1
+            continue
+        out["by_code"][r["code"]] = out["by_code"].get(r["code"], 0) + 1
+        out["by_layer"][r["layer"]] = out["by_layer"].get(r["layer"], 0) + 1
+        if r["is_defect"]:
+            out["defective"] += 1
+        else:
+            out["refused"] += 1
+    return out
+
+
+# ------------------------------------------- the apostrophe's FIVE positions
+# Doctrine 65 names four. There are five: the fifth is AFTER A HYPHEN, and this
+# module reads it correctly because `_split_word` cuts the hyphen first. The
+# defect was in the description, so the remedy is an enumeration a caller can
+# run rather than a sentence a caller has to trust.
+
+APOSTROPHE_POSITIONS = (
+    ("final", "word-final: HAMZAH /ʔ/, a real coda that ENTERS THE RIME "
+              "(pinta', ta', dato'). Modern orthography writes it `k`."),
+    ("after_vowel", "medial after a vowel: the same /ʔ/ — coda before a "
+                    "consonant (ta'tabek), onset before a vowel (do'a)."),
+    ("initial", "word-initial: APHERESIS, a deleted leading syllable "
+                "('ku < aku, 'nak < hendak). Nothing is pronounced."),
+    ("after_consonant", "medial after a consonant: SYNCOPE of a deleted vowel "
+                        "(anak'nda, s'ri). A boundary only where the left "
+                        "half is itself a word — see _merge_vowelless."),
+    ("after_hyphen", "immediately after a hyphen: apheresis again, at a "
+                     "compound/clitic seam (darah-'kau, munchong-'kau, "
+                     "hati-'ku, mata-'kau). THE FIFTH POSITION, missing from "
+                     "doctrine 65 and handled correctly here since day one."),
+)
+
+
+def apostrophe_positions(word):
+    """-> [(index, position_name), ...] for every apostrophe in the word.
+
+    Classification is on the RAW written form, before any split, so it can be
+    checked against the printing. Every mark gets a name; there is no
+    `unclassified` bucket, which is the point.
+    """
+    w = normalise(word).lower()
+    out = []
+    for i, ch in enumerate(w):
+        if ch != "'":
+            continue
+        prev = w[i - 1] if i else ""
+        if i == len(w) - 1 or not w[i + 1].isalpha():
+            out.append((i, "final"))
+        elif not prev:
+            out.append((i, "initial"))
+        elif prev == "-":
+            out.append((i, "after_hyphen"))
+        elif prev in VOWELS:
+            out.append((i, "after_vowel"))
+        else:
+            out.append((i, "after_consonant"))
+    return out
 
 
 # ------------------------------------------------------------- the phonology

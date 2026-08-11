@@ -291,13 +291,24 @@ def test_the_anchor_is_a_coordinate_and_it_moves_the_span():
 
     # THE DEFECT, in one call. Before the anchor axis, classify_pair compared
     # sa[-n:] against sb[-n:] and `position` never touched the span.
-    old_style = T.classify_pair("kukka", "kalevala", fin)   # last-prominent
+    # `consult=False` keeps doctrine 83's defect DEMONSTRABLE now that fin
+    # declares a rhyme predicate (MISSING M-6, closed 2026-08-11). With the
+    # declared relation consulted the verdict is True, because fin.rhymes
+    # agrees with fin.alliterates -- which is the disagreement doctrine 83 was
+    # written about, now closed on one side. Doctrine 84: a demonstration that
+    # has been optimised away is a sentence nobody can check.
+    old_style = T.classify_pair("kukka", "kalevala", fin, consult=False)
     check("the tail locator reads kukka~kalevala as a 2-syllable rhyme span",
           old_style.member_text == (("kuk", "ka"), ("va", "la"))
           and old_style.verdict() is False,
           "'kuk' against 'va' and 'ka' against 'la' — and the SECOND cell "
           "reports 'perfect rhyme', which is a false-positive label sitting "
           "on top of a false-negative verdict")
+    check("and the declared relation now OVERRULES it, which is the half of "
+          "doctrine 83 that M-6 closes",
+          T.classify_pair("kukka", "kalevala", fin).verdict() is True,
+          "fin.rhymes reads the shared open final `a` -- the Finnish "
+          "one-syllable loppusointu -- where the tail locator saw kuk~va")
     check("and that disagrees with the phonology's own relation",
           fin.alliterates("kukka", "kalevala") is True
           and old_style.alliterates() is False,
@@ -595,12 +606,22 @@ def test_the_phonologys_own_relation_wins():
     check("consult=False is reachable, so the channel-only path stays "
           "demonstrable",
           T.classify_pair("流", "樓", ltc, consult=False).verdict() is False)
+    # fin USED to be the example here and no longer is: M-6 is closed and
+    # fin.py declares an end-rhyme predicate, so it IS consulted. The
+    # distinction this protects is unchanged -- an inherited stub's None must
+    # not read as a refusal -- so it moves to a module that still inherits the
+    # stub. cym, not som: som declines a stress grid, so the default anchor
+    # raises there for an unrelated reason and would muddy what is tested.
     check("a phonology that declares NO rhyme predicate is not consulted",
-          T.classify_pair("kukka", "kukko", get("fin")).route["rhyme"]
+          T.classify_pair("cariad", "bariad", get("cym")).route["rhyme"]
           == "channels",
-          "fin implements alliterates() and inherits the rhymes() stub; "
-          "reading the stub's None as a refusal would delete every Finnish "
-          "verdict")
+          "cym implements cynghanedd and no rhymes(); reading the inherited "
+          "stub's None as a refusal would delete every Welsh verdict")
+    check("while fin, which now HAS one, is consulted (M-6 closed)",
+          T.classify_pair("kukka", "kukko", get("fin")).route["rhyme"]
+          == "declared_relation",
+          "the verdict is unchanged -- False either way; what moved is which "
+          "layer answered")
     check("and a declared LOCATOR suppresses the consultation, because "
           "phon.rhymes() would be answering a different question",
           T.classify_pair("流", "樓", ltc,

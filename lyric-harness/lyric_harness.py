@@ -468,6 +468,55 @@ def refusals_for_pairs(records, pairs):
     return out
 
 
+def _phone_owners(lex, words):
+    """Which WORD each phone of `words` came from -> list of word indices.
+
+    A mirror of `Lexicon.transcribe(..., phrase_final=False)` that keeps the
+    provenance that method discards. It is a mirror rather than a rewrite of
+    `transcribe` because `transcribe` is on the shipped path and the sonnet
+    oracle is calibrated against it; the caller checks that this returns
+    exactly as many owners as `transcribe` returned phones and DROPS the
+    provenance if it does not, so a future divergence costs a report line
+    rather than a mislabelled span.
+    """
+    owners = []
+    for k, w in enumerate(words):
+        for piece in re.split(r"[-‑]", w):
+            if not piece:
+                continue
+            p, _ = lex.transcribe_word(piece)
+            lw = piece.lower()
+            if lw in WEAK_ALWAYS or lw in WEAK_NONFINAL:
+                pass          # stress rewrite does not change the phone count
+            owners.extend([k] * len(p))
+    return owners
+
+
+def _tag_span_words(sylls, phones, owners, words):
+    """Tag each syllable with the word its NUCLEUS came from.
+
+    The nucleus, not the onset: `syllabify` maximises the onset of the next
+    syllable, so consonants cross word boundaries and the only phone whose
+    word is never in doubt is the vowel. Tagging is best-effort -- if the
+    phone list and the owner list have drifted apart, nothing is tagged and
+    `span_provenance` then returns None rather than a guess.
+    """
+    nuclei = [i for i, ph in enumerate(phones) if split_phone(ph)[0] in VOWELS]
+    if len(nuclei) != len(sylls) or len(owners) != len(phones):
+        return
+    total = {}
+    for ni in nuclei:
+        total[owners[ni]] = total.get(owners[ni], 0) + 1
+    seen = {}
+    for k, ni in enumerate(nuclei):
+        w = owners[ni]
+        seen[w] = seen.get(w, 0) + 1
+        sylls[k]["widx"] = w
+        sylls[k]["word"] = words[w]
+        sylls[k]["syl_in_word"] = seen[w]
+        sylls[k]["word_syllables"] = total[w]
+
+
 def line_anchors(lex, text, promote=False):
     """All anchor readings of a line: the last word cycles through its
     dictionary pronunciation variants (homographs: live, wind, read).
@@ -478,6 +527,12 @@ def line_anchors(lex, text, promote=False):
     to the preceding word. That much was always right (measured). What was
     wrong is that every caller threw the third return value away; see
     `line_readability`.
+
+    Each syllable now carries the WORD it came from (`word`, `widx`,
+    `syl_in_word`, `word_syllables`). These candidates are the k hypotheses
+    `best_score` maximises over, and until the tags existed the winner could
+    not say which words it had read -- so a mosaic reach like `get to go` was
+    reported under the end word `go`. See `span_provenance`.
     """
     words = line_tokens(text)
     if not words:
@@ -486,6 +541,9 @@ def line_anchors(lex, text, promote=False):
     last = words[-1]
     pre_phones, _, pre_oov = (lex.transcribe(prefix, phrase_final=False)
                               if prefix else ([], [], []))
+    pre_owners = _phone_owners(lex, words[:-1]) if prefix else []
+    if len(pre_owners) != len(pre_phones):
+        pre_owners = None            # cannot attribute: refuse to guess
     lw = fold_apostrophes(last).lower().strip("'\".,;:!?()[]")
     variants = lex.entries.get(lw, [])[:4]
     oov = list(pre_oov)
@@ -498,7 +556,11 @@ def line_anchors(lex, text, promote=False):
         v = list(var)
         if lw in WEAK_ALWAYS:
             v = [re.sub(r"[12]$", "0", ph) for ph in v]
-        sylls = syllabify(pre_phones + v)
+        full = pre_phones + v
+        sylls = syllabify(full)
+        if pre_owners is not None:
+            _tag_span_words(sylls, full,
+                            pre_owners + [len(words) - 1] * len(v), words)
         stressed = [i for i, s in enumerate(sylls)
                     if s["stress"] in (1, 2)]
         starts = stressed[-2:] if stressed else [len(sylls) - 1]
@@ -524,14 +586,131 @@ def line_anchors(lex, text, promote=False):
     return uniq, last, oov
 
 
+def span_provenance(anc):
+    """Which WORDS a scored span covers -> dict, or None when it cannot say.
+
+    None is returned for an anchor built outside `line_anchors` (the matrix
+    evaluator does this) rather than a plausible guess, because a provenance
+    record that is sometimes invented is worse than one that is sometimes
+    absent -- the whole point of it is that it can be trusted.
+    """
+    if not anc:
+        return None
+    if any("widx" not in s for s in anc):
+        return None
+    runs = []
+    for s in anc:
+        if not runs or runs[-1]["widx"] != s["widx"]:
+            runs.append({"widx": s["widx"], "word": s["word"],
+                         "first_syllable": s["syl_in_word"],
+                         "word_syllables": s["word_syllables"],
+                         "syllables": 0})
+        runs[-1]["syllables"] += 1
+    return {"words": [r["word"] for r in runs],
+            "text": " ".join(r["word"] for r in runs),
+            "widx": [r["widx"] for r in runs],
+            "runs": runs,
+            "syllables": len(anc),
+            "partial_word": runs[0]["first_syllable"] > 1,
+            "endword_only": len(runs) == 1}
+
+
+def span_label(prov):
+    """A span as a reader can check it: the words, and how much of the FIRST
+    one the span actually reaches.
+
+    `receipt` scored on its last syllable is not the same evidence as
+    `receipt` scored whole, and printing the bare word for both is this
+    file's own defect one level down. A leading `-` marks a span that starts
+    inside its first word, and the bracket says which word and how much of it
+    -- naming the word, because `-enjoys it (1 of 2)` is ambiguous about
+    which of the two words the fraction describes.
+    """
+    if prov is None:
+        return "?"
+    if not prov["runs"]:
+        return "?"
+    words = list(prov["words"])
+    if prov["partial_word"]:
+        words[0] = "-" + words[0]
+    lab = " ".join(words)
+    if prov["partial_word"]:
+        r = prov["runs"][0]
+        lab += (f" [last {r['syllables']} of {r['word_syllables']} syllables"
+                f" of {r['word']!r}]")
+    return lab
+
+
+def spans_note(s):
+    """The provenance of a `best_score` number, as one printable line.
+
+    Doctrine 45: a checker that silently picks a coordinate is making a claim
+    it never states. `best_score` picks ONE span pair out of k, and every
+    consumer printed the resulting number beside the two END WORDS -- which
+    are not in general what was compared. `go/receipt 0.579 RHYME` was
+    `get to go` ~ the last syllable of `receipt`.
+
+    Doctrine 56 is the other half: a max over k hypotheses needs a null under
+    the same search, and k has to be recorded before that null can be built.
+    Returns "" when there is nothing to report (no `spans` key).
+    """
+    sp = (s or {}).get("spans")
+    if not sp:
+        return ""
+    note = (f"scored on: {span_label(sp['a'])}  ~  {span_label(sp['b'])}"
+            f"   (best of k={sp['search_k']}")
+    if sp["tied_at_max"] > 1:
+        note += f", {sp['tied_at_max']} tied at the max"
+    note += ")"
+    if sp["mosaic"]:
+        which = ("both sides" if sp["mosaic_a"] and sp["mosaic_b"]
+                 else "left" if sp["mosaic_a"] else "right")
+        note += (f"   MOSAIC ({which}): the winning span reaches back past "
+                 f"the end word")
+    return note
+
+
 def best_score(ancs_a, ancs_b, decl, word_a=None, word_b=None, profile=None):
-    """Max score over pronunciation variants of both sides."""
-    best = None
-    for aa in (ancs_a or [[]]):
-        for ab in (ancs_b or [[]]):
+    """Max score over pronunciation variants of both sides — and a record of
+    WHICH pair of spans produced the number.
+
+    The selection is unchanged (first strict maximum wins, so no verdict
+    moves); what is added is the `spans` key on the returned score, naming the
+    winning span pair, the words each covers, and the size of the search it
+    won. Without it a consumer can only print the end words, and when the
+    winner is an interior mosaic reach those name a pair that had nothing to
+    do with the number. BACKLOG 1.2 / adversary 7.
+    """
+    cand_a = ancs_a or [[]]
+    cand_b = ancs_b or [[]]
+    best, won, ties, k = None, (None, None), 0, 0
+    for aa in cand_a:
+        for ab in cand_b:
+            k += 1
             s = score(aa, ab, decl, word_a, word_b, profile=profile)
             if best is None or s["total"] > best["total"]:
-                best = s
+                best, won, ties = s, (aa, ab), 1
+            elif s["total"] == best["total"]:
+                ties += 1
+    if best is None:
+        return best
+    pa, pb = span_provenance(won[0]), span_provenance(won[1])
+    mosaic_a = bool(pa and not pa["endword_only"])
+    mosaic_b = bool(pb and not pb["endword_only"])
+    best["spans"] = {
+        "a": pa, "b": pb,
+        "anchor_a": won[0], "anchor_b": won[1],
+        # doctrine 56: k is the size of the search the max was taken over.
+        # Recording it is the precondition for a null under the same search;
+        # `beat` is how many candidates the winner beat.
+        "search_k": k, "beat": k - 1,
+        "candidates_a": len(cand_a), "candidates_b": len(cand_b),
+        # A tie means the named span is ONE of several that produce this
+        # number, so the report has to say so rather than pick in silence.
+        "tied_at_max": ties,
+        "mosaic_a": mosaic_a, "mosaic_b": mosaic_b,
+        "mosaic": mosaic_a or mosaic_b,
+    }
     return best
 
 
@@ -949,7 +1128,13 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                 {"lines": (i + 1, j + 1), "endwords": (endwords[i], endwords[j]),
                  "score": matrix[i][j]["total"],
                  "relation": matrix[i][j]["relation"],
-                 "flags": matrix[i][j]["flags"]}
+                 "flags": matrix[i][j]["flags"],
+                 # The number's PROVENANCE, beside the number. `endwords` is
+                 # the pair the scheme mandates; `spans` is the pair that was
+                 # actually compared, and they differ whenever the winning
+                 # anchor is a mosaic reach.
+                 "spans": matrix[i][j].get("spans"),
+                 "spans_note": spans_note(matrix[i][j])}
                 for i in range(n) for j in range(i + 1, n)],
             "violations": violations, "collisions": collisions,
             "refusals": refusals,
@@ -1002,6 +1187,7 @@ def rhyme_graph(lex, lines, decl, theta=None, profile=None):
     records = readability_records(lex, lines, [d["anchor"] for d in data])
     n = len(data)
     edges = []
+    edge_spans = []
     refused = []
     adj = {i: set() for i in range(n)}
     for i in range(n):
@@ -1014,6 +1200,13 @@ def rhyme_graph(lex, lines, decl, theta=None, profile=None):
                            profile=profile)
             if admits(s, theta) or s["relation"] == "REPEAT":
                 edges.append((i, j, s["total"], s["relation"]))
+                # A parallel list, index-aligned with `edges`, because the
+                # edge tuple's arity is pinned by a regression test and an
+                # edge weight that quietly grew a fifth field would break a
+                # reader who unpacks it. See `spans_note`.
+                edge_spans.append({"nodes": (i, j),
+                                   "spans": s.get("spans"),
+                                   "note": spans_note(s)})
                 adj[i].add(j)
                 adj[j].add(i)
     cliques = []
@@ -1024,7 +1217,7 @@ def rhyme_graph(lex, lines, decl, theta=None, profile=None):
             membership.setdefault(v, []).append(ci)
     overlapping = {v: cs for v, cs in membership.items() if len(cs) > 1}
     return {"endwords": [d["endword"] for d in data],
-            "edges": edges, "cliques": cliques,
+            "edges": edges, "edge_spans": edge_spans, "cliques": cliques,
             "overlapping_nodes": overlapping,
             "letter_representable": not overlapping,
             "readability": records,
@@ -1116,6 +1309,7 @@ def infer_chains(lex, lines, decl, theta_chain=None, comparator=None):
     out = []
     for members, fillers in chains:
         pairs = []
+        span_pairs = []
         for a in range(len(members)):
             for b in range(a + 1, len(members)):
                 s = best_score(data[members[a]]["anchor"],
@@ -1123,6 +1317,11 @@ def infer_chains(lex, lines, decl, theta_chain=None, comparator=None):
                                data[members[a]]["endword"],
                                data[members[b]]["endword"])
                 pairs.append(s["total"])
+                sp = s.get("spans")
+                if sp and sp["mosaic"]:
+                    span_pairs.append(
+                        {"lines": (members[a] + 1, members[b] + 1),
+                         "note": spans_note(s)})
         ends = [data[m]["endword"].lower() for m in members]
         out.append({
             "figure": ("epiphora" if len(members) >= 3
@@ -1134,6 +1333,11 @@ def infer_chains(lex, lines, decl, theta_chain=None, comparator=None):
             "mean_coherence": (round(sum(pairs) / len(pairs), 3)
                                if pairs else None),
             "max_drift": (round(min(pairs), 3) if pairs else None),
+            # `mean_coherence` is a mean over pairs and the endwords printed
+            # beside it are only the pairs' LABELS. These are the pairs whose
+            # contribution came from a span reaching past the end word, so a
+            # reader can tell a chain of end rhymes from a chain of mosaics.
+            "mosaic_pairs": span_pairs,
             # members AND fillers: a filler is where an unreadable line lands.
             "oov": sorted({w for m in list(members) + list(fillers)
                            for w in data[m]["oov"]}),
@@ -1278,10 +1482,17 @@ def check_song(lex, blueprint, lyric_text, decl):
                         kind = ("bridge non-novelty"
                                 if spec["type"] == "bridge"
                                 else "rhyme sound reuse")
+                        # `group_sounds` takes the FIRST anchor reading of the
+                        # group's first line, which may be a mosaic reach --
+                        # so the endword beside this number is a label, not
+                        # necessarily the evidence. Name the spans.
+                        pa = span_provenance(anc)
+                        pb = span_provenance(panc)
                         report["advisories"].append(
                             f"{kind}: {spec['name']} group {letter} "
                             f"({endword}) ~ {pname} group {pletter} "
-                            f"({pend}) at {s['total']}")
+                            f"({pend}) at {s['total']}   "
+                            f"scored on: {span_label(pa)} ~ {span_label(pb)}")
             for letter, (anc, endword) in sounds.items():
                 verse_sounds.append((spec["name"], letter, anc, endword))
         report["sections"].append(entry)
@@ -1500,19 +1711,89 @@ def join_spaced_enclitics(text):
 
 #: A line that is not a line: `Oh, my poor Nelly Gray, &c.` is the printer's
 #: shorthand for "and the rest of the chorus", i.e. LINE IDENTITY BY
-#: REFERENCE. There are 941 of them in the song corpus. Its last token strips
-#: to `&c`, which is not a word and would enter the rhyme data as one.
-CHORUS_STUB = re.compile(r"&c\.?\s*$|&amp;c\.?\s*$|\betc\.\s*$", re.I)
+#: REFERENCE. There are 941 of them in the English song corpus. Its last token
+#: strips to `&c`, which is not a word and would enter the rhyme data as one.
+#:
+#: THE CONVENTION IS NOT ENGLISH, so the LANGUAGE IS A COORDINATE (doctrine
+#: 45). The same mechanism, doing the same job in the same position, is spelt
+#: differently in each printing tradition, and a single anonymous regex would
+#: be a checker silently picking a language. Each entry is (language, gloss,
+#: pattern); `chorus_stub_match` returns WHICH one fired.
+#:
+#: Every pattern is ANCHORED at end of line, because that is where the
+#: abbreviation stands in all of them -- these are not general abbreviation
+#: detectors and must not become them. `j. n. e.` mid-line is a writer using
+#: the phrase, not a printer pointing at a refrain.
+CHORUS_STUB_FORMS = (
+    # `&c.` / `etc.` -- English songsters. 941 instances.
+    ("eng", "&c. / etc. (et cetera)",
+     re.compile(r"&c\.?$|&amp;c\.?$|\betc\.?$", re.I)),
+    # `j. n. e.` = ja niin edelleen. In the Kanteletar's cumulative chain-songs
+    # every verse after the first is abbreviated this way -- a refrain pointer
+    # doing exactly `&c.`'s job, in 1840 Finnish. The tokens `j` and `n` are
+    # unreadable to fin.py; the `e` IS readable and enters the vowel-initial
+    # alliteration class as a word Lonnrot never wrote, which is the worse of
+    # the two failures because it is silent.
+    ("fin", "j. n. e. (ja niin edelleen)",
+     re.compile(r"\bj\.\s*n\.\s*e\.?$", re.I)),
+    # `d. s. b.` = dan sebagainya. Recorded in MISSING.md M-4 as ~100
+    # instances in the Malay corpus; measured 2026-08-11, this corpus contains
+    # ZERO -- see that cell's report. The pattern ships anyway because the
+    # convention is real in Malay printing and costs nothing while it matches
+    # nothing; it is declared here so the next Malay text is read correctly,
+    # and it is NOT evidence that the recorded count was right.
+    ("msa", "d. s. b. (dan sebagainya)",
+     re.compile(r"\bd\.\s*s\.\s*b\.?$", re.I)),
+)
+
+#: What may stand BETWEEN the abbreviation and the end of the line and still
+#: leave it a stub: closing quotes, and the EDITOR's own additions -- a
+#: footnote reference `[41]` or a parenthetical gloss. Doctrine 58: an
+#: editorial bracket is a coordinate, so the allowance is declared here and
+#: named in the code rather than hidden inside three regexes.
+#:
+#: In the Kanteletar it is the difference between catching 6 of 8 stubs and
+#: catching 8 of 8: `Aita mulle päälle kaatui j. n. e. [41]` and
+#: `Pytikästä j. n. e. (vaikka loppumattomaan).` are stubs whose printer put
+#: something after the pointer. Bounded to 60 characters and to bracketed
+#: groups so this stays a tail-stripper and does not become a licence to
+#: search the whole line.
+_STUB_EDITORIAL_TAIL = re.compile(
+    r"(?:\s*[\[(][^\[\]()]{0,60}[\])])*\s*[\"'”’.,;:!?]*\s*$")
+
+#: Back-compatible single pattern: any declared convention. Kept because it
+#: was the module's public name, and because a caller that does not care which
+#: language answered should not have to iterate the table.
+CHORUS_STUB = re.compile(
+    "|".join(f"(?:{p.pattern})" for _, _, p in CHORUS_STUB_FORMS), re.I)
 
 
-def is_chorus_stub(line):
+def chorus_stub_match(line, language=None):
+    """-> (language, gloss) of the refrain-pointer convention this line uses,
+    or None.
+
+    `language=None` tries every declared convention and REPORTS which one
+    fired; naming a language restricts the test to that tradition, so a result
+    can say which printing convention it read rather than leaving it implicit.
+    """
+    s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
+    for lang, gloss, pat in CHORUS_STUB_FORMS:
+        if language is not None and lang != language:
+            continue
+        if pat.search(s):
+            return (lang, gloss)
+    return None
+
+
+def is_chorus_stub(line, language=None):
     """True if the line is an abbreviated chorus return rather than sung text.
 
     Such a line must be EXCLUDED from rhyme extraction and RESOLVED against
     the chorus it points at -- it is not evidence about rhyme, it is a
-    pointer. See MISSING.md A-1.
+    pointer. See MISSING.md A-1 and M-4. Use `chorus_stub_match` when the
+    answer needs to say which language's convention it recognised.
     """
-    return bool(CHORUS_STUB.search(line.strip()))
+    return chorus_stub_match(line, language) is not None
 
 
 def _final_bits(sylls):
@@ -1758,9 +2039,37 @@ def check_qafiya(lex, lines, decl):
             - sum(1 for p in parts if p is None)}
 
 
+def dedupe_findings(findings):
+    """Collapse identical findings, order preserved. BACKLOG 1.5.
+
+    A slop-floor `Finding` carries one entry in `locations` per PAIR it was
+    found on, and the revision loop fans it out one brief entry per entry --
+    so a line standing in six shared-suffix pairs got the identical
+    SHARED_SUFFIX paragraph six times. Cosmetic, and it actively buries the
+    findings that are NOT repeated, which are the ones a writer needs.
+
+    Keyed on (code, rendered text) rather than on identity, so two genuinely
+    different findings of the same code both survive and only a true
+    duplicate is dropped. This is the PRINT-layer guard: the fan-out itself
+    lives in quality/revise.py and is that file's owner's to fix. Both are
+    idempotent, so the guard is harmless once it is.
+    """
+    seen, out = set(), []
+    for f in findings:
+        key = (getattr(f, "code", None), str(f))
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(f)
+    return out
+
+
 def _fmt_score(w1, w2, s):
     lines = [f"{w1}  ~  {w2}",
              f"  total: {s['total']}   relation: {s['relation']}"]
+    note = spans_note(s)
+    if note:
+        lines.append(f"  {note}")
     for k, syl in enumerate(s["syllables"]):
         lines.append(f"  syllable {k+1}: nucleus {syl['nucleus']}"
                      f"  coda {syl['coda']}  onset {syl['onset']}"
@@ -1913,9 +2222,12 @@ def main():
         for u in g["unreadable_nodes"]:
             print(f"  UNREADABLE L{u['line']} ({u['endword']}): "
                   f"{u['reason']}")
-        for i, j, sc, rel in g["edges"]:
+        for k, (i, j, sc, rel) in enumerate(g["edges"]):
             print(f"  L{i+1}({g['endwords'][i]}) -- L{j+1}"
                   f"({g['endwords'][j]})  {sc}  {rel}")
+            note = g["edge_spans"][k]["note"]
+            if note:
+                print(f"        {note}")
         print("maximal cliques (tolerance classes):")
         for cl in g["cliques"]:
             print("  {" + ", ".join(f"L{v+1} {g['endwords'][v]}"
@@ -1953,6 +2265,8 @@ def main():
                      f" drift-floor {ch['max_drift']}" if not single else "")
                   + fill
                   + (f"   OOV {ch['oov']}" if ch["oov"] else ""))
+            for m in ch.get("mosaic_pairs", []):
+                print(f"    L{m['lines'][0]}-L{m['lines'][1]} {m['note']}")
             for u in ch["unreadable"]:
                 print(f"    UNREADABLE L{u['line']} ({u['endword']}, "
                       f"{u['role']}): {u['reason']}")
@@ -1983,14 +2297,20 @@ def main():
             rest = rest[2:]
         lines = rest
         res = check_scheme(lex, lines, scheme, decl, profile=profile)
+        by_pair = {p["lines"]: p for p in res["pair_scores"]}
         print(f"scheme {scheme}  endwords {res['endwords']}")
         for p in res["pair_scores"]:
             print(f"  L{p['lines'][0]}-L{p['lines'][1]} "
                   f"({p['endwords'][0]}/{p['endwords'][1]}): "
                   f"{p['score']}  {p['relation']}"
                   + (f"  [{', '.join(p['flags'])}]" if p["flags"] else ""))
+            if p["spans_note"]:
+                print(f"        {p['spans_note']}")
         for v in res["violations"]:
             print(f"  VIOLATION L{v[0]}-L{v[1]} score {v[2]}: {v[3]}")
+            note = (by_pair.get((v[0], v[1])) or {}).get("spans_note")
+            if note:
+                print(f"        {note}")
         for r in res["refusals"]:
             print(f"  REFUSED   L{r['lines'][0]}-L{r['lines'][1]}: "
                   f"{r['reason']}")
@@ -2341,7 +2661,7 @@ def main():
                       "band on the lines the harness could read")
             for b in briefs:
                 print(f"  L{b.line_no}: {b.text}")
-                for f in b.findings:
+                for f in dedupe_findings(b.findings):
                     print(f"      FINDING {f}")
                 if b.must_rhyme_with:
                     print(f"      must rhyme with L{b.must_rhyme_with}")
@@ -2397,6 +2717,8 @@ def main():
             print(f"  L{p['lines'][0]}-L{p['lines'][1]} "
                   f"({p['endwords'][0]}/{p['endwords'][1]}): "
                   f"{p['score']}  {p['relation']}")
+            if p["spans_note"]:
+                print(f"        {p['spans_note']}")
         print(f"  violations: {res['violations']}")
         print(f"  collisions: {res['collisions']}")
         print("\n--- meter: iambic tetrameter check ---")

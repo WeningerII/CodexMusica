@@ -533,38 +533,112 @@ unreadable**, failing on the commonest words (风 3,687 tokens, 来 2,327, 时 1
 Middle Chinese words, so the corpus fails loudly on some merges and **silently
 returns a different word's rhyme** on the rest.
 
-### M-3 · `msa.py`'s apostrophe rule causes 82% of its own unreadability `OPEN`
-384 of 471 Malay token failures are the syncope split leaving a **vowelless
-fragment**: correct for `anak'nda` where both halves have a vowel, fatal for
-`s'ri` (29), `t'ada` (8), `b'ras` (4), `k'ladi`, `t'rap`, `g'lombang`, `k'ris`.
-**The module already accepts the identical process spelled without the
-apostrophe** — its own docstring lists `prang`=perang, `Brapa`=berapa,
-`'Plam`=Pelam as accepted. Same pepet syncope, two spellings, opposite verdicts.
-Doctrine 65's lesson turning up inside ONE language, between two spellings of
-one process.
-**Also:** doctrine 65 undercounts the Malay apostrophe's positions. There are
-FIVE, not four — the fifth is **after a hyphen** (`darah-'kau`, `hati-'ku`, 20
-occurrences). `msa.py` handles them correctly because `_split_word` splits the
-hyphen first; the defect is in the description, so an audit checking only the
-four named positions reports 20 unclassified marks in a module that gets them
-all right.
+### M-3 · The Malay apostrophe rule — and the number that billed it `CLOSED` 2026-08-11
+**The fix, one rule:** a part with no vowel is not a word, so it merges into the
+part that FOLLOWS. `s'ri` → `sri`, `b'ras` → `bras`, `p'rut-'kau` → `prut`+`kau`.
+`anak'nda` still splits, because `anak` is a well-formed Malay word alone. That
+makes the two spellings of one pepet syncope agree — the module already accepted
+`prang`, `Brapa`, `'Plam`.
 
-### M-4 · The `&c.` refrain stub is not an English printing convention `OPEN`
-A-1 frames its 941 instances around English songsters. The same mechanism, doing
-the same job in the same position, appears in two more languages and the code
-that handles the English case knows neither:
+**THIS ENTRY'S HEADLINE WAS WRONG BY 5×, and the correction is the finding.**
+It billed **384 of 471** unreadable tokens to the apostrophe rule. Measured over
+PG47873's 330 Malay verse blocks (3,415 lines, 15,519 tokens):
 
-| language | stub | n | how it fails now |
+| class | before | after | layer |
+|---|---:|---:|---|
+| vowelless fragment FROM the apostrophe split | 76 | **2** | `msa.py` — the real defect |
+| vowelless whole token (`b` 101, `d` 100, `s` 99) | 305 | 306 | ingestion, elsewhere |
+| complex coda / complex medial | 77 | 78 | correct refusal |
+| **total** | 458 (2.95%) | 384 (2.47%) | |
+
+**The apostrophe rule owned 16.6%, not 82%.** The earlier classifier keyed on
+*"this part has no vowel"* rather than *"an apostrophe split produced it"*, so
+it charged `msa.py` for 305 tokens it never touched. Three counts after: read
+15,135 / refused 78 / defective 306, and `unreadable_reason()` makes the split
+machine-readable so this cannot recur silently.
+
+**TWO CELLS FOUND THE SAME ERROR FROM OPPOSITE SIDES, AND THE ARITHMETIC HAD
+SAID SO ALL ALONG.** M-3 billed 384 of 471 to the apostrophe and M-4 billed 300
+of the same 471 to `d. s. b.` — **384 + 300 = 684 > 471.** Two entries in one
+section of one file could not both be true, and nobody added them up. The 305
+vowelless whole tokens are the SAME tokens both entries were describing, and
+each entry attributed them to whichever rule was under investigation at the
+time. That is doctrine 79 one layer up, inside the documents written to record
+doctrine 79.
+
+**Doctrine 65's fifth apostrophe position is now enumerated** rather than
+described: staged corpus initial 77, final 23, **after_hyphen 20**,
+after_consonant 14, after_vowel 11, **0 unclassified** (143 after_hyphen in the
+full population). Handled correctly since day one, because `_split_word` cuts
+the hyphen first — the defect was only ever in the description.
+
+**Known answers unmoved:** ABAB 80/82 `drop`, 82/82 `keep`; `-ung` 0 and `-uk` 0
+against `-ong` 28 types and `-ok` 14/15 (the count is a coordinate of the
+tokenisation — doctrine 58).
+
+### M-4 · The `&c.` refrain stub is not an English printing convention `PARTIAL`
+A-1 frames its 941 instances around English songsters. The same mechanism does
+the same job in the same position in other languages, and the code that handles
+the English case knew none of them.
+**CLOSED for Finnish 2026-08-11**, and the numbers in the first version of this
+entry were WRONG — corrected below rather than quietly restated.
+
+| language | stub | stub lines | unreadable tokens before → after |
 |---|---|---:|---|
 | English | `&c.` / `etc.` | 941 | handled by `is_chorus_stub` |
-| Finnish | `j. n. e.` (*ja niin edelleen*) | 13 | `j`,`n` unreadable = **100%** of that corpus's failures, and the `e` IS readable and joins the vowel-initial alliteration class as a spurious word |
-| Malay | `d. s. b.` (*dan sebagainya*) | ~100 | `b`(101), `d`(100), `s`(99) — **300 of 471 tokens**, the single largest source of Malay unreadability |
+| Finnish | `j. n. e.` (*ja niin edelleen*) | 8 | `fin_kanteletar` 14 → **0**; all ten `fin_*` 155 → 139 |
+| Welsh | `&c.` | 30 | Mynyddog, foot of a stanza |
+| ~~Malay~~ | ~~`d. s. b.`~~ | **0** | **the row was false — see below** |
 
-Both new stubs are end-of-line, so the existing anchored regex extends directly.
-In the Kanteletar's cumulative chain-song every verse after the first is
-abbreviated this way — a refrain pointer doing exactly `&c.`'s job, in 1840
-Finnish. **Welsh makes it four:** Mynyddog uses `&c.` itself, 30 times, at the
-foot of a stanza.
+**THE MALAY ROW WAS FALSE AND THE ARITHMETIC SAID SO BEFORE ANYONE MEASURED.**
+`d. s. b.` occurs **zero times** in `corpus/song/msa_skeat_pantun.txt`, the only
+Malay file in the repo. The recorded `b`(101)/`d`(100)/`s`(99) = "300 of 471"
+reproduce exactly — as **tokenizer artifacts of the file's own annotation
+lines**: `--- RIME: A …/… | B …/…` occurs 129 times and `--- SOURCE: PG47873 …`
+129 times, and a naive tokenizer reads the metadata as verse. And the
+contradiction was visible on the page: M-3 claims 384 of 471 and M-4 claimed
+300 of 471, and **384 + 300 = 684 > 471**. Two entries in one section could not
+both be true and nobody added them up. Doctrine 79's lesson in a register
+nobody expected: reproducing a number checks the arithmetic of the computation,
+never the construction of the population.
+
+**The Finnish row is right in kind and was wrong in both numbers.** 16
+unreadable tokens, not 13. "100% of that corpus's failures" holds for the two
+Kanteletar files only; across all ten `fin_*` files it is 16 of 155 (10.3%), and
+`fin_paavo_cajander.txt` alone carries 120 from a different cause.
+**The silent half is confirmed and is the part that mattered:** the `e` IS
+readable, so on `Härkä ei juo vettä j. n. e.` `fin.line_alliteration` returns
+(2 alliterating, 7 words) against (1, 4) for the real line — three phantom
+words and one phantom alliteration, in the numerator *and* the denominator.
+`CHORUS_STUB_FORMS` is now a declared table of `(language, gloss, pattern)` and
+`chorus_stub_match` reports WHICH convention fired (doctrine 45).
+
+### M-4a · A tighter rhyme band LOOSENS the time layer's correction `OPEN`
+**Found 2026-08-11, and it is a defect in a fix this repo shipped the day
+before.** Commit `b1d7f64` (tail alignment + `theta_coda` 0.60 → 0.80) was
+validated on the band's false-positive rate and on the sonnet violation rate,
+held out on both. It was never run against the time layer, and it breaks all
+four `test_fwer.py` assertions:
+
+| | uncorrected saturation (want >60%) | word-scramble (want <20%) | degenerate item refused / band-pass (want yes, >0.25) |
+|---|---:|---:|---|
+| pre-`b1d7f64` (head, 0.60) | 70.0% | 8.8% | Yes / 0.429 |
+| tail, 0.60 | 65.0% | 6.8% | **No** / 0.232 |
+| head, 0.80 | 60.0% | **25.5%** | Yes / 0.426 |
+| **shipped (tail, 0.80)** | **55.0%** | **26.7%** | **No** / 0.226 |
+
+Two independent causes, cleanly separated. **`theta_coda` causes the
+false-event blowup, ~3× in BOTH alignments** — a tighter rhyme band shrinks each
+position's comparison family, which loosens the Šidák cut, so tightening the
+band *raises* the corrected false-event rate. That is doctrine 22 arriving from
+the other side: a threshold is a rate, and this one is a rate somewhere nobody
+was looking. **Tail alignment alone drops the degenerate-item guard below its
+0.25 threshold**, silencing doctrine 28's tripwire — the mechanism that
+distinguishes "none" from "cannot tell."
+**And the audit of it was wrong too.** These failures were reported twice as
+"pre-existing, confirmed at clean HEAD" — a verification run against a HEAD that
+already contained the change. Checking a baseline that includes what you are
+testing is not a check.
 
 ### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `OPEN`
 Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule
