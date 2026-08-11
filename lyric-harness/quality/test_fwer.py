@@ -336,6 +336,94 @@ def test_bh_is_a_step_up():
           "qualify but they stay in n")
 
 
+def test_the_two_named_levers_are_dead():
+    print("\n10. RESULTS_FWER named two routes out of muteness; both are dead")
+    # THIS DOCUMENT'S OWN CLOSING PARAGRAPH IS WHAT THIS TEST REFUTES.
+    # RESULTS_FWER.md ended: "The instrument is not far off. Best attainable p
+    # / loosest cut is 1.7-1.8x on real items, not 100x. Raising `null_samples`
+    # past the 2.5e-4 cut and shrinking the window are both live routes."
+    # Neither is. The assertions below are the arithmetic, measured from the
+    # item, never a constant (doctrine 58). Runner: quality/time_attainable.py.
+    from quality.corpus import load_sonnets
+    from quality.time_attainable import m_needed, probe
+    son = [l for _, l in sorted(load_sonnets().items())]
+
+    _sat, _n, _sl, det = run(son[0])
+    check("the layer reports M_NEEDED, the size that decides",
+          det.get("m_needed") is not None and det.get("share_firable")
+          is not None,
+          f"m_needed={det.get('m_needed')} (largest family at which this "
+          f"item's best pair still fires) against a median family of "
+          f"{det.get('median_family_size')}; "
+          f"{det.get('share_firable', 0):.1%} of positions are small enough")
+    check("the gap at a TYPICAL position is an order of magnitude, not 1.8x",
+          det["median_family_size"] > 5 * max(1, det["m_needed"]),
+          f"m_med/M_NEEDED = "
+          f"{det['median_family_size'] / max(1, det['m_needed']):.1f}x. The "
+          f"1.7-1.8x in the record is min_p against the cut at the SMALLEST "
+          f"family, a position at the edge of the item where the best pair is "
+          f"not; `loosest_cut` is an upper bound on attainability and was "
+          f"read as an estimate of it")
+
+    # LEVER 1 -- null_samples. min_p is a TIE COUNT, so resolution cannot buy
+    # it down. If a draw were ever STRICTLY above the best pair this would be
+    # a resolution problem and more draws would be the answer; none is.
+    check("no chance draw ever beats the item's best pair -- they TIE it",
+          det.get("null_strictly_above_best") == 0,
+          f"best score {det.get('best_score')}, "
+          f"{det['min_attainable_p'] * (det['n_null_valid'] + 1):.0f} draws at "
+          f"or above it, {det.get('null_strictly_above_best')} strictly above. "
+          f"The comparator saturates at a perfect rhyme, so min_p is the "
+          f"density of perfect chance re-pairings -- a rate, not a floor")
+    check("min_p sits far above the resolution it is supposedly limited by",
+          det["min_attainable_p"] > 10 * det["p_resolution"],
+          f"min_p {det['min_attainable_p']:.2e} against a resolution of "
+          f"{det['p_resolution']:.2e} — {det['min_attainable_p'] / det['p_resolution']:.0f}x "
+          f"above it, so the tail is resolved and the answer is still no")
+    coarse = probe(son[0], TimeDeclaration(theta=0.80, window=32,
+                                           null_samples=2000))
+    fine = probe(son[0], TimeDeclaration(theta=0.80, window=32,
+                                         null_samples=20000))
+    check("a 10x finer null does not halve min_p, which is what a floor would",
+          fine["min_p"] > 0.5 * coarse["min_p"],
+          f"{coarse['min_p']:.3e} at 2,000 draws -> {fine['min_p']:.3e} at "
+          f"20,000, while the resolution floor fell 10x. At 200,000 it is "
+          f"4.415e-3, i.e. HIGHER than at 20,000: more draws estimate the tie "
+          f"rate upward. The lever runs backwards")
+
+    # LEVER 2 -- window. It moves m and leaves min_p alone, so the crossing is
+    # not where anyone hoped. The assertion is the SHAPE of the answer: the
+    # only windows that fire are no wider than the anchor span itself, which
+    # means the two spans are adjacent and "internal rhyme at a distance" has
+    # been defined away rather than detected.
+    t = TimeDeclaration()
+    crossing = None
+    for w in (2, 3, 4, 6, 8, 12, 16, 24, 32):
+        rs = [probe(s, TimeDeclaration(theta=0.80, window=w)) for s in son[:3]]
+        med = sorted(r["m_med"] for r in rs)[len(rs) // 2]
+        need = sorted(r["m_needed"] for r in rs)[len(rs) // 2]
+        if crossing is None and med <= need:
+            crossing = w
+    check("the window only reaches the range once it is no wider than a span",
+          crossing is not None and crossing <= t.max_span,
+          f"the median family first drops to M_NEEDED at window {crossing}, "
+          f"against max_span={t.max_span}. A window that small admits only "
+          f"pairs whose two anchors are ADJACENT, so the setting that lets the "
+          f"layer speak is the setting at which it is no longer measuring "
+          f"rhyme at a distance")
+    check("and min_p does not move with the window, so nothing was bought",
+          abs(m_needed(probe(son[0], TimeDeclaration(theta=0.80, window=4))
+                       ["min_p"]) -
+              m_needed(probe(son[0], TimeDeclaration(theta=0.80, window=32))
+                       ["min_p"])) <= 12,
+          "the null re-pairs the item's spans at ANY distance while the "
+          "observed pairs are window-bounded; narrowing the window removes "
+          "comparisons and leaves the null's perfect-pair density alone. A "
+          "window-MATCHED null would draw from exactly the scored population "
+          "and every p would be uniform by construction (doctrine 68), so the "
+          "mismatch is the only thing giving the p-value content")
+
+
 def test_corrections_are_declared():
     print("\n9. every knob is a coordinate")
     d = TimeDeclaration()
@@ -359,6 +447,7 @@ if __name__ == "__main__":
                test_null_must_not_be_conditioned_on_the_band,
                test_bh_resolution_guard,
                test_bh_is_a_step_up,
+               test_the_two_named_levers_are_dead,
                test_corrections_are_declared):
         fn()
     print("=" * 62)

@@ -121,6 +121,22 @@ class TimeDeclaration:
     #: draws for the within-item null. The p-value resolution is 1/(N+1), and
     #: at m~135 the Sidak cut is ~3.8e-4, so the tail has to be resolved an
     #: order of magnitude finer than that.
+    #:
+    #: AMENDED 2026-08-11: RESOLUTION WAS NEVER THE BINDING CONSTRAINT, and
+    #: raising this number runs the lever BACKWARDS.
+    #: `_pvalue` returns (ge+1)/(n_valid+1) where `ge` counts chance draws at or
+    #: above the observed pair. For the best pair in a real sonnet `ge` is 40-83
+    #: of 20,000 and every one of them is an exact TIE at 1.000 -- ZERO draws
+    #: are strictly above it, because the comparator has no headroom over
+    #: "perfect rhyme". So min_p converges on a RATE (the density of perfect
+    #: rhymes among re-pairings of the item's own spans), not on the resolution
+    #: floor. Measured on sonnet 1: 3.998e-3 at 2,000 draws, 4.200e-3 at 20,000,
+    #: 4.415e-3 at 200,000 -- 100x the cost (0.21s -> 4.69s per item) for a p
+    #: that goes UP, because more draws estimate the tie rate more accurately
+    #: and it was being under-estimated. Doctrine 57 is the mirror of this: a p
+    #: at 1/(n+1) reports the resolution, and a p far ABOVE 1/(n+1) reports a
+    #: rate that no resolution buys down.
+    #: `python3 quality/time_attainable.py --floor` re-measures it.
     null_samples: int = 20000
     #: DOCTRINE 28's TRIPWIRE. If this share of RANDOM re-pairings already
     #: passes the band, the item's own phonological inventory makes rhyme
@@ -315,6 +331,24 @@ def _pvalue(v, null_sorted, n_valid):
     return (ge + 1) / (n_valid + 1)
 
 
+def _m_needed(min_p, alpha, correction="sidak"):
+    """-> the largest family size at which a pair of p-value `min_p` fires.
+
+    The whole attainability question in one number. Invert the per-position
+    cut: `min_p <= 1-(1-alpha)^(1/m)` iff `m <= ln(1-alpha)/ln(1-min_p)`.
+    Measured across this corpus it is 18-28 and the family a typical position
+    actually has is 198-217, so the layer needs a family ~10x smaller than it
+    has. `quality/time_attainable.py` is the runner.
+    """
+    if min_p >= 1.0 or min_p <= 0.0:
+        return 0
+    if correction == "bonferroni":
+        return int(alpha / min_p)
+    if min_p >= alpha:
+        return 0
+    return int(math.log(1.0 - alpha) / math.log(1.0 - min_p))
+
+
 def _bh(pvals, q, n=None):
     """Benjamini-Hochberg: -> the largest p that is a discovery, or None.
 
@@ -394,6 +428,7 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
     # infinity and can never reject. It is still a comparison that was made.
     pv = {}
     scored = []
+    best_score = None
     for k, (sa, sb) in enumerate(pairs):
         v = _raw_score(stream, sa, sb, decl, comparator)
         if v is None:
@@ -401,6 +436,7 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
         p = _pvalue(v, null, n_valid)
         pv[k] = p
         scored.append((sa, sb, p))
+        best_score = v if best_score is None else max(best_score, v)
 
     # EACH POSITION'S FAMILY -- the m in alpha/m, and it must be MEASURED from
     # the comparisons actually made, not from the ones that survived the band.
@@ -489,6 +525,15 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
                else 1.0 - (1.0 - tdecl.alpha) ** (1.0 / min(sizes))) \
         if sizes else 1.0
     attainable = bool(pv) and min_p <= loosest
+    # M_NEEDED -- the largest family at which this item's own best pair still
+    # clears its cut, i.e. `min_p <= 1-(1-alpha)^(1/m)` solved for m. This is
+    # the quantity that decides whether the layer can speak, and until
+    # 2026-08-11 nothing reported it. `attainable` compares min_p with the
+    # LOOSEST cut in the item, which is the cut at the SMALLEST family -- a
+    # position at the edge of the item where the best pair almost never sits.
+    # That is why the recorded gap reads 1.4-1.8x while the gap at a typical
+    # position is ~10x. Both are reported; `share_firable` is the honest one.
+    m_need = _m_needed(min_p, tdecl.alpha, tdecl.correction)
     if detail is not None:
         detail.update(
             n_candidate_pairs=len(pairs), n_scored=len(scored),
@@ -500,6 +545,18 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
             family_population=tdecl.family,
             correction=tdecl.correction, alpha=tdecl.alpha,
             min_attainable_p=min_p, loosest_cut=loosest,
+            m_needed=m_need,
+            share_firable=(sum(1 for v in sizes if v <= m_need) / len(sizes))
+            if sizes else 0.0,
+            best_score=best_score,
+            # How many null draws are STRICTLY above the best observed pair.
+            # Zero means min_p is a TIE COUNT: the comparator saturates at
+            # 1.000 and cannot separate the item's own perfect rhyme from a
+            # chance re-pairing that is also perfect. When this is 0, raising
+            # `null_samples` cannot lower min_p -- see the field's own note.
+            null_strictly_above_best=(
+                sum(1 for v in null if v > best_score + 1e-12)
+                if best_score is not None else 0),
             attainable=attainable)
         if family:
             mm = sorted(len(v) for v in family.values())[len(family) // 2]
@@ -508,6 +565,7 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
                 else 1.0 - (1.0 - tdecl.alpha) ** (1.0 / mm))
     if not events and not attainable and tdecl.correction != "bh":
         if detail is not None:
+            strict = detail.get("null_strictly_above_best", 0)
             detail["cannot_tell"] = (
                 f"NO EVENT WAS ATTAINABLE. The best pair in this item reaches "
                 f"p = {min_p:.2e}; the loosest per-position cut is "
@@ -515,9 +573,19 @@ def rhyme_events(lex, stream, decl, tdecl, comparator=None, detail=None):
                 f"event at alpha={tdecl.alpha} however perfect it was. The "
                 f"floor is the item's OWN null: {min_p * (n_valid + 1):.0f} of "
                 f"{n_valid} chance re-pairings of this item's spans score at "
-                f"or above its best real pair. An empty event set here means "
-                f"CANNOT TELL, not 'no rhyme' -- and the instrument, not the "
-                f"verse, is what needs fixing.")
+                f"or above its best real pair, and {strict} of them score "
+                f"STRICTLY above it. That second number is the one to read. "
+                f"At {strict} the floor is a TIE COUNT -- the comparator "
+                f"saturates at a perfect rhyme and cannot separate this item's "
+                f"best pair from a chance re-pairing that is also perfect -- so "
+                f"min_p is a RATE and raising null_samples re-estimates it "
+                f"rather than lowering it. What the layer would need is a "
+                f"family of at most {m_need} comparisons per position; it has "
+                f"{detail.get('median_family_size')} at the median and "
+                f"{detail.get('share_firable', 0.0):.1%} of its positions are "
+                f"small enough to fire. An empty event set here means CANNOT "
+                f"TELL, not 'no rhyme' -- and the instrument, not the verse, is "
+                f"what needs fixing. `python3 quality/time_attainable.py`.")
         return set()
     return events
 

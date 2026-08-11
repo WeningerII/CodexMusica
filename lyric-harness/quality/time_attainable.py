@@ -51,7 +51,7 @@ WHY min_p HAS A FLOOR, AND WHY IT IS NOT A RESOLUTION
   is reporting a rate, and no resolution buys it down.
 
 Run: python3 quality/time_attainable.py [--corpus] [--floor] [--levers]
-                                        [--beat] [--verify] [--slow]
+                                        [--beat] [--arms] [--verify] [--slow]
 Sibling that measures the family: python3 quality/fwer_family.py
 """
 
@@ -444,14 +444,20 @@ def run_levers(n=10, slow=False):
                   f"{q([r['min_p'] for r in rs], .5):10.2e} {mn:13d} "
                   f"{q([r['m_med'] for r in rs], .5) / max(1, mn):12.1f}x "
                   f"{sum(1 for r in rs if r['n_events'] > 0):5d}")
-    print("\n  max_span 3 -> 1 cuts m_med 6.9x AND raises min_p 5.9x, because "
-          "a one-syllable")
-    print("  span is a monosyllable and monosyllables collide by chance far "
-          "more often.")
-    print("  The gap gets WORSE: 2.2x -> 4.8x at window 32. Every lever that "
+    print("\n  At window 32, max_span 3 -> 1 cuts m_med 6.9x (213 -> 31) and "
+          "raises min_p")
+    print("  5.9x (2.80e-3 -> 1.64e-2), which cuts M_NEEDED 6.3x (19 -> 3). "
+          "The two")
+    print("  movements cancel and the gap does not close: 11.2x -> 10.3x. A "
+          "one-syllable")
+    print("  span is a monosyllable, and monosyllables collide by chance far "
+          "more often,")
+    print("  so every lever that shrinks the family by shrinking the SPAN POOL "
           "shrinks the")
-    print("  family by shrinking the span pool shrinks the null's headroom by "
-          "the same act.")
+    print("  null's headroom by the same act. Only a lever that shrinks the "
+          "family without")
+    print("  touching the span pool can move this ratio -- which is the "
+          "window, and lever 5.")
 
     print("\n=== LEVER 4: item LENGTH. IT PLATEAUS, ABOVE 1 ===")
     base = sonnets(16 if slow else 8)
@@ -470,8 +476,9 @@ def run_levers(n=10, slow=False):
               f"{r['n_events']:5d} {time.time() - t0:6.1f}")
     print("\n  m is bounded by the WINDOW, so it stops growing at ~250 while "
           "the item grows.")
-    print("  The perfect-pair density falls 0.00415 -> 0.00255 and then stops, "
-          "because it is")
+    print("  The perfect-pair density falls 0.00415 -> 0.00260 over 8 sonnets "
+          "and 0.00255")
+    print("  at 16 (`--slow`), i.e. it stops falling, because it is")
     print("  converging on the rate at which two random stressed spans of "
           "English verse are")
     print("  a perfect rhyme. That rate is a fact about the language, not "
@@ -570,6 +577,62 @@ def run_beat(n=20):
     print("  same-positions-no-signal arm before believing anything it says.")
 
 
+def run_arms(n=20, windows=(2, 3, 4, 8, 16, 32)):
+    """At the windows where an event is attainable at all, does the layer
+    produce enough of them to RUN, and does real verse separate from its own
+    word-scramble?
+
+    `analyse()` refuses below 4 events, so `ev>=4` is the column that decides
+    whether the time layer exists at a setting. The alpha column is the first
+    honest false-event measurement this layer has had: at family=candidate a
+    0.0% rate is a refusal, and these settings are the only ones where 0.0%
+    would have been a rate.
+    """
+    print("\n=== THE ARMS, AT EVERY WINDOW WHERE AN EVENT IS ATTAINABLE ===")
+    print(f"\nn={n} real Shakespeare sonnets against their own word-scramble. "
+          f"alpha=0.05.")
+    print(f"`analyse()` RUNS only at >= 4 events, so `ev>=4` is the column "
+          f"that matters.\n")
+    print(f"{'window':>7} {'arm':9} | {'mute':>7} {'ev>0':>5} {'ev>=4':>6} "
+          f"{'max ev':>7} {'pooled event rate':>18} {'p50 m_med/M_NEED':>17}")
+    print("-" * 84)
+    real, scram = sonnets(n), scrambled_sonnets(n)
+    for w in windows:
+        t = TimeDeclaration(theta=0.80, window=w)
+        for arm, items in (("real", real), ("scramble", scram)):
+            rs = [probe(it, t) for it in items]
+            live = [r for r in rs if not r["mute"]]
+            ev = sum(r["n_events"] for r in live)
+            sl = sum(r["n_slots"] for r in live)
+            mn = q([r['m_needed'] for r in rs], .5)
+            rate = (f"{ev / sl:17.2%}" if sl else f"{'(all mute)':>17}")
+            print(f"{w:7d} {arm:9} | {sum(1 for r in rs if r['mute']):3d}/"
+                  f"{len(rs):<3d} {sum(1 for r in rs if r['n_events'] > 0):5d} "
+                  f"{sum(1 for r in rs if r['n_events'] >= 4):6d} "
+                  f"{max(r['n_events'] for r in rs):7d} {rate} "
+                  f"{q([r['m_med'] for r in rs], .5) / max(1, mn):16.1f}x")
+        print()
+    print("  THE ALPHA CLAIM IS FINALLY MEASURABLE, AND ONLY WHERE THE LAYER "
+          "IS DEAD.")
+    print("  At window 2-4 the items are not mute, so the scramble rate is a "
+          "RATE and not")
+    print("  a refusal -- and it sits BELOW the declared 5%, which is Sidak "
+          "being")
+    print("  conservative over positively dependent overlapping comparisons. "
+          "That is the")
+    print("  first honest false-event measurement this layer has produced. It "
+          "is also")
+    print("  worthless: real and scramble are indistinguishable at every one "
+          "of these")
+    print("  windows, so the event set has no demonstrated discrimination and "
+          "doctrine 76")
+    print("  applies -- a null on a set that cannot tell verse from a word bag "
+          "is not a")
+    print("  null about verse. At window 16 and 32 the rate is not a rate at "
+          "all: the")
+    print("  items are mute and 0.0% means nothing could have fired.")
+
+
 def _probe_with_pairs(st, tdecl, pairs, gi):
     """probe(), for a caller that has already chosen the candidate set."""
     from collections import Counter
@@ -644,7 +707,8 @@ def main(argv):
     slow = "--slow" in args
     want = {a for a in args if a.startswith("--") and a != "--slow"}
     if not want:
-        want = {"--verify", "--corpus", "--floor", "--levers", "--beat"}
+        want = {"--verify", "--corpus", "--floor", "--levers", "--beat",
+                "--arms"}
     t0 = time.time()
     bad = run_verify() if "--verify" in want else 0
     if "--corpus" in want:
@@ -655,6 +719,8 @@ def main(argv):
         run_levers(slow=slow)
     if "--beat" in want:
         run_beat()
+    if "--arms" in want:
+        run_arms()
     print(f"\ntotal {time.time() - t0:.0f}s")
     return 1 if bad else 0
 

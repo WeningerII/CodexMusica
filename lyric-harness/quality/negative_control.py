@@ -51,12 +51,18 @@ THE PREDICATES, AND WHAT EACH NULL PRESERVES AND DESTROYS
   P2 · distance profile — the share of rhyming pairs at line distance 1, 2, 3.
                         Reads POSITION, so the same null bites.  Summarised
                         as the total-variation distance between the observed
-                        profile and the null's own mean profile, which is
-                        scheme-AGNOSTIC: an AABB corpus and an ABAB corpus
-                        both deviate, in opposite directions, and a mixture of
-                        the two still deviates.  That is what lets one number
-                        serve a positive that spans more than one scheme.
+                        profile and the null's own mean profile.  A DEVIATION
+                        statistic, not a scheme-specific one: AABB deviates
+                        toward distance 1 and ABAB toward distance 2 and both
+                        score above zero, which is what lets one number serve
+                        a positive spanning more than one scheme.  It does NOT
+                        follow that a mixture cannot cancel — see P2b, where
+                        that hypothesis was tested and refuted.
                         Doctrine 90: the statistic changes with the null.
+  P2b · mean per-item TV — the same deviation taken per QUATRAIN and then
+                        averaged.  Added to test whether P2's one failing
+                        stratum failed by cancellation; it does not.  Kept as
+                        a second independent reduction of the same null.
   P3 · chain capture   — `infer_chains` share of lines inside a chain >= 2,
                         the statistic `quality/audit_band_control.py` uses, so
                         the legacy Whitman figure and the new corpus figure
@@ -76,6 +82,55 @@ READING THE OUTPUT.  Every arm prints `differ`, the fraction of replicates
 that differ from the observation at all (doctrine 68), and the GAP TO THE
 NULL'S MAX rather than a p (doctrine 57 — at n=200 the smallest p obtainable
 is 0.005 and it says nothing about how far above the observation sat).
+
+THE RUN.  n=200, seed 20260811, cap 8 quatrains per file: 792 quatrains from
+115 files across 6 tradition groups, spanning 15 distinct quatrain schemes
+(ABAB=274, AABB=133, ABCB=133, ABAC=44, AAAA=37, AABA=30, ABCD=27, AAAB=27,
+ABCC=20, AABC=19, ABBB=17, ABBA=12, ABAA=9, ABCA=8, ABBC=2).  Doctrine 58: the
+slice is a coordinate of the number, so it is written next to it.
+
+| arm | observed | null MAX | gap | differ |
+|---|---:|---:|---:|---:|
+| P1 pair count, ALL          | 1523   | 1523   | **+0**      | **0%** |
+| P2 pooled TV, ALL           | 0.2456 | 0.0394 | **+0.2061** | 100% |
+| P2b mean per-item TV, ALL   | 0.5402 | 0.4863 | +0.0539     | 100% |
+| P2 pooled TV, eng_hall      | 0.4170 | 0.1640 | +0.2530     | 100% |
+| P2 pooled TV, eng_hymn      | 0.2831 | 0.0811 | +0.2020     | 100% |
+| P2 pooled TV, eng_british   | 0.2620 | 0.0788 | +0.1832     | 100% |
+| P2 pooled TV, eng_american  | 0.2109 | 0.0979 | +0.1130     | 100% |
+| P2 pooled TV, eng_parlour   | 0.2491 | 0.1503 | +0.0988     | 100% |
+| P2 pooled TV, eng_celtic    | 0.0864 | 0.1174 | **−0.0310** | 100% |
+| P3 chain capture, corpus    | 0.4792 | 0.5875 | **−0.1083** | 100% |
+| P3 chain capture, Whitman   | 0.1733 | 0.1800 | **−0.0067** | 100% |
+
+FOUR THINGS THAT TABLE SAYS
+
+  1. K-3 REPRODUCES, AND IT IS WORSE THAN RECORDED.  Whitman's chain capture
+     falls INSIDE its own line-permutation null at n=200 (0.1733 against a
+     null max of 0.1800).  At n=10 the same code prints a gap of +0.0600 and
+     looks like a result; the null's max only reaches the observation once
+     enough replicates are drawn.  Doctrine 30, exactly: a powered null is a
+     different claim from an unpowered one, and the underpowered version of
+     this arm is a positive finding that does not exist.
+  2. THE OBVIOUS NULL IS THE IDENTITY MAP HERE TOO.  0 of 200 replicates move
+     the rhyming-pair count, in every stratum.  Finnish (doctrine 63),
+     Persian (68), the relations layer (`relations_null.py`), and now English
+     song: four mechanisms, one failure.  The count is a symmetric function of
+     the four line-final anchors and no permutation of LINES can touch it.
+  3. WHAT SURVIVES IS THE POSITION, AND IT IS LARGE.  The pooled distance
+     profile is d1 0.3578 / d2 0.5791 / d3 0.0630 against a null mean of
+     0.4996 / 0.3336 / 0.1668 -- English song puts its rhyme at distance 2 far
+     more, and at distance 3 far less, than its own shuffle allows, at 20.7x
+     the null median and +0.2061 past the null's maximum.
+  4. CHAIN CAPTURE MOVES THE WRONG WAY ON REAL VERSE.  0.4792 observed against
+     a null MEDIAN of 0.5375: shuffling a rhymed quatrain RAISES the share of
+     lines the chain search captures.  Same direction-inversion
+     `relations_null.py` found for internal rhyme, same mechanism -- a
+     structured scheme concentrates rhyme into specific pairs, and a shuffle
+     scatters end words into positions where a greedy sequential chain can
+     pick them up.  So the statistic behind all four recorded Whitman figures
+     is not merely underpowered; on the positive corpus it is anti-correlated
+     with the structure it is supposed to detect.
 
 Run: python3 quality/negative_control.py            (all arms, n=200)
      python3 quality/negative_control.py --n=50 --cap=6 --skip-chains
