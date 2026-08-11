@@ -815,6 +815,31 @@ def test_welsh_rhyme_anchor_is_counted_from_the_word_end():
     check("identity is TYPED, never scored as a rhyme (doctrine 3)",
           c.relation_type("bedd", "bedd") == "REPEAT"
           and c.relation_type("wynedd", "bedd") == "RHYME")
+    # FOUND BY READING THE CODE, NOT BY WATCHING A NUMBER. The undecided glide
+    # readings are independent across two words and SHARED within one: whatever
+    # the truth about `wych` is, both copies of it have it. Taking the verdict
+    # over the cross-product -- which is right for two different words -- made
+    # a REPEAT on such a word come back UNDECIDED. It occurs 0 times in the
+    # staged corpus, so no rate in RESULTS_CYM_RHYME.md moves; a song corpus is
+    # full of refrains and the next staged file could carry one.
+    check("a REPEAT on a glide-ambiguous word is TRUE, not undecided",
+          c.rhymes("wych", "wych") is True
+          and c.relation_type("wych", "wych") == "REPEAT"
+          and len(c.rimes("wych")) == 2,
+          "the word still holds two readings; what it does not hold is two "
+          "INDEPENDENT readings against a copy of itself")
+    check("  ...while two DIFFERENT glide-ambiguous words stay independent",
+          c.rhymes("fynych", "wych") is None,
+          "`wych` and `fynych` are separate lexical facts and the cross-"
+          "product is the right comparison there")
+    check("  ...and 'same form' is the comparison units() makes: the hyphen "
+          "and the length mark fold into it",
+          c.relation_type("hoew-fardd", "hoewfardd") == "REPEAT"
+          and c.relation_type("tân", "tan") == "REPEAT"
+          and c.relation_type("tân", "tan", diacritics="keep") == "NONE",
+          "so the shipped fold makes `tân` and `tan` one word and "
+          "diacritics='keep' makes them two, which is the choice being "
+          "declared rather than a side effect of it")
     check("`shared_tail` is a diagnostic and NOT a type — this module holds "
           "no sourced Welsh ending list and refuses to invent one",
           c.shared_tail("mynydd", "llonydd") == "nydd"

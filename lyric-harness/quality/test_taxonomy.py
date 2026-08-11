@@ -606,22 +606,74 @@ def test_the_phonologys_own_relation_wins():
     check("consult=False is reachable, so the channel-only path stays "
           "demonstrable",
           T.classify_pair("流", "樓", ltc, consult=False).verdict() is False)
-    # fin USED to be the example here and no longer is: M-6 is closed and
-    # fin.py declares an end-rhyme predicate, so it IS consulted. The
-    # distinction this protects is unchanged -- an inherited stub's None must
-    # not read as a refusal -- so it moves to a module that still inherits the
-    # stub. cym, not som: som declines a stress grid, so the default anchor
-    # raises there for an unrelated reason and would muddy what is tested.
+    # THE EXAMPLE HAS MOVED TWICE AND THE INVARIANT HAS NOT. What is protected
+    # here is that an INHERITED STUB's None must not read as a refusal -- if it
+    # did, every verdict from a module that has not declared the predicate
+    # would be deleted. The module standing in for that has changed as the
+    # predicate has been implemented one language at a time: `fin` until M-6
+    # closed, then `cym` until 2026-08-11, now `eng`.
+    #
+    # THE POOL IS DOWN TO ONE, WHICH IS WORTH SAYING OUT LOUD. Seven of the
+    # nine registered phonologies now declare their own `rhymes`: cym, fas,
+    # fin, ltc, msa, non, san. Two still inherit the stub -- `eng` and `som` --
+    # and `som` cannot be used, for the same reason it could not be used last
+    # time: it declines a stress grid, so the default anchor raises there for
+    # an unrelated reason and would muddy what is tested. So `eng` is the only
+    # eligible module left, and when `eng` declares one this check has no
+    # target and its invariant becomes unreachable rather than false. Whoever
+    # closes that gap should replace this with a synthetic Phonology subclass
+    # that inherits the stub on purpose, rather than deleting the check: the
+    # distinction between a stub's None and a refusal's None is the thing, and
+    # it does not stop mattering when no shipped module happens to exhibit it.
+    #
+    # `eng` is in one way the BETTER example than the two before it: it is the
+    # module the whole harness runs on, so a stub read as a refusal there would
+    # delete every English verdict rather than every Welsh one.
     check("a phonology that declares NO rhyme predicate is not consulted",
-          T.classify_pair("cariad", "bariad", get("cym")).route["rhyme"]
+          T.classify_pair("cat", "hat", get("eng")).route["rhyme"]
           == "channels",
-          "cym implements cynghanedd and no rhymes(); reading the inherited "
-          "stub's None as a refusal would delete every Welsh verdict")
+          "eng consults CMUdict but declares no `rhymes` predicate of its "
+          "own; reading the inherited stub's None as a refusal would delete "
+          "every English verdict. It is the LAST eligible module -- see the "
+          "comment above")
+    check("...and the stub's None does not become a refusal: the channels "
+          "still answer, in both directions",
+          T.classify_pair("cat", "hat", get("eng")).verdict() is True
+          and T.classify_pair("cat", "dog", get("eng")).verdict() is False,
+          "the failure this guards against is silent — a stub read as a "
+          "refusal returns None, which looks like a designed refusal and is "
+          "an unimplemented one (doctrine 88: a refusal rate is "
+          "uninterpretable until its causes are separated)")
     check("while fin, which now HAS one, is consulted (M-6 closed)",
           T.classify_pair("kukka", "kukko", get("fin")).route["rhyme"]
           == "declared_relation",
           "the verdict is unchanged -- False either way; what moved is which "
           "layer answered")
+    # REPINNED TO THE SHAPE OF THE REPAIR, not deleted. `cym` was this check's
+    # example until `cym.rhymes` landed; the assertion that it is NOT consulted
+    # is now false, and the useful thing to pin is that it IS -- and that the
+    # channel path underneath still reproduces, because doctrine 84 says the
+    # defect a declared relation corrects has to stay demonstrable.
+    cym_t = T.classify_pair("cariad", "bariad", get("cym"))
+    check("cym, which USED to be this check's example, is consulted now "
+          "(2026-08-11)",
+          cym_t.route["rhyme"] == "declared_relation"
+          and cym_t.verdict() is True,
+          "and the verdict is unchanged on this pair -- True either way; what "
+          "moved is which layer answered, exactly as it did for fin")
+    check("  ...and consult=False still reaches the channel path, so what the "
+          "declared relation corrects stays demonstrable (doctrine 84)",
+          T.classify_pair("cariad", "bariad", get("cym"),
+                          consult=False).route["rhyme"] == "channels")
+    check("  ...and cym's DESIGNED refusal propagates as None where the "
+          "channels would have answered False",
+          T.classify_pair("fynych", "wych", get("cym")).verdict() is None
+          and T.classify_pair("fynych", "wych", get("cym"),
+                              consult=False).verdict() is False,
+          "`wych` is `w`+`ych` or the diphthong `wy`+`ch`, the orthography "
+          "does not say which, and the two readings disagree about this pair. "
+          "That None is a REFUSAL and not a stub, which is the distinction "
+          "this whole block exists to keep")
     check("and a declared LOCATOR suppresses the consultation, because "
           "phon.rhymes() would be answering a different question",
           T.classify_pair("流", "樓", ltc,

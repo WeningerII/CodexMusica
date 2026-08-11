@@ -1038,6 +1038,18 @@ class Welsh(Phonology):
         word unreadable; `rule='prominent'` on a word with no prominent
         syllable; or the two glide readings disagreeing, which is the only one
         that needs both words to detect.
+
+        THE UNDECIDED READINGS ARE INDEPENDENT ACROSS TWO WORDS AND SHARED
+        WITHIN ONE. `wych` and `wynt` each carry the ambiguity and their
+        answers are separate lexical facts, so the verdict is taken over the
+        CROSS-PRODUCT of the readings and comes back None where they disagree.
+        Two occurrences of ONE written form do not have that freedom: whatever
+        the truth about `wych` is, both copies of it have it, and a
+        cross-product would report a REPEAT as UNDECIDED. That defect was
+        real, it was in this method as first written, and it occurs **0 times
+        in the staged corpus** — which is exactly why it needed finding by
+        reading the code rather than by watching a rate move. A Welsh song
+        corpus is full of refrains and the next staged file could carry one.
         """
         ra = self.rimes(a, depth, rule, diacritics, glide)
         rb = self.rimes(b, depth, rule, diacritics, glide)
@@ -1050,8 +1062,24 @@ class Welsh(Phonology):
             if d != depth:
                 ra = self.rimes(a, d, rule, diacritics, glide)
                 rb = self.rimes(b, d, rule, diacritics, glide)
+        if self._same_form(a, b, diacritics):
+            return True
         verdicts = {x == y for x in ra for y in rb}
         return verdicts.pop() if len(verdicts) == 1 else None
+
+    @staticmethod
+    def _same_form(a, b, diacritics=DIACRITICS):
+        """-> True where two tokens are the SAME written word to this module.
+
+        The comparison `units()` makes: apostrophe and hyphen dropped, case
+        folded, and the length mark folded when `diacritics='fold'`. It exists
+        so an undecided reading is shared within one form rather than drawn
+        independently for each copy of it -- see `rhymes`.
+        """
+        def key(w):
+            k = normalise(w).replace("'", "").replace("-", "").lower()
+            return fold_diacritics(k) if diacritics == "fold" else k
+        return key(a) == key(b)
 
     def shared_tail(self, a, b, diacritics=DIACRITICS):
         """-> the longest common WRITTEN tail of two words.

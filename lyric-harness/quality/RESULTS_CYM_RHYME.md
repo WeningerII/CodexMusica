@@ -100,14 +100,14 @@ two lines the form pairs.
 
 | arm | mandated | judged | refused | observed | null med | null max | p_lo |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| the 53 straddling pairs | 53 | 53 | 0 | **0.00%** | 1.89% | 9.43% | 0.3085 |
+| the 53 straddling pairs | 53 | 53 | 0 | **0.00%** | 1.89% | 9.43% | 0.2985 |
 
 **51 of 51 against 0 of 53.** `p 0.0050` is `1/(N+1)`: no replicate reached the
 observation, which is the resolution of a 200-replicate null and not a smaller
 number in disguise (doctrine 57).
 
 **The negative arm's own p is the wrong thing to read, and doctrine 71 is what
-says so.** `p_lo 0.3085` looks like a failure to separate. It is not: the null
+says so.** `p_lo 0.2985` looks like a failure to separate. It is not: the null
 median on the straddle is **1.89%, i.e. one pair in 53**, so there is almost no
 room below chance and no arm could clear a lower-tail test there. What carries
 the finding is that the two arms separate **from each other** on one text with
@@ -425,8 +425,10 @@ folding would make a Welsh rhyme verdict a function of which volume the line
 came out of.
 
 **The cost is declared and it is small**: over the staged corpus's 8,115
-offset-1 and offset-2 pairs, folding flips **21** from False to True, and it
-folds a length contrast the ASCII half of the corpus does not record anyway.
+offset-1 and offset-2 pairs, `diacritics="keep"` changes **22** verdicts —
+21 that the shipped fold calls True become False, and 1 that it REFUSES becomes
+False. Nothing moves the other way. What is folded is a length contrast that
+two of the five staged files do not record at all.
 
 **The fold drops a mark only over a VOWEL, which is not fussiness.** A blanket
 "strip every combining mark" would turn `ñ` into `n` and quietly admit a foreign
@@ -529,6 +531,86 @@ form (Twm o'r Nant's couplets), not parallelism.
 
 ---
 
+## 10a · None of the four declared coordinates is inert (`relations.py --inert`'s question)
+
+Doctrine 1's inverse failure — a coordinate nobody reads is a stated assumption
+that is not in force — measured over the staged corpus's 8,115 offset-1 and
+offset-2 pairs, by counting how many PAIR VERDICTS each setting changes against
+the shipped default. A coordinate that changes none is a constant wearing a
+coordinate's name.
+
+| coordinate | setting | verdicts changed | breakdown |
+|---|---|---:|---|
+| anchor depth | `depth=2` | 673 | grades, not rival rules |
+| anchor rule | `rule="prominent"` | 1416 | the falsified English port |
+| diacritics | `diacritics="keep"` | 22 | True→False 21, None→False 1 |
+| glide | `glide="vocalic"` | 13 | None→True 6, None→False 7 |
+| glide | `glide="consonantal"` | 13 | None→False 6, None→True 7 |
+
+The glide rows are the informative pair: `undecided` refuses **13** pairs that
+either decided reading would answer, and the two decided readings **disagree
+about all 13** — 6/7 one way and 7/6 the other. That is the refusal doing
+exactly what it is for, and it is measured rather than argued.
+
+`mutation` is the one declared coordinate with no setting, and it is not inert
+in that sense either — it is a DERIVATION with nothing to switch. §10h of the
+tests measures it: `tân/dân/thân`, `brân/frân`, `môr/fôr`, `cân/gân/chân` have
+one rime between them because the rime begins at a nucleus and never reads its
+own first onset. A mutation flag would be a field with one behaviour, which is
+the shape `relations.INERT` exists to catch, so none is offered.
+
+---
+
+## 10c · One defect in this cell's own code, found by reading it rather than by watching a rate
+
+`rhymes` took the verdict over the CROSS-PRODUCT of the two words' undecided
+glide readings. That is right for two DIFFERENT words — `wych` and `wynt` each
+carry the ambiguity and their answers are separate lexical facts. It is wrong
+for two occurrences of ONE form: whatever the truth about `wych` is, both copies
+of it have it, so `wych : wych` came back **None** where a REPEAT is certain
+under either reading.
+
+**It occurs 0 times in the staged corpus**, which is why it had to be found by
+reading the method rather than by watching a number move — and it is exactly the
+shape doctrine 3 says to watch for, since a Welsh *song* corpus is full of
+refrains and §9 already measures 42 REPEAT verdicts in the *hwiangerddi* alone.
+Fixed by `_same_form`, which is the comparison `units()` itself makes: case,
+apostrophe, hyphen, and the length mark when `diacritics="fold"`. Pinned in
+§10g of the tests, including that `tân : tan` is a REPEAT under the shipped fold
+and NONE under `diacritics="keep"` — the fold decides whether they are one word,
+and that is the declared choice rather than a side effect of it.
+
+**One figure in this file moved because of the fix and it is not an arm's
+value:** the straddle arm's `p_lo` went 0.3085 → 0.2985 and its `differ`
+69.5% → 70.5%, because a NULL replicate can pair a word with itself and that
+replicate now scores True instead of refusing. Every observed rate, every count
+and every excess is byte-identical.
+
+---
+
+## 10b · The hyphen defect that was just closed for English cannot occur here
+
+`72a91b3` made the anchor-layer hyphen defect a REFUSAL for English: the last
+piece of a hyphenated word went unread, the anchor was built from an earlier
+piece, and any two Dorset participles scored as rhyming on the schwa of `a-`.
+
+**Welsh cannot inherit it, because Welsh JOINS on the hyphen.** `cym.units()`
+deletes an internal hyphen — `di-baid` is one phonological word printed with a
+joint (doctrine 65, and the opposite of the Finnish rule). Measured over the
+five staged files:
+
+* **41 hyphenated line-final tokens** (37 distinct: `ben-felen`, `boch-goch`,
+  `canol-fys`, `ddi-daro`, `bi-drot`, `--cyd-fyw` …).
+* `rime(whole) == rime(de-hyphenated)` on **41 of 41**.
+* `rime(whole) == rime(LAST piece)` on **41 of 41** — the last piece is always
+  read, which is precisely the property whose absence was the English defect.
+* Instances where the rime is built from an EARLIER piece: **0 of 41**.
+
+`hoew-fardd : fardd`, the staged cywydd's first couplet, is the case in the
+tests (§10i): it rhymes THROUGH the hyphen, at rime `('a', 'rdd')`.
+
+---
+
 ## 11 · The battery did not move
 
 `python3 battery.py` → `mandated 1064, judged 1014, refused 50`,
@@ -547,4 +629,22 @@ Also green: `quality/test_fit.py` (§14 enumerates all nine phonologies),
 `quality/test_phonology.py`, `quality/verify_doctrines.py`,
 `quality/test_crosslinguistic.py`, `quality/test_declared_inputs.py`,
 `quality/test_null_shapes.py`, `quality/test_relations.py`,
-`quality/test_homograph.py`, `quality/test_msa_fin.py`, `quality/test_verbs.py`.
+`quality/test_homograph.py`, `quality/test_msa_fin.py`, `quality/test_verbs.py`,
+`quality/test_taxonomy.py`.
+
+**`quality/test_taxonomy.py` §14 went red because of this cell and was REPINNED,
+not deleted.** Its check *"a phonology that declares NO rhyme predicate is not
+consulted"* used `cym` as its example. The invariant it guards is unchanged — an
+inherited stub's `None` must not read as a refusal — so it now points at `eng`,
+and three checks were added pinning the SHAPE of the repair: that `cym` IS
+consulted now, that `consult=False` still reaches the channel path (doctrine 84),
+and that cym's DESIGNED refusal propagates as `None` where the channels answer
+`False`. **The example has now moved twice — `fin` → `cym` → `eng` — and the pool
+is down to one.** Seven of the nine registered phonologies declare their own
+`rhymes` (cym, fas, fin, ltc, msa, non, san); only `eng` and `som` inherit the
+stub, and `som` is ineligible for the same reason it was last time — it declines
+a stress grid, so the default anchor raises there for an unrelated reason. When
+`eng` declares one, this check has no shipped target and the comment says what to
+do: replace it with a synthetic `Phonology` subclass that inherits the stub on
+purpose. The distinction between a stub's `None` and a refusal's `None` does not
+stop mattering when no shipped module happens to exhibit it.
