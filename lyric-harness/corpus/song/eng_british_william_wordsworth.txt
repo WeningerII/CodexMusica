@@ -8,13 +8,254 @@
 # edition: Lyrical-Ballads-with-Other-Poems-1800-Volume-1 — 1800 — detected in file: '1800'
 # edition: Lyrical-Ballads-with-Other-Poems-1800-Volume-2 — 1800 — detected in file: '1800'
 # edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1919 — Quiller-Couch's Oxford Book of English Verse 1250-1900; the file's own dateline is the 1250-1900 title span
+# songs: 33
+# lines: 1751
+# attribution: EVERY ITEM CARRIES ITS OWN `--- AUTHOR:` LINE NAMING THE SOURCE
+#       THAT DECIDED IT. This file was rebuilt 2026-08-11 because it did not,
+#       and an attribution that lives only in a FILENAME gets checked exactly
+#       as often as somebody remembers to.
+#       The 1798 Lyrical Ballads is ANONYMOUS. No poem in PG 9622 is signed,
+#       its Advertisement speaks throughout of "the author" in the singular,
+#       and the only occurrences of either poet's name anywhere in that file
+#       are four lines of Project Gutenberg boilerplate carrying a JOINT
+#       volume-level attribution that never says who wrote what. The
+#       extraction had nothing in the text to split on and assigned nine
+#       Wordsworth poems to BOTH men — 563 lines, 42.3% of the previous
+#       version of the Coleridge file, byte-identical across the two.
+#       WHAT DECIDES THE SPLIT is the 1800 second edition, PG 8905: its title
+#       page reads "By W. WORDSWORTH." and its Preface reads — "I was induced
+#       to request the assistance of a Friend, who furnished me with the Poems
+#       of the ANCIENT MARINER, the FOSTER-MOTHER'S TALE, the NIGHTINGALE, the
+#       DUNGEON, and the Poem entitled LOVE." That is a CLOSED list of the
+#       not-Wordsworth poems in the collection, printed in the volume by its
+#       named author. Everything in the 1798 collection outside those five is
+#       Wordsworth's.
+#       WHAT ARRIVED, 2026-08-11: Goody Blake And Harry Gill, which had been
+#       filed under Coleridge alone and is in no sense his, and the poem the
+#       extractor had glued to its end, Lines Written At A Small Distance From
+#       My House — now two items.
+#       WHAT LEFT: four items, 223 verse lines. Love and an eight-line Ancient
+#       Mariner fragment, both named in the 1800 Preface as the Friend's and
+#       both already present in the Coleridge file in the PG 11101 text; and
+#       two 1800-edition copies of poems this file already held in the 1798
+#       text — a second Anecdote For Fathers (itself a run-on carrying a second
+#       copy of Lines Written At A Small Distance) and a sixteen-line cut of
+#       Lines Written Near Richmond. ONE POEM, ONE TEXT: those four were the
+#       same poems twice, which whole-body hashing cannot see because the two
+#       editions differ in bytes.
 # note: PAGE POET for this corpus's purpose: most of Wordsworth is blank verse or
 #       meditative ode. Took the Lyrical Ballads material in ballad measure plus
 #       the pieces titled Song.
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
+
+--- TITLE: Goody Blake, And Harry Gill, A True Story
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
+--- NOTE: Moved here from corpus/song/eng_british_samuel_taylor_coleridge.txt on 2026-08-11, where it had no business being: it is not one of the five poems the 1800 Preface assigns to the Friend, so its author is the man on the 1800 title page. The item was also a RUN-ON — the extractor missed the section break and glued the next poem in the 1798 volume onto its end. The two are now two items.
+[VERSE 1]
+Oh! what's the matter? what's the matter?
+What is't that ails young Harry Gill?
+That evermore his teeth they chatter,
+Chatter, chatter, chatter still.
+Of waistcoats Harry has no lack,
+Good duffle grey, and flannel fine;
+He has a blanket on his back,
+And coats enough to smother nine.
+[VERSE 2]
+In March, December, and in July,
+"Tis all the same with Harry Gill;
+The neighbours tell, and tell you truly,
+His teeth they chatter, chatter still.
+At night, at morning, and at noon,
+'Tis all the same with Harry Gill;
+Beneath the sun, beneath the moon,
+His teeth they chatter, chatter still.
+[VERSE 3]
+Young Harry was a lusty drover,
+And who so stout of limb as he?
+His cheeks were red as ruddy clover,
+His voice was like the voice of three.
+Auld Goody Blake was old and poor,
+Ill fedd she was, and thinly clad;
+And any man who pass'd her door,
+Might see how poor a hut she had.
+[VERSE 4]
+All day she spun in her poor dwelling,
+And then her three hours' work at night!
+Alas! 'twas hardly worth the telling,
+It would not pay for candle-light.
+--This woman dwelt in Dorsetshire,
+Her hut was on a cold hill-side,
+And in that country coals are dear,
+For they come far by wind and tide.
+[VERSE 5]
+By the same fire to boil their pottage,
+Two poor old dames, as I have known,
+Will often live in one small cottage,
+But she, poor woman, dwelt alone.
+'Twas well enough when summer came,
+The long, warm, lightsome summer-day,
+Then at her door the _canty_ dame
+Would sit, as any linnet gay.
+[VERSE 6]
+But when the ice our streams did fetter,
+Oh! then how her old bones would shake!
+You would have said, if you had met her,
+'Twas a hard time for Goody Blake.
+Her evenings then were dull and dead;
+Sad case it was, as you may think,
+For very cold to go to bed,
+And then for cold not sleep a wink.
+[VERSE 7]
+Oh joy for her! when e'er in winter
+The winds at night had made a rout,
+And scatter'd many a lusty splinter,
+And many a rotten bough about.
+Yet never had she, well or sick,
+As every man who knew her says,
+A pile before-hand, wood or stick,
+Enough to warm her for three days.
+[VERSE 8]
+Now, when the frost was past enduring,
+And made her poor old bones to ache,
+Could any thing be more alluring,
+Than an old hedge to Goody Blake?
+And now and then, it must be said,
+When her old bones were cold and chill,
+She left her fire, or left her bed,
+To seek the hedge of Harry Gill.
+[VERSE 9]
+Now Harry he had long suspected
+This trespass of old Goody Blake,
+And vow'd that she should be detected,
+And he on her would vengeance take.
+And oft from his warm fire he'd go,
+And to the fields his road would take,
+And there, at night, in frost and snow,
+He watch'd to seize old Goody Blake.
+[VERSE 10]
+And once, behind a rick of barley,
+Thus looking out did Harry stand;
+The moon was full and shining clearly,
+And crisp with frost the stubble-land.
+--He hears a noise--he's all awake--
+Again?--on tip-toe down the hill
+He softly creeps--'Tis Goody Blake,
+She's at the hedge of Harry Gill.
+[VERSE 11]
+Right glad was he when he beheld her:
+Stick after stick did Goody pull,
+He stood behind a bush of elder,
+Till she had filled her apron full.
+When with her load she turned about,
+The bye-road back again to take,
+He started forward with a shout,
+And sprang upon poor Goody Blake.
+[VERSE 12]
+And fiercely by the arm he took her,
+And by the arm he held her fast,
+And fiercely by the arm he shook her,
+And cried, "I've caught you then at last!"
+Then Goody, who had nothing said,
+Her bundle from her lap let fall;
+And kneeling on the sticks, she pray'd
+To God that is the judge of all.
+[VERSE 13]
+She pray'd, her wither'd hand uprearing,
+While Harry held her by the arm--
+"God! who art never out of hearing,
+"O may he never more be warm!"
+The cold, cold moon above her head,
+Thus on her knees did Goody pray,
+Young Harry heard what she had said,
+And icy-cold he turned away.
+[VERSE 14]
+He went complaining all the morrow
+That he was cold and very chill:
+His face was gloom, his heart was sorrow,
+Alas! that day for Harry Gill!
+That day he wore a riding-coat,
+But not a whit the warmer he:
+Another was on Thursday brought,
+And ere the Sabbath he had three.
+[VERSE 15]
+'Twas all in vain, a useless matter,
+And blankets were about him pinn'd;
+Yet still his jaws and teeth they clatter,
+Like a loose casement in the wind.
+And Harry's flesh it fell away;
+And all who see him say 'tis plain,
+That, live as long as live he may,
+He never will be warm again.
+[VERSE 16]
+No word to any man he utters,
+A-bed or up, to young or old;
+But ever to himself he mutters,
+"Poor Harry Gill is very cold."
+A-bed or up, by night or day;
+His teeth they chatter, chatter still.
+Now think, ye farmers all, I pray,
+Of Goody Blake and Harry Gill.
+
+--- TITLE: Lines Written At A Small Distance From My House, And Sent By My Little Boy To The Person To Whom They Are Addressed
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
+--- NOTE: The second half of the run-on item described above; the title is the 1798 volume's own, printed in its CONTENTS and over the poem. [VERSE n] renumbered from 1. The 1800 text of this poem was also in this file, glued to the end of a second copy of Anecdote for Fathers; that item is gone and this is the surviving copy.
+[VERSE 1]
+It is the first mild day of March:
+Each minute sweeter than before,
+The red-breast sings from the tall larch
+That stands beside our door.
+[VERSE 2]
+There is a blessing in the air,
+Which seems a sense of joy to yield
+To the bare trees, and mountains bare,
+And grass in the green field.
+[VERSE 3]
+My Sister! ('tis a wish of mine)
+Now that our morning meal is done,
+Make haste, your morning task resign;
+Come forth and feel the sun.
+[VERSE 4]
+Edward will come with you, and pray,
+Put on with speed your woodland dress,
+[BURDEN]
+And bring no book, for this one day
+We'll give to idleness.
+[VERSE 5]
+No joyless forms shall regulate
+Our living Calendar:
+We from to-day, my friend, will date
+The opening of the year.
+[VERSE 6]
+Love, now an universal birth.
+From heart to heart is stealing,
+From earth to man, from man to earth,
+--It is the hour of feeling.
+[VERSE 7]
+One moment now may give us more
+Than fifty years of reason;
+Our minds shall drink at every pore
+The spirit of the season.
+[VERSE 8]
+Some silent laws our hearts may make,
+Which they shall long obey;
+We for the year to come may take
+Our temper from to-day.
+[VERSE 9]
+And from the blessed power that rolls
+About, below, above;
+We'll frame the measure of our souls,
+They shall be tuned to love.
+[VERSE 10]
+Then come, my sister! come, I pray,
+With speed put on your woodland dress,
+[BURDEN]
+And bring no book; for this one day
+We'll give to idleness.
+
 --- TITLE: Simon Lee, The Old Huntsman, With An Incident In Which He Was Concerned
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
 [VERSE 1]
 In the sweet shire of Cardigan,
 Not far from pleasant Ivor-hall,
@@ -134,6 +375,7 @@ Alas! the gratitude of men
 Has oftner left me mourning.
 
 --- TITLE: Anecdote For Fathers Shewing How The Art Of Lying May Be Taught
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
 [VERSE 1]
 I have a boy of five years old,
 His face is fair and fresh to see;
@@ -213,6 +455,7 @@ Could I but teach the hundredth part
 Of what from thee I learn.
 
 --- TITLE: We Are Seven
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
 [VERSE 1]
 A simple child, dear brother Jim,
 That lightly draws its breath,
@@ -301,6 +544,7 @@ The little Maid would have her will,
 And said, "Nay, we are seven!"
 
 --- TITLE: Lines Written In Early Spring
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
 [VERSE 1]
 I heard a thousand blended notes,
 While in a grove I sate reclined,
@@ -335,6 +579,7 @@ Have I not reason to lament
 What man has made of man?
 
 --- TITLE: The Last Of The Flock
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
 [VERSE 1]
 In distant countries I have been,
 And yet I have not often seen
@@ -450,6 +695,7 @@ To-day I fetched it from the rock;
 It is the last of all my flock."
 
 --- TITLE: The Mad Mother
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
 [VERSE 1]
 Her eyes are wild, her head is bare,
 The sun has burnt her coal-black hair,
@@ -562,6 +808,7 @@ Now laugh and be gay, to the woods away!
 And there, my babe; we'll live for aye.
 
 --- TITLE: Lines Written Near Richmond, Upon The Thames, At Evening
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
 [VERSE 1]
 How rich the wave, in front, imprest
 With evening-twilight's summer hues,
@@ -613,6 +860,7 @@ believe, of the poems which were published during his
 life-time. This Ode is also alluded to in the next stanza.
 
 --- TITLE: Expostulation And Reply
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
 [VERSE 1]
 "Why William, on that old grey stone,
 "Thus for the length of half a day,
@@ -655,6 +903,7 @@ And thus I made reply.
 "And dream my time away."
 
 --- TITLE: The Tables Turned; An Evening Scene, On The Same Subject
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8905); not among the five poems its Preface assigns to "a Friend"
 [VERSE 1]
 Up! up! my friend, and clear your looks,
 Why all this toil and trouble?
@@ -696,296 +945,8 @@ Close up these barren leaves;
 Come forth, and bring with you a heart
 That watches and receives.
 
---- TITLE: ANECDOTE for FATHERS, Shewing how the practice of Lying may be taught
-[VERSE 1]
-I have a boy of five years old,
-His face is fair and fresh to see;
-His limbs are cast in beauty's mould,
-And dearly he loves me.
-[VERSE 2]
-One morn we stroll'd on our dry walk,
-Our quiet house all full in view,
-And held such intermitted talk
-As we are wont to do.
-[VERSE 3]
-My thoughts on former pleasures ran;
-I thought of Kilve's delightful shore,
-My pleasant home, when Spring began,
-A long, long year before.
-[VERSE 4]
-A day it was when I could bear
-To think, and think, and think again;
-With so much happiness to spare,
-I could not feel a pain.
-[VERSE 5]
-My boy was by my side, so slim
-And graceful in his rustic dress!
-And oftentimes I talked to him
-In very idleness.
-[VERSE 6]
-The young lambs ran a pretty race;
-The morning sun shone bright and warm;
-"Kilve," said I, "was a pleasant place,
-And so is Liswyn farm."
-[VERSE 7]
-"My little boy, which like you more,"
-I said and took him by the arm--
-"Our home by Kilve's delightful shore,
-Or here at Liswyn farm?"
-[VERSE 8]
-"And tell me, had you rather be,"
-I said and held-him by the arm,
-"At Kilve's smooth shore by the green sea,
-Or here at Liswyn farm?"
-[VERSE 9]
-In careless mood he looked at me,
-While still I held him by the arm,
-And said, "At Kilve I'd rather be
-Than here at Liswyn farm."
-[VERSE 10]
-"Now, little Edward, say why so;
-My little Edward, tell me why;"
-"I cannot tell, I do not know."
-"Why this is strange," said I.
-[VERSE 11]
-"For, here are woods and green hills warm:
-There surely must some reason be
-Why you would change sweet Liswyn farm,
-For Kilve by the green sea."
-[VERSE 12]
-At this, my boy hung down his head,
-He blush'd with shame, nor made reply;
-And five times to the child I said,
-"Why, Edward, tell me, why?"
-[VERSE 13]
-His head he raised--there was in sight,
-It caught his eye, he saw it plain--
-Upon the house-top, glittering bright,
-A broad and gilded vane.
-[VERSE 14]
-Then did the boy his tongue unlock,
-And thus to me he made reply;
-"At Kilve there was no weather-cock,
-And that's the reason why."
-[VERSE 15]
-Oh dearest, dearest boy! my heart
-For better lore would seldom yearn
-Could I but teach the hundredth part
-Of what from thee I learn.
-[VERSE 16]
-_LINES
-Written at a small distance from my House, and sent by
-my little boy to the person to whom they are addressed._
-[VERSE 17]
-It is the first mild day of March:
-Each minute sweeter than before,
-The red-breast sings from the tall larch
-That stands beside our door.
-[VERSE 18]
-There is a blessing in the air,
-Which seems a sense of joy to yield
-To the bare trees, and mountains bare,
-And grass in the green field.
-[VERSE 19]
-My Sister! ('tis a wish of mine)
-Now that our morning meal is done,
-Make haste, your morning task resign;
-Come forth and feel the sun.
-[VERSE 20]
-Edward will come with you, and pray,
-Put on with speed your woodland dress,
-[BURDEN]
-And bring no book, for this one day
-We'll give to idleness.
-[VERSE 21]
-No joyless forms shall regulate
-Our living Calendar:
-We from to-day, my friend, will date
-The opening of the year.
-[VERSE 22]
-Love, now an universal birth,
-From heart to heart is stealing,
-From earth to man, from man to earth,
---It is the hour of feeling.
-[VERSE 23]
-One moment now may give us more
-Than fifty years of reason;
-Our minds shall drink at every pore
-The spirit of the season.
-[VERSE 24]
-Some silent laws our hearts may make,
-Which they shall long obey;
-We for the year to come may take
-Our temper from to-day.
-[VERSE 25]
-And from the blessed power that rolls
-About, below, above;
-We'll frame the measure of our souls,
-They shall be tuned to love.
-[VERSE 26]
-Then come, my sister I come, I pray,
-With speed put on your woodland dress,
-[BURDEN]
-And bring no book; for this one day
-We'll give to idleness.
-
---- TITLE: LINES Written when sailing in a Boat At EVENING
-[VERSE 1]
-How rich the wave, in front, imprest
-With evening twilights summer hues,
-While, facing thus the crimson west,
-The boat her silent path pursues!
-And see how dark the backward stream!
-A little moment past, so smiling!
-And still, perhaps, with faithless gleam,
-Some other loiterer beguiling.
-[VERSE 2]
-Such views the youthful bard allure,
-But, heedless of the following gloom,
-He deems their colours shall endure
-'Till peace go with him to the tomb.
---And let him nurse his fond deceit,
-And what if he must die in sorrow!
-Who would not cherish dreams so sweet,
-Though grief and pain may come to-morrow?
-
---- TITLE: Love_
-[VERSE 1]
-All Thoughts, all Passions, all Delights,
-Whatever stirs this mortal Frame,
-All are but Ministers of Love,
-And feed his sacred flame.
-[VERSE 2]
-Oft in my waking dreams do I
-Live o'er again that happy hour,
-When midway on the Mount I lay
-Beside the Ruin'd Tower.
-[VERSE 3]
-The Moonshine stealing o'er the scene
-Had blended with the Lights of Eve;
-And she was there, my Hope, my Joy,
-My own dear Genevieve!
-[VERSE 4]
-She lean'd against the Armed Man,
-The Statue of the Armed Knight:
-She stood and listen'd to my Harp
-Amid the ling'ring Light.
-[VERSE 5]
-Few Sorrows hath she of her own,
-My Hope, my Joy, my Genevieve!
-She loves me best, whene'er I sing
-The Songs, that make her grieve.
-[VERSE 6]
-I play'd a soft and doleful Air,
-I sang an old and moving Story--
-An old rude Song that fitted well
-The Ruin wild and hoary.
-[VERSE 7]
-She listen'd with a flitting Blush,
-With downcast Eyes and modest Grace;
-For well she knew, I could not choose
-But gaze upon her Face.
-[VERSE 8]
-I told her of the Knight, that wore
-Upon his Shield a burning Brand;
-And that for ten long Years he woo'd
-[BURDEN]
-_The Lady of the Land_.
-[VERSE 9]
-I told her, how he pin'd: and, ah!
-The low, the deep, the pleading tone,
-With which I sang another's Love,
-Interpreted my own.
-[VERSE 10]
-She listen'd with a flitting Blush,
-With downcast Eyes and modest Grace;
-And she forgave me, that I gaz'd
-Too fondly on her Face!
-[VERSE 11]
-But when I told the cruel scorn
-Which craz'd this bold and lovely Knight,
-And that be cross'd the mountain woods
-Nor rested day nor night;
-[VERSE 12]
-That sometimes from the savage Den,
-And sometimes from the darksome Shade,
-And sometimes starting up at once
-In green and sunny Glade,
-[VERSE 13]
-There came, and look'd him in the face,
-An Angel beautiful and bright;
-And that he knew, it was a Fiend,
-This miserable Knight!
-[VERSE 14]
-And that, unknowing what he did,
-He leapt amid a murd'rous Band,
-And sav'd from Outrage worse than Death
-[BURDEN]
-The Lady of the Land;
-[VERSE 15]
-And how she wept and clasp'd his knees
-And how she tended him in vain--
-And ever strove to expiate
-The Scorn, that craz'd his Brain
-[VERSE 16]
-And that she nurs'd him in a Cave;
-And how his Madness went away
-When on the yellow forest leaves
-A dying Man he lay;
-[VERSE 17]
-His dying words--but when I reach'd
-That tenderest strain of all the Ditty,
-My falt'ring Voice and pausing Harp
-Disturb'd her Soul with Pity!
-[VERSE 18]
-All Impulses of Soul and Sense
-Had thrill'd my guileless Genevieve,
-The Music, and the doleful Tale,
-The rich and balmy Eve;
-[VERSE 19]
-And Hopes, and Fears that kindle Hope,
-An undistinguishable Throng!
-And gentle Wishes long subdued,
-Subdued and cherish'd long!
-[VERSE 20]
-She wept with pity and delight,
-She blush'd with love and maiden shame;
-And, like the murmur of a dream,
-I heard her breathe my name.
-[VERSE 21]
-Her Bosom heav'd--she stepp'd aside;
-As conscious of my Look, she stepp'd--
-Then suddenly with timorous eye
-She fled to me and wept.
-[VERSE 22]
-She half inclosed me with her arms,
-She press'd me with a meek embrace;
-And bending back her head look'd up,
-And gaz'd upon my face.
-[VERSE 23]
-'Twas partly Love, and partly Fear,
-And partly 'twas a bashful Art
-That I might rather feel than see
-The Swelling of her Heart.
-[VERSE 24]
-I calm'd her Tears; and she was calm,
-And told her love with virgin Pride.
-And so I won my Genevieve,
-My bright and beauteous Bride!
-
---- TITLE: Second Voice
-[VERSE 1]
-"Still as a Slave before his Lord,
-The Ocean hath no blast:
-His great bright eye most silently
-Up to the moon is cast--"
-[VERSE 2]
-"If he may know which way to go,
-For she guides him smooth or grim,
-See, brother, see! how graciously
-She looketh down on him."
-
 --- TITLE: Hart-Leap Well
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 Hart-Leap Well is a small spring of water, about five miles from
 Richmond in Yorkshire, and near the side of the road which leads
@@ -1115,6 +1076,7 @@ But there is matter for a second rhyme,
 And I to this would add another tale.
 
 --- TITLE: Priest
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 Why there, Sir, is a thought that's new to me.
 The Stone-cutters, 'tis true, might beg their bread
@@ -1129,6 +1091,7 @@ The thought of death sits easy on the man
 Who has been born and dies among the mountains:
 
 --- TITLE: Leonard
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 If that day
 Should come, 'twould needs be a glad day for him;
@@ -1139,6 +1102,7 @@ PRIEST.
 Happy, Sir--
 
 --- TITLE: Song
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 She dwelt among th' untrodden ways
 Beside the springs of Dove,
@@ -1166,6 +1130,7 @@ Roll'd round in earth's diurnal course
 With rocks and stones and trees!
 
 --- TITLE: A Pastoral
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 His simple truths did Andrew glean
 Beside the babbling rills;
@@ -1289,6 +1254,7 @@ The little careless Broom was left
 To live for many a day.
 
 --- TITLE: To a SEXTON_
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 Let thy wheel-barrow alone.
 Wherefore, Sexton, piling still
@@ -1330,6 +1296,7 @@ O Sexton, do not then remove her,
 Let one grave hold the Lov'd and Lover!
 
 --- TITLE: Andrew Jones
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 I hate that Andrew Jones: he'll breed
 His children up to waste and pillage.
@@ -1376,6 +1343,7 @@ With its tantara sound, would come
 And sweep him from the village!
 
 --- TITLE: The TWO THIEVES, Or the last Stage of AVARICE_
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 Oh now that the genius of Bewick were mine
 And the skill which He learn'd on the Banks of the Tyne;
@@ -1471,6 +1439,7 @@ Even in appearances like these
 Enough to nourish and to stir my mind!
 
 --- TITLE: Wandering Jew
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 Though the torrents from their fountains
 Roar down many a craggy steep,
@@ -1498,6 +1467,7 @@ Night and day, I feel the trouble,
 Of the Wanderer in my soul.
 
 --- TITLE: Ruth
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 When Ruth was left half desolate,
 Her Father took another Mate;
@@ -1570,6 +1540,7 @@ Cover a hundred leagues and seem
 To set the hills on fire.
 
 --- TITLE: The Two April Mornings
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 We walk'd along, while bright and red
 Uprose the morning sun,
@@ -1627,6 +1598,7 @@ A blooming Girl, whose hair was wet
 With points of morning dew.
 
 --- TITLE: The FOUNTAIN, _A Conversation_
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 We talk'd with open heart, and tongue
 Affectionate and true,
@@ -1719,6 +1691,7 @@ About the crazy old church-clock
 And the bewilder'd chimes.
 
 --- TITLE: The Pet-Lamb, A Pastoral
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 The dew was falling fast, the stars began to blink;
 I heard a voice, it said, Drink, pretty Creature, drink!
@@ -1808,6 +1781,7 @@ For she look'd with such a look, and she spake with such a tone,
 That I almost receiv'd her heart into my own."
 
 --- TITLE: Written in GERMANY, On one of the coldest days of the Century_
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 _I must apprize the Reader that the stoves in North Germany
 generally have the impression of a galloping Horse upon them, this
@@ -1862,6 +1836,7 @@ Of thy brethren a march thou should'st sound through the clouds,
 And back to the forests again.
 
 --- TITLE: Rural Architecture_
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 There's George Fisher, Charles Fleming, and Reginald Shore,
 Three rosy-cheek'd School-boys, the highest not more
@@ -1896,6 +1871,7 @@ foot of Thirl-mere, on the western side of the beautiful dale of
 Legberthwaite, along the 'high road between Keswick' and Ambleside.
 
 --- TITLE: A Poet'S Epitaph_
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 Art thou a Statesman, in the van
 Of public business train'd and bred,
@@ -1973,6 +1949,7 @@ Here stretch thy body at full length
 Or build thy house upon this grave.--
 
 --- TITLE: A CHARACTER_, _In the antithetical Manner_
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 I marvel how Nature could ever find space
 For the weight and the levity seen in his face:
@@ -2000,6 +1977,7 @@ And I for five centuries right gladly would be
 Such an odd, such a kind happy creature as he.
 
 --- TITLE: A Fragment
+--- AUTHOR: William Wordsworth — 1800 title page "By W. WORDSWORTH." (PG 8912)
 [VERSE 1]
 Between two sister moorland rills
 There is a spot that seems to lie
@@ -2080,6 +2058,7 @@ For calm and gentle is his mien;
 Like a dead Boy he is serene.
 
 --- TITLE: The Solitary Reaper
+--- AUTHOR: William Wordsworth — Oxford Book of English Verse (PG 66619), printed under the heading WILLIAM WORDSWORTH
 [VERSE 1]
 Behold her, single in the field,
 Yon solitary Highland Lass!
@@ -2119,6 +2098,7 @@ The music in my heart I bore,
 Long after it was heard no more.
 
 --- TITLE: Perfect Woman
+--- AUTHOR: William Wordsworth — Oxford Book of English Verse (PG 66619), printed under the heading WILLIAM WORDSWORTH
 [VERSE 1]
 She was a phantom of delight
 When first she gleam’d upon my sight;
@@ -2154,6 +2134,7 @@ And yet a Spirit still, and bright
 With something of angelic light.
 
 --- TITLE: Daffodils
+--- AUTHOR: William Wordsworth — Oxford Book of English Verse (PG 66619), printed under the heading WILLIAM WORDSWORTH
 [VERSE 1]
 I wander’d lonely as a cloud
 That floats on high o’er vales and hills,
@@ -2184,6 +2165,7 @@ And then my heart with pleasure fills,
 And dances with the daffodils.
 
 --- TITLE: Ode to Duty
+--- AUTHOR: William Wordsworth — Oxford Book of English Verse (PG 66619), printed under the heading WILLIAM WORDSWORTH
 [VERSE 1]
 Stern Daughter of the Voice of God!
 O Duty! if that name thou love,

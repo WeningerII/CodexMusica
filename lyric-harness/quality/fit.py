@@ -915,13 +915,19 @@ def fit_line(text, placement, phon=None, subdivision=None, assume=None,
             f"says how much room the line gets; at or below zero it says "
             f"none.", kind="placement", satisfiable=False, line=p.text))
         return fit
-    if p.beat > p.pulses:
+    if p.beat >= p.pulses + 1:
         F.append(FitFinding(
             "BEAT_OUTSIDE_CYCLE",
-            "the declared beat names a pulse the bar does not have",
-            f"beat {_num(p.beat)} in {c.signature}, which has "
-            f"{_num(p.pulses)} pulses. This is `Line.beat` read for the first "
-            f"time; nothing had ever checked it against the section's meter.",
+            "the declared beat lies past the end of the bar",
+            f"beat {_num(p.beat)} in {c.signature}, whose bar spans "
+            f"[1, {_num(p.pulses + 1)}) — {_num(p.pulses)} pulses, 1-based. "
+            f"This is `Line.beat` read for the first time; nothing had ever "
+            f"checked it against the section's meter. The bound is the "
+            f"BARLINE, not the last pulse's number: beat "
+            f"{_num(p.pulses)}.5 is the second half of the last pulse and is "
+            f"inside the bar — in 4/4 that is the 'and of four', the "
+            f"commonest pickup position in popular song, and this test "
+            f"declared it nonexistent until 2026-08-11.",
             kind="placement", satisfiable=False, line=p.text))
     if p.start < 0:
         F.append(FitFinding(

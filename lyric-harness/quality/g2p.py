@@ -683,6 +683,10 @@ class Fallback:
         #: dependency: `data/CHANNELS.md` records that pip is reachable, and the
         #: package is still not imported anywhere in the default path.
         self.extra_g2p = extra_g2p
+        #: A running tally of LEAF reads by layer -- a hyphenated compound
+        #: contributes one entry per piece, not one for the compound. It is a
+        #: convenience for a caller watching a stream go past; the reported
+        #: three counts come from `three_counts`, which counts words.
         self.counts = Counter()
 
     # ------------------------------------------------------------- dictionary
@@ -714,16 +718,24 @@ class Fallback:
     def _suffix(self, w):
         """The declared tie-break, in one place so it can be argued with.
 
-        `(-stem length, stem-form order, frequency rank)`. Length first because
-        the ambiguity that actually bites is a SHORT accidental headword —
-        CMUdict lists `gaz` and `us`, so `gazeth` and `usest` both have a wrong
-        short parse available. Stem-form order second (`dul` is absent, `dull`
-        and `dule` are both present and `-ness` wants the doubled one).
-        Frequency last, from the lexicon's own `wordfreq20k` ranking, which is
-        independent of the pronunciation being predicted (doctrine 13).
+        `(-stem length, suffix index, stem-form order, frequency rank)`.
+
+        Length first because the ambiguity that actually bites is a SHORT
+        accidental headword — CMUdict lists `gaz` and `us`, so `gazeth` and
+        `usest` both have a wrong short parse available. **Suffix index
+        second**, which is what makes `deceivest` read as `deceive` + `-est`
+        (/-ɪst/) rather than `deceive` + `-st` (/-st/): both reach the same
+        7-letter stem, and `-est` is the archaic 2sg ending while `-st` is its
+        post-vocalic reduction, so the list order is the linguistic claim and
+        it has to outrank the orthographic one. `D IH0 S IY1 V S T` is not a
+        possible English word and nothing downstream would have said so.
+        Stem-form order third (`dul` is absent, `dull` and `dule` are both
+        present and `-ness` wants the doubled one). Frequency last, from the
+        lexicon's own `wordfreq20k` ranking, which is independent of the
+        pronunciation being predicted (doctrine 13).
         """
         cands = []
-        for sfx, allo, name in SUFFIXES:
+        for sfx_i, (sfx, allo, name) in enumerate(SUFFIXES):
             if not w.endswith(sfx) or len(w) - len(sfx) < 2:
                 continue
             residue = w[:-len(sfx)]
@@ -733,7 +745,7 @@ class Fallback:
                     continue
                 rank = self.lex.freq_rank.get(stem, 10 ** 9) if hasattr(
                     self.lex, "freq_rank") else 10 ** 9
-                cands.append(((-len(stem), order, rank), stem, name,
+                cands.append(((-len(stem), sfx_i, order, rank), stem, name,
                               tuple(list(ph) + allo(ph))))
         if not cands:
             return None
@@ -743,7 +755,7 @@ class Fallback:
         # pronunciation, name that one. `grow'st` rests on `grow`, and the
         # CMUdict headword `growe` is an accident of the dictionary.
         for k2, s2, n2, p2 in cands:
-            if p2 == phones and k2[1] < key[1]:
+            if p2 == phones and k2[2] < key[2]:
                 key, stem, name = k2, s2, n2
         return Reading(phones, "morphology", f"{name} on {stem}", (stem,))
 
@@ -834,6 +846,40 @@ class Fallback:
                        "CMUdict-aligned letter-to-sound; NO phone here came "
                        "from a dictionary entry for this word", ())
 
+    # -------------------------------------------------------------- compounds
+    def _compound(self, w):
+        """`to-day`, `Easter-day`, `woe-winged` — read each piece, or refuse.
+
+        `Lexicon.transcribe` has always split on the hyphen before looking a
+        piece up, so the LINE path reads `to-day` and a per-word path that did
+        not would disagree with it. That disagreement was measured before this
+        existed: 305 line ends in the first 40 English song files where
+        `line_readability` says READABLE and a per-token read said REFUSED,
+        every one of them a hyphenated compound or a token with a trailing
+        em-dash. The refusal was in the tokeniser, not in the dictionary, and
+        the two definitions have to agree or the three counts are counting
+        different things (doctrine 26's shape: normalise where the word is
+        extracted).
+
+        The compound's layer is the WEAKEST of its pieces, which is the only
+        safe rule: a compound half-guessed is guessed.
+        """
+        pieces = [p for p in re.split(r"[-‑]", w) if p]
+        if not pieces:
+            return None
+        readings = []
+        for p in pieces:
+            r = self.read(p)
+            if r is None:
+                return None            # a compound half-read is not read
+            readings.append(r)
+        worst = min(readings, key=lambda r: CONFIDENCE_RANK[r.confidence])
+        return Reading(tuple(ph for r in readings for ph in r.phones),
+                       worst.layer,
+                       "compound " + " + ".join(pieces) + "; layer is the "
+                       "weakest piece's (" + worst.layer + ")",
+                       tuple(b for r in readings for b in r.basis))
+
     # ------------------------------------------------------------------ read
     def read(self, word):
         """-> Reading, or None for a REFUSAL.
@@ -842,15 +888,24 @@ class Fallback:
         `min_confidence` could read the word, and a caller must record it as a
         refusal rather than as an absent relation (doctrine 79).
         """
-        w = fold_apostrophes(word).lower().strip("\"“”.,;:!?()[]")
+        w = fold_apostrophes(word).lower().strip("\"“”.,;:!?()[]-‑—–")
         if not w or not re.search(r"[a-z]", w):
             self.counts["refused"] += 1
             return None
+        if re.search(r"[-‑]", w):
+            return self._compound(w)
         r = self._dictionary(w)
         if r is not None:
             self.counts["dictionary"] += 1
             return r
         if self.min_rank <= CONFIDENCE_RANK["high"]:
+            # THE ORDER IS LOAD-BEARING and it is not a style choice. CMUdict
+            # lists `o'` as a headword (OW1), so the productive `-er` rule
+            # parses `o'er` as `o'` + `-er` and returns a TWO-syllable
+            # `OW1 ER0`. Both readings are dictionary-derived; only the closed
+            # attested table has the right one. A tier that is a CLOSED LIST OF
+            # ATTESTED FORMS therefore outranks a tier that is a productive
+            # rule, always, and `quality/test_g2p.py` pins exactly this case.
             for fn in (self._elision, self._spelling, self._suffix,
                        self._final_apostrophe, self._prefix):
                 r = fn(w)

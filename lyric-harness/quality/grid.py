@@ -31,8 +31,12 @@ THE ANTI-CLICHE CHECK, WHICH IS THE REASON THIS IS NOT JUST A DATA MODEL
 `uniformity()` measures how close a song has drifted to the default: 4/4
 throughout, every section a multiple of 4 bars, every section the same bar
 length, every line the same duration, every line landing on a downbeat, four
-lines to a section. A song that scores high on all six has been written by the
-grid rather than on it. `stanza_lock()` returns the findings.
+lines to a section — and, since a session cleared the fifth of those by adding
+one constant, every line that is NOT on a downbeat carrying the same pickup as
+all the others. A song that scores high on all seven has been written by the
+grid rather than on it. `stanza_lock()` returns the findings, and it names
+which shape it sees rather than passing in silence when the first shape has
+been swapped for the second (doctrine 24).
 
 This is the FIRST structural-cliche detector in the repo. Everything before it
 measured cliche at the word and rhyme-pair level -- CLICHE_PAIR,
@@ -445,17 +449,65 @@ class GridFinding:
         return f"[{self.code}] {self.message}\n    {self.evidence}"
 
 
+def line_pickup(song, line):
+    """-> pulses from a line's declared start to the NEXT barline; 0 on a
+    downbeat.
+
+    MEASURED TO THE BARLINE, NOT FROM IT, AND THAT IS THE WHOLE POINT. The
+    offset `beat - 1` is not commensurable across meters: beat 6.5 of 7/8 and
+    beat 3.5 of 4/4 are 5.5 and 2.5 pulses into their bars and are THE SAME
+    PICKUP -- 1.5 pulses of run-up. A measure keyed on the offset reads four
+    distinct values where the declaration has one, which is exactly how a
+    constant hid in `examples/never_been_to_a_scene.blueprint.json` through
+    four time signatures.
+
+    `beat` may be <= 0 (`Line` documents it as a pickup before the section's
+    first downbeat), so this is a modulus rather than a subtraction.
+    """
+    m = song.meter_at(line.bar)
+    return (Fraction(1) - Fraction(line.beat)) % Fraction(m.beats)
+
+
 def uniformity(song):
-    """-> dict of six drift measures, each in [0,1]. 1.0 means fully default.
+    """-> dict of seven drift measures, each in [0,1]. 1.0 means fully default.
 
     Reported as measurements, never summed into a score -- the exchange rate
     between them is a genre's answer and belongs in a declaration.
+
+    `uniform_anacrusis` IS THE SEVENTH, AND IT IS HERE BECAUSE THE SIX ABOVE
+    IT WERE SATISFIED BY CHEATING. This repo's own song tripped
+    DOWNBEAT_LOCKED on its first draft -- 41 lines, all on beat 1 -- and the
+    session that wrote it cleared the check by giving every second line a
+    pickup of 1.5 pulses. The same 1.5 in 7/8, in 5/4, in 4/4 and in 6/8: ONE
+    CONSTANT, alternating with beat 1, chosen without any line being heard.
+    `downbeat_locked` fell to 51% and the check went silent, so a defect that
+    had been named was replaced by a defect that had no name.
+
+    Doctrine 24: a rule that would delete a category must RELABEL. A uniform
+    anacrusis is not the absence of the defect DOWNBEAT_LOCKED names, it is
+    the other shape of it -- the words sitting on the grid rather than
+    playing against it -- so it gets a name and `stanza_lock` says which one
+    it sees.
+
+    1.0 WHEN NOTHING IS ANACRUSTIC, and that is not a bug: this dict measures
+    drift TOWARD the default, and a song with no pickup anywhere has not
+    drifted from that default, it has arrived at it. DOWNBEAT_LOCKED is the
+    name for that case and `stanza_lock` keeps it.
     """
     secs = song.sections
     lines = song.lines
     out = {}
 
-    out["four_four"] = (sum(1 for s in secs if s.meter == Meter(4, 4))
+    # (beats, unit), NOT `== Meter(4, 4)`. `Meter` is frozen and carries
+    # `groups`, so the equality read a DECLARED GROUPING as "not 4/4": adding
+    # `groups: [2, 2]` to this repo's own chorus dropped `four_four` from 29%
+    # to 0% without one bar changing. That is the cheat this function was
+    # rewritten for, found a second time inside the function itself, and it is
+    # the worse instance -- a song could clear METER_LOCKED by declaring a
+    # grouping, which is a coordinate about where the BEATS are and says
+    # nothing whatever about whether the song is in four.
+    out["four_four"] = (sum(1 for s in secs
+                            if (s.meter.beats, s.meter.unit) == (4, 4))
                         / len(secs)) if secs else 0.0
     out["bars_multiple_of_four"] = (sum(1 for s in secs if s.bars % 4 == 0)
                                     / len(secs)) if secs else 0.0
@@ -467,6 +519,10 @@ def uniformity(song):
         max(durs.count(v) for v in set(durs)) / len(durs)) if durs else 0.0
     out["downbeat_locked"] = (sum(1 for l in lines if l.on_downbeat())
                               / len(lines)) if lines else 0.0
+    picks = [p for p in (line_pickup(song, l) for l in lines) if p != 0]
+    out["uniform_anacrusis"] = (
+        max(picks.count(v) for v in set(picks)) / len(picks)) if picks \
+        else 1.0
     counts = [len(song.lines_in(s)) for s in secs]
     out["four_lines_per_section"] = (
         sum(1 for c in counts if c == 4) / len(counts)) if counts else 0.0
@@ -504,6 +560,8 @@ def stanza_lock(song, threshold=0.90):
             "EMERGENT from where lines fall on the bar grid; if it comes out "
             "at 4 every time, the lines were written to a stanza and then "
             "placed, rather than placed."))
+    picks = [p for p in (line_pickup(song, l) for l in song.lines) if p != 0]
+    modal = (max(set(picks), key=picks.count) if picks else None)
     if u["downbeat_locked"] >= threshold and len(song.lines) > 4:
         out.append(GridFinding(
             "DOWNBEAT_LOCKED",
@@ -511,7 +569,33 @@ def stanza_lock(song, threshold=0.90):
             f"{u['downbeat_locked']:.0%} of lines begin on a downbeat. No "
             f"anacrusis, no line entering late, no phrase pushed across a "
             f"barline — the words are sitting on the grid rather than "
-            f"playing against it."))
+            f"playing against it. CLEARING THIS IS NOT EVIDENCE OF VARIED "
+            f"PLACEMENT: this repo's own blueprint cleared it by giving "
+            f"every second line one constant pickup, which is why "
+            f"UNIFORM_ANACRUSIS below exists (doctrine 24). "
+            f"uniform_anacrusis reads {u['uniform_anacrusis']:.0%}."))
+    elif u["uniform_anacrusis"] >= threshold and len(picks) > 4:
+        out.append(GridFinding(
+            "UNIFORM_ANACRUSIS",
+            "every line that is not on a downbeat carries the SAME pickup",
+            f"{picks.count(modal)} of the {len(picks)} off-downbeat lines "
+            f"enter {modal} pulse(s) before the barline "
+            f"({u['uniform_anacrusis']:.0%}); "
+            f"{len(set(picks))} distinct pickup(s) in the whole song, against "
+            f"{u['downbeat_locked']:.0%} of lines on beat 1. The same defect "
+            f"DOWNBEAT_LOCKED names, one step along: a line placed by adding "
+            f"a number to beat 1 has not been heard against the bar either. "
+            f"WHAT THIS CHECK CANNOT SEPARATE, MEASURED (doctrine 17): a "
+            f"pickup uniform BY FIAT from one uniform BECAUSE THE LANGUAGE "
+            f"IS. `examples/never_been_to_a_scene.blueprint.json` read 100% "
+            f"here when its pickup was one hand-set constant across four "
+            f"time signatures, and still reads 90% after every pickup was "
+            f"re-derived from its own line's upbeat syllables — because 28 "
+            f"of those 41 English lines begin with exactly one weak "
+            f"syllable. Read the DISTINCT count and the note VALUES beside "
+            f"this percentage, not the percentage alone; 0.90 is an "
+            f"uncalibrated threshold (doctrine 16) and n=1 song is not a "
+            f"calibration (doctrine 72)."))
     if u["equal_line_duration"] >= threshold and len(song.lines) > 4:
         out.append(GridFinding(
             "PHRASE_LENGTH_LOCKED",
@@ -1086,14 +1170,41 @@ class Hook:
 
 @dataclass(frozen=True)
 class HookOccurrence:
+    """Where a hook was found, in TWO bar coordinates, because one was never
+    enough and said so only once a line had a pickup.
+
+    `bar`/`beat` are the LINE's declared start. `next_downbeat` is the first
+    barline at or after that start -- equal to `bar` when the line begins on
+    beat 1, and `bar + 1` when it does not. Both are arithmetic; neither is a
+    claim about where the hook is HEARD to land.
+
+    That claim needs one more thing, and the harness does not have it: whether
+    the units before the barline are an ANACRUSIS (so the hook lands on
+    `next_downbeat`) or the line simply enters mid-bar (so it lands where it
+    starts) is a fact about the setting, and there is no setting -- see
+    `quality/fit.py`'s NO_SETTING. Report the pair, name which is which, and
+    let the reader supply the tune.
+
+    `token_offset` is the third limit and the oldest. When it is non-zero the
+    hook is a fragment starting some words into the line, and BOTH bar numbers
+    are still the LINE's -- locating a mid-line fragment in bars would need a
+    per-syllable placement, which is the same missing setting again.
+    """
     hook: str
     line_index: int          # 0-based index into song.lines
     text: str
     section: str
     function: str
-    bar: int
+    bar: int                 # the LINE's declared start bar
     beat: Fraction
     token_offset: int        # where in the line the fragment starts
+    next_downbeat: int = 0   # first barline at or after `bar`.`beat`
+
+    @property
+    def has_pickup(self):
+        """True when the line enters before its next barline. NOT a claim
+        that those units are an anacrusis -- see the class docstring."""
+        return self.next_downbeat != self.bar
 
 
 def hook_occurrences(song, hook):
@@ -1110,9 +1221,20 @@ def hook_occurrences(song, hook):
                 fn = next((s.function for s in song.sections
                            if s.start_bar <= l.bar <= s.end_bar), UNDECLARED)
                 out.append(HookOccurrence(h.text, i, l.text, sec, fn,
-                                          l.bar, l.beat, k))
+                                          l.bar, l.beat, k,
+                                          l.bar if l.beat == 1 else l.bar + 1))
                 break
     return sorted(out, key=lambda o: (o.bar, o.beat))
+
+
+def _bars_of(occ):
+    """The bar list a finding prints. States both coordinates whenever any
+    occurrence has a pickup, because `[30, 68]` and `[31, 69]` are the same
+    hook and a reader given one number cannot tell which they were handed."""
+    if any(o.has_pickup for o in occ):
+        return (f"{[o.bar for o in occ]} (line starts), landing on the "
+                f"barline at {[o.next_downbeat for o in occ]}")
+    return str([o.bar for o in occ])
 
 
 def hook_findings(song, hooks=(), title=None):
@@ -1152,7 +1274,7 @@ def hook_findings(song, hooks=(), title=None):
                 "HOOK_PLACEMENT_UNDECLARED",
                 "the hook recurs but no section it lands in declares a "
                 "function",
-                f"{h.text!r} at bars {[o.bar for o in occ]}; 'where does the "
+                f"{h.text!r} at bars {_bars_of(occ)}; 'where does the "
                 f"hook live' cannot be answered without Section.function."))
         elif len(fns - {UNDECLARED}) == 1 and len(occ) > 2:
             findings.append(GridFinding(
@@ -1160,7 +1282,7 @@ def hook_findings(song, hooks=(), title=None):
                 f"the hook returns {len(occ)} times and never leaves one "
                 f"function",
                 f"{h.text!r} occurs only in {sorted(fns)[0]!r} sections, at "
-                f"bars {[o.bar for o in occ]}. A hook that leaks into a verse "
+                f"bars {_bars_of(occ)}. A hook that leaks into a verse "
                 f"or a bridge is placed; one that only ever appears where it "
                 f"is expected is a section, not a hook."))
 
@@ -1664,7 +1786,7 @@ def read_marked_songs(path, language=""):
 
 
 __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
-           "uniformity", "stanza_lock", "phrase_profile",
+           "uniformity", "stanza_lock", "phrase_profile", "line_pickup",
            # section function -- MISSING.md D-1
            "UNDECLARED", "UnknownFunction", "FunctionSpec",
            "SECTION_FUNCTIONS", "as_function", "FormConvention",

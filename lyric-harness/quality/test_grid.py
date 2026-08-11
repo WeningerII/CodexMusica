@@ -18,9 +18,16 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 
 from quality import schemes as S                                  # noqa: E402
 from quality.grid import (Line, Meter, Section, Song,              # noqa: E402
-                          phrase_profile, stanza_lock, uniformity)
+                          line_pickup, phrase_profile, stanza_lock,
+                          tokens, uniformity)
 
 FAILURES = []
+
+#: the seven drift channels, named here so a change to the set is a decision
+#: rather than a diff nobody read.
+CHANNELS = {"four_four", "bars_multiple_of_four", "equal_section_length",
+            "equal_line_duration", "downbeat_locked", "uniform_anacrusis",
+            "four_lines_per_section"}
 
 
 def check(name, cond, detail=""):
@@ -201,15 +208,164 @@ def test_function_and_bar_range_are_two_different_keys():
           not any(f in Section.__dataclass_fields__
                   for f in ("lines", "line_count", "n_lines")),
           f"fields are {sorted(Section.__dataclass_fields__)}")
-    check("and it is not a seventh uniformity channel",
-          set(uniformity(s)) == {"four_four", "bars_multiple_of_four",
-                                 "equal_section_length",
-                                 "equal_line_duration", "downbeat_locked",
-                                 "four_lines_per_section"},
+    check("and it is not a uniformity channel",
+          set(uniformity(s)) == CHANNELS and "function" not in CHANNELS,
           "the anti-cliche measure is about the GRID; a form with two "
-          "choruses is not thereby uniform")
+          "choruses is not thereby uniform. The channel COUNT moved from six "
+          "to seven in the same round for an unrelated reason "
+          "(uniform_anacrusis, test 8); `function` is still not one of them, "
+          "which is what this line has always asserted")
     check("the drift checks read the declared function, never the name",
           _drift_reads_function())
+
+
+#: the shipped song, the one whose blueprint was written by hand.
+BLUEPRINT = os.path.join(HERE, "..", "examples",
+                         "never_been_to_a_scene.blueprint.json")
+
+
+def scene_song():
+    import json
+    bp = json.load(open(BLUEPRINT, encoding="utf-8"))
+    secs = [Section(name=s["name"], bars=int(s["bars"]),
+                    start_bar=int(s["start_bar"]),
+                    meter=Meter(int(s["meter"]["beats"]),
+                                int(s["meter"]["unit"]),
+                                tuple(s["meter"]["groups"])))
+            for s in bp["sections"]]
+    lines = [Line(text=l["text"], bar=int(l["bar"]), beat=F(str(l["beat"])),
+                  duration=F(str(l["duration"])), section=l["section"])
+             for l in bp["lines"]]
+    return Song(sections=secs, lines=lines)
+
+
+def anacrusis_cheat_song():
+    """DOWNBEAT_LOCKED cleared the way this repo's own blueprint cleared it.
+
+    Four sections in four different meters, six lines each, strictly
+    alternating beat 1 with ONE CONSTANT pickup of 1.5 pulses. Half the lines
+    are off the downbeat, so `downbeat_locked` reads 50% and the old check
+    went silent -- on a song in which no line was ever heard against its bar.
+    """
+    ms = (Meter(4, 4), Meter(7, 8), Meter(5, 4), Meter(6, 8))
+    s = Song(sections=[Section(f"s{i}", 12, m) for i, m in enumerate(ms)])
+    s.layout()
+    for sec in s.sections:
+        # beat b such that (b - 1) = pulses - 3/2 -> the same 1.5-pulse pickup
+        up = sec.meter.beats - F(1, 2)
+        for k in range(6):
+            s.lines.append(Line(f"{sec.name}.{k}", bar=sec.start_bar + 2 * k,
+                                beat=F(1) if k % 2 == 0 else up,
+                                duration=F(sec.meter.beats),
+                                section=sec.name))
+    return s
+
+
+def test_a_uniform_anacrusis_is_a_finding_and_not_a_pass():
+    print("\n8. DOCTRINE 24 — the check RELABELS instead of going silent")
+    cheat = anacrusis_cheat_song()
+    u = uniformity(cheat)
+    check("the pickup is measured to the BARLINE, so it is meter-relative",
+          {line_pickup(cheat, l) for l in cheat.lines} == {F(0), F(3, 2)},
+          "beat 3.5 of 4/4, 6.5 of 7/8, 4.5 of 5/4 and 5.5 of 6/8 are FOUR "
+          "offsets and ONE pickup — 1.5 pulses of run-up — which is how one "
+          "constant hid in four time signatures. Keyed on `beat - 1` this "
+          "reads four distinct values and the check never fires")
+    check("half the lines are off the downbeat, so DOWNBEAT_LOCKED cannot see "
+          "it", u["downbeat_locked"] == 0.5, f"{u['downbeat_locked']:.0%}")
+    codes = {f.code for f in stanza_lock(cheat)}
+    check("UNIFORM_ANACRUSIS fires instead — the other shape of the defect",
+          "UNIFORM_ANACRUSIS" in codes and "DOWNBEAT_LOCKED" not in codes,
+          f"{sorted(codes)}; uniform_anacrusis "
+          f"{u['uniform_anacrusis']:.0%} — every one of the 12 off-downbeat "
+          f"lines carries the same pickup")
+    ev = [f for f in stanza_lock(cheat)
+          if f.code == "UNIFORM_ANACRUSIS"][0].evidence
+    check("...and the finding says what it CANNOT separate (doctrine 17)",
+          "CANNOT SEPARATE" in ev and "doctrine 16" in ev,
+          "a pickup uniform by fiat and one uniform because English "
+          "line-openings are read the same here, and the finding says so "
+          "rather than being quoted as if it did not")
+    lock = stanza_lock(cliche_song())
+    lcodes = {f.code for f in lock}
+    check("on an all-downbeat song only DOWNBEAT_LOCKED fires, not both",
+          "DOWNBEAT_LOCKED" in lcodes and "UNIFORM_ANACRUSIS" not in lcodes,
+          "two shapes of one defect: the check names WHICH one it sees")
+    check("uniform_anacrusis is 1.0 when nothing is anacrustic",
+          uniformity(cliche_song())["uniform_anacrusis"] == 1.0,
+          "this dict measures drift TOWARD the default; a song with no pickup "
+          "anywhere has arrived at the default, not departed from it — and "
+          "that keeps `all(v == 1.0)` in test 4 meaning what it says")
+    real = real_song()
+    ua = uniformity(real)["uniform_anacrusis"]
+    distinct = len({line_pickup(real, l) for l in real.lines})
+    check("...and a song written ON the grid still trips neither",
+          not {f.code for f in stanza_lock(real)}
+          & {"DOWNBEAT_LOCKED", "UNIFORM_ANACRUSIS"},
+          f"uniform_anacrusis {ua:.0%} over {distinct} distinct pickups — "
+          f"the check is not vacuous in the other direction")
+
+
+def test_four_four_does_not_read_the_grouping():
+    print("\n9. a DECLARED GROUPING is not a change of meter")
+    a = Song(sections=[Section("x", 16, Meter(4, 4)),
+                       Section("y", 16, Meter(4, 4))]).layout()
+    b = Song(sections=[Section("x", 16, Meter(4, 4, (2, 2))),
+                       Section("y", 16, Meter(4, 4, (2, 2)))]).layout()
+    check("declaring 4/4 as (2,2) leaves four_four at 100%",
+          uniformity(a)["four_four"] == uniformity(b)["four_four"] == 1.0,
+          "`s.meter == Meter(4, 4)` read the frozen `groups` field too, so "
+          "adding `groups: [2, 2]` to this repo's own chorus dropped "
+          "four_four from 29% to 0% with no bar changed — METER_LOCKED "
+          "clearable by declaring where the beats are, which says nothing "
+          "about whether the song is in four")
+
+
+def test_the_shipped_blueprint_is_declared_honestly():
+    print("\n10. the song's own blueprint, after the hand-written one was "
+          "found to be wrong in three ways")
+    s = scene_song()
+    check("41 lines over 83 bars in seven sections", len(s.lines) == 41
+          and s.total_bars == 83 and len(s.sections) == 7)
+    spans = []
+    for sec in s.sections:
+        P = F(sec.meter.beats)
+        spans.append(sorted((l.start_absolute(sec.meter),
+                             l.end_beat_absolute(sec.meter))
+                            for l in s.lines_in(sec)))
+    check("no two declared spans intersect",
+          all(a[1] <= b[0] for run in spans for a, b in zip(run, run[1:])),
+          "bar 10 beat 6.5 for 7 pulses ran 5.5 pulses into the line at bar "
+          "11 beat 1, in BOTH verses — 17 syllables in one bar, twice")
+    check("every section declares a grouping",
+          all(sec.meter.groups for sec in s.sections),
+          f"{[(x.name, x.meter.groups) for x in s.sections]} — 4/4 admits "
+          f"eight orderings and [2,2] is a different meter from [4], so "
+          f"declaring is a decision (doctrine 19 forbids inferring one)")
+    v = [x for x in s.sections if x.name.startswith("verse")]
+    c = [x for x in s.sections if x.name.startswith("chorus")]
+    check("a RETURN inherits its first instance's tune slot",
+          s.slot_profile(v[0]) == s.slot_profile(v[1])
+          and s.slot_profile(c[0]) == s.slot_profile(c[1]),
+          "a return is the same TUNE with new words, so `chorus2` line 4 "
+          "shares the pickup its extra upbeat syllable would otherwise move")
+    u = uniformity(s)
+    codes = {f.code for f in stanza_lock(s)}
+    check("and the check FIRES on it — 90%, reported rather than tuned away",
+          "UNIFORM_ANACRUSIS" in codes
+          and round(u["uniform_anacrusis"], 3) == 0.903,
+          f"28 of 31 off-downbeat lines take a ONE-PULSE pickup because 28 of "
+          f"these English lines open on exactly one weak syllable. The "
+          f"hand-written blueprint read 100% here off ONE hand-set constant; "
+          f"the residue is the language, and a blueprint edited until this "
+          f"went quiet would be the same cheat again")
+    check("the numeral survives grid.py's normalisation",
+          tokens("Tonight it is County Road 6")[-1] == "6",
+          "`lyric_harness.line_tokens` matches [A-Za-z'-]+ and drops it "
+          "silently; `quality/fit.py` REFUSES it as a NUMERAL and marks the "
+          "count a lower bound (doctrine 79). This layer must not be the "
+          "third answer — a token dropped here would make the variation "
+          "measurement blind to it too")
 
 
 def _drift_reads_function():
@@ -230,7 +386,10 @@ if __name__ == "__main__":
                test_stanza_lock_fires_on_the_default,
                test_a_real_structure_clears_it,
                test_the_grid_hands_off_to_the_scheme_layer_without_chunking,
-               test_function_and_bar_range_are_two_different_keys):
+               test_function_and_bar_range_are_two_different_keys,
+               test_a_uniform_anacrusis_is_a_finding_and_not_a_pass,
+               test_four_four_does_not_read_the_grouping,
+               test_the_shipped_blueprint_is_declared_honestly):
         fn()
     print("=" * 62)
     if FAILURES:

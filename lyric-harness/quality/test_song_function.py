@@ -195,9 +195,19 @@ def test_the_hook():
     print("\n3. THE HOOK — a FRAGMENT, not a section (D-2)")
     song = scene_song()
     occ = G.hook_occurrences(song, "I don't get to go")
-    check("a hook is found sub-line and located in BARS",
-          len(occ) == 2 and [o.bar for o in occ] == [31, 69],
-          f"{[(o.bar, o.function) for o in occ]}")
+    check("a hook is found sub-line and located in BARS — TWO of them",
+          len(occ) == 2
+          and [o.bar for o in occ] == [30, 68]
+          and [o.next_downbeat for o in occ] == [31, 69]
+          and all(o.has_pickup for o in occ),
+          f"{[(o.bar, o.next_downbeat, o.function) for o in occ]}. This "
+          f"asserted `[31, 69]` while every line in the blueprint began on a "
+          f"downbeat and the two coordinates could not disagree. The hook "
+          f"takes a one-pulse pickup now, so its line STARTS at bar 30 beat "
+          f"4 and its barline is 31 — and the old assertion would have been "
+          f"repinned to 30 without anyone noticing the field had stopped "
+          f"answering the question its name asks. WHICH of the two the "
+          f"listener hears as the landing needs a setting, and there is none")
     check("and it knows which FUNCTION it landed in",
           {o.function for o in occ} == {"chorus"},
           "which is only sayable because the section declares one")

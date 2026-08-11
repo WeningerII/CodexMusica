@@ -45,10 +45,19 @@ so a loop that recommended it would manufacture what the floor rejects.
 demonstrable; it is not the default.
 
 ## Commands (python3 lyric_harness.py ...)
-**Run `wiring` first.** It prints which verb runs on which layer and lists
-every production module with no caller and no `__main__`, so "is this plugged
-in?" is a command rather than an audit. Doctrine 48: a principle that lives
-only in prose gets followed exactly as often as someone remembers it.
+**Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
+map against the dispatch and against `--help`, NAMES every one-shot runner
+with the command that runs it and its own first line, and lists every
+production module with no caller and no `__main__` — so "is this plugged in?"
+is a command rather than an audit. A count of runners is not discoverability:
+`quality/audit_corpus.py`, `quality/relations_null.py` and
+`quality/ltc_overlap.py` were "standalone by design" for the whole time nobody
+could find them. Doctrine 48: a principle that lives only in prose gets
+followed exactly as often as someone remembers it — this round it had to be
+remembered eight times and was remembered zero, so the map, the usage text and
+the dispatch are now three sets that `wiring` and `quality/test_verbs.py`
+require to be equal. A verb added without a row and a `--help` line is a
+failing test, not something a later session notices.
 declaration | score A -- B | candidates W [n] | meter TEMPLATE L... |
 scheme LETTERS [--profile assonance|rawi] L... | song blueprint.json
 lyric.txt | chains FILE [theta] | graph FILE [theta] | internal "line" |
@@ -57,8 +66,34 @@ cynghanedd [--lang=cym|eng] "line" | prasa K L... | demo
 THE QUALITY LAYER, REACHABLE SINCE 2026-08-10 (it was not, and that was the
 single largest defect in the project): wiring | types W1 -- W2 [--lang=]
 [--preset=] | partition FILE|L... | cycle N/D [a+b+c] | relations FILE
-[--schema=] | grid BLUEPRINT | brief FILE [SCHEME] |
-verify BEFORE AFTER [SCHEME] [lines] | readability FILE
+[--schema=] | grid BLUEPRINT |
+fit BLUEPRINT [--subdivision N] [--isochronous] [-v] |
+function BLUEPRINT [--function=SECTION:FN,...] [--title=T] [--hook=H]
+[--rhyme-key=cmudict] | refrain NOTATION|FORM [FILE] |
+brief FILE [MANDATE] | verify BEFORE AFTER [MANDATE] [lines] |
+readability FILE
+
+Four of those shipped on 2026-08-11 and closed the gap that had reopened
+underneath the quality layer:
+- **`fit`** is the only verb that answers *do the words fit the bars*. The
+  subdivision is a DECLARED coordinate with NO default — without one the slot
+  questions refuse rather than assume a sixteenth-note grid. At
+  `--subdivision 2` the 4/4 choruses of `examples/never_been_to_a_scene` are
+  UNSATISFIABLE (2 and 3 lines) and the 7/8 verses are not, because an
+  eighth-note pulse subdivided twice is finer than a quarter-note one.
+- **`function`** reads `Section.function`, which is not `Section.name`: an
+  undeclared function REFUSES and the harness never reads `"chorus"` out of a
+  name. Three counts on every run — asked / answered / refused (doctrine 79).
+  `--function=` declares one at the command line, LABELLED as a CLI
+  declaration, for blueprints written before the coordinate existed.
+- **`refrain`** reads the A-1 notation, where a CAPITAL is a line that must
+  come back VERBATIM. `refrain villanelle FILE` catches the drifted refrain
+  that the rhyme partition and the band both pass.
+- **`brief` / `verify`** take `--cliques` (the song's own graph structure,
+  marked `source=derived` and NOT INDEPENDENT of the grader, doctrine 14) and
+  `--groups=1,3;2,4` (1-based, MAY OVERLAP) as well as a letter string. With
+  no mandate at all they REFUSE and **exit 2** — doctrine 20, and a caller in
+  a pipeline has to be able to tell a refusal from a pass.
 
 ## Doctrine you hold while writing
 

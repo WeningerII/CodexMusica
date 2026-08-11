@@ -17,10 +17,35 @@ missing adapter.
 WHAT THIS IS NOT
 
 It is not a second English engine. Every phone comes from the same `Lexicon`
-the harness has always used; this file adds no transcription, no G2P and no
-rule the engine did not already have. It is a DECLARATION over that engine, in
-the shape the other eight declare themselves in, so English becomes a language
-the new layer can be pointed at rather than a special case it is built around.
+the harness has always used; this file adds no transcription and no rule the
+engine did not already have. It is a DECLARATION over that engine, in the shape
+the other eight declare themselves in, so English becomes a language the new
+layer can be pointed at rather than a special case it is built around.
+
+THE FALLBACK, ADDED 2026-08-11 — KNOWN GAP 1, AND IT IS OFF BY DEFAULT
+
+`English(fallback="high")` routes an out-of-vocabulary word through
+`quality.g2p.Fallback` before refusing. `English()` — which is what `register`
+puts in the registry, and therefore what `quality.phonology.get('eng')` returns
+— does NOT, so no number anywhere in the repo moves because this file changed.
+Turning it on is a caller's declared decision, and `declaration()` reports which
+way it is set, because "this rhyme rests on a derived pronunciation" is an
+assumption and doctrine 1 is where assumptions live.
+
+What the fallback is allowed to be is the whole point, and it is stated in
+`quality/g2p.py`: a reading is admissible when EVERY PHONE CAME OUT OF A
+CMUdict ENTRY and a declared rule supplied only the affix, the allomorph or the
+spelling normalisation — `viewest` = `view` + `-est`, `o'er` from the headword
+`oar`. That is the same licence the `Lexicon`'s own inherited reductions
+already run under (see REFUSAL POLICY below); it is generalised, not widened.
+The letter-to-sound layer, which invents phones no dictionary entry supplied,
+is reachable at `fallback="low"` and is off, on measurement rather than
+principle: of the sonnet pairs it alone makes judgeable, about half do not
+rhyme, against 1 in 39 for the derived layers.
+
+`read()` is the entry point that keeps the provenance; `syllabify()` is the
+inherited interface and necessarily throws it away, so a caller that needs to
+know which layer produced a pronunciation must call `read()` or `layer_of()`.
 
 THE `__init__` DOCSTRING SAID "NO DEFAULTING TO ENGLISH", AND STILL MEANS IT
 
@@ -41,6 +66,18 @@ Where the Lexicon raises its own OOV flag, this module refuses. That refusal is
 the same 50 sonnet pairs the battery reports as `refused`, now visible to the
 new layer too, and doctrine 79 applies: a refusal is not a failure and must not
 land in a violation numerator.
+
+**A word the fallback cannot read still refuses**, and its refusal is reported
+SEPARATELY from the dictionary's: `three_counts()` returns
+dictionary / fallback / refused as three numbers, never two, because a rate
+computed over "read" without saying how much of it was DERIVED has hidden the
+assumption it rests on. Measured on the 2,128 end words of the 152 sonnets the
+battery parses: **2,056 / 0 / 72** with the fallback off and **2,065 / 51 / 12**
+with it at `high`. The nine that move into the first column rather than the
+second are hyphenated compounds (`to-day`, `Easter-day`) that the LINE path has
+always read by splitting on the hyphen and a per-word path did not; that is a
+tokenisation agreement, not a derivation, so it belongs in the dictionary
+column.
 
 `rhymes()` IS DELIBERATELY LEFT AS THE INHERITED STUB
 
@@ -78,6 +115,19 @@ def _lexicon():
     return _LEX
 
 
+#: The values `fallback` takes, and what each one licenses. `None` is the
+#: shipped default and is the behaviour this module had before 2026-08-11.
+FALLBACK_MODES = {
+    None: "no fallback: a word CMUdict cannot read REFUSES",
+    "high": "dictionary-derived only -- every phone comes from a CMUdict entry "
+            "and a declared rule supplies the affix, allomorph or spelling "
+            "normalisation (quality/g2p.py morphology + elision layers)",
+    "low": "the above PLUS letter-to-sound, which invents phones no dictionary "
+           "entry supplied. Reachable so the defect is demonstrable; measured "
+           "at roughly a coin flip on the sonnets' own mandated rhymes",
+}
+
+
 class English(Phonology):
     language = "eng"
     name = "English (General American)"
@@ -94,18 +144,110 @@ class English(Phonology):
         "and the channels decide -- see this module's docstring")
     source = "cmudict-0.7b (public domain); see data/sources.tsv"
 
+    def __init__(self, fallback=None):
+        """`fallback` is a DECLARED coordinate, defaulting to the refusal.
+
+        It is not a boolean, because "did you guess" has three answers here and
+        two of them are different kinds of derivation. See `FALLBACK_MODES`.
+        """
+        if fallback not in FALLBACK_MODES:
+            raise ValueError(
+                f"fallback={fallback!r} is not declared; the modes are "
+                f"{sorted(k for k in FALLBACK_MODES if k)} or None")
+        self.fallback = fallback
+        self._fb = None
+
+    def declaration(self):
+        """-> dict. The tuple this phonology is asking to be judged under.
+
+        `fallback` is in it because doctrine 1 says assumptions live in the
+        declaration, and "this pronunciation was derived rather than looked up"
+        is an assumption a reader of any downstream verdict needs.
+        """
+        d = super().declaration()
+        d["fallback"] = self.fallback
+        d["fallback_licenses"] = FALLBACK_MODES[self.fallback]
+        return d
+
+    def _fallback(self):
+        if self._fb is None and self.fallback is not None:
+            from quality.g2p import Fallback
+            self._fb = Fallback(_lexicon(), min_confidence=self.fallback)
+        return self._fb
+
     # ---------------------------------------------------------------- reads
+    def read(self, word):
+        """-> `quality.g2p.Reading`, or None for a REFUSAL.
+
+        The entry point that KEEPS THE PROVENANCE. `syllabify` cannot: its
+        return type is a list of `Syllable` and there is nowhere in it to say
+        which layer produced the phones, so a caller that needs to know — and a
+        caller reporting a rhyme verdict does need to know — calls this.
+
+        With `fallback=None` this returns a `dictionary` reading or None, so the
+        provenance question has an answer either way and the shape does not
+        change when the mode does.
+        """
+        from quality.g2p import Reading
+        fb = self._fallback()
+        if fb is not None:
+            return fb.read(word)
+        phones, oov = _lexicon().transcribe_word(word)
+        if oov or not phones:
+            return None
+        return Reading(tuple(phones), "dictionary", "CMUdict", (word.lower(),))
+
+    def layer_of(self, word):
+        """-> 'dictionary' | 'morphology' | 'elision' | 'letter' | None.
+
+        None IS the refusal, and it is a value in the same range as the others
+        so a caller tabulating layers cannot accidentally drop it (doctrine 28:
+        distinguish 'none' from 'cannot tell', mechanically).
+        """
+        r = self.read(word)
+        return None if r is None else r.layer
+
+    def three_counts(self, words):
+        """-> {'dictionary', 'fallback', 'refused', 'by_layer', 'total'}.
+
+        Doctrine 79 asks for three counts and this returns three counts. A
+        caller computing a rate divides by `dictionary + fallback` and prints
+        `refused` beside it; it never divides by `total`.
+        """
+        from collections import Counter
+        out, by = Counter(), Counter()
+        for w in words:
+            lay = self.layer_of(w)
+            if lay is None:
+                out["refused"] += 1
+            elif lay == "dictionary":
+                out["dictionary"] += 1
+            else:
+                out["fallback"] += 1
+                by[lay] += 1
+        return {"dictionary": out["dictionary"], "fallback": out["fallback"],
+                "refused": out["refused"], "by_layer": dict(by),
+                "total": len(words)}
+
     def syllabify(self, word):
-        """-> [Syllable]. EMPTY when CMUdict cannot read the word.
+        """-> [Syllable]. EMPTY when the declared layers cannot read the word.
 
         Empty is a refusal and callers must treat it as one. It is not a
         zero-syllable word and it is not a rhyme failure.
+
+        THE PROVENANCE IS LOST HERE, DELIBERATELY AND VISIBLY. `Syllable` is
+        the shared interface all nine phonologies return and it has no field
+        for a layer; adding one would change a type eight other modules build.
+        So this reads through the same `read()` the provenance path uses and
+        then drops the label, and the docstring says so rather than letting a
+        caller assume a syllable list is dictionary-derived. `read()` and
+        `layer_of()` are one call away.
         """
         import lyric_harness as _lh
-        lex = _lexicon()
-        phones, oov = lex.transcribe_word(word)
-        if oov or not phones:
+        r = self.read(word)
+        if r is None or not r.phones:
             return []
+        phones = list(r.phones)
         out = []
         for s in _lh.syllabify(phones):
             out.append(Syllable(
@@ -131,9 +273,37 @@ class English(Phonology):
         The battery reports 50 refused sonnet pairs; this is the same fact
         made available to any caller before it computes a rate.
         """
-        toks = [t for t in re.findall(r"[A-Za-z'’\-]+", text)
+        return [t for t in self._tokens(text) if not self.syllabify(t)]
+
+    def derived(self, text):
+        """-> [(token, layer)] the tokens read by something OTHER than the
+        dictionary. Empty whenever `fallback` is None, by construction.
+
+        The companion to `unreadable`: that one lists what was refused, this
+        one lists what was ANSWERED ON AN ASSUMPTION, and a caller reporting a
+        verdict over `text` needs both lists or neither.
+        """
+        out = []
+        for t in self._tokens(text):
+            lay = self.layer_of(t)
+            if lay is not None and lay != "dictionary":
+                out.append((t, lay))
+        return out
+
+    @staticmethod
+    def _tokens(text):
+        # U+2019 is folded before the split, not after (doctrine 26): the
+        # apostrophe is INSIDE the tokens this phonology cares most about
+        # (`grow'st`, `o'er`), so a split that treats it as punctuation
+        # manufactures the very refusals the fallback exists to remove.
+        text = text.replace("’", "'").replace("‘", "'")
+        return [t for t in re.findall(r"[A-Za-z'\-]+", text)
                 if re.search(r"[A-Za-z]", t)]
-        return [t for t in toks if not self.syllabify(t)]
 
 
+#: The REGISTERED instance has no fallback. `quality.phonology.get('eng')`
+#: therefore behaves exactly as it did before 2026-08-11, and every recorded
+#: number that went through the registry is unmoved. A caller who wants the
+#: fallback constructs `English(fallback="high")` and, by doing so, says in its
+#: own code that it wanted it.
 register(English())

@@ -1,26 +1,27 @@
 # author: Nahum Tate (1652-1715)
 # source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
 # licence: public domain - Gutenberg; edition published 1892
-# songs: 3
-
---- TITLE: Oh, render thanks to God above
-[VERSE 1]
-Oh, render thanks to God above,
-The fountain of eternal love;
-Whose mercy firm, through ages past,
-Hath stood, and shall forever last.
-[VERSE 2]
-Who can his mighty deeds express,
-Not only vast--but numberless?
-What mortal eloquence can raise
-His tribute of immortal praise?
-[VERSE 3]
-Extend to me that favor, Lord,
-Thou to thy chosen dost afford;
-When thou return'st to set them free.
-Let thy salvation visit me.
+# songs: 2
+# lines: 36
+# attribution: EVERY ITEM CARRIES ITS OWN `--- AUTHOR:` LINE, QUOTING THE
+#       SIGNATURE THE SOURCE PRINTS UNDER ITS LAST STANZA. Both hymns here are
+#       signed `Nahum Tate, 1696.` — hymn 13, `_Psalm 95._`, and hymn 96,
+#       `_The Angel's Message_`.
+#       WHAT LEFT, 2026-08-11: hymn 10, "Oh, render thanks to God above",
+#       `_Psalm 106._`. The source signs that one `Tate-Brady.` — a JOINT
+#       attribution, the standing name of the 1696 New Version of the Psalms —
+#       and this file had it under Tate alone while
+#       corpus/song/eng_hymn_brady.txt had the same twelve lines under Brady
+#       alone. It is now corpus/song/eng_hymn_tate_brady.txt, once, and
+#       eng_hymn_brady.txt is gone: `Nicholas Brady` appears nowhere in this
+#       source as a sole author, so no file under his name alone had anything
+#       to hold.
+# structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
+#            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
+#--------------------------------------------------------------------------
 
 --- TITLE: Oh, come, loud anthems let us sing
+--- AUTHOR: Nahum Tate, 1696. — the source's own signature under the last stanza, verbatim
 [VERSE 1]
 Oh, come, loud anthems let us sing,
 Loud thanks to our Almighty King!
@@ -38,6 +39,7 @@ Down on our knees, devoutly, all
 Before the Lord, our Maker, fall.
 
 --- TITLE: While shepherds watched their flocks by night
+--- AUTHOR: Nahum Tate, 1696. — the source's own signature under the last stanza, verbatim
 [VERSE 1]
 While shepherds watched their flocks by night,
 All seated on the ground,
@@ -68,4 +70,3 @@ Addressed their joyful song:
 And to the earth be peace:
 Good-will henceforth from heaven to men
 Begin and never cease!"
-

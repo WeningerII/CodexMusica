@@ -1635,7 +1635,21 @@ def check_song(lex, blueprint, lyric_text, decl):
             continue
 
         first_instance.setdefault(spec["name"], glines)
-        if len(glines) != spec["lines"]:
+        # A section with no declared line count is a REFUSAL, not a pass and
+        # not a KeyError. `blueprint.json` in this repo was rewritten to the
+        # BAR-GRID shape -- bars, no `lines`, lines-per-section emergent from
+        # where they fall -- and `check_song` has raised on it ever since,
+        # while `wiring` went on reporting `song` as wired because it checks
+        # IMPORT reachability and a traceback is not an import.
+        if spec.get("lines") is None:
+            report["refusals"].append(
+                f"{spec['name']}: no declared line count. This blueprint "
+                f"looks like the BAR GRID shape (bars, meter, per-line "
+                f"placement), which `check_song` does not read -- "
+                f"lines-per-section is emergent there, so there is nothing "
+                f"to check the count against. The verbs that read that shape "
+                f"are `grid`, `fit` and `function`.")
+        elif len(glines) != spec["lines"]:
             report["violations"].append(
                 f"{spec['name']}: {len(glines)} lines, blueprint says "
                 f"{spec['lines']}")
@@ -1656,7 +1670,7 @@ def check_song(lex, blueprint, lyric_text, decl):
                 report["refusals"].append(
                     f"{spec['name']} L{r['lines'][0]}-L{r['lines'][1]}: "
                     f"{r['reason']}")
-            schemes_seen.append((spec["name"], spec["type"], scheme))
+            schemes_seen.append((spec["name"], spec.get("type", ""), scheme))
             sounds = group_sounds(lex, glines, scheme, decl)
             # cross-section sound reuse / bridge novelty
             for letter, (anc, endword) in sounds.items():
@@ -1666,7 +1680,7 @@ def check_song(lex, blueprint, lyric_text, decl):
                     s = score(anc, panc, decl)
                     if s["total"] >= 0.9:
                         kind = ("bridge non-novelty"
-                                if spec["type"] == "bridge"
+                                if spec.get("type") == "bridge"
                                 else "rhyme sound reuse")
                         # `group_sounds` takes the FIRST anchor reading of the
                         # group's first line, which may be a mosaic reach --
@@ -2279,33 +2293,204 @@ def _rel_show(stream, inst):
     return f"{span_text(inst.a)}  ~  {span_text(inst.b)}"
 
 
+# ---------------------------------------------------------------------------
+# THE USAGE TEXT AND THE WIRING MAP, AS DATA
+#
+# Both were previously inline in `main()`, and both went stale the moment a
+# cell shipped a layer: on 2026-08-11 four tested layers -- quality/fit.py,
+# `grid.Section.function`, `schemes.parse_refrain`, and three standalone
+# runners -- had no verb, and the eleven-row wiring table still reported the
+# harness fully plugged in. A map that is out of date is worse than absent,
+# because it answers.
+#
+# So they are values now, and `wiring` CROSS-CHECKS them against the dispatch
+# itself by walking this file's AST for `cmd == "..."`. A verb that is
+# dispatched and unmapped is a printed row, not an omission somebody has to
+# notice. Doctrine 48: a principle that lives only in prose gets followed
+# exactly as often as someone remembers it -- and this one had to be
+# remembered eight times in one round.
+# ---------------------------------------------------------------------------
+
+USAGE = """commands (the fifteen spine verbs):
+  declaration             print the active declaration
+  score  W1 -- W2         graded pair score with sub-scores
+  candidates W [n]        ranked rhyme candidates
+  meter  'template' L...  meter check ('.'=weak '/'=strong)
+  scheme SCHEME L1 L2 ... scheme check, e.g. AABB  [--profile assonance|rawi]
+  song   BLUEPRINT LYRIC  blueprint structure check
+  chains FILE [theta]     inferred rhyme chains
+  graph  FILE [theta]     the full pairwise matrix, cliques and overlaps
+  internal "line"         internal (within-line) matches
+  density FILE            rhyme density per line
+  weight "line"           syllable weights and matras
+  qafiya FILE|L...        Arabic/Persian qafiya profile audit
+  cynghanedd [--lang=cym|eng] "line"   Welsh consonantal answer
+  prasa  K L...           position-K consonant agreement
+  demo                    run the acceptance suite
+
+the quality layer (each says which module answered):
+  wiring                  which verb runs on which layer, which verbs are
+                          dispatched and NOT on the map, and any STRANDED
+                          module
+  types  W1 -- W2 [--lang=] [--preset=]
+                          full rhyme-type coordinate: 9 axes, per-member
+                          anchor, traditional names
+  partition FILE|L...     the rhyme scheme as a SET PARTITION, canonical RGS,
+                          crossings/nestings -- and it refuses when the
+                          cliques overlap, because then no letter scheme
+                          exists at all
+  cycle  N/D [a+b+c]      metric cycle in exact rationals
+  relations FILE [--schema=] [--lang=]   named relation instances found
+  grid   BLUEPRINT        bar grid, uniformity, stanza lock, phrase profile
+  fit    BLUEPRINT [--subdivision N] [--isochronous] [-v]
+                          DO THE WORDS FIT THE BARS -- syllables against the
+                          pulses of the bar they are declared in. The
+                          subdivision is a DECLARED coordinate with no
+                          default; without it the slot questions refuse
+  function BLUEPRINT [--function=SECTION:FN,...] [--title=T] [--hook=H]
+                          section FUNCTION, not section name: does the chorus
+                          return in the same slot, does the bridge contrast,
+                          is the title in the hook. An undeclared function
+                          REFUSES rather than reading 'chorus' out of a name
+  refrain NOTATION|FORM [FILE]
+                          the A-1 notation (capital = VERBATIM return,
+                          lowercase = rhyme only): villanelle, triolet,
+                          rondel, ballade... and, given a lyric, whether the
+                          refrains actually came back
+  brief  FILE [MANDATE]   what to revise, and what is FORBIDDEN.
+                          MANDATE is a letter scheme (ABAB; X = free),
+                          --groups=1,3;2,4 (1-based, may OVERLAP), or
+                          --cliques (the song's own graph structure).
+                          With NO mandate it REFUSES: nothing declared means
+                          nothing mandated, and "nothing flagged" about that
+                          is a vacuous pass (doctrine 20)
+  verify BEFORE AFTER [MANDATE] [lines]  did the revision earn it
+  readability FILE        what the ingestion layer could not read"""
+
+
+#: verb spelling -> (module that answers it, what that layer is).
+#: `wiring` prints this and then checks it against the dispatch.
+VERB_LAYERS = (
+    ("declaration", "lyric_harness.py", "the declaration tuple itself"),
+    ("score / candidates / graph / chains", "lyric_harness.py", "spine"),
+    ("scheme (letters)", "lyric_harness.py", "spine"),
+    ("meter (template)", "lyric_harness.py", "spine"),
+    ("song / qafiya / prasa / cynghanedd", "lyric_harness.py", "spine"),
+    ("internal / density / weight", "lyric_harness.py", "spine"),
+    ("demo", "lyric_harness.py", "the acceptance suite"),
+    ("wiring", "lyric_harness.py", "this map, checked against the dispatch"),
+    ("types", "quality/rhyme_types.py", "9-axis coordinate + anchor"),
+    ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
+    ("refrain", "quality/schemes.py", "A-1 notation: the VERBATIM return"),
+    ("cycle", "quality/meter.py", "exact-rational metric cycles"),
+    ("relations", "quality/relations.py", "77 named relation schemas"),
+    ("brief / verify", "quality/revise.py", "the revision loop"),
+    ("readability", "quality/readability.py", "ingestion refusals"),
+    ("grid", "quality/grid.py", "bar grid, stanza lock"),
+    ("function", "quality/grid.py", "section function, returns, hook"),
+    ("fit", "quality/fit.py", "syllables against the bar's pulses"),
+)
+
+
+def _mapped_verbs():
+    """-> the verb names VERB_LAYERS claims to cover, one per name."""
+    out = set()
+    for verbs, _, _ in VERB_LAYERS:
+        for v in verbs.split("/"):
+            v = v.split("(")[0].strip()
+            if v:
+                out.add(v)
+    return out
+
+
+def _dispatched_verbs(path=None):
+    """-> every verb `main()` actually dispatches, read from the AST.
+
+    Not a hand-kept list, for the same reason `wiring`'s import check walks
+    the tree rather than grepping: a hand-kept list of what is wired is the
+    thing that went stale. This reads `cmd == "x"` and `cmd in (...)` out of
+    `main` itself, so the only way to add a verb without appearing here is to
+    not add a verb.
+    """
+    import ast as _ast
+    src = open(path or os.path.abspath(__file__), errors="replace").read()
+    fn = next((n for n in _ast.walk(_ast.parse(src))
+               if isinstance(n, _ast.FunctionDef) and n.name == "main"), None)
+    out = set()
+    if fn is None:
+        return out
+    for node in _ast.walk(fn):
+        if not isinstance(node, _ast.Compare):
+            continue
+        if not (isinstance(node.left, _ast.Name) and node.left.id == "cmd"):
+            continue
+        for op, comp in zip(node.ops, node.comparators):
+            if isinstance(op, _ast.Eq) and isinstance(comp, _ast.Constant):
+                out.add(comp.value)
+            elif isinstance(op, _ast.In) and isinstance(comp,
+                                                        (_ast.Tuple, _ast.List,
+                                                         _ast.Set)):
+                for e in comp.elts:
+                    if isinstance(e, _ast.Constant):
+                        out.add(e.value)
+    return {v for v in out if isinstance(v, str)}
+
+
+def _flag_value(args, flag, eq_only=False):
+    """-> the value of `--flag=V`, or of `--flag V`, or None.
+
+    Both spellings, because the quality-layer verbs already use `--lang=cym`
+    and cell R's `fit` patch used `--subdivision 2`, and a caller should not
+    have to remember which verb chose which. `eq_only` for values that may
+    contain a space.
+    """
+    pre = flag + "="
+    for a in args:
+        if a.startswith(pre):
+            return a.split("=", 1)[1]
+    if not eq_only and flag in args:
+        i = args.index(flag)
+        if i + 1 < len(args):
+            return args[i + 1]
+    return None
+
+
+def _grid_song(GR, bp):
+    """A blueprint dict -> a `quality.grid.Song`. One loader, two verbs.
+
+    `function` and `title` are DECLARED coordinates and are read straight
+    through: an absent `function` stays UNDECLARED and every function check
+    refuses, which is the intended default -- the harness must not read
+    "chorus" out of a section's NAME. `GR.UnknownFunction` is deliberately not
+    caught: a blueprint declaring "middle8" has a defect, and swallowing it
+    would hand back a silently UNDECLARED section.
+    """
+    from fractions import Fraction as _F
+    secs, lines = [], []
+    for s in bp.get("sections", []):
+        m = s.get("meter", {})
+        secs.append(GR.Section(
+            name=s["name"], bars=int(s["bars"]),
+            start_bar=int(s.get("start_bar", 1)),
+            function=s.get("function", GR.UNDECLARED),
+            meter=GR.Meter(beats=int(m.get("beats", 4)),
+                           unit=int(m.get("unit", 4)),
+                           groups=tuple(m.get("groups", ())))))
+    for l in bp.get("lines", []):
+        lines.append(GR.Line(
+            text=l.get("text", ""), bar=int(l["bar"]),
+            beat=_F(str(l.get("beat", 1))),
+            duration=_F(str(l.get("duration", 4))),
+            section=l.get("section", "")))
+    return GR.Song(sections=secs, lines=lines, title=bp.get("title", ""))
+
+
 def main():
     decl = Declaration()
     args = sys.argv[1:]
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)
-        print("commands:\n"
-              "  score  W1 -- W2         graded pair score with sub-scores\n"
-              "  candidates W [n]        ranked rhyme candidates\n"
-              "  meter  'template' L...  meter check ('.'=weak '/'=strong)\n"
-              "  scheme SCHEME L1 L2 ... scheme check, e.g. AABB\n"
-              "  demo                    run the acceptance suite\n"
-              "  declaration             print the active declaration\n"
-              "\nthe quality layer (each says which module answered):\n"
-              "  wiring                  which verb runs on which layer,\n"
-              "                          plus any STRANDED module\n"
-              "  types  W1 -- W2         full rhyme-type coordinate: 9 axes,\n"
-              "                          per-member anchor, traditional names\n"
-              "  partition FILE|L...     the rhyme scheme as a SET PARTITION,\n"
-              "                          canonical RGS, crossings/nestings --\n"
-              "                          and it refuses when the cliques\n"
-              "                          overlap, because then no letter\n"
-              "                          scheme exists at all\n"
-              "  cycle  N/D [a+b+c]      metric cycle in exact rationals\n"
-              "  relations FILE          named relation instances found\n"
-              "  brief  FILE [SCHEME]    what to revise, and what is FORBIDDEN\n"
-              "  verify BEFORE AFTER [SCHEME] [lines]  did the revision earn it\n"
-              "  readability FILE        what the ingestion layer could not read")
+        print(USAGE)
         return
     cmd = args[0]
     lex = Lexicon()
@@ -2527,22 +2712,38 @@ def main():
     elif cmd == "wiring":
         import importlib
         import os as _os
-        rows = [
-            ("score / candidates / graph / chains", "lyric_harness.py", "spine"),
-            ("scheme (letters)", "lyric_harness.py", "spine"),
-            ("meter (template)", "lyric_harness.py", "spine"),
-            ("song / qafiya / prasa / cynghanedd", "lyric_harness.py", "spine"),
-            ("types", "quality/rhyme_types.py", "9-axis coordinate + anchor"),
-            ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
-            ("cycle", "quality/meter.py", "exact-rational metric cycles"),
-            ("relations", "quality/relations.py", "77 named relation schemas"),
-            ("brief / verify", "quality/revise.py", "the revision loop"),
-            ("readability", "quality/readability.py", "ingestion refusals"),
-            ("grid", "quality/grid.py", "bar grid, stanza lock"),
-        ]
         print("VERB -> LAYER")
-        for verb, mod, what in rows:
+        for verb, mod, what in VERB_LAYERS:
             print(f"  {verb:38s} {mod:28s} {what}")
+
+        # THE MAP CHECKS ITSELF. Eleven rows sat here while four shipped
+        # layers had no verb at all, and the table went on reporting the
+        # harness fully wired. A map nobody can falsify is decoration, so the
+        # dispatch is read out of this file's own AST and the usage text is
+        # searched for every verb it dispatches.
+        print("\nTABLE COVERAGE (the map, checked against the dispatch)")
+        disp = _dispatched_verbs()
+        mapped = _mapped_verbs()
+        undoc = sorted(v for v in disp
+                       if not re.search(rf"^\s*{re.escape(v)}\b",
+                                        USAGE, re.M))
+        unmapped = sorted(disp - mapped)
+        phantom = sorted(mapped - disp)
+        print(f"  dispatched {len(disp)}   on the map {len(mapped)}   "
+              f"in --help {len(disp) - len(undoc)}/{len(disp)}")
+        for v in unmapped:
+            print(f"  UNMAPPED      {v} — dispatched and not on the map "
+                  f"above, so `wiring` was lying about it")
+        for v in phantom:
+            print(f"  PHANTOM       {v} — on the map and not dispatched "
+                  f"anywhere in main()")
+        for v in undoc:
+            print(f"  UNDISCOVERABLE {v} — dispatched and absent from "
+                  f"--help; a verb nobody can find is a verb nobody runs")
+        if not (unmapped or phantom or undoc):
+            print("  every dispatched verb is on the map and in --help, and "
+                  "every mapped verb is dispatched")
+
         print("\nIMPORT REACHABILITY (production modules with no non-test caller)")
         # AST, not regex.  The first version of this check used a regular
         # expression and under-reported: it could not see a parenthesised
@@ -2606,6 +2807,22 @@ def main():
         stranded = [m for m in orphan if m not in runners]
         print(f"  one-shot runners, standalone by design "
               f"(`__main__`): {len(runners)}")
+        # A COUNT IS NOT DISCOVERABILITY. "standalone by design" was true of
+        # quality/audit_corpus.py, quality/relations_null.py and
+        # quality/ltc_overlap.py the whole time they were unfindable: nobody
+        # reads a number and learns that the corpus auditor exists. So each
+        # one is named with the command that runs it and its own first line.
+        # These do NOT become verbs — a one-shot audit over 258 corpus files
+        # is not a thing to put behind `lyric_harness.py <verb>`, and wrapping
+        # it would make the spine own a runtime it cannot bound.
+        for m in sorted(runners):
+            try:
+                doc = _ast.get_docstring(_ast.parse(
+                    open(_os.path.join(base, m), errors="replace").read()))
+            except SyntaxError:
+                doc = None
+            head = (doc or "").strip().splitlines()[0] if doc else ""
+            print(f"    python3 {m:<34} {head[:76]}")
         tot = 0
         for m in stranded:
             n = sum(1 for _ in open(_os.path.join(base, m), errors="replace"))
@@ -2810,25 +3027,10 @@ def main():
               "graph is closed, see quality/RESULTS_REGISTER_AUDIT.md.")
 
     elif cmd == "grid":
-        from fractions import Fraction as _F
         from quality import grid as GR
         bp = json.load(open(args[1]))
-        secs, lines = [], []
-        for s in bp.get("sections", []):
-            m = s.get("meter", {})
-            secs.append(GR.Section(
-                name=s["name"], bars=int(s["bars"]),
-                start_bar=int(s.get("start_bar", 1)),
-                meter=GR.Meter(beats=int(m.get("beats", 4)),
-                               unit=int(m.get("unit", 4)),
-                               groups=tuple(m.get("groups", ())))))
-        for l in bp.get("lines", []):
-            lines.append(GR.Line(
-                text=l.get("text", ""), bar=int(l["bar"]),
-                beat=_F(str(l.get("beat", 1))),
-                duration=_F(str(l.get("duration", 4))),
-                section=l.get("section", "")))
-        song = GR.Song(sections=secs, lines=lines)
+        song = _grid_song(GR, bp)
+        secs, lines = song.sections, song.lines
         total = sum(s.bars for s in secs)
         print(f"  sections {len(secs)}  bars {total}  lines {len(lines)}")
         for s in secs:
@@ -2848,6 +3050,148 @@ def main():
         pp = GR.phrase_profile(song)
         print(f"  phrase profile: {pp}")
 
+    elif cmd == "fit":
+        # `grid` says how many BARS a section has. This says whether the WORDS
+        # go in them: MISSING.md G-1/G-2/G-3, and the first reader `Line.beat`
+        # and `Line.duration` have ever had.
+        #
+        # --subdivision N is a DECLARED coordinate and there is no default.
+        # Without it the slot questions REFUSE rather than assuming a
+        # sixteenth-note grid -- the same refusal `meter.pulse_groups` makes
+        # about an undeclared 7/8.
+        from quality import fit as FT
+        sub = _flag_value(args, "--subdivision")
+        sub = FT.Subdivision(
+            slots_per_pulse=int(sub),
+            source="lyric_harness.py fit --subdivision, an explicit decision "
+                   "by whoever ran the command") if sub is not None else None
+        assume = FT.Isochrony(
+            source="lyric_harness.py fit --isochronous, an explicit "
+                   "assumption by whoever ran the command") \
+            if "--isochronous" in args else None
+        song = FT.fit_song(args[1], subdivision=sub, assume=assume)
+        print(f"  module: quality/fit.py — syllables against the pulses of "
+              f"the bar they are declared in")
+        print(f"  subdivision: "
+              + (f"{sub.s} slot(s) per pulse, DECLARED" if sub else
+                 "NONE DECLARED — the slot questions refuse rather than "
+                 "assume one"))
+        print(FT.report(song, verbose="-v" in args))
+        print("\n  WHAT THIS LAYER CANNOT BE ASKED, AND WHY")
+        for q, why in FT.UNANSWERABLE:
+            print(f"    X {q}")
+            print(f"        {why}")
+
+    elif cmd == "function":
+        # SECTION FUNCTION, WHICH IS NOT SECTION NAME. "chorus2" and "verse1"
+        # are strings; `Section.function` is the declared coordinate, and an
+        # absent one REFUSES. The three CLI flags below are declarations by
+        # whoever ran the command -- the same standing as `fit --subdivision`
+        # -- and they exist because a blueprint that predates the coordinate
+        # cannot be made to answer any other way without inferring, which is
+        # the one thing this layer is built not to do.
+        from quality import grid as GR
+        bp = json.load(open(args[1]))
+        decls = []
+        fnspec = _flag_value(args, "--function", eq_only=True)
+        if fnspec:
+            byname = {}
+            for pair in fnspec.split(","):
+                if ":" not in pair:
+                    print(f"  --function wants SECTION:FUNCTION, got "
+                          f"{pair!r}")
+                    return
+                k, v = pair.split(":", 1)
+                byname[k.strip()] = v.strip()
+            for s in bp.get("sections", []):
+                if s["name"] in byname:
+                    s["function"] = byname[s["name"]]
+            unknown = sorted(set(byname) - {s["name"]
+                                            for s in bp.get("sections", [])})
+            if unknown:
+                print(f"  --function names no such section: {unknown}")
+                return
+            decls.append(f"function of {sorted(byname)} declared on the "
+                         f"command line, not read from the blueprint")
+        title = _flag_value(args, "--title", eq_only=True)
+        if title:
+            bp["title"] = title
+            decls.append("title declared on the command line")
+        hooks = list(bp.get("hooks", ()))
+        for a in args[2:]:
+            if a.startswith("--hook="):
+                hooks.append(a.split("=", 1)[1])
+                decls.append("hook declared on the command line")
+        song = _grid_song(GR, bp)
+        key = GR.rime_cmudict(lex) if "--rhyme-key=cmudict" in args else None
+        rep = GR.song_function_report(song, hooks=hooks, rhyme_key=key)
+        p = rep["profile"]
+        print("  module: quality/grid.py — Section.function, the returns, "
+              "the hook")
+        for d in decls:
+            print(f"  DECLARED AT THE CLI: {d}")
+        print(f"  rhyme key: "
+              + (getattr(key, "declared_name", "cmudict") if key else
+                 "NONE DECLARED — 'did the rhyme scheme survive the return' "
+                 "stays CANNOT TELL (use --rhyme-key=cmudict)"))
+        print(f"  form: {' -> '.join(x or 'UNDECLARED' for x in p['form'])}")
+        print(f"  declared {p['declared']}/{len(song.sections)} sections   "
+              f"bars until first chorus: {p['bars_until_first_chorus']}")
+        print(f"  convention: {rep['convention']}")
+        print(f"  asked {rep['asked']}  answered {rep['answered']}  "
+              f"refused {rep['refused']}"
+              + ("   (three counts, never one — doctrine 79)"
+                 if rep["refused"] else ""))
+        for f in rep["findings"]:
+            print(f"  [{f.code}] {f.message}")
+            if f.evidence:
+                print(f"      {f.evidence}")
+        for r in rep["refusals"]:
+            print(f"  REFUSED {r.code}: {r.message}")
+            if getattr(r, "evidence", ""):
+                print(f"      {r.evidence}")
+        for fn, rets in rep["returns"].items():
+            for a, b, ret in rets:
+                print(f"  -- {fn}: {a.name} -> {b.name}")
+                for row in ret.describe().splitlines():
+                    print(f"     {row}")
+
+    elif cmd == "refrain":
+        # The A-1 notation: a CAPITAL is a line that must come back VERBATIM,
+        # a lowercase one only has to rhyme. A villanelle whose second refrain
+        # drifted by one word passes the rhyme partition, passes the band, and
+        # is a broken villanelle -- which this repo could not say until
+        # `parse_refrain` existed, and could not ASK until now.
+        from quality import schemes as SC
+        if len(args) < 2:
+            print("  refrain NOTATION|FORM [FILE]")
+            print(f"  named forms: {', '.join(sorted(SC.REFRAIN_FORMS))}")
+            return
+        spec = SC.REFRAIN_FORMS.get(args[1], args[1])
+        sch = SC.parse_refrain(spec)
+        print("  module: quality/schemes.py — parse_refrain / RefrainScheme")
+        if args[1] in SC.REFRAIN_FORMS:
+            print(f"  named form: {args[1]!r}")
+        print(f"  {sch.describe()}")
+        pairs = sch.repeat_pairs()
+        print(f"  REPEAT pairs the notation REQUIRES: {len(pairs)}"
+              + ("   — inside a verse each of these is a band violation "
+                 "(doctrine 3); here it is the requirement, which is why the "
+                 "identity partition is kept separate from the rhyme one"
+                 if pairs else " — this scheme states rhyme only"))
+        for a, b, lab in pairs:
+            print(f"    {lab}: L{a} == L{b}")
+        if len(args) > 2:
+            lines = [l.rstrip() for l in open(args[2]).read().splitlines()
+                     if l.strip() and not l.strip().startswith("[")]
+            print(f"  checked against {args[2]}: {len(lines)} line(s) vs "
+                  f"{sch.n_lines} declared")
+            bad = sch.check_identity(lines)
+            if not bad:
+                print("  every declared refrain returned VERBATIM")
+            for lab, i, j, kind, msg in bad:
+                print(f"  [{kind}] {msg}")
+
     elif cmd == "readability":
         from quality import readability as RD
         lines = RD.read_lines(args[1])
@@ -2860,41 +3204,113 @@ def main():
 
     elif cmd in ("brief", "verify"):
         from quality.revise import Reviser
+        from quality.schemes import NoMandate
         rv = Reviser(lex=lex, decl=decl)
-        if cmd == "brief":
-            lines = [l.rstrip() for l in open(args[1]).read().splitlines()
-                     if l.strip() and not l.strip().startswith("[")]
-            scheme = args[2] if len(args) > 2 else None
-            briefs = rv.brief(lines, scheme)
-            if not briefs:
-                print("  nothing flagged — every mandated pair passes the "
-                      "band on the lines the harness could read")
-            for b in briefs:
-                print(f"  L{b.line_no}: {b.text}")
-                for f in dedupe_findings(b.findings):
-                    print(f"      FINDING {f}")
-                if b.must_rhyme_with:
-                    print(f"      must rhyme with L{b.must_rhyme_with}")
-                if b.forbidden_modal:
-                    print(f"      FORBIDDEN (modal — doctrine 9): "
-                          f"{', '.join(b.forbidden_modal)}")
-                if b.candidates:
-                    print(f"      offered: {', '.join(b.candidates[:12])}")
-        else:
-            before = [l.rstrip() for l in open(args[1]).read().splitlines()
-                      if l.strip() and not l.strip().startswith("[")]
-            after = [l.rstrip() for l in open(args[2]).read().splitlines()
-                     if l.strip() and not l.strip().startswith("[")]
-            scheme = args[3] if len(args) > 3 else None
-            targeted = ({int(x) for x in args[4].split(",")}
-                        if len(args) > 4 else None)
-            v = rv.verify(before, after, scheme, targeted=targeted)
-            print(f"  VERDICT: {'ACCEPTED' if v.get('accepted') else 'REJECTED'}")
-            for r in v.get("reasons", []):
-                print(f"    {r}")
-            for k in ("fixed", "broken", "untargeted", "modal_taken"):
-                if v.get(k):
-                    print(f"    {k}: {v[k]}")
+
+        def _mandate_arg(spec, lines):
+            """CLI spelling -> anything `quality.schemes.mandate` accepts.
+
+            `brief FILE ABAB` could only ever name a PARTITION, and the song
+            in examples/ has no letter scheme at all — its cliques overlap,
+            which doctrine 2 says is a structure with no letter
+            representation. These two spellings are the ones a letter string
+            cannot express.
+            """
+            if spec is None:
+                return None                     # let the refusal fire
+            if spec == "--cliques":
+                # The song's OWN structure. `mandate_from_graph` marks it
+                # source="derived", so the brief says out loud that its groups
+                # band-pass BY CONSTRUCTION (doctrine 14).
+                return rv.mandate_from_graph(lines)
+            if spec.startswith("--groups="):
+                # --groups=1,3;2,4;27,6 — 1-based, ';'-separated, MAY OVERLAP
+                return [[int(x) for x in g.split(",") if x.strip()]
+                        for g in spec.split("=", 1)[1].split(";") if g.strip()]
+            return spec                         # a letter string
+
+        def _say_derived(m):
+            """Doctrine 14, out loud. A cover read off the rhyme graph is
+            mutually band-passing BY CONSTRUCTION, so a clean rhyme result
+            against it is an identity and not a verdict. `Mandate.describe`
+            has said so since it was written; nothing printed it."""
+            if not (hasattr(m, "independent") and not m.independent()):
+                return
+            print(f"  MANDATE: {len(m.groups)} group(s) over {m.n_lines} "
+                  f"lines, {len(m.pairs())} mandated pair(s), "
+                  f"source={m.source} ({m.origin})")
+            print("  NOT INDEPENDENT of the grader (doctrine 14): this cover "
+                  "was read off the rhyme graph, so every group band-passes "
+                  "BY CONSTRUCTION and a clean rhyme result here is an "
+                  "identity. What it can still say is everything the band did "
+                  "not decide — unreadable lines, REPEAT, the slop floor, and "
+                  "the joint field at a pivot.")
+            if not m.is_partition():
+                print(f"  NO LETTER SCHEME EXISTS: lines "
+                      f"{m.overlapping_lines()} are in more than one group, "
+                      f"and a letter is a property of a LINE (doctrine 2).")
+
+        try:
+            if cmd == "brief":
+                lines = [l.rstrip() for l in open(args[1]).read().splitlines()
+                         if l.strip() and not l.strip().startswith("[")]
+                scheme = _mandate_arg(args[2] if len(args) > 2 else None,
+                                      lines)
+                _say_derived(scheme)
+                briefs = rv.brief(lines, scheme)
+                if not briefs:
+                    print("  nothing flagged — every mandated pair passes the "
+                          "band on the lines the harness could read")
+                for b in briefs:
+                    print(f"  L{b.line_no}: {b.text}")
+                    for f in dedupe_findings(b.findings):
+                        print(f"      FINDING {f}")
+                    for lab, mem, calls in b.must_answer:
+                        shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
+                        print(f"      must answer group {lab} {mem}: {shown}")
+                    if len(b.must_answer) > 1:
+                        print(f"      L{b.line_no} is a PIVOT — in "
+                              f"{len(b.must_answer)} groups, and must answer "
+                              f"every one (conjunctive; doctrine 2)")
+                    if b.joint_conflict:
+                        print("      NO JOINT CANDIDATE: nothing in the "
+                              "lexicon answers all of those groups at once. "
+                              "The MANDATE is what needs revising, not the "
+                              "line.")
+                    if not b.must_answer and b.must_rhyme_with:
+                        n, w = b.must_rhyme_with
+                        print(f"      must rhyme with L{n} ({w!r})")
+                    if b.forbidden_modal:
+                        print(f"      FORBIDDEN (modal — doctrine 9): "
+                              f"{', '.join(b.forbidden_modal)}")
+                    if b.candidates:
+                        print(f"      offered: {', '.join(b.candidates[:12])}")
+            else:
+                before = [l.rstrip() for l in open(args[1]).read().splitlines()
+                          if l.strip() and not l.strip().startswith("[")]
+                after = [l.rstrip() for l in open(args[2]).read().splitlines()
+                         if l.strip() and not l.strip().startswith("[")]
+                scheme = _mandate_arg(args[3] if len(args) > 3 else None,
+                                      before)
+                _say_derived(scheme)
+                targeted = ({int(x) for x in args[4].split(",")}
+                            if len(args) > 4 else None)
+                v = rv.verify(before, after, scheme, targeted=targeted)
+                print(f"  VERDICT: "
+                      f"{'ACCEPTED' if v.get('accepted') else 'REJECTED'}")
+                for r in v.get("reasons", []):
+                    print(f"    {r}")
+                for k in ("fixed", "broken", "untargeted", "modal_taken"):
+                    if v.get(k):
+                        print(f"    {k}: {v[k]}")
+        except NoMandate as e:
+            # Exit 2, not 0. A refusal is not a pass and a caller in a
+            # pipeline has to be able to tell them apart; the traceback this
+            # replaces said the same thing in six frames of noise.
+            print("  REFUSED — this verb was given nothing to check against.")
+            for ln in str(e).splitlines():
+                print(f"  {ln}")
+            sys.exit(2)
 
     elif cmd == "demo":
         print("DECLARATION")

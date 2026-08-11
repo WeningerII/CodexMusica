@@ -33,9 +33,10 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 
 from quality import phonology as PH                    # noqa: E402
 from quality.fit import (ANSWERABLE, UNANSWERABLE, FitFinding,  # noqa: E402
-                         FitRefusal, Isochrony, Placement, Subdivision,
-                         _max_prominent_on_heads, _no_tempo, fit_line,
-                         fit_song, from_blueprint, read_line, report)
+                         FitRefusal, Isochrony, Placement, SectionFit,
+                         Subdivision, _max_prominent_on_heads, _no_tempo,
+                         fit_line, fit_song, from_blueprint, read_line,
+                         report)
 from quality.meter import Cycle                        # noqa: E402
 
 BLUEPRINT = os.path.join(HERE, "..", "examples",
@@ -401,6 +402,47 @@ def test_the_boundary_is_a_value_in_the_module():
           and "doctrine 19" in whys and "doctrine 35" in whys)
 
 
+def _check_overlaps_still_detects():
+    """The blueprint's overlap count is a ZERO now, and a zero is what a
+    silently-broken `overlaps()` also returns. Doctrine 94: a suite made of
+    positive cases cannot find a rule that is too generous — so the detector
+    gets its own constructed fixture, where the answer is known by
+    construction and is not zero."""
+    c = Cycle(pulses=F(4), unit=4, name="4/4")
+
+    def line(bar, beat, dur, text):
+        p = Placement(cycle=c, bar=bar, beat=F(beat), duration=F(dur),
+                      section="fixture", section_start_bar=1,
+                      section_bars=4, text=text)
+        return fit_line(text, p)
+
+    # A call over a response, which `grid.Line` says is LEGAL: the call runs
+    # [0, 6) pulses from the section's downbeat, the response [4, 8). Two
+    # pulses of intersection, and the bar in the middle carries both lines.
+    sf = SectionFit(name="fixture", cycle=c, bars=4, start_bar=1,
+                    lines=[line(1, 1, 6, "hold the note out"),
+                           line(2, 1, 4, "over the top")])
+    ov = sf.overlaps()
+    check("`overlaps()` finds a constructed intersection and MEASURES it",
+          ov == [(0, 1, F(2))],
+          f"{ov} — the shipped blueprint reports 0 overlaps and that is now "
+          f"a fact about the blueprint. This fixture is what makes the zero "
+          f"readable: the detector answers (0, 1, 2 pulses) on two spans "
+          f"built to intersect by two")
+
+    # Abutting is not overlapping. `hi > lo` and not `hi >= lo` is the whole
+    # difference between 'the next line starts where this one ends' — which
+    # is what an ordinary lyric does 40 times a song — and a real collision.
+    ab = SectionFit(name="fixture", cycle=c, bars=4, start_bar=1,
+                    lines=[line(1, 1, 4, "first line"),
+                           line(2, 1, 4, "second line")])
+    check("...and abutting spans are NOT an intersection",
+          ab.overlaps() == [],
+          "[0,4) and [4,8) share the instant 4 and no duration. A detector "
+          "that used `hi >= lo` would report every consecutive line pair in "
+          "the song, which is 34 findings that mean nothing")
+
+
 def test_the_shipped_song():
     print("\n13. the real blueprint — 41 lines, 83 bars, seven sections")
     secs, places = from_blueprint(BLUEPRINT)
@@ -418,12 +460,19 @@ def test_the_shipped_song():
           sum(r["units"] for r in rows.values()) == 340
           and sum(0 if r["exact"] else 1 for r in rows.values()) == 2,
           "verse1 'whiteboard' (out of lexicon) and verse2 '6' (numeral)")
-    check("the 4/4 and 3/4 sections declare NO grouping, so 17 lines refuse",
+    check("every section declares a grouping now, so NO line refuses one — "
+          "and the declaration BUYS a finding rather than silencing one",
           sum(r["refusals"].get("UNDECLARED_GROUPING", 0)
-              for r in rows.values()) == 17
-          and rows["chorus"]["fighting"] == 0,
-          "chorus 8 + chorus2 8 + outro 1. Doctrine 19: that is the correct "
-          "output for an undeclared 4/4, not a shortfall")
+              for r in rows.values()) == 0
+          and rows["chorus"]["fighting"] == 8,
+          "was 17 refusals (chorus 8 + chorus2 8 + outro 1) and `chorus "
+          "fighting` 0, which doctrine 19 says is the CORRECT output for an "
+          "undeclared 4/4. The blueprint now declares chorus/chorus2 as "
+          "(2,2) and outro as (3) — an authorial decision stated as one, "
+          "never `conventional_grouping()`. The 17 refusals became 17 "
+          "PROMINENCE_EXCEEDS_HEADS findings: at (2,2) a 4-pulse span covers "
+          "two heads and every chorus line has more prominent syllables than "
+          "that. Declaring is not a way to go quiet")
     check("every line is CROWDED except the two that are not",
           sum(r["crowded"] for r in rows.values()) == 36,
           "the song asks 5.14 syllables of a 7/8 bar in verse2 and 3.75 of a "
@@ -434,10 +483,12 @@ def test_the_shipped_song():
           "demands of the setting is the finding")
     one = Subdivision(1, source=SOURCE)
     g = fit_song(BLUEPRINT, subdivision=one)
-    check("at ONE slot per pulse 39 of the 41 lines become unsatisfiable",
-          sum(r["unsatisfiable"] for r in g.table()) == 39,
+    check("at ONE slot per pulse 36 of the 41 lines become unsatisfiable",
+          sum(r["unsatisfiable"] for r in g.table()) == 36,
           "the song is not written on the pulse; it needs the pulse to "
-          "divide, and now that is a number")
+          "divide, and now that is a number. Was 39: three of those lines "
+          "were unsatisfiable only because their declared START was off the "
+          "1-slot grid, and the blueprint's pickups are whole pulses now")
     two = fit_song(BLUEPRINT, subdivision=Subdivision(2, source=SOURCE))
     rows2 = {r["section"]: r for r in two.table()}
     check("at TWO the 7/8 verses fit and the 4/4 chorus does not",
@@ -449,16 +500,19 @@ def test_the_shipped_song():
           "verse — the first thing this project has been able to say about "
           "whether its own song is singable")
     check("uncovered bars are reported per section",
-          rows["verse1"]["uncovered_bars"] == (2, 9, 12)
-          and len(rows["outro"]["uncovered_bars"]) == 6,
+          rows["verse1"]["uncovered_bars"] == (6,)
+          and len(rows["outro"]["uncovered_bars"]) == 5,
           f"verse1 {rows['verse1']['uncovered_bars']} carry no declared line "
           f"at all; the outro carries one line across seven bars")
-    check("overlapping declared spans are found, and they are legal",
-          rows["verse1"]["overlaps"] == 1 and rows["verse2"]["overlaps"] == 1
-          and sum(r["overlaps"] for r in rows.values()) == 2,
-          "in BOTH verses the bar-10 pickup runs 5.5 of its 7 pulses into the "
-          "line declared at bar 11 beat 1 — the same defect twice, and the "
-          "shared bar carries 17 syllables that no per-line density shows")
+    check("NO declared span in the shipped blueprint intersects another",
+          sum(r["overlaps"] for r in rows.values()) == 0,
+          "was verse1 1 + verse2 1: both verses declared a bar-10 pickup "
+          "running 5.5 of its 7 pulses into a line declared at bar 11 beat "
+          "1, so one bar carried 17 syllables that no per-line density "
+          "showed. The two downbeats are separated now. THIS ASSERTION IS "
+          "A ZERO, so it cannot tell a fixed blueprint from a broken "
+          "`overlaps()` — the next check is the one that can (doctrine 94)")
+    _check_overlaps_still_detects()
     txt = report(f)
     check("the report prints refusals by cause and marks the bounded counts",
           "REFUSED, by cause" in txt and "*" in txt)

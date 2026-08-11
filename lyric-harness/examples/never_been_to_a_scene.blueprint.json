@@ -1,4 +1,15 @@
 {
+ "placement": {
+  "rule": "The line's first PROMINENT unit lands on a downbeat; every unit before it takes ONE PULSE of the section's own meter immediately before that downbeat. So `beat` is a count of the line's own upbeat syllables, not a constant. The previous blueprint gave every second line a pickup of 1.5 pulses in all four of its time signatures -- one number, applied to alternate lines regardless of the words -- which cleared DOWNBEAT_LOCKED without any line being heard. That is the error this declaration exists to correct.",
+  "dialect": "prominence is CMUdict General American with the harness's WEAK_ALWAYS / WEAK_NONFINAL function-word demotion, the same reading `quality/fit.py` reports (doctrine 1: the declaration states its coordinates; doctrine 46: the function-word list is part of the phonology).",
+  "returns_inherit": "`verse2` takes `verse1`'s placement line for line and `chorus2` takes `chorus`'s, because a return is the same TUNE with new words. Where the return's words carry one more upbeat syllable than the first instance's -- chorus line 4, 'and I held it there' against 'and hold it there' -- they SHARE the pickup rather than moving the slot. The tune slot is the invariant; the words bend.",
+  "overrides": [
+   "Delacroix x3 (bridge): CMUdict's `delacroix` row is `D AH0 L AH0 K R W AH0` -- every syllable stress 0 -- so the rule read the bridge's own proper noun as three unstressed syllables and would have handed it a three-pulse pickup off a defective dictionary row. The author declares DEL-a-croix: first syllable prominent, pickup 0."
+  ],
+  "what_the_check_says": "28 of the 31 off-downbeat lines take a one-pulse pickup, so `uniformity()['uniform_anacrusis']` reads 0.90 and UNIFORM_ANACRUSIS FIRES on this blueprint. That is reported, not tuned away: the uniformity is now a property of English line-openings -- 28 of these 41 lines begin with exactly one weak syllable -- rather than of a constant somebody added. See `grid.uniformity` for what the check can and cannot separate (doctrine 17).",
+  "groups": "`chorus`/`chorus2` declare 4/4 as (2,2) and `outro` declares 3/4 as (3). These are AUTHORIAL DECISIONS, not measurements and not `conventional_grouping()`, which doctrine 19 forbids consulting: (2,2) is declared because the chorus's own stresses fall on 1 and 3 -- 'So SAY the road. SAY it slow' -- and 4/4 admits eight orderings of which [2,2] and [4] are different meters; (3) is declared because the outro's single line is one gesture per bar and nothing subdivides it. Declaring them ends 17 refusals and BUYS a finding: at (2,2) a 4-pulse span covers two heads, and every chorus line has more prominent syllables than that.",
+  "numerals": "'Tonight it is County Road 6' keeps its numeral and the numeral is REFUSED, so the line's count is a LOWER BOUND (doctrine 79). It is not expanded to 'six': expansion is a per-PHONOLOGY reading, not a default -- `ltc` already reads the character numeral 十 as a syllable because its rime table has a row for it, while English has no reading for '6' at all, and a single expansion rule would be an English decision applied to nine phonologies (doctrine 45)."
+ },
  "sections": [
   {
    "name": "verse1",
@@ -34,7 +45,10 @@
    "meter": {
     "beats": 4,
     "unit": 4,
-    "groups": []
+    "groups": [
+     2,
+     2
+    ]
    }
   },
   {
@@ -71,7 +85,10 @@
    "meter": {
     "beats": 4,
     "unit": 4,
-    "groups": []
+    "groups": [
+     2,
+     2
+    ]
    }
   },
   {
@@ -81,7 +98,9 @@
    "meter": {
     "beats": 3,
     "unit": 4,
-    "groups": []
+    "groups": [
+     3
+    ]
    }
   }
  ],
@@ -89,14 +108,14 @@
   {
    "text": "The scanner warms before the room does",
    "bar": 1,
-   "beat": 1,
+   "beat": 7,
    "duration": 7,
    "section": "verse1"
   },
   {
    "text": "The chair still holds the last one's heat",
    "bar": 3,
-   "beat": 6.5,
+   "beat": 7,
    "duration": 7,
    "section": "verse1"
   },
@@ -109,36 +128,36 @@
   },
   {
    "text": "Three of them are named for men",
-   "bar": 6,
-   "beat": 6.5,
+   "bar": 7,
+   "beat": 1,
    "duration": 7,
    "section": "verse1"
   },
   {
    "text": "I know this county by its mailboxes",
    "bar": 8,
-   "beat": 1,
+   "beat": 7,
    "duration": 7,
    "section": "verse1"
   },
   {
    "text": "by which dogs are out, by which bridge floods",
    "bar": 10,
-   "beat": 6.5,
+   "beat": 7,
    "duration": 7,
    "section": "verse1"
   },
   {
    "text": "I have worked here nineteen winters",
    "bar": 11,
-   "beat": 1,
+   "beat": 7,
    "duration": 7,
    "section": "verse1"
   },
   {
    "text": "I have never once been to a scene",
    "bar": 13,
-   "beat": 6.5,
+   "beat": 7,
    "duration": 7,
    "section": "verse1"
   },
@@ -151,92 +170,92 @@
   },
   {
    "text": "where nobody has said anything yet",
-   "bar": 17,
-   "beat": 4.5,
+   "bar": 18,
+   "beat": 1,
    "duration": 5,
    "section": "pre"
   },
   {
    "text": "and the whole thing could still be a wrong number",
    "bar": 19,
-   "beat": 1,
+   "beat": 4,
    "duration": 5,
    "section": "pre"
   },
   {
    "text": "a kid, a fax machine, a bad connect",
    "bar": 21,
-   "beat": 4.5,
+   "beat": 5,
    "duration": 5,
    "section": "pre"
   },
   {
    "text": "So say the road. Say it slow",
    "bar": 23,
-   "beat": 1,
+   "beat": 4,
    "duration": 4,
    "section": "chorus"
   },
   {
    "text": "I will find you on line five",
    "bar": 25,
-   "beat": 3.5,
+   "beat": 4,
    "duration": 4,
    "section": "chorus"
   },
   {
    "text": "I will put my voice inside your ear",
-   "bar": 27,
-   "beat": 1,
+   "bar": 26,
+   "beat": 4,
    "duration": 4,
    "section": "chorus"
   },
   {
    "text": "and hold it there while you drive",
    "bar": 29,
-   "beat": 3.5,
+   "beat": 4,
    "duration": 4,
    "section": "chorus"
   },
   {
    "text": "I don't get to go",
-   "bar": 31,
-   "beat": 1,
+   "bar": 30,
+   "beat": 4,
    "duration": 4,
    "section": "chorus"
   },
   {
    "text": "I don't get to see how it went",
    "bar": 33,
-   "beat": 3.5,
+   "beat": 4,
    "duration": 4,
    "section": "chorus"
   },
   {
    "text": "I hang up and I wipe the screen clear",
-   "bar": 35,
-   "beat": 1,
+   "bar": 34,
+   "beat": 4,
    "duration": 4,
    "section": "chorus"
   },
   {
    "text": "and the console clears. Next one sent",
    "bar": 37,
-   "beat": 3.5,
+   "beat": 3,
    "duration": 4,
    "section": "chorus"
   },
   {
    "text": "Tonight it is County Road 6",
    "bar": 39,
-   "beat": 1,
+   "beat": 7,
    "duration": 7,
    "section": "verse2"
   },
   {
    "text": "the Vaughn place, past the second cattle guard",
    "bar": 41,
-   "beat": 6.5,
+   "beat": 7,
    "duration": 7,
    "section": "verse2"
   },
@@ -249,36 +268,36 @@
   },
   {
    "text": "maybe four thousand times",
-   "bar": 44,
-   "beat": 6.5,
+   "bar": 45,
+   "beat": 1,
    "duration": 7,
    "section": "verse2"
   },
   {
    "text": "His wife is on the line and she is not crying",
    "bar": 46,
-   "beat": 1,
+   "beat": 7,
    "duration": 7,
    "section": "verse2"
   },
   {
    "text": "which is the part that nobody warns you of",
    "bar": 48,
-   "beat": 6.5,
+   "beat": 7,
    "duration": 7,
    "section": "verse2"
   },
   {
    "text": "how the calm ones are the worst ones",
    "bar": 49,
-   "beat": 1,
+   "beat": 7,
    "duration": 7,
    "section": "verse2"
   },
   {
    "text": "how they read the address like a receipt",
    "bar": 51,
-   "beat": 6.5,
+   "beat": 7,
    "duration": 7,
    "section": "verse2"
   },
@@ -291,8 +310,8 @@
   },
   {
    "text": "Delacroix keeps a boat",
-   "bar": 55,
-   "beat": 5.5,
+   "bar": 56,
+   "beat": 1,
    "duration": 6,
    "section": "bridge"
   },
@@ -305,71 +324,71 @@
   },
   {
    "text": "open for eleven minutes",
-   "bar": 59,
-   "beat": 5.5,
+   "bar": 60,
+   "beat": 1,
    "duration": 6,
    "section": "bridge"
   },
   {
    "text": "So say the road. Say it slow",
    "bar": 61,
-   "beat": 1,
+   "beat": 4,
    "duration": 4,
    "section": "chorus2"
   },
   {
    "text": "I did find you on line five",
    "bar": 63,
-   "beat": 3.5,
+   "beat": 4,
    "duration": 4,
    "section": "chorus2"
   },
   {
    "text": "I did put my voice inside your ear",
-   "bar": 65,
-   "beat": 1,
+   "bar": 64,
+   "beat": 4,
    "duration": 4,
    "section": "chorus2"
   },
   {
    "text": "and I held it there. You were alive",
    "bar": 67,
-   "beat": 3.5,
+   "beat": 4,
    "duration": 4,
    "section": "chorus2"
   },
   {
    "text": "I don't get to go",
-   "bar": 69,
-   "beat": 1,
+   "bar": 68,
+   "beat": 4,
    "duration": 4,
    "section": "chorus2"
   },
   {
    "text": "I don't get to see how it went",
    "bar": 71,
-   "beat": 3.5,
+   "beat": 4,
    "duration": 4,
    "section": "chorus2"
   },
   {
    "text": "I hang up and I wipe the screen clear",
-   "bar": 73,
-   "beat": 1,
+   "bar": 72,
+   "beat": 4,
    "duration": 4,
    "section": "chorus2"
   },
   {
    "text": "and the console clears. Nothing sent",
    "bar": 75,
-   "beat": 3.5,
+   "beat": 3,
    "duration": 4,
    "section": "chorus2"
   },
   {
    "text": "The pot is down to tar",
    "bar": 77,
-   "beat": 1,
+   "beat": 3,
    "duration": 3,
    "section": "outro"
   }

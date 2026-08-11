@@ -1,18 +1,59 @@
 # author: Samuel Taylor Coleridge (1772-1834)
 # source: GITenberg/Coleridge-s-Ancient-Mariner-and-Select-Poems_11101 11101-8.txt md5 da1ab4e47fc6edced2078fdbc925ce6b
 # source: GITenberg/Lyrical-Ballads-With-a-Few-Other-Poems--1798-_9622 9622-8.txt md5 257d8a9370364d7b9357666f717db606
+# source: GITenberg/Lyrical-Ballads-with-Other-Poems-1800-Volume-1_8905 8905-8.txt md5 99f54d7b7c03627942fd8d94f975f4d6
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd
 # licence: public domain — Project Gutenberg text; author died 1834; every edition used was published 1931 or earlier
 # edition: Coleridge-s-Ancient-Mariner-and-Select-Poems — 1908 — detected in file: '1908'
 # edition: Lyrical-Ballads-With-a-Few-Other-Poems--1798- — 1798 — detected in file: '1798'
+# edition: Lyrical-Ballads-with-Other-Poems-1800-Volume-1 — 1800 — detected in file: '1800'; read for its PREFACE and TITLE PAGE, which are what decide this file's contents. NO VERSE IS TAKEN FROM IT.
 # edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1919 — Quiller-Couch's Oxford Book of English Verse 1250-1900; the file's own dateline is the 1250-1900 title span
+# songs: 8
+# lines: 598
+# attribution: EVERY ITEM CARRIES ITS OWN `--- AUTHOR:` LINE NAMING THE SOURCE
+#       THAT DECIDED IT. This file was rebuilt 2026-08-11 because it did not,
+#       and an attribution that lives only in a FILENAME gets checked exactly
+#       as often as somebody remembers to.
+#       The 1798 Lyrical Ballads is ANONYMOUS. No poem in PG 9622 is signed,
+#       its Advertisement speaks throughout of "the author" in the singular,
+#       and the only occurrences of either poet's name anywhere in that file
+#       are four lines of Project Gutenberg boilerplate carrying a JOINT
+#       volume-level attribution that never says who wrote what. The
+#       extraction had nothing in the text to split on and assigned nine
+#       Wordsworth poems to BOTH men — 563 lines, 42.3% of the previous
+#       version of the Coleridge file, byte-identical across the two.
+#       WHAT DECIDES THE SPLIT is the 1800 second edition, PG 8905: its title
+#       page reads "By W. WORDSWORTH." and its Preface reads — "I was induced
+#       to request the assistance of a Friend, who furnished me with the Poems
+#       of the ANCIENT MARINER, the FOSTER-MOTHER'S TALE, the NIGHTINGALE, the
+#       DUNGEON, and the Poem entitled LOVE." That is a CLOSED list of the
+#       not-Wordsworth poems in the collection, printed in the volume by its
+#       named author. Everything in the 1798 collection outside those five is
+#       Wordsworth's.
+#       WHERE THE SOURCE STOPS, and it is said rather than papered over: the
+#       1800 Preface names the five poems and calls their author only "a
+#       Friend". It never names him. For the Ancient Mariner, Love and
+#       Dejection the gap closes independently — PG 11101 is a sole-author
+#       Coleridge volume and lists all three in its CONTENTS. For THE
+#       FOSTER-MOTHER'S TALE it does not close: no file on disk prints that
+#       title beside a name, and the item says so on its own `--- AUTHOR:`
+#       line. It is 157 of this file's 598 verse lines.
 # note: PAGE POET in part: the conversation poems are blank verse and were
 #       excluded. Took The Rime of the Ancient Mariner (ballad measure with
 #       repeated burdens) and the songs.
+#       WHAT LEFT, 2026-08-11: nine poems went to
+#       corpus/song/eng_british_william_wordsworth.txt, where they already sat
+#       byte for byte, and Goody Blake And Harry Gill — never a duplicate,
+#       never Coleridge's either — went with them. Ten poems, 733 verse lines.
+#       RESIDUAL, recorded and not repaired: the first four items are fragments
+#       of ONE poem. See the `--- NOTE:` on the first of them.
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
+
 --- TITLE: Part Iii
+--- AUTHOR: Samuel Taylor Coleridge — sole-author volume PG 11101 (CONTENTS: THE ANCIENT MARINER); and the 1800 Preface (PG 8905) names it as the Friend's, not Wordsworth's
+--- NOTE: This item and the three that follow are consecutive FRAGMENTS of one poem, The Rime of the Ancient Mariner, cut by the extractor at the poem's own speech headings. The titles Part Iii / Second Voice / First Voice / Second Voice are the extractor's, not the source's, and `# songs:` therefore counts the Mariner four times. Recorded rather than repaired: the fix is a re-extraction, and no attribution turns on it.
 [VERSE 1]
 [Sidenote: The ancient Mariner beholdeth a sign in the element afar
 off.]
@@ -148,6 +189,7 @@ And every soul, it passed me by,
 Like the whizz of my cross-bow!"
 
 --- TITLE: Second Voice
+--- AUTHOR: Samuel Taylor Coleridge — sole-author volume PG 11101 (CONTENTS: THE ANCIENT MARINER); and the 1800 Preface (PG 8905) names it as the Friend's, not Wordsworth's
 [VERSE 1]
 'Still as a slave before his lord,
 The ocean hath no blast; 415
@@ -160,6 +202,7 @@ See, brother, see! how graciously 420
 She looketh down on him.'
 
 --- TITLE: First Voice
+--- AUTHOR: Samuel Taylor Coleridge — sole-author volume PG 11101 (CONTENTS: THE ANCIENT MARINER); and the 1800 Preface (PG 8905) names it as the Friend's, not Wordsworth's
 [VERSE 1]
 [Sidenote: The Mariner hath been cast into a trance; for the angelic
 power causeth the vessel to drive northward faster than human life could
@@ -169,6 +212,7 @@ endure.]
 Without or wave or wind?'
 
 --- TITLE: Second Voice
+--- AUTHOR: Samuel Taylor Coleridge — sole-author volume PG 11101 (CONTENTS: THE ANCIENT MARINER); and the 1800 Preface (PG 8905) names it as the Friend's, not Wordsworth's
 [VERSE 1]
 'The air is cut away before,
 And closes from behind. 425
@@ -297,6 +341,7 @@ He'll shrieve my soul, he'll wash away
 The Albatross's blood.
 
 --- TITLE: Love
+--- AUTHOR: Samuel Taylor Coleridge — sole-author volume PG 11101 (CONTENTS: LOVE); and the 1800 Preface (PG 8905) names it as the Friend's, not Wordsworth's
 [VERSE 1]
 All thoughts, all passions, all delights,
 Whatever stirs this mortal frame,
@@ -420,7 +465,9 @@ And told her love with virgin pride;
 And so I won my Genevieve,                                          95
 My bright and beauteous Bride.
 
---- TITLE: Ballad of Sir Patrick Spence
+--- TITLE: Dejection: An Ode
+--- AUTHOR: Samuel Taylor Coleridge — sole-author volume PG 11101 (CONTENTS: DEJECTION: AN ODE)
+--- NOTE: Retitled 2026-08-11. The extractor titled this item "Ballad of Sir Patrick Spence", which is the SOURCE-LINE of the poem's epigraph — an anonymous traditional ballad — and not the poem. PG 11101 prints the title as DEJECTION: AN ODE and lists it so in its CONTENTS.
 [VERSE 1]
 Well! If the Bard was weather-wise, who made
 The grand old ballad of Sir Patrick Spence,
@@ -573,6 +620,8 @@ Dear Lady! friend devoutest of my choice,
 Thus mayest thou ever, evermore rejoice.
 
 --- TITLE: The Foster-Mother'S Tale, A Dramatic Fragment
+--- AUTHOR: NOT NAMED BY ANY SOURCE ON DISK — the 1800 Preface (PG 8905) assigns THE FOSTER-MOTHER'S TALE to "a Friend" and never names him; see NOTE
+--- NOTE: The attribution chain, and its weakest link, so the next reader does not have to trust this filename. (1) The 1798 volume (PG 9622) is ANONYMOUS — it signs no poem and its Advertisement speaks of "the author" in the singular. (2) Its 1800 second edition (PG 8905) is "By W. WORDSWORTH." and its Preface names five poems furnished by "a Friend", this among them, so the poem is expressly NOT Wordsworth's. (3) No file on disk prints this title beside a name. Coleridge follows only by elimination over the two names in PG 9622's Project Gutenberg catalogue header — a modern cataloguer's claim, not the book's. Every other item in this file is in a sole-author Coleridge volume; this one is not.
 [REFRAIN]
 FOSTER-MOTHER.
 [VERSE 1]
@@ -750,890 +799,8 @@ In lowliness of heart.
 [VERSE 14]
 THE NIGHTINGALE;
 
---- TITLE: Goody Blake, And Harry Gill, A True Story
-[VERSE 1]
-Oh! what's the matter? what's the matter?
-What is't that ails young Harry Gill?
-That evermore his teeth they chatter,
-Chatter, chatter, chatter still.
-Of waistcoats Harry has no lack,
-Good duffle grey, and flannel fine;
-He has a blanket on his back,
-And coats enough to smother nine.
-[VERSE 2]
-In March, December, and in July,
-"Tis all the same with Harry Gill;
-The neighbours tell, and tell you truly,
-His teeth they chatter, chatter still.
-At night, at morning, and at noon,
-'Tis all the same with Harry Gill;
-Beneath the sun, beneath the moon,
-His teeth they chatter, chatter still.
-[VERSE 3]
-Young Harry was a lusty drover,
-And who so stout of limb as he?
-His cheeks were red as ruddy clover,
-His voice was like the voice of three.
-Auld Goody Blake was old and poor,
-Ill fedd she was, and thinly clad;
-And any man who pass'd her door,
-Might see how poor a hut she had.
-[VERSE 4]
-All day she spun in her poor dwelling,
-And then her three hours' work at night!
-Alas! 'twas hardly worth the telling,
-It would not pay for candle-light.
---This woman dwelt in Dorsetshire,
-Her hut was on a cold hill-side,
-And in that country coals are dear,
-For they come far by wind and tide.
-[VERSE 5]
-By the same fire to boil their pottage,
-Two poor old dames, as I have known,
-Will often live in one small cottage,
-But she, poor woman, dwelt alone.
-'Twas well enough when summer came,
-The long, warm, lightsome summer-day,
-Then at her door the _canty_ dame
-Would sit, as any linnet gay.
-[VERSE 6]
-But when the ice our streams did fetter,
-Oh! then how her old bones would shake!
-You would have said, if you had met her,
-'Twas a hard time for Goody Blake.
-Her evenings then were dull and dead;
-Sad case it was, as you may think,
-For very cold to go to bed,
-And then for cold not sleep a wink.
-[VERSE 7]
-Oh joy for her! when e'er in winter
-The winds at night had made a rout,
-And scatter'd many a lusty splinter,
-And many a rotten bough about.
-Yet never had she, well or sick,
-As every man who knew her says,
-A pile before-hand, wood or stick,
-Enough to warm her for three days.
-[VERSE 8]
-Now, when the frost was past enduring,
-And made her poor old bones to ache,
-Could any thing be more alluring,
-Than an old hedge to Goody Blake?
-And now and then, it must be said,
-When her old bones were cold and chill,
-She left her fire, or left her bed,
-To seek the hedge of Harry Gill.
-[VERSE 9]
-Now Harry he had long suspected
-This trespass of old Goody Blake,
-And vow'd that she should be detected,
-And he on her would vengeance take.
-And oft from his warm fire he'd go,
-And to the fields his road would take,
-And there, at night, in frost and snow,
-He watch'd to seize old Goody Blake.
-[VERSE 10]
-And once, behind a rick of barley,
-Thus looking out did Harry stand;
-The moon was full and shining clearly,
-And crisp with frost the stubble-land.
---He hears a noise--he's all awake--
-Again?--on tip-toe down the hill
-He softly creeps--'Tis Goody Blake,
-She's at the hedge of Harry Gill.
-[VERSE 11]
-Right glad was he when he beheld her:
-Stick after stick did Goody pull,
-He stood behind a bush of elder,
-Till she had filled her apron full.
-When with her load she turned about,
-The bye-road back again to take,
-He started forward with a shout,
-And sprang upon poor Goody Blake.
-[VERSE 12]
-And fiercely by the arm he took her,
-And by the arm he held her fast,
-And fiercely by the arm he shook her,
-And cried, "I've caught you then at last!"
-Then Goody, who had nothing said,
-Her bundle from her lap let fall;
-And kneeling on the sticks, she pray'd
-To God that is the judge of all.
-[VERSE 13]
-She pray'd, her wither'd hand uprearing,
-While Harry held her by the arm--
-"God! who art never out of hearing,
-"O may he never more be warm!"
-The cold, cold moon above her head,
-Thus on her knees did Goody pray,
-Young Harry heard what she had said,
-And icy-cold he turned away.
-[VERSE 14]
-He went complaining all the morrow
-That he was cold and very chill:
-His face was gloom, his heart was sorrow,
-Alas! that day for Harry Gill!
-That day he wore a riding-coat,
-But not a whit the warmer he:
-Another was on Thursday brought,
-And ere the Sabbath he had three.
-[VERSE 15]
-'Twas all in vain, a useless matter,
-And blankets were about him pinn'd;
-Yet still his jaws and teeth they clatter,
-Like a loose casement in the wind.
-And Harry's flesh it fell away;
-And all who see him say 'tis plain,
-That, live as long as live he may,
-He never will be warm again.
-[VERSE 16]
-No word to any man he utters,
-A-bed or up, to young or old;
-But ever to himself he mutters,
-"Poor Harry Gill is very cold."
-A-bed or up, by night or day;
-His teeth they chatter, chatter still.
-Now think, ye farmers all, I pray,
-Of Goody Blake and Harry Gill.
-[VERSE 17]
-LINES WRITTEN AT A SMALL DISTANCE FROM MY HOUSE, AND SENT BY MY LITTLE
-BOY TO THE PERSON TO WHOM THEY ARE ADDRESSED.
-[VERSE 18]
-It is the first mild day of March:
-Each minute sweeter than before,
-The red-breast sings from the tall larch
-That stands beside our door.
-[VERSE 19]
-There is a blessing in the air,
-Which seems a sense of joy to yield
-To the bare trees, and mountains bare,
-And grass in the green field.
-[VERSE 20]
-My Sister! ('tis a wish of mine)
-Now that our morning meal is done,
-Make haste, your morning task resign;
-Come forth and feel the sun.
-[VERSE 21]
-Edward will come with you, and pray,
-Put on with speed your woodland dress,
-[BURDEN]
-And bring no book, for this one day
-We'll give to idleness.
-[VERSE 22]
-No joyless forms shall regulate
-Our living Calendar:
-We from to-day, my friend, will date
-The opening of the year.
-[VERSE 23]
-Love, now an universal birth.
-From heart to heart is stealing,
-From earth to man, from man to earth,
---It is the hour of feeling.
-[VERSE 24]
-One moment now may give us more
-Than fifty years of reason;
-Our minds shall drink at every pore
-The spirit of the season.
-[VERSE 25]
-Some silent laws our hearts may make,
-Which they shall long obey;
-We for the year to come may take
-Our temper from to-day.
-[VERSE 26]
-And from the blessed power that rolls
-About, below, above;
-We'll frame the measure of our souls,
-They shall be tuned to love.
-[VERSE 27]
-Then come, my sister! come, I pray,
-With speed put on your woodland dress,
-[BURDEN]
-And bring no book; for this one day
-We'll give to idleness.
-
---- TITLE: Simon Lee, The Old Huntsman, With An Incident In Which He Was Concerned
-[VERSE 1]
-In the sweet shire of Cardigan,
-Not far from pleasant Ivor-hall,
-An old man dwells, a little man,
-I've heard he once was tall.
-Of years he has upon his back,
-No doubt, a burthen weighty;
-He says he is three score and ten,
-But others say he's eighty.
-[VERSE 2]
-A long blue livery-coat has he,
-That's fair behind, and fair before;
-Yet, meet him where you will, you see
-At once that he is poor.
-Full five and twenty years he lived
-A running huntsman merry;
-And, though he has but one eye left,
-His cheek is like a cherry.
-[VERSE 3]
-No man like him the horn could sound.
-And no man was so full of glee;
-To say the least, four counties round
-Had heard of Simon Lee;
-His master's dead, and no one now
-Dwells in the hall of Ivor;
-Men, dogs, and horses, all are dead;
-He is the sole survivor.
-[VERSE 4]
-His hunting feats have him bereft
-Of his right eye, as you may see:
-And then, what limbs those feats have left
-To poor old Simon Lee!
-He has no son, he has no child,
-His wife, an aged woman,
-Lives with him, near the waterfall,
-Upon the village common.
-[VERSE 5]
-And he is lean and he is sick,
-His little body's half awry
-His ancles they are swoln and thick
-His legs are thin and dry.
-When he was young he little knew
-Of husbandry or tillage;
-And now he's forced to work, though weak,
---The weakest in the village.
-[VERSE 6]
-He all the country could outrun,
-Could leave both man and horse behind;
-And often, ere the race was done,
-He reeled and was stone-blind.
-And still there's something in the world
-At which his heart rejoices;
-For when the chiming hounds are out,
-He dearly loves their voices!
-[VERSE 7]
-Old Ruth works out of doors with him,
-And does what Simon cannot do;
-For she, not over stout of limb,
-Is stouter of the two.
-And though you with your utmost skill
-From labour could not wean them,
-Alas! 'tis very little, all
-Which they can do between them.
-[VERSE 8]
-Beside their moss-grown hut of clay,
-Not twenty paces from the door,
-A scrap of land they have, but they
-Are poorest of the poor.
-This scrap of land he from the heath
-Enclosed when he was stronger;
-But what avails the land to them,
-Which they can till no longer?
-[VERSE 9]
-Few months of life has he in store,
-As he to you will tell,
-For still, the more he works, the more
-His poor old ancles swell.
-My gentle reader, I perceive
-How patiently you've waited,
-And I'm afraid that you expect
-Some tale will be related.
-[VERSE 10]
-O reader! had you in your mind
-Such stores as silent thought can bring,
-O gentle reader! you would find
-A tale in every thing.
-What more I have to say is short,
-I hope you'll kindly take it;
-It is no tale; but should you think,
-Perhaps a tale you'll make it.
-[VERSE 11]
-One summer-day I chanced to see
-This old man doing all he could
-About the root of an old tree,
-A stump of rotten wood.
-The mattock totter'd in his hand;
-So vain was his endeavour
-That at the root of the old tree
-He might have worked for ever.
-[VERSE 12]
-"You're overtasked, good Simon Lee,
-Give me your tool" to him I said;
-And at the word right gladly he
-Received my proffer'd aid.
-I struck, and with a single blow
-The tangled root I sever'd,
-At which the poor old man so long
-And vainly had endeavour'd.
-[VERSE 13]
-The tears into his eyes were brought,
-And thanks and praises seemed to run
-So fast out of his heart, I thought
-They never would have done.
---I've heard of hearts unkind, kind deeds
-With coldness still returning.
-Alas! the gratitude of men
-Has oftner left me mourning.
-
---- TITLE: Anecdote For Fathers Shewing How The Art Of Lying May Be Taught
-[VERSE 1]
-I have a boy of five years old,
-His face is fair and fresh to see;
-His limbs are cast in beauty's mould,
-And dearly he loves me.
-[VERSE 2]
-One morn we stroll'd on our dry walk,
-Our quiet house all full in view,
-And held such intermitted talk
-As we are wont to do.
-[VERSE 3]
-My thoughts on former pleasures ran;
-I thought of Kilve's delightful shore,
-My pleasant home, when spring began,
-A long, long year before.
-[VERSE 4]
-A day it was when I could bear
-To think, and think, and think again;
-With so much happiness to spare,
-I could not feel a pain.
-[VERSE 5]
-My boy was by my side, so slim
-And graceful in his rustic dress!
-And oftentimes I talked to him,
-In very idleness.
-[VERSE 6]
-The young lambs ran a pretty race;
-The morning sun shone bright and warm;
-"Kilve," said I, "was a pleasant place,
-"And so is Liswyn farm.
-[VERSE 7]
-"My little boy, which like you more,"
-I said and took him by the arm--
-"Our home by Kilve's delightful shore,
-[BURDEN]
-"Or here at Liswyn farm?"
-[VERSE 8]
-"And tell me, had you rather be,"
-I said and held him by the arm,
-"At Kilve's smooth shore by the green sea,
-[BURDEN]
-"Or here at Liswyn farm?"
-[VERSE 9]
-In careless mood he looked at me,
-While still I held him by the arm,
-And said, "At Kilve I'd rather be
-"Than here at Liswyn farm."
-[VERSE 10]
-"Now, little Edward, say why so;
-My little Edward, tell me why;"
-"I cannot tell, I do not know,"
-"Why this is strange," said I.
-[VERSE 11]
-"For, here are woods and green-hills warm;
-"There surely must some reason be
-"Why you would change sweet Liswyn farm
-"For Kilve by the green sea."
-[VERSE 12]
-At this, my boy, so fair and slim,
-Hung down his head, nor made reply;
-And five times did I say to him,
-"Why? Edward, tell me why?"
-[VERSE 13]
-His head he raised--there was in sight,
-It caught his eye, he saw it plain--
-Upon the house-top, glittering bright,
-A broad and gilded vane.
-[VERSE 14]
-Then did the boy his tongue unlock,
-And thus to me he made reply;
-"At Kilve there was no weather-cock,
-"And that's the reason why."
-[VERSE 15]
-Oh dearest, dearest boy! my heart
-For better lore would seldom yearn,
-Could I but teach the hundredth part
-Of what from thee I learn.
-
---- TITLE: We Are Seven
-[VERSE 1]
-A simple child, dear brother Jim,
-That lightly draws its breath,
-And feels its life in every limb,
-What should it know of death?
-[VERSE 2]
-I met a little cottage girl,
-She was eight years old, she said;
-Her hair was thick with many a curl
-That cluster'd round her head.
-[VERSE 3]
-She had a rustic, woodland air,
-And she was wildly clad;
-Her eyes were fair, and very fair,
---Her beauty made me glad.
-[VERSE 4]
-"Sisters and brothers, little maid,
-"How many may you be?"
-"How many? seven in all," she said,
-And wondering looked at me.
-[VERSE 5]
-"And where are they, I pray you tell?"
-She answered, "Seven are we,
-"And two of us at Conway dwell,
-"And two are gone to sea.
-[VERSE 6]
-"Two of us in the church-yard lie,
-"My sister and my brother,
-"And in the church-yard cottage, I
-"Dwell near them with my mother."
-[VERSE 7]
-"You say that two at Conway dwell,
-"And two are gone to sea,
-"Yet you are seven; I pray you tell
-"Sweet Maid, how this may be?"
-[VERSE 8]
-Then did the little Maid reply,
-"Seven boys and girls are we;
-"Two of us in the church-yard lie,
-"Beneath the church-yard tree."
-[VERSE 9]
-"You run about, my little maid,
-"Your limbs they are alive;
-"If two are in the church-yard laid,
-"Then ye are only five."
-[VERSE 10]
-"Their graves are green, they may be seen,"
-The little Maid replied,
-"Twelve steps or more from my mother's door,
-"And they are side by side.
-[VERSE 11]
-"My stockings there I often knit,
-"My 'kerchief there I hem;
-"And there upon the ground I sit--
-"I sit and sing to them.
-[VERSE 12]
-"And often after sunset, Sir,
-"When it is light and fair,
-"I take my little porringer,
-"And eat my supper there.
-[VERSE 13]
-"The first that died was little Jane;
-"In bed she moaning lay,
-"Till God released her of her pain,
-"And then she went away.
-[VERSE 14]
-"So in the church-yard she was laid,
-"And all the summer dry,
-"Together round her grave we played,
-"My brother John and I.
-[VERSE 15]
-"And when the ground was white with snow,
-"And I could run and slide,
-"My brother John was forced to go,
-"And he lies by her side."
-[VERSE 16]
-"How many are you then," said I,
-"If they two are in Heaven?"
-The little Maiden did reply,
-"O Master! we are seven."
-[VERSE 17]
-"But they are dead; those two are dead!
-"Their spirits are in heaven!"
-'Twas throwing words away; for still
-The little Maid would have her will,
-And said, "Nay, we are seven!"
-
---- TITLE: Lines Written In Early Spring
-[VERSE 1]
-I heard a thousand blended notes,
-While in a grove I sate reclined,
-In that sweet mood when pleasant thoughts
-Bring sad thoughts to the mind.
-[VERSE 2]
-To her fair works did nature link
-The human soul that through me ran;
-And much it griev'd my heart to think
-[BURDEN]
-What man has made of man.
-[VERSE 3]
-Through primrose-tufts, in that sweet bower,
-The periwinkle trail'd its wreathes;
-And 'tis my faith that every flower
-Enjoys the air it breathes.
-[VERSE 4]
-The birds around me hopp'd and play'd:
-Their thoughts I cannot measure,
-But the least motion which they made,
-It seem'd a thrill of pleasure.
-[VERSE 5]
-The budding twigs spread out their fan,
-To catch the breezy air;
-And I must think, do all I can,
-That there was pleasure there.
-[VERSE 6]
-If I these thoughts may not prevent,
-If such be of my creed the plan,
-Have I not reason to lament
-[BURDEN]
-What man has made of man?
-
---- TITLE: The Last Of The Flock
-[VERSE 1]
-In distant countries I have been,
-And yet I have not often seen
-A healthy man, a man full grown
-Weep in the public roads alone.
-But such a one, on English ground,
-And in the broad high-way, I met;
-Along the broad high-way he came,
-His cheeks with tears were wet.
-Sturdy he seemed, though he was sad;
-And in his arms a lamb he had.
-[VERSE 2]
-He saw me, and he turned aside,
-As if he wished himself to hide:
-Then with his coat he made essay
-To wipe those briny tears away.
-I follow'd him, and said, "My friend
-"What ails you? wherefore weep you so?"
---"Shame on me, Sir! this lusty lamb,
-He makes my tears to flow.
-To-day I fetched him from the rock;
-He is the last of all my flock.
-[VERSE 3]
-When I was young, a single man.
-And after youthful follies ran,
-Though little given to care and thought,
-Yet, so it was, a ewe I bought;
-And other sheep from her I raised,
-As healthy sheep as you might see,
-And then I married, and was rich
-As I could wish to be;
-Of sheep I number'd a full score,
-And every year encreas'd my store.
-[VERSE 4]
-Year after year my stock it grew,
-And from this one, this single ewe,
-Full fifty comely sheep I raised,
-As sweet a flock as ever grazed!
-Upon the mountain did they feed;
-They throve, and we at home did thrive.
---This lusty lamb of all my store
-Is all that is alive:
-And now I care not if we die,
-And perish all of poverty.
-[VERSE 5]
-Ten children, Sir! had I to feed,
-Hard labour in a time of need!
-My pride was tamed, and in our grief,
-I of the parish ask'd relief.
-They said I was a wealthy man;
-My sheep upon the mountain fed,
-And it was fit that thence I took
-Whereof to buy us bread:"
-"Do this; how can we give to you,"
-They cried, "what to the poor is due?"
-[VERSE 6]
-I sold a sheep as they had said,
-And bought my little children bread,
-And they were healthy with their food;
-For me it never did me good.
-A woeful time it was for me,
-To see the end of all my gains,
-The pretty flock which I had reared
-With all my care and pains,
-To see it melt like snow away!
-[BURDEN]
-For me it was a woeful day.
-[VERSE 7]
-Another still! and still another!
-A little lamb, and then its mother!
-It was a vein that never stopp'd,
-Like blood-drops from my heart they dropp'd.
-Till thirty were not left alive
-They dwindled, dwindled, one by one,
-And I may say that many a time
-I wished they all were gone:
-They dwindled one by one away;
-[BURDEN]
-For me it was a woeful day.
-[VERSE 8]
-To wicked deeds I was inclined,
-And wicked fancies cross'd my mind,
-And every man I chanc'd to see,
-I thought he knew some ill of me
-No peace, no comfort could I find,
-No ease, within doors or without,
-And crazily, and wearily,
-I went my work about.
-Oft-times I thought to run away;
-[BURDEN]
-For me it was a woeful day.
-[VERSE 9]
-Sir! 'twas a precious flock to me,
-As dear as my own children be;
-For daily with my growing store
-I loved my children more and more.
-Alas! it was an evil time;
-God cursed me in my sore distress,
-I prayed, yet every day I thought
-I loved my children less;
-And every week, and every day,
-My flock, it seemed to melt away.
-[VERSE 10]
-They dwindled, Sir, sad sight to see!
-From ten to five, from five to three,
-A lamb, a weather, and a ewe;
-And then at last, from three to two;
-And of my fifty, yesterday
-I had but only one,
-And here it lies upon my arm,
-Alas! and I have none;
-To-day I fetched it from the rock;
-It is the last of all my flock."
-
---- TITLE: The Mad Mother
-[VERSE 1]
-Her eyes are wild, her head is bare,
-The sun has burnt her coal-black hair,
-Her eye-brows have a rusty stain,
-And she came far from over the main.
-She has a baby on her arm,
-Or else she were alone;
-And underneath the hay-stack warm,
-And on the green-wood stone,
-She talked and sung the woods among;
-And it was in the English tongue.
-[VERSE 2]
-"Sweet babe! they say that I am mad,
-But nay, my heart is far too glad;
-And I am happy when I sing
-Full many a sad and doleful thing:
-Then, lovely baby, do not fear!
-I pray thee have no fear of me,
-But, safe as in a cradle, here
-My lovely baby! thou shalt be,
-To thee I know too much I owe;
-I cannot work thee any woe.
-[VERSE 3]
-A fire was once within my brain;
-And in my head a dull, dull pain;
-And fiendish faces one, two, three,
-Hung at my breasts, and pulled at me.
-But then there came a sight of joy;
-It came at once to do me good;
-I waked, and saw my little boy,
-My little boy of flesh and blood;
-Oh joy for me that sight to see!
-For he was here, and only he.
-[VERSE 4]
-Suck, little babe, oh suck again!
-It cools my blood; it cools my brain;
-Thy lips I feel them, baby! they
-Draw from my heart the pain away.
-Oh! press me with thy little hand;
-It loosens something at my chest;
-About that tight and deadly band
-I feel thy little fingers press'd.
-The breeze I see is in the tree;
-It comes to cool my babe and me.
-[VERSE 5]
-Oh! love me, love me, little boy!
-Thou art thy mother's only joy;
-And do not dread the waves below,
-When o'er the sea-rock's edge we go;
-The high crag cannot work me harm,
-Nor leaping torrents when they howl;
-The babe I carry on my arm,
-He saves for me my precious soul;
-Then happy lie, for blest am I;
-Without me my sweet babe would die.
-[VERSE 6]
-Then do not fear, my boy! for thee
-Bold as a lion I will be;
-And I will always be thy guide,
-Through hollow snows and rivers wide.
-I'll build an Indian bower; I know
-The leaves that make the softest bed:
-And if from me thou wilt not go,
-But still be true 'till I am dead,
-My pretty thing! then thou shalt sing,
-As merry as the birds in spring.
-[VERSE 7]
-Thy father cares not for my breast,
-'Tis thine, sweet baby, there to rest:
-'Tis all thine own! and if its hue
-Be changed, that was so fair to view,
-'Tis fair enough for thee, my dove!
-My beauty, little child, is flown;
-But thou wilt live with me in love,
-And what if my poor cheek be brown?
-'Tis well for me; thou canst not see
-How pale and wan it else would be.
-[VERSE 8]
-Dread not their taunts, my little life!
-I am thy father's wedded wife;
-And underneath the spreading tree
-We two will live in honesty.
-If his sweet boy he could forsake,
-With me he never would have stay'd:
-From him no harm my babe can take,
-But he, poor man! is wretched made,
-And every day we two will pray
-For him that's gone and far away.
-[VERSE 9]
-I'll teach my boy the sweetest things;
-I'll teach him how the owlet sings.
-My little babe! thy lips are still,
-And thou hast almost suck'd thy fill.
---Where art thou gone my own dear child?
-What wicked looks are those I see?
-Alas! alas! that look so wild,
-It never, never came from me:
-If thou art mad, my pretty lad,
-Then I must be for ever sad.
-[VERSE 10]
-Oh! smile on me, my little lamb!
-For I thy own dear mother am.
-My love for thee has well been tried:
-I've sought thy father far and wide.
-I know the poisons of the shade,
-I know the earth-nuts fit for food;
-Then, pretty dear, be not afraid;
-We'll find thy father in the wood.
-Now laugh and be gay, to the woods away!
-And there, my babe; we'll live for aye.
-
---- TITLE: Lines Written Near Richmond, Upon The Thames, At Evening
-[VERSE 1]
-How rich the wave, in front, imprest
-With evening-twilight's summer hues,
-While, facing thus the crimson west,
-The boat her silent path pursues!
-And see how dark the backward stream!
-A little moment past, so smiling!
-And still, perhaps, with faithless gleam,
-Some other loiterer beguiling.
-[VERSE 2]
-Such views the youthful bard allure,
-But, heedless of the following gloom,
-He deems their colours shall endure
-'Till peace go with him to the tomb.
---And let him nurse his fond deceit,
-And what if he must die in sorrow!
-Who would not cherish dreams so sweet,
-Though grief and pain may come to-morrow?
-[VERSE 3]
-Glide gently, thus for ever glide,
-O Thames! that other bards may see,
-As lovely visions by thy side
-As now, fair river! come to me.
-Oh glide, fair stream! for ever so;
-Thy quiet soul on all bestowing,
-'Till all our minds for ever flow,
-As thy deep waters now are flowing.
-[VERSE 4]
-Vain thought! yet be as now thou art,
-That in thy waters may be seen
-The image of a poet's heart,
-How bright, how solemn, how serene!
-Such heart did once the poet bless,
-Who, pouring here a[3] _later_ ditty,
-Could find no refuge from distress,
-But in the milder grief of pity.
-[VERSE 5]
-Remembrance! as we glide along,
-For him suspend the dashing oar,
-And pray that never child of Song
-May know his freezing sorrows more.
-How calm! how still! the only sound,
-The dripping of the oar suspended!
---The evening darkness gathers round
-By virtue's holiest powers attended.
-[VERSE 6]
-[3] Collins's Ode on the death of Thomson, the last written, I
-believe, of the poems which were published during his
-life-time. This Ode is also alluded to in the next stanza.
-
---- TITLE: Expostulation And Reply
-[VERSE 1]
-"Why William, on that old grey stone,
-"Thus for the length of half a day,
-"Why William, sit you thus alone,
-"And dream your time away?
-[VERSE 2]
-"Where are your books? that light bequeath'd
-"To beings else forlorn and blind!
-"Up! Up! and drink the spirit breath'd
-"From dead men to their kind.
-[VERSE 3]
-"You look round on your mother earth,
-"As if she for no purpose bore you;
-"As if you were her first-born birth,
-"And none had lived before you!"
-[VERSE 4]
-One morning thus, by Esthwaite lake,
-When life was sweet I knew not why,
-To me my good friend Matthew spake,
-And thus I made reply.
-[VERSE 5]
-"The eye it cannot chuse but see,
-"We cannot bid the ear be still;
-"Our bodies feel, where'er they be,
-"Against, or with our will.
-[VERSE 6]
-"Nor less I deem that there are powers,
-"Which of themselves our minds impress,
-"That we can feed this mind of ours,
-"In a wise passiveness.
-[VERSE 7]
-"Think you, mid all this mighty sum
-"Of things for ever speaking,
-"That nothing of itself will come,
-"But we must still be seeking?
-[VERSE 8]
-"--Then ask not wherefore, here, alone,
-"Conversing as I may,
-"I sit upon this old grey stone,
-"And dream my time away."
-
---- TITLE: The Tables Turned; An Evening Scene, On The Same Subject
-[VERSE 1]
-Up! up! my friend, and clear your looks,
-Why all this toil and trouble?
-Up! up! my friend, and quit your books,
-Or surely you'll grow double.
-[VERSE 2]
-The sun above the mountain's head,
-A freshening lustre mellow,
-Through all the long green fields has spread,
-His first sweet evening yellow.
-[VERSE 3]
-Books! 'tis a dull and endless strife,
-Come, hear the woodland linnet,
-How sweet his music; on my life
-There's more of wisdom in it.
-[VERSE 4]
-And hark! how blithe the throstle sings!
-And he is no mean preacher;
-Come forth into the light of things,
-Let Nature be your teacher.
-[VERSE 5]
-She has a world of ready wealth,
-Our minds and hearts to bless--
-Spontaneous wisdom breathed by health,
-Truth breathed by chearfulness.
-[VERSE 6]
-One impulse from a vernal wood
-May teach you more of man;
-Of moral evil and of good,
-Than all the sages can.
-[VERSE 7]
-Sweet is the lore which nature brings;
-Our meddling intellect
-Misshapes the beauteous forms of things;
---We murder to dissect.
-[VERSE 8]
-Enough of science and of art;
-Close up these barren leaves;
-Come forth, and bring with you a heart
-That watches and receives.
-
 --- TITLE: Glycine’s Song
+--- AUTHOR: Samuel Taylor Coleridge — Oxford Book of English Verse (PG 66619), poem 555 under the heading SAMUEL TAYLOR COLERIDGE
 [VERSE 1]
 A sunny shaft did I behold,
 From sky to earth it slanted:
