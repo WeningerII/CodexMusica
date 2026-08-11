@@ -758,12 +758,10 @@ def rime_cmudict(lex=None):
             return None
         phones = lex.entries.get(w)
         if not phones:
-            import lyric_harness as LH
             got, oov = lex.transcribe_word(w)
             if oov or not got:
                 return None
             phones = [got]
-            del LH
         p = list(phones[0])
         idx = None
         for i in range(len(p) - 1, -1, -1):
@@ -935,16 +933,21 @@ def compare_returns(first, again, decl=None, rhyme_key=None,
         pairs = [(i, i) for i in range(len(na))]
         unmatched_a = unmatched_b = 0
     else:
-        keep = _lcs_pairs(na, nb)
-        matched_a = {i for i, _ in keep}
-        matched_b = {j for _, j in keep}
-        pairs = keep + [(i, None) for i in range(len(na))
-                        if i not in matched_a] \
-                    + [(None, j) for j in range(len(nb))
-                       if j not in matched_b]
-        pairs.sort(key=lambda p: (p[0] if p[0] is not None else 1e9))
-        unmatched_a = len(na) - len(matched_a)
-        unmatched_b = len(nb) - len(matched_b)
+        # Anchor on the identical lines, then pair the leftovers INSIDE each
+        # gap positionally. Anchoring alone would report a return that both
+        # dropped a line and changed a word as having no changed lines at
+        # all, because an LCS only ever matches lines that are already equal.
+        pairs, pi, pj = [], 0, 0
+        for i, j in _lcs_pairs(na, nb) + [(len(na), len(nb))]:
+            ga, gb = list(range(pi, i)), list(range(pj, j))
+            for k in range(max(len(ga), len(gb))):
+                pairs.append((ga[k] if k < len(ga) else None,
+                              gb[k] if k < len(gb) else None))
+            if i < len(na) and j < len(nb):
+                pairs.append((i, j))
+            pi, pj = i + 1, j + 1
+        unmatched_a = sum(1 for i, j in pairs if j is None)
+        unmatched_b = sum(1 for i, j in pairs if i is None)
 
     invariant, varied, tok_dist = [], [], 0
     for i, j in pairs:

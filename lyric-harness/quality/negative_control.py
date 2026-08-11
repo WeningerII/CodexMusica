@@ -265,10 +265,58 @@ def stat_profile(quats, perms):
 
 
 def tv(profile, ref):
-    """Total variation between two distance profiles. Scheme-AGNOSTIC: AABB
-    and ABAB deviate from chance in opposite directions and both score > 0,
-    so ONE number serves a positive that spans more than one scheme."""
+    """Total variation between two distance profiles."""
     return 0.5 * sum(abs(profile[d] - ref[d]) for d in (1, 2, 3))
+
+
+def stat_mean_item_tv(quats, perms, ref):
+    """P2b.  TV computed PER QUATRAIN and then averaged.
+
+    THIS STATISTIC WAS ADDED ON A HYPOTHESIS THAT THE SAME RUN THEN REFUTED,
+    and both halves are kept because the refutation is the more useful record.
+
+    THE HYPOTHESIS.  P2 pools every rhyming pair in a stratum into ONE
+    distance profile before measuring its distance from chance.  `eng_celtic`
+    is the one stratum that does not separate under P2 -- observed TV 0.0864
+    against a null MAX of 0.1174, gap -0.0310, on 77 quatrains whose schemes
+    are AABB=15, AABC=10, ABAB=10, ABCB=9, ABCD=8 and five more.  AABB puts
+    its rhyme at distance 1 and ABAB at distance 2, so the obvious reading is
+    that opposite deviations CANCELLED in the pooled profile, and P2b was
+    written to defeat exactly that: take each quatrain's own profile, make its
+    deviation positive, and only then average.
+
+    THE REFUTATION.  P2b ALSO fails on `eng_celtic` (gap -0.0267), so
+    cancellation is not the cause.  The cause is POWER and effect size
+    together: the null's width scales with the number of rhyming pairs in the
+    stratum -- 1523 pairs give a null MAX of 0.0394, 138 pairs give 0.1174 --
+    and eng_celtic's observed deviation is also the smallest of the six
+    (0.0864 against 0.2109-0.4170 elsewhere).  A small stratum with a weak
+    effect is the ordinary way to fail, and reaching for a cleverer statistic
+    would have dressed that up as a fixable defect (doctrine 30: a powered
+    null is a different claim from an unpowered one).
+
+    P2b IS KEPT ANYWAY, for one reason: it is a genuinely different reduction
+    of the same permutation null, and it agrees with P2 on all five strata
+    that separate and on the one that does not.  Two statistics agreeing is
+    weaker than one statistic being right (doctrine 25), but two statistics
+    DISAGREEING would have been a finding, and running it is how that was
+    checked rather than assumed.  Its weakness is stated rather than hidden:
+    a quatrain with a single rhyming pair has a degenerate one-point profile
+    whose TV is near-constant whichever distance the pair sits at, so P2b is
+    dominated by the pair COUNT -- which this null preserves exactly -- and
+    its gaps are consequently 4-20x smaller than P2's on the same data.
+    """
+    tot, m = 0.0, 0
+    for q, p in zip(quats, perms):
+        ds = q.distances(p)
+        if not ds:
+            continue                      # no rhyming pair: no profile, and a
+            #                               missing profile is not a zero one
+        c = Counter(ds)
+        prof = {d: c.get(d, 0) / len(ds) for d in (1, 2, 3)}
+        tot += tv(prof, ref)
+        m += 1
+    return (tot / m) if m else 0.0
 
 
 # ---------------------------------------------------------------------------
@@ -372,9 +420,36 @@ def arm_scheme(quats, n, label):
     print("      combinatorial chance for a 4-line stanza: d1 %.4f  d2 %.4f  "
           "d3 %.4f" % (COMBINATORIAL_CHANCE[1], COMBINATORIAL_CHANCE[2],
                        COMBINATORIAL_CHANCE[3]))
-    r2 = report("TV(profile, null mean)", obs_tv, tvs, d_tv, n)
-    return {"P1": r1, "P2": r2, "profile": obs_prof, "null_profile": ref,
-            "schemes": Counter(q.scheme for q in quats)}
+    r2 = report("TV(pooled profile, null mean)", obs_tv, tvs, d_tv, n)
+
+    obs_mtv = stat_mean_item_tv(quats, ident, ref)
+    mtvs = [stat_mean_item_tv(quats, p, ref) for p in null_perms]
+    d_mtv = sum(1 for x in mtvs if abs(x - obs_mtv) > 1e-12)
+    print("\n  P2b · MEAN PER-ITEM TV   same null, each item's deviation made")
+    print("       positive BEFORE it is summed. Written to test whether P2's")
+    print("       one failing stratum was cancellation under pooling; it was")
+    print("       NOT (see the docstring), and P2b is kept as a second,")
+    print("       independent reduction of the same null rather than a fix.")
+    r3 = report("mean per-item TV", obs_mtv, mtvs, d_mtv, n)
+    if r2["gap"] <= 0 and r3["gap"] <= 0:
+        print("       *** THIS STRATUM SEPARATES UNDER NEITHER STATISTIC. Two")
+        print("           different reductions of the same null agree that it")
+        print("           does not clear its own shuffle. %d rhyming pairs;"
+              % n_pairs)
+        print("           the null's width scales with that count, so read "
+              "this as\n           power plus a small effect, not as a "
+              "statistic to replace.")
+        print("           %d of %d pairs were REFUSED (%.1f%%) — an unreadable"
+              % (n_ref, 6 * len(quats), 100.0 * n_ref / (6 * len(quats))))
+        print("           line-final is a missing MEASUREMENT, and it removes")
+        print("           evidence from the observation and the null alike.")
+    elif r2["gap"] <= 0 < r3["gap"] or r3["gap"] <= 0 < r2["gap"]:
+        print("       *** THE TWO STATISTICS DISAGREE on this stratum. That "
+              "is a\n           finding about the statistics, not about the "
+              "poets, and\n           neither number may be quoted without "
+              "the other.")
+    return {"P1": r1, "P2": r2, "P2b": r3, "profile": obs_prof,
+            "null_profile": ref, "schemes": Counter(q.scheme for q in quats)}
 
 
 def arm_chains(lex, decl, stanzas, n, theta=0.82, max_items=120):
@@ -500,6 +575,25 @@ def main(argv):
               "reads POSITION\n  instead of the anchor multiset."
               % (100 * a["P2"]["differ"], a["P2"]["obs"], a["P2"]["max"],
                  a["P2"]["gap"]))
+        print("* P2b observed %.4f against null MAX %.4f (gap %+.4f)."
+              % (a["P2b"]["obs"], a["P2b"]["max"], a["P2b"]["gap"]))
+        strata = [(g, v) for g, v in out.items()
+                  if g != "ALL" and isinstance(v, dict) and "P2" in v]
+        fails = [g for g, v in strata
+                 if v["P2"]["gap"] <= 0 and v["P2b"]["gap"] <= 0]
+        split = [g for g, v in strata
+                 if (v["P2"]["gap"] <= 0) != (v["P2b"]["gap"] <= 0)]
+        print("* STRATA: %d measured, %d separate under BOTH statistics, "
+              "%d under\n  neither (%s), %d where the two disagree (%s)."
+              % (len(strata), len(strata) - len(fails) - len(split),
+                 len(fails), ", ".join(fails) or "none",
+                 len(split), ", ".join(split) or "none"))
+        print("  The positive spans %d distinct quatrain schemes read off the "
+              "graph;\n  the three commonest are %s. A negative control that "
+              "is the corpus's\n  OWN shuffle is matched to all of them at "
+              "once, which is the property\n  no second poet has."
+              % (len(a["schemes"]),
+                 ", ".join("%s=%d" % kv for kv in a["schemes"].most_common(3))))
     if "whitman" in out and "chains" in out:
         print("* P3: corpus %.4f vs its own shuffled self (MAX %.4f, gap "
               "%+.4f);\n  Whitman %.4f vs MAX %.4f, gap %+.4f. Two arms, one "

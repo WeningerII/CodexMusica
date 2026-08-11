@@ -178,13 +178,59 @@ def test_the_grid_hands_off_to_the_scheme_layer_without_chunking():
           f"Bell(22) = {S.bell(22):,}")
 
 
+def test_function_and_bar_range_are_two_different_keys():
+    print("\n7. the FUNCTION coordinate and the BAR RANGE do not merge")
+    s = Song(sections=[
+        Section("verse1", 11, function="verse"),
+        Section("chorus", 14, function="chorus"),
+        Section("verse2", 9, function="verse"),
+        Section("chorus", 14, function="chorus")]).layout()
+    s.lines = [Line(f"L{i}", bar=b) for b in (1, 5, 12, 20, 26, 30, 40, 48)
+               for i in [b]]
+    check("two sections declaring one FUNCTION are two instances, not one",
+          len(s.instances_of("chorus")) == 2
+          and [x.start_bar for x in s.instances_of("chorus")] == [12, 35],
+          "the accessor D-1 was missing: keyed on the declared function, in "
+          "bar order")
+    check("and lines_in STILL refuses a repeated NAME",
+          _raises(lambda: s.lines_in("chorus")),
+          "these are two different keys and they must stay two: a chorus is "
+          "one thing for FUNCTION and two spans for the GRID, which is the "
+          "same sentence the bar-range rule has always made")
+    check("adding `function` did not add a line-count field",
+          not any(f in Section.__dataclass_fields__
+                  for f in ("lines", "line_count", "n_lines")),
+          f"fields are {sorted(Section.__dataclass_fields__)}")
+    check("and it is not a seventh uniformity channel",
+          set(uniformity(s)) == {"four_four", "bars_multiple_of_four",
+                                 "equal_section_length",
+                                 "equal_line_duration", "downbeat_locked",
+                                 "four_lines_per_section"},
+          "the anti-cliche measure is about the GRID; a form with two "
+          "choruses is not thereby uniform")
+    check("the drift checks read the declared function, never the name",
+          _drift_reads_function())
+
+
+def _drift_reads_function():
+    """Two spans NAMED 'x' and 'y' and both DECLARED chorus, at two lengths:
+    the length-drift finding must fire on the declaration."""
+    from quality.grid import return_findings
+    s = Song(sections=[Section("x", 16, function="chorus"),
+                       Section("y", 12, function="chorus")]).layout()
+    s.lines = [Line("l", bar=b) for b in (1, 5, 17, 21)]
+    f, _, _ = return_findings(s, "chorus")
+    return "RETURN_LENGTH_DRIFT" in {x.code for x in f}
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
                test_lines_key_on_bar_range_not_name,
                test_stanza_lock_fires_on_the_default,
                test_a_real_structure_clears_it,
-               test_the_grid_hands_off_to_the_scheme_layer_without_chunking):
+               test_the_grid_hands_off_to_the_scheme_layer_without_chunking,
+               test_function_and_bar_range_are_two_different_keys):
         fn()
     print("=" * 62)
     if FAILURES:
