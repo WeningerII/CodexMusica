@@ -828,17 +828,30 @@ wrong label:
 - **Over the staged file** (`corpus/song/msa_skeat_pantun.txt`, 513 verse lines,
   2,111 tokens): `-ong` **38 tokens / 26 types**, `-ok` **28 / 15**, `-ung`
   **0**, `-uk` **0**.
-- **`CLAUDE.md`'s "14 and 12" RECOVERED.** Restrict to LINE-FINAL words — the
-  rhyme position — and `-ong` gives **14 tokens / 12 types**. So 14 and 12 were
-  never `-ong` and `-ok`; they were the token and type counts of `-ong` alone,
-  at line-final position, relabelled as a pair of suffixes.
-- **This entry's "28 … 14/15" RECOVERED.** They are the `-ok` figures: 28
-  tokens, 15 types over all tokens, 14 types when the hyphen tail is taken as
-  the word (`sa-dudok` → `dudok`). Both were `-ok` and one was labelled `-ong`.
-- **The corpus header's "25 and 24 tokens" is `UNVERIFIABLE`.** Five
-  tokenisations were swept — all tokens, no-hyphen tokens, hyphen tail, hyphen
-  head, unique-per-line — giving 38/28, 35/26, 38/28, 38/28 and 37/28. None
-  lands on 25/24.
+- **This entry's own "28 … 14/15" RECOVERED, and the labels were right.** Re-cut
+  the same 513 lines with LETTERS ONLY — apostrophe and hyphen read as token
+  breaks — and `-ong` is 41 tokens in **28 types**, `-ok` 30 tokens in **14
+  types**. So M-3's 28 and 14 are correct, correctly labelled, and measured on a
+  tokenisation this entry did not state; the "15" is the `-ok` type count under
+  the *other* rule (apostrophe and hyphen kept inside the token: 28 tokens / 15
+  types). **This entry quoted two tokenisations in one breath and named
+  neither.** (First recovered by the owner of `quality/METHOD.md`; re-derived
+  here independently and confirmed to the token. An earlier reconstruction of
+  mine — that 28 was the `-ok` TOKEN count — is withdrawn: it fits the numbers
+  and not the labels, and this one fits both.)
+- **`CLAUDE.md`'s "14 and 12" — a rule that reproduces it, offered as a
+  RECONSTRUCTION and not as recovered provenance.** Restrict to LINE-FINAL
+  words, the rhyme position, and `-ong` gives **14 tokens / 12 types** — stable
+  under both tokenisations above, with `-ok` at 0 line-final. That is the only
+  rule found that yields a 14 beside a 12. If it is the rule, then "14 and 12
+  distinct `-ong` and `-ok` types" was the token and type counts of `-ong`
+  alone, relabelled as a pair of suffixes. **Nothing on disk says so**, and a
+  rule invented to land on a recorded number is what doctrine 58 forbids — so
+  this is reported as a candidate with its command, not as the answer.
+- **The corpus header's "25 and 24 tokens" is `UNVERIFIABLE`.** Six
+  tokenisations were swept — all tokens, letters-only, no-hyphen tokens, hyphen
+  tail, hyphen head, unique-per-line — giving 38/28, 41/30, 35/26, 38/28, 38/28
+  and 37/28. None lands on 25/24.
 
 **AND THE ZEROS ARE A COORDINATE OF THE POPULATION, WHICH NOBODY CHECKED.** The
 argument survives and the flat "zero" does not. Over PG47873's 330 Malay blocks

@@ -33,19 +33,25 @@ returning.
 | 1 | our RESULTS — is the effect real? | **built** | line-permutation nulls, matched redeals, shuffled controls |
 | 2 | the WRITING — is the draft any good? | **built** | `quality/revise.py` |
 | 3 | the CODE's generosity — is the rule too loose? | **partial** | `quality/redteam_band.py`, band only |
-| 4 | the TESTS — can the suite detect a broken harness? | **missing** | mutation testing. M1 above is the proof it is needed |
+| 4 | the TESTS — can the suite detect a broken harness? | **built** | `quality/mutate.py` — 30 mutations, 29 caught, 1 allowlisted equivalent with its premise tested |
 | 5 | the CORPUS — is the text what its header claims? | **ad hoc** | doctrines 50/52/53 were each found by hand, one file at a time |
-| 6 | the TAXONOMY — does every named entry have a source? | **missing** | `gabay higaad` was reconstructed from our own modules and fed back as confirmation |
+| 6 | the TAXONOMY — does every named entry have a source? | **built** | `quality/audit_register.py --provenance` |
 | 7 | the REPORT — do the number, the label and the evidence agree? | **missing** | `best_score` prints a score beside end words that did not produce it |
+| 8 | the RECORD — do the documents agree with each other and with the code? | **built** | `quality/audit_register.py` — 7 consistency failures found and closed on 2026-08-11, 2 remaining and both deliberate |
 
-**Four to six of seven, not one of three.** Adversary 4 is the highest-value
-item in this document, because it protects every other fix we will ever make.
+**Four to six of seven, not one of three.** ~~Adversary 4 is the highest-value
+item in this document~~ — it is **built**, and the eighth was not on the list
+when the list was written. **Adversary 8 is the one that found four false
+entries in a week**, and the argument for it is that adversaries 1–7 all attack
+the WORK while nothing attacked the RECORD of it. Its cheapest pass costs under
+a second: `python3 quality/audit_register.py --consistency`, no corpus, no
+imports. **Remaining: 5 and 7.**
 
 ---
 
 ## TIER 1 — blocks the next song. Do these first.
 
-### 1.1 · Mutation testing (adversary 4) `NEW`
+### 1.1 · Mutation testing (adversary 4) `DONE 2026-08-11`
 Kill M1. A small runner that applies N declared mutations to the comparator,
 the band, the anchor rule and the scheme mandate, runs the suite, and FAILS if
 any mutation survives. Start with the three above and grow the list every time
@@ -53,6 +59,16 @@ a defect is found by hand — a defect found by hand is a mutation the suite
 should have caught.
 **Acceptance:** M1 is caught. The runner is in CI-shaped form (`__main__`) and
 its surviving-mutation list is empty or explicitly declared.
+**MET.** `quality/mutate.py` declares **30** mutations; **29 are caught**,
+including M1 and M30. The one survivor is **M4, proved equivalent rather than
+missed**, allowlisted in `quality/test_mutation.py` with the proof — and the
+allowlist entry's premise is itself under test, since M11 mutates the
+`cluster_sim` line M4's equivalence depends on and is caught.
+**Owed, small:** three coordinates declared on 2026-08-11 —
+`scalar_alignment`, `nucleus_agreement`, `nucleus_licence_unstressed_only` —
+have defaults and no mutation. Each is caught today by the file that declares
+it, so none is a hole; they belong in the list so that stays true. Proposed
+M31/M32/M33 are in cell H's patch note.
 
 ### 1.2 · `best_score` does not report which span won `M-17, OPEN`
 `line_anchors` returns several candidate spans per line; `best_score` takes the
@@ -127,15 +143,23 @@ the other five are vernacular characters postdating the rime book, where
 refusal is correct — and nothing currently tells an ingestion defect from a
 correct refusal.
 
-### 2.3 · `msa.py`'s apostrophe rule causes 82% of its own unreadability `M-3`
-384 of 471 Malay failures are the syncope split leaving a vowelless fragment
-(`s'ri`, `t'ada`, `b'ras`). The module already ACCEPTS the identical process
-spelled without the apostrophe (`prang`, `Brapa`).
+### 2.3 · ~~`msa.py`'s apostrophe rule causes 82% of its own unreadability~~ **17%** `M-3`
+~~384 of 471 Malay failures are the syncope split leaving a vowelless
+fragment~~ — **79 of 471**, re-derived 2026-08-11. 384 is the before-fix count
+of vowelless tokens and only 79 of them came from the syncope split (`s'ri`,
+`t'ada`, `b'ras`); the other 305 are whole tokens the rule never touched, and
+they are the `d. s. b.` stub of §2.4. The arithmetic was right and the
+ATTRIBUTION was not. The module already ACCEPTS the identical process spelled
+without the apostrophe (`prang`, `Brapa`). **The fix is shipped and this line is
+now a record, not a task.**
 
 ### 2.4 · The `&c.` refrain stub is not an English convention `M-4`
-Finnish `j. n. e.` is **100%** of that corpus's unreadable tokens; Malay
-`d. s. b.` is **300 of 471**. Both are end-of-line, so the existing anchored
-regex extends directly. Welsh makes it four languages.
+Finnish `j. n. e.` is **100%** of the two Kanteletar files' unreadable tokens
+(16 tokens on 8 stub lines, CONFIRMED to the token); Malay `d. s. b.` is
+**305 of 471** — the row that was withdrawn on 2026-08-11 and reinstated the
+same day, because the withdrawing grep read the 129-block staged extract while
+the claim was about the 705-block source (`M-18`). Both are end-of-line, so the
+existing anchored regex extends directly. Welsh makes it four languages.
 
 ### 2.5 · `RelationSchema.traditions` is declared on 77 schemas, populated on 0 `M-15`
 So "Middle Chinese 同用 rhyme" and "pantun ABAB" fire on English and nothing can
@@ -166,9 +190,19 @@ convention. All asserted as OPEN in the suite so closing one fails a test.
 route carries **no living copyright**: `kanripo/KR4j` 白文 (文淵閣四庫全書, 1782)
 segmented by the 欽定詞譜 (1715). Needs a build; the pieces are all reachable.
 
-### 3.2 · ZERO named airs across 8,009 non-English songs `M-11`
-The field the whole sourcing round was chasing. The English corpus has 331 of
-5,006. The Gītagovinda's rāga/tāla headings exist and are CC BY-**NC**-SA
+### 3.2 · ZERO named airs across 8,009 non-English songs `M-11` — AND THE FIELD IS NOT DECLARED
+The field the whole sourcing round was chasing. ~~The English corpus has 331 of
+5,006.~~ **There is no `--- AIR:` marker anywhere in `corpus/song/`.** The
+declared markers are TITLE, SOURCE, AUTHOR, GE, RHYME, JU, SECTION, JUAN, RIME,
+SYLLABLES, FROM, NOTE. The 331 reproduces exactly and is a **substring count** —
+TITLE strings containing the word "air" anywhere, which includes *"The Birds Of
+The Air"*. The figure the corpus supports is **318**, the `[air: NAME]`
+convention, with a 13-title residue that is 9 ordinary uses of the noun and 4
+airs under other conventions. **So the rarest field in the corpus is the one
+field the corpus does not declare, and neither the 331 nor M-11's zero is
+re-derivable until `--- AIR:` exists.** Declaring it is a one-line change to the
+stagers and it makes two recorded numbers checkable.
+The Gītagovinda's rāga/tāla headings exist and are CC BY-**NC**-SA
 (doctrine 92: the admissible copy and the complete copy are disjoint).
 
 ### 3.3 · The Persian edition gate is open on all 30 files `M-13`
@@ -226,22 +260,34 @@ rhymes, and a word scramble preserves the span multiset exactly. Doctrine 63/68
 in a fourth place. **Owed: a null that destroys the span multiset — across items
 rather than within one.**
 
-### 4.3 · Taxonomy adversary (adversary 6)
+### 4.3 · Taxonomy adversary (adversary 6) `BUILT 2026-08-11`
 Every named entry in `RHYME_CANON.md` and `relations.py` must cite a source
 that is not this repo. `gabay higaad` was reconstructed from our own modules
 and the truncation "converted an external check into a self-confirmation."
 **Acceptance:** a runner that lists every name with no external citation.
+**MET.** `python3 quality/audit_register.py --provenance` lists them: 117 named
+structures, 117 with no external citation, 611 `from:` references into a survey
+array that is not in the repository, 0 publication-year tokens in 94 KB, and 19
+names whose only witness is this project. `relations.py` hangs 298 `Tradition`
+rows off 77 schemas and every `Tradition.source` is an `R<n>` pointer back into
+that document. **The gap it found is now `MISSING.md` M-15a and is OPEN**; the
+runner is done, the repair is not.
 
-### 4.4 · `rhyme_constraints.py` — 1,325 stranded lines
-The only genuinely stranded module. Decision owed: mine its **knowledge sets**
-(a `frozenset` per channel — the right shape for the homograph gap) into
-`relations.py` and delete it, or give it a `__main__` and keep it as a
-comparison runner.
+### 4.4 · ~~`rhyme_constraints.py` — 1,325 stranded lines~~ 1,566, and no longer stranded
+~~The only genuinely stranded module.~~ Measured 2026-08-11: **1,566 lines**, it
+has an `if __name__ == "__main__"` as of commit `ade8546`, and it has two
+callers (`relations.py`, `test_relations.py`). Decision still owed: mine its
+**knowledge sets** (a `frozenset` per channel — the right shape for the
+homograph gap) into `relations.py` and delete it, or keep it deliberately as a
+comparison runner. The second branch has been taken in the code without being
+taken here.
 
-### 4.5 · Doctrine has drifted to auditing `L-5`
+### 4.5 · Doctrine has drifted to auditing `L-5` — SPLIT UNDER WAY
 **102 numbered doctrines**, and roughly half the recent ones are about null
 hypotheses. A future session reading `CLAUDE.md` learns to audit rather than to
 write. Needs a split: a short WRITING doctrine and a long METHOD appendix.
+**In progress:** 27 items now live in `CLAUDE.md` and 75 in `quality/METHOD.md`,
+with global non-contiguous numbering so `doctrine 79` is still doctrine 79.
 
 ---
 
@@ -261,7 +307,7 @@ No hook. The floor has two length profiles and both are stanzas (L-4).
 | MISSING entries OPEN / PARTIAL / BLOCKED / CLOSED | 53 / 10 / 2 / 7 (73 entries) |
 | doctrines | 102 (27 in `CLAUDE.md`, 75 in `quality/METHOD.md`) |
 | stranded modules | **0** — `rhyme_constraints.py` is 1,566 lines and now has a `__main__` and two callers; the DECISION is still owed (M-16) |
-| mutations | **30 declared, 29 caught, 1 allowlisted equivalent (M4, with its premise tested)** |
+| mutations | **33 declared, 32 caught, 1 allowlisted equivalent (M4, with its premise tested)** |
 | `corpus/song/` files | 258 |
 | `data/sources.tsv` rows | 386 |
 | `data/lyricists.tsv` rows | 539 |
