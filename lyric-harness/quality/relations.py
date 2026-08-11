@@ -47,6 +47,31 @@ CMUdict.  `phon` is any object with `.syllabify(word)`.  The channel INVENTORY
 is itself a declaration coordinate: Welsh does not declare onset and coda as
 separate channels at all, it declares a consonant sequence, so `ChannelSet`
 is per-declaration and the schemas name channels the declaration must provide.
+
+A SCHEMA SAYS WHICH TRADITION IT BELONGS TO -- section 11, and it did not
+until 2026-08-11.  `RelationSchema.traditions` was declared on all 77 schemas
+and populated on ZERO (M-15), so `Middle Chinese end rhyme (同用 group)` fired
+on four lines of English and nothing in the output could say that the RULE
+SHAPE had matched and the tradition had not.  Every tradition is now read out
+of `quality/RHYME_CANON.md` and cites the canon entry that names it; a schema
+whose tradition could not be SOURCED is left empty and says why in `UNSOURCED`.
+`tradition_scope()` is four-valued, because "the source cannot say" is a
+different answer from "the source says no".  `relation_report()` and this
+module's `__main__` print the scope on every row.
+
+A COUNT FROM HERE IS NOT EVIDENCE.  `quality/relations_null.py` is the matched
+control (doctrines 56/61/63/68/75/90), and `search_burden()` finally consumes
+the `Span.search_k` this module carried from its first commit and never read.
+The first thing the null found is about this file: `line_permutation` -- the
+null this repo uses for Whitman, the Kalevala and Bilhaṇa -- is the IDENTITY
+MAP for `internal rhyme` and `perfect rhyme`, because neither declares a
+bounded line-distance placement.
+
+CLOSED HERE, and each is asserted in `test_relations.py` so the close is
+readable: P10, the chorus stub, as a DECLARED `Stream.line_status` with no
+detector shipped in this file; P11's comparison half, as knowledge sets on the
+channel reads.  Still OPEN and named there: `Span.unit`, `SpanRule.terminator`,
+the text-order convention.
 """
 
 import itertools
@@ -198,10 +223,32 @@ class Stream:
     #: the difference is a rate every English measurement in this repo depends
     #: on.  Before this field the loss was silent.
     unreadable: list = field(default_factory=list)
+    #: DEFECT P10, closed as a DECLARED COORDINATE.  One label per line, ""
+    #: where the caller declared none.  A chorus stub -- `Oh, my poor Nelly
+    #: Gray, &c.` -- is not a line of verse, it is a POINTER to one, and
+    #: `tokenise()` reads its last token as the word `c`.  That is a LINE
+    #: STATUS and the stream had no field for it.
+    #:
+    #: relations.py supplies NO detector and NO regex.  BACKLOG §2.4 is the
+    #: argument: Finnish prints `j. n. e.`, Malay `d. s. b.`, Welsh its own,
+    #: and `&c.` is not an English fact but an EDITION's, so a built-in
+    #: pattern here would be doctrine 65's mistake -- porting one language's
+    #: punctuation rule into a module that serves nine.  The caller declares
+    #: it; `lyric_harness.is_chorus_stub` is one such caller and this module
+    #: still imports nothing from it, because nothing here transcribes.
+    line_status: tuple = ()
+    #: (line, status, raw) for every line whose declared status was excluded.
+    #: Doctrine 79: an excluded line is not a line that found nothing.
+    excluded_lines: list = field(default_factory=list)
+
+    def status_of(self, line):
+        return self.line_status[line] if line < len(self.line_status) else ""
 
     # -- capabilities.  A schema's `requires` is checked against these, and a
     #    missing one produces a Refusal naming it rather than a wrong number.
     def provides(self, cap):
+        if cap == "line_status":
+            return any(self.line_status)
         if cap == "prominence":
             return any(u.syl.prominence is not None for u in self.units)
         if cap == "caesura":
@@ -264,8 +311,19 @@ def stanzas_from_blank_lines(text_lines):
     return out
 
 
+def line_status_from(text_lines, predicate, label):
+    """Build a `line_status` tuple from a CALLER'S predicate.
+
+    `predicate` is any `raw_line -> bool`.  This module ships none, and that
+    is the point: `lyric_harness.is_chorus_stub` is one, a Finnish `j. n. e.`
+    rule is another, and which one is right is a property of the EDITION.
+    """
+    return tuple(label if predicate(l) else "" for l in text_lines)
+
+
 def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
-                 declaration=None, hyphen_continues=True, stanzas=None):
+                 declaration=None, hyphen_continues=True, stanzas=None,
+                 line_status=None, exclude_status=()):
     """Syllabify a whole song ONCE into one flat indexed sequence.
 
     O(total syllables).  A 40-line lyric is ~250 units; a 5,000-line corpus item
@@ -277,14 +335,36 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
     (defect P8 -- it used to be the constant 0, which collapsed all five
     stanza-framed schemas into one frame for every text).  Pass a list to
     declare it, or `stanzas=False` to keep every line in stanza 0.
+
+    `line_status` is a per-line label, or a callable `raw_line -> label`, and
+    defaults to nothing declared (defect P10).  `exclude_status` names labels
+    whose lines contribute NO UNITS -- the treatment an unreadable token
+    already gets, applied to a line that is a POINTER rather than verse.  The
+    line keeps its index and its entry in `lines`, so nothing downstream
+    renumbers, and the loss is recorded in `excluded_lines` rather than being
+    silent.  Both default to inert: a caller that declares neither gets the
+    stream it got before, byte for byte.
     """
-    units, lines, toks, unreadable = [], [], {}, []
+    units, lines, toks, unreadable, excluded = [], [], {}, [], []
     if stanzas is None:
         stanzas = stanzas_from_blank_lines(text_lines)
     elif stanzas is False:
         stanzas = [0] * len(text_lines)
+    if callable(line_status):
+        line_status = tuple(line_status(l) or "" for l in text_lines)
+    elif line_status is None:
+        line_status = ()
+    else:
+        line_status = tuple(line_status)
+    exclude_status = tuple(exclude_status)
     pending_split = False
     for li, raw in enumerate(text_lines):
+        st = line_status[li] if li < len(line_status) else ""
+        if st and st in exclude_status:
+            excluded.append((li, st, raw))
+            lines.append(())
+            pending_split = False
+            continue
         words = tokeniser(raw)
         cut = bool(re.search(r"[\w’'](-)\s*$", raw)) and hyphen_continues
         # Two passes over the line.  The first finds which tokens the
@@ -327,7 +407,8 @@ def build_stream(text_lines, phon, sections=None, tokeniser=tokenise,
         lines.append(tuple(idxs))
     return Stream(units=units, lines=lines, tokens=toks, phon=phon,
                   declaration=dict(declaration or {}),
-                  text_lines=tuple(text_lines), unreadable=unreadable)
+                  text_lines=tuple(text_lines), unreadable=unreadable,
+                  line_status=line_status, excluded_lines=excluded)
 
 
 # ---------------------------------------------------------------------------
@@ -469,11 +550,65 @@ def _empty(x):
     return x is None or x == () or x == ""
 
 
+# --- KNOWLEDGE SETS.  DEFECT P11, closed on the half this module owns.
+#
+# A channel does not yield a value; it yields the SET of values the declared
+# surface permits, and certainty is |set| == 1.  The shape is mined from
+# `quality/rhyme_constraints.py`, which MISSING M-16 calls that module's one
+# genuine advance and the right shape for the homograph gap -- and which has
+# no caller, so the idea was stranded.  This is that shape and nothing else
+# taken across; the file itself is not imported.
+#
+# `wind` is /W IH1 N D/ and /W AY1 N D/.  Before this a predicate received ONE
+# of them and returned True or False -- a verdict on a reading nobody
+# declared.  Now: every reading agrees -> True; no reading can agree -> False;
+# some agree and some do not -> **None**, which is the ternary this module
+# exists to preserve.  A homograph is UNDECIDED, not silently resolved.
+#
+# WHAT REMAINS OPEN IS NOT HERE.  `quality.phonology.Syllable.nucleus` is a
+# `str`, so no shipped phonology can PRODUCE a two-reading syllable.  The
+# representation gap is closed in the layer that compares; the production gap
+# is in a module this file does not own and does not import.
+
+
+def _alts(x):
+    """A channel value as the set of readings it permits.
+
+    A scalar -- or a TUPLE, since a cluster is one value and not a set of
+    values -- is CERTAIN knowledge of itself.  A `frozenset` is the uncertain
+    case, so the marker is the type and no existing reader changes behaviour.
+    """
+    return x if isinstance(x, frozenset) else frozenset((x,))
+
+
+def uncertain(x):
+    """True where the channel holds more than one reading."""
+    return isinstance(x, frozenset) and len(x) > 1
+
+
 class Predicate:
     name = "predicate"
 
     def __call__(self, x, y):
         raise NotImplementedError
+
+
+def _set_agree(x, y):
+    """Set algebra over two knowledge sets -> (verdict, informative, note).
+
+    Certain values take the scalar path unchanged, so nothing that shipped
+    moves.  Uncertain ones cannot be collapsed to a verdict and are not.
+    """
+    ax, ay = _alts(x), _alts(y)
+    if len(ax) == 1 and len(ay) == 1:
+        vx, vy = next(iter(ax)), next(iter(ay))
+        return vx == vy, not (_empty(vx) and _empty(vy)), ""
+    if not (ax & ay):
+        return False, True, "no reading of either member agrees"
+    # overlap without certainty: some readings agree and some do not
+    return None, True, (f"{len(ax)}x{len(ay)} readings overlap but do not "
+                        f"settle it — a homograph the declaration cannot "
+                        f"resolve, so the answer is UNDECIDED, not a guess")
 
 
 class Agree(Predicate):
@@ -482,7 +617,8 @@ class Agree(Predicate):
     def __call__(self, x, y):
         if x is None or y is None:
             return Read(None, False, "unreadable on this surface")
-        return Read(x == y, not (_empty(x) and _empty(y)))
+        v, inf, note = _set_agree(x, y)
+        return Read(v, inf, note)
 
 
 class Differ(Predicate):
@@ -491,11 +627,14 @@ class Differ(Predicate):
     def __call__(self, x, y):
         if x is None or y is None:
             return Read(None, False, "unreadable on this surface")
-        if _empty(x) and _empty(y):
+        ax, ay = _alts(x), _alts(y)
+        if len(ax) == 1 and len(ay) == 1 and _empty(next(iter(ax))) \
+                and _empty(next(iter(ay))):
             # Doctrine 60 in general form: two identically-absent or
             # identically-MERGED values cannot say they differ either.
             return Read(False, False, "both absent; cannot differ")
-        return Read(x != y, True)
+        v, inf, note = _set_agree(x, y)
+        return Read(None if v is None else (not v), inf, note)
 
 
 class Free(Predicate):
@@ -523,10 +662,17 @@ class ClassEqual(Predicate):
     def __call__(self, x, y):
         if x is None or y is None:
             return Read(None, False, "unreadable")
-        cx, cy = self._cls(x), self._cls(y)
-        if cx is None or cy is None:
+        # knowledge sets quotient element-wise: the CLASS of an uncertain
+        # value is the set of classes its readings fall in, and 流/樓 landing
+        # in one 同用 group under both readings still AGREES.
+        cx = frozenset(self._cls(v) for v in _alts(x))
+        cy = frozenset(self._cls(v) for v in _alts(y))
+        if None in cx or None in cy:
             return Read(None, False, f"outside {self.label}")
-        return Read(cx == cy, True, self.label)
+        cx = next(iter(cx)) if len(cx) == 1 else cx
+        cy = next(iter(cy)) if len(cy) == 1 else cy
+        v, inf, note = _set_agree(cx, cy)
+        return Read(v, inf if v is not None else True, note or self.label)
 
 
 @dataclass(frozen=True)
@@ -540,6 +686,11 @@ class DirectedDiffer(Predicate):
     def __call__(self, x, y):
         if x is None or y is None:
             return Read(None, False, "unreadable")
+        if uncertain(x) or uncertain(y):
+            # a DIRECTION over an unresolved reading is not derivable; the
+            # honest answer is the refusal, not whichever reading sorts first.
+            return Read(None, False, "uncertain reading; direction undecidable")
+        x, y = next(iter(_alts(x))), next(iter(_alts(y)))
         try:
             return Read(self.order.index(x) < self.order.index(y), True)
         except ValueError:
@@ -572,6 +723,9 @@ class PresentVsAbsent(Predicate):
     def __call__(self, x, y):
         if x is None or y is None:
             return Read(None, False, "unreadable")
+        if uncertain(x) or uncertain(y):
+            return Read(None, False, "uncertain reading; extension undecidable")
+        x, y = next(iter(_alts(x))), next(iter(_alts(y)))
         vals = (x, y)
         extra, bare = vals[self.on], vals[1 - self.on]
         eb = () if _empty(bare) else tuple(bare)
@@ -999,6 +1153,18 @@ class Placement:
             return U[b.head()].line - U[a.head()].line == 1
         if k == "line_gap_at_most":
             return 0 < U[b.head()].line - U[a.head()].line <= self.args[0]
+        if k == "line_status_in":
+            # DEFECT P10.  The stub is a LINE STATUS, and this is the read.
+            # `polarity=False` gives the exclusion form, so a caller who wants
+            # stub lines kept in the stream but barred from a relation writes
+            # Placement("line_status_in", ("stub",), polarity=False) and needs
+            # no new predicate.  Refuses -- None, never False -- where no
+            # status was declared, because "this line is not a stub" and
+            # "nobody said" are different answers (doctrine 28).
+            if not any(stream.line_status):
+                return None
+            return (stream.status_of(U[a.head()].line) in self.args
+                    and stream.status_of(U[b.head()].line) in self.args)
         if k == "same_token":
             return (U[a.head()].line, U[a.head()].token) == \
                    (U[b.head()].line, U[b.head()].token)
@@ -1171,6 +1337,13 @@ def _seq(span, stream, channel, chans, surface):
     for i in span.idx:
         v = chans.read(stream.units[i], channel, stream, surface)
         if v is None:
+            return None
+        if uncertain(v):
+            # P11: one uncertain element makes the whole derived sequence
+            # uncertain, and a sequence predicate has no set algebra to fall
+            # back on.  Refuse the SEQUENCE rather than pick a reading -- a
+            # Welsh skeleton built from one guessed homograph is a skeleton
+            # nobody declared.
             return None
         out.extend(v if isinstance(v, tuple) else [v])
     return tuple(out)
@@ -1376,8 +1549,13 @@ def _bucket_key(schema, span, stream, chans):
                 return None
             v = chans.read(stream.units[span.idx[pos]], cr.channel, stream,
                            cr.surface)
-        if v is None:
-            return None                      # WILDCARD: never prune an unknown
+        if v is None or uncertain(v):
+            # WILDCARD: never prune an unknown, and an UNCERTAIN read is an
+            # unknown for indexing purposes.  Bucketing a homograph on one of
+            # its readings would delete exactly the pairs P11 is about --
+            # the same failure the Persian note above describes, arriving
+            # from the homograph side instead of the script side.
+            return None
         key.append((cr.channel, v))
     return tuple(key) or None
 
@@ -2613,6 +2791,839 @@ def capability_report(stream):
             "refused": {"+".join(k): sorted(v) for k, v in refused.items()}}
 
 
+# ---------------------------------------------------------------------------
+# 11. TRADITIONS.  M-15: `RelationSchema.traditions` was declared on all 77
+#     schemas and populated on ZERO, so "Middle Chinese end rhyme (同用 group)"
+#     fired on four lines of English and nothing in the output could say that
+#     the RULE SHAPE had matched and the tradition had not (doctrine 43).
+#
+# THE SOURCE IS `quality/RHYME_CANON.md`, NEVER THE SCHEMA NAME.  Reading a
+# tradition off a name is the `gabay higaad` error: that entry was
+# reconstructed from this repository's own modules and read back as external
+# confirmation (RHYME_CANON §0, §5.3).  Every Tradition below therefore cites
+# the canon ENTRY that names it, and `CANON` carries that entry's `from:` line
+# verbatim so the citation can be checked without leaving this file.
+#
+# WHAT THE CITATION CAN AND CANNOT CARRY.  A canon entry names its traditions
+# in one alias line and cites its inventory indices in another, and it does NOT
+# attribute individual names to individual indices.  So a Tradition records the
+# ENTRY that names it, not the index -- stated rather than faked.  The
+# consequence is `cell_cited` below: where an entry cites indices from an
+# inventory cell whose traditions it never names, the source cannot say whether
+# a language in that cell belongs to the structure or not, and the answer is
+# "cannot tell" rather than "no".
+#
+# A SCHEMA WITH NOTHING SOURCEABLE IS LEFT EMPTY AND SAYS WHY.  `UNSOURCED`
+# is not a TODO list; it is the honest half of the answer.
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Tradition:
+    """One tradition a schema is scoped to.
+
+    `lang` is a language code so a declaration can be compared against it; it
+    is "" where the canon names a tradition but this repo has no code for its
+    language.  `source` is a key into `CANON`.
+    """
+    name: str
+    lang: str
+    source: str
+
+    def __str__(self):
+        return f"{self.name}" + (f" [{self.lang}]" if self.lang else "")
+
+
+#: RHYME_CANON.md §2 entries cited below, with each entry's `from:` line
+#: verbatim.  The prefix of an index is its inventory CELL (§1): E=english(74),
+#: C=celtic(64), G=germanic/finnic(89), S=semitic-persian(126),
+#: I=indic-seasian(74), X=east-asian-romance(174).  A ✓ marks an entry the
+#: truncated synthesis could see; everything unmarked was invisible to it.
+CANON = {
+    "R1": ("tail-rime", "✓E1 ✓E10 C22 G22 G32 G33 G44 G52 G53 G86 X37 X55 X64 "
+           "X89 X110 I39 I43 I47 I48 I52 I65 S99 X129 X130"),
+    "R2": ("leftward-extended rime", "✓E2 X131 X70 X157 G56 G59 S35 S112"),
+    "R3": ("whole-final-unit agreement, onset included", "I6 I20 S111"),
+    "R5": ("assonance", "✓E4 C45 C58 G54 G89 X78 X90 X111 X152 S123 X127"),
+    "R6": ("run assonance", "✓E29 ✓E71 X38 X63"),
+    "R9": ("consonance", "✓E5 G55 X79"),
+    "R10": ("cluster consonance across the syllable boundary", "G1 ✓E5"),
+    "R11": ("consonance with a class requirement on the differing channel",
+            "C23 C46 C24"),
+    "R12": ("pararhyme / frame rhyme", "✓E7 ✓E72 S46"),
+    "R13": ("directional-difference pararhyme", "✓E69 X59 X159"),
+    "R14": ("reverse rhyme / strong alliteration", "✓E8 G83 G84 G87 X36"),
+    "R15": ("unanchored consonant set", "✓E6 S123 X101 X127 I3 I45"),
+    "R16": ("homorganic / place-class agreement", "I4 ✓E11"),
+    "R21": ("unmatched trailing material EXCLUDED", "✓E14 ✓E15 X69 C13"),
+    "R23": ("additive / subtractive", "✓E12 ✓E13 S47 S48"),
+    "R26": ("prominence MUST DIFFER", "✓E16 C26 C49"),
+    "R27": ("prominence coerced by the delivered surface", "✓E17 ✓E25 ✓E74"),
+    "R28": ("anchor rule DISABLED, both anchors unstressed", "✓E18"),
+    "R29": ("alliteration", "✓E9 ✓E48 C1 C29 C47 G6 G7 G8 G9 G28 G29 G36 G37 "
+            "G38 G43 G45 G49 G50 G79 G82 G84 G87 I1 I2 I7 I18 I40 X21 X36 X54 "
+            "X101 X127 X145 I53 S123"),
+    "R30": ("fixed-index-from-the-head agreement", "I7 I8 I9 I10 I11 I18 I19"),
+    "R32": ("the qāfiya slot apparatus", "S1 S2 S3 S4 S5 S6 S7 S8 S9 S10 S11 "
+            "S12 S13 S14 S15 S16 S17 S74 S75 S76 S77 S78 S79 S80 S81 S82 S83 "
+            "S94 I30 I31 I32 I33 I34 I35 I36 I29 S100"),
+    "R34": ("line-head rhyme", "✓E41 G66 C29"),
+    "R35": ("exhaustive ordered consonant skeleton across a caesura",
+            "✓C1 ✓C2 ✓E50"),
+    "R36": ("skeleton with an unanswered bridge", "✓C5 ✓C6 C16 C17"),
+    "R37": ("skeleton whose split point falls inside a cluster", "✓C3"),
+    "R43": ("tone-class agreement at the rhyme",
+            "X1 X2 X3 X29 X62 I65 I70 I72"),
+    "R44": ("tone-class template over a line", "X14 I71 I60 I61 X31 X51 X52 I63"),
+    "R50": ("vowel length / quantity as a channel", "C34 ✓E24 S5 I22 I52 G53"),
+    "R53": ("grapheme channel", "✓E20 G70 X83 X136 X137 S58 S59"),
+    "R54": ("morphological-affix rhyme",
+            "✓E63 G58 G86 X75 X102 S71 S96 S98 S85 S86 S87 S115 X55"),
+    "R55": ("shared-root, differing-inflection",
+            "✓E64 G58 X74 X105 X122 X146 X159 S53"),
+    "R56": ("same form, different sense", "✓E65 G57 X72 X138 X160 S114 S45 S55 "
+            "S66 I12 I13 I14 I26 I5 I15 I41 I16 S24 S108 X34 X45"),
+    "R59": ("candidate-field scarcity as the defining property",
+            "✓E66 X114 X158 S119 X95 X113 X87"),
+    "R60": ("verbatim span returning at scheduled positions",
+            "✓E3 ✓E54 ✓E55 C62 C64 G14 G26 G27 G75 G77 G88 S67 S90 S91 S122 "
+            "X24 X44 X53 X118 X125 X154 X172 X98 S40 I42"),
+    "R61": ("verbatim span at the line tail, after the rhyme",
+            "S72 S73 S115 S116 I28 ✓E59 X107 S92"),
+    "R62": ("anadiplosis / tail-to-head across a seam",
+            "✓E61 ✓E40 C33 C27 C51 C52 C53 G11 G34 G47 G67 G76 X25 X143 X144 "
+            "X167 X168 X119 I46 I25 X46 I58 X107 S65"),
+    "R64": ("anaphora / head-to-head identity", "✓E58 C30 X107 X169 X57"),
+    "R65": ("epanalepsis / symploce / double-edge identity",
+            "✓E60 ✓E62 S64 X141 X142"),
+    "R66": ("reduplication inside one token", "✓E68 ✓E70 I27 I51 X23 X60 G48"),
+    "R67": ("repetition-with-one-controlled substitution",
+            "✓E56 G30 G85 X120 X119"),
+    "R69": ("forbidden repetition inside a moving window",
+            "X48 C40 S23 S24 X13 X96 X147 I74 I64 I37 S74"),
+    "R71": ("internal rhyme", "✓E36 G63 X82 X116 X149 S117 I55 X56"),
+    "R72": ("leonine / caesura-to-line-end within one line",
+            "✓E37 G65 G51 X132 S36 S88 S101 S39"),
+    "R73": ("line-end into next-line interior",
+            "✓E38 C28 C48 X81 X139 I66 I54 I56 I62"),
+    "R74": ("interior-to-interior across lines", "✓E39 G64 X56"),
+    "R77": ("beat-grid placement", "✓E42"),
+    "R80": ("chained pivot: two different relations sharing one member", "✓C8"),
+    "R81": ("interleaved two-relation figure at stride 2", "✓C9"),
+    "R82": ("sain with a zero-onset pivot", "✓C10"),
+    "R83": ("sain with anchor-mismatched members", "✓C11"),
+    "R85": ("four-place grid", "✓E52"),
+    "R90": ("n-ary class over a run",
+            "✓E43 ✓E45 S38 X5 I47 G33 G73 I70 S118 X152 X99"),
+    "R91": ("∀-members-of-a-frame", "✓E49 X145 I17 S59"),
+    "R92": ("self-relation under an involution",
+            "✓E19 S52 X26 X47 G35 X155 X106 G40 I17"),
+    "R96": ("rhyme member assembled across a word boundary (mosaic)",
+            "✓E30 ✓E31 C44 C14 G69 X76 S56 S57 X160"),
+    "R97": ("whole-line phonetic identity with different segmentation",
+            "✓E34 X148 I14 X104 X45"),
+    "R98": ("member split by the line break", "✓E32 ✓E33 G68 G81 S37 X94"),
+    "R105": ("scheme declarations as set partitions over line indices",
+             "✓E44 G73 X88 X153 X126 S125 I73 C25 S93 S121 I43 I49 X100 X99 "
+             "G81 X125"),
+    "R111": ("reading tradition as a transform",
+             "S107 X62 ✓E21 ✓E22 ✓E23 X137"),
+    "R113": ("required difference at a NON-rhyming position", "X10 X11 G41 C36"),
+    "R115": ("rhyme licensing a lexical substitution and then deleted from the "
+             "surface", "✓E67"),
+}
+
+#: language code -> the inventory CELL it would have been surveyed in.  Used
+#: only to answer "does the canon entry cite this language's cell without
+#: naming any tradition in it", which is the difference between "the source
+#: says no" and "the source cannot say".
+LANG_CELL = {
+    "eng": "E", "sco": "E",
+    "cym": "C", "gle": "C", "gla": "C",
+    "non": "G", "isl": "G", "dan": "G", "swe": "G", "nor": "G",
+    "ang": "G", "deu": "G", "gmh": "G", "goh": "G", "nld": "G", "fin": "G",
+    "ara": "S", "heb": "S", "fas": "S", "tur": "S",
+    "san": "I", "tam": "I", "tel": "I", "kan": "I", "hin": "I",
+    "tha": "I", "vie": "I", "msa": "I",
+    "ltc": "X", "cmn": "X", "jpn": "X", "kor": "X",
+    "ita": "X", "spa": "X", "por": "X", "glg": "X", "fra": "X", "oci": "X",
+    "lat": "X", "ron": "X", "cat": "X",
+}
+
+# The table.  schema name -> (canon entry ids, ((tradition name, lang), ...)).
+#
+# TWO DIFFERENT KINDS OF CLAIM SIT IN EACH ROW, and only one of them is the
+# canon's.  The tradition NAME is quoted from the canon entry's alias line or
+# its prose.  The language CODE is THIS FILE'S mapping of that name onto a code
+# a declaration can be compared against; the canon does not carry codes.  Where
+# the canon glosses the language itself -- R1 prints "rima consonante (Sp)",
+# "rima consoante (Pt)", and its prose names Welsh, Old Norse, German, Italian,
+# English, Chinese, Thai, Vietnamese, Malay, Finnish -- the code is as sourced
+# as the name.  Where it does not, the code is an inference and is written ""
+# instead (see `trite rhyme`).
+#
+# The blast radius of a wrong code is bounded and worth stating: a code only
+# changes an answer for a language some phonology DECLARES, and this repo
+# declares nine (cym eng fas fin ltc msa non san som).  No Romance, Turkic,
+# Japonic or Koreanic assignment below can move a scope verdict today; they are
+# carried so the scope stays computable when a phonology for one arrives.
+#
+# `ltc` stands where the canon writes "Chinese", because the Chinese entries it
+# cites are the regulated-verse and rime-book tradition, which is what this
+# repo's `ltc` reads (doctrine 36).
+_SOURCED = {
+    "perfect rhyme": (("R1",), (
+        ("English handbook perfect rhyme", "eng"),
+        ("Welsh odl / prifodl", "cym"),
+        ("Old Norse runhent", "non"),
+        ("German Endreim / reiner Reim", "deu"),
+        ("Italian rima perfetta / consonante", "ita"),
+        ("Spanish rima consonante", "spa"),
+        ("Portuguese rima consoante", "por"),
+        ("Finnish rekilaulu loppusointu", "fin"),
+        ("Korean 각운 gagun", "kor"),
+        ("Hindi-Urdu tuk / tukānt", "hin"),
+        ("Hebrew terminal rhyme", "heb"),
+        ("Vietnamese vần chân", "vie"),
+        ("Thai สัมผัสสระ", "tha"),
+        ("Malay pantun / syair / gurindam rhyme", "msa"),
+        ("Japanese kyakuin", "jpn"),
+        ("Chinese regulated-verse end rhyme", "ltc"))),
+    "rime riche": (("R2",), (
+        ("English rime riche", "eng"),
+        ("French rime riche / consonne d'appui", "fra"),
+        ("Italian rima ricca", "ita"),
+        ("Occitan rim ric", "oci"),
+        ("German rührender Reim", "deu"),
+        ("Dutch rijk / gelijk rijm", "nld"),
+        ("Turkish zengin kafiye", "tur"),
+        ("Arabic luzūm mā lā yalzam", "ara"))),
+    "repetition": (("R60", "R69"), (
+        ("English refrain / burden / chorus", "eng"),
+        ("Welsh ymsathr odlau / gorodl (as a fault)", "cym"),
+        ("Old Norse stef / klofastef", "non"),
+        ("German Kehrreim", "deu"),
+        ("Dutch refereyn stok", "nld"),
+        ("Scottish Gaelic sèist / òran luaidh refrain", "gla"),
+        ("Turkish nakarat", "tur"),
+        ("Persian tarjīʿ-band / tarkīb-band", "fas"),
+        ("Arabic īṭāʾ (as a fault, with a distance threshold)", "ara"),
+        ("Chinese 疊句 / 重韻 (as a fault)", "ltc"),
+        ("Japanese 囃子詞 / 去嫌 sarikirai", "jpn"),
+        ("Korean 여음구 / 후렴구", "kor"),
+        ("Spanish refrán / estribillo / rima del mismo vocablo", "spa"),
+        ("French rime du même au même", "fra"),
+        ("Occitan refranh", "oci"),
+        ("Vietnamese điệp vận", "vie"),
+        ("Thai สัมผัสซ้ำ", "tha"))),
+    "antanaclasis": (("R56",), (
+        ("English antanaclasis", "eng"),
+        ("German äquivoker Reim", "deu"),
+        ("Italian rima equivoca", "ita"),
+        ("Occitan rim equivoc", "oci"),
+        ("French rime équivoquée", "fra"),
+        ("Turkish cinaslı kafiye", "tur"),
+        ("Arabic jinās tāmm / jinās mustawfā", "ara"),
+        ("Sanskrit yamaka / ślesa / lāṭānuprāsa", "san"),
+        ("Tamil maṭakku", "tam"),
+        ("Japanese kakekotoba", "jpn"))),
+    "assonance": (("R5",), (
+        ("English assonance", "eng"),
+        ("Irish amus (amas)", "gle"),
+        ("Scottish Gaelic vernacular end assonance", "gla"),
+        ("German Assonanz", "deu"),
+        ("Dutch klinkerrijm", "nld"),
+        ("Italian assonanza", "ita"),
+        ("Spanish rima asonante", "spa"),
+        ("Portuguese rima toante / assoante", "por"),
+        ("French assonance de laisse", "fra"))),
+    "consonance": (("R9",), (
+        ("English consonance", "eng"),
+        ("Irish uaithne", "gle"),
+        ("German Konsonanz", "deu"),
+        ("Dutch medeklinkerrijm", "nld"),
+        ("Italian consonanza", "ita"))),
+    "cluster consonance / skothending span": (("R10",), (
+        ("Old Norse skothending", "non"),
+        ("English consonance (as an unmeasured variant)", "eng"))),
+    "parechesis / general consonance": (("R15",), (
+        ("English parechesis / general consonance", "eng"),
+        ("Turkish aliterasyon", "tur"),
+        ("Spanish aliteración (word-internal reading)", "spa"),
+        ("Sanskrit vṛttyanuprāsa (density reading)", "san"),
+        ("Malay pantun pembayang ↔ maksud", "msa"))),
+    "pararhyme": (("R12",), (
+        ("English pararhyme / Owen's frame rhyme", "eng"),
+        ("Arabic jinās muḥarraf", "ara"))),
+    "reverse rhyme": (("R14",), (
+        ("English reverse rhyme", "eng"),
+        ("Finnish Kalevala vahva alkusointu", "fin"),
+        ("Japanese 頭韻 (whole-mora form)", "jpn"))),
+    "alliteration": (("R29",), (
+        ("English alliteration", "eng"),
+        ("Old Norse stuðlar / höfuðstafr", "non"),
+        ("Old English / Middle English lift alliteration", "ang"),
+        ("German Stabreim", "deu"),
+        ("Dutch stafrijm", "nld"),
+        ("Irish uaim", "gle"),
+        ("Welsh cymeriad llythrennol", "cym"),
+        ("Finnish Kalevala heikko alkusointu", "fin"),
+        ("Sanskrit anuprāsa", "san"),
+        ("Tamil mōṉai", "tam"),
+        ("Kannada ādi-prāsa", "kan"),
+        ("Chinese 雙聲", "ltc"),
+        ("Japanese 頭韻", "jpn"),
+        ("Korean 두운", "kor"),
+        ("Spanish aliteración", "spa"),
+        ("Portuguese aliteração", "por"),
+        ("French rime senée", "fra"),
+        ("Thai สัมผัสอักษร", "tha"))),
+    "Kalevala alliteration (weak)": (("R29",), (
+        ("Finnish Kalevala heikko alkusointu", "fin"),)),
+    "Kalevala alliteration (strong)": (("R14", "R29"), (
+        ("Finnish Kalevala vahva alkusointu", "fin"),
+        ("English reverse rhyme (the same cell, unnamed on the English side)",
+         "eng"))),
+    "paroemion": (("R91",), (
+        ("English paroemion", "eng"),
+        ("French rime senée", "fra"),
+        ("Sanskrit ekākṣara / niroṣṭhya citra-bandha", "san"),
+        ("Arabic al-ḥurūf al-muhmala / al-muʿjama", "ara"))),
+    "family rhyme": (("R1", "R16"), (
+        ("English family rhyme (tail-rime at grain=manner class)", "eng"),
+        ("Sanskrit śrutyanuprāsa (the place-class twin)", "san"))),
+    "additive rhyme": (("R23",), (
+        ("English additive rhyme", "eng"),
+        ("Arabic jinās nāqiṣ (mutarraf)", "ara"))),
+    "subtractive rhyme": (("R23",), (
+        ("English subtractive rhyme", "eng"),
+        ("Arabic jinās nāqiṣ (mardūf)", "ara"))),
+    "semirhyme": (("R21",), (
+        ("English semirhyme", "eng"),
+        ("Italian rima ipermetra", "ita"),
+        ("Welsh cynghanedd lusg (its excluded final syllable)", "cym"))),
+    "apocopated rhyme": (("R21",), (
+        ("English apocopated rhyme", "eng"),
+        ("Italian rima ipermetra", "ita"),
+        ("Welsh cynghanedd lusg (its excluded final syllable)", "cym"))),
+    "light rhyme": (("R26",), (
+        ("English light rhyme", "eng"),
+        ("Welsh cywydd deuair hirion couplet rhyme", "cym"),
+        ("Irish rinn agus airdrinn", "gle"))),
+    "wrenched rhyme": (("R27",), (
+        ("English wrenched rhyme", "eng"),)),
+    "syllabic rhyme": (("R28",), (
+        ("English syllabic rhyme", "eng"),)),
+    "amphisbaenic rhyme": (("R92",), (
+        ("English amphisbaenic rhyme", "eng"),
+        ("Arabic jinās qalb", "ara"),
+        ("Chinese 迴文 huíwén", "ltc"),
+        ("Japanese 回文 kaibun", "jpn"),
+        ("Old Norse sléttubönd", "non"),
+        ("French vers rétrogrades", "fra"),
+        ("Spanish retruécano / quiasmo", "spa"),
+        ("Sanskrit gomūtrikā / sarvatobhadra", "san"))),
+    "eye rhyme": (("R53",), (
+        ("English eye rhyme", "eng"),
+        ("German Augenreim", "deu"),
+        ("Dutch oogrijm", "nld"),
+        ("Italian rima per l'occhio", "ita"),
+        ("French rime pour l'œil / rime normande", "fra"),
+        ("Arabic jinās muṣaḥḥaf / al-ḥurūf al-muhmala", "ara"))),
+    "historical rhyme": (("R111",), (
+        ("English historical rhyme", "eng"),
+        ("Hebrew Ashkenazi vs Sephardi stress reading", "heb"),
+        ("Korean Sino-Korean readings of Chinese verse", "kor"),
+        ("French rime normande", "fra"))),
+    "dialect rhyme": (("R111",), (
+        ("English dialect rhyme", "eng"),
+        ("Hebrew Ashkenazi vs Sephardi stress reading", "heb"),
+        ("Korean Sino-Korean readings of Chinese verse", "kor"))),
+    "homoioteleuton": (("R54",), (
+        ("English homoioteleuton (as a fault)", "eng"),
+        ("German grammatischer Reim", "deu"),
+        ("Italian rima grammaticale", "ita"),
+        ("Spanish similicadencia", "spa"),
+        ("Hebrew Yannaic / biblical homoioteleuton", "heb"),
+        ("Persian īṭā-yi jalī / khafī, shāyagān (as faults)", "fas"),
+        ("Turkish redif ek hâlinde", "tur"),
+        ("Finnish rekilaulu (the default case)", "fin"),
+        ("Korean morphological rhyme", "kor"))),
+    "polyptoton": (("R55",), (
+        ("English polyptoton", "eng"),
+        ("German grammatischer Reim", "deu"),
+        ("Italian rima derivativa", "ita"),
+        ("Spanish derivación", "spa"),
+        ("French rime dérivative", "fra"),
+        ("Occitan rim derivatiu", "oci"),
+        ("Galician-Portuguese mordobre / mozdobre", "glg"),
+        ("Arabic jinās al-ishtiqāq", "ara"))),
+    "multisyllabic rhyme": (("R6",), (
+        ("English multisyllabic rhyme / rap multis", "eng"),
+        ("Japanese 母音韻", "jpn"),
+        ("Korean 라임", "kor"))),
+    "mosaic rhyme": (("R96",), (
+        ("English mosaic rhyme", "eng"),
+        ("Irish comhardadh briste", "gle"),
+        ("Welsh lusg gudd", "cym"),
+        ("German gespaltener Reim", "deu"),
+        ("Italian rima composta / franta / spezzata", "ita"),
+        ("Arabic jinās murakkab (mutashābih, mafrūq)", "ara"),
+        ("Occitan rim equivoc contrafet", "oci"))),
+    "compound / phrasal rhyme": (("R96",), (
+        ("English compound / phrasal rhyme", "eng"),
+        ("Irish comhardadh briste", "gle"),
+        ("German gespaltener Reim", "deu"),
+        ("Italian rima composta / franta / spezzata", "ita"),
+        ("Arabic jinās murakkab", "ara"))),
+    "holorhyme": (("R97",), (
+        ("English holorhyme", "eng"),
+        ("French holorime", "fra"),
+        ("Sanskrit mahāyamaka / samudga", "san"),
+        ("Spanish calambur", "spa"),
+        ("Japanese goroawase", "jpn"))),
+    "broken rhyme": (("R98",), (
+        ("English broken rhyme", "eng"),
+        ("German gebrochener Reim", "deu"),
+        ("Arabic tadwīr", "ara"),
+        ("Spanish versos de cabo roto", "spa"))),
+    "enjambed rhyme": (("R98",), (
+        ("English enjambed rhyme", "eng"),
+        ("German gebrochener Reim", "deu"),
+        ("Dutch gebroken rijm [DISPUTED — the Germanic cell records two "
+         "readings of the one name and picks neither]", "nld"))),
+    "rhyming reduplication": (("R66",), (
+        ("English rhyming reduplication", "eng"),
+        ("Tamil iraṭṭaik kiḷavi", "tam"),
+        ("Malay kata ganda", "msa"),
+        ("Chinese 疊字", "ltc"),
+        ("Korean 첩어", "kor"),
+        ("Germanic alliterative binomial formula", ""))),
+    "ablaut reduplication": (("R13",), (
+        ("English ablaut reduplication", "eng"),
+        ("Korean 의성어 · 의태어 ablaut pairs", "kor"),
+        ("Occitan rim derivatiu", "oci"))),
+    "exact reduplication": (("R66",), (
+        ("English exact reduplication", "eng"),
+        ("Tamil iraṭṭaik kiḷavi", "tam"),
+        ("Malay kata ganda", "msa"),
+        ("Chinese 疊字", "ltc"),
+        ("Korean 첩어", "kor"))),
+    "internal rhyme": (("R71",), (
+        ("English internal rhyme", "eng"),)),
+    "leonine rhyme": (("R72",), (
+        ("English leonine rhyme", "eng"),
+        ("German Zäsurreim / Otfrid's end rhyme", "deu"),
+        ("French rime léonine (medieval sense)", "fra"),
+        ("Arabic taṣrīʿ / maṭlaʿ muṣarraʿ / muzdawij", "ara"),
+        ("Hebrew delet / soger", "heb"))),
+    "cross rhyme": (("R73",), (
+        ("English cross rhyme", "eng"),
+        ("Irish aicill", "gle"),
+        ("Welsh englyn cyrch", "cym"),
+        ("Italian rima al mezzo", "ita"),
+        ("French rime batelée", "fra"),
+        ("Vietnamese vần lưng", "vie"),
+        ("Thai สัมผัสนอก / klon tail-to-index", "tha"))),
+    "interlaced rhyme": (("R74",), (
+        ("English interlaced rhyme", "eng"),
+        ("German Mittelreim", "deu"),
+        ("Korean 요운", "kor"))),
+    "linked rhyme": (("R62",), (
+        ("English linked rhyme", "eng"),
+        ("Welsh cyrch-gymeriad / gair cyrch", "cym"),
+        ("Irish conachlonn / fidrad freccomail", "gle"),
+        ("Old Norse dunhent / dunhenda", "non"),
+        ("Dutch ketendicht", "nld"),
+        ("German Pausenreim", "deu"),
+        ("French rime annexée / enchaînée / fratrisée", "fra"),
+        ("Occitan coblas capcaudadas / capfinidas", "oci"),
+        ("Galician-Portuguese leixa-pren", "glg"),
+        ("Chinese 頂真 dǐngzhēn", "ltc"),
+        ("Japanese 尻取り shiritori", "jpn"),
+        ("Malay pantun berkait", "msa"),
+        ("Tamil antāti", "tam"),
+        ("Arabic tashābuh al-aṭrāf", "ara"))),
+    "head rhyme (positional)": (("R34",), (
+        ("English head rhyme (positional)", "eng"),
+        ("German Anfangsreim / Eingangsreim", "deu"),
+        ("Welsh cymeriad llythrennol (as rhyme)", "cym"),
+        ("Occitan coblas capdenals (sound reading)", "oci"))),
+    "anaphora": (("R64",), (
+        ("English anaphora", "eng"),
+        ("Welsh cymeriad geiriol", "cym"),
+        ("Spanish anáfora", "spa"),
+        ("Occitan coblas capdenals", "oci"),
+        ("Korean 동어반복 (matched-index case)", "kor"))),
+    "epistrophe / radif": (("R61",), (
+        ("English epistrophe", "eng"),
+        ("Persian radīf / mustazād's second system", "fas"),
+        ("Turkish redif (ek and kelime)", "tur"),
+        ("Arabic ḥājib (the mirror case, to the LEFT of the rhyme)", "ara"),
+        ("Spanish epífora", "spa"))),
+    "qafiya (before the radif)": (("R32", "R61"), (
+        ("Arabic qāfiya (rawī and its slot system)", "ara"),
+        ("Persian qāfiya", "fas"),
+        ("Urdu / Indo-Persian qāfiya", "hin"))),
+    "symploce": (("R65",), (
+        ("English symploce", "eng"),
+        ("Arabic radd al-ʿajuz ʿalā al-ṣadr", "ara"),
+        ("French rime couronnée / emperière", "fra"))),
+    "anadiplosis": (("R62",), (
+        ("English anadiplosis", "eng"),
+        ("Welsh cyrch-gymeriad", "cym"),
+        ("Irish conachlonn", "gle"),
+        ("Chinese 頂真 dǐngzhēn", "ltc"),
+        ("Tamil antāti", "tam"),
+        ("Occitan coblas capfinidas", "oci"),
+        ("Arabic tashābuh al-aṭrāf", "ara"))),
+    "epanalepsis": (("R65",), (
+        ("English epanalepsis", "eng"),
+        ("Arabic radd al-ʿajuz ʿalā al-ṣadr", "ara"),
+        ("French rime couronnée / emperière", "fra"))),
+    "analysed rhyme": (("R85",), (
+        ("English analysed rhyme", "eng"),)),
+    "monorhyme / leash": (("R90",), (
+        ("English monorhyme / Skeltonics", "eng"),
+        ("French laisse", "fra"),
+        ("Arabic qaṣīda monorhyme", "ara"),
+        ("Turkish ayak", "tur"),
+        ("Chinese 一韻到底", "ltc"),
+        ("Malay syair", "msa"),
+        ("Old Norse samhenda / stafhenda", "non"),
+        ("German Haufenreim", "deu"),
+        ("Vietnamese Đường luật độc vận", "vie"))),
+    "chain rhyme (rap)": (("R90", "R6"), (
+        ("English rap chain rhyme", "eng"),)),
+    "alliterative long line": (("R29",), (
+        ("Old English / Middle English lift alliteration", "ang"),
+        ("Old Norse stuðlar / höfuðstafr", "non"),
+        ("German Stabreim", "deu"),
+        ("English alliterative revival", "eng"))),
+    "fourth lift must not alliterate": (("R113",), (
+        ("Old English fourth-lift prohibition", "ang"),
+        ("Welsh bai rhy debyg", "cym"),
+        ("Chinese 撞韻 zhuàngyùn / 擠韻 / 犯韻 / 冒韻", "ltc"))),
+    "dvitiyakshara-prasa": (("R30",), (
+        ("Telugu dvitīyākṣara-prāsa", "tel"),
+        ("Kannada ādi-prāsa", "kan"),
+        ("Sanskrit prāsa-yati / yati", "san"),
+        ("Tamil etukai", "tam"))),
+    "monai": (("R29", "R30"), (
+        ("Tamil mōṉai", "tam"),)),
+    "cynghanedd groes": (("R35",), (
+        ("Welsh cynghanedd groes / cyfatebiaeth gytsain", "cym"),
+        ("English cynghanedd after Hopkins (an imitation, doctrine 45)",
+         "eng"))),
+    "cynghanedd draws": (("R36",), (
+        ("Welsh cynghanedd draws (with draws fantach, bengoll, braidd "
+         "gyffwrdd)", "cym"),)),
+    "cynghanedd groes o gyswllt": (("R37",), (
+        ("Welsh cynghanedd groes o gyswllt", "cym"),)),
+    "cynghanedd sain": (("R80",), (
+        ("Welsh cynghanedd sain", "cym"),)),
+    "cynghanedd sain gadwynog": (("R81",), (
+        ("Welsh cynghanedd sain gadwynog", "cym"),)),
+    "cynghanedd sain lafarog": (("R82",), (
+        ("Welsh cynghanedd sain lafarog", "cym"),)),
+    "cynghanedd sain drosgl": (("R83",), (
+        ("Welsh cynghanedd sain drosgl", "cym"),)),
+    "cynghanedd lusg": (("R21",), (
+        ("Welsh cynghanedd lusg", "cym"),)),
+    "proest": (("R11",), (
+        ("Welsh proest", "cym"),
+        ("Irish uaithne (strict)", "gle"))),
+    "Scots vowel-length rhyme (Aitken's Law)": (("R50",), (
+        ("Scots vowel-length rhyme (Aitken's Law)", "sco"),
+        ("Welsh bai trwm ac ysgafn", "cym"),
+        ("Arabic ridf", "ara"),
+        ("Tamil aḷapeṭai", "tam"),
+        ("Thai vowel-length rhyme", "tha"),
+        ("German reiner Reim (its quantity clause)", "deu"))),
+    "Middle Chinese end rhyme (同用 group)": (("R1", "R43"), (
+        ("Middle Chinese 詩 end rhyme on a 同用 group", "ltc"),
+        ("Vietnamese vần chân (its tone clause)", "vie"))),
+    "平仄 tonal template": (("R44",), (
+        ("Chinese 平仄", "ltc"),
+        ("Vietnamese luật bằng trắc", "vie"),
+        ("Thai khlong tone-mark constraint / chan quantitative template",
+         "tha"),
+        ("Japanese 音数律", "jpn"),
+        ("Korean 음보율 / 시조 종장 제약", "kor"))),
+    "pantun ABAB": (("R105", "R1"), (
+        ("Malay pantun ABAB", "msa"),)),
+    "offbeat internal rhyme": (("R77",), (
+        ("English offbeat / off-centred internal rhyme", "eng"),)),
+    "rhyming slang": (("R115",), (
+        ("English rhyming slang", "eng"),)),
+    "transformative / bent rhyme": (("R27",), (
+        ("English transformative / bent rhyme", "eng"),)),
+    "sung-delivery rhyme": (("R27",), (
+        ("English sung-delivery rhyme (the canon records no settled handbook "
+         "term)", "eng"),)),
+    "incremental repetition": (("R67",), (
+        ("English incremental repetition (ballad)", "eng"),
+        ("Old Norse galdralag", "non"),
+        ("Finnish kerto / parallelism", "fin"),
+        ("Galician-Portuguese paralelismo perfeito / leixa-pren", "glg"))),
+    "trite rhyme": (("R59",), (
+        ("English trite rhyme", "eng"),
+        # R59's alias line prints `rim car · rimas caras · rima rara /
+        # preciosa · rima pobre / rica` WITHOUT a language gloss, unlike R1
+        # which writes "(Sp)" and "(Pt)". The names are the canon's; the
+        # language is not, so the code is left blank rather than inferred.
+        ("rim car / rimas caras (Romance; the canon gives no gloss)", ""),
+        ("rima rara / preciosa (Romance; the canon gives no gloss)", ""),
+        ("rima pobre / rica (Romance; the canon gives no gloss)", ""),
+        ("Turkish kapanık ayak (quantified: at most four partners in the "
+         "whole language)", "tur"))),
+}
+
+#: Schemas left HONESTLY EMPTY, with the reason.  An unsourced schema is not a
+#: schema without a tradition; it is a schema whose tradition this repo cannot
+#: cite, which is a different and more useful statement.
+UNSOURCED = {
+    "blues AAB stanza":
+        "no entry in the 601 records it. RHYME_CANON §5.4 lists what the six "
+        "inventory cells cover, and African-American vernacular song is not "
+        "among them; the string 'blues' does not occur in the file. Naming a "
+        "tradition here from the schema NAME is the gabay higaad error (§0).",
+    "refrain by reference":
+        "the RELATION is R60, but this schema's constitutive feature is a "
+        "PRINTED reference stub ('&c.'), and no entry in the 601 records a "
+        "tradition for the stub convention. BACKLOG §2.4 places the same stub "
+        "in four languages' EDITIONS, which is a fact about editors, not "
+        "about a tradition. Attaching R60's refrain traditions here would "
+        "scope the schema by the relation it half-implements.",
+}
+
+
+def _build_traditions():
+    """Attach the sourced traditions to the registry AT IMPORT, and fail loud
+    if a schema is in neither table.  A new schema must be sourced or must be
+    refused in writing; there is no third state that silently ships empty."""
+    for name, (entries, rows) in _SOURCED.items():
+        if name not in REGISTRY:
+            raise KeyError(f"_SOURCED names {name!r}, which is not a schema")
+        for e in entries:
+            if e not in CANON:
+                raise KeyError(f"{name!r} cites {e!r}, absent from CANON")
+        REGISTRY[name] = replace(
+            REGISTRY[name],
+            traditions=tuple(Tradition(n, lg, "+".join(entries))
+                             for n, lg in rows))
+    missing = set(REGISTRY) - set(_SOURCED) - set(UNSOURCED)
+    if missing:
+        raise AssertionError(
+            "schemas in neither _SOURCED nor UNSOURCED, so their `traditions` "
+            f"would ship empty with no reason: {sorted(missing)}")
+    overlap = set(_SOURCED) & set(UNSOURCED)
+    if overlap:
+        raise AssertionError(f"schema both sourced and unsourced: {overlap}")
+
+
+_build_traditions()
+
+
+def canon_entries(schema):
+    """The RHYME_CANON entry ids this schema's traditions were read out of."""
+    if not schema.traditions:
+        return ()
+    return tuple(dict.fromkeys(
+        e for t in schema.traditions for e in t.source.split("+")))
+
+
+def cited_cells(schema):
+    """Inventory CELLS the cited canon entries draw on -- E C G S I X."""
+    out = set()
+    for e in canon_entries(schema):
+        for tok in CANON[e][1].split():
+            tok = tok.lstrip("✓")
+            if tok and tok[0] in "ECGSIX":
+                out.add(tok[0])
+    return out
+
+
+def _entry_named_cells():
+    """Per canon ENTRY, the cells for which some schema names a tradition.
+
+    Entry-scoped and not schema-scoped, and the difference is load-bearing.
+    `Middle Chinese end rhyme (同用 group)` cites R1, whose from-line includes
+    English indices -- but R1's English tradition is named, under `perfect
+    rhyme`, at grain=identity.  Computing this per SCHEMA made the Chinese
+    schema report `cell_cited` on English, i.e. 'the source cannot say', when
+    the source says plainly that English is at R1 and not at this grain.
+    """
+    out = {}
+    for s in REGISTRY.values():
+        for e in canon_entries(s):
+            out.setdefault(e, set()).update(
+                LANG_CELL[t.lang] for t in s.traditions if t.lang in LANG_CELL)
+    return out
+
+
+_ENTRY_NAMED_CELLS = None
+
+
+def named_cells(schema):
+    """Cells for which the cited entries name a tradition ANYWHERE."""
+    global _ENTRY_NAMED_CELLS
+    if _ENTRY_NAMED_CELLS is None:
+        _ENTRY_NAMED_CELLS = _entry_named_cells()
+    out = set()
+    for e in canon_entries(schema):
+        out |= _ENTRY_NAMED_CELLS.get(e, set())
+    return out
+
+
+def tradition_scope(schema, language):
+    """Is this schema's rule shape being run inside its own tradition?
+
+    -> one of four strings, and the fourth is the one that stops this being a
+    two-valued lie:
+
+      'in_tradition'  the declaration's language is among the schema's SOURCED
+                      traditions.
+      'rule_shape'    the schema HAS sourced traditions and this language is
+                      not one of them, and the canon entry does not even cite
+                      this language's inventory cell.  The rule shape matched;
+                      the tradition did not (doctrine 43).
+      'cell_cited'    the canon entry cites indices from this language's
+                      inventory cell but names no tradition in it, so the
+                      SOURCE cannot say either way.  Not evidence of absence.
+      'unsourced'     nothing could be sourced for this schema at all; see
+                      UNSOURCED for the reason.
+    """
+    if not schema.traditions:
+        return "unsourced"
+    if any(t.lang == language for t in schema.traditions):
+        return "in_tradition"
+    cell = LANG_CELL.get(language)
+    if cell and cell in (cited_cells(schema) - named_cells(schema)):
+        return "cell_cited"
+    return "rule_shape"
+
+
+SCOPES = ("in_tradition", "cell_cited", "rule_shape", "unsourced")
+
+
+def tradition_report(language):
+    """The inventory of scopes for one declared language, with no text.
+
+    Answers 'what could this declaration honestly be asked about' before any
+    corpus is read, which is capability_report()'s sibling on the other axis.
+    """
+    out = {s: [] for s in SCOPES}
+    for n, s in REGISTRY.items():
+        out[tradition_scope(s, language)].append(n)
+    return {k: sorted(v) for k, v in out.items()}
+
+
+def search_burden(schema, stream):
+    """Doctrine 56: how many hypotheses per locus this schema's span rules try.
+
+    `Span.search_k` was carried from the first commit and nothing read it, so a
+    count obtained by SEARCH looked the same as a count obtained by lookup.
+    -> {'members': n, 'searched': n, 'mean_k': f, 'max_k': n}.  mean_k > 1 is
+    the flag that a bare rate from this schema is quoting the null back at
+    itself unless the control ran the same search.
+    """
+    ks, searched = [], 0
+    for rule in schema.spans:
+        try:
+            for sp in enumerate_spans(rule, stream):
+                ks.append(sp.search_k)
+                if sp.search_k > 1:
+                    searched += 1
+        except NoReferent:
+            continue
+    return {"members": len(ks), "searched": searched,
+            "mean_k": (sum(ks) / len(ks)) if ks else 0.0,
+            "max_k": max(ks) if ks else 0}
+
+
+def relation_report(stream, chans=None, schemas=None):
+    """THE HONEST CONSUMER.  Every schema that fires is reported WITH its
+    scope, so a rule-shape match is neither silently listed nor silently
+    hidden (M-15).
+
+    Three counts, never two (doctrine 79): a schema the instrument REFUSED for
+    want of a capability is not a schema that found nothing, and neither is a
+    schema that ran and found nothing.  The same triple is reported over
+    INSTANCES: decided-true, decided-false and undecided are three answers and
+    the undecided ones are the ternary this module exists to preserve.
+    """
+    lang = stream.declaration.get("language", "")
+    reg = schemas if schemas is not None else REGISTRY
+    kw = {} if chans is None else {"chans": chans}
+    rows, refusals = [], []
+    for name, s in reg.items():
+        out = realise(s, stream, keep="all", **kw)
+        if isinstance(out, Refusal):
+            refusals.append((name, out.capability, tradition_scope(s, lang)))
+            continue
+        t = sum(1 for i in out if i.verdict is True)
+        f = sum(1 for i in out if i.verdict is False)
+        u = sum(1 for i in out if i.verdict is None)
+        rows.append({"schema": name, "scope": tradition_scope(s, lang),
+                     "traditions": s.traditions,
+                     "canon": canon_entries(s),
+                     "true": t, "false": f, "undecided": u,
+                     "search": search_burden(s, stream)})
+    fired = [r for r in rows if r["true"]]
+    return {
+        "language": lang,
+        "declared": len(reg),
+        "refused": len(refusals),
+        "ran_found_nothing": len(rows) - len(fired),
+        "ran_and_fired": len(fired),
+        "refusals": refusals,
+        "rows": rows,
+        "scope_counts": {s: sum(1 for r in fired if r["scope"] == s)
+                         for s in SCOPES},
+        "instances": {
+            "true": sum(r["true"] for r in rows),
+            "false": sum(r["false"] for r in rows),
+            "undecided": sum(r["undecided"] for r in rows)},
+    }
+
+
+def print_relation_report(rep, limit=None):
+    """Text form.  Prints the scope on EVERY row, and prints the reason on an
+    unsourced one, because a row that cannot say which tradition it belongs to
+    is the defect this section closes."""
+    print(f"  phonology {rep['language'] or '?'}   schemas declared "
+          f"{rep['declared']}")
+    print(f"  REFUSED {rep['refused']}  ·  RAN AND FOUND NOTHING "
+          f"{rep['ran_found_nothing']}  ·  RAN AND FIRED {rep['ran_and_fired']}"
+          "   (three counts, doctrine 79)")
+    ins = rep["instances"]
+    print(f"  instances: decided-true {ins['true']}  decided-false "
+          f"{ins['false']}  UNDECIDED {ins['undecided']}")
+    sc = rep["scope_counts"]
+    print(f"  of the schemas that FIRED: in-tradition {sc['in_tradition']}  ·  "
+          f"source-cannot-say {sc['cell_cited']}  ·  RULE SHAPE ONLY "
+          f"{sc['rule_shape']}  ·  unsourced {sc['unsourced']}")
+    fired = sorted((r for r in rep["rows"] if r["true"]),
+                   key=lambda r: (SCOPES.index(r["scope"]), -r["true"]))
+    for r in fired[:limit]:
+        tag = {"in_tradition": "IN TRADITION", "cell_cited": "SOURCE-CANNOT-SAY",
+               "rule_shape": "RULE SHAPE ONLY", "unsourced": "UNSOURCED"}[
+                   r["scope"]]
+        k = r["search"]
+        ks = (f"  search k mean {k['mean_k']:.1f} max {k['max_k']}"
+              if k["mean_k"] > 1 else "")
+        print(f"  [{tag}] {r['schema']}  {r['true']} instance(s){ks}")
+        if r["scope"] == "unsourced":
+            print(f"      no tradition sourced: {UNSOURCED[r['schema']]}")
+        else:
+            print(f"      canon {'+'.join(r['canon'])}: "
+                  f"{'; '.join(str(t) for t in r['traditions'][:4])}"
+                  f"{' …' if len(r['traditions']) > 4 else ''}")
+    print("  A COUNT HERE IS NOT EVIDENCE. quality/relations_null.py is the "
+          "matched control; doctrines 56/61 and 63/68/75/90.")
+
+
 __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "stanzas_from_blank_lines",
            "Span", "SpanRule", "enumerate_spans", "Alignment", "ALIGNERS",
@@ -2624,4 +3635,57 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mark_refrain_tail", "search_caesura", "mark_printed_caesura",
            "REGISTRY", "QUERIES", "declare", "all_schemas",
-           "capability_report", "tri_and", "tri_or"]
+           "capability_report", "tri_and", "tri_or",
+           "Tradition", "CANON", "LANG_CELL", "UNSOURCED", "SCOPES",
+           "canon_entries", "cited_cells", "named_cells", "tradition_scope",
+           "tradition_report", "search_burden", "relation_report",
+           "print_relation_report"]
+
+
+def main(argv):
+    """`python3 quality/relations.py FILE [--lang=xxx]`.
+
+    THE HONEST CONSUMER, reachable.  The `relations` verb in lyric_harness.py
+    prints a schema name and a count and cannot say which tradition the schema
+    belongs to; this prints the SCOPE on every row.  The phonology is imported
+    here and not at module level, because nothing in this module transcribes
+    and `phon` stays injectable -- this function is the adapter, not the
+    library.
+    """
+    from quality.phonology import get as get_phonology
+    lang, paths, limit = "eng", [], None
+    for a in argv:
+        if a.startswith("--lang="):
+            lang = a.split("=", 1)[1]
+        elif a.startswith("--limit="):
+            limit = int(a.split("=", 1)[1])
+        else:
+            paths.append(a)
+    if not paths:
+        print(main.__doc__)
+        print(f"  declared schemas {len(REGISTRY)}; sourced traditions on "
+              f"{sum(1 for s in REGISTRY.values() if s.traditions)}, honestly "
+              f"empty on {len(UNSOURCED)} ({', '.join(sorted(UNSOURCED))})")
+        for lg in ("eng", "cym", "fin", "ltc", "msa", "fas", "san", "non",
+                   "som"):
+            r = tradition_report(lg)
+            print(f"    {lg}: in-tradition {len(r['in_tradition']):3d}  "
+                  f"source-cannot-say {len(r['cell_cited']):3d}  "
+                  f"rule-shape-only {len(r['rule_shape']):3d}  "
+                  f"unsourced {len(r['unsourced'])}")
+        return 0
+    raw = [l.rstrip() for l in open(paths[0]).read().splitlines()
+           if not l.strip().startswith("[")]
+    st = build_stream(raw, get_phonology(lang), declaration={"language": lang},
+                      stanzas=stanzas_from_blank_lines(raw))
+    print(f"  {paths[0]}   lines {sum(1 for l in raw if l.strip())}   units "
+          f"{len(st.units)}   UNREADABLE tokens {len(st.unreadable)}")
+    print_relation_report(relation_report(st), limit=limit)
+    return 0
+
+
+if __name__ == "__main__":
+    import sys as _sys
+    _sys.path.insert(0, __import__("os").path.dirname(
+        __import__("os").path.dirname(__import__("os").path.abspath(__file__))))
+    raise SystemExit(main(_sys.argv[1:]))
