@@ -421,7 +421,326 @@ class Cover:
                 count[i] = count.get(i, 0) + 1
         return sorted(i for i, c in count.items() if c > 1)
 
+    def groups_of(self, line):
+        """-> indices of the groups containing `line`."""
+        return [k for k, g in enumerate(self.groups) if line in g]
+
+
+# ---------------------------------------------------------------------------
+# THE MANDATE — what a draft is HELD TO
+#
+# Everything above describes a structure. This names one as a REQUIREMENT, and
+# it exists because the revision loop could only be handed a letter string.
+#
+# THE DEFECT IT CLOSES
+#
+# `Reviser.brief(lines, scheme)` and `verify(before, after, scheme, targeted)`
+# took `scheme` as a LETTER STRING and nothing else. Doctrine 2 says a letter
+# scheme is a LOSSY PROJECTION of the rhyme graph and that maximal cliques may
+# OVERLAP, giving structures with no letter representation at all. So the loop
+# could grade only the projections the doctrine calls lossy, and on a song
+# whose cliques overlap it was handed `scheme=None`, mandated nothing, and
+# returned "nothing flagged" -- a VACUOUS PASS. Doctrine 20: inconclusive by
+# construction is not a null, and here it was dressed as a pass.
+#
+# WHAT A MANDATE MEANS, DECLARED
+#
+# A mandate is a set of GROUPS of line numbers. Its content is exactly:
+#
+#     for every group g and every pair {i, j} within g, lines i and j must
+#     stand in a RHYME relation under the declaration.
+#
+# Nothing else. A line in no group is FREE and mandates nothing -- which is
+# what `quality/schemes.py` has always said about X ("an unrhymed line is a
+# singleton BLOCK, not a missing value") and what the spine had to be taught
+# in three separate places.
+#
+# ON AN OVERLAPPING COVER THE READING IS CONJUNCTIVE.
+#
+# A line in k groups must answer ALL k of them. This is a DECLARATION and it
+# is argued, not assumed:
+#
+#   1. The DISJUNCTIVE reading ("answer at least one of your groups") makes a
+#      mandate WEAKER the more structure it declares: adding a group to a
+#      cover can only ever give an overlapping line another way to be excused,
+#      so no added group can create a finding. A requirement that is
+#      monotonically relaxed by being made more specific is vacuity again, one
+#      level up, and this module exists because of a vacuous pass.
+#   2. Under the conjunctive reading a cover is strictly STRONGER than every
+#      letter scheme consistent with it, because any letter assignment puts a
+#      pivot in exactly one class and therefore mandates a SUBSET of the
+#      cover's pairs. That is the docstring above -- "the partition is a
+#      floor, not a ceiling" -- turned into an enforceable claim rather than a
+#      remark.
+#   3. The overlap IS the structure. When line 27 sits in a clique with line 6
+#      and a clique with line 24, the song's claim is that `ones` answers
+#      `floods` AND `times`. If it only had to answer one of them it would not
+#      be a pivot; it would be a line whose label nobody had settled.
+#
+# The disjunctive reading stays REACHABLE (`ReviseDeclaration.overlap_rule`)
+# so the choice is measurable rather than settled by fiat, in the shape
+# doctrine 82 used for `dyrchafedig` and doctrine 84 for `consult=False`.
+#
+# A MANDATE CARRIES WHERE IT CAME FROM.
+#
+# `source` is "declared" or "derived". A cover read off the rhyme graph's own
+# maximal cliques is DERIVED: every clique is by construction a set of
+# mutually band-passing lines, so grading it against the same band returns no
+# rhyme violation NECESSARILY. That is doctrine 14 -- a control may not be
+# defined in terms of the quantity it controls -- arriving in the revision
+# loop, and a derived mandate that came back clean must never be reported as
+# a pass. `Mandate.independent()` is False there and the loop says so.
+# ---------------------------------------------------------------------------
+
+
+class NoMandate(ValueError):
+    """Raised when a grader is asked to check a draft against NOTHING.
+
+    Doctrine 20. The alternative -- returning an empty finding list -- is a
+    vacuous pass, and a caller cannot tell it from a clean draft. This is the
+    same move `extent` made in the Welsh module (doctrine 82): no default, and
+    an absent argument raises.
+    """
+
+
+@dataclass
+class Mandate:
+    """A rhyme requirement over a whole song. The object `brief`/`verify`
+    grade against, whether or not it has a letter representation."""
+
+    n_lines: int
+    #: tuples of 1-based line numbers, each of size >= 2. MAY OVERLAP.
+    groups: tuple = ()
+    #: display label per group, index-aligned with `groups`
+    labels: tuple = ()
+    #: 1-based lines in no group at all -- declared free, mandating nothing
+    free: tuple = ()
+    source: str = "declared"          # "declared" | "derived"
+    origin: str = ""                  # how it was obtained, in words
+
+    # -- what it requires -------------------------------------------------
+
+    def pairs(self):
+        """-> [(i, j, group_index)], 1-based, i < j. THE mandate, expanded.
+
+        A pair can appear more than once when two groups share both of its
+        lines; the group index is carried so a finding can say WHICH group it
+        is about, which a letter string could never do because a letter is a
+        property of a line rather than of a relation.
+        """
+        out = []
+        for k, g in enumerate(self.groups):
+            for a in range(len(g)):
+                for b in range(a + 1, len(g)):
+                    out.append((g[a], g[b], k))
+        return sorted(out)
+
+    def pairs0(self):
+        """-> sorted DISTINCT 0-based (i, j). What the feature layer wants."""
+        return sorted({(i - 1, j - 1) for i, j, _ in self.pairs()})
+
+    def groups_of(self, line):
+        return [k for k, g in enumerate(self.groups) if line in g]
+
+    def partners(self, line):
+        """-> [(group_index, [other lines in that group])] for `line`."""
+        return [(k, [x for x in self.groups[k] if x != line])
+                for k in self.groups_of(line)]
+
+    def overlapping_lines(self):
+        return sorted(i for i in range(1, self.n_lines + 1)
+                      if len(self.groups_of(i)) > 1)
+
+    # -- what it is -------------------------------------------------------
+
+    def is_partition(self):
+        return not self.overlapping_lines()
+
+    def independent(self):
+        """Was this mandate obtained WITHOUT consulting the grader?
+
+        False for a cover read off the rhyme graph. Doctrine 14: a clean
+        result against a derived mandate is an identity, not a verdict.
+        """
+        return self.source == "declared"
+
+    def to_cover(self):
+        return Cover(n_lines=self.n_lines,
+                     groups=[list(g) for g in self.groups])
+
+    def to_letters(self):
+        """-> the letter string, or None when no letter scheme exists.
+
+        None is the doctrine 2 answer and it is not a failure: this structure
+        has no letter representation, and inventing one would delete the
+        overlap that makes it what it is.
+        """
+        if not self.is_partition():
+            return None
+        out = ["X"] * self.n_lines
+        for k, g in enumerate(self.groups):
+            for i in g:
+                out[i - 1] = self.labels[k]
+        return "".join(out)
+
+    def to_code(self):
+        """-> canonical restricted growth string, or None if it overlaps."""
+        letters = self.to_letters()
+        return None if letters is None else parse(letters)
+
+    def coordinates(self, sections=None):
+        code = self.to_code()
+        return None if code is None else coordinates(code, sections)
+
+    # -- reporting --------------------------------------------------------
+
+    def describe(self):
+        letters = self.to_letters()
+        head = (f"mandate: {len(self.groups)} group(s) over {self.n_lines} "
+                f"lines, {len(self.pairs())} mandated pair(s), "
+                f"{len(self.free)} free line(s)")
+        rows = [head, f"  source: {self.source} ({self.origin})"]
+        if not self.independent():
+            rows.append(
+                "  NOT INDEPENDENT of the grader: this cover was read off the "
+                "rhyme graph, so every group is mutually band-passing BY "
+                "CONSTRUCTION and a clean rhyme result here is an identity, "
+                "not a verdict (doctrine 14).")
+        for k, g in enumerate(self.groups):
+            rows.append(f"  {self.labels[k]}: lines {list(g)}")
+        if letters is None:
+            piv = self.overlapping_lines()
+            rows.append(
+                f"  NO LETTER SCHEME EXISTS: lines {piv} belong to more than "
+                f"one group, and a letter is a property of a LINE, so no "
+                f"assignment of one letter per line can carry this "
+                f"(doctrine 2). Each pivot must answer every group it is in.")
+        else:
+            rows.append(f"  letters: {letters}")
+        return "\n".join(rows)
+
+
+def _normalise_groups(raw, n_lines):
+    """-> (groups, free). Validates, dedupes, and sends singletons to free."""
+    seen, groups = set(), []
+    for g in raw:
+        try:
+            members = sorted({int(x) for x in g})
+        except (TypeError, ValueError):
+            raise NoMandate(
+                f"a mandate group must be an iterable of line numbers; got "
+                f"{g!r}. A partition is a list of LINE GROUPS -- "
+                f"[[1, 3], [2, 4]] -- not a list of letters.")
+        for i in members:
+            if not 1 <= i <= n_lines:
+                raise NoMandate(
+                    f"line {i} is outside 1..{n_lines}. Mandate line numbers "
+                    f"are 1-BASED and run over the WHOLE song, because a "
+                    f"stanza is a printing convention and a rhyme that "
+                    f"answers thirty lines earlier has to be expressible.")
+        if len(members) < 2:
+            continue            # a singleton mandates nothing; it is FREE
+        key = tuple(members)
+        if key in seen:
+            continue
+        seen.add(key)
+        groups.append(key)
+    covered = {i for g in groups for i in g}
+    free = tuple(i for i in range(1, n_lines + 1) if i not in covered)
+    return tuple(groups), free
+
+
+def mandate(spec, n_lines=None, source="declared", origin=None):
+    """Anything that can name a rhyme requirement -> a `Mandate`.
+
+    Accepted, and all four are the SAME kind of object once here:
+
+      - a letter string      'ABAB', 'XXXXABCB...' (X / . = free singleton)
+      - a canonical RGS code (0, 1, 0, 1)   -- see `parse`/`canonical`
+      - a list of groups     [[1, 3], [2, 4]]  -- MAY OVERLAP
+      - a `Cover`            the general, overlap-carrying case
+      - a `Mandate`          idempotent
+
+    `None` RAISES `NoMandate`. That is the point of the function: a grader
+    with no mandate has been given nothing to check against, and saying
+    "nothing flagged" about it is a vacuous pass (doctrine 20).
+    """
+    if spec is None:
+        raise NoMandate(
+            "no mandate was declared, so there is NOTHING to check this draft "
+            "against.\n"
+            "This is a REFUSAL, not a pass. Returning 'nothing flagged' here "
+            "would report a clean draft on the strength of having asked no "
+            "question -- doctrine 20, inconclusive by construction dressed as "
+            "a null.\n"
+            "Declare one of:\n"
+            "  a letter string     'ABAB'  (X or . marks a free, unrhymed "
+            "line)\n"
+            "  a list of groups    [[1, 3], [2, 4]]  -- 1-based, may OVERLAP\n"
+            "  a quality.schemes.Cover, or a canonical RGS code from parse()\n"
+            "A song whose maximal cliques overlap has NO letter scheme "
+            "(doctrine 2); declare the Cover, which is exactly why Cover "
+            "exists.")
+
+    if isinstance(spec, Mandate):
+        if n_lines is not None and n_lines != spec.n_lines:
+            raise NoMandate(
+                f"this mandate is written over {spec.n_lines} lines and the "
+                f"draft has {n_lines}. A mandate is a statement about "
+                f"SPECIFIC LINES of a specific song; silently ignoring a "
+                f"length mismatch is how the old loop dropped a declared "
+                f"scheme on the floor and passed vacuously.")
+        return spec
+
+    if isinstance(spec, Cover):
+        n = spec.n_lines if n_lines is None else n_lines
+        if n_lines is not None and spec.n_lines != n_lines:
+            raise NoMandate(
+                f"cover is over {spec.n_lines} lines, draft has {n_lines}")
+        raw, org = spec.groups, origin or "declared Cover"
+    elif isinstance(spec, str):
+        code = parse(spec)
+        n = len(code) if n_lines is None else n_lines
+        if n != len(code):
+            raise NoMandate(
+                f"the scheme '{spec}' is {len(code)} characters and the draft "
+                f"is {n} lines. A letter scheme is a per-LINE annotation; a "
+                f"length mismatch used to be ignored in silence, which "
+                f"mandated nothing and reported nothing flagged.")
+        raw = blocks(code)
+        org = origin or f"letter scheme {spec!r}"
+    else:
+        items = list(spec)
+        if items and all(isinstance(x, int) for x in items):
+            code = canonical(items)          # a restricted growth string
+            n = len(code) if n_lines is None else n_lines
+            if n != len(code):
+                raise NoMandate(
+                    f"RGS code has {len(code)} entries, draft has {n} lines")
+            raw = blocks(code)
+            org = origin or f"RGS code {tuple(code)}"
+        else:
+            raw = [list(x) for x in items]
+            n = n_lines if n_lines is not None else max(
+                [max(g) for g in raw if g] or [0])
+            org = origin or "declared line groups"
+
+    groups, free = _normalise_groups(raw, n)
+    if not groups:
+        raise NoMandate(
+            "the mandate declares no group of two or more lines, so it "
+            "mandates NO pair and cannot flag anything. An all-free scheme "
+            "('XXXX') is a statement that nothing is required, and grading a "
+            "draft against it would pass vacuously -- which is the defect "
+            "this object exists to close. Declare at least one group, or say "
+            "plainly that the song has no rhyme requirement and do not run "
+            "the loop.")
+    labels = tuple(label((k,)) for k in range(len(groups)))
+    return Mandate(n_lines=n, groups=groups, labels=labels, free=free,
+                   source=source, origin=org)
+
 
 __all__ = ["bell", "stirling2", "rgs", "label", "parse", "canonical",
            "blocks", "Coordinates", "coordinates", "crossing_rhymes",
-           "NAMED", "identify", "unnamed_fraction", "Cover"]
+           "NAMED", "identify", "unnamed_fraction", "Cover",
+           "Mandate", "mandate", "NoMandate"]
