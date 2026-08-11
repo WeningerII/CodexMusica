@@ -2755,6 +2755,7 @@ def main():
             print(f"    dropped: {[u for u in st.unreadable[:8]]}"
                   f"{' ...' if len(st.unreadable) > 8 else ''}")
         found = refused = 0
+        scope = {}
         for sch in RL.all_schemas().values():
             if want and want.lower() not in sch.name.lower():
                 continue
@@ -2768,22 +2769,45 @@ def main():
             hits = [i for i in out if i.verdict is True]
             if hits:
                 found += 1
-                print(f"  {sch.name}  ({len(hits)} instance(s))")
+                # M-15 CLOSED: the schema now declares which traditions cite
+                # it, so the verb can say whether a hit is IN TRADITION or
+                # only a rule-shape match (doctrine 43/45).
+                sc = RL.tradition_scope(sch, lang)
+                tag = {"in_tradition": "", "cell_cited": "[SOURCE SILENT] ",
+                       "rule_shape": "[RULE SHAPE ONLY] ",
+                       "unsourced": "[UNSOURCED SCHEMA] "}.get(sc, "")
+                scope[sc] = scope.get(sc, 0) + 1
+                print(f"  {tag}{sch.name}  ({len(hits)} instance(s))")
+                for t in getattr(sch, "traditions", ())[:2]:
+                    print(f"      canon {getattr(t, 'source', '?')}: "
+                          f"{getattr(t, 'name', t)}")
                 for i in hits[:4]:
                     print(f"      {_rel_show(st, i)}")
         print(f"  schemas finding something: {found}   "
               f"refusing on a capability {lang} does not have: {refused}")
         print("  TWO THINGS THESE COUNTS ARE NOT:")
-        print("   1. EVIDENCE. `search_k` is carried on every span and "
-              "nothing consumes it, so there is no matched control here "
-              "(doctrines 56/61). These are instances.")
-        print("   2. CLAIMS ABOUT A TRADITION. `RelationSchema.traditions` "
-              "is declared on all 77 schemas and populated on ZERO of them, "
-              "so every schema is run against every language and there is no "
-              "honest filter to apply. When 'Middle Chinese end rhyme "
-              "(同用 group)' fires on English, the RULE SHAPE matched — the "
-              "tradition did not (doctrine 43). This verb will not pretend "
-              "otherwise by hiding the row.")
+        try:
+            burden = RL.search_burden(st)
+        except Exception:
+            burden = None
+        print("   1. EVIDENCE. These are INSTANCES. `search_k` is now "
+              "consumed — `search_burden()` reports the hypotheses per locus"
+              + (f", here {burden}" if burden else "") + " — but a count "
+              "obtained by search still needs a null under the SAME search "
+              "(doctrines 56/61). `quality/relations_null.py` is that null, "
+              "and it found `line_permutation` to be the IDENTITY MAP for "
+              "every schema with no bounded line-distance placement, and "
+              "`internal rhyme` to sit BELOW chance at lift 0.897.")
+        print("   2. CLAIMS ABOUT A TRADITION — unless the row says so. "
+              f"scope: {scope}. `traditions` is now sourced on 75 of 77 "
+              "schemas (M-15 closed), so a hit is labelled IN TRADITION, "
+              "[RULE SHAPE ONLY], [SOURCE SILENT] where the citing canon "
+              "entry names no tradition, or [UNSOURCED SCHEMA]. When 'Middle "
+              "Chinese end rhyme (同用 group)' fires on English the RULE "
+              "SHAPE matched and the tradition did not (doctrine 43); the "
+              "row is printed and labelled, never hidden. NOTE: every "
+              "citation resolves to RHYME_CANON.md inside this repo — the "
+              "graph is closed, see quality/RESULTS_REGISTER_AUDIT.md.")
 
     elif cmd == "grid":
         from fractions import Fraction as _F
