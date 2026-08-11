@@ -31,8 +31,9 @@ Last probed 2026-08-10 unless noted.
 | `hymnary.org` | |
 | Bodleian broadside ballads | |
 | `gsarchive.net` | Gilbert & Sullivan Archive |
-| `codeload.github.com` | the tarball endpoint — `git clone` still works |
+| `codeload.github.com` | the tarball endpoint — `git clone` still works, RECONFIRMED 2026-08-11 (five clones, no fallback needed) |
 | `cdn.jsdelivr.net` | |
+| `unicode.org` | 403 from the proxy, probed 2026-08-11. Use `unicode-org/unihan-database` on GitHub instead. |
 
 ## Reachable
 
@@ -55,6 +56,10 @@ Last probed 2026-08-10 unless noted.
 | `cltk/old_norse_texts_heimskringla` | — | **byte-identical to `cltk/non_texts`** (md5 `c221b3761633838018e24ccf4e43e7fd`). Not a second source. |
 | `sveinbjornt/sagadb.org` | BSD for the CODE | a separate README sentence affirms the TEXTS public domain |
 | `OliverHellwig/sanskrit` | CC BY 4.0 | **except** the `corpus/GRETIL/` sibling, which is non-commercial |
+| `hulbji/couyun` | MIT at repo root, covering the repository | Two fact tables from expired works (doctrine 40): `couyun/hanzi/hanzi_class.py` gives per-character 平水韻部 **and** 詞林韻部 for 36,891 characters, and `couyun/ci_pu/ci_list/` is the **欽定詞譜 of 1715 as 817 per-詞牌 JSON files** — which line ends a tune mandates as rhymes. The second is ground truth a ci measurement cannot get from any text (doctrine 62: the primary source is a spec). |
+| `unicode-org/unihan-database` | Unicode License v3 at repo root — an express redistribution grant, conditioned on the notice travelling with the data | `kSemanticVariant`, `kZVariant`, `kSpecializedSemanticVariant`, `kTraditionalVariant` as plain TSV. The clean route to 異體字, and to telling a simplified form from a genuine variant. **`unicode.org` itself is egress-blocked** and this repo is the way round it — the same shape as GITenberg standing in for gutenberg.org. |
+| `nk2028/qieyun-data` | CC0 1.0 at repo root | the UPSTREAM of `data/qieyun_mc.tsv`. `韻書/廣韻.csv` carries the 字頭, 小韻 number, 反切 and 釋義 the extracted TSV drops, and reading it is what proved WHY 魂 is unreadable: 小韻 483's 韻目原貌 is 魂 and its 字頭 is 䰟. Go here before theorising about a gap in the shipped table. |
+| `cjkvi/cjkvi-variants` | **NONE — no LICENSE file of any kind. REFUSED.** | Has the largest 異體字 tables on the reachable network (twedu 564KB, hydzd 674KB, koseki 444KB). Silence is not permission (doctrine 92; this repo already refused `Guy-Bilitski/rcc-data` on exactly that). Unihan covers the same ground under an express grant. Recorded so it is not re-opened. |
 
 ---
 
