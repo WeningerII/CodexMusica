@@ -93,13 +93,32 @@ def report(lex, lines):
     records = readability_records(lex, lines)
     countables = [r for r in records if r["final_token"] is not None]
     unread_final = [r for r in countables if r["final_unreadable"]]
+    by_token = [r for r in unread_final
+                if r["final_unreadable_cause"] == "token"]
+    by_piece = [r for r in unread_final
+                if r["final_unreadable_cause"] == "piece"]
     interior_only = [r for r in countables
                      if not r["final_unreadable"] and r["interior_unreadable"]]
+    # The REPORT-layer half of the hyphen defect: the end word reads on its
+    # LAST piece, so the anchor is right and the label overstates. Not a
+    # refusal and it must never be counted as one -- `threshing-floor` is
+    # anchored on `floor`, which is the rhyme word.
+    label_overstates = [r for r in countables
+                        if not r["final_unreadable"]
+                        and r["final_unread_pieces"]]
     n = len(countables)
     out = {
         "lines_total": len(lines),
         "lines_countable": n,
         "lines_unreadable_final": len(unread_final),
+        # THE TWO CAUSES, SEPARATELY (doctrine 44's separation applied to a
+        # defect; doctrine 58 -- the rule is a coordinate of the count). The
+        # `token` count is the number every rate recorded before 2026-08-11
+        # was measuring, and it is unmoved by the hyphen refusal, so a reader
+        # can still check the old figure against the new tree.
+        "lines_unreadable_final_token": len(by_token),
+        "lines_unreadable_final_piece": len(by_piece),
+        "lines_label_overstates": len(label_overstates),
         "lines_interior_unreadable_only": len(interior_only),
         "rate_unreadable_final": (len(unread_final) / n) if n else 0.0,
         "unreadable_final_words": sorted(
@@ -119,6 +138,40 @@ def report(lex, lines):
                       + ", ".join(sorted({r["final_token"]
                                           for r in unread_final})[:20])),
             locations=[r["line"] for r in unread_final],
+        ))
+    if by_piece:
+        out["findings"].append(Finding(
+            code="UNREADABLE_END_WORD_PIECE",
+            severity="flag",
+            message=(f"{len(by_piece)} of {n} lines end in a COMPOUND whose "
+                     f"last piece CMUdict cannot read; the pieces that do "
+                     f"read are not the rhyme word"),
+            evidence=("`Lexicon.transcribe` splits a token on its hyphens, so "
+                      "`hill-zide` yielded phones from `hill` and the harness "
+                      "scored the rhyme against it and called the line "
+                      "READABLE. It now refuses. No pronunciation is guessed "
+                      "for the missing piece, and it is NOT assumed to be a "
+                      "misspelling of a word that is present: `zide` is "
+                      "Dorset initial fricative voicing, and reading it as "
+                      "`side` would move the declaration's DIALECT coordinate "
+                      "inside a hyphen rule (doctrine 1). Words: "
+                      + ", ".join(sorted({r["final_token"]
+                                          for r in by_piece})[:20])),
+            locations=[r["line"] for r in by_piece],
+        ))
+    if label_overstates:
+        out["findings"].append(Finding(
+            code="END_WORD_LABEL_OVERSTATES",
+            severity="note",
+            message=(f"{len(label_overstates)} line(s) end in a compound "
+                     f"whose LAST piece reads and an earlier piece does not; "
+                     f"the anchor is right and the printed word is not what "
+                     f"was transcribed"),
+            evidence=("`threshing-floor` is anchored on `floor`, which IS the "
+                      "rhyme word, so this is a REPORT defect and never a "
+                      "refusal. `span_label` prints the read and unread "
+                      "pieces; `span_kind` returns `substituted`."),
+            locations=[r["line"] for r in label_overstates],
         ))
     if interior_only:
         out["findings"].append(Finding(
@@ -173,6 +226,7 @@ def corpus_rate(lex, paths):
     any recorded number needs told.
     """
     tot = unread = subst = 0
+    by_token = by_piece = 0
     words = {}
     per_file = []
     for p in sorted(paths):
@@ -180,19 +234,35 @@ def corpus_rate(lex, paths):
         recs = readability_records(lex, lines)
         c = [r for r in recs if r["final_token"] is not None]
         u = [r for r in c if r["final_unreadable"]]
+        t = [r for r in u if r["final_unreadable_cause"] == "token"]
+        pc = [r for r in u if r["final_unreadable_cause"] == "piece"]
         s = substitution_report(lex, lines)
         tot += len(c)
         unread += len(u)
+        by_token += len(t)
+        by_piece += len(pc)
         subst += len(s)
         for r in u:
             w = r["final_token"].lower()
             words[w] = words.get(w, 0) + 1
         per_file.append({"file": os.path.basename(p), "lines": len(c),
                          "unreadable_final": len(u),
-                         "rate": (len(u) / len(c)) if c else 0.0})
+                         "unreadable_final_token": len(t),
+                         "unreadable_final_piece": len(pc),
+                         "rate": (len(u) / len(c)) if c else 0.0,
+                         "rate_token": (len(t) / len(c)) if c else 0.0})
     return {"files": len(per_file), "lines_countable": tot,
             "unreadable_final": unread,
+            # SPLIT BY CAUSE 2026-08-11. `unreadable_final_token` is the
+            # quantity every pin recorded before the hyphen refusal shipped,
+            # and it is unmoved by it, so a repin can separate "the corpus
+            # changed" from "the rule changed". Two cells were editing this
+            # corpus and this module in the same round; a single number would
+            # have made their two effects inseparable (doctrine 58).
+            "unreadable_final_token": by_token,
+            "unreadable_final_piece": by_piece,
             "rate": (unread / tot) if tot else 0.0,
+            "rate_token": (by_token / tot) if tot else 0.0,
             "substituted_end_word": subst,
             "distinct_unreadable_finals": len(words),
             "top_unreadable_finals": sorted(words.items(),
@@ -210,6 +280,12 @@ def main(argv):
     print(f"files {res['files']}   countable lines {res['lines_countable']}")
     print(f"unreadable end word : {res['unreadable_final']} "
           f"({res['rate']:.2%})")
+    print(f"  by cause: {res['unreadable_final_token']} the whole token "
+          f"({res['rate_token']:.2%}, the figure every pin before "
+          f"2026-08-11 recorded)")
+    print(f"            {res['unreadable_final_piece']} a COMPOUND whose "
+          f"LAST piece is unread — `hill-zide`, refused rather than "
+          f"anchored on `hill`")
     print(f"  of which the rhyme word would have been SILENTLY SUBSTITUTED by "
           f"an earlier word: {res['substituted_end_word']}")
     print(f"distinct unreadable finals: {res['distinct_unreadable_finals']}")

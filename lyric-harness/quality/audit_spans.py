@@ -214,12 +214,29 @@ def sweep_corpus(lex, verbose=True, pattern="corpus/song/eng_*.txt"):
     defect as `go/receipt` one level down: a number computed from one string
     and reported against another. The split by WHICH hyphen piece failed is
     the part that decides the layer, and it is not in the original report.
+
+    THE ANCHOR HALF IS NOW A REFUSAL (2026-08-11, cell AG). When this sweep
+    was first written both halves were still being scored, so it could ask
+    `line_anchors` for an anchor and skip the line if there was none — that
+    guard meant "already refused under the older token-level rule". It now
+    also matches every row of the anchor half, so the classification is made
+    from the TOKEN and the refusal is reported as an outcome instead of being
+    filtered out. The sweep must be able to see the case it argued about, or
+    the argument becomes uncheckable (doctrine 84).
+
+    Per file as well as in total, because doctrine 67 is the live question
+    here and it is not answered by a corpus-wide count: 48.7% of the anchor
+    half is one Dorset file.
     """
     files = sorted(glob.glob(os.path.join(ROOT, pattern)))
     countable = loose = 0
-    tail, head = [], []
+    tail, head, gone = [], [], []
     tail_tok, head_tok = {}, {}
+    per_file = {}
     for fp in files:
+        base = os.path.basename(fp)
+        cell = per_file.setdefault(base, {"n": 0, "token": 0, "piece": 0,
+                                          "report": 0})
         for raw in open(fp, encoding="utf-8", errors="replace"):
             line = raw.rstrip("\n")
             s = line.strip()
@@ -231,24 +248,25 @@ def sweep_corpus(lex, verbose=True, pattern="corpus/song/eng_*.txt"):
             if not toks:
                 continue
             countable += 1
+            cell["n"] += 1
             fin = toks[-1]
-            if not lh.HYPHEN_SPLIT.search(fin):
-                continue
             read, unread = lh.token_pieces(lex, fin)
-            if not unread or not read:
-                continue          # fully read, or fully unread (a refusal)
-            ancs, _, _ = lh.line_anchors(lex, line)
-            if not ancs:
-                continue          # already refused: no anchor, no report line
-            pieces = [p for p in lh.HYPHEN_SPLIT.split(fin) if p]
-            row = {"file": os.path.basename(fp), "line": s, "token": fin,
+            row = {"file": base, "line": s, "token": fin,
                    "read": read, "unread": unread}
-            if pieces[-1] in unread:
+            if unread and not read:
+                gone.append(row)          # nothing read: the OLDER refusal
+                cell["token"] += 1
+                continue
+            if not unread or not lh.HYPHEN_SPLIT.search(fin):
+                continue
+            if lh.unread_final_piece(lex, fin)[0] is not None:
                 tail.append(row)
                 tail_tok[fin.lower()] = tail_tok.get(fin.lower(), 0) + 1
+                cell["piece"] += 1
             else:
                 head.append(row)
                 head_tok[fin.lower()] = head_tok.get(fin.lower(), 0) + 1
+                cell["report"] += 1
     if verbose:
         print("\n" + "=" * 74)
         print("SWEEP 2 — the substitution that survives INSIDE a word")
@@ -257,31 +275,69 @@ def sweep_corpus(lex, verbose=True, pattern="corpus/song/eng_*.txt"):
               f"({loose} counting every non-blank line — doctrine 91, the "
               f"count is a\n  coordinate of the rendering and both are "
               f"printed rather than one chosen)")
-        print(f"  line ends reported READABLE with an unread piece inside "
-              f"the end token: {len(tail) + len(head)}")
+        print(f"  line ends with an unread piece inside a readable end token: "
+              f"{len(tail) + len(head)}")
         print()
-        print(f"  ANCHOR LAYER — the LAST piece is unread, so the anchor is "
-              f"built from an\n  earlier one and the rhyme verdict is on the "
-              f"wrong syllable: {len(tail)}"
-              f"   ({len(tail_tok)} distinct)")
+        print(f"  ANCHOR LAYER, NOW REFUSED — the LAST piece is unread, so "
+              f"any anchor would be\n  built from an earlier one and the "
+              f"rhyme verdict would be on a string that is\n  not the rhyme "
+              f"word: {len(tail)}   ({len(tail_tok)} distinct)")
         for t, c in sorted(tail_tok.items(), key=lambda x: -x[1])[:8]:
             print(f"      {c:3d}  {t}")
-        print(f"\n  REPORT LAYER — an earlier piece is unread and the last "
-              f"one reads, so the\n  anchor is on the right piece and only "
-              f"the LABEL overstates: {len(head)}"
-              f"   ({len(head_tok)} distinct)")
+        print(f"\n  REPORT LAYER, still judged — an earlier piece is unread "
+              f"and the last one\n  reads, so the anchor is on the right "
+              f"piece and only the LABEL overstates:"
+              f" {len(head)}   ({len(head_tok)} distinct)")
         for t, c in sorted(head_tok.items(), key=lambda x: -x[1])[:8]:
             print(f"      {c:3d}  {t}")
+        print(f"\n  (and {len(gone)} line ends where NOTHING in the token "
+              f"read, which the older\n  token-level rule already refused — "
+              f"they are not new and are not counted above)")
         if tail:
             r = tail[0]
             print(f"\n  worked example, anchor layer:")
             print(f"    {r['file']}  {r['line']!r}")
             print(f"    token {r['token']!r}: read {r['read']}, "
                   f"unread {r['unread']}")
+        # DOCTRINE 67. A refusal rate is not a tax; measure WHERE it falls.
+        hit = sorted((c for c in per_file.values() if c["piece"]),
+                     key=lambda c: -c["piece"])
+        names = {id(v): k for k, v in per_file.items()}
+        print(f"\n  WHERE THE REFUSALS FALL (doctrine 67) — {len(hit)} of "
+              f"{len(files)} files carry one.\n  `was` is the file's "
+              f"end-word refusal rate BEFORE this rule, on the same lines:")
+        print(f"    {'new':>4} {'of':>7} {'rate+':>7} {'was':>7}  file")
+        for c in hit[:12]:
+            print(f"    {c['piece']:4d} {c['n']:7d} {c['piece']/c['n']:7.2%} "
+                  f"{c['token']/c['n']:7.2%}  {names[id(c)]}")
+        top2 = sum(c["piece"] for c in hit[:2])
+        print(f"    top two files carry {top2} of {len(tail)} = "
+              f"{top2/len(tail):.1%}. The refusal IS concentrated.")
+        # Doctrine 67's actual test: concentrated is not the same as biased.
+        # `fas.rhymes` refuses 60% of Hafez pairs and the amendment that
+        # rescued it was the measurement that it refuses where the question is
+        # HARD and answers where it is easy. The same question, asked here:
+        # do the new refusals land on files the lexicon already could not
+        # read, or on files it reads fine?
+        miss = [c for c in per_file.values() if not c["piece"] and c["n"]]
+        ht, hn = (sum(c["token"] for c in hit), sum(c["n"] for c in hit))
+        mt, mn = (sum(c["token"] for c in miss), sum(c["n"] for c in miss))
+        print(f"\n    AIMED OR BLUNT (doctrine 67, and it is a measurement "
+              f"here rather than a\n    claim). Prior end-word refusal rate, "
+              f"the {len(hit)} files this rule touches\n    against the "
+              f"{len(miss)} it does not:")
+        print(f"      touched  {ht:6d} / {hn:<7d} {ht/hn:7.2%}")
+        print(f"      untouched{mt:6d} / {mn:<7d} {mt/mn:7.2%}"
+              f"   ratio {(ht/hn)/(mt/mn):.1f}x")
+        print(f"    The rule lands where CMUdict was ALREADY failing, not "
+              f"across the corpus.\n    It does not open a new gap; it makes "
+              f"an existing one visible at the token\n    level, where it had "
+              f"been hidden inside a compound and scored anyway.")
     return {"files": len(files), "countable": countable, "loose": loose,
             "anchor_layer": len(tail), "report_layer": len(head),
+            "token_refusals": len(gone),
             "anchor_tokens": tail_tok, "report_tokens": head_tok,
-            "anchor_rows": tail, "report_rows": head}
+            "anchor_rows": tail, "report_rows": head, "per_file": per_file}
 
 
 # ---------------------------------------------------------------------------

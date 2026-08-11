@@ -86,9 +86,10 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
-                           CandidateEngine, Declaration, Lexicon, admits,
-                           best_score, bron_kerbosch, line_anchors,
-                           readability_records, refusals_for_pairs)
+                           RHYME_RELATIONS, CandidateEngine, Declaration,
+                           Lexicon, admits, best_score, bron_kerbosch,
+                           line_anchors, readability_records,
+                           refusals_for_pairs)
 from quality import schemes as SC  # noqa: E402
 from quality.floor import Finding, SlopFloor  # noqa: E402
 from quality.schemes import Mandate, NoMandate  # noqa: E402
@@ -121,6 +122,33 @@ class ReviseDeclaration:
     modal_exclusion: int = 6
     #: candidates offered per flagged rhyme, after the modal ones are removed
     offered: int = 24
+
+    #: HOW DEEP INTO THE SCORE-ORDERED POOL THE FIELD IS READ. `None` is the
+    #: COMPLETE pool and is the default. This was a bare `n=200` inside
+    #: `_field` — an undeclared literal that decided (a) which words the
+    #: modal exclusion forbids, (b) which words are offered, and (c) whether
+    #: a pivot reports its conjunction unsatisfiable. Measured on this repo's
+    #: own song (`quality/RESULTS_REVISION_LOOP.md` §3): the modal-6 differs
+    #: between depth 200 and the complete pool on 10 of 11 of the song's call
+    #: words, and at depth 200 the pivot at L1/L14/L34 printed NO JOINT
+    #: CANDIDATE — "the mandate, not the line, is what needs revising" —
+    #: while six words answer all five of its calls. Doctrine 58/91: a count
+    #: is a coordinate of a setting, and this one was never written down.
+    field_depth: int = None
+
+    #: WHICH PREDICATE DEFINES THE FIELD. "grader" is `admits()` — the scalar
+    #: clears `theta_rhyme` AND the relation is a rhyme relation — which is
+    #: exactly what `grade()` requires of a mandated pair. "scalar" is the
+    #: scalar alone, which is what `_field` used to do, and it puts the brief
+    #: in disagreement with the verdict that follows it: 17.3% of the words
+    #: offered on this song's flagged lines were ones `grade()` rejects, so
+    #: taking one MANUFACTURES the violation the brief was written to remove
+    #: (doctrine 3/24 — a NEAR_RELATION is a named member of the taxonomy and
+    #: it is not a rhyme). "scalar" stays reachable so the defect is
+    #: demonstrable rather than a sentence nobody can check (doctrine 84,
+    #: same argument as `modal_exclusion=0`); it is not the default.
+    field_band: str = "grader"
+
     max_rounds: int = 4
     #: a revision is rejected if it introduces MORE new findings than it fixes
     allow_net_new: int = 0
@@ -170,7 +198,15 @@ class Brief:
     #: is in. Not a defect in the draft — a report that the CONJUNCTION of the
     #: declared groups is unsatisfiable at this line, which is information no
     #: letter scheme could ever produce because it cannot state the conjunction.
+    #: It is ALSO a coordinate of `field_depth` and `field_band`, which is why
+    #: `field_declaration` is carried beside it and printed with it: at the
+    #: old undeclared depth of 200 this flag was TRUE and WRONG on three of
+    #: this repo's own song's lines (doctrine 58).
     joint_conflict: bool = False
+    #: The `(field_depth, field_band)` the candidate field was read at, as a
+    #: printable string. A count with no setting beside it is the defect
+    #: doctrine 58 is about, and this flag is a count of zero.
+    field_declaration: str = "field_depth=?, field_band=?"
 
     def __str__(self):
         out = [f"L{self.line_no}: {self.text}"]
@@ -184,9 +220,10 @@ class Brief:
                        f"{len(self.must_answer)} groups and must answer every "
                        f"one of them (conjunctive; doctrine 2)")
         if self.joint_conflict:
-            out.append("    NO JOINT CANDIDATE: nothing in the lexicon "
-                       "answers all of those groups at once. The mandate, not "
-                       "the line, is what needs revising.")
+            out.append(f"    NO JOINT CANDIDATE at {self.field_declaration}: "
+                       f"nothing in the lexicon answers all of those groups "
+                       f"at once. The mandate, not the line, is what needs "
+                       f"revising.")
         if self.must_rhyme_with and not self.must_answer:
             n, w = self.must_rhyme_with
             out.append(f"    must rhyme with L{n} ({w!r})")
@@ -212,6 +249,8 @@ class Reviser:
         self.floor = floor or SlopFloor()
         self._engine = None
         self._matrix_cache = {}
+        self._field_cache = {}
+        self._anchor_cache = {}
 
     @property
     def engine(self):
@@ -542,17 +581,87 @@ class Reviser:
 
     # -- the brief --------------------------------------------------------
 
-    def _field(self, calls):
-        """-> ordered band-passing candidate words for each call word."""
-        fields = []
-        for w in calls:
-            res = self.engine.candidates(w, n=200)
-            passing = [c["word"] for c in res.get("candidates", [])
-                       if c["score"] >= self.decl.theta_rhyme]
-            fields.append(passing)
-        return fields
+    def field_declaration(self):
+        """The candidate field's own coordinates, as one printable string.
 
-    def joint_field(self, calls, exclude=()):
+        Doctrine 1: every analysis states its assumptions. Doctrine 58: a
+        bare count is a coordinate of a setting nobody wrote down, and the
+        counts this loop prints — how many words are offered, how many are
+        forbidden, whether a pivot has any joint candidate at all — are all
+        coordinates of these two.
+        """
+        d = self.rdecl.field_depth
+        return (f"field_depth={'complete pool' if d is None else d}, "
+                f"field_band={self.rdecl.field_band!r}")
+
+    def _word_anchors(self, word):
+        key = (word, self._promote())
+        hit = self._anchor_cache.get(key)
+        if hit is None:
+            ancs, last, _ = line_anchors(self.lex, word,
+                                         promote=self._promote())
+            hit = self._anchor_cache[key] = (ancs, last)
+        return hit
+
+    def _field(self, calls, profile=None):
+        """-> ordered candidate words for each call word, under the GRADER'S
+        OWN PREDICATE.
+
+        THE BRIEF AND THE VERDICT HAVE TO ASK THE SAME QUESTION. `grade()`
+        accepts a mandated pair when `admits()` does: the scalar clears
+        `theta_rhyme` AND the relation is in `RHYME_RELATIONS`. This function
+        used to keep the first half and drop the second, so it offered a
+        writer words that the verdict following the brief calls ASSONANCE or
+        CONSONANCE and counts as a violation. Measured on this repo's own
+        song, that was 58 of 336 offered words (17.3%) — concentrated on the
+        cluster codas, `ones` at 15/24 and `went`/`sent` at 7/24 — and it is
+        the same defect in two directions, because the FORBIDDEN list is the
+        head of this same population: 29 of 101 forbidden entries were words
+        no writer could have taken.
+
+        `CandidateEngine` scores with `score()` on one pronunciation; the
+        grader scores with `best_score()` over every variant of both sides.
+        The check below uses `best_score`, so the field agrees with the
+        verdict rather than with the engine — which is what makes an offered
+        word a promise instead of a suggestion.
+        """
+        return [self._field_one(w, profile=profile) for w in calls]
+
+    def _field_one(self, word, profile=None):
+        rd = self.rdecl
+        key = (word, self._promote(), rd.field_depth, rd.field_band, profile,
+               self.decl.theta_rhyme)
+        hit = self._field_cache.get(key)
+        if hit is not None:
+            return hit
+        depth = rd.field_depth
+        if depth is None:                 # the COMPLETE pool, not a literal
+            depth = len(self.engine.index) + 1
+        res = self.engine.candidates(word, n=depth)
+        pool = [c["word"] for c in res.get("candidates", [])
+                if c["score"] >= self.decl.theta_rhyme]
+        if rd.field_band == "scalar":
+            passing = pool
+        elif rd.field_band == "grader":
+            anc_q, w_q = self._word_anchors(word)
+            passing = []
+            for cand in pool:
+                anc_c, w_c = self._word_anchors(cand)
+                s = best_score(anc_q, anc_c, self.decl, w_q, w_c,
+                               profile=profile)
+                if admits(s, self.decl.theta_rhyme):
+                    passing.append(cand)
+        else:
+            # An undeclared value must be loud, not silently one of the two.
+            raise ValueError(
+                f"ReviseDeclaration.field_band must be 'grader' or 'scalar', "
+                f"got {rd.field_band!r}")
+        if len(self._field_cache) > 64:
+            self._field_cache.clear()
+        self._field_cache[key] = passing
+        return passing
+
+    def joint_field(self, calls, exclude=(), profile=None):
         """-> (offered, forbidden). The candidate field that answers EVERY
         call word, with the most frequent members forbidden as modal.
 
@@ -563,11 +672,21 @@ class Reviser:
         this line, which is a sentence a letter scheme cannot form because it
         cannot put a line in two classes to begin with.
 
+        AN EMPTY INTERSECTION IS A COORDINATE OF `field_depth`, and saying so
+        is the whole of doctrine 58. At the old hard-coded depth of 200 this
+        song's own pivot — L14/L34, which must answer `does`, `five`,
+        `drive`, `of` and `alive` at once — reported the conjunction
+        unsatisfiable and told the writer to revise the MANDATE. Six words
+        (`love`, `above`, `thereof`, `buzz`, `glove`, `gov`) answer all five
+        under the grader's own predicate; they were simply below rank 200 in
+        three of the five score-ordered pools. The claim was not wrong about
+        the lexicon, it was a claim about a constant.
+
         Ties are broken on (frequency rank, position in the first field) and
         never on set iteration order — doctrine 66, a tie broken by iterating
         a set is a result that does not reproduce.
         """
-        fields = self._field(calls)
+        fields = self._field(calls, profile=profile)
         if not fields or not fields[0]:
             return [], []
         common = set(fields[0])
@@ -592,15 +711,28 @@ class Reviser:
                 break
         return rest, forbidden
 
-    def modal_field(self, call_word, exclude=()):
+    def modal_field(self, call_word, exclude=(), profile=None):
         """-> (offered, forbidden). The forbidden set is the MOST FREQUENT
         band-passing candidates, which are the most predictable ones.
 
-        `CandidateEngine` sorts by score then frequency rank, so its head is
-        precisely the modal region. Handing that head to a writer is handing
-        them fire/desire.
+        The population it is the head of is `_field_one`'s — the words the
+        GRADER would accept, over the COMPLETE pool. Both halves of that are
+        load-bearing and both were wrong: ranked over the scalar-only pool at
+        depth 200, `ones` had five of its six forbidden words outside its own
+        field, so the exclusion was spent on words nobody could take.
+
+        WHAT THE RANKING IS OVER, said out loud because it decides which way
+        this pushes. `lex.freq_rank` is `wordfreq20k.txt`, a web-frequency
+        list: `software` is rank 151 and `email` 114, against `moon` 2800,
+        `rain` 2946, `grief` 10699 and `weep` absent entirely. So "modal"
+        here means modal ON THE WEB, not modal in song, and the exclusion
+        pushes away from an optimum that is only approximately the one
+        doctrine 9 names. That list has no row in `data/sources.tsv`
+        (doctrine 34) and no verse-frequency alternative exists in this repo
+        (doctrine 13: a resource used to score a cell has to be named).
+        `quality/RESULTS_REVISION_LOOP.md` §4 measures what it costs.
         """
-        return self.joint_field([call_word], exclude=exclude)
+        return self.joint_field([call_word], exclude=exclude, profile=profile)
 
     def brief(self, lines, mandate=None, profile=None):
         """-> [Brief], one per line that needs work. Lines with no findings are
@@ -616,6 +748,7 @@ class Reviser:
         for ln in sorted(found["per_line"]):
             fs = found["per_line"][ln]
             b = Brief(line_no=ln, text=lines[ln - 1], findings=fs,
+                      field_declaration=self.field_declaration(),
                       keep=[i for i in range(1, len(lines) + 1)
                             if i not in found["per_line"]])
             # ANY rhyme-implicating finding earns a candidate field, not just
@@ -640,7 +773,7 @@ class Reviser:
                 cur = self.floor.qf._endword(lines[ln - 1])
                 if calls:
                     b.candidates, b.forbidden_modal = self.joint_field(
-                        calls, exclude=(cur,))
+                        calls, exclude=(cur,), profile=profile)
                     b.joint_conflict = (len(calls) > 1
                                         and not b.candidates
                                         and not b.forbidden_modal)
@@ -765,6 +898,10 @@ class Reviser:
                       file=stream)
         print(f"\nREVISION BRIEF — {len(briefs)} line(s) flagged of "
               f"{len(lines)}", file=stream)
+        print(f"  candidate field: {self.field_declaration()}; "
+              f"modal_exclusion={self.rdecl.modal_exclusion}; "
+              f"frequency source wordfreq20k.txt (web ranks — see "
+              f"`modal_field`)", file=stream)
         for f in found["whole"]:
             print(f"  [whole draft] {f.code}: {f.message}", file=stream)
         for b in briefs:

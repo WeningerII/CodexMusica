@@ -266,6 +266,35 @@ def _derivation(out, ident):
 MISSING_STATUSES = ("OPEN", "PARTIAL", "BLOCKED", "CLOSED", "WITHDRAWN")
 
 
+def missing_entry_statuses():
+    """-> [(heading_line, 1-based line number, status or None), ...].
+
+    THE ONE PARSER, and it is exposed rather than inlined for a reason. This
+    file's `missing_entries()` counts these into BACKLOG.md's table;
+    `quality/verify_entries.py` judges each entry's CLAIMS against the same
+    status. Two parsers that disagreed about whether M-6 is OPEN would make the
+    two instruments contradict each other over one file, which is the defect
+    both of them exist to catch. The rule -- first status token over the
+    heading line PLUS its continuation -- is stated and defended in
+    `missing_entries()` below, including why both neighbouring rules are wrong.
+    """
+    lines = open(MISSING, encoding="utf-8").read().split("\n")
+    out = []
+    for i, ln in enumerate(lines):
+        if not ln.startswith("### "):
+            continue
+        blob, j = ln, i + 1
+        while j < len(lines) and lines[j].strip() \
+                and not lines[j].startswith("#") \
+                and not lines[j].startswith("**"):
+            blob += " " + lines[j]
+            j += 1
+        found = [t for t in re.findall(r"`([A-Z]+)`", blob)
+                 if t in MISSING_STATUSES]
+        out.append((ln, i + 1, found[0] if found else None))
+    return out
+
+
 def missing_entries():
     """MISSING.md entries by status.
 
@@ -298,27 +327,20 @@ def missing_entries():
 
     Cross-checked against `quality/audit_register.py`, which counts the same
     entries with an independent parser; the two totals must agree.
+
+    The per-entry read is `missing_entry_statuses()` below; this function only
+    tallies it. `quality/verify_entries.py` reads the same list, so the status
+    a claim is judged against and the status this row counts cannot diverge.
     """
-    lines = open(MISSING, encoding="utf-8").read().split("\n")
     counts = collections.Counter()
-    total = 0
     unstated = []
-    for i, ln in enumerate(lines):
-        if not ln.startswith("### "):
-            continue
-        total += 1
-        blob, j = ln, i + 1
-        while j < len(lines) and lines[j].strip() \
-                and not lines[j].startswith("#") \
-                and not lines[j].startswith("**"):
-            blob += " " + lines[j]
-            j += 1
-        found = [t for t in re.findall(r"`([A-Z]+)`", blob)
-                 if t in MISSING_STATUSES]
-        if not found:
-            unstated.append(ln[:60])
+    rows = missing_entry_statuses()
+    total = len(rows)
+    for heading, _lineno, status in rows:
+        if status is None:
+            unstated.append(heading[:60])
         else:
-            counts[found[0]] += 1
+            counts[status] += 1
     if unstated:
         raise ValueError("entries with no status: %s" % unstated)
     if sum(counts.values()) != total:

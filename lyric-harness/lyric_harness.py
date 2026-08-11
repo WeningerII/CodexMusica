@@ -516,9 +516,34 @@ def line_readability(lex, text, anchors=None):
       final_token          the raw last word (`raw_final_token`), or None
       readable             False iff the END RHYME cannot be read
       final_unreadable     the end word specifically produced no anchor
+      final_unreadable_cause
+                           `"token"` when NOTHING in the end word read,
+                           `"piece"` when its LAST hyphen piece did not while
+                           an earlier one did, else None. The two are
+                           different defects with different remedies and a
+                           single count over both sends them to one layer
+                           (doctrine 44's separation, applied to a defect);
+                           `"piece"` is also the coordinate that keeps the
+                           corpus-wide unreadable-end-word rate comparable
+                           across the rule change that introduced it
+      final_unread_pieces  the pieces OF THE END TOKEN that did not read
       unreadable           every token in the line CMUdict could not read
-      interior_unreadable  unreadable tokens before the last
+      interior_unreadable  unreadable tokens STRICTLY BEFORE the last one
       reason               a sentence naming the instrument, or None
+
+    `interior_unreadable` IS NOW DERIVED BY POSITION (2026-08-11). It was
+    every unreadable string whose folded form differed from the WHOLE final
+    token, and `transcribe` emits hyphen PIECES, so `zide` of `hill-zide` --
+    part of the END word -- was filed as an INTERIOR unreadable and the reason
+    string said "a multi-syllable anchor reaching back past one of them is
+    reading a line with a hole in it". Measured over the 143 English song
+    files, that misfiling was **328 of 328** cases (327 of 327 after cell AC's
+    de-duplication). "Interior" and "inside the end word" mean opposite things
+    to every consumer downstream -- one is a mosaic-reach warning about
+    material the anchor may cross, the other is the rhyme word itself not
+    being read -- and collapsing them is doctrine 28. Nothing is deleted:
+    the pieces move to `final_unread_pieces` (doctrine 24 -- a rule that would
+    delete a category RELABELS instead).
     """
     toks = line_tokens(text)
     final = toks[-1] if toks else None
@@ -526,7 +551,8 @@ def line_readability(lex, text, anchors=None):
     unreadable = list(dict.fromkeys(oov))
     if final is None:
         return {"text": text, "final_token": None, "readable": False,
-                "final_unreadable": False, "unreadable": unreadable,
+                "final_unreadable": False, "final_unreadable_cause": None,
+                "final_unread_pieces": [], "unreadable": unreadable,
                 "interior_unreadable": unreadable,
                 "reason": "no word tokens in the line: nothing to anchor on"}
     if anchors is None:
@@ -534,14 +560,40 @@ def line_readability(lex, text, anchors=None):
     # The refusal condition is defined by the shipped path itself: an end word
     # is unreadable exactly when `line_anchors` yields nothing for it. Deriving
     # it any other way would let the record and the behaviour drift apart.
+    # That invariant is why the hyphen refusal was put in `line_anchors` and
+    # only its CAUSE is re-derived here.
     final_unreadable = not anchors
-    fin = fold_apostrophes(final).lower()
-    interior = [w for w in unreadable if fold_apostrophes(w).lower() != fin]
-    reason = None
+    fin_read, fin_unread = token_pieces(lex, final)
+    # Interior means BEFORE THE LAST TOKEN, by position -- not "spelled
+    # differently from the last token".
+    interior = []
+    for t in toks[:-1]:
+        interior.extend(token_pieces(lex, t)[1])
+    interior = list(dict.fromkeys(interior))
+    cause = None
     if final_unreadable:
+        cause = ("piece" if unread_final_piece(lex, final)[0] is not None
+                 else "token")
+    reason = None
+    if cause == "piece":
+        reason = (f"the end word {final!r} is a compound and CMUdict has no "
+                  f"pronunciation for its LAST piece "
+                  f"({', '.join(fin_unread)}); the pieces that DO read "
+                  f"({' '.join(fin_read)}) are not the rhyme word, so the "
+                  f"harness refuses rather than anchoring on them. This "
+                  f"line's end-rhyme is UNKNOWN, not absent, and the gap is "
+                  f"the lexicon's, not the poet's.")
+    elif final_unreadable:
         reason = (f"CMUdict has no pronunciation for the end word {final!r}; "
                   f"the harness refuses rather than guessing one (no G2P "
                   f"fallback). This line's end-rhyme is UNKNOWN, not absent.")
+    elif fin_unread:
+        reason = (f"end word {final!r} reads on its LAST piece "
+                  f"({fin_read[-1] if fin_read else '?'}), which is the rhyme "
+                  f"word, but {len(fin_unread)} earlier piece(s) of the same "
+                  f"token are not in the lexicon "
+                  f"({', '.join(sorted(fin_unread))}); the anchor is right "
+                  f"and the LABEL overstates what was read.")
     elif interior:
         reason = (f"end word {final!r} is readable, but "
                   f"{len(interior)} interior token(s) are not "
@@ -551,6 +603,8 @@ def line_readability(lex, text, anchors=None):
     return {"text": text, "final_token": final,
             "readable": not final_unreadable,
             "final_unreadable": final_unreadable,
+            "final_unreadable_cause": cause,
+            "final_unread_pieces": fin_unread,
             "unreadable": unreadable, "interior_unreadable": interior,
             "reason": reason}
 
@@ -642,14 +696,60 @@ def token_pieces(lex, token):
     Cell U measured the union at 293 and triaged all of it as ingestion; the
     two halves have different remedies, which is doctrine 44's separation
     applied to a defect rather than to a corpus.
+
+    A PIECE WITH NO LETTER IS NOT A WORD AND IS NOT COUNTED (added 2026-08-11).
+    `line_tokens` already requires a Latin letter of every token it emits, and
+    this function has to agree with it or the two disagree about what a word
+    is. `--` is an em dash the token regex glued in, so `pie--'` splits to
+    `pie` and `'` and the bare quote was being recorded as an unread PIECE:
+    four line ends (three in `eng_british_lewis_carroll.txt`, one in
+    `eng_british_percy_bysshe_shelley.txt`) were counted as substitutions with
+    nothing substituted, and under the refusal rule below they would have had
+    a correct verdict withdrawn on the strength of a typesetter's punctuation.
+    Doctrine 55's shape one layer down: before treating a mark as structure,
+    ask whether it is evidence of the form or an artifact of the edition.
     """
     read, unread = [], []
     for p in HYPHEN_SPLIT.split(token):
-        if not p:
+        if not p or not re.search(r"[A-Za-z]", p):
             continue
         ph, is_oov = lex.transcribe_word(p)
         (unread if (is_oov or not ph) else read).append(p)
     return read, unread
+
+
+def unread_final_piece(lex, token):
+    """The ANCHOR-layer half of `token_pieces` -> `(read, unread)` or
+    `(None, None)`.
+
+    True exactly when the token's LAST letter-bearing hyphen piece is not in
+    the lexicon while an earlier one is, which is the case where an anchor
+    built from what DID read is an anchor on a string that is not the rhyme
+    word: `hill-zide` anchored on `hill`, `a-vound` on the participial `a-`.
+
+    ONE definition, read by `line_anchors` (which refuses) and by
+    `line_readability` (which records the cause). Two derivations of the same
+    predicate is how a record and a behaviour drift apart, and this module's
+    own docstring for `line_readability` says the record must be derived from
+    the shipped path rather than beside it.
+
+    `(None, None)` covers three different negatives and they are not
+    distinguished here because none of them is this defect: the token has no
+    hyphen, the last piece reads (that is the REPORT-layer half —
+    `threshing-floor` anchored on `floor`, where the anchor is right and only
+    the label overstates), or NOTHING in the token reads (already a refusal
+    under the older rule, since `transcribe` then yields no phones at all).
+    """
+    if not token or not HYPHEN_SPLIT.search(token):
+        return None, None
+    pieces = [p for p in HYPHEN_SPLIT.split(token)
+              if p and re.search(r"[A-Za-z]", p)]
+    if len(pieces) < 2:
+        return None, None
+    read, unread = token_pieces(lex, token)
+    if read and unread and pieces[-1] in unread:
+        return read, unread
+    return None, None
 
 
 def _tag_span_words(sylls, phones, owners, words, lex=None):
@@ -725,6 +825,22 @@ def line_anchors(lex, text, promote=False):
         p, _, oo = lex.transcribe(last)   # handles hyphenated compounds
         oov.extend(oo)
         variants = [p] if p else []
+        # THE HYPHEN REFUSAL, 2026-08-11. `transcribe` splits a compound on
+        # its hyphens and looks each piece up alone, so a token whose LAST
+        # piece is missing from the lexicon still yields phones -- from the
+        # earlier pieces. Every anchor built from those is an anchor on a
+        # string that is NOT the rhyme word, and until now the harness scored
+        # it, passed the band on it, and reported the line READABLE:
+        # `hill-zide` anchored on `hill`, `a-vound` on the participial `a-`
+        # whose only phone is a schwa. Doctrine 79 -- the honest output is a
+        # refusal, and a refusal is not a failure. The price is measured in
+        # `quality/RESULTS_HYPHEN_REFUSAL.md` on BOTH populations: zero on the
+        # sonnet battery (no mandated sonnet pair reads on anything but its
+        # last piece) and 174 line ends on the 143-file English song corpus,
+        # 84 of them in one Dorset file (doctrine 67 -- a refusal rate is not
+        # a tax, measure WHERE it falls).
+        if unread_final_piece(lex, last)[0] is not None:
+            variants = []
     anchors = []
     for var in variants:
         v = list(var)

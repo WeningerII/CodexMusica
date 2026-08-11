@@ -1075,11 +1075,45 @@ nothing; it is the MIXING that costs. "Has this been modernised?" returns *no*
 and passes the file. The question that catches it is **"does this printing spell
 one sound two ways?"**
 
-### M-6 · `fin.py` implements alliteration and nothing else `OPEN`
-No `rhymes()`. Nine of the ten staged Finnish files are **rhymed strophic
+### M-6 · `fin.py` implements alliteration and nothing else — BOTH SENTENCES WERE FALSE `CLOSED` 2026-08-11
+~~No `rhymes()`. Nine of the ten staged Finnish files are **rhymed strophic
 verse** whose actual constraint the module cannot check. F-1 lists `fin` as
 present; it is present *for the Kalevala metre only*, and the corpus that just
-landed is mostly not that.
+landed is mostly not that.~~
+
+**Both sentences were false at the commit that wrote them, in different ways,
+and a cell was briefed off them on 2026-08-11 and sent to build a relation that
+already existed.** They are struck rather than deleted, per this file's own
+rule, because the pair is the calibration case for `quality/verify_entries.py`.
+
+**1 · The symbol existed.** `Finnish.rhymes()` landed at `f94383c`, with
+`rime()`, `relation_type()`, `refusal_reason()` and `readability_census()`
+beside it and a corpus arm in `quality/test_msa_fin.py`. `f94383c`'s own commit
+title is *"two of my own MISSING entries were false"* — so this entry went stale
+inside the very round that was meant to be catching that class, which is the
+argument for an instrument rather than another careful read.
+
+**2 · The corpus half was wrong twice over.** `ls corpus/song/fin_*.txt | wc -l`
+returned **11** at commit `debf64e`, not the ten counted here: the eleventh,
+`fin_wahanen_laulukirja.txt` (1864 song-book, PG 72965), landed *after* `fin.py`
+was written. And the metre split is not 1 : 9 — measured against
+`quality/kalevala_rate.py`'s own across-line permutation null,
+`fin_jaakko_juteini.txt` carries a HIGHER weak-alliteration excess than the
+Kanteletar itself (**+58.86pp** against **+50.65pp**), with 53.2% of its lines at
+exactly eight syllables. It is Kalevala-metre material that was sitting in the
+"rhymed" arm, so the corpus's Kalevala negative control has **two** members and
+not one (doctrine 41: a positive control can pass for the wrong reason, and only
+a second control tells you which).
+
+**Where the relation's numbers are:** `quality/RESULTS_FIN_RHYME.md`, runner
+`python3 quality/fin_rhyme_rate.py`. Ten rhymed volumes, 1,346 four-line units,
+shipped depth 1 — mandated 1346, judged 1328, **refused 18**, observed 62.58%
+against a null median of 24.76%, **+35.53pp**, p = 0.0050.
+
+**No count in this entry is a present-tense claim about `corpus/song/`.** That
+directory is written by other cells, so the 11 is pinned to `debf64e` and
+re-derived rather than recorded; the live count is measured at run time by
+`python3 quality/verify_entries.py`.
 
 ### M-7 · Doctrine 55's fix was right and its dash rule is over-general `OPEN`
 The comma was correctly demoted from caesura to punctuation. In the same change

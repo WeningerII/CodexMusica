@@ -361,32 +361,64 @@ def test_a_hyphen_can_substitute_the_rhyme_word():
     read, unread = lh.token_pieces(LEX, "hill-zide")
     check("token_pieces splits the compound and says which half read",
           read == ["hill"] and unread == ["zide"], f"{read} / {unread}")
+    #
+    # THE ANCHOR HALF IS A REFUSAL AS OF 2026-08-11 (cell AG), and this test
+    # used to end with `line_readability` still saying READABLE. It was
+    # written that way on purpose — cell AB's brief forbade moving a verdict —
+    # and the decision was left open with its price attached. It is taken
+    # here: the honest output when the harness cannot read the rhyme word is a
+    # refusal, not a score against a different word (doctrine 79). The price
+    # is in `quality/RESULTS_HYPHEN_REFUSAL.md`, measured on both populations.
+    check("`unread_final_piece` is TRUE on `hill-zide`: the last piece is "
+          "unread and an earlier one read",
+          lh.unread_final_piece(LEX, "hill-zide") == (["hill"], ["zide"]),
+          str(lh.unread_final_piece(LEX, "hill-zide")))
+    check("and FALSE on `threshing-floor`, where the last piece IS the rhyme "
+          "word — the report half, which is not refused",
+          lh.unread_final_piece(LEX, "threshing-floor") == (None, None),
+          str(lh.token_pieces(LEX, "threshing-floor")))
     a = anchors("Upon the zunny hill-zide")
-    b = anchors("Do teake his pleace by my wife-zide")
-    s = lh.best_score(a, b, DECL, "hill-zide", "wife-zide")
-    check("the span is typed SUBSTITUTED on both sides",
-          s.spans.kinds == ("substituted", "substituted"), str(s.spans.kinds))
-    check("and it outranks `exact`, which is what the record used to say — "
-          "the other kinds name the right string and get its extent wrong; "
-          "this one names a different string",
-          lh.span_kind(s["spans"]["a"]) == lh.SPAN_SUBSTITUTED
-          and s["spans"]["a"]["endword_only"]
-          and not s["spans"]["a"]["partial_word"],
-          "endword_only and not partial: the OLD partition called this exact")
+    check("`line_anchors` now returns NO anchor for the line — the refusal is "
+          "on the SHIPPED path, not only in the record, so `score` returns "
+          "NO_ANCHOR to every caller and the two cannot drift apart",
+          a == [], f"{len(a)} anchors")
+    rec = lh.line_readability(LEX, "Upon the zunny hill-zide")
+    check("`line_readability` says NOT readable, and names the cause `piece`",
+          not rec["readable"] and rec["final_unreadable"]
+          and rec["final_unreadable_cause"] == "piece",
+          f"{rec['readable']} / {rec['final_unreadable_cause']}")
+    check("the reason names the pieces both ways round and charges the "
+          "LEXICON rather than the poet (doctrine 79)",
+          "zide" in rec["reason"] and "hill" in rec["reason"]
+          and "not the poet" in rec["reason"], rec["reason"])
+    check("`zide` is NOT filed as an INTERIOR unreadable — it is part of the "
+          "END word, and the two mean opposite things downstream "
+          "(doctrine 28; the misfiling was 328 of 328 cases)",
+          rec["interior_unreadable"] == []
+          and rec["final_unread_pieces"] == ["zide"],
+          f"interior {rec['interior_unreadable']}, "
+          f"final pieces {rec['final_unread_pieces']}")
+    #
+    # AND THE `substituted` SPAN KIND IS STILL REACHABLE, which is the point
+    # of checking it here: a doctrine whose demonstration has been optimised
+    # away is a sentence nobody can check (doctrine 84). The REPORT half is
+    # untouched by the refusal — the last piece IS the rhyme word — so the
+    # label that names what was read still fires, on Shakespeare.
+    check("`wilful-slow` still reads on its LAST piece and is still typed "
+          "SUBSTITUTED — the report defect survives the anchor fix",
+          lh.token_pieces(LEX, "wilful-slow") == (["slow"], ["wilful"])
+          and lh.unread_final_piece(LEX, "wilful-slow") == (None, None),
+          str(lh.token_pieces(LEX, "wilful-slow")))
+    t = lh.line_readability(LEX, "Shall neigh no dull flesh in his wilful-slow")
+    check("and that line stays READABLE, with the overstating label recorded "
+          "separately from any refusal",
+          t["readable"] and t["final_unread_pieces"] == ["wilful"]
+          and t["final_unreadable_cause"] is None,
+          f"{t['readable']} / {t['final_unread_pieces']}")
+    lab = lh.span_label(lh.span_provenance(anchors(
+        "Shall neigh no dull flesh in his wilful-slow")[0]))
     check("the label names the piece that was read and the piece that was not",
-          "read as hill" in lh.span_label(s["spans"]["a"])
-          and "zide not in the lexicon" in lh.span_label(s["spans"]["a"]),
-          lh.span_label(s["spans"]["a"]))
-    check("two Dorset words that DO rhyme are scored `hill` against `wife` "
-          "and the report line now says why",
-          s["total"] < DECL.theta_rhyme
-          and "SUBSTITUTED" in lh.spans_note(s),
-          f"{s['total']} {s['relation']}")
-    check("`line_readability` still says READABLE — this cell does not move "
-          "a verdict, it makes the verdict's evidence legible",
-          lh.line_readability(LEX, "Upon the zunny hill-zide")["readable"],
-          "refusing instead is an INGESTION change with a measured price; "
-          "see quality/RESULTS_SPANS.md and the patches file")
+          "read as slow" in lab and "wilful not in the lexicon" in lab, lab)
     # AND IT IS IN THE SONNETS. Sonnet 51 L13 and sonnet 81 L10 are mandated,
     # judged, and both pass CORRECTLY on the last piece -- so the oracle could
     # never have caught this, which is doctrine 95's shape exactly.

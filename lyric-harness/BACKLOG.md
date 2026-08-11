@@ -33,19 +33,32 @@ returning.
 | 1 | our RESULTS — is the effect real? | **built** | line-permutation nulls, matched redeals, shuffled controls |
 | 2 | the WRITING — is the draft any good? | **built** | `quality/revise.py` |
 | 3 | the CODE's generosity — is the rule too loose? | **partial** | `quality/redteam_band.py`, band only |
-| 4 | the TESTS — can the suite detect a broken harness? | **built** | `quality/mutate.py` — 30 mutations, 29 caught, 1 allowlisted equivalent with its premise tested |
-| 5 | the CORPUS — is the text what its header claims? | **ad hoc** | doctrines 50/52/53 were each found by hand, one file at a time |
+| 4 | the TESTS — can the suite detect a broken harness? | **built** | `quality/mutate.py` — ~~30 mutations, 29 caught~~ **33 declared, all 33 applying cleanly**, 1 allowlisted equivalent (`M4`) with its premise tested; the CAUGHT count is a `--slow` measurement and is not recorded here (`python3 quality/counters.py --slow`) |
+| 5 | the CORPUS — is the text what its header claims? | ~~**ad hoc**~~ **built** | `quality/audit_corpus.py` (landed `c661b93`), `quality/RESULTS_CORPUS_AUDIT.md`, regressions `quality/test_corpus_audit.py` — the by-hand era is doctrines 50/52/53 |
 | 6 | the TAXONOMY — does every named entry have a source? | **built** | `quality/audit_register.py --provenance` |
-| 7 | the REPORT — do the number, the label and the evidence agree? | **missing** | `best_score` prints a score beside end words that did not produce it |
-| 8 | the RECORD — do the documents agree with each other and with the code? | **built** | `quality/audit_register.py` — 7 consistency failures found and closed on 2026-08-11, 2 remaining and both deliberate |
+| 7 | the REPORT — do the number, the label and the evidence agree? | ~~**missing**~~ **built** | `quality/audit_spans.py` (landed `a914dc0`), `quality/RESULTS_SPANS.md` — its first run: of 1,014 judged sonnet pairs, **382 report lines name a pair that did not produce the number** |
+| 8 | the RECORD — do the documents agree with each other and with the code? | **built** | `quality/audit_register.py` — 7 consistency failures found and closed on 2026-08-11, 2 remaining and both deliberate; `quality/verify_entries.py` for the ENTRY CLAIMS the counters table never covered |
 
-**Four to six of seven, not one of three.** ~~Adversary 4 is the highest-value
-item in this document~~ — it is **built**, and the eighth was not on the list
-when the list was written. **Adversary 8 is the one that found four false
-entries in a week**, and the argument for it is that adversaries 1–7 all attack
-the WORK while nothing attacked the RECORD of it. Its cheapest pass costs under
-a second: `python3 quality/audit_register.py --consistency`, no corpus, no
-imports. **Remaining: 5 and 7.**
+**EIGHT, not seven, and the file used to say both.** ~~Four to six of seven, not
+one of three.~~ ~~adversaries 1–7 all attack the WORK~~ — the table has had
+**eight** rows since the eighth was added, and three places in this one file
+still counted seven: the sentence above, the counters row `adversaries built, of
+7`, and the summary. One roster, two denominators, and nothing was checking.
+`python3 quality/verify_entries.py` now reads the **instrument column** of this
+table — `quality/audit_corpus.py` and `quality/audit_spans.py` either exist or
+they do not — which is the checkable half of a row whose STATUS column stays a
+judgement (`quality/counters.py` refuses that column for exactly that reason,
+and still does). **That is the boundary, and it runs through the middle of a
+single row.**
+
+~~Adversary 4 is the highest-value item in this document~~ — it is **built**,
+and the eighth was not on the list when the list was written. **Adversary 8 is
+the one that found four false entries in a week**, and the argument for it is
+that adversaries 1–8 all attack the WORK or the RECORD of it while, until
+2026-08-11, nothing attacked the ENTRIES. Its cheapest pass costs under a
+second: `python3 quality/audit_register.py --consistency`, no corpus, no
+imports. **Remaining: none of the eight is `missing`; 3 is still `partial`
+(`redteam_band.py` attacks the band only).**
 
 ---
 
@@ -169,7 +182,7 @@ the other five are vernacular characters postdating the rime book, where
 refusal is correct — and nothing currently tells an ingestion defect from a
 correct refusal.
 
-### 2.3 · ~~`msa.py`'s apostrophe rule causes 82% of its own unreadability~~ **17%** `M-3`
+### 2.3 · ~~`msa.py`'s apostrophe rule causes 82% of its own unreadability~~ **17%** `M-3` — `CLOSED 2026-08-11`
 ~~384 of 471 Malay failures are the syncope split leaving a vowelless
 fragment~~ — **79 of 471**, re-derived 2026-08-11. 384 is the before-fix count
 of vowelless tokens and only 79 of them came from the syncope split (`s'ri`,
@@ -177,7 +190,10 @@ of vowelless tokens and only 79 of them came from the syncope split (`s'ri`,
 they are the `d. s. b.` stub of §2.4. The arithmetic was right and the
 ATTRIBUTION was not. The module already ACCEPTS the identical process spelled
 without the apostrophe (`prang`, `Brapa`). **The fix is shipped and this line is
-now a record, not a task.**
+now a record, not a task.** `MISSING.md` M-3 has read `CLOSED` since 2026-08-11
+and this heading did not say so, so the two files disagreed about whether a TIER
+2 item was still owed — caught by `python3 quality/verify_entries.py`, shape
+`STATUS_XREF`.
 
 ### 2.4 · The `&c.` refrain stub is not an English convention `M-4`
 Finnish `j. n. e.` is **100%** of the two Kanteletar files' unreadable tokens
@@ -187,20 +203,40 @@ same day, because the withdrawing grep read the 129-block staged extract while
 the claim was about the 705-block source (`M-18`). Both are end-of-line, so the
 existing anchored regex extends directly. Welsh makes it four languages.
 
-### 2.5 · `RelationSchema.traditions` is declared on 77 schemas, populated on 0 `M-15`
-So "Middle Chinese 同用 rhyme" and "pantun ABAB" fire on English and nothing can
-say the rule shape matched while the tradition did not. Third inert coordinate
-in that file after `Span.unit` and `SpanRule.terminator`. `requires` is
-populated on only 17 of 77.
+### 2.5 · ~~`RelationSchema.traditions` is declared on 77 schemas, populated on 0~~ — **75 of 77 populated** `M-15`
+~~populated on 0~~. Measured by `python3 quality/audit_register.py --provenance`
+(derivation D21): **77 schemas, 75 carrying traditions, 298 distinct `Tradition`
+rows over 319 attachments**. The two with no tradition at all are `blues AAB
+stanza` and `refrain by reference`.
+**`MISSING.md` M-15 already recorded this and §2.5 did not**, so the two
+documents disagreed with each other over one field — adversary 8's exact remit,
+and the reason `python3 quality/verify_entries.py` exists.
+**What is still owed is not population but WITNESS**: of the 298 rows, 212 are
+externally witnessed, 26 are this project's own and 60 cannot be told — three
+counts, doctrine 79 — and that is `MISSING.md` M-15a, still `OPEN`. The original
+complaint stands only in the sense that "Middle Chinese 同用 rhyme" firing on
+English was never the population problem it was written up as. `requires` is
+populated on only 17 of 77 and that half is unchanged.
 
 ### 2.6 · `relations.py` counts have no matched control
 `search_k` is carried on every span and **nothing consumes it**. `internal
 rhyme` returns 18,290 instances on 200 lines of Poe. Doctrines 56/61 apply
 directly and there is no null.
 
-### 2.7 · `fin.py` implements alliteration and nothing else `M-6`
-No `rhymes()`. Nine of the ten staged Finnish files are rhymed strophic verse
-whose actual constraint the module cannot check.
+### 2.7 · ~~`fin.py` implements alliteration and nothing else~~ — BOTH SENTENCES WERE FALSE `M-6`, `CLOSED 2026-08-11`
+~~No `rhymes()`. Nine of the ten staged Finnish files are rhymed strophic verse
+whose actual constraint the module cannot check.~~
+**This item was never true at the commit that wrote it, and on 2026-08-11 a cell
+was briefed off it and sent to build a relation that already existed.**
+`Finnish.rhymes()` landed at `f94383c`, whose own commit title is *"two of my own
+MISSING entries were false"*; and `ls corpus/song/fin_*.txt | wc -l` returned
+**11** at `debf64e`, not ten, with `fin_jaakko_juteini.txt` measuring a HIGHER
+Kalevala-metre alliteration excess than the Kanteletar itself. The corpus half
+is VOLATILE — other cells write that directory — so it is pinned to a commit and
+re-derived rather than recorded. Full account in `MISSING.md` M-6 and
+`quality/RESULTS_FIN_RHYME.md`; the instrument that would have caught it is
+`python3 quality/verify_entries.py`, shapes `SYMBOL_ABSENT` and
+`STAGED_FILE_COUNT`.
 
 ### 2.8 · Five relations.py defects left OPEN by triage
 `Span.unit` (needs the granularity ladder), `SpanRule.terminator` (duplicates
@@ -216,9 +252,12 @@ convention. All asserted as OPEN in the suite so closing one fails a test.
 route carries **no living copyright**: `kanripo/KR4j` 白文 (文淵閣四庫全書, 1782)
 segmented by the 欽定詞譜 (1715). Needs a build; the pieces are all reachable.
 
-### 3.2 · ZERO named airs across 8,009 non-English songs `M-11` — AND THE FIELD IS NOT DECLARED
+### 3.2 · ZERO named airs across EVERY non-English song staged `M-11` — AND THE FIELD IS NOT DECLARED
 The field the whole sourcing round was chasing. ~~The English corpus has 331 of
-5,006.~~ **There is no `--- AIR:` marker anywhere in `corpus/song/`.** The
+5,006.~~ ~~8,009 non-English songs~~ — **the denominator has moved and the ZERO
+has not**, which is why this heading no longer carries one: `M-11` records the
+per-prefix table, measured at run time, and the 0 is the finding and does not
+depend on it. **There is no `--- AIR:` marker anywhere in `corpus/song/`.** The
 declared markers are TITLE, SOURCE, AUTHOR, GE, RHYME, JU, SECTION, JUAN, RIME,
 SYLLABLES, FROM, NOTE. The 331 reproduces exactly and is a **substring count** —
 TITLE strings containing the word "air" anywhere, which includes *"The Birds Of
@@ -245,11 +284,17 @@ where a measurement should be.
 All four recorded Whitman figures sit inside one line-permutation null. The
 replacement is the corpus's own shuffled self plus a multi-author positive.
 
-### 3.6 · Corpus adversary (adversary 5)
+### 3.6 · Corpus adversary (adversary 5) `BUILT 2026-08-11`
 Systematise doctrines 50/52/53: a runner that checks every `corpus/` file
 against its `sources.tsv` row — declared language vs measured readability,
 md5 vs recorded, licence path vs actual path, and the channel-specific
 orthography check that caught the Háttatal OCR.
+**MET**, at `c661b93`: `quality/audit_corpus.py`, results in
+`quality/RESULTS_CORPUS_AUDIT.md`, regressions in
+`quality/test_corpus_audit.py`. Its first run found that **42.3% of the
+Coleridge file is Wordsworth**. §0's row said `ad hoc` for a week after it
+landed — the STATUS column is a judgement and stays one, but the instrument
+column is a path and `python3 quality/verify_entries.py` now checks it.
 
 ---
 
@@ -291,18 +336,40 @@ Every named entry in `RHYME_CANON.md` and `relations.py` must cite a source
 that is not this repo. `gabay higaad` was reconstructed from our own modules
 and the truncation "converted an external check into a self-confirmation."
 **Acceptance:** a runner that lists every name with no external citation.
-**MET.** `python3 quality/audit_register.py --provenance` lists them: 117 named
-structures, 117 with no external citation, 611 `from:` references into a survey
-array that is not in the repository, 0 publication-year tokens in 94 KB, and 19
-names whose only witness is this project. `relations.py` hangs 298 `Tradition`
-rows off 77 schemas and every `Tradition.source` is an `R<n>` pointer back into
-that document. **The gap it found is now `MISSING.md` M-15a and is OPEN**; the
-runner is done, the repair is not.
+**MET.** `python3 quality/audit_register.py --provenance` lists them. Every
+figure below is that runner's current output; the struck ones are what this
+section recorded and are kept because two of the four moved for a reason inside
+the runner rather than inside the canon.
+- **117 named structures**, of which ~~117~~ **112** carry no external citation
+  *in the §2 block itself* — that detector reads a year or one of six repo names
+  and does not see the `- witness:` lines, and §4b is the repair's measure.
+- ~~611~~ **781** `from:` references over **594 distinct indices**, counted
+  MULTI-LINE. The 611 is the single-line rule, and the runner names it **as its
+  own doctrine-58 error** rather than quietly replacing it.
+- ~~0~~ **25** publication-year tokens in the file — the 0 was the sharpest
+  single finding here and it has been repaired.
+- **19** names whose only witness is this project, superseded by §4b:
+  `quality/canon_index.tsv` declares **601** indices and **116 of 117** named
+  structures now reach a witness outside this project, 1 reaches none.
+- `relations.py` hangs **298 `Tradition` rows over 319 attachments** off 77
+  schemas, of which 75 carry traditions. ~~every `Tradition.source` is an `R<n>`
+  pointer~~ — **212 are externally witnessed, 26 are this project's own, 60
+  cannot be told**, three counts and not a rate (doctrine 79).
+
+**The gap it found is now `MISSING.md` M-15a and is OPEN**; the runner is done,
+the repair is partial.
 
 ### 4.4 · ~~`rhyme_constraints.py` — 1,325 stranded lines~~ `DECIDED 2026-08-11`
-~~The only genuinely stranded module.~~ Measured today: **1,566 lines**, an
-`if __name__ == "__main__"`, and two callers (`relations.py`,
-`test_relations.py`). **Both branches were taken, and the file says which and
+~~The only genuinely stranded module.~~ `quality/rhyme_constraints.py` is **1,566 lines**.
+It has an `if __name__ == "__main__"` and non-test callers.
+(The line count is now stated in a sentence naming exactly ONE module, because
+`python3 quality/verify_entries.py`'s `MODULE_LINE_COUNT` shape REFUSES a count
+whose module is ambiguous and the previous phrasing named three in one breath.
+The 1,566 is `wc -l` and `str.splitlines()`, which agree. `audit_register.py`
+D22 prints **1,567** for the same file: it computes `src.count("\n") + 1`, which
+counts a phantom final line whenever a file ends in a newline. That is an
+off-by-one in the auditor, not a drift in the module, and it is written up in
+this cell's `PATCHES-not-mine.md` rather than patched from here.) **Both branches were taken, and the file says which and
 why:** the knowledge sets are mined into `relations.py` — `Syllable` fields may
 now each hold a scalar or a `Readings` frozenset, with the TYPE as the marker so
 there is no flag to forget — **and** the module is kept as a comparison runner

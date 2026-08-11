@@ -246,6 +246,24 @@ ADJUDICATED = {
 #: the quoted string had to be found in it by the command in the last field.
 #: The expected name is part of the key for the same reason as in ADJUDICATED
 #: -- an index is a position, and a position is not an identity.
+#:
+#: THE SEARCH FOR MORE OF THESE WAS RUN AND CAME BACK EMPTY, and the negative
+#: is recorded rather than remembered (doctrine 39).  24 indices name a repo
+#: module as their only witness, so each of those modules was checked for a
+#: dated external source quoted the way `non.py` quotes Háttatal:
+#:
+#:   grep -oE '\b1[2-9][0-9]{2}\b|\b20[0-2][0-9]\b' quality/phonology/*.py
+#:
+#: Only `non.py` and `ltc.py` yield one.  `cym.py`'s 1556 is a ROW COUNT in a
+#: results table, `fin.py`'s 1529 is the tail of the percentage 82.1529%, its
+#: 1346 is another row count, and its 1864 dates a corpus FILE rather than the
+#: statement of a rule.  `msa.py`, `san.py`, `fas.py` and `som.py` cite no
+#: dated work at all.  So `cynghanedd lusg`, `Kalevala weak alliteration`,
+#: `Malay reduplication` and the rest STAY `project`: the module is genuinely
+#: the only witness this repository holds for them, and writing a plausible
+#: handbook citation beside them would be the `gabay higaad` error committed
+#: deliberately.  Anyone extending this table must be able to show the quoted
+#: string and the year IN the file, by running the row's own command.
 PRIMARY_IN_REPO = {
     "G1": ("skothending", "Snorri Sturluson, Háttatal, c. 1222-25",
            "quality/phonology/non.py",
