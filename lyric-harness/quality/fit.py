@@ -823,11 +823,21 @@ class LineFit:
     def describe(self):
         u = self.units
         bound = "" if u.certain else "  (LOWER BOUND — see refusals)"
+        if not u.units:
+            return "\n".join(
+                [self.placement.describe(), f"  {u.text!r}",
+                 "  count REFUSED — nothing in the line was read, so it is "
+                 "unknown and not 0"]
+                + ["  " + r.render().replace("\n", "\n  ")
+                   for r in self.refusals])
+        dens = ("no density: the declared duration is not positive"
+                if self.per_pulse is None else
+                f"= {_num(self.per_pulse)} per pulse, "
+                f"{_num(self.per_bar)} per bar")
         out = [f"{self.placement.describe()}",
                f"  {u.text!r}",
                f"  {u.count} {u.unit_name}s over {_num(self.pulses)} pulses "
-               f"= {_num(self.per_pulse)} per pulse, "
-               f"{_num(self.per_bar)} per bar{bound}"]
+               f"{dens}{bound}"]
         for f in self.findings:
             out.append("  " + str(f).replace("\n", "\n  "))
         for r in self.refusals:

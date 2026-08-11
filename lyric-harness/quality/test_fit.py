@@ -33,9 +33,9 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 
 from quality import phonology as PH                    # noqa: E402
 from quality.fit import (ANSWERABLE, UNANSWERABLE, FitFinding,  # noqa: E402
-                         FitRefusal, Isochrony, LineFit, Placement, Refused,
-                         Subdivision, _max_prominent_on_heads, _no_tempo,
-                         fit_line, fit_song, from_blueprint, read_line, report)
+                         FitRefusal, Isochrony, Placement, Subdivision,
+                         _max_prominent_on_heads, _no_tempo, fit_line,
+                         fit_song, from_blueprint, read_line, report)
 from quality.meter import Cycle                        # noqa: E402
 
 BLUEPRINT = os.path.join(HERE, "..", "examples",
