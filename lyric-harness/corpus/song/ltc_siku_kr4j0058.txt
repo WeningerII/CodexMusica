@@ -1,0 +1,331 @@
+# collection: 斷腸詞 (KR4j0058), 集部/詞曲類 of the Kanseki Repository.
+#          15 ci, 11 詞牌.
+#          Author, from the collection's own title page: 朱淑真.
+# source: kanripo/KR4j0058 md5 6fb88585fb6651ac9327df7bec7a2a63 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0058 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 朱淑真 as 撰. Every poem carries it.
+
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+春巷夭桃吐絳英。
+春衣初試薄羅輕。
+風和烟煗燕巢成。
+[VERSE 2]
+小院湘簾閒不捲，
+曲房朱戸悶長扄。
+惱人光㬌又清明。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉體金釵一様嬌。
+背燈初解繡裙腰。
+衾寒枕冷夜香銷。
+[VERSE 2]
+深院重關春寂寂，
+落花和雨夜迢迢。
+恨情和夣更無聊。
+
+--- TITLE: 生查子  [air: 生查子]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 生查子
+[VERSE 1]
+寒食不多時，
+幾日東風惡。
+無緒倦尋芳，
+閒却鞦韆索。
+[VERSE 2]
+玉減翠裙交，
+病怯羅衣薄。
+不忍捲簾㸔，
+寂莫梨花落。
+
+--- TITLE: 生查子 其2  [air: 生查子]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+年年玉鏡臺，
+梅蕋宫粧困。
+今嵗未還家，
+怕見江南信。
+酒從别後疎，
+淚向愁中盡。
+遥想楚雲深，
+人逺天涯近。
+
+--- TITLE: 江城子  [air: 江城子]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 江城子
+[VERSE 1]
+斜風細雨作春寒。
+對尊前。
+憶前歡。
+曽把梨花寂莫淚䦨干。
+芳草斷煙南浦路，
+和别淚，
+看青山。
+[VERSE 2]
+昨宵結得夢夤縁。
+水雲間。
+悄無言。
+爭奈醒來愁恨又依然。
+展轉衾裯空懊惱，
+天易見，
+見伊難。
+
+--- TITLE: 減字木蘭花  [air: 減字木蘭花]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 減字木蘭花
+[VERSE 1]
+獨行獨坐。
+獨倡獨酬還獨卧。
+佇立傷神。
+無奈春寒著摸人。
+[VERSE 2]
+此情誰見。
+淚洗殘粧無一半。
+愁病相仍。
+剔盡寒燈夢不成。
+
+--- TITLE: 眼兒媚  [air: 眼兒媚]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 眼兒媚 48字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.5.7.10
+--- JU: 3.4.6.8.9
+--- HEADING-AS-PRINTED: 眼兒媚
+[VERSE 1]
+遲遲風日弄輕柔。
+花徑暗香流。
+清明過了，
+不堪回首，
+雲鎖朱樓。
+[VERSE 2]
+午窗睡起鸎聲巧，
+何處喚春愁。
+緑楊影裏，
+海棠枝畔，
+紅杏梢頭。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+獨倚䦨干晝日長。
+紛紛蜂蝶鬬輕狂。
+一天飛絮東風惡，
+滿路桃花春水香。
+[VERSE 2]
+當此際，
+意偏長。
+萋萋芳草傍池塘。
+千鍾尚欲偕春醉，
+幸有荼䕷與海棠。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+風光𦂳急。
+三月俄三十。
+擬欲留連計無及。
+緑野煙愁露泣。
+[VERSE 2]
+倩誰寄語春宵。
+城頭畫鼔輕敲。
+繾綣臨岐囑付，
+來年早到梅梢。
+
+--- TITLE: 清平樂 其2  [air: 清平樂]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+惱煙撩露。
+留我須㬰住。
+㩦手藕花湖上路。
+一霎黃梅細雨。
+[VERSE 2]
+嬌癡不怕人猜。
+隨羣暫遣愁懷。
+最是分㩦時候，
+歸來嬾傍粧臺。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+樓外垂楊千萬縷。
+欲繫青春，
+少住春還去。
+猶自風前飄柳絮。
+隨春且看歸何處。
+[VERSE 2]
+緑滿山川聞杜宇。
+便做無情，
+莫也愁人苦。
+把酒送春春不語。
+黄昏却下瀟瀟雨。
+
+--- TITLE: 鵲橋仙  [air: 鵲橋仙]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 鵲橋仙 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.10
+--- JU: 1.2.4.6.7.9
+--- HEADING-AS-PRINTED: 鵲橋仙
+[VERSE 1]
+巧雲粧晩，
+西風罷暑，
+小雨翻空月墜。
+牽牛織女㡬經秋，
+尚多少離腸恨淚。
+[VERSE 2]
+微涼入袂，
+幽歡生座，
+天上人間滿意。
+何如暮暮與朝朝，
+更改却年年歲歲。
+
+--- TITLE: 卜算子  [air: 卜算子]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 卜算子
+[VERSE 1]
+竹裏一枝梅，
+映帯林逾静。
+雨後清竒畫不成，
+淺水横疎影。
+[VERSE 2]
+吹徹小單于，
+心事思重省。
+拂拂風前度暗香，
+月色侵花冷。
+
+--- TITLE: 柳梢青  [air: 柳梢青]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 柳梢青 49字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.8.11
+--- JU: 2.4.5.9.10
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+凍合疎籬。
+半飄殘雪，
+斜臥枝低。
+可便相宜，
+煙藏修竹，
+月在寒溪。
+[VERSE 2]
+亭亭竚立移時。
+拚瘦損無妨為伊。
+誰賦才情，
+画成幽思，
+寫入新詞。
+
+--- TITLE: 柳梢青 其2  [air: 柳梢青]
+--- AUTHOR: 朱淑真
+--- SOURCE: KR4j0058 斷腸詞 / JUAN 斷腸詞
+--- GE: 欽定詞譜 柳梢青 49字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.8.11
+--- JU: 2.4.5.9.10
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雪舞霜飛。
+隔簾疎影，
+微見横枝。
+不道寒香，
+解隨羌管，
+吹到屏幃。
+[VERSE 2]
+箇中風味誰知。
+睡乍起烏雲甚欹。
+嚼蕋粧英，
+淺顰輕笑，
+酒半醒時。

@@ -1,0 +1,1025 @@
+# author: James Hogg (1770-1835)
+# source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
+#         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
+# licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.',
+#          rights_url creativecommons.org/about/pdm
+# edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel; or, The Songs of Scotland of the Past Half
+#          Century', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857 (title page reproduced in the file).
+#          Editor Rogers d. 1890. Pre-1931 edition; no modern editorial layer.
+# orthography: Scots, UNNORMALISED. NOTE THE EDITION'S TYPOGRAPHY: Rogers prints a SPACE before enclitic
+#          's / 'll / 're ("There 's high and low", "Wha 'll buy caller herrin'"). That space is the 1855
+#          compositor's convention, NOT modern spelling, and it has been left in place. A whitespace
+#          tokeniser will therefore see "'s" as its own token here but not in the Burns file.
+#          The apostrophe in a' o' wi' frae marks ELISION, as in Burns.
+# structure: [VERSE n] / [CHORUS] / [REFRAIN]; [REFRAIN] is the abbreviated refrain cue ('Wha 'll buy
+#          caller herrin'? &c.') the edition prints at the foot of each stanza.
+# stripped: PG header/footer, editor's biographical memoirs, [n] footnote markers and footnote bodies,
+#          glossary, tables of contents
+# tune: 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
+
+--- TITLE: DONALD MACDONALD  [air: Woo'd, and married, and a']
+[VERSE 1]
+My name it is Donald Macdonald,
+  I leeve in the Highlands sae grand;
+I hae follow'd our banner, and will do,
+  Wherever my master has land.
+When rankit amang the blue bonnets,
+  Nae danger can fear me ava;
+I ken that my brethren around me
+  Are either to conquer or fa':
+[CHORUS]
+      Brogues an' brochin an' a',
+      Brochin an' brogues an' a';
+      An' is nae her very weel aff,
+      Wi' her brogues and brochin an' a'?
+[VERSE 2]
+What though we befriendit young Charlie?--
+  To tell it I dinna think shame;
+Poor lad! he cam to us but barely,
+  An' reckon'd our mountains his hame.
+'Twas true that our reason forbade us,
+  But tenderness carried the day;
+Had Geordie come friendless amang us,
+  Wi' him we had a' gane away.
+[CHORUS]
+      Sword an' buckler an' a',
+      Buckler an' sword an' a';
+      Now for George we 'll encounter the devil,
+      Wi' sword an' buckler and a'!
+[VERSE 3]
+An' O, I wad eagerly press him
+  The keys o' the East to retain;
+For should he gie up the possession,
+  We 'll soon hae to force them again,
+Than yield up an inch wi' dishonour,
+  Though it were my finishing blow,
+He aye may depend on Macdonald,
+  Wi' his Hielanders a' in a row:
+[CHORUS]
+      Knees an' elbows an' a',
+      Elbows an' knees an' a';
+      Depend upon Donald Macdonald,
+      His knees an' elbows an' a'.
+[VERSE 4]
+Wad Bonaparte land at Fort William,
+  Auld Europe nae langer should grane;
+I laugh when I think how we 'd gall him
+  Wi' bullet, wi' steel, an wi' stane;
+Wi' rocks o' the Nevis and Garny
+  We 'd rattle him off frae our shore,
+Or lull him asleep in a cairny,
+  An' sing him--"Lochaber no more!"
+[CHORUS]
+      Stanes an' bullets an a',
+      Bullets an' stanes an' a';
+      We 'll finish the Corsican callan
+      Wi' stanes an' bullets an' a'.
+[VERSE 5]
+For the Gordon is good in a hurry,
+  An' Campbell is steel to the bane,
+An' Grant, an' Mackenzie, an' Murray,
+  An' Cameron will hurkle to nane;
+The Stuart is sturdy an' loyal,
+  An' sae is Macleod an' Mackay;
+An' I, their gude-brither Macdonald,
+  Shall ne'er be the last in the fray!
+[CHORUS]
+      Brogues and brochin an' a',
+      Brochin an' brogues an' a';
+      An' up wi' the bonny blue bonnet,
+      The kilt an' the feather an' a'.
+
+--- TITLE: FLORA MACDONALD'S FAREWELL
+[VERSE 1]
+Far over yon hills of the heather sae green,
+  An' down by the corrie that sings to the sea,
+The bonny young Flora sat sighing her lane,
+  The dew on her plaid, and the tear in her e'e.
+She look'd at a boat wi' the breezes that swung,
+  Away on the wave, like a bird of the main;
+An' aye as it lessen'd she sigh'd and she sung,
+  Fareweel to the lad I shall ne'er see again!
+Fareweel to my hero, the gallant and young,
+  Fareweel to the lad I shall ne'er see again!
+[VERSE 2]
+The moorcock that craws on the brows of Ben-Connal,
+  He kens of his bed in a sweet mossy hame;
+The eagle that soars o'er the cliffs of Clan-Ronald,
+  Unawed and unhunted his eyrie can claim;
+The solan can sleep on the shelve of the shore,
+  The cormorant roost on his rock of the sea,
+But, ah! there is one whose hard fate I deplore,
+  Nor house, ha', nor hame in his country has he:
+The conflict is past, and our name is no more--
+  There 's nought left but sorrow for Scotland and me!
+[VERSE 3]
+The target is torn from the arm of the just,
+  The helmet is cleft on the brow of the brave,
+The claymore for ever in darkness must rust,
+  But red is the sword of the stranger and slave;
+The hoof of the horse, and the foot of the proud,
+  Have trod o'er the plumes on the bonnet of blue,
+Why slept the red bolt in the breast of the cloud,
+  When tyranny revell'd in blood of the true?
+Fareweel, my young hero, the gallant and good!
+  The crown of thy fathers is torn from thy brow!
+
+--- TITLE: BONNY PRINCE CHARLIE
+[VERSE 1]
+Cam ye by Athol, lad wi' the philabeg,
+  Down by the Tummel or banks o' the Garry,
+Saw ye our lads wi' their bonnets and white cockades,
+  Leaving their mountains to follow Prince Charlie?
+    Follow thee! follow thee! wha wadna follow thee?
+      Lang hast thou loved and trusted us fairly!
+    Charlie, Charlie, wha wadna follow thee,
+      King o' the Highland hearts, bonnie Prince Charlie?
+[VERSE 2]
+I hae but ae son, my gallant young Donald;
+  But if I had ten they should follow Glengarry!
+Health to M'Donnell and gallant Clan-Ronald--
+  For these are the men that will die for their Charlie!
+[REFRAIN]
+    Follow thee! follow thee! &c.
+[VERSE 3]
+I 'll to Lochiel and Appin, and kneel to them,
+  Down by Lord Murray, and Roy of Kildarlie;
+Brave M'Intosh, he shall fly to the field with them,
+  These are the lads I can trust wi' my Charlie!
+[REFRAIN]
+    Follow thee! follow thee! &c.
+[VERSE 4]
+Down through the Lowlands, down wi' the Whigamore!
+  Loyal true Highlanders, down wi' them rarely!
+Ronald and Donald, drive on, wi' the broad claymore,
+  Over the necks o' the foes o' Prince Charlie!
+    Follow thee! follow thee! wha wadna follow thee?
+      Long hast thou loved and trusted us fairly!
+    Charlie, Charlie, wha wadna follow thee,
+      King o' the Highland hearts, bonny Prince Charlie?
+
+--- TITLE: THE SKYLARK
+[VERSE 1]
+    Bird of the wilderness,
+    Blithesome and cumberless,
+Sweet be thy matin o'er moorland and lea!
+    Emblem of happiness,
+    Bless'd is thy dwelling-place--
+O to abide in the desert with thee!
+    Wild is thy lay and loud,
+    Far in the downy cloud,
+Love gives it energy, love gave it birth.
+    Where on thy dewy wing,
+    Where art thou journeying?
+Thy lay is in heaven, thy love is on earth.
+    O'er fell and mountain sheen,
+    O'er moor and mountain green,
+O'er the red streamer that heralds the day,
+    Over the cloudlet dim,
+    Over the rainbow's rim,
+Musical cherub, soar, singing, away!
+    Then, when the gloaming comes,
+    Low in the heather blooms,
+Sweet will thy welcome and bed of love be!
+    Emblem of happiness,
+    Blest is thy dwelling-place--
+O to abide in the desert with thee!
+
+--- TITLE: CALEDONIA
+[VERSE 1]
+Caledonia! thou land of the mountain and rock,
+  Of the ocean, the mist, and the wind--
+Thou land of the torrent, the pine, and the oak,
+  Of the roebuck, the hart, and the hind:
+Though bare are thy cliffs, and though barren thy glens,
+  Though bleak thy dun islands appear,
+Yet kind are the hearts, and undaunted the clans,
+  That roam on these mountains so drear!
+[VERSE 2]
+A foe from abroad, or a tyrant at home,
+  Could never thy ardour restrain;
+The marshall'd array of imperial Rome
+  Essay'd thy proud spirit in vain!
+Firm seat of religion, of valour, of truth,
+  Of genius unshackled and free,
+The Muses have left all the vales of the south,
+  My loved Caledonia, for thee!
+[VERSE 3]
+Sweet land of the bay and the wild-winding deeps,
+  Where loveliness slumbers at even,
+While far in the depth of the blue water sleeps,
+  A calm little motionless heaven!
+Thou land of the valley, the moor, and the hill,
+  Of the storm, and the proud-rolling wave--
+Yes, thou art the land of fair liberty still,
+  And the land of my forefathers' grave!
+
+--- TITLE: O, JEANIE, THERE 'S NAETHING TO FEAR YE!  [air: Over the Border]
+[VERSE 1]
+O, my lassie, our joy to complete again,
+  Meet me again i' the gloamin', my dearie;
+Low down in the dell let us meet again--
+  O, Jeanie, there 's naething to fear ye!
+Come, when the wee bat flits silent and eiry,
+Come, when the pale face o' Nature looks weary;
+      Love be thy sure defence,
+      Beauty and innocence--
+  O, Jeanie, there 's naething to fear ye!
+[VERSE 2]
+Sweetly blaw the haw an' the rowan tree,
+  Wild roses speck our thicket sae breery;
+Still, still will our walk in the greenwood be--
+  O, Jeanie, there 's naething to fear ye!
+List when the blackbird o' singing grows weary,
+List when the beetle-bee's bugle comes near ye,
+      Then come with fairy haste,
+      Light foot, an' beating breast--
+  O, Jeanie, there 's naething to fear ye!
+[VERSE 3]
+Far, far will the bogle and brownie be,
+  Beauty an' truth, they darena come near it;
+Kind love is the tie of our unity,
+  A' maun love it, an' a' maun revere it.
+'Tis love maks the sang o' the woodland sae cheery,
+Love gars a' Nature look bonny that 's near ye;
+      That makes the rose sae sweet,
+      Cowslip an' violet--
+  O, Jeanie, there 's naething to fear ye!
+
+--- TITLE: WHEN THE KYE COMES HAME  [air: Shame fa' the gear and the blathrie o't]
+[VERSE 1]
+Come all ye jolly shepherds,
+  That whistle through the glen,
+I 'll tell ye of a secret
+  That courtiers dinna ken:
+What is the greatest bliss
+  That the tongue o' man can name?
+'Tis to woo a bonny lassie
+  When the kye comes hame.
+    When the kye comes hame,
+    When the kye comes hame,
+    'Tween the gloamin' an' the mirk,
+    When the kye comes hame.
+[VERSE 2]
+'Tis not beneath the coronet,
+  Nor canopy of state,
+'Tis not on couch of velvet,
+  Nor arbour of the great--
+'Tis beneath the spreadin' birk,
+  In the glen without the name,
+Wi' a bonny, bonny lassie,
+  When the kye comes hame.
+[REFRAIN]
+    When the kye comes hame, &c.
+[VERSE 3]
+There the blackbird bigs his nest
+  For the mate he lo'es to see,
+And on the topmost bough,
+  O, a happy bird is he;
+Where he pours his melting ditty,
+  And love is a' the theme,
+And he 'll woo his bonny lassie
+  When the kye comes hame.
+[REFRAIN]
+    When the kye comes hame, &c.
+[VERSE 4]
+When the blewart bears a pearl,
+  And the daisy turns a pea,
+And the bonny lucken gowan
+  Has fauldit up her e'e,
+Then the laverock frae the blue lift
+  Doops down, an' thinks nae shame
+To woo his bonny lassie
+  When the kye comes hame.
+[REFRAIN]
+    When the kye comes hame, &c.
+[VERSE 5]
+See yonder pawkie shepherd,
+  That lingers on the hill,
+His ewes are in the fauld,
+  An' his lambs are lying still;
+Yet he downa gang to bed,
+  For his heart is in a flame,
+To meet his bonny lassie
+  When the kye comes hame.
+[REFRAIN]
+    When the kye comes hame, &c.
+[VERSE 6]
+When the little wee bit heart
+  Rises high in the breast,
+An' the little wee bit starn
+  Rises red in the east,
+O there 's a joy sae dear
+  That the heart can hardly frame,
+Wi' a bonny, bonny lassie,
+  When the kye comes hame!
+[REFRAIN]
+    When the kye comes hame, &c.
+[VERSE 7]
+Then since all Nature joins
+  In this love without alloy,
+O, wha would prove a traitor
+  To Nature's dearest joy?
+Or wha would choose a crown,
+  Wi' its perils and its fame,
+And miss his bonny lassie
+  When the kye comes hame?
+    When the kye comes hame,
+    When the kye comes home,
+    'Tween the gloamin' an' the mirk,
+    When the kye comes hame!
+
+--- TITLE: THE WOMEN FOLK
+[VERSE 1]
+O sarely may I rue the day
+  I fancied first the womenkind;
+For aye sinsyne I ne'er can hae
+  Ae quiet thought or peace o' mind!
+They hae plagued my heart, an' pleased my e'e,
+  An' teased an' flatter'd me at will,
+But aye, for a' their witchery,
+  The pawky things I lo'e them still.
+    O, the women folk! O, the women folk!
+      But they hae been the wreck o' me;
+    O, weary fa' the women folk,
+      For they winna let a body be!
+[VERSE 2]
+I hae thought an' thought, but darena tell,
+  I 've studied them wi' a' my skill,
+I 've lo'ed them better than mysel,
+  I 've tried again to like them ill.
+Wha sairest strives, will sairest rue,
+  To comprehend what nae man can;
+When he has done what man can do,
+  He 'll end at last where he began.
+[REFRAIN]
+    O, the woman folk, &c.
+[VERSE 3]
+That they hae gentle forms an' meet,
+  A man wi' half a look may see;
+An' gracefu' airs, an' faces sweet,
+  An' waving curls aboon the bree;
+An' smiles as soft as the young rose-bud,
+  An' e'en sae pauky, bright, an' rare,
+Wad lure the laverock frae the clud--
+  But, laddie, seek to ken nae mair!
+[REFRAIN]
+    O, the woman folk, &c.
+[VERSE 4]
+Even but this night, nae farther gane,
+  The date is neither lost nor lang,
+I tak ye witness ilka ane,
+  How fell they fought, and fairly dang.
+Their point they 've carried right or wrang,
+  Without a reason, rhyme, or law,
+An' forced a man to sing a sang,
+  That ne'er could sing a verse ava.
+    O, the woman folk! O, the woman folk!
+      But they hae been the wreck o' me;
+    O, weary fa' the women folk,
+      For they winna let a body be!
+
+--- TITLE: M'LEAN'S WELCOME
+[VERSE 1]
+Come o'er the stream, Charlie,
+Dear Charlie, brave Charlie;
+Come o'er the stream, Charlie,
+  And dine with M'Lean;
+And though you be weary,
+We 'll make your heart cheery,
+And welcome our Charlie,
+  And his loyal train.
+We 'll bring down the track deer,
+We 'll bring down the black steer,
+The lamb from the braken,
+  And doe from the glen,
+The salt sea we 'll harry,
+And bring to our Charlie
+The cream from the bothy
+  And curd from the penn.
+[VERSE 2]
+Come o'er the stream, Charlie,
+Dear Charlie, brave Charlie;
+Come o'er the sea, Charlie,
+  And dine with M'Lean;
+And you shall drink freely
+The dews of Glen-sheerly,
+That stream in the starlight
+  When kings do not ken;
+And deep be your meed
+Of the wine that is red,
+To drink to your sire,
+  And his friend The M'Lean.
+[VERSE 3]
+  Come o'er the stream, Charlie,
+  Dear Charlie, brave Charlie;
+  Come o'er the stream, Charlie,
+    And dine with M'Lean;
+  If aught will invite you
+  Or more will delight you
+'Tis ready, a troop of our bold Highlandmen,
+  All ranged on the heather,
+  With bonnet and feather,
+  Strong arms and broad claymores,
+    Three hundred and ten!
+
+--- TITLE: CHARLIE IS MY DARLING
+[VERSE 1]
+'Twas on a Monday morning,
+  Right early in the year,
+That Charlie cam' to our town,
+  The young Chevalier.
+    An' Charlie is my darling,
+      My darling, my darling;
+    Charlie is my darling,
+      The young Chevalier.
+[VERSE 2]
+As Charlie he came up the gate,
+  His face shone like the day;
+I grat to see the lad come back
+  That had been lang away.
+[REFRAIN]
+    An' Charlie is my darling, &c.
+[VERSE 3]
+Then ilka bonny lassie sang,
+  As to the door she ran,
+Our King shall hae his ain again,
+  An' Charlie is the man:
+[REFRAIN]
+    For Charlie he 's my darling, &c.
+[VERSE 4]
+Out ow'r yon moory mountain,
+  An' down the craggy glen,
+Of naething else our lasses sing,
+  But Charlie an' his men.
+[REFRAIN]
+    An' Charlie he 's my darling, &c.
+[VERSE 5]
+Our Highland hearts are true an' leal,
+  An' glow without a stain;
+Our Highland swords are metal keen,
+  An' Charlie he 's our ain.
+    An' Charlie he 's my darling,
+      My darling, my darling;
+    Charlie he 's my darling,
+      The young Chevalier.
+
+--- TITLE: LOVE IS LIKE A DIZZINESS  [air: Paddy's Wedding]
+[VERSE 1]
+I lately lived in quiet ease,
+  An' never wish'd to marry, O!
+But when I saw my Peggy's face,
+  I felt a sad quandary, O!
+Though wild as ony Athol deer,
+  She has trepann'd me fairly, O!
+Her cherry cheeks an' e'en sae clear
+  Torment me late an' early, O!
+    O, love, love, love!
+      Love is like a dizziness,
+    It winna let a poor body
+      Gang about his business!
+[VERSE 2]
+To tell my feats this single week,
+  Would mak' a daft-like diary, O!
+I drave my cart outow'r a dike,
+  My horses in a miry, O!
+I wear my stockings white an' blue,
+  My love 's sae fierce an' fiery, O!
+I drill the land that I should plough,
+  An' plough the drills entirely, O!
+[REFRAIN]
+      O, love, love, love! &c.
+[VERSE 3]
+Ae morning, by the dawn o' day,
+  I rose to theek the stable, O!
+I keust my coat an' plied away
+  As fast as I was able, O!
+I wrought that morning out an' out,
+  As I 'd been redding fire, O!
+When I had done an' look'd about,
+  Gude faith, it was the byre, O!
+[REFRAIN]
+      O, love, love, love! &c.
+[VERSE 4]
+Her wily glance I 'll ne'er forget,
+  The dear, the lovely blinkin' o't
+Has pierced me through an' through the heart,
+  An' plagues me wi' the prinklin' o't.
+I tried to sing, I tried to pray,
+  I tried to drown 't wi' drinkin' o't,
+I tried wi' sport to drive 't away,
+  But ne'er can sleep for thinkin' o't.
+[REFRAIN]
+      O, love, love, love! &c.
+[VERSE 5]
+Nae man can tell what pains I prove,
+  Or how severe my pliskie, O!
+I swear I 'm sairer drunk wi' love
+  Than e'er I was wi' whisky, O!
+For love has raked me fore an' aft,
+  I scarce can lift a leggie, O!
+I first grew dizzy, then gaed daft,
+  An' soon I 'll dee for Peggy, O!
+[CHORUS]
+      O, love, love, love!
+        Love is like a dizziness,
+      It winna let a poor body
+        Gang about his business!
+
+--- TITLE: O, WEEL BEFA' THE MAIDEN GAY
+[VERSE 1]
+O, weel befa' the maiden gay,
+  In cottage, bught, or penn,
+An' weel befa' the bonny May
+  That wons in yonder glen;
+Wha loes the modest truth sae weel,
+Wha 's aye kind, an' aye sae leal,
+An' pure as blooming asphodel
+  Amang sae mony men.
+O, weel befa' the bonny thing
+  That wons in yonder glen!
+[VERSE 2]
+'Tis sweet to hear the music float
+  Along the gloaming lea;
+'Tis sweet to hear the blackbird's note
+  Come pealing frae the tree;
+To see the lambkins lightsome race--
+The speckled kid in wanton chase--
+The young deer cower in lonely place,
+  Deep in her flowing den;
+But sweeter far the bonny face
+  That smiles in yonder glen!
+[VERSE 3]
+O, had it no' been for the blush
+  O' maiden's virgin flame,
+Dear beauty never had been known,
+  An' never had a name;
+But aye sin' that dear thing o' blame
+Was modell'd by an angel's frame,
+The power o' beauty reigns supreme
+  O'er a' the sons o' men;
+But deadliest far the sacred flame
+  Burns in a lonely glen!
+[VERSE 4]
+There 's beauty in the violet's vest--
+  There 's hinney in the haw--
+There 's dew within the rose's breast,
+  The sweetest o' them a'.
+The sun will rise an' set again,
+An' lace wi' burning goud the main--
+The rainbow bend outow'r the plain,
+  Sae lovely to the ken;
+But lovelier far the bonny thing
+  That wons in yonder glen!
+
+--- TITLE: THE FLOWERS OF SCOTLAND  [air: The Blue Bells of Scotland]
+[VERSE 1]
+What are the flowers of Scotland,
+  All others that excel--
+The lovely flowers of Scotland,
+  All others that excel?
+The thistle's purple bonnet,
+  And bonny heather-bell,
+O, they 're the flowers of Scotland,
+  All others that excel!
+[VERSE 2]
+Though England eyes her roses
+  With pride she 'll ne'er forego,
+The rose has oft been trodden
+  By foot of haughty foe;
+But the thistle in her bonnet blue,
+  Still nods outow'r the fell,
+And dares the proudest foeman
+  To tread the heather-bell.
+[VERSE 3]
+For the wee bit leaf o' Ireland,
+  Alack and well-a-day!
+For ilka hand is free to pu'
+  An' steal the gem away.
+But the thistle in her bonnet blue
+  Still bobs aboon them a';
+At her the bravest darena blink,
+  Or gie his mou' a thraw.
+[VERSE 4]
+Up wi' the flowers o' Scotland,
+  The emblems o' the free,
+Their guardians for a thousand years,
+  Their guardians still we 'll be.
+A foe had better brave the deil,
+  Within his reeky cell,
+Than our thistle's purple bonnet,
+  Or bonny heather-bell.
+
+--- TITLE: LASS, AN' YE LO'E ME, TELL ME NOW
+[VERSE 1]
+"Afore the muircock begin to craw,
+  Lass, an' ye lo'e me, tell me now,
+The bonniest thing that ever ye saw,
+  For I canna come every night to woo."
+"The gouden broom is bonny to see,
+  An' sae is the milk-white flower o' the haw,
+The daisy's wee freenge is sweet on the lea,
+  But the bud of the rose is the bonniest of a'."
+[VERSE 2]
+"Now, wae light on a' your flow'ry chat,
+  Lass, an' ye lo'e me, tell me now;
+It 's no the thing that I would be at,
+  An' I canna come every night to woo!
+The lamb is bonny upon the brae,
+  The leveret friskin' o'er the knowe,
+The bird is bonny upon the tree--
+  But which is the dearest of a' to you?"
+[VERSE 3]
+"The thing that I lo'e best of a',
+  Lass, an' ye lo'e me, tell me now;
+The dearest thing that ever I saw,
+  Though I canna come every night to woo,
+Is the kindly smile that beams on me,
+  Whenever a gentle hand I press,
+And the wily blink frae the dark-blue e'e
+  Of a dear, dear lassie that they ca' Bess."
+[VERSE 4]
+"Aha! young man, but I cou'dna see,
+  What I lo'e best I 'll tell you now,
+The compliment that ye sought frae me,
+  Though ye canna come every night to woo;
+Yet I would rather hae frae you
+  A kindly look, an' a word witha',
+Than a' the flowers o' the forest pu',
+  Than a' the lads that ever I saw."
+[VERSE 5]
+"Then, dear, dear Bessie, you shall be mine,
+  Sin' a' the truth ye hae tauld me now,
+Our hearts an' fortunes we 'll entwine,
+  An' I 'll aye come every night to woo;
+For O, I canna descrive to thee
+  The feeling o' love's and nature's law,
+How dear this world appears to me
+  Wi' Bessie, my ain for good an' for a'!"
+
+--- TITLE: PULL AWAY, JOLLY BOYS!
+[VERSE 1]
+Here we go upon the tide,
+  Pull away, jolly boys!
+With heaven for our guide,
+              Pull away!
+Here 's a weather-beaten tar,
+Britain's glory still his star,
+He has borne her thunders far,
+  Pull away, jolly boys!
+To your gallant men-of-war,
+              Pull away!
+[VERSE 2]
+We 've with Nelson plough'd the main,
+  Pull away, jolly boys!
+Now his signal flies again,
+              Pull away!
+Brave hearts, then let us go
+To drub the haughty foe,
+Who once again shall know,
+  Pull away, gallant boys!
+That our backs we never shew,
+              Pull away!
+[VERSE 3]
+We have fought and we have sped,
+  Pull away, gallant boys!
+Where the rolling wave was red,
+              Pull away!
+We 've stood many a mighty shock,
+Like the thunder-stricken oak,
+We 've been bent, but never broke,
+  Pull away, gallant boys!
+We ne'er brook'd a foreign yoke,
+              Pull away!
+[VERSE 4]
+Here we go upon the deep,
+  Pull away, gallant boys!
+O'er the ocean let us sweep,
+              Pull away!
+Round the earth our glory rings,
+At the thought my bosom springs,
+That whene'er our pennant swings,
+  Pull away, gallant boys!
+Of the ocean we 're the kings,
+              Pull away!
+
+--- TITLE: O, SAW YE THIS SWEET BONNY LASSIE O' MINE?
+[VERSE 1]
+O, saw ye this sweet bonny lassie o' mine,
+Or saw ye the smile on her cheek sae divine;
+Or saw ye the kind love that speaks in her e'e?
+Sure naebody e'er was so happy as me!
+[VERSE 2]
+It 's no that she dances sae light on the green,
+It 's no the simplicity mark'd in her mien;
+But O, it 's the kind love that speaks in her e'e,
+That makes me as happy as happy can be.
+[VERSE 3]
+To meet her alane 'mang the green leafy trees,
+When naebody kens, an' when naebody sees;
+To breathe out the soul of a saft melting kiss--
+On earth here there 's naething is equal to this!
+[VERSE 4]
+I have felt every bliss which the soul can enjoy,
+When friends circled round me, and nought to annoy;
+I have felt every joy that illumines the breast,
+When the full flowing bowl is most warmly caress'd:
+[VERSE 5]
+But O, there 's a sweet and a heavenly charm
+In life's early day, when the bosom is warm;
+When soul meets wi' soul in a saft melting kiss--
+On earth sure there 's naething is equal to this!
+
+--- TITLE: THE AULD HIGHLANDMAN
+[VERSE 1]
+Hersell pe auchty years and twa,
+  Te twenty-tird o' May, man;
+She twell amang te Heelan hills,
+  Ayont the reefer Spey, man.
+Tat year tey foucht the Sherra-muir,
+  She first peheld te licht, man;
+Tey shot my father in tat stoure--
+  A plaguit, vexin' spite, man.
+[VERSE 2]
+I 've feucht in Scotland here at hame,
+  In France and Shermanie, man;
+And cot tree tespurt pluddy oons,
+  Beyond te 'Lantic sea, man.
+But wae licht on te nasty cun,
+  Tat ever she pe porn, man;
+Phile koot klymore te tristle caird,
+  Her leaves pe never torn, man.
+[VERSE 3]
+Ae tay I shot, and shot, and shot,
+  Phane'er it cam my turn, man;
+Put a' te force tat I could gie,
+  Te powter wadna purn, man.
+A filty loon cam wi' his cun,
+  Resolvt to to me harm, man;
+And wi' te tirk upon her nose,
+  Ke me a pluddy arm, man.
+[VERSE 4]
+I flang my cun wi' a' my micht,
+  And felt his nepour teit, man;
+Tan drew my swort, and at a straik
+  Hewt aff te haf o 's heit, man.
+Be vain to tell o' a' my tricks;
+  My oons pe nae tiscrace, man;
+Ter no pe yin pehint my back,
+  Ter a pefore my face, man.
+
+--- TITLE: AH, PEGGIE, SINCE THOU 'RT GANE AWAY!
+[VERSE 1]
+Ah, Peggie! since thou 'rt gane away,
+  An' left me here to languish,
+I canna fend anither day
+  In sic regretfu' anguish.
+My mind 's the aspen i' the vale,
+  In ceaseless waving motion;
+'Tis like a ship without a sail,
+  On life's unstable ocean.
+[VERSE 2]
+I downa bide to see the moon
+  Blink owre the glen sae clearly;
+Aince on a bonnie face she shone--
+  A face that I lo'ed dearly!
+An' when beside yon water clear,
+  At e'en I 'm lanely roaming,
+I sigh an' think, if ane was here,
+  How sweet wad fa' the gloaming!
+[VERSE 3]
+When I think o' thy cheerfu' smile,
+  Thy words sae free an' kindly,
+Thy pawkie e'e's bewitching wile,
+  The unbidden tear will blind me.
+The rose's deepest blushing hue
+  Thy cheek could eithly borrow,
+But ae kiss o' thy cherry mou'
+  Was worth a year o' sorrow.
+[VERSE 4]
+Oh! in the slippery paths of love,
+  Let prudence aye direct thee;
+Let virtue every step approve,
+  An' virtue will respect thee.
+To ilka pleasure, ilka pang,
+  Alak! I am nae stranger;
+An' he wha aince has wander'd wrang
+  Is best aware o' danger.
+[VERSE 5]
+May still thy heart be kind an' true,
+  A' ither maids excelling;
+May heaven distil its purest dew
+  Around thy rural dwelling.
+May flow'rets spring an' wild birds sing
+  Around thee late an' early;
+An' oft to thy remembrance bring
+  The lad that loo'd thee dearly.
+
+--- TITLE: GANG TO THE BRAKENS WI' ME
+[VERSE 1]
+I 'll sing of yon glen of red heather,
+  An' a dear thing that ca's it her hame,
+Wha 's a' made o' love-life thegither,
+  Frae the tie o' the shoe to the kaime,
+Love beckons in every sweet motion,
+  Commanding due homage to gie;
+But the shrine o' my dearest devotion
+  Is the bend o' her bonny e'ebree.
+[VERSE 2]
+I fleech'd an' I pray'd the dear lassie
+  To gang to the brakens wi' me;
+But though neither lordly nor saucy,
+  Her answer was--"Laith wad I be!
+I neither hae father nor mither,
+  Sage counsel or caution to gie;
+An' prudence has whisper'd me never
+  To gang to the brakens wi' thee."
+[VERSE 3]
+"Dear lassie, how can ye upbraid me,
+  An' try your ain love to beguile?
+For ye are the richest young lady
+  That ever gaid o'er the kirk-stile.
+Your smile that is blither than ony,
+  The bend o' your cheerfu' e'ebree,
+An' the sweet blinks o' love there sae bonny,
+  Are five hunder thousand to me!"
+[VERSE 4]
+She turn'd her around an' said, smiling,
+  While the tear in her blue e'e shone clear,
+"You 're welcome, kind sir, to your mailing,
+  For, O, you have valued it dear:
+Gae make out the lease, do not linger,
+  Let the parson indorse the decree;
+An' then, for a wave of your finger,
+  I 'll gang to the brakens wi' thee!"
+[VERSE 5]
+There 's joy in the bright blooming feature,
+  When love lurks in every young line;
+There 's joy in the beauties of nature,
+  There 's joy in the dance and the wine:
+But there 's a delight will ne'er perish,
+  'Mang pleasures all fleeting and vain,
+And that is to love and to cherish
+  The fond little heart that's our ain!
+
+--- TITLE: LOCK THE DOOR, LARISTON
+[VERSE 1]
+Lock the door, Lariston, lion of Liddisdale,
+Lock the door, Lariston, Lowther comes on,
+      The Armstrongs are flying,
+      Their widows are crying,
+The Castletown's burning, and Oliver's gone;
+Lock the door, Lariston,--high on the weather gleam,
+See how the Saxon plumes bob on the sky,
+      Yeoman and carbineer,
+      Billman and halberdier;
+Fierce is the foray, and far is the cry.
+[VERSE 2]
+Bewcastle brandishes high his broad scimitar,
+Ridley is riding his fleet-footed grey,
+      Hedley and Howard there,
+      Wandale and Windermere,--
+Lock the door, Lariston, hold them at bay.
+Why dost thou smile, noble Elliot of Lariston?
+Why do the joy-candles gleam in thine eye?
+      Thou bold Border ranger
+      Beware of thy danger--
+Thy foes are relentless, determined, and nigh.
+[VERSE 3]
+Jock Elliot raised up his steel bonnet and lookit,
+His hand grasp'd the sword with a nervous embrace;
+      "Ah, welcome, brave foemen,
+      On earth there are no men
+More gallant to meet in the foray or chase!
+Little know you of the hearts I have hidden here,
+Little know you of our moss-troopers' might,
+      Lindhope and Sorby true,
+      Sundhope and Milburn too,
+Gentle in manner, but lions in fight!
+[VERSE 4]
+"I 've Margerton, Gornberry, Raeburn, and Netherby,
+Old Sim of Whitram, and all his array;
+      Come, all Northumberland,
+      Teesdale and Cumberland,
+Here at the Breaken Tower end shall the fray."
+Scowl'd the broad sun o'er the links of green Liddisdale,
+Red as the beacon-light tipp'd he the wold;
+      Many a bold martial eye
+      Mirror'd that morning sky,
+Never more oped on his orbit of gold!
+[VERSE 5]
+Shrill was the bugle's note, dreadful the warrior shout,
+Lances and halberts in splinters were borne;
+      Halberd and hauberk then
+      Braved the claymore in vain,
+Buckler and armlet in shivers were shorn.
+See how they wane, the proud files of the Windermere,
+Howard--ah! woe to thy hopes of the day!
+      Hear the wide welkin rend,
+      While the Scots' shouts ascend,
+"Elliot of Lariston, Elliot for aye!"
+
+--- TITLE: I HAE NAEBODY NOW
+[VERSE 1]
+I hae naebody now, I hae naebody now
+  To meet me upon the green,
+Wi' light locks waving o'er her brow,
+  An' joy in her deep blue e'en;
+Wi' the raptured kiss an' the happy smile,
+  An' the dance o' the lightsome fay,
+An' the wee bit tale o' news the while
+  That had happen'd when I was away.
+[VERSE 2]
+I hae naebody now, I hae naebody now
+  To clasp to my bosom at even,
+O'er her calm sleep to breathe the vow,
+  An' pray for a blessing from heaven.
+An' the wild embrace, an' the gleesome face
+  In the morning, that met my eye,
+Where are they now, where are they now?
+  In the cauld, cauld grave they lie.
+[VERSE 3]
+There 's naebody kens, there 's naebody kens,
+  An' O may they never prove,
+That sharpest degree o' agony
+  For the child o' their earthly love--
+To see a flower in its vernal hour
+  By slow degrees decay,
+Then, calmly aneath the hand o' death,
+  Breathe its sweet soul away.
+[VERSE 4]
+O, dinna break, my poor auld heart!
+  Nor at thy loss repine,
+For the unseen hand that threw the dart
+  Was sent frae her Father and thine;
+Yet I maun mourn, an' I will mourn,
+  Even till my latest day;
+For though my darling can never return,
+  I can follow the sooner away.
+
+--- TITLE: THE MOON WAS A-WANING
+[VERSE 1]
+The moon was a-waning,
+  The tempest was over;
+Fair was the maiden,
+  And fond was the lover;
+But the snow was so deep,
+  That his heart it grew weary,
+And he sunk down to sleep,
+  In the moorland so dreary.
+[VERSE 2]
+Soft was the bed
+  She had made for her lover,
+White were the sheets
+  And embroider'd the cover;
+But his sheets are more white,
+  And his canopy grander,
+And sounder he sleeps
+  Where the hill foxes wander.
+[VERSE 3]
+Alas, pretty maiden,
+  What sorrows attend you!
+I see you sit shivering,
+  With lights at your window;
+But long may you wait
+  Ere your arms shall enclose him,
+For still, still he lies,
+  With a wreath on his bosom!
+[VERSE 4]
+How painful the task,
+  The sad tidings to tell you!--
+An orphan you were
+  Ere this misery befell you;
+And far in yon wild,
+  Where the dead-tapers hover,
+So cold, cold and wan
+  Lies the corpse of your lover!
+
+--- TITLE: GOOD NIGHT, AND JOY
+[VERSE 1]
+The year is wearing to the wane,
+  An' day is fading west awa',
+Loud raves the torrent an' the rain,
+  And dark the cloud comes down the shaw;
+But let the tempest tout an' blaw
+  Upon his loudest winter horn,
+Good night, and joy be wi' you a',
+  We 'll maybe meet again the morn!
+[VERSE 2]
+O, we hae wander'd far and wide
+  O'er Scotia's hills, o'er firth an' fell,
+An' mony a simple flower we 've cull'd,
+  An' trimm'd them wi' the heather-bell!
+We 've ranged the dingle an' the dell,
+  The hamlet an' the baron's ha',
+Now let us take a kind farewell,--
+  Good night, an' joy be wi' you a'!
+[VERSE 3]
+Though I was wayward, you were kind,
+  And sorrow'd when I went astray;
+For O, my strains were often wild,
+  As winds upon a winter day.
+If e'er I led you from the way,
+  Forgie your Minstrel aince for a';
+A tear fa's wi' his parting lay,--
+  Good night, and joy be wi' you a'!

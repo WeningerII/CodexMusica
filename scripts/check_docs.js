@@ -76,7 +76,28 @@ const EXCLUDED_PREFIXES = ['node_modules/', 'tests/', '.git/'];
 // document that QUOTES wrong counts as evidence. One of its own findings is that
 // server.json advertises 1145 traditions against a real 2503 — a drift checker
 // that forces that sentence to say 2503 would delete the defect it reports.
-const EXCLUDED_FILES = ['CHANGELOG.md', 'AUDIT.md'];
+// lyric-harness/quality/RESULTS_REGISTER_AUDIT.md joins them for AUDIT.md's
+// exact reason: it is a review document that QUOTES counts as evidence, and the
+// count it quotes is a verbatim commit message ("75 of 77 traditions"). Forcing
+// that line to say 2503 would falsify a quotation, which is worse than the drift
+// it would be preventing.
+//
+// NOTE THE TWO THAT ARE *NOT* EXCLUDED, because the choice is the point.
+// `lyric-harness/` uses "traditions" to mean RHYME traditions — qafiya,
+// cynghanedd, dróttkvætt — which collides with this checker's catalog noun by
+// spelling only. The blanket fix is to exclude the whole subtree, and it is
+// wrong: `lyric-harness/MISSING.md` also states "the MCP server (2,503
+// traditions, 1,406 instruments, 741 prefaces)", a REAL catalog claim that is
+// currently correct and deserves this gate. So the other two sites were
+// QUALIFIED instead — "16 rhyme traditions", "6 rhyme traditions" — which is
+// more precise prose, changes no number, and leaves the catalog claim guarded.
+// A bare noun two subsystems both claim is a coordinate that needs declaring,
+// not a checker that needs silencing.
+const EXCLUDED_FILES = [
+  'CHANGELOG.md',
+  'AUDIT.md',
+  'lyric-harness/quality/RESULTS_REGISTER_AUDIT.md',
+];
 
 const STATUS_RE = /\*\*STATUS:\*\*\s+(SHIPPED|ACTED ON|MOSTLY SHIPPED)/;
 

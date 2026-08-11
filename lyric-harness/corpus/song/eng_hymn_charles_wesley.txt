@@ -1,0 +1,1238 @@
+# author: Charles Wesley (1707-1788)
+# source: GITenberg/Book-of-Hymns-for-Public-and-Private-Devotion_33180 33180.n.txt md5 5243a8d61b256db494f8315502b18819
+# licence: public domain - Gutenberg; edition published 1848
+# source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
+# licence: public domain - Gutenberg; edition published 1892
+# songs: 49
+# dedup: ONE ITEM REMOVED 2026-08-11 by cell AC. `Show pity, Lord, O Lord,
+#       forgive` (27 lines) is ISAAC WATTS, not Charles Wesley, and it was
+#       also in corpus/song/eng_hymn_watts.txt at 70% line containment.
+#       WHERE THE ERROR CAME FROM, because it is a source error and not an
+#       extraction error: PG 16455, The Otterbein Hymnal (1892), prints this
+#       as hymn 233 and signs it 'Charles Wesley, 1742.' under its last
+#       stanza -- the same signature it prints under hymn 232, which IS
+#       Wesley's. WHAT OVERTURNS IT is Watts's own book: PG 13166, The
+#       Psalms of David Imitated (1719), md5 87732df6c1725b8d7c16f5fbcbd32b5e,
+#       prints it at 'Psalm 51:1. First Part. L. M. / A penitent pleading for
+#       pardon.' -- the author publishing his own paraphrase, 173 years
+#       earlier and under his own name on the title page. A hymnal's
+#       signature line is an editor's claim; the poet's own volume is the
+#       poet. The hymn survives in corpus/song/eng_hymn_watts.txt.
+#       Doctrine 51 as this round extends it: the two copies were NOT
+#       byte-identical -- the 1892 text reads 'My crimes, though great,
+#       cannot surpass' against Watts's 'My crimes are great, but not
+#       surpass' -- so check E's item-body hash never saw them.
+
+--- TITLE: Ye servants of God, your Master proclaim
+[VERSE 1]
+Ye servants of God, your Master proclaim,
+And publish abroad his wonderful name.
+The name, all-victorious, of Jesus extol;
+His kingdom is glorious, and rules over all.
+[VERSE 2]
+God ruleth on high, almighty to save;
+And still he is nigh, his presence we have;
+The great congregation his triumph shall sing,
+Ascribing salvation to Jesus our King.
+[VERSE 3]
+"Salvation to God, who sits on the throne,"
+Let all cry aloud, and honor the Son;
+Our Savior's high praises the angels proclaim,--
+Fall down on their faces, and worship the Lamb.
+
+--- TITLE: Thy law is perfect, Lord of light
+[VERSE 1]
+Thy law is perfect, Lord of light;
+Thy testimonies sure;
+The statutes of thy realm are right,
+And thy commandments pure.
+[VERSE 2]
+Let these, O God, my soul convert,
+And make thy servant wise;
+Let those be gladness to my ears--
+The dayspring to mine eyes.
+[VERSE 3]
+By these may I be warned betimes;
+Who knows the guile within?
+Lord, save me from presumptuous crimes;
+Cleanse me from secret sin.
+[VERSE 4]
+So may the words my lips express--
+The thoughts that throng my mind--
+O Lord, my strength and righteousness,
+With thee acceptance find.
+
+--- TITLE: Come, thou Almighty King
+[VERSE 1]
+Come, thou Almighty King!
+Help us thy name to sing,
+Help us to praise;
+Father all glorious!
+O'er all victorious,
+Come and reign over us,
+Ancient of days!
+[VERSE 2]
+Come, thou incarnate Word!
+Gird on thy mighty sword;
+Our prayer attend:
+Come, and thy people bless,
+And give thy word success;
+Spirit of holiness,
+On us descend.
+[VERSE 3]
+Come, holy Comforter!
+Thy sacred witness bear
+In this glad hour:
+Thou who almighty art,
+Now rule in every heart,
+And ne'er from us depart,
+Spirit of power!
+[VERSE 4]
+To the great One in Three,
+The highest praises be,
+Hence, evermore!
+His sovereign majesty
+May we in glory see,
+And to eternity
+Love and adore.
+
+--- TITLE: Hail! holy, holy, holy, Lord
+[VERSE 1]
+Hail! holy, holy, holy, Lord,
+Whom One in Three we know;
+By all thy heavenly host adored,
+By all thy Church below.
+[VERSE 2]
+One undivided Trinity
+With triumph we proclaim;
+The universe is full of thee,
+And speaks thy glorious name.
+[VERSE 3]
+Thee, holy Father, we confess;
+Thee, holy Son, adore;
+And thee, the Holy Ghost, we bless,
+And worship evermore.
+[VERSE 4]
+Hail! holy, holy, holy Lord,
+Our heavenly song shall be
+Supreme, Essential One, adored
+In co-eternal Thee!
+
+--- TITLE: Christ, the Lord, is risen to-day
+[VERSE 1]
+Christ, the Lord, is risen to-day,
+Sons of men and angels say:
+Raise your joys and triumphs high;
+Sing, ye heavens; thou earth, reply.
+[VERSE 2]
+Love's redeeming work is done;
+Fought the fight; the battle won:
+Lo! our Sun's eclipse is o'er;
+Lo! he sets in blood no more.
+[VERSE 3]
+Vain the stone, the watch, the seal--
+Christ hath burst the gates of hell;
+Death in vain forbids his rise--
+Christ hath opened paradise.
+[VERSE 4]
+Lives again our glorious King:
+Where, O death, is now thy sting?
+Once he died our souls to save:
+Where's thy victory, boasting grave?
+
+--- TITLE: Come, thou long-expected Jesus
+[VERSE 1]
+Come, thou long-expected Jesus!
+Born to set thy people free!
+From our fears and sins release us,
+Let us find our rest in thee.
+[VERSE 2]
+Israel's strength and consolation,
+Hope of all the earth thou art;
+Dear desire of ev'ry nation,
+Joy of ev'ry longing heart.
+[VERSE 3]
+Born, thy people to deliver;
+Born a child, and yet a King;
+Born to reign in us forever,
+Now thy gracious kingdom bring.
+[VERSE 4]
+By thine own eternal Spirit
+Rule in all our hearts alone;
+By thine all-sufficient merit
+Raise us to thy glorious throne.
+
+--- TITLE: Depth of mercy! can there be
+[VERSE 1]
+Depth of mercy! can there be
+Mercy still reserved for me?
+Can my God his wrath forbear?
+Me, the chief of sinners, spare?
+[REFRAIN]
+God is love; I know, I feel;
+Jesus weeps and loves me still;
+Jesus weeps and loves me still.
+[VERSE 2]
+I have long withstood his grace,
+Long provoked him to his face;
+Would not hearken to his calls;
+Grieved him by a thousand falls.
+[VERSE 3]
+There for me the Savior stands;
+Shows his wounds and spreads his hands;
+God is love; I know, I feel;
+Jesus weeps, and loves me still.
+[VERSE 4]
+Now incline me to repent;
+Let me now my fall lament;
+Now my foul revolt deplore;
+Weep, believe, and sin no more.
+
+--- TITLE: Blow ye the trumpet, blow
+[VERSE 1]
+Blow ye the trumpet, blow!
+The gladly solemn sound,
+Let all the nations know,
+To earth's remotest bound,
+The year of jubilee is come,
+Return, ye ransomed sinners, home.
+[VERSE 2]
+Jesus, our great High Priest,
+Hath full atonement made:
+Ye weary spirits! rest,
+Ye mournful souls! be glad;
+The year of jubilee is come;
+Return, ye ransomed sinners! home.
+[VERSE 3]
+Extol the Lamb of God,--
+The all-atoning Lamb;
+Redemption in his blood,
+Throughout the world, proclaim;
+The year of jubilee is come;
+Return, ye ransomed sinners! home.
+[VERSE 4]
+Ye, who have sold for naught
+Your heritage above!
+Shall have it back unbought,
+The gift of Jesus' love;
+The year of jubilee is come;
+Return, ye ransomed sinners! home.
+
+--- TITLE: Sinners, turn; why will ye die?
+[VERSE 1]
+Sinners, turn; why will ye die?
+God, your Maker, asks you why?
+God, who did your being give,
+Made you with himself to live;
+He the fatal cause demands;
+Asks the work of his own hands,--
+Why, ye thankless creatures, why
+Will ye cross his love, and die?
+[VERSE 2]
+Sinners, turn; why will ye die?
+God, your Savior, asks you why?
+He, who did your souls retrieve,
+Died himself, that ye might live.
+Will ye let him die in vain?
+Crucify your Lord again?
+Why, ye ransomed sinners, why
+Will ye slight his grace and die?
+[VERSE 3]
+Sinners, turn; why will ye die?
+God; the Spirit, asks you why?
+He who all your lives hath strove,
+Urged you to embrace his love.
+Will ye not his grace receive?
+Will ye still refuse to live?
+O ye dying sinners, why,
+Why will ye forever die?
+
+--- TITLE: Oh, that my load of sin were gone
+[VERSE 1]
+Oh, that my load of sin were gone;
+Oh, that I could at last submit
+At Jesus' feet to lay it down--
+To lay my soul at Jesus' feet.
+[VERSE 2]
+Rest for my soul I long to find;
+Savior of all, if mine thou art,
+Give me the meek and lowly mind,
+And stamp thine image on my heart.
+[VERSE 3]
+Break off the yoke of inbred sin,
+And fully set my spirit free;
+I cannot rest till pure within--
+Till I am wholly lost in thee.
+[VERSE 4]
+Fain would I learn of thee, my God;
+Thy light and easy burden prove;
+The cross all stained with hallowed blood,
+The labor of thy dying love.
+[VERSE 5]
+I would, but thou must give the power;
+My heart from every sin release;
+Bring near, bring near the joyful hour,
+And fill me with thy perfect peace.
+
+--- TITLE: Stay, thou insulted Spirit, stay
+[VERSE 1]
+Stay, thou insulted Spirit, stay,
+Though I have done thee such despite,
+Nor cast the sinner quite away,
+Nor take thine everlasting flight.
+[VERSE 2]
+Though I have steeled my stubborn heart,
+And still shook off my guilty fears;
+And vexed and urged, thee to depart,
+For many long rebellious years.
+[VERSE 3]
+Though I have most unfaithful been,
+Of all whoe'er thy grace received!
+Ten thousand times thy goodness seen;
+Ten thousand times thy goodness grieved;
+[VERSE 4]
+This only woe I deprecate;
+This only plague I pray remove;
+Nor leave me in my lost estate;
+Nor curse me with this want of love.
+[VERSE 5]
+Now, Lord, my weary soul release,
+Upraise me with thy gracious hand,
+And guide into thy perfect peace,
+And bring me to the promised land.
+
+--- TITLE: And can I yet delay
+[VERSE 1]
+And can I yet delay
+My little all to give?
+To tear my soul from earth away,
+For Jesus to receive?
+[VERSE 2]
+Nay, but I yield, I yield,
+I can hold out no more:
+I sink, by dying love compelled,
+And own thee conqueror.
+[VERSE 3]
+Tho' late, I all forsake,
+My friends, my all resign;
+Gracious Redeemer, take, oh, take,
+And seal me ever thine.
+[VERSE 4]
+Come and possess me whole,
+Nor hence again remove;
+Settle and fix my wav'ring soul
+With all thy weight of love.
+
+--- TITLE: Oh, how happy are they
+[VERSE 1]
+Oh, how happy are they
+Who their Savior obey,
+And have laid up their treasures above;
+Tongue cannot express
+The sweet comfort and peace
+Of a soul in its earliest love.
+[VERSE 2]
+That sweet comfort was mine,
+When the favor divine
+I first found in the blood of the Lamb;
+When my heart it believed,
+What a joy I received,
+What a heaven in Jesus' name.
+[VERSE 3]
+'Twas a heaven below
+My Redeemer to know,
+And the angels could do nothing more
+Than to fall at his feet,
+And the story repeat,
+And the Lover of sinners adore.
+[VERSE 4]
+Jesus, all the day long,
+Was my joy and my song;
+O that all his salvation might see!
+He hath loved me, I cried,
+He hath suffered and died
+To redeem such a rebel as me.
+[VERSE 5]
+On the wings of his love
+I was carried above
+All sin and temptation and pain,
+And I could not believe
+That I ever should grieve--
+That I ever should suffer again.
+[VERSE 6]
+I then rode on the sky,
+Freely justified I,
+Nor did envy Elijah his seat;
+My soul mounted higher,
+In a chariot of tire,
+And the moon it was under my feet.
+[VERSE 7]
+O the rapturous height
+Of that holy delight
+Which I felt in the life-giving blood,
+Of my Savior possessed,
+I was perfectly blest,
+As if filled with the fullness of God.
+[VERSE 8]
+Never more will I stray
+From my Savior away,
+But I'll follow the Lamb till I die;
+I will take up my cross,
+And count all things but loss,
+Till I meet with my Lord in the sky.
+
+--- TITLE: Forever here my rest shall be
+[VERSE 1]
+Forever here my rest shall be,
+Close to thy bleeding side;
+'Tis all my hope and all my plea,
+"For me the Savior died."
+[VERSE 2]
+My dying Savior and my God,
+Fountain for guilt and sin,
+Sprinkle me ever with thy blood,
+And cleanse and keep me clean.
+[VERSE 3]
+Wash me and make me thus thine own,
+Wash me, and mine thou art!
+Wash me, but not my feet alone,
+My hands, my head, my heart!
+[VERSE 4]
+Th' atonement of thy blood apply
+Till faith to sight improve,
+Till hope in full fruition die,
+And all my soul be love.
+
+--- TITLE: Lord, I believe a rest remains
+[VERSE 1]
+Lord, I believe a rest remains
+To all thy people known;
+A rest where pure enjoyment reigns,
+And thou art loved alone.
+[VERSE 2]
+A rest where all our soul's desire
+Is fixed on things above;
+Where fear, and sin, and grief expire,
+Cast out by perfect love.
+[VERSE 3]
+Oh, that I now the rest might know,
+Believe and enter in:
+Now, Savior, now the power bestow,
+And let me cease from sin.
+[VERSE 4]
+Remove this hardness from my heart;
+This unbelief remove:
+To me the rest of faith impart--
+The Sabbath of thy love.
+
+--- TITLE: My God, I know, I feel thee mine
+[VERSE 1]
+My God, I know, I feel thee mine,
+And will not quit my claim
+Till all I have is lost in thine,
+And all renewed I am.
+[VERSE 2]
+I hold thee with a trembling hand,
+And will not let thee go,
+Till steadfastly by faith I stand
+And all thy goodness know.
+[VERSE 3]
+Jesus, thine all-victorious love
+Shed in my heart abroad:
+Then shall my feet no longer rove,
+Rooted and fixed in God.
+[VERSE 4]
+Refining fire, go through my heart,
+Illuminate my soul;
+Scatter thy life through every part,
+And sanctify the whole.
+
+--- TITLE: He wills that I should holy be
+[VERSE 1]
+He wills that I should holy be;
+That holiness I long to feel;
+That full divine conformity
+To all my Savior's righteous will.
+[VERSE 2]
+See, Lord, the travail of thy soul
+Accomplished in the change of mine;
+And plunge me, every whit made whole,
+In all the depths of love divine.
+[VERSE 3]
+On thee, O God, my soul is stayed,
+And waits to prove thine utmost will;
+The promise by thy mercy made,
+Thou canst, thou wilt in me fulfill.
+[VERSE 4]
+No more I stagger at thy power,
+Or doubt thy truth, which cannot move;
+Hasten the long-expected hour,
+And bless me with thy perfect love.
+
+--- TITLE: Love divine, all love excelling
+[VERSE 1]
+Love divine, all love excelling,
+Joy of heaven, to earth come down;
+Fix in us thy humble dwelling;
+All thy faithful mercies crown;
+Jesus, thou art all compassion;
+Pure, unbounded love thou art;
+Visit us with thy salvation;
+Enter every trembling heart.
+[VERSE 2]
+Breathe, oh, breathe thy Holy Spirit
+Into every troubled breast,
+Let us all thy grace inherit;
+Let us find thy promised rest;
+Take away the love of sinning;
+Take our load of guilt away;
+End the work of thy beginning;
+Bring us to eternal day.
+[VERSE 3]
+Carry on thy new creation;
+Pure and holy may we be;
+Let us see our whole salvation
+Perfectly secured by thee:
+Change from glory into glory,
+Till in heaven we take our place,
+Till we cast our crowns before thee,
+Lost in wonder, love, and praise.
+
+--- TITLE: O Jesus! full of grace
+[VERSE 1]
+O Jesus! full of grace,
+To thee I make my moan:
+Let me again behold thy face--
+Call home thy banished one.
+[VERSE 2]
+Again my pardon seal,
+Again my soul restore,
+And freely my backslidings heal,
+And bid me sin no more.
+[VERSE 3]
+Thine utmost mercy show;
+Say to my drooping soul--
+In peace and full assurance go;
+Thy faith hath made thee whole.
+
+--- TITLE: Oh, for a thousand tongues, to sing
+[VERSE 1]
+Oh, for a thousand tongues, to sing
+My great Redeemer's praise,
+The glories of my God and King
+The triumphs of his grace.
+[VERSE 2]
+My gracious Master, and my God,
+Assist me to proclaim--
+To spread, through all the earth abroad,
+The honors of thy name.
+[VERSE 3]
+Jesus! the name that charms our fears,
+That bids our sorrows cease;
+'Tis music in the sinner's ears,
+'Tis life, and health, and peace.
+[VERSE 4]
+He breaks the power of canceled sin,
+He sets the pris'ner free:
+His blood can make the foulest clean--
+His blood availed for me.
+[VERSE 5]
+He speaks--and, list'ning to his voice
+New life the dead receive;
+The mournful, broken hearts rejoice,
+The humble poor believe.
+[VERSE 6]
+Hear him, ye deaf; his praise, ye dumb,
+Your loosened tongues employ;
+Ye blind, behold your Savior come;
+And leap, ye lame, for joy.
+
+--- TITLE: Jesus, my truth, my way
+[VERSE 1]
+Jesus, my truth, my way,
+My sure, unerring light,
+On thee my feeble steps I stay,
+Which thou wilt guide aright.
+[VERSE 2]
+My wisdom and my guide,
+My counselor thou art;
+Oh, never let me leave thy side,
+Or from thy paths depart.
+[VERSE 3]
+Never will I remove
+Out of thy hands my cause;
+But rest in thy redeeming love,
+And hang upon thy cross.
+[VERSE 4]
+Oh, make me all like thee,
+Before I hence remove;
+Settle, confirm, and 'stablish me--
+And build me up in love.
+
+--- TITLE: Oh, for a heart to praise my God
+[VERSE 1]
+Oh, for a heart to praise my God,
+A heart from sin set free--
+A heart that always feels thy blood,
+So freely spilt for me;--
+[VERSE 2]
+A heart resigned, submissive, meek,
+My great Redeemer's throne,
+Where only Christ is heard to speak,
+Where Jesus reigns alone.
+[VERSE 3]
+Oh, for a lowly, contrite heart,
+Believing, true, and clean,
+Which neither life nor death can part
+From him that dwells within;--
+[VERSE 4]
+A heart in every thought renewed,
+And full of love divine;
+Perfect, and right, and pure, and good,
+A copy, Lord, of thine.
+[VERSE 5]
+Thy nature, gracious Lord, impart;
+Come quickly from above;
+Write thy new name upon my heart--
+Thy new, best name of Love.
+
+--- TITLE: Jesus, Lover of my soul
+[VERSE 1]
+Jesus, Lover of my soul,
+Let me to thy bosom fly,
+While the nearer waters roll,
+While the tempest still is high!
+Hide me, O my Savior, hide,
+Till the storm of life is past;
+Safe into the haven guide,
+O receive my soul at last!
+[VERSE 2]
+Other refuge have I none;
+Hangs my helpless soul on thee:
+Leave, O, leave me not alone,
+Still support and comfort me:
+All my trust on thee is stayed,
+All my help from thee I bring;
+Cover my defenseless head
+With the shadow of thy wing!
+[VERSE 3]
+Thou, O Christ, art all I want;
+More than all in thee I find;
+Raise the fallen, cheer the faint,
+Heal the sick, and lead the blind.
+Just and holy is thy name,
+I am all unrighteousness:
+False and full of sin I am,
+Thou art full of truth and grace.
+[VERSE 4]
+Plenteous grace with thee is found,
+Grace to cover all my sin:
+Let the healing streams abound:
+Make and keep me pure within.
+Thou of life the fountain art,
+Freely let me take of thee:
+Spring thou up within my heart,
+Rise to all eternity.
+
+--- TITLE: Talk with us, Lord, thyself reveal
+[VERSE 1]
+Talk with us, Lord, thyself reveal,
+While here o'er earth we rove;
+Speak to our hearts, and let us feel
+The kindling of thy love.
+[VERSE 2]
+With thee conversing, we forget
+All time, and toil, and care:
+Labor is rest, and pain is sweet,
+If thou, my God! art here.
+[VERSE 3]
+Here, then, my God, vouchsafe to stay,
+And bid my heart rejoice:
+My bounding heart shall own thy sway,
+And echo to thy voice.
+[VERSE 4]
+Thou callest me to seek thy face--
+'Tis all I wish to seek;
+T' attend the whisperings of thy grace,
+And hear thee only speak.
+
+--- TITLE: A charge to keep I have
+[VERSE 1]
+A charge to keep I have,
+A God to glorify;
+A never-dying-soul to save,
+And fit it for the sky:---
+[VERSE 2]
+To serve the present age,
+My calling to fulfill,--
+Oh! may it all my powers engage--
+To do my Master's will.
+[VERSE 3]
+Arm me with jealous care,
+As in thy sight to live;
+And, oh, thy servant, Lord! prepare
+A strict account to give.
+[VERSE 4]
+Help me to watch and pray,
+And on thyself rely;
+Assured, if I my trust betray,
+I shall forever die.
+
+--- TITLE: Soldiers of Christ! arise
+[VERSE 1]
+Soldiers of Christ! arise,
+And put your armor on,--
+Strong, in the strength which God supplies,
+Through his eternal Son:--
+[VERSE 2]
+Strong, in the Lord of hosts,
+And in his mighty power;
+Who in the strength of Jesus trusts,
+Is more than conqueror.
+[VERSE 3]
+Stand, then, in his great might,
+With all his strength endued;
+And take, to arm you for the fight,
+The panoply of God:--
+[VERSE 4]
+That, having all things done,
+And all your conflicts past,
+You may o'ercome through Christ alone,
+And stand entire at last.
+[VERSE 5]
+From strength to strength go on;
+Wrestle, and fight, and pray;
+Tread all the powers of darkness down,
+And win the well-fought day.
+[VERSE 6]
+Still let the Spirit cry,
+In all his soldiers, "Come,"
+Till Christ, the Lord, descends from high,
+And takes the conquerors home.
+
+--- TITLE: And are we yet alive
+[VERSE 1]
+And are we yet alive,
+And see each other's face?
+Glory and praise to Jesus give,
+For his redeeming grace.
+[VERSE 2]
+Preserved by power divine
+To full salvation here,
+Again in Jesus' praise we join,
+And in his sight appear.
+[VERSE 3]
+What troubles have we seen!
+What conflicts have we passed!
+Fightings without, and fears within,
+Since we assembled last!
+[VERSE 4]
+But out of all the Lord
+Hath brought us by his love;
+And still he doth his help afford,
+And hides our life above.
+[VERSE 5]
+Let us take up the cross,
+Till we the crown obtain;
+And gladly reckon all things loss
+So we may Jesus gain.
+
+--- TITLE: Servant of God, well done
+[VERSE 1]
+Servant of God, well done!
+Thy glorious warfare's past;
+The battle's fought, the race is won,
+And thou art crowned at last;--
+[VERSE 2]
+Of all thy heart's desire
+Triumphantly possessed;
+Lodged by the ministerial choir
+In thy Redeemer's breast.
+[VERSE 3]
+In condescending love,
+Thy ceaseless prayer he heard,
+And bade thee suddenly remove
+To thy complete reward.
+[VERSE 4]
+With saints enthroned on high,
+Thou dost thy Lord proclaim,
+And still to God salvation cry,--
+Salvation to the Lamb!
+
+--- TITLE: And let this feeble body fail
+[VERSE 1]
+And let this feeble body fail,
+And let it faint or die;
+My soul shall quit the mournful vale,
+And soar to worlds on high--
+[VERSE 2]
+Shall join the disembodied saints,
+And find its long-sought rest;
+That only bliss for which it pants,
+In the Redeemer's breast.
+[VERSE 3]
+In hope of that immortal crown
+I now the cross sustain;
+And gladly wander up and down,
+And smile at toil and pain.
+[VERSE 4]
+I suffer on my three-score years,
+Till my Deliverer come,
+And wipes away his servant's tears,
+And takes his exile home.
+
+--- TITLE: Lo! on a narrow neck of land
+[VERSE 1]
+Lo! on a narrow neck of land,
+Between two boundless seas I stand,--
+Yet how insensible!
+A point of time--a moment's space--
+Removes me to yon heavenly place,
+Or shuts me up in hell!
+[VERSE 2]
+O God! my inmost soul convert,
+And deeply on my thoughtless heart
+Eternal things impress;
+Give me to feel their solemn weight,
+And save me, ere it be too late!
+Wake me to righteousness.
+[VERSE 3]
+Be this my one great business here,
+With holy trembling, holy fear,
+To make my calling sure;
+Thine utmost counsel to fulfill,
+To suffer all thy righteous will,
+And to the end endure!
+[VERSE 4]
+Then Savior! then my soul receive,
+Transported from the earth, to live
+And reign with thee above;
+Where faith is sweetly lost in sight,
+And hope, in full supreme delight,
+And everlasting love.
+
+--- TITLE: And must I be to judgment brought
+[VERSE 1]
+And must I be to judgment brought,
+And answer in that day,
+For every vain and idle thought,
+And every word I say?
+[VERSE 2]
+Yes, every secret of my heart
+Shall shortly be made known,
+And I receive my just desert
+For all that I have done.
+[VERSE 3]
+How careful then I ought to live!
+With what religious fear,
+Who such a strict account must give
+For my behavior here.
+[VERSE 4]
+Thou awful Judge of quick and dead,
+The watchful power bestow;
+So shall I to my ways take heed,
+To all I speak or do.
+
+--- TITLE: Come, let us anew
+[VERSE 1]
+Come, let us anew
+Our journey pursue--
+Roll round with the year,
+And never stand still till the Master appear;
+His adorable will
+Let us gladly fulfill,
+And our talents improve
+By the patience of hope and the labor of love.
+[VERSE 2]
+Our life is a dream,
+Our time, as a stream,
+Glides swiftly away,
+And the fugitive moment refuses to stay;
+The arrow is flown,
+The moment is gone;
+The millenial year
+Rushes on to our view, and eternity's near.
+[VERSE 3]
+Oh, that each, in the day
+Of his coming, may say,
+"I have fought my way through;
+I have finished the work thou didst give me to do;"
+Oh, that each from his Lord
+May receive the glad word,
+"Well and faithfully done;
+Enter into my joy and sit down on my throne"
+
+--- TITLE: Father and God of all mankind
+[VERSE 1]
+Father and God of all mankind,
+And all the hosts above,
+Let every understanding mind
+Unite to praise Thy love.
+[VERSE 2]
+Thy kingdom come, with power and grace,
+To every heart of man;
+Thy peace, and joy, and righteousness,
+In all our bosoms reign.
+[VERSE 3]
+The righteousness that never ends,
+But makes an end of sin;
+The joy that human thought transcends,
+Now to our souls bring in:
+[VERSE 4]
+The kingdom of established peace,
+Which can no more remove;
+The perfect powers of godliness,
+The omnipotence of Love.
+
+--- TITLE: Not in the name of pride
+[VERSE 1]
+Not in the name of pride
+Or selfishness we're met;
+From worldly paths we turn aside,
+And worldly thoughts forget.
+[VERSE 2]
+Jesus, we look to thee,
+Thy promised presence claim!
+Thou in the midst of us shalt be,
+Assembled in thy name.
+[VERSE 3]
+Present we know thou art;
+But, O, thyself reveal!
+Now, Lord, let every bounding heart
+Thy peace and gladness feel!
+[VERSE 4]
+O, may thy quickening voice
+The death of sin remove;
+And bid our inmost souls rejoice
+In hope of perfect love!
+
+--- TITLE: I Want the spirit of power within
+[VERSE 1]
+I Want the spirit of power within,
+Of love, and of a healthful mind:
+Of power to conquer every sin;
+Of love to God and all mankind;
+Of health that pain and death defies,
+Most vigorous when the body dies.
+[VERSE 2]
+O, that the Comforter would come,
+Nor visit as a transient guest,
+But fix in me his constant home,
+And keep possession of my breast;
+And make my soul his loved abode,
+The temple of indwelling God!
+
+--- TITLE: I want a principle within
+[VERSE 1]
+I want a principle within
+Of jealous, godly fear;
+A sensibility to sin,
+A pain to find it near.
+[VERSE 2]
+I want the first approach to feel
+Of pride, or fond desire;
+To catch the wandering of my will,
+And quench the kindling fire.
+[VERSE 3]
+From Thee that I no more may part,
+No more Thy goodness grieve,
+The filial awe, the fleshly heart,
+The tender conscience give.
+[VERSE 4]
+Quick as the apple of an eye,
+O God, my conscience make!
+Awake my soul, when sin is nigh,
+And keep it still awake.
+
+--- TITLE: My God, my strength, my hope
+[VERSE 1]
+My God, my strength, my hope,
+On Thee I cast my care,
+With humble confidence look up,
+And know Thou hear'st my prayer.
+Give me on Thee to wait,
+Till I can all things do;
+On Thee, almighty to create,
+Almighty to renew.
+[VERSE 2]
+I want a sober mind,
+A self-renouncing will,
+That tramples down and casts behind
+The baits of pleasing ill;
+A soul inured to pain,
+To hardship, grief, and loss,
+Bold to take up, firm to sustain,
+The consecrated cross.
+[VERSE 3]
+I want a godly fear,
+A quick-discerning eye,
+That looks to Thee when sin is near,
+And bids the tempter fly;
+A spirit still prepared,
+And armed with jealous care,
+Forever standing on its guard,
+And watching unto prayer.
+[VERSE 4]
+I want a true regard,
+A single, steady aim,
+Unmoved by threatening or reward,
+To Thee and Thy great name;
+This blessing above all,
+Always to pray, I want:
+Out of the deep on Thee to call,
+And never, never faint.
+[VERSE 5]
+I rest upon Thy word;
+The promise is for me;
+My succor and salvation, Lord,
+Shall surely come from Thee;
+But let me still abide,
+Nor from my hope remove,
+Till Thou my patient spirit guide
+Into Thy perfect love.
+
+--- TITLE: That blessed law of Thine
+[VERSE 1]
+That blessed law of Thine,
+Father, to me impart;--
+The Spirit's law of life divine,
+O, write it in my heart!
+[VERSE 2]
+Implant it deep within,
+Whence it may ne'er remove,--
+The law of liberty from sin,
+The perfect law of love.
+[VERSE 3]
+Thy nature be my law,
+Thy spotless sanctity,
+And sweetly every moment draw
+My happy soul to Thee.
+
+--- TITLE: See the Lord, thy keeper, stand
+[VERSE 1]
+See the Lord, thy keeper, stand,
+Omnipotently near;
+Lo! He holds thee by the hand,
+And banishes thy fear;
+Shadows with His wings thy head;
+Guards from all impending harms;
+Round thee and beneath are spread
+The everlasting arms.
+[VERSE 2]
+God shall bless thy going out,
+Shall bless thy coming in;
+Kindly compass thee about,
+And guard from every sin.
+Lean upon thy Father's breast;
+He thy quiet spirit keeps;
+Rest in Him, securely rest;
+Thy Guardian never sleeps.
+[VERSE 3]
+O, my soul, unceasing pray,
+And in thy God confide!
+He our faltering steps shall stay,
+Nor suffer us to slide:
+He is still our sure defence,
+We his ceaseless care shall prove,
+Kept by watchful Providence
+And ever-waking love.
+
+--- TITLE: Leader of Israel's host, and Guide
+[VERSE 1]
+Leader of Israel's host, and Guide
+Of all who seek the land above,
+Beneath Thy shadow we abide,
+The cloud of Thy protecting love;
+Our strength Thy grace, our rule Thy word,
+Our end the glory of the Lord.
+[VERSE 2]
+By Thine unerring Spirit led,
+We shall not in the desert stray,
+We shall not full direction need,
+Nor miss our providential way;
+As far from danger as from fear,
+While love, almighty love, is near.
+
+--- TITLE: The saints on earth and those above
+[VERSE 1]
+The saints on earth and those above
+But one communion make;
+Joined to their Lord in bonds of love,
+All of His grace partake.
+[VERSE 2]
+One family, we dwell in Him;
+One church above, beneath;
+Though now divided by the stream,
+The narrow stream of death.
+[VERSE 3]
+One army of the living God,
+To His command we bow;
+Part of the host have crossed the flood
+And part are crossing now.
+[VERSE 4]
+O God, be Thou our constant guide!
+Then, when the word is given,
+Bid Thou death's flood its waves divide,
+And land us safe in heaven.
+
+--- TITLE: Father, supply my every need
+[VERSE 1]
+Father, supply my every need;
+Sustain the life Thyself hast given;
+Oh! grant the never-failing bread,
+The manna that comes down from heaven!
+[VERSE 2]
+The gracious fruits of righteousness,
+Thy blessings' unexhausted store,
+In me abundantly increase,
+Nor ever let me hunger more!
+
+--- TITLE: Lord! subdue our selfish will
+[VERSE 1]
+Lord! subdue our selfish will;
+Each to each our tempers suit,
+By Thy modulating skill,
+Heart to heart, as lute to lute.
+[VERSE 2]
+Sweetly on our spirits move;
+Gently touch the trembling strings;
+Make the harmony of love,
+Music for the King of kings!
+
+--- TITLE: Thou seest my feebleness
+[VERSE 1]
+Thou seest my feebleness;
+Father! be Thou my power,
+My help and refuge in distress,
+My fortress and my tower!
+[VERSE 2]
+Give me to trust in Thee;
+Be Thou my sure abode;
+My helm and sword and buckler be,
+My Saviour and my God!
+[VERSE 3]
+Myself I cannot save,
+Myself I cannot keep;
+But strength in Thee I surely have,
+Whose eyelids never sleep.
+[VERSE 4]
+My soul to Thee alone,
+For always, I commend;
+Thou lovest me, Father, as Thine own,
+And lovest to the end.
+
+--- TITLE: O come and dwell in me
+[VERSE 1]
+O come and dwell in me,
+Spirit of power within!
+And bring Thy glorious liberty
+From sorrow, fear and sin.
+[VERSE 2]
+The inward, deep disease,
+Spirit of Health, remove!
+Spirit of perfect Holiness!
+Spirit of perfect Love!
+[VERSE 3]
+Hasten the joyful day
+Which shall all sin consume;
+When old things shall be done away,
+And all things new become!
+
+--- TITLE: Speak with us, Lord; Thyself reveal
+[VERSE 1]
+Speak with us, Lord; Thyself reveal,
+While here on earth we rove;
+Speak to our hearts, and let us feel
+The kindlings of Thy love.
+[VERSE 2]
+With Thee conversing, we forget
+All toil and time and care;
+Labor is rest, and pain is sweet,
+If Thou art present there.
+[VERSE 3]
+Here then, our God, be pleased to stay,
+And bid our hearts rejoice;
+Our bounding hearts shall own Thy sway,
+And echo to Thy voice.
+[VERSE 4]
+Thou callest us to seek Thy face;
+Thy face, O God, we seek,
+Attend the whispers of Thy grace,
+And hear Thee inly speak.
+
+--- TITLE: God of my life, whose gracious power
+[VERSE 1]
+God of my life, whose gracious power
+Through varied deaths my soul hath led,
+Or turned aside the fatal hour,
+Or lifted up my sinking head!
+[VERSE 2]
+In all my ways Thy hand I own,
+Thy ruling providence I see:
+Assist me still my course to run,
+And still direct my paths to Thee.
+[VERSE 3]
+Whither, oh whither should I fly,
+But to my loving Father's breast;
+Secure within Thine arms to lie,
+And safe beneath Thy wings to rest!
+[VERSE 4]
+I have no skill the snare to shun,
+But Thou, O God, my wisdom art;
+I ever into ruin run:
+But Thou art greater than my heart.
+[VERSE 5]
+Foolish, and ignorant, and blind,
+Lead me a way I have not known;
+Bring me where I my heaven may find,
+The heaven of loving Thee alone.
+
+--- TITLE: Lord! whom winds and seas obey
+[VERSE 1]
+Lord! whom winds and seas obey,
+Guide us through the watery way;
+In the hollow of Thy hand,
+Hide and bring us safe to land.
+[VERSE 2]
+Father, let our faithful mind
+Rest, on Thee alone reclined:
+Every anxious thought repress,
+Keep our souls in perfect peace.
+[VERSE 3]
+Keep the friends whom now we leave;
+Bid them to each other cleave;
+Bid them walk on life's rough sea,
+Bid them come, by faith, to Thee.
+[VERSE 4]
+Save, till all these tempests end,
+All who on Thy love depend;
+Waft our happy spirits o'er;
+Land us on the heavenly shore.
+
+--- TITLE: Lord of the wide-extended main
+[VERSE 1]
+Lord of the wide-extended main!
+Whose power the winds and seas controls,
+Whose hand doth earth and heaven sustain,
+Whose Spirit leads believing souls;
+[VERSE 2]
+Throughout the deep Thy footsteps shine;
+We own Thy way is in the sea,
+O'erawed by majesty divine,
+And lost in Thine immensity!
+[VERSE 3]
+Thy wisdom here we learn to adore,
+Thine everlasting truth we prove,
+The wondrous heights of boundless power,
+The unfathomable depths of love.
+[VERSE 4]
+Infinite God, Thy greatness spanned
+These heavens, and meted out the skies;
+Lo! in the hollow of Thy hand
+The measured waters sink and rise.
+[VERSE 5]
+And here Thine unknown paths we trace,
+Which dark to human eyes appear:
+While through the mighty waves we pass
+Faith only sees that God is here.
+

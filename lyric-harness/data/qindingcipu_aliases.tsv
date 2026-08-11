@@ -1,0 +1,388 @@
+# 詞牌 NAME LINKS the 1715 spec table does not itself carry.
+#
+# WHY THIS FILE EXISTS. 479 of the 10,029 poems in corpus/song/ltc_siku_kr4j*
+# (4.8%, 88 distinct names) head a 詞牌 the committed spec table cannot resolve
+# to their 格 -- 醉落魄 (80 poems), 江神子 (36), 小桃紅 (20), 掃花遊 (17),
+# 醉桃源 (16). Their `--- GE:` header therefore named a tune nothing in this
+# repository had a row for, and their segmentation could not be re-derived from
+# anything committed: the link lived only in a `git clone
+# https://github.com/kanripo/KR4j0086`. Doctrine 34 says a corpus file with no
+# row is the defect; this is the same rule one level in -- a row whose chain
+# has a link outside the repo is a claim nobody here can check.
+# `python3 quality/build_ci_corpus.py --verify-staged` went from 436
+# UNVERIFIABLE poems to 0 when this file landed.
+#
+# WHAT THE SEGMENTATION ITSELF NEVER DEPENDED ON: all 436 of the printed break
+# vectors already landed on a real 格 of exactly their character count
+# somewhere in the spec, 436 of 436, so what was missing was the NAME, not the
+# line breaks. That is the difference between an unverifiable claim and a
+# wrong one, and it is worth stating which this was.
+#
+# A ROW IS A LINK, NOT A NAME. 玉連環 is a 104-character 詞牌 of its own AND a
+# 又名 the 1782 目録 gives 一落索; 12 staged poems at 46-48 characters are
+# matched through the second sense. Writing out only the names the spec table
+# LACKS lost exactly those, and left 16 poems unverifiable after the first
+# pass of this file. 春草碧/番槍子 and 清商怨/擷芳詞 are the other two.
+#
+# WITNESS. KR4j0086 = 御定詞譜 (the 四庫's own title for the 欽定詞譜),
+# '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, 1782. No LICENSE file
+# anywhere in the Kanseki Repository, so admission rests on term expiry of the
+# WORK (1715) and of the EDITION (1782) and on nothing else -- the same footing
+# every corpus/song/ltc_siku_* file was admitted on (doctrine 54).
+# Re-probed 2026-08-11: plain `git clone` returns HTTP 200, repo md5 over its
+# KR4j0086_*.txt files is 393834975a9c374150cc68bd5a3da4a9, no licence file.
+#
+# HOW EACH ROW WAS DERIVED, and none of it from memory.
+#   catalogue    a 又名 note printed in KR4j0086's own 卷N目録, taken ONLY
+#                where the mandoku double-column note has an EMPTY second
+#                column. `(又名江神子/)` is unambiguous; `(又名重疊金花子夜歌溪
+#                菩薩鬘雲/花間意 梅 句 花 碧 晚)` interleaves six aliases across
+#                two half-columns and decoding it is a guess, so it is refused
+#                rather than resolved (doctrine 66).
+#   orthography  the 四庫 catalogue and the couyun tune sequence aligned
+#                (Needleman-Wunsch) and the residual character substitutions
+#                collected: 栁->柳, 黄->黃, 巻->卷, 㸃->點, 逺->遠. 638 names
+#                align exactly; the map is REFUSED outright if it would merge
+#                two distinct spec names (0 collisions).
+#
+# A row is EVIDENCE, not a decision: `tune` may name more than one primary,
+# and where it does the matcher REFUSES the poem rather than picking one.
+# 5 of these rows are such cases (小桃紅, 慶宫春, 清平樂令, 錦堂春, 陽春曲).
+#
+# Rows whose `alias` still carries a 一名/乂名/义名 prefix are the witness as
+# printed: the 目録 does not use 又名 everywhere and the extractor strips only
+# 又名. They are kept rather than cleaned, because a name no heading can match
+# costs nothing and editing the witness to look tidy is the thing this file
+# exists to prevent.
+#
+# COLUMNS
+#   alias         the name as the 1782 目録 prints it
+#   tune          the 詞譜 primary 詞牌 it names, '|' separated if more than one
+#   route         catalogue | orthography | catalogue+orthography
+#   staged_poems  poems in corpus/song/ltc_siku_kr4j*.txt whose --- GE: header
+#                 uses this name. 0 means the link is recorded and unused.
+alias	tune	route	staged_poems
+一名瑣寒牕	瑣窗寒	catalogue+orthography	0
+一籮金	蝶戀花	catalogue	7
+一絡索	一落索	catalogue	3
+一絲風	訴衷情令	catalogue	0
+三叚子	寶鼎現	catalogue	0
+三犯渡江雲	渡江雲	catalogue	0
+三臺令	古調笑	catalogue	1
+上昇花	花心動	catalogue	0
+乂名思越人	朝天子	catalogue	0
+乂武林春	武陵春	catalogue	0
+义名愁倚闌令	春光好	catalogue	0
+五福降中天	齊天樂	catalogue	1
+五福降中天慢	五福降中天	catalogue	0
+亭前栁	廳前柳	catalogue+orthography	4
+伊川令	伊州令	catalogue	0
+似孃兒	攤破南鄉子	catalogue+orthography	0
+促拍醜奴兒	促拍採桑子	catalogue	0
+倚闌令	春光好	catalogue	0
+倦尋芳慢	倦尋芳	catalogue+orthography	0
+傷情怨	清商怨	catalogue	3
+傾杯	傾杯樂	catalogue+orthography	2
+元㑹曲	水調歌頭	catalogue+orthography	0
+八犯玉交枝	八寶妝	catalogue	2
+六幺花十八	夢行雲	catalogue	0
+凉州令	梁州令	catalogue+orthography	4
+凌波曲	醉太平	catalogue	0
+凱歌	水調歌頭	catalogue	0
+别瑶姬慢	憶瑤姬	catalogue+orthography	0
+别素質	憶瑤姬	catalogue+orthography	0
+剔銀鐙引	剔銀鐙	catalogue	0
+十二時	憶少年	catalogue	10
+十二郎	二郎神	catalogue	0
+十拍子	破陣子	catalogue	14
+十月梅	十月桃	catalogue	2
+千秋歲令	千秋歲引	catalogue	0
+千秋節	千秋歲	catalogue	0
+千秋萬歲	千秋歲引	catalogue	0
+卓牌子令	卓牌子	catalogue	0
+卓牌子慢	卓牌子	catalogue	1
+南棲令	唐多令	catalogue	0
+南浦月	點絳脣	catalogue	0
+古傾杯	傾杯樂	catalogue+orthography	0
+古祝英臺	甘露歌	catalogue	0
+古陽關	陽關引	catalogue	2
+吉了犯	倒犯	catalogue	0
+君來路	金錯刀	catalogue	0
+喜朝天	踏莎行	catalogue	3
+四代好	宴清都	catalogue+orthography	0
+四和香	四犯令	catalogue+orthography	1
+四字令	醉太平	catalogue+orthography	3
+四換頭	醉公子	catalogue+orthography	0
+國香慢	國香	catalogue	0
+塞上秋	天淨沙	catalogue	2
+壺山好	憶江南	catalogue	0
+壽星明	沁園春	catalogue	1
+夏初臨	燕春臺	catalogue	6
+夏州	鬥百花	catalogue	0
+夏雲峰	金明池	catalogue+orthography	0
+夜飛鵲	夜飛鵲慢	catalogue	0
+夢遊仙	戚氏	catalogue	0
+天下樂	減字木蘭花	catalogue	0
+天香引	折桂令	catalogue	0
+太平時	添聲楊柳枝	catalogue	9
+太清引	太常引	catalogue	2
+女冠子慢	女冠子	catalogue	0
+如此	齊天樂	catalogue	0
+婆羅門	婆羅門引	catalogue	0
+孤鴈兒	御街行	catalogue+orthography	3
+學士吟	鸚鵡曲	catalogue	0
+定風波令	定風波	catalogue	0
+定風流	定風波	catalogue	0
+宫中調笑	古調笑	catalogue+orthography	7
+宴桃源	阮郎歸	catalogue	0
+宴瑤池	越江吟	catalogue	0
+宴西園	昭君怨	catalogue	0
+寶鼎兒	寶鼎現	catalogue	0
+小冲山	小重山	catalogue	0
+小桃紅	平湖樂|連理枝	catalogue	20
+小梅花	梅花引	catalogue	4
+小重山令	小重山	catalogue	2
+小鎮西	小鎮西犯	catalogue	0
+小闌干	眼兒媚	catalogue	0
+廣寒枝	浣溪沙	catalogue	0
+弄花雨	冉冉雲	catalogue	0
+彩鳳舞	綵鳳飛	catalogue+orthography	0
+怕醉	謁金門	catalogue	0
+思佳客	歸自謠	catalogue	0
+怨啼鵑	浣溪沙	catalogue	0
+怨春	一斛珠	catalogue	0
+怨東風	醉春風	catalogue	0
+恨歎遲	恨來遲	catalogue	0
+惜分釵	擷芳詞	catalogue	9
+惜雙雙	惜分飛	catalogue	4
+惜雙雙令惜芳菲	惜分飛	catalogue+orthography	0
+愁倚闌	春光好	catalogue	0
+愛恩深	受恩深	catalogue	1
+感庭秋	撼庭秋	catalogue	0
+感皇恩慢	泛青苕	catalogue	0
+感黄鸝	八六子	catalogue+orthography	0
+慶宫春	慶春宮|高陽臺	catalogue+orthography	7
+慶春澤慢	高陽臺	catalogue	0
+慶清朝慢	慶清朝	catalogue	0
+慶金枝令	慶金枝	catalogue	0
+慶靈	攤破南鄉子	catalogue	0
+憶栁曲	虞美人	catalogue+orthography	0
+憶舊逰慢	憶舊遊	catalogue+orthography	0
+憶蘿月	清平樂	catalogue	0
+戛金釵	握金釵	catalogue	0
+折新荷引	新荷葉	catalogue	0
+拜新月	拜星月慢	catalogue	0
+掃市舞	掃地舞	catalogue	0
+掃花遊	掃地遊	catalogue	17
+採蓮詞	平湖樂	catalogue	0
+探春	探春慢	catalogue	0
+搗練子令	搗練子	catalogue	0
+撲蝴蝶近	撲蝴蝶	catalogue	2
+數花風	鳳凰閣	catalogue	0
+新安路	秋風清	catalogue	0
+新念别	夜遊宮	catalogue+orthography	0
+於中好	端正好	catalogue	5
+早梅芳近	早梅芳	catalogue+orthography	0
+昆明池	金明池	catalogue	0
+明月引	江城梅花引	catalogue	0
+明月斜	梧桐影	catalogue	1
+春早湖山	謁金門	catalogue	0
+春草碧	番槍子	catalogue	5
+春霽	秋霽	catalogue	0
+晴色入青	生查子	catalogue	0
+暮雲碧	吊嚴陵	catalogue	1
+月上海棠慢	月上海棠	catalogue	0
+月中仙	月中桂	catalogue	2
+月中行	月宮春	catalogue	10
+月當窗	霜天曉角	catalogue	0
+望仙樓	胡搗練	catalogue	1
+望夫歌	囉嗊曲	catalogue	6
+望月婆羅門引	婆羅門引	catalogue	5
+望梅	解連環	catalogue	0
+望梅花令	望梅花	catalogue	0
+望漢月	憶漢月	catalogue	2
+木蘭香	減字木蘭花	catalogue	0
+杏梁燕	解連環	catalogue	0
+杏花風	杏花天	catalogue	1
+村意逺	江城子	catalogue+orthography	0
+東仙	沁園春	catalogue	0
+東風寒	眼兒媚	catalogue	0
+栁色新	小重山	catalogue+orthography	0
+栁色黄	石州慢	catalogue+orthography	0
+栁長春	踏莎行	catalogue+orthography	1
+桂花明	四犯令	catalogue	0
+桂香飄	花心動	catalogue	0
+桃花曲	憶少年	catalogue	0
+桃花水	訴衷情	catalogue	0
+梁州令疊韻	梁州令	catalogue	0
+梅和栁	生查子	catalogue+orthography	0
+梅月圓	朝中措	catalogue	0
+楚天	卜算子	catalogue	0
+極相思令	極相思	catalogue	0
+樂世	六幺令	catalogue	0
+步虛聲	憶江南	catalogue	0
+歩虚詞	西江月	catalogue+orthography	0
+歸平遙	歸國謠	catalogue+orthography	0
+歸田樂引	歸田樂	catalogue	2
+氷玉風月	醉蓬萊	catalogue	0
+江南路	秋風清	catalogue	0
+江月令	西江月	catalogue	0
+江神子	江城子	catalogue	36
+江神子慢	江城子慢	catalogue	1
+沙磧子	沙塞子	catalogue	0
+泛蘭舟	新荷葉	catalogue	1
+洛妃怨	昭君怨	catalogue	0
+洛陽春	一落索	catalogue	7
+洞庭春色	沁園春	catalogue	6
+海棠春令	海棠春	catalogue	0
+海棠花	海棠春	catalogue	1
+消息	永遇樂	catalogue	0
+淚珠彈	戀繡衾	catalogue	0
+深院月	搗練子	catalogue	0
+添字少年心	少年心	catalogue	0
+添春色	醉鄉春	catalogue	0
+清和風	浣溪沙	catalogue	0
+清商怨	擷芳詞	catalogue	12
+清平樂令	江亭怨|清平樂	catalogue	1
+清溪怨	奪錦標	catalogue	0
+漁父家風	訴衷情令	catalogue	0
+漢宫春慢	漢宮春	catalogue+orthography	0
+濕羅衣	中興樂	catalogue	0
+瀟湘靜	湘江靜	catalogue	0
+灼灼花	連理枝	catalogue	0
+烘日	菩薩蠻	catalogue	0
+照江梅	朝中措	catalogue	0
+熙州摘徧	氐州第一	catalogue+orthography	0
+獻仙音	法曲獻仙音	catalogue	0
+獻金杯	厭金盃	catalogue+orthography	0
+玉壺氷	虞美人	catalogue	0
+玉水	柳梢青	catalogue	0
+玉簞秋	一剪梅	catalogue	0
+玉蓮花	謝池春	catalogue	0
+玉蝴蝶慢	玉蝴蝶	catalogue	0
+玉蹀躞	解蹀躞	catalogue	0
+玉連環	一落索	catalogue	12
+玉關遙	月上海棠	catalogue+orthography	0
+玊樓春令	玉樓春	catalogue+orthography	0
+王孫信	尋芳草	catalogue	0
+王珥墜	燭影搖紅	catalogue	0
+琴調相	相思引	catalogue	0
+瑞鶴仙影	淒涼犯	catalogue	0
+瑤池宴	越江吟	catalogue	0
+瑤池宴令	越江吟	catalogue	0
+瑶池月	瑤臺月	catalogue+orthography	0
+瑶花慢	瑤華	catalogue+orthography	0
+甘州	八聲甘州	catalogue	4
+甘州子	甘州曲	catalogue	5
+畫屏秋色	秋思耗	catalogue	2
+疊蘿花	感皇恩	catalogue	0
+疎簾淡月	桂枝香	catalogue+orthography	0
+白蘋香	西江月	catalogue	0
+百宜嬌	眉嫵	catalogue	2
+百尺樓	卜算子	catalogue	0
+相思令	相思兒令	catalogue	1
+相思會	千年調	catalogue	1
+石州引	石州慢	catalogue	0
+碧芙蓉	尾犯	catalogue	2
+秋波媚	眼兒媚	catalogue	2
+秋風引	秋風清	catalogue	0
+稍徧	哨遍	catalogue+orthography	0
+竹馬子	竹馬兒	catalogue	0
+笛家㺯慢	笛家	catalogue	0
+箜篌曲	唐多令	catalogue	0
+紅孃子	連理枝	catalogue+orthography	0
+紅窓睡	紅窗聽	catalogue+orthography	0
+緑腰	六幺令	catalogue+orthography	0
+繡帶兒	好女兒	catalogue	0
+繡鸞鳳花犯	花犯	catalogue	0
+羅敷媚歌	採桑子	catalogue	0
+翠圓枝	好事近	catalogue	0
+翠華引	三臺	catalogue	0
+翦朝霞	鷓鴣天	catalogue+orthography	0
+聖無憂	烏夜啼	catalogue	4
+聲聲令	勝勝令	catalogue	2
+臘前梅	太常引	catalogue	0
+臘梅香	一剪梅	catalogue	0
+與團圓	喜團圓	catalogue	0
+芙蓉曲	朝中措	catalogue	0
+芳草渡	系裙腰	catalogue+orthography	7
+茘枝香近	荔枝香	catalogue+orthography	0
+荆州亭	江亭怨	catalogue	3
+莫思歸	拋毬樂	catalogue	1
+菖蒲緑	歸朝歡	catalogue+orthography	0
+萬斯年	天仙子	catalogue	0
+落梅慢	落梅	catalogue	2
+落梅風	壽陽曲	catalogue	0
+蕙蘭芳	蕙蘭芳引	catalogue+orthography	1
+蕭蕭雨	八聲甘州	catalogue	0
+薄命女	長命女	catalogue	2
+蟾宫	折桂令	catalogue+orthography	0
+西平樂慢	西平樂	catalogue	0
+西樓月	春曉曲	catalogue	0
+西河慢	西河	catalogue	0
+西湖	西河	catalogue	0
+西湖春	探芳信	catalogue	0
+西湖曲	玉樓春	catalogue	1
+觧佩環	疏影	catalogue+orthography	0
+試香羅	浣溪沙	catalogue	0
+調滿庭芳	滿庭芳	catalogue+orthography	0
+讌瑶池	八聲甘州	catalogue+orthography	1
+豐樂樓	鶯啼序	catalogue	0
+貧也樂	梅花引	catalogue	1
+賀聖朝影	添聲楊柳枝	catalogue	2
+賣花聲	浪淘沙令	catalogue	15
+贊普子	贊浦子	catalogue	0
+越女鏡心	法曲獻仙音	catalogue	0
+踏月	霜天曉角	catalogue	0
+踏雪行	踏莎行	catalogue	0
+轉應曲	古調笑	catalogue	13
+轉調二郎神	二郎神	catalogue	0
+轉調蝶戀花	蝶戀花	catalogue	0
+過龍門	浪淘沙令	catalogue	14
+遠山横	風入松	catalogue+orthography	0
+邁陂塘	摸魚兒	catalogue	0
+醉思凡	醉太平	catalogue	1
+醉東風	清平樂	catalogue	0
+醉桃源	阮郎歸	catalogue	16
+醉瑤瑟	金錯刀	catalogue	0
+醉花春	謁金門	catalogue	0
+醉落魄	一斛珠	catalogue	80
+醜奴	採桑子	catalogue	0
+金風玉	鵲橋仙	catalogue	0
+釣臺詞	步蟾宮	catalogue	0
+釣船笛	好事近	catalogue	1
+錦堂春	烏夜啼|錦堂春慢	catalogue	5
+録要	六幺令	catalogue	0
+鎮西	小鎮西犯	catalogue	0
+長亭怨	長亭怨慢	catalogue	0
+長春	引駕行	catalogue	0
+長橋月	霜天曉角	catalogue	0
+開元樂	三臺	catalogue	4
+閱金經	金字經	catalogue	0
+闗河令	清商怨	catalogue+orthography	3
+闘嬋娟	霜葉飛	catalogue	0
+陽春曲	喜春來|陽春	catalogue	0
+隔浦蓮	隔浦蓮近拍	catalogue	0
+隔浦蓮近	隔浦蓮近拍	catalogue	0
+隴頭泉	多麗	catalogue	0
+隴首山	憶少年	catalogue	0
+集賢賓	接賢賓	catalogue	1
+雙燕子	雙雁兒	catalogue	0
+雪月交光	醉蓬萊	catalogue	0
+露華慢	露華	catalogue	0
+青山逺	綵鸞歸令	catalogue+orthography	0
+青衫濕	人月圓	catalogue	0
+風中栁令	謝池春	catalogue+orthography	0
+風光子	歸自謠	catalogue	0
+風入松慢	風入松	catalogue	0
+飛雪滿堆	飛雪滿羣山	catalogue	0
+餹多令	唐多令	catalogue	0
+驟雨打新荷	小聖樂	catalogue	0
+髙溪梅令	鬲溪梅令	catalogue+orthography	1
+鬢雲䯳令	蘇幕遮	catalogue	0
+魚水同歡	蝶戀花	catalogue	1
+鳯將雛	殿前歡	catalogue+orthography	0
+鳯蕭吟	芳草	catalogue+orthography	0
+鴛鴦怨曲	于飛樂	catalogue	0
+鴨頭緑	多麗	catalogue+orthography	0
+黑漆弩	鸚鵡曲	catalogue	0

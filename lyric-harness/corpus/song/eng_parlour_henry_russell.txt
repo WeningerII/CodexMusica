@@ -1,0 +1,145 @@
+# author: Henry Russell (1812-1900)
+# source: GITenberg/Beadle-s-Dime-Song-Book-No-3-A-Collection-of-New-and-Popular-Comic-and-Sentimental-Songs_49629 49629-0.txt md5 093c423aa24d18d4e688dd1c294188fa
+# licence: public domain -- Project Gutenberg edition, express PD statement; underlying edition Beadle's Dime Song Book No. 3, published 1860 ("Entered according to Act of Congress, in the year 1860")
+# source: GITenberg/Beadle-s-Dime-Song-Book-No-5-A-Collection-of-New-and-Popular-Comic-and-Sentimental-Songs_50878 50878-0.txt md5 65ac302afaa8ac7c9f8e35a4674e05b0
+# licence: public domain -- Project Gutenberg edition, express PD statement; underlying edition Beadle's Dime Song Book No. 5, published 1860 ("Entered according to Act of Congress, in the year 1860")
+# attribution-note: Henry Russell was a COMPOSER, not a lyricist. Every text in this file is by another hand, named per song. The file is grouped under Russell because the songs are catalogued as his; do NOT treat these words as Russell's authorship for lyricist-level statistics.
+# structure: [VERSE n] / [CHORUS] marked from the source. "&c." in the source is an abbreviated chorus return and is marked as such.
+
+# dedup: TWO ITEMS' WORTH OF TEXT REMOVED 2026-08-11 by cell AC, and one
+#       RUN-ON SPLIT. Neither is a change of attribution: this file has said
+#       since it was written that Russell composed and did not write, and
+#       data/lyricists.tsv has carried him as COMPOSER_NOT_LYRICIST with the
+#       words 'by another hand (Morris, Mackay, Cook, Dickens)'. THE RECORD
+#       ALREADY KNEW AND THE CORPUS DID NOT: two of the four songs here were
+#       ALSO in the files of the poets who wrote them, so every corpus-wide
+#       rate counted them twice.
+#         `Woodman Spare that Tree` -- REMOVED. This file's own item line said
+#           'WORDS BY GEORGE P. MORRIS'; the poem is in George P. Morris's own
+#           Poems (PG 2558, md5 2b1c7ef9adcfa51e4be5064e84846618) and in
+#           corpus/song/eng_american_george_pope_morris.txt. 63% containment;
+#           not byte-identical, because Beadle prints 'shelter'd' where Morris
+#           prints 'sheltered', which is why check E's hash never saw it.
+#         `The Old Arm-Chair` -- WAS A RUN-ON OF TWO SONGS and is now split.
+#           Verses 1-4 were Eliza Cook's poem, already in
+#           corpus/song/eng_british_eliza_cook.txt (PG 29732), 50% containment
+#           -- BELOW the 60% cut, and below it only because the run-on made
+#           the item twice its true length. Removed. What followed them was a
+#           DIFFERENT SONG whose printed title the extractor swallowed into a
+#           one-line [VERSE 5]: PG 50878 sets 'Grave of Bonaparte.' as a
+#           heading and the book's own index lists 'The Old Arm-Chair, 50' and
+#           'The Grave of Bonaparte, 51' as two songs on two pages. It is now
+#           its own item, which is the remedy a segmentation error takes --
+#           deleting it would have been the remedy for a different defect.
+# attribution: EVERY ITEM CARRIES ITS OWN `--- AUTHOR:` LINE. Where the source
+#       names the lyricist it is quoted; where it names nobody the line SAYS
+#       nobody, and no name is supplied by elimination from the three that
+#       happen to be in this file.
+
+--- TITLE: Cheer, Boys, Cheer
+--- AUTHOR: Charles Mackay -- NAMED BY THE SOURCE: Beadle's Dime Song Book No. 5 (1860) prints 'WORDS BY CHARLES MACKAY'; Russell wrote the music only
+[VERSE 1]
+Cheer, boys, cheer, no more of idle sorrow,
+Courage, true hearts shall bear us on our way,
+Hope points before, and shows a bright to-morrow,
+Let us forget the darkness of to-day.
+Then farewell England, much as we may love thee,
+We’ll dry the tears that we have shed before;
+We’ll not weep to sail in search of fortune,
+Then farewell England, farewell evermore.
+
+[CHORUS]
+Then cheer, boys, cheer for England, mother England,
+Cheer, boys, cheer for the willing strong right hand,
+Cheer boys, cheer, there’s wealth for honest labor,
+Cheer, boys, cheer for the new and happy land.
+
+[VERSE 2]
+Cheer, boys, cheer, the steady breeze is blowing,
+To float us freely o’er the ocean’s breast,
+And the world shall follow in the track we’re going;
+The star of empire glitters in the West,
+We’ve had a toil, and little to reward it,
+But there shall plenty smile upon our pain,
+And ours shall be the prairie and the forest,
+And boundless meadows ripe with golden grain.
+
+[CHORUS 2] (differs from CHORUS 1 -- repetition with variation)
+Then cheer, boys, cheer for England, mother England,
+Cheer, boys, cheer, united heart and hand;
+Cheer, boys, cheer, there’s wealth for honest labor,
+Cheer, boys, cheer for the new and happy land.
+
+--- TITLE: Grave of Bonaparte
+--- AUTHOR: NOT NAMED BY THE SOURCE. PG 50878 prints this song's title and, under it, 'Copied by permission of OLIVER DITSON & CO. 227 Washington St., Boston, owners of the copyright.' -- a music publisher's permission line, not an authorship claim. The book names no author for any of its songs (`words by` occurs 0 times in it). Nothing else on disk closes it, so it is left open rather than attributed by elimination from Morris, Mackay, Cook and Dickens.
+--- SPLIT: separated 2026-08-11 from the item titled `The Old Arm-Chair`, on the break the source itself prints (PG 50878 line 1968, 'Grave of Bonaparte.') and its own index confirms (two titles, two page numbers).
+[VERSE 1]
+On a lone barren isle, where the wild roaring billow,
+Assail the stern rock and the loud tempests rave,
+The hero lies still, while the dew drooping willow,
+Like fond weeping mourners lean’d over the grave;
+The lightnings may flash and the loud thunders rattle,
+He heeds not, he hears not, he’s free from all pain,
+He sleeps his last sleep, he has fought his last battle,
+No sound can awake him to glory again,
+No sound can awake him to glory again.
+
+[VERSE 2]
+Yet spirit immortal, the tomb can not bind thee,
+For like thine own eagle that soar’d to the sun,
+Thou springest from bondage, and leavest behind thee
+A name, which before thee no mortal had won.
+Though nations may combat, and war’s thunders rattle,
+No more on the steed wilt thou sweep o’er the plain,
+Thou sleep’st thy last sleep, thou hast fought thy last battle,
+No sound can awake thee to glory again,
+No sound can awake thee to glory again.
+
+[VERSE 3]
+Oh, shade of the mighty, where now are the legions,
+That rush’d but to conquer when thou led’st them on?
+Alas! they have perish’d in far hilly regions,
+And all save the fame of their triumph is gone.
+The trumpet may sound, and the loud cannon rattle,
+They heed not, they hear not, they’re free from all pain;
+They sleep their last sleep, they have fought their last battle,
+No sound can awake them to glory again,
+No sound can awake them to glory again.
+
+--- TITLE: The Ivy Green
+--- AUTHOR: Charles Dickens -- NAMED BY THE SOURCE: Beadle's Dime Song Book No. 5 (1860) prints 'WORDS BY CHARLES DICKENS (from Pickwick Papers)'; Russell wrote the music only
+[VERSE 1]
+Oh! a dainty plant is the ivy green,
+That creepeth o’er the ruins old;
+Of right choice food are his meals I ween,
+In his cell so lonely and cold.
+The wall must be crumbled, the stone decay’d
+To please his dainty whim;
+And the mouldering dust that years have made,
+Is a merry meal for him.
+Creeping where no life is seen,
+A rare old plant is the ivy green.
+
+[VERSE 2]
+Fast he stealeth on, though he wears no wings,
+And a staunch old head hath he;
+How closely he twineth--how tightly he clings
+To his friend, the huge oak tree!
+And slily he traileth along the ground,
+And his leaves he gently waves,
+As he joyously hugs, and crawleth round
+The rich mould of dead men’s graves.
+Creeping where grim death hath been,
+A rare old plant is the ivy green.
+
+[VERSE 3]
+Whole ages have fled, and works decay’d,
+And nations have scatter’d been;
+But the stout old ivy shall never fade
+From its hale and hearty green.
+The brave old plant in its lonely days
+Shall fatten on the past;
+For the stateliest building man can raise,
+Is the ivy’s food at last.
+Creeping where grim death hath been,
+A rare old plant is the ivy green.

@@ -1,0 +1,894 @@
+# author: Edward FitzGerald (1809-1883)
+# source: GITenberg/The-Rubaiyat-of-Omar-Khayyam_246 246.txt md5 af6c1cfeda5f33f40ee15c4e6c2e3d8a
+# licence: public domain — Project Gutenberg text; author died 1883; every edition used was published 1931 or earlier
+# edition: The-Rubaiyat-of-Omar-Khayyam — 1859 — no imprint in the file; FitzGerald's Rubaiyat 1st ed. 1859, 5th ed. 1889 — the Gutenberg text prints both
+# note: The Rubaiyat is a TRANSLATION (from the Persian of Omar Khayyam) but the
+#       English quatrains are FitzGerald's own composition and are the reason he
+#       is on the lyricist list. Staged as the two editions the Gutenberg text
+#       prints, each quatrain a stanza.
+# structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
+#            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
+#--------------------------------------------------------------------------
+--- TITLE: Rubaiyat of Omar Khayyam (First Edition, 1859)
+[VERSE 1]
+Awake! for Morning in the Bowl of Night
+Has flung the Stone that puts the Stars to Flight:
+And Lo! the Hunter of the East has caught
+The Sultan's Turret in a Noose of Light.
+[VERSE 2]
+Dreaming when Dawn's Left Hand was in the Sky
+I heard a Voice within the Tavern cry,
+"Awake, my Little ones, and fill the Cup
+Before Life's Liquor in its Cup be dry."
+[VERSE 3]
+And, as the Cock crew, those who stood before
+The Tavern shouted--"Open then the Door.
+You know how little while we have to stay,
+And, once departed, may return no more."
+[VERSE 4]
+Now the New Year reviving old Desires,
+The thoughtful Soul to Solitude retires,
+Where the WHITE HAND OF MOSES on the Bough
+Puts out, and Jesus from the Ground suspires.
+[VERSE 5]
+Iram indeed is gone with all its Rose,
+And Jamshyd's Sev'n-ring'd Cup where no one knows;
+But still the Vine her ancient Ruby yields,
+And still a Garden by the Water blows.
+[VERSE 6]
+And David's Lips are lock't; but in divine
+High piping Pelevi, with "Wine!  Wine!  Wine!
+Red Wine!"--the Nightingale cries to the Rose
+That yellow Cheek of hers to'incarnadine.
+[VERSE 7]
+Come, fill the Cup, and in the Fire of Spring
+The Winter Garment of Repentance fling:
+The Bird of Time has but a little way
+To fly--and Lo! the Bird is on the Wing.
+[VERSE 8]
+And look--a thousand Blossoms with the Day
+Woke--and a thousand scatter'd into Clay:
+And this first Summer Month that brings the Rose
+Shall take Jamshyd and Kaikobad away.
+[VERSE 9]
+But come with old Khayyam, and leave the Lot
+Of Kaikobad and Kaikhosru forgot:
+Let Rustum lay about him as he will,
+Or Hatim Tai cry Supper--heed them not.
+[VERSE 10]
+With me along some Strip of Herbage strown
+That just divides the desert from the sown,
+Where name of Slave and Sultan scarce is known,
+And pity Sultan Mahmud on his Throne.
+[VERSE 11]
+Here with a Loaf of Bread beneath the Bough,
+A Flask of Wine, a Book of Verse--and Thou
+Beside me singing in the Wilderness--
+And Wilderness is Paradise enow.
+[VERSE 12]
+"How sweet is mortal Sovranty!"--think some:
+Others--"How blest the Paradise to come!"
+Ah, take the Cash in hand and waive the Rest;
+Oh, the brave Music of a distant Drum!
+[VERSE 13]
+Look to the Rose that blows about us--"Lo,
+Laughing," she says, "into the World I blow:
+At once the silken Tassel of my Purse
+Tear, and its Treasure on the Garden throw."
+[VERSE 14]
+The Worldly Hope men set their Hearts upon
+Turns Ashes--or it prospers; and anon,
+Like Snow upon the Desert's dusty Face
+Lighting a little Hour or two--is gone.
+[VERSE 15]
+And those who husbanded the Golden Grain,
+And those who flung it to the Winds like Rain,
+Alike to no such aureate Earth are turn'd
+As, buried once, Men want dug up again.
+[VERSE 16]
+Think, in this batter'd Caravanserai
+Whose Doorways are alternate Night and Day,
+How Sultan after Sultan with his Pomp
+Abode his Hour or two, and went his way.
+[VERSE 17]
+They say the Lion and the Lizard keep
+The Courts where Jamshyd gloried and drank deep:
+And Bahram, that great Hunter--the Wild Ass
+Stamps o'er his Head, and he lies fast asleep.
+[VERSE 18]
+I sometimes think that never blows so red
+The Rose as where some buried Caesar bled;
+That every Hyacinth the Garden wears
+Dropt in its Lap from some once lovely Head.
+[VERSE 19]
+And this delightful Herb whose tender Green
+Fledges the River's Lip on which we lean--
+Ah, lean upon it lightly! for who knows
+From what once lovely Lip it springs unseen!
+[VERSE 20]
+Ah! my Beloved, fill the Cup that clears
+TO-DAY of past Regrets and future Fears-
+To-morrow?--Why, To-morrow I may be
+Myself with Yesterday's Sev'n Thousand Years.
+[VERSE 21]
+Lo! some we loved, the loveliest and the best
+That Time and Fate of all their Vintage prest,
+Have drunk their Cup a Round or two before,
+And one by one crept silently to Rest.
+[VERSE 22]
+And we, that now make merry in the Room
+They left, and Summer dresses in new Bloom,
+Ourselves must we beneath the Couch of Earth
+Descend, ourselves to make a Couch--for whom?
+[VERSE 23]
+Ah, make the most of what we yet may spend,
+Before we too into the Dust Descend;
+Dust into Dust, and under Dust, to lie,
+Sans Wine, sans Song, sans Singer and--sans End!
+[VERSE 24]
+Alike for those who for TO-DAY prepare,
+And those that after a TO-MORROW stare,
+A Muezzin from the Tower of Darkness cries
+"Fools! your Reward is neither Here nor There."
+[VERSE 25]
+Why, all the Saints and Sages who discuss'd
+Of the Two Worlds so learnedly, are thrust
+Like foolish Prophets forth; their Words to Scorn
+Are scatter'd, and their Mouths are stopt with Dust.
+[VERSE 26]
+Oh, come with old Khayyam, and leave the Wise
+To talk; one thing is certain, that Life flies;
+One thing is certain, and the Rest is Lies;
+The Flower that once has blown for ever dies.
+[VERSE 27]
+Myself when young did eagerly frequent
+Doctor and Saint, and heard great Argument
+About it and about: but evermore
+Came out by the same Door as in I went.
+[VERSE 28]
+With them the Seed of Wisdom did I sow,
+And with my own hand labour'd it to grow:
+And this was all the Harvest that I reap'd--
+"I came like Water, and like Wind I go."
+[VERSE 29]
+Into this Universe, and why not knowing,
+Nor whence, like Water willy-nilly flowing:
+And out of it, as Wind along the Waste,
+I know not whither, willy-nilly blowing.
+[VERSE 30]
+What, without asking, hither hurried whence?
+And, without asking, whither hurried hence!
+Another and another Cup to drown
+The Memory of this Impertinence!
+[VERSE 31]
+Up from Earth's Centre through the seventh Gate
+I rose, and on the Throne of Saturn sate,
+And many Knots unravel'd by the Road;
+But not the Knot of Human Death and Fate.
+[VERSE 32]
+There was a Door to which I found no Key:
+There was a Veil past which I could not see:
+Some little Talk awhile of ME and THEE
+There seemed--and then no more of THEE and ME.
+[VERSE 33]
+Then to the rolling Heav'n itself I cried,
+Asking, "What Lamp had Destiny to guide
+Her little Children stumbling in the Dark?"
+And--"A blind understanding!" Heav'n replied.
+[VERSE 34]
+Then to this earthen Bowl did I adjourn
+My Lip the secret Well of Life to learn:
+And Lip to Lip it murmur'd--"While you live,
+Drink!--for once dead you never shall return."
+[VERSE 35]
+I think the Vessel, that with fugitive
+Articulation answer'd, once did live,
+And merry-make; and the cold Lip I kiss'd
+How many Kisses might it take--and give.
+[VERSE 36]
+For in the Market-place, one Dusk of Day,
+I watch'd the Potter thumping his wet Clay:
+And with its all obliterated Tongue
+It murmur'd--"Gently, Brother, gently, pray!"
+[VERSE 37]
+Ah, fill the Cup:--what boots it to repeat
+How Time is slipping underneath our Feet:
+Unborn TO-MORROW and dead YESTERDAY,
+Why fret about them if TO-DAY be sweet!
+[VERSE 38]
+One Moment in Annihilation's Waste,
+One moment, of the Well of Life to taste--
+The Stars are setting, and the Caravan
+Starts for the dawn of Nothing--Oh, make haste!
+[VERSE 39]
+How long, how long, in infinite Pursuit
+Of This and That endeavour and dispute?
+Better be merry with the fruitful Grape
+Than sadden after none, or bitter, Fruit.
+[VERSE 40]
+You know, my Friends, how long since in my House
+For a new Marriage I did make Carouse:
+Divorced old barren Reason from my Bed,
+And took the Daughter of the Vine to Spouse.
+[VERSE 41]
+For "IS" and "IS-NOT" though with Rule and Line,
+And, "UP-AND-DOWN" without, I could define,
+I yet in all I only cared to know,
+Was never deep in anything but--Wine.
+[VERSE 42]
+And lately, by the Tavern Door agape,
+Came stealing through the Dusk an Angel Shape,
+Bearing a vessel on his Shoulder; and
+He bid me taste of it; and 'twas--the Grape!
+[VERSE 43]
+The Grape that can with Logic absolute
+The Two-and-Seventy jarring Sects confute:
+The subtle Alchemist that in a Trice
+Life's leaden Metal into Gold transmute.
+[VERSE 44]
+The mighty Mahmud, the victorious Lord,
+That all the misbelieving and black Horde
+Of Fears and Sorrows that infest the Soul
+Scatters and slays with his enchanted Sword.
+[VERSE 45]
+But leave the Wise to wrangle, and with me
+The Quarrel of the Universe let be:
+And, in some corner of the Hubbub coucht,
+Make Game of that which makes as much of Thee.
+[VERSE 46]
+For in and out, above, about, below,
+'Tis nothing but a Magic Shadow-show,
+Play'd in a Box whose Candle is the Sun,
+Round which we Phantom Figures come and go.
+[VERSE 47]
+And if the Wine you drink, the Lip you press,
+End in the Nothing all Things end in--Yes-
+Then fancy while Thou art, Thou art but what
+Thou shalt be--Nothing--Thou shalt not be less.
+[VERSE 48]
+While the Rose blows along the River Brink,
+With old Khayyam the Ruby Vintage drink:
+And when the Angel with his darker Draught
+Draws up to thee--take that, and do not shrink.
+[VERSE 49]
+'Tis all a Chequer-board of Nights and Days
+Where Destiny with Men for Pieces plays:
+Hither and thither moves, and mates, and slays,
+And one by one back in the Closet lays.
+[VERSE 50]
+The Ball no Question makes of Ayes and Noes,
+But Right or Left as strikes the Player goes;
+And He that toss'd Thee down into the Field,
+He knows about it all--HE knows--HE knows!
+[VERSE 51]
+The Moving Finger writes; and, having writ,
+Moves on: nor all thy Piety nor Wit
+Shall lure it back to cancel half a Line,
+Nor all thy Tears wash out a Word of it.
+[VERSE 52]
+And that inverted Bowl we call The Sky,
+Whereunder crawling coop't we live and die,
+Lift not thy hands to IT for help--for It
+Rolls impotently on as Thou or I.
+[VERSE 53]
+With Earth's first Clay They did the Last Man's knead,
+And then of the Last Harvest sow'd the Seed:
+Yea, the first Morning of Creation wrote
+What the Last Dawn of Reckoning shall read.
+[VERSE 54]
+I tell Thee this--When, starting from the Goal,
+Over the shoulders of the flaming Foal
+Of Heav'n Parwin and Mushtari they flung,
+In my predestin'd Plot of Dust and Soul
+[VERSE 55]
+The Vine had struck a Fibre; which about
+It clings my Being--let the Sufi flout;
+Of my Base Metal may be filed a Key,
+That shall unlock the Door he howls without.
+[VERSE 56]
+And this I know: whether the one True Light,
+Kindle to Love, or Wrath consume me quite,
+One Glimpse of It within the Tavern caught
+Better than in the Temple lost outright.
+[VERSE 57]
+Oh Thou who didst with Pitfall and with Gin
+Beset the Road I was to wander in,
+Thou wilt not with Predestination round
+Enmesh me, and impute my Fall to Sin?
+[VERSE 58]
+Oh Thou, who Man of baser Earth didst make,
+And who with Eden didst devise the Snake;
+For all the Sin wherewith the Face of Man
+Is blacken'd, Man's Forgiveness give--and take!
+[VERSE 59]
+Listen again.  One Evening at the Close
+Of Ramazan, ere the better Moon arose,
+In that old Potter's Shop I stood alone
+With the clay Population round in Rows.
+[VERSE 60]
+And strange to tell, among that Earthen Lot
+Some could articulate, while others not:
+And suddenly one more impatient cried--
+"Who is the Potter, pray, and who the Pot?"
+[VERSE 61]
+Then said another--"Surely not in vain
+My substance from the common Earth was ta'en,
+That He who subtly wrought me into Shape
+Should stamp me back to common Earth again."
+[VERSE 62]
+Another said--"Why, ne'er a peevish Boy
+Would break the Bowl from which he drank in Joy;
+Shall He that made the Vessel in pure Love
+And Fansy, in an after Rage destroy!"
+[VERSE 63]
+None answer'd this; but after Silence spake
+A Vessel of a more ungainly Make:
+"They sneer at me for leaning all awry;
+What? did the Hand then of the Potter shake?"
+[VERSE 64]
+Said one--"Folks of a surly Tapster tell,
+And daub his Visage with the Smoke of Hell;
+They talk of some strict Testing of us--Pish!
+He's a Good Fellow, and 'twill all be well."
+[VERSE 65]
+Then said another with a long-drawn Sigh,
+"My Clay with long oblivion is gone dry:
+But, fill me with the old familiar Juice,
+Methinks I might recover by-and-bye!"
+[VERSE 66]
+So, while the Vessels one by one were speaking,
+One spied the little Crescent all were seeking:
+And then they jogg'd each other, "Brother! Brother!
+Hark to the Porter's Shoulder-knot a-creaking!"
+[VERSE 67]
+Ah, with the Grape my fading Life provide,
+And wash my Body whence the life has died,
+And in a Windingsheet of Vineleaf wrapt,
+So bury me by some sweet Gardenside.
+[VERSE 68]
+That ev'n my buried Ashes such a Snare
+Of Perfume shall fling up into the Air,
+As not a True Believer passing by
+But shall be overtaken unaware.
+[VERSE 69]
+Indeed, the Idols I have loved so long
+Have done my Credit in Men's Eye much wrong:
+Have drown'd my Honour in a shallow Cup,
+And sold my Reputation for a Song.
+[VERSE 70]
+Indeed, indeed, Repentance oft before
+I swore--but was I sober when I swore?
+And then and then came Spring, and Rose-in-hand
+My thread-bare Penitence a-pieces tore.
+[VERSE 71]
+And much as Wine has play'd the Infidel,
+And robb'd me of my Robe of Honour--well,
+I often wonder what the Vintners buy
+One half so precious as the Goods they sell.
+[VERSE 72]
+Alas, that Spring should vanish with the Rose!
+That Youth's sweet-scented Manuscript should close!
+The Nightingale that in the Branches sang,
+Ah, whence, and whither flown again, who knows!
+[VERSE 73]
+Ah, Love! could thou and I with Fate conspire
+To grasp this sorry Scheme of Things entire,
+Would not we shatter it to bits--and then
+Re-mould it nearer to the Heart's Desire!
+[VERSE 74]
+Ah, Moon of my Delight who know'st no wane,
+The Moon of Heav'n is rising once again:
+How oft hereafter rising shall she look
+Through this same Garden after me--in vain!
+[VERSE 75]
+And when Thyself with shining Foot shall pass
+Among the Guests Star-scatter'd on The Grass,
+And in Thy joyous Errand reach the Spot
+Where I made one--turn down an empty Glass!
+
+--- TITLE: Rubaiyat of Omar Khayyam (Fifth Edition)
+[VERSE 1]
+WAKE! For the Sun, who scatter'd into flight
+The Stars before him from the Field of Night,
+Drives Night along with them from Heav'n, and strikes
+The Sultan's Turret with a Shaft of Light.
+[VERSE 2]
+Before the phantom of False morning died,
+Methought a Voice within the Tavern cried,
+"When all the Temple is prepared within,
+"Why nods the drowsy Worshiper outside?"
+[VERSE 3]
+And, as the Cock crew, those who stood before
+The Tavern shouted--"Open then the Door!
+"You know how little while we have to stay,
+And, once departed, may return no more."
+[VERSE 4]
+Now the New Year reviving old Desires,
+The thoughtful Soul to Solitude retires,
+Where the WHITE HAND OF MOSES on the Bough
+Puts out, and Jesus from the Ground suspires.
+[VERSE 5]
+Iram indeed is gone with all his Rose,
+And Jamshyd's Sev'n-ring'd Cup where no one knows;
+But still a Ruby kindles in the Vine,
+And many a Garden by the Water blows.
+[VERSE 6]
+And David's lips are lockt; but in divine
+High-piping Pehlevi, with "Wine! Wine! Wine!
+"Red Wine!"--the Nightingale cries to the Rose
+That sallow cheek of hers to' incarnadine.
+[VERSE 7]
+Come, fill the Cup, and in the fire of Spring
+Your Winter garment of Repentance fling:
+The Bird of Time has but a little way
+To flutter--and the Bird is on the Wing.
+[VERSE 8]
+Whether at Naishapur or Babylon,
+Whether the Cup with sweet or bitter run,
+The Wine of Life keeps oozing drop by drop,
+The Leaves of Life keep falling one by one.
+[VERSE 9]
+Each Morn a thousand Roses brings, you say:
+Yes, but where leaves the Rose of Yesterday?
+And this first Summer month that brings the Rose
+Shall take Jamshyd and Kaikobad away.
+[VERSE 10]
+Well, let it take them!  What have we to do
+With Kaikobad the Great, or Kaikhosru?
+Let Zal and Rustum bluster as they will,
+Or Hatim call to Supper--heed not you.
+[VERSE 11]
+With me along the strip of Herbage strown
+That just divides the desert from the sown,
+Where name of Slave and Sultan is forgot--
+And Peace to Mahmud on his golden Throne!
+[VERSE 12]
+A Book of Verses underneath the Bough,
+A Jug of Wine, a Loaf of Bread--and Thou
+Beside me singing in the Wilderness--
+Oh, Wilderness were Paradise enow!
+[VERSE 13]
+Some for the Glories of This World; and some
+Sigh for the Prophet's Paradise to come;
+Ah, take the Cash, and let the Credit go,
+Nor heed the rumble of a distant Drum!
+[VERSE 14]
+Look to the blowing Rose about us--"Lo,
+Laughing," she says, "into the world I blow,
+At once the silken tassel of my Purse
+Tear, and its Treasure on the Garden throw."
+[VERSE 15]
+And those who husbanded the Golden grain,
+And those who flung it to the winds like Rain,
+Alike to no such aureate Earth are turn'd
+As, buried once, Men want dug up again.
+[VERSE 16]
+The Worldly Hope men set their Hearts upon
+Turns Ashes--or it prospers; and anon,
+Like Snow upon the Desert's dusty Face,
+Lighting a little hour or two--is gone.
+[VERSE 17]
+Think, in this batter'd Caravanserai
+Whose Portals are alternate Night and Day,
+How Sultan after Sultan with his Pomp
+Abode his destined Hour, and went his way.
+[VERSE 18]
+They say the Lion and the Lizard keep
+The courts where Jamshyd gloried and drank deep:
+And Bahram, that great Hunter--the Wild Ass
+Stamps o'er his Head, but cannot break his Sleep.
+[VERSE 19]
+I sometimes think that never blows so red
+The Rose as where some buried Caesar bled;
+That every Hyacinth the Garden wears
+Dropt in her Lap from some once lovely Head.
+[VERSE 20]
+And this reviving Herb whose tender Green
+Fledges the River-Lip on which we lean--
+Ah, lean upon it lightly! for who knows
+From what once lovely Lip it springs unseen!
+[VERSE 21]
+Ah, my Beloved, fill the Cup that clears
+TO-DAY of past Regrets and future Fears:
+To-morrow--Why, To-morrow I may be
+Myself with Yesterday's Sev'n thousand Years.
+[VERSE 22]
+For some we loved, the loveliest and the best
+That from his Vintage rolling Time hath prest,
+Have drunk their Cup a Round or two before,
+And one by one crept silently to rest.
+[VERSE 23]
+And we, that now make merry in the Room
+They left, and Summer dresses in new bloom,
+Ourselves must we beneath the Couch of Earth
+Descend--ourselves to make a Couch--for whom?
+[VERSE 24]
+Ah, make the most of what we yet may spend,
+Before we too into the Dust descend;
+Dust into Dust, and under Dust to lie,
+Sans Wine, sans Song, sans Singer, and--sans End!
+[VERSE 25]
+Alike for those who for TO-DAY prepare,
+And those that after some TO-MORROW stare,
+A Muezzin from the Tower of Darkness cries,
+"Fools! your Reward is neither Here nor There."
+[VERSE 26]
+Why, all the Saints and Sages who discuss'd
+Of the Two Worlds so wisely--they are thrust
+Like foolish Prophets forth; their Words to Scorn
+Are scatter'd, and their Mouths are stopt with Dust.
+[VERSE 27]
+Myself when young did eagerly frequent
+Doctor and Saint, and heard great argument
+About it and about: but evermore
+Came out by the same door where in I went.
+[VERSE 28]
+With them the seed of Wisdom did I sow,
+And with mine own hand wrought to make it grow;
+And this was all the Harvest that I reap'd--
+"I came like Water, and like Wind I go."
+[VERSE 29]
+Into this Universe, and Why not knowing
+Nor Whence, like Water willy-nilly flowing;
+And out of it, as Wind along the Waste,
+I know not Whither, willy-nilly blowing.
+[VERSE 30]
+What, without asking, hither hurried Whence?
+And, without asking, Whither hurried hence!
+Oh, many a Cup of this forbidden Wine
+Must drown the memory of that insolence!
+[VERSE 31]
+Up from Earth's Center through the Seventh Gate
+I rose, and on the Throne of Saturn sate,
+And many a Knot unravel'd by the Road;
+But not the Master-knot of Human Fate.
+[VERSE 32]
+There was the Door to which I found no Key;
+There was the Veil through which I might not see:
+Some little talk awhile of ME and THEE
+There was--and then no more of THEE and ME.
+[VERSE 33]
+Earth could not answer; nor the Seas that mourn
+In flowing Purple, of their Lord Forlorn;
+Nor rolling Heaven, with all his Signs reveal'd
+And hidden by the sleeve of Night and Morn.
+[VERSE 34]
+Then of the THEE IN ME who works behind
+The Veil, I lifted up my hands to find
+A lamp amid the Darkness; and I heard,
+As from Without--"THE ME WITHIN THEE BLIND!"
+[VERSE 35]
+Then to the Lip of this poor earthen Urn
+I lean'd, the Secret of my Life to learn:
+And Lip to Lip it murmur'd--"While you live,
+"Drink!--for, once dead, you never shall return."
+[VERSE 36]
+I think the Vessel, that with fugitive
+Articulation answer'd, once did live,
+And drink; and Ah! the passive Lip I kiss'd,
+How many Kisses might it take--and give!
+[VERSE 37]
+For I remember stopping by the way
+To watch a Potter thumping his wet Clay:
+And with its all-obliterated Tongue
+It murmur'd--"Gently, Brother, gently, pray!"
+[VERSE 38]
+And has not such a Story from of Old
+Down Man's successive generations roll'd
+Of such a clod of saturated Earth
+Cast by the Maker into Human mold?
+[VERSE 39]
+And not a drop that from our Cups we throw
+For Earth to drink of, but may steal below
+To quench the fire of Anguish in some Eye
+There hidden--far beneath, and long ago.
+[VERSE 40]
+As then the Tulip for her morning sup
+Of Heav'nly Vintage from the soil looks up,
+Do you devoutly do the like, till Heav'n
+To Earth invert you--like an empty Cup.
+[VERSE 41]
+Perplext no more with Human or Divine,
+To-morrow's tangle to the winds resign,
+And lose your fingers in the tresses of
+The Cypress-slender Minister of Wine.
+[VERSE 42]
+And if the Wine you drink, the Lip you press,
+End in what All begins and ends in--Yes;
+Think then you are TO-DAY what YESTERDAY
+You were--TO-MORROW you shall not be less.
+[VERSE 43]
+So when that Angel of the darker Drink
+At last shall find you by the river-brink,
+And, offering his Cup, invite your Soul
+Forth to your Lips to quaff--you shall not shrink.
+[VERSE 44]
+Why, if the Soul can fling the Dust aside,
+And naked on the Air of Heaven ride,
+Were't not a Shame--were't not a Shame for him
+In this clay carcass crippled to abide?
+[VERSE 45]
+'Tis but a Tent where takes his one day's rest
+A Sultan to the realm of Death addrest;
+The Sultan rises, and the dark Ferrash
+Strikes, and prepares it for another Guest.
+[VERSE 46]
+And fear not lest Existence closing your
+Account, and mine, should know the like no more;
+The Eternal Saki from that Bowl has pour'd
+Millions of Bubbles like us, and will pour.
+[VERSE 47]
+When You and I behind the Veil are past,
+Oh, but the long, long while the World shall last,
+Which of our Coming and Departure heeds
+As the Sea's self should heed a pebble-cast.
+[VERSE 48]
+A Moment's Halt--a momentary taste
+Of BEING from the Well amid the Waste--
+And Lo!--the phantom Caravan has reach'd
+The NOTHING it set out from--Oh, make haste!
+[VERSE 49]
+Would you that spangle of Existence spend
+About THE SECRET--quick about it, Friend!
+A Hair perhaps divides the False from True--
+And upon what, prithee, may life depend?
+[VERSE 50]
+A Hair perhaps divides the False and True;
+Yes; and a single Alif were the clue--
+Could you but find it--to the Treasure-house,
+And peradventure to THE MASTER too;
+[VERSE 51]
+Whose secret Presence through Creation's veins
+Running Quicksilver-like eludes your pains;
+Taking all shapes from Mah to Mahi and
+They change and perish all--but He remains;
+[VERSE 52]
+A moment guessed--then back behind the Fold
+Immerst of Darkness round the Drama roll'd
+Which, for the Pastime of Eternity,
+He doth Himself contrive, enact, behold.
+[VERSE 53]
+But if in vain, down on the stubborn floor
+Of Earth, and up to Heav'n's unopening Door,
+You gaze TO-DAY, while You are You--how then
+TO-MORROW, when You shall be You no more?
+[VERSE 54]
+Waste not your Hour, nor in the vain pursuit
+Of This and That endeavor and dispute;
+Better be jocund with the fruitful Grape
+Than sadden after none, or bitter, Fruit.
+[VERSE 55]
+You know, my Friends, with what a brave Carouse
+I made a Second Marriage in my house;
+Divorced old barren Reason from my Bed,
+And took the Daughter of the Vine to Spouse.
+[VERSE 56]
+For "Is" and "Is-not" though with Rule and Line
+And "UP-AND-DOWN" by Logic I define,
+Of all that one should care to fathom, I
+was never deep in anything but--Wine.
+[VERSE 57]
+Ah, by my Computations, People say,
+Reduce the Year to better reckoning?--Nay,
+'Twas only striking from the Calendar
+Unborn To-morrow and dead Yesterday.
+[VERSE 58]
+And lately, by the Tavern Door agape,
+Came shining through the Dusk an Angel Shape
+Bearing a Vessel on his Shoulder; and
+He bid me taste of it; and 'twas--the Grape!
+[VERSE 59]
+The Grape that can with Logic absolute
+The Two-and-Seventy jarring Sects confute:
+The sovereign Alchemist that in a trice
+Life's leaden metal into Gold transmute;
+[VERSE 60]
+The mighty Mahmud, Allah-breathing Lord,
+That all the misbelieving and black Horde
+Of Fears and Sorrows that infest the Soul
+Scatters before him with his whirlwind Sword.
+[VERSE 61]
+Why, be this Juice the growth of God, who dare
+Blaspheme the twisted tendril as a Snare?
+A Blessing, we should use it, should we not?
+And if a Curse--why, then, Who set it there?
+[VERSE 62]
+I must abjure the Balm of Life, I must,
+Scared by some After-reckoning ta'en on trust,
+Or lured with Hope of some Diviner Drink,
+To fill the Cup--when crumbled into Dust!
+[VERSE 63]
+Of threats of Hell and Hopes of Paradise!
+One thing at least is certain--This Life flies;
+One thing is certain and the rest is Lies;
+The Flower that once has blown for ever dies.
+[VERSE 64]
+Strange, is it not? that of the myriads who
+Before us pass'd the door of Darkness through,
+Not one returns to tell us of the Road,
+Which to discover we must travel too.
+[VERSE 65]
+The Revelations of Devout and Learn'd
+Who rose before us, and as Prophets burn'd,
+Are all but Stories, which, awoke from Sleep
+They told their comrades, and to Sleep return'd.
+[VERSE 66]
+I sent my Soul through the Invisible,
+Some letter of that After-life to spell:
+And by and by my Soul return'd to me,
+And answer'd "I Myself am Heav'n and Hell:"
+[VERSE 67]
+Heav'n but the Vision of fulfill'd Desire,
+And Hell the Shadow from a Soul on fire,
+Cast on the Darkness into which Ourselves,
+So late emerged from, shall so soon expire.
+[VERSE 68]
+We are no other than a moving row
+Of Magic Shadow-shapes that come and go
+Round with the Sun-illumined Lantern held
+In Midnight by the Master of the Show;
+[VERSE 69]
+But helpless Pieces of the Game He plays
+Upon this Chequer-board of Nights and Days;
+Hither and thither moves, and checks, and slays,
+And one by one back in the Closet lays.
+[VERSE 70]
+The Ball no question makes of Ayes and Noes,
+But Here or There as strikes the Player goes;
+And He that toss'd you down into the Field,
+He knows about it all--HE knows--HE knows!
+[VERSE 71]
+The Moving Finger writes; and, having writ,
+Moves on: nor all your Piety nor Wit
+Shall lure it back to cancel half a Line,
+Nor all your Tears wash out a Word of it.
+[VERSE 72]
+And that inverted Bowl they call the Sky,
+Whereunder crawling coop'd we live and die,
+Lift not your hands to It for help--for It
+As impotently moves as you or I.
+[VERSE 73]
+With Earth's first Clay They did the Last Man knead,
+And there of the Last Harvest sow'd the Seed:
+And the first Morning of Creation wrote
+What the Last Dawn of Reckoning shall read.
+[VERSE 74]
+YESTERDAY This Day's Madness did prepare;
+TO-MORROW's Silence, Triumph, or Despair:
+Drink! for you not know whence you came, nor why:
+Drink! for you know not why you go, nor where.
+[VERSE 75]
+I tell you this--When, started from the Goal,
+Over the flaming shoulders of the Foal
+Of Heav'n Parwin and Mushtari they flung,
+In my predestined Plot of Dust and Soul.
+[VERSE 76]
+The Vine had struck a fiber: which about
+It clings my Being--let the Dervish flout;
+Of my Base metal may be filed a Key
+That shall unlock the Door he howls without.
+[VERSE 77]
+And this I know: whether the one True Light
+Kindle to Love, or Wrath consume me quite,
+One Flash of It within the Tavern caught
+Better than in the Temple lost outright.
+[VERSE 78]
+What! out of senseless Nothing to provoke
+A conscious Something to resent the yoke
+Of unpermitted Pleasure, under pain
+Of Everlasting Penalties, if broke!
+[VERSE 79]
+What! from his helpless Creature be repaid
+Pure Gold for what he lent him dross-allay'd--
+Sue for a Debt he never did contract,
+And cannot answer--Oh the sorry trade!
+[VERSE 80]
+Oh Thou, who didst with pitfall and with gin
+Beset the Road I was to wander in,
+Thou wilt not with Predestined Evil round
+Enmesh, and then impute my Fall to Sin!
+[VERSE 81]
+Oh Thou, who Man of baser Earth didst make,
+And ev'n with Paradise devise the Snake:
+For all the Sin wherewith the Face of Man
+Is blacken'd--Man's forgiveness give--and take!
+[VERSE 82]
+As under cover of departing Day
+Slunk hunger-stricken Ramazan away,
+Once more within the Potter's house alone
+I stood, surrounded by the Shapes of Clay.
+[VERSE 83]
+Shapes of all Sorts and Sizes, great and small,
+That stood along the floor and by the wall;
+And some loquacious Vessels were; and some
+Listen'd perhaps, but never talk'd at all.
+[VERSE 84]
+Said one among them--"Surely not in vain
+My substance of the common Earth was ta'en
+And to this Figure molded, to be broke,
+Or trampled back to shapeless Earth again."
+[VERSE 85]
+Then said a Second--"Ne'er a peevish Boy
+Would break the Bowl from which he drank in joy;
+And He that with his hand the Vessel made
+Will surely not in after Wrath destroy."
+[VERSE 86]
+After a momentary silence spake
+Some Vessel of a more ungainly Make;
+"They sneer at me for leaning all awry:
+What! did the Hand then of the Potter shake?"
+[VERSE 87]
+Whereat some one of the loquacious Lot--
+I think a Sufi pipkin--waxing hot--
+"All this of Pot and Potter--Tell me then,
+Who is the Potter, pray, and who the Pot?"
+[VERSE 88]
+"Why," said another, "Some there are who tell
+Of one who threatens he will toss to Hell
+The luckless Pots he marr'd in making--Pish!
+He's a Good Fellow, and 'twill all be well."
+[VERSE 89]
+"Well," murmured one, "Let whoso make or buy,
+My Clay with long Oblivion is gone dry:
+But fill me with the old familiar Juice,
+Methinks I might recover by and by."
+[VERSE 90]
+So while the Vessels one by one were speaking,
+The little Moon look'd in that all were seeking:
+And then they jogg'd each other, "Brother! Brother!
+Now for the Porter's shoulders' knot a-creaking!"
+[VERSE 91]
+Ah, with the Grape my fading life provide,
+And wash the Body whence the Life has died,
+And lay me, shrouded in the living Leaf,
+By some not unfrequented Garden-side.
+[VERSE 92]
+That ev'n buried Ashes such a snare
+Of Vintage shall fling up into the Air
+As not a True-believer passing by
+But shall be overtaken unaware.
+[VERSE 93]
+Indeed the Idols I have loved so long
+Have done my credit in this World much wrong:
+Have drown'd my Glory in a shallow Cup,
+And sold my reputation for a Song.
+[VERSE 94]
+Indeed, indeed, Repentance oft before
+I swore--but was I sober when I swore?
+And then and then came Spring, and Rose-in-hand
+My thread-bare Penitence apieces tore.
+[VERSE 95]
+And much as Wine has play'd the Infidel,
+And robb'd me of my Robe of Honor--Well,
+I wonder often what the Vintners buy
+One half so precious as the stuff they sell.
+[VERSE 96]
+Yet Ah, that Spring should vanish with the Rose!
+That Youth's sweet-scented manuscript should close!
+The Nightingale that in the branches sang,
+Ah whence, and whither flown again, who knows!
+[VERSE 97]
+Would but the Desert of the Fountain yield
+One glimpse--if dimly, yet indeed, reveal'd,
+To which the fainting Traveler might spring,
+As springs the trampled herbage of the field!
+[VERSE 98]
+Would but some winged Angel ere too late
+Arrest the yet unfolded Roll of Fate,
+And make the stern Recorder otherwise
+Enregister, or quite obliterate!
+[VERSE 99]
+Ah Love! could you and I with Him conspire
+To grasp this sorry Scheme of Things entire,
+Would not we shatter it to bits--and then
+Re-mold it nearer to the Heart's Desire!
+[VERSE 100]
+Yon rising Moon that looks for us again--
+How oft hereafter will she wax and wane;
+How oft hereafter rising look for us
+Through this same Garden--and for one in vain!
+[VERSE 101]
+And when like her, oh Saki, you shall pass
+Among the Guests Star-scatter'd on the Grass,
+And in your joyous errand reach the spot
+Where I made One--turn down an empty Glass!

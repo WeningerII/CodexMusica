@@ -1,0 +1,3360 @@
+# author: Bābā Ṭāhir ʿUryān (fl. 5th century AH / 11th century CE)
+# source: rsharifnasab/ganjoor_epub  babatahr.epub  (EPUB of ganjoor.net,
+#          one file per poet) — md5 942d59a41c59469e657a7a5a36332f3b,
+#          91,363 bytes, checked out 2026-08-11.
+#          Sections taken: OPF/cat316sec1.xhtml and OPF/cat316sec2.xhtml,
+#          the two parts of the دوبیتی‌ها category (cat316). Each poem is
+#          an <h2><a id="poem-N"> anchor followed by <p> hemistichs.
+# licence: GNU GPL v3 at the repository root — a SOFTWARE copyleft over the
+#          compilation, not a public-domain affirmation. Admission rests on
+#          TERM EXPIRY OF THE WORK: the poet is of the 5th century AH,
+#          roughly nine centuries before the 1931 cutoff. Two separable
+#          layers (doctrine 40/54); the licence name is recorded with the
+#          path it covers and is NOT treated as evidence about the poem.
+# edition: *** NOT NAMED, AND THIS IS THE BINDING GATE (doctrine 80). ***
+#          Same open gate as the other 30 Persian files (MISSING M-13), and
+#          the 2026-08-11 probe found the ROUTE and found it blocked:
+#          ganjoor exposes the printed source as `GanjoorPaperSource`
+#          (RMuseum/Models/GanjoorIntegration/GanjoorPaperSource.cs) at
+#          GET api.ganjoor.net/api/ganjoor/cat/{id}/papersources, and
+#          api.ganjoor.net, ganjoor.net and naskban.ir are all 403 from this
+#          container. See data/sources.tsv SEARCH:ganjoor-edition-route.
+# ATTRIBUTION IS CONTESTED BY THE SOURCE ITSELF, and that is stronger
+#          evidence than an absent edition note. The EPUB's own bio.xhtml
+#          states, of this poet: از اشعار باباطاهر مجموعهٔ موثقی در دست نیست،
+#          به همین جهت نمی‌توان در صحت انتساب تمام اشعاری که به او نسبت
+#          می‌دهند به یقین حکمی کرد — no authenticated collection survives,
+#          so the ascription of the poems given to him cannot be certified.
+#          The rights gate is unaffected (an 11th-century attribution and a
+#          12th-century one both clear 1931 by many centuries); what it
+#          affects is any claim about a single AUTHOR's practice, and no
+#          such claim may be made from this file.
+# FORM — THIS IS THE DECLARATION M-13 ASKS FOR.
+#          دوبیتی do-baytī: a stanza of TWO bayt = FOUR hemistichs, complete
+#          in itself, in the Luri/Fahlavī dialect register rather than in
+#          standard literary Persian. It is a SUNG form, and it is the
+#          reason this file belongs in corpus/song/ at all — but the sung
+#          property here is carried by the FORM, not by a printed tune, so
+#          it is the weakest of the three routes used elsewhere in this
+#          directory and it is labelled as such on every block.
+#          The do-baytī is NOT a ghazal and must not be measured as one:
+#          it has no maṭlaʿ/radif refrain structure, and its rhyme sits on
+#          hemistichs 1, 2 and 4 with 3 free. `[scheme: ...]` on each TITLE
+#          line is READ OFF THE TEXT by quality/phonology/fas.py's own
+#          `Persian.rhymes`, never assumed; the corpus-level tally is in
+#          the `measured:` line below and in data/sources.tsv.
+# structure: [BAYT n] a couplet (two hemistichs), the same marker the other
+#          Persian files use, so one reader serves both forms.
+# orthography: Perso-Arabic as ganjoor renders it, UNNORMALISED here. The
+#          dialect forms are PRESERVED — دیرم for دارم, مو for من, ته for تو
+#          — because they are the register that makes this a do-baytī and
+#          normalising them would erase the thing being sampled
+#          (doctrine 50). fas.normalise() is applied only inside the
+#          measurement, never to the staged bytes.
+# measured: 366 poems staged. Hemistich counts: {4: 366}.
+#          Rhyme schemes read by fas.Persian.rhymes: AABA=233, ABCD=102, ABCA=11, ABCB=9, AAAA=7, AABC=4.
+#          REFUSED means at least one line-final token is out of the
+#          declared Perso-Arabic inventory; it is a third count, not a
+#          failure to rhyme (doctrine 79).
+#          NULL for the AABA claim (global redeal of line-finals across
+#          all 366 quatrains, n=200, seed 20260811): PRESERVES the line-final
+#          multiset and the four-hemistich shape, DESTROYS which finals
+#          share a poem. observed AABA=233; null min=0 median=0 MAX=3;
+#          gap to null MAX = +230; lift 233.0x over the null median;
+#          differ=100.0% of replicates (doctrine 68). Read the GAP, not
+#          the p, which sits on its 1/(n+1) floor (doctrine 57).
+#--------------------------------------------------------------------------
+--- TITLE: دوبیتی شمارهٔ ۱  [ganjoor: poem-21309] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh1
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ببندم شال و میپوشم قدک را
+بنازم گردش چرخ و فلک را
+[BAYT 2]
+بگردم آب دریاها سراسر
+بشویم هر دو دست بی نمک را
+--- TITLE: دوبیتی شمارهٔ ۲  [ganjoor: poem-21310] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh2
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+تن محنت کشی دیرم خدایا
+دل با غم خوشی دیرم خدایا
+[BAYT 2]
+زشوق مسکن و داد غریبی
+به سینه آتشی دیرم خدایا
+--- TITLE: دوبیتی شمارهٔ ۳  [ganjoor: poem-21311] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh3
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر یار مرا دیدی به خلوت
+بگو ای بی‌وفا ای بیمروت
+[BAYT 2]
+گریبانم ز دستت چاک چاکو
+نخواهم دوخت تا روز قیامت
+--- TITLE: دوبیتی شمارهٔ ۴  [ganjoor: poem-21312] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh4
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ته که ناخوانده‌ای علم سماوات
+ته که نابرده‌ای ره در خرابات
+[BAYT 2]
+ته که سود و زیان خود ندانی
+بیاران کی رسی هیهات هیهات
+--- TITLE: دوبیتی شمارهٔ ۵  [ganjoor: poem-21313] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh5
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلی دیرم خریدار محبت
+کز او گرم است بازار محبت
+[BAYT 2]
+لباسی دوختم بر قامت دل
+زپود محنت و تار محبت
+--- TITLE: دوبیتی شمارهٔ ۶  [ganjoor: poem-21314] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh6
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+محبت آتشی در جانم افروخت
+که تا دامان محشر بایدم سوخت
+[BAYT 2]
+عجب پیراهنی بهرم بریدی
+که خیاط اجل میبایدش دوخت
+--- TITLE: دوبیتی شمارهٔ ۷  [ganjoor: poem-21315] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh7
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نپرسی حال یار دلفکارت
+که هجران چون کند با روزگارت
+[BAYT 2]
+ته که روز و شوان در یاد مویی
+هزارت عاشق با مو چه کارت
+--- TITLE: دوبیتی شمارهٔ ۸  [ganjoor: poem-21316] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh8
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر دل دلبر و دلبر کدام است
+وگر دلبر دل و دلرا چه نام است
+[BAYT 2]
+دل و دلبر بهم آمیته وینم
+ندونم دل که و دلبر کدام است
+--- TITLE: دوبیتی شمارهٔ ۹  [ganjoor: poem-21317] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh9
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شب تاریک و سنگستان و مو مست
+قدح از دست مو افتاد و نشکست
+[BAYT 2]
+نگهدارنده‌اش نیکو نگهداشت
+وگرنه صد قدح نفتاده بشکست
+--- TITLE: دوبیتی شمارهٔ ۱۰  [ganjoor: poem-21318] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh10
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نفس شومم بدنیا بهر آن است
+که تن از بهر موران پرورانست
+[BAYT 2]
+ندونستم که شرط بندگی چیست
+هرزه بورم بمیدان جهانست
+--- TITLE: دوبیتی شمارهٔ ۱۱  [ganjoor: poem-21319] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh11
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شیرمردی بدم دلم چه دونست
+اجل قصدم کره و شیر ژیونست
+[BAYT 2]
+ز موشیر ژیان پرهیز می‌کرد
+تنم وا مرگ جنگیدن ندونست
+--- TITLE: دوبیتی شمارهٔ ۱۲  [ganjoor: poem-21320] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh12
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بود درد مو و درمانم از دوست
+بود وصل مو و هجرانم از دوست
+[BAYT 2]
+اگر قصابم از تن واکره پوست
+جدا هرگز نگردد جانم از دوست
+--- TITLE: دوبیتی شمارهٔ ۱۳  [ganjoor: poem-21321] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh13
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نمیدانم دلم دیوانهٔ کیست
+کجا آواره و در خانهٔ کیست
+[BAYT 2]
+نمیدونم دل سر گشتهٔ مو
+اسیر نرگس مستانهٔ کیست
+--- TITLE: دوبیتی شمارهٔ ۱۴  [ganjoor: poem-21322] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh14
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ته دوری از برم دل در برم نیست
+هوای دیگری اندر سرم نیست
+[BAYT 2]
+بجان دلبرم کز هر دو عالم
+تمنای دگر جز دلبرم نیست
+--- TITLE: دوبیتی شمارهٔ ۱۵  [ganjoor: poem-21323] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh15
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+یکی برزیگرک نالان درین دشت
+بخون دیدگان آلاله می‌کشت
+[BAYT 2]
+همی کشت و همی گفت ای دریغا
+بباید کشت و هشت و رفت ازین دشت
+--- TITLE: دوبیتی شمارهٔ ۱۶  [ganjoor: poem-21324] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh16
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خرم کوه و خرم صحرا خرم دشت
+خرم آنانکه این آلالیان کشت
+[BAYT 2]
+بسی هند و بسی شند و بسی یند
+همان کوه و همان صحرا همان دشت
+--- TITLE: دوبیتی شمارهٔ ۱۷  [ganjoor: poem-21325] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh17
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بهار آیو به صحرا و در و دشت
+جوانی هم بهاری بود و بگذشت
+[BAYT 2]
+سر قبر جوانان لاله رویه
+دمی که گلرخان آیند به گلگشت
+--- TITLE: دوبیتی شمارهٔ ۱۸  [ganjoor: poem-21326] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh18
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سیاهی دو چشمانت مرا کشت
+درازی دو زلفانت مرا کشت
+[BAYT 2]
+به قتلم حاجت تیر و کمان نیست
+خم ابرو و مژگانت مرا کشت
+--- TITLE: دوبیتی شمارهٔ ۱۹  [ganjoor: poem-21327] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh19
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+عزیزا کاسهٔ چشمم سرایت
+میان هردو چشمم جای پایت
+[BAYT 2]
+از آن ترسم که غافل پا نهی تو
+نشنید خار مژگانم بپایت
+--- TITLE: دوبیتی شمارهٔ ۲۰  [ganjoor: poem-21328] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh20
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+من آن رندم که گیرم از شهان باج
+بپوشم جوشن و بر سر نهم تاج
+[BAYT 2]
+فرو ناید سر مردان به نامرد
+اگر دارم کشند مانند حلاج
+--- TITLE: دوبیتی شمارهٔ ۲۱  [ganjoor: poem-21329] [form: do-bayti] [scheme: ABCB]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh21
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ته که می‌شی بمو چاره بیاموج
+که این تاریک شوانرا چون کرم روج
+[BAYT 2]
+کهی واجم که کی این روج آیو
+کهی واجم که هرگز وا نه‌ای روج
+--- TITLE: دوبیتی شمارهٔ ۲۲  [ganjoor: poem-21330] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh22
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر زرین کلاهی عاقبت هیچ
+اگر خود پادشاهی عاقبت هیچ
+[BAYT 2]
+اگر ملک سلیمانت ببخشند
+در آخر خاک راهی عاقبت هیچ
+--- TITLE: دوبیتی شمارهٔ ۲۳  [ganjoor: poem-21331] [form: do-bayti] [scheme: AAAA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh23
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زدست دیده و دل هر دو فریاد
+که هر چه دیده بیند دل کند یاد
+[BAYT 2]
+بسازم خنجری نیشش ز فولاد
+زنم بر دیده تا دل گردد آزاد
+--- TITLE: دوبیتی شمارهٔ ۲۴  [ganjoor: poem-21332] [form: do-bayti] [scheme: AAAA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh24
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+گیج و ویجم که کافر گیج میراد
+چنان گیجم که کافر هم موی ناد
+[BAYT 2]
+بر این آئین که مو را جان و دل داد
+شمع و پروانه را پرویج میداد
+--- TITLE: دوبیتی شمارهٔ ۲۵  [ganjoor: poem-21333] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh25
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دو چشمم درد چشمانت بچیناد
+مبو روجی که چشمم ته مبیناد
+[BAYT 2]
+شنیدم رفتی و یاری گرفتی
+اگر گوشم شنید چشمم مبیناد
+--- TITLE: دوبیتی شمارهٔ ۲۶  [ganjoor: poem-21334] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh26
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم بی وصل ته شادی مبیناد
+زدرد و محنت آزادی مبیناد
+[BAYT 2]
+خراب آباد دل بی مقدم تو
+الهی هرگز آبادی مبیناد
+--- TITLE: دوبیتی شمارهٔ ۲۷  [ganjoor: poem-21335] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh27
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیته یارب به بستان گل مرویاد
+وگر روید کسش هرگز مبویاد
+[BAYT 2]
+بیته هر گل به خنده لب گشاید
+رخش از خون دل هرگز مشویاد
+--- TITLE: دوبیتی شمارهٔ ۲۸  [ganjoor: poem-21336] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh28
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+یکی درد و یکی درمان پسندد
+یکی وصل و یکی هجران پسندد
+[BAYT 2]
+من از درمان و درد و وصل و هجران
+پسندم آنچه را جانان پسندد
+--- TITLE: دوبیتی شمارهٔ ۲۹  [ganjoor: poem-21337] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh29
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+الهی گردن گردون شود خرد
+که فرزندان آدم را همه برد
+[BAYT 2]
+یکی ناگه که زنده شد فلانی
+همه گویند فلان ابن فلان مرد
+--- TITLE: دوبیتی شمارهٔ ۳۰  [ganjoor: poem-21338] [form: do-bayti] [scheme: AABC]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh30
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نهالی کن سر از باغی برآرد
+ببارش هر کسی دستی برآرد
+[BAYT 2]
+برآرد باغبان از بیخ و از بن
+اگر بر جای میوه گوهر آرد
+--- TITLE: دوبیتی شمارهٔ ۳۱  [ganjoor: poem-21339] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh31
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غریبی بس مرا دلگیر دارد
+فلک بر گردنم زنجیر دارد
+[BAYT 2]
+فلک از گردنم زنجیر بردار
+که غربت خاک دامنگیر دارد
+--- TITLE: دوبیتی شمارهٔ ۳۲  [ganjoor: poem-21340] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh32
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خور از خورشید رویت شرم دارد
+مه نو زابرویت آزرم دارد
+[BAYT 2]
+بشهر و کوه و صحرا هر که بینی
+زبان دل بذکرت گرم دارد
+--- TITLE: دوبیتی شمارهٔ ۳۳  [ganjoor: poem-21341] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh33
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غم عشقت بیابان پرورم کرد
+فراقت مرغ بی‌بال و پرم کرد
+[BAYT 2]
+بمو واجی صبوری کن صبوری
+صبوری طرفه خاکی بر سرم کرد
+--- TITLE: دوبیتی شمارهٔ ۳۴  [ganjoor: poem-21342] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh34
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شوانم خواب در مرز گلان کرد
+گلم واچید و خوابم را زیان کرد
+[BAYT 2]
+باغبان دید که مو گل دوست دیرم
+هزاران خار بر گل پاسبان کرد
+--- TITLE: دوبیتی شمارهٔ ۳۵  [ganjoor: poem-21343] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh35
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل عاشق به پیغامی بسازد
+خمار آلوده با جامی بسازد
+[BAYT 2]
+مرا کیفیت چشم تو کافیست
+ریاضت کش ببادامی بسازد
+--- TITLE: دوبیتی شمارهٔ ۳۶  [ganjoor: poem-21344] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh36
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دگر شو شد که مو جانم بسوزد
+گریبان تا بدامانم بسوزد
+[BAYT 2]
+برای کفر زلفت ای پریرخ
+همی ترسم که ایمانم بسوزد
+--- TITLE: دوبیتی شمارهٔ ۳۷  [ganjoor: poem-21345] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh37
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هر آنکس عاشق است از جان نترسد
+یقین از بند و از زندان نترسد
+[BAYT 2]
+دل عاشق بود گرگ گرسنه
+که گرگ از هی هی چوپان نترسد
+--- TITLE: دوبیتی شمارهٔ ۳۸  [ganjoor: poem-21346] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh38
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بلا رمزی ز بالای ته باشد
+جنون سری ز سودای ته باشد
+[BAYT 2]
+بصورت آفرینم این گمان بی
+که پنهان در تماشای ته باشد
+--- TITLE: دوبیتی شمارهٔ ۳۹  [ganjoor: poem-21347] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh39
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+پسندی خوار و زارم تا کی و چند
+پریشان روزگارم تا کی و چند
+[BAYT 2]
+ته که باری ز دوشم برنگیری
+گری سربار بارم تا کی و چند
+--- TITLE: دوبیتی شمارهٔ ۴۰  [ganjoor: poem-21348] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh40
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلا خوبان دل خونین پسندند
+دلا خون شو که خوبان این پسندند
+[BAYT 2]
+متاع کفر و دین بی‌مشتری نیست
+گروهی آن گروهی این پسندند
+--- TITLE: دوبیتی شمارهٔ ۴۱  [ganjoor: poem-21349] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh41
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مرا نه سر نه سامان آفریدند
+پریشانم پریشان آفریدند
+[BAYT 2]
+پریشان خاطران رفتند در خاک
+مرا از خاک ایشان آفریدند
+--- TITLE: دوبیتی شمارهٔ ۴۲  [ganjoor: poem-21350] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh42
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آنانکه سودای ته دیرند
+که سر پیوسته در پای ته دیرند
+[BAYT 2]
+بدل دیرم تمنای کسانی
+که اندر دل تمنای ته دیرند
+--- TITLE: دوبیتی شمارهٔ ۴۳  [ganjoor: poem-21351] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh43
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+چو آن نخلم که بارش خورده باشند
+چو آن ویران که گنجش برده باشند
+[BAYT 2]
+چو آن پیری همی نالم درین دشت
+که رودان عزیزش مرده باشند
+--- TITLE: دوبیتی شمارهٔ ۴۴  [ganjoor: poem-21352] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh44
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آنانکه هر از بر ندانند
+نه حرفی وانویسند و نه خوانند
+[BAYT 2]
+چو مجنون سر نهند اندر بیابان
+ازین گو گل روند آهو چرانند
+--- TITLE: دوبیتی شمارهٔ ۴۵  [ganjoor: poem-21353] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh45
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آنانکه تن از جان ندانند
+تن و جانی بجز جانان ندانند
+[BAYT 2]
+بدردش خو گرند سالان و ماهان
+بدرد خویشتن درمان ندانند
+--- TITLE: دوبیتی شمارهٔ ۴۶  [ganjoor: poem-21354] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh46
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آنانکه پا از سر ندونند
+مثال شعله خشک وتر ندونند
+[BAYT 2]
+کنشت و کعبه و بتخانه و دیر
+سرائی خالی از دلبر ندونند
+--- TITLE: دوبیتی شمارهٔ ۴۷  [ganjoor: poem-21355] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh47
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آنانکه هر شامان ته وینند
+سخن با ته گرند با ته نشینند
+[BAYT 2]
+مو که پایم نبی کایم ته وینم
+بشم آنان بوینم که ته وینند
+--- TITLE: دوبیتی شمارهٔ ۴۸  [ganjoor: poem-21356] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh48
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آنان که با ته همنشینند
+همیشه با دل خرم نشینند
+[BAYT 2]
+همین بی رسم عشق و عشقبازی
+که گستاخانه آیند و ته بینند
+--- TITLE: دوبیتی شمارهٔ ۴۹  [ganjoor: poem-21357] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh49
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+لاله کاران دگر لاله مکارید
+باغبانان دو دست از گل بدارید
+[BAYT 2]
+اگر عهد گلان این بو که دیدم
+بیخ گل بر کنید و خار بکارید
+--- TITLE: دوبیتی شمارهٔ ۵۰  [ganjoor: poem-21358] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh50
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن رندم که نامم بی‌قلندر
+نه خان دیرم نه مان دیرم نه لنگر
+[BAYT 2]
+چو روج آیو بگردم گرد گیتی
+چو شو آیو به خشتی وانهم سر
+--- TITLE: دوبیتی شمارهٔ ۵۱  [ganjoor: poem-21359] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh51
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+تویی آن شکرین لب یاسمین بر
+منم آن آتشین دل دیدگان تر
+[BAYT 2]
+از آن ترسم که در آغوشم آیی
+گدازد آتشت بر آب شکر
+--- TITLE: دوبیتی شمارهٔ ۵۲  [ganjoor: poem-21360] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh52
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+گلش در زیر سنبل سایه پرور
+نهال قامتش نخلی است نوبر
+[BAYT 2]
+زعشق آن گل رعنا همه شب
+چو بلبل ناله و افغان برآور
+--- TITLE: دوبیتی شمارهٔ ۵۳  [ganjoor: poem-21361] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh53
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دمی بوره بوین حالم ته دلبر
+دلم تنگه شبی با مو بسر بر
+[BAYT 2]
+ته گل بر سر زنی ای نو گل مو
+به جای گل زنم مو دست بر سر
+--- TITLE: دوبیتی شمارهٔ ۵۴  [ganjoor: poem-21362] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh54
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بروی ماهت ای ماه ده و چار
+به سرو قدت ای زیبنده رخسار
+[BAYT 2]
+که جز عشقت خیالی در دلم نی
+بدیاری ندارم مو سر و کار
+--- TITLE: دوبیتی شمارهٔ ۵۵  [ganjoor: poem-21363] [form: do-bayti] [scheme: AAAA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh55
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دیم آلاله‌ای در دامن خار
+واتم آلالیا کی چینمت بار
+[BAYT 2]
+بگفتا باغبان معذور میدار
+درخت دوستی دیر آورد بار
+--- TITLE: دوبیتی شمارهٔ ۵۶  [ganjoor: poem-21364] [form: do-bayti] [scheme: AAAA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh56
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم زار و دلم زار و دلم زار
+طبیبم آورید دردم کرید چار
+[BAYT 2]
+طبیبم چون بوینه بر موی زار
+کره در مون دردم را بناچار
+--- TITLE: دوبیتی شمارهٔ ۵۷  [ganjoor: poem-21365] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh57
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سه درد آمو بجانم هر سه یکبار
+غریبی و اسیری و غم یار
+[BAYT 2]
+غریبی و اسیری چاره دیره
+غم یار و غم یار و غم یار
+--- TITLE: دوبیتی شمارهٔ ۵۸  [ganjoor: poem-21366] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh58
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زدل نقش جمالت در نشی یار
+خیال خط و خالت در نشی یار
+[BAYT 2]
+مژه سازم بدور دیده پرچین
+که تا وینم خیالت در نشی یار
+--- TITLE: دوبیتی شمارهٔ ۵۹  [ganjoor: poem-21367] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh59
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+الاله کوهسارانم تویی یار
+بنوشه جو کنارانم تویی یار
+[BAYT 2]
+الاله کوهساران هفته‌ای بی
+امید روزگارانم تویی یار
+--- TITLE: دوبیتی شمارهٔ ۶۰  [ganjoor: poem-21368] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh60
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بی تو تلواسه دیرم ای نکویار
+زهر در کاسه دیرم ای نکویار
+[BAYT 2]
+میم خون گریه ساقی ناله مطرب
+مصاحب این سه دیرم ای نکویار
+--- TITLE: دوبیتی شمارهٔ ۶۱  [ganjoor: poem-21369] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh61
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+فلک زار و نزارم کردی آخر
+جدا از گلعذارم کردی آخر
+[BAYT 2]
+میان تختهٔ نرد محبت
+شش و پنجی بکارم کردی آخر
+--- TITLE: دوبیتی شمارهٔ ۶۲  [ganjoor: poem-21370] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh62
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر شیری اگر میری اگر مور
+گذر باید کنی آخر لب گور
+[BAYT 2]
+دلا رحمی بجان خویشتن کن
+که مورانت نهند خوان و کنند سور
+--- TITLE: دوبیتی شمارهٔ ۶۳  [ganjoor: poem-21371] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh63
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر شیری اگر ببری اگر کور
+سرانجامت بود جا در ته گور
+[BAYT 2]
+تنت در خاک باشد سفره گستر
+بگردش موش و مار و عقرب و مور
+--- TITLE: دوبیتی شمارهٔ ۶۴  [ganjoor: poem-21372] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh64
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلا اصلا نترسی از ره دور
+دلا اصلا نترسی از ته گور
+[BAYT 2]
+دلا اصلا نمیترسی که روزی
+شوی بنگاه مار و لانهٔ مور
+--- TITLE: دوبیتی شمارهٔ ۶۵  [ganjoor: poem-21373] [form: do-bayti] [scheme: ABCB]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh65
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+جره بازی بدم رفتم به نخجیر
+سبک دستی بزد بر بال من تیر
+[BAYT 2]
+برو غافل مچر در کوهساران
+هران غافل چرد غافل خورد تیر
+--- TITLE: دوبیتی شمارهٔ ۶۶  [ganjoor: poem-21374] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh66
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بوره بلبل بنالیم از سر سوز
+بوره آه سحر از مو بیاموز
+[BAYT 2]
+تو از بهر گلی ده روز نالی
+مو از بهر دل‌آرامم شو و روز
+--- TITLE: دوبیتی شمارهٔ ۶۷  [ganjoor: poem-21375] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh67
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+جدا از رویت ای ماه دل افروز
+نه روز از شو شناسم نه شو از روز
+[BAYT 2]
+وصالت گر مرا گردد میسر
+همه روزم شود چون عید نوروز
+--- TITLE: دوبیتی شمارهٔ ۶۸  [ganjoor: poem-21376] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh68
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو که سر در بیابانم شو و روز
+سرشک از دیده بارانم شو و روز
+[BAYT 2]
+نه تب دیرم نه جایم میکند درد
+همیدونم که نالونم شو و روز
+--- TITLE: دوبیتی شمارهٔ ۶۹  [ganjoor: poem-21377] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh69
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بی ته سر در بیابانم شو و روز
+سرشک از دیده بارانم شو و روز
+[BAYT 2]
+نه بیمارم که جایم میکری درد
+همیدانم که نالانم شو و روز
+--- TITLE: دوبیتی شمارهٔ ۷۰  [ganjoor: poem-21378] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh70
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غم و درد مو از عطار واپرس
+درازی شب از بیمار واپرس
+[BAYT 2]
+خلایق هر یکی صد بار پرسند
+تو که جان و دلی یکبار واپرس
+--- TITLE: دوبیتی شمارهٔ ۷۱  [ganjoor: poem-21379] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh71
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خداوندا بفریاد دلم رس
+تو یار بیکسان مو مانده بیکس
+[BAYT 2]
+همه گویند طاهر کس نداره
+خدا یار مو چه حاجت کس
+--- TITLE: دوبیتی شمارهٔ ۷۲  [ganjoor: poem-21380] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh72
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+گلی که خود بدادم پیچ و تابش
+باشک دیدگانم دادم آبش
+[BAYT 2]
+درین گلشن خدایا کی روا بی
+گل از مو دیگری گیرد گلابش
+--- TITLE: دوبیتی شمارهٔ ۷۳  [ganjoor: poem-21381] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh73
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+قضا رمزی زچشمان خمارش
+قدر سری ز زلف مشگبارش
+[BAYT 2]
+مه و مهر آیتی ز آنروی زیبا
+نکویان جهان آئینه دارش
+--- TITLE: دوبیتی شمارهٔ ۷۴  [ganjoor: poem-21382] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh74
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به قبرستان گذر کردم کم وبیش
+بدیدم قبر دولتمند و درویش
+[BAYT 2]
+نه درویش بیکفن در خاک رفته
+نه دولتمند برده یک کفن بیش
+--- TITLE: دوبیتی شمارهٔ ۷۵  [ganjoor: poem-21383] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh75
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شب تار است و گرگان میزنند میش
+دو زلفانت حمایل کن بوره پیش
+[BAYT 2]
+از آن کنج لبت بوسی بموده
+بگو راه خدا دادم بدرویش
+--- TITLE: دوبیتی شمارهٔ ۷۶  [ganjoor: poem-21384] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh76
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+فلک نه همسری دارد نه هم کف
+بخون ریزی دلش اصلا نگفت اف
+[BAYT 2]
+همیشه شیوهٔ کارش همینه
+چراغ دودمانیرا کند پف
+--- TITLE: دوبیتی شمارهٔ ۷۷  [ganjoor: poem-21385] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh77
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلی دیرم ولی دیوانه و دنگ
+ز دستم شیشهٔ ناموس بر سنگ
+[BAYT 2]
+ازین دیوانگی روزی برآیم
+که در دامان دلبر برزنم چنگ
+--- TITLE: دوبیتی شمارهٔ ۷۸  [ganjoor: poem-21386] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh78
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+وای آن روجی که در قبرم نهند تنگ
+ببالینم نهند خشت و گل و سنگ
+[BAYT 2]
+نه پای آنکه بگریزم ز ماران
+نه دست آنکه با موران کنم جنگ
+--- TITLE: دوبیتی شمارهٔ ۷۹  [ganjoor: poem-21387] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh79
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلی دیرم چو مو دیوانه و دنگ
+زده آئینه هر نام بر سنگ
+[BAYT 2]
+بمو واجند که بی نام و ننگی
+هر آن یارش تویی چه نام و چه ننگ
+--- TITLE: دوبیتی شمارهٔ ۸۰  [ganjoor: poem-21388] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh80
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+حرامم بی ته بی آلاله و گل
+حرامم بی ته بی آواز بلبل
+[BAYT 2]
+حرامم بی اگر بی ته نشینم
+کشم در پابی گلبن ساغر مل
+--- TITLE: دوبیتی شمارهٔ ۸۱  [ganjoor: poem-21389] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh81
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو ام آن آذرین مرغی که فی‌الحال
+بسوجم عالم ار برهم زنم بال
+[BAYT 2]
+مصور گر کشد نقشم به گلشن
+بسوجه گلشن از تاثیر تمثال
+--- TITLE: دوبیتی شمارهٔ ۸۲  [ganjoor: poem-21390] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh82
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خدایا داد از این دل داد از این دل
+نگشتم یک زمان من شاد از این دل
+[BAYT 2]
+چو فردا داد خواهان داد خواهند
+بر آرم من دو صد فریاد از این دل
+--- TITLE: دوبیتی شمارهٔ ۸۳  [ganjoor: poem-21391] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh83
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خدایا خسته و زارم ازین دل
+شو و روزان در آزارم ازین دل
+[BAYT 2]
+مو از دل نالم و دل نالد از مو
+زمو بستان که بیزارم ازین دل
+--- TITLE: دوبیتی شمارهٔ ۸۴  [ganjoor: poem-21392] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh84
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بشم واشم که تا یاری گره دل
+به بختم گریه و زاری گره دل
+[BAYT 2]
+بگردی و نجوئی یار دیگر
+که از جان و دلت یاری گره دل
+--- TITLE: دوبیتی شمارهٔ ۸۵  [ganjoor: poem-21393] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh85
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+چرا دایم بخوابی ای دل ای دل
+ز غم در اضطرابی ای دل ای دل
+[BAYT 2]
+بوره کنجی نشین شکر خدا کن
+که شاید کام یابی ای دل ای دل
+--- TITLE: دوبیتی شمارهٔ ۸۶  [ganjoor: poem-21394] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh86
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مگر شیر و پلنگی ای دل ای دل
+بمو دایم به جنگی ای دل ای دل
+[BAYT 2]
+اگر دستم فتی خونت بریجم
+بوینم تا چه رنگی ای دل ای دل
+--- TITLE: دوبیتی شمارهٔ ۸۷  [ganjoor: poem-21395] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh87
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+چرا آزرده حالی ای دل ای دل
+همه فکر و خیالی ای دل ای دل
+[BAYT 2]
+بساجم خنجری دل را برآرم
+بوینم تا چه حالی ای دل ای دل
+--- TITLE: دوبیتی شمارهٔ ۸۸  [ganjoor: poem-21396] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh88
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مرا درد آموه و درمان چه حاصل
+مرا وصل آموه و هجران چه حاصل
+[BAYT 2]
+بسوته بی گل و آلاله بی سر
+سر سوته کله یاران چه حاصل
+--- TITLE: دوبیتی شمارهٔ ۸۹  [ganjoor: poem-21397] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh89
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلا غافل ز سبحانی چه حاصل
+مطیع نفس و شیطانی چه حاصل
+[BAYT 2]
+بود قدر تو افزون از ملایک
+تو قدر خود نمیدانی چه حاصل
+--- TITLE: دوبیتی شمارهٔ ۹۰  [ganjoor: poem-21398] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh90
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز بوی زلف تو مفتونم ای گل
+ز رنگ روی تو دلخونم ای گل
+[BAYT 2]
+من عاشق زعشقت بیقرارم
+تو چون لیلی و من مجنونم ای گل
+--- TITLE: دوبیتی شمارهٔ ۹۱  [ganjoor: poem-21399] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh91
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلا پوشم ز عشقت جامهٔ نیل
+نهم داغ غمت چون لاله بر دیل
+[BAYT 2]
+دم از مهرت زنم همچون دم صبح
+وز آن دم تا دم صور سرافیل
+--- TITLE: دوبیتی شمارهٔ ۹۲  [ganjoor: poem-21400] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh92
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غمم غم بی و همراز دلم غم
+غمم همصحبت و همراز و همدم
+[BAYT 2]
+غمت مهله که مو تنها نشینم
+مریزا بارک الله مرحبا غم
+--- TITLE: دوبیتی شمارهٔ ۹۳  [ganjoor: poem-21401] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh93
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دو زلفانت گرم تار ربابم
+چه میخواهی ازین حال خرابم
+[BAYT 2]
+ته که با مو سر یاری نداری
+چرا هر نیمه شو آیی بخوابم
+--- TITLE: دوبیتی شمارهٔ ۹۴  [ganjoor: poem-21402] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh94
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن محنت کش حسرت نصیبم
+که در هر ملک و هر شهری غریبم
+[BAYT 2]
+نه بو روزی که آیی بر سر من
+بوینی مرده از هجرحبیبم
+--- TITLE: دوبیتی شمارهٔ ۹۵  [ganjoor: poem-21403] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh95
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن دل داده یکتا پرستم
+که جام شرک و خود بینی شکستم
+[BAYT 2]
+منم طاهر که در بزم محبت
+محمد را کمینه چاکرستم
+--- TITLE: دوبیتی شمارهٔ ۹۶  [ganjoor: poem-21404] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh96
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن بحرم که در ظرف آمدستم
+چو نقطه بر سر حرف آمدستم
+[BAYT 2]
+بهر الفی الف قدی بر آیو
+الف قدم که در الف آمدستم
+--- TITLE: دوبیتی شمارهٔ ۹۷  [ganjoor: poem-21405] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh97
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+من آن مسکین تذروبی پرستم
+من آن سوزنده شمع بی‌سرستم
+[BAYT 2]
+نه کار آخرت کردم نه دنیا
+یکی خشکیده نخل بی‌برستم
+--- TITLE: دوبیتی شمارهٔ ۹۸  [ganjoor: poem-21406] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh98
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بروی دلبری گر مایلستم
+مکن منعم گرفتار دلستم
+[BAYT 2]
+خدا را ساربان آهسته میران
+که من واماندهٔ این قافلستم
+--- TITLE: دوبیتی شمارهٔ ۹۹  [ganjoor: poem-21407] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh99
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به عشقت ای دلارا نگروستم
+نوید وصل تو تا نشنوستم
+[BAYT 2]
+بدل تخم وفایت کشتم آخر
+بجز اندوه و خواری ندروستم
+--- TITLE: دوبیتی شمارهٔ ۱۰۰  [ganjoor: poem-21408] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh100
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بشو یاد تو ای مه پاره هستم
+بروز از درد و غم بیچاره هستم
+[BAYT 2]
+تو داری در مقام خود قراری
+مویم که در جهان آواره هستم
+--- TITLE: دوبیتی شمارهٔ ۱۰۱  [ganjoor: poem-21409] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh101
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر آئی بجانت وانواجم
+وگر نائی به هجرانت گداجم
+[BAYT 2]
+ته هر دردی که داری بر دلم نه
+بمیرم یا بسوجم یا بساجم
+--- TITLE: دوبیتی شمارهٔ ۱۰۲  [ganjoor: poem-21410] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh102
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+الهی ار بواجم ور نواجم
+ته دانی حاجتم را مو چه واجم
+[BAYT 2]
+اگر بنوازیم حاجت روا بی
+وگر محروم سازی مو چه ساجم
+--- TITLE: دوبیتی شمارهٔ ۱۰۳  [ganjoor: poem-21411] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh103
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم دردین و نالین چه واجم
+رخم گردین و خاکین چه واجم
+[BAYT 2]
+بگردیدم به هفتاد و دو ملت
+بصد مذهب منادین چه واجم
+--- TITLE: دوبیتی شمارهٔ ۱۰۴  [ganjoor: poem-21412] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh104
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نمیدانم که رازم با که واجم
+غم و سوز وگدازم با که واجم
+[BAYT 2]
+چه واجم هر که ذونه میکره فاش
+دگر راز و نیازم با که واجم
+--- TITLE: دوبیتی شمارهٔ ۱۰۵  [ganjoor: poem-21413] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh105
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به آهی گنبد خضرا بسوجم
+فلک را جمله سر تا پا بسوجم
+[BAYT 2]
+بسوجم ار نه کارم را بساجی
+چه فرمائی بساجی یا بسوجم
+--- TITLE: دوبیتی شمارهٔ ۱۰۶  [ganjoor: poem-21414] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh106
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نذونی ای فلک که مستمندم
+وامو پر بد مکه که دردمندم
+[BAYT 2]
+بیک گردش که میکردی ببینی
+چو رشته مو بسامانت ببندم
+--- TITLE: دوبیتی شمارهٔ ۱۰۷  [ganjoor: poem-21415] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh107
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو که چون اشتران قانع به خارم
+جهازم چوب و خرواری ببارم
+[BAYT 2]
+بدین مزد قلیل و رنج بسیار
+هنوز از روی مالک شرمسارم
+--- TITLE: دوبیتی شمارهٔ ۱۰۸  [ganjoor: poem-21416] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh108
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بوره ای روی تو باغ بهارم
+خیالت مونس شبهای تارم
+[BAYT 2]
+خدا دونه که در دنیای فانی
+بغیر عشق ته کاری ندارم
+--- TITLE: دوبیتی شمارهٔ ۱۰۹  [ganjoor: poem-21417] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh109
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+همه شو تا سحر اختر شمارم
+که ماه رویت آیو در کنارم
+[BAYT 2]
+شوان گوشم بدر چشمم براهت
+گذاری تا بکی در انتظارم
+--- TITLE: دوبیتی شمارهٔ ۱۱۰  [ganjoor: poem-21418] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh110
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شوان استارگان یک‌یک شمارم
+براهت تا سحر در انتظارم
+[BAYT 2]
+پس از نیمه شوان که ته نیایی
+زدیده اشک چون باران ببارم
+--- TITLE: دوبیتی شمارهٔ ۱۱۱  [ganjoor: poem-21419] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh111
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+از آن انگشت نمای روزگارم
+که دور افتاده از یار و دیارم
+[BAYT 2]
+ندونم قصد جان کردن بناحق
+بجز بر سرزدن چاره ندارم
+--- TITLE: دوبیتی شمارهٔ ۱۱۲  [ganjoor: poem-21420] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh112
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+از آن دلخسته و سینه فگارم
+که گریان در ته سنگ مزارم
+[BAYT 2]
+بواجندم که ته شوری نداری
+سرا پا شور دارم شر ندارم
+--- TITLE: دوبیتی شمارهٔ ۱۱۳  [ganjoor: poem-21421] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh113
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غم عالم همه کردی ببارم
+مگر مو لوک مست سر قطارم
+[BAYT 2]
+مهارم کردی و دادی به ناکس
+فزودی هر زمان باری ببارم
+--- TITLE: دوبیتی شمارهٔ ۱۱۴  [ganjoor: poem-21422] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh114
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+کافرم گر منی آلاله کارم
+کافرم گر منی آبش بدارم
+[BAYT 2]
+کافرم گر منی نامش برم نام
+دو صد داغ دل از آلاله دارم
+--- TITLE: دوبیتی شمارهٔ ۱۱۵  [ganjoor: poem-21423] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh115
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هزاران ملک دنیا گر بدارم
+هزاران ملک عقبی گر بدارم
+[BAYT 2]
+بوره ته دلبرم تا با ته واجم
+که بی روی تو آنرا گر بدارم
+--- TITLE: دوبیتی شمارهٔ ۱۱۶  [ganjoor: poem-21424] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh116
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غم عشق تو مادر زاد دیرم
+نه از آموزش استاد دیرم
+[BAYT 2]
+بدان شادم که از یمن غم تو
+خراب آباد دل آباد دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۱۷  [ganjoor: poem-21425] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh117
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز دست چرخ گردون داد دیرم
+هزاران ناله و فریاد دیرم
+[BAYT 2]
+نشنید دستانم با خس و خار
+چگونه خاطر خود شاد دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۱۸  [ganjoor: poem-21426] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh118
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو از قالوا بلی تشویش دیرم
+گنه از برگ و باران بیش دیرم
+[BAYT 2]
+اگر لاتقنطوا دستم نگیرد
+مو از یاویلنا اندیش دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۱۹  [ganjoor: poem-21427] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh119
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو از جور بتان دل ریش دیرم
+زلاله داغ بر دل بیش دیرم
+[BAYT 2]
+چو فردا نامه خوانان نامه خوانند
+من شرمنده سر در پیش دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۰  [ganjoor: poem-21428] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh120
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز عشقت آتشی در بوته دیرم
+در آن آتش دل و جان سوته دیرم
+[BAYT 2]
+سگت ار پا نهد بر چشمم ای دوست
+بمژگان خاک راهش رو ته دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۱  [ganjoor: poem-21429] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh121
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بسر شوق سر کوی ته دیرم
+بدل مهر مه روی ته دیرم
+[BAYT 2]
+بت من کعبهٔ من قبلهٔ من
+ته ای هر سو نظر سوی ته دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۲  [ganjoor: poem-21430] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh122
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هزاران غم بدل اندوته دیرم
+هزار آتش بجان افروته دیرم
+[BAYT 2]
+بیک آه سحر کز دل برآرم
+هزاران مدعی را سوته دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۳  [ganjoor: poem-21431] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh123
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زعشقت آتشی در بوته دیرم
+در آن آتش دل و جان سوته دیرم
+[BAYT 2]
+سگت ار پا نهد بر چشمم ایدوست
+بمژگان خاک پایش روته دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۴  [ganjoor: poem-21432] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh124
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلی نازک بسان شیشه دیرم
+اگر آهی کشم اندیشه دیرم
+[BAYT 2]
+سرشکم گر بود خونین عجب نیست
+مو آن نخلم که در خون ریشه دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۵  [ganjoor: poem-21433] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh125
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زهجرانت هزار اندیشه دیرم
+همیشه زهر غم در شیشه دیرم
+[BAYT 2]
+ز نا سازی بخت و گردش چرخ
+فغان و آه و زاری پیشه دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۶  [ganjoor: poem-21434] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh126
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن رندم که عصیان پیشه دیرم
+بدستی جام و دستی شیشه دیرم
+[BAYT 2]
+اگر تو بیگناهی رو ملک شو
+من از حوا و آدم ریشه دیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۷  [ganjoor: poem-21435] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh127
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بسر غیر ته سودائی ندیرم
+بدل جز ته تمنائی ندیرم
+[BAYT 2]
+خدا دونه که در بازار عشقت
+بجز جان هیچ کالائی ندیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۸  [ganjoor: poem-21436] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh128
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بغیر ته دگر یاری ندیرم
+به اغیاری سر و کاری ندیرم
+[BAYT 2]
+بدکان ته آن کاسد متاعم
+که اصلا روی بازاری ندیرم
+--- TITLE: دوبیتی شمارهٔ ۱۲۹  [ganjoor: poem-21437] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh129
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+همه عالم پر از کرد چه سازم
+چو مو دلها پر از درد چه سازم
+[BAYT 2]
+بکشتم سنبلی دامان الوند
+همواز طالعم زرد چه سازم
+--- TITLE: دوبیتی شمارهٔ ۱۳۰  [ganjoor: poem-21438] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh130
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بدل درد غمت باقی هنوزم
+کسی واقف نبو از درد و سوزم
+[BAYT 2]
+نبو یک بلبل سوته به گلشن
+به سوز مو نبو کافر به روزم
+--- TITLE: دوبیتی شمارهٔ ۱۳۱  [ganjoor: poem-21439] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh131
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+فلک بر هم زدی آخر اساسم
+زدی بر خمرهٔ نیلی لباسم
+[BAYT 2]
+اگر داری برات از قصد جانم
+بکن آخر ازین دنیا اساسم
+--- TITLE: دوبیتی شمارهٔ ۱۳۲  [ganjoor: poem-21440] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh132
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بشم واشم ازین عالم بدر شم
+بشم از چین و ما چین دورتر شم
+[BAYT 2]
+بشم از حاجیان حج بپرسم
+که این دوری بسه یا دورتر شم
+--- TITLE: دوبیتی شمارهٔ ۱۳۳  [ganjoor: poem-21441] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh133
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+قدح بر گیرم و سیر گلان شم
+بطرف سبزه و آب روان شم
+[BAYT 2]
+دو سه جامی زنم با شادکامی
+وایم مست و بسیرلالیان شم
+--- TITLE: دوبیتی شمارهٔ ۱۳۴  [ganjoor: poem-21442] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh134
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خدایا واکیان شم واکیان شم
+بدین بیخانمانی واکیان شم
+[BAYT 2]
+همه از در برانند سوته آیم
+ته که از در برانی واکیان شم
+--- TITLE: دوبیتی شمارهٔ ۱۳۵  [ganjoor: poem-21443] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh135
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز وصلت تا بکی فرد آیم و شم
+جگر پر سوز و پر درد آیم و شم
+[BAYT 2]
+بموگوئی که در کویم نیایی
+مو تا کی با رخ زرد آیم و شم
+--- TITLE: دوبیتی شمارهٔ ۱۳۶  [ganjoor: poem-21444] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh136
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سر کویت بتا چند آیم و شم
+ز وصلت بی نوا چند آیم و شم
+[BAYT 2]
+بکویت تا ببیند دیده رویت
+نترسی از خدا چند آیم و شم
+--- TITLE: دوبیتی شمارهٔ ۱۳۷  [ganjoor: poem-21445] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh137
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو که مست از می انگور باشم
+چرا از نازنینم دور باشم
+[BAYT 2]
+مو که از آتشت گرمی نوینم
+چرا از دود محنت کور باشم
+--- TITLE: دوبیتی شمارهٔ ۱۳۸  [ganjoor: poem-21446] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh138
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به این بی آشنایی برکیاشم
+به این بی خانمانی برکیاشم
+[BAYT 2]
+همه گر مو برونند واته آیم
+ته از در گر برونی برکیاشم
+--- TITLE: دوبیتی شمارهٔ ۱۳۹  [ganjoor: poem-21447] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh139
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیا یک شو منور کن اطاقم
+مهل در محنت و درد فراقم
+[BAYT 2]
+به طاق جفت ابروی تو سوگند
+که همجفت غمم تا از تو طاقم
+--- TITLE: دوبیتی شمارهٔ ۱۴۰  [ganjoor: poem-21448] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh140
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شبی نالم شبی شبگیر نالم
+ز جور یار و چرخ پیر نالم
+[BAYT 2]
+گهی همچون پلنگ تیر خورده
+گهی چون شیر در زنجیر نالم
+--- TITLE: دوبیتی شمارهٔ ۱۴۱  [ganjoor: poem-21449] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh141
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو که آشفته حالم چون ننالم
+شکسته پر و بالم چون ننالم
+[BAYT 2]
+همه گویند فلانی چند نالی
+تو آیی در خیالم چون ننالم
+--- TITLE: دوبیتی شمارهٔ ۱۴۲  [ganjoor: poem-21450] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh142
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو کز سوته دلانم چون ننالم
+مو کز بی حاصلانم چون ننالم
+[BAYT 2]
+بگل بلبل نشیند زار نالد
+مو که دور از گلانم چون ننالم
+--- TITLE: دوبیتی شمارهٔ ۱۴۳  [ganjoor: poem-21451] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh143
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم زار و حزینه چون ننالم
+وجودم آتشینه چون ننالم
+[BAYT 2]
+بمو واجن که طاهر چند نالی
+چو مرگم در کمینه چون ننالم
+--- TITLE: دوبیتی شمارهٔ ۱۴۴  [ganjoor: poem-21452] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh144
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+وای ازین دل که نی هرگز بکامم
+وای ازین دل که آزارد مدامم
+[BAYT 2]
+وای ازین دل که چون مرغان وحشی
+نچیده دانه اندازد بدامم
+--- TITLE: دوبیتی شمارهٔ ۱۴۵  [ganjoor: poem-21453] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh145
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیته بالین سیه مار به چشمم
+روج روشن شو تار به چشمم
+[BAYT 2]
+بیته ای نو گل باغ امیدم
+گلستان سربسر خار به چشمم
+--- TITLE: دوبیتی شمارهٔ ۱۴۶  [ganjoor: poem-21454] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh146
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیته گلشن چو زندان بچشمم
+گلستان آذرستان بچشمم
+[BAYT 2]
+بیته آرام و عمر و زندگانی
+همه خواب پریشان بچشمم
+--- TITLE: دوبیتی شمارهٔ ۱۴۷  [ganjoor: poem-21455] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh147
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلا از دست تنهایی بجانم
+ز آه و نالهٔ خود در فغانم
+[BAYT 2]
+شبان تار از درد جدایی
+کند فریاد مغز استخوانم
+--- TITLE: دوبیتی شمارهٔ ۱۴۸  [ganjoor: poem-21456] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh148
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+قلم بتراشم از هر استخوانم
+مرکب گیرم از خون رگانم
+[BAYT 2]
+بگیرم کاغذی از پردهٔ دل
+نویسم بهر یار مهربانم
+--- TITLE: دوبیتی شمارهٔ ۱۴۹  [ganjoor: poem-21457] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh149
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن دلدادهٔ بی خانمانم
+مو آن محنت نصیب سخت جانم
+[BAYT 2]
+مو آن سرگشته خارم در بیابان
+که چون بادی وزد هر سو دوانم
+--- TITLE: دوبیتی شمارهٔ ۱۵۰  [ganjoor: poem-21458] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh150
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به خنجر گر برآرند دیدگانم
+در آتش گر بسوزند استخوانم
+[BAYT 2]
+اگر بر ناخنانم نی بکوبند
+نگیرم دل ز یار مهربانم
+--- TITLE: دوبیتی شمارهٔ ۱۵۱  [ganjoor: poem-21459] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh151
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن آزردهٔ بی خانمانم
+مو آن محنت نصیب سخت جانم
+[BAYT 2]
+مو آن سرگشته خارم در بیابون
+که هر بادی وزد پیشش دوانم
+--- TITLE: دوبیتی شمارهٔ ۱۵۲  [ganjoor: poem-21460] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh152
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+فلک کی بشنود آه و فغانم
+بهر گردش زند آتش بجانم
+[BAYT 2]
+یک عمری بگذرانم با غم و درد
+بکام دل نگردد آسمانم
+--- TITLE: دوبیتی شمارهٔ ۱۵۳  [ganjoor: poem-21461] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh153
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+کنون داری نظر گو واکیانم
+ز جورت در گدازه استخوانم
+[BAYT 2]
+بکه اندیشه‌ای بیداد پیشه
+که آهم تیر بو ناله کمانم
+--- TITLE: دوبیتی شمارهٔ ۱۵۴  [ganjoor: poem-21462] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh154
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+تو خود گفتی که مو ملاح مانم
+به آب دیدکان کشتی برانم
+[BAYT 2]
+همی ترسم که کشتی غرق وابو
+درین دریای بی پایان بمانم
+--- TITLE: دوبیتی شمارهٔ ۱۵۵  [ganjoor: poem-21463] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh155
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن رندم که پا از سر ندونم
+سراپایی بجز دلبر ندونم
+[BAYT 2]
+دلارامی کز او دل گیرد آرام
+بغیر از ساقی کوثر ندونم
+--- TITLE: دوبیتی شمارهٔ ۱۵۶  [ganjoor: poem-21464] [form: do-bayti] [scheme: ABCB]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh156
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم دور است و احوالش ندونم
+کسی خواهد که پیغامش رسونم
+[BAYT 2]
+خداوندا ز مرگم مهلتی ده
+که دیداری بدیدارش رسونم
+--- TITLE: دوبیتی شمارهٔ ۱۵۷  [ganjoor: poem-21465] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh157
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سر کوه بلند چندان نشینم
+که لاله سر بر آره مو بچینم
+[BAYT 2]
+الاله بیوفا بی بیوفا بی
+نگار بیوفا چون مو گزینم
+--- TITLE: دوبیتی شمارهٔ ۱۵۸  [ganjoor: poem-21466] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh158
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا روزی که دیدار ته وینم
+گل و سنبل ز رخسار ته چینم
+[BAYT 2]
+بیا بنشین که تا وینم شو و روز
+جمالت ای نگار نازنینم
+--- TITLE: دوبیتی شمارهٔ ۱۵۹  [ganjoor: poem-21467] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh159
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شبی خواهم که پیغمبر ببینم
+دمی با ساقی کوثر نشینم
+[BAYT 2]
+بگیرم در بغل قبر رضا را
+در آن گلشن گل شادی بچینم
+--- TITLE: دوبیتی شمارهٔ ۱۶۰  [ganjoor: poem-21468] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh160
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بوره روزی که دیدار ته وینم
+گل و سنبل به دیدار تو چینم
+[BAYT 2]
+بوره بنشین برم سالان و ماهان
+که تا سیرت بوینم نازنینم
+--- TITLE: دوبیتی شمارهٔ ۱۶۱  [ganjoor: poem-21469] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh161
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+گلستان جای تو ای نازنیننم
+مو در گلخن به خاکستر نشینم
+[BAYT 2]
+چه در گلشن چه در گلخن چه صحرا
+چو دیده واکرم جز ته نوینم
+--- TITLE: دوبیتی شمارهٔ ۱۶۲  [ganjoor: poem-21470] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh162
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به صحرا بنگرم صحرا ته وینم
+به دریا بنگرم دریا ته وینم
+[BAYT 2]
+بهر جا بنگرم کوه و در و دشت
+نشان روی زیبای ته وینم
+--- TITLE: دوبیتی شمارهٔ ۱۶۳  [ganjoor: poem-21471] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh163
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوش آنساعت که دیدار ته وینم
+کمند عنبرین تار ته وینم
+[BAYT 2]
+نوینه خرمی هرگز دل مو
+مگر آن دم که رخسار ته وینم
+--- TITLE: دوبیتی شمارهٔ ۱۶۴  [ganjoor: poem-21472] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh164
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+الهی دشمنت را خسته وینم
+به سینه اش خنجری تا دسته وینم
+[BAYT 2]
+سر شو آیم احوالش بپرسم
+سحر آیم مزارش بسته وینم
+--- TITLE: دوبیتی شمارهٔ ۱۶۵  [ganjoor: poem-21473] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh165
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر جسمم بسوزی سوته خواهم
+اگر چشمم بدوزی دوته خواهم
+[BAYT 2]
+اگر باغم بری تا گل بچینم
+گلی همرنگ و همبوی ته خواهم
+--- TITLE: دوبیتی شمارهٔ ۱۶۶  [ganjoor: poem-21474] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh166
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیا سوته دلان گردهم آئیم
+سخنها واکریم غم وانمائیم
+[BAYT 2]
+ترازو آوریم غمها بسنجیم
+هر آن سوته تریم وزنین تر آئیم
+--- TITLE: دوبیتی شمارهٔ ۱۶۷  [ganjoor: poem-21475] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh167
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نمیدانم که سرگردان چرایم
+گهی نالان گهی گریان چرایم
+[BAYT 2]
+همه دردی بدوران یافت درمان
+ندانم مو که بیدرمان چرایم
+--- TITLE: دوبیتی شمارهٔ ۱۶۸  [ganjoor: poem-21476] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh168
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز حال خویشتن مو بیخبر بیم
+ندونم در سفر یا در حضر بیم
+[BAYT 2]
+فغان از دست تو ای بیمروت
+همین ذونم که عمری دربدر بیم
+--- TITLE: دوبیتی شمارهٔ ۱۶۹  [ganjoor: poem-21477] [form: do-bayti] [scheme: ABCB]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh169
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بوره یکدم بنالیم و بسوجیم
+از آنرویی که هر دو تیره روجیم
+[BAYT 2]
+ته بلبل حاش لله مثل مو نی
+نبو جز درد و غم یک عمر روجیم
+--- TITLE: دوبیتی شمارهٔ ۱۷۰  [ganjoor: poem-21478] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh170
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+عزیزا ما گرفتار دو دردیم
+یکی عشق و دگر در دهر فردیم
+[BAYT 2]
+نصیب کس مباد این غم که ما راست
+جمالت یک نظر نادیده مردیم
+--- TITLE: دوبیتی شمارهٔ ۱۷۱  [ganjoor: poem-21479] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh171
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیا تا دست ازین عالم بداریم
+بیا تا پای دل از گل برآریم
+[BAYT 2]
+بیا تا بردباری پیشه سازیم
+بیا تا تخم نیکوئی بکاریم
+--- TITLE: دوبیتی شمارهٔ ۱۷۲  [ganjoor: poem-21480] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh172
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بوره کز دیده جیحونی بسازیم
+بوره لیلی و مجنونی بسازیم
+[BAYT 2]
+فریدون عزیزم رفتی از دست
+بوره کز نو فریدونی بسازیم
+--- TITLE: دوبیتی شمارهٔ ۱۷۳  [ganjoor: poem-21481] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh173
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بوره سوته دلان با ما بنالیم
+زدست یار بی پروا بنالیم
+[BAYT 2]
+بشیم با بلبل شیدا به گلشن
+اگر بلبل نناله ما بنالیم
+--- TITLE: دوبیتی شمارهٔ ۱۷۴  [ganjoor: poem-21482] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh174
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ته سر ورزان مو سودای ته ورزان
+گریبان بلرزان وا ته لرزان
+[BAYT 2]
+کفن در کردنم صحرای محشر
+هران وینان احوال ته پرسان
+--- TITLE: دوبیتی شمارهٔ ۱۷۵  [ganjoor: poem-21483] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh175
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+برندم همچو یوسف گر بزندان
+ویا نالم زغم چون مستمندان
+[BAYT 2]
+اگر صد باغبان خصمی نماید
+مدام آیم بگلزار تو خندان
+--- TITLE: دوبیتی شمارهٔ ۱۷۶  [ganjoor: poem-21484] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh176
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم از دست ته نالانه نالان
+اندرون دلم خون کشته پالان
+[BAYT 2]
+هزاران قول با ما بیش کردی
+همه قولان ته بالان بالان
+--- TITLE: دوبیتی شمارهٔ ۱۷۷  [ganjoor: poem-21485] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh177
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+گلی کشتم باین الوند دامان
+آوش از دیده دادم صبح و شامان
+[BAYT 2]
+چو روج آیو که بویش وا من آیو
+برد بادش سر و سامان بسامان
+--- TITLE: دوبیتی شمارهٔ ۱۷۸  [ganjoor: poem-21486] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh178
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آنان نه سر دارند نه سامان
+نشینن هر دو پا پیچن به دامان
+[BAYT 2]
+شو و روزان صبوری پیش گیرن
+بیاد روی دلداران مدامان
+--- TITLE: دوبیتی شمارهٔ ۱۷۹  [ganjoor: poem-21487] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh179
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بوره ای دل بوره باری بشیمان
+مکه کاری کز آن گردی پشیمان
+[BAYT 2]
+یه دو روزی بناکامی سرآریم
+باشه روزی که گل چینیم بدامان
+--- TITLE: دوبیتی شمارهٔ ۱۸۰  [ganjoor: poem-21488] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh180
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بوره منت بریم ما از کریمان
+بکشیم دست از خوان لئیمان
+[BAYT 2]
+کریمان دست در خوان کریمی
+که بر خوانش نظر دارند کریمان
+--- TITLE: دوبیتی شمارهٔ ۱۸۱  [ganjoor: poem-21489] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh181
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زدست مو کشیدی باز دامان
+ز کردارت نبی یک جو پشیمان
+[BAYT 2]
+روم آخر بدامانی زنم دست
+که تا از وی رسد کارم بسامان
+--- TITLE: دوبیتی شمارهٔ ۱۸۲  [ganjoor: poem-21490] [form: do-bayti] [scheme: AAAA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh182
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر مستان هستیم از ته ایمان
+وگر بی پا و دستیم از ته ایمان
+[BAYT 2]
+اگر گبریم و ترسا ور مسلمان
+بهر ملت که هستیم از ته ایمان
+--- TITLE: دوبیتی شمارهٔ ۱۸۳  [ganjoor: poem-21491] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh183
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز یاد خود بیا پروا کریمان
+ازو کو التجا وا که بریمان
+[BAYT 2]
+کیه این تاب داره تا مو دارم
+نداره تاب این سام نریمان
+--- TITLE: دوبیتی شمارهٔ ۱۸۴  [ganjoor: poem-21492] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh184
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+پشیمانم پشیمانم پشیمان
+کاروانی بوینم تا بشیمان
+[BAYT 2]
+کهن دنیا بهیچ کسی نمانده
+به هرزه کوله باری میکشیمان
+--- TITLE: دوبیتی شمارهٔ ۱۸۵  [ganjoor: poem-21493] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh185
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن اسپید بازم سینه سوهان
+چراگاه مو بی سر بشن کوهان
+[BAYT 2]
+همه تیغی به سوهان میکرن تیز
+مو آن تیغم که یزدان کرده سوهان
+--- TITLE: دوبیتی شمارهٔ ۱۸۶  [ganjoor: poem-21494] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh186
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم تنگ ندانم صبر کردن
+زدلتنگی بوم راضی بمردن
+[BAYT 2]
+ز شرم روی ته مو در حجابم
+ندانم عرض حالم واته کردن
+--- TITLE: دوبیتی شمارهٔ ۱۸۷  [ganjoor: poem-21495] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh187
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+الهی سوز عشقت بیشتر کن
+دل ریشم ز دردت ریشتر کن
+[BAYT 2]
+ازین غم گر دمی فارغ نشینم
+بجانم صد هزاران نیشتر کن
+--- TITLE: دوبیتی شمارهٔ ۱۸۸  [ganjoor: poem-21496] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh188
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+آنکه بی خان و بی مانه منم من
+آنکه بر گشته سامانه منم من
+[BAYT 2]
+آنکه شادمان به انده میکره روز
+آنکه روزش چو شامانه منم و من
+--- TITLE: دوبیتی شمارهٔ ۱۸۹  [ganjoor: poem-21497] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh189
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر دستم رسد بر چرخ گردون
+از او پرسم که این چین است و آن چون
+[BAYT 2]
+یکی را میدهی صد ناز و نعمت
+یکی را نان جو آلوده در خون
+--- TITLE: دوبیتی شمارهٔ ۱۹۰  [ganjoor: poem-21498] [form: do-bayti] [scheme: AABC]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh190
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلا خونی دلا خونی دلا خون
+همه خونی همه خونی همه خون
+[BAYT 2]
+ز بهر لیلی سیمین عذاری
+چو مجنونی چو مجنونی چو مجنون
+--- TITLE: دوبیتی شمارهٔ ۱۹۱  [ganjoor: poem-21499] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh191
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بعالم کس مبادا چون من آئین
+مو آئین کس مبو در دین و آئین
+[BAYT 2]
+هر آنکو حال موش باور نمیبو
+مو آئین بی مو آئین بی مو آئین
+--- TITLE: دوبیتی شمارهٔ ۱۹۲  [ganjoor: poem-21500] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh192
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیا جانا دل پردرد مو بین
+سرشک سرخ و روی زرد مو بین
+[BAYT 2]
+غم مهجوری و درد صبوری
+همه برجان غم پرورد مو بین
+--- TITLE: دوبیتی شمارهٔ ۱۹۳  [ganjoor: poem-21501] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh193
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیته یک شو دلم بی غم نمی‌بو
+که آن دلبر دمی همدم نمی‌بو
+[BAYT 2]
+هزاران رحمت حق باد بر غم
+زمانی از دل ما کم نمی بو
+--- TITLE: دوبیتی شمارهٔ ۱۹۴  [ganjoor: poem-21502] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh194
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+وای از روزی که قاضیمان خدا بو
+سر پل صراطم ماجرا بو
+[BAYT 2]
+بنوبت بگذرند پیر و جوانان
+وای از آندم که نوبت زان ما بو
+--- TITLE: دوبیتی شمارهٔ ۱۹۵  [ganjoor: poem-21503] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh195
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلی دیرم که بهبودش نمی‌بو
+سخنها میکرم سودش نمی‌بو
+[BAYT 2]
+ببادش میدهم نش میبرد باد
+در آتش می‌نهم دودش نمی‌بو
+--- TITLE: دوبیتی شمارهٔ ۱۹۶  [ganjoor: poem-21504] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh196
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سری دارم که سامانش نمیبو
+غمی دارم که پایانش نمیبو
+[BAYT 2]
+اگر باور نداری سوی من آی
+بوین دردی که درمانش نمیبو
+--- TITLE: دوبیتی شمارهٔ ۱۹۷  [ganjoor: poem-21505] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh197
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلی دیرم دمی بیغم نمی‌بو
+غمی دیرم که هرگز کم نمی‌بو
+[BAYT 2]
+خطی دیرم مو از خوبان عالم
+که یار بیوفا همدم نمی‌بو
+--- TITLE: دوبیتی شمارهٔ ۱۹۸  [ganjoor: poem-21506] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh198
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بوره جانا که جانانم تویی تو
+بوره یارا که سلطانم تویی تو
+[BAYT 2]
+ته دونی خود که مو جز تو ندونم
+بوره بوره که ایمانم تویی تو
+--- TITLE: دوبیتی شمارهٔ ۱۹۹  [ganjoor: poem-21507] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh199
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به والله که جانانم تویی تو
+بسلطان عرب جانم تویی تو
+[BAYT 2]
+نمیدونم که چونم یا که چندم
+همی دونم که درمانم تویی تو
+--- TITLE: دوبیتی شمارهٔ ۲۰۰  [ganjoor: poem-21508] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh200
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شبی دیرم زهجرت تار تارو
+گرفته ظلمتش لیل و نهارو
+[BAYT 2]
+خداوندا دلم را روشنی ده
+که تا وینم جمال هشت و چارو
+--- TITLE: دوبیتی شمارهٔ ۲۰۱  [ganjoor: poem-21509] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh201
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نصیب کس مبو درد دل مو
+که بسیاره غم بی‌حاصل مو
+[BAYT 2]
+کسی بو از غم و دردم خبردار
+که دارد مشکلی چون مشکل مو
+--- TITLE: دوبیتی شمارهٔ ۲۰۲  [ganjoor: poem-21510] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh202
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نیا مطلق بکارم این دل مو
+بجز خونابه اش نه حاصل مو
+[BAYT 2]
+داره در موسم گل جوش سودا
+چه پروایی کره اینجا دل مو
+--- TITLE: دوبیتی شمارهٔ ۲۰۳  [ganjoor: poem-21511] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh203
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بهارم بی خزان ای گلبن مو
+چه غم کنده ببو بیخ و بن مو
+[BAYT 2]
+برس ای سوته دل یکدم به دردم
+ته ای امروز دل تازه کن مو
+--- TITLE: دوبیتی شمارهٔ ۲۰۴  [ganjoor: poem-21512] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh204
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+امان از اختر شوریدهٔ مو
+فغان از بخت برگردیدهٔ مو
+[BAYT 2]
+فلک از کینه ورزی کی گذاره
+رود خون از دل غمدیدهٔ مو
+--- TITLE: دوبیتی شمارهٔ ۲۰۵  [ganjoor: poem-21513] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh205
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نوای ناله غم اندوته دونو
+عیار قلب خالص بوته دونو
+[BAYT 2]
+بوره سوته دلان واهم بنالیم
+که قدر سوته دل دلسوته دونو
+--- TITLE: دوبیتی شمارهٔ ۲۰۶  [ganjoor: poem-21514] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh206
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مکن کاری که پا بر سنگت آیو
+جهان با این فراخی تنگت آیو
+[BAYT 2]
+چو فردا نامه خوانان نامه خونند
+تو وینی نامهٔ خود ننگت آیو
+--- TITLE: دوبیتی شمارهٔ ۲۰۷  [ganjoor: poem-21515] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh207
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بی ته اشکم ز مژگان تر آیو
+بی ته نخل امیدم نی بر آیو
+[BAYT 2]
+بی ته در کنج تنهائی شب و روز
+نشینم تا که عمرم بر سر آیو
+--- TITLE: دوبیتی شمارهٔ ۲۰۸  [ganjoor: poem-21516] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh208
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شبی کان نازنینم در بر آیو
+گذشته عمرم از نو بر سر آیو
+[BAYT 2]
+همه شو دیدهٔ مو تا سحرگاه
+بره باشد که یارم از در آیو
+--- TITLE: دوبیتی شمارهٔ ۲۰۹  [ganjoor: poem-21517] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh209
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بدل چون یادم از بوم و بر آیو
+سر شگم بیخود از چشم تر آیو
+[BAYT 2]
+از آن ترسم من بر گشته دوران
+که عمرم در غریبی بر سر آیو
+--- TITLE: دوبیتی شمارهٔ ۲۱۰  [ganjoor: poem-21518] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh210
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوش آن ساعت که یار از در آیو
+شو هجران و روز غم سر آیو
+[BAYT 2]
+زدل بیرون کنم جانرا بصد شوق
+همی واجم که جایش دلبر آیو
+--- TITLE: دوبیتی شمارهٔ ۲۱۱  [ganjoor: poem-21519] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh211
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غم عشق تو کی بر هر سر آیو
+همائی کی به هر بوم و بر آیو
+[BAYT 2]
+زعشقت سرفرازان کامیابند
+که خور اول به کهساران بر آیو
+--- TITLE: دوبیتی شمارهٔ ۲۱۲  [ganjoor: poem-21520] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh212
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بی ته هر شو سرم بر بالش آیو
+چو نی از استخوانم نالش آیو
+[BAYT 2]
+شب هجران بجای اشک چشمم
+ز مژگان پاره‌های آتش آیو
+--- TITLE: دوبیتی شمارهٔ ۲۱۳  [ganjoor: poem-21521] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh213
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نسیمی کز بن آن کاکل آیو
+مرا خوشتر ز بوی سنبل آیو
+[BAYT 2]
+چو شو گیرم خیالش را در آغوش
+سحر از بسترم بوی گل آیو
+--- TITLE: دوبیتی شمارهٔ ۲۱۴  [ganjoor: poem-21522] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh214
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سحرگان که بلبل بر گل آیو
+بدامان اشک چشمم گل گل آیو
+[BAYT 2]
+روم در پای گل افغان کنم سر
+که هر سوته دلی در غلغل آیو
+--- TITLE: دوبیتی شمارهٔ ۲۱۵  [ganjoor: poem-21523] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh215
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+صدای چاوشان مردن آیو
+بگوش آوازهٔ جان کندن آیو
+[BAYT 2]
+رفیقان میروند نوبت به نوبت
+وای آن ساعت که نوبت وامن آیو
+--- TITLE: دوبیتی شمارهٔ ۲۱۶  [ganjoor: poem-21524] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh216
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیته گلشن به چشمم گلخن آیو
+واته گلخن به چشمم گلشن آیو
+[BAYT 2]
+گلم ته گلبنم ته گلشنم ته
+که واته مرده را جان بر تن آیو
+--- TITLE: دوبیتی شمارهٔ ۲۱۷  [ganjoor: poem-21525] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh217
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+عزیزا مردی از نامرد نایو
+فغان و ناله از بیدرد نایو
+[BAYT 2]
+حقیقت بشنو از پور فریدون
+که شعله از تنور سرد نایو
+--- TITLE: دوبیتی شمارهٔ ۲۱۸  [ganjoor: poem-21526] [form: do-bayti] [scheme: AABC]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh218
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+کجا بی جای ته ای بر همه شاه
+که مو آیم بدانجا از همه راه
+[BAYT 2]
+همه جا جای ته مو کور باطن
+غلط گفتم غلط استغفرالله
+--- TITLE: دوبیتی شمارهٔ ۲۱۹  [ganjoor: poem-21527] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh219
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غم عشقت ز گنج رایگان به
+وصال تو ز عمر جاودان به
+[BAYT 2]
+کفی از خاک کویت در حقیقت
+خدا دونه که از ملک جهان به
+--- TITLE: دوبیتی شمارهٔ ۲۲۰  [ganjoor: poem-21528] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh220
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غم و درد دل مو بی حسابه
+خدا دونه دل از هجرت کبابه
+[BAYT 2]
+بنازم دست و بازوی ته صیاد
+بکش مرغ دلم بالله ثوابه
+--- TITLE: دوبیتی شمارهٔ ۲۲۱  [ganjoor: poem-21529] [form: do-bayti] [scheme: ABCB]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh221
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو را درد دلم خو کرده واته
+ندونی درد دل ای بیوفا ته
+[BAYT 2]
+بوره مو سوته دل واته سپارم
+ته ذونی با دل و دل ذونه با ته
+--- TITLE: دوبیتی شمارهٔ ۲۲۲  [ganjoor: poem-21530] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh222
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل مو دایم اندر ماتم ته
+بدل پیوسته بی‌درد و غم ته
+[BAYT 2]
+چه پرسی که چرا قدت ببوخم
+خم قدم از آن پیچ و خم ته
+--- TITLE: دوبیتی شمارهٔ ۲۲۳  [ganjoor: poem-21531] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh223
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بدنیا مو نوینم کام بی ته
+بدس هرگز نگیرم جام بی ته
+[BAYT 2]
+بلرزم روز و شو چون بید مجنون
+ندارم یک نفس آرام بی ته
+--- TITLE: دوبیتی شمارهٔ ۲۲۴  [ganjoor: poem-21532] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh224
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دو چشمم را ته خون پالا کنی ته
+کلاه عقلم از سر وا کنی ته
+[BAYT 2]
+اگر لیلی بپرسه حال مجنون
+نظر او را سوی صحرا کنی ته
+--- TITLE: دوبیتی شمارهٔ ۲۲۵  [ganjoor: poem-21533] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh225
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلی دیرم چو مرغ پا شکسته
+چو کشتی بر لب دریا نشسته
+[BAYT 2]
+تو گویی طاهرا چون تار بنواز
+صدا چون میدهد تار گسسته
+--- TITLE: دوبیتی شمارهٔ ۲۲۶  [ganjoor: poem-21534] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh226
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+قضا پیوسته در گوشم بواجه
+که این درد دل تو بی علاجه
+[BAYT 2]
+اگر گوهر به آبی خواهون نداری
+همین این جون تو که بی رواجه
+--- TITLE: دوبیتی شمارهٔ ۲۲۷  [ganjoor: poem-21535] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh227
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلت ای سنگدل بر ما نسوجه
+عجب نبود اگر خارا نسوجه
+[BAYT 2]
+بسوجم تا بسوجانم دلت را
+در آذر چوب تر تنها نسوجه
+--- TITLE: دوبیتی شمارهٔ ۲۲۸  [ganjoor: poem-21536] [form: do-bayti] [scheme: ABCB]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh228
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم از دست خوبان گیج و ویجه
+مژه بر هم زنم خونابه ریجه
+[BAYT 2]
+دل عاشق مثال چوب‌تر بی
+سری سوجه سری خونابه ریجه
+--- TITLE: دوبیتی شمارهٔ ۲۲۹  [ganjoor: poem-21537] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh229
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نذونم لوت و عریانم که کرده
+خودم جلاد و بیجونم که کرده
+[BAYT 2]
+بده خنجر که تا سینه کنم چاک
+ببینم عشق بر جونم چه کرده
+--- TITLE: دوبیتی شمارهٔ ۲۳۰  [ganjoor: poem-21538] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh230
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سرم چون گوی در میدان بگرده
+دلم از عهد و پیمان بر نگرده
+[BAYT 2]
+اگر دوران به نااهلان بمانه
+نشینم تا که این دوران بگرده
+--- TITLE: دوبیتی شمارهٔ ۲۳۱  [ganjoor: poem-21539] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh231
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شدستم پیرو برنائی نمانده
+بتن توش و توانائی نمانده
+[BAYT 2]
+بمو واجی برو آلالهٔ چین
+چرا چینم که بینائی نمانده
+--- TITLE: دوبیتی شمارهٔ ۲۳۲  [ganjoor: poem-21540] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh232
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مرا عشقت ز جان آذر برآره
+زپیکر مشت خاکستر برآره
+[BAYT 2]
+نهال مهرت از دل گر ببرند
+هزاران شاخه دیگر برآره
+--- TITLE: دوبیتی شمارهٔ ۲۳۳  [ganjoor: poem-21541] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh233
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+عزیزان موسم جوش بهاره
+چمن پر سبزه صحرا لاله زاره
+[BAYT 2]
+دمی فرصت غنیمت دان درین فصل
+که دنیای دنی بی اعتباره
+--- TITLE: دوبیتی شمارهٔ ۲۳۴  [ganjoor: poem-21542] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh234
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غمم بیحد و دردم بی شماره
+فغان کاین درد مو درمان نداره
+[BAYT 2]
+خداوندا ندونه ناصح مو
+که فریاد دلم بی‌اختیاره
+--- TITLE: دوبیتی شمارهٔ ۲۳۵  [ganjoor: poem-21543] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh235
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل مو بیتو زار و بی قراره
+بجز آزار مو کاری نداره
+[BAYT 2]
+زند دستان بسر چون طفل بدخو
+بدرد هجرت اینش روزگاره
+--- TITLE: دوبیتی شمارهٔ ۲۳۶  [ganjoor: poem-21544] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh236
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو را ای دلبر مو با ته کاره
+وگرنه در جهان بسیار یاره
+[BAYT 2]
+کجا پروای چون مو سوته دیری
+چو مو بلبل به گلزارت هزاره
+--- TITLE: دوبیتی شمارهٔ ۲۳۷  [ganjoor: poem-21545] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh237
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زغم جان در تنم در گیر و داره
+سرم در رهن تیغ آبداره
+[BAYT 2]
+ندارم اختیاری از چه جوشش
+دل مو تاب این سودا نداره
+--- TITLE: دوبیتی شمارهٔ ۲۳۸  [ganjoor: poem-21546] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh238
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سرم بالین تنم بستر نداره
+دلم جز شوق ته در سر نداره
+[BAYT 2]
+نهد دور از ته هر کس سر ببالین
+الهی سر ز بالین بر نداره
+--- TITLE: دوبیتی شمارهٔ ۲۳۹  [ganjoor: poem-21547] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh239
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سر سرگشته‌ام سامان نداره
+دل خون گشته‌ام درمان نداره
+[BAYT 2]
+به کافر مذهبی دل بسته دیرم
+که در هر مذهبی ایمان نداره
+--- TITLE: دوبیتی شمارهٔ ۲۴۰  [ganjoor: poem-21548] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh240
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هر آن دلبر که چشم مست دیره
+هزاران دل چو ما پا بست دیره
+[BAYT 2]
+میان عاشقان آن ماه سیما
+چو شعر مو بلند و پست دیره
+--- TITLE: دوبیتی شمارهٔ ۲۴۱  [ganjoor: poem-21549] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh241
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم میل گل باغ ته دیره
+درون سینه‌ام داغ ته دیره
+[BAYT 2]
+بشم آلاله زاران لاله چینم
+وینم آلاله هم داغ ته دیره
+--- TITLE: دوبیتی شمارهٔ ۲۴۲  [ganjoor: poem-21550] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh242
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم میل گل روی ته دیره
+سرم سودای گیسوی ته دیره
+[BAYT 2]
+اگر چشمم بماه نو کره میل
+نظر بر طاق ابروی ته دیره
+--- TITLE: دوبیتی شمارهٔ ۲۴۳  [ganjoor: poem-21551] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh243
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سرم سودای گیسوی ته دیره
+دلم میل گل روی ته دیره
+[BAYT 2]
+اگر چشمم بماه نو کره میل
+نظر بر طاق ابروی ته دیره
+--- TITLE: دوبیتی شمارهٔ ۲۴۴  [ganjoor: poem-21552] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh244
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غمت در سینهٔ مو خانه دیره
+چو جغدی جای در ویرانه دیره
+[BAYT 2]
+فلک هم در دل تنگم نهد باز
+هر آن انده که در انبانه دیره
+--- TITLE: دوبیتی شمارهٔ ۲۴۵  [ganjoor: poem-21553] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh245
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو که یارم سر یاری ندیره
+مو که دردم سبکباری ندیره
+[BAYT 2]
+همه واجن که یارت خواب نازه
+چه خوابست اینکه بیداری ندیره
+--- TITLE: دوبیتی شمارهٔ ۲۴۶  [ganjoor: poem-21554] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh246
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سحرگاهان که اشکم لاوه گیره
+زآهم هفت چرخ آلاوه گیره
+[BAYT 2]
+چنان از دیده ریزم اشک خونین
+که گیتی سر بسر سیلابه گیره
+--- TITLE: دوبیتی شمارهٔ ۲۴۷  [ganjoor: poem-21555] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh247
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل مو غیرته دلبر نگیره
+بجای جوهری جوهر نگیره
+[BAYT 2]
+دل مو سوته و مهر ته آذر
+نبی ناسوته آذر در نگیره
+--- TITLE: دوبیتی شمارهٔ ۲۴۸  [ganjoor: poem-21556] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh248
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل ارمهرت نورزه بر چه ارزه
+گل است آندل که مهر تو نورزه
+[BAYT 2]
+گریبانی که از عشقت شود چاک
+بیک عالم گریبان وابیرزه
+--- TITLE: دوبیتی شمارهٔ ۲۴۹  [ganjoor: poem-21557] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh249
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+درخت غم بجانم کرده ریشه
+بدرگاه خدا نالم همیشه
+[BAYT 2]
+رفیقان قدر یکدیگر بدانید
+اجل سنگست و آدم مثل شیشه
+--- TITLE: دوبیتی شمارهٔ ۲۵۰  [ganjoor: poem-21558] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh250
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هزاران دل بغارت برده ویشه
+هزارانت دگر خون کرده ویشه
+[BAYT 2]
+هزاران داغ ریش ار ویشم اشمرد
+هنو نشمرده از اشمرده ویشه
+--- TITLE: دوبیتی شمارهٔ ۲۵۱  [ganjoor: poem-21559] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh251
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+پریشان سنبلان پرتاب مکه
+خمارین نرگسان پرخواب مکه
+[BAYT 2]
+براینی ته که دل از مابرینی
+برنیه روزگار اشتاب مکه
+--- TITLE: دوبیتی شمارهٔ ۲۵۲  [ganjoor: poem-21560] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh252
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به والله و به بالله و به تالله
+قسم بر آیهٔ نصر من الله
+[BAYT 2]
+که دست از دامنت من بر ندارم
+اگر کشته شوم الحکم لله
+--- TITLE: دوبیتی شمارهٔ ۲۵۳  [ganjoor: poem-21561] [form: do-bayti] [scheme: AAAA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh253
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+درین بوم و برانم پرورش نه
+شوانم جا و روزانم خورش نه
+[BAYT 2]
+سری دیرم که مغزی اندرو نه
+تنی دیرم که پروای سرش نه
+--- TITLE: دوبیتی شمارهٔ ۲۵۴  [ganjoor: poem-21562] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh254
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلی همچون دل نالان مو نه
+غمی همچون غم هجران مو نه
+[BAYT 2]
+اگر دریا اگر ابر بهاران
+حریف دیدهٔ گریان مو نه
+--- TITLE: دوبیتی شمارهٔ ۲۵۵  [ganjoor: poem-21563] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh255
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+چو مو یک سوته دل پروانه‌ای نه
+بعالم همچو مو دیوانه‌ای نه
+[BAYT 2]
+همه مارون و مورون لانه دیرن
+من دیوانه را ویرانه‌ایی نه
+--- TITLE: دوبیتی شمارهٔ ۲۵۶  [ganjoor: poem-21564] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh256
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بدنیا مثل مو دل سوته‌ای نه
+بدرد سوز غم اندوته‌ای نه
+[BAYT 2]
+چسان بندم ره سیل دو دیده
+که این زخم دلم لو سوته‌ای نه
+--- TITLE: دوبیتی شمارهٔ ۲۵۷  [ganjoor: poem-21565] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh257
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به کس درد دل مو واتنی نه
+که سنگ از آسمون انداتنی نه
+[BAYT 2]
+بمو واجن که ترک یار خود که
+کسیس یارم که ترکش واتنی نه
+--- TITLE: دوبیتی شمارهٔ ۲۵۸  [ganjoor: poem-21566] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh258
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سحرگاهان فغان بلبلانه
+بیاد روی پر نور گلانه
+[BAYT 2]
+ز آه مو فلک آخر خدرکه
+اثر در نالهٔ سوته دلانه
+--- TITLE: دوبیتی شمارهٔ ۲۵۹  [ganjoor: poem-21567] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh259
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نوای ناله غم اندوته ذونه
+عیار قلب و خالص بوته ذونه
+[BAYT 2]
+بیا سوته دلان با هم بنالیم
+که قدر سوته دل دل سوته ذونه
+--- TITLE: دوبیتی شمارهٔ ۲۶۰  [ganjoor: poem-21568] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh260
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم از دست تو دایم غمینه
+ببالین خشتی و بستر زمینه
+[BAYT 2]
+همین جرمم که مو ته دوست دیرم
+که هر کت دوست دیره حالش اینه
+--- TITLE: دوبیتی شمارهٔ ۲۶۱  [ganjoor: poem-21569] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh261
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+چه باغ است اینکه دارش آذرینه
+چه دشت است اینکه خونخوارش زمینه
+[BAYT 2]
+مگر بوم و بر سنگین دلان است
+مگر صحرای عشق نازنینه
+--- TITLE: دوبیتی شمارهٔ ۲۶۲  [ganjoor: poem-21570] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh262
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر شاهین بچرخ هشتمینه
+کند فریاد مرگ اندر کمینه
+[BAYT 2]
+اگر صد سال در دنیا بمانی
+در آخر منزلت زیر زمینه
+--- TITLE: دوبیتی شمارهٔ ۲۶۳  [ganjoor: poem-21571] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh263
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دیم یک عندلیب خوشنوائی
+که می‌نالید وقت صبحگاهی
+[BAYT 2]
+بشاخ گلبنی با گل همی گفت
+که یارا بی وفایی بی وفائی
+--- TITLE: دوبیتی شمارهٔ ۲۶۴  [ganjoor: poem-21572] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh264
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+فلک در قصد آزارم چرائی
+گلم گر نیستی خارم چرائی
+[BAYT 2]
+ته که باری ز دوشم بر نداری
+میان بار سربارم چرایی
+--- TITLE: دوبیتی شمارهٔ ۲۶۵  [ganjoor: poem-21573] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh265
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سر راهت نشینم تا بیایی
+در شادی بروی ما گشایی
+[BAYT 2]
+شود روزی بروز مو نشینی
+که تا وینی چه سخت بیوفائی
+--- TITLE: دوبیتی شمارهٔ ۲۶۶  [ganjoor: poem-21574] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh266
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+تو آری روز روشن را شب از پی
+شده کون و مکان از قدرتت حی
+[BAYT 2]
+حقیقت بشنو از طاهر که گردید
+بیک کن خلقت هر دو جهان طی
+--- TITLE: دوبیتی شمارهٔ ۲۶۷  [ganjoor: poem-21575] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh267
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ته کت نازنده چشمان سرمه سائی
+ته کت زیبنده بالا دلربایی
+[BAYT 2]
+ته کت مشکین دو گیسو در قفائی
+بمو واجی که سرگردان چرائی
+--- TITLE: دوبیتی شمارهٔ ۲۶۸  [ganjoor: poem-21576] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh268
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+عزیزان از غم و درد جدایی
+به چشمانم نمانده روشنائی
+[BAYT 2]
+بدرد غربت و هجرم گرفتار
+نه یار و همدمی نه آشنائی
+--- TITLE: دوبیتی شمارهٔ ۲۶۹  [ganjoor: poem-21577] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh269
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به هر شام و سحر گریم بکوئی
+که جاری سازم از هر دیده جوئی
+[BAYT 2]
+مو آن بی طالعم در باغ عالم
+که گل کارم بجایش خار روئی
+--- TITLE: دوبیتی شمارهٔ ۲۷۰  [ganjoor: poem-21578] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh270
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز کشت خاطرم جز غم نروئی
+ز باغم جز گل ماتم نروئی
+[BAYT 2]
+ز صحرای دل بیحاصل مو
+گیاه ناامیدی هم نروئی
+--- TITLE: دوبیتی شمارهٔ ۲۷۱  [ganjoor: poem-21579] [form: do-bayti] [scheme: AABC]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh271
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+الهی دل بلا بی دل بلا بی
+گنه چشمان کره دل مبتلا بی
+[BAYT 2]
+اگر چشمان نکردی دیده بانی
+چه داند دل که خوبان در کجابی
+--- TITLE: دوبیتی شمارهٔ ۲۷۲  [ganjoor: poem-21580] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh272
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غم عالم نصیب جان ما بی
+بدور ما فراغت کیمیا بی
+[BAYT 2]
+رسد آخر بدرمان درد هرکس
+دل ما بی که دردش بیدوا بی
+--- TITLE: دوبیتی شمارهٔ ۲۷۳  [ganjoor: poem-21581] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh273
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+وای آن روزی که قاضی مان خدا بی
+به میزان و صراطم ماجرا بی
+[BAYT 2]
+بنوبت میروند پیر و جوانان
+وای آنساعت که نوبت زان ما بی
+--- TITLE: دوبیتی شمارهٔ ۲۷۴  [ganjoor: poem-21582] [form: do-bayti] [scheme: ABCB]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh274
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+صفا هونم صفا هونم چه جابی
+که هر یاری گرفتم بیوفا بی
+[BAYT 2]
+بشم یکسر بتازم تا به شیراز
+که در هر منزلی صد آشنا بی
+--- TITLE: دوبیتی شمارهٔ ۲۷۵  [ganjoor: poem-21583] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh275
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+عاشق آن به که دایم در بلا بی
+ایوب آسا به کرمان مبتلا بی
+[BAYT 2]
+حسن آسا بدستش کاسهٔ زهر
+حسین آسا بدشت کربلا بی
+--- TITLE: دوبیتی شمارهٔ ۲۷۶  [ganjoor: poem-21584] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh276
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بدام دلبری دل مبتلا بی
+که هجرانش بلا وصلش بلا بی
+[BAYT 2]
+درین ویرانه دل جز خون ندیدم
+نه دل گویی که دشت کربلا بی
+--- TITLE: دوبیتی شمارهٔ ۲۷۷  [ganjoor: poem-21585] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh277
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+جهان بی‌وفا زندان ما بی
+گل غم قسمت دامان ما بی
+[BAYT 2]
+غم یعقوب و محنت‌های ایوب
+همه گویا نصیب جان ما بی
+--- TITLE: دوبیتی شمارهٔ ۲۷۸  [ganjoor: poem-21586] [form: do-bayti] [scheme: ABCB]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh278
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بسوی باغ و بستان لاله وابی
+همه موها مثال ژاله وا بی
+[BAYT 2]
+وگر سوی خراسان کاروان را
+رهانم مو سوی بنگاله وا بی
+--- TITLE: دوبیتی شمارهٔ ۲۷۹  [ganjoor: poem-21587] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh279
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زمشک‌تر سیه‌تر سنبلت بی
+هزاران دل اسیر کاکلت بی
+[BAYT 2]
+زآه و ناله تاثیری ندیدم
+زخارا سخت‌تر گویا دلت بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۰  [ganjoor: poem-21588] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh280
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بدریای غمت دل غوطه‌ور بی
+مرا داغ فراقت بر جگر بی
+[BAYT 2]
+ز مژگان خدنگت خورده‌ام تیر
+که هر دم سوج دل زان بیشتر بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۱  [ganjoor: poem-21589] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh281
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مدامم دل براه و دیده تر بی
+شراب عیشم از خون جگر بی
+[BAYT 2]
+ببویت زندگی یابم پس از مرگ
+ترا گر بر سر خاکم گذر بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۲  [ganjoor: poem-21590] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh282
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز آهم هفت گردون پر شرر بی
+زمژگانم روان خون جگر بی
+[BAYT 2]
+ته که هرگز دلت از غم نسوجه
+کجا از سوته دیلانت خبر بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۳  [ganjoor: poem-21591] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh283
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آندل که از خود بیخبر بی
+ندونه در سفر یا در حضر بی
+[BAYT 2]
+بکوه و دشت و صحرا همچو مجنون
+پی لیلی دوان با چشم تر بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۴  [ganjoor: poem-21592] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh284
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شبم از روز و روز از شو بتر بی
+دل آشفته‌ام زیر و زبر بی
+[BAYT 2]
+شو و روز از فراقت نالهٔ مو
+چو آه سوته جانان پر شرر بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۵  [ganjoor: poem-21593] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh285
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+چه خوش بی‌مهربانی هر دو سر بی
+که یکسر مهربانی دردسر بی
+[BAYT 2]
+اگر مجنون دل شوریده‌ای داشت
+دل لیلی از آن شوریده تر بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۶  [ganjoor: poem-21594] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh286
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مدامم دل پر از خون جگر بی
+چو شمع آتش بجان و دیده تر بی
+[BAYT 2]
+نشینم بر سر راهت شو و روز
+که تا روزی ترا بر مو گذر بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۷  [ganjoor: poem-21595] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh287
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل از دست غمت زیر و زبر بی
+بچشمان اشکم از خون جگر بی
+[BAYT 2]
+هران یاری چو مو پرناز دیره
+دلش پر غصه جانش پر شرر بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۸  [ganjoor: poem-21596] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh288
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هر آن باغی که نخلش سر بدر بی
+مدامش باغبون خونین جگر بی
+[BAYT 2]
+بباید کندنش از بیخ و از بن
+اگر بارش همه لعل و گهر بی
+--- TITLE: دوبیتی شمارهٔ ۲۸۹  [ganjoor: poem-21597] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh289
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شوم از شام یلدا تیره‌تر بی
+درد دلم ز بودردا بتر بی
+[BAYT 2]
+همه دردا رسن آخر بدرمون
+درمان درد ما خود بی اثر بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۰  [ganjoor: poem-21598] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh290
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل تو کی ز حالم با خبر بی
+کجا رحمت باین خونین جگر بی
+[BAYT 2]
+تو که خونین جگر هرگز نبودی
+کی از خونین جگرها با خبر بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۱  [ganjoor: poem-21599] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh291
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آندل که از غم بهره‌ور بی
+بر آندل وای کز غم بی‌خبر بی
+[BAYT 2]
+ته که هرگز نسوته دیلت از غم
+کجا از سوته دیلانت خبر بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۲  [ganjoor: poem-21600] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh292
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هر آنکس مال و جاهش بیشتر بی
+دلش از درد دنیا ریشتر بی
+[BAYT 2]
+اگر بر سر نهی چون خسروان تاج
+به شیرین جانت آخر نیشتر بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۳  [ganjoor: poem-21601] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh293
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هر آنکس با تو قربش بیشتر بی
+دلش از درد هجران ریشتر بی
+[BAYT 2]
+اگر یکبار چشمانت بوینم
+بجانم صد هزاران نیشتر بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۴  [ganjoor: poem-21602] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh294
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خور آئین چهره‌ات افروته‌تر بی
+بجانم تیر عشقت دوته‌تر بی
+[BAYT 2]
+چرا خال رخت دونی سیاهه
+هر آن نزدیک خور بی سوته‌تر بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۵  [ganjoor: poem-21603] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh295
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زخور این چهره‌ات افروته‌تر بی
+تیر عشقت بجانم روته‌تر بی
+[BAYT 2]
+مرا اختر بود خال سیاهت
+ز مو یارا که اختر سوته‌تر بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۶  [ganjoor: poem-21604] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh296
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+چه خوش بی وصلت ای مه امشبک بی
+مرا وصل تو آرام دلک بی
+[BAYT 2]
+زمهرت ای مه شیرین چالاک
+مدامم دست حسرت بر سرک بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۷  [ganjoor: poem-21605] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh297
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلا راهت پر از خار و خسک بی
+گذرگاه تو بر اوج فلک بی
+[BAYT 2]
+شب تار و بیابان دور منزل
+خوشا آنکس که بارش کمترک بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۸  [ganjoor: poem-21606] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh298
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شب تار و بیابان پرورک بی
+در این ره روشنایی کمترک بی
+[BAYT 2]
+گر از دستت برآید پوست از تن
+بیفکن تا که بارت کمترک بی
+--- TITLE: دوبیتی شمارهٔ ۲۹۹  [ganjoor: poem-21607] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh299
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلا راه تو پر خار و خسک بی
+درین ره روشنایی کمترک بی
+[BAYT 2]
+گر از دستت بر آید پوست از تن
+بیفکن تا که بارت کمترک بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۰  [ganjoor: poem-21608] [form: do-bayti] [scheme: AAAA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh300
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زشورانگیزی چرخ و فلک بی
+که دایم چشم بختم پر نمک بی
+[BAYT 2]
+دمادم دود آهم تا سما بی
+پیاپی سیل اشکم تا سمک بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۱  [ganjoor: poem-21609] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh301
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم بلبل صفت حیران گل بی
+درونم چون درخت پی بگل بی
+[BAYT 2]
+خونابه بار دیرم ارغوان وار
+درخت نهله بارش خون دل بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۲  [ganjoor: poem-21610] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh302
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+قدم دایم ز بار غصه خم بی
+چو مو محنت کشی در دهر کم بی
+[BAYT 2]
+مو هرگز از غم آزادی ندیرم
+دل بی طالع مو کوه غم بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۳  [ganjoor: poem-21611] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh303
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+قدم دایم زبار غصه خم بی
+چو مو خونین دلی در دهر کم بی
+[BAYT 2]
+زغم یکدم مو آزادی ندیرم
+دل بیچارهٔ مو کوه غم بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۴  [ganjoor: poem-21612] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh304
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به لامردم مکان دلبرم بی
+سخنهای خوشش تاج سرم بی
+[BAYT 2]
+اگر شاهم ببخشد ملک شیراز
+همان بهتر که دلبر در برم بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۵  [ganjoor: poem-21613] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh305
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نپنداری که زندان خوشترم بی
+سرم بو گوی میدان خوشترم بی
+[BAYT 2]
+چو گلخن تار و تاریکه به چشمم
+گلستان بی ته زندان خوشترم بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۶  [ganjoor: poem-21614] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh306
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+گر آن نامهربانم مهربان بی
+چرا از دیدگانم خون روان بی
+[BAYT 2]
+اگر دلبر بمو دلدار می‌بو
+چرا در تن مرا نه دل نه جان بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۷  [ganjoor: poem-21615] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh307
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلم از سوز عشق آتش بجان بی
+بکامم زهر از آن شکر دهان بی
+[BAYT 2]
+همان دستان که با ته بی بگردن
+کنونم چون مگس بر سر زنان بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۸  [ganjoor: poem-21616] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh308
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+جهان خوان و خلایق میهمان بی
+گل امروز مو فردا خزان بی
+[BAYT 2]
+سیه چالی که نامش را نهند گور
+بما واجن که اینت خانمان بی
+--- TITLE: دوبیتی شمارهٔ ۳۰۹  [ganjoor: poem-21617] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh309
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خدایی که مکانش لامکان بی
+صفابخش جمال گلرخان بی
+[BAYT 2]
+پدید آرندهٔ روز و شب و خلق
+که بر هر بنده او روزی رسان بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۰  [ganjoor: poem-21618] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh310
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هزاران لاله و گل در جهان بی
+همه زیبا به چشم دیگران بی
+[BAYT 2]
+آلالهٔ مو به زیبایی درین باغ
+سرافراز همه آلالیان بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۱  [ganjoor: poem-21619] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh311
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز بیداد فلک یارون امان بی
+امان جستن روز آخرزمان بی
+[BAYT 2]
+اگر پاره کرم یخه بجا بو
+که وامو آسمان پرسرگران بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۲  [ganjoor: poem-21620] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh312
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سخن از هر چه واجم واتشان بی
+حدیث از بیش و از کم واتشان بی
+[BAYT 2]
+بدریا گر روم گوهر بر آرم
+هر آن گوهر که وینم واتشان بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۳  [ganjoor: poem-21621] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh313
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خوشا آنانکه الله یارشان بی
+بحمد و قل هو الله کارشان بی
+[BAYT 2]
+خوشا آنانکه دایم در نمازند
+بهشت جاودان بازارشان بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۴  [ganjoor: poem-21622] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh314
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+چه واجم هر چه واجم واته‌شان بی
+سخن از بیش و از کم واته‌شان بی
+[BAYT 2]
+بدریا مو شدم گوهر برآرم
+هر آن گوهر که دیدم واته‌شان بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۵  [ganjoor: poem-21623] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh315
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سیه بختم که بختم واژگون بی
+سیه روجم که روجم سرنگون بی
+[BAYT 2]
+شدم آوارهٔ کوی محبت
+زدست دل که یارب غرق خون بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۶  [ganjoor: poem-21624] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh316
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+من آن شمعم که اشکم آتشین بی
+که هر سوته دلی حالش همین بی
+[BAYT 2]
+همه شب گریم و نالم همه روز
+بیته شامم چنان روزم چنین بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۷  [ganjoor: poem-21625] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh317
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زدست عشق هر شو حالم این بی
+سریرم خشت و بالینم زمین بی
+[BAYT 2]
+خوشم این بی که موته دوست دیرم
+هر آن ته دوست داره حالش این بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۸  [ganjoor: poem-21626] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh318
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دو چشمانت پیالهٔ پر ز می بی
+خراج ابروانت ملک ری بی
+[BAYT 2]
+همی وعده کری امروز و فردا
+نمیدانم که فردای تو کی بی
+--- TITLE: دوبیتی شمارهٔ ۳۱۹  [ganjoor: poem-21627] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh319
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+گلان فصل بهاران هفته‌ای بی
+زمان وصل یاران هفته‌ای بی
+[BAYT 2]
+غنیمت دان وصال لاله رویان
+که گل در لاله زاران هفته‌ای بی
+--- TITLE: دوبیتی شمارهٔ ۳۲۰  [ganjoor: poem-21628] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh320
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+الاله کوهساران هفته ای بی
+بنفشه جو کناران هفته‌ای بی
+[BAYT 2]
+منادی میکره شهرو به شهرو
+وفای گلعذاران هفته‌ای بی
+--- TITLE: دوبیتی شمارهٔ ۳۲۱  [ganjoor: poem-21629] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh321
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بهار آیو به هر شاخی گلی بی
+بهر لاله هزاران بلبلی بی
+[BAYT 2]
+بهر مرزی نیارم پا نهادن
+مبو کز مو بتر سوز دلی بی
+--- TITLE: دوبیتی شمارهٔ ۳۲۲  [ganjoor: poem-21630] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh322
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+همه دل ز آتش غم سوتنی بی
+بهرجان سوز هجر افروتنی بی
+[BAYT 2]
+که از دست اجل بر تن قبائی
+اگر شاه و گدائی دوتنی بی
+--- TITLE: دوبیتی شمارهٔ ۳۲۳  [ganjoor: poem-21631] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh323
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بدنیای دنی کی ماندنی بی
+که دامان بر جهان افشاندنی بی
+[BAYT 2]
+همی لا تقنطوا خوانی عزیزا
+دلا یا ویلنا هم خواندنی بی
+--- TITLE: دوبیتی شمارهٔ ۳۲۴  [ganjoor: poem-21632] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh324
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+یقینم حاصله که هرزه گردی
+ازین گردش که داری برنگردی
+[BAYT 2]
+بروی مو ببستی هر رهی را
+بدین عادت که داری کی ته مردی
+--- TITLE: دوبیتی شمارهٔ ۳۲۵  [ganjoor: poem-21633] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh325
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو را نه فکر سودایی نه سودی
+نه در دل فکر بهبودی نه بودی
+[BAYT 2]
+نخواهم جو کنار و چشمه سارون
+که هر چشمم هزارون زنده رودی
+--- TITLE: دوبیتی شمارهٔ ۳۲۶  [ganjoor: poem-21634] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh326
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر دردم یکی بودی چه بودی
+وگر غم اندکی بودی چه بودی
+[BAYT 2]
+به بالینم طبیبی یا حبیبی
+ازین هر دو یکی بودی چه بودی
+--- TITLE: دوبیتی شمارهٔ ۳۲۷  [ganjoor: poem-21635] [form: do-bayti] [scheme: ABCB]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh327
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+از آن روزیکه ما را آفریدی
+بغیر از معصیت چیزی ندیدی
+[BAYT 2]
+خداوندا بحق هشت و چارت
+ز ما بگذر شتر دیدی ندیدی
+--- TITLE: دوبیتی شمارهٔ ۳۲۸  [ganjoor: poem-21636] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh328
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بمو واجی چرا ته بیقراری
+چو گل پروردهٔ باد بهاری
+[BAYT 2]
+چرا گردی بکوه و دشت و صحرا
+بجان او ندارم اختیاری
+--- TITLE: دوبیتی شمارهٔ ۳۲۹  [ganjoor: poem-21637] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh329
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+همه روزم فغان و بیقراری
+شوان بیداری و فریاد و زاری
+[BAYT 2]
+بمو سوجه دل هر دور و نزدیک
+ته از سنگین دلی پروا نداری
+--- TITLE: دوبیتی شمارهٔ ۳۳۰  [ganjoor: poem-21638] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh330
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+خدایا دل ز مو بستان بزاری
+نمی‌آید ز مو بیمار داری
+[BAYT 2]
+نمیدونم لب لعلش به خونم
+چرا تشنه است با این آبداری
+--- TITLE: دوبیتی شمارهٔ ۳۳۱  [ganjoor: poem-21639] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh331
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مرا دیوانه و شیدا ته دیری
+مرا سرگشته و رسوا ته دیری
+[BAYT 2]
+نمیدونم دلم دارد کجا جای
+همیدونم که دردی جا ته دیری
+--- TITLE: دوبیتی شمارهٔ ۳۳۲  [ganjoor: poem-21640] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh332
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نگارینا دل و جانم ته دیری
+همه پیدا و پنهانم ته دیری
+[BAYT 2]
+نمیدانم که این درد از که دیرم
+همیدانم که درمانم ته دیری
+--- TITLE: دوبیتی شمارهٔ ۳۳۳  [ganjoor: poem-21641] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh333
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مسلسل زلف بر رخ ریته دیری
+گل و سنبل بهم آمیته دیری
+[BAYT 2]
+پریشان چون کری زلف دو تا را
+بهر تاری دلی آویته دیری
+--- TITLE: دوبیتی شمارهٔ ۳۳۴  [ganjoor: poem-21642] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh334
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+برویت از حیا خوی ریته دیری
+دو ابرویت بناز آمیته دیری
+[BAYT 2]
+به سحر دیده در چاه زنخدان
+بسی هاروت دل آویته دیری
+--- TITLE: دوبیتی شمارهٔ ۳۳۵  [ganjoor: poem-21643] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh335
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+سمن زلفا بری چون لاله دیری
+ز نرگس ناز در دنباله دیری
+[BAYT 2]
+از آن رو سه بمهرم بر نیاری
+که در سرناز چندین ساله دیری
+--- TITLE: دوبیتی شمارهٔ ۳۳۶  [ganjoor: poem-21644] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh336
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+غم اندر سینهٔ مو خانه دیری
+چو ویرانه که بوم آشانه دیری
+[BAYT 2]
+فلک اندر دل مسکین مو نه
+ازین غم هرچه در انبانه دیری
+--- TITLE: دوبیتی شمارهٔ ۳۳۷  [ganjoor: poem-21645] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh337
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+کشیمان ار بزاری از که ترسی
+برانی گر بخواری از که ترسی
+[BAYT 2]
+مو با این نیمه دل از کس نترسم
+دو عالم دل ته داری از که ترسی
+--- TITLE: دوبیتی شمارهٔ ۳۳۸  [ganjoor: poem-21646] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh338
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+کشم آهی که گردون پر شرر شی
+دل دیوانه‌ام دیوانه‌تر شی
+[BAYT 2]
+بترس از برق آه سوته دیلان
+که آه سوته دیلان کارگر شی
+--- TITLE: دوبیتی شمارهٔ ۳۳۹  [ganjoor: poem-21647] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh339
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل دیوانه‌ام دیوانه‌تر شی
+خرابه خانه‌ام ویرانه‌تر شی
+[BAYT 2]
+کشم آهی که گردون را بسوجم
+که آه سوته دیلان کارگر شی
+--- TITLE: دوبیتی شمارهٔ ۳۴۰  [ganjoor: poem-21648] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh340
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+الهی ای فلک چون مو زبون شی
+دلت همچون دل مو غرق خون شی
+[BAYT 2]
+اگر یک لحظه ام بی غم بوینی
+یقین دانم کزین غم سرنگون شی
+--- TITLE: دوبیتی شمارهٔ ۳۴۱  [ganjoor: poem-21649] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh341
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل بی عشق را افسردن اولی
+هر که دردی نداره مردن اولی
+[BAYT 2]
+تنی که نیست ثابت در ره عشق
+ذره ذره به آتش سوتن اولی
+--- TITLE: دوبیتی شمارهٔ ۳۴۲  [ganjoor: poem-21650] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh342
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+در اشکم بدامان ریته اولی
+خون دلم ز چشمان ریته اولی
+[BAYT 2]
+بکس حرفی ز جورت وانواجم
+که حرف جور پنهان ریته اولی
+--- TITLE: دوبیتی شمارهٔ ۳۴۳  [ganjoor: poem-21651] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh343
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل ار عشقت نداره مرده اولی
+روان بی درد عشق افسرده اولی
+[BAYT 2]
+سحر بلبل زند در گلشن آواز
+که گل بی عشق حق پژمرده اولی
+--- TITLE: دوبیتی شمارهٔ ۳۴۴  [ganjoor: poem-21652] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh344
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+اگر دل دلبری دلبر کدامی
+وگر دلبر دلی دل را چه نامی
+[BAYT 2]
+دل و دلبر بهم آمیته وینم
+ندانم دل که و دلبر کدامی
+--- TITLE: دوبیتی شمارهٔ ۳۴۵  [ganjoor: poem-21653] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh345
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+کسیکه ره بفریادم برد نی
+خبر بر سرو آزادم برد نی
+[BAYT 2]
+همه خوبان عالم جمع گردند
+کسیکه یادت از یادم برد نی
+--- TITLE: دوبیتی شمارهٔ ۳۴۶  [ganjoor: poem-21654] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh346
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+شبی ناید ز اشکم دیده تر نی
+سرشکم جاری از خون جگر نی
+[BAYT 2]
+شو و روجم رود با نالهٔ زار
+ته را از حال زار مو خبر نی
+--- TITLE: دوبیتی شمارهٔ ۳۴۷  [ganjoor: poem-21655] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh347
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دل شاد از دل زارش خبر نی
+تن سالم زبیمارش خبر نی
+[BAYT 2]
+نه تقصیره که این رسم قدیمه
+که آزاد از گرفتارش خبر نی
+--- TITLE: دوبیتی شمارهٔ ۳۴۸  [ganjoor: poem-21656] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh348
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ته که دور از منی دل در برم نی
+هوایی غیر وصلت در سرم نی
+[BAYT 2]
+بجانت دلبرا کز هر دو عالم
+تمنای دگر جز دلبرم نی
+--- TITLE: دوبیتی شمارهٔ ۳۴۹  [ganjoor: poem-21657] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh349
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+دلی چون مو بغم اندوته ای نی
+زری چون جان مو در بوته‌ای نی
+[BAYT 2]
+بجز شمعم ببالین همدمی نه
+که یار سوته دل جز سوته‌ای نی
+--- TITLE: دوبیتی شمارهٔ ۳۵۰  [ganjoor: poem-21658] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh350
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+زدل مهر تو ای مه رفتنی نی
+غم عشقت بهر کس گفتنی نی
+[BAYT 2]
+ولیکن شعله مهر و محبت
+میان مردمان بنهفتنی نی
+--- TITLE: دوبیتی شمارهٔ ۳۵۱  [ganjoor: poem-21659] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh351
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو آن باز سفیدم همدانی
+لانه در کوه دارم سایبانی
+[BAYT 2]
+به بال خود پرم کوهان به کوهان
+به چنگ خود کرم نخجیر بانی
+--- TITLE: دوبیتی شمارهٔ ۳۵۲  [ganjoor: poem-21660] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh352
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+گرم خوانی ورم رانی ته دانی
+گرم درتش بسوزانی ته دانی
+[BAYT 2]
+ورم بر سر زنی الوند و میمند
+همی واجم خدا جانی ته دانی
+--- TITLE: دوبیتی شمارهٔ ۳۵۳  [ganjoor: poem-21661] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh353
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+هر آن کالوند دامان مو نشانی
+دامان از هر دو عالم در کشانی
+[BAYT 2]
+اشک خونین پاشم از راه الوند
+تا که دلبر بپایش برفشانی
+--- TITLE: دوبیتی شمارهٔ ۳۵۴  [ganjoor: poem-21662] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh354
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بیته یکدم دلم خرم نمانی
+اگر رویت بوینم غم نمانی
+[BAYT 2]
+اگر درد دلم قسمت نمایند
+دلی بی غم درین عالم نمانی
+--- TITLE: دوبیتی شمارهٔ ۳۵۵  [ganjoor: poem-21663] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh355
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+من دل سوته را لایق ندونی
+که در دیوان عشاقت بخونی
+[BAYT 2]
+هزارون بارم از خونی ببو کم
+ز تو زیرا که بحر بیکرونی
+--- TITLE: دوبیتی شمارهٔ ۳۵۶  [ganjoor: poem-21664] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh356
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بمیرم تا ته چشم‌تر نبینی
+شرار آه پر آذر نبینی
+[BAYT 2]
+چنانم آتش عشقت بسوجه
+که از مو مشت خاکستر نبینی
+--- TITLE: دوبیتی شمارهٔ ۳۵۷  [ganjoor: poem-21665] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh357
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به قبرستان گذر کردم صباحی
+شنیدم ناله و افغان و آهی
+[BAYT 2]
+شنیدم کله‌ای با خاک می‌گفت
+که این دنیا نمی‌ارزد بکاهی
+--- TITLE: دوبیتی شمارهٔ ۳۵۸  [ganjoor: poem-21666] [form: do-bayti] [scheme: ABCA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh358
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+بنادانی گرفتم کوره راهی
+ندانستم که می‌افتم بچاهی
+[BAYT 2]
+بدل گفتم رفیقی تا به منزل
+ندانستم رفیق نیمه راهی
+--- TITLE: دوبیتی شمارهٔ ۳۵۹  [ganjoor: poem-21667] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh359
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ته که خورشید اوج دلربایی
+چنین بیرحم و سنگین دل چرایی
+[BAYT 2]
+به اول آنهمه مهر و محبت
+به آخر راه و رسم بی وفایی
+--- TITLE: دوبیتی شمارهٔ ۳۶۰  [ganjoor: poem-21668] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh360
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+نگار تازه خیز ما کجایی
+بچشمان سرمه ریز ما کجایی
+[BAYT 2]
+نفس بر سینهٔ طاهر رسیده
+دم رفتن عزیز ما کجایی
+--- TITLE: دوبیتی شمارهٔ ۳۶۱  [ganjoor: poem-21669] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh361
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ته که نوشم نه‌ای نیشم چرایی
+ته که یارم نه‌ای پیشم چرایی
+[BAYT 2]
+ته که مرهم نه‌ای بر داغ ریشم
+نمک پاش دل ریشم چرایی
+--- TITLE: دوبیتی شمارهٔ ۳۶۲  [ganjoor: poem-21670] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh362
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+ز دل بیرون نبجتم ناله نایی
+ز مژگان تر مو ژاله نایی
+[BAYT 2]
+شوی نایه که مو خوابت بوینم
+به بخت مو به چشم لاله نایی
+--- TITLE: دوبیتی شمارهٔ ۳۶۳  [ganjoor: poem-21671] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh363
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+عزیزون از غم و درد جدایی
+به چشمونم نمانده روشنایی
+[BAYT 2]
+گرفتارم بدام غربت و درد
+نه یار و همدمی نه آشنائیی
+--- TITLE: دوبیتی شمارهٔ ۳۶۴  [ganjoor: poem-21672] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh364
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+پی مرگ نکویان گل نرویی
+دگر رویی نه رنگش بی نه بویی
+[BAYT 2]
+ز خود رو هیچ حاصل برنخیزد
+بجز بدنامی و بی‌آبرویی
+--- TITLE: دوبیتی شمارهٔ ۳۶۵  [ganjoor: poem-21673] [form: do-bayti] [scheme: AABA]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh365
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+مو احوالم خرابه گر تو جویی
+جگر بندم کبابه گر تو جویی
+[BAYT 2]
+ته که رفتی و یار نو گرفتی
+قیامت هم حسابه گر تو جویی
+--- TITLE: دوبیتی شمارهٔ ۳۶۶  [ganjoor: poem-21674] [form: do-bayti] [scheme: ABCD]
+--- SOURCE: http://ganjoor.net/babataher/2beytiha/sh366
+--- SUNG-EVIDENCE: form
+[BAYT 1]
+به جز این مو ندارم آرزویی
+که باشد همدم مو لاله‌رویی
+[BAYT 2]
+اگر درد دلم واجم به کوهان
+دگر در کوهساران گل نرویی

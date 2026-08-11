@@ -1,0 +1,1500 @@
+# author: ANONYMOUS Finnish folk singers of the early 19th century. COLLECTED by
+#         Elias Lönnrot (1802-1884) and printed by him inside his own preface to
+#         the Kanteletar as a deliberate FOIL to the old songs.
+# source: GITenberg/Kanteletar--Suomen-kansan-wanhoja-lauluja-ja-wirsi-_7078
+#         7078-8.txt  md5 8e228f8bfc99261bfc0a04e9b5b28342, lines 1058-2341.
+#         Same bytes as fin_kanteletar.txt; this is a segmentation of one file,
+#         not a second source.
+# licence: identical to fin_kanteletar.txt -- published 1840, compiler d. 1884,
+#         GITenberg rights 'Public domain in the USA.'
+# WHY THIS IS A SEPARATE FILE, and it is a METRICAL split, not an editorial one:
+#         these 24 'Uudempia Lauluja' (newer songs) are RHYMED and STROPHIC.
+#         The three books of the Kanteletar are unrhymed trochaic tetrameter
+#         whose sound-constraint is ALLITERATION. Averaging the two would mix a
+#         constrained corpus with a much less constrained one.
+#         *** LÖNNROT NOMINATES THIS FILE AS A NEGATIVE CONTROL IN HIS OWN
+#         PROSE *** (7078-8.txt line 2361): 'sanojen yksialanta (allitteratio)
+#         on sattumoissa' -- the word-alliteration is BY ACCIDENT. Doctrine 62:
+#         the tradition frequently states the rule you were about to invent, and
+#         here it hands over a matched control from inside the same book, the
+#         same collector, the same year and the same printing.
+#         MEASURED, HE IS RIGHT IN DIRECTION AND WRONG IN DEGREE. Against the
+#         across-line permutation null (quality/kalevala_rate.py, N=200, seed
+#         20260810): weak alliteration 71.83% observed vs a null median of
+#         56.10% (max 59.86) = +15.73 over the median, against the three books'
+#         81.84% vs 31.05% = +50.78. So the excess is 3.2x smaller here, and the
+#         share of hits above chance falls from 62.1% to 21.9% -- but it is NOT
+#         zero, and 'sattumoissa' overstates it. See src_fin/REPORT.md.
+#         NOTE WHY THE RAW RATES MISLEAD: 71.83% and 81.84% look close. The
+#         nulls are 56.10% and 31.05%, because these newer songs have LONGER
+#         lines and a long line offers more pairs. Doctrine 64 exactly.
+# orthography: as fin_kanteletar.txt. Lönnrot states in the same paragraph that
+#         he has PRUNED truncated word-forms from these texts ('paljo
+#         katkastuita sanoja, jotka näistä näytteistä kuitenki olemma kokeneet
+#         pois karsia'), using the songs' own variants -- so this file has an
+#         editorial layer the three books do not, and it is the editor's own
+#         declaration, not an inference.
+# structure: [VERSE n] stanza as printed. No section headings, no antiphonal
+#         labels, no variant blocks -- Lönnrot prints these 24 as a plain run.
+#         Song 7 is 'Kultani kukkuu kaukana', still one of the best-known
+#         Finnish folk songs.
+# note: song 24 'Neion valitus' is in the OLD metre, and Lönnrot says so where
+#         he prints it -- he keeps it in the newer set because 'se paremmin kun
+#         moni muu todistaa, vanhan kansanrunollisen sulon vieläki hengissä
+#         olevan'. So this control is not pure, and the impurity is declared by
+#         its own editor. Left in rather than removed, because removing it would
+#         be tuning a control to the result it is meant to test.
+
+--- TITLE: 1. Kreivin sylissä istunut.
+--- SOURCE: PG7078
+[VERSE 1]
+Minä seisoin korkialla vuorella,
+Viheriäisessä laksossa;
+Näin, näin minä laivan seilaavan,
+Kolme kreiviä laivalla.
+
+[VERSE 2]
+He laskivat laivan rannalle,
+Kävit maallen astumaan;
+Ja se nuorempi kreiveistä kaikista
+Tuli minua kihlaamaan.
+
+[VERSE 3]
+Hän otti sormuksen sormestaan,
+Ja se oli kultainen.
+"Katsos nyt, minun piikani ihana,
+Sinä saat tämän sormuksen."
+"En ota minä ouoilta sormusta;
+Mua kielsi mun äitini."--
+"Ota pois, pane sormus sormeesi,
+Sitä ei näe äitisi!"
+
+[VERSE 4]
+"Mihin panen minä nyt tämän sormuksen,
+Ettei minun äitini nää?--
+"Sano: laksossa tuolla kun kävelin,
+Tämän sormuksen löysin mä."
+
+[VERSE 5]
+"Elä neuo sa minua valehtelemaan,
+Sen äitini ymmärtää;
+Paljo parempi on minun sanoa:
+Olin nuoren kreivin sylissä."
+
+[VERSE 6]
+Ja se ilta oli lämmin, ihana,
+Ja linnut ne lauloivat,
+Keto allansa kaunis ja vihanta,
+Kukat keolla kasvoivat.
+
+[VERSE 7]
+Likka istui kreivinsä sylissä,
+Moni muistui mielehen;
+Yö joutui ja päivä oli laskenut,
+Hän nukkui kreivin vierehen.--
+
+[VERSE 8]
+Aamulla koska likka heräsi,
+Hän oli ihan yksinään;
+Pois oli laiva lähtenyt rannalta,
+Pois kreiviki vierestään.
+
+[VERSE 9]
+"Voi, voi mua vaivaista piikaa!
+Kuinka onneton nyt minä lien;
+Ota pois meri, vie tämä sormuski,
+Mitä tällä mä käessäni teen."
+
+[VERSE 10]
+"Nyt näen mä sen ehkä myöhään,
+Että muita hän rakasti,
+Minun jätti surussani itkemään,
+Ja viekkaasti vietteli."
+
+--- TITLE: 2. Petetty nuorukainen.
+--- SOURCE: PG7078
+[VERSE 1]
+Nuori mies kihlasi morsiamen,
+Otti oman kullan,
+Meni sitte vieraille maille,
+Lupasi pian tulla--.
+
+[VERSE 2]
+Oli hän siellä vuotta kaksi,
+Oli kolme vuotta;
+Kulta luuli kuolleheksi,
+Tainnut ei enää outtaa.
+
+[VERSE 3]
+Nuori mies tuli vierailta mailta,
+Tuli hän kotiansa,
+Meni kultansa kartanohon,
+Tervehti kultoansa.
+
+[VERSE 4]
+Nuori mies tuli vierailta mailta,
+Meni kultansa luoksi;
+Kulta se tuosta valjeni
+Ja ve'et silmistä juoksi.
+
+[VERSE 5]
+"Miksis kultani valjenit,
+Et ole niinkun muinen?"--
+"Täytyipä minun valjeta,
+Kun minull' on kulta toinen."
+
+[VERSE 6]
+"Toiseen olen vihittynä,
+Kihlat toiselta saanut;
+Toinen minua toivotteli,
+Toisen kanss' olen maannut."
+
+[VERSE 7]
+Kulta se tuosta surkutteli,
+Paniin pahoillensa,
+Erokirjan kiijotti
+Ja antoi kullallensa.--
+
+[VERSE 8]
+"Kirjan nyt minä kirjotin
+Ja annan sinulle tässä;
+Et nyt kauan enempi
+Mua näe maalimassa."
+
+[VERSE 9]
+Veti hän miekan terävän
+Ja painoi itsensä läpi;
+Veri lähti vuotamaan,
+Kun väkevä virta käypi.
+
+[VERSE 10]
+Tästä mahtaa jokahinen
+Panna mielehensä,
+Kuin se tekee pahasti,
+Joka pettää ystävänsä.
+
+--- TITLE: 3. Morsiamen kuolo.
+--- SOURCE: PG7078
+[VERSE 1]
+Illalla istuttiin istumella,
+Murehest' ei mitänä tietty;
+Va rallalla ra, va ralla ralla ra,
+Murehst' ei mitänä tietty.
+
+[VERSE 2]
+Nuori mies sai sitte kirjasen,
+Ett' oli kultansa sairas;
+Va rahalla ra j. n. e.
+
+[VERSE 3]
+Kävi hän sitte kammariin,
+Puki siellä parahimmat vaatteet.
+
+[VERSE 4]
+Meni hän sitte tallihin,
+Siell' oli valkia ruuna.
+
+[VERSE 5]
+Otti hän kultaisen satulan,
+Hopiaisten solkien kanssa.
+
+[VERSE 6]
+Satuloitsi valkian ruunansa,
+Sitoi ne hopiaiset solet.
+
+[VERSE 7]
+Läksi hän sitte ajamaan,
+Ajoi seitsemän peninkuormaa,
+
+[VERSE 8]
+Yhtenä kauniina kesäisenä yönä,
+Kun moni makiasti nukkuu.
+
+[VERSE 9]
+Tuli hän viheriähän lehtohon,
+Kuuli kun lintuset lauloi.
+
+[VERSE 10]
+"Mitä te linnut niin suruisesti
+Täällä nyt lauleletta?"--
+
+[VERSE 11]
+"Sitäpä linnut me suruisesti
+Täällä nyt laulelemma:
+
+[VERSE 12]
+Sairas on nuoren miehen morsian,
+Kohta jo kuollaki taisi."
+
+[VERSE 13]
+Ajoi hän vähän matkaa etemmä,
+Kuuli hän kellojen soivan.
+
+[VERSE 14]
+Kysyi hän kellon soittajalta:
+"Kellenpä kelloja soitat?"--
+
+[VERSE 15]
+"Kuollut on nuoren miehen morsian;
+Sillen mä kelloja soitan."
+
+[VERSE 16]
+Ajoi hän vähän matkaa etemmä,
+Näki hautoa kaivettavan.
+
+[VERSE 17]
+Kysyi hän hauan kaivajalta:
+"Kellenpä hautoa kaivat?"--
+
+[VERSE 18]
+"Kuollut on nuoren miehen morsian;
+Sillen mä hautoa kaivan."
+
+[VERSE 19]
+Ajoi hän vähän matkaa etemmä,
+Tuli appensa kartanohon.
+
+[VERSE 20]
+Näki hän ruumiin liinattuna
+Makaavan lautojen päällä.
+
+[VERSE 21]
+Ne posket ennen ruusunpunaiset
+Olivat nyt valkia kun liina.
+
+[VERSE 22]
+Katseli kalvehia kasvoja,
+Ja valkehia poskia kanssa.--
+
+[VERSE 23]
+"Ne oli ennen ruusunpunaiset,
+Nyt ovat ne valkia kun liina."
+
+[VERSE 24]
+Rupesi hän sitte itkemähän,
+Itki seitsemän vuorokautta.
+
+[VERSE 25]
+Seitsemän vuorokautta itkettyä
+Kuoli hän kaheksannella.
+
+[VERSE 26]
+Kuollut se sitte hauattihin
+Kuollehen morsiamen viereen.
+
+[VERSE 27]
+Siellä he lepeävät vierekkää,
+Heräävät taivaassa kerran;
+Va rallalla ra, va ralla ralla ra,
+Heräävät taivaassa kerran.
+
+--- TITLE: 4. Velisurmaaja.
+--- SOURCE: PG7078
+[VERSE 1]
+"Mistäs tulet, kustas tulet,
+Poikani iloinen?"--
+"Meren rannalta, meren rannalta,
+Äitini kultainen."
+
+[VERSE 2]
+"Mitä sieltä tekemästä,
+Poikani iloinen?"--
+"Hevostani juottamasta,
+Äitini kultainen."
+
+[VERSE 3]
+"Mist' on selkäsi saveen tullut,
+Poikani iloinen?"--
+"Hevonen huiskasi hännällänsä,
+Äitini kultainen."
+
+[VERSE 4]
+"Mist' on jalkasi vereen tullut,
+Poikani iloinen?"--
+"Hevonen polkasi rauallansa,
+Äitini kultainen."
+
+[VERSE 5]
+Mist' on miekkasi vereen tullut,
+Poikani iloinen?"--
+"Pistin veljeni kuoliaksi,
+Äitini kultainen."
+
+[VERSE 6]
+"Mintähen sinä veljesi pistit,
+Poikani poloinen?"--
+"Mintähen naistani nauratteli,
+Muorini kultainen."
+"Minne nyt sinä itse jouvut,
+Poikani poloinen?"--
+"Muille maille vierahille,
+Muorini kultainen."
+
+[VERSE 7]
+"Minne heität taattosi vanhan,
+Poikani poloinen?"--
+"Mieron verkkoja paikatkohon,
+Muorini kultainen."
+
+[VERSE 8]
+"Minne heität maammosi vanhan,
+Poikani poloinen?"--
+"Mieron rihmoja keträtköhön,
+Muorini kultainen."
+
+[VERSE 9]
+"Minne heität naisesi nuoren,
+Poikani poloinen?"--
+"Mieron miehiä katselkohon,
+Muorini kultainen."
+
+[VERSE 10]
+"Minne heität poikasi nuoren,
+Poikani poloinen?--
+"Mieron koulua kärsiköhön,
+Muorini kultainen."
+"Minne heität tyttösi nuoren,
+Poikani poloinen?"--
+"Mieron karjoja kaitsekohon,
+Muorini kultainen."
+
+[VERSE 11]
+"Koskas sieltä kotihin käännyt,
+Poikani poloinen?"--
+"Konsa korppi valkenevi,
+Muorini kultainen."
+
+[VERSE 12]
+"Koskas korppi valkenevi,
+Poikani poloinen?"--
+"Konsa hanhi mustenevi,
+Muorini kultainen."
+
+[VERSE 13]
+"Koskas hanhi mustenevi,
+Poikani poloinen?"--
+"Konsa kivi veen päällä pyörii,
+Muorini kultainen."
+
+[VERSE 14]
+"Koskas kivi veen päällä pyörii,
+Poikani poloinen?"--
+"Konsa höyhen pohjaan painuu,
+Muorini kultainen."
+
+[VERSE 15]
+"Koskas höyhen pohjaan painuu,
+Poikani poloinen?"--
+"Konsa päivä syänyöllä paistaa,
+Muorini kultainen."
+
+[VERSE 16]
+"Koskas päivä syänyöllä paistaa,
+Poikani poloinen?"--
+"Konsa kuuhut kuumasti polttaa,
+Muorini kultainen."
+
+[VERSE 17]
+"Koskas kuuhut kuumasti polttaa,
+Poikani poloinen?"--
+"Konsa tähet taivaalla tanssii,
+Muorini kultainen."
+
+[VERSE 18]
+"Koskas tähet taivaalla tanssii,
+Poikani poloinen?"--
+"Konsa kaikki tuomiolle tullaan,
+Muorini kultainen."
+
+--- TITLE: 5. Onneton nuorukainen.
+--- SOURCE: PG7078
+[VERSE 1]
+Ah voi kuinka kauhiasti suru vaivaa mieltäni,
+Kun mun täytyy lähteä ja tänne jättää kultani!
+
+[VERSE 2]
+Sinun luoutosi lempiä on syämeni sitonut,
+Sinun kaunis katsantosi kovasti mun vanginnut.
+
+[VERSE 3]
+En mä sua, kulta likka, taia koskaan unhottaa,
+Enkä muien tyttöin päälle taia koskaan katsahtaa.
+
+[VERSE 4]
+Paljo ennen sinun kanssasi juon ma vettä virrasta,
+Ennenkun ma muien kanssa joisin olutta tuopista.
+
+[VERSE 5]
+Nimesi mä kirjottelen hopiahan, kultahan,
+Kuvasi mä kätkielen syämeni pohjahan.
+
+[VERSE 6]
+Sinussapa syämeni kiini riippuu ainian,
+Sinuapa ainoata minä aina rakastan.
+
+[VERSE 7]
+Kaiken hyvyytesi eestä sinua ma kiitän nyt,
+Vaikka usein väärin tein mä, et sä mua heittänyt.
+
+[VERSE 8]
+Vaikka tuhat, tuhat kertaa mielesi olen rikkonut,
+Minusta sa kuitenkaan et ole poies luopunut.
+
+[VERSE 9]
+Eikä ajat, eikä vaivat taia meitä erottaa,
+Eikä maailman esivallat väliämme vierottaa.
+
+[VERSE 10]
+Tieän kyllä, että kaikki soisit minun sortuvan,
+Soisit myöski sinun poies puolestani luopuvan.
+
+[VERSE 11]
+Mutta ystävätäs elä koskaan poies unhota!
+Muistaa mahat aina häntä, vaikka ompi kaukana.
+
+[VERSE 12]
+Taivaan Herra meiät vielä kerta yhteen auttavi,
+Vaikka moni sen nyt kyllä mahottomaksi luulevi.
+
+[VERSE 13]
+Vielä viheriässä laksossa ma kanssasi astelen,
+Kukat ynnä ruusut kaikki sinulle siellä taittelen.
+
+[VERSE 14]
+Vielä vieressäsi kerran iloisena istunen,
+Surut, huolet, vaivat kaikki mielestäni heittänen.
+
+[VERSE 15]
+Nyt mä laannen laulamasta--hyvästi nyt kultani!--
+En voi laata suremasta, vaikka päätän virteni.
+
+[VERSE 16]
+Jos nyt joku tietä tahtoo, kuka laulun tehnyt on,
+Niin se oli nuori poika--Nuorukainen Onneton.
+
+--- TITLE: 6. Toivoton rakkaus.
+--- SOURCE: PG7078
+[VERSE 1]
+Syämestäni rakastan sua elinaikani,
+Jos kohta onki turha jo kaikki toivoni.
+
+[VERSE 2]
+Et kyllä itse luvannut mua koskaan heittää näin;
+Vaan köyhyyteni tähten mä hyljätyksi jäin.
+
+[VERSE 3]
+Sä syämesi annoit ja jälle pois otit,
+Toiselle rakkautesi muista vierotit.
+
+[VERSE 4]
+Jos kirjotella taitaisin minä rakkauen sen,
+Joka minua nyt vaivaa ja polttaa syämen.--
+
+[VERSE 5]
+Se rakkauen kipinä, joka syttyi rintahan,
+Ei taia ennen sammua, kun pääsen hautahan.
+
+[VERSE 6]
+Kuin aurinkoinen loistaa taivaalla palava,
+Niin kaunis myös se rakkaus oli meissä alkava.
+
+[VERSE 7]
+Nyt kyyneleeni vuotaa, sen kaikki näkevät,
+Ja päiväni on pitkät ja kovin ikävät.
+
+[VERSE 8]
+Joka ystävänsä mistaa, suru sille siaan jää;
+Voi sitä suurta tuskaa ja sitä ikävää!
+
+[VERSE 9]
+Kuin linnut oksapuissa kauniisti laulelee,
+Niin suru syäntäni kovemmin kaivelee.
+
+[VERSE 10]
+Ja kukat kaikenlaiset kukoistaa keolla,
+Vaan ei ne anna mulle tuskissa lepoa.
+
+[VERSE 11]
+Ah kuhun otan tieni ja kusta levon saan,
+Kun sinä mun nyt hyljäsit ja heitit kuolemaan!
+
+[VERSE 12]
+Moni se kyllä luuli mun suotta itkevän,
+Ja käski kaiken huolen mun poies heittämään.
+
+[VERSE 13]
+Vaan kuinka ystäväni mä taian unhottaa?--
+Ei koko maalimassa ole toista semmoista.
+
+[VERSE 14]
+Nyt laannen laulamasta, virteni lopetan;
+Sinulle hyvin kaikki käteesi toivotan.
+
+--- TITLE: 7. Kultani kukkuu kaukana.
+--- SOURCE: PG7078
+[VERSE 1]
+Kultani kukkuu, kaukana kukkuu,
+Saiman rannalla ruikuttaa;
+Ei ole ruuhta rannalla,
+Joka minun kultani kannattaa.
+Ikävä on aikani, päivät, on pitkät,
+Surutont' en hetkeä muistakaan;
+Voi mikä lienee tullutkaan,
+Kun jo ei kultani kuulukaan!
+
+[VERSE 2]
+Toivon riemu ja autuuen aika
+Suruani harvoin lievittää;
+Rintani on kun järven jää--
+Kukapa sen viimenki lämmittää?
+
+[VERSE 3]
+Kotka se lenteli taivahan alla,
+Sorsa se souteli aalloilla;
+Kulta on Saiman rannalla,
+Lähteä ei tohi tuulelta.
+
+[VERSE 4]
+Tuuli on tuima ja ankarat aallot,
+Ruuhet on rannalla pienoiset;
+Ruuhet on rannalla pienoiset;
+Kultani sormet on hienoiset.
+
+[VERSE 5]
+Elä lähe kultani aaltojen valtaan!--
+Aallot ne pian sinun pettäisi.
+Sitte ei suru mua heittäisi,
+Ennenkun multaki peittäisi.
+
+--- TITLE: 8. Kultaansa ikävöivä.
+--- SOURCE: PG7078
+[VERSE 1]
+Tuoll' on mun kultani, ain' yhä tuolla,
+Kuninkahan kultaisen kartanon puolla;
+Voi minun lintuni, voi minun kultani,
+Kun et tule jo!
+
+[VERSE 2]
+On siellä tyttöjä, on komioita,
+Kultani silmät ei katsele noita;
+Voi minun lintuni, voi minun kultani,
+Kun et tule jo!
+
+[VERSE 3]
+Kukat ovat kaunihit, kaunis kevät-aamu,
+Kauniimmat kultani silmät ja haamu;
+Voi minun lintuni, voi minun kultani,
+Kun et tule jo!
+
+[VERSE 4]
+Linnut ne laulavat sorialla suulla,
+Soriampi kultani ääni on kuulla;
+Voi minun lintuni, voi minun kultani,
+Kun et tule jo!
+
+[VERSE 5]
+Hunaja ja mesileipä makialle maistaa,
+Kultani suu sekä huulet on toista;
+Voi minun lintuni, voi minun kultani,
+Kun et tule jo!
+
+[VERSE 6]
+Voi koska näen minä senki ilopäivän:
+Kultani sivullani kulkevan ja käyvän!
+Voi minun lintuni, voi minun kultani,
+Kun et tule jo!
+
+[VERSE 7]
+Syys tulee etehen ja kesäpäivä rientää,
+Vaan minun kultani ei tule sentään;
+Voi minun lintuni, voi minun kultani,
+Kun et tule jo!
+
+[VERSE 8]
+Tule, tule kultani, tule kotipuoleen,
+Taikka jo menehynki ikävään ja huoleen;
+Voi minun lintuni, voi minun kultani,
+Kun et tule jo!
+
+--- TITLE: 9. Merille lähtevä.
+--- SOURCE: PG7078
+[VERSE 1]
+Hyvästi kultaseni, hyvästi kultani!--
+Mun lähteä nyt täytyy pois kotimaaltani.
+
+[VERSE 2]
+Mun täytyvi nyt mennä merille kulkemaan!
+Ja sinua, en tieä, jos näen millonkaan.
+
+[VERSE 3]
+Lahella laiva pieni minua outtelee;
+Se mulla kotimaani ja tuttavani lie.
+
+[VERSE 4]
+Se kotimaani mulla ja tuuli kultani,
+Ja aalto armahani tahikka--surmani.
+
+[VERSE 5]
+Jo ennen monta miestä se meri petteli,
+Ja monen kullan silmät vesille jätteli.
+
+[VERSE 6]
+Vaan ellös mua surko, jos ehkä kuolisin;
+Sä suotta kaottaisit ikäsi kaunihin.
+
+[VERSE 7]
+Kun kuulet kuolleheksi, tee risti rantahan,
+Ja aallon luomat luuni ne peitä santahan.
+
+[VERSE 8]
+Ja ota pieni ruusu ja laita kasvamaan,
+Käy sitte kesäilloin välistä katsomaan!--
+
+[VERSE 9]
+Kun ruusu kaunihisti kesällä kukostaa;
+Se rakkauteni kuvan eteesi muovostaa.
+
+[VERSE 10]
+Hyvästi vielä kerta, hyvästi ystävä!
+Ei suremaan nyt auta, vaan täytyy lähteä.
+
+--- TITLE: 10. Turvaton.
+--- SOURCE: PG7078
+[VERSE 1]
+Onneton olin minä ollessani,
+Onneton tähän kylään tullessani;
+
+[VERSE 2]
+Onnettomaksi olen minä luotu,
+Ei ole minulle ilopäivää suotu.
+
+[VERSE 3]
+Turvoa ei ole siellä, eikä täällä,
+Enempi kun linnulla lentonsa päällä.
+
+[VERSE 4]
+Maalima minua nyt paljoki vaivaa,
+Ja minun eteheni kuoppaa kaivaa.
+
+[VERSE 5]
+Ystäväni on myös ynsiäksi tullut,
+Kun hän on maaliman juttuja kuullut.--
+
+[VERSE 6]
+Kuulepas, kultani, vielä sana yksi:
+Kuinka tulin minä näin hyljätyksi?
+
+[VERSE 7]
+Kuka sinun eksytti rakkauen tiellä?--
+Tule, tule kertaki luokseni vielä.
+
+[VERSE 8]
+Muistatko muinen kun marjassa käytiin,
+Ahosilla istuttiin, leikkiä lyötiin?--
+
+[VERSE 9]
+Päivä se paisti ja pienet kukat loisti;
+Kukatki ne ketosilla iloamme toisti.
+
+[VERSE 10]
+Linnut ne laulelivat metsien päällä;
+Meistä he lauloivat siellä ja täällä.
+
+[VERSE 11]
+Ei ole ajat enää, niinkun olit ennen,
+Entiset ajat ovat olleet ja menneet.
+
+[VERSE 12]
+Entinen oma kulta ei enää hoia;
+Niin se mun heitti kun pienen linnun poian.
+
+[VERSE 13]
+Toivoni raukesi, meni juuri tyhjään,
+Ei ole mulla nyt ilopäivää yhtään.
+
+[VERSE 14]
+Enkä mä itselleni näin luullu käyvän;
+Ikäväni kestää kuolemapäivään.
+
+[VERSE 15]
+Olen ma kun kyyhkynen vierahalla maalla,
+Lentävä lintunen taivahan alla.
+
+[VERSE 16]
+Olen ma kun oksalla varpunen pieni,
+En tieä kuhun otan matkan ja tieni.
+
+[VERSE 17]
+Nuoruusikä rientää ja aikani kulkee;
+Jopa noista vaivoista väsymyski tullee.
+
+[VERSE 18]
+Päiväni päätyy ja elämäni katkee,
+Multa se mureheni peittää ja kätkee.
+
+--- TITLE: 11. Kultaansa sureva.
+--- SOURCE: PG7078
+[VERSE 1]
+Itkettää ja surettaa ja huoleksi tahtoo tulla,
+Muill' on koissa kultasensa, eikä ole mulla.
+
+[VERSE 2]
+Minun kultani kaukana ja kaukana se kukkuu;
+Yksin täytyy maata mennä, yksin täytyy nukkuu.
+
+[VERSE 3]
+Minun kultani kaukana ja kauas taisi mennä,
+Eipä sinne pienet linnut iässänsä lennä.
+
+[VERSE 4]
+Kunpa se pieni lintunenki sanoman nyt toisi,
+Suru menis mielestäni, parempi mun oisi.
+
+[VERSE 5]
+Lennä, lennä lintu rukka, puhu kuullakseni--
+Kävitkö sinä kullan maalla, näitkö kultaseni.
+
+[VERSE 6]
+Sano, kuinka kullan maalla aamu armas koitti,
+Iloisnako elettihin, vaiko suru voitti.
+
+[VERSE 7]
+Mitä näit sä muutaki ja näitkö vielä senki,
+Jos oli kaikki tervehet ja kulta liiatenki.
+
+[VERSE 8]
+Tule jo kulta tälle maalle, tule poika kulta,
+Ettei tulis turhaan tämä ikä nuori multa.
+
+--- TITLE: 12. Hyljätyn suru.
+--- SOURCE: PG7078
+[VERSE 1]
+Hoi on, hoi on, huolettaa ja hulluksi taian tulla;
+Kultani on vallattuna, jok' oli ennen mulla.
+
+[VERSE 2]
+Vesi vuotaa silmistä ja suru syämen kaivaa--
+Voi nyt tätä ikävää ja tätä suurta vaivaal
+
+[VERSE 3]
+Tämä viikko on pitempi, kun koko mennävuosi,
+Eikä kestä silmätkään, kun paljo vettä vuosi.
+
+[VERSE 4]
+Mansikoita mennävuonna kullalleni poimin,
+Nyt on mulla kokonansa toisenlainen toimi.
+
+[VERSE 5]
+Ei nyt enää, ei nyt enää kesämarjat auta;
+Minun kultani rakkaus on ruostunut kun rauta.
+
+[VERSE 6]
+Kuinka taisit kylmetä, kun lämmin olit ennen;
+Rallattelit, laulelit ja aina tulit tänne.
+
+[VERSE 7]
+Kuinka taisit narrataki köyhän miehen lasta;
+Köyhä mies on elättänyt pienestä kassikasta.
+
+[VERSE 8]
+Mitä ompi rikkautesi rakkautta vastaan?--
+Maast' on kulta kotoisin ja syän taivahasta.
+
+[VERSE 9]
+Jos en minä olis silmiäsi nähäkänä saanut,
+Niin nyt oisi syämeni levossansa maannut.
+
+[VERSE 10]
+Nyt on syämeni suruinen ja itku kyllä kestää,
+Enkä löyä lepoa ma maalimasta mistään.
+
+[VERSE 11]
+Vielä löyän levonki ja riemun sekä rauhan,
+Jos ei täällä; toki löyän tuolla puolen hauan.
+
+[VERSE 12]
+Eikä kauan kestäkänä, ennenkun ma kuolen,
+Heitän tänne vaivani ja surun sekä huolen.
+
+--- TITLE: 13. Ylenkatsottu.
+--- SOURCE: PG7078
+[VERSE 1]
+Pois pitää mennä ja hyvä kylä jättää,
+Ei nyt enää tämän kylän tytöt anna kättä.
+
+[VERSE 2]
+Mikä lie mun kullalleni, mikä mennyt mieleen,
+Ei nyt enää haastattele, eikä istu viereen.
+
+[VERSE 3]
+Sinä olit oma kultani, olit monta vuotta,
+Miksipä nyt vierastuit ja hyljäsit mun suotta?
+
+[VERSE 4]
+Vaan en huoli surrakaan, en kanna suurta huolta,
+Ei se taia tyttöin tähen tämä poika kuolta.
+
+[VERSE 5]
+Mikäs on mun ollessani nuorena poikana aina?--
+Menen merimieheksi ja elän sillä lailla.
+
+[VERSE 6]
+Kuulepas nyt kulta likka, kuinka minä veisaan
+Lähen poies Suomen maasta, muille maille reisaan.
+
+[VERSE 7]
+Kauppalaivat seilaavat Turun salmen suulla,
+Sinne otan matkani ja siell' on lysti olla.
+
+[VERSE 8]
+Taikka menen Ryssän maalle, kauas Venäehelle,
+Enkä tule ikänäni tähän kylään jälle.
+
+--- TITLE: 14. Karjalan neito.
+--- SOURCE: PG7078
+[VERSE 1]
+Minä olen Suomen neito, Suomen koria kukka,
+Moni poika minua jo houkutteli hukkaan.
+
+[VERSE 2]
+Ruusu ei oo kauniimpi, kun tyttö Karjalassa;
+Eikä toista tarvita, kun olen maalimassa.
+Minä tyttö, kaunis tyttö, kun mun pojat näkee,
+Huoli sytty syämehen, mieli naia tekee.
+
+[VERSE 3]
+Kaunis tyttö, siivo tyttö, siivon nimen kannan,
+Empä minä joka pojan halatakaan anna.
+
+[VERSE 4]
+Enemmän mä mielestäni itsestäni tykkään,
+Poies, poies vierestäni kehnot pojat lykkään.
+
+[VERSE 5]
+Synniksi sitä sanotaan ja syntipä se lienee,
+Nuoren tytön ruvetella kehnon pojan viereen.
+
+[VERSE 6]
+Pian on se tyttö raukka tullut kunnialta,
+Joka kerran heittäytyi noien poikien valtaan.
+Pojilla ja susilla on yhtäläinen mieli,
+Susi ei virka mitänä, pojill' on liukas kieli.
+
+[VERSE 7]
+Poika puhuu kaunihisti likan sängyn eessä,
+Mesi, maito kielellä ja myrkky syämessä.
+
+[VERSE 8]
+Niiin on poika piian luona kun halmehessa halla,
+Pian poika piika raukan hempeyen tallaa.
+
+--- TITLE: 15. Poika ja tyttö.
+--- SOURCE: PG7078
+
+[NOTE] Poika.    Sen mä olen laulanut ja laulan kaikkein kuullen:
+[VERSE 1]
+Tule tänne likka kulta, anna suuta mulle!
+
+[NOTE] Tyttö.    Kerran antoi nätti likka kehnon pojan suuta,
+Heti muuttui halvaksi, kun heittolikan luuta.
+
+[NOTE] Poika.    Likka kulta, likka kulta, likka kulta vielä!
+Ethän toki halaamasta minua nyt kiellä!
+
+[NOTE] Tyttö.    Silkkisaalin rinnalla se ei pastihuivi passaa,
+Eikä kelpaa kehnot pojat tätä tyttöä vastaan.
+
+[NOTE] Poika.    En ole juuri tietäjä, en ole iso noita,
+Vaan kun näen nätin likan, vielä mä sen voitan.
+
+[NOTE] Tyttö.    Akkoja saapi halata ja se ei haittaa mitään,
+Ei saa tyttöihin koskea, hävetä poikien pitää.
+
+[NOTE] Poika.    Toinen lampi on syvempi ja toinen matalampi,
+Toinen likka on kovempi ja toinen antavampi.
+
+[NOTE] Tyttö.    Kyll' on noita poikiaki viientoista sorttii,
+Mont' on viety katsomahan Wiaporin porttii.
+
+[NOTE] Poika.    Likkoja vieään kuormittaisin Lappeenrannan kouluun;
+Siell' on päivät paremmat kun mustilaisen joulu.
+
+[NOTE] Tyttö.    Suomen poikia saatellahan ruunun ankkuripajaan;
+Siellä lyövät ruuan päälle, kivimuurit kajaa.
+
+[NOTE] Poika.    Tämän kylän pienet piiat kukkuvat kun käet,
+Hännällänsä häväsevät koko poikaväen.
+
+[NOTE] Tyttö.    Tämän kylän nuoret tytöt kaunihisti kasvaa,
+Huulet on kun hunaja ja suu kun sula rasva.
+
+[NOTE] Poika.    Niin on tämän kylän tytöt, matala kun kaali,
+Silmänalus sininen ja posket punamaalii.
+
+[NOTE] Tyttö.    Tämän kylän likat on kun mesimarjan kukkii,
+Poikia juoksee joukottain kun töpihäntä hukkii.
+
+[NOTE] Poika.    Tämän kylän likat on kun rupasammakoita,
+Noita pojat tellivät kun tervatallukoita.
+
+[NOTE] Tyttö.    Likat käyvät kunnialla, kun kaste heinikossa,
+Pojat juovat, rypevät, kun sika rapakossa.
+
+[NOTE] Poika.    Emmä ole kehno poika, humalainen hullu,
+Enk' ole piikoin pilkaksi ma tähän kylään tullu.
+
+[NOTE] Tyttö.    Kesäilta kelvoton sen kerran näytti julki,
+Kuinka pojat pohmelossa pitkin kyliä kulki.
+
+[NOTE] Poika.    Kesäilta, kaunis ilta, senki näytti kerran,
+Että pojat käveli ja eleli kun herrat.
+
+[NOTE] Tyttö.    Kesäilta kelvoton se laitti kerran niinki,
+Että pojat pohmelossa puuttui suohon kiini.
+
+[NOTE] Poika.    Pojat makaa kammarissa pumpulipaiallansa,
+Likat saunan lattialla mustalla varrellansa.
+
+[NOTE] Tyttö.    Likat makaa aitassansa verkaviitan alla,
+Pojat pitkin pihoa ja tallin lattialla.
+
+[NOTE] Poika.    Likka parat aitoissansa monta yötä valvoo,
+Ikävissä itkevät, kun sutten pennut ulvoo.
+
+[NOTE] Tyttö.    Likoill' ompi onnen aika aivan ihanainen,
+Pojill' itku, kuikutus ja elo tuhmanlainen.
+
+[NOTE] Poika.    Minne tytöt joutuisivat, jos ei pojat korjais?
+Iän kaiken itkisivät, oisivat toisen orjat.
+
+[NOTE] Tyttö.    Mitä tuosta hyötyisin, jos huonon pojan naisin?--
+Viinanjuojan, mieron ruojan, tuskan, ristin saisin.
+
+[NOTE] Poika.    Moni tyttö, sievä tyttö, havatsi sen hiljaan,
+Että jo oli joutununna vanhan piian kirjaan.
+
+[NOTE] Tyttö.    Tämä vuos' on tämmöistä ja toinen vuos' on toista,
+Vaan ei tälle tyttärelle viinanjuojat loista.
+
+[NOTE] Poika.    Vanha piika harmajapää se on kun telkkä tiellä,
+Mykättää ja mäkättää sen kovan ilman eellä.
+
+[NOTE] Tyttö.    Emmä ole vallan vanha, enkä vallan nuori,
+Sen nyt saatan sanoaki: sinust' emmä huoli.
+
+[NOTE] Poika.    Minä poika, kaunis poika niinkun merikaisla,
+Et sä löyä Suomen maalta toista tämänlaista.
+
+[NOTE] Tyttö.    Jos oisi viina puuttunut jo viittä vuotta ennen,
+Oisit kyllä tyttöjä saava, naisit vaikka kenen.
+
+[NOTE] Poika.    Piiat pirun riivatut ne pojilta viinan estää;
+Pojat herran siunatut ne juovat minkä kestää.
+
+[NOTE] Tyttö.    Siit' on pojilla surua, kun viina paljo maksaa;
+Likat itsensä elättää, kun työtä tehä jaksaa.
+
+[NOTE] Poika.    Elä sinä likan ruoja minua nyt pilkkaa,--
+Vielä minun taskussani hopiatki hilkkaa.
+
+[NOTE] Tyttö.    Poika rahansa menettävi olvehen ja viinaan;
+Tytöt ei pane rahojaan, kun silkkihin ja liinaan.
+
+[NOTE] Poika.    Voi kun olen joutunutki näien likkain varviin,
+Näistä emmä muuta saa, kun monta mieliharmii.
+
+[NOTE] Tyttö.    Mahoit olla tulematta, olla kotonasi;
+Ei sua tänne toivottu, ei tietty tuloasi.
+
+[NOTE] Poika.    Ei nyt auta, ei nyt auta, ei nyt auta mitään,
+Luotu olen lähtemään ja lähteä mun pitää.
+
+[NOTE] Tyttö.    Toki saatki lähteä ja parempi oisi ollut,
+Kun et oisi ollenkana tähän kylään tullut.
+
+--- TITLE: 16. Vihaava ystävä.
+--- SOURCE: PG7078
+[VERSE 1]
+Oli minullaki ennen ystävä,
+Nyt on mulla vihamies.
+
+[VERSE 2]
+Toinen istuu jo kultani sylissä,
+Toinen suuta jo antelee.
+
+[VERSE 3]
+Kuinka taiat nyt mua vihata,
+Kun ystävät olimma?--
+
+[VERSE 4]
+Kuinka taitaa silmäni katsella
+Toista kultani sylissä?
+
+[VERSE 5]
+Näin suurella syämeni surulla
+Nimeäs minä muistelen.
+
+[VERSE 6]
+Näin suru minun syäntäni vaivaapi,
+Pois ei lähe mielestä.
+
+[VERSE 7]
+Voi jospa se rakkauen kipenä
+Nyt vieläki eläisi!
+
+[VERSE 8]
+Ja Herra nyt tälläki hetkellä
+Sinun mielesi kääntäköön!
+
+--- TITLE: 17. Petetyn kirous.
+--- SOURCE: PG7078
+[VERSE 1]
+Kirotut olkoot sormet, joill' oven avasit,
+Kirotut käsivarret, joilla minua halasit!
+
+[VERSE 2]
+Kirotut kaksi jalkaa, joill' olit astuva,
+Kätesi myös kirottu, jolla koskit minua!
+
+[VERSE 3]
+Kirotut kanssa silmät, joilla minua katselit,
+Kirottu viekas kieli, jolla minua viettelit!
+
+[VERSE 4]
+Voi suurta surkeutta, johon olin joutuva!--
+Kukas sen niin nyt käyvän olis tainnut uskoa.
+
+[VERSE 5]
+Kun saisin pienen paatin, aalloille laskisin,
+Ja koko kotimaani iäksi jättäisin.
+
+[VERSE 6]
+Tahi saisin pari lautaa ja maata pikkuisen,
+Mullassa maatakseni uneni ikuisen.
+
+--- TITLE: 18. Nauru ja itku.
+--- SOURCE: PG7078
+[VERSE 1]
+Astelin kaunista kangasta myöten,
+Heliätä rannan hiekkoa myöten.
+
+[VERSE 2]
+Poro minun pölysi polvilleni,
+Heliätä hiekkoa helmoilleni.
+
+[VERSE 3]
+Menin minä siitä siskoni luoksi,
+Sisko se ulos mua vastahan juoksi.
+
+[VERSE 4]
+Siskoni vei mua kamarihin käymään,
+Toi sitte ruokaa ja käski mun syömään.
+
+[VERSE 5]
+Söin palan eli puolen arvoltani,
+Kysyin minä siskolta armastani.
+
+[VERSE 6]
+"Armahasi ei ole ollunna täällä;
+Maatapa taitaa marjojen päällä."
+
+[VERSE 7]
+Kävin minä armasta katsomahan,
+Sisko se sivullani astumahan,
+
+[VERSE 8]
+Armahani makasi paarten päällä,
+Silkkinen vaate oli silmien päällä.
+
+[VERSE 9]
+Sisko se käski mua nauramahan
+"Taiat sa toisenki armahan saaha."
+
+[VERSE 10]
+Olisinpa nauranut armastani,
+Vaan empä jaksanut itkultani.
+
+[VERSE 11]
+Suu minun nauroi, syämeni itki,
+Veet ne vierivät poskia pitkin.
+
+[VERSE 12]
+Veet ne vierivät poskia myöten,
+Kulki kun virrassa koskia myöten.
+
+--- TITLE: 19. Rannalla itkejä.
+--- SOURCE: PG7078
+[VERSE 1]
+Läksin minä kesäyönä käymään
+Sihen laksoon, kussa kuuntelin päivää,
+Kussa lintuset laulaa,
+Metsäkanatki ne pauhaa,
+Ja mun syämeni etsi lepoa ja rauhaa.
+
+[VERSE 2]
+Katsoin minä alas vetten puoleen,
+Näin rannalla tytön kauniin ja nuoren,
+Joka istui ja itki,
+Katsoi aaltoja pitkin,
+Ja hän oli surullinen joka hetki.
+"Mitä itket sä raukka rannalla yksin?--
+Ja sun silmistäsi veet vierivät nytkin.
+Mikä tuska ja vaiva
+Sinun syäntäsi kaivaa?
+Ei anna syänyölläkään hoivaa."
+
+[VERSE 3]
+Hän vastasi: "sepä suru mua vaivaa,
+Kun ei koskaan tule takaisin se laiva,
+Jossa kultani kulki
+Poikki aaltojen julki,
+Minun jätti ja surun syämehen sulki.
+
+[VERSE 4]
+Jo nyt outellut olen viikkoa kaksi
+Juuri tyhjään, näy ei tulevaksi;
+Mikä mahtanee olla!--
+Jopa taisiki kuolla,
+Vain on vankina meren toisella puolla."
+
+[VERSE 5]
+Ja hän katseli vähän aikaa vielä,
+Näki aalloilla pilven punertavan siellä;--
+Pilvi ei ollut vainkaan,
+Tunsi kultansa laivan--
+Ylistetty nyt luoja maan ynnä taivaan!
+
+--- TITLE: 20. Varpusen olut.
+--- SOURCE: PG7078
+[VERSE 1]
+Näin minä unta maatessani,
+Varpusen panevan oltta;
+Munankuori oli kuurnana,
+Ja tuohta hän ruukasi polttaa.
+Ja koska hän oluensa valmiiksi sai,
+Hän itsensä siitä nyt humalaan joi,
+Ja pani ala räystähän maata.
+Räystähän alla hän nyt makasi
+Ja synkiähän unehen vaipui,
+Kissa hänen nukuksissa kohtasi
+Ja käpälällä selkähän tarttui;
+Varpunen unestansa havasi,
+Kun kissa häntä repi ja raateli,
+Ja kuolema ahisti häntä.
+Varpunen itkuhun puhkesi
+Ja rukoili hartahasti:
+"Elä kissa kulta nyt minua syö
+Ja tapa näin surkiasti!"
+Vaan kissa se hänelle vastasi näin:
+"Ei vainen sun varpunen hyvin nyt käy,
+Sen olen minä näyttävä kohta."
+
+[VERSE 2]
+Kissa se käpälätään kohotti,
+Ja varpunen tuiskahti tuuleen:
+"Panin minä kerta vähän olutta,
+Sen sanon minä kaikkein kuulten;
+Vaan kun ei siitä tullut parempaa,
+Kun että olin henkeni kaottaa,
+Niin olkoonpa viimeinen kerta."
+
+[VERSE 3]
+Kun varpunen pois oli lentänyt,
+Läksi kissa häntä tavottamahan;
+Hän hyppäsi korkialle vuorelle,
+Ja sieltä hän putosi maahan;
+Senkaltaisellapa pauhinalla,
+Pa-pa-pa-pa-pa-pa-pa-pa-pauhinalla,
+Lopun tämä elämä saapi.
+
+--- TITLE: 21. Häälaulu.
+--- SOURCE: PG7078
+[VERSE 1]
+Koska piämmä häitä,
+Elkäm' unohtako näitä
+Hyppimiä, tanssimia, kun on vanhuuesta tapa!
+Pari kaunis, ihan valmis,
+Käy nyt tanssihin kanssa;
+Ilotellen, riemutellen tanssikate nyt kaikki!
+
+[VERSE 2]
+Väki morsianta katsoo,
+Imehellä myös tahtoo
+Koreutta, kauneutta, kun on morsiamen päällä:
+Ruunu päässä, palmut käässä,
+Kulta rinnassa kiiltää,
+Hopiapaulat, ketjut, vaulat, hyvin kaunihit kaikki.
+
+[VERSE 3]
+Iloisesti nyt vieraat
+Kävelevät niinkun herrat,
+Hyvä ruoka, jalo juoma, joka hengelle valmis.
+Pojat piltit, tytöt kiltit,
+Yhä tanssia pyörii,
+Syän palaa, sano salaa: "jos ois omat nämät häämme."
+
+[VERSE 4]
+Ukot ei tule joukkoon,
+Akat pakenevat loukkoon,
+Naurelevat, katselevat iloleikkiä nuorten.
+Heki ennen eivät menneet
+Poies polskasta kesken;
+Iloisesti, riemuisesti heki hyppivät silloin.
+
+[VERSE 5]
+Sitä muistakame kaikki,
+Parikunnallemme ratki
+Hoikotella, toivotella, siunausta Jumalalta,
+Joka ensin itse vissin
+Aviokäskyn sääsi,
+Evan pienen pani viereen Adamille paratiisiin.
+
+[VERSE 6]
+Perillisiäki kanssa
+Jumal' aina armostansa
+Heille suokoon, ynnä tuokoon kasvamahan kaunihisti,
+Hyvyyessä, siveyessä,
+Jost' on kunnia heille,
+Maalimalta, kaikkialta, ilo enkeleillä kanssa.
+
+[VERSE 7]
+Sitä toivotamme vielä,
+Ettei Herra heiltä kiellä
+Ajallista, tavallista, mitä tarvitsevat täällä
+Hengen eloks, välimenoks,
+Kun on ruoka ja juoma,
+Vaate verho, talo kerho, sekä tarpehia muita.
+
+[VERSE 8]
+Jumal' Abrahamin juuri,
+Isakinki Herra suuri,
+Jakopinki, jokasenki, anna parillemme tälle
+Siunausta, suojellusta,
+Hä'ät, tuskat poies poista,
+Pitkää ikää heille lisää hyvän terveyen kanssa.
+
+[VERSE 9]
+Ja kun päättyvi kerran
+Tämä elo, nimeen Herran,
+Vajavainen, tukalainen, tämä vähä ajan vaihe;
+Elo toinen, parempainen,
+Jumal' anna taivahassa,
+Muuttumaton, puuttumaton ilo enkelien kanssa.
+
+--- TITLE: 22. Laulu, olut ja viina.
+--- SOURCE: PG7078
+[VERSE 1]
+Löytyvi kultaa kupiksi,
+Jos talonpoika tahtoo,
+Hopeeta housun napiksi,
+Ken kaluksi sen katsoo;
+Löytyy myös sanoja virsiksi,
+Kun etempätä etsii,
+Ja laittelevi lauluksi,
+Runoiksi tehä viitsii.
+
+[VERSE 2]
+Vaan aina tulee varata
+Ne monet väärät värsyt,
+Ettei laki sua sakota
+Ja pane pahat reisut.
+Niin saapi laulaa helistä,
+Ett oikein seinät soipi,
+Olutta juoa välistä,
+Kun kallo kantaa voipi.
+
+[VERSE 3]
+Se mielen tanssiin taivuttaa,
+Antaa myös vähän voimaa;
+Kyll' uni muuten uuvuttaa,
+Jos välill' ei saa hoivaa.
+Ja teki, neiet naitavat,
+Sen kernahasti suotta,
+Myös ootta yhtä taitavat,
+Jos itse vähän juotta.
+
+[VERSE 4]
+Miehellen ei myös mitään tee,
+Jos ryypyn, kaksi ottaa,
+Vaan kolmas mieltä koittelee,
+Ja neljäs älyn voittaa;
+Viinasta ei tule viisaus,
+Kun sitä paljo ryyppää,
+Vaan kevyt luonto, kerkeys,
+Sen kanssa olla pyytää.
+
+--- TITLE: 23. Mutkainen matka.
+--- SOURCE: PG7078
+[VERSE 1]
+Läksin hevosen ostoon,
+Senki kovaan kostoon;
+Oli mulla rahoja säkki,
+Tuli sitte ilta äkkiin,
+Tahottiin minua tappaa,
+Rahani poies lappaa,
+Minä pääsin pakoon
+Vahvan vaaran rakoon.
+
+[VERSE 2]
+Yhyin sitte yhteen kylään,
+Senki sangen hyvään;
+Menin yhteen taloon,
+Senki sangen jaloon;
+Menin ulkoa tupaan,
+Ilman muuta lupaa.
+Sanoin mie: hyvää iltaa,
+Putosin pääni siltaan,
+Ramppasin oven ramppii,
+Aloin sitte tanssii;
+Panin säkkini naulaan,
+Aloin sitte laulaa.
+
+[VERSE 3]
+Miniä perässä makaa,
+Ei hän unesta takaa,
+Heräsi toki tuosta,
+Alkoi minulle haastaa:
+"Mistä sinä olet miesi?"--
+Minä sanoin: "Hiisi tiesi."
+Sanoi hän minulle hiljaan:
+"On meillä alla sillan
+Kellari syvä ja suuri,
+Sinne on murhattu juuri
+Ennenki monta miestä,
+Ku ei päässyt pois eestä."
+
+[VERSE 4]
+Niin minä talosta karsin,
+Matkalle heti marsin,
+Yksinäni halkiöisin,
+Tuskinpa tien minä löysin.
+Lippasin sitte linnaan,
+Saksan kanssa rinnan;
+Saksa se minulle sanoi:
+"Onko sinun miesi jano?--
+Osta viinaa sarkka,
+Maksaa kolme markkaa;
+Olutta tuopin täysi,
+Niin saat hyväksi pääsi."
+
+[VERSE 5]
+Marakatti pöyältä katsoi.
+Päälleni rännätä tahtoi;
+Minä häntä jalalla potkin,
+Ruoskalla selkään sutkin.
+Läksin sitte kotihin tuolta,
+Tiell' olin nälkään kuolta;
+Vaan tuli talo vahva,
+Siin' oli jalo rahvas,
+Emäntä ruokaa laittoi,
+Leipeä pöyälle taittoi,
+Söin minä mahani täyen,
+Läksin sitte kotiin käyen;
+Siit' oli mieleni paha,
+Rosvot oli vieneet rahan,
+Enkä mä hevoista saanut;
+Parempi kun oisin maannut,
+Ollunna, ajan senkin,
+Pitkänä päässä penkin.
+
+--- TITLE: 24. Neion valitus.
+--- SOURCE: PG7078
+
+[NOTE] Ehkä tämä Neion valitus jo ennestäänki löytyy edellänimitetyssä
+
+[NOTE] Topeliuksen kokouksessa melkein yksillä sanoilla präntättynä, niin emme
+
+[NOTE] kuitenkaan ole tahtoneet, emmekä tainneet sitä tästä nykysajan
+
+[NOTE] runoelmanäytteestä erottaa, koska se paremmin kun moni muu todistaa,
+
+[NOTE] vanhan kansanrunollisen sulon vieläki hengissä olevan.
+[VERSE 1]
+Eipä mene mielestäni,
+Eikä muistosta murene,
+Armias ihana aika,
+Jona lauloin ollen lassa,
+Pikku piikana visersin,
+Ilolla ihanan linnun,
+Leipojaisen leikitsevän,
+Tuolla pilvien povella,
+Vapaana, vaivatonna.
+
+[VERSE 2]
+Vapaa vaivoista poveni,
+Tuuvin ennen tuulen lailla,
+Kiiätin kipunan lailla,
+Lennin lehtenä lehossa,
+Perhosena pyörtänöillä;
+Mehun maistelin makian
+Kukan kultaisen kupista,
+Hopealta hohtavaisen.
+
+[VERSE 3]
+Istuin ilona aholla,
+Mehumiellä mättähällä,
+Istuin kukkana keolla,
+Lempeästi leikitellen
+Suloisten sisarten kanssa,
+Tyvenesti tuuvitettu
+Tuulen hengeltä, tulevan
+Metisestä mantereesta.
+
+[VERSE 4]
+Levon kuvana leholla
+Nukuin nurmilinnun lailla;
+Rauha rakkahin rakensi,
+Siirsi vierehen siansa,
+Eikä untani uhannut
+Huolilla heräjävillä,
+Näillä suurilla suruilla,
+Povea nyt polttavilla.
+
+[VERSE 5]
+Empä tieä, enkä taia
+Selkeästi selvitellä,
+Mikä juoksi mieleheni,
+Mikä aivohon osasi
+Aivan ankara ajatus,
+Mikä syttyi syämeheni
+Tuli ennen tuntematon.
+Kun ma vuotta viisitoista
+Olin jättänyt jälelle,
+Nousi nousulla nisäni,
+Suihtui outo syämeheni,
+Huoli uusi huivin alle,
+Pullistuvahan povehen.
+
+[VERSE 6]
+Niin nyt on tukala tuvassa,
+Mieli raskas mantereessa;
+Löyä en armoa aholla
+Enkä lehossa lepoa,
+Eikä onni oksapuien
+Asu mustan varjon alla.
+Vaiva vaivuttaa levolle,
+Vaiva vaivaapi uneni;
+Vaiva herättää valolle,
+Uuen päivän paistehelle.
+
+[VERSE 7]
+Tuolla sytevi, syämen
+Peitetyissä pohjukoissa,
+Toivon tuli tuntematon,
+Tuli outo ja tukala,
+Jot' en saata sammutella,
+Enkä raski raiskaella.
+Tuonne kiiruhtaa kivasti
+Kaikki kieleni tarinat,
+Tuonne aivoni ajatus,
+Tuonne suosio syämen,
+Toivon poluille pimeän,
+Ahtahille aavistuksen,
+Syämelleni suruisten,
+Syämelleni suloisten.
+Kaikki kaikissa ajatus,
+Yks' on aina arvollinen
+Täytten tarvetten seassa,
+Yks' on tarve toivottava,
+Syämelleni surunen,
+Syämelleni sulonen.

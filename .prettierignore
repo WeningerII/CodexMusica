@@ -27,3 +27,25 @@ src/app.js
 # Documentation is prose. SKILL.md / AGENTS.md / docs/ are CI-gated contracts
 # (scripts/check_docs.js); left to manual formatting so a reflow can't change gated content.
 *.md
+
+# lyric-harness: three classes of JSON that must NOT be autoformatted, for the
+# same reason src/app.js and scripts/_voice_parts_data.js are excluded above —
+# their exact BYTES are gated elsewhere, so a reflow breaks the gate.
+#
+# corpus/**        provenance-gated. Every corpus file has a row in
+#                  lyric-harness/data/sources.tsv recording its hash
+#                  (corpus/fas_hafez.json: sha256 a87fc7ed), and
+#                  quality/audit_corpus.py check C fails the build when a
+#                  recorded hash drifts. Reformatting would change the hash of
+#                  a file whose whole purpose is to be the thing the hash
+#                  names.
+# data/**          vendored and generated: NLTK tagger models we did not
+#                  author, a build report, and a feature cache.
+# matrix_eval.json generated eval output, rewritten by quality/eval_matrix.py.
+#
+# The BLUEPRINTS are deliberately NOT excluded. They are authored declarations,
+# they are parsed rather than byte-compared, and they should be formatted like
+# any other source we write.
+lyric-harness/corpus
+lyric-harness/data
+lyric-harness/quality/matrix_eval.json

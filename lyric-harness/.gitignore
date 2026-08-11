@@ -1,0 +1,35 @@
+# Downloaded lexicons — refetched by quality/fetch_data.py and lyric_harness.py
+data/*.txt
+data/*.zip
+data/nltk/
+data/feature_cache.json
+cmudict.dict
+wordfreq20k.txt
+
+# Derived
+__pycache__/
+*.pyc
+
+# Provenance data — evidence tables, reviewed by hand. Ledger is derived.
+!data/sources.tsv
+!data/authority.tsv
+data/provenance_ledger.tsv
+data/authority_src/
+data/authority_src/
+
+# Derived label tables — regenerate with data/labels/*/build_*.py
+# The build scripts and build_report.json ARE tracked; the outputs are not.
+data/labels/**/*.tsv
+# Fetched source-text caches under label builders. NEVER commit these: they
+# hold upstream corpus text, including corpora the provenance gate REFUSED
+# (GRETIL is CC BY-NC-SA). Committing them would reintroduce, as repo content,
+# exactly the material the gate exists to keep out.
+# Match caches as directories, FILES and SYMLINKS. A trailing-slash pattern
+# matches only directories, and one builder linked its cache in as a symlink,
+# which slipped straight past it into the index.
+data/labels/**/.*_cache
+data/labels/**/*_cache
+data/labels/**/.*_cache/
+data/labels/**/*_cache/
+data/labels/**/*.err
+data/labels/**/__pycache__/

@@ -1,0 +1,190 @@
+# collection: 知稼翁詞 (KR4j0044), 集部/詞曲類 of the Kanseki Repository.
+#          7 ci, 6 詞牌.
+#          Author, from the collection's own title page: 黃公度.
+# source: kanripo/KR4j0044 md5 9dc2f3f7822f9298958d881006536426 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0044 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 黃公度 as 撰. Every poem carries it.
+
+
+--- TITLE: 菩薩蠻  [air: 菩薩蠻]
+--- AUTHOR: 黃公度
+--- SOURCE: KR4j0044 知稼翁詞 / JUAN 知稼翁詞
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 託玉人以見意
+[VERSE 1]
+高樓目斷南來翼。
+玉人依舊無消息。
+愁緒促眉端。
+不隨衣帶寛。
+[VERSE 2]
+萋萋天外草。
+何處春歸早。
+無語凭欄杆。
+竹聲生暮寒。
+
+--- TITLE: 卜算子  [air: 卜算子]
+--- AUTHOR: 黃公度
+--- SOURCE: KR4j0044 知稼翁詞 / JUAN 知稼翁詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 席賦此
+[VERSE 1]
+寒透小窓紗，
+漏斷人初醒。
+翡翠屛間拾落釵，
+背立殘釭影。
+[VERSE 2]
+欲去更踟躕，
+離恨終難整。
+隴首流泉不忍聞，
+月落雙溪冷。
+
+--- TITLE: 菩薩蠻 其2  [air: 菩薩蠻]
+--- AUTHOR: 黃公度
+--- SOURCE: KR4j0044 知稼翁詞 / JUAN 知稼翁詞
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 州通守
+[VERSE 1]
+眉尖早識愁滋味。
+嬌羞未解論心事。
+試問憶人不。
+無言但㸃頭。
+[VERSE 2]
+嗔人歸不早。
+故把金杯惱。
+醉看舞時腰。
+還如舊日嬌。
+
+--- TITLE: 眼兒媚  [air: 眼兒媚]
+--- AUTHOR: 黃公度
+--- SOURCE: KR4j0044 知稼翁詞 / JUAN 知稼翁詞
+--- GE: 欽定詞譜 眼兒媚 48字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.5.7.10
+--- JU: 3.4.6.8.9
+--- HEADING-AS-PRINTED: 自況也
+[VERSE 1]
+一枝雪裏冷光浮。
+空自許清流。
+如今憔悴，
+蠻煙瘴雨，
+誰肯尋捜。
+[VERSE 2]
+昔年曽共孤芳醉，
+爭揷玉釵頭。
+天涯幸有，
+惜花人在，
+杯酒相酬。
+
+--- TITLE: 一剪梅  [air: 一剪梅]
+--- AUTHOR: 黃公度
+--- SOURCE: KR4j0044 知稼翁詞 / JUAN 知稼翁詞
+--- GE: 欽定詞譜 一剪梅 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.9.12
+--- JU: 2.4.5.8.10.11
+--- HEADING-AS-PRINTED: 一翦梅
+[VERSE 1]
+冷艷幽香冰玉姿。
+占斷孤髙，
+壓盡芳菲。
+東君先暖向南枝，
+要使天涯，
+管領春歸。
+[VERSE 2]
+不受人間鶯蝶知。
+長是年年，
+雪約霜期。
+嫣然一笑百花遲，
+調鼎行看，
+結子黄時。
+
+--- TITLE: 滿庭芳  [air: 滿庭芳]
+--- AUTHOR: 黃公度
+--- SOURCE: KR4j0044 知稼翁詞 / JUAN 知稼翁詞
+--- GE: 欽定詞譜 滿庭芳 93字
+--- RHYME: 3.5.7.10.11.14.16.18.21
+--- JU: 1.2.4.6.8.9.12.13.15.17.19.20
+--- HEADING-AS-PRINTED: 一開顔和者甚多
+[VERSE 1]
+一徑义分，
+三亭鼎峙，
+小園别是清幽。
+曲䦨低檻，
+春色四時留。
+怪石參差卧虎，
+長松偃蹇拏虬。
+攜笻晚，
+風來萬里，
+冷撼一天秋。
+[VERSE 2]
+優游。
+銷永晝，
+琴尊左右，
+賓主風流。
+且偷閒，
+不妨身在南州。
+故國歸帆隠隠，
+西崑往事悠悠。
+都休問，
+金釵十二，
+滿酌聴輕謳。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 黃公度
+--- SOURCE: KR4j0044 知稼翁詞 / JUAN 知稼翁詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+風送清香過短牆。
+煙籠晚色近脩篁。
+夕陽樓外角聲長。
+[VERSE 2]
+欲去還留無限思，
+輕勻淡抹不成妝。
+一尊相對月生涼。

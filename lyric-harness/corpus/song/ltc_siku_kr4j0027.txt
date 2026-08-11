@@ -1,0 +1,158 @@
+# collection: 漱玉詞 (KR4j0027), 集部/詞曲類 of the Kanseki Repository.
+#          6 ci, 5 詞牌.
+#          Author, from the collection's own title page: 李清照.
+# source: kanripo/KR4j0027 md5 891360f08b35727ed295d75dae0585ca over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0027 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 李清照 as 撰. Every poem carries it.
+
+
+--- TITLE: 漁家傲  [air: 漁家傲]
+--- AUTHOR: 李清照
+--- SOURCE: KR4j0027 漱玉詞 / JUAN 潄玉詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 漁家傲
+[VERSE 1]
+天接雲濤連曉霧。
+星河欲轉千帆舞。
+彷彿夢魂歸帝所。
+聞天語。
+殷勤問我歸何處。
+[VERSE 2]
+我報路長嗟日暮。
+學詩謾有驚人句。
+九萬里風鵬正舉。
+風休住。
+蓬舟吹取三山去。
+
+--- TITLE: 一剪梅  [air: 一剪梅]
+--- AUTHOR: 李清照
+--- SOURCE: KR4j0027 漱玉詞 / JUAN 潄玉詞
+--- GE: 欽定詞譜 一剪梅 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.9.12
+--- JU: 2.4.5.8.10.11
+--- HEADING-AS-PRINTED: 一剪梅
+[VERSE 1]
+紅藕香殘玉簟秋。
+輕解羅裳，
+獨上蘭舟。
+雲中誰寄錦書來，
+鴈字回時，
+月滿西樓。
+花自飄零水自流。
+一種相思，
+兩處閑愁。
+此情無計可消除，
+才下眉頭，
+却上心頭。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 李清照
+--- SOURCE: KR4j0027 漱玉詞 / JUAN 潄玉詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+暖雨和風初破凍。
+柳潤梅輕，
+巳覺春心動。
+酒意詩情誰與共。
+淚融殘粉花鈿重。
+[VERSE 2]
+乍試夾衣金縷縫。
+山枕欹斜，
+枕損釵頭鳳。
+獨抱濃愁無好夢。
+夜䦨猶剪燈花弄。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 李清照
+--- SOURCE: KR4j0027 漱玉詞 / JUAN 潄玉詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+髻子傷春懶更梳。
+晚風庭院落梅初。
+淡雲來徃月疎疎。
+[VERSE 2]
+玉鴨薰爐閑瑞腦，
+朱櫻斗帳掩流蘇。
+通犀還解辟寒無。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 李清照
+--- SOURCE: KR4j0027 漱玉詞 / JUAN 潄玉詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+繡面芙蓉一笑開。
+斜飛寳鴨襯香腮。
+眼波纔動被人猜。
+[VERSE 2]
+一面風情深有韻，
+半牋嬌恨寄幽懐。
+月移花影約重來。
+
+--- TITLE: 武陵春  [air: 武陵春]
+--- AUTHOR: 李清照
+--- SOURCE: KR4j0027 漱玉詞 / JUAN 潄玉詞
+--- GE: 欽定詞譜 武陵春 49字
+--- RHYME: 2.3.4.6.7.8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 武陵春
+[VERSE 1]
+風住塵香花巳盡，
+日晚倦梳頭。
+物是人非事事休。
+欲語淚先流。
+[VERSE 2]
+聞説雙溪春尚好，
+也擬泛輕舟。
+只恐雙溪舴艋舟。
+載不動許多愁。

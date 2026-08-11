@@ -1,0 +1,1960 @@
+# collection: 片玉詞 (KR4j0015), 集部/詞曲類 of the Kanseki Repository.
+#          88 ci, 46 詞牌.
+# source: kanripo/KR4j0015 md5 8c7ddda29e46770dab67d86c9ae9c853 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0015 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: POSITIONAL, and it may be one poet out at a boundary. This is a 選本: the poet is the nearest preceding name heading the woodblock prints, exactly as the page presents it. Treat per-poet counts here as approximate.
+
+
+--- TITLE: 意難忘  [air: 意難忘]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 意難忘 92字
+--- RHYME: 1.3.5.6.7.9.10.12.14.15.16.18
+--- JU: 2.4.8.11.13.17
+--- HEADING-AS-PRINTED: 意難忘
+[VERSE 1]
+衣染鸎黃。
+愛停歌駐拍，
+勸酒持觴。
+低鬟蟬影動，
+私語口脂香。
+簷露滴竹風涼。
+拚劇飲淋浪。
+夜漸㴱籠燈就月，
+子細端相。
+[VERSE 2]
+知音見説無雙。
+解移宫換羽，
+未怕周郎。
+長顰知有恨，
+貪耍不成粧。
+些箇事惱人腸。
+試説與何妨。
+又恐伊尋消聽息，
+瘦損容光。
+
+--- TITLE: 蘇幕遮  [air: 蘇幕遮]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蘇幕遮 62字
+--- RHYME: 2.4.5.7.9.11.12.14
+--- JU: 1.3.6.8.10.13
+--- HEADING-AS-PRINTED: 蘇幕遮
+[VERSE 1]
+燎沉香，
+消溽暑。
+鳥雀呼晴，
+侵曉窺簷語。
+葉上初陽乾宿雨。
+水面清圓，
+一一風荷舉。
+[VERSE 2]
+故鄉遥，
+何日去。
+家住呉門，
+久作長安旅。
+五月漁郎相憶否。
+小檝輕舟，
+夢入芙蓉浦。
+
+--- TITLE: 驀山溪  [air: 驀山溪]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 驀山溪 82字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.9.11.13.18
+--- JU: 1.3.5.6.7.8.10.12.14.15.16.17
+--- HEADING-AS-PRINTED: 驀山溪
+[VERSE 1]
+湖平春水，
+藻荇縈舩尾。
+空翠撲衣襟，
+拊輕桹遊魚驚避。
+晚來潮上，
+迤邐没沙㾗，
+山四倚，
+雲漸起，
+鳥度屏風裏。
+周郎逸興，
+黃帽侵雲水。
+落日媚滄洲，
+泛一棹夷猶未已。
+玉簫金管，
+不共美人遊，
+因箇甚，
+煙霧底，
+偏愛蓴羮美。
+
+--- TITLE: 塞垣春  [air: 塞垣春]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 塞垣春 96字
+--- RHYME: 1.2.5.6.7.9.11.13.15.17
+--- JU: 3.4.8.10.12.14.16
+--- HEADING-AS-PRINTED: 塞垣春
+[VERSE 1]
+莫色分平野。
+傍葦岸征㠶缷。
+煙深極浦，
+樹藏孤館，
+秋景如畫。
+漸别離氣味難禁也。
+更物象供瀟灑。
+念多才渾衰減，
+一懷幽恨難冩。
+[VERSE 2]
+追念綺窻人，
+天然自風韻閒雅。
+竟夕起相思，
+漫嗟怨遥夜。
+又還將兩袖珠淚，
+沈吟向寂寥寒燈下。
+玉骨為多感，
+瘦來無一把。
+
+--- TITLE: 掃花遊  [air: 掃花遊]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 掃花遊 94字
+--- RHYME: 3.4.6.8.9.11.12.14.15.17.19.20.21
+--- JU: 1.2.5.7.10.13.16.18
+--- HEADING-AS-PRINTED: 掃花遊
+[VERSE 1]
+曉隂翳日，
+正霧靄煙橫，
+逺迷平楚。
+暗黃萬縷。
+聽鳴禽按曲，
+小腰欲舞。
+細遶回堤，
+駐馬河橋避雨。
+信流去。
+一葉怨題，
+今到何處。
+[VERSE 2]
+春事能幾許。
+任占地持盃，
+埽花尋路。
+淚珠濺俎。
+嘆將愁度日，
+病傷幽素。
+恨入金徽，
+見説文君更苦。
+黯凝竚。
+掩重關徧城鐘鼓。
+
+--- TITLE: 大酺  [air: 大酺]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 大酺 133字
+--- RHYME: 3.6.9.12.15.16.17.20.22.23.25.26
+--- JU: 1.2.4.5.7.8.10.11.13.14.18.19.21.24
+--- HEADING-AS-PRINTED: 大酺
+[VERSE 1]
+對宿煙收，
+春禽靜，
+飛雨時鳴高屋。
+牆頭青玉斾，
+洗鈆霜都盡，
+嫩梢相觸。
+潤逼琴絲，
+寒侵枕障，
+蟲網吹粘簾竹。
+郵亭無人處，
+聽簷聲不斷，
+困眠初熟。
+奈愁極頻驚，
+夢輕難記，
+自憐幽獨。
+[VERSE 2]
+行人歸意速。
+最先念流潦妨車轂。
+怎奈向蘭成顦顇，
+樂廣清羸，
+等閒時易傷心目。
+未怪平陽客，
+雙淚落笛中哀曲。
+況蕭索青蕪國。
+紅糝鋪地，
+門外荆桃如菽。
+夜遊共誰秉燭。
+
+--- TITLE: 玉樓春  [air: 玉樓春]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 玉樓春
+[VERSE 1]
+當時攜手城東道。
+月墮簷牙人睡了。
+酒邊誰使客愁輕，
+帳底不教春夢到。
+[VERSE 2]
+别來人事如秋草。
+應有呉霜侵翠葆。
+夕陽深鏁綠楊門，
+一任盧郎愁裏老。
+
+--- TITLE: 玉樓春 其2  [air: 玉樓春]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉琴虚下傷心淚。
+只有文君知曲意。
+簾烘樓迫月宜人，
+酒㬉香融春有味。
+[VERSE 2]
+萋萋芳草迷千里。
+惆悵王孫行未已。
+天涯回首一銷魂，
+二十四橋歌舞地。
+
+--- TITLE: 玉樓春 其3  [air: 玉樓春]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+大堤花豔驚郎目。
+秀色穠華看不足。
+休將寶瑟寫幽懷，
+坐上有人能顧曲。
+[VERSE 2]
+平波落照涵赬玉。
+畫舸亭亭浮淡淥。
+臨分何以祝㴱情，
+只有别愁三萬斛。
+
+--- TITLE: 玉樓春 其4  [air: 玉樓春]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉奩收起新粧了。
+鬢畔斜枝紅裊裊。
+淺嚬輕笑百般宜，
+試著春衫應更好。
+[VERSE 2]
+裁金簇翠天機巧。
+不稱野人篸破帽。
+滿頭聊作片時狂，
+頓減十年塵土貌。
+
+--- TITLE: 玉樓春 其5  [air: 玉樓春]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+桃溪不作從容住。
+秋藕絶來無續處。
+當時相候赤欄橋，
+今日獨尋黃葉路。
+[VERSE 2]
+煙中列岫青無數。
+㕍背夕陽紅欲莫。
+人如風後入江雲，
+情似雨餘黏地絮。
+
+--- TITLE: 傷情怨  [air: 傷情怨]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 傷情怨 42字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 傷情怨
+[VERSE 1]
+枝頭風信漸小。
+看莫鴉飛了。
+又是黃昏，
+閉門收返照。
+江南人去路杳。
+信未通愁已先到。
+怕見孤燈，
+霜寒催睡早。
+
+--- TITLE: 品令  [air: 品令]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 品令 55字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.9.10
+--- JU: 4
+--- HEADING-AS-PRINTED: 品令
+[VERSE 1]
+夜䦨人靜。
+月痕寄梅梢疎影。
+簾外曲角欄干近。
+舊攜手處，
+花霧寒成陣。
+[VERSE 2]
+應是不禁愁與恨。
+縱相逢難問。
+黛眉曾把春衫印。
+後期無定。
+腸斷香銷盡。
+
+--- TITLE: 菩薩蠻  [air: 菩薩蠻]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 菩薩蠻 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 菩薩蠻
+[VERSE 1]
+銀河宛轉三千曲。
+浴鳬飛鷺澄波淥。
+何處望歸舟。
+夕陽江上樓。
+[VERSE 2]
+天憎梅浪發。
+故下封枝雪。
+深院捲簾看。
+應憐江上寒。
+
+--- TITLE: 玉團兒  [air: 玉團兒]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 玉團兒 52字
+--- RHYME: 1.2.5.6.7.10
+--- JU: 3.4.8.9
+--- HEADING-AS-PRINTED: 玉團兒
+[VERSE 1]
+鉛華淡竚新粧束。
+好風韻天然異俗。
+彼此知名，
+雖然初見，
+情分先熟。
+[VERSE 2]
+爐煙淡淡雲屏曲。
+睡半醒生香透肉。
+賴得相逢，
+若還虚過，
+生世不足。
+
+--- TITLE: 月中行  [air: 月中行]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 月中行 50字
+--- RHYME: 1.2.3.4.6.7.8
+--- JU: 5
+--- HEADING-AS-PRINTED: 月中行
+[VERSE 1]
+蜀絲趂日染乾紅。
+微㬉口脂融。
+博山細篆靄房櫳。
+靜看打窻蟲。
+[VERSE 2]
+愁多膽怯疑虚幙，
+聲不斷莫景疎鐘。
+團圍四壁小屏風。
+淚盡夢啼中。
+
+--- TITLE: 漁家傲  [air: 漁家傲]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 漁家傲
+[VERSE 1]
+灰㬉香融銷永晝。
+蒲萄上架春藤秀。
+曲角欄干羣雀鬭。
+清明後。
+風梳萬縷亭前柳。
+[VERSE 2]
+日照釵梁光欲澑。
+循堦竹粉霑衣袖。
+拂拂面紅新着酒。
+沉吟久。
+昨宵正是來時候。
+
+--- TITLE: 漁家傲 其2  [air: 漁家傲]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+幾日輕隂寒惻惻。
+東風急處花成積。
+醉踏陽春懷故國。
+歸未得。
+黃鸝久住如相識。
+[VERSE 2]
+賴有蛾眉能㬉客。
+長歌屢勸金盃側。
+歌罷月痕來照席。
+貪歡適。
+簾前重露成涓滴。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+愛日輕明新雪後。
+柳眼星星，
+漸欲穿窻牖。
+不待長亭傾别酒。
+一枝已入騷人手。
+[VERSE 2]
+淺淺柔黃輕蠟透。
+過盡氷霜，
+便與春爭秀。
+强對青銅簪白首。
+老來風味難依舊。
+
+--- TITLE: 蝶戀花 其2  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+桃蕚新香梅落後。
+葉暗藏鵶，
+冉冉垂亭牖。
+舞困低迷如著酒。
+亂絲偏近遊人手。
+[VERSE 2]
+雨過䝉朧斜日透。
+客舍青青，
+特地添明秀。
+莫話揚鞭回别首。
+渭城荒逺無交舊。
+
+--- TITLE: 蝶戀花 其3  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+小閤隂隂人寂後。
+翠幙褰風，
+燭影揺疎牖。
+夜半霜寒初索酒。
+金刀正在柔荑手。
+[VERSE 2]
+粉薄絲輕光欲透。
+小葉尖新，
+未放雙眉秀。
+記得長條垂鷁首。
+别離情味還依舊。
+
+--- TITLE: 蝶戀花 其4  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+蠢蠢黃金初脱後。
+㬉日飛綿，
+取次黏窻牖。
+不見長條低拂酒。
+贈行應已輸先手。
+[VERSE 2]
+鸎擲金梭飛不透。
+小榭危樓，
+處處添竒秀。
+何日隋堤縈馬首。
+路長人倦空思舊。
+
+--- TITLE: 蝶戀花 其5  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+月皎驚烏栖不定。
+更漏將䦨，
+轣轆牽金井。
+喚起兩眸青烱烱。
+淚花落枕紅綿冷。
+[VERSE 2]
+執手霜風吹鬢影。
+去意徘徊，
+别語愁難聽。
+樓上䦨干橫斗柄。
+露寒人逺鷄相應。
+
+--- TITLE: 蝶戀花 其6  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+魚尾霞生明逺樹。
+翠壁黏天，
+玉葉迎風舉。
+一笑相逢蓬海路。
+人間風月如塵土。
+[VERSE 2]
+剪水雙眸雲鬢吐。
+醉倒珠宫，
+笑語生青霧。
+此會未䦨須記取。
+桃花幾度吹紅雨。
+
+--- TITLE: 蝶戀花 其7  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+美盼低迷情宛轉。
+愛雨怜雲，
+漸覺寛金釧。
+桃李香苞秋不展。
+㴱心黯黯誰能見。
+[VERSE 2]
+宋玉牆高纔一覘。
+絮亂絲繁，
+苦隔春風面。
+歌板未終風色便。
+夢為蝴蝶畱芳甸。
+
+--- TITLE: 蝶戀花 其8  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+晚步芳塘新霽後。
+春意潛來，
+迤邐通窻牖。
+午睡漸多濃似酒。
+韶華已入東君手。
+[VERSE 2]
+嫩綠輕黃成染透。
+燭下工夫，
+洩漏章臺秀。
+擬揷芳條須滿首。
+管交風味還勝舊。
+
+--- TITLE: 蝶戀花 其9  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+葉底尋花春欲莫。
+折遍柔枝，
+滿手真珠露。
+不見舊人空舊處。
+對花惹起愁無數。
+[VERSE 2]
+却倚欄干吹柳絮。
+粉蝶多情，
+飛上釵頭住。
+若遣郎身如蝶羽。
+芳時爭肯抛人去。
+
+--- TITLE: 蝶戀花 其10  [air: 蝶戀花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+酒熟微紅生眼尾。
+半額龍香，
+冉冉飄衣袂。
+雲壓寶釵撩不起。
+黃金心字雙垂耳。
+[VERSE 2]
+愁入眉痕添秀美。
+無限柔情，
+分付西流水。
+忽被驚風吹别淚。
+只應天也知人意。
+
+--- TITLE: 綺寮怨  [air: 綺寮怨]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 綺寮怨 104字
+--- RHYME: 2.4.6.8.9.11.12.13.15.16.17
+--- JU: 1.3.5.7.10.14
+--- HEADING-AS-PRINTED: 綺寮怨
+[VERSE 1]
+上馬人扶殘醉，
+曉風吹未醒。
+映水曲翠瓦朱簷，
+垂楊裏乍見津亭。
+當時曾題敗壁，
+蛛絲罩淡墨苔暈青。
+念去來歲月如流，
+徘徊久嘆息愁思盈。
+[VERSE 2]
+去去倦尋路程。
+江陵舊事，
+何曾再問楊瓊。
+舊曲淒清。
+斂愁黛與誰聽。
+樽前故人如在，
+想念我最關情。
+何須渭城。
+歌聲未盡處先淚零。
+
+--- TITLE: 玲瓏四犯  [air: 玲瓏四犯]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 玲瓏四犯 100字
+--- RHYME: 3.5.7.8.9.10.11.13.15.18
+--- JU: 1.2.4.6.12.14.16.17
+--- HEADING-AS-PRINTED: 玲瓏四犯
+[VERSE 1]
+穠李夭桃，
+是舊日潘郎，
+親試春豔。
+自别河陽，
+長負露房煙臉。
+顦顇鬢㸃呉霜，
+細念想夢魂飛亂。
+嘆畫䦨玉砌都換。
+纔始有緣重見。
+[VERSE 2]
+夜深偷展香羅薦。
+暗窻前醉眠蔥蒨。
+浮花浪蕋都相識，
+誰更曾擡眼休。
+問舊色舊香但，
+認取芳心一㸃奈。
+又片時一陣，
+風雨惡，
+吹分散。
+
+--- TITLE: 減字木蘭花  [air: 減字木蘭花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 減字朩蘭花
+[VERSE 1]
+風鬟霧鬢。
+便覺蓬萊三島近。
+水秀山明。
+縹緲仙姿畫不成。
+[VERSE 2]
+廣寒丹桂。
+豈是夭桃塵俗世。
+只恐椉風。
+飛上瓊樓玉宇中。
+
+--- TITLE: 驀山溪 其2  [air: 驀山溪]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 驀山溪 82字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.9.11.13.18
+--- JU: 1.3.5.6.7.8.10.12.14.15.16.17
+--- HEADING-AS-PRINTED: 驀山溪
+[VERSE 1]
+樓前疎柳，
+柳外無窮路。
+翠色四天垂，
+數峰青高城闊處。
+江湖病眼，
+偏向此山明，
+愁無語，
+空凝竚，
+兩兩昏鴉去。
+平康巷陌，
+往事如花雨。
+十載却歸來，
+倦追尋酒旗戲皷。
+今宵幸有，
+人似月嬋娟，
+霞袖舉，
+盃深注，
+一曲黃金縷。
+
+--- TITLE: 驀山溪 其3  [air: 驀山溪]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 驀山溪 82字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.9.11.13.18
+--- JU: 1.3.5.6.7.8.10.12.14.15.16.17
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+江天雪意，
+夜色寒成陣。
+翠袖捧金蕉，
+酒紅潮香凝沁粉。
+簾波不動，
+新月淡籠明，
+香破豆，
+燭頻花，
+減字歌聲穩。
+恨眉羞斂，
+往事休重問。
+人去小庭空，
+有梅梢一枝春信。
+檀心未展，
+誰為探芳樷，
+消瘦盡，
+洗粧匀，
+應㪅添風韻。
+
+--- TITLE: 青玉案  [air: 青玉案]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 青玉案 67字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.9.11.12
+--- JU: 4.10
+--- HEADING-AS-PRINTED: 青玉案
+[VERSE 1]
+良夜燈光簇如豆。
+占好事今宵有。
+酒罷歌䦨人散後。
+琵琶輕放，
+語聲低顫。
+滅燭來相就。
+[VERSE 2]
+玉體偎人情何厚。
+輕惜輕怜轉唧𠺕。
+雨散雲收眉兒皺。
+只愁彰露，
+那人知後。
+把我來僝僽。
+
+--- TITLE: 一剪梅  [air: 一剪梅]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 一剪梅 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.9.12
+--- JU: 2.4.5.8.10.11
+--- HEADING-AS-PRINTED: 一剪梅
+[VERSE 1]
+一剪梅花萬樣嬌。
+斜揷疎枝，
+略㸃眉梢。
+輕盈微笑舞低回，
+何事樽前，
+拍手誤招。
+[VERSE 2]
+夜漸寒深酒漸消。
+袖裏時聞，
+玉釧輕敲。
+城頭誰恁促殘㪅，
+銀漏何如，
+且慢明朝。
+
+--- TITLE: 雙頭蓮  [air: 雙頭蓮]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 雙頭蓮 103字
+--- RHYME: 6.7.13.14.16.19.22.25
+--- JU: 1.2.3.4.5.8.9.10.11.12.15.17.18.20.21.23.24
+--- HEADING-AS-PRINTED: 雙頭蓮
+[VERSE 1]
+一抹殘霞，
+幾行新㕍，
+天染斷紅，
+雲迷陣影，
+隱約望中，
+㸃破晚空澄碧。
+助秋色。
+門掩西風，
+橋橫斜照，
+青翼未來，
+濃塵自起，
+咫尺鳳幃，
+合有人相識。
+[VERSE 2]
+歎乖隔。
+知甚時恣與，
+同攜懽適。
+度曲傳觴，
+竝韀飛轡，
+綺陌畫堂連夕。
+樓頭千里，
+帳底三㪅，
+盡堪淚滴。
+怎生向，
+總無聊，
+但只聽消息。
+
+--- TITLE: 長相思  [air: 長相思]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 長相思 36字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 長相思
+[VERSE 1]
+舉離觴。
+掩洞房。
+箭水泠泠刻漏長。
+愁中看曉光。
+[VERSE 2]
+整羅裳。
+脂粉香。
+見埽門前車上霜。
+相持泣路傍。
+
+--- TITLE: 長相思 其2  [air: 長相思]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 長相思 36字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+馬如飛。
+歸未歸。
+誰在河橋見别離。
+修楊委地垂。
+[VERSE 2]
+掩面啼。
+人怎知。
+桃李成隂鸎哺兒。
+閒行春盡時。
+
+--- TITLE: 長相思 其3  [air: 長相思]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 長相思 36字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+好風浮。
+晚雨收。
+林葉隂隂映鷁舟。
+斜陽明倚樓。
+[VERSE 2]
+黯凝眸。
+憶舊遊。
+艇子扁舟來莫愁。
+石城風浪秋。
+
+--- TITLE: 長相思 其4  [air: 長相思]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 長相思 36字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+沙棠舟。
+小棹遊。
+池水澄澄人影浮。
+錦鱗遲上鈎。
+[VERSE 2]
+煙雲愁。
+簫皷休。
+再得來時已變秋。
+欲歸須少畱。
+
+--- TITLE: 大有  [air: 大有]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷上
+--- GE: 欽定詞譜 大有 99字
+--- RHYME: 3.4.6.8.10.12.14.16.18
+--- JU: 1.2.5.7.9.11.13.15.17
+--- HEADING-AS-PRINTED: 大有
+[VERSE 1]
+仙骨清羸，
+沈腰顦顇，
+見傍人驚怪消瘦。
+柳無言雙眉盡日齊鬭。
+都縁薄倖賦情淺，
+許多時不成懽偶。
+幸自也總由他，
+何須負這心口。
+[VERSE 2]
+令人恨，
+行坐呪。
+斷了㪅思量，
+没心永守。
+前日相逢，
+又早見伊仍舊。
+却㪅被溫存後，
+都忘了當時僝僽。
+便搊撮九百身心，
+依前待有。
+
+--- TITLE: 解語花  [air: 解語花]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 解語花 100字
+--- RHYME: 3.4.5.6.7.9.10.12.13.14.15.16.18
+--- JU: 1.2.8.11.17
+--- HEADING-AS-PRINTED: 解語花
+[VERSE 1]
+風銷絳蠟，
+露浥紅蓮，
+燈市光相射。
+桂華流瓦。
+纖雲散耿耿素娥欲下。
+衣裳淡雅。
+看楚女纖腰一把。
+簫鼓喧人影參差，
+滿路飄香麝。
+[VERSE 2]
+因念都城放夜。
+望千門如晝，
+嬉笑游冶。
+鈿車羅帕。
+相逢處自有暗塵隨馬。
+年光是也。
+唯只見舊情衰謝。
+清漏移飛蓋歸來，
+從舞休歌罷。
+
+--- TITLE: 蕙蘭芳引  [air: 蕙蘭芳引]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 蕙蘭芳引 84字
+--- RHYME: 2.4.6.8.11.13.15.16
+--- JU: 1.3.5.7.9.10.12.14
+--- HEADING-AS-PRINTED: 蕙蘭芳引
+[VERSE 1]
+寒瑩晩空，
+㸃青鏡斷霞孤鶩。
+對客館深扃，
+霜草未衰㪅綠。
+倦遊厭旅，
+但夢遶阿嬌金屋。
+想故人别後，
+盡日空疑風竹。
+[VERSE 2]
+塞北氍毹，
+江南圖障，
+是處溫燠。
+㪅花管雲牋，
+猶寫寄情舊曲。
+音塵迢遞，
+但勞逺目。
+今夜長爭奈枕單人獨。
+
+--- TITLE: 六幺令  [air: 六幺令]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 六幺令 94字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.7.9.11.13.15.16.18
+--- JU: 1.3.5.8.10.12.14.17
+--- HEADING-AS-PRINTED: 六么令
+[VERSE 1]
+快風收雨，
+亭館清殘燠。
+池光靜橫秋影，
+㟁柳如新沐。
+聞道宜城酒美，
+昨日新醅熟。
+輕鑣相逐。
+衝泥策馬，
+來折東籬半開菊。
+[VERSE 2]
+華堂花艷對列，
+一一驚郎目。
+歌韻巧共泉聲，
+間雜琮琤玉。
+惆悵周郎已老，
+莫唱當時曲。
+幽歡難卜。
+明年誰健，
+㪅把茱萸再三囑。
+
+--- TITLE: 紅林檎近  [air: 紅林檎近]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 紅林檎近 79字
+--- RHYME: 2.4.6.7.8.10.12.15
+--- JU: 1.3.5.9.11.13.14
+--- HEADING-AS-PRINTED: 紅林檎近
+[VERSE 1]
+高柳春纔軟，
+凍梅寒㪅香。
+莫雪助清峭，
+玉塵散林塘。
+那堪飄風遞冷，
+故遣度幙穿窻。
+似欲料理新粧。
+呵手弄絲簧。
+[VERSE 2]
+冷落詞賦客，
+蕭索水雲鄉。
+援毫授簡，
+風流猶憶東梁。
+望虚簷徐轉，
+迴廊未埽，
+夜長莫惜空酒觴。
+
+--- TITLE: 紅林檎近 其2  [air: 紅林檎近]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 紅林檎近 79字
+--- RHYME: 2.4.6.7.8.10.12.15
+--- JU: 1.3.5.9.11.13.14
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+風雪驚初霽，
+水鄉增莫寒。
+樹杪墮毛羽，
+簷牙挂琅玕。
+才喜門堆巷積，
+可惜迤邐銷殘。
+漸看低竹翩翻。
+清池漲微瀾。
+[VERSE 2]
+步屐晴正好，
+宴席晩方歡。
+梅花耐冷，
+亭亭來入氷盤。
+對前山橫素，
+愁雲變色，
+放盃同覓高處看。
+
+--- TITLE: 塞翁吟  [air: 塞翁吟]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 塞翁吟 92字
+--- RHYME: 2.4.5.7.9.10.11.13.16.19
+--- JU: 1.3.6.8.12.14.15.17.18
+--- HEADING-AS-PRINTED: 塞翁吟
+[VERSE 1]
+暗葉啼風雨，
+窻外曉色朧&KR0008;。
+散水麝，
+小池東。
+亂一㟁芙蓉。
+蘄州簟展雙紋浪，
+輕帳翠縷如空。
+夢逺别，
+淚痕重。
+淡鉛臉斜紅。
+[VERSE 2]
+沖沖。
+嗟顦顇新寛帶結，
+羞豔冶都銷鏡中。
+有蜀紙堪憑寄恨，
+等今夜灑血書詞，
+剪燭親封。
+菖蒲漸老，
+早晩成花，
+教見薰風。
+
+--- TITLE: 繞佛閣  [air: 繞佛閣]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 繞佛閣 100字
+--- RHYME: 1.3.4.5.6.8.9.11.13.14.16.17.19.20
+--- JU: 2.7.10.12.15.18
+--- HEADING-AS-PRINTED: 遶佛閣
+[VERSE 1]
+暗塵四斂。
+樓觀迥出，
+高映孤館。
+清漏將短。
+厭聞夜久籤聲動書幔。
+桂華又滿。
+閒步露草，
+偏愛幽逺。
+花氣清婉。
+望中迤邐，
+城隂度河㟁。
+[VERSE 2]
+倦客最蕭索，
+醉倚斜橋穿柳線。
+還似汴堤虹梁橫水面。
+看浪颭春燈，
+舟下如箭。
+此行重見。
+嘆故友難逢，
+羈思空亂。
+兩眉愁向誰行展。
+
+--- TITLE: 慶春宮  [air: 慶春宮]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 慶春宮 102字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.6.8.11.12.14.17.19.22
+--- JU: 1.2.4.5.7.9.10.13.15.16.18.20.21
+--- HEADING-AS-PRINTED: 慶春宫
+[VERSE 1]
+雲接平岡，
+山圍寒野，
+路回漸轉孤城。
+衰柳啼鴉，
+驚風驅㕍，
+動人一片秋聲。
+倦途休駕，
+澹煙裏微茫見星。
+塵埃顦顇，
+生怕黃昏，
+離思牽縈。
+[VERSE 2]
+華堂舊日逢迎。
+花艷參差，
+香霧飄零。
+絃管當頭，
+偏憐嬌鳳，
+夜深簧㬉笙清。
+眼波傳意，
+恨密約匆匆未成。
+許多煩惱，
+只為當時，
+一餉畱情。
+
+--- TITLE: 丁香結  [air: 丁香結]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 丁香結 99字
+--- RHYME: 3.4.5.7.9.10.12.15.17.19
+--- JU: 1.2.6.8.11.13.14.16.18
+--- HEADING-AS-PRINTED: 丁香結
+[VERSE 1]
+蒼蘚沿堦，
+冷螢粘屋，
+庭樹望秋先隕。
+漸雨淒風迅。
+澹莫色倍覺園林清潤。
+漢姬紈扇在，
+重吟玩棄擲未忍。
+登山臨水，
+此恨自古銷磨不盡。
+[VERSE 2]
+牽引。
+記醉酒歸時，
+對月同看㕍陣。
+寶幄香纓，
+薰爐象尺，
+夜寒燈暈。
+誰念畱滯故國，
+舊事勞方寸。
+唯丹青相伴，
+那㪅塵昏蠧損。
+
+--- TITLE: 西河  [air: 西河]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 西河 104字
+--- RHYME: 1.2.4.6.8.9.11.13.14.15.16.17.18
+--- JU: 3.5.7.10.12
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+長安道。
+瀟灑西風時起。
+塵埃車馬晩游行，
+霸陵煙水。
+亂鴉棲鳥夕陽中，
+參差霜樹相倚。
+到此際，
+愁如葦。
+冷落關河千里。
+追思唐漢昔繁華，
+斷碑殘記。
+未央宫闕已成灰，
+終南依舊濃翠。
+[VERSE 2]
+對此景無限愁思。
+遶天涯秋蟾如水。
+轉使客情如醉。
+想當時萬古雄名盡。
+作往來人淒涼事。
+
+--- TITLE: 西平樂  [air: 西平樂]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 西平樂 137字
+--- RHYME: 3.6.10.12.16.21.27
+--- JU: 1.2.4.5.7.8.9.11.13.14.15.17.18.19.20.22.23.24.25.26
+--- HEADING-AS-PRINTED: 西平樂
+[VERSE 1]
+穉柳蘇晴，
+故溪渴雨，
+川迥未覺春賖。
+駝褐寒侵，
+正憐初日，
+輕隂抵死須遮。
+歎事逐孤鴻去盡，
+身與塘蒲共晩，
+爭知向此征途，
+區區竚立塵沙。
+追念朱顔翠髪，
+曽到處故地使人嗟。
+[VERSE 2]
+道連三楚，
+天低四野，
+喬朩依前，
+臨路欹斜。
+重慕想東陵晦迹，
+彭澤歸來，
+左右琴書自樂，
+松菊相依，
+何况風流鬢未華。
+多謝故人，
+親馳鄭驛，
+時倒融尊，
+勸此淹留，
+共過芳時，
+翻令倦客思家。
+
+--- TITLE: 玉燭新  [air: 玉燭新]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 玉燭新 101字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.5.7.9.12.13.14.15.16.18
+--- JU: 2.4.6.8.10.11.17
+--- HEADING-AS-PRINTED: 玉燭新
+[VERSE 1]
+溪源新蠟後。
+見數朶江梅，
+剪裁初就。
+暈酥砌玉，
+芳英嫩故把春心輕漏。
+前村昨夜，
+想弄月黃昏時候。
+孤㟁峭疎影橫斜，
+濃香暗沾襟袖。
+[VERSE 2]
+樽前賦與多才，
+問嶺外風光，
+故人知否。
+壽陽漫鬬。
+終不似照水一枝清瘦。
+風嬌雨秀。
+好亂揷繁華盈首。
+須信道羌筦無情，
+看看又奏。
+
+--- TITLE: 望江南  [air: 望江南]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 望江南
+[VERSE 1]
+歌席上，
+無賴是橫波。
+寶髻玲瓏欹玉燕，
+繡巾柔膩掩香羅。
+人好自宜多。
+[VERSE 2]
+無箇事，
+因甚斂雙蛾。
+淺淡梳粧疑見畫，
+惺鬆言語勝聞歌。
+何况會婆娑。
+
+--- TITLE: 望江南 其2  [air: 望江南]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+遊妓散，
+獨自遶回堤。
+芳草懷煙迷水曲，
+密雲銜雨暗城西。
+九陌未霑泥。
+[VERSE 2]
+桃李下，
+春晩自成蹊。
+牆外見花尋路轉，
+柳隂行馬過鸎啼。
+無處不悽悽。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+不為蕭娘舊約寒。
+何因容易别長安。
+預愁衣上粉痕乾。
+[VERSE 2]
+幽閤深沉燈焰喜，
+小爐隣近酒盃寛。
+為君門外脱歸鞍。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+翠葆參差竹徑成。
+新荷跳雨碎珠傾。
+曲欄斜轉小池亭。
+[VERSE 2]
+風約簾衣歸燕急，
+水揺扇影戲魚驚。
+柳梢殘日弄微晴。
+
+--- TITLE: 浣溪沙 其3  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+寶扇輕圓淺畫繒。
+象床平穩細穿藤。
+飛蠅不到避壺氷。
+[VERSE 2]
+翠枕面涼偏益睡，
+玉簫手汗錯成聲。
+日長無力要人凭。
+
+--- TITLE: 浣溪沙 其4  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+薄薄紗㡡望似空。
+簟紋如水&KR1171;芙容。
+起來嬌眼未惺愡。
+[VERSE 2]
+强整羅衣擡皓腕，
+㪅將紈扇掩酥胸。
+羞郎何事面微紅。
+
+--- TITLE: 浣溪沙 其5  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+爭挽桐花兩鬢&KR1191;。
+小粧弄影照清池。
+珠簾踏襪趂蜂兒。
+[VERSE 2]
+跳脱添金雙腕重，
+琵琶破撥四絃悲。
+夜寒誰肯剪春衣。
+
+--- TITLE: 浣溪沙 其6  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雨過殘紅溼未飛。
+疎籬一帶透斜暉。
+遊蜂醸蜜竊香歸。
+[VERSE 2]
+金屋無人風竹亂，
+夜篝盡日水沉微。
+一春須有憶人時。
+
+--- TITLE: 浣溪沙 其7  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+日薄塵飛官路平。
+眼明喜見汴河傾。
+地遥人倦莫兼程。
+[VERSE 2]
+下馬先尋題壁字，
+出門閒記榜村名。
+早收燈火夢傾城。
+
+--- TITLE: 浣溪沙 其8  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+貪向津亭擁去車。
+不辭泥雨濺羅襦。
+淚多脂粉了無餘。
+[VERSE 2]
+酒釅未須令客醉，
+路長終是少人扶。
+早教幽夢到華胥。
+
+--- TITLE: 浣溪沙 其9  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+樓上晴天碧四垂。
+樓前芳草接天涯。
+勸君莫上最高梯。
+[VERSE 2]
+新笋看成堂下竹，
+落花都上燕巢泥。
+忍聽林表杜鵑啼。
+
+--- TITLE: 浣溪沙 其10  [air: 浣溪沙]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+日射歌紅臈蒂香。
+風乾微汗粉襟涼。
+碧綃對捲簟紋光。
+[VERSE 2]
+自剪柳枝明畫閣，
+戲抛蓮菂種橫塘。
+長亭無事好思量。
+
+--- TITLE: 夜遊宮  [air: 夜遊宮]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 夜遊宮 57字
+--- RHYME: 1.2.3.6.7.8.9.12
+--- JU: 4.5.10.11
+--- HEADING-AS-PRINTED: 夜遊宫
+[VERSE 1]
+客去車塵未斂。
+古簾暗雨苔千㸃。
+月皎風清在處見。
+奈今宵，
+照初絃，
+吹一箭。
+[VERSE 2]
+池曲河聲轉。
+念歸計眼迷魂亂。
+明日前村㪅荒逺。
+且開罇，
+任紅鱗，
+生酒面。
+
+--- TITLE: 夜遊宮 其2  [air: 夜遊宮]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 夜遊宮 57字
+--- RHYME: 1.2.3.6.7.8.9.12
+--- JU: 4.5.10.11
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+葉下斜陽照水。
+捲輕浪沉沉千里。
+橋上酸風射眸子。
+立多時，
+看黃昏，
+燈火市。
+[VERSE 2]
+古屋寒窻底。
+聽幾片井桐飛墜。
+不戀單衾再三起。
+有誰知，
+為蕭娘，
+書一紙。
+
+--- TITLE: 夜遊宮 其3  [air: 夜遊宮]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 夜遊宮 57字
+--- RHYME: 1.2.3.6.7.8.9.12
+--- JU: 4.5.10.11
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一陣斜風橫雨。
+薄衣潤新添金縷。
+不謝鉛華㪅清素。
+倚筠窻，
+弄么絃，
+嬌欲語。
+[VERSE 2]
+小閤橫香霧。
+正年少小娥愁緒。
+莫是栽花被花妬。
+甚春來，
+病懨懨，
+無會處。
+
+--- TITLE: 一落索  [air: 一落索]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 一落索 46字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 一落索
+[VERSE 1]
+眉共春山爭秀。
+可憐長皺。
+莫將清淚濕花枝，
+恐花也如人瘦。
+[VERSE 2]
+清潤玉簫閒久。
+知音稀有。
+欲知日日倚欄愁，
+但問取亭前柳。
+
+--- TITLE: 一落索 其2  [air: 一落索]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 一落索 46字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+杜宇催歸聲苦。
+和春歸去。
+倚闌一霎酒旗風，
+任撲面桃花雨。
+[VERSE 2]
+目斷隴雲江樹。
+難逢尺素。
+落霞隱隱日平西，
+料想是分攜處。
+
+--- TITLE: 虞美人  [air: 虞美人]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 虞美人
+[VERSE 1]
+燈前欲去仍畱戀。
+腸斷朱扉逺。
+不須紅雨洗香腮。
+待得薔薇花謝便歸來。
+[VERSE 2]
+舞腰歌板閒時按。
+一任傍人看。
+金爐應見舊殘煤。
+莫遣恩情容易似寒灰。
+
+--- TITLE: 虞美人 其2  [air: 虞美人]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+廉纖小雨池塘遍。
+細㸃破萍面。
+一雙燕子守朱門。
+比似尋常時候易黃昏。
+[VERSE 2]
+宜城酒泛浮春絮。
+細作㪅䦨語。
+相看羇思亂如雲。
+又是一窻燈影兩愁人。
+
+--- TITLE: 虞美人 其3  [air: 虞美人]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+疎籬曲徑田家小。
+雲樹開秋曉。
+天寒山色有無中。
+野外一聲鐘起送孤篷。
+[VERSE 2]
+添衣策馬尋亭堠。
+愁抱惟宜酒。
+菰蒲睡鴨占陂塘。
+縱被行人驚散又成雙。
+
+--- TITLE: 虞美人 其4  [air: 虞美人]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+淡雲籠月松溪路。
+長記分攜處。
+夢魂連夜遶松溪。
+此夜相逢恰似夢中時。
+[VERSE 2]
+海山陡覺風光好。
+莫惜金罇倒。
+柳花吹雪燕飛忙。
+生怕扁舟歸去斷人腸。
+
+--- TITLE: 虞美人 其5  [air: 虞美人]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉觴纔掩朱絃悄。
+彈指壺天曉。
+回頭猶認倚牆花。
+只向小橋南畔便天涯。
+[VERSE 2]
+銀蟾依舊當窻滿。
+顧影魂先斷。
+淒風休颭半殘燈。
+擬倩今宵歸夢到雲屏。
+
+--- TITLE: 虞美人 其6  [air: 虞美人]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+金閨平帖春雲㬉。
+晝漏花前短。
+玉顔酒解豔紅消。
+一向捧心啼困不成嬌。
+[VERSE 2]
+别來新翠迷行徑。
+窻鏁玲瓏影。
+砑綾小字夜來封。
+斜倚曲䦨凝睇數歸鴻。
+
+--- TITLE: 醉桃源  [air: 醉桃源]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 醉桃源 47字
+--- RHYME: 1.2.3.4.6.7.8.9
+--- JU: 5
+--- HEADING-AS-PRINTED: 醉桃源
+[VERSE 1]
+冬衣初染逺山青。
+雙絲雲雁綾。
+夜寒袖溼欲成氷。
+都緣珠淚零。
+[VERSE 2]
+情黯黯，
+悶騰騰。
+身如秋後蠅。
+若教隨馬逐郎行。
+不辭多少程。
+
+--- TITLE: 醉桃源 其2  [air: 醉桃源]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 醉桃源 47字
+--- RHYME: 1.2.3.4.6.7.8.9
+--- JU: 5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+菖蒲葉老水平沙。
+臨流蘇小家。
+畫䦨曲徑宛秋蛇。
+金英&KR1191;露華。
+[VERSE 2]
+燒蜜炬，
+引蓮娃。
+酒香醺臉霞。
+再來重約日西斜。
+倚門聽莫鴉。
+
+--- TITLE: 黃鸝繞碧樹  [air: 黃鸝繞碧樹]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 黃鸝繞碧樹 97字
+--- RHYME: 3.6.8.10.11.12.14.16.18
+--- JU: 1.2.4.5.7.9.13.15.17
+--- HEADING-AS-PRINTED: 黃鸝遶碧樹
+[VERSE 1]
+雙闕籠佳氣，
+寒威日晩，
+歲華將莫。
+小院閒庭，
+對寒梅照雪，
+淡煙凝素。
+忍當迅景，
+動無限傷春情緒。
+猶賴是上苑風光漸好，
+芳容將煦。
+[VERSE 2]
+草莢蘭芽漸吐。
+且尋芳㪅休思慮。
+這浮世甚驅馳利祿，
+奔競塵土。
+縱有魏珠照椉，
+未買得流年住。
+爭如&KR1233;引橊花，
+醉偎瓊樹。
+
+--- TITLE: 芳草渡  [air: 芳草渡]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 芳草渡 89字
+--- RHYME: 3.5.6.7.10.11.13.15.17.19
+--- JU: 1.2.4.8.9.12.14.16.18
+--- HEADING-AS-PRINTED: 芳草渡
+[VERSE 1]
+昨夜裏，
+又再宿桃源，
+醉邀仙侣。
+聽碧窻風快，
+疎簾半巻愁雨。
+多少離恨苦。
+方畱連啼訴。
+鳳帳曉，
+又是囱囱，
+獨自歸去。
+[VERSE 2]
+愁顧。
+滿懷淚粉，
+瘦馬衝泥尋去路。
+漫回首煙迷望眼，
+依稀見朱户。
+似癡似醉，
+暗惱損凭䦨情緒。
+澹莫色，
+看盡栖鴉亂舞。
+
+--- TITLE: 醉落魄  [air: 醉落魄]
+--- AUTHOR: 周邦彦
+--- SOURCE: KR4j0015 片玉詞 / JUAN 卷下
+--- GE: 欽定詞譜 醉落魄 57字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 醉落魄
+[VERSE 1]
+茸金細弱。
+秋風嫩桂花初著。
+蕋珠宫裏人難學。
+花染嬌荑，
+羞映翠雲幄。
+[VERSE 2]
+清香不與蘭蓀約。
+一枝雲鬢巧梳掠。
+夜涼輕撼薔薇蕚。
+香滿衣襟，
+月在鳳皇閣。
+
+--- TITLE: 十六字令  [air: 十六字令]
+--- AUTHOR: (unnamed)
+--- SOURCE: KR4j0015 片玉詞 / JUAN 補遺
+--- GE: 欽定詞譜 十六字令 16字
+--- RHYME: 1.2.4
+--- JU: 3
+--- HEADING-AS-PRINTED: 十六字令
+[VERSE 1]
+眠。
+月影穿窻白玉錢。
+無人弄，
+移過枕函邊。
+
+--- TITLE: 浣溪沙 其11  [air: 浣溪沙]
+--- AUTHOR: (unnamed)
+--- SOURCE: KR4j0015 片玉詞 / JUAN 補遺
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+水漲魚天拍柳橋。
+雲鳩拖雨過江臯。
+一番春信入東郊。
+[VERSE 2]
+閒碾鳳團消短夢，
+靜看燕子壘新巢。
+又移日影上花梢。
+
+--- TITLE: 浣溪沙 其12  [air: 浣溪沙]
+--- AUTHOR: (unnamed)
+--- SOURCE: KR4j0015 片玉詞 / JUAN 補遺
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+小院閒窻春色深。
+重簾未捲影沉沉。
+倚樓無語理瑶琴。
+[VERSE 2]
+逺岫出雲催薄莫，
+細風吹雨弄輕隂。
+梨花欲謝恐難禁。
+
+--- TITLE: 憶秦娥  [air: 憶秦娥]
+--- AUTHOR: (unnamed)
+--- SOURCE: KR4j0015 片玉詞 / JUAN 補遺
+--- GE: 欽定詞譜 憶秦娥 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 憶秦娥
+[VERSE 1]
+香馥馥。
+尊前有箇人如玉。
+人如玉。
+翠翹金鳳，
+内家粧束。
+[VERSE 2]
+嬌羞愛把眉兒蹙。
+逢人只唱相思曲。
+相思曲。
+一聲聲是，
+怨紅愁綠。
+
+--- TITLE: 柳梢青  [air: 柳梢青]
+--- AUTHOR: (unnamed)
+--- SOURCE: KR4j0015 片玉詞 / JUAN 補遺
+--- GE: 欽定詞譜 柳梢青 49字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.8.11
+--- JU: 2.4.5.9.10
+--- HEADING-AS-PRINTED: 柳梢青
+[VERSE 1]
+有箇人人。
+海棠標韻，
+飛燕輕盈。
+酒暈潮紅，
+羞蛾凝綠，
+一笑生春。
+[VERSE 2]
+為伊無限傷心。
+㪅説甚巫山楚雲。
+斗帳香消，
+紗窻月冷，
+著意溫存。
+
+--- TITLE: 蘇幕遮 其2  [air: 蘇幕遮]
+--- AUTHOR: (unnamed)
+--- SOURCE: KR4j0015 片玉詞 / JUAN 補遺
+--- GE: 欽定詞譜 蘇幕遮 62字
+--- RHYME: 2.4.5.7.9.11.12.14
+--- JU: 1.3.6.8.10.13
+--- HEADING-AS-PRINTED: 蘇幙遮
+[VERSE 1]
+隴雲沉，
+新月小。
+楊柳梢頭，
+能有春多少。
+試著羅裳寒尚峭。
+簾捲青樓，
+占得東風早。
+[VERSE 2]
+翠屏深，
+香篆裊。
+流水落花，
+不管劉郎到。
+三疊陽關聲漸杳。
+斷雨殘雲，
+只怕巫山曉。
+
+--- TITLE: 女冠子  [air: 女冠子]
+--- AUTHOR: (unnamed)
+--- SOURCE: KR4j0015 片玉詞 / JUAN 補遺
+--- GE: 欽定詞譜 女冠子 114字
+--- RHYME: 1.2.3.6.9.12.13.14.15.17.20.22
+--- JU: 4.5.7.8.10.11.16.18.19.21
+--- HEADING-AS-PRINTED: 女冠子
+[VERSE 1]
+同雲密布。
+撤梨花柳絮飛舞。
+樓臺悄似玉。
+向紅爐煗閣，
+院宇深沉，
+廣排筵會。
+聽笙歌猶未徹，
+漸覺輕寒，
+透簾穿户。
+亂飄僧舍，
+密灑歌樓，
+酒帘如故。
+[VERSE 2]
+想樵人山徑迷蹤路。
+料漁父收綸罷釣歸南浦。
+路無伴侣。
+見孤村寂莫，
+招颭酒旗斜處。
+南軒孤㕍過，
+嚦嚦聲聲，
+又無書度。
+見臘梅枝上嫩蕋，
+兩兩三三微吐。

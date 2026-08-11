@@ -1,0 +1,3442 @@
+# collection: 東坡詞 (KR4j0005), 集部/詞曲類 of the Kanseki Repository.
+#          178 ci, 40 詞牌.
+#          Author, from the collection's own title page: 蘇軾.
+# source: kanripo/KR4j0005 md5 6f4007f05a0f76a537630e03ab73beae over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0005 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 蘇軾 as 撰. Every poem carries it.
+
+
+--- TITLE: 陽關曲  [air: 陽關曲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 陽關曲 28字
+--- RHYME: 1.2.4
+--- JU: 3
+--- HEADING-AS-PRINTED: 陽關曲
+[VERSE 1]
+暮雲収盡溢清寒。
+銀漢無聲轉玉盤。
+此生此夜不長好，
+明月明年何處看。
+
+--- TITLE: 陽關曲 其2  [air: 陽關曲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 陽關曲 28字
+--- RHYME: 1.2.4
+--- JU: 3
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+受降城下紫髯郎。
+戲馬臺南舊戰場。
+恨君不取契丹首，
+金甲牙旗歸故鄉。
+
+--- TITLE: 陽關曲 其3  [air: 陽關曲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 陽關曲 28字
+--- RHYME: 1.2.4
+--- JU: 3
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+濟南春好雪初晴。
+纔到龍山馬足輕。
+使君莫忘霅溪女，
+時作陽關腸㫁聲。
+
+--- TITLE: 生查子  [air: 生查子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 生查子
+[VERSE 1]
+三度別君來，
+此別真遲暮。
+白盡老髭鬚，
+明日淮南去。
+酒罷月隨人，
+淚濕花如霧。
+後夜逐君還，
+夢繞湖邊路。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+風捲珠簾自上鈎。
+蕭蕭亂葉報新秋。
+獨攜纖手上高樓。
+[VERSE 2]
+缺月向人舒窈窕，
+三星當戸照綢繆。
+香生霧縠見纖柔。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+山下蘭芽短浸溪。
+松間沙路淨無泥。
+蕭蕭暮雨子規啼。
+[VERSE 2]
+誰道人生無再少，
+門前流水尚能西。
+休將白髮唱黄雞。
+
+--- TITLE: 浣溪沙 其3  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+西塞山邊白鷺飛。
+散花洲外片㠶微。
+桃花流水鱖魚肥。
+[VERSE 2]
+自庇一身青篛笠，
+相隨到處綠蓑衣。
+斜風細雨不須歸。
+
+--- TITLE: 浣溪沙 其4  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+覆塊青青麥未蘇。
+江南雲葉暗隨車。
+臨臯烟景世間無。
+[VERSE 2]
+雨脚半収簷㫁綫，
+雪林初下瓦疎珠。
+歸來氷顆亂黏鬚。
+
+--- TITLE: 浣溪沙 其5  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+醉夢昏昏曉未蘇。
+門前轆轆使君車。
+扶頭一盞怎生無。
+[VERSE 2]
+廢圃寒蔬挑翠羽，
+小槽春酒凍真珠。
+清香細細嚼梅鬚。
+
+--- TITLE: 浣溪沙 其6  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雪裏餐氊例姓蘇。
+使君載酒為囘車。
+天寒酒色轉頭無。
+[VERSE 2]
+薦士已聞飛鶚表，
+報恩應不用蛇珠。
+醉中還許攬桓鬚。
+
+--- TITLE: 浣溪沙 其7  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+半夜銀山上積蘇。
+朝來九陌帶隨車。
+濤江煙渚一時無。
+[VERSE 2]
+空腹有詩衣有結，
+溼薪如桂米如珠。
+凍吟誰伴撚髭鬚。
+
+--- TITLE: 浣溪沙 其8  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+萬頃風濤不記蘇。
+雪晴江上麥千車。
+但令人飽我愁無。
+[VERSE 2]
+翠袖倚風縈柳絮，
+絳脣得酒爛櫻珠。
+尊前呵手鑷霜鬚。
+
+--- TITLE: 浣溪沙 其9  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+珠檜絲杉冷欲霜。
+山城歌舞助凄涼。
+且餐山色飲湖光。
+[VERSE 2]
+共挽朱轓留半日，
+強揉青蕋作重陽。
+不知明日為誰黄。
+
+--- TITLE: 浣溪沙 其10  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+霜鬢真堪插拒霜。
+哀絃危柱作伊涼。
+暫時流轉為風光。
+[VERSE 2]
+未遣清尊空北海，
+莫因長笛賦山陽。
+金釵玉腕瀉鵝黄。
+
+--- TITLE: 浣溪沙 其11  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+傅粉郎君又粉奴。
+莫教施粉與施朱。
+自然氷玉照香酥。
+[VERSE 2]
+有客能為神女賦，
+慿君送與雪兒書。
+夢魂東去覓桑榆。
+
+--- TITLE: 浣溪沙 其12  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+菊暗荷枯一夜霜。
+新苞綠葉照林光。
+竹籬茆舍出青黄。
+[VERSE 2]
+香霧噀人驚半破，
+清泉流齒怯初嘗。
+吳姬三日手猶香。
+
+--- TITLE: 浣溪沙 其13  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雪頷霜髯不自驚。
+更將剪綵發春榮。
+羞顏未醉已先頳。
+[VERSE 2]
+莫唱黄雞并白髪，
+且呼張友喚殷兄。
+有人歸去欲卿卿。
+
+--- TITLE: 浣溪沙 其14  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+料峭東風翠幕驚。
+云何不飲對公榮。
+水精盤瑩玉鱗頳。
+[VERSE 2]
+花影莫辜三夜月，
+朱顏未稱五年兄。
+翰林子墨主人卿。
+
+--- TITLE: 浣溪沙 其15  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+照日深紅㬉見魚。
+連溪綠暗晩藏烏。
+黄童白叟聚睢盱。
+[VERSE 2]
+麋鹿逢人雖未慣，
+猿猱聞鼓不須呼。
+歸家説與採桑姑。
+
+--- TITLE: 浣溪沙 其16  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+旋抹紅妝看使君。
+三三五五棘籬門。
+相挨踏破蒨羅裙。
+[VERSE 2]
+老幼扶攜収麥社，
+烏鳶翔舞賽神村。
+道逢醉叟臥黄昏。
+
+--- TITLE: 浣溪沙 其17  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+麻葉層層檾葉光。
+誰家煑繭一村香。
+隔籬嬌語絡絲娘。
+[VERSE 2]
+垂白杖藜擡醉眼，
+捋青搗麨軟飢腸。
+問言豆葉幾時黄。
+
+--- TITLE: 浣溪沙 其18  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+蔌蔌衣巾落棗花。
+村南村北響繰車。
+牛衣古柳賣黄瓜。
+[VERSE 2]
+酒困路長惟欲睡，
+日高人渴謾思茶。
+敲門試問野人家。
+
+--- TITLE: 浣溪沙 其19  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+軟草平莎過雨新。
+輕沙走馬路無塵。
+何時収拾耦畊身。
+[VERSE 2]
+日㬉桑麻光似潑，
+風來蒿艾氣如薰。
+使君元是此中人。
+
+--- TITLE: 浣溪沙 其20  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+道字嬌訛苦未成。
+未應春閣夢多情。
+朝來何事綠鬟傾。
+[VERSE 2]
+綵索身輕長趂燕，
+紅窗睡重不聞鶯。
+困人天氣近清明。
+
+--- TITLE: 浣溪沙 其21  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+縹緲危樓紫翠間。
+良辰樂事苦難全。
+感時懷舊獨凄然。
+[VERSE 2]
+璧月瓊枝空夜夜，
+菊花人貌自年年。
+不知來歲與誰看。
+
+--- TITLE: 浣溪沙 其22  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+桃李溪邊駐畫輪。
+鷓鴣聲裏倒清尊。
+夕陽雖好近黄昏。
+[VERSE 2]
+香在衣裳妝在臂，
+水連芳草月連雲。
+幾人歸去不銷魂。
+
+--- TITLE: 浣溪沙 其23  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+四面垂楊十里荷。
+問君何處最花多。
+畫樓南畔夕陽和。
+[VERSE 2]
+天氣乍涼人寂寞，
+光陰須得酒消磨。
+且來花裏聽笙歌。
+
+--- TITLE: 浣溪沙 其24  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一别姑蘇已四年。
+秋風南浦送歸船。
+畫簾重見水中仙。
+[VERSE 2]
+霜鬢不須催我老，
+杏花依舊駐君顏。
+夜闌相對夢魂間。
+
+--- TITLE: 浣溪沙 其25  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+惟見眉間一點黄。
+詔書催發羽書忙。
+從教嬌淚洗紅妝。
+[VERSE 2]
+上殿雲霄生羽翼，
+論兵齒頰帶風霜。
+歸來衫袖有天香。
+
+--- TITLE: 浣溪沙 其26  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+長記鳴琴子賤堂。
+朱顏綠髪映垂楊。
+如今秋鬢數莖霜。
+[VERSE 2]
+聚散交遊如夢寐，
+升沉閒事莫思量。
+仲卿終不避桐鄉。
+
+--- TITLE: 浣溪沙 其27  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+羅襪空飛洛浦塵。
+錦袍不見謫仙神。
+攜壺藉草亦天真。
+[VERSE 2]
+玉粉輕黄千歲藥，
+雪花浮動萬家春。
+醉歸江路野梅新。
+
+--- TITLE: 浣溪沙 其28  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+白雪清詞出坐間。
+愛君才器兩俱全。
+異鄉風景却依然。
+[VERSE 2]
+可恨相逢能幾日，
+不知重㑹是何年。
+茱茰子細更重看。
+
+--- TITLE: 浣溪沙 其29  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+細雨斜風作曉寒。
+淡煙疎柳媚晴灘。
+入淮清洛漸漫漫。
+[VERSE 2]
+雪沫乳花浮午盞，
+蓼芽蒿笋試春盤。
+人間有味是清歡。
+
+--- TITLE: 浣溪沙 其30  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+門外東風雪灑裾。
+山頭囘首望三吳。
+不應彈鋏為無魚。
+[VERSE 2]
+上黨從來天下脊，
+先生元是古之儒。
+時平不用魯連書。
+
+--- TITLE: 浣溪沙 其31  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+慚愧今年二麥豐。
+千畦翠浪舞晴空。
+化工餘力染夭紅。
+[VERSE 2]
+歸去三公應倒載，
+闌街拍手笑兒童。
+甚時名作錦薰籠。
+
+--- TITLE: 浣溪沙 其32  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+芍藥櫻桃兩鬬新。
+名園高會送芳辰。
+洛陽初夏廣陵春。
+[VERSE 2]
+紅玉半開菩薩面，
+丹砂穠點柳枝脣。
+尊前還有箇中人。
+
+--- TITLE: 浣溪沙 其33  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+學畫鵶兒正妙年。
+陽城下蔡困嫣然。
+慿君莫唱短因緣。
+[VERSE 2]
+霧帳吹笙香嫋嫋，
+霜庭按舞月娟娟。
+曲終紅袖落雙纏。
+
+--- TITLE: 浣溪沙 其34  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一夢江湖費五年。
+歸來風物故依然。
+相從一醉是前緣。
+[VERSE 2]
+遷客不應常眊矂，
+使君為出小嬋娟。
+翠鬟聊著小詩纒。
+
+--- TITLE: 浣溪沙 其35  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+輕汗微微透碧紈。
+明朝端午浴芳蘭。
+流香漲膩滿晴川。
+[VERSE 2]
+綵線輕纒紅玉臂，
+小符斜挂綠雲鬟。
+佳人相見一千年。
+
+--- TITLE: 浣溪沙 其36  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+徐邈能中酒聖賢。
+劉伶席地幕青天。
+潘郎白璧為誰連。
+[VERSE 2]
+無可奈何新白髪，
+不如歸去舊青山。
+恨無人借買山錢。
+
+--- TITLE: 浣溪沙 其37  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+傾葢相逢勝白頭。
+故山空復夢松楸。
+此心安處是菟裘。
+[VERSE 2]
+賣劒買牛真欲老，
+乞漿得酒更何求。
+願為辭社宴春秋。
+
+--- TITLE: 浣溪沙 其38  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+炙手無人傍屋頭。
+蕭蕭晩雨脱梧楸。
+誰憐季子敝貂裘。
+[VERSE 2]
+顧我已無當世望，
+似君須向古人求。
+歲寒松栢肯驚秋。
+
+--- TITLE: 浣溪沙 其39  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+畫隼横江喜再遊。
+老魚跳檻識清謳。
+流年未肯付東流。
+[VERSE 2]
+黄菊籬邊無悵望，
+白雲鄉裏有温柔。
+挽囘霜鬢莫教休。
+
+--- TITLE: 浣溪沙 其40  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+花滿銀塘水漫流。
+犀槌玉板奏涼州。
+順風環珮過秦樓。
+[VERSE 2]
+逺漢碧雲輕漠漠，
+今宵人在鵲橋頭。
+一聲敲徹絳河秋。
+
+--- TITLE: 浣溪沙 其41  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+幾共查梨到雪霜。
+一經題品便生光。
+木奴何處避雌黄。
+[VERSE 2]
+北客有來初未識，
+南金無價喜新嘗。
+含滋嚼句齒牙香。
+
+--- TITLE: 浣溪沙 其42  [air: 浣溪沙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+晩菊花前歛翠蛾。
+挼花傳酒緩聲歌。
+柳枝團扇别離多。
+[VERSE 2]
+擁髻凄涼論舊事，
+㑹隨織女度銀梭。
+當年今夕奈愁何。
+
+--- TITLE: 減字木蘭花  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 減字木蘭花
+[VERSE 1]
+鄭莊好客。
+容我尊前先墮幘。
+落筆生風。
+籍籍聲名不負公。
+[VERSE 2]
+高山白早。
+瑩骨氷膚那解老。
+從此南徐。
+良夜清風月滿湖。
+
+--- TITLE: 減字木蘭花 其2  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雲鬟傾倒。
+醉倚闌干風月好。
+慿仗相扶。
+誤入仙家碧玉壺。
+[VERSE 2]
+連天衰草。
+不走湖南西去道。
+一舸姑蘇。
+便逐䲭夷去得無。
+
+--- TITLE: 減字木蘭花 其3  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+閩溪珍獻。
+過海雲㠶來似箭。
+玉座金盤。
+不貢竒葩四百年。
+[VERSE 2]
+輕紅釀白。
+雅稱佳人纖手擘。
+骨細肌香。
+恰是當年十八娘。
+
+--- TITLE: 減字木蘭花 其4  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+賢哉令尹。
+三仕已之無喜愠。
+我獨何人。
+猶把虚名玷搢紳。
+[VERSE 2]
+不如歸去。
+二頃良田無覓處。
+歸去來兮。
+待有良田是幾時。
+
+--- TITLE: 減字木蘭花 其5  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉觴無味。
+中有佳人千點淚。
+學道忘憂。
+一念還成不自由。
+[VERSE 2]
+如今未見。
+歸去東園花似霰。
+一語相開。
+匹似當初本不來。
+
+--- TITLE: 減字木蘭花 其6  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+春光亭下。
+流水如今何在也。
+歲月如梭。
+白首相看擬奈何。
+[VERSE 2]
+故人重見。
+世事年來千萬變。
+官况闌珊。
+慚愧青松守歲寒。
+
+--- TITLE: 減字木蘭花 其7  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+惟熊佳夢。
+釋氏老君㑹抱送。
+壯氣横秋。
+未滿三朝已食牛。
+[VERSE 2]
+犀錢玉果。
+利市平分沾四座。
+多謝無功。
+此事如何到得儂。
+
+--- TITLE: 減字木蘭花 其8  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+曉來風細。
+不㑹鵲聲來報喜。
+却羨寒梅。
+先覺春風一夜來。
+[VERSE 2]
+香牋一紙。
+寫盡囘紋機上意。
+欲巻重開。
+讀徧千囘與萬囘。
+
+--- TITLE: 減字木蘭花 其9  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+天台舊路。
+應恨劉郎來又去。
+别酒頻傾。
+忍聽陽關第四聲。
+[VERSE 2]
+劉郎未老。
+懷戀仙鄉重得到。
+只恐因循。
+不見如今勸酒人。
+
+--- TITLE: 減字木蘭花 其10  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雙龍對起。
+白甲蒼髯煙雨裏。
+疎影微香。
+下有幽人晝夢長。
+[VERSE 2]
+湖風清軟。
+雙鵲飛來爭噪晩。
+翠&KR0008;紅輕。
+時下凌霄百尺英。
+
+--- TITLE: 減字木蘭花 其11  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+琵琶絶藝。
+年記都來十一二。
+撥弄么絃。
+未解將心指下傳。
+[VERSE 2]
+主人嗔小。
+欲向東風先醉倒。
+已屬君家。
+且更從容等待他。
+
+--- TITLE: 減字木蘭花 其12  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+春牛春杖。
+無限春風來海上。
+便與春工。
+染得桃紅似肉紅。
+[VERSE 2]
+春幡春勝。
+一陣春風吹酒醒。
+不似天涯。
+捲起楊花似雪花。
+
+--- TITLE: 減字木蘭花 其13  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雪容皓白。
+破曉玉英紛似織。
+風力無端。
+欲學楊花更耐寒。
+[VERSE 2]
+相如未老。
+梁苑猶能陪俊少。
+莫惹閒愁。
+且折江梅上小樓。
+
+--- TITLE: 減字木蘭花 其14  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉房金蕋。
+宜在玉人纖手裏。
+淡月朦朧。
+更有微微弄袖風。
+[VERSE 2]
+溫香熟美。
+醉慢雲鬟垂兩耳。
+多謝春工。
+不是花紅是玉紅。
+
+--- TITLE: 減字木蘭花 其15  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+春庭月午。
+搖蕩香醪光欲舞。
+歩轉迴廊。
+半落梅花婉娩香。
+[VERSE 2]
+輕風薄霧。
+總是少年行樂處。
+不似秋光。
+只與離人照㫁腸。
+
+--- TITLE: 減字木蘭花 其16  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+天然宅院。
+賽了千千并萬萬。
+説與賢知。
+表德元來是勝之。
+[VERSE 2]
+今來十四。
+海裏猴兒奴子是。
+要睹休癡。
+六隻骰兒六點兒。
+
+--- TITLE: 減字木蘭花 其17  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+神閒意定。
+萬籟収聲天地静。
+玉指氷絃。
+未動宫商意已傳。
+[VERSE 2]
+悲風流水。
+寫出寥寥千古意。
+歸去無眠。
+一夜餘音在耳邊。
+
+--- TITLE: 減字木蘭花 其18  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+銀箏旋品。
+不用纒頭千尺錦。
+妙思如泉。
+一洗閒愁十五年。
+[VERSE 2]
+為公少止。
+起舞屬公公莫起。
+風裏銀山。
+擺撼魚龍我自閒。
+
+--- TITLE: 減字木蘭花 其19  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+柔和性氣。
+雅稱佳名呼懿懿。
+解舞能謳。
+絶妙年中有品流。
+[VERSE 2]
+眉長眼細。
+淡淡梳妝新綰髻。
+懊惱風情。
+春著花枝百態生。
+
+--- TITLE: 減字木蘭花 其20  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+鶯初解語。
+最是一年春好處。
+微雨如酥。
+草色遙看近却無。
+[VERSE 2]
+休辭醉倒。
+花不看開人易老。
+莫待春囘。
+顛倒紅英間綠苔。
+
+--- TITLE: 減字木蘭花 其21  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+江南遊女。
+問我何年歸得去。
+雨細風微。
+兩足如霜挽紵衣。
+[VERSE 2]
+江亭夜語。
+喜見京華新様舞。
+蓮歩輕飛。
+遷客今朝始是歸。
+
+--- TITLE: 減字木蘭花 其22  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+嬌多媚㬠。
+體柳輕盈千萬態。
+殢主尤賓。
+歛黛含嚬喜又嗔。
+[VERSE 2]
+徐君樂飲。
+笑謔從伊情意恁。
+臉嫩膚紅。
+花倚朱闌裹住風。
+
+--- TITLE: 減字木蘭花 其23  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雙鬟綠墜。
+嬌眼横波眉黛翠。
+妙舞蹁躚。
+掌上身輕意態妍。
+[VERSE 2]
+曲窮力困。
+笑倚人㫄香喘噴。
+老大逢歡。
+昏眼猶能仔細㸔。
+
+--- TITLE: 減字木蘭花 其24  [air: 減字木蘭花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+天真雅麗。
+容態溫柔心性慧。
+響亮歌喉。
+遏住行雲翠不収。
+[VERSE 2]
+妙詞佳曲。
+囀出新聲能㫁續。
+重客多情。
+滿勸金巵玉手擎。
+
+--- TITLE: 採桑子  [air: 採桑子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 採桑子 44字
+--- RHYME: 2.3.4.6.7.8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 採桑子
+[VERSE 1]
+多情多感仍多病，
+多景樓中。
+樽酒相逢。
+樂事囘頭一笑空。
+[VERSE 2]
+停盃且聽琵琶語，
+細撚輕攏。
+醉臉春融。
+斜照江天一抹紅。
+
+--- TITLE: 卜算子  [air: 卜算子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 卜算子
+[VERSE 1]
+蜀客到江南，
+長憶吳山好。
+吳蜀風流自古同，
+歸去應須早。
+[VERSE 2]
+還與去年人，
+共藉西湖草。
+莫惜尊前仔細看，
+應是容顏老。
+
+--- TITLE: 卜算子 其2  [air: 卜算子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+缺月挂疎桐，
+漏㫁人初靜。
+時見幽人獨往來，
+縹緲孤鴻影。
+[VERSE 2]
+驚起却囘頭，
+有恨無人省。
+揀盡寒枝不肯棲，
+寂寞沙洲冷。
+
+--- TITLE: 好事近  [air: 好事近]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 好事近
+[VERSE 1]
+紅粉莫悲啼，
+俯仰半年離别。
+看取雪堂坡下，
+老農夫凄切。
+[VERSE 2]
+明年春水漾桃花，
+柳㟁隘舟楫。
+從此滿城歌吹，
+看黄州闐咽。
+
+--- TITLE: 好事近 其2  [air: 好事近]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+煙外倚危樓，
+初見遠燈明滅。
+却跨玉虹歸去，
+看洞天星月。
+[VERSE 2]
+當時張范風流在，
+况一樽浮雪。
+莫問世間何事，
+與劎頭微吷。
+
+--- TITLE: 好事近 其3  [air: 好事近]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+湖上雨晴時，
+秋水半篙初沒。
+朱檻俯窺寒鑑，
+照衰顏華髪。
+[VERSE 2]
+醉中欲墮白綸巾，
+溪風漾流月。
+獨棹小舟歸去，
+任煙波飄兀。
+
+--- TITLE: 華清引  [air: 華清引]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 華清引 45字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 華清引
+[VERSE 1]
+平時十月幸蓮湯。
+玉甃瓊梁。
+五家車馬如水，
+珠璣滿路㫄。
+[VERSE 2]
+翠華一去掩方床。
+獨留煙樹蒼蒼。
+至今清夜月，
+依舊過繚牆。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+清淮濁汴。
+更在江西㟁。
+紅斾到時黄葉亂。
+霜入梁王故苑。
+[VERSE 2]
+秋原何處攜壺。
+停驂訪古踟蹰。
+雙廟遺風尚在，
+漆園傲吏應無。
+
+--- TITLE: 更漏子  [air: 更漏子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 更漏子 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/5.6/7.8.9/11.12
+--- JU: 1.4.10
+--- HEADING-AS-PRINTED: 更漏子
+[VERSE 1]
+水涵空，
+山照市。
+西漢二疎鄉里。
+新白髪，
+舊黄金。
+故人恩義深。
+[VERSE 2]
+海東頭。
+山盡處。
+自古客槎來去。
+槎有信，
+赴秋期。
+使君行不歸。
+
+--- TITLE: 佔春芳  [air: 佔春芳]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 佔春芳 46字
+--- RHYME: 3.5.6.7.9
+--- JU: 1.2.4.8
+--- HEADING-AS-PRINTED: 占春芳
+[VERSE 1]
+紅杏了，
+夭桃盡，
+獨自占春芳。
+不比人間蘭麝，
+自然透骨生香。
+[VERSE 2]
+對酒莫相忘。
+似佳人兼合明光。
+只憂長笛吹花落，
+除是寧王。
+
+--- TITLE: 烏夜啼  [air: 烏夜啼]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 烏夜啼 48字
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 烏夜啼
+[VERSE 1]
+莫怪歸心甚速，
+西湖自有蛾眉。
+若見故人須細説，
+白髪倍當時。
+[VERSE 2]
+小鄭非常強記，
+二南依舊能詩。
+更有鱸魚堪切膾，
+兒輩莫教知。
+
+--- TITLE: 阮郎歸  [air: 阮郎歸]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 阮郎歸 47字
+--- RHYME: 1.2.3.4.6.7.8.9
+--- JU: 5
+--- HEADING-AS-PRINTED: 阮郎歸
+[VERSE 1]
+綠槐高柳咽新蟬。
+薰風初入絃。
+碧紗窗下水沉煙。
+棊聲驚晝眠。
+[VERSE 2]
+微雨過，
+小荷翻。
+榴花開欲然。
+玉盆纖手弄清泉。
+瓊珠碎又圓。
+
+--- TITLE: 阮郎歸 其2  [air: 阮郎歸]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 阮郎歸 47字
+--- RHYME: 1.2.3.4.6.7.8.9
+--- JU: 5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+暗香浮動月黄昏。
+堂前一樹春。
+東風何事入西鄰。
+兒家常閉門。
+[VERSE 2]
+雪肌冷，
+玉容真。
+香腮粉未勻。
+折花欲寄隴頭人。
+江南日莫春。
+
+--- TITLE: 阮郎歸 其3  [air: 阮郎歸]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 阮郎歸 47字
+--- RHYME: 1.2.3.4.6.7.8.9
+--- JU: 5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一年三度過蘇臺。
+清尊長是開。
+佳人相問苦相猜。
+這囘來不來。
+[VERSE 2]
+情未盡，
+老先催。
+人生真可咍。
+他年桃李阿誰栽。
+劉郎雙鬢摧。
+
+--- TITLE: 西江月  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 西江月
+[VERSE 1]
+公子眼花亂發，
+老夫鼻觀先通。
+領巾飄下瑞香風。
+驚起謫仙春夢。
+[VERSE 2]
+后土祠中玉蕋，
+蓬萊殿後鞓紅。
+此花清絶更纖穠。
+把酒何人心動。
+
+--- TITLE: 西江月 其2  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+小院朱欄幾曲，
+重城畫鼓三通。
+更看微月轉光風。
+歸去香雲入夢。
+[VERSE 2]
+翠袖爭浮大白，
+皁羅半插斜紅。
+燈花零落酒花穠。
+妙語一時飛動。
+
+--- TITLE: 西江月 其3  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+恠此花枝怨泣，
+託君詩句名通。
+慿將草木記吳風。
+繼取相如雲夢。
+[VERSE 2]
+點筆袖沾醉墨，
+謗花面有慙紅。
+知君却是為情穠。
+怕見此花撩動。
+
+--- TITLE: 西江月 其4  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+聞道雙銜鳳帶，
+不妨單著鮫綃。
+夜香知與阿誰燒。
+悵望水沉煙裊。
+[VERSE 2]
+雲鬢風前綠巻，
+玉顔醉裡紅潮。
+莫教空度可憐宵。
+月與佳人共撩。
+
+--- TITLE: 西江月 其5  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+點點樓頭細雨，
+重重江外平湖。
+當年戲馬㑹東徐。
+今日凄涼南浦。
+[VERSE 2]
+莫恨黄花未吐，
+且教紅粉相扶。
+酒闌不必看茱萸。
+頫仰人間今古。
+
+--- TITLE: 西江月 其6  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+龍焙今年絶品，
+谷簾自古珍泉。
+雪芽雙井散神仙。
+苗裔來從北苑。
+[VERSE 2]
+湯發雲腴釅白，
+盞浮花乳輕圓。
+人間誰敢更爭妍。
+鬬取紅窗粉面。
+
+--- TITLE: 西江月 其7  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+别夢已隨流水，
+淚巾猶裛香泉。
+相如依舊是臞仙。
+人在瑤臺閬苑。
+[VERSE 2]
+花霧縈風縹緲，
+歌珠滴水清圓。
+蛾眉新作十分妍。
+走馬歸來便面。
+
+--- TITLE: 西江月 其8  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+世事一場大夢，
+人生幾度秋涼。
+夜來風葉已鳴廊。
+看取眉頭鬢上。
+[VERSE 2]
+酒賤常愁客少，
+月明多被雲妨。
+中秋誰與共孤光。
+把醆凄然北望。
+
+--- TITLE: 西江月 其9  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+莫歎平原落落，
+且應去魯遲遲。
+與君各記少年時。
+須信人生如寄。
+[VERSE 2]
+白髪千莖相送，
+深盃百罰休辭。
+拍浮何用酒為池。
+我已為君德醉。
+
+--- TITLE: 西江月 其10  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉骨那愁瘴霧，
+氷肌自有仙風。
+海仙時遣探芳樷。
+倒掛綠毛么鳳。
+[VERSE 2]
+素面翻嫌粉涴，
+洗妝不褪脣紅。
+高情已逐曉雲空。
+不與梨花同夢。
+
+--- TITLE: 西江月 其11  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+照野瀰瀰淺浪，
+横空曖曖微霄。
+障泥未解玉驄驕。
+我欲醉眠芳草。
+[VERSE 2]
+可惜一溪明月，
+莫教踏碎瓊瑤。
+解鞍欹枕綠楊橋。
+杜宇數聲春曉。
+
+--- TITLE: 西江月 其12  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+三過平山堂下，
+半生彈指聲中。
+十年不見老仙翁。
+壁上龍蛇飛動。
+[VERSE 2]
+欲弔文章太守，
+仍歌楊柳春風。
+休言萬事轉頭空。
+未轉頭時皆夢。
+
+--- TITLE: 西江月 其13  [air: 西江月]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+昨日扁舟京口，
+今朝馬首長安。
+舊官何物與新官。
+只有湖山公案。
+[VERSE 2]
+此景百年幾變，
+箇中下語千難。
+使君才氣巻波瀾。
+與把新詩判斷。
+
+--- TITLE: 望江南  [air: 望江南]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 望江南
+[VERSE 1]
+春未老，
+風細柳斜斜。
+試上超然臺上看，
+半壕春水一城花。
+煙雨暗千家。
+[VERSE 2]
+寒食後，
+酒醒却咨嗟。
+休對故人思故國，
+且將新火試新茶。
+詩酒趁年華。
+
+--- TITLE: 望江南 其2  [air: 望江南]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 望江南 54字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+春已老，
+春服幾時成。
+曲水浪低蕉葉穩，
+舞雩風軟苧羅輕。
+酣詠樂昇平。
+[VERSE 2]
+微雨過，
+何處不催耕。
+百舌無言桃李盡，
+柘枝深處鵓鴣鳴。
+春色屬蕪菁。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+林斷山明竹隱牆。
+亂蟬衰草小池塘。
+翻空白鳥時時見，
+照水紅蕖細細香。
+[VERSE 2]
+村舍外，
+古城傍。
+杖藜徐歩轉斜陽。
+慇懃昨夜三更雨，
+又得浮生一日涼。
+
+--- TITLE: 鷓鴣天 其2  [air: 鷓鴣天]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+笑撚紅牙嚲翠翹。
+揚州十里最妖嬈。
+夜來綺席親曾見，
+撮得精神滴滴嬌。
+[VERSE 2]
+嬌後眼，
+舞時腰。
+劉郎幾度欲魂消。
+明朝酒醒知何處，
+腸斷雲間紫玉簫。
+
+--- TITLE: 玉樓春  [air: 玉樓春]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 玉樓春
+[VERSE 1]
+霜餘已失長淮闊。
+空聽潺潺清瀨咽。
+佳人猶唱醉翁詞，
+四十三年如電抹。
+[VERSE 2]
+草頭秋露流珠滑。
+三五盈盈還二八。
+與予同是識翁人，
+惟有西湖波底月。
+
+--- TITLE: 玉樓春 其2  [air: 玉樓春]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+知君仙骨無寒暑。
+千載相逢猶旦暮。
+故將别語惱佳人，
+要看梨花枝上雨。
+[VERSE 2]
+落花已逐迴風去。
+花本無心鶯自訴。
+明朝歸路下塘西，
+不見鶯啼花落處。
+
+--- TITLE: 玉樓春 其3  [air: 玉樓春]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+梧桐葉上三更雨。
+驚破夢魂無覔處。
+夜涼枕簟已知秋，
+更聽寒蛩促機杼。
+[VERSE 2]
+夢中厯厯來時路。
+猶在江亭醉歌舞。
+尊前必有問君人，
+為道别來心與緒。
+
+--- TITLE: 玉樓春 其4  [air: 玉樓春]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+元宵似是歡遊好。
+何况公庭民訟少。
+萬家遊賞上春臺，
+十里神仙迷海島。
+[VERSE 2]
+平原不似高陽傲。
+促席雍容陪語笑。
+坐中有客最多情，
+不惜玉山拚醉倒。
+
+--- TITLE: 玉樓春 其5  [air: 玉樓春]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+經旬未識東君信。
+一夕薰風來解愠。
+紅綃衣薄麥秋寒，
+綠綺韻低梅雨潤。
+[VERSE 2]
+瓜頭綠染山光嫩。
+弄色金桃新傅粉。
+日高慵捲水晶簾，
+猶帶春醪紅玉困。
+
+--- TITLE: 玉樓春 其6  [air: 玉樓春]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+高平四面開雄壘。
+三月風光初覺媚。
+園中桃李使君家，
+城上亭臺遊客醉。
+[VERSE 2]
+歌翻楊柳金尊沸。
+飲散凭闌無限意。
+雲深不見玉關遙，
+草細山重殘照裏。
+
+--- TITLE: 鵲橋仙  [air: 鵲橋仙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 鵲橋仙 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.10
+--- JU: 1.2.4.6.7.9
+--- HEADING-AS-PRINTED: 鵲橋仙
+[VERSE 1]
+緱山仙子，
+高情雲𣺌，
+不學癡牛騃女。
+鳳簫聲斷月明中，
+舉手謝時人欲去。
+[VERSE 2]
+客槎曾犯，
+銀河微浪，
+尚帶天風海雨。
+相逢一醉是前縁，
+風雨散飄然何處。
+
+--- TITLE: 鵲橋仙 其2  [air: 鵲橋仙]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 鵲橋仙 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.10
+--- JU: 1.2.4.6.7.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+乘槎歸去，
+成都何在，
+萬里江沱漢漾。
+與君各賦一篇詩，
+留織女鴛鴦機上。
+[VERSE 2]
+還將舊曲，
+重賡新韻，
+須信吾儕天放。
+人生何處不兒嬉，
+看乞巧朱樓綵舫。
+
+--- TITLE: 瑞鷓鴣  [air: 瑞鷓鴣]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 瑞鷓鴣 56字
+--- RHYME: 1.2.4.6.8
+--- JU: 3.5.7
+--- HEADING-AS-PRINTED: 瑞鷓鴣
+[VERSE 1]
+碧山影裏小紅旗。
+儂是江南踏浪兒。
+拍手欲嘲山簡醉，
+齊聲爭唱浪婆詞。
+[VERSE 2]
+西興渡口㠶初落，
+漁浦山頭日未欹。
+儂欲送潮歌底曲，
+尊前還唱使君詩。
+
+--- TITLE: 瑞鷓鴣 其2  [air: 瑞鷓鴣]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 瑞鷓鴣 56字
+--- RHYME: 1.2.4.6.8
+--- JU: 3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+城頭月落尚啼烏。
+朱艦紅船早滿湖。
+鼓吹未容迎五馬，
+水雲先已漾雙鳬。
+[VERSE 2]
+映山黄帽螭頭舫，
+夾㟁青煙鵲尾爐。
+老病逢春只思睡，
+獨求僧榻寄須㬰。
+
+--- TITLE: 翻香令  [air: 翻香令]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 翻香令 56字
+--- RHYME: 1.2.5.6.7.10
+--- JU: 3.4.8.9
+--- HEADING-AS-PRINTED: 翻香令
+[VERSE 1]
+金爐猶㬉麝煤殘。
+惜香更把寳釵翻。
+重聞處，
+餘熏在，
+這一番氣味勝從前。
+[VERSE 2]
+背人偷葢小蓬山。
+更將沉水暗同燃。
+且圖得，
+氤氲乆，
+為情深嫌怕斷頭煙。
+
+--- TITLE: 虞美人  [air: 虞美人]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 虞美人
+[VERSE 1]
+定場賀老今何在。
+幾度新聲改。
+新聲坐使舊聲闌。
+俗耳只知繁手不須彈。
+[VERSE 2]
+斷弦試問誰能曉。
+七歲文姬小。
+試教彈作輥雷聲。
+應有開元遺老淚縱横。
+
+--- TITLE: 虞美人 其2  [air: 虞美人]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+歸心正似三春草。
+試著萊衣小。
+橘懐幾日向翁開。
+懐祖已嗔文度不歸來。
+[VERSE 2]
+禪心已斷人間愛。
+只有平交在。
+笑論瓜葛一枰同。
+看取靈光新賦有家風。
+
+--- TITLE: 虞美人 其3  [air: 虞美人]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+湖山信是東南美。
+一望須千里。
+使君能得幾囘來。
+便使樽前醉倒且徘徊。
+[VERSE 2]
+沙河塘裏燈初上。
+水調誰家唱。
+夜闌風靜欲歸時。
+惟有一江明月碧琉璃。
+
+--- TITLE: 虞美人 其4  [air: 虞美人]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+波聲拍枕長淮曉。
+隙月窺人小。
+無情忭水自東流。
+只載一船離恨向西州。
+[VERSE 2]
+竹溪花浦曾同醉。
+酒味多於淚。
+誰教風鑑在塵埃。
+醖造一場煩惱送人來。
+
+--- TITLE: 虞美人 其5  [air: 虞美人]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+落花已作風前舞。
+又送黄昏雨。
+曉來庭院半殘紅。
+惟有遊絲千丈裊晴空。
+[VERSE 2]
+慇懃花下重攜手。
+更盡盃中酒。
+美人不用歛歌眉。
+我亦多情無奈酒闌時。
+
+--- TITLE: 虞美人 其6  [air: 虞美人]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+氷肌自是生來瘦。
+那更分飛後。
+日長簾幙望黄昏。
+及至黄昏時候轉銷魂。
+[VERSE 2]
+君還知道相思苦。
+怎忍抛奴去。
+不辭迢逓過關山。
+只恐别郎容易見郎難。
+
+--- TITLE: 虞美人 其7  [air: 虞美人]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+深深庭院清明過。
+桃李初紅破。
+柳絲搭在玉欄干。
+簾外瀟瀟微雨做輕寒。
+[VERSE 2]
+晩晴臺榭增明媚。
+已拚花前醉。
+更闌人静月侵廊。
+獨自行來行去好思量。
+
+--- TITLE: 虞美人 其8  [air: 虞美人]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+持盃遙勸天邊月。
+願月圓無缺。
+持盃更復勸花枝。
+且願花枝長在莫離披。
+[VERSE 2]
+持盃月下花前醉。
+休問榮枯事。
+此歡能有幾人知。
+對酒逢花不飲待何時。
+
+--- TITLE: 一斛珠  [air: 一斛珠]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 一斛珠 57字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 一斛珠
+[VERSE 1]
+洛城春晩。
+垂楊亂掩紅樓半。
+小池輕浪紋如篆。
+燭下花前，
+曾醉離歌宴。
+[VERSE 2]
+自惜風流雲雨散。
+關山有限情無限。
+待君重見尋芳伴。
+為説相思，
+目斷西樓燕。
+
+--- TITLE: 醉落魄  [air: 醉落魄]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 醉落魄 57字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 醉落魄
+[VERSE 1]
+分攜如昨。
+人生到處萍飄泊。
+偶然相聚還離索。
+多病多愁，
+須信從來錯。
+[VERSE 2]
+樽前一笑休辭却。
+天涯同是傷淪落。
+故山猶負平生約。
+西望峨嵋，
+長羨歸飛鶴。
+
+--- TITLE: 醉落魄 其2  [air: 醉落魄]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 醉落魄 57字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+蒼頭華髮。
+故山歸計何時決。
+舊交新貴音書絶。
+惟有佳人，
+猶作殷勤别。
+[VERSE 2]
+離亭欲去歌聲咽。
+瀟瀟細雨涼吹頰。
+淚珠不用羅巾裛。
+彈在羅衣，
+圖得見時説。
+
+--- TITLE: 醉落魄 其3  [air: 醉落魄]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 醉落魄 57字
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+輕雲微月。
+二更酒醒船初發。
+孤城囘望蒼煙合。
+公子佳人，
+不記歸時節。
+[VERSE 2]
+巾偏扇墜藤床滑。
+覺來幽夢無人説。
+此生飄蕩何時歇。
+家在西南，
+長作東南别。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+花褪殘紅青杏了。
+燕子飛時，
+綠水人家繞。
+枝上柳綿吹又少。
+天涯何處無芳草。
+[VERSE 2]
+牆裏鞦韆牆外道。
+牆外行人，
+牆裏佳人笑。
+笑漸不聞聲漸悄。
+多情却被無情惱。
+
+--- TITLE: 蝶戀花 其2  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一顆櫻桃樊素口。
+不愛黄金，
+只愛人長乆。
+學畫鴉兒猶未就。
+眉尖已作傷春皺。
+[VERSE 2]
+撲蝶西園隨伴走。
+花落花開，
+漸解相思瘦。
+破鏡重圓人在否。
+章臺折盡青青柳。
+
+--- TITLE: 蝶戀花 其3  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雨過春容清更麗。
+只有幽人，
+幽恨終難洗。
+北固山前三面水。
+碧瓊梳擁青螺髻。
+[VERSE 2]
+一紙鄉書來萬里。
+問我何年，
+真箇成歸計。
+白首送春拚一醉。
+東風吹破千行淚。
+
+--- TITLE: 蝶戀花 其4  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+蓛蓛無風花自嚲。
+寂莫園林，
+柳老櫻桃過。
+落日多情還照座。
+山青一點横雲破。
+[VERSE 2]
+路盡河囘千轉柁。
+繫攬漁村，
+月暗孤燈火。
+慿仗飛魂招楚些。
+我思君處君思我。
+
+--- TITLE: 蝶戀花 其5  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+燈火錢塘三五夜。
+明月如霜，
+照見人如畫。
+帳底吹笙香吐麝。
+此般風味應無價。
+[VERSE 2]
+寂莫山城人老也。
+擊鼓吹簫，
+乍入農桑社。
+火冷燈希霜露下。
+昏昏雪意雲垂野。
+
+--- TITLE: 蝶戀花 其6  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+簾外東風交雨霰。
+簾裡佳人，
+笑語如鶯燕。
+深惜今年正月暖。
+燈光酒色搖金盞。
+[VERSE 2]
+摻鼓漁陽撾未遍。
+舞褪瓊釵，
+汗溼香羅軟。
+今夜何人吟古怨。
+清詩未就氷生硯。
+
+--- TITLE: 蝶戀花 其7  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+自古漣漪佳絶地。
+遶郭荷花，
+欲把吳興比。
+倦客塵埃何處洗。
+真君堂下寒泉水。
+[VERSE 2]
+左海門前酤酒市。
+夜半潮來，
+月下孤舟起。
+傾葢相逢拚一醉。
+雙鳬飛去人千里。
+
+--- TITLE: 蝶戀花 其8  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雲水縈囘溪上路。
+疉疉青山，
+環繞溪東注。
+月白沙汀翹宿鷺。
+更無一點塵來處。
+[VERSE 2]
+溪叟相看私自語。
+底事區區，
+苦要為官去。
+尊酒不空田百畝。
+歸來分得閒中趣。
+
+--- TITLE: 蝶戀花 其9  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+春事闌珊芳草歇。
+客裏風光，
+又過清明節。
+小院黄昏人憶別。
+落紅處處聞啼鴂。
+[VERSE 2]
+咫尺江山分楚越。
+目斷魂消，
+應是音塵絶。
+夢破五更心欲折。
+角聲吹落梅花月。
+
+--- TITLE: 蝶戀花 其10  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+別酒勸君君一醉。
+清潤潘郎，
+又是何郎壻。
+記取釵頭新利市。
+莫將分付東鄰子。
+[VERSE 2]
+囘首長安佳麗地。
+三十年前，
+我是風流帥。
+為向青樓尋舊事。
+花枝缺處餘名字。
+
+--- TITLE: 蝶戀花 其11  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+泛泛東風初破五。
+江柳微黄，
+萬萬千千縷。
+佳氣鬱蔥來繡戸。
+當年江上生竒女。
+[VERSE 2]
+一盞壽觴誰與舉。
+三箇明珠，
+膝上王文度。
+放盡窮鱗看圉圉。
+天公為下曼陀雨。
+
+--- TITLE: 蝶戀花 其12  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+記得畫堂初㑹遇。
+好夢驚囘，
+望㫁高唐路。
+燕子雙飛來又去。
+紗窗幾度春光暮。
+[VERSE 2]
+那日繡簾相見處。
+低眼佯行，
+笑整香雲縷。
+斂盡春山羞不語。
+人前深意難輕訴。
+
+--- TITLE: 蝶戀花 其13  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+昨夜秋風來萬里。
+月上屏幃，
+冷透人衣袂。
+有客抱衾愁不寐。
+那堪玉漏長如歲。
+[VERSE 2]
+羇舍留連歸計未。
+夢㫁魂銷，
+一枕相思淚。
+衣帶漸寛無別意。
+新書報我添顦顇。
+
+--- TITLE: 蝶戀花 其14  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉枕氷寒消暑氣。
+碧簟紗厨，
+向午朦朧睡。
+鶯舌惺憁如㑹意。
+無端畫扇驚飛起。
+[VERSE 2]
+雨後初涼生水際。
+人面桃花，
+的的遙相似。
+眼看紅芳猶抱蕋。
+樷中已結新蓮子。
+
+--- TITLE: 蝶戀花 其15  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+雨霰疎疎經潑火。
+巷陌鞦韆，
+猶未清明過。
+杏子梢頭香蕾破。
+淡紅褪白胭脂涴。
+[VERSE 2]
+苦被多情相折挫。
+病緒厭厭，
+渾似年時過。
+遶遍迴廊還獨坐。
+月籠雲暗重門鎖。
+
+--- TITLE: 蝶戀花 其16  [air: 蝶戀花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+蝶嬾鶯慵春過半。
+花落狂風，
+小院殘紅滿。
+午醉未醒紅日晩。
+黄昏簾幙無人捲。
+[VERSE 2]
+雲鬢鬅鬆眉黛淺。
+總是愁媒，
+欲訴誰消遣。
+未信此情難繫絆。
+楊花猶有東風管。
+
+--- TITLE: 荷華媚  [air: 荷華媚]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 荷華媚 60字
+--- RHYME: 1.2.5.8.11
+--- JU: 3.4.6.7.9.10
+--- HEADING-AS-PRINTED: 荷華媚
+[VERSE 1]
+霞苞霓荷碧。
+天然地別是風流標格。
+重重青葢下，
+千嬌照水，
+好紅紅白白。
+[VERSE 2]
+每恨望明月清風夜，
+甚低迷不語，
+妖邪無力。
+終須放船兒去，
+清香深處，
+住看伊顔色。
+
+--- TITLE: 漁家傲  [air: 漁家傲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 漁家傲
+[VERSE 1]
+千古龍蟠并虎踞。
+從公一弔興亡處。
+𣺌𣺌斜風吹細雨。
+芳草渡。
+江南父老留公住。
+[VERSE 2]
+公駕飛車凌彩霧。
+紅鸞驂椉青鸞馭。
+却訝此洲名白鷺。
+非吾侶。
+翻然欲下還飛去。
+
+--- TITLE: 漁家傲 其2  [air: 漁家傲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+送客歸來燈火盡。
+西樓淡月涼生暈。
+明日潮來無定凖。
+風未穩。
+舟横渡口重城近。
+[VERSE 2]
+江水似知孤客恨。
+南風為解佳人愠。
+莫學時流輕久困。
+頻寄問。
+錢塘江上須忠信。
+
+--- TITLE: 漁家傲 其3  [air: 漁家傲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+皎皎牽牛河漢女。
+盈盈臨水無由語。
+望㫁碧雲空日暮。
+無尋處。
+夢囘芳草生春浦。
+[VERSE 2]
+鳥散餘花紛似雨。
+汀洲蘋老香風度。
+明月多情來照戸。
+但攬取。
+清光長送人歸去。
+
+--- TITLE: 漁家傲 其4  [air: 漁家傲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一曲陽關情幾許。
+知君欲向秦川去。
+白馬皂貂留不住。
+囘首處。
+孤城不見天霖霧。
+[VERSE 2]
+到日長安花似雨。
+故關楊柳初飛絮。
+漸見靴刀迎夾路。
+誰得似。
+風流膝上王文度。
+
+--- TITLE: 漁家傲 其5  [air: 漁家傲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+些小白鬚何用染。
+幾人得見星星點。
+作郡浮光雖似箭。
+君莫厭。
+也應勝我三年貶。
+[VERSE 2]
+我欲自嗟還不敢。
+向來三郡寧非忝。
+婚嫁事稀年冉冉。
+知有漸。
+千鈞重擔從頭減。
+
+--- TITLE: 漁家傲 其6  [air: 漁家傲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 漁家傲 62字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5.6.7.8.9.10
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+臨水縱横囘晩鞚。
+歸來轉覺情懷動。
+梅笛煙中聞幾弄。
+秋陰重。
+西山雪淡雲凝凍。
+[VERSE 2]
+美酒一盃誰與共。
+尊前舞雪狂歌送。
+腰跨金魚旌斾擁。
+將何用。
+衹堪妝點浮生夢。
+
+--- TITLE: 十拍子  [air: 十拍子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 十拍子 62字
+--- RHYME: 2.4.5.7.9.10
+--- JU: 1.3.6.8
+--- HEADING-AS-PRINTED: 十拍子
+[VERSE 1]
+白酒新開九醖，
+黄花已過重陽。
+身外儻來都似夢，
+醉裏無何即是鄉。
+東坡日月長。
+[VERSE 2]
+玉粉旋烹茶乳，
+金虀新擣橙香。
+強染霜髭扶翠袖，
+莫道狂夫不解狂。
+狂夫老更狂。
+
+--- TITLE: 蘇幕遮  [air: 蘇幕遮]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 蘇幕遮 62字
+--- RHYME: 2.4.5.7.9.11.12.14
+--- JU: 1.3.6.8.10.13
+--- HEADING-AS-PRINTED: 蘇幙遮
+[VERSE 1]
+暑籠晴，
+風解愠。
+雨後餘清，
+暗襲衣裾潤。
+一局選仙逃暑困。
+笑指尊前，
+誰向青霄近。
+[VERSE 2]
+整金盆，
+輪玉笋。
+鳳駕鸞車，
+誰敢爭先進。
+重五休言升最𦂳。
+縱有碧油，
+到了輸堂印。
+
+--- TITLE: 行香子  [air: 行香子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 行香子
+[VERSE 1]
+綺席纔終，
+歡意猶濃。
+酒闌時高興無窮。
+共誇君賜，
+初拆臣封。
+看分香餅，
+黄金縷，
+密雲龍。
+[VERSE 2]
+鬬贏一水，
+功敵千鍾，
+覺涼生兩腋清風。
+暫留紅袖，
+少却紗籠。
+放笙歌散，
+庭館静，
+略從容。
+
+--- TITLE: 行香子 其2  [air: 行香子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+三入承明，
+四至九卿。
+問書生何辱何榮。
+金張七葉，
+紈綺貂纓。
+無汗馬事，
+不獻賦，
+不明經。
+[VERSE 2]
+成都卜肆，
+寂莫君平，
+鄭子真巖谷躬耕。
+寒灰炙手，
+人重人輕。
+除竺乾學，
+得無念，
+得無名。
+
+--- TITLE: 行香子 其3  [air: 行香子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+清夜無塵，
+月色如銀。
+酒斟時須滿十分。
+浮名浮利，
+休苦勞神。
+歎隙中駒，
+石中火，
+夢中身。
+[VERSE 2]
+雖抱文章，
+開口誰親，
+且陶陶樂盡天真。
+幾時歸去，
+作箇閒人。
+對一張琴，
+一壺酒，
+一溪雲。
+
+--- TITLE: 行香子 其4  [air: 行香子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+涼夜霜風，
+先入梧桐。
+渾無處囘避衰容。
+問公何事，
+不語書空。
+但一囘醉，
+一囘病，
+一囘慵。
+[VERSE 2]
+秋來庭下，
+光陰如箭，
+似無言有意傷儂。
+都將萬事，
+付與千鍾。
+任酒花白，
+眼花亂，
+燭花紅。
+
+--- TITLE: 行香子 其5  [air: 行香子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+攜手江村，
+梅雪飄裙。
+情何限處處銷魂。
+故人不見，
+舊曲重聞。
+向望湖樓，
+孤山寺，
+湧金門。
+[VERSE 2]
+尋常行處，
+題詩千首，
+繡羅衫與拂紅塵。
+別來相憶，
+知是何人。
+有湖中月，
+江邊柳，
+隴頭雲。
+
+--- TITLE: 行香子 其6  [air: 行香子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+一葉舟輕，
+雙槳鴻驚。
+水天清影湛波平。
+魚翻藻鑑，
+鷺點煙汀。
+過沙溪急，
+霜溪冷，
+月溪明。
+[VERSE 2]
+重重似畫，
+曲曲如屏，
+算當年空老嚴陵。
+君臣一夢，
+今古虚名。
+但遠山長，
+雲山亂，
+曉山青。
+
+--- TITLE: 行香子 其7  [air: 行香子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 行香子 66字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3.5.8.11.13.16
+--- JU: 1.4.6.7.9.10.12.14.15
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+北望平川，
+野水荒灣。
+共尋春飛歩孱顔。
+和風弄袖，
+香霧縈鬟。
+正酒酣適，
+人語笑，
+白雲間。
+[VERSE 2]
+飛鴻落照，
+相將歸去，
+澹娟娟玉宇清閒。
+何人無事，
+晏坐空山。
+望長橋上，
+燈火亂，
+使君還。
+
+--- TITLE: 青玉案  [air: 青玉案]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 青玉案 67字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.9.11.12
+--- JU: 4.10
+--- HEADING-AS-PRINTED: 青玉案
+[VERSE 1]
+三年枕上吳中路。
+遣黄耳隨君去。
+若到松江呼小渡。
+莫驚鷗鷺，
+四橋盡是。
+老子經行處。
+[VERSE 2]
+輞川圖上看春莫。
+常記高人右丞句。
+作箇歸期天已許。
+春衫猶是，
+小蠻針線。
+曾溼西湖雨。
+
+--- TITLE: 江城子  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 江城子
+[VERSE 1]
+夢中了了醉中醒。
+只淵明。
+是前生。
+走遍人間依舊却躬耕。
+昨夜東坡春雨足，
+烏鵲喜，
+報新晴。
+[VERSE 2]
+雪堂西畔暗泉鳴。
+北山傾。
+小溪横。
+南望亭邱孤秀聳曾城。
+都是斜川當日境，
+吾老矣，
+寄餘齡。
+
+--- TITLE: 江城子 其2  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+翠蛾羞黛怯人看。
+掩霜紈。
+淚偷彈。
+且盡一尊収淚唱陽關。
+謾道帝城天樣遠，
+天易見，
+見君難。
+[VERSE 2]
+畫堂新搆近孤山。
+曲欄干。
+為誰安。
+飛絮落花春色屬明年。
+欲棹小舟尋舊事，
+無處問，
+水連天。
+
+--- TITLE: 江城子 其3  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+鳳皇山下雨初晴。
+水風清。
+晩霞明。
+一朶芙蕖開過尚盈盈。
+何處飛來雙白鷺，
+如有意，
+慕娉婷。
+[VERSE 2]
+忽聞江上弄哀筆。
+苦含情。
+遣誰聽。
+烟斂雲収依約是湘靈。
+欲待曲終尋問取，
+人不見，
+數峰青。
+
+--- TITLE: 江城子 其4  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+老夫聊發少年狂。
+左牽黄。
+右擎蒼。
+錦帽貂裘千騎巻平岡。
+為報傾城隨太守，
+親射虎，
+看孫郎。
+[VERSE 2]
+酒酣胷膽尚開張。
+鬢微霜。
+又何妨。
+持節雲中何日遣馮唐。
+㑹挽雕弓如滿月，
+西北望，
+射天狼。
+
+--- TITLE: 江城子 其5  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+天涯流落思無窮。
+旣相逢。
+却匆匆。
+攜手佳人和淚折殘紅。
+為問東風餘幾許，
+春縱在，
+與誰同。
+[VERSE 2]
+隋堤三月水溶溶。
+背歸鴻。
+去吳中。
+囘望彭城清泗與淮通。
+寄我相思千點淚，
+流不到，
+楚江東。
+
+--- TITLE: 江城子 其6  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+相逢不覺又初寒。
+對尊前。
+惜流年。
+風𦂳離亭氷結淚珠圓。
+雪意留君君且住，
+從此去，
+少清歡。
+[VERSE 2]
+轉頭山下轉頭看。
+路漫漫。
+玉花翻。
+銀海光寛何處是超然。
+知道故人相念否，
+攜翠袖，
+倚朱欄。
+
+--- TITLE: 江城子 其7  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+黄昏猶是雨纖纖。
+曉開簾。
+欲平簷。
+江濶天低無處認青帘。
+孤坐凍吟誰伴我，
+揩病目，
+撚衰髯。
+[VERSE 2]
+使君留客醉厭厭。
+水晶鹽。
+為誰甜。
+手把梅花東望憶陶潛。
+雪似故人人似雪，
+雖可愛，
+有人嫌。
+
+--- TITLE: 江城子 其8  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+玉人家在鳳皇山。
+水雲間。
+掩門閒。
+門外行人立馬看弓彎。
+十里春風誰指似，
+斜日映，
+繡簾斑。
+[VERSE 2]
+多情好事與君還。
+憫新鰥。
+拭餘潸。
+明月空江香霧著雲鬟。
+陌上花開看盡也，
+聞舊曲，
+破朱顔。
+
+--- TITLE: 江城子 其9  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+十年生死兩茫茫。
+不思量。
+自難忘。
+千里孤墳無處話凄涼。
+縱使相逢應不識，
+塵滿面，
+鬢如霜。
+[VERSE 2]
+夜來幽夢忽還鄉。
+小軒窗。
+正梳妝。
+相顧無言惟有淚千行。
+料得年年腸㫁處，
+明月夜，
+短松岡。
+
+--- TITLE: 江城子 其10  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+銀濤無際巻蓬瀛。
+落霞明。
+暮雲平。
+曾見青鸞紫鳳下層城。
+二十五絃彈不盡，
+空感慨，
+惜離情。
+[VERSE 2]
+蒼梧烟水㫁歸程。
+巻霓旌。
+為誰迎。
+空有千行流淚寄幽貞。
+舞罷魚龍雲海晩，
+千古恨，
+入江聲。
+
+--- TITLE: 江城子 其11  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+前瞻馬耳九仙山。
+碧連天。
+晩雲間。
+城上高臺真箇是超然。
+莫使匆匆雲雨散，
+今夜裏，
+月嬋娟。
+[VERSE 2]
+小溪鷗鷺静聨拳。
+去翩翩。
+點輕煙。
+人事凄涼迴首便他年。
+莫忘使君歌笑處，
+垂柳下，
+矮槐前。
+
+--- TITLE: 江城子 其12  [air: 江城子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 江城子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+墨雲拖雨過西樓。
+水東流。
+晩煙収。
+柳外殘陽囘照動簾鈎。
+今夜巫山真箇好，
+花未落，
+酒新篘。
+[VERSE 2]
+美人微笑轉星眸。
+月華羞。
+捧金甌。
+歌扇縈風吹散一春愁。
+試問江南諸伴侣，
+誰似我，
+醉揚州。
+
+--- TITLE: 千秋歲  [air: 千秋歲]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 千秋歲 71字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.6.8.9.10.12.14.16
+--- JU: 3.5.7.11.13.15
+--- HEADING-AS-PRINTED: 千秋歲
+[VERSE 1]
+淺霜侵緑。
+髮少仍新沐。
+冠直縫，
+巾横幅。
+美人憐我老，
+玉手簪黄菊。
+秋露重，
+真珠落袖沾餘馥。
+[VERSE 2]
+座上人如玉。
+花映花奴肉。
+蜂蝶亂，
+飛相逐。
+明年人縱健，
+此㑹應難復。
+須細㸔，
+晩來月上和銀燭。
+
+--- TITLE: 河滿子  [air: 河滿子]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 河滿子 74字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8.10.12
+--- JU: 1.3.5.7.9.11
+--- HEADING-AS-PRINTED: 河滿子
+[VERSE 1]
+見説岷峨悽愴，
+旋聞江漢澄清。
+但覺秋來歸夢好，
+西南自有長城。
+東府三人最少，
+西山八國初平。
+[VERSE 2]
+莫負花溪縱賞，
+何妨藥市微行。
+試問當壚人在否，
+空敎是處聞名。
+唱著子淵新曲，
+應須分外含情。
+
+--- TITLE: 祝英臺近  [air: 祝英臺近]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 祝英臺近 77字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.9.11.13.16
+--- JU: 1.2.4.6.7.10.12.14.15
+--- HEADING-AS-PRINTED: 祝英臺近
+[VERSE 1]
+挂輕㠶，
+飛急槳，
+還過釣臺路。
+酒病無聊，
+欹枕聽鳴櫓。
+斷腸簇簇雲山，
+重重煙樹，
+囘首望孤城何處。
+[VERSE 2]
+間離阻。
+誰念縈損襄王，
+何曾夢雲雨。
+舊恨前歡，
+心事兩無據。
+要知欲見無由，
+癡心猶自，
+倩人道一聲傳語。
+
+--- TITLE: 一叢花  [air: 一叢花]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 一叢花 78字
+--- RHYME: 1.2.4.7.8.9.11.14
+--- JU: 3.5.6.10.12.13
+--- HEADING-AS-PRINTED: 一叢花
+[VERSE 1]
+今年春淺臘侵年。
+氷雪破春妍。
+東風有信無人見，
+露微意柳際花邊。
+寒夜縱長，
+孤衾易㬉，
+鐘鼓漸清圓。
+[VERSE 2]
+朝來初日半含山。
+樓閣淡疎煙。
+遊人便作尋芳計，
+小桃杏應已爭先。
+衰病少情，
+疎慵自放，
+惟愛日高眠。
+
+--- TITLE: 勸金船  [air: 勸金船]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 勸金船 88字
+--- RHYME: 1.2.3.4.6.8.9.10.11.12.14.16
+--- JU: 5.7.13.15
+--- HEADING-AS-PRINTED: 勸金船
+[VERSE 1]
+無情流水多情客。
+勸我如曾識。
+盃行到手休辭却。
+這公道難得。
+曲水池上，
+小字更書年月。
+如對茂林脩竹，
+似永和節。
+[VERSE 2]
+纖纖素手如霜雪。
+笑把秋花插。
+尊前莫怪歌聲咽。
+又還是輕別。
+此去翺翔，
+遍賞玉堂金闕。
+欲問再來何歲，
+應有華髮。
+
+--- TITLE: 意難忘  [air: 意難忘]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 意難忘 92字
+--- RHYME: 1.3.5.6.7.9.10.12.14.15.16.18
+--- JU: 2.4.8.11.13.17
+--- HEADING-AS-PRINTED: 意難忘
+[VERSE 1]
+花擁鴛房。
+記駞肩髻小，
+約鬢眉長。
+輕身翻燕舞，
+低語轉鶯簧。
+相見處便難忘。
+肯親度瑤觴。
+向夜闌歌翻郢曲，
+帶換韓香。
+[VERSE 2]
+別來音信難將。
+似雲収楚峽，
+雨散巫陽。
+相逢情有在，
+不語意難量。
+些箇事㫁人腸。
+怎禁得恓惶。
+待與伊移根換葉，
+試又何妨。
+
+--- TITLE: 雨中花慢  [air: 雨中花慢]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 雨中花慢 97字
+--- RHYME: 3.5.8.9.11.13.15.17.18.20
+--- JU: 1.2.4.6.7.10.12.14.16.19
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+嫩臉羞蛾因甚，
+化作行雲，
+却返巫陽。
+但有寒燈孤枕，
+皓月空牀。
+長記當初，
+乍諧雲雨，
+便學鸞皇。
+又豈料正好。
+三春桃李，
+一夜風霜。
+[VERSE 2]
+丹青畫無言無笑，
+看了謾結愁腸。
+襟袖上猶存殘黛，
+漸減餘香。
+一自醉中忘了，
+奈何酒後思量。
+算應負你。
+枕前珠涙，
+萬㸃千行。
+
+--- TITLE: 八聲甘州  [air: 八聲甘州]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 八聲甘州 97字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.5.7.9.12.14.16.18
+--- JU: 1.3.4.6.8.10.11.13.15.17
+--- HEADING-AS-PRINTED: 八聲甘州
+[VERSE 1]
+有情風萬里巻潮來，
+無情送潮歸。
+問錢塘江上，
+西興浦口，
+幾度斜暉。
+不用思量今古，
+俯仰昔人非。
+誰似東坡老，
+白首忘機。
+[VERSE 2]
+記取西湖西畔，
+正算山好處，
+空翠煙霏。
+算詩人相得，
+如我與君稀。
+約他年東還海道，
+願謝公雅志莫相違。
+西州路不應囘首，
+為我沾衣。
+
+--- TITLE: 歸朝歡  [air: 歸朝歡]
+--- AUTHOR: 蘇軾
+--- SOURCE: KR4j0005 東坡詞 / JUAN 東坡詞
+--- GE: 欽定詞譜 歸朝歡 104字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.9.10.11.13.14.15.18
+--- JU: 3.7.8.12.16.17
+--- HEADING-AS-PRINTED: 歸朝歡
+[VERSE 1]
+我夢扁舟浮震澤。
+雪浪搖空千頃白。
+覺來滿眼是廬山，
+倚天無數開青壁。
+此生長接淅。
+與君同是江南客。
+夢中遊，
+覺來清賞，
+同作飛梭擲。
+[VERSE 2]
+明日西風還挂席。
+唱我新詞淚沾臆。
+靈均去後楚山空，
+澧陽蘭芷無顔色。
+君才如夢得。
+武陵更在西南極。
+竹枝詞，
+莫搖新唱，
+誰謂古今隔。

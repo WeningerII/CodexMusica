@@ -1,0 +1,15 @@
+{
+  "_note": "Bars, not stanzas. Section length is arbitrary and lines-per-section is EMERGENT from where lines fall on the grid — there is deliberately no 'lines' field. The old blueprint here was six 4-line sections, which is the shape quality/grid.py:stanza_lock() now names as a defect. The scheme below is ONE partition over all 22 lines of the song, not a scheme per section; rhymes cross sections on purpose.",
+  "meter_default": "4/4",
+  "sections": [
+    { "name": "intro", "bars": 5, "meter": "4/4" },
+    { "name": "verse", "bars": 11, "meter": "4/4" },
+    { "name": "turn", "bars": 3, "meter": "7/8" },
+    { "name": "chorus", "bars": 14, "meter": "4/4" },
+    { "name": "verse", "bars": 9, "meter": "4/4" },
+    { "name": "break", "bars": 6, "meter": "6/8" },
+    { "name": "chorus", "bars": 14, "meter": "4/4" },
+    { "name": "coda", "bars": 19, "meter": "5/4" }
+  ],
+  "scheme": "ABCADEBFDGCHEIFAJGKBHA"
+}

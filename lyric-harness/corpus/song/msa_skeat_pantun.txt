@@ -1,0 +1,1357 @@
+# author: ANONYMOUS Malay oral tradition. Recorded and printed by Walter William
+#         Skeat (1866-1953). No named Malay poet: these are collected charms and
+#         quatrains, so the provenance route is (3) VERIFIED PUBLICATION YEAR for
+#         an anonymous work, not (2) author death -- see quality/provenance.py.
+# source: GITenberg/Malay-Magic-Being-an-introduction-to-the-folklore-and-popular-religion-of-the-Malay-Peninsula_47873
+#         47873-8.txt  md5 19e717af1a18fbc845e5c6a386fdaa4d  sha256 149a2b77a583981c...
+#         1,422,204 bytes, 31,086 lines, ISO-8859-1, CRLF. Byte-identical to the
+#         file recorded in data/sources.tsv row GITenberg/Malay-Magic_47873.
+# licence: public domain. Printed title page in the file (lines 69-72):
+#         'MACMILLAN AND CO., Limited / NEW YORK: THE MACMILLAN COMPANY / 1900'.
+#         GITenberg metadata.yaml rights: 'Public domain in the USA.',
+#         rights_url creativecommons.org/about/pdm. 1900 clears the 1931 cutoff
+#         outright.
+# edition: London: Macmillan, 1900, FIRST edition -- named by the file's own title
+#         page, not inferred. The transcription is Jeroen Hellingman / Distributed
+#         Proofreaders (PG 47873, 2015) from Internet Archive page images. Doctrine
+#         80: the author gate here is trivial and the EDITION is the binding one,
+#         so what matters is that this transcription DOES NOT MODERNISE (below).
+# orthography: pre-1972 British-Malayan (Straits / Wilkinson-Swettenham) Rumi,
+#         UNNORMALISED, and that is the point. Doctrine 70: Malay /u/ and /i/ LOWER
+#         to [o] and [e] in a final closed syllable, so this spelling writes the
+#         SURFACE form (burong, jatoh, adek, dudok) and modern Ejaan Rumi Baharu
+#         restored the underlying phoneme. Rhyme is a fact about surface sound, so
+#         the OLDER spelling is the better guide and modernising would destroy the
+#         constraint. Verified on this file, not assumed -- word-final -ung and -uk
+#         occur ZERO times against 25 -ong and 24 -ok tokens; ZERO Dutch markers
+#         (no oe, no dj/tj/nj-for-ny), so this is not van Ophuijsen.
+#         Other Straits conventions kept as printed: ch = modern c; ei = modern ai;
+#         ka-/sa- = ke-/se-; hyphenated di- and -nya; ' and ` for hamzah/`ayn.
+# structure: one quatrain per block, tagged by FORM rather than filtered
+#         (doctrine 24 -- relabel, never delete):
+#           [PANTUN ABAB]   lines 1&3 rhyme, 2&4 rhyme, and the two classes do
+#                           NOT rhyme with each other. This is the pantun, a SUNG
+#                           quatrain form; Skeat certifies it himself, fn.[431]:
+#                           'They are in the pantun form, and accordingly there is
+#                           little connection discernible between the first and the
+#                           second half of the quatrain; the latter always contains
+#                           the actual point' -- the pembayang/maksud split.
+#           [QUATRAIN AAAA] all four end words rhyme with one another. In Malay
+#                           that is the SYAIR pattern; in Skeat's material it is
+#                           usually a mantera/jampi formula repeating a phrase.
+#                           Marked, not dropped.
+#         '--- RIME' records the two mandated pairs with the relation type
+#         quality/phonology/msa.py assigns and its echo depth; '--- SYLLABLES'
+#         records the per-line syllable count (None = a word the module refuses).
+#         '--- SOURCE' gives the 1-based line span in 47873-8.txt, so every block
+#         is checkable against the bytes.
+# caveat: STATED PLAINLY, as in the sources row. This is CHARM VERSE (mantera,
+#         jampi) that USES the pantun form, embedded in an English folklore
+#         monograph. It is NOT a curated pantun anthology and it does not replace
+#         Wilkinson & Winstedt, *Pantun Melayu* (1914), which is admissible and
+#         still egress-blocked (OTA handle 20.500.12024/0376 re-probed 2026-08-10:
+#         'curl (56) CONNECT tunnel failed, response 403').
+# selection: reproducible by scratch/src_msa/extract_pantun.py + stage_pantun.py.
+#         Blocks = maximal runs of lines indented >= 4 (705 blocks, 5,555 lines);
+#         Malay blocks = those whose Malay function-word count exceeds their
+#         English one (330 blocks, 3,442 lines); segments = consecutive
+#         non-overlapping fours (744); kept = those where BOTH mandated pairs
+#         rhyme under msa.abab at editorial_parentheses='drop'.
+#         THE COUNT DISAGREES WITH data/sources.tsv AND IS NOT TUNED TO IT: that
+#         row records 82 ABAB at 'keep' / 80 at 'drop'; this independent
+#         implementation gets 131 / 129, of which 90 / 88 are true ABAB once
+#         monorhyme quatrains are separated out. The keep-minus-drop DELTA
+#         reproduces exactly (2 in both), so the editorial-parenthesis finding of
+#         doctrine 58 stands; the absolute count is a coordinate of a
+#         FUNCTION-WORD LIST that the earlier run never wrote down. Doctrine 58
+#         again, third instance.
+
+--- TITLE: quatrain 001
+--- SOURCE: PG47873 lines 3379-3382
+--- RIME: A sakti/hati (RIME_RICHE, echo 1) | B awan/tuan (RHYME, echo 0)
+--- SYLLABLES: [None, 10, 10, 10]
+[PANTUN ABAB]
+"Chandrawasi burong sakti,
+Sangat berkurong didalam awan.
+Gonda gulana didalam hati,
+Sahari tidak memandang tuan. [225]
+
+--- TITLE: quatrain 002
+--- SOURCE: PG47873 lines 3516-3519
+--- RIME: A anjing-nia/anjing-nia (REPEAT, echo 4) | B anjing-nia/sumpitan-nia (RIME_RICHE, echo 2)
+--- SYLLABLES: [9, 9, 11, 12]
+[QUATRAIN AAAA]
+Si Nibong nama anjing-nia,
+Si Pintas nama anjing-nia,
+Si Aru-Aru nama anjing-nia,
+Timiang Balu nama sumpitan-nia,
+
+--- TITLE: quatrain 003
+--- SOURCE: PG47873 lines 5517-5520
+--- RIME: A iring-iring/beriring (RIME_RICHE, echo 1) | B panggil-panggil/memanggil (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 9, 10, 11]
+[PANTUN ABAB]
+"Arak-arak iring-iring
+Kembang bunga si Panggil-Panggil,
+Datang berarak, datang beriring,
+Raja Suleiman datang memanggil.
+
+--- TITLE: quatrain 004
+--- SOURCE: PG47873 lines 17447-17450
+--- RIME: A 'ijrail/'ijrail (REPEAT, echo 3) | B bumi/bumi (REPEAT, echo 2)
+--- SYLLABLES: [8, 11, 8, 9]
+[PANTUN ABAB]
+Pergi mendapat `Ijrail, [813]
+Tiada juga dapat hati Bumi.
+Pergi mendapat `Ijrail, [814]
+Bharu-lah dapat hati Bumi.
+
+--- TITLE: quatrain 005
+--- SOURCE: PG47873 lines 17686-17689
+--- RIME: A 'alam/'alam (REPEAT, echo 2) | B 'alam/'alam (REPEAT, echo 2)
+--- SYLLABLES: [None, 11, 17, 17]
+[QUATRAIN AAAA]
+Hei S'ri `Alam, Si Gentar `Alam
+Sheikh `Alam, Dato' Si Putar `Alam,
+Yang diam di kandang besi puteh ampat penjuru `alam:
+Yang diam di kandang hulubalang ampat penjuru `alam:
+
+--- TITLE: quatrain 006
+--- SOURCE: PG47873 lines 17756-17759
+--- RIME: A tawar/tawar (REPEAT, echo 2) | B tawar/tawar (REPEAT, echo 2)
+--- SYLLABLES: [14, 11, 13, 11]
+[QUATRAIN AAAA]
+Toh Sheikh Puteh Gigi yang punya tepong tawar;
+Bukan aku yang punya tepong tawar,
+Dato' La'ailbau yang punya tepong tawar;
+Bukan aku yang punya tepong tawar,
+
+--- TITLE: quatrain 007
+--- SOURCE: PG47873 lines 17769-17772
+--- RIME: A jati/padi (RHYME, echo 0) | B berkati-kati/menjadi (RHYME, echo 0)
+--- SYLLABLES: [8, 9, 11, 10]
+[QUATRAIN AAAA]
+Tepong tawar, tepong jati,
+Dapat amas berkati-kati,
+Aku menepong tawar beras padi
+Sudah berisi maka menjadi.
+
+--- TITLE: quatrain 008
+--- SOURCE: PG47873 lines 17925-17928
+--- RIME: A diri/diri (REPEAT, echo 2) | B diri/diri (REPEAT, echo 2)
+--- SYLLABLES: [18, 18, 19, 18]
+[QUATRAIN AAAA]
+Jadi diri-mu pagi-pagi, Raja Sinar nama-nya diri;
+Jadi diri-mu tengah naik, Raja Paksi nama-nya diri;
+Jadi diri-mu tengah hari, Raja Buana nama-nya diri;
+Jadi diri-mu tengah turun, Raja Kilu nama-nya diri;
+
+--- TITLE: quatrain 009
+--- SOURCE: PG47873 lines 17933-17936
+--- RIME: A 'kau/'kau (REPEAT, echo 1) | B 'kau/'kau (REPEAT, echo 1)
+--- SYLLABLES: [15, 16, 15, 16]
+[QUATRAIN AAAA]
+Diam 'kau di busut jantan, Si Rimpun [827] nama-nya 'kau,
+Diam 'kau di gunong guntong, Si Betoto' [828] nama-nya 'kau,
+Diam 'kau di tengah padang, Si Hampar nama-nya 'kau,
+Diam 'kau di anak ayer, Si Belunchau [829] nama-nya 'kau,
+
+--- TITLE: quatrain 010
+--- SOURCE: PG47873 lines 17975-17978
+--- RIME: A pegaga/ada (RHYME, echo 0) | B mali-mali/pemali (RIME_RICHE, echo 2)
+--- SYLLABLES: [9, 9, 9, 10]
+[PANTUN ABAB]
+Daun pekak, daun pegaga
+Katiga dengan mali-mali
+Aku pinta' mana yang ada,
+Membuang sial dengan pemali.
+
+--- TITLE: quatrain 011
+--- SOURCE: PG47873 lines 17979-17982
+--- RIME: A melini/kiri (RHYME, echo 0) | B shurga/ada (RHYME, echo 0)
+--- SYLLABLES: [6, 9, 10, 9]
+[PANTUN ABAB]
+Lang Pok Lang Melini,
+Katiga dengan awan Shurga,
+Di-tepok jangan-lah tangan kiri,
+Aku pinta' mana yang ada.
+
+--- TITLE: quatrain 012
+--- SOURCE: PG47873 lines 18141-18144
+--- RIME: A mengkarong/harong (RIME_RICHE, echo 1) | B labi-labi/menjadi (RHYME, echo 0)
+--- SYLLABLES: [9, 10, 9, 9]
+[PANTUN ABAB]
+Telor chichak, telor mengkarong,
+Ka-tiga dengan si labi-labi.
+Panchang 'ku chachak tengah harong,
+Angin ribut tidak menjadi.
+
+--- TITLE: quatrain 013
+--- SOURCE: PG47873 lines 18193-18196
+--- RIME: A rama/anjing-nya (RHYME, echo 0) | B anjing-nya/anjing-nya (REPEAT, echo 3)
+--- SYLLABLES: [7, 8, 8, 8]
+[QUATRAIN AAAA]
+Terantan [839] Hantu Rama.
+Si Pintas [840] nama anjing-nya,
+Si Tampoi nama anjing-nya,
+Si Arau nama anjing-nya,
+
+--- TITLE: quatrain 014
+--- SOURCE: PG47873 lines 18197-18200
+--- RIME: A tua/laki-nya (RHYME, echo 0) | B saudara-nya/bini-nya (RIME_RICHE, echo 1)
+--- SYLLABLES: [11, 10, 8, 8]
+[QUATRAIN AAAA]
+Si Sukum nama anjing-nya yang tua,
+Si Tompang [841] nama saudara-nya;
+Si Kedah nama laki-nya,
+Si Gadeh nama bini-nya,
+
+--- TITLE: quatrain 015
+--- SOURCE: PG47873 lines 18246-18249
+--- RIME: A anjing-nya/anjing-nya (REPEAT, echo 3) | B anjing-nya/anjing-nya (REPEAT, echo 3)
+--- SYLLABLES: [8, 8, 8, 8]
+[QUATRAIN AAAA]
+Si Kumbang nama anjing-nya,
+Si Lansat [849] nama anjing-nya,
+Si Muntong nama anjing-nya,
+Rangkesa nama anjing-nya,
+
+--- TITLE: quatrain 016
+--- SOURCE: PG47873 lines 18250-18253
+--- RIME: A anjing-nya/lembing-nya (RIME_RICHE, echo 1) | B anjing-nya/mata-nya (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 8, 11, 9]
+[QUATRAIN AAAA]
+Dang Saleh nama anjing-nya,
+Dang Mesa(h) [850] nama anjing-nya,
+Langkat Langkapuri batang lembing-nya,
+Dang Buara nama mata-nya.
+
+--- TITLE: quatrain 017
+--- SOURCE: PG47873 lines 18321-18324
+--- RIME: A melukut/di-jeput (RHYME, echo 0) | B purun/turun (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 7, 7, 8]
+[PANTUN ABAB]
+Indang-indang melukut
+Indang di lapek [861] purun,
+Hilang-hilang di-jeput
+Di-jeput di-bawa turun.
+
+--- TITLE: quatrain 018
+--- SOURCE: PG47873 lines 18332-18335
+--- RIME: A melukut/di-jeput (RHYME, echo 0) | B purun/turun (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 7, 7, 7]
+[PANTUN ABAB]
+Indang-indang melukut
+Indang di sumpit purun,
+Hilang-hilang di-jeput
+Hilang di-bawa turun.
+
+--- TITLE: quatrain 019
+--- SOURCE: PG47873 lines 18376-18379
+--- RIME: A melukut/di-jeput (RHYME, echo 0) | B purun/turun (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 7, 8]
+[PANTUN ABAB]
+Indang-indang ujong melukut
+Indang-indang di sumpit purun
+Hilang-hilang di-jeput,
+Di-jeput di-bawa turun.
+
+--- TITLE: quatrain 020
+--- SOURCE: PG47873 lines 18380-18383
+--- RIME: A melukut/di-jeput (RHYME, echo 0) | B garam/kadalam (RHYME, echo 0)
+--- SYLLABLES: [7, 7, 7, 5]
+[PANTUN ABAB]
+Indang-indang melukut
+Indang di sumpit garam
+Hilang-hilang di-jeput,
+Bawa kadalam.
+
+--- TITLE: quatrain 021
+--- SOURCE: PG47873 lines 18395-18398
+--- RIME: A iring-iring/beriring (RIME_RICHE, echo 1) | B panggil-panggil/memanggil (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 9, 10, 11]
+[PANTUN ABAB]
+Arak-arak, iring-iring
+Kembang bunga Si Panggil-Panggil,
+Turun berarak, turun beriring
+Raja Suleiman datang memanggil.
+
+--- TITLE: quatrain 022
+--- SOURCE: PG47873 lines 18412-18415
+--- RIME: A mengkudu/dahulu (RHYME, echo 0) | B tekankan/pesan-pesankan (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 7, 8, 8]
+[PANTUN ABAB]
+Tetak dahan [868] mengkudu [869]
+Tetak tekan [870] tekankan,
+Yang dekat datang dahulu
+Yang jauh pesan-pesankan;
+
+--- TITLE: quatrain 023
+--- SOURCE: PG47873 lines 18449-18452
+--- RIME: A merpati/sakti (RIME_RICHE, echo 1) | B sa-nila-nila/gila (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 7, 9, 10]
+[PANTUN ABAB]
+Hati-hati si merpati
+Tetak sa-nila-nila [871]
+Bumbun nama Si Raja Sakti
+Buluh bernama Si Raja Gila
+
+--- TITLE: quatrain 024
+--- SOURCE: PG47873 lines 18465-18468
+--- RIME: A kelampati/sakti (RIME_RICHE, echo 1) | B nila/gila (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 9, 10, 10]
+[PANTUN ABAB]
+Hati-hati kelampati  [872]
+Putik akar Si Raja Nila (or Nyila)
+Bumbun bernama Si Raja Sakti
+Dekut bernama Si Raja Gila.
+
+--- TITLE: quatrain 025
+--- SOURCE: PG47873 lines 18510-18513
+--- RIME: A melukut/jeput (RHYME, echo 0) | B purun/turun (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 9, 8, 10]
+[PANTUN ABAB]
+Indang-indang melukut
+Aku indang di sumpit purun
+Aku kundang, aku jeput,
+Aku jeput, aku bawa turun,
+
+--- TITLE: quatrain 026
+--- SOURCE: PG47873 lines 18939-18942
+--- RIME: A perabun/rabun (RIME_RICHE, echo 2) | B merkah/pechah (RHYME, echo 0)
+--- SYLLABLES: [9, 9, 9, 9]
+[PANTUN ABAB]
+Tanah liat, tanah perabun
+Ka-tiga dengan tanah merkah;
+Melihat, mata angkau rabun,
+Memandang, mata angkau pechah.
+
+--- TITLE: quatrain 027
+--- SOURCE: PG47873 lines 18961-18964
+--- RIME: A benchah/pechah (RIME_RICHE, echo 1) | B kabun/rabun (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 9, 8, 8]
+[PANTUN ABAB]
+"Tanah liat, tanah benchah,
+Tanah memandang deri kabun
+Melihat, mata-nya pechah,
+Memandang, mata-nya rabun,
+
+--- TITLE: quatrain 028
+--- SOURCE: PG47873 lines 18991-18994
+--- RIME: A batu/aku (RHYME, echo 0) | B kita/manusia (RHYME, echo 0)
+--- SYLLABLES: [9, 9, 6, 15]
+[PANTUN ABAB]
+Badi batu, pulang ka batu,
+Jangan rosakkan diri kita!
+Berkat Guru aku
+Ta' buleh di-rosakkan anak sidang manusia."
+
+--- TITLE: quatrain 029
+--- SOURCE: PG47873 lines 19094-19097
+--- RIME: A janggut-ku/ku (RIME_RICHE, echo 1) | B ku/suara-ku (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 10, None, None]
+[QUATRAIN AAAA]
+Ular bisa akan janggut-ku,
+Buaya akan tongkat [mulut] [909]-ku,
+Harimau mendram di pengri [910]-ku,
+Gajah mendring bunyi suara-ku,
+
+--- TITLE: quatrain 030
+--- SOURCE: PG47873 lines 19173-19176
+--- RIME: A delik/berbalik (RIME_RICHE, echo 1) | B lalang/tulang (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 10, 9]
+[PANTUN ABAB]
+Hei hilir Delik, patah Delik,
+Letak mari tepian lalang,
+Kata berturut jijak berbalik,
+Hanchor daging berbalun [916] tulang!
+
+--- TITLE: quatrain 031
+--- SOURCE: PG47873 lines 19281-19284
+--- RIME: A mendulang/tulang (RIME_RICHE, echo 1) | B berakar-akar/bakar (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 7, 9, 9]
+[PANTUN ABAB]
+"Delik kayu mendulang
+Tetak berakar-akar;
+Habis kulit pemalun tulang
+Kena do'a kalinting bakar."
+
+--- TITLE: quatrain 032
+--- SOURCE: PG47873 lines 19299-19302
+--- RIME: A rindang/rindang (REPEAT, echo 2) | B batu/aku (RHYME, echo 0)
+--- SYLLABLES: [8, 8, 11, 9]
+[PANTUN ABAB]
+"Rindu rindu rindang rindang, [919]
+Sulasih tumboh di batu;
+Dudok 'kau rindu, berjalan 'kau rindang,
+Tonak kasih ka jerat aku."
+
+--- TITLE: quatrain 033
+--- SOURCE: PG47873 lines 19375-19378
+--- RIME: A raya/raya (REPEAT, echo 2) | B beranak/banyak (RHYME, echo 0)
+--- SYLLABLES: [9, 10, 8, 11]
+[PANTUN ABAB]
+"Hantu Raya, Si Buta Raya,
+Hantu berjalan, anak beranak,
+Ta'tabek rimba yang raya
+Aku 'nak menempoh hantu yang banyak.
+
+--- TITLE: quatrain 034
+--- SOURCE: PG47873 lines 19391-19394
+--- RIME: A reman/suleiman (RIME_RICHE, echo 1) | B sa-mata-mata/buta (RIME_RICHE, echo 1)
+--- SYLLABLES: [10, 9, 11, 9]
+[PANTUN ABAB]
+Bukan-nya jerat, bukan-nya reman,
+Kalang kaki sa-mata-mata,
+Kena perabun Raja Suleiman,
+Kalau di-pandang mata buta!
+
+--- TITLE: quatrain 035
+--- SOURCE: PG47873 lines 19424-19427
+--- RIME: A iring-iring/beriring (RIME_RICHE, echo 1) | B panggil-panggil/memanggil (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 9, 10, 8]
+[PANTUN ABAB]
+Arak-arak iring-iring,
+Kembang bunga Si Panggil-panggil;
+Datang berarak, datang beriring,
+Jaring-ku datang memanggil!
+
+--- TITLE: quatrain 036
+--- SOURCE: PG47873 lines 19512-19515
+--- RIME: A badi/badi (REPEAT, echo 2) | B badi/badi (REPEAT, echo 2)
+--- SYLLABLES: [8, 10, 9, 9]
+[QUATRAIN AAAA]
+Pran Muda yang buang badi;
+Bukan-nya aku yang buang badi,
+Pran Rukiah yang buang badi!
+Bukan aku yang buang badi,
+
+--- TITLE: quatrain 037
+--- SOURCE: PG47873 lines 19516-19519
+--- RIME: A badi/badi (REPEAT, echo 2) | B badi/badi (REPEAT, echo 2)
+--- SYLLABLES: [8, 9, 8, 9]
+[QUATRAIN AAAA]
+Mika'il yang buang badi;
+Bukan aku yang buang badi,
+Serafil yang buang badi!
+Bukan aku yang buang badi,
+
+--- TITLE: quatrain 038
+--- SOURCE: PG47873 lines 19520-19523
+--- RIME: A badi/badi (REPEAT, echo 2) | B badi/badi (REPEAT, echo 2)
+--- SYLLABLES: [8, 9, 9, 9]
+[QUATRAIN AAAA]
+`Ijra'il yang buang badi;
+Bukan aku yang buang badi,
+Mukarael yang buang badi!
+Aku tahu asal-nya badi,
+
+--- TITLE: quatrain 039
+--- SOURCE: PG47873 lines 19601-19604
+--- RIME: A jembali/badi (RHYME, echo 0) | B liat/jerat (RHYME, echo 0)
+--- SYLLABLES: [6, 10, 9, 9]
+[PANTUN ABAB]
+Jembalang Jembali!
+Tempurong berisi tanah liat:
+Nyah-lah angkau Jembalang Badi!
+Aku handak memasang jerat.
+
+--- TITLE: quatrain 040
+--- SOURCE: PG47873 lines 19611-19614
+--- RIME: A unta/rimba (RHYME, echo 0) | B puar/kaluar (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 8, 9, 9]
+[PANTUN ABAB]
+Sirih unta, pinang unta,
+Kerakap memanjat puar.
+Pesan pada jembalang rimba
+Kutu hutan [923] suroh kaluar!
+
+--- TITLE: quatrain 041
+--- SOURCE: PG47873 lines 19693-19696
+--- RIME: A benchah/pechah (RIME_RICHE, echo 1) | B tedong/kudong (RIME_RICHE, echo 1)
+--- SYLLABLES: [10, 8, 8, 8]
+[PANTUN ABAB]
+Menyalak anjing didalam benchah
+Menyalak si anak tedong! [927]
+Menyalak tekum 'kau pechah,
+Menjilat lidah 'kau kudong!
+
+--- TITLE: quatrain 042
+--- SOURCE: PG47873 lines 19817-19820
+--- RIME: A renchong/kampong (RHYME, echo 0) | B pulai/pulai (REPEAT, echo 2)
+--- SYLLABLES: [8, 7, 8, 9]
+[PANTUN ABAB]
+Pisau raut, pisau renchong
+Menchato' banir pulai.
+Hantu laut, hantu [kampong],
+Kuching meniti dahan pulai.
+
+--- TITLE: quatrain 043
+--- SOURCE: PG47873 lines 19837-19840
+--- RIME: A chinchang/bintang (RHYME, echo 0) | B buloh/tumboh (RHYME, echo 0)
+--- SYLLABLES: [7, 8, 11, 5]
+[PANTUN ABAB]
+Chinchang chendawan chinchang
+Chinchang mari buku buloh,
+Pesan mari mambang dewana bintang
+Jangan bri tumboh.
+
+--- TITLE: quatrain 044
+--- SOURCE: PG47873 lines 19919-19922
+--- RIME: A kamari/kamari (REPEAT, echo 3) | B kamari/kamari (REPEAT, echo 3)
+--- SYLLABLES: [7, 7, 7, 7]
+[QUATRAIN AAAA]
+Mari kechil kamari!
+Mari senik kamari!
+Mari burong kamari!
+Mari halus kamari!
+
+--- TITLE: quatrain 045
+--- SOURCE: PG47873 lines 20216-20219
+--- RIME: A desa/rengkesa (RIME_RICHE, echo 1) | B panah/tanah (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 9, 11]
+[PANTUN ABAB]
+Ruwak-ruwak sakandang desa
+Bertenggek di bauran panah.
+Berkuak-lah angkau Rengkesa,
+'Nak letakkan bakul di-atas tanah.
+
+--- TITLE: quatrain 046
+--- SOURCE: PG47873 lines 20264-20267
+--- RIME: A batang/datang (RIME_RICHE, echo 1) | B pintu/itu (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 8, 9, 9]
+[PANTUN ABAB]
+Di-chinchang galenggang batang,
+Di-chinchang di muka pintu,
+Di-tentang melenggang-nya datang,
+Anak aku rupa-nya itu.
+
+--- TITLE: quatrain 047
+--- SOURCE: PG47873 lines 20269-20272
+--- RIME: A lumai-lumai/sungei (RHYME, echo 0) | B ari/kamari (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 8, 9]
+[PANTUN ABAB]
+Di-chinchang rebong lumai-lumai
+Buat penuba batang ari,
+Sunggoh sahya sabrang sungei,
+Besar maksud datang kamari.
+
+--- TITLE: quatrain 048
+--- SOURCE: PG47873 lines 20274-20277
+--- RIME: A lada/sahaja (RHYME, echo 0) | B padi/hati (RHYME, echo 0)
+--- SYLLABLES: [8, 9, 10, 9]
+[PANTUN ABAB]
+Bukan gantang gantang lada,
+Gantang berisi hampa padi,
+Bukan-nya datang datang sahaja,
+Besar maksud kahandak hati.
+
+--- TITLE: quatrain 049
+--- SOURCE: PG47873 lines 20297-20300
+--- RIME: A bertimpa/rengkesa (RHYME, echo 0) | B kami/kami (REPEAT, echo 2)
+--- SYLLABLES: [9, 7, 9, 9]
+[PANTUN ABAB]
+Layang-layang jatoh bertimpa,
+Timpa di laman kami,
+Bayang-bayang dengan Rengkesa,
+Jangan berchampor dengan kami.
+
+--- TITLE: quatrain 050
+--- SOURCE: PG47873 lines 20445-20448
+--- RIME: A muda/kaya (RHYME, echo 0) | B mulia/ta'ala (RHYME, echo 0)
+--- SYLLABLES: [8, 9, 8, 10]
+[QUATRAIN AAAA]
+Yang tua menjadi muda,
+Yang hina menjadi mulia,
+Yang miskin menjadi kaya,
+Dengan kuderat Allah ta`ala.
+
+--- TITLE: quatrain 051
+--- SOURCE: PG47873 lines 20567-20570
+--- RIME: A wadi/jadi (RIME_RICHE, echo 1) | B watang/datang (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 9, 9, 9]
+[PANTUN ABAB]
+Jamu-lah jamu wadi
+Ali berjuntei jamu watang
+Kalau sa-kisah bharu jadi
+Kalau sa-kisah bharu datang,
+
+--- TITLE: quatrain 052
+--- SOURCE: PG47873 lines 20646-20649
+--- RIME: A gana/kremasena (RIME_RICHE, echo 1) | B gani/dermaseni (RIME_RICHE, echo 1)
+--- SYLLABLES: [11, 11, 13, 10]
+[PANTUN ABAB]
+Al-salam `aleikum, hei Sang Gana!
+Al-salam `aleikum, hei Sang Gani!
+Al-salam `aleikum, hei Sang Kremasena,
+Sang Kremaseni, Sang Dermaseni!
+
+--- TITLE: quatrain 053
+--- SOURCE: PG47873 lines 20809-20812
+--- RIME: A anu/anu (REPEAT, echo 2) | B kapada/binasa (RHYME, echo 0)
+--- SYLLABLES: [8, 11, 4, 9]
+[PANTUN ABAB]
+Hei sahabat-ku [Si Anu]
+Aku minta' sampeikan kapada
+[tempat anu]
+Jangan rosak, jangan binasa.
+
+--- TITLE: quatrain 054
+--- SOURCE: PG47873 lines 20951-20954
+--- RIME: A iring-iring/beriring (RIME_RICHE, echo 1) | B panggil-panggil/memanggil (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 9, 10, 11]
+[PANTUN ABAB]
+Arak-arak, iring-iring
+Kembang bungi si Panggil-Panggil,
+Datang berarak, datang beriring
+Raja Suleiman datang memanggil.
+
+--- TITLE: quatrain 055
+--- SOURCE: PG47873 lines 20959-20962
+--- RIME: A darah-'kau/ekor-'kau (RIME_RICHE, echo 1) | B kulit-'kau/ridip-'kau (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 10, 9]
+[QUATRAIN AAAA]
+Gula chayer akan darah-'kau,
+Tikar burok akan kulit-'kau,
+Pelepah nipah akan ekor-'kau.
+Duri pandan akan ridip-'kau,
+
+--- TITLE: quatrain 056
+--- SOURCE: PG47873 lines 20963-20966
+--- RIME: A gigi-'kau/munchong-'kau (RIME_RICHE, echo 1) | B ekor-'kau/gigi-'kau (RIME_RICHE, echo 1)
+--- SYLLABLES: [10, 8, 8, 9]
+[QUATRAIN AAAA]
+Tunjang berembang akan gigi-'kau,
+Melibas patah ekor-'kau,
+Mengempas patah munchong-'kau,
+Menguniah patah gigi-'kau!
+
+--- TITLE: quatrain 057
+--- SOURCE: PG47873 lines 21243-21246
+--- RIME: A jembali/kamari (RHYME, echo 0) | B gulong-gulong/gudong (RHYME, echo 0)
+--- SYLLABLES: [6, 8, 7, 9]
+[PANTUN ABAB]
+Jembalang, Jembali,
+Daun lalang gulong-gulong,
+Datang angkau kamari,
+'Ku tetak dengan parang gudong.
+
+--- TITLE: quatrain 058
+--- SOURCE: PG47873 lines 21292-21295
+--- RIME: A kang/dengkang (RIME_RICHE, echo 1) | B kang/dengkang (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 7, 8, 8]
+[QUATRAIN AAAA]
+Asal-'kau di tanah kang, [970]
+Pulang-'kau ka tanah kang,
+Asal-'kau di tanah dengkang,
+Pulang 'kau ka tanah dengkang,
+
+--- TITLE: quatrain 059
+--- SOURCE: PG47873 lines 21325-21328
+--- RIME: A jadi/jadi (REPEAT, echo 2) | B jadi/jadi (REPEAT, echo 2)
+--- SYLLABLES: [9, 9, 9, 9]
+[QUATRAIN AAAA]
+Hantu orang asal 'kau jadi,
+Tanah puteh asal 'kau jadi,
+Tahi Adam asal 'kau jadi,
+Tahi Bali [972] asal 'kau jadi!
+
+--- TITLE: quatrain 060
+--- SOURCE: PG47873 lines 21411-21414
+--- RIME: A telang/gemilang (RIME_RICHE, echo 1) | B bersisa/bisa (RIME_RICHE, echo 1)
+--- SYLLABLES: [6, 7, 9, 8]
+[PANTUN ABAB]
+Tetak buluh telang,
+Tetak serba bersisa;
+Ayer lior gilang gemilang
+Menawar serba yang bisa.
+
+--- TITLE: quatrain 061
+--- SOURCE: PG47873 lines 21484-21487
+--- RIME: A berlebih/berlebih (REPEAT, echo 3) | B berlebih/berlebih (REPEAT, echo 3)
+--- SYLLABLES: [8, 8, 8, 10]
+[QUATRAIN AAAA]
+Berjalan aku berlebih,
+Berkain aku berlebih,
+Berbaju aku berlebih,
+Bersaputangan aku berlebih,
+
+--- TITLE: quatrain 062
+--- SOURCE: PG47873 lines 21560-21563
+--- RIME: A payong-ku/kanan-'ku (RIME_RICHE, echo 1) | B mimbar-'ku/kiri-'ku (RIME_RICHE, echo 1)
+--- SYLLABLES: [6, 8, 8, 7]
+[QUATRAIN AAAA]
+Allah 'kan payong-ku!
+Nabi muhammad Mimbar-'ku!
+Raja Brahil di kanan-'ku!
+Serafil di kiri-'ku!
+
+--- TITLE: quatrain 063
+--- SOURCE: PG47873 lines 21564-21567
+--- RIME: A hadapan-'ku/bahia-'ku (RIME_RICHE, echo 1) | B berampat/berampat (REPEAT, echo 3)
+--- SYLLABLES: [9, 10, 12, 10]
+[PANTUN ABAB]
+Rasul Allah di hadapan-'ku!
+Turun mala'ikat yang berampat,
+Terkunchi terkanching pintu bahia-'ku.
+Turun mala'ikat yang berampat,
+
+--- TITLE: quatrain 064
+--- SOURCE: PG47873 lines 21758-21761
+--- RIME: A bharu/lalu (RHYME, echo 0) | B terlayang-layang/bayang-bayang (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 8, 8, 8]
+[PANTUN ABAB]
+Sekam burok, sekam bharu,
+[Di-]tampi terlayang-layang,
+Tundok hantu 'ku 'nak lalu,
+Jangan tindeh bayang-bayang,
+
+--- TITLE: quatrain 065
+--- SOURCE: PG47873 lines 21914-21917
+--- RIME: A satela/chelaka (RHYME, echo 0) | B laut/tersangkut (RHYME, echo 0)
+--- SYLLABLES: [9, 9, 10, 10]
+[PANTUN ABAB]
+Hei berbuah gadong satela,
+Gunong Bantan di tepi laut;
+Antah bertuah, antah chelaka,
+Kapada Tuan hati tersangkut.
+
+--- TITLE: quatrain 066
+--- SOURCE: PG47873 lines 21924-21927
+--- RIME: A matahari/menchari (RIME_RICHE, echo 1) | B tertambat/mendapat (RHYME, echo 0)
+--- SYLLABLES: [8, 9, 10, 10]
+[PANTUN ABAB]
+Tinggi tinggi matahari
+Anak kerbau mati tertambat;
+Salama ini sahya menchari,
+Inilah bharu sahya mendapat.
+
+--- TITLE: quatrain 067
+--- SOURCE: PG47873 lines 21934-21937
+--- RIME: A lima/bertanya (RHYME, echo 0) | B kerisi/disini (RHYME, echo 0)
+--- SYLLABLES: [9, 10, 11, 10]
+[PANTUN ABAB]
+Rumah kechil para-nya lima
+Tempat menyalei ikan kerisi;
+Aiu hei, Inche, sahya bertanya
+Brapa-kah harga intan disini?
+
+--- TITLE: quatrain 068
+--- SOURCE: PG47873 lines 21938-21941
+--- RIME: A lima/lima (REPEAT, echo 2) | B tenggiri/disini (RHYME, echo 0)
+--- SYLLABLES: [9, 9, 9, 10]
+[PANTUN ABAB]
+Tali kail panjang-nya lima
+'Kan pengail ikan tenggiri;
+Tujoh tahil sakati lima,
+Itulah harga intan disini.
+
+--- TITLE: quatrain 069
+--- SOURCE: PG47873 lines 21942-21945
+--- RIME: A tanjong/di-kandong (RHYME, echo 0) | B di-rebahkan/di-serahkan (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 8, 9]
+[PANTUN ABAB]
+Kalau tidak rengas di tanjong
+Pandan di hulu di-rebahkan;
+Kalau tidak mas di-kandong,
+Badan dahulu di-serahkan.
+
+--- TITLE: quatrain 070
+--- SOURCE: PG47873 lines 21946-21949
+--- RIME: A tanjong/di-kandong (RHYME, echo 0) | B dulang/orang (RHYME, echo 0)
+--- SYLLABLES: [10, 10, 9, 9]
+[PANTUN ABAB]
+Kalau tiada rengas di tanjong,
+Ambil beringin pagarkan dulang;
+Kalau tiada mas di-kandong,
+Jangan inginkan anak orang.
+
+--- TITLE: quatrain 071
+--- SOURCE: PG47873 lines 21950-21953
+--- RIME: A terpanggong/tanggong (RIME_RICHE, echo 1) | B rumbia/dia (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 8, 10, 9]
+[PANTUN ABAB]
+Ribu-ribu batang terpanggong,
+'Kan dudok batang rumbia;
+Meski sa-ribu hutang 'ku tanggong,
+Asal 'ku pinang anak dia.
+
+--- TITLE: quatrain 072
+--- SOURCE: PG47873 lines 21959-21962
+--- RIME: A laut/menyambut (RHYME, echo 0) | B kalas-kalas-nya/balas-nya (RIME_RICHE, echo 2)
+--- SYLLABLES: [9, 9, 9, 9]
+[PANTUN ABAB]
+Saputangan jatoh ka laut,
+Jatoh dengan kalas-kalas-nya;
+Panjang tangan sahya menyambut,
+Satu tidak akan balas-nya.
+
+--- TITLE: quatrain 073
+--- SOURCE: PG47873 lines 21963-21966
+--- RIME: A tidak/tidak (REPEAT, echo 2) | B panchor/hanchor (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 8, 8, 10]
+[PANTUN ABAB]
+Baik kalas, baik tidak,
+Lenggundi tumboh di panchor;
+Baik baik, baik tidak,
+Tegal de' budi hati-'ku hanchor.
+
+--- TITLE: quatrain 074
+--- SOURCE: PG47873 lines 21972-21975
+--- RIME: A hulu/dahulu (RIME_RICHE, echo 2) | B nila-nya/bila-nya (RIME_RICHE, echo 2)
+--- SYLLABLES: [8, 9, 11, 10]
+[PANTUN ABAB]
+'Che Ungku mudik ka hulu
+Ambil kain basoh nila-nya;
+Kalau yang itu, biar-lah dahulu,
+Kalau yang lain, barang bila-nya.
+
+--- TITLE: quatrain 075
+--- SOURCE: PG47873 lines 21976-21979
+--- RIME: A amat/hikmat (RIME_RICHE, echo 1) | B paya/maya (RIME_RICHE, echo 1)
+--- SYLLABLES: [5, 10, 9, 8]
+[PANTUN ABAB]
+'Plam 'Che Dol Amat
+Jatoh tergolek ka dalam paya;
+Kalau ta' dapat dengan hikmat,
+Tilekkan tuju prang maya.
+
+--- TITLE: quatrain 076
+--- SOURCE: PG47873 lines 21980-21983
+--- RIME: A bingku/di-aku (RIME_RICHE, echo 1) | B ayam/karam (RHYME, echo 0)
+--- SYLLABLES: [10, 8, 10, 9]
+[PANTUN ABAB]
+Kalau ta' rapat puan de' bingku
+Nasi kunyit panggang ayam;
+Kalau ta' dapat Tuan di-aku,
+Langit sengit, dunia karam!
+
+--- TITLE: quatrain 077
+--- SOURCE: PG47873 lines 21996-21999
+--- RIME: A cherana/nyawa (RHYME, echo 0) | B rama/bersama-sama (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, None, 10, 10]
+[QUATRAIN AAAA]
+Tatang puan, tatang cherana,
+Tatang bidok S'ri Rama;
+Datang-lah Tuan, datang-lah nyawa,
+Datang-lah dudok bersama-sama.
+
+--- TITLE: quatrain 078
+--- SOURCE: PG47873 lines 22000-22003
+--- RIME: A naik/naik (REPEAT, echo 2) | B tangga-nya/nama-nya (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 10, 11]
+[PANTUN ABAB]
+Diri-diri pagar 'Che Naik
+Galu-galu anak tangga-nya;
+Inche terdiri mari-lah naik,
+Sahya ta' tahu menyebut nama-nya.
+
+--- TITLE: quatrain 079
+--- SOURCE: PG47873 lines 22004-22007
+--- RIME: A puan/tuan (RIME_RICHE, echo 1) | B berduri/negri (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 8, 8, 9]
+[PANTUN ABAB]
+'Nak tajok, tajok-lah puan,
+Remunggei batang berduri;
+'Nak masok, masok-lah Tuan,
+Timbang-lah chukei `adat negri.
+
+--- TITLE: quatrain 080
+--- SOURCE: PG47873 lines 22013-22016
+--- RIME: A terbang/timbang (RIME_RICHE, echo 1) | B nuri/negri (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 9, 9, 9]
+[PANTUN ABAB]
+Belatok lagi terbang,
+Ini pula si burong nuri;
+Hukum dato' lagi 'ku timbang
+Ini 'kan pula chukei negri.
+
+--- TITLE: quatrain 081
+--- SOURCE: PG47873 lines 22205-22208
+--- RIME: A pejam/tajam (RIME_RICHE, echo 1) | B kladi/menjadi (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 9, 8, 9]
+[PANTUN ABAB]
+Batang penak, batang pejam,
+Katiga dengan batang kladi;
+Datang senak, datang tajam,
+Datang tawar tidak menjadi.
+
+--- TITLE: quatrain 082
+--- SOURCE: PG47873 lines 22291-22294
+--- RIME: A puteh/puteh (REPEAT, echo 2) | B puteh/puteh (REPEAT, echo 2)
+--- SYLLABLES: [9, 8, 9, 8]
+[QUATRAIN AAAA]
+Idu puteh, penawar puteh,
+Turun deri gunong puteh,
+Bertijak dengan pinggan puteh,
+Bergantong di langit puteh
+
+--- TITLE: quatrain 083
+--- SOURCE: PG47873 lines 22299-22302
+--- RIME: A bisa/bisa (REPEAT, echo 2) | B bisa/bisa (REPEAT, echo 2)
+--- SYLLABLES: [None, None, None, None]
+[QUATRAIN AAAA]
+Rachun-pun t'ada bisa,
+Ular gerang pun t'ada bisa,
+Ipoh Brunei pun t'ada bisa,
+Ah! sakalian yang bisa t'ada bisa,
+
+--- TITLE: quatrain 084
+--- SOURCE: PG47873 lines 22410-22413
+--- RIME: A nama-mu/nama-mu (REPEAT, echo 3) | B nama-mu/nama-mu (REPEAT, echo 3)
+--- SYLLABLES: [10, 10, 12, 14]
+[QUATRAIN AAAA]
+Ka telok Jin Terkilat nama-mu,
+Ka tanjong Katimuna nama-mu,
+Ka anak sungei Hantu Muna nama-mu,
+Ka tali harus Mambang Tali Harus nama-mu!
+
+--- TITLE: quatrain 085
+--- SOURCE: PG47873 lines 22418-22421
+--- RIME: A bisa/bisa (REPEAT, echo 2) | B anu/anu (REPEAT, echo 2)
+--- SYLLABLES: [13, 13, 11, 13]
+[PANTUN ABAB]
+Aku pinta' turunkan sagala yang bisa
+De' dalam salerang badan tuboh Si Anu;
+Minta' chabutkan sagala yang bisa
+De' dalam salerang badan tuboh Si Anu!
+
+--- TITLE: quatrain 086
+--- SOURCE: PG47873 lines 22449-22452
+--- RIME: A raya/ara (RHYME, echo 0) | B ara/raya (RHYME, echo 0)
+--- SYLLABLES: [7, 11, 10, 10]
+[QUATRAIN AAAA]
+Hei Hantu rimba raya!
+Patahkan aku ranting kayu ara.
+Buat apa ranting kayu ara?
+Buat tangkal hantu rimba raya.
+
+--- TITLE: quatrain 087
+--- SOURCE: PG47873 lines 22801-22804
+--- RIME: A cherana/nyawa (RHYME, echo 0) | B satawar/penawar (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 10, 10]
+[PANTUN ABAB]
+Tatang puan, tatang cherana,
+Tatang dengan batang satawar,
+Datang-lah tuan, datang-lah nyawa,
+Datang membawa ubat penawar. [1012]
+
+--- TITLE: quatrain 088
+--- SOURCE: PG47873 lines 22816-22819
+--- RIME: A paku-nya/kait-kait-nya (RIME_RICHE, echo 1) | B laku-nya/baik-baik-nya (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 9, 9]
+[QUATRAIN AAAA]
+Tatang dengan lembah paku-nya,
+Datang dengan tengkah laku-nya.
+Tatang dengan kait-kait-nya, [1014]
+Datang dengan baik-baik-nya.
+
+--- TITLE: quatrain 089
+--- SOURCE: PG47873 lines 22820-22823
+--- RIME: A 'bola-nya/chandit-chandit-nya (RIME_RICHE, echo 1) | B bunda-nya/chandek-nya (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 9, 9]
+[QUATRAIN AAAA]
+Tatang dengan batang 'bola-nya, [1015]
+Datang dengan ayah bunda-nya.
+Tatang dengan chandit-chandit-nya,
+Datang dengan gundek chandek-nya.
+
+--- TITLE: quatrain 090
+--- SOURCE: PG47873 lines 22829-22832
+--- RIME: A telipai/limbei (RHYME, echo 0) | B hulu/bagitu (RHYME, echo 0)
+--- SYLLABLES: [8, 9, 10, 10]
+[PANTUN ABAB]
+Telipok bunga telipai,
+Bunga kantan kembang di hulu,
+Bangun bertepok membuang limbei
+Anak jantan sahaja bagitu.
+
+--- TITLE: quatrain 091
+--- SOURCE: PG47873 lines 23042-23045
+--- RIME: A berjambangan/kayangan (RIME_RICHE, echo 1) | B wolanda/chunda (RIME_RICHE, echo 1)
+--- SYLLABLES: [None, 10, 9, 10]
+[PANTUN ABAB]
+Anggrek dewana berjambangan,
+Kapala Gempa Raja Wolanda;
+Tabek Tuan Dewa Kayangan,
+Handak di-sambut Paduka chunda.
+
+--- TITLE: quatrain 092
+--- SOURCE: PG47873 lines 23046-23049
+--- RIME: A sagara/udara (RIME_RICHE, echo 1) | B kuda/anak'nda (RHYME, echo 0)
+--- SYLLABLES: [None, 10, 9, 11]
+[QUATRAIN AAAA]
+Anggrek dewana tengah sagara,
+Selang berawan di-makan kuda;
+Tabek Tuan Dewa Udara
+Di-pohunkan turun chunda anak'nda.
+
+--- TITLE: quatrain 093
+--- SOURCE: PG47873 lines 23050-23053
+--- RIME: A papan/kuripan (RIME_RICHE, echo 1) | B kuda/anak'nda (RHYME, echo 0)
+--- SYLLABLES: [None, 10, 10, 13]
+[PANTUN ABAB]
+Anggrek dewana diatas papan,
+Jatoh sa-kaki di-makan kuda;
+Tabek Tuan Batara Kuripan,
+Di-pohunkan Tuan sakalian anak'nda.
+
+--- TITLE: quatrain 094
+--- SOURCE: PG47873 lines 23058-23061
+--- RIME: A helang/gugelang (RIME_RICHE, echo 1) | B kuda/anak'nda (RHYME, echo 0)
+--- SYLLABLES: [None, 10, 10, 12]
+[PANTUN ABAB]
+Anggrek dewana di-sambar helang,
+Bunga-nya habis di-makan kuda;
+Tabek Tuan Batara Gugelang,
+Di-pohunkan turun Paduka anak'nda.
+
+--- TITLE: quatrain 095
+--- SOURCE: PG47873 lines 23062-23065
+--- RIME: A sari/sari (REPEAT, echo 2) | B wolanda/anak'nda (RHYME, echo 0)
+--- SYLLABLES: [None, 8, 10, 12]
+[PANTUN ABAB]
+Anggrek dewana Naga Sari,
+Meraksi kain Wolanda;
+Tabek Tuanku Batara Sari,
+Di-pohunkan turun Paduka anak'nda.
+
+--- TITLE: quatrain 096
+--- SOURCE: PG47873 lines 23071-23074
+--- RIME: A berjambangan/kayangan (RIME_RICHE, echo 1) | B jawa/anak'nda (RHYME, echo 0)
+--- SYLLABLES: [None, 10, 10, 10]
+[PANTUN ABAB]
+Anggrek dewana berjambangan,
+Kapal kembali lalu ka Jawa;
+Tabek Tuanku Dewa Kayangan,
+Sudah kembali chunda anak'nda,
+
+--- TITLE: quatrain 097
+--- SOURCE: PG47873 lines 23075-23078
+--- RIME: A sagara/udara (RIME_RICHE, echo 1) | B kuda/anak'nda (RHYME, echo 0)
+--- SYLLABLES: [None, 10, 11, 10]
+[QUATRAIN AAAA]
+Anggrek dewana di tengah sagara,
+Sedang berdaun di-makan kuda;
+Tabek sakalian isi Udara,
+Sudah kembali chunda anak'nda.
+
+--- TITLE: quatrain 098
+--- SOURCE: PG47873 lines 23079-23082
+--- RIME: A perbu/guru (RHYME, echo 0) | B kayangan/sakalian (RHYME, echo 0)
+--- SYLLABLES: [8, 9, 11, 11]
+[PANTUN ABAB]
+Adoh Pekulun Sang Perbu,
+Mu terjalan Dewa Kayangan
+Semperna pekulun Batara Guru,
+Sudah kembali chunda sakalian.
+
+--- TITLE: quatrain 099
+--- SOURCE: PG47873 lines 23083-23086
+--- RIME: A padi/hati (RHYME, echo 0) | B juga/juga (REPEAT, echo 2)
+--- SYLLABLES: [9, 10, 10, 10]
+[PANTUN ABAB]
+Jangan Tuan berpauh (?) padi,
+Jikalau bidok serempu juga;
+Jangan-lah Tuan berjauh hati,
+Jikalau hidup bertemu juga.
+
+--- TITLE: quatrain 100
+--- SOURCE: PG47873 lines 23087-23090
+--- RIME: A jambangan/kayangan (RIME_RICHE, echo 1) | B rumput/jemput (RIME_RICHE, echo 1)
+--- SYLLABLES: [11, 9, 11, 9]
+[PANTUN ABAB]
+Tanam kembili didalam jambangan,
+Anak rusa memakan rumput;
+Kembali-lah Tuan orang kayangan
+Esok lusa pula 'ku jemput.
+
+--- TITLE: quatrain 101
+--- SOURCE: PG47873 lines 23091-23094
+--- RIME: A kayangan/kasihan (RHYME, echo 0) | B pengadapan/karaja'an (RHYME, echo 0)
+--- SYLLABLES: [10, 11, 10, 11]
+[QUATRAIN AAAA]
+[Tamat-lah Sha`ir Dewa Kayangan,
+Tamat didalam balei pengadapan;
+Serta meminta' bias kasihan
+Kapada tuan wakil karaja'an.
+
+--- TITLE: quatrain 102
+--- SOURCE: PG47873 lines 23095-23098
+--- RIME: A khamis/menulis (RHYME, echo 0) | B berjenis/penghabis-habis (RHYME, echo 0)
+--- SYLLABLES: [10, 12, 10, 11]
+[QUATRAIN AAAA]
+Tamat kapada hari-nya Khamis,
+Perkata'an banyak tiada berjenis;
+Didalam masa dudok menulis
+Terkenangkan sakit penghabis-habis]
+
+--- TITLE: quatrain 103
+--- SOURCE: PG47873 lines 23167-23170
+--- RIME: A landasan/'laman (RHYME, echo 0) | B pari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 8, 8, 10]
+[PANTUN ABAB]
+Pinjam tukol pinjam landasan
+'Nak menukol tengko' Pari
+Pinjam dusun pinjam 'laman
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 104
+--- SOURCE: PG47873 lines 23171-23174
+--- RIME: A landasan/'laman (RHYME, echo 0) | B pari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 8, 10]
+[PANTUN ABAB]
+Pinjam tukol pinjam landasan,
+'Nak menukol belakang Pari,
+Pinjam dusun pinjam 'laman
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 105
+--- SOURCE: PG47873 lines 23175-23178
+--- RIME: A landasan/'laman (RHYME, echo 0) | B pari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 8, 10]
+[PANTUN ABAB]
+Pinjam tukol pinjam landasan,
+'Nak menukol gelabang Pari,
+Pinjam dusun pinjam 'laman
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 106
+--- SOURCE: PG47873 lines 23179-23182
+--- RIME: A landasan/'laman (RHYME, echo 0) | B pari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 8, 10]
+[PANTUN ABAB]
+Pinjam tukol pinjam landasan
+'Nak menukol kapala Pari,
+Pinjam dusun pinjam 'laman
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 107
+--- SOURCE: PG47873 lines 23183-23186
+--- RIME: A landasan/'laman (RHYME, echo 0) | B pari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 8, 10]
+[PANTUN ABAB]
+Pinjam tukol pinjam landasan
+'Nak menukol gerongok Pari,
+Pinjam dusun pinjam 'laman
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 108
+--- SOURCE: PG47873 lines 23187-23190
+--- RIME: A landasan/'laman (RHYME, echo 0) | B pari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 8, 8, 10]
+[PANTUN ABAB]
+Pinjam tukol, pinjam landasan
+'Nak menukol ensang Pari,
+Pinjam dusun, pinjam 'laman
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 109
+--- SOURCE: PG47873 lines 23191-23194
+--- RIME: A landasan/'laman (RHYME, echo 0) | B pari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 8, 8, 10]
+[PANTUN ABAB]
+Pinjam tukol, pinjam landasan
+'Nak menukol ekor Pari,
+Pinjam dusun, pinjam 'laman,
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 110
+--- SOURCE: PG47873 lines 23195-23198
+--- RIME: A halia/mulia (RIME_RICHE, echo 2) | B jari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 9, 9, 10]
+[PANTUN ABAB]
+Gali-gali halia,
+Dapat sa-jari dua jari,
+Chhari-chhari padang mulia
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 111
+--- SOURCE: PG47873 lines 23199-23202
+--- RIME: A bunglei/selesei (RHYME, echo 0) | B jari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [6, 9, 10, 10]
+[PANTUN ABAB]
+Gali-gali bunglei
+Dapat sa-jari dua jari,
+Chhari-chhari padang yang selesei
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 112
+--- SOURCE: PG47873 lines 23211-23214
+--- RIME: A kunyit/sulit (RHYME, echo 0) | B jari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [6, 9, 9, 10]
+[PANTUN ABAB]
+Gali-gali kunyit
+Dapat sa-jari dua jari
+Chhari-chhari padang yang sulit
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 113
+--- SOURCE: PG47873 lines 23215-23218
+--- RIME: A lempoyang/loyang (RIME_RICHE, echo 1) | B jari/bidadari (RIME_RICHE, echo 1)
+--- SYLLABLES: [7, 9, 9, 10]
+[PANTUN ABAB]
+Gali-gali lempoyang
+Dapat sa-jari dua jari
+Chhari-chhari padang yang loyang,
+Menurunkan anak bidadari.
+
+--- TITLE: quatrain 114
+--- SOURCE: PG47873 lines 23219-23222
+--- RIME: A cherana/nyawa (RHYME, echo 0) | B taman/'laman (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 7, 10, 10]
+[PANTUN ABAB]
+Tatang puan, tatang cherana,
+Tatang di tengah taman,
+Datang-lah tuan, datang-lah nyawa,
+Datang-lah dudok di tengah 'laman.
+
+--- TITLE: quatrain 115
+--- SOURCE: PG47873 lines 23223-23226
+--- RIME: A cherana/nyawa (RHYME, echo 0) | B hari/kaki (RHYME, echo 0)
+--- SYLLABLES: [9, 8, 10, 9]
+[PANTUN ABAB]
+Tatang puan, tatang cherana,
+Tatang puan pagi hari,
+Datang-lah tuan datang-lah nyawa,
+Datang naik membasoh kaki.
+
+--- TITLE: quatrain 116
+--- SOURCE: PG47873 lines 23227-23230
+--- RIME: A cherana/nyawa (RHYME, echo 0) | B selasar/tikar (RHYME, echo 0)
+--- SYLLABLES: [9, 8, 10, 9]
+[PANTUN ABAB]
+Tatang puan tatang cherana
+Tatang bidok di selasar
+Datang-lah tuan datang-lah nyawa
+Datang dudok 'nak bentang tikar.
+
+--- TITLE: quatrain 117
+--- SOURCE: PG47873 lines 23231-23234
+--- RIME: A cherana/nyawa (RHYME, echo 0) | B padi-nya/hati-nya (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 9, 10, 9]
+[QUATRAIN AAAA]
+Tatang puan tatang cherana
+Tatang dengan kait padi-nya,
+Datang-lah tuan datang-lah nyawa
+Datang dengan baik hati-nya.
+
+--- TITLE: quatrain 118
+--- SOURCE: PG47873 lines 23235-23238
+--- RIME: A cherana/nyawa (RHYME, echo 0) | B rama/bersama-sama (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, None, 10, 10]
+[QUATRAIN AAAA]
+Tatang puan tatang cherana
+Tatang bidok S'ri Rama,
+Datang-lah tuan datang-lah nyawa
+Datang-lah dudok bersama-sama.
+
+--- TITLE: quatrain 119
+--- SOURCE: PG47873 lines 23243-23246
+--- RIME: A cherana/nyawa (RHYME, echo 0) | B paku-nya/laku-nya (RIME_RICHE, echo 2)
+--- SYLLABLES: [9, 9, 10, 9]
+[QUATRAIN AAAA]
+Tatang puan tatang cherana
+Tatang dengan lembah paku-nya,
+Datang-lah tuan datang-lah nyawa,
+Datang dengan tengkah laku-nya.
+
+--- TITLE: quatrain 120
+--- SOURCE: PG47873 lines 23336-23339
+--- RIME: A naga/mata-nya (RHYME, echo 0) | B pagai/langkai (RHYME, echo 0)
+--- SYLLABLES: [9, 9, 9, 8]
+[PANTUN ABAB]
+Lukah melenggang bagei naga.
+Agai-agai perembek pagai
+Perembek tumboh di mata-nya,
+Suroh pulang de' nan langkai,
+
+--- TITLE: quatrain 121
+--- SOURCE: PG47873 lines 23711-23714
+--- RIME: A kanan-'ku/aku (RIME_RICHE, echo 1) | B kiri-'ku/aku (RIME_RICHE, echo 1)
+--- SYLLABLES: [14, 14, 14, 11]
+[QUATRAIN AAAA]
+Hei Blah Balu dudok telapak tangan kanan-'ku,
+Hei Blah Balu dudok telapak tangan kiri-'ku,
+'Nak turunkan darah gemburoh ka pusat aku,
+Naik darah brani ka muka aku,
+
+--- TITLE: quatrain 122
+--- SOURCE: PG47873 lines 25014-25017
+--- RIME: A berseru-seru/anu (RHYME, echo 0) | B terbengu-bengu/aku (RHYME, echo 0)
+--- SYLLABLES: [6, 5, 5, 5]
+[QUATRAIN AAAA]
+Hong berseru-seru,
+Terbengu-bengu
+Hati Si Anu
+Teringat aku.
+
+--- TITLE: quatrain 123
+--- SOURCE: PG47873 lines 25104-25107
+--- RIME: A anu/aku (RHYME, echo 0) | B aku/aku (REPEAT, echo 2)
+--- SYLLABLES: [16, 16, 9, 12]
+[QUATRAIN AAAA]
+Aku memanah tangkei hati anak sidang Si Anu.
+Kur! Semangat Si Anu, mari sa-jalan dengan aku,
+Mari sa-dudok dengan aku,
+Mari sa-tidor sa-bantal dengan aku!
+
+--- TITLE: quatrain 124
+--- SOURCE: PG47873 lines 25145-25148
+--- RIME: A bapa-kau/'kau (RIME_RICHE, echo 1) | B aku/aku (REPEAT, echo 2)
+--- SYLLABLES: [12, 10, 13, 10]
+[PANTUN ABAB]
+Angkau teringat kapada mak bapa-kau,
+Angkau teringat kapada aku,
+Angkau teringat kapada rumah tangga 'kau,
+Angkau teringat kapada aku,
+
+--- TITLE: quatrain 125
+--- SOURCE: PG47873 lines 25149-25152
+--- RIME: A aku/aku (REPEAT, echo 2) | B aku/aku (REPEAT, echo 2)
+--- SYLLABLES: [None, 14, 14, 13]
+[QUATRAIN AAAA]
+P`rut-'kau lapar, 'kau teringat kapada aku,
+Guroh berbunyi, 'kau teringat kapada aku,
+Angin bertiup, 'kau teringat kapada aku.
+Hari ujan, 'kau teringat kapada aku.
+
+--- TITLE: quatrain 126
+--- SOURCE: PG47873 lines 25153-25156
+--- RIME: A aku/aku (REPEAT, echo 2) | B aku/aku (REPEAT, echo 2)
+--- SYLLABLES: [14, 14, 16, 17]
+[QUATRAIN AAAA]
+Ayam berkoko', 'kau teringat kapada aku,
+Murei berkichau, teringat 'kau kapada aku,
+Kena-dah matahari, teringat 'kau kapada aku,
+Kena-dah kapada bulan, teringat 'kau kapada aku,
+
+--- TITLE: quatrain 127
+--- SOURCE: PG47873 lines 25223-25226
+--- RIME: A bulan/bulan (REPEAT, echo 2) | B batu/aku (RHYME, echo 0)
+--- SYLLABLES: [9, 8, 11, 8]
+[PANTUN ABAB]
+Niyor manis, siamang bulan,
+Kalapa tumboh di batu,
+Si Anu menangis menentang bulan,
+Dia kena hikmat aku.
+
+--- TITLE: quatrain 128
+--- SOURCE: PG47873 lines 26924-26927
+--- RIME: A lemak/semak (RIME_RICHE, echo 1) | B batang/datang (RIME_RICHE, echo 1)
+--- SYLLABLES: [8, 8, 8, 9]
+[PANTUN ABAB]
+"Tekukur di gulei lemak
+Sulasi di-bawah batang
+Lagi lumpor jalan semak
+Sebab kasih maka-nya datang."
+
+--- TITLE: quatrain 129
+--- SOURCE: PG47873 lines 30582-30585
+--- RIME: A cherana/nyawa (RHYME, echo 0) | B hari/kamari (RIME_RICHE, echo 1)
+--- SYLLABLES: [9, 8, 10, 10]
+[PANTUN ABAB]
+Talang puan, tatang cherana
+Dalang bidok pagi hari
+Datang-lah tuan datang-lah nyawa,
+Memanggil tuan datang kamari.

@@ -1,0 +1,1368 @@
+# author: Charles Kingsley (1819-1875)
+# source: GITenberg/Andromeda-and-Other-Poems_11064 11064.txt md5 13aeced2a5046d1954d01283a795a9fa
+# source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734
+# licence: public domain — Project Gutenberg text; author died 1875; every edition used was published 1931 or earlier
+# edition: Andromeda-and-Other-Poems — 1858 — no imprint in the file; Kingsley, Andromeda and Other Poems, 1858
+# edition: Victorian-Songs--Lyrics-of-the-Affections-and-Nature — 1895 — detected in file: 'Boston 1895' — Victorian Songs, ed. Edmund Gosse
+# structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
+#            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
+#--------------------------------------------------------------------------
+# dedup: DEDUPLICATED 2026-08-11 by cell AC. 3 items removed, 58 body lines.
+#       EVERY ONE was the same poem as another item in this same file, at or
+#       above 60%% containment of its distinct verse lines (the cut is declared
+#       in quality/audit_corpus.py ITEM_OVERLAP_FLOOR, with the whole series
+#       from 0.30 to 1.00 beside it, doctrine 16). WHICH COPY WENT IS DECIDED
+#       BY THE SOURCE CLASS, and not by which copy was longer or listed first:
+#       where one comes from an ANTHOLOGY, HYMNAL or monograph that reprints
+#       the poet, and the other from a volume of the poet's own, the poet's own
+#       volume is the nearer witness and the reprint goes. Each removed item is
+#       named below with the printing it came from and the printing that was
+#       kept. Where BOTH copies were reprints, or both were the poet's own
+#       volumes, THE SOURCE DOES NOT DECIDE and nothing was removed; those
+#       pairs are open and counted in data/sources.tsv.
+#         REMOVED The Sands Of Dee
+#           24 lines, 77% contained in the copy kept, which is titled The Sands Of Dee
+#           reprint dropped: Victorian Songs, ed. Gosse
+#           printing kept:   Kingsley, Andromeda and Other Poems
+#         REMOVED Three Fishers Went Sailing
+#           21 lines, 80% contained in the copy kept, which is titled The Three Fishers
+#           reprint dropped: Victorian Songs, ed. Gosse
+#           printing kept:   Kingsley, Andromeda and Other Poems
+#         REMOVED A Farewell
+#           13 lines, 75% contained in the copy kept, which is titled A Farewell: To C. E. G
+#           reprint dropped: Victorian Songs, ed. Gosse
+#           printing kept:   Kingsley, Andromeda and Other Poems
+--- TITLE: Airly Beacon
+[REFRAIN]
+Airly Beacon, Airly Beacon;
+[VERSE 1]
+Oh the pleasant sight to see
+Shires and towns from Airly Beacon,
+While my love climbed up to me!
+[REFRAIN]
+Airly Beacon, Airly Beacon;
+[VERSE 2]
+Oh the happy hours we lay
+Deep in fern on Airly Beacon,
+Courting through the summer's day!
+[REFRAIN]
+Airly Beacon, Airly Beacon;
+[VERSE 3]
+Oh the weary haunt for me,
+All alone on Airly Beacon,
+With his baby on my knee!
+
+--- TITLE: Trehill Well
+[VERSE 1]
+There stood a low and ivied roof,
+As gazing rustics tell,
+In times of chivalry and song
+'Yclept the holy well.
+[VERSE 2]
+Above the ivies' branchlets gray
+In glistening clusters shone;
+While round the base the grass-blades bright
+And spiry foxglove sprung.
+[VERSE 3]
+The brambles clung in graceful bands,
+Chequering the old gray stone
+With shining leaflets, whose bright face
+In autumn's tinting shone.
+[VERSE 4]
+Around the fountain's eastern base
+A babbling brooklet sped,
+With sleepy murmur purling soft
+Adown its gravelly bed.
+[VERSE 5]
+Within the cell the filmy ferns
+To woo the clear wave bent;
+And cushioned mosses to the stone
+Their quaint embroidery lent.
+[VERSE 6]
+The fountain's face lay still as glass--
+Save where the streamlet free
+Across the basin's gnarled lip
+Flowed ever silently.
+[VERSE 7]
+Above the well a little nook
+Once held, as rustics tell,
+All garland-decked, an image of
+The Lady of the Well.
+[VERSE 8]
+They tell of tales of mystery,
+Of darkling deeds of woe;
+But no! such doings might not brook
+The holy streamlet's flow.
+[VERSE 9]
+Oh tell me not of bitter thoughts,
+Of melancholy dreams,
+By that fair fount whose sunny wall
+Basks in the western beams.
+[VERSE 10]
+When last I saw that little stream,
+A form of light there stood,
+That seemed like a precious gem,
+Beneath that archway rude:
+[VERSE 11]
+And as I gazed with love and awe
+Upon that sylph-like thing,
+Methought that airy form must be
+The fairy of the spring.
+
+--- TITLE: The Weird Lady
+[VERSE 1]
+The swevens came up round Harold the Earl,
+Like motes in the sunnes beam;
+And over him stood the Weird Lady,
+In her charmed castle over the sea,
+Sang 'Lie thou still and dream.'
+[VERSE 2]
+'Thy steed is dead in his stall, Earl Harold,
+Since thou hast been with me;
+The rust has eaten thy harness bright,
+And the rats have eaten thy greyhound light,
+That was so fair and free.'
+[VERSE 3]
+Mary Mother she stooped from heaven;
+She wakened Earl Harold out of his sweven,
+To don his harness on;
+And over the land and over the sea
+He wended abroad to his own countrie,
+A weary way to gon.
+[VERSE 4]
+Oh but his beard was white with eld,
+Oh but his hair was gray;
+He stumbled on by stock and stone,
+And as he journeyed he made his moan
+Along that weary way.
+[VERSE 5]
+Earl Harold came to his castle wall;
+The gate was burnt with fire;
+Roof and rafter were fallen down,
+The folk were strangers all in the town,
+And strangers all in the shire.
+[VERSE 6]
+Earl Harold came to a house of nuns,
+And he heard the dead-bell toll;
+He saw the sexton stand by a grave;
+'Now Christ have mercy, who did us save,
+Upon yon fair nun's soul.'
+[VERSE 7]
+The nuns they came from the convent gate
+By one, by two, by three;
+They sang for the soul of a lady bright
+Who died for the love of a traitor knight:
+It was his own lady.
+[VERSE 8]
+He stayed the corpse beside the grave;
+'A sign, a sign!' quod he.
+'Mary Mother who rulest heaven,
+Send me a sign if I be forgiven
+By the woman who so loved me.'
+[VERSE 9]
+A white dove out of the coffin flew;
+Earl Harold's mouth it kist;
+He fell on his face, wherever he stood;
+And the white dove carried his soul to God
+Or ever the bearers wist.
+
+--- TITLE: Child Ballad
+[VERSE 1]
+Jesus, He loves one and all,
+Jesus, He loves children small,
+Their souls are waiting round His feet
+On high, before His mercy-seat.
+[VERSE 2]
+While He wandered here below
+Children small to Him did go,
+At His feet they knelt and prayed,
+On their heads His hands He laid.
+[VERSE 3]
+Came a Spirit on them then,
+Better than of mighty men,
+A Spirit faithful, pure and mild,
+A Spirit fit for king and child.
+[VERSE 4]
+Oh! that Spirit give to me,
+Jesu Lord, where'er I be!
+[VERSE 5]
+1847.
+
+--- TITLE: The Bad Squire
+[VERSE 1]
+The merry brown hares came leaping
+Over the crest of the hill,
+Where the clover and corn lay sleeping
+Under the moonlight still.
+[VERSE 2]
+Leaping late and early,
+Till under their bite and their tread
+The swedes and the wheat and the barley
+Lay cankered and trampled and dead.
+[VERSE 3]
+A poacher's widow sat sighing
+On the side of the white chalk bank,
+Where under the gloomy fir-woods
+One spot in the ley throve rank.
+[VERSE 4]
+She watched a long tuft of clover,
+Where rabbit or hare never ran;
+For its black sour haulm covered over
+The blood of a murdered man.
+[VERSE 5]
+She thought of the dark plantation,
+And the hares, and her husband's blood,
+And the voice of her indignation
+Rose up to the throne of God.
+[VERSE 6]
+'I am long past wailing and whining--
+I have wept too much in my life:
+I've had twenty years of pining
+As an English labourer's wife.
+[VERSE 7]
+'A labourer in Christian England,
+Where they cant of a Saviour's name,
+And yet waste men's lives like the vermin's
+For a few more brace of game.
+[VERSE 8]
+'There's blood on your new foreign shrubs, squire,
+There's blood on your pointer's feet;
+There's blood on the game you sell, squire,
+And there's blood on the game you eat.
+[VERSE 9]
+'You have sold the labouring-man, squire,
+Body and soul to shame,
+To pay for your seat in the House, squire,
+And to pay for the feed of your game.
+[VERSE 10]
+'You made him a poacher yourself, squire,
+When you'd give neither work nor meat,
+And your barley-fed hares robbed the garden
+At our starving children's feet;
+[VERSE 11]
+'When, packed in one reeking chamber,
+Man, maid, mother, and little ones lay;
+While the rain pattered in on the rotting bride-bed,
+And the walls let in the day.
+[VERSE 12]
+'When we lay in the burning fever
+On the mud of the cold clay floor,
+Till you parted us all for three months, squire,
+At the dreary workhouse door.
+[VERSE 13]
+'We quarrelled like brutes, and who wonders?
+What self-respect could we keep,
+Worse housed than your hacks and your pointers,
+Worse fed than your hogs and your sheep?
+[VERSE 14]
+'Our daughters with base-born babies
+Have wandered away in their shame,
+If your misses had slept, squire, where they did,
+Your misses might do the same.
+[VERSE 15]
+'Can your lady patch hearts that are breaking
+With handfuls of coals and rice,
+Or by dealing out flannel and sheeting
+A little below cost price?
+[VERSE 16]
+'You may tire of the jail and the workhouse,
+And take to allotments and schools,
+But you've run up a debt that will never
+Be paid us by penny-club rules.
+[VERSE 17]
+'In the season of shame and sadness,
+In the dark and dreary day,
+When scrofula, gout, and madness
+Are eating your race away;
+[VERSE 18]
+'When to kennels and liveried varlets
+You have cast your daughter's bread,
+And, worn out with liquor and harlots,
+Your heir at your feet lies dead;
+[VERSE 19]
+'When your youngest, the mealy-mouthed rector,
+Lets your soul rot asleep to the grave,
+You will find in your God the protector
+Of the freeman you fancied your slave.'
+[VERSE 20]
+She looked at the tuft of clover,
+And wept till her heart grew light;
+And at last, when her passion was over,
+Went wandering into the night.
+[VERSE 21]
+But the merry brown hares came leaping
+Over the uplands still,
+Where the clover and corn lay sleeping
+On the side of the white chalk hill.
+
+--- TITLE: Scotch Song
+[VERSE 1]
+Oh, forth she went like a braw, braw bride
+To meet her winsome groom,
+When she was aware of twa bonny birds
+Sat biggin' in the broom.
+[VERSE 2]
+The tane it built with the green, green moss,
+But and the bents sae fine,
+And the tither wi' a lock o' lady's hair
+Linked up wi' siller twine.
+[VERSE 3]
+'O whaur gat ye the green, green moss,
+O whaur the bents sae fine?
+And whaur gat ye the bonny broun hair
+That ance was tress o' mine?'
+[VERSE 4]
+'We gat the moss fra' the elditch aile,
+The bents fra' the whinny muir,
+And a fause knight threw us the bonny broun hair,
+To please his braw new fere.'
+[VERSE 5]
+'Gae pull, gae pull the simmer leaves,
+And strew them saft o'er me;
+My token's tint, my love is fause,
+I'll lay me doon and dee.'
+[VERSE 6]
+1847.
+
+--- TITLE: The Young Knight: A Parable
+[VERSE 1]
+A gay young knight in Burley stood,
+Beside him pawed his steed so good,
+His hands he wrung as he were wood
+With waiting for his love O!
+[VERSE 2]
+'Oh, will she come, or will she stay,
+Or will she waste the weary day
+With fools who wish her far away,
+And hate her for her love O?'
+[VERSE 3]
+But by there came a mighty boar,
+His jowl and tushes red with gore,
+And on his curled snout he bore
+A bracelet rich and rare O!
+[VERSE 4]
+The knight he shrieked, he ran, he flew,
+He searched the wild wood through and through,
+But found nought save a mantle blue,
+Low rolled within the brake O!
+[VERSE 5]
+He twined the wild briar, red and white,
+Upon his head the garland dight,
+The green leaves withered black as night,
+And burnt into his brain O!
+[VERSE 6]
+A fire blazed up within his breast,
+He mounted on an aimless quest,
+He laid his virgin lance in rest,
+And through the forest drove O!
+[VERSE 7]
+By Rhinefield and by Osmondsleigh,
+Through leat and furze brake fast drove he,
+Until he saw the homeless sea,
+That called with all its waves O!
+[VERSE 8]
+He laughed aloud to hear the roar,
+And rushed his horse adown the shore,
+The deep surge rolled him o'er and o'er,
+And swept him down the tide O!
+
+--- TITLE: A New Forest Ballad
+[VERSE 1]
+Oh she tripped over Ocknell plain,
+And down by Bradley Water;
+And the fairest maid on the forest side
+Was Jane, the keeper's daughter.
+[VERSE 2]
+She went and went through the broad gray lawns
+As down the red sun sank,
+And chill as the scent of a new-made grave
+The mist smelt cold and dank.
+[VERSE 3]
+'A token, a token!' that fair maid cried,
+'A token that bodes me sorrow;
+For they that smell the grave by night
+Will see the corpse to-morrow.
+[VERSE 4]
+'My own true love in Burley Walk
+Does hunt to-night, I fear;
+And if he meet my father stern,
+His game may cost him dear.
+[VERSE 5]
+'Ah, here's a curse on hare and grouse,
+A curse on hart and hind;
+And a health to the squire in all England,
+Leaves never a head behind.'
+[VERSE 6]
+Her true love shot a mighty hart
+Among the standing rye,
+When on him leapt that keeper old
+From the fern where he did lie.
+[VERSE 7]
+The forest laws were sharp and stern,
+The forest blood was keen;
+They lashed together for life and death
+Beneath the hollies green.
+[VERSE 8]
+The metal good and the walnut wood
+Did soon in flinders flee;
+They tost the orts to south and north,
+And grappled knee to knee.
+[REFRAIN]
+They wrestled up, they wrestled down,
+[VERSE 9]
+They wrestled still and sore;
+Beneath their feet the myrtle sweet
+Was stamped to mud and gore.
+[VERSE 10]
+Ah, cold pale moon, thou cruel pale moon,
+That starest with never a frown
+On all the grim and the ghastly things
+That are wrought in thorpe and town:
+[VERSE 11]
+And yet, cold pale moon, thou cruel pale moon,
+That night hadst never the grace
+To lighten two dying Christian men
+To see one another's face.
+[REFRAIN]
+They wrestled up, they wrestled down,
+[VERSE 12]
+They wrestled sore and still,
+The fiend who blinds the eyes of men
+That night he had his will.
+[VERSE 13]
+Like stags full spent, among the bent
+They dropped a while to rest;
+When the young man drove his saying knife
+Deep in the old man's breast.
+[VERSE 14]
+The old man drove his gunstock down
+Upon the young man's head;
+And side by side, by the water brown,
+Those yeomen twain lay dead.
+[VERSE 15]
+They dug three graves in Lyndhurst yard;
+They dug them side by side;
+Two yeomen lie there, and a maiden fair
+A widow and never a bride.
+
+--- TITLE: Sing Heigh-Ho!
+[VERSE 1]
+There sits a bird on every tree;
+Sing heigh-ho!
+There sits a bird on every tree,
+And courts his love as I do thee;
+[BURDEN]
+Sing heigh-ho, and heigh-ho!
+Young maids must marry.
+[VERSE 2]
+There grows a flower on every bough;
+Sing heigh-ho!
+There grows a flower on every bough,
+Its petals kiss--I'll show you how:
+[BURDEN]
+Sing heigh-ho, and heigh-ho!
+Young maids must marry.
+[VERSE 3]
+From sea to stream the salmon roam;
+Sing heigh-ho!
+From sea to stream the salmon roam;
+Each finds a mate, and leads her home;
+[BURDEN]
+Sing heigh-ho, and heigh-ho!
+Young maids must marry.
+[VERSE 4]
+The sun's a bridegroom, earth a bride;
+Sing heigh-ho!
+They court from morn till eventide:
+The earth shall pass, but love abide.
+[BURDEN]
+Sing heigh-ho, and heigh-ho!
+Young maids must marry.
+
+--- TITLE: A Lament
+[VERSE 1]
+The merry merry lark was up and singing,
+And the hare was out and feeding on the lea;
+And the merry merry bells below were ringing,
+When my child's laugh rang through me.
+[VERSE 2]
+Now the hare is snared and dead beside the snow-yard,
+And the lark beside the dreary winter sea;
+And the baby in his cradle in the churchyard
+Sleeps sound till the bell brings me.
+
+--- TITLE: The Night Bird: A Myth
+[VERSE 1]
+A floating, a floating
+Across the sleeping sea,
+All night I heard a singing bird
+Upon the topmost tree.
+[VERSE 2]
+'Oh came you off the isles of Greece,
+Or off the banks of Seine;
+Or off some tree in forests free,
+Which fringe the western main?'
+[VERSE 3]
+'I came not off the old world
+Nor yet from off the new--
+But I am one of the birds of God
+Which sing the whole night through.'
+[VERSE 4]
+'Oh sing, and wake the dawning--
+Oh whistle for the wind;
+The night is long, the current strong,
+My boat it lags behind.'
+[VERSE 5]
+'The current sweeps the old world,
+The current sweeps the new;
+The wind will blow, the dawn will glow
+Ere thou hast sailed them through.'
+
+--- TITLE: The Dead Church
+[VERSE 1]
+Wild wild wind, wilt thou never cease thy sighing?
+Dark dark night, wilt thou never wear away?
+Cold cold church, in thy death sleep lying,
+The Lent is past, thy Passion here, but not thine Easter-day.
+[VERSE 2]
+Peace, faint heart, though the night be dark and sighing;
+Rest, fair corpse, where thy Lord himself hath lain.
+Weep, dear Lord, above thy bride low lying;
+Thy tears shall wake her frozen limbs to life and health again.
+
+--- TITLE: A Parable From Liebig
+[VERSE 1]
+The church bells were ringing, the devil sat singing
+On the stump of a rotting old tree;
+'Oh faith it grows cold, and the creeds they grow old,
+And the world is nigh ready for me.'
+[VERSE 2]
+The bells went on ringing, a spirit came singing,
+And smiled as he crumbled the tree;
+'Yon wood does but perish new seedlings to cherish,
+And the world is too live yet for thee.'
+
+--- TITLE: The Starlings
+[VERSE 1]
+Early in spring time, on raw and windy mornings,
+Beneath the freezing house-eaves I heard the starlings sing--
+'Ah dreary March month, is this then a time for building wearily?
+Sad, sad, to think that the year is but begun.'
+[VERSE 2]
+Late in the autumn, on still and cloudless evenings,
+Among the golden reed-beds I heard the starlings sing--
+'Ah that sweet March month, when we and our mates were courting merrily;
+Sad, sad, to think that the year is all but done.'
+
+--- TITLE: Old And New: A Parable
+[VERSE 1]
+See how the autumn leaves float by decaying,
+Down the wild swirls of the rain-swollen stream.
+So fleet the works of men, back to their earth again;
+Ancient and holy things fade like a dream.
+[VERSE 2]
+Nay! see the spring-blossoms steal forth a-maying,
+Clothing with tender hues orchard and glen;
+So, though old forms pass by, ne'er shall their spirit die,
+Look!  England's bare boughs show green leaf again.
+
+--- TITLE: The Watchman
+[REFRAIN]
+'Watchman, what of the night?'
+[VERSE 1]
+'The stars are out in the sky;
+And the merry round moon will be rising soon,
+For us to go sailing by.'
+[REFRAIN]
+'Watchman, what of the night?'
+[VERSE 2]
+'The tide flows in from the sea;
+There's water to float a little cockboat
+Will carry such fishers as we.'
+[REFRAIN]
+'Watchman, what of the night?'
+[VERSE 3]
+'The night is a fruitful time;
+When to many a pair are born children fair,
+To be christened at morning chime.'
+[VERSE 4]
+1849.
+
+--- TITLE: The Sands Of Dee
+[VERSE 1]
+'O Mary, go and call the cattle home,
+And call the cattle home,
+And call the cattle home
+Across the sands of Dee;'
+The western wind was wild and dank with foam,
+And all alone went she.
+[VERSE 2]
+The western tide crept up along the sand,
+And o'er and o'er the sand,
+And round and round the sand,
+As far as eye could see.
+The rolling mist came down and hid the land:
+And never home came she.
+[VERSE 3]
+'Oh! is it weed, or fish, or floating hair--
+A tress of golden hair,
+A drowned maiden's hair
+Above the nets at sea?
+Was never salmon yet that shone so fair
+Among the stakes on Dee.'
+[VERSE 4]
+They rowed her in across the rolling foam,
+The cruel crawling foam,
+The cruel hungry foam,
+To her grave beside the sea:
+But still the boatmen hear her call the cattle home
+Across the sands of Dee.
+
+--- TITLE: Dartside
+[VERSE 1]
+I cannot tell what you say, green leaves,
+[BURDEN]
+I cannot tell what you say:
+But I know that there is a spirit in you,
+And a word in you this day.
+[VERSE 2]
+I cannot tell what you say, rosy rocks,
+[BURDEN]
+I cannot tell what you say:
+But I know that there is a spirit in you,
+And a word in you this day.
+[VERSE 3]
+I cannot tell what you say, brown streams,
+I cannot tell what you say:
+But I know that in you too a spirit doth live,
+And a word doth speak this day.
+[VERSE 4]
+'Oh green is the colour of faith and truth,
+And rose the colour of love and youth,
+And brown of the fruitful clay.
+Sweet Earth is faithful, and fruitful, and young,
+And her bridal day shall come ere long,
+And you shall know what the rocks and the streams
+And the whispering woodlands say.'
+
+--- TITLE: My Hunting Song
+[VERSE 1]
+Forward!  Hark forward's the cry!
+One more fence and we're out on the open,
+So to us at once, if you want to live near us!
+Hark to them, ride to them, beauties! as on they go,
+Leaping and sweeping away in the vale below!
+Cowards and bunglers, whose heart or whose eye is slow,
+Find themselves staring alone.
+[VERSE 2]
+So the great cause flashes by;
+Nearer and clearer its purposes open,
+While louder and prouder the world-echoes cheer us:
+Gentlemen sportsmen, you ought to live up to us,
+Lead us, and lift us, and hallo our game to us--
+We cannot call the hounds off, and no shame to us--
+Don't be left staring alone!
+
+--- TITLE: Alton Locke'S Song
+[VERSE 1]
+Weep, weep, weep and weep,
+For pauper, dolt, and slave!
+Hark! from wasted moor and fen,
+Feverous alley, stifling den,
+Swells the wail of Saxon men--
+Work! or the grave!
+[VERSE 2]
+Down, down, down and down,
+With idler, knave, and tyrant!
+Why for sluggards cark and moil?
+He that will not live by toil
+Has no right on English soil!
+God's word's our warrant!
+[VERSE 3]
+Up, up, up and up!
+Face your game and play it!
+The night is past, behold the sun!
+The idols fall, the lie is done!
+The Judge is set, the doom begun!
+Who shall stay it?
+
+--- TITLE: The Day Of The Lord
+[VERSE 1]
+The Day of the Lord is at hand, at hand:
+Its storms roll up the sky:
+The nations sleep starving on heaps of gold;
+All dreamers toss and sigh;
+The night is darkest before the morn;
+When the pain is sorest the child is born,
+And the Day of the Lord at hand.
+[VERSE 2]
+Gather you, gather you, angels of God--
+Freedom, and Mercy, and Truth;
+Come! for the Earth is grown coward and old,
+Come down, and renew us her youth.
+Wisdom, Self-Sacrifice, Daring, and Love,
+Haste to the battle-field, stoop from above,
+To the Day of the Lord at hand.
+[VERSE 3]
+Gather you, gather you, hounds of hell--
+Famine, and Plague, and War;
+Idleness, Bigotry, Cant, and Misrule,
+Gather, and fall in the snare!
+Hireling and Mammonite, Bigot and Knave,
+Crawl to the battle-field, sneak to your grave,
+[BURDEN]
+In the Day of the Lord at hand.
+[VERSE 4]
+Who would sit down and sigh for a lost age of gold,
+While the Lord of all ages is here?
+True hearts will leap up at the trumpet of God,
+And those who can suffer, can dare.
+Each old age of gold was an iron age too,
+And the meekest of saints may find stern work to do,
+[BURDEN]
+In the Day of the Lord at hand.
+
+--- TITLE: A Christmas Carol
+[VERSE 1]
+It chanced upon the merry merry Christmas eve,
+I went sighing past the church across the moorland dreary--
+'Oh! never sin and want and woe this earth will leave,
+And the bells but mock the wailing round, they sing so cheery.
+How long, O Lord! how long before Thou come again?
+Still in cellar, and in garret, and on moorland dreary
+The orphans moan, and widows weep, and poor men toil in vain,
+Till earth is sick of hope deferred, though Christmas bells be cheery.'
+[VERSE 2]
+Then arose a joyous clamour from the wild-fowl on the mere,
+Beneath the stars, across the snow, like clear bells ringing,
+And a voice within cried--'Listen!--Christmas carols even here!
+Though thou be dumb, yet o'er their work the stars and snows are singing.
+Blind!  I live, I love, I reign; and all the nations through
+With the thunder of my judgments even now are ringing.
+Do thou fulfil thy work but as yon wild-fowl do,
+Thou wilt heed no less the wailing, yet hear through it angels singing.'
+
+--- TITLE: The Oubit
+[VERSE 1]
+It was an hairy oubit, sae proud he crept alang,
+A feckless hairy oubit, and merrily he sang--
+'My Minnie bad me bide at hame until I won my wings;
+I show her soon my soul's aboon the warks o' creeping things.'
+[VERSE 2]
+This feckless hairy oubit cam' hirpling by the linn,
+A swirl o' wind cam' doun the glen, and blew that oubit in:
+Oh when he took the water, the saumon fry they rose,
+And tigg'd him a' to pieces sma', by head and tail and toes.
+[VERSE 3]
+Tak' warning then, young poets a', by this poor oubit's shame;
+Though Pegasus may nicher loud, keep Pegasus at hame.
+Oh haud your hands frae inkhorns, though a' the Muses woo;
+For critics lie, like saumon fry, to mak' their meals o' you.
+
+--- TITLE: The Three Fishers
+[VERSE 1]
+Three fishers went sailing away to the West,
+Away to the West as the sun went down;
+Each thought on the woman who loved him the best,
+And the children stood watching them out of the town;
+For men must work, and women must weep,
+And there's little to earn, and many to keep,
+Though the harbour bar be moaning.
+[VERSE 2]
+Three wives sat up in the lighthouse tower,
+And they trimmed the lamps as the sun went down;
+They looked at the squall, and they looked at the shower,
+And the night-rack came rolling up ragged and brown.
+But men must work, and women must weep,
+Though storms be sudden, and waters deep,
+And the harbour bar be moaning.
+[VERSE 3]
+Three corpses lay out on the shining sands
+In the morning gleam as the tide went down,
+And the women are weeping and wringing their hands
+For those who will never come home to the town;
+For men must work, and women must weep,
+And the sooner it's over, the sooner to sleep;
+And good-bye to the bar and its moaning.
+
+--- TITLE: Margaret To Dolcino
+[VERSE 1]
+Ask if I love thee?  Oh, smiles cannot tell
+Plainer what tears are now showing too well.
+Had I not loved thee, my sky had been clear:
+Had I not loved thee, I had not been here,
+[BURDEN]
+Weeping by thee.
+[VERSE 2]
+Ask if I love thee?  How else could I borrow
+Pride from man's slander, and strength from my sorrow?
+Laugh when they sneer at the fanatic's bride,
+Knowing no bliss, save to toil and abide
+[BURDEN]
+Weeping by thee.
+
+--- TITLE: Dolcino To Margaret
+[VERSE 1]
+The world goes up and the world goes down,
+And the sunshine follows the rain;
+And yesterday's sneer and yesterday's frown
+Can never come over again,
+Sweet wife:
+No, never come over again.
+[VERSE 2]
+For woman is warm though man be cold,
+And the night will hallow the day;
+Till the heart which at even was weary and old
+Can rise in the morning gay,
+Sweet wife;
+To its work in the morning gay.
+
+--- TITLE: The Ugly Princess
+[VERSE 1]
+My parents bow, and lead them forth,
+For all the crowd to see--
+Ah well! the people might not care
+To cheer a dwarf like me.
+[VERSE 2]
+They little know how I could love,
+How I could plan and toil,
+To swell those drudges' scanty gains,
+Their mites of rye and oil.
+[VERSE 3]
+They little know what dreams have been
+My playmates, night and day;
+Of equal kindness, helpful care,
+A mother's perfect sway.
+[VERSE 4]
+Now earth to earth in convent walls,
+To earth in churchyard sod:
+I was not good enough for man,
+And so am given to God.
+
+--- TITLE: On The Death Of A Certain Journal
+[VERSE 1]
+So die, thou child of stormy dawn,
+Thou winter flower, forlorn of nurse;
+Chilled early by the bigot's curse,
+The pedant's frown, the worldling's yawn.
+[VERSE 2]
+Fair death, to fall in teeming June,
+When every seed which drops to earth
+Takes root, and wins a second birth
+From steaming shower and gleaming moon.
+[VERSE 3]
+Fall warm, fall fast, thou mellow rain;
+Thou rain of God, make fat the land;
+That roots which parch in burning sand
+May bud to flower and fruit again.
+[VERSE 4]
+To grace, perchance, a fairer morn
+In mightier lands beyond the sea,
+While honour falls to such as we
+From hearts of heroes yet unborn,
+[VERSE 5]
+Who in the light of fuller day,
+Of purer science, holier laws,
+Bless us, faint heralds of their cause,
+Dim beacons of their glorious way.
+[VERSE 6]
+Failure?  While tide-floods rise and boil
+Round cape and isle, in port and cove,
+Resistless, star-led from above:
+What though our tiny wave recoil?
+
+--- TITLE: Ballad Of Earl Haldan'S Daughter
+[REFRAIN]
+It was Earl Haldan's daughter,
+[VERSE 1]
+She looked across the sea;
+She looked across the water;
+And long and loud laughed she:
+'The locks of six princesses
+Must be my marriage fee,
+So hey bonny boat, and ho bonny boat!
+Who comes a wooing me?'
+[REFRAIN]
+It was Earl Haldan's daughter,
+[VERSE 2]
+She walked along the sand;
+When she was aware of a knight so fair,
+Came sailing to the land.
+His sails were all of velvet,
+His mast of beaten gold,
+And 'Hey bonny boat, and ho bonny boat!
+Who saileth here so bold?'
+[VERSE 3]
+'The locks of five princesses
+I won beyond the sea;
+I clipt their golden tresses,
+To fringe a cloak for thee.
+One handful yet is wanting,
+But one of all the tale;
+So hey bonny boat, and ho bonny boat!
+Furl up thy velvet sail!'
+[VERSE 4]
+He leapt into the water,
+That rover young and bold;
+He gript Earl Haldan's daughter,
+He clipt her locks of gold:
+'Go weep, go weep, proud maiden,
+The tale is full to-day.
+Now hey bonny boat, and ho bonny boat!
+Sail Westward ho! away!'
+
+--- TITLE: Frank Leigh'S Song. A.D. 1586
+[VERSE 1]
+Ah tyrant Love, Megaera's serpents bearing,
+Why thus requite my sighs with venom'd smart?
+Ah ruthless dove, the vulture's talons wearing,
+Why flesh them, traitress, in this faithful heart?
+Is this my meed?  Must dragons' teeth alone
+In Venus' lawns by lovers' hands be sown?
+[VERSE 2]
+Nay, gentlest Cupid; 'twas my pride undid me;
+Nay, guiltless dove; by mine own wound I fell.
+To worship, not to wed, Celestials bid me:
+I dreamt to mate in heaven, and wake in hell;
+For ever doom'd, Ixion-like, to reel
+On mine own passions' ever-burning wheel.
+
+--- TITLE: A Farewell: To C. E. G
+[VERSE 1]
+My fairest child, I have no song to give you;
+No lark could pipe in skies so dull and gray;
+Yet, if you will, one quiet hint I'll leave you,
+For every day.
+[VERSE 2]
+I'll tell you how to sing a clearer carol
+Than lark who hails the dawn or breezy down
+To earn yourself a purer poet's laurel
+Than Shakespeare's crown.
+[VERSE 3]
+Be good, sweet maid, and let who can be clever;
+Do lovely things, not dream them, all day long;
+And so make Life, and Death, and that For Ever,
+One grand sweet song.
+
+--- TITLE: To G. A. G
+[VERSE 1]
+A hasty jest I once let fall--
+As jests are wont to be, untrue--
+As if the sum of joy to you
+Were hunt and picnic, rout and ball.
+[VERSE 2]
+Your eyes met mine:  I did not blame;
+You saw it:  but I touched too near
+Some noble nerve; a silent tear
+Spoke soft reproach, and lofty shame.
+[VERSE 3]
+I do not wish those words unsaid.
+Unspoilt by praise and pleasure, you
+In that one look to woman grew,
+While with a child, I thought, I played.
+[VERSE 4]
+Next to mine own beloved so long!
+I have not spent my heart in vain.
+I watched the blade; I see the grain;
+A woman's soul, most soft, yet strong.
+
+--- TITLE: The South Wind: A Fisherman'S Blessings
+[VERSE 1]
+O blessed drums of Aldershot!
+O blessed South-west train!
+O blessed, blessed Speaker's clock,
+All prophesying rain!
+[VERSE 2]
+O blessed yaffil, laughing loud!
+O blessed falling glass!
+O blessed fan of cold gray cloud!
+O blessed smelling grass!
+[VERSE 3]
+O bless'd South wind that toots his horn
+Through every hole and crack!
+I'm off at eight to-morrow morn,
+To bring _such_ fishes back!
+
+--- TITLE: The Find
+[VERSE 1]
+Yon sound's neither sheep-bell nor bark,
+They're running--they're running, Go hark!
+The sport may be lost by a moment's delay;
+So whip up the puppies and scurry away.
+Dash down through the cover by dingle and dell,
+There's a gate at the bottom--I know it full well;
+And they're running--they're running,
+[BURDEN]
+Go hark!
+[VERSE 2]
+They're running--they're running, Go hark!
+One fence and we're out of the park;
+Sit down in your saddles and race at the brook,
+Then smash at the bullfinch; no time for a look;
+Leave cravens and skirters to dangle behind;
+He's away for the moors in the teeth of the wind,
+And they're running--they're running,
+[BURDEN]
+Go hark!
+[VERSE 3]
+They're running--they're running, Go hark!
+Let them run on and run till it's dark!
+Well with them we are, and well with them we'll be,
+While there's wind in our horses and daylight to see:
+Then shog along homeward, chat over the fight,
+And hear in our dreams the sweet music all night
+Of--They're running--they're running,
+[BURDEN]
+Go hark!
+
+--- TITLE: Fishing Song: To J. A. Froude And Tom Hughes
+[VERSE 1]
+Oh, Mr. Froude, how wise and good,
+To point us out this way to glory--
+They're no great shakes, those Snowdon Lakes,
+And all their pounders myth and story.
+Blow Snowdon!  What's Lake Gwynant to Killarney,
+Or spluttering Welsh to tender blarney, blarney, blarney?
+[VERSE 2]
+So Thomas Hughes, sir, if you choose,
+I'll tell you where we think of going,
+To swate and far o'er cliff and scar,
+Hear horns of Elfland faintly blowing;
+Blow Snowdon!  There's a hundred lakes to try in,
+And fresh caught salmon daily, frying, frying, frying.
+[VERSE 3]
+Geology and botany
+A hundred wonders shall diskiver,
+We'll flog and troll in strid and hole,
+And skim the cream of lake and river,
+Blow Snowdon! give me Ireland for my pennies,
+Hurrah! for salmon, grilse, and--Dennis, Dennis, Dennis!
+
+--- TITLE: The Knight'S Return
+[VERSE 1]
+Hark! hark! hark!
+The lark sings high in the dark.
+The were wolves mutter, the night hawks moan,
+The raven croaks from the Raven-stone;
+What care I for his boding groan,
+Riding the moorland to come to mine own?
+[BURDEN]
+Hark! hark! hark!
+The lark sings high in the dark.
+[VERSE 2]
+Hark! hark! hark!
+The lark sings high in the dark.
+Long have I wander'd by land and by sea,
+Long have I ridden by moorland and lea;
+Yonder she sits with my babe on her knee,
+Sits at the window and watches for me!
+[BURDEN]
+Hark! hark! hark!
+The lark sings high in the dark.
+[VERSE 3]
+Written for music, 1857.
+
+--- TITLE: The Tide River
+[VERSE 1]
+Clear and cool, clear and cool,
+By laughing shallow, and dreaming pool;
+Cool and clear, cool and clear,
+By shining shingle, and foaming wear;
+Under the crag where the ouzel sings,
+And the ivied wall where the church-bell rings,
+[BURDEN]
+Undefiled, for the undefiled;
+Play by me, bathe in me, mother and child.
+[VERSE 2]
+Dank and foul, dank and foul,
+By the smoky town in its murky cowl;
+Foul and dank, foul and dank,
+By wharf and sewer and slimy bank;
+Darker and darker the farther I go,
+Baser and baser the richer I grow;
+Who dare sport with the sin-defiled?
+Shrink from me, turn from me, mother and child.
+[VERSE 3]
+Strong and free, strong and free,
+The floodgates are open, away to the sea.
+Free and strong, free and strong,
+Cleansing my streams as I hurry along
+To the golden sands, and the leaping bar,
+And the taintless tide that awaits me afar,
+As I lose myself in the infinite main,
+Like a soul that has sinned and is pardoned again.
+[BURDEN]
+Undefiled, for the undefiled;
+Play by me, bathe in me, mother and child.
+
+--- TITLE: Young And Old
+[VERSE 1]
+When all the world is young, lad,
+And all the trees are green;
+And every goose a swan, lad,
+And every lass a queen;
+Then hey for boot and horse, lad,
+And round the world away;
+Young blood must have its course, lad,
+And every dog his day.
+[VERSE 2]
+When all the world is old, lad,
+And all the trees are brown;
+And all the sport is stale, lad,
+And all the wheels run down;
+Creep home, and take your place there,
+The spent and maimed among:
+God grant you find one face there,
+You loved when all was young.
+
+--- TITLE: The Summer Sea
+[VERSE 1]
+Soft soft wind, from out the sweet south sliding,
+Waft thy silver cloud webs athwart the summer sea;
+Thin thin threads of mist on dewy fingers twining
+Weave a veil of dappled gauze to shade my babe and me.
+[VERSE 2]
+Deep deep Love, within thine own abyss abiding,
+Pour Thyself abroad, O Lord, on earth and air and sea;
+Worn weary hearts within Thy holy temple hiding,
+Shield from sorrow, sin, and shame my helpless babe and me.
+
+--- TITLE: My Little Doll
+[VERSE 1]
+I once had a sweet little doll, dears,
+The prettiest doll in the world;
+Her cheeks were so red and so white, dears,
+And her hair was so charmingly curled.
+But I lost my poor little doll, dears,
+As I played in the heath one day;
+And I cried for more than a week, dears,
+But I never could find where she lay.
+[VERSE 2]
+I found my poor little doll, dears,
+As I played in the heath one day:
+Folks say she is terribly changed, dears,
+For her paint is all washed away,
+And her arms trodden off by the cows, dears
+And her hair not the least bit curled:
+Yet for old sakes' sake she is still, dears,
+The prettiest doll in the world.
+
+--- TITLE: The Knight'S Leap: A Legend Of Altenahr
+[VERSE 1]
+'So the foemen have fired the gate, men of mine;
+And the water is spent and gone?
+Then bring me a cup of the red Ahr-wine:
+I never shall drink but this one.
+[VERSE 2]
+'And reach me my harness, and saddle my horse,
+And lead him me round to the door:
+He must take such a leap to-night perforce,
+As horse never took before.
+[VERSE 3]
+'I have fought my fight, I have lived my life,
+I have drunk my share of wine;
+From Trier to Coln there was never a knight
+Led a merrier life than mine.
+[VERSE 4]
+'I have lived by the saddle for years two score;
+And if I must die on tree,
+Then the old saddle tree, which has borne me of yore,
+Is the properest timber for me.
+[VERSE 5]
+'So now to show bishop, and burgher, and priest,
+How the Altenahr hawk can die:
+If they smoke the old falcon out of his nest,
+He must take to his wings and fly.'
+[VERSE 6]
+He harnessed himself by the clear moonshine,
+And he mounted his horse at the door;
+And he drained such a cup of the red Ahr-wine,
+As man never drained before.
+[VERSE 7]
+He spurred the old horse, and he held him tight,
+And he leapt him out over the wall;
+Out over the cliff, out into the night,
+Three hundred feet of fall.
+[VERSE 8]
+They found him next morning below in the glen,
+With never a bone in him whole--
+A mass or a prayer, now, good gentlemen,
+For such a bold rider's soul.
+
+--- TITLE: On The Death Of Leopold, King Of The Belgians
+[VERSE 1]
+A King is dead!  Another master mind
+Is summoned from the world-wide council hall.
+Ah, for some seer, to say what links behind--
+To read the mystic writing on the wall!
+[VERSE 2]
+Be still, fond man:  nor ask thy fate to know.
+Face bravely what each God-sent moment brings.
+Above thee rules in love, through weal and woe,
+Guiding thy kings and thee, the King of kings.
+
+--- TITLE: Drifting Away: A Fragment
+[VERSE 1]
+They drift away.  Ah, God! they drift for ever.
+I watch the stream sweep onward to the sea,
+Like some old battered buoy upon a roaring river,
+Round whom the tide-waifs hang--then drift to sea.
+[VERSE 2]
+I watch them drift--the old familiar faces,
+Who fished and rode with me, by stream and wold,
+Till ghosts, not men, fill old beloved places,
+And, ah! the land is rank with churchyard mold.
+[VERSE 3]
+I watch them drift--the youthful aspirations,
+Shores, landmarks, beacons, drift alike.
+. . . . .
+I watch them drift--the poets and the statesmen;
+The very streams run upward from the sea.
+. . . . . .
+Yet overhead the boundless arch of heaven
+Still fades to night, still blazes into day.
+. . . . .
+Ah, God!  My God!  Thou wilt not drift away
+
+--- TITLE: September 21, 1870
+[VERSE 1]
+Speak low, speak little; who may sing
+While yonder cannon-thunders boom?
+Watch, shuddering, what each day may bring:
+Nor 'pipe amid the crack of doom.'
+[VERSE 2]
+And yet--the pines sing overhead,
+The robins by the alder-pool,
+The bees about the garden-bed,
+The children dancing home from school.
+[VERSE 3]
+And ever at the loom of Birth
+The mighty Mother weaves and sings:
+She weaves--fresh robes for mangled earth;
+She sings--fresh hopes for desperate things.
+[VERSE 4]
+And thou, too:  if through Nature's calm
+Some strain of music touch thine ears,
+Accept and share that soothing balm,
+And sing, though choked with pitying tears.
+
+--- TITLE: Qu'Est Qu'Il Dit'
+[VERSE 1]
+Espion aile de la jeune amante
+De l'ombre des palmiers pourquoi ce cri?
+Laisse en paix le beau garcon plaider et vaincre--
+Pourquoi, pourquoi demander 'Qu'est qu'il dit?'
+[VERSE 2]
+'Qu'est qu'il dit?'  Ce que tu dis toi-meme
+Chaque mois de ce printemps eternel;
+Ce que disent les papillons qui s'entre-baisent,
+Ce que dit tout bel jeun etre a toute belle.
+[VERSE 3]
+Importun!  Attende quelques lustres:
+Quand les souvenirs 1'emmeneront ici--
+Mere, grand'mere, pale, lasse, et fidele,
+Demande mais doucement--'Et le vieillard,
+Qu'est qu'il dit?'
+
+--- TITLE: Hymn
+[VERSE 1]
+Accept this building, gracious Lord,
+No temple though it be;
+We raised it for our suffering kin,
+And so, Good Lord, for Thee.
+[VERSE 2]
+Accept our little gift, and give
+To all who here may dwell,
+The will and power to do their work,
+Or bear their sorrows well.
+[VERSE 3]
+From Thee all skill and science flow;
+All pity, care, and love,
+All calm and courage, faith and hope,
+Oh! pour them from above.
+[VERSE 4]
+And part them, Lord, to each and all,
+As each and all shall need,
+To rise like incense, each to Thee,
+In noble thought and deed.
+[VERSE 5]
+And hasten, Lord, that perfect day,
+When pain and death shall cease;
+And Thy just rule shall fill the earth
+With health, and light, and peace.
+[VERSE 6]
+When ever blue the sky shall gleam,
+And ever green the sod;
+And man's rude work deface no more
+The Paradise of God.
+
+--- TITLE: Valentine'S Day
+[VERSE 1]
+Oh!  I wish I were a tiny browny bird from out the south,
+Settled among the alder-holts, and twittering by the stream;
+I would put my tiny tail down, and put up my tiny mouth,
+And sing my tiny life away in one melodious dream.
+[VERSE 2]
+I would sing about the blossoms, and the sunshine and the sky,
+And the tiny wife I mean to have in such a cosy nest;
+And if some one came and shot me dead, why then I could but die,
+With my tiny life and tiny song just ended at their best.
+
+--- TITLE: Martin Lightfoot'S Song
+[VERSE 1]
+Come hearken, hearken, gentles all,
+Come hearken unto me,
+And I'll sing you a song of a Wood-Lyon
+Came swimming out over the sea.
+[VERSE 2]
+He ranged west, he ranged east,
+And far and wide ranged he;
+He took his bite out of every beast
+Lives under the greenwood tree.
+[VERSE 3]
+Then by there came a silly old wolf,
+'And I'll serve you,' quoth he;
+Quoth the Lyon, 'My paw is heavy enough,
+[BURDEN]
+So what wilt thou do for me?'
+[VERSE 4]
+Then by there came a cunning old fox,
+'And I'll serve you,' quoth he;
+Quoth the Lyon, 'My wits are sharp enough
+[BURDEN]
+So what wilt thou do for me?'
+[VERSE 5]
+Then by there came a white, white dove,
+Flew off Our Lady's knee;
+Sang 'It's I will be your true, true love,
+If you'll be true to me.'
+[VERSE 6]
+'And what will you do, you bonny white dove?
+And what will you do for me?'
+'Oh, it's I'll bring you to Our Lady's love,
+In the ways of chivalrie.'
+[VERSE 7]
+He followed the dove that Wood-Lyon
+By mere and wood and wold,
+Till he is come to a perfect knight,
+Like the Paladin of old.
+[VERSE 8]
+He ranged east, he ranged west,
+And far and wide ranged he--
+And ever the dove won him honour and fame
+In the ways of chivalrie.
+[VERSE 9]
+Then by there came a foul old sow,
+Came rookling under the tree;
+And 'It's I will be true love to you,
+If you'll be true to me.'
+[VERSE 10]
+'And what wilt thou do, thou foul old sow?
+And what wilt thou do for me?'
+'Oh, there hangs in my snout a jewel of gold,
+And that will I give to thee.'
+[VERSE 11]
+He took to the sow that Wood-Lyon;
+To the rookling sow took he;
+And the dove flew up to Our Lady's bosom;
+And never again throve he.

@@ -1,0 +1,299 @@
+# collection: 西樵語業 (KR4j0041), 集部/詞曲類 of the Kanseki Repository.
+#          13 ci, 9 詞牌.
+#          Author, from the collection's own title page: 楊炎正.
+# source: kanripo/KR4j0041 md5 156a6c837bdc16d8a063932849d19197 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0041 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 楊炎正 as 撰. Every poem carries it.
+
+
+--- TITLE: 鵲橋仙  [air: 鵲橋仙]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 鵲橋仙 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.10
+--- JU: 1.2.4.6.7.9
+--- HEADING-AS-PRINTED: 鵲橋仙
+[VERSE 1]
+思歸時節，
+乍寒天氣，
+總是離人愁緒。
+夜來無奈被西風，
+更吹做一簾秋雨。
+[VERSE 2]
+征衫拂淚，
+䦨干倚醉，
+羞對黄花無語。
+寄書除是鴈來時，
+又只恐書成鴈去。
+
+--- TITLE: 鵲橋仙 其2  [air: 鵲橋仙]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 鵲橋仙 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.10
+--- JU: 1.2.4.6.7.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+築成臺榭，
+種成花桞，
+更又敎成歌舞。
+不知誰為帶湖仙，
+収拾盡壺天風露。
+[VERSE 2]
+閒中得味，
+酒中得趣，
+只恐天還也妬。
+青山縱買萬千重，
+遮不斷詔書來路。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+離恨做成春夜雨。
+添得春江，
+剗地東流去。
+弱桞繫舩都不住。
+為君愁絶聽鳴艣。
+[VERSE 2]
+君到南徐芳艸渡。
+想得尋春，
+依舊當年路。
+後夜獨憐回首處。
+亂山遮莫無重數。
+
+--- TITLE: 蝶戀花 其2  [air: 蝶戀花]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+㸃撿笙歌多釀酒。
+不放東風，
+獨自迷楊桞。
+院院翠隂停永晝。
+曲欄隨處堪埀手。
+[VERSE 2]
+昨日解酲今夕又。
+消得情懷，
+長被春僝僽。
+門外馬嘶人去後。
+亂紅不管花消瘦。
+
+--- TITLE: 蝶戀花 其3  [air: 蝶戀花]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+萬㸃飛花愁似雨。
+峭殺輕寒，
+不㑹畱春住。
+滿地亂紅風埽聚。
+只敎燕子銜將去。
+[VERSE 2]
+獨倚闌干閒自覻。
+深院無人，
+行到無情處。
+簾外絲絲楊桞舞。
+又還裝㸃人情緒。
+
+--- TITLE: 玉人歌  [air: 玉人歌]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 玉人歌 88字
+--- RHYME: 1.3.5.7.9.10.12.14.16.17
+--- JU: 2.4.6.8.11.13.15
+--- HEADING-AS-PRINTED: 玉人歌
+[VERSE 1]
+風西起。
+又老盡籬花，
+寒輕香細。
+漫題紅葉，
+句裏意誰㑹。
+長天不恨江南逺，
+苦恨無書寄。
+最相思盤橘千枚，
+膾鱸十尾。
+[VERSE 2]
+鴻鴈阻歸計。
+算愁滿離腸，
+十分豈止。
+倦倚闌干，
+顧影在天際。
+凌煙圖畫青山約，
+總是浮生事。
+判從今買取朝醒夕醉。
+
+--- TITLE: 秦樓月  [air: 秦樓月]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 秦樓月 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6.7.8.10
+--- JU: 4.9
+--- HEADING-AS-PRINTED: 秦樓月
+[VERSE 1]
+東風寂。
+垂楊舞困春無力。
+春無力。
+落紅不管，
+杏花狼籍。
+[VERSE 2]
+斷腸芳艸萋萋碧。
+新來怪底相思極。
+相思極。
+冷煙池館，
+又將寒食。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+楊桞籠煙裊嫩黄。
+桃花蘸水染紅香。
+薄羅衫子日初長。
+[VERSE 2]
+飲盡東風三百盞，
+醉來愁斷幾回腸。
+敎人獨自遣風光。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+三逕閒情傲落霞。
+五湖高興不浮家。
+自斟北斗浸丹砂。
+[VERSE 2]
+閒把胷中千澗壑，
+撰成醉處一生涯。
+雪樓風月篆裏花。
+
+--- TITLE: 桃源憶故人  [air: 桃源憶故人]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 桃源憶故人 48字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 桃源憶故人
+[VERSE 1]
+尊前未語睂先皺。
+只把横波斜溜。
+此意問春知否。
+蝶困蜂兒瘦。
+[VERSE 2]
+&KR0008;膎呷下些來酒。
+越㑹把人僝僽。
+有箇約伊時候。
+夢裏來相就。
+
+--- TITLE: 踏莎行  [air: 踏莎行]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 踏莎行 58字
+--- RHYME: 2.3.5.7.8.10
+--- JU: 1.4.6.9
+--- HEADING-AS-PRINTED: 踏莎行
+[VERSE 1]
+宿鷺棲身，
+飛鴻㸃淚。
+不堪更是重陽到。
+一襟無處著淒凉，
+倚欄看盡斜陽倒。
+[VERSE 2]
+瘦減難豐，
+悲傷易老。
+淡觴消得黄花笑。
+畫睂人去玉箆存，
+濃愁如黛慿誰埽。
+
+--- TITLE: 減字木蘭花  [air: 減字木蘭花]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 減字木蘭花 44字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 減字木蘭花
+[VERSE 1]
+月明如晝。
+占斷小樓供把酒。
+入眼人人。
+如月精神更有情。
+[VERSE 2]
+大家休睡。
+畱到天明和月醉。
+生怕醒來。
+月到波心憶酒媒。
+
+--- TITLE: 生查子  [air: 生查子]
+--- AUTHOR: 楊炎正
+--- SOURCE: KR4j0041 西樵語業 / JUAN 西樵語業
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 生查子
+[VERSE 1]
+金蓮照夜紅，
+玉腕扶春碧。
+曲妙遏雲行，
+人好欺花色。
+歡生酒面濃，
+笑染爐香溼。
+飲盡十玻璃，
+月墮東方白。

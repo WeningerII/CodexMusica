@@ -1,0 +1,311 @@
+# author: Ẓahīr Fāryābī (d. 1201)
+# source: rsharifnasab/ganjoor_epub  zhir-fariabi.epub  (EPUB of ganjoor.net, one
+#          file per poet) — cloned 2026-08-10, sha256 2cea6d56f59fad2e…
+#          git clone --depth 1 https://github.com/rsharifnasab/ganjoor_epub.git
+#          Sections taken: every XHTML whose <title> contains غزل and which
+#          carries `id="poem-"` anchors (a table-of-contents page carries only
+#          `href="...#poem-"` and is skipped).
+# licence: GNU GPL v3 at the repository root — a SOFTWARE copyleft over the
+#          compilation, not a public-domain affirmation and not obviously apt
+#          for prose text. Admission rests on TERM EXPIRY OF THE WORK: Ẓahīr Fāryābī
+#          died 1201, 730 years before the 1931 cutoff. Two separable
+#          layers (doctrine 40/54); the licence name is recorded with the path
+#          it covers and is NOT treated as evidence about the poem.
+#          The same shape as the Kalliope/Moore precedent already in this
+#          corpus, which is GNU GPL v2 over public-domain lyrics.
+# edition: *** NOT NAMED, AND THIS IS THE BINDING GATE (doctrine 80). ***
+#          ganjoor.net does not state a printed edition inside this EPUB, and
+#          ganjoor.net itself is EGRESS-BLOCKED from this container so the
+#          per-book منبع note could not be read. The author gate is trivial
+#          here — 1201 is 730 years clear — and the EDITION gate is OPEN.
+#          Measured consequence, not a worry: two independent scrapes of
+#          ganjoor.net (this EPUB set and kavehbc/hafez) align 495/495 on
+#          Ḥāfiẓ by maṭlaʿ, agree on 495/495 radif verdicts at
+#          min_fraction=0.60 — and differ on ONE, ghazal
+#          `از سر کوی تو هر کو به ملالت برود`, where one reads ببرد and the
+#          other برود in line 6. A one-letter RECENSIONAL variant, not an
+#          orthographic one, and it moves the corpus count 297 -> 298 at
+#          min_fraction=1.00. An unstated recension is not a footnote.
+# orthography: Perso-Arabic, UNVOCALISED in practice and MEASURED: across all
+#          16,457,188 characters extracted here there are 1,341 ḥarakāt
+#          (0.008%), 595 of them shadda. ZWNJ U+200C IS WRITTEN — 98,192
+#          occurrences — and the kavehbc/hafez text this project already
+#          holds contains ZERO. `fas.normalise()` folds ZWNJ to a SPACE, so a
+#          word written with ZWNJ becomes TWO tokens and the radif's token
+#          count changes with the rendering. That fold is what makes the two
+#          renderings agree: their hemistich lists are byte-identical on only
+#          81 of 495 Ḥāfiẓ ghazals and their radif verdicts agree on 495.
+# structure: [BAYT n] a couplet (two hemistichs). [RADIF] marks a hemistich
+#          carrying the detected radif; it points at a line and adds none.
+#          The rhyming lines of a ghazal are both halves of the maṭlaʿ and the
+#          second half of every later bayt (fas.ghazal_rhyme_lines).
+# tune: the ghazal is a SUNG form and the radif is its structural refrain. No
+#          named air or mode is recorded by the source; `[radif: ...]` on each
+#          title line is the field that does the work `[air: ...]` does in the
+#          English files.
+# sample: 10 ghazals in the source; 10 staged, drawn as EVERY 1-th
+#          in the edition's own numbering. NOT a head truncation: a Persian
+#          dīvān is ordered alphabetically by the rhyme letter, so the first N
+#          ghazals of a large dīvān all rhyme on one letter and truncating
+#          would hand the measurement a single-rawī corpus. Cap 400.
+# measured: radif detected in 7/10 JUDGED ghazals at min_fraction=0.60
+#          and 6/10 at min_fraction=1.00; 0 REFUSED (out of the
+#          declared Perso-Arabic inventory, or fewer than min_lines rhyming
+#          lines). Refused / detected / not-detected are three counts, never
+#          two (doctrine 79).
+#--------------------------------------------------------------------------
+--- TITLE: شمارهٔ ۱  [ganjoor: poem-73581] [radif: بست] [radif-min-fraction: 0.60] [radif@1.00: بست] [rhyme-lines: 9]
+[BAYT 1]
+[RADIF]
+دلم چون بر سر زلف تو جان بست
+[RADIF]
+برو عشقت در هر دو جهان بست
+[BAYT 2]
+سر زلفت چو زین حالت خبر یافت
+[RADIF]
+به قصد جان من جان در میان بست
+[BAYT 3]
+تو را کاین رسم و آیین باشد ای جان
+[RADIF]
+چه بار از وصل تو بر خر توان بست؟
+[BAYT 4]
+لطافت در جهان روی تو آورد
+[RADIF]
+صبا چیزی از آن بر گلستان بست
+[BAYT 5]
+شکر در نی چو خطت سبز و تردید
+[RADIF]
+از آن خود را در آن شیرین دهان بست
+[BAYT 6]
+لبت را لعل خوانم نه ز کان خون
+[RADIF]
+ز سودای لبت در عرق کان بست
+[BAYT 7]
+ندانم تا چه می خوانی تو زان لب
+[RADIF]
+مرا باری در آن معنی زبان بست
+[BAYT 8]
+دری کز فتنه بر روی تو بگشود
+[RADIF]
+به دست معدلت صاحب قران بست
+--- TITLE: شمارهٔ ۲  [ganjoor: poem-73582] [radif: NONE] [radif-min-fraction: 0.60] [radif@1.00: NONE] [rhyme-lines: 8]
+[BAYT 1]
+یار میخواره من دی قدحی باده به دست
+با حریفان ز خرابات برون آمد مست
+[BAYT 2]
+بر در صومعه بنشست و سلامی در داد
+سرِ خُم را بگشاد و در غم را بست
+[BAYT 3]
+دل هر دیو دل از ما که بدید آن مه نو
+گشت آشفته و دیوانه و زنجیر گسست
+[BAYT 4]
+زلف زنجیر وَشش کز سرایمان برخاست
+رقم کفر به ما بر بنشاند و بنشست
+[BAYT 5]
+پشت بر صومعه کریدم و سوی بتکده روی
+خرقه را پاره بکردیم و همه توبه شکست
+[BAYT 6]
+با حریفان قلندر به خرابات شدیم
+زهد بر هم زده،کاسه به کف و کوزه به دست
+[BAYT 7]
+چون ظهیر از سر آن زلف گشادیم گره
+که کمینه گرهی دارد ازو پنجه شست
+--- TITLE: شمارهٔ ۳  [ganjoor: poem-73583] [radif: هست] [radif-min-fraction: 0.60] [radif@1.00: هست] [rhyme-lines: 7]
+[BAYT 1]
+[RADIF]
+ز من چندانک می خواهی وفا هست
+[RADIF]
+از این معنی بگو یک جو تو را هست؟
+[BAYT 2]
+چه گویم وای دل گویی که جان کن
+[RADIF]
+کنون هم از تو پرسم این وفا هست؟
+[BAYT 3]
+سلامم را جوابی نیست از تو
+[RADIF]
+بگو در هیچ مذهب این روا هست؟
+[BAYT 4]
+به غم گفتی برو خون کن دلش را
+[RADIF]
+ز غم واپرس تا خود دل به جا هست؟
+[BAYT 5]
+چو گویم وصل،گویی وقت آن نیست
+[RADIF]
+به غم قانع شدم اینت رضا هست؟
+[BAYT 6]
+گر از غم بر درت جان داد سهل ست
+[RADIF]
+چو من در شهر عشقت صد گدا هست؟
+--- TITLE: شمارهٔ ۴  [ganjoor: poem-73584] [radif: NONE] [radif-min-fraction: 0.60] [radif@1.00: NONE] [rhyme-lines: 10]
+[BAYT 1]
+ای به عیدی دلم به روی تو شاد
+عید را روی تو مبارک باد
+[BAYT 2]
+هر کجا یاد چهره تو کنند
+هیچکس را ز عید ناید یاد
+[BAYT 3]
+ای بسا دل که از هوای لبت
+در میان گل و گلاب افتاد
+[BAYT 4]
+هر زمان شادی نوست مرا
+زان رخ همچو صورت نوشاد
+[BAYT 5]
+نی، غلط می کنم چه می گویم!
+با چنین غم چگونه باشم شاد!؟
+[BAYT 6]
+قبله نیکوان بغدادی
+وز تو چشمم چو دجله بغداد
+[BAYT 7]
+بر فلک تاختی به تندی اسب
+تا رخت ماه را رخی بنهاد
+[BAYT 8]
+می نترسی از آنک در تو رسد
+آنچ کردی به جانم از بیداد
+[BAYT 9]
+تا من از دست محنت تو کنم
+پیش مخدوم خویشتن فریاد
+--- TITLE: شمارهٔ ۵  [ganjoor: poem-73585] [radif: کند] [radif-min-fraction: 0.60] [radif@1.00: کند] [rhyme-lines: 8]
+[BAYT 1]
+[RADIF]
+گر گل رخسار تو عزم گلستان کند
+[RADIF]
+گل به تماشای او روی به بستان کند
+[BAYT 2]
+ور مه روی تو را ماه ببیند برش
+[RADIF]
+تحفه ز دل آورد پیشکش از جان کند
+[BAYT 3]
+نیست چو روی تو مه ورنه ز هر مه دو روز
+[RADIF]
+سر زچه رو در کشد رو ز چه پنهان کند؟
+[BAYT 4]
+سلسله زلف تو با دل دیوانگان
+[RADIF]
+آنچ کند ماه نو او همه روز آن کند
+[BAYT 5]
+درد تو در جان من خیمه زد از بهر آنک
+[RADIF]
+وصل تو تا یک شبی همت درمان کند
+[BAYT 6]
+ورنه ز عشقت ظهیر دیده برآنجا نهاد
+[RADIF]
+کز تو بر شهریار قصه و افغان کند
+[BAYT 7]
+خسرو گردون پناه نصرت دین بیشکین
+[RADIF]
+آنک فلک بر درش خدمت در بان کند
+--- TITLE: شمارهٔ ۶  [ganjoor: poem-73586] [radif: می کند] [radif-min-fraction: 0.60] [radif@1.00: می کند] [rhyme-lines: 8]
+[BAYT 1]
+[RADIF]
+باز بر جانم فراقت پادشاهی می کند
+[RADIF]
+وانچ در عالم کشی کرد از تباهی می کند
+[BAYT 2]
+شهر صبرم تا سپاه هجر تو غارت زدند
+[RADIF]
+با من آن کردی که با شهری سپاهی می کند
+[BAYT 3]
+بی گناهم کشت عشقت وای اگر بودی گناه!
+[RADIF]
+حال چون بودی چو این در بی گناهی می کند؟
+[BAYT 4]
+چشم تو دعوی خونم کرد و ابرو شد گواه
+[RADIF]
+کژ چرا شد گرنه میلی در گواهی می کند
+[BAYT 5]
+در غمم گفتی:صبوری کن!بلی،شاید کنم
+[RADIF]
+هیچ جایی صبر اگر بی اب ماهی می کند
+[BAYT 6]
+بر ظهیر این غصه کمتر نه که طبع او ز نظم
+[RADIF]
+بر سپهر مهر مدح شاه ماهی می کند
+[BAYT 7]
+شهریار شیر کینه نصرت دین بیشکین
+[RADIF]
+آنک شمشیرش ز شیران کینه خواهی می کند
+--- TITLE: شمارهٔ ۷  [ganjoor: poem-73587] [radif: باز مگیر] [radif-min-fraction: 0.60] [radif@1.00: باز مگیر] [rhyme-lines: 6]
+[BAYT 1]
+[RADIF]
+ای همایون نظر،از من نظری باز مگیر
+[RADIF]
+طوطیم در قفص از من شکری باز مگیر
+[BAYT 2]
+سگ قصاب توام خورده ز جانم جگری
+[RADIF]
+چون جگر می خورم از من چگری باز مگیر
+[BAYT 3]
+شب اومید مرا،روز دلفروز تویی
+[RADIF]
+بنما روز و نسیم سحری باز مگیر
+[BAYT 4]
+پا اگر بازگرفتن ز تو من آن دگر است
+[RADIF]
+تو ز من پا به امید دگری باز مگیر
+[BAYT 5]
+ای به تو زنده من و زنده به تو جان ظهیر
+[RADIF]
+تو ز بیمارگران گلشکری باز مگیر
+--- TITLE: شمارهٔ ۸  [ganjoor: poem-73588] [radif: کشم] [radif-min-fraction: 0.60] [radif@1.00: کشم] [rhyme-lines: 5]
+[BAYT 1]
+[RADIF]
+من که هرشب بی خیالت دیده در خون کشم
+[RADIF]
+حاش لله بار عشق دیگران را چون کشم؟
+[BAYT 2]
+گر چو گردونم بگردانی به گرد این جهان
+[RADIF]
+در سرآبم گر چو  گردون ناله بر گردون کشم
+[BAYT 3]
+ور درون جان من چیزی بود جز عشق تو
+[RADIF]
+دست گیرم جان خود را زان میان بیرون کشم
+[BAYT 4]
+چون ظهیری از غم عشقت ندارم دست را
+[RADIF]
+چون شفق از پا گریبان دامن اندر خون کشم
+--- TITLE: شمارهٔ ۹  [ganjoor: poem-73589] [radif: بندی] [radif-min-fraction: 0.60] [radif@1.00: NONE] [rhyme-lines: 10]
+[BAYT 1]
+گر سر کیسه وفابندی
+[RADIF]
+در دُرج سخن چرا بندی؟
+[BAYT 2]
+روی هجران چنان ندانی خوب
+کش جفا نیز بر قفابندی؟
+[BAYT 3]
+لاشه لنگ دل ضعیف مرا
+[RADIF]
+چند بر آخور جفا بندی
+[BAYT 4]
+چشم بیگانگی گشادستی
+تا دعا بر من آشنابندی
+[BAYT 5]
+ماه نو شینی از کُلَه بنهی
+[RADIF]
+سرو سیمینی ار قبا بندی
+[BAYT 6]
+کمری لعل از اشک می سازم
+[RADIF]
+کت میان نیست بر کجا بندی؟
+[BAYT 7]
+نخورم آب بی غمت گرچه
+[RADIF]
+در دلم آتش بلا بندی
+[BAYT 8]
+سر جانم به سنگ غم مشکین
+[RADIF]
+جهد کن تا شکسته را بندی
+[BAYT 9]
+بر سر من قضای بد غم تو ست
+[RADIF]
+تو چرا جرم بر قضا بندی؟
+--- TITLE: شمارهٔ ۱۰  [ganjoor: poem-73590] [radif: NONE] [radif-min-fraction: 0.60] [radif@1.00: NONE] [rhyme-lines: 4]
+[BAYT 1]
+بگذشت ماه روزه به خیر و مبارکی
+پر کن قدح ز باده گلرنگ راوکی
+[BAYT 2]
+آبی که گر برابر آتش بداریش
+واجب شود عبادت او نزد مزدکی
+[BAYT 3]
+برای شعر بنده چو بلبل که پر شود
+سمع خدایگان ز نوای چکاوکی

@@ -1,0 +1,647 @@
+# collection: 白石道人歌曲 (KR4j0047), 集部/詞曲類 of the Kanseki Repository.
+#          29 ci, 14 詞牌.
+#          Author, from the collection's own title page: 姜夔.
+# source: kanripo/KR4j0047 md5 e01f0b50b58ec328365fed7125f5cd19 over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0047 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 姜夔 as 撰. Every poem carries it.
+
+
+--- TITLE: 小重山令  [air: 小重山令]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 小重山令 58字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 賦潭州紅梅
+[VERSE 1]
+人繞湘臯月墜時。
+斜横花樹小浸愁漪。
+一春幽事有誰知。
+東風冷香逺茜裙歸。
+[VERSE 2]
+鷗去昔遊非。
+遥憐花可可夢依依。
+九疑雲杳斷魂啼。
+相思血都沁綠筠枝。
+
+--- TITLE: 驀山溪  [air: 驀山溪]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 驀山溪 82字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.9.11.13.18
+--- JU: 1.3.5.6.7.8.10.12.14.15.16.17
+--- HEADING-AS-PRINTED: 題錢氏溪月
+[VERSE 1]
+與鷗為客，
+綠野留吟屐。
+兩行柳垂陰，
+是當日仙翁手植。
+一亭寂寞，
+烟外帶愁横，
+荷冉冉，
+展涼雲，
+横卧虹千尺。
+才因老盡，
+秀句君休覔。
+萬綠正迷人，
+更愁入山陽夜笛。
+百年心事，
+惟有玉闌知，
+吟未了，
+放船囘，
+月下空相憶。
+
+--- TITLE: 阮郎歸  [air: 阮郎歸]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 阮郎歸 47字
+--- RHYME: 1.2.3.4.6.7.8.9
+--- JU: 5
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+旌陽宫殿昔裵徊。
+一壇雲葉垂。
+與君閒㸔壁間題。
+夜涼笙鶴期。
+[VERSE 2]
+茅店酒，
+夀君時。
+老楓臨路岐。
+年年强健得追隨。
+名山遊遍歸。
+
+--- TITLE: 好事近  [air: 好事近]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 賦茉莉
+[VERSE 1]
+涼夜摘花鈿，
+苒苒動搖雲綠。
+金絡一團香露，
+正紗㕑人獨。
+[VERSE 2]
+朝來碧縷放長穿，
+釵頭罣層玉。
+記得如今時候，
+正荔枝初熟。
+
+--- TITLE: 虞美人  [air: 虞美人]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 賦牡丹
+[VERSE 1]
+西園曽為梅花醉。
+葉剪春雲細。
+玉笙涼夜隔簾吹。
+卧㸔花梢搖動一枝枝。
+[VERSE 2]
+娉娉嫋嫋教誰惜。
+空壓紗巾側。
+沈香亭北又青苔。
+惟有當時蝴蝶自飛來。
+
+--- TITLE: 虞美人 其2  [air: 虞美人]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+摩挲紫葢峰頭石。
+下瞰蒼厓立。
+玉盤搖動半園花。
+花樹扶疎一半白雲遮。
+[VERSE 2]
+盈盈相望無由摘。
+惆悵歸來屐。
+而今仙迹杳難㝷。
+那日青樓曽見似花人。
+
+--- TITLE: 憶王孫  [air: 憶王孫]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 憶王孫 31字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4.5
+--- JU: -
+--- HEADING-AS-PRINTED: 番陽彭氏小樓作
+[VERSE 1]
+冷紅葉葉下塘秋。
+長與行雲共一舟。
+零落江南不自由。
+兩綢繆。
+料得吟鸞夜夜愁。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 己酉之秋苕溪記所見
+[VERSE 1]
+京洛風流絶代人。
+因何風絮落溪津。
+籠鞋淺出鴉頭韈，
+如是凌波縹緲身。
+[VERSE 2]
+紅乍笑，
+綠長嚬。
+與誰同度可憐春。
+鴛鴦獨宿何曽慣，
+化作西樓一縷雲。
+
+--- TITLE: 鷓鴣天 其2  [air: 鷓鴣天]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 丁已元日
+[VERSE 1]
+柏緑椒紅事事新。
+隔籬燈影賀年人。
+三茅鐘動西窗曉，
+詩髩無端又一春。
+[VERSE 2]
+慵對客，
+緩開門。
+梅花閒伴老來身。
+嬌兒學作人間字，
+鬱壘神荼寫未真。
+
+--- TITLE: 鷓鴣天 其3  [air: 鷓鴣天]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 正月十一日觀燈
+[VERSE 1]
+巷陌風光縱賞時。
+籠紗未出馬先嘶。
+白頭居士無呵殿，
+只有乗肩小女隨。
+[VERSE 2]
+花滿市，
+月侵衣。
+少年情事老來悲。
+沙河塘上春寒淺，
+看了遊人緩緩歸。
+
+--- TITLE: 鷓鴣天 其4  [air: 鷓鴣天]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 元夕不出
+[VERSE 1]
+一昨天街預賞時。
+柳慳梅小未教知。
+而今正是歡遊夕，
+却怕春寒自掩扉。
+[VERSE 2]
+簾寂寂，
+月低低。
+舊情惟有絳都詞。
+芙蓉影暗三更後，
+卧聽鄰娃笑語歸。
+
+--- TITLE: 鷓鴣天 其5  [air: 鷓鴣天]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 元夕有所夢
+[VERSE 1]
+淝水東流無盡期。
+當初不合種相思。
+夢中未比丹青見，
+暗裏忽驚山鳥啼。
+[VERSE 2]
+春未緑，
+髩先絲。
+人間别久不成悲。
+誰教嵗嵗紅蓮夜，
+兩處沈吟各自知。
+
+--- TITLE: 鷓鴣天 其6  [air: 鷓鴣天]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 十六夜出
+[VERSE 1]
+輦路珠簾兩行垂。
+千枝銀燭舞僛僛。
+東風歴歴紅樓下，
+誰識三生杜牧之。
+[VERSE 2]
+歡正好，
+夜何其。
+明朝春過小桃枝。
+鼓聲漸逺行人散，
+惆悵歸來有月知。
+
+--- TITLE: 夜行船  [air: 夜行船]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷二
+--- GE: 欽定詞譜 夜行船 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.5.6.7.10
+--- JU: 3.4.8.9
+--- HEADING-AS-PRINTED: 載雪而歸
+[VERSE 1]
+畧彴横溪人不度。
+聽流澌佩環無數。
+屋角垂枝，
+船頭生影，
+算惟有春知處。
+[VERSE 2]
+囘首江南天欲暮。
+折寒香倩誰傳語。
+玉笛無聲，
+詩人有句，
+花休道輕分付。
+
+--- TITLE: 慶宫春  [air: 慶宫春]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷三
+--- GE: 欽定詞譜 慶宫春 102字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.6.8.11.12.14.17.19.22
+--- JU: 1.2.4.5.7.9.10.13.15.16.18.20.21
+--- HEADING-AS-PRINTED: 歸各得五十餘解
+[VERSE 1]
+雙槳蓴波，
+一蓑松雨，
+暮愁漸滿空濶。
+呼我盟鷗，
+翩翩欲下，
+背人還過木末。
+那囘歸去，
+蕩雲雪孤舟夜發。
+傷心重見，
+依約眉山，
+黛痕低壓。
+[VERSE 2]
+采香涇裏春寒。
+老子婆娑，
+自歌誰答。
+垂虹西望，
+飄然引去，
+此興平生難遏。
+酒醒波逺，
+政凝想明璫素韈。
+如今安在，
+唯有闌干，
+伴人一霎。
+
+--- TITLE: 清波引  [air: 清波引]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷三
+--- GE: 欽定詞譜 清波引 84字
+--- RHYME: 1.2.3.4.6.8.9.10.11.12.14.16
+--- JU: 5.7.13.15
+--- HEADING-AS-PRINTED: 凄然步繞園梅摛筆以賦
+[VERSE 1]
+冷雲迷浦。
+倩誰喚玉妃起舞。
+歲華如許。
+野梅弄眉嫵。
+屐齒印蒼蘚，
+漸為㝷花來去。
+自隨秋雁南來，
+望江國渺何處。
+[VERSE 2]
+新詩漫與。
+好風景長是暗度。
+故人知否。
+抱幽恨難語。
+何時共漁艇，
+莫負滄浪烟雨。
+况有清夜啼猿，
+怨人良苦。
+
+--- TITLE: 琵琶仙  [air: 琵琶仙]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷三
+--- GE: 欽定詞譜 琵琶仙 100字
+--- RHYME: 2.4.6.9.11.13.15.17
+--- JU: 1.3.5.7.8.10.12.14.16
+--- HEADING-AS-PRINTED: 父載酒南郭感遇成歌
+[VERSE 1]
+雙槳來時，
+有人似舊曲桃根桃葉。
+歌扇輕約飛花，
+蛾眉正竒絶。
+春漸逺汀洲自綠，
+更添了幾聲啼鴂。
+十里揚州，
+三生杜牧，
+前事休説。
+[VERSE 2]
+又還是官燭分烟，
+奈愁裏匆匆換時節。
+都把一襟芳思，
+與空階榆莢。
+千萬縷藏鴉細柳，
+為玉樽起舞囘雪。
+想見西出陽關，
+故人初別。
+
+--- TITLE: 玲瓏四犯  [air: 玲瓏四犯]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷三
+--- GE: 欽定詞譜 玲瓏四犯 99字
+--- RHYME: 3.5.6.7.10.11.13.15.17.18.19
+--- JU: 1.2.4.8.9.12.14.16
+--- HEADING-AS-PRINTED: 越中歲暮聞簫鼔感懷
+[VERSE 1]
+疊鼔夜寒，
+垂燈春淺，
+匆匆時事如許。
+倦遊歡意少，
+俛仰悲今古。
+江淹又吟恨賦。
+記當時送君南浦。
+萬里乾坤，
+百年身世，
+唯有此情苦。
+[VERSE 2]
+揚州柳垂官路。
+有輕盈換馬，
+端正窺戸。
+酒醒明月下，
+夢逐潮聲去。
+文章信美知何用，
+漫贏得天涯羇旅。
+敎説與。
+春來要尋花伴侣。
+
+--- TITLE: 八歸  [air: 八歸]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 卷三
+--- GE: 欽定詞譜 八歸 115字
+--- RHYME: 3.6.8.10.13.16.18.21
+--- JU: 1.2.4.5.7.9.11.12.14.15.17.19.20
+--- HEADING-AS-PRINTED: 湘中送胡德華
+[VERSE 1]
+芳蓮墜粉，
+疎桐吹緑，
+庭院暗雨乍歇。
+無端抱影銷魂處，
+還見篠牆螢暗，
+蘚階蛩切。
+送客重㝷西去路，
+問水面琵琶誰撥。
+最可惜一片江山，
+總付與啼鴂。
+[VERSE 2]
+長恨相從未欵，
+而今何事，
+又對西風離别。
+渚寒烟淡，
+棹移人逺，
+縹緲行舟如葉。
+想文君望久，
+倚竹愁生步羅襪。
+歸來後翠尊雙飲，
+下了珠簾，
+玲瓏閒看月。
+
+--- TITLE: 小重山令 其2  [air: 小重山令]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 小重山令 58字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 作此曲
+[VERSE 1]
+寒食飛紅滿帝城。
+慈烏相對立柳青青。
+玉階端笏細陳情。
+天恩許春盡可還京。
+[VERSE 2]
+鵲報倚門人。
+安輿扶上了更親擎。
+看花攜樂緩行程。
+爭迎處堂下拜公卿。
+
+--- TITLE: 卜算子  [air: 卜算子]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 吏部梅花八詠䕫次韻
+[VERSE 1]
+江左詠梅人，
+夢繞青青路。
+因向凌風臺下看，
+心事還將與。
+[VERSE 2]
+憶別庾郎時，
+又過林逋處。
+萬古西湖寂寞春，
+惆悵誰能賦。
+
+--- TITLE: 卜算子 其2  [air: 卜算子]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+月上海雲沈，
+鷗去吳波迥。
+行過西泠有一枝，
+竹暗人家靜。
+[VERSE 2]
+又見水沈亭，
+舉目悲風景。
+花下鋪氊把一盃，
+緩飲春風影。
+
+--- TITLE: 卜算子 其3  [air: 卜算子]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+蘚榦石斜妨，
+玉蕊松低覆。
+日暮冥冥一見來，
+略比年時瘦。
+[VERSE 2]
+涼觀酒初醒，
+竹閣吟纔就。
+猶恨幽香作許慳，
+小遲春心透。
+
+--- TITLE: 卜算子 其4  [air: 卜算子]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+家在馬城西，
+曽賦梅屏雪。
+梅雪相兼不見花，
+月影玲瓏徹。
+[VERSE 2]
+前度帶愁看，
+一晌和愁折。
+若使逋仙及見之，
+定自成愁絶。
+
+--- TITLE: 卜算子 其5  [air: 卜算子]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+摘蕊暝禽飛，
+倚樹懸冰落。
+下竺橋邊淺立時，
+香已漂流却。
+[VERSE 2]
+空逕晩烟平，
+古寺春寒惡。
+老子㝷花第一番，
+常恐吳兒覺。
+
+--- TITLE: 卜算子 其6  [air: 卜算子]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+緑萼更横枝，
+多少梅花様。
+惆悵西村一塢春，
+開過無人賞。
+[VERSE 2]
+細草藉金輿，
+歲歲長吟想。
+枝上么禽一兩聲，
+猶似宫娥唱。
+
+--- TITLE: 卜算子 其7  [air: 卜算子]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+象筆帶香題，
+龍笛吟春咽。
+楊柳嬌癡未覺愁，
+花管人離別。
+[VERSE 2]
+路出古昌源，
+石瘦冰霜潔。
+折得青鬚碧蘚花，
+持向人間説。
+
+--- TITLE: 卜算子 其8  [air: 卜算子]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+御苑接湖波，
+松下春風細。
+雲緑峩峩玉萬枝，
+別有仙風味。
+[VERSE 2]
+長信昨來看，
+憶共東皇醉。
+此樹娑娑一惘然，
+苔蘚生春意。
+
+--- TITLE: 驀山溪 其2  [air: 驀山溪]
+--- AUTHOR: 姜夔
+--- SOURCE: KR4j0047 白石道人歌曲 / JUAN 别集
+--- GE: 欽定詞譜 驀山溪 82字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.9.11.13.18
+--- JU: 1.3.5.6.7.8.10.12.14.15.16.17
+--- HEADING-AS-PRINTED: 詠柳
+[VERSE 1]
+青青官柳，
+飛過雙雙燕。
+樓上對春寒，
+捲珠簾瞥然一見。
+如今春去，
+香絮亂因風，
+霑徑草，
+惹牆花，
+一一教誰管。
+陽關去也，
+方表人腸斷。
+幾度拂行軒，
+念衣冠尊前易散。
+翠眉織錦，
+紅葉浪題詩，
+烟渡口，
+水亭邊，
+長是心先亂。

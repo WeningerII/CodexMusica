@@ -1,0 +1,446 @@
+# collection: 初寮詞 (KR4j0016), 集部/詞曲類 of the Kanseki Repository.
+#          22 ci, 11 詞牌.
+#          Author, from the collection's own title page: 王安中.
+# source: kanripo/KR4j0016 md5 cb0da1e95f57292008f81bc5a9348e9a over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0016 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 王安中 as 撰. Every poem carries it.
+
+
+--- TITLE: 虞美人  [air: 虞美人]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 虞美人
+[VERSE 1]
+千山青比粧睂淺。
+却奈睂峰逺。
+玉人元自不禁秋。
+更算惱伊深處月當樓。
+[VERSE 2]
+分攜不見憑闌際。
+只料無紅淚。
+萬千應在錦囘紋。
+囑付斷鴻西去問行雲。
+
+--- TITLE: 虞美人 其2  [air: 虞美人]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+星郎才思生琱管。
+四海聲名滿。
+尊前新唱更新妍。
+況有玊人相勸拚酡顔。
+[VERSE 2]
+芙蓉幕下同時客。
+年少那重得。
+且尋幽夢賦髙唐。
+莫為浮名容易却相妨。
+
+--- TITLE: 虞美人 其3  [air: 虞美人]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+清商初入昭華琯。
+宫葉秋聲滿。
+草麻初罷月嬋娟。
+想見明朝喜色動天顔。
+[VERSE 2]
+持盃滿勸龍頭客。
+榮遇時方得。
+詞源三峽瀉瞿塘。
+便是醉中宣去也無妨。
+
+--- TITLE: 虞美人 其4  [air: 虞美人]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 虞美人 56字
+--- RHYME: 1.2/3.4/5.6/7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+文昌郎自文無比。
+風露行千里。
+試尋天上使星看。
+却見錦衣白晝過鄉闗。
+[VERSE 2]
+邊城落照孤鴻外。
+聮璧人相對。
+應吟紅葉送淸秋。
+向我舊題詩處㪅重遊。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+慵整金釵縮指尖。
+曉霙猶自入疎簾。
+緣窗清冷臉紅添。
+[VERSE 2]
+妬粉儘饒花六六，
+迴風從鬭玉纎纖。
+不成香㬉也相兼。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+宮纈慳裁翡翠輕。
+文犀鬆串水晶明。
+颭風新様稱娉婷。
+[VERSE 2]
+帶笑緩揺春笋細，
+障羞斜映逺山横。
+玉肌無汗暗香清。
+
+--- TITLE: 玉樓春  [air: 玉樓春]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 玉樓春
+[VERSE 1]
+秋鴻只向秦箏住。
+終寄青樓書不去。
+手因春夢有攜時，
+眼到花開無著處。
+[VERSE 2]
+泥金小字蠻牋句。
+淚濕殘粧今在否。
+欲尋巫峽舊時雲，
+問取陽闗西去路。
+
+--- TITLE: 玉樓春 其2  [air: 玉樓春]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 玉樓春 56字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+堯天雨露承新詔。
+珂馬風生趨急召。
+玉符曾將虎牙軍，
+金殿還陞龍尾道。
+[VERSE 2]
+征西鎮北功成早。
+仗鉞登壇今未老。
+樽前休更說燕然，
+且聽陽闗三疉了。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+蒨霧紅雲捧建章。
+鳴珂星使渡銀潢。
+親將聖主如絲語，
+傳與陪都振鷺行。
+[VERSE 2]
+香裊裊，
+珮鏘鏘。
+昇平歌筦趂飛觴。
+明時玉帳恩相續，
+清夜鈞天夢㪅長。
+
+--- TITLE: 一落索  [air: 一落索]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 一落索 46字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 一落索
+[VERSE 1]
+夢破池塘杳杳。
+情隨春草。
+尊前風味不勝清，
+賦白雪幽蘭調。
+[VERSE 2]
+秀句銀鈎爭妙。
+殷懃東道。
+蠻牋傳與翠娥歌，
+便買斷千金笑。
+
+--- TITLE: 一落索 其2  [air: 一落索]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 一落索 46字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+欲訪瑶臺蓬島。
+煙雲縹緲。
+清游却到鳯皇池，
+聽檀板新聲妙。
+[VERSE 2]
+天上除書催早。
+人贍元老。
+東風煙栁罩河堤，
+㪅何處深春好。
+
+--- TITLE: 一落索 其3  [air: 一落索]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 一落索 46字
+--- RHYME: 1.2.4.5.6.8
+--- JU: 3.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+塞栁未傳春信。
+霜花侵鬢。
+送君西去指秦闗，
+看日近長安近。
+[VERSE 2]
+玉帳同時英俊。
+合離無定。
+路逢新雁圵飛來，
+寄一字燕山問。
+
+--- TITLE: 小重山  [air: 小重山]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 小重山 58字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 小重山
+[VERSE 1]
+重舉金猊多炷香。
+仙方調絳雪坐初嘗。
+醉鬟嬌捧不成行。
+顔如玉玉盌共爭光。
+[VERSE 2]
+飛盡莫催忙。
+歌檀臨閲處緩何妨。
+逺山横翠為誰長。
+人歸去餘夢繞高唐。
+
+--- TITLE: 小重山 其2  [air: 小重山]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 小重山 58字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+椽燭垂珠清漏長。
+酒黏衫袖濕有餘香。
+紅牙雙捧旋排行。
+將歌處相向更匀籹。
+[VERSE 2]
+明月映東牆。
+海棠花徑密迸流光。
+遲留春笋緩催觴。
+蘭堂静人已候虗廊。
+
+--- TITLE: 小重山 其3  [air: 小重山]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 小重山 58字
+--- RHYME: 1.2.3.4.5.6.7.8
+--- JU: -
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+碧藕花風入袖香。
+涓涓清露浥玉肌涼。
+折花無語傍横塘。
+隨折處一寸萬絲長。
+[VERSE 2]
+還㪅擘蓮房。
+蓮心真箇苦似離膓。
+凌波新恨儘難忘。
+分攜也觸事著思量。
+
+--- TITLE: 江神子  [air: 江神子]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 江神子 70字
+--- RHYME: 1.2.3.4.7.8.9.10.11.14
+--- JU: 5.6.12.13
+--- HEADING-AS-PRINTED: 江神子
+[VERSE 1]
+荷花遮水水漫溪。
+栁低垂。
+亂蟬嘶。
+捨轡何妨臨水照征衣。
+一扇春風揺不盡，
+人念遠，
+意凄迷。
+[VERSE 2]
+騎鯨仙子已相知。
+數歸期。
+賦新詩。
+㪅想翟公門外雀羅稀。
+陶令此襟塵幾許，
+聊欲向，
+圵窗披。
+
+--- TITLE: 徵招調中腔  [air: 徵招調中腔]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 徵招調中腔 55字
+--- RHYME: 1.2.5.6.7.9
+--- JU: 3.4.8
+--- HEADING-AS-PRINTED: 徵招調中腔
+[VERSE 1]
+紅雲蒨霧籠金闕。
+聖運叶星虹佳節。
+紫禁曉風馥天香，
+奏九韶，
+帝心悅。
+[VERSE 2]
+瑶堦萬歲蟠桃結。
+睿算永壺天風月。
+日觀幾時六龍來，
+金縷玉牒告功業。
+
+--- TITLE: 清平樂  [air: 清平樂]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 清平樂
+[VERSE 1]
+花時㣲雨。
+未減春分數。
+占取簾疎花密處。
+把酒聽歌金縷。
+[VERSE 2]
+斜風輕度濃香。
+閒情正與春長。
+向晚紅燈入坐，
+嘗新靑杏隨觴。
+
+--- TITLE: 清平樂 其2  [air: 清平樂]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 清平樂 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.4/5.6.8
+--- JU: 7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+煙雲千里。
+一抹西山翠。
+碧瓦紅樓山對起。
+樓下飛光流水。
+[VERSE 2]
+錦堂風月依然。
+後池蓮葉田田。
+縹緲貫珠歌裏，
+從容倒玉尊前。
+
+--- TITLE: 卜算子  [air: 卜算子]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 卜算子
+[VERSE 1]
+客舍兩三花，
+竝臉開清曉。
+一朶涓涓韵已髙，
+一朶纖纖裊。
+[VERSE 2]
+誰與揷斜紅，
+擁髻爭春好。
+此意遥知夢已傳，
+月落前村悄。
+
+--- TITLE: 卜算子 其2  [air: 卜算子]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+燕尾道冠兒，
+蟬翼生衫子。
+欹枕看書臥圵窗，
+簟展瀟湘水。
+[VERSE 2]
+團扇弄薰風，
+皓質添涼意。
+誰與文君作粉真，
+只此蓮花是。
+
+--- TITLE: 生查子  [air: 生查子]
+--- AUTHOR: 王安中
+--- SOURCE: KR4j0016 初寮詞 / JUAN 初寮詞
+--- GE: 欽定詞譜 生查子 40字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 生查子
+[VERSE 1]
+春紗蜂趕梅，
+宫扇鸞開翅。
+幾摺聚香風，
+一撚生秋意。
+揺揺雲母輕，
+裊裊璚枝細。
+莫解玉連環，
+怕作風飛起。

@@ -1,0 +1,149 @@
+# author: Llywelyn Goch ap Meurig Hen (fl. c. 1330-1370; death not verified, bounded
+#         at 1410 at the end of the floruit window per doctrine 81)
+# lang: cym  |  half: CYNGHANEDD (strict metre; one complete cywydd, 108 lines)
+# source: GITenberg/Some-Specimens-of-the-Poetry-of-the-Ancient-Welsh-Bards_32767
+#         file 32767-0.txt (UTF-8) md5 9e4c8b565705e4332596d06f9221bdee, 437,808
+#         bytes, HTTP 200 2026-08-10
+#         raw.githubusercontent.com/GITenberg/Some-Specimens-of-the-Poetry-of-the-Ancient-Welsh-Bards_32767/master/32767-0.txt
+# licence: public domain. metadata.yaml verbatim: rights 'Public domain in the USA.',
+#         rights_url creativecommons.org/about/pdm; author Evans, Evan 1731-1788;
+#         contributor Jenkins, John 1821-1896. Edition 1862 <= 1931. All three routes.
+#         The POEM is 14th-century and out of any term by six centuries; the EDITION
+#         is the binding gate and it clears (doctrine 80).
+# edition: [1862] John Pryse, Llanidloes reprint of Evan Evans, 'Some Specimens of the
+#         Poetry of the Ancient Welsh Bards' (1764), with additions by John Jenkins;
+#         PG header verbatim 'Transcribed from the [1862] John Pryse, Llanidloes
+#         edition by David Price'. The Welsh text of this cywydd is printed by that
+#         edition with a Welsh prose headnote stating it had not been printed before.
+#         THIS IS NOT A MODERN CRITICAL EDITION -- the University of Wales Press and
+#         gutorglyn.net/dafyddapgwilym.net texts of the cywyddwyr are in copyright over
+#         both apparatus AND normalised orthography, and normalisation moves consonants,
+#         which IS the constraint (doctrine 50). This edition normalises nothing.
+# orthography: 19th-century printing of a 14th-century poem, UNNORMALISED and PRE-1928:
+#         doubled consonants (ammod, cymmyn, annwyd), no modern y/i regularisation.
+#         cym.py reads 100.00% of 533 tokens. Digraphs intact: dd 80, ll 35, ch 42,
+#         th 21, rh 8, ng 5, ff 4, ph 1, ngh 1, mh 1. No split-digraph OCR damage.
+# structure: [CYWYDD]. A cywydd is 7-syllable rhymed couplets; there are no stanzas
+#         and none are marked.
+# caesura: NOT PRINTED, AND THE EDITION'S EM DASH IS A PARENTHESIS, NOT A GWANT.
+#         6 lines of 108 (5.6%) carry an em dash that cym.normalise() folds to '--'
+#         and _marked_parts() then reads as a caesura -- e.g. 'Er pan rodded--trwydded
+#         trwch--' splits to ['Er pan rodded', 'trwydded trwch'], where the dashes are
+#         a matched pair around an interjection. Doctrine 55: before treating a mark as
+#         structure, ask whether it is evidence of the form or an artifact of the
+#         edition. A cywydd has no gwant at all -- the gwant is an englyn feature -- so
+#         ANY caesura='marked' result on this file is reading the typesetter.
+#         Use caesura='search' and report the excess over the shuffled null.
+# songs: 1
+# lines: 108
+
+--- TITLE: CYWYDD MARWNAD LLEUCU LLWYD
+[CYWYDD]
+Llyma haf llwm i hoew-fardd,
+A llyma fyd llwm i fardd!
+Nid oes yng Ngwynedd heddiw,
+Na lloer, na llewyrch, na lliw,
+Er pan rodded—trwydded trwch—
+Dan lawr dygn dyn loer degwch.
+Y ferch wen o’r dderw brenol,
+Arfaeth ddig yw’r fau o’th ol!
+Cain ei llun, canwyll Wynedd,
+Cyd bych o fewn caead bedd!
+F’ enaid! cyfod i fynu,
+Agor y ddaiar-ddor ddu!
+Gwrthod wely tyfod hir,
+A gwrtheb f’ wyneb, feinir!
+Mae yma, hoewdra hydraul,
+Uwch dy fedd, hoew annedd haul,
+Wr llwm ei wyneb hebod,
+Llewelyn Goch, gloch dy glod;
+Yn cynnal, hyd tra canwyf,
+Cariad amddifad ydd wyf;—
+Ud-fardd yn rhodio adfyd
+O Dduw gwyn! hyd hyn o hyd.
+Myfi, fun fwyfwy fonedd,
+Echdoe a fûm uwch dy fedd,
+Yn gollwng deigr lled eigr-braff
+Ar hyd fy wyneb yn rhaff:
+Tithau, harddlun y fun fud,
+O’r tew-bwll ni’m hatebud!
+Tawedawg ddwysawg ddiserch,
+Ti addawsud, y fud ferch,
+Fwyn dy sud fando sidan,
+Fy aros, ddyn loew-dlos lân,
+Oni ddelwn, gwn y gwir,
+Er dy hud, o’r Deheudir,
+Ni chigle, sythle saeth-lud,
+Air na bai wir, feinir fud,
+Iawn-dwf rhïanaidd Indeg,
+Onid hyn o’th eneu teg.
+Trais mawr! ac ni’m tawr i ti!
+Toraiat ammod, trist imi,
+Tydi sydd yn y gwŷdd gwan
+Ar y gwir, ddyn deg eirian!
+Minnau sydd uthrydd athrist
+Ar y celwydd—tramgwydd trist!
+Celwyddawg iawn, cul weddi,
+Celwydd lais a soniais i.
+Mi af o Wynedd heddyw,
+Ni’m dawr ba faenawr i fyw:
+Fy myn foneddig ddigawn,
+Duw’n fach, petid iach nid awn!
+P’le caf, ni’m doraf dioer,
+Dy weled, wendw’ wiw-loer?
+Ar fynydd—sathr Ofydd serch—
+Olifer, yn oleu-ferch.
+F’ enaid yno ä’n fynych,
+O’th wela’, ddyn wiwdda wych.
+Lleucu dêg waneg wiwnef!
+Llwyr y dyhaeraist fy llef;
+A genais, llygorn Gwynedd!
+Eiriau gwawd i eiry ’i gwedd,
+O’r geneu yn organawl,
+A ganaf, tra fyddaf, fawl.
+F’ enaid hoen geirw afonydd!
+Fy nghaniad dy farwnad fydd.
+Lliw-galch rian oleugain,
+Rhy gysgadur o’r mur main!
+Rhiain fain, rhy anfynych
+Y’th wela’; ddyn wiwdda wych.
+Cyfod i orphen cyfedd,
+I edrych a fynych fedd;
+At dy fardd ni chwardd ychwaith,
+Erot, dal euraid dalaith!
+Dyred, ffion ei deurudd,
+I fyny o’r pridd-dŷ prudd!
+Anial yw f’ ol, canmoleg,
+Nid twym yw fy neudroed teg,
+Yn bwhwman gan annwyd
+Cylch drws dy dŷ, Lleucu Llwyd!
+A genais, lygorn Gwynedd,
+O eiriau gwawd i eiry ’i gwedd,
+Llef dri-och, llaw fodrwy-aur,
+Lleucu! llawenu lliw aur.
+Cymhenaidd, groew, loew Leucu!
+Ei chymmyn, f’ anwyl-fun, fu
+Ei henaid, grair gwlad Feiriawn,
+I Dduw Dad—addewid iawn;
+A’i mein-gorff, eiliw’r mangant,
+Meinir, i gyssegr-dir sant:
+Dyn pell-gwyn doniau peill-galch,
+A da byd i’r gwr du balch;
+A’r hiraeth, cywyddiaeth cawdd,
+I minnau a’i cymmynawdd.
+Lleddf ddeddf ddeuddaint ogyfuwch,
+Lleucu Llwyd, lliw cawod lluwch!
+Pridd a main, glain galar chwerw,
+A gudd ei deurudd, a derw.
+Gwae fi drymder y gweryd
+A’r pridd ar feistres y pryd!
+Gwae fi fod arch yn gwarchae,
+A thy main rhof a thi mae!
+Gwae fi, ferch wen o Bennal,
+Brudded yw briddo dy dal!
+Clo du derw—galar chwerw gael—
+A daiar, deg ei dwyael!
+A throm-goed ddor, a thrym-gae,
+A llawer maes, rhof a’i lliw mae;
+A chlyd fur, a chlo dur du,
+A chlicied—yn iach, LEUCU!

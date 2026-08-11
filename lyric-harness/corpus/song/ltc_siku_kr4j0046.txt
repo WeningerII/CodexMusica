@@ -1,0 +1,333 @@
+# collection: 平齋詞 (KR4j0046), 集部/詞曲類 of the Kanseki Repository.
+#          14 ci, 11 詞牌.
+#          Author, from the collection's own title page: 洪咨夔.
+# source: kanripo/KR4j0046 md5 ecd2958270824ed8bfb564180893eaff over its KR4j*_*.txt files
+#          (git clone https://github.com/kanripo/KR4j0046 -- data/CHANNELS.md:
+#          codeload is blocked, plain clone works).
+# edition: NAMED IN THE FILE ITSELF. Every juan carries
+#          '#+PROPERTY: BASEEDITION WYG' = 文淵閣四庫全書, the imperial
+#          manuscript collectanea of 1782, and the 欽定四庫全書 headers are
+#          printed in the text.
+# licence: the Kanseki Repository ships NO LICENSE FILE of any kind. Admission
+#          rests on term expiry of the WORK and of the EDITION and on nothing
+#          else -- the same footing corpus/song/ltc_huajianji.txt was admitted
+#          on (doctrine 54: a licence name without a scope is not evidence, and
+#          here there is no licence name at all). The work is Song-to-Qing; the
+#          edition is 1782 and its compilers died in the 18th century. No
+#          living editorial layer is named anywhere in the chain.
+# WHY THIS FILE AND NOT THE LARGER ONE: 4,347 ci were located and refused
+#          (doctrine 85) because the digitiser's grant was express
+#          NON-COMMERCIAL and the stated base was 唐圭璋's 全宋詞 (1940,
+#          d.1990) -- whose PUNCTUATION was measured to BE the rhyme signal.
+#          This file is the route recorded beside that refusal.
+# segmentation: THE LINE BREAKS ARE NOT IN THE 1782 TEXT. It is 白文 -- no
+#          punctuation at all -- broken at woodblock COLUMNS, which are not
+#          metrical lines. Every line break below is the 欽定詞譜 of 1715
+#          (data/qindingcipu_ge.tsv, from hulbji/couyun, MIT; the 詞譜 itself
+#          is three centuries out of term), matched to the poem BY EXACT
+#          CHARACTER COUNT under its own 詞牌. A poem whose count fits more
+#          than one 格, or none, is REFUSED, not cut: see quality/
+#          build_ci_corpus.py and the counts in the cell report.
+# punctuation: DERIVED, NOT TRANSCRIBED. 。 stands where the 1715 詞譜 marks
+#          韻/叶 and ， where it marks 句. The machine-readable form is the
+#          --- RHYME and --- JU headers on each poem, which give 1-based LINE
+#          numbers ('.' within a rhyme group, '/' between groups). Do not read
+#          the punctuation as evidence about the text; it is the spec's.
+# [VERSE n]: a 片, and this one IS the 1782 text's own. The woodblock prints a
+#          full-width space at the 換頭; the 詞譜 does not record 片 at all.
+#          Where the two disagree -- where that space does not fall on a 詞譜
+#          line end -- the poem is refused, so every VERSE break here is
+#          corroborated by two independent sources.
+# annotation: the 四庫's double-column interlinear notes, printed (right/left),
+#          are STRIPPED. They are the annotator's words.
+# script:  TRADITIONAL, in the 1782 manuscript's own orthography (栁 綉 緑 别
+#          宫 巻 黄 逺 髙). data/qieyun_variants.tsv reads most of these; the
+#          per-file readable rate is in the cell report.
+# attribution: single-author 別集: the collection's own title page names 洪咨夔 as 撰. Every poem carries it.
+
+
+--- TITLE: 沁園春  [air: 沁園春]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 沁園春 115字
+--- RHYME: 3.7.9.12.15.19.21.24
+--- JU: 1.2.4.5.6.8.10.11.13.14.16.17.18.20.22.23
+--- HEADING-AS-PRINTED: 沁園春
+[VERSE 1]
+詩不云乎，
+蒹葭蒼蒼，
+白露為霜。
+看高山喬木，
+青雲老榦，
+英華滋液，
+亦斂而藏。
+匠石操斤便游林，
+下一舉採之充棟梁。
+須知道，
+是天將大任，
+翕處還張。
+[VERSE 2]
+薇郎玉佩丁當，
+問何事午橋，
+花竹莊又。
+星回歲換臘，
+殘春淺錦，
+熏籠紫栗，
+玉杯黄喚。
+起東風吹醒宿酒，
+把甲子從頭重數將。
+明朝去，
+趂傳柑宴近，
+滿袖天香。
+
+--- TITLE: 更漏子  [air: 更漏子]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 更漏子 46字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/5.6/7.8.9/11.12
+--- JU: 1.4.10
+--- HEADING-AS-PRINTED: 更漏子
+[VERSE 1]
+眼生花，
+燈綴粟。
+人在黄金列屋。
+金縷細，
+道冠朙。
+膽瓶涼意生。
+[VERSE 2]
+緩歌絃。
+停酒斚。
+待得香風吹下。
+斜月轉，
+斷雲回。
+風流不讓梅。
+
+--- TITLE: 好事近  [air: 好事近]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 好事近 45字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 好事近
+[VERSE 1]
+二十四番風，
+纔見一番花鳥。
+已自有人春瘦，
+正逺山横峭。
+[VERSE 2]
+踏青底用十分晴，
+半隂晴方好。
+深院日長睡起，
+又海棠開了。
+
+--- TITLE: 西江月  [air: 西江月]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 西江月 50字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.3/4/6.7/8
+--- JU: 1.5
+--- HEADING-AS-PRINTED: 西江月
+[VERSE 1]
+庭下宜男萱草，
+牆頭結子橊花。
+非煙非霧富平家。
+人物風流如畫。
+[VERSE 2]
+寶月曾修玉斧，
+銀河欲泛仙槎。
+美人睡起綠雲斜。
+一笑扶將夀斚。
+
+--- TITLE: 浣溪沙  [air: 浣溪沙]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 浣溪沙
+[VERSE 1]
+蒼鶴飛來水竹幽。
+初弦涼月一簾秋。
+木犀花底試新篘。
+[VERSE 2]
+鳳咮硯供無盡藏，
+龍飛牓占最高頭。
+慈闈洗眼看封侯。
+
+--- TITLE: 浣溪沙 其2  [air: 浣溪沙]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 浣溪沙 42字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.3.5.6
+--- JU: 4
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+小雨輕霜作嫩寒。
+蠟梅開盡菊花乾。
+清香收拾貯詩肝。
+[VERSE 2]
+文武兩魁前樣在，
+功名四諫後來看。
+麻姑進酒斗闌干。
+
+--- TITLE: 鷓鴣天  [air: 鷓鴣天]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 鷓鴣天 55字
+--- RHYME: 1.2.4.6.7.9
+--- JU: 3.5.8
+--- HEADING-AS-PRINTED: 鷓鴣天
+[VERSE 1]
+天理從來屈有信。
+東風到處物皆春。
+門前驄馬權竒種，
+臺上慈烏反哺心。
+[VERSE 2]
+花島屐，
+桺湖尊。
+好將長健傲長貧。
+諸孫認取翁翁意，
+插架詩書不負人。
+
+--- TITLE: 蝶戀花  [air: 蝶戀花]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 蝶戀花 60字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.4.5.6.8.9.10
+--- JU: 2.7
+--- HEADING-AS-PRINTED: 蝶戀花
+[VERSE 1]
+畫斛黄花寒更好。
+人愛花繁，
+却被花催老。
+舊恨新愁誰醞造。
+帶圍暗減知多少。
+[VERSE 2]
+開眼萬般渾是惱。
+只仗㣲醺，
+假寐寛懐抱。
+隔屋愁睂春思早。
+數聲啼破池塘草。
+
+--- TITLE: 眼兒媚  [air: 眼兒媚]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 眼兒媚 48字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.5.7.10
+--- JU: 3.4.6.8.9
+--- HEADING-AS-PRINTED: 眼兒媚
+[VERSE 1]
+平沙芳草渡頭村。
+綠遍去年痕。
+遊絲下上，
+流鶯來往，
+無限銷魂。
+[VERSE 2]
+綺窗深静人歸晚，
+金鴨水沈溫。
+海棠影下，
+子規聲裏，
+立盡黄昏。
+
+--- TITLE: 眼兒媚 其2  [air: 眼兒媚]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 眼兒媚 48字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.2.5.7.10
+--- JU: 3.4.6.8.9
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+花光燈影浸簾櫳。
+蓬島現仙翁。
+瑤裾織翠，
+詩瞳㸃碧，
+酒臉潮紅。
+[VERSE 2]
+竇郎隂徳知多少，
+萬巻奏新功。
+前庭梧竹，
+後園桃李，
+無限春風。
+
+--- TITLE: 祝英臺近  [air: 祝英臺近]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 祝英臺近 77字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 3.5.8.9.11.13.16
+--- JU: 1.2.4.6.7.10.12.14.15
+--- HEADING-AS-PRINTED: 祝英臺近
+[VERSE 1]
+臉長紅，
+眉半白，
+老鶴飽風露。
+歲換星移，
+祿運又交午。
+須知命帶將夾，
+福推不去，
+稳做箇榮華彭祖。
+[VERSE 2]
+記初度。
+謝他紫燕黄鸝，
+争先送好語。
+春滿湖山，
+厯厯舊遊處。
+管教栁外行厨，
+花邊步屧，
+長占斷好晴竒雨。
+
+--- TITLE: 卜算子  [air: 卜算子]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 卜算子
+[VERSE 1]
+簸弄栁梢春，
+呼吸花心露。
+倦粉嬌黄扇底風，
+盡向睂心度。
+[VERSE 2]
+喚醒海棠紋，
+約住櫻桃素。
+上到瑤臺最上層，
+共跨青鸞去。
+
+--- TITLE: 卜算子 其2  [air: 卜算子]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 卜算子 44字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 2.4.6.8
+--- JU: 1.3.5.7
+--- HEADING-AS-PRINTED: 又
+[VERSE 1]
+芍藥打團紅，
+萱草成窩綠。
+簾捲疎風燕子歸，
+依舊盧仝屋。
+[VERSE 2]
+貧放麴生疎，
+閒到青奴熟。
+埽地焚香伴老仙，
+人勝連環玉。
+
+--- TITLE: 柳梢青  [air: 柳梢青]
+--- AUTHOR: 洪咨夔
+--- SOURCE: KR4j0046 平齋詞 / JUAN 平齋詞
+--- GE: 欽定詞譜 柳梢青 49字  (line ends unique; 韻/句 partition NOT unique -- not used in the rhyme measurement)
+--- RHYME: 1.3.6.7.8.11
+--- JU: 2.4.5.9.10
+--- HEADING-AS-PRINTED: 栁梢青
+[VERSE 1]
+野服綸巾。
+白鬚紅頰，
+無限陽春。
+二滿三平，
+麄衣淡飯，
+鍾鼎山林。
+[VERSE 2]
+尊前喜氣輪囷。
+道蠶麥分朝甲申。
+天放新晴，
+人占一飽，
+老子寛心。

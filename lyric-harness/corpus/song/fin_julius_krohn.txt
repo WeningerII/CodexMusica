@@ -1,0 +1,1690 @@
+# author: Julius Krohn (pen name Suonio) (1835-1888)
+# source: GITenberg PG 41469 -- file raw_41469-8.txt, ISO-8859-1
+# licence: public domain -- GITenberg metadata.yaml rights 'Public domain in the
+#         USA.', rights_url creativecommons.org/about/pdm; author died 1888,
+#         which clears the project's 1931 cutoff by author-death route (2).
+# edition: Suonion kootut runoelmat ja kertoelmat. No printing named by Project Gutenberg.
+# SELECTION -- THIS IS A SUBSET AND THE RULE IS DECLARED (doctrine 32).
+#         The source volume is a collected-POEMS book. A poem is staged only on
+#         positive evidence that it was SUNG, and '--- SUNG-EVIDENCE' names the
+#         route for every block:
+#           tune     the source prints 'Nuotti: X' over the poem -- a
+#                    CONTRAFACTUM, a text written to a named existing melody.
+#                    Strongest route. Rendered as [air: X] on the TITLE line,
+#                    matching corpus/song/eng_celtic_thomas_moore.txt.
+#           refrain  a 1-4 line group recurring VERBATIM at least twice, at
+#                    stanza boundaries. Structural, language-independent.
+#           title    the title names a sung form (laulu, virsi, marssi, hymni,
+#                    juomalaulu, kehtolaulu ...). WEAKEST route, and labelled.
+#         26 poems staged, 117 left behind, out of 143 units the
+#         volume was split into. The split is TYPOGRAPHIC: a title is a line of
+#         <= 60 characters preceded by >= 3 blank lines and followed by >= 1.
+#         Section headings therefore appear as units and fall out unstaged,
+#         which is why the 'left behind' count is the honest denominator.
+# orthography: 19th-century Finnish as printed, UNNORMALISED. The apostrophe is
+#         the Finnish hiatus/elision mark that SPLITS (doctrine 65) and
+#         quality/phonology/fin.py reads it so; the hyphen is a compound seam
+#         that blocks resyllabification.
+# structure: [VERSE n] stanza as printed; [REFRAIN] the verbatim repeated group.
+
+--- TITLE: Armasta odottaessa.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Istun ikävissäni:
+Kauan kulta viipyvi,
+Verkkaan aika vierevi --
+Riennä, aika, riennä!
+
+[VERSE 2]
+Riennä linnun lentimin,
+Sotkan siivin nope'in --
+Verkkaan vieret kuitenkin --
+Riennä, aika, riennä!
+
+[VERSE 3]
+Tulipa jo kultani,
+Lepää kainalossani,
+Mailma kaikk' unohtuvi --
+Viivy, aika, viivy!
+
+--- TITLE: Miks sua rakastan ma?
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x3 (1 line)
+
+[VERSE 1]
+Näen sulla kauniit silmät,
+Näen sulla soman suun.
+Sua sikskö rakastan ma? --
+Niin ompi monen muun.
+
+[VERSE 2]
+Sull' onpi viisas mieli,
+Sä olet taidokas.
+Sua sikskö rakastan ma? --
+Kyll' ompi vertojas.
+
+[VERSE 3]
+Sull' lempeä on sydän,
+On sydän viaton.
+Sua sikskö rakastan ma? --
+Niin monen neidon on.
+
+[VERSE 4]
+Miks siis sua rakastan ma
+Kaikista enimmin,
+Niin että edestäsi
+Maan kaiken antaisin?
+
+[VERSE 5]
+Mun omani sä olet,
+Mun oman' ainoa;
+Siks maailma ei kanna
+Toist' yhtään vertaista.
+
+--- TITLE: Haudan partaalla.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+Lapioi, lapioi!
+Hautuumiesi, lapioi!
+Jota niinkuin terää silmän
+Varjoin tuulosistakin;
+Sen nyt poveen mustan, kylmän
+Maan ma itse upotin.
+Lapioi, lapioi,
+Kultan' maahan lapioi!
+
+[VERSE 2]
+Lapioi, lapioi,
+Hautuumiesi lapioi!
+Käydess' ennen käsityksin
+Helpoittaa ma koitin tien;
+Nyt mä tänne jätän yksin,
+Tupaan kolkkoon, outoon vien.
+Lapioi, lapioi,
+Armaan' maahan lapioi!
+
+[VERSE 3]
+Lapioi, lapioi,
+Hautuumiesi, lapioi!
+»Miksi: elo?» kysyin ennen;
+»Ilohan ois oikeempi!»
+Ah nyt ilon' katos tännen,
+Elostani erosi.
+Lapioi, lapioi,
+Onnen' maahan lapioi!
+
+[VERSE 4]
+Lapioi, lapioi! --
+Herra -- voi! -- Mut mi soi?
+Virsi, jonka hältä kuulin,
+Kun hän jätti hyvästi,
+Jonka kylmenevin huulin
+Riemuin vielä veisasi!
+Virsi soi, virsi soi,
+Pyhä virsi, soi, ah soi!
+
+[VERSE 5]
+Virsi soi, virsi soi,
+Pyhä virsi, soi, ah soi!
+Virsi täynnä uskallusta,
+Voiton virsi autuas! --
+Nyt miss' otas, Tuoni musta?
+Miss' on saalis voitostas?
+Virsi soi, virsi soi.
+Pyhä virsi, soi, ah soi!
+
+--- TITLE: Tyhjyys.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x3 (1 line)
+
+[VERSE 1]
+Ma kodissani kuljen -- kaikk' ompi ennallaan,
+Ja kuitenkin ah kuinka kaikk' on toista!
+Huoneen' on siivot, sievät, kaikk' kalut paikoillaan,
+Kukatkin vielä rehoitellen loistaa.
+Mut minä käyn ja katson: miss' on se käsi nyt,
+Mi kotin' on näin sieväks, suloiseks sääntänyt?
+Miss' ompi kodin »vaimo», sen henki hoitava,
+Sen päivänpaiste armas, sen sydän siunaava? --
+Tyhjää, tyhjää!
+
+[VERSE 2]
+Ja lapset pyörii, hyörii taas leikki-ilossaan --
+Ah eihän pienet raukat tiedä mistään! --
+He nauraa, laulaa, hoiskaa, myös itkee toisinaan
+He pienoisista vastoinkäymisistään.
+Mut minä käyn ja katson: -- miss' äidinsilmä on,
+Tuo väsymättä valpas, tuo uinahtamaton?
+Miss' äidin sydän hellä, mi lievens suruja,
+Ja sadat ilot keksi? -- Voi lapsi parkoja! --
+Tyhjää, tyhjää!
+
+[VERSE 3]
+Ma kamarissan' istun, taas sujuu multa työ --
+Eläväll' ompi elävistä huoli --
+Ja tässä rinnassani kuin ennen sydän lyö --
+Ei särkynytkään se, vaikk' armas kuoli!
+Mut miss' on hän, mi töistä mun kanssan' iloitsi,
+Varoitti ylpeillessä, pelossa rohkaisi?
+Tyhj' onpi kiikkutuoli työpöytän' ääreinen,
+Ja tuolla pieni sohva tuo myös -- -- ja sydämen' -- --
+Tyhjää, tyhjää!
+
+--- TITLE: Helmi ja isänsä.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (4 lines)
+
+[VERSE 1]
+Isän polvilla Helminen kiikkuu,
+Sulosilmin se -- kas! -- hymyilee.
+Mikä pienoisen silmissä liikkuu,
+Kun se hiljaa näin iloitsee?
+
+[VERSE 2]
+Mikä? -- Last' isä lempivi pientä
+Viel' entistä hellemmin,
+Sen luoks' yhä töistähän rientää,
+Tukehuttavi suudelmin.
+
+[REFRAIN]
+Oi Helmi, kun petturi suuri
+Ei vaan isäs lempivä lie! --
+Sua suudellessa nyt juuri
+Hänet minnekä miettehet vie?
+
+[VERSE 3]
+Ah Tuonelan nyt salaisuutta
+Hän tuskalla tutkielee,
+Tai taivahan hän avaruutta
+Ikävöiden mittaelee.
+
+[VERSE 4]
+Suut' antavi sulle, mut toista
+Se suudelma tarkoittaa;
+Sua halaa, äitiäs muistaa --
+Kuva äidin se lemmen saa.
+
+[REFRAIN]
+Oi Helmi, kun petturi suuri
+Ei vaan isäs lempivä lie! --
+Sua suudellessa nyt juuri
+Hänet minnekä miettehet vie?
+
+--- TITLE: Hiljaa!
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x4 (1 line)
+
+[REFRAIN]
+Hiljaa! -- Armahani nukkuu -- Hiljaa!
+
+[VERSE 1]
+Tyynnä, suloisena lepääpi
+Hän kuin rauhaan päässyt marttyyri;
+Päättänyt on pitkän, raskaan vaivan,
+Nukkuvi nyt huoletonna aivan.
+
+[REFRAIN]
+Hiljaa! -- Armahani nukkuu -- Hiljaa!
+
+[VERSE 2]
+Vaikene, oi murhe vaikea!
+Hiltiy, oi tuska haikea!
+Häiritäkö hältä rauhan voisin?
+Takaisinko elon pauhuun soisin?
+
+[REFRAIN]
+Hiljaa! -- Armahani nukkuu -- Hiljaa!
+
+[VERSE 3]
+Mieltä riuduttava rakkaus,
+Rintaa kalvavainen kaipaus,
+Ikäväni, tunteheni kaikki
+Itsekkähät, olkaa vaiki!
+
+[REFRAIN]
+Hiljaa! -- Armahani nukkuu -- Hiljaa!
+
+--- TITLE: Juomalaulu.  [air: Sjung om studentens lyckliga dag]
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: tune: Sjung om studentens lyckliga dag; title names a sung form
+
+[VERSE 1]
+Maljat, veikkoni, täyttäkää!
+Vielä nyt veren kuohuvi kosket,
+Nuoruus se punastuttavi posket;
+Nuoruuden olkohon malja tää!
+Mietteet murheiset
+Poies haihtukoon;
+Tuskat turhaiset
+Nuoruuden kevyt miel' pakohon ajakoon!
+
+[VERSE 2]
+Ensimaljan nyt nuoruus saa!
+Niin! maljan sen nuoruus saa!
+Hurraa!
+
+[VERSE 3]
+Toinenpa malja se armahan on!
+Mit' olis nuoruus rakkaudetta?
+Niin olis kuin kevät kukkahisetta,
+Kolkko vaan, iloton, suloton!
+Autuus taivahass'
+Lempi on sula vaan.
+Maan pääll' autuas
+Olen kun katsoa kultani silmihin saan.
+Toisen maljan sen armas saa!
+Niin! maljan sen armas saa!
+Hurraa!
+
+[VERSE 4]
+Kannun pohja jo pilkoittaa.
+Viimeisen kerran täytän mä maljain.
+Tehkää se myös: päin juokaamme paljain!
+Maljan viimeisen saa kotimaa.
+Huokaus viimeinen
+Suomen olkohon!
+Suomen etehen
+Viimeiseen pisaraan veri vuotakohon!
+Maljan viimeisen saa kotimaa!
+Veren viimeisen Suomenmaa!
+Hurraa!
+
+--- TITLE: Soittoa kuullessa.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x3 (2 lines)
+
+[REFRAIN]
+Kaiu, kaiu, kaunis ääni,
+Sävel, soios, suloinen!
+
+[VERSE 1]
+Soidessasi mielen myrsky
+Rauhaan viihtyvi;
+Sydämessä huima hyrsky
+Aaltoin tyyntyvi.
+
+[VERSE 2]
+Kaiu, kaiu, kaunis ääni,
+Sävel, soios suloinen!
+
+[VERSE 3]
+Ketoa kuin kuivuvaista
+Kaste kostuttaa,
+Niinpä rintaa riutuvaista
+Soittos virvoittaa.
+
+[REFRAIN]
+Kaiu, kaiu, kaunis ääni,
+Sävel, soios, suloinen!
+
+[VERSE 4]
+Toivon kukat kuihtunehet
+Tointuu tuoksumaan;
+Syämen linnut paennehet
+Taas saa laulamaan.
+
+[REFRAIN]
+Kaiu, kaiu, kaunis ääni,
+Sävel, soios, suloinen!
+
+[VERSE 5]
+Pianpa päämme vaipunee
+Maan kylmään kainaloon.
+Siis lempikäämme, veikkoset,
+Siis suudelkaamme, poikaset,
+Kun vielä huulet lämpöiset
+Nyt suuta tarjoaa!
+
+--- TITLE: Sotamies-laulu.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+No, miehet, miekat naulahan
+Nyt pankaa riippumaan!
+Käs' vasen neidon kaulahan,
+Pikari oikeaan!
+Kuin syksyn kukka kerkeä
+On sotamiehen elämä.
+Sen mettä aik' on imeä,
+Kun vielä kukoistan.
+
+[VERSE 2]
+Mi haitta, josko juotanee
+Nyt liika pisara --
+Se verenämme vuotanee
+Jo maahan huomenna.
+Siis juokahamme, veikkoset,
+Ett' tappelussa punaiset
+Ei ehtyis veren lähtehet
+Tok' ennen aikojaan!
+
+[VERSE 3]
+Jos huuleen huuli haipunee,
+Hiis sitä moittikoon --
+Pianpa päämme vaipunee
+Maan kylmään kainaloon.
+Siis lempikäämme, veikkoset,
+Siis suudelkaamme, poikaset,
+Kun vielä huulet lämpöiset
+Nyt suut tarjoaa!
+
+--- TITLE: Pää pystyyn.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x6 (1 line)
+
+[VERSE 1]
+Pää pystyyn vaan!
+Sä olet mies, et halpa mato maan!
+Mi kohtaakin, ei saa se sua sortaa,
+Ei saa se sortaa, saa ei maahan murtaa.
+Pää pystyyn vaan!
+
+[VERSE 2]
+Pää pystyyn vaan!
+Niin Luoj' on luonut parhaan luomistaan.
+Inehmo, vaikka vaipuiskin jo huoleen,
+Katsahtaa voi tok' ylös taivaan puoleen.
+Pää pystyyn vaan!
+
+[VERSE 3]
+Pää pystyyn vaan!
+Ei Herra jätä lastaan milloinkaan.
+Kun kuorman raskahan Hän päälles luopi,
+Lujuuden, voiman, miehuudenkin suopi.
+Pää pystyyn vaan!
+
+--- TITLE: Sun tahtosi tapahtukoon.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x3 (1 line)
+
+[VERSE 1]
+Mun sielun' onpi niinkuin erämaan
+Hiekoilla autioilla harhaileva,
+Jäljille yksin jäänyt seurastaan
+Ja turhaan kumppaliaan tapaileva.
+Herra, oi auta mua!
+
+[VERSE 2]
+Mun sielun' on, ylt'-ympäri kuin ois
+Mull' yö vaan pimein, synkin, musta aivan,
+Kun tähti viimeinenkin sammui pois.
+Ja sammui minuun iskenytkin tuli taivaan.
+Herra, oi auta mua!
+
+[VERSE 3]
+Kauhistuin sieluni jo lähestyy
+Parrasta toivottoman kadotuksen.
+Viel' askel yks, niin siihen syökseentyy
+Se helvetin jo ammollaan näk' uksen.
+Herra, oi auta mua!
+
+[VERSE 4]
+Mut nyt, nyt tunsinkin Sun apusi,
+Mi pois mun tempas partahalta nielun;
+Pimenneen mielen' valos valaisi,
+Ja lohdutukses täytti tyhjän sielun.
+Herra, ma kiitän Sua!
+
+[VERSE 5]
+Juur' ankarimpan' olit laupiain,
+Suurimman armos tuskass' annoit mulle.
+Ma näin, ett' onni onnist' autuain,
+On se, kun onnens' uhratuks saa Sulle.
+Herra, ma kiitän Sua!
+
+--- TITLE: Suksimiesten laulu.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+»Ylös Suomen poiat nuoret,
+Ulos sukset survaiskaa!
+Lumi peittää laaksot, vuoret,
+Hyv' on meidän luikuttaa!
+Jalka potkee,
+Suksi notkee
+Sujuilevi sukkelaan!»
+
+[VERSE 2]
+Heräs tuuli tuntureilla,
+Lehahtihe lentämään. --
+»Sukkelat on sukset meillä, --
+Lähtään, veikot, kiistämään!
+Saishan koittaa
+Kumpi voittaa,
+Eikö tuulta saavuttais!»
+
+[VERSE 3]
+Koti kontion on tuossa,
+Siihen sukset kääntäkää!
+Havuin alla korpisuossa
+Vanhus nukkuu röhöttää.
+»Kuules, ukko,
+Oves lukko
+Miehissä jo murretaan!»
+
+[VERSE 4]
+Kohoaapi kämmenille
+Metsän kuulu kuningas. --
+»Lähtään, otso, painisille,
+Tässä löydät vertojas!» --
+Hammasluske,
+Keihäsryske
+Kaiuttavi korpea.
+
+[VERSE 5]
+Jo on karhu kaatununna; --
+Keihäs sattui rintahan; --
+Ukko nukkuu uupununna
+Sikehintä untahan. --
+»Riemuellen,
+Soitatellen
+Viekää saalis kotihin!»
+
+[VERSE 6]
+Vaan kun verivainolainen
+Suomehemme rynnättää,
+Silloin saalis toisellainen,
+Veikot, meitä hiihdättää.
+Käsi sauvan,
+Toinen raudan
+Teräväisen tempoaa.
+
+[VERSE 7]
+Verihinsä kohta nääntyy
+Kuka meitä vastustaa,
+Kenpä pakoisalle kääntyy,
+Senkin suksi saavuttaa.
+Pelastettu
+Rakastettu
+Kohta onpi kotimaa.
+
+--- TITLE: Lumisateella.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Lumia lentää
+Ristin ja rastin,
+Leikkiä lyöden ja
+Taistellen;
+Vaan väsyneinä
+Vaipuvat viimein,
+Etsien rauhaa,
+Povehen maan.
+Mutta kun päivä
+Keväinen kutsuu,
+Pilviks ilmahan
+Haihtuvat taas!
+
+[VERSE 2]
+Ihmiset myöskin.
+Maailman lapset,
+Raatavat, lempivät,
+Taistelevat;
+Vaan väsyneinä
+Horjuvat hautaan,
+Töistähän, teistään
+Lepäjämään.
+Kerran kun kutsuvi
+Jumalan ääni,
+Henkinä nousevat
+Taivahasen.
+
+--- TITLE: Clarens'in hautausmaalla.[1]
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Tule tänne, joka haet rauhaa!
+Muualla jos kuinkin riidat pauhaa,
+Täällä vihat viihtyy, sodat lakkaa,
+Yhdess' eroitetut makaa.
+
+[VERSE 2]
+Venään, Puolan, Franskan, Saksan kansaa
+Täällä lepää rinnoin rauhassansa;
+Uskoillakin, toisiaan mi vainoo,
+Tääll' on sija yksi, ainoo.
+
+[VERSE 3]
+Tule tänne, joka haet rauhaa!
+Täällä ei maan riidat enää pauhaa;
+Suuren sanan jo näet täytetyksi:
+Yksi paimen, lauma yksi!
+
+--- TITLE: Pohjolan valkeneminen.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+(Laulettu Porthan'in-juhlassa Marrask. 9 p. 1861.)
+
+[VERSE 2]
+Pohjolan pitk' oli yö!
+Kauan synkk' oli, Suomeni, kulkus,
+Pimeydessä riemuton polkus,
+Vaikeat vaivat ja raskas työ.
+Pitk' oli Pohjolan yö!
+
+[VERSE 3]
+Vaan eip' yö valoton!
+Tähtöset tuikki välkähytellen;
+Otavanas, sua tiell' opastellen,
+Loisteli säihkyen sammumaton
+Lempi Juslenion.
+
+[VERSE 4]
+Vaan jopa Pohjolaan
+Riensi nyt aamu taas rusotellen,
+Valkeni, loistollaan herätellen
+Kalevan urhoja unestaan,
+Nerosi, oi Porthan!
+
+[VERSE 5]
+Pitk' oli Pohjolan yö!
+Vaan kesäpäivä jo pimeät poistaa,
+Sätehin sammumattomin loistaa.
+Pohjolan, kun kesähetki lyö,
+Päivänä paistaa yö!
+
+--- TITLE: Suomalaisille.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Miekkain melske kuuluu täällä,
+Kuuluu kalke kilpien;
+Eri huudot onpi väellä,
+Er' on väri lippujen.
+Murhaajatko muukalaiset
+Tulleet on tuhoamaan?
+Voi, ei! miehet Suomalaiset
+Tässä seisoo vastakkaan.
+
+[VERSE 2]
+Ilost' ilkkuellen peikko
+Muukalainen katselee
+Kuinka veikkoansa veikko
+Raivoellen raatelee.
+Kumpi kaatui, kumpi voitti --
+Hän on varmaa voitostaan;
+Min hän turhaan kaataa koitti,
+Kaatuu kaatamattakaan.
+
+[VERSE 3]
+Yhtehen min Luoja liitti,
+Kuin näin ratketa se voi?
+Ykshän Suomi meidät siitti,
+Ykshän kieli meillä soi!
+Valvoimmehan yhdess' yötä
+Äidin sairaan vieressä;
+Yhdessähän teimme työtä
+Korpisuossa synkässä!
+
+[VERSE 4]
+Nytkös, koska aamu koittaa,
+Suomi viimein virkoaa,
+Työmme kovan onnen voittaa,
+Korpi kolkko aukeaa,
+Nytkö, veljet, liittoamme
+Turha riita ratkaiseis,
+Uutta toivon toukoamme
+Kateuden halla veis?
+
+[VERSE 5]
+Ei! min yhteen Luoja liitti,
+Näin se ratketa ei saa!
+Ykshän Suomi meidät siitti,
+Ykshän kerran peittää maa.
+Yhtenä siis seisokaamme,
+Suomeamme suojellen,
+Yhteis-voimin voittakaamme
+Yhteinen vihollinen!
+
+[VERSE 6]
+Kumpi suurna, kumpi piennä,
+Olkoon lasten riitana;
+Kyynärähän tok' ei liene,
+Miehen kunnon mittana!
+Ylempänä, alempana,
+Mitä siitä huoltakaan,
+Kuu vaan kukin portahana
+Onpi Suomen kunniaan!
+
+--- TITLE: Feniläiset.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+Oi kansa raukka, onneton,
+Jok' kuoll' et voi, et elää saa,
+Vaan niinkuin haahmo rauhaton
+Viel' astut paikkaas kotoisaa!
+
+[VERSE 2]
+Sun poikas parhaat, uljaimmat
+Armotta Saksilainen löi,
+Ja nurmikkosi vihannat
+Hän saaliiksensa kaikki vei.
+
+[VERSE 3]
+Maat, joita kynnät orjana,
+Ol' esi-isäis vanhat maat;
+Sä vierahana astua
+Perintöäsi omaa saat.
+
+[VERSE 4]
+Vaan parhaan aartees, ainoan,
+Mi ryöstäjältä jäänyt ois,
+Sun kieles armaan, ihanan,
+Sä houkka itse vaihdoit pois.
+
+[VERSE 5]
+Ja avu jaloin maallinen --
+Omahan maahan rakkaus --
+Nyt sulle, Erin kurjainen,
+On kova, julma kirous.
+
+[VERSE 6]
+Sen liekk' ei voi sua lämmittää,
+Ei valoa se sulle suo;
+Se polttaa vaan ja hävittää,
+Ja mustaksi sun nimes luo.
+
+[VERSE 7]
+Oi kansa raukka, onneton,
+Jok' kuoll' et voi, et elää saa,
+Vaan niinkuin haahmo rauhaton,
+Viel' astut paikkaas kotoisaa.
+
+--- TITLE: Helsingin teaterin vihkiäisissä Marraskuun 27 p:nä 1860.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+»Pois on vierryt Väinämöinen,
+Laannut laulamasta;
+Herjennyt on kanteloinen
+Käyrä kaikumasta;
+Siitä huokaa huolissahan
+Suomi nyt ja itkee
+Riutuneita riemujahan,
+Surun aikaa pitkää».
+
+[VERSE 2]
+»Suomen on äänen sortanunna
+Talven tuima valta,
+laululinnut on paennunna
+Kylmän kynnen alta.
+Tuuli vain hongikossa huokaa,
+Kova hanki kirskuu,
+Nälkäinen hukka ulvoo ruokaa,
+Tias-pikku tirskuu».
+
+[VERSE 3]
+Näinpä sävel kaikui kankahilta,
+Suomen saloilt' ääni murheellinen.
+Tuuli siivillään vei äänen vienon,
+Kujerruksen kantoi taivahasen.
+Siellä ruskopilven reunall' istui
+Sisarusta kolme kaunokaista,
+Ihanaista ilman neittä kolme.
+Kannel käsiss' istuu impi yksi,
+Laulutar se on, heleäkaula:
+Sulosäveliä helskyttävi,
+Surut sydämestä sulattavi.
+Toinen impi on Kuvatar kaunis,
+Tenhosormi, veistin kädess' istuu:
+Sillä kallioita kalkuttavi,
+Luopi sankareita, jumaloita.
+Kolmaspa se on korea kuopus,
+Näytelmätär, sisarista nuorin:
+Missä astuu, aukeavi haudat,
+Heräjävi haamut nukkumasta,
+Ylös urhot nousee nurmen alta.
+Kuullessansa Suomen suruvirttä,
+Sydämehen impein syttyi sääli.
+Taivahalta suhisevin siivin
+Laskeusit lohduttelemahan,
+Huolet Suomen huojentelemahan.
+Ensin Laulutar heleäkaula
+Käänti polvillehen kanteloisen;
+Hypitellen hyppysensä hienot,
+Soittain kielosia kultaisia,
+Lauloi siinä näin ihana impi:
+
+[VERSE 4]
+»Kuin talven tuomi,
+Kas, sulo Suomi
+Nyt seisoo huolien, huo'aten!
+Vaan kanteleni soiva,
+Se tuopi hoivaa,
+Se tuopi toivoa sydämehen».
+
+[VERSE 5]
+»Jo heitä huolet!
+Ei kaikki kuolleet
+Viel' ole virtoset laulajan.
+Viel' kanteloinen kaikuu
+Ja rinta raikkuu,
+Kuin Väinön aikana vakavan».
+
+[VERSE 6]
+Vaikeni jo virsi Lauluttaren;
+Huoltap' ei se Suomen huojentanna,
+Iloa ei soitto synnyttännä.
+Siihen vastas surullinen Suomi:
+
+[VERSE 7]
+»Kuulkaahan kannel tuossa kaikuu,
+Kuuluu laulu loittoo!
+Äänikö Väinön taasen raikkuu?
+Soiko Väinön soitto?
+Eipähän soittamassa, veikot,
+Väinö tässä liekään!
+Sorakieli, äänet heikot
+Tään on soittoniekan».
+
+[VERSE 8]
+»Oisko itse Väinämöisen
+Soittamassa sormet,
+Loiskuis lainehet järven jäisen,
+Kukkis kulonurmet!
+Vieläpä nyt on aalto vanki,
+Kituu kahlehissa;
+Vielä pitää talven hanki
+Nurmet nukuksissa».
+
+[VERSE 9]
+Kuvatarpa tenhosormi silloin,
+Kalkahuttain kalliota, alkoi
+Loitsujansa mahtavia laulaa:
+Kieli liikkui, loitsut luikahteli;
+Veistin väänti, paadet pakahteli.
+Näin Kuvatar tenhosormi lausui:
+
+[VERSE 10]
+»Kallio sa kuun ikuinen,
+Vuori päivän polvuhinen,
+Kuule nyt mitä sanelen,
+Kuule mitä sulle lausun!
+En puhu omalla suulla,
+Puhun suulla suuren Luojan!
+En omin käsini väännä,
+Käsin väännän Kaikkivallan!
+Sana kuule, kuule käsky,
+Tenhollista nyt totellos!
+Muuttuos muutellessani,
+Muodostuos, vuori vahva,
+Väinämöiseksi vakaaksi,
+Ikuiseksi laulajaksi!
+Mit' on paasia sinussa,
+Mitä kiviä kovia,
+Siitä runkonsa rakennan,
+Siitä kallon kalkuttelen.
+Mit' on puroja povessas,
+Ne ma suoniksi solutan,
+Verivirroiksi valutan.
+Mit' on lunta lappehillas,
+Siitä holvajan hivukset
+Hopeisena heilumahan,
+Valumahan valkoisena.
+Mit' on kuusia kupeillas,
+Honkasia hartioillas,
+Ne ma ruunuksi rakennan,
+Sovittelen seppeleeksi
+Päähän vanhan Väinämöisen,
+Ilon tuojan ikävöityn».
+
+[VERSE 11]
+Jopa kalliosta kuvoaikse
+Muoto va'an, vanhan Väinämöisen,
+Suomen tarkkamielen, laulukielen.
+Tuosta näin Kuvatar kaunis lausui:
+
+[VERSE 12]
+»Ällös surullinen Suomi,
+Ällös itke nyt eneä!
+Riemuitse jo rinnassasi,
+Aamuin illoin nyt iloitse!
+Jo on vanha Väinämöinen,
+Ukko tullunna takaisin
+Laulamahan, kukkumahan,
+Soittamaan, helistämähän
+Kansan kaunihin iloksi,
+Sulon Suomensa huviksi!»
+
+[VERSE 13]
+Hälveni jo hetkeks ääni huolen,
+Vaikenivat jo valitusvirret.
+Kuvaa katsoi Suomi ihmehellä;
+Vaanpa kohta taas poloinen parkui:
+
+[VERSE 14]
+»Mit' on syytä soitellamme,
+Laulaa riemumiellä?
+Eipä ole laulajamme
+Väinö tullut vielä!
+Tulta säihkyy Väinön silmä,
+Sulosuunsa laulaa; --
+Sydän tään on kuollut, kylmä,
+Eikä kaiu kaula!»
+
+[VERSE 15]
+Näytelmätär silloin, neito nuori,
+Taivoon päin kohottaa kätösensä.
+Näin hän lausuu, vanhaa Väinämöistä
+Maanitellen mielilausehilla:
+
+[VERSE 16]
+»'Yksin laulan, yksin soitan
+Runoja jo ruostuneita;
+Lauluja lakastuneita;
+Ei mua Suomi soitattele,
+Omat lapset laulattele!'[5]
+Niin sa, vanha Väinämöinen,
+Vihoissasi muinoin virkoit,
+Suutuksissasi nimesit;
+Vierit poies Suomen maasta
+Maille muille kaukaisille.
+Kuule nyt mitä sanelen!
+Todet sulle tarkat virkan:
+Linna on tässä laadittuna,
+Kallis kartano rakettu!
+Seinät tehty marmorasta,
+Kuparista katto pantu,
+Sisus kullalla kuvattu,
+Hopehilla holvattuna,
+Ollakses, eleäksesi,
+Ankarast' asuaksesi
+Näillä Pohjolan perillä,
+Suomessa sulohisessa».
+
+[VERSE 17]
+Impi vaikeni ja kuulleskeli.
+Turhaan kuultelevat immen korvat,
+Sydän vartoilevi toivoin turhin.
+Eipä käännykänä kulkemasta,
+Palaukaan vanha Väinämöinen.
+Impi jällen loihe loitsunahan:
+
+[VERSE 18]
+»Kun ei tuosta kyllin liene,
+Kun et huoline hopeista,
+Kääntynekään kullan tähden, --
+Kuule nyt mitä sanelen,
+Todet sulle tarkat virkan:
+Ilon pantuna on paasi,
+Laulukivi laskettuna
+Linnan keskelle komean,
+Salin suuren permantohon.
+Siinä istuos ilolla,
+Siinä soita riemutellen,
+Kanteletta kaikutellen!
+Siihen tuiskuna tulevi,
+Vilisevi virtanansa
+Kaikki mahtavat mailman:
+Rikkahat ja ruhtinahat,
+Keisarit ja kuninkahat
+Soittoasi kuulemahan,
+Iloa imehtimähän».
+
+[VERSE 19]
+Impi vaikeni ja kuulleskeli.
+Turhaan kuultelevat immen korvat,
+Sydän vartoilevi turhin toivoin.
+Viel' ei käännykänä kulkemasta,
+Palaukaan vanha Väinämöinen.
+Impi jälleen loihe loitsimahan:
+
+[VERSE 20]
+»Kun ei tuosta kyllin liene,
+Kun et käänny kuitenkana, --
+Kuule nyt mitä sanelen!
+Todet sulle tarkat virkan:
+Kuuluu laaksoista kujerrus,
+Vuorilta valitus-ääni.
+Koko Suomi kaihossahan
+Huokoavi haikeasti,
+Valittavi vaikeasti
+Lähtöä ikirunojan,
+Väinämöisen vierinteä.
+Vesi silmistä valuvi,
+Kyynel karvas poskipäille;
+Jääksi jäätyvi samassa,
+Kynttiläksi kangistuvi.
+Vaan jos vanha Väinämöinen,
+Laulaja ijän-ikuinen
+Takaisin tulisit näille
+Poloisille Pohjan maille
+Uuden kuun kulettajaksi,
+Uuden päivän päästäjäksi,
+Uuden Sammon saattajaksi,
+Uuden soiton suorijaksi, --[6]
+Vesi taaskin vierähtäisi
+Suomen silmistä suloisen.
+Se ois kyynel riemun kyynel,
+Riemun kyynel kirkkahainen,
+Se ei jääksi jähmettyisi, --
+Päärlynä putoeleisi,
+Helmenä helähteleisi
+Ihmisten ihanteheksi,
+Jumalainkin ihmeheksi!»
+
+[VERSE 21]
+Jopa kuuli vanha Väinämöinen,
+Jo nyt kääntyi ukko kulkemasta.
+Käännytti jo hänet kansan kaiho,
+Huokaukset Suomen huolellisen.
+Jo nyt joutuu, vierii venheessänsä:
+Hangat piukkii, airot notkistuvi
+Soutaessa seppo Ilmarisen;
+Purren hyrskivi kuparikokka
+Melatessa liedon Lemminkäisen;
+Itse istuu jouten Väinämöinen.
+Eipä aivan jouten istukana,
+Sormin soittelevi kanteloista,
+Suinpa laulaa suloutta Suomen.
+Rantaan rientävät he Suomenniemen;
+Soitto soitellen nyt kaikuu vastaan,
+Riemu riemullen näin raikkuu sieltä:
+
+[VERSE 22]
+»Terve tänne, Väinämöinen,
+Taas nyt soittamahan!
+Terve, käyrä kanteloinen,
+Taasen kaikumahan!
+Ilollen nyt ilot tuntuu,
+Riemullen nyt riemut!
+Heitä pois jo huolihuntu,
+Koko Suomenniemyt!
+
+[VERSE 23]
+Murheen jäät jo loiskahtavi
+Riemun lainehiksi;
+Kylmä hanki heilahtavi
+Lemmen kukkulaksi;
+Linnut laulaa virtosia;
+Kesän päivä koittaa;
+Itkein ilokyyneliä
+Koko Suomi soittaa!»
+
+--- TITLE: Tampereen kaupungin satavuotiseksi juhlaksi.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Emonen Satakunta
+Ilmoille pojan loi,
+Ja sadan miehen voiman
+Hän kantamalleen soi;
+Sit' äidinrinnoin sadoin
+Imetti, kasvatti;
+Näin vahva jättiläinen
+Pojasta sukesi.
+Vaan ikäv' on hänen mielessään,
+Hänt' ei koti hiljainen tyydytäkään.
+
+[VERSE 2]
+Siis ulos maailmalle
+Tää poika reutoutui:
+Hän kiersi sadat saaret,
+Hän sadat salmet ui;
+Ja kaikki rannan koivut
+Hänelle hymyili,
+Ja kaikki lehdon linnut
+Sulolla lauleli.
+Vaan ikäv' on hänen mielessään,
+Hänt' ilo, lempi ei tyydytäkään.
+
+[VERSE 3]
+Rinnassa miehuus kuohui,
+Se toivoi taisteluun,
+Se riehuvaisna paloi
+Voimainsa koitteluun.
+»Ah urhon jalon, vahvan
+Jos kerran kohtaisi,
+Kas silloin maksais elää,
+Kuollakin kelpaisi!»
+Näin ikäv' on hänen mielessään,
+Hänt' ei huvi kuuluton tyydytäkään.
+
+[VERSE 4]
+Vaan rientäissään hän viimein,
+Mit' etsi, löysi jo:
+Edessä tuossa vankka
+On Tammerkallio.
+Sen kivirinta luja
+Tien sulkee kokonaan;
+Ei taivu hän, ei väisty,
+On valmis sotimaan.
+Ja jättiläinen on mielissään,
+Kun toivonsa tässä sai täyttymään.
+
+[VERSE 5]
+Ja rinta rintaa vasten
+Nyt painia he lyö;
+He päivän kaiken koittaa,
+Eik' eroita heit' yö.
+Kiihkoissa katsos kuohuu
+Jo vaahti valkoinen!
+Kauaksi pauhu kuuluu
+Kuin jyske ukkosen.
+Hei jättiläinen on mielissään,
+Kun toivonsa tässä sai täyttymään.
+
+[VERSE 6]
+Näin vuosisadat pitkät
+He yhä taistelee,
+Näin koskaan voittamatta
+He toistaan koittelee:
+Ei uuvu veden voima,
+Ei murru kallio;
+Vaan järven jättiläinen
+Se viimein suuttuu jo.
+Taas ikäv' on hänen mielessään,
+Tuo turha leikki ei tyydytäkään.
+
+[VERSE 7]
+Saapuipa silloin siihen
+Kustaavi kuningas;
+Tuoss' jättiläisen keksi
+Silmänsä nerokas:
+»Hei, poika, suotta kuluu
+Noin voimas päivät, yöt!
+Mun palvelukseen' tule,
+Saat tehdä tosityöt.
+Tuo hyödytön pauhu on houraus,
+Vaan miehen työllä on tarkoitus!»
+
+[VERSE 8]
+Nyt käteens' jättiläinen
+Sai sadat rattahat;
+Hän kaikin voimin vääntää,
+Ne pyörein juoksevat,
+Ne vanuttaa, ne takoo,
+Ne kutoo ratisten,
+Ja leivän tarpeet hankkii
+Tuhatten ihmisten.
+Nyt jättiläinen on mielissään,
+Kun toivonsa viimein sai täyttymään.
+
+[VERSE 9]
+Jo sata vuotta vääntää
+Hän tuossa päivät, yöt,
+Ja yhä kaunistuupi
+Ja karttuu hältä työt;
+Ja maine, jota toivoi
+Suurista sodistaan,
+Sen monin kerroin saa hän
+Nyt työstään, toimestaan.
+Ja jättiläinen on mielissään,
+Kun toivonsa kaiken sai täyttymään.
+
+[VERSE 10]
+Oi kaukaa häämöittävä,
+Sä aika tuleva,
+Kun auraks muuttuu miekka,
+Työkoneeks kanuuna.
+Kun vert' ei vuodatella,
+Vaan työllä kilpaillaan,
+Kun suosio ihmisill' on
+Ja rauha päällä maan,
+Oi aika sä toivottu, kaivattu,
+Kas täss' esikuvas on siunattu!
+
+--- TITLE: Runebergin patsasta paljastettaessa
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Toukok. 5 p. 1885.
+
+[VERSE 2]
+Lähteissään Väinö jätti kansalleen
+Perinnöks tänne sulokanteleen;
+Mut kauas poveen korven synkeän,
+Seinälle pirtin köyhän, pimeän
+Hän kätki sen ja lausui: »kaikua et saa,
+Ennenkuin syntysanas joku oivaltaa!»
+
+[VERSE 3]
+Hiipipä sinne hoviherra jo,
+Lepersi: »se on Korkein suosio!»
+Keikahti poika hurja, huoleton:
+»Ma tiedän -- huvi, hekkuma se on!»
+Mut ääneti vaan riippuu kannel seinällään;
+Ei saa ne siitä soimaan sävelt' yhtäkään.
+
+[VERSE 4]
+Taas koitti yks: »se san' on viisaus,
+Ihmisen järjen ikikaunistus!»
+Ja toinen käski: »soi jo kannel soi!
+Naislempeä mi pyhemp' olla voi?»
+Mut' ääneti vaan riippuu kannel seinällään,
+Ei saa ne siitä soimaan sävelt' yhtäkään.
+
+[VERSE 5]
+Näin tuhannet jo turhaan koitteli --
+Ijäkskö, Väinö, soittos vaikeni?
+Nyt vielä nuorukainen lähenee,
+Silmästä kirkkaast' into säihkyilee;
+Hän lausuu näin: »maan päällä kalliimpaa
+Ei olla voi kuin sana synnyinmaa.»
+
+[VERSE 6]
+Ja kannel ammoin jäänyt ääneti
+Raikkaasen riemuun kohta helähti;
+Ja taivaan korkeeks kohoo pirttinen,
+Ja siihen koittaa päivä valkoinen;
+Ja sulaneet jo ompi korven kolkon jäät,
+Ja kesän tuulosessa nuokkuu tähkäpäät.
+
+[VERSE 7]
+Ja kansa herää pitkäst' unestaan
+Elohon, toivoon, toimeen uudestaan;
+Ja pimeess' eriteille eksyneet
+Taas veljikseen on toisens tunteneet.
+Ja mailma kummeksii: »mik' ihme verraton!» --
+Se Runebergin laulu, Suomen laulu on.
+
+[VERSE 8]
+»Suojaa, Herra, Suomenmaata! se on summa virrestäin;
+Sanat muut jos vaihteleekin, loppu aina kuuluu näin.»
+Näinpä muinoin lauleskeli sotavanhus harmaapää;
+Näin myös aina lauloit meille, jaloin laulajamme Sä!
+
+[VERSE 9]
+Näin nyt vielä, näin nyt vasta, keskellämme seisoen,
+Muistuttaos näölläsi nouseville polvillen:
+»Kallis lemp' on, kallis koti, kallis arvo, kunnia;
+Halvat kuitenkin ne kaikki isänmaan on verralla».
+
+[VERSE 10]
+Pois siis turhuus, pois kaikk' ylpeys, oman voiton pyynti pois!
+Katein älköön mittailtako, suurko osa veljell' ois;
+Kumpi pieni, kumpi suuri, siitä riidellä ei saa;
+Suurin se, ken isänmaata enimmin voi rakastaa.
+
+[VERSE 11]
+Monet työt on, monet mietteet, moniaalle haaroo tie;
+Kukin menköön suunnallensa, kunne rientons häntä vie;
+Vastakkainkin taistelkaatte, elämää on taistelu;
+Mut se olkoon veljein kilpa, älköön vihan kiistailu.
+
+[VERSE 12]
+Kahteen mereen erillensä virtaa järviemme veet,
+Mutta yks se sydän ompi, josta kaikk' on lähteneet.
+Kaksi kieltä murheitamme, riemujamme ilmoittaa,
+Mutta yks' on Suomen kansa, yksi vaan on isänmaa!
+
+[VERSE 13]
+Yhdess' elo meille koitti, yksi hauta levon suo,
+Yhdet kunnon, kunnian muistot nimellemme loistons suo,
+Yksi rakkaus jalo, pyhä rinnoissamme leimuaa; --
+Yhteistä on parhain kaikki, vähemp' erottaa ei saa.
+
+[VERSE 14]
+Jalona nyt Suomi seisoo täydess' avaruudessaan;
+Jakakaa se -- joka pala aivan mitätön on vaan.
+Yhdess' oomme vahva muuri, murtumaton kallio;
+Hajotkaa -- niin lomaan hiivii kohta salaturmio.
+
+[VERSE 15]
+Yksi meill' on Suomi-äiti, äitiä ei jakaa voi;
+Kaikille hän lapsillensa lempens' yhteisesti soi!
+Yhteinen myös vastatkohon hälle lasten rakkaus;
+Kuka eroo, kohdatkohon häntä äidin kirous.
+
+[VERSE 16]
+Näin nyt vielä, näin nyt vasta, keskellämme seisoen,
+Muistuttaos näölläsi kasvaville polvillen:
+»Kallis lemp' on, kallis koti, kallis arvo, kunnia;
+Halvat kuitenkin ne kaikki isänmaan on verralla!»
+
+--- TITLE: VIII. VIRSIÄ.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: title names a sung form
+
+--- TITLE: Virsi kotimaan puolesta.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Oi kuningasten kuningas,
+Sä maan ja taivaan valtias,
+Myös tälle maalle silmäs luo
+Ja armos runsaat lahjat suo!
+
+[VERSE 2]
+Vähäinen meidän kansa on,
+Maailman silmiss' arvoton;
+Vaan mitä mahtavinkin vois,
+Jos voimaa Sult' ei saanut ois?
+
+[VERSE 3]
+Kuin tomu edessäs on maan
+Suuruudet, voimat, vallat vaan;
+Kun viittaat, korkein alenee
+Ja matalaiset ylenee.
+
+[VERSE 4]
+Kuink' usein juuri valitset
+Aseikses pienet, alhaiset,
+Siks että Sinun voimasi
+Selvemmin heissä näkyisi.
+
+[VERSE 5]
+Kun tahdoit kansan valitun,
+Otitpa ylenkatsotun
+Ja halvan Juudan kansan, sen
+Teit vartijaksi totuuden.
+
+[VERSE 6]
+Ja Bethlehempä, pienoisin
+Tuo kaupungeista Juudankin,
+Sai armon armoist' ylimmän,
+Messiaan nähdä syntyvän.
+
+[VERSE 7]
+Oi Herra, kuule meitä myös,
+Tee meissäkin Sun armotyös!
+Suuruutta emme rukoile,
+Me pienuuteemme tyydymme.
+
+[VERSE 8]
+Jos meidän kansa aina sais
+Vaan olla palvelijanais,
+Sun töitäs aina toimittaa,
+Valistua ja valistaa!
+
+--- TITLE: Iankaikkinen autuus.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+Oi riemua!
+Oi autuutta!
+Kuink' kepeeksi
+Nyt tuntuupi.
+Ei murheet maan
+Mua painakaan;
+Ei pahat työs,
+Mun sielun', myös.
+Ah aivan on kuin lentää vois!
+
+[VERSE 2]
+Oi valkeus!
+Oi kirkkaus! --
+Mi päällä maan
+Kuin peiliin vaan
+Häämöitteli,
+Kajasteli,
+Se paistaa jo
+Kuin aurinko
+Nyt selkeänä kirkkaana.
+
+[VERSE 3]
+Maan päällä sain
+Vaan puolittain
+Tät' oivaltaa,
+Tät' aavistaa
+Mun toivossan',
+Mun uskossan'. --
+Nyt, Jumala,
+Sua kasvoista
+Jo näen kasvoihin!
+
+[VERSE 4]
+-- -- --
+
+[VERSE 5]
+Oi Korke'in!
+Mill' ansaitsin
+Mä syntinen,
+Mä saastainen,
+Tään kaiken nyt?
+Ei täyttänyt
+Mun voimani,
+Vaikk' koitteli,
+Sun käskyjäsi pyhiä.
+
+[VERSE 6]
+Kyll' rakasti
+Sua sieluni;
+Pyrkinyt pois
+Maan tomust' ois;
+Ja hurskauteen
+Ja pyhyyteen
+Se halavoi --
+Mut aina -- voi!
+Taas vaipui kesken lentoaan.
+
+[VERSE 7]
+Oi rakkaus!
+Oi armahdus!
+Sä rajaton,
+Sä verraton!
+Maan madon tään
+Niin viheljään
+Sä armahdit
+Ja puhdistit,
+Pyhitit omaks' lapsekses.
+
+[VERSE 8]
+Tuhatkin ois
+Jos kielt', en vois
+Sua kyllin mä
+Täst' ylistää;
+Vaikk' ääretön
+Ja määrätön
+Ijäisyys on,
+Ah mahdoton
+Täydesti kiittää armostas!
+
+[VERSE 9]
+Oi riemua!
+Oi autuutta!
+Ei hetkeä
+Ei vähintä,
+Jok' erottais,
+Luovuttaa sais
+Mua Sinusta,
+Oi Jumala,
+Mun Herran' ja mun Isäni!
+
+--- TITLE: Runoni.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+(Petöfi.)
+
+[VERSE 2]
+No kaikkiapa kuuluu!
+Vai runon' aina vaan
+Matelis maata myöten,
+Ei ilmaan kohoiskaan? --
+Se tosin maassa mataa,
+Kun niin mun käskyn' on;
+Pujahteleepa joskus
+Se myös maan rakohon.
+Ja usein sukeltaa se
+Syvimpään syvyyteen
+Syvimmän valtameren, --
+Inehmo-sydämeen.
+Mut kun taas käskein lausun:
+»Nyt kohoo korkeellen!»
+Koht' ilmaan lentäin laulaa
+Se niinkuin leivonen.
+Viel' yllyttäin kun huudan:
+»Ylemmä nouse vaan!»
+Se kohoo kotkain kanssa
+Lennossa kilpaamaan.
+Väsyvät kotkat viimein,
+Ei väsy runoni.
+Nyt taivaan pilvein rataa
+Jo tuolla kulkevi.
+Ja eipä viihdy kauan
+Parvessa pilveinkään;
+Se kohti taivaan kantta
+Jo lähtee lentämään.
+Ja pimennyt par'aikaa
+Jos päivän paiste ois,
+Sivuitse suhauttain
+Runoni ehtii pois.
+Sivuitse suhauttain
+Pimeesen päivään luo
+Vain yhden katseen, kohta
+Kirkasna paistaa tuo.
+Vaan runon' yhä nousten
+Ei viivy vieläkään;
+Se saapuu tähti-tarhaan
+Kaikista äärimpään.
+Ja siellä, mihin loppuu
+Jo luomat Jumalan,
+Se kaikkivallallansa
+Luo uuden maailman!
+
+--- TITLE: Tytön ikävöiminen.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+(Virolainen kansanlaulu.)
+
+[VERSE 2]
+Kaukana on kultaseni,
+Armas aaltojen takana;
+Kauas läksi, kaukan' onpi,
+Mont' on vastusta välillä:
+Meri aaltoinen, avara,
+Viisi järveä viluista,
+Kuusi kuivaa nummimaata,
+Suota seitsemän syveä,
+Kahdeksan karjan aroa,
+Kosken kymmenen kohina.
+Minä en saata sinne mennä,
+Hän ei saata tänne tulla.
+Viikkoon en saa häntä nähdä,
+Kuukauteen hänestä kuulla,
+Vuoden päiviin vieress' olla,
+Suojassa armaan sylissä,
+Kullan kainalon tuessa.
+Kaukana on kultaseni,
+Armas aaltojen takana;
+Kauas läksi, kaukan' onpi.
+Vie'ös, tuuli, terveiseni,
+Lennätä lempisanani,
+Pilvi, pitkeä ikeä,
+Laine, lauhkeeta eloa.
+Niin monta terveistä hänelle,
+Kuin on lehtiä lepässä,
+Kuin on kuusessa havuja,
+Koivun urpia keväillä.
+Niin monta terveistä hänelle,
+Kuin on laineita meressä,
+Taivahassa tähtösiä!
+Niin monta terveistä hänelle
+Kuin mietteitä mielessäni;
+Niin monta terveistä hänelle
+Kuin suomista syömessäni.
+
+--- TITLE: Viimeinen Kosija.
+--- SOURCE: PG41469
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+(Kuvaus Viipurin pitäjästä.)
+
+[VERSE 2]
+Vanha Liisa oli aikanansa ollut sorea tyttö ja rikas tyttö. Isänsä oli
+pohatta Villalan isäntä, jolla oli yhtä monta laivaa merta kyntämässä
+kuin auroja pellolla. Hänen tyttärensä Liisa oli seitsemässä pitäjässä
+kuulu kauneimmaksi ja taitavimmaksi tytöksi. Missä oli parempi karjan
+kaitsija, missä kätterämpi lyhteen sitoja, missä makeamman puuron
+keittäjä! No entäs pyhäpäivän tansseissa, kuka taitavammin tepsutteli
+kuin Villalan Liisa!
+
+[VERSE 3]
+Kummako siis jos läheltä ja kaukaa yhä kävi kosijoita Liisan kodissa.
+Siellä kävi lautamiesten pojat, siellä lihavat laivan-isännät, olipa
+koettanut onneansa lukkarinkin poika, joka osasi Ruotsit ja Venäjät,
+niin että hänellä kirjoitutettiin kaikki talonpoikain supliikit,
+repliikit ja muut paperit. Mutta turhaan kuluttivat nuoret miehet
+saappaitansa Villalan kujaa tallustellessansa, turhaan uupuivat ruunat
+kilpaa ajaessa sorean Liisan talolle. Yksillä saaliilla kaikki sieltä
+palautuivat, nimittäin -- rukkasilla. Matti muka oli kovin pöllöpää,
+Simolla olisi kyllä ollut älyä päässänsä, vaan kukkaro ei oikein
+lihavana asunut, Martin tasku kyllä kolikoista kilisi, vaan sehän taas
+oli semmoinen lyhykäinen, leveänaama lyllerö, ettei sopinut sorean
+Liisan rinnalle. -- Niin, jos olisi tullut nuori maisteri pappilasta
+tai joku hyvänhajuinen puotiherra kaupungista -- rouvaksi olisi
+Villalan Liisa kenties mennyt. Paha vaan ettei nuot tuommoiset älynneet
+missä heillä onni oli tarjona!
+
+[VERSE 4]
+Rupesivatpa yhtenä päivänä kylän ämmät toisillensa kuiskaamaan, että
+Villalan isäntä muka oli viimein tullut kiinni Viron viinan
+kuljetuksesta ja että nyt piti talon karjoineen mennä sakoista. Tällä
+kertaa oli ämmäin juoru täyttä totta. Isäntä kuoli pian tuskasta ja
+Liisalle ei jäänyt perinnöksi muuta kuin vanha sorvauspenkki ja harmaa
+kissa.
+
+[VERSE 5]
+Rahojen kanssa oli kosiomiestenkin parvet hävinneet niinkuin akanat
+tuuleen. Oli niitä senkin perästä kyllä käynyt vielä Liisalla. Mutta ne
+olivat olleet mökkiläisiä tai renkirehvanoita. Kuinkas Liisa semmoiseen
+olisi suostunut -- ohoh, kaikkia vielä! -- Maltas, kyllähän tulee
+entisistä kosijoista vielä joku uudestaan!
+
+[VERSE 6]
+Mutta vuodet vierivät ja huonotkin kosiomiehet yhä harvenivat sitä
+myöten kuin hampaat harvenivat vanhan Liisan suusta. Nyt oli vaan yksi
+hammas enää paikallaan, poskien puna oli kellastunut, ja nenä laihtunut
+teräväksi. Kyllä nyt Liisa raukka olisi vaikka renkiinkin tyytynyt,
+vaan moneen vuoteen ei ollut enää kosijoita näkynyt, ei kuulunut.
+
+[VERSE 7]
+Vanha Liisa nyt oli kyökkipiikana eräässä hovissa (herras-talossa) ja
+muu väki häntä vaan mainitsi vanhan piian nimellä, laulellen hänestä
+vanhaa virttä:
+
+[VERSE 8]
+Vanha piika kyöpelissä ajattelee näitä:
+Voi jos tulis poika vielä, laittais mulle häitä!
+
+[VERSE 9]
+Mutta tätä laulua he vaan hiljaisesti hyräelivät itsekseen; sillä kerta
+kun joku nuori tyttöletukka oli rohjennut Liisan kuullen ruveta sitä
+laulamaan, oli tämä aivan silmittömäksi suuttunut ja vähällä ollut
+pilkkaajalta silmät puhkaista. Muulle palvelusväelle oli vanha Liisa
+nurja ja ynseä ja istui tavallisesti eriksensä omassa nurkassaan. Kun
+uusi renki tuli taloon, oli Liisa kyllä vähän aikaa lempeällä tuulella
+ja laitteli niin että paraat palat aina sattuivat hänen talrikilleen.
+Mutta kun toinen ei tästä hyväelystä ollut milläänkään, niin kääntyi
+Liisan mieli häntäkin kohtaan pian nurin.
+
+[REFRAIN]
+*       *       *       *       *
+
+[VERSE 10]
+Yhtenä pyhä-iltana istui vanha Liisa taaskin nurkassaan; sukkapuikot
+liikkui ja leuka tutisi aivan niinkuin joka ilta nähtiin tekevän. Mutta
+kuitenkin oli ensisilmäykselläkin helppo havaita, että jotakin
+erinomaista nyt oli tapahtumaisillaan. Sillä vanha Liisa oli tavattoman
+pönäkästi puettu; tukka niinkuin nuoltu sileäksi; ryntäillä tumman
+punainen liivi ja hihat lumenvalkoiset, lujasti tärkätyt, kaulassa
+uuden uutukainen musta silkkihuivi. Vanha Liisa ikään kuin jotain
+odotti; sormet kyllä ahkerasti liikuttivat sukkapuikkoja, mutta silmät
+yhä pyrkivät ulos ikkunasta. Harmaa kissakin nuoleskeli käpäliään,
+ikään kuin ennustellen vierasten tuloa.
+
+[VERSE 11]
+Muut piiat istuivat tuvan toisessa päässä pöydän ympärillä; he
+juttelivat ja naurelivat keskenään, yhä välistä varoisasti vilkahdellen
+Liisaan päin. »Mikähän nyt lieneekään vanhalla piialla, kun tänä iltana
+niin koreilee?» sopotti yksi heistä. -- »Ihan se punaisessa liivissään
+on kuin menneenvuotinen karpalo!» jatkoi toinen. -- »Saas nähdä eikös
+vaan liene joku kosija tarttunut tuohon viimeiseen onkikoukkuun, mikä
+sill' on ikenissä!» lisäsi kolmas. Nyt ei tytöt enää voineetkaan
+hillitä luontoansa, vaan purskahtivat nauruun, niin että vettä silmiin
+porsui. -- Vanha Liisa, joka juuri taas oli ulos ikkunasta katsonut,
+käänsi nyt silmänsä tyttöihin päin. Mutta vaikka hän epäilemättä tiesi
+mikä niin nauratti tyttöjä, niin ei hän nyt kuitenkaan näyttänyt
+suuttuneelta. Pikemmin olisi hänen silmistään voinut lukea: Malttakaa!
+nauraa paraiten, ken nauraa viimeksi!
+
+[VERSE 12]
+Samassa kuului ulkoa kolkutus ovelle. Tytöt kavahtivat ikkunoille
+katsomaan. Pihalla seisoi joukko nuoria miehiä. »Meiltä on elävä
+kateessa», virkkoi yksi heistä, »tulimme sitä täältä etsimään!» --
+»Herrajesta, sulhasia!» huusivat tytöt, punastuen ja toisiansa
+katsellen, nähdäksensä ketä kosiomiehet tarkoitti. Herra ja rouva
+haettiin kyökkiin, piiat menivät tavan mukaan piiloon, mikä kaapin
+taaksi, mikä uunin päälle, mikä sängyn alle. Vanha Liisa ei ollut koko
+asiasta olevinansa milläänkään, mutta kätkeysi viimein hänkin hameitten
+taaksi, jotka seinällä riippuivat. Mennessään hän oli sanonut:
+»Piilläänpä me vanhat piiatkin leikin vuoksi!» Mutta niin sanoen oli
+hän taas hymyellyt niin kummallisesti, niin pititteleväisesti!
+
+[VERSE 13]
+Päästettiin nyt sulhasjoukko sisälle, vietiin heitä nurkasta nurkkaan,
+komerosta komeroon. Kaikki paikat katsottiin. Löytyikin tyttönen
+tyttösen perästä, vaan aina pudistelivat miehet päätään, sanoivat: »ei
+tämä se ole haettavamme, pitää vielä etsiä!» Viimein löytyi vanha
+Liisakin piilostansa ja silloin sulhasjoukko heti yhtä suutansa huusi:
+»Kas tässä se onkin elävämme, jota läksimme tavoittelemaan!» -- »Vai
+sekös se onkin!» naurahti herra, »kukapas sen olisi uskonut! No olkoon
+onneksi, Liisa-rukka!» -- Mutta muut piiat tätä katselivat ällistellen
+ja vähän katehellakin, sillä sulhanen oli pulska ja rivakka poika,
+vaikka kyllä hoettiin häntä vähäisen tuhmaksi.
+
+[VERSE 14]
+Näin oli siis vanha Liisa kuitenkin saanut sulhasen, ja arvaapas millä
+lailla. Sulhanen oli ollut nikkarin-opissa ja kerran käynyt hovin
+työssä. Siinä kun sitten oli ollut jotain sorvattavaa, niin oli tuotu
+Liisan sorvauspenkki parvelta, missä se monta vuotta oli ollut muun
+ramun seassa. Tätä sorvauspenkkiä ei ollut nikkari enää taitanut
+unhottaa; sitä oli päivällä muistellut, sitä öillä nähnyt unissaan. Kun
+hän sen lisäksi sitten vielä oli saanut tietoonsa, että vanhalla
+Liisalla oli 50 kolikkaa säästöpankissa, niin ei hän mieltänsä enää
+voinut malttaa, vaan läksi, kun läksikin, kosimaan.
+
+[REFRAIN]
+*       *       *       *       *
+
+[VERSE 15]
+Pari viikkoa sen perästä piti Liisan sulhasensa kanssa mennä itsiänsä
+kuuloituttamaan. Olisitte nähneet kuinka koreana vanha Liisa kävi
+sulhasen rekeen istumaan ja kuinka hän lähtiessään pititteli muita
+piikoja: »Nyt vanha piika viedään vihille, saa nähdä, ken nyt jääpi
+vanhaksi piiaksi!»
+
+[VERSE 16]
+Parikuuta tuli pappilaan, pian oli asia ilmoitettu ja nimet lipulle
+kirjoitettuna. »Nyt minun vaan pitäisi teitä vähän luettaa; sitten
+menen kirkkoon ja kuuloitan», sanoi pappi. Hän meni, otti hyllyltä
+piplian ja pani sen pöydälle. Liisa astui rohkeasti likelle ja luki
+muutamia värssyjä selvästi. -- »Jo piisaa», arveli pappi, »nyt on sinun
+vuoros, Matti». -- Matti oli jo kauan ällistellyt sitä suurta kirjaa
+pelolla, niinkuin härkä katselee uutta, punattua veräjää. Vasta kun
+pappi käskynsä vielä uudisti, kävi hän istumaan ja rupesi puustaveita
+kokoon poimimaan. Hänen edessään oli ensimmäisen Moseksen kirjan
+ensimmäinen luku. Matti rupesi tavaamaan: »A -- sano a -- ällä --
+alati!» -- »Ei», sanoi pappi, »katso tarkemmin». -- Matti alkoi
+uudestaan: »A sano a, -- ällä -- alasti!» -- »Alussa siinä seisoo»,
+oikaisi pappi. »Ällä -- ö» pani Matti. -- »Loi», kuiskasi Liisa. --
+»Löi», tokaisi Matti ääneensä. -- »Loi se on, pöllö», ärjäsi pappi,
+jolla oli kirkkoon kiire. -- »J -- u -- ämmä -- Jumala», huusi Matti,
+iloissaan kun niin tutun sanan tapasi. -- Vaan sitten tulikin sitä
+mutkallisempi eteen. T -- a -- i, edemmäksi ei Matti parka päässyt.
+Hikiherneitä herui otsahan, silmät mullistuivat yhä julmemmin, suu
+vääntyi vääräksi kokonaan. »T -- a -- i --  --  en minä, -- hyvä
+kirkkoherra, ole oppinut Latinaa lukemaan!» parahti Matti tuskissaan.
+-- »Aivanhan tämä onkin tavallista Suomen pränttiä», vastasi pappi,
+puoleksi nauraen. -- »Niin, mutta minä en ole koskaan niin suuria
+kirjoja lukenut. -- Antakaas niin virsikirjasta tai katkismuksesta
+lasken niinkuin vettä koskessa valuu!» -- Mutta kirkkoherra oli vielä
+veres luuta, hän ei ruvennut tinkimään. Selvästi piti lukea taikka ei
+kuuloituksesta tulisi mitään. -- »Kuulkaa toki, kirkkoherra kulta»,
+rukoili nyt Liisa parka itkien, »kovin te olettekin ankara! Pääsihän
+sitä kirkkoherra vainajaltamme moni naimiseen, joka ei olis i-tä
+tuntenut, vaikka olis tullut maantiellä keppinä vastaan!» -- »Jos hän
+olikin veltto pyhässä virassaan, niin minun omatuntoni sitä ei salli!»
+vastasi kiivaasti pappi. -- »No mutta, hyvä kirkkoherraseni, minä
+vaikka parasta liinakangasta kutoisin teille». -- »Menkää nyt jo, te
+hävyttömät, menkää paikalla, taikka» -- -- huusi pappi vihastuksissaan
+ja sysäsi onnettoman parikunnan ulos ovesta.
+
+[VERSE 17]
+Niin täytyi Liisan kuitenkin kuolla vanhana piikana, sillä ei Matti
+ruvennut toista kertaa yrittämään. Olkoon siis tämä teille, tyttöset,
+opiksi, että luetatte sulhasta hyvinkin, ennenkuin lähdette pyytämään
+kuuloitusta.

@@ -1,0 +1,289 @@
+# Results — the time layer
+
+> # EVERY ARM IN THIS DOCUMENT IS `VOID`, 2026-08-11.
+>
+> Not for the reason recorded below, and not for the reason `RESULTS_FWER.md`
+> recorded either. **Every per-item p in this file was computed from an event
+> set built by `time_layer.rhyme_events`, whose family-wise correction measured
+> `m` over the pairs that PASSED the rhyme band (median 6–13) instead of over
+> the comparisons that were MADE (89 on a quatrain, 176–265 on a sonnet).** At
+> the honest family size no position on any item in this repository clears its
+> cut: 18 of 20 real sonnets and 16 of 20 word-scrambles return `cannot tell`
+> and the rest return **0 events**. There is nothing to take a median of.
+>
+> The H3 line-final control is affected by the same route —
+> `time_layer.internal_control` calls `rhyme_events` directly (line 693). The
+> H2 argmax finding (doctrine 19) and the H4 marginal-preservation argument are
+> **not** affected: both are properties of the permutation, not of the event
+> set.
+>
+> Kept whole, per doctrine 17. `RESULTS_FWER.md` carries the full retraction,
+> the measured family sizes, and the verified boundary — including the proof
+> that `positive_control.py` and `run_positive_control.py` are outside it.
+
+> # AND THE LAYER CANNOT BE RESTARTED BY TUNING. `MUTE` IS THE FINDING.
+>
+> **Measured 2026-08-11, after the retraction:
+> `python3 quality/time_attainable.py`.** The retraction left one question
+> open — *can an event be made attainable at all, under an honest family
+> size?* — and named `null_samples` and `window` as the two live routes.
+> **Both were measured and neither is a route.** Six levers were measured and
+> none of them is.
+>
+> **The arithmetic, in three numbers.** An item fires only if some pair's
+> p-value clears its position's cut, so everything reduces to
+> **`M_NEEDED = ln(1−α)/ln(1−min_p)`**, the largest family at which the item's
+> own best pair still clears its own cut. Across 20 sonnets M_NEEDED is **21**
+> and the median family is **198** — a gap of **9.4×**, with **0.0% of
+> positions** small enough to fire. The 1.7–1.8× the record quotes is `min_p`
+> against the cut at the item's *smallest* family, an upper bound on
+> attainability that was read as an estimate of it.
+>
+> **And `min_p` cannot be lowered, because its floor is a TIE COUNT.** The best
+> pair in every sonnet measured scores exactly **1.000**, 40–83 of 20,000
+> chance re-pairings tie it, and **zero are strictly above it**. The comparator
+> has no headroom over "perfect rhyme", so `min_p` is the *density of perfect
+> chance re-pairings* — a rate, not a resolution. Raising `null_samples` 100×
+> costs 0.60 s → 4.69 s per item and moves `min_p` the **wrong way**, 4.200e-3
+> → 4.415e-3.
+>
+> **What each lever buys.** `null_samples`: nothing, backwards. `window`: `m`
+> only (`min_p` is invariant), and it first reaches the range at
+> `window ≤ max_span`, where the two anchors are adjacent and this is no longer
+> rhyme at a distance. `max_span`: self-cancelling — 3→1 cuts `m` 6.9× and
+> raises `min_p` 5.9×. More text: plateaus at 1.3×, because `m` is bounded by
+> the window and the perfect-pair rate converges on a fact about **English**.
+> A cross-item null (`MISSING` L-2's ask, built and run): 1.3×. **A declared
+> beat: 7×** — the only lever worth more than 1.5×, and it makes every event
+> land on phase 0 *by construction*, which is doctrine 41 arriving here.
+>
+> **So the whole arm table below is not merely void — it is unrestorable at
+> these parameters.** `analyse()` needs ≥4 events; 0 of 20 sonnets produce 4 at
+> the registered window and 2 of 20 at the only window that fires at all. There
+> are no per-item p-values, so there is nothing for Fisher to pool (doctrine
+> 33) — and doctrine 74 closes the other end, since the window where events
+> exist is the window where *every* event arrives as an adjacent pair and the
+> permutation H0 is most wrong.
+>
+> **What this layer would need,** stated so it can be checked: a comparator
+> with headroom above "perfect rhyme", or a hypothesis space ~10× smaller
+> declared from outside the text — i.e. **audio or a declared tempo**, shipped
+> with a same-positions-no-signal arm. Full arithmetic, every table and the
+> wall-clock: `RESULTS_FWER.md` § "THE LEVERS, MEASURED".
+
+> **RAP ARM WITHDRAWN.** Every rap figure in this document came from
+> `verse.txt`, an in-copyright commercial transcription that predated the
+> provenance gate, was never declared in `data/sources.tsv`, and was never run
+> through it. It is deleted. Under `ProvenanceDeclaration(term_years=95,
+> current_year=2026)` the cutoff is **1931** and rap begins in **1979**, so no
+> rap corpus is admissible here before roughly 2075 — the arm cannot be
+> replicated, only replaced. The aggregate statistics are kept as an audit
+> trail; the text is gone. H1's positive half is **untestable under the
+> provenance policy** rather than refuted, and its replacement is a
+> cross-family corpus defined by structural property rather than genre
+> (`quality/POSITIVE_CONTROL.md`).
+
+> **AND THE NULLS ARE WEAKER THAN THEY READ.** `quality/POSITIVE_CONTROL.md`
+> measured the layer's minimum detectable effect for the first time. At the
+> 5-8 events a corrected item actually carries, the statistic needs ~75% of an
+> item's internal rhymes on ONE phase to reach 0.80 power; at 60% concentration
+> it has 0.13. So a single item could never have answered the question, and the
+> withdrawn rap arm's p = 0.132 / 0.626 / 0.087 did not mean "no effect", they
+> meant **no power**. H1's positive half was never once tested. The sonnet arm
+> IS genuinely null and now has pooled power behind it: Fisher across items
+> gives p = 0.950 (stress, k=23) and p = 0.617 (syllable, k=26).
+
+
+> **ONE EXPLANATION HERE IS SUPERSEDED.** This document attributes the
+> instrument's saturation to the comparator's additive floor. That was wrong,
+> and `RESULTS_MATRIX.md` shows why: fitting the matrix removed the floor and
+> saturation got *worse* at matched false-positive rate (97% against 95%).
+> Saturation is a **multiple-comparisons artifact** — ~135 comparisons per
+> stressed syllable, so even the amendment's theta 0.90, which is a 2.4%
+> per-pair FPR, gives `1 - 0.976^135 ~ 96%`. Holding saturation near 30% would
+> need a per-pair FPR of ~0.26%, far stricter than any theta in use. The fix is
+> family-wise error control across the window, or a smaller window — which is
+> why the amendment's window change from 32 to 16 did most of the work. The
+> null results below are unaffected; only the diagnosis of the first failure
+> changes.
+>
+> ~~**The layer has since been corrected and re-run with power.** See
+> `RESULTS_FWER.md`: family-wise error control drops saturation from 90-93% to
+> 6-16% at the ORIGINAL registered parameters, with the false-event rate
+> measured at 5.4% against a declared 5.0%. H1's sonnet half holds null for a
+> third time and its rap half fails for a third time, now at p = 0.132 on a
+> properly powered instrument. The nulls below were uninterpretable; those are
+> not.~~
+>
+> **`VOID` 2026-08-11 — both figures it quotes are void at source.** 6–16% and
+> 5.4% are `m` = scored. See the block at the head of this file. The last
+> sentence inverts: the nulls below were uninterpretable, and so are those.
+> Three instruments have now produced three different kinds of nothing —
+> 87–97% saturation, an unresolvable BH tail, and a cut no position can clear —
+> and not one of them has been a measurement of Shakespeare.
+
+Run against `TIME_PREREGISTRATION.md` as amended by
+`TIME_PREREGISTRATION_AMENDMENT.md`. Both were committed before the numbers
+existed; `git log` proves the order. Reproduce with
+`python3 quality/time_layer.py FILE`.
+
+Amended parameters: theta 0.90, window 16 syllables, spans to 3, periods
+{2,3,4,6,8}, 2000 permutations, saturation ceiling 0.75. Grid unit **stress**
+is primary; **syllable** is reported as the pre-registered H5 sensitivity
+check.
+
+## Headline
+
+~~**The layer is built, correctly instrumented, and finds nothing.** After
+Benjamini-Hochberg at q=0.10, **no arm on either grid shows phase structure in
+rhyme placement.** The predicted null held; the predicted effect did not
+appear.~~ **`VOID` — see the head of this file. The table below is kept because
+its saturation column is real and diagnostic (it is what a per-pair threshold
+does with no correction at all), and its p column is not.**
+
+| arm | n | ran | median saturation | ~~median p~~ | ~~sig at .05~~ | ~~survives BH q=.10~~ |
+|---|---|---|---|---|---|---|
+| Shakespeare sonnets (stress) | 40 | 40 | 39% | 0.500 | 0/40 | **0** |
+| generated sonnets (stress) | 20 | 20 | 33% | 0.361 | 2/20 | **0** |
+| rap, whole verse (stress) | 1 | 1 | 35% | **0.626** | 0/1 | **0** |
+| rap, 20-line blocks (stress) | 3 | 3 | 32% | 0.454 | 1/3 | 1 |
+| Shakespeare sonnets (syllable) | 40 | 40 | 22% | 0.491 | 2/40 | **0** |
+| generated sonnets (syllable) | 20 | 20 | 17% | 0.487 | 0/20 | **0** |
+| rap, whole verse (syllable) | 1 | 1 | 18% | 0.515 | 0/1 | **0** |
+
+Saturation is now 17–39% across every arm, inside the 25–40% target the
+amendment set, and **zero items were refused**. The instrument fix worked. What
+it revealed is an absence.
+
+## The predictions, as they came out
+
+**H1 — rap organizes internal rhyme against a period; the sonnet does not.
+FAILED, in its positive half.**
+
+The sonnet arm was predicted null and **is** null: 0 of 40 significant, median
+p exactly 0.500. That half is confirmed, and it matters, because a significant
+sonnet result would have meant the statistic was reading the pentameter.
+
+The rap arm was predicted significant and is not. The registered unit is the
+whole verse, and it lands at **p = 0.626** — not a weak effect, no effect. One
+of three exploratory 20-line blocks reaches p = 0.005, which is more than
+chance would usually give across three tests, but the pooled analysis with the
+most data is flatly null and the block split was not registered. The direction
+rap > sonnet is not supported.
+
+**H2 — the recovered period is binary in rap. NOT EVALUABLE, and the question
+was malformed.**
+
+The observed argmax was P=8 in every rap arm and split 27/13 between P=8 and
+P=6 across the sonnets. That looks like a finding and is an artifact. KL's
+small-sample bias grows with bin count — E[KL] ≈ (P−1)/2n on noise — so a
+maximum over the sweep lands on the largest period offered. Measured on pure
+noise at n=40 over 120 slots, **the sweep chose P=8 65% of the time and P=6
+35%**, against an observed sonnet split of 68%/32%. The two distributions are
+indistinguishable.
+
+The p-value is unaffected, because the null takes the same maximum. The
+*period* is not, so `analyse()` now returns `period=None` unless p < .05 and
+keeps the raw argmax in `period_argmax` with a note. Reading a period off a
+null result is reading tea leaves, and this measure made it easy to do.
+
+**H3 — the line-final tripwire. PASSED, after the registered version turned out
+to be a tautology.**
+
+As originally registered and run at theta 0.80, the control compared line-final
+events against line-final slots when 86–100% of line-finals rhymed, so the
+event set equalled the slot set and it could only ever return KL=0, p=1. A
+control that cannot fire is not a control — doctrine 14, reproduced in this
+module's own first draft, caught by running it. It now labels itself DEGENERATE
+in that case instead of reporting p=1.0 as a pass.
+
+~~At theta 0.90 the control became live: median saturation 35%, zero
+degenerate, and it came out **null on all 20 sonnets** (median p = 0.388, 0
+significant). The tripwire did not fire.~~ Raising theta to desaturate the
+primary statistic rescued the control as a side effect.
+
+> **`VOID` 2026-08-11 for the same reason as the primary statistic, by a
+> different route.** `time_layer.internal_control` builds its line-final event
+> set with a direct call to `rhyme_events` (line 693), so "null on all 20
+> sonnets" is a null over events selected at `m` = scored. The DIAGNOSIS above
+> — that the registered version was a tautology because the event set equalled
+> the slot set — is unaffected and is the part worth keeping: it is doctrine 14
+> reproduced inside this module's own first draft and caught by running it.
+
+**H4 — the null preserves the marginals. HOLDS by construction**, and is tested
+rather than asserted: the permutation draws the same number of events from the
+same eligible slots, so line lengths, the stress layout, and anything the form
+forces are all present in the null.
+
+**H5 — grid-unit sensitivity. The warning was justified.** The two grids
+disagree about which arms are nominally significant: on stress, 0/40 sonnets
+and 2/20 generated; on syllable, 2/40 sonnets and 0/20 generated. Nothing
+survives correction on either, so the consistent reading is that all of it is
+noise — but the reversal is exactly the instability the prediction warned
+about, and it means no single-grid result from this layer should ever be
+quoted alone.
+
+## The post-hoc control, and a concern that turned out not to be real
+
+`mode="against_all"` compares line-final events against **all** grid slots and
+was expected to fire hard: in an isosyllabic form every line-final syllable
+should share a phase while the slots spread across all of them. It did not
+fire — 0 of 14 significant, median p = 0.53.
+
+The reason is worth keeping. Sonnets are isosyllabic but **not
+iso-stress-count**: lines vary in how many stresses they carry, so line-final
+position varies on the stress grid and the degeneracy never materializes there.
+The concern was correct in principle for a syllable grid and does not bite on
+the primary one. Excluding line-final events from the primary statistic was
+therefore unnecessary caution rather than a fix — defensible, but it should be
+recorded as caution and not as a defect avoided.
+
+## What this does and does not establish
+
+~~It establishes that **rhyme placement in this material carries no detectable
+periodic structure in syllable or stress coordinates**, under a declared
+isochrony assumption, at a strong-rhyme threshold, with a properly calibrated
+null. That is a real negative result and it is reported as one.~~
+
+> **`VOID` 2026-08-11.** It establishes nothing about rhyme placement. The null
+> was not "properly calibrated" — the per-pair threshold it used had no
+> false-positive rate attached until doctrine 22 was written, and the
+> correction that replaced it measured its family over band survivors. What
+> this document does still establish is H2 (an argmax over a swept parameter is
+> biased toward the largest period, doctrine 19) and H4 (the permutation
+> preserves the marginals), and both of those are properties of the
+> randomisation rather than of the event set.
+
+It does not establish that rap is unmetrical. Three limits, all structural:
+
+1. **There is no audio.** Isochrony is assumed and is false for stress-timed
+   English. The layer measures rhyme placement in symbolic coordinates, not in
+   time, and no output of it should be worded otherwise.
+2. **One rap verse.** The registered rap arm has n=1. A negative result at n=1
+   is barely a result; the sonnet arm is the only one with real power, and its
+   prediction was that it would find nothing.
+3. **theta 0.90 narrows the claim.** Events are strong internal matches only,
+   well above the harness's declared `theta_rhyme` of 0.75. Weaker internal
+   rhyme is invisible to this run, and weaker internal rhyme is a large part of
+   what the craft actually uses.
+
+## What would move this forward
+
+1. ~~**Family-wise error control across the window.**~~ ~~**DONE** — see
+   `RESULTS_FWER.md`. Saturation 90-93% -> 6-16%, false-event rate calibrated
+   at alpha. The layer is measurable and still finds nothing, which is now a
+   result rather than an absence of one. The next step is a second rap corpus,
+   not a fourth instrument.~~
+   **REOPENED 2026-08-11.** Family-wise error control is BUILT and its family
+   was measured over the wrong population, so it is not done. What is owed is
+   two coordinates, not a corpus: `null_samples` (at 2000 the Šidák cut 2.5e-4
+   sits BELOW the p-value floor 5e-4, so no event is attainable) and `window`
+   (32 syllables is what makes the candidate family 176–265 in the first
+   place). Best attainable p / loosest cut is 1.7–1.8× on real items, so the
+   gap is a factor of two and not a factor of a hundred.
+2. **More rap, from more writers.** n=1 is not a corpus. This is the same
+   lesson as doctrine 8, arriving in a new layer.
+3. **Audio, or a declared tempo.** Everything above is conditional on an
+   assumption known to be false. Until timing enters the project, this layer
+   cannot make a claim about time, and calling it "the time layer" is
+   generous — it is a placement layer.

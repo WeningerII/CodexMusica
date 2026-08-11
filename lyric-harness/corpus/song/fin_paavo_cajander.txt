@@ -1,0 +1,4633 @@
+# author: Paavo Cajander (1846-1913)
+# source: GITenberg PG 13318 -- file raw_13318-8.txt, ISO-8859-1
+# licence: public domain -- GITenberg metadata.yaml rights 'Public domain in the
+#         USA.', rights_url creativecommons.org/about/pdm; author died 1913,
+#         which clears the project's 1931 cutoff by author-death route (2).
+# edition: Runoelmia. No printing named by Project Gutenberg.
+# SELECTION -- THIS IS A SUBSET AND THE RULE IS DECLARED (doctrine 32).
+#         The source volume is a collected-POEMS book. A poem is staged only on
+#         positive evidence that it was SUNG, and '--- SUNG-EVIDENCE' names the
+#         route for every block:
+#           tune     the source prints 'Nuotti: X' over the poem -- a
+#                    CONTRAFACTUM, a text written to a named existing melody.
+#                    Strongest route. Rendered as [air: X] on the TITLE line,
+#                    matching corpus/song/eng_celtic_thomas_moore.txt.
+#           refrain  a 1-4 line group recurring VERBATIM at least twice, at
+#                    stanza boundaries. Structural, language-independent.
+#           title    the title names a sung form (laulu, virsi, marssi, hymni,
+#                    juomalaulu, kehtolaulu ...). WEAKEST route, and labelled.
+#         44 poems staged, 130 left behind, out of 174 units the
+#         volume was split into. The split is TYPOGRAPHIC: a title is a line of
+#         <= 60 characters preceded by >= 3 blank lines and followed by >= 1.
+#         Section headings therefore appear as units and fall out unstaged,
+#         which is why the 'left behind' count is the honest denominator.
+# orthography: 19th-century Finnish as printed, UNNORMALISED. The apostrophe is
+#         the Finnish hiatus/elision mark that SPLITS (doctrine 65) and
+#         quality/phonology/fin.py reads it so; the hyphen is a compound seam
+#         that blocks resyllabification.
+# structure: [VERSE n] stanza as printed; [REFRAIN] the verbatim repeated group.
+
+--- TITLE: Paavo Cajander.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x4 (1 line)
+
+[VERSE 1]
+24.12.1846--14.6.1915.
+
+[VERSE 2]
+Kun Paavo Cajanderin runot nyt ensi kertaa kokoelmana tarjotaan
+suomalaiselle yleisölle, lienee monelle mieluista saada samalla
+elämäkerrallisia tietoja tästä suuresta yksinäisestä. Kuka on meillä
+tunnetumpi kuin Paavo Cajander, jos on kysymys suomenkielisen runouden
+suurtöistä, mutta kuinka moni, varsinkaan nuoremmista, tietää runoilijan
+elämänvaiheista juuri enempää kuin että hän oli hämäläinen ja että hän
+oli suomenkielen lehtori yliopistossa. Ja kuitenkin runoilijan elämän
+tunteminen tuo itse runoudenkin ikäänkuin lukijaa lähemmäksi ja tekee
+sen hänelle rakkaammaksi.
+
+[VERSE 3]
+Paavo Cajanderin isoisä oli Kapakan talon vuokraaja Hauholla. Helmikuun
+2 p. 1807 syntyi tälle miehelle poika, jolle annettiin nimeksi Frans
+Henrik ja joka lapsuudestaan opetettiin hämäläisen talonpojan ammattiin,
+ensin isän kodissa ja sitten renkinä. Vuonna 1826 jätti hän kuitenkin
+kuokan, mennäkseen Hämeenlinnaan nahkurinoppiin, mestari Juhani
+Aspholmin luo. Aikansa tätä ammattia hänen johdollaan harjoitettuaan
+meni hän Turkuun, jossa julistettiin nahkurinkisälliksi v. 1831.
+
+[VERSE 4]
+Piakkoin tämän jälkeen muutti hän takaisin Hämeenlinnaan. Vuoden 1840:n
+lopulla tapaamme hänet sitten nahkurin lesken Helena Leanderin
+oikeuksien vuokraajana.
+
+[VERSE 5]
+Joulukuun 18 p. samana vuonna meni hän naimisiin entisen oppi=isäntänsä,
+nahkurimestari Aspholmin tytärpuolen _Maria Sofia Ylénin_ kanssa. V.
+1842 sai hän maistraatin hyväksymyksen kaupungin nahkurimestariksi, teki
+seuraavana vuonna porvarinvalan, ja oli siten hyvinarvoisa
+nahkurimestari Hämeenlinnan kaupungissa.
+
+[VERSE 6]
+Tähän verraten nopeaan kohoamiseen nähtävästi taloudellisestikin
+omavaraiseen asemaan oli ollut suurena apuna se vähäinen omaisuus, joka
+vaimon mukana oli pesään tullut. Maria Sofia Ylén omisti näet kolme
+kahdeksatta osaa Hämeenlinnassa olevasta talosta N:o 66, perintönä
+isänsä jälkeen, joka hänkin oli nahkuri ammatiltaan. V. 1845 osti
+Cajander muilta perillisiltä jäljellä olevat viisi kahdeksattaosaa ja
+oli siten koko talon omistaja.
+
+[VERSE 7]
+Talo on nykyisen Rauhankadun, entisen Pyörö= (Rundel=) kadun varrella,
+ja on sen 1700=luvun loppupuolella luultavasti rakennuttanut Paavo
+Cajanderin äidinäidin isä, nahkuri Junge. Se on runoilijan syntymätalo
+ja vielä melkein semmoisenaan säilynyt niiltä ajoilta saakka, jolloin se
+vielä oli hänen kotinsa. Ollen korkealla pengermällä on talosta vapaa
+näköala poikki Hämeenlinnan veden ja sen luonnonihanien metsäisten
+niemikkörantojen Hattelmalan harjanteille saakka, näköala, tosin ei
+avara, vaan silmää viehättävä ja ajatusta ja tunnetta syventävä.
+
+[VERSE 8]
+Nahkuri Cajander näyttää olleen arvossapidetty mies. Hänen
+varallisuutensakin kasvoi vähitellen, joten hänen kuollessaan 1853
+perillisille jäi sen ajan oloihin katsoen sievoinen omaisuus,
+neljättätuhatta ruplaa, talo siihen luettuna. Leski jatkoi liikettä
+hyvällä menestyksellä, niin että hänen kuollessaan v. 1871 omaisuus oli
+jo yllämainitusta summasta viisikertaistunut.
+
+[VERSE 9]
+Nahkuri Cajanderilla oli kaikkiaan viisi lasta, Frans Henrik, Henrik
+Juhani, Frans Juhani, Paul Emil ja Iida Maria. Kolme vanhinta kuoli
+pienenä, sisar, sarjan nuorin, naimisissa Hauhon nimismiehen Sigfrid
+Paasosen kanssa, eli keski=ikäiseksi. Nimi »Cajander» ei ollut suvussa
+vanha, vaan lienee vasta nahkuri Cajander käsityöläiseksi ja
+kaupunkilaiseksi ruvettuaan ajan tavan mukaan sen itselleen ottanut.
+
+[VERSE 10]
+Mitä äidin sukuun tulee, lienee se samoin kuin isänkin suku ydinosaltaan
+vanhaa, vankkaa hämäläistä juurta. Hämäläisyyshän jalointa laatua olikin
+silmäänpistävä piirre runoilijan koko sielullisessa rakenteessa.
+
+[REFRAIN]
+*       *       *       *       *
+
+[VERSE 11]
+_Paul Emil_ eli _Paavo Cajander_ syntyi jouluaattona 1846--joululahjaksi
+maalleen ja kansalleen. Kotonaan sai hän yksinkertaisen, mutta
+huolellisen hoidon ja kasvatuksen. Isä oli ankaranlainen ja oikeudestaan
+kiinnipitävä mies, lapsilleen hyvä ja oikeamielinen isä. Suurella
+kunnioituksella mainitsi häntä Paavo Cajander, vaikka paljoa ei ollut
+muistiin aikaisin kuolleesta isästä jäänytkään. Pienet rikkomuksensa sai
+Paavo sovittaa istumalla itku kurkussa nahkurinpöydän alla,
+nahkurityöhuoneen väkevässä ilmanalassa. Se ulkonainen karuus ja
+jäykkyys sekä taipumaton tarmo, mikä oli Paavo Cajanderille ominaista,
+lienee ollut etupäässä isän perintöä.
+
+[VERSE 12]
+Äiti oli hellämielinen ja hurskas nainen, joka oli kokenut elämän kovaa
+koulua, oppinut kieltäytymään ja työtä tekemään. Niin pian kuin kynnelle
+kykeni, hän oli kotiaskareissa saanut uurastaa ja sitten täysikasvuisena
+vieraissa perheissä ompelutyöllä ansaita toimeentulonsa. Paavon
+kehitykseen hänellä oli mitä suurin vaikutus, ei opillisen sivistyksensä
+tähden, sillä hädin tuskin osasi hän kirjoittaa, vaan luonteensa
+erikoisen lempeyden ja hienouden takia. Äidiltään Cajander kaiketi peri
+m. m. sen vakaan jumalanpelon, josta hän elämänsä varrella ei näytä
+koskaan luopuneen, sekä sen lämpimän sydämen, joka piili karun kuoren
+alla. Äidiltään hän myöskin arveli perineensä runolliset taipumuksensa.
+
+[VERSE 13]
+Elokuun 23 p. 1855 tuli Paavo yhdeksän vuoden vanhana kotikaupunkinsa
+yläalkeiskouluun. Syyskuun 1 p. 1860 pääsi hän sitten kaupungin hiljan
+perustettuun siviilikimnaasiin, oppilaitokseen, joka kutakuinkin vastasi
+nykyajan realilyseoita. Nämä oppilaitokset olivat tietysti
+ruotsinkielisiä. Kotikielenä lienee käytetty sekä suomea että ruotsia.
+Mikään koulunero ei Cajander ollut, vaan laskettiin edistykseltään
+keskulaisten joukkoon, kuten koulusta ja kimnaasista saadut
+lukukausitodistukset osoittavat. Kevätlukukaudelta 1862 saatu todistus
+on kuitenkin poikkeus: siinä on yksi »kymppi», vieläpä suomenkielessä,
+jota tuleva kirjailija jo silloin oli ruvennut erikoisesti harrastamaan.
+
+[VERSE 14]
+Yliopistoon kirjoitettiin Cajander lokakuun 20 p. 1863 arvosanalla
+»hyväksytyt tiedot».
+
+[VERSE 15]
+Cajanderilla oli jo kouluaikanaan harrastuksia, jotka olivat sille iälle
+ja ajalle outoja sekä hänen tulevaisuudelleen ennusmerkillisiä. Hän
+tutustui Tegnérin, Runebergin, Topeliuksen ja Geijerin teoksiin, koetti
+syventyä Suomen historiaan Grönbladin keskiaikaisesta lähdeteoksesta,
+tutki Kalevalaa ja Korhosen runoja sekä sommitteli runoja vanhalla
+runomitalla, vaikkakin ontuvasti sitä yrityksissään käytellen.
+Seuraelämä pikkukaupunki=iloineen, lukiolais=tanssiaisineen ja muine
+huveineen ei näy olleen hänelle, hänen ujoudestaan huolimatta, aivan
+vierasta ja sai sekin, muiden runollisempien mielijohteiden ohessa,
+hänet runosuontansa koettamaan. Erään ensimäisistä nuorukaisajan
+yrityksistään on hän omistanut äidilleen tämän nimipäivänä. Toinen saman
+ajan runosipale viittaa heräävään suomalaisuuden tuntoon, mikä onkin
+ymmärrettävää, kun muistetaan 60=luvun alkuvuosien merkitystä
+kansallishenkemme heräämiselle.
+
+[VERSE 16]
+Yliopistoon tultuaan Cajander ensin kirjoittautui
+luonnontieteellis=matemaattiseen tiedekunnanosastoon, mutta erosi siitä
+ensimäisen lukuvuoden kuluttua. Hänellä oli harrastusta
+luonnontieteisiin, erittäinkin oli kasvioppi ollut kouluaikana hänen
+lempiaineitaan. Mutta nähtävästi yhä selvemmäksi elpynyt suomalaisuuden
+tajunta sekä nuo jo aikaisin alkaneet kirjalliset harrastukset saivat
+hänet sittenkin ryhtymään opintoihin, jotka olivat omiaan niitä
+hedelmöittämään. Yrjö Koskinen ja Ahlqvist olivat v. 1863 tulleet
+professoreiksi ja heidän vaikutuksestaan kansalliset riennot näyttävät
+päässeen ylioppilasnuorisossakin entisestään elpymään, jopa vaikuttaen
+lukusuunnitelmainkin muodosteluun. Historian, suomen ja filosofian
+valitsi Cajander nyt opintojensa pää=aineiksi.
+
+[VERSE 17]
+Nopeasti eivät luvut kuitenkaan edistyneet, sillä Cajander oli
+perinpohjin hämäläinen siinäkin, että hän teki työtä hitaasti, mutta
+teki vankkaa. Hänen älynsä oli niitä, jotka tarvitsevat paljon aikaa
+varttuakseen täyteen valmiuteensa, mutta kypsyttyään saavuttavatkin
+häviämättömän henkisen voiman. Kirjallisetkin harrastukset yhä enemmän
+veivät hänen aikaansa. Kandidaattitutkinto täten viivästyi tavallista
+myöhäisemmäksi. Varhaisemman ylioppilasajan runotuotteet ovat vielä
+kypsymättömiä harjoitelmia, samoin käännökset Runebergin, Topeliuksen,
+Tegnérin y.m. runoista, kaikki nekin vasta=alkajan työtä. Niitä on
+runsaasti Hämäläis=osakunnan lehdessä »Hälläpyörässä» sekä hänen
+jälkeensä jääneissä peruissa. Vähän myöhäisemmältä ajalta lienee
+julkaisematon suomennos Runebergin runosarjasta »Svartsjukans nätter»
+nimeltä »Sukkamielen yöt», mutta sekin todistaa, että Cajanderin runotar
+ei vielä ollut harjoitteluasteellaan kehittynyt. Hänen kielellinen
+taituruutensa on vielä vajavaista, samoinkuin runomitan käsittelykin
+sekä oikeakielisyys. Parhaat myöhemmän ylioppilasaikansa lyyrillisistä
+runoista julkaisi hän albumissa »Kaikuja Hämeestä I» v. 1872.
+
+[VERSE 18]
+Hämäläis=osakunnan pöytäkirjat 60= ja 7O=luvulta säilyttävät monta
+jälkeä siitä, että Cajander innokkaasti otti osaa osakuntansa elämään,
+ei niin, että hän olisi ahkerasti esiintynyt kokouksissa--hänhän oli
+peräti hiljainen ja harvapuheinen mies--, vaan suorittamalla monenlaisia
+hänelle uskottuja luottamustehtäviä. Niinpä työskentelee hän
+kirjallisissa palkintolautakunnissa, osakunnan kassan johtokunnassa, on
+jäsenenä osakunnan lähetystöissä y.m. Erikoista virikettä hänen
+kirjallinen toimintansa sai työskentelystä v. 1869 perustetun Helsingin
+Suomalaisen seuran hyväksi. Seuran näytelmäosastolle suomensi hän v.
+1870 erään ranskalaisen huvinäytelmän, joka jo oli tanskaksi ja
+ruotsiksi mukailtu nimillä »En Nat i Roeskilde» ja »En natt i
+Falkenberg», joiden mukaan hän antoi suomennokselleen nimen »Yökausi
+Lahdella»; samana vuonna Orleansin neitsyen yksinpuhelun Schillerin
+samannimisen kappaleen neljännestä näytöksestä, jonka käännöksen rouva
+Raa esitti Seuran näytelmätilaisuuksissa lokakuun 29 ja marraskuun 1 p.
+1870. Mutta suurin kirjallinen työ, minkä Cajander ylioppilasaikanaan
+suoritti, oli hänen suomennoksensa Björnstjerne Björnsonin
+»Kalatytöstä», joka ilmestyi v. 1869 Suomalaisen Kirjallisuuden Seuran
+Novellikirjastossa. Mainittakoon myöskin, että Cajander on suomentanut
+libreton Weberin »Preciosa» oopperaan, joka esitettiin keväällä 1870.
+Kun toukokuun 31 p. 1867 se painovapauslaki, minkä hallitsija oli
+maallemme yhdeksi vuodeksi myöntänyt, lakkautettiin, saa tämä tapaus
+nuoren kirjailijan kirjoittamaan runon, jonka hän julkaisi
+kotikaupunkinsa sanomalehdessä »Hämäläisessä». Se on hänen ensimäinen
+julkisuuteen tullut runoelmansa, nimeltä »31:nä päivänä Toukokuuta
+vuonna 1867».
+
+[VERSE 19]
+Kevätlukukaudella 1868 perustettiin yliopiston filosofisessa
+tiedekunnassa ylioppilasten keskuudessa vapaaehtoinen »Kielitieteellinen
+yhteys», joka valitsi esimiehekseen professori Ahlqvistin. Cajander oli
+Almbergin jälkeen tämän seuran sihteerinä. Ohjelmansa oli Yhteys
+suunnitellut niin laajaksi, että se ei kyennyt sitä toteuttamaan. Aate
+oli sama, jota elinvoimaisempi »Kotikielen seura» myöhemmin perustettiin
+ajamaan. Seuraan kuului useita sittemmin kirjallisuuden palveluksessa
+tunnetuiksi tulleita miehiämme. Myös oli Cajander niitä nuoria
+yliopistollisia kansalaisia, jotka J.R. Aspelin ja K.A. Castrén keväällä
+1870 kutsuivat perustamaan Suomen Muinaismuistoyhdistyksen.
+
+[VERSE 20]
+Kandidaattitutkintonsa suoritti Cajander toukokuussa 1875,
+valmistauduttuaan siihen hyvin perusteellisesti. Korkein arvosana
+hänellä oli filosofiassa, historiassa ja suomenkielessä, sekä lähinnä
+korkein kaunotieteessä ja kirjallisuudenhistoriassa samoinkuin
+kasvitieteessäkin, jota hän vielä ylioppilasaikanaankin innokkaasti
+harrasti. Samana keväänä vihittiin hänet maisteriksi, tovereinaan
+melkoinen joukko sittemmin aikamme tunnetuimpia miehiä.
+
+[VERSE 21]
+Vaikka Cajander olikin sen ajan oloihin nähden luettava varakkaampien
+luokkaan--asia, josta hänen köyhemmillä tovereillaan usein oli syytä
+olla kiitollisia--, asui hän silti ylioppilaana, kuten muutoin koko
+elämänsäkin, sangen vaatimattomasti. Asuintoverinsa kanssa oli
+hän--ainakin osittain--omassa ruoassaan, siivouksen ja muun palveluksen
+suoritti joku matami. Vilpittömän ja jalon luonteensa avulla saavutti
+hän harvinaisen runsaasti toveriensa luottamusta ja ystävyyttä, tullen
+heikoimmille heistä todelliseksi tueksi ja suojelijaksi. Huvina oli
+hänellä teatteri, kirjallisuus ja musiikki. Soitannollisille
+taipumuksilleen haki hän tyydytystä huilunsoitosta, jota hän jo aikaisin
+oli opetellut.
+
+[VERSE 22]
+Loma=ajat Cajander oleskeli enimmiten äitinsä luona Hämeenlinnassa tai
+jossain maaseudulla. Olo siellä viehätti häntä erittäinkin siksi, että
+hän oli suuri luonnonkauneuden ihailija, ja luonnon ystävä, varsinkin
+milloin sen vielä tapasi mahdollisimman alkuperäisenä. V. 1868 rouva
+Cajander osti saamisiensa turvaamiseksi Akaan Sontulasta Uotila=nimisen
+pienen maatalon eräältä leskirouva Walleniukselta. Siitä sai Cajander
+toisen kodin, jossa hän näyttää usein kesiä viettäneen, ja jota hän
+voudin avulla isäntänä viljeli ja hallitsi siksi, kunnes se äidin
+kuoltua myytiin. Tämä Akaan aika oli hänen kehitykselleen siinä
+suhteessa tärkeä, että hän täällä ensiksi todella likemmin tutustui
+kansaan ja sen oloihin. Vertaisena ja ymmärtävänä johtajana
+hän seurusteli talonpoikaisen kansan kanssa, puuhaillen
+kansanvalistus=asiain edistämiseksi.
+
+[VERSE 23]
+Elokuun 5 p. 1871 kuoli Cajanderin äiti. Kuinka syvästi tämä vaikutti
+poikaan, voimme päättää hänen runostaan »Haudalla», jonka hän nähtävästi
+myöhemmin samana syksynä on kirjoittanut. Siinä hän liikuttavin säkein
+kuvaa, kuinka ilman sitä, »ken haavat sitoo, hellä on», on »sydän
+puoltaan vailla». Eräässä yksityisessä, avomielisesti ystävälle
+kirjoitetussa kirjeessä, seuraavan vuoden helmikuulta, hän kertoo,
+kuinka hänellä äitinsä kuoltua tämän kuva oli alati mielessä. Kaunis se
+kuva oli, sanoo hän. »Se on totta, mitä joskus ennenkin on väitetty,
+että ihminen kuollessaan saa nuoruuden muodon takaisin... Rakastin
+kahdenkertaisesti tätä kuvaa: lapsena ja ihailijana... Ja silloin tein
+minä itselleni lupauksen, että äidilleni minä ijäti rakkauteni ytimen
+annan...» Hänen kaunis runoelmansa »Kuva» muistuu mieleen tätä kirjettä
+lukiessa.
+
+[VERSE 24]
+Pesän tila oli äidin kuoltua ja kun kaikki saatavat oli peritty, niin
+hyvä, että Cajanderilla, sittenkun hänen sisarensa osuus oli erotettu,
+oli omaisuutta siksi runsaasti, että se tarkasti hoidettuna ja lisättynä
+kirjailijan omin töin ansaituilla varoilla takasi hänelle kutakuinkin
+turvatun tulevaisuuden. Tämä oli harvinaisen edullinen asianhaara,
+jopa miltei edellytys niin laajalle ja menestykselliselle
+kirjailijatoiminnalle kuin se mikä Cajanderin oli suotu suorittaa. Hyvin
+harva suomalainen kirjailija on voinut siinäkään määrässä leipämurheiden
+rasittamatta antautua työalalle, joka paitsi taitoa ja ahkeruutta vaatii
+huoletonta aikaa.
+
+[VERSE 25]
+Kun vanha sukutalo Hämeenlinnassa ja Akaan maatalo oli myyty, tuli
+Cajanderista muuttolintu, jolla ei ollut vakinaista asuinsijaa.
+Kandidaattitutkintonsakin jälkeen näyttää hän ensimältä oleskelleen
+pääasiallisesti Helsingissä, jossa kuunteli lukuvuotena 1874-75 opetusta
+ruotsalaisessa normaalilyseossa. Kesänsä asui hän missä sattui, esim.
+1875 Saarijärvellä, mutta asettui sittemmin Hauholle, ollakseen
+lähempänä sisartaan, nimismies Paasosen rouvaa. Vielä senkin jälkeen kun
+sisar miehensä v. 1880 kuoltua oli Hauholta muuttanut takaisin
+Hämeenlinnaan, hän asui siellä, mutta siirtyi sitten parempien
+kulkuneuvojen läheisyyteen Vanajan Kankaille, Parkun yksinäiselle
+ratsutilalle, n. seitsemän kilometrin päähän Hämeenlinnasta. Täällä hän
+viihtyi erittäin hyvin, lehtoriksikin ja samalla pääkaupunkilaiseksi
+tultuaan muuttaen sinne heti loma=aikain alettua. Vasta 90=luvun
+keskivaiheilla rupesi hän kaipaamaan muutosta. Yltyvä kivulloisuus
+sitäpaitsi pakotti hänet hakemaan terveydelleen parannusta eri
+kylpylaitoksista sekä kotimaassa että ulkomailla. Loppupuolella ikäänsä
+oleskeli hän enimmät kesänsä Keuruulla asuen siellä tunnetun hierojan
+Rajan emännän hoteissa. Tällä välillä oli hän kuitenkin ollut kesiä
+ystäviensäkin luona tai läheisyydessä, milloin mihinkin luonnon kauneus
+tai halu tutustua paikkakunnan väestöön häntä houkutteli.
+
+[REFRAIN]
+*       *       *       *       *
+
+[VERSE 26]
+Kuten jo mainittiin, kuunteli Cajander Helsingin normaalilyseossa
+opetusta syyslukukaudella 1874 ja kevätlukukaudella 1875. Aineet olivat
+historia ja suomenkieli. Hänen taipumuksensa opettajatoimeen
+arvosteltiin »jokseenkin hyviksi». Lieneekö hän epäillyt sopivaisuuttaan
+tähän toimeen, vai kirjalliset puuhatko olivat esteenä, jatkuvaan
+valmistaumistyöhön ei hän ryhtynyt ennenkuin syyslukukaudella 1882,
+tällä kertaa Hämeenlinnan normaalilyseossa ja kuunteluaineena
+pääasiallisesti uskonto. Mihinkään ratkaisevaan päätökseen ei hän
+kuitenkaan nytkään päässyt, vaan luopui pian kokonaan aikeestaan ruveta
+opettajaksi, nähtävästi siksi, ettei hän pitänyt menestystään tällä
+alalla varmana. Papiksi rupeamista hän myöskin näihin aikoihin ajatteli,
+mutta luopui siitäkin aikeesta, kaiketikin sopivaisuuttaan epäillen.
+Papin tointa hän muuten piti jalona kutsumuksena. Nämä vakinaisen viran
+saannin puuhat raukesivat siksi, kunnes v. 1885, jolloin Julius Krohn
+nimitettiin suomenkielen ylimääräiseksi professoriksi, saman aineen
+lehtorinvirka yliopistossa joutui haettavaksi. Etupäässä ystäväinsä
+kehoituksesta Cajander nyt siihen pyrki, pitäen koeluennon yliopistossa
+huhtik. 28 p. 1886. Virkaa haki samalla kertaa myös tohtori Porkka, joka
+ylemmän oppiarvonsa takia sen saikin. Mutta Porkan sairastumisen takia
+sai Cajander kuitenkin ruveta melkein heti virkaa hoitamaan, ja kesti
+tätä viransijaisuutta syksyyn v. 1888, jolloin Porkka ryhtyi virkaansa.
+Tuoni tempasi kuitenkin pois jalon miehen jo seuraavana vuonna, joten
+Cajander uudestaan virkaa haettuaan vihdoinkin elokuun 8 p. 1890 siihen
+nimitettiin.
+
+[VERSE 27]
+Kun toivo päästä tähän lehtorinvirkaan aluksi oli rauennut, aikoi
+Cajander ryhtyä valmistamaan tohtorinväitöskirjaa, opillisia ansioitansa
+lisätäkseen. Tutkimuksensa aiheeksi hän valitsi suomalaisten häätavat,
+nimenomaan mikäli ne kuvastuvat vanhoista häärunoista, mutta ei ehtinyt
+ainesten keruuta pitemmälle. Mikäli tallella olevista muistiinpanoista
+huomaa, näyttää tekijän tarkoituksena olleen verrata Suomen kansan ja
+muiden suomensukuisten kansain häätapoja keskenään, sekä näitä taas
+toiselta puolen skandinaavien ja muiden germaanien, toiselta taas
+venäläisten häätapoihin.
+
+[VERSE 28]
+Cajanderin isänmaallisille harrastuksille kuvaavana mainittakoon hänen
+osanottonsa »Suomen Heimokansojen Seuran» perustamiseen. Heimokansojemme
+kohtaloita seuraamaan innostuneena oli hän eräitten muitten suomalaisten
+mukana ollut Tallinnan laulujuhlilla v. 1880, ja siitä käynnistä m.m.
+kypsyi ajatus, että olisi jotakin tehtävä molemmin puolin lahtea asuvien
+sukulaisten lähentämiseksi. Niinpä katsottiin tarpeelliseksi perustaa
+asiaa ajamaan erikoinen seura sekä ruveta julkaisemaan asianharrastajia
+varten helppotajuista vironkielistä kirjallisuutta. Suomalaisen
+Kirjallisuuden Seuran 50=vuotispäivänä, maaliskuun 16:nä v. 1881 tämä
+seura perustettiin. Se kulkee aluksi nimellä »Viron kielen ystävät», ja
+»Suomen silta», kunnes se vihdoin saa yllämainitun nimen. Tarkoituksena
+oli »tieteellisillä tutkimuksilla valaista Suomen heimokansojen kieliä,
+kansatiedettä, muinaisia ja nykyisiä oloja sekä kansantajuisella
+kirjallisuudella levittää niistä tietoja yleisölle». Tämä puuha jäi
+kuitenkin silleen, kun Suomalais=ugrilainen seura muutamia vuosia
+myöhemmin perustettiin, mutta on merkillinen siitä, että sittemmin
+Suomen tieteelle niin hedelmälliseksi tullut heimoseuran aate ensiksi
+virisi eteväin ja isänmaallisten maallikkojen mielessä, joutuakseen
+sitten varsinaisten erikoistutkijain vaalittavaksi ja heidän huostassaan
+kehittyäkseen laajasuuntäiseksi, yli koko Europan tunnetuksi
+suomalais=ugrilaisen kielitieteen työpajaksi.
+
+[VERSE 29]
+Vuosi 1884 on siitä mainittava runoilijan elämässä, että silloin kuoli
+hänen sisarensa, nimismiehen leski Iida Maria Paasonen, jättäen
+jälkeensä kaksi alaikäistä lasta. Vainajan pesän hoito sekä murheenpito
+orvoista, joiden holhoojaksi Cajander tuli, antoi tietenkin paljon
+huolta ja vaivaa. Nuorempi orvoista kuoli kuitenkin jo samana vuonna.
+Enona ja holhoojana teki Cajander kaiken voitavansa velvollisuutensa
+täyttämiseksi.
+
+[VERSE 30]
+Paavo Cajander oli uskonnollinen mies. Surut ja ruumiilliset kärsimykset
+vain lujensivat sen pohjan, jolle hän elämänsä oli rakentanut.
+Taisteluitta hän tätä voittoa ei kuitenkaan saavuttanut, siksi
+ajatteleva ja syvällinen luonne hän oli. Mihinkään ahdashenkisyyteen ei
+hän ollut koskaan taipuvainen, yhtä vähän uskonnossa kuin muissakaan
+elämänkysymyksissä, joskin jyrkän ja suoran luonteensa mukaisesti
+arastelematta lausui käsityksensä silloin kun asia hänen mielestään niin
+vaati. Esimerkkinä mainittakoon eräs ote hänen muutamasta kirjeestään
+vuodelta 1883, jossa hän puhuu raittiusasiasta. Hiukan leikillisesti
+huomauttaa hän, että sekin, kuten kaikki muukin meillä, heti vaatii
+seuran perustamista. Raittius on kieltämättä hyvä asia, lausuu hän,
+mutta kysyy: mitä varten liittoja, seuroja ja lupauksia? »Onko hyveen ja
+velvollisuuden voima jo niin huono, etteivät ihmiset sitä voi noudattaa
+tekemättä liittoja ja lupauksia tovereillensa?»----»Voi, kuinka
+armahilta tuntuvat nuo fennomanian hyvät ajat Helsingissä. Liitot ja
+lupauksetko sitä kannattivat? Eikö se ollut sisällinen voima ja sydänten
+puhtaus?» Raamatun lukemisen tapa oli nähtävästi juurtunut jo äidistä
+poikaan. »Ei ole maan päällä mitään miellyttävämpää kuin naissielu,
+jossa hurskaus asuu»--nämä sanat hän jostakin Lutherin teoksesta on
+erääseen muistiinpanolippuseen merkinnyt, nähtävästi äitiään ajatellen.
+Myöhemmin hän uskonnollisen käsityksensä syventämiseksi jonkun verran
+tutki varsinaista jumaluusoppiakin. Ujo ja vaatimaton kun oli, hän ei
+mielellään näistä asioista muille puhunut, saatikka minään neuvojana
+esiintynyt. Hiljainen työmies hän oli tässäkin suhteessa, kalliin
+aarteen etsijään verrattava.
+
+[VERSE 31]
+Hänen olennossaan oli, huolimatta hänen ulkonaisesta jäykkyydestään,
+jotakin erikoisesti puoleensavetävää, joka saattoi ihmiset pyrkimään
+hänen tuttavuuteensa, yksin ulkomaalaisetkin, vaikka eivät aina
+tienneetkään hänen olevan maansa merkkimiehiä... Niinpä hän
+kylpypaikoissa, joissa hän monesti kesäisin oleskeli, näyttää saaneen
+lukuisain vanhain ystäväinsä lisäksi uusia näiden jälkimäistenkin
+keskuudesta ja joutui joskus heidän kanssaan kirjevaihtoonkin. Muuten
+ilmeni hänen luonteessaan aina jotain surunvoittoista ja hillittyä.
+Yhtenä syynä lienee ollut jo lapsesta saakka heikko terveys. Itse hän
+kertoi noin 9 vuoden ikäisenä joutuneensa rajun hevosen jalkoihin ja
+silloin saaneensa jonkun sisällisen vamman, mikä häntä sitten myöhemmin,
+varsinkin vanhemmalla iällä, vaivasi. Toisena syynä saattoi olla se
+yksinäisyys, johon hän oli itsensä tuominnut. Nuoruudessaan hänkin
+tietysti, kuten useista hänen runoelmistaankin ilmenee, oli unelmoinut
+lemmen ja oman kodin onnea, mutta toteutumatta ne unelmat ainaiseksi
+jäivät, johon syynä lienevät olleet osaksi varovaisuus, osaksi
+pettymykset. Vilpittömiä lapsia hän rakasti isällisellä hellyydellä ja
+osasi heidän kanssaan vielä vanhanakin hilpeästi leikkiä.
+
+[VERSE 32]
+Muuten ei läheisinkään ystävä voine kerskata tunkeutuneensa Cajanderin
+sydämen sisimpään, vaikka runoilija esim. kirjeissään toisinaan saattoi
+olla varsin avomielinen. Hänen persoonallinen tunne=elämänsä pysyi
+kaikilta suljettuna, mutta kätki varmaankin aarnioihinsa sydämen parasta
+kultaa. Niinpä hänen runoelmistaan loistaa korkeiden ihanteiden kauneus
+ja kirkkaus: jumalanpelko, hehkuva isänmaanrakkaus, rakkaus kotiin ja
+perheeseen, lämmin myötätuntoisuus ystäviä kohtaan ja samalla kaiken
+itsekkäisyyden ja vilpillisyyden syvä halveksinta. Seurustelussa nämä
+ominaisuudet myöskin tulivat näkyviin: ihailu ja kunnioitus hillittyinä
+vakaumuksen sanoina taikka vastenmielisyys ja inho muutamina toisinaan
+änkytyksen katkaisemina sydämenpurkauksina. Helposti hänen mielensä
+joutuikin kuohuksiin, ei ainoastaan silloin, kun se, mikä on pyhää,
+korkeaa ja koskematonta, vedettiin lokaan, tai kun teennäisyys pyrki
+esiintymään avun valhepuvussa, vaan silloinkin, kun joku, vaikkapa
+läheinen ystäväkin, koetti häntä hänen vakaumuksestaan luovuttaa omalle
+puolelleen.
+
+[VERSE 33]
+Ne, jotka Cajanderin hänen elämässään tunsivat, eivät hevin unohda hänen
+ulkonäköänsä: hän oli tavallista pitempi, hoikanläntä mies, vartalo
+suora, kasvot tummaveriset, otsa korkea, nenä kaunis, roomalainen, leuka
+voimakas, parta aina huolellisesti ajeltu, tukka tummahko, sekin
+lyhyeksi leikattu, ääni syväsointuinen, silmät ruskeat, kirkkaat ja
+erinomaisen kauniit, milloin niihin vain ilmeni välähdys jostain
+kauniista sielunliikunnosta. Innostuksen hetkinä loisti niistä lämmin
+säteily, mielen kuohahtaessa ne singauttivat salamoita. Hänellä oli
+muutoin huumorille avoin mieli, hän ymmärsi ja piti sitä arvossa, mutta
+itse hän oli vakava ja harvapuheinen ja, jos pyrki pilantekoon, pikemmin
+ivallinen kuin leppoisan leikkisä. Joskus harvoin saattoi hän
+tuttavallisessa seurassa käydä puheliaammaksikin. Nuorempana toisinaan
+hän yltyi jopa vallattomaksikin, lyöden painia toveriensa kanssa.
+Voimistelua ja nimenomaan soutoa (uistelua) ja keilanheittoa harrasti
+hän miehuusvuosinaan. Vanhempana supistui ruumiillisen liikunnon tarve
+jokailtaiseen kävelyyn, tavallisesti pitkin Bulevardia.
+
+[VERSE 34]
+Lehtorinvirkaansa Cajander hoiti suurella tarkkuudella ja
+täsmällisyydellä; opiskelevan nuorisoparven tasaisesti kasvaessa
+hänenkin työnsä karttui ja tuntui hänestä toisinaan rasittavalta,
+olletikin kun hän samalla oli yliopiston virallisena kielenkääntäjänä ja
+pakotettu milloin mitäkin suomentamaan. Osittain sairauden, osittain
+kirjallisten töiden tähden oli hän virkavapaana 1905--31/5 1911, ja
+otti virastaan eron toukok. 8 p. 1912. Samana vuonna sai hän valmiiksi
+Shakespeare=sarjan kaksi viimeistä näytelmää.
+
+[VERSE 35]
+Cajander karttoi ulkonaisia suosionosoituksia, mutta joutui sittenkin
+toisinaan kansalaistensa kunnioittavan huomion esineeksi; niin esim.
+silloin, kun kymmenes Suomalaisen teatterin esittämä Shakespearen
+näytelmä »Antonius ja Kleopatra» maaliskuun 11 p. 1896 annettiin--
+juhlahetki sekä teatterille että näytelmän suomeksi tulkitsijalle--,
+ja silloin, kun runoilija täytti 60 vuotta. Yliopiston
+seppelejuhlassa keväällä 1907 hänelle suotiin kunniatohtorin nimi ja
+arvo. Erinäisiä kertoja hän myös sai kirjallisista töistään
+kunniapalkintoja Suomalaiselta Kirjallisuuden Seuralta.
+
+[VERSE 36]
+Sairastettuaan jonkun aikaa tuskaisaa sappikivitautia Paavo Cajander
+kuoli kesäkuun 14 p. 1913 ja haudattiin saman kuun 19 p. Helsingin
+Vanhalle luterilaiselle hautausmaalle, tuohon isänmaallisista muistoista
+rikkaaseen kalmistoon. Ruumiinsiunaustekstinä oli vertaus miehestä, joka
+löysi kalliin päädyn ja möi kaikki mitä hänellä oli, ostaaksensa sen.
+Niin kätkettiin synnyinmaan poveen suomalaisen Suomen aamulaulaja, jonka
+elämä oli ollut opetusta koko kansallemme.
+
+[REFRAIN]
+*       *       *       *       *
+
+[VERSE 37]
+Edellä on lyhyesti mainittu Cajanderin kirjallisista harrastuksista
+koulu= ja varhaisempana ylioppilasaikana. Ne olivat olleet
+alkuharjoittelua, henkevää huvitusta lukuharrastusten lomassa. Muutamat
+myöhäisemmän ylioppilasajan runoelmat ovat jo Cajanderin parhaita, esim.
+»Scipio Africanus» v:lta 1869 ja »Saaren impi» v:lta 1870, mutta vasta
+1870=luvun jälkipuoliskolla tekijän varttuessa parhaimpaan
+miehuudenikäänsä, voi sanoa hänen runoutensakin saavuttavan täyden
+miehuutensa: sen kuulakan kirkkaan ja samalla välittömän yksinkertaisen
+muotonsa sekä kansallisesti ja yleisinhimillisesti täysipätöisen
+sisällyksensä, jotka piirteet ovat sille tunnusomaiset, samoin kuin se
+sydämeen tehoova lämmin ja miltei yhä lämpenevä sävy, mikä niissä
+aallehtii runoilijan lämpimän sydämen maininkeina. Tila ei myönnä tässä
+ryhtyä hänen runottarensa luonnetta tarkemmin tutkimaan, eikä se ole
+tarpeellistakaan, sillä kirjallisuuteen perehtynyt yleisömme tuntenee
+Suomen runoniekoista juuri hänen runottarensa parhaiten ja voi nyt kun
+hänen runoelmansa ovat koottuina saatavissa tätä tuntemustaan itse
+mielensä mukaan syventää ja uudistaa. Runoelmista itsestään useimmiten
+ilmenee, missä olosuhteissa ja tilanteissa ne ovat syntyneitä.
+Lukuunottamatta nuoruudenrunoelmia sekä niitä harvoja, jotka hän
+miehuusikänsä loppuvietteellä julkaisi, ovat ne useimmat tavallaan
+tilapäärunoja, usein erityisestä pyynnöstä aiheutuneita. Lienee sen
+sijaan paikallaan mainita, mitä periaatteita on noudatettu tätä
+kokoelmaa tehtäessä.
+
+[VERSE 38]
+Mitä valintaan tulee, on toimittaja katsonut oikeammaksi antaa ennemmin
+liian paljon kuin liian vähän. Kun Cajanderin runoja ei ole tätä ennen
+koottuna ilmestynyt, lukuunottamatta sitä pientä valikoimaa, joka
+julkaistiin Kansanvalistusseuran v. 1898 ilmestyneessä »Helmiä Suomen
+runoudesta» sarjan kuudennessa vihossa, on näyttänyt olevan syytä
+tarjota ensiksikin yhteen koottuina ylimalkaan kaikki, mitä runoilija
+itse on siroittanut hajalle kymmeniin eri julkaisuihin; sen lisäksi on
+otettu mukaan vainajan säilyneistä käsikirjoituksista hänen
+nuoruudenaikaisista tuotteistaan melkoinen joukko runoelmia, jotka kyllä
+osoittavat vielä tekijänsä vasta=alkajan kantaa, mutta ovat silti
+runoilijan ja runokielemmekin kehitykselle kuvaavia ja tärkeitä
+todistuskappaleita. Niissä Cajanderin sisin olemus tulee ikäänkuin meitä
+lähemmäksi siitä jylhän umpinaisuutensa kuoresta, johon se
+jokapäiväisessä elämässä yleensä oli verhottuna. Kun valinta oli
+sittenkin tehtävä melkoisen runsaasta varastosta, on tekijän vaikea
+mennä onnistumistaan arvioimaan; työssään on hän neuvotellut
+runoudentutkijain ja Cajanderin ystäväin kanssa. Suotakoon muuten
+toimittajalle anteeksi, että hän noudattaen tapaa, joka ei ole
+harvinainen tällaisia teoksia toimitettaessa, on joskus harvoin
+uskaltanut jollakin aivan pienellä muutoksella parantaa muotoa tai
+selventää ajatusta jossakussa nuoruudenaikaisessa runoelmassa taikka
+jossakin virressä.
+
+[VERSE 39]
+Käännöksistä on uudestaan julkaistu enimmät, jotka Cajander itse on
+tekemikseen merkinnyt tai muuten siksi tiedetään, ja on samalla koetettu
+valikoida sellaisia, jotka vieläkin olisivat lukijalle sinänsäkin
+mielenkiintoisia.
+
+[VERSE 40]
+Joku määrä on varmaankin vielä olemassa Cajanderin runotuotteita, joista
+toimittajan on ollut mahdoton saada tietoa. Niin vähän piti Cajander
+huolta siitä, että tämmöiset pienemmät jäljet hänen elämäntyöstään
+jäisivät jälkipolven tietoon, ettei hän ole säilyttänyt mitään
+likimaillekaan täydellistä kokoelmaa käsikirjoituksistaan tai luetteloa
+julkaisuistaan. Toisinaan ovat käsikirjoituksetkin vain ensi luonnosten
+tapaisessa muodossa, jotenka on hyvin mahdollista, että hän ne kädestään
+laski jonkun verran toisellaisina, ehkäpä sujuvampaan asuun
+viimeisteltyinä. Näissä luonnoksissa tavatuista sana= ja
+lausetoisinnoista on valittu ne, jotka tuntuvat parhaimmilta, jommoinen
+valikointi ei ole aina ollut helppoa. Tämä erittely on varsinkin
+Shakespearen sonettien käännöksissä tuntunut vastuunalaiselta.
+Toimitustyössä on silmällä pidetty alkukielistäkin muotoa, avuksi
+ottamalla Bodenstedtin saksankielinen ja Nyblomin ruotsinkielinen
+käännös.
+
+[VERSE 41]
+Mikäli lukija edellä olevaa lyhyttä elämäkertaa lukiessaan kaipaa
+enempiä tietoja Cajanderin runoilusta, sikäli hän hakekoon niitä itse
+runoelmista, joiden yhteyteen on merkitty erinäisiä niitä koskevia
+tiedonantoja.
+
+[VERSE 42]
+Mutta Cajander ei ole vain maamme huomattavimpia alkuperäisiä
+runoilijoita, vaan myöskin suuri käännösrunoilija, jos niin voi sanoa.
+Muistomerkillisen elämäntyönsä toisen ja painokkaamman puolen rakensi
+hän tulkitsemalla korkeamman sivistyksen alkutaipaletta vaeltavalle
+kansalleen ihmiskunnan suuria aikaansaannoksia kirjallisuuden alalla.
+Hänen elämäntyönsä ei olisikaan saavuttanut sitä suuripiirteistä
+eheyttä, joka on sen lopullinen päätunnus, jos hän olisi hajoittanut
+voimansa tilapäisiin töihin milloin minkin hyvän asian edistämiseksi.
+Hänellä oli ratkaistavana, kumpiko kirjallisen työskentelyn haara,
+omintakeinen ja itsenäinen tuotanto vaiko tulkitsijan tehtävä, oli
+elämäntyöksi otettava. Ja hän epäilemättä katsoi tuottavansa
+isänmaalleen suuremman hyödyn ryhtymällä pukemaan kielemme asuun häntä
+itseään mahtavampain laulajain ikituotelmia. Ei kyvyn puute, vaan
+velvollisuuden tunto, suurempi itsensä voittaminen, kuin mikä
+tavalliselle ihmiselle on ominainen, vei Cajanderin sille alalle, josta
+häntä iäti Suomessa kiitoksella muistetaan.
+
+[VERSE 43]
+Ennenkuin sanomme sanasen hänen suurtehtävästään, saanemme mainita,
+vaikkapa vain luettelemalla, tunnetuimmat hänen muista kirjallista
+töistään. Vv. 1873-75 Cajander kuului Kirjallisen Kuukauslehden
+toimitukseen kirjoittaen lehteen kirjallisuudenarvosteluja, kuvauksia ja
+tutkielmia eri aloilta, runoja y.m. Suomen Kuvalehdessä Cajander oli
+aputoimittajana vv. 1875-80. Hänen siihen antamansa kirjoitukset, mikäli
+ovat tunnettavissa, ovat enimmäkseen kirjallisuuden, taiteen ja
+sielutieteen alalta. Huomattava on elämäkerrallinen kirjoitus J.F.
+Granlundista. Paitsi jo aikaisemmin mainittuja käännösharjoitelmia, on
+Cajanderin kädestä lähtenyt m.m. seuraavat käännökset: runoja Z.
+Topeliuksen »Lukemisiin lapsille» (K.A. Hougberg=Vaarasen valikoima,
+1874-1882); E. Brachvogel: »Narcisse Rameau» (1874, käsikirjoituksena
+Kansallisteatterin kirjastossa); Otto Ludwig: »Taivaan ja maan välillä»
+(1875); J.J. Wecksell: »Daniel Hjort» (esitettiin ensi kertaa
+huhtikuussa 1877); Z. Topelius: »Maamme kirja» (parannettu J. Bäckvallin
+suomennoksesta, 1878); J.L. Runeberg: »Hanna» (1880) ja »Jouluilta»
+(1881); yhdeksän arkkia K.J. Gummeruksen kustannuksella vv. 1883-1887
+ilmestynyttä J.H. Merle d'Aubignén »Kuudennentoista vuosisadan
+uskonpuhdistuksen historiaa»; »Vänrikki Stoolin tarinat» (lopullisessa
+asussa v. 1889); Z. Topelius: »Luonnonkirja» (parannettu laitos J.
+Bäckvallin käännöksestä, 1886); teokseen »Suomi yhdeksännellätoista
+vuosisadalla» Topeliuksen kirjoittamat osastot »Maa» ja »Kansa», sekä L.
+Mechelinin kirjoittama »Valtiollinen katsaus» (1893).
+
+[VERSE 44]
+Viimeisinä elinvuosinaan otti Cajander osaa Kaarlo Bergbomin kirjallisen
+perinnön julkaisemiseen. Hänen tehtäväkseen tuli semmoisten sitä varten
+valittujen tuotteiden suomentaminen, jotka tekijä alkujaan oli ruotsiksi
+kirjoittanut. Huomattavin näistä on Bergbomin mielenkiintoinen
+nuoruudendraama »Pombal ja Jesuiitat», jonka osaksi runomittaisen
+teoksen Cajander tottuneen taitavin käsin puki suomenkieliseen asuun.
+Kuten tunnettua, ilmestyivät Kaarlo Bergbomin kirjoitukset Suom. Kirj.
+Seuran toimesta v. 1907.
+
+[VERSE 45]
+Mutta tätä niin sanoaksemme ohjelmatonta käännöstoimintaa rupesi jo
+aikaisin vaatimaan palvelukseensa se innostus, jonka 70=luvun
+sivistyselämässämme herätti nuoruudenvoimaansa päässyt Suomalainen
+teatteri. Olemme jo nähneet, kuinka Cajander mielellään riensi sitä
+näytelmäin ja oopperatekstien suomentamisella avustamaan. Ja
+perehdyttyään draamallisen runokielen käyttelyyn Daniel Hjort
+=suomennoksessaan hän jos kukaan meillä pystyi toteuttamaan suurempiakin
+samanlaatuisia tehtäviä. Vastaanottavaisena luonteena Cajander vain
+tarvitsi tielletoimittajaa, sitten ottamansa tehtävän tunnontarkasti
+täyttääkseen. 70=luvun alkupuolella oli Helsingin teatteriyleisössä
+ilmapiiri, rouva Raan vierailunäytäntöjen johdosta suomalaisella
+näyttämöllä ja J.A. Lindbergin ruotsalaisella, niin
+Shakespeare=sähköinen, ja nimenomaan juuri Hamletin ihailua täysi, että
+ajatus tämän draaman suomeksi saamisesta oli niinä aikoina aivan
+luonnollinen. Niinpä olikin jo päätetty, että K. Slöör, joka jo
+1860=luvulla oli sangen ansiokkaasti suomentanut Macbethin, kääntäisi
+Suomalaiselle teatterille myöskin Hamletin, vaikka asia sitten kumminkin
+raukesi ja tehtävä siirtyi Cajanderille. Daniel Hjortin suomentajana ja
+teatterin etevän johtajan sekä sen näyttelijöiden, Vilhon ja Leinon,
+hyvänä tuttuna häntä tietenkin kehoitettiin, ellei hän sitä omasta
+alotteestaan olisi tullut ajatelleeksi, tähän työhön ryhtymään. Niinpä
+hänen pyynnöstään Suomalaisen Kirjallisuuden Seuran sihteeri Rothsten
+tiedustelee huhtikuun 5 p. 1878 Seuralta, ottaisiko se kustantaaksensa
+Shakespearen draamalliset teokset suomeksi käännettyinä; Hamlet=käännös
+olisi jo melkein valmiina. Marraskuun 8 p. samana vuonna Seura päätti
+suostua Cajanderin pyyntöön. Seuraavan vuoden alkupuolella valmistuu
+sitten Hamlet lopullisesti ja ilmestyy painosta samana vuonna. Venetsian
+kauppias näyttää olleen toisena välillä, mutta suomalaisen teatterin
+johtokunta ja Ida Aalberg anovat häneltä hartaasti Romeota ja Juliaa.
+Niin tuli alkuunsa tämä suurenmoinen tehtävä, jonka loppuunsaattaminen
+tosin muiden suomennoksien sekä virkatöiden ja sairalloisuuden
+viivästyttämänä, vaati neljättäkymmentä vuotta. Sen suoritettuaan tekijä
+pian oli muunkin tehtävänsä tässä maailmassa toimittanut.
+
+[VERSE 46]
+Dramat ilmestyivät seuraavassa järjestyksessä:
+
+[VERSE 47]
+I _Hamlet_, 1879, 2 pain. 1899; II _Romeo ja Julia_ 1881, 2 pain. 1907;
+III _Venetian kauppias_ 1882; IV _Kuningas Lear_ 1883; V _Julius Caesar_
+1884; VI _Othello_ 1884; VII _Macbeth_, 1885; VIII _Coriolanus_ 1887; IX
+_Kesäyön unelma_ 1891; X _Myrsky_ 1892; XI _Talvinen tarina_ 1894; XII
+_Antonius ja Cleopatra_ 1895; XIII _Kuningas Henrik IV, edell. osa_,
+1897; XIV _Kuningas Henrik IV, jälkim. osa_, 1898; XV _Kuningas Richard
+III_ 1897; XVI _Loppiaisaatto_ 1899; XVII _Timon Ateenalainen_ 1900;
+XVIII _Cymbeline_ 1901; XIX _Kuningas Juhana_ 1901; XX _Kuningas Richard
+II_ 1905; XXI _Kuningas Henrik V_ 1905; XXII _Paljo melua tyhjästä_
+1906; XXIII _Iloiset Windsorin rouvat_ 1906; XXIV _Kuningas Henrik VI
+ensim. osa_ 1907; XXV _Kuningas Henrik V toinen osa_ 1907; XXVI
+_Kuningas Henrik VI kolmas osa_ 1907; XXVII _Turhaa lemmen touhua_ 1910;
+XXVIII _Miten haluatte_ 1910; XXIX _Kaksi nuorta veronalaista_ 1910; XXX
+_Hairauksia_ 1910; XXXI _Kuningas Henrik VIII_ 1910; XXXII _Loppu hyvä,
+kaikki hyvä_ 1911; XXXIII _Troilus ja Cressida_ 1911; XXXIV _Verta
+verrasta_ 1911; XXXV _Kuinka äkäpussi kesytetään_ 1912; XXXVI _Titus
+Andronicus_ 1912.
+
+[VERSE 48]
+Näiden lisäksi tulee vielä 30 Shakespearen sonettia, joiden
+suomentamisen Cajander suoritti nähtävästi loppupuolella vuotta 1912 ja
+kentiesi alkuvuodesta 1913--viimeinen kirjallinen työ, minkä tiedämme
+hänen tehneen.
+
+[VERSE 49]
+Jos runoilijalle olisi suotu elonpäiviä pitemmälti, hän tähän
+Shakespearen suomennosten sarjaan vielä olisi liittänyt suuren
+brittiläisen runoilijan elämäkerrankin viimeiseksi osaksi, mutta tämä
+työ samoinkuin sonettienkin loppuun kääntäminen on siirtyvä nuorempien
+voimien tehtäväksi. Shakespearen jälkeen Cajander vielä toivoi ehtivänsä
+suorittaa Miltoninkin »Kadotetun paratiisin» suomentamistyön--niin
+haaveili hän terveenä ollessaan,--mutta saatuaan Shakespearenkin
+käännöksen valmiiksi hän tunsi elinvoimansa jo niin väsähtyneen, että
+hän, kuten valtioneuvos Aspelin=Haapkylä kertoo kauniissa
+jälkimuistossaan, minkä hän Cajanderin kuoltua julkaisi Aika=lehdessä,
+ystävän kysyessä, mihinkä hän nyt aikoo ryhtyä Shakespearetyönsä
+päätettyään, oli vastannut: aion kuolla! Runoilijat ovat tietäjiä.
+
+[REFRAIN]
+*       *       *       *       *
+
+[VERSE 50]
+Näin lähtevät nyt Paavo Cajanderin runoelmat ensikerran yhtenä parvena
+kaikkeen maailmaan suomalaisten iloksi. Olkoon niillä yhäkin se sama
+sytyttävä, innostava ja jalostava vaikutus, minkä niiden parhailla
+tietää olleen se sukupolvi, joka on saanut kokea niiden ensi salaman
+iskevän tenhon. Vasta valkenemassa oli silloin suomalaisuuden taivas ja
+ilmaa puhdistavana ja elähdyttävänä kajahteli runoilijan herätyshuuto;
+synkkää synkempiin pilviin on se jälleen peittynyt--uutena kajahtakoon
+siis runoilijankin kirkassointuinen kehoitus.
+
+[VERSE 51]
+Ja hätäpäivä raskas kun joskus päälle saa
+Ja tukala ja ankea on aika,
+Se sana tenhovainen se kansat nostattaa,
+Ja kauas käy sen lumoava taika;
+Ja silloin sana kaikuu: »_isänmaa_ eläköön
+Ja rauha yksityisen sen tieltä väistyköön,
+Ja etu menköön, ajallinen onni!»
+
+[VERSE 52]
+A.V. Koskimies.
+
+--- TITLE: ELÄMÄ.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Voi kuinka tääll' on ihanaa!
+Voi kuinka linnut pauhaa!
+Ei huolta ole, kuolemaa,
+Tääll' elo tyynt' on rauhaa;
+Niin tääll' on koti armahin,
+Tääll' äiti, täällä kultakin.
+
+[VERSE 2]
+Näin poika miettii. Armahat
+Nyt tunteet rinnan täyttää,
+Ne helkkyvät, ne pauhaavat,
+Kuin soinnult' elo näyttää.
+Mut tuskin aikaa vierryt on,
+Ne raukee hajasointohon.
+
+[VERSE 3]
+Syys tulee, kukat maaksi lyö,
+Ja linnun äänet raukee,
+Talv' ehtii, syksyn jätteet syö,
+Ja tuonen ovet aukee,
+Heilt' tuskin muisto säilöön jää,
+Ett' oli kulta=aikaa tää.
+
+[VERSE 4]
+Ja voitost' telme kiihon saa,
+Se myrskyt irti kiskoo;
+Ja laineit' tuuli kuohuttaa,
+Ja venhett' aallot viskoo.
+Ja elämä se riehuu näin
+Ja rientää yhä eteenpäin.
+
+[VERSE 5]
+Sit' asettamaan riitä ei,
+Ei miel', ei miehen järki;
+Se monet mietteet kuohuuns' vei
+Se monet järjet särki;
+Mut purjeit' taidoin käytä vaan,
+Niin tyyneen pääset satamaan.
+
+[VERSE 6]
+Ja siell' on taasen ihanaa,
+Ja siellä linnut pauhaa.
+Ei huolta ole, kuolemaa,
+Siell' elo tyynt' on rauhaa,
+Niin siell' on koti armahin,
+Siell' äiti, siellä kultakin.
+
+[VERSE 7]
+Hälläpyörä 22/10 1869; Kaikuja Hämeestä 1872.
+
+--- TITLE: OI, JOS OISI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[REFRAIN]
+Oi jos oisi, niinkuin muilla, mulla oma kulta,
+Vilisten kuin virran juoksu luistais aika multa.
+
+[VERSE 1]
+Mieli ois kuin päivänpaiste, aatos huolta vailla,
+Korkealle liiteleisi ilman kotkan lailla.
+
+[VERSE 2]
+Soitellen ma kulkisin ja laulain päivätöillä,
+Kullan kuva mielessäni nukahtaisin öillä.
+
+[VERSE 3]
+Metsät tieltä siirtyis pois ja rymähtäisi kuusi,
+Kunhan kankaan kainalossa pirtti nousis uusi.
+
+[VERSE 4]
+Sinne kullan saattaisin ma kurkihirren alle,
+Liedestä kun ensi sauhu nousis taivahalle.
+
+[VERSE 5]
+Ja kun sieltä oman kullan kirkkohon ma veisin,
+Kadehtien lintusetkin meitä katseleisi.
+
+[VERSE 6]
+Nurmen heinä helkkyisi ja kukat kumartaisi,
+Kumartaisi kukkaset ja tuomet tuoksahtaisi.
+
+[REFRAIN]
+Oi jos oisi, niinkuin muilla, mulla oma kulta,
+Vilisten kuin virran juoksu luistais aika multa.
+
+[VERSE 7]
+1869 (?) Kaikuja Hämeestä 1878.
+
+--- TITLE: LAULUKILPA.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Terve, lintuni, terve!
+Tahdotko kieltäsi koittaa?
+Kilvan nyt laulumme soikoon
+Nähdäppä saa ken voittaa!--
+Paljo en taida ma koito,
+Noudatan luontoni mieltä,
+Laulan rintani tunteet,
+Laulan kultani kieltä.
+
+[VERSE 2]
+1869 (?)
+
+--- TITLE: SORMIEN LÄVITSE.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x3 (1 line)
+
+[VERSE 1]
+Jos sua päivän silmä häikää,
+Kätes mättää eteen vaan,
+Sormien lävitse katsoin
+Kaikki vaihtuu purppuraan.
+
+[VERSE 2]
+Sydäntäs jos toukka kalvaa,
+Jos sua tuntos ahdistaa,
+Sormien lävitse katso,
+Ne sun kullaks kuvastaa.
+
+[VERSE 3]
+Äitiäs jos konna pilkkaa,
+Lapses, veljes orjiks myö,
+Sormien lävitse katso,
+Niin on työnsä veljen työ.
+
+[VERSE 4]
+Ja jos äitis veriin sortuu,
+Mitä siitä huoataan,
+Sormien lävitse katso,
+Kaikki vaihtuu purppuraan.
+
+[VERSE 5]
+Sulje silmäs, sulje tuntos,
+Nauti itsees, juo ja syö,
+Vaan kun vihdoin silmäs avaat,
+Saattaa olla synkkä yö.
+
+[VERSE 6]
+1870.
+
+--- TITLE: SAAREN IMPI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (3 lines)
+
+[VERSE 1]
+Täss' istun nyt ja itken, kun päivä umpeen käy,
+Ja itken taas, kun alkaa päivä uusi;
+Mun entist' ystävääni ei kuuluvissa näy,
+Täss' yksin olen niinkuin kasken kuusi;
+Ja ympärilläin tuisku se puita tuivertaa,
+Ja hankipeitteen alla on kaunis kukkain maa,
+On kaikki, kaikki muistot hangen alla.
+
+[VERSE 2]
+Oi, jos kuin järvi laaja mun kyynelvirtaan ois,
+Ja itkullein jos kosken kuohun saisin:
+Yöt päivät itkein itkisin ma talven tuiskut pois
+Ja hangen alta kukat nostattaisin,
+Ja niitä suuteleisin ja niitä kaitsisin,
+Ja sydämmeni verta ma niille vihmoisin,
+Näin osan hengestäni niille suoden.
+
+[VERSE 3]
+Ja kukkain kirkkautta nyt aallot heijastais,
+Ja leikiten ne rantaa kohden liekkuis,
+Ja piilostansa kirkasna päivä pilkoittais,
+Ja puitten oksill' linnut laulain kiekkuis,
+Mut itse heiluin latvassa korke'imman puun
+Ma silmäniskun loisin tuonne seutuun kaivattuun
+Ja visertäisin kultaistani tänne.
+
+[VERSE 4]
+Mut voi, voi! Aatos väsyy ja houraillen se käy,
+Ja tuulentuvat haihtuu talvisäässä;
+Mun entist' ystävääni ei kuuluvissa näy,
+On lumi maassa, järven aallot jäässä,
+Ja ympärilläin tuisku se puita tuivertaa,
+Ja hankipeitteen alla on kaunis kukkain maa,
+On kaikki, kaikki muistot hangen alla.
+
+[VERSE 5]
+Hälläpyörä 30/9 1870; Kaikuja Hämeestä 1872.
+
+--- TITLE: ALEKSIS KIVEN HAUDALLA.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+4/1 1873.
+
+[VERSE 2]
+Vaipuos, vaivu synnyinmaasi helmaan,
+Sieltä sä löydät, mitä etsit täältä,
+Rientosi palkan: sovitusta, rauhaa
+Saavutat viimein.
+
+[VERSE 3]
+Nukkuos rauhaan; ympärilläs huokaa
+Huoliva luonto, surren laulajaansa,
+Hautasi partaall', itkein Suomen kansa,
+Muistoas siunaa.
+
+[VERSE 4]
+Multa sun peittää, lumi hautas kattaa,
+Vaan älytyösi maailmassa loistaa,
+Tuntosi hellä, jalo rakkautes
+Suomessa säilyy.
+
+[VERSE 5]
+Vaipuos, vaivu synnyinmaasi helmaan,
+Sieltä sa löydät, mitä etsit täällä,
+Rientosi palkan: sovitusta, rauhaa
+Saavutat viimein.
+
+[VERSE 6]
+Pääskynen 1872; Kaikuja Hämeestä 1874.
+
+--- TITLE: KÄRPÄNEN.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Kun kesä=aik' oli kaunihin,
+Ol' ystäviä myös mullakin;
+Ne käskemättäkin tulla taisi,
+Nyt, vaikka käskis, ei niitä saisi.
+
+[VERSE 2]
+Ne oli pienoiset, siivekkäät
+Ja mustatakkiset, siropäät.
+Ne tuli tänne, kun lumi suli,
+Ja katosivat, kun syksy tuli.
+
+[VERSE 3]
+Ja heistä talveksi yksi vaan
+Jäi tänne luokseni asumaan.
+Se ympärilläni hyristeli
+Ja hyppi, nyppi, ja pää se eli.
+
+[VERSE 4]
+Kun päivän koitossa havahdun,
+Niin siltä saan heti suutelun;
+Kun vuotehelle ma painoin pääni,
+Niin myöskin ystävän taukos ääni.
+
+[VERSE 5]
+Kun päivä lämmitti ikkunaan,
+Se pyöri eessäni iloissaan;
+Kun kylm' ol' ulkona, huoneessaki,
+Minulta lämmitystään se haki.
+
+[VERSE 6]
+Me yhten' elimme aina näin,
+Kuin pojat pesässä vierekkäin;
+Sen ilovirsiin ma usein suutuin,
+Mut kun se vait oli, jotain puutuin.
+
+[VERSE 7]
+Näin tuli talvi, ja heleän
+Ma palaamaan panin kynttilän:
+Voi sitä loistoa, ihanuutta!
+Se ystävälleni oli uutta.
+
+[VERSE 8]
+Hän sitä katseli oudoksuin,
+Ma häntä katselin hymysuin,
+Hän valon ympäri hyrähteli
+Ja hyppi, nyppi, ja pää se eli.
+
+[VERSE 9]
+Ja valo loisti niin lempeään,
+Ja outo tunto käy ystävään;
+Sen luo hän hehkuvan halun saapi
+Ja valon helmahan katoaapi.
+
+[VERSE 10]
+Mut koti ompi niin kolkko nyt,
+Kuin emo täält' olis lähtenyt;
+Voi, että valokin viedä voisi
+Mult' ystävän, sit' en luullut oisi!
+
+[VERSE 11]
+Kaikuja Hämeestä 1874.
+
+--- TITLE: KUVA
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+Mun huonehessani seinäll' on
+Yks kuva halpa ja koruton,
+Se siinä ollut on monta vuotta,
+Ja aina ihaelen ma tuota.
+
+[VERSE 2]
+En tiedä, mi siinä viehättää,
+Lumenko peittämä harmaa pää,
+Vai surun uurtamat vaot nuoko,
+Vai silmän lempeä tuike tuoko.
+
+[VERSE 3]
+En tiedä; mutta niin lämmin on
+Sen läheisyys kuni auringon,
+Ja onpa kuin hänen katsannastaan
+Heloittais taivahan rauha vastaan.
+
+[VERSE 4]
+Ma tuntikausia ihaillen
+Kuvoa tuot' yhä katselen,
+Ei sulho kultoaan punastuvaa
+Niin tyystin katso kuin minä kuvaa.
+
+[VERSE 5]
+Ja kun ma katson, niin vähittäin
+Herääpi muistoja mielessäin
+Niin armahaita, niin ihanoita
+Ja kaivatessani katkeroita.
+
+[VERSE 6]
+Ma poies mennehen polvekseen
+Näen lapsuusmaailman riemuineen,
+Näen kynttilöitä ja joulupuita
+Ja ystävyksiä hymysuita!
+
+[VERSE 7]
+Ja onpa kuin kuva elon sais
+Ja mua hellästi katsahtais,
+Ja onpa kuin hänen katsannastaan
+Heloittais taivahan rauha vastaan.
+
+[VERSE 8]
+Ja senhän vuoksi niin lämmin on
+Sen läheisyys kuni auringon.
+Mut ken se ompi se armahainen?
+Mun oma äitini on se vainen.
+
+[VERSE 9]
+Kaikuja Hämeestä 1878.
+
+--- TITLE: KEHRÄÄJÄ=ÄITI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[REFRAIN]
+Ja äiti istuvi, kehräjää,
+Ja kyynel silmähän vierähtää.
+
+[VERSE 1]
+»Pois aurinkoiseni läksi, pois,
+Oi, jos pian taas hänet nähdä vois!
+
+[VERSE 2]
+»Ihanainen hän oli, kaunoinen,
+Oli puhtoinen kuni pulmonen.
+
+[VERSE 3]
+»Samanlaisena jos hänet nähdä sais,
+Oi, aurinkoiseni jos palajais!»
+
+[VERSE 4]
+Ja rukki se hyrräten, pyörien käy,
+Mut armasta poikaa vaan ei näy.
+
+[REFRAIN]
+Ja äiti istuvi, kehräjää,
+Ja kyynel silmähän vierähtää.
+
+[VERSE 5]
+--»Iloitse, äiti, sun poikasi
+Jo mainehen siivillä kiitävi!»
+
+[VERSE 6]
+--»Ylistetty luoja!» ja viuhuen
+Nyt rukki se hyrrävi pyörien.
+
+[VERSE 7]
+--»Hän luokses saa, kotimatkall' on,
+Mut niinkuin syksyn puu alaston.»
+
+[VERSE 8]
+--»Ylistetty luoja, kun vaan hänet saan!»
+Mut rukki se tyyntävi vauhtiaan.
+
+[VERSE 9]
+--»Oi äiti parka ja vaivainen,
+Sun kuollut on poikasi kaunoinen!»
+
+[VERSE 10]
+--»Ylistetty luoja, kun puhdasna saa
+Hän äidin helmahan taas nukahtaa,»
+
+[VERSE 11]
+Eik' enää rukki se hyrräten käy,
+Eik' enää kyynel vierivän näy.
+
+[VERSE 12]
+K.P.T. albumi 1881.
+
+--- TITLE: LEENA.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Ja Leena istuvi kankaallaan
+Ja morsiusseppel on kulmillaan.
+
+[VERSE 2]
+Lyö pirtaa, niisiä helskyttää,
+Ja oudosti silmä se välkähtää.
+
+[VERSE 3]
+»Oi laps, mikä kiire sull' on työ?
+Käy, raukka, maata, jo pääll' on yö.»
+
+[VERSE 4]
+--»En, en, mua vartovi armahan',
+Ma morsiusvaatetta valmistan.»
+
+[VERSE 5]
+--»Oi raukka, sun ruumiis raukee pois.»
+--»Oi jospa se vieläki raukeemp' ois.»
+
+[VERSE 6]
+--»Sun silmäs tuike se tummenee.»
+--»No, tummetkoon, se ei haittaa tee.»
+
+[VERSE 7]
+--»Sun poskeltas puna pois putoaa.»
+--»Mun kultani lempivi kalpeaa.»
+
+[VERSE 8]
+--»Oi, turha on toivosi, onneton,
+Sun petti hän, hällä jo toinen on.»
+
+[VERSE 9]
+--»Ei pettää voi minun kaivattun',
+Ens sunnuntaina hän noutaa mun.»
+
+[VERSE 10]
+Käy pirta ja niidet ne helskähtää
+Ja oudosti silmä se välkähtää.
+
+[VERSE 11]
+Pyhäaamu on, tyynt' yli vetten, maan,
+Ja huomenkello se kaikuu vaan.
+
+[VERSE 12]
+»Laps, nouse, päivä jo kirkas on,
+Ja kellot jo kutsuvi kirkkohon.»
+
+[VERSE 13]
+Mut Leena hän työnsä on päättänyt
+Ja vaivoistansa hän huokaa nyt.
+
+[VERSE 14]
+Ja tyynenä nukkuvi vuoteellaan,
+Ja morsiusseppel on kulmillaan.
+
+[VERSE 15]
+Ja hääpuku valkea yllähän,
+Ja valkeamp' entistään on hän.
+
+[VERSE 16]
+»Jo kirkonkellot ne yhteen soi,
+Oi lapsi raukka, mik' on sun, oi?»
+
+[VERSE 17]
+Hän kättä sen koskevi kalpeaa,
+Mut vastaukseks likistyst' ei saa.
+
+[VERSE 18]
+Hän suutelon painavi huulillen,
+Ei tunnu henkäys lämpöinen.
+
+[VERSE 19]
+Hän posken poskellen lähentää,
+Mut kylmä ja valju se on kuni jää.
+
+[VERSE 20]
+Kansanvalistusseuran kalenteri 1882.
+
+--- TITLE: JOHANNES TAKASEN MUISTOKSI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+12/11 1885.
+
+[VERSE 2]
+Ylähällä pilven reunall' on linna kuulakas,
+Ja immyt kaunokainen sen linnan valtias--
+--Ken oivaltaa mikä suurin on voima maallinen,
+Saa valtakunnan kaiken ja morsioks impyen.
+
+[VERSE 3]
+Ja arvot, vallat rientää, sanat valtian kuultuaan,
+Ja mahtavat, rikkaat hohtaa hopeassahan, kullassaan,
+Ja kulkee nuoret, vanhat ja viisahat tieteissään,
+Mut vastaust' ongelmoiseen ei arvaja yksikään.
+
+[VERSE 4]
+Ja saapuu siihen myöskin laps mökkisen ahtahan,
+Ujostellen seisoin kesken tuon joukkion mahtavan.
+Lumouksissaan hän seisoo, ja linnan immyt tuo
+Hänehen niin vienon katseen kuin tähtösen tuikkeen luo.
+
+[VERSE 5]
+Hänt' oudot silmät seuraa, kenties joku karsas myös:
+--Häävaatteit' ei ole ylläs; mikä täällä sun ompi työs?
+Sun tuntematon sukus ompi ja heimosi maineeton:
+Sunlaisest' ei sikiöstä kaunottaren voittohon!
+
+[VERSE 6]
+Mut on kuni nuorukaisen tuli valtais taivainen,
+Niin leimuvan kirkas hohde sen lentävi kasvoillen.
+Sun, immyt kaunokainen, tytär linnan kuulakkaan,
+Sun voittaaksen' veren' uhraan sen viimeiseen pisaraan!
+
+[VERSE 7]
+Matalaisessa mökkisessä
+Mies kalpea askartaa,
+Kylm ympärill' on, vaan hällä,
+Sydän hällä se leimuaa.
+
+[VERSE 8]
+Tulisimmat aattehensa
+Kivehen hän veistäen luo,
+Ja sirpalehet säkenöiden
+Ylt'ympäri lentää nuo.
+
+[VERSE 9]
+Ja hahmon saa kivi kylmä
+Ja möhkäle muodostuu.--
+Mut viel' ei säihky silmä,
+Viel' ei hymyhyn käy suu.
+
+[VERSE 10]
+Tulikuumast' ahjostansa
+Ihanteita hän taasen luo,
+Ja sirpalehet säkenöiden
+Taas ympäri lentää nuo.
+
+[VERSE 11]
+Saa silmä ja huulet muodon.--
+Mut viel ei valmis työ:
+Kuvass' ei ole henkeä vielä,
+Ei sykkien rinta sen lyö.
+
+[VERSE 12]
+Palavaiseen nyt povehensa
+Hän patsahan painaltaa,
+Sydämmestähän hengen virran
+Hän siihen johdattaa.
+
+[VERSE 13]
+Ja on kuin sais kivi hengen--
+Ja hän vaipuvi juureen sen,
+Näin oivaltain mikä suurin
+On voima maallinen.
+
+[VERSE 14]
+Nyt on suru Suomenmaassa, Suomi=äiti itkusuin
+Purkaa kesäkaunisteensa, suruharsoon pukeuin;
+Huokauksen lähettääpi aalloiltaan ja metsiltään
+Haudallen, joss' ijäks häitä toivo kaunis kätketään.
+
+[VERSE 15]
+Voi, kuin lyhyeks sen miehen elinlanka laskettiin,
+Joka jo niin nuorna ehti ylös taiteen korkeuksiin!
+Pukenut ois äitikullan helmill' ihanteiden hän,
+Jos ois hälle, niinkuin muille, suotu hellyytt' enemmän.
+
+[VERSE 16]
+Mutta muillen antanut ol' äiti maidon rinnoistaan,
+Ja kun raukan tuli vuoro, läksi usein verta vaan.
+Nurkuiko hän siitä? Eikä. Hyvin tunsi äidin hän:
+Viluss' ehkä täyteläämmän toivoi viljan kypsyvän.
+
+[VERSE 17]
+Senvuoks mielellään hän kärsi puutetta ja nälkääkin,
+Tyytyvä kuin laps, jos joskus katse häneen luotihin;
+Toivoi vaan, kuin talven alla oras toivoo kevähän,
+Kevään kauniin joutuvan ja jään ja lumen lähtevän.
+
+[VERSE 18]
+Ja se joutuikin se kevät. Päivä lämmintänsä loi;
+Luonto loisti, elo uhkui, oras nousi, vihannoi.----
+Äiti helmans' avas, siihen sulkeakseen armastaan--
+Sylihins' ei edes saanut hänen kylmää ruumistaan!
+
+[VERSE 19]
+Senvuoks Suomenmaass' on suru, senvuoks äiti itkusuin
+Purkaa kesäkaunisteensa, suruharsoon pukeuin;
+Huokauksen lähettäapi aalloiltaan ja metsiltään
+Haudallen, joss' ijäks häitä toivo kaunis kätketään.
+
+[VERSE 20]
+Kaikuja Hämeestä 1886.
+
+--- TITLE: KANTAATTI
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (3 lines); title names a sung form
+
+[VERSE 1]
+TOHTORIN= JA MAISTERINVIHKIÄISISSÄ 31 PÄIVÄNÄ TOUKOKUUTA 1886.
+
+[VERSE 2]
+_Kööri_:
+Valohon, valkeuteen sa nouse, henki,
+Koroita lentos avaruutehen,
+Ja tiedä ett' on voima ylhäinenki
+Vaan laina lähteest' ikivalkeuden.
+
+[VERSE 3]
+_Soolo=kvartetti_:
+Mut loistoansa jos se muusta johtaa
+Ja _uskon_=valostaan näin vieraantuu,
+Kuin lentotähti vaan se hetken hohtaa
+Ja syttyessähän jo valjentuu.
+
+[VERSE 4]
+Tai on se öistä valhetulta väärää,
+Mi tiedustajan harhateille vie,
+Jos _toivon_ täht' ei sille suuntaa määrää
+Ja ijäisyyteen sen ei viittaa tie.
+
+[VERSE 5]
+Jos sielt' ei, _rakkauden_ liedest' aivan,
+Valolleen lämmön hehkua se tuo,
+Sen valo valju on kuin talvitaivaan,
+Mi jäätää vaan, mut lämpimää ei luo.
+
+[VERSE 6]
+_Kööri_:
+Valohon, valkeuteen sa nouse, henki,
+Koroita lentos avaruutehen,
+Mut muista ett' on voima ylhäinenki
+Vaan laina lähteest' ikivalkeuden.
+
+[VERSE 7]
+1.
+
+[VERSE 8]
+_Kööri_:
+Oi Herra, kaikki maat Sun voimaas ilmoittaapi,
+Iki=kiitosta maailma Sulle soikohon,
+Ennen aikojen alkua valtas kohoaapi
+Ja ainiaksi kiitos, kunnia Sinun on.
+
+[VERSE 9]
+_Altti=soolo_:
+
+[VERSE 10]
+Kah, taivaan tähdet radoillansa
+Iäti Jumalalle kantaa kiitostansa,
+Ja päivä kertoo päivällen.
+Kaaoksen kohdust' aamu käskystäsi saapi...
+
+[VERSE 11]
+_Sopraani=soolo_:
+Oi Herra, kaikki maat Sun voimaas ilmoittaapi.
+Sa meille kevään aina uudistelet,
+Auringon käsket kaikki kirkastaa;
+Sa käsket ruohoin maasta versoella,
+Ja raikkaan kastehen ilmoja puhdistaa,
+Ja tuulen taivahalta pilvet pyyhiskellä.
+
+[VERSE 12]
+_Altti=soolo_:
+Sinä viimeksi loit myös parhaan luomistasi,
+Ihmisen, maailmaas ihailemaan,
+Sa hänen annoit hallita maata,
+Vaan Sua yksin aina kuulla, palvella.
+
+[VERSE 13]
+_Kööri_:
+Oi, suuri, mahtava on Herra Jumalamme,
+Kun voimassaan Hän ihmisille ilmestyy.
+Kun näkyy vuori Sinain
+Ja ilmi patsain Jumala saa tulisin,--
+
+[VERSE 14]
+Ja silmihimme tunkeu säde valostansa,
+Mit' ilmoittaa jylinä, pauhu ilmojen
+Ja leimaus ja kuohu elementtien?
+Sisin maa jopa järkkyy!
+Herra, jo tahdotko luomasi hävittää?
+Hetkikö tullut nyt on, pielet ilman kun kaikki särkyy?
+
+[VERSE 15]
+_Altti=soolo_:
+Sa kansallesi liiton lujan vahvistit,
+Jok' ikuisesti rikkoumatta kestää saisi.
+
+[VERSE 16]
+_Sopraani=soolo_:
+Sa omillesi käskysanas julistit
+Ja tahdoit että Sinua he rakastaisi.
+
+[VERSE 17]
+_Kööri_:
+Rajaton on armos, Jumala,
+Rakkautta kaikki lakis uhkuu!
+Oi, anna meidän Sun polkus käydä,
+Sydämmemme puolees taivuta!
+
+[VERSE 18]
+_Sopraani=soolo_:
+Sa päästit kansas orjan kahleista,
+Elätit erämaassa mannalla,
+Ja opastelit aina suuntaan oikeahan,
+Ja vaadit heitä vaan rakastamahan.
+
+[VERSE 19]
+Sa läpi merenkin tien halkaisit
+Ja kahden puolen aallot asetit,
+Ja kalliosta panit veden vuotamahan.
+Ja vaadit vaan heitä juomaan janoissahan.
+
+[VERSE 20]
+_Trio_:
+Epäillen, toivotonna Sua pelkäs kansa,
+Joll' yhä osoitit Sun hyvyyttäsi vaan.
+Sua eikö voinut rakastaa se kohdastansa
+Ja Sinuun luottaa kokonaan?
+
+[VERSE 21]
+Isännän vihaa orja piillä saapi,
+Vaan lapsi isäns' ääntä noudattaapi,
+Mut Jumalaansa, Luojaa, Vapauttajaa,
+Ihminen vastustaa.
+
+[VERSE 22]
+_Kööri_:
+Oi Herra, kaikki maat Sun voimaas ilmoittaapi,
+Iki=kiitosta maailma Sulle soikohon!
+
+[VERSE 23]
+2.
+
+[VERSE 24]
+_Sopraanit yhdessä_:
+On taivaalle syntynyt tähti!
+Kah, Betlehemin soimessa syntyi poikanen.
+Hän syntyi majoiss' alhaisten,
+Ei sijaa saliss' ylhäisien.
+Miks syttyi taivaan tähtönen?
+
+[VERSE 25]
+_Altit yhdessä_:
+Jo poikana templistä, viisahitten hän joukost' löyttihin:
+Ettekö tiedä huoneiss' Isäin ain' asua mun tulevi.
+Niin kasvoi voimaan, viisauteen hän, ja varttui suuriin tekoihin.
+
+[VERSE 26]
+_Tenoorit yhdessä_:
+Ken olet Sinä? Mikä täällä tehtäväsi?
+Miss' astelet, rauha vain käy jäljissäsi!
+
+[VERSE 27]
+_Bassot yhdessä_:
+Niin kului aika armas nuoruuden,
+Niin kasvoi poika Betlehemin,
+Kuin me, mutta tahraamattomin mielin.
+
+[VERSE 28]
+_Kaikki_:
+Ken Sa oot, synnitön oi poika ihmisen?
+
+[VERSE 29]
+_Duetti köörin kanssa_:
+Oi, kuin autuas on laps, joka Herran suojass' varttuu,
+Viattomalle rauha, siunaus ylhäältä aina karttuu;
+Kaukana siimehessä puhkeaa,
+Kuin lehdon kukka versoelee,
+Ja myrsky maailman viattomuutt' ei saastuttele.
+
+[VERSE 30]
+Lapsen ajat armahaiset,
+Suojassa Korkeimman murheitta soluvaiset!--
+Niin nuokuvi laaksossa valko=lilja mättähältä,
+Niin nuokuu hiljalleen; se suojass' on rajuisten myrskyjen väeltä.
+Se yksin kukoistaa ja kiittää Jumalaa,
+Niin lehdon kukka versoelee,
+Ja myrsky raju maailman sen puhtautt' ei saatuttele.
+
+[VERSE 31]
+_Alti=soolo_:
+Oi Herra, nuorisomme anna
+Sa elää lapsina viattomuudessa
+Ja nöyrin sydämmin ja kiitollisin mielin:
+Sinua kuulla, palvella!
+
+[VERSE 32]
+Kun mailma kiusaukset tuottaa,
+Ken meidät enää pelastaa,
+Ma kehenkä uskallan luottaa?
+
+[VERSE 33]
+_Sopraani=recitatiivi_:
+
+[VERSE 34]
+Ah, himot kiusaavat, ja vaarat uhkaavat,
+Ja omat voimat tyhjyyteensä uupuvat,
+Ah, luulemme avuttomiksi jäänehemme.
+
+[VERSE 35]
+3.
+
+[VERSE 36]
+_Kööri_:
+Oi, Herran Sanaa kuunnelkaamme pyhää,
+Se voiman uuden sydämmeemme luo,
+Kuin lounastuulten viima yhä
+Keväisin vuokot urvusta tuo.
+
+[VERSE 37]
+4.
+
+[VERSE 38]
+_Kööri_:
+Onko onnea, tuskaa meille ilmoitettu?
+Kelle kohtalon arvoitus himmi selviää?
+Kuink' yhtyä konsa voi vaivaan ja kuoloon iki=elämä?
+
+[VERSE 39]
+_Kaksois=kööri_:
+Ah ihmiskunta, toivo ijäisyyden jätä,
+Jo hiekkaan kuivui juuret sen!
+--Ei, sinut suojaa Herras, luota Hänehen!
+Ei Herran Sana petä!
+
+[VERSE 40]
+Ma näen ihmiskunnan vaivoin sortuvan,
+Se rikostensa palkkaa kauemmin ei vältä.
+--Ma näen uuden aamun saavan ylähältä,
+Jo kultaavi koi taivahan!
+--Voi kuolo ikuinen!--Kautt' armon saadaan voitto!
+--Kirot toivottomain!--Riemu soi, kaikuu soitto!
+
+[VERSE 41]
+_Kööri_:
+Onko onnea, tuskaa meille ilmoitettu?
+
+[VERSE 42]
+_Sopraani=soolo_:
+Pelkonne heittäkää, Hän lempee täynnä on,
+Sit' osoittaapi meille aina.
+
+[VERSE 43]
+_Kööri_:
+Uskossa toivokkaina
+Luotamme varmoin, varmoin armohon!
+
+[VERSE 44]
+_Trio köörin kanssa_:
+Sydämmen uskovan rauhoa ken järkyttää?
+Se antau Jumalaan ja Häneen taipuu,
+Ei vainen itseensä.
+Maailman onnet maahan jos vaipuu,
+Niin voima ylhäinen, tuo taivaan rauha jää.
+
+[VERSE 45]
+5.
+
+[VERSE 46]
+_Kööri_:
+Oi Herra, kaikki maat Sun voimaas ilmoittaapi,
+Iki=kiitosta maailma Sulle soikohon,
+Ja kiitostas maa soikohon, aina, ain' soikohon!
+
+--- TITLE: LAULUN VOIMA.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Yöllisessä
+Terhenessä
+Ja umpimailla
+Kulki kansa
+Johtoa vailla,
+Heimoansa
+Ei heimo tunne,
+Ei tiedä kunne
+Matka lie,
+On outo tie,
+Ja ilmat virvat
+Ne harhaan vie.
+
+[VERSE 2]
+Kuka joukot harhaillehet
+Kokoon kutsuu eksynehet?
+Kuka tenhosanan sen
+Lausuu mahtipontisen,
+Joka tenhovaipan poistaa,
+Että päivä kirkas loistaa?
+
+[VERSE 3]
+Kautt' ilman, kuules, soitto kaikuu,
+Se niinkuin koski kohisee,
+Ja metsät, vaarat vastaan raikuu,
+Ja terhenet ne pakenee;
+Ja päivän liekin hohtehessa
+Mies seisoo, soittain kanneltaan,
+Ja »Maamme»=laulun kaikuessa
+Eteenpäin viittoo kansoaan.
+
+[VERSE 4]
+Sydämmen värähtääpi juuret
+Ja povi innon tulta lyö,
+Ja vanhat, nuoret, pienet, suuret
+Yhdistää lemmen taikavyö;
+Ja joukot harhaavat ne yhtyy,
+Yks tunne kaikki valloittaa,
+Tuhanten äänet yhteen ryhtyy,
+Kun »Maamme»=laulu raikahtaa.
+
+[VERSE 5]
+Se tunnussana johtonansa
+Ja lemmen liekki rinnassaan
+Eteenpäin taistoon kulkee kansa
+Ja voittohon tai kuolemaan;
+Ja riita, viha, vaino raukee,
+Kun soipi äidin nimi tää,
+Veljellen veljen syli aukee,
+Kun »Maamme»=laulu helkähtää.
+
+[VERSE 6]
+Nyyrikki 1888.
+
+--- TITLE: LAPSEN LAULU ISÄNMAALLE.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Suomi, äiti poloinen,
+Kallis synnyinmaani,
+Sulle edes laulelen,
+Huoltas huojentaani.
+
+[VERSE 2]
+Poveeni sun painallan
+Pikku kätösillä,
+Ehkä mieles haikean
+Vaimentaa voin sillä.
+
+[VERSE 3]
+Oi, jos lintu olisin,
+Luojan kellarista
+Haavoillesi noutaisin
+Mettä taivahista.
+
+[VERSE 4]
+Mutta varro, lapsestas
+Kerran kasvaa suuri,
+Silloin sinun suojanas
+Seison niinkuin muuri.
+
+[VERSE 5]
+Puollan oikeuttasi,
+Äidinvaivas kostan,
+Tuen askeleitasi,
+Kunniaan sun nostan.
+
+[VERSE 6]
+Vielä silmäs suruinen
+Kirkkahaksi tulle,
+Kerran päivä lämpöinen
+Myöskin paistaa sulle.
+
+[VERSE 7]
+Joulutervehdys 1890.
+
+--- TITLE: KANTAATTI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Ilo= ja onnentoivotusjuhlassa marraskuun 2 päivänä 1896.
+
+[VERSE 2]
+Terve, nuori Ruhtinas,
+Uuden aamun koitto!
+Pilvi poistuu kaihokas,
+Päivän taas on voitto.
+Toivon riemu rinnassansa,
+Tervehtii Sua Suomen kansa.
+
+[VERSE 3]
+Terve, Ruhtinatar,
+Hempi haltijatar,
+Virpi vihannoiva,
+Valtahuolten hoiva,
+Kodin hyvä henki,
+Terve Sinullenki!
+
+[VERSE 4]
+Taas on kevät pohjanmailla,
+Suomi suloissansa;
+Ilmass' ilo helkkyy,
+Järvet välkkyy,
+Vapaat kahleistansa;
+Kilvan kansa yhtyy,
+Riemuin ryhtyy
+Elon työhön;
+Taaskin isänmaalle
+Armahalle
+Koittaa huomen,
+Keväthuomen,
+Taaskin tulevaisuuteensa
+Luottaa kansa Suomen.
+
+[VERSE 5]
+*       *       *       *       *
+
+[VERSE 6]
+Oikeuden varmassa
+Turvassa
+Varttuu, kasvaa kansa vakaa;
+Kansan onni Ruhtinaalle takaa
+Palkan parhaimman.
+
+[VERSE 7]
+Ruhtinas toiveitten,
+Ainaisen
+Siitä kiitoksemme niität,
+Helmen kruunuus hele'immän liität:
+Kansan rakkauden.
+
+--- TITLE: SUOMALAISEN TEATTERIN 25=VUOTIS=JUHLASSA
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+13/10 1897
+
+[VERSE 2]
+Suuri sota valost' oli taisteltu,
+Vuoren helmast' aurinkokin voitettu,
+Kynnettihin maita, kuokittihin soita,
+Kylvää kyyhäteltiin Sammon muruloita.
+
+[VERSE 3]
+Salo siloaa ja mielin kasvaa maa,
+Kalevalan kallis touko orastaa,
+Siemen näyttää itävän ja hyötyvänkin;
+Silloin istutettiin taimi etelänkin.
+
+[VERSE 4]
+Ujona se siinä nousi, arkaillen,
+Niinkuin vilukukka alta nietoksen,
+Päätään pälvestä se tuskin nostaa tohti,
+Kyyristäen varttaan painui maata kohti.
+
+[VERSE 5]
+Viisaat virkkoi: valju taivas pohjoinen,
+Täällä etelän ei viihdy taiminen,
+Joskin varteen varttuu, ei se joudu kukkaan,
+Kituu hetken, kuihtuu, heitetähän hukkaan.
+
+[VERSE 6]
+Toiset toisti: joutava ja turha työ!
+Maansa raataja se selvän leivän syö.
+Poista ensin halla, pelloks korvet laita,
+Silloin vasta aika kukitella maita.
+
+[VERSE 7]
+Ilkamoivat pahansuovat, katehet:
+Vilu kukan vie ja kaataa rakehet,
+Huurto lehteen painaa kylmän suutelonsa;
+Tuopa taimi tässä maass' ei juurru konsa.
+
+[REFRAIN]
+*       *       *       *       *
+
+[VERSE 8]
+Meni kevät, tuli suvi suloinen,
+Maat ja puut ja pensaat siinti verallen,
+Kasken kannotkin jo taaja laiho peitti,
+Juhlapukimensa luonto ylleen heitti.
+
+[VERSE 9]
+Taimi etelänkin nosti korttansa,
+Siisti lehviään ja suori varttansa,
+Latva taivahasta imi lämpimyyttä;
+Juuret maasta syvält' imi väkevyyttä.
+
+[VERSE 10]
+Taivas lämmint' antoi, maakin väkeään,
+Kukkaa taimi alkoi työntää täydeltään.
+Niitä siinä ihasteli seudun kansa;
+Mykkänä on viisaat vaan ja kummissansa.
+
+[VERSE 11]
+Mutta sanoivatpa silloin ihmiset:
+Tuot' ei halla vie, ei kaada katehet,
+Syvään juurtaan työntää, sit' ei murra aika;
+Joku siin' on tenho, lumovainen taika.
+
+[REFRAIN]
+*       *       *       *       *
+
+[VERSE 12]
+Niin, taika siinä onkin, on luote vakainen
+On vanhan Väinämöisen luote oiva,
+Ja tenhona on sillä vain sana ainoinen,
+Mut sana valtava ja paljon voiva.
+Sen sanan pelkkä helähdyskin on jo hurmovaa,
+Sydämmet sytyttää se ja mielet valloittaa:
+Sisimmän henkemme se kieltä puhuu.
+
+[VERSE 13]
+Sen sanan kautta täällä on tehty kaikki työ,
+Ja korpimaat on viljamaiksi saatu,
+Sen sanan kautta päiväks on tehty Pohjan yö,
+Ja onni voitettu ja elo taattu;
+Se sana vuoren muuttaa ja siirtää kallion,
+Ihanaks keitahaksi se luopi aavikon,
+Ja Pohjan jäilläkin sen hehku palaa.
+
+[VERSE 14]
+Ja hätäpäivä raskas kun joskus päälle saa
+Ja tukala ja ankea on aika,
+Se sana tenhovainen se kansat nostattaa,
+Ja kauas käy sen lumoava taika;
+Ja silloin sana kaikuu: »isänmaa eläköön
+Ja rauha yksityisen sen tieltä väistyköön,
+Ja etu menköön, ajallinen onni!»
+
+[VERSE 15]
+Mut onnen raunioilla kun miesi huokailee
+Ja sydäntä kun kalvaa murhe musta,
+Kuin toivon tähti silloin se hälle säteilee
+Ja tuopi intoa ja lohdutusta,
+Ja tenhollansa muuttaa se mökin matalan
+Ja mieleen kuvaileepi nyt kodin korkean
+Ja tuvan täyden lempeä ja rauhaa.
+
+[VERSE 16]
+Vaan ylimmilleen vasta sen tenho ennättää,
+Kun sydämmet se sulattaapi jäiset.
+Yks ajatus ja mieli kun jälleen yhdistää
+Nuo henget keskenään nyt kiistäväiset;
+Ja taimi etelänkin on silloin ylvä puu
+Ja kauas yli metsän sen latva kohouu
+Ja oksilla sen laulaa satakielet.
+
+[VERSE 17]
+U.S. 14/10 1897. Kaikuja Hämeestä 1901.
+
+--- TITLE: KOTILIESI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+Kultainen kotiliesi,
+Sinulle laulelen,
+Taivaisen tulen suojus,
+Pyhäkkö rakkauden!
+
+[VERSE 2]
+Kun vaeltaja kaukaa
+Sen loimun havaitsee,
+Iloiten, laulatellen
+Hän tietään astelee.
+
+[VERSE 3]
+Kun työstään väsyneenä
+Koteutuu peltomies,
+Lämpöisen sylin hälle
+Levittää kotilies.
+
+[VERSE 4]
+Ja onnenrikko raukka,
+Maailman murjoma,
+Myös helmaan kotilieden
+Hän itkee tuskansa.
+
+[VERSE 5]
+Ja kun se raskas tulee
+Suur kansan koetus,
+Kun riehuu väkivalta
+Ja horjuu oikeus,
+
+[VERSE 6]
+Totuuden pylväät huojuu
+Ja pyhyys tallataan,
+Pyhyyden puoltajatkin
+Veriinsä kaadetaan,
+
+[VERSE 7]
+Niin silloin kodin liesi
+Tulellaan, lämmöllään
+Karaisee uuden polven
+Vääryyttä häätämään,
+
+[VERSE 8]
+Kädessä isäin tarmo;
+Ja rinnass' uskallus,--
+Ja, sortuu väkivalta
+Ja voittaa oikeus.
+
+[VERSE 9]
+Kultainen kotiliesi,
+Sinulle laulan ma,
+Sä isäin mielen, hengen
+Ja tarmoni vartija!
+
+[VERSE 10]
+Maan kalleuden kätkö,
+Sa kehto vapauden,
+Taivaisen tulen suojus,
+Pyhäkkö rakkauden!
+
+[VERSE 11]
+Liitto 1902.
+
+--- TITLE: VANHA LEMPI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (3 lines)
+
+[VERSE 1]
+Työpöydässänsä hän istuu,
+Jo käyränä varreltaan,
+Ja loistossa himmeän lampun
+Selailevi kirjojaan;
+Lunt' aika on päähän tuonut
+Ja otsaa uurrellut,
+Elämän kun ongelmoita
+Hän tuossa on tutkaillut.
+
+[VERSE 2]
+Välin sentään työstään herkee,
+Ja silmä se lennähtää
+Kadun poikitse naapuritaloon
+Ja sinne se hetkeksi jää;
+Valo sieltäkin himmeä loistaa,
+Ja hennon siell' olennon
+Näet istuvan ompelutyössään,
+Ja harmaja hänkin on.
+
+[VERSE 3]
+Ja ne muistuvat mieleen ajat
+Kesälämpeät, kukkeat,
+Veri nuori kun suonissa tykki
+Ja posket ne hehkuivat,
+Ja silmän tulinen tuike
+Sydämmen pani syttymään,
+Ja valtava leimusi roihu
+Poven täyttäen lämmöllään.
+
+[VERSE 4]
+Se aika on ollut ja mennyt--
+Oi, herttainen menneisyys!--
+Nyt posken on kuihtunut kukka,
+Kesän jälkeen tullut on syys,
+Sydämmenkin valtava roihu
+On hiiltynyt, hiipynyt,
+Ja vuodet on unheen tuhkaa
+Sen hehkuhun heitellyt.
+
+[VERSE 5]
+Mut joskus sentään hiilus
+Se vieläkin hehkottaa,
+Ja kaihtien »vieraansilmä»
+Tuhan keskellä tuikuttaa,
+Se kasvaa, hohtaa, loistaa
+Ja taaskin lämpöä luo,
+Vain hetken--sitte sen päälle
+Taas vuodet tuhkia tuo.
+
+[VERSE 6]
+Mut työstä hän silloin herkee,
+Ja silmä se lennähtää
+Kadun poikitse naapuritaloon
+Ja sinne se hetkeksi jää;
+Siell' istuvan ompelutyössään
+Sinä hennon näet olennon,
+Ja kenties sielläkin hiilus
+Tuhan alla nyt hehkunut on.
+
+[VERSE 7]
+Liitto 1902.
+
+--- TITLE: MARKETTA.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Marketta neiti oli ihanainen impi
+Ja muitakin tyttöjä kaunihimpi.
+
+[VERSE 2]
+Varsi oli sorja ja silmä oli tulta
+Ja harteilla hulmusi kutrien kulta.
+
+[VERSE 3]
+Monen oli nuorukaisen sydämmen hän syttö,
+Ja kainonkin pojan se hurmasi tyttö.
+
+[VERSE 4]
+--»Tule, sinä tyttönen, omakseni mulle,
+Kullat ja kalleudet annan minä sulle.»
+
+[VERSE 5]
+--»Ennen korppikin valkeaksi muuttuu,
+Kuin tämä tyttönen poikasehen puuttuu.»
+
+[VERSE 6]
+--»Sydämmeni, elämäni sulle ma annan,
+Henkeni helmet ma etehesi kannan.»
+
+[VERSE 7]
+--»Ennen minä höyhenenä veden alle vaivun,
+Ennenkuin kainon pojan sylihin ma taivun.»
+
+[VERSE 8]
+Viskeli päätä ja silmä oli tulta,
+Ja tuulessa hulmusi kutrien kulta.
+
+[VERSE 9]
+*       *       *       *       *
+
+[VERSE 10]
+Ja aika se vierähti hiljaisin hetkin,
+Ja viikot ne kulki ja vuoskaudetkin.
+
+[VERSE 11]
+Ne menneet jo muistoja on muinaisuuden,
+Ja kainoinen poika se kullan otti uuden.
+
+[VERSE 12]
+Ja hääilot pidettihin komeat ja oivat,
+Ja valkeat ne loisti ja soitot ne soivat.
+
+[VERSE 13]
+Ja kukkaa ja kauneutta hääsali hohti,
+Kun poika se tyttönsä vihkisille johti.--
+
+[VERSE 14]
+Mut ovensuussa seisoi Marketta neiti
+Ja ylpeän katseen hän yli salin heitti.
+
+[VERSE 15]
+Ja varsi oli sorja ja silmä oli tulta
+Ja harteilla hulmusi kutrien kulta.
+
+[VERSE 16]
+Mut silmä paloi oudosti ja liekehti poski
+Ja rinta se nousi kuin valtava koski.
+
+[VERSE 17]
+Ja vinhasti häätuvan poikki hän viisti
+Ja morsiamen hiuksilta seppelehen riisti,
+
+[VERSE 18]
+Ja kutrinsa kullan sillä seppelellä peitti,
+Ja voiton riemulla hääsalin heitti.--
+
+[VERSE 19]
+Mut koleata naurua kuuluvi tieltä,
+Ja aamulla mielipuoli löyttihin sieltä.
+
+[VERSE 20]
+Liitto 1902.
+
+--- TITLE: »HUPSU=MAISTERI».
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (3 lines)
+
+[VERSE 1]
+Pihalla koirat haukkuu,
+Ja tanhualta mies
+Taloa kohti astuu,
+On vieras kukaties:
+Kumara häll' on selkä
+Ja raskas astunta,
+Olalla matkareppu
+Ja sauva kourassa.
+
+[VERSE 2]
+Ei, outo se ei ollut,
+Jo kaukaa tunnettiin
+Ja »hupsu=maisteriksi»
+Yleiseen mainittiin.
+Hän tuli, kättä paiskas,
+Ja, eineen saatuaan
+Ja levättyään hetken,
+Taas läksi matkaamaan.
+
+[VERSE 3]
+Kotia häll' ei ollut,
+Hän muiden armohon
+Vain turvautui ja kiersi
+Talosta talohon,
+Samainen nuttu yllä,
+Kulunut, ohkoinen,
+Jos oli kesä, syksy
+Tai talvipakkanen.
+
+[VERSE 4]
+On toisin ollut ennen,
+Mut siit' on aikaa jo,
+Kun hälle hymyellyt
+On onnen aurinko:
+Silloinkin parhaimmillaan
+Se tarjoi vaivaa vaan,
+Ja puutett' oli usein
+Ja nälkää toisinaan.
+
+[VERSE 5]
+Olikin voitto suuri,
+Kun kerran kulmilleen
+Sai työnsä palkaks painaa
+Viherjän seppeleen.--
+Vaan sitten kaikki kääntyi
+Ken onnen oikut ties!...
+Pimeni järjen valo...
+Hän oli mennyt mies.
+
+[VERSE 6]
+Nyt tuossa istui, haastoi,
+Maat, taivaat haparoi,
+Vakavaan kysymykseen
+Vain hupsun vastuun soi,
+Eläimen ääntä matki,
+Ja linnun laulua
+Ja joskus joukkoon nauroi
+Hupelon naurua.
+
+[VERSE 7]
+Mut äkkiä hän herkes:
+Tuolt' astui silmihin
+Perältä pöydän takaa
+Nyt kuva Snellmanin;
+Muun kalleuden kanssa
+Koruna ollen vaan,
+Unohtuneena siinä
+Se seisoi nurkassaan.
+
+[VERSE 8]
+Ja istuiltaan hän nousee
+Ja hiljaa astelee
+Ja kuvan eteen saapuu,
+Sen otsaa sivelee;
+Pää kumarassa, siinä
+Sanoja sammaltaa,
+Ikäänkuin puhuttaisi
+Hän suurta vainajaa.
+
+[VERSE 9]
+Hämärtää mieless' aika,
+Kun nuori oli hän
+Ja mahtisanat kuuli
+Tuon valtatietäjän,
+Tuo aika, jolloin heräs
+Unestaan koko maa,
+Ja Suomen huomenkello
+Kun alkoi kajahtaa;
+
+[VERSE 10]
+Tuo suuri aika, jolloin
+Kevättä ilmat soi
+Ja tunturit ja laaksot
+Jääkahleet yltään loi,
+Ja purot virroiks paisui,
+Ja sulut murrettiin,
+Ja hänkin oli myötä...
+Mut siit' on aikaa ... niin.
+
+[VERSE 11]
+Ja hiljaa kuvan luota
+Hän taaskin siirtyi pois,
+Ja näytti niinkuin maahan
+Suur kyynel vierryt ois,
+Mut silmiss' oli välke
+Kuin älyn kajastus,
+Ja otsaa ihmeenlainen
+Valaisi kirkkaus.
+
+[VERSE 12]
+Ja hiljaus huoneess' oli,
+Ikäänkuin liikkunut
+Ois näkymätön henki
+Ja mielet tenhonnut.--
+Mut vieras pöytään vietiin,
+Kylläiseks ruokittiin,
+Ja yöksi lämmin vuode
+Hänelle laitettiin.
+
+[VERSE 13]
+Mut anivarhain nauroi
+Taas hupsun nauruaan,
+Ja hyvästeli, kiitti
+Ja läksi matkaamaan:
+Kumara oli selkä
+Ja raskas astunta,
+Olalla matkareppu
+Ja sauva kourassa.
+
+[VERSE 14]
+Kaikuja Hämeestä 1908.
+
+--- TITLE: _J.L. Runeberg_
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x3 (1 line)
+
+[VERSE 1]
+VÄNRIKIN TERVEHDYS.
+
+[VERSE 2]
+(Gregori Tigerstedtille Revonlahden tappelun
+viidentenäkymmenentenä vuosipäivänä.)
+
+[VERSE 3]
+»Tunsitko joskus, joukoss' ihmisten
+Kulkeissas täällä elon tanterella,
+Kuink' outo voima, pakko sisäinen
+Toist' ihmistä voi toiseen taivutella?
+Näet muodon, äänen kuulet, riemastut,
+Vaan et voi virkkaa, miks niin ihastut.
+
+[VERSE 4]
+Mies oli Cronstedtilla väessään,
+Ilolla häntä vielä muistelenki;
+Ma vanhus olin, nuorukainen hän,
+Mut kummassakin meiss' ol' yksi henki.
+Ma helposti ja paljon unhotan,
+Mut Tigerstedtin muistan ainian.
+
+[VERSE 5]
+Sen kaikki näytti, silmä, käyntikin,
+Ett' oli miekkamieheks luotu poika;
+Häll' oli reipas muoto sankarin,
+Ja varsi kookas, vaikka vielä hoikka.
+Hänt' ihastelin minä mielessän',
+Mä hänet tunsin, minua ei hän.
+
+[VERSE 6]
+Äänensä muistan, Pohjan kasvatin,
+Kuin pohjoinen se raikui joukon eessä;
+Sanansa lens' kuin luoti maalihin
+Ja sattui, sillä pontt' ol' ääntehessä;
+Tuost' äänestäkin huomata jo voi,
+Ett' urhokkaasta rinnasta se soi.
+
+[VERSE 7]
+Tie minne veikään, min sai koittaakaan,
+Kun pako meiltä turvan, toivon poisti,
+Tuo sama tuli hänen katseessaan.
+Ja muodoss' aina sama rauha loisti;
+Kuin vaskikirjoitus se vakamoi:
+Viel' uusi päivä kaikki muuttaa voi.
+
+[VERSE 8]
+Kun väliin kiihtyi vauhti Pohjolaan,
+Ja vihan tuskast' itkein urhot kulki,
+Hän kiros silloin, puri hammastaan,
+Mut kyyneleet hän sydämmeensä sulki;
+Huulilta vaan nuo sanat salamoi:
+Viel' uusi päivä kaikki muuttaa voi.
+
+[VERSE 9]
+Ja päivä tuli, hänen juhlansa.
+Taas kunnialla liehui lippu Suomen;
+Aseihin! kaikui Revonlahdella,
+Ja paenneille koitti uusi huomen.
+Riemahdus lensi kautta rivien,
+Se hetki se ol' ikimuistoinen.
+
+[VERSE 10]
+Mik' ihme! Sammunutta toivoaan
+Virittämähän joukot tuleen rientää,
+Tukittu virta, sortain sulkujaan,
+Esteitä vastaan aaltojansa työntää,
+Ja kansa, syösty epätoivohon,
+Maat' isäin suojaamahan noussut on.
+
+[VERSE 11]
+Valoksi idän rusko sulaantui,
+Lähemmäks siirtyi päivän sädesoitto,
+Allamme hanki silloin ruskottui,
+Se oli kunniamme aamukoitto:
+Syvemmin, aurinkoisen kohoten,
+Ain' aamukoi tää loisti verinen.
+
+[VERSE 12]
+Mut saman päivän ensivartio
+Taas näki sammuksissa sodan palon,
+Ja Siikajoen nuori voitto jo
+Sai tässä kaksoisveljen yhtä jalon.
+Rivistä riemu kaikui rivihin,
+Näin tulokasta tervehdittihin.
+
+[VERSE 13]
+Kentällä seisoin. Kaikk' on tyyntynyt.
+Miss' äsken viha riehui, oli rauhaa:
+Jo viihtyi vaino, unta maattiin nyt,
+Sit' unta, miss' ei enää myrskyt pauhaa;
+Jos valvoi ken, ol' ystävä vaan tuo,
+Jok' ystävän jäi nukkunehen luo.
+
+[VERSE 14]
+Mit' etsin, löysin nyt, ma tiedon sain,
+Jot' oli yhtä raskas kaipaella:
+Riveistä Tigerstedtiä mä hain,
+Mut hän on tääll', ei ole valvehella.
+Juur' voittaessa, leikkiin innostuin,
+Hän tähän nukkui rinnoin puhkaistuin.
+
+[VERSE 15]
+Tuo urhokas! Viel' äsken hänen näin,
+Kun nuorna, uljahana rynnäkköhön
+Hän, esteet sortain, riensi eteenpäin
+Kanuunan liekkiin, miekan mittelöhön;
+Nyt kylmänä hän hangell' lepäsi,
+Miss' äsken Ryssäin tulet sammutti.
+
+[VERSE 16]
+Mut elon karvan kanss' ei kuitenkaan
+Kadonnut rauha hänen muodostansa,
+Vaaleissa vielä hänen kasvoissaan
+Näin uljuuden, tuon tutun vanhastansa;
+Tuo vakaa muoto mieleen mulle toi:
+Viel' uusi päivä kaikki muuttaa voi.
+
+[VERSE 17]
+Ja katso! Uusi päivä tulikin.
+Hän synnyinmaalle suojaks säästyi vielä.
+Ma hänt' en nähnyt enää sittemmin,
+Vaan sä, jos hänet kohtaat elon tiellä,
+Niin terveisiä sano Stoolilta,
+Ja urhotöiltä, Revonlahdelta.»
+
+[VERSE 18]
+Näin kertoi Stool sinusta, urhokas,
+Sä kunniamme kulta=aikain jäänne.
+Terveiset kätki ylioppilas
+Ja harmaapäänä vihdoin esittää ne,
+Vuos'sataa puoli kun jo siitä on,
+Kun eestä maas näin astuit taistohon.
+
+[VERSE 19]
+Se lempees sulje, tervehdyksen tään
+Tuo sulle synnyinmaaskin; rivit luki
+Se niiden miesten, jotka verellään
+Sen muistot, toivot ja sen uskon tuki.
+Ne harvenneet on, hartaammin siis vaan
+Se muistaa eloon jääneit' urhojaan.
+
+[VERSE 20]
+Kiitokset saa tuo altius rajaton,
+Min hehku Pohjan jäilläkään ei laannut,
+Kiitokset kallis verikin, jok' on
+Turvaksi vastaisuuden vuotaa saanut,
+Ett' aina sille toivon sanat soi:
+Viel uusi päivä kaikki muuttaa voi.
+
+[VERSE 21]
+Vänrikki Stoolin tarinat II: 1, 1870; parannett. 1889.
+
+--- TITLE: AUGUSTAN ROMANSSI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+(»Joulu=illasta».)
+
+[VERSE 2]
+I.
+
+[VERSE 3]
+Viestit kulkee seraljissa,
+Haltiatar Haaremissa,
+Ällös nukkuko!
+Sultaanilt' on tullut tieto:
+»Joudu, Seidi, juhlan vietto
+Altaanilla
+Sua vartoo jo.»
+
+[VERSE 4]
+Kera kevään loiston, loihdun
+Koi jo nosti kultasoihdun
+Yli Bosporin;
+Kauniimminpa loisti vielä
+Kalleuksissansa siellä
+Parvekkeella
+Tähti Haaremin.
+
+[VERSE 5]
+Ja hän silmäyksen vienon
+Lennättääpi yli tienon;
+Juhlan hetki on.
+Kansaa kaikkialla kiehuu,
+Venheet liukuu, purjeet liehuu,
+Rannat, salmet
+Saavat liikunnon.
+
+[VERSE 6]
+Mitä riemuhuudot tietää?
+Voittojuhlaansa nyt viettää
+Lippu Mahoman:
+Turkin mies ei joudu alle,
+Taisto päättyi, voittajalle
+Venään vangit
+Riemuin tuodahan.
+
+[VERSE 7]
+Kalpaa, surmaa, vaaraa kohti
+Vankkumatta käydä tohti
+Kalvas joukko tuo;
+Nyt kun orjankahle sulkee,
+Allamielin urhot kulkee,
+Yksi vainen
+Uhkakatseen luo.
+Vavista ei vahtein pauhu,
+Vainojainsa viel' on kauhu
+Kahleissakin hän.
+Pilvet otsan jalon peittää,
+Silmä salamoita heittää,
+Surmaa uhmaa
+Viha ylvähän.
+
+[VERSE 8]
+Kansan ahnas aalto kohtaa,
+Katsehissa kiukku hohtaa,
+Uljast' uhaten;
+Yksi silmäys vaan lähti,
+Vieno niinkuin taivaan tähti,
+Tornist' alas
+Vangin puolehen.
+
+[VERSE 9]
+Seidin sydän vuotaa verta:
+Noinpa vietiin hänkin kerta
+Synnyinmaastahan,
+Servian laaksoist' ihanista,
+Ruusuist', ilolintusista,
+Onnestansa
+Mailta Moravan.
+
+[VERSE 10]
+Povi nousee, poski hohtaa;
+»Näetkö vierasta?»--hän kohta
+Kysyy orjaltaan.
+»Kahleen kantajaks ei totu
+Valtakotkan vapaa rotu,
+Lentää tahtoo
+Taakse meren, maan.»
+
+[VERSE 11]
+»Urho saakoon vapautensa
+Armaan eestä elääksensä,
+Maan ja mainehen!»
+Virkkoi, rinnass' into hellä,
+Laittoi ruusulehtisellä
+Puolisolleen
+Viestin kainoisen:
+
+[VERSE 12]
+»Ruusukukan sulo tuokse
+Lennättäköön armaan luokse
+Seidin huokauksen:
+Arvon, vallan suositulta,
+Hetken pyytäisi hän sulta,
+Juhlast' että
+Lausuis kiitoksen.»
+
+[VERSE 13]
+II.
+
+[VERSE 14]
+Haaremin puutarhat ylväät
+Kätkee pyhäkön, min pylväät
+Työt' ei taitehen,
+Ruususton, jonk' idän kesä
+Kaunistaa vain,--piilopesä
+Siell' on rauhan,
+Templi sydämen.
+
+[VERSE 15]
+Valtias on valtikatta
+Siellä, kylmää vaatimatta
+Loiston kunniaa;
+Hourisuukot, simahuulet,
+Balsamiset tuoksutuulet,
+Lempi, lempi
+Siellä odottaa.
+
+[VERSE 16]
+Unhottaa jos vallan vaivat,
+Haaveiss' illan tahtoo taivaat
+Nähdä Mahoman,
+Nähdä tunteen keväät hennot,
+Tuta muistot, toivon lennot,
+Käy hän aina
+Kukkaismajahan.
+
+[VERSE 17]
+Siellä helmass' armaan tuokseen
+Seidiä hän vartoo luokseen,
+Vastattuaan noin:
+»Sultaanitar, vilveess' ehtoon
+Sen luo tullos ruusulehtoon,
+Ken sun kirjees
+Luki suuteloin.»
+
+[VERSE 18]
+Auringon jo vuoret peittää,
+Taivas purppuransa heittää,
+Ilta hämäröi;
+Kuuhut laakson hopeoi jo,
+Sävel satakielen soi jo;
+Riennä, Seidi,
+Herras ikävöi!
+
+[VERSE 19]
+Oi, hän saa, kuin tuuli väikkyin,
+Vait kuin yö, kuin kauris säikkyin
+Puolisonsa luo,
+Polveaan jo notkistaapi,
+Herralt' ilokatseen saapi,
+Hunnun varjon
+Kasvoiltansa luo.
+
+[VERSE 20]
+Puna posken purppuroittaa,
+Kirkkaana kuin tähti koittaa
+Kyynel silmässä:
+Tuskaa, onneako ollee?
+Kuule! Näin hän puolisolleen
+Kuiskaa, sydän
+Vasten sydäntä:
+
+[VERSE 21]
+»Seidin taivas!» näin hän haastaa,
+»Kodin laaksost' onnekkaasta
+Muisto minullen
+Immest', ystäväst' on suotu;
+Hetken loistoks oli luotu,
+_Servian kauno_
+Oli nimi sen.
+
+[VERSE 22]
+Kukkain kuu ol' alullansa,
+Pultamaan läks uskoansa
+Urhot Servian,
+_Servian kaunon_ hymy herkes,
+Poski kelmetä jo kerkes
+Ennen ensi--
+Kukkaa kunnahan.
+
+[VERSE 23]
+Luona hopeaisen Savan
+Hauta tuskiin sydänhaavan
+Lievityksen soi.
+Yks sen tarun ties, oi armas;
+Pakahtui siit' immen parmas,
+Että joukkos
+Orjaks sulhon toi.
+
+[VERSE 24]
+Kun sa kuulit riemun kielen,
+Muistooni toi murhemielen
+Juhlan päivä tää.
+Kevät sydämen on arka,
+Siksi itkee Seidi=parka,
+Siit' on, herra,
+Kyyneleeni nää.
+
+[VERSE 25]
+Missä leimuu Pohjan liesi,
+Kuihtuu nyt, kuin hän, kentiesi
+Raukka morsian,
+Tänne kyynelkatse kääntyy,--
+Anoo armastaan, mi nääntyy
+Täällä, yllään
+Kahle voittajan.»
+
+[VERSE 26]
+Huokaa noin kuin tuuli hiljaa,
+Nojautuu kuin hento lilja
+Rintaan valtiaan.
+»Seidi», voitettu nyt vastaa,
+»Vangin joka suudelmasta
+Saat sa, armas,
+Päästä heidät vaan.»
+
+[VERSE 27]
+Idän taivas purppuroituu,
+Raittiit aamutuulet koituu
+Peran rannalla;
+Purjehilla liehuvilla
+Rientää läikkylainehilla
+Seidin vangit
+Synnyinmaahansa.
+
+[VERSE 28]
+*     *     *     *     *
+
+[VERSE 29]
+Kuulijani, sisko kulta,
+Älä runon suurta tulta
+Etsi laulustain;
+Aattele vaan hellien sa:
+_Siskon surun poistaaksensa,
+Lauloi tyttö
+Laulun kainon vain_.
+
+[VERSE 30]
+1881-1905.
+
+--- TITLE: SAARIJÄRVEN PAAVO.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+Saarijärven salomailla asui
+Tilallansa hallaisella Paavo,
+Perkas, hoiti ahkerasti maataan.
+Mutta Jumalalta kasvun toivoi.
+Vaimoineen ja lapsineen hän siinä
+Niukkaa leipäänsä söi hiess' otsan,
+Ojat kaivoi, kynti, touon kylvi.
+
+[VERSE 2]
+Tuli kevät, nietos suli mailta,
+Myötään vieden puolet orahista;
+Tuli kesä, rae kulki mailla,
+Kaatoi maahan puolet tähkäpäistä;
+Tuli syksy, kaikki ryösti halla.
+Tukkaa riistäin Paavon vaimo lausui:
+Paavo parka, kovan onnen lapsi,
+Sauvaan tartu, Herra meidät hylkäs;
+Miero raskas, raskahampi nälkä!
+
+[VERSE 3]
+Vaimon käteen tarttuin Paavo lausui:
+Vaikka koettaa, eipä hylkää Herra.
+Pane leipään puoleks petäjäistä,
+Kaksin verroin minä ojaa kaivan,
+Mutta Jumalalta kasvun toivon.
+
+[VERSE 4]
+Pantiin leipään puoleks petäjäistä,
+Kaksin verroin ojaa kaivoi Paavo,
+Lampaat myi ja siement' osti, kylvi.
+Tuli kevät, nietos suli mailta,
+Mut ei orahia vesi vienyt;
+Tuli kesä, rae kulki mailla,
+Kaatoi maahan puolet tähkäpäistä;
+Tuli syksy, kaikki ryösti halla,
+Rintojaan löi Paavon vaimo, lausuin:
+Paavo parka, kovan onnen lapsi,
+Kuollaan pois, jo Herra meidät hylkäs;
+Kova kuolo on, mut toivo turha!
+
+[VERSE 5]
+Vaimon käteen tarttuin Paavo lausui:
+Vaikka koettaa, eipä hylkää Herra.
+Pane toinen verta petäjäistä,
+Ojat kahta suuremmat ma kaivan,
+Mutta Jumalalta kasvun toivon.
+Pantiin toinen verta petäjäistä,
+Kahta suuremmat loi ojat Paavo,
+Karjan myi ja siement' osti, kylvi,
+Tuli kevät, suli nietos mailta,
+Mut ei orahia vesi vienyt:
+Tuli kesä, rae kulki mailla,
+Mut ei kaatunutkaan kaunis olki;
+Tuli syksy, sivu sitkaimitten
+Kulki halla viljaan koskematta.
+
+[VERSE 6]
+Paavo lankes polvilleen ja lausui:
+Vaikka koettaa, eipä hylkää Herra!
+Polvillensa vaimo lankes, lausuin:
+Vaikka koettaa, eipä hylkää Herra!
+Mutta miehellensä virkkoi vaimo:
+Paavo, Paavo, riemull' ota sirppi,
+Syrjähän nyt petäjäinen silkko,
+Rukihisen nyt ma leivän leivon!
+
+[VERSE 7]
+Vaimon käteen tarttuin Paavo lausui:
+Vaimo, vaimo, sit' ei kuri kaada,
+Joka toista hädässä ei hylkää.
+Pane leipään puoleks petäjäistä,
+Veihän naapurimme touon halla.
+
+[VERSE 8]
+Maamme kirja 1878-1905.
+
+--- TITLE: _Z. Topelius_.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+AAMULAULU.
+
+[VERSE 2]
+Tuhanten rantain partahilla
+Heräjä, armas synnyinmaa!
+Heräjä, taivaan rantehilla
+Jo aamun koitto leimuaa!
+Ikävä yös on haihtuva
+Ja valon riemu voittava.
+Tuhanten rantain partahilla
+Heräjä, armas synnyinmaa!
+
+[VERSE 3]
+Kuin kukkaranta aamusella,
+Heräjä uuteen aikahan,
+Sill' uusi päivä paistehella
+Hälvensi varjot kuoleman!
+Siis varmistu sä muistoissa,
+Jalostu mielen avuissa!
+Kuin kukkaranta aamusella,
+Heräjä uuteen aikahan!
+
+[VERSE 4]
+Sun kyyneleesi kuivukohot,
+Kuin kaste aamun tuulihin!
+Keväimen kylmät lauhtukohot,
+Ja ruusut nouskoot kasvoihin!
+Kukiksi nuput puhjetkoot!
+Ja mielet, toiveet tointukoot!
+Sun kyyneleesi kuivukohot,
+Kuin kaste aamun tuulihin!
+
+[VERSE 5]
+Soitamme sumu vielä peittää,
+Vaan öiset haamut karkoita!
+Ja Herran haltuun rientos heitä
+Elosi hetken aamuna!
+Sanalla itses sonnusta!
+Ole, maani, vahva Herrassa!
+Soitamme sumu vielä peittää,
+Vaan öiset haamut karkoita!
+
+[VERSE 6]
+Sä nouse, nuori maani armas,
+Mereni, lampin', läikkykää!
+Jo kuuluu lintuin laulu harras.
+Jo päiväss' aallot välkkyää.
+Heräjä tuulten huminaan
+Ja loistoon aamun kirkkahan!
+Sä nouse, nuori maani armas,
+Mereni, lampin', läikkykää!
+
+[VERSE 7]
+Maamme kirja 1878-1905.
+
+--- TITLE: AHVENANMAAN LAULU.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Sen miehen kehnoks sanon vaan,
+Jok' ei voi hoitaa purjeitaan,
+Vaan rannall' on ja kalpenee,
+Kun merell' aallot pauhailee.
+Kedolla immet istukoot
+Ja kukkasia poimikoot;
+Merille halaa merimies,
+On aalloilla sen kotilies.
+
+[VERSE 2]
+Oi, Itämeri kaunoinen,
+Ja Pohjanlahti myrskyinen,
+Ja Suomenlahti saarines
+Ja purjeines ja voittoines!
+Jos mistä käyköön tuulen tie,
+Aaltonne Ahvenaan se vie;
+Ja miehen kehnoks sanon vaan,
+Jok' ei voi hoitaa purjeitaan.
+
+[VERSE 3]
+Maamme kirja 1878-1905.
+
+--- TITLE: HELLAAN LAPSI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+Laps Hellaan, älä vaihda pois
+Sun maatas ihanaa!
+Sill' leipä vieraan karvast' ois
+Ja sana karkeaa.
+Sen taivas, päiv' on loistoton,
+Sen sydän sulle outo on.
+Laps Hellaan, älä vaihda pois
+Sun maatas ihanaa!
+
+[VERSE 2]
+Laps Hellaan, kaunis sull' on maa
+Ja suuri, loistokas.
+Veet välkkyy, maat sen vihoittaa,
+Sen rant' on maineikas,
+Yö kirkas, päivä lämpöinen
+Ja taivas tuhat=tähtinen.
+Laps Hellaan, kaunis sull' on maa
+Ja suuri, loistokas.
+
+[VERSE 3]
+Laps Hellaan, armas maasi tää
+Siis muista ainiaan!
+Sull' onnea ja elämää
+Ei muuall' ollenkaan.
+Jos minne tiesi olkohon,
+Niin juures synnyinmaassas on!
+Laps Hellaan, armas maasi tää
+Siis muista ainiaan!
+
+[VERSE 4]
+Maamme kirja 1878-84.
+Z. Topeliuksen runoja, Porv. 1898.
+
+--- TITLE: KAARINA MAUNUNTYTTÄREN LAULU EERIKKI XIV:lle.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Sydän myrskyvä unelmoi
+Tyynessä sylin armaan!
+Metsä nyt hiljalleen tarinoi.
+Luojan kiitosta puut huminoi.
+Sylissä armaan
+Saat levon varman!
+Jumal' yksin on päivä, mut mailma on yö.
+
+[VERSE 2]
+Paina kuin äitisi helmahan pää,
+Kruunusi pirstoilla nuku!
+Kulta ja korkeus jäädyttää;
+Yksin rakkaus lämmittää.
+Kruunullas nuku:
+Armo ei huku,
+Jumal' yksin on puhdas, mut syntiset me.
+
+[VERSE 3]
+Valtakuntas nyt sylini on;
+Nuku valtasi suojaan!
+Viha vie harhaan, mut usko vaka on.
+Herrahan nuku, sa rauhaton!
+Huolista suojaan
+Luottaen Luojaan!
+Jumal' yksin on ylvä, mut tomua me.
+
+[VERSE 4]
+Maamme kirja 1905.
+
+--- TITLE: VUODEN AJAT.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Kun kevät kaunis tuli,
+Soi Luoja lämpösen,
+Maan silmästä jo suli
+Jääkyynel huurtehen,
+Taas päivän paistehessa
+Jo linnut lauloivat,
+Ja lapset lehtosessa
+Iloisna juoksivat.
+
+[VERSE 2]
+Kun kesä saapui sitten,
+Ja niitty vihannoi,
+Maa kaunis kukkasitten
+Puvussa purppuroi,
+Me saariin soutelimme,
+Juoksimme metsihin,
+Ja marjaan kiiruhdimme;
+Kyll' lysti olikin.
+
+[VERSE 3]
+Syys pimeät toi päivät
+Ja myrskyt pauhuisat,
+Pois lintuset ne veivät,
+Pois kukat tuoksuvat;
+Kynnettiin maita, soita,
+Ja viljaa puitihin;
+Me söimme puolukoita,
+Kyll' lysti olikin.
+
+[VERSE 4]
+Niin talvi tulee, tiuku
+Soi silloin helisten,
+Lystisti sukset liukuu
+Pääll' lumikinosten,
+Ja tuli takassansa
+Sulosti leimuaa.
+Näin talvellakin kanssa
+Kyll' lapset lystin saa.
+
+[VERSE 5]
+Kun hanki kyynelehtii,
+Niin ole riemuinen,
+Taas kevät kaunis ehtii,
+Iloa tarjoten.
+Ain' ylistele Luojaa:
+Kaikk' ajat hauskat on;
+Hän eloamme suojaa,
+Sen viepi valohon.
+
+[VERSE 6]
+Luonnon kirja 1886.
+
+--- TITLE: MUSTI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Tuoll' liepeess' suuren hongikon
+Lähellä kylää mökki on;
+Kaks hyvää lasta armaineen
+Siell' asui äitineen.
+
+[VERSE 2]
+Nuo Kaarlo, Hilma olivat
+Maan päällä lapset parhaimmat.
+Ne köyhät oli pienoiset
+Ja orvoiks jäänehet.
+
+[VERSE 3]
+Näkyipä hovi kaunoinen
+Tuolt' yli metsäin, järvien
+Siell' oli lapset kasvaneet
+Ja suurest' eläneet.
+
+[VERSE 4]
+Mut Jumal', isä ihmisten,
+Tät' ei näe hyväks lapsillen;
+Hän antoi heidän koitella
+Kurjuutta, puutetta.
+
+[VERSE 5]
+Heilt' isä kuoli. Talokin
+Veloista pian myytihin,
+Ja äiti vihdoin torppaseen
+Sai muuttaa lapsineen.
+
+[VERSE 6]
+Tuo hurskas äiti, hyvillään
+Hän lausui kesken köyhyyttään:
+»Vaikk' isän meiltä kuolo vei,
+Ei Luoja hylkää, ei!»
+
+[VERSE 7]
+Hovissa suurest' elettiin,
+Nyt puutett', tuskaa kärsittiin;
+Tuo rikas naapur' armoton
+Ja tyly heille on.
+
+[VERSE 8]
+Kuin kallis sentään verrattain
+On mökin tunnon rauha vain,
+Ja luja, harras usko sen
+Rikkauteen verraten!
+
+[VERSE 9]
+Viel' yhden näät sä toverin,
+Nälkäinen vatsa silläkin,
+Ja hampaat suussa välkähtää,--
+On villakoira tää.
+
+[VERSE 10]
+Tää vanha Musti hyvänen
+On peru aikain entisten;
+Hän kotoisin on Spanjasta,
+Ties äiti kertoa.
+
+[VERSE 11]
+Sen näkikin jo turkistaan,
+Kun mörisi hän nurkassaan;
+Mut miten Pohjolaan hän sai,
+Ei kenkään tiennyt kai.
+
+[VERSE 12]
+Kyll' oli vainen hänkin vaan
+Voileipää syönyt aikoinaan,
+Mut nyt hän tyytyi vähempään,
+Mörisi näljissään.
+
+[VERSE 13]
+Niin kauan kuin sen voimat soi,
+Hän metsämailta usein toi
+Muassaan kotiin jäniksen
+Tai teirenpoikasen.
+
+[VERSE 14]
+Ja huiski häntää hyvillään,
+Ja suutaan nuoli mielissään!
+Kun paisti valmiiks saatihin,
+Ties saavans' Mustikin.
+
+[VERSE 15]
+Mut vanhapa on Musti nyt
+Ja jalat sen on jäykennyt,
+Hämillä suutaan nuolla saa,
+Kun paistit katoaa.
+
+[VERSE 16]
+Sen sijaan susi vihainen
+Käy salaa häntä väijyillen,
+Mut paistiks tulla Musti hän
+Ei näytä kärsivän.
+
+[VERSE 17]
+Se loukkaa hänen arvoaan,
+Ja liki jos käy susi vaan,
+Sen kyllä pörhöiseks saa pää,
+Kun Musti höyhentää.
+
+[VERSE 18]
+Nyt Mustin ruoka niukall' on,
+Mut tover' on hän verraton;
+Hän seurass' ain' on lapsien
+Näljissään möristen.
+
+[VERSE 19]
+He nyppii hänen turkkiaan,
+Hän silloin kättä nuolee vaan;
+Sit' armahda, ken ilkeissään
+Käy mökkiin pyrkimään.
+
+[VERSE 20]
+Ja jos ties Musti, että ken
+On ollut paha lapsillen,
+Hän kursaamatta niskahan
+Käy häijyn veitikan.
+
+[VERSE 21]
+Mut äiti park' on lohduton,
+Kun itse leivän puutteess' on
+Ja näkee Mustin näljissään
+Vanhoilla päivillään.
+
+[VERSE 22]
+Ja vaikka kauan arvelee,
+Ja vaikka sydän kirvelee,
+Hän ottaa Mustin mukanaan
+Ja lähtee kulkemaan.
+
+[VERSE 23]
+Ja hoviin tultiin: »Herrasen',
+Mun koiraniko tahdotten?
+Hän, viisas on, mut leipäähän
+Ei oo, mill' elätän.»
+
+[VERSE 24]
+Ja rikas herra hymähtää:
+»No, koiran voin kyll' elättää,
+Tuoss' saatte rahaa; tiehenne!
+Muut' asiaako, he?»
+
+[VERSE 25]
+Äit' itkein läksi kotiin nyt,
+Ja lapset, yksin jätetyt,
+Ovella tuvan nyyhkyttää,--
+On sija Mustin tää.
+
+[VERSE 26]
+»Itkusta, lapset, tauotkaa,
+Nyt Musti herran' elää saa,
+Sen maito, puuro ruokan' on
+Ja leipä hapaton.»
+
+[VERSE 27]
+Ja äiti vielä jatkoikin,
+Kun rapsutusta kuultihin
+Ja tuttavata mörinää,
+Ett' ... onko totta tää?
+
+[VERSE 28]
+Se Musti on, jok' ilmaantuu,
+Hän itse, eikä kukaan muu!
+Voit, maidot jätti päästäkseen
+Kotihin vaivaiseen.
+
+[VERSE 29]
+Niin, runsaat ruuat heitti hän
+Ja herkut, hyvän elämän.
+Ja palas nälkään, puutteeseen,
+Köyhyyteen jällehen.
+
+[VERSE 30]
+Uskollisuutens' tähden vaan
+Hän laihaks saattoi ruumistaan,
+Ja ennen kärsi nälkää hän
+Kuin jätti ystävän.
+
+[VERSE 31]
+Ja lapset hyppi riemuissaan,
+Ja Musti möris iloissaan;
+Mut silmäst' äiti kyynelen
+Nyt pyyhkäs lausuen:
+
+[VERSE 32]
+»Pois, Musti, jälleen talohon
+Sen luo, ken ostanut sun on.
+Ei auta; hoviin jälleen vaan
+Taas Musti saatetaan.»
+
+[VERSE 33]
+Mut Musti palas, takaisin
+Hän kolme kertaa vietihin,
+Sai leipää, selkääns' vuorottain;
+Mut--_siell'_ ei pysy vain.
+
+[VERSE 34]
+Ja kun hän kerran kolmannen
+Taas raapi tuvan ovehen,
+Koir' uskollinen tupahan
+Toi leivän suussahan.
+
+[VERSE 35]
+Ja lasten eteen vei sen, näin
+Mielt' äidin niinkuin lepyttäin,
+Ja lausuin: huolet' olkaa vaan!
+Kyll' leipää hankitaan.
+
+[VERSE 36]
+Nyt veet tul' äidin silmihin,
+Hän heti läksi hovihin
+Ja sanoi: »sekää rahat nää,
+Mut meille Musti jää».
+
+[VERSE 37]
+Mut kunpa rikas kuuli tän,
+Niin heltyen näin lausui hän:
+»Uskollisuutt' ei voita vain
+Ei kullat maailmain».
+
+[VERSE 38]
+Ja lausui vielä lisäksi:
+»Nyt tulen teille hyväksi,
+Nyt teille kultaa, ruokaa suon
+Vaan Mustin tähden tuon».
+
+[VERSE 39]
+Ja koissakos nyt riemuitaan,
+Ja Musti möris iloissaan;
+Ja nyt on Musti päättänyt,
+Ja satu loppui nyt.
+
+[VERSE 40]
+Lukemisia lapsille III, 1875.
+
+--- TITLE: _Lyydia Jannsen (Emajöe Oöpik)_.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+EHTOOLLA.
+
+[VERSE 2]
+Pihalt' armaalt' laulut kuului,
+Nyt ne lepää laulajat,
+Siiven alle peittäin päänsä
+Pesässään he nukkuvat,
+Vielä heinäsirkan ään'
+Niityllä soi heleään,--
+Lapsen', laskeu siis vaan
+Rauhass' aivan nukkumaan.
+
+[VERSE 3]
+Pihall' armaat kukkaistertut
+Korren päässä nyökkyvät,
+Kuunvaloa hengittäin, he
+Suloist' unta näkevät.
+Nukkuu omenakin puu,
+Kukat puussa uneksuu.--
+Lapsen', laskeu siis vaan
+Rauhass' aivan nukkumaan.
+
+[VERSE 4]
+Uni tulee utujäljin,
+Katsoo läpi ikkunan,
+Katselee, jos vielä lasten
+Näkis hereill' olevan.
+Kenen valveill' löytää, sen
+Laskeuu se luomillen.--
+Lapsen', lasken siis vaan
+Rauhass' aivan nukkumaan.
+
+[VERSE 5]
+Hälläpyörä kevätluk. 1871; Kaikuja Hämeestä 1872.
+
+--- TITLE: _Juhani Arany_.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+KLÁRA ZÁCS.
+
+[VERSE 2]
+[Tämän balladin sisällys perustuu historialliseen tapaukseen. Kuningas
+Kaarlo Robert I:n hovissa Wisegradin linnassa oli hänen uskotun
+neuvoksensa, Felicián Zácsin ihana tytär Klára hovineitenä.
+Kuningattaren veli, Puolan herttua Kasimir, joka kerran oli tullut
+sisartansa tervehtimään, houkutteli Kláraa pauloihinsa ja häväisi hänet
+väkivaltaisella tavalla. Tästä raivostunut Felicián, joka ei voinut sen
+jälkeen pois lähtenyttä Kasimiria enää tavata, päätti kostaa tyttärensä
+häväistyksen kuningattarelle, jonka luuli olleen herttualle avullisna
+tämän rikostyössä. Huhtik. 17. p:nä 1350 syöksi hän, miekka kädessä,
+päivällispöydässä istuvaa kuninkaallista perhettä vastaan, haavoitti
+kuningasta käsivarteen ja löi kuningattarelta, joka oli nostanut oikean
+kätensä molempien lastensa suojelukseksi, neljä sormea poikki. Enempää
+hän ei ehtinyt tehdä, ennenkuin heittivät hänet lattiaan ja silpoivat
+hänen ruumiinsa kappaleiksi. Rangaistukseksi tästä murhayrityksestä
+tapettiin sitten Záczin kaikki lapset (kaksi tytärtä ja yksi poika) ja
+koko hänen muu sukunsa hävitettiin ilman armotta kolmanteen polveen
+asti. Vielä tänään seisoo Wisegradin linnavuoren kupeella kullattu risti
+onnettoman Kláran muistoksi.]
+
+[VERSE 3]
+Kuningattarell' on
+Tarha kukkivainen:
+Toinen impi punaruusu,
+Toinen valkeainen.
+
+[VERSE 4]
+»Kuningatar, sisko,
+Taivas! jos ma saisin
+Ruusun tuon, tuon punaruusun,
+Kuin sit' armastaisin!
+
+[VERSE 5]
+Sydämmeni tykkii,
+Hän jo taudin tuopi:
+Jos ma kuolen, kukkanen se
+Haudan mulle luopi!»
+
+[VERSE 6]
+»Voi sua, veli Kazmer,
+Sit en kultiin vaihda--
+Pois! ma suutun ... etkö häpee!
+Huolta tuot ... oi kaihda!
+
+[VERSE 7]
+Huomenkirkkoon aion,
+Viipyä en saata;
+Jos sa sairas olet, laske
+Sohvalleni maata.»
+
+[VERSE 8]
+Kuningatar lähtee,
+Lähtee, kirkkoon saapi;
+Kukat kauniit, sulo=immet
+Häntä seurajaapi.
+
+[VERSE 9]
+Rukoilla ei voi hän,
+Rukoella soisi;
+Helminauhan kotiin jätti:
+Ken sen sieltä toisi?
+
+[VERSE 10]
+»Armas tyttö, Klára,
+Lapseni, se nouda!
+Polvityynyll' on se taikka
+Sohvallani ... joudu!»
+
+[VERSE 11]
+Klára etsii, etsii,
+Eikä löydä vielä:
+Kuningatar kirkoss' oottaa
+Raskahalla miellä!
+
+[VERSE 12]
+Klára etsii, etsii,
+Tuntikauden vielä:
+Kuningatar kirkoss' oottaa,
+Turhaan oottaa siellä.
+
+[VERSE 13]
+Kaunokaisten parveen
+Imp' ei enää palaa:
+Ennen kuollehitten joukkoon
+Kirkkotarhaan halaa.
+
+[VERSE 14]
+Ennen kirkkotarhaan
+Alle mustan mullan,
+Kuin on suureen linnaan, eteen
+Vanhan isä=kullan.
+
+[VERSE 15]
+»Lapsi, oi! mi sulia?
+Mikä murhe karvas?
+Sylihini tule tänne,
+Kerro, lapsi armas!»
+
+[VERSE 16]
+»Voi, voi, isä! en--en--
+Mihin joutunenki!
+Jalkas tomut suutelen ma,--
+Tallaa multa henki!...»
+
+[VERSE 17]
+Lounahalle kello
+Hovin kutsuu pian;
+Silloin kuninkahan eteen
+Astuu Felicián.
+
+[VERSE 18]
+Kuninkahan eteen,
+Ruoalle ei vainen:
+Kädessänsä häll' on miekka
+Julma, kostavainen.
+
+[VERSE 19]
+»Tyttärestä henkes,
+Kuningatar nurja!»
+Onneks neljään heikkoon sormeen
+Henkens' ostaa kurja.
+
+[VERSE 20]
+»Lajos, Endre kuolkoot:
+Lapsi lapsen hinta!»
+Onneks miekkaa vastaan syöksee
+Nyt Gyulafin rinta.
+
+[VERSE 21]
+»Joutuun konna kiinni!...
+Oi, Cselényi!--Pian!...»
+Siinä hovimiesten teuraaks
+Joutuu Felicián.
+
+[VERSE 22]
+»Veriss' on sun sormes,
+Turhaan tuo ei vuoda:
+Mitä tahdot, puolisoni,
+Kivun kostoks suoda?»
+
+[VERSE 23]
+»Etusormestani
+Immen ihanaisen,
+Pitkäsormest' uhkasurman
+Nuoren nuorukaisen;
+
+[VERSE 24]
+Molemmista muista
+Vävyn sekä nadon;
+Punaisesta verestäni
+Koko heimon kadon!»
+
+[VERSE 25]
+Nurjat ajat pääll' on,
+Nurjain tähtein valta:
+Torju, Luoja, kovat iskut
+Madjarien maalta!
+
+[VERSE 26]
+Unkarin albumi, 1881.
+
+--- TITLE: _B.E. Malmström_.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x3 (1 line)
+
+[VERSE 1]
+MIKSI METSÄ RASKAHASTI HUOKAA?
+
+[VERSE 2]
+Syys=illan helmass' istuskellen poika pienoinen
+Puun kellastuneen alla leikitseepi,
+Ja kuunteleepi kahinata kuivain lehtien,
+Ja taivaan kynttilöitä katseleepi.
+Mut kun hän siinä istui ja taivaast' uneksui,
+Niin syksy=yössä lehto se yhä tummentui,
+Mut metsä se niin raskahasti huokaa.
+
+[VERSE 3]
+Ja pieni poika kuunteli ja mieli synkistyi,
+Ja juoksemaan hän rupes tanhualla.
+Hän pahoj' aatteit' aatteli ja noita peljästyi
+Ja eksyi näin kanervakankahalla.
+Hän muisti äitiänsä ja isää, siskojaan:
+»Jumala, mua pienoist' auta heidän luokseen vaan!»
+Mut metsä se niin raskahasti huokaa.
+
+[VERSE 4]
+Mut rakoilevan pilven takaa kumoittaapi kuu,
+Ja maan se peittää verhoon välkkyväiseen.
+Ja peljästyneet kummitukset vuoriin karkoittuu,
+Ja peikot rientää pohjaan äärimmäiseen.
+Ja vuorten huiput loistaa; mut metsä synkkä on,
+Ja huhkain huutaa suruvirttä puissa koivikon;--
+Mut metsä se niin raskahasti huokaa.
+
+[VERSE 5]
+Ja pieni poika juoksi poikki kangasselänteen
+Ja muisti monta vanhaa tarinata.
+Ja taivaan tähdet kulki, yö kului hiljalleen,
+Mut ei hän löynnyt tietä oikeata.
+»Te tähdet vienot tuolla, ku käytte taivaan maat,
+Te kuihtunehet kukkaset, oi mulle kertokaat:
+Mi metsässä niin raskahasti huokas?»
+
+[VERSE 6]
+Mut vait ol' illan tähdet ja vaiti kukkakin,
+Ja poika karvait' itki kyyneleitä.
+Näin joutui keijukaisten luo hän.--Sievin askelin
+Hän astui rinkiin, lausutellen heitä:
+»Oi te, ku käytte tanhuellen kanervaiset maat,
+Te armahimmat siskot, oi mulle kertokaat:
+Mi metsässä niin raskahasti huokas?»
+
+[VERSE 7]
+Ja pieni keijuiskuningatar hymys sulosuin
+Ja silitteli poikaa poskiselle;
+»Äl' itke, kaunis lapsi, vaikk' äsken kauhistuin
+Sä koivun alta eksyit kankahalle.
+Vaan istu tähän turpehelle kanervaisen maan,
+Ja kyyneleesi pyyhi pois, niin sulle tiedoks saan,
+Mi metsässä niin raskahasti huokas.»
+
+[VERSE 8]
+»Kun hiljan yli mäen ja vetten kohouupi yö,
+Ja häly päivän hälvenneeksi saapi,
+Ja aalto laskee lepäämään vihannan saaren ty'ö,
+Ja kaikki kauniit tähdet tuikahtaapi,
+Niin silloin taivaan kaarikatto puhtaaks kirkastuu,
+Ja joukko enkeleitä sen alle laskeuu
+Ja itkee hopiakyyneleitä maalle.»
+
+[VERSE 9]
+»Näkeepi peiliss' silloin kuvansa maa poloinen
+Ja itseään niin hyljätyksi kaipaa,
+Ja syntinsä hän kertoo, murhat, valheen, turhuuden,
+Mi vuosisatain kautta häntä vaivaa.
+Ja kuolon kauhu silloin hänen suonihinsa saa;
+Rukoilee laaksot, syntinsä vuoret tunnustaa,
+Ja metsä se niin raskahasti huokaa.»
+
+[VERSE 10]
+»Oi kiitos, armaat keijuiset!--tuon muistan ainian
+Ja nyt en pelkää kotiani mennä.
+Kas! tuolta tieni loistaa valossa kuutaman:
+Nyt teit' en koskaan unhota ma, en mä.
+Kyll' olen köyhä, ei mull' ole kultaa, tavaraa,
+Mut Herran nimeen vannon: mun tähteni ei saa
+Noin raskahasti metsä huokaella.»
+
+[VERSE 11]
+Pääskynen 27/12 1873.
+
+--- TITLE: _V. Rydberg_.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (3 lines)
+
+[VERSE 1]
+TONTTU.
+
+[VERSE 2]
+Pakkanen on, yö kattaa maat,
+Tähdet kiiluen loistaa,
+Tölliss' uinailee asukkaat
+Kesk'yön unta suloista,
+Ääneti kuu käy kulkuaan,
+Puissa lunta on valkeanaan,
+Kattojen pääll' on lunta.
+Tonttu ei vaan saa unta.
+
+[VERSE 3]
+Hankea vastaan harmottain
+Luotuvi läävän suuta,
+Kuin monast' ennen tuijottain
+Katsovi taivaan kuuta,
+Katsovi hongikkoon, miten tuo
+Seudullen kehän tumman luo;
+Kummoa pulmaa miesi
+Miettii, suotta kentiesi.
+
+[VERSE 4]
+Pitkää partaansa siveltää,
+Puistavi päätä ja hasta,--
+»Ei, tät' en voi minä selvittää,
+Tuopa se pulma on vasta.»--
+Kuin tapa häll' on, heittää hän
+Moiset miettehet mielestään,
+Toimihins', askariinsa
+Käypi ja ammattiinsa.
+
+[VERSE 5]
+Hän vajat, aitat kuljeksii,
+Lukkoja tunnustellen,--
+Lehmät pahnoillaan uneksii
+Kulkua laitumellen;
+Ruoskat, ohjakset unohtain
+Pollekin talliss' uinuu vain:
+Seimi sen tuoksuavaista
+Täynnään on apilaista.
+
+[VERSE 6]
+Kulkien lammaskarsinan viel'
+Uuhia katsovi ukko;
+Käy kanakoppiin, pöyhkänä siell'
+On ylä=orrella kukko;
+Mustikin oljillaan heräjää,
+Häntää hiukkasen lierittää
+Niin kuni ystävälle,
+Tonttu se tuttu on hälle.
+
+[VERSE 7]
+Vihdoin hiipien tonttu tuo
+Käy talon perheen luona,
+Kauan huomasi hän, miten nuo
+Arvon hälle on suonna;
+Lapsien luokin varpaillaan
+Katsomahan käy armaitaan;
+Kellähän oisi mieltä
+Hältä sen onnen kieltää.
+
+[VERSE 8]
+Näin hän polvesta polvehen
+Lapsin' on nähnyt heitä
+Poian ain' isän jälkehen;
+Vaan mist' on he ja keitä?
+Kukkivat, kuihtuvat, vuorottain
+Lähtevät pois--mut minne vain?
+Pulma se vaikea hällen
+Näin etehen tuli jällen.
+
+[VERSE 9]
+Tonttu se käy ladon parveilen:
+Heiniss' siell' ylähällä
+Naapuristossa pääskysen,
+Siellä se on maja hällä;
+Tyhjä nyt on pesä pääskyn tuo,
+Vaan kesä taas kun kukkia luo,
+Palaa hän kotiansa
+Sievän puolison kanssa.
+
+[VERSE 10]
+Silloin kertovi muistojaan
+Pitkältä matkatieltä,
+Mitään pulmast' ei, joka vaan
+Painavi tontun mieltä.
+Seinän saumauksesta kuu
+Äijän parrallen kuvastuu,
+Parralla väike hohtaa;
+Tonttu se miettiä pohtaa.
+
+[VERSE 11]
+Vait on metsä ja seudut sen,
+Siell' elo kaikk' on jäässä,
+Kosken vaan humu hiljainen
+Kuuluvi matkan päässä;
+Tonttu sen kuulee puol'unissaan,
+Luulee sen ajan virraks vaan,
+Oudoksuu mihin vienee
+Matka ja mistä lienee.
+
+[VERSE 12]
+Pakkanen on, yö kattaa maat,
+Tähdet kiiluen loistaa,
+Tölliss' uinailee asukkaat
+Aamu=unta suloista.
+Ääneti laskee kuu radallaan,
+Puissa lunta on valkeanaan,
+Kattojen pääll' on lunta.
+Tonttu ei vaan saa unta.
+
+[VERSE 13]
+Tilhi 26/7 1884.
+
+--- TITLE: _Eerikki XIV_.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x7 (2 lines)
+
+[VERSE 1]
+LAULU KAARINA MAUNUNTYTTÄRELLE.
+
+[VERSE 2]
+Se onnekas, ken korkeukset
+Voi vaihtaa polkuun alhaiseen;
+Se välttää monet lankeemukset
+Ja rauhass' elää hiljalleen.
+Jokainen mieltään noutakaan,
+Minä paimenuistani lemmin vaan.
+
+[VERSE 3]
+Useinpa ukkos=ilma jylhä
+Lujaakin linnaa järkyttää:
+Se lankeaa, ken pyrkii ylhä,
+Ja turmio sen ennättää.
+Jokainen mieltään noutakaan,
+Minä paimenuistani lemmin vaan.
+
+[VERSE 4]
+Isoilla merill' aallot pauhaa
+Ja myrsky käy ja tuulispää;
+Älykäs laaksoss' etsii rauhaa
+Ja halvan lähteen luokse jää.
+Jokainen mieltään noutakaan,
+Minä paimenuistani lemmin vaan.
+
+[VERSE 5]
+Rikasten oven luo kun kuljen,
+Useinkin näen sen lukitun;
+Mun tyttön' oveaan ei sulje:
+Min' olen hänen ja hän on mun.
+Jokainen mieltään noutakaan,
+Minä paimenuistani lemmin vaan.
+
+[VERSE 6]
+Ei kultaa, aarteit' ole hällä,
+Mut niitäkö mä pyytäisin!
+Hän sydämmellään lämpimällä
+On kallihimpi kultaakin.
+Jokainen mieltään noutakaan,
+Minä paimenuistani lemmin vaan.
+
+[VERSE 7]
+Ei kultavirve hällä hohda,
+Mut silmät kauniit hohtavat.
+Hän mieleiseni on, jos kohta
+Muut häntä ylenkatsovat.
+Jokainen mieltään noutakaan,
+Minä paimenuistani lemmin vaan.
+
+[VERSE 8]
+Mun siipeni ei pilviin yllä,
+Ken tahtoo, sinne nouskohon.
+Maailman tiedoks teen sen kyllä:
+Minulle rakas tyttön' on.
+Jokainen mieltään noutakaan,
+Minä paimenuistani lemmin vaan.
+
+[VERSE 9]
+Hyvästi, hyväst', armahainen,
+Tuhansin hyvää yötä nyt!
+Se Herran tahto ompi vainen,
+Pois, pois siis kaikki epäilyt.
+Jokainen mieltään noutakaan,!
+Minä paimenuistani lemmin vaan.
+
+[VERSE 10]
+Kaarina Maununtyttären muisto, 1885.
+
+--- TITLE: ISÄNMAAN LAULU.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+Tämän maan rakennan,
+Tätä puolustan,
+Rukouksissa lemmin ja lapsissain,
+Meren luodolta niin
+Lumitunturiin
+Ma sen hyötyä etsin ja mainetta vain.
+
+[VERSE 2]
+Täällä peltoa on,
+Kesälämpöä on,
+Kunhan meiss' olis, meiss' olis lämpöä vaan.
+Mut' kun into ja työ
+Lujan liiton lyö,
+Niin me miehissä nostamme syntymämaan.
+
+[VERSE 3]
+Ennen retkeiltiin
+Maihin kaukaisiin,
+Yltä linnoja Normannien kohoaa.
+Vaan nyt kauemma vie
+Jalon lippumme tie,
+Se nyt entistä raittiimmin punottaa.
+
+[VERSE 4]
+Tuloss' aika on suur':
+Kolmijakoinen Nor
+Se taas yhdeksi yhtyy ja yhdeksi jää.
+Sinä rientohon myös
+Pane tarmos ja työs,
+Edes paisuva virta sen vierittää.
+
+[VERSE 5]
+Kotimaamme on tää,
+Meille rakkaaksi jää
+Mitä on se, mit' oli, mitä vastakin on.
+Ja kuin meiss' oma maa
+Lemmen nostattaa,
+Samoin lempemme maammekin nostakohon!
+
+[VERSE 6]
+Kalatyttö, 1869, korjattu painos 1905.
+
+--- TITLE: _H. G. Andersen_.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+ZOMBI TEKI SEN.
+
+[VERSE 2]
+Seuraa mua taikamaahan,
+Jylhäin Pyreneiden taa;
+Taiteen raunioita siellä
+Mandelkuuset varjostaa.
+
+[VERSE 3]
+Lauhasäässä lähteen luona
+Laulaa paimen Cid'iään,
+Messut raikuu, kellot kaikuu,
+Siell' on juhla yhtenään.
+
+[VERSE 4]
+Kuva kirkossa Sevillan
+On Madonnan puhtahan,
+Neitseen kainon, äidin hellän,
+Taivahaisen, ihanan.
+
+[VERSE 5]
+Mutta värit nuo ken sekas?
+Kenpä mointa luoda voi?
+Minkä tiedän, sen nyt kerron,
+Joutavaa en tarinoi.
+
+[VERSE 6]
+Don Murillon tunnetten te,
+Espanjan Correggion;
+Rikkautta puku hohtaa,
+Silmän tuike neron on.
+
+[VERSE 7]
+Kesä=aamu oli varhain,
+Tavan jälkeen saapuivat
+Oppilaat ja tauluns' ääreen
+Penssel' kädess' istuivat.
+
+[VERSE 8]
+Don Murillo läss' ei ollut,
+Haasteltiin ja ilveiltiin
+Kompia ja kokkalauseit'
+Ympärille viskeltiin.
+
+[VERSE 9]
+»Pyhä neitsyt!» huutaa yksi,
+Tauluaan käy lähemmäks,
+»Ken on tämän tehnyt? ken täält'
+Eilen viimeisenä läks?»
+
+[VERSE 10]
+»Hupsu, yhdessähän mentiin!
+--Katsos minun lautastain!;
+Katso kuvaa tuota tuossa,
+Siin' on pelkkä tuhre vain!»
+
+[VERSE 11]
+»Mutta kulmassapa pää on,
+Oi, kuin kaunis, verraton!
+Sit et ole tehnyt sinä,
+Sulle se on mahdoton!»
+
+[VERSE 12]
+»Märjät mun on pensselini!»
+Huusi kolmas innoissaan;
+»Tää ei ole ensi aamu,
+Jolloin mointa huomataan!»
+
+[VERSE 13]
+Suuret sydänyön on kummat,
+Paljon ihmeitä se luo!
+--»Uskot kai, kuin neeker'orja,
+Ett' on Zombin työtä tuo;
+
+[VERSE 14]
+Zombiks, neeker'uskon mukaan,
+Haltijaa näät kutsuu hän!»
+--»Zombi», huusi vanhin heistä,
+»Rauhaan teidät jättäkään,
+
+[VERSE 15]
+Madonnaani auttakoon hän,
+Multa se ei käyvän näy!»
+Ja hän kuvahansa kääntyy,
+Katsoo, katsoo, kalvaaks käy.
+
+[VERSE 16]
+Luonnoksena ihanaisen
+Huomaa hän madonnanpään.
+»Armon herra, kenen työtä?
+Tuota luomaa päättämään
+
+[VERSE 17]
+Mull' ei miehuutt' ole, voimaa!
+Kuinka kaunist', ylevää!»
+Saliin Don Murillo astuu,
+Kysyy: »kenen työtä tää?
+
+[VERSE 18]
+Hän on parhain oppilaani,
+Maalar' on hän verraton!»
+Kaikkein silmät maahan kääntyy,
+Kaikki äänetönnä on.
+
+[VERSE 19]
+»Vastatkaa, ken tuon on tehnyt!
+Joutuun! tahdon tietää sen!»
+--»Herra, Zombi sen on tehnyt,
+Se ei työtä säällisen!
+
+[VERSE 20]
+Illoin pensselit ja kaikki
+Järjestykseen laitetaan,
+Mutta aamuin tullessamme
+Kaikk' on poissa paikoiltaan.
+
+[VERSE 21]
+Mutta kaikkialla esiin
+Pistää joku kaunis pää,
+Piru täällä, enkel' tuolla;
+Päätä oikein pyörryttää!»
+
+[VERSE 22]
+Vait Murillo kuvaa katsoi,
+Maahan siitä silmäsi:
+»Minä tuon jos oisin luonut!»
+Lausui suuri mestari.
+
+[VERSE 23]
+»Vaan ken loi sen? Hoi, Sebastian,
+Poika villatukkainen!»
+Neeker'orjan poika saapui,
+Neljätoistavuotinen.
+
+[VERSE 24]
+»Eikö jyrkkä käsky sulla
+Maata täällä joka yö?»
+--»Kyllä, Herra.»--»Sit' et tee sä,
+Toista näyttää tämä työ!
+
+[VERSE 25]
+Sano, ken tääll' öisin kulkee?
+Miksi tiehes riennätkään?--»
+--»Herra, paitse mua, tääll' ei
+Ollut ole yhtäkään.--»
+
+[VERSE 26]
+»Valhettelet, mies! Sun käsken
+Ens' yön täällä valvomaan,
+Ja ken tuon on kuvan tehnyt
+Huomenn' oitis kertomaan.
+
+[VERSE 27]
+Vaan jos juokset pois tai nukut,
+Katso silloin itseäsi
+Viisitoista raippavitsaa
+Armotta saat selkähäs!
+
+[VERSE 28]
+Ja nyt työhön joka miesi!»
+Päivä meni joutuen;
+»Varo raippoja, Sebastian!»
+Muistutettiin orjallen.
+
+[VERSE 29]
+»Zombi on se», sanoi orja,
+»Kuinka siitä piestä voi!
+Hän se Davidinne sääret
+Pitkiks, kädet lyhviks loi.»
+
+[VERSE 30]
+»Oikein!» huusi toiset, »sua
+Pilkkaa Sebastiankin!»
+Ilveiltiin ja naljaeltiin,
+Vihdoin matkaan mentihin.
+
+[VERSE 31]
+--Yö on hiljainen ja tyyni,
+Lampun valo välkkyilee;
+Yksinänsä miettii orja;
+Zombiako aattelee?
+
+[VERSE 32]
+Ovi aukenee niin hiljaa,
+Sinne silmänsä hän luo;
+Hänen isäns' on se, ainoo,
+Paras ystävänsä tuo.
+
+[VERSE 33]
+»Isä, mitä nyt näin myöhään?»
+--»Luonas valvon! nuku pois!»
+--»Se ei tarpeen, isä!»--»Mutta
+Zombi tänne tulla vois.»
+
+[VERSE 34]
+»Minä Zombia en pelkää!»--
+--»Vaan jos pois hän veisi sun,
+Yksin, lapsetta ma jäisin
+Maailmaan; se surma mun!
+
+[VERSE 35]
+Orjuuttani huojennat sa!»
+--»Paljon olen itkenyt,
+Isä! kurjaa orjan' olla!»
+--»Niin on Luoja säätänyt!»
+
+[VERSE 36]
+--»Vapauden hetki koittaa,
+Isä, näin sen unissan'!»
+--»Nuku, laps, kun Zombi saapuu,
+Apu kenties saadahan!»
+
+[VERSE 37]
+--»Isä, lähde! älä pelkää!
+Vapauden hetken nään!»
+Suudellen ja mielistellen
+Sai hän isän lähtemään.
+
+[VERSE 38]
+»Ja nyt työhön!» huusi orja;
+»Oi, sit' en voi vastustaa!
+Sydämmessäni on valta.
+Joka käskein pakoittaa.
+
+[VERSE 39]
+Vaan kun huomenna he tutkii,
+Enkä vastata ma voi;
+Viisitoista raippavitsaa
+Seljässäs, Sebastian, soi?
+
+[VERSE 40]
+Oi, en voi ma sitä jättää!»
+Ja hän itki, polvistui,
+Kyynelin ja rukouksin
+Unen helmaan laskeutui.
+
+[VERSE 41]
+Heräs koittehessa vasta;
+Hämmästyvän näytti mies,
+Kolmen tiiman päästä heidät
+Taasen tulevan hän ties.
+
+[VERSE 42]
+»Maannut olen, maata voinut,
+Hukkaan maata vapauden,
+Kolmen lyhven tiiman päästä
+Olen orja jällehen!
+
+[VERSE 43]
+Miehuutta, Sebastian! Työhön!
+Oi, se syntiäkö ois?»
+Tarttui pensseliin ja aikoi
+Pyyhkäistä madonnan pois.
+
+[VERSE 44]
+Mutta voimaa, henkisyytt' on
+Heikoissa sen piirteissä.
+Oi, se hengittävän näytti,
+Hymy hurmas sydäntä.
+
+[VERSE 45]
+»Muut ne antoivat sen olla,
+Hävittää ei voineet vaan,
+Ei Murillo, mestar' itse,
+Minä kuinka voisinkaan?
+
+[VERSE 46]
+Ei, hän huomenna mua piesköön,
+Piirrettä en pyyhikään.
+Kuvas, pyhä äiti, kuvaan
+Niinkuin edessän' sen nään!»
+
+[VERSE 47]
+Silmä säihkyi, uskaljaasti
+Pensselin hän sieppasi,
+Ryhtyi maalaamaan, ja sydän
+Pyhään intoon leimahti.
+
+[VERSE 48]
+Päivä loisti, orjuus hältä,
+Raipat, kaikki unhottui,
+Vapaa, suuri sieluns' oli,
+Henki hänet mieheks loi.
+
+[VERSE 49]
+Äkkiä hän melun kuuli,
+Näki joukon takanaan,
+Don Murillon oppilaineen;
+Puna putos poskiltaan.
+
+[VERSE 50]
+Päänsä peljästyin hän painoi,
+Rangaistusta vartosi,
+Mutta nuori joukko häntä
+Ihmetellen katsovi.
+
+[VERSE 51]
+Katseensa Murillo peitti
+Vihan pilviin ankariin:
+»Mies, ken maalaamaan sun neuvoi?»
+--»Sinä, herra!»--»Minä?»--»Niin.»
+
+[VERSE 52]
+--»Koskaan en sua neuvonut ma!»
+--»Mutta näinhän sinun työs,
+Ja kun toisia sä neuvoit,
+Kuulin neuvos minä myös!»
+
+[VERSE 53]
+--»Niin, sa kuulit, opin kätkit,
+Sana sattui oikeaan!
+Rangaistaanko? Palkitaanko?»
+--Kaikki huusi: »palkitaan!»
+
+[VERSE 54]
+»Lausu toivos!»--Sydän orjan
+Riemusta se sykki nyt.
+»Rahaa, vaatetta nyt pyydä!»
+Vaan hän viel' ei pyytänyt.
+
+[VERSE 55]
+»Rohkeesti!» Murillo lausui;
+--»Oi, kun uskaltaisin vaan.»
+--»Rahaa pyydä!» jotkut huusi,
+»Tänään kaikkeen suostutaan!»
+
+[VERSE 56]
+»Vapautt' ano!» huusi toiset,
+--»Lopuss' orjuutes on tuo!»
+»Vapaus!» huusi orja, »Vapaus!
+Vapaus isälleni suo!»
+
+[VERSE 57]
+Helmaans' itkien Murillo
+Pojan sulki: »Vapahat
+Olette te! Taideniekan
+Nimen sinä kannatat.
+
+[VERSE 58]
+Nero tarpeen on, mut siihen
+Sydäntäkin vaaditaan.
+Terve! taideniekan loin ma
+Ihastukseks Spanian maan!»
+
+[VERSE 59]
+»Oi, kuin suurta!» ihmetteli
+Neeker'vanhus riemuiten.--
+Poika hymys kyynelsilmin:
+»Isä, Zombi teki sen!»
+
+[VERSE 60]
+Suomen Kuvalehti 15/12 1880.
+
+--- TITLE: SUKELTAJA.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (2 lines)
+
+[VERSE 1]
+»Ritarit, asemiehet te, tohtiiko ken
+Tuohon kuiluhun nyt sukeltaa?
+Sihen maljan heitän ma kultaisen,
+Kita musta sen kohta jo ahmastaa.
+Ken maljan tuon mulle tuopi jällen,
+Sen saa, omaksensa sen annan hällen.»
+
+[VERSE 2]
+Kuningas näin lausuvi, viskaten
+Luodosta, mi jyrkkänään
+Merehen ulos aavahan pistäksen,
+Pikarinsa Charybdihin ärjyvään.
+»Ketäänkö ei teissä, ken uskaltaisi
+Ja kuiluhun tuohon nyt sukeltaisi?»
+
+[VERSE 3]
+Ritarit, asemiehet he kuulevat sen,
+Mut ääneti, vaiti he käy,
+Alas katsovat raivoavaan merehen,
+Ei kenkään maljoa tahtovan näy.
+Kuningas hän viel' yhä tiedustaapi:
+»Ketäkään ei siis, joka uskaltaapi?»
+
+[VERSE 4]
+Vaan kaikk' ovat vait, kuten äskettäin,
+Hovipoikapa reipas vaan
+Epäävien parvest' astuvi päin,
+Vyön heittävi, vaipan harteiltaan,
+Ja miehet ja naiset, he kaunokaista
+Ihaellen katsovat nuorukaista.
+
+[VERSE 5]
+Ja hän rinteellen käy kallion
+Sekä kuiluhun katseen luo:
+Vedet, kah! jotk' äsken se ahminut on,
+Kita ärjyvä taas ylös ilmahan tuo,
+Ja kuin ukkonen kaukainen jylistellen
+Syvänteestä ne syöksyvät vaahtoellen.
+
+[VERSE 6]
+Ja se riehuu ja kiehuu ja kuohuu ja käy,
+Tulen lailla min ves' sokasee,
+Ylös pilvihin vaahto se huuruna käy,
+Ja tulvaa tulv' yhä vaan ajelee,
+Ja se loppumattomalt' aivan näyttää,
+Meri kuin meren uuden tahtois täyttää.
+
+[VERSE 7]
+Mut vihdoin hyrsky se käy lepohon,
+Ja nyt vaahdosta aukeentuu
+Ammottava juova ja pohjaton
+Ja musta kuin oisi se hornan suu,
+Ja riehuen tyrskyvät aallot pyörii
+Ja aukkohon kiehuvahan alas vyörii.
+
+[VERSE 8]
+Mut ennenkuin kuohu se taas palajaa,
+Jumalaan hän on turvannut,
+Ja--kauhun kuuluupi huudantaa,
+Pian pyörre jo on hänet nielaissut,
+Ja rohkean uimarin jälkeen silloin
+Kita sulkeutuu: hänt' ei näy milloin.
+
+[VERSE 9]
+Ja vetten päällä on tyyneys,
+Syvyydessä vaan jyräjää,
+Ja miehestä mieheen käy värähys:
+»Hyvästi, jalo nuorukainen, jää!»
+Ja ulvona käy yhä vaan koleammaks,
+Yhä kestäen, kasvaen kauheammaks.
+
+[VERSE 10]
+Ja jos tuonne heittäisit kruunusikin
+Sanoen: ken kantavi sen,
+Sen saapi ja myös kuninkuutenikin!
+En suostuis palkkahan kalliisen.
+Povessaan mitä kätkevi kiehuva nielu,
+Ei kertoa voi eläväinen sielu.
+
+[VERSE 11]
+Moni laiva jo syössyt on kuiluhun,
+Kadoten sen pyörteisiin,
+Ja raidin ja maston pirstotun
+Kaikk'=ahmiva aukko nyt tuo näkyviin,
+Ja selvemmin yhä kuin humu myrskyn
+Lähemmäks lähenee yhä pauhu tyrskyn.
+
+[VERSE 12]
+Ja se riehuu ja kiehuu ja kuohuu ja käy,
+Tulen lailla min ves' sokasee,
+Ylös pilvihin vaahto se huuruna käy.
+Ja tulvaa tulv' yhä vaan ajelee,
+Ja kuin ukkonen kaukainen jylistellen
+Syvänteestä se syöksyvi vaahtoellen.
+
+[VERSE 13]
+Ja kah! veden mustasta helmasta niin
+Kuni joutsen nyt sukeltaa,
+Käsi, valkea kaula jo käy näkyviin,
+Ja se uipi ja voimin se ponnistaa,
+Ja hän on se, hän maljaa häilyttääpi
+Kädessänsä ja riemuten nyykäyttääpi.
+
+[VERSE 14]
+Ja kauan ja syvään huoahtaa
+Tervehtien päivää nyt.
+Ja kaikk' ilahdellen huudahtaa:
+»Eloss' on hän! kah! se hänt' ei pitänyt!
+Oi, haudasta, kuilusta syvyydenkin
+Pelastunna hän on eläväisin hengin.»
+
+[VERSE 15]
+Ja hän käy läpi joukkojen riemuavain,
+Kuninkaan hän astuvi luo,
+Ja polvistuu, pikarin ojentain,
+Tytärtäänp' ihanaista nyt viittavi luo,
+Tämä helmistä viiniä täytehen kaas sen,
+Ja nuor' mies kääntyy nyt kuninkaasen:
+
+[VERSE 16]
+»Eläköön kuningas! sepä autuas, ken
+Valon virtoja henkiä saa!
+Tuoll' alhaall' on elo hirmuinen,
+Jumaloit' ei ihminen saa koettaa,
+Ei tutkistella, mit' armon Herra
+On yön hämäryytehen peittänyt kerran.»
+
+[VERSE 17]
+»Kuni leimaus ves' mua kiidätti,
+Kun rotkosta vastahan
+Raju, vinheä tulva nyt syöksähti,
+Ajaen minut ristivirtahan;
+Ja niinkuin hyrrä, mi huimaten pyörii,
+Rajuellen se ympärilläni hyörii.»
+
+[VERSE 18]
+»Mut suurimmassapa näin hädässäin
+Jumalaa avuks huusin, ja nyt
+Syvänteest' ylöspistävän riutan näin,
+Sihen tartuin ja surm' oli välttynyt.
+Kiven suipossa siin' oli maljakin ynnä,
+Syvyytehen muuten se ois hävinnynnä.»
+
+[VERSE 19]
+Sill' allani viel' oli pohjaton,
+Tulenkarvainen pimeys,
+Ja vaikk' kuollutta korvallen kaikk' on,
+Toki silmän valtavi hirvitys:
+Syvyyden kuilussa tuolla riehuu
+Tulikonnia, louhikäärmeitä kiehuu.»
+
+[VERSE 20]
+»Rytistettynä julmihin ryhmihin
+Näin mustana kiehuen
+Epäluoman, hirmuisen hämärin,
+Meren turskan ja rauskun piikkisen,
+Hampaitaan irvisti hirmulainen
+Meren hyena, haikala uhkaavainen.»
+
+[VERSE 21]
+»Ja kauheus tuo kuvaton edessäin,
+Etähäll' avust' ihmisten,
+Kamalass' erämaass' olin yksinäin,
+Sydän siell' olin ainoa tuntoinen,
+Syväll' ihmiskielen soinnusta poissa
+Epäluomien keskellä, hirmun koissa.»
+
+[VERSE 22]
+»Näin kauhull' aattelin, kun sadottain
+Niveleitä ma näin matavan
+Mua ahneillen, ja ma tuskissain
+Kiven suiposta nyt käten' irroitan;
+Minuhun kurimus raju tarttui heti,
+Oli onneni tuo, ylöspäin se mun veti.»
+
+[VERSE 23]
+Kuningas hän tuost' ihan ihmeissään
+Nyt lausuvi: »malja on sun,
+Ja vielä sä sormuksen saat tään
+Kivill' arvokkaimmilla kauneillun,
+Syvimmälle jos meren syvänteille
+Yrität sä ja taas näkös kerrot meille».
+
+[VERSE 24]
+Tytär hellämielinen kuuli sen,
+Sulosuulla hän pyysi nyt:
+»Isä, oi, huvi tuo jätä hirmuinen!
+Hän kesti mit' yksi ei kestänyt;
+Jos tehtäväks tuon tahdot koiton,
+Ritar' ottakoon asemiehestä voiton».
+
+[VERSE 25]
+Kuningas hän tempasi vaan pikarin
+Ja sen nakkasi pyörteeseen:
+»Ja jos maljan tuon taas tuot takasin,
+Ritarikseni parhaimmaks sinut teen,
+Tänään vielä vaimonas saat halaella
+Sitä, ken pyys puolestas rukoella.»
+
+[VERSE 26]
+Hänet valtaa nyt pyhä innotar,
+Tuli silmistä tuikahtaa,
+Ja hän huomaa kuin punehtuu sulotar,
+Kuin kalvaaks käy hän ja raukeaa,
+Ja hän palkan kallihin voittaakseen nyt
+Elon kaupalla syöksevi pyörteeseen nyt.
+
+[VERSE 27]
+Taas kuohu se käy, taas kääntyvi tuo,
+Jymy kaikuva sen julistaa;
+Ja he taas alas hellän katsehen luo,
+Vedet kaikin, kaikin taas palajaa,
+Ne kuohuu tänne, ne kuohuu tuonne.
+Mut nuorukaista ei tuo ne.
+
+[VERSE 28]
+K.P.T. albumi, 1881.
+
+--- TITLE: HANSIKAS.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+Viel' leijonatarhallansa
+Odottaa huvitaistelujansa
+Frans kuningas,
+Maan mahtavat ympärillä,
+Ja parvill' on ylävillä
+Naisseurakin loisteikas.
+
+[VERSE 2]
+Ja kun hän viittaileepi,
+Ovi tyrmän het' aukeneepi
+Ja leijona esillen
+Käy arkaillen,
+Ja vaivihkaa
+Se katsahtaa
+Ja suutaan aukoo
+Ja pitkään haukoo
+Ja harjaa puistaa,
+Käpälöitään oikoo,
+Venytellen loikoo.
+
+[VERSE 3]
+Taas kuningas viittaileepi,
+Ovi toinen het' aukeneepi.
+Siit' esiin suistaa
+Vauhtia huimaa
+Tiikeri tuima.
+Kun se leijonan havaa,
+Se karjahtaa,
+Ja häntä se pelottavaa
+Lyö kiemuraa,
+Ja roikkuvin kielin
+Ja vauhkomielin
+Se jalopeuraa
+Yristen kaartaa ja silmin seuraa.
+Ja sitten mauruten
+Se maata laskeksen.
+
+[VERSE 4]
+Taas kuningas viittaileepi,
+Ja kaksoisovi nyt aukeneepi
+Ja siitä kaks leopardia syöksee,
+Het' ensi työkseen
+Innoissaan karkaavat tiikerihän;
+Käpälällään heihin iskevi tää,
+Ja pystyyn nousee ja ärjähtää
+Nyt leijonakin,
+Ja kaikk' asettuu:
+Verenvimmaiset
+Katit hirmuiset
+Kukin paikalleen sijoittuu.
+
+[VERSE 5]
+Mut parven reunalta, kas,
+Putoaa käden hienon hansikas
+Jalopeuran ja tiikerin kohdallen,
+Ihan keskellen.
+
+[VERSE 6]
+Ja Delorges ritariin kääntyy päin
+Kunigunda neiti ja ilkkuu näin:
+»Jos niin on hehkuva lempenne,
+Kuin mulle aina te vannotte,
+Tuo hansikas tuosta nyt noutakaa!»
+
+[VERSE 7]
+Ja rientäen kiiruhtaa,
+Alas tarhaan astuvi uskaliaasti
+Ritar' uljas, vakaa
+Ja piiristä, miss' nuo hirviöt makaa,
+Hansikkaan ottavi rohkeasti.
+
+[VERSE 8]
+Ja vallasnaiset ja ylimykset
+Nyt kauhu valtaa ja ihmetykset,
+Ja nöyränä hansikkaan hän tuo.
+Ja kaikkialta nyt kiitos kaikaa;
+Mut Kunigunda neiti paraikaa
+Ritariin sulolemmen katsehen luo,
+Mi kerkeät' onnea tälle suo;
+Vaan hansikkaan
+Tää vasten neidon silmiä heitti:
+»En kiitostanne ma kaipaa, neiti»,
+Ja immest' erkani kohdastaan.
+
+[VERSE 9]
+Kyläkirjast. Kuvalehti, B:sarja 31/12 1890.
+
+--- TITLE: _E. Geibel._
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+HYVÄSTIJÄTTÖ.
+
+[VERSE 2]
+(»Wenn sich zwei Herzen scheiden».)
+
+[VERSE 3]
+Kaks lempiväistä milloin
+Eroaapi toisistaan,
+On murhe suuri silloin,
+Suru suurin päällä maan;
+Ja kaihon ääni soipi vain:
+»Hyvästi ijäks, armahain!»
+
+[VERSE 4]
+Kun tunsin, että multa
+Eroaisi armas pois,
+Oli niinkuin päiväkulta
+Kadonnut taivaalt' ois,
+Ja outo kuiske kuului vain:
+»Hyvästi ijäks, armahain!»
+
+[VERSE 5]
+Kaikuja muilta mailta I, 1907.
+
+--- TITLE: VIRSIÄ.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+STENBÄCKIN VIRSIKIRJASTA.
+
+--- TITLE: LASTEN VIRSI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+(J.L. Runeberg).
+
+[VERSE 2]
+Mä silmän' luon ylös taivaasen
+Ja käten yhtehen liitän;
+Sua, Herra, ystävä lapsien
+Mä sydämmestäni kiitän.
+
+[VERSE 3]
+Ah, iloist' on sua ylistää,
+Ja mielellän' mä sen teenkin;
+Mä tiedän: et mua hyljää sä,
+Vaan katsot myös vähäiseenkin.
+
+[VERSE 4]
+Oi kiitos kaikesta, mitä soi
+Sun armos armasta mulle,
+Oi kiitos muustakin, jot' en voi
+Mä tyystin lausua sulle!
+
+[VERSE 5]
+Mä olen taimi sun tarhassas
+Ja varten taivasta luotu,
+Sun isällisehen huomahas
+Jo syntymästäni suotu.
+
+[VERSE 6]
+Mua suojaa sä, Isä armoinen,
+Sun henkes voimalla vielä.
+Ja tieni johdata taivaasen,
+Ijäiseen elohon siellä!
+
+[VERSE 7]
+Keväällä 1879. U.S. Virsikirja 410.
+
+--- TITLE: ISÄNMAAN VIRSI.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: title names a sung form
+
+[VERSE 1]
+(J.L. Runeberg).
+
+[VERSE 2]
+Jumala, suojaa maatamme
+Ja voimallasi varjele
+Niin sodassa kuin rauhassa
+Ja murheen, onnen aikana.
+
+[VERSE 3]
+Tääll' aarteemme on armaimmat
+Ja perintömme parhaimmat;
+Lähellä, loitompanakaan
+Ei meille vertaa tämän maan.
+
+[VERSE 4]
+Tääll' isämme on asuneet
+Ja taistelleet ja toivoneet;
+Me saman saimme asunnon
+Ja samat vaiheet kohtalon.
+
+[VERSE 5]
+Ja tietä meidän viittomaa
+Tääll' lapsemmekin vaeltaa
+Perien työmme, rientomme
+Ja kiittäin Herraa niinkuin me.
+
+[VERSE 6]
+Oi, huomaas ota rakkaaseen
+Tää maamme tuhatjärvineen;
+Hyvyytes siihen vuotakoon
+Kuin kaste kukkataimistoon!
+
+[VERSE 7]
+Ja siunaa rehelliset maan
+Ja hyvänsuovat aikeissaan;
+Mut kaada juonet ilkeät,
+Sen onneen, rauhaan tähtäävät.
+
+[VERSE 8]
+Sen anna aina olla sun,
+Iloisen, vapaan, turvatun,
+Sovussa kasvaa, neuvoissa,
+Ja täynnä Henkes armoa.
+
+[VERSE 9]
+Sa pimennosta autoit sen
+Kuin silmikosta kukkasen;
+Siis kaikkina suo aikoina
+Sen valkeudessas varttua.
+
+[VERSE 10]
+Se valkeus sun sanas on;
+Sen taivaallisen auringon
+Suo meille täällä ainiaan
+Säteillä kirkkaudessaan.
+
+[VERSE 11]
+Maamme kirja 1886; parann. 1905.
+
+--- TITLE: PYHÄPÄIVÄNÄ.
+--- SOURCE: PG13318
+--- SUNG-EVIDENCE: refrain x2 (1 line)
+
+[VERSE 1]
+I.
+
+[VERSE 2]
+Kalliin sanas ympärillä,
+Herra, koolla olemme,
+Virvoita sen nestehillä
+Hedelmätön henkemme!
+Sinä henkes anna meille,
+Johda meitä tahtos teille,
+Ravinnoks suo nääntyneille
+Elon mannaa makeaa!
+
+[VERSE 3]
+Anna neuvoasi meille
+Tahtos oikein ymmärtää,
+Saata meitä valos teille,
+Jota sanas selvittää,
+Puolees käännä sydämmemme,
+Torjuks epäuskollemme;
+Herra hyvä, suo, ett'emme
+Armos aikaa hylkäjä!
+
+[VERSE 4]
+Oi, jos etsoaikaa Herran
+Oikein oivaltaisimme!
+Pois on onnen hetki kerran
+Eikä koskaan palanne.
+Anna kuulla korviemme,
+Miss' on turva autuutemme;
+Avaa meidän sydämemme,
+Kuule meidän huutomme!
+
+[REFRAIN]
+Keväällä 1879.
+
+[VERSE 5]
+II.
+
+[VERSE 6]
+Herra, anna armoas
+Seuraamaan Sun neuvoas.
+Sieluamme aikoinaan
+Turvaamaan.
+
+[VERSE 7]
+Anna meidän päivä tää
+Sulle mieliks pyhittää;
+Kallis aik' on, suotta vain
+Kuluttain.
+
+[VERSE 8]
+Lepopäiväs meille soit,
+Sielujemme tähden loit,
+Että se Sun sanastais
+Lohdun sais.
+
+[VERSE 9]
+Sen vuoks nyt me koonnutaan
+Kuulemaan ja lukemaan,
+Oppimaan Sun neuvojas,
+Tahtoas.
+
+[VERSE 10]
+Tahdot muuttaa sydämmen:
+Joudu siis, oi Jeesuinen;
+Sulje meiltä synnin tie,
+Seuraas vie!
+
+[REFRAIN]
+Keväällä 1879.

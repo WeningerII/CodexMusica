@@ -1,0 +1,239 @@
+# author: Bilhaṇa (11th century; life given only as 'century' — bounded at the END of
+#         that window per doctrine 81)
+# source: OliverHellwig/sanskrit  dcs/data/conllu/files/Caurapañcaśikā/  (12 chapter
+#         CoNLL-U files) — cloned 2026-08-10
+#         SPARSE-CHECKOUT IS LOAD-BEARING, not a convenience:
+#         git clone --filter=blob:none --no-checkout --depth 1 \
+#             https://github.com/OliverHellwig/sanskrit.git ohs
+#         cd ohs && git sparse-checkout set --cone dcs/data/conllu/files && git checkout
+#         The SIBLING tree corpus/GRETIL/ is CC BY-NC-SA and is NOT in this
+#         checkout; verified absent before extraction (doctrine 54).
+# licence: CC BY 4.0 on the DCS DIGITISATION LAYER, scoped by dcs/data/readme.md
+#          to `dcs/data` and its children — which is the path this file is cut
+#          from. Required attribution, reproduced verbatim:
+#          "Oliver Hellwig: Digital Corpus of Sanskrit (DCS). 2010-2021."
+#          SPDX: CC-BY-4.0. The WORK is Bilhaṇa, 11th century; two separable layers
+#          (doctrine 40), and the inner one is centuries out of any term.
+# edition: NOT NAMED. The DCS does not record which printed edition each text
+#          was digitised from, so the modern-edition layer is unattributed and
+#          admission rests on the express CC BY grant rather than on an
+#          evidenced pre-1931 edition. Recorded as the OPEN half of doctrine 80,
+#          not as a cleared gate.
+# orthography: IAST, Unicode NFC, lowercase, word-SEGMENTED (the DCS `# text =`
+#          FORM layer, partially de-sandhied). Retroflex/dental distinction
+#          INTACT (ṭ ḍ ṇ ṣ ṛ all present and contrastive). ANUSVĀRA: this
+#          text writes `ṃ` — 186 word-final `ṃ` against 80 word-final `m`.
+#          The Gītagovinda file beside it in the same corpus does the
+#          OPPOSITE. Do not compare a final-akṣara rhyme key across the two
+#          without folding.
+# structure: [VERSE n] a couplet; [REFRAIN] marks the line-initial anaphora `adyāpi`,
+#         which is the repeat structure this lyric is built on. There is no tail refrain
+#         and the file does not pretend to one.
+# tune: NOT IN SOURCE (see the Jayadeva file's note; the DCS carries no paratext).
+# property-evidence, and the null that FAILED first:
+#         47 of 100 lines open `adyāpi`, and ALL 47 are the FIRST line of their couplet.
+#         The adjacency null used for the Gītagovinda is an IDENTITY MAP here: at 47%
+#         density, permuting the line order does not change how many lines share an
+#         opening, so it returns obs 47.00% against a null MAX of 47.00%, lift 1.00.
+#         The predicate that has content is POSITIONAL: purity 100.0% observed against a
+#         null median 48.9% and max 68.1%, p=0.0005 at 2000 replicates, and 100% of
+#         replicates differ from the observation (doctrine 68 check run, not assumed).
+#--------------------------------------------------------------------------
+--- TITLE: Caurapañcāśikā — CauP, 1  [raga: NOT IN SOURCE] [tala: NOT IN SOURCE] [refrain: adyāpi (line-initial anaphora)]
+[VERSE 1]
+[REFRAIN]
+adyāpi tāṃ kanakacampakadāmagaurīṃ phullāravindavadanāṃ tanuromarājīm
+suptotthitāṃ madanavihvalalālasāṅgīṃ vidyāṃ pramādaguṇitām iva cintayāmi
+[VERSE 2]
+[REFRAIN]
+adyāpi tāṃ śaśimukhīṃ navayauvanāḍhyāṃ pīnastanīṃ punar ahaṃ yadi gaurakāntim
+paśyāmi manmathaśarānalapīḍitāṅgīṃ gātrāṇi saṃprati karomi suśītalāni
+[VERSE 3]
+[REFRAIN]
+adyāpi tāṃ yadi punaḥ kamalāyatākṣīṃ paśyāmi pīvarapayodharabhārakhinnām
+saṃpīḍya bāhuyugalena pibāmi vaktram unmattavan madhukaraḥ kamalaṃ yatheṣṭam
+[VERSE 4]
+[REFRAIN]
+adyāpi tāṃ nidhuvanaklamaniḥsahāṅgīm āpāṇḍugaṇḍapatitālakakuntalālim
+pracchannapāpakṛtamantharam āvahantīṃ kaṇṭhāvasaktabāhulatāṃ smarāmi
+[VERSE 5]
+[REFRAIN]
+adyāpi tāṃ suratajāgaraghūrṇamāna tiryagvalattaralatārakam āyatākṣīm
+śṛṅgārasārakamalākararājahaṃsīṃ vrīḍāvinamravadanām uṣasi smarāmi
+[VERSE 6]
+[REFRAIN]
+adyāpi tāṃ yadi punaḥ śravaṇāyatākṣīṃ paśyāmi dīrghavirahajvaritāṅgayaṣṭim
+aṅgair ahaṃ samupaguhya tato 'tigāḍhaṃ nonmīlayāmi nayane na ca tāṃ tyajāmi
+[VERSE 7]
+[REFRAIN]
+adyāpi tāṃ suratatāṇḍavasūtradhārīṃ pūrṇendusundaramukhīṃ madavihvalāṅgīm
+tanvīṃ viśālajaghanastanabhāranamrāṃ vyālolakuntalakalāpavatīṃ smarāmi
+[VERSE 8]
+[REFRAIN]
+adyāpi tāṃ masṛṇacandanapaṅkamiśrakastūrikāparimalotthavisarpigandhām
+anyonyacañcupuṭacumbanalagnapakṣmayugmābhirāmanayanāṃ śayane smarāmi
+[VERSE 9]
+[REFRAIN]
+adyāpi tāṃ nidhuvane madhupānaraktām līlādharāṃ kṛśatanuṃ capalāyatākṣīm
+kāśmīrapaṅkamṛganābhikṛtāṅgarāgāṃ karpūrapūgaparipūrṇamukhīṃ smarāmi
+[VERSE 10]
+[REFRAIN]
+adyāpi tat kanakagaurakṛtāṅgarāgaṃ prasvedabinduvitataṃ vadanaṃ priyāyāḥ
+ante smarāmi ratikhedavilolanetraṃ rāhūparāgaparimuktam ivendubimbam
+[VERSE 11]
+[REFRAIN]
+adyāpi tanmanasi samparivartate me rātrau mayi kṣutavati kṣitipālaputryā
+jīveti maṅgalavacaḥ parihṛtya kopāt karṇe kṛtaṃ kanakapatram anālapantyā
+[VERSE 12]
+[REFRAIN]
+adyāpi tat kanakakuṇḍalaghṛṣṭagaṇḍam āsyaṃ smarāmi viparītaratābhiyoge
+āndolanaśramajalasphuṭasāndrabindu muktāphalaprakaravicchuritaṃ priyāyāḥ
+[VERSE 13]
+[REFRAIN]
+adyāpi tatpraṇayabhaṅgagurudṛṣṭipātaṃ tasyāḥ smarāmi rativibhramagātrabhaṅgam
+vastrāñcalaskhalatacārupayodharāntaṃ dantacchadaṃ daśanakhaṇḍanamaṇḍanaṃ ca
+[VERSE 14]
+adyāpy aśokanavapallavaraktahastāṃ muktāphalapracayacumbitacūcukāgrām
+antaḥ smitocchvasitapāṇḍuragaṇḍabhittiṃ tāṃ vallabhāmalasahaṃsagatiṃ smarāmi
+[VERSE 15]
+[REFRAIN]
+adyāpi tat kanakareṇughanorudeśe nyastaṃ smarāmi nakharakṣatalakṣma tasyāḥ
+ākṛṣṭahemarucirāmbaram utthitāyā lajjāvaśāt karaghṛtaṃ ca tato vrajantyāḥ
+[VERSE 16]
+[REFRAIN]
+adyāpi tāṃ vidhṛtakajjalalolanetrāṃ pṛthvīṃ prabhūtakusumākulakeśapāśām
+sindūrasaṃlulitamauktikadantakāntim ābaddhahemakaṭakāṃ rahasi smarāmi
+[VERSE 17]
+[REFRAIN]
+adyāpi tāṃ galitabandhanakeśapāśāṃ srastasrajaṃ smitasudhāmadhurādharauṣṭhīm
+pīnonnatastanayugoparicārucumbanmuktāvalīṃ rahasi loladṛśam smarāmi
+[VERSE 18]
+[REFRAIN]
+adyāpi tāṃ dhavalaveśmani ratnadīpamālāmayūkhapaṭalair dalitāndhakāre
+prāptodyame rahasi saṃmukhadarśanārthaṃ lajjābhayārthanayanām anucintayāmi
+[VERSE 19]
+[REFRAIN]
+adyāpi tāṃ virahavahninipīḍitāṅgīṃ tanvīṃ kuraṅganayanāṃ surataikapātrīm
+nānāvicitrakṛtamaṇḍanam āvahantīṃ tāṃ rājahaṃsagamanāṃ sudatīṃ smarāmi
+[VERSE 20]
+[REFRAIN]
+adyāpi tāṃ vihasitāṃ kucabhāranamrāṃ muktākalāpadhavalīkṛtakaṇṭhadeśām
+tat kelimandaragirau kusumāyudhasya kāntāṃ smarāmi rucirojjvalapuṣpaketum
+[VERSE 21]
+[REFRAIN]
+adyāpi tāṃ cāṭuśatadurlalitocitārthaṃ tasyāḥ smarāmi surataklamavihvalāyāḥ
+avyaktaniḥsvanitakātarakathyamānasaṃkīrṇavarṇaruciraṃ vacanaṃ priyāyāḥ
+[VERSE 22]
+[REFRAIN]
+adyāpi tāṃ surataghūrṇanimīlitākṣīṃ srastāṅgayaṣṭigalitāṃśukakeśapāśām
+śṛṅgāravāriruhakānanarājahaṃsīṃ janmāntare 'pi nidhane 'py anucintayāmi
+[VERSE 23]
+[REFRAIN]
+adyāpi tāṃ praṇayinīṃ mṛgaśāvakākṣīṃ pīyūṣapūrṇakucakumbhayugaṃ vahantīm
+paśyāmy ahaṃ yadi punar divasāvasāne svargāpavarganararājasukhaṃ tyajāmi
+[VERSE 24]
+[REFRAIN]
+adyāpi tāṃ kṣititale varakāminīnāṃ sarvāṅgasundaratayā prathamaikarekhām
+śṛṅgāranāṭakarasottamapānapātrīṃ kāntāṃ smarāmi kusumāyudhabāṇakhinnām
+[VERSE 25]
+[REFRAIN]
+adyāpi tāṃ stimitavastram ivāṅgalagnāṃ prauḍhapratāpamadanānalataptadeham
+bālām anāthaśaraṇām anukampanīyāṃ prāṇādhikāṃ kṣaṇam ahaṃ na hi vismarāmi
+[VERSE 26]
+[REFRAIN]
+adyāpi tāṃ prathamato varasundarīṇāṃ snehaikapātraghaṭitām avanīśaputrīm
+haṃhojanā mama viyogahutāśano 'yaṃ soḍhuṃ na śakyateti praticintayāmi
+[VERSE 27]
+[REFRAIN]
+adyāpi vismayakarīṃ tridaśān vihāya buddhir balāc calati me kim ahaṃ karomi
+jānann api pratimuhūrtam ihāntakāle kānteti vallabhatareti mameti dhīrā
+[VERSE 28]
+[REFRAIN]
+adyāpi tāṃ gamanam ity uditaṃ madīyaṃ śrutvaiva bhīruhariṇīm iva cañcalākṣīm
+vācaḥ skhaladvigaladāśrujalākulākṣīṃ saṃcintayāmi guruśokavinamravaktrām
+[VERSE 29]
+[REFRAIN]
+adyāpi tāṃ sunipuṇaṃ yatatā mayāpi dṛṣṭaṃ na yat sadṛśatovadanaṃ kadācit
+saundaryanirjitarati dvijarājakānti kāntām ihātivimalatvamahāguṇena
+[VERSE 30]
+[REFRAIN]
+adyāpi tāṃ kṣaṇaviyogaviṣopameyāṃ saṅge punar bahutarām amṛtābhiṣekām
+tāṃ jīvadhāraṇakarīṃ madanātapatrām udvattakeśanivahāṃ sudatīṃ smarāmi
+[VERSE 31]
+[REFRAIN]
+adyāpi vāsagṛhato mayi nīyamāne durvārabhīṣaṇakarair yamadūtakalpaiḥ
+kiṃ kiṃ tayā bahuvidhaṃ na kṛtaṃ madarthe vaktuṃ na pāryateti vyathate mano me
+[VERSE 32]
+[REFRAIN]
+adyāpi me niśi divāṭṝhṛdayaṃ dunoti pūrṇendusundaramukhaṃ mama vallabhāyāḥ
+lāvaṇyanirjitaratikṣatikāmadarpaṃ bhūyaḥ puraḥ pratipadaṃ na vilokyate yat
+[VERSE 33]
+[REFRAIN]
+adyāpi tām avahitāṃ manasācalena saṃcintayāmi yuvatīṃ mama jīvitāśām
+nānyopabhuktanavayauvanabhārasārāṃ janmāntare 'pi mama saiva gatir yathā syāt
+[VERSE 34]
+[REFRAIN]
+adyāpi tadvadanapaṅkajagandhalubdhabhrāmyaddvirephacayacumbitagaṇḍadeśām
+līlāvadhūtakarapallavakaṅkaṇānāṃ kvāṇo vimūrchati manaḥ sutarāṃ madīyam
+[VERSE 35]
+[REFRAIN]
+adyāpi tāṃ nakhapadaṃ stanamaṇḍale yad dattaṃ mayāsyamadhupānavimohitena
+udbhinnaromapulakair bahubhiḥ samantāj jāgarti rakṣati vilokayati smarāmi
+[VERSE 36]
+[REFRAIN]
+adyāpi kopavimukhīkṛtagantukāmā noktaṃ vacaḥ pratidadāti yadaiva vaktram
+cumbāmi roditi bhṛśaṃ patito 'smi pāde dāsas tava priyatame bhaja maṃ smarāmi
+[VERSE 37]
+[REFRAIN]
+adyāpi dhavati manaḥ kim ahaṃ karomi sārdhaṃ sakhībhir api vāsagṛhaṃ sukānte
+kāntāṅgasaṃgaparihāsavicitranṛtye krīḍābhirāmeti yātu madīyakālaḥ
+[VERSE 38]
+[REFRAIN]
+adyāpi tāṃ jagati varṇayituṃ na kaścicchaknoty adṛṣṭasadṛśīṃ ca parigrahaṃ me
+dṛṣṭaṃ tayoḥ sadṛśayoḥ khalu yena rūpaṃ śakto bhaved yadi saiva naro na cānyaḥ
+[VERSE 39]
+[REFRAIN]
+adyāpi tāṃ na khalu vedmi kim īśapatnī śāpaṃ gatā surapater atha kṛṣṇalakṣmī
+dhātraiva kiṃ nu jagataḥ parimohanāya sā nirmitā yuvatiratnadidṛkṣayāṭṝvā
+[VERSE 40]
+[REFRAIN]
+adyāpi tannayanakajjalam ujjvalāsyaṃ viśrāntakarṇayugalaṃ parihāsahetoḥ
+paśye tavātmani navīnapayodharābhyāṃ kṣīṇāṃ vapur yadi vinaśyati no na doṣaḥ
+[VERSE 41]
+[REFRAIN]
+adyāpi nirmalaśaracchaśigaurakānti ceto muner api haret kim utāsmadīyam
+vaktraṃ sudhāmayam ahaṃ yadi tat prapadye cumban pibāmy avirataṃ vyadhate mano me
+[VERSE 42]
+[REFRAIN]
+adyāpi tat kamalareṇusugandhagandhi tatpremavāri makaradhvajapātakāri
+prāpnomy ahaṃ yadi punaḥ surataikatīrthaṃ prāṇāṃs tyajāmi niyataṃ tadavāptihetoḥ
+[VERSE 43]
+adyāpy aho jagati sundaralakṣapūrṇe 'nyānyam uttamaguṇādhikasamprapanne
+anyābhir apy upamituṃ na mayā ca śakyaṃ rūpaṃ tadīyam iti me hṛdaye vitarkaḥ
+[VERSE 44]
+[REFRAIN]
+adyāpi sā mama manastaṭinī sadāste romāñcavīcivilasadvipulasvabhāvā
+kādambakeśararuciḥ kṣatavīkṣaṇaṃ māṃ gātraklamaṃ kathayatī priyarājahaṃsī
+[VERSE 45]
+[REFRAIN]
+adyāpi tāṃ nṛpatī śekhararājaputrīṃ sampūrṇayauvanamadālasaghūrṇanetrīm
+gandharvayakṣasurakiṃnaranāgakanyāṃ svargād aho nipatitām iva cintayāmi
+[VERSE 46]
+[REFRAIN]
+adyāpi tāṃ nijavapuḥkṛśavedimadhyām uttuṅgasaṃbhṛtasudhāstanakumbhayugmām
+nānāvicitrakṛtamaṇḍamaṇḍitāṅgī suptotthitāṃ niśi divā na hi vismarāmi
+[VERSE 47]
+[REFRAIN]
+adyāpi tāṃ kanakakāntimadālasāṅgīṃ vrīḍotsukāṃ nipatitām iva ceṣṭamānām
+agāṃgasaṃgaparicumbanajātamohāṃ tāṃ jīvanauṣadhim iva pramadāṃ smarāmi
+[VERSE 48]
+[REFRAIN]
+adyāpi tatsuratakelinirastrayuddhaṃ bandhopabandhapatanotthitaśūnyahastam
+dantauṣṭhapīḍananakhakṣataraktasiktaṃ tasyāḥ smarāmi ratibandhuraniṣṭhuratvam
+[VERSE 49]
+adyāpy ahaṃ varavadhūsuratopabhogaṃ jīvāmi nānyavidhināṭṝkṣaṇam antareṇa
+tad bhrātaro maraṇam eva hi duḥkhaśāntyai vijñāpayāmi bhavatas tvaritaṃ lunīdhvam
+[VERSE 50]
+[REFRAIN]
+adyāpi nojhati haraḥ kila kālakūṭaṃ kūrmo bibharti dharaṇīṃ khalu pṛṣṭhabhāge
+ambhonidhir vahati duḥsahavaḍavāgnim aṅgīkṛtaṃ sukṛtinaḥ paripālayanti
