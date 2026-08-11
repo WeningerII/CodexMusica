@@ -21,6 +21,56 @@
 > the measured family sizes, and the verified boundary — including the proof
 > that `positive_control.py` and `run_positive_control.py` are outside it.
 
+> # AND THE LAYER CANNOT BE RESTARTED BY TUNING. `MUTE` IS THE FINDING.
+>
+> **Measured 2026-08-11, after the retraction:
+> `python3 quality/time_attainable.py`.** The retraction left one question
+> open — *can an event be made attainable at all, under an honest family
+> size?* — and named `null_samples` and `window` as the two live routes.
+> **Both were measured and neither is a route.** Six levers were measured and
+> none of them is.
+>
+> **The arithmetic, in three numbers.** An item fires only if some pair's
+> p-value clears its position's cut, so everything reduces to
+> **`M_NEEDED = ln(1−α)/ln(1−min_p)`**, the largest family at which the item's
+> own best pair still clears its own cut. Across 20 sonnets M_NEEDED is **21**
+> and the median family is **198** — a gap of **9.4×**, with **0.0% of
+> positions** small enough to fire. The 1.7–1.8× the record quotes is `min_p`
+> against the cut at the item's *smallest* family, an upper bound on
+> attainability that was read as an estimate of it.
+>
+> **And `min_p` cannot be lowered, because its floor is a TIE COUNT.** The best
+> pair in every sonnet measured scores exactly **1.000**, 40–83 of 20,000
+> chance re-pairings tie it, and **zero are strictly above it**. The comparator
+> has no headroom over "perfect rhyme", so `min_p` is the *density of perfect
+> chance re-pairings* — a rate, not a resolution. Raising `null_samples` 100×
+> costs 0.60 s → 4.69 s per item and moves `min_p` the **wrong way**, 4.200e-3
+> → 4.415e-3.
+>
+> **What each lever buys.** `null_samples`: nothing, backwards. `window`: `m`
+> only (`min_p` is invariant), and it first reaches the range at
+> `window ≤ max_span`, where the two anchors are adjacent and this is no longer
+> rhyme at a distance. `max_span`: self-cancelling — 3→1 cuts `m` 6.9× and
+> raises `min_p` 5.9×. More text: plateaus at 1.3×, because `m` is bounded by
+> the window and the perfect-pair rate converges on a fact about **English**.
+> A cross-item null (`MISSING` L-2's ask, built and run): 1.3×. **A declared
+> beat: 7×** — the only lever worth more than 1.5×, and it makes every event
+> land on phase 0 *by construction*, which is doctrine 41 arriving here.
+>
+> **So the whole arm table below is not merely void — it is unrestorable at
+> these parameters.** `analyse()` needs ≥4 events; 0 of 20 sonnets produce 4 at
+> the registered window and 2 of 20 at the only window that fires at all. There
+> are no per-item p-values, so there is nothing for Fisher to pool (doctrine
+> 33) — and doctrine 74 closes the other end, since the window where events
+> exist is the window where *every* event arrives as an adjacent pair and the
+> permutation H0 is most wrong.
+>
+> **What this layer would need,** stated so it can be checked: a comparator
+> with headroom above "perfect rhyme", or a hypothesis space ~10× smaller
+> declared from outside the text — i.e. **audio or a declared tempo**, shipped
+> with a same-positions-no-signal arm. Full arithmetic, every table and the
+> wall-clock: `RESULTS_FWER.md` § "THE LEVERS, MEASURED".
+
 > **RAP ARM WITHDRAWN.** Every rap figure in this document came from
 > `verse.txt`, an in-copyright commercial transcription that predated the
 > provenance gate, was never declared in `data/sources.tsv`, and was never run

@@ -27,6 +27,18 @@ THE FINDING, in one line: `m` was measured, but from the pairs that SURVIVED
 the band rather than from the comparisons that were MADE, so tightening the
 band shrank m, which loosened `1-(1-alpha)^(1/m)`, which raised the corrected
 false-event rate ~3x in BOTH alignments.
+
+WHAT THIS FILE DOES NOT ANSWER, and where that answer lives.
+
+This runner measures the family. It does not measure whether an event is
+ATTAINABLE once the family is honest, and the `min_p / loosest_cut` ratio it
+prints below is an UPPER BOUND on attainability rather than an estimate of it:
+`loosest_cut` is the cut at the item's SMALLEST family, a position at the edge
+of the item where the best pair almost never sits. Read alone it says the
+instrument is 1.7-1.8x off. Against the family a typical position actually has
+the gap is 9.4x, and 0.0% of positions are small enough to fire at all.
+`quality/time_attainable.py` measures that, and the six levers, and finds none
+of them is a route.
 """
 
 import os
@@ -253,7 +265,14 @@ def run_calibrate(n=30):
     print(f"  min attainable p / loosest cut   min {min(ratio):.1f}x  "
           f"p50 {quantile(ratio, .50):.1f}x  max {max(ratio):.1f}x")
     print(f"     every value above 1.0 is an item in which NO event was "
-          f"attainable at all.")
+          f"attainable at all,")
+    print(f"     and this ratio is an UPPER BOUND on attainability, not an "
+          f"estimate of it:")
+    print(f"     `loosest_cut` is the cut at the SMALLEST family in the item. "
+          f"Against the")
+    print(f"     family a typical position has, the gap is 9.4x and 0.0% of "
+          f"positions can")
+    print(f"     fire. See `python3 quality/time_attainable.py --corpus`.")
     for label, lines in (("REAL (one planted rhyme)", REAL),
                          ("SATURATED (one class)", SATURATED)):
         p = probe(lines, decl, t)

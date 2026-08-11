@@ -64,6 +64,17 @@ LEX = Lexicon()
 DECL = Declaration()
 
 
+#: counts every item that returned "cannot tell" or refused, so a 0.0% rate in
+#: the report below can never be read as "alpha was met". Doctrine 20 and
+#: doctrine 28: at the honest family size (`family="candidate"`, the default
+#: since 2026-08-11) EVERY item in this repository is mute at window 32, so the
+#: rates this audit prints are 0.0% for BOTH arms and that zero is a REFUSAL.
+#: The audit is kept because its construction is right and its comparison --
+#: real against its own scramble -- is the one that matters; what changed is
+#: that the instrument now declines rather than answering.
+MUTE = {"n": 0, "total": 0}
+
+
 def saturation(lines, correction="sidak"):
     """test_fwer.run() verbatim: share of eligible slots flagged as events at
     theta 0.80, window 32, the ORIGINAL registered parameters."""
@@ -72,7 +83,11 @@ def saturation(lines, correction="sidak"):
     slots = [i for i in range(len(st))
              if gi[i] is not None and not st[i]["line_final"]]
     t = TimeDeclaration(theta=0.80, window=32, correction=correction)
-    ev = rhyme_events(LEX, st, DECL, t, None, {})
+    det = {}
+    ev = rhyme_events(LEX, st, DECL, t, None, det)
+    MUTE["total"] += 1
+    if det.get("cannot_tell") or det.get("refused"):
+        MUTE["n"] += 1
     hits = [i for i in slots if i in ev]
     return len(hits) / max(1, len(slots))
 
@@ -133,6 +148,23 @@ def main(n_son=20, reps=20):
               f"range {flat[0]:.1%}-{flat[-1]:.1%}")
         print(f"    -> the declared per-position alpha is 5.0%; "
               f"RESULTS_FWER.md records the measurement as 5.4%\n")
+
+    # A ZERO HERE IS NOT AN ALPHA. Print the refusal count beside every rate,
+    # so nobody reads "0.0% against a declared 5.0%" as the claim being met.
+    print(f"  MUTE: {MUTE['n']} of {MUTE['total']} items measured returned "
+          f"CANNOT TELL or refused.")
+    if MUTE["n"]:
+        print(f"    At the honest family size (`family='candidate'`) no "
+              f"position on any item in")
+        print(f"    this repository clears its cut at window 32, so every "
+              f"rate above that reads")
+        print(f"    0.0% is a REFUSAL and not an alpha (doctrine 20/28). The "
+              f"comparison this")
+        print(f"    audit was built to make -- real against its own scramble "
+              f"-- is correct and")
+        print(f"    the instrument declines to answer it. Why, and what each "
+              f"lever buys:")
+        print(f"    `python3 quality/time_attainable.py`.")
 
 
 if __name__ == "__main__":

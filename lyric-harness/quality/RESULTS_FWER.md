@@ -31,8 +31,18 @@
 > 18 of 20 real sonnets and 16 of 20 scrambles return `cannot tell`; the rest
 > return **0 events**. A median ratio of 1.7× means the smallest p an item could
 > attain sits 1.7 times ABOVE its own loosest cut — no event was reachable at
-> all. It is not wildly off: on `lyric.txt` the best attainable p is 3.45e-3
-> against a loosest cut of 1.90e-3, a factor of 1.82.
+> all. ~~It is not wildly off: on `lyric.txt` the best attainable p is 3.45e-3
+> against a loosest cut of 1.90e-3, a factor of 1.82.~~
+>
+> > **THE LAST SENTENCE IS `VOID`, same day.** "Not wildly off" was the reading
+> > that made `null_samples` and `window` look like routes, and it comes from
+> > comparing `min_p` with the **loosest** cut — the cut at the item's smallest
+> > family, which is an upper bound on attainability rather than an estimate of
+> > it. Against the family a typical position actually has, the gap is **9.4×**
+> > and **0.0% of positions** are small enough to fire. The instrument is
+> > wildly off, and the levers are measured in **"THE LEVERS, MEASURED"** at
+> > the foot of this document. The outcome is that the layer **cannot** speak
+> > here — not that it has not yet been tuned to.
 >
 > **Every arm whose events come from `rhyme_events` is affected, and that
 > includes the sonnet arm behind Fisher p = 0.950, k = 23.** That figure now
@@ -411,10 +421,24 @@ so the hypothesis has had three chances and the corpus has had one.
 3. **FWER cannot resolve its own cut here either**, at `null_samples = 2000`.
    It is still far better placed than BH, and that ordering is all the
    comparison ever established.
-4. **The instrument is not far off.** Best attainable p / loosest cut is
+4. ~~**The instrument is not far off.** Best attainable p / loosest cut is
    1.7–1.8× on real items, not 100×. Raising `null_samples` past the 2.5e-4 cut
    and shrinking the window are both live routes, and either is cheaper than
-   another corpus.
+   another corpus.~~
+
+   > **`VOID` 2026-08-11, later the same day, and this paragraph is the reason
+   > the next section exists.** Both halves are wrong and they are wrong
+   > together. **1.7–1.8× is the gap against the LOOSEST cut** — the cut at the
+   > item's *smallest* family, a position at the edge of the item where the best
+   > pair is not. `attainable` was written as an upper bound on attainability
+   > and then read as an estimate of it. The gap at a typical position is
+   > **m_med / M_NEEDED = 9.4×** on real sonnets, and the share of positions
+   > whose family is small enough to fire at all is **0.0%**. And **neither
+   > named lever is live**: `null_samples` runs *backwards* (a 100× more
+   > expensive null raises min_p from 4.200e-3 to 4.415e-3), and the window
+   > only reaches the range at `window ≤ max_span`, where the two anchors are
+   > adjacent and the layer is no longer measuring rhyme at a distance.
+   > Measured in "THE LEVERS, MEASURED" below.
 
 **Does NOT establish** anything at all about rhyme placement in Shakespeare,
 in the deleted rap verse, or in any English text. Every sentence in this
@@ -426,9 +450,331 @@ because an item's smallest attainable p is set by how many chance re-pairings of
 its OWN spans are perfect rhymes, and a word scramble preserves the span
 multiset exactly.** The scramble was never a null for this statistic.
 
-**The honest next step is not a second rap corpus and not a fourth instrument.**
-It is `null_samples` and `window` — the two coordinates that decide whether an
-event is attainable at all — measured against the candidate family before any
-corpus is chosen. `quality/fwer_family.py` is the runner that re-measures both
-constants after any future change to the band, so neither is ever again a number
-somebody remembers.
+~~**The honest next step is not a second rap corpus and not a fourth
+instrument.** It is `null_samples` and `window` — the two coordinates that
+decide whether an event is attainable at all — measured against the candidate
+family before any corpus is chosen.~~ `quality/fwer_family.py` is the runner
+that re-measures both constants after any future change to the band, so neither
+is ever again a number somebody remembers.
+
+> **The struck sentence was the right instruction and it named the wrong two
+> coordinates.** They were measured, in the section below, and neither is a
+> route. The runner is `quality/time_attainable.py`.
+
+---
+
+# THE LEVERS, MEASURED — and the layer cannot speak
+
+**Added 2026-08-11.** This section answers the one question the retraction left
+open: *can an event be made attainable at all, under an honest family size?*
+
+**The answer is no, and it is arithmetic rather than a judgement.** The
+measurements are `python3 quality/time_attainable.py`, which checks itself
+against the shipped `rhyme_events` pair by pair (`--verify`) before it sweeps
+anything, because every sweep below runs through a memoised comparator.
+
+## The number that decides, and it was never reported
+
+An item produces an event only if some pair's p-value clears that position's
+corrected cut, so two quantities settle everything:
+
+| | |
+|---|---|
+| `min_p` | the smallest p-value any candidate pair in the item attains |
+| `cut(m)` | `1 − (1−α)^(1/m)`, the Šidák cut at family size `m` |
+
+and they meet at
+
+> **`M_NEEDED = ln(1−α) / ln(1−min_p)`** — the largest family at which the
+> item's own best pair still clears its own cut.
+
+`rhyme_events` now reports it, beside `share_firable`, the share of the item's
+positions whose family is that small. At the registered declaration:
+
+| arm | n | p50 `min_p` | p50 `ge` | p50 **M_NEEDED** | p50 `m_min` | p50 `m_med` | **m_med / M_NEEDED** | **% positions firable** | mute |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| real sonnets | 20 | 2.50e-3 | 49 | **21** | 36 | 198 | **9.4×** | **0.0%** | 18/20 |
+| word-scramble | 20 | 2.75e-3 | 54 | **19** | 32 | 217 | **11.4×** | **0.0%** | 16/20 |
+
+| item | `min_p` | `ge` | M_NEEDED | `m_min` | `m_med` | loosest cut | ratio-to-loosest |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| `lyric.txt` | 3.45e-3 | 68 | 14 | 27 | 184 | 1.90e-3 | 1.82× |
+| `REAL` fixture | 4.95e-3 | 98 | 10 | 27 | 89 | 1.90e-3 | 2.61× |
+| `SATURATED` fixture | 2.85e-2 | 570 | 1 | 21 | 95 | 2.44e-3 | 11.70× |
+
+**Read the last two columns of the first table against `ratio-to-loosest` in the
+second.** The 1.7–1.8× this document has been quoting is `min_p` against the cut
+at the item's *smallest* family. That is an upper bound on attainability, and it
+was read as an estimate of it. The gap at a position that actually carries the
+item's best pair is ~10×, and **not one position in either arm has a family
+small enough to fire.**
+
+## Why `min_p` has a floor: it is a TIE COUNT, not a resolution
+
+`_pvalue` returns `(ge+1)/(n_valid+1)` where `ge` counts chance draws scoring at
+or above the observed pair. For the best pair in a real sonnet:
+
+| item | best score | `n_valid` | `ge` (≥ best) | **strictly above** | `min_p` | M_NEEDED |
+|---|---:|---:|---:|---:|---:|---:|
+| sonnet 1 | 1.000 | 20,000 | 83 | **0** | 4.20e-3 | 12 |
+| sonnet 2 | 1.000 | 20,000 | 40 | **0** | 2.05e-3 | 24 |
+| sonnet 3 | 1.000 | 20,000 | 49 | **0** | 2.50e-3 | 20 |
+| sonnet 4 | 1.000 | 20,000 | 71 | **0** | 3.60e-3 | 14 |
+| sonnet 5 | 1.000 | 20,000 | 50 | **0** | 2.55e-3 | 20 |
+| sonnet 6 | 1.000 | 20,000 | 43 | **0** | 2.20e-3 | 23 |
+
+**Not one chance draw is strictly above any item's best pair.** The comparator
+saturates at 1.000 for a perfect rhyme; the item's best pair is a perfect rhyme,
+and so is every one of the 40–83 chance re-pairings that tie it. There is no
+headroom above "perfect" for a p-value to live in, so
+
+> `min_p` → the density of perfect rhymes among re-pairings of the item's own
+> spans. **A rate. Not a resolution.**
+
+This is doctrine 57 read from the other side. Doctrine 57 says an empirical p
+sitting *at* `1/(n+1)` is reporting the resolution; the complementary trap is a
+p sitting far *above* `1/(n+1)` — 84× above it here — which is reporting a rate
+that no resolution buys down.
+
+## The five levers, with wall-clock
+
+### Lever 1 — `null_samples`. Dead, and it runs backwards.
+
+| `null_samples` | p-value floor | p50 `min_p` | p50 `ge` | p50 `ge` rate | p50 M_NEEDED | p50 m_med/M_NEEDED | secs (10 items, memoised) |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 500 | 2.00e-3 | 3.99e-3 | 1 | 0.00200 | 25 | 8.5× | 1.8 |
+| 2,000 | 5.00e-4 | 3.50e-3 | 6 | 0.00300 | 20 | 10.7× | 2.4 |
+| **20,000** (default) | 5.00e-5 | 2.80e-3 | 55 | 0.00275 | 19 | 11.2× | 5.4 |
+| 200,000 | 5.00e-6 | 2.64e-3 | 527 | 0.00264 | 19 | 11.2× | 14.0 |
+
+**The floor falls 400× and `min_p` falls 1.5×**, to the rate it was always
+estimating. On the *shipped, uncached* path, one sonnet costs **0.21 s at 2,000
+draws, 0.60 s at 20,000, 4.69 s at 200,000** — and its `min_p` comes out
+**3.998e-3 → 4.200e-3 → 4.415e-3**, i.e. *higher*, because more draws estimate
+the tie rate more accurately and it was being under-estimated. Paying 100× more
+makes the gap worse.
+
+**This settles doctrine 29's amendment.** "At `null_samples=2000` the Šidák cut
+is 2.53e-4 and the p-value floor is 5.00e-4, so FWER cannot resolve its own
+threshold" is TRUE, and it is not the binding constraint. At the default the cut
+*is* resolved with 5× of headroom — and `min_p` is 4.20e-3, **84× above the
+resolution**. The tail was never the problem. `null_samples` is load-bearing for
+BH exactly as the amendment says and is a dead lever for FWER.
+
+### Lever 2 — `window`. It moves `m` and leaves `min_p` alone.
+
+| window | p50 pairs | p50 `m_min` | p50 `m_med` | p50 `min_p` | p50 M_NEEDED | m_med/M_NEEDED | % pos firable | items ev>0 | items ev≥4 |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 2 | 380 | 1 | 8 | 4.85e-3 | 11 | **0.7×** | 70.8% | 6/10 | 0/10 |
+| 3 | 683 | 2 | 17 | 4.50e-3 | 16 | 1.1× | 43.3% | 3/10 | 0/10 |
+| 4 | 1,109 | 4 | 30 | 2.95e-3 | 17 | 1.8× | 26.2% | 1/10 | 0/10 |
+| 6 | 1,811 | 9 | 51 | 2.80e-3 | 18 | 2.8× | 9.3% | 0/10 | 0/10 |
+| 8 | 2,363 | 13 | 66 | 3.05e-3 | 17 | 3.9× | 6.2% | 0/10 | 0/10 |
+| 16 | 4,230 | 26 | 119 | 2.70e-3 | 19 | 6.3× | **0.0%** | 0/10 | 0/10 |
+| **32** (registered) | 7,757 | 45 | 213 | 2.80e-3 | 19 | **11.2×** | **0.0%** | 0/10 | 0/10 |
+| 64 | 13,543 | 71 | 385 | 3.00e-3 | 17 | 22.6× | 0.0% | 0/10 | 0/10 |
+
+`m_med ≈ 6.7 × window`. **`min_p` is invariant** — 2.7e-3 to 4.9e-3 with no
+trend — because `null_scores` re-pairs the item's spans at *any* distance while
+the observed pairs are window-bounded. That mismatch is not a defect: a
+window-matched null would draw from exactly the scored population and every p
+would be uniform by construction, which is doctrine 68's identity map. The
+mismatch is the only thing giving the p-value content, and the price is that
+the window buys `m` and nothing else.
+
+**So the crossing is at `window = 2`, and `max_span = 3`.** The layer first
+reaches its own range at a window *no wider than the anchor span it is looking
+for* — a setting that admits only pairs whose two anchors are adjacent. That is
+an adjacent-syllable echo, not internal rhyme at a distance. It is not a
+parameter choice; it is the layer's subject matter being defined away.
+
+### Lever 3 — `max_span`. Self-cancelling.
+
+| `max_span` | window | p50 `m_med` | p50 `min_p` | p50 M_NEEDED | m_med/M_NEEDED |
+|---:|---:|---:|---:|---:|---:|
+| 3 | 32 | 213 | 2.80e-3 | 19 | 11.2× |
+| 2 | 32 | 94 | 4.75e-3 | 10 | 9.4× |
+| 1 | 32 | 31 | 1.64e-2 | 3 | 10.3× |
+
+3 → 1 cuts `m_med` **6.9×** and raises `min_p` **5.9×**, which cuts M_NEEDED
+6.3×. The gap does not move: 11.2× → 10.3×. A one-syllable span is a
+monosyllable and monosyllables collide by chance far more often, so **every
+lever that shrinks the family by shrinking the span pool shrinks the null's
+headroom by the same act.** Only a lever that shrinks the family without
+touching the span pool can move this ratio.
+
+### Lever 4 — more text. It plateaus, above 1.
+
+| sonnets concatenated | lines | pairs | `ge` | `ge` rate | `min_p` | M_NEEDED | `m_med` | m_med/M_NEEDED |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 14 | 7,303 | 83 | 0.00415 | 4.20e-3 | 12 | 203 | 16.9× |
+| 2 | 28 | 18,257 | 68 | 0.00340 | 3.45e-3 | 14 | 263 | 18.8× |
+| 4 | 56 | 36,139 | 60 | 0.00300 | 3.05e-3 | 16 | 267 | 16.7× |
+| 8 | 112 | 72,911 | 52 | 0.00260 | 2.65e-3 | 19 | 265 | 13.9× |
+| 16 | 224 | 137,999 | 51 | 0.00255 | 2.60e-3 | 19 | 247 | 13.9× |
+
+**`m` is bounded by the WINDOW, not by the item**, so it stops at ~250 while the
+text grows 16×. The perfect-pair density falls 0.00415 → 0.00255 and stops,
+because it is converging on the rate at which two random stressed spans of
+English verse are a perfect rhyme. **That rate is a fact about the language, not
+about the poem**, and it caps M_NEEDED at ~20–30 however much text is supplied.
+More items is not a route.
+
+### Lever 5 — a cross-item null. `MISSING` L-2's ask, delivered, and it is not enough.
+
+L-2 records: *"Owed: a null that destroys the span multiset — across items
+rather than within one."* Built (`quality/time_attainable.py` has the
+construction; the arm version is in the cell's scratch): null spans drawn from
+all 20 items rather than from one, observed pairs unchanged.
+
+| window | arm | pooled `ge` rate | p50 `min_p` | p50 M_NEEDED | p50 `m_med` | items ev>0 | items ev≥4 | mean saturation |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|
+| 32 | real | 0.00175 | 1.80e-3 | 28 | 198 | 0/20 | 0/20 | 0.00% |
+| 32 | scramble | 0.00175 | 2.50e-3 | 20 | 217 | 0/20 | 0/20 | 0.00% |
+| 8 | real | 0.00165 | 1.70e-3 | 30 | 62 | 0/20 | 0/20 | 0.00% |
+| 4 | real | 0.00175 | 1.90e-3 | 26 | 30 | 7/20 | 0/20 | 0.90% |
+| 2 | real | 0.00190 | 5.05e-3 | 16 | 8 | 15/20 | 4/20 | 2.68% |
+| 2 | scramble | 0.00195 | 2.30e-3 | 22 | 9 | 15/20 | 2/20 | **3.15%** |
+
+It does what L-2 asked — the perfect-pair rate drops from 0.0028 within-item to
+0.00175 pooled, and M_NEEDED rises from 21 to 28. **It is a 1.3× improvement
+against a 9.4× gap.** And the last row is the sharper finding: at the only
+window where the arm produces enough events to run at all, **the word-scramble
+saturates HIGHER than the real verse** (3.15% against 2.68%). The sign flips.
+
+### Lever 6 — a declared beat. The only lever that reaches the range, and it is circular.
+
+Anchors restricted to every k-th grid position — the cheapest honest proxy for
+"a declared tempo", which `CLAUDE.md` known gap 3 names as the layer's blocker.
+
+| beat | p50 pairs | p50 `m_med` | p50 `min_p` | p50 M_NEEDED | m_med/M_NEEDED | ev>0 | ev≥4 | **event phases mod 4** |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| none | 7,392 | 198 | 2.50e-3 | 21 | 9.4× | 0/20 | 0/20 | — |
+| 2 | 1,859 | 62 | 2.40e-3 | 21 | 3.0× | 2/20 | 0/20 | {0: 2, 2: 1} |
+| 3 | 790 | 38 | 2.20e-3 | 25 | 1.5× | 2/20 | 0/20 | {1: 1, 3: 1} |
+| **4** | 450 | 28 | 2.35e-3 | 21 | **1.3×** | 3/20 | 0/20 | **{0: 4}** |
+| 6 | 164 | 12 | 5.85e-3 | 9 | 1.3× | 2/20 | 0/20 | {0: 2} |
+| 8 | 111 | 12 | 9.15e-3 | 5 | 2.4× | 5/20 | 0/20 | {0: 4, 1: 1} |
+
+A beat of 4 cuts the median family 198 → 28 **without touching the span pool**,
+which is exactly the property lever 3 lacked, and it is the first setting to
+land within 1.3× of M_NEEDED. It still produces four or more events on **0 of 20
+sonnets** — and read the last column. Every event it produces is on phase 0,
+*because the anchors were restricted to phase 0*. **The one lever that reaches
+the range answers the layer's own question by construction.** That is doctrine
+41 arriving at the time layer: arm A without arm C1. A declared tempo does not
+rescue this layer for free; it buys attainability and hands back a positive
+control that passes for the wrong reason.
+
+## The α claim is finally measurable, and only where the layer is dead
+
+`analyse()` refuses below 4 events, so `ev≥4` is the column that decides whether
+the time layer exists at a setting.
+
+| window | arm | mute | ev>0 | **ev≥4** | max ev | pooled event rate | p50 m_med/M_NEEDED |
+|---:|---|---:|---:|---:|---:|---:|---:|
+| 2 | real | 0/20 | 14 | **2** | 5 | 2.44% | 0.6× |
+| 2 | scramble | 0/20 | 12 | **2** | 4 | **1.82%** | 0.7× |
+| 3 | real | 0/20 | 9 | 2 | 4 | 1.68% | 1.0× |
+| 3 | scramble | 0/20 | 8 | 1 | 4 | 1.21% | 1.1× |
+| 4 | real | 0/20 | 5 | 1 | 4 | 0.84% | 1.4× |
+| 4 | scramble | 0/20 | 6 | 0 | 2 | 0.61% | 1.5× |
+| 8 | real | 2/20 | 1 | 0 | 1 | 0.09% | 3.1× |
+| 16 | real | 10/20 | 0 | 0 | 0 | 0.00% | 5.2× |
+| **32** | real | **18/20** | 0 | 0 | 0 | **0.00%** | 9.4× |
+| **32** | scramble | **16/20** | 0 | 0 | 0 | **0.00%** | 11.4× |
+
+**At windows 2–4 no item is mute, so the scramble rate is a RATE and not a
+refusal** — and it is **1.82%, 1.21%, 0.61% against a declared α of 5.0%**.
+Conservative, which is Šidák behaving correctly over positively dependent
+overlapping comparisons. That is the first honest false-event measurement this
+layer has produced: P2's 5.4% was n=6 at `m` = scored, doctrine 72's 9.6% was
+n=20 at `m` = scored, and the retraction's 0.0% was a refusal. **This one is a
+rate, at n=20, at the honest family.**
+
+It is also worthless. Real and scramble are indistinguishable at every window
+where either fires, and under the cross-item null the scramble is *higher*. By
+doctrine 76 a null computed on an event set that cannot tell verse from a bag of
+its own words is not a null about verse.
+
+## Pooling: there is nothing to pool, and the H0 gets worse if there were
+
+Doctrine 33 asks the right question — if no single item can carry an event, can
+the arm? — and the answer is arithmetic. Fisher across items needs per-item
+p-values, `analyse()` produces one only at ≥4 events, and the count of items
+reaching 4 events is **0 of 20 at the registered window and 2 of 20 at window
+2.** There is no k to pool over.
+
+And doctrine 74 forbids the rescue in the same breath. Its measured cause is
+that *"rhymes arrive in PAIRS inside a window while `analyse()` draws
+independent positions"*, which put the pooled H0 at median p 0.559 and 8.5%
+above 0.950. **At window 2 that mechanism is total**: every admitted pair has
+adjacent anchors, so *every* event arrives as an adjacent pair of slots. The
+only window at which the layer can fire is the window at which its permutation
+null is most wrong. The two constraints close on each other.
+
+## Doctrine 76: the detection floor, stated beside the null
+
+`python3 quality/positive_control.py`, re-run today and unchanged — it is
+outside the retraction and this cell did not touch it:
+
+| events | slots | c=0.40 | c=0.50 | c=0.60 | c=0.75 | c=0.90 |
+|---:|---:|---:|---:|---:|---:|---:|
+| 8 | 65 | 0.02 | 0.06 | 0.13 | 0.82 | 1.00 |
+| 20 | 120 | 0.04 | 0.24 | 0.88 | 1.00 | 1.00 |
+| 40 | 240 | 0.24 | 0.94 | 1.00 | 1.00 | 1.00 |
+
+The statistic needs roughly **40 events at 50% phase concentration** for 0.80
+power. Its framing sentence — *"the corrected sonnets carry 5–8 events"* — is
+the voided figure; at the honest family they carry **0**. So the detection floor
+is not merely unmet. **It is unreachable by a factor of ∞ at the registered
+window and by 10× at the only window that fires**, and the gap between "what
+this instrument needs to see anything" and "what this instrument can produce" is
+the whole result.
+
+## THE DECLARATION
+
+**Outcome 2. The layer cannot produce an event on this material under an honest
+family size, and the reason is not tuning.**
+
+Three quantities pin it, and each is measured rather than argued:
+
+1. **`min_p` has a floor of ~2.5e-3 that is a tie count**, set by the density of
+   perfect rhymes among chance re-pairings — 0.00255 asymptotically, a property
+   of English rather than of the poem. No resolution, no corpus size and no null
+   construction moves it below ~1.75e-3.
+2. **That floor caps M_NEEDED at 20–30 comparisons per position**, by
+   `ln(1−α)/ln(1−min_p)`. It is a ceiling, not an estimate.
+3. **The layer's median family is 198–217**, and the only levers that reach 20–30
+   are `window ≤ max_span` (which redefines internal rhyme as adjacency) and a
+   declared beat (which makes the phase test answer its own premise).
+
+**What this layer would need — the boundary, stated so it can be checked:**
+
+- **A comparator with headroom above "perfect rhyme."** The binding defect is
+  that `best_score = 1.000` and 40–83 of 20,000 chance re-pairings tie it
+  exactly. Any statistic that cannot separate this item's perfect rhyme from an
+  available perfect re-pairing of its own words has a p-value floor at the
+  perfect-pair density, whatever else is fixed. The only coordinate available
+  that would break those ties is DISTANCE — and using it makes the null the
+  identity map, so the information has to come from outside the text.
+- **Or a hypothesis space ~10× smaller, declared in advance and not derived from
+  the result.** m must fall from ~200 to ~20 at a position while the window
+  stays wide enough for rhyme to mean rhyme. A declared tempo does this (198 →
+  28 at beat 4) and must ship with a same-positions-no-signal arm, because
+  without one it is doctrine 41's failure exactly.
+- **Audio, or a tempo declared from outside the text.** This is the same
+  requirement as the previous bullet, and it is the one `CLAUDE.md` known gap 3
+  has named from the start. What is new is the number: it is worth **9.4× of the
+  10× that is missing**, and it is the only lever measured that is worth more
+  than 1.5×.
+
+**Not owed:** a second corpus, a fourth instrument, more `null_samples`, a
+narrower window, a shorter `max_span`, or more text. All six were measured here
+and none of them is a route.
+
+**Runner:** `python3 quality/time_attainable.py`
+(`--verify --corpus --floor --levers --beat --arms`). It agrees with the shipped
+`rhyme_events` pair by pair before it sweeps anything, and it re-measures every
+number in this section, so none of them is ever a number somebody remembers
+(doctrine 58). Regression: `quality/test_fwer.py` test 10.

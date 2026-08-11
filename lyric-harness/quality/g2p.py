@@ -195,6 +195,19 @@ def _sfx_ed(phones):
     return ["T"] if f in VOICELESS else ["D"]
 
 
+def _sfx_st(phones):
+    """The archaic 2sg `-st`, with the same epenthesis `-s` and `-ed` have.
+
+    `grow'st` is /-st/ but `usest` is /-ɪst/, and the conditioning environment
+    is the one English already uses: a sibilant or a coronal stop takes the
+    vowel. Writing it as a constant `S T` produced `Y UW1 S S T`, which is not
+    a possible English word, and nothing downstream would have said so.
+    """
+    f = _final(phones)
+    return ["IH0", "S", "T"] if (f in SIBILANTS or _alveolar_stop(f)) \
+        else ["S", "T"]
+
+
 def _sfx_const(*phones):
     return lambda _: list(phones)
 
@@ -213,8 +226,8 @@ SUFFIXES = [
     ("eth", _sfx_const("IH0", "TH"), "-eth (archaic 3sg)"),
     ("th", _sfx_const("IH0", "TH"), "-eth (archaic 3sg)"),
     ("est", _sfx_const("IH0", "S", "T"), "-est (archaic 2sg / superlative)"),
-    ("st", _sfx_const("S", "T"), "-st (archaic 2sg, vowel stem)"),
-    ("'st", _sfx_const("S", "T"), "-'st (archaic 2sg, elided)"),
+    ("st", _sfx_st, "-st (archaic 2sg)"),
+    ("'st", _sfx_st, "-'st (archaic 2sg, elided)"),
     ("ing", _sfx_const("IH0", "NG"), "-ing"),
     ("ings", _sfx_const("IH0", "NG", "Z"), "-ings"),
     ("edly", _sfx_const("IH0", "D", "L", "IY0"), "-edly"),
@@ -285,30 +298,41 @@ SPELLINGS = [
 _DOUBLE = re.compile(r"([bcdfglmnprstvz])\1$")
 
 
+_SINGLE_CONS = re.compile(r"[^aeiouy][aeiou][bdgklmnprstvz]$")
+
+
 def stem_candidates(residue):
     """Orthographic stems a suffix-stripped residue could have come from.
 
-    Standard English stem-form adjustments and nothing else: restore a dropped
-    `e` (`gaz` -> `gaze`), undouble a final consonant (`dul` -> `dull`,
-    `runn` -> `run`), restore `y` for `i` (`jolli` -> `jolly`), and the
-    identity. Returned longest first so the caller's longest-stem preference is
-    a stable ordering rather than a set iteration (doctrine 66).
+    Standard English stem-form adjustments and nothing else: the identity,
+    undoubling (`runn` -> `run`), doubling (`dul` -> `dull`, `ful` -> `full`),
+    restoring a dropped `e` (`gaz` -> `gaze`), restoring `y` for `i`
+    (`jolli` -> `jolly`), and the `-ck` of `panick`.
+
+    -> [(stem, order_index)]. The order is DECLARED and fixed, because it is
+    half of the tie-break in `_suffix` and a tie broken by iterating a set is a
+    result that does not reproduce (doctrine 66). The other half is stem
+    LENGTH, which dominates: `gazeth` has to reach `gaze` and not the CMUdict
+    headword `gaz`, and `usest` has to reach `use` and not `us`.
     """
-    out = [residue]
-    if residue:
-        out.append(residue + "e")
-        if _DOUBLE.search(residue):
-            out.append(residue[:-1])
-        if residue.endswith("i"):
-            out.append(residue[:-1] + "y")
-            out.append(residue[:-1] + "ie")
-        if residue.endswith("ck"):
-            out.append(residue[:-1])
+    if not residue:
+        return []
+    out = [(residue, 0)]
+    if _DOUBLE.search(residue):
+        out.append((residue[:-1], 1))
+    if _SINGLE_CONS.search(residue):
+        out.append((residue + residue[-1], 2))
+    out.append((residue + "e", 3))
+    if residue.endswith("i"):
+        out.append((residue[:-1] + "y", 4))
+        out.append((residue[:-1] + "ie", 5))
+    if residue.endswith("ck"):
+        out.append((residue[:-1], 6))
     seen, uniq = set(), []
-    for s in out:
+    for s, k in out:
         if s and s not in seen:
             seen.add(s)
-            uniq.append(s)
+            uniq.append((s, k))
     return uniq
 
 
@@ -434,7 +458,6 @@ def train_letter_rules(entries, out_path=LETTER_RULES_PATH, iterations=4,
             chunk, n = c.most_common(1)[0]
             if n < min_count:
                 continue
-            shorter = _shorter_key(lvl, key)
             prev = None
             for l2 in range(lvl - 1, -1, -1):
                 k2 = _shorter_key(lvl, key, l2)
@@ -570,7 +593,13 @@ class LetterRules:
 # ---------------------------------------------------------------------------
 
 def load_elisions(path=ELISION_PATH):
-    """-> {form: (phones, source_form, note)}. Missing file = empty layer."""
+    """-> {form: (full, basis, ops, note)}. Missing file = empty layer.
+
+    The rows carry NO PHONES. Each names a CMUdict headword and an operation on
+    its pronunciation, so the elision layer is dictionary-derived in exactly the
+    sense the morphology layer is: the table supplies the change, the dictionary
+    supplies the sound. See the header of `data/eng_elision.tsv`.
+    """
     out = {}
     if not os.path.exists(path):
         return out
@@ -579,12 +608,51 @@ def load_elisions(path=ELISION_PATH):
             if line.startswith("#") or not line.strip():
                 continue
             parts = line.rstrip("\n").split("\t")
-            if len(parts) < 3:
+            if len(parts) < 4:
                 continue
-            form, full, phones = parts[0], parts[1], parts[2]
-            note = parts[3] if len(parts) > 3 else ""
-            out[form.lower()] = (tuple(phones.split()), full, note)
+            form, full, basis, ops = parts[0], parts[1], parts[2], parts[3]
+            note = parts[4] if len(parts) > 4 else ""
+            out[form.lower()] = (full, basis, ops, note)
     return out
+
+
+class ElisionRowFailed(Exception):
+    """A row's basis is absent, or an index does not land. The layer refuses;
+    it does not fall back to a hand-written phone string, because there are no
+    hand-written phone strings here to fall back to."""
+
+
+def apply_elision_ops(phones, ops):
+    """Apply a row's declared operations.
+
+    **Every index is into the ORIGINAL pronunciation**, so a row with two
+    deletions does not have to know what the first one did to the offsets. That
+    is stated here and in the data file's header because an index scheme a
+    reader has to infer is a rule that lives only in prose (doctrine 48).
+    """
+    kept = list(phones)
+    drop = set()
+    prepend = []
+    for op in ops.split(","):
+        op = op.strip()
+        if not op or op == "=":
+            continue
+        if op.startswith("del:"):
+            i = int(op[4:])
+            if not 0 <= i < len(phones):
+                raise ElisionRowFailed(f"del:{i} does not land in {phones}")
+            drop.add(i)
+        elif op.startswith("sub:"):
+            raw, _, ph = op[4:].partition("=")
+            i = int(raw)
+            if not 0 <= i < len(phones):
+                raise ElisionRowFailed(f"sub:{i} does not land in {phones}")
+            kept[i] = ph
+        elif op.startswith("pre:"):
+            prepend.append(op[4:])
+        else:
+            raise ElisionRowFailed(f"unknown op {op!r}")
+    return prepend + [p for i, p in enumerate(kept) if i not in drop]
 
 
 # ---------------------------------------------------------------------------
@@ -644,21 +712,40 @@ class Fallback:
         return None
 
     def _suffix(self, w):
-        best = None
+        """The declared tie-break, in one place so it can be argued with.
+
+        `(-stem length, stem-form order, frequency rank)`. Length first because
+        the ambiguity that actually bites is a SHORT accidental headword —
+        CMUdict lists `gaz` and `us`, so `gazeth` and `usest` both have a wrong
+        short parse available. Stem-form order second (`dul` is absent, `dull`
+        and `dule` are both present and `-ness` wants the doubled one).
+        Frequency last, from the lexicon's own `wordfreq20k` ranking, which is
+        independent of the pronunciation being predicted (doctrine 13).
+        """
+        cands = []
         for sfx, allo, name in SUFFIXES:
             if not w.endswith(sfx) or len(w) - len(sfx) < 2:
                 continue
             residue = w[:-len(sfx)]
-            for stem in stem_candidates(residue):
+            for stem, order in stem_candidates(residue):
                 ph = self._lookup(stem) or self._spelling_phones(stem)
                 if not ph:
                     continue
-                cand = (len(stem), Reading(tuple(list(ph) + allo(ph)),
-                                           "morphology", f"{name} on {stem}",
-                                           (stem,)))
-                if best is None or cand[0] > best[0]:
-                    best = cand
-        return best[1] if best else None
+                rank = self.lex.freq_rank.get(stem, 10 ** 9) if hasattr(
+                    self.lex, "freq_rank") else 10 ** 9
+                cands.append(((-len(stem), order, rank), stem, name,
+                              tuple(list(ph) + allo(ph))))
+        if not cands:
+            return None
+        cands.sort(key=lambda c: c[0])
+        key, stem, name, phones = cands[0]
+        # Provenance, not just phones: if a less-modified stem gives the SAME
+        # pronunciation, name that one. `grow'st` rests on `grow`, and the
+        # CMUdict headword `growe` is an accident of the dictionary.
+        for k2, s2, n2, p2 in cands:
+            if p2 == phones and k2[1] < key[1]:
+                key, stem, name = k2, s2, n2
+        return Reading(phones, "morphology", f"{name} on {stem}", (stem,))
 
     def _spelling_phones(self, w):
         r = self._spelling(w)
@@ -671,12 +758,14 @@ class Fallback:
             rest = w[len(pfx):].lstrip("-'")
             if len(rest) < 3:
                 continue
-            inner = (self._lookup(rest) or self._spelling_phones(rest)
-                     or (lambda r: list(r.phones) if r else None)(
-                         self._suffix(rest)))
+            inner, basis = self._lookup(rest), (rest,)
+            if inner is None:
+                sub = self._spelling(rest) or self._suffix(rest)
+                if sub is not None:
+                    inner, basis = list(sub.phones), sub.basis
             if inner:
                 return Reading(tuple(list(ph) + list(inner)), "morphology",
-                               f"{pfx}- on {rest}", (rest,))
+                               f"{pfx}- on {rest}", basis)
         return None
 
     def _final_apostrophe(self, w):
@@ -710,10 +799,19 @@ class Fallback:
         hit = self.elisions.get(w)
         if not hit:
             return None
-        phones, full, note = hit
-        return Reading(phones, "elision",
-                       f"standard elision of {full}" + (f" ({note})" if note
-                                                        else ""), (full,))
+        full, basis, ops, note = hit
+        base = self._lookup(basis)
+        if not base:
+            return None            # REFUSAL, not a hand-written substitute
+        try:
+            phones = apply_elision_ops(base, ops)
+        except ElisionRowFailed:
+            return None
+        if not phones:
+            return None
+        return Reading(tuple(phones), "elision",
+                       f"{w} = elision of {full}, from CMUdict {basis} "
+                       f"[{ops}]" + (f"; {note}" if note else ""), (basis,))
 
     # ----------------------------------------------------------------- letter
     def letter_rules(self):
