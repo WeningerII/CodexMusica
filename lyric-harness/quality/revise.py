@@ -52,14 +52,11 @@ maximal cliques may OVERLAP — giving structures with NO LETTER REPRESENTATION
 AT ALL. So the loop could grade only the projections the doctrine calls lossy,
 and the projection is exactly the thing that sometimes does not exist.
 
-Both halves reproduced on the song this repo wrote:
-
-    python3 lyric_harness.py partition examples/never_been_to_a_scene.txt
-        -> 41 lines, the cliques OVERLAP, NO LETTER SCHEME EXISTS
-    python3 lyric_harness.py brief examples/never_been_to_a_scene.txt
-        -> "nothing flagged"
-
-The second is not a clean draft. With no scheme declared NOTHING WAS MANDATED,
+Both halves reproduce on any real draft whose rhyme graph's maximal cliques
+overlap: `partition` reports NO LETTER SCHEME EXISTS, and `brief` on the same
+file with no scheme declared reports "nothing flagged" — not because the
+draft is clean, but because nothing was mandated for it to violate.
+NOTHING WAS MANDATED,
 so it passed VACUOUSLY — doctrine 20 in a new place, inconclusive by
 construction dressed as a pass. A grader whose answer to "check this against
 nothing" is "looks fine" is worse than no grader, because it prints a
@@ -230,10 +227,10 @@ class ReviseDeclaration:
     #: It ABSORBS AND NEVER ADDS: a merge is only reported over edges the
     #: loop was already emitting, so no setting of this makes the loop say
     #: something about a pair it was previously silent on. That guard is not
-    #: cosmetic — without it the rule fires on `cherokee_bill`'s C[5,6] and
-    #: H[15,16] (`man`~`gun` at 0.878), which satisfy the mandate jointly and
-    #: are NOT collisions, and the loop would be volunteering an opinion about
-    #: a rhyme the writer did not make on a song that passes 14/14.
+    #: cosmetic — without it the rule fires on two DECLARED groups whose end
+    #: words happen to satisfy the mandate jointly and are NOT collisions,
+    #: and the loop would be volunteering an opinion about a rhyme the
+    #: writer did not make on a draft that otherwise passes clean.
     group_merge: str = "report"          # "report" | "off"
 
 
@@ -624,10 +621,9 @@ class Reviser:
         LINE, so a scheme cannot say "these two groups are the same words
         coming back" — it is FORCED to spend two letters on one returning
         section, and the collision detector then reports, as unintended rhyme
-        across groups, the identity the projection was forced to hide. On
-        `never_been_to_a_scene` that is 16 of 26 collisions and on
-        `cherokee_bill` 4 of 12: one true sentence about the mandate,
-        rendered as twenty accusations against sixteen innocent lines.
+        across groups, the identity the projection was forced to hide: one
+        true sentence about the mandate, rendered as an accusation against
+        an innocent line.
 
         AND IT DOES NOT DECIDE WHETHER THE RETURN WAS INTENDED. Two groups
         being indistinguishable in the graph is compatible with a refrain and
@@ -785,8 +781,7 @@ class Reviser:
 
         A blueprint section has always been able to carry `"function"`, and
         a blueprint has always been able to carry a top-level `"hooks"`
-        list — `examples/moonlight_and_lead.blueprint.json` has both, and
-        until now NOTHING past `quality/fit.py` read either field.
+        list, and until now NOTHING past `quality/fit.py` read either field.
         `fit.py` has no reason to: it places lines in bars and time, and
         does not know or need to know what a section is FOR. This is that
         gap closed, on the same opt-in coordinate — pass no `blueprint` and
@@ -1565,13 +1560,13 @@ class Reviser:
                 state = "FLAGGED" if ln in flagged else "answers all of them"
                 print(f"  PIVOT L{ln} in groups {', '.join(labs)} — {state}",
                       file=stream)
-        # A NOTE IS NOT A FLAG, and this header counted them the same. On the
-        # mandate `never_been_to_a_scene` was written to, it printed "17
-        # line(s) flagged" while every one of the 17 carried nothing but
-        # severity-"note" collisions and not one earned a candidate field — a
-        # certificate of 17 problems on a draft with zero. Doctrine 79's shape
-        # one layer up: report the counts SEPARATELY rather than summing
-        # things that ask different things of a writer.
+        # A NOTE IS NOT A FLAG, and this header used to count them the same:
+        # a draft could have every one of its flagged-looking lines carry
+        # nothing but severity-"note" collisions and not one candidate
+        # field, and still be printed as N problems when the true count of
+        # things a writer must revise was zero. Doctrine 79's shape one
+        # layer up: report the counts SEPARATELY rather than summing things
+        # that ask different things of a writer.
         revise_me = sorted(b.line_no for b in briefs
                            if any(f.severity == "flag" for f in b.findings))
         noted = [b.line_no for b in briefs if b.line_no not in set(revise_me)]

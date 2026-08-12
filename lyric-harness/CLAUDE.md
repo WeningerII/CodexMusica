@@ -228,13 +228,11 @@ REFUSES by name (`REFUSED — ...`, exit 2) rather than raising, and a bare
 `NoMandate` refusal (no MANDATE argument at all) is routed to the SAME
 refusal path `brief`/`verify`/`revise` share rather than printing a second,
 slightly different shape of the same message. This repo's own root
-`blueprint.json`/`lyric.txt` are a THIRD, never-migrated schema (no `lines`
-array, a single top-level `scheme` string) that neither the old nor the new
-`song` can read — left alone rather than deleted or migrated, since
-`lyric.txt` is independently used by `quality/test_relations.py` and
-`quality/time_attainable.py` for unrelated sample text; `quality/
-test_verbs.py`'s `song` cases now run against `examples/
-never_been_to_a_scene.blueprint.json`/`.txt` instead.
+`blueprint.json` is a THIRD, never-migrated schema (no `lines` array, a
+single top-level `scheme` string) that neither the old nor the new `song`
+can read — left alone rather than deleted or migrated, since migrating a
+dead schema nothing reads teaches nothing a fresh fixture wouldn't; `quality/
+test_verbs.py`'s `song` cases run against a real bar-grid blueprint instead.
 
 **BLUEPRINT OMISSION, DISCLOSED AT THE API TOO — FIXED 2026-08-12.** The
 paragraph above closes the CLI's copy of this gap (`_say_blueprint()`); the
@@ -275,10 +273,11 @@ a `Mandate` object by hand. The two mandate spellings the CLI already had —
 `--groups=`, which builds a bare Cover defaulting every pair to
 `REQUIRE_RHYME` (identity FORBIDDEN), and `--cliques`, which derives its
 groups from OBSERVED rhyme rather than a writer's declared repeat — both
-get this wrong for a song with an intentional refrain: `examples/
-the_well_is_running_dry`'s three-times-repeated chorus, run through `song
-... --cliques`, was charged `SCHEME_VIOLATION` on its own hook for being
-exactly identical, the one thing it was supposed to be. This is not a
+get this wrong for a song with an intentional refrain: a real end-to-end
+run of the pipeline, on a draft with a three-times-repeated chorus, run
+through `song ... --cliques`, was charged `SCHEME_VIOLATION` on its own
+hook for being exactly identical, the one thing it was supposed to be.
+This is not a
 narrow bug in one example — it is what happens to EVERY chorus/refrain
 declared through the CLI, on every verb that takes a MANDATE, since the day
 `quality.schemes.mandate` grew `returns=`. `--returns=` closes it: same
@@ -299,6 +298,24 @@ calibration) asked by a layer that does not consult `Mandate.requirement`
 at all, doctrine 6/7's "two sources, deliberately kept apart" holding
 exactly as designed. `--returns=` fixes the MANDATE layer's
 misclassification; it was never going to silence the floor, and should not.
+
+**A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `--- `, OR `#` — NOTHING
+ELSE — CENTRALIZED 2026-08-12.** A `(parenthetical stage direction)` under a
+section header is not apparatus to any reader in this repo: it starts with
+`(`, and every line-loader here only ever excluded `[`/`---`/`#`. Written
+that way it is scored as sung text — tokenized, fed to the rhyme graph,
+counted toward MATTR — which is how a stage direction like "(instrumental
+fade, 7/8)" ends up polluting a real measurement. `quality/readability.py`'s
+`read_lines`, `quality/grid.py`'s `read_marked_songs`, and a dozen other
+readers under `quality/` already agreed on `#`/`--- `/`[...]` as apparatus;
+`lyric_harness.py`'s own CLI verbs (`brief`, `verify`, `revise`, `song`,
+`density`, `graph`, `chains`, `partition`, `scheme`) were the one holdout,
+each with its own inline `not startswith("[")` filter, silently missing
+`#`/`---`. `is_apparatus_line`/`load_lyric_lines` (`lyric_harness.py`, near
+the top) are now the one definition every verb calls — a stage direction,
+or any other non-sung line, belongs on a `#`-prefixed line under the
+section header it annotates, and it will be dropped exactly the way a
+`--- TITLE:` line already is everywhere else in this repo.
 
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
@@ -741,10 +758,9 @@ rather than this paragraph — a roster copied into two files drifts in both.
    boolean; `return_findings` runs it over every declared function's own
    recurrences). "Current refs are verbatim-only" stopped being true two
    days after this line was written and nobody split the sentence — doctrine
-   48's own failure mode, caught by `Nobody's Native Son`'s final chorus
-   coming back `HEAD_PRESERVED` in a real run
-   (`examples/nobodys_native_son.txt`). **Outro-extends-intro is still
-   OPEN**: `compare_returns` takes two line lists and does not care where
+   48's own failure mode, caught by a real draft's final chorus coming back
+   `HEAD_PRESERVED` in a real run rather than the boolean the sentence still
+   claimed. **Outro-extends-intro is still OPEN**: `compare_returns` takes two line lists and does not care where
    they came from, but `song_function_report` only ever calls it on
    MULTIPLE INSTANCES OF THE SAME declared function (`song.instances_of(fn)`)
    — comparing across two DIFFERENT functions (does the outro reprise the

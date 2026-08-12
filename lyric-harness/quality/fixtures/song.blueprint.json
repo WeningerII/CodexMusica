@@ -1,0 +1,179 @@
+{
+  "_note": "Constructed fixture (doctrine 94): built to exercise specific structural boundaries -- subdivision overflow in 4/4, non-overflow in 7/8, a verbatim chorus return, an OOV token -- not to read as a song.",
+  "title": "Ledger",
+  "hooks": [
+    "we counted every reason we were given to keep counting"
+  ],
+  "sections": [
+    {
+      "name": "verse1",
+      "bars": 4,
+      "meter": {
+        "beats": 7,
+        "unit": 8
+      }
+    },
+    {
+      "name": "pre",
+      "bars": 1,
+      "meter": {
+        "beats": 4,
+        "unit": 4
+      }
+    },
+    {
+      "name": "chorus",
+      "bars": 2,
+      "meter": {
+        "beats": 4,
+        "unit": 4
+      }
+    },
+    {
+      "name": "verse2",
+      "bars": 4,
+      "meter": {
+        "beats": 7,
+        "unit": 8
+      }
+    },
+    {
+      "name": "bridge",
+      "bars": 2,
+      "meter": {
+        "beats": 4,
+        "unit": 4
+      }
+    },
+    {
+      "name": "chorus2",
+      "bars": 2,
+      "meter": {
+        "beats": 4,
+        "unit": 4
+      }
+    },
+    {
+      "name": "outro",
+      "bars": 1,
+      "meter": {
+        "beats": 4,
+        "unit": 4
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "the wire hums low across the yard",
+      "bar": 1,
+      "beat": 1,
+      "duration": 7,
+      "section": "verse1"
+    },
+    {
+      "text": "a counted step a counted breath",
+      "bar": 2,
+      "beat": 1,
+      "duration": 7,
+      "section": "verse1"
+    },
+    {
+      "text": "the numbers hold the numbers wait",
+      "bar": 3,
+      "beat": 1,
+      "duration": 7,
+      "section": "verse1"
+    },
+    {
+      "text": "a line of light along the fence",
+      "bar": 4,
+      "beat": 1,
+      "duration": 7,
+      "section": "verse1"
+    },
+    {
+      "text": "and the count keeps climbing slow",
+      "bar": 5,
+      "beat": 1,
+      "duration": 4,
+      "section": "pre"
+    },
+    {
+      "text": "we counted every reason we were given to keep counting",
+      "bar": 6,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "we numbered every corner of the room and lost the number",
+      "bar": 7,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "the gate keeps time the way it can",
+      "bar": 8,
+      "beat": 1,
+      "duration": 7,
+      "section": "verse2"
+    },
+    {
+      "text": "a folded map a steady hand",
+      "bar": 9,
+      "beat": 1,
+      "duration": 7,
+      "section": "verse2"
+    },
+    {
+      "text": "the numbers turn the numbers stall",
+      "bar": 10,
+      "beat": 1,
+      "duration": 7,
+      "section": "verse2"
+    },
+    {
+      "text": "a door left open down the hall",
+      "bar": 11,
+      "beat": 1,
+      "duration": 7,
+      "section": "verse2"
+    },
+    {
+      "text": "no line no bar no glissando drift",
+      "bar": 12,
+      "beat": 1,
+      "duration": 4,
+      "section": "bridge"
+    },
+    {
+      "text": "a shape that will not hold a name",
+      "bar": 13,
+      "beat": 1,
+      "duration": 4,
+      "section": "bridge"
+    },
+    {
+      "text": "we counted every reason we were given to keep counting",
+      "bar": 14,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "we numbered every corner of the room and lost the number",
+      "bar": 15,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "the count goes on without a sum",
+      "bar": 16,
+      "beat": 1,
+      "duration": 4,
+      "section": "outro"
+    }
+  ]
+}

@@ -716,6 +716,32 @@ def anchor(sylls, mode="last_stressed"):
 NO_ANCHOR = "NO_ANCHOR"
 
 
+def is_apparatus_line(line):
+    """True if `line` is apparatus (a section marker, source note, or
+
+    comment) rather than sung text. Matches the convention already used
+    throughout `quality/` (readability.py's `read_lines`, grid.py's
+    `read_marked_songs`, fin_rhyme_rate.py, audit_register.py, etc.): a
+    `[Section]` header, a `--- ` source note, or a `#` comment -- the last
+    of which is the place a stage direction belongs, since unlike a bare
+    `(...)` parenthetical it is unambiguously apparatus and never scored.
+    """
+    s = line.strip()
+    return s.startswith("[") or s.startswith("---") or s.startswith("#")
+
+
+def load_lyric_lines(path):
+    """-> list[str]. Non-empty, non-apparatus lines from a lyric file, in
+
+    the same shape every CLI verb below expects: stripped, in order, blank
+    and apparatus lines dropped. One definition so every verb agrees on
+    what counts as sung text.
+    """
+    with open(path, encoding="utf-8") as f:
+        return [l.strip() for l in f.read().splitlines()
+                if l.strip() and not is_apparatus_line(l)]
+
+
 def line_tokens(text):
     """The line's word tokens, in order, before any dictionary filtering.
 
@@ -3385,8 +3411,7 @@ def main():
               + (f"  OOV {oov}" if oov else ""))
 
     elif cmd == "density":
-        lines = [l.strip() for l in open(args[1]).read().splitlines()
-                 if l.strip() and not l.strip().startswith("[")]
+        lines = load_lyric_lines(args[1])
         res = rhyme_density(lex, lines, decl)
         for i, d in enumerate(res["per_line"]):
             print(f"  L{i+1}: {d}")
@@ -3422,8 +3447,7 @@ def main():
                   + ("; ".join(defects) if defects else "sound"))
 
     elif cmd == "graph":
-        lines = [l.strip() for l in open(args[1]).read().splitlines()
-                 if l.strip() and not l.strip().startswith("[")]
+        lines = load_lyric_lines(args[1])
         th = float(args[2]) if len(args) > 2 else None
         g = rhyme_graph(lex, lines, decl, theta=th)
         print(f"nodes {len(g['endwords'])}  edges {len(g['edges'])}  "
@@ -3461,8 +3485,7 @@ def main():
               f"(target {res['target']})")
 
     elif cmd == "chains":
-        lines = [l.strip() for l in open(args[1]).read().splitlines()
-                 if l.strip() and not l.strip().startswith("[")]
+        lines = load_lyric_lines(args[1])
         th = float(args[2]) if len(args) > 2 else None
         for ch in infer_chains(lex, lines, decl, theta_chain=th):
             single = ch["length"] == 1
@@ -3713,8 +3736,7 @@ def main():
         from quality import schemes as SC
         src = args[1:]
         if len(src) == 1 and os.path.exists(src[0]):
-            lines = [l.strip() for l in open(src[0]).read().splitlines()
-                     if l.strip() and not l.strip().startswith("[")]
+            lines = load_lyric_lines(src[0])
         else:
             lines = src
         g = rhyme_graph(lex, lines, decl)
@@ -3789,7 +3811,7 @@ def main():
         # them first -- which every other verb here does -- would silently put
         # the whole text in stanza 0 and make those five unreachable.
         raw = [l.rstrip() for l in open(keep[0]).read().splitlines()
-               if not l.strip().startswith("[")]
+               if not is_apparatus_line(l)]
         lines = [l for l in raw if l.strip()]
         phon = _getphon(lang)
         st = RL.build_stream(raw, phon,
@@ -4011,8 +4033,7 @@ def main():
         for a, b, lab in pairs:
             print(f"    {lab}: L{a} == L{b}")
         if len(args) > 2:
-            lines = [l.rstrip() for l in open(args[2]).read().splitlines()
-                     if l.strip() and not l.strip().startswith("[")]
+            lines = load_lyric_lines(args[2])
             print(f"  checked against {args[2]}: {len(lines)} line(s) vs "
                   f"{sch.n_lines} declared")
             bad = sch.check_identity(lines)
@@ -4257,8 +4278,7 @@ def main():
 
         try:
             if cmd == "brief":
-                lines = [l.rstrip() for l in open(args[1]).read().splitlines()
-                         if l.strip() and not l.strip().startswith("[")]
+                lines = load_lyric_lines(args[1])
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
                 _say_derived(scheme)
@@ -4301,7 +4321,7 @@ def main():
                                   f"lyric line(s), blueprint places {bn}")
                 lines = ([l for _, ls in marked for l in ls] if marked else
                         [l.strip() for l in lyric_text.splitlines()
-                         if l.strip() and not l.strip().startswith("[")])
+                         if l.strip() and not is_apparatus_line(l)])
                 scheme = _mandate_arg(args[3] if len(args) > 3 else None,
                                       lines)
                 _say_derived(scheme)
@@ -4328,10 +4348,8 @@ def main():
                     print(f"  REFUSED — {e}")
                     sys.exit(2)
             elif cmd == "verify":
-                before = [l.rstrip() for l in open(args[1]).read().splitlines()
-                          if l.strip() and not l.strip().startswith("[")]
-                after = [l.rstrip() for l in open(args[2]).read().splitlines()
-                         if l.strip() and not l.strip().startswith("[")]
+                before = load_lyric_lines(args[1])
+                after = load_lyric_lines(args[2])
                 scheme = _mandate_arg(args[3] if len(args) > 3 else None,
                                       before)
                 _say_derived(scheme)
@@ -4359,8 +4377,7 @@ def main():
                 # real writing supplies its own `propose`/`propose_pair`
                 # through the Python API; this verb exists so the control
                 # flow itself is runnable and inspectable without one.
-                lines = [l.rstrip() for l in open(args[1]).read().splitlines()
-                         if l.strip() and not l.strip().startswith("[")]
+                lines = load_lyric_lines(args[1])
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
                 _say_derived(scheme)

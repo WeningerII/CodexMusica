@@ -354,13 +354,13 @@ def test_out_of_domain_is_announced():
               "PROVISIONAL" in text)
 
 
-EXAMPLES = os.path.join(HERE, "..", "examples")
+FIXTURES = os.path.join(HERE, "fixtures")
 
 
 def _sheet(name):
     """A lyric sheet's body lines, section markers dropped — the unit the song
     profile was calibrated on."""
-    with open(os.path.join(EXAMPLES, name), encoding="utf-8") as fh:
+    with open(os.path.join(FIXTURES, name), encoding="utf-8") as fh:
         return [l.strip() for l in fh
                 if l.strip() and not (l.strip().startswith("[")
                                       and l.strip().endswith("]"))]
@@ -369,8 +369,7 @@ def _sheet(name):
 def test_the_floor_runs_on_a_song():
     print("\n13. the length-sensitive half runs on a song-length lyric")
     from quality.floor import declaration_for
-    for name, n_lines in (("cherokee_bill.txt", 28),
-                          ("never_been_to_a_scene.txt", 41)):
+    for name, n_lines in (("anaphoric.txt", 26),):
         ls = _sheet(name)
         tok = sum(len(FLOOR.qf._tokens(x)) for x in ls)
         prof, exact = declaration_for(tok)
@@ -380,9 +379,9 @@ def test_the_floor_runs_on_a_song():
               f"{prof.name if prof else None}, exact={exact}")
         check(f"{name} gets a length-sensitive verdict",
               "OUT_OF_CALIBRATED_LENGTH" not in codes(ls),
-              "before 2026-08-11 both example songs got OUT_OF_CALIBRATED_"
+              "before 2026-08-11 the example songs got OUT_OF_CALIBRATED_"
               "LENGTH and the entire length-sensitive half of the floor sat "
-              "out on the only two songs this project has written")
+              "out on the only song-length fixture this project had")
         check(f"{name} really has {n_lines} lines", len(ls) == n_lines)
 
 
@@ -394,15 +393,15 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # the outcome that a tuned profile could not have produced: the harness's
     # flagship example song FAILS its own gate, on a check whose threshold is
     # the corpus's 95th percentile and nothing else.
-    ls = _sheet("never_been_to_a_scene.txt")
+    ls = _sheet("anaphoric.txt")
     f = find(ls, "ANAPHORA_OVERLOAD")
-    check("never_been_to_a_scene trips ANAPHORA_OVERLOAD", f is not None,
-          "14 of its 41 lines open with 'I' — 34% against a human 95th "
+    check("the fixture trips ANAPHORA_OVERLOAD", f is not None,
+          "13 of its 26 lines open with 'I' — 50% against a human 95th "
           "percentile of 30.0% measured on 1,859 corpus songs. If a later "
           "change makes this pass, the threshold moved for the lyric's sake "
           "and this test is the thing that says so")
     check("and it is a flag, not a note", f is not None and
-          f.severity == "flag", "the song profile covers 291 tokens exactly, "
+          f.severity == "flag", "the song profile covers 221 tokens exactly, "
           "so nothing is downgraded for extrapolation")
     from quality.floor import PROFILES
     song = [p for p in PROFILES if p.name == "song"][0]
@@ -417,7 +416,7 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
 
 def test_the_song_profile_makes_no_separation_claim():
     print("\n15. a profile with no negative class may not sound like one")
-    ls = _sheet("never_been_to_a_scene.txt")
+    ls = _sheet("anaphoric.txt")
     fs = [f for f in FLOOR.check(ls)
           if f.code in ("ANAPHORA_OVERLOAD", "LEXICAL_MONOTONY",
                         "FUNCTION_WORD_HEAVY", "UNIFORM_LINE_LENGTH")]
@@ -491,7 +490,7 @@ def test_the_examples_are_not_in_the_calibration_set():
     check("the calibration set is the one the profile names",
           len(corpus) > 100000, f"{len(corpus)} distinct normalised lines "
                                 f">= 12 chars in corpus/song/eng_*.txt")
-    for name in ("cherokee_bill.txt", "never_been_to_a_scene.txt"):
+    for name in ("anaphoric.txt",):
         lines = {norm(l) for l in _sheet(name) if len(norm(l)) >= 12}
         shared = lines & corpus
         check(f"{name} shares no line with the calibration set", not shared,

@@ -231,7 +231,7 @@ def scrambled_sonnets(n, seed=7):
 
 
 def lyric_sheet():
-    p = os.path.join(HERE, "..", "lyric.txt")
+    p = os.path.join(HERE, "..", "metidja.txt")
     with open(p) as fh:
         return [l.strip() for l in fh if l.strip()]
 
@@ -311,7 +311,7 @@ def run_corpus(n=20, w=32):
               f"{sum(1 for r in rs if r['mute']):3d}/{len(rs):<3d} "
               f"{sum(1 for r in rs if r['n_events'] > 0):5d}")
     print()
-    for name, lines in (("lyric.txt", lyric_sheet()),
+    for name, lines in (("metidja.txt", lyric_sheet()),
                         ("REAL fixture", REAL),
                         ("SATURATED fixture", SATURATED)):
         r = probe(lines, TimeDeclaration(theta=0.80, window=w,
