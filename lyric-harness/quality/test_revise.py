@@ -33,9 +33,45 @@ positive-case suite cannot find a rule that is too generous:
   - 22  what the words doctrine 9 forbids actually are, against a declared
         strict-identity reference
 
+Tests 23-24 are the COLLISION half, added the same day after the same reading
+was done on the mandate each song was actually WRITTEN to — where the loop
+passes the draft outright and then emits nothing but collisions
+(`quality/RESULTS_COLLISION_PARTITION.md`):
+
+  - 23  the collision set is PARTITIONED and each part charged to a layer:
+        a wholesale merge between two groups is one statement about the
+        MANDATE, a near-relation is not an unintended RHYME, and the merge
+        rule absorbs edges without ever inventing one
+  - 24  the DECISION that a collision earns no candidate field, measured
+        rather than asserted: the constraint is negative, so its satisfying
+        set is 98-99% of the lexicon and doctrine 9's modal head over it is
+        `you, i, the, to, a, 's`
+
+Test 25 is the METER half, added 2026-08-11: `quality/fit.py`'s syllable-
+fits-the-bar layer, folded into the SAME finding set as rhyme rather than
+grafted on as a second veto. It adds NO new rejection rule of its own — the
+existing "a revision may not trade one defect for another" diff (test 3)
+already catches a fix that breaks the meter, the moment a meter finding is a
+member of the same set that diff reads.
+
+Test 26 is a BUG FIX, not a new feature: `grade()` decided doctrine 3's
+REPEAT-is-a-violation question with one song-wide switch
+(`rdecl.repeat_licence`) instead of asking the mandate's own per-pair
+`repeat_is_violation(i, j)`. Consequence, verified on a real villanelle: a
+CORRECT verbatim refrain was flagged as a violation under the default
+setting, and `revise_loop` would have tried to "fix" a refrain that was
+already right. Two changes, both required: `grade()` now asks the mandate
+first and falls back to the switch only where the mandate does not decide
+(a plain letter scheme or `Cover` with no `Return` objects, unaffected by
+either half of this fix); `inspect()` now also emits
+`Mandate.returns_check()` findings, so `verify()`'s existing net-negative
+diff — the SAME mechanism test 25 reused for meter — can see a revision
+that breaks a declared return, which it could not see at all before.
+
 Run: python3 quality/test_revise.py
 """
 
+import collections
 import os
 import sys
 
@@ -43,13 +79,26 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import Declaration, check_scheme, rhyme_graph  # noqa: E402
+from lyric_harness import (Declaration, NEAR_RELATIONS,  # noqa: E402
+                           check_scheme, rhyme_graph)
+from quality import fit as FT  # noqa: E402
+from quality import frequency as FREQ  # noqa: E402
 from quality import schemes as SC  # noqa: E402
-from quality.revise import (Brief, NoMandate, ReviseDeclaration,  # noqa: E402
-                            Reviser)
+from quality.revise import (COLLISION_FINDINGS, THETA_COLLISION,  # noqa: E402
+                            Brief, NoMandate, ReviseDeclaration, Reviser)
 
 FAILURES = []
 R = Reviser()
+
+#: `CAUSE` used to be appended to every check this file left RED ON PURPOSE
+#: after `Declaration.coda_agreement` moved the song's graph out from under
+#: it (2026-08-11). REMOVED 2026-08-11: every one of those checks is closed
+#: now -- three repointed to the real song's own CURRENT structure (tests 15
+#: and 19), one moved to a constructed fixture because its real witness was
+#: gone entirely (test 14, doctrine 94) -- so a "this is red on purpose"
+#: string with nothing red left to attach it to would itself become the
+#: stale claim doctrine 58 warns about. History: quality/RESULTS_CODA_SHAPE.md
+#: and quality/RESULTS_COLLISION_PARTITION.md §9.
 
 CLICHE = ["The candle burned and set the room on fire",
           "He said the word and then he turned to go",
@@ -61,6 +110,51 @@ CLICHE = ["The candle burned and set the room on fire",
 #: mandate its author declared is a letter string over the two choruses.
 SONG = os.path.join(HERE, "..", "examples", "never_been_to_a_scene.txt")
 SONG_SCHEME = "XXXXXXXXXXXXABCBADCDXXXXXXXXXXXXEFGFEHGHX"
+SONG_BLUEPRINT = os.path.join(HERE, "..", "examples",
+                              "never_been_to_a_scene.blueprint.json")
+
+#: The one shipped blueprint that DECLARES section function and a hook --
+#: `SONG_BLUEPRINT` above declares neither, which is exactly right for a
+#: pure-meter test and useless for this file's function-report tests.
+MOONLIGHT_SONG = os.path.join(HERE, "..", "examples",
+                              "moonlight_and_lead.txt")
+MOONLIGHT_BLUEPRINT = os.path.join(HERE, "..", "examples",
+                                   "moonlight_and_lead.blueprint.json")
+
+
+def moonlight_lines():
+    with open(MOONLIGHT_SONG, encoding="utf-8") as fh:
+        return [l.rstrip() for l in fh.read().splitlines()
+                if l.strip() and not l.strip().startswith("[")
+                and not l.strip().startswith("#")]
+
+#: A REAL villanelle -- ABA rhyme throughout, two verbatim refrains (A1 at
+#: lines 1/6/12/18, A2 at 3/9/15/19) -- written for test 26, checked for
+#: correctness the same way: every "a"/"b" line takes a DISTINCT rhyming
+#: word, verified empirically (`grade(..., S.REFRAIN_FORMS["villanelle"])`
+#: reports 0 violations over 93 mandated pairs) rather than assumed from
+#: writing it by hand.
+VILLANELLE = [
+    "The tide comes in and takes the sand away",
+    "I watch the gulls go wheeling toward the shore",
+    "I count the boats that will not choose to stay",
+    "The pier lights flicker at the end of day",
+    "and no one walks here who has walked before",
+    "The tide comes in and takes the sand away",
+    "My father used to say the sea would pay",
+    "for every ruined thing it dragged onto the floor",
+    "I count the boats that will not choose to stay",
+    "The rope goes slack, the anchor starts to sway",
+    "the harbor empties like an open door",
+    "The tide comes in and takes the sand away",
+    "I used to think the tide had come today",
+    "a permanent thing, and owed us nothing more",
+    "I count the boats that will not choose to stay",
+    "There's nothing left to keep, and less to delay",
+    "the water met the rocks and gave a roar",
+    "The tide comes in and takes the sand away",
+    "I count the boats that will not choose to stay",
+]
 
 
 def song_lines():
@@ -95,11 +189,29 @@ def test_the_brief_excludes_the_modal_region():
     check("a rhyme finding earns a candidate field",
           bool(b.candidates) and bool(b.forbidden_modal),
           f"{len(b.candidates)} offered, {len(b.forbidden_modal)} forbidden")
-    check("the forbidden words are the FREQUENT ones",
-          all(R.lex.freq_rank.get(w, 10 ** 9)
-              < max(R.lex.freq_rank.get(c, 10 ** 9) for c in b.candidates)
-              for w in b.forbidden_modal if w in R.lex.freq_rank),
-          f"forbidden {b.forbidden_modal[:5]} are commoner than the offered")
+    # WIRED 2026-08-11: the ranking is no longer `lex.freq_rank` alone. It is
+    # the call-conditional table first (quality/frequency.py's `eng-song`
+    # cell, scoring=UNSEEN) and `lex.freq_rank` only as backoff for a
+    # candidate the conditional never observed for any of this line's calls
+    # -- see `Reviser.joint_field`. Reproducing that exact key here is the
+    # point: it is the contract, the same way the old test encoded the old
+    # one.
+    calls = tuple(dict.fromkeys(
+        w for _, _, cl in b.must_answer for _, w in cl if w))
+    cond = collections.Counter()
+    for call in calls:
+        cond.update(FREQ.LAYER.conditional("eng-song", call,
+                                            scoring=FREQ.UNSEEN))
+
+    def rank_key(w):
+        return (-cond.get(w, 0), R.lex.freq_rank.get(w, 10 ** 9))
+
+    check("the forbidden words are the MOST PREDICTABLE ones under that key",
+          all(rank_key(w) <= max((rank_key(c) for c in b.candidates),
+                                  default=(0, 0))
+              for w in b.forbidden_modal),
+          f"forbidden {b.forbidden_modal[:5]} rank ahead of offered "
+          f"{b.candidates[:5]} on (conditional count desc, freq_rank asc)")
     check("the current end word is itself forbidden",
           "fire" in b.forbidden_modal,
           "re-proposing what was flagged is not a revision")
@@ -311,7 +423,7 @@ def test_an_overlapping_cover_is_gradeable():
 
 def test_the_group_grader_reproduces_check_scheme():
     print("\n13. the generalisation did not become a second comparator")
-    from battery import corpus_path, parse_sonnets
+    from battery import EXPECTED, corpus_path, parse_sonnets
     lex, decl = R.lex, R.decl
     sonnets = parse_sonnets(corpus_path("sonnets.txt"))
     a = [0, 0, 0, 0]
@@ -331,9 +443,21 @@ def test_the_group_grader_reproduces_check_scheme():
             differing += 1
     check("mandated / judged / refused / violations are identical", a == b,
           f"check_scheme {a}  grade {b}")
+    # THE PIN IS READ FROM `battery.py`, NOT COPIED INTO THIS FILE. It was a
+    # literal `(1064, 1014, 50, 81)` here, which made this the SECOND place
+    # the oracle's state was written down -- and on 2026-08-11 the coda
+    # channel moved, cell BA repinned `battery.EXPECTED` to 82 with the
+    # argument and the price stated, and this file went red on a number it
+    # does not own and cannot argue. Doctrine 48's shape: a roster copied into
+    # two files drifts in both. What this test is FOR is the line below it --
+    # that `grade()` and `check_scheme` do not disagree -- and that claim is
+    # independent of wherever the oracle is currently pinned.
+    want = (EXPECTED["mandated"], EXPECTED["judged"],
+            EXPECTED["refused"], EXPECTED["violations"])
     check("the sonnet battery's own numbers are unmoved",
-          tuple(b) == (1064, 1014, 50, 81),
-          "mandated 1064, judged 1014, refused 50, violations 81 (8.0%)")
+          tuple(b) == want,
+          f"battery.EXPECTED {want}, measured {tuple(b)} — the pin lives in "
+          f"battery.py and is repinned there, with the layer that moved named")
     check("not one sonnet's violation SET differs", differing == 0,
           f"{len(sonnets)} sonnets compared pair for pair")
 
@@ -342,13 +466,8 @@ def test_the_song_the_loop_could_not_grade():
     print("\n14. the song with no letter scheme — both paths")
     lines = song_lines()
     check("41 lines", len(lines) == 41, str(len(lines)))
-    g = rhyme_graph(R.lex, lines, R.decl)
-    check("its maximal cliques OVERLAP, so no letter scheme exists",
-          not g["letter_representable"],
-          f"{len(g['cliques'])} cliques, overlapping node(s) "
-          f"{sorted(v + 1 for v in g['overlapping_nodes'])}")
 
-    # -- the LETTER path, unchanged
+    # -- the LETTER path, unchanged: unaffected by the graph's overlap state
     cs = check_scheme(R.lex, lines, SONG_SCHEME, R.decl)
     check("the declared letter mandate still passes 8/8, 0 violations",
           (cs["pairs_mandated"], cs["pairs_judged"], cs["pairs_refused"],
@@ -368,23 +487,51 @@ def test_the_song_the_loop_could_not_grade():
           f"{len(rep['violations'])} violations, "
           f"{len(rep['collisions'])} collisions")
 
-    # -- the GRAPH's own structure, which nothing had ever graded
-    dm = R.mandate_from_graph(lines)
-    check("the song's own clique cover is a mandate with no letter scheme",
+    # -- the GRAPH's own structure, WAS the real song, NOT ANY MORE.
+    #
+    # REPOINTED 2026-08-11. This function's own name is "the song the loop
+    # could not grade" and that premise is now false: cell BA's
+    # coda-identity fix (RESULTS_CODA_SHAPE.md) makes THIS song's graph
+    # fully DISJOINT. `rhyme_graph(R.lex, lines, R.decl)` now reports
+    # `letter_representable=True`, 6 maximal cliques, ZERO overlapping
+    # nodes -- L27 ("ones") no longer clears theta=0.75 with either of its
+    # former clique partners at all, so it is not in the graph, not merely
+    # un-pivoted (see BACKLOG.md 1.4's own amendment). Real exemplars are
+    # preferred (house style), but the exemplar is gone, so the overlap half
+    # of this test moves to a constructed fixture (doctrine 94) that
+    # reproduces every property the real song used to supply: an
+    # overlapping graph, a non-letter-representable cover, and REPEAT edges
+    # a partition-style mandate would reject. The LETTER and PARTITION
+    # checks above stay on the real song -- they were never about overlap.
+    overlap_lines = [
+        "I saw a thousand tiny lights",
+        "I opened up the rusted gates",
+        "I missed it by a couple bits",
+        "I opened up the rusted gates",
+    ]
+    g = rhyme_graph(R.lex, overlap_lines, R.decl)
+    check("its maximal cliques OVERLAP, so no letter scheme exists "
+          "(constructed fixture)",
+          not g["letter_representable"],
+          f"{len(g['cliques'])} cliques, overlapping node(s) "
+          f"{sorted(v + 1 for v in g['overlapping_nodes'])}")
+    dm = R.mandate_from_graph(overlap_lines)
+    check("the fixture's own clique cover is a mandate with no letter "
+          "scheme",
           dm.to_letters() is None and len(dm.overlapping_lines()) >= 1,
           f"{len(dm.groups)} groups, pivots {dm.overlapping_lines()}")
     check("and it declares itself NOT INDEPENDENT of the grader",
           not dm.independent(),
           "doctrine 14 — every clique band-passes by construction, so a "
           "clean rhyme result against it is an identity, not a verdict")
-    drep = R.grade(lines, dm)
+    drep = R.grade(overlap_lines, dm)
     check("grading it is not vacuous: the graph admits REPEAT edges that a "
           "mandate rejects",
           len(drep["violations"]) == len(drep["repeats"]) > 0,
           f"{len(drep['violations'])} violation(s), all REPEAT: "
           + ", ".join(f"L{v['lines'][0]}/L{v['lines'][1]} "
                       f"{v['endwords'][0]!r}" for v in drep["violations"][:4]))
-    ins = R.inspect(lines, dm)
+    ins = R.inspect(overlap_lines, dm)
     check("the brief carries the non-independence as a whole-draft finding",
           any(f.code == "MANDATE_NOT_INDEPENDENT" for f in ins["whole"]))
 
@@ -393,7 +540,14 @@ def test_a_derived_cover_is_independent_at_another_theta():
     print("\n15. doctrine 58 — a cover is a coordinate of the band that "
           "made it")
     lines = song_lines()
-    loose = Reviser(lex=R.lex, decl=Declaration(theta_coda=0.60),
+    # `coda_agreement="scalar"` declared EXPLICITLY, 2026-08-11: the default
+    # became `identity` (cell BA), which does not consult `theta_coda` at
+    # all, so `theta_coda=0.60` alone no longer builds a different graph from
+    # the shipped one -- both readings produced the literally identical 7
+    # groups, which silently defeated the whole point of this test (a cover
+    # that is supposed to be a coordinate of a band that no longer moves).
+    loose = Reviser(lex=R.lex,
+                    decl=Declaration(theta_coda=0.60, coda_agreement="scalar"),
                     floor=R.floor)
     loose._engine = R.engine
     old = loose.mandate_from_graph(lines, origin="cliques at theta_coda=0.60")
@@ -410,8 +564,13 @@ def test_a_derived_cover_is_independent_at_another_theta():
           f"{R.decl.theta_coda}")
     check("so a derived cover IS independent evidence once the band moves",
           len(old.groups) != len(R.mandate_from_graph(lines).groups),
-          "the clique count is a coordinate of theta_coda, not a property "
-          "of the song")
+          f"{len(old.groups)} groups (loose, scalar) vs "
+          f"{len(R.mandate_from_graph(lines).groups)} (shipped, identity) — "
+          f"the clique count is a coordinate of theta_coda UNDER THE SCALAR "
+          f"READING, not a property of the song. `coda_agreement=identity` "
+          f"(the shipped default since 2026-08-11) makes theta_coda inert, "
+          f"which is why `coda_agreement` has to be declared explicitly "
+          f"above for this comparison to mean anything.")
 
 
 def test_findings_are_not_printed_six_times():
@@ -507,7 +666,15 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
     from lyric_harness import admits, best_score
     lines = song_lines()
     m = R.mandate_from_graph(lines)
-    calls = ["does", "five", "drive", "of", "alive"]     # the L14/L34 pivot
+    # REPOINTED 2026-08-11 after cell BA's coda-identity fix changed which
+    # words band-pass: `does` was a FIFTH call word answering a cross-group
+    # PIVOT at L14 that no longer exists (the song's graph is fully disjoint
+    # now — see test 14's own note). L14's own group did not change, though
+    # — it is still lines (14,16,26,34,36), end words five/drive/of/alive —
+    # so the four words IT ACTUALLY MANDATES still reproduce the same shape
+    # this test exists to show, and remain a real exemplar rather than a
+    # constructed one.
+    calls = ["five", "drive", "of", "alive"]              # L14's own group
     old = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
                   rdecl=ReviseDeclaration(field_band="scalar",
                                           field_depth=200))
@@ -515,14 +682,14 @@ def test_no_joint_candidate_was_a_coordinate_of_a_literal():
     o_old, f_old = old.joint_field(calls)
     check("at the old undeclared depth the conjunction looked unsatisfiable",
           not o_old and not f_old,
-          "joint_field(['does','five','drive','of','alive']) was empty, and "
+          "joint_field(['five','drive','of','alive']) was empty, and "
           "the brief printed NO JOINT CANDIDATE -- 'the mandate, not the "
           "line, is what needs revising'")
     o_new, f_new = R.joint_field(calls)
     joint = sorted(set(o_new) | set(f_new))
     check("over the complete pool it is satisfiable, and by real words",
           len(joint) >= 6,
-          f"{len(joint)} words answer all five calls: {joint[:8]}")
+          f"{len(joint)} words answer all four calls: {joint[:8]}")
     for w in joint:
         for c in calls:
             ax, wa = R._word_anchors(c)
@@ -616,14 +783,18 @@ def test_what_the_loop_can_say_on_the_declared_mandate():
           f"refused {rep['pairs_refused']}, "
           f"{len(rep['violations'])} violation(s)")
     briefs = R.brief(lines, SONG_SCHEME)
-    codes = {f.code for b in briefs for f in b.findings}
-    check("so every finding it emits is a COLLISION, not a defect",
-          codes == {"SCHEME_COLLISION"},
-          f"{len(briefs)} line(s) flagged, codes {sorted(codes)}")
-    check("and NOT ONE of them earns a candidate field",
-          not any(b.candidates or b.forbidden_modal for b in briefs),
-          "SCHEME_COLLISION is not in RHYME_FINDINGS, so the brief on the "
-          "declared mandate contains zero words a writer could act on")
+    coll = {f.code for b in briefs for f in b.findings} & COLLISION_FINDINGS
+    check("every RHYME-layer finding it emits is a collision, not a defect",
+          coll and not any(f.code == "SCHEME_VIOLATION"
+                           for b in briefs for f in b.findings),
+          f"{len(briefs)} line(s) carry findings; collision codes "
+          f"{sorted(coll)}. The length-sensitive floor findings are a "
+          f"separate layer and are NOT this cell's (quality/floor.py)")
+    check("and NOT ONE collision earns a candidate field",
+          not any(b.candidates or b.forbidden_modal for b in briefs
+                  if all(f.code in COLLISION_FINDINGS for f in b.findings)),
+          "no collision code is in RHYME_FINDINGS, and that is a DECISION "
+          "with a measurement behind it, not a gap -- see test 24")
     with open(os.path.join(HERE, "..", "examples",
                            "never_been_to_a_scene.blueprint.json"),
               encoding="utf-8") as fh:
@@ -633,21 +804,176 @@ def test_what_the_loop_can_say_on_the_declared_mandate():
            if sec[c["lines"][0]].startswith("chorus")
            and sec[c["lines"][1]].startswith("chorus")
            and sec[c["lines"][0]] != sec[c["lines"][1]]]
-    check("16 of the 26 collisions are the CHORUS COMING BACK",
-          len(rep["collisions"]) == 26 and len(ret) == 16,
+    # NOTE THE SHAPE OF THIS ASSERTION. It used to pin `== 26` and `== 16`.
+    # Both are coordinates of the COMPARATOR (doctrine 58/91) and the coda
+    # channel moved under this suite on 2026-08-11 while it was being written;
+    # `wall`/`floor` and `ear`/`will` went from RHYME to ASSONANCE in one
+    # afternoon. What is a property of the SONG rather than of the cut is that
+    # the chorus's returns are a MAJORITY of the collision set and that the
+    # merge detector recovers exactly them, so that is what is pinned.
+    check("the chorus coming back is the MAJORITY of the collision set",
+          len(ret) * 2 > len(rep["collisions"]),
           f"{len(ret)}/{len(rep['collisions'])} join chorus to chorus2. A "
           f"letter scheme cannot say 'these two groups are the same words', "
           f"so it gives them different letters -- and the collision detector "
           f"then reports the identity the projection was forced to hide "
           f"(doctrine 2)")
-    check("7 of those 16 are outright REPEAT, the refrain itself",
-          sum(1 for c in ret if c["relation"] == "REPEAT") == 7,
-          "slow/slow five/five ear/ear go/go went/went clear/clear "
-          "sent/sent -- 7 of the chorus's 8 end words come back verbatim "
-          "and the 8th moves drive -> alive. Doctrine 3 calls REPEAT the "
-          "REQUIREMENT across chorus instances, and `repeat_licence` "
-          "defaults to 'unlicensed', so the derived-cover run reports all "
-          "seven as SCHEME_VIOLATIONs -- see RESULTS_REVISION_LOOP.md §5")
+    check("and the merge detector recovers exactly those, from the GRAPH "
+          "alone, with no blueprint and no section name",
+          {tuple(c["lines"]) for c in ret}
+          == {(i, j) for mg in R.group_merges(lines, SONG_SCHEME)
+              for i, j, *_ in mg["edges"]},
+          f"{len(R.group_merges(lines, SONG_SCHEME))} merges. The section "
+          f"labels above come from the blueprint; `group_merges` never reads "
+          f"it -- it asks whether two mandated groups would pass as ONE")
+    check("some of them are outright REPEAT, the refrain itself",
+          sum(1 for c in ret if c["relation"] == "REPEAT") >= 4,
+          f"{sum(1 for c in ret if c['relation'] == 'REPEAT')} of the "
+          f"chorus's returns are an IDENTICAL end word. Doctrine 3 calls "
+          f"REPEAT the REQUIREMENT across chorus instances, and "
+          f"`repeat_licence` defaults to 'unlicensed', so the derived-cover "
+          f"run reports them as SCHEME_VIOLATIONs -- "
+          f"see RESULTS_REVISION_LOOP.md §5")
+
+
+def test_the_collision_set_is_partitioned_not_silenced():
+    print("\n23. the collision set, partitioned — layer, not line")
+    import dataclasses
+    lines = song_lines()
+    m = SC.mandate(SONG_SCHEME)
+    rep = R.grade(lines, m)
+    ins = R.inspect(lines, m)
+    edges = {tuple(c["lines"]) for c in rep["collisions"]}
+
+    # (1) ABSORBS AND NEVER ADDS. The guard that keeps the rule from
+    # volunteering an opinion about a rhyme the writer did not make.
+    merged = {(i, j) for mg in ins["merges"] for i, j, *_ in mg["edges"]}
+    check("every edge a merge absorbs was ALREADY a collision",
+          merged <= edges,
+          f"{len(merged)} absorbed of {len(edges)} collisions; "
+          f"{len(merged - edges)} invented")
+
+    # (2) EXACT PARTITION. Nothing dropped, nothing double-counted.
+    off = Reviser(rdecl=ReviseDeclaration(group_merge="off"))
+    per_off = off.inspect(lines, m)["per_line"]
+    kept = {tuple(f.locations) for fs in ins["per_line"].values() for f in fs
+            if f.code in COLLISION_FINDINGS}
+    allc = {tuple(f.locations) for fs in per_off.values() for f in fs
+            if f.code in COLLISION_FINDINGS}
+    check("merged + residual = the whole collision set, exactly",
+          allc == edges and kept | merged == edges and not (kept & merged),
+          f"{len(merged)} absorbed into {len(ins['merges'])} mandate "
+          f"finding(s) + {len(kept)} left on lines = {len(edges)}")
+
+    # (3) THE SET IS UNCHANGED. Typing a finding is not moving a threshold.
+    cs = check_scheme(R.lex, lines, SONG_SCHEME, R.decl)
+    # `check_scheme`'s own tuple carries `relation` as a 5th element since
+    # 2026-08-11 (the report-layer fix cell BA's own patches file names),
+    # so unpacking as 4 raises ValueError now -- unpack 5 and ignore the two
+    # trailing fields, since this check is only about which PAIRS collide.
+    check("and it is still exactly `check_scheme`'s set — no drift",
+          {(a, b) for a, b, _, _, _ in cs["collisions"]} == edges,
+          f"{len(edges)} pairs, THETA_COLLISION={THETA_COLLISION} on both "
+          f"sides. What changed is what each member is CALLED, and "
+          f"`group_merge='off'` reproduces the old one-code rendering")
+
+    # (4) TYPED BY RELATION — doctrine 3, identity is not rhyme.
+    by = {}
+    for fs in per_off.values():
+        for f in fs:
+            if f.code in COLLISION_FINDINGS:
+                by[f.code] = by.get(f.code, 0) + 1
+    near = by.get("NEAR_COLLISION", 0)
+    check("a near-relation is no longer reported as an unintended RHYME",
+          near > 0 and all(
+              R._collision_code(c["relation"]) == "NEAR_COLLISION"
+              for c in rep["collisions"] if c["relation"] in NEAR_RELATIONS),
+          f"{by} -- {near} of {len(edges)} collisions are pairs `grade()` "
+          f"would call a VIOLATION if they were mandated, because the "
+          f"collision cut is the scalar alone and the mandate cut is "
+          f"`admits()`. RESULTS_REVISION_LOOP.md §1's defect, second site")
+    check("and the draft says so ONCE, not once per pair",
+          sum(1 for f in ins["whole"]
+              if f.code == "COLLISION_CUT_IS_SCALAR_ONLY") == 1)
+
+    # (5) IT DOES NOT DECIDE THAT A RETURN HAPPENED. With no declared
+    # returns the merge is DERIVED and names both readings; with them it is
+    # DECLARED. Same graph, different sentence — because intent is not in it.
+    check("with no declared return the merge is DERIVED and asks",
+          all(not mg["declared"] for mg in ins["merges"])
+          and any(f.code == "MANDATE_GROUPS_INDISTINGUISHABLE"
+                  for f in ins["whole"]),
+          f"{len(ins['merges'])} merges, none claiming to be a refrain")
+    dm = dataclasses.replace(m, returns=((13, 33), (17, 37), (15, 35),
+                                         (18, 38), (19, 39)))
+    dins = R.inspect(lines, dm)
+    got = [f.code for f in dins["whole"]
+           if f.code.startswith(("GROUPS_DECLARED", "MANDATE_GROUPS"))]
+    check("and when `Mandate.returns` states it, the SAME edges become the "
+          "FORM (the sibling contract in quality/schemes.py, read not "
+          "duplicated)",
+          got.count("GROUPS_DECLARED_RETURN") == 3
+          and got.count("MANDATE_GROUPS_INDISTINGUISHABLE") == 1,
+          f"{got} -- B[14,16]/F[34,36] stays DERIVED and that is correct: "
+          f"L16 ends 'drive' and L36 ends 'alive', so they are NOT the same "
+          f"line and no return class links them. The chorus's fourth line "
+          f"is the one that MOVES, and the hook can tell")
+
+    # (6) `verify` did not lose resolution when merges went to `whole`.
+    a = list(lines)
+    a[36] = "I don't get to leave"          # L37 'go' -> 'leave'
+    res = R.verify(lines, a, m, targeted=[37])
+    check("dissolving ONE of four merges is visible to verify()",
+          any(x[1] == "MANDATE_GROUPS_INDISTINGUISHABLE"
+              for x in res.get("fixed", [])),
+          f"fixed {res.get('fixed')}. A whole finding used to key on "
+          f"`(0, code)`, so four of a kind collapsed to one and a revision "
+          f"that dissolved one would have been told 'nothing was fixed'")
+
+
+def test_why_a_collision_earns_no_field():
+    print("\n24. the decision: a collision earns no candidate field")
+    n = len(R.engine.index)
+    rows = []
+    for w in ("does", "ear", "will", "floor"):
+        f = R._field_one(w)
+        rows.append((w, len(f), n - len(f)))
+    worst = min(r[2] / n for r in rows)
+    check("a collision's constraint is NEGATIVE, and its satisfying set is "
+          "the dictionary",
+          worst > 0.95,
+          "; ".join(f"{w}: rhyme field {a}, NOT-rhyme {b} "
+                    f"({100.0 * b / n:.2f}% of {n})" for w, a, b in rows)
+          + ". `joint_field` intersects POSITIVE calls and gets a set a "
+            "writer can read; the complement of one is a copy of the "
+            "lexicon, so there is no field to hand over")
+    top = sorted(R.lex.freq_rank, key=lambda w: R.lex.freq_rank[w])[:6]
+    check("and doctrine 9's mechanism on top of it forbids the six commonest "
+          "words in English",
+          all(t in ("you", "i", "the", "to", "a", "'s") for t in top),
+          f"the modal head of ~98% of the lexicon is {top} (WIRED "
+          f"2026-08-11: lex.freq_rank now reads data/opensubtitles_en_50k."
+          f"tsv, not the old web crawl). The modal exclusion exists to push "
+          f"a writer off the predictable RHYME; over a negative constraint "
+          f"it has no rhyme class to be modal IN, at ANY frequency "
+          f"distribution -- and a collision has no call word, so the "
+          f"call-conditional table `joint_field` now prefers has nothing to "
+          f"be consulted on either. The defect is the POLARITY of the "
+          f"constraint, not the ranking over it")
+    lines = song_lines()
+    briefs = R.brief(lines, SONG_SCHEME)
+    only = [b for b in briefs
+            if b.findings and all(f.code in COLLISION_FINDINGS
+                                  for f in b.findings)]
+    check("so a line whose only findings are collisions is briefed with no "
+          "words at all — and doctrine 7 is the second reason",
+          only and not any(b.candidates or b.forbidden_modal for b in only),
+          f"{len(only)} such line(s). The loop is a FLOOR: rejection, not "
+          f"selection. A collision on a draft with zero violations is not a "
+          f"rejection, so offering replacements would be ordering the "
+          f"permitted region -- and would make the harness decide that an "
+          f"unmandated rhyme is a defect, which is often the best thing in "
+          f"a song")
 
 
 def test_the_modal_set_against_a_declared_reference():
@@ -677,17 +1003,269 @@ def test_the_modal_set_against_a_declared_reference():
                 ident += 1
     check("the modal set is real: it is the head of the grader's own field",
           tot >= 40, f"{tot} forbidden words over {len(seen)} distinct fields")
-    check("and only a MINORITY of it is a strict-identity rhyme",
-          ident * 4 < tot,
-          f"{ident}/{tot} of the words doctrine 9 names as the slop "
-          f"direction agree with their call on the tail-aligned nucleus AND "
-          f"coda by strict identity. The reference is declared as a "
-          f"REFERENCE, not as truth (doctrine 94) -- the band exists to admit "
-          f"slant rhyme. What it prices is that on group H the six forbidden "
-          f"words are will/their/there/here/year/email against 'ear': "
-          f"cluster_sim(['R'],['L']) = 0.9875, so the conjunctive coda rule "
-          f"cannot separate a lateral coda from a rhotic one, and no value "
-          f"of theta_coda reaches it. Not this cell's file to fix")
+    # WIRED 2026-08-11: the ranking is now primarily the call-conditional
+    # table, whose entries ARE realised rhyme pairs by construction (see
+    # quality/build_song_frequency.py's rime_key). So the forbidden set
+    # shifting from a MINORITY strict-identity share (under the old global
+    # word-count ranking) to a much larger one is the fix working as
+    # intended -- doctrine 9 wants the exclusion pointed at the rhyme a
+    # writer actually reaches for, not merely a common word. A residual
+    # share below 100% is still expected and correct (doctrine 94: the band
+    # exists to admit slant rhyme, and the conditional's own backoff to
+    # freq_rank for unobserved candidates keeps some non-identity words in
+    # the forbidden set), so the bar here is the OLD threshold's mirror
+    # image rather than a claim of near-total identity.
+    check("and now AT LEAST A QUARTER of it is a strict-identity rhyme, up "
+          "from the old mechanism's under-a-quarter",
+          ident * 4 >= tot,
+          f"{ident}/{tot} ({100.0 * ident / tot:.1f}%) of the words "
+          f"doctrine 9 names as the slop direction agree with their call on "
+          f"the tail-aligned nucleus AND coda by strict identity. The "
+          f"reference is declared as a REFERENCE, not as truth (doctrine "
+          f"94) -- the band exists to admit slant rhyme, and the fraction "
+          f"is not 100% because the conditional table is sparse and falls "
+          f"back to freq_rank for candidates it has no data on. What the "
+          f"residual non-identity share prices, unchanged from before: on "
+          f"group H six forbidden words include will/their/there/here/year/"
+          f"email against 'ear' when the conditional has no data for it, "
+          f"because cluster_sim(['R'],['L']) = 0.9875, so the conjunctive "
+          f"coda rule cannot separate a lateral coda from a rhotic one, and "
+          f"no value of theta_coda reaches it. Not this cell's file to fix")
+
+
+def test_meter_folds_into_the_same_finding_set():
+    print("\n25. the METER layer joins rhyme in ONE finding set, no new veto")
+    lines = song_lines()
+    m = R.mandate_from_graph(lines)
+
+    check("with no blueprint, nothing changes",
+          R.inspect(lines, m) == R.inspect(lines, m),
+          "meter is opt-in: omitting `blueprint=` leaves brief/inspect/"
+          "verify exactly as they were before this test existed")
+
+    found_no_sub = R.inspect(lines, m, blueprint=SONG_BLUEPRINT)
+    whole_codes = {w.code for w in found_no_sub["whole"]}
+    check("a blueprint with NO declared subdivision reports ONCE, not "
+          "per line",
+          {"NO_SUBDIVISION", "NO_SETTING"} <= whole_codes,
+          f"whole-draft codes: {sorted(whole_codes)}")
+    settings_notes = [w for w in found_no_sub["whole"]
+                      if w.code in ("NO_SUBDIVISION", "NO_SETTING")]
+    check("...covering all 41 lines each, exactly once",
+          all(len(w.locations) == 41 for w in settings_notes),
+          [(w.code, len(w.locations)) for w in settings_notes])
+
+    sub = FT.Subdivision(slots_per_pulse=2,
+                         source="test_revise.py test 25, a declared choice "
+                                "for this fixture only")
+    found = R.inspect(lines, m, blueprint=SONG_BLUEPRINT, subdivision=sub)
+    unsat = sorted(ln for ln, fs in found["per_line"].items()
+                   for f in fs if f.code == "SLOTS_EXCEEDED")
+    check("at this declared subdivision, the same 6 lines the `fit` CLI "
+          "verb reports as UNSATISFIABLE come back as hard FLAGS here",
+          unsat == [11, 15, 19, 35, 36, 39],
+          f"got {unsat} -- cross-checked against `python3 lyric_harness.py "
+          f"fit examples/never_been_to_a_scene.blueprint.json "
+          f"--subdivision 2`, which prints UNSAT 1+2+3=6 over pre/chorus/"
+          f"chorus2")
+    check("every SLOTS_EXCEEDED lands as severity=flag, never note",
+          all(f.severity == "flag" for ln, fs in found["per_line"].items()
+              for f in fs if f.code == "SLOTS_EXCEEDED"),
+          "fit.py's OWN satisfiable=False is what decides this -- this "
+          "module keeps no second opinion about which findings are hard")
+    check("the softer prominence findings land as notes, not flags",
+          all(f.severity == "note" for ln, fs in found["per_line"].items()
+              for f in fs if f.code in ("PROMINENCE_EXCEEDS_HEADS",
+                                        "PROMINENCE_CANNOT_ALIGN",
+                                        "HEADS_EXCEED_UNITS")),
+          "not mathematically impossible -- a style call the loop reports "
+          "and does not force")
+
+    # doctrine 47, arriving at meter with NO new code: fix line 1's SLOTS
+    # finding is absent before the edit (verified above it is not in
+    # `unsat`), so lengthen it past its bar's capacity while targeting a
+    # real flagged rhyme line, and the EXISTING net-negative diff must catch
+    # it -- this is the whole of what "wire meter into the loop" means.
+    after = list(lines)
+    after[0] = (lines[0] + " today and every single morning after that as "
+                "well, over and over again without end")
+    res = R.verify(lines, after, m, targeted={1}, blueprint=SONG_BLUEPRINT,
+                   subdivision=sub)
+    check("a revision that overflows a bar is REJECTED by the SAME rule "
+          "that rejects breaking a rhyme -- no meter-specific veto exists",
+          not res["accepted"]
+          and (1, "SLOTS_EXCEEDED") in res["new"],
+          res["reasons"][0][:160])
+
+    try:
+        R._meter_findings(lines[:-1], SONG_BLUEPRINT, sub)
+        ok = False
+    except ValueError:
+        ok = True
+    check("a blueprint/draft line-count mismatch REFUSES rather than "
+          "silently misaligning",
+          ok, "position-based correlation with no length check would "
+              "attribute every finding after the first difference to the "
+              "wrong line")
+
+
+def test_grade_asks_the_mandate_before_the_switch():
+    print("\n26. BUG FIX — a declared verbatim return is not a REPEAT "
+         "violation, and grade() now asks the mandate to find that out")
+    m = SC.mandate(SC.REFRAIN_FORMS["villanelle"])
+    rep = R.grade(VILLANELLE, m)
+    check("the correct villanelle has ZERO violations",
+          rep["violations"] == [],
+          f"{len(rep['violations'])} violation(s); BEFORE this fix the "
+          f"default repeat_licence='unlicensed' flagged all 12 refrain-pair "
+          f"REPEATs (C(4,2)=6 pairs per 4-line return, A1 and A2) as "
+          f"violations, because grade() applied one song-wide switch "
+          f"instead of asking the mandate")
+    check("mandated/judged agree — nothing was silently dropped, only "
+          "reclassified",
+          (rep["pairs_mandated"], rep["pairs_judged"]) == (93, 93))
+
+    found = R.inspect(VILLANELLE, m)
+    refrain_notes = [(ln, f) for ln, fs in found["per_line"].items()
+                     for f in fs if f.code == "REFRAIN_REPEAT"]
+    check("all 12 refrain-pair REPEATs (C(4,2)=6 pairs x 2 returns) are "
+          "reported as licensed NOTES, sourced to the MANDATE, not to the "
+          "(unset) rdecl switch",
+          len(refrain_notes) == 12
+          and all(f.severity == "note" and "MANDATE requires this" in
+                  f.evidence for _, f in refrain_notes),
+          [(ln, f.evidence[:50]) for ln, f in refrain_notes[:2]])
+
+    drifted = list(VILLANELLE)
+    drifted[17] = "The tide comes in and steals the sand away"   # was L18
+    d_found = R.inspect(drifted, m)
+    broken = [(ln, f) for ln, fs in d_found["per_line"].items()
+             for f in fs if f.code == "RETURN_NOT_VERBATIM"]
+    check("a BROKEN return is flagged — one finding per pair the drifted "
+          "line was in (L18 vs its 3 A1 co-members)",
+          len(broken) == 3 and all(f.severity == "flag" for _, f in broken)
+          and all(ln == 18 for ln, _ in broken),
+          [f.message[:70] for _, f in broken])
+
+    res = R.verify(VILLANELLE, drifted, m, targeted={18})
+    check("verify()'s EXISTING net-negative diff — the same one meter "
+          "rides in test 25 — catches the broken return with NO new "
+          "veto rule",
+          not res["accepted"] and (18, "RETURN_NOT_VERBATIM") in res["new"],
+          res["reasons"])
+
+    check("a PLAIN letter scheme (no Return objects) is completely "
+          "unaffected — the fallback to rdecl.repeat_licence still "
+          "applies exactly as before this fix",
+          R.grade(["a cat sat on the mat", "a cat sat on the mat",
+                  "a bird flew off the sill", "a bird flew off the sill"],
+                 "AABB")["violations"].__len__() == 2,
+          "AABB with two identical-word pairs and NO declared mandate "
+          "returns still reports both as violations under the default "
+          "'unlicensed' setting")
+
+
+def test_song_function_folds_into_the_same_finding_set():
+    print("\n27. `quality/grid.py`'s FUNCTION layer joins rhyme and meter in "
+         "ONE finding set — a blueprint section's `function` and a "
+         "blueprint's `hooks` have always been readable and nothing past "
+         "`fit.py` ever read them")
+    lines = moonlight_lines()
+    m = R.mandate_from_graph(lines)
+
+    no_bp = {w.code for w in R.inspect(lines, m)["whole"]}
+    check("with no blueprint, no song-function code appears at all",
+          not (no_bp & {"HOOK_ABSENT", "HOOK_CONFINED", "HOOK_DOES_NOT_RECUR",
+                       "TITLE_NOT_IN_HOOK", "RETURN_LOCKED",
+                       "RETURNS_WITH_SAME_WORDS", "RETURN_LENGTH_DRIFT",
+                       "BRIDGE_IS_A_VERSE", "FUNCTION_UNDECLARED"}),
+          sorted(no_bp))
+
+    found = R.inspect(lines, m, blueprint=MOONLIGHT_BLUEPRINT)
+    whole = {w.code: w for w in found["whole"]}
+    check("the clean draft reports RETURN_LOCKED — three verbatim choruses "
+          "in an identical slot — as a NOTE, not a flag",
+          "RETURN_LOCKED" in whole and whole["RETURN_LOCKED"].severity
+          == "note", sorted(whole))
+    check("and HOOK_CONFINED — the hook never leaves the chorus — also a "
+          "NOTE: a measurement against `POPULAR_SONG`, a labelled "
+          "CONVENTION, not a mandate the writer declared (doctrine 6)",
+          "HOOK_CONFINED" in whole
+          and whole["HOOK_CONFINED"].severity == "note")
+    check("no HOOK_ABSENT on the clean draft — the declared hook is right "
+          "there, three times", "HOOK_ABSENT" not in whole)
+
+    # Break the hook: all three occurrences rewritten, nothing else touched.
+    hook_line = "Billy, Billy, faster than sin"
+    changed_lines = {i + 1 for i, l in enumerate(lines) if l == hook_line}
+    check("the fixture actually contains the hook 3 times, or this proves "
+          "nothing", len(changed_lines) == 3, sorted(changed_lines))
+    # end word chosen to AVOID "sin" -- the hook's own end word, and a
+    # forbidden modal candidate at these exact lines (doctrine 9) -- so this
+    # exercises the net-negative diff itself rather than being intercepted
+    # earlier by the modal-exclusion rule (both pre-existing, but the point
+    # here is specifically the diff).
+    after = [("Riders came at moonrise, chasing him instead"
+             if l == hook_line else l) for l in lines]
+    broken = R.inspect(after, m, blueprint=MOONLIGHT_BLUEPRINT)
+    b_whole = {w.code: w for w in broken["whole"]}
+    check("HOOK_ABSENT now fires, as a FLAG — the writer supplied exact "
+          "hook TEXT and it is a factual question with no convention in "
+          "it, the same shape RETURN_NOT_VERBATIM already is",
+          "HOOK_ABSENT" in b_whole
+          and b_whole["HOOK_ABSENT"].severity == "flag", sorted(b_whole))
+
+    res = R.verify(lines, after, m, targeted=changed_lines,
+                   blueprint=MOONLIGHT_BLUEPRINT)
+    check("verify()'s EXISTING net-negative diff — the same one meter (test "
+          "25) and RETURN_NOT_VERBATIM (test 26) both ride — rejects "
+          "erasing the hook, with NO new veto rule",
+          not res["accepted"] and (0, "HOOK_ABSENT") in res["new"],
+          res["reasons"])
+
+    # THE STALENESS PROOF: `_function_findings` must grade THIS DRAFT's
+    # words, never the blueprint's own stored text -- `compare_returns` and
+    # `hook_occurrences` both read `Line.text`, and a stale copy would
+    # silently stop reacting to every revision after the first one.
+    stale_hook_obj = {
+        "title": "T", "hooks": ["shine on"],
+        "sections": [{"name": "v", "bars": 4, "function": "verse",
+                     "meter": {"beats": 4, "unit": 4}},
+                    {"name": "c", "bars": 4, "function": "chorus",
+                     "meter": {"beats": 4, "unit": 4}}],
+        # the BLUEPRINT's own stored text carries the hook in the verse and
+        # nowhere else -- if this method ever reads THIS text instead of
+        # the draft handed to `inspect`, the assertions below invert.
+        "lines": [{"text": "shine on", "bar": 1, "section": "v"},
+                 {"text": "shine on", "bar": 2, "section": "v"},
+                 {"text": "a decoy line the blueprint stored", "bar": 5,
+                  "section": "c"},
+                 {"text": "another decoy the blueprint stored", "bar": 6,
+                  "section": "c"}]}
+    draft_with_hook_moved = [
+        "a brand new verse line with no hook in it",
+        "a second brand new verse line, still no hook",
+        "shine on", "shine on"]
+    dm = R.mandate_from_graph(draft_with_hook_moved)
+    moved = {w.code for w in
+             R.inspect(draft_with_hook_moved, dm,
+                      blueprint=stale_hook_obj)["whole"]}
+    check("the hook is found where THIS DRAFT put it, not where the "
+          "blueprint's stored text put it",
+          "HOOK_ABSENT" not in moved, sorted(moved))
+
+    draft_hook_removed = [
+        "a brand new verse line with no hook in it",
+        "a second brand new verse line, still no hook",
+        "a brand new chorus line, still no hook",
+        "a second brand new chorus line, still none"]
+    dr = R.mandate_from_graph(draft_hook_removed)
+    removed = {w.code for w in
+              R.inspect(draft_hook_removed, dr,
+                       blueprint=stale_hook_obj)["whole"]}
+    check("and REMOVING the hook from the draft is seen even though the "
+          "blueprint's own stored text still carries it verbatim",
+          "HOOK_ABSENT" in removed, sorted(removed))
 
 
 if __name__ == "__main__":
@@ -712,7 +1290,12 @@ if __name__ == "__main__":
                test_no_joint_candidate_was_a_coordinate_of_a_literal,
                test_the_four_rejections_on_the_songs_own_shape,
                test_what_the_loop_can_say_on_the_declared_mandate,
-               test_the_modal_set_against_a_declared_reference):
+               test_the_modal_set_against_a_declared_reference,
+               test_the_collision_set_is_partitioned_not_silenced,
+               test_why_a_collision_earns_no_field,
+               test_meter_folds_into_the_same_finding_set,
+               test_grade_asks_the_mandate_before_the_switch,
+               test_song_function_folds_into_the_same_finding_set):
         fn()
     print("=" * 62)
     if FAILURES:

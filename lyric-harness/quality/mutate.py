@@ -186,7 +186,13 @@ def _q(*names):
 # `for f in quality/test_*.py` will run `test_mutation.py`, which runs all of
 # this; a default that takes ten minutes gets killed by somebody's `timeout`
 # and reported as a failure of the harness.
-T_BAND = _q("test_band.py", "test_mut_band.py")
+# test_coda.py ADDED 2026-08-11 (cell BA's owed patch): it is a band-layer
+# file -- M3 (`min(codas)` -> `max(codas)`) was SURVIVING the whole suite
+# because nothing in the fast subset exercised the coda channel's own
+# per-syllable conjunction, and only escalation to the full green suite
+# caught it. Adding it here catches M3/M5/M6 in the subset pass instead of
+# paying the full-suite escalation for every mutation that touches this file.
+T_BAND = _q("test_band.py", "test_mut_band.py", "test_coda.py")
 T_CMP = _q("test_band.py", "test_mut_band.py", "test_taxonomy.py")
 T_ANCHOR = _q("test_mut_band.py", "test_meter.py", "test_taxonomy.py")
 T_STRUCT = _q("test_mut_oracle.py", "test_english_text.py", "test_grid.py")
@@ -566,11 +572,14 @@ MUTATIONS = [
         rationale=(
             "The scalar's alignment flipped by its DEFAULT rather than by its "
             "code — M30 is the code half of the same question. Held out this "
-            "changes no relation and no sonnet verdict (81/1014 either way, "
-            "in both halves) while moving the scalar total on 59% of random "
-            "pairs, which is exactly why it needs a mutation: the corpus that "
-            "catches everything else is structurally incapable of seeing it, "
-            "which is doctrine 95's own lesson about the sonnet oracle."),
+            "changes no relation and no sonnet verdict (82/1014 either way, "
+            "in both halves, 43/510 and 39/504 -- repinned 2026-08-11 from "
+            "81/1014 after cell BA's coda-identity fix; the invariant itself "
+            "is unchanged, only its digit moved with the shared oracle) "
+            "while moving the scalar total on 59% of random pairs, which is "
+            "exactly why it needs a mutation: the corpus that catches "
+            "everything else is structurally incapable of seeing it, which "
+            "is doctrine 95's own lesson about the sonnet oracle."),
     ),
     # ------------------------------------------------------------ projection
     Mutation(

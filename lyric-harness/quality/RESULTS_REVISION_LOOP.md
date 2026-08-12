@@ -186,6 +186,19 @@ resources by name. `data/sources.tsv` is not this cell's file; the row is owed
 and named in `PATCHES-not-mine.md`. There is no verse-frequency list in this
 repo to swap in, so this is a declaration gap, not a fix that was skipped.
 
+> **WIRED CLOSED 2026-08-11.** Every claim in this section describes the state
+> before the fix and is kept as the record of why it was needed (doctrine 17).
+> `wordfreq20k.txt` now has a row in `data/sources.tsv`, `lex.freq_rank` reads
+> `data/opensubtitles_en_50k.tsv` instead of it, and `quality/revise.py`'s
+> `Reviser.joint_field` ranks primarily by the call-conditional table this
+> repo built afterward (`quality/frequency.py`'s `eng-song` cell) rather than
+> by any global rank. Re-measured: `R.modal_field("fire")` now forbids
+> `desire, higher, conspire, sire, choir, tire` — `email` and `software` are
+> gone, and `desire` is ranked FIRST, ahead of every other word, because it is
+> the partner writers in `corpus/song/` reached for 95 times against the next
+> word's 16. See §3(b) below: this is the pair doctrine 9 is explained with,
+> and the old mechanism's failure to catch it is now closed too.
+
 **(b) It does not catch its own worked example.** `CLAUDE.md` and
 `revise.py`'s docstring both explain doctrine 9 with `fire`/`desire`:
 
@@ -203,6 +216,18 @@ in the same shape has nothing stopping it. That is not a defect in the
 implementation — the implementation is doing precisely what the doctrine says
 — it is a finding about the doctrine's example, which describes *cliché*, and
 cliché is a different feature that the floor already owns.
+
+> **CLOSED 2026-08-11**, and by the mechanism this finding said was missing,
+> not by the cliché floor. Re-measured: `R.modal_field("fire")` forbids
+> `desire, higher, conspire, sire, choir, tire` — `desire` is now ranked
+> FIRST of six, at a measured 95 realised occurrences against `corpus/song/`
+> to the runner-up's 16, because the conditional table this repo built after
+> this finding (`quality/frequency.py`'s `eng-song` cell) ranks by what a
+> writer actually paired `fire` with, not by how common a candidate is on the
+> web. A revision from `dog` to `desire` against a `fire` mandate is now
+> rejected by rule 2 (modal exclusion) as well as rule 2's net-new check —
+> redundant on this exact pair, but no longer ABSENT on the
+> modal-but-not-clichéd pairs this section warned had nothing stopping them.
 
 ---
 
@@ -401,6 +426,25 @@ Two layers, two readings of one line, and only one of them says which it took.
   `SCHEME_COLLISION` earned a candidate field, five of the six unsatisfiable
   lines carry mandated end words and any replacement re-opens both the mandate
   and the slot count at once. Noted, not settled.
+
+  > **WIRED 2026-08-11.** `brief`/`inspect`/`verify` now take optional
+  > `blueprint=`/`subdivision=`/`assume=`, and when given, fold `fit.py`'s
+  > per-line findings into the SAME set this document's rhyme findings live
+  > in — `SLOTS_EXCEEDED` as a hard flag (mathematically impossible once
+  > `subdivision` is declared, matching `fit.py`'s own `satisfiable=False`),
+  > `PROMINENCE_EXCEEDS_HEADS` and its siblings as soft notes. It adds NO new
+  > rejection rule: the existing "fixes the flagged line and breaks another"
+  > diff already catches a revision that overflows a bar, the moment a meter
+  > finding is a member of the set that diff reads — demonstrated directly in
+  > `quality/test_revise.py` test 25 by lengthening L1 past its bar's
+  > capacity while targeting a real flagged rhyme, which is rejected with
+  > `(1, 'SLOTS_EXCEEDED')` in the new-finding list. `NO_SETTING` itself is
+  > UNCHANGED and remains true: no beat-grid or isochrony assumption is
+  > wired in by this, on purpose (doctrine 4 — there is no audio, so "lands
+  > on the beat" stays a claim this project does not make); what closed is
+  > narrower and load-bearing anyway — whether a line's syllables COULD fit
+  > its bars at all is now checked by the SAME loop that checks rhyme,
+  > instead of a separate command nobody was running automatically.
 - **`repeat_licence='refrain'`.** Reachable and it works: 7 violations become 7
   `REFRAIN_REPEAT` notes. The floor's own `REPEAT_IN_VERSE` keeps firing beside
   them, and that is correct rather than a contradiction — the loop's licence is

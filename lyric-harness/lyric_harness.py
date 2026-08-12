@@ -8,9 +8,19 @@ rime riche, shared suffix, semirhyme).
 Every operation runs against an explicit DECLARATION. No hidden defaults:
 the declaration prints with every report.
 
-Data files expected beside this script (auto-downloaded by fetch_data()):
-  cmudict.dict   - CMU Pronouncing Dictionary (General American citation forms)
-  wordfreq20k.txt - 20k common-word list, rank order (candidate filtering)
+Data files expected beside this script:
+  cmudict.dict - CMU Pronouncing Dictionary (General American citation
+                 forms), auto-downloaded by fetch_data().
+  data/opensubtitles_en_50k.tsv - 50k spoken-register word list, rank
+                 order (candidate filtering; membership of the whole
+                 candidate pool -- CandidateEngine skips any word with no
+                 rank). Repo-committed and provenance-gated (data/sources.tsv,
+                 doctrine 85), not fetched over the network. Doctrine 9's
+                 modal exclusion in quality/revise.py additionally reads the
+                 call-conditional table in data/song_*.tsv -- see
+                 quality/frequency.py for why the two are different
+                 instruments and quality/RESULTS_SONG_FREQUENCY.md for what
+                 each buys.
 """
 
 import json
@@ -24,17 +34,25 @@ _KNOWN_WORDS = set()   # populated by Lexicon; used by the suffix stem check
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 CMUDICT_PATH = os.path.join(HERE, "cmudict.dict")
-FREQ_PATH = os.path.join(HERE, "wordfreq20k.txt")
+FREQ_PATH = os.path.join(HERE, "data", "opensubtitles_en_50k.tsv")
 
 CMUDICT_URL = "https://raw.githubusercontent.com/cmusphinx/cmudict/master/cmudict.dict"
-FREQ_URL = "https://raw.githubusercontent.com/first20hours/google-10000-english/master/20k.txt"
 
 
 def fetch_data():
-    for path, url in ((CMUDICT_PATH, CMUDICT_URL), (FREQ_PATH, FREQ_URL)):
-        if not os.path.exists(path):
-            print(f"downloading {os.path.basename(path)} ...", file=sys.stderr)
-            urllib.request.urlretrieve(url, path)
+    if not os.path.exists(CMUDICT_PATH):
+        print(f"downloading {os.path.basename(CMUDICT_PATH)} ...", file=sys.stderr)
+        urllib.request.urlretrieve(CMUDICT_URL, CMUDICT_PATH)
+    if not os.path.exists(FREQ_PATH):
+        # Repo-committed and provenance-gated (data/sources.tsv), not a raw
+        # upstream mirror -- the file adds a `#` header and a rank column
+        # this repo generated, so re-fetching hermitdave/FrequencyWords over
+        # the network would not reproduce it. Refuse loudly rather than
+        # silently substituting a different file (doctrine 34).
+        raise FileNotFoundError(
+            f"{FREQ_PATH} is missing. It ships with the repo; if it is "
+            f"absent, restore it from version control rather than "
+            f"re-fetching -- see its row in data/sources.tsv.")
 
 
 # ---------------------------------------------------------------------------
@@ -68,6 +86,41 @@ CONSONANTS = {
     "L": (1, 0.30, "liquid"), "R": (1, 0.35, "liquid"),
     "W": (1, 0.90, "glide"), "Y": (1, 0.60, "glide"),
 }
+
+# The English regular -s suffix (plural, 3sg, possessive) has ONE form whose
+# realisation is fixed by the base's last phone. `transcribe_word`'s OOV
+# fallback used to append a hard-coded Z to every base, which is right for the
+# voiced class and impossible for the other two: it produced `wights` =
+# W AY1 T Z, and English has no /tz/ coda.
+#
+# MEASURED AGAINST CMUDICT ITSELF, which is the only test that means anything
+# here (doctrine 37 -- test a phonology against its tradition, not against its
+# own rules). Over the 12,470 dictionary words ending in orthographic -s whose
+# base is a true phonetic PREFIX of them, the rule below predicts the suffix
+# for 96.61% against the append-Z fallback's 66.03%. By class:
+#     class            n     rule    append-Z
+#     voiceless     3,322   99.8%        0.2%
+#     voiced/other  8,342   98.6%       98.6%
+#     sibilant        806   62.8%        0.0%
+# The sibilant residue is not a competing rule: CMUdict writes that syllable
+# IH0 Z 506 times and AH0 Z 211 times, and AH~IH is precisely the pair
+# `Declaration.nucleus_licence` already declares as one reduced vowel written
+# two ways, so the remainder is absorbed one channel down rather than lost.
+PLURAL_S_SIBILANT = ("S", "Z", "SH", "ZH", "CH", "JH")   # -> a syllable, IH0 Z
+PLURAL_S_VOICELESS = ("P", "T", "K", "F", "TH")          # -> S
+# everything else (voiced obstruents, nasals, liquids, glides, vowels) -> Z
+
+
+def plural_s_tail(base):
+    """The phones the regular -s suffix adds after `base`. -> list."""
+    if not base:
+        return ["Z"]
+    if base[-1] in PLURAL_S_SIBILANT:
+        return ["IH0", "Z"]
+    if base[-1] in PLURAL_S_VOICELESS:
+        return ["S"]
+    return ["Z"]
+
 
 MANNER_DIST = {
     ("stop", "stop"): 0.0, ("fricative", "fricative"): 0.0,
@@ -189,6 +242,118 @@ class Declaration:
     # beats the hand-set value held out; this one does, in both halves, in the
     # same direction. Doctrine 22: the number now carries a rate.
     theta_coda: float = 0.80      # coda AGREEMENT, not coda evidence
+    # --- THE SHAPE OF THE CODA QUESTION (doctrine 1, 84, 94) ----------------
+    # DECLARED 2026-08-11. `theta_coda` above is a cut on `cluster_sim`, and
+    # NO VALUE OF IT REACHES `wall`/`floor`: `cons_sim('R','L')` is 0.9875 and
+    # is the ARGMAX of the entire 276-pair consonant matrix, so the only cuts
+    # that refuse a lateral against a rhotic are the cuts that refuse every
+    # non-identical pair in English. That is not a threshold problem, and two
+    # cells found it from different directions on the same day -- `ear`/`will`
+    # from the revision loop, `wall`/`floor`/`call`/`more` from a song.
+    #
+    # The construction is why, and it is general rather than a liquid quirk:
+    #   d = 0.30*(voicing differs) + 0.25*|place difference| + 0.45*MANNER_DIST
+    # Manner IDENTITY is worth 0.45 of a 1.0 budget while the whole place axis
+    # can take away at most 0.25, so EVERY same-manner same-voicing pair scores
+    # >= 0.75 whatever its place distance (measured floor 0.7750, F~HH). At
+    # `theta_coda` 0.80 that admits 36 of 276 unordered non-identical pairs as
+    # AGREEING codas -- 15 fricative, 6 stop, 3 nasal, 1 glide, 1 liquid and 10
+    # affricate crossings. `S`~`TH` (0.975, miss/myth), `P`~`T` (0.925,
+    # cap/cat), `M`~`N` (0.925), `B`~`D` (0.925, rob/rod), `K`~`T` (0.875,
+    # back/bat). None of those is a General American rhyme. R~L is not one
+    # defect; it is the top row of a class.
+    #
+    # THE SCALAR'S ADMITTED SET AND THE ATTESTED SET ARE ALMOST DISJOINT, which
+    # is the finding that decides the shape rather than the cut. Over the 1003
+    # readable mandated sonnet pairs, exactly 4 distinct non-identical coda
+    # pairs clear 0.80 (5 observations: words/affords, deserts/parts,
+    # costs/boast, remember'd/tender'd) while the ones the corpus actually
+    # attests -- S~Z x8, D~RD x4, RT~T x3, RTH~TH x3 -- are all REFUSED by it.
+    # In the fit half, of the 25 distinct non-identical coda pairs the scalar
+    # admits anywhere, 4 occur at all in mandated positions; in the held-out
+    # half, 1 of 26 does. Spearman(cluster_sim, lift) is +0.156 and +0.122
+    # across the two halves -- the same "no ordering information" verdict
+    # `vowel_sim` got at +0.02/-0.03, and read the same way (doctrine 57):
+    # what reproduces is that it is small, not the digit.
+    #
+    #   "scalar"    min cluster_sim over the aligned syllables >= theta_coda.
+    #               The incumbent from the first commit. REACHABLE, and kept
+    #               reachable on purpose (doctrine 84) so the leak above stays
+    #               demonstrable rather than optimised away.
+    #   "identity"  the coda tuples must be equal. The redteam's REFERENCE LINE
+    #               on this channel, promoted to a shape, and SHIPPED -- see the
+    #               held-out table below.
+    #   "licensed"  identity plus `coda_licence`, the two-tier rule the nucleus
+    #               channel has. Reachable, and its licence is EMPTY by default,
+    #               which is a measured result and not an oversight. See
+    #               `coda_licence`.
+    #
+    # PRICED HELD-OUT, fit half 0 / held half 1, both arms, before shipping
+    # (`quality/redteam_band.py` §7). FPR is against the strict-identity
+    # reference on 4,000 random CMUdict pairs, seed 20260810; `refused` is the
+    # share of the sonnets' readable mandated pairs the band declines:
+    #        shape             FIT FPR  FIT refused   HELD FPR  HELD refused
+    #        scalar 0.80         3.55%       12.28%      3.65%         9.44%
+    #        scalar 0.90         2.55%       12.28%      2.60%         9.44%
+    #        scalar 0.95         2.25%       12.48%      2.30%         9.44%
+    #        identity            2.05%       12.48%      2.15%         9.44%
+    # Identity cuts the false-positive rate by a third in BOTH halves and costs
+    # +0.20pp of mandated pairs in the fit half and EXACTLY ZERO in the held-out
+    # half. Doctrine 5's bar is that a change must beat the incumbent held out;
+    # this does, in the same direction in both halves, which is the same
+    # standard `theta_coda` 0.60 -> 0.80 was shipped on (doctrine 94).
+    #
+    # Note what the sweep rows show and the ratchet does not: `scalar 0.95`
+    # already pays the full true-positive cost and still admits `wall`/`floor`.
+    # There is no cut that buys the fix, which is why this is a SHAPE change.
+    #
+    # Doctrine 24 still governs the consequence: this decides RHYME vs
+    # ASSONANCE, it does not reject. `wall`/`floor` is ASSONANCE now -- a named
+    # member of the taxonomy, identical nucleus, differing coda -- not a
+    # non-relation, and the graph keeps the edge and the name.
+    coda_agreement: str = "identity"          # "scalar"|"identity"|"licensed"
+    # Unordered consonant pairs that AGREE in a coda without being identical.
+    #
+    # EMPTY, AND THE EMPTINESS IS THE RESULT. The nucleus channel has exactly
+    # one licensed pair (AH~IH) because CMUdict demonstrably writes one reduced
+    # vowel two ways, checkable against the dictionary with no poem involved.
+    # This cell went looking for the coda's equivalent and there is not one.
+    #
+    # S~Z was the candidate: 8 observations, the best-attested non-identical
+    # coda pair in the mandated sonnet positions. Held out it is a real trade --
+    # FPR 2.10%/2.40% against identity's 2.05%/2.15%, mandated refusals
+    # 11.49%/8.84% against 12.48%/9.44% -- so it buys true positives and pays
+    # false ones, and neither shape dominates. What decides it is WHAT THE EIGHT
+    # OBSERVATIONS ARE, and every one is some other layer's defect wearing a
+    # coda mismatch:
+    #   * `wights`/`knights` is not CMUdict at all. `wights` is absent from the
+    #     dictionary and reaches the comparator through `transcribe_word`'s OOV
+    #     plural fallback, which appended a hard-coded Z after ANY base. English
+    #     -s is /s/ after a voiceless obstruent, so `W AY1 T Z` is a phone
+    #     sequence English does not have. That is the INGESTION layer and it is
+    #     fixed there, in `PLURAL_S_VOICELESS` (515 distinct words across the
+    #     corpora had the same impossible coda).
+    #   * `muse`/`use` is a HOMOGRAPH: CMUdict lists `use` only as the noun
+    #     Y UW1 S, and Shakespeare's is the verb /juːz/, which rhymes exactly.
+    #   * `glass`/`was`, `pass`/`was`, `is`/`amiss`, `this`/`is` are Early
+    #     Modern English, the same class as love/prove -- and doctrine 94's own
+    #     warning says a threshold cannot be calibrated on a corpus whose
+    #     dialect differs from the declared one on the channel the difference
+    #     lives in.
+    # So the licence would have been a comparator-shaped patch over an
+    # ingestion bug, a homograph and a dialect gap: doctrine 79's triage error
+    # made three times in one tuple. The MECHANISM ships and stays reachable
+    # (doctrine 84) so a later cell with real evidence can fill it; the licence
+    # does not, for the same reason the fitted matrix does not (known gap 2) --
+    # nothing showed it helped.
+    coda_licence: tuple = ()
+    # ...and where a licence IS declared it applies only when the licensed pair
+    # is the LAST phone of both codas. That is the restriction that keeps a
+    # licence a claim about a word-final morpheme rather than a claim that two
+    # phones are interchangeable everywhere. It moves NO number on either
+    # corpus at the shipped empty licence, and it is declared rather than
+    # assumed so that the claim a future licence makes is bounded in advance.
+    coda_licence_final_only: bool = True
     # NOT CALIBRATED, and now DECLARED as uncalibrated rather than left
     # unexamined (BACKLOG 1.3). `five`/`of` passes at nucleus similarity 0.603
     # against this 0.600, which is a coin flip wearing a verdict; `bed`/`bead`
@@ -282,9 +447,12 @@ class Declaration:
     # It is NOT a defect, and that is measured rather than assumed. Held out
     # (quality/test_align.py, and the corpora it prints): on a random-pair FPR
     # corpus and on the sonnets' mandated pairs, split in half,
-    #   * the sonnet oracle does not move at all -- 81/1014 either way, in both
-    #     halves, because a mandated pair's best alignment is already the
-    #     equal-length one (doctrine 95's own blind spot, from the other side);
+    #   * the sonnet oracle does not move at all -- 82/1014 either way, in both
+    #     halves (43 and 39), because a mandated pair's best alignment is
+    #     already the equal-length one (doctrine 95's own blind spot, from the
+    #     other side). RE-MEASURED 2026-08-11 under `coda_agreement`
+    #     "identity": the invariant survives the shape change and only the
+    #     digit moved, 81 -> 82, which is the repin argued in `battery.py`;
     #   * the RELATION never flips, because the relation is decided by
     #     `channel_agreement`, which tail-aligns on its own regardless;
     #   * the scalar `total` moves on ~61% of random pairs, i.e. on essentially
@@ -321,10 +489,65 @@ class Declaration:
 # Dictionary + transcription  (projection pi, prominence rho)
 # ---------------------------------------------------------------------------
 
+class _DictionaryOnlyLexicon:
+    """`Fallback._dictionary`'s view of a `Lexicon`, with no fallback and none
+    of `transcribe_word`'s own suffix/elision heuristics -- just the bare
+    entries.
+
+    `quality.g2p.Fallback.read` starts by trying `lex.transcribe_word(w)`, so
+    handing it the REAL `Lexicon` whose `transcribe_word` is the one calling
+    INTO the fallback would recurse: OOV -> ask the fallback -> the fallback
+    asks `transcribe_word` -> still OOV -> ask the fallback again, forever.
+    This is the non-recursive base case `Fallback` is built to wrap, standing
+    in only for the one method it calls.
+    """
+    def __init__(self, entries, freq_rank):
+        self.entries = entries
+        self.freq_rank = freq_rank
+
+    def transcribe_word(self, word):
+        w = fold_apostrophes(word).lower().strip("'\"“”‘’.,;:!?()[]")
+        if w in self.entries:
+            return list(self.entries[w][0]), False
+        return [], True
+
+
 class Lexicon:
-    def __init__(self):
+    def __init__(self, fallback=None):
+        """`fallback` is a DECLARED coordinate, `None` by default -- omitting
+        it reproduces every transcription this class has ever returned,
+        unchanged. Passing `"high"` or `"low"` (the same vocabulary
+        `quality.g2p.Fallback.min_confidence` uses) builds one and consults
+        it for a word the dictionary and this class's own suffix/elision
+        heuristics both still refuse.
+
+        THIS DOES NOT CLOSE KNOWN GAP 1. `Fallback` reads morphology
+        (`viewest`, `savour`), elision (`o'er`, `groun'`) and compounds --
+        every layer that is dictionary-derived. A genuine coinage
+        (`hypotenuse`, `shiesty`) has no stem or elision pattern to derive
+        from and still refuses at `min_confidence="high"`; only
+        `min_confidence="low"` reaches the letter-to-sound layer, which
+        `quality/test_g2p.py`'s `test_letter_layer_costs_more_than_it_buys`
+        measures as net harmful and which this wiring does not change the
+        default away from. `lex.g2p_fallback`,
+        when set, is the `Fallback` instance itself, so a caller can read
+        `.counts` afterward and see exactly how many words were read at
+        which layer -- this class keeps no second, shadow tally.
+        """
         fetch_data()
         self.entries = {}          # word -> list of pronunciations (phone lists)
+        self.freq_rank = {}
+        self.g2p_fallback = None
+        if fallback is not None:
+            from quality.g2p import Fallback
+            # `self.entries`/`self.freq_rank` are populated below, AFTER this
+            # call -- but the shim holds the SAME dict objects, so it sees
+            # every entry once the loops below finish. Order relative to
+            # those loops does not matter; identity of the dict objects is
+            # what makes this work.
+            self.g2p_fallback = Fallback(
+                _DictionaryOnlyLexicon(self.entries, self.freq_rank),
+                min_confidence=fallback)
         with open(CMUDICT_PATH, encoding="utf-8", errors="replace") as f:
             for line in f:
                 line = line.split("#")[0].strip()
@@ -335,11 +558,17 @@ class Lexicon:
                 phones = parts[1:]
                 self.entries.setdefault(word, []).append(phones)
         _KNOWN_WORDS.update(self.entries.keys())
-        self.freq_rank = {}
+        # data/opensubtitles_en_50k.tsv: `# ...` provenance comments, then a
+        # literal `word\tcount\trank` header, then data rows in descending-
+        # frequency order -- rank 0 is the first data row, not the header.
         if os.path.exists(FREQ_PATH):
             with open(FREQ_PATH, encoding="utf-8") as f:
-                for i, w in enumerate(f):
-                    self.freq_rank.setdefault(w.strip().lower(), i)
+                for line in f:
+                    if line.startswith("#") or line.startswith("word\t"):
+                        continue
+                    w = line.split("\t", 1)[0].strip().lower()
+                    if w:
+                        self.freq_rank.setdefault(w, len(self.freq_rank))
 
     def transcribe_word(self, word):
         """Return (phones, oov_flag). Naive fallback for out-of-vocabulary."""
@@ -348,10 +577,21 @@ class Lexicon:
             return [], False
         if w in self.entries:
             return list(self.entries[w][0]), False
-        # crude OOV fallback: strip trailing s / 's
-        for suffix, tail in (("'s", ["Z"]), ("s", ["Z"])):
+        # OOV fallback: strip trailing s / 's and re-attach the suffix with
+        # its VOICING, which is fixed by the base's last phone (see
+        # PLURAL_S_SIBILANT / PLURAL_S_VOICELESS). This used to append a
+        # hard-coded ["Z"], which produced phone sequences English does not
+        # have -- `wights` came out W AY1 T Z, and /tz/ is not an English
+        # coda. Found by cell BA from the comparator end: `wights`/`knights`
+        # was the best-attested non-identical coda pair in the sonnets'
+        # mandated positions and looked like evidence for licensing S~Z in the
+        # band, when it was this line. That is doctrine 79's triage error
+        # arriving at the comparator from the ingestion layer, and the fix
+        # belongs here.
+        for suffix in ("'s", "s"):
             if w.endswith(suffix) and w[: -len(suffix)] in self.entries:
-                return list(self.entries[w[: -len(suffix)]][0]) + tail, False
+                base = list(self.entries[w[: -len(suffix)]][0])
+                return base + plural_s_tail(base), False
         # elision: crown'd -> crowned
         if w.endswith("'d"):
             for cand in (w[:-2] + "ed", w[:-2] + "d"):
@@ -363,6 +603,17 @@ class Lexicon:
             if p and p[-1] == "NG":
                 p[-1] = "N"
             return p, False
+        if self.g2p_fallback is not None:
+            # `word`, not `w`: this method's own `.strip()` above removes a
+            # BOUNDARY apostrophe (needed so dictionary lookups aren't keyed
+            # on punctuation), but that is exactly the character
+            # `Fallback._final_apostrophe` reads to find `groun'`/`thro'` --
+            # `read()` does its own normalization, and its strip set omits
+            # apostrophes for that reason. Passing the already-stripped `w`
+            # here would silently disable that layer.
+            r = self.g2p_fallback.read(word)
+            if r is not None:
+                return list(r.phones), False
         return [], True
 
     def transcribe(self, text, phrase_final=True):
@@ -1463,6 +1714,49 @@ def nucleus_agrees(ta, tb, decl):
     return True
 
 
+def coda_agrees(ta, tb, decl):
+    """The coda channel's PREDICATE shapes: `identity` and `licensed`.
+
+    The exact mirror of `nucleus_agrees`, and it exists for the same reason:
+    "a cut on a graded similarity matrix" is a SHAPE, and on this channel it
+    was the function rather than a declared coordinate. The scalar shape is
+    still the `min(cluster_sim(...))` in `channel_agreement`.
+
+    THE CLUSTER RULE IS SAME-LENGTH, POSITION-WISE. Two codas agree if they
+    have the same number of phones and each aligned phone is identical or an
+    unordered member of `decl.coda_licence`. A licence is a claim about ONE
+    segment, so extending it to a Needleman-Wunsch alignment over unequal
+    lengths would let a licence buy a DELETION, which is a different claim
+    entirely -- that is `nelms`/`seashells` (LMZ ~ LZ), admitted by the scalar
+    at exactly 0.800, and it is not an English rhyme.
+
+    Two ABSENT codas agree, here as in the scalar (doctrine 25): `see`/`free`.
+    That falls out of `() == ()` and needs no special case.
+    """
+    if decl.coda_agreement not in ("scalar", "identity", "licensed"):
+        # Same reason as nucleus_agrees: an undeclared shape must be loud.
+        raise ValueError(
+            f"Declaration.coda_agreement must be 'scalar', 'identity' or "
+            f"'licensed', got {decl.coda_agreement!r}")
+    lic = {tuple(sorted(p)) for p in decl.coda_licence}
+    for x, y in zip(ta, tb):
+        ca, cb = tuple(x["coda"]), tuple(y["coda"])
+        if ca == cb:
+            continue
+        if decl.coda_agreement != "licensed":
+            return False
+        if len(ca) != len(cb):
+            return False
+        for k, (p, q) in enumerate(zip(ca, cb)):
+            if p == q:
+                continue
+            if tuple(sorted((p, q))) not in lic:
+                return False
+            if decl.coda_licence_final_only and k != len(ca) - 1:
+                return False
+    return True
+
+
 def channel_agreement(anc_a, anc_b, decl):
     """Does each channel AGREE across the whole anchor? -> (nucleus, coda).
 
@@ -1517,6 +1811,19 @@ def channel_agreement(anc_a, anc_b, decl):
     for i in range(n):
         ca, cb = ta[i]["coda"], tb[i]["coda"]
         codas.append(1.0 if (not ca and not cb) else cluster_sim(ca, cb))
+    if decl.coda_agreement != "scalar":
+        # A non-scalar SHAPE answers this channel with a predicate instead of
+        # a magnitude, exactly as the nucleus does above, and infinities keep
+        # any value of `theta_coda` from inverting it.
+        #
+        # PER SYLLABLE, deliberately, even though `coda_agrees` would happily
+        # take the whole span: the conjunction across syllables has to stay in
+        # the `min(...)` below, where the band's other channel reads it and
+        # where `quality/mutate.py` M3 and M5 test it. Hiding it inside the
+        # predicate would leave two mutants with nothing to break and the
+        # suite would report that as strength.
+        codas = [float("inf") if coda_agrees([x], [y], decl)
+                 else float("-inf") for x, y in zip(ta, tb)]
     return nuc >= decl.theta_nucleus, min(codas) >= decl.theta_coda
 
 
@@ -1812,9 +2119,25 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                          f"below theta_rhyme={decl.theta_rhyme}"))
             else:
                 if s["total"] >= 0.9:
+                    # RELATION IS CARRIED NOW (2026-08-11), not dropped. A
+                    # scalar-only cut here reported correctly-typed ASSONANCE
+                    # and CONSONANCE edges under the label "unintended
+                    # rhyme" -- a report-layer defect distinct from the
+                    # comparator (cell BA found it while investigating a
+                    # false claim in this repo's own commit history: what
+                    # looked like the coda channel admitting `will`/`gun` was
+                    # actually this loop printing an ASSONANCE edge under a
+                    # RHYME-shaped message). The caller filters on
+                    # `s["relation"]` now instead of assuming every member is
+                    # a rhyme; `quality/revise.py`'s collision partition
+                    # already did this independently and this brings the raw
+                    # `scheme`/`song` CLI print into agreement with it.
                     collisions.append(
-                        (i + 1, j + 1, s["total"],
-                         "unintended rhyme across scheme letters"))
+                        (i + 1, j + 1, s["total"], s["relation"],
+                         "unintended rhyme across scheme letters"
+                         if s["relation"] in ("RHYME", "RIME_RICHE")
+                         else f"unintended {s['relation']} across scheme "
+                              f"letters, NOT a rhyme"))
     # transitivity defect within letter groups: a~b, b~c, a!~c.
     # A triangle containing a refused edge is UNKNOWN, not defective: a missing
     # edge there is a missing measurement. Counting it would manufacture a
@@ -2924,14 +3247,28 @@ the quality layer (each says which module answered):
                           lowercase = rhyme only): villanelle, triolet,
                           rondel, ballade... and, given a lyric, whether the
                           refrains actually came back
-  brief  FILE [MANDATE]   what to revise, and what is FORBIDDEN.
+  brief  FILE [MANDATE] [--blueprint=B] [--subdivision N] [--isochronous]
+                          what to revise, and what is FORBIDDEN.
                           MANDATE is a letter scheme (ABAB; X = free),
                           --groups=1,3;2,4 (1-based, may OVERLAP), or
                           --cliques (the song's own graph structure).
                           With NO mandate it REFUSES: nothing declared means
                           nothing mandated, and "nothing flagged" about that
-                          is a vacuous pass (doctrine 20)
-  verify BEFORE AFTER [MANDATE] [lines]  did the revision earn it
+                          is a vacuous pass (doctrine 20). --blueprint joins
+                          meter (quality/fit.py) and song-function
+                          (quality/grid.py) to the SAME finding set --
+                          omitted, only rhyme and the slop floor are asked,
+                          same as before this flag existed
+  verify BEFORE AFTER [MANDATE] [lines] [--blueprint=B] [--subdivision N]
+         [--isochronous]  did the revision earn it
+  revise FILE [MANDATE] [--blueprint=B] [--subdivision N] [--isochronous]
+                          the automated write-check-fix LOOP: brief() and
+                          verify() driven to convergence with a mechanical
+                          stub proposer (quality/loop.py). Two tiers -- swap
+                          a flagged line's own word, or BACKTRACK an anchor
+                          when `joint_conflict` says no word answers a pivot
+                          at all -- and three stop conditions: success,
+                          no_progress, or the declared max_rounds
   readability FILE        what the ingestion layer could not read"""
 
 
@@ -2952,6 +3289,8 @@ VERB_LAYERS = (
     ("cycle", "quality/meter.py", "exact-rational metric cycles"),
     ("relations", "quality/relations.py", "77 named relation schemas"),
     ("brief / verify", "quality/revise.py", "the revision loop"),
+    ("revise", "quality/loop.py", "the automated write-check-fix loop, "
+     "driven on top of brief/verify"),
     ("readability", "quality/readability.py", "ingestion refusals"),
     ("grid", "quality/grid.py", "bar grid, stanza lock"),
     ("function", "quality/grid.py", "section function, returns, hook"),
@@ -3258,7 +3597,8 @@ def main():
             print(f"  REFUSED   L{r['lines'][0]}-L{r['lines'][1]}: "
                   f"{r['reason']}")
         for c in res["collisions"]:
-            print(f"  COLLISION L{c[0]}-L{c[1]} score {c[2]}: {c[3]}")
+            print(f"  COLLISION L{c[0]}-L{c[1]} score {c[2]} "
+                  f"[{c[3]}]: {c[4]}")
         print(f"  mandated {res['pairs_mandated']}  judged "
               f"{res['pairs_judged']}  refused {res['pairs_refused']}"
               + ("   (a violation RATE divides by judged, not mandated)"
@@ -3786,10 +4126,72 @@ def main():
               f"end word, {rep['lines_unreadable_final_piece']} the LAST "
               f"piece of a compound")
 
-    elif cmd in ("brief", "verify"):
+    elif cmd in ("brief", "verify", "revise"):
+        from quality import loop as LP
         from quality.revise import Reviser
         from quality.schemes import NoMandate
         rv = Reviser(lex=lex, decl=decl)
+
+        # `--blueprint=`/`--subdivision`/`--isochronous`: THE SAME THREE
+        # DECLARED COORDINATES the `fit` verb already reads, wired here for
+        # the first time. `Reviser.brief`/`.verify` and `revise_loop` have
+        # taken `blueprint=`/`subdivision=`/`assume=` since the meter and
+        # song-function layers were folded into their finding set -- but
+        # nothing on this command line could ever hand them one, so every
+        # run through here was rhyme-and-floor only, silently, no matter
+        # what the Python API supported. Omit `--blueprint` and nothing
+        # changes; these three verbs behave exactly as they did before this
+        # existed.
+        from quality import fit as FT
+        bp_path = _flag_value(args, "--blueprint", eq_only=True)
+        sub_arg = _flag_value(args, "--subdivision")
+        subdivision = FT.Subdivision(
+            slots_per_pulse=int(sub_arg),
+            source="lyric_harness.py brief/verify/revise --subdivision, an "
+                   "explicit decision by whoever ran the command") \
+            if sub_arg is not None else None
+        assume = FT.Isochrony(
+            source="lyric_harness.py brief/verify/revise --isochronous, an "
+                   "explicit assumption by whoever ran the command") \
+            if "--isochronous" in args else None
+
+        def _say_blueprint():
+            """Printed only once a mandate spec is known to be present —
+            with NO mandate this verb REFUSES immediately (doctrine 20) and
+            that refusal has to be the FIRST thing printed, not buried under
+            a disclosure about a layer that was never going to run either
+            way (`quality/test_verbs.py` pins the refusal to line 1)."""
+            if bp_path:
+                print(f"  BLUEPRINT: {bp_path} — meter and song-function "
+                      f"join the rhyme/floor finding set"
+                      + (f", subdivision={sub_arg}" if sub_arg else
+                         ", NO SUBDIVISION DECLARED — the slot questions "
+                         "refuse rather than assume one"))
+            else:
+                print("  BLUEPRINT: none declared — meter and song-function "
+                      "are NOT asked; only rhyme and the slop floor are "
+                      "(doctrine 20: this is a refusal on those two layers, "
+                      "not evidence they are clean)")
+
+        # `verify`'s [MANDATE] [lines] are POSITIONAL (`args[3]`, `args[4]`),
+        # so a trailing `--blueprint=...` has to be pulled out of `args`
+        # before that indexing runs, or it would be read as the targeted-
+        # line spec instead of a flag. Consumed here, once, for all three
+        # verbs sharing this branch.
+        _FLAG_NAMES = ("--blueprint", "--subdivision", "--isochronous")
+        args, _skip = list(args), False
+        cleaned = []
+        for a in args:
+            if _skip:
+                _skip = False
+                continue
+            base = a.split("=", 1)[0]
+            if base in _FLAG_NAMES:
+                if "=" not in a and base != "--isochronous":
+                    _skip = True          # space-separated form: eat the value
+                continue
+            cleaned.append(a)
+        args = cleaned
 
         def _mandate_arg(spec, lines):
             """CLI spelling -> anything `quality.schemes.mandate` accepts.
@@ -3841,7 +4243,10 @@ def main():
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
                 _say_derived(scheme)
-                briefs = rv.brief(lines, scheme)
+                if scheme is not None:
+                    _say_blueprint()
+                briefs = rv.brief(lines, scheme, blueprint=bp_path,
+                                  subdivision=subdivision, assume=assume)
                 # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
                 # BACKLOG 1.2's acceptance names `brief` as well as
                 # `check_scheme`, and a brief is where the misattribution
@@ -3900,7 +4305,7 @@ def main():
                               f"{', '.join(b.forbidden_modal)}")
                     if b.candidates:
                         print(f"      offered: {', '.join(b.candidates[:12])}")
-            else:
+            elif cmd == "verify":
                 before = [l.rstrip() for l in open(args[1]).read().splitlines()
                           if l.strip() and not l.strip().startswith("[")]
                 after = [l.rstrip() for l in open(args[2]).read().splitlines()
@@ -3908,9 +4313,13 @@ def main():
                 scheme = _mandate_arg(args[3] if len(args) > 3 else None,
                                       before)
                 _say_derived(scheme)
+                if scheme is not None:
+                    _say_blueprint()
                 targeted = ({int(x) for x in args[4].split(",")}
                             if len(args) > 4 else None)
-                v = rv.verify(before, after, scheme, targeted=targeted)
+                v = rv.verify(before, after, scheme, targeted=targeted,
+                              blueprint=bp_path, subdivision=subdivision,
+                              assume=assume)
                 print(f"  VERDICT: "
                       f"{'ACCEPTED' if v.get('accepted') else 'REJECTED'}")
                 for r in v.get("reasons", []):
@@ -3918,6 +4327,31 @@ def main():
                 for k in ("fixed", "broken", "untargeted", "modal_taken"):
                     if v.get(k):
                         print(f"    {k}: {v[k]}")
+
+            else:
+                # `revise` — quality/loop.py driven end to end, with the
+                # STOCK mechanical proposer (quality/loop.py's own docstring:
+                # it swaps one word and writes nothing, which is enough to
+                # prove the loop's accept/reject/retry/backtrack/stop control
+                # flow -- not a way to get a good line). A caller wanting
+                # real writing supplies its own `propose`/`propose_pair`
+                # through the Python API; this verb exists so the control
+                # flow itself is runnable and inspectable without one.
+                lines = [l.rstrip() for l in open(args[1]).read().splitlines()
+                         if l.strip() and not l.strip().startswith("[")]
+                scheme = _mandate_arg(args[2] if len(args) > 2 else None,
+                                      lines)
+                _say_derived(scheme)
+                if scheme is not None:
+                    _say_blueprint()
+                result = LP.revise_loop(rv, lines, scheme, blueprint=bp_path,
+                                        subdivision=subdivision, assume=assume)
+                print(result)
+                if result.lines != lines:
+                    print("\n  FINAL DRAFT:")
+                    for i, l in enumerate(result.lines, 1):
+                        mark = "*" if l != lines[i - 1] else " "
+                        print(f"  {mark} L{i}: {l}")
         except NoMandate as e:
             # Exit 2, not 0. A refusal is not a pass and a caller in a
             # pipeline has to be able to tell them apart; the traceback this

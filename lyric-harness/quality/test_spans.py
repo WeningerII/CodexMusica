@@ -235,16 +235,25 @@ def test_the_consumers_print_it():
           all("mosaic_pairs" in c for c in chains),
           "mean_coherence is a mean over pairs and the endwords beside it "
           "are only the pairs' labels")
-    # Sonnet 17: the chain eyes/lies/age/rage has a mean_coherence printed
-    # beside four end words, and one of its pairs was scored on `poet lies`
-    # against `poet's rage` — a mosaic contribution to a number labelled with
-    # bare monosyllables.
+    # REPOINTED 2026-08-11 after `Declaration.coda_agreement="identity"`
+    # shipped (cell BA). Sonnet 17's eyes/lies/age/rage chain was the witness
+    # here — a mean_coherence printed beside four end words, with one pair
+    # scored on `poet lies` against `poet's rage`, a mosaic contribution to a
+    # number labelled with bare monosyllables. Under the shipped coda channel
+    # that chain correctly SPLITS: `lies`~`rage` has codas Z and JH, which the
+    # old scalar coda blurred together and the identity predicate does not.
+    # `python3 -c "...infer_chains..."` over all 152 sonnets finds it now
+    # splits into two length-2 chains (eyes/lies, age/rage) with no mosaic
+    # pair between them. The capability this check exists to pin — that a
+    # chain's mean_coherence can rest on a MULTI-WORD span, not just the bare
+    # end word — still needs a real witness, and sonnet 19 supplies one that
+    # survives the comparator change: L13/14, `thy wrong` ~ `live young`.
     import battery
-    s17 = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))[16]
-    got = [m for c in lh.infer_chains(LEX, s17, DECL)
+    s19 = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))[18]
+    got = [m for c in lh.infer_chains(LEX, s19, DECL)
            for m in c["mosaic_pairs"]]
     check("...and on a real chain it names the mosaic pairs behind the mean",
-          any("poet lies" in m["note"] for m in got),
+          any("thy wrong" in m["note"] for m in got),
           str([m["note"] for m in got][:1]))
 
 
@@ -269,7 +278,12 @@ def test_the_oracle_does_not_move():
     check("mandated pairs 1064", mandated == 1064, str(mandated))
     check("judged 1014", judged == 1014, str(judged))
     check("refused 50", refused == 50, str(refused))
-    check("violations 81 (8.0% of judged)", viol == 81,
+    # Reads battery.EXPECTED rather than a second literal (doctrine 48) -- this
+    # file held its own copy of the oracle's pin and went stale on it once
+    # already, when cell BA's coda-identity fix moved 81 -> 82.
+    check(f"violations {battery.EXPECTED['violations']} "
+          f"({battery.EXPECTED['violations'] / judged:.1%} of judged)",
+          viol == battery.EXPECTED["violations"],
           f"{viol} ({viol / judged:.1%})")
     # This is the measurement the change exists to make. It is asserted as a
     # RANGE rather than a point so it fails on a structural change and not on
@@ -460,21 +474,28 @@ def test_a_hyphen_can_substitute_the_rhyme_word():
 
 def test_the_sweep_runs_and_reports_three_counts():
     print("\n13. adversary 7's instrument: quality/audit_spans.py")
+    import battery
     import audit_spans
     r = audit_spans.sweep_battery(LEX, DECL, verbose=False)
     check("three counts, always (doctrine 79)",
           (r["mandated"], r["judged"], r["refused"]) == (1064, 1014, 50),
           f"mandated {r['mandated']} judged {r['judged']} "
           f"refused {r['refused']}")
-    check("violations 81 — the sweep reads the same oracle the battery does",
-          r["violations"] == 81, str(r["violations"]))
+    # REPINNED 2026-08-11: 81 -> battery.EXPECTED['violations'] after cell BA's
+    # coda-identity fix. Reading the oracle's own pin rather than a second
+    # literal is the fix, not just the new digit -- this file held a stale
+    # copy once already.
+    check("violations match the oracle's own pin — the sweep reads the same "
+          "oracle the battery does",
+          r["violations"] == battery.EXPECTED["violations"],
+          str(r["violations"]))
     check("632 of the 1014 JUDGED pairs name the two words that produced "
           "their number", r["claimed"] == 632,
           f"{r['claimed']} / {r['judged']}; the other "
           f"{r['judged'] - r['claimed']} name a pair that did not")
-    check("35 of the 81 VIOLATIONS do — this is the number that decides "
+    check("36 of the 82 VIOLATIONS do — this is the number that decides "
           "whether a triage lands on the right layer",
-          r["violations_claimed"] == 35,
+          r["violations_claimed"] == 36,
           f"{r['violations_claimed']} / {r['violations']}")
     severe = sum(v for k, v in r["viol_kinds"].items()
                  if any(x in (lh.SPAN_REACH, lh.SPAN_SUBSTITUTED,
@@ -482,8 +503,8 @@ def test_the_sweep_runs_and_reports_three_counts():
     check("9 of them could not be reconstructed from the printed words even "
           "in principle (reach / substituted / unattributed)", severe == 9,
           f"{severe} / {r['violations']}; the remaining "
-          f"{81 - 35 - severe} are the declared anchor cut, visible in the "
-          f"label")
+          f"{r['violations'] - r['violations_claimed'] - severe} are the "
+          f"declared anchor cut, visible in the label")
     check("the partition is exhaustive over the judged pairs",
           sum(r["pair_kinds"].values()) == r["judged"],
           f"{sum(r['pair_kinds'].values())} == {r['judged']}")

@@ -23,18 +23,33 @@ Priced the way `theta_coda` was — a random-pair FPR corpus AND a true-positive
 corpus, each split in half, both halves reported:
 
     corpus                     head (shipped)        tail
-    sonnet oracle, all 152     81 / 1014             81 / 1014
-      calibration half         42 / 510              42 / 510
+    sonnet oracle, all 152     82 / 1014             82 / 1014
+      calibration half         43 / 510              43 / 510
       HELD-OUT half            39 / 504              39 / 504
     random pairs, relation FPR
-      calibration half         3.53%                 3.53%
-      HELD-OUT half            3.50%                 3.50%
+      calibration half         2.37%                 2.37%
+      HELD-OUT half            2.17%                 2.17%
     random pairs, ADMITTED FPR (relation AND total >= theta_rhyme)
-      calibration half         1.57%                 1.53%
-      HELD-OUT half            1.17%                 1.17%
+      calibration half         1.20%                 1.10%
+      HELD-OUT half            0.90%                 0.93%
     scalar `total` moves       —                     59.0% of 6,000 pairs
     RELATION flips             —                     0 of 6,000
-    ADMITTED flips             —                     5 of 6,000 (3 up, 2 down)
+    ADMITTED flips             —                     4 of 6,000 (1 up, 3 down)
+
+REPINNED 2026-08-11, after `Declaration.coda_agreement` defaulted to
+`identity` (cell BA, `quality/RESULTS_CODA_SHAPE.md`): re-derived in full,
+same methodology, both `DECL` and `TAIL` now carrying the identity coda —
+`sample(6000)` at this file's own `SEED`, split `k % 2` exactly as
+`redteam_band.py`'s `fit_half` convention does, calibration = even indices.
+The random-pair FPR rows moved (3.53%->2.37%, 3.50%->2.17%; 1.57%->1.20%,
+1.17%->0.90%) — this is the SAME reduction `RESULTS_CODA_SHAPE.md` reports
+for the identity fix taken alone, so nothing here is a new finding, only the
+consequence of an already-priced one arriving in this table too. The
+sonnet-oracle and RELATION rows are UNCHANGED IN SHAPE: the relation still
+never flips between alignments, and the oracle is still blind to the
+alignment coordinate by the same structural argument (doctrine 95) — only
+its own digit moved, because it is downstream of the SAME oracle
+`battery.py` pins.
 
 Two of those rows are the whole argument. The RELATION never flips, because the
 relation is decided by `channel_agreement`, which tail-aligns whatever the
@@ -268,8 +283,8 @@ def test_the_oracle_is_blind_to_this_by_construction():
     check(f"all {len(slice_)} sampled sonnets return the IDENTICAL violation "
           f"set under both readings",
           same == len(slice_),
-          f"{same}/{len(slice_)}. Over all 152 it is 81/1014 either way, and "
-          f"42/510 and 39/504 in the two halves — identical to the pair. Only "
+          f"{same}/{len(slice_)}. Over all 152 it is 82/1014 either way, and "
+          f"43/510 and 39/504 in the two halves — identical to the pair. Only "
           f"the reported SCORE moves, on 4 sonnets of 152. A corpus whose "
           f"mandated pairs are already best-aligned at equal length cannot "
           f"price an alignment coordinate, so 'the oracle did not move' is "

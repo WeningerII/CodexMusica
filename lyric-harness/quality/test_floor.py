@@ -276,11 +276,39 @@ def test_calibration_block_is_honest():
               f"untraceable: {untraceable}" if untraceable else
               f"{len(measured)} measured, {len(defn)} definitional, "
               f"0 unaccounted")
-        check("each profile records the separation it measured",
-              all(p.measured_auc for p in profs.values()),
-              "; ".join(f"{n}: " + ", ".join(f"{k}={v}" for k, v in
-                                             p.measured_auc.items())
-                        for n, p in profs.items()))
+        # AMENDED 2026-08-11. This read `all(p.measured_auc for p in ...)` --
+        # every profile must record an AUC -- which was true while every
+        # profile came from the same human-vs-generated pair. The `song`
+        # profile does not: this repo has no generated song class, so it has no
+        # AUC and CANNOT have one, and the old assertion would have been
+        # satisfied by borrowing the sonnet's. What has to hold is weaker and
+        # more useful: every profile records EVIDENCE, and says which KIND.
+        missing = [n for n, p in profs.items()
+                   if not p.measured_auc and not p.held_out_fpr]
+        check("each profile records evidence of one kind or the other",
+              not missing,
+              "; ".join(
+                  f"{n}: " + (", ".join(f"{k}={v}" for k, v in
+                                        p.measured_auc.items())
+                              if p.measured_auc else
+                              "no generated class; held-out FPR " +
+                              ", ".join(f"{k}={v[0]:.2f}%" for k, v in
+                                        p.held_out_fpr.items()))
+                  for n, p in profs.items()))
+        liars = [n for n, p in profs.items()
+                 if p.n_generated == 0 and p.measured_auc]
+        check("a profile with no generated class claims no separation",
+              not liars,
+              f"claiming an AUC without a negative class: {liars}" if liars
+              else "n_generated=0 implies measured_auc={} — an AUC is a "
+                   "statement about two classes and there is only one")
+        unsourced = [n for n, p in profs.items()
+                     if p.n_generated == 0 and not p.source]
+        check("a profile whose only evidence is a false-positive rate names "
+              "the text that rate was measured on",
+              not unsourced, f"unsourced: {unsourced}" if unsourced else
+              "doctrine 22: an FPR is a coordinate of the population it was "
+              "measured on")
         check("a profile cannot borrow a threshold it never measured",
               "predictable_pair_fraction_max"
               not in profs["section"].percentiles,
@@ -326,6 +354,185 @@ def test_out_of_domain_is_announced():
               "PROVISIONAL" in text)
 
 
+EXAMPLES = os.path.join(HERE, "..", "examples")
+
+
+def _sheet(name):
+    """A lyric sheet's body lines, section markers dropped — the unit the song
+    profile was calibrated on."""
+    with open(os.path.join(EXAMPLES, name), encoding="utf-8") as fh:
+        return [l.strip() for l in fh
+                if l.strip() and not (l.strip().startswith("[")
+                                      and l.strip().endswith("]"))]
+
+
+def test_the_floor_runs_on_a_song():
+    print("\n13. the length-sensitive half runs on a song-length lyric")
+    from quality.floor import declaration_for
+    for name, n_lines in (("cherokee_bill.txt", 28),
+                          ("never_been_to_a_scene.txt", 41)):
+        ls = _sheet(name)
+        tok = sum(len(FLOOR.qf._tokens(x)) for x in ls)
+        prof, exact = declaration_for(tok)
+        check(f"{name} lands in the song profile, exactly",
+              prof is not None and prof.name == "song" and exact,
+              f"{len(ls)} lines, {tok} tokens -> "
+              f"{prof.name if prof else None}, exact={exact}")
+        check(f"{name} gets a length-sensitive verdict",
+              "OUT_OF_CALIBRATED_LENGTH" not in codes(ls),
+              "before 2026-08-11 both example songs got OUT_OF_CALIBRATED_"
+              "LENGTH and the entire length-sensitive half of the floor sat "
+              "out on the only two songs this project has written")
+        check(f"{name} really has {n_lines} lines", len(ls) == n_lines)
+
+
+def test_the_song_profile_was_not_tuned_to_the_examples():
+    print("\n14. the thresholds were not chosen to make the examples pass")
+    # THE POINT OF THIS TEST. A profile whose cuts were picked so that the
+    # repo's own showcase lyrics come out clean would be worthless and would
+    # look identical to a good one from the outside. So the guard is pinned to
+    # the outcome that a tuned profile could not have produced: the harness's
+    # flagship example song FAILS its own gate, on a check whose threshold is
+    # the corpus's 95th percentile and nothing else.
+    ls = _sheet("never_been_to_a_scene.txt")
+    f = find(ls, "ANAPHORA_OVERLOAD")
+    check("never_been_to_a_scene trips ANAPHORA_OVERLOAD", f is not None,
+          "14 of its 41 lines open with 'I' — 34% against a human 95th "
+          "percentile of 30.0% measured on 1,859 corpus songs. If a later "
+          "change makes this pass, the threshold moved for the lyric's sake "
+          "and this test is the thing that says so")
+    check("and it is a flag, not a note", f is not None and
+          f.severity == "flag", "the song profile covers 291 tokens exactly, "
+          "so nothing is downgraded for extrapolation")
+    from quality.floor import PROFILES
+    song = [p for p in PROFILES if p.name == "song"][0]
+    check("the four song thresholds are the recorded corpus percentiles",
+          song.percentiles == {"mattr_min": 0.7226,
+                               "function_word_ratio_max": 0.4716,
+                               "anaphora_max": 0.3000,
+                               "line_length_cv_min": 0.1123},
+          "150-400 tokens, 1,859 items, 108 authors; "
+          "quality/RESULTS_SONG_FLOOR.md carries the commands")
+
+
+def test_the_song_profile_makes_no_separation_claim():
+    print("\n15. a profile with no negative class may not sound like one")
+    ls = _sheet("never_been_to_a_scene.txt")
+    fs = [f for f in FLOOR.check(ls)
+          if f.code in ("ANAPHORA_OVERLOAD", "LEXICAL_MONOTONY",
+                        "FUNCTION_WORD_HEAVY", "UNIFORM_LINE_LENGTH")]
+    import re as _re
+    check("at least one song-profile finding is under test", bool(fs))
+    # `AUC \d` and not the bare word: the finding is REQUIRED to contain the
+    # string "no AUC and no separation claim", so a substring test on "AUC"
+    # would pass on the disclaimer and fail on the honest text. What must not
+    # appear is a NUMBER after it.
+    quoted = [f.code for f in fs if _re.search(r"AUC\s*[0-9]", f.evidence)]
+    check("no song-profile finding quotes a numeric AUC", not quoted,
+          f"quoting one: {quoted}" if quoted else
+          "there is no generated song class, so there is no separation and "
+          "nothing to put an AUC on")
+    check("and each says so in as many words",
+          all("no AUC and no separation claim" in f.evidence for f in fs))
+    check("every song-profile finding states its held-out false-positive rate",
+          all("HELD-OUT human song" in f.evidence for f in fs),
+          "doctrine 22: a threshold is a false-positive rate, not a point on "
+          "a scale")
+    check("and states that this does not mean it catches a machine",
+          all("not whether it catches a machine" in f.evidence for f in fs))
+    check("the period slope is carried in the finding, not only the docs",
+          all("period" in f.evidence.lower() for f in fs
+              if f.code == "ANAPHORA_OVERLOAD"),
+          "doctrine 11: anaphora's author-level Spearman against birth year "
+          "is +0.275, p_perm 0.0042 over 10,000 label permutations at "
+          "seed 20260811")
+
+
+def test_the_song_profile_did_not_swallow_everything():
+    print("\n16. adding a profile must not delete the refusal")
+    from quality.floor import declaration_for
+    for tok in (501, 700, 3000):
+        p, _ = declaration_for(tok)
+        check(f"{tok} tokens is still outside every profile", p is None,
+              "doctrine 15: length is a coordinate of the declaration. A "
+              "profile widened until nothing refuses is not a calibration")
+    huge = ["word " * 40] * 40
+    c = codes(huge)
+    check("OUT_OF_CALIBRATED_LENGTH still fires above the song band",
+          "OUT_OF_CALIBRATED_LENGTH" in c and "LEXICAL_MONOTONY" not in c,
+          f"codes: {sorted(c)}")
+    p, exact = declaration_for(450)
+    check("450 tokens is served by the song profile but marked inexact",
+          p is not None and p.name == "song" and not exact,
+          "1.25x tolerance -> applied 120-500. Measured on the song corpus, "
+          "carrying these thresholds to 2.0x raises the union false-positive "
+          "rate from 17.66% to 22.05%, which is why this profile does not "
+          "take the 2.0 the other two ship with")
+
+
+def test_the_examples_are_not_in_the_calibration_set():
+    print("\n17. the scored text is independent of the text that set the cut")
+    import glob
+    import re
+    import unicodedata
+
+    def norm(s):
+        s = unicodedata.normalize("NFC", s).replace("’", "'")
+        return " ".join(re.sub(r"[^a-z0-9 ']+", " ", s.lower()).split())
+
+    corpus = set()
+    for p in glob.glob(os.path.join(HERE, "..", "corpus", "song",
+                                    "eng_*.txt")):
+        with open(p, encoding="utf-8", errors="replace") as fh:
+            for l in fh:
+                n = norm(l)
+                if len(n) >= 12:
+                    corpus.add(n)
+    check("the calibration set is the one the profile names",
+          len(corpus) > 100000, f"{len(corpus)} distinct normalised lines "
+                                f">= 12 chars in corpus/song/eng_*.txt")
+    for name in ("cherokee_bill.txt", "never_been_to_a_scene.txt"):
+        lines = {norm(l) for l in _sheet(name) if len(norm(l)) >= 12}
+        shared = lines & corpus
+        check(f"{name} shares no line with the calibration set", not shared,
+              f"{len(lines)} long lines, {len(shared)} shared. Doctrine 13: a "
+              f"resource used to score a cell must be independent of that "
+              f"cell's label, and a calibration set containing the item it "
+              f"scores has measured nothing"
+              + (f" — {sorted(shared)[:3]}" if shared else ""))
+
+
+def test_anaphora_tie_break_reproduces():
+    print("\n18. a tie is broken by the text, not by the hash seed")
+    # doctrine 66. This read `max(set(firsts), key=firsts.count)` until
+    # 2026-08-11, and a set of strings iterates in an order Python randomises
+    # per process. On the fixture below the RATE was a stable 0.5 and the
+    # reported word alternated between 'alpha' and 'beta' across
+    # PYTHONHASHSEED 0-5, taking the finding's line numbers with it — so the
+    # evidence and the locations, which are the part a writer acts on, did not
+    # reproduce. Only a cross-process run could have found it, so that is what
+    # this test does.
+    import subprocess
+    tie = ["Alpha one", "Beta two", "Alpha three", "Beta four"]
+    rate, word = FLOOR._anaphora(tie)
+    check("the tie goes to the word that appears first",
+          (rate, word) == (0.5, "alpha"), f"{rate}, {word!r}")
+    prog = (
+        "import sys; sys.path.insert(0, %r); sys.path.insert(0, %r)\n"
+        "from quality.floor import SlopFloor\n"
+        "print(SlopFloor._anaphora(None, %r))\n"
+        % (os.path.join(HERE, ".."), os.path.join(HERE, "..", ".."), tie))
+    seen = set()
+    for seed in range(6):
+        env = dict(os.environ, PYTHONHASHSEED=str(seed))
+        r = subprocess.run([sys.executable, "-c", prog], capture_output=True,
+                           text=True, env=env,
+                           cwd=os.path.join(HERE, ".."))
+        seen.add(r.stdout.strip() or r.stderr.strip()[-120:])
+    check("six PYTHONHASHSEEDs give one answer", len(seen) == 1,
+          f"{sorted(seen)}")
+
+
 if __name__ == "__main__":
     for fn in (test_never_returns_a_score, test_too_short_is_silent,
                test_repeat_in_verse, test_single_pair_repeat_is_undecidable,
@@ -336,7 +543,13 @@ if __name__ == "__main__":
                test_length_is_a_coordinate,
                test_calibration_block_is_honest,
                test_predictability_is_demoted,
-               test_out_of_domain_is_announced):
+               test_out_of_domain_is_announced,
+               test_the_floor_runs_on_a_song,
+               test_the_song_profile_was_not_tuned_to_the_examples,
+               test_the_song_profile_makes_no_separation_claim,
+               test_the_song_profile_did_not_swallow_everything,
+               test_the_examples_are_not_in_the_calibration_set,
+               test_anaphora_tie_break_reproduces):
         fn()
     print("=" * 62)
     if FAILURES:

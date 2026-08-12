@@ -305,11 +305,42 @@ def test_brief_refuses_instead_of_tracebacking():
     check("and says out loud that it is NOT INDEPENDENT of the grader "
           "(doctrine 14)",
           "NOT INDEPENDENT" in out)
-    check("the overlap is reported as having no letter scheme (doctrine 2)",
-          "NO LETTER SCHEME EXISTS" in out)
-    check("a pivot is briefed on EVERY group it is in, which is the thing a "
-          "letter scheme cannot say",
-          "is a PIVOT" in out and "must answer group" in out)
+
+    # REPOINTED 2026-08-11 after cell BA's coda-identity fix. EXAMPLE_TXT's
+    # own graph was the witness for overlap here (L27 "ones", 1 pivot at
+    # theta_coda=0.80/scalar) -- under the shipped identity coordinate that
+    # graph is now FULLY DISJOINT: `python3 lyric_harness.py graph
+    # examples/never_been_to_a_scene.txt` reports 6 maximal cliques and ZERO
+    # overlapping nodes; `mandate_from_graph` (promote=True) gives 7 groups,
+    # also disjoint. "ones" (L27) no longer clears theta=0.75 with either of
+    # its former clique partners at all, so it is not in the graph. Real
+    # exemplars are preferred (house style), but the exemplar is gone, so
+    # this is a constructed fixture (doctrine 94) built on a vowel-similarity
+    # CHAIN rather than identity: nucleus AY~EY = 0.62 and EY~IH = 0.775
+    # both clear theta_nucleus 0.60, but AY~IH = 0.44 does not, so a word
+    # with nucleus EY (here, a coda-identical "-s" plural, so the coda
+    # channel plays no part) rhymes with BOTH neighbours and they do not
+    # rhyme with each other -- the exact non-transitive shape that makes a
+    # single letter impossible.
+    pivot_body = ("I saw a thousand tiny lights\n"
+                  "I opened up the rusted gates\n"
+                  "I missed it by a couple bits\n")
+    with tempfile.NamedTemporaryFile("w", suffix=".txt",
+                                     delete=False) as fh:
+        fh.write(pivot_body)
+        pivot_path = fh.name
+    try:
+        rc2, out2, _ = run("brief", pivot_path, "--cliques")
+        check("the overlap is reported as having no letter scheme "
+              "(doctrine 2)",
+              rc2 == 0 and "NO LETTER SCHEME EXISTS" in out2, out2[:300])
+        check("a pivot is briefed on EVERY group it is in, which is the "
+              "thing a letter scheme cannot say",
+              "is a PIVOT" in out2 and "must answer group" in out2,
+              out2[:300])
+    finally:
+        os.unlink(pivot_path)
+
     check("the old `must rhyme with L(5, 'mailboxes')` tuple-print is gone",
           "must rhyme with L(" not in out)
     check("the modal exclusion is still printed (doctrine 9)",
@@ -375,6 +406,7 @@ def test_every_verb_runs():
         "refrain": ["refrain", "villanelle"],
         "brief": ["brief", quat, "ABAB"],
         "verify": ["verify", quat, quat, "ABAB"],
+        "revise": ["revise", quat, "ABAB"],
         "readability": ["readability", quat],
     }
     missing = sorted(lh._dispatched_verbs() - set(cases))
@@ -385,7 +417,7 @@ def test_every_verb_runs():
         rc, out, err = run(*argv)
         if "Traceback" in err or rc not in (0, 2):
             bad.append(f"{verb} (rc {rc})")
-    check("none of the 27 verbs raises",
+    check(f"none of the {len(cases)} verbs raises",
           not bad, f"raised: {bad or 'none'}")
     # The specific one that did, and for how long: `blueprint.json` was
     # rewritten to the bar-grid shape and `check_song` reads a per-section

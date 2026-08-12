@@ -44,6 +44,150 @@ so a loop that recommended it would manufacture what the floor rejects.
 `modal_exclusion=0` disables the rule and is reachable so the defect is
 demonstrable; it is not the default.
 
+**METER JOINED THE SAME LOOP 2026-08-11, and rides the FIRST rejection
+above rather than adding a fifth.** `brief`/`inspect`/`verify` all take
+optional `blueprint=`/`subdivision=`/`assume=`; when given, `quality/fit.py`'s
+per-line findings are folded into the SAME set rhyme findings already live
+in, so a revision that fixes a rhyme and overflows its bar is rejected by
+the existing "fixes the flagged line and breaks another" rule with no
+meter-specific veto written. `subdivision` is a `quality.fit.Subdivision` —
+a real declared choice, never a default — and it is call-site declared, the
+same way a mandate is: nothing in a blueprint file is read as a subdivision.
+Severity is not re-decided here either: a `SLOTS_EXCEEDED` finding (more
+syllables than slots — mathematically impossible once the setting is
+declared) is a hard flag because `fit.py`'s own `satisfiable=False` already
+says so; `PROMINENCE_EXCEEDS_HEADS` and friends stay soft notes, the same
+tier as an unintended rhyme collision, because they are a style call and not
+a contradiction. Omit `blueprint=` and nothing changes — meter is opt-in.
+`quality/test_revise.py` test 25.
+
+**THE LOOP IS AUTOMATED: quality/loop.py, tests in test_loop.py.**
+`brief`/`verify` graded one round at a time by hand; `revise_loop(reviser,
+lines, mandate, ...)` drives them to convergence. It still never writes: text
+generation is a `propose`/`propose_pair` callable the caller supplies, and
+the one shipped here (`swap_end_word`, a single-word splice) exists to prove
+the loop's OWN control flow, not to write a good line.
+
+TWO TIERS, matching what backspacing through a draft actually does. TIER 1
+swaps a flagged line's own word for an offered candidate. TIER 2
+BACKTRACKS: `Brief.joint_conflict` means `joint_field` already searched the
+complete pool and nothing answers every group a pivot is in at once —
+retrying tier 1 there is re-running a search already proven empty, which is
+why the brief says "the mandate, not the line, is what needs revising."
+Tier 2 instead revises the WORD of the line the pivot has to match, bounded
+to a two-line group (the pivot and one anchor): a group of three or more
+would mean rewriting the whole group to keep it mutually rhyming, which is a
+bigger move this tier does not attempt, and it says so rather than pretend
+the search was wider than it was.
+
+THREE STOP CONDITIONS, and they are not one thing. SUCCESS — nothing left
+carries a flag finding. NO_PROGRESS — a whole round fixed nothing, so
+another identical round is not run. ROUND_LIMIT — `ReviseDeclaration.
+max_rounds` (declared since the first commit of `quality/revise.py`,
+default 4, unread by anything until this module) is reached. A single
+unsolved line is NEVER a stop condition — the loop keeps going on every
+other flagged line and reports the dead end in the result.
+
+**A DECLARED REFRAIN WAS BEING ATTACKED, NOT PROTECTED — FIXED 2026-08-11.**
+`Mandate.returns` (the villanelle/triolet/radif machinery in
+`quality/schemes.py`) was read by the REPORTING layer only
+(`group_merges`'s "is this collision a declared return") and never by the
+GRADER: `grade()` decided whether an identical end word was a violation with
+one song-wide `rdecl.repeat_licence` switch, so a CORRECT verbatim refrain —
+required by the mandate itself — was flagged as a violation under the
+default setting, and `revise_loop` would have tried to "fix" a refrain that
+was already right. Two changes, both required: `grade()` now asks the
+mandate's own `Mandate.repeat_is_violation(i, j)` per pair before falling
+back to the switch (a plain letter scheme with no declared returns is
+completely unaffected — the fallback is exactly the old behaviour); and
+`inspect()` now emits `Mandate.returns_check()` findings
+(`RETURN_NOT_VERBATIM`, a flag), so `verify()`'s existing net-negative diff
+— the same mechanism meter rides — can for the first time see a revision
+that breaks a declared return. No new rejection rule was written for
+either direction. `quality/test_revise.py` test 26, on a real 19-line
+villanelle.
+
+**TWO MORE CAPABILITIES WERE BUILT AND NEVER WIRED TO THE SPINE THEY WERE
+BUILT FOR — WIRED 2026-08-11, ALONGSIDE THE REFRAIN FIX ABOVE.** Both were
+found the same way that one was: asking "out of everything already built,
+what is declared but unread" rather than building something new.
+
+- **`quality/g2p.py`'s `Fallback` reaches `Lexicon.transcribe_word`.**
+  `Lexicon(fallback="high"|"low")` is a DECLARED coordinate, `None` by
+  default and reproducing every transcription this class has ever returned
+  unchanged when omitted. Wiring it naively would recurse forever:
+  `Fallback._dictionary` calls `lex.transcribe_word`, and the real
+  `Lexicon.transcribe_word` is what would be calling INTO the fallback — OOV
+  -> ask the fallback -> the fallback asks `transcribe_word` -> still OOV ->
+  ask the fallback again. `_DictionaryOnlyLexicon` is the non-recursive base
+  case `Fallback` is built to wrap: a bare view over `Lexicon.entries` and
+  `Lexicon.freq_rank` (shared by IDENTITY, so it sees every entry once the
+  real constructor's loops finish, without a second copy) with none of
+  `transcribe_word`'s own heuristics. A second, sharper bug caught before it
+  shipped: `transcribe_word`'s own boundary-apostrophe strip removes the
+  trailing `'` that `Fallback._final_apostrophe` keys off to find `groun'`/
+  `thro'` — passing it the ALREADY-stripped word would silently disable that
+  layer, so the fallback call passes the RAW word and lets `Fallback.read`
+  do its own normalization, which does not strip apostrophes for exactly
+  this reason. See known gap 1, above, for what this does and does not
+  close. `quality/test_g2p.py` §14-20.
+- **`quality/grid.py`'s `song_function_report` joins the same `blueprint=`
+  coordinate meter already rides, not a fourth parameter.** A blueprint
+  section has always been able to declare `"function"` and a blueprint has
+  always been able to carry a top-level `"hooks"` list —
+  `examples/moonlight_and_lead.blueprint.json` has both — and nothing past
+  `quality/fit.py` ever read either field, because `fit.py` places lines in
+  bars and does not know or need to know what a section is FOR.
+  `Reviser._function_findings` reads them with a new `grid.song_from_blueprint`
+  (independent of `fit.py`'s own reader, matching that module's choice not
+  to import this one — `fit.py` builds `Placement`/`SectionFit`, which carry
+  WHERE a line sits and nothing about what it is FOR), then REBUILDS that
+  `Song`'s lines with THIS DRAFT's current words before grading: `grid.py`'s
+  `compare_returns`/`hook_occurrences` both read `Line.text`, and grading
+  the blueprint's own stored text would silently stop reacting to every
+  revision after the first (`quality/test_revise.py` test 27 proves both
+  directions — a hook moved INTO the current draft is found there, and one
+  removed FROM it is seen missing, even though the blueprint's stored text
+  says the opposite in each case). SEVERITY: everything is a `note` except
+  `HOOK_ABSENT`, which is a `flag`. The rest — `RETURN_LOCKED`,
+  `BRIDGE_IS_A_VERSE`, `RETURN_LENGTH_DRIFT` and the like — are
+  measurements against `POPULAR_SONG`, a labelled CONVENTION
+  (`grid.FormConvention`, the same move `Meter.conventional_grouping`
+  makes), not a mandate the writer declared, and doctrine 6 says a
+  convention a writer is free to depart from cannot be the thing that fails
+  `verify()`. `HOOK_ABSENT` is different in kind: the writer supplied the
+  exact hook TEXT, and whether it occurs in the draft at all is a factual
+  question with no convention in it — the same shape `RETURN_NOT_VERBATIM`
+  already is. `quality/test_revise.py` test 27, `quality/test_grid.py`
+  §11-15 for `song_from_blueprint` itself.
+
+**THE BUILT-AND-TESTED WAS NOT THE REACHABLE — FIXED 2026-08-11.** Everything
+above was true at the Python API: `Reviser.brief`/`.verify` and
+`revise_loop` have taken `blueprint=`/`subdivision=`/`assume=` since meter
+joined the loop, and song-function joined it in the paragraph just above
+this one. NONE OF IT COULD BE REACHED FROM THE COMMAND LINE. `brief`,
+`verify` and `revise` — the only verbs that run the loop at all — parsed
+just a file, a mandate spec, and (for `verify`) targeted line numbers;
+there was no `--blueprint` anywhere in that block, so a run through the CLI
+was rhyme-and-floor only, silently, no matter what the library underneath
+it could do. (A fourth verb, `song BLUEPRINT LYRIC`, does take a
+blueprint — but calls `check_song`, an older function that never touches
+`Reviser`, `Mandate`, or the slop floor, so even the one CLI surface that
+looked blueprint-aware never did rhyme grading either.) `--blueprint=`,
+`--subdivision`, `--isochronous` — the same three flags `fit` already
+reads — now reach all three verbs, and a run through `revise` immediately
+found the gap real: the mechanical stub proposer tried to swap a chorus
+word, and the loop rejected it for introducing `HOOK_ABSENT` — the first
+time a CLI run of this project's own flagship verb has ever seen the
+song-function layer say no. Omitting `--blueprint` changes nothing about
+the rhyme/floor behaviour that already existed. WHETHER IT WAS OMITTED IS
+DISCLOSED EITHER WAY, not left for a caller to notice on their own —
+printed as soon as a mandate is known to exist. The one exception is doctrine
+20's own case: with no mandate at all, `brief`/`verify`/`revise` REFUSE
+immediately, and that refusal has to be the first thing printed
+(`quality/test_verbs.py` §6 pins this), so the blueprint line is skipped
+rather than printed ahead of a refusal about an entirely different layer.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner
@@ -71,7 +215,7 @@ fit BLUEPRINT [--subdivision N] [--isochronous] [-v] |
 function BLUEPRINT [--function=SECTION:FN,...] [--title=T] [--hook=H]
 [--rhyme-key=cmudict] | refrain NOTATION|FORM [FILE] |
 brief FILE [MANDATE] | verify BEFORE AFTER [MANDATE] [lines] |
-readability FILE
+revise FILE [MANDATE] | readability FILE
 
 Four of those shipped on 2026-08-11 and closed the gap that had reopened
 underneath the quality layer:
@@ -393,7 +537,23 @@ rather than this paragraph — a roster copied into two files drifts in both.
 ## Known gaps, priority order
 1. **G2P for OOV.** CMUdict lacks hypotenuse, shiesty, coinages.
    Canary test: score "lot o' news" -- "hypotenuse" (currently
-   NO_ANCHOR). Fix: g2p-en or equivalent as transcribe fallback.
+   NO_ANCHOR). `quality/g2p.py`'s `Fallback` (dictionary -> morphology ->
+   elision -> compound -> letter, in that load-bearing order) was built and
+   tested standalone against exactly this canary (`quality/test_g2p.py`);
+   `Lexicon(fallback="high"|"low")` (`lyric_harness.py`, WIRED 2026-08-11)
+   is the "equivalent as transcribe fallback" this entry used to ask for as
+   a TODO. THE CANARY IS STILL NOT FIXED, on purpose: `hypotenuse` has no
+   CMUdict-derived stem or elision pattern, so it still refuses at the
+   shipped default (`min_confidence="high"`); only `"low"` reaches the
+   letter-to-sound layer, which `test_g2p.py`'s
+   `test_letter_layer_costs_more_than_it_buys` measures as net harmful (it
+   answers Shakespeare's own real refusals wrong about 40% of the time,
+   against ~3% for the derived layers) and which the wiring does not
+   default to. What the wiring closes: known DICTIONARY-DERIVED refusals
+   (`viewest`, `o'er`, `savour`, `groun'`) now read correctly wherever a
+   caller opts in; what it does not close is this gap's own canary, and
+   the gap entry stays open on that basis, not closed on the strength of
+   the easier cases around it.
 2. **Fitted substitution matrix — BUILT, and it does not help.**
    quality/fit_matrix.py, RESULTS_MATRIX.md. The floor IS removed: the
    free 0.15 stress gift became -0.0999 bits, and empty/empty coda went

@@ -1,0 +1,306 @@
+{
+  "title": "Nobody's Native Son",
+  "hooks": ["nobody's native son"],
+  "sections": [
+    {
+      "name": "verse1",
+      "bars": 8,
+      "start_bar": 1,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "verse2",
+      "bars": 8,
+      "start_bar": 9,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "chorus",
+      "bars": 4,
+      "start_bar": 17,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "verse3",
+      "bars": 8,
+      "start_bar": 21,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "chorus2",
+      "bars": 4,
+      "start_bar": 29,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "bridge",
+      "bars": 8,
+      "start_bar": 33,
+      "function": "bridge",
+      "meter": {
+        "beats": 6,
+        "unit": 8,
+        "groups": [3, 3]
+      }
+    },
+    {
+      "name": "chorus3",
+      "bars": 5,
+      "start_bar": 41,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "outro",
+      "bars": 3,
+      "start_bar": 46,
+      "function": "outro",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "My father built a house with one too many empty chairs",
+      "bar": 1,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "and kept the porch light burning like he wanted one door more",
+      "bar": 3,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "I used to think that all that waiting was how you say your prayers",
+      "bar": 5,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "now I know it's just a man who's memorized the floor",
+      "bar": 7,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "I never learned to sit still long enough to learn a name",
+      "bar": 9,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "I'd love a town for one whole season, then I'd love the road again",
+      "bar": 11,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "my mother says I run from anything that dares to make a claim",
+      "bar": 13,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "and prays that I come home and mean it, one of these days, amen",
+      "bar": 15,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "I'm nobody's native son",
+      "bar": 17,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "not one harbor, not one soul",
+      "bar": 18,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "I'm nobody's native son",
+      "bar": 19,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "but I loved you like my home",
+      "bar": 20,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "There's a wind out past the reservoir that never learned to aim",
+      "bar": 21,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse3"
+    },
+    {
+      "text": "it just moves because it's moving, not because it's owed a reason",
+      "bar": 23,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse3"
+    },
+    {
+      "text": "I used to think that I was running, now I think I'm just the same",
+      "bar": 25,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse3"
+    },
+    {
+      "text": "kind of animal that migrates when it feels the change of season",
+      "bar": 27,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse3"
+    },
+    {
+      "text": "I'm nobody's native son",
+      "bar": 29,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "not one harbor, not one soul",
+      "bar": 30,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "I'm nobody's native son",
+      "bar": 31,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "but I loved you like my home",
+      "bar": 32,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "There's a word for missing somewhere you have never been",
+      "bar": 33,
+      "beat": 1,
+      "duration": 12,
+      "section": "bridge"
+    },
+    {
+      "text": "I don't know it, but I feel it every time the light goes low",
+      "bar": 35,
+      "beat": 1,
+      "duration": 12,
+      "section": "bridge"
+    },
+    {
+      "text": "some places keep you even when you've never once walked in",
+      "bar": 37,
+      "beat": 1,
+      "duration": 12,
+      "section": "bridge"
+    },
+    {
+      "text": "and some you leave a hundred times and still can't let it go",
+      "bar": 39,
+      "beat": 1,
+      "duration": 12,
+      "section": "bridge"
+    },
+    {
+      "text": "I'm nobody's native son",
+      "bar": 41,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus3"
+    },
+    {
+      "text": "not one harbor, not one soul",
+      "bar": 42,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus3"
+    },
+    {
+      "text": "I'm nobody's native son",
+      "bar": 43,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus3"
+    },
+    {
+      "text": "but I loved you like a hometown -- and I mean it, after all",
+      "bar": 44,
+      "beat": 1,
+      "duration": 8,
+      "section": "chorus3"
+    },
+    {
+      "text": "Nobody's native son",
+      "bar": 46,
+      "beat": 1,
+      "duration": 4,
+      "section": "outro"
+    },
+    {
+      "text": "nobody's, nobody's, native son",
+      "bar": 47,
+      "beat": 1,
+      "duration": 8,
+      "section": "outro"
+    }
+  ]
+}

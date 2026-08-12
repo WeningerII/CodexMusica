@@ -249,21 +249,34 @@ def test_nothing_was_lost_on_the_sonnets():
     # (quality/redteam_band.py) moves the VIOLATION count to 81; the REFUSAL
     # count is a property of CMUdict, not of the band, so it does not move.
     # That invariance is the point of this check and is what it now pins.
-    check("violations + refusals == the recorded total",
-          viol + ref == 131,
+    #
+    # REPINNED 2026-08-11: 131 -> 132, 81 -> 82, when cell BA's coda-identity
+    # fix moved the oracle's own violation pin (redteam_band.py, battery.py
+    # EXPECTED). 50 refusals stay out of the numerator either way -- that
+    # invariance is what this whole test exists to check, and it holds.
+    check(f"violations + refusals == the recorded total",
+          viol + ref == battery.EXPECTED["violations"] + 50,
           f"{viol} + {ref} -- nothing was invented and nothing vanished")
     check("50 of them are REFUSALS, not rhyme failures, and that count is "
           "independent of the band's thresholds", ref == 50,
           "40.7% of the sonnet battery's headline violation count was "
           "CMUdict failing to read Shakespeare, reported as Shakespeare "
           "failing to rhyme")
-    # 73 -> 81 when theta_coda was calibrated 0.60 -> 0.80. The count that
-    # matters to THIS test is unchanged: 50 refusals stay out of the numerator.
-    check("the violation count is 81 (was 73 at theta_coda 0.60)", viol == 81,
-          f"{viol}: " + """ + repr(NOTE) + """)
+    # 73 -> 81 -> 82: 0.60 -> 0.80 calibrated theta_coda, then scalar ->
+    # identity coda_agreement. The count that matters to THIS test is
+    # unchanged: 50 refusals stay out of the numerator.
+    # ALSO FIXED HERE: the previous `detail` argument referenced an undefined
+    # `NOTE`, which crashed this test with a NameError on any run that reached
+    # this line -- pre-existing at HEAD, not introduced by this repin. Found
+    # only because this cleanup ran the file end to end rather than trusting
+    # the last printed PASS.
+    check(f"the violation count is {battery.EXPECTED['violations']} "
+          f"(was 73 at theta_coda 0.60, 81 at scalar coda_agreement)",
+          viol == battery.EXPECTED["violations"], str(viol))
     check("the judged denominator is 1014", judged == 1014,
-          f"{judged}: a violation RATE is 81/1014 = "
-          f"{81/1014:.1%}, not 131/1064 = 12.3%")
+          f"{judged}: a violation RATE is "
+          f"{battery.EXPECTED['violations']}/1014 = "
+          f"{battery.EXPECTED['violations']/1014:.1%}, not 132/1064 = 12.4%")
 
 
 # ---------------------------------------------------------------------------

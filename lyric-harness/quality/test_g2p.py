@@ -14,7 +14,10 @@ not. So the tests here are not "does it read `viewest`". They are:
      that no resource of ours supplied — Shakespeare's form (doctrine 37);
   5. the canary, which is still a REFUSAL, and the measurement showing that
      every route which answers it answers it WRONG;
-  6. that no reading is ever produced without its provenance.
+  6. that no reading is ever produced without its provenance;
+  7. that `lh.Lexicon`'s OWN opt-in wiring to the fallback (§14-20) matches
+     everything §1-13 establishes about `Fallback` standing alone -- default
+     off, known answers in, coinages still refused, no recursion.
 
 Run: python3 quality/test_g2p.py
      python3 quality/test_g2p.py --slow      # adds the corpus-scale counts
@@ -93,8 +96,9 @@ def _raises(fn):
 
 
 def test_battery_is_unmoved():
-    print("\n2. battery.py with the fallback off: 1064 / 1014 / 50 / 81")
     import battery
+    print(f"\n2. battery.py with the fallback off: 1064 / 1014 / 50 / "
+          f"{battery.EXPECTED['violations']}")
     sonnets = battery.parse_sonnets(battery.corpus_path("sonnets.txt"))
     total = viol = refused = 0
     for sn in sonnets:
@@ -105,7 +109,8 @@ def test_battery_is_unmoved():
     check("mandated 1064", total == 1064, str(total))
     check("refused 50", refused == 50, str(refused))
     check("judged 1014", total - refused == 1014, str(total - refused))
-    check("violations 81", viol == 81, str(viol))
+    check(f"violations {battery.EXPECTED['violations']}",
+          viol == battery.EXPECTED["violations"], str(viol))
 
 
 # ---------------------------------------------------------------------------
@@ -370,20 +375,31 @@ def test_real_population_against_shakespeares_own_form():
     newly = r0 - r1
     new_viol = [p for p in newly if p in v1]
     check("off reproduces the battery", (m0, j0, len(r0), len(v0))
-          == (1064, 1014, 50, 81), f"{(m0, j0, len(r0), len(v0))}")
+          == (1064, 1014, 50, 82), f"{(m0, j0, len(r0), len(v0))}")
     check("the derived layers turn 39 of the 50 refusals into judgements",
           len(newly) == 39, f"{len(newly)}; refused 50 -> {len(r1)}")
-    check("and 38 of those 39 RHYME, as the sonnet mandates",
-          len(new_viol) == 1,
+    # REPINNED 2026-08-11: 38/39 -> 37/39, one PAIR added, after cell BA's
+    # coda-identity fix. Sonnet 46 L9/L11, `impannelled`/`determined`, reads
+    # ...N AH0 L D / ...M AH0 N D under the "high" fallback -- codas L-D and
+    # N-D, an L-vs-N first consonant, cons_sim('L','N')=0.730. Under the old
+    # scalar coda this blurred through; under the shipped identity predicate
+    # it correctly does not agree, same class as the will/gun case cell BA
+    # found (RESULTS_CODA_SHAPE.md). Both new failures are the SAME residue:
+    # a real Elizabethan pairing that does not hold in the declared General
+    # American dialect, not a bad guess by the fallback.
+    check("and 37 of those 39 RHYME, as the sonnet mandates",
+          len(new_viol) == 2,
           f"{len(newly) - len(new_viol)}/{len(newly)} = "
           f"{1 - len(new_viol)/len(newly):.1%}. This is the only clean "
           f"accuracy number available on the real population: the form is "
           f"ground truth about the sound and no resource of ours supplied it "
-          f"(doctrine 37). The one that fails is "
-          f"{sorted(new_viol)}, recur'd/assur'd — both readings composed from "
-          f"the CMUdict headwords `recur` and `assure`, both correct General "
-          f"American, and the non-rhyme is the declared-dialect residue that "
-          f"love/prove already is, not a bad guess")
+          f"(doctrine 37). The two that fail are "
+          f"{sorted(new_viol)}: (45,9,11) recur'd/assur'd, both readings "
+          f"composed from the CMUdict headwords `recur` and `assure`; "
+          f"(46,9,11) impannelled/determined, an L-vs-N coda. Both are "
+          f"correct General American readings, and the non-rhyme in each "
+          f"case is the declared-dialect residue that love/prove already "
+          f"is, not a bad guess")
     check("no pair that was JUDGED before changed its verdict",
           v0 <= v1 and not (v0 - v1),
           "the fallback fires only on words the dictionary refused, so a "
@@ -547,6 +563,127 @@ def test_corpus_scale_counts():
           f"about the other is the defect this cell was told to avoid")
 
 
+# ---------------------------------------------------------------------------
+# 14. THE LEXICON WIRING — `lh.Lexicon(fallback=...)` itself
+#
+# Everything above tests `Fallback` standing alone, wrapped in `Raw`. None of
+# it touches whether `lyric_harness.Lexicon`'s OWN constructor and
+# `transcribe_word` actually reach it. This section is that: the opt-in
+# coordinate, the tripwire on its default, and the recursion hazard the
+# `_DictionaryOnlyLexicon` shim exists to prevent (`Fallback._dictionary`
+# calls `lex.transcribe_word`, and the real `Lexicon.transcribe_word` is what
+# calls INTO the fallback -- wiring it to itself would recurse forever).
+# ---------------------------------------------------------------------------
+
+def test_lexicon_wiring_default_is_untouched():
+    print("\n14. lh.Lexicon(): the default reproduces every prior refusal")
+    lex = lh.Lexicon()
+    check("no fallback object is built", lex.g2p_fallback is None)
+    for w in ("viewest", "o'er", "savour", "groun'", "hypotenuse"):
+        got = lex.transcribe_word(w)
+        check(f"{w!r} still refuses", got == ([], True), str(got))
+
+
+def test_lexicon_wiring_high_reads_the_known_layers():
+    print("\n15. lh.Lexicon(fallback='high'): reads what Fallback reads")
+    lex = lh.Lexicon(fallback="high")
+    check("a Fallback instance is built and stored",
+          isinstance(lex.g2p_fallback, G.Fallback))
+    bad = []
+    for w in ("viewest", "o'er", "savour", "groun'", "thro'"):
+        phones, oov = lex.transcribe_word(w)
+        want = KNOWN[w].split()
+        if oov or phones != want:
+            bad.append(f"{w}: want {want}, got "
+                       f"{'OOV' if oov else phones}")
+    check("known dictionary-derived OOV words are now readable", not bad,
+          "; ".join(bad) or "ok")
+    for w in ("hypotenuse", "shiesty"):
+        got = lex.transcribe_word(w)
+        check(f"a genuine coinage ({w!r}) still refuses at 'high'",
+              got == ([], True), str(got))
+
+
+def test_lexicon_wiring_leaves_existing_heuristics_alone():
+    print("\n16. the fallback fires ONLY where the old heuristics already "
+          "refused")
+    off = lh.Lexicon()
+    on = lh.Lexicon(fallback="high")
+    # Dictionary hits, the plural-s/'d-elision/g-dropping heuristics, and a
+    # plain refusal all have to come out identically with the fallback
+    # sitting there unused -- these are not fallback-layer words.
+    for w in ("love", "cats", "wights", "crown'd", "feelin'", "zzzqx"):
+        a, b = off.transcribe_word(w), on.transcribe_word(w)
+        check(f"{w!r} unchanged with fallback wired in", a == b,
+              f"off={a} on={b}")
+
+
+def test_lexicon_wiring_apostrophe_survives_to_the_fallback():
+    print("\n17. `transcribe_word`'s own boundary-apostrophe strip does not "
+          "reach the fallback call")
+    lex = lh.Lexicon(fallback="high")
+    # `groun'`/`thro'` are read via Fallback._final_apostrophe, which keys
+    # off a TRAILING apostrophe `transcribe_word`'s local `w` has already
+    # stripped by the time the fallback is consulted -- this is only
+    # possible if the RAW word (not the locally-stripped one) is what gets
+    # passed to `g2p_fallback.read`.
+    for w in ("groun'", "thro'"):
+        phones, oov = lex.transcribe_word(w)
+        check(f"{w!r} is read via the elided-final-consonant layer",
+              not oov and phones == KNOWN[w].split(), f"{phones}, oov={oov}")
+
+
+def test_lexicon_wiring_counts_are_inspectable():
+    print("\n18. lex.g2p_fallback.counts is the SAME tally Fallback keeps, "
+          "not a shadow one")
+    lex = lh.Lexicon(fallback="high")
+    for w in ("viewest", "o'er", "hypotenuse", "love", "zzzqx"):
+        lex.transcribe_word(w)
+    c = lex.g2p_fallback.counts
+    check("morphology and elision both fired",
+          c["morphology"] >= 1 and c["elision"] >= 1, str(c))
+    check("refused counted the coinage and the non-word",
+          c["refused"] >= 2, str(c))
+    check("the dictionary layer never fires through this path",
+          c["dictionary"] == 0,
+          "every word that reaches `g2p_fallback.read` got there BECAUSE "
+          "`Lexicon.transcribe_word` already checked `self.entries` (the "
+          "same dict `_DictionaryOnlyLexicon` shares) and failed; "
+          "`love`, above, returns from that check before the fallback is "
+          "ever called, so it cannot appear in this tally at all")
+
+
+def test_lexicon_wiring_no_recursion():
+    print("\n19. the shim breaks the recursion `Fallback._dictionary` would "
+          "otherwise cause")
+    lex = lh.Lexicon(fallback="low")   # "low" reaches every layer, incl.
+                                        # the letter layer, on a real coinage
+    old_limit = sys.getrecursionlimit()
+    sys.setrecursionlimit(150)
+    try:
+        got = lex.transcribe_word("hypotenuse")
+    finally:
+        sys.setrecursionlimit(old_limit)
+    check("a genuine coinage resolves without a RecursionError",
+          got[1] is False, str(got))
+
+
+def test_lexicon_wiring_rejects_undeclared_modes():
+    print("\n20. an undeclared fallback value is not silently coerced")
+    check("an unknown mode raises rather than defaulting to something",
+          _raises_any(lambda: lh.Lexicon(fallback="maximum")),
+          "doctrine 1: `fallback` is a declared coordinate with a closed "
+          "vocabulary (None / 'high' / 'low'), not free text")
+
+
+def _raises_any(fn):
+    try:
+        fn()
+        return False
+    except (KeyError, ValueError):
+        return True
+
+
 if __name__ == "__main__":
     test_default_is_off()
     test_battery_is_unmoved()
@@ -561,6 +698,13 @@ if __name__ == "__main__":
     test_the_canary_is_still_refused_and_that_is_correct()
     test_three_counts_are_three()
     test_corpus_scale_counts()
+    test_lexicon_wiring_default_is_untouched()
+    test_lexicon_wiring_high_reads_the_known_layers()
+    test_lexicon_wiring_leaves_existing_heuristics_alone()
+    test_lexicon_wiring_apostrophe_survives_to_the_fallback()
+    test_lexicon_wiring_counts_are_inspectable()
+    test_lexicon_wiring_no_recursion()
+    test_lexicon_wiring_rejects_undeclared_modes()
     print("=" * 70)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

@@ -15,8 +15,10 @@ the work already recorded and asks how much of it named a pair that did not
 produce its number. Three sweeps, three different records:
 
   `battery` — the 152-sonnet oracle, the only calibrated corpus in the project
-      and the source of the headline `violations 81 (8.0%)`. Every mandated
-      pair is classified by what its winning spans actually were.
+      and the source of the headline `violations 82 (8.1%)` (was 81/8.0% at
+      scalar coda_agreement; repinned 2026-08-11 when cell BA's
+      coda-identity fix shipped). Every mandated pair is classified by what
+      its winning spans actually were.
   `corpus`  — the 143 English song files, for the one span defect that is
       invisible to the sonnets because no sonnet end word is hyphenated: a
       compound whose pieces did not all reach the lexicon, where the label

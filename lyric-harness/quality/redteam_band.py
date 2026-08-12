@@ -185,6 +185,30 @@ def tail_nuc_pairs(a, b):
             for i in range(n)]
 
 
+def tail_coda_pairs(a, b):
+    """The coda channel's analogue. A coda is a TUPLE, so the space is not
+    enumerable the way the 105 vowel pairs are -- it is enumerable in the
+    single-phone case, which is what section 7 walks, and observed rather than
+    enumerated in the cluster case, which is what section 8 counts."""
+    n = min(len(a), len(b))
+    ta, tb = a[-n:], b[-n:]
+    return [tuple(sorted((tuple(ta[i]["coda"]), tuple(tb[i]["coda"]))))
+            for i in range(n)]
+
+
+def cons_pair_space(decl):
+    """Every unordered non-identical CMU consonant pair, ranked by `cons_sim`.
+
+    The coda channel's version of `vowel_pair_space`, and it is the section
+    that was missing when `wall`/`floor` shipped: adversary 3 interrogated the
+    nucleus SHAPE and took the coda's on trust.
+    """
+    rows = sorted(((L.cons_sim(a, b), a, b)
+                   for a, b in itertools.combinations(sorted(L.CONSONANTS), 2)),
+                  reverse=True)
+    return rows, [r for r in rows if r[0] >= decl.theta_coda]
+
+
 def _spearman(xs, ys):
     def rank(v):
         order = sorted(range(len(v)), key=lambda i: v[i])
@@ -237,25 +261,44 @@ def mandated_pairs(lex, decl):
     return out
 
 
-def lift_table(pos, neg_anchors, fit_half=0):
-    """LIFT of each non-identical vowel pair: its rate in mandated rhyme
+def lift_table(pos, neg_anchors, fit_half=0, channel="nucleus"):
+    """LIFT of each non-identical pair on `channel`: its rate in mandated rhyme
     positions over its rate in a random background. Laplace-smoothed, so an
     unobserved background cell is not an infinite lift."""
+    extract = tail_nuc_pairs if channel == "nucleus" else tail_coda_pairs
     pc, nc = Counter(), Counter()
     for half, _, _, aa, bb in pos:
         if half == fit_half:
-            pc.update(p for p in tail_nuc_pairs(aa, bb) if p[0] != p[1])
+            pc.update(p for p in extract(aa, bb) if p[0] != p[1])
     for k, (aa, bb) in enumerate(neg_anchors):
         if k % 2 == fit_half:
-            nc.update(p for p in tail_nuc_pairs(aa, bb) if p[0] != p[1])
+            nc.update(p for p in extract(aa, bb) if p[0] != p[1])
     np_, nn = sum(pc.values()), sum(nc.values())
+    # The smoothing denominator is the size of the space. For the nucleus that
+    # is the enumerable 105; for the coda a cluster pair has no finite space,
+    # so it is the number of distinct pairs OBSERVED, stated rather than
+    # borrowed from the other channel.
+    k_space = 105 if channel == "nucleus" else len(set(pc) | set(nc))
     rows = []
     for p in set(pc) | set(nc):
-        pp = (pc[p] + 0.5) / (np_ + 0.5 * 105)
-        qq = (nc[p] + 0.5) / (nn + 0.5 * 105)
+        pp = (pc[p] + 0.5) / (np_ + 0.5 * k_space)
+        qq = (nc[p] + 0.5) / (nn + 0.5 * k_space)
         rows.append((pp / qq, pc[p], nc[p], p))
     rows.sort(reverse=True)
     return rows, np_, nn
+
+
+def coda_sim(pair):
+    """`channel_agreement`'s scalar reading of one coda pair (doctrine 25:
+    two ABSENT codas agree)."""
+    ca, cb = pair
+    if not ca and not cb:
+        return 1.0
+    return L.cluster_sim(list(ca), list(cb))
+
+
+def fmt_coda(c):
+    return "".join(c) if c else "0"
 
 
 def shape_price(decl, pos, neg_anchors, half):
@@ -450,8 +493,141 @@ def shape_report(lex, decl, anchors):
     print("   LIVES IN -- so no row here is proposed as a default, and the "
           "scalar ships as")
     print("   the incumbent rather than as the winner.")
+    coda = coda_report(lex, decl, anchors, pos)
     return {"space": rows, "admitted": admitted, "lifts": lifts,
-            "spearman": rho, "mandated": len(pos)}
+            "spearman": rho, "mandated": len(pos), **coda}
+
+
+# ---------------------------------------------------------------------------
+# 7-9. THE CODA CHANNEL. Added 2026-08-11 by cell BA.
+#
+# Sections 4-6 interrogate the NUCLEUS channel's shape and take the coda's on
+# trust, and that asymmetry is how `wall`/`floor` shipped at 0.996 RHYME with
+# coda 0.988 while this file was already running. Doctrine 94 says a
+# positive-case suite cannot find a rule that is too generous; the same
+# sentence applies to an adversary that only attacks one channel of two.
+# ---------------------------------------------------------------------------
+
+def coda_report(lex, decl, anchors, pos):
+    rows, admitted = cons_pair_space(decl)
+    print()
+    print(f"7. THE CODA CHANNEL'S SPACE · {len(L.CONSONANTS)} consonants, "
+          f"{len(rows)} unordered non-identical pairs.")
+    print(f"   As a SINGLETON coda, `theta_coda={decl.theta_coda}` admits "
+          f"{len(admitted)} of {len(rows)} ({len(admitted)/len(rows):.0%}) "
+          f"as AGREEING.")
+    print(f"   `cons_sim` = 1 - [0.30*(voicing differs) + 0.25*|place diff| "
+          f"+ 0.45*MANNER_DIST], so manner")
+    print(f"   IDENTITY is worth 0.45 of the budget and the whole place axis "
+          f"can take away at most 0.25:")
+    same = [r for r in rows
+            if L.CONSONANTS[r[1]][2] == L.CONSONANTS[r[2]][2]
+            and L.CONSONANTS[r[1]][0] == L.CONSONANTS[r[2]][0]]
+    print(f"   EVERY same-manner same-voicing pair therefore scores >= 0.75. "
+          f"Measured floor {min(r[0] for r in same):.4f} "
+          f"({min(same)[1]}~{min(same)[2]}), over {len(same)} such pairs.")
+    print("   the ten highest-scoring non-identical pairs -- this is what the "
+          "number decides:")
+    for s, a, b in rows[:10]:
+        mx, my = L.CONSONANTS[a][2], L.CONSONANTS[b][2]
+        tag = "same-manner" if mx == my else f"cross {mx}/{my}"
+        print(f"     {a}~{b:<3} {s:.4f}  {tag:<22}"
+              f"{'ADMITTED' if s >= decl.theta_coda else 'refused'}")
+    print(f"   THE ARGMAX OF THE WHOLE MATRIX IS {rows[0][1]}~{rows[0][2]} AT "
+          f"{rows[0][0]:.4f}, which is `wall`/`floor`, `call`/`more` and")
+    print(f"   `ear`/`will`. No `theta_coda` separates it from identity: the "
+          f"cuts that refuse a lateral")
+    print(f"   against a rhotic are exactly the cuts that refuse every "
+          f"non-identical pair in English.")
+
+    if not pos:
+        print("\n8-9. SKIPPED: no true-positive arm.")
+        return {}
+
+    lifts, np_, nn = lift_table(pos, anchors, fit_half=0, channel="coda")
+    xs = [coda_sim(p) for _, _, _, p in lifts]
+    ys = [l for l, _, _, _ in lifts]
+    rho = _spearman(xs, ys)
+    print()
+    print("8. IS `cluster_sim` MONOTONE IN THE THING WE CARE ABOUT?")
+    print(f"   fit half only: {np_} non-identical coda observations in "
+          f"mandated positions, {nn} in the background,")
+    print(f"   {len(lifts)} distinct pairs observed.  "
+          f"Spearman(cluster_sim, lift) = {rho:+.3f}")
+    print("   every coda pair seen more than once in mandated positions, with "
+          "what the scalar does about it:")
+    for l, a, b, p in [r for r in lifts if r[1] >= 2]:
+        cs = coda_sim(p)
+        mark = "ADMITTED" if cs >= decl.theta_coda else "REFUSED "
+        print(f"     {fmt_coda(p[0]):>6} ~ {fmt_coda(p[1]):<6} lift {l:6.2f}  "
+              f"mandated {a:<4} background {b:<5} cluster_sim {cs:.3f}  {mark}")
+    n_adm = sum(1 for r in lifts if coda_sim(r[3]) >= decl.theta_coda)
+    n_adm_pos = sum(1 for r in lifts
+                    if r[1] > 0 and coda_sim(r[3]) >= decl.theta_coda)
+    print(f"   THE ADMITTED SET AND THE ATTESTED SET ARE ALMOST DISJOINT: of "
+          f"the {n_adm} distinct non-identical")
+    print(f"   coda pairs the scalar admits anywhere in this sample, "
+          f"{n_adm_pos} occur at all in mandated positions,")
+    print(f"   while the ones the corpus does attest -- S~Z, D~RD, RT~T, "
+          f"RTH~TH -- are all REFUSED by it.")
+    print("   the coda pairs the scalar admits that appear ZERO times in "
+          "mandated positions, commonest first:")
+    bad = sorted((r for r in lifts
+                  if r[1] == 0 and coda_sim(r[3]) >= decl.theta_coda),
+                 key=lambda r: -r[2])
+    for l, a, b, p in bad[:8]:
+        print(f"     {fmt_coda(p[0]):>6} ~ {fmt_coda(p[1]):<6} background "
+              f"{b:<5} cluster_sim {coda_sim(p):.3f}")
+
+    print()
+    print("9. CODA SHAPES, PRICED HELD-OUT (fit half 0, report both halves)")
+    shapes = [
+        ("scalar 0.80", L.Declaration(coda_agreement="scalar")),
+        ("scalar 0.90", L.Declaration(coda_agreement="scalar",
+                                      theta_coda=0.90)),
+        ("scalar 0.95", L.Declaration(coda_agreement="scalar",
+                                      theta_coda=0.95)),
+        ("identity (SHIPPED)", L.Declaration(coda_agreement="identity")),
+        ("licensed +S~Z final", L.Declaration(coda_agreement="licensed",
+                                              coda_licence=(("S", "Z"),))),
+        ("licensed +S~Z,T~D", L.Declaration(coda_agreement="licensed",
+                                            coda_licence=(("S", "Z"),
+                                                          ("T", "D")))),
+    ]
+    print(f"   {'shape':<26}{'FIT FPR':>10}{'FIT refused':>13}"
+          f"{'HELD FPR':>11}{'HELD refused':>14}")
+    for name, d in shapes:
+        f_fpr, f_v = shape_price(d, pos, anchors, 0)
+        h_fpr, h_v = shape_price(d, pos, anchors, 1)
+        print(f"   {name:<26}{f_fpr:>9.2%}{f_v:>13.2%}"
+              f"{h_fpr:>11.2%}{h_v:>14.2%}")
+    print()
+    print("   READ THIS TABLE THE WAY SECTION 6's WARNING SAYS TO, AND THEN "
+          "NOTE THE DIFFERENCE.")
+    print("   Section 6 cannot price the nucleus on this corpus because the "
+          "nucleus is where four")
+    print("   centuries of sound change live. HALF of the coda's mandated "
+          "evidence has the same")
+    print("   problem and the record did not say so: the Declaration used to "
+          "call the 0.60 -> 0.80")
+    print("   cost `S~Z x8 and D~RD x2 -- the VOICING OF A FINAL OBSTRUENT`, "
+          "but D~RD is n=4, its")
+    print("   nucleus differs in 4 of 4, and it is an R present on one side "
+          "and absent on the other")
+    print("   (herd/beard, tir'd/expired, word/afford, err'd/transferr'd). "
+          "With RT~T, RTH~TH, 0~R,")
+    print("   DZ~RDZ and RTS~TS that is 17 RHOTIC observations against 9 "
+          "obstruent-voicing ones.")
+    print("   What survives the objection is that identity beats the scalar "
+          "on BOTH arms in BOTH")
+    print("   halves -- FPR by a third, true positives by 0.20pp in the fit "
+          "half and 0.00pp held")
+    print("   out -- and that no `scalar` row buys the fix at any price: "
+          "0.95 pays the full")
+    print("   true-positive cost and still admits `wall`/`floor`, because "
+          "R~L is the matrix argmax.")
+    return {"cons_space": rows, "coda_admitted": admitted,
+            "coda_lifts": lifts, "coda_spearman": rho}
 
 
 if __name__ == "__main__":

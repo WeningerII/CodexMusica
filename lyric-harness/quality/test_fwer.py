@@ -146,7 +146,14 @@ def test_the_family_is_measured_over_the_comparisons_made():
     # Sidak cut 1-(1-alpha)^(1/m) LOOSENS when the band TIGHTENS. Nothing in
     # the layer said the family was a measurement at all, so a change validated
     # on the band's own false-positive rate silently tripled the time layer's.
-    loose, tight = Declaration(theta_coda=0.60), Declaration(theta_coda=0.80)
+    # UPDATED 2026-08-11: `coda_agreement="scalar"` declared explicitly on
+    # both. The default became `identity` (cell BA, RESULTS_CODA_SHAPE.md),
+    # an exact-tuple predicate that does not consult theta_coda at all -- so
+    # `theta_coda=0.60` vs `0.80` alone no longer moves the band's admittance
+    # rate, and this check's whole claim depends on the band actually
+    # tightening between the two declarations.
+    loose = Declaration(theta_coda=0.60, coda_agreement="scalar")
+    tight = Declaration(theta_coda=0.80, coda_agreement="scalar")
     bad_l, _m, _d = h0_rate(loose, family="scored")
     bad_t, _m, _d = h0_rate(tight, family="scored")
     check("the defect is reachable and moves with the band",

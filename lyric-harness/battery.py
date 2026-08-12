@@ -148,7 +148,63 @@ def whitman_battery():
 # one (doctrine 79): 50 of the 1,064 mandated pairs are REFUSALS -- the end
 # word is absent from CMUdict -- and charging them to the comparator reported
 # Shakespeare as failing to rhyme viewest/renewest.
-EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 81}
+#
+# ---------------------------------------------------------------------------
+# REPINNED 2026-08-11, violations 81 -> 82. THE PRICE, STATED (cell BA).
+# ---------------------------------------------------------------------------
+# A repin without a stated price is the defect this repo has caught most
+# often, so this is the whole argument and not a pointer to one.
+#
+# WHAT MOVED, AND WHICH LAYER. Two changes ship together and they were
+# measured SEPARATELY, by running this oracle at three settings that differ in
+# exactly one thing each:
+#   A  ingestion OLD + coda scalar    ->  1064 / 1014 / 50 / 81   (the old pin)
+#   B  ingestion NEW + coda scalar    ->  1064 / 1014 / 50 / 81   (+0, -0)
+#   C  ingestion NEW + coda identity  ->  1064 / 1014 / 50 / 82   (+1, -0)
+# So the INGESTION change (`plural_s_tail`, the OOV -s fallback that used to
+# append a hard-coded Z) moves this oracle by exactly nothing, and the whole
+# delta is the COMPARATOR: `Declaration.coda_agreement` "scalar" -> "identity".
+#
+# THE ONE NEWLY-FAILING PAIR is sonnet 91 L10/L12, `costs`/`boast`, which
+# becomes ASSONANCE at 0.765. Its codas are S T S against S T and its nuclei
+# are AO against OW; in the declared General American dialect it is not a
+# rhyme, which is the same sentence this file already accepts for love/prove
+# and words/affords. It had been passing on a coda margin of EXACTLY ZERO --
+# `cluster_sim(['S','T','S'], ['S','T'])` is 0.800 against a `theta_coda` of
+# 0.800 -- so the pair the change costs is a pair the old rule admitted by
+# rounding. NOTHING newly passes.
+#
+# WHY IT IS WORTH ONE PAIR. `cons_sim('R','L')` is 0.9875 and is the ARGMAX of
+# the entire 276-pair consonant matrix, so `wall`/`floor`, `call`/`more` and
+# `ear`/`will` scored 0.996 RHYME with coda 0.988 and NO VALUE OF theta_coda
+# reached them -- the only cuts that refuse a lateral against a rhotic refuse
+# every non-identical pair in English. It was never one defect: at 0.80 the
+# scalar admits 36 of 276 unordered pairs as agreeing codas, including S~TH
+# (miss/myth), P~T (cap/cat), B~D (rob/rod) and K~T (back/bat).
+#
+# THE IMPROVEMENT IS NOT BOUGHT BY REFUSING MORE, and here is the arithmetic
+# rather than the assurance. `refused` is unchanged at 50, `judged` at 1014 and
+# `mandated` at 1064 -- the change cannot touch them, because a refusal is an
+# ingestion verdict reached before any comparison happens. Against that, on
+# 4,000 random CMUdict pairs (`quality/redteam_band.py`, seed 20260810) the
+# band's false-positive rate against its strict-identity reference falls
+# 3.60% -> 2.10%, and the coda channel's own contribution to it falls to
+# EXACTLY ZERO: the `identity says ASSONANCE, harness says RHYME` cell goes
+# 4 -> 0 and `identity says NO_RELATION, harness says RHYME` goes 56 -> 0. All
+# 84 survivors are the CONSONANCE row -- identical codas, an over-reaching
+# nucleus -- which is `theta_nucleus`, declared uncalibrated and not this
+# change's to move. 60 false positives removed for 1 true positive: a rate of
+# 60:1, priced held-out before it was shipped at +0.20pp true-positive cost in
+# the fit half and 0.00pp in the held-out half (doctrine 5; the table is in
+# `Declaration.coda_agreement` and `quality/redteam_band.py` section 9).
+#
+# THE WHITMAN LINE ALSO MOVES, 17.3% -> 10.7% chained, and it is NOT offered
+# as evidence for anything. CLAUDE.md withdrew that control on the prior
+# ground that the text carries the property under test as epistrophe -- half
+# its detected links are REPEAT on an identical token, which is why `now`
+# still closes four consecutive lines below. A number printed by a withdrawn
+# control is a number, not a warrant.
+EXPECTED = {"mandated": 1064, "judged": 1014, "refused": 50, "violations": 82}
 
 
 def assert_pinned(got, expected=EXPECTED):
