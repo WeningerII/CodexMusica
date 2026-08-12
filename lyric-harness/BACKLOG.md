@@ -135,7 +135,7 @@ structures the doctrine calls lossy.
 **Acceptance:** `brief` accepts a declared PARTITION or `schemes.Cover`, not
 only a letter string, and refuses loudly when given neither.
 
-**MET.** `python3 lyric_harness.py brief examples/never_been_to_a_scene.txt`
+**MET.** `python3 lyric_harness.py brief quality/fixtures/mandate_song.txt`
 with no mandate prints a REFUSAL and **exits 2**; `--cliques` and
 `--groups=1,3;2,4` both take. `Reviser.mandate_from_graph` returns a `Cover`
 marked `source=derived` and NOT INDEPENDENT of the grader (doctrine 14).
@@ -483,10 +483,10 @@ filled entry is marked, never deleted.
 | ~~No hook~~ | `grid.Hook`, `hook_occurrences`, `hook_findings`, reached by the `function` verb; a hook is a FRAGMENT the writer names, and an undeclared one REFUSES | `7e802d3` |
 
 **Verify, do not take this table's word for it:**
-`python3 lyric_harness.py function examples/never_been_to_a_scene.blueprint.json`
+`python3 lyric_harness.py function quality/fixtures/song.blueprint.json`
 prints `asked 3  answered 0  refused 3` and three `REFUSED` lines — the
 capability is built and that blueprint declares none of it, which are different
-facts. `python3 lyric_harness.py fit examples/never_been_to_a_scene.blueprint.json
+facts. `python3 lyric_harness.py fit quality/fixtures/song.blueprint.json
 --subdivision 2` prints the per-section slot table.
 
 ---
