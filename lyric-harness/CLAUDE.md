@@ -369,6 +369,92 @@ direction, by default) and reads clean the other (a second voice,
 declared) — the same line, two readings, because it was always going to
 be one or the other and never both at once.
 
+**`MODAL_RHYME` — DOCTRINE 9 WAS ONLY EVER ASKED REACTIVELY, FOUND BY WATCHING
+IT FAIL TO CATCH ITS OWN TARGET — FIXED 2026-08-12.** `modal_field`/
+`joint_field` have existed since doctrine 9 was mechanized, and every caller
+of them — `brief()`'s own candidate offer, `verify()`'s `modal_taken`
+rejection, `_try_tier2`'s backtrack search — only ever consults them once a
+LINE HAS ALREADY BEEN FLAGGED and a replacement word is being searched for.
+A pair that rhymes cleanly on the FIRST draft is never asked whether the
+word it landed on was the single most predictable answer to its partner,
+because nothing routed a passing pair through this method at all — the
+mechanism was real and it was wired to only one of the two moments doctrine
+9 actually applies to. FOUND BY MEASURING, NOT ARGUING: two real songs'
+worth of pairs that all passed `grade()` cleanly, checked against
+`modal_field` after the fact, turned out to BE the #1 or #2 ranked
+candidate for roughly half of them — nothing had ever asked, because a
+first draft can reach for the predictable rhyme exactly as easily as a
+revision can.
+
+`inspect()` now asks the question of every PASSING mandated pair too: for
+each `verdicts` entry with no violation and no declared identity, both
+endwords are checked against each other's `modal_field`, in BOTH
+directions (P(partner|call) is not symmetric — see below), and a hit earns
+a `MODAL_RHYME` finding. It is a **note**, not a flag, and that is the
+whole design: doctrine 7 says a floor may not order the permitted region,
+and a pair that already rhymes correctly is inside that region — blocking
+it outright would be doctrine 9 turning into a ranking rule it was never
+meant to be. `MODAL_RHYME` joined `RHYME_FINDINGS`, so `brief()` hands back
+a real candidate field for it exactly the way a flagged rhyme gets one,
+making it structurally impossible to miss rather than a line in a report a
+caller has to go looking for. `modal_exclusion=0` silences it the same way
+it silences the reactive check — one declared coordinate, not a second
+switch. `quality/test_revise.py` test 29.
+
+**TWO MORE DEFECTS SURFACED BUILDING THAT ONE NOTE, BOTH IN `verify()`'s
+OWN GATE, NEITHER NEW — HARDENED IN THE SAME COMMIT.** Wiring `MODAL_RHYME`
+into a REAL loop run (not just a constructed pair) broke two of
+`quality/test_loop.py`'s existing fixtures outright, which is how both were
+found: measuring the mechanism against real output rather than trusting
+the design on paper.
+
+- **`verify()`'s net-new gate counted every new finding against
+  `allow_net_new`, note or flag alike.** A tier-2 backtrack that correctly
+  cleared a real `joint_conflict` was rejected outright the instant its
+  resolving pair happened to be conventional enough to earn a `MODAL_RHYME`
+  note — the exact thing doctrine 7 says a note must never do. Worse, this
+  was not a new failure mode: `test_tier2_tries_and_correctly_rejects`
+  (test 5) had been demonstrating a REJECTION built on a `SCHEME_COLLISION`
+  note the WHOLE TIME (an unmandated incidental rhyme — "the writer's call,"
+  in that finding's own message text — never a defect this loop is entitled
+  to block on), and only stopped reaching SUCCESS because the same
+  severity-blind gate happened to catch it for the wrong reason. `verify()`
+  now computes `new_flags`/`new_notes` alongside the existing `new`, and
+  gates acceptance on `new_flags` only; `new`/`fixed` stay exactly as
+  reported before for full disclosure (doctrine 79 — count the two kinds
+  separately, never sum what asks different things of a writer). Test 5's
+  fixture is REBUILT — `SILVER_NIGHT_LOCKED`, with two extra lines that
+  mandate L1 and L2 each to their OWN separate rhyme family, so backtracking
+  EITHER anchor now breaks a genuine mandated pair and earns a real
+  `SCHEME_VIOLATION` flag, the demonstration test 5 always meant to give.
+- **The same diff collapsed MULTIPLE findings of the same code on the same
+  line into ONE key, hiding a regression from doctrine or arithmetic
+  fixing the SAME shape of bug as the earlier `MANDATE_GROUPS_
+  INDISTINGUISHABLE` fix (`codes()`'s own docstring), just left half-done:
+  that fix keyed WHOLE findings on their first line so four at once
+  wouldn't collapse to one; per-line findings never got the same
+  treatment.** A pivot line answering two mandated groups can carry TWO
+  `SCHEME_VIOLATION` findings at once — one per group — and a revision
+  trading a REPEAT-based violation on one group for a real phonetic
+  violation on TWO groups still showed the identical `(line,
+  "SCHEME_VIOLATION")` key before and after, so a plain set diff called it
+  unchanged. `quality/test_revise.py` test 20's own NET-NEGATIVE case
+  (`R.verify(..., sub(33, "...kitchen"), ...)`) was accepting exactly this
+  on re-run — L33 traded one violation for two — until `codes()` was
+  rebuilt to return a MULTISET (list, not set) and the diff at the call
+  site switched from set subtraction to `collections.Counter` subtraction:
+  same 2-tuple key shape (three call sites elsewhere in the test suite
+  check `(line, code) in res["new"]` membership directly, and none of them
+  needed to change), but a key whose COUNT increases now correctly shows up
+  in `new` rather than cancelling out. Doctrine 47 again: a loop that
+  cannot see the change it asked for is a rubber stamp in the other
+  direction, and that is as true of a count as it is of a key.
+
+Full sweep after both fixes: `quality/test_loop.py` (10/10),
+`quality/test_revise.py` (29/29), and every other test file under
+`quality/` — unaffected, confirmed by re-running rather than assumed clean
+because the module they share a diff mechanism with had just changed.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner

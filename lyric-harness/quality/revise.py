@@ -107,7 +107,7 @@ __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
 #: NO COLLISION CODE IS IN HERE, AND THAT IS A DECISION RATHER THAN AN
 #: OVERSIGHT — see `Reviser.brief`'s "WHY A COLLISION EARNS NO FIELD".
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
-                  "SHARED_SUFFIX", "REPEAT_IN_VERSE"}
+                  "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME"}
 
 #: The three things a band-passing pair that shares no mandated group can BE.
 #: One code said all three until 2026-08-11 and its message said "rhyme" for
@@ -928,6 +928,53 @@ class Reviser:
                 f"{v['members']} but do not rhyme",
                 f"{v['why']} (score {v['score']:.3f}; "
                 f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})", [i, j]))
+        # DOCTRINE 9, ASKED OF A PAIR THAT ALREADY PASSES, NOT ONLY ONE THAT
+        # FAILED. `modal_field` has existed since the candidate field was
+        # built, and every caller of it -- `joint_field`'s own candidate
+        # offer, `verify()`'s `modal_taken` rejection -- only ever consults
+        # it once a pair has ALREADY been flagged and a replacement is being
+        # searched for. A pair that rhymes cleanly on the FIRST draft is
+        # never asked whether the word it landed on was the single most
+        # predictable answer to its partner, because nothing routes a
+        # passing pair through this method at all. FOUND BY MEASURING, NOT
+        # ARGUING: two real songs' worth of pairs that all passed `grade()`
+        # cleanly, checked against `modal_field` after the fact, turned out
+        # to BE the #1 or #2 ranked candidate for half of them -- claim/name,
+        # word/heard, stopped/dropped, night/right were all the single most
+        # frequent realised partner for their call word; trial/denial was
+        # second. Nothing before this line had ever asked the question of a
+        # pair that was never broken.
+        for v in rep["verdicts"]:
+            if v["why"] or v["relation"] == "REPEAT":
+                continue          # a violation, or a declared identity
+            i, j = v["lines"]
+            wi, wj = (w.lower() for w in v["endwords"])
+            _, forbidden_i = self.modal_field(wi, profile=profile)
+            _, forbidden_j = self.modal_field(wj, profile=profile)
+            hits = []
+            if wj in forbidden_i:
+                hits.append(f"{v['endwords'][1]!r} is one of the "
+                            f"{self.rdecl.modal_exclusion} most-predictable "
+                            f"answers to {v['endwords'][0]!r}")
+            if wi in forbidden_j:
+                hits.append(f"{v['endwords'][0]!r} is one of the "
+                            f"{self.rdecl.modal_exclusion} most-predictable "
+                            f"answers to {v['endwords'][1]!r}")
+            if not hits:
+                continue
+            add(j, Finding(
+                "MODAL_RHYME", "note",
+                f"L{i}/L{j} rhyme, but the pair is one this word's own "
+                f"forbidden-modal set would exclude if either line were "
+                f"being revised",
+                "; ".join(hits) + ". modal_exclusion="
+                f"{self.rdecl.modal_exclusion}; set it to 0 to silence this "
+                "the same way it silences the reactive check. Doctrine 9's "
+                "exclusion is otherwise only consulted when fixing an "
+                "already-flagged line; this asks the same question of a "
+                "pair that never failed anything, because a first draft "
+                "can reach for the predictable rhyme exactly as easily as "
+                "a revision can.", [i, j]))
         default_licensed = self.rdecl.repeat_licence == "refrain"
         for v in rep["repeats"]:
             i, j = v["lines"]
@@ -1465,7 +1512,8 @@ class Reviser:
                                assume=assume)
 
         def codes(f):
-            """The finding set, keyed so a diff can tell two of a kind apart.
+            """The finding MULTISET, keyed so a diff can tell two of a kind
+            apart AND count how many of each it holds.
 
             A whole-draft finding used to key on `(0, code)` alone. That was
             right while every one of them was unique per draft
@@ -1476,17 +1524,65 @@ class Reviser:
             "nothing was fixed" about a revision that fixed something. So a
             whole finding that carries locations keys on its FIRST line —
             still a 2-tuple, still sorts, and now one key per finding.
-            Doctrine 47: a loop that cannot see the change it asked for is a
-            rubber stamp in the other direction.
-            """
-            return {(ln, x.code) for ln, fs in f["per_line"].items()
-                    for x in fs} | {(min(x.locations) if x.locations else 0,
-                                     x.code) for x in f["whole"]}
 
-        cb, ca = codes(f_before), codes(f_after)
-        fixed, new = cb - ca, ca - cb
+            A PIVOT LINE HAS THE SAME SHAPE OF BUG, FOUND THE SAME WAY THE
+            FIRST ONE WAS: measuring, not assuming. A line answering two
+            mandated groups at once can carry TWO `SCHEME_VIOLATION`
+            findings — one per group — and a revision that fixes one while
+            breaking the OTHER still shows the same `(line, "SCHEME_
+            VIOLATION")` key before and after, so a plain set diff reports
+            it as neither fixed nor new: a real regression, invisible. This
+            key stays a bare 2-tuple on purpose (three real call sites
+            outside this module test per-line membership as `(line, code)
+            in res["new"]`, and every one of those codes is genuinely
+            singular per line) — the multiplicity is carried in the COUNT
+            returned here instead, and the caller below diffs it as a
+            multiset rather than a set. Doctrine 47 again: a loop that
+            cannot see the change it asked for is a rubber stamp in the
+            other direction, and that is exactly as true of a count as it
+            is of a key.
+            """
+            return ([(ln, x.code) for ln, fs in f["per_line"].items()
+                     for x in fs]
+                    + [(min(x.locations) if x.locations else 0, x.code)
+                       for x in f["whole"]])
+
+        def severities(f):
+            """(loc, code) -> severity, over the same keys `codes()` mints.
+
+            A NOTE IS NOT A FLAG here either — `report()` already draws this
+            line for what a WRITER sees; the acceptance gate below drew it
+            nowhere, and MODAL_RHYME (doctrine 9 asked of a pair that
+            already passes) is what exposed it: a tier-2 backtrack that
+            fixes a real SCHEME_VIOLATION by landing on `mind`'s own most
+            conventional rhyme was rejected outright for "introducing" a
+            finding whose entire declared purpose is to be disclosed, not
+            enforced (doctrine 7 — a floor may not order the permitted
+            region, and blocking a correct fix on a NOTE is ordering it).
+            """
+            d = {}
+            for ln, fs in f["per_line"].items():
+                for x in fs:
+                    d[(ln, x.code)] = x.severity
+            for x in f["whole"]:
+                d[(min(x.locations) if x.locations else 0,
+                   x.code)] = x.severity
+            return d
+
+        cb, ca = collections.Counter(codes(f_before)), collections.Counter(
+            codes(f_after))
+        # Counter subtraction keeps only the POSITIVE remainder per key: a
+        # key whose count is unchanged (2 before, 2 after) nets to zero on
+        # both sides and lands in neither -- exactly a plain set diff's
+        # behaviour, and where the count genuinely moves this is the fix.
+        fixed, new = set(cb - ca), set(ca - cb)
         out["fixed"] = sorted(fixed)
         out["new"] = sorted(new)
+        sev = severities(f_before)
+        sev.update(severities(f_after))
+        new_flags = {k for k in new if sev.get(k) == "flag"}
+        out["new_flags"] = sorted(new_flags)
+        out["new_notes"] = sorted(new - new_flags)
         out["mandate"] = m
         out["independent"] = m.independent()
 
@@ -1511,15 +1607,18 @@ class Reviser:
         if not fixed:
             out["reasons"].append("nothing was fixed")
             return out
-        if len(new) > self.rdecl.allow_net_new:
+        if len(new_flags) > self.rdecl.allow_net_new:
             out["reasons"].append(
-                f"introduced {len(new)} new finding(s) {sorted(new)} while "
-                f"fixing {len(fixed)}; a revision may not trade one defect "
-                f"for another")
+                f"introduced {len(new_flags)} new flagged finding(s) "
+                f"{sorted(new_flags)} while fixing {len(fixed)}; a revision "
+                f"may not trade one defect for another")
             return out
         out["accepted"] = True
+        note_disclosure = (f", disclosing {len(out['new_notes'])} new "
+                            f"note(s) {out['new_notes']}"
+                            if out["new_notes"] else "")
         out["reasons"].append(
-            f"fixed {len(fixed)}, introduced {len(new)}, "
+            f"fixed {len(fixed)}, introduced {len(new_flags)}{note_disclosure}, "
             f"changed only {sorted(changed)}")
         if not m.independent():
             out["reasons"].append(

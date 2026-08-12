@@ -749,11 +749,18 @@ def test_the_four_rejections_on_the_songs_own_shape():
 
     res = R.verify(lines, sub(33, "So say the ledger. Say it kitchen"),
                    m, targeted=[33])
+    # "kitchen" answers none of L33's mandated partners, so this is a
+    # genuine NET-NEGATIVE: fixing the L13/L33 REPEAT this way breaks
+    # SCHEME_VIOLATION on TWO separate mandated pairs at once (L33 answers
+    # more than one call word) -- a real flag, not the unmandated
+    # SCHEME_COLLISION note the gate no longer blocks on (doctrine 7).
     check("NET-NEGATIVE — L33 fixes its REPEAT and breaks its own rhyme "
           "group, rejected",
-          not res["accepted"] and "new finding" in " ".join(res["reasons"]),
-          f"fixed {len(res.get('fixed', []))}, new {len(res.get('new', []))}: "
-          + res["reasons"][0][:110])
+          not res["accepted"]
+          and "new flagged finding" in " ".join(res["reasons"])
+          and res.get("new_flags"),
+          f"fixed {len(res.get('fixed', []))}, new_flags "
+          f"{res.get('new_flags')}: " + res["reasons"][0][:110])
 
     # and the ACCEPT, so none of the above is an always-reject
     picked = None
@@ -1328,6 +1335,61 @@ def test_blueprint_declared_says_whether_meter_was_asked():
           bool(briefs) and not hasattr(briefs[0], "blueprint_declared"))
 
 
+def test_modal_rhyme_fires_on_a_passing_pair():
+    print("\n29. `MODAL_RHYME` asks doctrine 9's own question of a pair "
+         "that never failed anything — FOUND MISSING by measuring two real "
+         "songs' worth of rhymes that all passed grade() cleanly against "
+         "modal_field() after the fact: half were the #1 or #2 ranked "
+         "candidate, and nothing had ever asked")
+    modal = ["he laid it down and made his claim,",
+             "an old and worn and common name."]
+    fresh = ["he laid it down and made his claim,",
+             "a wolf that time had long since made tame."]
+    m = SC.mandate([[1, 2]], n_lines=2)
+
+    res_modal = R.inspect(modal, m)
+    hits_modal = [f for fs in res_modal["per_line"].values()
+                 for f in fs if f.code == "MODAL_RHYME"]
+    check("claim/name -- the single most frequent realised partner for "
+          "'claim' -- fires MODAL_RHYME even though the pair rhymes and "
+          "the mandate is satisfied",
+          bool(hits_modal), hits_modal[0].evidence if hits_modal else "")
+
+    res_fresh = R.inspect(fresh, m)
+    hits_fresh = [f for fs in res_fresh["per_line"].values()
+                 for f in fs if f.code == "MODAL_RHYME"]
+    check("claim/tame -- not in the top-6 forbidden set either direction, "
+          "verified against modal_field('claim') directly -- stays silent",
+          not hits_fresh)
+
+    check("MODAL_RHYME is a note, not a flag -- it discloses, it does not "
+          "reject: doctrine 7 is a floor, and ordering an already-"
+          "satisfied mandate's permitted region is the one thing a floor "
+          "may not do",
+          hits_modal[0].severity == "note")
+
+    rd0 = ReviseDeclaration(modal_exclusion=0)
+    R0 = Reviser(rdecl=rd0)
+    res_off = R0.inspect(modal, m)
+    hits_off = [f for fs in res_off["per_line"].values()
+               for f in fs if f.code == "MODAL_RHYME"]
+    check("modal_exclusion=0 silences this exactly the way it silences "
+          "the reactive check -- one declared coordinate, not a second "
+          "switch",
+          not hits_off)
+
+    briefs = R.brief(modal, m)
+    on_l2 = next((b for b in briefs if b.line_no == 2), None)
+    check("the line carrying MODAL_RHYME earns a real candidate field, "
+          "not just a citation -- doctrine 9's whole point is to hand "
+          "back an alternative",
+          on_l2 is not None and bool(on_l2.candidates),
+          on_l2.candidates[:8] if on_l2 else "no Brief for L2")
+    check("'name' itself -- the very word MODAL_RHYME is about -- is not "
+          "offered back as its own replacement",
+          on_l2 is not None and "name" not in on_l2.candidates)
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -1356,7 +1418,8 @@ if __name__ == "__main__":
                test_meter_folds_into_the_same_finding_set,
                test_grade_asks_the_mandate_before_the_switch,
                test_song_function_folds_into_the_same_finding_set,
-               test_blueprint_declared_says_whether_meter_was_asked):
+               test_blueprint_declared_says_whether_meter_was_asked,
+               test_modal_rhyme_fires_on_a_passing_pair):
         fn()
     print("=" * 62)
     if FAILURES:
