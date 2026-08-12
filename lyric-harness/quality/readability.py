@@ -219,7 +219,7 @@ def substitution_report(lex, lines):
     """
     out = []
     for i, text in enumerate(lines):
-        final = raw_final_token(text)
+        final = raw_final_token(text, strip_parens=lex.strip_parens)
         if final is None:
             continue
         smap = word_syllable_map(lex, text)

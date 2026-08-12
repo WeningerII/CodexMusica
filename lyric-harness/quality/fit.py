@@ -286,10 +286,19 @@ _WORDISH = re.compile(r"[^\W\d_]+(?:['’‑-][^\W\d_]+)*", re.UNICODE)
 _HAS_DIGIT = re.compile(r"\d")
 
 
-def _chunks(text):
-    """Whitespace chunks with edge punctuation stripped. Parentheticals go, the
-    way `lyric_harness.line_tokens` drops them."""
-    t = re.sub(r"\([^)]*\)", " ", str(text))
+def _chunks(text, strip_parens=True):
+    """Whitespace chunks with edge punctuation stripped.
+
+    `strip_parens=True` (the default) drops parentheticals entirely, the way
+    `lyric_harness.line_tokens` does -- see that function's docstring for why
+    this is a declared coordinate rather than a fixed rule: the same `(...)`
+    means a non-sung aside in this repo's own corpus/song/ and real sung
+    words in a second voice under voice-attribution notation. `False` keeps
+    the words; the edge-punctuation strip below already peels a lone `(`/`)`
+    off a chunk that starts or ends with one, so a whole-line parenthetical
+    like `(we'll sing along)` reads its words normally once the blanket
+    erasure is skipped."""
+    t = re.sub(r"\([^)]*\)", " ", str(text)) if strip_parens else str(text)
     out = []
     for raw in t.split():
         s = raw.strip("\"'‘’“”.,;:!?()[]{}—–-")
@@ -333,7 +342,7 @@ def _probe_prominence(phon):
     return None
 
 
-def read_line(text, phon=None):
+def read_line(text, phon=None, strip_parens=True):
     """-> LineUnits. What the line asks the bar to hold, and what it could not
     read.
 
@@ -357,13 +366,16 @@ def read_line(text, phon=None):
     name that is already taken elsewhere in the same package is a collision
     waiting for the one caller that meets it; this one met it on its first run
     over all nine declared phonologies.
+
+    `strip_parens` -- see `_chunks`/`lyric_harness.line_tokens`, whose
+    declaration this shares.
     """
     from quality import phonology as PH
     phon = phon or PH.get("eng")
     unit_name = "mora" if str(phon.grid_unit).startswith("mora") else "syllable"
     prom_refusal = _probe_prominence(phon)
 
-    chunks = _chunks(text)
+    chunks = _chunks(text, strip_parens=strip_parens)
     refused = []
     for c in chunks:
         if _HAS_DIGIT.search(c):
@@ -887,7 +899,7 @@ def _max_prominent_on_heads(n, prom_idx, slots, is_head):
 
 
 def fit_line(text, placement, phon=None, subdivision=None, assume=None,
-             beatgrid=None, line_index=None):
+             beatgrid=None, line_index=None, strip_parens=True):
     """-> LineFit. Everything that follows from the declaration, and refusals
     for everything that does not.
 
@@ -898,8 +910,11 @@ def fit_line(text, placement, phon=None, subdivision=None, assume=None,
                    over `assume`, and it is the only path that is not
                    conditional on an assumption when its `derived_from` is
                    'audio' or 'notation'.
+    `strip_parens` see `read_line`. Ignored when `text` is already a
+                   `LineUnits` (the reading already happened).
     """
-    units = text if isinstance(text, LineUnits) else read_line(text, phon)
+    units = text if isinstance(text, LineUnits) else \
+        read_line(text, phon, strip_parens=strip_parens)
     fit = LineFit(units=units, placement=placement)
     p, c = placement, placement.cycle
     F, R = fit.findings, fit.refusals
@@ -1456,8 +1471,10 @@ def from_song(song):
     return secs, places
 
 
-def fit_song(obj, phon=None, subdivision=None, assume=None):
-    """-> SongFit. `obj` is a blueprint path, a blueprint dict, or a Song."""
+def fit_song(obj, phon=None, subdivision=None, assume=None, strip_parens=True):
+    """-> SongFit. `obj` is a blueprint path, a blueprint dict, or a Song.
+
+    `strip_parens` see `read_line`, forwarded to every line in the song."""
     if hasattr(obj, "sections") and hasattr(obj, "lines"):
         secs, places = from_song(obj)
     else:
@@ -1468,7 +1485,7 @@ def fit_song(obj, phon=None, subdivision=None, assume=None):
     by_name = {s.name: s for s in out.sections}
     for i, p in enumerate(places):
         f = fit_line(p.text, p, phon=phon, subdivision=subdivision,
-                     assume=assume, line_index=i)
+                     assume=assume, line_index=i, strip_parens=strip_parens)
         by_name[p.section].lines.append(f)
     # Overlap is a relation BETWEEN lines, so it cannot be seen from inside
     # one, which is why `fit_line` does not look for it.

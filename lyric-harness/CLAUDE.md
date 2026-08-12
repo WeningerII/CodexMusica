@@ -316,6 +316,59 @@ or any other non-sung line, belongs on a `#`-prefixed line under the
 section header it annotates, and it will be dropped exactly the way a
 `--- TITLE:` line already is everywhere else in this repo.
 
+**`--voices` — THE SAME `(...)` MEANT TWO OPPOSITE THINGS IN THIS REPO,
+DEPENDING WHICH FUNCTION READ IT — FOUND WRITING IN VOICE-ATTRIBUTION
+NOTATION, FIXED 2026-08-12.** The paragraph above settles what `(...)`
+means at the WHOLE-LINE level (never apparatus). It does not settle what
+`(...)` means WITHIN a sung line, and two answers to that had shipped at
+once: `is_apparatus_line` treats a bare `(...)` line as real sung text,
+while `line_tokens` (and its own separate copies in `Lexicon.transcribe`
+and `quality/fit.py`'s `_chunks`) erased anything inside `(...)` before
+tokenizing, on the assumption that a parenthetical is always a stage
+direction. That assumption is correct for this repo's own `corpus/song/`
+(196 files use `(...)` the traditional literary way — Carroll's "(We know
+it to be true):", an aside, genuinely not sung) and wrong for a caller
+writing in voice-attribution notation, where a whole line in parens is a
+backup/group vocal and a trailing `(ad lib)` is a second voice cutting in
+— both real sung words, just not the lead's. The same character sequence
+is genuinely ambiguous between two traditions this harness reads text
+from, which doctrine 1 already has the answer for: the reading is a
+declaration, not a fact the function may assume either way.
+
+`line_tokens`/`raw_final_token` (`lyric_harness.py`) now take a
+`strip_parens=True` parameter — `True` reproduces every tokenization
+either function has ever returned, unchanged. `Lexicon(strip_parens=True)`
+carries the same coordinate as `self.strip_parens`, read by `.transcribe`
+and by every function that already took a `lex` (`line_anchors`,
+`line_readability`, `word_syllable_map`, `quality/readability.py`'s
+`substitution_report`) instead of each taking a parameter of its own —
+the same design `fallback=` already uses, and for the same reason: these
+functions are called from deep inside `quality/schemes.py`, `revise.py`,
+`relations.py` and `grid.py`, and `Lexicon` is already threaded through
+all of it, so nothing upstream of `Lexicon.transcribe_word` needed to
+change for `fallback=` and nothing upstream of these needed to change
+either. `quality/fit.py`'s parallel meter pipeline (`_chunks` -> `read_line`
+-> `fit_line` -> `fit_song`) carries its own `strip_parens=True` chain for
+the same reason `fit.py` has always mirrored `line_tokens`'s tokenization
+choices on purpose; `Reviser._meter_findings` passes `self.lex.strip_parens`
+into it, so meter-checking a voice-attributed draft respects the same
+declaration rhyme-checking it does.
+
+`--voices` is a GLOBAL bare-presence flag, consumed the same way and for
+the same reason `--fallback` is (`Lexicon()` is built once, ahead of any
+verb). Declaring it builds `Lexicon(strip_parens=False)`; every verb reads
+`(...)`/`*asterisk*` (never special either way) as real words from there.
+Omitted, nothing changes anywhere — every verb, and `quality/
+build_song_frequency.py`'s corpus-frequency-table builder, which never
+opts in, keeps reading `corpus/song/`'s literary parentheticals exactly as
+it always has, so the shipped `data/song_endword_en.tsv`/
+`song_rhymepair_en.tsv` are unaffected by this coordinate existing.
+`quality/test_loop.py` test 10, alongside test 8's `(repeat)` case, which
+is now the WORKED CONTRAST: the identical text refuses one way (a stage
+direction, by default) and reads clean the other (a second voice,
+declared) — the same line, two readings, because it was always going to
+be one or the other and never both at once.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner

@@ -513,7 +513,7 @@ class _DictionaryOnlyLexicon:
 
 
 class Lexicon:
-    def __init__(self, fallback=None):
+    def __init__(self, fallback=None, strip_parens=True):
         """`fallback` is a DECLARED coordinate, `None` by default -- omitting
         it reproduces every transcription this class has ever returned,
         unchanged. Passing `"high"` or `"low"` (the same vocabulary
@@ -533,10 +533,21 @@ class Lexicon:
         when set, is the `Fallback` instance itself, so a caller can read
         `.counts` afterward and see exactly how many words were read at
         which layer -- this class keeps no second, shadow tally.
+
+        `strip_parens` -- see `line_tokens`, whose declaration this shares.
+        `True` by default: `(...)` is read as a non-sung aside, same as
+        every caller of this class before the coordinate existed. Every
+        function in this file that reads a line's words through a `Lexicon`
+        (`transcribe`, and everything `line_anchors`/`line_readability`/
+        `word_syllable_map` do with one) consults `lex.strip_parens` rather
+        than taking a parameter of its own, so this is the ONE place a
+        caller declares which of the two traditions -- literary aside or
+        voice attribution -- the text in front of it was written in.
         """
         fetch_data()
         self.entries = {}          # word -> list of pronunciations (phone lists)
         self.freq_rank = {}
+        self.strip_parens = strip_parens
         self.g2p_fallback = None
         if fallback is not None:
             from quality.g2p import Fallback
@@ -618,10 +629,13 @@ class Lexicon:
 
     def transcribe(self, text, phrase_final=True):
         """Text -> (phones, words, oov_words). Multiword safe.
-        Strips parenthetical ad-libs; demotes function-word stress so the
-        anchor reaches the content word (mosaic rhyme: "spit in it")."""
+        Reads `self.strip_parens` (see `Lexicon.__init__`) to decide whether
+        `(...)` is a non-sung aside (stripped, the default) or real words in
+        a second voice (kept). Demotes function-word stress so the anchor
+        reaches the content word (mosaic rhyme: "spit in it")."""
         text = text.replace("\u2019", "'").replace("\u2018", "'")
-        text = re.sub(r"\([^)]*\)", " ", text)
+        if self.strip_parens:
+            text = re.sub(r"\([^)]*\)", " ", text)
         phones, oov = [], []
         words = [t for t in re.findall(r"[A-Za-z'’\-]+", text)
                  if re.search(r"[A-Za-z]", t)]
@@ -742,20 +756,41 @@ def load_lyric_lines(path):
                 if l.strip() and not is_apparatus_line(l)]
 
 
-def line_tokens(text):
+def line_tokens(text, strip_parens=True):
     """The line's word tokens, in order, before any dictionary filtering.
 
     Factored out of `line_anchors` and `word_syllable_map`, which carried the
     same three lines twice. This is the only definition of "the words of a
     line" the rhyme path may use; see `raw_final_token`.
+
+    `strip_parens` is a DECLARED coordinate, True by default -- omitting it
+    reproduces every tokenization this function has ever returned, unchanged.
+    True erases `(...)` spans before tokenizing, on the assumption that
+    parenthetical text is a stage direction, not sung. FOUND WRONG FOR ONE
+    CALLER AND RIGHT FOR ANOTHER, IN THE SAME COMMIT that added this
+    parameter: `corpus/song/` (196 files) uses `(...)` the traditional
+    literary way -- an aside, same as Carroll's "(We know it to be true):",
+    genuinely not sung -- and `data/song_endword_en.tsv`/
+    `song_rhymepair_en.tsv` were built on that reading (doctrine 91: build the
+    population the same way the grader reads). A caller writing in
+    voice-attribution notation instead -- a whole line in parens as backup
+    vocal, a trailing `(ad lib)` as a second voice cutting in -- means the
+    OPPOSITE: real sung words, just not the lead's. The same character
+    sequence is genuinely ambiguous between two traditions this harness reads
+    text from, which is doctrine 1's case exactly: the reading is a
+    declaration, not something the function may assume either way. Pass
+    `False` to keep parenthetical (and `*asterisk*`-wrapped, never special
+    here) text as real words; `quality/build_song_frequency.py` never passes
+    it, so the shipped frequency tables are unaffected.
     """
     norm = text.replace("’", "'").replace("‘", "'")
-    norm = re.sub(r"\([^)]*\)", " ", norm)
+    if strip_parens:
+        norm = re.sub(r"\([^)]*\)", " ", norm)
     return [t for t in re.findall(r"[A-Za-z'\-]+", norm)
             if re.search(r"[A-Za-z]", t)]
 
 
-def raw_final_token(text):
+def raw_final_token(text, strip_parens=True):
     """The line's ACTUAL last word, before any dictionary filtering.
 
     This is the token an end-rhyme is ON, and every rhyme-word lookup in this
@@ -767,8 +802,10 @@ def raw_final_token(text):
     `word_syllable_map`, and that map emits nothing at all for an unreadable
     word) at 5.14% of corpus/song/ lines and 2.87% of sonnet lines before this
     was fixed. Compare against this function before trusting any end word.
+
+    `strip_parens` -- see `line_tokens`, whose declaration this one shares.
     """
-    toks = line_tokens(text)
+    toks = line_tokens(text, strip_parens=strip_parens)
     return toks[-1] if toks else None
 
 
@@ -822,7 +859,7 @@ def line_readability(lex, text, anchors=None):
     the pieces move to `final_unread_pieces` (doctrine 24 -- a rule that would
     delete a category RELABELS instead).
     """
-    toks = line_tokens(text)
+    toks = line_tokens(text, strip_parens=lex.strip_parens)
     final = toks[-1] if toks else None
     _, _, oov = lex.transcribe(text)
     unreadable = list(dict.fromkeys(oov))
@@ -1099,7 +1136,7 @@ def line_anchors(lex, text, promote=False):
     not say which words it had read -- so a mosaic reach like `get to go` was
     reported under the end word `go`. See `span_provenance`.
     """
-    words = line_tokens(text)
+    words = line_tokens(text, strip_parens=lex.strip_parens)
     if not words:
         return [], "", []
     prefix = " ".join(words[:-1])
@@ -2521,7 +2558,7 @@ def word_syllable_map(lex, text):
     line's last word. Anything that wants the rhyme word must use
     `raw_final_token`, and `widx` is kept so a caller can see the gap.
     """
-    words = line_tokens(text)
+    words = line_tokens(text, strip_parens=lex.strip_parens)
     out = []
     for k, w in enumerate(words):
         phones = []
@@ -2946,7 +2983,7 @@ def _qafiya_parts(lex, line):
     read None as "radif/refrain line: licensed", turning 241 unreadable
     corpus/song/ lines into clean passes, so the refusal is typed.
     """
-    final = raw_final_token(line)
+    final = raw_final_token(line, strip_parens=lex.strip_parens)
     sylls = word_syllable_map(lex, line)
     if not sylls or final is None:
         return {"unreadable": True, "endword": final,
@@ -3120,6 +3157,15 @@ words CMUdict refuses outright (viewest, o'er, savour, groun'). Omitted by
 default -- a refusal stays a refusal unless this is declared. 'low' also
 reaches the letter-to-sound layer, measured net harmful
 (quality/test_g2p.py); 'high' does not.
+
+--voices, BEFORE any verb, same standing as --fallback: declares that
+`(...)`/`*...*` in the lyric file that follows is voice-attribution
+notation (who's singing -- a second voice, a group) rather than a
+non-sung stage direction, so those words are read and scored like any
+other. Omitted by default -- parenthetical text is stripped before
+scoring exactly as it always has been, which is the correct reading for
+this repo's own corpus/song/ (traditional literary asides, not vocal
+attribution) and for anyone not writing in this notation.
 
 commands (the fifteen spine verbs):
   declaration             print the active declaration
@@ -3354,12 +3400,24 @@ def main():
             sys.exit(2)
         args = [a for a in args if not a.startswith("--fallback=")]
 
+    # --voices is a GLOBAL, bare-presence flag (no value, like --isochronous)
+    # sitting alongside --fallback for the same reason: `Lexicon()` is built
+    # once here, before any verb dispatches. Declares that `(...)` (and
+    # `*asterisk*`, never special) text in the lyric file that follows is
+    # voice-attribution notation -- real sung words in a second voice or a
+    # group, not a non-sung aside -- so `line_tokens`/`Lexicon.transcribe`
+    # keep those words instead of erasing them. Omitted, nothing changes:
+    # every verb reads `(...)` as a stage direction exactly as it always has.
+    voices = "--voices" in args
+    if voices:
+        args = [a for a in args if a != "--voices"]
+
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)
         print(USAGE)
         return
     cmd = args[0]
-    lex = Lexicon(fallback=fallback)
+    lex = Lexicon(fallback=fallback, strip_parens=not voices)
 
     if cmd == "declaration":
         print(decl.show())
@@ -3920,7 +3978,8 @@ def main():
             source="lyric_harness.py fit --isochronous, an explicit "
                    "assumption by whoever ran the command") \
             if "--isochronous" in args else None
-        song = FT.fit_song(args[1], subdivision=sub, assume=assume)
+        song = FT.fit_song(args[1], subdivision=sub, assume=assume,
+                           strip_parens=not voices)
         print(f"  module: quality/fit.py — syllables against the pulses of "
               f"the bar they are declared in")
         print(f"  subdivision: "

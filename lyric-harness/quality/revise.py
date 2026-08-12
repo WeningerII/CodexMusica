@@ -748,7 +748,7 @@ class Reviser:
         for i, (p, text) in enumerate(zip(places, lines)):
             ln = i + 1
             lf = FT.fit_line(text, p, subdivision=subdivision, assume=assume,
-                             line_index=i)
+                             line_index=i, strip_parens=self.lex.strip_parens)
             for f in lf.findings:
                 ev = f.evidence
                 if f.conditional_on:

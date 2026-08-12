@@ -45,6 +45,7 @@ from quality.loop import (default_propose, revise_loop,  # noqa: E402
                           swap_end_word)
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
+from lyric_harness import line_tokens, raw_final_token, Lexicon  # noqa: E402
 
 FAILURES = []
 
@@ -261,6 +262,47 @@ def test_no_mandate_is_a_refusal_not_a_pass():
           raised)
 
 
+def test_strip_parens_is_a_declared_coordinate():
+    print("\n10. `strip_parens` (line_tokens/raw_final_token/Lexicon."
+         "transcribe) is declared, not assumed -- the same `(repeat)` line "
+         "test 8 refuses on reads the OPPOSITE way once a caller declares "
+         "the parenthetical is a second voice, not a stage direction")
+    check("default (omitted): unchanged from every reading this project "
+          "has ever produced -- 'repeat' is not read as a word at all",
+          line_tokens("the room on fire (repeat)") == ["the", "room", "on",
+                                                        "fire"])
+    check("strip_parens=False: the same text keeps 'repeat' as a real word",
+          line_tokens("the room on fire (repeat)", strip_parens=False) ==
+          ["the", "room", "on", "fire", "repeat"])
+    check("a WHOLE line in parens -- the backup-vocal notation this was "
+          "built for -- anchors on its own last word once declared, "
+          "instead of vanishing to NO_ANCHOR",
+          raw_final_token("(Hì ro, hù ro, the day is lang,)",
+                          strip_parens=False) == "lang")
+    check("the same whole-line parenthetical is still unreadable by "
+          "default, which is the bug this coordinate exists to make "
+          "OPT-IN rather than silently fixed for everyone",
+          raw_final_token("(Hì ro, hù ro, the day is lang,)") is None)
+    check("*asterisk*-wrapped text was never special either way -- it "
+          "reads as real words with or without strip_parens",
+          line_tokens("*the whole crowd sings round*") ==
+          ["the", "whole", "crowd", "sings", "round"])
+    lex_default = Lexicon()
+    lex_voiced = Lexicon(strip_parens=False)
+    check("Lexicon() defaults to strip_parens=True, unchanged",
+          lex_default.strip_parens is True)
+    _, words_default, _ = lex_default.transcribe(
+        "the room on fire (repeat)")
+    _, words_voiced, _ = lex_voiced.transcribe(
+        "the room on fire (repeat)")
+    check("Lexicon.transcribe reads its OWN self.strip_parens, matching "
+          "line_tokens exactly rather than carrying a second, separate "
+          "paren rule",
+          words_default == ["the", "room", "on", "fire"] and
+          words_voiced == ["the", "room", "on", "fire", "repeat"],
+          f"default={words_default!r} voiced={words_voiced!r}")
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -270,7 +312,8 @@ if __name__ == "__main__":
                test_tier2_declines_a_group_of_three_or_more,
                test_the_loop_never_touches_an_unreported_line,
                test_swap_end_word_refuses_a_disagreeing_reading,
-               test_no_mandate_is_a_refusal_not_a_pass):
+               test_no_mandate_is_a_refusal_not_a_pass,
+               test_strip_parens_is_a_declared_coordinate):
         fn()
     print("=" * 62)
     if FAILURES:
