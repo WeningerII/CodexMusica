@@ -165,9 +165,23 @@ inside other sections, possibly melodic rather than lyric, possibly shorter
 than a line. Nothing in the model can hold one, count its returns, place it, or
 measure its density.
 
-### D-3 · No return/variation structure `OPEN`
-**Missing:** how many times a section returns, in what order, with what
-variation; reprise; truncated final chorus; added bar on the last return.
+### D-3 · No return/variation structure `PARTIAL`
+**Was:** how many times a section returns, in what order, with what
+variation; reprise; truncated final chorus; added bar on the last return —
+none of it askable.
+**Now:** `quality/grid.py`'s `compare_returns` answers "with what variation"
+for a 12-way `VARIATION_KINDS` ladder including `TRUNCATED_RETURN` and
+`EXTENDED_RETURN` by name; `return_findings`/`song_function_report` run it
+over every declared function's own instances, answering "how many times"
+(`song.instances_of(fn)`) and "in what order" (bar-ordered by construction).
+`CLAUDE.md` known gap 7 has the same correction; `examples/nobodys_native_
+son.txt`'s final chorus (`HEAD_PRESERVED`) and its extra-bar payoff line
+(`EXTENDED_RETURN`-shaped, caught live by `RETURN_LENGTH_DRIFT`) are a real
+run, not a claim.
+**Still missing:** reprise — `compare_returns` takes two line lists and does
+not care where they came from, but nothing calls it ACROSS two different
+declared functions (does the outro reprise the intro). The primitive exists;
+the question is not asked.
 
 ### D-4 · No arc `OPEN`
 **Missing:** energy, dynamics, density, register, instrumentation change across

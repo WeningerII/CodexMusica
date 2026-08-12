@@ -637,8 +637,23 @@ rather than this paragraph — a roster copied into two files drifts in both.
    TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
    data/sources.tsv. The capability is built; the corpus is not
    reachable.
-7. **Blueprint identity-with-variation.** Outro-extends-intro,
-   chorus variation. Current refs are verbatim-only.
+7. **Blueprint identity-with-variation.** This entry named TWO gaps and one
+   of them closed without the entry being told: **chorus variation is
+   CLOSED** (`quality/grid.py`'s `compare_returns`, 12 named
+   `VARIATION_KINDS` — VERBATIM, LEXICAL_VARIATION, HEAD_PRESERVED,
+   RHYME_PRESERVING_REWRITE and the rest — not a verbatim/not-verbatim
+   boolean; `return_findings` runs it over every declared function's own
+   recurrences). "Current refs are verbatim-only" stopped being true two
+   days after this line was written and nobody split the sentence — doctrine
+   48's own failure mode, caught by `Nobody's Native Son`'s final chorus
+   coming back `HEAD_PRESERVED` in a real run
+   (`examples/nobodys_native_son.txt`). **Outro-extends-intro is still
+   OPEN**: `compare_returns` takes two line lists and does not care where
+   they came from, but `song_function_report` only ever calls it on
+   MULTIPLE INSTANCES OF THE SAME declared function (`song.instances_of(fn)`)
+   — comparing across two DIFFERENT functions (does the outro reprise the
+   intro) is not asked by anything. The primitive that would answer it
+   already exists; nothing calls it that way.
 
 ## The doctrine index — every number, and where it lives
 
