@@ -1,8 +1,6 @@
 {
   "title": "Nobody's Native Son",
-  "hooks": [
-    "nobody's native son"
-  ],
+  "hooks": ["nobody's native son"],
   "sections": [
     {
       "name": "verse1",
@@ -12,10 +10,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -26,10 +21,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -40,10 +32,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -54,10 +43,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -68,10 +54,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -82,10 +65,7 @@
       "meter": {
         "beats": 6,
         "unit": 8,
-        "groups": [
-          3,
-          3
-        ]
+        "groups": [3, 3]
       }
     },
     {
@@ -96,10 +76,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -110,10 +87,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     }
   ],
