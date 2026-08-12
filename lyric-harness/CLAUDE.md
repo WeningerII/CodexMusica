@@ -188,6 +188,22 @@ immediately, and that refusal has to be the first thing printed
 (`quality/test_verbs.py` §6 pins this), so the blueprint line is skipped
 rather than printed ahead of a refusal about an entirely different layer.
 
+**THE SAME GAP, ONE MORE TIME, IN THE SAME COMMIT — FIXED 2026-08-12.**
+`quality/g2p.py`'s `Fallback` was wired into `Lexicon.transcribe_word` as
+`fallback=` on 2026-08-11, tested at the Python API, and reachable from the
+CLI by nothing at all: `lex = Lexicon()` at the top of `main()` never passed
+it, for ANY verb. `--fallback=high|low` is now a GLOBAL flag, consumed ahead
+of `cmd` itself rather than inside one verb's own argument parsing —
+`Lexicon()` is built once, before any verb dispatches, so it cannot live
+where `--blueprint` does. `eq_only`, on purpose: unlike `--blueprint`, this
+flag sits ahead of an ARBITRARY verb's own arguments, and a space-separated
+`--fallback high FILE.txt` has no way to tell "high" the value from "high" a
+filename that happened to be that word. An undeclared value (`--fallback=
+bogus`) REFUSES with a printed message and exit 2 — the same shape `NoMandate`
+already holds — rather than a raw `KeyError` from three frames down, since
+this flag now sits ahead of every verb rather than one. `quality/test_verbs.py`
+§9.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner

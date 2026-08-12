@@ -3204,7 +3204,14 @@ def _rel_show(stream, inst):
 # remembered eight times in one round.
 # ---------------------------------------------------------------------------
 
-USAGE = """commands (the fifteen spine verbs):
+USAGE = """--fallback=high|low, BEFORE any verb, on any command: opts every
+verb's Lexicon into quality/g2p.py's morphology/elision/compound layer for
+words CMUdict refuses outright (viewest, o'er, savour, groun'). Omitted by
+default -- a refusal stays a refusal unless this is declared. 'low' also
+reaches the letter-to-sound layer, measured net harmful
+(quality/test_g2p.py); 'high' does not.
+
+commands (the fifteen spine verbs):
   declaration             print the active declaration
   score  W1 -- W2         graded pair score with sub-scores
   candidates W [n]        ranked rhyme candidates
@@ -3397,12 +3404,35 @@ def _grid_song(GR, bp):
 def main():
     decl = Declaration()
     args = sys.argv[1:]
+
+    # --fallback=high|low is a GLOBAL declared coordinate: `Lexicon()` is
+    # built once here, before any verb dispatches, so it cannot live inside
+    # one verb's own flag parsing the way --blueprint does for brief/verify/
+    # revise. Consumed before `cmd` is read from `args`, so it works ahead of
+    # EVERY verb and is never mistaken for the verb name itself.
+    #
+    # `eq_only` on purpose. --blueprint/--subdivision accept a following
+    # space-separated token because each is read inside ONE verb's own
+    # argument list, where the shape of what follows is already known.
+    # --fallback sits ahead of an ARBITRARY verb's own arguments -- "
+    # --fallback high FILE.txt" would have no way to tell "high" the
+    # fallback value from "high" a file whoever ran the command happened to
+    # name that. `=` removes the ambiguity instead of guessing past it.
+    fallback = _flag_value(args, "--fallback", eq_only=True)
+    if fallback is not None:
+        if fallback not in ("high", "low"):
+            print(f"  --fallback wants 'high' or 'low', got {fallback!r} "
+                  f"(quality.g2p.Fallback.min_confidence's own vocabulary; "
+                  f"doctrine 1 -- not free text, not coerced)")
+            sys.exit(2)
+        args = [a for a in args if not a.startswith("--fallback=")]
+
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)
         print(USAGE)
         return
     cmd = args[0]
-    lex = Lexicon()
+    lex = Lexicon(fallback=fallback)
 
     if cmd == "declaration":
         print(decl.show())

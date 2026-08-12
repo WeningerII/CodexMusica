@@ -430,6 +430,33 @@ def test_every_verb_runs():
           "Traceback" not in err and "no declared line count" in out)
 
 
+def test_fallback_reaches_every_verb_ahead_of_the_verb_name():
+    print("\n9. --fallback=high|low — a GLOBAL coordinate, reachable ahead of "
+          "any verb, FIXED 2026-08-12")
+    # Before this, quality.g2p.Fallback existed, was wired into
+    # Lexicon.transcribe_word, and was tested at the Python API -- and there
+    # was no way to reach it from the command line at all: `lex = Lexicon()`
+    # at the top of main() never passed fallback=, for any verb.
+    rc, out, _ = run("score", "viewest", "--", "biggest")
+    check("without --fallback, a dictionary-derivable word still refuses",
+          "WARNING out-of-vocabulary" in out and "NO_ANCHOR" in out,
+          out.strip().splitlines()[0][:80])
+
+    rc, out, _ = run("--fallback=high", "score", "viewest", "--", "biggest")
+    check("with --fallback=high, ahead of the verb name, it reads",
+          rc == 0 and "WARNING out-of-vocabulary" not in out
+          and "NO_ANCHOR" not in out, out.strip()[:200])
+
+    rc, out, _ = run("--fallback=bogus", "score", "cat", "--", "hat")
+    check("an undeclared value REFUSES with exit 2, not a KeyError traceback",
+          rc == 2 and "'high' or 'low'" in out, out.strip()[:120])
+
+    rc, out, err = run("--fallback=high", "brief", EXAMPLE_TXT, "--cliques",
+                       f"--blueprint={EXAMPLE_BP}")
+    check("the global flag and a verb-specific flag coexist on one line",
+          rc == 0 and "Traceback" not in err, err.strip()[-200:] if err else "")
+
+
 def test_the_fifteen_original_verbs_are_untouched():
     print("\n8. the additive claim — the spine still answers as it did")
     rc, out, _ = run("score", "fire", "--", "desire")
@@ -454,6 +481,7 @@ if __name__ == "__main__":
     test_brief_refuses_instead_of_tracebacking()
     test_every_verb_runs()
     test_the_fifteen_original_verbs_are_untouched()
+    test_fallback_reaches_every_verb_ahead_of_the_verb_name()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
