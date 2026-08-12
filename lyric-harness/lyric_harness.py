@@ -931,10 +931,13 @@ def token_pieces(lex, token):
 
     MEASURED at commit `2f2d26c` over the 143 `corpus/song/eng_*.txt` files,
     151,894 line ends taken as `line_tokens`-non-empty lines outside the
-    `#`/`---`/`[` markers (189,261 counting every non-blank line, 188,805 on
-    `quality.readability.read_lines` -- doctrine 91, the count is a coordinate
-    of the rendering, and a corpus cell was de-duplicating this corpus in the
-    same round so it is pinned to a COMMIT and not to a date): **323 line ends
+    `#`/`---`/`[` markers (189,261 counting every non-blank line; at the time
+    this was measured, `quality.readability.read_lines` did NOT exclude those
+    markers and returned 188,805 -- FIXED 2026-08-12, and `read_lines` now
+    returns 151,898 on the current corpus, matching this figure rather than
+    disagreeing with it -- doctrine 91, the count is a coordinate of the
+    rendering, and a corpus cell was de-duplicating this corpus in the same
+    round so it is pinned to a COMMIT and not to a date): **323 line ends
     have an unread piece inside an end token that yields phones**, and the
     split by WHICH piece is the triage:
 

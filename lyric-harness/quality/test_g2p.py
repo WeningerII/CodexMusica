@@ -524,7 +524,7 @@ def test_corpus_scale_counts():
     # NO ABSOLUTE COUNT IS PINNED HERE, deliberately. `corpus/song/eng_*.txt`
     # is owned by the corpus cells and moved twice while this file was being
     # written (a hymn file deleted, three edited), so `quality/test_readability
-    # .py`'s 190804 / 10051 are the pins for the corpus and this file must not
+    # .py`'s 151898 / 9078 are the pins for the corpus and this file must not
     # carry a second, staler copy of them — doctrine 58 the other way round: a
     # count is a coordinate of a file set, so a test that does not own the file
     # set has no business asserting one. What IS this module's property, and is
