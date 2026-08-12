@@ -8,10 +8,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -21,10 +18,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -34,10 +28,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -47,10 +38,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     },
     {
@@ -60,10 +48,7 @@
       "meter": {
         "beats": 4,
         "unit": 4,
-        "groups": [
-          2,
-          2
-        ]
+        "groups": [2, 2]
       }
     }
   ],
