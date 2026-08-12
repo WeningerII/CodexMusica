@@ -395,7 +395,7 @@ def read_line(text, phon=None, strip_parens=True):
                               getattr(s, "moras", 1) or 1))
     elif getattr(phon, "language", "") == "eng":
         import lyric_harness as _lh
-        lex = _english_lexicon()
+        lex = _english_lexicon(strip_parens=strip_parens)
         for k, s in enumerate(_lh.word_syllable_map(lex, text)):
             units.append(Unit(k, s.get("nucleus", ""), s["word"], s["widx"],
                               1 if s["stress"] in (1, 2) else 0, 1))
@@ -445,15 +445,25 @@ def read_line(text, phon=None, strip_parens=True):
         prominence_refusal=prom_refusal)
 
 
-_LEX = None
+_LEX = {}
 
 
-def _english_lexicon():
-    global _LEX
-    if _LEX is None:
+def _english_lexicon(strip_parens=True):
+    """Cached per `strip_parens` value, not a single global -- a Lexicon
+    built with the wrong `strip_parens` silently ignores `read_line`'s own
+    parameter of that name, which is exactly the bug this replaced: `_LEX`
+    used to be one instance built with the constructor default (`True`),
+    reused for every call regardless of what `read_line`/`_chunks` were
+    told, so a whole-line-parenthetical read through `--voices` still lost
+    every word here even though `_chunks` (used only for the numeral scan)
+    kept them. See `word_syllable_map`, which is what actually turns this
+    Lexicon's `.strip_parens` into syllables for the ENGLISH path below."""
+    lex = _LEX.get(strip_parens)
+    if lex is None:
         import lyric_harness as _lh
-        _LEX = _lh.Lexicon()
-    return _LEX
+        lex = _lh.Lexicon(strip_parens=strip_parens)
+        _LEX[strip_parens] = lex
+    return lex
 
 
 # ---------------------------------------------------------------------------

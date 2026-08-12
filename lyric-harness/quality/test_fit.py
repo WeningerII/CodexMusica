@@ -571,6 +571,29 @@ def test_the_cycle_helpers_refuse_the_same_way_the_cycle_does():
           "a non-power-of-two denominator is a note value too")
 
 
+def test_strip_parens_reaches_the_english_syllable_path():
+    print("\n16. `read_line`'s ENGLISH branch reads `strip_parens`, not just "
+         "`_chunks` -- FOUND checking a real voice-attribution line, FIXED "
+         "in the same round: `_english_lexicon()` was a single cached "
+         "Lexicon built with the constructor default, so every call reused "
+         "the FIRST `strip_parens` value ever passed regardless of what a "
+         "later caller declared")
+    voiced = "(the whole choir answers here)"
+    check("strip_parens=False reads real syllables from a whole-line "
+          "parenthetical",
+          len(read_line(voiced, strip_parens=False).units) > 0,
+          f"{len(read_line(voiced, strip_parens=False).units)} units read")
+    check("strip_parens=True (the default) still reads none -- unchanged, "
+          "this is a non-sung aside unless declared otherwise",
+          len(read_line(voiced).units) == 0)
+    check("calling strip_parens=False and then True in either order gives "
+          "the same two answers -- the cache is keyed on the value, not "
+          "overwritten by whichever call happened first",
+          len(read_line(voiced).units) == 0 and
+          len(read_line(voiced, strip_parens=False).units) > 0 and
+          len(read_line(voiced).units) == 0)
+
+
 def main():
     for t in (test_the_count_is_in_the_phonologys_own_grid_unit,
               test_a_refused_token_makes_the_count_a_lower_bound,
@@ -586,7 +609,8 @@ def main():
               test_the_boundary_is_a_value_in_the_module,
               test_the_shipped_song,
               test_all_nine_declared_phonologies_go_through_it,
-              test_the_cycle_helpers_refuse_the_same_way_the_cycle_does):
+              test_the_cycle_helpers_refuse_the_same_way_the_cycle_does,
+              test_strip_parens_reaches_the_english_syllable_path):
         t()
     print("\n" + "=" * 62)
     if FAILURES:
