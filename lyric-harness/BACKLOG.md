@@ -551,7 +551,7 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 50 OPEN / 13 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 49 OPEN / 14 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,609 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
 | mutations declared | **33 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |

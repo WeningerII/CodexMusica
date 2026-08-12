@@ -170,10 +170,11 @@ this one. NONE OF IT COULD BE REACHED FROM THE COMMAND LINE. `brief`,
 just a file, a mandate spec, and (for `verify`) targeted line numbers;
 there was no `--blueprint` anywhere in that block, so a run through the CLI
 was rhyme-and-floor only, silently, no matter what the library underneath
-it could do. (A fourth verb, `song BLUEPRINT LYRIC`, does take a
-blueprint — but calls `check_song`, an older function that never touches
+it could do. (A fourth verb, `song BLUEPRINT LYRIC`, did take a
+blueprint — but called `check_song`, an older function that never touched
 `Reviser`, `Mandate`, or the slop floor, so even the one CLI surface that
-looked blueprint-aware never did rhyme grading either.) `--blueprint=`,
+looked blueprint-aware never did rhyme grading either. Rebuilt 2026-08-12;
+see below.) `--blueprint=`,
 `--subdivision`, `--isochronous` — the same three flags `fit` already
 reads — now reach all three verbs, and a run through `revise` immediately
 found the gap real: the mechanical stub proposer tried to swap a chorus
@@ -204,6 +205,37 @@ already holds — rather than a raw `KeyError` from three frames down, since
 this flag now sits ahead of every verb rather than one. `quality/test_verbs.py`
 §9.
 
+**`song`'S OWN DEAD SCHEMA — REBUILT 2026-08-12.** `song BLUEPRINT LYRIC` read
+`check_song`/`group_sounds`, a per-section `{"lines", "scheme"} | {"ref"}`
+schema written before the bar-grid shape existed. Every blueprint shipped in
+`examples/` had already moved to bar-grid (`bars`/`start_bar`/`meter`/
+`function`, per-line `bar`/`beat`/`duration`) — a shape `check_song` cannot
+read at all, so `song` raised `KeyError` on every real blueprint in this
+repo, silently, for as long as that shape has existed; `wiring` called it
+wired the whole time because import reachability is not invocation
+reachability (`quality/test_verbs.py` §7, before this fix). `song` is now
+`song BLUEPRINT LYRIC [MANDATE] [--subdivision N] [--isochronous]`: it reads
+the blueprint through `quality/grid.py`'s `song_from_blueprint`, cross-checks
+the lyric's own `[Section]` markers against the blueprint's declared
+sections by name and by line count (`STRUCTURE:` — something `brief` has no
+reason to do, since `brief` never sees a blueprint's section list), then
+runs the IDENTICAL report `brief` prints (factored into
+`lyric_harness._print_brief_report`, so the two formats cannot drift apart)
+with meter and song-function joining the finding set exactly as they do for
+`brief --blueprint=`/`verify --blueprint=`. MANDATE is required for the same
+reason it is on `brief` (doctrine 20) — a length mismatch against the draft
+REFUSES by name (`REFUSED — ...`, exit 2) rather than raising, and a bare
+`NoMandate` refusal (no MANDATE argument at all) is routed to the SAME
+refusal path `brief`/`verify`/`revise` share rather than printing a second,
+slightly different shape of the same message. This repo's own root
+`blueprint.json`/`lyric.txt` are a THIRD, never-migrated schema (no `lines`
+array, a single top-level `scheme` string) that neither the old nor the new
+`song` can read — left alone rather than deleted or migrated, since
+`lyric.txt` is independently used by `quality/test_relations.py` and
+`quality/time_attainable.py` for unrelated sample text; `quality/
+test_verbs.py`'s `song` cases now run against `examples/
+never_been_to_a_scene.blueprint.json`/`.txt` instead.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner
@@ -219,8 +251,8 @@ the dispatch are now three sets that `wiring` and `quality/test_verbs.py`
 require to be equal. A verb added without a row and a `--help` line is a
 failing test, not something a later session notices.
 declaration | score A -- B | candidates W [n] | meter TEMPLATE L... |
-scheme LETTERS [--profile assonance|rawi] L... | song blueprint.json
-lyric.txt | chains FILE [theta] | graph FILE [theta] | internal "line" |
+scheme LETTERS [--profile assonance|rawi] L... | song BLUEPRINT LYRIC
+[MANDATE] | chains FILE [theta] | graph FILE [theta] | internal "line" |
 density FILE | weight "line" | qafiya FILE|L... |
 cynghanedd [--lang=cym|eng] "line" | prasa K L... | demo
 THE QUALITY LAYER, REACHABLE SINCE 2026-08-10 (it was not, and that was the

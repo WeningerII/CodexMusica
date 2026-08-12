@@ -41,7 +41,10 @@ WHAT IS ASSERTED, AND IN WHAT ORDER
   7. every dispatched verb runs without a traceback — including `song`, which
      raised `KeyError` on this repo's own `blueprint.json` for as long as that
      file has been in the bar-grid shape, while `wiring` called it wired
-     because import reachability is not invocation reachability
+     because import reachability is not invocation reachability. `song` was
+     REBUILT 2026-08-12 off the dead schema `KeyError` came from, onto the
+     same bar-grid/Reviser pipeline `brief` runs, and is tested here against
+     a real blueprint instead of the root fixture pair that caused it
 
 Run: python3 quality/test_verbs.py
 """
@@ -385,7 +388,7 @@ def test_every_verb_runs():
         "candidates": ["candidates", "desire", "5"],
         "meter": ["meter", "./" * 4, "The river took the bridge at dawn"],
         "scheme": ["scheme", "ABAB", "dawn", "again", "silt", "rebuilt"],
-        "song": ["song", "blueprint.json", "lyric.txt"],
+        "song": ["song", EXAMPLE_BP, EXAMPLE_TXT],
         "chains": ["chains", quat],
         "graph": ["graph", quat],
         "internal": ["internal", "the cattle waded through the silt"],
@@ -420,14 +423,22 @@ def test_every_verb_runs():
     check(f"none of the {len(cases)} verbs raises",
           not bad, f"raised: {bad or 'none'}")
     # The specific one that did, and for how long: `blueprint.json` was
-    # rewritten to the bar-grid shape and `check_song` reads a per-section
-    # `lines` count that shape deliberately does not have. `wiring` called
-    # `song` wired the whole time, because it checks IMPORT reachability and
-    # a KeyError is not an import.
-    rc, out, err = run("song", "blueprint.json", "lyric.txt")
-    check("`song` on this repo's own blueprint.json REFUSES by name instead "
-          "of raising KeyError",
-          "Traceback" not in err and "no declared line count" in out)
+    # rewritten to the bar-grid shape and the OLD `check_song` read a
+    # per-section `lines` count that shape deliberately does not have.
+    # `wiring` called `song` wired the whole time, because it checks IMPORT
+    # reachability and a KeyError is not an import. `song` was REBUILT
+    # 2026-08-12 onto the same bar-grid/Reviser pipeline `brief` uses (see
+    # `lyric_harness._print_brief_report`), so it no longer touches the old
+    # schema at all -- this repo's own root `blueprint.json`/`lyric.txt` are
+    # a THIRD, never-migrated schema (no `lines` array, a single top-level
+    # `scheme` string) that neither the old nor the new `song` can read, and
+    # are left alone here because `lyric.txt` is independently used by
+    # `test_relations.py` and `time_attainable.py` for unrelated sample text.
+    rc, out, err = run("song", EXAMPLE_BP, EXAMPLE_TXT)
+    check("`song` on a real bar-grid blueprint runs the brief-report "
+          "pipeline without a traceback, and REFUSES for want of a mandate "
+          "rather than passing vacuously",
+          "Traceback" not in err and "no mandate was declared" in out)
 
 
 def test_fallback_reaches_every_verb_ahead_of_the_verb_name():
