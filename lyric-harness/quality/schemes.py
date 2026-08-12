@@ -1492,10 +1492,10 @@ class Mandate:
     def returns_check(self, lines, variation=True):
         """-> findings for return pairs that are not what the mandate says.
 
-        THE FIXTURE FOR DOCTRINE 94, and it is not constructed: this makes a
-        zero (16 collisions -> 0) and it has to be able to fire on the same
-        text. It does. Four of the eight declared returns in
-        `examples/never_been_to_a_scene.txt` are NOT verbatim -- L14/L34,
+        THE FIXTURE FOR DOCTRINE 94: this makes a zero (collisions -> 0) and
+        it has to be able to fire on real content, not just be assumed clean.
+        It does. Four of the eight declared returns in the shipped fixture
+        (`quality/fixtures/mandate_song.txt`) are NOT verbatim -- L14/L34,
         L15/L35, L16/L36 and L20/L40 -- and each comes back as a NAMED KIND of
         variation from `quality.grid.compare_returns` rather than a boolean,
         because a return that keeps its rhyme and changes a word is a move and

@@ -1,0 +1,136 @@
+{
+  "_note": "Constructed fixture (doctrine 94): built purely to check that song_from_blueprint reads declared function/hooks/title fields correctly -- not a song, no lyric grading depends on its text.",
+  "title": "Fixture Two",
+  "hooks": [
+    "a hook line for the reader to find"
+  ],
+  "sections": [
+    {
+      "name": "verse1",
+      "bars": 2,
+      "start_bar": 1,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "verse2",
+      "bars": 2,
+      "start_bar": 3,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "chorus1",
+      "bars": 2,
+      "start_bar": 5,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "verse3",
+      "bars": 2,
+      "start_bar": 7,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "chorus2",
+      "bars": 2,
+      "start_bar": 9,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "bridge",
+      "bars": 2,
+      "start_bar": 11,
+      "function": "bridge",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "verse4",
+      "bars": 2,
+      "start_bar": 13,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "chorus3",
+      "bars": 2,
+      "start_bar": 15,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "name": "outro",
+      "bars": 1,
+      "start_bar": 17,
+      "function": "outro",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      }
+    }
+  ],
+  "lines": []
+}

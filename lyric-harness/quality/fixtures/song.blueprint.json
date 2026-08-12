@@ -1,65 +1,98 @@
 {
   "_note": "Constructed fixture (doctrine 94): built to exercise specific structural boundaries -- subdivision overflow in 4/4, non-overflow in 7/8, a verbatim chorus return, an OOV token -- not to read as a song.",
-  "title": "Ledger",
-  "hooks": [
-    "we counted every reason we were given to keep counting"
-  ],
   "sections": [
     {
       "name": "verse1",
       "bars": 4,
       "meter": {
         "beats": 7,
-        "unit": 8
-      }
+        "unit": 8,
+        "groups": [
+          3,
+          2,
+          2
+        ]
+      },
+      "start_bar": 1
     },
     {
       "name": "pre",
       "bars": 1,
       "meter": {
         "beats": 4,
-        "unit": 4
-      }
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      },
+      "start_bar": 5
     },
     {
       "name": "chorus",
       "bars": 2,
       "meter": {
         "beats": 4,
-        "unit": 4
-      }
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      },
+      "start_bar": 6
     },
     {
       "name": "verse2",
       "bars": 4,
       "meter": {
         "beats": 7,
-        "unit": 8
-      }
+        "unit": 8,
+        "groups": [
+          3,
+          2,
+          2
+        ]
+      },
+      "start_bar": 8
     },
     {
       "name": "bridge",
       "bars": 2,
       "meter": {
         "beats": 4,
-        "unit": 4
-      }
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      },
+      "start_bar": 12
     },
     {
       "name": "chorus2",
       "bars": 2,
       "meter": {
         "beats": 4,
-        "unit": 4
-      }
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      },
+      "start_bar": 14
     },
     {
       "name": "outro",
       "bars": 1,
       "meter": {
         "beats": 4,
-        "unit": 4
-      }
+        "unit": 4,
+        "groups": [
+          2,
+          2
+        ]
+      },
+      "start_bar": 16
     }
   ],
   "lines": [

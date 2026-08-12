@@ -134,8 +134,7 @@ what is declared but unread" rather than building something new.
 - **`quality/grid.py`'s `song_function_report` joins the same `blueprint=`
   coordinate meter already rides, not a fourth parameter.** A blueprint
   section has always been able to declare `"function"` and a blueprint has
-  always been able to carry a top-level `"hooks"` list —
-  `examples/moonlight_and_lead.blueprint.json` has both — and nothing past
+  always been able to carry a top-level `"hooks"` list, and nothing past
   `quality/fit.py` ever read either field, because `fit.py` places lines in
   bars and does not know or need to know what a section is FOR.
   `Reviser._function_findings` reads them with a new `grid.song_from_blueprint`
@@ -351,9 +350,9 @@ underneath the quality layer:
 - **`fit`** is the only verb that answers *do the words fit the bars*. The
   subdivision is a DECLARED coordinate with NO default — without one the slot
   questions refuse rather than assume a sixteenth-note grid. At
-  `--subdivision 2` the 4/4 choruses of `examples/never_been_to_a_scene` are
-  UNSATISFIABLE (2 and 3 lines) and the 7/8 verses are not, because an
-  eighth-note pulse subdivided twice is finer than a quarter-note one.
+  `--subdivision 2` the 4/4 choruses of `quality/fixtures/song.blueprint.json`
+  are UNSATISFIABLE and the 7/8 verses are not, because an eighth-note pulse
+  subdivided twice is finer than a quarter-note one.
 - **`function`** reads `Section.function`, which is not `Section.name`: an
   undeclared function REFUSES and the harness never reads `"chorus"` out of a
   name. Three counts on every run — asked / answered / refused (doctrine 79).

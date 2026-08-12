@@ -12,11 +12,11 @@ bar it sits in.** So the harness could say a section was fourteen bars of 7/8 as
 where they would crowd, or which of them could reach a group head.
 
 That is MISSING.md G-1 (no syllable-to-beat mapping), G-2 (no prosodic fit) and
-G-3 (meter templates unconnected to the bar grid). It is also why
-`examples/never_been_to_a_scene.blueprint.json` was gradeable only on rhyme:
-its `beat` and `duration` fields were declared by hand and read by nothing, so
-setting every second line to an anacrusis cleared `DOWNBEAT_LOCKED` without any
-check that the syllables could land there. An inert declared coordinate is the
+G-3 (meter templates unconnected to the bar grid). It is also why a real
+bar-grid blueprint was gradeable only on rhyme: its `beat` and `duration`
+fields were declared by hand and read by nothing, so setting every second
+line to an anacrusis cleared `DOWNBEAT_LOCKED` without any check that the
+syllables could land there. An inert declared coordinate is the
 defect this repo has now found five times — `Span.unit`, `SpanRule.terminator`,
 `RelationSchema.traditions`, `search_k`, and these two. Here they drive the
 arithmetic or they raise.
@@ -95,7 +95,7 @@ groove question in MISSING.md C-4 (pushes, pulls, laid-back placement,
 syncopation as a measurement rather than as a declared offset) are refused
 permanently and by name, not approximated.
 
-Run: python3 quality/fit.py examples/never_been_to_a_scene.blueprint.json
+Run: python3 quality/fit.py quality/fixtures/mandate_song.blueprint.json
 """
 
 import json
@@ -1598,7 +1598,7 @@ def report(fit, verbose=False):
 
 def main(argv):
     path = argv[1] if len(argv) > 1 else os.path.join(
-        HERE, "..", "examples", "never_been_to_a_scene.blueprint.json")
+        HERE, "fixtures", "mandate_song.blueprint.json")
     sub = None
     if "--subdivision" in argv:
         n = int(argv[argv.index("--subdivision") + 1])
