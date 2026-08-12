@@ -3153,7 +3153,13 @@ the quality layer (each says which module answered):
   brief  FILE [MANDATE] [--blueprint=B] [--subdivision N] [--isochronous]
                           what to revise, and what is FORBIDDEN.
                           MANDATE is a letter scheme (ABAB; X = free),
-                          --groups=1,3;2,4 (1-based, may OVERLAP), or
+                          --groups=1,3;2,4 (1-based, may OVERLAP), --returns=
+                          11,19,27;12,20,28 (same syntax, but each group is a
+                          RETURN CLASS -- REPEAT is the REQUIREMENT, not a
+                          violation; use this for a verbatim chorus/refrain,
+                          NOT --groups=, which defaults every pair to
+                          REQUIRE_RHYME and would charge an identical return
+                          SCHEME_VIOLATION for being exactly identical), or
                           --cliques (the song's own graph structure).
                           With NO mandate it REFUSES: nothing declared means
                           nothing mandated, and "nothing flagged" about that
@@ -4041,6 +4047,7 @@ def main():
         from quality import loop as LP
         from quality.revise import Reviser
         from quality.schemes import NoMandate
+        from quality import schemes as SC
         rv = Reviser(lex=lex, decl=decl)
 
         # `--blueprint=`/`--subdivision`/`--isochronous`: THE SAME THREE
@@ -4115,6 +4122,26 @@ def main():
             which doctrine 2 says is a structure with no letter
             representation. These two spellings are the ones a letter string
             cannot express.
+
+            A THIRD GAP, FOUND BY USE RATHER THAN BY READING THE CODE —
+            FIXED 2026-08-12. `quality.schemes.mandate`'s `returns=` parameter
+            has, since it was written, been the ONLY way to say "these lines
+            are the SAME LINE" — REQUIRE_RETURN, identity required, REPEAT is
+            the requirement, not a violation (doctrine 3's second half).
+            Nothing on this command line could ever reach it: `--groups=`
+            builds a bare Cover, which defaults every pair to REQUIRE_RHYME
+            (identity FORBIDDEN, REPEAT a violation), and `--cliques` derives
+            its groups from OBSERVED rhyme rather than the writer's own
+            declared repeat. A song with a verbatim chorus, declared either
+            way from the CLI, had its own returning hook charged
+            SCHEME_VIOLATION for being exactly identical — the one thing it
+            was SUPPOSED to be. `examples/the_well_is_running_dry` hit this
+            for real: `song ... --cliques` flagged its three-times-repeated
+            chorus, and the fix could only be reached by dropping to the
+            Python API and calling `SC.mandate(groups, returns=groups)`
+            directly. `--returns=` closes that: same syntax as `--groups=`,
+            same 1-based/';'-separated groups, but every group becomes a
+            RETURN CLASS instead of a plain rhyme requirement.
             """
             if spec is None:
                 return None                     # let the refusal fire
@@ -4127,6 +4154,18 @@ def main():
                 # --groups=1,3;2,4;27,6 — 1-based, ';'-separated, MAY OVERLAP
                 return [[int(x) for x in g.split(",") if x.strip()]
                         for g in spec.split("=", 1)[1].split(";") if g.strip()]
+            if spec.startswith("--returns="):
+                # --returns=11,19,27;12,20,28 — same syntax as --groups=, but
+                # every line in a group is declared the SAME LINE: REQUIRE
+                # RETURN, not REQUIRE RHYME. Realised into a `Mandate` here
+                # (not left as a plain list) because `Reviser.mandate()`
+                # forwards no `returns=` of its own (`SC.mandate(spec,
+                # n_lines=...)`, nothing else) — the ONLY way to get identity
+                # semantics into `rv.brief`/`.verify`/`.inspect` is to hand
+                # them an ALREADY-BUILT Mandate, which is what this returns.
+                groups = [[int(x) for x in g.split(",") if x.strip()]
+                          for g in spec.split("=", 1)[1].split(";") if g.strip()]
+                return SC.mandate(groups, n_lines=len(lines), returns=groups)
             return spec                         # a letter string
 
         def _say_derived(m):

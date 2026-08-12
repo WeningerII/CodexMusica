@@ -37,7 +37,9 @@ WHAT IS ASSERTED, AND IN WHAT ORDER
   5. `refrain` — the A-1 notation, the twelve REPEAT pairs a villanelle
      requires, and a drifted refrain caught by a NAMED kind
   6. `brief` with no mandate REFUSES with exit 2 instead of a traceback, and
-     the two mandate spellings a letter string cannot express work
+     the three mandate spellings a letter string cannot express work --
+     including `--returns=`, which a verbatim chorus needed and had no way
+     to reach before 2026-08-12
   7. every dispatched verb runs without a traceback — including `song`, which
      raised `KeyError` on this repo's own `blueprint.json` for as long as that
      file has been in the bar-grid shape, while `wiring` called it wired
@@ -348,6 +350,41 @@ def test_brief_refuses_instead_of_tracebacking():
           "must rhyme with L(" not in out)
     check("the modal exclusion is still printed (doctrine 9)",
           "FORBIDDEN (modal" in out)
+
+    # `--returns=` -- FIXED 2026-08-12, found by using the harness on a real
+    # song (examples/the_well_is_running_dry) rather than by reading the
+    # code. `--groups=` builds a bare Cover, which defaults every pair to
+    # REQUIRE_RHYME: identity FORBIDDEN, REPEAT a violation. A song with a
+    # verbatim chorus, declared that way, had its own returning hook charged
+    # SCHEME_VIOLATION for being exactly identical -- the one thing it was
+    # SUPPOSED to be. `quality.schemes.mandate`'s own `returns=` parameter
+    # has held REQUIRE_RETURN correctly (identity REQUIRED, REPEAT is the
+    # requirement, doctrine 3's second half) since it was written; nothing
+    # on this command line could ever reach it, on ANY of `brief`/`verify`/
+    # `revise`/`song` -- `Reviser.mandate()` is `SC.mandate(spec,
+    # n_lines=...)` and forwards no `returns=` of its own.
+    refrain_body = ("The wire hums low before the dawn\n"
+                    "A second line with nothing shared\n"
+                    "We are the static on the line\n"
+                    "A third and different line entirely\n"
+                    "We are the static on the line\n")
+    with tempfile.NamedTemporaryFile("w", suffix=".txt",
+                                     delete=False) as fh:
+        fh.write(refrain_body)
+        refrain_path = fh.name
+    try:
+        rc3, out3, _ = run("brief", refrain_path, "--groups=3,5")
+        check("--groups= on an IDENTICAL pair charges it a violation -- "
+              "identity is FORBIDDEN under the default REQUIRE_RHYME",
+              rc3 == 0 and "SCHEME_VIOLATION" in out3, out3[:200])
+        rc4, out4, _ = run("brief", refrain_path, "--returns=3,5")
+        check("--returns= on the SAME pair does not -- identity is the "
+              "requirement, and the pair is briefed as a satisfied "
+              "REFRAIN_REPEAT instead",
+              rc4 == 0 and "SCHEME_VIOLATION" not in out4
+              and "REFRAIN_REPEAT" in out4, out4[:200])
+    finally:
+        os.unlink(refrain_path)
 
     rc, out, err = run("verify", EXAMPLE_TXT, EXAMPLE_TXT)
     check("`verify` takes the same refusal, and the same exit code",

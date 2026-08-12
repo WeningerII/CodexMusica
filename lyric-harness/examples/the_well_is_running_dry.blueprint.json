@@ -1,7 +1,7 @@
 {
   "title": "The Well Is Running Dry",
   "hooks": [
-    "rise up, rise up, the well is running dry"
+    "rise up, the well is running dry"
   ],
   "sections": [
     {
@@ -196,7 +196,7 @@
       "section": "verse2"
     },
     {
-      "text": "Traded goats for wire, silence for a song",
+      "text": "Traded goats for diesel, silence for a song",
       "bar": 10,
       "beat": 1,
       "duration": 7,
@@ -217,7 +217,7 @@
       "section": "verse2"
     },
     {
-      "text": "Turn it up till the water tower shakes",
+      "text": "Turn it up till the generator shakes",
       "bar": 13,
       "beat": 1,
       "duration": 5,
@@ -245,14 +245,14 @@
       "section": "chorus"
     },
     {
-      "text": "Rise up, rise up, the well is running dry",
+      "text": "Rise up, the well is running dry",
       "bar": 19,
       "beat": 1,
       "duration": 8,
       "section": "chorus"
     },
     {
-      "text": "Rise up, rise up, or drown in the law",
+      "text": "Rise up, or drown beneath the law",
       "bar": 21,
       "beat": 1,
       "duration": 8,
@@ -273,14 +273,14 @@
       "section": "verse3"
     },
     {
-      "text": "Every riff a rumor, every rumor a match",
+      "text": "Every riff a rumor, and the rumor is a match",
       "bar": 25,
       "beat": 1,
       "duration": 7,
       "section": "verse3"
     },
     {
-      "text": "Every match a border with nothing left to burn",
+      "text": "Every match a nation with nothing left to burn",
       "bar": 26,
       "beat": 1,
       "duration": 7,
@@ -301,14 +301,14 @@
       "section": "chorus2"
     },
     {
-      "text": "Rise up, rise up, the well is running dry",
+      "text": "Rise up, the well is running dry",
       "bar": 31,
       "beat": 1,
       "duration": 8,
       "section": "chorus2"
     },
     {
-      "text": "Rise up, rise up, or drown in the law",
+      "text": "Rise up, or drown beneath the law",
       "bar": 33,
       "beat": 1,
       "duration": 8,
@@ -343,6 +343,13 @@
       "section": "bridge"
     },
     {
+      "text": "Say it slow. Say it once.",
+      "bar": 43,
+      "beat": 1,
+      "duration": 7,
+      "section": "build"
+    },
+    {
       "text": "We are the static on your radio",
       "bar": 47,
       "beat": 1,
@@ -357,14 +364,14 @@
       "section": "chorus3"
     },
     {
-      "text": "Rise up, rise up, the well is running dry",
+      "text": "Rise up, the well is running dry",
       "bar": 51,
       "beat": 1,
       "duration": 8,
       "section": "chorus3"
     },
     {
-      "text": "Rise up, rise up, or drown in the law",
+      "text": "Rise up, or drown beneath the law",
       "bar": 53,
       "beat": 1,
       "duration": 8,

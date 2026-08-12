@@ -262,6 +262,44 @@ record and whether meter was asked at all is a whole-draft fact, so a caller
 wanting it calls `inspect()` directly (its own docstring says so).
 `quality/test_revise.py` test 28.
 
+**`--returns=` — A VERBATIM CHORUS HAD NO WAY TO BE DECLARED, FOUND BY
+WRITING A SONG WITH ONE — FIXED 2026-08-12.** `quality.schemes.mandate`'s
+`returns=` parameter has, since it was written, been the only way to say
+"these lines are the SAME LINE" — `REQUIRE_RETURN`: identity REQUIRED,
+REPEAT is the requirement, not a violation (doctrine 3's second half).
+Nothing on the command line could ever reach it, on any of `brief`/
+`verify`/`revise`/`song`: `Reviser.mandate()` is `SC.mandate(spec,
+n_lines=...)` and forwards no `returns=` of its own, so the ONLY path to
+`REQUIRE_RETURN` semantics was dropping to the Python API and pre-building
+a `Mandate` object by hand. The two mandate spellings the CLI already had —
+`--groups=`, which builds a bare Cover defaulting every pair to
+`REQUIRE_RHYME` (identity FORBIDDEN), and `--cliques`, which derives its
+groups from OBSERVED rhyme rather than a writer's declared repeat — both
+get this wrong for a song with an intentional refrain: `examples/
+the_well_is_running_dry`'s three-times-repeated chorus, run through `song
+... --cliques`, was charged `SCHEME_VIOLATION` on its own hook for being
+exactly identical, the one thing it was supposed to be. This is not a
+narrow bug in one example — it is what happens to EVERY chorus/refrain
+declared through the CLI, on every verb that takes a MANDATE, since the day
+`quality.schemes.mandate` grew `returns=`. `--returns=` closes it: same
+syntax as `--groups=` (1-based, `;`-separated groups), but each group is
+realised as a return class via `SC.mandate(groups, n_lines=...,
+returns=groups)` — a fully-built `Mandate` handed straight to `rv.brief`/
+`.verify`/`.inspect`, since that is the only way to get identity semantics
+into them at all. Declaring the SAME chorus with `--returns=` instead of
+`--groups=`/`--cliques` reports `REFRAIN_REPEAT` (a note: satisfied) where
+it used to report `SCHEME_VIOLATION` (a flag: broken), on the identical
+draft. `quality/test_verbs.py` §6 covers both spellings on the same
+constructed pair to make the contrast mechanical rather than anecdotal.
+NOTE what this does NOT fix: the mandate-INDEPENDENT slop floor's
+`REPEAT_IN_VERSE` finding (`quality/floor.py`) still reports a verbatim
+chorus as repeated words, correctly and on purpose — it is a different
+question (does the draft's raw language behave like human verse did in
+calibration) asked by a layer that does not consult `Mandate.requirement`
+at all, doctrine 6/7's "two sources, deliberately kept apart" holding
+exactly as designed. `--returns=` fixes the MANDATE layer's
+misclassification; it was never going to silence the floor, and should not.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner
