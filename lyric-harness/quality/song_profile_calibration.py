@@ -347,6 +347,21 @@ def band_ok(rows, lo, hi):
     return True, "ok"
 
 
+class NoBandSatisfiesTheRule(Exception):
+    """No (lo, hi) in EDGES clears band_ok's rule for every declared check.
+
+    This used to be unreachable in practice: four checks on the full
+    150,000-line corpus always found the 150-400 band. `predictability`
+    makes it reachable on any SMALL population, because its resolution is
+    coarser (doctrine 15's own point: a check's resolution is a property of
+    what it counts, and this one counts pairs, not tokens) -- a handful of
+    files is not enough support for a 50-token sub-bin to hold a stable
+    percentile of it. Refusing loudly here, rather than indexing into
+    `None`, is the same "fails loud, not safe" the rest of this project
+    insists calibration failures do (doctrine 16).
+    """
+
+
 def pick_band(rows, verbose=True):
     best = None
     for i, lo in enumerate(EDGES):
@@ -356,6 +371,12 @@ def pick_band(rows, verbose=True):
                 w, n = hi - lo, len(band(rows, lo, hi))
                 if best is None or (w, n) > (best[0], best[1]):
                     best = (w, n, lo, hi)
+    if best is None:
+        raise NoBandSatisfiesTheRule(
+            "no (lo, hi) band cleared band_ok() over %d rows -- population "
+            "too small, or one CHECK's per-sub-bin variance exceeds its "
+            "HOM tolerance everywhere. Not a crash: report this, don't "
+            "extrapolate a band the rule refused." % len(rows))
     if verbose:
         print("\n1. THE BAND, from the rule declared at the top of this file")
         print("   widest range satisfying it: %d-%d tokens, %d items, "
