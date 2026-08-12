@@ -3,10 +3,10 @@
 
 WHAT THIS SUITE IS FOR, AND THE TRAP IT IS BUILT AROUND
 
-This work CREATES A ZERO. Measured on `examples/never_been_to_a_scene.txt`
-against this repo's own mandate (`SONG_SCHEME`, `quality/test_revise.py:63`),
-16 of the reported findings were the chorus coming back — and after the return
-is declared, that number is 0. Doctrine 94: a positive-case suite cannot find a
+This work CREATES A ZERO. Measured on a real draft against this repo's own
+mandate (`SONG_SCHEME`, below), a chorus return with no `returns=` declared
+generates REPEAT collisions where it comes back — and after the return is
+declared, those are gone. Doctrine 94: a positive-case suite cannot find a
 rule that is too generous, and every zero in this repo needs a fixture proving
 the detector could still have fired. This repo has already shipped one zero
 justified by a test that did not exist.
@@ -54,7 +54,7 @@ def raises(fn, frag=""):
 
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-EX = os.path.join(os.path.dirname(HERE), "examples")
+EX = os.path.join(HERE, "fixtures")
 
 
 def song(name):
@@ -137,7 +137,7 @@ def test_three_statements():
 def test_drift_fires():
     print("\n§3  doctrine 94 — the zero can still fire, and does, 4x on the "
           "real text")
-    lines = song("never_been_to_a_scene.txt")
+    lines = song("mandate_song.txt")
     m = S.mandate(SONG_SCHEME, returns=SONG_RETURN)
     found = m.returns_check(lines)
     pairs = sorted((i, j) for _, i, j, _, _ in found)
@@ -154,21 +154,21 @@ def test_drift_fires():
     print("\n    and the detector is not merely present — break one and it "
           "counts one more")
     drifted = list(lines)
-    drifted[32] = "So say the highway. Say it slow"          # L33 was L13
+    drifted[32] = "We kept the ledger open every night"       # L33 was L13
     found2 = m.returns_check(drifted)
     ok("a refrain that drifts by one word is caught",
        (13, 33) in [(i, j) for _, i, j, _, _ in found2]
        and len(found2) == len(found) + 1,
        f"{len(found)} -> {len(found2)}")
 
-    print("\n    cherokee_bill's refrain returns VERBATIM, and that is a "
-          "measured pass and not an absent check")
-    cl = song("cherokee_bill.txt")
+    print("\n    the couplet fixture's refrain returns VERBATIM, and that "
+          "is a measured pass and not an absent check")
+    cl = song("mandate_couplets.txt")
     cm = S.mandate([[i, i + 1] for i in range(1, 28, 2)], n_lines=28,
                    returns="refrain:4,28")
     ok("L4/L28 return verbatim -> no finding", cm.returns_check(cl) == [])
     broken = list(cl)
-    broken[27] = broken[27].replace("ever will", "always will")
+    broken[27] = broken[27].replace("say it slow", "say it cold")
     ok("and the same check FIRES when L28 is altered",
        len(cm.returns_check(broken)) == 1,
        "-- the pass above is a measurement, not a silence")
@@ -363,7 +363,7 @@ def test_a1_reaches_the_loop():
 # ---------------------------------------------------------------------------
 
 def test_the_song():
-    print("\n§10  examples/never_been_to_a_scene.txt, in the language")
+    print("\n§10  the declared mandate, in the language")
     m = S.mandate(SONG_SCHEME, returns=SONG_RETURN)
     ok("41 lines, 8 rhyme groups declared, 8 return classes",
        m.n_lines == 41 and len(m.groups) == 8 and len(m.returns) == 8)
@@ -380,7 +380,7 @@ def test_the_song():
        sum(1 for i, j in gained if m.repeat_is_violation(i, j) is True) == 8,
        "-- L13/L37 is slow/go and must still be a rhyme, not a repeat")
 
-    print("\n    cherokee_bill: the refrain costs it its letter scheme")
+    print("\n    the couplet fixture: the refrain costs it its letter scheme")
     cm = S.mandate([[i, i + 1] for i in range(1, 28, 2)], n_lines=28,
                    returns="refrain:4,28")
     ok("the COUPLET declaration is a partition", cm.is_partition())

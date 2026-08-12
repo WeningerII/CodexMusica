@@ -527,8 +527,8 @@ def line_pickup(song, line):
     beat 3.5 of 4/4 are 5.5 and 2.5 pulses into their bars and are THE SAME
     PICKUP -- 1.5 pulses of run-up. A measure keyed on the offset reads four
     distinct values where the declaration has one, which is exactly how a
-    constant hid in `examples/never_been_to_a_scene.blueprint.json` through
-    four time signatures.
+    constant hid in a real hand-written blueprint through four time
+    signatures.
 
     `beat` may be <= 0 (`Line` documents it as a pickup before the section's
     first downbeat), so this is a modulus rather than a subtraction.
@@ -656,15 +656,16 @@ def stanza_lock(song, threshold=0.90):
             f"a number to beat 1 has not been heard against the bar either. "
             f"WHAT THIS CHECK CANNOT SEPARATE, MEASURED (doctrine 17): a "
             f"pickup uniform BY FIAT from one uniform BECAUSE THE LANGUAGE "
-            f"IS. `examples/never_been_to_a_scene.blueprint.json` read 100% "
-            f"here when its pickup was one hand-set constant across four "
-            f"time signatures, and still reads 90% after every pickup was "
-            f"re-derived from its own line's upbeat syllables — because 28 "
-            f"of those 41 English lines begin with exactly one weak "
-            f"syllable. Read the DISTINCT count and the note VALUES beside "
-            f"this percentage, not the percentage alone; 0.90 is an "
-            f"uncalibrated threshold (doctrine 16) and n=1 song is not a "
-            f"calibration (doctrine 72)."))
+            f"IS. A hand-set constant pickup across every second line reads "
+            f"exactly the same as most English lines genuinely opening on "
+            f"one weak syllable — a real fixture has read both 100% (one "
+            f"hand-set constant across four time signatures) and 90% (every "
+            f"pickup re-derived from its own line's upbeat syllable) at "
+            f"different points in this repo's history. Read the DISTINCT "
+            f"count and the note VALUES beside this percentage, not the "
+            f"percentage alone; a single high reading is an uncalibrated "
+            f"threshold (doctrine 16) and n=1 song is not a calibration "
+            f"(doctrine 72)."))
     if u["equal_line_duration"] >= threshold and len(song.lines) > 4:
         out.append(GridFinding(
             "PHRASE_LENGTH_LOCKED",

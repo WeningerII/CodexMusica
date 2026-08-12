@@ -318,10 +318,9 @@ def test_corpus_song_rate_is_pinned():
     # size of the one that first showed it: 1,221 VERSE lines left and only 10
     # of them had an unreadable end word, 0.8% against the corpus's 6.0%.
     #
-    # AND THE DENOMINATOR IS NOT WHAT THE PIN'S NAME SAYS IT IS, which cell AC
-    # measured while repinning and which the next person to quote this number
-    # needs told. `read_lines` is "stripped, non-empty, has a Latin letter",
-    # so the 188,805 countable lines are:
+    # AND THE DENOMINATOR WAS NOT WHAT THE PIN'S NAME SAID IT WAS, which cell
+    # AC measured while repinning: `read_lines` was "stripped, non-empty, has
+    # a Latin letter" and NOTHING MORE, so the 188,805 "countable lines" were
     #
     #     VERSE                  151,898   9,078 unreadable    5.9764%
     #     [VERSE n] markers       29,990      27               0.09%
@@ -331,59 +330,61 @@ def test_corpus_song_rate_is_pinned():
     #     ------------------------------------------------------------
     #     TOTAL                  188,805  10,044               5.3198%
     #
-    # 19.5% of the denominator is not verse. The headline 5.32% is 5.98% on
-    # verse alone, diluted by 29,990 `[VERSE n]` markers that are countable,
-    # almost always readable, and are not lines of a poem. Doctrine 58 in its
-    # sharpest form: the population is a setting nobody wrote down. It also
-    # means a cell that writes a LONGER PROVENANCE HEADER moves this number —
-    # this one did, by +9 on `# ` lines ending in `data/sources.tsv` and the
-    # like. The proposed one-line fix to `quality/readability.read_lines` is
-    # in cell AC's PATCHES-not-mine.md; it is not applied here because moving
-    # a shared line definition mid-round would move every other pin with it.
+    # 19.5% of that denominator was not verse — the headline 5.32% was 5.98%
+    # on verse alone, diluted by 29,990 `[VERSE n]` markers that are
+    # countable, almost always readable, and are not lines of a poem.
     #
-    # THE PIN IS SPLIT BY CAUSE, 2026-08-11, cell AG. LOUDLY, because this
-    # test is shared with the corpus cell and a repin that mixed a RULE change
-    # into a CORPUS change would make the two inseparable — which is the
-    # defect doctrine 58 is about, committed inside the test that exists to
-    # catch it. The hyphen refusal (`lyric_harness.unread_final_piece`) makes
-    # `line_anchors` refuse a compound whose LAST piece is unread, so the
-    # end-word refusal count RISES by 187 with the corpus untouched.
+    # FIXED 2026-08-12: `read_lines` now excludes `#`/`--- `/`[`-prefixed
+    # apparatus lines, matching every other reader in the project (including
+    # `quality/grid.py`'s `read_marked_songs` over these SAME files, which
+    # already drew this line). This REPIN is a RULE change, not a corpus
+    # change, and it is the one cell AC's own comment predicted almost
+    # exactly: 151,898 countable lines and 9,078 token-unreadable at
+    # 5.9764% is EXACTLY cell AC's hand-computed "VERSE LINES ONLY" row
+    # above, now the denominator `read_lines` itself produces rather than a
+    # subset someone had to compute by hand to see the true rate.
     #
-    # `unreadable_final_token` is the SAME quantity the pins above recorded —
-    # nothing in the token read — and it is UNMOVED at 10044. So the corpus
-    # cell's number is still checkable against the tree, and the rule's price
-    # is the difference between the two lines below and nothing else.
-    check("countable lines 188805", r["lines_countable"] == 188805,
-          f"{r['lines_countable']}  (was 189985)")
-    check("unreadable end word, cause TOKEN, 10044 — the pinned quantity, "
-          "unmoved by the hyphen refusal",
-          r["unreadable_final_token"] == 10044,
+    # THE HYPHEN REFUSAL'S price is now 174, not 187 — the other 13 were on
+    # `--- TITLE:`/`#` lines that no longer reach the denominator at all
+    # (doctrine 91, the count is a coordinate of the rendering, and the
+    # rendering just changed).
+    check("countable lines 151898 — VERSE ONLY, now that apparatus lines "
+          "are excluded at the source instead of subtracted by hand",
+          r["lines_countable"] == 151898,
+          f"{r['lines_countable']}  (was 188805 before the read_lines fix, "
+          f"which counted 29,990 [VERSE n] markers and 6,917 other "
+          f"apparatus lines as verse)")
+    check("unreadable end word, cause TOKEN, 9078 — matches cell AC's own "
+          "hand-computed VERSE-only row exactly",
+          r["unreadable_final_token"] == 9078,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
-          f"(was 10045 before cell AC's de-duplication)")
-    check("rate on that quantity is still 5.32%",
-          abs(r["rate_token"] - 0.053198) < 1e-5,
-          f"{r['rate_token']:.4%}  (was 5.2873%; 5.9764% on VERSE LINES ONLY, "
-          f"and the gap between those two is 29,990 `[VERSE n]` markers)")
-    check("unreadable end word, cause PIECE, 187 — the price of the hyphen "
-          "refusal on this corpus, stated as its own count",
-          r["unreadable_final_piece"] == 187,
-          f"{r['unreadable_final_piece']}  (0.0990% of the countable lines; "
-          f"174 of them on the 151,894 VERSE line ends, the other 13 on "
-          f"`--- TITLE:` and `#` lines — doctrine 91, the count is a "
-          f"coordinate of the rendering)")
-    check("so the end-word refusal rate is 5.42% AFTER the rule and 5.32% "
+          f"(was 10044 over the polluted denominator)")
+    check("rate on that quantity is 5.98%, not 5.32% — the true verse rate "
+          "cell AC could only get to by subtracting markers by hand",
+          abs(r["rate_token"] - 0.059764) < 1e-5,
+          f"{r['rate_token']:.4%}  (was 5.3198% diluted by 29,990 "
+          f"[VERSE n] markers)")
+    check("unreadable end word, cause PIECE, 174 — the price of the hyphen "
+          "refusal on VERSE lines alone",
+          r["unreadable_final_piece"] == 174,
+          f"{r['unreadable_final_piece']}  (was 187; the other 13 were on "
+          f"apparatus lines that no longer reach the denominator)")
+    check("so the end-word refusal rate is 6.09% AFTER the rule and 5.98% "
           "before it, and both are printed",
-          r["unreadable_final"] == 10231 and abs(r["rate"] - 0.054188) < 1e-5,
+          r["unreadable_final"] == 9252 and abs(r["rate"] - 0.060909) < 1e-5,
           f"{r['unreadable_final']} ({r['rate']:.4%})")
-    check("9805 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 9805,
-          f"{r['substituted_end_word']}  (was 9806)")
+    check("8842 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 8842,
+          f"{r['substituted_end_word']}  (was 9805 over the polluted "
+          f"denominator)")
     check("the rate is not uniform across files — a subset rate is a "
           "different number",
           max(d["rate"] for d in r["per_file"]) > 0.20
-          and min(d["rate"] for d in r["per_file"]) < 0.005,
-          "20.08% (Edwin Waugh) to under 0.5%; quoting one corpus-wide "
-          "figure without the file set is doctrine 58")
+          and min(d["rate"] for d in r["per_file"]) == 0.0,
+          "23.62% (Edwin Waugh, up from 20.08% now the marker dilution "
+          "that used to blur even the worst file is gone) to 0.0% (38 "
+          "files, all readable); quoting one corpus-wide figure without "
+          "the file set is doctrine 58")
 
 
 if __name__ == "__main__":

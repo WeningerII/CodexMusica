@@ -12,11 +12,11 @@ bar it sits in.** So the harness could say a section was fourteen bars of 7/8 as
 where they would crowd, or which of them could reach a group head.
 
 That is MISSING.md G-1 (no syllable-to-beat mapping), G-2 (no prosodic fit) and
-G-3 (meter templates unconnected to the bar grid). It is also why
-`examples/never_been_to_a_scene.blueprint.json` was gradeable only on rhyme:
-its `beat` and `duration` fields were declared by hand and read by nothing, so
-setting every second line to an anacrusis cleared `DOWNBEAT_LOCKED` without any
-check that the syllables could land there. An inert declared coordinate is the
+G-3 (meter templates unconnected to the bar grid). It is also why a real
+bar-grid blueprint was gradeable only on rhyme: its `beat` and `duration`
+fields were declared by hand and read by nothing, so setting every second
+line to an anacrusis cleared `DOWNBEAT_LOCKED` without any check that the
+syllables could land there. An inert declared coordinate is the
 defect this repo has now found five times — `Span.unit`, `SpanRule.terminator`,
 `RelationSchema.traditions`, `search_k`, and these two. Here they drive the
 arithmetic or they raise.
@@ -95,7 +95,7 @@ groove question in MISSING.md C-4 (pushes, pulls, laid-back placement,
 syncopation as a measurement rather than as a declared offset) are refused
 permanently and by name, not approximated.
 
-Run: python3 quality/fit.py examples/never_been_to_a_scene.blueprint.json
+Run: python3 quality/fit.py quality/fixtures/mandate_song.blueprint.json
 """
 
 import json
@@ -286,10 +286,19 @@ _WORDISH = re.compile(r"[^\W\d_]+(?:['’‑-][^\W\d_]+)*", re.UNICODE)
 _HAS_DIGIT = re.compile(r"\d")
 
 
-def _chunks(text):
-    """Whitespace chunks with edge punctuation stripped. Parentheticals go, the
-    way `lyric_harness.line_tokens` drops them."""
-    t = re.sub(r"\([^)]*\)", " ", str(text))
+def _chunks(text, strip_parens=True):
+    """Whitespace chunks with edge punctuation stripped.
+
+    `strip_parens=True` (the default) drops parentheticals entirely, the way
+    `lyric_harness.line_tokens` does -- see that function's docstring for why
+    this is a declared coordinate rather than a fixed rule: the same `(...)`
+    means a non-sung aside in this repo's own corpus/song/ and real sung
+    words in a second voice under voice-attribution notation. `False` keeps
+    the words; the edge-punctuation strip below already peels a lone `(`/`)`
+    off a chunk that starts or ends with one, so a whole-line parenthetical
+    like `(we'll sing along)` reads its words normally once the blanket
+    erasure is skipped."""
+    t = re.sub(r"\([^)]*\)", " ", str(text)) if strip_parens else str(text)
     out = []
     for raw in t.split():
         s = raw.strip("\"'‘’“”.,;:!?()[]{}—–-")
@@ -333,7 +342,7 @@ def _probe_prominence(phon):
     return None
 
 
-def read_line(text, phon=None):
+def read_line(text, phon=None, strip_parens=True):
     """-> LineUnits. What the line asks the bar to hold, and what it could not
     read.
 
@@ -357,13 +366,16 @@ def read_line(text, phon=None):
     name that is already taken elsewhere in the same package is a collision
     waiting for the one caller that meets it; this one met it on its first run
     over all nine declared phonologies.
+
+    `strip_parens` -- see `_chunks`/`lyric_harness.line_tokens`, whose
+    declaration this shares.
     """
     from quality import phonology as PH
     phon = phon or PH.get("eng")
     unit_name = "mora" if str(phon.grid_unit).startswith("mora") else "syllable"
     prom_refusal = _probe_prominence(phon)
 
-    chunks = _chunks(text)
+    chunks = _chunks(text, strip_parens=strip_parens)
     refused = []
     for c in chunks:
         if _HAS_DIGIT.search(c):
@@ -383,7 +395,7 @@ def read_line(text, phon=None):
                               getattr(s, "moras", 1) or 1))
     elif getattr(phon, "language", "") == "eng":
         import lyric_harness as _lh
-        lex = _english_lexicon()
+        lex = _english_lexicon(strip_parens=strip_parens)
         for k, s in enumerate(_lh.word_syllable_map(lex, text)):
             units.append(Unit(k, s.get("nucleus", ""), s["word"], s["widx"],
                               1 if s["stress"] in (1, 2) else 0, 1))
@@ -433,15 +445,25 @@ def read_line(text, phon=None):
         prominence_refusal=prom_refusal)
 
 
-_LEX = None
+_LEX = {}
 
 
-def _english_lexicon():
-    global _LEX
-    if _LEX is None:
+def _english_lexicon(strip_parens=True):
+    """Cached per `strip_parens` value, not a single global -- a Lexicon
+    built with the wrong `strip_parens` silently ignores `read_line`'s own
+    parameter of that name, which is exactly the bug this replaced: `_LEX`
+    used to be one instance built with the constructor default (`True`),
+    reused for every call regardless of what `read_line`/`_chunks` were
+    told, so a whole-line-parenthetical read through `--voices` still lost
+    every word here even though `_chunks` (used only for the numeral scan)
+    kept them. See `word_syllable_map`, which is what actually turns this
+    Lexicon's `.strip_parens` into syllables for the ENGLISH path below."""
+    lex = _LEX.get(strip_parens)
+    if lex is None:
         import lyric_harness as _lh
-        _LEX = _lh.Lexicon()
-    return _LEX
+        lex = _lh.Lexicon(strip_parens=strip_parens)
+        _LEX[strip_parens] = lex
+    return lex
 
 
 # ---------------------------------------------------------------------------
@@ -887,7 +909,7 @@ def _max_prominent_on_heads(n, prom_idx, slots, is_head):
 
 
 def fit_line(text, placement, phon=None, subdivision=None, assume=None,
-             beatgrid=None, line_index=None):
+             beatgrid=None, line_index=None, strip_parens=True):
     """-> LineFit. Everything that follows from the declaration, and refusals
     for everything that does not.
 
@@ -898,8 +920,11 @@ def fit_line(text, placement, phon=None, subdivision=None, assume=None,
                    over `assume`, and it is the only path that is not
                    conditional on an assumption when its `derived_from` is
                    'audio' or 'notation'.
+    `strip_parens` see `read_line`. Ignored when `text` is already a
+                   `LineUnits` (the reading already happened).
     """
-    units = text if isinstance(text, LineUnits) else read_line(text, phon)
+    units = text if isinstance(text, LineUnits) else \
+        read_line(text, phon, strip_parens=strip_parens)
     fit = LineFit(units=units, placement=placement)
     p, c = placement, placement.cycle
     F, R = fit.findings, fit.refusals
@@ -1456,8 +1481,10 @@ def from_song(song):
     return secs, places
 
 
-def fit_song(obj, phon=None, subdivision=None, assume=None):
-    """-> SongFit. `obj` is a blueprint path, a blueprint dict, or a Song."""
+def fit_song(obj, phon=None, subdivision=None, assume=None, strip_parens=True):
+    """-> SongFit. `obj` is a blueprint path, a blueprint dict, or a Song.
+
+    `strip_parens` see `read_line`, forwarded to every line in the song."""
     if hasattr(obj, "sections") and hasattr(obj, "lines"):
         secs, places = from_song(obj)
     else:
@@ -1468,7 +1495,7 @@ def fit_song(obj, phon=None, subdivision=None, assume=None):
     by_name = {s.name: s for s in out.sections}
     for i, p in enumerate(places):
         f = fit_line(p.text, p, phon=phon, subdivision=subdivision,
-                     assume=assume, line_index=i)
+                     assume=assume, line_index=i, strip_parens=strip_parens)
         by_name[p.section].lines.append(f)
     # Overlap is a relation BETWEEN lines, so it cannot be seen from inside
     # one, which is why `fit_line` does not look for it.
@@ -1598,7 +1625,7 @@ def report(fit, verbose=False):
 
 def main(argv):
     path = argv[1] if len(argv) > 1 else os.path.join(
-        HERE, "..", "examples", "never_been_to_a_scene.blueprint.json")
+        HERE, "fixtures", "mandate_song.blueprint.json")
     sub = None
     if "--subdivision" in argv:
         n = int(argv[argv.index("--subdivision") + 1])

@@ -333,11 +333,11 @@ def check(lines, index=None, n=4, k=None, force=False):
 #: MUST FIRE. A real corpus 4-gram at the top of the dispersion ranking.
 FIXTURE_FIRES = "the glory of the morning on the water"
 
-#: MUST STAY SILENT. The line from `examples/cherokee_bill.txt` that H-1's
-#: brief names — a cliche as a FIGURE (the stock hanging-ballad trope) and
-#: unique as a STRING. That the instrument is silent here is the finding,
-#: not a bug to be tuned away.
-FIXTURE_SILENT = "and every rope in Arkansas began to braid for him"
+#: MUST STAY SILENT. A cliche as a FIGURE (the stock hanging-ballad trope)
+#: and unique as a STRING (dispersion 0 over the corpus index, measured).
+#: That the instrument is silent here is the finding, not a bug to be
+#: tuned away.
+FIXTURE_SILENT = "and every gallows post remembered his weight"
 
 
 def self_test(index=None):

@@ -45,6 +45,7 @@ from quality.loop import (default_propose, revise_loop,  # noqa: E402
                           swap_end_word)
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
+from lyric_harness import line_tokens, raw_final_token, Lexicon  # noqa: E402
 
 FAILURES = []
 
@@ -71,16 +72,27 @@ SILVER_MIND = ["It gleamed like polished silver",
               "We wandered deep into the mind",
               "The whole thing felt like a dream"]
 
-#: Verified interactively: the SAME shape as SILVER_MIND, but "night" is
-#: phonetically close enough to L1's own candidates (every word that
-#: answers "night" is an -ight word) that EVERY backtracked anchor for L1
-#: also rhymes with L2's existing "night" -- so tier 2 finds pairs, tries
-#: them, and `verify()` correctly rejects every one for introducing a new
-#: SCHEME_COLLISION between L1 and L2. This is the search bottoming out, not
-#: a bug: it demonstrates the rejection path fires from INSIDE tier 2 too.
-SILVER_NIGHT = ["It gleamed like polished silver",
-               "We wandered deep into the night",
-               "The whole thing felt like a dream"]
+#: Verified interactively, and REBUILT once already: the first version of
+#: this fixture was the SAME shape as SILVER_MIND with "night" for L2, on
+#: the claim that every backtracked anchor for L1 also rhymes with L2's
+#: "night" and so collides with it. That collision (`SCHEME_COLLISION`) is
+#: severity "note", not "flag" -- an unmandated rhyme is the writer's call,
+#: doctrine 7 -- and once `verify()`'s net-new gate was fixed to stop
+#: counting notes against acceptance (the SAME fix MODAL_RHYME's own
+#: `test_tier2_backtrack_resolves_a_joint_conflict` needed), that fixture
+#: reached SUCCESS instead of demonstrating a rejection: it was pinning the
+#: bug, not the mechanism. L4 and L5 here lock L1 and L2 to their OWN
+#: separate rhyme families with real mandated groups ([1,4], [2,5]) --
+#: "silver"/"deliver" and "night"/"bright" -- so backtracking EITHER anchor
+#: to answer the pivot breaks a real mandated pair elsewhere and earns a
+#: genuine `SCHEME_VIOLATION` FLAG, not a note. Every one of tier 2's 50
+#: attempts is rejected on that flag, verified interactively.
+SILVER_NIGHT_LOCKED = ["It gleamed like polished silver",
+                       "We wandered deep into the night",
+                       "The whole thing felt like a dream",
+                       "A memory I could not deliver",
+                       "Everything was burning bright"]
+SILVER_NIGHT_LOCKED_MANDATE = [[1, 3], [2, 3], [1, 4], [2, 5]]
 
 #: Verified interactively: BOTH of L5's groups have 3 members
 #: ([1,2,5] and [3,4,5]), so neither qualifies for tier 2's two-line
@@ -173,17 +185,40 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
     R2 = Reviser()
     after = R2.brief(res.lines, [[1, 3], [2, 3]])
     pivot_after = [b for b in after if b.line_no == 3]
-    check("re-briefed independently, L3 no longer has ANY finding at all",
-          not pivot_after, f"remaining: {pivot_after}")
+    check("re-briefed independently, L3 carries no FLAG -- the pivot is "
+          "genuinely resolved at the mandate level, not merely accepted on "
+          "a stale finding set",
+          not any(f.severity == "flag"
+                  for b in pivot_after for f in b.findings),
+          pivot_after)
+    # THE MECHANICAL PROPOSER'S OWN PICK IS THE DEMONSTRATION, NOT AN
+    # INCONVENIENCE. `_try_tier2` excludes the modal set ONE direction only
+    # -- `mankind` was correctly kept OFFERED as an answer to `mind` (it is
+    # not one of `mind`'s own most-predictable partners) -- and landed on
+    # `mind`/`mankind` anyway, because `mind` turns out to be `mankind`'s
+    # single most-predictable partner in the OTHER direction, which nothing
+    # in the search ever asks. MODAL_RHYME asks it after the fact and finds
+    # it, on the loop's own real output, which is exactly the "leaking
+    # through" the reactive-only wiring let past every prior version of this
+    # test.
+    modal_after = [f for b in pivot_after for f in b.findings
+                  if f.code == "MODAL_RHYME"]
+    check("...and MODAL_RHYME is what catches it: a note, not a flag, so it "
+          "does not block a fix that is otherwise completely correct",
+          bool(modal_after)
+          and all(f.severity == "note" for f in modal_after),
+          modal_after)
 
 
 def test_tier2_tries_and_correctly_rejects():
     print("\n5. TIER 2 — a resolving pair is tried and REJECTED for "
-         "introducing a new collision, which is not a bug in the search")
+         "introducing a new FLAG elsewhere, which is not a bug in the "
+         "search")
     R = Reviser()
-    res = revise_loop(R, SILVER_NIGHT, [[1, 3], [2, 3]])
-    check("cannot reach SUCCESS -- L2's own word blocks every backtrack "
-          "of L1",
+    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE)
+    check("cannot reach SUCCESS -- L1 and L2 are each locked to their own "
+          "mandated rhyme family (L4, L5), so backtracking either one to "
+          "answer the pivot breaks a real mandated pair",
           res.stop_reason != "success", res.stop_reason)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     check("tier 2 DID search (tried > 0), it did not bail out early",
@@ -191,7 +226,7 @@ def test_tier2_tries_and_correctly_rejects():
     check("and every attempt was correctly rejected, none silently kept",
           tier2 and not tier2[0].accepted)
     check("the draft is untouched -- a rejected search changes nothing",
-          res.lines == SILVER_NIGHT)
+          res.lines == SILVER_NIGHT_LOCKED)
 
 
 def test_tier2_declines_a_group_of_three_or_more():
@@ -261,6 +296,47 @@ def test_no_mandate_is_a_refusal_not_a_pass():
           raised)
 
 
+def test_strip_parens_is_a_declared_coordinate():
+    print("\n10. `strip_parens` (line_tokens/raw_final_token/Lexicon."
+         "transcribe) is declared, not assumed -- the same `(repeat)` line "
+         "test 8 refuses on reads the OPPOSITE way once a caller declares "
+         "the parenthetical is a second voice, not a stage direction")
+    check("default (omitted): unchanged from every reading this project "
+          "has ever produced -- 'repeat' is not read as a word at all",
+          line_tokens("the room on fire (repeat)") == ["the", "room", "on",
+                                                        "fire"])
+    check("strip_parens=False: the same text keeps 'repeat' as a real word",
+          line_tokens("the room on fire (repeat)", strip_parens=False) ==
+          ["the", "room", "on", "fire", "repeat"])
+    check("a WHOLE line in parens -- the backup-vocal notation this was "
+          "built for -- anchors on its own last word once declared, "
+          "instead of vanishing to NO_ANCHOR",
+          raw_final_token("(Hì ro, hù ro, the day is lang,)",
+                          strip_parens=False) == "lang")
+    check("the same whole-line parenthetical is still unreadable by "
+          "default, which is the bug this coordinate exists to make "
+          "OPT-IN rather than silently fixed for everyone",
+          raw_final_token("(Hì ro, hù ro, the day is lang,)") is None)
+    check("*asterisk*-wrapped text was never special either way -- it "
+          "reads as real words with or without strip_parens",
+          line_tokens("*the whole crowd sings round*") ==
+          ["the", "whole", "crowd", "sings", "round"])
+    lex_default = Lexicon()
+    lex_voiced = Lexicon(strip_parens=False)
+    check("Lexicon() defaults to strip_parens=True, unchanged",
+          lex_default.strip_parens is True)
+    _, words_default, _ = lex_default.transcribe(
+        "the room on fire (repeat)")
+    _, words_voiced, _ = lex_voiced.transcribe(
+        "the room on fire (repeat)")
+    check("Lexicon.transcribe reads its OWN self.strip_parens, matching "
+          "line_tokens exactly rather than carrying a second, separate "
+          "paren rule",
+          words_default == ["the", "room", "on", "fire"] and
+          words_voiced == ["the", "room", "on", "fire", "repeat"],
+          f"default={words_default!r} voiced={words_voiced!r}")
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -270,7 +346,8 @@ if __name__ == "__main__":
                test_tier2_declines_a_group_of_three_or_more,
                test_the_loop_never_touches_an_unreported_line,
                test_swap_end_word_refuses_a_disagreeing_reading,
-               test_no_mandate_is_a_refusal_not_a_pass):
+               test_no_mandate_is_a_refusal_not_a_pass,
+               test_strip_parens_is_a_declared_coordinate):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -37,11 +37,16 @@ WHAT IS ASSERTED, AND IN WHAT ORDER
   5. `refrain` — the A-1 notation, the twelve REPEAT pairs a villanelle
      requires, and a drifted refrain caught by a NAMED kind
   6. `brief` with no mandate REFUSES with exit 2 instead of a traceback, and
-     the two mandate spellings a letter string cannot express work
+     the three mandate spellings a letter string cannot express work --
+     including `--returns=`, which a verbatim chorus needed and had no way
+     to reach before 2026-08-12
   7. every dispatched verb runs without a traceback — including `song`, which
      raised `KeyError` on this repo's own `blueprint.json` for as long as that
      file has been in the bar-grid shape, while `wiring` called it wired
-     because import reachability is not invocation reachability
+     because import reachability is not invocation reachability. `song` was
+     REBUILT 2026-08-12 off the dead schema `KeyError` came from, onto the
+     same bar-grid/Reviser pipeline `brief` runs, and is tested here against
+     a real blueprint instead of the root fixture pair that caused it
 
 Run: python3 quality/test_verbs.py
 """
@@ -58,9 +63,8 @@ sys.path.insert(0, ROOT)
 
 import lyric_harness as lh  # noqa: E402
 
-EXAMPLE_BP = os.path.join(ROOT, "examples",
-                          "never_been_to_a_scene.blueprint.json")
-EXAMPLE_TXT = os.path.join(ROOT, "examples", "never_been_to_a_scene.txt")
+EXAMPLE_BP = os.path.join(HERE, "fixtures", "song.blueprint.json")
+EXAMPLE_TXT = os.path.join(HERE, "fixtures", "song.txt")
 FAILURES = []
 
 
@@ -185,8 +189,9 @@ def test_function_is_not_section_name():
     print("\n4. `function` — a name is not a function")
     # A copy with every declaration STRIPPED, rather than the shipped file:
     # the point under test is that an UNDECLARED function refuses, and if a
-    # later cell declares functions in `examples/` this assertion must keep
-    # testing the refusal instead of quietly starting to test something else.
+    # later cell declares functions on the shipped fixture this assertion
+    # must keep testing the refusal instead of quietly starting to test
+    # something else.
     bp = json.load(open(EXAMPLE_BP))
     bp.pop("title", None)
     bp.pop("hooks", None)
@@ -214,7 +219,8 @@ def test_function_is_not_section_name():
         "function", EXAMPLE_BP,
         "--function=verse1:verse,pre:prechorus,chorus:chorus,verse2:verse,"
         "bridge:bridge,chorus2:chorus,outro:outro",
-        "--title=Never been to a scene", "--hook=I don't get to go",
+        "--title=Ledger",
+        "--hook=we counted every reason we were given to keep counting",
         "--rhyme-key=cmudict")
     check("declared at the CLI, the form is readable",
           "verse -> prechorus -> chorus -> verse -> bridge -> chorus -> outro"
@@ -306,16 +312,11 @@ def test_brief_refuses_instead_of_tracebacking():
           "(doctrine 14)",
           "NOT INDEPENDENT" in out)
 
-    # REPOINTED 2026-08-11 after cell BA's coda-identity fix. EXAMPLE_TXT's
-    # own graph was the witness for overlap here (L27 "ones", 1 pivot at
-    # theta_coda=0.80/scalar) -- under the shipped identity coordinate that
-    # graph is now FULLY DISJOINT: `python3 lyric_harness.py graph
-    # examples/never_been_to_a_scene.txt` reports 6 maximal cliques and ZERO
-    # overlapping nodes; `mandate_from_graph` (promote=True) gives 7 groups,
-    # also disjoint. "ones" (L27) no longer clears theta=0.75 with either of
-    # its former clique partners at all, so it is not in the graph. Real
-    # exemplars are preferred (house style), but the exemplar is gone, so
-    # this is a constructed fixture (doctrine 94) built on a vowel-similarity
+    # REPOINTED 2026-08-11 after cell BA's coda-identity fix: the real
+    # exemplar that used to witness overlap here went FULLY DISJOINT under
+    # the shipped identity coordinate, and real exemplars are preferred
+    # (house style) but a graph that no longer shows the property is not
+    # one. This is a constructed fixture (doctrine 94) built on a vowel-similarity
     # CHAIN rather than identity: nucleus AY~EY = 0.62 and EY~IH = 0.775
     # both clear theta_nucleus 0.60, but AY~IH = 0.44 does not, so a word
     # with nucleus EY (here, a coda-identical "-s" plural, so the coda
@@ -345,6 +346,41 @@ def test_brief_refuses_instead_of_tracebacking():
           "must rhyme with L(" not in out)
     check("the modal exclusion is still printed (doctrine 9)",
           "FORBIDDEN (modal" in out)
+
+    # `--returns=` -- FIXED 2026-08-12, found by using the harness on a real
+    # draft rather than by reading the code. `--groups=` builds a bare
+    # Cover, which defaults every pair to
+    # REQUIRE_RHYME: identity FORBIDDEN, REPEAT a violation. A song with a
+    # verbatim chorus, declared that way, had its own returning hook charged
+    # SCHEME_VIOLATION for being exactly identical -- the one thing it was
+    # SUPPOSED to be. `quality.schemes.mandate`'s own `returns=` parameter
+    # has held REQUIRE_RETURN correctly (identity REQUIRED, REPEAT is the
+    # requirement, doctrine 3's second half) since it was written; nothing
+    # on this command line could ever reach it, on ANY of `brief`/`verify`/
+    # `revise`/`song` -- `Reviser.mandate()` is `SC.mandate(spec,
+    # n_lines=...)` and forwards no `returns=` of its own.
+    refrain_body = ("The wire hums low before the dawn\n"
+                    "A second line with nothing shared\n"
+                    "We are the static on the line\n"
+                    "A third and different line entirely\n"
+                    "We are the static on the line\n")
+    with tempfile.NamedTemporaryFile("w", suffix=".txt",
+                                     delete=False) as fh:
+        fh.write(refrain_body)
+        refrain_path = fh.name
+    try:
+        rc3, out3, _ = run("brief", refrain_path, "--groups=3,5")
+        check("--groups= on an IDENTICAL pair charges it a violation -- "
+              "identity is FORBIDDEN under the default REQUIRE_RHYME",
+              rc3 == 0 and "SCHEME_VIOLATION" in out3, out3[:200])
+        rc4, out4, _ = run("brief", refrain_path, "--returns=3,5")
+        check("--returns= on the SAME pair does not -- identity is the "
+              "requirement, and the pair is briefed as a satisfied "
+              "REFRAIN_REPEAT instead",
+              rc4 == 0 and "SCHEME_VIOLATION" not in out4
+              and "REFRAIN_REPEAT" in out4, out4[:200])
+    finally:
+        os.unlink(refrain_path)
 
     rc, out, err = run("verify", EXAMPLE_TXT, EXAMPLE_TXT)
     check("`verify` takes the same refusal, and the same exit code",
@@ -385,7 +421,7 @@ def test_every_verb_runs():
         "candidates": ["candidates", "desire", "5"],
         "meter": ["meter", "./" * 4, "The river took the bridge at dawn"],
         "scheme": ["scheme", "ABAB", "dawn", "again", "silt", "rebuilt"],
-        "song": ["song", "blueprint.json", "lyric.txt"],
+        "song": ["song", EXAMPLE_BP, EXAMPLE_TXT],
         "chains": ["chains", quat],
         "graph": ["graph", quat],
         "internal": ["internal", "the cattle waded through the silt"],
@@ -420,14 +456,49 @@ def test_every_verb_runs():
     check(f"none of the {len(cases)} verbs raises",
           not bad, f"raised: {bad or 'none'}")
     # The specific one that did, and for how long: `blueprint.json` was
-    # rewritten to the bar-grid shape and `check_song` reads a per-section
-    # `lines` count that shape deliberately does not have. `wiring` called
-    # `song` wired the whole time, because it checks IMPORT reachability and
-    # a KeyError is not an import.
-    rc, out, err = run("song", "blueprint.json", "lyric.txt")
-    check("`song` on this repo's own blueprint.json REFUSES by name instead "
-          "of raising KeyError",
-          "Traceback" not in err and "no declared line count" in out)
+    # rewritten to the bar-grid shape and the OLD `check_song` read a
+    # per-section `lines` count that shape deliberately does not have.
+    # `wiring` called `song` wired the whole time, because it checks IMPORT
+    # reachability and a KeyError is not an import. `song` was REBUILT
+    # 2026-08-12 onto the same bar-grid/Reviser pipeline `brief` uses (see
+    # `lyric_harness._print_brief_report`), so it no longer touches the old
+    # schema at all -- this repo's own root `blueprint.json` is a THIRD,
+    # never-migrated schema (no `lines` array, a single top-level `scheme`
+    # string) that neither the old nor the new `song` can read, and is left
+    # alone here since migrating a dead schema nothing reads teaches nothing
+    # a fresh fixture wouldn't.
+    rc, out, err = run("song", EXAMPLE_BP, EXAMPLE_TXT)
+    check("`song` on a real bar-grid blueprint runs the brief-report "
+          "pipeline without a traceback, and REFUSES for want of a mandate "
+          "rather than passing vacuously",
+          "Traceback" not in err and "no mandate was declared" in out)
+
+
+def test_fallback_reaches_every_verb_ahead_of_the_verb_name():
+    print("\n9. --fallback=high|low — a GLOBAL coordinate, reachable ahead of "
+          "any verb, FIXED 2026-08-12")
+    # Before this, quality.g2p.Fallback existed, was wired into
+    # Lexicon.transcribe_word, and was tested at the Python API -- and there
+    # was no way to reach it from the command line at all: `lex = Lexicon()`
+    # at the top of main() never passed fallback=, for any verb.
+    rc, out, _ = run("score", "viewest", "--", "biggest")
+    check("without --fallback, a dictionary-derivable word still refuses",
+          "WARNING out-of-vocabulary" in out and "NO_ANCHOR" in out,
+          out.strip().splitlines()[0][:80])
+
+    rc, out, _ = run("--fallback=high", "score", "viewest", "--", "biggest")
+    check("with --fallback=high, ahead of the verb name, it reads",
+          rc == 0 and "WARNING out-of-vocabulary" not in out
+          and "NO_ANCHOR" not in out, out.strip()[:200])
+
+    rc, out, _ = run("--fallback=bogus", "score", "cat", "--", "hat")
+    check("an undeclared value REFUSES with exit 2, not a KeyError traceback",
+          rc == 2 and "'high' or 'low'" in out, out.strip()[:120])
+
+    rc, out, err = run("--fallback=high", "brief", EXAMPLE_TXT, "--cliques",
+                       f"--blueprint={EXAMPLE_BP}")
+    check("the global flag and a verb-specific flag coexist on one line",
+          rc == 0 and "Traceback" not in err, err.strip()[-200:] if err else "")
 
 
 def test_the_fifteen_original_verbs_are_untouched():
@@ -440,7 +511,7 @@ def test_the_fifteen_original_verbs_are_untouched():
           "7/8" in out and "pulse groups" in out)
     rc, out, _ = run("grid", EXAMPLE_BP)
     check("`grid` still runs after the loader was factored out from under it",
-          rc == 0 and "sections 7  bars 83  lines 41" in out)
+          rc == 0 and "sections 7  bars 16  lines 16" in out)
     check("`grid` reads the same uniformity and stanza-lock layer as before",
           "uniformity:" in out and "phrase profile:" in out)
 
@@ -454,6 +525,7 @@ if __name__ == "__main__":
     test_brief_refuses_instead_of_tracebacking()
     test_every_verb_runs()
     test_the_fifteen_original_verbs_are_untouched()
+    test_fallback_reaches_every_verb_ahead_of_the_verb_name()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

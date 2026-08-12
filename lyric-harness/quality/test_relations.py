@@ -448,11 +448,16 @@ def test_build_stream_is_linear():
     print("\nbuild_stream(): the token map is built from the token, not by "
           "rescanning the song")
     import time
-    src = [l.rstrip() for l in open(os.path.join(HERE, "..", "lyric.txt"),
+    src = [l.rstrip() for l in open(os.path.join(HERE, "..", "metidja.txt"),
                                     encoding="utf-8") if l.strip()]
     ENG.syllabify("warm")                      # pay the dictionary load first
     times = []
-    for mult in (20, 80):
+    # metidja.txt is a shorter base text than this repo's earlier fixture,
+    # so the multipliers are scaled up to land at the same absolute unit
+    # count (~30k) the threshold below was calibrated against -- too small
+    # an absolute scale makes the ratio noise-dominated rather than
+    # complexity-dominated.
+    for mult in (80, 320):
         lines = src * mult
         t0 = time.time()
         st = R.build_stream(lines, ENG, declaration=DECL)
@@ -861,10 +866,11 @@ def _stub_excluded(stub_line):
 
 
 def _lyric_stream():
-    """The shipped example lyric, which is where the text-order convention's
-    cost was MEASURED. Kept in one place so the numbers below and the ones in
+    """A real, public-domain text (Browning, 'Through the Metidja'; see
+    data/sources.tsv), which is where the text-order convention's cost was
+    MEASURED. Kept in one place so the numbers below and the ones in
     relations.py's docstring come from the same object."""
-    raw = [l.rstrip() for l in open(os.path.join(HERE, "..", "lyric.txt"),
+    raw = [l.rstrip() for l in open(os.path.join(HERE, "..", "metidja.txt"),
                                     encoding="utf-8") if l.strip()]
     return R.build_stream(raw, ENG, declaration=dict(
         channels=("nucleus", "coda", "onset", "prominence"), prominence=True))
@@ -944,7 +950,7 @@ def test_known_open_defects():
           "so a later session that starts setting Span.unit gets a failing "
           "test instead of a field quietly acquiring a semantics nobody "
           "declared. It also fails if the field is deleted while its entry "
-          "survives. Run: python3 quality/relations.py --inert lyric.txt")
+          "survives. Run: python3 quality/relations.py --inert metidja.txt")
     check("...and the sixth inert coordinate this repo has found is IN the "
           "table: rhyme_constraints.Span.unit, where the read is DEAD",
           any(e.field == "rhyme_constraints.Span.unit" for e in R.INERT)
@@ -971,16 +977,15 @@ def test_known_open_defects():
           f"of 40 member spans with an INT magnitude. None of those "
           f"{len(_reach)} declares 'locus_edge', and 'count' and 'frame_edge' "
           f"both take the frame side — so three declared values and full line "
-          f"coverage produce ONE behaviour. Instrumented on lyric.txt the "
-          f"line executes 1,054 times and takes the discriminating side 0 "
-          f"times. check_inert() censuses the BRANCH each value selects "
+          f"coverage produce ONE behaviour, on every reachable member, every "
+          f"time. check_inert() censuses the BRANCH each value selects "
           f"rather than the values, because counting values would report this "
           f"field LIVE while its behaviour is a constant.")
 
     # ---- text-order. CLOSED 2026-08-11 BY WIRING, and the DECLINE it -----
     # replaces was FALSE. It was recorded as "a NAMING decision, not a defect:
     # the convention is correct ... for no measurable gain". Measured, the
-    # gain is 102 instances on the shipped lyric, 8 of them TRUE.
+    # gain is 114 instances on a real draft, 72 of them TRUE.
     _ord = R.realise(R.REGISTRY["perfect rhyme"], stream(QUATRAIN),
                      keep="all")
     check("text-order, half 1: a SYMMETRIC schema is byte-identical — the "
@@ -999,10 +1004,10 @@ def test_known_open_defects():
     check("text-order, half 2: the DECLINE was FALSE — on an ASYMMETRIC "
           "schema the skip DELETED instances, and only there",
           len(_asym) == 17
-          and sum(b["recovered_instances"] for b in _burd.values()) == 102
-          and sum(b["recovered_true"] for b in _burd.values()) == 8
+          and sum(b["recovered_instances"] for b in _burd.values()) == 114
+          and sum(b["recovered_true"] for b in _burd.values()) == 72
           and not any(b["symmetric"] for b in _rec.values()),
-          f"lyric.txt, all 77 schemas: "
+          f"metidja.txt, all 77 schemas: "
           f"{sum(b['recovered_instances'] for b in _burd.values())} "
           f"instances recovered over {len(_rec)} schemas "
           f"({', '.join(sorted(_rec))}), {sum(b['recovered_true'] for b in _burd.values())} "
@@ -1012,27 +1017,28 @@ def test_known_open_defects():
           f"de-duplicate — the skip was pure loss. `mirrored()` drops a "
           f"reversed pair only where the mirror is genuinely a candidate.")
     _mos = R.realise(R.REGISTRY["mosaic rhyme"], _ls, keep="all")
-    check("...and the concrete case: `mosaic rhyme` reported 4 of its 12 TRUE "
-          "instances, because the single word had to print FIRST",
-          _burd["mosaic rhyme"]["recovered_true"] == 8
-          and sum(1 for i in _mos if i.verdict is True) == 12,
-          "`deed`/`we'd need` was reported at L8/L9 and DELETED at L28/L9 — "
-          "the same relation, invisible because the multi-word run happened "
-          "to print first. `seed`/`we'd need` at L29 appeared in no output at "
-          "all. A schema's recall was a function of which member the text "
-          "prints first, which is not a naming decision.")
-    check("...and `cynghanedd lusg` returned ZERO candidates where three "
-          "exist, which reads from outside like a schema that found nothing",
-          _burd["cynghanedd lusg"]["recovered_instances"] == 3
+    check("...and the concrete case: `mosaic rhyme` recovered its ENTIRE "
+          "TRUE set, because every one of those pairs had the single word "
+          "print SECOND",
+          _burd["mosaic rhyme"]["recovered_true"] == 69
+          and sum(1 for i in _mos if i.verdict is True) == 120,
+          "69 of the schema's 120 TRUE instances existed only because the "
+          "positional skip was removed — every one of them a real rhyme "
+          "where the single-word member happened to print after the "
+          "multi-word run that rhymed with it. A schema's recall was a "
+          "function of which member the text prints first, which is not a "
+          "naming decision.")
+    check("...and `cynghanedd lusg` recovers candidates that still read "
+          "FALSE, so 'recovered' and 'TRUE' are not the same claim",
+          _burd["cynghanedd lusg"]["recovered_instances"] == 4
+          and _burd["cynghanedd lusg"]["recovered_true"] == 0
           and len(R.realise(R.REGISTRY["cynghanedd lusg"], _ls,
-                            keep="all")) == 3,
-          "doctrine 20: 'found nothing' and 'was never asked' are different "
-          "outputs and the skip collapsed them. The three recovered pairs are "
-          "one word against its own penult and all read False — correct, and "
-          "correct for a reason a DECLARED IdentityRule should carry, not an "
-          "ordering rule doing it by accident. That is left open and named "
-          "here rather than fixed by inventing an identity constraint no "
-          "canon entry asks for.")
+                            keep="all")) == 19,
+          "doctrine 20: a schema can gain candidates the old skip deleted "
+          "and still judge every one of them False. The recovered pairs "
+          "here are wrong for a phonological reason, not hidden by the "
+          "ordering bug being also correct — the two questions (was this "
+          "candidate EVALUATED, and did it PASS) stay separate on purpose.")
     check("...and the loss is COUNTED from now on, from realise()'s own "
           "tally rather than a re-derived loop",
           set(R.order_burden(R.REGISTRY["mosaic rhyme"], _ls))

@@ -1,0 +1,344 @@
+{
+  "_note": "Constructed fixture (doctrine 94), companion to mandate_song.txt -- free sections get 2 bars/line (16 subdivision-2 slots), chorus sections get 1 bar/line (8 slots), built to give quality/test_revise.py's meter-in-the-loop test (test 25) a real, discriminating SLOTS_EXCEEDED pattern at subdivision=2.",
+  "sections": [
+    {
+      "name": "verse1",
+      "bars": 24,
+      "start_bar": 1,
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "chorus",
+      "bars": 8,
+      "start_bar": 25,
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "verse2",
+      "bars": 24,
+      "start_bar": 33,
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "chorus2",
+      "bars": 8,
+      "start_bar": 57,
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "outro",
+      "bars": 1,
+      "start_bar": 65,
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "the door was numbered plainly on the frame",
+      "bar": 1,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "the window carried nothing but the cold",
+      "bar": 3,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "a stairwell climbed to nowhere anyone could name",
+      "bar": 5,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "the hallway kept a story never told",
+      "bar": 7,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "a lock that answered only to the hand",
+      "bar": 9,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "a floor that creaked in places no one fixed",
+      "bar": 11,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "the roof leaked slowly into a tin can",
+      "bar": 13,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "the wiring crossed itself and came unmixed",
+      "bar": 15,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "a porch that faced a crumbling garden wall",
+      "bar": 17,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "a chimney standing empty in the yard",
+      "bar": 19,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "the mailbox held a letter never showed",
+      "bar": 21,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "the fence line kept its silence, worn and hard",
+      "bar": 23,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse1"
+    },
+    {
+      "text": "we kept the ledger open every day",
+      "bar": 25,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "we checked the sum again into the night",
+      "bar": 26,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "and every debt was counted once again",
+      "bar": 27,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "we held the number up against the light",
+      "bar": 28,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "and nothing balanced out a different way",
+      "bar": 29,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "the ledger closed on numbers cold as gold",
+      "bar": 30,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "and every column emptied like the rain",
+      "bar": 31,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "a debt that no one living had been told",
+      "bar": 32,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus"
+    },
+    {
+      "text": "a bicycle leaned rusting by the gate",
+      "bar": 33,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "a kettle whistled somewhere out of sight",
+      "bar": 35,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "the garden hose lay coiled beside the crate",
+      "bar": 37,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "a candle guttered low and lost the light",
+      "bar": 39,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "the neighbor's radio buzzed beyond the wall",
+      "bar": 41,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "a cellar door was bolted twice for spring",
+      "bar": 43,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "the weather vane spun loosely in the fall",
+      "bar": 45,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "a wind chime tapped an unrehearsed thing",
+      "bar": 47,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "a second porch beside a fallen floor",
+      "bar": 49,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "a ladder rested where the paint had chipped",
+      "bar": 51,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "a curtain rod hung crooked by the door",
+      "bar": 53,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "an old dog slept where all the years had slipped",
+      "bar": 55,
+      "beat": 1,
+      "duration": 8,
+      "section": "verse2"
+    },
+    {
+      "text": "we kept the ledger open every day",
+      "bar": 57,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "we lit the number like a struck flame",
+      "bar": 58,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "and every reason stood out clear and plain",
+      "bar": 59,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "we called it by its rightful name",
+      "bar": 60,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "and nothing balanced out a different way",
+      "bar": 61,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "the ledger closed on numbers cold as gold",
+      "bar": 62,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "and every column emptied like the rain",
+      "bar": 63,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "a debt too old for anyone to hold",
+      "bar": 64,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "the count goes on without a final sum",
+      "bar": 65,
+      "beat": 1,
+      "duration": 4,
+      "section": "outro"
+    }
+  ]
+}

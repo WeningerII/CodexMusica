@@ -70,8 +70,8 @@ DECLARED = {"verse1": "verse", "pre": "prechorus", "chorus": "chorus",
 
 
 def scene_song(declare=True):
-    bp = json.load(open(os.path.join(ROOT, "examples",
-                                     "never_been_to_a_scene.blueprint.json")))
+    bp = json.load(open(os.path.join(ROOT, "quality", "fixtures",
+                                     "song.blueprint.json")))
     secs = [G.Section(
         name=s["name"], bars=s["bars"], start_bar=s["start_bar"],
         meter=G.Meter(s["meter"]["beats"], s["meter"]["unit"],
@@ -81,7 +81,7 @@ def scene_song(declare=True):
     lines = [G.Line(text=l["text"], bar=l["bar"], beat=F(str(l["beat"])),
                     duration=F(str(l["duration"])), section=l["section"])
              for l in bp["lines"]]
-    return G.Song(sections=secs, lines=lines, title="Never been to a scene")
+    return G.Song(sections=secs, lines=lines, title="Fixture Song")
 
 
 _KEY = [None]
@@ -137,10 +137,10 @@ def test_the_questions_that_needed_a_function():
           str(prof["form"]) + "  — 'chorus' and 'chorus2' are ONE function "
           "with two instances, which no name string could say")
     check("'how many bars until the first chorus' (D-1's own example)",
-          prof["bars_until_first_chorus"] == 22
-          and prof["bars_until_first_prechorus"] == 14,
-          f"{prof['bars_until_first_chorus']} bars, after a 14-bar verse and "
-          f"an 8-bar pre-chorus")
+          prof["bars_until_first_chorus"] == 5
+          and prof["bars_until_first_prechorus"] == 4,
+          f"{prof['bars_until_first_chorus']} bars, after a 4-bar verse and "
+          f"a 1-bar pre-chorus")
     check("'does this song have a pre-chorus' (D-1's other example)",
           prof["has_prechorus"] is True and prof["has_hook"] is False)
 
@@ -191,32 +191,33 @@ def _bridge_is_a_verse_fires():
     return "BRIDGE_IS_A_VERSE" in {x.code for x in f}
 
 
+HOOK = "we counted every reason we were given to keep counting"
+
+
 def test_the_hook():
     print("\n3. THE HOOK — a FRAGMENT, not a section (D-2)")
     song = scene_song()
-    occ = G.hook_occurrences(song, "I don't get to go")
+    occ = G.hook_occurrences(song, HOOK)
     check("a hook is found sub-line and located in BARS — TWO of them",
           len(occ) == 2
-          and [o.bar for o in occ] == [30, 68]
-          and [o.next_downbeat for o in occ] == [31, 69]
-          and all(o.has_pickup for o in occ),
-          f"{[(o.bar, o.next_downbeat, o.function) for o in occ]}. This "
-          f"asserted `[31, 69]` while every line in the blueprint began on a "
-          f"downbeat and the two coordinates could not disagree. The hook "
-          f"takes a one-pulse pickup now, so its line STARTS at bar 30 beat "
-          f"4 and its barline is 31 — and the old assertion would have been "
-          f"repinned to 30 without anyone noticing the field had stopped "
-          f"answering the question its name asks. WHICH of the two the "
-          f"listener hears as the landing needs a setting, and there is none")
+          and [o.bar for o in occ] == [6, 14]
+          and [o.next_downbeat for o in occ] == [6, 14]
+          and not any(o.has_pickup for o in occ),
+          f"{[(o.bar, o.next_downbeat, o.function) for o in occ]}. Every "
+          f"line in this fixture begins on the downbeat, so `bar` and "
+          f"`next_downbeat` agree and neither line takes a pickup — the "
+          f"pickup case (where the two coordinates disagree) is a real "
+          f"possibility this field exists to name, just not one this "
+          f"fixture happens to exercise")
     check("and it knows which FUNCTION it landed in",
           {o.function for o in occ} == {"chorus"},
           "which is only sayable because the section declares one")
-    f, r = G.hook_findings(song, hooks=["I don't get to go"])
+    f, r = G.hook_findings(song, hooks=[HOOK])
     codes = {x.code for x in f}
     check("'is the title in the hook?' is ANSWERED",
           "TITLE_NOT_IN_HOOK" in codes,
           [x.evidence for x in f if x.code == "TITLE_NOT_IN_HOOK"][0])
-    f2, _ = G.hook_findings(song, hooks=["nine miles of gravel"])
+    f2, _ = G.hook_findings(song, hooks=["a counted step a counted breath"])
     check("a fragment that occurs once is named a line, not a hook",
           "HOOK_DOES_NOT_RECUR" in {x.code for x in f2})
     f3, _ = G.hook_findings(song, hooks=["there is no such phrase"])
@@ -230,9 +231,44 @@ def test_the_hook():
           _raises(lambda: G.Hook("   ")))
 
 
+#: A constructed (doctrine 94) chorus return, built to hold a specific
+#: shape: lines 1, 5, 6, 7 invariant; 2, 3, 4, 8 rewritten with the rhyme
+#: partition preserved (drive/alive, goes/froze, knows/shows, place/place).
+CHORUS_A = [
+    "we are the wire that answers to the drive",
+    "we count the miles until we come alive",
+    "we hold the number steady till it goes",
+    "we let it climb as high as anyone knows",
+    "we are the static waiting for the sign",
+    "we are the current running down the line",
+    "we are the promise nothing can erase",
+    "we are the ledger, counted, in its place",
+]
+CHORUS_B = [
+    "we are the wire that answers to the drive",
+    "we counted every mile before we came alive",
+    "we watched the number settle as it froze",
+    "we let it fall as low as anyone shows",
+    "we are the static waiting for the sign",
+    "we are the current running down the line",
+    "we are the promise nothing can erase",
+    "a second ledger, counted, finds its place",
+]
+
+
+def chorus_return_song():
+    return G.Song(sections=[
+        G.Section("c1", 8, G.Meter(4, 4), function="chorus"),
+        G.Section("c2", 8, G.Meter(4, 4), start_bar=9, function="chorus")],
+        lines=[*[G.Line(t, bar=1 + i, duration=F(4), section="c1")
+                for i, t in enumerate(CHORUS_A)],
+               *[G.Line(t, bar=9 + i, duration=F(4), section="c2")
+                for i, t in enumerate(CHORUS_B)]])
+
+
 def test_repetition_with_variation():
     print("\n4. REPETITION WITH VARIATION IS A MEASUREMENT (A-2)")
-    song = scene_song()
+    song = chorus_return_song()
     _, _, rets = G.return_findings(song, "chorus", rhyme_key=key())
     r = rets[0][2]
     check("there is no boolean: the return resolves to a NAMED kind",
@@ -244,18 +280,19 @@ def test_repetition_with_variation():
           and [v[0] for v in r.varied_lines] == [2, 3, 4, 8],
           f"invariant {list(r.invariant_lines)}, moved "
           f"{[v[0] for v in r.varied_lines]}")
-    check("the session's own present->past shift is one word, and it says so",
-          [v for v in r.varied_lines if v[0] == 2][0][4] == 1
-          and [v for v in r.varied_lines if v[0] == 3][0][4] == 1,
-          "'I will find you' -> 'I did find you' is 1 word edit; "
-          "'and hold it there while you drive' -> 'and I held it there. You "
-          "were alive' is 5")
+    check("each varied line's own edit distance is reported, not just a set",
+          [v for v in r.varied_lines if v[0] == 2][0][4] == 5
+          and [v for v in r.varied_lines if v[0] == 3][0][4] == 4,
+          "'we count the miles until we come alive' -> 'we counted every "
+          "mile before we came alive' is 5 token edits; 'we hold the "
+          "number steady till it goes' -> 'we watched the number settle "
+          "as it froze' is 4")
     check("edit distance, at both scales",
-          r.line_distance == 4 and r.token_distance == 9)
+          r.line_distance == 4 and r.token_distance == 16)
     check("preserved-rhyme-scheme flag, with the phonology NAMED",
           r.rhyme_scheme_preserved is True
           and "CMUdict" in r.declaration.rhyme_key,
-          f"drive/alive and slow/go hold the partition; key = "
+          f"drive/alive and goes/froze hold the partition; key = "
           f"{r.declaration.rhyme_key[:60]}...")
     check("preserved-tune-slot flag", r.tune_slot_preserved is True)
     check("with NO key declared the rhyme flag is CANNOT TELL, not False",
@@ -575,7 +612,7 @@ def _find(fname, function, base=None):
 def test_the_report_prints_three_counts():
     print("\n8. THE REPORT — asked, answered, refused, always")
     song = scene_song()
-    rep = G.song_function_report(song, hooks=["I don't get to go"],
+    rep = G.song_function_report(song, hooks=[HOOK],
                                  rhyme_key=key())
     check("three counts, and they are not interchangeable",
           rep["asked"] == rep["answered"] + rep["refused"]
@@ -590,7 +627,7 @@ def test_the_report_prints_three_counts():
     print("\n   8b. WITHOUT declarations, the checks REFUSE — they do not "
           "read the names")
     blind = scene_song(declare=False)
-    rep2 = G.song_function_report(blind, hooks=["I don't get to go"])
+    rep2 = G.song_function_report(blind, hooks=[HOOK])
     check("an undeclared song answers nothing and refuses everything",
           rep2["answered"] == 0 and rep2["refused"] == rep2["asked"] == 3
           and {x.code for x in rep2["findings"]} <= {"TITLE_NOT_IN_HOOK"},

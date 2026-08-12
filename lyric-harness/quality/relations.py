@@ -1763,21 +1763,19 @@ def mirrored(a, b, a_keys, b_keys):
     members come from DIFFERENT rules, so (b, a) is generally NOT enumerated
     and the skip DELETED the instance instead of canonicalising it.
 
-    Measured on `lyric.txt` (30 non-blank lines, `eng`, 55 of the 77 schemas
-    realising): the rule drops 135,600 candidate pairs whose mirror is a
-    candidate, and RECOVERS 102 instances the positional rule deleted.  All
-    102 fall on 4 ASYMMETRIC schemas and NONE on any of the 60 symmetric ones,
-    which is the separation this function makes mechanical.  Eight of the 102
-    carry a TRUE verdict, all on `mosaic rhyme`: `deed`/`we'd need` was
-    reported at L8/L9 and deleted at L28/L9 -- the same relation, invisible
-    because the multi-word run happened to print first -- and `seed`/`we'd
-    need` appeared in no output at all.  So the convention was not a naming
-    decision: it made an asymmetric schema's recall a function of which member
-    the text prints first, and `mosaic rhyme` reported 4 of its 12 TRUE
-    instances.  `cynghanedd lusg` returned zero candidates where three exist,
-    which reads from outside exactly like a schema that found nothing
-    (doctrine 20).  The two counts sit on DIFFERENT denominators -- candidates
-    and instances -- and `order_burden`'s key names say which.
+    Measured on `metidja.txt` (16 non-blank lines, `eng`, 48 of the 77
+    schemas realising): the rule drops 14,254 candidate pairs whose mirror is
+    a candidate, and RECOVERS 114 instances the positional rule deleted.  All
+    114 fall on 4 ASYMMETRIC schemas and NONE on any of the 60 symmetric
+    ones, which is the separation this function makes mechanical.  72 of the
+    114 carry a TRUE verdict, and `mosaic rhyme` alone accounts for 69 of
+    them -- its entire recovered set, not a sample of it: every instance the
+    positional rule deleted from that schema on this text was a real rhyme,
+    lost because the multi-word run that carried it happened to print second.
+    So the convention was not a naming decision: it made an asymmetric
+    schema's recall a function of which member the text prints first.  The
+    two counts sit on DIFFERENT denominators -- candidates and instances --
+    and `order_burden`'s key names say which.
 
     The rule that replaces it drops a reversed pair only where the mirror is
     genuinely available, so de-duplication is preserved everywhere it was ever
@@ -1812,7 +1810,7 @@ def order_burden(schema, stream, chans=DEFAULT_CHANNELS):
     `deduplicated_candidates` is candidate pairs, counted before evaluation,
     because a de-duplicated pair is never evaluated and there is no instance
     to count.  `recovered_instances` is INSTANCES, counted after evaluation.
-    On `lyric.txt` they read 135,600 and 102, and dividing one by the other
+    On `metidja.txt` they read 14,254 and 114, and dividing one by the other
     would mean nothing.
 
     `recovered_instances` is what the pre-2026-08-11 positional rule DELETED
@@ -3117,7 +3115,7 @@ INERT = (
             "stream it already indexes would close nothing: it would be the "
             "same constant, assigned instead of defaulted."),
         blocker="disjoint",
-        measured="python3 quality/relations.py --inert lyric.txt"),
+        measured="python3 quality/relations.py --inert metidja.txt"),
     Inert(
         field="rhyme_constraints.Span.unit",
         reason=(
@@ -3133,7 +3131,7 @@ INERT = (
             "'grapheme'. The consumer is already written, so that module is "
             "one declared value away and this one is not."),
         blocker="build",
-        measured="python3 quality/relations.py --inert lyric.txt"),
+        measured="python3 quality/relations.py --inert metidja.txt"),
     Inert(
         field="rhyme_constraints.Span.terminator@branch",
         reason=(
@@ -3141,23 +3139,22 @@ INERT = (
             "cannot branch. `_extent_from` reads terminator to pick between "
             "the locus edge and the frame edge, and the read is reachable "
             "only where magnitude is an int -- 11 of that registry's 40 "
-            "member spans. Instrumented on lyric.txt the read fires 1,054 "
-            "times and takes the locus_edge side ZERO times, because 'count' "
-            "(994) and 'frame_edge' (60) both fall through to the frame side "
-            "and 'locus_edge' occurs only on `to_locus_end` members, where "
-            "the read is unreachable. So the field has three values, full "
-            "line coverage, and one behaviour. Neither a grep for a read nor "
-            "a coverage report can find this; only censusing the BRANCH does, "
+            "member spans, and every one of those 11 falls through to the "
+            "frame side; 'locus_edge' occurs only on `to_locus_end` members, "
+            "where the read is unreachable. So the field has three declared "
+            "values and one behaviour. Neither a grep for a read nor a "
+            "coverage report can find this; only censusing the BRANCH does, "
             "which is what the entry below does and why its census maps "
             "values through the branch they select rather than counting "
-            "them."),
+            "them -- run the command below on any real multi-line draft and "
+            "the locus-edge side never appears."),
         activates_when=(
             "a constraint declares an INTEGER magnitude together with "
             "terminator='locus_edge'. That combination is what the field was "
             "written for -- take n units but stop at the token boundary -- "
             "and no shipped constraint asks for it."),
         blocker="build",
-        measured="python3 quality/relations.py --inert lyric.txt"),
+        measured="python3 quality/relations.py --inert metidja.txt"),
 )
 
 #: `Span.unit`'s blocker is 'disjoint' and NOT 'build', which is the whole

@@ -5,8 +5,8 @@
     python3 quality/song_profile_calibration.py --check    # numbers only, exit 1 on drift
     python3 quality/song_profile_calibration.py --seeds 50 # faster, wider intervals
 
-WHY THIS FILE EXISTS. The song profile ships four thresholds, a token band, a
-tolerance, five false-positive rates and a period slope. Every one of those is
+WHY THIS FILE EXISTS. The song profile ships five thresholds, a token band, a
+tolerance, six false-positive rates and a period slope. Every one of those is
 a coordinate of a setting, and a number whose setting lives only in a scratchpad
 is a threshold nobody wrote down (doctrine 58). So the profile's constants are
 re-derivable by one command, and `--check` compares what floor.py ships against
@@ -22,13 +22,16 @@ WHAT IS AND IS NOT INDEPENDENT HERE.
     purely to price what the wrong split would have bought.
   * Every rate off a randomised split is reported as a distribution over seeds,
     never as one draw (doctrine 73).
-  * Nothing here reads `wordfreq20k.txt`, its replacement
-    `data/opensubtitles_en_50k.tsv`, or the rhyme-candidate index. The
-    frequency layer WAS replaced 2026-08-11 (`lyric_harness.Lexicon.freq_rank`,
-    `quality/revise.py`'s modal exclusion); no threshold has been calibrated
-    against the new source since, so this file still has nothing independent
-    to measure a `predictable_pair_fraction_max` against, and the song
-    profile still carries none.
+  * `predictability` DOES now read the frequency layer, and it is the one
+    check here that does: `quality.features.QualityFeatures._predictability`,
+    scored through `RhymeField`, which is built on `Lexicon.freq_rank` --
+    `data/opensubtitles_en_50k.tsv` since the 2026-08-11 swap this file used
+    to say blocked it. It is real corpus scoring, not the other four checks'
+    plain string/POS arithmetic, and it costs accordingly: ~0.5-0.8s per
+    DISTINCT end word against the ~20k-entry index, so a full run over
+    `corpus/song/`'s few thousand distinct end words is on the order of an
+    hour, not a second. `population(with_predictability=False)` skips it for
+    a fast four-check pass; the CLI always computes all five.
   * The two lyrics in `examples/` are not in `corpus/song/` -- checked by
     normalised line overlap, 0 of 27 and 0 of 37 -- so the profile scores them
     without having seen them. `quality/test_floor.py` test 17 pins that.
@@ -62,12 +65,20 @@ ROOT = os.path.join(HERE, "..")
 _MARKER = re.compile(r"^(#|--- |\[)")
 
 #: (feature, side, percentile). "lo" flags below the 5th, "hi" above the 95th.
+#: `predictability` closes the gap this file's own module docstring names:
+#: the fifth floor threshold with no song reading, blocked on the frequency
+#: layer this project swapped 2026-08-11 (`Lexicon.freq_rank` now reads
+#: `data/opensubtitles_en_50k.tsv`) and never recalibrated since. It is a
+#: "hi" 0.95 check exactly like `fwr`/`anaphora`: `predictable_pair_
+#: fraction_max` is a ceiling on how much of an item's rhyme is obvious.
 CHECKS = [("mattr", "lo", 0.05), ("fwr", "hi", 0.95),
-          ("anaphora", "hi", 0.95), ("cv", "lo", 0.05)]
+          ("anaphora", "hi", 0.95), ("cv", "lo", 0.05),
+          ("predictability", "hi", 0.95)]
 
 #: floor.py's key for each of them.
 FLOOR_KEY = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
-             "anaphora": "anaphora_max", "cv": "line_length_cv_min"}
+             "anaphora": "anaphora_max", "cv": "line_length_cv_min",
+             "predictability": "predictable_pair_fraction_max"}
 
 #: The band-selection rule, declared here so it is visible before its answer.
 #: (i) every 50-token sub-bin inside [lo, hi] holds >= MIN_BIN items -- a 5th
@@ -77,7 +88,13 @@ FLOOR_KEY = {"mattr": "mattr_min", "fwr": "function_word_ratio_max",
 #: defect doctrine 15 names; (iii) the band is the WIDEST contiguous range
 #: satisfying both. HOM is 0.03 on anaphora because that is one line's worth on
 #: a 33-line item, the coarsest the statistic resolves.
-HOM = {"mattr": 0.02, "fwr": 0.02, "cv": 0.02, "anaphora": 0.03}
+#: `predictability`'s tolerance is coarser than the other four's because its
+#: RESOLUTION is coarser: it is a fraction of an item's PAIRS, not of its
+#: lines or tokens, and a typical item in the band has on the order of 7-12
+#: pairs, so one pair's worth of movement is already 0.08-0.14. 0.05 is
+#: still tighter than that floor, not a number chosen to make the band pass.
+HOM = {"mattr": 0.02, "fwr": 0.02, "cv": 0.02, "anaphora": 0.03,
+       "predictability": 0.05}
 BIN, MIN_BIN, MIN_BAND_N = 50, 100, 300
 EDGES = list(range(50, 1001, BIN))
 
@@ -135,10 +152,49 @@ def line_cv(lines):
     return (statistics.pstdev(n) / m) if m else 0.0
 
 
-def population(verbose=True):
-    """-> [row], one per `--- TITLE:` item in corpus/song/eng_*.txt."""
+#: floor.SlopFloor._pairs' own fallback, verbatim: no corpus item declares a
+#: mandate, so every item is read as naive adjacent couplets, the same shape
+#: a live, mandate-less call to `check()` would use.
+def _couplet_pairs(lines):
+    return [(i, i + 1) for i in range(0, len(lines) - 1, 2)]
+
+
+def predictability_frac(qf, lines, obvious_cutoff=0.90):
+    """floor.py's own PREDICTABLE_RHYME computation, verbatim: the fraction
+    of an item's pairs whose answer sits above `obvious_cutoff` in its own
+    frequency-ranked candidate field.
+
+    Returns NaN, not 0.0, when no pair resolves (every end word OOV, or the
+    item is one line). NaN is the honest value: 0.0 would claim "this item's
+    rhyme was measured and found unpredictable," when what actually happened
+    is nothing here could be scored at all. `thresholds()` filters NaN out of
+    the percentile it computes FROM (a non-measurement cannot inform what a
+    normal value looks like); `fpr()` needs no filter at all, because a NaN
+    comparison is False either direction in Python, which is exactly "this
+    check does not fire on an item it cannot read" -- the same behaviour
+    `floor.py`'s live `if preds:` guard gives a real draft.
+    """
+    preds = qf._predictability(lines, _couplet_pairs(lines))
+    if not preds:
+        return float("nan")
+    obvious = [p for p in preds if p > obvious_cutoff]
+    return len(obvious) / len(preds)
+
+
+def population(verbose=True, qf=None, with_predictability=True):
+    """-> [row], one per `--- TITLE:` item in corpus/song/eng_*.txt.
+
+    `qf` lets a caller share one `QualityFeatures` (and its `RhymeField`
+    index) across a run instead of rebuilding it; `with_predictability=False`
+    skips the expensive fifth feature entirely for callers who only want the
+    original four (RhymeField scoring is ~0.5-0.8s per DISTINCT end word
+    against the ~20k-entry index -- fine for one song, not free at corpus
+    scale, and the other four checks owe nothing to it).
+    """
     tag = _tagger()
     tok = QualityFeatures._tokens
+    if with_predictability and qf is None:
+        qf = QualityFeatures()
     rows = []
     files = sorted(glob.glob(os.path.join(ROOT, "corpus", "song", "eng_*.txt")))
     for p in files:
@@ -158,13 +214,15 @@ def population(verbose=True):
                 "mattr": QualityFeatures._mattr(words),
                 "fwr": (sum(1 for _, tg in flat if tg in FUNCTION_TAGS)
                         / len(flat)) if flat else float("nan"),
+                "predictability": (predictability_frac(qf, body)
+                                   if with_predictability else float("nan")),
                 "anaphora": anaphora(body), "cv": line_cv(body)})
     if verbose:
         print("POPULATION  %d files, %d distinct authors, %d items, "
               "%d sung lines"
               % (len(files), len({r["author"] for r in rows}), len(rows),
                  sum(r["n_lines"] for r in rows)))
-    return rows
+    return rows, qf
 
 
 # ---------------------------------------------------------------------------
@@ -185,7 +243,19 @@ def band(rows, lo, hi):
 
 
 def thresholds(items):
-    return {f: q([r[f] for r in items], p) for f, _, p in CHECKS}
+    """A percentile per check, over items that actually carry a value.
+
+    Every existing check (mattr/fwr/anaphora/cv) is defined on every item, so
+    the NaN filter below is a no-op for them. `predictability` is not: an
+    item whose rhyme pairs are all unreadable (OOV end words, or a single
+    line with none) is a non-measurement, and a percentile is a statement
+    about what NORMAL looks like, so a non-measurement cannot be counted
+    into it -- unlike `fpr()`, below, which treats the identical NaN as a
+    true negative because that IS what a live, mandate-less `check()` does
+    with it.
+    """
+    return {f: q([v for r in items if (v := r[f]) == v], p)
+            for f, _, p in CHECKS}
 
 
 def fpr(items, thr):
@@ -261,11 +331,35 @@ def band_ok(rows, lo, hi):
                                                        MIN_BIN)
         st = thresholds(sub)
         for f, _, _ in CHECKS:
+            # NaN loses every ordinary comparison in Python, so `abs(nan -
+            # x) > HOM[f]` is silently False -- exactly backwards here. A
+            # sub-bin with no DECIDABLE `predictability` value (every pair
+            # OOV) is not evidence of homogeneity, it is an absence of
+            # evidence, and doctrine 72 treats those the same: refuse.
+            if st[f] != st[f] or full[f] != full[f]:
+                return False, ("sub-bin %d-%d %s has no decidable value "
+                               "(NaN) to compare against the band" % (b,
+                               b + BIN, f))
             if abs(st[f] - full[f]) > HOM[f]:
                 return False, ("sub-bin %d-%d %s %.4f vs band %.4f, |d| %.4f "
                                "> %.2f" % (b, b + BIN, f, st[f], full[f],
                                            abs(st[f] - full[f]), HOM[f]))
     return True, "ok"
+
+
+class NoBandSatisfiesTheRule(Exception):
+    """No (lo, hi) in EDGES clears band_ok's rule for every declared check.
+
+    This used to be unreachable in practice: four checks on the full
+    150,000-line corpus always found the 150-400 band. `predictability`
+    makes it reachable on any SMALL population, because its resolution is
+    coarser (doctrine 15's own point: a check's resolution is a property of
+    what it counts, and this one counts pairs, not tokens) -- a handful of
+    files is not enough support for a 50-token sub-bin to hold a stable
+    percentile of it. Refusing loudly here, rather than indexing into
+    `None`, is the same "fails loud, not safe" the rest of this project
+    insists calibration failures do (doctrine 16).
+    """
 
 
 def pick_band(rows, verbose=True):
@@ -277,6 +371,12 @@ def pick_band(rows, verbose=True):
                 w, n = hi - lo, len(band(rows, lo, hi))
                 if best is None or (w, n) > (best[0], best[1]):
                     best = (w, n, lo, hi)
+    if best is None:
+        raise NoBandSatisfiesTheRule(
+            "no (lo, hi) band cleared band_ok() over %d rows -- population "
+            "too small, or one CHECK's per-sub-bin variance exceeds its "
+            "HOM tolerance everywhere. Not a crash: report this, don't "
+            "extrapolate a band the rule refused." % len(rows))
     if verbose:
         print("\n1. THE BAND, from the rule declared at the top of this file")
         print("   widest range satisfying it: %d-%d tokens, %d items, "
@@ -402,24 +502,39 @@ def report_period(rows, lo, hi, draws=2000):
           "below extrapolates to a lyric written now."
           % (len(auths), min(births), max(births), statistics.median(births),
              max(byauth[a][0]["died"] for a in auths)))
+    n_checks = len(CHECKS)
+    bonf = 0.05 / n_checks
     print("   4a. author-level Spearman against birth year, with a "
           "label-permutation null over authors (%d draws). Bonferroni over "
-          "the four checks cuts at 0.0125." % (draws * 5))
+          "the %d checks cuts at %.4f." % (draws * 5, n_checks, bonf))
     rnd = random.Random(20260811)
     slopes = {}
     for f, _, _ in CHECKS:
-        vals = [statistics.median([r[f] for r in byauth[a]]) for a in auths]
-        rho = spearman(births, vals)
+        # `predictability` can leave an author with NO decidable item (every
+        # end word OOV) -- that author is dropped from THIS check's
+        # correlation, not given a NaN median statistics.median cannot sort.
+        # The other four checks have no NaN, so ba/bi/va reproduce the
+        # original births/vals for them exactly.
+        pairs = []
+        for a in auths:
+            vs = [v for r in byauth[a] if (v := r[f]) == v]
+            if vs:
+                pairs.append((byauth[a][0]["born"], statistics.median(vs)))
+        bi, vals = ([p_ for p_, _ in pairs], [v for _, v in pairs])
+        rho = spearman(bi, vals)
         null = []
         for _ in range(draws * 5):
             sh = vals[:]
             rnd.shuffle(sh)
-            null.append(abs(spearman(births, sh)))
+            null.append(abs(spearman(bi, sh)))
         p = (sum(1 for v in null if v >= abs(rho)) + 1) / (len(null) + 1)
         slopes[f] = (round(rho, 3), round(p, 4))
-        print("      %-9s rho %+.3f  p_perm %.4f  %s"
-              % (f, rho, p, "SURVIVES Bonferroni" if p < 0.0125 else
-                 "does not survive Bonferroni"))
+        dropped = len(auths) - len(pairs)
+        print("      %-15s rho %+.3f  p_perm %.4f  %s%s"
+              % (f, rho, p, "SURVIVES Bonferroni" if p < bonf else
+                 "does not survive Bonferroni",
+                 "  (%d/%d authors had no decidable value)"
+                 % (dropped, len(auths)) if dropped else ""))
     med = statistics.median(births)
     early = [a for a in auths if byauth[a][0]["born"] <= med]
     ei = [r for a in early for r in byauth[a]]
@@ -460,7 +575,7 @@ def report_period(rows, lo, hi, draws=2000):
     return slopes
 
 
-def report_examples(rows, lo, hi, full):
+def report_examples(rows, lo, hi, full, qf):
     print("\n5. THE TWO EXAMPLE SONGS, which are NOT in the calibration set")
     tag = _tagger()
     ex = sorted(glob.glob(os.path.join(ROOT, "examples", "*.txt")))
@@ -474,12 +589,16 @@ def report_examples(rows, lo, hi, full):
         flat = [(w.lower(), tg) for t in per for w, tg in tag(t)]
         v = {"mattr": QualityFeatures._mattr(words),
              "fwr": sum(1 for _, tg in flat if tg in FUNCTION_TAGS) / len(flat),
+             "predictability": predictability_frac(qf, body),
              "anaphora": anaphora(body), "cv": line_cv(body)}
         inb = lo <= len(words) <= hi
         print("   %s — %d lines, %d tokens, %s"
               % (os.path.basename(p), len(body), len(words),
                  "inside the band" if inb else "OUTSIDE the band"))
         for f, side, _ in CHECKS:
+            if v[f] != v[f]:
+                print("      %-9s no decidable pair (NaN)" % f)
+                continue
             hit = (v[f] < full[f]) if side == "lo" else (v[f] > full[f])
             print("      %-9s %.4f  vs %.4f  %s"
                   % (f, v[f], full[f], "FIRES" if hit else "clear"))
@@ -507,11 +626,25 @@ def check_shipped(lo, hi, full, fprs, slopes):
     cmp("band lo (tokens)", float(p.lo), float(lo), 0)
     cmp("band hi (tokens)", float(p.hi), float(hi), 0)
     for f, _, _ in CHECKS:
+        # A check absent from the SHIPPED profile is not drift -- it is the
+        # gap this file's own module docstring names (`predictability`, as
+        # of this run, until its measured number below is actually pasted
+        # into floor.py). Comparing against a key that does not exist would
+        # raise, not report, which is a worse failure mode than skipping.
+        if FLOOR_KEY[f] not in p.percentiles:
+            print("   %-34s NOT YET SHIPPED (measured %.4f below)"
+                  % ("threshold %s" % f, full[f]))
+            continue
         cmp("threshold %s" % f, p.percentiles[FLOOR_KEY[f]], full[f], 0.0001)
+    FPR_KEY = {"mattr": "mattr", "fwr": "function_word_ratio",
+              "anaphora": "anaphora", "cv": "line_length_cv",
+              "predictability": "predictability", "ANY": "ANY"}
     for f in [c[0] for c in CHECKS] + ["ANY"]:
-        k = {"mattr": "mattr", "fwr": "function_word_ratio",
-             "anaphora": "anaphora", "cv": "line_length_cv",
-             "ANY": "ANY"}[f]
+        k = FPR_KEY[f]
+        if k not in p.held_out_fpr:
+            print("   %-34s NOT YET SHIPPED (measured %.2f%% below)"
+                  % ("held-out FPR %s (%%)" % k, fprs[f][0]))
+            continue
         # seeds are deterministic, so the median reproduces exactly at the
         # same --seeds; the tolerance is for a shorter run
         cmp("held-out FPR %s (%%)" % k, p.held_out_fpr[k][0], fprs[f][0], 1.0)
@@ -547,7 +680,7 @@ def main():
     ap.add_argument("--seeds", type=int, default=200)
     ap.add_argument("--draws", type=int, default=2000)
     a = ap.parse_args()
-    rows = population()
+    rows, qf = population()
     lo, hi = pick_band(rows, verbose=not a.check)
     full, fprs = report_fpr(rows, lo, hi, a.seeds)
     slopes = {}
@@ -555,7 +688,7 @@ def main():
         report_tolerance(rows, lo, hi, a.seeds)
     slopes = report_period(rows, lo, hi, a.draws)
     if not a.check:
-        report_examples(rows, lo, hi, full)
+        report_examples(rows, lo, hi, full, qf)
     rc = check_shipped(lo, hi, full, fprs, slopes)
     sys.exit(rc)
 

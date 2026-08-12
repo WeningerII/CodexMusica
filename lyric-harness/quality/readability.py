@@ -219,7 +219,7 @@ def substitution_report(lex, lines):
     """
     out = []
     for i, text in enumerate(lines):
-        final = raw_final_token(text)
+        final = raw_final_token(text, strip_parens=lex.strip_parens)
         if final is None:
             continue
         smap = word_syllable_map(lex, text)
@@ -231,10 +231,31 @@ def substitution_report(lex, lines):
 
 def read_lines(path):
     """Corpus lines, as every measurement in this project reads them: stripped,
-    non-empty, and carrying at least one Latin letter."""
+    non-empty, carrying at least one Latin letter, and not one of the
+    corpus's own apparatus lines.
+
+    FIXED 2026-08-12 (BACKLOG.md 5.x). This was the one line-reader in the
+    project that did not exclude `#` header comments, `--- ` source notes
+    (including `--- TITLE:`), and `[MARK]` section markers -- every other
+    reader does, including `quality/grid.py`'s `read_marked_songs` over
+    these SAME files. So every "unreadable end word" rate ever computed
+    over `corpus/song/` through this function counted apparatus as verse:
+    cell AC measured 19.5% of the old "countable lines" denominator as
+    `[VERSE n]` markers, `--- TITLE:` lines, other `--- ` lines and `#`
+    headers -- 29,990 of those from `[VERSE n]` alone -- not one syllable
+    of it sung. `quality/test_readability.py` test 5 carries the corrected
+    pin and the arithmetic that got it there.
+    """
     with open(path, encoding="utf-8", errors="replace") as f:
-        return [ln.strip() for ln in f
-                if ln.strip() and re.search(r"[A-Za-z]", ln)]
+        out = []
+        for raw in f:
+            s = raw.strip()
+            if not s or not re.search(r"[A-Za-z]", s):
+                continue
+            if s.startswith("#") or s.startswith("--- ") or s.startswith("["):
+                continue
+            out.append(s)
+        return out
 
 
 def corpus_rate(lex, paths):

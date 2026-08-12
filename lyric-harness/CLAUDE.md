@@ -134,8 +134,7 @@ what is declared but unread" rather than building something new.
 - **`quality/grid.py`'s `song_function_report` joins the same `blueprint=`
   coordinate meter already rides, not a fourth parameter.** A blueprint
   section has always been able to declare `"function"` and a blueprint has
-  always been able to carry a top-level `"hooks"` list —
-  `examples/moonlight_and_lead.blueprint.json` has both — and nothing past
+  always been able to carry a top-level `"hooks"` list, and nothing past
   `quality/fit.py` ever read either field, because `fit.py` places lines in
   bars and does not know or need to know what a section is FOR.
   `Reviser._function_findings` reads them with a new `grid.song_from_blueprint`
@@ -170,10 +169,11 @@ this one. NONE OF IT COULD BE REACHED FROM THE COMMAND LINE. `brief`,
 just a file, a mandate spec, and (for `verify`) targeted line numbers;
 there was no `--blueprint` anywhere in that block, so a run through the CLI
 was rhyme-and-floor only, silently, no matter what the library underneath
-it could do. (A fourth verb, `song BLUEPRINT LYRIC`, does take a
-blueprint — but calls `check_song`, an older function that never touches
+it could do. (A fourth verb, `song BLUEPRINT LYRIC`, did take a
+blueprint — but called `check_song`, an older function that never touched
 `Reviser`, `Mandate`, or the slop floor, so even the one CLI surface that
-looked blueprint-aware never did rhyme grading either.) `--blueprint=`,
+looked blueprint-aware never did rhyme grading either. Rebuilt 2026-08-12;
+see below.) `--blueprint=`,
 `--subdivision`, `--isochronous` — the same three flags `fit` already
 reads — now reach all three verbs, and a run through `revise` immediately
 found the gap real: the mechanical stub proposer tried to swap a chorus
@@ -187,6 +187,273 @@ printed as soon as a mandate is known to exist. The one exception is doctrine
 immediately, and that refusal has to be the first thing printed
 (`quality/test_verbs.py` §6 pins this), so the blueprint line is skipped
 rather than printed ahead of a refusal about an entirely different layer.
+
+**THE SAME GAP, ONE MORE TIME, IN THE SAME COMMIT — FIXED 2026-08-12.**
+`quality/g2p.py`'s `Fallback` was wired into `Lexicon.transcribe_word` as
+`fallback=` on 2026-08-11, tested at the Python API, and reachable from the
+CLI by nothing at all: `lex = Lexicon()` at the top of `main()` never passed
+it, for ANY verb. `--fallback=high|low` is now a GLOBAL flag, consumed ahead
+of `cmd` itself rather than inside one verb's own argument parsing —
+`Lexicon()` is built once, before any verb dispatches, so it cannot live
+where `--blueprint` does. `eq_only`, on purpose: unlike `--blueprint`, this
+flag sits ahead of an ARBITRARY verb's own arguments, and a space-separated
+`--fallback high FILE.txt` has no way to tell "high" the value from "high" a
+filename that happened to be that word. An undeclared value (`--fallback=
+bogus`) REFUSES with a printed message and exit 2 — the same shape `NoMandate`
+already holds — rather than a raw `KeyError` from three frames down, since
+this flag now sits ahead of every verb rather than one. `quality/test_verbs.py`
+§9.
+
+**`song`'S OWN DEAD SCHEMA — REBUILT 2026-08-12.** `song BLUEPRINT LYRIC` read
+`check_song`/`group_sounds`, a per-section `{"lines", "scheme"} | {"ref"}`
+schema written before the bar-grid shape existed. Every blueprint shipped in
+`examples/` had already moved to bar-grid (`bars`/`start_bar`/`meter`/
+`function`, per-line `bar`/`beat`/`duration`) — a shape `check_song` cannot
+read at all, so `song` raised `KeyError` on every real blueprint in this
+repo, silently, for as long as that shape has existed; `wiring` called it
+wired the whole time because import reachability is not invocation
+reachability (`quality/test_verbs.py` §7, before this fix). `song` is now
+`song BLUEPRINT LYRIC [MANDATE] [--subdivision N] [--isochronous]`: it reads
+the blueprint through `quality/grid.py`'s `song_from_blueprint`, cross-checks
+the lyric's own `[Section]` markers against the blueprint's declared
+sections by name and by line count (`STRUCTURE:` — something `brief` has no
+reason to do, since `brief` never sees a blueprint's section list), then
+runs the IDENTICAL report `brief` prints (factored into
+`lyric_harness._print_brief_report`, so the two formats cannot drift apart)
+with meter and song-function joining the finding set exactly as they do for
+`brief --blueprint=`/`verify --blueprint=`. MANDATE is required for the same
+reason it is on `brief` (doctrine 20) — a length mismatch against the draft
+REFUSES by name (`REFUSED — ...`, exit 2) rather than raising, and a bare
+`NoMandate` refusal (no MANDATE argument at all) is routed to the SAME
+refusal path `brief`/`verify`/`revise` share rather than printing a second,
+slightly different shape of the same message. This repo's own root
+`blueprint.json` is a THIRD, never-migrated schema (no `lines` array, a
+single top-level `scheme` string) that neither the old nor the new `song`
+can read — left alone rather than deleted or migrated, since migrating a
+dead schema nothing reads teaches nothing a fresh fixture wouldn't; `quality/
+test_verbs.py`'s `song` cases run against a real bar-grid blueprint instead.
+
+**BLUEPRINT OMISSION, DISCLOSED AT THE API TOO — FIXED 2026-08-12.** The
+paragraph above closes the CLI's copy of this gap (`_say_blueprint()`); the
+Python API had its own, separate copy. `Reviser.inspect()` silently returned
+nothing about meter/function whenever `blueprint=None` — no different, in
+the returned dict, from meter having been checked and found clean. A caller
+importing `quality.revise.Reviser` directly (or reading a stored/serialized
+`inspect()`/`verify()` result later, without the call site in view) had no
+way to tell the two apart; only the CLI's own print statements ever said so,
+and only when a human was reading stdout. `inspect()` and `verify()` now
+both return a `"blueprint_declared"` key (`blueprint is not None`) alongside
+their existing keys. It is deliberately NOT a `Finding`: omitting an OPT-IN
+layer is the ordinary case (most callers never pass `blueprint=` and have no
+reason to), not a defect on the draft, so it does not belong in `whole`,
+which callers scan for things wrong with the song — and being a plain dict
+key rather than a new Finding code meant the ~50 exact-finding-list
+assertions across `quality/test_revise.py`/`test_loop.py`/`test_g2p.py` this
+fix was originally expected to touch needed NONE of them changed; the whole
+sweep stayed green. `verify()`'s `fixed`/`new` diff is unaffected either
+way, by construction — the key is metadata about the CALL, present
+identically on both `before` and `after` when `blueprint` does not change
+between them, so it cancels out of the diff the same way a genuinely clean
+finding would. `brief()` does NOT surface the key: a `Brief` is a per-LINE
+record and whether meter was asked at all is a whole-draft fact, so a caller
+wanting it calls `inspect()` directly (its own docstring says so).
+`quality/test_revise.py` test 28.
+
+**`--returns=` — A VERBATIM CHORUS HAD NO WAY TO BE DECLARED, FOUND BY
+WRITING A SONG WITH ONE — FIXED 2026-08-12.** `quality.schemes.mandate`'s
+`returns=` parameter has, since it was written, been the only way to say
+"these lines are the SAME LINE" — `REQUIRE_RETURN`: identity REQUIRED,
+REPEAT is the requirement, not a violation (doctrine 3's second half).
+Nothing on the command line could ever reach it, on any of `brief`/
+`verify`/`revise`/`song`: `Reviser.mandate()` is `SC.mandate(spec,
+n_lines=...)` and forwards no `returns=` of its own, so the ONLY path to
+`REQUIRE_RETURN` semantics was dropping to the Python API and pre-building
+a `Mandate` object by hand. The two mandate spellings the CLI already had —
+`--groups=`, which builds a bare Cover defaulting every pair to
+`REQUIRE_RHYME` (identity FORBIDDEN), and `--cliques`, which derives its
+groups from OBSERVED rhyme rather than a writer's declared repeat — both
+get this wrong for a song with an intentional refrain: a real end-to-end
+run of the pipeline, on a draft with a three-times-repeated chorus, run
+through `song ... --cliques`, was charged `SCHEME_VIOLATION` on its own
+hook for being exactly identical, the one thing it was supposed to be.
+This is not a
+narrow bug in one example — it is what happens to EVERY chorus/refrain
+declared through the CLI, on every verb that takes a MANDATE, since the day
+`quality.schemes.mandate` grew `returns=`. `--returns=` closes it: same
+syntax as `--groups=` (1-based, `;`-separated groups), but each group is
+realised as a return class via `SC.mandate(groups, n_lines=...,
+returns=groups)` — a fully-built `Mandate` handed straight to `rv.brief`/
+`.verify`/`.inspect`, since that is the only way to get identity semantics
+into them at all. Declaring the SAME chorus with `--returns=` instead of
+`--groups=`/`--cliques` reports `REFRAIN_REPEAT` (a note: satisfied) where
+it used to report `SCHEME_VIOLATION` (a flag: broken), on the identical
+draft. `quality/test_verbs.py` §6 covers both spellings on the same
+constructed pair to make the contrast mechanical rather than anecdotal.
+NOTE what this does NOT fix: the mandate-INDEPENDENT slop floor's
+`REPEAT_IN_VERSE` finding (`quality/floor.py`) still reports a verbatim
+chorus as repeated words, correctly and on purpose — it is a different
+question (does the draft's raw language behave like human verse did in
+calibration) asked by a layer that does not consult `Mandate.requirement`
+at all, doctrine 6/7's "two sources, deliberately kept apart" holding
+exactly as designed. `--returns=` fixes the MANDATE layer's
+misclassification; it was never going to silence the floor, and should not.
+
+**A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `--- `, OR `#` — NOTHING
+ELSE — CENTRALIZED 2026-08-12.** A `(parenthetical stage direction)` under a
+section header is not apparatus to any reader in this repo: it starts with
+`(`, and every line-loader here only ever excluded `[`/`---`/`#`. Written
+that way it is scored as sung text — tokenized, fed to the rhyme graph,
+counted toward MATTR — which is how a stage direction like "(instrumental
+fade, 7/8)" ends up polluting a real measurement. `quality/readability.py`'s
+`read_lines`, `quality/grid.py`'s `read_marked_songs`, and a dozen other
+readers under `quality/` already agreed on `#`/`--- `/`[...]` as apparatus;
+`lyric_harness.py`'s own CLI verbs (`brief`, `verify`, `revise`, `song`,
+`density`, `graph`, `chains`, `partition`, `scheme`) were the one holdout,
+each with its own inline `not startswith("[")` filter, silently missing
+`#`/`---`. `is_apparatus_line`/`load_lyric_lines` (`lyric_harness.py`, near
+the top) are now the one definition every verb calls — a stage direction,
+or any other non-sung line, belongs on a `#`-prefixed line under the
+section header it annotates, and it will be dropped exactly the way a
+`--- TITLE:` line already is everywhere else in this repo.
+
+**`--voices` — THE SAME `(...)` MEANT TWO OPPOSITE THINGS IN THIS REPO,
+DEPENDING WHICH FUNCTION READ IT — FOUND WRITING IN VOICE-ATTRIBUTION
+NOTATION, FIXED 2026-08-12.** The paragraph above settles what `(...)`
+means at the WHOLE-LINE level (never apparatus). It does not settle what
+`(...)` means WITHIN a sung line, and two answers to that had shipped at
+once: `is_apparatus_line` treats a bare `(...)` line as real sung text,
+while `line_tokens` (and its own separate copies in `Lexicon.transcribe`
+and `quality/fit.py`'s `_chunks`) erased anything inside `(...)` before
+tokenizing, on the assumption that a parenthetical is always a stage
+direction. That assumption is correct for this repo's own `corpus/song/`
+(196 files use `(...)` the traditional literary way — Carroll's "(We know
+it to be true):", an aside, genuinely not sung) and wrong for a caller
+writing in voice-attribution notation, where a whole line in parens is a
+backup/group vocal and a trailing `(ad lib)` is a second voice cutting in
+— both real sung words, just not the lead's. The same character sequence
+is genuinely ambiguous between two traditions this harness reads text
+from, which doctrine 1 already has the answer for: the reading is a
+declaration, not a fact the function may assume either way.
+
+`line_tokens`/`raw_final_token` (`lyric_harness.py`) now take a
+`strip_parens=True` parameter — `True` reproduces every tokenization
+either function has ever returned, unchanged. `Lexicon(strip_parens=True)`
+carries the same coordinate as `self.strip_parens`, read by `.transcribe`
+and by every function that already took a `lex` (`line_anchors`,
+`line_readability`, `word_syllable_map`, `quality/readability.py`'s
+`substitution_report`) instead of each taking a parameter of its own —
+the same design `fallback=` already uses, and for the same reason: these
+functions are called from deep inside `quality/schemes.py`, `revise.py`,
+`relations.py` and `grid.py`, and `Lexicon` is already threaded through
+all of it, so nothing upstream of `Lexicon.transcribe_word` needed to
+change for `fallback=` and nothing upstream of these needed to change
+either. `quality/fit.py`'s parallel meter pipeline (`_chunks` -> `read_line`
+-> `fit_line` -> `fit_song`) carries its own `strip_parens=True` chain for
+the same reason `fit.py` has always mirrored `line_tokens`'s tokenization
+choices on purpose; `Reviser._meter_findings` passes `self.lex.strip_parens`
+into it, so meter-checking a voice-attributed draft respects the same
+declaration rhyme-checking it does.
+
+`--voices` is a GLOBAL bare-presence flag, consumed the same way and for
+the same reason `--fallback` is (`Lexicon()` is built once, ahead of any
+verb). Declaring it builds `Lexicon(strip_parens=False)`; every verb reads
+`(...)`/`*asterisk*` (never special either way) as real words from there.
+Omitted, nothing changes anywhere — every verb, and `quality/
+build_song_frequency.py`'s corpus-frequency-table builder, which never
+opts in, keeps reading `corpus/song/`'s literary parentheticals exactly as
+it always has, so the shipped `data/song_endword_en.tsv`/
+`song_rhymepair_en.tsv` are unaffected by this coordinate existing.
+`quality/test_loop.py` test 10, alongside test 8's `(repeat)` case, which
+is now the WORKED CONTRAST: the identical text refuses one way (a stage
+direction, by default) and reads clean the other (a second voice,
+declared) — the same line, two readings, because it was always going to
+be one or the other and never both at once.
+
+**`MODAL_RHYME` — DOCTRINE 9 WAS ONLY EVER ASKED REACTIVELY, FOUND BY WATCHING
+IT FAIL TO CATCH ITS OWN TARGET — FIXED 2026-08-12.** `modal_field`/
+`joint_field` have existed since doctrine 9 was mechanized, and every caller
+of them — `brief()`'s own candidate offer, `verify()`'s `modal_taken`
+rejection, `_try_tier2`'s backtrack search — only ever consults them once a
+LINE HAS ALREADY BEEN FLAGGED and a replacement word is being searched for.
+A pair that rhymes cleanly on the FIRST draft is never asked whether the
+word it landed on was the single most predictable answer to its partner,
+because nothing routed a passing pair through this method at all — the
+mechanism was real and it was wired to only one of the two moments doctrine
+9 actually applies to. FOUND BY MEASURING, NOT ARGUING: two real songs'
+worth of pairs that all passed `grade()` cleanly, checked against
+`modal_field` after the fact, turned out to BE the #1 or #2 ranked
+candidate for roughly half of them — nothing had ever asked, because a
+first draft can reach for the predictable rhyme exactly as easily as a
+revision can.
+
+`inspect()` now asks the question of every PASSING mandated pair too: for
+each `verdicts` entry with no violation and no declared identity, both
+endwords are checked against each other's `modal_field`, in BOTH
+directions (P(partner|call) is not symmetric — see below), and a hit earns
+a `MODAL_RHYME` finding. It is a **note**, not a flag, and that is the
+whole design: doctrine 7 says a floor may not order the permitted region,
+and a pair that already rhymes correctly is inside that region — blocking
+it outright would be doctrine 9 turning into a ranking rule it was never
+meant to be. `MODAL_RHYME` joined `RHYME_FINDINGS`, so `brief()` hands back
+a real candidate field for it exactly the way a flagged rhyme gets one,
+making it structurally impossible to miss rather than a line in a report a
+caller has to go looking for. `modal_exclusion=0` silences it the same way
+it silences the reactive check — one declared coordinate, not a second
+switch. `quality/test_revise.py` test 29.
+
+**TWO MORE DEFECTS SURFACED BUILDING THAT ONE NOTE, BOTH IN `verify()`'s
+OWN GATE, NEITHER NEW — HARDENED IN THE SAME COMMIT.** Wiring `MODAL_RHYME`
+into a REAL loop run (not just a constructed pair) broke two of
+`quality/test_loop.py`'s existing fixtures outright, which is how both were
+found: measuring the mechanism against real output rather than trusting
+the design on paper.
+
+- **`verify()`'s net-new gate counted every new finding against
+  `allow_net_new`, note or flag alike.** A tier-2 backtrack that correctly
+  cleared a real `joint_conflict` was rejected outright the instant its
+  resolving pair happened to be conventional enough to earn a `MODAL_RHYME`
+  note — the exact thing doctrine 7 says a note must never do. Worse, this
+  was not a new failure mode: `test_tier2_tries_and_correctly_rejects`
+  (test 5) had been demonstrating a REJECTION built on a `SCHEME_COLLISION`
+  note the WHOLE TIME (an unmandated incidental rhyme — "the writer's call,"
+  in that finding's own message text — never a defect this loop is entitled
+  to block on), and only stopped reaching SUCCESS because the same
+  severity-blind gate happened to catch it for the wrong reason. `verify()`
+  now computes `new_flags`/`new_notes` alongside the existing `new`, and
+  gates acceptance on `new_flags` only; `new`/`fixed` stay exactly as
+  reported before for full disclosure (doctrine 79 — count the two kinds
+  separately, never sum what asks different things of a writer). Test 5's
+  fixture is REBUILT — `SILVER_NIGHT_LOCKED`, with two extra lines that
+  mandate L1 and L2 each to their OWN separate rhyme family, so backtracking
+  EITHER anchor now breaks a genuine mandated pair and earns a real
+  `SCHEME_VIOLATION` flag, the demonstration test 5 always meant to give.
+- **The same diff collapsed MULTIPLE findings of the same code on the same
+  line into ONE key, hiding a regression from doctrine or arithmetic
+  fixing the SAME shape of bug as the earlier `MANDATE_GROUPS_
+  INDISTINGUISHABLE` fix (`codes()`'s own docstring), just left half-done:
+  that fix keyed WHOLE findings on their first line so four at once
+  wouldn't collapse to one; per-line findings never got the same
+  treatment.** A pivot line answering two mandated groups can carry TWO
+  `SCHEME_VIOLATION` findings at once — one per group — and a revision
+  trading a REPEAT-based violation on one group for a real phonetic
+  violation on TWO groups still showed the identical `(line,
+  "SCHEME_VIOLATION")` key before and after, so a plain set diff called it
+  unchanged. `quality/test_revise.py` test 20's own NET-NEGATIVE case
+  (`R.verify(..., sub(33, "...kitchen"), ...)`) was accepting exactly this
+  on re-run — L33 traded one violation for two — until `codes()` was
+  rebuilt to return a MULTISET (list, not set) and the diff at the call
+  site switched from set subtraction to `collections.Counter` subtraction:
+  same 2-tuple key shape (three call sites elsewhere in the test suite
+  check `(line, code) in res["new"]` membership directly, and none of them
+  needed to change), but a key whose COUNT increases now correctly shows up
+  in `new` rather than cancelling out. Doctrine 47 again: a loop that
+  cannot see the change it asked for is a rubber stamp in the other
+  direction, and that is as true of a count as it is of a key.
+
+Full sweep after both fixes: `quality/test_loop.py` (10/10),
+`quality/test_revise.py` (29/29), and every other test file under
+`quality/` — unaffected, confirmed by re-running rather than assumed clean
+because the module they share a diff mechanism with had just changed.
 
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
@@ -203,8 +470,8 @@ the dispatch are now three sets that `wiring` and `quality/test_verbs.py`
 require to be equal. A verb added without a row and a `--help` line is a
 failing test, not something a later session notices.
 declaration | score A -- B | candidates W [n] | meter TEMPLATE L... |
-scheme LETTERS [--profile assonance|rawi] L... | song blueprint.json
-lyric.txt | chains FILE [theta] | graph FILE [theta] | internal "line" |
+scheme LETTERS [--profile assonance|rawi] L... | song BLUEPRINT LYRIC
+[MANDATE] | chains FILE [theta] | graph FILE [theta] | internal "line" |
 density FILE | weight "line" | qafiya FILE|L... |
 cynghanedd [--lang=cym|eng] "line" | prasa K L... | demo
 THE QUALITY LAYER, REACHABLE SINCE 2026-08-10 (it was not, and that was the
@@ -222,9 +489,9 @@ underneath the quality layer:
 - **`fit`** is the only verb that answers *do the words fit the bars*. The
   subdivision is a DECLARED coordinate with NO default — without one the slot
   questions refuse rather than assume a sixteenth-note grid. At
-  `--subdivision 2` the 4/4 choruses of `examples/never_been_to_a_scene` are
-  UNSATISFIABLE (2 and 3 lines) and the 7/8 verses are not, because an
-  eighth-note pulse subdivided twice is finer than a quarter-note one.
+  `--subdivision 2` the 4/4 choruses of `quality/fixtures/song.blueprint.json`
+  are UNSATISFIABLE and the 7/8 verses are not, because an eighth-note pulse
+  subdivided twice is finer than a quarter-note one.
 - **`function`** reads `Section.function`, which is not `Section.name`: an
   undeclared function REFUSES and the harness never reads `"chorus"` out of a
   name. Three counts on every run — asked / answered / refused (doctrine 79).
@@ -621,8 +888,22 @@ rather than this paragraph — a roster copied into two files drifts in both.
    TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
    data/sources.tsv. The capability is built; the corpus is not
    reachable.
-7. **Blueprint identity-with-variation.** Outro-extends-intro,
-   chorus variation. Current refs are verbatim-only.
+7. **Blueprint identity-with-variation.** This entry named TWO gaps and one
+   of them closed without the entry being told: **chorus variation is
+   CLOSED** (`quality/grid.py`'s `compare_returns`, 12 named
+   `VARIATION_KINDS` — VERBATIM, LEXICAL_VARIATION, HEAD_PRESERVED,
+   RHYME_PRESERVING_REWRITE and the rest — not a verbatim/not-verbatim
+   boolean; `return_findings` runs it over every declared function's own
+   recurrences). "Current refs are verbatim-only" stopped being true two
+   days after this line was written and nobody split the sentence — doctrine
+   48's own failure mode, caught by a real draft's final chorus coming back
+   `HEAD_PRESERVED` in a real run rather than the boolean the sentence still
+   claimed. **Outro-extends-intro is still OPEN**: `compare_returns` takes two line lists and does not care where
+   they came from, but `song_function_report` only ever calls it on
+   MULTIPLE INSTANCES OF THE SAME declared function (`song.instances_of(fn)`)
+   — comparing across two DIFFERENT functions (does the outro reprise the
+   intro) is not asked by anything. The primitive that would answer it
+   already exists; nothing calls it that way.
 
 ## The doctrine index — every number, and where it lives
 

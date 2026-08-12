@@ -1,0 +1,226 @@
+{
+  "_note": "Constructed fixture (doctrine 94), not a song -- built to give quality/test_revise.py's song-function test (test 27) three verbatim chorus instances containing a declared hook, and nothing outside the chorus containing it.",
+  "title": "Fixture Three",
+  "hooks": ["we counted every reason we were given to keep counting"],
+  "sections": [
+    {
+      "name": "verse1",
+      "bars": 4,
+      "start_bar": 1,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "chorus1",
+      "bars": 2,
+      "start_bar": 5,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "verse2",
+      "bars": 4,
+      "start_bar": 7,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "chorus2",
+      "bars": 2,
+      "start_bar": 11,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "bridge",
+      "bars": 2,
+      "start_bar": 13,
+      "function": "bridge",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "verse3",
+      "bars": 4,
+      "start_bar": 15,
+      "function": "verse",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    },
+    {
+      "name": "chorus3",
+      "bars": 2,
+      "start_bar": 19,
+      "function": "chorus",
+      "meter": {
+        "beats": 4,
+        "unit": 4,
+        "groups": [2, 2]
+      }
+    }
+  ],
+  "lines": [
+    {
+      "text": "the door was numbered plainly on the frame",
+      "bar": 1,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse1"
+    },
+    {
+      "text": "the window carried nothing but the cold",
+      "bar": 2,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse1"
+    },
+    {
+      "text": "a stairwell climbed to nowhere anyone could name",
+      "bar": 3,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse1"
+    },
+    {
+      "text": "the hallway kept a story never told",
+      "bar": 4,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse1"
+    },
+    {
+      "text": "we counted every reason we were given to keep counting",
+      "bar": 5,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus1"
+    },
+    {
+      "text": "we numbered every corner of the room and lost the number",
+      "bar": 6,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus1"
+    },
+    {
+      "text": "a lock that answered only to the hand",
+      "bar": 7,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse2"
+    },
+    {
+      "text": "a floor that creaked in places no one fixed",
+      "bar": 8,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse2"
+    },
+    {
+      "text": "the roof leaked slowly into a tin can",
+      "bar": 9,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse2"
+    },
+    {
+      "text": "the wiring crossed itself and came unmixed",
+      "bar": 10,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse2"
+    },
+    {
+      "text": "we counted every reason we were given to keep counting",
+      "bar": 11,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "we numbered every corner of the room and lost the number",
+      "bar": 12,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus2"
+    },
+    {
+      "text": "no line, no bar, no fixed refrain",
+      "bar": 13,
+      "beat": 1,
+      "duration": 4,
+      "section": "bridge"
+    },
+    {
+      "text": "a shape that will not hold a name",
+      "bar": 14,
+      "beat": 1,
+      "duration": 4,
+      "section": "bridge"
+    },
+    {
+      "text": "a porch that faced away from every road",
+      "bar": 15,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse3"
+    },
+    {
+      "text": "a chimney standing empty in the yard",
+      "bar": 16,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse3"
+    },
+    {
+      "text": "the mailbox held a letter never showed",
+      "bar": 17,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse3"
+    },
+    {
+      "text": "the fence line kept its silence, worn and hard",
+      "bar": 18,
+      "beat": 1,
+      "duration": 4,
+      "section": "verse3"
+    },
+    {
+      "text": "we counted every reason we were given to keep counting",
+      "bar": 19,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus3"
+    },
+    {
+      "text": "we numbered every corner of the room and lost the number",
+      "bar": 20,
+      "beat": 1,
+      "duration": 4,
+      "section": "chorus3"
+    }
+  ]
+}

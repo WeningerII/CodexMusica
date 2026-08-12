@@ -513,7 +513,7 @@ class _DictionaryOnlyLexicon:
 
 
 class Lexicon:
-    def __init__(self, fallback=None):
+    def __init__(self, fallback=None, strip_parens=True):
         """`fallback` is a DECLARED coordinate, `None` by default -- omitting
         it reproduces every transcription this class has ever returned,
         unchanged. Passing `"high"` or `"low"` (the same vocabulary
@@ -533,10 +533,21 @@ class Lexicon:
         when set, is the `Fallback` instance itself, so a caller can read
         `.counts` afterward and see exactly how many words were read at
         which layer -- this class keeps no second, shadow tally.
+
+        `strip_parens` -- see `line_tokens`, whose declaration this shares.
+        `True` by default: `(...)` is read as a non-sung aside, same as
+        every caller of this class before the coordinate existed. Every
+        function in this file that reads a line's words through a `Lexicon`
+        (`transcribe`, and everything `line_anchors`/`line_readability`/
+        `word_syllable_map` do with one) consults `lex.strip_parens` rather
+        than taking a parameter of its own, so this is the ONE place a
+        caller declares which of the two traditions -- literary aside or
+        voice attribution -- the text in front of it was written in.
         """
         fetch_data()
         self.entries = {}          # word -> list of pronunciations (phone lists)
         self.freq_rank = {}
+        self.strip_parens = strip_parens
         self.g2p_fallback = None
         if fallback is not None:
             from quality.g2p import Fallback
@@ -618,10 +629,13 @@ class Lexicon:
 
     def transcribe(self, text, phrase_final=True):
         """Text -> (phones, words, oov_words). Multiword safe.
-        Strips parenthetical ad-libs; demotes function-word stress so the
-        anchor reaches the content word (mosaic rhyme: "spit in it")."""
+        Reads `self.strip_parens` (see `Lexicon.__init__`) to decide whether
+        `(...)` is a non-sung aside (stripped, the default) or real words in
+        a second voice (kept). Demotes function-word stress so the anchor
+        reaches the content word (mosaic rhyme: "spit in it")."""
         text = text.replace("\u2019", "'").replace("\u2018", "'")
-        text = re.sub(r"\([^)]*\)", " ", text)
+        if self.strip_parens:
+            text = re.sub(r"\([^)]*\)", " ", text)
         phones, oov = [], []
         words = [t for t in re.findall(r"[A-Za-z'’\-]+", text)
                  if re.search(r"[A-Za-z]", t)]
@@ -716,20 +730,67 @@ def anchor(sylls, mode="last_stressed"):
 NO_ANCHOR = "NO_ANCHOR"
 
 
-def line_tokens(text):
+def is_apparatus_line(line):
+    """True if `line` is apparatus (a section marker, source note, or
+
+    comment) rather than sung text. Matches the convention already used
+    throughout `quality/` (readability.py's `read_lines`, grid.py's
+    `read_marked_songs`, fin_rhyme_rate.py, audit_register.py, etc.): a
+    `[Section]` header, a `--- ` source note, or a `#` comment -- the last
+    of which is the place a stage direction belongs, since unlike a bare
+    `(...)` parenthetical it is unambiguously apparatus and never scored.
+    """
+    s = line.strip()
+    return s.startswith("[") or s.startswith("---") or s.startswith("#")
+
+
+def load_lyric_lines(path):
+    """-> list[str]. Non-empty, non-apparatus lines from a lyric file, in
+
+    the same shape every CLI verb below expects: stripped, in order, blank
+    and apparatus lines dropped. One definition so every verb agrees on
+    what counts as sung text.
+    """
+    with open(path, encoding="utf-8") as f:
+        return [l.strip() for l in f.read().splitlines()
+                if l.strip() and not is_apparatus_line(l)]
+
+
+def line_tokens(text, strip_parens=True):
     """The line's word tokens, in order, before any dictionary filtering.
 
     Factored out of `line_anchors` and `word_syllable_map`, which carried the
     same three lines twice. This is the only definition of "the words of a
     line" the rhyme path may use; see `raw_final_token`.
+
+    `strip_parens` is a DECLARED coordinate, True by default -- omitting it
+    reproduces every tokenization this function has ever returned, unchanged.
+    True erases `(...)` spans before tokenizing, on the assumption that
+    parenthetical text is a stage direction, not sung. FOUND WRONG FOR ONE
+    CALLER AND RIGHT FOR ANOTHER, IN THE SAME COMMIT that added this
+    parameter: `corpus/song/` (196 files) uses `(...)` the traditional
+    literary way -- an aside, same as Carroll's "(We know it to be true):",
+    genuinely not sung -- and `data/song_endword_en.tsv`/
+    `song_rhymepair_en.tsv` were built on that reading (doctrine 91: build the
+    population the same way the grader reads). A caller writing in
+    voice-attribution notation instead -- a whole line in parens as backup
+    vocal, a trailing `(ad lib)` as a second voice cutting in -- means the
+    OPPOSITE: real sung words, just not the lead's. The same character
+    sequence is genuinely ambiguous between two traditions this harness reads
+    text from, which is doctrine 1's case exactly: the reading is a
+    declaration, not something the function may assume either way. Pass
+    `False` to keep parenthetical (and `*asterisk*`-wrapped, never special
+    here) text as real words; `quality/build_song_frequency.py` never passes
+    it, so the shipped frequency tables are unaffected.
     """
     norm = text.replace("’", "'").replace("‘", "'")
-    norm = re.sub(r"\([^)]*\)", " ", norm)
+    if strip_parens:
+        norm = re.sub(r"\([^)]*\)", " ", norm)
     return [t for t in re.findall(r"[A-Za-z'\-]+", norm)
             if re.search(r"[A-Za-z]", t)]
 
 
-def raw_final_token(text):
+def raw_final_token(text, strip_parens=True):
     """The line's ACTUAL last word, before any dictionary filtering.
 
     This is the token an end-rhyme is ON, and every rhyme-word lookup in this
@@ -741,8 +802,10 @@ def raw_final_token(text):
     `word_syllable_map`, and that map emits nothing at all for an unreadable
     word) at 5.14% of corpus/song/ lines and 2.87% of sonnet lines before this
     was fixed. Compare against this function before trusting any end word.
+
+    `strip_parens` -- see `line_tokens`, whose declaration this one shares.
     """
-    toks = line_tokens(text)
+    toks = line_tokens(text, strip_parens=strip_parens)
     return toks[-1] if toks else None
 
 
@@ -796,7 +859,7 @@ def line_readability(lex, text, anchors=None):
     the pieces move to `final_unread_pieces` (doctrine 24 -- a rule that would
     delete a category RELABELS instead).
     """
-    toks = line_tokens(text)
+    toks = line_tokens(text, strip_parens=lex.strip_parens)
     final = toks[-1] if toks else None
     _, _, oov = lex.transcribe(text)
     unreadable = list(dict.fromkeys(oov))
@@ -931,10 +994,13 @@ def token_pieces(lex, token):
 
     MEASURED at commit `2f2d26c` over the 143 `corpus/song/eng_*.txt` files,
     151,894 line ends taken as `line_tokens`-non-empty lines outside the
-    `#`/`---`/`[` markers (189,261 counting every non-blank line, 188,805 on
-    `quality.readability.read_lines` -- doctrine 91, the count is a coordinate
-    of the rendering, and a corpus cell was de-duplicating this corpus in the
-    same round so it is pinned to a COMMIT and not to a date): **323 line ends
+    `#`/`---`/`[` markers (189,261 counting every non-blank line; at the time
+    this was measured, `quality.readability.read_lines` did NOT exclude those
+    markers and returned 188,805 -- FIXED 2026-08-12, and `read_lines` now
+    returns 151,898 on the current corpus, matching this figure rather than
+    disagreeing with it -- doctrine 91, the count is a coordinate of the
+    rendering, and a corpus cell was de-duplicating this corpus in the same
+    round so it is pinned to a COMMIT and not to a date): **323 line ends
     have an unread piece inside an end token that yields phones**, and the
     split by WHICH piece is the triage:
 
@@ -1070,7 +1136,7 @@ def line_anchors(lex, text, promote=False):
     not say which words it had read -- so a mosaic reach like `get to go` was
     reported under the end word `go`. See `span_provenance`.
     """
-    words = line_tokens(text)
+    words = line_tokens(text, strip_parens=lex.strip_parens)
     if not words:
         return [], "", []
     prefix = " ".join(words[:-1])
@@ -2453,132 +2519,16 @@ def parse_lyric_sections(text):
     return sections
 
 
-def group_sounds(lex, lines, scheme, decl):
-    """Representative end-anchor per scheme letter (first line of each group).
-
-    A letter whose representative line is unreadable gets an EMPTY anchor, and
-    `check_song` then skips it in every cross-section comparison -- silently,
-    as though the group had been checked and found novel. The empty anchor is
-    kept (callers test it) and the reason is carried alongside so the skip is
-    visible.
-    """
-    sounds = {}
-    for i, letter in enumerate(scheme.upper()):
-        if letter not in sounds and i < len(lines):
-            ancs, last, _ = line_anchors(lex, lines[i])
-            sounds[letter] = (ancs[0] if ancs else [], last)
-    return sounds
-
-
-def check_song(lex, blueprint, lyric_text, decl):
-    """Blueprint: {"sections":[{"name","type","lines","scheme"} |
-    {"name","type","ref": prior name}]}. Chorus refs demand verbatim identity.
-    Advisory flags: structural monotony, cross-verse sound reuse,
-    bridge non-novelty."""
-    got = parse_lyric_sections(lyric_text)
-    report = {"sections": [], "violations": [], "advisories": [],
-              "refusals": []}
-    first_instance = {}          # section name -> lines (for refs)
-    verse_sounds = []            # [(section, letter, anchor, endword)]
-    schemes_seen = []
-
-    for k, spec in enumerate(blueprint["sections"]):
-        if k >= len(got):
-            report["violations"].append(
-                f"missing section: {spec['name']}")
-            continue
-        gname, glines = got[k]
-        entry = {"name": spec["name"], "found": gname,
-                 "lines": len(glines)}
-        if gname.lower() != spec["name"].lower():
-            report["advisories"].append(
-                f"section {k+1} named '{gname}', blueprint says "
-                f"'{spec['name']}'")
-
-        if "ref" in spec:                     # repeated section: identity
-            ref_lines = first_instance.get(spec["ref"])
-            if ref_lines is None:
-                report["violations"].append(
-                    f"{spec['name']}: ref '{spec['ref']}' never defined")
-            elif [l.lower() for l in glines] != [l.lower()
-                                                 for l in ref_lines]:
-                report["violations"].append(
-                    f"{spec['name']}: chorus identity broken — repeated "
-                    f"section must match '{spec['ref']}' verbatim")
-            entry["identity"] = "checked"
-            report["sections"].append(entry)
-            continue
-
-        first_instance.setdefault(spec["name"], glines)
-        # A section with no declared line count is a REFUSAL, not a pass and
-        # not a KeyError. `blueprint.json` in this repo was rewritten to the
-        # BAR-GRID shape -- bars, no `lines`, lines-per-section emergent from
-        # where they fall -- and `check_song` has raised on it ever since,
-        # while `wiring` went on reporting `song` as wired because it checks
-        # IMPORT reachability and a traceback is not an import.
-        if spec.get("lines") is None:
-            report["refusals"].append(
-                f"{spec['name']}: no declared line count. This blueprint "
-                f"looks like the BAR GRID shape (bars, meter, per-line "
-                f"placement), which `check_song` does not read -- "
-                f"lines-per-section is emergent there, so there is nothing "
-                f"to check the count against. The verbs that read that shape "
-                f"are `grid`, `fit` and `function`.")
-        elif len(glines) != spec["lines"]:
-            report["violations"].append(
-                f"{spec['name']}: {len(glines)} lines, blueprint says "
-                f"{spec['lines']}")
-        scheme = spec.get("scheme")
-        if scheme and len(glines) == len(scheme):
-            res = check_scheme(lex, glines, scheme, decl)
-            entry["scheme_violations"] = res["violations"]
-            entry["collisions"] = res["collisions"]
-            entry["scheme_refusals"] = res["refusals"]
-            for v in res["violations"]:
-                report["violations"].append(
-                    f"{spec['name']} L{v[0]}-L{v[1]}: {v[3]} "
-                    f"(score {v[2]})")
-            # A refused pair is NOT a violation. It has to surface anyway, or
-            # an unreadable end word makes a mandated rhyme disappear from the
-            # song report entirely.
-            for r in res["refusals"]:
-                report["refusals"].append(
-                    f"{spec['name']} L{r['lines'][0]}-L{r['lines'][1]}: "
-                    f"{r['reason']}")
-            schemes_seen.append((spec["name"], spec.get("type", ""), scheme))
-            sounds = group_sounds(lex, glines, scheme, decl)
-            # cross-section sound reuse / bridge novelty
-            for letter, (anc, endword) in sounds.items():
-                for (pname, pletter, panc, pend) in verse_sounds:
-                    if pname == spec["name"] or not anc or not panc:
-                        continue
-                    s = score(anc, panc, decl)
-                    if s["total"] >= 0.9:
-                        kind = ("bridge non-novelty"
-                                if spec.get("type") == "bridge"
-                                else "rhyme sound reuse")
-                        # `group_sounds` takes the FIRST anchor reading of the
-                        # group's first line, which may be a mosaic reach --
-                        # so the endword beside this number is a label, not
-                        # necessarily the evidence. Name the spans.
-                        pa = span_provenance(anc)
-                        pb = span_provenance(panc)
-                        report["advisories"].append(
-                            f"{kind}: {spec['name']} group {letter} "
-                            f"({endword}) ~ {pname} group {pletter} "
-                            f"({pend}) at {s['total']}   "
-                            f"scored on: {span_label(pa)} ~ {span_label(pb)}")
-            for letter, (anc, endword) in sounds.items():
-                verse_sounds.append((spec["name"], letter, anc, endword))
-        report["sections"].append(entry)
-
-    # structural monotony: every non-chorus section on one scheme
-    core = [s for s in schemes_seen if s[1] != "chorus"]
-    if len(core) >= 3 and len({s[2] for s in core}) == 1:
-        report["advisories"].append(
-            f"structural monotony: every section runs {core[0][2]} — "
-            f"deliberate (drill, ghazal) or flat; declared intent decides")
-    return report
+# `group_sounds`/`check_song`, the OLD blueprint schema this file's `song`
+# verb used to read ({"sections":[{"name","type","lines","scheme"} |
+# {"name","type","ref": prior name}]}), were REMOVED 2026-08-12. Every
+# blueprint shipped in this repo had already moved to the bar-grid shape
+# (bars/start_bar/meter/function, per-line bar/beat/duration) that
+# `quality/grid.py`/`quality/fit.py`/`quality/revise.py` all read, and
+# `check_song` could not process that shape at all -- it refused by name on
+# EVERY real blueprint in `examples/`, silently, since the rewrite. `song`
+# now reads the same shape and the same Reviser pipeline `brief`/`verify`/
+# `revise --blueprint=` do; see its dispatch in `main()`.
 
 
 
@@ -2608,7 +2558,7 @@ def word_syllable_map(lex, text):
     line's last word. Anything that wants the rhyme word must use
     `raw_final_token`, and `widx` is kept so a caller can see the gap.
     """
-    words = line_tokens(text)
+    words = line_tokens(text, strip_parens=lex.strip_parens)
     out = []
     for k, w in enumerate(words):
         phones = []
@@ -3033,7 +2983,7 @@ def _qafiya_parts(lex, line):
     read None as "radif/refrain line: licensed", turning 241 unreadable
     corpus/song/ lines into clean passes, so the refusal is typed.
     """
-    final = raw_final_token(line)
+    final = raw_final_token(line, strip_parens=lex.strip_parens)
     sylls = word_syllable_map(lex, line)
     if not sylls or final is None:
         return {"unreadable": True, "endword": final,
@@ -3201,13 +3151,38 @@ def _rel_show(stream, inst):
 # remembered eight times in one round.
 # ---------------------------------------------------------------------------
 
-USAGE = """commands (the fifteen spine verbs):
+USAGE = """--fallback=high|low, BEFORE any verb, on any command: opts every
+verb's Lexicon into quality/g2p.py's morphology/elision/compound layer for
+words CMUdict refuses outright (viewest, o'er, savour, groun'). Omitted by
+default -- a refusal stays a refusal unless this is declared. 'low' also
+reaches the letter-to-sound layer, measured net harmful
+(quality/test_g2p.py); 'high' does not.
+
+--voices, BEFORE any verb, same standing as --fallback: declares that
+`(...)`/`*...*` in the lyric file that follows is voice-attribution
+notation (who's singing -- a second voice, a group) rather than a
+non-sung stage direction, so those words are read and scored like any
+other. Omitted by default -- parenthetical text is stripped before
+scoring exactly as it always has been, which is the correct reading for
+this repo's own corpus/song/ (traditional literary asides, not vocal
+attribution) and for anyone not writing in this notation.
+
+commands (the fifteen spine verbs):
   declaration             print the active declaration
   score  W1 -- W2         graded pair score with sub-scores
   candidates W [n]        ranked rhyme candidates
   meter  'template' L...  meter check ('.'=weak '/'=strong)
   scheme SCHEME L1 L2 ... scheme check, e.g. AABB  [--profile assonance|rawi]
-  song   BLUEPRINT LYRIC  blueprint structure check
+  song   BLUEPRINT LYRIC [MANDATE] [--subdivision N] [--isochronous]
+                          the marked [Section] lyric against the bar-grid
+                          BLUEPRINT (positional, not --blueprint=): cross-
+                          checks section names/line counts (STRUCTURE), then
+                          runs the SAME brief report as `brief`, with meter
+                          and song-function joining the finding set (see
+                          `brief`, below). REBUILT 2026-08-12 off the dead
+                          per-section {"lines", "scheme"} schema; MANDATE is
+                          required for the same reason it is on `brief` --
+                          doctrine 20
   chains FILE [theta]     inferred rhyme chains
   graph  FILE [theta]     the full pairwise matrix, cliques and overlaps
   internal "line"         internal (within-line) matches
@@ -3250,7 +3225,13 @@ the quality layer (each says which module answered):
   brief  FILE [MANDATE] [--blueprint=B] [--subdivision N] [--isochronous]
                           what to revise, and what is FORBIDDEN.
                           MANDATE is a letter scheme (ABAB; X = free),
-                          --groups=1,3;2,4 (1-based, may OVERLAP), or
+                          --groups=1,3;2,4 (1-based, may OVERLAP), --returns=
+                          11,19,27;12,20,28 (same syntax, but each group is a
+                          RETURN CLASS -- REPEAT is the REQUIREMENT, not a
+                          violation; use this for a verbatim chorus/refrain,
+                          NOT --groups=, which defaults every pair to
+                          REQUIRE_RHYME and would charge an identical return
+                          SCHEME_VIOLATION for being exactly identical), or
                           --cliques (the song's own graph structure).
                           With NO mandate it REFUSES: nothing declared means
                           nothing mandated, and "nothing flagged" about that
@@ -3279,7 +3260,7 @@ VERB_LAYERS = (
     ("score / candidates / graph / chains", "lyric_harness.py", "spine"),
     ("scheme (letters)", "lyric_harness.py", "spine"),
     ("meter (template)", "lyric_harness.py", "spine"),
-    ("song / qafiya / prasa / cynghanedd", "lyric_harness.py", "spine"),
+    ("qafiya / prasa / cynghanedd", "lyric_harness.py", "spine"),
     ("internal / density / weight", "lyric_harness.py", "spine"),
     ("demo", "lyric_harness.py", "the acceptance suite"),
     ("wiring", "lyric_harness.py", "this map, checked against the dispatch"),
@@ -3288,7 +3269,9 @@ VERB_LAYERS = (
     ("refrain", "quality/schemes.py", "A-1 notation: the VERBATIM return"),
     ("cycle", "quality/meter.py", "exact-rational metric cycles"),
     ("relations", "quality/relations.py", "77 named relation schemas"),
-    ("brief / verify", "quality/revise.py", "the revision loop"),
+    ("brief / verify / song", "quality/revise.py",
+     "the revision loop -- song adds a structural pre-check against "
+     "quality/grid.py, then shares this same report"),
     ("revise", "quality/loop.py", "the automated write-check-fix loop, "
      "driven on top of brief/verify"),
     ("readability", "quality/readability.py", "ingestion refusals"),
@@ -3394,12 +3377,47 @@ def _grid_song(GR, bp):
 def main():
     decl = Declaration()
     args = sys.argv[1:]
+
+    # --fallback=high|low is a GLOBAL declared coordinate: `Lexicon()` is
+    # built once here, before any verb dispatches, so it cannot live inside
+    # one verb's own flag parsing the way --blueprint does for brief/verify/
+    # revise. Consumed before `cmd` is read from `args`, so it works ahead of
+    # EVERY verb and is never mistaken for the verb name itself.
+    #
+    # `eq_only` on purpose. --blueprint/--subdivision accept a following
+    # space-separated token because each is read inside ONE verb's own
+    # argument list, where the shape of what follows is already known.
+    # --fallback sits ahead of an ARBITRARY verb's own arguments -- "
+    # --fallback high FILE.txt" would have no way to tell "high" the
+    # fallback value from "high" a file whoever ran the command happened to
+    # name that. `=` removes the ambiguity instead of guessing past it.
+    fallback = _flag_value(args, "--fallback", eq_only=True)
+    if fallback is not None:
+        if fallback not in ("high", "low"):
+            print(f"  --fallback wants 'high' or 'low', got {fallback!r} "
+                  f"(quality.g2p.Fallback.min_confidence's own vocabulary; "
+                  f"doctrine 1 -- not free text, not coerced)")
+            sys.exit(2)
+        args = [a for a in args if not a.startswith("--fallback=")]
+
+    # --voices is a GLOBAL, bare-presence flag (no value, like --isochronous)
+    # sitting alongside --fallback for the same reason: `Lexicon()` is built
+    # once here, before any verb dispatches. Declares that `(...)` (and
+    # `*asterisk*`, never special) text in the lyric file that follows is
+    # voice-attribution notation -- real sung words in a second voice or a
+    # group, not a non-sung aside -- so `line_tokens`/`Lexicon.transcribe`
+    # keep those words instead of erasing them. Omitted, nothing changes:
+    # every verb reads `(...)` as a stage direction exactly as it always has.
+    voices = "--voices" in args
+    if voices:
+        args = [a for a in args if a != "--voices"]
+
     if not args or args[0] in ("-h", "--help"):
         print(__doc__)
         print(USAGE)
         return
     cmd = args[0]
-    lex = Lexicon()
+    lex = Lexicon(fallback=fallback, strip_parens=not voices)
 
     if cmd == "declaration":
         print(decl.show())
@@ -3451,8 +3469,7 @@ def main():
               + (f"  OOV {oov}" if oov else ""))
 
     elif cmd == "density":
-        lines = [l.strip() for l in open(args[1]).read().splitlines()
-                 if l.strip() and not l.strip().startswith("[")]
+        lines = load_lyric_lines(args[1])
         res = rhyme_density(lex, lines, decl)
         for i, d in enumerate(res["per_line"]):
             print(f"  L{i+1}: {d}")
@@ -3488,8 +3505,7 @@ def main():
                   + ("; ".join(defects) if defects else "sound"))
 
     elif cmd == "graph":
-        lines = [l.strip() for l in open(args[1]).read().splitlines()
-                 if l.strip() and not l.strip().startswith("[")]
+        lines = load_lyric_lines(args[1])
         th = float(args[2]) if len(args) > 2 else None
         g = rhyme_graph(lex, lines, decl, theta=th)
         print(f"nodes {len(g['endwords'])}  edges {len(g['edges'])}  "
@@ -3527,8 +3543,7 @@ def main():
               f"(target {res['target']})")
 
     elif cmd == "chains":
-        lines = [l.strip() for l in open(args[1]).read().splitlines()
-                 if l.strip() and not l.strip().startswith("[")]
+        lines = load_lyric_lines(args[1])
         th = float(args[2]) if len(args) > 2 else None
         for ch in infer_chains(lex, lines, decl, theta_chain=th):
             single = ch["length"] == 1
@@ -3547,23 +3562,6 @@ def main():
             for u in ch["unreadable"]:
                 print(f"    UNREADABLE L{u['line']} ({u['endword']}, "
                       f"{u['role']}): {u['reason']}")
-
-    elif cmd == "song":
-        blueprint = json.load(open(args[1]))
-        lyric = open(args[2]).read()
-        res = check_song(lex, blueprint, lyric, decl)
-        for s in res["sections"]:
-            print(f"  section: {s['name']:<10} lines {s['lines']}")
-        for v in res["violations"]:
-            print(f"  VIOLATION: {v}")
-        for r in res["refusals"]:
-            print(f"  REFUSED:   {r}")
-        for a in res["advisories"]:
-            print(f"  advisory:  {a}")
-        if not res["violations"]:
-            print("  structure: clean"
-                  + (" on what could be read; see REFUSED above"
-                     if res["refusals"] else ""))
 
     elif cmd == "scheme":
         scheme = args[1]
@@ -3796,8 +3794,7 @@ def main():
         from quality import schemes as SC
         src = args[1:]
         if len(src) == 1 and os.path.exists(src[0]):
-            lines = [l.strip() for l in open(src[0]).read().splitlines()
-                     if l.strip() and not l.strip().startswith("[")]
+            lines = load_lyric_lines(src[0])
         else:
             lines = src
         g = rhyme_graph(lex, lines, decl)
@@ -3872,7 +3869,7 @@ def main():
         # them first -- which every other verb here does -- would silently put
         # the whole text in stanza 0 and make those five unreachable.
         raw = [l.rstrip() for l in open(keep[0]).read().splitlines()
-               if not l.strip().startswith("[")]
+               if not is_apparatus_line(l)]
         lines = [l for l in raw if l.strip()]
         phon = _getphon(lang)
         st = RL.build_stream(raw, phon,
@@ -3981,7 +3978,8 @@ def main():
             source="lyric_harness.py fit --isochronous, an explicit "
                    "assumption by whoever ran the command") \
             if "--isochronous" in args else None
-        song = FT.fit_song(args[1], subdivision=sub, assume=assume)
+        song = FT.fit_song(args[1], subdivision=sub, assume=assume,
+                           strip_parens=not voices)
         print(f"  module: quality/fit.py — syllables against the pulses of "
               f"the bar they are declared in")
         print(f"  subdivision: "
@@ -4094,8 +4092,7 @@ def main():
         for a, b, lab in pairs:
             print(f"    {lab}: L{a} == L{b}")
         if len(args) > 2:
-            lines = [l.rstrip() for l in open(args[2]).read().splitlines()
-                     if l.strip() and not l.strip().startswith("[")]
+            lines = load_lyric_lines(args[2])
             print(f"  checked against {args[2]}: {len(lines)} line(s) vs "
                   f"{sch.n_lines} declared")
             bad = sch.check_identity(lines)
@@ -4126,10 +4123,11 @@ def main():
               f"end word, {rep['lines_unreadable_final_piece']} the LAST "
               f"piece of a compound")
 
-    elif cmd in ("brief", "verify", "revise"):
+    elif cmd in ("brief", "verify", "revise", "song"):
         from quality import loop as LP
         from quality.revise import Reviser
         from quality.schemes import NoMandate
+        from quality import schemes as SC
         rv = Reviser(lex=lex, decl=decl)
 
         # `--blueprint=`/`--subdivision`/`--isochronous`: THE SAME THREE
@@ -4176,8 +4174,11 @@ def main():
         # `verify`'s [MANDATE] [lines] are POSITIONAL (`args[3]`, `args[4]`),
         # so a trailing `--blueprint=...` has to be pulled out of `args`
         # before that indexing runs, or it would be read as the targeted-
-        # line spec instead of a flag. Consumed here, once, for all three
-        # verbs sharing this branch.
+        # line spec instead of a flag. Consumed here, once, for all four
+        # verbs sharing this branch. (`song`'s own blueprint is its OWN
+        # positional argument, not `--blueprint=` -- see its branch below --
+        # but it can still take `--subdivision`/`--isochronous` as trailing
+        # flags, so it shares this same stripping pass.)
         _FLAG_NAMES = ("--blueprint", "--subdivision", "--isochronous")
         args, _skip = list(args), False
         cleaned = []
@@ -4201,6 +4202,26 @@ def main():
             which doctrine 2 says is a structure with no letter
             representation. These two spellings are the ones a letter string
             cannot express.
+
+            A THIRD GAP, FOUND BY USE RATHER THAN BY READING THE CODE —
+            FIXED 2026-08-12. `quality.schemes.mandate`'s `returns=` parameter
+            has, since it was written, been the ONLY way to say "these lines
+            are the SAME LINE" — REQUIRE_RETURN, identity required, REPEAT is
+            the requirement, not a violation (doctrine 3's second half).
+            Nothing on this command line could ever reach it: `--groups=`
+            builds a bare Cover, which defaults every pair to REQUIRE_RHYME
+            (identity FORBIDDEN, REPEAT a violation), and `--cliques` derives
+            its groups from OBSERVED rhyme rather than the writer's own
+            declared repeat. A song with a verbatim chorus, declared either
+            way from the CLI, had its own returning hook charged
+            SCHEME_VIOLATION for being exactly identical — the one thing it
+            was SUPPOSED to be. `examples/the_well_is_running_dry` hit this
+            for real: `song ... --cliques` flagged its three-times-repeated
+            chorus, and the fix could only be reached by dropping to the
+            Python API and calling `SC.mandate(groups, returns=groups)`
+            directly. `--returns=` closes that: same syntax as `--groups=`,
+            same 1-based/';'-separated groups, but every group becomes a
+            RETURN CLASS instead of a plain rhyme requirement.
             """
             if spec is None:
                 return None                     # let the refusal fire
@@ -4213,6 +4234,18 @@ def main():
                 # --groups=1,3;2,4;27,6 — 1-based, ';'-separated, MAY OVERLAP
                 return [[int(x) for x in g.split(",") if x.strip()]
                         for g in spec.split("=", 1)[1].split(";") if g.strip()]
+            if spec.startswith("--returns="):
+                # --returns=11,19,27;12,20,28 — same syntax as --groups=, but
+                # every line in a group is declared the SAME LINE: REQUIRE
+                # RETURN, not REQUIRE RHYME. Realised into a `Mandate` here
+                # (not left as a plain list) because `Reviser.mandate()`
+                # forwards no `returns=` of its own (`SC.mandate(spec,
+                # n_lines=...)`, nothing else) — the ONLY way to get identity
+                # semantics into `rv.brief`/`.verify`/`.inspect` is to hand
+                # them an ALREADY-BUILT Mandate, which is what this returns.
+                groups = [[int(x) for x in g.split(",") if x.strip()]
+                          for g in spec.split("=", 1)[1].split(";") if g.strip()]
+                return SC.mandate(groups, n_lines=len(lines), returns=groups)
             return spec                         # a letter string
 
         def _say_derived(m):
@@ -4236,80 +4269,146 @@ def main():
                       f"{m.overlapping_lines()} are in more than one group, "
                       f"and a letter is a property of a LINE (doctrine 2).")
 
+        def _print_brief_report(lines, scheme, blueprint):
+            """`brief`'s own report, factored out so `song` can print the
+            identical thing after its own structural pre-check — one report
+            format for "what to revise and what is forbidden", not two that
+            could drift apart from each other."""
+            briefs = rv.brief(lines, scheme, blueprint=blueprint,
+                              subdivision=subdivision, assume=assume)
+            # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
+            # BACKLOG 1.2's acceptance names `brief` as well as
+            # `check_scheme`, and a brief is where the misattribution
+            # costs most: it tells a writer WHICH WORD to change, and if
+            # the number came from `enjoys it` the word to change is not
+            # `it`. Read off `grade`'s own cached matrix -- the same
+            # `Scored` objects it graded, never a second comparison. The
+            # proper home for this is a `spans` field on the verdict
+            # dict, which lives in `quality/revise.py` and is filed as a
+            # patch; this reads the object rather than recomputing it, so
+            # the two cannot disagree, and it degrades to silence rather
+            # than raising if that file is refactored underneath it.
+            span_by_pair = {}
+            try:
+                graded = rv.grade(lines, scheme)
+                _, _, _, mx = rv._matrix(lines)
+                for v in graded["violations"]:
+                    i, j = v["lines"]
+                    s = mx[i - 1][j - 1]
+                    span_by_pair[(i, j)] = (v, s)
+            except Exception:                # pragma: no cover
+                span_by_pair = {}
+            if not briefs:
+                print("  nothing flagged — every mandated pair passes the "
+                      "band on the lines the harness could read")
+            for b in briefs:
+                print(f"  L{b.line_no}: {b.text}")
+                for f in dedupe_findings(b.findings):
+                    print(f"      FINDING {f}")
+                for (i, j), (v, s) in sorted(span_by_pair.items()):
+                    if b.line_no not in (i, j):
+                        continue
+                    head, *rest = report_pair(
+                        s, v["endwords"][0], v["endwords"][1],
+                        indent="          ")
+                    print(f"      FAILS L{i}-L{j} {head}  — {v['why']}")
+                    for ln in rest:
+                        print(ln)
+                for lab, mem, calls in b.must_answer:
+                    shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
+                    print(f"      must answer group {lab} {mem}: {shown}")
+                if len(b.must_answer) > 1:
+                    print(f"      L{b.line_no} is a PIVOT — in "
+                          f"{len(b.must_answer)} groups, and must answer "
+                          f"every one (conjunctive; doctrine 2)")
+                if b.joint_conflict:
+                    print("      NO JOINT CANDIDATE: nothing in the "
+                          "lexicon answers all of those groups at once. "
+                          "The MANDATE is what needs revising, not the "
+                          "line.")
+                if not b.must_answer and b.must_rhyme_with:
+                    n, w = b.must_rhyme_with
+                    print(f"      must rhyme with L{n} ({w!r})")
+                if b.forbidden_modal:
+                    print(f"      FORBIDDEN (modal — doctrine 9): "
+                          f"{', '.join(b.forbidden_modal)}")
+                if b.candidates:
+                    print(f"      offered: {', '.join(b.candidates[:12])}")
+
         try:
             if cmd == "brief":
-                lines = [l.rstrip() for l in open(args[1]).read().splitlines()
-                         if l.strip() and not l.strip().startswith("[")]
+                lines = load_lyric_lines(args[1])
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
                 _say_derived(scheme)
                 if scheme is not None:
                     _say_blueprint()
-                briefs = rv.brief(lines, scheme, blueprint=bp_path,
-                                  subdivision=subdivision, assume=assume)
-                # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
-                # BACKLOG 1.2's acceptance names `brief` as well as
-                # `check_scheme`, and a brief is where the misattribution
-                # costs most: it tells a writer WHICH WORD to change, and if
-                # the number came from `enjoys it` the word to change is not
-                # `it`. Read off `grade`'s own cached matrix -- the same
-                # `Scored` objects it graded, never a second comparison. The
-                # proper home for this is a `spans` field on the verdict
-                # dict, which lives in `quality/revise.py` and is filed as a
-                # patch; this reads the object rather than recomputing it, so
-                # the two cannot disagree, and it degrades to silence rather
-                # than raising if that file is refactored underneath it.
-                span_by_pair = {}
+                _print_brief_report(lines, scheme, bp_path)
+            elif cmd == "song":
+                # `song BLUEPRINT LYRIC [MANDATE]` -- RETIRED the old
+                # per-section {"lines","scheme","ref"} schema 2026-08-12.
+                # Every blueprint shipped in this repo had already moved to
+                # the bar-grid shape (bars/start_bar/meter/function, per-line
+                # bar/beat/duration), which that schema could not read at
+                # all -- `song` refused by name on every real blueprint in
+                # `examples/`, silently, since the rewrite. It now reads the
+                # SAME shape and runs the SAME Reviser pipeline `brief` does,
+                # plus one thing `brief` has no reason to do: cross-check the
+                # LYRIC'S OWN `[Section]` markers against what the blueprint
+                # declares. The two can drift independently -- a verse added
+                # to the words and not the blueprint, or the reverse.
+                from quality import grid as GR
+                song_bp_path = args[1]
+                lyric_text = open(args[2]).read()
+                marked = parse_lyric_sections(lyric_text)
+                song_obj, _hooks = GR.song_from_blueprint(song_bp_path)
+                bp_sections = [(s.name, len([l for l in song_obj.lines
+                                             if l.section == s.name]))
+                              for s in song_obj.sections]
+                if len(marked) != len(bp_sections):
+                    print(f"  STRUCTURE: lyric has {len(marked)} marked "
+                          f"section(s), blueprint declares "
+                          f"{len(bp_sections)}")
+                else:
+                    for (mname, mlines), (bname, bn) in zip(marked,
+                                                            bp_sections):
+                        if mname.lower() != bname.lower():
+                            print(f"  STRUCTURE: marked {mname!r}, "
+                                  f"blueprint section is {bname!r}")
+                        if len(mlines) != bn:
+                            print(f"  STRUCTURE: {mname}: {len(mlines)} "
+                                  f"lyric line(s), blueprint places {bn}")
+                lines = ([l for _, ls in marked for l in ls] if marked else
+                        [l.strip() for l in lyric_text.splitlines()
+                         if l.strip() and not is_apparatus_line(l)])
+                scheme = _mandate_arg(args[3] if len(args) > 3 else None,
+                                      lines)
+                _say_derived(scheme)
+                if scheme is not None:
+                    print(f"  BLUEPRINT: {song_bp_path} — meter and "
+                          f"song-function join the rhyme/floor finding set"
+                          + (f", subdivision={sub_arg}" if sub_arg else
+                             ", NO SUBDIVISION DECLARED — the slot "
+                             "questions refuse rather than assume one"))
                 try:
-                    graded = rv.grade(lines, scheme)
-                    _, _, _, mx = rv._matrix(lines)
-                    for v in graded["violations"]:
-                        i, j = v["lines"]
-                        s = mx[i - 1][j - 1]
-                        span_by_pair[(i, j)] = (v, s)
-                except Exception:                # pragma: no cover
-                    span_by_pair = {}
-                if not briefs:
-                    print("  nothing flagged — every mandated pair passes the "
-                          "band on the lines the harness could read")
-                for b in briefs:
-                    print(f"  L{b.line_no}: {b.text}")
-                    for f in dedupe_findings(b.findings):
-                        print(f"      FINDING {f}")
-                    for (i, j), (v, s) in sorted(span_by_pair.items()):
-                        if b.line_no not in (i, j):
-                            continue
-                        head, *rest = report_pair(
-                            s, v["endwords"][0], v["endwords"][1],
-                            indent="          ")
-                        print(f"      FAILS L{i}-L{j} {head}  — {v['why']}")
-                        for ln in rest:
-                            print(ln)
-                    for lab, mem, calls in b.must_answer:
-                        shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
-                        print(f"      must answer group {lab} {mem}: {shown}")
-                    if len(b.must_answer) > 1:
-                        print(f"      L{b.line_no} is a PIVOT — in "
-                              f"{len(b.must_answer)} groups, and must answer "
-                              f"every one (conjunctive; doctrine 2)")
-                    if b.joint_conflict:
-                        print("      NO JOINT CANDIDATE: nothing in the "
-                              "lexicon answers all of those groups at once. "
-                              "The MANDATE is what needs revising, not the "
-                              "line.")
-                    if not b.must_answer and b.must_rhyme_with:
-                        n, w = b.must_rhyme_with
-                        print(f"      must rhyme with L{n} ({w!r})")
-                    if b.forbidden_modal:
-                        print(f"      FORBIDDEN (modal — doctrine 9): "
-                              f"{', '.join(b.forbidden_modal)}")
-                    if b.candidates:
-                        print(f"      offered: {', '.join(b.candidates[:12])}")
+                    _print_brief_report(lines, scheme, song_bp_path)
+                except NoMandate:
+                    # Let the SAME handler brief/verify/revise use catch
+                    # this one (below) -- NoMandate IS-A ValueError, so
+                    # without this it would print here in a shape that
+                    # only looks like the shared refusal, drifting from it
+                    # the next time either message changes.
+                    raise
+                except ValueError as e:
+                    # A structure mismatch severe enough to break the
+                    # blueprint/draft position correlation `_meter_findings`
+                    # requires (doctrine 20: a refusal, not a traceback) --
+                    # the STRUCTURE lines above already said WHERE.
+                    print(f"  REFUSED — {e}")
+                    sys.exit(2)
             elif cmd == "verify":
-                before = [l.rstrip() for l in open(args[1]).read().splitlines()
-                          if l.strip() and not l.strip().startswith("[")]
-                after = [l.rstrip() for l in open(args[2]).read().splitlines()
-                         if l.strip() and not l.strip().startswith("[")]
+                before = load_lyric_lines(args[1])
+                after = load_lyric_lines(args[2])
                 scheme = _mandate_arg(args[3] if len(args) > 3 else None,
                                       before)
                 _say_derived(scheme)
@@ -4337,8 +4436,7 @@ def main():
                 # real writing supplies its own `propose`/`propose_pair`
                 # through the Python API; this verb exists so the control
                 # flow itself is runnable and inspectable without one.
-                lines = [l.rstrip() for l in open(args[1]).read().splitlines()
-                         if l.strip() and not l.strip().startswith("[")]
+                lines = load_lyric_lines(args[1])
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
                 _say_derived(scheme)

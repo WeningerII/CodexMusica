@@ -220,9 +220,8 @@ def test_function_and_bar_range_are_two_different_keys():
           _drift_reads_function())
 
 
-#: the shipped song, the one whose blueprint was written by hand.
-BLUEPRINT = os.path.join(HERE, "..", "examples",
-                         "never_been_to_a_scene.blueprint.json")
+#: a real bar-grid blueprint, the one whose Song was written by hand.
+BLUEPRINT = os.path.join(HERE, "fixtures", "song.blueprint.json")
 
 
 def scene_song():
@@ -323,11 +322,10 @@ def test_four_four_does_not_read_the_grouping():
 
 
 def test_the_shipped_blueprint_is_declared_honestly():
-    print("\n10. the song's own blueprint, after the hand-written one was "
-          "found to be wrong in three ways")
+    print("\n10. a real bar-grid blueprint, declared rather than inferred")
     s = scene_song()
-    check("41 lines over 83 bars in seven sections", len(s.lines) == 41
-          and s.total_bars == 83 and len(s.sections) == 7)
+    check("16 lines over 16 bars in seven sections", len(s.lines) == 16
+          and s.total_bars == 16 and len(s.sections) == 7)
     spans = []
     for sec in s.sections:
         P = F(sec.meter.beats)
@@ -336,8 +334,10 @@ def test_the_shipped_blueprint_is_declared_honestly():
                             for l in s.lines_in(sec)))
     check("no two declared spans intersect",
           all(a[1] <= b[0] for run in spans for a, b in zip(run, run[1:])),
-          "bar 10 beat 6.5 for 7 pulses ran 5.5 pulses into the line at bar "
-          "11 beat 1, in BOTH verses — 17 syllables in one bar, twice")
+          "one line per bar, each duration bounded to its own bar -- a real "
+          "hand-written blueprint once got exactly this wrong (a genuine "
+          "overlap, found and fixed), which is why the check exists rather "
+          "than being assumed")
     check("every section declares a grouping",
           all(sec.meter.groups for sec in s.sections),
           f"{[(x.name, x.meter.groups) for x in s.sections]} — 4/4 admits "
@@ -348,20 +348,18 @@ def test_the_shipped_blueprint_is_declared_honestly():
     check("a RETURN inherits its first instance's tune slot",
           s.slot_profile(v[0]) == s.slot_profile(v[1])
           and s.slot_profile(c[0]) == s.slot_profile(c[1]),
-          "a return is the same TUNE with new words, so `chorus2` line 4 "
-          "shares the pickup its extra upbeat syllable would otherwise move")
+          "a return is the same TUNE with new words, so a repeated section "
+          "shares the pickup a different one would otherwise move")
     u = uniformity(s)
     codes = {f.code for f in stanza_lock(s)}
-    check("and the check FIRES on it — 90%, reported rather than tuned away",
-          "UNIFORM_ANACRUSIS" in codes
-          and round(u["uniform_anacrusis"], 3) == 0.903,
-          f"28 of 31 off-downbeat lines take a ONE-PULSE pickup because 28 of "
-          f"these English lines open on exactly one weak syllable. The "
-          f"hand-written blueprint read 100% here off ONE hand-set constant; "
-          f"the residue is the language, and a blueprint edited until this "
-          f"went quiet would be the same cheat again")
+    check("every line opens on the downbeat, so DOWNBEAT_LOCKED fires and "
+          "UNIFORM_ANACRUSIS does not — the other shape of the same check, "
+          "covered on a mixed-pickup fixture by test 8 above",
+          "DOWNBEAT_LOCKED" in codes and "UNIFORM_ANACRUSIS" not in codes
+          and u["downbeat_locked"] == 1.0,
+          f"downbeat_locked {u['downbeat_locked']:.0%}; codes {sorted(codes)}")
     check("the numeral survives grid.py's normalisation",
-          tokens("Tonight it is County Road 6")[-1] == "6",
+          tokens("We drove down County Road 9")[-1] == "9",
           "`lyric_harness.line_tokens` matches [A-Za-z'-]+ and drops it "
           "silently; `quality/fit.py` REFUSES it as a NUMERAL and marks the "
           "count a lower bound (doctrine 79). This layer must not be the "
@@ -379,13 +377,12 @@ def test_the_shipped_blueprint_is_declared_honestly():
 # caught rather than shipped as two silently-different readings of one file.
 # ---------------------------------------------------------------------------
 
-MOONLIGHT = os.path.join(HERE, "..", "examples",
-                         "moonlight_and_lead.blueprint.json")
+MOONLIGHT = os.path.join(HERE, "fixtures", "function_fixture.blueprint.json")
 
 
 def test_song_from_blueprint_matches_the_hand_rolled_reader():
     print("\n11. song_from_blueprint agrees with the hand-rolled reader on "
-          "the shipped scene blueprint")
+          "a real bar-grid blueprint")
     hand = scene_song()
     got, hooks = song_from_blueprint(BLUEPRINT)
     check("same section count, names, bars, start bars and meters",
@@ -417,8 +414,8 @@ def test_song_from_blueprint_reads_function_and_hooks():
               "verse", "chorus", "outro"],
           [(s.name, s.function) for s in got.sections])
     check("hooks pass through verbatim, as raw strings",
-          hooks == ["billy, billy, faster than sin"], hooks)
-    check("title passes through", got.title == "Moonlight and Lead")
+          hooks == ["a hook line for the reader to find"], hooks)
+    check("title passes through", got.title == "Fixture Two")
     check("a path and an already-loaded dict give the same answer",
           song_from_blueprint(MOONLIGHT)[0].sections
           == song_from_blueprint(__import__("json").load(open(MOONLIGHT)))[0]

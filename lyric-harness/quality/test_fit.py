@@ -39,8 +39,7 @@ from quality.fit import (ANSWERABLE, UNANSWERABLE, FitFinding,  # noqa: E402
                          report)
 from quality.meter import Cycle                        # noqa: E402
 
-BLUEPRINT = os.path.join(HERE, "..", "examples",
-                         "never_been_to_a_scene.blueprint.json")
+BLUEPRINT = os.path.join(HERE, "fixtures", "song.blueprint.json")
 
 FAILURES = []
 
@@ -444,73 +443,68 @@ def _check_overlaps_still_detects():
 
 
 def test_the_shipped_song():
-    print("\n13. the real blueprint — 41 lines, 83 bars, seven sections")
+    print("\n13. a real bar-grid blueprint — 16 lines, 16 bars, seven sections")
     secs, places = from_blueprint(BLUEPRINT)
     check("the blueprint resolves without importing quality/grid.py",
-          len(secs) == 7 and len(places) == 41
+          len(secs) == 7 and len(places) == 16
           and "quality.grid" not in sys.modules,
           "duck-typed on Song instead, so this module has no build dependency "
           "on a file another cell owns")
     f = fit_song(BLUEPRINT)
     rows = {r["section"]: r for r in f.table()}
-    check("83 bars and 41 lines survive the round trip",
-          sum(r["bars"] for r in rows.values()) == 83
-          and sum(r["lines"] for r in rows.values()) == 41)
-    check("340 syllables, of which two lines' counts are LOWER BOUNDS",
-          sum(r["units"] for r in rows.values()) == 340
-          and sum(0 if r["exact"] else 1 for r in rows.values()) == 2,
-          "verse1 'whiteboard' (out of lexicon) and verse2 '6' (numeral)")
-    check("every section declares a grouping now, so NO line refuses one — "
+    check("16 bars and 16 lines survive the round trip",
+          sum(r["bars"] for r in rows.values()) == 16
+          and sum(r["lines"] for r in rows.values()) == 16)
+    check("158 syllables, of which one line's count is a LOWER BOUND",
+          sum(r["units"] for r in rows.values()) == 158
+          and sum(0 if r["exact"] else 1 for r in rows.values()) == 1,
+          "bridge 'glissando' (out of lexicon)")
+    check("every section declares a grouping, so NO line refuses one — "
           "and the declaration BUYS a finding rather than silencing one",
           sum(r["refusals"].get("UNDECLARED_GROUPING", 0)
               for r in rows.values()) == 0
-          and rows["chorus"]["fighting"] == 8,
-          "was 17 refusals (chorus 8 + chorus2 8 + outro 1) and `chorus "
-          "fighting` 0, which doctrine 19 says is the CORRECT output for an "
-          "undeclared 4/4. The blueprint now declares chorus/chorus2 as "
-          "(2,2) and outro as (3) — an authorial decision stated as one, "
-          "never `conventional_grouping()`. The 17 refusals became 17 "
-          "PROMINENCE_EXCEEDS_HEADS findings: at (2,2) a 4-pulse span covers "
-          "two heads and every chorus line has more prominent syllables than "
-          "that. Declaring is not a way to go quiet")
-    check("every line is CROWDED except the two that are not",
-          sum(r["crowded"] for r in rows.values()) == 36,
-          "the song asks 5.14 syllables of a 7/8 bar in verse2 and 3.75 of a "
-          "4/4 bar in the chorus")
+          and rows["chorus"]["fighting"] == 2,
+          "doctrine 19: an UNDECLARED (2,2)-style grouping is not assumed. "
+          "The blueprint declares one for every section — an authorial "
+          "decision stated as one, never `conventional_grouping()` — and "
+          "every one of the chorus's 2 lines carries more prominent "
+          "syllables than the declared grouping has heads for, which is "
+          "what `fighting` counts")
+    check("every line is CROWDED",
+          sum(r["crowded"] for r in rows.values()) == 16,
+          "a 16-syllable chorus line packed into one 4/4 bar is dense by "
+          "construction — the fixture was built to be, so `fit` has "
+          "something real to measure")
     check("no line's declared placement contradicts itself",
           all(r["unsatisfiable"] == 0 for r in rows.values()),
           "the arithmetic of bar/beat/duration holds everywhere; what it "
           "demands of the setting is the finding")
     one = Subdivision(1, source=SOURCE)
     g = fit_song(BLUEPRINT, subdivision=one)
-    check("at ONE slot per pulse 36 of the 41 lines become unsatisfiable",
-          sum(r["unsatisfiable"] for r in g.table()) == 36,
-          "the song is not written on the pulse; it needs the pulse to "
-          "divide, and now that is a number. Was 39: three of those lines "
-          "were unsatisfiable only because their declared START was off the "
-          "1-slot grid, and the blueprint's pickups are whole pulses now")
+    check("at ONE slot per pulse, every line becomes unsatisfiable",
+          sum(r["unsatisfiable"] for r in g.table()) == 16,
+          "a quarter-note grid cannot hold even the sparsest of these lines; "
+          "the fixture needs the pulse to divide, and now that is a number")
     two = fit_song(BLUEPRINT, subdivision=Subdivision(2, source=SOURCE))
     rows2 = {r["section"]: r for r in two.table()}
     check("at TWO the 7/8 verses fit and the 4/4 chorus does not",
           rows2["verse1"]["unsatisfiable"] == 0
           and rows2["verse2"]["unsatisfiable"] == 0
           and rows2["chorus"]["unsatisfiable"] == 2
-          and rows2["chorus2"]["unsatisfiable"] == 3,
-          "the tightest writing in the song is the 4/4 chorus, not the 7/8 "
-          "verse — the first thing this project has been able to say about "
-          "whether its own song is singable")
+          and rows2["chorus2"]["unsatisfiable"] == 2,
+          "the eighth-note pulse of 7/8 is finer than the quarter-note pulse "
+          "of 4/4, so the same subdivision buys the verses more slots than "
+          "the chorus — the first thing this project has been able to say "
+          "about whether a draft is singable")
     check("uncovered bars are reported per section",
-          rows["verse1"]["uncovered_bars"] == (6,)
-          and len(rows["outro"]["uncovered_bars"]) == 5,
-          f"verse1 {rows['verse1']['uncovered_bars']} carry no declared line "
-          f"at all; the outro carries one line across seven bars")
-    check("NO declared span in the shipped blueprint intersects another",
+          all(r["uncovered_bars"] == () for r in rows.values()),
+          "the fixture places exactly one line per bar, so nothing is "
+          "uncovered -- a real draft with sparser placement would show it "
+          "here instead of silently passing")
+    check("NO declared span in this blueprint intersects another",
           sum(r["overlaps"] for r in rows.values()) == 0,
-          "was verse1 1 + verse2 1: both verses declared a bar-10 pickup "
-          "running 5.5 of its 7 pulses into a line declared at bar 11 beat "
-          "1, so one bar carried 17 syllables that no per-line density "
-          "showed. The two downbeats are separated now. THIS ASSERTION IS "
-          "A ZERO, so it cannot tell a fixed blueprint from a broken "
+          "one line per bar, each bounded to its own bar. THIS ASSERTION IS "
+          "A ZERO, so it cannot tell a correct blueprint from a broken "
           "`overlaps()` — the next check is the one that can (doctrine 94)")
     _check_overlaps_still_detects()
     txt = report(f)
@@ -577,6 +571,29 @@ def test_the_cycle_helpers_refuse_the_same_way_the_cycle_does():
           "a non-power-of-two denominator is a note value too")
 
 
+def test_strip_parens_reaches_the_english_syllable_path():
+    print("\n16. `read_line`'s ENGLISH branch reads `strip_parens`, not just "
+         "`_chunks` -- FOUND checking a real voice-attribution line, FIXED "
+         "in the same round: `_english_lexicon()` was a single cached "
+         "Lexicon built with the constructor default, so every call reused "
+         "the FIRST `strip_parens` value ever passed regardless of what a "
+         "later caller declared")
+    voiced = "(the whole choir answers here)"
+    check("strip_parens=False reads real syllables from a whole-line "
+          "parenthetical",
+          len(read_line(voiced, strip_parens=False).units) > 0,
+          f"{len(read_line(voiced, strip_parens=False).units)} units read")
+    check("strip_parens=True (the default) still reads none -- unchanged, "
+          "this is a non-sung aside unless declared otherwise",
+          len(read_line(voiced).units) == 0)
+    check("calling strip_parens=False and then True in either order gives "
+          "the same two answers -- the cache is keyed on the value, not "
+          "overwritten by whichever call happened first",
+          len(read_line(voiced).units) == 0 and
+          len(read_line(voiced, strip_parens=False).units) > 0 and
+          len(read_line(voiced).units) == 0)
+
+
 def main():
     for t in (test_the_count_is_in_the_phonologys_own_grid_unit,
               test_a_refused_token_makes_the_count_a_lower_bound,
@@ -592,7 +609,8 @@ def main():
               test_the_boundary_is_a_value_in_the_module,
               test_the_shipped_song,
               test_all_nine_declared_phonologies_go_through_it,
-              test_the_cycle_helpers_refuse_the_same_way_the_cycle_does):
+              test_the_cycle_helpers_refuse_the_same_way_the_cycle_does,
+              test_strip_parens_reaches_the_english_syllable_path):
         t()
     print("\n" + "=" * 62)
     if FAILURES:

@@ -86,13 +86,11 @@ def main():
     c_sil, w_sil = idx.dispersion(tokens(FIXTURE_SILENT), 4)
     ok(f"SILENT: {FIXTURE_SILENT!r}", c_sil == 0,
        f"got {c_sil} authors, witness {w_sil!r}")
-    # The first draft of this test asserted 0 at EVERY n and FAILED at n=2,
-    # which is why it is written this way now. At n=2 the line scores 32 --
-    # on `and every`, `began to` and `for him`. That is not the check finding
-    # the cliche; it is the check finding three function-word bigrams, which
-    # is the same defect one n lower. The assertion pins the mechanism rather
-    # than the round number: silent from n=3 up, and whatever fires at n=2 is
-    # closed-class.
+    # A lower n can still fire on ordinary grammar even when the cliche-level
+    # n is silent, which is not the check finding a cliche -- it is the check
+    # finding a function-word bigram, the same defect one n lower. The
+    # assertion pins the mechanism rather than a fixture-specific count:
+    # silent from n=3 up, and whatever fires at n=2 is closed-class.
     ok("SILENT holds at every n from 3 to 6 — not an artifact of one n",
        all(idx.dispersion(tokens(FIXTURE_SILENT), n)[0] == 0
            for n in range(3, 7)),
@@ -104,10 +102,10 @@ def main():
     n2 = [g for g in (" ".join(tokens(FIXTURE_SILENT)[i:i + 2])
                       for i in range(len(tokens(FIXTURE_SILENT)) - 1))
           if len(idx.idx.get(g, ())) >= 2]
-    # Written twice and wrong once. "entirely closed-class" FAILED: the
-    # tagger reads `began to` as VBD+TO, so one of the three carries a light
-    # verb. The defensible claim -- and the one T2 measures -- is that every
-    # n=2 witness is at least HALF closed-class.
+    # The defensible claim, and the one T2 measures, is that every n=2
+    # witness is at least HALF closed-class -- a tagger can read a light verb
+    # into a bigram that is otherwise grammar, so ENTIRELY closed-class is
+    # not guaranteed of every witness, only of most.
     def halffun(g):
         t = [tg.get(w) for w in g.split()]
         return sum(1 for x in t if x in FUNCTION_TAGS) * 2 >= len(t)
@@ -116,9 +114,11 @@ def main():
        bool(n2) and all(halffun(g) for g in n2),
        f"n=2 witnesses {n2} tagged "
        f"{[[tg.get(w) for w in g.split()] for g in n2]}")
-    ok("2 of the 3 n=2 witnesses are ENTIRELY closed-class",
-       sum(1 for g in n2
-           if all(tg.get(w) in FUNCTION_TAGS for w in g.split())) == 2)
+    ok("every n=2 witness is ENTIRELY closed-class",
+       n2 and all(all(tg.get(w) in FUNCTION_TAGS for w in g.split())
+                  for g in n2),
+       f"n=2 witnesses {n2} tagged "
+       f"{[[tg.get(w) for w in g.split()] for g in n2]}")
 
     print("\n== the sparsity wall is real, not a threshold choice (§2) ==")
     mx5 = max((len(v) for g, v in idx.idx.items() if g.count(" ") == 4),

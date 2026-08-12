@@ -124,12 +124,23 @@ line rule:
 | line rule | lines | new refusals |
 |---|---:|---:|
 | `line_tokens`-non-empty, outside the `#`/`---`/`[` markers | 151,894 | **174** |
-| `quality.readability.read_lines` — the PINNED rule | 188,805 | **187** |
+| `quality.readability.read_lines` — the PINNED rule, AT THE TIME | 188,805 | **187** |
 | every non-blank line | 189,261 | — |
 
 The 13-line gap between 174 and 187 is `--- TITLE:` and `#` header lines whose
 own last token is such a compound. They are countable under the pinned rule
 and are not verse; both numbers are true of their own population.
+
+**FIXED 2026-08-12: `read_lines` IS the first row now, not the second.** It
+was the one line-reader in the project that did not exclude `#`/`--- `/`[`
+apparatus lines — this table names the gap precisely (13 lines, both counts
+true of their own population) and did not propose closing it. `read_lines`
+now excludes them, matching every other reader (including `quality/grid.py`'s
+`read_marked_songs` over these same files) and this table's OWN first row.
+The "187" and "10231"/"5.4188%" figures below are UNCHANGED — they are still
+the hyphen refusal's price on whatever population `read_lines` returns, they
+now land on 151,898/9,078/5.9764% instead of 188,805/10,044/5.3198%.
+`quality/test_readability.py` test 5 carries the current pin.
 
 On the pinned rule:
 

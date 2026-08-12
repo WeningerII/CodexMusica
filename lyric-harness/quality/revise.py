@@ -52,14 +52,11 @@ maximal cliques may OVERLAP — giving structures with NO LETTER REPRESENTATION
 AT ALL. So the loop could grade only the projections the doctrine calls lossy,
 and the projection is exactly the thing that sometimes does not exist.
 
-Both halves reproduced on the song this repo wrote:
-
-    python3 lyric_harness.py partition examples/never_been_to_a_scene.txt
-        -> 41 lines, the cliques OVERLAP, NO LETTER SCHEME EXISTS
-    python3 lyric_harness.py brief examples/never_been_to_a_scene.txt
-        -> "nothing flagged"
-
-The second is not a clean draft. With no scheme declared NOTHING WAS MANDATED,
+Both halves reproduce on any real draft whose rhyme graph's maximal cliques
+overlap: `partition` reports NO LETTER SCHEME EXISTS, and `brief` on the same
+file with no scheme declared reports "nothing flagged" — not because the
+draft is clean, but because nothing was mandated for it to violate.
+NOTHING WAS MANDATED,
 so it passed VACUOUSLY — doctrine 20 in a new place, inconclusive by
 construction dressed as a pass. A grader whose answer to "check this against
 nothing" is "looks fine" is worse than no grader, because it prints a
@@ -110,7 +107,7 @@ __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
 #: NO COLLISION CODE IS IN HERE, AND THAT IS A DECISION RATHER THAN AN
 #: OVERSIGHT — see `Reviser.brief`'s "WHY A COLLISION EARNS NO FIELD".
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
-                  "SHARED_SUFFIX", "REPEAT_IN_VERSE"}
+                  "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME"}
 
 #: The three things a band-passing pair that shares no mandated group can BE.
 #: One code said all three until 2026-08-11 and its message said "rhyme" for
@@ -230,10 +227,10 @@ class ReviseDeclaration:
     #: It ABSORBS AND NEVER ADDS: a merge is only reported over edges the
     #: loop was already emitting, so no setting of this makes the loop say
     #: something about a pair it was previously silent on. That guard is not
-    #: cosmetic — without it the rule fires on `cherokee_bill`'s C[5,6] and
-    #: H[15,16] (`man`~`gun` at 0.878), which satisfy the mandate jointly and
-    #: are NOT collisions, and the loop would be volunteering an opinion about
-    #: a rhyme the writer did not make on a song that passes 14/14.
+    #: cosmetic — without it the rule fires on two DECLARED groups whose end
+    #: words happen to satisfy the mandate jointly and are NOT collisions,
+    #: and the loop would be volunteering an opinion about a rhyme the
+    #: writer did not make on a draft that otherwise passes clean.
     group_merge: str = "report"          # "report" | "off"
 
 
@@ -624,10 +621,9 @@ class Reviser:
         LINE, so a scheme cannot say "these two groups are the same words
         coming back" — it is FORCED to spend two letters on one returning
         section, and the collision detector then reports, as unintended rhyme
-        across groups, the identity the projection was forced to hide. On
-        `never_been_to_a_scene` that is 16 of 26 collisions and on
-        `cherokee_bill` 4 of 12: one true sentence about the mandate,
-        rendered as twenty accusations against sixteen innocent lines.
+        across groups, the identity the projection was forced to hide: one
+        true sentence about the mandate, rendered as an accusation against
+        an innocent line.
 
         AND IT DOES NOT DECIDE WHETHER THE RETURN WAS INTENDED. Two groups
         being indistinguishable in the graph is compatible with a refrain and
@@ -752,7 +748,7 @@ class Reviser:
         for i, (p, text) in enumerate(zip(places, lines)):
             ln = i + 1
             lf = FT.fit_line(text, p, subdivision=subdivision, assume=assume,
-                             line_index=i)
+                             line_index=i, strip_parens=self.lex.strip_parens)
             for f in lf.findings:
                 ev = f.evidence
                 if f.conditional_on:
@@ -785,8 +781,7 @@ class Reviser:
 
         A blueprint section has always been able to carry `"function"`, and
         a blueprint has always been able to carry a top-level `"hooks"`
-        list — `examples/moonlight_and_lead.blueprint.json` has both, and
-        until now NOTHING past `quality/fit.py` read either field.
+        list, and until now NOTHING past `quality/fit.py` read either field.
         `fit.py` has no reason to: it places lines in bars and time, and
         does not know or need to know what a section is FOR. This is that
         gap closed, on the same opt-in coordinate — pass no `blueprint` and
@@ -878,6 +873,14 @@ class Reviser:
         blueprint's sections have always been able to declare `"function"`
         and a blueprint has always been able to carry top-level `"hooks"`,
         and nothing before this read either. See `_function_findings`.
+
+        The returned dict's `"blueprint_declared"` key is `blueprint is not
+        None`, restated in the data rather than left implicit in whatever the
+        caller happened to pass — omitting meter/function is the ordinary
+        case and NOT a Finding (a caller who never asked for that layer is
+        not shown a note about not having asked), but a caller reading this
+        dict alone, later, without the call site in view, has no other way
+        to tell "meter is clean" from "meter was never asked."
         """
         m = self.mandate(lines, mandate)
         per, whole = {}, []
@@ -925,6 +928,53 @@ class Reviser:
                 f"{v['members']} but do not rhyme",
                 f"{v['why']} (score {v['score']:.3f}; "
                 f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})", [i, j]))
+        # DOCTRINE 9, ASKED OF A PAIR THAT ALREADY PASSES, NOT ONLY ONE THAT
+        # FAILED. `modal_field` has existed since the candidate field was
+        # built, and every caller of it -- `joint_field`'s own candidate
+        # offer, `verify()`'s `modal_taken` rejection -- only ever consults
+        # it once a pair has ALREADY been flagged and a replacement is being
+        # searched for. A pair that rhymes cleanly on the FIRST draft is
+        # never asked whether the word it landed on was the single most
+        # predictable answer to its partner, because nothing routes a
+        # passing pair through this method at all. FOUND BY MEASURING, NOT
+        # ARGUING: two real songs' worth of pairs that all passed `grade()`
+        # cleanly, checked against `modal_field` after the fact, turned out
+        # to BE the #1 or #2 ranked candidate for half of them -- claim/name,
+        # word/heard, stopped/dropped, night/right were all the single most
+        # frequent realised partner for their call word; trial/denial was
+        # second. Nothing before this line had ever asked the question of a
+        # pair that was never broken.
+        for v in rep["verdicts"]:
+            if v["why"] or v["relation"] == "REPEAT":
+                continue          # a violation, or a declared identity
+            i, j = v["lines"]
+            wi, wj = (w.lower() for w in v["endwords"])
+            _, forbidden_i = self.modal_field(wi, profile=profile)
+            _, forbidden_j = self.modal_field(wj, profile=profile)
+            hits = []
+            if wj in forbidden_i:
+                hits.append(f"{v['endwords'][1]!r} is one of the "
+                            f"{self.rdecl.modal_exclusion} most-predictable "
+                            f"answers to {v['endwords'][0]!r}")
+            if wi in forbidden_j:
+                hits.append(f"{v['endwords'][0]!r} is one of the "
+                            f"{self.rdecl.modal_exclusion} most-predictable "
+                            f"answers to {v['endwords'][1]!r}")
+            if not hits:
+                continue
+            add(j, Finding(
+                "MODAL_RHYME", "note",
+                f"L{i}/L{j} rhyme, but the pair is one this word's own "
+                f"forbidden-modal set would exclude if either line were "
+                f"being revised",
+                "; ".join(hits) + ". modal_exclusion="
+                f"{self.rdecl.modal_exclusion}; set it to 0 to silence this "
+                "the same way it silences the reactive check. Doctrine 9's "
+                "exclusion is otherwise only consulted when fixing an "
+                "already-flagged line; this asks the same question of a "
+                "pair that never failed anything, because a first draft "
+                "can reach for the predictable rhyme exactly as easily as "
+                "a revision can.", [i, j]))
         default_licensed = self.rdecl.repeat_licence == "refrain"
         for v in rep["repeats"]:
             i, j = v["lines"]
@@ -1102,8 +1152,17 @@ class Reviser:
                     add(ln, f)
             whole.extend(m_whole)
             whole.extend(self._function_findings(lines, blueprint))
+        # `blueprint_declared` is NOT a Finding. Meter/function are an OPT-IN
+        # third source (see this method's own docstring) and omitting them is
+        # the ordinary, common case, not a defect on the draft -- so it does
+        # not belong in `whole`, which callers scan for things WRONG with the
+        # song. It exists because `per_line`/`whole` being silent about meter
+        # is indistinguishable from meter having been checked and found
+        # clean, and a caller reading this dict alone (the CLI already prints
+        # its own disclosure separately; see `_say_blueprint` in
+        # lyric_harness.py) has no other way to tell the two apart.
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
-                "merges": merges}
+                "merges": merges, "blueprint_declared": blueprint is not None}
 
     # -- the brief --------------------------------------------------------
 
@@ -1297,9 +1356,12 @@ class Reviser:
         return `[]`, which a caller printed as "nothing flagged".
 
         `blueprint`/`subdivision`/`assume` pass straight through to
-        `inspect()` — see there for what they add. A line whose only findings
-        are meter (no rhyme finding) is still briefed, with an empty
-        candidate field: `wants` below only checks `RHYME_FINDINGS`, and a
+        `inspect()` — see there for what they add, and for
+        `"blueprint_declared"`, which this method does NOT surface (a
+        `Brief` is a per-LINE record and whether meter was asked at all is a
+        whole-draft fact); call `inspect()` directly for that. A line whose
+        only findings are meter (no rhyme finding) is still briefed, with an
+        empty candidate field: `wants` below only checks `RHYME_FINDINGS`, and a
         meter code is never in it, so a meter-only line is never handed a
         list of rhyme words it has no use for.
 
@@ -1415,8 +1477,16 @@ class Reviser:
         the flagged rhyme and breaks the meter is caught by the diff below
         exactly the way one that fixes the rhyme and breaks another rhyme
         already is. No separate meter-specific rejection rule exists.
+
+        `out["blueprint_declared"]` says whether meter/function were asked at
+        all — see `inspect()`'s own key of the same name. `fixed`/`new` are
+        unaffected either way: a finding that is absent because it was never
+        asked is absent from BOTH `before` and `after` identically and
+        cancels out of the diff, same as one that is absent because it is
+        genuinely clean.
         """
-        out = {"accepted": False, "reasons": []}
+        out = {"accepted": False, "reasons": [],
+               "blueprint_declared": blueprint is not None}
         m = self.mandate(before, mandate)
         if len(before) != len(after):
             out["reasons"].append(
@@ -1442,7 +1512,8 @@ class Reviser:
                                assume=assume)
 
         def codes(f):
-            """The finding set, keyed so a diff can tell two of a kind apart.
+            """The finding MULTISET, keyed so a diff can tell two of a kind
+            apart AND count how many of each it holds.
 
             A whole-draft finding used to key on `(0, code)` alone. That was
             right while every one of them was unique per draft
@@ -1453,17 +1524,65 @@ class Reviser:
             "nothing was fixed" about a revision that fixed something. So a
             whole finding that carries locations keys on its FIRST line —
             still a 2-tuple, still sorts, and now one key per finding.
-            Doctrine 47: a loop that cannot see the change it asked for is a
-            rubber stamp in the other direction.
-            """
-            return {(ln, x.code) for ln, fs in f["per_line"].items()
-                    for x in fs} | {(min(x.locations) if x.locations else 0,
-                                     x.code) for x in f["whole"]}
 
-        cb, ca = codes(f_before), codes(f_after)
-        fixed, new = cb - ca, ca - cb
+            A PIVOT LINE HAS THE SAME SHAPE OF BUG, FOUND THE SAME WAY THE
+            FIRST ONE WAS: measuring, not assuming. A line answering two
+            mandated groups at once can carry TWO `SCHEME_VIOLATION`
+            findings — one per group — and a revision that fixes one while
+            breaking the OTHER still shows the same `(line, "SCHEME_
+            VIOLATION")` key before and after, so a plain set diff reports
+            it as neither fixed nor new: a real regression, invisible. This
+            key stays a bare 2-tuple on purpose (three real call sites
+            outside this module test per-line membership as `(line, code)
+            in res["new"]`, and every one of those codes is genuinely
+            singular per line) — the multiplicity is carried in the COUNT
+            returned here instead, and the caller below diffs it as a
+            multiset rather than a set. Doctrine 47 again: a loop that
+            cannot see the change it asked for is a rubber stamp in the
+            other direction, and that is exactly as true of a count as it
+            is of a key.
+            """
+            return ([(ln, x.code) for ln, fs in f["per_line"].items()
+                     for x in fs]
+                    + [(min(x.locations) if x.locations else 0, x.code)
+                       for x in f["whole"]])
+
+        def severities(f):
+            """(loc, code) -> severity, over the same keys `codes()` mints.
+
+            A NOTE IS NOT A FLAG here either — `report()` already draws this
+            line for what a WRITER sees; the acceptance gate below drew it
+            nowhere, and MODAL_RHYME (doctrine 9 asked of a pair that
+            already passes) is what exposed it: a tier-2 backtrack that
+            fixes a real SCHEME_VIOLATION by landing on `mind`'s own most
+            conventional rhyme was rejected outright for "introducing" a
+            finding whose entire declared purpose is to be disclosed, not
+            enforced (doctrine 7 — a floor may not order the permitted
+            region, and blocking a correct fix on a NOTE is ordering it).
+            """
+            d = {}
+            for ln, fs in f["per_line"].items():
+                for x in fs:
+                    d[(ln, x.code)] = x.severity
+            for x in f["whole"]:
+                d[(min(x.locations) if x.locations else 0,
+                   x.code)] = x.severity
+            return d
+
+        cb, ca = collections.Counter(codes(f_before)), collections.Counter(
+            codes(f_after))
+        # Counter subtraction keeps only the POSITIVE remainder per key: a
+        # key whose count is unchanged (2 before, 2 after) nets to zero on
+        # both sides and lands in neither -- exactly a plain set diff's
+        # behaviour, and where the count genuinely moves this is the fix.
+        fixed, new = set(cb - ca), set(ca - cb)
         out["fixed"] = sorted(fixed)
         out["new"] = sorted(new)
+        sev = severities(f_before)
+        sev.update(severities(f_after))
+        new_flags = {k for k in new if sev.get(k) == "flag"}
+        out["new_flags"] = sorted(new_flags)
+        out["new_notes"] = sorted(new - new_flags)
         out["mandate"] = m
         out["independent"] = m.independent()
 
@@ -1488,15 +1607,18 @@ class Reviser:
         if not fixed:
             out["reasons"].append("nothing was fixed")
             return out
-        if len(new) > self.rdecl.allow_net_new:
+        if len(new_flags) > self.rdecl.allow_net_new:
             out["reasons"].append(
-                f"introduced {len(new)} new finding(s) {sorted(new)} while "
-                f"fixing {len(fixed)}; a revision may not trade one defect "
-                f"for another")
+                f"introduced {len(new_flags)} new flagged finding(s) "
+                f"{sorted(new_flags)} while fixing {len(fixed)}; a revision "
+                f"may not trade one defect for another")
             return out
         out["accepted"] = True
+        note_disclosure = (f", disclosing {len(out['new_notes'])} new "
+                            f"note(s) {out['new_notes']}"
+                            if out["new_notes"] else "")
         out["reasons"].append(
-            f"fixed {len(fixed)}, introduced {len(new)}, "
+            f"fixed {len(fixed)}, introduced {len(new_flags)}{note_disclosure}, "
             f"changed only {sorted(changed)}")
         if not m.independent():
             out["reasons"].append(
@@ -1537,13 +1659,13 @@ class Reviser:
                 state = "FLAGGED" if ln in flagged else "answers all of them"
                 print(f"  PIVOT L{ln} in groups {', '.join(labs)} — {state}",
                       file=stream)
-        # A NOTE IS NOT A FLAG, and this header counted them the same. On the
-        # mandate `never_been_to_a_scene` was written to, it printed "17
-        # line(s) flagged" while every one of the 17 carried nothing but
-        # severity-"note" collisions and not one earned a candidate field — a
-        # certificate of 17 problems on a draft with zero. Doctrine 79's shape
-        # one layer up: report the counts SEPARATELY rather than summing
-        # things that ask different things of a writer.
+        # A NOTE IS NOT A FLAG, and this header used to count them the same:
+        # a draft could have every one of its flagged-looking lines carry
+        # nothing but severity-"note" collisions and not one candidate
+        # field, and still be printed as N problems when the true count of
+        # things a writer must revise was zero. Doctrine 79's shape one
+        # layer up: report the counts SEPARATELY rather than summing things
+        # that ask different things of a writer.
         revise_me = sorted(b.line_no for b in briefs
                            if any(f.severity == "flag" for f in b.findings))
         noted = [b.line_no for b in briefs if b.line_no not in set(revise_me)]

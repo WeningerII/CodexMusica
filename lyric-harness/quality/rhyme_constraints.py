@@ -550,8 +550,8 @@ class Span:
     a grep for a read finds one, and neither is an unread field of the kind
     `relations.py` deleted its `SpanRule.terminator` for.  They are recorded
     in `quality/relations.py`'s `INERT` table with their activation conditions
-    and re-derived by `python3 quality/relations.py --inert lyric.txt`, so the
-    claim is a command rather than this comment.
+    and re-derived by `python3 quality/relations.py --inert metidja.txt`, so
+    the claim is a command rather than this comment.
 
       `unit`        read by `read_channel`, which branches to
                     `_phone_projection` when it is not 'syllable'.  All 40
@@ -561,13 +561,11 @@ class Span:
                     asks for it -- one declared value away.
 
       `terminator`  read by `_extent_from`, and reachable ONLY where
-                    `magnitude` is an int (11 of the 40).  Instrumented on
-                    lyric.txt the read fires 1,054 times and takes the
-                    `locus_edge` side ZERO times: 'count' (994) and
-                    'frame_edge' (60) both fall through to the frame side,
-                    and 'locus_edge' occurs only on `to_locus_end` members
-                    where the read cannot be reached.  Three declared values,
-                    full line coverage, ONE behaviour.  It activates when some
+                    `magnitude` is an int (11 of the 40) -- and every one of
+                    those 11 falls through to the frame side; `locus_edge`
+                    occurs only on `to_locus_end` members where the read
+                    cannot be reached.  Three declared values, full line
+                    coverage, ONE behaviour.  It activates when some
                     constraint asks for an integer magnitude clipped at the
                     token boundary, which is what the field was written for.
 
@@ -795,12 +793,12 @@ def _extent_from(utt, m, frame, locus, anchor, slot):
         n = int(mag)
         idx = list(range(anchor, anchor + n)) if d > 0 \
             else list(range(anchor - n + 1, anchor + 1))
-        # INERT AT THE BRANCH — see Span's docstring. This line runs 1,054
-        # times on lyric.txt and takes the left side 0 of those, because no
-        # shipped constraint pairs an int magnitude with terminator=
-        # 'locus_edge'. Left standing rather than folded to the right side:
-        # the semantics is correct and the missing half is a declared VALUE,
-        # so folding it would delete the capability instead of the defect.
+        # INERT AT THE BRANCH — see Span's docstring. This line runs often
+        # and always takes the right side, because no shipped constraint
+        # pairs an int magnitude with terminator='locus_edge'. Left standing
+        # rather than folded to the right side: the semantics is correct and
+        # the missing half is a declared VALUE, so folding it would delete
+        # the capability instead of the defect.
         lo, hi = (locus.start, locus.stop) if m.span.terminator == "locus_edge" \
             else (frame.start, frame.stop)
         idx = [i for i in idx if lo <= i < hi]
