@@ -236,6 +236,32 @@ array, a single top-level `scheme` string) that neither the old nor the new
 test_verbs.py`'s `song` cases now run against `examples/
 never_been_to_a_scene.blueprint.json`/`.txt` instead.
 
+**BLUEPRINT OMISSION, DISCLOSED AT THE API TOO — FIXED 2026-08-12.** The
+paragraph above closes the CLI's copy of this gap (`_say_blueprint()`); the
+Python API had its own, separate copy. `Reviser.inspect()` silently returned
+nothing about meter/function whenever `blueprint=None` — no different, in
+the returned dict, from meter having been checked and found clean. A caller
+importing `quality.revise.Reviser` directly (or reading a stored/serialized
+`inspect()`/`verify()` result later, without the call site in view) had no
+way to tell the two apart; only the CLI's own print statements ever said so,
+and only when a human was reading stdout. `inspect()` and `verify()` now
+both return a `"blueprint_declared"` key (`blueprint is not None`) alongside
+their existing keys. It is deliberately NOT a `Finding`: omitting an OPT-IN
+layer is the ordinary case (most callers never pass `blueprint=` and have no
+reason to), not a defect on the draft, so it does not belong in `whole`,
+which callers scan for things wrong with the song — and being a plain dict
+key rather than a new Finding code meant the ~50 exact-finding-list
+assertions across `quality/test_revise.py`/`test_loop.py`/`test_g2p.py` this
+fix was originally expected to touch needed NONE of them changed; the whole
+sweep stayed green. `verify()`'s `fixed`/`new` diff is unaffected either
+way, by construction — the key is metadata about the CALL, present
+identically on both `before` and `after` when `blueprint` does not change
+between them, so it cancels out of the diff the same way a genuinely clean
+finding would. `brief()` does NOT surface the key: a `Brief` is a per-LINE
+record and whether meter was asked at all is a whole-draft fact, so a caller
+wanting it calls `inspect()` directly (its own docstring says so).
+`quality/test_revise.py` test 28.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner

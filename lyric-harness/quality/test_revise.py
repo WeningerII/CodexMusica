@@ -1268,6 +1268,61 @@ def test_song_function_folds_into_the_same_finding_set():
           "HOOK_ABSENT" in removed, sorted(removed))
 
 
+def test_blueprint_declared_says_whether_meter_was_asked():
+    print("\n28. `blueprint_declared` — a caller reading inspect()/verify()'s "
+         "own returned dict, without the call site in view, can tell "
+         "'meter is clean' from 'meter was never asked'")
+    lines = song_lines()
+    m = R.mandate_from_graph(lines)
+
+    no_bp = R.inspect(lines, m)
+    check("omitted blueprint: the key says so",
+          no_bp["blueprint_declared"] is False)
+    check("...and it is not smuggled into `whole` as a Finding — omitting "
+          "an OPT-IN layer is the ordinary case, not a defect on the draft",
+          not any("BLUEPRINT" in f.code for f in no_bp["whole"]))
+
+    with_bp = R.inspect(lines, m, blueprint=SONG_BLUEPRINT)
+    check("declared blueprint: the key says so",
+          with_bp["blueprint_declared"] is True)
+    check("...present ALONGSIDE the meter/function findings it now carries, "
+          "not instead of them",
+          len(with_bp["whole"]) > len(no_bp["whole"]),
+          f"{len(no_bp['whole'])} -> {len(with_bp['whole'])}")
+
+    v_no_bp = R.verify(lines, lines, m)
+    check("verify() carries the same key when no blueprint is passed",
+          v_no_bp["blueprint_declared"] is False)
+    v_with_bp = R.verify(lines, lines, m, blueprint=SONG_BLUEPRINT)
+    check("...and flips to True with one, on the SAME lines both sides",
+          v_with_bp["blueprint_declared"] is True)
+
+    # doctrine 47 in miniature: the key is metadata about the CALL, not a
+    # Finding that could appear on one side of a diff and not the other, so
+    # it cannot perturb `fixed`/`new` — verified directly against test 25's
+    # own accepted revision rather than asserted in the abstract here.
+    after = list(lines)
+    after[0] = (lines[0] + " today and every single morning after that as "
+                "well, over and over again without end")
+    sub = FT.Subdivision(slots_per_pulse=2,
+                         source="test_revise.py test 28, reusing test 25's "
+                                "own rejected revision")
+    res = R.verify(lines, after, m, targeted={1}, blueprint=SONG_BLUEPRINT,
+                   subdivision=sub)
+    check("the same rejection test 25 exercises still rejects, with the "
+          "new key just along for the ride",
+          not res["accepted"] and res["blueprint_declared"] is True,
+          res["reasons"][0][:120])
+
+    # brief() does NOT surface the key — it is a per-line Brief list, and
+    # whether meter was asked is a whole-draft fact. Call inspect() for it
+    # (see brief()'s own docstring).
+    briefs = R.brief(lines, m, blueprint=SONG_BLUEPRINT)
+    check("brief()'s own objects carry no such attribute — by design, not "
+          "by oversight",
+          bool(briefs) and not hasattr(briefs[0], "blueprint_declared"))
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -1295,7 +1350,8 @@ if __name__ == "__main__":
                test_why_a_collision_earns_no_field,
                test_meter_folds_into_the_same_finding_set,
                test_grade_asks_the_mandate_before_the_switch,
-               test_song_function_folds_into_the_same_finding_set):
+               test_song_function_folds_into_the_same_finding_set,
+               test_blueprint_declared_says_whether_meter_was_asked):
         fn()
     print("=" * 62)
     if FAILURES:

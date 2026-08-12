@@ -878,6 +878,14 @@ class Reviser:
         blueprint's sections have always been able to declare `"function"`
         and a blueprint has always been able to carry top-level `"hooks"`,
         and nothing before this read either. See `_function_findings`.
+
+        The returned dict's `"blueprint_declared"` key is `blueprint is not
+        None`, restated in the data rather than left implicit in whatever the
+        caller happened to pass — omitting meter/function is the ordinary
+        case and NOT a Finding (a caller who never asked for that layer is
+        not shown a note about not having asked), but a caller reading this
+        dict alone, later, without the call site in view, has no other way
+        to tell "meter is clean" from "meter was never asked."
         """
         m = self.mandate(lines, mandate)
         per, whole = {}, []
@@ -1102,8 +1110,17 @@ class Reviser:
                     add(ln, f)
             whole.extend(m_whole)
             whole.extend(self._function_findings(lines, blueprint))
+        # `blueprint_declared` is NOT a Finding. Meter/function are an OPT-IN
+        # third source (see this method's own docstring) and omitting them is
+        # the ordinary, common case, not a defect on the draft -- so it does
+        # not belong in `whole`, which callers scan for things WRONG with the
+        # song. It exists because `per_line`/`whole` being silent about meter
+        # is indistinguishable from meter having been checked and found
+        # clean, and a caller reading this dict alone (the CLI already prints
+        # its own disclosure separately; see `_say_blueprint` in
+        # lyric_harness.py) has no other way to tell the two apart.
         return {"per_line": per, "whole": whole, "mandate": m, "grade": rep,
-                "merges": merges}
+                "merges": merges, "blueprint_declared": blueprint is not None}
 
     # -- the brief --------------------------------------------------------
 
@@ -1297,9 +1314,12 @@ class Reviser:
         return `[]`, which a caller printed as "nothing flagged".
 
         `blueprint`/`subdivision`/`assume` pass straight through to
-        `inspect()` — see there for what they add. A line whose only findings
-        are meter (no rhyme finding) is still briefed, with an empty
-        candidate field: `wants` below only checks `RHYME_FINDINGS`, and a
+        `inspect()` — see there for what they add, and for
+        `"blueprint_declared"`, which this method does NOT surface (a
+        `Brief` is a per-LINE record and whether meter was asked at all is a
+        whole-draft fact); call `inspect()` directly for that. A line whose
+        only findings are meter (no rhyme finding) is still briefed, with an
+        empty candidate field: `wants` below only checks `RHYME_FINDINGS`, and a
         meter code is never in it, so a meter-only line is never handed a
         list of rhyme words it has no use for.
 
@@ -1415,8 +1435,16 @@ class Reviser:
         the flagged rhyme and breaks the meter is caught by the diff below
         exactly the way one that fixes the rhyme and breaks another rhyme
         already is. No separate meter-specific rejection rule exists.
+
+        `out["blueprint_declared"]` says whether meter/function were asked at
+        all — see `inspect()`'s own key of the same name. `fixed`/`new` are
+        unaffected either way: a finding that is absent because it was never
+        asked is absent from BOTH `before` and `after` identically and
+        cancels out of the diff, same as one that is absent because it is
+        genuinely clean.
         """
-        out = {"accepted": False, "reasons": []}
+        out = {"accepted": False, "reasons": [],
+               "blueprint_declared": blueprint is not None}
         m = self.mandate(before, mandate)
         if len(before) != len(after):
             out["reasons"].append(
