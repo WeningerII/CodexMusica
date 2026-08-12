@@ -161,6 +161,33 @@ what is declared but unread" rather than building something new.
   already is. `quality/test_revise.py` test 27, `quality/test_grid.py`
   §11-15 for `song_from_blueprint` itself.
 
+**THE BUILT-AND-TESTED WAS NOT THE REACHABLE — FIXED 2026-08-11.** Everything
+above was true at the Python API: `Reviser.brief`/`.verify` and
+`revise_loop` have taken `blueprint=`/`subdivision=`/`assume=` since meter
+joined the loop, and song-function joined it in the paragraph just above
+this one. NONE OF IT COULD BE REACHED FROM THE COMMAND LINE. `brief`,
+`verify` and `revise` — the only verbs that run the loop at all — parsed
+just a file, a mandate spec, and (for `verify`) targeted line numbers;
+there was no `--blueprint` anywhere in that block, so a run through the CLI
+was rhyme-and-floor only, silently, no matter what the library underneath
+it could do. (A fourth verb, `song BLUEPRINT LYRIC`, does take a
+blueprint — but calls `check_song`, an older function that never touches
+`Reviser`, `Mandate`, or the slop floor, so even the one CLI surface that
+looked blueprint-aware never did rhyme grading either.) `--blueprint=`,
+`--subdivision`, `--isochronous` — the same three flags `fit` already
+reads — now reach all three verbs, and a run through `revise` immediately
+found the gap real: the mechanical stub proposer tried to swap a chorus
+word, and the loop rejected it for introducing `HOOK_ABSENT` — the first
+time a CLI run of this project's own flagship verb has ever seen the
+song-function layer say no. Omitting `--blueprint` changes nothing about
+the rhyme/floor behaviour that already existed. WHETHER IT WAS OMITTED IS
+DISCLOSED EITHER WAY, not left for a caller to notice on their own —
+printed as soon as a mandate is known to exist. The one exception is doctrine
+20's own case: with no mandate at all, `brief`/`verify`/`revise` REFUSE
+immediately, and that refusal has to be the first thing printed
+(`quality/test_verbs.py` §6 pins this), so the blueprint line is skipped
+rather than printed ahead of a refusal about an entirely different layer.
+
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
 map against the dispatch and against `--help`, NAMES every one-shot runner

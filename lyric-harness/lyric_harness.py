@@ -3247,15 +3247,22 @@ the quality layer (each says which module answered):
                           lowercase = rhyme only): villanelle, triolet,
                           rondel, ballade... and, given a lyric, whether the
                           refrains actually came back
-  brief  FILE [MANDATE]   what to revise, and what is FORBIDDEN.
+  brief  FILE [MANDATE] [--blueprint=B] [--subdivision N] [--isochronous]
+                          what to revise, and what is FORBIDDEN.
                           MANDATE is a letter scheme (ABAB; X = free),
                           --groups=1,3;2,4 (1-based, may OVERLAP), or
                           --cliques (the song's own graph structure).
                           With NO mandate it REFUSES: nothing declared means
                           nothing mandated, and "nothing flagged" about that
-                          is a vacuous pass (doctrine 20)
-  verify BEFORE AFTER [MANDATE] [lines]  did the revision earn it
-  revise FILE [MANDATE]   the automated write-check-fix LOOP: brief() and
+                          is a vacuous pass (doctrine 20). --blueprint joins
+                          meter (quality/fit.py) and song-function
+                          (quality/grid.py) to the SAME finding set --
+                          omitted, only rhyme and the slop floor are asked,
+                          same as before this flag existed
+  verify BEFORE AFTER [MANDATE] [lines] [--blueprint=B] [--subdivision N]
+         [--isochronous]  did the revision earn it
+  revise FILE [MANDATE] [--blueprint=B] [--subdivision N] [--isochronous]
+                          the automated write-check-fix LOOP: brief() and
                           verify() driven to convergence with a mechanical
                           stub proposer (quality/loop.py). Two tiers -- swap
                           a flagged line's own word, or BACKTRACK an anchor
@@ -4125,6 +4132,67 @@ def main():
         from quality.schemes import NoMandate
         rv = Reviser(lex=lex, decl=decl)
 
+        # `--blueprint=`/`--subdivision`/`--isochronous`: THE SAME THREE
+        # DECLARED COORDINATES the `fit` verb already reads, wired here for
+        # the first time. `Reviser.brief`/`.verify` and `revise_loop` have
+        # taken `blueprint=`/`subdivision=`/`assume=` since the meter and
+        # song-function layers were folded into their finding set -- but
+        # nothing on this command line could ever hand them one, so every
+        # run through here was rhyme-and-floor only, silently, no matter
+        # what the Python API supported. Omit `--blueprint` and nothing
+        # changes; these three verbs behave exactly as they did before this
+        # existed.
+        from quality import fit as FT
+        bp_path = _flag_value(args, "--blueprint", eq_only=True)
+        sub_arg = _flag_value(args, "--subdivision")
+        subdivision = FT.Subdivision(
+            slots_per_pulse=int(sub_arg),
+            source="lyric_harness.py brief/verify/revise --subdivision, an "
+                   "explicit decision by whoever ran the command") \
+            if sub_arg is not None else None
+        assume = FT.Isochrony(
+            source="lyric_harness.py brief/verify/revise --isochronous, an "
+                   "explicit assumption by whoever ran the command") \
+            if "--isochronous" in args else None
+
+        def _say_blueprint():
+            """Printed only once a mandate spec is known to be present —
+            with NO mandate this verb REFUSES immediately (doctrine 20) and
+            that refusal has to be the FIRST thing printed, not buried under
+            a disclosure about a layer that was never going to run either
+            way (`quality/test_verbs.py` pins the refusal to line 1)."""
+            if bp_path:
+                print(f"  BLUEPRINT: {bp_path} — meter and song-function "
+                      f"join the rhyme/floor finding set"
+                      + (f", subdivision={sub_arg}" if sub_arg else
+                         ", NO SUBDIVISION DECLARED — the slot questions "
+                         "refuse rather than assume one"))
+            else:
+                print("  BLUEPRINT: none declared — meter and song-function "
+                      "are NOT asked; only rhyme and the slop floor are "
+                      "(doctrine 20: this is a refusal on those two layers, "
+                      "not evidence they are clean)")
+
+        # `verify`'s [MANDATE] [lines] are POSITIONAL (`args[3]`, `args[4]`),
+        # so a trailing `--blueprint=...` has to be pulled out of `args`
+        # before that indexing runs, or it would be read as the targeted-
+        # line spec instead of a flag. Consumed here, once, for all three
+        # verbs sharing this branch.
+        _FLAG_NAMES = ("--blueprint", "--subdivision", "--isochronous")
+        args, _skip = list(args), False
+        cleaned = []
+        for a in args:
+            if _skip:
+                _skip = False
+                continue
+            base = a.split("=", 1)[0]
+            if base in _FLAG_NAMES:
+                if "=" not in a and base != "--isochronous":
+                    _skip = True          # space-separated form: eat the value
+                continue
+            cleaned.append(a)
+        args = cleaned
+
         def _mandate_arg(spec, lines):
             """CLI spelling -> anything `quality.schemes.mandate` accepts.
 
@@ -4175,7 +4243,10 @@ def main():
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
                 _say_derived(scheme)
-                briefs = rv.brief(lines, scheme)
+                if scheme is not None:
+                    _say_blueprint()
+                briefs = rv.brief(lines, scheme, blueprint=bp_path,
+                                  subdivision=subdivision, assume=assume)
                 # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
                 # BACKLOG 1.2's acceptance names `brief` as well as
                 # `check_scheme`, and a brief is where the misattribution
@@ -4242,9 +4313,13 @@ def main():
                 scheme = _mandate_arg(args[3] if len(args) > 3 else None,
                                       before)
                 _say_derived(scheme)
+                if scheme is not None:
+                    _say_blueprint()
                 targeted = ({int(x) for x in args[4].split(",")}
                             if len(args) > 4 else None)
-                v = rv.verify(before, after, scheme, targeted=targeted)
+                v = rv.verify(before, after, scheme, targeted=targeted,
+                              blueprint=bp_path, subdivision=subdivision,
+                              assume=assume)
                 print(f"  VERDICT: "
                       f"{'ACCEPTED' if v.get('accepted') else 'REJECTED'}")
                 for r in v.get("reasons", []):
@@ -4267,7 +4342,10 @@ def main():
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
                 _say_derived(scheme)
-                result = LP.revise_loop(rv, lines, scheme)
+                if scheme is not None:
+                    _say_blueprint()
+                result = LP.revise_loop(rv, lines, scheme, blueprint=bp_path,
+                                        subdivision=subdivision, assume=assume)
                 print(result)
                 if result.lines != lines:
                     print("\n  FINAL DRAFT:")
