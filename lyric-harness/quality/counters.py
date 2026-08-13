@@ -89,6 +89,7 @@ parse fails, the counter REFUSES; it never falls back to a remembered value.
 """
 
 import argparse
+import ast
 import collections
 import csv
 import os
