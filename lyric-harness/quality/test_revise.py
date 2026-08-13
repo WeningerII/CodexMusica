@@ -102,6 +102,28 @@ check, and that is what running them found:
         word makes a mandated rhyme UNKNOWN rather than absent, the pair is
         refused rather than violated, and the three counts stay three.
 
+Test 33 is a FOURTH declared-and-unread coordinate, found the same way and
+fixed 2026-08-13. `Mandate.scope` says which lines a mandate SPEAKS ABOUT, and
+`Mandate.requirement` answers `UNDECLARED` — "cannot tell" — for a pair
+touching a line outside it, which doctrine 28 keeps strictly apart from
+`FREE`'s "nothing required here". `grade()`'s COLLISION LOOP never asked.
+MEASURED on this file's own 41-line fixture scoped to its chorus: a full
+`inspect()` was BYTE-IDENTICAL to the unscoped run — same 73 collisions, same
+97 per-line findings, same messages — and 49 of those 73 touch a line the
+mandate says it does not speak about, rendered to the writer as
+`L1 (free) and L3 (free) RHYME and share no mandated group`, printing the one
+word doctrine 28 exists to keep separate.
+
+REPORTED, NOT SUPPRESSED, and that is the decision the test pins. Dropping the
+49 would trade a mislabel for a silence: a scoped run emitting 24 collisions
+would be indistinguishable from one where all 73 pairs were checked and 49 came
+back clean — doctrine 20's collapse pointed the other way — and doctrine 24
+says a rule that would delete a category must RELABEL instead. So the SET is
+unchanged and the 49 come back under a fourth code, `COLLISION_UNDECLARED`
+(a note, in `COLLISION_FINDINGS`, in no candidate field), plus one whole-draft
+`MANDATE_SCOPE_DECLARED` stating the coordinate and the two counts separately.
+Every production mandate has an empty scope, so the default path is untouched.
+
 Run: python3 quality/test_revise.py
 """
 
@@ -144,6 +166,11 @@ CLICHE = ["The candle burned and set the room on fire",
 #: the mandate declared here is a letter string over the two choruses.
 SONG = os.path.join(HERE, "fixtures", "mandate_song.txt")
 SONG_SCHEME = "XXXXXXXXXXXXABCBADCDXXXXXXXXXXXXEFGFEHGHX"
+#: the same chorus return `quality/test_mandate_language.py` declares, in the
+#: same notation -- L33-40 ARE L13-20. Used by test 33, whose subject is the
+#: OTHER coordinate on that mandate (`scope`), so the return half is held
+#: fixed and spelled the way the sibling suite spells it.
+SONG_RETURN = "chorus:33-40<=13-20"
 SONG_BLUEPRINT = os.path.join(HERE, "fixtures", "mandate_song.blueprint.json")
 
 #: A constructed blueprint that DECLARES section function and a hook --
@@ -1680,6 +1707,154 @@ def test_scheme_unreadable_is_not_a_violation():
           f"refused")
 
 
+def test_scope_reaches_the_collision_loop():
+    print("\n33. `Mandate.scope` reaches the COLLISION LOOP — a pair the "
+          "mandate does not speak about is UNDECLARED, not an unintended "
+          "rhyme (doctrine 20/28), and not silence either (doctrine 24)")
+    lines = song_lines()
+    groups = [[13, 17], [14, 16], [15, 19], [18, 20]]
+    chorus = list(range(13, 21)) + list(range(33, 41))
+    plain = SC.mandate(groups, n_lines=41, returns=SONG_RETURN)
+    scoped = SC.mandate(groups, n_lines=41, returns=SONG_RETURN, scope=chorus)
+
+    rep_p, rep_s = R.grade(lines, plain), R.grade(lines, scoped)
+    ins_p, ins_s = R.inspect(lines, plain), R.inspect(lines, scoped)
+
+    # (1) THE MEASUREMENT THIS TEST EXISTS FOR. Before the fix these two runs
+    # were BYTE-IDENTICAL: same 73 collisions, same 97 per-line findings, same
+    # messages -- a declared coordinate changing nothing at all.
+    und = [c for c in rep_s["collisions"] if c.get("undeclared")]
+    check("the scoped run marks the collisions that touch a line the mandate "
+          "does not speak about",
+          len(rep_s["collisions"]) == 73 and len(und) == 49,
+          f"{len(und)} of {len(rep_s['collisions'])} collisions are "
+          f"UNDECLARED; the mandate speaks about {len(scoped.scope)} of 41 "
+          f"lines. Before 2026-08-13 `grade()`'s collision loop never asked "
+          f"`Mandate.scope` at all and this was 0 of 73")
+    check("and the UNSCOPED mandate marks none of them — the default path is "
+          "the one every production mandate takes",
+          not any(c.get("undeclared") for c in rep_p["collisions"])
+          and len(rep_p["collisions"]) == 73)
+
+    # (2) RELABEL, NEVER DELETE (doctrine 24). The SET is the same set.
+    check("the collision SET is unchanged by the scope — same 73 pairs",
+          {c["lines"] for c in rep_p["collisions"]}
+          == {c["lines"] for c in rep_s["collisions"]},
+          "suppressing the 49 would make a scoped run indistinguishable from "
+          "one where those pairs were checked and came back clean, which is "
+          "doctrine 20's collapse pointed the other way -- and an unmandated "
+          "rhyme is quite often the best thing in a song")
+    by_p = collections.Counter(f.code for fs in ins_p["per_line"].values()
+                               for f in fs if f.code in COLLISION_FINDINGS)
+    by_s = collections.Counter(f.code for fs in ins_s["per_line"].values()
+                               for f in fs if f.code in COLLISION_FINDINGS)
+    check("every collision finding the scoped run drops it RE-EMITS under the "
+          "fourth code — the partition is exact, nothing is silenced",
+          sum(by_p.values()) == sum(by_s.values())
+          and by_s["COLLISION_UNDECLARED"] == 49
+          and by_p["COLLISION_UNDECLARED"] == 0,
+          f"unscoped {dict(by_p)}  ->  scoped {dict(by_s)}")
+    check("...and it is drawn from ALL THREE relation types, so the code is "
+          "not a rename of one of them",
+          (by_p["SCHEME_COLLISION"] - by_s["SCHEME_COLLISION"],
+           by_p["NEAR_COLLISION"] - by_s["NEAR_COLLISION"],
+           by_p["REPEAT_ACROSS_GROUPS"] - by_s["REPEAT_ACROSS_GROUPS"])
+          == (25, 20, 4),
+          "25 rhymes + 20 near-relations + 4 repeats = the 49")
+
+    # (3) WHAT THE FINDING SAYS. `FREE` is the word doctrine 28 exists to keep
+    # apart from UNDECLARED, and the old rendering printed exactly it: a line
+    # in no group prints as `free`, and out-of-scope lines are in no group.
+    uf = [f for fs in ins_s["per_line"].values() for f in fs
+          if f.code == "COLLISION_UNDECLARED"]
+    check("no UNDECLARED collision is described to the writer as `free` — "
+          "'cannot tell' and 'nothing required here' are different answers",
+          uf and not any("free" in f.message for f in uf),
+          f"{len(uf)} finding(s); before the fix all 49 were rendered "
+          f"`L1 (free) and L3 (free) RHYME and share no mandated group`")
+    check("it names WHICH line is outside the scope, and what the pair WOULD "
+          "have been called if the mandate reached it",
+          bool(uf) and all("DOES NOT SPEAK" in f.message for f in uf)
+          and any("would be reported as SCHEME_COLLISION" in f.evidence
+                  for f in uf)
+          and any("would be reported as NEAR_COLLISION" in f.evidence
+                  for f in uf),
+          uf[0].message if uf else "not emitted")
+    check("it is a NOTE, never a flag: the mandate declined to speak here, so "
+          "this cannot be a thing the loop asks a writer to change "
+          "(doctrine 7)",
+          bool(uf) and all(f.severity == "note" for f in uf))
+
+    # (4) SAID ONCE, ABOUT THE MANDATE. Doctrine 1: state the assumption.
+    disc = [f for f in ins_s["whole"] if f.code == "MANDATE_SCOPE_DECLARED"]
+    check("the scope itself is disclosed once, with the two counts kept "
+          "SEPARATE (doctrine 79)",
+          len(disc) == 1 and "16 of 41" in disc[0].message
+          and "24 are inside that scope" in disc[0].message
+          and "49 touch a line it does not speak about" in disc[0].message,
+          disc[0].message if disc else "not emitted")
+    check("and an unscoped mandate discloses nothing, because it has nothing "
+          "to disclose — it speaks about every line",
+          not [f for f in ins_p["whole"]
+               if f.code == "MANDATE_SCOPE_DECLARED"])
+
+    # (5) THE CUT NOTE IS A STATEMENT ABOUT THE CUT, so it counts the same
+    # near-relations either way -- the scope changes who is charged, never
+    # which pairs the scalar-only cut let through.
+    cut_p = [f for f in ins_p["whole"]
+             if f.code == "COLLISION_CUT_IS_SCALAR_ONLY"]
+    cut_s = [f for f in ins_s["whole"]
+             if f.code == "COLLISION_CUT_IS_SCALAR_ONLY"]
+    check("`COLLISION_CUT_IS_SCALAR_ONLY` reports the same 28 of 73 with the "
+          "scope on and off",
+          len(cut_p) == len(cut_s) == 1
+          and cut_p[0].message == cut_s[0].message,
+          cut_s[0].message if cut_s else "not emitted")
+
+    # (6) A MERGE CAN NEVER BE UNDECLARED, and that is not luck:
+    # `_normalise_scope` REFUSES a scope that leaves out a line the mandate's
+    # own groups or returns name, so every group member is in scope.
+    absorbed = {(i, j) for mg in ins_s["merges"] for i, j, *_ in mg["edges"]}
+    check("no edge absorbed into a group merge is UNDECLARED — a scope that "
+          "excluded a mandated line would have been REFUSED at construction",
+          all(not c.get("undeclared") for c in rep_s["collisions"]
+              if tuple(c["lines"]) in absorbed),
+          f"{len(absorbed)} absorbed edge(s)")
+
+    # (7) THE SMALL CASE, checkable in one step (doctrine 94's shape: a
+    # constructed fixture beside the real one).
+    m4 = SC.mandate([[1, 3]], n_lines=4, scope=[1, 3])
+    ins4 = R.inspect(CLICHE, m4)
+    got = [f.code for fs in ins4["per_line"].values() for f in fs
+           if f.code in COLLISION_FINDINGS]
+    plain4 = [f.code for fs in R.inspect(CLICHE, SC.mandate([[1, 3]],
+                                                            n_lines=4))
+              ["per_line"].values() for f in fs
+              if f.code in COLLISION_FINDINGS]
+    check("four lines: L2/L4 rhyme, the mandate speaks only about L1/L3, so "
+          "that one collision is UNDECLARED — and is SCHEME_COLLISION under "
+          "the same mandate with no scope",
+          got == ["COLLISION_UNDECLARED"] and plain4 == ["SCHEME_COLLISION"],
+          f"scoped {got}, unscoped {plain4}")
+
+    # (8) A SCOPE THAT COVERS EVERY LINE IS NOT A NARROWING. It is still a
+    # DECLARATION, so it is still disclosed -- but no pair can be UNDECLARED
+    # under it, and every collision code is what it was.
+    full = SC.mandate(groups, n_lines=41, returns=SONG_RETURN,
+                      scope=list(range(1, 42)))
+    ins_f = R.inspect(lines, full)
+    by_f = collections.Counter(f.code for fs in ins_f["per_line"].values()
+                               for f in fs if f.code in COLLISION_FINDINGS)
+    check("a scope over ALL 41 lines reproduces the unscoped collision codes "
+          "exactly, and discloses itself as speaking about all of them",
+          by_f == by_p and not by_f["COLLISION_UNDECLARED"]
+          and any("41 of 41" in f.message for f in ins_f["whole"]
+                  if f.code == "MANDATE_SCOPE_DECLARED"),
+          f"{dict(by_f)} -- `scope` is a claim about what the mandate "
+          f"COVERS, and covering everything is the same claim the empty "
+          f"tuple makes implicitly")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -1712,7 +1887,8 @@ if __name__ == "__main__":
                test_modal_rhyme_fires_on_a_passing_pair,
                test_return_out_of_range_names_a_case_it_cannot_be_given,
                test_excused_by_overlap_is_a_per_line_condition,
-               test_scheme_unreadable_is_not_a_violation):
+               test_scheme_unreadable_is_not_a_violation,
+               test_scope_reaches_the_collision_loop):
         fn()
     print("=" * 62)
     if FAILURES:
