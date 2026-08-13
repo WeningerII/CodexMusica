@@ -655,3 +655,26 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/audit_time_pooled_null.py --check
+
+      # THE KALEVALA ALLITERATION COUNTS. Added 2026-08-13, and this one IS
+      # number-pinnable where the pooled-Fisher check next door is not: the
+      # alliteration counts are exact over a fixed window, so `--check` pins
+      # them and leaves the null medians (samples) to the printed p.
+      #
+      # It had drifted, and the script had been announcing the drift to itself:
+      # it printed `verse lines extracted: 22795   (data/sources.tsv records
+      # 22,822)` on every run and exited 0 anyway, because `main()` returned
+      # None and `sys.exit` was never called with a code. 3,246 of the first
+      # 4,000 is now 3,253 -- 81.2% -> 81.3%. Repinned in METHOD.md,
+      # POSITIVE_CONTROL.md and NULL_AUDIT.md the same day.
+      #
+      # §2.2's actual finding is untouched: the within-line shuffle is still a
+      # no-op on 4000/4000 and 22795/22795 lines, because the statistic reads
+      # CO-MEMBERSHIP and no permutation of a line's words changes which
+      # initials share it. 81.3% against a null median of ~30% is not sensitive
+      # to a tenth of a point; what it IS sensitive to is whether the recorded
+      # number is the one the code produces. ~5 s. Proven red before wiring.
+      - name: Kalevala alliteration counts against their committed values
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_kalevala_null.py --check

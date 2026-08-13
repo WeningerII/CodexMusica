@@ -461,6 +461,29 @@ not a caesura measurement, which is a second reason not to read it.
 
 ### 2.2 Kalevala 81.2% alliteration — and the obvious null is a no-op
 
+> **REPINNED 2026-08-13: 81.3%, and the line count was wrong in the record all
+> along.** `python3 quality/audit_kalevala_null.py --check` measures **22,795**
+> verse lines (the record says 22,822) and **3,253** of the first 4,000
+> alliterating (the record says 3,246), i.e. **81.3%** rather than 81.2%.
+> The script had been PRINTING the line-count disagreement on every run —
+> `verse lines extracted: 22795   (data/sources.tsv records 22,822)` — and
+> exiting 0 regardless, because `main()` returned None and `sys.exit` was never
+> called with a code. Nothing ran it, so nobody read the disagreement it was
+> printing to itself. Fourth instrument of that shape found in a day.
+>
+> **The finding of this section is untouched and is not about the rate.** The
+> within-line shuffle is still a no-op — it agrees with the observation on
+> 4000/4000 and 22795/22795 lines — because the statistic reads CO-MEMBERSHIP,
+> not arrangement, and no permutation of a line's words changes which initials
+> share it. The separation against a null that does destroy co-membership is
+> 81.3% against a median of ~30%, so a 0.1 pp movement in the observation is
+> not a quantity this argument is sensitive to. What it IS sensitive to is
+> whether the number in the record is the number the code produces.
+>
+> `--check` pins the DETERMINISTIC counts only — lines extracted, lines
+> alliterating in each window. The null medians are samples and are left to the
+> printed p.
+
 `data/sources.tsv` and `POSITIVE_CONTROL.md` Part E record "81.2% alliterate"
 as a bare rate. **The audit brief's default null for a line-internal relation
 would have manufactured a perfect null here:** "two or more words in this line

@@ -432,7 +432,7 @@ failures are as informative as the finds.
 | cell | outcome | scale |
 |---|---|---|
 | Persian ghazal | **FOUND** `kavehbc/hafez`, MIT + author d.1390 | 495 ghazals, radif visible in **297** |
-| Finnish Kalevala | **FOUND** `GITenberg/Kalevala_7000`, PD both routes | **22,822 verse lines**, 81.2% alliterate |
+| Finnish Kalevala | **FOUND** `GITenberg/Kalevala_7000`, PD both routes | **22,795 verse lines**, 81.3% alliterate *(REPINNED 2026-08-13 from 22,822 / 81.2%)* |
 | Finnish SKVR | already held; row sharpened | 87,898 poems / 1,305,915 lines |
 | Sanskrit | **FOUND** DCS, **CC BY 4.0** | 270 texts; yamaka sarga complete |
 | Old Norse | **CONTESTED** `sagadb.org`; Háttatal **blocked** | 1,228 lines / 814 blocked |

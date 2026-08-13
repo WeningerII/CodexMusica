@@ -196,6 +196,7 @@ def main(path, n=200):
     print(f"verse lines extracted: {len(lines)}"
           f"   (data/sources.tsv records 22,822)")
     rng = random.Random(SEED)
+    measured = {"extracted": len(lines)}
 
     for label, sub in (("first 4000 lines (the recorded window)",
                         lines[:FIRST_N]),
@@ -205,6 +206,7 @@ def main(path, n=200):
         obs, hit = rate(rows)
         wl = sum(len(r) for r in rows) / len(rows)
         classes = Counter(h for r in rows for h in r if h is not None)
+        measured[label] = {"lines": len(rows), "alliterating": hit}
         print(f"\n=== {label}: {len(rows)} lines, "
               f"{hit} alliterating, mean {wl:.2f} words/line")
         print(f"    distinct initial classes = {len(classes)}; "
@@ -231,8 +233,66 @@ def main(path, n=200):
         report("NULL B  column permutation within line-length strata",
                obs, b, n)
 
+    return measured
+
+
+#: THE DETERMINISTIC COUNTS, which is what makes this one pinnable at all.
+#: Unlike `audit_time_pooled_null.py` -- where every figure is a Monte Carlo
+#: estimate and only a DIRECTION can be checked -- the alliteration counts here
+#: are exact over a fixed window. The null medians are samples and are NOT
+#: pinned; the separation is enormous (81% against ~30%) and is left to the
+#: printed p.
+#:
+#: MEASURED 2026-08-13, and two of the three had drifted from the record:
+#:   verse lines extracted   22,822 recorded  ->  22,795   (the script already
+#:                           printed this disagreement and exited 0 anyway)
+#:   first-4000 alliterating  3,246 recorded  ->   3,253   (81.2% -> 81.3%)
+#: Doctrine 58: argue these and repin. Do not adjust `verse_lines` to hit them.
+PINNED = {"extracted": 22795,
+          "first 4000 lines (the recorded window)": {"lines": 4000,
+                                                     "alliterating": 3253},
+          "all verse lines": {"lines": 22795, "alliterating": 18828}}
+
+DEFAULT_CORPUS = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                              "..", "corpus", "fin_kalevala.txt")
+
+
+def check(m):
+    """-> exit code. FAILS LOUDLY; it does not report and continue."""
+    print()
+    print("=" * 74)
+    print("CHECK -- the committed alliteration counts against this run")
+    print("=" * 74)
+    bad = 0
+    ok = m.get("extracted") == PINNED["extracted"]
+    bad += not ok
+    print(f"  [{'ok  ' if ok else 'FAIL'}] verse lines extracted   committed "
+          f"{PINNED['extracted']}"
+          + ("" if ok else f", measured {m.get('extracted')}"))
+    for label in ("first 4000 lines (the recorded window)", "all verse lines"):
+        want, got = PINNED[label], m.get(label, {})
+        for k in ("lines", "alliterating"):
+            ok = got.get(k) == want[k]
+            bad += not ok
+            print(f"  [{'ok  ' if ok else 'FAIL'}] {label[:28]:28s} {k:13s} "
+                  f"committed {want[k]}"
+                  + ("" if ok else f", measured {got.get(k)}"))
+    if bad:
+        print()
+        print(f"  {bad} figure(s) moved. The ingestion or quality/phonology/"
+              f"fin.py has changed under this arm.")
+        print("  Repin with the date and keep the superseded value visible "
+              "(doctrine 17).")
+    print()
+    print("RESULT:", "PASS" if not bad else "FAIL")
+    return 0 if not bad else 1
+
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
+    argv = [a for a in sys.argv[1:] if a != "--check"]
+    if "--check" in sys.argv:
+        # The null draw costs the runtime and `check` does not read it.
+        sys.exit(check(main(argv[0] if argv else DEFAULT_CORPUS, 5)))
+    if not argv:
         sys.exit(__doc__)
-    main(sys.argv[1], int(sys.argv[2]) if len(sys.argv) > 2 else 200)
+    main(argv[0], int(argv[1]) if len(argv) > 1 else 200)

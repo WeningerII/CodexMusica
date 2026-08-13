@@ -711,7 +711,11 @@ is fetched. These bind while you are reading what you fetched.
    of any public GitHub repo works, and GUTENBERG IS MIRRORED ON GITHUB as the
    GITenberg org. The second directly overturned a NOT-FOUND row this project
    had already written and committed — the Finnish Kalevala, recorded as
-   unreachable, fetched in one call and validated at 81.2% alliteration. A
+   unreachable, fetched in one call and validated at 81.2% alliteration
+   (REPINNED 2026-08-13: 81.3%, 3,253 of the first 4,000 verse lines, and
+   22,795 lines extracted rather than the 22,822 recorded -- MEASURED by
+   `quality/audit_kalevala_null.py --check`, which had printed the line-count
+   disagreement on every run and exited 0 regardless). A
    sourcing failure is a claim about the network at a moment, not about the
    world; date it and re-run it when the map changes.
 
