@@ -666,8 +666,8 @@ def test_rep_is_the_first_member():
     ok("exactly those two pairs move, in opposite directions",
        _moved(w) == [(1, 6), (2, 8)], f"{_moved(w)}")
 
-    print("\n    WHY THE SHIPPED FIXTURES ARE BLIND — doctrine 94's companion, "
-          "and the reason this section is not written on either of them")
+    print("\n    WHY THE SHIPPED FIXTURES ARE BLIND — doctrine 94's "
+          "companion, and why this section is written on neither of them")
     both = S.mandate(SONG_SCHEME, returns=SONG_RETURN)
     ok("SONG_SCHEME letters BOTH chorus instances, so the two readings agree "
        "at every one of its 820 pairs",
