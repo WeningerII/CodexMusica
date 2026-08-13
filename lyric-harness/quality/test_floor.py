@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from quality.floor import (CALIBRATION, Finding, FloorDeclaration,  # noqa: E402
-                           SlopFloor)
+                           PROFILES, SlopFloor, declaration_for)
 
 FAILURES = []
 FLOOR = SlopFloor()
@@ -533,6 +533,76 @@ def test_anaphora_tie_break_reproduces():
           f"{sorted(seen)}")
 
 
+
+def test_the_two_mutants_this_suite_could_not_see():
+    """Both survived `quality/mutate.py`'s sweep on 2026-08-13.
+
+    Neither is hypothetical. Each is a one-line edit to `quality/floor.py` that
+    the whole ten-file inventory ran against and did not notice, and both are
+    in the GENEROUS direction -- they only ever REMOVE findings. That is
+    doctrine 94 as a measurement rather than a worry: a positive-case suite
+    cannot find a rule that is too generous, because every case it carries is
+    one the rule is supposed to pass.
+    """
+    print("\n19. the two mutants this suite could not see (doctrine 94)")
+
+    # QF4 -- `declaration_for` returned `min(reach, key=gap)`; the mutant
+    # returned `reach[0]`. PROFILES is ordered section, sonnet, song, so at 150
+    # tokens the mutant grades a real song on the SECTION profile's 29-37 token
+    # percentiles: an extrapolation of 113 tokens past a measured edge, at a
+    # length the song profile actually MEASURED. This suite asserted which
+    # profile is chosen only at lengths where every rule agrees, so the
+    # difference was invisible to it.
+    # THE LENGTH MATTERS, and getting this wrong once is why it is spelled
+    # out. At 150 tokens `declaration_for` returns from its `covers` loop and
+    # never reaches the mutated line at all, so a test at 150 passes under the
+    # mutant too. The discriminating lengths are the ones where NO profile
+    # covers and two REACH -- there the rule picks the smallest extrapolation
+    # and `reach[0]` picks whichever comes first in PROFILES.
+    order = [p.name for p in PROFILES]
+    check("PROFILES is ordered section, sonnet, song",
+          order == ["section", "sonnet", "song"], " -> ".join(order))
+    for n in (149, 140):
+        reach = [p.name for p in PROFILES if p.reaches(n)]
+        got, exact = declaration_for(n)
+        check(f"at {n} tokens two profiles REACH and neither COVERS -- the "
+              f"mutated line is live here",
+              reach == ["sonnet", "song"] and not exact, f"reaches {reach}")
+        check(f"...and the choice is `song`, the smaller extrapolation",
+              got.name == "song",
+              f"got {got.name!r}. `reach[0]` would give {reach[0]!r} -- "
+              f"{n - 126} tokens past the sonnet's measured 126, against "
+              f"{150 - n} short of the song's 150. This is the worked case "
+              f"`declaration_for`'s own comment records")
+    for n, want in ((150, "song"), (400, "song"), (37, "section"),
+                    (126, "sonnet")):
+        got, exact = declaration_for(n)
+        check(f"...and at {n} tokens it is `{want}`, EXACT",
+              got.name == want and exact, f"got {got.name!r}, exact={exact}")
+    far, exact_far = declaration_for(1000)
+    check("past every profile's REACH the answer is None, not a nearest guess",
+          far is None and not exact_far,
+          "doctrine 15 -- text outside every calibrated length gets no "
+          "length-sensitive finding at all, rather than one extrapolated "
+          "600 tokens past a measured edge")
+
+    # QF2 -- the radif licence needs BOTH a count of >= 2 pairs AND a fraction
+    # >= radif_min_pair_fraction. The mutant kept only the count. floor.py's
+    # own docstring records the case it was written for: in a 31-pair rap
+    # verse, two pairs that happen to end in `it` cleared a bare count of two
+    # and were licensed as a refrain. Nothing here distinguished "2 of 2" from
+    # "2 of many", so this constant -- declared, and marked DEFINITIONAL -- had
+    # never been asserted at all.
+    check("radif_min_pair_fraction is declared and non-trivial",
+          0.0 < FLOOR.decl.radif_min_pair_fraction <= 1.0,
+          f"{FLOOR.decl.radif_min_pair_fraction} -- a fraction of ALL pairs, "
+          f"not a count, which is the half the mutant dropped")
+    check("...and it is DEFINITIONAL, so it is not a tunable threshold",
+          "radif_min_pair_fraction" in CALIBRATION.get("definitional", []),
+          "a definitional constant states what the word MEANS; moving it "
+          "changes the claim rather than the sensitivity")
+
+
 if __name__ == "__main__":
     for fn in (test_never_returns_a_score, test_too_short_is_silent,
                test_repeat_in_verse, test_single_pair_repeat_is_undecidable,
@@ -549,7 +619,8 @@ if __name__ == "__main__":
                test_the_song_profile_makes_no_separation_claim,
                test_the_song_profile_did_not_swallow_everything,
                test_the_examples_are_not_in_the_calibration_set,
-               test_anaphora_tie_break_reproduces):
+               test_anaphora_tie_break_reproduces,
+               test_the_two_mutants_this_suite_could_not_see):
         fn()
     print("=" * 62)
     if FAILURES:
