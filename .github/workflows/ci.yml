@@ -453,3 +453,104 @@ jobs:
 
       - name: Cross-artifact tandem (source ↔ HTML ↔ zip, + audit snapshots)
         run: npm run tandem
+
+  # ── The record checks: does the repo still say what the code does? ────────
+  #
+  # THE FIRST PYTHON THIS WORKFLOW HAS EVER RUN. Until now `lyric-harness/` —
+  # 74 production modules, ~57k lines, 44 test modules — was executed by CI
+  # zero times. No workflow referenced python, pytest or .py; no npm script
+  # invoked one; there is no pytest.ini, tox.ini, pre-commit or Makefile. Every
+  # check in that subtree ran only when a human remembered to type the command.
+  #
+  # An execution-traced audit on 2026-08-13 priced that. Findings the four
+  # checks below would each have caught, and did not because nothing ran them:
+  #   * CLAUDE.md asserted "Whitman 17.3% chained — MEASURED, and battery.py
+  #     prints it". battery.py printed 10.7%. Wrong by 6.6 points, in the one
+  #     place the sentence invites a reader to check it.
+  #   * The same block pinned the sonnet oracle at 81/8.0%; battery.py's own
+  #     EXPECTED had said 82/8.1% for two days.
+  #   * quality/matrix_eval.json went stale on 2026-08-10 and stayed stale
+  #     through 31 commits to the comparator, while NULL_AUDIT.md listed it
+  #     under "Reproduced exactly, no defect found".
+  #   * verify_entries.py was RED — a false BACKLOG line-count entry — and had
+  #     been for an unknown period, because nothing ran it either.
+  #
+  # WHY THESE FOUR AND NOT THE SUITES. These are the checks that compare the
+  # RECORD against the CODE; they are cheap and they fail loud. The test suites
+  # are a different job: quality/test_revise.py and test_loop.py each take 15+
+  # minutes, and quality/song_profile_calibration.py --check — the fifth drift
+  # detector — re-derives a 143-file corpus and needs 2.5-4 hours, not the
+  # "order of an hour" its docstring claims. Putting a multi-hour job here to
+  # look thorough is how a required check becomes one people skip.
+  #
+  # Measured on this repo: 4s + 4s + 5s + 25s. The 10-minute timeout is a
+  # runaway guard, not a budget.
+  #
+  # ALL FOUR WERE PROVEN TO FAIL before this job was added, by injecting the
+  # breakage each one names and confirming a non-zero exit: a renumbered
+  # doctrine (gap at 50) -> verify_doctrines exit 1; a false MODULE_LINE_COUNT
+  # claim -> verify_entries exit 1; a false committed counter -> counters exit
+  # 1; a perturbed AUC -> eval_matrix exit 1. That exercise found a fifth
+  # defect: verify_doctrines' contiguity check printed WARN and never set
+  # `ok`, so a deleted or renumbered doctrine exited 0 -- this job's first step
+  # would have been green on precisely the breakage it is named for. Fixed in
+  # the same commit. A check that cannot fail is decoration (doctrine 48), and
+  # adding one to CI makes it worse than decoration: it makes it a promise.
+  record:
+    needs: gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # No pip install: the harness is pure standard library by design, and
+      # `quality/declared_inputs.py` is the record of that boundary. If this
+      # step ever needs a requirements file, that is a change worth arguing
+      # rather than a line to add here.
+      - name: Confirm the harness needs no third-party packages
+        working-directory: lyric-harness
+        run: python3 -c "import lyric_harness, quality.floor, quality.revise; print('stdlib-only import OK')"
+
+      # cmudict.dict is 3.6 MB, gitignored, and fetched from a moving master
+      # branch with no checksum — which the audit flagged as its own defect
+      # (doctrine 34, inside the function whose comment invokes doctrine 34).
+      # Caching it keeps CI off that fetch on most runs; it does not fix the
+      # provenance gap, and is not pretending to. data/opensubtitles_en_50k.tsv
+      # is repo-committed and provenance-gated, so it is never fetched.
+      - name: Cache CMUdict
+        uses: actions/cache@v4
+        with:
+          path: lyric-harness/cmudict.dict
+          key: cmudict-${{ hashFiles('lyric-harness/lyric_harness.py') }}
+          restore-keys: cmudict-
+
+      - name: Stage the lexicon
+        working-directory: lyric-harness
+        run: python3 -c "from lyric_harness import fetch_data; fetch_data(); print('lexicon staged')"
+
+      # Each check runs even if an earlier one failed: they answer independent
+      # questions, and a run that stops at the first red tells you less than
+      # one that reports all four. `if: always()` after the first is what makes
+      # the job a REPORT rather than a tripwire.
+      - name: Doctrine numbering (1-95, no number in both files, every citation resolves)
+        working-directory: lyric-harness
+        run: python3 quality/verify_doctrines.py
+
+      - name: Entry claims (the sentences in MISSING.md and BACKLOG.md, checked)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/verify_entries.py
+
+      - name: Committed counters against their measurement
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/counters.py --check
+
+      - name: The fitted-matrix artifact against a fresh derivation
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/eval_matrix.py --check

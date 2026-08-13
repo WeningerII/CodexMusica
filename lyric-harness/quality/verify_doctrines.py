@@ -173,10 +173,21 @@ def main():
         print("[skip] no baseline on disk; run with --baseline first")
 
     gaps = [n for n in range(1, max(defs) + 1) if n not in defs] if defs else []
-    print(f"[{'ok  ' if not gaps else 'WARN'}] the definition set is a "
+    print(f"[{'ok  ' if not gaps else 'FAIL'}] the definition set is a "
           f"contiguous run 1..{max(defs) if defs else 0}")
     for n in gaps:
         print(f"         doctrine {n} missing from the run")
+    # A GAP IS A FAILURE, not a warning. Until 2026-08-13 this printed WARN and
+    # left `ok` alone, so a deleted or renumbered doctrine exited 0 -- while
+    # CLAUDE.md's own statement of the invariant reads "that set must be
+    # exactly 1-95, with no number in both", and the whole point of the
+    # numbering is that `doctrine 79` resolves from any of ~3,266 citation
+    # sites. Found while adding the CI job that runs this: an injected
+    # out-of-range doctrine printed WARN and the process still exited 0, so
+    # the step would have been green on exactly the breakage it is named for.
+    # A check that cannot fail is decoration (doctrine 48).
+    if gaps:
+        ok = False
 
     gdef, gcited = gap_check()
     missing_gaps = gcited - gdef
