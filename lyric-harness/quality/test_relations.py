@@ -167,7 +167,7 @@ def test_inventory():
           f"{len(rep['reachable'])} reachable "
           f"(2 of those refuse at the SPAN, which is correct: 'penult' and "
           f"'final_unstressed' name nothing in a line of monosyllables). "
-          f"WAS 53/24 until P12: `family rhyme`, `multisyllabic rhyme`, "
+          f"WAS 53/24 until P14: `family rhyme`, `multisyllabic rhyme`, "
           f"`proest` and the 同用 schema compare a channel at a DECLARED "
           f"GRAIN, and a plain English declaration supplies none of the three "
           f"quotients, so they refuse by name instead of answering at the "
@@ -463,7 +463,16 @@ def test_p8_stanza():
 
 
 # ---------------------------------------------------------------------------
-# P12. ClassEqual's partition was the IDENTITY on four of its five channels
+# P14. ClassEqual's partition was the IDENTITY on four of its five channels
+#
+# NUMBERED 14 AND 15, NOT 12 AND 13, and the reason is a finding of its own:
+# quality/RHYME_COVERAGE.md numbers the same set TWICE and the two disagree by
+# one — §4's table runs P0..P12 (thirteen rows) while its own §2 prose calls
+# them "13 producer defects (P1–P13)". Both readings therefore already claim
+# P12 and P13, so a new defect taking either label would name a row that
+# exists. Starting at 14 collides with neither; renaming a shipped row to make
+# room would be worse (doctrine 48's own failure mode, and every P-number in
+# this file names a row a reader can go and check).
 # ---------------------------------------------------------------------------
 
 #: Welsh proest pairs. The coda agrees, the vowels differ, and the vowels are
@@ -500,8 +509,8 @@ def _manner(v):
     return tuple(_MANNER.get(p, p) for p in (v or ()))
 
 
-def test_p12_identity_partition():
-    print("\nP12. a quotient nobody declared is not the identity — proest was "
+def test_p14_identity_partition():
+    print("\nP14. a quotient nobody declared is not the identity — proest was "
           "UNSATISFIABLE, family rhyme fired on cat/bat, 同用 read 流/樓 False")
     from quality.phonology import cym as _cym, ltc as _ltc
     CYM, MC = _cym.Welsh(), _ltc.MiddleChinese()
@@ -628,11 +637,11 @@ def test_p12_identity_partition():
 
 
 # ---------------------------------------------------------------------------
-# P13. `unmatched`'s vocabulary named a value nothing implements
+# P15. `unmatched`'s vocabulary named a value nothing implements
 # ---------------------------------------------------------------------------
 
-def test_p13_unmatched_vocabulary():
-    print("\nP13. `unmatched` declared 'differ', implemented it nowhere, and "
+def test_p15_unmatched_vocabulary():
+    print("\nP15. `unmatched` declared 'differ', implemented it nowhere, and "
           "omitted the two values evaluate() actually branches on")
     branches = {c for c in R.evaluate.__code__.co_consts if isinstance(c, str)}
     check("the four values are MEASURED against evaluate()'s own branches, "
@@ -1438,8 +1447,8 @@ if __name__ == "__main__":
     test_p6_present_vs_absent()
     test_p7_project()
     test_p8_stanza()
-    test_p12_identity_partition()
-    test_p13_unmatched_vocabulary()
+    test_p14_identity_partition()
+    test_p15_unmatched_vocabulary()
     test_build_stream_is_linear()
     test_sequence_predicates_are_implemented()
     test_head_anchored_relations_are_reachable()

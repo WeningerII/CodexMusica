@@ -87,7 +87,8 @@ per field is the work:
             reported 4 of its 12 true instances.  `mirrored()` replaces it and
             `order_burden()` counts what it costs.  All 60 symmetric schemas
             are byte-identical before and after.
-P12 AND P13 CLOSED 2026-08-13, and both are one sentence: A DECLARED
+
+P14 AND P15 CLOSED 2026-08-13, and both are one sentence: A DECLARED
 COORDINATE'S VALUE SET IS ITSELF A CLAIM.  `ClassEqual(partition=lambda v: v)`
 declares a quotient and supplies the identity, which is not one -- it made
 `proest` UNSATISFIABLE (nucleus MUST DIFFER *and* nucleus CLASS-EQUAL are each
@@ -242,7 +243,7 @@ class Frames:
     bayt_source: str = "none"
 
 
-#: Capability prefix for a DECLARED QUOTIENT (defect P12).  `capabilities()`
+#: Capability prefix for a DECLARED QUOTIENT (defect P14).  `capabilities()`
 #: derives `quotient:manner`, `quotient:同用` and the like from the channel
 #: rules themselves, so a schema that compares a channel at a declared GRAIN
 #: refuses on a declaration that supplies no such grain, the same way one
@@ -312,7 +313,7 @@ class Stream:
             return cap in res or any(
                 lv in res for lv, c in _CAP_OF_LEVEL.items() if c == cap)
         if cap.startswith(QUOTIENT_CAP):
-            # DEFECT P12: a quotient nobody declared is not the identity, and a
+            # DEFECT P14: a quotient nobody declared is not the identity, and a
             # schema whose grain is undeclared refuses here rather than
             # answering at the finest grain the channel happens to carry.
             return _quotient_of(self, cap[len(QUOTIENT_CAP):]) is not None
@@ -832,7 +833,7 @@ class ClassEqual(Predicate):
     are the rhyme of 登鸛雀樓), any-vowel-with-any-vowel, 平/仄.  A boolean
     x == y cannot express any of them.
 
-    DEFECT P12, fixed.  `partition=lambda v: v` IS NOT A QUOTIENT, and four of
+    DEFECT P14, fixed.  `partition=lambda v: v` IS NOT A QUOTIENT, and four of
     the five ClassEqual channels in this file shipped with exactly that while
     their own `label` named a partition nobody had written -- "declared manner
     partition", "declared length class", "declared 同用 grouping".  Under the
@@ -1535,7 +1536,7 @@ PAIR = Figure()
 
 
 #: What `unmatched` may say about the material the alignment left over, and
-#: THE LIST IS MEASURED AGAINST `evaluate()` RATHER THAN RECALLED (defect P13).
+#: THE LIST IS MEASURED AGAINST `evaluate()` RATHER THAN RECALLED (defect P15).
 #: The field's own comment used to read `exclude | differ | forbid`: 'differ'
 #: is implemented by nothing and declared by none of the 77 schemas, while
 #: 'require_a' and 'require_b' -- the two values `evaluate()` actually branches
@@ -1570,7 +1571,7 @@ class RelationSchema:
     def __post_init__(self):
         # `unmatched` had FOUR implemented values and its own comment named
         # three, one of which -- 'differ' -- is implemented nowhere and
-        # declared by none of the 77 schemas (defect P13).  An undeclared value
+        # declared by none of the 77 schemas (defect P15).  An undeclared value
         # silently took the 'exclude' path, so a typo and a policy read the
         # same.  Refuse at construction, where the declaration is written.
         if self.unmatched not in UNMATCHED:
@@ -1590,7 +1591,7 @@ class RelationSchema:
         for c in self.channels:
             if c.surface != "phonemic":
                 need.add(c.surface)
-            # DEFECT P12: the GRAIN a channel is compared at is a capability of
+            # DEFECT P14: the GRAIN a channel is compared at is a capability of
             # the declaration, not a constant of the schema.
             q = getattr(c.predicate, "resource", "")
             if q:
@@ -1700,7 +1701,7 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
     enforced = []                    # the subset of `reads` the verdict sees
     for cr in schema.channels:
         mine = []
-        # DEFECT P12: a channel compared at a DECLARED GRAIN takes its quotient
+        # DEFECT P14: a channel compared at a DECLARED GRAIN takes its quotient
         # from the stream.  `realise()` has already refused the schema if the
         # declaration supplies none; a caller reaching `evaluate()` directly
         # gets the predicate's own refusal instead of a verdict at the identity.
@@ -2483,7 +2484,7 @@ declare(RelationSchema(
     note="Forces the CLASS-EQUAL predicate. A boolean _cmp(x,y) returning x==y "
          "cannot express it. quality/fit_matrix.py is a fitted substitution "
          "matrix already built and shelved; the partition slot is where it "
-         "would plug in. DEFECT P12: the slot held `lambda v: v` and the "
+         "would plug in. DEFECT P14: the slot held `lambda v: v` and the "
          "schema was therefore tail rhyme at the FINEST grain wearing a label "
          "about manner classes — `cat`~`bat` read True as a FAMILY relation. "
          "No manner partition is declared anywhere in this repo, so it refuses "
@@ -3052,7 +3053,7 @@ declare(RelationSchema(
     note="a SINGLE CHANNEL carrying TWO predicates at once -- the vowels must "
          "differ in identity AND agree in length class. No one-predicate-per-"
          "channel model can hold it; the channel list is a multiset. DEFECT "
-         "P12: with the identity as the class map those two predicates are "
+         "P14: with the identity as the class map those two predicates are "
          "each other's NEGATION, so the schema was UNSATISFIABLE and every "
          "real Welsh proest pair read False. RHYME_CANON R11 is the spec — "
          "same quantity and same type — and quality/phonology/cym.py declares "
@@ -3081,7 +3082,7 @@ declare(RelationSchema(
     note="doctrine 36: the granularity a REFERENCE WORK records is not the "
          "granularity a FORM works at. prominence here carries 平/仄, because "
          "that is what ltc declares -- there is no stress channel at all. "
-         "DEFECT P12: the grouping this schema is NAMED for was the identity, "
+         "DEFECT P14: the grouping this schema is NAMED for was the identity, "
          "so it compared raw 廣韻 韻 and read 流/樓 -- the rhyme of 登鸛雀樓, "
          "and the pair doctrine 36 is written about -- as False while "
          "ltc.rhymes read True. `quality/phonology/ltc.py` now declares the "

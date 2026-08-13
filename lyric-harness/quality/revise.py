@@ -197,6 +197,12 @@ class ReviseDeclaration:
     #: structure you declare, which is the vacuous pass this module exists to
     #: close. The alternative stays reachable so the choice is measurable
     #: rather than settled by fiat (the shape of doctrine 82/84).
+    #:
+    #: "disjunctive" is read PER LINE, which is how the sentence above is
+    #: written: EVERY line of a failing pair must answer another of its OWN
+    #: groups before the pair is excused, so a line in exactly one group is
+    #: never excused from it. See `grade()` for the predicate and
+    #: `test_revise.py` test 31 for what reading it per PAIR did instead.
     overlap_rule: str = "conjunctive"
 
     #: Doctrine 3: REPEAT is a violation inside a verse and the REQUIREMENT

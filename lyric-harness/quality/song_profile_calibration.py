@@ -5,6 +5,9 @@
     python3 quality/song_profile_calibration.py --check     # numbers only, exit 1 on drift
     python3 quality/song_profile_calibration.py --seeds 50  # faster, wider intervals
     python3 quality/song_profile_calibration.py --sample 400  # bounded, NO VERDICT, exit 3
+    python3 quality/song_profile_calibration.py --check --without-predictability
+                                                # ~110 CPU-s cold; judges 13
+                                                # of 18 constants, refuses 5
     python3 quality/song_profile_calibration.py --no-cache  # recompute every item
 
 WHAT IT COSTS, AND WHY THAT IS THE FIRST THING THIS FILE SAYS. A drift
@@ -13,40 +16,63 @@ a declared, measured, dated coordinate here, exactly like every threshold
 below it.
 
   COLD (nothing cached, the state a fresh clone is in):
-      --check    ~2.4 CPU-hours     MEASURED/PROJECTED 2026-08-13
-      full run   ~2.4 CPU-hours     (sections 3 and 5 add ~9 CPU-s)
+      --check    2.0-2.2 CPU-hours   PROJECTED 2026-08-13, see below
+      full run   2.0-2.2 CPU-hours   (sections 3 and 5 add ~9 CPU-s)
   WARM (this run's cache fingerprint matches the last run's):
-      --check    ~110 CPU-s         the four cheap checks, then statistics
+      --check    ~110 CPU-s      MEASURED 2026-08-13, end to end
       full run   ~120 CPU-s
 
   REPINNED 2026-08-13. This docstring said "on the order of an hour" from
   2026-08-12 until now, and observed `--check` runs took 2.5-4 hours -- so the
-  figure was wrong by 2.5-4x in the one place a reader is invited to trust it,
-  and the check went unrun for exactly that reason. The old figure is kept
-  visible here rather than overwritten, the same way every superseded number
-  in this repo is.
+  figure was wrong by more than a factor of two in the one place a reader is
+  invited to trust it, and the check went unrun for exactly that reason. The
+  old figure stays visible here rather than being overwritten, the same way
+  every superseded number in this repo does.
 
   WHAT WAS WRONG WITH IT IS DOCTRINE 58, PRECISELY. The RATE it quoted was
-  right and reproduces: 0.5-0.8s per DISTINCT end word, measured 2026-08-13 at
-  0.690 CPU-s (se 0.050, random sample of 100 of them). The COUNT it
-  multiplied by was never written down anywhere and was wrong -- "a few
-  thousand distinct end words" is 11,941, counted. 11,941 x 0.690 = 8,239
-  CPU-s of `RhymeField.field()` alone, which is 97.7% of a cold `--check`.
+  right and reproduces: "~0.5-0.8s per DISTINCT end word" measures 0.64 CPU-s
+  (se 0.04, uniform sample of 100). The COUNT it multiplied that rate by was
+  never written down anywhere, and it was wrong -- "a few thousand distinct
+  end words" is 11,941, counted. A rate nobody could check, against a count
+  nobody had taken, is exactly the shape of threshold this file was written to
+  abolish, sitting in this file's own docstring.
 
-  HOW THE FIGURE WAS ARRIVED AT, since it is a PROJECTION and not a
-  stopwatch on a finished run (a full cold run was deliberately not sat
-  through): T = D*c_field + P*c_pair, where D = 11,941 distinct call words and
-  P = 75,397 post-radif pairs are EXACT COUNTS off the corpus, not estimates,
-  and c_field/c_pair are means over a bounded random sample with a reported
-  standard error. The additive model was then checked against a real cold run
-  of 20 randomly drawn items -- predicted vs observed agreed to within 6%.
-  Everything else in a `--check` was measured directly at reduced
-  --seeds/--draws and extrapolated linearly, which is exact for those two:
-  both are `for _ in range(n)` loops with a constant body. Wall-clock is NOT
-  the unit here; the machine this was measured on was descheduled about 4.7x,
-  so its wall figures are ~11 h and mean nothing on other hardware. Every run
-  now prints its own PHASE COST block, so the next reader measures rather than
-  recalls.
+  HOW THE FIGURE WAS ARRIVED AT, and it IS a projection -- a full cold run was
+  deliberately not sat through. The unit of work is not the item and not even
+  the end word: `RhymeField.field(w)` scores `w` against every candidate in
+  the nucleus buckets near its own, and THAT count is derivable without doing
+  the work. Summed over all 11,941 distinct call words it is exactly
+  331,604,100 candidate scorings. So:
+
+      T_pred = 331,604,100 * c_score      c_score = 21-23 microseconds
+             = 7,100-7,700 CPU-s
+      T_cold = T_pred + P*c_pair + T_rest
+             = ~7,400 + 75,397*0.0019 + ~110   = ~7,700 CPU-s = 2.1 h
+
+  The work count is EXACT. c_score was measured three independent ways and
+  they agree: 23.2 us from a uniform sample of 100 distinct words, 21.3 us
+  from a real cold run over 20 randomly drawn ITEMS, and 21.2 us from a real
+  cold `--sample 12` (79.7 CPU-s / 112 distinct calls). T_rest was measured
+  directly at reduced --seeds/--draws and extrapolated linearly, which is
+  exact for those two -- both are `for _ in range(n)` loops with a constant
+  body.
+
+  ONE TRAP WORTH RECORDING, because the obvious validation gets it wrong.
+  Timing a sample of ITEMS and dividing by the distinct words it touched reads
+  0.72 CPU-s per word against the uniform sample's 0.64, which looks like a
+  12% modelling error and is not one: end words reached by drawing items are
+  size-biased toward common words, which sit in the biggest nucleus buckets.
+  Measured, not argued -- item-drawn words score 33,534 candidates each
+  against the population's 27,770, a ratio of 1.21, while the uniform sample
+  stood in for the whole population at 0.991. Per CANDIDATE the two agree, and
+  the candidate is the thing that costs. A per-item validation would have
+  talked this file into a 15% overestimate.
+
+  WALL-CLOCK IS NOT THE UNIT and neither figure above is one. The machine this
+  was calibrated on was descheduled about 4.7x (200s wall against 52s CPU on a
+  known workload), so its own wall reading for a cold run is ~11 h and means
+  nothing anywhere else. Every run now prints a PHASE COST block with wall AND
+  CPU per phase, so the next reader measures instead of recalling.
 
 WHY THIS FILE EXISTS. The song profile ships five thresholds, a token band, a
 tolerance, six false-positive rates and a period slope. Every one of those is
@@ -70,10 +96,14 @@ WHAT IS AND IS NOT INDEPENDENT HERE.
     scored through `RhymeField`, which is built on `Lexicon.freq_rank` --
     `data/opensubtitles_en_50k.tsv` since the 2026-08-11 swap this file used
     to say blocked it. It is real corpus scoring, not the other four checks'
-    plain string/POS arithmetic, and it is where 97.7% of this script's cost
+    plain string/POS arithmetic, and it is where ~96% of this script's cost
     goes -- see the cost block at the top, and the CACHE note below it.
     `population(with_predictability=False)` skips it for a fast four-check
-    pass; the CLI always computes all five.
+    pass, and `--without-predictability` is that pass at the command line;
+    every other invocation computes all five.
+  * The two lyrics in `examples/` are not in `corpus/song/` -- checked by
+    normalised line overlap, 0 of 27 and 0 of 37 -- so the profile scores them
+    without having seen them. `quality/test_floor.py` test 17 pins that.
 
 WHAT THE CACHE DOES AND DOES NOT CHANGE. `predictability_frac(qf, body)` is a
 pure function of the item's own bytes and of the comparator (cmudict, the
@@ -81,15 +111,25 @@ frequency table, `Declaration`, the scoring code) -- `corpus/song/` decides
 WHICH items are asked, never what any one of them answers. So the answers are
 stored, keyed by a hash of the item and guarded by a fingerprint of every one
 of those inputs, and a run whose fingerprint matches reads them back instead
-of recomputing 8,239 CPU-s of identical arithmetic. A hit returns the same
+of recomputing 331 million identical candidate scorings. A hit returns the same
 float a miss would compute -- bit-identical, by construction, and
 `--verify-cache N` re-derives N cached items the slow way and prints any
 disagreement rather than asserting there is none. A fingerprint MISMATCH
 discards the whole file loudly and recomputes; it never silently half-trusts
 one. Nothing about the measurement changes: same items, same corpus, same
 tolerances, same thresholds. The cache is written incrementally, so a cold run
-that is interrupted keeps its progress and the next one resumes -- the 2.4
+that is interrupted keeps its progress and the next one resumes -- the 2.1
 CPU-hours are payable in chunks, and payable once.
+
+WHAT WAS MEASURED AND NOT DONE, so it is not re-proposed as new. Restricting
+the expensive feature to items that can ever land in a band (nothing outside
+50-1000 tokens can reach one in `--check`) removes 796 of the 11,941 distinct
+end words: 6.7% of the cost. It is not taken. A pruned item carries NaN, and
+NaN is already load-bearing here in two OPPOSITE directions -- `thresholds()`
+filters it out as a non-measurement, `fpr()` counts it as a true negative --
+so a row skipped for cost would be indistinguishable from a row that genuinely
+could not be scored, in a file where that distinction decides numbers. 6.7% is
+not worth buying a silent one.
 
 WHAT `--sample N` IS, AND WHAT IT REFUSES TO BE. It scores N randomly drawn
 items instead of all 4,930 and prints exactly what it drew (N, the seed, the
@@ -101,9 +141,21 @@ So it prints every comparison with the shipped constant, prints the resampling
 spread that says which of those deltas its own size could even resolve, gives
 NO verdict, and exits **3** -- never 0, never 1. `--check` exits 0/1 only from
 a full population.
-  * The two lyrics in `examples/` are not in `corpus/song/` -- checked by
-    normalised line overlap, 0 of 27 and 0 of 37 -- so the profile scores them
-    without having seen them. `quality/test_floor.py` test 17 pins that.
+
+WHAT `--without-predictability` IS, AND WHY IT IS THE ONE TO PUT IN CI. It is
+the opposite trade from `--sample`: instead of asking all five checks of a
+FRACTION of the corpus, it asks four of them of ALL of it. Those four are the
+whole of what the profile shipped before 2026-08-13 and they cost ~110 CPU-s
+from cold with no cache at all, because none of them touches `RhymeField`.
+Their answers are EXACT -- not sampled, not interpolated -- so the mode can
+genuinely FAIL on drift, which is what a gate has to be able to do and what
+`--sample` can never do. It refuses five of the eighteen shipped constants and
+names all five (`DROPPED_BY_NO_PRED`): the band, whose selection rule reads
+every check's sub-bin homogeneity and is therefore a DIFFERENT rule with four;
+`predictability`'s own threshold and FPR; and the union FPR, which over four
+checks is not the shipped union over five and can only be lower. It exits 0 on
+a clean run and says PARTIAL PASS with the counts on the same line, so a green
+tick cannot be mistaken for a full check.
 
 WHAT THIS CANNOT SAY. There is no generated song class in this repo, so there
 is no separation, no AUC, and no claim that any of these checks detects machine
@@ -219,7 +271,7 @@ def comparator_fingerprint():
 
     Deliberately OVER-inclusive on the two comparator modules: a whole-file
     hash of `lyric_harness.py` and `quality/features.py` means editing a
-    comment in either throws away a 2.4-CPU-hour cache. That is the correct
+    comment in either throws away a 2.2-CPU-hour cache. That is the correct
     direction to be wrong in -- a stale hit is a wrong number reported as a
     measurement, and this repo has already been bitten by a rate that was a
     coordinate of a comparator that had moved underneath it (CLAUDE.md, Test
@@ -328,8 +380,8 @@ class PredictabilityCache:
     def flush(self):
         """Rewrite atomically. Called every `flush_every` puts so that an
         INTERRUPTED cold run keeps its progress: the expensive half of this
-        script is resumable, which is what makes 2.4 CPU-hours payable in
-        chunks by someone who does not have 2.4 CPU-hours at once."""
+        script is resumable, which is what makes 2.1 CPU-hours payable in
+        chunks by someone who does not have 2.1 CPU-hours at once."""
         if not self.enabled or not self.pending:
             return
         d = os.path.dirname(self.path)
@@ -384,8 +436,10 @@ class Scorer:
 def verify_cache(scorer, bodies, n, seed=SAMPLE_SEED):
     """Re-derive `n` cached items the expensive way; print any disagreement.
 
-    -> (checked, disagreements). Cheap to run and the only thing that turns
-    "a hit is identical by construction" from a claim into a measurement.
+    -> (checked, disagreements). NOT cheap -- a re-derivation is a real cold
+    `field()` sweep over that item's end words, roughly 6 CPU-s each -- but it
+    is the only thing that turns "a hit is identical by construction" from a
+    claim into a measurement, and N is the caller's to choose.
     """
     # read `entries` directly, NOT through .get(), so verification does not
     # pollute the hit/miss counts the run reports for its real lookups
@@ -511,9 +565,9 @@ def population(verbose=True, qf=None, with_predictability=True, scorer=None,
     `RhymeField` index, and the on-disk memo) across a run instead of
     rebuilding it; `with_predictability=False` skips the expensive fifth
     feature entirely for callers who only want the original four (a COLD
-    `RhymeField` lookup is ~0.69 CPU-s per DISTINCT end word against the
-    ~20k-entry index -- fine for one song, 2.3 CPU-hours at corpus scale, and
-    the other four checks owe nothing to it).
+    `RhymeField` lookup is 0.64-0.72 CPU-s per DISTINCT end word against the
+    ~20k-entry index -- fine for one song, ~2.1 CPU-hours over the corpus's
+    11,941 of them, and the other four checks owe nothing to it).
 
     `sample=N` draws N items at random, BEFORE any of them is scored, which is
     the only place a sample can save anything. It is a bounded run and it says
@@ -563,12 +617,25 @@ def population(verbose=True, qf=None, with_predictability=True, scorer=None,
                  len({r["author"] for r in rows}), len(rows),
                  sum(r["n_lines"] for r in rows)))
         if sample is not None:
+            # Say what fraction of the WORK this was, not only what fraction
+            # of the items: the expensive unit is the distinct end word, and
+            # distinct words saturate, so N/4930 of the items is never N/4930
+            # of the cost and quoting the item ratio alone would flatter it.
+            calls = set()
+            for _, _, _, _, _, body in raw:
+                for i, j in _couplet_pairs(body):
+                    if i < len(body) and j < len(body):
+                        c, ans, _k = QualityFeatures._strip_radif(body[i],
+                                                                  body[j])
+                        if c and ans:
+                            calls.add(c)
             print("            SAMPLED %d of %d items at seed %d -- %d of the "
-                  "143 files survive the draw. This is a BOUNDED run: every "
+                  "%d files survive the draw, and %d distinct end words of the "
+                  "corpus's 11,941 get scored. This is a BOUNDED run: every "
                   "number below is a statistic of the sample, and section 6 "
                   "gives no verdict (doctrine 20)."
                   % (len(rows), n_all, sample_seed,
-                     len({r["file"] for r in rows})))
+                     len({r["file"] for r in rows}), len(files), len(calls)))
     return rows, scorer
 
 
@@ -1007,7 +1074,23 @@ def report_sample_resolution(rows, lo, hi, full, boot=200, seed=SAMPLE_SEED):
     return out
 
 
-def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None):
+#: Constants `--without-predictability` cannot decide, and why. Each is named
+#: rather than silently dropped: a check that quietly stops asking about three
+#: of eighteen constants is a partial check reported as a whole one, and the
+#: whole argument for that mode is that it says which is which.
+DROPPED_BY_NO_PRED = [
+    ("band lo (tokens)", "the band rule tests every CHECK's sub-bin "
+                         "homogeneity; without the fifth it is a different rule"),
+    ("band hi (tokens)", "same rule"),
+    ("threshold predictability", "the check is not computed in this mode"),
+    ("held-out FPR predictability (%)", "the check is not computed"),
+    ("held-out FPR ANY (%)", "a union over four checks is not the shipped "
+                             "union over five, and can only be lower"),
+]
+
+
+def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
+                  no_pred=False):
     """Compare what floor.py ships against what the corpus says today.
 
     `sampled` (a dict describing a `--sample` draw) turns every comparison
@@ -1029,8 +1112,11 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None):
     p = song[0]
     bad = []
     counts = {"asked": 0, "answered": 0, "refused": 0}
+    skip = {lbl for lbl, _ in DROPPED_BY_NO_PRED} if no_pred else set()
 
     def cmp(label, shipped, measured, tol):
+        if label in skip:
+            return
         counts["asked"] += 1
         if measured != measured:
             # NaN is "this run could not measure it", which is a REFUSAL and
@@ -1066,6 +1152,14 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None):
                  else shipped, "%.4f" % measured if isinstance(measured, float)
                  else measured, note))
 
+    if no_pred:
+        print("   PARTIAL RUN (--without-predictability). %d constants are "
+              "REFUSED by name below and the rest are judged exactly:"
+              % len(DROPPED_BY_NO_PRED))
+        for lbl, why in DROPPED_BY_NO_PRED:
+            counts["asked"] += 1
+            counts["refused"] += 1
+            print("   %-34s REFUSED: %s" % (lbl, why))
     if sampled and (lo, hi) != (p.lo, p.hi):
         # The band is chosen by a rule with an item-count floor per sub-bin,
         # so a sample does not merely add noise to it -- it can return a
@@ -1098,6 +1192,8 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None):
               "predictability": "predictability", "ANY": "ANY"}
     for f in [c[0] for c in CHECKS] + ["ANY"]:
         k = FPR_KEY[f]
+        if "held-out FPR %s (%%)" % k in skip:
+            continue
         if k not in p.held_out_fpr:
             counts["asked"] += 1
             counts["refused"] += 1
@@ -1146,6 +1242,19 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None):
               "rest." % (counts["refused"], sampled["n"], sampled["of"],
                          counts["answered"]))
         return EXIT_NO_VERDICT
+    if no_pred:
+        # Exit 0, but the last line a reader or a CI log sees says PARTIAL and
+        # names the count. This mode judges the constants it judges EXACTLY --
+        # it is not a sample of them -- so a clean result is a real result about
+        # those; it is simply not a result about the other five, and a green
+        # tick that did not say so would be the decoration doctrine 48 names.
+        print("   PARTIAL PASS: %d constants judged and reproducing, %d "
+              "REFUSED by name above. This is NOT a full check -- the "
+              "predictability threshold, its FPR, the union FPR and the band "
+              "rule are undecided. Run without --without-predictability (and "
+              "with a warm cache) to decide them."
+              % (counts["answered"], counts["refused"]))
+        return EXIT_OK
     print("   every shipped constant reproduces.")
     return EXIT_OK
 
@@ -1190,7 +1299,7 @@ class Phases:
 def main():
     ap = argparse.ArgumentParser(
         description="Re-derive quality/floor.py's `song` profile from "
-                    "corpus/song/. A cold run is ~2.4 CPU-hours (measured "
+                    "corpus/song/. A COLD run is 2.0-2.2 CPU-hours (projected "
                     "2026-08-13); a run whose cache fingerprint still matches "
                     "is ~110 CPU-s. See the module docstring.")
     ap.add_argument("--check", action="store_true",
@@ -1204,26 +1313,53 @@ def main():
     ap.add_argument("--sample-seed", type=int, default=SAMPLE_SEED,
                     help="declared seed for --sample (default %d)"
                          % SAMPLE_SEED)
+    ap.add_argument("--without-predictability", action="store_true",
+                    help="drop the one expensive check and judge the other "
+                         "four EXACTLY over the whole corpus: ~110 CPU-s from "
+                         "cold, no cache needed. Refuses 5 of the 18 shipped "
+                         "constants BY NAME and says so in its last line. The "
+                         "cheapest run that can still fail on real drift.")
     ap.add_argument("--no-cache", action="store_true",
                     help="recompute every item; do not read or write the "
                          "on-disk predictability memo")
     ap.add_argument("--cache-path", default=DEFAULT_CACHE,
                     help="where the memo lives (default %s)" % DEFAULT_CACHE)
     ap.add_argument("--verify-cache", type=int, default=0, metavar="N",
-                    help="re-derive N cached items the slow way and print any "
-                         "disagreement before reporting anything else")
+                    help="re-derive N cached items the slow way and refuse if "
+                         "any disagrees. Meant for a WARM run, where the "
+                         "values came off disk and the re-derivation is "
+                         "genuinely independent; on a cold run it re-checks "
+                         "arithmetic done seconds earlier and proves less. "
+                         "Costs roughly N x 6 CPU-s.")
     a = ap.parse_args()
     if a.sample is not None and a.sample < 1:
         ap.error("--sample takes a positive item count")
 
+    global CHECKS
+    if a.without_predictability:
+        # A DECLARED reduction, announced before any number is printed, and
+        # named again in section 6's own refusal list. `CHECKS` is the one
+        # place every section reads the roster from, so removing it here
+        # removes it consistently -- the band rule, the thresholds, the FPRs
+        # and 4b's Bonferroni denominator all follow from the same list
+        # (doctrine 91: a count is a coordinate of the rendering).
+        CHECKS = [c for c in CHECKS if c[0] != "predictability"]
+        print("MODE  --without-predictability: %d checks, not 5. The dropped "
+              "one is the whole cost (97%% of a cold run) and 5 of the 18 "
+              "shipped constants go undecided with it; they are listed by "
+              "name in section 6." % len(CHECKS))
+
     ph = Phases()
-    cache = PredictabilityCache(a.cache_path, enabled=not a.no_cache).open()
+    cache = PredictabilityCache(
+        a.cache_path, enabled=not (a.no_cache or a.without_predictability)
+    ).open()
     cache.report()
     scorer = Scorer(cache)
 
     ph("population")
     rows, scorer = population(scorer=scorer, sample=a.sample,
-                              sample_seed=a.sample_seed)
+                              sample_seed=a.sample_seed,
+                              with_predictability=not a.without_predictability)
     cache.flush()
     print("CACHE  after population: hits %d, misses %d%s"
           % (cache.hits, cache.misses,
@@ -1274,7 +1410,8 @@ def main():
         ph("sample_resolution")
         resolution = report_sample_resolution(rows, lo, hi, full)
     ph("check_shipped")
-    rc = check_shipped(lo, hi, full, fprs, slopes, sampled, resolution)
+    rc = check_shipped(lo, hi, full, fprs, slopes, sampled, resolution,
+                       no_pred=a.without_predictability)
     ph.stop()
     cache.flush()
     cache.report()
