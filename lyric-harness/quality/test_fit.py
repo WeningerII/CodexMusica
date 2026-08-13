@@ -752,17 +752,34 @@ def test_overlap_is_asked_of_a_flat_line_list_not_only_of_a_songfit():
     check("`overlaps()` and `overlap_findings` agree on the same song",
           n == 2 * pairs,
           f"{n} findings against {pairs} pair(s), two findings per pair")
-    # The gap itself, stated as a fact about the module rather than a memory.
-    import inspect as _inspect
+    # GAP CLOSED 2026-08-13, and this is the positive check the standing-gap
+    # check named as its own replacement. It was written as a NEGATIVE --
+    # "`overlap_findings` not in the source of `_meter_findings`" -- so that
+    # wiring it would fail loudly rather than leave a stale assertion passing
+    # for the wrong reason. It failed on the first run after the wiring, which
+    # is the whole point of writing a gap down as an executable fact instead of
+    # a comment.
+    import lyric_harness as _LH
+    import quality.schemes as _SC
     from quality import revise as RV
-    src = _inspect.getsource(RV.Reviser._meter_findings)
-    check("STANDING GAP: `_meter_findings` still does not call it",
-          "overlap_findings" not in src,
-          "so the revision loop reports nothing about an overlap the `fit` "
-          "verb reports on the same file. When revise.py wires it this check "
-          "FAILS, which is the moment to replace it with the positive one: "
-          "`Reviser.inspect(lines, m, blueprint=bp)` on the blueprint above "
-          "carries OVERLAPPING_SPANS")
+    _rv = RV.Reviser(_LH.Lexicon(), _LH.Declaration())
+    _lines = [l["text"] for l in bp["lines"]]
+    _m = _SC.mandate([[1, 2]], n_lines=len(_lines))
+    _res = _rv.inspect(_lines, _m, blueprint=bp,
+                       subdivision=Subdivision(slots_per_pulse=2,
+                                               source="test"))
+    _codes = [f.code for fs in _res["per_line"].values() for f in fs]
+    check("the revision loop now sees an overlap the `fit` verb sees",
+          "OVERLAPPING_SPANS" in _codes,
+          "`Reviser.inspect` reached it through `fit.overlap_findings`, the "
+          "same function `fit_song` calls -- one check, two surfaces. Before "
+          "the wiring `fit` printed `over 1` on this blueprint and `song` "
+          "printed five meter findings and never mentioned it")
+    check("...and it is a NOTE, because fit.py marks an overlap satisfiable",
+          all(f.severity == "note" for fs in _res["per_line"].values()
+              for f in fs if f.code == "OVERLAPPING_SPANS"),
+          "two vocal parts sharing a pulse is legal; revise.py makes no "
+          "severity decision of its own here (doctrine 6)")
 
 
 def test_fit_song_reads_a_real_grid_song():

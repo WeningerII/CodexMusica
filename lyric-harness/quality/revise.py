@@ -505,8 +505,24 @@ class Reviser:
                 continue
             if v["relation"] == "REPEAT":
                 i, j = v["lines"]
-                declared, is_violation = m.requirement(i, j).decided(
-                    "repeat_is_violation")
+                # GATED ON THE MANDATE HAVING DECLARED ANY RETURN AT ALL --
+                # fixed 2026-08-13, and the comment below was already claiming
+                # this. A mandated pair under a plain LETTER scheme is
+                # REQUIRE_RHYME, whose declared=True/violation=True means
+                # decided() answers before the fallback is ever consulted, so
+                # `repeat_licence="refrain"` was INERT on every letter scheme:
+                # measured on AABB with two identical-word pairs, "refrain"
+                # used to LICENSE the repeat and had come to charge it.
+                # A letter cannot STATE this question -- two states for a
+                # question with five answers -- so REQUIRE_RHYME's True there
+                # is schemes.py's DEFAULT, not the writer's declaration, and
+                # doctrine 1 says a declared coordinate is not silently
+                # outranked by another layer's default. NOT fixed by weakening
+                # REQUIRE_RHYME: that value is doctrine 3 and three sections of
+                # quality/test_mandate_language.py rest on it.
+                declared, is_violation = (
+                    (False, None) if not m.returns
+                    else m.requirement(i, j).decided("repeat_is_violation"))
                 if not (is_violation if declared else not default_licensed):
                     continue
             violations.append(v)
@@ -801,10 +817,25 @@ class Reviser:
                 f"every line after the first difference. They must be the "
                 f"same draft.")
         per, refusals = {}, {}
-        for i, (p, text) in enumerate(zip(places, lines)):
+        fits = [FT.fit_line(text, p, subdivision=subdivision, assume=assume,
+                            line_index=i, strip_parens=self.lex.strip_parens)
+                for i, (p, text) in enumerate(zip(places, lines))]
+        # OVERLAPPING_SPANS IS A RELATION BETWEEN LINES, so `fit_line` cannot
+        # see it from inside one line, and this loop reported nothing about it
+        # for as long as it has existed -- while the `fit` verb, which calls
+        # `fit_song`, has always printed it on the same blueprint. Measured
+        # 2026-08-13 on one file: `fit` prints `over 1` and two findings;
+        # `song` printed five meter findings and never mentioned the overlap.
+        # `fit.overlap_findings` takes exactly this flat list, which is the
+        # object BOTH callers already hold, so the two surfaces now share ONE
+        # check rather than one surface having a check and the other not.
+        # NO SEVERITY DECISION IS MADE HERE, per this method's own docstring:
+        # fit.py marks an overlap satisfiable (two vocal parts is legal), so
+        # the rule below files it as a `note`, which is correct.
+        for i, fs in FT.overlap_findings(fits).items():
+            fits[i].findings.extend(fs)
+        for i, lf in enumerate(fits):
             ln = i + 1
-            lf = FT.fit_line(text, p, subdivision=subdivision, assume=assume,
-                             line_index=i, strip_parens=self.lex.strip_parens)
             for f in lf.findings:
                 ev = f.evidence
                 if f.conditional_on:
@@ -1034,8 +1065,13 @@ class Reviser:
         default_licensed = self.rdecl.repeat_licence == "refrain"
         for v in rep["repeats"]:
             i, j = v["lines"]
-            declared, is_violation = m.requirement(i, j).decided(
-                "repeat_is_violation")
+            # Same gate as `grade()` above, and for the same reason: without
+            # it a letter scheme's REQUIRE_RHYME answers before the switch is
+            # read, and the REFRAIN_REPEAT notes below drop to zero at
+            # repeat_licence="refrain".
+            declared, is_violation = (
+                (False, None) if not m.returns
+                else m.requirement(i, j).decided("repeat_is_violation"))
             if declared:
                 if is_violation:
                     continue          # SCHEME_VIOLATION already covers it
