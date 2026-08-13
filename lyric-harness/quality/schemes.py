@@ -263,14 +263,97 @@ class RefrainScheme:
         A Mandate is a RHYME requirement, and doctrine 3 says REPEAT is a
         violation inside a verse and the requirement across returns. Handing
         these pairs to a rhyme grader would flag every correct refrain.
+
+        THE DRAFT HAS TO BE THE POEM THE NOTATION NUMBERS, and until
+        2026-08-13 nothing here tested that. Every finding below is positional
+        — "the notation's L5 is the draft's fifth line" — and `self.n_lines`
+        comes from the NOTATION while `len(lines)` comes from the DRAFT, two
+        independently sourced numbers that no constructor on this path
+        reconciles. (`Mandate` cannot have this defect the same way:
+        `Reviser.mandate` builds `SC.mandate(spec, n_lines=len(lines))`, so
+        the two agree by construction there.) The old `OUT_OF_RANGE` message
+        NAMED THAT MISMATCH — "the notation declares N lines and M were
+        given" — while its guard tested a refrain LINE INDEX against
+        `len(lines)`, and the two come apart in BOTH directions:
+
+        GENEROUS. On a form whose LAST LINE IS NOT A REFRAIN the mismatch
+        holds and no index is out of range, so nothing was reported at all.
+        The shipped `pantoum quatrain pair` (`aB1aB2 B1cB2c`, 8 lines, last
+        refrain line 7) checked against a 7-line draft returned `[]`, and
+        `lyric_harness.py refrain` printed "every declared refrain returned
+        VERBATIM" one line under its own "7 line(s) vs 8 declared". The
+        harness printed the evidence and the opposite verdict together.
+        MEASURED over `REFRAIN_FORMS`, that is the ONLY one of the eight
+        shipped forms that discriminates — the other seven close ON a refrain,
+        so their last line is also a refrain line and the index guard covers
+        for the missing check. That is why nothing found this. Doctrine 94:
+        no positive case can find it either, because every positive case hands
+        over a draft of exactly the right length.
+
+        MISLEADING. A `RefrainScheme` built directly rather than through
+        `parse_refrain` (which cannot number a refrain past its own line
+        count) can carry a refrain outside its own 1..n_lines; checked against
+        exactly `n_lines` lines the old message printed "declares 4 lines and
+        4 were given", two numbers that AGREE and name nothing.
+
+        Both are closed the way `Mandate.returns_check` closed its twin, and
+        phrased as that method phrases it so the two surfaces cannot drift:
+        the length disagreement is its own `LINE_COUNT` finding that says how
+        many requirements were graded on the positional reading ANYWAY and are
+        conditional on it, and `OUT_OF_RANGE` names the offending LINE, says
+        WHICH of the two ways it got out of range (doctrine 79 — a hand-built
+        scheme and a short draft need different repairs) and says the
+        requirement was NOT CHECKED rather than leaving a reader to infer a
+        clean pass from silence (doctrine 20).
         """
         from quality.grid import compare_returns, normalise_line
         out = []
-        for i, j, lab in self.repeat_pairs():
-            if i > len(lines) or j > len(lines):
+        n = len(lines)
+        pairs = self.repeat_pairs()
+        if n != self.n_lines:
+            unchecked = sum(1 for i, j, _ in pairs if i > n or j > n)
+            lo, hi = ((n + 1, self.n_lines) if n < self.n_lines
+                      else (self.n_lines + 1, n))
+            span, was = ((f"L{lo}", "was") if lo == hi
+                         else (f"L{lo}..L{hi}", "were"))
+            how = (f"{span} {was} never given" if n < self.n_lines else
+                   f"{span} {'is' if was == 'was' else 'are'} past the "
+                   f"notation's last line")
+            # THREE COUNTS, doctrine 79: declared, graded-on-the-assumption,
+            # and not reached at all. Summing them would hide which layer the
+            # unchecked ones belong to.
+            out.append((None, None, None, "LINE_COUNT",
+                        f"the notation numbers {self.n_lines} lines and {n} "
+                        f"were given — {how}, so the draft's line k is not "
+                        f"known to be the notation's line k and every "
+                        f"identity finding here is positional. Of "
+                        f"{len(pairs)} declared REPEAT pair(s): "
+                        f"{len(pairs) - unchecked} graded on that reading "
+                        f"ANYWAY and conditional on it, {unchecked} naming a "
+                        f"line past the draft and NOT CHECKED. This is the "
+                        f"assumption said out loud, not a clean pass "
+                        f"(doctrine 20)"))
+        for i, j, lab in pairs:
+            if i > n or j > n:
+                bad = [x for x in (i, j) if x > n]
+                names = "L" + ", L".join(str(x) for x in bad)
+                # WHICH of the two disagreements this is, said out loud. Past
+                # `self.n_lines` -> the SCHEME numbers a refrain outside its
+                # own declaration, which `parse_refrain` cannot produce and
+                # only a hand-built `RefrainScheme` reaches. Inside
+                # 1..n_lines and past `len(lines)` -> the DRAFT is short.
+                why = (f"and {names} is outside the notation's own "
+                       f"1..{self.n_lines} — this scheme was NOT built by "
+                       f"`parse_refrain`, which cannot number a refrain past "
+                       f"its own line count"
+                       if any(x > self.n_lines for x in bad) else
+                       f"though {names} is inside the notation's own "
+                       f"1..{self.n_lines} — the DRAFT is short")
                 out.append((lab, i, j, "OUT_OF_RANGE",
-                            f"the notation declares {self.n_lines} lines and "
-                            f"{len(lines)} were given"))
+                            f"refrain {lab} names {names}, past the {n} "
+                            f"line(s) given, {why}. The verbatim requirement "
+                            f"at L{i}/L{j} was NOT CHECKED — unasked, not "
+                            f"answered clean (doctrine 20)"))
                 continue
             a, b = lines[i - 1], lines[j - 1]
             if normalise_line(a) == normalise_line(b):

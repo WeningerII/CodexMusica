@@ -44,6 +44,20 @@ So the suite is organised around FIRING, not around passing:
                                                 reaches the guard printed
                                                 "declares 4 lines and 4 were
                                                 given" and named nothing
+  §14 `RefrainScheme.check_identity` — §13's TWIN, and the worse half. The
+                                                same misnamed message, plus
+                                                the generosity it hid: a draft
+                                                SHORTER than the notation, on
+                                                a form whose last line is not
+                                                a refrain, tripped no index
+                                                and returned `[]`. The
+                                                obvious boundary — a villanelle
+                                                one line short — cannot see
+                                                it, because its last line IS a
+                                                refrain and the index guard
+                                                fires either way. §14 says
+                                                which input discriminates and
+                                                measures why
 
 `python3 quality/test_mandate_language.py`
 """
@@ -767,6 +781,148 @@ def test_out_of_range_names_its_own_condition():
                                 returns=[[1, 9]]), "outside"))
 
 
+def _last_refrain_line(sch):
+    """-> the highest line number any refrain mark in `sch` names."""
+    return max((max(t) for t in sch.refrains.values()), default=0)
+
+
+def _msg(findings, kind):
+    """-> the first message of `kind`, or "" when the kind is absent.
+
+    NEVER indexes. A suite whose job is to kill a mutant that DELETES a
+    finding must not itself die on the empty list that mutant produces: an
+    IndexError aborts the run, skips every later check, and prints no
+    pass/fail count at all, which is a worse report than the failure.
+    """
+    return next((f[4] for f in findings if f[3] == kind), "")
+
+
+def test_check_identity_needs_the_whole_draft():
+    print("\n§14  check_identity — §13's twin, and this one was GENEROUS as "
+          "well as misnamed")
+
+    print("\n    THE OBVIOUS INPUT DOES NOT DISCRIMINATE, and that is a "
+          "measurement, not a caution")
+    vil = S.refrain_form("villanelle")
+    ok("the villanelle's LAST LINE IS A REFRAIN, so a short draft always "
+       "trips the index guard on its own",
+       _last_refrain_line(vil) == vil.n_lines == 19)
+    stub = [f"l{k}" for k in range(1, 19)]              # 18 of 19
+    ok("so a one-line-short villanelle reports findings under EITHER "
+       "reading — a test written here cannot see the generosity",
+       vil.check_identity(stub) != [],
+       "-- the obvious boundary value, and it proves nothing")
+
+    print("\n    THE DISCRIMINATING INPUT IS THE FORM WHOSE LAST LINE IS NOT "
+          "A REFRAIN, and the registry says there is exactly ONE")
+    open_ended = sorted(k for k in S.REFRAIN_FORMS
+                        if _last_refrain_line(S.refrain_form(k))
+                        < S.refrain_form(k).n_lines)
+    ok("of the 8 shipped REFRAIN_FORMS, exactly one does not close on a "
+       "refrain: `pantoum quatrain pair`",
+       open_ended == ["pantoum quatrain pair"] and len(S.REFRAIN_FORMS) == 8,
+       f"{open_ended} -- measured over the registry, not hand-picked. The "
+       f"other seven end on a refrain, which is WHY nothing found this: on "
+       f"7 of 8 named forms the index guard covers for the missing check")
+    pan = S.refrain_form("pantoum quatrain pair")
+    ok("`pantoum quatrain pair` numbers 8 lines and its last refrain line "
+       "is 7",
+       (_last_refrain_line(pan), pan.n_lines) == (7, 8),
+       "-- a shipped form, not a constructed fixture")
+
+    full = ["a rhyme", "the burden comes first", "a second rhyme",
+            "the burden comes last", "the burden comes first", "c rhyme",
+            "the burden comes last", "c again"]
+    ok("the whole 8-line draft, refrains holding, still reports NOTHING",
+       pan.check_identity(full) == [],
+       "-- the fix did not buy its reach with noise on the clean case")
+
+    short = full[:7]                    # L8 dropped: 7 lines against 8
+    got = pan.check_identity(short)
+    ok("A DRAFT SHORT OF THE NOTATION IS NOT A CLEAN PASS — this returned [] "
+       "until 2026-08-13, and it is the whole defect",
+       got != [],
+       "-- doctrine 94: no positive case can reach this, because every "
+       "positive case hands over a draft of the right length")
+    ok("and it is NOT the index guard that catches it: every refrain line "
+       "still lands inside the short draft",
+       all(f[3] != "OUT_OF_RANGE" for f in got)
+       and all(i <= len(short) and j <= len(short)
+               for i, j, _ in pan.repeat_pairs()),
+       "-- which is exactly why the index guard could not see it")
+    kinds = [f[3] for f in got]
+    ok("the finding is LINE_COUNT and there is exactly one of it",
+       kinds.count("LINE_COUNT") == 1 and len(got) == 1, f"{kinds}")
+    lmsg = _msg(got, "LINE_COUNT")
+    ok("its message NAMES THE MISSING LINE — here the two counts are the "
+       "condition being tested, so unlike §13 they belong",
+       "L8 was never given" in lmsg and "8 lines and 7 were given" in lmsg,
+       lmsg[:72])
+    ok("and it says how many requirements were graded on the positional "
+       "assumption ANYWAY, so the reader is not left to infer it "
+       "(doctrine 20/79)",
+       "2 graded" in lmsg and "0 naming a line past the draft" in lmsg
+       and "NOT CHECKED" in lmsg)
+
+    print("\n    AND THE OTHER DIRECTION, which no index guard can EVER "
+          "reach: a draft LONGER than the notation numbers")
+    over = pan.check_identity(full + ["a ninth line nobody declared"])
+    omsg = _msg(over, "LINE_COUNT")
+    ok("9 lines against an 8-line notation is reported, though every index "
+       "is in range and every refrain is verbatim",
+       len(over) == 1 and "L9" in omsg
+       and "past the notation's last line" in omsg,
+       "-- a title line shifts every line number and the answers stay silent")
+
+    print("\n    a scheme with NO refrains still reports the mismatch, and "
+          "that is deliberate — gating LINE_COUNT on 'has repeat pairs' "
+          "would put the silence back for every rhyme-only notation")
+    rhyme_only = S.parse_refrain("abab")
+    ok("`abab` — 0 refrains, 4 lines — given 3 lines still says so, and its "
+       "three counts are honestly 0 of 0",
+       _msg(rhyme_only.check_identity(["a", "b", "c"]), "LINE_COUNT")
+       .count("0") >= 3
+       and rhyme_only.check_identity(["a", "b", "c"]) != [],
+       "-- this method is the only one that compares a NOTATION's length "
+       "against a DRAFT's, so it is the only place the mismatch can surface")
+    ok("and the same notation at its declared length is silent",
+       rhyme_only.check_identity(["a", "b", "c", "d"]) == [])
+
+    print("\n    the MESSAGE half — §13's defect, in §13's twin")
+    hand = S.RefrainScheme(n_lines=4, code=S.parse("ABAB"),
+                           marks=("A", "b", "A", "b"), refrains={"A": (1, 9)})
+    hgot = hand.check_identity(["one", "two", "one", "four"])
+    hmsg = _msg(hgot, "OUT_OF_RANGE")
+    ok("a scheme naming a refrain past its OWN n_lines used to print "
+       "'declares 4 lines and 4 were given' — two numbers that agree",
+       "4 lines and 4 were given" not in hmsg and "L9" in hmsg, hmsg[:64])
+    ok("it charges the SCHEME, and names parse_refrain as the constructor "
+       "that cannot produce it (doctrine 79)",
+       "1..4" in hmsg and "parse_refrain" in hmsg and "NOT CHECKED" in hmsg)
+    smsg = _msg(vil.check_identity(stub), "OUT_OF_RANGE")
+    ok("a well-formed notation given a SHORT draft charges the DRAFT "
+       "instead, in DIFFERENT TEXT",
+       "the DRAFT is short" in smsg and "L19" in smsg
+       and "inside the notation's own 1..19" in smsg and smsg != hmsg,
+       smsg[:72])
+
+    print("\n    and the guard has not started swallowing what it grades")
+    good = ["Do not go gentle into that good night", "b", "Rage, rage",
+            "d", "e", "Do not go gentle into that good night",
+            "g", "h", "Rage, rage", "j", "k",
+            "Do not go gentle into that good night", "m", "n", "Rage, rage",
+            "p", "q", "Do not go gentle into that good night", "Rage, rage"]
+    ok("a full 19-line villanelle whose refrains hold still reports NOTHING",
+       vil.check_identity(good) == [])
+    drift = list(good)
+    drift[11] = "Do not go gently into that good night"
+    dgot = vil.check_identity(drift)
+    ok("and the drifted refrain is still caught as a NAMED KIND, with no "
+       "LINE_COUNT row on a draft of the declared length",
+       len(dgot) == 3 and {d[3] for d in dgot} == {"LEXICAL_VARIATION"},
+       f"{ {d[3] for d in dgot} }")
+
+
 def main():
     print(__doc__.strip().splitlines()[0])
     test_unknown()
@@ -782,6 +938,7 @@ def main():
     test_read_path()
     test_rep_is_the_first_member()
     test_out_of_range_names_its_own_condition()
+    test_check_identity_needs_the_whole_draft()
     print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:
         for f in FAIL:
