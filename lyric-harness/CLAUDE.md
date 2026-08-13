@@ -694,25 +694,40 @@ descriptors in any generation-facing output — era+region+technique.
 ## Test discipline
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
   Lear limerick known-answers, Whitman negative control.
-- Current baselines, WITH the conjunctive band: sonnets **8.0%
-  violations (81/1014 JUDGED pairs; 73/1014 = 7.2% before `theta_coda`
+- Current baselines, WITH the conjunctive band: sonnets **8.1%
+  violations (82/1014 JUDGED pairs; 73/1014 = 7.2% before `theta_coda`
   was calibrated 0.60 -> 0.80 on 2026-08-11, and 35/1014 = 3.5% pre-band)**
-  — MEASURED, not recalled: `python3 battery.py` prints
-  `mandated 1064, judged 1014, refused 50` and `violations 81`.
+  — MEASURED 2026-08-13, not recalled: `python3 battery.py` prints
+  `mandated 1064, judged 1014, refused 50` and `violations 82`.
+  REPINNED 2026-08-13 from 81/8.0%, which was this file's figure from
+  2026-08-11 and no longer reproduces. `mandated`/`judged`/`refused` are
+  unchanged, so the movement is one pair crossing the band, not an
+  ingestion change.
   The rise is the typed residue: love/prove and its class are CONSONANCE in
   the declared General American dialect, which is correct and now named.
   Report **refused, judged and mandated as three separate counts, always** —
   50 of the 1064 mandated pairs are REFUSALS, end words absent from CMUdict,
   and charging them to the comparator is the triage rule two items below this
   one broken in the headline number (doctrine 79).
-  Whitman **17.3%** chained at theta 0.82 — MEASURED, and `battery.py` prints
-  it. The recorded 20.0% and 18.0% are the PRE-`b1d7f64` comparator's: they
-  reproduce exactly at head alignment with `theta_coda` 0.60 and in no other
-  cell of that 2x2, so three of the four Whitman figures in this repo's record
-  are a comparator that no longer ships. Doctrine 58, one axis further out —
-  **a rate is a coordinate of the COMPARATOR.** 26.0% band-OFF is
-  comparator-invariant and still reproduces, which is the check that it is the
-  same statistic.
+  Whitman **10.7%** chained at theta 0.82 — MEASURED 2026-08-13, and
+  `battery.py` prints it: `lines captured in chains: 16 (10.7%) across 7
+  chains`, over 150 free-verse lines.
+  REPINNED 2026-08-13 from 17.3%, which this file asserted as "MEASURED, and
+  `battery.py` prints it" and which `battery.py` had stopped printing — the
+  claim was wrong by 6.6 points in the one place the sentence invites a reader
+  to check it. 17.3% was itself measured 2026-08-11; the recorded 20.0% and
+  18.0% are older still, the PRE-`b1d7f64` comparator's, reproducing exactly
+  at head alignment with `theta_coda` 0.60 and in no other cell of that 2x2.
+  So **four of the five Whitman figures in this repo's record are a comparator
+  that no longer ships**, and the count has grown once since it was written.
+  Doctrine 58, one axis further out — **a rate is a coordinate of the
+  COMPARATOR**, and a rate quoted with the command that prints it goes stale
+  the moment the comparator moves, silently, because nothing re-runs the
+  command. 26.0% band-OFF is comparator-invariant and still reproduces, which
+  is the check that it is the same statistic.
+  NOT RE-VERIFIED IN THIS REPIN: the +6.7 -> +9.3 separation figures below
+  come from `quality/audit_band_control.py`, not from `battery.py`. They were
+  not re-measured here and should be treated as suspect until they are.
   **The band's empirical warrant stays withdrawn, and the REASON has changed.**
   Under the shipped comparator the control DOES clear its own line-permutation
   null — p 0.006 at n=2000 against the recorded 0.209, and the band's effect on
@@ -832,7 +847,10 @@ rather than this paragraph — a roster copied into two files drifts in both.
    one. It used to read: all four recorded Whitman figures (18.0, 20.0,
    21.3, 26.0) fall inside one line-permutation null spanning
    6.7%-27.3%. That arithmetic no longer holds. 18.0 and 20.0 are the
-   pre-`b1d7f64` comparator's and read 16.0 and 17.3 today; 21.3 has
+   pre-`b1d7f64` comparator's; 20.0 re-read as 17.3 on 2026-08-11 and reads
+   **10.7 on 2026-08-13** (`battery.py`, repinned in Test discipline above).
+   16.0 is 18.0's 2026-08-11 re-reading and was NOT re-verified in that
+   repin, so do not quote it without re-running. 21.3 has
    never been re-run under either, because it needs a fitted comparator
    threaded through `infer_chains` and that is still unbuilt. The
    withdrawal stands on the ground in quality/RESULTS_NULL_SHAPES.md §2
