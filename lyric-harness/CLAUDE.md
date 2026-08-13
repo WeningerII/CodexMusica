@@ -99,7 +99,23 @@ default setting, and `revise_loop` would have tried to "fix" a refrain that
 was already right. Two changes, both required: `grade()` now asks the
 mandate's own `Mandate.repeat_is_violation(i, j)` per pair before falling
 back to the switch (a plain letter scheme with no declared returns is
-completely unaffected — the fallback is exactly the old behaviour); and
+unaffected AT THE DEFAULT `repeat_licence="unlicensed"` — and NOT unaffected
+at `repeat_licence="refrain"`, CORRECTED 2026-08-13, where this sentence
+claimed "completely unaffected — the fallback is exactly the old behaviour".
+It is not: a MANDATED pair under a plain letter scheme is `REQUIRE_RHYME`,
+whose `declared=True`/`repeat_is_violation=True` means `decided()` answers
+before the fallback is ever consulted, so the switch is INERT there. Measured
+on `AABB` with two identical-word pairs: `unlicensed` charges a violation
+either way, `refrain` used to LICENSE it and now charges it, and the
+`REFRAIN_REPEAT` notes drop to zero. The fix is not to weaken `REQUIRE_RHYME`
+— that value is doctrine 3 and three test sections rest on it — but to gate
+the mandate's answer on the mandate having declared any return at all, which
+is what this sentence always claimed was happening. A letter scheme cannot
+STATE the question: a letter has two states and the question has five answers,
+so `REQUIRE_RHYME`'s True there is `schemes.py`'s default and not the writer's
+declaration, and doctrine 1 says a declared coordinate is not silently
+outranked by another layer's default. `quality/test_mandate_language.py` §11
+pins the schemes-side facts so the fix is visible when it is made); and
 `inspect()` now emits `Mandate.returns_check()` findings
 (`RETURN_NOT_VERBATIM`, a flag), so `verify()`'s existing net-negative diff
 — the same mechanism meter rides — can for the first time see a revision
@@ -779,10 +795,27 @@ descriptors in any generation-facing output — era+region+technique.
   comparator / band / structure / value. Fix only when a category
   accumulates. Every fixed case becomes a permanent regression.
 - Real exemplars over constructed tests. Constructed tests encode the
-  author's assumptions; canon corrects the checker (8 rule errors
-  found this way: strict groes final-consonant rule, sain any-stressed
-  link, radif licensing, hyphen splitting **x3**, collision bar, mosaic
-  anchor reach, prefix phrase-final seam). The third hyphen error was the
+  author's assumptions; canon corrects the checker (**7 rule-error
+  CATEGORIES** found this way: strict groes final-consonant rule, sain
+  any-stressed link, radif licensing, hyphen splitting **x3**, collision bar,
+  mosaic anchor reach, prefix phrase-final seam).
+  REPINNED 2026-08-13 from **8**, and the provenance is `git log`, not an
+  argument: commit `29d61f2` — whose own subject line is *"four adversaries
+  was never eight, and hyphen splitting x2 is x3"* — rewrote `7 rule errors`
+  to `8 rule errors` in the same edit that moved the hyphen count x2 -> x3.
+  It incremented a CATEGORY count because an INSTANCE count moved. The list
+  is 7 categories and 9 instances, so **8 is derivable under neither
+  convention**, and a commit correcting a miscount introduced one.
+  AND THEY ARE NOT ALL `check_cynghanedd`'s, which four separate sites say
+  they are. Only **two** are cynghanedd rules — strict groes and sain. Radif
+  licensing is the Persian ghazal band (METHOD § doctrine 18); hyphen
+  splitting x3 is the ENGLISH song corpus, 174 English line ends, three
+  paragraphs below this one; collision bar is a canon merge
+  (`quality/RHYME_CANON.md`); mosaic anchor reach is
+  `quality/RESULTS_SPANS.md`. Doctrine 43 — a checker can implement a
+  tradition's rules and never have read that tradition's language — rests on
+  the TWO, and is not weakened by that: two rule errors found by canon in a
+  language the checker could not read is the whole of its claim. The third hyphen error was the
   expensive one and it was a different KIND from the first two: they produced
   a refusal, this produced a WRONG ANSWER. **FIXED 2026-08-11, and it is a
   refusal now.** In **174** English song line ends the LAST letter-bearing
@@ -934,9 +967,23 @@ rather than this paragraph — a roster copied into two files drifts in both.
    built its skeleton from CMUdict since the first commit, so the seven
    recorded rule errors are findings about the RULES, never about Welsh.
    PHONOLOGY still blocked: Indic (prasa), Old Norse (hendings).
-   TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
-   data/sources.tsv. The capability is built; the corpus is not
-   reachable.
+   **TEXT IS NO LONGER BLOCKED FOR WELSH — SUPERSEDED 2026-08-13.** This
+   entry read *"TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
+   data/sources.tsv. The capability is built; the corpus is not reachable."*
+   That row is `data/sources.tsv:56` and it has read **OVERTURNED — source
+   located via GITenberg** since 2026-08-10. **Seven Welsh files, 8,758
+   lines, are on disk**, each with its own row (`:68`, `:69`, `:265`–`:269`):
+   Gwaith Alun 1909 strict-metre (1,558), Twm o'r Nant cywydd (156),
+   Llywelyn Goch cywydd (149), and four song files. The cell has RUN — the
+   seven-corpus specificity gradient is `MISSING.md` N-1. So this gap entry
+   spent three days asserting a blocker that its own `sources.tsv` row had
+   already recorded as lifted, which is doctrine 39's failure mode inverted:
+   a NOT-FOUND row was correctly re-tested and overturned (doctrine 49), and
+   the gap entry that cited it was never told.
+   WHAT REMAINS BLOCKED IS NARROWER, and is recorded where it belongs: no
+   cerdd-dafod treatise, no Welsh PROSE negative arm
+   (`quality/RESULTS_CYM_RHYME.md`), and the hymn and medieval-cywydd corpora
+   are still genuinely NOT FOUND (`data/sources.tsv:271`, `:272`).
 7. **Blueprint identity-with-variation.** This entry named TWO gaps and one
    of them closed without the entry being told: **chorus variation is
    CLOSED** (`quality/grid.py`'s `compare_returns`, 12 named

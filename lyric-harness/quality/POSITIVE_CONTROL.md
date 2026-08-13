@@ -242,13 +242,40 @@ AUTHOR, and has no concept of an edition or transcription layer with its own
 date and its own rights. For most corpora that gap is harmless. For an oral
 tradition it is the whole question.
 
-### cynghanedd: PHONOLOGY BUILT, TEXT NOT REACHABLE
+### cynghanedd: PHONOLOGY BUILT, TEXT FOUND 2026-08-10 — THIS CELL NOW RUNS
+
+> **THE HEADING ABOVE READ "TEXT NOT REACHABLE" UNTIL 2026-08-13, AND HAD BEEN
+> FALSE FOR THREE DAYS.** `data/sources.tsv:56` has read **OVERTURNED — source
+> located via GITenberg** since 2026-08-10, and seven Welsh files totalling
+> 8,758 lines are on disk with their own rows. The cell has RUN: Gwaith Alun,
+> 1,558 lines, answers **57.1%** in search mode against a 200-shuffle null max
+> of **21.8%** — **+35.3 pp, p at the 0.005 floor** — and Twm o'r Nant's
+> cywydd **46.2%** against a null max of 26.9%. Both measured 2026-08-13 at
+> the script's full n=200.
+>
+> THE PARAGRAPHS BELOW ARE KEPT (doctrine 17) BECAUSE THEIR CHANNEL MAP IS
+> STILL CORRECT — Hugging Face really does hold no strict metre. What was
+> wrong was the conclusion drawn from it, and doctrine 49 names the error:
+> a sourcing failure is a claim about the network at a moment, and this one
+> was re-run and fell. The route nobody had tried was GITenberg over
+> `raw.githubusercontent.com`, which answers 200.
+>
+> ONE BELIEF IN THIS SECTION IS THE REASON THE ORIGINAL SEARCH FAILED, and it
+> is stated below as if it were a fact: that GitHub search "is scoped to this
+> repository". It is not — `search_repositories` and `search_code` query all
+> of GitHub. `data/sources.tsv:56` records this as the single wrong belief
+> that cost the search.
+>
+> STILL GENUINELY BLOCKED, and recorded where it belongs rather than here: no
+> cerdd-dafod treatise, no Welsh PROSE negative arm, and the hymn and
+> medieval-cywydd corpora (`data/sources.tsv:271`, `:272`).
 
 Cynghanedd is the cell that would matter most, because its constraint is
 **internal to the line** rather than line-final — the one thing every control
 this project can currently reach lacks (see Part D, arm C1).
 
-**The corpus is blocked.** Hugging Face holds 25 Welsh datasets and no strict
+**The corpus is blocked.** *(Superseded — see the box above.)* Hugging Face
+holds 25 Welsh datasets and no strict
 metre; the Hub's own full-text search on `cynghanedd englyn cywydd` returns
 empty; PyPI has no such distribution; 16 GitHub raw probes 404; Gutenberg and
 Wikisource are **403 CONNECT policy denials**, confirmed in the proxy relay log

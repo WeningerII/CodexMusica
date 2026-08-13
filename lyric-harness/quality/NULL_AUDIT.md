@@ -395,7 +395,39 @@ when the instrument's H0 output is ≥ 0.883.
 
 ## 2. SURVIVES A MATCHED NULL, AND IS STRONGER FOR IT
 
-### 2.1 Cynghanedd — doctrines 56 and 57 reproduce exactly
+### 2.1 Cynghanedd — doctrine 57 reproduces exactly; THREE OF THE FOUR BLOCKS BELOW DO NOT
+
+> **REPINNED 2026-08-13, MEASURED at n=200 on the shipped code.** This heading
+> read *"doctrines 56 and 57 reproduce exactly"* and the block below says *"All
+> four match ... to the decimal"*. Two claims, both false as written, and the
+> heading is the load-bearing one. Measured:
+>
+> ```
+> Gwaith Alun, 1558 lines
+>   caesura='search'  R_obs 57.1%  null median 19.4%, min 16.6%, max 21.8%
+>                     excess over null MAX +35.3 pp   p = 0.005  <- AT THE FLOOR
+>   caesura='marked'  R_obs  8.3%  null median  6.0%, min  4.7%, max  7.5%
+>                     excess over null MAX  +0.8 pp   p = 0.005  <- AT THE FLOOR
+> Twm o'r Nant, 156 lines
+>   caesura='search'  R_obs 46.2%  null median 19.2%, min 11.5%, max 26.9%
+>                     excess over null MAX +19.2 pp   p = 0.005  <- AT THE FLOOR
+>   caesura='marked'  R_obs  3.2%  null median  5.1%, min  2.6%, max  9.6%
+>                     excess over null MAX  -6.4 pp   p = 0.975  BELOW chance
+> ```
+>
+> SUPERSEDED VALUES, kept visible: Alun search 54.1% / max 27.8% / +26.3;
+> Alun marked 8.2% / min 4.8% / max 7.6% / +0.6; Twm search 51.3% / median
+> 26.9% / min 18.6% / max 36.5% / +14.7. Those are the pre-doctrine-82
+> `skeleton()` terminus, before `extent` lost its default.
+>
+> **THE EXCESS GREW IN BOTH SEARCH ROWS, so this section's CONCLUSION is
+> stronger than when it was written — what failed is the claim of exact
+> reproduction.** The one block that survives untouched is Twm marked-mode,
+> which is precisely why the four are repinned separately rather than as a
+> set: a set-repin would have buried the fact that one of them never moved.
+> Note also that this block cites `CLAUDE.md` for doctrines 56 and 57, which
+> are defined in THIS file's parent `METHOD.md` — CLAUDE.md's own index says
+> nothing is defined in both places.
 
 `quality/cynghanedd_rate.py`, 200 within-line shuffles. Verified first that the
 null gets the *same search width*: `cynghanedd_scan` derives k from the token
@@ -419,7 +451,11 @@ Twm o'r Nant, 156 lines
 All four match `CLAUDE.md` doctrines 56 and 57 to the decimal, including the
 two results that both print p = 0.005 while beating the null max by 26.3 and
 0.6 points respectively. **One addition:** in `caesura='marked'` mode on Alun,
-**104 of the 127 hits are llusg**, and `llusg()` does not use the caesura at
+**104 of the 129 hits are llusg** *(REPINNED 2026-08-13 from "104 of the 127".
+The llusg count did not move at all; croes and traws gained 2 between them
+under the doctrine-82 comparator change, which is the expected direction and
+is why this ratio is the stable part of the block)*, and `llusg()` does not
+use the caesura at
 all — it is a whole-line predicate. So the marked-mode +0.6 pp is very largely
 not a caesura measurement, which is a second reason not to read it.
 

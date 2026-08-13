@@ -130,7 +130,15 @@ looking right.
    cynghanedd", obtained by search, is quoting the null back at itself. The
    excess over the shuffled null is the part attributable to the poet, and it
    is the only part worth reporting. Two editions, 200 shuffles each:
-   Alun 54.1% vs null max 27.8% (+26.3); Twm o'r Nant 51.3% vs 36.5% (+14.7).
+   **Alun 57.1% vs null max 21.8% (+35.3); Twm o'r Nant 46.2% vs 26.9%
+   (+19.2)** — MEASURED 2026-08-13, `quality/cynghanedd_rate.py`, both at
+   n=200. REPINNED from Alun 54.1% / 27.8% (+26.3) and Twm 51.3% / 36.5%
+   (+14.7), which are the PRE-doctrine-82 comparator's — before `extent` lost
+   its default — and reproduce nowhere at head. Item 82 of this file already
+   recorded that comparator move; THIS item was never repinned to match, so
+   METHOD.md carried both readings at once for three days. Doctrine 58: a rate
+   is a coordinate of the comparator. The excess GREW on both editions, so the
+   doctrine's conclusion is stronger than when it was written.
    This is the `infer_chains` comparator bug in a new place: whatever advantage
    the hypothesis gets, the comparator gets too. `quality/cynghanedd_rate.py`.
    Note what the same file says about `caesura='marked'` on Twm o'r Nant --
