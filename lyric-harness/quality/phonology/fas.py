@@ -561,13 +561,47 @@ def _tail_verdict(ta, tb):
 #: and a declared fraction, and a single pair is no evidence either way.
 #:
 #: CALIBRATION, measured over the 495 Hafez ghazals and reported rather than
-#: fitted. The best single-token trailing fraction is sharply bimodal — 297
-#: ghazals at exactly 1.0, 168 at 0.1–0.2, and 23 spread across everything
-#: between — so the threshold sits in a trough and not on a slope. Detections
-#: over the whole sweep: 318 at 0.40/0.50, 315 at 0.60, 311 at 0.70, 306 at
-#: 0.80, 301 at 0.90, 297 at 1.00. min_count is NOT binding on this corpus
-#: (every ghazal has at least six rhyming lines, so 0.60 already implies a
-#: count of four); it is here for the short inputs this corpus does not
+#: fitted. The statistic is the BEST SINGLE-TOKEN TRAILING FRACTION of a
+#: ghazal's RHYME LINES — `radif_detail(ghazal_rhyme_lines(poem), min_count=1,
+#: min_fraction=0.0, max_tokens=1)["fraction"]`, which is what
+#: `quality/hafez_rate.py`'s `probe()` computes. Naming the object matters as
+#: much as the numbers: the same function over a different line set is a
+#: different distribution (see `radif_detail`'s WHAT `min_fraction` IS A
+#: FRACTION OF).
+#:
+#: It is sharply bimodal, and these four buckets PARTITION the corpus — they
+#: are disjoint, they cover [0, 1], and THEY SUM TO 495, so the next reader can
+#: check the arithmetic in one glance:
+#:
+#:        16   below 0.10          smallest observed 0.0667 = 1 line of 15
+#:       114   in [0.10, 0.20]     the low mode
+#:        68   in (0.20, 1.00)     spread thin across everything between
+#:       297   at exactly 1.00     the radif the form actually asks for
+#:       ---
+#:       495
+#:
+#: REPINNED 2026-08-13, and the old text is kept per doctrine 17 rather than
+#: quietly replaced. It read: "297 ghazals at exactly 1.0, 168 at 0.1–0.2, and
+#: 23 spread across everything between". That is 488, not 495 — ARITHMETICALLY
+#: IMPOSSIBLE before anyone runs anything — and re-measured, neither non-297
+#: figure reproduces: 168 -> 114 and 23 -> 68, with a fourth population, the 16
+#: below 0.10, that the sentence did not account for at all. Only 297 was ever
+#: right. THE CONCLUSION SURVIVES — the mass is at the two ends and 0.60 sits
+#: in a trough, not on a slope — but it now rests on the sparsity measured AT
+#: the threshold rather than on numbers that never added up: 7 of the 495 lie
+#: in [0.50, 0.70] and 3 in [0.55, 0.65], so moving the threshold a tenth
+#: either way moves the detection count by 3 or 4 (318 at 0.50, 315 at 0.60,
+#: 311 at 0.70) against 130 ghazals massed at or below 0.20.
+#:
+#: Detections over the whole sweep, ALL EIGHT settings of
+#: `quality/hafez_rate.py`'s `SWEEP` — mf=0.75 was silently missing from this
+#: list and is 310: 318 at 0.40, 318 at 0.50, 315 at 0.60, 311 at 0.70, 310 at
+#: 0.75, 306 at 0.80, 301 at 0.90, 297 at 1.00. All eight are pinned by
+#: `python3 quality/hafez_rate.py --check`, which is the command that checks
+#: this paragraph. min_count is NOT binding on this corpus (every ghazal has at
+#: least six rhyming lines — VERIFIED 2026-08-13, the measured minimum is
+#: exactly 6 over 4,687 rhyme lines — so 0.60 already implies a count of four);
+#: it is here for the short inputs this corpus does not
 #: contain, which is exactly where doctrine 18's two-of-thirty-one case lived.
 #: 0.60 was written down before the sweep was run and is kept: of the 18
 #: ghazals it finds that 1.00 does not, 16 are mechanically explained by the
@@ -592,6 +626,45 @@ def radif_detail(lines, min_count=RADIF_MIN_COUNT,
                     the gate says so instead of deciding
       min_count     how many lines must carry the candidate
       min_fraction  what share of the lines must carry it
+
+    WHAT `min_fraction` IS A FRACTION OF — and it is NOT the same object two
+    neighbouring instruments measure. Documented rather than reconciled,
+    because reconciling three implementations by tuning one is how a real
+    difference gets tuned away.
+
+    The denominator is `len(lines)`: THE LINES THIS CALL WAS HANDED, counted
+    after normalisation, and nothing else. This function never sees a poem. It
+    does not know which hemistichs of a ghazal are supposed to rhyme, does not
+    consult `ghazal_rhyme_lines`, and applies no per-form convention — the
+    CALLER decides what the denominator is by deciding what to pass. So the
+    same corpus gives two different sweeps from this one function, and neither
+    is a bug (measured 2026-08-13 over all 495 Ḥāfiẓ ghazals, at min_fraction
+    = 0.30 0.40 0.50 0.60 0.70 0.80 0.90 1.00 in that order):
+
+      radif(ghazal_rhyme_lines(poem))   322 318 318 315 311 306 301 297
+      radif(poem)                       317 312 305   9   0   0   0   0
+
+    The second collapses above 0.5 for a structural reason, not a phonological
+    one: a ghazal rhymes on only 4,687 of its 8,384 hemistichs (55.9%), so a
+    radif written on EVERY rhyming line still reaches barely over half of ALL
+    lines and no threshold above that can be met by any ghazal. The first is
+    the shipped reading, and it reproduces `hafez_rate.py`'s pinned sweep to
+    the unit at all eight of its settings.
+
+    A THIRD measurement, `audit_hafez_radif.radif_share`, gives 311/311/309/
+    306/300/297 over (0.5 .. 1.0) and is not this statistic at any threshold.
+    Three differences, each on its own sufficient:
+      DENOMINATOR  the EVEN hemistichs only — hemistich 0 is the target and is
+                   excluded — against `len(lines)` here.
+      TARGET       FIXED: the final token of the maṭlaʿ's first hemistich.
+                   Here the candidate is the ARGMAX over trailing runs, so a
+                   ghazal whose refrain does not appear in its own maṭlaʿ is
+                   invisible there and found here.
+      UNIT         exactly one token there; here the LONGEST run k ≤
+                   max_tokens whose every prefix passed both gates.
+    They measure three different objects and agree to within a few counts by
+    coincidence of the corpus, not by construction. Do not tune one to the
+    others.
 
     A candidate that consumes a whole line is rejected: the qāfiya sits before
     the radif, so a radif with nothing in front of it on some line is the line
