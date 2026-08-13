@@ -114,7 +114,10 @@ of those inputs, and a run whose fingerprint matches reads them back instead
 of recomputing 331 million identical candidate scorings. A hit returns the same
 float a miss would compute -- bit-identical, by construction, and
 `--verify-cache N` re-derives N cached items the slow way and prints any
-disagreement rather than asserting there is none. A fingerprint MISMATCH
+disagreement rather than asserting there is none. RUN 2026-08-13 on a real
+12-item draw: cold 79.7 CPU-s, warm 2.3 CPU-s for the same rows, and 12 of 12
+re-derived (a further 75.3 CPU-s, i.e. the full cold arithmetic again) with 0
+disagreements. A fingerprint MISMATCH
 discards the whole file loudly and recomputes; it never silently half-trusts
 one. Nothing about the measurement changes: same items, same corpus, same
 tolerances, same thresholds. The cache is written incrementally, so a cold run
@@ -240,7 +243,7 @@ EXIT_OK, EXIT_DRIFT, EXIT_NO_VERDICT = 0, 1, 3
 # ---------------------------------------------------------------------------
 # cost: the deterministic intermediate, cached
 #
-# 97.7% of a cold run is `RhymeField.field()` over 11,941 distinct end words
+# ~96% of a cold run is `RhymeField.field()` over 11,941 distinct end words
 # (see the cost block in the module docstring). None of that work depends on
 # `corpus/song/`: the corpus decides which words get ASKED, and the lexicon,
 # the frequency table and the `Declaration` decide what each one ANSWERS. So
@@ -317,16 +320,17 @@ class PredictabilityCache:
     exists to remove (doctrine 58).
     """
 
-    def __init__(self, path=DEFAULT_CACHE, enabled=True, flush_every=200):
+    def __init__(self, path=DEFAULT_CACHE, enabled=True, flush_every=200,
+                 why_off=""):
         self.path, self.enabled, self.flush_every = path, enabled, flush_every
-        self.entries, self.fp = {}, None
+        self.entries, self.fp, self.why_off = {}, None, why_off
         self.hits = self.misses = self.pending = 0
         self.status = "disabled"
 
     def open(self):
         self.fp = comparator_fingerprint()
         if not self.enabled:
-            self.status = "disabled (--no-cache)"
+            self.status = self.why_off or "disabled"
             return self
         if not os.path.exists(self.path):
             self.status = "new (no file yet)"
@@ -1345,13 +1349,15 @@ def main():
         # (doctrine 91: a count is a coordinate of the rendering).
         CHECKS = [c for c in CHECKS if c[0] != "predictability"]
         print("MODE  --without-predictability: %d checks, not 5. The dropped "
-              "one is the whole cost (97%% of a cold run) and 5 of the 18 "
+              "one is the whole cost (96%% of a cold run) and 5 of the 18 "
               "shipped constants go undecided with it; they are listed by "
               "name in section 6." % len(CHECKS))
 
     ph = Phases()
     cache = PredictabilityCache(
-        a.cache_path, enabled=not (a.no_cache or a.without_predictability)
+        a.cache_path, enabled=not (a.no_cache or a.without_predictability),
+        why_off=("disabled (--no-cache)" if a.no_cache else
+                 "disabled (--without-predictability: nothing to memoize)")
     ).open()
     cache.report()
     scorer = Scorer(cache)
