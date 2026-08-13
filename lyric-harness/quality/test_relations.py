@@ -1741,6 +1741,413 @@ def test_known_open_defects():
           "tuple (doctrine 1).")
 
 
+# ---------------------------------------------------------------------------
+# X. THE SURFACES THAT HAD NEVER RUN.  An execution-trace differential found
+#    `print_inert_report`, `print_relation_report` and the caesura/refrain
+#    frame writers with no live caller anywhere in the repository, while
+#    `quality/RESULTS_CYM_RHYME.md` §10a and METHOD doctrine 56 both publish
+#    answers obtained from them.  Doctrine 48: a principle is only real once
+#    it is mechanical, and a check that cannot fail is decoration.  Every
+#    number below is MEASURED by running the thing.
+# ---------------------------------------------------------------------------
+
+METIDJA = os.path.join(HERE, "..", "metidja.txt")
+
+
+def _capture(fn, *a, **kw):
+    """-> (return value, printed text). The renderers are the never-executed
+    half, so their OUTPUT has to be looked at, not only their exit code."""
+    import contextlib
+    import io
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        out = fn(*a, **kw)
+    return out, buf.getvalue()
+
+
+def _cym_stream(name):
+    """-> (raw lines, Stream) for one staged Welsh file, through the real
+    `cym` phonology rather than the English fixture. Blank lines and the
+    printed gwant are KEPT: `mark_printed_caesura` reads `text_lines`."""
+    from quality.phonology import get as _get
+    raw = [l.rstrip() for l in
+           open(os.path.join(HERE, "..", "corpus", name),
+                encoding="utf-8").read().splitlines()]
+    return raw, R.build_stream(raw, _get("cym"),
+                               declaration={"language": "cym"},
+                               stanzas=R.stanzas_from_blank_lines(raw))
+
+
+def test_inert_command_runs_and_can_fail():
+    """X1. `relations.py --inert` — the command every `Inert.measured` field
+    names, RUN.
+
+    `print_inert_report`'s own docstring promises "Exit 1 on any finding, so a
+    declaration that has become false is a failing command and not a paragraph
+    somebody reads", and until 2026-08-13 the command had never once been
+    invoked. Both halves are pinned here: that it exits 0 on the file its own
+    entries name, and that it CAN exit 1 — because a check that cannot fail is
+    decoration and the promise is worth exactly what its falsifier is worth.
+    """
+    print("\nX1. --inert: the published answer, and the falsifier that makes "
+          "it worth publishing")
+    import inspect
+    rc, text = _capture(R.main, ["--inert", METIDJA])
+    check("`relations.py --inert metidja.txt` RUNS and exits 0 — the three "
+          "declared-inert coordinates all still hold",
+          rc == 0 and "VERDICT: every declaration holds" in text
+          and "FAIL" not in text,
+          "measured: Span.unit 1 value over 5,761 observations, "
+          "rhyme_constraints.Span.unit 1 over 40, "
+          "rhyme_constraints.Span.terminator@branch 1 (frame side) over 11, "
+          "and 0 SYMMETRIC schemas recovering a deleted instance. This is "
+          "the command in every INERT entry's `measured` field and nothing "
+          "in this repository had ever run it.")
+    _q = stream(QUATRAIN)
+    _rcq, _ctext = _capture(R.print_inert_report, _q)
+    _census = R.inert_census(_q)
+    check("...and the census it PRINTS is the one check_inert() reads, so "
+          "the number a reader sees and the verdict cannot drift",
+          _rcq == 0 and _ctext.count("MEASURED  :") == len(R.INERT) == 3
+          and all(f"{len(v)} value(s) over {n} observations" in _ctext
+                  for n, v in _census.values()),
+          f"{len(R.INERT)} entries, {_ctext.count('MEASURED  :')} MEASURED "
+          f"rows, census {[(n, v) for n, v in _census.values()]} — doctrine "
+          f"58: the count is taken over the text in hand, never recorded in "
+          f"the entry.")
+
+    # THE FALSIFIER, ARM 1: real input, no patching. A stream with no spans
+    # tests nothing, and doctrine 20 says not-tested is not a pass.
+    rc0, t0 = _capture(R.print_inert_report, stream([]))
+    check("EXIT 1 IS REACHABLE ON REAL INPUT: a stream with no observations "
+          "fails rather than passing vacuously",
+          rc0 == 1 and "not a pass" in t0,
+          "doctrine 20. `Span.unit: no observations on this stream, so the "
+          "inertness claim was not tested`. Verified end to end through the "
+          "CLI as well: `python3 quality/relations.py --inert EMPTY` exits 1.")
+
+    # THE FALSIFIER, ARM 2: the direction that actually matters — somebody
+    # starts SETTING the field and the entry silently becomes a lie.
+    _orig = R.enumerate_spans
+
+    def _two_valued(rule, stream_, **kw):
+        for n, sp in enumerate(_orig(rule, stream_, **kw)):
+            yield dataclasses.replace(sp, unit="phone") if n % 3 == 0 else sp
+    R.enumerate_spans = _two_valued
+    try:
+        bad = R.check_inert(stream(QUATRAIN))
+        rc1, t1 = _capture(R.print_inert_report, stream(QUATRAIN))
+    finally:
+        R.enumerate_spans = _orig
+    check("...and EXIT 1 on the direction that matters — a declared-inert "
+          "field that GAINS a second value",
+          rc1 == 1 and any("Span.unit" in b and "LIVE now" in b for b in bad),
+          f"{bad[:1]} — so a later session that wires Span.unit gets a "
+          f"failing command, not a field quietly acquiring a semantics "
+          f"nobody declared. Restored afterwards: check_inert is clean "
+          f"again ({R.check_inert(stream(QUATRAIN))}).")
+    check("...and the run is clean again once the patch is removed, so this "
+          "test cannot leave the module poisoned",
+          R.check_inert(stream(QUATRAIN)) == [])
+
+    # The unread coordinate INSIDE the unread-coordinate checker.
+    check("check_inert() takes (stream) alone — its `chans` parameter was "
+          "declared and never read, and is gone",
+          list(inspect.signature(R.check_inert).parameters) == ["stream"],
+          f"{inspect.signature(R.check_inert)} — an unread parameter in the "
+          f"one function whose job is to catch unread coordinates. No caller "
+          f"passed it; doctrine 1's three honest ends are wire, delete or "
+          f"declare, and nothing declares it.")
+
+    # WHAT --inert DOES NOT ANSWER, so the citation in the record is not
+    # mistaken for this command's own output.
+    check("the INERT table is THREE span-shaped fields, and none of them is "
+          "an anchor / diacritic / glide coordinate",
+          {e.field for e in R.INERT} == {
+              "Span.unit", "rhyme_constraints.Span.unit",
+              "rhyme_constraints.Span.terminator@branch"},
+          "quality/RESULTS_CYM_RHYME.md §10a is headed "
+          "'None of the four declared coordinates is inert "
+          "(`relations.py --inert`'s question)' and its four coordinates are "
+          "anchor depth, anchor rule, diacritics and glide — measured by "
+          "quality/cym_rhyme_rate.py over pair verdicts, not by this "
+          "command, which reports three entirely different fields. The "
+          "shared name is `relations.py`'s OWN §10a (the INERT section, and "
+          "what this report's header prints); the two are different "
+          "questions and only one of them has a command.")
+
+
+def test_relation_report_renderer_runs():
+    """X2. `print_relation_report` — the module's default human-facing output,
+    never executed in any traced scenario.
+
+    A renderer nothing runs is a renderer whose KeyError nobody has met. The
+    unsourced branch is the one that reads a second dict by schema name, so
+    it is exercised on a real text where an unsourced schema actually fires.
+    """
+    print("\nX2. the default report path, RUN — and its printed numbers "
+          "checked against the dict it renders")
+    rep = R.relation_report(stream(QUATRAIN))
+    _, text = _capture(R.print_relation_report, rep)
+    check("print_relation_report() runs and prints doctrine 79's three "
+          "counts as the dict holds them",
+          f"REFUSED {rep['refused']}" in text
+          and f"RAN AND FOUND NOTHING {rep['ran_found_nothing']}" in text
+          and f"RAN AND FIRED {rep['ran_and_fired']}" in text,
+          "the renderer and relation_report() are two objects and only the "
+          "dict had a test; a renderer that quietly printed the wrong field "
+          "would have been invisible.")
+    check("...and the three INSTANCE counts too, UNDECIDED included",
+          f"decided-true {rep['instances']['true']}" in text
+          and f"UNDECIDED {rep['instances']['undecided']}" in text
+          and "A COUNT HERE IS NOT EVIDENCE" in text,
+          f"{rep['instances']} — the ternary this module exists to preserve, "
+          f"and the pointer to the matched control, both reach stdout.")
+
+    # THE WHOLE VERB, on a real public-domain text, through main().
+    rc, out = _capture(R.main, [METIDJA])
+    check("`python3 quality/relations.py metidja.txt` RUNS end to end and "
+          "exits 0",
+          rc == 0 and "phonology eng   schemas declared 77" in out
+          and "RAN AND FIRED 24" in out,
+          "REFUSED 26 · RAN AND FOUND NOTHING 27 · RAN AND FIRED 24; "
+          "instances 1167 / 4518 / 2. Measured 2026-08-13, the first run of "
+          "this verb's own renderer.")
+    check("...and the UNSOURCED branch — a second dict read by schema name — "
+          "is exercised rather than merely present",
+          "[UNSOURCED] blues AAB stanza" in out
+          and "no tradition sourced:" in out,
+          "the only branch in the renderer that indexes UNSOURCED[schema]; "
+          "on a text where no unsourced schema fires it is never reached, "
+          "which is every fixture in this file.")
+
+    # THE APPARATUS FILTER, which this reader was the last holdout of.
+    import tempfile
+    with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                     encoding="utf-8") as fh:
+        fh.write("# (instrumental fade, 7/8)\n--- TITLE: probe\n"
+                 + open(METIDJA, encoding="utf-8").read())
+        probe = fh.name
+    try:
+        _, tagged = _capture(R.main, [probe])
+        _, plain = _capture(R.main, [METIDJA])
+    finally:
+        os.unlink(probe)
+    check("a `#` stage direction and a `--- TITLE:` note are APPARATUS here "
+          "too — this reader kept only the `[` case",
+          "lines 16   units 96" in tagged and "lines 16   units 96" in plain,
+          "`lyric_harness.py`'s relations verb was centralised onto "
+          "is_apparatus_line on 2026-08-12 and this module's own main() was "
+          "not, so the same file read through the two surfaces was two "
+          "different texts — the stage direction tokenised, rhyme-graded and "
+          "counted into the stanza frame on one of them. Spelled inline, not "
+          "imported: P10's invariant is that relations.py imports nothing "
+          "from lyric_harness, and readability.py / grid.py carry their own "
+          "copy for the same reason. BLANK lines still go through, which is "
+          "why load_lyric_lines would be wrong here even if it were "
+          "importable — relations.py derives the stanza frame from them.")
+
+
+def test_caesura_layer_reconciled():
+    """X3. Doctrine 56, and the 10.6 that `search_caesura` claimed as its own.
+
+    `quality/RHYME_COVERAGE.md` §11 holds `search_caesura` up as the REFERENCE
+    IMPLEMENTATION other languages should copy, and its docstring quoted
+    "k averaged 10.6 hypotheses per line". Nothing had ever called it. Run on
+    the very edition METHOD doctrine 56 measures 10.6 against, it returns
+    4.02 — the 10.6 belongs to a DIFFERENT search in a different module, and
+    the difference is the three-part `sain` placements.
+    """
+    print("\nX3. the caesura search: three k's, three denominators, one "
+          "published number")
+    from quality.phonology import get as _get
+    cym = _get("cym")
+    raw, alun = _cym_stream("cym_alun_strict.txt")
+    res = R.search_caesura(alun)
+    ks = [len(alun.frames.caesura[li]) for li in sorted(alun.frames.caesura)]
+    two_and_three = sum(k + k * (k - 1) / 2 for k in ks) / len(ks)
+    tried = [cym.cynghanedd_scan(l)["positions_tried"]
+             for l in raw if l.strip()]
+    scan_mean = sum(tried) / sum(1 for t in tried if t)
+
+    check("search_caesura() RUNS on the staged Welsh strict-metre edition, "
+          "and its own k is 4.02 per line — NOT the 10.6 it used to quote",
+          res["lines"] == 1558 and round(res["mean_k"], 2) == 4.02,
+          f"corpus/cym_alun_strict.txt: mean_k {res['mean_k']:.4f} over "
+          f"{res['lines']} lines. k is the count of word-initial units after "
+          f"the first, i.e. the TWO-part cuts, because half_line_a / "
+          f"half_line_b is the only caesura locus in this registry.")
+    check("...and the 10.6 REPRODUCES, from cym.cynghanedd_scan()'s "
+          "positions_tried — a different module and a wider search",
+          round(scan_mean, 1) == 10.6,
+          f"{scan_mean:.4f} over the same 1,558 lines. "
+          f"`python3 quality/cynghanedd_rate.py corpus/cym_alun_strict.txt 1` "
+          f"prints `mean placements tried = 10.6` beside `890/1558 = 57.1%`, "
+          f"which is METHOD doctrine 56's own Alun figure.")
+    check("...and the gap is exactly the THREE-part sain cuts: mean of "
+          "k + C(k,2) lands on the scanner's number",
+          round(two_and_three, 1) == 10.7
+          and abs(two_and_three - scan_mean) < 0.1,
+          f"k+C(k,2) = {two_and_three:.4f} against the scanner's "
+          f"{scan_mean:.4f}; the residue is the two modules' tokenisers "
+          f"(relations.tokenise against cym.WORD_RE/normalise). So a null "
+          f"built on THIS k under-corrects a three-part rule by ~2.6x, which "
+          f"is doctrine 56's own failure mode one level in.")
+
+    # THE THIRD k, and the reason no printed number has ever contained it.
+    _, twm = _cym_stream("cym_twm_or_nant_cywydd.txt")
+    caesura_schemas = [n for n, s in R.REGISTRY.items()
+                       if "caesura" in s.capabilities()]
+    before = {n: R.search_burden(R.REGISTRY[n], twm)["members"]
+              for n in caesura_schemas}
+    refused = {n: isinstance(R.realise(R.REGISTRY[n], twm), R.Refusal)
+               for n in caesura_schemas}
+    check("with no caesura declared all four caesura schemas REFUSE and "
+          "their search burden is literally zero members",
+          len(caesura_schemas) == 4 and all(refused.values())
+          and set(before.values()) == {0},
+          f"{sorted(caesura_schemas)} — so the mean_k the `relations` verb "
+          f"prints live has never contained one caesura hypothesis on any "
+          f"input, because nothing in this repository calls search_caesura "
+          f"and the schemas that would carry it refuse first.")
+    twm_res = R.search_caesura(twm)
+    burden = R.search_burden(R.REGISTRY["cynghanedd draws"], twm)
+    tks = [len(twm.frames.caesura[li]) for li in sorted(twm.frames.caesura)]
+    check("declaring the search moves them from REFUSED to firing, and the "
+          "caesura's k enters search_burden() for the first time",
+          not isinstance(R.realise(R.REGISTRY["cynghanedd draws"], twm),
+                         R.Refusal)
+          and burden["members"] == 1280 and burden["searched"] == 1278
+          and burden["max_k"] == 15,
+          f"corpus/cym_twm_or_nant_cywydd.txt: REFUSED 26 -> 22, fired "
+          f"41 -> 44, decided-true 13,715 -> 13,773. `cynghanedd draws` "
+          f"returns 50 true instances where it returned a refusal.")
+    check("...and search_burden()'s mean_k is a THIRD statistic — size-biased "
+          "over member spans, not per line",
+          round(twm_res["mean_k"], 2) == 4.10
+          and round(burden["mean_k"], 2) == 4.99
+          and burden["members"] == 2 * sum(tks)
+          and abs(burden["mean_k"]
+                  - sum(k * k for k in tks) / sum(tks)) < 1e-9,
+          f"per line {twm_res['mean_k']:.4f}; per member span "
+          f"{burden['mean_k']:.4f}. Each line contributes 2k spans (one per "
+          f"half), so the span mean is sum(k^2)/sum(k) and a long line counts "
+          f"more than once. Two denominators, never a ratio (doctrine 79/91) "
+          f"— and neither of them is the 10.6.")
+
+
+def test_printed_caesura_reads_none_of_welsh():
+    """X4. Doctrine 55 names THREE printed caesura marks and this function's
+    default carries two — measured, so the omission is not implicit.
+
+    The one it drops is the gwant `--`, which is the only printed caesura mark
+    that occurs anywhere in this repository's staged Welsh corpora.
+    """
+    print("\nX4. the printed caesura: doctrine 55's third mark, and what its "
+          "absence from the default costs")
+    from quality.phonology import get as _get
+    CAESURA_RE = _get("cym").CAESURA_RE
+    raw, alun = _cym_stream("cym_alun_strict.txt")
+    R.mark_printed_caesura(alun)
+    default_hits = len(alun.frames.caesura)
+    alun.frames.caesura.clear()
+    R.mark_printed_caesura(alun, marks=("--", "/", "|"))
+    gwant_hits = len(alun.frames.caesura)
+    printed = sum(1 for l in raw if "--" in l)
+    check("the shipped default reads ZERO printed caesurae on the edition "
+          "that prints 228 of them",
+          default_hits == 0 and printed == 228,
+          "corpus/cym_alun_strict.txt, e.g. `Ust! y ffrwd,--pa sibrwd sydd?`. "
+          "The default is `('/', '|')` and the gwant is neither.")
+    check("...and declaring the gwant reads 100 of them",
+          gwant_hits == 100,
+          f"{gwant_hits} of {printed}: the other {printed - gwant_hits} print "
+          f"the gwant line-final, where no unit follows it — the same "
+          f"trailing-dash case cym._marked_parts drops rather than reporting "
+          f"the whole line unreadable.")
+    check("`marks` can hold a multi-character mark at all — a bare string is "
+          "still iterated per character, which is what '/|' meant",
+          all(CAESURA_RE.match(m) for m in ("--", "/", "|"))
+          and not CAESURA_RE.match("-"),
+          "cym.CAESURA_RE carries all three of doctrine 55's marks. A caller "
+          "spelling the gwant into the old string default got `-`, which "
+          "fires on every hyphenated compound in a language that JOINS on "
+          "the hyphen (doctrine 65) — so the mark was not merely absent from "
+          "the default, it was inexpressible through the documented type.")
+    check("the default stays TWO marks on purpose: an English em-dash is "
+          "punctuation, and punctuation is not metre",
+          R.mark_printed_caesura.__defaults__[0] == ("/", "|"),
+          "doctrine 55's own case was a printed COMMA selecting which rule "
+          "each of 1,558 lines was tested against. Adding `--` to the default "
+          "would move that defect one glyph over for every non-Welsh stream; "
+          "the mark inventory is a DECLARATION (doctrine 1) and the caller "
+          "makes it.")
+
+
+def test_refrain_tail_documented_call_was_impossible():
+    """X5. `mark_refrain_tail`'s own docstring named a call that returns None
+    on every ghazal in the corpus, silently, and nothing had ever run it.
+
+    `lines=` is a set of LINE INDICES; `fas.ghazal_rhyme_lines(hemistichs)`
+    returns hemistich TEXTS. Strings tested against integer indices match
+    nothing, `refrain_source` is set to 'computed' regardless, and the two
+    refrain schemas go from REFUSED to a measured ZERO — doctrine 20's
+    collapse produced by an argument type.
+    """
+    print("\nX5. the refrain tail: the documented call could not work, and "
+          "failed without an error")
+    import json
+    from quality.phonology import get as _get
+    from quality.phonology import fas as fas_mod
+    fas = _get("fas")
+    data = json.load(open(os.path.join(HERE, "..", "corpus",
+                                       "fas_hafez.json"), encoding="utf-8"))
+    poem = data[0]["poem"]
+    texts = fas_mod.ghazal_rhyme_lines(poem)
+    check("fas.ghazal_rhyme_lines() returns hemistich TEXTS, and "
+          "mark_refrain_tail wants indices — the mismatch is a fact about "
+          "the two signatures",
+          all(isinstance(x, str) for x in texts) and len(texts) == 8,
+          "`[h[0]] + h[1::2]` over 14 hemistichs. Both are correct on their "
+          "own; the docstring joining them was not.")
+    st = R.build_stream(poem, fas, declaration={"language": "fas"})
+    try:
+        R.mark_refrain_tail(st, lines=texts)
+        raised = ""
+    except R.NoReferent as exc:
+        raised = str(exc)
+    check("passing it REFUSES by name now, where it used to return None on "
+          "495 of 495 ghazals with no error",
+          "LINE INDICES" in raised and "ghazal_rhyme_lines" in raised,
+          raised or "NOTHING RAISED — the silent path is back")
+
+    idx = [0] + list(range(1, len(poem), 2))
+    st2 = R.build_stream(poem, fas, declaration={"language": "fas"})
+    before = {n: isinstance(R.realise(R.REGISTRY[n], st2), R.Refusal)
+              for n in R.REGISTRY if "refrain_tail" in
+              R.REGISTRY[n].capabilities()}
+    got = R.mark_refrain_tail(st2, lines=idx)
+    radif = R.realise(R.REGISTRY["epistrophe / radif"], st2)
+    check("...and with the INDICES it finds Hafez's radif, which is what the "
+          "function is for",
+          got is not None and got["depth"] == 1 and got["run"] == ("ها",)
+          and len(got["lines"]) == 6,
+          f"{got and got['run']} over {got and len(got['lines'])} "
+          f"rhyme-bearing hemistichs of ghazal 1. MEASURED over the whole "
+          f"corpus: it fires on 66 of the 495 ghazals in "
+          f"corpus/fas_hafez.json (ghazal 2 `کجا`, ghazals 3 and 4 `را`) and "
+          f"on 0 of 495 through the call the docstring named.")
+    check("...and the two schemas that ride refrain_tail move from REFUSED "
+          "to instances, not from REFUSED to a measured zero",
+          set(before.values()) == {True}
+          and sum(1 for i in radif if i.verdict is True) == 15,
+          f"before: {sorted(before)} all REFUSED. after: `epistrophe / "
+          f"radif` {sum(1 for i in radif if i.verdict is True)} true "
+          f"instances. Through the documented call both schemas ran and "
+          f"reported 0 — a refusal turned into a null by a type error nobody "
+          f"could see (doctrine 20).")
+
+
 if __name__ == "__main__":
     test_inventory()
     test_p0_unreadable_final_token()
@@ -1765,6 +2172,11 @@ if __name__ == "__main__":
     test_tradition_provenance()
     test_null_module()
     test_known_open_defects()
+    test_inert_command_runs_and_can_fail()
+    test_relation_report_renderer_runs()
+    test_caesura_layer_reconciled()
+    test_printed_caesura_reads_none_of_welsh()
+    test_refrain_tail_documented_call_was_impossible()
     print("=" * 66)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

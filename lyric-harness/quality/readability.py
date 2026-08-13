@@ -65,7 +65,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import (Declaration, Lexicon, line_anchors,  # noqa: E402
+from lyric_harness import (Declaration, Lexicon,  # noqa: E402
+                           is_apparatus_line, line_anchors,
                            line_readability, line_tokens,
                            raw_final_token, readability_records,
                            token_pieces, word_syllable_map)
@@ -245,6 +246,25 @@ def read_lines(path):
     headers -- 29,990 of those from `[VERSE n]` alone -- not one syllable
     of it sung. `quality/test_readability.py` test 5 carries the corrected
     pin and the arithmetic that got it there.
+
+    CENTRALIZED 2026-08-13, and the fix above is the reason: this function
+    spelled the rule a SECOND time, and it spelled it differently. It tested
+    `--- ` WITH A TRAILING SPACE where `lyric_harness.is_apparatus_line` --
+    the one definition CLAUDE.md names, and the one every other reader in the
+    repo uses -- tests `---`. The two agree on `--- TITLE:` and on every
+    ordinary source note, and disagree on a RULE, which is why nobody noticed:
+    a run of four or more hyphens is not `--- `. MEASURED over the 143 English
+    song files: FOUR lines, all four Wordsworth epigraphs in
+    `corpus/song/eng_british_felicia_hemans.txt` (`----"'Tis not merely`,
+    `----"Sing aloud`, `----"His early days`, `----"How divine`), read as
+    verse here and as apparatus everywhere else. `lines_countable` 151,898 ->
+    151,894, and 151,894 is the figure `RESULTS_HYPHEN_REFUSAL.md` and
+    `lyric_harness.token_pieces` ALREADY carried -- so this closes a record
+    that disagreed with itself rather than moving one that agreed. No
+    unreadable-end-word count moves: all four end words (`merely`, `aloud`,
+    `days`, `divine`) are in CMUdict, so 9,078/174/149/8,842 are untouched and
+    only the denominator falls, 5.97638% -> 5.97654% and 6.09093% ->
+    6.09109%.
     """
     with open(path, encoding="utf-8", errors="replace") as f:
         out = []
@@ -252,7 +272,7 @@ def read_lines(path):
             s = raw.strip()
             if not s or not re.search(r"[A-Za-z]", s):
                 continue
-            if s.startswith("#") or s.startswith("--- ") or s.startswith("["):
+            if is_apparatus_line(s):
                 continue
             out.append(s)
         return out

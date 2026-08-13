@@ -1116,6 +1116,133 @@ def test_every_variation_kind_is_reportable():
           f"{len(ladder)} kinds, {len(ladder)} reported: {ladder}")
 
 
+# ---------------------------------------------------------------------------
+# THE CORPUS READER'S APPARATUS RULE — `read_marked_songs`, and the one
+# definition it now calls instead of half-spelling its own
+# ---------------------------------------------------------------------------
+
+
+def test_read_marked_songs_drops_apparatus_by_the_one_rule():
+    """`read_marked_songs` scored a stage direction as a lyric, and the reason
+    was a bracket with no closing `]`.
+
+    THE THREE STRUCTURAL TESTS AND THE ONE CONTENT TEST, and the whole defect
+    is that the fourth was missing. `--- TITLE:` opens a song; `#`/`--- `
+    skips a header or source note; `_MARK_RE = ^\\[([^\\]]*)\\]` opens a block.
+    All three are about STRUCTURE and their ORDER is load-bearing --
+    `[VERSE 1]` IS apparatus by `lyric_harness.is_apparatus_line` and is
+    nonetheless the thing that opens a block, so the mark test has to be asked
+    first or the reader stops reading blocks at all. The append branch had no
+    test whatever, so anything that reached it was a line of the song:
+
+      * `[Exeunt.` has no `]`, so `_MARK_RE` does not match, so it fell
+        through and was scored as sung text. Same for `[Drinks.`, `[Rises.`,
+        `[Music:` and `[_Exeunt omnes._`.
+      * the `#` and `--- ` tests above read the RAW line, so an indented one
+        reached the append branch too.
+      * and `--- ` is not the centre's rule: `----"'Tis not merely` is
+        apparatus everywhere else in this repo (the same four-hyphen epigraph
+        that moved `quality/readability.py`'s denominator by 4).
+
+    THE FIXTURE IS THE FOUR CASES AND THEIR CONTROLS, and the controls are the
+    half that matters: a mark must still OPEN a block, a mark's trailing text
+    must still be an ANNOTATION, and an ordinary line beginning with a word
+    must be untouched. A test that only proved lines get dropped would pass on
+    a reader that dropped everything.
+    """
+    print("\n23. `read_marked_songs` — the apparatus rule is the CENTRE's, "
+          "and the mark test still runs first")
+    import tempfile
+    from lyric_harness import is_apparatus_line
+    from quality.grid import read_marked_songs
+
+    text = "\n".join([
+        "# a header comment, dropped before any song opens",
+        "--- TITLE: The Fixture",
+        "--- Source: nowhere, constructed",
+        "[VERSE 1] (an annotation on the mark's own line)",
+        "Hold the line tonight",
+        "[Exeunt.",
+        "  # an indented comment, which the raw-line test never saw",
+        "  --- an indented source note, likewise",
+        "----“An epigraph opening on four hyphens",
+        "Rain against the shutters cold",
+        "[CHORUS]",
+        "[Drinks.",
+        "[VERSE 2]",
+        "Morning found the empty road",
+        "",
+    ])
+    d = tempfile.mkdtemp(prefix="grid_apparatus_")
+    p = os.path.join(d, "eng_fixture.txt")
+    with open(p, "w", encoding="utf-8") as fh:
+        fh.write(text)
+
+    songs = read_marked_songs(p, language="eng")
+    check("one song, opened by `--- TITLE:` and titled from it",
+          len(songs) == 1 and songs[0].title == "The Fixture",
+          f"{[s.title for s in songs]}")
+    blocks = songs[0].blocks
+    check("three blocks, and the marks still OPEN them — the apparatus rule "
+          "is asked AFTER `_MARK_RE`, never before it",
+          [b.mark for b in blocks] == ["VERSE 1", "CHORUS", "VERSE 2"],
+          f"{[b.mark for b in blocks]} — every one of these is apparatus by "
+          f"`is_apparatus_line`, so a reader that dropped apparatus first "
+          f"would report NO blocks at all")
+    check("the mark's trailing text is still an ANNOTATION and not a fifth "
+          "line", blocks[0].annotation ==
+          "(an annotation on the mark's own line)",
+          repr(blocks[0].annotation))
+    check("VERSE 1 keeps its two sung lines and drops the four apparatus "
+          "lines between them",
+          blocks[0].lines == ["Hold the line tonight",
+                              "Rain against the shutters cold"],
+          f"{blocks[0].lines} — dropped `[Exeunt.` (a `[` with no `]`, which "
+          f"`_MARK_RE` cannot match), an indented `#`, an indented `---`, "
+          f"and a four-hyphen epigraph that `--- ` never matched")
+    check("VERSE 2 keeps its one line", blocks[2].lines ==
+          ["Morning found the empty road"], f"{blocks[2].lines}")
+
+    survivors = [l for b in blocks for l in b.lines if is_apparatus_line(l)]
+    check("NO line of any block is apparatus by the one definition — stated "
+          "as the invariant rather than as four cases, because the four cases "
+          "are what a second spelling of the rule always passes",
+          not survivors, f"survivors: {survivors}")
+
+    # THE EMPTIED BLOCK, AND WHAT READS IT. `[CHORUS]` here is followed by
+    # `[Drinks.` and nothing else, which is exactly Gay's shape in
+    # `eng_hall_john_gay.txt` and 13 more like it corpus-wide. The block is
+    # now EMPTY, and that is the correct reading -- a chorus whose whole
+    # printed content is a stage direction has no words -- so what has to be
+    # shown is that nothing downstream indexes it. Every reader of
+    # `Block.lines` in this repo passes the list to `compare_returns`
+    # (`quality/test_song_function.py`, two sites); grep found no third.
+    check("the emptied block is EMPTY, not absent — the mark is still read, "
+          "so the song still has a chorus with no words in it",
+          blocks[1].mark == "CHORUS" and blocks[1].lines == [],
+          f"{blocks[1].mark}: {blocks[1].lines}")
+
+    from quality.grid import compare_returns, rime_orthographic
+    empties = {
+        "both sides empty": ([], []),
+        "empty return of a real block": (list(CHORUS), []),
+        "real return of an empty block": ([], list(CHORUS)),
+    }
+    landed = {}
+    for name, (a, b) in empties.items():
+        landed[name] = (compare_returns(a, b).kind,
+                        compare_returns(a, b,
+                                        rhyme_key=rime_orthographic).kind)
+    check("`compare_returns` answers on an empty block from either side, "
+          "with and without a phonology — no unguarded index, no exception",
+          landed["both sides empty"] == ("VERBATIM", "VERBATIM")
+          and landed["empty return of a real block"][0] == "TRUNCATED_RETURN"
+          and landed["real return of an empty block"][0] == "EXTENDED_RETURN",
+          "; ".join(f"{k} -> {v[0]}/{v[1]}" for k, v in landed.items())
+          + " — TRUNCATED and EXTENDED are the honest answers: a return that "
+            "prints no lines against one that prints four HAS lost four")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -1138,7 +1265,8 @@ if __name__ == "__main__":
                test_the_ask_gate_reaches_every_function_that_is_expected_once,
                test_return_never_returns_is_reached,
                test_a_return_that_loses_or_gains_a_line_is_not_verbatim,
-               test_every_variation_kind_is_reportable):
+               test_every_variation_kind_is_reportable,
+               test_read_marked_songs_drops_apparatus_by_the_one_rule):
         fn()
     print("=" * 62)
     if FAILURES:

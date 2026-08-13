@@ -736,9 +736,35 @@ def is_apparatus_line(line):
     comment) rather than sung text. Matches the convention already used
     throughout `quality/` (readability.py's `read_lines`, grid.py's
     `read_marked_songs`, fin_rhyme_rate.py, audit_register.py, etc.): a
-    `[Section]` header, a `--- ` source note, or a `#` comment -- the last
+    `[Section]` header, a `---` source note, or a `#` comment -- the last
     of which is the place a stage direction belongs, since unlike a bare
     `(...)` parenthetical it is unambiguously apparatus and never scored.
+
+    `---`, WITH NO TRAILING SPACE, AND THAT IS THE WHOLE OF THE 2026-08-13
+    CONVERGENCE. Two readers were still spelling this rule themselves after
+    the 2026-08-12 centralization and both spelled it wrong, in opposite
+    ways, and both now CALL this function:
+
+      `quality/readability.py`'s `read_lines` tested `--- ` with a trailing
+      space. A four-hyphen epigraph is not `--- `, so four Wordsworth
+      epigraphs in `corpus/song/eng_british_felicia_hemans.txt` were verse to
+      that one reader and apparatus to every other. `lines_countable`
+      151,898 -> 151,894 -- which is the figure `quality/
+      RESULTS_HYPHEN_REFUSAL.md` and `token_pieces` below had recorded all
+      along, so the fix closed a self-contradicting record rather than moving
+      an agreed number.
+
+      `quality/grid.py`'s `read_marked_songs` never stripped before its test
+      and routed `[` through `^\\[([^\\]]*)\\]`, so a bracket with NO CLOSING
+      `]` matched nothing, opened no block, and was scored as a LYRIC: 133
+      lines in 19 files across 130 blocks, 14 of which had a stage direction
+      (`[Exeunt.`, `[Drinks.`, `[Music:`) as their entire content.
+
+    STILL OUTSTANDING, and it is a different lot's to close: five more
+    `startswith("--- ")` sites survive (`quality/negative_control.py`,
+    `cym_rhyme_rate.py` x2, `test_cym.py`, `test_phonology.py`), all on the
+    Welsh/negative-control path. They are not measured here because this cell
+    does not own them; `grep -rn 'startswith("--- ")'` is the whole list.
     """
     s = line.strip()
     return s.startswith("[") or s.startswith("---") or s.startswith("#")
@@ -997,10 +1023,15 @@ def token_pieces(lex, token):
     `#`/`---`/`[` markers (189,261 counting every non-blank line; at the time
     this was measured, `quality.readability.read_lines` did NOT exclude those
     markers and returned 188,805 -- FIXED 2026-08-12, and `read_lines` now
-    returns 151,898 on the current corpus, matching this figure rather than
-    disagreeing with it -- doctrine 91, the count is a coordinate of the
-    rendering, and a corpus cell was de-duplicating this corpus in the same
-    round so it is pinned to a COMMIT and not to a date): **323 line ends
+    returns 151,894 on the current corpus, THE SAME FIGURE, because as of
+    2026-08-13 it calls `is_apparatus_line` rather than spelling the rule a
+    second time. It carried its own `--- ` WITH A TRAILING SPACE for a day and
+    returned 151,898 on that spelling: the difference is four Wordsworth
+    epigraphs in `eng_british_felicia_hemans.txt` that open on FOUR hyphens,
+    which `--- ` cannot match and `---` does -- doctrine 91, the count is a
+    coordinate of the rendering, and a corpus cell was de-duplicating this
+    corpus in the same round so it is pinned to a COMMIT and not to a
+    date): **323 line ends
     have an unread piece inside an end token that yields phones**, and the
     split by WHICH piece is the triage:
 

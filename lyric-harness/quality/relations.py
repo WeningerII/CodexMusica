@@ -2309,9 +2309,37 @@ def mark_refrain_tail(stream, min_count=2, min_fraction=0.6, lines=None):
     the answer is ALWAYS zero: only the second hemistich of each bayt carries
     the rhyme (both do in the maṭlaʿ -- taṣrīʿ), so a fraction taken over ALL
     lines cannot reach any threshold.  `lines` is the declared rhyme-bearing
-    subset, which for Persian is exactly `fas.ghazal_rhyme_lines()`.  The same
-    applies to an English hymn whose refrain is every fourth line.
+    subset AS LINE INDICES into `stream.lines`; for Persian that convention is
+    `[0] + list(range(1, n_lines, 2))`.  The same applies to an English hymn
+    whose refrain is every fourth line.
+
+    THE CALL THIS DOCSTRING USED TO NAME COULD NOT WORK, AND FAILED SILENTLY.
+    It said the subset "is exactly `fas.ghazal_rhyme_lines()`" -- and
+    `quality/phonology/fas.py`'s `ghazal_rhyme_lines(hemistichs)` returns the
+    hemistich TEXTS (`[h[0]] + h[1::2]`), not their indices.  A set of strings
+    tested against an integer line index matches nothing, so the one call the
+    documentation named returned None on 495 of 495 Hafez ghazals with no
+    error, `refrain_source` was set to 'computed' anyway, and `epistrophe /
+    radif` and `qafiya (before the radif)` went from REFUSED to a measured
+    ZERO -- doctrine 20's collapse, manufactured by an argument type.  With the
+    INDICES it fires on 66 of the 495 (`corpus/fas_hafez.json`, ghazal 1's
+    radif `ها` over 6 lines, ghazal 2's `کجا` over 9, ghazal 3 and 4's `را`),
+    and `epistrophe / radif` returns 15/36/45/36 instances on those four.  The
+    argument is CHECKED below rather than left to a reader, because a
+    principle that lives only in prose gets followed exactly as often as
+    someone remembers it (doctrine 48) and nothing had ever run this line.
     """
+    if lines is not None:
+        wrong = [l for l in lines if isinstance(l, bool)
+                 or not isinstance(l, int)]
+        if wrong:
+            raise NoReferent(
+                f"`lines` is the rhyme-bearing subset as LINE INDICES into "
+                f"stream.lines; got {len(wrong)} element(s) that are not "
+                f"indices, first {wrong[0]!r}. `fas.ghazal_rhyme_lines()` "
+                f"returns hemistich TEXTS and matches no line at all -- use "
+                f"[0] + list(range(1, len(stream.lines), 2)) for the same "
+                f"Persian convention.")
     keep = None if lines is None else set(lines)
     tails = {}
     for li, ids in enumerate(stream.lines):
@@ -2358,12 +2386,38 @@ def search_caesura(stream):
     has to say which.
 
     EVERY word boundary is kept as a candidate rather than one being chosen by
-    a scorer.  k averaged 10.6 hypotheses per line on a real Welsh corpus, and
-    the same search run over lines whose words are shuffled WITHIN THE LINE
-    still reports cynghanedd on about a quarter of them -- so a bare rate
-    obtained by search is quoting the null back at itself, and only the EXCESS
-    over a matched control is attributable to the poet.  `Span.search_k` and
-    `Instance.search_k` carry k so that control can be built.
+    a scorer, and the same search run over lines whose words are shuffled
+    WITHIN THE LINE still reports cynghanedd on about a quarter of them -- so a
+    bare rate obtained by search is quoting the null back at itself, and only
+    the EXCESS over a matched control is attributable to the poet.
+    `Span.search_k` and `Instance.search_k` carry k so that control can be
+    built.
+
+    THIS FUNCTION'S k IS 4.0, NOT 10.6, AND THE 10.6 WAS ANOTHER MODULE'S.
+    This docstring read "k averaged 10.6 hypotheses per line on a real Welsh
+    corpus" from the day it was written, and nothing had ever run it.
+    MEASURED 2026-08-13 on `corpus/cym_alun_strict.txt` -- the same 1,558-line
+    edition METHOD doctrine 56 quotes 10.6 against -- this returns
+    **mean_k 4.02** over 1,558 lines.  The 10.6 is `quality/phonology/cym.py`'s
+    `cynghanedd_scan(...)["positions_tried"]`, printed by
+    `quality/cynghanedd_rate.py` as `mean placements tried = 10.6`, and it
+    reproduces exactly (10.62).  The gap is not a discrepancy, it is a
+    DIFFERENT SEARCH: the Welsh scanner tries the (n-1) two-part cuts AND the
+    C(n-1, 2) three-part cuts a `sain` reading needs, while this function
+    enumerates the two-part cuts alone, because `half_line_a`/`half_line_b` is
+    the only caesura locus in this registry and a three-part frame does not
+    exist here.  The identity holds on the text: mean over lines of
+    `k + C(k, 2)` is 10.70 against the scanner's 10.62, the residue being the
+    two modules' tokenisers.  So a null built on THIS k under-corrects any
+    three-part rule by a factor of ~2.6, and doctrine 58 is why the number is
+    now stated with the file it was measured on and the command that prints
+    the other one.
+
+    AND `search_burden()`'s mean_k IS A THIRD STATISTIC, not this one.  It
+    averages over MEMBER SPANS, of which each line contributes 2k (one per
+    half), so it is the size-biased mean sum(k^2)/sum(k) and reads HIGHER:
+    4.99 against this function's 4.10 on `corpus/cym_twm_or_nant_cywydd.txt`,
+    on the identical stream.  Two denominators, never a ratio (doctrine 79/91).
     """
     ks = []
     for li, ids in enumerate(stream.lines):
@@ -2378,10 +2432,32 @@ def search_caesura(stream):
             "note": "report the EXCESS over a null run under this same search"}
 
 
-def mark_printed_caesura(stream, marks="/|"):
+def mark_printed_caesura(stream, marks=("/", "|")):
     """A PRINTED caesura only. Punctuation is not metre: `cynghanedd()` split
     on `[,/|]`, so an editorial COMMA chose which rule each line was tested
-    against on 1,558 lines."""
+    against on 1,558 lines.
+
+    `marks` is a SEQUENCE OF MARKS and each may be more than one character; a
+    bare string still works and is iterated per character, which is what the
+    old `"/|"` default meant.  THE DEFAULT IS TWO OF DOCTRINE 55's THREE, ON
+    PURPOSE, and the omission is the whole reason this note exists: doctrine 55
+    names the caesura as PRINTED `/`, `|`, **or the gwant `--`**, and
+    `quality/phonology/cym.py`'s own `CAESURA_RE` carries all three.  This
+    default carries only the two that mean a caesura in every language a
+    stream can be built for -- `--` is an em-dash in English, and reading
+    ordinary punctuation as structure is the exact defect doctrine 55 was
+    written about.  MEASURED 2026-08-13, so the cost of the omission is not
+    left implicit: on `corpus/cym_alun_strict.txt` the default marks **0 of
+    1,558 lines** while 228 of them print the gwant, and
+    `marks=("--", "/", "|")` marks **100** (the other 128 print it line-final,
+    where no unit follows it -- the same trailing-dash case `cym._marked_parts`
+    drops).  A Welsh caller has to declare the gwant; before 2026-08-13 the
+    parameter's documented string form could not even express it, since
+    `"--/|"` iterates to a single `-` and would fire on every hyphenated
+    compound in a language that JOINS on the hyphen (doctrine 65).
+    """
+    if isinstance(marks, str):
+        marks = tuple(marks)
     for li, raw in enumerate(stream.text_lines):
         pos = min((raw.find(m) for m in marks if m in raw), default=-1)
         if pos < 0:
@@ -3693,7 +3769,7 @@ def inert_census(stream):
     return out
 
 
-def check_inert(stream, chans=DEFAULT_CHANNELS):
+def check_inert(stream):
     """MEASURE every INERT claim on a real stream. -> list of finding strings,
     empty when every declaration holds.
 
@@ -3701,6 +3777,13 @@ def check_inert(stream, chans=DEFAULT_CHANNELS):
     direction: a field that gained a second value is no longer inert and its
     entry now lies in the other direction, and a field that vanished has been
     closed without its entry being retired.
+
+    THIS FUNCTION USED TO TAKE `chans=DEFAULT_CHANNELS` AND NEVER READ IT --
+    an unread coordinate inside the function whose entire job is to catch
+    unread coordinates.  No caller ever passed it.  Removed 2026-08-13 rather
+    than given an INERT entry, because the three honest ends are wire, delete,
+    or keep-and-declare, and a parameter no schema and no declaration asks for
+    is the delete case.
     """
     out = []
     census = inert_census(stream)
@@ -4741,8 +4824,22 @@ def main(argv):
                   f"rule-shape-only {len(r['rule_shape']):3d}  "
                   f"unsourced {len(r['unsourced'])}")
         return 0
+    # APPARATUS IS `[Section]`, `--- ` OR `#`, and this reader kept only the
+    # first of the three -- so a `#` stage direction or a `--- TITLE:` note
+    # reached build_stream as a line of verse, was tokenised, and entered
+    # every schema's span enumeration and the stanza frame.  The SAME file
+    # through `python3 lyric_harness.py relations FILE` dropped it, because
+    # that verb was centralised onto `is_apparatus_line` on 2026-08-12 and
+    # this one, in a different file, was not: two surfaces over one text,
+    # reading different lines.  SPELLED HERE rather than imported: P10's
+    # invariant is that this module imports nothing from lyric_harness (the
+    # `&c.` detector is the EDITION's business and must not leak in), and
+    # `quality/readability.py`'s `read_lines` and `quality/grid.py`'s
+    # `read_marked_songs` already carry their own copy for the same reason.
+    # `load_lyric_lines` would be wrong even if it were importable: it drops
+    # BLANK lines, and this module derives the stanza frame from them.
     raw = [l.rstrip() for l in open(paths[0]).read().splitlines()
-           if not l.strip().startswith("[")]
+           if not l.strip().startswith(("[", "---", "#"))]
     st = build_stream(raw, get_phonology(lang), declaration={"language": lang},
                       stanzas=stanzas_from_blank_lines(raw))
     print(f"  {paths[0]}   lines {sum(1 for l in raw if l.strip())}   units "

@@ -121,8 +121,23 @@ on 2026-08-13 -- they are a coordinate of the text and of the phonology
 module, not properties of the registry, and the mode prints them per run
 rather than quoting these:
 
-  CONTROLLED     3    a hand-written arm above
-  EXTENDABLE    31    runs, fires, a null moves it, nobody had run it
+  CONTROLLED     3    a hand-written arm above.  AT SCHEMA GRANULARITY, and
+                      the arms are at PAIR granularity: the three carry 16
+                      admissible (statistic, null) pairs between them and the
+                      arms ran 7 of the 16, so 9 pairs on "controlled"
+                      schemas have no matched control (section 7b prints them)
+  EXTENDABLE    31    runs, fires, a null moves it, nobody had run it.  33
+                      AT `budget=None`, which is the number section 7b's
+                      ledger pins: 31 is this figure minus the two schemas the
+                      2.0 s budget took, and that boundary is a wall clock
+                      reading that does not reproduce (see TOO EXPENSIVE
+                      below).  Only the first two clauses of this line were
+                      ever checked by code.  "a null moves it" was `null_menu`,
+                      a DERIVATION, and 39 of the 195 pairs it nominates on
+                      this slice move 0 of 10 replicates while 43 pairs it
+                      calls identity maps DO move; "nobody had run it" was
+                      `name not in ARM_SCHEMAS`, a membership test on a
+                      hand-written tuple.  SECTION 7b MAKES BOTH FAILABLE
   TOO EXPENSIVE  2    `chain rhyme (rap)` is 14.19 s per realise() pass and
                       `compound / phrasal rhyme` 2.53 s, against a 0.05 s
                       median over the 51 that ran -- MEASURED on that pass,
@@ -152,9 +167,24 @@ poet's end rhyme and it moves the wrong way" -- was not a fact about
 17 schemas clear their own null on at least one statistic; `perfect rhyme`
 is +219 at 27.9x, and that is what a real one looks like.
 
+AND EVERY NUMBER IN THE SIX-WAY TABLE ABOVE WAS, UNTIL SECTION 7b, A COMMENT
+NO CODE READ.  `coverage()` re-derives the verdicts on every run and compares
+them to nothing, so `EXTENDABLE 31` could not be wrong: a schema that acquired
+an arm, lost one, stopped firing, started refusing or emptied its null menu
+would simply have been re-sorted, silently, and the docstring would have gone
+on saying 31.  Doctrine 48 -- a check that cannot fail is decoration -- inside
+the census that exists to enforce doctrine 44.  `--verify` diffs the frozen
+`EXTENSION_LEDGER` against a fresh census on a pinned slice and exits nonzero
+per marker that moved; `--verify --deep` additionally re-measures the
+"a null moves it" clause against a full sweep, which is the only tier that
+asks the DERIVATION to answer to a MEASUREMENT rather than the other way round
+(doctrine 68).
+
 Run: python3 quality/relations_null.py             (all three arms, ~25 min)
      python3 quality/relations_null.py --arm=0 --null=global_redeal
      python3 quality/relations_null.py --coverage  (the census, instant)
+     python3 quality/relations_null.py --verify    (the ledger, ~5 s, CI)
+     python3 quality/relations_null.py --verify --deep   (~4 min)
      python3 quality/relations_null.py --sweep --corpus=P --limit=N --n=K
      python3 quality/relations_null.py --sensitivity --corpus=P ...
      python3 quality/relations_null.py --help
@@ -278,7 +308,7 @@ NULLS = {n.name: n for n in (
                    "WORDS exactly; every line length; the vocabulary",
          destroys="which end word sits at which line, hence every pairing of "
                   "end words at a bounded distance",
-         reads=("line_distance",),
+         reads=("line_distance", "line_position"),
          note="doctrine 68's degenerate case: where the finals are already "
               "identical -- a radif, a refrain -- permuting identical "
               "elements changes nothing. Always read the differing fraction."),
@@ -786,6 +816,17 @@ ARM_SCHEMAS = frozenset(a[3] for a in ARMS)
 #   EXTENDABLE        it runs, it fires, a null in the inventory bites, and
 #                     nobody had run it.  THIS is "nobody got to it", and it
 #                     is the only one of the five that `sweep()` closes.
+#                     READ THE LAST TWO CLAUSES NARROWLY.  In the code below
+#                     this verdict is the ELSE-BRANCH of `name in ARM_SCHEMAS`
+#                     reached after `pairs` came back non-empty, so "a null
+#                     bites" means "`null_menu` NOMINATED one" (a derivation
+#                     this file records as wrong in both directions) and
+#                     "nobody had run it" means "no tuple in `ARMS` names it"
+#                     (a fact about a hand-written list, not about whether a
+#                     measurement exists).  Section 7b freezes both into a
+#                     ledger so that a change in either fails `--verify`
+#                     instead of being re-derived into a fresh verdict that
+#                     still reads "nobody had run it".
 
 
 #: What each PLACEMENT rule FORCES about the line distance, as (lo, hi) with
@@ -943,7 +984,10 @@ class Coverage:
         return {
             "controlled": "already run; see this file's own docstring",
             "extendable": "RUN IT — `sweep()` does, and nothing else was in "
-                          "the way",
+                          "the way. `--verify --deep` says whether the null "
+                          "this verdict nominated actually moves anything, "
+                          "because the nomination is a derivation and 39 of "
+                          "195 of them are not backed by a measurement",
             "cannot_fail": "a NEW null that destroys " +
                            (", ".join(self.detail.split("|")) or "?") +
                            "; every randomisation in NULLS is the identity "
@@ -1223,6 +1267,575 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
 
 
 # ---------------------------------------------------------------------------
+# 7b. THE EXTENSION LEDGER — MAKING `EXTENDABLE` A CHECK (doctrine 48)
+# ---------------------------------------------------------------------------
+#
+# WHAT `EXTENDABLE` MEANT BEFORE THIS SECTION EXISTED.  `coverage()` ends on
+#
+#     "controlled" if name in ARM_SCHEMAS else "extendable"
+#
+# so EXTENDABLE IS THE ELSE-BRANCH.  A schema lands there by not being one of
+# three names, having realised, having fired at least one instance, and having
+# come in under budget.  Section 6's own comment and `Coverage.remedy` then
+# hang two further claims on that branch —
+#
+#     "a null in the inventory bites"     and     "nobody had run it"
+#
+# — AND NEITHER WAS A CONDITION OF THE BRANCH, SO NEITHER COULD BE WRONG.
+#
+#   * "a null bites" is `null_menu`, i.e. `predicted_degeneracy`, i.e. a pure
+#     DERIVATION off the schema's placement tuple.  This file's own docstring
+#     records that derivation as WRONG on `perfect rhyme · count ·
+#     line_final_permutation` — derived an identity map, measured 89.5% of
+#     replicates differing — and `sweep()` runs every null anyway BECAUSE of
+#     it.  The sweep then measures `Result.differing` for every row and
+#     nothing ever compares that measurement back to the census that
+#     nominated the pair.  `report()` prints a per-row `*** DISAGREEMENT` and
+#     returns None.  So the derivation proposes the plan and, for the VERDICT,
+#     the derivation also decides — which is exactly what doctrine 68 says it
+#     must not do.
+#   * "nobody had run it" is `name not in ARM_SCHEMAS`, a statement about a
+#     hand-written 3-tuple of arms.  It is a fact about this file's ARMS list,
+#     not about whether any measurement of that schema exists.
+#
+# So `EXTENDABLE 31` in the module docstring was a number NO CODE READ.  It
+# could not be wrong because nothing compared it to anything: doctrine 48, in
+# the census that was written to enforce doctrine 44.
+#
+# WHAT THIS SECTION MAKES FAIL.  A frozen ledger of the verdict for all 77
+# schemas on ONE NAMED SLICE, plus the two sets in which the census's
+# NOMINATION and the sweep's MEASUREMENT disagree, plus `verify_extension()`
+# which diffs the recorded against the recomputed and returns a complaint per
+# difference.  `--verify` exits nonzero on any complaint.  A schema that gets
+# an arm, loses an arm, stops firing, starts refusing, gains a capability,
+# empties its null menu, or has a nominated null turn out to be an identity
+# map now FAILS a check instead of quietly re-deriving a fresh verdict that
+# still says "nobody had run it".
+#
+# THREE THINGS THE LEDGER DELIBERATELY DOES NOT PIN, each for a stated reason
+# (a ledger that pins the wrong coordinate fails on a loaded machine and
+# teaches nothing, which is a check that cries wolf rather than one that
+# cannot fail — the other failure mode of doctrine 48):
+#   * WALL CLOCK.  `budget=None`, so TOO EXPENSIVE cannot occur.  Section 6
+#     says that verdict does not reproduce — `compound / phrasal rhyme`
+#     crossed the 2 s line between two runs of this exact slice — and pinning
+#     a machine's load is not a claim about a schema.  THAT, AND ONLY THAT,
+#     is why this ledger records 33 EXTENDABLE where the docstring's
+#     budget=2.0 census recorded 31: the two are `chain rhyme (rap)` and
+#     `compound / phrasal rhyme`, and on this machine at head they now run in
+#     under 2 s anyway.
+#   * INSTANCE COUNTS.  `internal rhyme · count` has already been observed to
+#     read 20472 and 20482 on the identical slice because the phonology module
+#     was edited underneath it.  The ledger pins whether a schema FIRES, which
+#     is what the verdict turns on, not how much.
+#   * THE OBSERVED STATISTIC.  Same reason.  The deep tier pins whether a null
+#     MOVED, never the value it moved to.
+
+
+#: The slice the ledger is recorded on.  A slice is a coordinate of the number
+#: (doctrine 58), so it is pinned HERE and not passed in: a ledger a caller can
+#: re-point at another text is a ledger that never fails.
+LEDGER_SLICE = ("corpus/song/eng_american_edgar_allan_poe.txt", "eng", 40)
+
+#: Replicates for the DEEP tier.  TEN, and the number is MEASURED rather than
+#: chosen round.  At n=4 this file's own known-wrong row — `perfect rhyme ·
+#: count · line_final_permutation`, derived an identity map, recorded at 89.5%
+#: differing — moved 0 of 4 and `OFF_MENU_MOVERS` could not see it; at n=10 it
+#: moves and the set contains it.  Doctrine 28: 0-of-4 was "cannot tell", not
+#: "no", and a ledger recorded at an n too small to reach the counterexample
+#: the file already knows about would be decoration with a number on it.
+LEDGER_REPLICATES = 10
+
+#: None ON PURPOSE — see the third bullet above.  Named rather than inlined so
+#: that a future run cannot quietly hand this a budget and change what the
+#: recorded verdicts mean.
+LEDGER_BUDGET = None
+
+
+def ledger_slice(root=None):
+    """The ledger's text, read once.  -> ((lines, phon, language), None) or
+    (None, Refusal).
+
+    REFUSES when the corpus is absent instead of skipping.  A verifier that
+    passes because its text is missing is the purest form of the defect this
+    section exists to remove (doctrine 48), and `main` turns this refusal into
+    exit 2 rather than exit 0.
+    """
+    from quality.phonology import get as get_phonology
+    path, lang, limit = LEDGER_SLICE
+    full = os.path.join(root or os.path.dirname(HERE), path)
+    if not os.path.exists(full):
+        return None, R.Refusal(
+            "extension ledger", "corpus",
+            f"{path} is absent, so the ledger cannot be verified. REFUSED "
+            f"rather than skipped: a check that passes when its text is "
+            f"missing is decoration (doctrine 48).")
+    return (_read(full, limit), get_phonology(lang), lang), None
+
+
+def ledger_census(root=None, progress=None):
+    """The census the ledger is recorded against.  -> ([Coverage], None) or
+    (None, Refusal).  One `realise()` pass per schema; no replicates."""
+    got, refusal = ledger_slice(root)
+    if refusal is not None:
+        return None, refusal
+    lines, phon, lang = got
+    st = _stream_of([R.tokenise(l) for l in lines if l.strip()], phon, lang)
+    return coverage(st, budget=LEDGER_BUDGET, progress=progress), None
+
+
+def arm_pairs():
+    """{(schema, statistic, null)} the RECORDED arms actually ran.
+
+    THE UNIT HERE IS THE PAIR AND `ARM_SCHEMAS`'s IS THE SCHEMA, and the gap
+    between the two is a finding rather than pedantry.  `coverage()` grants
+    CONTROLLED to a whole schema on the strength of `name in ARM_SCHEMAS`, but
+    an arm covers only the statistics and nulls its own tuple names.  On the
+    ledger slice the three CONTROLLED schemas carry 16 admissible pairs
+    between them and the arms ran 7 of those 16 — so 9 pairs on schemas the
+    census calls CONTROLLED have no matched control at all, and in this file's
+    own vocabulary they are EXTENDABLE and invisible.  `report_extension`
+    prints them; the count is pinned in `EXTENSION_LEDGER`'s fourth column so
+    that adding or dropping an arm pair fails this check.
+    """
+    return frozenset((a[3], s, n) for a in ARMS for s in a[4] for n in a[5])
+
+
+def menu_pairs(cov):
+    """{(schema, statistic, null)} the census NOMINATES — `Coverage.pairs`
+    flattened.  This set IS the whole evidentiary content of EXTENDABLE: the
+    verdict says "this set is non-empty for this schema" and says nothing
+    else."""
+    return frozenset((c.schema, sn, nl) for c in cov for sn, nls in c.pairs
+                     for nl in nls)
+
+
+#: THE CENSUS, FROZEN.  (schema, verdict, derived-menu pairs, arm-run pairs) on
+#: `LEDGER_SLICE` at `LEDGER_BUDGET`, recorded 2026-08-13.  The third column is
+#: `len(menu_pairs)` for that schema — the EXTENDABLE verdict is exactly "this
+#: is not zero" — and the fourth is `len(arm_pairs)`, which is exactly "nobody
+#: had run it" written as a number instead of as a membership test.  Both
+#: claims are now things a diff can contradict.
+#:
+#: REGENERATE WITH `--verify --record`, which prints this table and the two
+#: below to stdout for pasting.  It does not edit the file: a ledger a program
+#: can rewrite when it disagrees with itself is not a ledger.
+EXTENSION_LEDGER = (
+    ('perfect rhyme',                           'controlled',      6,  4),
+    ('rime riche',                              'extendable',      6,  0),
+    ('repetition',                              'extendable',      3,  0),
+    ('antanaclasis',                            'cannot_obtain',   4,  0),
+    ('assonance',                               'extendable',      6,  0),
+    ('consonance',                              'extendable',      6,  0),
+    ('cluster consonance / skothending span',   'no_instance',     4,  0),
+    ('parechesis / general consonance',         'no_instance',     2,  0),
+    ('pararhyme',                               'extendable',      6,  0),
+    ('reverse rhyme',                           'extendable',      6,  0),
+    ('alliteration',                            'extendable',      1,  0),
+    ('Kalevala alliteration (weak)',            'controlled',      2,  3),
+    ('Kalevala alliteration (strong)',          'extendable',      2,  0),
+    ('paroemion',                               'no_instance',     6,  0),
+    ('family rhyme',                            'cannot_obtain',   8,  0),
+    ('additive rhyme',                          'no_instance',     8,  0),
+    ('subtractive rhyme',                       'extendable',      8,  0),
+    ('semirhyme',                               'extendable',      8,  0),
+    ('apocopated rhyme',                        'no_instance',     8,  0),
+    ('light rhyme',                             'no_instance',     8,  0),
+    ('wrenched rhyme',                          'cannot_obtain',   8,  0),
+    ('syllabic rhyme',                          'extendable',      8,  0),
+    ('amphisbaenic rhyme',                      'no_instance',     6,  0),
+    ('eye rhyme',                               'cannot_obtain',   8,  0),
+    ('historical rhyme',                        'cannot_obtain',   8,  0),
+    ('dialect rhyme',                           'cannot_obtain',   8,  0),
+    ('homoioteleuton',                          'cannot_obtain',   8,  0),
+    ('polyptoton',                              'cannot_obtain',   4,  0),
+    ('multisyllabic rhyme',                     'cannot_obtain',   6,  0),
+    ('mosaic rhyme',                            'extendable',      8,  0),
+    ('compound / phrasal rhyme',                'extendable',      8,  0),
+    ('holorhyme',                               'cannot_obtain',   2,  0),
+    ('broken rhyme',                            'no_instance',     8,  0),
+    ('enjambed rhyme',                          'extendable',      4,  0),
+    ('rhyming reduplication',                   'no_instance',     0,  0),
+    ('ablaut reduplication',                    'no_instance',     0,  0),
+    ('exact reduplication',                     'no_instance',     0,  0),
+    ('internal rhyme',                          'controlled',      8,  6),
+    ('leonine rhyme',                           'cannot_obtain',   2,  0),
+    ('cross rhyme',                             'extendable',      4,  0),
+    ('interlaced rhyme',                        'extendable',      4,  0),
+    ('linked rhyme',                            'extendable',      2,  0),
+    ('head rhyme (positional)',                 'extendable',      6,  0),
+    ('anaphora',                                'extendable',      6,  0),
+    ('epistrophe / radif',                      'cannot_obtain',   3,  0),
+    ('qafiya (before the radif)',               'cannot_obtain',   3,  0),
+    ('symploce',                                'extendable',      6,  0),
+    ('anadiplosis',                             'no_instance',     2,  0),
+    ('epanalepsis',                             'extendable',      1,  0),
+    ('analysed rhyme',                          'extendable',     10,  0),
+    ('monorhyme / leash',                       'extendable',     13,  0),
+    ('chain rhyme (rap)',                       'extendable',     12,  0),
+    ('alliterative long line',                  'cannot_obtain',   2,  0),
+    ('fourth lift must not alliterate',         'cannot_obtain',   1,  0),
+    ('dvitiyakshara-prasa',                     'extendable',      9,  0),
+    ('monai',                                   'extendable',      9,  0),
+    ('cynghanedd groes',                        'cannot_obtain',   2,  0),
+    ('cynghanedd draws',                        'cannot_obtain',   2,  0),
+    ('cynghanedd groes o gyswllt',              'cannot_obtain',   2,  0),
+    ('cynghanedd sain',                         'extendable',      1,  0),
+    ('cynghanedd sain gadwynog',                'extendable',      1,  0),
+    ('cynghanedd sain lafarog',                 'extendable',      1,  0),
+    ('cynghanedd sain drosgl',                  'extendable',      1,  0),
+    ('cynghanedd lusg',                         'extendable',      1,  0),
+    ('proest',                                  'cannot_obtain',   8,  0),
+    ("Scots vowel-length rhyme (Aitken's Law)", 'extendable',      8,  0),
+    ('Middle Chinese end rhyme (同用 group)',     'cannot_obtain',   8,  0),
+    ('平仄 tonal template',                       'no_instance',     5,  0),
+    ('pantun ABAB',                             'extendable',      4,  0),
+    ('blues AAB stanza',                        'no_instance',     2,  0),
+    ('offbeat internal rhyme',                  'cannot_obtain',   4,  0),
+    ('rhyming slang',                           'cannot_obtain',   4,  0),
+    ('transformative / bent rhyme',             'cannot_obtain',   4,  0),
+    ('sung-delivery rhyme',                     'cannot_obtain',   4,  0),
+    ('refrain by reference',                    'cannot_obtain',   4,  0),
+    ('incremental repetition',                  'no_instance',     5,  0),
+    ('trite rhyme',                             'cannot_obtain',   8,  0),
+)
+
+#: THE DERIVATION'S OWN ERROR, FROZEN — DIRECTION ONE.  Pairs the census
+#: NOMINATED (they are in `Coverage.pairs`, so they are part of why their
+#: schema is EXTENDABLE at all) and which moved ZERO of `LEDGER_REPLICATES`
+#: replicates in a full `sweep()` of the ledger slice.
+#:
+#: DOCTRINE 28, AND THE NAME OF THIS TABLE IS THE DOCTRINE.  This is NOT
+#: "the null is an identity map here" — no finite n can say that, and calling
+#: it that would be the same collapse of "cannot tell" into "none" that
+#: doctrine 20 refuses one layer up.  It is "the nomination is not backed by
+#: this measurement", which is weaker, is decidable, and is the claim the
+#: marker has to answer for.  `semirhyme · local_fraction@2 · global_redeal`
+#: is the worked case: silent at n=4, moving at n=10, so a ledger recorded at
+#: n=4 would have carried it here and been wrong about it.
+#:
+#: 39 of the 195 nominated pairs on this slice, over 13 of the 33 EXTENDABLE
+#: schemas — one nominated pair in five.
+MENU_SILENT = (
+    ("Scots vowel-length rhyme (Aitken's Law)",
+     'local_fraction@0', 'global_redeal'),
+    ("Scots vowel-length rhyme (Aitken's Law)",
+     'local_fraction@0', 'within_line_shuffle'),
+    ('analysed rhyme', 'count', 'line_permutation'),
+    ('analysed rhyme', 'local_fraction@0', 'global_redeal'),
+    ('analysed rhyme', 'local_fraction@0', 'line_permutation'),
+    ('analysed rhyme', 'local_fraction@0', 'within_line_shuffle'),
+    ('anaphora', 'local_fraction@2', 'line_final_permutation'),
+    ('chain rhyme (rap)', 'line_fraction', 'global_redeal'),
+    ('chain rhyme (rap)', 'line_fraction', 'line_final_permutation'),
+    ('chain rhyme (rap)', 'line_fraction', 'line_permutation'),
+    ('chain rhyme (rap)', 'line_fraction', 'within_line_shuffle'),
+    ('dvitiyakshara-prasa', 'line_fraction', 'global_redeal'),
+    ('dvitiyakshara-prasa', 'line_fraction', 'line_final_permutation'),
+    ('dvitiyakshara-prasa', 'line_fraction', 'line_permutation'),
+    ('head rhyme (positional)', 'local_fraction@2', 'line_final_permutation'),
+    ('monai', 'line_fraction', 'global_redeal'),
+    ('monai', 'line_fraction', 'line_final_permutation'),
+    ('monai', 'line_fraction', 'line_permutation'),
+    ('monorhyme / leash', 'count', 'line_permutation'),
+    ('monorhyme / leash', 'line_fraction', 'global_redeal'),
+    ('monorhyme / leash', 'line_fraction', 'line_permutation'),
+    ('monorhyme / leash', 'line_fraction', 'within_line_shuffle'),
+    ('monorhyme / leash', 'local_fraction@0', 'global_redeal'),
+    ('monorhyme / leash', 'local_fraction@0', 'line_permutation'),
+    ('monorhyme / leash', 'local_fraction@0', 'within_line_shuffle'),
+    ('rime riche', 'local_fraction@2', 'global_redeal'),
+    ('rime riche', 'local_fraction@2', 'within_line_shuffle'),
+    ('semirhyme', 'local_fraction@0', 'global_redeal'),
+    ('semirhyme', 'local_fraction@0', 'within_line_shuffle'),
+    ('semirhyme', 'local_fraction@2', 'line_final_permutation'),
+    ('semirhyme', 'local_fraction@2', 'line_permutation'),
+    ('subtractive rhyme', 'local_fraction@0', 'global_redeal'),
+    ('subtractive rhyme', 'local_fraction@0', 'within_line_shuffle'),
+    ('syllabic rhyme', 'local_fraction@0', 'global_redeal'),
+    ('syllabic rhyme', 'local_fraction@0', 'within_line_shuffle'),
+    ('symploce', 'local_fraction@2', 'global_redeal'),
+    ('symploce', 'local_fraction@2', 'line_final_permutation'),
+    ('symploce', 'local_fraction@2', 'line_permutation'),
+    ('symploce', 'local_fraction@2', 'within_line_shuffle'),
+)
+
+#: THE DERIVATION'S OWN ERROR, FROZEN — DIRECTION TWO, and this one is a
+#: PROOF.  Pairs `null_menu` called identity maps (they are NOT in
+#: `Coverage.pairs`) and which moved at least one replicate.  One differing
+#: replicate refutes an identity map outright, so unlike `MENU_SILENT` these
+#: rows need no n at all to be conclusive — they only need an n large enough
+#: to reach them, which is the other half of why `LEDGER_REPLICATES` is 10.
+#:
+#: `('perfect rhyme', 'count', 'line_final_permutation')` IS IN THIS TABLE,
+#: and it is the row this file's own docstring records at 89.5% differing and
+#: `sweep()`'s docstring names as the reason `derived_only` is not the
+#: default.  Until now that counterexample lived in prose; a change to
+#: `_PLACEMENT_READS` or `_GAP_FORCED` that silently "fixed" the derivation
+#: into agreeing with itself would have left the prose standing and nothing
+#: would have failed.
+#:
+#: THIS SET MATTERS TO THE MARKER AND NOT ONLY TO THE MENU.  A schema whose
+#: menu is empty is CANNOT FAIL, whose remedy is "build a new randomisation";
+#: a single entry here on such a schema would mean the remedy is wrong and the
+#: right one was "run it".  There are none on this slice because there are no
+#: CANNOT FAIL schemas on it — the three reduplications are NO INSTANCE here —
+#: and that is itself worth stating: the CANNOT FAIL verdict has never been
+#: measured on a text where its schemas fire, so it is inconclusive by
+#: construction (doctrine 20) and this ledger cannot yet make it fail.
+#:
+#: 43 rows over 29 schemas.  29 of them are `line_final_permutation`, which is
+#: the mechanism `report()` already names: a permutation moves UNREADABLE
+#: tokens between lines and `line_final_token` is the last token the
+#: declaration could READ, so a swap changes which word is line-final.  That
+#: is an ingestion effect wearing a placement number (doctrine 79), and it is
+#: not in `_PLACEMENT_READS` because it is not a placement fact.
+OFF_MENU_MOVERS = (
+    ('Kalevala alliteration (strong)', 'count', 'line_final_permutation'),
+    ('Kalevala alliteration (strong)',
+     'line_fraction', 'line_final_permutation'),
+    ('Kalevala alliteration (weak)', 'count', 'line_final_permutation'),
+    ('Kalevala alliteration (weak)',
+     'line_fraction', 'line_final_permutation'),
+    ("Scots vowel-length rhyme (Aitken's Law)",
+     'count', 'line_final_permutation'),
+    ('alliteration', 'count', 'line_final_permutation'),
+    ('analysed rhyme', 'count', 'line_final_permutation'),
+    ('assonance', 'count', 'line_final_permutation'),
+    ('compound / phrasal rhyme', 'count', 'line_final_permutation'),
+    ('compound / phrasal rhyme', 'local_fraction@0', 'line_final_permutation'),
+    ('consonance', 'count', 'line_final_permutation'),
+    ('cynghanedd lusg', 'count', 'line_final_permutation'),
+    ('cynghanedd lusg', 'count', 'within_line_shuffle'),
+    ('cynghanedd sain', 'count', 'line_final_permutation'),
+    ('cynghanedd sain drosgl', 'count', 'line_final_permutation'),
+    ('cynghanedd sain gadwynog', 'count', 'line_final_permutation'),
+    ('cynghanedd sain lafarog', 'count', 'line_final_permutation'),
+    ('dvitiyakshara-prasa', 'count', 'within_line_shuffle'),
+    ('dvitiyakshara-prasa', 'local_fraction@2', 'within_line_shuffle'),
+    ('epanalepsis', 'count', 'line_final_permutation'),
+    ('epanalepsis', 'count', 'within_line_shuffle'),
+    ('head rhyme (positional)', 'count', 'line_final_permutation'),
+    ('internal rhyme', 'count', 'line_final_permutation'),
+    ('internal rhyme', 'local_fraction@0', 'line_final_permutation'),
+    ('linked rhyme', 'count', 'global_redeal'),
+    ('linked rhyme', 'count', 'within_line_shuffle'),
+    ('monai', 'count', 'within_line_shuffle'),
+    ('monai', 'local_fraction@2', 'within_line_shuffle'),
+    ('monorhyme / leash', 'count', 'line_final_permutation'),
+    ('mosaic rhyme', 'count', 'line_final_permutation'),
+    ('mosaic rhyme', 'local_fraction@0', 'line_final_permutation'),
+    ('perfect rhyme', 'count', 'line_final_permutation'),
+    ('repetition', 'count', 'global_redeal'),
+    ('repetition', 'count', 'within_line_shuffle'),
+    ('repetition', 'local_fraction@2', 'within_line_shuffle'),
+    ('reverse rhyme', 'count', 'line_final_permutation'),
+    ('rime riche', 'count', 'line_final_permutation'),
+    ('semirhyme', 'count', 'line_final_permutation'),
+    ('semirhyme', 'count', 'line_permutation'),
+    ('subtractive rhyme', 'count', 'line_final_permutation'),
+    ('subtractive rhyme', 'count', 'line_permutation'),
+    ('syllabic rhyme', 'count', 'line_final_permutation'),
+    ('symploce', 'count', 'line_permutation'),
+)
+
+
+def measured_menu(results, census):
+    """The two ways the census's NOMINATION and the sweep's MEASUREMENT can
+    disagree.  -> (silent, movers), both frozensets of (schema, statistic,
+    null).  See `MENU_SILENT` and `OFF_MENU_MOVERS` for what each direction is
+    entitled to claim; they are not symmetric and the tables say why.
+
+    Restricted to the schemas `sweep` itself calls live, because a row on a
+    NO INSTANCE or CANNOT OBTAIN schema is not a statement about a null.
+    """
+    live = {c.schema for c in census
+            if c.verdict in ("controlled", "extendable", "cannot_fail")}
+    menu = menu_pairs(census)
+    silent, movers = set(), set()
+    for r in results:
+        if isinstance(r, R.Refusal) or r.schema not in live:
+            continue
+        k = (r.schema, r.statistic, r.null)
+        if k in menu:
+            if r.differing == 0.0:
+                silent.add(k)
+        elif r.differing > 0.0:
+            movers.add(k)
+    return frozenset(silent), frozenset(movers)
+
+
+def _pair_diff(label, recorded, measured, gained, lost):
+    """One complaint per row that entered or left a frozen pair table."""
+    out = []
+    for k in sorted(measured - recorded):
+        out.append(f"{label} GAINED {k[0]!r} · {k[1]} · {k[2]} — {gained}")
+    for k in sorted(recorded - measured):
+        out.append(f"{label} LOST {k[0]!r} · {k[1]} · {k[2]} — {lost}")
+    return out
+
+
+def verify_extension(deep=False, root=None, progress=None, cov=None):
+    """Diff the frozen ledger against a fresh census.  -> [complaint].
+
+    EMPTY MEANS THE MARKERS STILL SAY WHAT THEY SAID WHEN THEY WERE RECORDED.
+    Non-empty is the point of the section: every entry names a marker that
+    moved while the table describing it did not.
+
+    `deep=True` also runs a full `sweep()` at `LEDGER_REPLICATES` on the same
+    slice and diffs `MENU_SILENT`/`OFF_MENU_MOVERS`, which is the only tier
+    that checks EXTENDABLE's own "a null in the inventory bites" against a
+    measurement rather than against the derivation that made the claim.
+    """
+    if cov is None:
+        cov, refusal = ledger_census(root, progress)
+        if refusal is not None:
+            return [f"REFUSED: {refusal.detail}"]
+    arms = arm_pairs()
+    have = {c.schema: (c.verdict,
+                       sum(len(nl) for _sn, nl in c.pairs),
+                       sum(1 for p in arms if p[0] == c.schema))
+            for c in cov}
+    want = {r[0]: tuple(r[1:]) for r in EXTENSION_LEDGER}
+    row = {c.schema: c for c in cov}
+    out = []
+    for name in sorted(set(want) - set(have)):
+        out.append(f"{name!r}: recorded in EXTENSION_LEDGER and ABSENT from "
+                   f"R.REGISTRY — a schema was renamed or deleted and the "
+                   f"ledger was not told.")
+    for name in sorted(set(have) - set(want)):
+        out.append(f"{name!r}: declared in R.REGISTRY and ABSENT from "
+                   f"EXTENSION_LEDGER — a new schema reaches the same printed "
+                   f"instance count with no recorded verdict behind it. This "
+                   f"is the defect the census was written to count, arriving "
+                   f"one schema at a time.")
+    for name in sorted(set(want) & set(have)):
+        w, h = want[name], have[name]
+        if w[0] != h[0]:
+            out.append(
+                f"{name!r}: recorded {w[0].upper()}, measured {h[0].upper()} "
+                f"on the ledger slice. The verdict decides which of six "
+                f"REMEDIES this schema is printed with (doctrine 44) and they "
+                f"are not interchangeable — readers are now sent to: "
+                f"{row[name].remedy}")
+        if w[1] != h[1]:
+            out.append(
+                f"{name!r}: the derived null menu was {w[1]} (statistic, "
+                f"null) pairs and is now {h[1]}. EXTENDABLE means exactly "
+                f"'this number is not zero', so a change in it is a change in "
+                f"the only evidence the verdict has.")
+        if w[2] != h[2]:
+            out.append(
+                f"{name!r}: the recorded ARMS ran {w[2]} (statistic, null) "
+                f"pairs for it and now run {h[2]} — 'nobody had run it' "
+                f"moved and the marker did not.")
+    n_have = sum(1 for v in have.values() if v[0] == "extendable")
+    n_want = sum(1 for r in EXTENSION_LEDGER if r[1] == "extendable")
+    if n_have != n_want:
+        out.append(f"EXTENDABLE is {n_have} on the ledger slice; the ledger "
+                   f"and this file's docstring say {n_want}. That headline is "
+                   f"quoted in quality/RESULTS_NULL_SHAPES.md §4b as well.")
+    if not deep:
+        return out
+    got, refusal = ledger_slice(root)
+    if refusal is not None:
+        return out + [f"REFUSED: {refusal.detail}"]
+    lines, phon, lang = got
+    results, census = sweep(lines, phon, lang, n=LEDGER_REPLICATES,
+                            budget=LEDGER_BUDGET, progress=progress)
+    silent, movers = measured_menu(results, census)
+    out += _pair_diff(
+        "MENU_SILENT", frozenset(MENU_SILENT), silent,
+        "the census nominates this pair as a reason its schema is EXTENDABLE "
+        "and it moved 0 of %d replicates. The nomination is not backed."
+        % LEDGER_REPLICATES,
+        "this pair moved, so the recorded 'not backed' is stale — good news, "
+        "and it still has to be recorded.")
+    out += _pair_diff(
+        "OFF_MENU_MOVERS", frozenset(OFF_MENU_MOVERS), movers,
+        "`null_menu` calls this pair an identity map and it MOVED. One "
+        "differing replicate refutes an identity map outright, so the "
+        "derivation is wrong here and `_PLACEMENT_READS`/`_GAP_FORCED` owe an "
+        "entry (doctrine 68).",
+        "the derivation's known error no longer reproduces here. Either it "
+        "was corrected or the row stopped being reached; both need saying.")
+    return out
+
+
+def record_extension(deep=False, root=None, progress=None):
+    """Print the ledger tables as Python literals, for pasting.  Does NOT edit
+    this file: a table a program rewrites whenever it disagrees with itself is
+    not a ledger, it is a cache with a comment on it."""
+    cov, refusal = ledger_census(root, progress)
+    if refusal is not None:
+        print(f"REFUSED: {refusal.detail}")
+        return 2
+    arms = arm_pairs()
+    rows = [(c.schema, c.verdict, sum(len(nl) for _sn, nl in c.pairs),
+             sum(1 for p in arms if p[0] == c.schema)) for c in cov]
+    w = max(len(repr(r[0])) for r in rows)
+    print("EXTENSION_LEDGER = (")
+    for r in rows:
+        print(f"    ({repr(r[0]) + ',':{w + 1}} {repr(r[1]) + ',':17} "
+              f"{r[2]:2}, {r[3]:2}),")
+    print(")")
+    if not deep:
+        print("\n# --deep for MENU_SILENT / OFF_MENU_MOVERS "
+              "(one full sweep, minutes not seconds)")
+        return 0
+    got, _ref = ledger_slice(root)
+    lines, phon, lang = got
+    results, census = sweep(lines, phon, lang, n=LEDGER_REPLICATES,
+                            budget=LEDGER_BUDGET, progress=progress)
+    silent, movers = measured_menu(results, census)
+    for label, table in (("MENU_SILENT", silent),
+                         ("OFF_MENU_MOVERS", movers)):
+        print(f"\n{label} = (")
+        for k in sorted(table):
+            one = f"    ({k[0]!r}, {k[1]!r}, {k[2]!r}),"
+            if len(one) <= 79:
+                print(one)
+            else:
+                print(f"    ({k[0]!r},")
+                print(f"     {k[1]!r}, {k[2]!r}),")
+        print(")")
+    return 0
+
+
+def report_extension(complaints, cov=None):
+    """Print the verdict, and print the ARM-COVERAGE gap whether or not
+    anything failed — because that gap is not a regression, it is the standing
+    state of the CONTROLLED marker and a check that only speaks when something
+    changes never tells a first reader what the marker means."""
+    if cov is not None:
+        arms = arm_pairs()
+        print("\n  CONTROLLED IS GRANTED PER SCHEMA AND EARNED PER PAIR:")
+        for c in cov:
+            if c.verdict != "controlled":
+                continue
+            adm = {(sn, nl) for sn, nls in c.pairs for nl in nls}
+            ran = {(p[1], p[2]) for p in arms if p[0] == c.schema}
+            print(f"     {c.schema}: {len(adm & ran)} of {len(adm)} "
+                  f"admissible pairs have an arm; {len(ran - adm)} arm "
+                  f"pair(s) sit OUTSIDE the derived menu")
+            for k in sorted(adm - ran):
+                print(f"        no arm: {k[0]} under {k[1]}")
+    print()
+    if not complaints:
+        print("  LEDGER HOLDS. Every schema's verdict, derived null menu and "
+              "arm-pair count\n  is what was recorded, on the recorded slice.")
+        return 0
+    print(f"  *** {len(complaints)} MARKER(S) MOVED AND THE LEDGER DID NOT")
+    for c in complaints:
+        print(f"     {c}")
+    print("\n  Re-record with `--verify --record` once each line above has "
+          "been READ,\n  never before: the point of the table is that a "
+          "human decided the new\n  value is right, and a regenerated table "
+          "nobody read is the comment this\n  section replaced.")
+    return 1
+
+
+# ---------------------------------------------------------------------------
 # 8. THE DETECTION FLOOR, PER SCHEMA (doctrines 31 and 76)
 # ---------------------------------------------------------------------------
 
@@ -1337,6 +1950,18 @@ USAGE = """quality/relations_null.py - matched controls for relations.py
                          --n=, --limit= and --budget=.
   --sensitivity          the planted-locality detection floor per schema
                          (doctrines 31/76), printed beside the sweep
+  --verify               DIFF the frozen EXTENSION_LEDGER against a fresh
+                         census on the ledger's own pinned slice.  Exit 1 on
+                         any marker that moved, exit 2 if the slice is
+                         missing.  ~5 s, takes no --corpus/--limit/--budget:
+                         a check whose text a caller can re-point is a check
+                         that never fails (doctrine 48)
+  --verify --deep        also re-measures the derivation against a full sweep
+                         at LEDGER_REPLICATES and diffs MENU_SILENT and
+                         OFF_MENU_MOVERS.  ~4 min; the only tier that checks
+                         EXTENDABLE's "a null bites" against a MEASUREMENT
+  --verify --record      print the ledger tables as literals, for pasting
+                         after a human has read the complaints
   --corpus=PATH          text, relative to the repo root
   --lang=CODE            phonology (default eng)
   --limit=N              first N lines of it (a slice is a coordinate of the
@@ -1370,6 +1995,7 @@ def main(argv=()):
     n, only_arm, only_null = 200, None, None
     mode, corpus, lang, limit = "arms", None, "eng", None
     budget, brief = 2.0, False
+    deep, record = False, False
     for a in argv:
         if a.startswith("--n="):
             n = int(a.split("=", 1)[1])
@@ -1387,12 +2013,18 @@ def main(argv=()):
             budget = float(a.split("=", 1)[1])
         elif a == "--brief":
             brief = True
-        elif a in ("--coverage", "--sweep", "--sensitivity"):
+        elif a == "--deep":
+            deep = True
+        elif a == "--record":
+            record = True
+        elif a in ("--coverage", "--sweep", "--sensitivity", "--verify"):
             mode = a[2:]
         elif a in ("-h", "--help"):
             print(USAGE)
             return 0
     root = os.path.dirname(HERE)
+    if mode == "verify":
+        return _main_verify(root, deep, record)
     if mode in ("coverage", "sweep", "sensitivity"):
         return _main_registry(mode, root, corpus, lang, limit, n, budget,
                               brief, get_phonology)
@@ -1443,6 +2075,35 @@ def main(argv=()):
           "instrument with no demonstrated sensitivity is an unfalsifiable "
           "claim\nwearing a number.")
     return 0
+
+
+def _main_verify(root, deep, record):
+    """`--verify`: the extension ledger, section 7b.  0 / 1 / 2.
+
+    THREE EXIT CODES AND NOT TWO.  0 the markers hold, 1 a marker moved, 2 the
+    ledger could not be read at all — a caller in CI has to be able to tell a
+    verified ledger from an unverifiable one, which is doctrine 20 at the
+    process boundary (the same reason `brief`/`verify`/`revise` exit 2 on a
+    missing mandate rather than reporting a clean draft).
+    """
+    path, lang, limit = LEDGER_SLICE
+    print("=" * 74)
+    print("RELATIONS NULLS · EXTENSION LEDGER (doctrine 48)")
+    print("=" * 74)
+    print(f"\n  slice   {path}  ·  {limit} lines  ·  phonology {lang}")
+    print(f"  budget  {LEDGER_BUDGET} — TOO EXPENSIVE is a wall clock reading "
+          f"and does not\n          reproduce, so it is excluded by "
+          f"construction rather than pinned")
+    print("  depth   " + (f"CENSUS + SWEEP at n={LEDGER_REPLICATES}" if deep
+                          else "CENSUS ONLY (--deep for the measured tier)"))
+    if record:
+        return record_extension(deep=deep, root=root)
+    cov, refusal = ledger_census(root)
+    if refusal is not None:
+        print(f"\n  REFUSED: {refusal.detail}")
+        return 2
+    complaints = verify_extension(deep=deep, root=root, cov=cov)
+    return report_extension(complaints, cov)
 
 
 def _main_registry(mode, root, corpus, lang, limit, n, budget, brief,

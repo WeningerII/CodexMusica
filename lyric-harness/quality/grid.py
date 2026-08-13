@@ -1941,7 +1941,36 @@ def read_marked_songs(path, language=""):
 
     The file conventions: `#` header lines are metadata, `--- TITLE:` opens a
     song, `--- ` otherwise is a per-song source note, `[MARK]` opens a block.
+
+    THE APPARATUS DROP IS THE CENTRE'S, 2026-08-13. The three tests above are
+    STRUCTURAL -- they decide what OPENS a song and what OPENS a block, and
+    their order is load-bearing: `--- TITLE:` must be asked first because it
+    opens a song, and `_MARK_RE` must be asked before any apparatus rule
+    because `[VERSE 1]` IS apparatus by `lyric_harness.is_apparatus_line` and
+    is nonetheless the thing that opens a block. What was missing is the
+    CONTENT test on the append branch, and its absence made this reader
+    disagree with the one definition in two ways at once:
+
+      * it never stripped before testing, so an indented `#` or `---` reached
+        the append branch as sung text; and
+      * a `[` with NO CLOSING `]` ON THE SAME LINE does not match `_MARK_RE`,
+        so it opened no block and fell straight through to be scored as a
+        LYRIC. That is the whole of Gay's `[Exeunt.`, `[Drinks.`,
+        `[Rises.`, Durfey's `[Music:` and Hemans's `[_Exeunt omnes._`.
+
+    MEASURED over `corpus/song/` before shipping it: 133 lines in 19 files,
+    across 130 blocks, and 14 of those blocks are EMPTIED -- a one-line stage
+    direction was their entire "lyric". Emptying them is the correction, not a
+    cost to weigh against it: `[VERSE 2]` followed by nothing but `[Exeunt.`
+    is a verse with no words in the printed source, and the reader now says
+    so. An empty block was ALREADY this corpus's ordinary state (6,187 of
+    182,147 before this rule, 5,884 of them Persian), so nothing downstream
+    could have been assuming otherwise; 6,201 after, and none of the 14 is a
+    chorus/burden/refrain, so no `compare_returns` pair is built from one.
+    `quality/test_song_function.py` §9 pins all of it and
+    `quality/test_grid.py` pins the rule on a fixture.
     """
+    import lyric_harness as LH
     songs, cur = [], None
     with open(path, encoding="utf-8", errors="replace") as f:
         for n, raw in enumerate(f, 1):
@@ -1963,7 +1992,7 @@ def read_marked_songs(path, language=""):
                                         function=fn, refusal=ref,
                                         source_line=n))
                 cur.blocks[-1].annotation = s[m.end():].strip()
-            elif s and cur.blocks:
+            elif s and cur.blocks and not LH.is_apparatus_line(s):
                 cur.blocks[-1].lines.append(s)
     return songs
 

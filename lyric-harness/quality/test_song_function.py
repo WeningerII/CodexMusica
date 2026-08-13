@@ -31,6 +31,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
 sys.path.insert(0, ROOT)
 
+from lyric_harness import is_apparatus_line as G_APPARATUS         # noqa: E402
 from quality import grid as G                                      # noqa: E402
 from quality import schemes as S                                   # noqa: E402
 
@@ -403,6 +404,16 @@ def corpus_scan():
         "languages": collections.Counter(),
         "eng_repeat": collections.Counter(),
         "blocks_by_language": collections.Counter(),
+        # THE APPARATUS RULE'S OWN QUANTITIES (section 9). Carried on the pass
+        # section 6 was already making, for the reason the readability sweep
+        # gives: a second sweep derives the population from a second
+        # definition, and that is how a record and a behaviour drift apart.
+        "block_lines": 0,
+        "apparatus_survivors": [],
+        "empty_blocks": 0,
+        "empty_by_language": collections.Counter(),
+        "empty_repeat_blocks": 0,
+        "empty_marks": collections.Counter(),
     }
     for path in sorted(glob.glob(os.path.join(CORPUS, "*.txt"))):
         out["files"] += 1
@@ -412,6 +423,17 @@ def corpus_scan():
             for b in song.blocks:
                 out["blocks"] += 1
                 out["blocks_by_language"][lang] += 1
+                out["block_lines"] += len(b.lines)
+                out["apparatus_survivors"].extend(
+                    (os.path.basename(path), b.source_line, l)
+                    for l in b.lines if G_APPARATUS(l))
+                if not b.lines:
+                    out["empty_blocks"] += 1
+                    out["empty_by_language"][lang] += 1
+                    out["empty_marks"][(os.path.basename(path),
+                                        b.source_line, b.mark)] += 1
+                    if b.function in ("chorus", "burden", "refrain"):
+                        out["empty_repeat_blocks"] += 1
                 if b.function:
                     out["mapped"] += 1
                     out["functions"][b.function] += 1
@@ -642,6 +664,158 @@ def test_the_report_prints_three_counts():
           [x.message for x in rep2["refusals"]][0])
 
 
+# ---------------------------------------------------------------------------
+# THE APPARATUS RULE, PRICED ON THE WHOLE CORPUS
+# ---------------------------------------------------------------------------
+
+#: The 14 blocks the centralized apparatus rule EMPTIES, named with the one
+#: line that used to be their entire "lyric". This is the whole price of the
+#: change, enumerated rather than summarized, and every one of them is the
+#: same shape: a `[` with NO CLOSING `]` on the same line, which `_MARK_RE`
+#: cannot match and which therefore opened no block and fell through to be
+#: scored as sung text. `[Exeunt.`, `[Drinks.`, `[Music:` -- a printer's stage
+#: direction read as a verse of a song.
+#:
+#: WHY THE LIST AND NOT JUST THE COUNT (doctrine 91, and CLAUDE.md's real-
+#: exemplars clause): 14 is a number a future edit can make true again by
+#: accident. These fourteen (file, source line, mark, the dropped line) are
+#: re-located in the corpus before they are used, so a corpus edit that moves
+#: one fails HERE rather than leaving the count standing on text nobody can
+#: find.
+EMPTIED_BY_APPARATUS = [
+    ("eng_british_felicia_hemans.txt", 1792, "VERSE 12", "[_Exeunt omnes._"),
+    ("eng_british_jean_ingelow.txt", 1841, "VERSE 6", "[_Much applause_."),
+    ("eng_british_jean_ingelow.txt", 1887, "VERSE 6",
+     "[_The fiddler and his daughter go away._"),
+    ("eng_british_jean_ingelow.txt", 1941, "VERSE 14",
+     "[_More tuning heard outside_."),
+    ("eng_british_robert_herrick.txt", 5944, "VERSE 10",
+     "[_1 Neatherd plays_"),
+    ("eng_hall_john_gay.txt", 446, "VERSE 2",
+     "[Holding _Macheath_, _Peachum_ pulling her."),
+    ("eng_hall_john_gay.txt", 459, "VERSE 2", "[Exeunt."),
+    ("eng_hall_john_gay.txt", 684, "VERSE 2", "[Rises."),
+    ("eng_hall_john_gay.txt", 708, "VERSE 2", "[Drinks."),
+    ("eng_hall_john_gay.txt", 744, "VERSE 6", "[Turns up the empty Bottle."),
+    ("eng_hall_john_gay.txt", 750, "VERSE 9", "[Turns up the empty Pot."),
+    ("eng_hall_thomas_durfey.txt", 593, "VERSE 12", "[Music:"),
+    ("eng_hall_thomas_durfey.txt", 7208, "VERSE 4", "[Music:"),
+    ("eng_hall_thomas_durfey.txt", 7251, "VERSE 10", "[Music:"),
+]
+
+
+def test_the_apparatus_rule_is_the_centres_and_its_price_is_named():
+    """`read_marked_songs` half-spelled the apparatus rule, and the half it
+    left out scored 133 stage directions as lyrics.
+
+    WHAT WAS WRONG. Three tests decided everything: `--- TITLE:` opens a song,
+    a RAW-line `#`/`--- ` skips a header, `_MARK_RE` opens a block. The append
+    branch had no test at all, so a line reaching it was a line of the song
+    whatever it was. Two consequences, and the second is the expensive one:
+    the `#`/`--- ` tests never stripped, so an indented one got through; and a
+    `[` WITH NO CLOSING `]` does not match `_MARK_RE`, opens no block, and
+    lands in the previous block's lyric.
+
+    MEASURED BEFORE IT WAS APPLIED, over all 260 files: 133 lines in 19 files
+    across 130 blocks, of which 14 blocks are emptied outright because a
+    one-line stage direction was their whole content. `quality/grid.py`'s
+    `read_marked_songs` now calls `lyric_harness.is_apparatus_line` on the
+    append branch and nowhere else -- AFTER `_MARK_RE`, because `[VERSE 1]` is
+    itself apparatus by that rule and is the thing that opens a block.
+
+    WHAT EMPTYING A BLOCK COSTS, ASKED RATHER THAN ASSUMED. Nothing, and the
+    corpus says so twice over. An empty block was ALREADY this corpus's
+    ordinary state -- 6,187 of 182,147 blocks before this rule, 5,884 of them
+    Persian, where a `[BAYT n]` mark routinely stands alone -- so no consumer
+    can ever have been entitled to index one. And none of the 14 is a
+    chorus/burden/refrain: `empty_repeat_blocks` is 0 both before and after,
+    so the ONE consumer of `Block.lines` in this repo (`compare_returns`, at
+    two sites in this file; grep found no third) is never handed one from the
+    corpus at all. `quality/test_grid.py` §23 hands it one anyway, from both
+    sides and with and without a phonology, and it answers rather than
+    raising.
+    """
+    c = corpus_scan()
+    print("\n9. THE APPARATUS RULE — `read_marked_songs` calls the one "
+          "definition, and what that cost")
+    print(f"     block lines held      : {c['block_lines']:,}   "
+          f"(450,396 before the rule; 133 apparatus lines left)")
+    print(f"     empty blocks          : {c['empty_blocks']:,} of "
+          f"{c['blocks']:,}   {dict(c['empty_by_language'])}")
+    print(f"     empty repeat blocks   : {c['empty_repeat_blocks']}")
+
+    check("NO line of any block, in any of the 260 files, is apparatus by "
+          "`lyric_harness.is_apparatus_line` — the invariant, not the four "
+          "shapes that happen to appear",
+          not c["apparatus_survivors"],
+          f"{len(c['apparatus_survivors'])} survivors of "
+          f"{c['block_lines']:,} block lines"
+          + ("" if not c["apparatus_survivors"] else
+             f"; first three: {c['apparatus_survivors'][:3]}"))
+
+    empty = {(f, n, m) for (f, n, m) in c["empty_marks"]}
+    missing = [(f, n, m) for f, n, m, _ in EMPTIED_BY_APPARATUS
+               if (f, n, m) not in empty]
+    check("all 14 named blocks are EMPTY — a mark whose only content was a "
+          "stage direction is a block with no words, and the reader now says "
+          "so instead of printing the direction as a verse",
+          not missing, f"{14 - len(missing)} of 14 empty"
+          + ("" if not missing else f"; not empty: {missing}"))
+
+    # THE PROVENANCE HALF. The dropped line has to still BE in the corpus at
+    # the line the mark's own `source_line` implies, and it has to be
+    # apparatus by the centre's rule -- otherwise this list is fourteen
+    # assertions about text that has moved, which is the failure mode a bare
+    # count of 14 could never show.
+    relocated, wrong_rule = [], []
+    for fname, n, mark, dropped in EMPTIED_BY_APPARATUS:
+        with open(os.path.join(CORPUS, fname), encoding="utf-8",
+                  errors="replace") as fh:
+            lines = fh.read().splitlines()
+        window = [l.strip() for l in lines[n:n + 4]]
+        if dropped not in window:
+            relocated.append((fname, n, dropped))
+        if not G_APPARATUS(dropped):
+            wrong_rule.append(dropped)
+    check("and each one's dropped line is still in the corpus, immediately "
+          "under its mark",
+          not relocated, f"{14 - len(relocated)} of 14 re-located"
+          + ("" if not relocated else f"; moved: {relocated}"))
+    check("every one of them is apparatus by the CENTRE's rule — none is "
+          "dropped by anything `grid.py` decided for itself",
+          not wrong_rule, "all 14 satisfy is_apparatus_line"
+          if not wrong_rule else str(wrong_rule))
+    check("and all 14 are the SAME defect: a `[` with no closing `]` on the "
+          "line, which `_MARK_RE` cannot match",
+          all(d.startswith("[") and "]" not in d
+              for _, _, _, d in EMPTIED_BY_APPARATUS),
+          f"{sorted({d.split()[0] for _, _, _, d in EMPTIED_BY_APPARATUS})}")
+
+    # THE CONSUMER QUESTION, ANSWERED ON THE CORPUS. `compare_returns` is the
+    # only reader of `Block.lines` anywhere in this repo, and it is reached
+    # only through `MarkedSong.instances('chorus'|'burden'|'refrain')`.
+    check("0 chorus/burden/refrain blocks are empty, so no return pair is "
+          "ever built from an emptied block — unchanged by this rule, which "
+          "empties only VERSE marks",
+          c["empty_repeat_blocks"] == 0,
+          f"{c['empty_repeat_blocks']} empty repeat blocks; the 14 are "
+          f"{sorted({m for _, _, m, _ in EMPTIED_BY_APPARATUS})}")
+    check("an empty block was ALREADY the corpus's ordinary state, which is "
+          "why nothing downstream could have been assuming otherwise",
+          c["empty_blocks"] > 6000 and c["empty_by_language"]["fas"] > 5000,
+          f"{c['empty_blocks']:,} empty of {c['blocks']:,} blocks "
+          f"({dict(c['empty_by_language'])}) — 6,187 before this rule and "
+          f"{c['empty_blocks']:,} after, so the rule added 14 to a population "
+          f"of thousands rather than creating the case")
+    check("every one of the 14 additions is English, so no non-English arm "
+          "moved at all",
+          c["empty_by_language"]["fas"] == 5884
+          and c["empty_by_language"]["fin"] == 88
+          and c["empty_by_language"]["san"] == 47,
+          f"{dict(c['empty_by_language'])} — eng 168 -> 182, everything else "
+          f"byte-identical")
+
+
 if __name__ == "__main__":
     for fn in (test_function_is_declared_and_never_inferred,
                test_the_questions_that_needed_a_function,
@@ -650,7 +824,8 @@ if __name__ == "__main__":
                test_the_a1_notation,
                test_the_corpus_holds,
                test_the_two_songs_the_gap_register_named,
-               test_the_report_prints_three_counts):
+               test_the_report_prints_three_counts,
+               test_the_apparatus_rule_is_the_centres_and_its_price_is_named):
         fn()
     print("=" * 70)
     if FAILURES:

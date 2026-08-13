@@ -25,6 +25,7 @@ Run: python3 quality/test_readability.py
 """
 
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -357,12 +358,49 @@ def test_corpus_song_rate_is_pinned():
     # `--- TITLE:`/`#` lines that no longer reach the denominator at all
     # (doctrine 91, the count is a coordinate of the rendering, and the
     # rendering just changed).
-    check("countable lines 151898 — VERSE ONLY, now that apparatus lines "
-          "are excluded at the source instead of subtracted by hand",
-          r["lines_countable"] == 151898,
+    #
+    # REPINNED 2026-08-13, 151,898 -> 151,894, AND THE REPIN CLOSES A RECORD
+    # THAT DISAGREED WITH ITSELF RATHER THAN OPENING ONE. The 2026-08-12 fix
+    # above wrote the apparatus rule into `read_lines` a SECOND time instead
+    # of calling `lyric_harness.is_apparatus_line`, and it wrote it
+    # differently: `--- ` with a trailing space against the centre's `---`.
+    # The two agree on `--- TITLE:` and on every ordinary source note and
+    # disagree on a RULE, so the divergence sat in the one place a reader
+    # would never look — a run of four or more hyphens is not `--- `.
+    #
+    # THE WHOLE COST, MEASURED BEFORE IT WAS APPLIED: FOUR lines, and all four
+    # are Wordsworth epigraphs in `corpus/song/eng_british_felicia_hemans.txt`
+    # — `----“’Tis not merely` (line 3957), `----“Sing aloud` (4255),
+    # `----“His early days` (6567), `----“How divine` (11043). An epigraph is
+    # apparatus to every other reader in this repo and was verse to this one
+    # alone. Nothing else in 143 files changes, and `corpus/sonnets.txt`
+    # carries no apparatus line under EITHER spelling (0 of 3,005 lines), so
+    # the sonnet battery is untouched BY CONSTRUCTION and not merely observed
+    # to be.
+    #
+    # AND 151,894 IS NOT A NEW NUMBER — it is the one already recorded in
+    # `quality/RESULTS_HYPHEN_REFUSAL.md` (twice), in `quality/readability.py`
+    # module docstring, and in `lyric_harness.token_pieces`, whose own
+    # docstring said in as many words that `read_lines` "returns 151,898 on
+    # the current corpus, matching this figure rather than ...". The record
+    # held BOTH figures for a day and this test pinned the minority one; there
+    # is one figure now, and it is the one the other four sites already had.
+    #
+    # NO RATE MOVES MATERIALLY, which is the check that this was a DENOMINATOR
+    # correction and not an ingestion change: all four end words (`merely`,
+    # `aloud`, `days`, `divine`) are in CMUdict, so 9,078 / 174 / 149 / 8,842
+    # are byte-identical and only the divisor falls — 5.97638% -> 5.97654%
+    # and 6.09093% -> 6.09109%, both inside the 1e-5 tolerances the two
+    # checks below carry. Doctrine 58: the tolerance is part of the pin, so
+    # the movement it absorbs is written down instead of being invisible.
+    check("countable lines 151894 — VERSE ONLY, now that apparatus lines "
+          "are excluded at the source instead of subtracted by hand, and "
+          "under the CENTRE's `---` rather than a second `--- ` of our own",
+          r["lines_countable"] == 151894,
           f"{r['lines_countable']}  (was 188805 before the read_lines fix, "
           f"which counted 29,990 [VERSE n] markers and 6,917 other "
-          f"apparatus lines as verse)")
+          f"apparatus lines as verse; and 151898 for one day between that "
+          f"fix and `is_apparatus_line` becoming this reader's only rule)")
     check("unreadable end word, cause TOKEN, 9078 — matches cell AC's own "
           "hand-computed VERSE-only row exactly",
           r["unreadable_final_token"] == 9078,
@@ -427,6 +465,61 @@ def test_corpus_song_rate_is_pinned():
           f"and heigh-ho!`, where `heigh` is an interior token's unread piece "
           f"AND the end token's; suppressing them would delete a real "
           f"interior gap (doctrine 24)")
+
+    # ONE RULE, AND THE TEST IS THAT IT IS ONE. The pin above is an
+    # ARITHMETIC consequence of the rule; this is the rule itself, and it is
+    # the check that stops a third copy of it appearing here the way the
+    # second one did. `read_lines` may not have an apparatus opinion — its
+    # only opinion is blank/no-Latin-letter — so on every raw line of all 143
+    # files, "excluded by `read_lines`" and `is_apparatus_line` must be the
+    # SAME predicate. Written as a sweep over the corpus rather than over a
+    # fixture because the divergence this closes (`--- ` against `---`) is
+    # invisible to any fixture whose author had not already thought of a
+    # four-hyphen epigraph, which is CLAUDE.md's "real exemplars" clause
+    # applied to a rule instead of to a word.
+    from lyric_harness import is_apparatus_line
+    disagree, letters = [], 0
+    for p in paths:
+        kept = set()
+        for s in read_lines(p):
+            kept.add(s)
+        with open(p, encoding="utf-8", errors="replace") as fh:
+            for ln, raw in enumerate(fh, 1):
+                s = raw.strip()
+                if not s or not re.search(r"[A-Za-z]", s):
+                    continue
+                letters += 1
+                if (s not in kept) != is_apparatus_line(s):
+                    disagree.append((os.path.basename(p), ln, s))
+    check("`read_lines` and `is_apparatus_line` are the SAME rule on every "
+          "one of the corpus's letter-bearing lines — not two rules that "
+          "happen to agree",
+          not disagree,
+          f"{letters:,} letter-bearing lines swept, {len(disagree)} "
+          f"disagreements"
+          + ("" if not disagree else
+             "; first: " + repr(disagree[:3])))
+
+    # THE FOUR LINES THAT MOVED, NAMED AND RE-LOCATED. `present()` is the
+    # provenance half: a corpus edit that removes one of these fails HERE
+    # rather than leaving the repin above standing on text nobody can find.
+    hemans = os.path.join(SONG, "eng_british_felicia_hemans.txt")
+    moved = ["----“’Tis not merely", "----“Sing aloud",
+             "----“His early days", "----“How divine"]
+    check("all four Wordsworth epigraphs are still in Hemans, verbatim",
+          all(present(hemans, t) for t in moved),
+          f"{[t for t in moved if not present(hemans, t)]} missing")
+    kept = set(read_lines(hemans))
+    check("and `read_lines` now excludes all four — 151,898 - 4 = 151,894, "
+          "which is the whole of the repin",
+          not [t for t in moved if t in kept],
+          f"{[t for t in moved if t in kept]} still counted as verse; each "
+          f"opens with four hyphens, so `--- ` did not match it and `---` "
+          f"does")
+    check("they are apparatus by the CENTRE's rule, which is the reason they "
+          "are excluded — not by a rule this file owns",
+          all(is_apparatus_line(t) for t in moved),
+          "is_apparatus_line: " + str([is_apparatus_line(t) for t in moved]))
 
 
 def test_zero_syllable_word_has_no_anchor():
