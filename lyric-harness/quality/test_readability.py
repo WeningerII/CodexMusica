@@ -387,12 +387,47 @@ def test_corpus_song_rate_is_pinned():
           "the file set is doctrine 58")
 
 
+def test_zero_syllable_word_has_no_anchor():
+    print("\n6. a word with PHONES but no VOWEL is unreadable, not a crash "
+          "— found by the full corpus/song/ calibration sweep hitting "
+          "`_Sh----_`, an 18th-century censored name (Thomas D'Urfey) that "
+          "tokenizes to `sh`. CMUdict lists `sh` as the interjection, one "
+          "consonant phone (['SH']), no nucleus for `syllabify` to find. "
+          "`line_anchors` used to fall through to `sylls[-1:]` on the "
+          "empty syllable list and hand back a hollow, zero-syllable "
+          "anchor instead of refusing — the first caller to index into "
+          "it (`quality.features.RhymeField.field`) raised `IndexError`.")
+    ALL_CONSONANT = ["sh", "shh", "hm", "hmm", "mm"]
+    for w in ALL_CONSONANT:
+        phones, oov = LEX.transcribe_word(w)
+        check(f"{w!r} has phones (the dictionary CAN transcribe it)",
+              bool(phones) and not oov, f"phones={phones!r}")
+        ancs, last, oov2 = line_anchors(LEX, w)
+        check(f"{w!r} still yields NO anchor — a phone list with no "
+              "vowel is exactly the unreadable case, not an exception",
+              ancs == [], f"ancs={ancs!r}")
+
+    from quality.features import QualityFeatures, RhymeField  # noqa: E402
+    field = RhymeField(LEX, DECL)
+    check("RhymeField.field('sh') returns no candidates rather than "
+          "raising IndexError", field.field("sh") == [])
+
+    qf = QualityFeatures(lex=LEX, decl=DECL)
+    real_line_a = "And some her Grace of _Sh----_"
+    real_line_b = "Tho' she grows something fat:"
+    vals = qf._predictability([real_line_a, real_line_b], [(0, 1)])
+    check("the real corpus couplet that found this scores (or "
+          "correctly skips) instead of crashing the whole calibration "
+          "run", vals == [] or all(v == v for v in vals), f"vals={vals!r}")
+
+
 if __name__ == "__main__":
     for fn in (test_readable_pairs_are_untouched,
                test_constructed_oov_final,
                test_real_corpus_line,
                test_nothing_was_lost_on_the_sonnets,
-               test_corpus_song_rate_is_pinned):
+               test_corpus_song_rate_is_pinned,
+               test_zero_syllable_word_has_no_anchor):
         fn()
     print("=" * 68)
     if FAILURES:

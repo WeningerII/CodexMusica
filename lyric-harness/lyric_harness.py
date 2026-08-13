@@ -1176,6 +1176,19 @@ def line_anchors(lex, text, promote=False):
             v = [re.sub(r"[12]$", "0", ph) for ph in v]
         full = pre_phones + v
         sylls = syllabify(full)
+        if not sylls:
+            # An all-consonant CMUdict entry (`sh` -> `SH`, the interjection,
+            # is the corpus case that found this: a censored 18th-century
+            # name, `_Sh----_`, tokenizes to `sh`) has phones but no vowel
+            # nucleus, so `syllabify` finds no syllable to anchor on. Without
+            # this guard `starts` fell through to `[len(sylls) - 1] = [-1]`
+            # and `sylls[-1:]` on an empty list silently produced an EMPTY
+            # anchor -- not a refusal, a hollow reading that crashed the
+            # first caller to index into it (`RhymeField.field`). A variant
+            # with no syllables is exactly the "unreadable" case this
+            # function's own docstring says returns no anchor; skip it the
+            # same way, rather than let a phone list stand in for one.
+            continue
         if pre_owners is not None:
             _tag_span_words(sylls, full,
                             pre_owners + [len(words) - 1] * len(v), words,
