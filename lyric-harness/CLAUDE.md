@@ -742,7 +742,12 @@ descriptors in any generation-facing output — era+region+technique.
   band goes on, the same direction the 2026-08-10 record had, because the
   observation falls 15.3 pp and the null median falls 14.0 pp together. So
   doctrine 71's own sentence — a filter that lowers chance and signal together
-  has not tightened anything — HOLDS on this text again, and the 2026-08-11
+  has not tightened anything — HOLDS on this text again. THE INSTRUMENT IS
+  FINE AND ONLY THE WHITMAN COMPARISON IS EMPTY: the same statistic under the
+  same null moves the SONNETS +23.6 -> +27.6 pp (53.5% -> 48.9% against null
+  medians 29.9% -> 21.3%), with p at the 0.0050 floor in both arms. The band
+  widens the separation on the positive corpus and narrows it on the negative
+  control, which is what a working filter looks like. And the 2026-08-11
   amendment that retired it is the figure that went stale. Three comparators,
   three answers, one text: the clause that caught this is doctrine 58 one axis
   out, **re-run the control when the COMPARATOR moves**.

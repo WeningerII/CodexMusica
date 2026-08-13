@@ -14,9 +14,26 @@ its first instrument and its first measurement.
 ## Headline
 
 **Of the 1,014 sonnet pairs the harness JUDGES, 632 name the two words that
-produced their number and 382 do not. Of the 81 violations, 35 do and 46 do
+produced their number and 382 do not. Of the 82 violations, 36 do and 46 do
 not; 9 of those 46 could not be reconstructed from the printed words even in
 principle.**
+
+*632 / 382 / 1014 REPRODUCES BIT-IDENTICALLY, re-measured 2026-08-13 — the
+headline of this file is unmoved. The VIOLATION split is REPINNED from
+`81 violations, 35 do and 46 do not`: the battery now judges 82 violations
+(`CLAUDE.md` Test discipline, repinned the same day from 81), and the 82nd is
+true as printed, so 35 -> 36 while the 46 does not move. The `9 of those 46`
+still reproduces. This split was missed when the battery figure was repinned
+earlier on 2026-08-13 — the note at the head of the table below records the
+82 and the sentence above it was left at 81, which is the two-place drift
+this file exists to catch, committed inside this file itself.*
+
+*AND IT COULD NOT HAVE GONE RED. Until 2026-08-13 `audit_spans.py`'s `main`
+returned a literal `0` whatever the sweep found, so the process exited clean
+while printing that 382 of 1014 report lines name a pair that did not produce
+their number — and nothing ran it anyway. `--check` now pins the six figures
+above and exits 1 on drift, and CI runs it. Doctrine 48: a check that cannot
+fail is decoration, and this is the instrument CLAUDE.md calls adversary 7.*
 
 Three counts, always (doctrine 79): **mandated 1064, judged 1014, refused 50**.
 The 50 refusals have no spans to be right or wrong about — the harness never

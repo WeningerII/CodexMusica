@@ -236,7 +236,8 @@ looking right.
    is unchanged, so everything that moved is downstream of the band-ON
    comparator alone. The observation falls 15.3 pp and the null median falls
    14.0 pp TOGETHER, which is this doctrine's sentence verbatim; meanwhile the
-   sonnets go +23.6 -> +26.4, so the band tightens the positive corpus. The
+   sonnets go +23.6 -> +27.6 pp with p at the floor in BOTH arms, so the band
+   tightens the positive corpus while narrowing the negative one. The
    instrument is fine and the Whitman comparison is the empty part.
    NOTE THE TWO STATISTICS THIS PARAGRAPH QUOTES UNDER ONE WORD: +6.7, +3.3,
    +9.3 and +5.3 are the excess over the null MEDIAN; the +17.9 pp above is
@@ -1104,7 +1105,9 @@ reproduce either. The sonnet arm re-run at full n=200 gives band OFF
 53.5% against a null median 29.9% and max 35.6% -- so +23.6 pp over
 the median and **+17.9 pp over the MAX, reproducing to the decimal**
 -- with p at the 0.0050 floor, and band ON 48.9% moving the
-median-excess to +26.4 pp. The `52.0%` above is superseded by 48.9%.
+median-excess to +27.6 pp against a null median 21.3% (min 16.4,
+max 27.6), so `+17.9 pp over the null max` becomes +21.3 pp. The
+`52.0%` and the `34.2%` null max above are both superseded.
 Note that this paragraph's +17.9 is an excess over the null MAX while
 its +6.7/+3.3 are excesses over the null MEDIAN; a MAX grows with n
 and is not comparable across sample sizes (doctrine 57's mirror).

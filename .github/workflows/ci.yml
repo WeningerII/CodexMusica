@@ -554,3 +554,18 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/eval_matrix.py --check
+
+      # ADVERSARY 7 (CLAUDE.md's roster: "the REPORT — do the number, the
+      # label and the evidence agree?"). Added 2026-08-13, and it is the
+      # adversary that had NOTHING running it: an audit found audit_spans.py
+      # had zero automated callers, and that its `main` returned a literal 0
+      # whatever the sweep found -- so it exited clean while reporting that
+      # 382 of 1014 sonnet report lines name a pair that did not produce
+      # their number. Sharpest instrument in the layer, unrun, and unable to
+      # fail if it had been run. `--check` runs sweep 1 only (~1 min) and
+      # exits 1 when RESULTS_SPANS.md's committed headline stops reproducing;
+      # proven red on injected drift before this step was added.
+      - name: Span/label agreement against RESULTS_SPANS.md's headline
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_spans.py --check

@@ -134,7 +134,7 @@ doctrine 17; it is false at head.)*
 |---|---:|---:|---:|
 | Whitman excess over null median, band OFF → ON | +6.7 → **+3.3** pp | +6.7 → **+9.3** pp | +6.7 → **+5.3** pp |
 | Whitman p, band ON | 0.209 | 0.005 | **0.0199** |
-| Sonnets excess, band OFF → ON | +23.6 → +23.5 pp | +23.6 → **+26.2** pp | +23.6 → **+26.4** pp |
+| Sonnets excess, band OFF → ON | +23.6 → +23.5 pp | +23.6 → **+26.2** pp | +23.6 → **+27.6** pp |
 
 The 2026-08-13 column is the same script at the same seed and n = 200. The
 band-OFF row is unchanged to the decimal on BOTH corpora — the sonnet arm was
@@ -145,7 +145,8 @@ band-ON comparator alone. Whitman's observation falls 26.0 → 10.7 (−15.3 pp)
 and its null median falls 19.3 → 5.3 (−14.0 pp): **the band lowers chance and
 signal together**, which is doctrine 71's sentence verbatim, reinstated on this
 text one repin after it was retired. The same statistic under the same null
-gives the sonnets +23.6 → +26.4, so the band genuinely tightens the POSITIVE
+gives the sonnets +23.6 → +27.6 with p at the 0.0050 floor in BOTH arms
+(null median 29.9% → 21.3%), so the band genuinely tightens the POSITIVE
 corpus. The instrument is fine; the Whitman comparison is the empty part.
 
 Doctrine 71's sentence — *"a filter that lowers chance and signal together has
