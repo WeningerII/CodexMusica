@@ -59,7 +59,8 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 
 from quality.corpus import (SONNET_SCHEME, labelled_sonnets,     # noqa: E402
                             load_generated, load_sonnets)
-from quality.discriminate import CACHE, SEED, compute            # noqa: E402
+from quality.discriminate import (CACHE, SEED, cache_identity,  # noqa: E402
+                                  compute, load_cache)
 from quality.features import QualityFeatures                     # noqa: E402
 from quality.within_item import WithinItemFeatures               # noqa: E402
 
@@ -113,15 +114,35 @@ def audit(label, X, y, names, recorded, n_perm, rng):
 
 def main(n_perm=200):
     rng = np.random.default_rng(20260810)
-    cache = json.load(open(CACHE)) if os.path.exists(CACHE) else {}
+    # READ THE CACHE THROUGH ITS OWNER, not as raw JSON. On 2026-08-13
+    # `quality/discriminate.py`'s cache grew a fingerprint wrapper (format 2)
+    # so a changed feature definition can no longer be served silently from a
+    # stale entry. A bare `json.load` still SUCCEEDS against that file and
+    # misses every key, so this script degraded to a ~70-MINUTE COLD RECOMPUTE
+    # that looked exactly like a slow start. Measured: it produced 30 bytes of
+    # output and then nothing.
+    #
+    # That failure mode is the one this whole file is about -- a stale
+    # comparator serving numbers nobody knows are stale -- reproduced in the
+    # reader rather than the writer. `load_cache` validates the fingerprint and
+    # says which coordinate moved when it discards.
+    cache, _fp, _why = load_cache(cache_identity())
     survived, forgotten = labelled_sonnets()
     generated = load_generated()
     human = [(n, l) for n, l in sorted(load_sonnets().items())]
 
     for tag, feats, rec1, rec2 in (
-            ("ABSOLUTE (original ten)", QualityFeatures, "0.659", "0.975"),
+            # COLD figures, repinned 2026-08-13. The 0.659/0.975 and
+            # 0.604/0.877 these read until then are WARM -- measured against a
+            # cache keyed `tag:ident` with no fingerprint of the code that
+            # wrote it, so they reproduced whatever features.py looked like on
+            # 2026-08-09. Cold, twice, at two lyric_harness.py digests and
+            # agreeing to the digit: 0.717/0.964 and 0.638/0.891. See
+            # quality/RESULTS.md, which carries both readings and the
+            # reproduce command.
+            ("ABSOLUTE (original ten)", QualityFeatures, "0.717", "0.964"),
             ("WITHIN-ITEM (respecified eight)", WithinItemFeatures,
-             "0.604", "0.877")):
+             "0.638", "0.891")):
         qf = feats()
         pfx = "abs" if feats is QualityFeatures else "wi"
         print(f"\n### {tag}\n")
