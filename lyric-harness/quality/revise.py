@@ -1403,8 +1403,8 @@ class Reviser:
             # inside what the mandate speaks about" and "collides where it
             # does not" ask different things of a writer.
             und = [c for c in rep["collisions"] if c.get("undeclared")]
-            out = sorted(i for i in range(1, m.n_lines + 1)
-                         if not m.in_scope(i))
+            outside = sorted(i for i in range(1, m.n_lines + 1)
+                             if not m.in_scope(i))
             whole.append(Finding(
                 "MANDATE_SCOPE_DECLARED", "note",
                 f"this mandate SPEAKS ABOUT {len(m.scope)} of {m.n_lines} "
@@ -1414,14 +1414,15 @@ class Reviser:
                 f"the {len(und)} are reported as COLLISION_UNDECLARED and "
                 f"charged to nobody: `Mandate.requirement` answers UNDECLARED "
                 f"there, which is 'cannot tell' and not `FREE`'s 'nothing "
-                f"required' (doctrine 28). Lines outside the scope: {out}. "
+                f"required' (doctrine 28). Lines outside the scope: "
+                f"{outside}. "
                 f"They are still graded by every mandate-INDEPENDENT layer in "
                 f"this loop — the slop floor, the readability refusals, meter "
                 f"and song function if a blueprint was declared — because "
                 f"none of those consults a mandate at all (doctrine 6/7: two "
                 f"sources, deliberately kept apart). A scope narrows what the "
                 f"MANDATE claims, never what the draft is measured on",
-                out))
+                outside))
         if blueprint is not None:
             m_per, m_whole = self._meter_findings(lines, blueprint,
                                                    subdivision, assume)

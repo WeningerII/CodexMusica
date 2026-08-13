@@ -169,11 +169,12 @@ class RhymeField:
         does the same work the old code did, once instead of per pair.
 
         THE COST IS MEMORY, and it is unbounded exactly as `_cache` is:
-        ~16 bytes per field entry for the two lists (the rank ints are shared
-        with the tuples already in `_cache`, not copied), which extrapolates to
-        ~0.46 GiB over a full 11,941-word sweep on top of the ~3.0 GiB
-        `_cache` already holds there. A dict-of-positions would have been
-        ~1.9 GiB for a slower answer.
+        17 bytes per field entry for the two lists together, MEASURED over 40
+        common-word fields (102,695 entries) -- the rank ints are shared with
+        the tuples already in `_cache`, not copied. That extrapolates to
+        0.48 GiB over a full 11,941-word sweep, on top of the 2.99 GiB
+        `_cache` already holds there at 105 B/entry. A dict-of-positions would
+        have been ~1.9 GiB for the slower answer above.
         """
         key = word.lower()
         got = self._words.get(key)
