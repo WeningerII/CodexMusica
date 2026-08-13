@@ -2000,6 +2000,10 @@ def main(argv=None):
                     choices=[FAIL, WARN, NOTE],
                     help="print findings at this severity and above")
     ap.add_argument("--json", action="store_true")
+    #: CI's question, which is not a human's. See PINNED_SHAPE.
+    ap.add_argument("--verify-shape", action="store_true",
+                    help="compare the finding counts against the "
+                         "committed shape and exit 1 on drift")
     a = ap.parse_args(argv)
 
     if a.baseline:
@@ -2058,7 +2062,63 @@ def main(argv=None):
                  sum(1 for f in findings if f.severity == WARN),
                  sum(1 for f in findings if f.severity == NOTE)))
 
+    if "--verify-shape" in sys.argv:
+        return _verify_shape(files, findings)
     return 1 if any(f.severity == FAIL for f in findings) else 0
+
+
+#: THE COMMITTED SHAPE, so `--check` can go red on DRIFT rather than on the
+#: standing FAIL. Measured 2026-08-13 and repinned in RESULTS_CORPUS_AUDIT.md
+#: the same day from 423/3/227/193 -- two of the three FAILs had been fixed and
+#: this file's record was never told, because NOTHING RUNS THIS AUDIT. An audit
+#: of all eight adversaries found this one (adversary 5, "the CORPUS") had zero
+#: automated callers: no CI step, no test, no caller, only a `__main__`. Its
+#: committed output drifted for as long as nobody typed the command.
+#:
+#: WHY A PIN AND NOT A PLAIN GATE. `main()` already exits 1 on any FAIL, which
+#: is the right default for a human running it. But one FAIL is STANDING and
+#: TRUE -- `corpus/fas_hafez.LICENSE.txt` is an English licence document under
+#: `corpus/`, so the D check is correct to call it declared `fas` and
+#: unreadable. Gating CI on that would paint the job permanently red on a
+#: finding nobody intends to "fix", and a permanently red gate is one nobody
+#: reads. So `--verify-shape` asks the question CI can actually answer: has anything
+#: MOVED since the record was written?
+#:
+#: Doctrine 58: these are counts nobody wrote down until now. Argue them and
+#: repin; do not quiet a finding to meet them. A FAIL count that FALLS is still
+#: drift and still fails here -- a record that is only corrected when it gets
+#: worse is a record nobody checks in the good direction.
+PINNED_SHAPE = {"files": 269, "FAIL": 1, "WARN": 230, "NOTE": 198}
+
+
+def _verify_shape(files, findings):
+    """-> exit code. FAILS LOUDLY; it does not report and continue."""
+    fresh = {"files": len(files),
+             FAIL: sum(1 for f in findings if f.severity == FAIL),
+             WARN: sum(1 for f in findings if f.severity == WARN),
+             NOTE: sum(1 for f in findings if f.severity == NOTE)}
+    fresh = {"files": fresh["files"], "FAIL": fresh[FAIL],
+             "WARN": fresh[WARN], "NOTE": fresh[NOTE]}
+    print()
+    print("=" * 78)
+    print("CHECK -- RESULTS_CORPUS_AUDIT.md's committed shape against this run")
+    print("=" * 78)
+    bad = 0
+    for k in ("files", "FAIL", "WARN", "NOTE"):
+        ok = fresh[k] == PINNED_SHAPE[k]
+        bad += not ok
+        print("  [%s] %-6s committed %d%s"
+              % ("ok  " if ok else "FAIL", k, PINNED_SHAPE[k],
+                 "" if ok else ", measured %d" % fresh[k]))
+    if bad:
+        print()
+        print("  %d figure(s) moved. RESULTS_CORPUS_AUDIT.md no longer "
+              "describes this corpus." % bad)
+        print("  Repin it with the date, keep the superseded value visible "
+              "(doctrine 17), and do NOT silence a finding to meet the pin.")
+    print()
+    print("RESULT:", "PASS" if not bad else "FAIL")
+    return 0 if not bad else 1
 
 
 if __name__ == "__main__":

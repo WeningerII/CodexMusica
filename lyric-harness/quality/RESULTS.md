@@ -223,6 +223,37 @@ project had designated its candidate universal.
 - **It does not detect generated text.** 0.560 is chance. The earlier claim
   that it was "the only feature clearing FDR in both designs with the
   predicted sign" is **withdrawn**. It clears one design.
+
+  > **THIS WITHDRAWAL DOES NOT REPRODUCE COLD — MEASURED 2026-08-13, AND IT
+  > NEEDS A HUMAN DECISION, NOT A REPIN.** Every figure in this section is a
+  > WARM figure. Until 2026-08-13 `quality/discriminate.py`'s feature cache was
+  > keyed `tag:ident` — corpus, feature class, poem number, and nothing else —
+  > with no fingerprint of `features.py`, `lyric_harness.py`, the `Declaration`
+  > tuple or any resource file. So a warm run reproduced whatever the code
+  > looked like when each entry was first written, on 2026-08-09/10. **The
+  > recorded numbers reproducing exactly WAS the defect.**
+  >
+  > Cold, twice, independently, at two different `lyric_harness.py` digests
+  > and agreeing to the digit: `rhyme_predictability_mean` clears FDR in BOTH
+  > designs — Exp1 AUC 0.262 at p = 0.0018, Exp2 0.340 at p = 0.0015 — and
+  > `rhyme_predictability_min` also clears in Exp2 (0.336, p = 0.0010).
+  > Predictability-only Exp2 reads **0.648**, not 0.560. So the sentence above
+  > and the bolded 0.560 it rests on are both measured against a stale cache,
+  > and the claim they withdraw is the claim the cold run supports.
+  >
+  > **NOT REINSTATED HERE, on purpose.** Reinstating a withdrawn finding is a
+  > statement about what this project has demonstrated, and doctrine 11 says
+  > assume a feature reads period until a measurement says otherwise — the
+  > five wrong-sign features are still wrong-sign cold, so the register/period
+  > reading of Experiment 2 is untouched by any of this. What changed is only
+  > that the arithmetic used to retire `rhyme_predictability` was run against
+  > numbers the comparator no longer produces. Both readings stay visible
+  > (doctrine 17) until somebody decides which claim the project makes.
+  >
+  > Reproduce: `python3 quality/discriminate.py --cold` — 384 extractions,
+  > ~70 minutes on an idle box. The cache now carries a fingerprint of every
+  > input that could change the answer and discards itself with a printed
+  > reason when one moves, so this class of drift cannot recur silently.
 - **Experiment 2's 0.975 is carried entirely by `mattr`, `function_word_ratio`
   and the five wrong-sign features** — that is, by register and period, not by
   quality. It is a very good Shakespeare-vs-contemporary classifier. It is not
