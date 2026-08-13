@@ -81,7 +81,24 @@ bigger move this tier does not attempt, and it says so rather than pretend
 the search was wider than it was.
 
 THREE STOP CONDITIONS, and they are not one thing. SUCCESS — nothing left
-carries a flag finding. NO_PROGRESS — a whole round fixed nothing, so
+carries a flag finding **ON A LINE. That qualifier is load-bearing and was
+missing until 2026-08-13.** Every stop condition reads `brief()`, `brief()` is
+built from `inspect()`'s `per_line` half, and a WHOLE-DRAFT finding names no
+line — so it is in no `Brief` and no stop condition can see it. Exactly three
+codes are whole-draft AND a flag: `LEXICAL_MONOTONY` and `FUNCTION_WORD_HEAVY`
+(the floor, and only inside a calibrated profile's MEASURED range) and
+`HOOK_ABSENT` — which is the song-function layer's ONLY flag, so the layer
+wired in above can never stop this loop. `verify()` reads all three, because
+its diff covers `whole` as well as `per_line`. **So a whole-draft flag can
+REJECT a revision and can never ASK for one**, and `revise_loop` on a four-line
+draft with a declared blueprint returns SUCCESS with `LEXICAL_MONOTONY` and
+`HOOK_ABSENT` both standing. NOT closed by widening the stop condition: this
+loop's only move is a word swap on a named line, none of the three names one,
+so promoting them would spend every round of `max_rounds` on a defect the loop
+has no move for and then report ROUND_LIMIT. DISCLOSED instead —
+`LoopResult.whole`/`.whole_flags` carry them out and `LoopResult.disclosure()`
+prints them under the stop reason. `quality/test_loop.py` test 11.
+NO_PROGRESS — a whole round fixed nothing, so
 another identical round is not run. ROUND_LIMIT — `ReviseDeclaration.
 max_rounds` (declared since the first commit of `quality/revise.py`,
 default 4, unread by anything until this module) is reached. A single
@@ -466,7 +483,34 @@ the design on paper.
   cannot see the change it asked for is a rubber stamp in the other
   direction, and that is as true of a count as it is of a key.
 
-Full sweep after both fixes: `quality/test_loop.py` (10/10),
+**BLUEPRINT OMISSION, DISCLOSED AT THE LOOP TOO — FIXED 2026-08-13.**
+`_say_blueprint()` closed this at the CLI and `blueprint_declared` closed it at
+the `Reviser`. `revise_loop` sits BETWEEN those two and had a third copy of the
+same gap: `LoopResult` carried `stop_reason`/`lines`/`rounds`/`unresolved` and
+nothing about which layers the run actually asked, so a caller holding one —
+or reading a stored one later — could not tell "meter clean" from "meter never
+asked". `subdivision` and `profile` were undisclosed at every level.
+`LoopResult` now carries `blueprint_declared` (READ off `inspect()`'s own key,
+never recomputed from `blueprint is not None`, so the two cannot drift —
+doctrine 1), `subdivision_declared`, `profile`, `whole`, and
+`pairs_mandated`/`pairs_judged`/`pairs_refused` — doctrine 79's three counts,
+which `grade()` has always returned and the loop discarded at the very
+`brief()` call that computed them. One extra `inspect()` per RUN pays for it:
+measured at 0.1s against the first inspect's 43.6s on the same draft, because
+the caches are warm for the draft the loop is already holding.
+**AND OMITTING `blueprint=` DROPS TWO LAYERS, NOT ONE** — meter and
+song-function ride the same coordinate, and nothing said so until now.
+`quality/test_loop.py` test 11.
+
+**THE APPARATUS FILTER HAD ONE MORE HOLDOUT — FIXED 2026-08-13.** The
+centralization onto `load_lyric_lines` covered `lyric_harness.py`'s verbs on
+2026-08-12 and missed `quality/loop.py`'s own `__main__`, which kept only the
+`[` case. A `#` stage direction or a `--- TITLE:` note reached THE FLAGSHIP
+LOOP as sung text — tokenized, rhyme-graded, counted toward MATTR, and
+eligible to be handed back to the writer as a line to revise. It calls
+`load_lyric_lines` now.
+
+Full sweep after both fixes: `quality/test_loop.py` (12/12, was 10/10),
 `quality/test_revise.py` (29/29), and every other test file under
 `quality/` — unaffected, confirmed by re-running rather than assumed clean
 because the module they share a diff mechanism with had just changed.
@@ -1000,6 +1044,32 @@ rather than this paragraph — a roster copied into two files drifts in both.
    — comparing across two DIFFERENT functions (does the outro reprise the
    intro) is not asked by anything. The primitive that would answer it
    already exists; nothing calls it that way.
+8. **`quality/readability.py`'s own report never joins the revision loop, and
+   the data is already on the path.** `Reviser._matrix` computes
+   `readability_records` for EVERY line on EVERY run. The only readability
+   findings that reach the finding set are `grade()`'s `refusals`, which
+   `refusals_for_pairs` scopes to pairs the MANDATE puts together — so an
+   unreadable end word on a line the mandate leaves free produces nothing at
+   all, while `readability.report`'s `UNREADABLE_END_WORD` and
+   `UNREADABLE_END_WORD_PIECE` are FLAGS about every line, and the loop's own
+   `SCHEME_UNREADABLE` counterpart is only a note. This is neither doctrine
+   44's "hard to build" nor doctrine 92's "cannot obtain": the measurement is
+   already computed, on the path, and thrown away. The join belongs in
+   `Reviser.inspect`. Found 2026-08-13 by asking what a default `revise_loop`
+   run actually consults.
+9. **`OVERLAPPING_SPANS` is reachable from `fit` and from nothing else.**
+   `Reviser._meter_findings` calls `quality/fit.py`'s `fit_line` once per line
+   and never builds a `SongFit` — and an overlap is a relation BETWEEN two
+   lines, which cannot be seen from inside one. Measured at both surfaces on
+   one blueprint: `fit BLUEPRINT` prints `over 1` and two findings; `song
+   BLUEPRINT LYRIC` on the identical file prints five meter findings and not
+   one word about the overlap. `fit.overlap_findings(fits)` was extracted
+   2026-08-13 to take the flat `LineFit` list — the object BOTH callers
+   already hold — with identical arithmetic and evidence text, and `fit_song`
+   now calls it; the one-line change that would make `_meter_findings` call it
+   too is verified at runtime and costs zero test churn, since all four
+   shipped blueprints have 0 overlapping lines. Same shape as the
+   built-and-tested-was-not-the-reachable family above, one layer in.
 
 ## The doctrine index — every number, and where it lives
 
