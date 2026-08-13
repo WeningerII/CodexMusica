@@ -123,9 +123,13 @@ rather than quoting these:
 
   CONTROLLED     3    a hand-written arm above
   EXTENDABLE    31    runs, fires, a null moves it, nobody had run it
-  TOO EXPENSIVE  2    `chain rhyme (rap)` is 22.0 s per realise() pass and
-                      `compound / phrasal rhyme` 2.9 s, against a 0.11 s
-                      median -- measured, and the remedy is compute
+  TOO EXPENSIVE  2    `chain rhyme (rap)` is 14.19 s per realise() pass and
+                      `compound / phrasal rhyme` 2.53 s, against a 0.05 s
+                      median over the 51 that ran -- MEASURED on that pass,
+                      not estimated, and the remedy is compute.  This is the
+                      one verdict that does NOT reproduce: the boundary is a
+                      wall clock reading, and `compound / phrasal rhyme`
+                      crossed it between two runs of this same slice
   NO INSTANCE   15    fires zero here; a null against an observation of 0 is
                       inconclusive BY CONSTRUCTION (doctrine 20), not null
   CANNOT OBTAIN 26    `realise()` refuses for want of a capability. 23 need
@@ -762,11 +766,23 @@ ARM_SCHEMAS = frozenset(a[3] for a in ARMS)
 #                     actually reads, and the entry names that coordinate.
 #   TOO EXPENSIVE     it runs and a null bites, but one `realise()` pass costs
 #                     more than the run's budget.  MEASURED, in seconds, never
-#                     guessed: `multisyllabic rhyme` is 151.7 s per pass on 60
-#                     lines of Poe against a 0.14 s median over the registry,
-#                     so 25 replicates of it alone is over an hour.  The
-#                     remedy is compute or a shorter slice, and it is the one
-#                     category where nothing is wrong.
+#                     guessed: `chain rhyme (rap)` is 14.19 s per pass on 40
+#                     lines of Poe against a 0.05 s median over the 51 that
+#                     ran, so that one schema alone is nine minutes at ten
+#                     replicates under four nulls.  The remedy is compute or
+#                     a shorter slice, and it is the one category where
+#                     nothing is wrong.
+#                     AND IT IS THE ONE VERDICT THAT DOES NOT REPRODUCE.  The
+#                     boundary is a WALL CLOCK reading, so it is a coordinate
+#                     of the machine and its load and not of the schema:
+#                     `compound / phrasal rhyme` measured 2.53 s on one run of
+#                     this exact slice and under 2 s on another minutes
+#                     earlier, and crossed the line between them.  Doctrine 66
+#                     says a result that does not reproduce is not a result,
+#                     and this one does not; a budget makes a RUN bounded, it
+#                     does not make the exclusion LIST stable.  Read the
+#                     printed seconds, not the membership, and pass
+#                     `budget=None` for a complete run when the time is there.
 #   EXTENDABLE        it runs, it fires, a null in the inventory bites, and
 #                     nobody had run it.  THIS is "nobody got to it", and it
 #                     is the only one of the five that `sweep()` closes.
@@ -928,7 +944,10 @@ class Coverage:
             "no_instance": "a text the relation occurs in; on this one the "
                            "observation is 0 and no replicate can go lower",
             "too_expensive": "compute, or a shorter slice — nothing about "
-                             "this schema or its null is wrong",
+                             "this schema or its null is wrong. Read the "
+                             "seconds, not the membership: the boundary is a "
+                             "wall clock reading and does not reproduce "
+                             "across machines or loads (doctrine 66)",
         }[self.verdict]
 
 

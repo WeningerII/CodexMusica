@@ -501,6 +501,64 @@ Every floor-arm figure in §3 is the post-fix one. The pre-fix figures
 the third decimal; nothing that depends on them changes, because the argument
 is about a 51x range against a 1.15x move.
 
+## 4b. The relations layer: 3 schemas of 77 had a null
+
+`quality/relations.py` declares **77** relation schemas. `python3
+lyric_harness.py relations FILE` and `python3 quality/relations.py FILE` both
+print a per-schema instance count over all of them, and then a paragraph saying
+a count is not evidence. `quality/relations_null.py`'s recorded table controls
+**three**. The other 74 reach a shipped decision surface uncontrolled — and the
+gap had never been counted, because that file is named in **one markdown line
+in this entire repo** (`CLAUDE.md`'s `wiring` paragraph) and appears in neither
+this document nor `NULL_AUDIT.md`. An instrument nobody writes down is an
+instrument nobody checks.
+
+**"Nobody got to it" is 31 of the 74, and the other 43 need four different
+remedies (doctrine 44).** Census over the first 40 lines of
+`corpus/song/eng_american_edgar_allan_poe.txt`, `eng`, budget 2.0 s,
+2026-08-13: EXTENDABLE 31 · TOO EXPENSIVE 2 · NO INSTANCE 15 · CANNOT OBTAIN
+26 · CANNOT FAIL 0 here (3 derived without a text) · CONTROLLED 3. The largest
+cause is CANNOT OBTAIN — `realise()` never produces an observation at all — and
+**3 of those 26 are permanent**: `poet`, `frequency` and `stub_resolution` have
+no branch in `Stream.provides`, so `dialect rhyme`, `trite rhyme` and `refrain
+by reference` cannot be nulled on any text under any declaration. That is a
+BUILD, not a corpus.
+
+**The sweep — 34 live schemas x 4 nulls x 10 replicates, same slice, 268 rows
+in 199 s. 87 rows (32.5%) are the null returning the observation EXACTLY**, 24
+of them `line_permutation · count`. So §1's identity-map finding was never a
+fact about this file's three arms; it holds across the registry. Of the 181
+rows where the null did move, **126 sit BELOW the null's max** — `consonance`
+23 against a null max of 191 (lift 0.19), `head rhyme (positional)` 4 against
+30. A count from this layer sitting below chance is the ORDINARY case, not a
+quirk of `internal rhyme`. 17 schemas clear their own null on at least one
+statistic; `perfect rhyme · count · within_line_shuffle` is +219 at 27.9x.
+
+**Detection floor, per schema (doctrines 31/76), and it needs FOUR counts.**
+`plant_locality` reorders the text's own lines so detected instances sit
+together — one member of the `line_permutation` null's own support, chosen
+adversarially, so the plant and the null max share a scale by construction.
+Floor clears **52** · floor does NOT clear **30** · statistic CONSTANT, no
+experiment **30** · not measurable **0**. The middle two were one number until
+they were split, and they are different findings: a row where the plant, the
+observation and every replicate are the same value has not FAILED a floor, it
+never had an experiment (doctrine 20).
+
+**Two coordinates moved DURING the run, and both are worth stating.**
+`internal rhyme · count` reads **20482** where `relations_null.py`'s own table
+records 20472, on the identical slice; `perfect rhyme` (2431) and Kalevala
+(.845) reproduce exactly. The cause is not this measurement:
+`quality/phonology/eng.py` and `ltc.py` were being edited the same afternoon by
+a parallel cell, and four schemas flipped between running and refusing on
+`quotient:*` mid-session. **The census is a coordinate of the PHONOLOGY
+MODULE's state, not a property of the registry** — doctrine 58 one axis
+further out again, and the first instance in this repo of a figure moving
+because a dependency changed while it was being read. And TOO EXPENSIVE is the
+one verdict that does not reproduce at all: its boundary is a wall-clock
+reading, and `compound / phrasal rhyme` crossed it between two runs of the same
+slice minutes apart. Doctrine 66 — read the printed seconds, not the
+membership.
+
 ## 5. What did NOT move
 
 * `python3 battery.py` — `mandated 1064, judged 1014, refused 50`,
