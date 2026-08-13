@@ -81,8 +81,10 @@ Measured on 40 files of `corpus/song/`: **596 of 7,914 lines (7.5%)**. There is 
 **Three classes, 27 causes — but only 8 are model gaps.**
 
 - **8 missing degrees of freedom** (M1–M8): the model cannot hold the fact.
-- **13 producer defects** (P1–P13): the coordinate exists and the producer does not read it, or reads it wrongly. No new DOF.
+- **13 producer defects** (P0–P12): the coordinate exists and the producer does not read it, or reads it wrongly. No new DOF. Two more — **P14, P15** — were found and fixed on 2026-08-13 and are outside this count of 27, which is the 2026-08-10 analysis's own arithmetic and is left standing as such; see §4.
 - **6 declared-input families** (R1–R6): not computable from text + phonology by any route.
+
+**That range read `P1–P13` until 2026-08-13, and it was this document contradicting itself.** §4's table has run P0–P12 since it was written: the COUNT of thirteen was right and the START was off by one, so `P13` named a row that has never existed and `P0` — the largest single loss in the whole report — was outside the range that claimed to enumerate it. The table wins because the table is what is CITED. 49 sites across `quality/relations.py`, `quality/test_relations.py`, `quality/declared_inputs.py` and `quality/rhyme_constraints.py` name a P-number, and each sits on the code that carries it (`DEFECT P0, fixed.` is a comment on the `line_final` derivation itself, `DEFECT P6, fixed.` in `PresentVsAbsent`'s own docstring); every one resolves against the 0-based labels, so renumbering the rows to match the prose would have silently redirected all 49 by one row. THE CONVENTION, so a future row cannot repeat this: **a P-number is a permanent citation key issued once by §4's table — never renumbered, never reissued — and a new defect takes one more than the highest label ever issued, not one more than the row count.** That is why the next two rows are P14 and P15 while the thirteenth row is still P12. **P13 is BURNED and the gap is deliberate**: the wrong range claimed it in print, so a reader who cited `P13` from that prose meant a row that never was, and giving the label to a real defect now would resolve their citation to the wrong one — a number that has ever been ambiguous is cheaper to spend than to disambiguate. Note that `P1`–`P8` are also live in a SECOND, unrelated namespace in this repo — the pre-registered PREDICTIONS of `MATRIX_PREREGISTRATION.md`, `PREREGISTRATION_WITHIN_ITEM.md`, `RESULTS_FWER.md` and `quality/negative_control.py` — so a bare grep for `P4` answers two questions at once and neither namespace may be renumbered on the other's evidence.
 
 The report consistently files defects as missing DOF. That inflates the apparent redesign. **Roughly half the 33 failures need no new coordinate at all.**
 
@@ -143,7 +145,12 @@ def _on_rung(stream, unit_ids, rung):
 
 `SpanRule` gains `unit: str = "syllable"`; `_spans_at` calls `_on_rung` before applying anchor and magnitude; `_anchor_pos` gains a phone branch (`last_stressed` = first non-onset slot of the last prominence-1 syllable).
 
-**PROTOTYPED AND MEASURED.** With the phone rung:
+**PROTOTYPED AND MEASURED.** With the phone rung — call this the **ADDITIVE PAIR
+LIST**, and cite it by that name: `quality/relations.py` and
+`quality/test_relations.py` both cite it as "RHYME_COVERAGE.md line 148", which
+pointed at the *subtractive* line even before §2 grew and now misses by two.
+A line number into a living document is the same defect as a reused P-number,
+one layer down.
 
 - additive `stow/hope, year/feared, down/found, rain/brains, prove/moved` → **5/5** (was 1/3)
 - subtractive, the exact mirrors → **5/5**
@@ -340,7 +347,7 @@ This adds the *shape*. The *content* is a declared input (see §5).
 
 ---
 
-## 4. The thirteen defects (no new coordinate)
+## 4. The thirteen defects (no new coordinate) — and two more found since
 
 | # | Defect | Fix | Closes |
 |---|---|---|---|
@@ -357,6 +364,16 @@ This adds the *shape*. The *content* is a declared input (see §5).
 | P10 | chorus stubs ingested as words (`&c` → `S IY1`, `etc` → 4 syllables of *etcetera*) | call the existing `lyric_harness.is_chorus_stub()` from `build_stream` | refrain by reference |
 | P11 | one pronunciation per word; `wind` has 2 CMUdict entries | `Phonology.syllabify` returns alternatives; `Know.alts` finally has a producer | historical, all near-rhyme rates |
 | P12 | `[REGRESSION]` design 3 declares `SequenceEqual/SequenceSuffix/SubsequenceOf` with no `__call__` | keep design 2's implementations | amphisbaenic, parechesis, mosaic |
+| P14 | `ClassEqual(partition=lambda v: v)` on **4 of the 5** `ClassEqual` channels: the `label` declares a QUOTIENT and the code supplied the IDENTITY. Each consequence reproduced before the fix. `proest` declares nucleus DIFFER **and** nucleus CLASS-EQUAL on the same channel, which under the identity are each other's negation — the schema was **UNSATISFIABLE and answered False on six real Welsh pairs**, empty rather than strict, a wrong answer and not a missing one. `family rhyme` fired on `cat`~`bat` — the SYMPTOM, not the defect: at a genuine manner grain identical codas legitimately agree, and what was wrong is that the grain WAS the identity, so the schema was tail rhyme at the finest possible grain wearing a label about manner classes; `multisyllabic rhyme` carried the same channel. 同用 read 流/樓 **False** while `ltc.rhymes("流","樓")` returns **True** — the 平水韻 table was right and `relations.py` never consulted it | **FIXED 2026-08-13.** a quotient is a DECLARED capability: `ClassEqual(resource=...)`, `capabilities()` derives `quotient:manner` / `quotient:vowel_class` / `quotient:同用`, and `realise()` refuses a declaration supplying none BY NAME rather than answering at a grain nobody wrote. An unresolved partition READS `None` — a refusal, never a `False`. The grouping reaches the schema from the phonology that owns it (`phon.quotients`), not from a table copied into `relations.py` | proest, family rhyme, multisyllabic, 同用 — 4 schemas moved from *ran* to *refuses by name*, 53/24 → **49 run / 28 refuse** on a plain English stream |
+| P15 | `RelationSchema.unmatched` declared a value `'differ'` that **no** branch of `evaluate()` implements and **none** of the 77 schemas uses, while its own comment OMITTED `require_a`/`require_b` — the two values that ARE implemented, are used by apocopated rhyme and semirhyme, and are the only thing stopping those two collapsing into perfect rhyme. So an undeclared value silently took the `exclude` path: a typo and a policy read identically | **FIXED 2026-08-13.** `'differ'` deleted rather than wired — a MUST-DIFFER is a CHANNEL rule, which pararhyme already states as `ChannelRule("nucleus", DIFFER)`, and two coordinates meaning one thing is a worse defect than one inert coordinate. The four real values are named in an `UNMATCHED` tuple measured against `evaluate()`'s own branches, and `__post_init__` refuses an undeclared value at construction, where the declaration is written | nothing new, and it does not claim to: apocopated and semirhyme were already riding the two values the vocabulary left out. It makes the coordinate's stated value set equal to its implemented one |
+
+P13 IS NOT MISSING FROM THIS TABLE — it was never issued, and §2 says why. The
+rows are a work PLAN as of 2026-08-10 and the Fix column is written as
+instruction, not as status; where a row has since been closed, the close is
+recorded at the line of `quality/relations.py` that carries it and asserted in
+`quality/test_relations.py`, not here. P14 and P15 are the only rows whose
+status this table states, because they are the only rows this table did not
+predate.
 
 ---
 
