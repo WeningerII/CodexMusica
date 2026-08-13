@@ -17,6 +17,7 @@ MISSING F-1, and this fixture does not close it.
 
 Run: python3 quality/test_relations.py
 """
+import dataclasses
 import os
 import sys
 
@@ -789,6 +790,307 @@ def test_refusal_is_not_false():
 
 
 # ---------------------------------------------------------------------------
+# The refusal was FIRST-HIT. Three sections, from a census of all 77 schemas
+# run 2026-08-13:
+#
+#   1. `realise()` named the alphabetically-first missing capability and
+#      returned, so a schema wanting two reported one.
+#   2. `poet` had no branch in `Stream.provides` at all, which made `dialect
+#      rhyme` refusable on every text under every declaration.
+#   3. `frequency` and `stub_resolution` are the same shape and are NOT fixed
+#      here — they are declared, with the blocker each one is.
+# ---------------------------------------------------------------------------
+
+
+def test_refusal_names_every_missing_capability():
+    """§1. FIRST-HIT -> COMPLETE.
+
+    `RelationSchema.capabilities()` returns `tuple(sorted(...))`, so the
+    capability `realise()` used to report was whichever name sorted first.
+    Measured before the fix on the som stream below:
+
+        family rhyme  ('prominence', 'quotient:manner')      -> 'prominence'
+        proest        ('prominence', 'quotient:vowel_class') -> 'prominence'
+
+    -- and in both cases the quotient is the capability NO declaration of that
+    language supplies, while `prominence` is one a different phonology has.
+    Naming only the first names the cheaper blocker and hides the structural
+    one, which inverts the remedy (doctrine 44).
+    """
+    print("\nR1. a refusal names EVERY missing capability, not the first one "
+          "to sort")
+    st = R.build_stream(["hooyo macaan", "hooyo macaan"], som.Somali(),
+                        declaration={"language": "som"})
+
+    got = {}
+    for n in ("family rhyme", "proest", "dialect rhyme", "trite rhyme"):
+        res = R.realise(R.REGISTRY[n], st)
+        got[n] = (res.capability, res.missing)
+
+    check("a schema needing TWO capabilities reports two",
+          got["family rhyme"][1] == ("prominence", "quotient:manner")
+          and got["proest"][1] == ("prominence", "quotient:vowel_class"),
+          f"{ {k: v[1] for k, v in got.items()} } — before the fix each of "
+          f"these returned after the FIRST failing capability and `.missing` "
+          f"did not exist")
+    check("...and `.capability` still holds the first, so it stays a stable "
+          "grouping key",
+          all(m and cap == m[0] for cap, m in got.values()),
+          "relations_null.Coverage buckets cannot_obtain rows on it; a key "
+          "that silently changed shape would make every stored census "
+          "incomparable with the next one")
+    check("the detail names all of them, not just the key",
+          all(m and all(c in R.realise(R.REGISTRY[n], st).detail for c in m)
+              for n, (_, m) in got.items()),
+          "a reader of the message gets the same set as a reader of the field")
+
+    # THE MECHANICAL CROSS-CHECK: `missing` must equal what `provides` says,
+    # for every schema on this stream. A hand-listed expectation would only
+    # test the four above.
+    disagree = []
+    for n, s in R.REGISTRY.items():
+        want = tuple(c for c in s.capabilities() if not st.provides(c))
+        out = R.realise(s, st)
+        if want and (not isinstance(out, R.Refusal) or out.missing != want):
+            disagree.append(n)
+    check("`missing` equals `provides`'s own answer for all 77 schemas",
+          not disagree, f"disagreements: {disagree}")
+
+    check("`.complete` separates a capability refusal from every other kind",
+          R.realise(R.REGISTRY["family rhyme"], st).complete,
+          "doctrine 28 at the scale of one dataclass: a span refusal or "
+          "relations_null's 'denominator' refusal leaves `missing` empty, and "
+          "empty must not read as 'nothing was missing'")
+    check("a Refusal built the old three-argument way still constructs",
+          R.Refusal("x", "denominator", "d").missing == ()
+          and not R.Refusal("x", "denominator", "d").complete,
+          "quality/relations_null.py builds one that way and this file may "
+          "not edit it")
+
+
+class DialectFixture(EnglishFixture):
+    """A SECOND DECLARATION, and a fixture — not a dialect claim.
+
+    It exists to prove that `poet` is a real surface read through
+    `Stream.alt`, and it holds exactly one merge: `prove` takes `love`'s
+    nucleus. That is the class CLAUDE.md's own Test discipline section names
+    ("love/prove and its class are CONSONANCE in the declared General American
+    dialect, which is correct and now named"), so the pair is one the repo has
+    already located rather than one invented for a test.
+
+    It is NOT a declared phonology and must never be read as one. A real
+    dialect coordinate goes through `quality.declared_inputs.PeriodPhonology`,
+    which REFUSES to construct without a named reconstruction and a source —
+    which is precisely the blocker that remains after the wiring below.
+    """
+    MERGES = {"prove": "love"}
+
+    def syllabify(self, word):
+        base = super().syllabify(word)
+        src = self.MERGES.get(lh.fold_apostrophes(word).lower())
+        if not src:
+            return base
+        other = super().syllabify(src)
+        if len(base) != len(other):
+            return base
+        return [dataclasses.replace(s, nucleus=o.nucleus)
+                for s, o in zip(base, other)]
+
+
+def test_poet_is_an_alt_surface():
+    """§2. `poet` had NO BRANCH, so `dialect rhyme` was unrefusable-by-anyone.
+
+    Measured before the fix: `Stream.provides('poet')` fell through every
+    branch to the closing `return False`, on every stream, under every
+    declaration — including one declaring an `alt` under that exact name. So
+    `dialect rhyme` could not produce an observation on any text and therefore
+    could not have a matched null either.
+    """
+    print("\nR2. `poet` is a SECOND-DECLARATION surface, like `earlier`")
+    check("`poet` is in ALT_SURFACES, and that tuple is the only gate",
+          "poet" in R.ALT_SURFACES and "earlier" in R.ALT_SURFACES,
+          f"{R.ALT_SURFACES}")
+
+    # THE SCHEMAS ARE THE SAME SCHEMA UP TO THE SURFACE NAME. Asserted
+    # mechanically, because that is the argument for wiring one exactly as the
+    # other already was, and an argument stated in prose is not checked.
+    d, h = R.REGISTRY["dialect rhyme"], R.REGISTRY["historical rhyme"]
+    check("`dialect rhyme` and `historical rhyme` differ ONLY in the surface "
+          "their channels read",
+          d.spans == h.spans and d.align == h.align
+          and d.placement == h.placement and d.identity == h.identity
+          and [(c.channel, c.predicate, c.scope) for c in d.channels]
+          == [(c.channel, c.predicate, c.scope) for c in h.channels]
+          and [c.surface for c in d.channels] == ["poet", "poet", "phonemic"]
+          and [c.surface for c in h.channels] == ["earlier", "earlier",
+                                                  "phonemic"],
+          "so nothing distinguished them that could justify wiring one and "
+          "not the other")
+
+    # INERT BY DEFAULT. A capability nobody declared must not move a count.
+    plain = stream(["my love", "i cannot prove"])
+    check("with no alt declared, `poet` is still not supplied",
+          not plain.provides("poet"))
+    check("...and `dialect rhyme` still refuses, naming it",
+          R.realise(d, plain).capability == "poet")
+    check("...and `capability_report` still lists it under 'poet'",
+          any("poet" in k for k in R.capability_report(plain)["refused"]),
+          f"{ {k: v for k, v in R.capability_report(plain)['refused'].items() if 'poet' in k} }")
+
+    # AND THE SURFACE IS GENUINELY READ. Not a flag: the verdict comes from
+    # the second stream's nuclei, and flipping the merge off flips the answer.
+    poet = R.build_stream(["my love", "i cannot prove"], DialectFixture(),
+                          declaration={"language": "eng", "dialect": "fixture"})
+    plain.alt["poet"] = poet
+    out = R.realise(d, plain)
+    check("a declared `poet` surface supplies the capability",
+          plain.provides("poet"))
+    check("...and `dialect rhyme` FIRES on love/prove, which is CONSONANCE in "
+          "the declared dialect",
+          not isinstance(out, R.Refusal) and len(out) == 1
+          and out[0].verdict is True,
+          f"REFUSED on {out.capability!r}" if isinstance(out, R.Refusal)
+          else str([i.describe(plain) for i in out]))
+    check("...on the SECOND declaration's nuclei, not the first's",
+          poet.units[poet.lines[1][-1]].syl.nucleus
+          == poet.units[poet.lines[0][-1]].syl.nucleus
+          != plain.units[plain.lines[1][-1]].syl.nucleus,
+          "the schema wants nucleus AGREE on `poet` AND nucleus DIFFER on the "
+          "anchor in the declared one; a bare flag could satisfy neither")
+
+    # THE BLOCKER THAT REMAINS, stated so the wiring is not mistaken for a
+    # capability the repo can use.
+    same = R.build_stream(["my love", "i cannot prove"], ENG,
+                          declaration={"language": "eng"})
+    plain.alt["poet"] = same
+    flat = R.realise(d, plain)
+    check("an alt that is the SAME phonology finds nothing, which is why the "
+          "wiring is not the capability",
+          not isinstance(flat, R.Refusal) and len(flat) == 0,
+          "doctrine 44: the build was one name in a tuple; the blocker is a "
+          "SOURCED dialect phonology, and this repo has none")
+
+
+def test_unprovidable_is_declared_and_measured():
+    """§3. `frequency` and `stub_resolution` are DECLARED, not built.
+
+    Both gate on a bare `requires=` and NEITHER is read by any channel, so
+    wiring either as a flag makes its schema fire on the channels it already
+    has and label the output with a property it never measured. That is
+    measured here rather than argued, on both schemas.
+    """
+    print("\nR3. the two capabilities that stay unprovidable, and why wiring "
+          "them would MANUFACTURE")
+    st = stream(QUATRAIN)
+    check("check_unprovidable finds nothing wrong with the table",
+          R.check_unprovidable(st) == [], R.check_unprovidable(st))
+    check("every entry's blocker is one of doctrine 44/92's three",
+          all(e.blocker in ("build", "obtain", "disjoint")
+              for e in R.UNPROVIDABLE),
+          f"{ {e.capability: e.blocker for e in R.UNPROVIDABLE} }")
+    check("`poet` is NOT in the table any more; the other two are",
+          {e.capability for e in R.UNPROVIDABLE}
+          == {"frequency", "stub_resolution"},
+          f"{sorted(e.capability for e in R.UNPROVIDABLE)}")
+
+    # A MAXIMALLY DECLARED STREAM still supplies neither.
+    rich = R.build_stream(QUATRAIN, ENG, declaration={
+        "language": "eng",
+        "resources": ("lexicon", "sense", "morphology", "token", "lexeme"),
+        "quotients": {"manner": lambda v: v, "vowel_class": lambda v: v}})
+    R.search_caesura(rich)
+    R.mark_refrain_tail(rich)
+    rich.alt.update({s: rich for s in R.ALT_SURFACES})
+    still = [e.capability for e in R.UNPROVIDABLE if rich.provides(e.capability)]
+    check("neither is reachable from a stream declaring everything a caller "
+          "CAN declare — including every alt surface",
+          not still, f"now provided: {still}")
+
+    # THE MANUFACTURING, MEASURED. Force the flag and compare.
+    def forced(cap, name, on=st):
+        orig = R.Stream.provides
+        R.Stream.provides = lambda self, c: (True if c == cap
+                                             else orig(self, c))
+        try:
+            return R.realise(R.REGISTRY[name], on)
+        finally:
+            R.Stream.provides = orig
+
+    trite = forced("frequency", "trite rhyme")
+    perfect = R.realise(R.REGISTRY["perfect rhyme"], st)
+
+    def pairs(x):
+        return sorted((i.a.idx, i.b.idx, i.verdict) for i in x)
+
+    check("a flagged `frequency` makes `trite rhyme` return EXACTLY perfect "
+          "rhyme's instances",
+          pairs(trite) == pairs(perfect) and len(trite) == 2,
+          f"{[i.describe(st) for i in trite]} — cat/hat and moon/tune are in "
+          f"no cliche list, and nothing in the output could say so, because "
+          f"the schema's channels are nucleus/coda on the PHONEMIC surface "
+          f"and none of them reads a rank")
+    check("...so no channel of `trite rhyme` reads its own capability",
+          all(c.surface == "phonemic"
+              for c in R.REGISTRY["trite rhyme"].channels),
+          "the same is true of `refrain by reference`: one token channel, "
+          "phonemic surface, and the stub still tokenises to 'c'")
+
+    # A PLAIN REFRAIN and A REAL STUB, side by side under the forced flag.
+    # The stub line is what the schema is FOR and it is the one that finds
+    # nothing, which is the whole objection to wiring the flag.
+    plain_refrain = stream(["and so we sang", "we walked away", "and so we sang"])
+    real_stub = stream(["and so we sang", "we walked away", "and so we sang, &c."])
+    hit = forced("stub_resolution", "refrain by reference", plain_refrain)
+    miss = forced("stub_resolution", "refrain by reference", real_stub)
+    check("a flagged `stub_resolution` fires on ORDINARY verbatim repetition",
+          not isinstance(hit, R.Refusal) and len(hit) > 0,
+          f"{len(hit)} instances on a plainly repeated line — which is "
+          f"`refrain/chorus`, a schema this registry already has")
+    check("...and finds NOTHING on the line that actually carries the stub",
+          not isinstance(miss, R.Refusal) and len(miss) == 0,
+          f"{len(miss)} instances: `&c.` tokenises to `c`, so the pointer "
+          f"line is not equal to the line it points at and never will be "
+          f"until something RESOLVES it. The flag inverts the schema — it "
+          f"reports the cases the schema is not for and misses every case it "
+          f"is for.")
+
+    # THE SECOND, INDEPENDENT BLOCKER on `refrain by reference`, cross-checked
+    # against the null module rather than asserted here.
+    try:
+        import quality.relations_null as N
+    except Exception as exc:                                  # noqa: BLE001
+        check("relations_null imports", False, str(exc))
+        return
+    check("`refrain by reference`'s `count` statistic has NO null in NULLS",
+          N.null_menu(R.REGISTRY["refrain by reference"], "count") == (),
+          "so wiring the capability would start a schema firing with nothing "
+          "behind it that could fail — doctrine 63/68. Its positional "
+          "statistics DO have a menu: local_fraction@2 -> "
+          f"{N.null_menu(R.REGISTRY['refrain by reference'], 'local_fraction@2')}")
+
+    # THE TWO TABLES MUST NOT DRIFT. relations_null.py is not editable from
+    # here; this pins the edit that is owed there and stays green after it.
+    extra = [c for c in N.NEVER_PROVIDED
+             if c not in {e.capability for e in R.UNPROVIDABLE}]
+    check("every capability relations.py calls unprovidable is also in "
+          "relations_null.NEVER_PROVIDED",
+          {e.capability for e in R.UNPROVIDABLE} <= set(N.NEVER_PROVIDED),
+          "the reverse containment is NOT required while a row there is being "
+          "retired")
+    check("...and every EXTRA row there is one this file has since made "
+          "REACHABLE, never a gap relations.py forgot",
+          all(rich.provides(c) for c in extra),
+          f"extra rows: {extra} — OWED IN quality/relations_null.py (this "
+          f"file may not edit it): drop the 'poet' row from NEVER_PROVIDED, "
+          f"because `dialect rhyme` is now `historical rhyme`'s case — "
+          f"blocked on a SOURCED dialect phonology, not on a branch that does "
+          f"not exist. Its `cannot_obtain` remedy string currently reads "
+          f"'BUILD it: no stream field carries the writer's dialect', which "
+          f"is the wrong remedy now; the right one is its own 'declare the "
+          f"capability on the stream'. Empty list here = the edit has landed.")
+
+
+# ---------------------------------------------------------------------------
 # What is still broken. These assert the DEFECT, so they fail when it closes.
 # ---------------------------------------------------------------------------
 
@@ -1455,6 +1757,9 @@ if __name__ == "__main__":
     test_sequence_predicates_are_implemented()
     test_head_anchored_relations_are_reachable()
     test_refusal_is_not_false()
+    test_refusal_names_every_missing_capability()
+    test_poet_is_an_alt_surface()
+    test_unprovidable_is_declared_and_measured()
     test_rhyme_constraints_unreadable_nucleus()
     test_traditions()
     test_tradition_provenance()

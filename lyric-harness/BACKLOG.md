@@ -557,6 +557,7 @@ never one (doctrine 79).
 | MISSING entries by status | 49 OPEN / 14 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,611 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
+| public symbols by where they are referenced | **898** public top-level functions/classes under `quality/` and the root — **154** named by another production module, **219** by tests only, **480** only inside their own module, **11** by nothing anywhere, **34** REFUSED (26 ambiguous, 4 dynamic, 4 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named | `python3 quality/counters.py` |
 | mutations declared | **57 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

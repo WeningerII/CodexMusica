@@ -4,6 +4,68 @@
 `quality/test_revise.py`, this file. **`examples/never_been_to_a_scene.txt`
 was NOT touched** — it is read-only to this cell and no line of it changed.
 
+> ## THE INPUT IS GONE FROM HEAD — ANNOTATED 2026-08-13
+>
+> **`examples/never_been_to_a_scene.txt` no longer exists**, and neither does
+> the whole `examples/` directory. It was deleted in commit `11aa19b`, *"Remove
+> Claude-authored example lyrics from the repo; fix the CLI's apparatus-line
+> gap"*, 2026-08-12, together with `cherokee_bill.txt`, three other lyrics and
+> five blueprints. Confirmed two ways: `ls lyric-harness/examples` → *No such
+> file or directory*, and `git log --diff-filter=D -- 'lyric-harness/examples/*'`
+> → `11aa19b` and nothing since. **So every command printed below is unrunnable
+> as written.** Recover the input, read-only, with:
+>
+>     git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
+>
+> and substitute that path for `examples/never_been_to_a_scene.txt` in the
+> `open(...)` calls and CLI lines below. The recovered file is 41 lines,
+> 291 tokens, which is what this document says it should be.
+>
+> Everything below was then re-run against the recovered text at head, on
+> 2026-08-13. **The figures do not all still hold, and doctrine 17 governs:
+> nothing below is deleted or repinned, and where a number does not reproduce
+> it is named here rather than quietly corrected in place.**
+>
+> | § | figure | 2026-08-13 verdict |
+> |---|---|---|
+> | §0 | `graph`/`promote=False`: **8** groups, **1** pivot (L27) | **DOES NOT REPRODUCE** — measured **6** groups, **0** pivots, 28 pairs |
+> | §0 | `mandate_from_graph`/`promote=True`: **12** groups, **5** pivots (L1,L26,L27,L29,L32), **53** pairs | **DOES NOT REPRODUCE** — measured **7** groups, **0** pivots, 35 pairs. This was already recorded as moved on the day: `RESULTS_MANDATE_LANGUAGE.md` §6's "at 16:0x UTC" column says 6 cliques / 0 pivots and 7 groups / 0 pivots, and today's measurement equals that column exactly |
+> | §0 | the author's declared letter mandate: 8 groups, 0 pivots, **8** mandated pairs | **REPRODUCES** |
+> | §1 | 58 of 336 offered words (17.3%) pre-fix; 0 of 338 (0.0%) post-fix; 29 of 101 forbidden entries absent from the field | **NOT RE-RUN.** Not merely unmeasured — **not reproducible as a comparison**: both counts are taken over the flagged lines of the derived cover in §0, and that cover is a different object at this comparator. Re-running would produce a number, not a check |
+> | §2 | `above buzz dove glove gov love thereof` — seven words answer `does`/`five`/`drive`/`of`/`alive` at once | **DOES NOT REPRODUCE.** Measured at head with the same five call words and `field_depth=None` (complete pool): `joint_field` returns **empty, both offered and forbidden**. The claim that "the intersection came out empty only because `_field` truncated at n=200" no longer holds at the complete pool — the intersection is empty at the complete pool too. The FIX (`field_depth` as a declared coordinate) is unaffected; its 2026-08-11 *demonstration* is what stopped reproducing |
+> | §2 | the L14 brief printing seven forbidden and `dove` offered | **DOES NOT REPRODUCE** — follows from the row above |
+> | §2 | the modal-6 differs between depth 200 and the complete pool on 10 of 11 call words | **NOT RE-RUN — COST** |
+> | §3(a) | the `wordfreq20k.txt` rank table (`email` 114, `software` 151 …) | **NOT RE-RUN**, and already superseded in place by this section's own WIRED CLOSED block: `lex.freq_rank` reads `data/opensubtitles_en_50k.tsv` now |
+> | §3(a)/(b) | the WIRED CLOSED / CLOSED blocks: `R.modal_field("fire")` forbids `desire, higher, conspire, sire, choir, tire`, `desire` ranked FIRST | **REPRODUCES EXACTLY** |
+> | §3(b) | `desire` at position 136 of `fire`'s band-filtered field; `fire`'s forbidden set is `our, other, data, power, water, another` | **DOES NOT REPRODUCE** — superseded by the CLOSED block directly above it, which this table row exists only to keep visible |
+> | §4 | 4 of 54 (7.4%) forbidden words are strict-identity rhymes | **NOT RE-RUN — COST** |
+> | §4 | the five-row forbidden table (`to you new do no so`; `and find years terms hotels send`; `will their there here year email`; `help send link end think since`; `love above thereof buzz glove gov`) | **DOES NOT REPRODUCE — not one row.** Measured at head: `slow` → `go, below, know, snow, low, woe`; `ones` → `sons, suns, friends, hands, sounds, turns`; `ear` → `hear, here, there, where, their, care`; `clear` → `fear, near, year, dear, appear, cheer`; `went` → `spent, tent, scent, sent, rent, consent`. `email` and `software` are gone, which is §3's own WIRED CLOSED block arriving here. The *argument* of §4 — that the exclusion is modal in a web crawl and not in song — is the thing that was fixed; its table is the pre-fix evidence and is kept as that |
+> | §4 | `ear` ~ `will` scores 0.996 and is typed RHYME | **NOT RE-RUN** — `lyric_harness.best_score`'s signature has moved and a bare call raises; `will` is no longer in `ear`'s forbidden set at all, so the row it illustrates is gone either way |
+> | §5 | the six constructed revisions and their verdicts | **NOT RE-RUN — COST.** These are pinned by `test_revise.py` 20, which is not this annotation's file |
+> | §6 | `mandated 8   judged 8   refused 0   violations 0   collisions 26` | **REPRODUCES EXACTLY** |
+> | §6 | `REVISION BRIEF — 17 line(s) flagged of 41` | **DOES NOT REPRODUCE** — the header now reads `14 line(s) TO REVISE, 9 carrying notes only, of 41`. 23 lines carry a finding. The re-count is `RESULTS_COLLISION_PARTITION.md` §4(d)'s own fix ("a note is not a flag, and the header counted them the same") landing here |
+> | §6 | "Every one of the 17 flagged lines carries exactly one finding code: `SCHEME_COLLISION`. Not one earns a candidate field" | **DOES NOT REPRODUCE.** Measured: 14 × `ANAPHORA_OVERLOAD` (flag), 7 × `NEAR_COLLISION`, 5 × `MODAL_RHYME`, 3 × `SCHEME_COLLISION` (all notes). Five lines DO earn a candidate field, via `MODAL_RHYME`, which did not exist when this was written |
+> | §6 | `OUT_OF_CALIBRATED_LENGTH: 291 tokens …` and "every length-sensitive check did not run" | **DOES NOT REPRODUCE.** 291 tokens is inside the `song` profile (150–400) shipped by `RESULTS_SONG_FLOOR.md`'s cell. The token count itself, 291, reproduces exactly. This section's own remedy list item 1 ("a length profile that covers a song") is therefore **done**, by another cell |
+> | §6 | 16 of the 26 collisions are the chorus coming back, on the seven listed identical end words | **REPRODUCES EXACTLY** — now said once per group pair as 4 × `MANDATE_GROUPS_INDISTINGUISHABLE` over A[13,17]+E[33,37], B[14,16]+F[34,36], C[15,19]+G[35,39], D[18,20]+H[38,40], 4 cross edges each = 16 |
+> | §6 | 53 derived pairs produce 3 `SHARED_SUFFIX` + 7 `REPEAT_IN_VERSE`; 8 declared pairs produce none | **NOT RE-RUN** — the derived cover is a different object, per the §1 row |
+> | §7 | BACKLOG §1.5: zero duplicate `(line, code)` pairs shipped; L1 ×2 at `theta_coda=0.80`, L1 ×4 + L6 ×3 at 0.60 | **NOT RE-RUN — COST**, and it would require editing `quality/revise.py`, which this annotation may not do |
+> | §7 | L21's end word is `Road`, not `6`; `L9 ~ L21 'tone' ~ 'Road' 0.921 ASSONANCE` | **REPRODUCES EXACTLY** — including the score to three places. It now prints as a `NEAR_COLLISION` note rather than inside the collision list, which is the typing `RESULTS_COLLISION_PARTITION.md` added; the underlying defect is unchanged and still open |
+>
+> **Bounded (doctrine 79):** 13 figures re-measured, 6 not run for COST, 1 not
+> run because re-running it would need a write to a file this annotation does
+> not own. No test suite, no `battery.py` and no calibration runner was
+> executed. Timings for what was: `Reviser.report` on the declared mandate,
+> 17.1 s; `modal_field`/`joint_field` spot checks, 18 s total.
+>
+> **One reading that the table above should not be allowed to blur.** The two
+> largest non-reproductions — §0's cover and §2's seven words — are the SAME
+> movement seen twice: the comparator tightened (`coda_agreement` replacing the
+> `cluster_sim` cut, `theta_coda` 0.60 → 0.80) and `ones` stopped rhyming with
+> anything, taking L27 the pivot with it. `RESULTS_MANDATE_LANGUAGE.md` §6
+> recorded exactly this on the day, in the same numbers this re-run produces.
+> So §0 is not stale-and-unnoticed; it is stale-and-already-corrected-elsewhere,
+> and this file had not been told.
+
 `quality/revise.py` has had tests since it was built. What it had not had was
 a run against the real 41 lines with a real mandate, start to finish, with the
 output READ rather than counted. This is that run. Three of the defects below
@@ -38,16 +100,24 @@ still evidence is everything the band did not decide — the floor, the
 refusals, the REPEAT edges the graph admits and a mandate rejects, and the
 CANDIDATE FIELD, which is where all four defects below live.
 
-Reproduce:
+Reproduce — **the input is gone from head; recover it first** (see the block at
+the top of this file):
 
 ```
+git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
 python3 - <<'PY'
 import sys; sys.path.insert(0, '.')
 from quality.revise import Reviser
-lines = [l.rstrip() for l in open('examples/never_been_to_a_scene.txt') if l.strip()]
+lines = [l.rstrip() for l in open('/tmp/nbtas.txt') if l.strip()]   # was examples/never_been_to_a_scene.txt
 r = Reviser(); r.report(lines, r.mandate_from_graph(lines))
 PY
 ```
+
+**Run this way on 2026-08-13, the table above does not come back.** The derived
+cover is 7 groups / 0 pivots / 35 pairs at `promote=True` and 6 groups / 0
+pivots / 28 pairs at `promote=False`; only the third row, the declared letter
+mandate, still reads 8 groups and 8 mandated pairs. The old values are left
+standing above (doctrine 17) and the reason they moved is in the head block.
 
 ---
 

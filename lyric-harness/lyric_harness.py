@@ -4576,9 +4576,46 @@ def main():
             # Exit 2, not 0. A refusal is not a pass and a caller in a
             # pipeline has to be able to tell them apart; the traceback this
             # replaces said the same thing in six frames of noise.
+            #
+            # FIRST, and not merely by luck: `NoMandate` IS-A `ValueError`,
+            # so this clause has to sit ahead of the one below or every
+            # missing mandate would print the generic refusal instead of the
+            # one that names what is missing.
             print("  REFUSED — this verb was given nothing to check against.")
             for ln in str(e).splitlines():
                 print(f"  {ln}")
+            sys.exit(2)
+        except ValueError as e:
+            # THE SAME REFUSAL, FOR ALL FOUR VERBS — FIXED 2026-08-13. A
+            # blueprint whose line count does not match the draft is a
+            # DECLARATION MISMATCH, not a crash: `Reviser._meter_findings`
+            # correlates blueprint placements to draft lines BY POSITION and
+            # raises rather than silently misaligning every line after the
+            # first difference, which is the right call and is deliberately
+            # worded. Only `song` routed it — it had a private copy of this
+            # handler — so `brief FILE MANDATE --blueprint=BP`, `verify` and
+            # `revise` printed a raw traceback and exited 1 on the identical
+            # user mistake that `song` answered with `REFUSED` and exit 2.
+            # Same family as the `candidates` KeyError fixed earlier the same
+            # day (a user-facing verb tracebacking where its sibling refuses)
+            # except loud rather than silent, and the same remedy: ONE
+            # refusal shape, reached by every verb that can provoke it.
+            #
+            # BROAD ON `ValueError` AND NOT WIDER, ON PURPOSE. It catches the
+            # rest of the blueprint-reading family a wrong file provokes —
+            # `pulses must be positive`, `groups (3, 3) sum to 6, not 4`,
+            # `Invalid literal for Fraction`, and `json.JSONDecodeError`,
+            # which is a `ValueError` subclass — all of which are a statement
+            # about the FILE the caller named. It deliberately does NOT catch
+            # `KeyError`: `KeyError: 'bars'` from a section missing a
+            # required field looks identical, at this frame, to
+            # `KeyError: 'anchor_syllables'`, which was a REAL defect in this
+            # spine and was found precisely because it escaped. Swallowing
+            # that class here would hide the next one (doctrine 48's own
+            # failure mode, and §12's argument against broad handlers).
+            print(f"  REFUSED — {e}")
+            for role, path in sides:
+                print(f"    {role}: {path}")
             sys.exit(2)
 
     elif cmd == "demo":

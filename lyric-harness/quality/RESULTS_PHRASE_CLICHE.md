@@ -50,8 +50,31 @@ computed on the writing path and thrown away.
 
 **And the floor says nothing at all about either song in `examples/`:**
 
+> **THE INPUT IS GONE FROM HEAD AND THIS BLOCK NO LONGER REPRODUCES —
+> ANNOTATED 2026-08-13.** `examples/` was deleted entire in commit `11aa19b`
+> (*"Remove Claude-authored example lyrics from the repo; fix the CLI's
+> apparatus-line gap"*, 2026-08-12); `ls lyric-harness/examples` returns *No
+> such file or directory* and `git log --diff-filter=D --
+> 'lyric-harness/examples/*'` names `11aa19b` and nothing since. Recover both,
+> read-only:
+>
+>     git show 11aa19b^:lyric-harness/examples/cherokee_bill.txt        > /tmp/cbill.txt
+>     git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
+>
+> Re-run at head 2026-08-13: **`327 tokens` and `291 tokens` reproduce
+> exactly**, and the rest of this block does not. `cherokee_bill` now reports
+> `0 flag(s), 0 note(s)` — no findings at all — and `never_been_to_a_scene`
+> reports `1 flag(s), 1 note(s)`: an `ANAPHORA_OVERLOAD` **flag** (14 of 41
+> lines open with `i`, 34%) and a `PREDICTABLE_RHYME` note. So the sentence
+> below this block — *at song length nothing length-sensitive runs at all* —
+> **is false at head**, and it is false because of the exact work this section
+> names as live: the `song` profile (150–400 tokens) shipped, and 327 and 291
+> both sit inside it. `RESULTS_SONG_FLOOR.md` §6 is the record. Kept as
+> written per doctrine 17. **Nothing in §1–§6 or §8–§9 reads these two files**,
+> and none of it was re-run here (COST).
+
 ```
-$ python3 -c "...SlopFloor().report(lines)"
+$ python3 -c "...SlopFloor().report(lines)"      # UNRUNNABLE — see the note above
 examples/cherokee_bill.txt          SLOP FLOOR — 0 flag(s), 1 note(s)
   [NOTE] OUT_OF_CALIBRATED_LENGTH: 327 tokens is outside every calibrated length
 examples/never_been_to_a_scene.txt  SLOP FLOOR — 0 flag(s), 1 note(s)
@@ -357,6 +380,37 @@ outside it, which is doctrine 15's lesson on the date axis.
 ---
 
 ## 7 · The verdict on real lines, verbatim
+
+> **THE INPUTS ARE GONE FROM HEAD; THE NUMBERS ARE NOT — ANNOTATED
+> 2026-08-13.** `examples/cherokee_bill.txt` and
+> `examples/never_been_to_a_scene.txt` were deleted in commit `11aa19b`
+> (2026-08-12), so all four commands in this section are unrunnable as written.
+> Prefix them with:
+>
+>     git show 11aa19b^:lyric-harness/examples/cherokee_bill.txt        > /tmp/cbill.txt
+>     git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
+>
+> and substitute those paths. **Re-run that way at head on 2026-08-13, this
+> section reproduces completely — every figure, every witness phrase, every
+> author count, every line number.** Specifically:
+>
+> | figure | verdict |
+> |---|---|
+> | `-n 3 -k 5` on `cherokee_bill`: 4 firings — L1 `in the name` 7, L13 `it was a` 11, L24 `it could not` 7, L26 `and that was` 5 | **REPRODUCES EXACTLY** |
+> | `-n 3 -k 5` on `never_been_to_a_scene`: 5 firings — L11 `and the whole` 6, L18 `to see how` 5, L25 `is on the` 13, L26 `which is the` 7, L38 `to see how` 5 | **REPRODUCES EXACTLY** |
+> | nine firings across both songs, eight distinct witnesses | **REPRODUCES** |
+> | `-n 4 -k 1` on `cherokee_bill`: L16 `went down without a` 1, L21 `raised his voice and` 1 | **REPRODUCES EXACTLY** |
+> | `-n 4 -k 1` on `never_been_to_a_scene`: no line reaches the threshold | **REPRODUCES EXACTLY** |
+> | *and every rope in Arkansas began to braid for him* scores 0 at n=3 and above | **REPRODUCES** — the line is absent from the n=3 output |
+> | the same line scores **32** at n=2, on `and every` | **REPRODUCES EXACTLY** — `line 12   32 authors  'and every'` |
+>
+> **Bounded (doctrine 79):** 7 figures re-measured, at ~12 s per run, five runs.
+> The n=2 witnesses `for him` (29) and `began to` (20) and their POS tags were
+> **not re-run — COST**; the `--measure`, `--self-test` and null/period arms of
+> this file were not run either, and two of those already carry their own
+> WITHDRAWN blocks above. **The refusal this whole document argues for is
+> unaffected by the deletion**: the instrument still ships refusing, and the
+> evidence for the refusal is these nine firings, all of which came back.
 
 Both songs in `examples/`, at the two settings that fire at all. Nine firings
 across both songs at n=3 k≥5; **not one is a cliché.**

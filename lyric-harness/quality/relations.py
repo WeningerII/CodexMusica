@@ -146,13 +146,61 @@ class NoReferent(Exception):
 
 @dataclass(frozen=True)
 class Refusal:
+    """WHY the instrument declined, naming what it would have needed.
+
+    `capability` is ONE name and `missing` is ALL of them, and the two are
+    separate fields because they answer different questions.  `realise()`
+    checked capabilities in `RelationSchema.capabilities()` order -- which is
+    `sorted()`, so ALPHABETICAL -- and returned on the first failure, so a
+    schema wanting two capabilities reported one and the census column built
+    from it was FIRST-HIT rather than complete.  Measured on a `som` stream,
+    which supplies no prominence:
+
+        family rhyme   needs ('prominence', 'quotient:manner')  -> said 'prominence'
+        proest         needs ('prominence', 'quotient:vowel_class')
+                                                                -> said 'prominence'
+        dialect rhyme  needs ('poet', 'prominence')             -> said 'poet'
+
+    -- and in the first two cases the quotient is the capability that does not
+    exist on ANY declaration of that language, while `prominence` is one a
+    different phonology supplies.  Reporting the alphabetically-first of the
+    two names the CHEAPER blocker and hides the structural one, which inverts
+    the remedy: "declare a prominence-bearing phonology" reads as the whole
+    answer when it closes half the gap.  Doctrine 44 is exactly this
+    distinction -- "hard to build" against "cannot obtain" -- so a diagnostic
+    that truncates the list decides which of the two a reader sees.
+
+    `capability` KEEPS its old value (`missing[0]`) rather than becoming a
+    joined string: it is the GROUPING KEY that `relations_null.Coverage`,
+    `NEVER_PROVIDED` and this module's own `refusal_census()` bucket on, and a
+    key that silently changed shape would make every stored census
+    incomparable with the next one.  New readers should prefer `missing`.
+    """
     schema: str
     capability: str
     detail: str
+    #: EVERY capability the stream did not supply, in `capabilities()` order.
+    #: Defaults to `()` so the three-argument construction sites outside this
+    #: file (`quality/relations_null.py` builds a `'denominator'` refusal that
+    #: way) keep working unchanged; `realise()` always fills it.
+    missing: tuple = ()
 
     def __bool__(self):
         raise TypeError(
-            "a Refusal has no truth value; it is not False. Read .capability.")
+            "a Refusal has no truth value; it is not False. Read .capability "
+            "for the first missing capability, or .missing for all of them.")
+
+    @property
+    def complete(self):
+        """True when `missing` carries the whole set rather than one name.
+
+        A refusal raised somewhere other than the capability gate -- the span
+        refusal below, `relations_null`'s `'denominator'` -- leaves `missing`
+        empty, and a consumer counting capabilities must be able to tell that
+        apart from "nothing was missing", which is not a state a Refusal can
+        be in.  Doctrine 28, at the scale of one dataclass.
+        """
+        return bool(self.missing)
 
 
 # ---------------------------------------------------------------------------
@@ -250,6 +298,44 @@ class Frames:
 #: needing a caesura or a morphology resource already does.
 QUOTIENT_CAP = "quotient:"
 
+#: The SECOND-DECLARATION surfaces.  Each names a key in `Stream.alt`, and a
+#: `ChannelRule(surface=...)` reading one is answered by projecting the unit
+#: into that second stream (`ChannelSet.read` -> `_project`).  `Stream.provides`
+#: gates them all the same way -- the surface is supplied iff a caller declared
+#: a stream under that name -- so this tuple, and not any per-surface code, is
+#: the whole of what makes a surface reachable.
+#:
+#: `poet` ADDED 2026-08-13, and it is a correction rather than a feature.  It
+#: was the only surface any schema names that this tuple omitted, so
+#: `provides('poet')` fell through to the closing `return False` and `dialect
+#: rhyme` refused on EVERY text under EVERY declaration -- not "no caller has
+#: declared one yet" but "no caller can".  Two things make that an error and
+#: not a policy:
+#:
+#:   * `quality/declared_inputs.py` already classifies it the other way. Its
+#:     own header table reads `R2 historical  SWAPPABLE_PHONOLOGY  SCHEDULED`
+#:     and its §5 map sends "a PHONOLOGY at another coordinate" to R2 with the
+#:     words "(historical, dialect, Scots)".  So the repo declares dialect to
+#:     be the same family as `earlier`, which IS in this tuple, and two modules
+#:     disagreed about whether the same family was reachable.
+#:   * `dialect rhyme` and `historical rhyme` are the same schema up to the
+#:     surface name -- END_ANCHOR spans, nucleus+coda AGREE on the second
+#:     surface, nucleus DIFFER on the anchor in the declared one.  Nothing
+#:     distinguishes them that could justify wiring one and not the other.
+#:
+#: THIS DOES NOT MAKE THE SCHEMA FIRE.  A surface is supplied only by a caller
+#: handing over a second `Stream` built from a phonology at that coordinate;
+#: with no `alt` declared, `provides('poet')` is False and every count in this
+#: repo is byte-identical (asserted in `test_relations.py`).  What changes is
+#: the CLASSIFICATION of the gap: `dialect rhyme` moves from "cannot be nulled
+#: on any text under any declaration" to exactly where `historical rhyme`
+#: already sits -- blocked on a SOURCED dialect phonology, which this repo does
+#: not have and which `declared_inputs.PeriodPhonology` refuses to construct
+#: without a named reconstruction.  Doctrine 44: the build was one name in a
+#: tuple; the blocker is, and always was, the data.
+ALT_SURFACES = ("orthography", "earlier", "delivered", "sung", "licence",
+                "poet")
+
 
 @dataclass
 class Stream:
@@ -304,7 +390,7 @@ class Stream:
             return self.frames.beat is not None
         if cap == "bayt":
             return self.frames.bayt_source != "none"
-        if cap in ("orthography", "earlier", "delivered", "sung", "licence"):
+        if cap in ALT_SURFACES:
             return cap in self.alt
         if cap in ("lexicon", "sense", "morphology"):
             res = self.declaration.get("resources", ())
@@ -1976,7 +2062,11 @@ def order_burden(schema, stream, chans=DEFAULT_CHANNELS):
             "recovered_instances": t.get("recovered_instances", 0),
             "recovered_true": t.get("recovered_true", 0)}
     if isinstance(out, Refusal):
-        return dict(base, instances=0, refused=out.capability)
+        # `refused` keeps its old single-name value so stored counts stay
+        # comparable; `refused_all` is the complete set beside it. Two keys
+        # rather than one widened key, for the reason `Refusal` gives.
+        return dict(base, instances=0, refused=out.capability,
+                    refused_all=out.missing)
     return dict(base, instances=len(out))
 
 
@@ -1985,7 +2075,9 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
 
     THE ALGORITHM
-      1. capability check.  A missing capability is a Refusal naming it.
+      1. capability check.  A missing capability is a Refusal naming EVERY
+         capability the stream did not supply, on `.missing`, not just the
+         first one to fail.
       2. enumerate candidate spans per member from the member's OWN SpanRule.
       3. bucket by (frame, schema's first AGREE channel).  Unknown keys are
          wildcards and join everything.
@@ -2011,17 +2103,32 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     first family-wise correction in this repo dropped exactly those and got 0%
     saturation on every corpus.
     """
-    for cap in schema.capabilities():
-        if not stream.provides(cap):
-            return Refusal(schema.name, cap,
-                           f"{schema.name} needs {cap!r}; this declaration "
-                           f"({stream.declaration.get('language', '?')}) does "
-                           f"not supply it. Refused rather than asserted.")
+    # THE WHOLE SET, not the first name.  This loop used to `return` inside the
+    # `for`, so the answer was whichever missing capability sorted first and a
+    # schema needing two reported one.  See `Refusal` for the measurement; the
+    # cost of completeness is one extra `provides()` call per satisfied
+    # capability on a refusing schema, and `provides()` is a dict lookup.
+    miss = tuple(c for c in schema.capabilities() if not stream.provides(c))
+    if miss:
+        lang = stream.declaration.get("language", "?")
+        head = (f"{schema.name} needs {miss[0]!r}" if len(miss) == 1 else
+                f"{schema.name} needs {len(miss)} capabilities this "
+                f"declaration does not supply: "
+                f"{', '.join(repr(c) for c in miss)}")
+        return Refusal(schema.name, miss[0],
+                       f"{head}; this declaration ({lang}) does not supply "
+                       f"{'it' if len(miss) == 1 else 'them'}. Refused rather "
+                       f"than asserted. Every missing name is on `.missing` — "
+                       f"declaring only the first would not make this schema "
+                       f"run.", missing=miss)
     try:
         A = list(enumerate_spans(schema.spans[0], stream))
         B = (A if schema.spans[0] == schema.spans[1]
              else list(enumerate_spans(schema.spans[1], stream)))
     except NoReferent as e:
+        # NOT a capability refusal: `missing` stays empty and `.complete` is
+        # False, because the span rule found no referent in a declaration that
+        # supplied everything the schema asked for.
         return Refusal(schema.name, "span", str(e))
     a_keys = {s.idx for s in A}
     b_keys = a_keys if B is A else {s.idx for s in B}
@@ -3238,6 +3345,182 @@ def capability_report(stream):
 
 
 # ---------------------------------------------------------------------------
+# 10z. CAPABILITIES NO DECLARATION CAN SUPPLY -- and WHICH blocker each is
+#
+# `capability_report` answers "what is missing from THIS stream".  This table
+# answers the harder question one level up: which capabilities are missing
+# from EVERY stream, because `Stream.provides` has no branch that could ever
+# return True for them.  A schema needing one cannot produce an observation on
+# any text, so it can never have a matched null either -- which is why
+# `quality/relations_null.py` carries a `NEVER_PROVIDED` dict of the same
+# shape and reads it for its `cannot_obtain` REMEDY string.
+#
+# THE CENSUS THAT PRODUCED THIS ran 2026-08-13 over all 77 schemas and found
+# THREE such capabilities: `poet`, `frequency`, `stub_resolution`.  `poet` is
+# gone -- see ALT_SURFACES; it was one name missing from a tuple, and the two
+# schemas it separated (`dialect rhyme`, `historical rhyme`) are the same
+# schema up to a surface name.  The other two are NOT the same kind of gap as
+# each other, and neither is a missing tuple entry.  Each entry below says
+# what `provides` would have to answer, WHY wiring it as a flag would be
+# worse than leaving it refused, and which of doctrine 44/92's three blockers
+# it is -- because "find a better source" is the answer to only one of them.
+#
+# WHY NOT JUST WIRE THEM.  Both schemas gate on a bare `requires=`, and
+# NEITHER reads its capability on any channel.  So making `provides` return
+# True does not make either schema CONSULT the thing it is named for; it makes
+# the schema fire on the channels it already has and label the output with a
+# property it never measured.  Measured for `trite rhyme` on an eight-line
+# English fixture, with `provides('frequency')` forced True: it returns
+# EXACTLY `perfect rhyme`'s four instances -- cat/hat and moon/tune, which are
+# in no cliche list, alongside fire/desire and night/light, which are -- and
+# nothing in the output can tell the two apart.  That is manufacturing a
+# result, and it is the defect this whole area exists to prevent.
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Unprovidable:
+    """One capability `Stream.provides` cannot answer True for, and why."""
+    capability: str
+    schemas: tuple
+    #: what a branch in `provides` would have to be handed
+    needs: str
+    #: what firing WITHOUT that would report, and why it would be wrong
+    would_manufacture: str
+    #: 'build' | 'obtain' | 'disjoint' -- doctrine 44's two and doctrine 92's
+    blocker: str
+    detail: str = ""
+
+
+UNPROVIDABLE = (
+    Unprovidable(
+        capability="frequency",
+        schemas=("trite rhyme",),
+        needs=(
+            "a rank over RHYME PAIRS at the line-final position, joined to "
+            "the stream, PLUS a declared cut on that rank. `quality/"
+            "frequency.py` already serves ranked tables and "
+            "`data/song_rhymepair_en.tsv` is already the pair-keyed shape "
+            "(15,409 distinct pairs, 91,636 tokens, per author), so the "
+            "DATA half is not the blocker -- doctrine 44's 'hard to build' "
+            "does not apply and neither does 'cannot obtain'."),
+        would_manufacture=(
+            "every perfect rhyme in the text, labelled trite. The schema's "
+            "two channels are nucleus AGREE and coda AGREE on the PHONEMIC "
+            "surface; nothing in it reads a rank."),
+        blocker="disjoint",
+        detail=(
+            "DOCTRINE 92, and it is `quality/phrase_commonplace.py`'s "
+            "recorded finding one level down -- that module refuses at the "
+            "PHRASE level for exactly this reason and this is the same "
+            "disjunction at the RHYME-PAIR level. A cliche is over-familiar "
+            "TO A LIVING LISTENER; every admissible English source here is "
+            "pre-1931 by the provenance gate. MEASURED 2026-08-13 against "
+            "`lyric_harness.CLICHE_PAIRS`, the repo's own 30-pair list: 7 of "
+            "the 30 have count ZERO in the pre-1931 table (beats/streets, "
+            "feel/real, tears/years, girl/world, alone/phone, baby/crazy, "
+            "cash/stash) -- the modern stock, invisible; and the table's own "
+            "top by author dispersion is me/thee (1,080 over 51 authors), "
+            "be/thee (482 over 50), away/day (805 over 61), none of which is "
+            "a cliche to anyone now. Eleven of the top fifteen are not in "
+            "the list at all. So a frequency-driven trite detector built on "
+            "the only admissible source would flag `me`/`thee` hardest and "
+            "miss `baby`/`crazy` entirely. `frequency.NO_INDEPENDENT_SOURCE` "
+            "already names the source that would fix it -- cell `eng-verse`, "
+            "'CONTEMPORARY English sung verse ... nothing in this repo has "
+            "all three, and nothing can'. WHAT WOULD LIFT IT: the same thing "
+            "that lifts eng-verse, i.e. a line-structured, rhyme-bearing, "
+            "post-1960 English corpus under a licence this repo accepts. "
+            "SEPARATELY, and it does not depend on the corpus: the schema is "
+            "`normative='deprecated'` and CLAUDE.md doctrine 9/48 keeps it "
+            "out of the cell grid on purpose, so even with the source the "
+            "cut would be an UNCALIBRATED THRESHOLD (doctrine 16/22) that "
+            "must be stated as a false-positive rate before it means "
+            "anything."),
+    ),
+    Unprovidable(
+        capability="stub_resolution",
+        schemas=("refrain by reference",),
+        needs=(
+            "a declared map from a stub LINE to the SPAN of lines it points "
+            "at -- not a line pointer, a span, because `&c.` stands for a "
+            "whole chorus and nothing in the text says how many lines that "
+            "is. `Stream.line_status` already MARKS the stub and "
+            "`lyric_harness.chorus_stub_match` already names which "
+            "tradition's convention it read; what is absent is the "
+            "resolution, and `relations.py` ships no detector on purpose "
+            "(BACKLOG 2.4: `&c.` is an EDITION's fact, not English's)."),
+        would_manufacture=(
+            "ordinary verbatim refrains, reported as refrains BY REFERENCE. "
+            "The schema's one channel is token AGREE over the whole line, so "
+            "with the flag set and the stub still tokenising to `c` it would "
+            "fire on every exactly-repeated line in the text and on no stub "
+            "at all -- the inverse of what it is for."),
+        blocker="build",
+        detail=(
+            "DOCTRINE 44's 'hard to build', and `quality/declared_inputs.py` "
+            "says so first: its header excludes this row from the six "
+            "declared-input families precisely because the map 'is derivable "
+            "from the text itself', making it a producer defect (P10) and "
+            "not an input nobody can supply. HOW HARD, measured 2026-08-13 "
+            "over `corpus/song/`: 843 stub lines; matching each stub's "
+            "incipit against earlier lines resolves 158 (18.7%) to a UNIQUE "
+            "earlier line, leaves 224 (26.6%) with no earlier match at all, "
+            "and 461 (54.7%) ambiguous between 2 and 9 candidates. And a "
+            "unique match still gives only the chorus's FIRST line. So the "
+            "naive resolver is wrong more often than right and the honest "
+            "version is an edition-level annotation. "
+            "SECOND, INDEPENDENT BLOCKER, and it is the one that decides the "
+            "question: `relations_null.null_menu('refrain by reference', "
+            "'count')` is EMPTY -- no randomisation in `NULLS` moves "
+            "whole-line token identity, so the schema's primary statistic "
+            "CANNOT FAIL (doctrine 63/68). Wiring the capability would "
+            "therefore start a schema firing with no null behind it, which "
+            "is the exact move this area exists to prevent. The positional "
+            "statistics DO have a menu (local_fraction@0/@2 under "
+            "global_redeal), so a resolution built later must be reported on "
+            "those and never on `count`."),
+    ),
+)
+
+
+def check_unprovidable(stream):
+    """MEASURE every UNPROVIDABLE claim.  -> list of finding strings, empty
+    when every entry still holds.
+
+    Fails in BOTH directions, like `check_inert`.  An entry whose capability
+    has become reachable is a stale table, not a passing test -- that is the
+    day the entry has to be replaced by the wiring and by whatever null the
+    newly-firing schema is reported against.  An entry naming a capability no
+    schema asks for any more is an entry that outlived its schema.
+    """
+    out = []
+    named = {c for s in REGISTRY.values() for c in s.capabilities()}
+    for e in UNPROVIDABLE:
+        if e.blocker not in ("build", "obtain", "disjoint"):
+            out.append(f"{e.capability}: blocker {e.blocker!r} is not one of "
+                       f"doctrine 44/92's three")
+        if e.capability not in named:
+            out.append(f"{e.capability}: DECLARED UNPROVIDABLE and no schema "
+                       f"asks for it — the entry outlived its schema, retire "
+                       f"it")
+        if stream is not None and stream.provides(e.capability):
+            out.append(f"{e.capability}: DECLARED UNPROVIDABLE and this "
+                       f"stream SUPPLIES it — the declaration is false, and "
+                       f"{', '.join(e.schemas)} now fires. Replace the entry "
+                       f"with the wiring and name the null it is reported "
+                       f"against.")
+        for name in e.schemas:
+            if name not in REGISTRY:
+                out.append(f"{e.capability}: names schema {name!r}, which is "
+                           f"not in the registry")
+            elif e.capability not in REGISTRY[name].capabilities():
+                out.append(f"{e.capability}: names schema {name!r}, which no "
+                           f"longer requires it")
+    return out
+
+
+# ---------------------------------------------------------------------------
 # 10a. INERT DECLARED COORDINATES -- declared, and CHECKED to be inert
 #
 # Doctrine 1 says every analysis states its assumptions and they live in a
@@ -4327,7 +4610,15 @@ def relation_report(stream, chans=None, schemas=None):
     for name, s in reg.items():
         out = realise(s, stream, keep="all", **kw)
         if isinstance(out, Refusal):
-            refusals.append((name, out.capability, tradition_scope(s, lang)))
+            # THE WHOLE SET in the printed row.  `out.capability` alone is the
+            # alphabetically-first name, so a reader of this report used to be
+            # told "declare prominence" for a schema that also wants a
+            # quotient no declaration in the repo supplies -- one blocker
+            # named, one hidden, and the two have different remedies
+            # (doctrine 44).  `+`-joined, matching `capability_report`'s own
+            # key so the two reports can be compared row for row.
+            refusals.append((name, "+".join(out.missing) or out.capability,
+                             tradition_scope(s, lang)))
             continue
         t = sum(1 for i in out if i.verdict is True)
         f = sum(1 for i in out if i.verdict is False)
@@ -4401,6 +4692,8 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "SequenceSuffix", "SubsequenceOf", "Read", "ChannelSet",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
+           "ALT_SURFACES", "QUOTIENT_CAP",
+           "Unprovidable", "UNPROVIDABLE", "check_unprovidable",
            "mark_refrain_tail", "search_caesura", "mark_printed_caesura",
            "REGISTRY", "QUERIES", "declare", "all_schemas",
            "capability_report", "tri_and", "tri_or",

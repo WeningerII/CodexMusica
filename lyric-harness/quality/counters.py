@@ -86,6 +86,18 @@ parses its printed line of record -- deliberately, because that is the line a
 human sees when they run the documented command, and a counter that agreed with
 the code while disagreeing with the output would be the worse defect. If the
 parse fails, the counter REFUSES; it never falls back to a remembered value.
+
+THE ONE EXCEPTION, AND IT IS A FINDING RATHER THAN A LICENCE.
+`public_symbols()` carries its own AST sweep, because there is no instrument to
+call: `wiring` answers "does anything IMPORT or RUN this FILE", and nothing in
+this repository has ever asked the same question one level down, of a SYMBOL.
+That gap is the whole reason the counter exists -- `STRANDED none` is a true
+answer to a question whose granularity this repo's own history has already
+proved is too coarse -- so the sweep is written here rather than the number
+being copied from a runner that does not exist. If `wiring` ever grows the
+symbol-granularity verdict, this counter should parse ITS output and delete the
+sweep, exactly the way `doctrines()` calls `verify_doctrines` instead of
+carrying a second parser.
 """
 
 import argparse
@@ -457,6 +469,419 @@ def stranded():
                     % (runners, ", ".join(tests) or "none"))
 
 
+#: Directories that hold no source anybody wrote. Walked past, not read.
+SYMBOL_SKIP_DIRS = ("__pycache__", ".git", ".mypy_cache", ".pytest_cache")
+
+#: The five answers `symbol_reach()` gives, and they are five and not two.
+#: PRODUCTION / TESTS / OWN / NOWHERE are verdicts; REFUSED is the absence of
+#: one (doctrine 28), and the three reasons a symbol earns it are below.
+SYMBOL_VERDICTS = ("PRODUCTION", "TESTS", "OWN", "NOWHERE", "REFUSED")
+
+
+def _dotted(root, path):
+    """-> the module name a file would be imported under, `__init__` folded."""
+    rel = os.path.relpath(path, root)[:-3].replace(os.sep, ".")
+    return rel[:-len(".__init__")] if rel.endswith(".__init__") else rel
+
+
+def _attr_chain(node):
+    """-> ['quality', 'grid', 'song_from_blueprint'] for that attribute
+    expression, or None if the chain does not bottom out in a plain name."""
+    parts = []
+    while isinstance(node, ast.Attribute):
+        parts.append(node.attr)
+        node = node.value
+    if not isinstance(node, ast.Name):
+        return None
+    parts.append(node.id)
+    parts.reverse()
+    return parts
+
+
+class _Unit:
+    """One .py file, read ONCE, as the six facts the sweep needs from it.
+
+    Everything here is an AST fact, never a text match. That choice is what
+    keeps a symbol named `weight` or `scan` from being declared "referenced"
+    by the word appearing in a docstring or a comment three modules away --
+    a comment is not a caller, and a text sweep cannot tell the difference.
+    """
+
+    def __init__(self, root, path):
+        self.rel = os.path.relpath(path, root)
+        self.mod = _dotted(root, path)
+        self.is_test = os.path.basename(path).startswith("test_")
+        head = self.rel.split(os.sep)[0]
+        self.in_scope = (head == self.rel) or head == "quality"
+        try:
+            tree = ast.parse(open(path, encoding="utf-8",
+                                  errors="replace").read(), filename=path)
+        except SyntaxError as e:
+            raise ValueError("%s does not parse (%s); this counter reads the "
+                             "repo's own source and cannot measure a tree it "
+                             "cannot build" % (self.rel, e))
+        self.defs = {}          # public top-level name -> "def" | "class"
+        self.span = {}          # that name -> (first line, line count)
+        self.exported = None    # __all__, if the module declares one
+        self.methods = 0        # public methods on those classes: OUT OF SCOPE
+        self.self_used = set()  # public names used ELSEWHERE IN THIS FILE
+        self.imports = set()    # every module name this file imports
+        self.alias = {}         # local binding -> the module(s) it can name
+        self.direct = set()     # (module, name) pulled in by `from M import n`
+        self.star = set()       # modules pulled in by `from M import *`
+        self.names = set()      # every bare identifier read or written
+        self.binds = set()      # every identifier this file BINDS itself
+        self.strings = set()    # every string constant, for the dynamic reach
+        self.chains = []        # every attribute expression, as parts
+        self._read_surface(tree)
+        self._read_body(tree)
+
+    def _read_surface(self, tree):
+        """Top-level defs and classes, `__all__`, and the intra-module question.
+
+        The intra-module question is asked HERE and not by a second walk: for
+        each public top-level node, is its own name read by any OTHER
+        top-level statement of the same file? That is what separates a CLI
+        verb handler its own `main()` dispatches -- which runs on every
+        invocation -- from a function nothing anywhere names. Its own body is
+        excluded, so recursion does not count as use.
+        """
+        public = []
+        for n in tree.body:
+            if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef,
+                              ast.ClassDef)):
+                if n.name.startswith("_"):
+                    continue
+                self.defs[n.name] = ("class" if isinstance(n, ast.ClassDef)
+                                     else "def")
+                self.span[n.name] = (n.lineno,
+                                     getattr(n, "end_lineno", n.lineno)
+                                     - n.lineno + 1)
+                public.append(n)
+                if isinstance(n, ast.ClassDef):
+                    self.methods += sum(
+                        1 for b in n.body
+                        if isinstance(b, (ast.FunctionDef,
+                                          ast.AsyncFunctionDef))
+                        and not b.name.startswith("_"))
+            elif isinstance(n, ast.Assign):
+                for t in n.targets:
+                    if isinstance(t, ast.Name) and t.id == "__all__":
+                        self.exported = [c.value
+                                         for c in getattr(n.value, "elts", [])
+                                         if isinstance(c, ast.Constant)
+                                         and isinstance(c.value, str)]
+        per = [(n, {x.id for x in ast.walk(n) if isinstance(x, ast.Name)})
+               for n in tree.body]
+        for node in public:
+            if any(node.name in used for n, used in per if n is not node):
+                self.self_used.add(node.name)
+
+    def _read_body(self, tree):
+        for n in ast.walk(tree):
+            t = type(n)
+            if t is ast.Import:
+                for a in n.names:
+                    self.imports.add(a.name)
+                    if a.asname:
+                        # ACCUMULATED, never overwritten. `relations.py` binds
+                        # `CS` twice -- `from quality import canon_sources as
+                        # CS`, and `import canon_sources as CS` in the
+                        # ImportError arm -- and an assignment let the second
+                        # erase the first, which lost every `CS.x` call in the
+                        # file. A binding can name more than one module and
+                        # both spellings have to stay reachable.
+                        self.alias.setdefault(a.asname, set()).add(a.name)
+            elif t is ast.ImportFrom:
+                if n.level:                      # relative; not used here
+                    continue
+                base = n.module or ""
+                self.imports.add(base)
+                for a in n.names:
+                    if a.name == "*":
+                        self.star.add(base)
+                        continue
+                    self.direct.add((base, a.name))
+                    self.imports.add(base + "." + a.name)
+                    # `from quality import grid` binds a MODULE, not a symbol
+                    self.alias.setdefault(a.asname or a.name,
+                                          set()).add(base + "." + a.name)
+            elif t is ast.Name:
+                self.names.add(n.id)
+                if type(n.ctx) is not ast.Load:
+                    self.binds.add(n.id)
+            elif t is ast.Attribute:
+                c = _attr_chain(n)
+                if c:
+                    self.chains.append(c)
+            elif t is ast.Constant and isinstance(n.value, str):
+                self.strings.add(n.value)
+            elif t in (ast.FunctionDef, ast.AsyncFunctionDef, ast.ClassDef):
+                self.binds.add(n.name)
+                args = getattr(n, "args", None)
+                if args is not None:
+                    for grp in (args.posonlyargs, args.args, args.kwonlyargs):
+                        for x in grp:
+                            self.binds.add(x.arg)
+                    for x in (args.vararg, args.kwarg):
+                        if x:
+                            self.binds.add(x.arg)
+            elif t is ast.ExceptHandler and n.name:
+                self.binds.add(n.name)
+
+
+def symbol_reach(root=None):
+    """-> [(module, symbol, kind, lines, verdict, why), ...], sorted.
+
+    THE SWEEP, exposed rather than inlined so a human can read the whole list
+    instead of the ten the counter prints. `verify_doctrines.definitions()` is
+    exposed for the same reason and this file calls it for the same reason.
+
+    A REFERENCE to symbol `S` of module `M`, from some other file `F`, is one
+    of four things, and only the first three are attributable on their own:
+
+      DIRECT     `from M import S`. Names both ends. Unambiguous.
+      QUALIFIED  an attribute chain whose longest resolvable prefix IS `M`
+                 and whose next part is `S` -- `GR.song_from_blueprint`
+                 after `from quality import grid as GR`, `quality.grid.X`
+                 after `import quality.grid`. Unambiguous.
+      STAR       `from M import *` and a bare `S` somewhere in `F`.
+      BARE       `F` imports `M` in some form and reads a bare `S`. This is
+                 attributable ONLY if nothing else could have produced that
+                 identifier -- see the two refusals below.
+    """
+    root = root or ROOT
+    paths = []
+    for dp, dns, fns in os.walk(root):
+        dns[:] = [d for d in dns if d not in SYMBOL_SKIP_DIRS]
+        paths.extend(os.path.join(dp, f) for f in fns if f.endswith(".py"))
+    units = [_Unit(root, p) for p in sorted(paths)]
+    mods = {u.mod: u for u in units}
+
+    #: A module imported under a name that is not its dotted path. Six sites
+    #: in this repo import a sibling BARE (`import canon_sources`, `import
+    #: mutate`, `import audit_spans`) inside an ImportError arm, so the
+    #: written name never equals `quality.canon_sources` and a strict lookup
+    #: silently loses every reference through it. Resolved by tail, and ONLY
+    #: when the tail is unique -- two modules ending the same way make the
+    #: import unattributable, and this returns nothing rather than pick.
+    tails = collections.defaultdict(list)
+    for m in mods:
+        tails[m.rsplit(".", 1)[-1]].append(m)
+
+    def resolve(name):
+        if name in mods:
+            return name
+        hits = tails.get(name.rsplit(".", 1)[-1], ())
+        return hits[0] if len(hits) == 1 and "." not in name else None
+
+    for u in units:
+        u.imports = {r for r in (resolve(m) for m in u.imports) if r}
+        u.star = {r for r in (resolve(m) for m in u.star) if r}
+        u.direct = {(resolve(b), n) for b, n in u.direct}
+        u.alias = {k: {r for r in (resolve(m) for m in v) if r}
+                   for k, v in u.alias.items()}
+        qualified = set()
+        for c in u.chains:
+            for i in range(len(c) - 1, 0, -1):
+                head = c[:i]
+                cands = [".".join(head)]
+                cands += [".".join([a] + head[1:])
+                          for a in sorted(u.alias.get(head[0], ()))]
+                hit = next((x for x in cands if x in mods), None)
+                if hit:
+                    qualified.add((hit, c[i]))
+                    break
+        u.qualified = qualified
+
+    owners = collections.Counter()
+    symbols = []
+    for u in units:
+        if u.is_test or not u.in_scope:
+            continue
+        declared = u.exported if u.exported is not None else sorted(u.defs)
+        for s in declared:
+            if s in u.defs:
+                symbols.append((u.mod, s))
+                owners[s] += 1
+
+    rows = []
+    for mod, s in symbols:
+        home = mods[mod]
+        ambiguous = owners[s] > 1
+        prod_ref = prod_maybe = test_ref = test_maybe = string_reach = False
+        why = set()
+        for u in units:
+            if u.mod == mod:
+                continue
+            hit = maybe = False
+            if (mod, s) in u.direct or (mod, s) in u.qualified:
+                hit = True
+            elif mod in u.star and s in u.names:
+                hit = True
+            elif mod in u.imports and s in u.names:
+                if ambiguous:
+                    maybe, why = True, why | {"AMBIGUOUS"}
+                elif s in u.binds:
+                    maybe, why = True, why | {"SHADOWED"}
+                else:
+                    hit = True
+            if not hit and not maybe and mod in u.imports and s in u.strings:
+                string_reach = True
+            if u.is_test:
+                test_ref, test_maybe = test_ref or hit, test_maybe or maybe
+            else:
+                prod_ref, prod_maybe = prod_ref or hit, prod_maybe or maybe
+        if prod_ref:
+            verdict, reason = "PRODUCTION", ""
+        elif prod_maybe:
+            verdict, reason = "REFUSED", sorted(why)[0]
+        elif string_reach:
+            verdict, reason = "REFUSED", "DYNAMIC"
+        elif test_ref:
+            verdict, reason = "TESTS", ""
+        elif test_maybe:
+            verdict, reason = "REFUSED", sorted(why)[0]
+        elif s in home.self_used:
+            verdict, reason = "OWN", ""
+        else:
+            verdict, reason = "NOWHERE", ""
+        rows.append((mod, s, home.defs[s], home.span[s][1], verdict, reason))
+    rows.sort()
+    return rows, units
+
+
+def public_symbols():
+    """Public symbols nothing outside their own module names — the
+    FUNCTION-GRANULARITY question `wiring` does not ask.
+
+    WHY THIS COUNTER EXISTS, AND IT IS NOT "more coverage".
+    `python3 lyric_harness.py wiring` reports `STRANDED none`, and the
+    counter above records it. That verdict is true and it answers "does
+    anything IMPORT or RUN this FILE". This repo's own history proves that is
+    the wrong question: `quality/grid.py` was imported the entire time the
+    `song` verb raised `KeyError` on every real blueprint in the tree, and
+    `wiring` called it wired throughout (CLAUDE.md, `song`'S OWN DEAD
+    SCHEMA). IMPORT REACHABILITY IS NOT INVOCATION REACHABILITY. An
+    execution-trace differential over five scenarios -- the CLI verb union,
+    the API at defaults, the API with every opt-in declared, the test suite,
+    and the one-shot runners -- found 181 functions that never execute, and
+    every module holding one of them sits in a GOOD list of `wiring`'s
+    output, several in its strongest tier. Nothing in this repo measured
+    that, at any granularity below the file, which is why `STRANDED none` was
+    a false all-clear rather than a wrong number.
+
+    DERIVATION, AND IT IS STATIC. The trace is not re-run: it forks five
+    scenarios over the whole suite, and a counter that costs a suite run is a
+    counter CI drops. What is measured instead, in one AST pass over every
+    .py file in the repo, is REFERENCE:
+
+      THE UNIT is a public (no leading `_`) top-level `def` or `class` in a
+      module under `quality/` or at the repo root, taken from `__all__` where
+      the module declares one and from the module's own top level where it
+      does not. Public METHODS on those classes are NOT counted -- see the
+      last paragraph, because that omission is load-bearing.
+
+      THE ANSWER is WHERE the symbol is named, never how often:
+        PRODUCTION  named by a non-test module that is not its own.
+        TESTS       named only by `test_*.py`.
+        OWN         named nowhere outside its own module, but read by some
+                    other top-level statement OF that module. A CLI verb
+                    handler its own `main()` dispatches lands here, and it
+                    runs on every invocation -- which is exactly why this is
+                    a bucket of its own and not folded into the one below.
+        NOWHERE     not named by anything, anywhere, including the file that
+                    defines it. This is the sharp bucket.
+        REFUSED     the analysis cannot tell. Three reasons, below.
+
+    DOCTRINE 79, and it is the reason there is no total worth quoting: these
+    are FIVE COUNTS and they are never summed into a "dead code" figure.
+    PRODUCTION and TESTS answer different questions about the same symbol,
+    OWN is not a defect at all, and adding a refusal to any of them charges
+    the wrong layer. The five are asserted to reconcile with the symbol total
+    -- a partition that does not partition is the one arithmetic error this
+    counter could make on its own -- and that is the only sum taken.
+
+    DOCTRINE 20, THE THREE REFUSALS. A guess here would be worse than a gap,
+    because the guess is what "STRANDED none" already was:
+      AMBIGUOUS  the same public name is defined at top level by more than
+                 one module in scope (`main`, `Span`, `Placement`), so a bare
+                 identifier in a file importing several of them cannot be
+                 attributed to any one definition. A `from M import S` or an
+                 `M.S` names both ends and is NOT ambiguous, so only the bare
+                 form refuses; a name with NO reference anywhere refuses
+                 nothing, because zero is zero for every definition of it.
+      SHADOWED   the only evidence is a bare identifier in a file that BINDS
+                 that same name itself -- `quality/grid.py` imports
+                 `quality.schemes` AND assigns its own local `blocks`, so a
+                 bare `blocks` there is not evidence of `schemes.blocks`.
+      DYNAMIC    no identifier evidence at all, but a file that imports the
+                 module holds that exact name as a STRING constant --
+                 `rhyme_constraints.build` in `relations.py`. That is how
+                 `getattr`, a dispatch table, or an argparse `dest` reaches a
+                 symbol without ever spelling it as code, and it cannot be
+                 told from a message that happens to read the same.
+
+    WHAT THIS PROXY CAN SEE THAT THE TRACE CANNOT: every scenario at once and
+    for free, in a couple of seconds, reproducibly, with no environment.
+
+    WHAT IT CANNOT SEE, AND THIS IS NOT A CAVEAT, IT IS THE MEASUREMENT'S
+    SHAPE -- REFERENCE IS NOT EXECUTION:
+      * A symbol whose only caller is itself dead still counts PRODUCTION
+        here. The trace follows the call graph; this counts one edge of it.
+        `grid.song_from_blueprint` would have read PRODUCTION on the day the
+        `song` verb could not reach it.
+      * A dead METHOD on a live class is invisible: the class is referenced,
+        so the class is referenced, and nothing below the top level is asked.
+        The evidence line prints how many public methods that leaves
+        unmeasured, so the size of the blind spot is on the record.
+      * A branch that never runs is not a reference that never happened.
+        Reachability under a flag nobody sets reads identical to reachability
+        under the default.
+      * The reverse error too: OWN and NOWHERE are claims about NAMING, not
+        about running. A NOWHERE symbol may still be reached by a `getattr`
+        this sweep refused, which is why the refusals are counted rather than
+        resolved.
+    So this UNDER-reports dead capability, deliberately and in the safe
+    direction: it accuses only what nothing in the repository names.
+    """
+    rows, units = symbol_reach()
+    by = collections.Counter(v for _, _, _, _, v, _ in rows)
+    kinds = collections.Counter(r for _, _, _, _, v, r in rows
+                                if v == "REFUSED")
+    total = len(rows)
+    parts = sum(by[v] for v in SYMBOL_VERDICTS)
+    if parts != total:
+        raise ValueError("the five buckets hold %d of %d symbols; a partition "
+                         "that does not partition is not a measurement"
+                         % (parts, total))
+    if not total:
+        raise ValueError("no public top-level symbols found under quality/ or "
+                         "the root; the sweep read nothing and must be "
+                         "repaired, not believed")
+    methods = sum(u.methods for u in units if u.in_scope and not u.is_test)
+    nowhere = sorted(((n, m, s, k) for m, s, k, n, v, _ in rows
+                      if v == "NOWHERE"), reverse=True)
+    cell = ("**%d** public top-level functions/classes under `quality/` and "
+            "the root — **%d** named by another production module, **%d** by "
+            "tests only, **%d** only inside their own module, **%d** by "
+            "nothing anywhere, **%d** REFUSED (%s). Reference, NOT execution: "
+            "a symbol whose only caller is itself dead still counts named"
+            % (total, by["PRODUCTION"], by["TESTS"], by["OWN"], by["NOWHERE"],
+               by["REFUSED"],
+               ", ".join("%d %s" % (n, k.lower())
+                         for k, n in sorted(kinds.items())) or "none"))
+    top = ["%s.%s (%s, %d lines)" % (m, s, k, n)
+           for n, m, s, k in nowhere[:10]]
+    ev = ["named by nothing, longest first: %s%s"
+          % ("; ".join(top) or "none",
+             "" if len(nowhere) <= 10 else "; +%d more" % (len(nowhere) - 10)),
+          "OUT OF SCOPE and unmeasured: %d public methods on those classes — "
+          "a dead method on a live class is invisible to a top-level sweep"
+          % methods]
+    return Answered(cell, "\n      ".join(ev))
+
+
 def mutations_declared():
     """How many mutations the adversary declares, and how many are excused.
 
@@ -720,6 +1145,8 @@ COUNTERS = [
             missing_entries),
     Counter("doctrines", "python3 quality/verify_doctrines.py", doctrines),
     Counter("stranded modules", "python3 lyric_harness.py wiring", stranded),
+    Counter("public symbols by where they are referenced",
+            "python3 quality/counters.py", public_symbols),
     Counter("mutations declared", "python3 quality/counters.py",
             mutations_declared),
     Counter("mutations caught", "python3 quality/test_mutation.py",

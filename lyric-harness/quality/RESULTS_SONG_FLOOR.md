@@ -29,6 +29,46 @@ moved.
 
 ## 0. The premise, verified by execution before anything was built
 
+> **THE TWO EXAMPLE SHEETS ARE GONE FROM HEAD — ANNOTATED 2026-08-13.**
+> `examples/cherokee_bill.txt` and `examples/never_been_to_a_scene.txt`, and
+> the whole `examples/` directory, were deleted in commit `11aa19b`, *"Remove
+> Claude-authored example lyrics from the repo; fix the CLI's apparatus-line
+> gap"*, 2026-08-12. Confirmed by `ls lyric-harness/examples` → *No such file
+> or directory* and `git log --diff-filter=D -- 'lyric-harness/examples/*'` →
+> `11aa19b`, nothing since. **The `floor.py` invocations in §0 and §6 are
+> unrunnable as written.** Recover the inputs, read-only:
+>
+>     git show 11aa19b^:lyric-harness/examples/cherokee_bill.txt        > /tmp/cbill.txt
+>     git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
+>     python3 quality/floor.py /tmp/cbill.txt
+>     python3 quality/floor.py /tmp/nbtas.txt
+>
+> Nothing in §1–§5 or §7–§9 touches these two files — the calibration is over
+> `corpus/song/eng_*.txt`, which is at head and was **not re-run here (COST)**.
+> The example-dependent half is §0 and §6, and both were re-measured against
+> the recovered text on 2026-08-13:
+>
+> | figure | verdict |
+> |---|---|
+> | `cherokee_bill.txt` — 28 lines, **327 tokens** | **REPRODUCES EXACTLY** |
+> | `never_been_to_a_scene.txt` — 41 lines, **291 tokens** | **REPRODUCES EXACTLY** |
+> | the two BEFORE blocks below (`0 flag(s), 1 note(s)` / `OUT_OF_CALIBRATED_LENGTH`) | **DOES NOT REPRODUCE, and must not** — this cell's own `song` profile is what closed it. They are the pre-fix record and doctrine 17 keeps them |
+> | §6's four metric values for `cherokee_bill`: `mattr` **0.7915**, `fwr` **0.4373**, anaphora **0.2857**, `cv` **0.1355** | **REPRODUCES EXACTLY, to four places, all four** |
+> | §6's four metric values for `never_been_to_a_scene`: `mattr` **0.7804**, `fwr` **0.4158**, anaphora **0.3415**, `cv` **0.2130** | **REPRODUCES EXACTLY, to four places, all four** |
+> | §6's verdicts: `cherokee_bill` clear, `never_been_to_a_scene` earns `ANAPHORA_OVERLOAD` at severity flag | **REPRODUCES** |
+> | §6's AFTER block, `1 flag(s), 0 note(s)` | **PARTLY** — now `1 flag(s), **1** note(s)`. The flag, its evidence and its full line list (`14 of 41`, opening `i` at 34%, lines 5, 7, 8, 14, 15, 17, 18, 19, 23, 34, 35, 37, 38, 39) reproduce **exactly**. The extra note is `PREDICTABLE_RHYME` — **the fifth check this file's own 2026-08-13 UPDATE header says joined the profile**, firing at 18 of 19 rhymes. So the AFTER block is stale by exactly one line, against an update recorded at the top of this same document, and the movement is disclosed rather than corrective |
+> | `cherokee_bill` AFTER: clear on all four → now clear on **all five**, `0 flag(s), 0 note(s)` | **REPRODUCES**, and strengthens: the fifth check does not fire on it either |
+> | §6's "0 of 27 and 0 of 37 normalised long lines appear in the corpus" | **NOT RE-RUN — COST.** Pinned by `test_floor.py` 17, which is not this annotation's file |
+>
+> **Bounded (doctrine 79):** 10 figures re-measured, 2 not run for COST. No
+> calibration runner (`song_profile_calibration.py`), no test suite and no
+> corpus sweep was executed — those are the expensive half and none of them
+> reads the deleted files. `floor.py` on both recovered sheets: under 20 s.
+>
+> Every threshold, band, percentile and corpus count in §1–§5 and §7–§9 is
+> therefore **unaffected by the deletion** and **unverified by this annotation**,
+> which are two different statements and both are true.
+
 The brief said the length-sensitive half of the floor never runs on a song.
 Reproduced, exactly:
 
@@ -335,6 +375,13 @@ a measured shape.
 ---
 
 ## 6. What the profile says about the two example songs
+
+> **THE TWO SONGS ARE GONE FROM HEAD — see the annotation block at the head of
+> §0 for the `git show` that recovers them and for the per-figure verdict.
+> Short version, re-measured 2026-08-13 against the recovered text: every one
+> of the eight numbers in the table below reproduces exactly, and the AFTER
+> block reads `1 flag(s), 1 note(s)` rather than `1 flag(s), 0 note(s)` because
+> the fifth check announced in this file's own UPDATE header now fires.**
 
 **They are not in the calibration set.** Checked rather than assumed: 0 of 27
 and 0 of 37 normalised long lines (≥ 12 chars, case/punctuation/U+2019

@@ -10,6 +10,59 @@ the numbers did.
 it and the state of the files it was measured against, because two of them
 moved mid-cell.**
 
+> ## BOTH SONGS ARE GONE FROM HEAD — ANNOTATED 2026-08-13
+>
+> **`examples/never_been_to_a_scene.txt` and `examples/cherokee_bill.txt` no
+> longer exist**, and neither does `examples/`. Deleted in commit `11aa19b`,
+> *"Remove Claude-authored example lyrics from the repo; fix the CLI's
+> apparatus-line gap"*, 2026-08-12. Confirmed by `ls lyric-harness/examples` →
+> *No such file or directory* and by `git log --diff-filter=D --
+> 'lyric-harness/examples/*'` → `11aa19b`, nothing since. **§0, §5, §6 and §7
+> all rest on these two files and every command they print is unrunnable as
+> written.** Recover them, read-only:
+>
+>     git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
+>     git show 11aa19b^:lyric-harness/examples/cherokee_bill.txt        > /tmp/cbill.txt
+>
+> Re-run against the recovered text at head on 2026-08-13. Superseded values
+> are kept visible (doctrine 17); nothing is repinned that was not measured
+> here.
+>
+> | § | figure | 2026-08-13 verdict |
+> |---|---|---|
+> | §0 | 27 distinct findings, 26 `SCHEME_COLLISION`, 16 of the 26 the chorus against its own return | **DOES NOT REPRODUCE as a count** — and §0 already says so ("They are recorded here because they no longer reproduce — see §6"). The **26** and the **16** themselves still reproduce exactly as collision arithmetic; see `RESULTS_COLLISION_PARTITION.md`'s own 2026-08-13 annotation, which re-measures both |
+> | §0 | the seven identical chorus end words `slow/slow five/five ear/ear go/go went/went clear/clear sent/sent` | **REPRODUCES EXACTLY** — all seven, at 1.000 REPEAT |
+> | §0 | `cherokee_bill` returns 12 collisions including `(4, 28) 'will' ~ 'will'` at 1.000 | **REPRODUCES EXACTLY** — 12 collisions, and that edge prints verbatim in the `MANDATE_GROUPS_INDISTINGUISHABLE` evidence |
+> | §5(a)/(b) | the three spellings, verified equal | **NOT RE-RUN — COST.** `returns="chorus:33-40<=13-20"` is a string spelling this annotation did not exercise |
+> | §5(c) | the A-1 notation string reaches the shipped CLI unchanged | **REPRODUCES** — `python3 lyric_harness.py brief /tmp/nbtas.txt 'XXXXXXXXXXXXA^1B^1C^1B^2A^2D^1C^2D^2XXXXXXXXXXXXA^1B^1C^1B^2A^2D^1C^2D^2X'` runs and exits 0 |
+> | §5(c) | the quoted output block, **as CLI output** | **DOES NOT REPRODUCE.** `brief` no longer prints the mandate header at all — its first line is now `BLUEPRINT: none declared …`. The block below is `Mandate.describe()`, which is still reachable at the API and is where it should now be quoted from |
+> | §5(c) | `mandate: **8** group(s) over 41 lines, **8** mandated pair(s)` | **DOES NOT REPRODUCE.** `describe()` says **4 group(s) … 24 mandated pair(s)**, because the returns transport unions the four chorus groups with their returns. The same line's tail moves with it: `a VIOLATION at the 8 rhyme pair(s)` is now `at the 24 rhyme pair(s)` |
+> | §5(c) | `8 return class(es) / 8 identity pair(s)` | **REPRODUCES EXACTLY** |
+> | §5(c) | `RETURN chorus: lines [13, 33] — VERBATIM required … x8` | **REPRODUCES in substance, not in label** — eight `RETURN` lines, `[13,33]` first, all `VERBATIM required`; the labels are `A1 B1 C1 B2 A2 D1 C2 D2`, not `chorus`. `chorus` is the label the (a)/(b) spellings give it, not the A-1 notation's |
+> | §5(c) | `rhyme groups after the returns are transported (return_rhyme='union'): [[13,17,33,37], [14,16,34,36], [15,19,35,39], [18,20,38,40]]` | **REPRODUCES EXACTLY**, all four groups |
+> | §5 | declaring `cherokee_bill`'s refrain costs it its letter scheme (L4/L28 become pivots) | **NOT RE-RUN — COST** |
+> | §6 | the "at 14:5x UTC" column: 8 cliques / 1 pivot (L27); 12 groups / 5 pivots / 53 pairs | historical, correctly labelled, kept |
+> | §6 | the "at 16:0x UTC" column: **6 cliques, 0 pivots**; **7 groups, 0 pivots** | **REPRODUCES EXACTLY.** Measured today: `promote=False` → 6 groups, 0 pivots, 28 pairs; `promote=True` → 7 groups, 0 pivots, 35 pairs. This is the column `RESULTS_REVISION_LOOP.md` §0 never received, and it is right |
+> | §6 | `battery.py` `1064/1014/50/82`, Whitman 10.7% | **NOT RE-RUN — COST**, and not example-dependent. `CLAUDE.md`'s test-discipline section carries the live values |
+> | §6 | paths A / B / C at **16 / 16 / 20** findings, chorus↔chorus2 collisions **0 / 0 / 0** | **The zero REPRODUCES; the counts DO NOT.** Path C measured today: **53** findings — 14 `ANAPHORA_OVERLOAD` + 7 `REPEAT_IN_VERSE` + 4 `RETURN_NOT_VERBATIM` (flags), 11 `MODAL_RHYME` + 7 `NEAR_COLLISION` + 7 `REFRAIN_REPEAT` + 3 `SCHEME_COLLISION` (notes). Not one chorus↔chorus2 collision among them. **Not repinned to 53 as a replacement for 20**: 25 of those 53 come from two layers (`ANAPHORA_OVERLOAD` off the song length profile, `MODAL_RHYME` off doctrine 9's proactive check) that did not exist when 16/16/20 was measured, so the two counts are not the same statistic. Paths A and B were **not re-run — COST** |
+> | §6 | the A → B substitution: 4 × `MANDATE_GROUPS_INDISTINGUISHABLE` → 4 × `GROUPS_DECLARED_RETURN` | **NOT RE-RUN in that spelling.** The neighbouring pairwise spelling WAS: with `returns=((13,33),(17,37),(15,35),(18,38),(19,39))` the substitution happens on A+E, C+G and D+H and correctly **does not** happen on B+F, because no return class links L16 `drive` to L36 `alive`. So the hook still discriminates; the 4-of-4 figure is for the block spelling and is unchecked |
+> | §6 | the residue: path C carries 7 `SCHEME_VIOLATION` + 1 `REPEAT_IN_VERSE` on licensed return pairs, and `repeat_is_violation` per pair would close it | **CLOSED, and measured closed.** Path C today reports **zero** `SCHEME_VIOLATION` and 7 `REFRAIN_REPEAT` **notes** on those pairs — `grade()` consults `Mandate.repeat_is_violation` per pair now (`CLAUDE.md`, 2026-08-11). The 7 `REPEAT_IN_VERSE` flags that remain are `quality/floor.py`'s, a mandate-independent layer that by design does not consult `Mandate.requirement`; this section's four `repeat_is_violation` return values were **not re-run — COST** |
+> | §7 | `Mandate.returns_check()` fires **4 times** on `never_been_to_a_scene.txt` unmodified: L14/L34 `LEXICAL_VARIATION`, L15/L35 `LEXICAL_VARIATION`, L16/L36 `ANAPHORIC_RETURN`, L20/L40 `LEXICAL_VARIATION` | **REPRODUCES EXACTLY** — four findings, the same four line pairs, the same four named kinds, the same quoted text on each side. This is doctrine 94's demonstration for the whole cell and it is intact |
+> | §7 | the four `test_mandate_language.py` fixtures; **61 checks, 0 failing** | **NOT RE-RUN — COST** |
+> | §8 | `refrain villanelle` prints the 19-line notation | **NOT RE-RUN — COST**, and not example-dependent |
+>
+> **Bounded (doctrine 79):** 10 figures re-measured, 9 not run for COST. No test
+> suite, no `battery.py`, no calibration runner. Run time for what was measured:
+> `lyric_harness.py brief` on path C, ~20 s; `Mandate.describe()`, instant;
+> the `mandate_from_graph` sweep, 0.2 s; the `returns=` inspect, 17.0 s.
+>
+> **Read §6's own two-column table before reading the table above.** This cell
+> already anticipated most of this: it recorded that the comparator moved under
+> it, published both columns, and refused to chase. Today's re-run lands on its
+> RIGHT-HAND column to the number. The document that did not get told is
+> `RESULTS_REVISION_LOOP.md` §0, which still prints the 14:5x figures as
+> current; that file now carries its own annotation saying so.
+
 ---
 
 ## 0 · What was wrong, measured before anything was built
@@ -169,10 +222,18 @@ change to any file this cell does not own**
 
     XXXXXXXXXXXXA^1B^1C^1B^2A^2D^1C^2D^2XXXXXXXXXXXXA^1B^1C^1B^2A^2D^1C^2D^2X
 
-    python3 lyric_harness.py brief examples/never_been_to_a_scene.txt \
+    # the lyric is gone from head — recover it first (see the block at the top)
+    git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
+    python3 lyric_harness.py brief /tmp/nbtas.txt \
       'XXXXXXXXXXXXA^1B^1C^1B^2A^2D^1C^2D^2XXXXXXXXXXXXA^1B^1C^1B^2A^2D^1C^2D^2X'
 
-What it says, in full:
+What it says, in full — **but not from that command any more.** `brief` no
+longer prints the mandate header; as of 2026-08-13 the block below is what
+`Mandate.describe()` returns, and the first two lines of it have moved (4
+groups / 24 mandated pairs, not 8 / 8, because the returns transport unions the
+chorus groups with their returns). The `8 return class(es) / 8 identity
+pair(s)` line and the transported rhyme groups reproduce exactly. Kept as
+written, per doctrine 17; the head block has the full verdict:
 
     mandate: 8 group(s) over 41 lines, 8 mandated pair(s),
              8 return class(es) / 8 identity pair(s)
