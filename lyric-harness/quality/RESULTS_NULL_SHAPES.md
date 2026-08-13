@@ -519,10 +519,23 @@ remedies (doctrine 44).** Census over the first 40 lines of
 2026-08-13: EXTENDABLE 31 · TOO EXPENSIVE 2 · NO INSTANCE 15 · CANNOT OBTAIN
 26 · CANNOT FAIL 0 here (3 derived without a text) · CONTROLLED 3. The largest
 cause is CANNOT OBTAIN — `realise()` never produces an observation at all — and
-**3 of those 26 are permanent**: `poet`, `frequency` and `stub_resolution` have
-no branch in `Stream.provides`, so `dialect rhyme`, `trite rhyme` and `refrain
+**2 of those 26 are permanent**: `frequency` and `stub_resolution` have
+no branch in `Stream.provides`, so `trite rhyme` and `refrain
 by reference` cannot be nulled on any text under any declaration. That is a
 BUILD, not a corpus.
+
+**REPINNED 2026-08-13, three ways, all in this paragraph.** It read **3 of
+those 26 are permanent**, naming `poet` first and `dialect rhyme` with it;
+`poet` was added to `ALT_SURFACES` and left `NEVER_PROVIDED` earlier the same
+day, so `dialect rhyme` is declarable and the count is 2. **EXTENDABLE 31 is a
+`budget=2.0` reading and the budget is a wall-clock verdict this file's own
+census says does not reproduce** — at `budget=None` it is **33**, the two extra
+being `chain rhyme (rap)` and `compound / phrasal rhyme`. And the sweep line
+below (34 live schemas, 268 rows in 199 s) is the same budgeted reading; at
+`budget=None` it is **36 live / 292 rows**. Superseded figures kept visible
+(doctrine 17). `relations_null.py --verify` now pins the unbudgeted reading,
+because a marker whose value depends on how loaded the machine was is not a
+marker.
 
 **The sweep — 34 live schemas x 4 nulls x 10 replicates, same slice, 268 rows
 in 199 s. 87 rows (32.5%) are the null returning the observation EXACTLY**, 24

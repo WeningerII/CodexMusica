@@ -198,6 +198,17 @@ def main():
 
     relations_sections()
 
+    # 9. THE LEDGER RUNS IN THE SUITE, not only from the CLI. `--verify` is a
+    # command someone has to remember, which is the exact failure doctrine 48
+    # names -- and EXTENDABLE was a number in a docstring that no code read
+    # until the ledger existed. The CHEAP tier only: `--verify --deep` is a
+    # full sweep at 2m5s and would break this file's "runs in seconds"
+    # promise, so it belongs on a nightly and not here.
+    print("\n9. THE EXTENSION LEDGER (doctrine 48)")
+    bad = N.verify_extension()
+    check("every marker in EXTENSION_LEDGER still says what it said",
+          not bad, "\n          ".join(bad))
+
     print("\n" + "=" * 62)
     if FAIL:
         print("FAILED: %s" % ", ".join(FAIL))
