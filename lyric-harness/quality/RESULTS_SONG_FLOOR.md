@@ -12,6 +12,19 @@ python3 quality/song_profile_calibration.py --check    # exit 1 if floor.py has 
 module whose setting lives only in someone's scratchpad is a threshold nobody
 wrote down (doctrine 58); this is the fix for that.
 
+**UPDATE, 2026-08-13: a fifth check joined the profile.**
+`predictable_pair_fraction_max` — this document's own gap list item 4 (§9) —
+was withheld at first calibration because it read a frequency file this
+project had already swapped out. That swap settled 2026-08-11; this update
+measures the fifth threshold against the source that shipped, closing the gap
+rather than leaving it open beside the other four. Every table below now
+carries a `predictability` row or column alongside the original four, and the
+union figures move from 17.66% to 20.79% accordingly — a fifth check joining a
+union can only raise it, never lower one, so this is not corpus drift and is
+not doctrine 58's failure mode. The four original numbers are unchanged
+everywhere they are reported, which is itself the check that nothing else
+moved.
+
 ---
 
 ## 0. The premise, verified by execution before anything was built
@@ -104,11 +117,16 @@ with length, which reproduces METHOD doctrine 15's sonnet-vs-quatrain ordering
 
 **Shipped, 150–400 tokens:**
 
-| | `mattr_min` | `function_word_ratio_max` | `anaphora_max` | `line_length_cv_min` |
-|---|---:|---:|---:|---:|
-| song profile | 0.7226 | 0.4716 | 0.3000 | 0.1123 |
-| (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 |
-| (section, for contrast) | 0.7568 | 0.5161 | 0.5000 | 0.0525 |
+| | `mattr_min` | `function_word_ratio_max` | `anaphora_max` | `line_length_cv_min` | `predictable_pair_fraction_max` |
+|---|---:|---:|---:|---:|---:|
+| song profile | 0.7226 | 0.4716 | 0.3000 | 0.1123 | 0.9286 |
+| (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 | 0.8333 |
+| (section, for contrast) | 0.7568 | 0.5161 | 0.5000 | 0.0525 | — |
+
+`predictable_pair_fraction_max` calibrated 2026-08-13, once known gap 4 (below)
+closed: `predictability` reads the frequency layer this project swapped
+2026-08-11 (`data/opensubtitles_en_50k.tsv` via `Lexicon.freq_rank`), and this
+is the first measurement of it against the new source at song length.
 
 **The split, declared: BY AUTHOR.** 108 authors in the band, 50/50, 200 seeds.
 Items by one author are not independent of each other, so an item-level split
@@ -127,10 +145,12 @@ verdict (doctrine 73):
 | `FUNCTION_WORD_HEAVY` | **5.23%** [1.86 – 10.64] | 4.87% [3.46 – 6.54] |
 | `ANAPHORA_OVERLOAD` | **5.01%** [1.44 – 11.15] | 4.59% [3.56 – 6.29] |
 | `UNIFORM_LINE_LENGTH` | **5.13%** [3.04 – 7.81] | 5.13% [3.55 – 7.00] |
-| **union of the four** | **17.66%** [10.78 – 25.58] | 16.17% [13.50 – 18.92] |
+| `PREDICTABLE_RHYME` | **4.81%** [2.52 – 7.43] | 4.64% [3.44 – 6.24] |
+| **union of the five** | **20.79%** [12.57 – 29.43] | 19.34% [16.62 – 22.48] |
+| (union of the four, for contrast) | (17.66%) [10.78 – 25.58] | (16.17%) [13.50 – 18.92] |
 
-**The headline is the union: one held-out human song in six trips something.**
-Four checks at a nominal 5% do not add to 20% because they are correlated, and
+**The headline is the union: one held-out human song in five trips something.**
+Five checks at a nominal 5% do not add to 25% because they are correlated, and
 they do not stay at 5% either — the interval is what a caller needs and the
 point estimate is not.
 
@@ -145,11 +165,12 @@ item-split interval would be reporting confidence they had not earned.
 per author in the band is 3; the top five authors are 51.7% of it (Watts 285,
 Barnes 209, Hemans 202, Burns 145, D'Urfey 121). Leave-one-author-out moves the
 thresholds by at most 0.0052 (`mattr`), 0.0018 (`fwr`), 0.0172 (`anaphora`),
-0.0013 (`cv`), so no single author is load-bearing. An author-weighted
-alternative — one median per author, n=108 — gives 0.7262 / 0.4801 / 0.2679 /
-0.1194, so the two weightings disagree most on anaphora. **Item-weighted ships,
-because the rate the gate delivers is an item rate**, and the disagreement is
-recorded in the profile note rather than resolved silently.
+0.0013 (`cv`), 0.0055 (`predictability`), so no single author is load-bearing.
+An author-weighted alternative — one median per author, n=108 — gives 0.7262 /
+0.4801 / 0.2679 / 0.1194 / 0.8571, so the two weightings disagree most on
+anaphora. **Item-weighted ships, because the rate the gate delivers is an item
+rate**, and the disagreement is recorded in the profile note rather than
+resolved silently.
 
 ---
 
@@ -173,12 +194,16 @@ a reader to remember it:
   not whether it catches a machine.*
 * `banner()` prints the same thing per run, where the reader is.
 
-`PREDICTABLE_RHYME` does not run at song length, for two reasons stacked.
-Doctrine 11's OOV artifact withdrew it once already; and it is computed against
-`wordfreq20k.txt`, which a sibling cell is replacing this round, so a threshold
-measured on it today would be a coordinate of a file that will not exist
-tomorrow. The section profile set the precedent — a profile that never measured
-a threshold stays silent rather than borrowing one.
+`PREDICTABLE_RHYME` now runs at song length, calibrated 2026-08-13 — closing
+known gap 4 (§9). It was withheld at first calibration for two reasons
+stacked: doctrine 11's OOV artifact withdrew it once already, and it was
+computed against `wordfreq20k.txt`, which a sibling cell replaced 2026-08-11
+(`data/opensubtitles_en_50k.tsv`, via `Lexicon.freq_rank`), so a threshold
+measured before that swap would have been a coordinate of a file that no
+longer exists. Threshold 0.9286 (human 95th percentile), held-out FPR 4.81%
+median [2.52–7.43%] — see §2's table above. The section profile still has no
+reading at this check: it never measured a threshold at its own length, which
+is a different cell's to move.
 
 ---
 
@@ -190,8 +215,8 @@ alive in the last hundred years, and both example lyrics were written in 2026.
 
 **4a. Author-level Spearman against birth year**, one median per author so a
 prolific author cannot vote 200 times, against a label-permutation null over
-authors (10,000 draws, seed 20260811). Bonferroni over the four checks cuts at
-0.0125:
+authors (10,000 draws, seed 20260811). Bonferroni over the five checks cuts at
+0.0100:
 
 | check | rho | p_perm | |
 |---|---:|---:|---|
@@ -199,11 +224,16 @@ authors (10,000 draws, seed 20260811). Bonferroni over the four checks cuts at
 | `fwr` | +0.090 | 0.3503 | does not survive |
 | **`anaphora`** | **+0.275** | **0.0042** | **SURVIVES Bonferroni** |
 | `cv` | +0.171 | 0.0734 | does not survive |
+| `predictability` | −0.018 | 0.8572 | does not survive |
 
 **So anaphora is a third feature caught reading period rather than quality**,
 after the two doctrine 11 already names — later-born authors in this corpus
 open more of their lines with the same word. That finding is now carried in the
 `ANAPHORA_OVERLOAD` finding text itself, not only in a document.
+`predictability` is the one check here with essentially NO period slope
+(rho −0.018 is the smallest magnitude of the five) — the recalibration this
+round did not import a fourth period-confounded feature, it added one that
+happens to read clean on this axis.
 
 **4b. Cross-cohort threshold transfer.** Split the 108 authors at the median
 birth year 1806 (EARLY 54 authors / 1,407 items; LATE 54 / 452), calibrate on
@@ -211,7 +241,12 @@ one side, measure the FPR on the other. The control permutes the COHORT LABEL
 over the same authors at the same partition sizes, 2,000 draws — it holds the
 split structure fixed and varies only the thing under test, so it is not
 defined in terms of the quantity it controls (doctrine 14). Bonferroni over the
-eight comparisons cuts at 0.00625:
+**12** comparisons (five checks + the union, both directions) cuts at
+**0.00417** — this used to read "eight … 0.00625" here and in the script's own
+printed output, correct for the four checks the profile shipped with at the
+time; `song_profile_calibration.py`'s `report_period()` computed it dynamically
+off `len(CHECKS)` for §4a already and now does the same for §4b, so a sixth
+check later cannot leave this line quoting a stale denominator again:
 
 | direction | check | observed | null median [5th–95th] | p |
 |---|---|---:|---|---:|
@@ -219,18 +254,26 @@ eight comparisons cuts at 0.00625:
 | EARLY → LATE | `fwr` | 12.39% | 5.17% [2.03 – 11.03] | 0.0280 |
 | EARLY → LATE | `anaphora` | 4.42% | 4.69% [1.66 – 10.42] | 0.5597 |
 | EARLY → LATE | `cv` | 4.42% | 5.09% [2.90 – 8.34] | 0.6552 |
-| EARLY → LATE | union | 24.34% | 17.11% [11.08 – 25.66] | 0.0900 |
+| EARLY → LATE | `predictability` | 5.97% | 4.69% [2.62 – 7.50] | 0.2294 |
+| EARLY → LATE | union (five) | 27.43% | 20.12% [12.98 – 29.48] | 0.1109 |
 | LATE → EARLY | `mattr` | 3.06% | 5.20% [1.51 – 11.42] | 0.7846 |
 | LATE → EARLY | `fwr` | 1.49% | 4.96% [1.90 – 10.70] | 0.9750 |
 | LATE → EARLY | `anaphora` | 5.26% | 4.71% [1.62 – 10.46] | 0.4748 |
 | LATE → EARLY | `cv` | 5.54% | 5.04% [2.88 – 8.25] | 0.3693 |
-| LATE → EARLY | union | 13.22% | 17.12% [10.86 – 25.24] | 0.8001 |
+| LATE → EARLY | `predictability` | 4.05% | 4.71% [2.58 – 7.39] | 0.7166 |
+| LATE → EARLY | union (five) | 15.78% | 20.12% [12.67 – 29.07] | 0.7961 |
+
+`predictability` transfers unremarkably in both directions (p 0.23, p 0.72) —
+neither close to surviving, and neither the smallest nor largest p in the
+table. It does not change which direction the union moves, and does not
+change the conclusion below.
 
 **Nothing survives multiplicity, so this is a DIRECTION and not a finding.** But
 the direction is one-sided and it is the unfavourable one: thresholds fitted on
 earlier-born authors OVER-flag later-born ones on both level-sensitive checks,
-and the reverse direction runs at or below nominal on all four. A 2026 lyric
-sits further along that same axis than any author in the corpus.
+and the reverse direction runs at or below nominal on all five (`predictability`
+included: 4.05% observed against a 4.71% null median LATE → EARLY). A 2026
+lyric sits further along that same axis than any author in the corpus.
 
 **Note the two halves disagree, and the disagreement is the useful part.**
 Anaphora has the only significant period SLOPE (4a) and the flattest cohort
@@ -252,7 +295,7 @@ for the one whose slope is real.
 gate. It prices drift across the corpus's own 309 years of author birth years.
 It does not price drift to 2026 and no rearrangement of this corpus can. **The
 false-positive rate of this profile on contemporary lyric is UNKNOWN, and the
-only measured gradient points at it being higher than 17.66%, not lower.**
+only measured gradient points at it being higher than 20.79%, not lower.**
 That sentence belongs beside every use of this profile on new writing.
 
 ---
@@ -265,18 +308,23 @@ in no results document — an uncalibrated constant of exactly the kind doctrine
 the in-band authors, applied to held-out authors' items across the whole
 applied band.
 
-| factor | applied band | `mattr` | `fwr` | anaphora | `cv` | union |
-|---:|---|---:|---:|---:|---:|---:|
-| 1.00 | 150–400 | 5.43% | 5.23% | 5.01% | 5.13% | **17.66%** |
-| 1.10 | 136–440 | 6.01% | 5.68% | 5.17% | 5.24% | 18.71% |
-| **1.25** | **120–500** | 6.22% | 5.68% | 5.37% | 5.64% | **19.36%** |
-| 1.50 | 100–600 | 6.78% | 5.72% | 5.84% | 6.52% | 20.69% |
-| 2.00 | 75–800 | 7.95% | 6.55% | 6.43% | 6.69% | **22.05%** |
-| 3.00 | 50–1200 | 8.60% | 7.23% | 7.12% | 7.32% | 23.29% |
+| factor | applied band | `mattr` | `fwr` | anaphora | `cv` | predictability | union (five) | (union of four) |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|
+| 1.00 | 150–400 | 5.43% | 5.23% | 5.01% | 5.13% | 4.81% | **20.79%** | (17.66%) |
+| 1.10 | 136–440 | 6.01% | 5.68% | 5.17% | 5.24% | 5.46% | 22.46% | (18.71%) |
+| **1.25** | **120–500** | 6.22% | 5.68% | 5.37% | 5.64% | 5.62% | **23.12%** | (19.36%) |
+| 1.50 | 100–600 | 6.78% | 5.72% | 5.84% | 6.52% | 6.21% | 24.46% | (20.69%) |
+| 2.00 | 75–800 | 7.95% | 6.55% | 6.43% | 6.69% | 7.34% | **26.33%** | (22.05%) |
+| 3.00 | 50–1200 | 8.60% | 7.23% | 7.12% | 7.32% | 8.75% | 28.19% | (23.29%) |
+
+The four original columns are unchanged at every factor — re-running the
+tolerance sweep with `predictability` added moved only the union, which is the
+consistency check that nothing else drifted when the fifth check joined.
 
 Every check degrades monotonically, so the tolerance is a real cost and not a
 free courtesy. **The song profile declares 1.25** and its shoulder is priced at
-19.36%. The other two keep 2.0: re-measuring them needs the sonnet classes and
+23.12% (five checks; 19.36% at the four this was first measured against). The
+other two keep 2.0: re-measuring them needs the sonnet classes and
 that is a different cell's to move — it is written up in
 `scratchpad/cellBD/PATCHES-not-mine.md`.
 
@@ -396,7 +444,7 @@ found it.
 Stated so the next cell does not have to rediscover the boundary.
 
 1. **A generated song class.** Until one exists there is no AUC, no separation,
-   and no evidence that any of these four checks distinguishes writing anyone
+   and no evidence that any of these five checks distinguishes writing anyone
    would want to reject. The FPR bounds the nuisance, not the benefit. This is
    doctrine 7 read strictly: a floor is a rejection gate, and a rejection gate
    with a measured false-positive rate and no measured true-positive rate is
@@ -407,15 +455,19 @@ Stated so the next cell does not have to rediscover the boundary.
    the method (doctrine 44): the identical calibration would run on a modern
    corpus in one command. Nothing in `data/sources.tsv` currently offers one on
    admissible terms, and this cell staged nothing.
-3. **A second language.** Every threshold here is English and two of the four
+3. **A second language.** Every threshold here is English and two of the five
    checks presume English on their face — `function_word_ratio` presumes a
    clean function/content split and does not transfer to an agglutinative or
-   polysynthetic language. Doctrine 8: never fit on one tradition. The song
-   corpus has 117 non-English files and none of them were used.
-4. **`predictable_pair_fraction_max` at song length**, once the frequency layer
-   settles. It is the only one of the five floor thresholds with no song
-   reading at all.
+   polysynthetic language, and `predictable_pair_fraction_max` is computed
+   against an English frequency list. Doctrine 8: never fit on one tradition.
+   The song corpus has 117 non-English files and none of them were used.
+4. ~~`predictable_pair_fraction_max` at song length, once the frequency layer
+   settles.~~ **CLOSED 2026-08-13.** The frequency layer settled 2026-08-11
+   (`data/opensubtitles_en_50k.tsv`); this cell measured `predictable_pair_
+   fraction_max` against it at song length for the first time — threshold
+   0.9286, held-out FPR 4.81% median [2.52–7.43%], no period slope (§4a). All
+   five floor thresholds now carry a song reading.
 
-None of those is a reason to withhold the profile. A gate that had no reading
-at all on the two songs this project has written was the worse state, and the
-new one states exactly what it does and does not know.
+None of the remaining three is a reason to withhold the profile. A gate that
+had no reading at all on the two songs this project has written was the worse
+state, and the new one states exactly what it does and does not know.

@@ -539,13 +539,21 @@ def report_period(rows, lo, hi, draws=2000):
     early = [a for a in auths if byauth[a][0]["born"] <= med]
     ei = [r for a in early for r in byauth[a]]
     li = [r for a in auths if a not in early for r in byauth[a]]
+    # (len(CHECKS) + 1) for ANY, x2 directions -- was hardcoded "eight" /
+    # 0.00625 back when CHECKS held four entries (doctrine 91: a count is a
+    # coordinate of the RENDERING, not only of the threshold). Computed here
+    # the same way 4a's n_checks/bonf already are, so a sixth check added
+    # later cannot leave this print silently quoting a stale denominator
+    # again.
+    n_comparisons = (len(CHECKS) + 1) * 2
+    bonf2 = 0.05 / n_comparisons
     print("   4b. cross-cohort threshold transfer at the median birth year "
           "%d: EARLY %d authors / %d items, LATE %d authors / %d items. The "
           "control permutes the COHORT LABEL over the same authors at the "
           "same partition sizes, %d draws — it varies only the thing under "
-          "test (doctrine 14). Bonferroni over the eight comparisons cuts at "
-          "0.00625." % (med, len(early), len(ei), len(auths) - len(early),
-                        len(li), draws))
+          "test (doctrine 14). Bonferroni over the %d comparisons cuts at "
+          "%.5f." % (med, len(early), len(ei), len(auths) - len(early),
+                     len(li), draws, n_comparisons, bonf2))
     null = {"EARLY -> LATE": [], "LATE -> EARLY": []}
     rnd2 = random.Random(20260812)
     for _ in range(draws):
@@ -567,7 +575,7 @@ def report_period(rows, lo, hi, draws=2000):
                   "[5th-95th %5.2f-%5.2f%%]   p %.4f%s"
                   % (f, 100 * obs[f], 100 * statistics.median(v),
                      100 * q(v, 0.05), 100 * q(v, 0.95), p,
-                     "  SURVIVES" if p < 0.00625 else ""))
+                     "  SURVIVES" if p < bonf2 else ""))
     print("      The direction is the part that matters and it is not "
           "symmetric: thresholds fitted on earlier-born authors OVER-flag "
           "later-born ones, and the reverse runs at or below nominal. A 2026 "
