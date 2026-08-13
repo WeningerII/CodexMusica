@@ -501,7 +501,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # fetch-depth 0 IS LOAD-BEARING, not hygiene. `verify_entries.py`'s
+      # doctrine-17 check asks whether a pin that MOVED left its superseded
+      # value visible and dated, and it answers that by walking `git log
+      # --name-only` + `git cat-file --batch` over the pin's own history. On
+      # the default depth-1 checkout there is no history: the walk finds zero
+      # moves and prints clean, so the check would pass by knowing nothing.
+      # Added 2026-08-13, having been proved against a real `--depth 1` clone.
+      # The script refuses loudly rather than passing falsely if this is ever
+      # removed (doctrine 20), so the failure mode is a red step naming this
+      # line, not a silent green.
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
