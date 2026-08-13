@@ -408,7 +408,7 @@ Of the 33 failures I hold:
   - **eye rhyme** — the orthography is *in the text*; this is not a Refusal. The grapheme rung closes it at **word** granularity. At syllable granularity it must Refuse on the CMUdict path, where `Syllable.text` is empty and no grapheme↔syllable alignment exists.
   - **broken rhyme** — M3 plus a cross-line token closes it for near-phonemic phonologies (`fin.syllabify('kuningas')` carries `.text`, so a printed break is locatable by cumulative orthographic length). It **refuses on English**: `syllabify('ele-')` returns `[]`, no G2P, and English is the tradition where broken rhyme is attested.
   - **parechesis** — M6 makes it expressible; the threshold is a **calibration**, not a discovery. Per doctrine 18/58 it must travel with its length profile or it will read as a refrain-count bug again.
-  - **alliteration** — 9 of 11 frames close. Old English / Middle English / dróttkvætt still need a **lift searcher** (the analogue of `search_caesura`, with its own `search_k`), or they stay caller-asserted. That is writable — `meter.py` exists — but it is not written.
+  - **alliteration** — 9 of 11 frames close. Old English / Middle English / dróttkvætt still need a **lift searcher** (the analogue of `search_caesura`, with its own `search_k`), or they stay caller-asserted. That is writable — `meter.py` exists — but it is not written. And if `search_caesura` is copied, copy its arithmetic knowingly: its k is **4.02** on `cym_alun_strict.txt`, not the **10.6** doctrine 56 quotes — that figure is a wider three-part search living in `quality/phonology/cym.py`, and `search_caesura`'s own docstring claimed it until 2026-08-13. A lift searcher's k must be the size of the search *it* runs.
 
 - **11 are not producible**, listed in §5.
 
