@@ -725,18 +725,44 @@ descriptors in any generation-facing output — era+region+technique.
   the moment the comparator moves, silently, because nothing re-runs the
   command. 26.0% band-OFF is comparator-invariant and still reproduces, which
   is the check that it is the same statistic.
-  NOT RE-VERIFIED IN THIS REPIN: the +6.7 -> +9.3 separation figures below
-  come from `quality/audit_band_control.py`, not from `battery.py`. They were
-  not re-measured here and should be treated as suspect until they are.
-  **The band's empirical warrant stays withdrawn, and the REASON has changed.**
-  Under the shipped comparator the control DOES clear its own line-permutation
-  null — p 0.006 at n=2000 against the recorded 0.209, and the band's effect on
-  the separation FLIPS SIGN, +6.7 -> +9.3 pp where the record has +6.7 -> +3.3.
-  So doctrine 71's arithmetic no longer holds on this text. It is withdrawn on
-  a prior ground that needs no null at all: **half of Whitman's detected chain
-  links are REPEAT on an identical token** — `now` closes four consecutive
-  lines, which `battery.py` has printed under `false chains (should be near
-  zero)` since the first commit. A negative control is a text in which the
+  RE-VERIFIED 2026-08-13, and **the +9.3 does not reproduce.**
+  `python3 quality/audit_band_control.py 200` (seed 20260810) prints band OFF
+  `R_obs 26.0%, null median 19.3%, excess +6.7 pp, p 0.0547` and band ON
+  `R_obs 10.7%, null median 5.3%, excess +5.3 pp, p 0.0199`.
+  THE CONTROL ON THE CONTROL, and it is what makes this readable: the band-OFF
+  row reproduces TO THE DECIMAL on both corpora — Whitman's null 19.3/8.7/27.3
+  and the sonnets' 29.9/25.5/35.6, +23.6 pp and +17.9 pp over the null max, at
+  the full n=200. So the null machinery is demonstrably unchanged and every
+  figure that moved is downstream of the band-ON comparator alone.
+  **The band's effect on the separation is +6.7 -> +5.3 pp — MEASURED
+  2026-08-13.** REPINNED from +6.7 -> +9.3 pp (MEASURED 2026-08-11, the
+  17.3%/8.0% comparator), which had itself superseded +6.7 -> +3.3 pp
+  (MEASURED 2026-08-10, pre-`b1d7f64`).
+  **THE SIGN DOES NOT FLIP — IT FLIPPED BACK.** The separation FALLS when the
+  band goes on, the same direction the 2026-08-10 record had, because the
+  observation falls 15.3 pp and the null median falls 14.0 pp together. So
+  doctrine 71's own sentence — a filter that lowers chance and signal together
+  has not tightened anything — HOLDS on this text again, and the 2026-08-11
+  amendment that retired it is the figure that went stale. Three comparators,
+  three answers, one text: the clause that caught this is doctrine 58 one axis
+  out, **re-run the control when the COMPARATOR moves**.
+  Nor does the control clear its null at the floor: p 0.0199 at n=200,
+  REPINNED from p 0.0050 — 0 of 200 permutations reached the observation then,
+  3 of 200 do now. The recorded `p 0.006 at n=2000` was measured on R_obs
+  17.3%, which no longer reproduces, so it is superseded whatever its
+  resolution was, and has not been re-run.
+  **The band's empirical warrant stays withdrawn**, on the prior ground that
+  needs no null at all — and that ground is now STRONGER, not weaker:
+  **seven of Whitman's NINE detected chain links (78%) are REPEAT on an
+  identical token**, MEASURED 2026-08-13. REPINNED from "half ... 7 RHYME and
+  7 REPEAT of 14" (MEASURED 2026-08-11): the REPEAT count did not move, the
+  RHYME links collapsed 7 -> 2. `now` closes four consecutive lines, which
+  `battery.py` has printed under `false chains (should be near zero)` since
+  the first commit.
+  ONE STATISTIC, TWO MEANINGS, and the record has been quoting both under one
+  word: +6.7, +3.3 and +9.3 are the excess over the null MEDIAN; the +17.9 pp
+  cited in METHOD § doctrine 71 is the excess over the null MAX, on a
+  different corpus. Doctrine 91 — a count is a coordinate of the rendering. A negative control is a text in which the
   property is ABSENT, and this one carries it as epistrophe, in the one
   relation doctrine 3 says cannot be read without a declared context.
   `corpus/whitman.txt` was never eligible, at any rate, under any comparator.

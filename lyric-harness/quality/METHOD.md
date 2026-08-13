@@ -217,6 +217,37 @@ looking right.
    the text. **Check that the negative control LACKS the property before
    checking that it clears its null.** `quality/RESULTS_NULL_SHAPES.md`.
 
+   **AMENDED AGAIN 2026-08-13 — the AMENDMENT expired faster than the instance
+   did, and that is the finding.** Same script, same seed, same n=200: band OFF
+   26.0% / null median 19.3% / +6.7 pp / p 0.0547, unchanged to the decimal;
+   band ON **10.7%** / null median **5.3%** / **+5.3 pp** / **p 0.0199**. So
+   the separation FALLS again — +6.7 -> +5.3, MEASURED 2026-08-13, REPINNED
+   from +6.7 -> +9.3 (2026-08-11), which had superseded +6.7 -> +3.3
+   (2026-08-10). **The sign did not flip; it flipped BACK**, and the paragraph
+   above — which retired doctrine 71's own sentence on this text — is now the
+   stale figure. Three comparators, three answers, one text. The clause the
+   2026-08-11 amendment added, *re-run the control when the COMPARATOR moves*,
+   is the clause that caught its own paragraph, which is the strongest thing
+   that can be said for it.
+   THE CONTROL ON THE CONTROL, and it is why the movement is attributable: the
+   band-OFF row reproduces to the decimal on BOTH corpora — the sonnet arm was
+   re-run at full n=200 and gives null median 29.9%, min 25.5%, max 35.6%,
+   +23.6 pp, +17.9 pp over the MAX, p at the 0.0050 floor. The null machinery
+   is unchanged, so everything that moved is downstream of the band-ON
+   comparator alone. The observation falls 15.3 pp and the null median falls
+   14.0 pp TOGETHER, which is this doctrine's sentence verbatim; meanwhile the
+   sonnets go +23.6 -> +26.4, so the band tightens the positive corpus. The
+   instrument is fine and the Whitman comparison is the empty part.
+   NOTE THE TWO STATISTICS THIS PARAGRAPH QUOTES UNDER ONE WORD: +6.7, +3.3,
+   +9.3 and +5.3 are the excess over the null MEDIAN; the +17.9 pp above is
+   the excess over the null MAX, which grows with n and is not comparable
+   across sample sizes (doctrine 57's mirror, doctrine 91's rendering point).
+   The doctrine's conclusion is untouched either way, because it rests on
+   `RESULTS_NULL_SHAPES.md` §2 and on none of these numbers: seven of Whitman's
+   NINE detected links (78%) are REPEAT on an identical token — REPINNED
+   2026-08-13 from 7 of 14 (50%), the REPEAT count unmoved and the RHYME links
+   collapsed 7 -> 2, so the ground STRENGTHENED as the null argument weakened.
+
 73. **A single CV seed is a coin flip reported as a verdict.** RESULTS_WITHIN_
    ITEM P2 recorded "FAILED. 0.659 -> 0.604" off one hard-coded seed. Over 200
    seeds the medians are 0.603 and 0.606 -- the sign of the difference flips.
@@ -1058,6 +1089,25 @@ needs no negative control. What is gone is the empirical warrant.
 The instrument is fine: the SAME statistic under the SAME null gives
 sonnets 52.0% vs a null max of 34.2%, +17.9 pp with p at the floor.
 It is the Whitman COMPARISON that was uninformative, not the harness.
+
+REPINNED 2026-08-13, and every conclusion in the paragraph above
+SURVIVES the repin -- which is worth saying, because it did not
+survive the 2026-08-11 one. Under the shipped comparator the Whitman
+arm reads 26.0% -> 10.7% with null medians 19.3% -> 5.3%, so the
+separation moves +6.7 -> +5.3 pp (p 0.0547 -> 0.0199 at n=200), and
+the sentence "a filter that lowers chance and signal together has not
+tightened anything" is true again on this text: the observation falls
+15.3 points and the null median 14.0. The 20.0%/p=0.2090 pair is the
+pre-`b1d7f64` comparator's; the intervening 17.3%/+9.3/p=0.006
+reading, which briefly made the separation FLIP SIGN, does not
+reproduce either. The sonnet arm re-run at full n=200 gives band OFF
+53.5% against a null median 29.9% and max 35.6% -- so +23.6 pp over
+the median and **+17.9 pp over the MAX, reproducing to the decimal**
+-- with p at the 0.0050 floor, and band ON 48.9% moving the
+median-excess to +26.4 pp. The `52.0%` above is superseded by 48.9%.
+Note that this paragraph's +17.9 is an excess over the null MAX while
+its +6.7/+3.3 are excesses over the null MEDIAN; a MAX grows with n
+and is not comparable across sample sizes (doctrine 57's mirror).
 
 ### verse.txt, deleted 2026-08-10
 

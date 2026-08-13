@@ -137,9 +137,29 @@ is the same null — and the band-ON row does not. The null MEDIAN halves,
 measured +6.7 → +9.3 pp.** Sonnets: recorded +23.6 → +23.5, measured
 +23.6 → +26.2. At n = 2000, two seeds, band ON gives p = 0.0055 and 0.0065.
 
+> **RE-MEASURED 2026-08-13, AND THE +9.3 IS ITSELF NOW SUPERSEDED.** Same
+> script, same seed 20260810, same n = 200: band OFF `obs 26.0% null med 19.3%
+> excess +6.7 pp p 0.0547` — unchanged to the decimal — and band ON
+> `obs 10.7% null med 5.3% excess +5.3 pp p 0.0199`.
+> **Whitman excess band OFF → ON is +6.7 → +5.3 pp.** The band-ON figures
+> above (17.3%, 8.0%, +9.3, p 0.0050) are the 2026-08-11 comparator's and no
+> longer reproduce; they stay visible under doctrine 17 and must not be quoted.
+> THE CONTROL ON THE CONTROL IS NOW DOUBLE. The sonnet band-OFF arm was also
+> re-run at the full n = 200 and reproduces to the decimal — null median 29.9%,
+> min 25.5%, max 35.6%, excess +23.6 pp, +17.9 pp over the null MAX, p at the
+> 0.0050 floor. So the null machinery is unchanged on BOTH corpora and every
+> figure that moved is downstream of the band-ON comparator alone.
+> **THE SIGN DID NOT FLIP; IT FLIPPED BACK.** The separation falls when the
+> band goes on — the 2026-08-10 direction — because the observation falls
+> 15.3 pp and the null median falls 14.0 pp together. Doctrine 71's sentence
+> below therefore holds again on this text, and the paragraph retiring it is
+> the stale one. The n = 2000 p values (0.0055, 0.0065) were measured on
+> R_obs 17.3% and are superseded rather than refuted; they have not been re-run.
+
 The sentence in doctrine 71 — *"a filter that lowers chance and signal together
 has not tightened anything"* — is true of the comparator it was written
-against, and the numbers it is stated in no longer reproduce.
+against, and the numbers it is stated in no longer reproduce. *(Amended
+2026-08-13: it is true of the SHIPPED comparator too. See the box above.)*
 
 **3. The gap-to-null-MAX is the wrong headline on a result this close.**
 Whitman's gap to the null MAX changes SIGN with the seed (+0.0067, +0.0267,
@@ -154,7 +174,12 @@ Doctrine 57's mirror: **a gap to a null MAXIMUM reports the sample size.**
 **WHAT DOES NOT CHANGE, AND IT IS THE PART THAT MATTERS.** The band's
 empirical warrant stays withdrawn. It is withdrawn harder: §2 of
 `RESULTS_NULL_SHAPES.md` decomposes Whitman's 14 detected chain links into
-**7 RHYME and 7 REPEAT, with 7 of 14 on an identical token** — `now` closes
+**7 RHYME and 7 REPEAT, with 7 of 14 on an identical token** *(REPINNED
+2026-08-13: **7 REPEAT and 2 RHYME of 9, 7 of 9 = 78% on an identical
+token.** The REPEAT count did not move; the RHYME links collapsed 7 → 2 under
+the same comparator change that weakened the null argument above, so this
+ground got STRONGER while that one got weaker — which is why the withdrawal
+was put on this footing rather than that one)* — `now` closes
 four consecutive lines of `Song of Myself`, which `battery.py` has been
 printing under the heading `false chains (should be near zero)` since the
 first commit. A negative control is a text in which the property is ABSENT.

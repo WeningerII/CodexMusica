@@ -26,6 +26,12 @@ commissioned it, and **three recorded numbers did not reproduce**.
    own line-permutation null** — p ≈ 0.006 at n = 2000, against the recorded
    p = 0.209 — and the band's effect on the separation has **flipped sign**:
    recorded +6.7 → +3.3 pp, measured +6.7 → **+9.3** pp.
+   *(SUPERSEDED 2026-08-13. Re-measured at the same seed and n: band ON reads
+   R_obs **10.7%**, null median **5.3%**, excess **+5.3 pp**, p **0.0199** at
+   n = 200. So the separation FALLS, the sign did not flip but flipped BACK to
+   the 2026-08-10 direction, and the control does not clear at the floor. The
+   n = 2000 p was measured on R_obs 17.3%, which no longer reproduces. Finding
+   3 below is unaffected and is the one the withdrawal rests on.)*
 3. **Whitman was never eligible for the role, and that needs no null.** Half
    of its detected chain links are REPEAT on an identical token; `now` closes
    four consecutive lines. A negative control is a text in which the property
@@ -102,9 +108,13 @@ that put them there compared them to each other.
 ### 1.3 And the null moved further than the observation did
 
 ```
-$ python3 quality/audit_band_control.py 200        # today, shipped comparator
+$ python3 quality/audit_band_control.py 200        # 2026-08-11 comparator
   band OFF   obs 26.0%   null med 19.3%  max 27.3%   excess +6.7 pp   p 0.0547
   band ON    obs 17.3%   null med  8.0%  max 16.7%   excess +9.3 pp   p 0.0050
+
+$ python3 quality/audit_band_control.py 200        # 2026-08-13, same seed
+  band OFF   obs 26.0%   null med 19.3%  max 27.3%   excess +6.7 pp   p 0.0547
+  band ON    obs 10.7%   null med  5.3%  max 12.0%   excess +5.3 pp   p 0.0199
 ```
 against `NULL_AUDIT.md` §1.1's record, at the same n and the same seed:
 ```
@@ -116,13 +126,27 @@ The band-OFF row reproduces to the decimal, which is the check that the null
 itself is the same null. The band-ON row does not: the **null median halved**,
 16.7% → 8.0%.
 
-**The band's effect on the separation has flipped sign.**
+**The band's effect on the separation has flipped sign.** *(And on 2026-08-13
+it flipped BACK — see the third column. The heading is kept as written under
+doctrine 17; it is false at head.)*
 
-| | recorded | measured today |
-|---|---:|---:|
-| Whitman excess over null median, band OFF → ON | +6.7 → **+3.3** pp | +6.7 → **+9.3** pp |
-| Whitman p, band ON | 0.209 | 0.005 |
-| Sonnets excess, band OFF → ON | +23.6 → +23.5 pp | +23.6 → **+26.2** pp |
+| | recorded | measured 2026-08-11 | **re-measured 2026-08-13** |
+|---|---:|---:|---:|
+| Whitman excess over null median, band OFF → ON | +6.7 → **+3.3** pp | +6.7 → **+9.3** pp | +6.7 → **+5.3** pp |
+| Whitman p, band ON | 0.209 | 0.005 | **0.0199** |
+| Sonnets excess, band OFF → ON | +23.6 → +23.5 pp | +23.6 → **+26.2** pp | +23.6 → **+26.4** pp |
+
+The 2026-08-13 column is the same script at the same seed and n = 200. The
+band-OFF row is unchanged to the decimal on BOTH corpora — the sonnet arm was
+re-run at full n = 200 and gives null median 29.9%, min 25.5%, max 35.6%,
++23.6 pp, +17.9 pp over the MAX, p at the 0.0050 floor — so the null machinery
+is demonstrably identical and every figure that moved is downstream of the
+band-ON comparator alone. Whitman's observation falls 26.0 → 10.7 (−15.3 pp)
+and its null median falls 19.3 → 5.3 (−14.0 pp): **the band lowers chance and
+signal together**, which is doctrine 71's sentence verbatim, reinstated on this
+text one repin after it was retired. The same statistic under the same null
+gives the sonnets +23.6 → +26.4, so the band genuinely tightens the POSITIVE
+corpus. The instrument is fine; the Whitman comparison is the empty part.
 
 Doctrine 71's sentence — *"a filter that lowers chance and signal together has
 not tightened anything"* — is a true sentence about the comparator it was
