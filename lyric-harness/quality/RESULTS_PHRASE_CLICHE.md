@@ -220,6 +220,34 @@ empirically. Doctrine 68 says report the fraction of replicates that differ
 from the observation at all, because a randomisation that tests nothing is the
 most dangerous object in this repo.
 
+> **WITHDRAWN 2026-08-13 — NO PRODUCER, AND THERE NEVER WAS ONE.** Every
+> figure in this section — NULL A 97.8–98.0%, NULL C 100.0%, observed
+> 0.98%/0.85%, NULL A 0.02%, NULL C 0.05%, and the lifts 59x and 17x — stays
+> visible below under doctrine 17 and MUST NOT BE QUOTED.
+> `phrase_commonplace.py --measure` prints the population counts, T1, T2 and
+> T3 and stops; there is no shuffle, no frequency-decile substitution and no
+> replicate loop anywhere in this repo. `59x`, `0.98%` and `+0.117` return
+> exactly ONE file each on a repo-wide grep, and it is this one. The commit
+> that created this cell added three files, none has ever held such a script,
+> and `git log --all --diff-filter=D` names no deleted one — so this is not a
+> lost tool, it is a number with no origin.
+>
+> A CONTRADICTION SITS ON THE FACE OF THE BLOCK. §3 measures the same n=4
+> k>=2 fire rate as **1.01%**; this section calls it 0.98% on one line and
+> 0.85% on the next, with no sample, seed or replicate count declared. Three
+> values for one statistic is the tell.
+>
+> So the sentence below — "checked by measurement and not by argument" — is
+> FALSE as written, which is why this notice sits above it rather than after
+> it. WHAT SURVIVES: the argument at the end of the section, that neither
+> randomisation is a null about over-familiarity and that the identity-map
+> trap in this cell lives in the STATISTIC (T3's witness list is the
+> high-frequency tail of English 4-grams) rather than in either randomisation,
+> is derived BY READING T3 — and T3 reproduces to the digit, all 72 witnesses.
+> What does not survive is doctrine 68's requirement, which is now
+> UNDISCHARGED. §1–§4 and §7 all reproduce exactly; the boundary between what
+> reproduces and what does not falls precisely where a runnable command stops.
+
 | | preserves | destroys | is a null about | replicates differing |
 |---|---|---|---|---|
 | **NULL A** within-line word shuffle | word multiset, length, every unigram frequency | word order, hence which n-grams exist | whether the words are arranged as English arranges them | **97.8–98.0%** |
@@ -257,6 +285,36 @@ not by reading a lift.
 
 Doctrine 11 says assume any new feature is reading period until a measurement
 says otherwise, so this was tested before anything else.
+
+> **WITHDRAWN 2026-08-13 — NO PRODUCER.** 1.01x/1.00x, 0.60x, the 115-author
+> filter, pearson +0.117 / spearman +0.071, pearson −0.212 / spearman −0.367,
+> and the entire four-row death-band table are produced by no code in this
+> repo and by no code this repo has ever held. `author_meta` parses birth and
+> death years into `PhraseIndex.meta` and NOTHING READS THAT FIELD — the parse
+> is the only trace that this analysis was ever contemplated. The archaic-2sg
+> paradigm appears nowhere in the module. The figures are internally
+> consistent (27+34+43+11 = 115; 0.367/0.071 ≈ the "4–5x" claimed below),
+> which is exactly why this needed a grep rather than a reading.
+>
+> THE CONSEQUENCE IS NOT SMALL. This section IS the cell's doctrine 31/76
+> positive control, so that control is UNDISCHARGED, and doctrine 11's default
+> — assume a new feature reads period until a measurement says otherwise —
+> applies again. "Period-reading is not this check's primary defect" is hereby
+> UNMEASURED, not disproven. The cell's verdict does not rest on it: §9's
+> doctrine 92 disjunction is a licensing argument about the corpus cutoff and
+> needs no correlation at all.
+>
+> IT ESCAPED INTO PRODUCTION. `quality/phrase_commonplace.py`'s module
+> docstring states the −0.367 control as fact, and quotes a range "+0.07 to
+> +0.10" whose upper end appears nowhere in this file — this section carries
+> ONE spearman. That is drift stacked on an unreproducible base, and it is
+> corrected at the same date.
+>
+> TO REPRODUCE: per-author leave-one-out fire rate over authors with a death
+> year and >=40 lines, against an archaic-2sg rate over a DECLARED closed
+> paradigm (doctrine 46 — a function-word list is part of a phonology, not an
+> optimisation), Pearson and Spearman, four bands. ~60 lines against an index
+> that already exists.
 
 **The first design was wrong and its result is WITHDRAWN.** It binned
 phrase-sharing between author pairs by the **gap** between their death years
