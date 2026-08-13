@@ -4694,6 +4694,7 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
            "ALT_SURFACES", "QUOTIENT_CAP",
            "Unprovidable", "UNPROVIDABLE", "check_unprovidable",
+           "print_unprovidable_report",
            "mark_refrain_tail", "search_caesura", "mark_printed_caesura",
            "REGISTRY", "QUERIES", "declare", "all_schemas",
            "capability_report", "tri_and", "tri_or",
@@ -4704,7 +4705,8 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
 
 
 def main(argv):
-    """`python3 quality/relations.py FILE [--lang=xxx]`.
+    """`python3 quality/relations.py FILE [--lang=xxx] [--inert]
+    [--unprovidable]`.
 
     THE HONEST CONSUMER, reachable.  The `relations` verb in lyric_harness.py
     prints a schema name and a count and cannot say which tradition the schema
@@ -4714,7 +4716,7 @@ def main(argv):
     library.
     """
     from quality.phonology import get as get_phonology
-    lang, paths, limit, inert = "eng", [], None, False
+    lang, paths, limit, inert, unprov = "eng", [], None, False, False
     for a in argv:
         if a.startswith("--lang="):
             lang = a.split("=", 1)[1]
@@ -4722,6 +4724,8 @@ def main(argv):
             limit = int(a.split("=", 1)[1])
         elif a == "--inert":
             inert = True
+        elif a == "--unprovidable":
+            unprov = True
         else:
             paths.append(a)
     if not paths:
@@ -4745,8 +4749,36 @@ def main(argv):
           f"{len(st.units)}   UNREADABLE tokens {len(st.unreadable)}")
     if inert:
         return print_inert_report(st)
+    if unprov:
+        return print_unprovidable_report(st)
     print_relation_report(relation_report(st), limit=limit)
     return 0
+
+
+def print_unprovidable_report(stream):
+    """`--unprovidable`: the capabilities NO declaration can supply, the
+    schemas each one strands, and which of doctrine 44/92's three blockers it
+    is -- plus the MEASURED check that each is still unsupplied.
+
+    `capability_report` answers this for one stream. This answers it for every
+    stream there can be, which is the number that decides whether a gap is a
+    corpus problem or a build.
+    """
+    print(f"\nUNPROVIDABLE CAPABILITIES — {len(UNPROVIDABLE)} of the "
+          f"{len({c for s in REGISTRY.values() for c in s.capabilities()})} "
+          f"any schema names")
+    for e in UNPROVIDABLE:
+        print(f"\n  {e.capability}   [{e.blocker}]   strands "
+              f"{', '.join(e.schemas)}")
+        print(f"    NEEDS            {e.needs}")
+        print(f"    WOULD MANUFACTURE {e.would_manufacture}")
+        print(f"    {e.detail}")
+    bad = check_unprovidable(stream)
+    print(f"\n  ALT_SURFACES (a declaration CAN supply these): "
+          f"{', '.join(ALT_SURFACES)}")
+    print(f"  check_unprovidable: "
+          f"{'every entry holds' if not bad else bad}")
+    return 1 if bad else 0
 
 
 def print_inert_report(stream):
