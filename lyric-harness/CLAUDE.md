@@ -331,15 +331,17 @@ at all, doctrine 6/7's "two sources, deliberately kept apart" holding
 exactly as designed. `--returns=` fixes the MANDATE layer's
 misclassification; it was never going to silence the floor, and should not.
 
-**A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `--- `, OR `#` — NOTHING
-ELSE — CENTRALIZED 2026-08-12.** A `(parenthetical stage direction)` under a
+**A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `---`, OR `#` — NOTHING
+ELSE — CENTRALIZED 2026-08-12, CONVERGED 2026-08-13.** A `(parenthetical stage direction)` under a
 section header is not apparatus to any reader in this repo: it starts with
 `(`, and every line-loader here only ever excluded `[`/`---`/`#`. Written
 that way it is scored as sung text — tokenized, fed to the rhyme graph,
 counted toward MATTR — which is how a stage direction like "(instrumental
-fade, 7/8)" ends up polluting a real measurement. `quality/readability.py`'s
-`read_lines`, `quality/grid.py`'s `read_marked_songs`, and a dozen other
-readers under `quality/` already agreed on `#`/`--- `/`[...]` as apparatus;
+fade, 7/8)" ends up polluting a real measurement. A dozen readers under
+`quality/` already agreed on `#`/`---`/`[...]` as apparatus — but
+`quality/readability.py`'s `read_lines` and `quality/grid.py`'s
+`read_marked_songs`, the two this paragraph named, DID NOT, and saying they
+did is what let them keep their own spellings for a day (see below);
 `lyric_harness.py`'s own CLI verbs (`brief`, `verify`, `revise`, `song`,
 `density`, `graph`, `chains`, `partition`, `scheme`) were the one holdout,
 each with its own inline `not startswith("[")` filter, silently missing
@@ -348,6 +350,39 @@ the top) are now the one definition every verb calls — a stage direction,
 or any other non-sung line, belongs on a `#`-prefixed line under the
 section header it annotates, and it will be dropped exactly the way a
 `--- TITLE:` line already is everywhere else in this repo.
+
+**AND "CENTRALIZED" MEANT "A THIRD SPELLING WAS WRITTEN THAT DAY" — FOUND BY
+DIFFING THE TWO READERS THIS PARAGRAPH CITED AS AGREEING, FIXED 2026-08-13.**
+Both now CALL `is_apparatus_line`; neither did on 2026-08-12, and each was
+wrong in a different direction. `read_lines` tested `--- ` WITH A TRAILING
+SPACE, and a four-hyphen line is not `--- `: four Wordsworth epigraphs in
+`corpus/song/eng_british_felicia_hemans.txt` were verse to that one reader and
+apparatus to every other, `lines_countable` 151,898 -> **151,894**. The record
+was ALREADY self-contradictory on this: `quality/RESULTS_HYPHEN_REFUSAL.md`,
+`readability.py`'s own module docstring and `token_pieces` all said 151,894
+while `test_readability.py` test 5 pinned 151,898, so the fix closed a
+disagreement rather than moving an agreed number — and NO RATE MOVED, because
+all four end words are in CMUdict, so 9,078/174/149/8,842 are byte-identical
+and only the divisor fell. `read_marked_songs` never stripped before its test
+and routed `[` through `^\[([^\]]*)\]`, so a bracket with **no closing `]`**
+matched nothing, opened no block, and fell through to be scored as a LYRIC:
+**133 lines in 19 files across 130 blocks, 14 of them emptied outright**
+because a printer's stage direction — `[Exeunt.`, `[Drinks.`, `[Music:` — was
+the block's entire content. Emptying them costs nothing measurable and the
+corpus says so twice: an empty block was already ordinary here (6,187 of
+182,147, 5,884 of them Persian) and none of the 14 is a chorus/burden/refrain,
+so `compare_returns` — the only reader of `Block.lines` anywhere — is never
+handed one. ORDER IS THE REASON THIS IS ONE CLAUSE AND NOT A FILTER AT THE
+TOP: `[VERSE 1]` IS apparatus by this rule and is also the thing that opens a
+block, so `--- TITLE:` must be tested first and `_MARK_RE` before the
+apparatus drop. **Five `startswith("--- ")` sites still survive** —
+`quality/negative_control.py`, `cym_rhyme_rate.py` (x2), `test_cym.py`,
+`test_phonology.py`, all on the Welsh/negative-control path, unmeasured
+because that cell owns them. `grep -rn 'startswith("--- ")'` is the whole list
+and it is the check that this is finished. `quality/test_readability.py` test
+5 now sweeps all 189,066 letter-bearing corpus lines to prove `read_lines` and
+`is_apparatus_line` are the SAME predicate and not two that happen to agree;
+`quality/test_grid.py` §23, `quality/test_song_function.py` §9.
 
 **`--voices` — THE SAME `(...)` MEANT TWO OPPOSITE THINGS IN THIS REPO,
 DEPENDING WHICH FUNCTION READ IT — FOUND WRITING IN VOICE-ATTRIBUTION
@@ -509,6 +544,19 @@ centralization onto `load_lyric_lines` covered `lyric_harness.py`'s verbs on
 LOOP as sung text — tokenized, rhyme-graded, counted toward MATTR, and
 eligible to be handed back to the writer as a line to revise. It calls
 `load_lyric_lines` now.
+
+**AND ONE MORE AFTER THAT — FIXED 2026-08-13.** `quality/relations.py`'s own
+`main()` was a FOURTH site, keeping only the `[` case, so `python3
+quality/relations.py FILE` and `python3 lyric_harness.py relations FILE` read
+different texts out of one file. Spelled inline rather than imported: P10's
+guard (`quality/test_relations.py`) requires `relations.py` to import nothing
+from `lyric_harness`, and `load_lyric_lines` would be wrong here regardless —
+it drops blank lines, which this module derives its stanza frame from. No
+shipped corpus or fixture carries a `#`/`---` line, so no recorded number
+moves. FOUR HOLDOUTS FOUND BY FOUR SEPARATE LOTS OVER TWO DAYS, each after a
+paragraph in this file said the centralization was done;
+`grep -rn 'startswith("--- ")'` and `grep -rn 'startswith("\[")'` are the only
+checks that it actually is.
 
 Full sweep after both fixes: `quality/test_loop.py` (12/12, was 10/10),
 `quality/test_revise.py` (29/29), and every other test file under

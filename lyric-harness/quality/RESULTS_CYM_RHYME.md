@@ -531,7 +531,7 @@ form (Twm o'r Nant's couplets), not parallelism.
 
 ---
 
-## 10a · None of the four declared coordinates is inert (`relations.py --inert`'s question)
+## 10a · None of the four declared coordinates is inert (doctrine 1's inverse failure)
 
 Doctrine 1's inverse failure — a coordinate nobody reads is a stated assumption
 that is not in force — measured over the staged corpus's 8,115 offset-1 and
@@ -545,6 +545,20 @@ coordinate's name.
 | anchor rule | `rule="prominent"` | 1416 | the falsified English port |
 | diacritics | `diacritics="keep"` | 22 | True→False 21, None→False 1 |
 | glide | `glide="vocalic"` | 13 | None→True 6, None→False 7 |
+
+**THIS IS NOT `relations.py --inert`'S QUESTION, AND THE HEADING SAID IT WAS —
+CORRECTED 2026-08-13.** That command reports three span-shaped fields
+(`Span.unit`, `rhyme_constraints.Span.unit`,
+`rhyme_constraints.Span.terminator@branch`) and NONE of the four coordinates
+above; the `§10a` it prints in its own header is `relations.py`'s section
+number, not this file's. Two different questions collided on one section
+number, and the heading promised that a command answered this table.
+
+RUN 2026-08-13 for the first time: `python3 quality/relations.py --inert
+metidja.txt` exits 0, `VERDICT: every declaration holds`, all three declared
+coordinates single-valued over 5,761 / 40 / 11 observations. So the command
+works and its answer is real — it is simply an answer to something else, and
+running it neither confirms nor falsifies one row of the table above.
 | glide | `glide="consonantal"` | 13 | None→False 6, None→True 7 |
 
 The glide rows are the informative pair: `undecided` refuses **13** pairs that

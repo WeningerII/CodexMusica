@@ -123,7 +123,17 @@ looking right.
 
 56. **A search over placements needs a null under the same search.** Trying
    every word boundary for the caesura and keeping the best is k hypotheses per
-   line, and on this corpus k averages 10.6. Run that identical search over
+   line, and on this corpus k averages 10.6 -- and **10.6 is
+   `quality/phonology/cym.py`'s `cynghanedd_scan(...)["positions_tried"]`**,
+   which tries the (n-1) two-part cuts AND the C(n-1,2) three-part cuts a
+   *sain* reading needs. `quality/relations.py`'s `search_caesura`, which
+   enumerates the two-part cuts alone, returns **4.02** on the identical 1,558
+   lines (MEASURED 2026-08-13; the identity that reconciles them is mean of
+   k + C(k,2) = 10.70 against the scanner's 10.62). `search_caesura`'s own
+   docstring quoted 10.6 as its own figure from the day it was written.
+   **A k is a coordinate of the SEARCH that produced it**, so a null built on
+   `search_caesura`'s k under-corrects a three-part rule by ~2.6x.
+   Run that identical search over
    lines whose words have been SHUFFLED WITHIN THE LINE -- same words, same
    consonants, same length, arrangement destroyed -- and it still reports
    cynghanedd on about a quarter of them. So a bare "26% of lines carry

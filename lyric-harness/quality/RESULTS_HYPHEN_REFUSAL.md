@@ -147,8 +147,17 @@ now excludes them, matching every other reader (including `quality/grid.py`'s
 `read_marked_songs` over these same files) and this table's OWN first row.
 The "187" and "10231"/"5.4188%" figures below are UNCHANGED — they are still
 the hyphen refusal's price on whatever population `read_lines` returns, they
-now land on 151,898/9,078/5.9764% instead of 188,805/10,044/5.3198%.
-`quality/test_readability.py` test 5 carries the current pin.
+now land on 151,894/9,078/5.9765% instead of 188,805/10,044/5.3198%.
+**REPINNED 2026-08-13 from 151,898/5.9764%**, and the movement is four lines,
+not a corpus edit: the 2026-08-12 fix wrote the apparatus rule into
+`read_lines` a second time as `--- ` with a trailing space, and a four-hyphen
+Wordsworth epigraph in `eng_british_felicia_hemans.txt` is not `--- `.
+`read_lines` calls `lyric_harness.is_apparatus_line` now, so **the first row of
+the table above and `read_lines` are the same rule and not merely the same
+number** — which is why this file, `readability.py` and `token_pieces` all had
+151,894 while the test pinned 151,898. `quality/test_readability.py` test 5
+carries the current pin and sweeps all 189,066 letter-bearing corpus lines to
+prove the two predicates agree.
 
 On the pinned rule:
 
