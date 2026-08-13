@@ -601,12 +601,25 @@ from the first run — do not drift from these either:**, merged into one run.)
    would be a worse defect than the leak. See RESULTS_BAND.md.
 
 4. **Four layers.** Signal (phoneme channels: nucleus/coda/onset/stress,
-   scored separately). Time (BUILT and POWERED, and it found nothing:
+   scored separately). Time (BUILT, and **MUTE** — not powered, and the
+   difference is the whole 2026-08-11 retraction, which this line had not been
+   told until 2026-08-13. It read "BUILT and POWERED, and it found nothing",
+   which is the sentence that would make a reader believe the layer works;
+   `quality/RESULTS_FWER.md` has said since 2026-08-11 that **the layer is not
+   measurable, it is MUTE**, and marked P1/P2/P4 VOID. A null from a powered
+   instrument and silence from an instrument that cannot fire are different
+   results, and doctrine 20 is the doctrine about not collapsing them.
    quality/time_layer.py, RESULTS_TIME.md, RESULTS_FWER.md. Placement of
    rhyme against a metric period, phase-invariant and self-normalizing,
    with family-wise error control across each position's candidate family
-   (median 89 on a quatrain, 156-282 on a sonnet; "~15" was the SCORED
-   family and is amended at doctrine 29). Saturation 6-16%.
+   (median 89 on a quatrain, 156-282 across 24 sonnets — MEASURED 2026-08-13,
+   median 203; 176-265 is the same statistic over sonnets 1-8 only; "~15" was
+   the SCORED family and is amended at doctrine 29).
+   ~~Saturation 6-16%.~~ **REPINNED 2026-08-13: 6-16% is `m` = SCORED and was
+   struck VOID at RESULTS_FWER.md's own P1 row on 2026-08-11 — this file went
+   on quoting it un-struck for two days. At the honest candidate family
+   saturation is 0.0%, 18 of 20 real sonnets return `cannot tell` and the other
+   2 return zero events.**
    The standing record of what that layer does and does not
    license is METHOD § Time layer.
    Still no beat grid — there is no audio, so isochrony is an assumed
@@ -976,9 +989,19 @@ rather than this paragraph — a roster copied into two files drifts in both.
    first run was fitted on 9.2% corrupted end words.)
    Remaining: sun/much needs a CONJUNCTIVE band rule, not a comparator
    -- its nucleus is identical, so it was never a floor case.
-3. **Time layer.** Placement half built, POWERED and null. The blocker
-   was never the comparator: it was multiplicity, and family-wise error
-   control fixed it (RESULTS_FWER.md). The beat grid still does not
+3. **Time layer.** Placement half built, and **MUTE**.
+   ~~POWERED and null. The blocker was never the comparator: it was
+   multiplicity, and family-wise error control fixed it (RESULTS_FWER.md).~~
+   **REPINNED 2026-08-13, and this was the live claim.** That sentence is this
+   file's copy of a headline `RESULTS_FWER.md` voided on 2026-08-11, and it is
+   the reason a reader would believe the layer works. **Family-wise error
+   control did not fix it.** It moved the layer from 87-97% saturation — no
+   power, because everything was an event — to 0%, no power, because nothing is
+   attainable. The reason is that `m` had been measured over band SURVIVORS
+   rather than over candidates: at the honest candidate family (89 on a
+   quatrain, 156-282 across 24 sonnets) NO POSITION ON ANY ITEM IN THIS
+   REPOSITORY clears its cut at window 32. So the blocker was multiplicity AND
+   the family size is the measurement that says so. The beat grid still does not
    exist and cannot until audio or a declared tempo enters. NOT a
    second rap corpus -- that was doctrine 8 broken twice (single
    source, single language) and no rap is admissible anyway. The
