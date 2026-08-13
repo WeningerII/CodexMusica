@@ -56,18 +56,24 @@ import sys
 # BLAS reads these once, at load, and a `setdefault` after `import numpy` is a
 # no-op that looks like a fix.
 #
-# MEASURED 2026-08-13, warm cache, `n_permutations=5`, same machine, same
-# input, output byte-identical:
-#     default threading (4 cores)  ~625 CPU-s   (~10 min wall)
-#     OMP/OPENBLAS/MKL = 1           ~32 CPU-s   (~35 s wall)
-# The work is 824 logistic regressions on matrices of 132x10 and 192x8. At
-# that size every BLAS call is smaller than the cost of waking four threads to
-# serve it, so the thread pool spends its life in spin-wait -- and spin-wait is
-# CPU, not idle, which is why `user` time tracked `real` and the run did not
-# look like contention. This is not a tuning knob and it is not a speed-up of
-# the statistics: the seed sweep, the null and the observed AUC are all
-# unchanged to every printed digit. It is an undeclared coordinate of the
-# RUNTIME (doctrine 58's shape, applied to cost rather than to a number).
+# MEASURED 2026-08-13 on a 4-core box, warm cache, same input both ways:
+#     824 CVs (`n_permutations=5`)  4 threads ~625 CPU-s | 1 thread ~32 CPU-s
+#      84 CVs (equivalence probe)   4 threads  70.3 CPU-s | 1 thread 7.96 CPU-s
+# 8.8x on the small run, ~20x on the full one -- the penalty grows with the
+# number of calls, which is the signature of per-call thread overhead rather
+# than of contention.
+#
+# The work is logistic regressions on matrices of 132x10 and 192x8. At that
+# size every BLAS call is smaller than the cost of waking four threads to serve
+# it, so the pool spends its life in spin-wait -- and spin-wait is CPU, not
+# idle, which is why `user` tracked `real` and a 10-minute run did not look
+# like a busy machine.
+#
+# IT CHANGES THE COST AND NOT THE NUMBERS, and that was checked rather than
+# assumed: all 84 AUCs in the probe above are IDENTICAL AT FULL FLOAT PRECISION
+# (`repr`, 17 significant figures) between the two settings -- a stricter test
+# than the 3 decimals the report prints. So this is an undeclared coordinate of
+# the RUNTIME, not of the measurement (doctrine 58's shape, applied to cost).
 #
 # `setdefault`, not assignment: an operator who has already declared a thread
 # count keeps it.
@@ -187,10 +193,10 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
     # code running now is measuring a comparator nobody named, which is the
     # exact defect this file is an audit OF. And that is not hypothetical here.
     # `quality/features.py` was edited TWICE by a concurrent cell inside that
-    # single 17.5-minute build (digest d19ffe04 -> 2efbffbe -> 1ff08f3c), so the
-    # cache was stale before it finished being written. A cold recompute cannot
-    # outrun the rate at which this repo's own comparator moves, which is the
-    # strongest possible argument for refusing rather than recomputing.
+    # single 17.5-minute build (digest d19ffe04 -> 2efbffbe -> 1ff08f3c), so
+    # the cache was stale before it finished being written. A cold recompute
+    # cannot outrun the rate at which this repo's own comparator moves, which
+    # is the strongest possible argument for refusing rather than recomputing.
     # Doctrine 20 -- "cannot tell" is not a result, and it is not a failure
     # either.
     if strict and (absent or why != "fingerprint match"):
@@ -304,16 +310,21 @@ PINNED = {
 #: apart into two different committed values (doctrine 1: one declaration).
 
 #: BOUNDS `--check` DECLARES (doctrine 79). Measured 2026-08-13 with threads
-#: pinned as above, warm cache:
-#:   imports + two feature constructors      ~9 s   (unavoidable; the
-#:                                                  constructors read the
-#:                                                  concreteness norms)
+#: pinned as above, warm cache, on a 4-core box under other load:
+#:   imports + two feature constructors      ~5 s   (the constructors read the
+#:                                                   concreteness norms)
 #:   4 observed AUCs                         ~0.2 s
-#:   4 x CHECK_PERM null permutations        ~0.2 s
+#:   4 x CHECK_PERM null permutations        ~0.8 s
 #:   4 x CHECK_SEEDS true-label CVs          ~30 s at 200
+#:   ------------------------------------------------------------------
+#:   WHOLE `--check`                         35.6 / 36.5 CPU-s on two runs
+#:                                           (50.5 s and 65.3 s WALL, busy box)
+#: A REFUSED run costs 1.8 s: it never reaches a constructor.
+#:
 #: The null is capped because `check` does not read it; the seed sweep is NOT
 #: capped, because its median is one of the pinned quantities and a sweep run
-#: at a different length is a different statistic.
+#: at a different length is a different statistic, not a cheaper estimate of
+#: the same one.
 CHECK_PERM = 5
 CHECK_SEEDS = 200
 
@@ -340,19 +351,19 @@ def check(m):
               "absent:")
         for k in m["resources_absent"]:
             print(f"      {k}")
-        print("  These are quality/discriminate.py's own RESOURCE_FILES, so an "
-              "absent one")
+        print("  These are quality/discriminate.py's own RESOURCE_FILES, so "
+              "an absent one")
         print("  changes the cache fingerprint and no cache built with it "
               "present can be")
-        print("  reused (doctrine 1 -- the declaration is part of the identity "
-              "of the")
+        print("  reused (doctrine 1 -- the declaration is part of the "
+              "identity of the")
         print("  measurement). data/concreteness.txt is additionally FATAL: "
               "QualityFeatures()")
-        print("  raises SystemExit without it, before a single AUC is reached. "
-              "None of these")
-        print("  three files is tracked in git, so a fresh checkout has none "
-              "of them --")
-        print("  run quality/fetch_data.py first.")
+        print("  raises SystemExit without it, before a single AUC is "
+              "reached. None of")
+        print("  these three files is tracked in git, so a fresh checkout has "
+              "none of")
+        print("  them -- run quality/fetch_data.py first.")
         print("\nRESULT: REFUSED (not a pass, not a failure -- doctrine 20)")
         return 2
     if m["cache_status"] != "fingerprint match":
@@ -364,8 +375,8 @@ def check(m):
               "costs 17.5")
         print("  CPU-MINUTES (measured 2026-08-13: 1049.5 CPU-s / 384 items) "
               "and this script")
-        print("  never saves what it computes, so it would pay that again next "
-              "time.")
+        print("  never saves what it computes, so it would pay that again "
+              "next time.")
         print("  Warm it with `python3 quality/discriminate.py`, which does "
               "save.")
         print("\nRESULT: REFUSED (not a pass, not a failure -- doctrine 20)")
