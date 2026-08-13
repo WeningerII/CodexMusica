@@ -815,6 +815,307 @@ def test_return_never_returns_is_reached():
           f"codes: {sorted({x.code for x in fc})}")
 
 
+# ---------------------------------------------------------------------------
+# THE VARIATION LADDER — `compare_returns`, and what it costs to collapse it
+#
+# `VARIATION_KINDS` is the object doctrine 24 is about: the conjunctive coda
+# rule RELABELS instead of deleting, and so does this — a chorus that comes
+# back one line short is not "the same" and not "different", it is TRUNCATED,
+# and the test of the rule is whether the harness can say MORE afterwards.
+# Nothing in this repo checked that it still could. Both tests below were
+# written against a surviving mutant (`quality/mutate.py` QG1): drop the two
+# unmatched-line conditions from the VERBATIM branch and ten test files,
+# `test_grid.py` and `test_song_function.py` among them, stayed green.
+#
+# Doctrine 94 is why they did. Every assertion this repo owned about
+# `compare_returns` was somebody writing a verbatim return and checking that
+# it reported VERBATIM — and a rule that is too GENEROUS about VERBATIM passes
+# every one of those by construction. Nobody had cut a line and looked.
+# ---------------------------------------------------------------------------
+
+#: one chorus, and the shapes its return can take. Written once so the control
+#: and the two defects are literally the same words: the ONLY thing that
+#: separates them is a line's presence.
+CHORUS = ["Hold the line tonight",
+          "Hold it till the morning",
+          "Nothing in the dark can hurt us now",
+          "Hold the line tonight"]
+
+
+def test_a_return_that_loses_or_gains_a_line_is_not_verbatim():
+    """A truncated or extended chorus must not report as an exact return.
+
+    `compare_returns` builds VERBATIM from THREE conditions -- no paired line
+    differs, no line of the first is unmatched, no line of the return is --
+    and only the first is exercised by a positive case. Drop the other two and
+    a return that lost or gained a whole line still reports VERBATIM, because
+    every line that survived to be PAIRED is word-for-word identical; the
+    difference is the line that is on one side and not the other, which no
+    pairwise comparison ever looks at.
+
+    Then the ladder does the rest of the damage. VERBATIM is FIRST in
+    `VARIATION_KINDS`, so it wins the `kind` precedence over TRUNCATED_RETURN
+    and EXTENDED_RETURN, and those two stop being reportable at all -- three
+    named kinds collapsed into one, which is doctrine 24 run backwards.
+
+    ASSERT ON `kind`, NOT ON `qualities`. The qualities set is assembled by
+    independent branches and TRUNCATED_RETURN stays in it either way. A check
+    written against `qualities` alone passes the exact collapse it exists to
+    catch, which is why every assertion below names `kind` and why the
+    VERBATIM-is-absent-from-qualities check is written as its own line.
+    """
+    print("\n21. DOCTRINE 24 INVERTED — a return that LOSES or GAINS a line "
+          "is not a VERBATIM return")
+    from quality.grid import compare_returns
+
+    # THE CONTROL, FIRST AND ON THE SAME WORDS. A check that fires on
+    # everything is not a check: the risk here is a rule too GENEROUS about
+    # VERBATIM, and answering it with one too MEAN would trade one wrong
+    # answer for another (test 17 makes the same move for HOOK_CONFINED).
+    same = compare_returns(CHORUS, list(CHORUS))
+    check("a genuinely verbatim return still reports VERBATIM",
+          same.kind == "VERBATIM",
+          f"kind={same.kind}, qualities={sorted(same.qualities)} — the same "
+          f"four lines, unchanged")
+
+    cut = compare_returns(CHORUS, CHORUS[:3])
+    check("a chorus whose return DROPS its last line reports "
+          "TRUNCATED_RETURN",
+          cut.kind == "TRUNCATED_RETURN",
+          f"kind={cut.kind}; all three surviving lines are identical, so "
+          f"NO PAIRED LINE DIFFERS — the dropped line is the entire "
+          f"difference and it is on neither side of any pair")
+    check("...and VERBATIM is not even among its qualities",
+          "VERBATIM" not in cut.qualities,
+          f"qualities={sorted(cut.qualities)} — asserting the kind alone "
+          f"would leave the qualities set free to claim both at once, and a "
+          f"caller reading `qualities` is reading the same object")
+
+    # INTERIOR, not just the tail: the LCS alignment is what finds this one,
+    # and a rule keyed on "the return is a prefix of the first" would miss it.
+    inner = compare_returns(CHORUS, [CHORUS[0], CHORUS[2], CHORUS[3]])
+    check("a line dropped from the MIDDLE is truncation too",
+          inner.kind == "TRUNCATED_RETURN"
+          and inner.invariant_lines == (1, 3, 4),
+          f"kind={inner.kind}, invariant={inner.invariant_lines} — lines 1, "
+          f"3 and 4 of the first are matched and line 2 is unmatched")
+
+    grew = compare_returns(CHORUS[:3], CHORUS)
+    check("the same shape the other way round reports EXTENDED_RETURN",
+          grew.kind == "EXTENDED_RETURN" and "VERBATIM" not in grew.qualities,
+          f"kind={grew.kind}, qualities={sorted(grew.qualities)}")
+
+    added = compare_returns(CHORUS, CHORUS + ["And we are not going home"])
+    check("...including the added bar on the last return, where every line "
+          "of the first survives verbatim",
+          added.kind == "EXTENDED_RETURN"
+          and added.invariant_lines == (1, 2, 3, 4),
+          f"kind={added.kind}, invariant={added.invariant_lines} — all four "
+          f"original lines matched, one new line unmatched. This is the case "
+          f"a paired-lines-only rule is most sure about and most wrong")
+
+    # THE RECORD MUST NOT CONTRADICT ITSELF. `kind` and the distances are two
+    # readings of one comparison, and a VERBATIM return with four word-edits
+    # of distance is not a wrong answer plus a right one -- it is one object
+    # saying two things. Written as an invariant over every shape above rather
+    # than as a fourth fixture, so a NEW collapse is caught by the same line.
+    every = [("verbatim", same), ("tail cut", cut), ("interior cut", inner),
+             ("extended", grew), ("bar added", added)]
+    bad = [(n, r.kind, r.line_distance, r.token_distance) for n, r in every
+           if r.kind == "VERBATIM"
+           and not (r.line_distance == 0 and r.token_distance == 0)]
+    check("VERBATIM and a non-zero distance are never reported together",
+          not bad,
+          f"contradictory records: {bad}" if bad else
+          "; ".join(f"{n}: {r.kind} line={r.line_distance} "
+                    f"token={r.token_distance}" for n, r in every))
+
+    # AND THE BLAST RADIUS, at the layer a writer actually reads. This is the
+    # half `quality/test_song_function.py` could have caught and did not.
+    _returns_with_same_words_is_not_charged_to_a_cut_verse()
+
+
+def _returns_with_same_words_is_not_charged_to_a_cut_verse():
+    """The collapse reaches `return_findings`, and it accuses the writer.
+
+    `RETURNS_WITH_SAME_WORDS` gates on `kinds == {"VERBATIM"}` and on nothing
+    else, so a verse whose second instance is the first minus a line is told
+    "every verse returns with IDENTICAL words" -- a finding about a defect it
+    does not have, instead of the truncation it does.
+
+    RETURN_LOCKED is the near miss that explains the silence. Its gate carries
+    `all(r.tune_slot_preserved)` as well, and dropping a line always changes
+    the slot profile, so a truncated CHORUS keeps reporting RETURN_SLOT_DRIFT
+    and no report-level code moves. The report layer was catching the truncated
+    chorus on the GRID -- a line count -- and never on the WORDS, which is why
+    a suite watching finding codes on a chorus fixture saw nothing at all.
+    """
+    from quality.grid import (Line, Section, Song, SECTION_FUNCTIONS,
+                              return_findings)
+
+    verse = ["a quiet road and nothing on it",
+             "the rain came down at midnight",
+             "morning found the empty road", "and nobody was home"]
+
+    def song(second):
+        s = Song(sections=[Section("v1", 4, function="verse"),
+                           Section("c1", 4, function="chorus"),
+                           Section("v2", 4, function="verse"),
+                           Section("c2", 4, function="chorus")]).layout()
+        s.lines = ([Line(t, bar=1) for t in verse]
+                   + [Line("hold the line tonight", bar=5)]
+                   + [Line(t, bar=9) for t in second]
+                   + [Line("hold the line tonight", bar=13)])
+        return s
+
+    check("a verse is a 'new words' function, so identical words ARE a "
+          "finding about it",
+          SECTION_FUNCTIONS["verse"].returns_as == "new words"
+          and SECTION_FUNCTIONS["chorus"].returns_as == "verbatim",
+          f"verse -> {SECTION_FUNCTIONS['verse'].returns_as!r}, chorus -> "
+          f"{SECTION_FUNCTIONS['chorus'].returns_as!r}")
+
+    fs, _, rets = return_findings(song(verse), "verse")
+    check("the positive case survives: two identical verses ARE charged "
+          "RETURNS_WITH_SAME_WORDS",
+          "RETURNS_WITH_SAME_WORDS" in {f.code for f in fs}
+          and [r.kind for _, _, r in rets] == ["VERBATIM"],
+          f"{sorted(f.code for f in fs)}")
+
+    fs2, _, rets2 = return_findings(song(verse[:3]), "verse")
+    codes = {f.code for f in fs2}
+    check("a verse that comes back one line SHORT is not charged with "
+          "returning with identical words",
+          "RETURNS_WITH_SAME_WORDS" not in codes,
+          f"kinds {[r.kind for _, _, r in rets2]}, findings {sorted(codes)} "
+          f"— the gate is `kinds == {{'VERBATIM'}}` and nothing else, so a "
+          f"kind collapsed to VERBATIM hands the writer a finding about a "
+          f"defect this verse does not have")
+    check("...and the truncation is what the return record actually says",
+          [r.kind for _, _, r in rets2] == ["TRUNCATED_RETURN"],
+          f"{[r.kind for _, _, r in rets2]}")
+
+
+def test_every_variation_kind_is_reportable():
+    """A kind that can never be REPORTED is a check that cannot fail.
+
+    `kind` is `next(k for k, _ in VARIATION_KINDS if k in q)`, so the ladder's
+    ORDER decides which observation a reader is shown, and a kind whose every
+    input also satisfies something above it is dead vocabulary: present in the
+    tuple, glossed in the docstring, never once the answer. Doctrine 48 -- a
+    principle that lives only in prose gets followed exactly as often as
+    someone remembers it, and the fifteen entries of `VARIATION_KINDS` are a
+    promise in prose until something asks each of them to be the answer.
+
+    THIS IS THE AUDIT, RUN AS A TEST rather than reported once. It found
+    nothing wrong with the shipped ladder: all fifteen are reportable, so
+    nothing was fixed. It fails under QG1 with EXACTLY the two kinds that
+    mutation collapses -- TRUNCATED_RETURN and EXTENDED_RETURN -- and the
+    other thirteen still reported, which is a sharper fingerprint than "a
+    fixture changed answer".
+
+    The fixtures are the evidence and are deliberately minimal: each one is
+    the smallest pair that lands on its rung without satisfying a higher one.
+    `rime_orthographic` is used for the one rung that needs a phonology
+    because this test is about the LADDER and not about English sound -- it is
+    a LABELLED proxy (doctrine 45), it says so in its own `declared_name`, and
+    reading it as a claim about rhyme would be reading it wrong.
+    """
+    print("\n22. THE LADDER — every one of the fifteen kinds can be the "
+          "REPORTED kind")
+    from quality.grid import (VARIATION_KINDS, compare_returns,
+                              rime_orthographic)
+
+    fixtures = {
+        "STUB": (
+            ["Hold the line tonight", "Hold it till the morning"],
+            ["Hold the line, &c."], {}),
+        "VERBATIM": (CHORUS, list(CHORUS), {}),
+        "TRUNCATED_RETURN": (CHORUS, CHORUS[:3], {}),
+        "EXTENDED_RETURN": (CHORUS[:3], CHORUS, {}),
+        "LEXICAL_VARIATION": (
+            ["We will hold the line", "We will wait for morning"],
+            ["We did hold the line", "We did wait for morning"], {}),
+        "FRAME_PRESERVED": (
+            ["Hold the line tonight", "rain against the shutters cold",
+             "Hold the line tonight"],
+            ["Hold the line tonight", "wind across an empty road",
+             "Hold the line tonight"], {}),
+        "HEAD_AND_TAIL_PRESERVED": (
+            ["hold the rain against the morning light",
+             "hold the wind above the morning light"],
+            ["hold the empty roads and quiet cars until the morning light",
+             "hold the broken glass and silent bells until the morning light"],
+            {}),
+        "TAIL_PRESERVED": (
+            ["rain came falling to the morning light",
+             "wind came calling to the morning light"],
+            ["empty roads and silent cars beside the morning light",
+             "broken glass and quiet bells beside the morning light"], {}),
+        "HEAD_PRESERVED": (
+            ["hold the rain against the shutters",
+             "hold the wind across the road"],
+            ["hold the empty roads and quiet cars",
+             "hold the broken glass and silent bells"], {}),
+        "RHYME_PRESERVING_REWRITE": (
+            ["a bitter wind is on the town",
+             "the empty streets are burning bright"],
+            ["whatever else has fallen down",
+             "so many candles carried light"],
+            {"rhyme_key": rime_orthographic}),
+        "PARTIAL_RETURN": (
+            ["Hold the line tonight", "rain against the shutters cold",
+             "morning comes for everyone"],
+            ["Hold the line tonight", "empty roads and silent cars",
+             "quiet bells for no one now"], {}),
+        "ANAPHORIC_RETURN": (
+            ["still the rain against the shutters cold",
+             "morning comes for everyone at last"],
+            ["still an empty road and silent cars",
+             "quiet bells for no one now my friend"], {}),
+        "EPIPHORIC_RETURN": (
+            ["rain against the shutters cold at last",
+             "morning comes for everyone tonight"],
+            ["empty roads and silent cars go by",
+             "quiet bells for no one now tonight"], {}),
+        "RESTATEMENT": (
+            ["the rain came down at midnight",
+             "morning found the empty road"],
+            ["at midnight down came the rain",
+             "the empty road found morning"], {}),
+        "REWRITTEN_RETURN": (
+            ["the rain came down at midnight",
+             "morning found the empty road"],
+            ["whistles blow for nobody",
+             "so few candles burning bright"], {}),
+    }
+
+    ladder = [k for k, _ in VARIATION_KINDS]
+    check("every kind in VARIATION_KINDS has a fixture, and every fixture "
+          "names a kind",
+          sorted(fixtures) == sorted(ladder),
+          f"ladder {ladder}\n          fixtures "
+          f"{sorted(fixtures)} — half a set equality is not a set equality "
+          f"(test 16 learned this the hard way), so a kind added to the "
+          f"vocabulary without a fixture fails HERE rather than going "
+          f"unreachable in silence")
+
+    unreportable = []
+    for kind in ladder:
+        first, again, kw = fixtures[kind]
+        got = compare_returns(first, again, **kw)
+        if got.kind != kind:
+            unreportable.append((kind, got.kind, sorted(got.qualities)))
+    check("all fifteen are reachable as the reported kind — no rung of the "
+          "ladder is shadowed by the one above it",
+          not unreportable,
+          "\n          ".join(f"{k} is UNREPORTABLE: its own fixture came "
+                              f"back {g}, qualities {q}"
+                              for k, g, q in unreportable)
+          if unreportable else
+          f"{len(ladder)} kinds, {len(ladder)} reported: {ladder}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -835,7 +1136,9 @@ if __name__ == "__main__":
                test_hook_confined_and_the_undeclared_landing,
                test_the_three_counts_all_count_questions,
                test_the_ask_gate_reaches_every_function_that_is_expected_once,
-               test_return_never_returns_is_reached):
+               test_return_never_returns_is_reached,
+               test_a_return_that_loses_or_gains_a_line_is_not_verbatim,
+               test_every_variation_kind_is_reportable):
         fn()
     print("=" * 62)
     if FAILURES:
