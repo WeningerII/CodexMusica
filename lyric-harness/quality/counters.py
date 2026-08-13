@@ -95,11 +95,15 @@ into BACKLOG.md PROSE is not a row and is not checked -- and BACKLOG.md's own
 preamble says "the live values are in the table and are deliberately not
 repeated here, because a number restated in prose beside its own counter is the
 next thing to drift", then restates two of them four paragraphs later, one of
-which (the mutation count) has since drifted. `Counter.restated` REPORTS the
-known restatements next to the measurement and does not set the exit code,
-because rewriting a sentence is a BACKLOG.md owner's job that `--write` cannot
-do. So the guarantee is: no number BETWEEN THE MARKERS can go stale without a
-red test. Prose beside the table can, and does.
+which (the mutation count) had drifted to `33 declared` against a measured 57.
+`Counter.restated` REPORTS the known restatements next to the measurement and
+does not set the exit code, because rewriting a sentence is a BACKLOG.md
+owner's job that `--write` cannot do. It worked: that sentence was rewritten
+2026-08-13 into a dated COVERAGE statement, and this pattern was re-anchored to
+the new shape in the same edit rather than left matching nothing -- see the
+comment beside the `mutations declared` counter for why a silently unmatching
+pattern is the worse failure. So the guarantee is: no number BETWEEN THE
+MARKERS can go stale without a red test. Prose beside the table can, and does.
 
 WHAT THIS FILE DOES NOT DO. It does not re-implement any instrument it reports.
 The doctrine run comes from `verify_doctrines.definitions()`; the stranded count
@@ -1367,9 +1371,23 @@ COUNTERS = [
     # is the next thing to drift". Both patterns anchor on that sentence's
     # phrasing and will fall silent if it is rewritten; that blind spot is
     # named in `Counter.__doc__` rather than hidden behind a looser regex.
+    #
+    # RE-ANCHORED 2026-08-13, and the reason is the blind spot firing exactly
+    # as predicted. This pattern was
+    # `\*\*\d+ declared, \d+ caught, \d+ allowlisted\*\*`, matching a sentence
+    # that read `**33 declared, 32 caught, 1 allowlisted**` while the row four
+    # lines below it measured 57. That prose is now a dated COVERAGE statement
+    # -- `**24 of the 57 then declared**` -- because no run covers the declared
+    # set and a caught/declared ratio would be doctrine 79's sum of four
+    # different questions. Rewriting the sentence and leaving the old pattern
+    # in place would have retired the report by accident: a regex matching
+    # nothing reads exactly like a restatement that is no longer there. The
+    # new pattern tracks the new shape, so a reader still gets the dated
+    # denominator printed beside the live one and can see when history and
+    # measurement have parted company.
     Counter("mutations declared", "python3 quality/counters.py",
             mutations_declared,
-            restated=r"\*\*\d+ declared, \d+ caught, \d+ allowlisted\*\*"),
+            restated=r"\*\*\d+ of the \d+ then declared\*\*"),
     Counter("mutations caught", "python3 quality/test_mutation.py",
             mutations_caught, slow=True),
     Counter("`corpus/song/` files", "python3 quality/counters.py",

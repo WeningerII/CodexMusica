@@ -22,6 +22,7 @@ written, silently. Doctrine 1: the declaration is part of the identity of any
 measurement, and a cache key that omits the declaration is not a cache key.
 """
 
+import ast
 import hashlib
 import json
 import math
@@ -132,6 +133,16 @@ def benjamini_hochberg(pvals, q=FDR_Q):
 # numbers without touching quality/ at all. That is precisely the path by which
 # the cache went stale, and a fingerprint that skipped it would leave the
 # original defect open while looking fixed.
+#
+# THE DEFINITIONS AXIS IS DIGESTED AT TWO GRANULARITIES SINCE 2026-08-13, and
+# which file gets which is decided by what the file IS. `SOURCE_FILES` are code
+# and go through `_digest_source`, whose digest is of the AST with docstrings
+# stripped; `RESOURCE_FILES` are data and stay on `_digest_file`, byte for
+# byte. Before that date both were byte-granular, which never wrongly reused
+# and cost 2.3 CPU-hours to fix a comment -- measured, three times in one
+# session, in quality/RESULTS_CACHE_IDENTITY.md. The argument for the split,
+# what it still over-approximates, and what happens to a file that does not
+# parse are all in `_digest_source`'s own docstring.
 
 CACHE_FORMAT = 2
 
@@ -176,6 +187,123 @@ def _digest_file(path, n=16):
     return h.hexdigest()[:n]
 
 
+#: Node types Python attaches a docstring to. A docstring is the FIRST
+#: statement and only the first; a string expression anywhere else is left
+#: standing, because there it is a statement like any other.
+_DOCSTRING_HOLDERS = (ast.Module, ast.ClassDef, ast.FunctionDef,
+                      ast.AsyncFunctionDef)
+
+
+def _strip_docstrings(tree):
+    """Remove every module/class/function docstring from `tree`, in place.
+
+    An emptied body becomes `pass` rather than `[]`, so the stripped tree is
+    still a WELL-FORMED AST -- `ast.Module.body` and friends are non-empty in
+    the grammar, and a tree that cannot be compiled or unparsed is a trap for
+    the next reader who tries. It also makes `def f(): "doc"` digest as
+    `def f(): pass`, which is what those two functions actually are.
+
+    The substituted `pass` INHERITS THE DOCSTRING'S LOCATION, which costs the
+    digest nothing -- `_digest_source` dumps without attributes, so no
+    `lineno` reaches it either way -- and buys the sentence above being true.
+    A bare `ast.Pass()` carries no `lineno`, and `compile()` on a tree
+    containing one raises `TypeError: required field "lineno" missing from
+    stmt` unless the caller knows to run `ast.fix_missing_locations` first.
+    MEASURED, not assumed: that TypeError is what a bare `ast.Pass()` gave
+    here, on a module whose only function body was a docstring.
+    """
+    for node in ast.walk(tree):
+        if not isinstance(node, _DOCSTRING_HOLDERS):
+            continue
+        body = node.body
+        if (body and isinstance(body[0], ast.Expr)
+                and isinstance(body[0].value, ast.Constant)
+                and isinstance(body[0].value.value, str)):
+            node.body = (body[1:]
+                         or [ast.copy_location(ast.Pass(), body[0])])
+    return tree
+
+
+def _digest_source(path, n=16):
+    """Digest of a SOURCE file's CODE -- docstrings and comments excluded.
+
+    Returns `ast:<sha>`, or `raw:<sha>` when the file could not be parsed, or
+    `ABSENT`. The prefix is part of the value on purpose; see below.
+
+    WHY THIS IS NOT `_digest_file` (CHANGED 2026-08-13; doctrine 17, the
+    superseded behaviour is stated rather than removed). Until this date every
+    entry of `SOURCE_FILES` was keyed on `_digest_file`, a sha256 of the file's
+    BYTES. That is a conservative over-approximation of "everything that, if
+    changed, makes a stored vector a different number", and it was correct in
+    the direction that matters -- it never wrongly REUSES. It was also
+    expensive in the other direction, and the price was measured rather than
+    argued: a discard rebuilds this module's 384 vectors at **1,050 CPU-s,
+    MEASURED 2026-08-13 twice (1049.5 s and 1067.8 s)** plus
+    `song_profile_calibration`'s predictability cache at ~7,400 CPU-s, so
+    ~8,450 CPU-s / ~2.3 CPU-hours per discard. `quality/features.py` paid it
+    THREE times in one session and the third payment was 94 bytes of
+    docstring (`b8047e8 -> ef21639`) with not one executable byte moved.
+    The consequence is a perverse incentive rather than merely a slow run: the
+    cheapest way to preserve a 2.3-CPU-hour cache becomes leaving a wrong
+    comment in place, in a repo whose own record-adversary has found four
+    stale records in a week. `quality/RESULTS_CACHE_IDENTITY.md` is the
+    measurement and the argument.
+
+    `ast.dump` is taken WITHOUT attributes (the default, spelled out below
+    because it is the whole mechanism): `lineno`/`col_offset` are excluded, so
+    adding a line to a docstring does not shift the digest of every function
+    beneath it. Comments never reach `ast.parse` at all, so they come free.
+
+    STILL AN OVER-APPROXIMATION, NARROWED AND NOT ELIMINATED. `ast.dump`
+    carries identifiers, so a pure variable rename registers as a change;
+    reordering two independent function definitions registers; and the dump
+    format is a coordinate of the PYTHON VERSION, so the same file can digest
+    differently under a different interpreter. All three discard when they did
+    not have to. None of them reuses when it should not, which is the
+    direction this key exists to protect.
+
+    ON A FILE THAT DOES NOT PARSE, the byte digest is used and the value says
+    so. Raising here would turn a broken edit into a `SyntaxError` three
+    frames down inside a cache-key builder, naming this module rather than the
+    file the writer just broke. Falling back is also the CONSERVATIVE answer
+    on its own terms: a file we cannot read the structure of is the case where
+    we know least, and the byte digest is the strictest key available. Through
+    this module's own path the fallback is nearly unreachable -- all three
+    `SOURCE_FILES` are imported at the top of this file, so a file that does
+    not parse has already killed the import. The case it is really for is the
+    one `audit_joint_auc_null.py` recorded: a concurrent cell editing
+    `features.py` under a running rebuild, where a half-written working-tree
+    state gets read (digest `2efbffbe`, a state that is in no commit). The
+    mode rides IN the digest so the degradation cannot be silent -- `main`
+    prints these values on every run, and `raw:` on a source line is a
+    reader's notice that the structure was never consulted. It also means a
+    cache written while the file was broken can never be served to a run in
+    which it parses, since `ast:` and `raw:` are different strings.
+
+    Read whole rather than chunked: `_digest_file`'s 1 MiB loop is there for
+    `cmudict.dict` at 3.6 MB, and the largest file on THIS path is
+    `lyric_harness.py` at 236 KB. `ast.parse` wants the whole buffer anyway.
+    """
+    if not os.path.exists(path):
+        return "ABSENT"
+    with open(path, "rb") as f:
+        raw = f.read()
+    try:
+        # include_attributes=False is the DEFAULT and is spelled out because
+        # it is the thing being relied on: with attributes the digest would
+        # move whenever a docstring changed line count, which is the defect.
+        blob = ast.dump(_strip_docstrings(ast.parse(raw)),
+                        include_attributes=False).encode("utf-8")
+        tag = "ast"
+    except (SyntaxError, ValueError, RecursionError):
+        # SyntaxError: a broken edit. ValueError: a NUL byte, which is what a
+        # partially-flushed write looks like. RecursionError: `ast.dump` on a
+        # pathologically nested expression -- it recurses, and a cache key is
+        # not the place to discover that.
+        blob, tag = raw, "raw"
+    return f"{tag}:{hashlib.sha256(blob).hexdigest()[:n]}"
+
+
 def declaration_tuple(decl):
     """The declared coordinates of the rhyme comparator, as a stable mapping.
 
@@ -199,11 +327,32 @@ def cache_identity(feature_classes=(QualityFeatures, WithinItemFeatures),
     two are the pre-registration itself: a feature quietly renamed or a
     committed direction quietly flipped is the failure this module exists to
     make impossible, and it must not survive in a cache either.
+
+    THE TWO FILE GROUPS ARE DIGESTED AT DIFFERENT GRANULARITIES, and the split
+    is the point rather than an inconsistency. `SOURCE_FILES` are CODE, so
+    they go through `_digest_source` and their docstrings are stripped: a
+    docstring cannot move a number, and keying on it made fixing a wrong
+    comment cost 2.3 CPU-hours. `RESOURCE_FILES` are DATA and stay on
+    `_digest_file`, byte for byte, doctrine 58.
+
+    NOT because they have no comment layer -- `cmudict.dict` HAS one, 22 lines
+    carry a trailing `# place, danish` and `Lexicon.__init__` strips it with
+    `line.split("#")[0]`, so those bytes provably cannot move a number either.
+    The reason is that stripping them would need a SECOND reader of that
+    format. `ast.parse` is CPython's own parser, the same one that executes
+    the source file, so the source stripper cannot drift from the truth; the
+    only statement of `cmudict.dict`'s comment rule is one bespoke line in
+    `Lexicon.__init__`, and a digest that re-implemented it would be free to
+    disagree with it. A digest that strips more than the loader does discards
+    bytes the loader reads -- which wrongly REUSES, the one direction this key
+    exists to prevent. The tax that justified taking that risk on source files
+    does not exist here anyway: nobody hand-edits a comment in a downloaded
+    pronunciation dictionary.
     """
     decl = Declaration() if decl is None else decl
     return {
         "format": CACHE_FORMAT,
-        "sources": {os.path.basename(p): _digest_file(p)
+        "sources": {os.path.basename(p): _digest_source(p)
                     for p in SOURCE_FILES},
         "resources": {os.path.basename(p): _digest_file(p)
                       for p in RESOURCE_FILES},

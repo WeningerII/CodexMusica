@@ -91,9 +91,51 @@ CHOOSING THE RANDOMISATION -- this is the whole intellectual content
   line lengths. Both destroy exactly co-membership. Null B destroys strictly
   less than Null A; if the two agree, the reading is robust.
 
-  Also reported: the ANALYTIC chance rate, i.e. P(some initial class repeats)
-  for a line of m words drawn i.i.d. from the corpus's own initial-class
-  distribution -- a null with no Monte Carlo error at all.
+  ALSO REPORTED, AND SINCE 2026-08-13 ACTUALLY COMPUTED: the ANALYTIC chance
+  rate. P(some initial class repeats) in a line of m slots drawn i.i.d. from
+  the corpus's own initial-class distribution -- Null A's own generative story
+  with replacement instead of a permutation, and with no Monte Carlo error at
+  all. `PINNED_ANALYTIC` holds it for all five corpora.
+
+  THIS PARAGRAPH WAS FALSE FROM THE DAY IT WAS WRITTEN UNTIL 2026-08-13, and
+  the shape of the falsehood is doctrine 20/28's. `analytic()` existed, was
+  called by nothing, and its accumulator loop was `tot += 0.0` under a comment
+  calling the quantity intractable -- so it COMPUTED A ZERO while MEANING "not
+  computed", returned `(unreadable, p)` rather than a rate, and dropped `tot`
+  on the floor. Doctrine 48 in its purest form: a capability that lives only
+  in prose gets used exactly as often as someone remembers it, and nobody ever
+  did. The module claimed a report it never produced, in the paragraph a
+  reader would trust most, for as long as the paragraph existed.
+
+  THE INTRACTABILITY CLAIM IS THE THING THAT WAS WRONG, and it is named here
+  because it is what stopped the work. P(all r draws distinct) is a sum over
+  injections; for draws from DIFFERENT per-slot distributions that sum is a
+  permanent and is genuinely #P-hard. Under the i.i.d. draws THIS PARAGRAPH
+  ITSELF DECLARES, every slot carries the same distribution, the sum collapses
+  to r! * e_r(p) -- the elementary symmetric polynomial -- and an
+  O(classes * m) dynamic program gets every e_r once per corpus. Verified
+  against brute-force enumeration of ordered tuples (agreement < 1e-12), the
+  uniform-alphabet birthday closed form, and the pigeonhole case r > classes.
+  Doctrine 44/92: this was never "hard to build" and never "cannot obtain".
+  It was "nobody did it", behind a wrong reason.
+
+  WHAT IT ADDS OVER THE PERMUTATION NULL, which is the only question that
+  justifies carrying it at all. Null A already answers the poet's question
+  empirically, so the analytic rate is not a second finding -- it is the
+  DEMONSTRATION THAT THE INSTRUMENT COULD HAVE FOUND SOMETHING (doctrine 76),
+  and this file needs one more than most: doctrine 63 is NAMED for a null on
+  this exact corpus that ran, looked rigorous, and tested nothing. Every bound
+  below rides `null_a`'s median, and a `null_a` that quietly stopped shuffling
+  would raise every median toward the observation and LOWER every excess --
+  which reads as a real collapse of the constraint, not as a broken tool. The
+  analytic rate is computed without `null_a`, without `random`, and without a
+  replicate, so the two agreeing is a fact about the MACHINERY and not about
+  Finland. MEASURED: they agree to 1.93 pp at worst over five corpora x eight
+  seeds, and the per-corpus SPREAD of that gap (0.311 / 0.470 / 3.052 / 0.561
+  / 0.971) reproduces the recorded jitter of the excess itself to three
+  decimals -- necessarily, because both quantities move only through the same
+  median, which is the arithmetic proof that the analytic half contributes no
+  noise of its own. An identity-map `null_a` would show 11.5 to 52.6.
 
 DOCTRINE 89: THE EXCESS IS A SERIES, AND ONE POINT CANNOT CARRY IT
 
@@ -169,6 +211,7 @@ import random
 import re
 import sys
 from collections import Counter, defaultdict
+from math import comb
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
@@ -295,25 +338,77 @@ def null_b(rows, rng):
 
 
 def analytic(rows):
-    """P(at least one repeated class) for a line of m words drawn i.i.d. from
-    the corpus's own class distribution. No Monte Carlo error."""
-    pool = [h for hs in rows for h in hs if h is not None]
-    n = len(pool)
-    p = {k: v / n for k, v in Counter(pool).items()}
-    unreadable = 1 - len(pool) / max(1, sum(len(hs) for hs in rows))
-    tot = 0.0
+    """-> P(this corpus's average line alliterates) under i.i.d. draws.
+
+    NULL A'S OWN STORY WITH REPLACEMENT, and that is the whole point of it:
+    `null_a` deals the corpus's pool of initial classes into the observed line
+    lengths by permutation, so a line of m slots receives m draws WITHOUT
+    replacement; this computes the same quantity for m draws WITH replacement,
+    exactly, from the same pool. For a pool of this size the two models differ
+    by O(m^2 / pool) -- ~3e-4 here -- so a disagreement between them is a
+    disagreement about the machinery, not about the model. Nothing in this
+    function calls `random`, draws a replicate, or reads a seed.
+
+    THE ARITHMETIC. Each slot draws a class, or None (an unreadable word) with
+    probability q; `alliterates` reads only the readable draws, so condition on
+    how many there are:
+
+        P(alliterates | m slots) = SUM_r C(m,r) (1-q)^r q^(m-r) (1 - D_r)
+
+    where r is the readable count and D_r = P(r i.i.d. draws from the readable
+    class distribution `p` are ALL DISTINCT). D_r is a sum over injections,
+    which is a permanent -- and a permanent whose rows are all identical,
+    because the draws are i.i.d., so it collapses to
+
+        D_r = r! * e_r(p),      e_r = the elementary symmetric polynomial
+
+    built by the standard O(classes * m) dynamic program below, ONCE for the
+    corpus rather than once per line. r=0 and r=1 give D_r = 1 and contribute
+    nothing, which is `alliterates`'s own "fewer than two readable words is
+    not alliteration". r above the class count gives e_r = 0 and D_r = 0: with
+    more draws than classes a repeat is certain, which is the pigeonhole rule
+    and falls out of the polynomial rather than being special-cased.
+
+    See the module docstring for why this returned a hard-coded 0.0 under an
+    "intractable in general" comment until 2026-08-13.
+    """
+    pool = [h for hs in rows for h in hs]
+    readable = [h for h in pool if h is not None]
+    q = 0.0  # MUTANT
+    n = max(1, len(readable))
+    p = [v / n for v in Counter(readable).values()]
+
+    #: e_0..e_rmax. Past `len(p)` every e_r is 0 by pigeonhole, so the table
+    #: stops there and `dist` below reads 0.0 beyond it rather than growing a
+    #: tail of zeros the loop would still have to walk.
+    rmax = min(max((len(hs) for hs in rows), default=0), len(p))
+    e = [0.0] * (rmax + 1)
+    e[0] = 1.0
+    for x in p:
+        for r in range(rmax, 0, -1):
+            e[r] += x * e[r - 1]
+    dist, f = [1.0] * (rmax + 1), 1.0
+    for r in range(1, rmax + 1):
+        f *= r
+        dist[r] = f * e[r]        # bounded by 1: e_r <= (SUM p)^r / r! = 1/r!
+
+    #: Keyed on the LINE LENGTH, which is the only thing the per-line term
+    #: depends on -- a corpus of 22,795 lines has ~10 distinct lengths.
+    per_m, tot = {}, 0.0
     for hs in rows:
-        m = sum(1 for h in hs if h is not None)
-        if m < 2:
-            continue
-        # P(all m distinct) via inclusion over ordered draws is intractable in
-        # general; with i.i.d. draws it is the permanent, so use the standard
-        # Monte-Carlo-free approximation only for m<=2 and simulate above.
-        tot += 0.0
-    return unreadable, p
+        m = len(hs)
+        if m not in per_m:
+            per_m[m] = sum(comb(m, r) * (1 - q) ** r * q ** (m - r)
+                           * (1 - (dist[r] if r <= rmax else 0.0))
+                           for r in range(2, m + 1))
+        tot += per_m[m]
+    return tot / max(1, len(rows))
 
 
-def report(name, obs, nulls, n):
+def report(name, obs, nulls, n, ana=None):
+    """`ana` is the ANALYTIC chance rate, and it is passed to the Null A call
+    only. Null B preserves each slot's POSITION, so i.i.d. draws are not its
+    generative story and the gap below would not be a check on anything."""
     nulls = sorted(nulls)
     lo, hi, mid = nulls[0], nulls[-1], nulls[len(nulls) // 2]
     beat = sum(1 for x in nulls if x >= obs)
@@ -328,9 +423,17 @@ def report(name, obs, nulls, n):
     print(f"    empirical p = {p:.4f}   (floor 1/(N+1) = {floor:.4f})")
     if abs(p - floor) < 1e-12:
         print("    p is AT the floor: it reports the resolution, not the size.")
+    out = {"median": mid, "max": hi, "excess": 100 * (obs - mid),
+           "excess_over_max": 100 * (obs - hi), "p": p}
+    if ana is not None:
+        print(f"    ANALYTIC chance rate    {ana:.4%}  "
+              f"(i.i.d., exact, no replicates)")
+        print(f"    null median - analytic  {100 * (mid - ana):+.3f} pp  "
+              f"-> the redeal agrees with the closed form; doctrine 76")
+        out["analytic"] = ana
+        out["gap"] = 100 * (mid - ana)
     print()
-    return {"median": mid, "max": hi, "excess": 100 * (obs - mid),
-            "excess_over_max": 100 * (obs - hi), "p": p}
+    return out
 
 
 def series_rows(fi, rels, cache):
@@ -385,7 +488,8 @@ def series(fi, n, kalevala):
               f"mean {sum(len(r) for r in rows) / len(rows):.2f} words/line")
         rng = random.Random(SEED)
         r = report("NULL A  global redeal (same tokens, same line lengths)",
-                   obs, [rate(null_a(rows, rng))[0] for _ in range(n)], n)
+                   obs, [rate(null_a(rows, rng))[0] for _ in range(n)], n,
+                   ana=analytic(rows))
         out[key] = dict(r, lines=len(rows), alliterating=hit, rate=obs,
                         arm=arm, name=name)
     return out
@@ -430,7 +534,7 @@ def main(path, n=200):
 
         a = [rate(null_a(rows, rng))[0] for _ in range(n)]
         ra = report("NULL A  global redeal (same tokens, same line lengths)",
-                    obs, a, n)
+                    obs, a, n, ana=analytic(rows))
         b = [rate(null_b(rows, rng))[0] for _ in range(n)]
         report("NULL B  column permutation within line-length strata",
                obs, b, n)
@@ -472,6 +576,43 @@ PINNED_SERIES = {"kanteletar": {"lines": 22110, "alliterating": 18094},
                  "uudempia": {"lines": 852, "alliterating": 612},
                  "literary7": {"lines": 15331, "alliterating": 9734},
                  "kivi": {"lines": 2884, "alliterating": 1684}}
+
+#: THE ANALYTIC CHANCE RATE, MEASURED 2026-08-13 -- the first run of a report
+#: this module's docstring had promised since the docstring was written. A
+#: PERCENTAGE, and pinned in the EXACT half of `--check` beside the counts
+#: rather than bounded in the Monte Carlo half beside the excesses, because it
+#: is not a draw: `analytic()` reads the corpus's class distribution and line
+#: lengths and evaluates a polynomial. Same file, same value, every run, in
+#: every process -- verified bit-identical across processes before pinning.
+#:
+#: THIS IS NOT REDUNDANT WITH THE COUNTS ABOVE, and the reason is the sentence
+#: three blocks down that declines to pin the RAW rate: a raw rate is
+#: `alliterating / lines`, both already pinned, so it "cannot drift
+#: independently of them (doctrine 91)". The analytic rate can. It is a
+#: function of the corpus's INITIAL-CLASS INVENTORY and its LINE-LENGTH
+#: PROFILE, and nothing else in this file pins either -- `quality/phonology/
+#: fin.py` could merge two classes, or `read_lines` could start admitting a
+#: prose file's long lines, and both would move this number while
+#: `alliterating` and `lines` sat still or moved for unrelated reasons.
+#:
+#: `kalevala` is absent for the reason `PINNED_SERIES` gives: the series
+#: reuses `all verse lines` and one fact gets one number.
+PINNED_ANALYTIC = {"first 4000 lines (the recorded window)": 30.0772,
+                   "all verse lines": 30.0108,
+                   "kanteletar": 31.0587,
+                   "uudempia": 56.1596,
+                   "literary7": 48.2890,
+                   "kivi": 46.8582}
+
+#: The pin above is to four decimal places of a percentage, so this tolerance
+#: is a FLOAT-COMPARISON slack and NOT headroom in the doctrine-57 sense --
+#: there is no sampling error here to leave room for. Sensitivity, so the
+#: number is chosen rather than assumed: dropping ONE line from the 22,795
+#: moves the mean by ~0.002 pp, i.e. twice this tolerance, so a pin this tight
+#: still catches a one-line ingestion change. Contrast the 1.93 pp of jitter
+#: `MAX_NULL_ANALYTIC_GAP` below has to absorb: three orders of magnitude, and
+#: that difference IS the difference between the two halves of `--check`.
+ANALYTIC_TOL_PP = 0.001
 
 #: WHAT IS DELIBERATELY *NOT* PINNED, and why the four constants below are
 #: INEQUALITIES rather than the five numbers a reader would expect.
@@ -525,6 +666,34 @@ MIN_COLLAPSE_GAP = 25.0
 #: This is the ONE pin that a check on the level could never have carried.
 MIN_EXCESS_DROP_RATIO = 1.30
 
+#: DOCTRINE 76, AND IT IS THE ONLY CONSTANT HERE THAT CHECKS THE INSTRUMENT
+#: RATHER THAN FINLAND. The four bounds above all ride `null_a`'s median, so
+#: none of them can see a `null_a` that has quietly stopped destroying
+#: co-membership: a degraded redeal raises every median toward the observation
+#: and LOWERS every excess, which arrives at `check_series` looking exactly
+#: like a real collapse of the constraint. Doctrine 63 is NAMED for a null on
+#: this corpus that ran, looked rigorous and tested nothing, and the within-
+#: line no-op `main` prints is only the demonstration for the null NOT used.
+#: This is the demonstration for the null that IS: `analytic()` computes the
+#: same chance rate with no `random`, no replicate and no seed, so the two
+#: agreeing is a fact about the machinery.
+#:
+#: MEASURED JITTER, five points x eight seeds (20260810, 1, 2, 3, 12345, 999,
+#: 77, 4242), as |null median - analytic| in pp:
+#:   Kalevala  spread 0.311   Kanteletar 0.470   uudempia 3.052
+#:   literary7 spread 0.561   Kivi       0.971   worst single value 1.934
+#: Those five spreads reproduce the recorded jitter of the EXCESS above to
+#: three decimals, necessarily: excess is `obs - median` and this gap is
+#: `median - analytic`, both vary only through the median, and `obs` and the
+#: analytic rate are each exact. That identity is the check that the closed
+#: form adds no noise of its own -- if it drifted, the two spreads would part.
+#:
+#: 4.0 is 2.07x the worst measured value and 0.35x the SMALLEST break it has
+#: to catch: an identity-map `null_a` shows a gap of 11.5 pp on Kivi, the
+#: weakest of the five, and 52.6 pp on the Kalevala. Wide of the noise, well
+#: inside the failure.
+MAX_NULL_ANALYTIC_GAP = 4.0
+
 DEFAULT_CORPUS = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                               "..", "corpus", "fin_kalevala.txt")
 
@@ -536,7 +705,9 @@ def _row(ok, text):
 
 def check_counts(m):
     """-> number of figures that moved. The EXACT half: every quantity here is
-    deterministic over a fixed file, so it is pinned to the integer."""
+    deterministic over a fixed file. The counts are pinned to the INTEGER; the
+    analytic chance rate is a real number and is pinned to `ANALYTIC_TOL_PP`,
+    which is float slack and not headroom -- see that constant."""
     print("=" * 74)
     print("CHECK 1 -- the committed alliteration counts against this run")
     print("=" * 74)
@@ -557,6 +728,20 @@ def check_counts(m):
             ok = got.get(k) == want[k]
             bad += _row(ok, f"{key:28s} {k:13s} committed {want[k]}"
                         + ("" if ok else f", measured {got.get(k)}"))
+
+    #: The analytic chance rate, read out of whichever block computed it --
+    #: the two Kalevala windows off `m` directly and the four series points
+    #: off `m["series"]`. A MISSING one is a FAIL and not a skip: `analytic`
+    #: is absent from the dict exactly when nothing called it, which is the
+    #: state this whole check exists to make impossible to reach again.
+    for key in PINNED_ANALYTIC:
+        got = (m.get(key) or ser.get(key) or {}).get("analytic")
+        want = PINNED_ANALYTIC[key]
+        ok = got is not None and abs(100 * got - want) <= ANALYTIC_TOL_PP
+        bad += _row(ok, f"{key[:28]:28s} {'analytic':13s} committed {want:.4f}%"
+                    + ("" if ok else
+                       "  NOT COMPUTED -- nothing called analytic()"
+                       if got is None else f", measured {100 * got:.4f}%"))
     return bad
 
 
@@ -604,6 +789,22 @@ def check_series(m):
                 f"{'doctrine 89':12s} ratio    {ratio:6.2f}x     "
                 f"floor {MIN_EXCESS_DROP_RATIO:.2f}x   "
                 f"(excess spread {d_ex:.2f} pp / rate spread {d_rt:.2f} pp)")
+
+    #: DOCTRINE 76, and it is the last row on purpose: every row above it is a
+    #: claim about Finnish that is only worth reading if this one holds. Five
+    #: independent redeals against five closed forms -- a break in `null_a`
+    #: shows up in all five at once, which no single-corpus check could say.
+    print()
+    for key, v in sorted(ser.items()):
+        if "gap" not in v:
+            bad += _row(False, f"{key:12s} analytic NOT COMPUTED -- the null "
+                                "has no independent comparator this run")
+            continue
+        bad += _row(abs(v["gap"]) <= MAX_NULL_ANALYTIC_GAP,
+                    f"{key:12s} null-vs-analytic {v['gap']:+6.2f} pp   "
+                    f"bound +/-{MAX_NULL_ANALYTIC_GAP:.2f}   "
+                    f"(median {100 * v['median']:.2f}% vs closed form "
+                    f"{100 * v['analytic']:.2f}%)")
     return bad
 
 
@@ -622,6 +823,12 @@ def check(m):
               "5-replicate draw,")
         print("  and do NOT widen a bound to make a real collapse fit inside "
               "it.")
+        print("  A NULL-VS-ANALYTIC one is neither, and it is read FIRST: it "
+              "says the redeal")
+        print("  and the closed form disagree, so the instrument is what "
+              "moved and every")
+        print("  other row above it is unreadable until that is settled "
+              "(doctrine 76).")
         print("  Repin with the date and keep the superseded value visible "
               "(doctrine 17).")
     print()

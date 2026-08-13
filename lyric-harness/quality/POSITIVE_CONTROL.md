@@ -72,14 +72,32 @@ Power at α=0.05, sweeping periods (2,3,4,6,8) exactly as the real layer does:
 
 | events | slots | c=0.40 | c=0.50 | c=0.60 | c=0.75 | c=0.90 |
 |---|---|---|---|---|---|---|
-| **8** | **65** | 0.02 | 0.06 | 0.13 | **0.82** | 1.00 |
+| **8** | **65** | 0.02 | 0.06 | 0.13 | 0.82 † | 1.00 |
 | 12 | 75 | 0.04 | 0.09 | 0.37 | 1.00 | 1.00 |
 | 20 | 120 | 0.04 | 0.24 | 0.88 | 1.00 | 1.00 |
 | 40 | 240 | 0.24 | **0.94** | 1.00 | 1.00 | 1.00 |
 | 80 | 300 | **0.78** | 1.00 | 1.00 | 1.00 | 1.00 |
 
-**EVERY CELL ABOVE REPRODUCES EXACTLY — RE-RUN 2026-08-13.** All 31 cells, to
-two decimals, against a fresh `python3 quality/positive_control.py`. This is
+> † **THIS IS ONE SEED'S DRAW, NOT THE CELL'S VALUE — DE-BOLDED AND REPINNED
+> 2026-08-13.** Ten seeds give `0.68 0.72 0.73 0.74 0.74 0.74 0.77 0.79 0.80
+> 0.82`: **median 0.74, spread 0.68–0.82, and only 2 of 10 reach 0.80** —
+> ~~0.82~~ is the MAXIMUM, kept visible and dated (doctrine 17). Quote it as
+> **0.74 (0.68–0.82 over ten seeds)** and never as a cell: a reader planning a
+> cell needs to know the number is a DISTRIBUTION, not a point. The bold is
+> gone because bold in this table marks a cell that has reached usable power
+> (0.94 and 0.78 below), and this one has not.
+> `quality/positive_control.py --check` pins this case as a **BAND
+> (0.50–0.95)** rather than a cell, precisely because a cell pin would be red
+> on nine seeds in ten; the ceiling and floor ARE pinned as bounds, because
+> those have zero and near-zero spread. Doctrine 73 — a single seed is a coin
+> flip reported as a verdict. Full argument in the box below.
+
+**EVERY CELL ABOVE REPRODUCES EXACTLY AT THE DECLARED SEED `20260810` — RE-RUN
+2026-08-13.** All 31 cells, to
+two decimals, against a fresh `python3 quality/positive_control.py`. That is
+REPRODUCIBILITY, which is not stability: † above is the cell where the two are
+different questions, and the seed is a coordinate of the table (doctrine 1).
+This is
 the only table in this document that did not move (contrast Part D, below).
 
 > **THE 0.82 IS A LUCKY DRAW, AND THE SENTENCE BELOW RESTS ON IT — REPINNED
@@ -537,8 +555,13 @@ from its *name*, without knowing paths — verified directly.
 `raw.githubusercontent.com/GITenberg/<slug>_<PGID>/master/<PGID>-8.txt` is 200.
 This **directly overturns a NOT-FOUND row this project had already written**:
 the Finnish Kalevala was recorded as unreachable and is now fetched, 636 KB,
-validated at 81.2% alliteration. Every earlier search that failed *because
-Gutenberg is blocked* should be re-run through it — including Welsh.
+validated at **81.3%** alliteration *(~~81.2%~~ REPINNED 2026-08-13 — 3,253 of
+the first 4,000 verse lines, 22,795 extracted; the SAME repin the Part E table
+row above already carries, twenty lines up. This paragraph went on quoting the
+superseded figure after that row had moved, so the file disagreed with itself;
+origin row `data/sources.tsv:58`, instrument
+`quality/audit_kalevala_null.py --check`)*. Every earlier search that failed
+*because Gutenberg is blocked* should be re-run through it — including Welsh.
 
 ### Two finds that change what the layer can test
 

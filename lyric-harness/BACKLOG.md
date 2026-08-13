@@ -33,7 +33,7 @@ returning.
 | 1 | our RESULTS — is the effect real? | **built** | line-permutation nulls, matched redeals, shuffled controls |
 | 2 | the WRITING — is the draft any good? | **built** | `quality/revise.py` |
 | 3 | the CODE's generosity — is the rule too loose? | **partial** | `quality/redteam_band.py`, band only |
-| 4 | the TESTS — can the suite detect a broken harness? | **built** | `quality/mutate.py` — ~~30 mutations, 29 caught~~ **33 declared, all 33 applying cleanly**, 1 allowlisted equivalent (`M4`) with its premise tested; the CAUGHT count is a `--slow` measurement and is not recorded here (`python3 quality/counters.py --slow`) |
+| 4 | the TESTS — can the suite detect a broken harness? | **built** | `quality/mutate.py` — ~~30 mutations, 29 caught~~ ~~33 declared~~ **declared: the counters table below holds the live total** (33 `M*` plus the 24 quality-layer `Q*` added 2026-08-13), all of them applying cleanly; 1 allowlisted equivalent (`M4`) with its premise tested; the CAUGHT count is a `--slow` measurement and is not recorded here (`python3 quality/counters.py --slow`) |
 | 5 | the CORPUS — is the text what its header claims? | ~~**ad hoc**~~ **built** | `quality/audit_corpus.py` (landed `c661b93`), `quality/RESULTS_CORPUS_AUDIT.md`, regressions `quality/test_corpus_audit.py` — the by-hand era is doctrines 50/52/53 |
 | 6 | the TAXONOMY — does every named entry have a source? | **built** | `quality/audit_register.py --provenance` |
 | 7 | the REPORT — do the number, the label and the evidence agree? | ~~**missing**~~ **built** | `quality/audit_spans.py` (landed `a914dc0`), `quality/RESULTS_SPANS.md` — its first run: of 1,014 judged sonnet pairs, **382 report lines name a pair that did not produce the number** |
@@ -73,8 +73,12 @@ should have caught.
 **Acceptance:** M1 is caught. The runner is in CI-shaped form (`__main__`) and
 its surviving-mutation list is empty or explicitly declared.
 **MET.** `quality/mutate.py` declares ~~**30** mutations; **29 are caught**~~
-**33 mutations, all 33 applying cleanly to the current source**
-(`python3 quality/mutate.py --dry-run`), including M1 and M30. The one survivor
+~~**33 mutations**~~ **the count in the counters table, all of them applying
+cleanly to the current source**
+(`python3 quality/mutate.py --dry-run`), including M1 and M30 — and it grew
+again on 2026-08-13, when the `Q*` quality-layer block was added, which is the
+whole reason the number is not written out here a third time. The one
+ALLOWLISTED survivor
 is **M4, proved equivalent rather than missed**, allowlisted in
 `quality/test_mutation.py` with the proof — and the allowlist entry's premise is
 itself under test, since M11 mutates the `cluster_sim` line M4's equivalence
@@ -546,9 +550,48 @@ never one (doctrine 79).
 > (`81/1014` as measured on 2026-08-11; `82/1014` today, repinned 2026-08-13
 > after cell BA's coda-identity fix — and this paragraph's point survives the
 > move, since the row was confirmed by re-running rather than assumed) and
-> the mutation count
-> (**33 declared, 32 caught, 1 allowlisted**, confirmed by a full sweep on
-> 2026-08-11). Confirming a number costs the same as catching one, and a table
+> the mutation count — which was right on 2026-08-11 and has since been
+> OUTGROWN rather than falsified. `33 declared, 32 caught, 1 allowlisted` was a
+> full sweep of the inventory AS IT THEN STOOD: 33 `M*` mutations, every one of
+> them landing in `lyric_harness.py` or `battery.py`. The `Q*` quality-layer
+> block landed 2026-08-13 and the declared total moved with it; the live figure
+> is in the table below and is deliberately not repeated here.
+>
+> **AND AS THIS WAS WRITTEN THE ROW STOPPED BEING A NUMBER AT ALL, WHICH IS THE
+> COUNTER WORKING.** `mutations_declared()` RAISES rather than reports when a
+> declared mutation no longer applies, on the ground that a mutation whose
+> anchor has drifted out of the source is declared and INERT — a hole in the
+> instrument that reads exactly like coverage. `QS3`'s anchor in
+> `quality/schemes.py` (`if r.verbatim is not True: continue`) was refactored
+> into a list comprehension by the lot rewriting `returns_check` the same day,
+> so `--dry-run` reads `56/57` and the row REFUSES with that sentence in it.
+> The remedy is not in this file: `quality/mutate.py` has to re-anchor `QS3` to
+> the new code, and until it does the adversary is one mutation smaller than it
+> declares. Left refusing rather than papered over — the whole point of the row
+> is that it cannot quietly say 57 while 56 is the truth.
+>
+> **The caught half is a COVERAGE statement now, and not a ratio, because no
+> run covers the declared set.** As of 2026-08-13,
+> **24 of the 57 then declared** carry a verdict at all, and those 24 come
+> from TWO runs at TWO different inventory bounds: a partial run of
+> `QF1`–`QF5`, and a run of 19
+> bounded to a TEN-FILE inventory (17 caught, 2 SURVIVED — `QS2` in
+> `schemes.py`, `QG1` in `grid.py` — 0 indeterminate, 4,984s wall). Four
+> survivors across the two, all four since closed by the tests they triggered,
+> and **not one of the four replacement verdicts has been measured** — the
+> sweep invalidates its own number by working. UNMEASURED is the larger half:
+> the 33 `M*` were re-run in neither round, so `32 caught` is a fact about the
+> 2026-08-11 tree and not about this one, and the only `M*` claim still
+> standing on its own proof is the allowlist — `M4` is EQUIVALENT rather than
+> missed, and `M11` tests the premise that makes it so.
+>
+> Two doctrines forbid the shorter sentence. **79** — caught, survived,
+> indeterminate and NEVER-RUN are four counts, and any "N of 57" built by
+> summing them puts a mutation nobody ran into the numerator. **91** — a count
+> is a coordinate of the RENDERING: `17/19` bounded to ten files and `17/19`
+> over the whole suite render identically, so the bound IS part of the number
+> and a figure quoted without it is a different figure wearing the same digits.
+> Confirming a number costs the same as catching one, and a table
 > whose passing rows were never re-run is a table nobody has checked.
 
 <!-- COUNTERS -->
@@ -557,7 +600,7 @@ never one (doctrine 79).
 | MISSING entries by status | 49 OPEN / 14 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,611 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **898** public top-level functions/classes under `quality/` and the root — **154** named by another production module, **219** by tests only, **480** only inside their own module, **11** by nothing anywhere, **34** REFUSED (26 ambiguous, 4 dynamic, 4 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **945** public top-level functions/classes under `quality/` and the root — **157** named by another production module, **234** by tests only, **507** only inside their own module, **11** by nothing anywhere, **36** REFUSED (28 ambiguous, 4 dynamic, 4 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property, and any lot adding a public `def` moves the total — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **57 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
@@ -574,9 +617,13 @@ never one (doctrine 79).
 > closed; the two that remain are deliberate.
 
 > **"surviving mutations 1 of 3 tested" was the state of §1.1 before it was
-> done.** The harness now declares **33** mutations and catches 32 — M31/M32/M33
+> done.** ~~The harness now declares **33** mutations and catches 32~~ — the
+> declared total is in the table above and the caught count is not a number
+> this file holds at all, for the reason the coverage paragraph beside that
+> table gives: no run covers the declared set, so there is no ratio to write.
+> M31/M32/M33
 > cover the three coordinates declared on 2026-08-11 (`scalar_alignment`,
-> `nucleus_agreement`, `nucleus_licence_unstressed_only`). The one
+> `nucleus_agreement`, `nucleus_licence_unstressed_only`). The one ALLOWLISTED
 > survivor is **M4, proved EQUIVALENT rather than missed**: dropping
 > `channel_agreement`'s `not ca and not cb` clause ought to delete every
 > open-syllable rhyme in English and deletes nothing, because `cluster_sim`
@@ -586,5 +633,7 @@ never one (doctrine 79).
 > equivalent the moment that line moves. An allowlist that outlives its reason
 > is a licence nobody re-read.
 >
-> **Do not run `for f in quality/test_*.py`.** `test_mutation.py` matches and
-> forks a 30-mutation sweep.
+> **Do not run `for f in quality/test_*.py`.** `test_mutation.py` matches, and
+> it forks the WHOLE declared sweep — ~~a 30-mutation sweep~~ however many
+> `mutations declared` says today, one full fork of the suite each. The one
+> rate anyone has measured is 4,984s for 19 of them.

@@ -1,13 +1,27 @@
 # Results — English cell
 
-> **SUPERSEDED IN PART.** The numbers in the first two sections are the
-> pre-fix run. Two defects were found later by running the code against a
-> tradition it was not designed for; see "Post-fix rerun" below, which is
-> the current state. The headline conclusion CHANGED. The original numbers
-> are kept rather than overwritten so the correction is auditable.
+> **SUPERSEDED IN PART, TWICE. Written 2026-08-09; repinned 2026-08-13.**
+>
+> FIRST: the numbers in the next two sections are the pre-fix run. Two defects
+> were found later by running the code against a tradition it was not designed
+> for; see "Post-fix rerun" below. The headline conclusion CHANGED.
+>
+> SECOND: on 2026-08-13 the post-fix rerun was itself found to be a WARM
+> reading — served from a feature cache keyed with no fingerprint of the code
+> that wrote it — and **all four joint held-out AUCs moved when they were
+> recomputed cold**: 0.659 → 0.717 and 0.975 → 0.964 here, 0.604 → 0.638 and
+> 0.877 → 0.891 in `RESULTS_WITHIN_ITEM.md`. **The current numbers are in
+> "Cold repin — 2026-08-13" at the foot of this file.**
+>
+> Every superseded reading is kept with the date it was superseded rather than
+> overwritten, so both corrections are auditable (doctrine 17).
 
 Reproduce with `python3 quality/fetch_data.py && python3 quality/discriminate.py`.
 Permutation seed is fixed; the numbers below are exact, not approximate.
+`python3 quality/test_discriminate.py` grades the eight joint AUCs and the
+thirty-six per-feature AUCs against their pins, cold, reading no cache;
+`python3 quality/audit_joint_auc_null.py --check` grades four of them against a
+label-permutation null and against 200 cross-validation seeds.
 
 Read PREREGISTRATION.md first. Directions were committed before any feature
 code existed (`git log` proves the order), so a feature separating with the
@@ -21,11 +35,15 @@ wrong sign below is a failed prediction and is reported as one.
 | n | 15 vs 117 | 152 vs 40 |
 | pre-registered hits | 2/10 | 4/10 |
 | wrong-sign features | 0 | 5 |
-| **joint held-out AUC** | **0.709** | **0.971** |
+| **joint held-out AUC** — pre-fix, 2026-08-09, **SUPERSEDED** twice | **0.709** | **0.971** |
+| **joint held-out AUC** — cold, current, measured 2026-08-13 | **0.717** | **0.964** |
 
 **Detecting bad writing works. Ranking good writing barely does.** That gap —
-0.971 against 0.709 — is the whole argument in two numbers. A floor is
-objectively enforceable; a ceiling is not. Build the rejection gate.
+0.971 against 0.709 on the pre-fix reading, **0.964 against 0.717 cold** — is
+the whole argument in two numbers. A floor is objectively enforceable; a
+ceiling is not. Build the rejection gate. The gap narrowed by 0.062 between the
+two readings and the argument did not change; doctrine 7 is still stated in the
+pre-fix pair, which is a repin someone owning `CLAUDE.md` has to make.
 
 ## Experiment 1 — within-Shakespeare survival
 
@@ -176,14 +194,25 @@ Reported because a pre-registration that only reports its wins is decoration.
 
 ---
 
-# Post-fix rerun — the headline conclusion changed
+# Post-fix rerun (2026-08-09) — the headline conclusion changed, and this whole section is WARM
+
+> **SUPERSEDED IN PART 2026-08-13.** Every figure in this section is a WARM
+> reading, taken from a feature cache keyed with no fingerprint of the code
+> that wrote it. Four of them moved when they were recomputed cold — the joint
+> AUCs 0.659 → 0.717 and 0.975 → 0.964, and the two predictability-only figures
+> — and the conclusion this section draws from them is reinstated in the
+> opposite direction at the foot of this file. The section is kept intact
+> rather than rewritten, because what it says is the record of what was
+> believed and the arithmetic that produced it (doctrine 17).
 
 Two defects were fixed (see `quality/test_crosslinguistic.py` and the commit
 that added it): the anchor never skipped a **radif**, and a word absent from
 the pronunciation lexicon was scored as *maximally rare* rather than as
-*unknown*. Only the second one moves the English numbers.
+*unknown*. Only the second one moves the English numbers. Both fixes are real
+and both are still in the code; what this section gets wrong is not the fix, it
+is which numbers the fix was measured against.
 
-| feature | Exp 1 before | Exp 1 after | Exp 2 before | Exp 2 after |
+| feature | Exp 1 before | Exp 1 after — WARM 2026-08-09, SUPERSEDED | Exp 2 before | Exp 2 after — WARM 2026-08-09, SUPERSEDED |
 |---|---|---|---|---|
 | rhyme_predictability_mean | 0.313 HIT | **0.304 HIT** (p .0117) | 0.353 HIT | **0.422 null** (p .13) |
 | rhyme_predictability_min | 0.454 null | **0.337 HIT** (p .0386) | 0.391 HIT | **0.494 null** (p .92) |
@@ -191,6 +220,9 @@ the pronunciation lexicon was scored as *maximally rare* rather than as
 | pre-registered hits | 2/10 | **4/10** | 4/10 | **2/10** |
 | joint held-out AUC | 0.709 | **0.659** | 0.971 | **0.975** |
 | predictability-only AUC | 0.670 | **0.676** | 0.617 | **0.560** |
+
+Cold, the last two rows read **0.717** / **0.964** and **0.710** / **0.648**.
+The full cold table is at the foot of this file.
 
 ## What this means, stated plainly
 
@@ -241,26 +273,39 @@ project had designated its candidate universal.
   > and the bolded 0.560 it rests on are both measured against a stale cache,
   > and the claim they withdraw is the claim the cold run supports.
   >
-  > **NOT REINSTATED HERE, on purpose.** Reinstating a withdrawn finding is a
-  > statement about what this project has demonstrated, and doctrine 11 says
-  > assume a feature reads period until a measurement says otherwise — the
-  > five wrong-sign features are still wrong-sign cold, so the register/period
-  > reading of Experiment 2 is untouched by any of this. What changed is only
-  > that the arithmetic used to retire `rhyme_predictability` was run against
-  > numbers the comparator no longer produces. Both readings stay visible
-  > (doctrine 17) until somebody decides which claim the project makes.
+  > **REINSTATED 2026-08-13**, narrowly and with the conflicts named. This
+  > block read "NOT REINSTATED HERE, on purpose ... until somebody decides
+  > which claim the project makes" from 2026-08-13 until later the same day.
+  > The decision was made; the withdrawal above is superseded and the cold
+  > reading is the current one. What is reinstated, what is not, and where it
+  > collides with doctrines 10 and 11 is set out in full at "Cold repin —
+  > 2026-08-13" below, which is the section to read rather than this
+  > paragraph. Both readings stay visible (doctrine 17).
   >
-  > Reproduce: `python3 quality/discriminate.py --cold` — 384 extractions,
-  > ~70 minutes on an idle box. The cache now carries a fingerprint of every
+  > Reproduce: `python3 quality/discriminate.py --cold` — 384 extractions.
+  > ~~~70 minutes on an idle box.~~ **REPINNED 2026-08-13: 1,050 CPU-s over
+  > 384 items, measured twice (1049.5 s and 1067.8 s, 2.73–2.78 s/item);
+  > `quality/RESULTS_CACHE_IDENTITY.md` records that the 70-minute figure was
+  > never measured by anyone.** The cache now carries a fingerprint of every
   > input that could change the answer and discards itself with a printed
   > reason when one moves, so this class of drift cannot recur silently.
 - **Experiment 2's 0.975 is carried entirely by `mattr`, `function_word_ratio`
   and the five wrong-sign features** — that is, by register and period, not by
   quality. It is a very good Shakespeare-vs-contemporary classifier. It is not
-  demonstrated to be a slop detector.
+  demonstrated to be a slop detector. *(0.975 is the WARM figure and is
+  SUPERSEDED 2026-08-13; cold it is 0.964. The sentence is unaffected — all
+  five wrong-sign features are still wrong-signed cold and `mattr` and
+  `function_word_ratio` are unmoved at 0.870 and 0.135.)*
 - **Experiment 1's joint AUC fell from 0.709 to 0.659**, so the survival
   result is weaker overall even as individual features got cleaner. At n=15
-  it does not exclude chance.
+  it does not exclude chance. *(Both endpoints are WARM, and the post-fix one
+  is **SUPERSEDED 2026-08-13**: cold, that fit reads **0.717**. The FALL
+  cannot be recomputed — the pre-fix code has never been run cold, so there is
+  no cold 0.709 to subtract from — and what can be said is only that the cold
+  post-fix figure sits above the warm pre-fix one rather than below it, which
+  is the opposite direction from the sentence. The conclusion that it does not
+  exclude chance at n=15 stands, and is the half that never rested on the
+  moved digit.)*
 
 ## Cross-linguistic defects found, and their status
 

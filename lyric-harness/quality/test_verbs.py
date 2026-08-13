@@ -524,6 +524,98 @@ def test_fallback_reaches_every_verb_ahead_of_the_verb_name():
           rc == 0 and "Traceback" not in err, err.strip()[-200:] if err else "")
 
 
+def test_readability_prints_what_the_fallback_invented():
+    print("\n14. `readability` — WITH `--fallback`, what the falling refusal "
+          "rate COST; WITHOUT it, nothing at all")
+    # §9 above proves `--fallback` REACHES every verb. It does not ask what
+    # the verb then SAYS about it, and on `readability` the answer was
+    # nothing: the verb printed two counts (read / REFUSED over line ends)
+    # and the flag's whole visible effect was the REFUSED count going down.
+    # A reader watching a refusal rate fall from 16.74% to 3.47% on
+    # corpus/song/eng_hall_william_barnes.txt is watching 8,784 LETTER-layer
+    # readings arrive — phones no dictionary entry supplied, measured in
+    # quality/test_g2p.py §10 as answering Shakespeare's own real refusals
+    # wrong 50.0% of the time against 5.1% for the derived layers. Doctrine
+    # 79's three counts are the only rendering in which the fall and its
+    # price are both visible, and `quality/g2p.py` has had
+    # `lexicon_three_counts`/`format_three_counts` to produce them.
+    #
+    # BOTH DIRECTIONS ARE PINNED, and the second is the one that matters as
+    # much: this is an ADDITIVE fix, so with no `--fallback` the verb must
+    # print exactly what it printed before — proved byte-identical against
+    # HEAD on two corpus files, and pinned here as the strings simply not
+    # being there. A gate that ever fired unconditionally would put a
+    # `fallback 0` column and a word-token rate under every run of a verb
+    # that was asked no such question (doctrine 20: a layer that was not
+    # asked must not report as though it had been).
+    import re
+    d = tempfile.mkdtemp()
+    txt = os.path.join(d, "fallback.txt")
+    # One word per layer the counts itemise, so the middle column is
+    # non-empty and the LETTER row specifically has something in it:
+    # `viewest` is morphology, `o'er` is elision, `hypotenuse` is known gap
+    # 1's own canary and reads at NO layer but `letter`. `to-night` is the
+    # population case — `line_readability` calls that line end READABLE
+    # because its LAST PIECE `night` reads, while `transcribe_word` refuses
+    # the token whole, which is why the counts below the line-end pair are
+    # not subtractable from it.
+    with open(txt, "w") as fh:
+        fh.write("the angle of the hypotenuse\n"
+                 "that thou viewest o'er the hill\n"
+                 "we walked the stubble field to-night\n"
+                 "and every gate was still\n")
+
+    def refused_line_ends(out):
+        for l in out.splitlines():
+            if "countable line ends" in l and "REFUSED" in l:
+                return int(l.split("REFUSED")[1].split()[0])
+        return None
+
+    rc, off, _ = run("readability", txt)
+    check("WITHOUT --fallback the verb is unchanged — no three counts, no "
+          "word-token population, nothing about a layer nobody declared",
+          rc == 0 and "three counts" not in off
+          and "word tokens" not in off and "DO NOT SUBTRACT" not in off,
+          (off.strip().splitlines() or ["(nothing)"])[-1][:110])
+    check("and it still prints the two line-end counts it always printed",
+          "countable line ends" in off and "by cause:" in off,
+          (off.strip().splitlines() or ["(nothing)"])[-1][:110])
+
+    rc, on, err = run("--fallback=low", "readability", txt)
+    check("WITH --fallback=low the three counts appear, labelled WORD "
+          "TOKENS and never summed (doctrine 79)",
+          rc == 0 and "Traceback" not in err
+          and "three counts (word tokens" in on
+          and re.search(r"dictionary \d+\s+fallback \d+\s+REFUSED \d+", on),
+          (on.strip().splitlines() or ["(nothing)"])[-1][:110])
+    check("the middle column is ITEMISED BY LAYER and the letter layer is "
+          "in it — the reading whose phones nothing attested",
+          re.search(r"fallback=low, by layer:.*letter \d+", on)
+          and "LETTER layer" in on
+          and "no dictionary entry supplied" in on,
+          (on.strip().splitlines() or ["(nothing)"])[-1][:110])
+    check("the two populations are declared INCOMPATIBLE, in the output and "
+          "not only in a comment, so a reader cannot subtract one from the "
+          "other",
+          "DO NOT SUBTRACT" in on and "LINE ENDS" in on
+          and "WORD TOKEN" in on and "LAST PIECE" in on,
+          (on.strip().splitlines() or ["(nothing)"])[-1][:110])
+
+    # THE FINDING IN MINIATURE, on four lines: the flag lowers the printed
+    # refusal count, and the block underneath names what bought the drop.
+    # Asserted together rather than separately — either alone is a fact
+    # about a string, and it is the PAIRING that is the reason this block
+    # exists.
+    a, b = refused_line_ends(off), refused_line_ends(on)
+    letter = re.search(r"by layer:.*?letter (\d+)", on)
+    check("the flag lowers the REFUSED line-end count AND the three counts "
+          "name the letter-layer readings that paid for it",
+          a is not None and b is not None and b < a
+          and letter and int(letter.group(1)) > 0,
+          f"line ends REFUSED {a} -> {b}; letter layer "
+          f"{letter.group(1) if letter else 'ABSENT'}")
+
+
 def test_the_fifteen_original_verbs_are_untouched():
     print("\n8. the additive claim — the spine still answers as it did")
     rc, out, _ = run("score", "fire", "--", "desire")
@@ -879,6 +971,7 @@ if __name__ == "__main__":
     test_every_verb_runs()
     test_the_fifteen_original_verbs_are_untouched()
     test_fallback_reaches_every_verb_ahead_of_the_verb_name()
+    test_readability_prints_what_the_fallback_invented()
     test_candidates_refuses_an_unreadable_query()
     test_relations_prints_the_search_burden_it_promises()
     test_no_broad_exception_handler_hides_a_call()

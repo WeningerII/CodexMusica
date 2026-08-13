@@ -4256,6 +4256,69 @@ def main():
         print(f"    by cause: {rep['lines_unreadable_final_token']} the whole "
               f"end word, {rep['lines_unreadable_final_piece']} the LAST "
               f"piece of a compound")
+        # AND WITH `--fallback` DECLARED, THE TWO LINES ABOVE ARE NOT ENOUGH.
+        # "read" there means "the harness produced phones", and once a
+        # fallback is consulted that silently becomes "produced OR INVENTED
+        # phones". On corpus/song/eng_hall_william_barnes.txt the line-end
+        # refusals fall 2298 -> 476 at `--fallback=low` and the word-token
+        # refusal rate falls 18.29% -> 5.26%, and 8,784 of the readings that
+        # bought that fall came from the LETTER layer, whose phones no
+        # dictionary entry supplied -- which quality/test_g2p.py §10 measures
+        # as answering Shakespeare's own real refusals wrong 50.0% of the
+        # time against 5.1% for the derived layers, 9.8x, which is why `high`
+        # is the shipped default. The falling rate is the only thing this
+        # verb has ever printed. The middle column is what it cost, and
+        # doctrine 79 says the two are never one number.
+        #
+        # WHY THE MIDDLE COLUMN IS THE DERIVATION, AND NOT AN ARTIFACT OF
+        # WHICH SHIM `Fallback` HAPPENS TO BE BUILT OVER. `Lexicon.__init__`
+        # wraps `_DictionaryOnlyLexicon` -- bare `entries`, none of
+        # `transcribe_word`'s own `-s`/`'d`/`in'` reductions -- and it has to,
+        # because `Fallback.read` calls back into `transcribe_word` and the
+        # real object would recurse. Counting against THAT boundary would
+        # charge every plural and every `crown'd` to the fallback: readings
+        # this harness already had before anyone declared one, reported as
+        # derivations, and the middle column would then be measuring the
+        # recursion guard rather than the flag. `lexicon_three_counts` does
+        # not use the shim. It counts against `quality.g2p._NoFallbackView`,
+        # which runs THIS class's `transcribe_word` with `g2p_fallback` set
+        # to None -- so column one is exactly what this Lexicon read before
+        # the flag, and column two is exactly what the flag added to it.
+        #
+        # WORD TOKENS, NOT LINE ENDS -- A DIFFERENT POPULATION, WHICH IS WHY
+        # THE LABEL SAYS SO AND WHY A SENTENCE IS PRINTED AHEAD OF THE
+        # NUMBERS RATHER THAN GLUING THEM TO THE TWO ABOVE. Those two count
+        # LINE ENDS as `line_readability` judges them, and it judges a
+        # hyphenated compound on its LAST PIECE (`hill-zide` is anchored on
+        # `zide`, `threshing-floor` on `floor`); `transcribe_word` judges the
+        # whole token and refuses `a-bed` outright. Measured on the Barnes
+        # file with the fallback OFF: 414 line ends are READABLE to the two
+        # lines above and REFUSED to these three, every single one of the 414
+        # hyphenated (`a-bed`, `Jack-daw`, `Year-clock`), and the reverse
+        # direction is 0. So a reader who subtracted one from the other would
+        # be measuring the hyphen rule and calling it a fallback effect.
+        # AN EXACT REFINEMENT IS NOT AVAILABLE FROM THIS FILE: it needs
+        # `quality/readability.py` to expose the LAYER each per-line record
+        # was read at, which is that module's to add and is recorded as the
+        # follow-up rather than reached across for here.
+        if lex.g2p_fallback is not None:
+            # `Lexicon.__init__` imported `quality.g2p` to build the very
+            # `Fallback` this gate tests for, so passing the gate guarantees
+            # the module is already in `sys.modules` and this import is a
+            # dict lookup. With no `--fallback` the gate is False, nothing
+            # here is imported, tokenized, counted or printed, and the verb
+            # is byte-identical to what it was before this block existed.
+            from quality.g2p import (format_three_counts,
+                                     lexicon_three_counts)
+            print("  A DIFFERENT POPULATION FROM THE TWO LINES ABOVE — DO "
+                  "NOT SUBTRACT. Those count LINE ENDS, and a hyphenated "
+                  "end word is READ there when its LAST PIECE reads; these "
+                  "count EVERY WORD TOKEN, and refuse the token whole.")
+            _words = [w for _l in lines
+                      for w in line_tokens(_l, strip_parens=lex.strip_parens)]
+            for _out in format_three_counts(
+                    lexicon_three_counts(lex, _words), what="word tokens"):
+                print(_out)
 
     elif cmd in ("brief", "verify", "revise", "song"):
         from quality import loop as LP

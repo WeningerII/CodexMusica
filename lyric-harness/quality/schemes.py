@@ -1679,14 +1679,113 @@ class Mandate:
         mandate and a short draft need different repairs), and says the
         verbatim requirement was NOT CHECKED rather than leaving a reader to
         infer a clean pass from a finding about something else (doctrine 20).
+
+        AND THAT FIX CLOSED THE MISLEADING HALF AND LEFT THE GENEROUS HALF
+        STANDING — closed 2026-08-13, one lot later, by the lot that had named
+        it. THE DRAFT HAS TO BE THE POEM THE MANDATE NUMBERS. Every finding
+        below is positional — "the mandate's L5 is the draft's fifth line" —
+        and `self.n_lines` comes from the MANDATE while `len(lines)` comes from
+        the DRAFT. An index guard cannot see the two disagree: it only ever
+        asks whether a RETURN LINE falls past the draft, so a mandate whose
+        returns all land INSIDE a short draft tripped nothing and reported
+        nothing at all.
+
+            S.mandate([[1, 3]], n_lines=6,
+                      returns=[[1, 3]]).returns_check(['x', 'b', 'x'])  ->  []
+
+        Six lines declared, three given, L1/L3 verbatim, and the 6-vs-3
+        disagreement never mentioned. MEASURED over `REFRAIN_FORMS` put through
+        `RefrainScheme.to_mandate` and handed a one-line-short draft whose
+        returns all HOLD: exactly ONE of the eight — `pantoum quatrain pair`,
+        whose last return line is 7 of 8 — returned `[]`. The other seven close
+        ON a returning line, so their index guard fires anyway and covers for
+        the missing check. That is the same one-in-eight
+        `RefrainScheme.check_identity` measures, on the same registry, because
+        it is the same defect on the twin surface. Doctrine 94: no positive
+        case can find it either, because every positive case hands over a draft
+        of exactly the right length. And the OVER-LONG direction — a draft
+        LONGER than the mandate numbers, where a title line shifts every line
+        number down — no index guard can EVER reach.
+
+        UNREACHABLE FROM `Reviser.inspect()`, AND THAT IS A PROOF RATHER THAN A
+        CLAIM. `inspect()` calls `m.returns_check(lines)` on `m =
+        self.mandate(lines, mandate)`, which is `SC.mandate(spec,
+        n_lines=len(lines))`; with `n_lines` non-None EVERY branch of `mandate`
+        either returns an object whose `n_lines` IS that argument or raises
+        `NoMandate` (the `Mandate`, `Cover`, letter-string, RGS and
+        `RefrainScheme` branches each compare and refuse; the group-list and
+        re-open branches assign `n = n_lines` outright). So `n == self.n_lines`
+        there by construction and the `LINE_COUNT` branch is dead on that path.
+        `quality/test_mandate_language.py` §15 walks the branches rather than
+        asserting this. WHAT WOULD MAKE IT FIRE: a caller reaching
+        `returns_check` without going through `Reviser.mandate` (this method is
+        public), or `Reviser.mandate` learning to accept a length mismatch
+        instead of refusing it. Either one needs `quality/revise.py`'s loop
+        over this output to grow a `LINE_COUNT` branch FIRST — it currently
+        routes every kind but `OUT_OF_RANGE` into `add(j,
+        Finding("RETURN_NOT_VERBATIM", "flag", ...))`, and this finding's `j`
+        is `None` because a length
+        disagreement names no pair. It belongs in `whole` as a NOTE, beside
+        `RETURN_OUT_OF_RANGE`: it says which question could be asked, not that
+        a line is wrong, and doctrine 6/7 keep a disclosure out of the gate.
+
+        Both halves are now phrased the way `RefrainScheme.check_identity`
+        phrases its own, so the two surfaces cannot drift: the length
+        disagreement is its own `LINE_COUNT` finding that says how many
+        requirements were graded on the positional reading ANYWAY and are
+        conditional on it (doctrine 79's counts, declared / graded / not
+        reached, never summed), and it says the assumption out loud rather than
+        letting silence read as a pass (doctrine 20). It is NOT gated on the
+        mandate having any return at all — gating it would put the silence back
+        for every rhyme-only mandate, and this is the only method on `Mandate`
+        that is shown the draft.
         """
         from quality.grid import compare_returns, normalise_line
         out = []
-        for i, j, r in self.return_pairs():
+        n = len(lines)
+        declared = self.return_pairs()
+        # The pairs this method GRADES. Non-verbatim and UNKNOWN returns are
+        # skipped by the loop below and are a THIRD count in the message, never
+        # folded into either of the other two: the mandate did not require
+        # identity there, so they are neither graded nor blocked by a short
+        # draft (doctrine 79). `undeclared_returns()` is where those are asked.
+        #
+        # COMPUTED BESIDE THE LOOP RATHER THAN REPLACING IT. Folding this
+        # predicate into the loop header — `for i, j, r in [... if r.verbatim
+        # is True]` — reads better and DISARMS `quality/mutate.py`'s QS3,
+        # whose anchor is the literal `if r.verbatim is not True:\n
+        # continue` two blocks down. A mutation that no longer applies is a
+        # mutant that cannot be killed, reported as nothing at all, so
+        # adversary 4 loses a member to a tidier line. Measured, not assumed:
+        # the first draft of this fix took QS3's `old=` string from 1 to 0.
+        pairs = [(i, j) for i, j, r in declared if r.verbatim is True]
+        if n != self.n_lines:
+            unchecked = sum(1 for i, j in pairs if i > n or j > n)
+            lo, hi = ((n + 1, self.n_lines) if n < self.n_lines
+                      else (self.n_lines + 1, n))
+            span, was = ((f"L{lo}", "was") if lo == hi
+                         else (f"L{lo}..L{hi}", "were"))
+            how = (f"{span} {was} never given" if n < self.n_lines else
+                   f"{span} {'is' if was == 'was' else 'are'} past the "
+                   f"mandate's last line")
+            out.append((None, None, None, "LINE_COUNT",
+                        f"the mandate numbers {self.n_lines} lines and {n} "
+                        f"were given — {how}, so the draft's line k is not "
+                        f"known to be the mandate's line k and every identity "
+                        f"finding here is positional. Of {len(declared)} "
+                        f"declared return pair(s): {len(pairs) - unchecked} "
+                        f"graded on that reading ANYWAY and conditional on "
+                        f"it, "
+                        f"{unchecked} naming a line past the draft and NOT "
+                        f"CHECKED, {len(declared) - len(pairs)} declared "
+                        f"non-verbatim or UNKNOWN and never graded here. This "
+                        f"is the assumption said out loud, not a clean pass "
+                        f"(doctrine 20)"))
+        for i, j, r in declared:
             if r.verbatim is not True:
                 continue
-            if i > len(lines) or j > len(lines):
-                bad = [x for x in (i, j) if x > len(lines)]
+            if i > n or j > n:
+                bad = [x for x in (i, j) if x > n]
                 names = "L" + ", L".join(str(x) for x in bad)
                 # WHICH of the two disagreements this is, said out loud. Past
                 # `self.n_lines` -> the RETURN is outside the mandate's own
@@ -1703,7 +1802,7 @@ class Mandate:
                        f"1..{self.n_lines} — the DRAFT is short")
                 out.append((r.label, i, j, "OUT_OF_RANGE",
                             f"return {r.label or '(unlabelled)'} names "
-                            f"{names}, past the {len(lines)} line(s) given, "
+                            f"{names}, past the {n} line(s) given, "
                             f"{why}. The verbatim requirement at L{i}/L{j} "
                             f"was NOT CHECKED — unasked, not answered clean "
                             f"(doctrine 20)"))

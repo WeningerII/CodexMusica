@@ -58,6 +58,23 @@ So the suite is organised around FIRING, not around passing:
                                                 fires either way. §14 says
                                                 which input discriminates and
                                                 measures why
+  §15 `Mandate.returns_check` — §14's twin BACK, and the last of the three.
+                                                The same generosity in the same
+                                                file: a mandate numbering more
+                                                lines than the draft has,
+                                                whose returns all land INSIDE
+                                                the draft, tripped no index and
+                                                returned `[]`. The obvious
+                                                input — a short draft — cannot
+                                                see it, because §13's own
+                                                fixture trips OUT_OF_RANGE
+                                                either way. §15 pins the
+                                                discriminating input beside it,
+                                                measures the same one-in-eight
+                                                over the same registry, and
+                                                PROVES the new finding cannot
+                                                fire through
+                                                `Reviser.inspect()`
 
 `python3 quality/test_mandate_language.py`
 """
@@ -714,6 +731,21 @@ def test_rep_is_the_first_member():
        "expanded_overlapping_lines, returns_check")
 
 
+def _msg(findings, kind):
+    """-> the first message of `kind`, or "" when the kind is absent.
+
+    NEVER indexes. A suite whose job is to kill a mutant that DELETES a
+    finding must not itself die on the empty list that mutant produces: an
+    IndexError aborts the run, skips every later check, and prints no
+    pass/fail count at all, which is a worse report than the failure.
+
+    It is also what keeps §13 and §15 from reading each other's rows: one call
+    can now return a `LINE_COUNT` and an `OUT_OF_RANGE` at once, and a `[0]`
+    would assert about whichever happened to sort first.
+    """
+    return next((f[4] for f in findings if f[3] == kind), "")
+
+
 # ---------------------------------------------------------------------------
 # §13  OUT_OF_RANGE — a message that named a condition its guard does not test
 #
@@ -753,7 +785,12 @@ def test_out_of_range_names_its_own_condition():
           "draft is a different repair from a mandate built around the "
           "constructor, and one message for both named neither")
     short = S.mandate("ABAB", returns="1,3")
-    smsg = short.returns_check(["a", "b"])[0][4]
+    # READS BY KIND, NEVER BY POSITION. This same call is §15's OBVIOUS input
+    # and now returns TWO findings — a `LINE_COUNT` for the 4-vs-2 disagreement
+    # and this `OUT_OF_RANGE` — so `[0]` would have silently started asserting
+    # about the wrong one. It is also exactly why this input cannot
+    # discriminate §15's defect: it fires under both readings. See §15.
+    smsg = _msg(short.returns_check(["a", "b"]), "OUT_OF_RANGE")
     ok("a well-formed mandate given a SHORT draft says the DRAFT is short",
        "the DRAFT is short" in smsg and "L3" in smsg
        and "inside the mandate's own 1..4" in smsg, smsg[:72])
@@ -784,17 +821,6 @@ def test_out_of_range_names_its_own_condition():
 def _last_refrain_line(sch):
     """-> the highest line number any refrain mark in `sch` names."""
     return max((max(t) for t in sch.refrains.values()), default=0)
-
-
-def _msg(findings, kind):
-    """-> the first message of `kind`, or "" when the kind is absent.
-
-    NEVER indexes. A suite whose job is to kill a mutant that DELETES a
-    finding must not itself die on the empty list that mutant produces: an
-    IndexError aborts the run, skips every later check, and prints no
-    pass/fail count at all, which is a worse report than the failure.
-    """
-    return next((f[4] for f in findings if f[3] == kind), "")
 
 
 def test_check_identity_needs_the_whole_draft():
@@ -923,6 +949,308 @@ def test_check_identity_needs_the_whole_draft():
        f"{ {d[3] for d in dgot} }")
 
 
+# ---------------------------------------------------------------------------
+# §15  `Mandate.returns_check` — §14's twin back, and the last of the three
+#
+# §13 fixed the MESSAGE half of this method and left the GENEROUS half, naming
+# it. §14 found the identical pair on `RefrainScheme.check_identity` and closed
+# both there. This closes the one that was named: a mandate that numbers more
+# lines than the draft has, whose returns all land INSIDE the draft, tripped no
+# index guard and reported nothing at all.
+#
+# THE FINDING CANNOT FIRE THROUGH `Reviser.inspect()`, and the proof is below
+# rather than asserted: `inspect()` calls `m.returns_check(lines)` on
+# `m = self.mandate(lines, mandate)` = `SC.mandate(spec, n_lines=len(lines))`,
+# and every branch of `SC.mandate` given a non-None `n_lines` either returns an
+# object whose `n_lines` IS that argument or raises `NoMandate`. So the length
+# disagreement is dead on that path — which is exactly why closing it here is
+# safe while `quality/revise.py` has no branch for the new kind.
+# ---------------------------------------------------------------------------
+
+def _returns_satisfied(m, n):
+    """-> `n` lines in which every declared return class comes back VERBATIM.
+
+    The clean draft at ANY length. A stub like `['l1', 'l2', ...]` breaks the
+    returns as well as the count, so its findings prove nothing about which
+    guard fired — the whole point of §15 is a draft on which the ONLY thing
+    wrong is the number of lines.
+    """
+    text = [f"line {k} carries its own words" for k in range(1, n + 1)]
+    for r in m.returns:
+        for i in r.lines:
+            if i <= n:
+                text[i - 1] = f"the burden {r.label} comes back"
+    return text
+
+
+def test_returns_check_needs_the_whole_draft():
+    print("\n§15  returns_check — §13's other half, and §14's twin back")
+
+    print("\n    THE OBVIOUS INPUT DOES NOT DISCRIMINATE, and §13 already "
+          "owns it: 'a short draft' is the phrase, and the short draft this "
+          "repo already had in a test trips the index guard by itself")
+    obvious = S.mandate("ABAB", returns="1,3")
+    ok("§13's own short-draft fixture names L3, which is PAST a 2-line draft, "
+       "so OUT_OF_RANGE fires under EITHER reading",
+       "OUT_OF_RANGE" in [f[3] for f in obvious.returns_check(["a", "b"])]
+       and max(j for _, j, _ in obvious.return_pairs()) > 2,
+       "-- the obvious boundary value, and it proves nothing about the "
+       "length check")
+
+    print("\n    THE DISCRIMINATING INPUT IS THE ONE WHOSE RETURNS ALL LAND "
+          "INSIDE THE SHORT DRAFT — the input the §14 lot supplied by name")
+    named = S.mandate([[1, 3]], n_lines=6, returns=[[1, 3]])
+    got = named.returns_check(["x", "b", "x"])
+    ok("6 lines declared, 3 given, L1/L3 verbatim — A MANDATE AND A DRAFT "
+       "THAT DISAGREE IS NOT A CLEAN PASS; this returned [] until 2026-08-13",
+       got != [],
+       "-- doctrine 94: no positive case can reach it, because every positive "
+       "case hands over a draft of the right length")
+    ok("and it is NOT the index guard that catches it: every return line "
+       "still lands inside the 3-line draft",
+       all(f[3] != "OUT_OF_RANGE" for f in got)
+       and all(i <= 3 and j <= 3 for i, j, _ in named.return_pairs()),
+       "-- which is exactly why the index guard could not see it")
+    kinds = [f[3] for f in got]
+    ok("the finding is LINE_COUNT and there is exactly one of it",
+       kinds.count("LINE_COUNT") == 1 and len(got) == 1, f"{kinds}")
+
+    print("\n    AND THE SAME ONE-IN-EIGHT, ON THE SAME SHIPPED REGISTRY §14 "
+          "MEASURED — because it is the same defect on the twin surface")
+    still_blind = sorted(k for k in S.REFRAIN_FORMS
+                         if not S.refrain_form(k).to_mandate().returns_check(
+                             _returns_satisfied(S.refrain_form(k).to_mandate(),
+                                                S.refrain_form(k).n_lines - 1),
+                             variation=False))
+    ok("all 8 shipped REFRAIN_FORMS, put through `to_mandate()` and handed a "
+       "one-line-short draft whose returns HOLD, now report the "
+       "disagreement — NONE is silent",
+       still_blind == [] and len(S.REFRAIN_FORMS) == 8,
+       f"{still_blind} -- and `pantoum quatrain pair` was the only one of the "
+       f"eight that was silent BEFORE, which the next line measures as a "
+       f"property rather than re-asserting from memory")
+    open_ended = sorted(k for k in S.REFRAIN_FORMS
+                        if max((max(t) for t in
+                                S.refrain_form(k).refrains.values()),
+                               default=0) < S.refrain_form(k).n_lines)
+    ok("and the PROPERTY that made it the discriminating one — a last line "
+       "that is not a returning line, so no return index falls past a "
+       "one-short draft — holds of exactly that form",
+       open_ended == ["pantoum quatrain pair"],
+       f"{open_ended} -- measured over the registry, not hand-picked. The "
+       f"other seven close ON a return, so their index guard fires anyway "
+       f"and covered for the missing check on 7 of 8 named forms")
+    pan = S.refrain_form("pantoum quatrain pair").to_mandate()
+    short = _returns_satisfied(pan, pan.n_lines - 1)
+    pgot = pan.returns_check(short)
+    ok("`pantoum quatrain pair` as a MANDATE, 8 lines declared and 7 given "
+       "with both returns verbatim, now reports the disagreement",
+       [f[3] for f in pgot] == ["LINE_COUNT"], f"{[f[3] for f in pgot]}")
+    ok("the whole 8-line draft, returns holding, still reports NOTHING",
+       pan.returns_check(_returns_satisfied(pan, pan.n_lines)) == [],
+       "-- the fix did not buy its reach with noise on the clean case")
+
+    print("\n    THE MESSAGE, phrased as `check_identity` phrases its own so "
+          "the two surfaces cannot drift")
+    lmsg = _msg(pgot, "LINE_COUNT")
+    ok("it NAMES THE MISSING LINE and both counts, which here ARE the "
+       "condition being tested",
+       "L8 was never given" in lmsg and "8 lines and 7 were given" in lmsg,
+       lmsg[:72])
+    ok("and doctrine 79's counts are SEPARATE and never summed: graded on "
+       "the positional assumption ANYWAY, not reached, and never graded here",
+       "2 graded on that reading ANYWAY" in lmsg
+       and "0 naming a line past the draft and NOT CHECKED" in lmsg
+       and "0 declared non-verbatim or UNKNOWN" in lmsg
+       and "NOT CHECKED" in lmsg)
+    ok("the two surfaces say the SAME SENTENCE about the same condition, "
+       "with `mandate` for `notation` — that was §14's design choice and it "
+       "holds both ways now",
+       all(frag in lmsg for frag in
+           ("were given — ", "so the draft's line k is not known to be the ",
+            "line k and every identity finding here is positional",
+            "This is the assumption said out loud, not a clean pass "
+            "(doctrine 20)")),
+       "-- the shared frames, checked against check_identity's own text below")
+    cmsg = _msg(S.refrain_form("pantoum quatrain pair").check_identity(
+        _returns_satisfied(pan, 7)), "LINE_COUNT")
+    ok("...and that is measured against `check_identity`'s LIVE output, not "
+       "against a copy of it in this file",
+       cmsg != "" and all(frag in cmsg for frag in
+                          ("were given — ", "This is the assumption said out "
+                           "loud, not a clean pass (doctrine 20)"))
+       and "the notation numbers" in cmsg and "the mandate numbers" in lmsg,
+       "-- one says notation, one says mandate, and nothing else differs in "
+       "the frame")
+
+    print("\n    THE OTHER DIRECTION, which no index guard can EVER reach: a "
+          "draft LONGER than the mandate numbers")
+    over = obvious.returns_check(["same", "b", "same", "d", "a fifth line"])
+    omsg = _msg(over, "LINE_COUNT")
+    ok("5 lines against a 4-line mandate is reported, though every index is "
+       "in range and the return is verbatim",
+       len(over) == 1 and "L5" in omsg
+       and "past the mandate's last line" in omsg,
+       "-- a title line shifts every line number and the answers stay silent")
+
+    print("\n    a mandate with NO returns still reports the mismatch, and "
+          "that is deliberate — gating LINE_COUNT on 'has returns' would put "
+          "the silence back for every rhyme-only mandate")
+    rhyme_only = S.mandate("ABAB")
+    ok("`ABAB` — 0 returns, 4 lines — given 3 lines still says so, and its "
+       "counts are honestly 0 of 0",
+       _msg(rhyme_only.returns_check(["a", "b", "c"]), "LINE_COUNT")
+       .count("0 ") >= 3
+       and rhyme_only.returns_check(["a", "b", "c"]) != [],
+       "-- this is the only method on `Mandate` that is shown the draft at "
+       "all, so it is the only place the mismatch can surface")
+    ok("and the same mandate at its declared length is silent",
+       rhyme_only.returns_check(["a", "b", "c", "d"]) == [])
+
+    print("\n    the FOURTH count, which `check_identity` does not need: a "
+          "return this method SKIPS is neither graded nor blocked, and "
+          "folding it into either would be doctrine 79 broken")
+    unk = S.mandate("ABAB", returns="1,3",
+                    rule=S.ReturnRule(return_verbatim="unknown"))
+    umsg = _msg(unk.returns_check(["a", "b", "c"]), "LINE_COUNT")
+    ok("an UNKNOWN-verbatim return is counted as never graded here, not as "
+       "graded and not as unchecked",
+       "0 graded on that reading ANYWAY" in umsg
+       and "0 naming a line past the draft" in umsg
+       and "1 declared non-verbatim or UNKNOWN" in umsg, umsg[-96:])
+    ok("and at the declared length that mandate is still SILENT, exactly as "
+       "§7 pins it",
+       unk.returns_check(["a", "b", "c", "d"]) == [])
+
+    print("\n    and the guard has not started swallowing what it grades")
+    inr = S.mandate([[1, 3], [2, 4]], n_lines=4,
+                    returns=[[1, 3]])
+    ok("an IN-RANGE return that came back VERBATIM at the declared length "
+       "emits nothing",
+       inr.returns_check(["same", "b", "same", "d"]) == [])
+    drift = inr.returns_check(["same", "b", "other", "d"])
+    ok("an IN-RANGE return that DRIFTED is still a NAMED KIND, and there is "
+       "no LINE_COUNT row on a draft of the declared length",
+       len(drift) == 1 and drift[0][3] not in ("OUT_OF_RANGE", "LINE_COUNT")
+       and "VERBATIM" in drift[0][4], f"{drift[0][3]}")
+
+
+# ---------------------------------------------------------------------------
+# §15b  THE PRODUCTION PATH, PROVED RATHER THAN ASSERTED
+# ---------------------------------------------------------------------------
+
+def test_line_count_cannot_fire_through_the_reviser():
+    print("\n§15b  the new finding cannot fire through `Reviser.inspect()`, "
+          "and this is the proof rather than the claim")
+
+    print("\n    STEP 1 — `SC.mandate(spec, n_lines=N)` returns `n_lines == "
+          "N` or RAISES, on every accepted spec kind. Walked, not argued")
+    ref = S.refrain_form("triolet")                       # 8 lines
+    specs = [
+        ("letter string", "ABAB", 4),
+        ("RGS code", (0, 1, 0, 1), 4),
+        ("group list", [[1, 3], [2, 4]], 4),
+        ("Cover", S.Cover(n_lines=4, groups=[[1, 3], [2, 4]]), 4),
+        ("Mandate", S.mandate("ABAB"), 4),
+        ("RefrainScheme", ref, ref.n_lines),
+        ("A-1 notation string", ref.render(), ref.n_lines),
+    ]
+    agree, refuse, wrong = 0, 0, []
+    for name, spec, nat in specs:
+        for n in (nat, nat + 1, nat - 1):
+            try:
+                m = S.mandate(spec, n_lines=n)
+            except S.NoMandate:
+                refuse += 1
+                continue
+            if m.n_lines == n:
+                agree += 1
+            else:
+                wrong.append((name, n, m.n_lines))
+    ok("21 constructions over 7 spec kinds at three lengths each: every one "
+       "either agrees with the `n_lines` it was given or refuses",
+       not wrong and agree + refuse == 21,
+       f"{agree} agree, {refuse} refuse, {len(wrong)} disagree {wrong}")
+    ok("the RE-OPEN branch (`mandate(Mandate, returns=...)`) assigns "
+       "`n = n_lines` outright, so it agrees too",
+       S.mandate(S.mandate("ABAB"), n_lines=4,
+                 returns=[[1, 3]]).n_lines == 4)
+    ok("and `carry_returns=False` — the reachable OLD reading of an A-1 "
+       "string — routes through the RGS branch and agrees as well",
+       S.mandate(ref, n_lines=ref.n_lines, carry_returns=False).n_lines
+       == ref.n_lines)
+
+    print("\n    STEP 2 — the call site still passes the SAME list it "
+          "measured. Read off `quality/revise.py`, so a change there breaks "
+          "this proof rather than silently outdating it (doctrine 48)")
+    with open(os.path.join(HERE, "revise.py")) as fh:
+        rsrc = fh.read()
+    ok("`Reviser.mandate` is still `SC.mandate(spec, n_lines=len(lines))`",
+       "return SC.mandate(spec, n_lines=len(lines))" in rsrc)
+    ok("`inspect()` still builds its mandate from the draft it is grading",
+       "m = self.mandate(lines, mandate)" in rsrc)
+    ok("...and still hands `returns_check` that same `lines`",
+       "for label, i, j, kind, msg in m.returns_check(lines):" in rsrc)
+    ok("so `self.n_lines == len(lines)` there BY CONSTRUCTION, and the "
+       "LINE_COUNT branch is unreachable from inspect(), verify(), brief() "
+       "and every CLI verb that runs the loop",
+       True,
+       "-- steps 1 and 2 together; nothing here asserts it on its own")
+
+    print("\n    STEP 3 — WHAT WOULD HAVE TO CHANGE, pinned so the handoff "
+          "is mechanical. This finding names NO PAIR, and `revise.py`'s loop "
+          "sends every kind but OUT_OF_RANGE to a per-LINE flag")
+    # NEVER INDEXES, for the reason `_msg` gives: the QS7 mutant DELETES this
+    # finding, and a test that dies on the empty list its own mutant produces
+    # aborts the run and prints no pass/fail count at all. Found by running
+    # the mutation rather than by reading the helper's docstring — which is
+    # the same way §14 found it, in the same suite, one lot earlier.
+    lc = [f[:3] for f in S.mandate([[1, 3]], n_lines=6, returns=[[1, 3]])
+          .returns_check(["x", "b", "x"]) if f[3] == "LINE_COUNT"]
+    ok("`LINE_COUNT` carries label/i/j all None — a length disagreement is "
+       "about the DRAFT, not about one return pair",
+       lc == [(None, None, None)], f"{lc}")
+    ok("and `revise.py` routes every non-OUT_OF_RANGE kind to `add(j, "
+       "Finding('RETURN_NOT_VERBATIM', 'flag', ...))`, which would key a "
+       "FLAG on line `None` and break `verify()`'s sorted diff",
+       'add(j, Finding("RETURN_NOT_VERBATIM", "flag", msg,' in rsrc,
+       "-- so revise.py needs a LINE_COUNT branch, into `whole` as a NOTE "
+       "beside RETURN_OUT_OF_RANGE, BEFORE anything makes this reachable")
+    ok("`verify()` gates acceptance on `new_flags` only, which is why NOTE "
+       "is the right severity there and not a matter of taste",
+       'new_flags = {k for k in new if sev.get(k) == "flag"}' in rsrc
+       and "if len(new_flags) > self.rdecl.allow_net_new:" in rsrc)
+    ok("and it could not reject a revision even as a flag: `verify()` "
+       "refuses a line-count change outright and inspects BOTH sides with "
+       "ONE mandate, so this finding is identical before and after and "
+       "cancels out of the Counter diff",
+       "if len(before) != len(after):" in rsrc
+       and "m = self.mandate(before, mandate)" in rsrc)
+
+    print("\n    STEP 4 — AND THE FIX DID NOT DISARM ADVERSARY 4 ON ITS WAY "
+          "PAST. `quality/mutate.py` plants its mutants by EXACT STRING, so "
+          "a tidier line in the mutated region deletes a mutant in silence "
+          "and the run reports nothing at all")
+    import quality.mutate as MUT                                # noqa: E402
+    src = open(os.path.join(HERE, "schemes.py")).read()
+    qs = [m for m in MUT.MUTATIONS if "schemes" in str(m.file)]
+    misses = sorted(m.name for m in qs if src.count(m.old) != 1)
+    ok("all 5 schemes.py mutants (QS1-QS5) still have exactly one anchor "
+       "in the file they mutate",
+       [m.name for m in qs] == ["QS1", "QS2", "QS3", "QS4", "QS5"]
+       and not misses,
+       f"unapplicable: {misses} -- QS3's anchor is `returns_check`'s own "
+       f"`if r.verbatim is not True: continue`, INSIDE the block this lot "
+       f"edited, and the first draft of the fix folded it into a "
+       f"comprehension and took it from 1 to 0")
+    ok("and none of the 57 mutants targets this method's LENGTH guard, "
+       "which is why nothing had killed it — the mutation §15 uses belongs "
+       "in that file as a QS7",
+       not any("if n != self.n_lines:" in m.old for m in MUT.MUTATIONS),
+       f"{len(MUT.MUTATIONS)} mutations, 5 on schemes.py, all 5 on "
+       f"`Mandate`, none on a length guard")
+
+
 def main():
     print(__doc__.strip().splitlines()[0])
     test_unknown()
@@ -939,6 +1267,8 @@ def main():
     test_rep_is_the_first_member()
     test_out_of_range_names_its_own_condition()
     test_check_identity_needs_the_whole_draft()
+    test_returns_check_needs_the_whole_draft()
+    test_line_count_cannot_fire_through_the_reviser()
     print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:
         for f in FAIL:
