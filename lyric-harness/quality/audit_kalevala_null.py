@@ -134,6 +134,27 @@ DOCTRINE 89: THE EXCESS IS A SERIES, AND ONE POINT CANNOT CARRY IT
   replicates and an exact pin on a capped draw witnesses the replicate count
   rather than the effect (doctrine 57).
 
+  WHAT THE SERIES COSTS, MEASURED rather than estimated, 1 core, 2026-08-13:
+      `--check`  BEFORE  2.03 s wall / 2.02 s CPU
+      `--check`  AFTER   4.02 s wall / 4.02 s CPU   (+1.99 s, x1.98)
+      n=200 (a human run, both arms)  76.5 s wall / 76.1 s CPU
+  So the CI step's own comment ("~5 s") is now nearer 4 s than 5 s on this
+  box and the widening roughly DOUBLES it in ratio while adding two seconds
+  in absolute -- against a job whose other steps run 4 s, 25 s, ~1 min, 64 s
+  and ~3 min. It is paid in one step and not split, because the four extra
+  corpora share nothing with the Kalevala arm and a split would run the
+  Kalevala's ingestion twice to save one second. THE COST IS ALL IN NULL A:
+  the observed counts are ~1.0 s of tokenizing and the five-replicate draws
+  are ~0.9 s, which is why Null B is not run over the series.
+
+  AND THE BOUNDS WERE CHECKED AT THE FULL n BEFORE BEING WRITTEN. At n=200
+  the series reads +52.6 / +50.8 / +15.8 / +15.2 / +11.6, which reproduces
+  data/sources.tsv's 2026-08-10 census (+52.5 / +50.8 / +15.7 / +15.0 /
+  +11.6) to a tenth of a point on four of five points and exactly on Kivi --
+  measured by a different instrument (quality/kalevala_rate.py, numpy fast
+  path) over a different reader. Every one of them clears these bounds with
+  at least 7 pp to spare.
+
 Run: python3 quality/audit_kalevala_null.py corpus/fin_kalevala.txt [n]
      (or on the raw Gutenberg file, which this also accepts:
       curl -sS -o kal7000.txt \
@@ -447,7 +468,7 @@ PINNED = {"extracted": 22795,
 #: in them at all. `kalevala` is absent on purpose -- its counts are
 #: PINNED["all verse lines"] and pinning them twice is two numbers for one
 #: fact, which is the drift this whole file exists to catch.
-PINNED_SERIES = {"kanteletar": {"lines": 22110, "alliterating": 18095},
+PINNED_SERIES = {"kanteletar": {"lines": 22110, "alliterating": 18094},
                  "uudempia": {"lines": 852, "alliterating": 612},
                  "literary7": {"lines": 15331, "alliterating": 9734},
                  "kivi": {"lines": 2884, "alliterating": 1684}}
