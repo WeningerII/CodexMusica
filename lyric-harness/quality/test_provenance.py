@@ -187,6 +187,73 @@ def test_report_counts():
     print("\n" + buf.getvalue())
 
 
+def test_noncommercial_is_a_rejection():
+    """Doctrine 85, made mechanical — and it is the ORDER that does the work.
+
+    Before 2026-08-13 `grep -i non-commercial quality/provenance.py` returned
+    nothing, while four refusals in this project's record cite doctrine 85:
+    pantunis-data, CELT, 4,347 ci and 734 樂府. Every one was a human reading
+    licence text at fetch time. The gate would have admitted all of them,
+    because an NC grant is not a date and every admitting route tests a date.
+    """
+    print("\n10. an express non-commercial grant is a REJECTION")
+    from quality.provenance import (REJECT_NONCOMMERCIAL, ADMITTED, Source,
+                                    AuthorRecord, ProvenanceGate,
+                                    ProvenanceDeclaration,
+                                    noncommercial_marker)
+
+    def one(licence, contested=False, death=450):
+        src = Source(source_id="s", licence=licence, contested=contested)
+        auth = {"a": AuthorRecord(author_key="a", death_year=death,
+                                  verification_source="wikidata")}
+        g = ProvenanceGate(ProvenanceDeclaration(), {"s": src}, auth)
+        return g.admit(Item(item_id="i", language="xx", source_id="s",
+                            author_key="a"))[0]
+
+    # THE ORDERING. A 450 CE author clears every term this gate can compute,
+    # so route 2 admitted these on the strength of the author being long dead
+    # -- true, and beside the point.
+    check("cc-by-nc-sa-4.0 refuses even with a verified 450 CE death year",
+          one("cc-by-nc-sa-4.0") == REJECT_NONCOMMERCIAL)
+    check("the quoted rime-aca grant refuses -- doctrine 85's own case",
+          one("non-commercial free-use grant by the DIGITISER, quoted in the "
+              "file: '資料自由使用，但不得為商業用途'") == REJECT_NONCOMMERCIAL,
+          "an NC restriction has to bind the same way in every language")
+    check("contested=true does not change the answer either way",
+          one("cc-by-nc-4.0", contested=True) == REJECT_NONCOMMERCIAL,
+          "contested only voids route 1; REJECT_CONTESTED_NO_DATE is reached "
+          "after route 2 has already returned, which is why this check has to "
+          "sit ahead of all three routes rather than beside them")
+
+    # THE CONTROLS. A refusal that fires on everything is not a gate.
+    check("CC0 still admits", one("cc0-1.0") in ADMITTED)
+    check("plain CC BY + a verified date still admits",
+          one("cc-by-4.0") in ADMITTED)
+
+    # THE NEGATION TRAP, and it is a live string in data/sources.tsv. The MIT
+    # row for the frequency list this project SHIPS describes the NC clause of
+    # the list it REPLACED. A substring search for "non-commercial" refuses
+    # the admissible file for describing the inadmissible one.
+    mit = ("MIT (hermitdave/FrequencyWords, LICENSE at repo root). No "
+           "non-commercial clause anywhere in the chain -- which is the "
+           "point, since the list it replaces has one.")
+    check("a row DENYING an NC clause is not read as carrying one",
+          noncommercial_marker(mit) is None,
+          "data/opensubtitles_en_50k.tsv is the shipped list; refusing it "
+          "here would be the gate reading its own changelog as a restriction")
+    check("and it admits end to end", one(mit) in ADMITTED)
+
+    # Nothing currently staged may start refusing. This is the regression that
+    # matters: the fix must close a hole, not re-litigate the corpus.
+    from quality.provenance import load_sources
+    now_refused = [s.source_id for s in load_sources().values()
+                   if noncommercial_marker(s.licence)]
+    check("the NC verdict fires on the staged sources it should, and no others",
+          all("nc" in s.lower() or "gretil" in s.lower() or "rime" in s.lower()
+              for s in now_refused) if now_refused else True,
+          f"refused: {now_refused or 'none'}")
+
+
 if __name__ == "__main__":
     test_route_one_pd_affirmation()
     test_open_licence_is_not_a_pd_claim()
@@ -197,6 +264,7 @@ if __name__ == "__main__":
     test_term_boundary()
     test_no_evidence()
     test_report_counts()
+    test_noncommercial_is_a_rejection()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
