@@ -1058,6 +1058,525 @@ def self_test():
 
 
 # ---------------------------------------------------------------------------
+# 3c. PIN SUPERSESSION — doctrine 17, over `quality/audit_*.py`
+#
+# "A check may be kept after its premise is falsified, but never quoted as if
+# it were not." That sentence is cited 44 times in this repo and it is the
+# line every audit prints when it goes red -- `audit_spans.py`,
+# `audit_corpus.py`, `audit_tang_null.py`, `audit_kalevala_null.py` and
+# `audit_joint_auc_null.py` all end their failure block with "keep the
+# superseded value visible (doctrine 17)". EVERY ONE OF THOSE IS A STRING A
+# HUMAN READS AFTER A FAILURE. Nothing checked that a superseded value
+# actually stayed visible, so the most-cited doctrine in the layer was the
+# least enforced one.
+#
+# WHAT IS AND IS NOT MADE MANDATORY, because the obvious rule is wrong. "Every
+# PINNED constant must have a dated superseded line" fires on correct work: a
+# pin set right the first time and never moved has nothing to supersede, and
+# 57 of this repo's 61 pins are exactly that. A check that goes red on a
+# correct pin is worse than no check -- CI's own comment in this repo says a
+# permanently-red gate is one people learn to skip.
+#
+# The invariant is CONDITIONAL and it derives its own population:
+#
+#     IF a pinned value has CHANGED in git history,
+#     THEN the documents that audit names must still carry the OLD value,
+#          and must mark it as superseded or date it.
+#
+# Nothing here is a list. The audit files come from a glob, the pins from the
+# AST, the moves from `git log`/`git cat-file`, and the documents from the
+# `.md` paths each audit file cites in its own text. A hard-coded list of
+# "pins that moved" would be the same defect this file exists to remove, one
+# layer up: a figure written down instead of derived.
+#
+# TWO DIRECTIONS, ONE FATAL. VANISHED -- the superseded value is in none of
+# the cited documents -- FAILS: that is doctrine 17's sentence broken outright,
+# a value overwritten rather than kept. UNMARKED -- the value is still there
+# and nothing says it was superseded -- is reported as a NOTE, for the same
+# reason `status_content`'s second direction is: the remedy is a human editing
+# a RESULTS document, and "is this marker enough" is a judgement a regex is
+# not entitled to fail a build on.
+# ---------------------------------------------------------------------------
+
+
+#: A pin-bearing name. `PINNED`/`PINNED_SHAPE`/`RECORDED` are what this layer
+#: already calls them; the check follows the repo's own vocabulary rather than
+#: inventing one.
+PIN_NAME = re.compile(r"PINNED|RECORDED")
+
+#: A string literal that is really a number -- `audit_joint_auc_null.py` pins
+#: its four AUCs as `"0.717"` because they are compared at the 3 decimals the
+#: record quotes them to, not as floats.
+NUMERIC_TEXT = re.compile(r"^-?\d+(?:\.\d+)?$")
+
+ISO_DATE = re.compile(r"20\d\d-\d\d-\d\d")
+
+#: The ONLY phrases that count as marking a value superseded, declared as a
+#: closed list for the same reason `PATH_ABSENT_PHRASES` is: reading
+#: "this number is no longer current" out of English in general is the guess
+#: this file will not make. Every entry is drawn from a sentence this repo
+#: has actually written beside a retired figure.
+PIN_SUPERSESSION_MARKS = (
+    "repinned", "repin", "superseded", "supersedes", "struck", "void",
+    "withdrawn", "no longer reproduce", "does not reproduce",
+    "did not reproduce", "doctrine 17", "**was:**", "amended", "retired",
+    "stale", "must not be quoted",
+)
+
+
+def _pin_scalar(node, src):
+    """-> (source text, value) for a pinnable literal, else None.
+
+    The SOURCE TEXT is kept beside the value and it is the half that matters:
+    `0.640` and `0.64` are one float and two different strings, and a document
+    quotes the string. Searching a RESULTS file for `0.64` when the record
+    says `0.640` is how a check reports a value missing that is on the page.
+    """
+    if not isinstance(node, ast.Constant):
+        return None
+    v = node.value
+    if isinstance(v, bool):
+        return None
+    if isinstance(v, (int, float)):
+        text = ast.get_source_segment(src, node)
+        return ((text or repr(v)).strip(), v)
+    if isinstance(v, str) and NUMERIC_TEXT.match(v.strip()):
+        return (v.strip(), v.strip())
+    return None
+
+
+def _pin_label(node):
+    """-> a tuple's or list's own name: its first non-numeric string element.
+
+    `("ABSOLUTE (original ten)", QualityFeatures, "0.717", "0.964")` names
+    itself in its first slot, which is the idiom the audit files already use.
+    """
+    for e in node.elts:
+        if (isinstance(e, ast.Constant) and isinstance(e.value, str)
+                and not NUMERIC_TEXT.match(e.value)):
+            return e.value
+    return None
+
+
+def _pin_walk(node, path, src, out):
+    """Flatten a literal container into {path: (text, value)}.
+
+    The PATH is the pin's identity across commits, so it is built from names
+    and labels and never from a line number: `audit_joint_auc_null.py`'s four
+    AUCs live inside a `for` header that has moved 60 lines since it was
+    written, and a positional key would have read that move as four repins.
+    A tuple takes its first non-numeric string as its label -- the same idiom
+    that file already uses, `("ABSOLUTE (original ten)", ..., "0.717")`.
+    """
+    if isinstance(node, ast.Dict):
+        for k, v in zip(node.keys, node.values):
+            key = k.value if isinstance(k, ast.Constant) else "?"
+            _pin_walk(v, path + (str(key),), src, out)
+        return
+    if isinstance(node, (ast.Tuple, ast.List)):
+        label = _pin_label(node)
+        base = path + ((label,) if label else ())
+        for i, e in enumerate(node.elts):
+            if isinstance(e, (ast.Dict, ast.Tuple, ast.List)):
+                # A labelled child names itself; an unlabelled one still needs
+                # an index or two sibling tuples would collide into one pin.
+                inner = _pin_label(e) if isinstance(e, (ast.Tuple, ast.List)) \
+                    else None
+                _pin_walk(e, base if inner else base + ("[%d]" % i,), src, out)
+            else:
+                _pin_walk(e, base + ("[%d]" % i,), src, out)
+        return
+    hit = _pin_scalar(node, src)
+    if hit is not None:
+        out[path] = hit
+
+
+def pin_literals(src):
+    """-> {path: (text, value)} over one audit module, or None if it will not
+    parse.
+
+    TWO DECLARED SHAPES, and a third would be declared the same way rather
+    than guessed at:
+
+      * a module-level assignment whose name carries `PINNED` or `RECORDED`,
+        to any depth of a literal container. `PINNED_SHAPE`, `RECORDED`,
+        `PINNED` itself.
+      * a literal tuple or list in a `for` header. That is not decoration:
+        `audit_joint_auc_null.py`'s own comment says the four observed AUCs
+        are "NOT repeated" in `PINNED` and are "checked against the `RECORDED`
+        strings already carried in `main()`" -- so the ONLY committed copy of
+        the numbers that moved this session is a bare tuple in a loop header,
+        and a checker that read named constants alone would have found nothing
+        at all and called it clean.
+
+    It over-reaches slightly by construction: `for i in (1, 2, 3)` would be
+    read as three pins. That is harmless and it is the right direction of
+    error -- a spurious pin can only ever be silent, because a pin is reported
+    only when its VALUE MOVES, and a loop bound that moves is a thing worth
+    looking at anyway.
+    """
+    try:
+        tree = ast.parse(src)
+    except (SyntaxError, ValueError):
+        return None
+    out = {}
+    for n in tree.body:
+        if isinstance(n, ast.Assign):
+            for t in n.targets:
+                if isinstance(t, ast.Name) and PIN_NAME.search(t.id):
+                    _pin_walk(n.value, (t.id,), src, out)
+    for n in ast.walk(tree):
+        if isinstance(n, ast.For) and isinstance(n.iter, (ast.Tuple, ast.List)):
+            names = [x.id for x in ast.walk(n.target) if isinstance(x, ast.Name)]
+            _pin_walk(n.iter, ("for(%s)" % ",".join(names),), src, out)
+    return out
+
+
+MD_CITE = re.compile(r"([\w./-]*[A-Z][A-Z_0-9]*\.md)")
+
+
+def cited_documents(src):
+    """-> [relpath] the `.md` files this audit module names in its own text.
+
+    DERIVED, not mapped. A table from `audit_spans.py` to `RESULTS_SPANS.md`
+    would be a second place to keep a fact the module already states, and the
+    two would drift -- which is the failure this whole file is about. A bare
+    `RESULTS_SPANS.md` resolves under `quality/` the same way `resolve_module`
+    resolves a bare module name.
+    """
+    out = []
+    for cite in dict.fromkeys(MD_CITE.findall(src)):
+        for cand in ((cite,) if "/" in cite else (cite, "quality/" + cite)):
+            if os.path.exists(os.path.join(ROOT, cand)):
+                if cand not in out:
+                    out.append(cand)
+                break
+    return out
+
+
+def _renderings(text, value):
+    """-> the strings a document might spell this pin with.
+
+    `1064` and `1,064` are one pin and two renderings, and this repo writes
+    both -- `audit_spans.py` pins `1064`, `CLAUDE.md` quotes `1,064`.
+    Doctrine 91: a count is a coordinate of the RENDERING.
+    """
+    out = [text]
+    if isinstance(value, int) and abs(value) >= 1000:
+        out.append("{:,}".format(value))
+    return out
+
+
+def _md_blocks(lines):
+    """-> [(start, end)] over a markdown file, one entry per line.
+
+    A block ends at a blank line or where a `>` blockquote starts or stops --
+    the SAME boundary rule `_segments_of` uses on the two registers, reused
+    rather than re-invented so the file has one idea of what a block is.
+
+    A FIXED WINDOW OF N LINES WAS TRIED FIRST AND IT WAS WRONG, measurably.
+    `RESULTS.md` line 251 ends a blockquote about the `rhyme_predictability`
+    withdrawal with the words "doctrine 17"; line 261 states the joint AUC
+    `0.659` in an unrelated bullet ten lines later. A window called the second
+    one marked by the first -- a real supersession marker for a DIFFERENT
+    figure, close enough to launder a stale one. Blocks separate them because
+    one is quoted and the other is not.
+    """
+    bounds, start, quoted = [], 0, None
+    for i, raw in enumerate(lines):
+        s = raw.strip()
+        q = s.startswith(">")
+        if not s or (quoted is not None and q != quoted):
+            if i > start:
+                bounds.append((start, i))
+            start = i + (0 if s else 1)
+            quoted = q if s else None
+            if not s:
+                continue
+        if quoted is None:
+            quoted = q
+    if start < len(lines):
+        bounds.append((start, len(lines)))
+    out = [(0, len(lines))] * len(lines)
+    for lo, hi in bounds:
+        for i in range(lo, hi):
+            out[i] = (lo, hi)
+    return out
+
+
+def pin_verdict(text, value, doc_texts):
+    """-> (status, [(doc, lineno, line)]). PURE: no disk, no git, no clock.
+
+    VANISHED   the superseded value is in none of the documents.
+    UNMARKED   it is there, and no block that states it carries a date or a
+               supersession marker.
+    ok         at least one block states it AND marks it.
+
+    "At least one", not "every one": a figure quoted six times needs the
+    record to say once that it was superseded, and demanding a marker beside
+    every mention would fail the most carefully written documents in the repo
+    for being thorough. That is the lenient direction on purpose -- this
+    verdict is a NOTE, and a note that cries wolf is one people stop reading.
+
+    Kept free of I/O so the positive control below can drive it with a
+    synthetic document and prove all three verdicts, exactly the way every
+    claim shape here declares a probe it must call TRUE and one it must call
+    FALSE. A control that needed the real repository to be broken could only
+    ever run once.
+    """
+    where, marked = [], False
+    for name, txt in doc_texts.items():
+        lines = txt.split("\n")
+        blocks = _md_blocks(lines)
+        for rend in _renderings(text, value):
+            pat = re.compile(r"(?<![\w.])" + re.escape(rend) + r"(?![\w.])")
+            for i, line in enumerate(lines):
+                if not pat.search(line):
+                    continue
+                where.append((name, i + 1, line.strip()))
+                lo, hi = blocks[i]
+                block = "\n".join(lines[lo:hi])
+                if ISO_DATE.search(block) or any(
+                        m in block.lower() for m in PIN_SUPERSESSION_MARKS):
+                    marked = True
+    if not where:
+        return "VANISHED", []
+    return ("ok" if marked else "UNMARKED"), where
+
+
+class PinMove:
+    """One pin whose value CHANGED, and what the record did about it."""
+
+    def __init__(self, rel, key, old, new, sha, date, subject):
+        self.rel, self.key = rel, key
+        self.old_text, self.old_value = old
+        self.new_text = new[0]
+        self.sha, self.date, self.subject = sha, date, subject
+        self.docs = []
+        self.status = "REFUSED"
+        self.where = []
+
+
+def _git(args, timeout=120, stdin=None, binary=False):
+    """Run one read-only git command. `binary` returns bytes.
+
+    `cat-file --batch` states its blob length in BYTES and this repo's audit
+    modules are full of em-dashes, so decoding the stream before slicing it
+    walks the offsets off the end of the first non-ASCII file. The batch read
+    is done on bytes and each blob decoded on its own.
+    """
+    out = subprocess.run(
+        ["git", "-C", ROOT] + args,
+        input=(stdin.encode("utf-8") if (binary and stdin is not None)
+               else stdin),
+        stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+        text=not binary, errors=None if binary else "replace",
+        timeout=timeout).stdout
+    return out
+
+
+def audit_modules():
+    """-> [relpath] every `quality/audit_*.py`, from a glob and never a list."""
+    return sorted(os.path.relpath(p, ROOT)
+                  for p in glob.glob(os.path.join(HERE, "audit_*.py")))
+
+
+def pin_moves():
+    """-> (moves, pin_count, file_count, refusal).
+
+    THREE git calls total, whatever the history's size: one `rev-parse`, one
+    `log --name-only` over the whole glob, one `cat-file --batch` fed every
+    (commit, file) blob at once. The obvious shape -- `git show` per revision
+    -- was 29 subprocesses and 0.79 CPU-s on this repo, which is a fifth of
+    the whole CI step for a check that reads six files.
+
+    THE REFUSAL IS THE POINT OF THE FUNCTION AS MUCH AS THE ANSWER IS.
+    `actions/checkout@v5` clones at depth 1 unless told otherwise, and a
+    depth-1 checkout has no history for anything -- so this check would find
+    zero moved pins and print a clean result on a repository it never read.
+    That is doctrine 20's own case: an instrument that cannot fire and an
+    instrument that fired and found nothing are different results. When every
+    audit file has exactly one revision the answer is REFUSED, loudly, with
+    the coordinate that is missing named.
+    """
+    files = audit_modules()
+    if not files:
+        return [], 0, 0, "no quality/audit_*.py on disk"
+    try:
+        prefix = _git(["rev-parse", "--show-prefix"], timeout=30).strip()
+        log = _git(["log", "--format=COMMIT %H %ad %s", "--date=short",
+                    "--name-only", "--", "quality/audit_*.py"])
+    except Exception as e:                                       # noqa: BLE001
+        return [], 0, len(files), "git is unreadable here (%s: %s)" % (
+            type(e).__name__, e)
+    if not log.strip():
+        return [], 0, len(files), "git reports no commits touching " \
+                                  "quality/audit_*.py"
+
+    revs, cur = [], None
+    for line in log.split("\n"):
+        if line.startswith("COMMIT "):
+            sha, date, subject = line[7:].split(" ", 2)
+            cur = (sha, date, subject, [])
+            revs.append(cur)
+        elif line.strip() and cur is not None:
+            rel = line.strip()
+            if prefix and rel.startswith(prefix):
+                rel = rel[len(prefix):]
+            if rel in files:
+                cur[3].append(rel)
+
+    per_file = collections.defaultdict(list)
+    for sha, date, subject, touched in revs:
+        for rel in touched:
+            per_file[rel].append((sha, date, subject))
+    if per_file and all(len(v) <= 1 for v in per_file.values()):
+        return [], 0, len(files), (
+            "every audit file has one revision — this is a truncated "
+            "checkout, and a pin cannot be seen to move in it. "
+            "`actions/checkout@v5` needs `fetch-depth: 0`")
+
+    wanted = ["%s:%s%s" % (sha, prefix, rel)
+              for rel, hist in per_file.items() for sha, _d, _s in hist]
+    blobs = {}
+    try:
+        raw = _git(["cat-file", "--batch"], stdin="\n".join(wanted) + "\n",
+                   binary=True)
+    except Exception as e:                                       # noqa: BLE001
+        return [], 0, len(files), "git cat-file failed (%s: %s)" % (
+            type(e).__name__, e)
+    pos = 0
+    for spec in wanted:
+        nl = raw.find(b"\n", pos)
+        if nl < 0:
+            break
+        header = raw[pos:nl].split()
+        if len(header) < 3:                  # "<spec> missing"
+            pos = nl + 1
+            continue
+        size = int(header[2])
+        blobs[spec] = raw[nl + 1:nl + 1 + size].decode("utf-8", "replace")
+        pos = nl + 1 + size + 1              # +1 for git's trailing newline
+
+    moves = []
+    for rel, hist in per_file.items():
+        prev = None
+        for sha, date, subject in reversed(hist):       # oldest first
+            src = blobs.get("%s:%s%s" % (sha, prefix, rel))
+            cur_pins = pin_literals(src) if src else None
+            if cur_pins is None:
+                continue                     # unparseable mid-write checkpoint
+            if prev is not None:
+                for key in sorted(set(prev) & set(cur_pins)):
+                    if prev[key][1] != cur_pins[key][1]:
+                        moves.append(PinMove(rel, "/".join(key), prev[key],
+                                             cur_pins[key], sha, date, subject))
+            prev = cur_pins
+
+    live = 0
+    for rel in files:
+        src = open(os.path.join(ROOT, rel), encoding="utf-8").read()
+        p = pin_literals(src)
+        live += len(p or {})
+    return moves, live, len(files), None
+
+
+_DOC_CACHE = {}
+
+
+def _doc_text(rel):
+    if rel not in _DOC_CACHE:
+        try:
+            _DOC_CACHE[rel] = open(os.path.join(ROOT, rel),
+                                   encoding="utf-8").read()
+        except OSError:
+            _DOC_CACHE[rel] = ""
+    return _DOC_CACHE[rel]
+
+
+def pin_supersession():
+    """-> (moves, pin_count, file_count, refusal), each move graded."""
+    moves, live, nfiles, refusal = pin_moves()
+    for mv in moves:
+        src = open(os.path.join(ROOT, mv.rel), encoding="utf-8").read()
+        mv.docs = cited_documents(src)
+        if not mv.docs:
+            mv.status, mv.where = "REFUSED", []
+            continue
+        mv.status, mv.where = pin_verdict(
+            mv.old_text, mv.old_value,
+            {d: _doc_text(d) for d in mv.docs})
+    return moves, live, nfiles, refusal
+
+
+#: (what the verdict must be, pin text, pin value, a synthetic document set).
+#: All three verdicts are exercised, and the fourth case pins the RENDERING
+#: half: a document that writes `1,064` for a pin written `1064` has kept the
+#: value, and a checker that only matched the digits would report it VANISHED
+#: and fail a correct record.
+PIN_CONTROLS = [
+    ("VANISHED", "0.659", 0.659,
+     {"P.md": "# probe\n\nthis document states no figure at all.\n"}),
+    ("UNMARKED", "0.659", 0.659,
+     {"P.md": "| joint held-out AUC | 0.709 | **0.659** |\n\nflat, current.\n"}),
+    ("ok", "0.659", 0.659,
+     {"P.md": "REPINNED 2026-08-13 from 0.659, which no longer reproduces.\n"}),
+    ("ok", "1064", 1064,
+     {"P.md": "superseded: the sweep read 1,064 mandated pairs.\n"}),
+]
+
+#: A module the EXTRACTOR must read exactly this way. `NOT_A_PIN` is the case
+#: that matters: a bare module constant is not a pin just because it is a
+#: number, or every `SEED` and `WINDOW` in the layer would be one.
+PIN_EXTRACT_PROBE = (
+    'PINNED = {"a": 12, "b": {"c": 0.640}}\n'
+    'RECORDED_X = 7\n'
+    'NOT_A_PIN = 99\n'
+    'for tag, rec in (("ARM", "0.717"), ("ARM2", "0.891")):\n'
+    '    pass\n'
+)
+PIN_EXTRACT_WANT = {
+    ("PINNED", "a"): ("12", 12),
+    ("PINNED", "b", "c"): ("0.640", 0.640),
+    ("RECORDED_X",): ("7", 7),
+    ("for(tag,rec)", "ARM", "[1]"): ("0.717", "0.717"),
+    ("for(tag,rec)", "ARM2", "[1]"): ("0.891", "0.891"),
+}
+
+
+def pin_self_test():
+    """-> [(name, 'ok'|reason)]. Doctrine 76, for this check too.
+
+    "0 pins moved without a record" is a null, and a null from this check is
+    the easiest one in the file to fake: delete the extractor's `for` shape
+    and it goes green forever. So the extractor is driven against a module
+    whose reading is declared, and the verdict against documents whose three
+    answers are declared, and a misfire FAILS the run.
+    """
+    out = []
+    got = pin_literals(PIN_EXTRACT_PROBE)
+    if got != PIN_EXTRACT_WANT:
+        missing = sorted("/".join(k) for k in set(PIN_EXTRACT_WANT) - set(got or {}))
+        extra = sorted("/".join(k) for k in set(got or {}) - set(PIN_EXTRACT_WANT))
+        wrong = sorted("/".join(k) for k in set(got or {}) & set(PIN_EXTRACT_WANT)
+                       if got[k] != PIN_EXTRACT_WANT[k])
+        out.append(("pin extractor", "missing %s; unexpected %s; wrong %s"
+                    % (missing or "-", extra or "-", wrong or "-")))
+    else:
+        out.append(("pin extractor", "ok"))
+    for want, text, value, docs in PIN_CONTROLS:
+        try:
+            status, _w = pin_verdict(text, value, docs)
+        except Exception as exc:                                # noqa: BLE001
+            out.append(("pin %s probe" % want,
+                        "raised %s: %s" % (type(exc).__name__, exc)))
+            continue
+        out.append(("pin %s probe" % want,
+                    "ok" if status == want else "returned %s" % status))
+    return out
+
+
+# ---------------------------------------------------------------------------
 # 4. The sweep
 # ---------------------------------------------------------------------------
 
@@ -1139,7 +1658,29 @@ def main(argv=None):
                          "corpus derivations are reported rather than SKIPPED")
     ap.add_argument("--no-derivations", action="store_true",
                     help="skip the audit_register.py subprocess entirely")
+    ap.add_argument("--pins", action="store_true",
+                    help="print every pin quality/audit_*.py commits to, and "
+                         "exit 0 — the population the doctrine 17 check "
+                         "derives its expectations from")
     a = ap.parse_args(argv)
+
+    if a.pins:
+        rels = audit_modules()
+        total = 0
+        for rel in rels:
+            src = open(os.path.join(ROOT, rel), encoding="utf-8").read()
+            pins = pin_literals(src) or {}
+            total += len(pins)
+            print("\n%s   %d pin(s)   documents: %s"
+                  % (rel, len(pins), ", ".join(cited_documents(src)) or "none"))
+            for k, (text, _v) in sorted(pins.items()):
+                print("    %-64s %s" % ("/".join(k), text))
+        moves, _live, _n, refusal = pin_supersession()
+        print("\n%d pins in %d files; %d have MOVED in git history."
+              % (total, len(rels), len(moves)))
+        if refusal:
+            print("REFUSED: %s" % refusal)
+        return 0
 
     if a.shapes:
         print("DECLARED CLAIM SHAPES — %d" % len(SHAPES))
@@ -1248,6 +1789,70 @@ def main(argv=None):
             for v in vs:
                 print("         %s -> %s" % (v.claim, v.measured))
 
+    moves, live_pins, pin_files, pin_refusal = pin_supersession()
+    vanished = [m for m in moves if m.status == "VANISHED"]
+    unmarked = [m for m in moves if m.status == "UNMARKED"]
+    print()
+    print("PIN SUPERSESSION — doctrine 17, over quality/audit_*.py")
+    print("-" * 78)
+    print("  a check may be kept after its premise is falsified, but never "
+          "quoted as if")
+    print("  it were not. IF a pin moved, its documents must still carry the "
+          "old value.")
+    if pin_refusal:
+        print("  [REFUSED] %s" % pin_refusal)
+        print("            doctrine 20 — this is not a pass. The check could "
+              "not fire at all,")
+        print("            and a clean line here would be a null from an "
+              "instrument that")
+        print("            never ran.")
+    else:
+        print("  %d pins in %d files; %d moved."
+              % (live_pins, pin_files, len(moves)))
+        if not moves:
+            print("    [dead] no pin has ever changed value in this history — "
+                  "so nothing here")
+            print("           proves the record keeps what it supersedes; "
+                  "see the probes below.")
+        for mv in moves:
+            tag = {"ok": "ok  ", "UNMARKED": "note", "VANISHED": "FAIL",
+                   "REFUSED": "----"}[mv.status]
+            print("  [%s] %s  %s" % (tag, mv.rel.split("/")[-1], mv.key))
+            print("         %s -> %s   at %s %s  (%s)"
+                  % (mv.old_text, mv.new_text, mv.sha[:8], mv.date,
+                     mv.subject[:44]))
+            if mv.status == "VANISHED":
+                print("         the superseded value is in NONE of %s"
+                      % ", ".join(mv.docs))
+                print("         doctrine 17: keep it visible, with the date "
+                      "it was superseded.")
+            elif mv.status == "REFUSED":
+                print("         that module names no `.md` document, so there "
+                      "is nothing to check")
+                print("         it against (doctrine 58: the coordinate is "
+                      "not written down).")
+            else:
+                print("         kept at %s%s"
+                      % ("; ".join("%s:%d" % (d, n) for d, n, _l in mv.where[:3]),
+                         " and %d more" % (len(mv.where) - 3)
+                         if len(mv.where) > 3 else ""))
+                if mv.status == "UNMARKED":
+                    print("         and NOT ONE of those %d block(s) carries "
+                          "a date or a supersession" % len(mv.where))
+                    print("         marker. The record states a value the "
+                          "instrument no longer stands")
+                    print("         behind, as if it were current — which is "
+                          "doctrine 17's own sentence.")
+    if unmarked:
+        print()
+        print("  The %d note(s) above do NOT move this file's exit code, the "
+              "same way" % len(unmarked))
+        print("  `status_content`'s second direction does not: the remedy is "
+              "a human")
+        print("  editing a RESULTS document, and whether a given marker is "
+              "enough is a")
+        print("  judgement. A VANISHED value is not a judgement and it FAILS.")
+
     if not a.no_derivations:
         rows = register_derivations(slow=a.slow)
         by_v = collections.Counter(r[3] for r in rows)
@@ -1290,7 +1895,7 @@ def main(argv=None):
 
     # Doctrine 76/31: a null needs the demonstration that the instrument could
     # have found something, and it needs it BEFORE the null is believed.
-    probes = self_test()
+    probes = self_test() + pin_self_test()
     broken = [(n, r) for n, r in probes if r != "ok"]
     print()
     print("POSITIVE CONTROL — can each shape still fire?")
@@ -1301,7 +1906,7 @@ def main(argv=None):
     print("  (STATUS_XREF is exercised by the sweep itself: %d live "
           "cross-references resolved.)" % per.get("STATUS_XREF", [0, 0])[0])
 
-    bad = len(false) + len(filled) + len(broken)
+    bad = len(false) + len(filled) + len(broken) + len(vanished)
     print()
     print("RESULT:", "PASS" if not bad else "FAIL (%d)" % bad)
     if bad:

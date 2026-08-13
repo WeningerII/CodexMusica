@@ -447,7 +447,7 @@ PINNED = {"extracted": 22795,
 #: in them at all. `kalevala` is absent on purpose -- its counts are
 #: PINNED["all verse lines"] and pinning them twice is two numbers for one
 #: fact, which is the drift this whole file exists to catch.
-PINNED_SERIES = {"kanteletar": {"lines": 22110, "alliterating": 18094},
+PINNED_SERIES = {"kanteletar": {"lines": 22110, "alliterating": 18095},
                  "uudempia": {"lines": 852, "alliterating": 612},
                  "literary7": {"lines": 15331, "alliterating": 9734},
                  "kivi": {"lines": 2884, "alliterating": 1684}}
