@@ -1306,12 +1306,26 @@ def test_tradition_provenance():
           "diacritics makes `chân` and `chan` the same token, and a filter "
           "that can only delete is what stops that becoming a citation.")
 
+    # REWRITTEN 2026-08-13. This pinned the literal 781 and went red when
+    # `canon_blocks` was fixed to end a block at a `## ` heading as well as at
+    # the next entry: the correct count is 654, and 781 was 127 of §3's own
+    # non-relation declarations being read as R112's. The check's INTENT was
+    # never stale -- the multi-line reader does still find more than the
+    # single-line one -- so it is written as the RELATION now, computed on both
+    # sides. A literal here could only ever re-stale on the next canon edit,
+    # and this test's own subject is a number that went wrong by being copied.
+    _multi = sum(len(CS.refs_in(f)) for _, _, _, f in CS.canon_blocks())
+    _single = sum(len(CS.first_line_refs(f)) for _, _, _, f in CS.canon_blocks())
     check("the multi-line `from:` reader finds more than the single-line one",
-          sum(len(CS.refs_in(f)) for _, _, _, f in CS.canon_blocks()) == 781,
-          "audit_register.py --provenance counted 611 with a single-line "
-          "regex on the first occurrence only. R1's from-line runs onto a "
-          "second line, R29's onto three, and §H/§I write `from:` inline. "
-          "Doctrine 58 inside the adversary built to find doctrine-58 errors.")
+          _multi > _single,
+          "multi-line %d, single-line %d. audit_register.py --provenance "
+          "counted the single-line reading with a regex on the first "
+          "occurrence only. R1's from-line runs onto a second line, R29's onto "
+          "three, and §H/§I write `from:` inline. Doctrine 58 inside the "
+          "adversary built to find doctrine-58 errors -- and the 781 this "
+          "check used to pin was itself a doctrine-58 error one layer further "
+          "in, since a block that ran past `## 3.` counted another section's "
+          "declarations as its own." % (_multi, _single))
 
     check("RHYME_CANON.md now carries publication YEARS, and they are the "
           "real ones",

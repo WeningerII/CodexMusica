@@ -952,6 +952,7 @@ historical rhyme · dialect rhyme · conventional-licence rhyme · rime normande
 **R112 · relaxation of a channel in a declared direction** *cynghanedd lusg wyrdro*
 - "the vowel channel is RELAXED in a specified direction: a diphthong in the goben is answered by a
   near or reduced vowel" (`C15`). A directional, non-symmetric grain. from: C15
+- witness: 1 cited indices — external 1.
 
 ---
 
@@ -1041,7 +1042,6 @@ Each maps to a structure already in the canon with NORM=forbidden or deprecated,
 R48, R69, R100, R112 and the two below (R113, R114), which are structures in their own right.
 - from: C34 C35 C36 C37 C38 C39 C40 S23 S24 S25 S26 S27 S28 S29 S30 S31 S32 S33 S34 I37 I64 I74
   X9 X10 X11 X12 X13 X17 X18 S85 S86 S87 X96 X147 X73 ✓E66
-- witness: 116 cited indices — external 98, project 12, unrecorded 6. names outside this project: ac.uk, Clywed Cynghanedd, normaculta.com, PyThaiNLP. PRIMARY held in this repo: G10 Snorri Sturluson, Háttatal, c. 1222-25 (the málfylling list); G9 Snorri Sturluson, Háttatal, c. 1222-25; X8 平水韻 (1252) and 詞林正韻 (戈載, 1821). only-this-project: I61 S59 S55 S54 G84 C21 C41 C56 I50 I43 X124 I64. no checkable referent: S124 I24 I62 C40 I37 I74.
 
 **R113 · required difference at a NON-rhyming position** *撞韻 zhuàngyùn · 擠韻 / 犯韻 / 冒韻 ·
 the OE fourth-lift prohibition · bai rhy debyg*
@@ -1491,17 +1491,50 @@ its tail, and an override addressed by position alone follows whichever row is s
 
 | | count |
 |---|---:|
-| `from:` references in §2 | **781** |
-| distinct indices cited | 594 |
+| `from:` references over the 117 entries | **654** |
+| — of them, in §2's 113 entries | 641 |
+| — of them, in §3's 4 (R113–R116) | 13 |
+| distinct indices cited | 555 |
 | declared indices (74+64+89+126+74+174) | 601 |
-| declared but never cited by any entry | 7 |
+| declared but never cited by any entry | 46 |
 
-**781, not 611.** `quality/audit_register.py --provenance` reported 611 because it read the
-`from:` matter with a single-line regex and only its first occurrence — and R1's from-line runs
-onto a second line, R29's onto three, and §H/§I write `from:` inline at the end of the entry's
-own prose rather than as a bullet. That is doctrine 58 inside the adversary built to find
-doctrine-58 errors, and both numbers are now printed side by side rather than one replacing
-the other.
+**THREE READERS, ONE REGISTER, AND ALL THREE NUMBERS ARE COMPUTED HERE.** A reference count is
+a coordinate of the READER, not a property of the file (doctrine 58, doctrine 91), so the two
+superseded readings are re-derived on every render rather than transcribed — a figure typed into
+prose is a figure that disagrees with the code by the next round, and that is as true of a
+figure being *retired* as of one being asserted (doctrine 17).
+
+| reader | count | what it gets wrong |
+|---|---:|---|
+| entry block ends at the next entry **or heading**; `from:` runs onto its indented continuations | **654** | — |
+| single-line regex, first `from:` occurrence only — `quality/audit_register.py --provenance` | 611 | UNDERCOUNTS by 43: R1's from-line runs onto a second line, R29's onto three, and §H/§I write `from:` inline at the end of the entry's own prose rather than as a bullet |
+| entry block ends at the next entry and at **nothing else** — this file, until 2026-08-13 | 781 | OVERCOUNTS by 127: see below |
+
+The undercount is doctrine 58 inside the adversary built to find doctrine-58 errors. The
+overcount was in the instrument that found it, which is the more useful half.
+
+**SUPERSEDED 2026-08-13, AND THE SUPERSEDED FIGURES ARE COMPUTED, NOT REMEMBERED.** This table
+read **781** references, **594** distinct and **7** declared-but-never-cited until the delimiter
+above was repaired, and the row now split by section was labelled *`from:` references in §2*
+while counting the whole register. A block ended at the next `**R<n> ·` entry heading and at
+NOTHING ELSE — not at a `## ` section heading — so the last entry before a section break
+swallowed that section's prose. **R112** is the case: it cites `C15`, one index, and its span ran
+on through §3's D1–D9 non-relation declarations, so its `- witness:` line reported **116** cited
+indices of which exactly one was its own (127 of its 128 raw references were §3's) and `render`
+printed that line 90 lines downstream, under D9, inside a section R112 has nothing to do with.
+
+**Exactly two block ENDS moved and exactly one reference count did.** The other end is R116, the
+last entry in the file, whose span ran to EOF and swallowed §4–§8 whole; its count is 5 either
+way, because §4–§7 carry no `from:` line at all and §8's carry no cell index. That the damage
+stopped at one entry is luck about where the `from:` lines fall, not a property of the rule —
+which is the reason the rule was fixed rather than the entry. The single-line reader's 611 is
+**delimiter-invariant**, measured under both readings, so the undercount and the overcount are
+two independent errors and not one error seen twice.
+
+**And §8 can no longer count itself.** §8 is generated from the file it is written into, so the
+counts were never independent of their own output (doctrine 13). The last entry's span used to
+reach this section; it now stops at `## 8.`, so the dependence is severed by construction
+instead of resting on the accident that no line here carries a cell index after a colon.
 
 ### 8.3 The witness census, and the states that are not `no`
 
@@ -1777,3 +1810,14 @@ The traditions whose only witness is this project, listed for the same reason as
    that the name entered the canon from repo doctrine alone. There is no index to inline and no
    witness to recover; `relations.py` scopes Somali to zero of the 77 schemas, which is what the
    source says, and the mechanical form of that is a zero rather than a plausible list.
+5. **It does not check its own CONSTRUCTION, and re-running it never will.** Every figure above
+   is computed, which closes the transcription defect and no other. `--render` reproduced this
+   file byte for byte on every run for as long as the delimiter in §8.2's third row was wrong,
+   because a renderer is a fixed point of its own mistake: **reproducing a number checks the
+   ARITHMETIC and never the CONSTRUCTION**, and byte-identity between two runs of a wrong reader
+   is exactly as strong as byte-identity between two runs of a right one. The overcount was found
+   by READING `canon_blocks`, and the command that would have caught it does not exist — an
+   idempotence check is a check on determinism (doctrine 66's property), not on correctness
+   (doctrine 14's: a check may not be defined in terms of the thing it is checking). What DOES
+   bear on construction is a second reader disagreeing, which is why §8.2 now prints three and
+   why the disagreement is computed rather than argued.
