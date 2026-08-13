@@ -1,6 +1,13 @@
-# The cache identity is byte-granular, and a comment costs 3.2 CPU-hours
+# The cache identity is byte-granular, and a comment costs 2.3 CPU-hours
 
 MEASURED 2026-08-13. Status: FINDING RECORDED, FIX DEMONSTRATED AND HELD.
+
+REPINNED 2026-08-13, hours after this file was written, from **3.2 CPU-hours**.
+That figure rested on `discriminate.py`'s cold path costing "~70 min ≈ 4,200
+CPU-s", which this document inherited from an estimate and restated without
+measuring — in a document whose entire subject is a number someone wrote down
+without measuring it. Doctrine 58 applied to itself, within a day. See §What it
+costs.
 
 ## What the identity is
 
@@ -21,11 +28,23 @@ does not propose weakening it.
 The over-approximation is not free, and the price is not small. A discard
 rebuilds:
 
-  - `discriminate.py`'s 384 entries — ~70 min ≈ 4,200 CPU-s
+  - `discriminate.py`'s 384 entries — **1,050 CPU-s, MEASURED 2026-08-13**,
+    twice: 1049.5 s and 1067.8 s over 384 items, 2.73–2.78 s/item.
+    SUPERSEDES `~70 min ≈ 4,200 CPU-s`, which was this document's own figure
+    for a few hours on 2026-08-13 and was never measured by anyone — it was
+    the header of `audit_joint_auc_null.py`, restated here without checking.
+    Doctrine 17: kept visible, not quoted as current.
   - `song_profile_calibration`'s predictability cache — 2.0–2.2 CPU-hours
     ≈ 7,400 CPU-s
 
-≈ **11,600 CPU-s, ~3.2 CPU-hours, per discard.**
+≈ **8,450 CPU-s, ~2.3 CPU-hours, per discard.**
+
+A document about numbers written down without being measured contained a number
+written down without being measured, and it survived about four hours. That is
+the honest version of doctrine 58 and it is left standing here rather than
+quietly corrected, because the mechanism is the point: the figure was plausible,
+it was in the right order of magnitude, and nothing in the writing of it
+required anyone to run the thing.
 
 ## It fired three times in one session, and the last one was a comment
 
@@ -44,6 +63,30 @@ figures in `RhymeField`'s docstring from estimates (`~16 bytes`, `~0.46 GiB`,
 2.99 GiB at 105 B/entry). Not one executable byte moved. The change was proven
 bit-identical over 606,186 + 168,002 equivalence probes and 2,921 `float.hex()`
 comparisons with zero differences — and it discarded 3.2 CPU-hours.
+
+## Independently confirmed by a lot that watched it happen
+
+MEASURED 2026-08-13 by the `audit_joint_auc_null` lot, which was not looking for
+this and reported it as an obstacle to its own measurement.
+
+During its **first 17.5-CPU-minute cold rebuild**, a concurrent cell edited
+`quality/features.py` **twice**: digests `d19ffe04` → `2efbffbe` → `1ff08f3c`.
+The cache was stale before it finished being written. That lot had to freeze a
+snapshot of the comparator in scratch to get a stable measurement at all.
+
+Two things follow that the byte-count table above cannot show.
+
+**`2efbffbe` is in no history.** It is an intermediate working-tree state that
+never became a commit. Only a process holding the file open across the round
+could have seen it — which means the true discard count for a working session is
+strictly higher than the commit count, and is not recoverable afterwards from
+`git log`.
+
+**The cost is not merely high, it is sometimes unpayable.** A rebuild that takes
+17.5 CPU-minutes cannot complete during a round in which the file it is keyed on
+moves every few minutes. Under parallel work the cache is not expensive-to-warm;
+it is unwarmable, and stays cold until the round stops. The per-discard price is
+therefore a floor on the cost, not a description of it.
 
 ## The perverse incentive, which is the actual defect
 
