@@ -32,9 +32,20 @@ verse.**
 | P3 — an absent coda stops paying full price | **CONFIRMED** | CONFIRMED |
 | P4 — held-out separation improves | **CONFIRMED, marginally** (0.9177 vs 0.9146) | FAILED (0.9031 vs 0.9043) |
 | P5 — the negative control tightens | **FAILED** (21.3% vs 18.0%) | FAILED badly (35.3% vs 18.7%) |
-| P6 — the sonnet battery improves | **CONFIRMED, marginally** (19.1% vs 19.5%) | FAILED (21.4% vs 21.2%) |
+| P6 — the sonnet battery improves | **CONFIRMED, marginally** (19.2% vs 19.5%) | FAILED (21.4% vs 21.2%) |
 | P7 — the time layer becomes measurable | **FAILED** (97% vs 95% saturation) | FAILED |
 | P8 — TRIPWIRE: Early Modern sound changes | **FIRED** | FIRED |
+
+> **P6 REPINNED 2026-08-13** from `19.1%` (193/1010) to `19.2%` (194/1010).
+> `eval_matrix.py` is deterministic — two consecutive re-runs are byte-identical
+> to each other — so what moved is the comparator underneath it, across the 31
+> commits since `quality/matrix_eval.json` was last written on 2026-08-10. P4's
+> `0.9177 vs 0.9146` above survives only because the drift falls below the 4 dp
+> quoted (0.9176655 / 0.9146154 at full precision). **Every verdict in this
+> table is unaffected.** Nothing would have caught either: `eval_matrix.py`
+> overwrites its own artifact and exits 0, so the drift is visible only in
+> `git diff`, and unlike `song_profile_calibration.py`, `counters.py` and
+> `audit_corpus.py` it has no `--check`.
 
 **Recommendation, unchanged: do not ship it as the default comparator.**
 The separation gain is +0.003 AUC, which is inside anyone's noise, and the
