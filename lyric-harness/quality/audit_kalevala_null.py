@@ -339,6 +339,21 @@ def series(fi, n, kalevala):
     is the robustness null for the Kalevala reading and adds no series
     information, and it would double the cost of the CI step.
     """
+    #: A DECLARED CORPUS THAT IS NOT ON DISK IS A REFUSAL, NOT A FAILURE, and
+    #: the two must not collapse into one exit code (doctrine 20/79). Checked
+    #: up front so a half-drawn series never reaches `check`, where a missing
+    #: point would read as a moved figure and send somebody to repin fin.py.
+    gone = [rel for _, _, _, rels in SERIES for rel in rels
+            if not os.path.exists(os.path.join(HERE, "..", rel))]
+    if gone:
+        print("\nREFUSED -- the series is declared over corpora that are not "
+              "on disk:")
+        for rel in gone:
+            print(f"    {rel}")
+        print("  This is a refusal, not a drift: nothing was measured, so "
+              "nothing moved.")
+        sys.exit(2)
+
     out = {"kalevala": dict(kalevala, arm=ORAL,
                             name="Kalevala 1849 (the block above, reused)")}
     cache = {}
@@ -410,9 +425,12 @@ def main(path, n=200):
 #: THE DETERMINISTIC COUNTS, which is what makes this one pinnable at all.
 #: Unlike `audit_time_pooled_null.py` -- where every figure is a Monte Carlo
 #: estimate and only a DIRECTION can be checked -- the alliteration counts here
-#: are exact over a fixed window. The null medians are samples and are NOT
-#: pinned; the separation is enormous (81% against ~30%) and is left to the
-#: printed p.
+#: are exact over a fixed window. The null medians are samples and are STILL
+#: not pinned -- but as of 2026-08-13 the SEPARATION is no longer left to the
+#: printed p alone either: it is bounded, not pinned, by the four constants
+#: below `PINNED_SERIES`. This sentence used to end "and is left to the printed
+#: p", which was true when one point was checked and became a half-truth the
+#: moment the series joined.
 #:
 #: MEASURED 2026-08-13, and two of the three had drifted from the record:
 #:   verse lines extracted   22,822 recorded  ->  22,795   (the script already
@@ -450,9 +468,9 @@ PINNED_SERIES = {"kanteletar": {"lines": 22110, "alliterating": 18094},
 #:
 #: MEASURED JITTER, so the headroom is a number and not a feeling. Each point
 #: re-drawn at n=5 under eight seeds (20260810, 1, 2, 3, 12345, 999, 77, 4242):
-#:   Kalevala   +52.44..+52.75  spread 0.31      Kanteletar +50.54..+51.01  0.47
-#:   uudempia   +14.55..+17.61  spread 3.05      literary7  +14.99..+15.55  0.56
-#:   Kivi       +11.27..+12.24  spread 0.97
+#:   Kalevala  +52.44..+52.75 spread 0.31   Kanteletar +50.54..+51.01  0.47
+#:   uudempia  +14.55..+17.61 spread 3.05   literary7  +14.99..+15.55  0.56
+#:   Kivi      +11.27..+12.24 spread 0.97
 #: The uudempia are the loose one at 852 lines, and they are the point the
 #: literary CEILING has to clear -- hence 25.0 and not 20.0.
 #:
@@ -532,7 +550,8 @@ def check_series(m):
     oral = {k: v for k, v in ser.items() if v.get("arm") == ORAL}
     lit = {k: v for k, v in ser.items() if v.get("arm") == LITERARY}
     if not oral or not lit:
-        print("  [FAIL] the series is missing an arm entirely; nothing to read")
+        print("  [FAIL] the series is missing an arm entirely; "
+              "nothing to read")
         return 1
     bad = 0
     for key, v in ser.items():

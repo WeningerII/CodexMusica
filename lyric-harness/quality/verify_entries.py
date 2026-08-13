@@ -774,6 +774,69 @@ def shape_corpus_table_row(seg):
                    note="VOLATILE — corpus/song/ is being written by another cell")
 
 
+# --- shape 9: SCRATCH_NAMESPACED (doctrine 77) ----------------------------
+
+#: A scratch citation, whichever of the two roots this repo has used. Not
+#: `PATH_RE`: that one requires a known extension, so it cannot see
+#: `scratchpad/cellAJ/` (a directory) at all, and it asks a different question
+#: anyway -- does the path EXIST. Scratch is uncommitted by construction, so
+#: existence is the one thing that can never be checked about it.
+SCRATCH_RE = re.compile(r"`(scratchpad|scratch)/([\w./-]*)`")
+
+
+def shape_scratch_namespaced(seg):
+    """``scratch/src_msa/extract_pantun.py`` -- a cited working file must sit
+    under a per-cell subdirectory of the scratchpad, never directly in it.
+
+    Doctrine 77, and it is the cheapest check in this file: the British
+    sourcing cell lost ~30 fetches mid-run because a sibling overwrote its
+    `fetch.sh` and clobbered `scratchpad/raw/`. Only uniquely named
+    deliverables were safe.
+
+    THE RULE IS POSITIONAL, and that is the whole of it: count the segments
+    after the scratch root. Two or more -- `scratchpad/cellAJ/measure_ocr.py`
+    -- and the file is inside somebody's namespace. Exactly one and the
+    citation ends in `/` -- `scratchpad/cellAJ/` -- and it IS a namespace
+    declaration. Exactly one with no slash -- `scratchpad/fetch.sh` -- and the
+    citation names a file every parallel cell can write, which is the defect.
+
+    It deliberately does NOT judge whether the namespace is a good one.
+    `raw` and `cellAJ` are the same shape to a checker, and the difference
+    between them is a convention no regex can read; guessing it is the move
+    this file exists to refuse. What is mechanical is that there IS one.
+
+    `REPO_PATH_EXISTS` runs on the same segment and is not made redundant:
+    M-3 cites `scratch/src_msa/extract_pantun.py` as ABSENT and correctly, so
+    that shape reads the sentence's absence phrase and this one reads the
+    path's shape. Two questions, two verdicts, one segment (doctrine 79).
+    """
+    hits = SCRATCH_RE.findall(seg.text)
+    if not hits:
+        return None
+    if seg.historical:
+        return Verdict("SCRATCH_NAMESPACED", REFUSED,
+                       ", ".join("%s/%s" % h for h in hits),
+                       "a `**Was:**` clause", HISTORICAL)
+    bare = []
+    for root, rest in hits:
+        parts = [p for p in rest.split("/") if p]
+        if len(parts) >= 2:
+            continue
+        if len(parts) == 1 and rest.endswith("/"):
+            continue                       # the namespace itself, declared
+        bare.append("%s/%s" % (root, rest))
+    if bare:
+        return Verdict("SCRATCH_NAMESPACED", FALSE,
+                       ", ".join("%s/%s" % h for h in hits),
+                       "%s sits directly in the shared scratchpad; a sibling "
+                       "cell writing the same name clobbers it (doctrine 77)"
+                       % ", ".join("`%s`" % b for b in bare))
+    return Verdict("SCRATCH_NAMESPACED", TRUE,
+                   ", ".join("%s/%s" % h for h in hits),
+                   "%d scratch citation(s), each under a cell namespace"
+                   % len(hits))
+
+
 # --- shape 8: STATUS_XREF -------------------------------------------------
 
 XREF_RE = re.compile(r"`([A-Z]-\d+[a-z]?)(?:,\s*(OPEN|CLOSED|PARTIAL))?`")
@@ -873,6 +936,7 @@ SHAPES = [
     ("CORPUS_MARKER_ABSENT", True, shape_marker_absent),
     ("CORPUS_TABLE_ROW", True, shape_corpus_table_row),
     ("STATUS_XREF", False, shape_status_xref),
+    ("SCRATCH_NAMESPACED", False, shape_scratch_namespaced),
 ]
 
 #: The shapes whose verdict flips meaning with the entry's STATUS. An absence
@@ -944,6 +1008,15 @@ POSITIVE_CONTROLS = [
     ("CORPUS_TABLE_ROW", None, _probe("| `fin_` | Finnish | 999999 |",
                                       kind="table")),
     ("STATUS_XREF", None, None),      # needs the real entry list; see below
+    # Both sides are STRUCTURAL, not pinned to a live citation, for the reason
+    # the HASATTR repin gives above: a control pinned to a real defect expires
+    # the moment somebody fixes the defect. `cellAJ` is the namespaced idiom
+    # `RESULTS_NON_HATTATAL.md` and `data/sources.tsv` already use, and
+    # `fetch.sh` is the file doctrine 77 is ABOUT -- the one a sibling cell
+    # overwrote for ~30 fetches. Neither can be closed by anyone's later fix.
+    ("SCRATCH_NAMESPACED",
+     _probe("written to `scratchpad/cellAJ/measure_ocr.py`"),
+     _probe("written to `scratchpad/fetch.sh`")),
 ]
 
 _BY_NAME = {name: fn for name, _v, fn in SHAPES}
