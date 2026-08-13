@@ -147,11 +147,18 @@ rather than quoting these:
                       crossed it between two runs of this same slice
   NO INSTANCE   15    fires zero here; a null against an observation of 0 is
                       inconclusive BY CONSTRUCTION (doctrine 20), not null
-  CANNOT OBTAIN 26    `realise()` refuses for want of a capability. 23 need
+  CANNOT OBTAIN 26    `realise()` refuses for want of a capability. 24 need
                       one a caller could DECLARE (caesura, lifts,
-                      refrain_tail); 3 need one NO stream can supply -- `poet`,
+                      refrain_tail); 2 need one NO stream can supply --
                       `frequency` and `stub_resolution` have no branch in
-                      `Stream.provides` at all (`NEVER_PROVIDED`)
+                      `Stream.provides` at all (`NEVER_PROVIDED`).
+                      REPINNED HERE: this line read `23 / 3 / poet, frequency
+                      and stub_resolution` while the table thirty lines below
+                      `NEVER_PROVIDED` already recorded, in its own comment,
+                      that `poet` LEFT that table on 2026-08-13 -- so two
+                      places in one file disagreed about the same split and
+                      neither was read by anything.  Section 7b's ledger pins
+                      the pair, so the next disagreement fails `--verify`
   CANNOT FAIL    0    here; DERIVED at 3 with no text (the reduplications),
                       where every null in `NULLS` is the identity map
 
@@ -184,7 +191,7 @@ Run: python3 quality/relations_null.py             (all three arms, ~25 min)
      python3 quality/relations_null.py --arm=0 --null=global_redeal
      python3 quality/relations_null.py --coverage  (the census, instant)
      python3 quality/relations_null.py --verify    (the ledger, ~5 s, CI)
-     python3 quality/relations_null.py --verify --deep   (~4 min)
+     python3 quality/relations_null.py --verify --deep   (~2 min)
      python3 quality/relations_null.py --sweep --corpus=P --limit=N --n=K
      python3 quality/relations_null.py --sensitivity --corpus=P ...
      python3 quality/relations_null.py --help
@@ -308,7 +315,7 @@ NULLS = {n.name: n for n in (
                    "WORDS exactly; every line length; the vocabulary",
          destroys="which end word sits at which line, hence every pairing of "
                   "end words at a bounded distance",
-         reads=("line_distance", "line_position"),
+         reads=("line_distance",),
          note="doctrine 68's degenerate case: where the finals are already "
               "identical -- a radif, a refrain -- permuting identical "
               "elements changes nothing. Always read the differing fraction."),
@@ -1351,6 +1358,15 @@ LEDGER_REPLICATES = 10
 #: recorded verdicts mean.
 LEDGER_BUDGET = None
 
+#: (declarable, never-provided) over the CANNOT OBTAIN schemas on the ledger
+#: slice.  DOCTRINE 44's split is the whole reason that verdict is not one
+#: entry, and the counts are quoted in this file's docstring and in
+#: `quality/RESULTS_NULL_SHAPES.md` §4b — where, until 2026-08-13, BOTH said
+#: `23 / 3` and named `poet` as permanent while `NEVER_PROVIDED`'s own comment
+#: in this same file recorded that `poet` had left the table.  Two numbers in
+#: one file disagreeing about one split, and nothing read either.  Pinned.
+LEDGER_CANNOT_OBTAIN = (24, 2)
+
 
 def ledger_slice(root=None):
     """The ledger's text, read once.  -> ((lines, phon, language), None) or
@@ -1729,6 +1745,16 @@ def verify_extension(deep=False, root=None, progress=None, cov=None):
                 f"{name!r}: the recorded ARMS ran {w[2]} (statistic, null) "
                 f"pairs for it and now run {h[2]} — 'nobody had run it' "
                 f"moved and the marker did not.")
+    obtain = [c for c in cov if c.verdict == "cannot_obtain"]
+    split = (sum(1 for c in obtain if c.capability not in NEVER_PROVIDED),
+             sum(1 for c in obtain if c.capability in NEVER_PROVIDED))
+    if split != LEDGER_CANNOT_OBTAIN:
+        out.append(
+            f"CANNOT OBTAIN splits {split[0]} declarable / {split[1]} "
+            f"never-provided; the ledger says {LEDGER_CANNOT_OBTAIN[0]} / "
+            f"{LEDGER_CANNOT_OBTAIN[1]}. Doctrine 44 — 'declare the "
+            f"capability' and 'BUILD it' are different remedies, and a "
+            f"schema that moved between them is being sent to the wrong one.")
     n_have = sum(1 for v in have.values() if v[0] == "extendable")
     n_want = sum(1 for r in EXTENSION_LEDGER if r[1] == "extendable")
     if n_have != n_want:
@@ -1958,7 +1984,7 @@ USAGE = """quality/relations_null.py - matched controls for relations.py
                          that never fails (doctrine 48)
   --verify --deep        also re-measures the derivation against a full sweep
                          at LEDGER_REPLICATES and diffs MENU_SILENT and
-                         OFF_MENU_MOVERS.  ~4 min; the only tier that checks
+                         OFF_MENU_MOVERS.  ~2 min; the only tier that checks
                          EXTENDABLE's "a null bites" against a MEASUREMENT
   --verify --record      print the ledger tables as literals, for pasting
                          after a human has read the complaints
