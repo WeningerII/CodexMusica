@@ -7,6 +7,7 @@
     python3 quality/verify_entries.py --entry M-6     # one entry, every claim in it
     python3 quality/verify_entries.py --slow          # + audit_register's corpus derivations
     python3 quality/verify_entries.py --no-derivations  # skip the audit_register subprocess
+    python3 quality/verify_entries.py --pins          # every pin the audit scripts commit to
 
 WHY THIS FILE EXISTS.
 
@@ -102,6 +103,26 @@ FALSE, written against the real repository, and a misfiring probe FAILS the run
 exactly as a false entry does. Shapes that matched no live segment are printed
 as `[dead]` in the report, so the difference between "nothing is wrong" and
 "nothing was looked at" stays visible (doctrine 28).
+
+TWO CHECKS HERE ARE NOT ABOUT THE TWO REGISTERS, AND THEY SAY SO. A doctrine
+census on 2026-08-13 found ninety-five doctrines and asked, of each, whether
+anything in the repo could go red on it. Two came back ASSERTED -- a check
+exists and cannot fail -- and both belong to this file, because both are
+questions about a CITATION rather than about a measurement.
+
+  DOCTRINE 17, "a check may be kept after its premise is falsified, but never
+  quoted as if it were not". Cited 44 times, and it is the sentence five audit
+  scripts print when they go red -- every one of those 44 is a comment or a
+  failure-message STRING. Nothing checked that a superseded value stayed
+  visible. `pin_supersession()` derives, from git history, which pins have
+  ACTUALLY moved, and asks the documents each audit script names whether the
+  old value is still on the page. Section 3c states what is and is not made
+  mandatory, and why the obvious version of this check fires on correct work.
+
+  DOCTRINE 77, "parallel cells share a scratchpad, so working files must be
+  namespaced". `REPO_PATH_EXISTS` already read every cited path -- and asked
+  whether it EXISTS, which is the one thing that can never be true of scratch.
+  `SCRATCH_NAMESPACED` is shape 9 and asks the other question.
 
 RELATION TO `quality/audit_register.py`. That instrument carries 26 HAND-WRITTEN
 derivations (D1-D26), one per known quantitative claim, each with bespoke code.
@@ -1344,6 +1365,26 @@ def pin_verdict(text, value, doc_texts):
     return ("ok" if marked else "UNMARKED"), where
 
 
+def pin_grade(text, value, docs_now, docs_then):
+    """-> (status, where) over the record read TWICE. PURE, for the same
+    reason `pin_verdict` is: this is the function that decides the exit code,
+    so it is the one that most needs a control that does not depend on the
+    repository being broken.
+
+    `docs_then` is the record as it stood at the parent of the moving commit,
+    or falsy when that could not be read at all -- which is REFUSED and not a
+    pass, because a checkout with no history cannot answer this question and
+    saying nothing found would be a null from an instrument that never fired.
+    """
+    status, where = pin_verdict(text, value, docs_now)
+    if status != "VANISHED":
+        return status, where
+    if not docs_then:
+        return "REFUSED", where
+    was, _w = pin_verdict(text, value, docs_then)
+    return ("NEVER_QUOTED" if was == "VANISHED" else "VANISHED"), where
+
+
 class PinMove:
     """One pin whose value CHANGED, and what the record did about it."""
 
@@ -1355,6 +1396,7 @@ class PinMove:
         self.docs = []
         self.status = "REFUSED"
         self.where = []
+        self.reason = ""
 
 
 def _git(args, timeout=120, stdin=None, binary=False):
@@ -1381,6 +1423,36 @@ def audit_modules():
                   for p in glob.glob(os.path.join(HERE, "audit_*.py")))
 
 
+def _cat_file_batch(specs):
+    """-> {spec: text} for `<rev>:<path>` specs, in ONE git call, or None.
+
+    A spec git cannot resolve is simply absent from the result -- an
+    `unreadable` answer and an `absent from the record` answer are not the
+    same thing (doctrine 28) and the caller separates them.
+    """
+    specs = list(dict.fromkeys(specs))
+    if not specs:
+        return {}
+    try:
+        raw = _git(["cat-file", "--batch"], stdin="\n".join(specs) + "\n",
+                   binary=True)
+    except Exception:                                            # noqa: BLE001
+        return None
+    out, pos = {}, 0
+    for spec in specs:
+        nl = raw.find(b"\n", pos)
+        if nl < 0:
+            break
+        header = raw[pos:nl].split()
+        if len(header) < 3:                  # "<spec> missing"
+            pos = nl + 1
+            continue
+        size = int(header[2])
+        out[spec] = raw[nl + 1:nl + 1 + size].decode("utf-8", "replace")
+        pos = nl + 1 + size + 1              # +1 for git's trailing newline
+    return out
+
+
 def pin_moves():
     """-> (moves, pin_count, file_count, refusal).
 
@@ -1401,17 +1473,17 @@ def pin_moves():
     """
     files = audit_modules()
     if not files:
-        return [], 0, 0, "no quality/audit_*.py on disk"
+        return [], 0, 0, "no quality/audit_*.py on disk", ""
     try:
         prefix = _git(["rev-parse", "--show-prefix"], timeout=30).strip()
         log = _git(["log", "--format=COMMIT %H %ad %s", "--date=short",
                     "--name-only", "--", "quality/audit_*.py"])
     except Exception as e:                                       # noqa: BLE001
         return [], 0, len(files), "git is unreadable here (%s: %s)" % (
-            type(e).__name__, e)
+            type(e).__name__, e), ""
     if not log.strip():
         return [], 0, len(files), "git reports no commits touching " \
-                                  "quality/audit_*.py"
+                                  "quality/audit_*.py", ""
 
     revs, cur = [], None
     for line in log.split("\n"):
@@ -1434,29 +1506,13 @@ def pin_moves():
         return [], 0, len(files), (
             "every audit file has one revision — this is a truncated "
             "checkout, and a pin cannot be seen to move in it. "
-            "`actions/checkout@v5` needs `fetch-depth: 0`")
+            "`actions/checkout@v5` needs `fetch-depth: 0`"), ""
 
     wanted = ["%s:%s%s" % (sha, prefix, rel)
               for rel, hist in per_file.items() for sha, _d, _s in hist]
-    blobs = {}
-    try:
-        raw = _git(["cat-file", "--batch"], stdin="\n".join(wanted) + "\n",
-                   binary=True)
-    except Exception as e:                                       # noqa: BLE001
-        return [], 0, len(files), "git cat-file failed (%s: %s)" % (
-            type(e).__name__, e)
-    pos = 0
-    for spec in wanted:
-        nl = raw.find(b"\n", pos)
-        if nl < 0:
-            break
-        header = raw[pos:nl].split()
-        if len(header) < 3:                  # "<spec> missing"
-            pos = nl + 1
-            continue
-        size = int(header[2])
-        blobs[spec] = raw[nl + 1:nl + 1 + size].decode("utf-8", "replace")
-        pos = nl + 1 + size + 1              # +1 for git's trailing newline
+    blobs = _cat_file_batch(wanted)
+    if blobs is None:
+        return [], 0, len(files), "git cat-file failed", prefix
 
     moves = []
     for rel, hist in per_file.items():
@@ -1478,7 +1534,7 @@ def pin_moves():
         src = open(os.path.join(ROOT, rel), encoding="utf-8").read()
         p = pin_literals(src)
         live += len(p or {})
-    return moves, live, len(files), None
+    return moves, live, len(files), None, prefix
 
 
 _DOC_CACHE = {}
@@ -1495,17 +1551,49 @@ def _doc_text(rel):
 
 
 def pin_supersession():
-    """-> (moves, pin_count, file_count, refusal), each move graded."""
-    moves, live, nfiles, refusal = pin_moves()
+    """-> (moves, pin_count, file_count, refusal), each move graded.
+
+    A MOVE IS NOT AUTOMATICALLY A SUPERSESSION, and the first version of this
+    check did not know that. It read the pin history, found the old value in
+    no document, and FAILED -- and the first thing it failed on was a pin
+    another cell had introduced and corrected within the same hour, from
+    18094 to 18095, before any document had ever quoted either number. There
+    was nothing to supersede. Doctrine 17 governs a value the record CARRIED;
+    a value the record never carried is a typo, and failing a typo fix is a
+    check firing on correct work.
+
+    So the record is read TWICE: as it stands now, and as it stood at the
+    parent of the commit that moved the pin. Absent then AND absent now is
+    NEVER_QUOTED and is not a defect. Present then and absent now is VANISHED
+    -- the superseded value was taken off the page -- and that is the one
+    verdict here that fails a run. Doctrine 28 again: "the record dropped it"
+    and "the record never had it" are different values, mechanically.
+    """
+    moves, live, nfiles, refusal, prefix = pin_moves()
     for mv in moves:
         src = open(os.path.join(ROOT, mv.rel), encoding="utf-8").read()
         mv.docs = cited_documents(src)
+    before = _cat_file_batch(["%s^:%s%s" % (mv.sha, prefix, d)
+                              for mv in moves for d in mv.docs]) or {}
+    for mv in moves:
         if not mv.docs:
-            mv.status, mv.where = "REFUSED", []
+            mv.status = "REFUSED"
+            mv.reason = ("that module names no `.md` document, so there is "
+                         "nothing to check it against")
             continue
-        mv.status, mv.where = pin_verdict(
+        then = {d: before["%s^:%s%s" % (mv.sha, prefix, d)]
+                for d in mv.docs
+                if "%s^:%s%s" % (mv.sha, prefix, d) in before}
+        mv.status, mv.where = pin_grade(
             mv.old_text, mv.old_value,
-            {d: _doc_text(d) for d in mv.docs})
+            {d: _doc_text(d) for d in mv.docs}, then)
+        if mv.status == "REFUSED":
+            mv.reason = ("the record could not be read at %s^, so whether the "
+                         "value was ever on the page cannot be told"
+                         % mv.sha[:8])
+        elif mv.status == "NEVER_QUOTED":
+            mv.reason = ("no document carried it before the move either, so "
+                         "nothing was superseded — a correction, not a repin")
     return moves, live, nfiles, refusal
 
 
@@ -1523,6 +1611,22 @@ PIN_CONTROLS = [
      {"P.md": "REPINNED 2026-08-13 from 0.659, which no longer reproduces.\n"}),
     ("ok", "1064", 1064,
      {"P.md": "superseded: the sweep read 1,064 mandated pairs.\n"}),
+]
+
+#: (verdict, pin text, value, the record NOW, the record BEFORE THE MOVE).
+#: This is the pair that decides the exit code, and the two cases differ ONLY
+#: in the second document set. Without the second read they are the same
+#: input, which is how the first draft of this check failed a cell for fixing
+#: a typo in a number nobody had ever quoted.
+PIN_HISTORY_CONTROLS = [
+    ("VANISHED", "18094", 18094,
+     {"P.md": "the corpus holds 18095 alliterating lines.\n"},
+     {"P.md": "the corpus holds 18094 alliterating lines.\n"}),
+    ("NEVER_QUOTED", "18094", 18094,
+     {"P.md": "the corpus holds 18095 alliterating lines.\n"},
+     {"P.md": "this document said nothing about the count.\n"}),
+    ("REFUSED", "18094", 18094,
+     {"P.md": "the corpus holds 18095 alliterating lines.\n"}, {}),
 ]
 
 #: A module the EXTRACTOR must read exactly this way. `NOT_A_PIN` is the case
@@ -1572,6 +1676,15 @@ def pin_self_test():
                         "raised %s: %s" % (type(exc).__name__, exc)))
             continue
         out.append(("pin %s probe" % want,
+                    "ok" if status == want else "returned %s" % status))
+    for want, text, value, now, then in PIN_HISTORY_CONTROLS:
+        try:
+            status, _w = pin_grade(text, value, now, then)
+        except Exception as exc:                                # noqa: BLE001
+            out.append(("pin history %s probe" % want,
+                        "raised %s: %s" % (type(exc).__name__, exc)))
+            continue
+        out.append(("pin history %s probe" % want,
                     "ok" if status == want else "returned %s" % status))
     return out
 
@@ -1816,21 +1929,18 @@ def main(argv=None):
                   "see the probes below.")
         for mv in moves:
             tag = {"ok": "ok  ", "UNMARKED": "note", "VANISHED": "FAIL",
-                   "REFUSED": "----"}[mv.status]
+                   "NEVER_QUOTED": "----", "REFUSED": "----"}[mv.status]
             print("  [%s] %s  %s" % (tag, mv.rel.split("/")[-1], mv.key))
             print("         %s -> %s   at %s %s  (%s)"
                   % (mv.old_text, mv.new_text, mv.sha[:8], mv.date,
                      mv.subject[:44]))
             if mv.status == "VANISHED":
-                print("         the superseded value is in NONE of %s"
-                      % ", ".join(mv.docs))
+                print("         it WAS on the page at %s^ and is in NONE of "
+                      "%s now" % (mv.sha[:8], ", ".join(mv.docs)))
                 print("         doctrine 17: keep it visible, with the date "
                       "it was superseded.")
-            elif mv.status == "REFUSED":
-                print("         that module names no `.md` document, so there "
-                      "is nothing to check")
-                print("         it against (doctrine 58: the coordinate is "
-                      "not written down).")
+            elif mv.status in ("REFUSED", "NEVER_QUOTED"):
+                print("         %s" % mv.reason)
             else:
                 print("         kept at %s%s"
                       % ("; ".join("%s:%d" % (d, n) for d, n, _l in mv.where[:3]),

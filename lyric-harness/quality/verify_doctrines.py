@@ -75,11 +75,15 @@ instrument exists and prints the quantity, nothing exits non-zero), PROSE (no
 instrument; the rule binds on a human at a moment no command observes), N-A
 (a recorded finding or a retraction, not a rule anything can violate).
 
-RUNNING the cited commands is deliberately NOT done here. Measured on this
-repo the registry's 30 distinct commands include `test_revise.py` and
-`test_loop.py` at 15+ minutes each; the set is hours. This file checks that
-each command EXISTS and CAN FAIL, in about a second.
+RUNNING the cited commands is deliberately NOT done here, and the count of
+them is PRINTED rather than written down (doctrine 58 -- a number in a
+docstring is a threshold nobody re-measures). Measured on this repo the set
+includes `quality/test_revise.py` at ~15 minutes and
+`quality/counters.py --check` at ~29 seconds; running all of them is hours,
+which is a job and not a gate. This file checks that each command EXISTS and
+CAN FAIL, and the whole run costs about six seconds.
 """
+import ast
 import json
 import os
 import re
@@ -211,7 +215,7 @@ REGISTRY = {
          "the refusal paths: a refusal is its own outcome and none of them "
          "degrade into a null"),
     21: (MECHANICAL, "python3 quality/test_band.py",
-         "test_band.py section 2 pins sun/much -- this doctrine's own case -- "
+         "quality/test_band.py section 2 pins sun/much -- this doctrine's own case -- "
          "as ASSONANCE, which is the conjunctive band rule firing rather than "
          "the comparator's floor. The file does not carry the doctrine number.",
          "removing the floor did not remove the compensation; the band rule is "
@@ -353,7 +357,7 @@ REGISTRY = {
          "every committed counter in BACKLOG.md is checked against the command "
          "that measures it, so a bare n-of-N cannot drift from its setting"),
     59: (MECHANICAL, "python3 quality/test_phon_fas.py",
-         "test_phon_fas.py section 13 pins that the refusal is on SCRIPT and "
+         "quality/test_phon_fas.py section 13 pins that the refusal is on SCRIPT and "
          "not on language, and pins its declared limit -- Arabic in Arabic "
          "script is NOT refused. The file does not carry the doctrine number.",
          "the refusal is declared and its cost is paid in the open rather than "
@@ -445,7 +449,7 @@ REGISTRY = {
          "a vague life is bounded at the END of its window and the row says in "
          "its own pd_route that it was"),
     82: (MECHANICAL, "python3 quality/test_phonology.py",
-         "test_phonology.py pins `an extent must be declared, never defaulted` "
+         "quality/test_phonology.py pins `an extent must be declared, never defaulted` "
          "and pins that the three spans differ on an unaccented end -- the "
          "defect this doctrine records. It does not carry the doctrine "
          "number.",
@@ -504,13 +508,43 @@ REGISTRY = {
 #: reason that names a dead file is the same defect one layer out.
 PATHISH = re.compile(r"\b[A-Za-z0-9_][A-Za-z0-9_./-]*\."
                      r"(?:py|md|tsv|json|txt|yml|yaml|sh)\b")
-def _nonzero_const(node):
-    """Is this expression a literal non-zero exit code, or a branch on one?"""
+def _module_ints(tree):
+    """-> {NAME: int} for module-level `NAME = <int>` and tuple unpackings.
+
+    `quality/song_profile_calibration.py` -- a step in CI's `record` job --
+    exits through `sys.exit(EXIT_DRIFT)` off
+    `EXIT_OK, EXIT_DRIFT, EXIT_NO_VERDICT = 0, 1, 3`. A walk that only reads
+    literals calls that unfailable, which is a false negative in the one
+    direction this guard must not have.
+    """
+    out = {}
+    for node in tree.body:
+        if not isinstance(node, ast.Assign):
+            continue
+        tgt, val = node.targets[0], node.value
+        pairs = []
+        if isinstance(tgt, ast.Tuple) and isinstance(val, ast.Tuple):
+            pairs = list(zip(tgt.elts, val.elts))
+        else:
+            pairs = [(tgt, val)]
+        for t, v in pairs:
+            if (isinstance(t, ast.Name) and isinstance(v, ast.Constant)
+                    and isinstance(v.value, int)
+                    and not isinstance(v.value, bool)):
+                out[t.id] = v.value
+    return out
+
+
+def _nonzero_const(node, consts):
+    """Is this expression a non-zero exit code, or a branch on one?"""
     if isinstance(node, ast.Constant):
         return isinstance(node.value, int) and not isinstance(
             node.value, bool) and node.value != 0
+    if isinstance(node, ast.Name):
+        return consts.get(node.id, 0) != 0
     if isinstance(node, ast.IfExp):
-        return _nonzero_const(node.body) or _nonzero_const(node.orelse)
+        return (_nonzero_const(node.body, consts)
+                or _nonzero_const(node.orelse, consts))
     return False
 
 
@@ -535,6 +569,7 @@ def can_fail(text):
         tree = ast.parse(text)
     except SyntaxError:
         return False
+    consts = _module_ints(tree)
     exits, nonzero_exit, nonzero_return = False, False, False
     for node in ast.walk(tree):
         if isinstance(node, ast.Call):
@@ -543,14 +578,14 @@ def can_fail(text):
                     f.id if isinstance(f, ast.Name) else "")
             if name in ("exit", "SystemExit"):
                 exits = True
-                if node.args and _nonzero_const(node.args[0]):
+                if node.args and _nonzero_const(node.args[0], consts):
                     nonzero_exit = True
         elif isinstance(node, ast.Raise):
             e = node.exc
             if isinstance(e, ast.Name) and e.id == "SystemExit":
                 exits, nonzero_exit = True, True
         elif isinstance(node, ast.Return) and node.value is not None:
-            if _nonzero_const(node.value):
+            if _nonzero_const(node.value, consts):
                 nonzero_return = True
     return nonzero_exit or (exits and nonzero_return)
 
@@ -823,7 +858,7 @@ def registry_check(defs):
         if "__main__" not in text:
             problems.append(f"doctrine {n}: {rel} has no __main__, so `{cmd}` "
                             f"runs nothing.")
-        if not CAN_FAIL.search(text):
+        if not can_fail(text):
             problems.append(f"doctrine {n}: {rel} has no non-zero exit path, "
                             f"so `{cmd}` cannot fail. A check that cannot fail "
                             f"is decoration.")
