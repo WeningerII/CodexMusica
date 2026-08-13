@@ -178,13 +178,21 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
                 "resources_absent": absent, "arms": [], "cache_path":
                 cache_path, "n_perm": n_perm, "n_seeds": n_seeds}
 
-    # STRICT (= `--check`) REFUSES BEFORE IT SPENDS.  Cold extraction was
-    # measured 2026-08-13 at ~3.6 CPU-s per item over 384 items -- ~23 CPU-
-    # MINUTES, and this script never calls `save_cache`, so every cold run pays
-    # it again and warms nothing. Worse than the cost: a run that cannot prove
-    # the cache was written by the code running now is measuring a comparator
-    # nobody named, which is the exact defect the file is an audit OF. Doctrine
-    # 20 -- "cannot tell" is not a result, and it is not a failure either.
+    # STRICT (= `--check`) REFUSES BEFORE IT SPENDS.  Cold extraction MEASURED
+    # 2026-08-13: 1049.5 CPU-s over 384 items, 2.73 s/item -- **17.5 CPU-
+    # MINUTES** -- and this script never calls `save_cache`, so every cold run
+    # pays it again and warms nothing for the next one.
+    #
+    # Worse than the cost: a run that cannot prove the cache was written by the
+    # code running now is measuring a comparator nobody named, which is the
+    # exact defect this file is an audit OF. And that is not hypothetical here.
+    # `quality/features.py` was edited TWICE by a concurrent cell inside that
+    # single 17.5-minute build (digest d19ffe04 -> 2efbffbe -> 1ff08f3c), so the
+    # cache was stale before it finished being written. A cold recompute cannot
+    # outrun the rate at which this repo's own comparator moves, which is the
+    # strongest possible argument for refusing rather than recomputing.
+    # Doctrine 20 -- "cannot tell" is not a result, and it is not a failure
+    # either.
     if strict and (absent or why != "fingerprint match"):
         measured.update(stats)
         return measured
@@ -269,7 +277,7 @@ def main(n_perm=200, n_seeds=200, strict=False, cache_path=CACHE):
 # THE THIRD ANSWER, which neither sibling needs: REFUSE (exit 2).
 # Everything pinned above is exact ONLY GIVEN a warm, fingerprint-matching
 # cache and the resource files the features read. Without them the numbers are
-# still computable, at ~23 CPU-minutes, against code the fingerprint says has
+# still computable, at 17.5 CPU-minutes, against code the fingerprint says has
 # moved -- so the honest output is not PASS and not FAIL. Doctrine 20: an
 # instrument that cannot fire and an instrument that fired and found nothing
 # are different results, and collapsing them is a false negative dressed as a
@@ -353,11 +361,13 @@ def check(m):
         print("  Every pinned number below is exact ONLY against a cache the "
               "fingerprint")
         print("  proves was written by the code running now. Recomputing cold "
-              "costs ~23")
-        print("  CPU-minutes and this script never saves what it computes, so "
-              "it would")
-        print("  pay that again next time. Warm it with "
-              "`python3 quality/discriminate.py`.")
+              "costs 17.5")
+        print("  CPU-MINUTES (measured 2026-08-13: 1049.5 CPU-s / 384 items) "
+              "and this script")
+        print("  never saves what it computes, so it would pay that again next "
+              "time.")
+        print("  Warm it with `python3 quality/discriminate.py`, which does "
+              "save.")
         print("\nRESULT: REFUSED (not a pass, not a failure -- doctrine 20)")
         return 2
     if m.get("computed"):

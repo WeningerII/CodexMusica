@@ -112,6 +112,10 @@ class RhymeField:
             for v in VOWELS
         }
         self._cache = {}
+        # Two projections of the SAME cached field, memoized beside it. See
+        # `words()` for why they exist and what they cost.
+        self._words = {}
+        self._ranks = {}
 
     def field(self, word):
         """Words rhyming with `word` at or above theta, sorted most-frequent
@@ -136,6 +140,61 @@ class RhymeField:
         out.sort(key=lambda t: t[1])          # by frequency rank, common first
         self._cache[key] = out
         return out
+
+    def words(self, word):
+        """`[w for w, _, _ in self.field(word)]`, built ONCE per field.
+
+        A MEMO, not a change to what a field is: the same strings in the same
+        order, so `in` and `.index` answer exactly what they answered before.
+
+        It exists because the projection was being rebuilt PER PAIR off a field
+        that is already cached per WORD, and the two counts are not the same
+        number. Counted over corpus/song/ 2026-08-13: 75,397 mandated pairs
+        against 11,941 distinct call words, so the average field was rebuilt
+        6.31 times and `me` 623 times. cProfile over 3 warm passes on 40 real
+        items put 56.3% of `_predictability` in this one list comprehension and
+        a further 23.7% in `ranks()` below -- 80.0% of the warm cost rebuilding
+        two lists that could not have changed. Warm cost per pair falls 901.8
+        -> 78.2 us; a whole-corpus cold `--check` drops from 68.0 to 13.0
+        CPU-s, MEASURED on this machine, against ~7,400 CPU-s of `score()`
+        calls that this does not touch and is not trying to.
+
+        NOT a dict of word -> position, which is the obvious next step and is
+        measurably the wrong one. A dict answers in 2.0 us/pair instead of
+        78.2, but costs 1,222.7 us/field to build against a list's 401.3, and
+        at 6.31 uses per field the build never earns it back (break-even is
+        ~15 uses): 13.9 CPU-s whole-corpus, worse than the list, and worse
+        again for one-shot callers like `floor.py`, where every field is built
+        once and used once. The list memo cannot regress any caller, because it
+        does the same work the old code did, once instead of per pair.
+
+        THE COST IS MEMORY, and it is unbounded exactly as `_cache` is:
+        ~16 bytes per field entry for the two lists (the rank ints are shared
+        with the tuples already in `_cache`, not copied), which extrapolates to
+        ~0.46 GiB over a full 11,941-word sweep on top of the ~3.0 GiB
+        `_cache` already holds there. A dict-of-positions would have been
+        ~1.9 GiB for a slower answer.
+        """
+        key = word.lower()
+        got = self._words.get(key)
+        if got is None:
+            got = self._words[key] = [w for w, _, _ in self.field(key)]
+        return got
+
+    def ranks(self, word):
+        """`[r for _, r, _ in self.field(word)]`, built ONCE per field.
+
+        Same memo as `words()`, and LAZY for a second reason: only a pair whose
+        answer falls OUTSIDE the field ever needs it (374 of 562 real pairs in
+        the 2026-08-13 sample), so a field never asked that question never
+        pays for the list. Ascending by construction -- `field()` sorts by
+        rank -- which is what `bisect_left` requires of it.
+        """
+        key = word.lower()
+        got = self._ranks.get(key)
+        if got is None:
+            got = self._ranks[key] = [r for _, r, _ in self.field(key)]
+        return got
 
 
 # ---------------------------------------------------------------------------
@@ -242,13 +301,20 @@ class QualityFeatures:
             fld = self.field.field(call)
             if not fld:
                 continue
-            words = [w for w, _, _ in fld]
+            # `words`/`ranks` used to be rebuilt from `fld` on every pair. They
+            # are now memoized on the field they project (`RhymeField.words`,
+            # which carries the measurement). Identical lists, identical order,
+            # so `in`, `.index` and `bisect_left` return the identical int and
+            # the arithmetic below is bit-for-bit what it was -- which matters
+            # because `discriminate.py`'s AUCs and `floor.py`'s calibrated
+            # constants are both downstream of this float.
+            words = self.field.words(call)
             if answer in words:
                 pos = words.index(answer)
             elif answer in self.lex.freq_rank:
                 # in the frequency list but outside the rhyme field
-                ranks = [r for _, r, _ in fld]
-                pos = bisect_left(ranks, self.lex.freq_rank[answer])
+                pos = bisect_left(self.field.ranks(call),
+                                  self.lex.freq_rank[answer])
             else:
                 continue          # pronounceable but unranked: no basis
             vals.append(1.0 - pos / max(1, len(words)))
