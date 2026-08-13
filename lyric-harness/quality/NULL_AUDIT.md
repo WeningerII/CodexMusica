@@ -530,6 +530,31 @@ R_obs 88.0%  (264/300; RECORDED 253 poems / 88.1% and 300 poems / 264 = 88.0%)
 pairwise chance agreement between two random rhyme-position characters: 5.4%
 ```
 
+> **RE-RUN 2026-08-13 AND TWO OF THESE MOVED.** `python3
+> quality/audit_tang_null.py` prints **character coverage 12848/12864 =
+> 99.9%** (recorded 99.3%, and the `(RECORDED 99.3%)` the script printed
+> beside it agreed with itself while disagreeing with the corpus) and
+> **R_obs 90.0%** at the mandated positions (recorded 88.0%). The poem count
+> is unchanged at 300. So the rime table now reads 68 characters it could not
+> read when this block was written, and 6 more poems agree at their mandated
+> positions.
+>
+> **THE NULL VERDICT IS UNTOUCHED AND IS STRONGER.** N1, N2 and N3 all still
+> separate at the floor, and the excess over the null MAX grows with the
+> observation. Nothing about §2.3's conclusion depends on which of 88.0 or
+> 90.0 is right; what depended on it was the claim that this file describes
+> the arm.
+>
+> **AND NOTHING RAN THIS FOR THREE DAYS.** The script prints `RECORDED:`
+> beside every figure and then exits 0 no matter how far they diverge --
+> `main()` returned None and `sys.exit` was never called with a code. An
+> instrument that prints its own drift and cannot act on it is doctrine 48's
+> failure mode, and it is the third one found in a day (`audit_spans.py`,
+> `audit_corpus.py`, this). `--check` now pins the DETERMINISTIC quantities
+> -- the poem count and the coverage numerator/denominator -- and exits 1 on
+> drift; the rate is left to the printed p, which is at its floor either way.
+> Proven red on an injected figure before it was wired.
+
 Survives overwhelmingly, and the C1 concern does **not** transfer to the rate:
 the mandated positions are special, not merely periodic. Part D's arms
 reproduce exactly (A 264/36/sat 10.0%/Fisher 0; B 300/0/50.0%/0.529/18/0.883;

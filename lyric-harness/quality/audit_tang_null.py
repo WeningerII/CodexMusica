@@ -87,13 +87,20 @@ def main(limit=300, n=200):
     print(f"全唐诗, filtered to 8 uniform lines of 5 or 7 characters: "
           f"{len(poems)} poems  (limit={limit})")
     print("RECORDED: 253 poems / 88.1% (POSITIVE_CONTROL Part B); "
-          "300 poems / 264 admitted = 88.0% (Part D arm A)\n")
+          "300 poems / 264 admitted = 88.0% (Part D arm A).\n"
+          "REPINNED 2026-08-13: the mandated-position agreement rate is "
+          "90.0%, not 88.0%, and character coverage is 99.9%, not 99.3%. "
+          "Superseded values kept above (doctrine 17); the null verdict is "
+          "unchanged, p stays at the floor.\n")
 
     ends = [[ln[-1] for ln in lines] for _, lines in poems]
     allch = "".join("".join(lines) for _, lines in poems)
     known = sum(1 for c in allch if ltc.readings(c))
     print(f"character coverage by the rime table: {known}/{len(allch)} = "
-          f"{known / len(allch):.1%}   (RECORDED 99.3%)\n")
+          f"{known / len(allch):.1%}   (RECORDED 99.9%, repinned 2026-08-13 "
+          f"from 99.3%)\n")
+    measured = {"poems": len(poems), "coverage_known": known,
+                "coverage_total": len(allch)}
 
     mand = [[e[i] for i in (1, 3, 5, 7)] for e in ends]
     obs = sum(1 for c in mand if agree(ltc, c)) / len(mand)
@@ -145,7 +152,58 @@ def main(limit=300, n=200):
     print(f"  readings per rhyme-position character: {dict(sorted(poly.items()))}"
           f"  (a polyphone gets several chances to agree)")
 
+    return measured
+
+
+#: THE COMMITTED FIGURES, so `--check` can go red instead of a human being
+#: expected to read `RECORDED:` off the screen and compare. Until 2026-08-13
+#: `main()` returned None and nothing ever called `sys.exit` with a code, so
+#: this runner exited 0 whatever it found -- and it HAD drifted: the agreement
+#: rate recorded as 88.0% measures 90.0%, and coverage recorded as 99.3%
+#: measures 99.9%. Nobody noticed, because nothing runs it.
+#:
+#: This is the same shape as `quality/audit_spans.py` and
+#: `quality/audit_corpus.py`, both wired the same day: an instrument that
+#: prints its own drift and cannot act on it. Doctrine 48 -- a principle that
+#: lives only in prose gets followed exactly as often as somebody remembers it.
+#: Doctrine 58: argue these and repin; do not tune the measurement to meet them.
+#:
+#: The RATE is not pinned here. It is a permutation statistic and the mandated
+#: rate is exact at a given limit, but the null draw is not, so `--check` pins
+#: the DETERMINISTIC quantities (the corpus shape and the coverage) and leaves
+#: the null verdict to the printed p, which is at its floor either way.
+PINNED = {"poems": 300, "coverage_known": 12848, "coverage_total": 12864}
+
+
+def check(measured):
+    """-> exit code. FAILS LOUDLY; it does not report and continue."""
+    print()
+    print("=" * 74)
+    print("CHECK -- the committed corpus shape against this run")
+    print("=" * 74)
+    bad = 0
+    for k in sorted(PINNED):
+        ok = measured.get(k) == PINNED[k]
+        bad += not ok
+        print(f"  [{'ok  ' if ok else 'FAIL'}] {k:16s} committed {PINNED[k]}"
+              + ("" if ok else f", measured {measured.get(k)}"))
+    if bad:
+        print()
+        print(f"  {bad} figure(s) moved. The ingestion or the rime table has "
+              f"changed under this arm.")
+        print("  Repin with the date and keep the superseded value visible "
+              "(doctrine 17).")
+    print()
+    print("RESULT:", "PASS" if not bad else "FAIL")
+    return 0 if not bad else 1
+
 
 if __name__ == "__main__":
-    lim = int(sys.argv[1]) if len(sys.argv) > 1 else 300
-    main(lim, int(sys.argv[2]) if len(sys.argv) > 2 else 200)
+    argv = [a for a in sys.argv[1:] if a != "--check"]
+    lim = int(argv[0]) if argv else 300
+    n = int(argv[1]) if len(argv) > 1 else 200
+    if "--check" in sys.argv:
+        # The null draw costs the whole runtime and `check` does not read it.
+        n = min(n, 5)
+    _m = main(lim, n)
+    sys.exit(check(_m) if "--check" in sys.argv else 0)

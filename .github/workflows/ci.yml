@@ -615,3 +615,22 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/audit_corpus.py --verify-shape
+
+      # THE 律詩 POSITIVE CONTROL's INGESTION. Added 2026-08-13, and it is the
+      # third instrument found the same day that printed its own drift and
+      # could not act on it: `main()` returned None and `sys.exit` was never
+      # called with a code, so this exited 0 while printing `RECORDED 99.3%`
+      # beside a measured 99.9% and `RECORDED ... 88.0%` beside a measured
+      # 90.0%. Nothing ran it, so nobody read the comparison it was printing.
+      #
+      # `--check` pins only the DETERMINISTIC quantities -- the poem count and
+      # the coverage numerator/denominator -- because the agreement rate rides
+      # a permutation draw. The null verdict is left to the printed p, which is
+      # at its floor either way and is not what drifted. `--check` also caps
+      # the replicate count, since the draw costs the runtime and the check
+      # does not read it: effectively instant. Proven red on an injected
+      # figure before wiring.
+      - name: Tang rime-table ingestion against its committed shape
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_tang_null.py --check

@@ -317,6 +317,23 @@ poems of eight uniform lines of five or seven characters:
 | rhyme agreement at mandated positions (lines 2,4,6,8) | **88.1%** |
 | character coverage by the rime table | **99.3%** |
 
+> **THE SIBLING ARM MOVED 2026-08-13, AND THIS ONE WAS NOT RE-MEASURED.**
+> `quality/audit_tang_null.py`'s 300-poem arm — Part D arm A, not this table —
+> now reads **90.0%** agreement (recorded 88.0%) and **12848/12864 = 99.9%**
+> coverage (recorded 99.3%). The rime table reads 68 characters it could not
+> read when those figures were written.
+>
+> This table is the **253-poem** arm and reproducing it needs the filter that
+> produced 253, which the runner's `limit` argument does not express. So the
+> 88.1% and the 99.3% here are **NOT VERIFIED, NOT REFUTED** — the honest third
+> state (doctrine 28), and the direction of the sibling arm's movement suggests
+> both would rise rather than fall if run. What is certain is that the coverage
+> figure this table shares with its sibling, 99.3%, is stale in the sibling and
+> is unlikely to be current here.
+>
+> The residue argument below is unaffected either way: it is about WHICH pairs
+> fail (通押 pairs the 平水韻 standard later separated), not about how many.
+
 **The 11.9% residue is diagnostic, not noise, and it is not being tuned away.**
 Every recurring failure is a documented **通押** pair — adjacent rhymes Tang
 poets used together that the 13th-century 平水韻 standard later separated:
