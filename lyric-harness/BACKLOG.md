@@ -557,19 +557,6 @@ never one (doctrine 79).
 > block landed 2026-08-13 and the declared total moved with it; the live figure
 > is in the table below and is deliberately not repeated here.
 >
-> **AND AS THIS WAS WRITTEN THE ROW STOPPED BEING A NUMBER AT ALL, WHICH IS THE
-> COUNTER WORKING.** `mutations_declared()` RAISES rather than reports when a
-> declared mutation no longer applies, on the ground that a mutation whose
-> anchor has drifted out of the source is declared and INERT — a hole in the
-> instrument that reads exactly like coverage. `QS3`'s anchor in
-> `quality/schemes.py` (`if r.verbatim is not True: continue`) was refactored
-> into a list comprehension by the lot rewriting `returns_check` the same day,
-> so `--dry-run` reads `56/57` and the row REFUSES with that sentence in it.
-> The remedy is not in this file: `quality/mutate.py` has to re-anchor `QS3` to
-> the new code, and until it does the adversary is one mutation smaller than it
-> declares. Left refusing rather than papered over — the whole point of the row
-> is that it cannot quietly say 57 while 56 is the truth.
->
 > **The caught half is a COVERAGE statement now, and not a ratio, because no
 > run covers the declared set.** As of 2026-08-13,
 > **24 of the 57 then declared** carry a verdict at all, and those 24 come
@@ -600,7 +587,7 @@ never one (doctrine 79).
 | MISSING entries by status | 49 OPEN / 14 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,611 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **945** public top-level functions/classes under `quality/` and the root — **157** named by another production module, **234** by tests only, **507** only inside their own module, **11** by nothing anywhere, **36** REFUSED (28 ambiguous, 4 dynamic, 4 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property, and any lot adding a public `def` moves the total — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **945** public top-level functions/classes under `quality/` and the root — **157** named by another production module, **234** by tests only, **506** only inside their own module, **11** by nothing anywhere, **37** REFUSED (29 ambiguous, 4 dynamic, 4 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property, and any lot adding a public `def` moves the total — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **57 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

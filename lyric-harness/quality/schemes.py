@@ -1724,8 +1724,8 @@ class Mandate:
         over this output to grow a `LINE_COUNT` branch FIRST — it currently
         routes every kind but `OUT_OF_RANGE` into `add(j,
         Finding("RETURN_NOT_VERBATIM", "flag", ...))`, and this finding's `j`
-        is `None` because a length
-        disagreement names no pair. It belongs in `whole` as a NOTE, beside
+        is `None` because a length disagreement names no pair. It belongs in
+        `whole` as a NOTE, beside
         `RETURN_OUT_OF_RANGE`: it says which question could be asked, not that
         a line is wrong, and doctrine 6/7 keep a disclosure out of the gate.
 
@@ -1753,11 +1753,14 @@ class Mandate:
         # COMPUTED BESIDE THE LOOP RATHER THAN REPLACING IT. Folding this
         # predicate into the loop header — `for i, j, r in [... if r.verbatim
         # is True]` — reads better and DISARMS `quality/mutate.py`'s QS3,
-        # whose anchor is the literal `if r.verbatim is not True:\n
-        # continue` two blocks down. A mutation that no longer applies is a
-        # mutant that cannot be killed, reported as nothing at all, so
-        # adversary 4 loses a member to a tidier line. Measured, not assumed:
-        # the first draft of this fix took QS3's `old=` string from 1 to 0.
+        # whose anchor is the literal `if r.verbatim is not True:` / `continue`
+        # two blocks down. `apply_mutation` raises on a stale anchor and
+        # `--dry-run` prints STALE, so it is loud rather than silent — but
+        # nothing in the regression sweep runs either, so adversary 4 would
+        # have lost a member to a tidier line until the next mutation sweep.
+        # Measured, not assumed: the first draft of this fix took QS3's `old=`
+        # string from 1 to 0, and `quality/test_mandate_language.py` §15b
+        # step 4 now pins all five where the sweep will see it.
         pairs = [(i, j) for i, j, r in declared if r.verbatim is True]
         if n != self.n_lines:
             unchecked = sum(1 for i, j in pairs if i > n or j > n)
@@ -1775,9 +1778,8 @@ class Mandate:
                         f"finding here is positional. Of {len(declared)} "
                         f"declared return pair(s): {len(pairs) - unchecked} "
                         f"graded on that reading ANYWAY and conditional on "
-                        f"it, "
-                        f"{unchecked} naming a line past the draft and NOT "
-                        f"CHECKED, {len(declared) - len(pairs)} declared "
+                        f"it, {unchecked} naming a line past the draft and "
+                        f"NOT CHECKED, {len(declared) - len(pairs)} declared "
                         f"non-verbatim or UNKNOWN and never graded here. This "
                         f"is the assumption said out loud, not a clean pass "
                         f"(doctrine 20)"))

@@ -7,6 +7,9 @@ THE FIGURE THIS FILE PINS, AND THE ONE IT SUPERSEDES
   PINNED HERE, MEASURED 2026-08-13:
       3,253 of the first 4,000 verse lines alliterate = 81.3%
       22,795 verse lines extracted, 18,828 alliterating = 82.6%
+      and, since later the same day, the ANALYTIC chance rate against which
+      that 82.6% is read: 30.0108% on all verse lines, 30.0772% on the
+      window, plus one for each of the four series corpora. Exact, not drawn.
 
   SUPERSEDED 2026-08-13, kept visible and dated rather than overwritten
   (doctrine 17), because several files still carry it:
@@ -174,7 +177,11 @@ DOCTRINE 89: THE EXCESS IS A SERIES, AND ONE POINT CANNOT CARRY IT
   comment above it. The short version is that the COUNTS are exact and the
   EXCESSES are bounded, never pinned to a decimal, because `--check` caps the
   replicates and an exact pin on a capped draw witnesses the replicate count
-  rather than the effect (doctrine 57).
+  rather than the effect (doctrine 57). The line between the two is NOT
+  count-versus-rate, and 2026-08-13 is when that became visible: the ANALYTIC
+  chance rate is a rate and is pinned EXACTLY (`PINNED_ANALYTIC`), because it
+  carries no draw. The question is only ever whether a figure rides the Monte
+  Carlo, and the file now holds one of each kind on the same corpus.
 
   WHAT THE SERIES COSTS, MEASURED rather than estimated, 1 core, 2026-08-13:
       `--check`  BEFORE  2.03 s wall / 2.02 s CPU
@@ -188,6 +195,19 @@ DOCTRINE 89: THE EXCESS IS A SERIES, AND ONE POINT CANNOT CARRY IT
   Kalevala's ingestion twice to save one second. THE COST IS ALL IN NULL A:
   the observed counts are ~1.0 s of tokenizing and the five-replicate draws
   are ~0.9 s, which is why Null B is not run over the series.
+
+  AND THE ANALYTIC RATE ADDED ESSENTIALLY NOTHING TO THAT, MEASURED the same
+  way on 2026-08-13 when it was finally implemented:
+      `--check`  BEFORE  4.12 / 4.12 / 4.23 s CPU over three runs
+      `--check`  AFTER   4.18 / 4.13 / 4.11 s CPU over three runs
+  i.e. the delta is INSIDE the run-to-run spread of the measurement, and the
+  six `analytic()` calls time at 0.076 s in total (~1.8% of the step). Wall
+  clock is not quoted for this comparison because the box was loaded when it
+  was taken -- 11 s wall against 4.1 s CPU -- which is exactly the condition
+  under which a wall-clock number would say something untrue about the code.
+  The reason it is this cheap is that the closed form is evaluated ONCE PER
+  DISTINCT LINE LENGTH and the symmetric polynomials ONCE PER CORPUS, so it
+  is O(classes * m + lines) against Null A's O(replicates * tokens).
 
   AND THE BOUNDS WERE CHECKED AT THE FULL n BEFORE BEING WRITTEN. At n=200
   the series reads +52.6 / +50.8 / +15.8 / +15.2 / +11.6, which reproduces
@@ -374,7 +394,7 @@ def analytic(rows):
     """
     pool = [h for hs in rows for h in hs]
     readable = [h for h in pool if h is not None]
-    q = 0.0  # MUTANT
+    q = 1 - len(readable) / max(1, len(pool))
     n = max(1, len(readable))
     p = [v / n for v in Counter(readable).values()]
 
@@ -692,7 +712,46 @@ MIN_EXCESS_DROP_RATIO = 1.30
 #: to catch: an identity-map `null_a` shows a gap of 11.5 pp on Kivi, the
 #: weakest of the five, and 52.6 pp on the Kalevala. Wide of the noise, well
 #: inside the failure.
+#:
+#: AND IT CATCHES A BREAK THE FOUR BOUNDS ABOVE DO NOT, which is the claim
+#: that had to be MEASURED rather than asserted -- a FULL identity map also
+#: trips MIN_EXCESS_ORAL, so on its own it would prove nothing about this row
+#: earning its place. Degrade the redeal partially instead: shuffle only a
+#: fraction f of the pool and leave the rest where it lay.
+#:      f      kalev  kante  uude   lit7   kivi   worst|gap|  4 bounds  d76
+#:      1.00   +52.5  +50.7  +16.3  +15.2  +11.7      0.64      pass    pass
+#:      0.90   +51.9  +50.2  +15.1  +15.1  +11.1      0.71      pass    pass
+#:      0.70   +47.6  +45.8  +14.8  +13.6  +10.5      5.03      pass    FAIL
+#:      0.50   +39.0  +37.6  +10.7  +11.6   +8.8     13.54      FAIL    FAIL
+#:      0.00     0.0    0.0    0.0    0.0    0.0     52.59      FAIL    FAIL
+#: At f=0.70 a null that has stopped destroying a THIRD of the co-membership
+#: it claims to destroy sails through every excess bound -- the Kalevala still
+#: reads +47.6 against a floor of 45.0 -- and this row is the only thing in
+#: the file that says so. Confirmed end to end as mutation M3 below.
 MAX_NULL_ANALYTIC_GAP = 4.0
+
+#: THE PINS WERE PROVEN ABLE TO FAIL, 2026-08-13, because a pin that has never
+#: gone red is a check nobody has seen work (doctrine 48). Four mutations, each
+#: applied to this file, run, and reverted from a byte-for-byte snapshot whose
+#: sha256 was compared after every restore. Baseline exit 0, 0 FAIL rows.
+#:   M1  PINNED_ANALYTIC["kanteletar"] 31.0587 -> 31.0687, a 0.01 pp move
+#:       = 10x ANALYTIC_TOL_PP        -> exit 1, 1 FAIL  (that row alone)
+#:   M2  `analytic()` drops the unreadable-slot term, q forced to 0
+#:                                    -> exit 1, 3 FAIL  (kanteletar 31.0704,
+#:       uudempia 56.1965, literary7 48.4361 -- and NOT the Kalevala or Kivi,
+#:       whose q is 0.0000, so the mutation is invisible exactly where the
+#:       corpus has nothing for it to break. The pin is on the FORMULA.)
+#:   M3  `null_a` degraded to the f=0.70 partial redeal tabulated above
+#:                                    -> exit 1, 2 FAIL, AND BOTH ARE
+#:       null-vs-analytic rows (kalevala +4.91, kanteletar +4.96). Every count
+#:       pin, every excess bound, the collapse gap and the doctrine-89 ratio
+#:       all still PASS. This is the whole argument for the row in one run.
+#:   M4  `report(... ana=None)` -- the dead state this file shipped in until
+#:       today                        -> exit 1, 3 FAIL, all of them reading
+#:       NOT COMPUTED rather than a moved number. Doctrine 20/28: the check
+#:       tells "nobody called it" apart from "it was called and it agreed",
+#:       so the defect cannot reopen quietly the way it opened.
+#: All four reverts returned exit 0 and the snapshot's sha.
 
 DEFAULT_CORPUS = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                               "..", "corpus", "fin_kalevala.txt")

@@ -746,6 +746,16 @@ def _msg(findings, kind):
     return next((f[4] for f in findings if f[3] == kind), "")
 
 
+def _kind_of(findings):
+    """-> the kind of the first finding, or "" when there are none.
+
+    For the checks that assert about WHATEVER kind came back — a drifted
+    return is a NAMED KIND from `compare_returns` and the test's subject is
+    that it is named, not which name — without indexing to find out.
+    """
+    return next((f[3] for f in findings), "")
+
+
 # ---------------------------------------------------------------------------
 # §13  OUT_OF_RANGE — a message that named a condition its guard does not test
 #
@@ -769,9 +779,16 @@ def test_out_of_range_names_its_own_condition():
     got = hand.returns_check(["a", "b", "c", "d"])
     ok("the hand-built mandate — the ONLY input that reaches this guard from "
        "inspect() — produces exactly one finding",
-       len(got) == 1 and got[0][:4] == ("R1", 1, 9, "OUT_OF_RANGE"),
+       [g[:4] for g in got] == [("R1", 1, 9, "OUT_OF_RANGE")],
        "-- shape unchanged: quality/revise.py branches on the KIND string")
-    msg = got[0][4]
+    # NEVER INDEXES, and this line DID until 2026-08-13. `quality/mutate.py`'s
+    # QS3 — a shipped mutant, on this method, in this file's own subset —
+    # empties `got`, and `got[0][4]` raised IndexError here, aborted the run
+    # at §13 and printed NO pass/fail count at all: the suite reported
+    # nothing about the eight sections after it and nothing about the mutant
+    # it was supposed to kill. Found by running QS3 rather than by reading
+    # `_msg`'s docstring, which has said so since §14 was written.
+    msg = _msg(got, "OUT_OF_RANGE")
     ok("the message NAMES THE OFFENDING LINE rather than two line counts",
        "L9" in msg and "4 lines and 4 were given" not in msg, msg[:64])
     ok("it says the mandate's OWN range is what L9 is outside of, so the "
@@ -810,8 +827,9 @@ def test_out_of_range_names_its_own_condition():
     drift = inr.returns_check(["same", "b", "other", "d"])
     ok("an IN-RANGE return that DRIFTED takes the other branch and is a "
        "NAMED KIND, not OUT_OF_RANGE",
-       len(drift) == 1 and drift[0][3] != "OUT_OF_RANGE"
-       and "VERBATIM" in drift[0][4], f"{drift[0][3]}")
+       [d[3] for d in drift] != ["OUT_OF_RANGE"] and len(drift) == 1
+       and "VERBATIM" in _msg(drift, _kind_of(drift)),
+       f"{[d[3] for d in drift]}")
     ok("the constructor still refuses the out-of-range return outright, so "
        "this guard stays the LAST line of defence and not the first",
        raises(lambda: S.mandate([[1, 3], [2, 4]], n_lines=4,
@@ -1131,8 +1149,10 @@ def test_returns_check_needs_the_whole_draft():
     drift = inr.returns_check(["same", "b", "other", "d"])
     ok("an IN-RANGE return that DRIFTED is still a NAMED KIND, and there is "
        "no LINE_COUNT row on a draft of the declared length",
-       len(drift) == 1 and drift[0][3] not in ("OUT_OF_RANGE", "LINE_COUNT")
-       and "VERBATIM" in drift[0][4], f"{drift[0][3]}")
+       len(drift) == 1
+       and not ({d[3] for d in drift} & {"OUT_OF_RANGE", "LINE_COUNT"})
+       and "VERBATIM" in _msg(drift, _kind_of(drift)),
+       f"{[d[3] for d in drift]}")
 
 
 # ---------------------------------------------------------------------------
@@ -1228,9 +1248,12 @@ def test_line_count_cannot_fire_through_the_reviser():
        and "m = self.mandate(before, mandate)" in rsrc)
 
     print("\n    STEP 4 — AND THE FIX DID NOT DISARM ADVERSARY 4 ON ITS WAY "
-          "PAST. `quality/mutate.py` plants its mutants by EXACT STRING, so "
-          "a tidier line in the mutated region deletes a mutant in silence "
-          "and the run reports nothing at all")
+          "PAST. `quality/mutate.py` plants its mutants by EXACT STRING, and "
+          "a tidier line in the mutated region takes an anchor to 0. It is "
+          "LOUD when it happens — `apply_mutation` raises, `--dry-run` prints "
+          "STALE — but nothing in the regression sweep runs either, so the "
+          "mutant is lost until the next mutation sweep. Pinned HERE, where "
+          "the sweep will see it")
     import quality.mutate as MUT                                # noqa: E402
     src = open(os.path.join(HERE, "schemes.py")).read()
     qs = [m for m in MUT.MUTATIONS if "schemes" in str(m.file)]

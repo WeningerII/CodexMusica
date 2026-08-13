@@ -283,7 +283,7 @@ project had designated its candidate universal.
   > paragraph. Both readings stay visible (doctrine 17).
   >
   > Reproduce: `python3 quality/discriminate.py --cold` — 384 extractions.
-  > ~~~70 minutes on an idle box.~~ **REPINNED 2026-08-13: 1,050 CPU-s over
+  > ~~about 70 minutes on an idle box.~~ **REPINNED 2026-08-13: 1,050 CPU-s over
   > 384 items, measured twice (1049.5 s and 1067.8 s, 2.73–2.78 s/item);
   > `quality/RESULTS_CACHE_IDENTITY.md` records that the 70-minute figure was
   > never measured by anyone.** The cache now carries a fingerprint of every
@@ -317,3 +317,250 @@ project had designated its candidate universal.
 | No tone channel biases cross-language comparison | **NOT REPRODUCED** | simulated field inflation 1x-8x: mean shift +0.0000. Field size is mean-neutral for a normalized rank |
 | `syntactic_inversion_rate` is an archaism detector | **OPEN** | should be retired rather than ported |
 | `function_word_ratio` presumes a clean function/content split | **OPEN** | fails by variance collapse in agglutinative languages |
+
+
+---
+
+# Cold repin — 2026-08-13
+
+**This section is the current state of the English cell.** Everything above it
+is a warm reading of one kind or another and is kept for audit.
+
+## What was warm, and why
+
+MEASURED 2026-08-13; the mechanism is recorded in full at
+`quality/RESULTS_CACHE_IDENTITY.md`.
+
+Until 2026-08-13 `quality/discriminate.py`'s on-disk feature cache was keyed
+`tag:ident` — corpus, feature class, poem number, and nothing else. The key
+named the poem and never the code, so it carried no fingerprint of
+`features.py`, `within_item.py`, `lyric_harness.py`, the `Declaration` tuple or
+any of the three resource files. Every run served whatever the feature code had
+produced when each entry was first written, on 2026-08-09/10. **The recorded
+numbers reproducing exactly WAS the defect** — the cache could not tell "the
+answer did not change" from "the question was never asked again."
+
+Closed at the module: the format-2 cache fingerprints the source files, the
+resource files, the `Declaration` tuple and the feature names and directions,
+and content-addresses each entry on the poem's own lines. A fingerprint
+mismatch discards the cache and prints the coordinate that moved.
+
+## The joint held-out AUCs, cold
+
+| feature set | Exp 1 | Exp 2 | reading |
+|---|---|---|---|
+| ABSOLUTE, all 10 features | **0.717** | **0.964** | COLD, current, 2026-08-13 |
+| ABSOLUTE, predictability only | **0.710** | **0.648** | COLD, current, 2026-08-13 |
+| ABSOLUTE, all 10 features | 0.659 | 0.975 | warm 2026-08-09, **SUPERSEDED** |
+| ABSOLUTE, predictability only | 0.676 | 0.560 | warm 2026-08-09, **SUPERSEDED** |
+
+Over 200 cross-validation seeds rather than the one hard-coded seed every
+figure above is a single draw from (`audit_joint_auc_null.PINNED`, 2026-08-13):
+Exp 1 median **0.638**, Exp 2 median **0.967**. The recorded Exp 1 draw of
+0.717 sits well above its own median, which is doctrine 73's point and is why
+the seed distribution is pinned separately from the headline.
+
+## The ten features, cold
+
+Cold AUCs pinned in `quality/test_discriminate.py` and graded there at a
+tolerance of 0.0005. Every p-value below is the 2026-08-09 warm reading and is
+**not** re-measured cold — see "What is still warm" at the end of this section.
+
+The warm column is the post-fix rerun's figure where that rerun restated one
+(the two predictability variants in both experiments, and `concreteness_mean`
+in Experiment 1) and the pre-fix figure otherwise, because the post-fix rerun
+restated only three of the ten features. Both readings are warm; the
+distinction matters only for reading the tables above against these.
+
+Experiment 1 — survived vs forgotten, n = 15 vs 117:
+
+| feature | predicted | **cold AUC** | warm AUC | warm p / verdict |
+|---|---|---|---|---|
+| `rhyme_predictability_mean` | lower | **0.262** | 0.304 | .0117 HIT (FDR) |
+| `rhyme_predictability_min` | lower | **0.350** | 0.337 | .0386 HIT (FDR) |
+| `concreteness_mean` | higher | **0.673** | 0.673 | HIT (FDR) |
+| `concreteness_p90` | higher | **0.635** | 0.635 | .0897 null |
+| `abstract_noun_ratio` | lower | **0.315** | 0.315 | .0191 HIT (FDR) |
+| `pos_binding_diversity` | higher | **0.461** | 0.461 | .6171 null |
+| `mattr` | higher | **0.366** | 0.366 | .0940 null |
+| `function_word_ratio` | lower | **0.536** | 0.536 | .6542 null |
+| `syntactic_inversion_rate` | lower | **0.583** | 0.583 | .3044 null |
+| `content_word_freq_mean` | lower | **0.518** | 0.488 | .8837 null |
+
+Experiment 2 — human vs generated, n = 152 vs 40:
+
+| feature | predicted | **cold AUC** | warm AUC | warm p / verdict |
+|---|---|---|---|---|
+| `rhyme_predictability_mean` | lower | **0.340** | 0.422 | .13 null |
+| `rhyme_predictability_min` | lower | **0.336** | 0.494 | .92 null |
+| `concreteness_mean` | higher | **0.271** | 0.271 | .0000 WRONG SIGN |
+| `concreteness_p90` | higher | **0.229** | 0.229 | .0000 WRONG SIGN |
+| `abstract_noun_ratio` | lower | **0.792** | 0.792 | .0000 WRONG SIGN |
+| `pos_binding_diversity` | higher | **0.492** | 0.492 | .8735 null |
+| `mattr` | higher | **0.870** | 0.870 | .0000 HIT (FDR) |
+| `function_word_ratio` | lower | **0.135** | 0.135 | .0000 HIT (FDR) |
+| `syntactic_inversion_rate` | lower | **0.833** | 0.833 | .0000 WRONG SIGN |
+| `content_word_freq_mean` | lower | **0.807** | 0.887 | .0000 WRONG SIGN |
+
+**Exactly three features moved, and they are the three that rank a word against
+a lexicon**: the two predictability variants and `content_word_freq_mean`. The
+other seven — built from concreteness norms, part-of-speech tags,
+function-word membership and type counts — are bit-identical warm to cold. That
+is a coherent signature rather than drift: the warm cache was serving pre-fix
+*rank* arithmetic and nothing else.
+
+**The five wrong-sign features are still wrong-sign cold**, at magnitudes that
+barely moved. Nothing in this repin softens the register-and-period reading of
+Experiment 2.
+
+## `rhyme_predictability` is REINSTATED, narrowly
+
+**What was withdrawn.** "The corrected claim" above withdrew the sentence that
+`rhyme_predictability` "was the only feature clearing FDR in both designs with
+the predicted sign", and replaced it with "It clears one design."
+
+**On what numbers.** On the warm post-fix reading: Experiment 2 at AUC 0.422,
+p = .13, with predictability-only held out at 0.560 — "0.560 is chance."
+
+**Why the withdrawal is superseded.** The comparator does not produce those
+numbers. Cold, at two `lyric_harness.py` digests and agreeing to the digit:
+
+| | Exp 1 | Exp 2 |
+|---|---|---|
+| `rhyme_predictability_mean` | AUC **0.262**, p = **0.0018** | AUC **0.340**, p = **0.0015** |
+| `rhyme_predictability_min` | AUC **0.350**, p not restated cold | AUC **0.336**, p = **0.0010** |
+| predictability-only joint AUC | **0.710** | **0.648** |
+
+**These three p-values clear Benjamini–Hochberg FDR at q = 0.10 without
+needing the other nine, and that is worth spelling out**, because the other
+nine cold p-values have not been measured and a BH verdict normally depends on
+the whole family. BH rejects at rank *r* when p ≤ q·r/m = 0.01·r. Any p ≤ 0.01
+therefore satisfies the condition at its own rank whatever that rank turns out
+to be, so it is rejected regardless of where the rest of the family falls.
+0.0018, 0.0015 and 0.0010 are all below 0.01. The verdict is safe on the
+numbers in hand.
+
+**The cold result is that `rhyme_predictability_mean` clears FDR in BOTH
+designs with the predicted sign (lower), and `rhyme_predictability_min` clears
+in Experiment 2.** The OOV fix is real, is still in the code, and did not
+destroy the Experiment 2 effect; the stale cache did. Predictability-only Exp 2
+is 0.648, not 0.560, so "0.560 is chance" is arithmetic on a number nothing
+produces.
+
+`rhyme_predictability_min` in Experiment 1 reads 0.350 cold against 0.337 warm,
+and no cold p has been recorded for it. It is **not** claimed to clear here.
+The reinstated claim rests on `_mean` in both designs and on `_min` in
+Experiment 2 only.
+
+### The doctrine 10 and doctrine 11 check, stated rather than skipped
+
+Reinstating a withdrawn finding is a claim about what this project has
+demonstrated, so it is checked against the two doctrines that stand in its way.
+One of them it contradicts.
+
+**Doctrine 11 — CONTRADICTED, in its second clause.** That doctrine reads "two
+features have now been caught reading period, not quality", and names
+`syntactic_inversion_rate` and `rhyme_predictability`, whose "cross-design
+replication was an OOV artifact." The second half rests on the warm 0.422 at
+p = .13 and the warm 0.560. Cold the comparator gives 0.340 at p = 0.0015 and
+0.648. **That clause is superseded by measurement**, and `quality/METHOD.md`
+and `CLAUDE.md` — which is where doctrine 11 lives, and which this document
+does not own — still state it. The count in its opening sentence is affected
+too: it is one feature caught reading period, not two.
+
+The FIRST clause is untouched. `syntactic_inversion_rate` reads 0.583 in
+Experiment 1 and 0.833 wrong-signed in Experiment 2, cold, both unmoved. It is
+still an Early Modern English archaism detector and should still be retired
+rather than ported.
+
+The doctrine's standing INSTRUCTION — assume a feature reads period until a
+within-item version says otherwise — is **not** satisfied here, and this
+document does not claim it is. The within-item version of feature 1,
+`wi_predictability_advantage`, is `mean(pred) − 0.5`: a monotone transform, so
+its AUC is bit-identical to the absolute feature's in both experiments
+(0.26153846153846155 and 0.33963815789473684 — the same floats, pinned as
+such). It is the same measurement under another name and it cannot corroborate
+anything. The instruction is unmet, not met.
+
+**Doctrine 10 — NOT overturned, but two of its numbers are superseded and one
+of its sentences is dented.** That doctrine reads "the quality layer has NO
+demonstrated cross-design signal", supported by "1/8 hits in each experiment,
+Exp 1 at 0.604 (n=15, does not exclude chance), Exp 2 still 0.877."
+
+- The two AUCs are warm. Cold they are **0.638** and **0.891**. They need a
+  repin in `METHOD.md`, which this document does not own.
+- "1/8 hits in each experiment" is a tally over permutation p-values, and no p
+  has been re-run cold. It is not re-verified, and two of the eight within-item
+  AUCs it rests on moved.
+- The layer-level claim survives, on numbers that did not move in its favour:
+  Experiment 1's joint AUC is 0.638 within-item and 0.717 absolute at n = 15;
+  `quality/NULL_AUDIT.md` §1.3 measured that neither beats its own
+  label-permutation null's MAXIMUM, and the within-item one is not separated
+  from that null at all (p = 0.13). That audit is warm and has not been re-run
+  cold, so the layer's status is unchanged in both directions.
+- What is dented is the reach of the word "no". One feature clears FDR in both
+  designs cold, and the doctrine's sentence, read strictly, denies that.
+
+**And what neither doctrine has to give up: cross-design is not
+cross-tradition.** Experiment 1's 15 survived and 117 forgotten sonnets are a
+**subset of Experiment 2's 152 human items** — `discriminate.py` draws both from
+the same 384 cached vectors and they share cache keys. The two designs share
+their entire human side: one author, one form, one language, one era, one
+publication event. A feature clearing both is being asked about the same corpus
+twice with different negatives. Doctrine 8 decides what that is worth, and the
+answer is that it is a replication across LABELS and not across traditions.
+
+**So what is reinstated is exactly this and no more:** the sentence "It clears
+one design" is withdrawn, and `rhyme_predictability_mean` clears FDR in both
+designs with the predicted sign on the cold figures. The stronger sentence it
+replaced — that this is "the only candidate universal" — is **not** reinstated.
+Nothing about universality follows from two overlapping contrasts in one
+corpus, and the second cell that would test it has still not been run.
+
+## What is still warm, and is not repinned here
+
+- **Every permutation p-value and every FDR verdict in this file**, apart from
+  the four cold p's quoted above. The AUC is free and the p costs 20,000
+  shuffles per feature, so `test_discriminate.py` pins all forty-four AUCs and
+  deliberately pins no p (doctrine 57).
+- **Both hit counts and the wrong-sign count**, which are tallies over those
+  p-values.
+- **`quality/NULL_AUDIT.md` §1.3's label-permutation nulls and seed
+  distributions**, measured warm.
+- Doctrine 20 for all of it: an instrument that has not fired is not an
+  instrument that fired and found nothing.
+
+## Provenance
+
+Cold AUCs pinned in `quality/test_discriminate.py` at `features.py`
+`affe2209d56e24b5`, `within_item.py` `703b700a530925c7`, `lyric_harness.py`
+`10c1dca86b15860a` and `7c894bfce92a48a7`, `concreteness.txt`
+`0b4082dbd38585b0`, `wordfreq20k.txt` `4ed6e5336d7760d2`, `cmudict.dict`
+`81917843c7f44ce2` — measured 2026-08-13 at two `lyric_harness.py` digests and
+agreeing on all forty-four, and verified again the same day by two full
+69-assertion passes with 0 failures — one against a fingerprint-matching cache
+and one genuinely COLD, 384 extractions in 1,053 CPU-s, reading no cache at
+all. The four joint AUCs were first repinned cold in commit `98f07a4`. Seed
+medians from `audit_joint_auc_null.PINNED`, 200 seeds, 2026-08-13.
+
+### One coordinate had already moved again when this section was written
+
+STATED RATHER THAN IMPLIED, 2026-08-13. At the moment of writing,
+`quality/features.py` and `quality/within_item.py` are byte-identical to the
+digests these pins declare. **`lyric_harness.py` is not**: it carries an
+uncommitted edit and digests `022c22430df553b4` against the pinned
+`7c894bfce92a48a7`. In the same window `quality/discriminate.py` changed its
+cache identity from a byte digest to an AST digest with docstrings stripped —
+the fix `RESULTS_CACHE_IDENTITY.md` recorded as held — so `SOURCE_FILES` now
+key as `ast:...` and every cache on disk was discarded once.
+
+Neither change is known to move any number here, and neither is known not to.
+The pins above are verified at the digests they name and this file does not
+claim more than that. Re-running to find out would recompute against a
+comparator that is still moving, which is the condition
+`audit_joint_auc_null.py` already refuses under rather than answering: *"a cold
+recompute cannot outrun the rate at which this repo's own comparator moves."*
+Doctrine 20 — this is a "cannot tell", and it is recorded as one.
+
+Doctrine 58: argue these and repin them with the date. Do not tune the
+measurement to meet them.

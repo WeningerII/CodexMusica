@@ -669,7 +669,11 @@ cost falls, and why a refusal counted as a failure charges the wrong layer.
    since it was written, so the title and the body were describing two different
    layers under one number. THE NUMBER IS NOT RENUMBERED and must not be: a
    doctrine number can only be added, never renumbered (CLAUDE.md's index), and
-   `verify_doctrines.py` resolves ~3,989 citation sites against it.
+   `python3 quality/verify_doctrines.py` resolves every `doctrine N` citation
+   in the repo against it -- four thousand of them and rising, which is why the
+   count is not written here: only the command is, so a reader gets today's
+   number instead of the day this line was typed. A TITLE can be repinned in
+   place because no citation resolves through it; a NUMBER cannot.
 
    `fas.rhymes` returns None on **60.2% of 20,388** real Hafez pairs, and
    `quality/hafez_rate.py` splits that None into the two structurally unrelated
@@ -727,11 +731,10 @@ cost falls, and why a refusal counted as a failure charges the wrong layer.
    returns None on 60.2% of real Hafez rhyme pairs, and doctrine 59 read that
    as the price of refusing on script -- which it was not, twice over: the
    script half of that None is 7 pairs of 20,388, and doctrine 59's title has
-   been repinned onto the axis its own figure was measuring.
-   Measured against random pairs drawn from
-   the same corpus, the module answers False 92% of the time and refuses only
-   **5.4% under NULL 4**. So the refusal is not spread evenly: it lands on
-   exactly the pairs that
+   been repinned onto the axis its own figure was measuring. Measured against
+   random pairs drawn from the same corpus, the module answers False 92% of the
+   time and refuses only **5.4% under NULL 4**. So the refusal is not spread
+   evenly: it lands on exactly the pairs that
    already share a written consonant skeleton, the ones where the unwritten
    short vowel actually decides the answer. Among pairs it DOES decide, True is
    **97.5% observed against NULL 4's null MAX of 2.4%** -- 2.449%, against a
@@ -755,9 +758,9 @@ cost falls, and why a refusal counted as a failure charges the wrong layer.
    there. Quoting the tightest arm unlabelled reports the most flattering of
    three answers as if it were the only one -- the same failure doctrine 58
    names for a threshold, one axis out onto the CONTROL.
-   A high None-rate can mean the
-   instrument is blunt or that it is aimed; only a matched control tells you
-   which, and this project asserted the wrong one for a day.
+   A high None-rate can mean the instrument is blunt or that it is aimed; only
+   a matched control tells you which, and this project asserted the wrong one
+   for a day.
 
 79. **A REFUSAL is not a failure, and putting it in the numerator charges the
    wrong layer.** The sonnet battery divided violations by the 1064 pairs the

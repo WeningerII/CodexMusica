@@ -175,16 +175,33 @@ the minority class one seed is a coin flip. Over 200 seeds:
 the difference did not: at the median seed the within-item set is marginally
 *above* the absolute one in Experiment 1, so "hold or improve" holds, in both
 readings, and the recorded FAILED is a property of `SEED` rather than of the
-respecification. The recorded draw sits at roughly the 85th percentile of the
-absolute seed distribution and the 49th of the within-item one — the comparison
-was scored between a lucky draw and an average one.
+respecification.
+
+On the warm reading NULL_AUDIT could say why: the recorded 0.659 was an
+85th-percentile seed draw and the recorded 0.604 a 49th-percentile one, so the
+comparison was scored between a lucky draw and an average one. **Those two
+percentiles are warm and are not restated cold** — only the medians are pinned
+cold, not the full seed distributions — so what can be said cold is the
+weaker and sufficient thing: the recorded absolute draw (0.717) sits well
+above its own seed median (0.638), the recorded within-item draw (0.638) sits
+essentially at its own (0.640), and the difference between the two recorded
+draws is therefore not a difference between the two feature sets.
+
+*(0.638 appears twice above and it is not a typo: it is both the ABSOLUTE set's
+Experiment 1 seed median and the WITHIN-ITEM set's observed Experiment 1 AUC.
+Two different statistics that happen to land on the same three decimals.)*
 
 What survives untouched is this document's actual conclusion, and it comes out
-stronger rather than weaker: at n = 15 neither Experiment 1 joint AUC beats its
-own label-permutation null's **maximum**, and the within-item one is not
-separated from that null at all (p = 0.13, warm; the audit has not been re-run
-cold). "0.638 at n=15 does not come close to excluding chance" is measured, not
-asserted.
+stronger rather than weaker. On the warm reading NULL_AUDIT measured that
+**neither** Experiment 1 joint AUC beats its own label-permutation null's
+**maximum** (0.659 against a null max of 0.751; 0.604 against 0.750), and that
+the within-item one is not separated from that null at all (p = 0.13). That
+audit has not been re-run cold, so the nulls themselves are warm figures — but
+the cold observations sit in the same place relative to them (0.717 and 0.638
+against warm null maxima of 0.751 and 0.750), so nothing in the repin points
+the other way. This document's own caution — that Experiment 1 at n=15 does not
+come close to excluding chance — is measured rather than asserted, at both
+readings.
 
 **P3 — Exp 2 wrong-sign count must fall below five. MET, TRIVIALLY, and the
 repin does not touch it.**
@@ -376,8 +393,14 @@ been run.
   `10c1dca86b15860a` and `7c894bfce92a48a7`, `concreteness.txt`
   `0b4082dbd38585b0`, `wordfreq20k.txt` `4ed6e5336d7760d2`, `cmudict.dict`
   `81917843c7f44ce2`. Measured 2026-08-13 at two `lyric_harness.py` digests and
-  agreeing on all forty-four; verified again 2026-08-13 by a full 69-assertion
-  pass at a fingerprint-matching cache, 0 failures.
+  agreeing on all forty-four; verified again 2026-08-13 by two full
+  69-assertion passes with 0 failures — one at a fingerprint-matching cache and
+  one genuinely cold, 384 extractions in 1,053 CPU-s, reading no cache at all.
+  **One coordinate had already moved again by the time this was written** —
+  `lyric_harness.py` carries an uncommitted edit off the pinned digest, and
+  `discriminate.py`'s cache identity switched to an AST digest in the same
+  window. Recorded, unmeasured, and not claimed either way;
+  `RESULTS.md` § Provenance states it in full.
 - **The four joint AUCs** were first repinned cold in commit `98f07a4`, in
   `quality/audit_joint_auc_null.py`'s `RECORDED` strings.
 - **Seed medians** — `audit_joint_auc_null.PINNED`, 200 seeds, measured
