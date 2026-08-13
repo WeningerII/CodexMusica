@@ -47,6 +47,20 @@ WHAT IS ASSERTED, AND IN WHAT ORDER
      REBUILT 2026-08-12 off the dead schema `KeyError` came from, onto the
      same bar-grid/Reviser pipeline `brief` runs, and is tested here against
      a real blueprint instead of the root fixture pair that caused it
+ 10. `candidates` REFUSES an unreadable query instead of raising
+     `KeyError: 'anchor_syllables'`. §7 above ran this verb the whole time
+     and could not have found it: §7's case is `candidates desire 5`, and
+     `desire` is in CMUdict. The word the verb actually died on is
+     `hypotenuse` — the canary this repo's own known gap 1 names
+ 11. `relations` actually RUNS the doctrine 56 search-burden disclosure its
+     own output paragraph promises. It called `search_burden(st)` — ONE
+     argument to a two-argument function — inside `except Exception`, so the
+     TypeError rendered as the clause simply not being printed, on every
+     input, since the line was written. §7 ran `relations` too, and a
+     swallowed TypeError is not a traceback
+ 12. the MECHANISM behind 11: broad `except Exception` handlers in the spine
+     are counted, so adding one is a visible decision rather than a thing a
+     later session discovers three fixes downstream
 
 Run: python3 quality/test_verbs.py
 """
@@ -516,6 +530,150 @@ def test_the_fifteen_original_verbs_are_untouched():
           "uniformity:" in out and "phrase profile:" in out)
 
 
+def test_candidates_refuses_an_unreadable_query():
+    print("\n10. `candidates` REFUSES an unreadable query instead of "
+          "raising KeyError — FIXED 2026-08-13")
+    # `CandidateEngine.candidates` returned TWO dict shapes: the success one
+    # carrying `anchor_syllables`/`candidates`, and a no-anchor one carrying
+    # only `error`/`oov`. The verb read `res['anchor_syllables']`
+    # unconditionally, so EVERY out-of-vocabulary query -- the ones a writer
+    # reaches a rhyme-candidate verb with in the first place -- died with
+    # `KeyError: 'anchor_syllables'` six frames down. It was shipped, listed
+    # in CLAUDE.md's command list, and covered by §7 above only because §7's
+    # own case (`candidates desire 5`) happens to be a CMUdict word.
+    #
+    # The canary is not arbitrary: `hypotenuse` is the word this repo's OWN
+    # known gap 1 names, so the verb crashed on the single example the
+    # documentation tells a reader to try.
+    for word in ("hypotenuse", "shiesty", ""):
+        rc, out, err = run("candidates", word, "5", expect_rc=2)
+        check(f"`candidates {word!r}` refuses and does not raise",
+              rc == 2 and "Traceback" not in err and "KeyError" not in err
+              and "REFUSED" in out,
+              (err.strip().splitlines() or [""])[-1][:100])
+
+    rc, out, err = run("candidates", "hypotenuse", "5")
+    check("the refusal is charged to the DIALECT and says the field was "
+          "never searched (doctrine 79/28 — not 'this word has no rhymes')",
+          "not readable in the declared dialect" in out
+          and "no rhymes" in out and "out-of-vocabulary" in out,
+          out.strip()[:160])
+
+    # Doctrine 48: the route out of the refusal is MECHANICAL, not prose.
+    # The message names --fallback, so --fallback has to actually answer.
+    rc, out, err = run("--fallback=low", "candidates", "hypotenuse", "3")
+    check("the `--fallback` route the refusal names really reaches a field",
+          rc == 0 and "candidates for 'hypotenuse'" in out
+          and "anchor 2 syllable(s)" in out, out.strip()[:120])
+
+    # ...and a readable query is untouched: this is a refusal added, not a
+    # capability removed.
+    rc, out, _ = run("candidates", "fire", "5")
+    check("a readable query still returns its field at exit 0",
+          rc == 0 and "candidates for 'fire'" in out and "desire" in out,
+          out.strip().splitlines()[0][:80])
+
+    # The engine's return is now ONE shape, so no consumer can KeyError on
+    # it — `quality/revise.py`'s `_field` escaped only by defensive `.get`.
+    eng = lh.CandidateEngine(lh.Lexicon(), lh.Declaration())
+    res = eng.candidates("hypotenuse", 5)
+    check("the no-anchor return carries every key the success return does",
+          set(res) >= {"query", "anchor_syllables", "oov", "candidates"}
+          and res["candidates"] == [] and res["anchor_syllables"] == 0
+          and res["error"] == "no anchor", str(sorted(res)))
+
+
+def test_relations_prints_the_search_burden_it_promises():
+    print("\n11. `relations` actually RUNS its doctrine 56 disclosure — "
+          "FIXED 2026-08-13")
+    # `RL.search_burden(schema, stream)` takes two arguments. The verb called
+    # `RL.search_burden(st)` with one, inside `except Exception: burden =
+    # None`, and `None` renders as the clause simply not being printed. So
+    # the paragraph claimed "`search_k` is now consumed" while the code that
+    # consumes it had never executed, on any input, and the bare handler is
+    # exactly why nothing said so: a TypeError from a programming error and a
+    # legitimate capability gap were being treated as the same event.
+    d = tempfile.mkdtemp()
+    quat = os.path.join(d, "q.txt")
+    with open(quat, "w") as fh:
+        fh.write("The river took the bridge at dawn\n"
+                 "and no one saw the water again\n"
+                 "the cattle waded through the silt\n"
+                 "past every fence the county rebuilt\n")
+
+    rc, out, err = run("relations", quat)
+    check("`relations` runs clean", rc == 0 and "Traceback" not in err,
+          err.strip()[-160:] if err else "")
+    check("the burden clause is PRESENT, not silently dropped",
+          "member span(s) over" in out and "mean_k" in out,
+          [l for l in out.splitlines() if "EVIDENCE" in l][:1])
+
+    import re
+    m = re.search(r"here (\d+) member span\(s\) over (\d+) firing "
+                  r"schema\(s\), (\d+) of them reached by a search over "
+                  r"more than one hypothesis; heaviest '([^']+)' at "
+                  r"mean_k ([\d.]+), max_k (\d+)", out)
+    check("the clause carries real numbers, not a formatting change",
+          m is not None and int(m.group(1)) > 0 and int(m.group(2)) > 0,
+          m.group(0)[:140] if m else "clause did not parse")
+    if m:
+        check("doctrine 56 is answered rather than asserted: this text's "
+              "counts ARE search-obtained, and the heaviest schema is NAMED",
+              int(m.group(3)) > 0 and float(m.group(5)) > 1.0,
+              f"{m.group(4)} mean_k {m.group(5)} max_k {m.group(6)}, "
+              f"{m.group(3)}/{m.group(1)} spans searched")
+
+    # A schema filter that fires NOTHING has no burden to report, and the
+    # sentence degrades to its pre-clause form rather than printing a zero
+    # that would read as "the search was free" (doctrine 28).
+    rc, out2, _ = run("relations", quat, "--schema=zzz-no-such-schema")
+    check("with nothing firing, the clause is absent rather than faked",
+          rc == 0 and "member span(s) over" not in out2
+          and "reports the hypotheses per locus" in out2)
+
+    # The call site and the callee are pinned to each other. An arity that
+    # drifts again fails HERE rather than reappearing as a missing clause.
+    import inspect
+    from quality import relations as RL
+    check("`search_burden` still takes (schema, stream) — the call site is "
+          "pinned to the signature, not to a bare except",
+          list(inspect.signature(RL.search_burden).parameters) ==
+          ["schema", "stream"],
+          str(inspect.signature(RL.search_burden)))
+
+
+def test_no_broad_exception_handler_hides_a_call():
+    print("\n12. the mechanism that hid it: broad handlers in the spine")
+    # Doctrine 48. `except Exception` around a call is how an arity bug
+    # survives: the TypeError and the legitimate failure the handler was
+    # written for are indistinguishable at runtime, so the feature silently
+    # never runs and NOTHING reports it. This counts them so a new one is a
+    # visible decision rather than a thing a later session discovers.
+    import ast
+    src = open(os.path.join(ROOT, "lyric_harness.py")).read()
+    broad = []
+    for node in ast.walk(ast.parse(src)):
+        if isinstance(node, ast.ExceptHandler):
+            if node.type is None or (isinstance(node.type, ast.Name)
+                                     and node.type.id in ("Exception",
+                                                          "BaseException")):
+                broad.append(node.lineno)
+    bare = [n.lineno for n in ast.walk(ast.parse(src))
+            if isinstance(n, ast.ExceptHandler) and n.type is None]
+    check("no BARE `except:` anywhere in the spine",
+          not bare, f"bare handlers at {bare or 'none'}")
+    # ONE remains, and it is declared: `_print_brief_report`'s span lookup
+    # reads `Reviser._matrix`, a PRIVATE, and is documented to degrade to
+    # silence if `quality/revise.py` is refactored underneath it. It was
+    # probed across `brief` (letter scheme, --cliques, --groups=,
+    # --returns=), `song`, `verify` and `revise` on 2026-08-13 and fired on
+    # none of them, so there is no proof it hides anything — it is pinned
+    # here rather than removed on suspicion.
+    check("broad `except Exception` handlers in lyric_harness.py: exactly "
+          "the one declared span-lookup fallback",
+          len(broad) == 1, f"at lines {broad}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -526,6 +684,9 @@ if __name__ == "__main__":
     test_every_verb_runs()
     test_the_fifteen_original_verbs_are_untouched()
     test_fallback_reaches_every_verb_ahead_of_the_verb_name()
+    test_candidates_refuses_an_unreadable_query()
+    test_relations_prints_the_search_burden_it_promises()
+    test_no_broad_exception_handler_hides_a_call()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

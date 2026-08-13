@@ -1481,6 +1481,54 @@ def from_song(song):
     return secs, places
 
 
+def overlap_findings(fits):
+    """-> {index: [FitFinding]}, the OVERLAPPING_SPANS findings for a flat list
+    of `LineFit` in declared order. Indices are into `fits`.
+
+    Overlap is a relation BETWEEN lines, so it cannot be seen from inside one,
+    which is why `fit_line` does not look for it and why this is a second pass.
+    It takes the FLAT list rather than a `SongFit` because that is the object
+    both callers actually hold: `fit_song` has it before it has sections, and
+    `revise.Reviser._meter_findings` — which calls `fit_line` per line and
+    never builds a `SongFit` at all — has nothing else. Written as a method on
+    `SongFit` this check would have stayed unreachable from the revision loop,
+    which is the surface gap it exists to close (doctrine 48: a check nobody
+    can reach is decoration, and a check reachable from one surface only is
+    that at every other surface).
+
+    Lines are compared WITHIN a section and never across one: a pulse offset is
+    measured from the section's own first downbeat (see `Placement`), so two
+    numbers from different sections are not commensurable and their
+    intersection would be arithmetic on two different units.
+    """
+    by_section = {}
+    for idx, f in enumerate(fits):
+        by_section.setdefault(f.placement.section, []).append(idx)
+    out = {}
+    for members in by_section.values():
+        for m in range(len(members)):
+            for n in range(m + 1, len(members)):
+                ia, ib = members[m], members[n]
+                a, b = fits[ia], fits[ib]
+                pa, pb = a.placement, b.placement
+                lo, hi = max(pa.start, pb.start), min(pa.end, pb.end)
+                if hi <= lo:
+                    continue
+                span, both = hi - lo, a.count + b.count
+                for i, one, other in ((ia, a, b), (ib, b, a)):
+                    out.setdefault(i, []).append(FitFinding(
+                        "OVERLAPPING_SPANS",
+                        "two declared spans intersect — the shared pulses "
+                        "carry both lines",
+                        f"{_num(span)} pulses shared with "
+                        f"{other.units.text!r}; "
+                        f"{both} {one.units.unit_name}s across the two lines "
+                        f"over the intersection. Legal — `grid.Line` says "
+                        f"lines may overlap — and the per-line density above "
+                        f"does not show it.", kind="density"))
+    return out
+
+
 def fit_song(obj, phon=None, subdivision=None, assume=None, strip_parens=True):
     """-> SongFit. `obj` is a blueprint path, a blueprint dict, or a Song.
 
@@ -1493,26 +1541,14 @@ def fit_song(obj, phon=None, subdivision=None, assume=None, strip_parens=True):
                                        bars=s["bars"], start_bar=s["start_bar"])
                             for s in secs])
     by_name = {s.name: s for s in out.sections}
+    fits = []
     for i, p in enumerate(places):
         f = fit_line(p.text, p, phon=phon, subdivision=subdivision,
                      assume=assume, line_index=i, strip_parens=strip_parens)
+        fits.append(f)
         by_name[p.section].lines.append(f)
-    # Overlap is a relation BETWEEN lines, so it cannot be seen from inside
-    # one, which is why `fit_line` does not look for it.
-    for s in out.sections:
-        for i, j, span in s.overlaps():
-            a, b = s.lines[i], s.lines[j]
-            both = a.count + b.count
-            for one, other in ((a, b), (b, a)):
-                one.findings.append(FitFinding(
-                    "OVERLAPPING_SPANS",
-                    "two declared spans intersect — the shared pulses carry "
-                    "both lines",
-                    f"{_num(span)} pulses shared with {other.units.text!r}; "
-                    f"{both} {one.units.unit_name}s across the two lines over "
-                    f"the intersection. Legal — `grid.Line` says lines may "
-                    f"overlap — and the per-line density above does not show "
-                    f"it.", kind="density"))
+    for i, fs in overlap_findings(fits).items():
+        fits[i].findings.extend(fs)
     return out
 
 
@@ -1544,6 +1580,9 @@ ANSWERABLE = (
     "under a DECLARED setting or a DECLARED isochrony: which units land on "
     "heads",
     "which bars of a section no declared line touches",
+    "do two lines of the same section share bar-time, and how many pulses of "
+    "it -- a relation BETWEEN lines, so `fit_line` cannot answer it and "
+    "`overlap_findings` is the entry point that can",
 )
 
 UNANSWERABLE = (
@@ -1651,7 +1690,8 @@ def main(argv):
 __all__ = ["Unit", "RefusedToken", "LineUnits", "read_line", "Placement",
            "Subdivision", "Isochrony", "FitFinding", "FitRefusal", "Refused",
            "FitError", "LineFit", "fit_line", "SectionFit", "SongFit",
-           "fit_song", "from_blueprint", "from_song", "report",
+           "fit_song", "from_blueprint", "from_song", "overlap_findings",
+           "report",
            "ANSWERABLE", "UNANSWERABLE"]
 
 

@@ -28,6 +28,40 @@ dependence appears in the run log rather than in nobody's memory.
 
 This is doctrine 13 made mechanical: any resource used to score a cell must be
 independent of that cell's label.
+
+THE LICENCE FIELD WAS DECORATIVE — CLOSED 2026-08-13
+----------------------------------------------------
+
+`FrequencySource.licence` has carried real licence text since the English cells
+were declared, and until this change exactly one line of code read it: the
+`report()` printer. So this module held its OWN licence registry, separate from
+`data/sources.tsv` and separate from the gate that reads it
+(`quality/provenance.py`), and nothing joined the two — a table could carry a
+restriction the provenance gate refuses and be served anyway, because serving
+never asked.
+
+The fix is NOT a second vocabulary of licence markers here. That would be the
+same defect one layer down: two registries again, free to disagree. `source_for`
+imports `quality.provenance.noncommercial_marker` — the ONE predicate doctrine
+85 is written into — and refuses to SERVE any source it fires on. Same shape as
+`check_scoring`'s refusal directly above it: refused at the point of service, no
+override, and the reason travels with the error.
+
+WHAT IT FIRES ON TODAY: NOTHING, and that is disclosed rather than left to be
+discovered. `report()` prints the count on every run. The `eng-web` row quotes
+"I do not recommend using this data for commercial purposes without licensing it
+from the Linguistic Data Consortium" — a redistributor's RECOMMENDATION, which
+`NONCOMMERCIAL_PROSE` deliberately does not match, since that list holds only
+unambiguous prohibitions (its own docstring says so). Whether that sentence,
+plus the express grant limited to "educational and personal/research use", is an
+express non-commercial grant under doctrine 85 is a call about the licence text,
+and it is made in `quality/provenance.py` and `data/sources.tsv` — which is the
+whole point of there being one registry. `eng-web`'s own `data/sources.tsv` row
+already says the same thing in the same words: "NOT REFUSED BY THIS CELL: the
+call belongs with whoever owns the gate."
+
+Doctrine 48: a principle that lives only in prose gets followed exactly as often
+as someone remembers it. A licence string that only ever gets printed is prose.
 """
 
 import collections
@@ -38,6 +72,15 @@ from dataclasses import dataclass, field
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 DATA = os.path.join(HERE, "..", "data")
+
+#: DOCTRINE 85, AND ONE REGISTRY FOR IT. Imported rather than reimplemented:
+#: `quality/provenance.py` holds the marker vocabulary (`cc-by-nc*` by
+#: identifier prefix, plus prose prohibitions in the languages this repo has
+#: actually met one in) and the negation guard that stops a row DESCRIBING an
+#: NC restriction from being refused for mentioning it. A copy here would be a
+#: second registry that is free to drift from the first, which is the exact
+#: defect this import closes.
+from quality.provenance import noncommercial_marker  # noqa: E402
 
 
 class LabelDependencyError(RuntimeError):
@@ -55,6 +98,27 @@ class UndeclaredScoringError(RuntimeError):
     somebody thought about it in 2026, and this records that THIS call is not
     the circle. Same move doctrine 48 made for doctrine 9 -- a principle that
     lives only in prose gets followed exactly as often as someone remembers it.
+    """
+
+
+class LicenceRefusedError(RuntimeError):
+    """Raised when a source whose licence carries an express NON-COMMERCIAL
+    restriction is SERVED.
+
+    Doctrine 85: an express non-commercial grant is a rejection, and it has to
+    bind the same way in every language. It binds the same way in every
+    REGISTRY too, which is what this adds -- `data/sources.tsv` rows already
+    meet `quality/provenance.py`'s gate, and until 2026-08-13 the frequency
+    tables declared here met nothing at all.
+
+    NOT a subclass of LabelDependencyError. A pool-derived source is refused
+    over a fact about the DATA and the refusal is conditional -- name what you
+    are scoring and it serves. This is a fact about the GRANT and no argument
+    at the call site cures it, so there is no `scoring=`-shaped escape and no
+    override parameter. Doctrine 92 is the reason to expect this to bite
+    eventually rather than never: the admissible source and the complete source
+    can be disjoint sets, and a frequency table is exactly the kind of resource
+    that is easiest to obtain in the copy that is refused.
     """
 
 
@@ -104,6 +168,43 @@ class FrequencySource:
                 f"the defect that made a predicted inversion mechanically "
                 f"guaranteed. Supply an independent source, or state the "
                 f"dependence and argue its direction in `justification`.")
+
+    def licence_marker(self):
+        """-> the non-commercial marker in this source's licence, or None.
+
+        The QUESTION, asked without raising, so a report can state the status
+        of every declared cell rather than only of the one being served.
+        `check_licence` is the same question asked as a refusal.
+        """
+        return noncommercial_marker(self.licence)
+
+    def check_licence(self):
+        """Refuse to be SERVED if the licence carries an express NC restriction.
+
+        Doctrine 85. Deliberately shaped like `check_scoring` below -- refused
+        at the point of SERVICE, not at declaration -- for two reasons. The row
+        stays visible in `report()`, so a refused source is a recorded gap and
+        not an absence (the same choice `NO_INDEPENDENT_SOURCE` makes). And a
+        registry that refused at import would make the licence unstateable:
+        declaring the restriction is how it gets recorded, and a module that
+        raised on the declaration would train the next session to delete the
+        row instead of writing it.
+        """
+        marker = self.licence_marker()
+        if not marker:
+            return None
+        raise LicenceRefusedError(
+            f"cell {self.cell!r}: {self.name!r} carries an express "
+            f"non-commercial restriction ({marker!r}), so it is REFUSED rather "
+            f"than served. Doctrine 85 -- an express non-commercial grant is a "
+            f"rejection, in every language, and the stated target of this "
+            f"project is an MCP server beside Codex Musica. There is no "
+            f"override and no `scoring=`-shaped escape: no argument at this "
+            f"call site cures a restriction in the grant. Declare an "
+            f"admissible replacement source for this cell, or move the cell to "
+            f"NO_INDEPENDENT_SOURCE so the gap is visible rather than silent. "
+            f"The marker vocabulary is quality/provenance.py's, the same one "
+            f"data/sources.tsv rows are gated by. LICENCE: {self.licence[:180]}")
 
     def check_scoring(self, scoring, known_units):
         """Refuse to be SERVED unless the caller has said what it is scoring.
@@ -162,6 +263,13 @@ class FrequencyLayer:
                 f"defaulted. Declared: {sorted(self._sources)}")
         s = self._sources[cell]
         s.check()
+        # THE ONE CHOKE POINT. `ranks`, `_song_ranks` (via `ranks`) and
+        # `conditional` all reach a source through here and nowhere else, so
+        # the licence question is asked once for all three routes rather than
+        # three times -- the same reason `provenance.admit` puts its doctrine
+        # 85 check ahead of all three of ITS admitting routes instead of
+        # inside each one.
+        s.check_licence()
         return s
 
     def ranks(self, cell, limit=200000, scoring=None):
@@ -272,7 +380,20 @@ class FrequencyLayer:
     def declared(self):
         return sorted(self._sources)
 
+    def licence_refusals(self):
+        """-> {cell: marker} for every declared source `source_for` will refuse.
+
+        Asked WITHOUT serving, so the licence status of the registry is a
+        readable fact and not something a caller only learns by tripping over
+        it. Empty is a real answer and gets reported as a count (doctrine 79) --
+        a gate that currently fires on nothing is a different statement from a
+        gate that is not there, and only one of them is checkable.
+        """
+        return {c: s.licence_marker() for c, s in self._sources.items()
+                if s.licence_marker()}
+
     def report(self, stream=sys.stdout):
+        refused = self.licence_refusals()
         print(f"\n  {'cell':<11} {'source':<28} {'types':>9}  {'indep':>6}  "
               f"loo", file=stream)
         print(f"  {'-' * 72}", file=stream)
@@ -283,9 +404,21 @@ class FrequencyLayer:
                   f"{s.loo_unit or '—'}", file=stream)
             if s.licence:
                 print(f"  {'':<11} licence: {s.licence[:96]}", file=stream)
+            if c in refused:
+                print(f"  {'':<11} REFUSED (doctrine 85): express "
+                      f"non-commercial marker {refused[c]!r} — this source is "
+                      f"declared but will NOT be served", file=stream)
             if s.may_not_score:
                 print(f"  {'':<11} MAY NOT SCORE: {s.may_not_score[:92]}",
                       file=stream)
+        # Doctrine 79: the count is printed whether or not it is zero. The
+        # licence gate joined this module 2026-08-13 and it fires on nothing
+        # here today; a run that said nothing would be indistinguishable from
+        # a run in which no gate exists.
+        print(f"\n  licence gate (doctrine 85, quality/provenance.py's marker "
+              f"vocabulary): {len(refused)} of {len(self._sources)} declared "
+              f"sources refuse to serve", file=stream)
+        return {"declared": len(self._sources), "licence_refused": len(refused)}
 
 
 # ---------------------------------------------------------------------------
@@ -342,6 +475,20 @@ for _cell, _lang, _n, _note in [
 #: (md5 c0190594b2a3a30a89bd0367b0892e0e), which derives from Peter Norvig's
 #: `count_1w.txt` over the Google Web Trillion Word Corpus -- "one trillion
 #: words from public Web pages". `data/sources.tsv` had it as UNDETERMINED.
+#:
+#: THE LICENCE GATE ADDED 2026-08-13 DOES NOT FIRE ON THIS ROW, and the fact is
+#: recorded here rather than left to be rediscovered. `noncommercial_marker`
+#: returns None for the text below: the quoted sentence is "I do not recommend
+#: using this data for commercial purposes WITHOUT LICENSING IT from the
+#: Linguistic Data Consortium", which is a redistributor's recommendation with a
+#: route through it, not one of the unambiguous prohibitions
+#: `NONCOMMERCIAL_PROSE` is restricted to. That restriction is deliberate on the
+#: provenance side -- it is what stops a row DESCRIBING a non-commercial clause
+#: from being refused for mentioning one -- so widening it is a change to the
+#: marker vocabulary, made in `quality/provenance.py` and `data/sources.tsv`,
+#: not here. Nothing in this repo serves this cell (`LAYER.ranks` has no caller;
+#: `Lexicon.freq_rank` reads `eng-spoken`'s file directly), so the question is
+#: about the record, not about anything shipped.
 LAYER.declare(FrequencySource(
     cell="eng-web", name="file:../wordfreq20k.txt", derived_from_pool=False,
     licence="CONTESTED — upstream LICENSE.md: 'Educational and personal/"

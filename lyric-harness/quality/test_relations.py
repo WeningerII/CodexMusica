@@ -161,12 +161,34 @@ def test_inventory():
             findings[name] = len(res)
     check("nothing raises on a plain English quatrain", raised == 0,
           f"ran={ran} refused={refused} raised={raised}")
-    check("53 of 77 run on an English stream; the other 24 REFUSE, naming a "
-          "capability", ran == 53 and refused == 24,
+    check("49 of 77 run on an English stream; the other 28 REFUSE, naming a "
+          "capability", ran == 49 and refused == 28,
           f"ran={ran} refused={refused}; capability_report says "
           f"{len(rep['reachable'])} reachable "
           f"(2 of those refuse at the SPAN, which is correct: 'penult' and "
-          f"'final_unstressed' name nothing in a line of monosyllables)")
+          f"'final_unstressed' name nothing in a line of monosyllables). "
+          f"WAS 53/24 until P12: `family rhyme`, `multisyllabic rhyme`, "
+          f"`proest` and the 同用 schema compare a channel at a DECLARED "
+          f"GRAIN, and a plain English declaration supplies none of the three "
+          f"quotients, so they refuse by name instead of answering at the "
+          f"identity. Four schemas moved from the wrong column to the honest "
+          f"one; nothing else in the inventory moved.")
+    _q = {n: getattr(R.realise(R.REGISTRY[n], st), "capability",
+                     "<RAN — did not refuse>")
+          for n in ("family rhyme", "multisyllabic rhyme", "proest",
+                    "Middle Chinese end rhyme (同用 group)")}
+    check("...and the four are refused for the QUOTIENT they name, not for "
+          "some other missing capability",
+          _q == {"family rhyme": "quotient:manner",
+                 "multisyllabic rhyme": "quotient:manner",
+                 "proest": "quotient:vowel_class",
+                 "Middle Chinese end rhyme (同用 group)": "quotient:同用"},
+          f"{_q}. "
+          "M-15 was that the 同用 schema fired on four lines of English and "
+          "nothing in the output could say the tradition had not matched. It "
+          "is structural now: an English declaration authorises no 平水韻 "
+          "grouping, so the schema cannot run at all rather than running and "
+          "being labelled RULE SHAPE ONLY afterwards.")
     nonzero = {k: v for k, v in findings.items() if v}
     check("a four-line AABB quatrain yields findings for >= 15 schemas",
           len(nonzero) >= 15, f"{len(nonzero)} schemas found something")
@@ -438,6 +460,212 @@ def test_p8_stanza():
     check("two stanzas, each a monorhyme, are two findings — P3 and P8 "
           "together", len(found) == 2 and {f[0] for f in found} == {0, 1},
           f"{[(f[0], len(f[1]), f[2]) for f in found]}")
+
+
+# ---------------------------------------------------------------------------
+# P12. ClassEqual's partition was the IDENTITY on four of its five channels
+# ---------------------------------------------------------------------------
+
+#: Welsh proest pairs. The coda agrees, the vowels differ, and the vowels are
+#: of one quantity — RHYME_CANON R11's spec. The circumflex is what marks
+#: Welsh length in the orthography, so `tân`/`tôn` is the pair that needs no
+#: length rule to be read as two long vowels.
+PROEST = [("tân", "tôn"), ("llon", "llan"), ("mab", "heb"), ("dydd", "budd"),
+          ("gwyn", "gwn"), ("cant", "gwynt")]
+
+_LONG = "âêîôûŵŷ"
+
+
+def _quantity(v):
+    """A DECLARED Welsh vowel quantity, supplied by this test and by nothing
+    in the repo: the circumflex marks a long vowel and its absence here means
+    short. It is deliberately NOT shipped in quality/phonology/cym.py — Welsh
+    length is largely predictable from the following consonant and is not a
+    fact this repo has sourced (doctrine 44: the blocker is the TABLE, not the
+    difficulty), and a test fixture that declared it in the module would be
+    the harness inventing the tradition's own rule."""
+    return "long" if any(c in _LONG for c in (v or "")) else "short"
+
+
+#: A DECLARED English manner partition, likewise a fixture. CMUdict phones,
+#: coda position, four classes and everything else its own class.
+_MANNER = {"P": "stop", "B": "stop", "T": "stop", "D": "stop", "K": "stop",
+           "G": "stop", "M": "nasal", "N": "nasal", "NG": "nasal",
+           "F": "fric", "V": "fric", "S": "fric", "Z": "fric", "TH": "fric",
+           "DH": "fric", "SH": "fric", "ZH": "fric", "L": "liquid",
+           "R": "liquid"}
+
+
+def _manner(v):
+    return tuple(_MANNER.get(p, p) for p in (v or ()))
+
+
+def test_p12_identity_partition():
+    print("\nP12. a quotient nobody declared is not the identity — proest was "
+          "UNSATISFIABLE, family rhyme fired on cat/bat, 同用 read 流/樓 False")
+    from quality.phonology import cym as _cym, ltc as _ltc
+    CYM, MC = _cym.Welsh(), _ltc.MiddleChinese()
+
+    def cym_stream(a, b, **decl):
+        return R.build_stream([a, b], CYM,
+                              declaration=dict({"language": "cym"}, **decl))
+
+    # -- the demonstration, kept runnable: the OLD channel pair, on real Welsh
+    old = R.RelationSchema(
+        name="probe-proest-identity",
+        spans=(R.END_ANCHOR, R.END_ANCHOR), align="anchor",
+        channels=(R.ChannelRule("coda", R.AGREE, "anchor"),
+                  R.ChannelRule("nucleus", R.DIFFER, "anchor"),
+                  R.ChannelRule("nucleus", R.ClassEqual(
+                      partition=lambda v: v, label="identity"), "anchor")),
+        placement=(R.Placement("both_line_final"),), identity=(R.DISTINCT,))
+    verdicts = []
+    for a, b in PROEST:
+        res = R.realise(old, cym_stream(a, b), keep="all")
+        verdicts += [i.verdict for i in res]
+    check("the identity partition makes proest UNSATISFIABLE, and it is not a "
+          "matter of degree: MUST-DIFFER and CLASS-EQUAL are each other's "
+          "negation under it",
+          len(verdicts) == 6 and set(verdicts) == {False},
+          f"{len(PROEST)} real Welsh proest pairs, {verdicts}. Either the "
+          f"nuclei are equal (DIFFER reads False) or they are not (CLASS-EQUAL "
+          f"reads False), so no input of any kind can read True — the schema "
+          f"was not strict, it was empty, and it answered FALSE rather than "
+          f"refusing, which is a WRONG ANSWER and not a missing one.")
+
+    # -- and the shipped schema now REFUSES for want of the declared class
+    got = R.realise(R.REGISTRY["proest"], cym_stream("tân", "tôn"))
+    check("the shipped proest REFUSES on a declaration that names no vowel "
+          "class, instead of answering False",
+          isinstance(got, R.Refusal) and got.capability == "quotient:vowel_class",
+          f"{got if isinstance(got, R.Refusal) else [i.verdict for i in got]}")
+
+    # -- DECLARED, it is satisfiable, and the class does real work
+    def proest(a, b):
+        res = R.realise(R.REGISTRY["proest"],
+                        cym_stream(a, b, quotients={"vowel_class": _quantity}),
+                        keep="all")
+        return res[0].verdict if res and not isinstance(res, R.Refusal) else None
+
+    check("with the quantity DECLARED, tân/tôn is proest — the first True this "
+          "schema has ever been able to return", proest("tân", "tôn") is True)
+    check("...and so is llon/llan, two SHORT vowels under one coda",
+          proest("llon", "llan") is True)
+    check("...and tân/llon is not: long answered by short is the fault the "
+          "class requirement exists to catch", proest("tân", "llon") is False)
+    check("...and tôn/tôn is not either: the vowels must still DIFFER, so the "
+          "class agreement did not swallow the other predicate",
+          proest("tôn", "tôn") is False)
+
+    # -- family rhyme: the same identity, the opposite symptom
+    fam = R.REGISTRY["family rhyme"]
+    got = R.realise(fam, stream(["the cat", "the bat"]))
+    check("family rhyme no longer fires on cat/bat — it REFUSES for want of "
+          "the manner partition its own label names",
+          isinstance(got, R.Refusal) and got.capability == "quotient:manner",
+          "it read True on an ordinary perfect rhyme, as a FAMILY relation, "
+          "because coda CLASS-EQUAL under the identity IS coda AGREE. Every "
+          "instance the schema has ever reported was tail rhyme at the finest "
+          "grain wearing a label about manner classes.")
+
+    def family(a, b):
+        st = stream([f"the {a}", f"the {b}"],
+                    declaration={"quotients": {"manner": _manner}})
+        res = R.realise(fam, st, keep="all")
+        return res[0].verdict if res and not isinstance(res, R.Refusal) else None
+
+    check("DECLARED, the partition does the work the label claims: cat/cap is "
+          "family rhyme (T and P are both stops)",
+          family("cat", "cap") is True)
+    check("...and cat/can is NOT (T is a stop, N is a nasal)",
+          family("cat", "can") is False,
+          "the identity partition read cat/cap False and cat/bat True — "
+          "exactly backwards for a relation defined on manner classes.")
+
+    # -- 同用: the table existed the whole time and nothing handed it over
+    ltc_st = R.build_stream(["黃河入海流", "更上一層樓"], MC,
+                            declaration={"language": "ltc"})
+    res = R.realise(R.REGISTRY["Middle Chinese end rhyme (同用 group)"],
+                    ltc_st, keep="all")
+    check("流/樓 — the rhyme of 登鸛雀樓 — is TRUE at the relation layer, and "
+          "agrees with the phonology that owns the table",
+          len(res) == 1 and res[0].verdict is True
+          and MC.rhymes("流", "樓") is True,
+          f"{[i.verdict for i in res]} against ltc.rhymes -> "
+          f"{MC.rhymes('流', '樓')}. The nuclei are 尤 and 侯, two 廣韻 "
+          f"categories the 平水韻 同用 grouping merges; comparing them at the "
+          f"identity is doctrine 36's own error, and the schema is NAMED for "
+          f"the grouping it was not consulting.")
+    from quality.phonology import declared as _declared
+    _lang_imports = [m for m in _relations_import_paths()
+                     if m.startswith("quality.phonology.")
+                     and m.rsplit(".", 1)[1] in set(_declared())]
+    check("...and the grouping reaches the schema from the PHONOLOGY, not "
+          "from a table copied into relations.py",
+          "同用" in getattr(MC, "quotients", {})
+          and MC.quotients["同用"]("侯") == MC.quotients["同用"]("尤") == "尤"
+          and not _lang_imports,
+          f"doctrine 84 and rhyme_types.py's own move: where a phonology "
+          f"declares the relation, the producer asks it instead of "
+          f"re-deriving one. relations.py imports no LANGUAGE "
+          f"({_lang_imports or 'none'}) — `quality.phonology.get` in main() "
+          f"is the registry accessor and names no language — so the 平水韻 "
+          f"table stays in the one module that owns it and `phon.quotients` "
+          f"is the seam. Copying it here would have given the repo two "
+          f"sources for one grouping, which is the defect the fix is not "
+          f"allowed to trade for.")
+    raw = R.build_stream(["黃河入海流", "更上一層樓"],
+                         _ltc.MiddleChinese(standard="qieyun"),
+                         declaration={"language": "ltc"})
+    got = R.realise(R.REGISTRY["Middle Chinese end rhyme (同用 group)"], raw)
+    check("...and a declaration that authorises NO grouping refuses rather "
+          "than firing: standard='qieyun' is the raw rime class",
+          isinstance(got, R.Refusal) and got.capability == "quotient:同用",
+          "'qieyun' means finer than any poet worked to, and 流/樓 being "
+          "False under it is doctrine 36's demonstration — which `rhymes()` "
+          "still gives. A schema named for the 同用 group has nothing to ask "
+          "for there, and saying so is not the same as answering False.")
+
+
+# ---------------------------------------------------------------------------
+# P13. `unmatched`'s vocabulary named a value nothing implements
+# ---------------------------------------------------------------------------
+
+def test_p13_unmatched_vocabulary():
+    print("\nP13. `unmatched` declared 'differ', implemented it nowhere, and "
+          "omitted the two values evaluate() actually branches on")
+    branches = {c for c in R.evaluate.__code__.co_consts if isinstance(c, str)}
+    check("the four values are MEASURED against evaluate()'s own branches, "
+          "not recalled",
+          getattr(R, "UNMATCHED", ()) ==
+          ("exclude", "forbid", "require_a", "require_b")
+          and {"forbid", "require_a", "require_b"} <= branches
+          and "differ" not in branches,
+          f"the field's comment read `exclude | differ | forbid`. 'differ' is "
+          f"in no branch of evaluate() and on none of the {len(R.REGISTRY)} "
+          f"schemas; 'require_a'/'require_b' are two branches and two schemas "
+          f"(apocopated rhyme, semirhyme) and were not in the vocabulary at "
+          f"all. A MUST-DIFFER on the matched material is a CHANNEL rule — "
+          f"pararhyme states it as ChannelRule('nucleus', DIFFER) — so the "
+          f"honest close of the value is a DELETION, not a wiring.")
+    used = {s.unmatched for s in R.REGISTRY.values()}
+    check("...and every schema in the registry declares one of the four",
+          used <= set(R.UNMATCHED) and used == {"exclude", "forbid",
+                                                "require_a", "require_b"},
+          f"{sorted(used)}")
+    raised = None
+    try:
+        R.RelationSchema(name="probe-unmatched",
+                         spans=(R.END_ANCHOR, R.END_ANCHOR),
+                         unmatched="differ")
+    except ValueError as e:                                   # noqa: BLE001
+        raised = str(e)
+    check("an undeclared value REFUSES at construction rather than taking the "
+          "'exclude' path in silence", raised is not None
+          and "unmatched must be one of" in raised,
+          f"{raised!r} — it used to build fine and behave as 'exclude', so a "
+          f"typo and a policy read the same, which is doctrine 16's failure "
+          f"mode: an undeclared setting failing toward whoever guessed.")
 
 
 # ---------------------------------------------------------------------------
@@ -835,6 +1063,25 @@ def test_null_module():
           "observed and null can never be the rendering.")
 
 
+def _relations_import_paths():
+    """The FULL dotted path of every import in relations.py, where the helper
+    below keeps only the top-level package. `from quality import
+    rhyme_constraints` and `import quality.phonology.ltc` are both `quality`
+    to that one and they are not the same claim: the first is a sibling in the
+    quality layer, the second would be this module reaching into a LANGUAGE,
+    which is the thing its own docstring says it never does."""
+    import ast
+    with open(os.path.join(HERE, "relations.py"), encoding="utf-8") as fh:
+        tree = ast.parse(fh.read())
+    out = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            out |= {a.name for a in node.names}
+        elif isinstance(node, ast.ImportFrom) and node.module:
+            out |= {f"{node.module}.{a.name}" for a in node.names}
+    return out
+
+
 def _relations_imports():
     """Every module relations.py imports, read from its AST rather than by
     grepping — a comment that NAMES lyric_harness is not an import of it, and
@@ -1191,6 +1438,8 @@ if __name__ == "__main__":
     test_p6_present_vs_absent()
     test_p7_project()
     test_p8_stanza()
+    test_p12_identity_partition()
+    test_p13_unmatched_vocabulary()
     test_build_stream_is_linear()
     test_sequence_predicates_are_implemented()
     test_head_anchored_relations_are_reachable()

@@ -541,6 +541,277 @@ def test_a_recurred_single_use_function_is_reported():
             if SECTION_FUNCTIONS[f].recurrence != "once"]
     check("every single_use function still has recurrence 'once'", not once,
           f"otherwise the returns-branch would reach them: {once}")
+    # AND THE CONVERSE, WHICH IS THE DIRECTION THAT WAS FALSE. The check above
+    # shipped alone, and `reprise` -- declared recurrence "once" in the
+    # vocabulary, absent from the tuple -- passed it every time while being
+    # unreachable at both gates. Half a set equality is not a set equality.
+    unlisted = sorted(fn for fn, s in SECTION_FUNCTIONS.items()
+                      if s.recurrence == "once"
+                      and fn not in POPULAR_SONG.single_use)
+    check("and every recurrence-'once' function is listed in single_use",
+          not unlisted,
+          f"unreachable at both gates: {unlisted}" if unlisted else
+          f"the two spellings of 'expected once' agree on all "
+          f"{len(POPULAR_SONG.single_use)} members")
+
+
+# ---------------------------------------------------------------------------
+# THE THREE CLAIMS BELOW WERE AUDIT CLAIMS. Each was reproduced first and each
+# reproduced, so each has a fix and a regression here that fails without it.
+# ---------------------------------------------------------------------------
+
+
+def _hook_song(last_function=None):
+    """A hook in two DECLARED choruses and once more in a final section whose
+    function is `last_function` -- None meaning nobody declared it."""
+    secs = [Section("v1", 4, function="verse"),
+            Section("c1", 4, function="chorus"),
+            Section("v2", 4, function="verse"),
+            Section("c2", 4, function="chorus"),
+            Section("last", 4, function=last_function or UNDECLARED)]
+    s = Song(sections=secs, title="hold the line").layout()
+    s.lines = [Line("nothing here at all", bar=1),
+               Line("hold the line tonight", bar=5),
+               Line("nothing here either", bar=9),
+               Line("hold the line tonight", bar=13),
+               Line("hold the line tonight", bar=17)]
+    return s
+
+
+def test_hook_confined_does_not_fire_when_the_hook_left_for_nowhere_named():
+    """HOOK_CONFINED fired on a hook that had LEFT the one function it names.
+
+    `len(fns - {UNDECLARED}) == 1` counts UNDECLARED as no function rather
+    than as an unanswerable one, so a hook occurring twice in the chorus and
+    once in a section nobody declared reported "returns 3 times and never
+    leaves one function". Its own evidence line gave the branch away: it
+    printed `occurs only in '' sections`, the UNDECLARED marker, which sorts
+    ahead of every real function name.
+
+    Doctrine 28: "confined" and "cannot tell where it went" are two answers,
+    and doctrine 79 puts the second in the refusal count -- never in a finding.
+    """
+    print("\n17. HOOK_CONFINED and the undeclared landing")
+    from quality.grid import hook_findings
+
+    f, r = hook_findings(_hook_song())
+    check("no hook declared -> the question is refused, not answered",
+          [x.code for x in r] == ["HOOK_UNDECLARED"] and not f)
+
+    f, r = hook_findings(_hook_song(), ["hold the line"])
+    codes, rcodes = {x.code for x in f}, {x.code for x in r}
+    check("a hook that also lands in an UNDECLARED section is not CONFINED",
+          "HOOK_CONFINED" not in codes,
+          f"findings {sorted(codes)} — the third occurrence is in a section "
+          f"whose function nobody declared, so whether the hook stays in the "
+          f"chorus is CANNOT TELL")
+    partly = [x.message for x in r
+              if x.code == "HOOK_PLACEMENT_PARTLY_UNDECLARED"]
+    check("it is a REFUSAL, and it names how many landings are undeclared",
+          "HOOK_PLACEMENT_PARTLY_UNDECLARED" in rcodes
+          and "1 of those" in partly[0],
+          partly[0] if partly else f"refusals: {sorted(rcodes)}")
+    check("and no finding ever names the UNDECLARED marker as a function",
+          not any("''" in x.evidence or "'' sections" in x.evidence
+                  for x in f),
+          [x.evidence[:70] for x in f])
+
+    # THE POSITIVE CASE MUST SURVIVE. A hook confined to declared choruses is
+    # still confined; a fix that silenced it would trade one wrong answer for
+    # another (and `quality/test_revise.py` test 27 asserts this same finding
+    # on the moonlight fixture).
+    f2, _ = hook_findings(_hook_song("chorus"), ["hold the line"])
+    check("with the last section DECLARED a chorus, HOOK_CONFINED fires again",
+          "HOOK_CONFINED" in {x.code for x in f2},
+          [x.evidence for x in f2][0][:90])
+    check("and it names the chorus rather than the empty string",
+          any("'chorus' sections" in x.evidence for x in f2
+              if x.code == "HOOK_CONFINED"))
+
+    # The hook demonstrably leaving one declared function for another is an
+    # ANSWER, not a refusal: nothing about it is undecided.
+    f3, r3 = hook_findings(_hook_song("verse"), ["hold the line"])
+    check("a hook that leaks into a declared verse is neither confined nor "
+          "refused",
+          "HOOK_CONFINED" not in {x.code for x in f3}
+          and "HOOK_PLACEMENT_PARTLY_UNDECLARED" not in {x.code for x in r3},
+          f"findings {sorted({x.code for x in f3})}, "
+          f"refusals {sorted({x.code for x in r3})}")
+
+
+def test_the_three_counts_all_count_questions():
+    """`answered` was `asked - len(refusals)` — questions minus RECORDS.
+
+    One question can record more than one refusal: `hook_findings` refuses the
+    placement question AND the title question, both inside the single call
+    `song_function_report` counts as one ask. The report below asked three
+    questions and printed `answered -1`, a negative count of answers, because
+    four records were subtracted from three questions.
+    """
+    print("\n18. asked / answered / refused are three counts of QUESTIONS")
+    from quality.grid import song_function_report
+
+    s = Song(sections=[Section("a", 4), Section("b", 4),
+                       Section("c", 4)]).layout()      # no title, nothing
+    s.lines = [Line("hold the line", bar=b) for b in (1, 5, 9)]  # declared
+    rep = song_function_report(s, hooks=["hold the line"])
+    check("one question that records two refusals is still one question",
+          rep["asked"] == 3 and rep["refused"] == 3 and rep["answered"] == 0,
+          f"asked {rep['asked']}, answered {rep['answered']}, refused "
+          f"{rep['refused']}; records {rep['refusal_records']}")
+    check("a count of answers is never negative", rep["answered"] >= 0)
+    check("asked == answered + refused",
+          rep["asked"] == rep["answered"] + rep["refused"])
+    check("the extra RECORD is disclosed rather than folded into the three",
+          rep["refusal_records"] == 4 > rep["refused"],
+          f"{rep['refusal_records']} records from {rep['refused']} refused "
+          f"questions: {[x.code for x in rep['refusals']]} — doctrine 79 "
+          f"wants three counts of the same kind of thing, and the list is "
+          f"returned in full either way")
+
+    # A question that is answered on six channels and refuses the seventh is
+    # counted refused ONCE, not once per channel: the conservative direction.
+    s2 = Song(sections=[Section("v", 4, function="verse"),
+                        Section("c", 4, function="chorus"),
+                        Section("v2", 4, function="verse"),
+                        Section("c2", 4, function="chorus"),
+                        Section("b", 4, function="bridge")],
+              title="hold the line").layout()
+    s2.lines = [Line(f"line {i} hold the line", bar=1 + 4 * i)
+                for i in range(5)]
+    rep2 = song_function_report(s2, hooks=["hold the line"])
+    check("a partly-refused question is one refused question, not several",
+          rep2["asked"] == rep2["answered"] + rep2["refused"]
+          and rep2["refused"] == 1,
+          f"asked {rep2['asked']}, answered {rep2['answered']}, refused "
+          f"{rep2['refused']}: {[x.code for x in rep2['refusals']]} — no "
+          f"rhyme key was declared, so `rhyme_inventory` was not measured")
+
+
+def test_the_ask_gate_reaches_every_function_that_is_expected_once():
+    """`reprise` was asked by nothing, ever, and answered by nothing either.
+
+    The gate the SINGLE_USE_RECURRED fix installed reads
+    `convention.single_use`, and `reprise` -- `recurrence="once"` in the
+    vocabulary since it was written -- was not in that tuple. So a song
+    declaring two reprises was neither asked the question nor charged the
+    finding: the same defect the fix was for, one member further out, because
+    the fix keyed on a hand-copied list rather than on the vocabulary's own
+    declaration.
+
+    The five `open` functions stay unasked ON PURPOSE and this test says so:
+    "open" is the vocabulary declaring that the convention expects nothing
+    about how often they occur, and measuring drift against an expectation
+    nobody holds is noise on a correct song (doctrine 7).
+    """
+    print("\n19. THE ASK GATE — reachable, deliberately unreachable, and the "
+          "cost on a well-formed song")
+    from quality.grid import (POPULAR_SONG, SECTION_FUNCTIONS,
+                              song_from_blueprint, song_function_report)
+
+    def report(fns, **kw):
+        bp = {"hooks": ["hold the line"],
+              "sections": [{"name": f"S{i}", "function": f,
+                            "start_bar": 1 + 4 * i, "bars": 4 + i,
+                            "lines": [{"text": "hold the line now",
+                                       "bar": 1 + 4 * i, "beat": 1,
+                                       "duration": 1}]}
+                           for i, f in enumerate(fns)]}
+        song, hooks = song_from_blueprint(bp)
+        return song_function_report(song, hooks=hooks, **kw)
+
+    rep = report(["verse", "reprise", "chorus", "reprise"])
+    check("two reprises are ASKED at all", "reprise" in rep["returns"],
+          f"questions asked: {sorted(rep['returns'])} + bridge + hook")
+    check("and answered: a recurred single-use function is a finding",
+          "SINGLE_USE_RECURRED" in {f.code for f in rep["findings"]},
+          f"codes: {sorted({f.code for f in rep['findings']})}")
+
+    # Not one function: EVERY function the vocabulary calls "once".
+    missed = [fn for fn, s in SECTION_FUNCTIONS.items()
+              if s.recurrence == "once"
+              and "SINGLE_USE_RECURRED" not in
+              {f.code for f in report(["verse", fn, "chorus", fn])["findings"]}]
+    check("every recurrence-'once' function is reachable, not just the "
+          "listed ones", not missed, f"silent for: {missed}" if missed else
+          f"all {sum(1 for s in SECTION_FUNCTIONS.values() if s.recurrence == 'once')} "
+          f"of them")
+
+    # THE DELIBERATE HALF. Recorded as a decision so a later session reads a
+    # choice rather than an omission.
+    open_fns = sorted(fn for fn, s in SECTION_FUNCTIONS.items()
+                      if s.recurrence == "open")
+    still_silent = [fn for fn in open_fns
+                    if fn not in report(["verse", fn, "chorus", fn])["returns"]]
+    check("the five 'open' functions are still not asked, on purpose",
+          still_silent == open_fns,
+          f"{open_fns} — 'open' means the convention expects nothing about "
+          f"how often they occur; a vamp is a repeating figure HELD OPEN and "
+          f"reporting that two of them differ in length would be a finding "
+          f"against an expectation nobody declared")
+
+    # AND THE COST, MEASURED ON A REAL FIXTURE rather than argued: a
+    # well-formed song must report exactly what it reported before. A change
+    # that adds a finding here is a regression, not a fix.
+    song, hooks = song_from_blueprint(
+        os.path.join(HERE, "fixtures", "moonlight_fixture.blueprint.json"))
+    real = song_function_report(song, hooks=hooks)
+    check("the well-formed fixture gains nothing: same findings as before",
+          [f.code for f in real["findings"]]
+          == ["RETURN_LOCKED", "HOOK_CONFINED", "TITLE_NOT_IN_HOOK"],
+          [f.code for f in real["findings"]])
+    check("same refusals, and the same three counts",
+          [r.code for r in real["refusals"]] == ["CHANNEL_NOT_MEASURED"]
+          and (real["asked"], real["answered"], real["refused"]) == (4, 3, 1),
+          f"asked {real['asked']}, answered {real['answered']}, refused "
+          f"{real['refused']}")
+
+
+def test_return_never_returns_is_reached():
+    """RETURN_NEVER_RETURNS shipped with no test anywhere in the repo.
+
+    It is the one finding `return_findings` emits from inside its SINGLE
+    INSTANCE branch -- a refusal and a finding from the same call, which is
+    exactly the pairing that makes it easy to miss: the refusal is the
+    conspicuous half.
+    """
+    print("\n20. a declared chorus the song never comes back to")
+    from quality.grid import (POPULAR_SONG, return_findings,
+                              song_function_report)
+
+    s = Song(sections=[Section("v1", 8, function="verse"),
+                       Section("c", 8, function="chorus"),
+                       Section("v2", 8, function="verse")],
+             title="one time only").layout()
+    s.lines = [Line("a line of words here", bar=b) for b in (1, 9, 17)]
+    f, r, _ = return_findings(s, "chorus")
+    check("one chorus in the whole song is a finding, not silence",
+          "RETURN_NEVER_RETURNS" in {x.code for x in f},
+          [x.evidence for x in f][0] if f else "no findings at all")
+    check("and the OTHER half of the same branch is a refusal",
+          "SINGLE_INSTANCE" in {x.code for x in r},
+          "'does it land in the same place each time' has no second time — "
+          "CANNOT TELL, not clean (doctrine 28)")
+    check("it reaches the report, not only the function under it",
+          "RETURN_NEVER_RETURNS" in {x.code for x in
+                                     song_function_report(s)["findings"]})
+
+    # THE GATE IS `fixed_return`, not "any single instance". A bridge occurs
+    # once by convention, so a song with one bridge must stay silent here.
+    b = Song(sections=[Section("v1", 8, function="verse"),
+                       Section("c1", 8, function="chorus"),
+                       Section("br", 8, function="bridge"),
+                       Section("c2", 8, function="chorus")]).layout()
+    b.lines = [Line("a line of words here", bar=x) for x in (1, 9, 17, 25)]
+    fb, _, _ = return_findings(b, "bridge")
+    check("one bridge is not RETURN_NEVER_RETURNS",
+          "RETURN_NEVER_RETURNS" not in {x.code for x in fb},
+          f"bridge is not in fixed_return {list(POPULAR_SONG.fixed_return)} — "
+          f"a bridge appearing once is the convention, not a defect")
+    fc, _, _ = return_findings(b, "chorus")
+    check("and a chorus that DOES return does not earn it either",
+          "RETURN_NEVER_RETURNS" not in {x.code for x in fc},
+          f"codes: {sorted({x.code for x in fc})}")
 
 
 if __name__ == "__main__":
@@ -559,7 +830,11 @@ if __name__ == "__main__":
                test_song_from_blueprint_rejects_an_undeclared_function,
                test_song_from_blueprint_owns_lines_by_bar_when_unnamed,
                test_song_from_blueprint_float_beats_are_exact,
-               test_a_recurred_single_use_function_is_reported):
+               test_a_recurred_single_use_function_is_reported,
+               test_hook_confined_does_not_fire_when_the_hook_left_for_nowhere_named,
+               test_the_three_counts_all_count_questions,
+               test_the_ask_gate_reaches_every_function_that_is_expected_once,
+               test_return_never_returns_is_reached):
         fn()
     print("=" * 62)
     if FAILURES:

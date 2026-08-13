@@ -87,6 +87,19 @@ per field is the work:
             reported 4 of its 12 true instances.  `mirrored()` replaces it and
             `order_burden()` counts what it costs.  All 60 symmetric schemas
             are byte-identical before and after.
+P12 AND P13 CLOSED 2026-08-13, and both are one sentence: A DECLARED
+COORDINATE'S VALUE SET IS ITSELF A CLAIM.  `ClassEqual(partition=lambda v: v)`
+declares a quotient and supplies the identity, which is not one -- it made
+`proest` UNSATISFIABLE (nucleus MUST DIFFER *and* nucleus CLASS-EQUAL are each
+other's negation under the identity), made `family rhyme` fire on `cat`~`bat`,
+and made the 同用 schema read 流/樓 as False while the phonology that owns the
+rime table reads True.  A quotient is now a NAMED capability the declaration
+supplies (`quotient:manner`, `quotient:同用`), so a schema whose grain nobody
+declared REFUSES with the name of what is missing.  `unmatched` is the same
+shape one level down: its vocabulary comment listed a value nothing implements
+('differ') and omitted the two `evaluate()` branches on, and an undeclared
+value took the default path in silence.  See `ClassEqual` and `UNMATCHED`.
+
   DECLARED  `Span.unit`, in the `INERT` table above section 11, WITH the
             reason, what would activate it, and which of doctrine 44/92's
             three blockers it is -- 'disjoint', not 'build', so "build the
@@ -229,6 +242,14 @@ class Frames:
     bayt_source: str = "none"
 
 
+#: Capability prefix for a DECLARED QUOTIENT (defect P12).  `capabilities()`
+#: derives `quotient:manner`, `quotient:同用` and the like from the channel
+#: rules themselves, so a schema that compares a channel at a declared GRAIN
+#: refuses on a declaration that supplies no such grain, the same way one
+#: needing a caesura or a morphology resource already does.
+QUOTIENT_CAP = "quotient:"
+
+
 @dataclass
 class Stream:
     units: list
@@ -290,6 +311,11 @@ class Stream:
             # key-spaces used to disagree and no declaration could satisfy both.
             return cap in res or any(
                 lv in res for lv, c in _CAP_OF_LEVEL.items() if c == cap)
+        if cap.startswith(QUOTIENT_CAP):
+            # DEFECT P12: a quotient nobody declared is not the identity, and a
+            # schema whose grain is undeclared refuses here rather than
+            # answering at the finest grain the channel happens to carry.
+            return _quotient_of(self, cap[len(QUOTIENT_CAP):]) is not None
         return False
 
     def line_of(self, span):
@@ -804,9 +830,44 @@ class ClassEqual(Predicate):
     """Equality under a DECLARED quotient.  Family rhyme's manner partition,
     the 同用 groupings (raw Qieyun lookup makes 流 and 樓 non-rhyming and they
     are the rhyme of 登鸛雀樓), any-vowel-with-any-vowel, 平/仄.  A boolean
-    x == y cannot express any of them."""
-    partition: object        # callable value -> class label, or dict
+    x == y cannot express any of them.
+
+    DEFECT P12, fixed.  `partition=lambda v: v` IS NOT A QUOTIENT, and four of
+    the five ClassEqual channels in this file shipped with exactly that while
+    their own `label` named a partition nobody had written -- "declared manner
+    partition", "declared length class", "declared 同用 grouping".  Under the
+    identity the predicate is plain equality, and all three consequences were
+    MEASURED, not argued:
+
+      proest         the channel list says nucleus MUST DIFFER *and* nucleus
+                     CLASS-EQUAL.  Under the identity those are each other's
+                     negation, so the schema was UNSATISFIABLE -- not strict,
+                     unsatisfiable: `tân`/`tôn`, `mab`/`heb`, `llon`/`llan`,
+                     `dydd`/`budd`, `cant`/`gwynt`, `gwyn`/`gwn` all read
+                     False, and no input of any kind could read True.
+      family rhyme   degenerates to nucleus AGREE + coda AGREE, so `cat`~`bat`
+                     -- an ordinary perfect rhyme -- came back True as a
+                     FAMILY relation.  `multisyllabic rhyme`'s coda is the
+                     same channel with the same identity partition.
+      同用           compares the RAW 廣韻 韻, which is doctrine 36's own
+                     error: 流 (尤) against 樓 (侯) read False here while
+                     `ltc.rhymes` -- the phonology that OWNS the table --
+                     reads True on the pair the grouping exists for.
+
+    So the quotient is a NAMED RESOURCE the stream supplies, the same shape
+    `IdentityRule`'s morphology resource already has (test P4): `resource`
+    names it, `RelationSchema.capabilities()` turns that into
+    `quotient:<name>`, and `realise()` REFUSES a schema whose declaration
+    supplies none -- naming it -- rather than answering under a quotient
+    nobody wrote.  `partition=` stays for a quotient the schema states in full
+    (`alliterative long line`'s vowel class is one), and an UNRESOLVED
+    partition reads None: a refusal, never a False.  Doctrine 45 -- a checker
+    that silently picks the finest possible grain is making a claim it never
+    states.
+    """
+    partition: object = None    # callable value -> class label, or dict
     label: str = "declared quotient"
+    resource: str = ""          # the quotient's name in the DECLARATION
     name: str = "CLASS-EQUAL"
 
     def _cls(self, v):
@@ -815,6 +876,13 @@ class ClassEqual(Predicate):
         return self.partition.get(v, ("__ungrouped__", v))
 
     def __call__(self, x, y):
+        if self.partition is None:
+            return Read(None, False,
+                        f"no {self.label} supplied by this declaration"
+                        + (f" (quotient {self.resource!r})"
+                           if self.resource else "")
+                        + "; the identity is not a quotient, so the answer is "
+                          "a REFUSAL and not a verdict at the finest grain")
         if x is None or y is None:
             return Read(None, False, "unreadable")
         # knowledge sets quotient element-wise: the CLASS of an uncertain
@@ -828,6 +896,44 @@ class ClassEqual(Predicate):
         cy = next(iter(cy)) if len(cy) == 1 else cy
         v, inf, note = _set_agree(cx, cy)
         return Read(v, inf if v is not None else True, note or self.label)
+
+
+def _quotient_of(stream, name):
+    """-> the callable the stream supplies for the named quotient, or None.
+
+    TWO SOURCES, and the DECLARATION WINS, because a declaration is where an
+    assumption is supposed to live (doctrine 1) and a caller who wrote one
+    down meant it:
+
+      declaration['quotients'][name]   the caller's own, per stream.
+      phon.quotients[name]             the PHONOLOGY's own.  This is the seam
+                                       that hands `ltc`'s 平水韻 同用 grouping
+                                       to the 同用 schema without this module
+                                       importing a phonology, hard-coding a
+                                       rime table, or re-deriving one from
+                                       channels it cannot see -- the same move
+                                       `rhyme_types.py` makes for `phon.rhymes`
+                                       (doctrine 84).  A phonology that
+                                       declares no grouping supplies none, and
+                                       the schema refuses instead.
+    """
+    if stream is None:
+        return None
+    q = (stream.declaration.get("quotients") or {}).get(name)
+    if q is None:
+        q = (getattr(stream.phon, "quotients", None) or {}).get(name)
+    return q
+
+
+def _bind_quotient(pred, stream):
+    """A ClassEqual whose quotient is DECLARED elsewhere, resolved against this
+    stream.  Any other predicate, and any partition the schema states in full,
+    is returned untouched."""
+    if getattr(pred, "resource", "") and pred.partition is None:
+        q = _quotient_of(stream, pred.resource)
+        if q is not None:
+            return replace(pred, partition=q)
+    return pred
 
 
 @dataclass(frozen=True)
@@ -1428,13 +1534,30 @@ class Figure:
 PAIR = Figure()
 
 
+#: What `unmatched` may say about the material the alignment left over, and
+#: THE LIST IS MEASURED AGAINST `evaluate()` RATHER THAN RECALLED (defect P13).
+#: The field's own comment used to read `exclude | differ | forbid`: 'differ'
+#: is implemented by nothing and declared by none of the 77 schemas, while
+#: 'require_a' and 'require_b' -- the two values `evaluate()` actually branches
+#: on, and the only thing keeping semirhyme and apocopated rhyme from
+#: collapsing into perfect rhyme -- were absent from the vocabulary they
+#: belong to.  A MUST-DIFFER is a CHANNEL rule (pararhyme), so 'differ' is
+#: closed by DELETION and not by wiring: two coordinates meaning one thing is
+#: a worse defect than one inert coordinate.
+#:   'exclude'    the overhang is outside the comparison (the default)
+#:   'forbid'     any overhang on either member fails the pair
+#:   'require_a'  member 1 MUST overhang and member 2 must not (apocopated)
+#:   'require_b'  member 2 MUST overhang and member 1 must not (semirhyme)
+UNMATCHED = ("exclude", "forbid", "require_a", "require_b")
+
+
 @dataclass(frozen=True)
 class RelationSchema:
     name: str
     spans: tuple                    # (SpanRule, SpanRule)
     align: str = "anchor"
     channels: tuple = ()
-    unmatched: str = "exclude"      # exclude | differ | forbid
+    unmatched: str = "exclude"      # one of UNMATCHED, above
     placement: tuple = ()
     identity: tuple = ()
     figure: object = PAIR
@@ -1443,6 +1566,20 @@ class RelationSchema:
     traditions: tuple = ()
     requires: tuple = ()
     note: str = ""
+
+    def __post_init__(self):
+        # `unmatched` had FOUR implemented values and its own comment named
+        # three, one of which -- 'differ' -- is implemented nowhere and
+        # declared by none of the 77 schemas (defect P13).  An undeclared value
+        # silently took the 'exclude' path, so a typo and a policy read the
+        # same.  Refuse at construction, where the declaration is written.
+        if self.unmatched not in UNMATCHED:
+            raise ValueError(
+                f"unmatched must be one of {UNMATCHED}, not "
+                f"{self.unmatched!r}. It is a SPAN coordinate over the "
+                f"material the alignment left over; a MUST-DIFFER on the "
+                f"matched material is a CHANNEL rule (pararhyme states it as "
+                f"ChannelRule('nucleus', DIFFER)) and never this field.")
 
     def capabilities(self):
         need = set(self.requires)
@@ -1453,6 +1590,11 @@ class RelationSchema:
         for c in self.channels:
             if c.surface != "phonemic":
                 need.add(c.surface)
+            # DEFECT P12: the GRAIN a channel is compared at is a capability of
+            # the declaration, not a constant of the schema.
+            q = getattr(c.predicate, "resource", "")
+            if q:
+                need.add(QUOTIENT_CAP + q)
         for i in self.identity:
             need.add(_CAP_OF_LEVEL.get(i.level, i.level))
         need.discard("token")        # always available: the surface text
@@ -1558,10 +1700,15 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
     enforced = []                    # the subset of `reads` the verdict sees
     for cr in schema.channels:
         mine = []
+        # DEFECT P12: a channel compared at a DECLARED GRAIN takes its quotient
+        # from the stream.  `realise()` has already refused the schema if the
+        # declaration supplies none; a caller reaching `evaluate()` directly
+        # gets the predicate's own refusal instead of a verdict at the identity.
+        pred = _bind_quotient(cr.predicate, stream)
         if cr.scope == "sequence":
             xa = _seq(a, stream, cr.channel, chans, cr.surface)
             xb = _seq(b, stream, cr.channel, chans, cr.surface)
-            mine.append((cr.channel, -1, cr.predicate(xa, xb)))
+            mine.append((cr.channel, -1, pred(xa, xb)))
         elif cr.scope in ("unmatched_a", "unmatched_b"):
             side = a if cr.scope.endswith("a") else b
             pos = (align.unmatched_a if cr.scope.endswith("a")
@@ -1569,7 +1716,7 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
             for q in pos:
                 v = chans.read(stream.units[side.idx[q]], cr.channel, stream,
                                cr.surface)
-                mine.append((cr.channel, q, cr.predicate(v, v)))
+                mine.append((cr.channel, q, pred(v, v)))
         else:
             pa = _positions(cr.scope, a, align, 0)
             pb = _positions(cr.scope, b, align, 1)
@@ -1578,7 +1725,7 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
                                 cr.surface)
                 xb = chans.read(stream.units[b.idx[qb]], cr.channel, stream,
                                 cr.surface)
-                mine.append((cr.channel, qa, cr.predicate(xa, xb)))
+                mine.append((cr.channel, qa, pred(xa, xb)))
         reads.extend(mine)
         if cr.required:
             enforced.extend(mine)
@@ -1841,7 +1988,18 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
       4. for each candidate pair, DE-DUPLICATED by `mirrored()` rather than
          filtered on text order: placement -> align -> channels -> ternary
          verdict.
-      5. figures beyond the pair are assembled from the surviving edges.
+
+    THERE IS NO STEP 5 HERE, and this docstring used to claim one: "figures
+    beyond the pair are assembled from the surviving edges".  They are not --
+    `assemble()` is a SEPARATE call over this function's output, and the only
+    non-test caller in the repo is `quality/relations_null.py`, which makes it
+    only for the `line_fraction` statistic.  `relation_report()` -- this
+    module's own honest consumer, and what the CLI prints -- never calls it,
+    so every figure-quantified schema (monorhyme/leash, higaad, paroemion, the
+    Kalevala's exists_k) is reported there as pairwise EDGES and never as the
+    figure it declares.  Stated rather than wired: the report's shape is a
+    separate decision from this function's, and a docstring that describes a
+    step the code does not take is the defect this paragraph closes.
 
     `keep` defaults to True and None instances.  Pass keep="all" for the
     negative cases: doctrine 27 -- a chance draw that FAILS the filter scores
@@ -2318,14 +2476,18 @@ declare(RelationSchema(
     name="family rhyme",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
     channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", ClassEqual(partition=lambda v: v,
+              ChannelRule("coda", ClassEqual(resource="manner",
                                              label="declared manner partition"),
                           "each")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="Forces the CLASS-EQUAL predicate. A boolean _cmp(x,y) returning x==y "
          "cannot express it. quality/fit_matrix.py is a fitted substitution "
          "matrix already built and shelved; the partition slot is where it "
-         "would plug in."))
+         "would plug in. DEFECT P12: the slot held `lambda v: v` and the "
+         "schema was therefore tail rhyme at the FINEST grain wearing a label "
+         "about manner classes — `cat`~`bat` read True as a FAMILY relation. "
+         "No manner partition is declared anywhere in this repo, so it refuses "
+         "for want of `quotient:manner` until one is."))
 
 declare(RelationSchema(
     name="additive rhyme",
@@ -2478,7 +2640,7 @@ declare(RelationSchema(
     name="multisyllabic rhyme",
     spans=(FREE_MULTI, FREE_MULTI), align="flush_right",
     channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", ClassEqual(partition=lambda v: v,
+              ChannelRule("coda", ClassEqual(resource="manner",
                                              label="declared manner partition"),
                           "each"),
               ChannelRule("onset", DIFFER, "first")),
@@ -2882,13 +3044,20 @@ declare(RelationSchema(
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
     channels=(ChannelRule("coda", AGREE, "anchor"),
               ChannelRule("nucleus", DIFFER, "anchor"),
-              ChannelRule("nucleus", ClassEqual(partition=lambda v: v,
-                                                label="declared length class"),
-                          "anchor")),
+              ChannelRule("nucleus", ClassEqual(
+                  resource="vowel_class",
+                  label="declared vowel class (quantity, and simple vs "
+                        "diphthong / lleddf vs talgron)"), "anchor")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="a SINGLE CHANNEL carrying TWO predicates at once -- the vowels must "
          "differ in identity AND agree in length class. No one-predicate-per-"
-         "channel model can hold it; the channel list is a multiset."))
+         "channel model can hold it; the channel list is a multiset. DEFECT "
+         "P12: with the identity as the class map those two predicates are "
+         "each other's NEGATION, so the schema was UNSATISFIABLE and every "
+         "real Welsh proest pair read False. RHYME_CANON R11 is the spec — "
+         "same quantity and same type — and quality/phonology/cym.py declares "
+         "no such partition (Welsh vowel length is not written), so it refuses "
+         "for want of `quotient:vowel_class` rather than answering."))
 
 declare(RelationSchema(
     name="Scots vowel-length rhyme (Aitken's Law)",
@@ -2904,14 +3073,22 @@ declare(RelationSchema(
 declare(RelationSchema(
     name="Middle Chinese end rhyme (同用 group)",
     spans=(END_LAST, END_LAST), align="flush_right",
-    channels=(ChannelRule("nucleus", ClassEqual(partition=lambda v: v,
+    channels=(ChannelRule("nucleus", ClassEqual(resource="同用",
                                                 label="declared 同用 grouping"),
                           "last"),
               ChannelRule("prominence", AGREE, "last")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="doctrine 36: the granularity a REFERENCE WORK records is not the "
          "granularity a FORM works at. prominence here carries 平/仄, because "
-         "that is what ltc declares -- there is no stress channel at all."))
+         "that is what ltc declares -- there is no stress channel at all. "
+         "DEFECT P12: the grouping this schema is NAMED for was the identity, "
+         "so it compared raw 廣韻 韻 and read 流/樓 -- the rhyme of 登鸛雀樓, "
+         "and the pair doctrine 36 is written about -- as False while "
+         "ltc.rhymes read True. `quality/phonology/ltc.py` now declares the "
+         "grouping as a quotient and this asks for it BY NAME, so a "
+         "declaration that authorises none (an English stream, or "
+         "standard='qieyun') refuses instead of firing: M-15's complaint that "
+         "this schema fired on four lines of English is now structural."))
 
 declare(RelationSchema(
     name="平仄 tonal template",

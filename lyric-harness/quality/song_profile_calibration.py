@@ -1,9 +1,52 @@
 #!/usr/bin/env python3
 """Re-derive the `song` profile in quality/floor.py from corpus/song/.
 
-    python3 quality/song_profile_calibration.py            # the full report
-    python3 quality/song_profile_calibration.py --check    # numbers only, exit 1 on drift
-    python3 quality/song_profile_calibration.py --seeds 50 # faster, wider intervals
+    python3 quality/song_profile_calibration.py             # the full report
+    python3 quality/song_profile_calibration.py --check     # numbers only, exit 1 on drift
+    python3 quality/song_profile_calibration.py --seeds 50  # faster, wider intervals
+    python3 quality/song_profile_calibration.py --sample 400  # bounded, NO VERDICT, exit 3
+    python3 quality/song_profile_calibration.py --no-cache  # recompute every item
+
+WHAT IT COSTS, AND WHY THAT IS THE FIRST THING THIS FILE SAYS. A drift
+detector nobody can afford to run is decoration (doctrine 48), so the cost is
+a declared, measured, dated coordinate here, exactly like every threshold
+below it.
+
+  COLD (nothing cached, the state a fresh clone is in):
+      --check    ~2.4 CPU-hours     MEASURED/PROJECTED 2026-08-13
+      full run   ~2.4 CPU-hours     (sections 3 and 5 add ~9 CPU-s)
+  WARM (this run's cache fingerprint matches the last run's):
+      --check    ~110 CPU-s         the four cheap checks, then statistics
+      full run   ~120 CPU-s
+
+  REPINNED 2026-08-13. This docstring said "on the order of an hour" from
+  2026-08-12 until now, and observed `--check` runs took 2.5-4 hours -- so the
+  figure was wrong by 2.5-4x in the one place a reader is invited to trust it,
+  and the check went unrun for exactly that reason. The old figure is kept
+  visible here rather than overwritten, the same way every superseded number
+  in this repo is.
+
+  WHAT WAS WRONG WITH IT IS DOCTRINE 58, PRECISELY. The RATE it quoted was
+  right and reproduces: 0.5-0.8s per DISTINCT end word, measured 2026-08-13 at
+  0.690 CPU-s (se 0.050, random sample of 100 of them). The COUNT it
+  multiplied by was never written down anywhere and was wrong -- "a few
+  thousand distinct end words" is 11,941, counted. 11,941 x 0.690 = 8,239
+  CPU-s of `RhymeField.field()` alone, which is 97.7% of a cold `--check`.
+
+  HOW THE FIGURE WAS ARRIVED AT, since it is a PROJECTION and not a
+  stopwatch on a finished run (a full cold run was deliberately not sat
+  through): T = D*c_field + P*c_pair, where D = 11,941 distinct call words and
+  P = 75,397 post-radif pairs are EXACT COUNTS off the corpus, not estimates,
+  and c_field/c_pair are means over a bounded random sample with a reported
+  standard error. The additive model was then checked against a real cold run
+  of 20 randomly drawn items -- predicted vs observed agreed to within 6%.
+  Everything else in a `--check` was measured directly at reduced
+  --seeds/--draws and extrapolated linearly, which is exact for those two:
+  both are `for _ in range(n)` loops with a constant body. Wall-clock is NOT
+  the unit here; the machine this was measured on was descheduled about 4.7x,
+  so its wall figures are ~11 h and mean nothing on other hardware. Every run
+  now prints its own PHASE COST block, so the next reader measures rather than
+  recalls.
 
 WHY THIS FILE EXISTS. The song profile ships five thresholds, a token band, a
 tolerance, six false-positive rates and a period slope. Every one of those is
@@ -27,11 +70,37 @@ WHAT IS AND IS NOT INDEPENDENT HERE.
     scored through `RhymeField`, which is built on `Lexicon.freq_rank` --
     `data/opensubtitles_en_50k.tsv` since the 2026-08-11 swap this file used
     to say blocked it. It is real corpus scoring, not the other four checks'
-    plain string/POS arithmetic, and it costs accordingly: ~0.5-0.8s per
-    DISTINCT end word against the ~20k-entry index, so a full run over
-    `corpus/song/`'s few thousand distinct end words is on the order of an
-    hour, not a second. `population(with_predictability=False)` skips it for
-    a fast four-check pass; the CLI always computes all five.
+    plain string/POS arithmetic, and it is where 97.7% of this script's cost
+    goes -- see the cost block at the top, and the CACHE note below it.
+    `population(with_predictability=False)` skips it for a fast four-check
+    pass; the CLI always computes all five.
+
+WHAT THE CACHE DOES AND DOES NOT CHANGE. `predictability_frac(qf, body)` is a
+pure function of the item's own bytes and of the comparator (cmudict, the
+frequency table, `Declaration`, the scoring code) -- `corpus/song/` decides
+WHICH items are asked, never what any one of them answers. So the answers are
+stored, keyed by a hash of the item and guarded by a fingerprint of every one
+of those inputs, and a run whose fingerprint matches reads them back instead
+of recomputing 8,239 CPU-s of identical arithmetic. A hit returns the same
+float a miss would compute -- bit-identical, by construction, and
+`--verify-cache N` re-derives N cached items the slow way and prints any
+disagreement rather than asserting there is none. A fingerprint MISMATCH
+discards the whole file loudly and recomputes; it never silently half-trusts
+one. Nothing about the measurement changes: same items, same corpus, same
+tolerances, same thresholds. The cache is written incrementally, so a cold run
+that is interrupted keeps its progress and the next one resumes -- the 2.4
+CPU-hours are payable in chunks, and payable once.
+
+WHAT `--sample N` IS, AND WHAT IT REFUSES TO BE. It scores N randomly drawn
+items instead of all 4,930 and prints exactly what it drew (N, the seed, the
+surviving authors, the distinct end words actually scored). It CANNOT
+certify agreement with floor.py: a 5th percentile over a few hundred items is
+a different statistic from one over 1,859, and calling a sampled agreement a
+pass would be inconclusive-by-construction reported as a result (doctrine 20).
+So it prints every comparison with the shipped constant, prints the resampling
+spread that says which of those deltas its own size could even resolve, gives
+NO verdict, and exits **3** -- never 0, never 1. `--check` exits 0/1 only from
+a full population.
   * The two lyrics in `examples/` are not in `corpus/song/` -- checked by
     normalised line overlap, 0 of 27 and 0 of 37 -- so the profile scores them
     without having seen them. `quality/test_floor.py` test 17 pins that.
@@ -45,17 +114,23 @@ drift INSIDE that window; it cannot measure drift to 2026 and does not try.
 """
 
 import argparse
+import datetime
 import glob
+import hashlib
+import inspect
 import os
 import random
 import re
 import statistics
 import sys
+import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
+import lyric_harness  # noqa: E402
+import quality.features  # noqa: E402
 from quality.features import FUNCTION_TAGS, QualityFeatures, _tagger  # noqa: E402
 from quality.floor import PROFILES  # noqa: E402
 
@@ -98,6 +173,241 @@ HOM = {"mattr": 0.02, "fwr": 0.02, "cv": 0.02, "anaphora": 0.03,
 BIN, MIN_BIN, MIN_BAND_N = 50, 100, 300
 EDGES = list(range(50, 1001, BIN))
 
+#: Default sample seed, DECLARED rather than left to the clock, so a `--sample`
+#: run reproduces and two people quoting one can be talking about the same draw.
+SAMPLE_SEED = 20260813
+
+#: Exit codes. 0/1 are `--check`'s existing pass/drift contract and do not
+#: move. 3 is new and is the only code a `--sample` run can produce: a caller
+#: in a pipeline has to be able to tell "no drift" from "not asked" from "asked
+#: and could not answer", and collapsing the third into either of the first two
+#: is doctrine 20's exact failure (2 is left to argparse's usage errors).
+EXIT_OK, EXIT_DRIFT, EXIT_NO_VERDICT = 0, 1, 3
+
+
+# ---------------------------------------------------------------------------
+# cost: the deterministic intermediate, cached
+#
+# 97.7% of a cold run is `RhymeField.field()` over 11,941 distinct end words
+# (see the cost block in the module docstring). None of that work depends on
+# `corpus/song/`: the corpus decides which words get ASKED, and the lexicon,
+# the frequency table and the `Declaration` decide what each one ANSWERS. So
+# the answer is memoized on disk, and the memo is guarded by a fingerprint of
+# every input that can change an answer. This is a cache of a deterministic
+# intermediate, not a shortcut through the measurement -- the alternative
+# moves (score fewer items, widen a tolerance, move a threshold) all change
+# what the check MEANS and none of them are taken here.
+# ---------------------------------------------------------------------------
+
+CACHE_VERSION = 1
+DEFAULT_CACHE = os.path.join(
+    os.environ.get("XDG_CACHE_HOME",
+                   os.path.join(os.path.expanduser("~"), ".cache")),
+    "lyric-harness", "song_predictability_v%d.tsv" % CACHE_VERSION)
+
+
+def _sha256(*chunks):
+    h = hashlib.sha256()
+    for c in chunks:
+        h.update(c if isinstance(c, bytes) else c.encode("utf-8"))
+        h.update(b"\0")
+    return h.hexdigest()
+
+
+def comparator_fingerprint():
+    """Everything that can change what `predictability_frac` answers.
+
+    Deliberately OVER-inclusive on the two comparator modules: a whole-file
+    hash of `lyric_harness.py` and `quality/features.py` means editing a
+    comment in either throws away a 2.4-CPU-hour cache. That is the correct
+    direction to be wrong in -- a stale hit is a wrong number reported as a
+    measurement, and this repo has already been bitten by a rate that was a
+    coordinate of a comparator that had moved underneath it (CLAUDE.md, Test
+    discipline, on the Whitman figures). Recomputing costs time; trusting a
+    moved comparator costs the result.
+
+    THIS file is included only by the three functions that define the
+    QUESTION -- `predictability_frac`, its 0.90 cutoff, and `_couplet_pairs`
+    -- and not as a whole file, because the rest of it is reporting: an edit
+    to a print statement in section 4 cannot change what an item scores, and
+    invalidating on one would make the cache useless in a file under active
+    edit, which is doctrine 48's failure mode wearing a different hat.
+    """
+    parts = []
+    for p in (lyric_harness.__file__, quality.features.__file__,
+              lyric_harness.CMUDICT_PATH, lyric_harness.FREQ_PATH):
+        try:
+            with open(p, "rb") as fh:
+                parts.append(os.path.basename(p) + ":"
+                             + hashlib.sha256(fh.read()).hexdigest())
+        except OSError:
+            # A missing input is a real state (no cmudict yet) and it must
+            # hash DIFFERENTLY from a present one, not crash the fingerprint.
+            parts.append("ABSENT:" + os.path.basename(p))
+    parts.append(repr(lyric_harness.Declaration()))
+    parts.append(inspect.getsource(predictability_frac))
+    parts.append(inspect.getsource(_couplet_pairs))
+    return _sha256(*parts)
+
+
+def item_key(body):
+    """A cache key for one item: the exact sung lines, nothing else."""
+    return _sha256("\n".join(body))[:32]
+
+
+class PredictabilityCache:
+    """Persistent memo for `predictability_frac`, fingerprint-guarded.
+
+    Every run PRINTS what it did with this file (path, fingerprint, hits,
+    misses, and whether an existing file was discarded as stale). A run that
+    silently read a cache would be a number whose provenance lives in
+    somebody's home directory, which is the shape of defect this whole script
+    exists to remove (doctrine 58).
+    """
+
+    def __init__(self, path=DEFAULT_CACHE, enabled=True, flush_every=200):
+        self.path, self.enabled, self.flush_every = path, enabled, flush_every
+        self.entries, self.fp = {}, None
+        self.hits = self.misses = self.pending = 0
+        self.status = "disabled"
+
+    def open(self):
+        self.fp = comparator_fingerprint()
+        if not self.enabled:
+            self.status = "disabled (--no-cache)"
+            return self
+        if not os.path.exists(self.path):
+            self.status = "new (no file yet)"
+            return self
+        try:
+            with open(self.path, encoding="utf-8") as fh:
+                head = {}
+                for line in fh:
+                    if line.startswith("#"):
+                        k, _, v = line[1:].rstrip("\n").partition("\t")
+                        head[k] = v
+                        continue
+                    k, _, v = line.rstrip("\n").partition("\t")
+                    if k and v:
+                        self.entries[k] = float(v)
+                if head.get("version") != str(CACHE_VERSION):
+                    self.entries, self.status = {}, (
+                        "DISCARDED: version %s, this build writes %d"
+                        % (head.get("version"), CACHE_VERSION))
+                elif head.get("fingerprint") != self.fp:
+                    self.entries, self.status = {}, (
+                        "DISCARDED: comparator fingerprint moved (file %s, "
+                        "now %s) -- recomputing from scratch"
+                        % ((head.get("fingerprint") or "?")[:12], self.fp[:12]))
+                else:
+                    self.status = ("read %d entries, written %s"
+                                   % (len(self.entries),
+                                      head.get("written", "?")))
+        except (OSError, ValueError) as e:
+            self.entries, self.status = {}, "DISCARDED: unreadable (%s)" % e
+        return self
+
+    def get(self, body):
+        if not self.enabled:
+            return None
+        v = self.entries.get(item_key(body))
+        if v is None:
+            self.misses += 1
+        else:
+            self.hits += 1
+        return v
+
+    def put(self, body, value):
+        if not self.enabled:
+            return
+        self.entries[item_key(body)] = value
+        self.pending += 1
+        if self.pending >= self.flush_every:
+            self.flush()
+
+    def flush(self):
+        """Rewrite atomically. Called every `flush_every` puts so that an
+        INTERRUPTED cold run keeps its progress: the expensive half of this
+        script is resumable, which is what makes 2.4 CPU-hours payable in
+        chunks by someone who does not have 2.4 CPU-hours at once."""
+        if not self.enabled or not self.pending:
+            return
+        d = os.path.dirname(self.path)
+        if d:
+            os.makedirs(d, exist_ok=True)
+        tmp = self.path + ".tmp%d" % os.getpid()
+        with open(tmp, "w", encoding="utf-8") as fh:
+            fh.write("#version\t%d\n" % CACHE_VERSION)
+            fh.write("#fingerprint\t%s\n" % self.fp)
+            fh.write("#written\t%s\n"
+                     % datetime.datetime.now().replace(microsecond=0).isoformat())
+            for k in sorted(self.entries):
+                fh.write("%s\t%r\n" % (k, self.entries[k]))
+        os.replace(tmp, self.path)
+        self.pending = 0
+
+    def report(self):
+        print("CACHE  %s\n       fingerprint %s | %s | hits %d, misses %d"
+              % (self.path if self.enabled else "(off)", (self.fp or "?")[:12],
+                 self.status, self.hits, self.misses))
+
+
+class Scorer:
+    """`predictability_frac` with the cache in front of it, and a LAZY
+    `QualityFeatures`.
+
+    Lazy on purpose: building one costs ~15s and a ~20k-entry rhyme index, and
+    a fully warm run never needs it at all. A cache hit is bit-identical to
+    the miss it replaces -- same function, same arguments -- and
+    `verify_cache()` re-derives a random subset the slow way rather than
+    leaving that as an assertion in a comment (doctrine 48).
+    """
+
+    def __init__(self, cache, qf=None):
+        self.cache, self._qf = cache, qf
+
+    @property
+    def qf(self):
+        if self._qf is None:
+            self._qf = QualityFeatures()
+        return self._qf
+
+    def frac(self, body):
+        hit = self.cache.get(body)
+        if hit is not None:
+            return hit
+        v = predictability_frac(self.qf, body)
+        self.cache.put(body, v)
+        return v
+
+
+def verify_cache(scorer, bodies, n, seed=SAMPLE_SEED):
+    """Re-derive `n` cached items the expensive way; print any disagreement.
+
+    -> (checked, disagreements). Cheap to run and the only thing that turns
+    "a hit is identical by construction" from a claim into a measurement.
+    """
+    # read `entries` directly, NOT through .get(), so verification does not
+    # pollute the hit/miss counts the run reports for its real lookups
+    have = [b for b in bodies if item_key(b) in scorer.cache.entries]
+    if not have:
+        print("VERIFY-CACHE  nothing cached to verify")
+        return 0, 0
+    rnd = random.Random(seed)
+    sel = rnd.sample(have, min(n, len(have)))
+    bad = 0
+    for b in sel:
+        cached = scorer.cache.entries[item_key(b)]
+        fresh = predictability_frac(scorer.qf, b)
+        same = (cached == fresh) or (cached != cached and fresh != fresh)
+        if not same:
+            bad += 1
+            print("   DISAGREES  %s cached %r fresh %r"
+                  % (item_key(b)[:12], cached, fresh))
+    print("VERIFY-CACHE  %d of %d cached items re-derived, %d disagreements"
+          % (len(sel), len(have), bad))
+    return len(sel), bad
+
 
 # ---------------------------------------------------------------------------
 # the population
@@ -129,6 +439,18 @@ def author_of(path):
                 a = l[9:].strip()
     m = re.search(r"\((\d{3,4})\??\s*[-–—]\s*(\d{3,4})", a)
     return a, (int(m.group(1)) if m else None), (int(m.group(2)) if m else None)
+
+
+def n_all_items():
+    """Every `--- TITLE:` item with a non-empty body, counted cheaply.
+
+    A `--sample` run has to report N of WHAT, and the denominator has to come
+    off the corpus rather than out of a docstring that could go stale the same
+    way this file's runtime figure did.
+    """
+    return sum(1 for p in sorted(glob.glob(os.path.join(ROOT, "corpus", "song",
+                                                        "eng_*.txt")))
+               for _, body in items_in(p) if body)
 
 
 def anaphora(lines):
@@ -181,48 +503,73 @@ def predictability_frac(qf, lines, obvious_cutoff=0.90):
     return len(obvious) / len(preds)
 
 
-def population(verbose=True, qf=None, with_predictability=True):
-    """-> [row], one per `--- TITLE:` item in corpus/song/eng_*.txt.
+def population(verbose=True, qf=None, with_predictability=True, scorer=None,
+               sample=None, sample_seed=SAMPLE_SEED):
+    """-> ([row], scorer), one row per `--- TITLE:` item in corpus/song/eng_*.txt.
 
-    `qf` lets a caller share one `QualityFeatures` (and its `RhymeField`
-    index) across a run instead of rebuilding it; `with_predictability=False`
-    skips the expensive fifth feature entirely for callers who only want the
-    original four (RhymeField scoring is ~0.5-0.8s per DISTINCT end word
-    against the ~20k-entry index -- fine for one song, not free at corpus
-    scale, and the other four checks owe nothing to it).
+    `qf`/`scorer` let a caller share one `QualityFeatures` (and its
+    `RhymeField` index, and the on-disk memo) across a run instead of
+    rebuilding it; `with_predictability=False` skips the expensive fifth
+    feature entirely for callers who only want the original four (a COLD
+    `RhymeField` lookup is ~0.69 CPU-s per DISTINCT end word against the
+    ~20k-entry index -- fine for one song, 2.3 CPU-hours at corpus scale, and
+    the other four checks owe nothing to it).
+
+    `sample=N` draws N items at random, BEFORE any of them is scored, which is
+    the only place a sample can save anything. It is a bounded run and it says
+    so everywhere it reports; see the module docstring for what it refuses.
     """
     tag = _tagger()
     tok = QualityFeatures._tokens
-    if with_predictability and qf is None:
-        qf = QualityFeatures()
-    rows = []
+    if scorer is None:
+        scorer = Scorer(PredictabilityCache(enabled=False).open(), qf)
+    elif qf is not None and scorer._qf is None:
+        scorer._qf = qf
     files = sorted(glob.glob(os.path.join(ROOT, "corpus", "song", "eng_*.txt")))
+    raw = []
     for p in files:
         a, born, died = author_of(p)
         base = os.path.basename(p)
         for title, body in items_in(p):
-            if not body:
-                continue
-            per = [tok(l) for l in body]
-            words = [w.lower() for t in per for w in t]
-            if not words:
-                continue
-            flat = [(w.lower(), tg) for t in per for w, tg in tag(t)]
-            rows.append({
-                "file": base, "author": a, "born": born, "died": died,
-                "title": title, "n_lines": len(body), "n_tokens": len(words),
-                "mattr": QualityFeatures._mattr(words),
-                "fwr": (sum(1 for _, tg in flat if tg in FUNCTION_TAGS)
-                        / len(flat)) if flat else float("nan"),
-                "predictability": (predictability_frac(qf, body)
-                                   if with_predictability else float("nan")),
-                "anaphora": anaphora(body), "cv": line_cv(body)})
+            if body:
+                raw.append((base, a, born, died, title, body))
+    n_all = len(raw)
+    if sample is not None and sample < n_all:
+        raw = random.Random(sample_seed).sample(raw, sample)
+    rows = []
+    for base, a, born, died, title, body in raw:
+        per = [tok(l) for l in body]
+        words = [w.lower() for t in per for w in t]
+        if not words:
+            continue
+        flat = [(w.lower(), tg) for t in per for w, tg in tag(t)]
+        rows.append({
+            "file": base, "author": a, "born": born, "died": died,
+            "title": title, "n_lines": len(body), "n_tokens": len(words),
+            "mattr": QualityFeatures._mattr(words),
+            "fwr": (sum(1 for _, tg in flat if tg in FUNCTION_TAGS)
+                    / len(flat)) if flat else float("nan"),
+            "predictability": (scorer.frac(body)
+                               if with_predictability else float("nan")),
+            "anaphora": anaphora(body), "cv": line_cv(body),
+            # kept so --verify-cache can re-derive an item without re-parsing
+            # the corpus; nothing statistical reads it
+            "_body": body})
+    scorer.cache.flush()
     if verbose:
         print("POPULATION  %d files, %d distinct authors, %d items, "
               "%d sung lines"
-              % (len(files), len({r["author"] for r in rows}), len(rows),
+              % (len({r["file"] for r in rows}),
+                 len({r["author"] for r in rows}), len(rows),
                  sum(r["n_lines"] for r in rows)))
-    return rows, qf
+        if sample is not None:
+            print("            SAMPLED %d of %d items at seed %d -- %d of the "
+                  "143 files survive the draw. This is a BOUNDED run: every "
+                  "number below is a statistic of the sample, and section 6 "
+                  "gives no verdict (doctrine 20)."
+                  % (len(rows), n_all, sample_seed,
+                     len({r["file"] for r in rows})))
+    return rows, scorer
 
 
 # ---------------------------------------------------------------------------
@@ -289,7 +636,11 @@ def author_held_out(items, seeds, key="file"):
         h = [r for r in items if r[key] not in cal]
         if len(c) < 50 or len(h) < 50:
             continue
-        runs.append((thresholds(c), fpr(h, thresholds(c))))
+        # thresholds(c) was computed TWICE here (once for the tuple, once
+        # inside the fpr call) for every seed of every split. Identical input,
+        # identical output, half the work thrown away -- no number moves.
+        t = thresholds(c)
+        runs.append((t, fpr(h, t)))
     return runs
 
 
@@ -420,6 +771,17 @@ def report_fpr(rows, lo, hi, seeds):
                       ("title", "item-held out — the WRONG split, priced")):
         runs = author_held_out(items, seeds, key)
         print("   %s, %d seeds, 50%% held out" % (name, len(runs)))
+        if not runs:
+            # Every seed was skipped for having <50 items on one side. That is
+            # a REFUSAL, not an FPR of zero, and it is reachable the moment a
+            # `--sample` run is small enough. Crashing in statistics.median on
+            # an empty list would report the same fact as a traceback.
+            print("      REFUSED: no split left >=50 items on both sides at "
+                  "n=%d over %d authors. Nothing to report here (doctrine 20)."
+                  % (len(items), len({r[key] for r in items})))
+            for f in [c[0] for c in CHECKS] + ["ANY"]:
+                out.setdefault(f, (float("nan"),) * 3)
+            continue
         for f in [c[0] for c in CHECKS] + ["ANY"]:
             v = [r[1][f] for r in runs]
             m, p5, p95 = statistics.median(v), q(v, 0.05), q(v, 0.95)
@@ -446,10 +808,13 @@ def report_fpr(rows, lo, hi, seeds):
              100 * sum(n for _, n in top) / len(items),
              ", ".join("%s %d" % (f.replace("eng_", "").replace(".txt", ""), n)
                        for f, n in top)))
+    # One threshold set per dropped author, read by all five checks. It used
+    # to be recomputed inside the per-check loop, so each author's leave-one-out
+    # was built len(CHECKS) times and four fifths of it discarded. Same numbers.
+    loo = [thresholds([r for r in items if r["file"] != a]) for a in cnt]
     for f, _, _ in CHECKS:
-        jk = [thresholds([r for r in items if r["file"] != a])[f] for a in cnt]
         print("      leave-one-author-out %-9s max |shift| %.4f"
-              % (f, max(abs(v - full[f]) for v in jk)))
+              % (f, max(abs(t[f] - full[f]) for t in loo)))
     ab = {f: q([statistics.median([r[f] for r in items if r["file"] == a])
                 for a in cnt], p) for f, _, p in CHECKS}
     print("      author-weighted alternative (one median per author, n=%d): %s"
@@ -583,7 +948,7 @@ def report_period(rows, lo, hi, draws=2000):
     return slopes
 
 
-def report_examples(rows, lo, hi, full, qf):
+def report_examples(rows, lo, hi, full, scorer):
     print("\n5. THE TWO EXAMPLE SONGS, which are NOT in the calibration set")
     tag = _tagger()
     ex = sorted(glob.glob(os.path.join(ROOT, "examples", "*.txt")))
@@ -597,7 +962,7 @@ def report_examples(rows, lo, hi, full, qf):
         flat = [(w.lower(), tg) for t in per for w, tg in tag(t)]
         v = {"mattr": QualityFeatures._mattr(words),
              "fwr": sum(1 for _, tg in flat if tg in FUNCTION_TAGS) / len(flat),
-             "predictability": predictability_frac(qf, body),
+             "predictability": scorer.frac(body),
              "anaphora": anaphora(body), "cv": line_cv(body)}
         inb = lo <= len(words) <= hi
         print("   %s — %d lines, %d tokens, %s"
@@ -612,25 +977,107 @@ def report_examples(rows, lo, hi, full, qf):
                   % (f, v[f], full[f], "FIRES" if hit else "clear"))
 
 
-def check_shipped(lo, hi, full, fprs, slopes):
-    """Compare what floor.py ships against what the corpus says today."""
+def report_sample_resolution(rows, lo, hi, full, boot=200, seed=SAMPLE_SEED):
+    """What size of drift could a sample of THIS size even see?
+
+    Bootstrap the sampled band items and report each threshold's own 5th-95th
+    spread. Without this a `--sample` run is a pile of numbers next to
+    floor.py's with no way to tell a real move from the draw -- which is the
+    "inconclusive by construction" doctrine 20 refuses, dressed as a table.
+    With it the refusal is quantified: a delta inside this interval is
+    invisible to this run at this N, and one outside it is worth a full run.
+    """
+    items = band(rows, lo, hi)
+    print("\n5s. WHAT THIS SAMPLE COULD RESOLVE (%d bootstrap redraws of the "
+          "%d in-band items, seed %d)" % (boot, len(items), seed))
+    if len(items) < 20:
+        print("    REFUSED: %d in-band items is not enough to bootstrap."
+              % len(items))
+        return {}
+    rnd = random.Random(seed)
+    draws = [thresholds([items[rnd.randrange(len(items))]
+                         for _ in range(len(items))]) for _ in range(boot)]
+    out = {}
+    for f, _, _ in CHECKS:
+        v = [d[f] for d in draws if d[f] == d[f]]
+        out[f] = (q(v, 0.05), q(v, 0.95)) if v else (float("nan"),) * 2
+        print("    %-15s point %.4f  bootstrap 5th-95th %.4f-%.4f  "
+              "half-width %.4f"
+              % (f, full[f], out[f][0], out[f][1], (out[f][1] - out[f][0]) / 2))
+    return out
+
+
+def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None):
+    """Compare what floor.py ships against what the corpus says today.
+
+    `sampled` (a dict describing a `--sample` draw) turns every comparison
+    into a REPORT with no verdict: the deltas are printed, and every one of
+    them is counted as REFUSED rather than passed or failed, because a
+    percentile over a few hundred drawn items is not the statistic floor.py
+    ships. Three counts, always -- asked, answered, refused (doctrine 79).
+    """
     song = [p for p in PROFILES if p.name == "song"]
     print("\n6. WHAT floor.py SHIPS, against what the corpus says today")
+    if sampled:
+        print("   SAMPLED RUN — %d of %d items, seed %d. Every row below is "
+              "reported and NONE is judged; this run cannot pass or fail the "
+              "profile (doctrine 20). Exit %d means exactly that."
+              % (sampled["n"], sampled["of"], sampled["seed"], EXIT_NO_VERDICT))
     if not song:
         print("   FAIL: no `song` profile in quality/floor.py")
-        return 1
+        return EXIT_DRIFT
     p = song[0]
     bad = []
+    counts = {"asked": 0, "answered": 0, "refused": 0}
 
     def cmp(label, shipped, measured, tol):
-        ok = abs(shipped - measured) <= tol
+        counts["asked"] += 1
+        if measured != measured:
+            # NaN is "this run could not measure it", which is a REFUSAL and
+            # not a disagreement with floor.py. Charging it to the drift count
+            # would put a refusal in the numerator (doctrine 79).
+            counts["refused"] += 1
+            print("   %-34s shipped %-10s measured %-10s REFUSED: no "
+                  "decidable value this run"
+                  % (label, "%.4f" % shipped if isinstance(shipped, float)
+                     else shipped, "nan"))
+            return
+        delta = abs(shipped - measured)
+        if sampled:
+            # The interval is the bootstrap spread of the MEASURED statistic,
+            # so the informative question is whether the SHIPPED value sits
+            # outside it -- asking whether the measured value sits inside its
+            # own bootstrap interval is circular and always true.
+            res = (resolution or {}).get(label.replace("threshold ", ""))
+            note = "no verdict (sampled)"
+            if res and res[0] == res[0] and not (res[0] <= shipped <= res[1]):
+                note += " | shipped is OUTSIDE this sample's 5th-95th " \
+                        "%.4f-%.4f (|d| %.4f) — worth a full run" \
+                        % (res[0], res[1], delta)
+            counts["refused"] += 1
+        else:
+            ok = delta <= tol
+            note = "ok" if ok else "DRIFT"
+            counts["answered"] += 1
+            if not ok:
+                bad.append(label)
         print("   %-34s shipped %-10s measured %-10s %s"
               % (label, "%.4f" % shipped if isinstance(shipped, float)
                  else shipped, "%.4f" % measured if isinstance(measured, float)
-                 else measured, "ok" if ok else "DRIFT"))
-        if not ok:
-            bad.append(label)
+                 else measured, note))
 
+    if sampled and (lo, hi) != (p.lo, p.hi):
+        # The band is chosen by a rule with an item-count floor per sub-bin,
+        # so a sample does not merely add noise to it -- it can return a
+        # different band outright, and then every threshold below is a
+        # percentile of a DIFFERENT population from the one floor.py ships.
+        # Those deltas are not small-sample versions of the real ones; they
+        # are answers to another question, and saying so is the point.
+        print("   NOTE: the band rule returned %d-%d on this draw, not the "
+              "shipped %d-%d. Every threshold and FPR below is therefore "
+              "measured over a different population than floor.py's, and the "
+              "deltas are not comparable to a full run's at all."
+              % (lo, hi, p.lo, p.hi))
     cmp("band lo (tokens)", float(p.lo), float(lo), 0)
     cmp("band hi (tokens)", float(p.hi), float(hi), 0)
     for f, _, _ in CHECKS:
@@ -640,6 +1087,8 @@ def check_shipped(lo, hi, full, fprs, slopes):
         # into floor.py). Comparing against a key that does not exist would
         # raise, not report, which is a worse failure mode than skipping.
         if FLOOR_KEY[f] not in p.percentiles:
+            counts["asked"] += 1
+            counts["refused"] += 1
             print("   %-34s NOT YET SHIPPED (measured %.4f below)"
                   % ("threshold %s" % f, full[f]))
             continue
@@ -650,6 +1099,8 @@ def check_shipped(lo, hi, full, fprs, slopes):
     for f in [c[0] for c in CHECKS] + ["ANY"]:
         k = FPR_KEY[f]
         if k not in p.held_out_fpr:
+            counts["asked"] += 1
+            counts["refused"] += 1
             print("   %-34s NOT YET SHIPPED (measured %.2f%% below)"
                   % ("held-out FPR %s (%%)" % k, fprs[f][0]))
             continue
@@ -662,42 +1113,172 @@ def check_shipped(lo, hi, full, fprs, slopes):
     rho, pp = slopes["anaphora"]
     cmp("anaphora period slope rho", 0.275, rho, 0.01)
     cmp("anaphora period slope p_perm", 0.0042, pp, 0.004)
+    # The two below are STRUCTURAL, not statistical: they read floor.py alone
+    # and owe nothing to how many items were scored, so a sampled run judges
+    # them exactly as a full one does. They are the whole of what `--sample`
+    # can actually decide, and they are counted as answered in both modes.
     quoted = "+%.3f" % 0.275
+    counts["asked"] += 1
+    counts["answered"] += 1
     if quoted not in p.note:
         bad.append("the profile note no longer quotes rho %s" % quoted)
         print("   profile note quotes rho             DRIFT")
+    counts["asked"] += 1
+    counts["answered"] += 1
     if p.measured_auc:
         bad.append("measured_auc is not empty on a profile with no negative "
                    "class")
         print("   measured_auc                       DRIFT: %s" %
               (p.measured_auc,))
+    print("\n   asked %d, answered %d, refused %d (doctrine 79)"
+          % (counts["asked"], counts["answered"], counts["refused"]))
     if bad:
-        print("\n   %d value(s) DRIFTED: %s" % (len(bad), ", ".join(bad)))
+        print("   %d value(s) DRIFTED: %s" % (len(bad), ", ".join(bad)))
         print("   `corpus/song/` is volatile by design, so a drift here is a "
               "corpus change, not automatically a defect. Argue it and "
               "repin; do not tune to it (doctrine 58).")
-        return 1
-    print("\n   every shipped constant reproduces.")
-    return 0
+        return EXIT_DRIFT
+    if sampled:
+        print("   NO VERDICT on the %d statistical constants: this run scored "
+              "%d of %d items and a percentile over a draw is not the "
+              "statistic floor.py ships. The %d structural constants above "
+              "ARE decided and reproduce. Run without --sample to decide the "
+              "rest." % (counts["refused"], sampled["n"], sampled["of"],
+                         counts["answered"]))
+        return EXIT_NO_VERDICT
+    print("   every shipped constant reproduces.")
+    return EXIT_OK
+
+
+class Phases:
+    """Wall AND CPU per phase, printed at the end of every run.
+
+    The reason this file's cost claim was wrong for a day and a half is that
+    nothing measured it: the figure lived in a docstring and the docstring was
+    the only place anyone could read it. A run that prints its own cost cannot
+    develop that defect again -- and wall and CPU are reported SEPARATELY
+    because they disagreed by 4.7x on the machine this was calibrated on, and
+    quoting either alone would mislead somebody with different hardware.
+    """
+
+    def __init__(self):
+        self.rows, self._t = [], None
+
+    def __call__(self, name):
+        self.stop()
+        self._t = (name, time.perf_counter(), time.process_time())
+        return self
+
+    def stop(self):
+        if self._t:
+            n, w, c = self._t
+            self.rows.append((n, time.perf_counter() - w,
+                              time.process_time() - c))
+            self._t = None
+
+    def report(self):
+        self.stop()
+        print("\nPHASE COST  (wall / cpu seconds; they are not the same "
+              "number and neither is the other's estimate)")
+        for n, w, c in self.rows:
+            print("   %-28s %8.1f  %8.1f" % (n, w, c))
+        print("   %-28s %8.1f  %8.1f"
+              % ("TOTAL", sum(r[1] for r in self.rows),
+                 sum(r[2] for r in self.rows)))
 
 
 def main():
-    ap = argparse.ArgumentParser()
+    ap = argparse.ArgumentParser(
+        description="Re-derive quality/floor.py's `song` profile from "
+                    "corpus/song/. A cold run is ~2.4 CPU-hours (measured "
+                    "2026-08-13); a run whose cache fingerprint still matches "
+                    "is ~110 CPU-s. See the module docstring.")
     ap.add_argument("--check", action="store_true",
                     help="numbers only; exit 1 if floor.py has drifted")
     ap.add_argument("--seeds", type=int, default=200)
     ap.add_argument("--draws", type=int, default=2000)
+    ap.add_argument("--sample", type=int, default=None, metavar="N",
+                    help="score N randomly drawn items instead of all 4,930. "
+                         "Bounded run: reports everything, DECIDES nothing "
+                         "statistical, always exits %d." % EXIT_NO_VERDICT)
+    ap.add_argument("--sample-seed", type=int, default=SAMPLE_SEED,
+                    help="declared seed for --sample (default %d)"
+                         % SAMPLE_SEED)
+    ap.add_argument("--no-cache", action="store_true",
+                    help="recompute every item; do not read or write the "
+                         "on-disk predictability memo")
+    ap.add_argument("--cache-path", default=DEFAULT_CACHE,
+                    help="where the memo lives (default %s)" % DEFAULT_CACHE)
+    ap.add_argument("--verify-cache", type=int, default=0, metavar="N",
+                    help="re-derive N cached items the slow way and print any "
+                         "disagreement before reporting anything else")
     a = ap.parse_args()
-    rows, qf = population()
-    lo, hi = pick_band(rows, verbose=not a.check)
+    if a.sample is not None and a.sample < 1:
+        ap.error("--sample takes a positive item count")
+
+    ph = Phases()
+    cache = PredictabilityCache(a.cache_path, enabled=not a.no_cache).open()
+    cache.report()
+    scorer = Scorer(cache)
+
+    ph("population")
+    rows, scorer = population(scorer=scorer, sample=a.sample,
+                              sample_seed=a.sample_seed)
+    cache.flush()
+    print("CACHE  after population: hits %d, misses %d%s"
+          % (cache.hits, cache.misses,
+             "" if cache.enabled else " (disabled)"))
+    if a.verify_cache:
+        ph("verify_cache")
+        _, disagreements = verify_cache(scorer, [r["_body"] for r in rows],
+                                        a.verify_cache)
+        if disagreements:
+            # A cache that disagrees with the function it memoizes is worse
+            # than no cache: it reports a stale number as a measurement. Stop
+            # rather than continue on values now known to be unreliable.
+            print("REFUSED: the memo disagrees with a fresh computation. "
+                  "Delete %s and re-run, and treat the fingerprint rule as "
+                  "the defect." % a.cache_path)
+            sys.exit(EXIT_DRIFT)
+    sampled = ({"n": len(rows), "of": n_all_items(), "seed": a.sample_seed}
+               if a.sample is not None else None)
+
+    ph("pick_band")
+    try:
+        lo, hi = pick_band(rows, verbose=not a.check)
+    except NoBandSatisfiesTheRule as e:
+        ph.stop()
+        print("\nREFUSED: %s" % e)
+        if sampled:
+            print("This is the expected outcome for a small --sample: the "
+                  "band rule needs >=%d items in every 50-token sub-bin, and "
+                  "a draw of %d cannot supply them. It is a refusal, not a "
+                  "finding about the corpus (doctrine 20)."
+                  % (MIN_BIN, len(rows)))
+        ph.report()
+        sys.exit(EXIT_NO_VERDICT if sampled else EXIT_DRIFT)
+
+    ph("report_fpr")
     full, fprs = report_fpr(rows, lo, hi, a.seeds)
-    slopes = {}
     if not a.check:
+        ph("report_tolerance")
         report_tolerance(rows, lo, hi, a.seeds)
+    ph("report_period")
     slopes = report_period(rows, lo, hi, a.draws)
     if not a.check:
-        report_examples(rows, lo, hi, full, qf)
-    rc = check_shipped(lo, hi, full, fprs, slopes)
+        ph("report_examples")
+        report_examples(rows, lo, hi, full, scorer)
+        cache.flush()
+    resolution = None
+    if sampled:
+        ph("sample_resolution")
+        resolution = report_sample_resolution(rows, lo, hi, full)
+    ph("check_shipped")
+    rc = check_shipped(lo, hi, full, fprs, slopes, sampled, resolution)
+    ph.stop()
+    cache.flush()
+    cache.report()
+    ph.report()
     sys.exit(rc)
 
 

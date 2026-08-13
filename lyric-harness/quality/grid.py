@@ -1340,22 +1340,55 @@ def hook_findings(song, hooks=(), title=None):
                 f"hook is defined by RETURN; one occurrence is a phrase."))
             continue
         fns = {o.function for o in occ}
-        if fns == {UNDECLARED}:
+        # UNDECLARED IS NOT A FUNCTION, AND IT USED TO BE COUNTED AS ONE.
+        # `len(fns - {UNDECLARED}) == 1` is true of a hook that lands in the
+        # chorus twice AND in a section nobody declared -- a hook that has
+        # LEFT the chorus, to somewhere the harness cannot name -- and
+        # HOOK_CONFINED said of it "never leaves one function". Its own
+        # evidence line proved the branch was written for a set of one:
+        # `sorted(fns)[0]` printed `''`, the UNDECLARED marker, which sorts
+        # ahead of every real function name, so the finding named no function
+        # at all. Doctrine 28: "confined" and "cannot tell where it went" are
+        # different answers and the difference has to be mechanical; doctrine
+        # 79: the second one is a REFUSAL and belongs in that count, never in
+        # a finding.
+        declared = fns - {UNDECLARED}
+        if not declared:
             refusals.append(Refusal(
                 "HOOK_PLACEMENT_UNDECLARED",
                 "the hook recurs but no section it lands in declares a "
                 "function",
                 f"{h.text!r} at bars {_bars_of(occ)}; 'where does the "
                 f"hook live' cannot be answered without Section.function."))
-        elif len(fns - {UNDECLARED}) == 1 and len(occ) > 2:
-            findings.append(GridFinding(
-                "HOOK_CONFINED",
-                f"the hook returns {len(occ)} times and never leaves one "
-                f"function",
-                f"{h.text!r} occurs only in {sorted(fns)[0]!r} sections, at "
-                f"bars {_bars_of(occ)}. A hook that leaks into a verse "
-                f"or a bridge is placed; one that only ever appears where it "
-                f"is expected is a section, not a hook."))
+        elif len(declared) == 1 and len(occ) > 2:
+            # TWO OR MORE declared functions is not this branch: the hook is
+            # then ANSWERED to have left one, and an undeclared occurrence
+            # beside them changes nothing about that answer.
+            undeclared_at = [o for o in occ if o.function == UNDECLARED]
+            if undeclared_at:
+                refusals.append(Refusal(
+                    "HOOK_PLACEMENT_PARTLY_UNDECLARED",
+                    f"the hook recurs {len(occ)} times and "
+                    f"{len(undeclared_at)} of those land in a section that "
+                    f"declares no function",
+                    f"{h.text!r} in {sorted(declared)[0]!r} sections and in "
+                    f"{sorted({o.section for o in undeclared_at})} "
+                    f"(UNDECLARED), at bars {_bars_of(occ)}. Whether it stays "
+                    f"in one function is CANNOT TELL: the undeclared "
+                    f"section(s) may be the leak that answers it. Declare "
+                    f"their function, or accept the refusal -- the harness "
+                    f"does not read {sorted({o.section for o in undeclared_at})} "
+                    f"as a function name."))
+            else:
+                findings.append(GridFinding(
+                    "HOOK_CONFINED",
+                    f"the hook returns {len(occ)} times and never leaves one "
+                    f"function",
+                    f"{h.text!r} occurs only in {sorted(declared)[0]!r} "
+                    f"sections, at bars {_bars_of(occ)}. A hook that leaks "
+                    f"into a verse or a bridge is placed; one that only ever "
+                    f"appears where it is expected is a section, not a "
+                    f"hook."))
 
     if not title:
         refusals.append(Refusal(
@@ -1402,8 +1435,21 @@ class FormConvention:
     name: str = "popular song, Anglo-American, 20th century"
     #: functions whose instances are expected to hold one length and one slot
     fixed_return: tuple = ("chorus", "postchorus", "refrain", "burden", "tag")
-    #: functions expected to occur at most once
-    single_use: tuple = ("intro", "outro", "bridge", "coda", "false_ending")
+    #: functions expected to occur at most once.
+    #:
+    #: `reprise` WAS MISSING FROM THIS TUPLE and its own FunctionSpec has
+    #: declared `recurrence="once"` since the vocabulary was written -- two
+    #: spellings of one expectation, drifted apart by exactly one member. The
+    #: cost was silence at BOTH gates: `song_function_report` asks a recurred
+    #: single-use function only if it is named here, and SINGLE_USE_RECURRED
+    #: fires only if it is named here, so a song declaring two reprises was
+    #: neither asked nor answered. The regression that pinned this tuple
+    #: checked one direction only -- every member has recurrence "once" -- and
+    #: the converse, which is the one that was false, went unpinned
+    #: (doctrine 48: a principle that lives only in prose gets followed
+    #: exactly as often as someone remembers it).
+    single_use: tuple = ("intro", "outro", "bridge", "coda", "false_ending",
+                         "reprise")
     #: channels a bridge is expected to differ from the verses on
     contrast_channels: tuple = ("meter", "bars", "line_count",
                                 "line_duration", "downbeat_rate",
@@ -1660,10 +1706,40 @@ def song_function_report(song, hooks=(), rhyme_key=None,
 
     Three counts, always, and they are not interchangeable: questions ASKED,
     questions ANSWERED, questions REFUSED (doctrine 79).
+
+    ALL THREE COUNT QUESTIONS. `answered` used to be `asked - len(refusals)`,
+    which counts REFUSAL RECORDS on one side of a subtraction and QUESTIONS on
+    the other -- and one question can record more than one refusal. A hook
+    that recurs into undeclared sections in a song with no declared title
+    records two (HOOK_PLACEMENT_UNDECLARED and TITLE_UNDECLARED) for the one
+    question `hook_findings` is, so a three-question report came back
+    `asked 3, answered -1, refused 4`: a negative count of answers, and the
+    arithmetic lost exactly one question per extra record. The refusal LIST is
+    returned in full and unchanged, and `refusal_records` states its length,
+    so nothing is hidden by counting the questions instead -- doctrine 79 asks
+    for three counts of the same kind of thing, which is what a mandated /
+    judged / refused triple is.
+
+    A question that records ANY refusal counts as refused, including one that
+    also produced a finding (`bridge_contrast` answers six channels and
+    refuses `rhyme_inventory` when no phonology is declared). That is the
+    conservative direction: it never reports a partly-refused question as
+    fully answered, and doctrine 20 is the reason the other direction is
+    unavailable -- a pass earned by not answering is the failure mode here.
     """
-    findings, refusals, asked = [], [], 0
+    findings, refusals = [], []
+    asked = refused_questions = 0
     prof = function_profile(song)
     detail = {}
+
+    def ask_one(f, r):
+        """Fold ONE question's answer in, and count it once on each axis."""
+        nonlocal asked, refused_questions
+        asked += 1
+        findings.extend(f)
+        refusals.extend(r)
+        if r:
+            refused_questions += 1
     # `chorus` is ALWAYS asked, declared or not: a song with no declared
     # chorus is a fact about the song, and not asking is how a report comes
     # back clean because nobody said anything (doctrine 20).
@@ -1681,26 +1757,51 @@ def song_function_report(song, hooks=(), rhyme_key=None,
     # well-formed song silent: a single intro is not a question, so asking
     # would only spend a SINGLE_INSTANCE refusal on every song that has one.
     recurred = Counter(s.function for s in song.sections if s.declared)
-    ask |= {fn for fn in convention.single_use if recurred.get(fn, 0) > 1}
+    # "EXPECTED ONCE" HAS TWO SPELLINGS and the gate used to read only one of
+    # them. `convention.single_use` is a tuple a caller may override; the
+    # vocabulary's own `FunctionSpec.recurrence == "once"` is the same
+    # expectation stated per function, and `reprise` was in the second and not
+    # the first, so a song declaring two reprises was never asked (measured:
+    # of the 21 declared functions, 10 were reachable through the `returns`
+    # branch and 5 more through this one; `reprise` was the sixth "once"
+    # function and reached neither). Reading the UNION means a function added
+    # to SECTION_FUNCTIONS with recurrence "once" is askable the day it is
+    # added rather than the day someone remembers this tuple (doctrine 48).
+    # The two agree exactly under POPULAR_SONG and `quality/test_grid.py` §16
+    # pins that equality in BOTH directions -- pinning one direction only is
+    # how `reprise` got through.
+    #
+    # The FIVE "open" functions -- breakdown, build, vamp, interlude, solo --
+    # are DELIBERATELY not asked, and this is the line that decides it. "Open"
+    # is the vocabulary declaring that the convention expects nothing about
+    # how often they occur, so `return_findings` on a second vamp could only
+    # measure drift against an expectation nobody holds: a vamp is "a
+    # repeating figure held open" and reporting that two of them are different
+    # lengths is noise on a correct song, which doctrine 7 forbids a floor
+    # from manufacturing. If a genre does expect one of them to hold a length,
+    # that is a FormConvention with it in `single_use`, declared -- not a
+    # default.
+    expects_once = set(convention.single_use) | {
+        fn for fn in recurred if SECTION_FUNCTIONS[fn].recurrence == "once"}
+    ask |= {fn for fn in expects_once if recurred.get(fn, 0) > 1}
     for fn in sorted(ask):
-        asked += 1
         f, r, rets = return_findings(song, fn, convention, rhyme_key, decl)
-        findings += f
-        refusals += r
+        ask_one(f, r)
         detail[fn] = rets
-    asked += 1
     f, r, ch = bridge_contrast(song, convention=convention,
                                rhyme_key=rhyme_key)
-    findings += f
-    refusals += r
-    asked += 1
+    ask_one(f, r)
     f, r = hook_findings(song, hooks)
-    findings += f
-    refusals += r
+    ask_one(f, r)
     return {"profile": prof, "findings": findings, "refusals": refusals,
             "returns": detail, "contrast": ch,
-            "asked": asked, "answered": asked - len(refusals),
-            "refused": len(refusals), "convention": convention.name}
+            "asked": asked, "answered": asked - refused_questions,
+            "refused": refused_questions,
+            #: how many refusal RECORDS the refused questions produced. Never
+            #: the same axis as the three counts above; disclosed rather than
+            #: summed into them (doctrine 79).
+            "refusal_records": len(refusals),
+            "convention": convention.name}
 
 
 # ---------------------------------------------------------------------------

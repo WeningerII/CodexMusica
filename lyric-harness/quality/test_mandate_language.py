@@ -23,6 +23,11 @@ So the suite is organised around FIRING, not around passing:
                                                 exact failure of the song-wide
                                                 `repeat_licence="refrain"`
   §6  collisions outside the returns SURVIVE
+  §11 the READ PATH — the same question asked of the mandate's own
+                                                coordinates: which of them
+                                                does a real grading run
+                                                actually reach, and which are
+                                                declared and never set
 
 `python3 quality/test_mandate_language.py`
 """
@@ -390,6 +395,125 @@ def test_the_song():
        "-- L4 must answer L3 and L27, because L28 IS L4")
 
 
+# ---------------------------------------------------------------------------
+# §11  THE READ PATH — the two coordinates an audit called declared-but-unread
+#
+# A `Mandate` coordinate can be broken in two completely different ways and an
+# import-level audit cannot tell them apart: NOBODY CALLS THE READER, or the
+# reader is called on every pair and the FIELD IT READS is never set. Both of
+# this module's flagged coordinates turned out to be the second kind, and each
+# needs a different remedy, so the suite pins the mechanism rather than the
+# verdict (doctrine 48: a principle that lives only in prose gets followed
+# exactly as often as someone remembers it).
+# ---------------------------------------------------------------------------
+
+def test_read_path():
+    print("\n§11  the read path — what actually reaches these coordinates")
+
+    m = S.mandate(SONG_SCHEME, returns=SONG_RETURN)
+    seen = []
+    orig = S.Mandate.in_scope
+    try:
+        S.Mandate.in_scope = lambda self, line: (seen.append(line)
+                                                 or orig(self, line))
+        m.requirement(13, 33)
+    finally:
+        S.Mandate.in_scope = orig
+    ok("requirement() READS in_scope, once per line, BEFORE anything else",
+       seen == [13, 33],
+       f"{seen} -- so `in_scope` is not unread: `quality/revise.py`'s "
+       f"`grade()` and `inspect()` both call `requirement()` per pair")
+    ok("and UNDECLARED is reachable through NOTHING ELSE — scope is its only "
+       "source",
+       S.mandate("ABAB").requirement(1, 2) is not S.UNDECLARED
+       and S.mandate("ABAB").scope == (),
+       "-- which is why a mandate with no scope can never return it, and "
+       "every production mandate has no scope")
+
+    print("\n    a scope that leaves out a line the mandate's OWN groups name "
+          "is a contradiction, and it used to be built silently")
+    ok("a scope excluding a MANDATED line REFUSES",
+       raises(lambda: S.mandate([[1, 3], [2, 4]], n_lines=4, scope=[1, 2]),
+              "outside its declared scope"),
+       "-- pairs() mandated L1/L3 while requirement(1,3) called it "
+       "UNDECLARED, and grade() reads BOTH")
+    ok("a scope excluding a RETURNED line REFUSES too",
+       raises(lambda: S.mandate("ABAB", returns="1,3", scope=[1, 2, 4]),
+              "outside its declared scope"))
+    ok("re-opening a mandate to ADD a scope is checked the same way",
+       raises(lambda: S.mandate(S.mandate("ABAB"), scope=[1, 2]),
+              "outside its declared scope"),
+       "-- that path took `scope` on trust, not even the 1..n bound")
+    ok("and the honest scope — one that covers every line the mandate names "
+       "— is unaffected",
+       S.mandate([[1, 3], [2, 4]], n_lines=4, scope=[1, 2, 3, 4]).scope
+       == (1, 2, 3, 4)
+       and len(S.mandate([[13, 17], [14, 16], [15, 19], [18, 20]],
+                         n_lines=41, returns=SONG_RETURN,
+                         scope=list(range(13, 21)) + list(range(33, 41)))
+               .scope) == 16)
+
+    print("\n    repeat_is_violation — the METHOD is documented, the FIELD is "
+          "what the grader reads, and nothing pinned them together")
+    v = S.mandate(S.REFRAIN_FORMS["villanelle"])
+    allpairs = [(i, j) for i in range(1, v.n_lines + 1)
+                for j in range(i + 1, v.n_lines + 1)]
+    ok("Mandate.repeat_is_violation(i,j) IS requirement(i,j)."
+       "repeat_is_violation at every pair of a real villanelle",
+       all(v.repeat_is_violation(i, j)
+           is v.requirement(i, j).repeat_is_violation for i, j in allpairs),
+       f"{len(allpairs)} pairs -- `quality/revise.py` calls "
+       f"`requirement(i, j).decided('repeat_is_violation')` and never the "
+       f"method, so changing the method alone would leave §2/§9 green and "
+       f"change nothing about a real grading run")
+    plain = S.mandate("AABB")
+    ok("and at every pair of a plain letter scheme with no returns",
+       all(plain.repeat_is_violation(i, j)
+           is plain.requirement(i, j).repeat_is_violation
+           for i in range(1, 5) for j in range(i + 1, 5)))
+
+    print("\n    the exact (is_declared, value) tuple `grade()` consumes")
+    ok("REQUIRE_RETURN -> (True, False): the refrain is REQUIRED to repeat, "
+       "at all 12 villanelle return pairs",
+       len(v.return_pairs()) == 12
+       and all(v.requirement(i, j).decided("repeat_is_violation")
+               == (True, False) for i, j, _ in v.return_pairs()),
+       "-- grade() skips these, which is why a correct villanelle scores 0 "
+       "violations")
+    ok("REQUIRE_RHYME -> (True, True): an ordinary repeat in the same rhyme "
+       "class is still charged",
+       v.requirement(1, 4).decided("repeat_is_violation") == (True, True),
+       "-- L1 and L4 are both class 'a' and are NOT the same line")
+    ok("FREE and UNDECLARED -> (False, None): these two, and only these two, "
+       "fall through to the song-wide repeat_licence switch",
+       S.FREE.decided("repeat_is_violation") == (False, None)
+       and S.UNDECLARED.decided("repeat_is_violation") == (False, None)
+       and plain.requirement(1, 3).decided("repeat_is_violation")
+       == (False, None))
+
+    print("\n    FINDING — the fallback is NOT what its own comment says, and "
+          "the difference is measurable here")
+    ok("a plain letter scheme is NOT 'UNDECLARED for this question on every "
+       "pair': its MANDATED pairs are declared REQUIRE_RHYME",
+       plain.returns == ()
+       and plain.requirement(1, 2) is S.REQUIRE_RHYME
+       and plain.requirement(1, 2).decided("repeat_is_violation")
+       == (True, True),
+       "-- `quality/revise.py` grade() L480-483 claims otherwise. Because "
+       "`declared` is True there, `is_violation if declared else not "
+       "default_licensed` never reads the switch, so repeat_licence="
+       "'refrain' is INERT on every letter scheme and Cover-without-returns. "
+       "Only the DEFAULT 'unlicensed' reproduces the pre-fix behaviour")
+    ok("a letter scheme cannot state the question at all, which is why "
+       "REQUIRE_RHYME's True is this module's DEFAULT and not the writer's "
+       "declaration",
+       S.REQUIRE_RHYME.repeat_is_violation is True
+       and "doctrine 3" in S.REQUIRE_RHYME.gloss,
+       "-- doctrine 3 inverts BY CONTEXT and a letter has two states for a "
+       "question with five answers; the fix belongs at the call site, not "
+       "in this value")
+
+
 def main():
     print(__doc__.strip().splitlines()[0])
     test_unknown()
@@ -402,6 +526,7 @@ def main():
     test_scope()
     test_a1_reaches_the_loop()
     test_the_song()
+    test_read_path()
     print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:
         for f in FAIL:

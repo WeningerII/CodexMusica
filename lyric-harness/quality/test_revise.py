@@ -68,6 +68,40 @@ either half of this fix); `inspect()` now also emits
 diff — the SAME mechanism test 25 reused for meter — can see a revision
 that breaks a declared return, which it could not see at all before.
 
+Tests 30-32 are THREE FINDING CODES NOTHING TESTED, added 2026-08-13 after a
+repo-wide sweep found no test in any file reaching `RETURN_OUT_OF_RANGE`,
+`MANDATE_EXCUSED_BY_OVERLAP` or `SCHEME_UNREADABLE`. All three fire, so none
+is `grid.py`'s `SINGLE_USE_RECURRED` — a guard no input could satisfy. But an
+untested code is doctrine 48's shape either way: a check nobody has ever seen
+run is a principle living in prose, followed exactly as often as someone
+remembers it. Two of the three were saying something other than what they
+check, and that is what running them found:
+
+  - 30  `RETURN_OUT_OF_RANGE`'s message names a LENGTH MISMATCH between
+        mandate and draft — a condition `Reviser.mandate` refuses several
+        frames earlier, so `inspect()` can never reach the code that way.
+        What does reach it is a hand-built `Mandate` carrying a `Return`
+        outside its own `1..n_lines`, the one input `_normalise_returns`
+        exists to raise on. It also shipped with EMPTY evidence, because
+        `OUT_OF_RANGE` is not a variation kind and `_KIND_GLOSS.get` returned
+        `""` in silence.
+  - 31  `MANDATE_EXCUSED_BY_OVERLAP` implemented a DIFFERENT condition from
+        the one every statement of the disjunctive reading in this repo makes.
+        The reading is per LINE ("answer at least one of YOUR groups"); the
+        excusal fired when EITHER endpoint of the failing pair had another
+        satisfied group, so a line in exactly ONE group — no other group to
+        answer, no "rest" to be excused from — had its ONLY mandated
+        obligation dropped because its PARTNER happened to be a pivot. That
+        line then answered nothing at all and no flag said so, which is
+        doctrine 20's vacuous pass at the line, inside the module written to
+        close it. Second half of the same defect: `satisfied[k]`, one boolean
+        per GROUP, cannot state a per-line fact — a pivot that answers every
+        member of a group has answered it even when two OTHER members of that
+        group fail each other.
+  - 32  `SCHEME_UNREADABLE` was correct and simply untested: an unreadable end
+        word makes a mandated rhyme UNKNOWN rather than absent, the pair is
+        refused rather than violated, and the three counts stay three.
+
 Run: python3 quality/test_revise.py
 """
 
@@ -409,11 +443,23 @@ def test_an_overlapping_cover_is_gradeable():
     dis = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
                   rdecl=ReviseDeclaration(overlap_rule="disjunctive"))
     dis._engine = R.engine
-    rep2 = dis.grade(CLICHE, m)
+    # REPOINTED 2026-08-13 with the excusal fix in test 31: this check's claim
+    # ("reachable, and weaker") is unchanged, but the cover it was made on —
+    # [[1,3],[2,3]] — no longer excuses anything, and correctly so. L2 is in
+    # exactly ONE group there, so under "answering one of your groups excuses
+    # the rest" it has no other group to answer and no rest to be excused
+    # from; the old rule excused the pair anyway, on the strength of L3's
+    # success. The cover below adds C={2,4} so BOTH endpoints of the failing
+    # pair are pivots that answer another of their own groups, which is the
+    # shape the disjunctive reading actually names.
+    dm = SC.mandate(SC.Cover(n_lines=4, groups=[[1, 3], [2, 3], [2, 4]]),
+                    n_lines=4)
+    rep1 = R.grade(CLICHE, dm)
+    rep2 = dis.grade(CLICHE, dm)
     check("the disjunctive reading is REACHABLE and is weaker",
-          len(rep2["violations"]) < len(rep["violations"])
+          len(rep2["violations"]) < len(rep1["violations"])
           and len(rep2["excused"]) > 0,
-          f"conjunctive {len(rep['violations'])} violation(s), disjunctive "
+          f"conjunctive {len(rep1['violations'])} violation(s), disjunctive "
           f"{len(rep2['violations'])} + {len(rep2['excused'])} excused — a "
           f"mandate that gets weaker the more structure you declare, which "
           f"is why it is not the default")
@@ -1390,6 +1436,250 @@ def test_modal_rhyme_fires_on_a_passing_pair():
           on_l2 is not None and "name" not in on_l2.candidates)
 
 
+#: FOUR LINES AND THREE OVERLAPPING GROUPS, built for tests 30-31. `mat` and
+#: `moon` do not rhyme; `mat`/`hat` and `moon`/`spoon` do. So a mandate that
+#: puts L1 and L2 in one group ALWAYS fails that group, and whether L1 and L2
+#: each have another group they answer is the only thing the disjunctive
+#: reading turns on — which is exactly what has to be varied to find out what
+#: the excusal is testing.
+OVERLAP = ["the cat sat on the mat",
+           "the dog ran to the moon",
+           "the rat wore a hat",
+           "the pig danced with a spoon"]
+#: A fails (mat/moon); L1 answers B, L2 answers C. BOTH endpoints excused.
+OVERLAP_BOTH = [[1, 2], [1, 3], [2, 4]]
+#: A fails; L1 answers B; L2 IS IN NO OTHER GROUP. Nothing may be excused.
+OVERLAP_ONE = [[1, 2], [1, 3]]
+
+
+def _find(res, code):
+    """Every Finding of `code` in an inspect() result, per-line and whole."""
+    return ([f for fs in res["per_line"].values() for f in fs
+             if f.code == code]
+            + [f for f in res["whole"] if f.code == code])
+
+
+def test_return_out_of_range_names_a_case_it_cannot_be_given():
+    print("\n30. `RETURN_OUT_OF_RANGE` — the code fires, and NOT on the case "
+          "its message names: reached only by going around the constructor "
+          "that exists to refuse it")
+    import dataclasses
+    from quality.schemes import Return
+    base = SC.mandate([[1, 3], [2, 4]], n_lines=4)
+
+    # THE CONSTRUCTOR REFUSES THE INPUT. `_normalise_returns` validates every
+    # return line against 1..n_lines, so no mandate built the declared way can
+    # carry the return this code reports on.
+    try:
+        SC.mandate([[1, 3], [2, 4]], n_lines=4, returns=[[1, 9]])
+        refused_return = ""
+    except NoMandate as e:
+        refused_return = str(e)
+    check("quality.schemes.mandate REFUSES an out-of-range return line "
+          "rather than building a mandate that carries one",
+          "outside" in refused_return, refused_return[:80])
+
+    # AND THE CASE THE MESSAGE NAMES IS REFUSED SEVERAL FRAMES EARLIER.
+    # `returns_check`'s own text is "the mandate declares N lines and M were
+    # given" — a LENGTH MISMATCH between mandate and draft. `Reviser.mandate`
+    # is `SC.mandate(spec, n_lines=len(lines))`, which raises on exactly that,
+    # so no call to `inspect()` can ever reach this code by that route.
+    five = SC.mandate([[1, 3], [2, 4]], n_lines=5)
+    try:
+        R.mandate(OVERLAP, five)
+        refused_len = ""
+    except NoMandate as e:
+        refused_len = str(e)
+    check("a draft shorter than its mandate — the condition the message "
+          "NAMES — is a refusal in Reviser.mandate(), so inspect() never "
+          "reaches RETURN_OUT_OF_RANGE that way",
+          "5 lines and the draft has 4" in refused_len, refused_len[:70])
+
+    # WHAT DOES REACH IT: a Mandate assembled by hand, around the normaliser.
+    # `Mandate.return_pairs`'s own docstring documents hand-built `returns` as
+    # an accepted shape, so this is a real caller path and not a contrivance.
+    hand = dataclasses.replace(base, returns=(Return(lines=(1, 9), label="R1",
+                                                     verbatim=True),))
+    res = R.inspect(OVERLAP, hand)
+    oor = _find(res, "RETURN_OUT_OF_RANGE")
+    check("a hand-built Mandate whose Return names a line outside its OWN "
+          "1..n_lines DOES reach the code — this is the only input that can",
+          len(oor) == 1, oor[0].message if oor else "not emitted")
+    check("it is a note: an unasked question is not a defect in the DRAFT",
+          bool(oor) and oor[0].severity == "note")
+    check("and it carries EVIDENCE — empty until 2026-08-13, because "
+          "`_KIND_GLOSS` has no OUT_OF_RANGE row (it is not a variation "
+          "kind at all) and the lookup silently returned ''",
+          bool(oor) and "NOT CHECKED" in oor[0].evidence,
+          oor[0].evidence[:90] if oor else "")
+    check("the evidence names the in-range line, since the message names "
+          "the wrong condition",
+          bool(oor) and oor[0].locations == [1],
+          str(oor[0].locations) if oor else "")
+
+    # NEGATIVE CONTROL, on the same call: a return whose lines are both in
+    # range takes the OTHER branch of the same loop.
+    ok = dataclasses.replace(base, returns=(Return(lines=(1, 3), label="R1",
+                                                    verbatim=True),))
+    res_ok = R.inspect(OVERLAP, ok)
+    check("an IN-RANGE verbatim return emits no RETURN_OUT_OF_RANGE at all",
+          not _find(res_ok, "RETURN_OUT_OF_RANGE"))
+    check("...and reaches the sibling branch instead, so the loop over "
+          "returns_check() is exercised in both directions",
+          bool(_find(res_ok, "RETURN_NOT_VERBATIM")))
+
+
+def test_excused_by_overlap_is_a_per_line_condition():
+    print("\n31. `MANDATE_EXCUSED_BY_OVERLAP` — the disjunctive reading is "
+          "stated per LINE ('answer at least one of YOUR groups') and was "
+          "implemented per PAIR, so a line in ONE group had its ONLY "
+          "obligation dropped because its PARTNER was a pivot")
+    dis = Reviser(lex=R.lex, decl=R.decl, floor=R.floor,
+                  rdecl=ReviseDeclaration(overlap_rule="disjunctive"))
+    dis._engine = R.engine
+    m_both = SC.mandate(OVERLAP_BOTH, n_lines=4)
+    m_one = SC.mandate(OVERLAP_ONE, n_lines=4)
+
+    # THE DEFAULT IS UNTOUCHED. `excused` is populated only inside the
+    # disjunctive branch, so a conjunctive run cannot emit this code at all.
+    for name, mm in (("both-pivot", m_both), ("one-sided", m_one)):
+        conj = R.inspect(OVERLAP, mm)
+        check(f"conjunctive ({name}): L1/L2 is a SCHEME_VIOLATION flag and "
+              f"nothing is excused",
+              not _find(conj, "MANDATE_EXCUSED_BY_OVERLAP")
+              and any(f.severity == "flag"
+                      for f in _find(conj, "SCHEME_VIOLATION")))
+
+    # REACHED: both endpoints answer another of their OWN groups.
+    res = dis.inspect(OVERLAP, m_both)
+    ex = _find(res, "MANDATE_EXCUSED_BY_OVERLAP")
+    check("disjunctive, both endpoints pivots: the code fires",
+          len(ex) == 1, ex[0].message if ex else "not emitted")
+    check("it is a note — the mandate was relaxed by a declared coordinate, "
+          "which is a disclosure and not a defect on the draft",
+          bool(ex) and ex[0].severity == "note")
+    check("and the flag it replaces is gone: this is the SAME pair, graded "
+          "under the other reading",
+          not _find(res, "SCHEME_VIOLATION"))
+    check("the evidence names WHICH group excused WHICH line — the finding "
+          "said neither until 2026-08-13, on the one reading where a line "
+          "having more than one group is the whole subject (doctrine 2)",
+          bool(ex) and "L1 answers B" in ex[0].evidence
+          and "L2 answers C" in ex[0].evidence,
+          ex[0].evidence[:80] if ex else "")
+    rep = dis.grade(OVERLAP, m_both)
+    check("grade() carries the same per-line reason in `excused_by`, so a "
+          "caller reading the dict alone can see it too",
+          rep["excused"] and rep["excused"][0].get("excused_by")
+          == {1: ["B"], 2: ["C"]},
+          str(rep["excused"][0].get("excused_by")) if rep["excused"] else "")
+
+    # THE FIX, AND IT FAILS BEFORE IT. Drop C. L2 is now in exactly one
+    # group; the pair still fails; the old rule excused it anyway because L1
+    # (the pivot) answered B. L2 then answered NOTHING and no flag said so —
+    # doctrine 20's vacuous pass, at the line, inside the module written to
+    # close it.
+    res1 = dis.inspect(OVERLAP, m_one)
+    check("disjunctive, L2 in ONE group: NOTHING is excused — a line with no "
+          "other group to answer has no 'rest' to be excused from",
+          not _find(res1, "MANDATE_EXCUSED_BY_OVERLAP"))
+    check("...and the violation stands as a FLAG, so the loop still asks for "
+          "the revision L2 owes its only group",
+          any(f.severity == "flag"
+              for f in _find(res1, "SCHEME_VIOLATION")))
+    rep1 = dis.grade(OVERLAP, m_one)
+    check("grade() agrees: one violation, none excused",
+          len(rep1["violations"]) == 1 and not rep1["excused"],
+          f"{len(rep1['violations'])} violation(s), "
+          f"{len(rep1['excused'])} excused")
+
+    # A PARTITION HAS NO OVERLAP, so it can never reach this code however the
+    # rule reads: `answers_another` searches the line's OTHER groups and a
+    # line in a partition has none.
+    part = SC.mandate([[1, 2], [3, 4]], n_lines=4)
+    check("a mandate with no overlapping line excuses nothing under the "
+          "disjunctive reading either — the code is named for the overlap "
+          "and needs one",
+          not dis.grade(OVERLAP, part)["excused"])
+
+    # PER LINE, NOT PER GROUP. `satisfied[k]` — one boolean for a whole group
+    # — was the other half of the same defect: a pivot that answers every
+    # member of group B has ANSWERED B, and a failure between two OTHER
+    # members of B is not its business.
+    inner = ["the dog ran to the moon",        # 1  A={1,2}, D={1,7}
+             "the cat sat on the mat",         # 2  A, B={2,5,6}
+             "filler line one here",
+             "filler line two here",
+             "the rat wore a hat",             # 5  B
+             "the bat also wore a hat",        # 6  B — REPEAT of 'hat'
+             "the loon sang a tune"]           # 7  D
+    m_inner = SC.mandate([[1, 2], [2, 5, 6], [1, 7]], n_lines=7)
+    rep_i = dis.grade(inner, m_inner)
+    ex_i = [(v["lines"], v["label"]) for v in rep_i["excused"]]
+    check("L2 answers every member of B in full, so its failure in A is "
+          "excused even though B carries an internal REPEAT between two "
+          "lines L2 is not part of",
+          ex_i == [((1, 2), "A")], str(ex_i))
+    check("...and B's own internal violation is NOT excused: neither L5 nor "
+          "L6 has another group to answer",
+          any(v["lines"] == (5, 6) for v in rep_i["violations"]),
+          str([(v["lines"], v["label"]) for v in rep_i["violations"]]))
+
+
+def test_scheme_unreadable_is_not_a_violation():
+    print("\n32. `SCHEME_UNREADABLE` — a mandated pair the harness could not "
+          "READ is UNKNOWN, not absent, and the three counts stay three "
+          "(doctrine 79)")
+    oov = ["the fox went out and found a zzyzxqu",
+           "the hen came home and found a blue"]
+    readable = ["the fox went out and found a shoe",
+                "the hen came home and found a blue"]
+    m = SC.mandate([[1, 2]], n_lines=2)
+
+    rep = R.grade(oov, m)
+    check("mandated / judged / refused stay THREE counts, and the refusal "
+          "is not charged to the comparator",
+          (rep["pairs_mandated"], rep["pairs_judged"], rep["pairs_refused"])
+          == (1, 0, 1),
+          f"{rep['pairs_mandated']} / {rep['pairs_judged']} / "
+          f"{rep['pairs_refused']}")
+    check("a refusal is NOT a violation — the loop does not brief a writer "
+          "to rewrite a line it could not read",
+          not rep["violations"])
+
+    res = R.inspect(oov, m)
+    unread = _find(res, "SCHEME_UNREADABLE")
+    check("the code fires, on BOTH lines of the pair: either end word being "
+          "unreadable makes the RHYME unknown, and the writer needs to see "
+          "that on the line they are looking at",
+          len(unread) == 2 and sorted(res["per_line"])[:2] == [1, 2],
+          unread[0].message if unread else "not emitted")
+    check("it is a note, and it names the group the pair was mandated in",
+          bool(unread) and unread[0].severity == "note"
+          and "group(s) A" in unread[0].message)
+    check("the evidence names the WORD that could not be read, not just the "
+          "line — the refusal is a fact about the lexicon",
+          bool(unread) and "zzyzxqu" in unread[0].evidence,
+          unread[0].evidence[:90] if unread else "")
+
+    briefs = R.brief(oov, m)
+    b1 = next((b for b in briefs if b.line_no == 1), None)
+    check("the line is briefed but gets NO candidate field: "
+          "SCHEME_UNREADABLE is not in RHYME_FINDINGS, and 'the harness "
+          "could not read this' is a different instruction to a writer than "
+          "'this does not rhyme'",
+          b1 is not None and not b1.candidates and not b1.must_answer)
+
+    check("a readable draft under the same mandate emits none of it",
+          not _find(R.inspect(readable, m), "SCHEME_UNREADABLE"))
+    rep_ok = R.grade(readable, m)
+    check("...and its pair is JUDGED rather than refused, so the counts "
+          "move the way the two drafts differ",
+          (rep_ok["pairs_judged"], rep_ok["pairs_refused"]) == (1, 0),
+          f"{rep_ok['pairs_judged']} judged, {rep_ok['pairs_refused']} "
+          f"refused")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -1419,7 +1709,10 @@ if __name__ == "__main__":
                test_grade_asks_the_mandate_before_the_switch,
                test_song_function_folds_into_the_same_finding_set,
                test_blueprint_declared_says_whether_meter_was_asked,
-               test_modal_rhyme_fires_on_a_passing_pair):
+               test_modal_rhyme_fires_on_a_passing_pair,
+               test_return_out_of_range_names_a_case_it_cannot_be_given,
+               test_excused_by_overlap_is_a_per_line_condition,
+               test_scheme_unreadable_is_not_a_violation):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -27,6 +27,15 @@ must not be confused:
              separately for exactly that reason -- collapsing the two would let
              a hole be closed by deleting the mutation that found it.
 
+There is a THIRD outcome, added 2026-08-13, and it asserts nothing on purpose:
+
+  INDETERMINATE  a test in scope never finished, even on an isolated re-run, so
+             this run has no verdict on that mutation. It is neither a
+             detection nor a hole, it is a REFUSAL (doctrine 79), and it is
+             printed with its own count. Asserting on it would make this file
+             red because the machine was busy, which teaches a reader to ignore
+             the one signal it exists to carry.
+
 WHY THE ALLOWLIST HAS TO CARRY PROSE
 ------------------------------------
 An allowlist of mutation names is a list of defects this project has agreed not
@@ -91,6 +100,23 @@ CORE = ("M1", "M5", "M9")
 LAYERS = {"ingestion", "projection", "anchor", "comparator", "band",
           "structure", "value"}
 
+#: THE LAYER CHECK ABOVE PASSED FOR MONTHS WHILE COVERAGE WAS 2 FILES OF 64.
+#: Every mutation lived in `lyric_harness.py` or `battery.py`, so all seven
+#: layers were "covered" and the entire `quality/` tree -- the slop floor, the
+#: revision loop's gate, mandate semantics, the bar grid -- had never had a
+#: planted defect run at it. A coverage check keyed on LAYER cannot see a
+#: coverage gap keyed on FILE, and doctrine 94's whole subject is the rule
+#: nobody thought to point an instrument at. These are the modules that carry
+#: shipped DECISIONS rather than reports, and each must be mutated by name.
+MUST_MUTATE = {
+    "lyric_harness.py",
+    os.path.join("quality", "floor.py"),
+    os.path.join("quality", "revise.py"),
+    os.path.join("quality", "schemes.py"),
+    os.path.join("quality", "grid.py"),
+    os.path.join("quality", "fit.py"),
+}
+
 FAILURES = []
 
 
@@ -123,6 +149,17 @@ def test_the_mutation_list_is_well_formed():
     check("every mutation carries a rationale of real length",
           all(len(m.rationale) > 80 for m in muts),
           "a planted defect with no stated reason is a puzzle, not a test")
+
+    # The FILE check the layer check above could not make. See MUST_MUTATE.
+    files = {m.file for m in muts}
+    unmutated = sorted(MUST_MUTATE - files)
+    check("every decision-carrying module is mutated by name",
+          not unmutated,
+          f"never mutated: {unmutated}. A module whose tests have never been "
+          f"run against a planted defect is a module whose tests have no "
+          f"measured sensitivity (doctrine 94)."
+          if unmutated else
+          f"{len(files)} file(s) mutated: {sorted(files)}")
 
     # Recursion guards. This file drives the runner; the runner must not run
     # this file. Two independent guards because one of them is a list.
@@ -225,7 +262,7 @@ class SingleInstance:
         return False
 
 
-def run_suite(mode, only, jobs, mutation_jobs, confirm_all):
+def run_suite(mode, only, jobs, mutation_jobs, confirm_all, timeout=420):
     base = mutate._scratch_base()
     mutate.sweep_scratch(base)
     muts = [m for m in mutate.MUTATIONS if not only or m.name in set(only)]
@@ -233,13 +270,13 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all):
     t0 = time.time()
     before = mutate.root_hashes()
     bl = mutate.baseline(tests, jobs, os.path.join(base, "baseline.json"),
-                         confirm_all=confirm_all)
+                         confirm_all=confirm_all, timeout=timeout)
     green = [t for t, r in bl.items() if r["status"] == "PASS"]
     results = []
     import concurrent.futures as futures
     with futures.ThreadPoolExecutor(max_workers=mutation_jobs) as ex:
         fs = {ex.submit(mutate.run_mutation, m, green, jobs, mode, base,
-                        confirm_all): m for m in muts}
+                        confirm_all, timeout): m for m in muts}
         for f in futures.as_completed(fs):
             results.append(f.result())
     order = {m.name: i for i, m in enumerate(muts)}
@@ -255,9 +292,10 @@ def run_suite(mode, only, jobs, mutation_jobs, confirm_all):
     return results, bl, survivors, problems, changed, stale_now, elapsed
 
 
-def test_the_run(mode, only, jobs, mutation_jobs, confirm_all):
+def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=420):
     (results, bl, survivors, problems, changed, stale_now,
-     elapsed) = run_suite(mode, only, jobs, mutation_jobs, confirm_all)
+     elapsed) = run_suite(mode, only, jobs, mutation_jobs, confirm_all,
+                          timeout)
 
     print(f"\n4. the verdict   ({elapsed:.1f}s wall clock, {mode} mode)")
 
@@ -266,11 +304,25 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all):
           f"{stale} -- the code moved under the list. Fix the anchors; this "
           f"is not a hole in the suite.")
 
+    indet = [r["name"] for r in results if r.get("indeterminate")]
+    if indet:
+        # REPORTED, NEVER ASSERTED. A test that never finished did not
+        # disagree with the mutant; calling that a hole would be doctrine 79
+        # inverted, and failing this file for it would make the machine's load
+        # the verdict on the suite.
+        print(f"  NOTE  {len(indet)} mutation(s) INDETERMINATE — a test in "
+              f"scope never finished even alone: {', '.join(indet)}")
+        print("        Neither caught nor a hole. Re-run these on a quiet "
+              "machine before treating either answer as measured.")
+
     unexpected = [n for n in survivors if n not in ALLOWLIST]
     check("the surviving set is empty, or exactly the declared allowlist",
           not unexpected,
+          # The FILE is named alongside the layer, because a hole is routed by
+          # the module whose behaviour went undetected, not by the triage word.
           "SURVIVED and not allowlisted: " + ", ".join(
-              f"{n} ({next(r['layer'] for r in results if r['name'] == n)})"
+              f"{n} ({next(r['layer'] for r in results if r['name'] == n)} in "
+              f"{next(r['file'] for r in results if r['name'] == n)})"
               for n in unexpected) +
           ". Each one is a defect this suite cannot detect. The fix is a new "
           "assertion in quality/test_mut*.py -- adding the name to ALLOWLIST "
@@ -383,6 +435,12 @@ if __name__ == "__main__":
     ap.add_argument("--jobs", type=int, default=max(1, (os.cpu_count() or 2)))
     ap.add_argument("--mutation-jobs", type=int, default=2)
     ap.add_argument("--confirm-all", action="store_true")
+    ap.add_argument("--timeout", type=int, default=420,
+                    help="seconds one test file may take. A timeout is a "
+                         "REFUSAL here, not a catch, so a tight limit on a "
+                         "loaded machine buys INDETERMINATE results rather "
+                         "than wrong ones -- raise it instead of trusting "
+                         "them")
     a = ap.parse_args()
 
     test_the_mutation_list_is_well_formed()
@@ -400,7 +458,7 @@ if __name__ == "__main__":
         else:
             test_the_run("full" if a.full else "subset",
                          CORE if a.core else None,
-                         a.jobs, a.mutation_jobs, a.confirm_all)
+                         a.jobs, a.mutation_jobs, a.confirm_all, a.timeout)
 
     print("=" * 78)
     if FAILURES:

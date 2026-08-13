@@ -12,6 +12,15 @@ Test 3 is the one that has to be checked first on any change here: where every
 word is readable, NOTHING may move. A fix that quiets the refusals by also
 shifting a real score has traded one silent error for another.
 
+Tests 7-9 are the hyphen defect's own, and they are REAL corpus lines because
+that defect is the reason this repo's test discipline says so. It survived
+three rounds; the third produced a wrong answer rather than a refusal
+(`hill-zide` scored on `hill`); and no constructed fixture found any of it,
+because a constructed fixture encodes what its author already believed about
+hyphens. `SONG_EXEMPLARS`/`SONNET_EXEMPLARS` carry the eight words CLAUDE.md
+names, each in the line its poet wrote, each checked present in the corpus
+before it is used.
+
 Run: python3 quality/test_readability.py
 """
 
@@ -386,6 +395,39 @@ def test_corpus_song_rate_is_pinned():
           "files, all readable); quoting one corpus-wide figure without "
           "the file set is doctrine 58")
 
+    # THE POSITION INVARIANT, CORPUS-WIDE. Test 9 pins it on four named lines;
+    # this pins the population those lines were drawn from, and it costs
+    # nothing because `corpus_rate` computes it in the pass it was already
+    # making (a second sweep would derive the population from a second
+    # definition, which is how a record and a behaviour drift apart).
+    #
+    # 323 = 174 + 149 is CLAUDE.md's own split and it reproduces exactly at
+    # HEAD. The number that matters is the last one: `interior_misfiled` is 4
+    # raw overlaps, ALL FOUR of them Kingsley's `Sing heigh-ho, and heigh-ho!`
+    # where `heigh` really is in both places, and 0 of them unexplained by an
+    # earlier token. 0 is what "derived by POSITION" means measured rather
+    # than asserted, and it is the direct successor to the 328 of 328.
+    check("the hyphen population is 323 end tokens with a read piece and an "
+          "unread piece — CLAUDE.md's own figure, reproduced",
+          r["final_piece_population"] == 323,
+          f"{r['final_piece_population']}")
+    check("split 174 ANCHOR-layer (refused) + 149 REPORT-layer (label "
+          "overstates, never refused)",
+          r["unreadable_final_piece"] == 174 and r["label_overstates"] == 149,
+          f"{r['unreadable_final_piece']} + {r['label_overstates']}")
+    check("0 of 323 have an end-word piece misfiled as interior — the "
+          "328-of-328 defect, measured at zero",
+          r["interior_misfiled_unexplained"] == 0,
+          f"{r['interior_misfiled_unexplained']} unexplained of "
+          f"{r['interior_misfiled']} raw overlaps")
+    check("and the 4 raw overlaps are REAL double occurrences, not "
+          "misfilings — reported separately rather than summed (doctrine 79)",
+          r["interior_misfiled"] == 4,
+          f"{r['interior_misfiled']}: all four are Kingsley's `Sing heigh-ho, "
+          f"and heigh-ho!`, where `heigh` is an interior token's unread piece "
+          f"AND the end token's; suppressing them would delete a real "
+          f"interior gap (doctrine 24)")
+
 
 def test_zero_syllable_word_has_no_anchor():
     print("\n6. a word with PHONES but no VOWEL is unreadable, not a crash "
@@ -421,6 +463,88 @@ def test_zero_syllable_word_has_no_anchor():
           "run", vals == [] or all(v == v for v in vals), f"vals={vals!r}")
 
 
+#: THE REAL EXEMPLARS. Every string below is a verbatim line of this repo's
+#: own corpus, cited by file, and `present()` re-locates it before the test
+#: uses it -- so a corpus edit that removes one FAILS HERE rather than leaving
+#: a green test standing on a line the corpus no longer contains.
+#:
+#: They replaced constructed fixtures on 2026-08-13, and the reason is this
+#: module's own history. CLAUDE.md, "Real exemplars over constructed tests":
+#: the hyphen bug survived THREE rounds and the third produced a WRONG ANSWER
+#: rather than a refusal -- `hill-zide` scored on `hill`, `hill-zide`/
+#: `wife-zide` reported as `hill` against `wife`, and the line called READABLE.
+#: No invented fixture found it, because an invented fixture encodes what its
+#: author already believed about hyphens. `("the wind came off the hill-zide",
+#: "and left us by the wife-zide")` -- the constructed pair that stood here
+#: before -- is a rhyming couplet nobody wrote, built around one real word;
+#: `wife-zide` is not in the corpus at all. These are the eight words the
+#: record names, in the lines their poets actually wrote.
+#:
+#: (code, file under corpus/song/, verbatim line, what it demonstrates)
+SONG_EXEMPLARS = [
+    ("UNREADABLE_END_WORD_PIECE", "eng_hall_william_barnes.txt",
+     "There down below the steep hill-zide,",
+     "the canonical case. `zide` is Dorset initial fricative voicing and "
+     "CMUdict has no entry, so the anchor would have been `hill`"),
+    ("UNREADABLE_END_WORD_PIECE", "eng_hall_william_barnes.txt",
+     "The happiest days that we've a-vound,",
+     "the SHARPEST case: the only piece that reads is the participial "
+     "prefix, whose one phone is a schwa -- see test 8"),
+    ("UNREADABLE_END_WORD_PIECE", "eng_british_matthew_arnold.txt",
+     "In heart, high-souled;",
+     "not dialect at all: an ordinary literary compound CMUdict does not "
+     "list. 88 of the 174 are this kind"),
+    ("UNREADABLE_END_WORD_PIECE", "eng_british_percy_bysshe_shelley.txt",
+     "Star-inwrought!",
+     "a whole line that is one compound; the read piece `Star` is not the "
+     "rhyme word either"),
+    ("UNREADABLE_END_WORD_PIECE", "eng_british_robert_browning.txt",
+     "The hillside's dew-pearled;",
+     "Pippa's song, where the unread piece carries the rhyme with `world`"),
+    ("END_WORD_LABEL_OVERSTATES", "eng_hall_john_clare.txt",
+     "Shut out the sun--or to some threshing-floor.",
+     "the REPORT-layer half: `floor` reads and IS the rhyme word, so the "
+     "anchor is right and only the printed label overstates. Never a "
+     "refusal -- 149 of the 323, and none of them are in `rate`"),
+    ("UNREADABLE_INTERIOR_WORD", "eng_american_abram_joseph_ryan.txt",
+     "Furl that Banner, for 'tis weary;",
+     "the end rhyme `weary` is sound; CMUdict has no `furl`, so a mosaic "
+     "anchor reaching back past it would join phones across a hole"),
+]
+
+#: The same defect on the OTHER population, and the reason its price there is
+#: ZERO: both sonnet compounds read on their LAST piece, so both are
+#: label-overstates and NEITHER is refused. `quality/RESULTS_HYPHEN_REFUSAL.md`
+#: measures the price as zero on the sonnet oracle and +0.099pp on the song
+#: corpus; this is the half of that claim nothing was checking.
+#:
+#: THE TWO APOSTROPHES ARE NOT A TYPO AND THE TEST WOULD HAVE PASSED WITHOUT
+#: NOTICING. `sonnets.txt` sets the line with U+2019 (`o’er-read`) and the
+#: record reports the piece as ASCII `o'er`, because `line_tokens` folds
+#: apostrophes before the token is ever split on its hyphens. So the third
+#: column below is the corpus's spelling and the fifth is the LEXICON's, and
+#: they differ by one codepoint. Writing both out is the point of a code whose
+#: whole subject is a label that does not match what was read: an exemplar
+#: table that quietly used one spelling for both would be committing, in the
+#: fixture, the defect the fixture exists to demonstrate.
+SONNET_EXEMPLARS = [
+    ("END_WORD_LABEL_OVERSTATES", 51, 13,
+     "‘Since from thee going, he went wilful-slow,", "wilful", "slow"),
+    ("END_WORD_LABEL_OVERSTATES", 81, 10,
+     "Which eyes not yet created shall o’er-read;", "o'er", "read"),
+]
+
+
+def present(path, text):
+    """Is `text` a line of `path`, exactly? The provenance half of an exemplar
+    (doctrine 34's shape one level down: a fixture with no row in the corpus is
+    the defect). Compares stripped, which is how every reader here reads."""
+    if not os.path.exists(path):
+        return False
+    with open(path, encoding="utf-8", errors="replace") as f:
+        return any(line.strip() == text for line in f)
+
+
 def test_every_emitted_code_has_a_case():
     """The three refusal codes this module can emit that nothing exercised.
 
@@ -431,43 +555,239 @@ def test_every_emitted_code_has_a_case():
     with no case cannot tell you which of the two it is.
 
     One fixture per code, each firing exactly one, so a future change that
-    merges two of these guards fails here instead of quietly widening one.
+    merges two of these guards fails here instead of quietly widening one. And
+    the roster is READ OUT OF THE SOURCE rather than listed by hand: a fifth
+    code added to `report()` without a case fails this test, which is the only
+    thing that stops the gap this test closes from reopening (doctrine 48 -- a
+    principle that lives only in prose gets followed exactly as often as
+    someone remembers it).
     """
-    print("\n7. every code report() can emit has a case")
+    print("\n7. every code report() can emit has a case, and every case is a "
+          "REAL corpus line")
+    import re as _re
     from quality import readability as RD
 
     def codes(lines):
         return {f.code for f in RD.report(LEX, lines)["findings"]}
 
-    # The FINAL piece of a hyphenated compound is unreadable, so the anchor
-    # would be built from an earlier piece -- the defect that was manufacturing
-    # rhymes between any two of Barnes's participles.
-    c = codes(["the wind came off the hill-zide",
-               "and left us by the wife-zide"])
-    check("UNREADABLE_END_WORD_PIECE fires on an unread final piece",
-          c == {"UNREADABLE_END_WORD_PIECE"}, f"codes: {sorted(c)}")
+    with open(RD.__file__, encoding="utf-8") as f:
+        emitted = set(_re.findall(r'code="([A-Z_]+)"', f.read()))
+    covered = {"UNREADABLE_END_WORD"} | {c for c, *_ in SONG_EXEMPLARS}
+    check("report() emits exactly the four codes this file has cases for",
+          emitted == covered,
+          f"in source but uncovered: {sorted(emitted - covered)}; "
+          f"covered but no longer emitted: {sorted(covered - emitted)}")
+    # UNREADABLE_END_WORD is the fourth, and test 2 already carries its real
+    # case (Barnes's `drong`/`zong`, where NOTHING in the end word reads).
 
-    # Unreadable, but INTERIOR: the anchor is fine and only the record of what
-    # was read is incomplete. Kept separate because the price is different.
-    c = codes(["the zzzqx wind came off the hill",
-               "and left us standing by the mill"])
-    check("UNREADABLE_INTERIOR_WORD fires on an interior OOV alone",
-          c == {"UNREADABLE_INTERIOR_WORD"}, f"codes: {sorted(c)}")
+    for code, fname, text, why in SONG_EXEMPLARS:
+        path = os.path.join(SONG, fname)
+        if not present(path, text):
+            check(f"{code}: exemplar still in {fname}", False, repr(text))
+            continue
+        got = codes([text])
+        check(f"{code} fires, and ONLY it, on a real line of {fname}",
+              got == {code}, f"{text!r}\n          {why}\n          "
+                             f"codes: {sorted(got)}")
 
-    # `threshing-floor` reads on `floor`: the anchor is RIGHT and the label
-    # overstates what was read. A report-layer finding, not an anchor one.
-    c = codes(["we crossed the threshing-floor", "and shut the heavy door"])
-    check("END_WORD_LABEL_OVERSTATES fires when the label outruns the read",
-          c == {"END_WORD_LABEL_OVERSTATES"}, f"codes: {sorted(c)}")
+    sonnets_path = os.path.join(CORPUS, "sonnets.txt")
+    for code, sn, ln, text, unread_piece, read_piece in SONNET_EXEMPLARS:
+        if not present(sonnets_path, text):
+            check(f"{code}: sonnet {sn} L{ln} still in sonnets.txt", False,
+                  repr(text))
+            continue
+        got = codes([text])
+        rec = line_readability(LEX, text)
+        check(f"{code} fires on sonnet {sn} L{ln}, and the line is NOT "
+              f"refused — the price of the hyphen rule on this population "
+              f"is zero", got == {code} and not rec["final_unreadable"]
+              and rec["readable"],
+              f"{text!r} codes: {sorted(got)}")
+        check(f"sonnet {sn} L{ln} reads on its LAST piece "
+              f"({read_piece!r}), which is the rhyme word, and the "
+              f"overstatement is {unread_piece!r} — folded, which is the "
+              f"lexicon's spelling and not always the corpus's",
+              rec["final_unread_pieces"] == [unread_piece]
+              and read_piece in (rec["final_token"] or ""),
+              f"pieces={rec['final_unread_pieces']} "
+              f"final_token={rec['final_token']!r} "
+              f"(corpus line spells it {text.split()[-1]!r})")
 
-    # The position rule, pinned: an unread FINAL piece must never be filed as
-    # interior. That misfiling was 328 of 328 cases before it was derived by
-    # position, and only a corpus sweep found it.
-    both = codes(["the wind came off the hill-zide",
-                  "and left us by the wife-zide"])
-    check("an unread final piece is never also reported as interior",
-          "UNREADABLE_INTERIOR_WORD" not in both,
-          "derived by POSITION, so no string coincidence can move it")
+
+def test_the_manufactured_rhyme_is_refused():
+    """`a-vound`: the case where the harness INVENTED a relation.
+
+    CLAUDE.md's record calls this the expensive one and says why it is a
+    different KIND from the other two hyphen errors -- they produced a refusal,
+    this produced a WRONG ANSWER. The mechanism is stated there in one
+    sentence: "the only piece that reads is the participial prefix whose only
+    phone is a schwa, so ANY TWO of Barnes's participles scored as a rhyme with
+    each other on it: the harness was MANUFACTURING rhymes, not mislabelling
+    them."
+
+    That sentence is a measurement and it had never been made. It is made here,
+    over the file it was found in: every distinct `a-`-prefixed participle at a
+    line end whose last piece is unread yields the IDENTICAL would-be anchor
+    phones, so the count of them is the size of the equivalence class the old
+    path would have rhymed together.
+    """
+    print("\n8. `a-vound`: the harness was MANUFACTURING rhymes, and the "
+          "size of the manufactured class is measured, not asserted")
+    from lyric_harness import unread_final_piece
+    path = os.path.join(SONG, "eng_hall_william_barnes.txt")
+    if not os.path.exists(path):
+        check("Barnes corpus file present", False, path)
+        return
+    lines = read_lines(path)
+    klass = {}
+    for text in lines:
+        fin = raw_final_token(text)
+        if not fin or not fin.lower().startswith("a-"):
+            continue
+        if unread_final_piece(LEX, fin)[0] is None:
+            continue
+        klass.setdefault(fin.lower(), []).append(text)
+    # Pinned 2026-08-13 against the shipped cmudict.dict and this file at
+    # HEAD. Doctrine 58: the file set and the lexicon are part of the number,
+    # so both are named. If Barnes is re-ingested this moves, and it should.
+    check("29 distinct `a-` participles end a line in this one file with "
+          "their last piece unread", len(klass) == 29,
+          f"{len(klass)}: {sorted(klass)[:6]} ...")
+    phones = {w: tuple(LEX.transcribe(w)[0]) for w in klass}
+    distinct = set(phones.values())
+    check("and ALL of them would have anchored on the IDENTICAL phone list — "
+          "one schwa — so the class was mutually 'rhyming' by construction",
+          distinct == {("AH0",)},
+          f"{len(distinct)} distinct would-be anchors: {sorted(distinct)[:4]}")
+    check("the manufactured class is the SIZE of that phone class, not a "
+          "handful of pairs", sum(len(v) for v in klass.values()) >= 60,
+          f"{sum(len(v) for v in klass.values())} line ends across "
+          f"{len(klass)} distinct participles")
+
+    # Two REAL lines, two DIFFERENT participles. Before the refusal these
+    # scored against each other on `a-`; the only honest answer is NO_ANCHOR.
+    a = "The happiest days that we've a-vound,"
+    b = "Vor his soul, we do know, is to heaven a-vled,"
+    check("both real Barnes lines are still in the file",
+          present(path, a) and present(path, b))
+    check("the two end words are DIFFERENT words with the SAME would-be "
+          "phones — this is the manufacturing, stated as a fact about the "
+          "lexicon path", raw_final_token(a) != raw_final_token(b)
+          and LEX.transcribe(raw_final_token(a))[0]
+          == LEX.transcribe(raw_final_token(b))[0] == ["AH0"],
+          f"{raw_final_token(a)!r} vs {raw_final_token(b)!r}")
+    aa, la, _ = line_anchors(LEX, a)
+    bb, lb, _ = line_anchors(LEX, b)
+    check("`line_anchors` now REFUSES both rather than anchoring on `a-`",
+          aa == [] and bb == [], f"{len(aa)} / {len(bb)} anchors")
+    s = best_score(aa, bb, DECL, la, lb)
+    check("so the comparator returns NO_ANCHOR, not a rhyme it invented",
+          s["relation"] == "NO_ANCHOR" and s["total"] == 0.0,
+          f"{s['relation']} {s['total']} — it used to pass the band on a "
+          f"schwa shared by every participle in the file")
+    res = check_scheme(LEX, [a, b], "AA", DECL)
+    check("and the pair is REFUSED, not counted as a violation",
+          res["violations"] == [] and res["pairs_refused"] == 1
+          and res["pairs_judged"] == 0,
+          "a manufactured rhyme deleted is not a rhyme failure created")
+
+
+def test_interior_is_derived_by_position():
+    """The regression test for the 328-of-328 misfiling.
+
+    `interior_unreadable` USED to be "every unreadable string whose folded form
+    differs from the WHOLE final token". `transcribe` emits hyphen PIECES, so
+    `zide` -- part of the END word -- differs from `hill-zide` and was filed as
+    an INTERIOR unreadable. It is derived BY POSITION now (tokens strictly
+    before the last), so no string coincidence can move a final piece into it.
+
+    THIS TEST ASSERTS AT THE RECORD LAYER, ON PURPOSE, AND THAT IS THE POINT.
+    `report()` builds its interior finding from records with
+    `not final_unreadable`, so for the 174 lines where the FINAL piece is the
+    unread one the interior finding is filtered out before it is ever reached
+    -- a position-blind regression would put `zide` back in
+    `interior_unreadable` and `report()` would emit exactly the same codes it
+    does now. An assertion phrased over `report()`'s codes therefore cannot
+    fail on that half of the population, which is doctrine 48's own case (a
+    check that cannot fail is decoration). Check 2 below proves the filtering
+    on a real line rather than arguing it.
+    """
+    print("\n9. `interior_unreadable` is derived by POSITION — pinned at the "
+          "RECORD layer, because the report layer cannot see half of it")
+    from quality import readability as RD
+    barnes = os.path.join(SONG, "eng_hall_william_barnes.txt")
+
+    # 1. THE CATCHER. Real line, one unread piece, and it is the FINAL piece.
+    # Position-blind logic ("spelled differently from the whole final token")
+    # puts `zide` in `interior_unreadable`; the position rule cannot.
+    hill = "There down below the steep hill-zide,"
+    check("the hill-zide line is still in Barnes", present(barnes, hill))
+    rec = line_readability(LEX, hill)
+    check("the unread piece is filed as an END-WORD piece",
+          rec["final_unread_pieces"] == ["zide"]
+          and rec["final_unreadable_cause"] == "piece",
+          f"{rec['final_unread_pieces']} / {rec['final_unreadable_cause']}")
+    check("and `interior_unreadable` is EMPTY — the whole regression, and it "
+          "is only visible here",
+          rec["interior_unreadable"] == [],
+          f"{rec['interior_unreadable']}: position-blind logic files `zide` "
+          f"here, which is what 328 of 328 cases did")
+
+    # 2. WHY IT IS NOT ASSERTED THROUGH `report()`. A real Barnes line with a
+    # refused end word AND genuine interior unreadables: the interior finding
+    # is filtered out by `not final_unreadable`, so this code is structurally
+    # unreachable for every one of the 174. The old assertion in test 7 was
+    # phrased over these codes and could not have failed.
+    vust = "Since vu'st I trod thik steep hill-zide"
+    check("the vu'st line is still in Barnes", present(barnes, vust))
+    rec2 = line_readability(LEX, vust)
+    got = {f.code for f in RD.report(LEX, [vust])["findings"]}
+    check("this line HAS interior unreadables and a refused end word",
+          rec2["interior_unreadable"] == ["vu'st", "thik"]
+          and rec2["final_unreadable"], f"{rec2['interior_unreadable']}")
+    check("yet report() emits only the end-word code — so an interior "
+          "assertion made through report() is decoration on this population "
+          "(doctrine 48)", got == {"UNREADABLE_END_WORD_PIECE"},
+          f"codes: {sorted(got)}")
+
+    # 3. THE HALF THE REPORT LAYER *CAN* SEE. `threshing-floor` reads on its
+    # last piece, so `final_unreadable` is False and the interior filter does
+    # let a finding through -- position-blind logic files `threshing` as
+    # interior and this exact-set assertion catches it.
+    clare = os.path.join(SONG, "eng_hall_john_clare.txt")
+    thresh = "Shut out the sun--or to some threshing-floor."
+    check("the threshing-floor line is still in Clare", present(clare, thresh))
+    rec3 = line_readability(LEX, thresh)
+    got3 = {f.code for f in RD.report(LEX, [thresh])["findings"]}
+    check("an EARLIER unread piece is a final piece too, never interior",
+          rec3["final_unread_pieces"] == ["threshing"]
+          and rec3["interior_unreadable"] == [],
+          f"pieces={rec3['final_unread_pieces']} "
+          f"interior={rec3['interior_unreadable']}")
+    check("and here the exact code set does catch it",
+          got3 == {"END_WORD_LABEL_OVERSTATES"}, f"codes: {sorted(got3)}")
+
+    # 4. THE STRING COINCIDENCE, FROM THE CORPUS RATHER THAN INVENTED. In
+    # Kingsley's line `heigh` occurs TWICE -- once as an interior token's
+    # unread piece and once as the end token's -- so the correct answer is
+    # BOTH, and it is the only such line in the 143 files. This catches the
+    # naive over-correction (subtract final pieces from interior), which would
+    # delete a real interior gap: doctrine 24, a rule that would delete a
+    # category must RELABEL instead.
+    kings = os.path.join(SONG, "eng_british_charles_kingsley.txt")
+    heigh = "Sing heigh-ho, and heigh-ho!"
+    check("the heigh-ho line is still in Kingsley", present(kings, heigh))
+    rec4 = line_readability(LEX, heigh)
+    got4 = {f.code for f in RD.report(LEX, [heigh])["findings"]}
+    check("the SAME unread string is reported in BOTH places, because it "
+          "genuinely is in both", rec4["final_unread_pieces"] == ["heigh"]
+          and rec4["interior_unreadable"] == ["heigh"],
+          f"pieces={rec4['final_unread_pieces']} "
+          f"interior={rec4['interior_unreadable']}")
+    check("so both findings fire on one line, and neither is suppressed by "
+          "the other", got4 == {"END_WORD_LABEL_OVERSTATES",
+                                "UNREADABLE_INTERIOR_WORD"},
+          f"codes: {sorted(got4)}")
 
 
 if __name__ == "__main__":
@@ -477,7 +797,9 @@ if __name__ == "__main__":
                test_nothing_was_lost_on_the_sonnets,
                test_corpus_song_rate_is_pinned,
                test_zero_syllable_word_has_no_anchor,
-               test_every_emitted_code_has_a_case):
+               test_every_emitted_code_has_a_case,
+               test_the_manufactured_rhyme_is_refused,
+               test_interior_is_derived_by_position):
         fn()
     print("=" * 68)
     if FAILURES:

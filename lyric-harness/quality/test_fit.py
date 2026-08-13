@@ -35,8 +35,8 @@ from quality import phonology as PH                    # noqa: E402
 from quality.fit import (ANSWERABLE, UNANSWERABLE, FitFinding,  # noqa: E402
                          FitRefusal, Isochrony, Placement, SectionFit,
                          Subdivision, _max_prominent_on_heads, _no_tempo,
-                         fit_line, fit_song, from_blueprint, read_line,
-                         report)
+                         fit_line, fit_song, from_blueprint, from_song,
+                         overlap_findings, read_line, report)
 from quality.meter import Cycle                        # noqa: E402
 
 BLUEPRINT = os.path.join(HERE, "fixtures", "song.blueprint.json")
@@ -603,7 +603,11 @@ def test_the_placement_codes_no_test_reached():
     it needs `beatgrid=`, which `fit_song` does not accept and which exactly
     one caller in the repo passes (test_fit.py, below). That asymmetry is the
     point of pinning these: without a case, an untested code and an unreachable
-    one look identical.
+    one look identical. THE CASE ITSELF is
+    `test_prominence_off_head_can_fire_and_can_stay_silent`, immediately after
+    this one -- the signature check below says where the code cannot be asked
+    and is silent on whether it can fire anywhere, which is the same shape as
+    a guard that could never fire at all.
 
     Note the ownership route. `from_blueprint` reads a TOP-LEVEL "lines" key,
     and a line names its section with "section". That is what lets a line be
@@ -649,6 +653,162 @@ def test_the_placement_codes_no_test_reached():
           "fit_line only -- no blueprint and no CLI verb can ask them")
 
 
+def test_prominence_off_head_can_fire_and_can_stay_silent():
+    """The fourth code, and the one the check above only pinned NEGATIVELY.
+
+    "fit_song takes no beatgrid=" says where the code CANNOT be asked. It does
+    not say the code can be asked anywhere, and a signature assertion passes
+    just as happily against a guard that could never fire (doctrine 48 -- the
+    `SINGLE_USE_RECURRED` shape). So this gives tier 3 the case it never had,
+    in BOTH directions on ONE line and ONE cycle: the same four syllables under
+    two complete BeatGrids, one that puts every prominent unit on a group head
+    and one that does not. A check that only ever fires is decoration in the
+    other direction.
+
+    The grids are COMPLETE on purpose. The one BeatGrid case this module
+    already had (test 10) is PARTIAL, so it reaches BEATGRID_INCOMPLETE and
+    stops -- the refusal is raised before `prom_off` has every unit to look at.
+    """
+    print("\n  PROMINENCE_OFF_HEAD -- tier 3's own case, both directions")
+    from quality.declared_inputs import BeatGrid
+    p = _place(duration=7)                       # 7/8 as 3+2+2: heads 0, 3, 5
+
+    # "So say the road" reads 4 syllables, prominent at indices 1 and 3.
+    def at(pos, derived="notation"):
+        return fit_line("So say the road", p, line_index=0, beatgrid=BeatGrid(
+            cycle=SEVEN, positions=pos, derived_from=derived,
+            source="STRUCTURE DEMO — a setting decided in this test"))
+
+    def hit(f):
+        return [x for x in f.findings if x.code == "PROMINENCE_OFF_HEAD"][0]
+
+    OFFGRID = {(0, 0): F(0), (0, 1): F(1), (0, 2): F(2), (0, 3): F(3)}
+    off = at(OFFGRID)
+    on = at({(0, 0): F(0), (0, 1): F(3), (0, 2): F(4), (0, 3): F(5)})
+    check("a prominent unit off a head under a COMPLETE grid is reported",
+          "PROMINENCE_OFF_HEAD" in _codes(off)
+          and "BEATGRID_INCOMPLETE" not in _rcodes(off),
+          hit(off).evidence)
+    check("...and the same line on the same cycle is SILENT when the grid "
+          "puts both prominent units on heads",
+          "PROMINENCE_OFF_HEAD" not in _codes(on),
+          "the check can fail, which is what makes the firing case evidence")
+    check("the count is a count of UNITS, not of lines or of heads",
+          "1 prominent unit(s)" in hit(off).message
+          and "unit indices [1]" in hit(off).evidence)
+    check("an ASSERTED grid stamps the finding conditional and a NOTATION one "
+          "does not — doctrine 4, and it is the same finding either way",
+          "ASSERTED" in hit(at(OFFGRID, derived="asserted")).conditional_on
+          and not hit(off).conditional_on)
+
+
+def test_overlap_is_asked_of_a_flat_line_list_not_only_of_a_songfit():
+    """OVERLAPPING_SPANS reached ONE surface, and the loop is not it.
+
+    `fit_song` emits this code and `lyric_harness.py`'s `fit` verb calls
+    `fit_song`, so the CLI can ask it. `revise.Reviser._meter_findings` -- the
+    path EVERY loop verb runs (`brief`, `verify`, `revise`, `song`) and the
+    Python API's `Reviser.inspect(blueprint=...)` -- calls `fit_line` per line
+    and never builds a `SongFit`, and `fit_line` structurally cannot see a
+    relation BETWEEN lines. So a blueprint whose spans collide reports
+    OVERLAPPING_SPANS through `fit` and reports nothing at all through the
+    revision loop, on the same file. That is this repo's own recurring defect
+    (CLAUDE.md, "THE BUILT-AND-TESTED WAS NOT THE REACHABLE").
+
+    `overlap_findings` is the fix's half that lives in this file: the check now
+    takes the FLAT list of `LineFit` both callers actually hold, so wiring it
+    into `_meter_findings` (that file is not this cell's to write) is a call
+    rather than a second copy of the arithmetic.
+    """
+    print("\n  overlap: the check takes the object BOTH surfaces hold")
+    bp = {"bpm": 120, "meter": "4/4",
+          "sections": [{"name": "V", "function": "verse",
+                        "start_bar": 1, "bars": 8}],
+          "lines": [{"text": "the first line holds the whole bar down",
+                     "bar": 1, "beat": 1, "duration": 16, "section": "V"},
+                    {"text": "the second one comes in over the top",
+                     "bar": 1, "beat": 2, "duration": 8, "section": "V"}]}
+    _secs, places = from_blueprint(bp)
+    fits = [fit_line(p.text, p, line_index=i) for i, p in enumerate(places)]
+    ov = overlap_findings(fits)
+    check("the flat list — what `_meter_findings` holds — answers on its own",
+          set(ov) == {0, 1}
+          and all(f.code == "OVERLAPPING_SPANS" for fs in ov.values()
+                  for f in fs),
+          "no SongFit, no SectionFit, no blueprint reader — just the LineFits")
+    check("...and it is the SAME answer `fit_song` folds in",
+          [f.evidence for f in fit_song(bp).lines[0].findings
+           if f.code == "OVERLAPPING_SPANS"] == [f.evidence for f in ov[0]])
+    check("both members are told, not just the later one",
+          "'the second one comes in over the top'" in ov[0][0].evidence
+          and "'the first line holds the whole bar down'" in ov[1][0].evidence)
+    # `SectionFit.overlaps()` keeps its own copy of the span arithmetic because
+    # `table()` wants a COUNT. Pin the two against each other so they cannot
+    # drift into disagreeing about what an intersection is.
+    song = fit_song(bp)
+    n = sum(1 for l in song.lines for f in l.findings
+            if f.code == "OVERLAPPING_SPANS")
+    pairs = sum(len(s.overlaps()) for s in song.sections)
+    check("`overlaps()` and `overlap_findings` agree on the same song",
+          n == 2 * pairs,
+          f"{n} findings against {pairs} pair(s), two findings per pair")
+    # The gap itself, stated as a fact about the module rather than a memory.
+    import inspect as _inspect
+    from quality import revise as RV
+    src = _inspect.getsource(RV.Reviser._meter_findings)
+    check("STANDING GAP: `_meter_findings` still does not call it",
+          "overlap_findings" not in src,
+          "so the revision loop reports nothing about an overlap the `fit` "
+          "verb reports on the same file. When revise.py wires it this check "
+          "FAILS, which is the moment to replace it with the positive one: "
+          "`Reviser.inspect(lines, m, blueprint=bp)` on the blueprint above "
+          "carries OVERLAPPING_SPANS")
+
+
+def test_fit_song_reads_a_real_grid_song():
+    """`from_song`'s branch, executed for the first time.
+
+    `fit_song` has taken a Song since it was written -- `hasattr(obj,
+    "sections")` -- and NOTHING in this repo has ever handed it one: every
+    caller passes a path or a dict, so the duck-typed branch was live code with
+    no exercise at all. `grid.song_from_blueprint` builds a real `grid.Song`
+    from the same fixture the dict path reads, which makes the two readers
+    directly comparable rather than merely both non-crashing.
+    """
+    print("\n  fit_song(grid.Song) — the branch nothing had ever taken")
+    from quality.grid import Line, Meter, Section, Song, song_from_blueprint
+    song, _hooks = song_from_blueprint(BLUEPRINT)
+    sub = Subdivision(2, source=SOURCE)
+    a = fit_song(song, subdivision=sub)
+    b = fit_song(BLUEPRINT, subdivision=sub)
+    check("a grid.Song and the blueprint it was read from give the same "
+          "sections and the same line counts",
+          [(s.name, s.bars, s.start_bar, len(s.lines)) for s in a.sections]
+          == [(s.name, s.bars, s.start_bar, len(s.lines)) for s in b.sections])
+    check("...and the same placements, exactly — `from_song` is not a second, "
+          "looser reader",
+          from_song(song) == from_blueprint(BLUEPRINT))
+    check("...and therefore the same findings",
+          [(f.code, f.evidence) for f in a.findings()]
+          == [(f.code, f.evidence) for f in b.findings()],
+          f"{len(a.findings())} findings, "
+          f"codes {sorted({f.code for f in a.findings()})}")
+    # The one thing the fixture cannot reach: a Song whose lines name no
+    # section, so `from_song`'s OWN bar-range fallback has to place them.
+    hand = Song(sections=[Section("v", 2, Meter(7, 8, (3, 2, 2))),
+                          Section("c", 2, Meter(4, 4, (2, 2)))]).layout()
+    hand.lines = [Line("the wire hums low across the yard", bar=1,
+                       beat=F(1), duration=F(7)),
+                  Line("we counted every reason", bar=3, beat=F(1),
+                       duration=F(4))]
+    secs, places = from_song(hand)
+    check("a line naming no section is owned BY BAR, and a Meter becomes a "
+          "meter.Cycle with its declared grouping",
+          [p.section for p in places] == ["v", "c"]
+          and [s["cycle"].signature for s in secs] == ["7/8", "4/4"]
+          and secs[0]["cycle"].groups == (3, 2, 2))
+
+
 def main():
     for t in (test_the_count_is_in_the_phonologys_own_grid_unit,
               test_a_refused_token_makes_the_count_a_lower_bound,
@@ -666,7 +826,10 @@ def main():
               test_all_nine_declared_phonologies_go_through_it,
               test_the_cycle_helpers_refuse_the_same_way_the_cycle_does,
               test_strip_parens_reaches_the_english_syllable_path,
-              test_the_placement_codes_no_test_reached):
+              test_the_placement_codes_no_test_reached,
+              test_prominence_off_head_can_fire_and_can_stay_silent,
+              test_overlap_is_asked_of_a_flat_line_list_not_only_of_a_songfit,
+              test_fit_song_reads_a_real_grid_song):
         t()
     print("\n" + "=" * 62)
     if FAILURES:

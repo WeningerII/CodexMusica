@@ -11,8 +11,18 @@ Two rules this module enforces rather than merely documents:
    else is exploratory and is printed under a separate heading.
 2. A feature that separates with the *wrong* sign is a failed prediction, not a
    success. It is never counted as a hit no matter how small its p-value.
+
+A third rule joined them 2026-08-13, and it is about the CACHE rather than the
+statistics -- see the "Cache identity" section below. Until that date the
+on-disk feature cache was keyed on `tag:ident` alone, so it named WHICH POEM a
+vector belonged to and never WHICH CODE COMPUTED IT. Every number this module
+has ever printed from a warm cache was therefore a number about whatever
+`features.py` and `lyric_harness.py` looked like when that entry was first
+written, silently. Doctrine 1: the declaration is part of the identity of any
+measurement, and a cache key that omits the declaration is not a cache key.
 """
 
+import hashlib
 import json
 import math
 import os
@@ -23,6 +33,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
+from lyric_harness import Declaration  # noqa: E402
 from quality.corpus import (SONNET_SCHEME, labelled_sonnets,  # noqa: E402
                             load_generated, load_sonnets)
 from quality.features import QualityFeatures  # noqa: E402
@@ -95,15 +106,204 @@ def benjamini_hochberg(pvals, q=FDR_Q):
 
 
 # ---------------------------------------------------------------------------
+# Cache identity  (doctrine 1; the defect this section exists to close is
+# recorded in quality/NULL_AUDIT.md §2.5)
+# ---------------------------------------------------------------------------
+#
+# A cached feature vector is a MEASUREMENT, and a measurement is identified by
+# its declaration, not by the thing measured. The old key named only the poem.
+# Two axes had to be covered, and they fail differently, so they are keyed
+# differently:
+#
+#   DEFINITIONS -- the formulas, the declared thresholds, the resource files.
+#     A change here moves EVERY vector at once, so it is handled by a
+#     file-level fingerprint that discards the whole cache and says why.
+#     Trying to key around a changed formula per-entry would be pretending we
+#     know which features a diff touched; we do not, so we throw it all away.
+#
+#   ITEMS -- the actual text of one poem, and the scheme that says which line
+#     pairs are mandated. A change here moves ONE vector, so the per-entry key
+#     is content-addressed on the lines themselves and carries the scheme.
+#     A corrected corpus line cannot reuse the vector computed before the fix.
+#
+# `lyric_harness.py` is in the fingerprint on purpose and it is the expensive
+# one: `rhyme_predictability_*` runs through `Declaration`, `score`, `anchor`,
+# `syllabify` and `vowel_sim`, so an edit to the comparator changes these
+# numbers without touching quality/ at all. That is precisely the path by which
+# the cache went stale, and a fingerprint that skipped it would leave the
+# original defect open while looking fixed.
+
+CACHE_FORMAT = 2
+
+#: Files whose contents define what a feature VALUE means.
+#:
+#: `corpus.py` is deliberately NOT here. Everything it produces that can move a
+#: vector -- the parsed lines and the item id -- is already in the per-entry
+#: key by content, so a reparse that changes a poem expires exactly that poem.
+#: Its other job is the survival LABELS, which choose who is compared with whom
+#: and change no vector at all. Listing it would expire all 384 entries every
+#: time a label moved: safe, and wrong, because over-invalidation teaches the
+#: next reader that the fingerprint is noise to be worked around.
+SOURCE_FILES = (
+    os.path.join(HERE, "features.py"),
+    os.path.join(HERE, "within_item.py"),
+    os.path.join(HERE, "..", "lyric_harness.py"),
+)
+
+#: Files a feature READS at extract time. Re-fetching a norm set silently
+#: re-scales concreteness and frequency; doctrine 58 -- the resource is a
+#: coordinate of the number just as much as a threshold is.
+RESOURCE_FILES = (
+    os.path.join(HERE, "..", "data", "concreteness.txt"),
+    os.path.join(HERE, "..", "wordfreq20k.txt"),
+    os.path.join(HERE, "..", "cmudict.dict"),
+)
+
+
+def _digest_file(path, n=16):
+    """sha256 prefix of a file, or a marker naming its absence.
+
+    ABSENT is a real state, not an error: `load_concreteness` raises without
+    the norms, but `freq_rank` degrades quietly, and a cache written with a
+    resource missing must not be reused once it is present.
+    """
+    if not os.path.exists(path):
+        return "ABSENT"
+    h = hashlib.sha256()
+    with open(path, "rb") as f:
+        for chunk in iter(lambda: f.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()[:n]
+
+
+def declaration_tuple(decl):
+    """The declared coordinates of the rhyme comparator, as a stable mapping.
+
+    Doctrine 1. `theta_rhyme` moving by a hundredth changes every rhyme field
+    and therefore every predictability value; if the cache cannot see that, the
+    band is a setting nobody wrote down (doctrine 58).
+    """
+    import dataclasses
+    if dataclasses.is_dataclass(decl):
+        return {f.name: repr(getattr(decl, f.name))
+                for f in dataclasses.fields(decl)}
+    return {k: repr(v) for k, v in sorted(vars(decl).items())
+            if not k.startswith("_")}
+
+
+def cache_identity(feature_classes=(QualityFeatures, WithinItemFeatures),
+                   decl=None):
+    """Everything that, if changed, makes a stored vector a different number.
+
+    NAMES and DIRECTION are included as well as the file digest, because those
+    two are the pre-registration itself: a feature quietly renamed or a
+    committed direction quietly flipped is the failure this module exists to
+    make impossible, and it must not survive in a cache either.
+    """
+    decl = Declaration() if decl is None else decl
+    return {
+        "format": CACHE_FORMAT,
+        "sources": {os.path.basename(p): _digest_file(p)
+                    for p in SOURCE_FILES},
+        "resources": {os.path.basename(p): _digest_file(p)
+                      for p in RESOURCE_FILES},
+        "features": {f.__name__: {"names": list(f.NAMES),
+                                  "direction": dict(f.DIRECTION)}
+                     for f in feature_classes},
+        "declaration": declaration_tuple(decl),
+    }
+
+
+def fingerprint(identity):
+    blob = json.dumps(identity, sort_keys=True, separators=(",", ":"))
+    return hashlib.sha256(blob.encode("utf-8")).hexdigest()[:16]
+
+
+def _drift(old, new):
+    """Name what moved between two identities, so a discard is auditable.
+
+    A cache that silently empties itself is only marginally better than one
+    that silently reuses: the run gets slower and nobody learns why. Doctrine
+    79 -- report the count AND what it is a count of.
+    """
+    changed = []
+    if old.get("format") != new.get("format"):
+        changed.append(f"format {old.get('format')}->{new.get('format')}")
+    for section in ("sources", "resources", "features", "declaration"):
+        o, n = old.get(section) or {}, new.get(section) or {}
+        for k in sorted(set(o) | set(n)):
+            if o.get(k) != n.get(k):
+                changed.append(f"{section}.{k}")
+    return changed
+
+
+def item_key(tag, scheme, ident, lines):
+    """Cache key for ONE item, content-addressed on that item's own text.
+
+    The scheme rides in the key because it selects the mandated pairs, which
+    is the whole input to `_predictability`; the same fourteen lines read as
+    ABABCDCDEFEFGG and as couplets are two different measurements.
+    """
+    dig = hashlib.sha256("\n".join(lines).encode("utf-8")).hexdigest()[:12]
+    return f"{tag}|{scheme or '-'}|{ident}|{dig}"
+
+
+def load_cache(identity, path=CACHE):
+    """-> (entries, fingerprint, status). Never returns entries it cannot
+    prove were written by the code running now."""
+    fp = fingerprint(identity)
+    if not os.path.exists(path):
+        return {}, fp, "no cache on disk; computing cold"
+    try:
+        with open(path, encoding="utf-8") as f:
+            blob = json.load(f)
+    except (ValueError, OSError) as exc:
+        return {}, fp, f"unreadable ({type(exc).__name__}); DISCARDED"
+    if not isinstance(blob, dict) or "fingerprint" not in blob:
+        # The format-1 cache. Its keys were `tag:ident` with no statement of
+        # which feature code wrote them, so there is no evidence that would
+        # let us keep any of it. Discarding is the fix, not a side effect.
+        n = len(blob) if isinstance(blob, dict) else 0
+        return {}, fp, (f"format-1 cache ({n} entries, keyed tag:ident with "
+                        f"no fingerprint of the feature code); DISCARDED")
+    if blob.get("fingerprint") != fp:
+        drift = _drift(blob.get("identity") or {}, identity)
+        return {}, fp, ("fingerprint MISMATCH; DISCARDED -- changed: "
+                        + (", ".join(drift) if drift else "unknown"))
+    return dict(blob.get("entries") or {}), fp, "fingerprint match"
+
+
+def save_cache(entries, identity, path=CACHE):
+    """Write via a temp file and rename, so an interrupted run leaves the
+    previous cache intact rather than a truncated JSON that the next run has
+    to discard."""
+    parent = os.path.dirname(path)
+    if parent:
+        os.makedirs(parent, exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump({"format": CACHE_FORMAT,
+                   "fingerprint": fingerprint(identity),
+                   "identity": identity,
+                   "entries": entries}, f, sort_keys=True)
+    os.replace(tmp, path)
+
+
+# ---------------------------------------------------------------------------
 # Feature computation with an on-disk cache
 # ---------------------------------------------------------------------------
 
-def compute(qf, items, scheme, cache, tag):
+def compute(qf, items, scheme, cache, tag, stats=None):
     rows = []
     for ident, lines in items:
-        key = f"{tag}:{ident}"
-        if key not in cache:
+        key = item_key(tag, scheme, ident, lines)
+        if key in cache:
+            if stats is not None:
+                stats["reused"] += 1
+        else:
             cache[key] = qf.extract(lines, scheme)
+            if stats is not None:
+                stats["computed"] += 1
         rows.append((ident, cache[key]))
     return rows
 
@@ -219,10 +419,40 @@ def report_joint(rows_a, rows_b, label_a, label_b, feats=QualityFeatures,
     return full
 
 
-def main():
-    cache = {}
-    if os.path.exists(CACHE):
-        cache = json.load(open(CACHE))
+def main(argv=None):
+    argv = list(sys.argv[1:] if argv is None else argv)
+    cold = "--cold" in argv
+    if cold:
+        argv.remove("--cold")
+    path = CACHE
+    for a in list(argv):
+        if a.startswith("--cache="):
+            path = a.split("=", 1)[1]
+            argv.remove(a)
+    if argv:
+        raise SystemExit(f"unknown arguments: {argv}\n"
+                         f"usage: discriminate.py [--cold] [--cache=PATH]")
+
+    # Doctrine 1: state the identity of the measurement before making it.
+    # This block is printed on every run, warm or cold, because "which code
+    # produced this number" is not something a reader should have to infer
+    # from a file mtime.
+    identity = cache_identity()
+    if cold:
+        cache, fp, status = {}, fingerprint(identity), "--cold: cache ignored"
+    else:
+        cache, fp, status = load_cache(identity, path)
+    stats = {"reused": 0, "computed": 0}
+    loaded = len(cache)
+    print(f"{'=' * 78}\nFEATURE CACHE\n{'=' * 78}")
+    print(f"  file         {os.path.relpath(path, os.path.join(HERE, '..'))}")
+    print(f"  fingerprint  {fp}")
+    for k, v in sorted(identity["sources"].items()):
+        print(f"    src  {k:24s} {v}")
+    for k, v in sorted(identity["resources"].items()):
+        print(f"    res  {k:24s} {v}")
+    print(f"  status       {status}")
+    print(f"  loaded       {loaded} entries")
 
     survived, forgotten = labelled_sonnets()
     generated = load_generated()
@@ -238,8 +468,10 @@ def main():
         qf = feats()
         pfx = "abs" if feats is QualityFeatures else "wi"
 
-        rows_s = compute(qf, survived, SONNET_SCHEME, cache, f"{pfx}son")
-        rows_f = compute(qf, forgotten, SONNET_SCHEME, cache, f"{pfx}son")
+        rows_s = compute(qf, survived, SONNET_SCHEME, cache, f"{pfx}son",
+                         stats)
+        rows_f = compute(qf, forgotten, SONNET_SCHEME, cache, f"{pfx}son",
+                         stats)
         _, _, h1 = run_experiment(
             "EXPERIMENT 1 — within-Shakespeare: anthologized vs not",
             rows_s, rows_f, "survived", "forgotten",
@@ -250,8 +482,10 @@ def main():
 
         a2 = h2 = w2 = None
         if generated:
-            rows_h = compute(qf, human, SONNET_SCHEME, cache, f"{pfx}son")
-            rows_g = compute(qf, generated, SONNET_SCHEME, cache, f"{pfx}gen")
+            rows_h = compute(qf, human, SONNET_SCHEME, cache, f"{pfx}son",
+                             stats)
+            rows_g = compute(qf, generated, SONNET_SCHEME, cache, f"{pfx}gen",
+                             stats)
             res2, keep2, h2 = run_experiment(
                 "EXPERIMENT 2 — Shakespeare vs model-generated sonnets",
                 rows_h, rows_g, "human", "generated",
@@ -276,8 +510,15 @@ def main():
           "within-item.\n  P2: Exp1 AUC must hold or improve."
           "\n  P3: Exp2 wrong-sign count must fall below five.")
 
-    os.makedirs(os.path.dirname(CACHE), exist_ok=True)
-    json.dump(cache, open(CACHE, "w"))
+    # Doctrine 79: report the counts behind the run, not just its verdicts.
+    # `reused` is the number of vectors this run did NOT recompute, and it is
+    # only meaningful next to the fingerprint printed above -- reuse is a
+    # claim that the code has not moved, and the fingerprint is the evidence.
+    save_cache(cache, identity, path)
+    print(f"\n{'=' * 78}")
+    print(f"  cache: {loaded} loaded / {stats['reused']} reused / "
+          f"{stats['computed']} computed / {len(cache)} written"
+          f"   fingerprint {fp}")
 
 
 if __name__ == "__main__":

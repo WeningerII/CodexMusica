@@ -31,6 +31,18 @@ so the CMUdict path is the only phonology that reads English, and eye rhyme's
 canonical cases are English. `test_the_module_holds_no_phonology` checks that
 `declared_inputs` itself pulled in neither CMUdict nor `lyric_harness`.
 
+§12 IS A SEVENTH DECLARED INPUT OF A DIFFERENT KIND, and it is here for the
+reason the other six are: a declaration that nothing reads is decorative.
+`quality/frequency.py`'s `FrequencySource.licence` carried real licence text
+from the day the English cells were written and, until 2026-08-13, exactly one
+line of code read it — the `report()` printer. That made TWO licence registries
+in this repo, `data/sources.tsv` gated by `quality/provenance.py` and this one
+gated by nothing, free to disagree. Doctrine 85 says an express non-commercial
+grant is a rejection in every language; §12 pins that it is now a rejection in
+every REGISTRY too, that the predicate is IMPORTED rather than reimplemented
+(one vocabulary, not two), and that the clean tables the repo actually serves
+are untouched by it.
+
 Run: python3 quality/test_declared_inputs.py
 """
 
@@ -57,6 +69,13 @@ from quality.meter import Cycle  # noqa: E402
 from quality.phonology import Syllable  # noqa: E402
 from quality.phonology import ltc  # noqa: E402
 from quality.rhyme_types import verdict as generic_verdict  # noqa: E402
+
+# §12. Imported AFTER the MODULES_AT_IMPORT snapshot above on purpose: the
+# snapshot is check 11's evidence about `declared_inputs`, and polluting it
+# with this module's imports would make that check assert something weaker
+# than it says.
+from quality import frequency as FREQ  # noqa: E402
+from quality.provenance import noncommercial_marker  # noqa: E402
 
 SONNETS = os.path.join(HERE, "..", "corpus", "sonnets.txt")
 
@@ -619,6 +638,140 @@ def test_the_module_holds_no_phonology():
           "SCHEDULED  R1, R2, R6" in rep and "PERMANENT  R3, R4, R5" in rep)
 
 
+def _lic_msg(fn):
+    """-> the licence-refusal text, or '' if the call did not refuse."""
+    try:
+        fn()
+    except FREQ.LicenceRefusedError as e:
+        return str(e)
+    except Exception as e:
+        return f"WRONG EXCEPTION {type(e).__name__}: {e}"
+    return ""
+
+
+def test_the_frequency_licence_is_load_bearing():
+    print("\n12. §12 · a frequency table's licence GATES, it does not decorate")
+
+    # ONE REGISTRY, NOT TWO. This is the whole finding: a copy of the marker
+    # vocabulary here would be a second registry free to drift from the first.
+    check("frequency.py uses provenance.py's OWN marker function, not a copy",
+          FREQ.noncommercial_marker is noncommercial_marker,
+          "doctrine 85 binds in every language; it has to bind in every "
+          "registry too, and that is an identity check, not a similarity one")
+
+    # A RESTRICTED TABLE REFUSES.
+    lay = FREQ.FrequencyLayer()
+    nc = FREQ.FrequencySource(
+        cell="demo-nc", name="file:nowhere.tsv", derived_from_pool=False,
+        licence="CC-BY-NC-SA-4.0", n_types=1,
+        register_note="STRUCTURE DEMO — a licence, not a corpus")
+    lay.declare(nc)
+    check("a restricted source still DECLARES — the row is a record, not a hole",
+          "demo-nc" in lay.declared(),
+          "refusing the declaration would train the next session to delete the "
+          "row rather than write it; the refusal belongs at SERVICE")
+    m = _lic_msg(lambda: lay.ranks("demo-nc"))
+    check("...and REFUSES to be served, by identifier prefix", bool(m),
+          m[:96] if m else "IT SERVED")
+    check("the refusal names the cell, the marker and the doctrine",
+          "'demo-nc'" in m and "cc-by-nc-sa-4.0" in m and "85" in m)
+    check("...and says there is NO override, unlike the scoring refusal",
+          "no override" in m and "no `scoring=`-shaped escape" in m,
+          "a pool dependence is cured by naming what you score; a restriction "
+          "in the GRANT is not cured by anything said at the call site")
+    check("the refusal quotes the licence, so the reason travels with it",
+          "LICENCE: CC-BY-NC-SA-4.0" in m)
+
+    # IN EVERY LANGUAGE — doctrine 85's own string, the rime-aca grant.
+    lay.declare(FREQ.FrequencySource(
+        cell="demo-zh", name="file:nowhere2.tsv", derived_from_pool=False,
+        licence="資料自由使用，但不得為商業用途", n_types=1))
+    check("the prose prohibition doctrine 85 was written about refuses too",
+          "不得為商業" in _lic_msg(lambda: lay.ranks("demo-zh")),
+          "4,347 ci and 734 樂府 were refused on this exact string by a human "
+          "reading it; a table carrying it is refused by the code")
+
+    # THE SONG ROUTE IS GATED AT THE SAME CHOKE POINT, not only `ranks`.
+    lay.declare(FREQ.FrequencySource(
+        cell="demo-song", name="song:nowhere/*", derived_from_pool=True,
+        licence="cc-by-nc-4.0", pool="nowhere/*", loo_unit="author",
+        justification="STRUCTURE DEMO — present so the LICENCE is what "
+                      "refuses, not the missing justification",
+        may_not_score="STRUCTURE DEMO"))
+    mcond = _lic_msg(lambda: lay.conditional("demo-song", "night",
+                                          scoring=FREQ.UNSEEN))
+    check("`conditional()` refuses on the licence as well as `ranks()`",
+          "cc-by-nc-4.0" in mcond,
+          "both routes reach a source through `source_for` and nowhere else, "
+          "so the question is asked once — the shape provenance.admit uses to "
+          "put doctrine 85 ahead of all three of its admitting routes")
+    check("...and it refuses BEFORE any file is opened",
+          "FileNotFoundError" not in mcond and "No such file" not in mcond,
+          "a licence refusal that first reads the data has already done the "
+          "thing it was refusing")
+
+    # THE NEGATION GUARD TRAVELS WITH THE IMPORT. `data/opensubtitles_en_50k
+    # .tsv`'s real row says "No non-commercial clause anywhere in the chain";
+    # a substring search would refuse the admissible file for describing the
+    # inadmissible one it replaced.
+    lay.declare(FREQ.FrequencySource(
+        cell="demo-neg", name="file:nowhere3.tsv", derived_from_pool=False,
+        licence="MIT (hermitdave/FrequencyWords). No non-commercial clause "
+                "anywhere in the chain — which is the point, since the list "
+                "it replaces has one.", n_types=1))
+    check("a row DESCRIBING an absent NC clause is not refused for saying so",
+          lay.source_for("demo-neg") is not None,
+          "the guard lives in provenance.py and comes along with the import; "
+          "it did not have to be rewritten here, which is the point")
+
+    # THE CLEAN TABLES STILL SERVE. These are the two the repo actually reads.
+    r = FREQ.LAYER.ranks("eng-spoken")
+    check("eng-spoken (MIT) still serves, unchanged",
+          len(r) == 50000 and r.get("moon") is not None,
+          f"{len(r):,} types; moon rank {r.get('moon')}, yahoo rank "
+          f"{r.get('yahoo')}")
+    cond = FREQ.LAYER.conditional("eng-song", "night", scoring=FREQ.UNSEEN)
+    check("eng-song's conditional still serves — the ONE table anything reads",
+          len(cond) > 0,
+          f"P(partner|'night') top 6: "
+          f"{[w for w, _ in cond.most_common(6)]}")
+    check("...and its own pool refusal is untouched by the licence gate",
+          _raises(lambda: FREQ.LAYER.conditional("eng-song", "night"),
+                  FREQ.UndeclaredScoringError),
+          "doctrine 13's refusal and doctrine 85's are separate questions and "
+          "stay separate exceptions")
+    for cell in ("fi", "ces", "nl", "spa", "he", "ar", "ja", "ta"):
+        check(f"wordfreq cell {cell!r} is not refused",
+              FREQ.LAYER.source_for(cell) is not None)
+    check("...because CC BY-SA carries no non-commercial term",
+          noncommercial_marker(FREQ.WORDFREQ_LICENCE) is None,
+          f"{FREQ.WORDFREQ_LICENCE!r} — SA is a share-alike obligation, not a "
+          "commercial-use prohibition, and conflating them would strip eight "
+          "cells for a clause they do not carry")
+
+    # WHAT THE GATE FIRES ON TODAY, MEASURED AND PRINTED (doctrine 79).
+    refused = FREQ.LAYER.licence_refusals()
+    check("the shipped registry has ZERO licence refusals, and that is stated",
+          refused == {},
+          "eng-web quotes 'I do not recommend using this data for commercial "
+          "purposes WITHOUT LICENSING IT from the LDC' — a redistributor's "
+          "recommendation with a route through it, not one of the unambiguous "
+          "prohibitions NONCOMMERCIAL_PROSE is restricted to. Widening that "
+          "vocabulary is a change to provenance.py and data/sources.tsv, "
+          "which is what having one registry MEANS")
+    import io
+    buf = io.StringIO()
+    counts = FREQ.LAYER.report(stream=buf)
+    out = buf.getvalue()
+    check("the count is printed on every run, zero or not",
+          "licence gate" in out and "0 of 11 declared sources" in out,
+          "a gate that fires on nothing must still say so: silence is "
+          "indistinguishable from a gate that is not there")
+    check("...and eng-web is still LISTED, refusal or none",
+          "eng-web" in out and counts["declared"] == 11
+          and counts["licence_refused"] == 0)
+
+
 if __name__ == "__main__":
     for fn in (test_every_family_refuses_and_names_its_input,
                test_a_refusal_is_not_a_no,
@@ -630,7 +783,8 @@ if __name__ == "__main__":
                test_R4_rhyming_slang_accepts_a_referent_chain,
                test_R5_offbeat_accepts_a_beat_grid,
                test_R6_tone_accepts_a_channel_and_refuses_the_contour,
-               test_the_module_holds_no_phonology):
+               test_the_module_holds_no_phonology,
+               test_the_frequency_licence_is_load_bearing):
         fn()
     print("=" * 62)
     if FAILURES:

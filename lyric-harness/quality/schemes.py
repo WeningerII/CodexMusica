@@ -431,11 +431,23 @@ class Coordinates:
     crossings: int               # pairs of blocks that interleave (ABAB-like)
     nestings: int                # pairs of blocks that enclose (ABBA-like)
     adjacencies: int             # rhymes on consecutive lines (AABB-like)
+    #: UNREAD BY ANYTHING, production or test, since this class was written --
+    #: computed at every `coordinates()` call and never asked for. The `scheme`
+    #: verb prints eight of these twelve coordinates and skips this one.
+    #: Recorded rather than deleted: it is a real coordinate of the space
+    #: (doctrine 1) and the shape `ReviseDeclaration.max_rounds` had for the
+    #: whole time before `quality/loop.py` was written.
     contiguous_blocks: int       # blocks whose lines are all consecutive
+    #: read by tests only (`test_taxonomy.py`, `test_grid.py`); no production
+    #: reader, and structurally unreachable besides -- `sections=` is never
+    #: passed by any caller of `coordinates()` outside a test, so this is 0
+    #: and `sections` is `()` on every production call.
     section_crossing: int = 0    # rhymes spanning a section label boundary
     sections: tuple = ()
 
     def as_dict(self):
+        """UNCALLED by anything in this repo. Kept: it is the only accessor
+        that surfaces `contiguous_blocks`/`section_crossing` at all."""
         return dict(self.__dict__)
 
 
@@ -808,8 +820,17 @@ class Requirement:
 
     name: str
     #: must these two lines stand in a RHYME relation?
+    #: NO PRODUCTION READER. `grade()` decides rhyme from `Mandate.pairs()`
+    #: (a pair is mandated because it is in a group), never by asking this
+    #: field, so it is declared and read by `test_mandate_language.py` alone.
+    #: DELIBERATELY RESERVED: it is the coordinate that would let a mandate
+    #: state a REQUIRED IDENTITY WITHOUT a rhyme requirement, which is what a
+    #: non-rhyming refrain in free verse is, and the closed five-value set is
+    #: what makes such a value expressible at all.
     rhyme_required: object
     #: must they be the SAME LINE, verbatim?
+    #: NO PRODUCTION READER either: `inspect()` reaches identity through
+    #: `Mandate.returns_check()` / `Return.verbatim`, not through this field.
     identity_required: object
     #: is an identical end word here a VIOLATION? Doctrine 3's inversion, moved
     #: off the song-wide `repeat_licence` switch and onto the pair, which is
@@ -817,6 +838,11 @@ class Requirement:
     repeat_is_violation: object
     #: did the mandate SPEAK about this pair at all? False means out of scope,
     #: which is "cannot tell" and is not the same as `FREE`'s "nothing here".
+    #: NO PRODUCTION READER: it is False on `UNDECLARED` alone, and
+    #: `UNDECLARED` is only returned when `Mandate.scope` is non-empty, which
+    #: no production path ever makes it. `decided()` -- which IS on the
+    #: production path -- reports per-FIELD declaredness (is the value
+    #: `UNKNOWN`) and never consults this one.
     declared: bool
     gloss: str = ""
 
@@ -923,6 +949,12 @@ class Return:
     #: TRUE (must be verbatim), FALSE (a return that need only keep its rhyme),
     #: or `UNKNOWN` (the caller declines to say, and the unknown propagates).
     verbatim: object = True
+    #: HOW this class was learnt, in words. A CLOSED LOOP as it stands: written
+    #: by `parse_returns`, read only by `_normalise_returns` to build the
+    #: merged class's own `origin`, and surfaced by nothing -- `describe()`
+    #: prints the label and the verbatim state and not this. `Mandate.origin`
+    #: is the one that reaches a report (`describe()`, and the CLI's MANDATE
+    #: line); this per-CLASS provenance has no reader.
     origin: str = ""
 
     # A return class IS its lines, so `set(r)`, `for i in r` and `i in r` all
@@ -1279,6 +1311,10 @@ class Mandate:
     #: (doctrine 28). A mandate written over a chorus says NOTHING about the
     #: verses, and reporting a verse rhyme as unintended against it charges
     #: the writer for a question that was never asked.
+    #: NEVER GIVEN A NON-EMPTY VALUE ON ANY PRODUCTION PATH -- no CLI verb
+    #: spells it and `Reviser.mandate()` forwards no `scope=`. `in_scope()`
+    #: is read (see there); this field is what is unreached, and the one
+    #: report it would change (`grade()`'s collision loop) does not ask.
     scope: tuple = ()
     #: the declared coordinates of what a return MEANS (doctrine 1)
     rule: "ReturnRule" = field(default_factory=lambda: ReturnRule())
@@ -1319,7 +1355,33 @@ class Mandate:
     # -- returns: the second and third statements -------------------------
 
     def in_scope(self, line):
-        """Does the mandate SPEAK about this line? Empty scope means all."""
+        """Does the mandate SPEAK about this line? Empty scope means all.
+
+        WHO READS THIS, since an audit called it declared-but-unread and it is
+        not: `requirement()` below, on every pair, and `requirement()` is on
+        the grading spine -- `quality/revise.py`'s `grade()` (per REPEAT pair)
+        and `inspect()` (per repeat finding) both call it, so one
+        `grade()`+`inspect()` pass over a 19-line villanelle reaches this
+        method 120 times. `quality/test_mandate_language.py` §11 pins that
+        rather than leaving it to prose (doctrine 48).
+
+        WHAT IS UNREACHED is the OTHER half: `Mandate.scope` is never given a
+        non-empty value on any production path. `Reviser.mandate()` is
+        `SC.mandate(spec, n_lines=...)` and forwards no `scope=`, and no CLI
+        verb spells it, so in production this always answers True and
+        `UNDECLARED` is never returned. A Python-API caller CAN reach it by
+        handing `brief`/`inspect`/`verify` a pre-built `Mandate` (the same and
+        only route `returns=` had before `--returns=` existed).
+
+        AND THE ONE PLACE IT WOULD CHANGE A REAL RUN STILL DOES NOT ASK.
+        `grade()`'s collision loop reports every pair at or above
+        `THETA_COLLISION` that shares no group, without consulting the
+        mandate's scope -- so on this repo's own 41-line fixture, scoped to
+        its chorus, 49 of the 73 collisions touch a line the mandate says it
+        does not speak about and are reported as `SCHEME_COLLISION` anyway.
+        That is exactly what `UNDECLARED`'s own gloss forbids: charging the
+        writer for a question nobody asked (doctrine 20).
+        """
         return (not self.scope) or line in self.scope
 
     def return_of(self, line):
@@ -1486,6 +1548,17 @@ class Mandate:
         this repo's own song, and "refrain" licenses every REPEAT in the lyric
         INCLUDING one inside a verse, which is the defect the flag exists to
         catch. A per-song switch cannot express a per-pair inversion.
+
+        THE GRADER DOES NOT CALL THIS METHOD. `quality/revise.py` reads the
+        FIELD instead -- `m.requirement(i, j).decided("repeat_is_violation")`,
+        at `grade()` and again at `inspect()` -- because it needs the
+        (is_declared, value) pair and not just the tri-state. So this method
+        is the DOCUMENTED spelling of a decision the production path takes
+        through `Requirement`, and the two can drift silently: changing this
+        method alone would leave every test in
+        `quality/test_mandate_language.py` green and change nothing about a
+        real grading run. §11 of that file pins them equal at every pair,
+        which is the only thing that stops the drift (doctrine 48).
         """
         return self.requirement(i, j).repeat_is_violation
 
@@ -1805,6 +1878,58 @@ def _normalise_groups(raw, n_lines):
     return tuple(groups), free
 
 
+def _normalise_scope(raw, n_lines, groups, returns):
+    """-> the validated scope tuple. `()` means 'all of 1..n_lines'.
+
+    REFUSES a scope that leaves out a line the mandate's OWN groups or returns
+    name. Such a mandate says two incompatible things about the same pair --
+    `pairs()` mandates L1/L3 and `requirement(1, 3)` calls it `UNDECLARED` --
+    and `grade()` (`quality/revise.py`) reads BOTH: it iterates `pairs()` to
+    decide what to judge and `requirement()` to decide whether an identical end
+    word there is a violation. So the pair gets graded against a mandate that
+    simultaneously claims not to speak about it, which is doctrine 20's own
+    case: 'inconclusive by construction' dressed as an answer. `describe()`
+    would print the lie out loud -- 'every pair touching one of the other N is
+    UNDECLARED' -- while the grader charged those pairs anyway.
+
+    The refusal NAMES THE OTHER READING rather than picking one silently, the
+    same shape `to_letters()` and `to_notation()` already hold: a caller who
+    means 'grade only the chorus' is declaring narrower GROUPS, not a narrower
+    scope over the same groups.
+    """
+    if raw is None:
+        return ()
+    try:
+        sc = tuple(sorted({int(x) for x in raw}))
+    except (TypeError, ValueError):
+        raise NoMandate(
+            f"scope must be an iterable of 1-based line numbers; got {raw!r}.")
+    for i in sc:
+        if not 1 <= i <= n_lines:
+            raise NoMandate(f"scope line {i} is outside 1..{n_lines}.")
+    if not sc:
+        return ()                    # an empty scope is the absent one: all
+    named = {i for g in groups for i in g}
+    named |= {i for r in returns for i in getattr(r, "lines", r)}
+    missing = sorted(named - set(sc))
+    if missing:
+        raise NoMandate(
+            f"line(s) {missing} are named by this mandate's own groups or "
+            f"returns and are OUTSIDE its declared scope. A mandate cannot "
+            f"both require something of a line and say it does not speak "
+            f"about it: `pairs()` would mandate those pairs and "
+            f"`requirement()` would call them UNDECLARED, and the grader "
+            f"reads both -- so the pair is judged against a statement the "
+            f"mandate disclaims (doctrine 20).\n"
+            f"  to grade only part of the song -> declare the GROUPS over "
+            f"that part; `scope` then covers them and every OTHER line is "
+            f"UNDECLARED, which is the distinction it exists to make.\n"
+            f"  to say nothing is required of those lines -> leave them out "
+            f"of every group and out of `scope`; they are FREE, which is a "
+            f"DIFFERENT answer (doctrine 28).")
+    return sc
+
+
 def mandate(spec, n_lines=None, source="declared", origin=None,
             returns=None, scope=None, rule=None, carry_returns=True):
     """Anything that can name a song's requirements -> a `Mandate`.
@@ -1825,7 +1950,9 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
     (`'33-40<=13-20'`, `'1,6,12,18'`; see `parse_returns`), a list of `Return`,
     or a list of line lists. `scope` declares which lines the mandate speaks
     about; pairs outside it are `UNDECLARED` rather than `FREE`, which is
-    doctrine 28's distinction made mechanical.
+    doctrine 28's distinction made mechanical. A `scope` that leaves out a
+    line this mandate's own groups or returns NAME is a REFUSAL, not a
+    narrowing -- see `_normalise_scope`.
 
     `carry_returns=False` restores the OLD reading of an A-1 string -- rhyme
     only, identity silently dropped. It is reachable so the defect is
@@ -1868,11 +1995,17 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
         rets = list(spec.returns)
         if returns is not None:
             rets += _list_returns(returns)
-        sc = spec.scope if scope is None else tuple(sorted(set(scope)))
+        norm = _normalise_returns(rets, n, rule)
+        # THE RE-OPEN PATH IS CHECKED THE SAME WAY THE BUILD PATH IS. It used
+        # to take `scope` on trust -- not even the 1..n bound the constructor
+        # below enforces -- so `mandate(mandate('ABAB'), scope=[1, 2])` built
+        # a mandate that requires L1/L3 to rhyme and denies speaking about L3.
+        sc = spec.scope if scope is None else _normalise_scope(
+            scope, n, spec.groups, norm)
         return Mandate(n_lines=n, groups=spec.groups, labels=spec.labels,
                        free=spec.free, source=spec.source,
                        origin=spec.origin + " + returns",
-                       returns=_normalise_returns(rets, n, rule),
+                       returns=norm,
                        scope=sc, rule=rule)
 
     if spec is None:
@@ -1957,14 +2090,7 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                         source=source, origin=org, returns=rets, rule=rule)
         covered = {i for g in probe.expanded_groups() for i in g}
         free = tuple(i for i in range(1, n + 1) if i not in covered)
-    if scope is not None:
-        sc = tuple(sorted(set(int(x) for x in scope)))
-        for i in sc:
-            if not 1 <= i <= n:
-                raise NoMandate(
-                    f"scope line {i} is outside 1..{n}.")
-    else:
-        sc = ()
+    sc = _normalise_scope(scope, n, groups, rets)
     return Mandate(n_lines=n, groups=groups, labels=labels, free=free,
                    source=source, origin=org, returns=rets, scope=sc,
                    rule=rule)

@@ -447,10 +447,18 @@ class Reviser:
             r["groups"] = [m.labels[k] for k in
                            sorted(set(m.groups_of(i)) & set(m.groups_of(j)))]
 
-        verdicts, satisfied = [], {k: True for k in range(len(m.groups))}
+        # WHICH (LINE, GROUP) PAIRS WERE NEVER JUDGED. A refusal is not a
+        # failure (doctrine 79) and it is not a pass either (doctrine 20), so
+        # it is kept apart from `unanswered` below rather than folded into it:
+        # the disjunctive excusal may buy nothing with an UNKNOWN, and the
+        # reason it may not is different from the reason it may buy nothing
+        # with a failure.
+        unknown = set()
+        verdicts = []
         for (i, j, k) in pairs:
             if (i, j) in refused:
-                satisfied[k] = None if satisfied[k] else satisfied[k]
+                unknown.add((i, k))
+                unknown.add((j, k))
                 continue
             s = matrix[i - 1][j - 1]
             rel = s["relation"]
@@ -469,8 +477,6 @@ class Reviser:
                              "endwords": (endwords[i - 1], endwords[j - 1]),
                              "score": s["total"], "relation": rel,
                              "why": why})
-            if why:
-                satisfied[k] = False
 
         # Doctrine 3, resolved PER PAIR by the mandate's own declaration
         # first, and by the song-wide `repeat_licence` switch only where the
@@ -501,20 +507,64 @@ class Reviser:
         repeats = [v for v in verdicts if v["relation"] == "REPEAT"]
 
         # The DISJUNCTIVE reading, kept reachable so the default is a measured
-        # choice. A pivot's failure in one group is excused when it fully
-        # satisfies another group it belongs to.
+        # choice. THE CONDITION IS PER LINE, and it is stated per line in
+        # every place this repo writes it down: `ReviseDeclaration.
+        # overlap_rule` ("a line in k groups must answer ALL k" /
+        # "answering one of them excuses the rest") and `quality/schemes.py`'s
+        # own argument for the default ("adding a group to a cover can only
+        # ever give an OVERLAPPING LINE another way to be excused"). So a line
+        # is excused from group k exactly when it belongs to another group it
+        # ANSWERS -- every one of its own pairs there judged and passing.
+        #
+        # A PAIR IS THE REPORTING SHAPE, NOT THE OBLIGATION, and reading it as
+        # the obligation was the defect here until 2026-08-13: the excusal
+        # fired when EITHER endpoint had another satisfied group, so a line in
+        # exactly ONE group -- with no other group to answer and no "rest" to
+        # be excused from -- had its ONLY mandated obligation dropped because
+        # its PARTNER happened to be a pivot. That line then answered nothing
+        # at all and the loop said so nowhere: doctrine 20's vacuous pass, one
+        # level down, inside the module written to close it. Both endpoints
+        # must be excused, because a violation on (i, j) in group k is the only
+        # evidence either line failed k.
         excused = []
         if self.rdecl.overlap_rule == "disjunctive":
+            # WHETHER A **LINE** ANSWERS A **GROUP**, per (line, group). The
+            # old rule read `satisfied[k]` -- one boolean per GROUP -- and a
+            # group-wide flag cannot state a per-line fact: a pivot that
+            # rhymes with every other member of group k has ANSWERED k even
+            # when two OTHER members of k fail each other, and the flag said
+            # it had not. Read off `violations` rather than off the raw `why`
+            # for the same reason `violations` exists: a REPEAT the MANDATE
+            # requires is the form and not a failure, so it must not count
+            # against the line that carries it (doctrine 3, per pair).
+            unanswered = set()
+            for v in violations:
+                unanswered.add((v["lines"][0], v["group"]))
+                unanswered.add((v["lines"][1], v["group"]))
+
+            def answers_another(ln, k):
+                """-> the OTHER groups of `ln` that `ln` answers in full."""
+                return [k2 for k2 in m.groups_of(ln)
+                        if k2 != k and (ln, k2) not in unanswered
+                        and (ln, k2) not in unknown]
+
             keep = []
             for v in violations:
-                out_ = False
-                for ln in v["lines"]:
-                    others = [k2 for k2 in m.groups_of(ln)
-                              if k2 != v["group"] and satisfied.get(k2)]
-                    if others:
-                        out_ = True
-                        break
-                (excused if out_ else keep).append(v)
+                i, j = v["lines"]
+                by_i = answers_another(i, v["group"])
+                by_j = answers_another(j, v["group"])
+                if by_i and by_j:
+                    v = dict(v)
+                    # WHICH line was excused BY WHICH group. The finding used
+                    # to say only that the pair "was excused", which names
+                    # neither -- and on an overlapping cover the whole point
+                    # is that a line has more than one group to be talked
+                    # about (doctrine 2).
+                    v["excused_by"] = {ln: [m.labels[k2] for k2 in got]
+                                       for ln, got in ((i, by_i), (j, by_j))}
+                    excused.append(v)
+                else:
+                    keep.append(v)
             violations = keep
 
         # A pair that band-passes while sharing NO group. Under a letter
@@ -1012,21 +1062,62 @@ class Reviser:
         for label, i, j, kind, msg in m.returns_check(lines):
             ev = _KIND_GLOSS.get(kind, "")
             if kind == "OUT_OF_RANGE":
-                whole.append(Finding("RETURN_OUT_OF_RANGE", "note", msg, ev,
-                                     []))
+                # `OUT_OF_RANGE` IS NOT A VARIATION KIND and `_KIND_GLOSS` has
+                # no row for it -- it is the one member of `returns_check`'s
+                # output that reports a mandate that could not be READ rather
+                # than a return that came back wrong, so `ev` was the empty
+                # string and this was the only Finding in this method shipped
+                # with no evidence at all (doctrine 79: a count with no
+                # coordinate, and here not even a count).
+                #
+                # WHAT REACHES THIS LINE, PRECISELY. Not the case the message
+                # from `quality/schemes.py` names -- "the mandate declares N
+                # lines and M were given" cannot happen here, because
+                # `Reviser.mandate` is `SC.mandate(spec, n_lines=len(lines))`
+                # and every constructor path in it REFUSES a length mismatch
+                # with `NoMandate` several frames earlier. What can: a
+                # `Mandate` assembled by hand (`dataclasses.replace`, direct
+                # construction) carrying a `Return` whose line lies outside
+                # its OWN 1..n_lines -- the one input `_normalise_returns`
+                # exists to raise on, reached by going around it. The
+                # evidence says which, since the message says the other.
+                whole.append(Finding(
+                    "RETURN_OUT_OF_RANGE", "note", msg,
+                    f"return {label or '(unlabelled)'} declares L{i} and L{j} "
+                    f"the SAME LINE and the draft has {len(lines)}, so this "
+                    f"return's verbatim requirement was NOT CHECKED — "
+                    f"unasked, not answered clean (doctrine 20). A mandate "
+                    f"built through `quality.schemes.mandate` cannot get "
+                    f"here: it refuses an out-of-range return line, and it "
+                    f"refuses a draft whose length disagrees with the "
+                    f"mandate's. This one was built around that constructor.",
+                    [x for x in (i, j) if x <= len(lines)]))
                 continue
             add(j, Finding("RETURN_NOT_VERBATIM", "flag", msg,
                            f"{kind}: {ev}" if ev else kind, [i, j]))
         for v in rep["excused"]:
             i, j = v["lines"]
+            # WHICH GROUP EXCUSED WHICH LINE. `grade()` grants the excuse per
+            # LINE and both endpoints have to earn it separately, so a finding
+            # that named neither was reporting the conclusion and withholding
+            # the whole of the reason -- on the one reading where a line
+            # having more than one group is the entire subject (doctrine 2).
+            by = "; ".join(f"L{ln} answers {', '.join(labs)}"
+                           for ln, labs in sorted(v.get("excused_by",
+                                                        {}).items()))
             add(j, Finding(
                 "MANDATE_EXCUSED_BY_OVERLAP", "note",
                 f"L{i}/L{j} fail group {v['label']} and were EXCUSED because "
                 f"overlap_rule='disjunctive'",
-                f"{v['why']}. Under the declared default (conjunctive) this "
-                f"is a violation. The disjunctive reading gets weaker the "
-                f"more structure you declare, which is why it is reachable "
-                f"and not the default.", [i, j]))
+                f"{v['why']}. {by}. EVERY line of the pair had to answer "
+                f"another of its OWN groups in full — a line in one group "
+                f"has nothing else to answer and is never excused here, "
+                f"which is doctrine 20 held at the line: an obligation "
+                f"dropped with nothing answered in its place is a vacuous "
+                f"pass. Under the declared default (conjunctive) this is a "
+                f"violation. The disjunctive reading gets weaker the more "
+                f"structure you declare, which is why it is reachable and "
+                f"not the default.", [i, j]))
         # A REFUSAL IS NOT A VIOLATION. Before the readability fix these
         # arrived as violations and this loop briefed a model to rewrite
         # lines that rhyme perfectly well -- Barnes's Dorset `drong`/`zong`

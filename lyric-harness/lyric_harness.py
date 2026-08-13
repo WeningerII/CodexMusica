@@ -2045,10 +2045,24 @@ class CandidateEngine:
                 self.index.append((word, anc, rank))
 
     def candidates(self, text, n=20, include_perfect=True):
+        """-> ONE dict shape, always, whether or not the query reads.
+
+        The no-anchor return used to be `{"error", "oov"}` and nothing else,
+        so a caller that read `res["anchor_syllables"]` or `res["candidates"]`
+        -- the two keys the success return exists to carry -- raised KeyError
+        on every unreadable query instead of seeing a refusal. The CLI's own
+        `candidates` verb did exactly that and crashed on `hypotenuse`, this
+        repo's OWN canary word (known gap 1); `quality/revise.py` escaped
+        only because `_field` happens to read `res.get("candidates", [])`.
+        A refusal is not a failure and it is not an empty field either
+        (doctrine 79) -- `error` is set and the counts are honest zeroes, so
+        no consumer can mistake "cannot tell" for "none" (doctrine 28).
+        """
         phones, words, oov = self.lex.transcribe(text)
         anc_q = anchor(syllabify(phones))
         if not anc_q:
-            return {"error": "no anchor", "oov": oov}
+            return {"query": text, "anchor_syllables": 0, "oov": oov,
+                    "candidates": [], "error": "no anchor"}
         query_word = words[-1].lower() if words else ""
         scored = []
         for word, anc, rank in self.index:
@@ -3452,6 +3466,24 @@ def main():
         n = int(args[2]) if len(args) > 2 else 20
         eng = CandidateEngine(lex, decl)
         res = eng.candidates(word, n)
+        # A query the declared dialect cannot READ is a REFUSAL, named and
+        # exited 2 -- never a traceback, and never an empty field printed as
+        # though the search had run and found nothing (doctrine 79: the
+        # refusal is charged to CMUdict, not to the word; doctrine 28: a
+        # caller in a pipeline has to be able to tell "cannot tell" from
+        # "none"). This verb raised `KeyError: 'anchor_syllables'` on every
+        # OOV query for as long as it has shipped -- including on
+        # `hypotenuse`, the canary this repo's own known gap 1 names.
+        if res.get("error"):
+            print(f"  REFUSED — '{word}': {res['error']}. Its end word is "
+                  f"not readable in the declared dialect "
+                  f"(out-of-vocabulary: {res['oov'] or 'none'}), so there is "
+                  f"no anchor to search a candidate field against. Nothing "
+                  f"here says the word has no rhymes. `--fallback=high|low`, "
+                  f"ahead of the verb, reaches quality/g2p.py's derivation "
+                  f"layers; known gap 1 says what that does and does not "
+                  f"close.")
+            sys.exit(2)
         print(f"candidates for '{word}' "
               f"(anchor {res['anchor_syllables']} syllable(s)):")
         for c in res["candidates"]:
@@ -3925,6 +3957,7 @@ def main():
                   f"{' ...' if len(st.unreadable) > 8 else ''}")
         found = refused = 0
         scope = {}
+        burdens = []            # (schema name, search_burden) for FIRING ones
         for sch in RL.all_schemas().values():
             if want and want.lower() not in sch.name.lower():
                 continue
@@ -3946,6 +3979,10 @@ def main():
                        "rule_shape": "[RULE SHAPE ONLY] ",
                        "unsourced": "[UNSOURCED SCHEMA] "}.get(sc, "")
                 scope[sc] = scope.get(sc, 0) + 1
+                # Doctrine 56, asked of the schemas that actually FIRED --
+                # the burden behind THESE counts, not a whole-registry
+                # average that no printed number was obtained under.
+                burdens.append((sch.name, RL.search_burden(sch, st)))
                 print(f"  {tag}{sch.name}  ({len(hits)} instance(s))")
                 for t in getattr(sch, "traditions", ())[:2]:
                     print(f"      canon {getattr(t, 'source', '?')}: "
@@ -3955,10 +3992,33 @@ def main():
         print(f"  schemas finding something: {found}   "
               f"refusing on a capability {lang} does not have: {refused}")
         print("  TWO THINGS THESE COUNTS ARE NOT:")
-        try:
-            burden = RL.search_burden(st)
-        except Exception:
-            burden = None
+        # `RL.search_burden(schema, stream)` takes TWO arguments; this call
+        # site passed ONE, inside a blanket `except Exception` that turned the
+        # resulting TypeError into `burden = None` -- which renders as the
+        # clause below simply not being there. So the doctrine 56 disclosure
+        # this paragraph PROMISES ("`search_k` is now consumed") had never
+        # once run, on any input, and nothing reported that. The handler is
+        # GONE rather than narrowed: `search_burden` already catches the one
+        # exception its own enumeration raises (`NoReferent`, per rule), and
+        # every schema counted here has already had `realise` enumerate the
+        # same spans without raising, so anything thrown from this line is a
+        # programming error and belongs in the open. Doctrine 48 -- a
+        # principle that lives only in prose gets followed exactly as often
+        # as someone remembers it, and a handler that cannot tell a bug from
+        # a capability gap is what let this one survive unnoticed.
+        loci = sum(b["members"] for _, b in burdens)
+        searched = sum(b["searched"] for _, b in burdens)
+        worst = max(burdens, key=lambda t: t[1]["mean_k"], default=None)
+        # loci and `searched` are the same kind of count and may be summed;
+        # mean_k is NOT averaged across schemas (doctrine 79 -- never sum
+        # what asks different things of a reader). The heaviest schema is
+        # NAMED, because that is the one whose bare rate is quoting the null
+        # back at itself.
+        burden = (f"{loci} member span(s) over {len(burdens)} firing "
+                  f"schema(s), {searched} of them reached by a search over "
+                  f"more than one hypothesis; heaviest {worst[0]!r} at "
+                  f"mean_k {worst[1]['mean_k']:.2f}, max_k "
+                  f"{worst[1]['max_k']}") if burdens else ""
         print("   1. EVIDENCE. These are INSTANCES. `search_k` is now "
               "consumed — `search_burden()` reports the hypotheses per locus"
               + (f", here {burden}" if burden else "") + " — but a count "
