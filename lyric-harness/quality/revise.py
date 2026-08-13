@@ -109,16 +109,26 @@ __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME"}
 
-#: The three things a band-passing pair that shares no mandated group can BE.
-#: One code said all three until 2026-08-11 and its message said "rhyme" for
+#: What a band-passing pair that shares no mandated group can BE.
+#: One code said all of it until 2026-08-11 and its message said "rhyme" for
 #: every one of them; doctrine 3 says identity is not rhyme and a near-relation
 #: is not rhyme, and doctrine 24 says a rule that would delete a category must
 #: relabel instead. Measured on this repo's two songs: of 38 collisions, 15
 #: (39.5%) are ASSONANCE — pairs THIS MODULE'S OWN `grade()` calls a violation
 #: when they are mandated — and 8 are REPEAT. So the single code was making a
 #: claim the same module contradicts three functions away.
+#:
+#: `COLLISION_UNDECLARED` IS THE FOURTH AND IT IS NOT A RELATION — it is the
+#: MANDATE'S OWN ANSWER, added 2026-08-13. The first three all assert that the
+#: mandate had something to say here and this pair is outside it ("share no
+#: mandated group"); a mandate with a declared `Mandate.scope` says of some
+#: lines that it does not speak about them AT ALL, and `Mandate.requirement`
+#: answers `UNDECLARED` — "cannot tell" — rather than `FREE`. It is a member of
+#: this set because it IS a collision report and a caller partitioning findings
+#: into collisions and non-collisions must not lose it; it is a separate CODE
+#: because the other three name a defect-or-not on a question that was asked.
 COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
-                      "REPEAT_ACROSS_GROUPS"}
+                      "REPEAT_ACROSS_GROUPS", "COLLISION_UNDECLARED"}
 
 #: Score at or above which two lines that share NO group are reported as an
 #: unintended rhyme. Same constant the spine's `check_scheme` uses, kept equal
@@ -592,18 +602,60 @@ class Reviser:
         # A pair that band-passes while sharing NO group. Under a letter
         # scheme this was "unintended rhyme across scheme letters"; under a
         # cover it is the same statement without the letters.
+        #
+        # AND SINCE 2026-08-13 IT ASKS WHETHER THE MANDATE SPEAKS ABOUT THE
+        # PAIR AT ALL. "Shares no mandated group" is a statement the mandate
+        # can only make about lines it REACHES: `Mandate.scope` declares which
+        # those are, and `Mandate.requirement` answers `UNDECLARED` — 'cannot
+        # tell' — for a pair touching a line outside it, which is a DIFFERENT
+        # answer from `FREE`'s 'nothing required here' (doctrine 28). This loop
+        # never asked, so on this repo's own 41-line fixture scoped to its
+        # chorus, 49 of 73 collisions were reported against a mandate that says
+        # it does not speak about them, and the rendered finding called those
+        # lines `free` — the one word doctrine 28 exists to keep separate.
+        # MEASURED: `inspect()` on that fixture was BYTE-IDENTICAL scope-on and
+        # scope-off, same 73 collisions, same 97 per-line findings.
+        #
+        # THE SET DOES NOT CHANGE, the LABEL does (doctrine 24: relabel, never
+        # delete). Suppressing the 49 would make a scoped run indistinguishable
+        # from one where those pairs were checked and came back clean, which is
+        # doctrine 20's collapse pointed the other way — and an unmandated
+        # rhyme is quite often the best thing in a song, so deleting the report
+        # costs the writer a real sonic event to spare them a mislabel. See
+        # `inspect()` for what the fourth code says.
+        #
+        # GATED ON `scope` BEING DECLARED AT ALL, the same shape the repeat
+        # licence above is gated on `m.returns`, and for two reasons that are
+        # both load-bearing: `UNDECLARED` is reachable through scope and
+        # nothing else (`quality/test_mandate_language.py` §11 pins that), so
+        # the gate cannot change an answer; and every production mandate has an
+        # empty scope, so the default path runs the identical code it ran
+        # before rather than a new branch measured to agree with it.
         collisions = []
         n = len(lines)
+        scoped = bool(getattr(m, "scope", ()))
         for i in range(n):
             for j in range(i + 1, n):
                 if set(m.groups_of(i + 1)) & set(m.groups_of(j + 1)):
                     continue
                 s = matrix[i][j]
                 if s["total"] >= THETA_COLLISION:
+                    # The CLASSIFICATION comes from `requirement()` — the
+                    # mandate's own five-value answer, so this loop and the
+                    # grader cannot drift about what UNDECLARED means. The
+                    # DETAIL (which endpoint is outside) comes from
+                    # `in_scope()`, because a writer told "the mandate does not
+                    # speak about this pair" is owed which half of it.
+                    und = scoped and m.requirement(i + 1,
+                                                   j + 1) is SC.UNDECLARED
                     collisions.append({
                         "lines": (i + 1, j + 1),
                         "endwords": (endwords[i], endwords[j]),
-                        "score": s["total"], "relation": s["relation"]})
+                        "score": s["total"], "relation": s["relation"],
+                        "undeclared": bool(und),
+                        "undeclared_lines": (
+                            [ln for ln in (i + 1, j + 1)
+                             if not m.in_scope(ln)] if und else [])})
         return {"mandate": m, "endwords": endwords, "readability": records,
                 "verdicts": verdicts, "violations": violations,
                 "repeats": repeats, "excused": excused,
@@ -752,7 +804,7 @@ class Reviser:
         return out
 
     @staticmethod
-    def _collision_code(relation):
+    def _collision_code(relation, undeclared=False):
         """One code per RELATION, because they are three different reports.
 
         `SCHEME_COLLISION`      the pair is a rhyme the mandate did not ask
@@ -768,7 +820,27 @@ class Reviser:
                                 a second place.
         `REPEAT_ACROSS_GROUPS`  the same word twice. Doctrine 3's first
                                 sentence: identity is not rhyme.
+
+        AND ONE THAT IS NOT A RELATION AT ALL, which is why it is a parameter
+        and not a fourth branch of the same `if`:
+
+        `COLLISION_UNDECLARED`  `Mandate.requirement` answers `UNDECLARED` for
+                                this pair — the mandate's `scope` does not
+                                reach one of its lines. It OUTRANKS the
+                                relation, because the other three each say
+                                what an ANSWERED question answered, and this
+                                one says the question was never asked
+                                (doctrine 20). The relation is not lost: the
+                                finding names the code this pair WOULD have
+                                carried, which is this same function called
+                                without the flag.
+
+        `undeclared` defaults False, so every existing caller — including
+        `quality/test_revise.py` test 23, which calls this with one positional
+        argument — reads exactly as it did.
         """
+        if undeclared:
+            return "COLLISION_UNDECLARED"
         if relation in RHYME_RELATIONS:
             return "SCHEME_COLLISION"
         if relation == "REPEAT":
@@ -968,6 +1040,16 @@ class Reviser:
         not shown a note about not having asked), but a caller reading this
         dict alone, later, without the call site in view, has no other way
         to tell "meter is clean" from "meter was never asked."
+
+        A DECLARED `Mandate.scope` IS A Finding, and the difference from the
+        paragraph above is the whole of doctrine 20. An omitted blueprint is a
+        layer the caller declined to ask for; a declared scope is the caller
+        DECLARING that the mandate does not speak about certain lines, and
+        every collision touching one of them is then `UNDECLARED` rather than
+        an unintended rhyme. Those come back as `COLLISION_UNDECLARED` per
+        line plus one whole-draft `MANDATE_SCOPE_DECLARED`, both notes. With
+        no scope — every mandate this repo builds from the CLI — neither is
+        ever emitted and every finding here is bit-for-bit what it was.
         """
         m = self.mandate(lines, mandate)
         per, whole = {}, []
@@ -1220,12 +1302,46 @@ class Reviser:
             i, j = c["lines"]
             if (i, j) in absorbed:
                 continue
-            code = self._collision_code(c["relation"])
+            code = self._collision_code(c["relation"], c.get("undeclared"))
             pair = (f"{c['endwords'][0]!r} ~ {c['endwords'][1]!r} "
                     f"{c['score']:.3f} {c['relation']}")
             gi = ", ".join(m.labels[k] for k in m.groups_of(i)) or "free"
             gj = ", ".join(m.labels[k] for k in m.groups_of(j)) or "free"
-            if code == "SCHEME_COLLISION":
+            if c["relation"] not in RHYME_RELATIONS and \
+                    c["relation"] != "REPEAT":
+                # COUNTED OFF THE RELATION, not off which code was emitted.
+                # `COLLISION_CUT_IS_SCALAR_ONLY` is a statement about the CUT,
+                # and the cut is applied identically to every pair in the set,
+                # so an undeclared near-relation belongs in this count exactly
+                # as much as a declared one — and its denominator is the whole
+                # collision set either way. On a mandate with no scope nothing
+                # is undeclared and this is the same number the `else` branch
+                # below used to increment.
+                near += 1
+            if code == "COLLISION_UNDECLARED":
+                out = c.get("undeclared_lines") or []
+                which = " and ".join(f"L{x}" for x in out) or f"L{i}/L{j}"
+                is_are = "is" if len(out) == 1 else "are"
+                would = self._collision_code(c["relation"])
+                msg = (f"L{i} and L{j} collide — {pair} — and the mandate "
+                       f"DOES NOT SPEAK about {which}: UNDECLARED, not an "
+                       f"unintended rhyme")
+                ev = (f"`Mandate.scope` declares {len(m.scope)} of "
+                      f"{m.n_lines} line(s) and {which} {is_are} outside it, "
+                      f"so "
+                      f"`requirement(L{i}, L{j})` is UNDECLARED — 'cannot "
+                      f"tell' — and NOT `FREE`'s 'nothing required here' "
+                      f"(doctrine 28). Reported rather than SUPPRESSED, "
+                      f"because those two are also both different from "
+                      f"silence: dropping this pair would make a scoped run "
+                      f"indistinguishable from one where these lines were "
+                      f"checked and came back clean, which is doctrine 20's "
+                      f"collapse pointed the other way. It would be reported "
+                      f"as {would} if the mandate reached these lines. "
+                      f"Whether the collision is a defect is not a question "
+                      f"this mandate asked, so the loop states the sonic "
+                      f"fact and charges nothing")
+            elif code == "SCHEME_COLLISION":
                 msg = (f"L{i} ({gi}) and L{j} ({gj}) RHYME and share no "
                        f"mandated group — {pair}")
                 ev = ("an unintended rhyme across groups. Whether that is a "
@@ -1244,7 +1360,6 @@ class Reviser:
                       "score separates those, so the loop names the relation "
                       "and stops")
             else:
-                near += 1
                 msg = (f"L{i} ({gi}) and L{j} ({gj}) collide as "
                        f"{c['relation']}, WHICH IS NOT A RHYME — {pair}")
                 ev = (f"scalar {c['score']:.3f} >= {THETA_COLLISION} (the "
@@ -1277,6 +1392,36 @@ class Reviser:
                 f"a song is a real sonic event and deleting it would be the "
                 f"worse defect. `lyric_harness.check_scheme` carries the same "
                 f"untyped message and is not this cell's file", []))
+        if getattr(m, "scope", ()):
+            # SAID ONCE, ABOUT THE MANDATE, and only when the coordinate was
+            # DECLARED — a mandate with no scope speaks about every line and
+            # has nothing to disclose, which is why the default path never
+            # reaches this branch. Doctrine 1: an analysis states its
+            # assumptions, and "which lines am I even talking about" is the
+            # assumption every collision above rests on. Doctrine 79: the
+            # counts are kept SEPARATE rather than summed, because "collides
+            # inside what the mandate speaks about" and "collides where it
+            # does not" ask different things of a writer.
+            und = [c for c in rep["collisions"] if c.get("undeclared")]
+            out = sorted(i for i in range(1, m.n_lines + 1)
+                         if not m.in_scope(i))
+            whole.append(Finding(
+                "MANDATE_SCOPE_DECLARED", "note",
+                f"this mandate SPEAKS ABOUT {len(m.scope)} of {m.n_lines} "
+                f"line(s); of its {len(rep['collisions'])} collision(s), "
+                f"{len(rep['collisions']) - len(und)} are inside that scope "
+                f"and {len(und)} touch a line it does not speak about",
+                f"the {len(und)} are reported as COLLISION_UNDECLARED and "
+                f"charged to nobody: `Mandate.requirement` answers UNDECLARED "
+                f"there, which is 'cannot tell' and not `FREE`'s 'nothing "
+                f"required' (doctrine 28). Lines outside the scope: {out}. "
+                f"They are still graded by every mandate-INDEPENDENT layer in "
+                f"this loop — the slop floor, the readability refusals, meter "
+                f"and song function if a blueprint was declared — because "
+                f"none of those consults a mandate at all (doctrine 6/7: two "
+                f"sources, deliberately kept apart). A scope narrows what the "
+                f"MANDATE claims, never what the draft is measured on",
+                out))
         if blueprint is not None:
             m_per, m_whole = self._meter_findings(lines, blueprint,
                                                    subdivision, assume)

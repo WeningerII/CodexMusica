@@ -1577,6 +1577,25 @@ class Mandate:
         Returns declared non-verbatim or UNDECLARED are skipped and reported
         as skipped: the mandate does not require identity there, so silence
         about them would be an answer the mandate never gave.
+
+        `OUT_OF_RANGE` IS THE ONE MEMBER OF THIS OUTPUT THAT REPORTS A MANDATE
+        THAT COULD NOT BE READ rather than a return that came back wrong, and
+        until 2026-08-13 its message NAMED A CONDITION THIS GUARD DOES NOT
+        TEST. The guard tests a return LINE INDEX against `len(lines)`; the
+        message said "the mandate declares N lines and M were given" — a
+        LENGTH MISMATCH between mandate and draft, which `Reviser.mandate`
+        (`SC.mandate(spec, n_lines=len(lines))`) refuses with `NoMandate`
+        several frames earlier, so no `Reviser.inspect()` call can reach this
+        branch by that route at all. On the input that DOES reach it — a
+        `Mandate` assembled around `_normalise_returns` (`dataclasses.replace`,
+        direct construction) carrying a `Return` outside its OWN 1..n_lines —
+        the old message printed "the mandate declares 4 lines and 4 were
+        given", which names nothing: the two numbers agree and the defect is
+        the index. It now names the OFFENDING LINE, says which of the two ways
+        it got out of range (doctrine 79: charge the right layer — a hand-built
+        mandate and a short draft need different repairs), and says the
+        verbatim requirement was NOT CHECKED rather than leaving a reader to
+        infer a clean pass from a finding about something else (doctrine 20).
         """
         from quality.grid import compare_returns, normalise_line
         out = []
@@ -1584,9 +1603,27 @@ class Mandate:
             if r.verbatim is not True:
                 continue
             if i > len(lines) or j > len(lines):
+                bad = [x for x in (i, j) if x > len(lines)]
+                names = "L" + ", L".join(str(x) for x in bad)
+                # WHICH of the two disagreements this is, said out loud. Past
+                # `self.n_lines` -> the RETURN is outside the mandate's own
+                # declaration, the one input `_normalise_returns` exists to
+                # raise on, reached by going around it; this is the only route
+                # that reaches `Reviser.inspect()`. Inside 1..n_lines and past
+                # `len(lines)` -> the DRAFT is short, reachable only by calling
+                # this method directly.
+                why = (f"and {names} is outside the mandate's own "
+                       f"1..{self.n_lines} — this return was built around the "
+                       f"constructor that refuses it"
+                       if any(x > self.n_lines for x in bad) else
+                       f"though {names} is inside the mandate's own "
+                       f"1..{self.n_lines} — the DRAFT is short")
                 out.append((r.label, i, j, "OUT_OF_RANGE",
-                            f"the mandate declares {self.n_lines} lines and "
-                            f"{len(lines)} were given"))
+                            f"return {r.label or '(unlabelled)'} names "
+                            f"{names}, past the {len(lines)} line(s) given, "
+                            f"{why}. The verbatim requirement at L{i}/L{j} "
+                            f"was NOT CHECKED — unasked, not answered clean "
+                            f"(doctrine 20)"))
                 continue
             a, b = lines[i - 1], lines[j - 1]
             if normalise_line(a) == normalise_line(b):

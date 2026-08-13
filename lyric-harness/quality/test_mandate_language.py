@@ -28,10 +28,27 @@ So the suite is organised around FIRING, not around passing:
                                                 does a real grading run
                                                 actually reach, and which are
                                                 declared and never set
+  §12 `_rep` — WHICH member of an identity class the licence transports
+                                                FROM. A MUTANT SURVIVED ALL
+                                                TEN TEST FILES here
+                                                (`quality/mutate.py` QS2,
+                                                2026-08-13, 2210s of
+                                                escalation, not one check
+                                                failed), because every fixture
+                                                this repo ships is SYMMETRIC
+                                                about that choice. §12 is the
+                                                asymmetric input, and it says
+                                                why it is the asymmetric one
+  §13 `OUT_OF_RANGE` — the message named a condition its guard does not
+                                                test, so the one input that
+                                                reaches the guard printed
+                                                "declares 4 lines and 4 were
+                                                given" and named nothing
 
 `python3 quality/test_mandate_language.py`
 """
 
+import dataclasses
 import sys
 import os
 
@@ -72,6 +89,56 @@ def song(name):
 SONG_SCHEME = "XXXXXXXXXXXXABCBADCDXXXXXXXXXXXXEFGFEHGHX"
 #: the same song, with the one thing a letter scheme cannot say
 SONG_RETURN = "chorus:33-40<=13-20"
+
+#: THE ASYMMETRIC DECLARATION, and §12's whole subject. The chorus's rhyme is
+#: written ONCE, on the FIRST instance, and the return TRANSPORTS it to the
+#: second — which is not a contrivance but the case
+#: `Mandate.rhyme_partition_groups`'s own docstring exists for: "writing
+#: `13-20` and `33-40<=13-20` does not leave L33..L40 unrhymed -- L33 IS L13,
+#: so it is in L13's class". `SONG_SCHEME` above is the OTHER way to write the
+#: same song, with both instances given their own letters, and that spelling
+#: is SYMMETRIC about which member of a return class is canonical — which is
+#: exactly why it cannot see a defect in the choice.
+TRANSPORTED = [[13, 17], [14, 16], [15, 19], [18, 20]]
+
+
+def _reading_from_last_member(fn):
+    """Run `fn()` with `Mandate._rep` answering the LAST member of a return
+    class instead of the first, and hand back its value.
+
+    This is not a hypothetical: it is `quality/mutate.py`'s QS2 verbatim
+    (`min(r.lines)` -> `max(r.lines)`), the mutation that survived `battery`,
+    `test_fit`, `test_floor`, `test_grid`, `test_loop`, this file,
+    `test_revise`, `test_song_function`, `test_taxonomy` and `test_verbs` on
+    2026-08-13. Holding BOTH readings in one process is what lets a single run
+    assert the two halves doctrine 94 asks for separately: that the check
+    fires, and that it is the INPUT and not the check that makes it fire.
+    """
+    orig = S.Mandate._rep
+
+    def last(self, line):
+        r = self.return_of(line)
+        return max(r.lines) if r is not None else line
+
+    try:
+        S.Mandate._rep = last
+        return fn()
+    finally:
+        S.Mandate._rep = orig
+
+
+def _requirements(m):
+    """-> {(i, j): requirement name} over EVERY pair of a mandate."""
+    return {(i, j): m.requirement(i, j).name
+            for i in range(1, m.n_lines + 1)
+            for j in range(i + 1, m.n_lines + 1)}
+
+
+def _moved(m):
+    """-> the pairs whose ANSWER differs between the two readings."""
+    first = _requirements(m)
+    last = _reading_from_last_member(lambda: _requirements(m))
+    return sorted(p for p in first if first[p] != last[p])
 
 
 # ---------------------------------------------------------------------------
@@ -514,6 +581,192 @@ def test_read_path():
        "in this value")
 
 
+# ---------------------------------------------------------------------------
+# §12  `_rep` — WHICH member of an identity class the licence transports FROM
+#
+# THE DEFECT THIS SECTION EXISTS FOR. `Mandate._rep` answers the FIRST line of
+# a return class — "identity's canonical member", its own docstring — and
+# `requirement()`'s licence-transport rule asks its question OF THE
+# REPRESENTATIVES. Read the LAST member instead and the mandate's shape does
+# not move by one element: `groups`, `expanded_groups`, `pairs`,
+# `expanded_pairs`, `return_pairs`, `identity_pairs`, `to_rhyme_letters`,
+# `rhyme_partition_groups`, `expanded_overlapping_lines` and `returns_check`
+# are all IDENTICAL under both readings (pinned below). The single thing that
+# moves is the VALUE `requirement(i, j)` answers at a transported pair — which
+# is the value `quality/revise.py`'s `grade()` consumes as
+# `.decided("repeat_is_violation")`, so an identical end word goes from CHARGED
+# to LICENSED with nothing else in the object changing to say so.
+#
+# WHY TEN TEST FILES COULD NOT SEE IT. Every return fixture this repo ships is
+# SYMMETRIC about the choice: `SONG_SCHEME` gives BOTH chorus instances their
+# own letters, and a villanelle's refrains sit inside one big class 'a' that
+# holds every member of every return. Where both ends of a return class are
+# already in a declared group, first and last name different lines and reach
+# the SAME answer, so the mutated line executes and changes nothing — the trap
+# that also catches a test written at a class of ONE, where first IS last.
+# The discriminating input is a return class whose members do NOT both carry a
+# declared group: the writer states the chorus's rhyme ONCE and lets the return
+# carry it, which is the idiom `rhyme_partition_groups` was written for.
+# ---------------------------------------------------------------------------
+
+def test_rep_is_the_first_member():
+    print("\n§12  _rep — which member of an identity class the licence "
+          "transports FROM")
+    m = S.mandate(TRANSPORTED, n_lines=41, returns=SONG_RETURN)
+    ok("a returned line's representative is the FIRST member of its class",
+       (m._rep(33), m._rep(37), m._rep(13)) == (13, 17, 13),
+       "-- L33 IS L13, so every question about L33 is a question about L13")
+
+    print("\n    THE ANSWER THAT MOVES, on the chorus whose rhyme is declared "
+          "ONCE and TRANSPORTED (doctrine 3: REPEAT inverts by context)")
+    ok("L17/L33 is REQUIRE_RHYME — L33 IS L13, L13/L17 must rhyme, so an "
+       "identical end word at L17/L33 is a VIOLATION",
+       m.requirement(17, 33) is S.REQUIRE_RHYME
+       and m.requirement(17, 33).decided("repeat_is_violation")
+       == (True, True),
+       "-- the exact tuple grade() consumes")
+    ok("and read from the LAST member the SAME pair answers something ELSE, "
+       "so this input DISCRIMINATES",
+       _reading_from_last_member(lambda: m.requirement(17, 33))
+       is S.LICENSE_REPEAT
+       and m.requirement(17, 33)
+       is not _reading_from_last_member(lambda: m.requirement(17, 33)),
+       "-- L17 would represent as L37 and L33 as L33, no declared group holds "
+       "that pair, and the violation is LICENSED AWAY in silence")
+    ok("the returned chorus's OWN internal rhyme moves the same way",
+       m.requirement(33, 37) is S.REQUIRE_RHYME
+       and _reading_from_last_member(lambda: m.requirement(33, 37))
+       is S.LICENSE_REPEAT,
+       "-- L33/L37 IS L13/L17 and nothing else in the mandate says so")
+    moved = _moved(m)
+    ok("12 of this mandate's 820 pairs answer differently under the two "
+       "readings, and all 12 touch the transported chorus",
+       len(moved) == 12
+       and all(i >= 13 and j >= 33 for i, j in moved),
+       f"{moved}")
+
+    print("\n    BOTH DIRECTIONS IN ONE OBJECT — the mutation is not a "
+          "uniform loosening, it EXCHANGES two answers (8 lines, one return "
+          "class {2, 6}, one declared group on each side of it)")
+    w = S.mandate([[1, 2], [6, 8]], n_lines=8, returns="r:2,6")
+    ok("L1/L6 — the first-member reading DECIDES it and the last-member "
+       "reading loses the decision",
+       w.requirement(1, 6) is S.REQUIRE_RHYME
+       and w.requirement(1, 6).decided("repeat_is_violation") == (True, True)
+       and _reading_from_last_member(lambda: w.requirement(1, 6))
+       is S.LICENSE_REPEAT,
+       "-- L6 IS L2 and L1/L2 is a declared group, so a repeat is charged")
+    ok("L2/L8 — and at the OTHER pair of the same object it MANUFACTURES a "
+       "decision the mandate declined to make",
+       w.requirement(2, 8) is S.LICENSE_REPEAT
+       and w.requirement(2, 8).decided("repeat_is_violation") == (True, False)
+       and _reading_from_last_member(lambda: w.requirement(2, 8))
+       is S.REQUIRE_RHYME,
+       "-- so a suite that only counted findings could see a wash")
+    ok("exactly those two pairs move, in opposite directions",
+       _moved(w) == [(1, 6), (2, 8)], f"{_moved(w)}")
+
+    print("\n    WHY THE SHIPPED FIXTURES ARE BLIND — doctrine 94's companion, "
+          "and the reason this section is not written on either of them")
+    both = S.mandate(SONG_SCHEME, returns=SONG_RETURN)
+    ok("SONG_SCHEME letters BOTH chorus instances, so the two readings agree "
+       "at every one of its 820 pairs",
+       _moved(both) == [] and len(_requirements(both)) == 820,
+       "-- L17 represents as L17 or L37 and BOTH are in a declared group with "
+       "L33's representative, so the mutated line runs and changes nothing")
+    v = S.mandate(S.REFRAIN_FORMS["villanelle"])
+    ok("and a real villanelle agrees at every one of its 171 pairs",
+       _moved(v) == [] and len(_requirements(v)) == 171,
+       "-- both refrain classes sit wholly inside class 'a'")
+    ok("a return class of ONE cannot discriminate either, and the language "
+       "refuses to declare one at all",
+       raises(lambda: S.parse_returns("13"), "at least two"),
+       "-- first IS last there; a test written at that shape would pass "
+       "against both readings and prove nothing")
+
+    print("\n    AND NOTHING ELSE IN THE OBJECT MOVES, which is why the "
+          "shape assertions in §4/§10 could not have caught it either")
+    def shape(x):
+        return (x.groups, x.expanded_groups(), x.pairs(), x.expanded_pairs(),
+                [(i, j) for i, j, _ in x.return_pairs()], x.identity_pairs(),
+                x.to_rhyme_letters(), x.rhyme_partition_groups(),
+                x.expanded_overlapping_lines(),
+                x.returns_check(["x"] * x.n_lines))
+    ok("ten observables of the transported mandate are IDENTICAL under both "
+       "readings; only requirement()'s answer moves",
+       shape(m) == _reading_from_last_member(lambda: shape(m)),
+       "-- groups, expanded_groups, pairs, expanded_pairs, return_pairs, "
+       "identity_pairs, to_rhyme_letters, rhyme_partition_groups, "
+       "expanded_overlapping_lines, returns_check")
+
+
+# ---------------------------------------------------------------------------
+# §13  OUT_OF_RANGE — a message that named a condition its guard does not test
+#
+# The guard tests a return LINE INDEX against `len(lines)`. Its message said
+# "the mandate declares N lines and M were given" — a LENGTH MISMATCH, which
+# `Reviser.mandate` (`SC.mandate(spec, n_lines=len(lines))`) refuses with
+# `NoMandate` several frames earlier, so `Reviser.inspect()` cannot reach this
+# branch by that route at all. On the input that DOES reach it the message
+# printed "the mandate declares 4 lines and 4 were given" — two numbers that
+# agree, naming nothing, about a finding whose whole content is WHICH INDEX is
+# out of range. Doctrine 20: a check that did not run is not a check that
+# passed, and the message has to say the requirement was NOT CHECKED.
+# ---------------------------------------------------------------------------
+
+def test_out_of_range_names_its_own_condition():
+    print("\n§13  OUT_OF_RANGE — the message names the condition the guard "
+          "actually tests")
+    base = S.mandate([[1, 3], [2, 4]], n_lines=4)
+    hand = dataclasses.replace(
+        base, returns=(S.Return(lines=(1, 9), label="R1", verbatim=True),))
+    got = hand.returns_check(["a", "b", "c", "d"])
+    ok("the hand-built mandate — the ONLY input that reaches this guard from "
+       "inspect() — produces exactly one finding",
+       len(got) == 1 and got[0][:4] == ("R1", 1, 9, "OUT_OF_RANGE"),
+       "-- shape unchanged: quality/revise.py branches on the KIND string")
+    msg = got[0][4]
+    ok("the message NAMES THE OFFENDING LINE rather than two line counts",
+       "L9" in msg and "4 lines and 4 were given" not in msg, msg[:64])
+    ok("it says the mandate's OWN range is what L9 is outside of, so the "
+       "repair is to the MANDATE and not to the draft (doctrine 79)",
+       "1..4" in msg and "built around the constructor" in msg)
+    ok("and it says the requirement was NOT CHECKED — unasked is not "
+       "answered clean (doctrine 20)",
+       "NOT CHECKED" in msg and "L1/L9" in msg)
+
+    print("\n    the OTHER reachable route names the OTHER layer — a short "
+          "draft is a different repair from a mandate built around the "
+          "constructor, and one message for both named neither")
+    short = S.mandate("ABAB", returns="1,3")
+    smsg = short.returns_check(["a", "b"])[0][4]
+    ok("a well-formed mandate given a SHORT draft says the DRAFT is short",
+       "the DRAFT is short" in smsg and "L3" in smsg
+       and "inside the mandate's own 1..4" in smsg, smsg[:72])
+    ok("and it too says NOT CHECKED rather than falling silent",
+       "NOT CHECKED" in smsg)
+    ok("the two messages are DIFFERENT TEXT for the two conditions",
+       msg != smsg,
+       "-- 'the mandate declares 4 lines and M were given' was one message "
+       "for both, and the arithmetic was the only thing that varied")
+
+    print("\n    and the guard has not started swallowing the returns it is "
+          "supposed to grade")
+    inr = dataclasses.replace(
+        base, returns=(S.Return(lines=(1, 3), label="R1", verbatim=True),))
+    ok("an IN-RANGE return that came back VERBATIM emits nothing",
+       inr.returns_check(["same", "b", "same", "d"]) == [])
+    drift = inr.returns_check(["same", "b", "other", "d"])
+    ok("an IN-RANGE return that DRIFTED takes the other branch and is a "
+       "NAMED KIND, not OUT_OF_RANGE",
+       len(drift) == 1 and drift[0][3] != "OUT_OF_RANGE"
+       and "VERBATIM" in drift[0][4], f"{drift[0][3]}")
+    ok("the constructor still refuses the out-of-range return outright, so "
+       "this guard stays the LAST line of defence and not the first",
+       raises(lambda: S.mandate([[1, 3], [2, 4]], n_lines=4,
+                                returns=[[1, 9]]), "outside"))
+
+
 def main():
     print(__doc__.strip().splitlines()[0])
     test_unknown()
@@ -527,6 +780,8 @@ def main():
     test_a1_reaches_the_loop()
     test_the_song()
     test_read_path()
+    test_rep_is_the_first_member()
+    test_out_of_range_names_its_own_condition()
     print(f"\n{len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:
         for f in FAIL:
