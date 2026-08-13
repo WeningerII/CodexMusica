@@ -1230,7 +1230,7 @@ cannot be renumbered — only added.
 | 56 | `A` | A search over placements needs a null under the same search |
 | 57 | `A` | An empirical p sitting at 1/(n+1) is reporting the resolution, not the effect |
 | 58 | `B` | A recorded COUNT is a threshold nobody wrote down |
-| 59 | `C` | Refusing on SCRIPT has a measurable cost, and it should be paid in the open |
+| 59 | `C` | Refusing because the ORTHOGRAPHY DOES NOT WRITE THE DECIDING SEGMENT has a measurable cost, and it should be paid in the open (REPINNED 2026-08-13 from ~~"Refusing on SCRIPT..."~~ — the figure was attached to the wrong axis by a factor of 1,754) |
 | 60 | `C` | Derive a refusal from what the RELATION needs, not from which relation looks vulnerable |
 | 61 | `B` | A rule that fires more often is not a better rule |
 | 62 | `W` | The tradition frequently states the rule you were about to invent |
