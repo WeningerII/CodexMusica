@@ -1365,6 +1365,7 @@ def hook_findings(song, hooks=(), title=None):
             # then ANSWERED to have left one, and an undeclared occurrence
             # beside them changes nothing about that answer.
             undeclared_at = [o for o in occ if o.function == UNDECLARED]
+            where = sorted({o.section for o in undeclared_at})
             if undeclared_at:
                 refusals.append(Refusal(
                     "HOOK_PLACEMENT_PARTLY_UNDECLARED",
@@ -1372,13 +1373,11 @@ def hook_findings(song, hooks=(), title=None):
                     f"{len(undeclared_at)} of those land in a section that "
                     f"declares no function",
                     f"{h.text!r} in {sorted(declared)[0]!r} sections and in "
-                    f"{sorted({o.section for o in undeclared_at})} "
-                    f"(UNDECLARED), at bars {_bars_of(occ)}. Whether it stays "
-                    f"in one function is CANNOT TELL: the undeclared "
+                    f"{where} (UNDECLARED), at bars {_bars_of(occ)}. Whether "
+                    f"it stays in one function is CANNOT TELL: the undeclared "
                     f"section(s) may be the leak that answers it. Declare "
                     f"their function, or accept the refusal -- the harness "
-                    f"does not read {sorted({o.section for o in undeclared_at})} "
-                    f"as a function name."))
+                    f"does not read {where} as a function name."))
             else:
                 findings.append(GridFinding(
                     "HOOK_CONFINED",
@@ -1740,6 +1739,7 @@ def song_function_report(song, hooks=(), rhyme_key=None,
         refusals.extend(r)
         if r:
             refused_questions += 1
+
     # `chorus` is ALWAYS asked, declared or not: a song with no declared
     # chorus is a fact about the song, and not asking is how a report comes
     # back clean because nobody said anything (doctrine 20).

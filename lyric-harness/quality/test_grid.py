@@ -578,7 +578,7 @@ def _hook_song(last_function=None):
     return s
 
 
-def test_hook_confined_does_not_fire_when_the_hook_left_for_nowhere_named():
+def test_hook_confined_and_the_undeclared_landing():
     """HOOK_CONFINED fired on a hook that had LEFT the one function it names.
 
     `len(fns - {UNDECLARED}) == 1` counts UNDECLARED as no function rather
@@ -728,14 +728,14 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
           f"codes: {sorted({f.code for f in rep['findings']})}")
 
     # Not one function: EVERY function the vocabulary calls "once".
-    missed = [fn for fn, s in SECTION_FUNCTIONS.items()
-              if s.recurrence == "once"
-              and "SINGLE_USE_RECURRED" not in
+    once_fns = sorted(fn for fn, s in SECTION_FUNCTIONS.items()
+                      if s.recurrence == "once")
+    missed = [fn for fn in once_fns
+              if "SINGLE_USE_RECURRED" not in
               {f.code for f in report(["verse", fn, "chorus", fn])["findings"]}]
     check("every recurrence-'once' function is reachable, not just the "
           "listed ones", not missed, f"silent for: {missed}" if missed else
-          f"all {sum(1 for s in SECTION_FUNCTIONS.values() if s.recurrence == 'once')} "
-          f"of them")
+          f"all {len(once_fns)} of them: {once_fns}")
 
     # THE DELIBERATE HALF. Recorded as a decision so a later session reads a
     # choice rather than an omission.
@@ -806,8 +806,9 @@ def test_return_never_returns_is_reached():
     fb, _, _ = return_findings(b, "bridge")
     check("one bridge is not RETURN_NEVER_RETURNS",
           "RETURN_NEVER_RETURNS" not in {x.code for x in fb},
-          f"bridge is not in fixed_return {list(POPULAR_SONG.fixed_return)} — "
-          f"a bridge appearing once is the convention, not a defect")
+          f"bridge is not in fixed_return "
+          f"{list(POPULAR_SONG.fixed_return)} — a bridge appearing once is "
+          f"the convention, not a defect")
     fc, _, _ = return_findings(b, "chorus")
     check("and a chorus that DOES return does not earn it either",
           "RETURN_NEVER_RETURNS" not in {x.code for x in fc},
@@ -831,7 +832,7 @@ if __name__ == "__main__":
                test_song_from_blueprint_owns_lines_by_bar_when_unnamed,
                test_song_from_blueprint_float_beats_are_exact,
                test_a_recurred_single_use_function_is_reported,
-               test_hook_confined_does_not_fire_when_the_hook_left_for_nowhere_named,
+               test_hook_confined_and_the_undeclared_landing,
                test_the_three_counts_all_count_questions,
                test_the_ask_gate_reaches_every_function_that_is_expected_once,
                test_return_never_returns_is_reached):

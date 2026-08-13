@@ -6,7 +6,7 @@
     python3 quality/song_profile_calibration.py --seeds 50  # faster, wider intervals
     python3 quality/song_profile_calibration.py --sample 400  # bounded, NO VERDICT, exit 3
     python3 quality/song_profile_calibration.py --check --without-predictability
-                                                # ~110 CPU-s cold; judges 13
+                                                # ~75 CPU-s cold; judges 13
                                                 # of 18 constants, refuses 5
     python3 quality/song_profile_calibration.py --no-cache  # recompute every item
 
@@ -19,8 +19,11 @@ below it.
       --check    2.0-2.2 CPU-hours   PROJECTED 2026-08-13, see below
       full run   2.0-2.2 CPU-hours   (sections 3 and 5 add ~9 CPU-s)
   WARM (this run's cache fingerprint matches the last run's):
-      --check    ~110 CPU-s      MEASURED 2026-08-13, end to end
-      full run   ~120 CPU-s
+      --check    ~85 CPU-s   MEASURED 2026-08-13 at reduced --seeds/--draws
+      full run   ~95 CPU-s   and extrapolated over the two linear loops
+  PARTIAL, and it needs no cache at all (--without-predictability, 4 checks):
+      --check    ~75 CPU-s   MEASURED 2026-08-13: 53.9 CPU-s at --seeds 30
+                             --draws 200, over the whole 4,930-item corpus
 
   REPINNED 2026-08-13. This docstring said "on the order of an hour" from
   2026-08-12 until now, and observed `--check` runs took 2.5-4 hours -- so the
@@ -47,7 +50,7 @@ below it.
       T_pred = 331,604,100 * c_score      c_score = 21-23 microseconds
              = 7,100-7,700 CPU-s
       T_cold = T_pred + P*c_pair + T_rest
-             = ~7,400 + 75,397*0.0019 + ~110   = ~7,700 CPU-s = 2.1 h
+             = ~7,400 + 75,397*0.0019 + ~85    = ~7,600 CPU-s = 2.1 h
 
   The work count is EXACT. c_score was measured three independent ways and
   they agree: 23.2 us from a uniform sample of 100 distinct words, 21.3 us
@@ -70,7 +73,7 @@ below it.
 
   WALL-CLOCK IS NOT THE UNIT and neither figure above is one. The machine this
   was calibrated on was descheduled about 4.7x (200s wall against 52s CPU on a
-  known workload), so its own wall reading for a cold run is ~11 h and means
+  known workload), so its own wall reading for a cold run is ~10 h and means
   nothing anywhere else. Every run now prints a PHASE COST block with wall AND
   CPU per phase, so the next reader measures instead of recalling.
 
@@ -148,7 +151,7 @@ a full population.
 WHAT `--without-predictability` IS, AND WHY IT IS THE ONE TO PUT IN CI. It is
 the opposite trade from `--sample`: instead of asking all five checks of a
 FRACTION of the corpus, it asks four of them of ALL of it. Those four are the
-whole of what the profile shipped before 2026-08-13 and they cost ~110 CPU-s
+whole of what the profile shipped before 2026-08-13 and they cost ~75 CPU-s
 from cold with no cache at all, because none of them touches `RhymeField`.
 Their answers are EXACT -- not sampled, not interpolated -- so the mode can
 genuinely FAIL on drift, which is what a gate has to be able to do and what
@@ -274,16 +277,16 @@ def comparator_fingerprint():
 
     Deliberately OVER-inclusive on the two comparator modules: a whole-file
     hash of `lyric_harness.py` and `quality/features.py` means editing a
-    comment in either throws away a 2.2-CPU-hour cache. That is the correct
+    comment in either throws away a 2.1-CPU-hour cache. That is the correct
     direction to be wrong in -- a stale hit is a wrong number reported as a
     measurement, and this repo has already been bitten by a rate that was a
     coordinate of a comparator that had moved underneath it (CLAUDE.md, Test
     discipline, on the Whitman figures). Recomputing costs time; trusting a
     moved comparator costs the result.
 
-    THIS file is included only by the three functions that define the
-    QUESTION -- `predictability_frac`, its 0.90 cutoff, and `_couplet_pairs`
-    -- and not as a whole file, because the rest of it is reporting: an edit
+    THIS file is included only by the two functions that define the QUESTION
+    -- `predictability_frac` (whose source carries its own 0.90 cutoff) and
+    `_couplet_pairs` -- and not as a whole file, because the rest of it is reporting: an edit
     to a print statement in section 4 cannot change what an item scores, and
     invalidating on one would make the cache useless in a file under active
     edit, which is doctrine 48's failure mode wearing a different hat.
@@ -318,6 +321,14 @@ class PredictabilityCache:
     silently read a cache would be a number whose provenance lives in
     somebody's home directory, which is the shape of defect this whole script
     exists to remove (doctrine 58).
+
+    The fingerprint is the whole design, and doctrine 16 is why: an unguarded
+    memo does not fail safe, it fails toward WHOEVER RAN IT LAST -- their
+    lexicon, their frequency table, their edit to `score()` -- and it does so
+    silently, in the file that decides whether floor.py's thresholds still
+    hold. So the guard is over-inclusive by construction and the failure mode
+    is a wasted recomputation, never a stale number wearing a measurement's
+    clothes.
     """
 
     def __init__(self, path=DEFAULT_CACHE, enabled=True, flush_every=200,
@@ -1305,7 +1316,8 @@ def main():
         description="Re-derive quality/floor.py's `song` profile from "
                     "corpus/song/. A COLD run is 2.0-2.2 CPU-hours (projected "
                     "2026-08-13); a run whose cache fingerprint still matches "
-                    "is ~110 CPU-s. See the module docstring.")
+                    "is ~85 CPU-s, and --without-predictability is ~75 "
+                    "CPU-s with no cache at all. See the module docstring.")
     ap.add_argument("--check", action="store_true",
                     help="numbers only; exit 1 if floor.py has drifted")
     ap.add_argument("--seeds", type=int, default=200)
@@ -1319,7 +1331,7 @@ def main():
                          % SAMPLE_SEED)
     ap.add_argument("--without-predictability", action="store_true",
                     help="drop the one expensive check and judge the other "
-                         "four EXACTLY over the whole corpus: ~110 CPU-s from "
+                         "four EXACTLY over the whole corpus: ~75 CPU-s from "
                          "cold, no cache needed. Refuses 5 of the 18 shipped "
                          "constants BY NAME and says so in its last line. The "
                          "cheapest run that can still fail on real drift.")
