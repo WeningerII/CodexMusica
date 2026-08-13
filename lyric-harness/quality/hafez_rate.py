@@ -50,8 +50,15 @@ Three nulls for the radif, stated as preserve/destroy:
           construction rather than by luck. Second, and worse: a ghazal that
           HAS a radif has identical line-final tokens, and permuting identical
           elements is the identity map -- measured, 297 of the 315 detected
-          ghazals come back byte-for-byte unchanged, and 94.6% of detected
-          ghazals are unchanged in any given replicate. The null is a no-op on
+          ghazals come back byte-for-byte unchanged, and **94.5%** (5,951 of
+          6,300) of detected ghazals are unchanged in any given replicate.
+          REPINNED 2026-08-13 from **94.6%**, which is what this line said and
+          which the run has never printed at the shipped default: the block is
+          `min(n, 20)`, so it is twenty replicates whatever N is, and twenty
+          replicates give 5,951/6,300 = 94.4603%. Kept out of `PINNED` all the
+          same -- it is a DRAW and doctrine 57 is this file's own doctrine; the
+          arithmetic that matters is 297 of 315, which IS pinned
+          (`all_finals_identical`) and IS exact. The null is a no-op on
           exactly the population it was pointed at. It is reported anyway,
           because a null that returns the observed value to four significant
           figures is the clearest possible statement that a randomisation can

@@ -1053,9 +1053,22 @@ rather than this paragraph — a roster copied into two files drifts in both.
    exist and cannot until audio or a declared tempo enters. NOT a
    second rap corpus -- that was doctrine 8 broken twice (single
    source, single language) and no rap is admissible anyway. The
-   binding constraint is EVENTS PER ITEM: 8 events needs ~75% of an
-   item's rhymes on one phase to reach 0.80 power, so a cell needs ~40
-   events or pooling to reach it. See POSITIVE_CONTROL.md.
+   binding constraint is EVENTS PER ITEM: 8 events at ~75% of an item's
+   rhymes on one phase reaches **~0.74** power, so a cell needs ~40
+   events or pooling to clear 0.80. **REPINNED 2026-08-13 from "needs
+   ~75% ... to reach 0.80 power", which was a THRESHOLD CROSSING THAT
+   DOES NOT REPRODUCE.** `power(65, 8, 0.75)` over ten seeds gives
+   0.68 0.72 0.73 0.74 0.74 0.74 0.77 0.79 0.80 0.82 -- median 0.74, and
+   only 2 of 10 reach 0.80. The recorded 0.82 that
+   `POSITIVE_CONTROL.md` bolds is the MAXIMUM of that spread, and this
+   sentence had promoted one lucky draw into the number a reader plans a
+   cell around. Doctrine 73: a single seed is a coin flip reported as a
+   verdict. `positive_control.py --check` pins the c=0.75 case as a BAND
+   (0.50-0.95) rather than a cell for exactly this reason, and is green
+   on 10/10 seeds; the ceiling and floor ARE pinned, because those have
+   zero and near-zero spread. The direction of the finding is unchanged
+   and slightly sharpened -- the cell is further from 0.80 than recorded,
+   not closer. See POSITIVE_CONTROL.md.
 4. **Cross-line internal walk.** internal_matches supports two lines;
    no verse-wide positional graph yet.
 5. **Assonance corpus.** Moncrieff Song of Roland (1919, PD) pending
@@ -1269,7 +1282,11 @@ About to move a threshold: METHOD part B, and 5 above. About to believe a null:
 31, 71 and 76, in that order.
 
 **Two numbering systems, and they do not collide.** The `Known gaps` list above
-runs 1–7 and is cited elsewhere as `known gap N` (MATRIX_PREREGISTRATION.md,
+runs 1–9 (REPINNED 2026-08-13 from 1–7: entries 8 and 9 were added the same day
+and this sentence was never split, while `verify_doctrines.py` had been printing
+`CLAUDE.md's own 1-9 list` on every run — the file's own instrument contradicting
+its own prose, which is doctrine 48's failure mode inside the file that states
+doctrine 48) and is cited elsewhere as `known gap N` (MATRIX_PREREGISTRATION.md,
 fit_matrix.py, TIME_PREREGISTRATION.md, test_phon_san.py, test_phonology.py,
 test_relations.py, POSITIVE_CONTROL.md, time_layer.py). It is not part of the
 doctrine numbering and never was. The doctrine run is delimited in both files by

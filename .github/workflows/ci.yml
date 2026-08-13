@@ -548,7 +548,14 @@ jobs:
       # questions, and a run that stops at the first red tells you less than
       # one that reports all four. `if: always()` after the first is what makes
       # the job a REPORT rather than a tripwire.
-      - name: Doctrine numbering (1-95, no number in both files, every citation resolves)
+      # RENAMED 2026-08-13: this step now runs three checks more than its old
+      # name promised — the pre-split baseline (nothing defined before the
+      # 2026-08-11 file split has been lost, re-derived from 9b5f7c9), the
+      # doctrine->check registry, and the baseline's own re-derivation. A step
+      # name is a promise; the old one had gone short of what the step does,
+      # which is the same defect in the same file that the registry exists to
+      # catch in the doctrines themselves.
+      - name: Doctrine numbering and the doctrine→check registry (1-95, no number in both files, every citation resolves, every doctrine mapped to a check or a declared refusal)
         working-directory: lyric-harness
         run: python3 quality/verify_doctrines.py
 
@@ -690,3 +697,20 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/audit_kalevala_null.py --check
+
+      # DOCTRINE 31, whose instrument had no caller and exited 0 whatever it
+      # printed — in a repo whose own reading order says "About to believe a
+      # null: 31, 71 and 76, in that order". 35 s, stdlib only, needs nothing
+      # but the repo. It pins THRESHOLDS AND ORDERINGS, not cells, and that is
+      # deliberate: a ten-seed sweep found the recorded 0.82 power at c=0.75 is
+      # the MAXIMUM of ten draws (median 0.74, only 2 of 10 reach 0.80), so a
+      # check pinning the cell would have been red on nine seeds out of ten.
+      # The ceiling has zero spread across those seeds and the floor 0.00-0.08,
+      # so those are pinned as bounds and verified green on 10/10.
+      # Part B is NOT here: its corpus lives outside the repo and is not
+      # fetched by CI, so it would exit 2 (CANNOT TELL) on every run, and a
+      # step that permanently cannot tell is decoration.
+      - name: The positive control's own instrument (doctrine 31/76)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/positive_control.py --check

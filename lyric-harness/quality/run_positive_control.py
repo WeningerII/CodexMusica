@@ -95,7 +95,12 @@ from quality.phonology import get  # noqa: E402
 from quality.time_layer import (TimeDeclaration, analyse,  # noqa: E402
                                 phase_statistic)
 
-POOL = "/workspace/chinese-poetry/chinese-poetry/全唐诗"
+#: An absolute path outside the repository. `TANG_POOL` overrides it, so the
+#: arm is runnable somewhere other than the machine it was written on and so
+#: the CANNOT-TELL branch below is demonstrable. Unset, this is byte-for-byte
+#: the path this module has always used.
+POOL = os.environ.get("TANG_POOL",
+                      "/workspace/chinese-poetry/chinese-poetry/全唐诗")
 PUNCT = "，。！？、；：「」『』《》〈〉·（）"
 
 

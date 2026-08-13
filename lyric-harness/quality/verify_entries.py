@@ -1082,8 +1082,9 @@ def self_test():
 # 3c. PIN SUPERSESSION — doctrine 17, over `quality/audit_*.py`
 #
 # "A check may be kept after its premise is falsified, but never quoted as if
-# it were not." That sentence is cited 44 times in this repo and it is the
-# line every audit prints when it goes red -- `audit_spans.py`,
+# it were not." That sentence is cited 44 times in this repo (MEASURED
+# 2026-08-13, `grep -ro "doctrine 17"`) and it is the line every audit prints
+# when it goes red -- `audit_spans.py`,
 # `audit_corpus.py`, `audit_tang_null.py`, `audit_kalevala_null.py` and
 # `audit_joint_auc_null.py` all end their failure block with "keep the
 # superseded value visible (doctrine 17)". EVERY ONE OF THOSE IS A STRING A
@@ -1094,9 +1095,12 @@ def self_test():
 # WHAT IS AND IS NOT MADE MANDATORY, because the obvious rule is wrong. "Every
 # PINNED constant must have a dated superseded line" fires on correct work: a
 # pin set right the first time and never moved has nothing to supersede, and
-# 57 of this repo's 61 pins are exactly that. A check that goes red on a
-# correct pin is worse than no check -- CI's own comment in this repo says a
-# permanently-red gate is one people learn to skip.
+# the overwhelming majority of this repo's pins are exactly that. A check that
+# goes red on a correct pin is worse than no check -- CI's own comment in this
+# repo says a permanently-red gate is one people learn to skip. (No count is
+# written here on purpose: `--pins` prints the live one, and a comment that
+# carried a figure about unmaintained figures would be the joke writing
+# itself.)
 #
 # The invariant is CONDITIONAL and it derives its own population:
 #
@@ -1145,13 +1149,18 @@ PIN_SUPERSESSION_MARKS = (
 )
 
 
-def _pin_scalar(node, src):
+def _pin_scalar(node, lines):
     """-> (source text, value) for a pinnable literal, else None.
 
     The SOURCE TEXT is kept beside the value and it is the half that matters:
     `0.640` and `0.64` are one float and two different strings, and a document
     quotes the string. Searching a RESULTS file for `0.64` when the record
     says `0.640` is how a check reports a value missing that is on the page.
+
+    Sliced off a source ALREADY SPLIT by the caller, not by
+    `ast.get_source_segment`, which re-splits the whole module on every call
+    -- 2.1 s of the 2.8 s this check first cost, on `audit_corpus.py`'s 2,125
+    lines times its four revisions times its fifteen pins.
     """
     if not isinstance(node, ast.Constant):
         return None
@@ -1159,7 +1168,10 @@ def _pin_scalar(node, src):
     if isinstance(v, bool):
         return None
     if isinstance(v, (int, float)):
-        text = ast.get_source_segment(src, node)
+        try:
+            text = lines[node.lineno - 1][node.col_offset:node.end_col_offset]
+        except IndexError:                                     # pragma: no cover
+            text = ""
         return ((text or repr(v)).strip(), v)
     if isinstance(v, str) and NUMERIC_TEXT.match(v.strip()):
         return (v.strip(), v.strip())
@@ -1179,7 +1191,7 @@ def _pin_label(node):
     return None
 
 
-def _pin_walk(node, path, src, out):
+def _pin_walk(node, path, lines, out):
     """Flatten a literal container into {path: (text, value)}.
 
     The PATH is the pin's identity across commits, so it is built from names
@@ -1192,7 +1204,7 @@ def _pin_walk(node, path, src, out):
     if isinstance(node, ast.Dict):
         for k, v in zip(node.keys, node.values):
             key = k.value if isinstance(k, ast.Constant) else "?"
-            _pin_walk(v, path + (str(key),), src, out)
+            _pin_walk(v, path + (str(key),), lines, out)
         return
     if isinstance(node, (ast.Tuple, ast.List)):
         label = _pin_label(node)
@@ -1203,11 +1215,11 @@ def _pin_walk(node, path, src, out):
                 # an index or two sibling tuples would collide into one pin.
                 inner = _pin_label(e) if isinstance(e, (ast.Tuple, ast.List)) \
                     else None
-                _pin_walk(e, base if inner else base + ("[%d]" % i,), src, out)
+                _pin_walk(e, base if inner else base + ("[%d]" % i,), lines, out)
             else:
-                _pin_walk(e, base + ("[%d]" % i,), src, out)
+                _pin_walk(e, base + ("[%d]" % i,), lines, out)
         return
-    hit = _pin_scalar(node, src)
+    hit = _pin_scalar(node, lines)
     if hit is not None:
         out[path] = hit
 
@@ -1240,16 +1252,17 @@ def pin_literals(src):
         tree = ast.parse(src)
     except (SyntaxError, ValueError):
         return None
+    lines = src.split("\n")
     out = {}
     for n in tree.body:
         if isinstance(n, ast.Assign):
             for t in n.targets:
                 if isinstance(t, ast.Name) and PIN_NAME.search(t.id):
-                    _pin_walk(n.value, (t.id,), src, out)
+                    _pin_walk(n.value, (t.id,), lines, out)
     for n in ast.walk(tree):
         if isinstance(n, ast.For) and isinstance(n.iter, (ast.Tuple, ast.List)):
             names = [x.id for x in ast.walk(n.target) if isinstance(x, ast.Name)]
-            _pin_walk(n.iter, ("for(%s)" % ",".join(names),), src, out)
+            _pin_walk(n.iter, ("for(%s)" % ",".join(names),), lines, out)
     return out
 
 
@@ -1454,13 +1467,14 @@ def _cat_file_batch(specs):
 
 
 def pin_moves():
-    """-> (moves, pin_count, file_count, refusal).
+    """-> (moves, pin_count, file_count, refusal, path prefix). READ-ONLY git.
 
-    THREE git calls total, whatever the history's size: one `rev-parse`, one
+    THREE git calls, whatever the history's size: one `rev-parse`, one
     `log --name-only` over the whole glob, one `cat-file --batch` fed every
     (commit, file) blob at once. The obvious shape -- `git show` per revision
-    -- was 29 subprocesses and 0.79 CPU-s on this repo, which is a fifth of
-    the whole CI step for a check that reads six files.
+    -- was 29 subprocesses, and with `ast.get_source_segment` re-splitting
+    each blob it cost 2.8 s: most of a CI step, for a check that reads six
+    files. It is 0.4 s now.
 
     THE REFUSAL IS THE POINT OF THE FUNCTION AS MUCH AS THE ANSWER IS.
     `actions/checkout@v5` clones at depth 1 unless told otherwise, and a
@@ -1474,6 +1488,16 @@ def pin_moves():
     files = audit_modules()
     if not files:
         return [], 0, 0, "no quality/audit_*.py on disk", ""
+    #: A module with no pin AT HEAD cannot contribute one: a move is a pin
+    #: whose value differs between two revisions, so both revisions have to
+    #: hold it, and the check is about the value the code stands behind NOW.
+    #: Skipping them is not a shortcut, it is the population -- and it is what
+    #: keeps `audit_register.py`'s 1,614 unpinned lines out of the parse.
+    live_pins = {}
+    for rel in files:
+        live_pins[rel] = pin_literals(
+            open(os.path.join(ROOT, rel), encoding="utf-8").read()) or {}
+    pinned = {rel for rel, p in live_pins.items() if p}
     try:
         prefix = _git(["rev-parse", "--show-prefix"], timeout=30).strip()
         log = _git(["log", "--format=COMMIT %H %ad %s", "--date=short",
@@ -1495,7 +1519,7 @@ def pin_moves():
             rel = line.strip()
             if prefix and rel.startswith(prefix):
                 rel = rel[len(prefix):]
-            if rel in files:
+            if rel in pinned:
                 cur[3].append(rel)
 
     per_file = collections.defaultdict(list)
@@ -1529,12 +1553,8 @@ def pin_moves():
                                              cur_pins[key], sha, date, subject))
             prev = cur_pins
 
-    live = 0
-    for rel in files:
-        src = open(os.path.join(ROOT, rel), encoding="utf-8").read()
-        p = pin_literals(src)
-        live += len(p or {})
-    return moves, live, len(files), None, prefix
+    return moves, sum(len(p) for p in live_pins.values()), len(files), \
+        None, prefix
 
 
 _DOC_CACHE = {}

@@ -48,8 +48,13 @@ THE REGISTRY IS NOT A HAND-WRITTEN TABLE NOBODY RE-DERIVES. Every row is
 re-checked on every run:
 
   * every DEFINED number has exactly one row, and every row's number is
-    defined -- so adding doctrine 96 without a row FAILS, and so does a row
-    for a doctrine that does not exist;
+    defined -- so a NEW number added to either file without a row FAILS, and
+    so does a row for a number nobody defined. (Written without an example
+    number on purpose: this file is inside the population it measures, and
+    naming the next free number in prose would create a citation that resolves
+    to nothing. The self-skip in SKIP_FILES hides that from THIS run and not
+    from any sibling instrument -- verified by copying this file under another
+    name, where the same citation came back `no definition`.)
   * a MECHANICAL row's command must be REAL: the script exists, every `--flag`
     in the command appears literally in that script's source, the script has a
     `__main__` so it can be run at all, and it has a NON-ZERO EXIT PATH -- this
@@ -966,8 +971,12 @@ def main():
     # left `ok` alone, so a deleted or renumbered doctrine exited 0 -- while
     # CLAUDE.md's own statement of the invariant reads "that set must be
     # exactly 1-95, with no number in both", and the whole point of the
-    # numbering is that `doctrine 79` resolves from any of ~3,266 citation
-    # sites. Found while adding the CI job that runs this: an injected
+    # numbering is that a number resolves from any of the thousands of
+    # citation sites this run counts on the line above -- the figure is
+    # PRINTED rather than quoted here, because the ~3,266 this comment carried
+    # until 2026-08-13 had grown to 3,976 by the time anyone re-ran it, which
+    # is doctrine 58 committed inside the checker that measures it. Found
+    # while adding the CI job that runs this: an injected
     # out-of-range doctrine printed WARN and the process still exited 0, so
     # the step would have been green on exactly the breakage it is named for.
     # A check that cannot fail is decoration (doctrine 48).
