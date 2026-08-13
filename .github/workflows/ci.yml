@@ -634,3 +634,24 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/audit_tang_null.py --check
+
+      # THE POOLED-FISHER H0 CALIBRATION. Added 2026-08-13, and it checks a
+      # DIRECTION rather than a number, on purpose: every figure this script
+      # prints is a Monte Carlo estimate, so pinning one to three decimals
+      # would pin a sample and fail on the seed -- doctrine 57's own warning,
+      # applied to the file that raises it.
+      #
+      # The two directions are what the record actually rests on. (1) The
+      # per-item p under H0 is NOT uniform -- Fisher requires U(0,1) and the
+      # median measures 0.56-0.58 -- which is doctrine 74 and the reason
+      # RESULTS_FWER's pooled 0.950 was ~1-in-12 rather than 1-in-20. (2) The
+      # recorded 0.701 sits in the upper tail, not the body.
+      #
+      # NOTE WHAT A RED HERE WOULD MEAN: if somebody fixes the pairing that
+      # causes the non-uniformity, this check SHOULD fail, and the right
+      # response is to repin the record -- not to widen the tolerance. The
+      # check says so in its own failure text. ~26 s at a declared reps=50.
+      - name: Pooled-Fisher H0 calibration still reads as the record describes
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_time_pooled_null.py --check
