@@ -3746,6 +3746,36 @@ def main():
                 doc = None
             head = (doc or "").strip().splitlines()[0] if doc else ""
             print(f"    python3 {m:<34} {head[:76]}")
+        # RUNNABLE AND IMPORTED — the blind spot this verb had until
+        # 2026-08-13. `runners` above is drawn from `orphan`, and `orphan`
+        # excludes anything that appears in an import anywhere, so a module
+        # that is BOTH a library and a command could never reach either list.
+        # `battery.py` was the case that matters: the first line of CLAUDE.md's
+        # Test discipline, absent from README, and invisible to the one verb
+        # written so that "is this plugged in?" is a command rather than an
+        # audit -- because `audit_spans.py` and `redteam_band.py` import it.
+        # `verify_doctrines.py` the same, via `counters.py`/`audit_register.py`.
+        # A COUNT IS NOT DISCOVERABILITY applies here too: these are named,
+        # with the command that runs them, exactly like the standalone set.
+        also = sorted(m for m in prod
+                      if m not in orphan
+                      and not _os.path.basename(m).startswith("test_")
+                      and _os.path.basename(m) != "__init__.py"
+                      and "data/" not in m
+                      and _runnable(m))
+        print(f"\n  ALSO RUNNABLE, and imported by production code "
+              f"(`__main__` + a caller): {len(also)}")
+        print("    not 'standalone by design' -- these are libraries you can "
+              "also run, and the count above deliberately excludes them")
+        for m in also:
+            try:
+                doc = _ast.get_docstring(_ast.parse(
+                    open(_os.path.join(base, m), errors="replace").read()))
+            except SyntaxError:
+                doc = None
+            head = (doc or "").strip().splitlines()[0] if doc else ""
+            print(f"    python3 {m:<34} {head[:76]}")
+
         tot = 0
         for m in stranded:
             n = sum(1 for _ in open(_os.path.join(base, m), errors="replace"))

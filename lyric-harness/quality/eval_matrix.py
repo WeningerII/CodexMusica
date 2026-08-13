@@ -191,10 +191,105 @@ def main():
     print("     verdict: FIRES — see RESULTS_MATRIX.md. The matrix is "
           "period-specific and is declared as such.\n")
 
-    with open(os.path.join(HERE, "matrix_eval.json"), "w") as fh:
-        json.dump(out, fh, indent=1, default=str)
-    print(f"wrote {os.path.join(HERE, 'matrix_eval.json')}")
+    return out
+
+
+#: How far a re-derived value may sit from the committed one before it is
+#: called drift. Not a tolerance on the science -- the runner is DETERMINISTIC
+#: (two consecutive re-runs are byte-identical to each other), so any movement
+#: at all is the comparator underneath having changed. This exists only so a
+#: float that round-trips through JSON at a different last bit is not reported
+#: as a finding.
+DRIFT_EPS = 1e-12
+ARTIFACT = os.path.join(HERE, "matrix_eval.json")
+
+
+def _flat(d, prefix=""):
+    """-> {dotted key: scalar}, so nested sequences compare element by element.
+
+    TUPLES ARE SEQUENCES HERE, and that is the whole subtlety. A fresh run
+    holds `p8_top_nucleus` as a list of TUPLES; the committed artifact went
+    through JSON, which has no tuple, so it comes back as a list of LISTS.
+    Recursing into one and not the other flattens the two sides to different
+    key shapes and reports 30 spurious "present in only one" findings on top
+    of the 4 real ones -- a checker that cries drift on a round-trip is worse
+    than no checker, because the next reader learns to ignore it.
+    """
+    out = {}
+    seq = (dict, list, tuple)
+    for k, v in (d.items() if isinstance(d, dict) else enumerate(d)):
+        key = f"{prefix}{k}"
+        if isinstance(v, seq):
+            out.update(_flat(v, key + "."))
+        else:
+            out[key] = v
+    return out
+
+
+def check_shipped(fresh):
+    """Compare a fresh run against the COMMITTED artifact. -> exit code.
+
+    THE GAP THIS CLOSES. Until 2026-08-13 `main()` ended by overwriting
+    `matrix_eval.json` in place and exiting 0. So the only path that could
+    re-derive the record also DESTROYED the evidence that it had moved: the
+    drift was visible in `git diff` and nowhere else, and a run in a clean
+    checkout printed "wrote ..." and looked like a confirmation. Measured
+    consequence: the artifact went stale on 2026-08-10 and stayed stale
+    through 31 commits to the comparator, while `quality/NULL_AUDIT.md` listed
+    it under "Reproduced exactly, no defect found" and stated it "regenerates
+    byte-identical to the committed artifact".
+
+    This is `song_profile_calibration.py --check`'s design, which is the one
+    recorded number in this repo that did NOT rot. The asymmetry was the
+    finding; this is the other half of it.
+    """
+    if not os.path.exists(ARTIFACT):
+        print(f"CHECK: no committed artifact at {ARTIFACT} — nothing to "
+              f"check against. Run without --check to write one.")
+        return 1
+    with open(ARTIFACT) as fh:
+        committed = json.load(fh)
+    a, b = _flat(committed), _flat(fresh)
+    drift, missing = [], []
+    for k in sorted(set(a) | set(b)):
+        if k not in a or k not in b:
+            missing.append(k)
+            continue
+        x, y = a[k], b[k]
+        if isinstance(x, (int, float)) and isinstance(y, (int, float)):
+            if abs(float(x) - float(y)) > DRIFT_EPS:
+                drift.append((k, x, y))
+        elif str(x) != str(y):
+            drift.append((k, x, y))
+
+    print("\n" + "=" * 78)
+    print("CHECK — the committed matrix_eval.json against this run")
+    print("=" * 78)
+    for k in missing:
+        print(f"  [SHAPE] {k}: present in only one of the two")
+    for k, x, y in drift:
+        print(f"  [DRIFT] {k}\n          committed {x!r}\n          measured  {y!r}")
+    if not drift and not missing:
+        print(f"  [ok] all {len(b)} values reproduce")
+        return 0
+    print(f"\n  {len(drift) + len(missing)} value(s) moved. The runner is "
+          f"deterministic, so this is the COMPARATOR having changed, not "
+          f"noise. Argue it and repin -- do not tune to it (doctrine 58) -- "
+          f"and say which layer moved. Re-run without --check to repin.")
+    return 1
 
 
 if __name__ == "__main__":
-    main()
+    import argparse
+    ap = argparse.ArgumentParser(
+        description="Held-out evaluation of the fitted substitution matrix.")
+    ap.add_argument("--check", action="store_true",
+                    help="compare against the committed matrix_eval.json and "
+                         "exit 1 on drift; write nothing")
+    args = ap.parse_args()
+    result = main()
+    if args.check:
+        sys.exit(check_shipped(result))
+    with open(ARTIFACT, "w") as fh:
+        json.dump(result, fh, indent=1, default=str)
+    print(f"wrote {ARTIFACT}")
