@@ -334,6 +334,15 @@ def relations_sections():
         "resources": ("lexicon", "sense", "morphology", "token", "lexeme")})
     R.search_caesura(rich)
     R.mark_refrain_tail(rich)
+    # AND EVERY ALT SURFACE, which this check did not declare until 2026-08-13
+    # and which quietly defeated it. `poet` sat in NEVER_PROVIDED while being
+    # reachable the moment a caller declared an alt surface -- and this "stream
+    # declaring everything a caller CAN declare" declared no `alt` at all, so
+    # the one capability the table was wrong about was the one the tripwire
+    # could not see. A maximally-declared stream that is not maximally declared
+    # is a check that cannot fail (doctrine 48), and it failed to fail on the
+    # exact row it existed to guard.
+    rich.alt.update({s: rich for s in R.ALT_SURFACES})
     still = [c for c in N.NEVER_PROVIDED if rich.provides(c)]
     check("no capability in NEVER_PROVIDED is reachable from a maximally "
           "declared stream", not still, "now provided: %s" % (still,))

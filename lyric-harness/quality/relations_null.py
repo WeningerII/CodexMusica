@@ -901,10 +901,21 @@ def unreachable_coordinates(schema, statistic):
 #: BUILD, not a corpus and not compute.  `quality/test_null_shapes.py` §8
 #: asserts each is still unprovidable, so the day one is implemented this
 #: table becomes a failing test rather than a stale comment (doctrine 48).
+#: `poet` LEFT THIS TABLE 2026-08-13, and the reason is worth keeping. Its row
+#: read "no stream field carries the writer's dialect", which was a claim about
+#: the DATA and therefore a doctrine-92 cannot-obtain. It was wrong about the
+#: MECHANISM: `poet` is a SURFACE, `ChannelSet.read` already resolves any
+#: non-phonemic surface generically through `Stream.alt`, and the only gate was
+#: a hardcoded tuple in `Stream.provides` that listed five surface names and
+#: omitted this one. Two modules disagreed about whether the capability existed
+#: and `provides` was the one that was wrong. So the remedy was never "BUILD
+#: it" -- it is "declare the capability on the stream", which is a different
+#: entry in doctrine 44's three-way split, and a wrong remedy in this table
+#: sends the next reader to build something that is already there.
+#: THE DATA BLOCKER IS UNCHANGED and is recorded where it belongs, in
+#: `relations.UNPROVIDABLE`: a sourced dialect phonology, which
+#: `PeriodPhonology` refuses to construct without a named reconstruction.
 NEVER_PROVIDED = {
-    "poet": "no stream field carries the writer's dialect; `dialect rhyme` "
-            "needs a per-poet phonology, which is doctrine 45's coordinate "
-            "and does not exist",
     "frequency": "`trite rhyme` needs a corpus frequency table joined to the "
                  "stream; `data/song_rhymepair_en.tsv` exists and nothing "
                  "hands it to `build_stream`",
