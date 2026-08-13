@@ -27,6 +27,11 @@ below.
 whole of this is a change to what the report says about a number, not to the
 number. `quality/test_spans.py` test 8 is the pin.
 
+REPINNED 2026-08-13: the battery now prints `violations 82 (8.1% of judged)`.
+The BEFORE-AND-AFTER claim is what this section asserts and it is untouched —
+this cell moved no verdict then and moves none now. The absolute value moved
+later and elsewhere (cell BA's coda-identity fix, `81 -> 82`).
+
 ---
 
 ## 1 · What was wrong, in one report line

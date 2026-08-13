@@ -93,6 +93,14 @@ at `9396946` is what says so rather than a reading of the output.** Cell AB
 predicted this from a monkeypatch; it is now measured with the change shipped,
 which is a different claim.
 
+> **The transcript above is left as recorded.** It is what `battery.py`
+> printed for this cell, and a transcript edited to show numbers it never
+> printed is not a transcript. Today the same command prints `violations 82
+> (8.1%)`: cell BA's later coda-identity fix moved the baseline `81 -> 82`.
+> That does not touch this cell's finding — `mandated`/`judged`/`refused` are
+> still 1064/1014/50, and "not one count moves" is still what the hyphen
+> refusal does. Repinned figures live in CLAUDE.md's Test discipline block.
+
 The mechanism, and it is the reason this defect survived: three sonnet tokens
 carry an unread hyphen piece and none of them is an anchor-layer case.
 

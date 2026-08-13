@@ -230,9 +230,12 @@ def test_an_extract_md5_is_not_its_source_md5():
 # ---------------------------------------------------------------------------
 # 4. THE CHECKS MUST BE EXERCISED, NOT MERELY QUIET
 #
-# `battery.py` has no assert and returns 0 regardless; this file exists partly
+# `battery.py` HAD no assert and returned 0 regardless; this file exists partly
 # so this module never becomes that. A check with zero findings is only good
-# news if it actually ran on something.
+# news if it actually ran on something. (Past tense since `9396946`,
+# 2026-08-11: battery.py gained `assert_pinned` and now exits 1 on drift.
+# Corrected 2026-08-13 — the hazard this comment names is real and this file
+# still guards it; battery.py is simply no longer the example of it.)
 # ---------------------------------------------------------------------------
 
 _FILES = None

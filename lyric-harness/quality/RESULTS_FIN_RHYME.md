@@ -400,5 +400,10 @@ zero unreadable.
 ## 11 · The battery did not move
 
 `python3 battery.py` → `mandated 1064, judged 1014, refused 50`,
-`violations 81 (8.0%)`. Unchanged. Nothing in this cell touches the English
-comparator, and the invariant is the check that says so.
+`violations 82 (8.1%)`. Unchanged by THIS cell. Nothing here touches the
+English comparator, and the invariant is the check that says so.
+
+REPINNED 2026-08-13 from `81 (8.0%)`, the value `battery.py` printed when this
+was written. The invariant still holds: the move came later and from cell BA's
+coda-identity fix, not from anything in this cell. `mandated` / `judged` /
+`refused` are unchanged at 1064 / 1014 / 50.

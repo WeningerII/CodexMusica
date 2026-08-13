@@ -479,7 +479,10 @@ is about a 51x range against a 1.15x move.
 ## 5. What did NOT move
 
 * `python3 battery.py` — `mandated 1064, judged 1014, refused 50`,
-  `violations 81 (8.0%)`. Unchanged by everything in this file.
+  `violations 82 (8.1%)`. Unchanged by everything in this file.
+  REPINNED 2026-08-13 from `81 (8.0%)`: the claim is intact — nothing in this
+  file moved it — but cell BA's coda-identity fix later moved the baseline
+  itself, `81 -> 82`. `mandated`/`judged`/`refused` unchanged at 1064/1014/50.
 * `quality/negative_control.py`'s English arm reproduces, with drift confined
   to the two tradition groups whose corpus files were edited since the arm was
   written (`eng_british`, `eng_hymn` — five files changed in `debf64e`).

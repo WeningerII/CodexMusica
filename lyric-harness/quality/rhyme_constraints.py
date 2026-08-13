@@ -1428,8 +1428,12 @@ __all__ = ["Site", "Frame", "Declaration", "Utterance", "build",
 # NEXT TO IT: it is not a candidate architecture and it is not the shipping
 # producer. `relations.py` is. This is an ADVERSARY (doctrine 94's third one,
 # pointed at the code) and the numbers it prints are a diff, never a verdict.
-# Like `battery.py` it has no assert and exits 0 whatever the table says —
-# read its numbers, never its exit status.
+# It has no assert and exits 0 whatever the table says — read its numbers,
+# never its exit status. (This line used to say "like `battery.py`"; that
+# comparison stopped holding at `9396946`, 2026-08-11, when battery.py gained
+# `assert_pinned` and a non-zero exit on drift. Corrected 2026-08-13 — the
+# property described here is this module's, and it is now the only one of the
+# two that has it.)
 # ---------------------------------------------------------------------------
 
 #: The canonical cases, one per structural claim either module makes. Each is

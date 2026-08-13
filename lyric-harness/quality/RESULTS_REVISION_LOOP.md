@@ -458,7 +458,12 @@ Two layers, two readings of one line, and only one of them says which it took.
 
 ```
 python3 battery.py               -> mandated 1064, judged 1014, refused 50,
-                                    violations 81 (8.0% of judged)   [pinned, exit 0]
+                                    violations 82 (8.1% of judged)   [pinned, exit 0]
+                                    (was 81/8.0% when this was recorded;
+                                     repinned 2026-08-13 after cell BA's
+                                     coda-identity fix moved it. "exit 0"
+                                     means the pin HELD -- since 9396946
+                                     battery.py exits 1 on drift.)
 python3 quality/test_revise.py   -> all revision-loop regressions pass (22 groups)
 python3 quality/verify_doctrines.py -> RESULT: PASS
 ```

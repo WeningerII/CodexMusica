@@ -33,9 +33,19 @@ state. Its four failures are real findings about the time layer and they are
 also, for this instrument, a blind spot: whatever it would have detected, it
 cannot report while it is red.)
 
-`battery.py` is included and it is NOT a detector: its `__main__` prints and
-returns, so its exit status is 0 whatever it observes. It appears in the table
-so that its zero is on the record rather than assumed.
+`battery.py` is included and it IS a detector, as of `9396946` (2026-08-11):
+`assert_pinned` compares the sonnet oracle against `EXPECTED` and `__main__`
+exits 1 on any drift. It appears in the table on that ground now.
+
+CORRECTED 2026-08-13. This paragraph, and `discover_tests`'s docstring below,
+both read "NOT a detector: its `__main__` prints and returns, so its exit
+status is 0 whatever it observes" -- true when written, false for two days
+before anyone re-read it, and load-bearing here because the inclusion was
+justified ON that ground. The mutation table's own figures for `battery.py`
+were therefore collected against an instrument the comment said could not
+catch anything. What it pins is narrow (`mandated`/`judged`/`refused`/
+`violations`); Whitman and the limericks still print unasserted, so a mutation
+that moves only those is still invisible to it.
 
 NEVER LEAVES A MUTATED FILE ON DISK
 -----------------------------------
@@ -651,9 +661,12 @@ MUTATIONS = [
 def discover_tests():
     """Every runnable check in the repo, as repo-relative paths.
 
-    `battery.py` is here on purpose. It is the sonnet oracle and it is NOT an
-    assertion: `__main__` prints and returns, so its exit status is 0 whatever
-    the numbers say. Including it puts that on the record.
+    `battery.py` is here on purpose, and since `9396946` (2026-08-11) it IS an
+    assertion: `assert_pinned` diffs the sonnet oracle against `EXPECTED` and
+    `__main__` exits 1 on drift, so its returncode is a real verdict on the
+    four counts it pins. CORRECTED 2026-08-13 -- this docstring previously
+    said the opposite ("exit status is 0 whatever the numbers say"), which was
+    the stated reason for including it.
     """
     qdir = os.path.join(ROOT, "quality")
     tests = []

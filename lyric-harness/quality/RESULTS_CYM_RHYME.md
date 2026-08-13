@@ -614,8 +614,15 @@ tests (§10i): it rhymes THROUGH the hyphen, at rime `('a', 'rdd')`.
 ## 11 · The battery did not move
 
 `python3 battery.py` → `mandated 1064, judged 1014, refused 50`,
-`violations 81 (8.0% of judged)`. Unchanged, and it must be: the battery is
-English sonnets and nothing in this cell touches the English comparator.
+`violations 82 (8.1% of judged)`. Unchanged by THIS cell, and it must be: the
+battery is English sonnets and nothing here touches the English comparator.
+
+REPINNED 2026-08-13 from `81 (8.0%)`, which is what this section recorded when
+it was written and what `battery.py` printed then. The claim above is
+untouched — the move came later and from elsewhere (cell BA's coda-identity
+fix, `violations 81 -> 82`), so the invariant this section asserts still
+holds; only the baseline it was pinned against has moved. `mandated` /
+`judged` / `refused` are unchanged at 1064 / 1014 / 50.
 
 `python3 quality/cynghanedd_rate.py corpus/cym_alun_strict.txt 20` →
 `caesura='search' 890/1558 = 57.1%`, which is the figure `cym.py`'s own

@@ -102,7 +102,17 @@ def main():
           f"{FPR:.0%}-FPR threshold")
     print(f"     fitted   {viol_f}/{n_pairs} = {viol_f / n_pairs:.1%}")
     print(f"     hand-set {viol_h}/{n_pairs} = {viol_h / n_pairs:.1%}")
-    print(f"     documented baseline at theta 0.75: 85/1064 = 8.0%")
+    # RETRACTED FIGURE, corrected 2026-08-13. This printed "documented
+    # baseline at theta 0.75: 85/1064 = 8.0%" on every run. That baseline is
+    # formally retracted -- quality/MATRIX_PREREGISTRATION.md:107-110 and
+    # quality/METHOD.md:1029 both record that 85/1064 counts the 50 REFUSALS
+    # in numerator AND denominator, which is doctrine 79's defect in the
+    # figure this runner quoted as its yardstick.
+    print("     documented baseline at theta 0.75: RETRACTED. 85/1064 = 8.0% "
+          "charged 50 refusals to the comparator (doctrine 79); see "
+          "MATRIX_PREREGISTRATION.md's post-hoc note. On JUDGED pairs the "
+          "pre-band baseline is 35/1014 = 3.5%, and the shipped band today "
+          "is 82/1014 = 8.1% (battery.py EXPECTED).")
     print(f"     verdict: {'CONFIRMED' if viol_f < viol_h else 'FAILED'} "
           f"relative to the hand-set comparator at the same FPR\n")
     out.update(p4_fitted_auc=a_f, p4_handset_auc=a_h,
@@ -175,7 +185,9 @@ def main():
         print(f"     {a:>3} ~ {b:<3} {v:+.2f} bits  n={n}")
     out["p8_top_nucleus"] = top
     print("     UW~AH is love/prove; ER~AO is the rhotic class the battery "
-          "already documents as its 8.0% residue.")
+          "already documents as its typed residue (8.1% of JUDGED pairs "
+          "today; this line said 8.0% and pointed at the retracted "
+          "85/1064 reading -- corrected 2026-08-13).")
     print("     verdict: FIRES — see RESULTS_MATRIX.md. The matrix is "
           "period-specific and is declared as such.\n")
 

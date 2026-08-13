@@ -502,15 +502,43 @@ independently. *Also reached by a sibling cell* (commit `22876d1`).
 | claim | source | re-run |
 |---|---|---|
 | sonnet battery 123/1064 = 11.6% violations | RESULTS_BAND P3 | `battery.py` — exact, **and the reproduction was the defect**: see §3.2 |
-| P4 held-out AUC 0.9177 (fitted) vs 0.9146 (hand-set) | RESULTS_MATRIX | `eval_matrix.py` — exact |
-| P6 19.1% vs 19.5% at 5% FPR, n=1010 | RESULTS_MATRIX | exact |
+| P4 held-out AUC 0.9177 (fitted) vs 0.9146 (hand-set) | RESULTS_MATRIX | `eval_matrix.py` — exact at 4 dp; **DRIFTED at full precision, see below** |
+| P6 19.1% vs 19.5% at 5% FPR, n=1010 | RESULTS_MATRIX | **NO LONGER EXACT — 19.2% today, see below** |
 | P2 stress −0.0999 bits; P3 empty/empty −0.000 | RESULTS_MATRIX | exact |
-| Exp1/Exp2 per-feature AUCs and p, both feature sets | RESULTS.md, RESULTS_WITHIN_ITEM | `discriminate.py` — exact |
-| Part D arms A / B / C1 / C2 | POSITIVE_CONTROL | `run_positive_control.py` — exact |
+| Exp1/Exp2 per-feature AUCs and p, both feature sets | RESULTS.md, RESULTS_WITHIN_ITEM | `discriminate.py` — exact **against a cache that is not invalidated, see below** |
+| Part D arms A / B / C1 / C2 | POSITIVE_CONTROL | `run_positive_control.py` — **A / B / C2 DRIFTED, C1 exact, see below** |
 | time-layer α floor at real item sizes (0.043 vs declared 0.05) | POSITIVE_CONTROL Part A | see §1.4 |
 
-`quality/matrix_eval.json` regenerates **byte-identical** to the committed
-artifact.
+> **CORRECTED 2026-08-13.** This section read `quality/matrix_eval.json`
+> regenerates **byte-identical** to the committed artifact. It does not, and
+> has not since the comparator moved. `eval_matrix.py` is DETERMINISTIC — two
+> independent re-runs are byte-identical to EACH OTHER — so the committed
+> artifact is what is stale, not the runner:
+>
+> | key | committed | re-run 2026-08-13 |
+> |---|---|---|
+> | `p4_fitted_auc` | 0.9177154058 | 0.9176654639 |
+> | `p4_handset_auc` | 0.9145955327 | 0.9146153846 |
+> | `p6_fitted_viol` | 0.1910891089 | 0.1920792079 |
+>
+> P4 survives at the 4 dp this table quotes; P6 does not (19.1% → 19.2%). The
+> artifact was last written 2026-08-10 and twelve commits have touched the
+> comparator since. **Nothing would ever have caught this**: `eval_matrix.py`
+> overwrites the artifact in place and exits 0, so the drift is visible only in
+> `git diff`, and unlike `song_profile_calibration.py`, `counters.py` and
+> `audit_corpus.py` it has no `--check`. That asymmetry is the finding.
+>
+> Two more rows above were re-run in the same audit and are no longer exact.
+> **Part D**: arm A `264/36 → 270/30`, arm B `med_p 0.529 → 0.543` and
+> `sig 18/300 → 15/300`, arm C2 `n=264 → 270`; C1 is the only arm with no
+> phonology gate and the only one still exact, which identifies the cause as
+> the four commits to `quality/phonology/ltc.py` since it was recorded.
+> **Exp1/Exp2**: `discriminate.py` reproduces only because its on-disk feature
+> cache is keyed on `tag:ident` with no fingerprint of the feature code or the
+> comparator those features call. Re-extracting three sonnets fresh moves
+> `rhyme_predictability_mean` 0.7423 → 0.9400. A run WITH the cache looks
+> exact; a fresh clone silently produces different numbers — and the
+> 0.709 / 0.971 pair that doctrine 7 is stated in comes out of that path.
 
 ---
 

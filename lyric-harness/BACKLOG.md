@@ -381,7 +381,7 @@ the runner rather than inside the canon.
 the repair is partial.
 
 ### 4.4 · ~~`rhyme_constraints.py` — 1,325 stranded lines~~ `DECIDED 2026-08-11`
-~~The only genuinely stranded module.~~ `quality/rhyme_constraints.py` is **1,609 lines** (~~1,566~~ — the inert-coordinate cell added the `Span.unit` and `Span.terminator` docstrings, which is growth in the file's OWN account of why it is kept).
+~~The only genuinely stranded module.~~ `quality/rhyme_constraints.py` is **1,611 lines** (~~1,566~~, ~~1,609~~ — the inert-coordinate cell added the `Span.unit` and `Span.terminator` docstrings, which is growth in the file's OWN account of why it is kept; the 2026-08-13 doc-cleanup cell added four more correcting a comment that compared this module's exit behaviour to `battery.py`'s, which stopped holding at `9396946`).
 It has an `if __name__ == "__main__"` and non-test callers.
 (The line count is now stated in a sentence naming exactly ONE module, because
 `python3 quality/verify_entries.py`'s `MODULE_LINE_COUNT` shape REFUSES a count
@@ -543,7 +543,10 @@ never one (doctrine 79).
 >   is moving does not belong in a file that is read as a record.
 >
 > The two that were RIGHT and were checked anyway: the sonnet battery
-> (`81/1014`, `mandated 1064, judged 1014, refused 50`) and the mutation count
+> (`81/1014` as measured on 2026-08-11; `82/1014` today, repinned 2026-08-13
+> after cell BA's coda-identity fix — and this paragraph's point survives the
+> move, since the row was confirmed by re-running rather than assumed) and
+> the mutation count
 > (**33 declared, 32 caught, 1 allowlisted**, confirmed by a full sweep on
 > 2026-08-11). Confirming a number costs the same as catching one, and a table
 > whose passing rows were never re-run is a table nobody has checked.

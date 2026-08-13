@@ -571,10 +571,21 @@ def test_the_seam():
 # ---------------------------------------------------------------------------
 
 def test_the_oracle_did_not_move():
-    print("\n9. the sonnet oracle is unmoved: 1064 / 1014 / 50 / 81")
-    # `battery.py` has NO ASSERT and exits 0 whatever it prints, so its exit
-    # status is worthless and its NUMBERS are the instrument. It prints them
-    # and returns only the violation list, so the counts are read off stdout
+    import battery as _b
+    print(f"\n9. the sonnet oracle is unmoved: {_b.EXPECTED['mandated']} / "
+          f"{_b.EXPECTED['judged']} / {_b.EXPECTED['refused']} / "
+          f"{_b.EXPECTED['violations']}")
+    # The banner above derives from `battery.EXPECTED` rather than repeating
+    # it. CORRECTED 2026-08-13: it read a literal `81`, two commits after the
+    # assertion below was repinned to 82, so this test PASSED while announcing
+    # a number the repo no longer holds — the check was right and its own
+    # headline was wrong.
+    #
+    # `battery.py` GAINED an assert at `9396946` and exits 1 on drift; the
+    # comment here previously said it had none and that its exit status was
+    # worthless, which the comment twelve lines down already contradicted.
+    # Its NUMBERS are still what this test reads, for the reason below.
+    # It prints them and returns the counts, so they are read off stdout
     # here rather than recomputed — recomputing would be a second
     # implementation agreeing with itself.
     import io
