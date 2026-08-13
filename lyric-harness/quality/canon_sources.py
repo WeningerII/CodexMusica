@@ -79,6 +79,27 @@ Run:
     python3 quality/canon_sources.py --verify       # index vs transcripts
     python3 quality/canon_sources.py --rebuild      # re-derive from transcripts
     python3 quality/canon_sources.py --render       # rewrite RHYME_CANON.md §8
+
+EVERY MODE NOW CARRIES AN EXIT CODE, and until 2026-08-13 none of them did.
+`main()` returned 0 out of the `--verify` branch whatever `verify()` had found,
+so `differs` -- the inlined index no longer being what the transcripts say --
+exited 0 and nothing downstream could act on it.  That is the same defect
+already found and fixed the same day in `audit_spans.py`, `audit_corpus.py`,
+`audit_tang_null.py` and `audit_kalevala_null.py`: an instrument that prints its
+own drift and cannot go red.  Doctrine 48 -- a principle that lives only in
+prose gets followed exactly as often as somebody remembers it.
+
+    0  the check passed
+    1  the check FAILED -- a defect that is about the index or the document
+    2  the check could not be RUN -- the transcripts are not on this machine
+
+1 and 2 are separate because doctrine 28 says so.  `verify()` collapsed them:
+a failed POSITION CHECK, which means the positional reading is wrong and every
+citation in the register may have drifted onto a different entry, was reported
+under the same `cannot_verify` state as a checkout with no transcripts in it --
+sending a reader to look for a missing file when the file was there and the
+mapping was broken.  They are now `position_checks_failed` (exit 1) and
+`cannot_verify` (exit 2), and only the second is a refusal (doctrine 79).
 """
 
 import argparse
@@ -92,6 +113,13 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 INDEX_TSV = os.path.join(HERE, "canon_index.tsv")
 CANON_MD = os.path.join(HERE, "RHYME_CANON.md")
+
+#: Exit codes.  Three, not two, for the reason in the module docstring: a check
+#: that FAILED and a check that could not be RUN are different claims and a
+#: caller has to be able to tell them apart without reading the screen.
+EXIT_OK = 0
+EXIT_FAILED = 1
+EXIT_CANNOT_TELL = 2
 
 #: RHYME_CANON.md §1 declares the six cells and their sizes.  These are the
 #: DECLARED sizes; `unrecovered` is the gap between a declared size and what
@@ -445,6 +473,38 @@ def canon_blocks(path=CANON_MD):
     --provenance` did the second and counted 611 references where the file
     carries 781 -- doctrine 58 inside the adversary that exists to find
     doctrine-58 errors.
+
+    AND AN OVERCOUNT FOLLOWS FROM THE DELIMITER, MEASURED 2026-08-13 AND NOT
+    CHANGED HERE.  A block ends at the NEXT `**R<n> ·` heading and at nothing
+    else -- not at a `## ` section heading -- so the last entry before a section
+    break swallows that section's prose.  Measured on the file as committed:
+
+      * 781 references over 117 blocks, of which 113 blocks (768 refs) start in
+        §2 and FOUR -- R113, R114, R115, R116 -- start inside §3 (13 refs).  So
+        §8.2's row labelled ``from:`` references in §2` is a count over the
+        REGISTER, not over §2, and 13 of the 781 are outside §2.
+      * R112 is the last block that starts in §2 and §3's heading falls inside
+        its span, so its `from:` matter is its own one-index line at 954 PLUS
+        nine `from:` lines belonging to §3's D1-D9 non-relation declarations.
+        Its `- witness:` line reports 116 distinct cited indices of which
+        exactly ONE is R112's; 127 of the 128 raw references are §3's.
+
+    RECORDED AND NOT REPAIRED, DELIBERATELY.  Ending a block at `## ` is a
+    two-line change, and it would move §8.2, R112's witness line, and -- through
+    `scope_witness` -- `relations.py`'s 298/319/212/26/60, i.e. it repins a
+    document this cell may not write and numbers another module owns.  Doctrine
+    39: this is the row, so the next attempt starts from the evidence.  It is
+    also the answer to "does `--render` reproduce": it reproduces exactly, and
+    reproducing a number checks the arithmetic and never the construction
+    (doctrine 79's closing sentence).
+
+    The §8 the render is about to overwrite is inside the file this reads, so
+    the count is not independent of its own output (doctrine 13).  MEASURED, at
+    the same time: §8 contributes 0 of the 781.  Its eight `from:`-bearing lines
+    are all prose and tables that carry no cell index after the colon, and no
+    §8 line is indented two spaces, so none is read as a continuation either.
+    The dependence is structural and currently inert -- state it, do not assume
+    it stays zero: writing `from: E1` into §8 would silently enter the count.
     """
     if not os.path.exists(path):
         return []
@@ -680,19 +740,26 @@ def _entries_of(path):
     return out
 
 
-def recover():
+def recover(seen=None):
     """Cell letter -> the recovered entry list, from the transcripts.
 
     Each inventory agent's transcript carries exactly its cell's entries, so
     the cells are told apart by SIZE and the assignment is then checked by
     `POSITION_CHECKS`.  Two cells declare 74; they are separated by which one
     satisfies the English checks.
+
+    `seen`, if a dict is passed, is filled with path -> entry count for every
+    transcript that parsed.  A cell is assigned only when its checks PASS, so
+    "cell E is missing" and "no transcripts are on this machine" produce the
+    same empty slot and the caller cannot tell them apart without this.
     """
     per_file = {}
     for p in _transcripts():
         es = _entries_of(p)
         if es:
             per_file[p] = es
+    if seen is not None:
+        seen.update({p: len(es) for p, es in per_file.items()})
     cells = {}
     for c, _, n in DECLARED:
         cands = [p for p, es in per_file.items() if len(es) == n]
@@ -721,11 +788,37 @@ def recover():
 def rebuild(write=True):
     """Re-derive canon_index.tsv from the transcripts.  Refuses on a failed
     position check, because a mapping that is merely plausible is the defect
-    this file exists to close."""
-    cells = recover()
+    this file exists to close.
+
+    TWO REFUSALS, NOT ONE, CORRECTED 2026-08-13.  `recover()` assigns a cell
+    only when that cell's position checks PASS, so a BROKEN MAPPING left the
+    same empty slot as an empty machine and both came back as `no transcript
+    recovered for cell(s) [...]` -- a sentence that sends the reader to look for
+    a file that is sitting right there.  Measured: perturbing one entry of
+    `POSITION_CHECKS` in process, against the complete 21-transcript store,
+    printed `no transcript recovered for cell(s) ['E']`.  The discriminator is
+    whether a transcript of that cell's DECLARED SIZE was parsed at all: if one
+    was and it still does not satisfy the checks, the store is present and the
+    reading of it is wrong, which is a defect and not a refusal (doctrine 79).
+    """
+    seen = {}
+    cells = recover(seen)
     missing = [c for c, _, _ in DECLARED if c not in cells]
     if missing:
-        return None, f"no transcript recovered for cell(s) {missing}"
+        sized = {c: sum(1 for k in seen.values() if k == n)
+                 for c, _, n in DECLARED if c in missing}
+        if not seen:
+            return None, (f"{_NO_TRANSCRIPTS} for cell(s) {missing}: no "
+                          f"transcript file parsed under {TRANSCRIPT_GLOB}")
+        if not any(sized.values()):
+            return None, (f"{_NO_TRANSCRIPTS} for cell(s) {missing}: "
+                          f"{len(seen)} transcript(s) parsed and none holds the "
+                          f"declared entry count for any missing cell")
+        return None, (f"position checks FAILED for cell(s) {missing}: "
+                      f"{len(seen)} transcript(s) parsed and "
+                      f"{ {c: k for c, k in sized.items() if k} } of them hold "
+                      f"the declared entry count, so the store is HERE and the "
+                      f"positional reading of it does not hold")
     fails = []
     for idx, want in POSITION_CHECKS:
         c, n = idx[0], int(idx[1:])
@@ -771,23 +864,90 @@ def rebuild(write=True):
     return rows, f"{len(rows)} rows, {len(POSITION_CHECKS)} position checks passed"
 
 
+#: The one `rebuild` failure that is a REFUSAL rather than a defect.  Everything
+#: else `rebuild` can refuse on -- a failed position check -- means the mapping
+#: is wrong with the transcripts sitting right there, which is the loudest
+#: finding this module can produce and must not wear the refusal's name.
+_NO_TRANSCRIPTS = "no transcript recovered"
+
+
 def verify():
     """Is the inlined index still what the transcripts say?
 
-    Three outcomes and the third is the one that matters after the transcripts
-    are collected: `verified`, `differs`, and `cannot verify -- the transcripts
-    are not on this machine`.  The last is not a pass.
+    FOUR outcomes, and the docstring said three until 2026-08-13 while the code
+    had two-and-a-half.  `verified`, `differs`, `position_checks_failed`, and
+    `cannot verify -- the transcripts are not on this machine`.
+
+    The split matters and it was wrong: `position_checks_failed` was reported as
+    `cannot_verify`, so a broken POSITIONAL reading -- the failure this whole
+    file exists to make impossible, every citation potentially standing on a
+    different entry -- read as a checkout that simply had no transcripts in it.
+    Only the last outcome is a refusal (doctrine 79); the other failure is a
+    finding about the index.  None of the three non-`verified` states is a pass.
     """
     rows, why = rebuild(write=False)
     if rows is None:
-        return {"state": "cannot_verify", "detail": why,
-                "rows_on_disk": len(index())}
+        return {"state": "cannot_verify" if why.startswith(_NO_TRANSCRIPTS)
+                else "position_checks_failed",
+                "detail": why, "rows_on_disk": len(index())}
     on_disk = index()
     diff = [r["idx"] for r in rows
             if on_disk.get(r["idx"], {}).get("source", None) != r["source"]]
     return {"state": "verified" if not diff else "differs",
             "detail": why, "differing": diff[:20], "n_differing": len(diff),
             "rows_on_disk": len(on_disk)}
+
+
+#: state -> (exit code, what the state actually means).  A table rather than an
+#: `if` chain so that adding a state without deciding its code is impossible:
+#: `check_verify` raises on an unknown state instead of falling through to 0,
+#: which is how `--verify` came to exit 0 on every outcome in the first place.
+VERIFY_EXIT = {
+    "verified": (EXIT_OK,
+                 "the inlined index still says exactly what the transcripts say"),
+    "differs": (EXIT_FAILED,
+                "the index and the transcripts DISAGREE -- re-derive with "
+                "--rebuild, and keep the superseded rows visible (doctrine 17)"),
+    "position_checks_failed": (EXIT_FAILED,
+                               "the POSITIONAL reading is broken: an index no "
+                               "longer names the entry the canon's own prose "
+                               "says it names, so every citation in the "
+                               "register is suspect"),
+    "cannot_verify": (EXIT_CANNOT_TELL,
+                      "the transcripts are not on this machine, so this is a "
+                      "REFUSAL and not a pass (doctrine 28) -- the index on "
+                      "disk is neither confirmed nor impeached"),
+}
+
+
+def check_verify(v):
+    """-> exit code.  FAILS LOUDLY; it does not report and continue."""
+    state = v.get("state")
+    if state not in VERIFY_EXIT:
+        raise AssertionError("verify() returned an unclassified state %r; "
+                             "give it an exit code before shipping it" % state)
+    code, meaning = VERIFY_EXIT[state]
+    print()
+    print("=" * 74)
+    print("CHECK -- quality/canon_index.tsv against the survey transcripts")
+    print("=" * 74)
+    print(f"  state      {state}")
+    print(f"  meaning    {meaning}")
+    print(f"  detail     {v.get('detail')}")
+    print(f"  rows on disk {v.get('rows_on_disk')}")
+    if v.get("n_differing"):
+        print(f"  {v['n_differing']} row(s) differ, first 20: "
+              f"{' '.join(v.get('differing', []))}")
+    if code == EXIT_CANNOT_TELL:
+        print()
+        print(f"  TO REACH `verified` this machine needs the {len(DECLARED)} "
+              f"inventory-agent transcripts of the workflow named in "
+              f"{os.path.basename(CANON_MD)}, as *.jsonl under "
+              f"{TRANSCRIPT_GLOB}/**/<workflow id>/ .")
+    print()
+    print("RESULT:", "PASS" if code == EXIT_OK else
+          "FAIL" if code == EXIT_FAILED else "CANNOT TELL")
+    return code
 
 
 # ---------------------------------------------------------------------------
@@ -878,8 +1038,14 @@ def _witness_line(ids):
     return WITNESS_MARK + ". ".join(bits) + "."
 
 
-def _render_section_8():
-    """§8, entirely computed."""
+def _render_section_8(omissions=None):
+    """§8, entirely computed.
+
+    `omissions` is an optional list this appends a sentence to for every part of
+    §8 it could not build.  A render that drops a whole subsection while exiting
+    0 writes a document that is missing a section nobody was told about, which
+    is the silent half of the defect the exit codes above close.
+    """
     ix, cen = index(), census()
     er = entry_report()
     v = collections.Counter(e["verdict"] for e in er)
@@ -893,6 +1059,9 @@ def _render_section_8():
         tp = None
         print("WARNING: §8.7 omitted, relations.py did not import: %r" % exc,
               file=sys.stderr)
+        if omissions is not None:
+            omissions.append("§8.7 (`relations.py`'s provenance table) was NOT "
+                             "written: %r" % (exc,))
     websearch = sum(1 for r in ix.values()
                     if re.search(r"websearch|web search|via search", r["source"], re.I))
     L = []
@@ -1140,8 +1309,14 @@ def _render_section_8():
     return L
 
 
-def render(path=CANON_MD):
-    """Rewrite the `- witness:` lines in §2 and regenerate §8.  Idempotent."""
+def render(path=CANON_MD, omissions=None):
+    """Rewrite the `- witness:` lines in §2 and regenerate §8.  Idempotent.
+
+    -> the number of witness lines written.  `omissions`, if a list is passed,
+    collects the parts of §8 that could not be built, so the caller can exit
+    non-zero on a PARTIAL render rather than announce a success that quietly
+    dropped a section.
+    """
     txt = open(path, encoding="utf-8").read()
     cut = txt.find("\n## 8. ")
     if cut != -1:
@@ -1183,7 +1358,7 @@ def render(path=CANON_MD):
     # handle is opened for writing: `open(path, "w")` truncates first and the
     # argument expression runs second, which silently rendered every count as
     # zero the first time this was written on one line.
-    section = "\n".join(_render_section_8())
+    section = "\n".join(_render_section_8(omissions))
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(body + "\n" + section)
     return len(inserts)
@@ -1194,7 +1369,10 @@ def main(argv=None):
     ap.add_argument("--rebuild", action="store_true")
     ap.add_argument("--render", action="store_true",
                     help="rewrite RHYME_CANON.md's witness lines and §8")
-    ap.add_argument("--verify", action="store_true")
+    ap.add_argument("--verify", action="store_true",
+                    help="index vs transcripts. TERMINAL: it returns its own "
+                         "exit code and runs nothing after it, so `--render "
+                         "--verify` renders NOTHING -- use two runs")
     ap.add_argument("--entries", action="store_true")
     ap.add_argument("--names", action="store_true",
                     help="list every project-only and unrecorded name")
@@ -1204,14 +1382,29 @@ def main(argv=None):
         rows, why = rebuild()
         print("rebuild:", why)
         if rows is None:
-            return 1
+            return (EXIT_CANNOT_TELL if why.startswith(_NO_TRANSCRIPTS)
+                    else EXIT_FAILED)
         globals()["_INDEX"] = None
     if a.verify:
-        print("verify:", json.dumps(verify(), ensure_ascii=False))
-        return 0
+        v = verify()
+        print("verify:", json.dumps(v, ensure_ascii=False))
+        return check_verify(v)
+
+    #: The census below is a report and reports 0.  These two are CHECKS living
+    #: inside it, and a check that cannot go red is a decoration: a `- witness:`
+    #: line whose primary citation stopped being quotable, or a §8 written with
+    #: a subsection missing, are both defects in the document this command's
+    #: own output claims to have computed.
+    code = EXIT_OK
     if a.render:
+        omitted = []
+        n = render(omissions=omitted)
         print("render: %d witness lines rewritten in %s"
-              % (render(), os.path.relpath(CANON_MD)))
+              % (n, os.path.relpath(CANON_MD)))
+        for o in omitted:
+            print("render: PARTIAL --", o)
+        if omitted:
+            code = EXIT_FAILED
 
     c = census()
     print("=" * 78)
@@ -1231,6 +1424,13 @@ def main(argv=None):
     for r in prim:
         if r["state"] != "quoted":
             print(f"     {r['idx']:5s} {r['state']}  {r['file']}")
+    if good != len(prim):
+        # §8.5 prints `N of M pass today` and its own docstring says a citation
+        # nobody re-ran is a citation nobody has.  Printing the shortfall and
+        # exiting 0 is exactly that sentence disbelieved.
+        print(f"  FAIL: {len(prim) - good} PRIMARY citation(s) no longer "
+              f"quotable from the named file. §8.5 says they are.")
+        code = EXIT_FAILED
     er = entry_report()
     v = collections.Counter(e["verdict"] for e in er)
     print(f"\n  canon entries {len(er)}: {dict(v)}")
@@ -1250,7 +1450,7 @@ def main(argv=None):
         print("\n  UNRECORDED (the source names no checkable referent at all):")
         for r in sorted(unrecorded(), key=lambda r: r["idx"]):
             print(f"     {r['idx']:6s} {r['name'][:60]}")
-    return 0
+    return code
 
 
 if __name__ == "__main__":
