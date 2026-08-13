@@ -970,7 +970,10 @@ class PresentVsAbsent(Predicate):
     DEFECT P6, fixed.  This tested whole-channel EMPTINESS -- `_empty(bare)` --
     so it fired only on a bare member with no coda at all (`see`/`seed`) and
     returned False on every canonical pair in the repo's own list
-    (RHYME_COVERAGE.md line 148):
+    (RHYME_COVERAGE.md, the **ADDITIVE PAIR LIST**.  Cited by NAME: this read
+    "line 148", which pointed at the *subtractive* line even before §2 grew
+    and then missed by two.  A line number into a living document is the same
+    defect as a reused P-number, one layer down):
 
         year/feared  coda ('R',) vs ('R','D')   -> False
         down/found   coda ('N',) vs ('N','D')   -> False

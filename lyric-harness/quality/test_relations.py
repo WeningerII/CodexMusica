@@ -370,7 +370,9 @@ def test_p6_present_vs_absent():
         res = R.realise(schema, st, keep="all")
         return res[0].verdict if res and not isinstance(res, R.Refusal) else None
 
-    # RHYME_COVERAGE.md line 148's own list
+    # RHYME_COVERAGE.md's own ADDITIVE PAIR LIST, cited by NAME rather than by
+    # line number: the number this used to carry pointed at the subtractive
+    # line before §2 grew and missed by two after it.
     for a, b in (("year", "feared"), ("down", "found"), ("rain", "brains"),
                  ("prove", "moved"), ("stow", "hope")):
         check(f"additive: {a}/{b}", v(add, a, b) is True,

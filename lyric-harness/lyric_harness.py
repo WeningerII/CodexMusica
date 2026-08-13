@@ -4256,6 +4256,20 @@ def main():
                    "explicit assumption by whoever ran the command") \
             if "--isochronous" in args else None
 
+        # WHICH FILE IS WHICH — doctrine 79, and the half of the refusal only
+        # this frame can supply. `quality/revise.py`'s message carries both
+        # COUNTS ("blueprint declares 16 line(s), 4 were handed to the loop")
+        # and neither PATH, correctly: it is a library, it was handed a list
+        # of strings and a blueprint object, and it was never told what the
+        # command line called them. A caller fixes a count mismatch by editing
+        # one of two files and has to be told WHICH TWO, so the paths are
+        # collected here as each verb reads its own arguments and printed
+        # under the refusal. Order matters and is the message's own: the side
+        # that DECLARES first, the side that was HANDED IN after it.
+        sides = []
+        if bp_path:
+            sides.append(("DECLARED  --blueprint=", bp_path))
+
         def _say_blueprint():
             """Printed only once a mandate spec is known to be present —
             with NO mandate this verb REFUSES immediately (doctrine 20) and
@@ -4440,6 +4454,7 @@ def main():
 
         try:
             if cmd == "brief":
+                sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
@@ -4462,6 +4477,8 @@ def main():
                 # to the words and not the blueprint, or the reverse.
                 from quality import grid as GR
                 song_bp_path = args[1]
+                sides.append(("DECLARED  song's BLUEPRINT", song_bp_path))
+                sides.append(("HANDED IN song's LYRIC", args[2]))
                 lyric_text = open(args[2]).read()
                 marked = parse_lyric_sections(lyric_text)
                 song_obj, _hooks = GR.song_from_blueprint(song_bp_path)
@@ -4493,23 +4510,24 @@ def main():
                           + (f", subdivision={sub_arg}" if sub_arg else
                              ", NO SUBDIVISION DECLARED — the slot "
                              "questions refuse rather than assume one"))
-                try:
-                    _print_brief_report(lines, scheme, song_bp_path)
-                except NoMandate:
-                    # Let the SAME handler brief/verify/revise use catch
-                    # this one (below) -- NoMandate IS-A ValueError, so
-                    # without this it would print here in a shape that
-                    # only looks like the shared refusal, drifting from it
-                    # the next time either message changes.
-                    raise
-                except ValueError as e:
-                    # A structure mismatch severe enough to break the
-                    # blueprint/draft position correlation `_meter_findings`
-                    # requires (doctrine 20: a refusal, not a traceback) --
-                    # the STRUCTURE lines above already said WHERE.
-                    print(f"  REFUSED — {e}")
-                    sys.exit(2)
+                # NO `except ValueError` OF ITS OWN — MOVED OUT 2026-08-13.
+                # This call used to be wrapped in a private copy of the
+                # refusal that now sits on the shared handler below, and a
+                # second copy is exactly what "do not invent a second refusal
+                # shape" forbids: `brief`, `verify` and `revise` reach the
+                # SAME `Reviser._meter_findings` through the SAME
+                # `_print_brief_report`, and three of the four verbs printed
+                # a raw traceback where the fourth refused. The private copy
+                # was also strictly narrower than it looked — it started
+                # AFTER `GR.song_from_blueprint` above, so a blueprint this
+                # verb could not parse at all (`Invalid literal for
+                # Fraction`, a JSON syntax error) escaped `song` too. One
+                # handler, on the try every verb on this branch already
+                # shares, covers both.
+                _print_brief_report(lines, scheme, song_bp_path)
             elif cmd == "verify":
+                sides.append(("HANDED IN verify's BEFORE", args[1]))
+                sides.append(("HANDED IN verify's AFTER", args[2]))
                 before = load_lyric_lines(args[1])
                 after = load_lyric_lines(args[2])
                 scheme = _mandate_arg(args[3] if len(args) > 3 else None,
@@ -4539,6 +4557,7 @@ def main():
                 # real writing supplies its own `propose`/`propose_pair`
                 # through the Python API; this verb exists so the control
                 # flow itself is runnable and inspectable without one.
+                sides.append(("HANDED IN revise's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
