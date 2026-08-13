@@ -408,8 +408,27 @@ def sweep_record(lex, decl, verbose=True):
         rel = os.path.relpath(path, ROOT)
         for n, line in enumerate(open(path, encoding="utf-8",
                                       errors="replace"), 1):
+            # A NUMBER BELONGS TO THE LAST PAIR NAMED BEFORE IT, and until
+            # 2026-08-13 nothing here said so. The tail scan below looks 90
+            # characters past a pair for its number; that window runs clean
+            # past a SECOND pair named later on the same line, and the number
+            # it then finds is the second pair's. ADJUDICATED, not guessed --
+            # `quality/RESULTS_REVISION_LOOP.md:323` reads
+            #     The `ear`/`clear` row is the one to read. `ear` ~ `will`
+            #     scores **0.996** and is typed **RHYME**.
+            # and this sweep charged `ear`/`clear` with `will`'s 0.996, then
+            # reported it as a DISAGREES against its true 1.0. The document is
+            # correct and the instrument was not: adversary 7 was making, on
+            # its own record, the exact error it exists to find -- printing a
+            # number beside a pair that did not produce it (doctrine 45, the
+            # coordinate being WHICH PAIR the number is a claim about).
+            # Cutting the window at the next pair mention is the whole fix.
+            starts = sorted({m.start() for m in PAIR_RE.finditer(line)} |
+                            {m.start() for m in BARE_RE.finditer(line)})
             for m in PAIR_RE.finditer(line):
-                tailtext = line[m.end():m.end() + 90]
+                later = [s for s in starts if s >= m.end()]
+                stop = min(m.end() + 90, later[0]) if later else m.end() + 90
+                tailtext = line[m.end():stop]
                 if "bit" in tailtext[:40]:
                     continue
                 nm = NUM_RE.search(tailtext)

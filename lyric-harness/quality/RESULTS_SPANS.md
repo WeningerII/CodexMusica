@@ -5,6 +5,12 @@ measured 2026-08-11 against the shipped `cmudict.dict`, `Declaration()`
 defaults (dialect CMUdict General American, `theta_rhyme` 0.75, conjunctive
 band on, `fitted` False).
 
+Sweeps 1 and 2 re-measured 2026-08-13 and unmoved. **Sweep 3's four `DISAGREES`
+rows were adjudicated 2026-08-13 — §7, which is the first time any of them was
+decided rather than reported.** One of the four was the instrument's own error
+and `audit_spans.py` is fixed; `PINNED` did not move, because every pinned
+figure is sweep 1's.
+
 `BACKLOG.md` §0 lists eight adversaries and marks this one **missing**:
 "`best_score` prints a score beside end words that did not produce it". This is
 its first instrument and its first measurement.
@@ -319,14 +325,29 @@ defects compounding.
 A recorded table is a report line that outlived its run, and it is the only
 artefact a reader of this project ever sees.
 
-| | count |
-|---|---:|
-| markdown files scanned | 34 |
-| pairs quoted **with** a number (adjudicable) | **20** |
-| pairs quoted with no number (not a claim about a score) | 84 |
-| — reproduces as the pair's total | 12 |
-| — REFUSED, the number is a different quantity | 5 |
-| — DISAGREES with the total | 3 |
+| | 2026-08-11 | 2026-08-13 |
+|---|---:|---:|
+| markdown files scanned | 34 | 45 → **46** |
+| pairs quoted **with** a number (adjudicable) | **20** | **26** |
+| pairs quoted with no number (not a claim about a score) | 84 | 147 |
+| — reproduces as the pair's total | 12 | 17 |
+| — REFUSED, the number is a different quantity | 5 | 6 |
+| — DISAGREES with the total | 3 | 3 |
+
+*The 2026-08-11 column is SUPERSEDED and is kept visible rather than
+overwritten (doctrine 17); the 2026-08-13 column is the current one. The tree
+grew by 11 markdown files in between, which is the bulk of the movement. The
+2026-08-13 column is also POST-FIX: before §7's fix to the instrument the same
+run read 29 adjudicable / 144 no-number / 17 / 8 / **4**, and three of those
+rows were the instrument's own misattribution. `DISAGREES` reading 3 on both
+dates is a coincidence of two different threes — see §7.*
+
+*`45 → 46` is not a typo and is worth leaving in. The file count moved **during
+the sweep run that recorded it**: a sibling cell landed a markdown file between
+the run that produced §7's verbatim block and the confirming re-run an hour
+later. Every other count held. That is doctrine 78 happening to the instrument
+rather than being argued about — and it is the concrete reason
+`quality/test_spans.py` pins this sweep's SHAPE and not its numbers.*
 
 **This file is excluded from the sweep, by name, and the sweep says so when it
 runs.** It quotes `go/receipt 0.579` and `die/memory 0.773` as the defects the
@@ -340,23 +361,30 @@ markdown into this repo in the same round (doctrine 78), so
 `quality/test_spans.py` pins the SHAPE — refusals are named and never charged,
 and the three outcomes partition the adjudicable rows — and not the numbers.
 
-Of the **12 that reproduce, 10 name the spans that produced them.** The two
-that do not are the same row in two files — `` `dawn`/`again` 0.729 `` in
-`quality/MATRIX_PREREGISTRATION.md:18` and `quality/RESULTS_BAND.md:54`, scored
-on `dawn` ~ `-again`, the anchor cut.
+Of the **17 that reproduce, 14 name the spans that produced them**
+(2026-08-13; was **12 that reproduce, 10 name the spans** on 2026-08-11).
+The three that do not are the same shape in three places — the anchor cut:
+`` `dawn`/`again` 0.729 `` in `quality/MATRIX_PREREGISTRATION.md:18` and
+`quality/RESULTS_BAND.md:54`, scored on `dawn` ~ `-again`, and
+`` `heat`/`receipt` 1.0 `` in `quality/RESULTS_COLLISION_PARTITION.md:53`,
+scored on `heat` ~ `-receipt`.
 
-**The 5 refusals are named and never charged** (doctrine 79): `five`/`of`
-0.603 (three sites), `bed`/`bead` 0.758, `sun`/`much` 1.000 are **channel**
-values, not totals. A sweep that called them wrong would be inventing a claim
-in order to check it.
+**The 6 refusals are named and never charged** (doctrine 79; was 5 on
+2026-08-11): `five`/`of` 0.603 (four sites), `bed`/`bead` 0.758, `sun`/`much`
+1.000 are **channel** values, not totals. A sweep that called them wrong would
+be inventing a claim in order to check it.
 
-**The 3 that disagree:**
+**The 3 that disagree**, at the line numbers they now sit on:
 
 | site | recorded | measured from the words it names |
 |---|---|---|
-| `BACKLOG.md:76` | `go/receipt 0.579` | **0.272 NO_RELATION** |
+| `BACKLOG.md:96` | `go/receipt 0.579` | **0.272 NO_RELATION** |
 | `quality/RESULTS_REDTEAM.md:8` | `go/receipt 0.579` | **0.272 NO_RELATION** |
 | `quality/MATRIX_PREREGISTRATION.md:20` | `` `eye`/`memory` 0.671 `` | **0.492 CONSONANCE** |
+
+*`BACKLOG.md:76` was this row's site on 2026-08-11; the file grew above it and
+the row did not move. **All three are adjudicated in §7** — the first two in
+the documents' favour, the third against the record.*
 
 The two `go/receipt` rows are the documents that DECLARE the discrepancy, not
 ones that inherited it — the sweep cannot tell those apart and does not try;
@@ -370,15 +398,294 @@ names.
 the same length reproduce to the digit** — `sun`/`much` 0.772, `dawn`/`again`
 0.729, `love`/`prove` 0.784, `night`/`light` 1.000. The single row whose
 anchors are unequal in length (`eye` 1 syllable against `memory` 3) is the
-single row that does not. That is doctrine 95 — "equal-length examples hid
-it" — reproduced on the repo's own record, by an instrument that was not
-looking for it. **The document is a PRE-REGISTRATION and is not to be
+single row that does not. **The document is a PRE-REGISTRATION and is not to be
 rewritten** (doctrine 17: a check may be kept after its premise is falsified,
 but never quoted as if it were not); the number is quoted nowhere else as
-current, so nothing downstream inherits it.
+current, so nothing downstream inherits it — RE-VERIFIED 2026-08-13, `0.671`
+occurs in exactly two places in this repo, `MATRIX_PREREGISTRATION.md:20` and
+this file's own table above, which labels it as not reproducing.
+
+> ~~That is doctrine 95 — "equal-length examples hid it" — reproduced on the
+> repo's own record, by an instrument that was not looking for it.~~
+> **SUPERSEDED 2026-08-13.** That sentence attributes the non-reproduction to
+> doctrine 95's subject, *the alignment defect in the shipped comparator*, and
+> the attribution does not survive being checked: the row does not reproduce at
+> its OWN commit either, so no comparator ever moved under it. The observation
+> (four reproduce, the unequal-length one does not) is right and the mechanism
+> named is wrong, and it is wrong in the direction that flatters the record.
+> **§7 row 2 has the measurement.** Doctrine 95's *shape* survives intact and
+> is if anything sharper: four 1-syllable-against-1-syllable rows hid a fifth
+> row that was never a measurement at all.
 
 **Scope, stated rather than implied:** markdown only. Numbers recorded in `.py`
 docstrings and in test assertions are not swept.
+
+---
+
+## 7 · The `DISAGREES` rows, ADJUDICATED
+
+**Adjudicated 2026-08-13.** Until this section existed, sweep 3 had reported
+`DISAGREES` on every run since 2026-08-11 and **no row had ever been decided**.
+The sweep's own closing paragraph says why it cannot decide them — *"a document
+QUOTING a bad report line in order to criticise it looks exactly like one that
+inherited it, and only a reader can tell them apart"* — which is a correct
+statement of the instrument's limit and was silently doing duty as a verdict.
+Doctrine 20: **"inconclusive by construction" is not a finding.** A row the
+instrument cannot decide has to be decided by a reader or labelled undecided,
+and neither had happened.
+
+Four rows stood on 2026-08-13. Three were the record's business and one was the
+instrument's. Each is adjudicated below against the underlying data, not
+against the prose around it.
+
+### The four rows, verbatim from the run that opened this section
+
+```
+  DISAGREES — a recorded number in the total's range that is not the total:
+    BACKLOG.md:96  `go`/`receipt` recorded 0.579, measured 0.272 NO_RELATION
+        to do with the number** — `go/receipt 0.579 RHYME` was `get to go` ~ `ceipt`.
+    quality/MATRIX_PREREGISTRATION.md:20  `eye`/`memory` recorded 0.671, measured 0.492 CONSONANCE
+        | `eye`/`memory` | 0.671 | 0.342 | **1.00** | **1.00** |
+    quality/RESULTS_REDTEAM.md:8  `go`/`receipt` recorded 0.579, measured 0.272 NO_RELATION
+        Writing one song surfaced a report line reading `go/receipt 0.579 RHYME`. Two
+    quality/RESULTS_REVISION_LOOP.md:323  `ear`/`clear` recorded 0.996, measured 1.0 RHYME
+        The `ear`/`clear` row is the one to read. `ear` ~ `will` scores **0.996** and is
+```
+
+| # | row | verdict | who was wrong |
+|---:|---|---|---|
+| 1 | `BACKLOG.md:96` `go`/`receipt` | **document RIGHT, number RIGHT** | nobody — two true statements about different objects |
+| 2 | `MATRIX_PREREGISTRATION.md:20` `eye`/`memory` | **RECORD WRONG** | the record, and at its own commit |
+| 3 | `RESULTS_REDTEAM.md:8` `go`/`receipt` | **document RIGHT, number RIGHT** | nobody — same as row 1 |
+| 4 | `RESULTS_REVISION_LOOP.md:323` `ear`/`clear` | **INSTRUMENT WRONG** | `audit_spans.py`, now fixed |
+
+---
+
+### Rows 1 and 3 — `go/receipt 0.579` · VERDICT: both sides right, no edit
+
+**The two sides.** The record says the harness printed `go/receipt 0.579
+RHYME`. The sweep says `go` against `receipt` measures **0.272 NO_RELATION**,
+a gap of 0.307 on a 0–1 scale.
+
+**The evidence that decides it** is a re-run of the original call, and the
+deciding fact is that the two sides are not about the same object:
+
+```
+lh.best_score(line_anchors("I don't get to go"),
+              line_anchors("how they read the address like a receipt"),
+              Declaration(), "go", "receipt")
+
+  total 0.579  NO_RELATION
+  scored on: get to go  ~  -receipt [last 1 of 2 syllables of 'receipt']
+             (best of k=6)   MOSAIC (left)
+  s.claims("go", "receipt")  ->  False
+```
+
+against the two words on their own:
+
+```
+lh.best_score(line_anchors("go"), line_anchors("receipt"), Declaration(),
+              "go", "receipt")
+  total 0.272  NO_RELATION      scored on: go  ~  -receipt   (best of k=1)
+```
+
+**0.579 is a true number about a pair of LINES. 0.272 is a true number about
+the pair of WORDS.** Neither is a mistake; the mistake was the original report
+line asserting the first while naming the second, which is this whole file's
+subject. `s.claims("go","receipt")` returning `False` is the fix working.
+
+**Both documents are of the criticising kind, and `BACKLOG.md:96` proves it in
+its own sentence** — it reads `` `go/receipt 0.579 RHYME` was `get to go` ~
+`ceipt` ``, naming the winning spans in the same breath as the number.
+`RESULTS_REDTEAM.md:8` opens the report *about* the defect (*"Writing one song
+surfaced a report line reading..."*) and its §1 dissects the same span pair at
+line 28. Neither inherits the number as current.
+
+**Two different answers, and doctrine 28 wants both named.** The INSTRUMENT
+returns *cannot tell* on rows 1 and 3 — structurally, forever, because
+criticising and inheriting are textually identical and it reads no intent. The
+READER returns *criticism*, on the evidence quoted above. Recording only the
+first would understate what is known; recording only the second would hide that
+the sweep cannot get there on its own. **No edit is made to either document,
+and the rows stay in `DISAGREES`,** because the arithmetic they report is true
+and a sweep that suppressed them would stop finding the inherited kind.
+
+---
+
+### Row 2 — `eye`/`memory` 0.671 · VERDICT: the RECORD is wrong
+
+**The two sides.** `quality/MATRIX_PREREGISTRATION.md:20` records
+`` | `eye`/`memory` | 0.671 | 0.342 | **1.00** | **1.00** | `` — total,
+nucleus, coda, stress. The sweep measures **0.492 CONSONANCE**.
+
+Three independent measurements decide it, and all three go against the record.
+
+**(a) The row does not reproduce at its own commit.** `git log --diff-filter=A`
+gives `e8aa6ae` as the commit that added `MATRIX_PREREGISTRATION.md`. Running
+that commit's own `lyric_harness.py` on all five rows:
+
+| row | recorded | at `e8aa6ae` | today |
+|---|---:|---:|---:|
+| `sun`/`much` | 0.772 | 0.772 ✓ | 0.772 ✓ |
+| `dawn`/`again` | 0.729 | 0.729 ✓ | 0.729 ✓ |
+| `love`/`prove` | 0.784 | 0.784 ✓ | 0.784 ✓ |
+| **`eye`/`memory`** | **0.671** | **0.492 ✗** | **0.492 ✗** |
+| `night`/`light` | 1.000 | 1.000 ✓ | 1.000 ✓ |
+
+The comparator returns 0.492 at the pre-registration's own commit and 0.492
+now. **Nothing moved under this row; it was never 0.671 here.** That is what
+retires the doctrine-95 explanation struck through in §6 — a number that never
+reproduced cannot have been broken by a later comparator change.
+
+**(b) The row's own nucleus column names a pairing the comparator has never
+used.** `line_anchors` returns `memory`'s anchor as the whole span from its last
+primary stress, `M EH1 M ER0 IY0` — three syllables — against `eye`'s one, and
+`Declaration.scalar_alignment` is `'head'` (pinned by `quality/test_align.py`).
+So the comparator compares `AY` with `EH`:
+
+```
+vowel_sim('AY','EH') = 0.585      <- what the comparator computes
+vowel_sim('AY','IY') = 0.3425     <- rounds to 0.342, the RECORDED column
+```
+
+The recorded 0.342 is `eye`'s `AY` against `memory`'s **final** syllable `IY`.
+
+**(c) The row is internally incoherent: no single syllable pairing produces its
+three columns at once.** All three available pairings, enumerated:
+
+| pairing | nucleus | coda | stress |
+|---|---:|---:|---:|
+| `AY`(str 1) ~ `EH`(str 1) | 0.585 | 1.0 | **1.0** |
+| `AY`(str 1) ~ `ER`(str 0) | 0.513 | 1.0 | 0.0 |
+| `AY`(str 1) ~ `IY`(str 0) | **0.342** | 1.0 | **0.0** |
+| **recorded** | **0.342** | **1.00** | **1.00** |
+
+The recorded row takes its **nucleus from the third pairing and its stress from
+the first.** `memory`'s `IY` is unstressed, so the section's own argument —
+*"Stress is free. The anchor is defined as the last primary stress, so both
+sides are stressed by construction"* — is true of the pairing it did not use
+and false of the pairing its nucleus came from. And the total is exactly the
+weighted sum of its own columns with the length penalty omitted:
+
+```
+0.5(0.342) + 0.35(1.00) + 0.15(1.00) = 0.671     <- the recorded total, exactly
+```
+
+`Declaration.trailing_syllable_penalty` is 0.15 and was already present at
+`e8aa6ae`; with `extra = 2` the comparator docks 0.30 that this row never paid,
+which is the whole of the 0.671 → 0.492 difference (0.7925 − 0.30 = 0.4925).
+
+**VERDICT: the row is a hand-assembled illustration, not a measurement**, and
+its section is headed *"The defect, measured"*. The four rows around it are
+1-syllable-against-1-syllable, where hand-assembly and the comparator agree
+exactly, so the fifth row's construction was invisible.
+
+**NOT REWRITTEN.** `MATRIX_PREREGISTRATION.md` is a pre-registration whose
+whole evidential value is that it was committed before the fitting code
+existed, and doctrine 17 keeps a falsified check visible rather than tidy. It
+is also not my file. The correction lives here, the row stays in `DISAGREES`,
+and `0.671` is quoted as current nowhere in the repo — re-verified 2026-08-13,
+it occurs at `MATRIX_PREREGISTRATION.md:20` and in §6's table above, which
+labels it as not reproducing.
+
+**What does NOT change: the pre-registration's argument.** Its two structural
+gifts — free stress at the anchor, and `cluster_sim([], []) == 1.0` — are both
+real and both visible in the four rows that do reproduce (`stress` is 1.00 in
+every one; `dawn`/`again` and `love`/`prove` collect a full coda 1.00). The
+defective row was an illustration of a defect that the sound rows already
+demonstrate.
+
+---
+
+### Row 4 — `ear`/`clear` 0.996 · VERDICT: the INSTRUMENT was wrong
+
+**The two sides.** The sweep read `quality/RESULTS_REVISION_LOOP.md:323` as
+recording `ear`/`clear` = 0.996 and measured `ear`/`clear` = 1.0 RHYME.
+
+**The evidence is the line itself**, which never makes that claim:
+
+```
+The `ear`/`clear` row is the one to read. `ear` ~ `will` scores **0.996** and is
+```
+
+The **0.996 belongs to `ear` ~ `will`**, named later in the same line. The
+sweep's `PAIR_RE` matched `` `ear`/`clear` `` at columns 4–17, then scanned 90
+characters past it for a number and found 0.996 at offset 49 — across a
+sentence boundary **and across a second pair mention**. Re-scored:
+
+```
+ear / clear :  1.0    RHYME       claims=True
+ear / will  :  0.996  ASSONANCE   claims=True
+```
+
+Both are right in the document. `ear`/`clear` **is** 1.0 — that is why §4 of
+that file names it as a rhyme group at all — and `ear` ~ `will` **is** 0.996,
+which is that section's entire point about two licences stacking. The same line
+yields a second `PAIR_RE` match, `` `ear` ~ `will` ``, which the sweep already
+counted correctly in `reproduces / true as printed`. **The document was right
+twice and the instrument charged it once.**
+
+**This is adversary 7 committing adversary 7's own defect.** The file exists to
+ask *do the number, the label and the evidence agree?*, and it was printing a
+number beside a pair that did not produce it. Doctrine 45's shape, one level
+out: the silently-picked coordinate is **which pair the number is a claim
+about**, and nothing stated it.
+
+**THE FIX**, in `sweep_record`: the tail scan now stops at the next pair
+mention on the same line. A number belongs to the last pair named before it.
+
+**Two silent siblings fell out of the same fix**, neither of which had ever
+been noticed, both in `quality/RESULTS_COLLISION_PARTITION.md:53`:
+
+```
+| §6 | the three value-layer findings are `does`/`mailboxes`, `does`/`winters`,
+  `heat`/`receipt` | **REPRODUCES EXACTLY** — L1~L5 1.000, L1~L7 0.910,
+  L2~L28 1.000, all typed RHYME |
+```
+
+`does`/`mailboxes` and `does`/`winters` were each charged with the `1.000` that
+appears after `heat`/`receipt`. That cell's numbers are keyed to **line** pairs
+(`L1~L5`, `L1~L7`, `L2~L28`), not to the word pairs, so no word pair there
+carries a number of its own. Both were sitting in `REFUSED` — a *quieter* wrong
+answer than row 4's, because a refusal reads as a considered outcome. They now
+land in *quoted with no number*, which is what they are.
+
+**What the fix moved, and nothing else moved:**
+
+| | before | after |
+|---|---:|---:|
+| pairs quoted WITH a number (adjudicable) | 29 | **26** |
+| pairs quoted with no number | 144 | **147** |
+| reproduces as the pair total | 17 | 17 |
+| REFUSED, a different quantity | 8 | **6** |
+| DISAGREES with the total | 4 | **3** |
+
+The adjudicable + no-number total is 173 on both sides, so the three rows moved
+between buckets rather than vanishing. A line-by-line diff of the sweep-3
+output before and after is exactly those three rows and the five counts above.
+
+**`PINNED` DID NOT MOVE, and that is a fact about which sweep it pins, not a
+convenience.** All six pinned figures — `mandated` 1064, `judged` 1014,
+`refused` 50, `violations` 82, `claimed` 632, `violations_claimed` 36 — come
+from **sweep 1**, and this fix is entirely in sweep 3. `--check` runs sweep 1
+only and passes green after the fix. Sweep 3's counts are deliberately NOT
+pinned: sibling cells write markdown into this repo in the same round (doctrine
+78), so `quality/test_spans.py` pins the sweep's SHAPE — refusals named and
+never charged, the three outcomes partitioning the adjudicable rows — and not
+its numbers. That is why a 29 → 26 correction breaks no test, and it is also
+why this section, not a pin, is where the correction had to be recorded.
+
+**Proven still able to go red.** With `violations_claimed` perturbed 36 → 37,
+`python3 quality/audit_spans.py --check` exits **1** and names the moved figure
+(`[FAIL] violations_claimed   committed 37, measured 36`); reverted, it exits
+**0** with all six `[ok]`. The check is real after the edit as well as before.
+
+**The residual limit, stated rather than left to be rediscovered.** The cut is
+at the next PAIR mention, not at a sentence boundary. A number separated from
+its pair by a sentence with no intervening pair mention would still be
+mis-attached. Measured 2026-08-13: **0 of the 24** surviving `PAIR_RE` rows have
+their number past a sentence boundary, so the case is unrealised in this tree
+today — unrealised, not impossible.
 
 ---
 
@@ -404,3 +711,22 @@ docstrings and in test assertions are not swept.
    6, 65 at 9, and a tail of 3 pairs at 36), and the winner beat `k-1` rivals
    on every one of them. A maximum over 36 hypotheses reported as a bare
    number is a search quoted back at itself.
+5. **`quality/MATRIX_PREREGISTRATION.md:20`'s `eye`/`memory` row is wrong and
+   is deliberately left standing.** §7 row 2 has the measurement: the row is
+   hand-assembled from two different syllable pairings and never reproduced
+   from any comparator this repo has shipped, including the one live at its own
+   commit. It is a PRE-REGISTRATION, doctrine 17 keeps a falsified check
+   visible, and it is not this cell's file — so the correction is recorded here
+   and the row is not touched. What a later session must NOT do is "fix" the
+   number: rewriting a pre-registration after the fact destroys the only thing
+   it is evidence of. If anything is added there it should be a dated note
+   pointing at this section.
+6. **The CI step's own cost estimate is stale, in `.github/workflows/ci.yml`.**
+   Its comment and the commit that added it both say `--check` "runs sweep 1
+   only (~1 min)". Measured 2026-08-13 on this machine: **10.3 s and 10.6 s**
+   over two consecutive runs, against **18.6 s** for the full three-sweep run.
+   The estimate errs in the safe direction (the check is ~6x cheaper than
+   advertised, and the FULL run is well under the quoted minute) so nothing is
+   mis-gated, but doctrine 58 applies to a cost the same way it applies to a
+   threshold: it is a number nobody wrote down after measuring. Not this cell's
+   file; filed rather than edited.
