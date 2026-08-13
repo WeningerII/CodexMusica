@@ -478,6 +478,71 @@ def _drift_reads_function():
     return "RETURN_LENGTH_DRIFT" in {x.code for x in f}
 
 
+def test_a_recurred_single_use_function_is_reported():
+    """SINGLE_USE_RECURRED could not fire for the whole life of this module.
+
+    `song_function_report` built its question set from `recurrence == "returns"`
+    or `convention.fixed_return`, and every function in `convention.single_use`
+    has recurrence "once" and is in neither tuple -- the two are DISJOINT -- so
+    `return_findings` was never handed one and the guard at its own line was
+    unreachable. Found by declaring two bridges and getting silence.
+
+    The three assertions below are the fix, its scope, and its cost:
+    the check fires, it fires for every single-use function and not just the
+    one that found it, and a well-formed song gains no new finding or refusal.
+    """
+    print("\n16. a single-use function declared twice is a finding")
+    from quality.grid import (song_from_blueprint, song_function_report,
+                              POPULAR_SONG, SECTION_FUNCTIONS)
+
+    def report(fns):
+        bp = {"bpm": 120, "meter": "4/4", "hooks": ["hold the line"],
+              "sections": [{"name": f"S{i}", "function": f,
+                            "start_bar": 1 + 4 * i, "bars": 4,
+                            "lines": [{"text": "hold the line now",
+                                       "bar": 1 + 4 * i, "beat": 1,
+                                       "duration": 1}]}
+                           for i, f in enumerate(fns)]}
+        song, hooks = song_from_blueprint(bp)
+        return song_function_report(song, hooks=hooks)
+
+    codes = {f.code for f in report(["verse", "bridge", "chorus",
+                                     "bridge"])["findings"]}
+    check("two bridges earn SINGLE_USE_RECURRED", "SINGLE_USE_RECURRED" in codes,
+          f"codes: {sorted(codes)}")
+
+    # Not just the bridge that found it: every single_use function, or the fix
+    # is a patch on one example rather than on the gate.
+    missed = []
+    for fn in POPULAR_SONG.single_use:
+        c = {f.code for f in report(["verse", fn, "chorus", fn])["findings"]}
+        if "SINGLE_USE_RECURRED" not in c:
+            missed.append(fn)
+    check("every single_use function is covered, not only bridge", not missed,
+          f"silent for: {missed}" if missed else
+          f"fires for all of {list(POPULAR_SONG.single_use)}")
+
+    # The gate is count>1, not declaredness. A song with one intro must not
+    # start paying a SINGLE_INSTANCE refusal for having an ordinary intro.
+    clean = report(["intro", "verse", "chorus", "bridge"])
+    check("a well-formed song gains no SINGLE_USE_RECURRED",
+          "SINGLE_USE_RECURRED" not in {f.code for f in clean["findings"]})
+    check("and gains no SINGLE_INSTANCE refusal for its one intro",
+          not any(r.code == "SINGLE_INSTANCE" and "intro" in r.message
+                  for r in clean["refusals"]),
+          "gating on count>1 is what keeps the ordinary case silent")
+
+    # Pin the disjointness that made it unreachable, so a later edit that
+    # reintroduces the overlap assumption fails here rather than in silence.
+    overlap = set(POPULAR_SONG.fixed_return) & set(POPULAR_SONG.single_use)
+    check("fixed_return and single_use are still disjoint", not overlap,
+          "the guard is reached by its own branch, not by an overlap")
+    once = [f for f in POPULAR_SONG.single_use
+            if SECTION_FUNCTIONS[f].recurrence != "once"]
+    check("every single_use function still has recurrence 'once'", not once,
+          f"otherwise the returns-branch would reach them: {once}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -493,7 +558,8 @@ if __name__ == "__main__":
                test_song_from_blueprint_reads_function_and_hooks,
                test_song_from_blueprint_rejects_an_undeclared_function,
                test_song_from_blueprint_owns_lines_by_bar_when_unnamed,
-               test_song_from_blueprint_float_beats_are_exact):
+               test_song_from_blueprint_float_beats_are_exact,
+               test_a_recurred_single_use_function_is_reported):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -74,6 +74,7 @@ import itertools
 import json
 import re
 import unicodedata
+from collections import Counter
 from dataclasses import dataclass, field
 from fractions import Fraction
 
@@ -1670,6 +1671,17 @@ def song_function_report(song, hooks=(), rhyme_key=None,
                         and (SECTION_FUNCTIONS[s.function].recurrence
                              == "returns"
                              or s.function in convention.fixed_return)}
+    # A SINGLE-USE function that RECURRED is asked too, and only then.
+    # `return_findings` carries the SINGLE_USE_RECURRED guard, but every
+    # function in `convention.single_use` has recurrence "once" and none is in
+    # `fixed_return` -- the two tuples are disjoint -- so the loop above could
+    # never hand it one, and the check could not fire for the whole life of
+    # this module. Measured: a blueprint declaring two bridges reported
+    # nothing. Gating on count>1 rather than on declaredness is what keeps a
+    # well-formed song silent: a single intro is not a question, so asking
+    # would only spend a SINGLE_INSTANCE refusal on every song that has one.
+    recurred = Counter(s.function for s in song.sections if s.declared)
+    ask |= {fn for fn in convention.single_use if recurred.get(fn, 0) > 1}
     for fn in sorted(ask):
         asked += 1
         f, r, rets = return_findings(song, fn, convention, rhyme_key, decl)

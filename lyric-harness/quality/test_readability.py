@@ -421,13 +421,63 @@ def test_zero_syllable_word_has_no_anchor():
           "run", vals == [] or all(v == v for v in vals), f"vals={vals!r}")
 
 
+def test_every_emitted_code_has_a_case():
+    """The three refusal codes this module can emit that nothing exercised.
+
+    An audit of all 58 finding codes in the repo found 12 with no test. Three
+    are this module's. All three turned out to be REACHABLE -- the gap was
+    coverage, not dead code -- but nothing distinguished that from the fourth
+    case elsewhere in the repo, which was a guard no caller could reach. A code
+    with no case cannot tell you which of the two it is.
+
+    One fixture per code, each firing exactly one, so a future change that
+    merges two of these guards fails here instead of quietly widening one.
+    """
+    print("\n7. every code report() can emit has a case")
+    from quality import readability as RD
+
+    def codes(lines):
+        return {f.code for f in RD.report(LEX, lines)["findings"]}
+
+    # The FINAL piece of a hyphenated compound is unreadable, so the anchor
+    # would be built from an earlier piece -- the defect that was manufacturing
+    # rhymes between any two of Barnes's participles.
+    c = codes(["the wind came off the hill-zide",
+               "and left us by the wife-zide"])
+    check("UNREADABLE_END_WORD_PIECE fires on an unread final piece",
+          c == {"UNREADABLE_END_WORD_PIECE"}, f"codes: {sorted(c)}")
+
+    # Unreadable, but INTERIOR: the anchor is fine and only the record of what
+    # was read is incomplete. Kept separate because the price is different.
+    c = codes(["the zzzqx wind came off the hill",
+               "and left us standing by the mill"])
+    check("UNREADABLE_INTERIOR_WORD fires on an interior OOV alone",
+          c == {"UNREADABLE_INTERIOR_WORD"}, f"codes: {sorted(c)}")
+
+    # `threshing-floor` reads on `floor`: the anchor is RIGHT and the label
+    # overstates what was read. A report-layer finding, not an anchor one.
+    c = codes(["we crossed the threshing-floor", "and shut the heavy door"])
+    check("END_WORD_LABEL_OVERSTATES fires when the label outruns the read",
+          c == {"END_WORD_LABEL_OVERSTATES"}, f"codes: {sorted(c)}")
+
+    # The position rule, pinned: an unread FINAL piece must never be filed as
+    # interior. That misfiling was 328 of 328 cases before it was derived by
+    # position, and only a corpus sweep found it.
+    both = codes(["the wind came off the hill-zide",
+                  "and left us by the wife-zide"])
+    check("an unread final piece is never also reported as interior",
+          "UNREADABLE_INTERIOR_WORD" not in both,
+          "derived by POSITION, so no string coincidence can move it")
+
+
 if __name__ == "__main__":
     for fn in (test_readable_pairs_are_untouched,
                test_constructed_oov_final,
                test_real_corpus_line,
                test_nothing_was_lost_on_the_sonnets,
                test_corpus_song_rate_is_pinned,
-               test_zero_syllable_word_has_no_anchor):
+               test_zero_syllable_word_has_no_anchor,
+               test_every_emitted_code_has_a_case):
         fn()
     print("=" * 68)
     if FAILURES:

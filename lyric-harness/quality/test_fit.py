@@ -594,6 +594,61 @@ def test_strip_parens_reaches_the_english_syllable_path():
           len(read_line(voiced).units) == 0)
 
 
+def test_the_placement_codes_no_test_reached():
+    """Three codes `fit_song` emits that nothing exercised.
+
+    An audit of all 58 finding codes in this repo found 12 with no test; four
+    were this module's. All three below turned out REACHABLE from an ordinary
+    blueprint -- the gap was coverage. The fourth, PROMINENCE_OFF_HEAD, is not:
+    it needs `beatgrid=`, which `fit_song` does not accept and which exactly
+    one caller in the repo passes (test_fit.py, below). That asymmetry is the
+    point of pinning these: without a case, an untested code and an unreachable
+    one look identical.
+
+    Note the ownership route. `from_blueprint` reads a TOP-LEVEL "lines" key,
+    and a line names its section with "section". That is what lets a line be
+    OWNED by a section it starts before -- own it by bar instead and the line
+    is silently reassigned, and START_BEFORE_SECTION can never be asked.
+    """
+    print("\n  the placement codes no test reached")
+    sub = Subdivision(slots_per_pulse=2, source="test_fit placement codes")
+
+    def codes(lines):
+        bp = {"bpm": 120, "meter": "4/4",
+              "sections": [{"name": "V", "function": "verse",
+                            "start_bar": 5, "bars": 4}],
+              "lines": lines}
+        res = fit_song(bp, subdivision=sub)
+        fs = res.findings() if callable(res.findings) else res.findings
+        return {f.code for f in fs}
+
+    c = codes([{"text": "a line that starts early", "bar": 2, "beat": 1,
+                "duration": 1, "section": "V"}])
+    check("START_BEFORE_SECTION fires when a line precedes its own section",
+          "START_BEFORE_SECTION" in c, f"codes: {sorted(c)}")
+
+    c = codes([{"text": "a line entering very late", "bar": 8, "beat": 4,
+                "duration": 1, "section": "V"}])
+    check("LATE_ENTRY fires on a line entering at the section's end",
+          "LATE_ENTRY" in c, f"codes: {sorted(c)}")
+
+    c = codes([{"text": "first line here now", "bar": 5, "beat": 1,
+                "duration": 16, "section": "V"},
+               {"text": "second overlaps it", "bar": 5, "beat": 2,
+                "duration": 8, "section": "V"}])
+    check("OVERLAPPING_SPANS fires when two lines share bar-time",
+          "OVERLAPPING_SPANS" in c, f"codes: {sorted(c)}")
+
+    # The asymmetry, pinned so it cannot be mistaken for a coverage gap: the
+    # beatgrid tier is API-only. If fit_song ever grows the parameter this
+    # check fails, which is the moment to give PROMINENCE_OFF_HEAD a real case.
+    import inspect as _inspect
+    check("fit_song still takes no beatgrid= (tier 3 is API-only)",
+          "beatgrid" not in _inspect.signature(fit_song).parameters,
+          "PROMINENCE_OFF_HEAD/BEATGRID_INCOMPLETE are reachable from "
+          "fit_line only -- no blueprint and no CLI verb can ask them")
+
+
 def main():
     for t in (test_the_count_is_in_the_phonologys_own_grid_unit,
               test_a_refused_token_makes_the_count_a_lower_bound,
@@ -610,7 +665,8 @@ def main():
               test_the_shipped_song,
               test_all_nine_declared_phonologies_go_through_it,
               test_the_cycle_helpers_refuse_the_same_way_the_cycle_does,
-              test_strip_parens_reaches_the_english_syllable_path):
+              test_strip_parens_reaches_the_english_syllable_path,
+              test_the_placement_codes_no_test_reached):
         t()
     print("\n" + "=" * 62)
     if FAILURES:
