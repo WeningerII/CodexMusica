@@ -48,10 +48,19 @@ WHAT "CAUGHT" MEANS, PRECISELY
 A test file catches a mutation when it is GREEN at baseline and RED under the
 mutation. A test already red at baseline is excluded from the detector set for
 the whole run and reported separately: it cannot distinguish anything, because
-it fails either way. (At the time of writing `quality/test_fwer.py` is in that
-state. Its four failures are real findings about the time layer and they are
-also, for this instrument, a blind spot: whatever it would have detected, it
-cannot report while it is red.)
+it fails either way.
+
+`quality/test_fwer.py` USED TO BE THE STANDING EXAMPLE HERE and no longer is.
+This paragraph read "at the time of writing `quality/test_fwer.py` is in that
+state -- its four failures are real findings about the time layer and they are
+also, for this instrument, a blind spot". MEASURED 2026-08-13: `python3
+quality/test_fwer.py` exits 0, `all family-wise-error regressions pass`. So the
+blind spot named here closed and the sentence naming it did not, which is
+doctrine 58's shape one layer over -- a RED-AT-BASELINE list is a coordinate of
+the suite on the day it was written, and this one went stale in the only place
+a reader is invited to trust it. The list is not maintained in prose at all
+now: `baseline()` computes it every run and `report()` prints it, so the
+authority is the run and never this docstring.
 
 A TIMEOUT IS NOT A CATCH, corrected 2026-08-13. `run_test` returns four
 statuses and the runner used to treat all three non-PASS ones alike, so a test
