@@ -76,42 +76,63 @@ Every input on this path is fixed: the vectors are deterministic given the
 corpus and the code, the labels are a transcription of PREREGISTRATION.md, the
 fold split is `StratifiedKFold(shuffle=True, random_state=SEED)` at a
 hard-coded seed, and lbfgs is deterministic. No draw is taken anywhere. So the
-question is not sampling error, it is arithmetic reproducibility, and the
-tolerance is set from what the numbers are QUOTED to rather than from a guess:
+question is not sampling error, it is arithmetic reproducibility.
 
   TOL = 0.0005 = half of the last decimal the record states these numbers in.
 
-A movement that cannot change a printed 3-decimal figure passes; any movement
-that could change one fails. That is exactly as tight as
-`audit_joint_auc_null.check`, which compares `f"{obs:.3f}"` to a committed
-string -- expressed as a number here so a value sitting on a rounding boundary
-fails loudly instead of flapping between two adjacent digits.
+A movement that could not change a printed 3-decimal figure passes; a movement
+larger than the whole width of that figure fails. That is the same resolution
+`audit_joint_auc_null.check` grades at (it compares `f"{obs:.3f}"` to a
+committed string), expressed as a number.
 
-Two facts a future reader needs before loosening it:
+THE PINS ARE FULL-PRECISION, NOT THE 3-DECIMAL FIGURES THE RECORD PRINTS, and
+that is deliberate. A 3-decimal pin carries up to 0.0005 of rounding residue
+of its own, which is the ENTIRE tolerance budget: `rhyme_predictability_mean`
+pinned at 0.262 against a true 0.261538 would sit 0.000462 from its own pin
+before anything drifted at all, leaving 0.000038 of headroom in one direction
+and 0.000962 in the other. Pinning the measured value centres the budget. The
+3-decimal figure is still checked, separately, against what the module
+actually prints -- that is the number the record quotes.
 
-  * The AUC is a rank statistic on FIXED class sizes, so it is QUANTIZED. The
-    smallest possible nonzero change is 1/(15*117) = 5.70e-4 in Experiment 1
-    and 1/(152*40) = 1.64e-4 in Experiment 2. In Experiment 1 that quantum is
-    LARGER than TOL, so this test permits no rank change at all in the small
-    arm -- it is a bit-reproducibility claim there, and it is asserted knowing
-    that. MEASURED on this machine: identical to 16 decimal places across
-    OMP/OPENBLAS/MKL thread counts 1 and 4, and the four full-feature AUCs
-    agree to the digit with two independent earlier cold runs taken at two
-    different `lyric_harness.py` digests (`audit_joint_auc_null.py`, commit
-    98f07a4).
-  * If it ever fails by exactly one quantum in Experiment 1, that is the
-    tolerance sitting at the statistic's own resolution, and the remedy is to
-    repin with the date and keep the superseded value visible (doctrine 17) --
-    not to widen TOL until the check stops asking anything (doctrine 58).
+Three facts a future reader needs before loosening any of it:
+
+  * The AUC is a rank statistic on FIXED class sizes, so it is QUANTIZED: it
+    is exactly k/(15*117) in Experiment 1 and k/(152*40) in Experiment 2. The
+    smallest possible nonzero change is therefore 5.70e-4 (Exp 1) and 1.64e-4
+    (Exp 2). In Experiment 1 that quantum is LARGER than TOL, so this test
+    permits no rank change at all in the small arm. That is asserted knowing
+    it: MEASURED on this machine, all eight joint AUCs are identical to 17
+    significant digits across OMP/OPENBLAS/MKL thread counts 1 and 4, and the
+    four `joint_all` values agree with two independent earlier cold runs taken
+    at two different `lyric_harness.py` digests (`audit_joint_auc_null.py`,
+    commit 98f07a4) and with two more taken here at a third and a fourth.
+  * `abs_exp2`'s joint AUC sits 2.6e-05 BELOW the boundary between printing
+    0.964 and printing 0.965 -- 0.16 of a single rank flip. So the printed
+    figure the record quotes for the headline "detecting bad writing works"
+    number is one rank away from reading 0.965, in the up direction only. The
+    check prints that distance on every run rather than leaving it to be
+    rediscovered as an unexplained string mismatch.
+  * If this ever fails by exactly one quantum, that is the tolerance sitting
+    at the statistic's own resolution, and the remedy is to repin with the
+    date and keep the superseded value visible (doctrine 17) -- not to widen
+    TOL until the check stops asking anything (doctrine 58).
 
 
 COST, DECLARED (doctrine 79 -- say what you bounded)
 ----------------------------------------------------
-MEASURED 2026-08-13 on a 4-core box, threads pinned, cache cold:
+MEASURED 2026-08-13 on a 4-core box, threads pinned, cache cold, box otherwise
+quiet: WALL 1066.1 s, CPU 1056.7 s (17.8 minutes, essentially single-threaded
+end to end). The split:
 
-    384 feature extractions          ~17 CPU-min   (the whole cost)
+    384 feature extractions          1055 CPU-s   (99.8% of the run)
     36 per-feature AUCs              < 1 CPU-s
     12 cross-validated joint AUCs    < 1 CPU-s
+
+Against a warm fingerprint-matching cache the same 69 checks take 6.9 s wall /
+6.5 s CPU — but see COLD vs WARM above for why that is a developer's
+convenience and not what CI gets. The
+20,000-shuffle permutation tests that dominate `discriminate.main`'s own
+report are NOT run here; the AUCs this file pins do not need them.
 
 THREAD PINNING IS NOT OPTIONAL and is done below, before numpy is imported.
 `audit_joint_auc_null.py` measured the same BLAS spin-wait at 625 CPU-s
@@ -144,6 +165,7 @@ for _v in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS",
     os.environ.setdefault(_v, "1")
 
 import io                                                        # noqa: E402
+import math                                                      # noqa: E402
 import re                                                        # noqa: E402
 from contextlib import redirect_stdout                           # noqa: E402
 
@@ -168,26 +190,56 @@ def check(name, ok, note=""):
         print("          %s" % note)
 
 
+def rendering_edge(x):
+    """Distance from `x` to the nearest boundary of its own 3-decimal bucket.
+
+    A value sitting on one is a value whose PRINTED figure — the thing
+    RESULTS.md quotes — can flip on a movement far smaller than anything
+    worth calling drift, so it is worth saying out loud rather than
+    discovering as a mystery string mismatch. `abs_exp2`'s 0.964 is 2.6e-05
+    from rendering as 0.965, which is 0.16 of one rank flip.
+    """
+    lo = math.floor(x * 1000 + 0.5) / 1000.0 - 0.0005
+    return min(x - lo, lo + 0.001 - x)
+
+
 def close(name, got, want, note=""):
     """Grade one number against its pin at TOL, and always print both."""
     ok = got is not None and abs(got - want) <= TOL
-    detail = ("committed %.3f   measured %.6f   delta %+.6f"
-              % (want, got, got - want)) if got is not None else \
-             ("committed %.3f   measured NOTHING" % want)
+    if got is None:
+        detail = "committed %.6f   measured NOTHING" % want
+    else:
+        detail = ("committed %.6f   measured %.6f   delta %+.2e"
+                  % (want, got, got - want))
+        edge = rendering_edge(want)
+        if edge < 1e-4:
+            detail += ("   [NEAR A RENDERING BOUNDARY: the pin is %.1e from "
+                       "printing as something other than %.3f]"
+                       % (edge, want))
     check(name, ok, detail + (("   " + note) if note else ""))
 
 
 # ---------------------------------------------------------------------------
-# THE PINS.  MEASURED 2026-08-13, `python3 quality/discriminate.py --cold`,
-# at features.py affe2209d56e24b5 / within_item.py 703b700a530925c7 /
-# lyric_harness.py 10c1dca86b15860a, concreteness.txt 0b4082dbd38585b0,
-# wordfreq20k.txt 4ed6e5336d7760d2, cmudict.dict 81917843c7f44ce2.
+# THE PINS.  MEASURED 2026-08-13, cold, twice, at features.py affe2209d56e24b5
+# / within_item.py 703b700a530925c7, concreteness.txt 0b4082dbd38585b0,
+# wordfreq20k.txt 4ed6e5336d7760d2, cmudict.dict 81917843c7f44ce2 --
+# ONCE at lyric_harness.py 10c1dca86b15860a (`discriminate.py --cold`, whose
+# printed report agrees with all 44 of these to the 3 decimals it prints) and
+# once at 7c894bfce92a48a7 (this file), which is where the full precision
+# below comes from.
+#
+# That two-digest agreement is not decoration. `lyric_harness.py` moved under
+# a 27-minute cold run WHILE IT WAS RUNNING, which is the same hazard
+# audit_joint_auc_null.py records ("features.py was edited TWICE by a
+# concurrent cell inside that single 17.5-minute build"). A cold pin in this
+# repo has to be shown to survive the rate at which the comparator moves, or
+# it is a pin on one moment.
 #
 # The four `joint_all` values are NOT first pinned here -- they are the cold
 # figures `audit_joint_auc_null.py` was repinned to in commit 98f07a4, and
-# this run is a third independent agreement with them. `joint_solo` and all
-# thirty-six per-feature AUCs ARE first pinned here; nothing in the repo
-# graded them before.
+# these runs are a third and fourth independent agreement with them.
+# `joint_solo` and all thirty-six per-feature AUCs ARE first pinned here;
+# nothing in the repo graded them before.
 #
 # Doctrine 58: argue these and repin with the date; do not tune the
 # measurement to meet them.
@@ -197,66 +249,66 @@ PINNED = {
     "abs_exp1": {
         "label": "ABSOLUTE (original ten) / Exp 1  survived vs forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 10,
-        "joint_all": 0.717, "joint_solo": 0.710,
+        "joint_all": 0.7168091168091167, "joint_solo": 0.70997150997151,
         "features": {
-            "rhyme_predictability_mean": 0.262,
-            "rhyme_predictability_min": 0.350,
-            "concreteness_mean": 0.673,
-            "concreteness_p90": 0.635,
-            "abstract_noun_ratio": 0.315,
-            "pos_binding_diversity": 0.461,
-            "mattr": 0.366,
-            "function_word_ratio": 0.536,
-            "syntactic_inversion_rate": 0.583,
-            "content_word_freq_mean": 0.518,
+            "rhyme_predictability_mean": 0.26153846153846155,
+            "rhyme_predictability_min": 0.35014245014245016,
+            "concreteness_mean": 0.672934472934473,
+            "concreteness_p90": 0.6353276353276354,
+            "abstract_noun_ratio": 0.3148148148148148,
+            "pos_binding_diversity": 0.46096866096866096,
+            "mattr": 0.3658119658119658,
+            "function_word_ratio": 0.5358974358974359,
+            "syntactic_inversion_rate": 0.582905982905983,
+            "content_word_freq_mean": 0.517948717948718,
         },
     },
     "abs_exp2": {
         "label": "ABSOLUTE (original ten) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 10,
-        "joint_all": 0.964, "joint_solo": 0.648,
+        "joint_all": 0.9644736842105264, "joint_solo": 0.6476973684210526,
         "features": {
-            "rhyme_predictability_mean": 0.340,
-            "rhyme_predictability_min": 0.336,
-            "concreteness_mean": 0.271,
-            "concreteness_p90": 0.229,
-            "abstract_noun_ratio": 0.792,
-            "pos_binding_diversity": 0.492,
-            "mattr": 0.870,
-            "function_word_ratio": 0.135,
-            "syntactic_inversion_rate": 0.833,
-            "content_word_freq_mean": 0.807,
+            "rhyme_predictability_mean": 0.33963815789473684,
+            "rhyme_predictability_min": 0.3355263157894737,
+            "concreteness_mean": 0.2712171052631579,
+            "concreteness_p90": 0.22911184210526317,
+            "abstract_noun_ratio": 0.7921875,
+            "pos_binding_diversity": 0.4915296052631579,
+            "mattr": 0.8695723684210527,
+            "function_word_ratio": 0.13519736842105262,
+            "syntactic_inversion_rate": 0.8330592105263158,
+            "content_word_freq_mean": 0.8065789473684211,
         },
     },
     "wi_exp1": {
         "label": "WITHIN-ITEM (respecified eight) / Exp 1  survived vs "
                  "forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 8,
-        "joint_all": 0.638, "joint_solo": 0.719,
+        "joint_all": 0.6376068376068376, "joint_solo": 0.7185185185185186,
         "features": {
-            "wi_predictability_advantage": 0.262,
-            "wi_concreteness_delta": 0.509,
-            "wi_abstract_delta": 0.582,
-            "wi_freq_delta": 0.639,
-            "wi_function_delta": 0.394,
-            "wi_binding_excess": 0.533,
-            "wi_type_ratio": 0.657,
-            "wi_conc_spread": 0.520,
+            "wi_predictability_advantage": 0.26153846153846155,
+            "wi_concreteness_delta": 0.5094017094017094,
+            "wi_abstract_delta": 0.5817663817663817,
+            "wi_freq_delta": 0.6387464387464388,
+            "wi_function_delta": 0.39373219373219376,
+            "wi_binding_excess": 0.5333333333333333,
+            "wi_type_ratio": 0.656980056980057,
+            "wi_conc_spread": 0.51994301994302,
         },
     },
     "wi_exp2": {
         "label": "WITHIN-ITEM (respecified eight) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 8,
-        "joint_all": 0.891, "joint_solo": 0.652,
+        "joint_all": 0.890953947368421, "joint_solo": 0.6523026315789475,
         "features": {
-            "wi_predictability_advantage": 0.340,
-            "wi_concreteness_delta": 0.382,
-            "wi_abstract_delta": 0.431,
-            "wi_freq_delta": 0.600,
-            "wi_function_delta": 0.680,
-            "wi_binding_excess": 0.580,
-            "wi_type_ratio": 0.103,
-            "wi_conc_spread": 0.367,
+            "wi_predictability_advantage": 0.33963815789473684,
+            "wi_concreteness_delta": 0.3817434210526316,
+            "wi_abstract_delta": 0.43133223684210525,
+            "wi_freq_delta": 0.6,
+            "wi_function_delta": 0.6799342105263158,
+            "wi_binding_excess": 0.5796052631578947,
+            "wi_type_ratio": 0.103125,
+            "wi_conc_spread": 0.3672697368421053,
         },
     },
 }
@@ -427,13 +479,15 @@ def main(argv=None):
               arm["printed_all"] == f"{pin['joint_all']:.3f}",
               f"printed {arm['printed_all']!r}, "
               f"pin renders {pin['joint_all']:.3f}")
+        solo = SOLO[QualityFeatures if key.startswith("abs")
+                    else WithinItemFeatures]
         check(f"{key}: the solo column is the feature list this test names",
               arm["printed_solo"] == f"{arm['joint_solo']:.3f}",
               f"report_joint printed {arm['printed_solo']!r}; "
-              f"joint_classifier on {SOLO[QualityFeatures] if key.startswith('abs') else SOLO[WithinItemFeatures]} "
-              f"gives {arm['joint_solo']:.3f} — if these disagree, "
-              f"report_joint's hard-coded solo list has moved and the "
-              f"joint_solo pin above is about a column nobody prints")
+              f"joint_classifier on {solo} gives {arm['joint_solo']:.3f} — "
+              f"if these disagree, report_joint's hard-coded solo list has "
+              f"moved and the joint_solo pin above is about a column nobody "
+              f"prints")
 
         for name, want in pin["features"].items():
             close(f"{key}: {name}", arm["features"].get(name), want)
