@@ -569,3 +569,27 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/audit_spans.py --check
+
+      # THE SLOP FLOOR'S OWN CALIBRATION, on the only path cheap enough to gate
+      # on. Added 2026-08-13. The full `--check` was measured this day at ~2.1
+      # CPU-HOURS -- its docstring had claimed "order of an hour", and the error
+      # was doctrine 58's exact shape: the RATE quoted was right (0.64 s/word)
+      # and the COUNT it was multiplied by was never written down and was wrong
+      # ("a few thousand distinct end words" is 11,941, which is 331,604,100
+      # candidate scorings). A drift detector nobody can afford to run is
+      # decoration, so the floor's 18 shipped constants had no automated
+      # witness at all.
+      #
+      # `--without-predictability` runs the four checks that do not need the
+      # rhyme-field sweep: measured here at 64 CPU-seconds. It judges 13 of the
+      # 18 constants EXACTLY and REFUSES the other 5 BY NAME rather than passing
+      # them silently (doctrine 20/79 -- band lo/hi, the predictability
+      # threshold and its two FPRs). Exits 0 on PARTIAL PASS with the counts on
+      # the line; proven to exit 1 before this step was added, by perturbing
+      # floor.py's `mattr_min` 0.7226 -> 0.7500, which it caught and named.
+      # The full sweep belongs on the weekly schedule with a warm cache, never
+      # on a PR that touches the comparator.
+      - name: Song-profile calibration, the checks that do not need the field sweep
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/song_profile_calibration.py --check --without-predictability
