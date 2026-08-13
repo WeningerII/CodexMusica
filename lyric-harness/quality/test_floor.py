@@ -405,11 +405,12 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
           "so nothing is downgraded for extrapolation")
     from quality.floor import PROFILES
     song = [p for p in PROFILES if p.name == "song"][0]
-    check("the four song thresholds are the recorded corpus percentiles",
+    check("the five song thresholds are the recorded corpus percentiles",
           song.percentiles == {"mattr_min": 0.7226,
                                "function_word_ratio_max": 0.4716,
                                "anaphora_max": 0.3000,
-                               "line_length_cv_min": 0.1123},
+                               "line_length_cv_min": 0.1123,
+                               "predictable_pair_fraction_max": 0.9286},
           "150-400 tokens, 1,859 items, 108 authors; "
           "quality/RESULTS_SONG_FLOOR.md carries the commands")
 
@@ -465,7 +466,7 @@ def test_the_song_profile_did_not_swallow_everything():
           p is not None and p.name == "song" and not exact,
           "1.25x tolerance -> applied 120-500. Measured on the song corpus, "
           "carrying these thresholds to 2.0x raises the union false-positive "
-          "rate from 17.66% to 22.05%, which is why this profile does not "
+          "rate from 20.79% to 26.33%, which is why this profile does not "
           "take the 2.0 the other two ship with")
 
 

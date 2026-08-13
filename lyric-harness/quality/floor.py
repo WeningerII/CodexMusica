@@ -90,15 +90,16 @@ Two limits on it, both measured rather than assumed, both in the profile note:
     song composed by anyone alive in the last century. ANAPHORA carries a real
     period slope inside that window (author-level Spearman +0.275 against birth
     year, p_perm 0.0042 over 10,000 label permutations at seed 20260811, which
-    survives Bonferroni over the four checks) -- so this is a THIRD feature
+    survives Bonferroni over the five checks) -- so this is a THIRD feature
     caught reading period rather than quality, after the two doctrine 11
-    already names.
+    already names. PREDICTABLE_RHYME is not a fourth: rho -0.018, p_perm
+    0.8572, does not survive.
   - Threshold transfer across the corpus's own period cohorts fails
     asymmetrically and in the direction that matters here: thresholds fitted on
     earlier-born authors OVER-flag later-born ones (function-word ratio 12.39%
     against a cohort-label permutation null median of 5.17%, mattr 10.62%
     against 4.92%), while the reverse direction runs at or below nominal.
-    Neither survives Bonferroni over the eight cross-cohort comparisons, so
+    Neither survives Bonferroni over the 12 cross-cohort comparisons, so
     this is a DIRECTION and not a finding. But a 2026 lyric sits further along
     the same axis than any author in the corpus, and the only measured gradient
     points at a HIGHER false-positive rate there, not a lower one.
@@ -196,10 +197,12 @@ class Profile:
     #: 2.0 is what the first two profiles shipped with and it is a constant
     #: nobody measured -- it appears in no results document. Measured for the
     #: first time on 2026-08-11 against the song corpus: carrying the 150-400
-    #: thresholds out to 2.0x raises the union false-positive rate from 17.66%
-    #: to 22.05% and every single check with it. The `song` profile therefore
-    #: declares 1.25 (19.36%) and the other two keep 2.0 because re-measuring
-    #: them needs the sonnet classes and that was not this cell's to move.
+    #: thresholds out to 2.0x raises the union false-positive rate from 20.79%
+    #: (17.66% at the four checks this was first measured against) to 26.33%
+    #: and every single check with it. The `song` profile therefore declares
+    #: 1.25 (23.12%, 19.36% at four) and the other two keep 2.0 because
+    #: re-measuring them needs the sonnet classes and that was not this cell's
+    #: to move.
     tolerance: float = 2.0
     #: what text the percentiles were read off, and how they were held out.
     source: str = ""
@@ -288,6 +291,7 @@ PROFILES = [
             "function_word_ratio_max": 0.4716,  # human 95th
             "anaphora_max": 0.3000,             # human 95th
             "line_length_cv_min": 0.1123,       # human 5th
+            "predictable_pair_fraction_max": 0.9286,  # human 95th
         },
         #: EMPTY ON PURPOSE. There is no generated song class in this repo, so
         #: there is no separation to report and this profile may not borrow the
@@ -299,7 +303,8 @@ PROFILES = [
             "function_word_ratio": (5.23, 1.86, 10.64),
             "anaphora": (5.01, 1.44, 11.15),
             "line_length_cv": (5.13, 3.04, 7.81),
-            "ANY": (17.66, 10.78, 25.58),
+            "predictability": (4.81, 2.52, 7.43),
+            "ANY": (20.79, 12.57, 29.43),
         },
         source="corpus/song/eng_*.txt: 143 files, one author each, 4,930 "
                "`--- TITLE:` items, 152,325 sung lines, deduplicated "
@@ -312,9 +317,13 @@ PROFILES = [
             "Shakespeare sonnets from 40 model sonnets and can quote an AUC. "
             "This one has no generated song class, so it has no AUC and makes "
             "no claim to catch generated text. It only says how often it "
-            "interrupts a human songwriter: per check 5.0-5.4% median, and "
-            "17.66% for the UNION of the four (5th-95th percentile of seeds "
-            "10.78-25.58%). One human song in six trips something.\n"
+            "interrupts a human songwriter: per check 4.8-5.4% median, and "
+            "20.79% for the UNION of the five (5th-95th percentile of seeds "
+            "12.57-29.43%). One human song in five trips something. (Four "
+            "checks alone put the union at 17.66% [10.78-25.58]; the rise to "
+            "20.79% is PREDICTABLE_RHYME joining the union below, not corpus "
+            "drift -- a fifth check can only raise a union rate, never lower "
+            "one.)\n"
             "  * The band was chosen by a rule declared before it was read "
             "off: the widest contiguous token range in which every 50-token "
             "sub-bin holds >=100 items and every sub-bin threshold sits within "
@@ -327,9 +336,12 @@ PROFILES = [
             "1872, latest death 1929. ANAPHORA has a real period slope inside "
             "that window -- author-level Spearman +0.275 against birth year, "
             "p_perm 0.0042 over 10,000 label permutations at seed 20260811, "
-            "which survives Bonferroni over the four checks. That is a THIRD "
-            "feature caught "
-            "reading period rather than quality (doctrine 11). Cross-cohort "
+            "which survives Bonferroni over the five checks (cuts at 0.0100). "
+            "That is a THIRD "
+            "feature caught reading period rather than quality (doctrine 11) "
+            "-- PREDICTABLE_RHYME is not a fourth: rho -0.018, p_perm 0.8572, "
+            "does not survive, so the fifth check reads no period signal at "
+            "all in this band. Cross-cohort "
             "threshold transfer fails asymmetrically: fitted on earlier-born "
             "authors it over-flags later-born ones (function-word ratio "
             "12.39% against a cohort-permutation null median of 5.17%, mattr "
@@ -345,14 +357,19 @@ PROFILES = [
             "that repeats does not by itself cost anything here. That also "
             "means these thresholds may not be applied to one section of a "
             "sheet: for that, the section profile, at its own length.\n"
-            "  * PREDICTABLE_RHYME is absent, like it is from the section "
-            "profile, and for a second reason on top of doctrine 11's OOV "
-            "artifact: it was computed against `wordfreq20k.txt`, which "
-            "`lyric_harness.Lexicon.freq_rank` no longer reads (WIRED "
-            "CLOSED 2026-08-11, data/opensubtitles_en_50k.tsv now). No "
-            "threshold has been recalibrated against the new source, so the "
-            "feature stays absent rather than shipping a number nobody "
-            "measured -- doctrine 58 the other direction.\n"
+            "  * PREDICTABLE_RHYME NOW RUNS AT SONG LENGTH, calibrated "
+            "2026-08-13 against the frequency source this project swapped to "
+            "on 2026-08-11 (data/opensubtitles_en_50k.tsv, via "
+            "`lyric_harness.Lexicon.freq_rank`) -- the gap this profile used "
+            "to carry, closed rather than left absent (doctrine 58 the other "
+            "direction). Threshold 0.9286 (human 95th percentile of the "
+            "obvious-pair fraction), held-out FPR 4.81% median [2.52-7.43%]. "
+            "It shows no period slope in this band (rho -0.018, p_perm "
+            "0.8572, does not survive Bonferroni) -- unlike anaphora, it is "
+            "not a second feature caught reading period rather than quality "
+            "here. Still absent from the section profile, which never "
+            "measured a threshold at that length and is a different cell's "
+            "to move.\n"
             "  * The 5th/95th percentiles are ITEM-weighted, and the band is "
             "not evenly authored -- Watts is 15.3% of it, and the top five "
             "authors are 51.7%. Leave-one-author-out moves the thresholds by "
