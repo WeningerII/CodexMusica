@@ -1258,6 +1258,47 @@ rather than this paragraph — a roster copied into two files drifts in both.
    too is verified at runtime and costs zero test churn, since all four
    shipped blueprints have 0 overlapping lines. Same shape as the
    built-and-tested-was-not-the-reachable family above, one layer in.~~
+10. **CLOSED 2026-08-14 — the SHAPE layer joins the revision loop, and it is
+   the layer this harness was built for.** `grid.stanza_lock` states its own
+   subject: *"THE SPECIFIC CLICHE THIS NAMES: sixteen bars of 4/4 carrying
+   four lines, repeated. Nothing in this repo could see that before — the
+   rhyme checker would certify it as clean, because every check it had was
+   about words."* It was reachable from `lyric_harness.py`'s `grid` verb and
+   from NOTHING that grades a draft: `song_function_report` never calls it, so
+   `METER_LOCKED`, `SECTION_LENGTH_LOCKED`, `QUATRAIN_LOCK`,
+   `DOWNBEAT_LOCKED`, `UNIFORM_ANACRUSIS` and `PHRASE_LENGTH_LOCKED` were six
+   findings computed by a function no grading path reached. Third instance of
+   the family gaps 8 and 9 belong to, and the largest: those two closed ONE
+   code each, this closes six, and they are the only checks in the repo that
+   ask about the song as a whole SHAPE rather than as words.
+   `Reviser._function_findings` calls it now. Measured on a purpose-built
+   locked grid — 16 bars of 4/4, four 4-bar sections, four lines each: the
+   whole-draft set goes **10 findings -> 15**, five of the six fire, and
+   stubbing `stanza_lock` to `[]` takes exactly those five back out.
+   `UNIFORM_ANACRUSIS` is correctly silent rather than missing — it is the
+   `elif` of `DOWNBEAT_LOCKED`, which fired (doctrine 24, the rule relabels).
+   NOTES, never flags, and the FLAG count is byte-identical either side of the
+   wiring: this is a measurement against a CONVENTION at an uncalibrated 0.90
+   threshold, and doctrine 6 says a convention a writer may depart from cannot
+   be what fails `verify()`. 5/4 and an 11-bar bridge are choices, not repairs.
+   NOT folded into `song_function_report`, whose contract is every
+   *function*-dependent question and whose doctrine-79 triple has already gone
+   negative once; `stanza_lock` never reads `Section.function`.
+   **AND THE "NO FIXTURE COULD SEE IT" STORY IS FALSE HERE — the truth is
+   worse.** Gap 9 got to say no shipped blueprint tripped `OVERLAPPING_SPANS`.
+   THREE OF FOUR trip `DOWNBEAT_LOCKED` right now (`song`, `mandate_song`,
+   `moonlight_fixture`, the last also `PHRASE_LENGTH_LOCKED`), so this layer
+   was not untested — it was firing on the repo's own fixtures and reporting
+   to nobody. Four of the six are tripped by no fixture at all, which is why
+   the test constructs the cliché rather than reaching for one.
+   **A DOCTRINE-17 CASUALTY FOUND ON THE WAY IN, PINNED NOT REPAIRED**:
+   `uniformity`'s docstring says the 41-line fixture "cleared the check by
+   giving every second line a pickup of 1.5 pulses" and that `downbeat_locked`
+   "fell to 51%". All 41 lines declare `beat: 1` today and it reads **1.00** —
+   the pickups are gone and the recorded figure does not reproduce. Restoring
+   them would re-commit the exact cheat `UNIFORM_ANACRUSIS` was written to
+   name, so the CURRENT reading is pinned instead and the fixture is left
+   alone. `quality/test_revise.py` test 36.
 
 ## The doctrine index — every number, and where it lives
 
@@ -1386,11 +1427,16 @@ About to move a threshold: METHOD part B, and 5 above. About to believe a null:
 31, 71 and 76, in that order.
 
 **Two numbering systems, and they do not collide.** The `Known gaps` list above
-runs 1–9 (REPINNED 2026-08-13 from 1–7: entries 8 and 9 were added the same day
-and this sentence was never split, while `verify_doctrines.py` had been printing
-`CLAUDE.md's own 1-9 list` on every run — the file's own instrument contradicting
-its own prose, which is doctrine 48's failure mode inside the file that states
-doctrine 48) and is cited elsewhere as `known gap N` (MATRIX_PREREGISTRATION.md,
+runs 1–10 (REPINNED 2026-08-14 from 1–9 when the SHAPE layer closed as entry
+10; REPINNED 2026-08-13 from 1–7 before that, when entries 8 and 9 were added
+the same day and this sentence was never split, while `verify_doctrines.py` had
+been printing `CLAUDE.md's own 1-9 list` on every run — the file's own
+instrument contradicting its own prose, which is doctrine 48's failure mode
+inside the file that states doctrine 48. THE INSTRUMENT IS THE REASON THIS ONE
+DID NOT REPEAT: `verify_doctrines.py` derives the list from this file's own
+markdown rather than from a literal, so entry 10 was defined the moment it was
+written and no third repin of a hardcoded range was possible) and is cited
+elsewhere as `known gap N` (MATRIX_PREREGISTRATION.md,
 fit_matrix.py, TIME_PREREGISTRATION.md, test_phon_san.py, test_phonology.py,
 test_relations.py, POSITIVE_CONTROL.md, time_layer.py). It is not part of the
 doctrine numbering and never was. The doctrine run is delimited in both files by

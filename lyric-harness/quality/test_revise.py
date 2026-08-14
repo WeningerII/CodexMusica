@@ -2083,6 +2083,118 @@ def test_overlapping_spans_reaches_the_loop_not_only_fit():
           "which is why the gap survived: no existing fixture could see it")
 
 
+def test_stanza_lock_reaches_the_loop_not_only_the_grid_verb():
+    print("\n36. the SHAPE layer reaches `Reviser._function_findings` — "
+          "`stanza_lock` was computed by a function no grading path called")
+    from quality import grid as GR
+
+    # THE CLICHE, CONSTRUCTED, and `stanza_lock`'s own docstring names it:
+    # "sixteen bars of 4/4 carrying four lines, repeated. Nothing in this repo
+    # could see that before -- the rhyme checker would certify it as clean,
+    # because every check it had was about words." Four 4-bar sections of 4/4,
+    # four lines each, every line on beat 1 and 4 beats long.
+    secs = [("verse1", "verse"), ("chorus", "chorus"),
+            ("verse2", "verse"), ("chorus2", "chorus")]
+    bp = {"sections": [{"name": n, "bars": 4, "start_bar": 1 + 4 * i,
+                        "meter": {"beats": 4, "unit": 4}, "function": fn}
+                       for i, (n, fn) in enumerate(secs)],
+          "lines": [{"text": "", "bar": 1 + b, "beat": 1, "duration": 4,
+                     "section": secs[b // 4][0]} for b in range(16)]}
+    lines = ["the wire hums low across the yard",
+             "a freight goes by and shakes the door",
+             "i counted every passing car",
+             "and never once got up for more"] * 4
+    SHAPE = {"METER_LOCKED", "SECTION_LENGTH_LOCKED", "QUATRAIN_LOCK",
+             "DOWNBEAT_LOCKED", "UNIFORM_ANACRUSIS", "PHRASE_LENGTH_LOCKED"}
+
+    res = R.inspect(lines, "ABCDABCDABCDABCD", blueprint=bp)
+    got = {f.code for f in res["whole"]} & SHAPE
+    check("the shape findings reach `inspect()`'s whole-draft set at all",
+          len(got) == 5, sorted(got))
+    check("QUATRAIN_LOCK is among them — the check whose whole subject is "
+          "'every section carries exactly four lines' can now be seen by the "
+          "thing that grades a draft",
+          "QUATRAIN_LOCK" in got)
+    check("UNIFORM_ANACRUSIS is correctly SILENT, not missing: it is the "
+          "`elif` of DOWNBEAT_LOCKED, which fired — two shapes of one defect, "
+          "and doctrine 24 says the rule relabels rather than deletes",
+          "UNIFORM_ANACRUSIS" not in got and "DOWNBEAT_LOCKED" in got)
+
+    shape = [f for f in res["whole"] if f.code in SHAPE]
+    check("every one is a NOTE — a convention at an uncalibrated 0.90 "
+          "threshold may not be the thing that fails verify() (doctrine 6/16)",
+          all(f.severity == "note" for f in shape),
+          sorted((f.code, f.severity) for f in shape))
+    check("each says in its own evidence that it is read off the DECLARED "
+          "grid, so a reader is not left to infer that revising the words "
+          "cannot move it",
+          all("[SHAPE:" in f.evidence for f in shape))
+
+    # PROVENANCE, not correlation: stub the call out and the five vanish.
+    real = GR.stanza_lock
+    try:
+        GR.stanza_lock = lambda song, threshold=0.90: []
+        rev = Reviser().inspect(lines, "ABCDABCDABCDABCD", blueprint=bp)
+    finally:
+        GR.stanza_lock = real
+    was = {f.code for f in rev["whole"]} & SHAPE
+    check("REVERTED, the same draft reports NONE of them — so they come from "
+          "this call and from nothing else already in the finding set",
+          not was, f"reverted {sorted(was)}, at head {sorted(got)}")
+    check("and the whole-draft FLAG count is IDENTICAL either side, which is "
+          "the invariant that matters: wiring this in cannot change what "
+          "`verify()` is entitled to reject on",
+          (sum(1 for f in rev["whole"] if f.severity == "flag")
+           == sum(1 for f in res["whole"] if f.severity == "flag")))
+
+    # WHY THE GAP SURVIVED, MEASURED RATHER THAN ASSUMED -- and the first
+    # answer written here was wrong. The obvious claim is the one `test 35`
+    # gets to make about OVERLAPPING_SPANS: no shipped fixture trips it, so
+    # nothing could see the layer was unwired. That is FALSE here, and the
+    # truth is worse. Three of the four shipped blueprints trip
+    # DOWNBEAT_LOCKED right now (`song` 16 lines, `mandate_song` 41,
+    # `moonlight_fixture` 20, which also trips PHRASE_LENGTH_LOCKED;
+    # `function_fixture` has no lines at all). So the layer was not merely
+    # untested -- it was firing on the repo's own fixtures and reporting to
+    # nobody, because `stanza_lock` was reachable from the `grid` verb and
+    # from no path that grades a draft.
+    ship = {}
+    for name in ("song", "mandate_song", "moonlight_fixture",
+                 "function_fixture"):
+        s, _h = GR.song_from_blueprint(
+            os.path.join(HERE, "fixtures", name + ".blueprint.json"))
+        ship[name] = {f.code for f in GR.stanza_lock(s)}
+    tripped = set().union(*ship.values())
+    check("the shipped fixtures were ALREADY tripping this layer and "
+          "reporting it nowhere — not an untested check, a silent one",
+          tripped == {"DOWNBEAT_LOCKED", "PHRASE_LENGTH_LOCKED"},
+          "; ".join(f"{k}: {sorted(v) or '(none)'}" for k, v in ship.items()))
+    check("and FOUR of the six are tripped by no shipped fixture at all, "
+          "which is why this test had to construct the cliché rather than "
+          "reach for one",
+          not (SHAPE - tripped - {"UNIFORM_ANACRUSIS"}) & tripped
+          and sorted(SHAPE - tripped) == ["METER_LOCKED", "QUATRAIN_LOCK",
+                                          "SECTION_LENGTH_LOCKED",
+                                          "UNIFORM_ANACRUSIS"],
+          sorted(SHAPE - tripped))
+
+    # DOCTRINE 17, FOUND ON THE WAY IN AND DELIBERATELY NOT "FIXED".
+    # `uniformity`'s own docstring says this repo's 41-line song "cleared the
+    # check by giving every second line a pickup of 1.5 pulses" and that
+    # "downbeat_locked fell to 51%". It reads 1.00 today and all 41 lines
+    # declare `beat: 1` -- the pickups are gone and the recorded figure no
+    # longer reproduces. Restoring them is exactly the cheat that docstring
+    # exists to condemn, so this pins the CURRENT reading instead and leaves
+    # the fixture alone.
+    _m, _h = GR.song_from_blueprint(
+        os.path.join(HERE, "fixtures", "mandate_song.blueprint.json"))
+    check("the 41-line fixture reads downbeat_locked 1.00, not the 0.51 "
+          "`uniformity`'s docstring records — pinned, not repaired",
+          GR.uniformity(_m)["downbeat_locked"] == 1.0,
+          "restoring a constant pickup would re-commit the cheat that "
+          "UNIFORM_ANACRUSIS was written to name (doctrine 24)")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -2118,7 +2230,8 @@ if __name__ == "__main__":
                test_scheme_unreadable_is_not_a_violation,
                test_scope_reaches_the_collision_loop,
                test_the_readability_report_joins_the_revision_loop,
-               test_overlapping_spans_reaches_the_loop_not_only_fit):
+               test_overlapping_spans_reaches_the_loop_not_only_fit,
+               test_stanza_lock_reaches_the_loop_not_only_the_grid_verb):
         fn()
     print("=" * 62)
     if FAILURES:

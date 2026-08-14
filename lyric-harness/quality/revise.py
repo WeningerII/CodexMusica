@@ -982,6 +982,47 @@ class Reviser:
                 f.message, f.evidence, []))
         for r in rep["refusals"]:
             whole.append(Finding(r.code, "note", r.message, r.evidence, []))
+
+        # THE SHAPE LAYER, JOINED 2026-08-14, and it names the one defect this
+        # harness was built for and could not see from here. `grid.stanza_lock`
+        # says so in its own docstring: "THE SPECIFIC CLICHE THIS NAMES:
+        # sixteen bars of 4/4 carrying four lines, repeated. Nothing in this
+        # repo could see that before -- the rhyme checker would certify it as
+        # clean, because every check it had was about words." It was reachable
+        # from `lyric_harness.py`'s `grid` verb and from NOTHING that grades a
+        # draft: `song_function_report` never calls it, so all six codes --
+        # METER_LOCKED, SECTION_LENGTH_LOCKED, QUATRAIN_LOCK, DOWNBEAT_LOCKED,
+        # UNIFORM_ANACRUSIS, PHRASE_LENGTH_LOCKED -- were computed by a
+        # function no grading path reached. Same shape as OVERLAPPING_SPANS
+        # (known gap 9) and as `song_function_report` itself before
+        # 2026-08-11: built, tested, and wired to the wrong surface.
+        #
+        # NOT folded into `song_function_report`. That function's contract is
+        # "every FUNCTION-dependent question, asked once", and it keeps a
+        # doctrine-79 asked/answered/refused triple over questions of ONE
+        # kind. `stanza_lock` reads bars, meters and line placement and never
+        # touches `Section.function`, so counting it there would inflate a
+        # triple whose own docstring records it already going negative once.
+        #
+        # NOTES, never flags, on the argument the docstring above makes for
+        # RETURN_LOCKED: this is a measurement against a CONVENTION at an
+        # uncalibrated 0.90 threshold (doctrine 16, and UNIFORM_ANACRUSIS's
+        # own evidence says n=1 song is not a calibration, doctrine 72). 5/4
+        # and an 11-bar bridge are choices, not repairs, so this may not be
+        # the thing that fails `verify()` (doctrine 6).
+        #
+        # A PROPERTY OF THE DECLARED GRID, NOT OF THE WORDS, and the evidence
+        # says so rather than leaving a reader to infer it: `uniformity` reads
+        # sections, bars, meters and beats, so alone among everything this
+        # method returns, the answer does NOT move when the draft is revised.
+        # It is surfaced anyway because the writer is being told what container
+        # they are writing into, which no per-line finding can say.
+        for f in GR.stanza_lock(song):
+            whole.append(Finding(
+                f.code, "note", f.message,
+                f.evidence + "  [SHAPE: read off the DECLARED grid — bars, "
+                "meters and line placement — so unlike every other finding "
+                "here it does not move when the words are revised.]", []))
         return whole
 
     # -- inspection -------------------------------------------------------
