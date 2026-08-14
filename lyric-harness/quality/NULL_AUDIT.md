@@ -553,11 +553,16 @@ all 22,795 verse lines
 ```
 
 > † **THE TWO COUNTS IN THIS BLOCK DIFFER BY EXACTLY ONE LINE, AND IT IS NOT AN
-> EDITION, A BOUNDARY OFF-BY-ONE OR AN APPARATUS FILTER — MEASURED 2026-08-13.**
-> The block is left verbatim because it is what the run printed. **22,796 is the
-> extraction from the RAW GITenberg file; 22,795 is `corpus/fin_kalevala.txt`,
-> and the extra line is the single `* * *` divider before the epilogue.** Run
-> down below (§3 item 4), where this used to be recorded as a guess.
+> EDITION AND NOT AN APPARATUS FILTER — MEASURED 2026-08-13.** The block is left
+> verbatim because it is what the run printed. **22,796 is the extraction from
+> the RAW GITenberg file; 22,795 is `corpus/fin_kalevala.txt`, and the extra
+> line is the single `* * *` divider before the epilogue.** Run down below
+> (§3 item 4), where this used to be recorded as a guess — **and where a SECOND,
+> unrelated way of arriving at 22,796 is kept separate from this one**: on the
+> STAGED file a bare `read().split("\n")` counts the empty string after the
+> trailing newline. That is a reader off-by-one and a fact about a reader, not
+> about the corpus; the divider above is a fact about the file. Same digits,
+> different causes, deliberately not merged.
 
 The constraint is real and enormous. **But roughly 30 of the 81 points are
 chance** — a third of the recorded headline is the null, so the recorded rate
@@ -582,8 +587,8 @@ rather than merely reported:
 | count | what it is |
 |---:|---|
 | **22,795** | `corpus/fin_kalevala.txt`, and — since 2026-08-13 — `data/sources.tsv:58` too, where ~~22,822~~ is kept visible and dated. Both instruments return it: `audit_kalevala_null.py --check` and `kalevala_rate.py`. |
-| **22,796** | this audit's own extraction **from the raw GITenberg file**, which is 22,795 verse lines **plus the single `* * *` divider** before the epilogue. |
-| ~~22,822~~ | the superseded record. **Not reproduced by any filter of the raw file** — see §3 item 4. |
+| **22,796** | this audit's own extraction **from the raw GITenberg file**, which is 22,795 verse lines **plus the single `* * *` divider** before the epilogue. **A SECOND and unrelated route reaches the same digits** — `read().split("\n")` on the STAGED file counts the empty string after its trailing newline — and that one is a reader defect saying nothing about the corpus. §3 item 4 keeps them apart; do not merge them. |
+| ~~22,822~~ | the superseded record. **Not reproduced by any filter of the raw file**, and the "runo headings" explanation is refuted — see §3 item 4. CANNOT TELL. |
 
 The **22,796** is settled by measurement, not inference. The raw file
 (`7000-8.txt`, md5 `87449afc4728aa740409c5c405e21a15`, 636,150 bytes — re-fetched
@@ -604,6 +609,14 @@ raw bytes is exactly one element, `'* * *'`, in that direction and with nothing
 in the other. This is also why the same script reports 22,796 on the raw file
 and 22,795 on the staged one — one extractor, two inputs, and the divider was
 already gone from the second.
+
+**And this is specifically NOT the trailing-newline off-by-one** that reaches the
+same digits on the staged file (§3 item 4). `verse_lines` discards empty strings
+before counting, so it is structurally immune: fed the staged corpus with **0, 1
+and 3 trailing newlines**, it returns **22,795 every time** (measured). The
+divider is a line that is really there; the empty string is one that is not.
+Two mechanisms, one number, and the only reason to state both is that a reader
+who knows about the second will otherwise "explain" the first with it and stop.
 
 ### 2.3 律詩 88.1% at the mandated positions
 

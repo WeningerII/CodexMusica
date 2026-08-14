@@ -2,6 +2,7 @@
 """The regression that makes M1 impossible to repeat SILENTLY.
 
     python3 quality/test_mutation.py            # every mutation, declared subsets
+    python3 quality/test_mutation.py --static   # the list and the anchors, ~0.3s
     python3 quality/test_mutation.py --core     # M1 and the two controls only
     python3 quality/test_mutation.py --full     # every mutation vs every green test
 
@@ -94,6 +95,43 @@ ALLOWLIST = {
 #: runner is misconfigured and nothing is really being tested.
 CORE = ("M1", "M5", "M9")
 
+# ---------------------------------------------------------------------------
+# THE SIZE OF THE INVENTORY, PINNED -- AND WHAT IT DOES AND DOES NOT CATCH.
+#
+# This pin was proposed 2026-08-14 on the premise that "a test pinning 57 would
+# have gone red the moment QS3's anchor drifted". IT WOULD NOT HAVE, and saying
+# so is the point of writing the numbers down beside the reason. When a sibling
+# lot folded `Mandate.returns_check`'s `if r.verbatim is not True: continue`
+# into a comprehension, `MUTATIONS` still held 57 entries -- QS3 was still
+# declared, still carried its rationale, and had simply stopped matching any
+# text. `len(MUTATIONS)` did not move by one. What moved was the number that
+# APPLY, and `test_every_mutation_still_applies` below already asserts that,
+# names the mutation and names the file.
+#
+# So this pin is a SECOND tripwire for a DIFFERENT failure, and the failure is
+# the one the repair instructions warn about in every place they appear: a
+# stale anchor closed by DELETING the mutation. That is the one repair this
+# instrument cannot survive -- a hole closed by removing the probe that found
+# it -- and until now the only guard against it was `len(muts) >= 12` against
+# an inventory of 57. Forty-five of the fifty-seven could have been deleted,
+# including every mutation in `quality/`, and every check in this file passed:
+# the layer check needs one mutation per layer, `MUST_MUTATE` needs one per
+# file, and both are satisfied by a skeleton. A floor set to a third of the
+# distance to the target is not a pin, it is permission.
+#
+# PER SERIES, not one total, because the two series erode differently. The 33
+# `M*` are the 2026-08-11 band/comparator set in `lyric_harness.py` and
+# `battery.py`; the 24 `Q*` are the quality layer, added 2026-08-13 to close
+# doctrine 94's gap, and they are the ones sitting in files five sibling lots
+# edit hourly. One total would let the Q block shrink while the M block grew.
+#
+# A NUMBER THAT MOVES ON PURPOSE. Adding a mutation is progress and retiring
+# one with a reason is legitimate; both are supposed to edit this line in the
+# same commit that edits the list. That is the entire mechanism -- the
+# deliberate repair touches two files, the silent one touches one.
+DECLARED_TOTAL = 57
+DECLARED_BY_SERIES = {"M": 33, "Q": 24}
+
 #: The layer vocabulary is CLAUDE.md's own triage rule, and a mutation runner
 #: that only mutates the layer its author was thinking about measures that
 #: author, not the suite.
@@ -137,7 +175,29 @@ def test_the_mutation_list_is_well_formed():
     muts = mutate.MUTATIONS
     names = [m.name for m in muts]
     check("names are unique", len(set(names)) == len(names))
-    check(f"at least 12 mutations ({len(muts)})", len(muts) >= 12)
+    # See DECLARED_TOTAL above for what this catches (a mutation DELETED) and
+    # what it does not (an anchor that DRIFTED -- section 2 owns that).
+    series = {k: sum(1 for m in muts if m.name.startswith(k))
+              for k in DECLARED_BY_SERIES}
+    check(f"the declared inventory is exactly {DECLARED_TOTAL} mutations "
+          f"({len(muts)})",
+          len(muts) == DECLARED_TOTAL,
+          f"declared {len(muts)}, pinned {DECLARED_TOTAL}. If you ADDED a "
+          f"mutation or RETIRED one with a reason, move DECLARED_TOTAL in the "
+          f"same commit. If you did neither, a mutation has gone missing and "
+          f"the fix is to restore it: an anchor closed by deleting its "
+          f"mutation is a hole closed by removing the probe that found it.")
+    check(f"...and by series: M {DECLARED_BY_SERIES['M']}, "
+          f"Q {DECLARED_BY_SERIES['Q']}",
+          series == DECLARED_BY_SERIES,
+          f"declared {series}, pinned {DECLARED_BY_SERIES}. The Q series is "
+          f"the quality layer (doctrine 94's gap, closed 2026-08-13) and it "
+          f"lives in files sibling lots edit hourly; one combined total would "
+          f"let it shrink while the M series grew."
+          if series != DECLARED_BY_SERIES else
+          "named neither M* nor Q*: %s"
+          % (sorted(m.name for m in muts
+                    if m.name[0] not in DECLARED_BY_SERIES) or "none"))
     covered = {m.layer for m in muts}
     check("every layer of CLAUDE.md's triage rule is mutated",
           covered == LAYERS,
@@ -181,20 +241,32 @@ def test_the_mutation_list_is_well_formed():
 
 
 def test_every_mutation_still_applies():
+    """The tripwire that fires on a drifted anchor, and the SECOND one.
+
+    `quality/mutate.py --dry-run` asks this same question of the same predicate
+    and exits non-zero on it. This is the independent carrier, in a different
+    file: `--dry-run`'s answer reaches the record through
+    `quality/counters.py`'s `mutations declared` row, and that row can be
+    silenced by `counters.py --write`, which commits the refusal and exits 0.
+    An assertion cannot be cleared by writing a file, so the two are not
+    redundant -- they fail in different places and only one of them has a
+    remedy that makes it stop asking.
+
+    `mutate.survey_anchors` is the shared predicate rather than a fourth
+    private copy of `src.count(old) != 1`; the three copies that existed before
+    2026-08-14 had already begun to differ in what they reported.
+    """
     print("\n2. every mutation still applies cleanly (STALE != SURVIVED)")
-    stale = []
-    for m in mutate.MUTATIONS:
-        path = os.path.join(mutate.ROOT, m.file)
-        src = open(path, encoding="utf-8").read()
-        n = src.count(m.old)
-        if n != 1 or m.old == m.new:
-            stale.append(f"{m.name}: anchor occurs {n}x in {m.file}")
-    check(f"all {len(mutate.MUTATIONS)} anchors are present exactly once",
-          not stale,
-          "; ".join(stale) if stale else
-          "a stale anchor is a finding about this LIST. Update the anchor to "
-          "the code's new shape -- do not delete the mutation, because the "
-          "mutation is the only record that the defect was ever detectable.")
+    bad = mutate.survey_anchors(mutate.MUTATIONS)
+    check(f"all {len(mutate.MUTATIONS)} anchors name exactly one site in the "
+          f"file they target",
+          not bad,
+          "; ".join(f"{n} [{k}] in {f}: {why}" for n, k, f, why in bad)
+          if bad else
+          "a drifted anchor is a finding about this LIST, not a hole in the "
+          "suite. Re-anchor it, or retire the mutation WITH A REASON -- do "
+          "not delete it silently, because the mutation is the only record "
+          "that the defect was ever detectable.")
 
 
 def test_M1_is_declared_verbatim():
@@ -428,6 +500,9 @@ if __name__ == "__main__":
               "(recursion guard)")
         sys.exit(0)
     ap = argparse.ArgumentParser()
+    ap.add_argument("--static", action="store_true",
+                    help="sections 1-3 only: the checks that read the list "
+                         "and the source and fork nothing. ~0.3 s, no sweep")
     ap.add_argument("--core", action="store_true",
                     help=f"only {', '.join(CORE)} -- the acceptance triple")
     ap.add_argument("--full", action="store_true",
@@ -446,6 +521,25 @@ if __name__ == "__main__":
     test_the_mutation_list_is_well_formed()
     test_every_mutation_still_applies()
     test_M1_is_declared_verbatim()
+    if a.static:
+        # THE TRIPWIRE WAS WELDED TO THE SWEEP, WHICH IS WHY NOBODY RAN IT.
+        # Sections 1-3 read the mutation list and seven source files and cost
+        # ~0.3 s; section 4 forks the whole test suite once per mutation and
+        # cost 4,984 s for nineteen mutations on 2026-08-13. Until 2026-08-14
+        # there was no way to ask for the first without paying for the second,
+        # so the assertion that would have caught QS3's drift the day it
+        # happened was, in practice, unreachable -- `--core` does not help,
+        # because it still computes the full green baseline before running its
+        # three mutations. That is doctrine 48's shape inside the adversary
+        # that exists to find it: a check nobody can afford to run gets run
+        # exactly as often as somebody remembers to spend an afternoon on it.
+        print("=" * 78)
+        if FAILURES:
+            print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
+            sys.exit(1)
+        print("the mutation list is well formed and every anchor still "
+              "applies — the SWEEP was not run (--static)")
+        sys.exit(0)
     with SingleInstance(mutate._scratch_base()) as lock:
         if not lock.held:
             print("\n4. the verdict")

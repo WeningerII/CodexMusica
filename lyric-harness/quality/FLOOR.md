@@ -7,9 +7,28 @@ never a score. Run it with `python3 quality/floor.py FILE`; regressions are
 Two project rules force the shape. **No weighted quality score, ever**
 (doctrine 6) — the exchange rate between surprise and clarity is a genre's
 answer, so it belongs in a declaration. **Rejection, not selection**
-(doctrine 7) — detecting bad writing held out at AUC 0.971, ranking good
-writing at 0.709. A caller who wants one number has to invent its weighting in
-the open and own it.
+(doctrine 7) — detecting bad writing held out at AUC **0.964**, ranking good
+writing at **0.717**. A caller who wants one number has to invent its weighting
+in the open and own it.
+
+> **REPINNED 2026-08-13 from ~~0.971~~ and ~~0.709~~, which are superseded
+> TWICE.** Say what they are coordinates of (doctrine 58): both are the
+> **ABSOLUTE ten-feature joint held-out AUC** — 0.971/0.964 is Experiment 2
+> (Shakespeare vs model-generated, "detecting bad writing"), 0.709/0.717 is
+> Experiment 1 (anthologized vs not, "ranking good writing"). The pair quoted
+> here was the **PRE-OOV-FIX reading of 2026-08-09**, not the warm post-fix one
+> — that intermediate reading is 0.659 (Exp 1) and 0.975 (Exp 2), and it is
+> superseded too. Cold, recomputed against a fingerprinted cache, they are
+> **0.717 and 0.964**. Pinned as `abs_exp1`/`abs_exp2` `joint_all` in
+> `quality/test_discriminate.py`, RECORDED in
+> `quality/audit_joint_auc_null.py`, tabulated in `quality/RESULTS.md`
+> § "The joint held-out AUCs, cold".
+>
+> **Doctrine 7's argument is unchanged.** The gap is 0.247 cold against 0.262
+> pre-fix: a floor is enforceable and a ceiling is not, by the same margin to
+> within 0.015. `CLAUDE.md`'s own statement of doctrine 7 still carries the
+> pre-fix pair and this file does not own it, so that repin is somebody
+> else's.
 
 ## What the thresholds are
 
@@ -63,6 +82,30 @@ withdrew it after the out-of-vocabulary artifact was fixed (RESULTS.md,
 post-fix rerun). It is a note, may not carry a rejection, and does not run at
 all under the section profile because its threshold was never measured at that
 length.
+
+> **THE 0.560 IS WARM AND IS SUPERSEDED 2026-08-13; the note's SEVERITY is
+> not.** 0.560 is the **predictability-only joint held-out AUC, Experiment 2,
+> absolute feature set** (doctrine 58 — not the same statistic as the
+> ten-feature 0.964 in this file's header, and not a per-feature AUC either).
+> Cold the
+> comparator gives **0.648**, and `rhyme_predictability_mean` clears
+> Benjamini–Hochberg FDR at q = 0.10 in BOTH designs with the predicted sign
+> (Exp 1 AUC 0.262 at p = 0.0018, Exp 2 AUC 0.340 at p = 0.0015). So "it
+> reproduced its own withdrawal" is arithmetic on a number nothing produces,
+> and `quality/RESULTS.md` § "`rhyme_predictability` is REINSTATED, narrowly"
+> is the standing record. **What does NOT change: it stays a note and may
+> still not carry a rejection** — 0.648 is not a separation this gate can
+> reject on, the threshold is still unmeasured at section length, and doctrine
+> 8 says a replication across two overlapping label contrasts in one corpus is
+> not a replication across traditions.
+>
+> **The shipped code still emits 0.560** — `quality/floor.py` carries it in
+> the `PREDICTABLE_RHYME` finding's own evidence string, in
+> `CALIBRATION["failed_expectations"]`, and in its module docstring, and
+> `quality/test_floor.py` §11 pins that the evidence contains it. Neither file
+> is owned here; the repin is theirs to make, and until they make it a caller
+> reads a superseded number out of a live finding rather than out of a
+> document.
 
 `report()` prints all three on every run, beside the checks that worked. A gate
 that only shows its working results is advertising.
@@ -126,8 +169,30 @@ Well evidenced as *"does this look like the model's sonnets rather than
 Shakespeare's."* **Unvalidated as a general slop detector.** One form, one
 language, one generator, a 400-year register gap; five of the ten
 pre-registered features separated with the wrong sign, and a within-item
-respecification that removes level effects dropped joint AUC from 0.971 to
-0.877. Two of the checks presume English on their face — `function_word_ratio`
-assumes a clean function/content split that agglutinative and polysynthetic
-languages do not have, and predictability is computed against an English
-frequency list.
+respecification that removes level effects dropped joint AUC from **0.964** to
+**0.891**. Two of the checks presume English on their face —
+`function_word_ratio` assumes a clean function/content split that agglutinative
+and polysynthetic languages do not have, and predictability is computed against
+an English frequency list.
+
+> **REPINNED 2026-08-13 from ~~"0.971 to 0.877"~~, which was not one
+> comparison.** That pair CROSSED TWO DIFFERENT READINGS: 0.971 is the
+> ABSOLUTE ten-feature Experiment 2 AUC on the **pre-OOV-fix run of
+> 2026-08-09**, and 0.877 is the WITHIN-ITEM eight-feature Experiment 2 AUC on
+> the **warm post-fix** run. Subtracting one from the other charges the
+> respecification with a drop that the out-of-vocabulary fix and a stale cache
+> also contributed to — doctrine 58, one axis out: a number is a coordinate of
+> its CACHE STATE as well as its design. Measured cold in a single run, the
+> comparison is **0.964 → 0.891**, both Experiment 2, both at the one
+> hard-coded CV seed, differing only in feature set. Pinned as
+> `abs_exp2`/`wi_exp2` `joint_all` in `quality/test_discriminate.py`;
+> `quality/RESULTS_WITHIN_ITEM.md` P1 carries the error-ratio arithmetic and
+> the 200-seed medians (0.967 → 0.900) that check it does not rest on one
+> draw.
+>
+> **The paragraph's claim is unchanged.** Removing level effects still costs
+> most of what the joint AUC was made of, and what remains is still not
+> demonstrated to be quality rather than style. `quality/floor.py` still
+> carries the superseded pair in its module docstring and in
+> `CALIBRATION["known_limits"]`, which is a string the gate reports out; that
+> file is not owned here.

@@ -248,14 +248,23 @@ REGISTRY = {
         "candidates FORBIDDEN and verify() rejects a revision that lands on "
         "one. ~15 min -- not a per-PR gate."),
     10: (ASSERTED, None, None,
-         "the numbers (1/8 hits per experiment, Exp 1 at 0.604 with n=15) are "
-         "recorded in quality/RESULTS.md and quality/discriminate.py is the "
-         "instrument that produced them, so the claim is re-derivable on "
-         "demand. Nothing re-derives it on a schedule and no command goes red "
-         "if a later session builds on the features anyway."),
+         "the AUCs are now PINNED cold -- quality/test_discriminate.py grades "
+         "Exp 1 at 0.638 with n=15 and Exp 2 at 0.891 against committed "
+         "values, and quality/audit_joint_auc_null.py grades four of them "
+         "against a null and a 200-seed sweep (REPINNED 2026-08-13 from the "
+         "warm 0.604/0.877 this row quoted). The doctrine is still ASSERTED "
+         "and not MECHANICAL, because what those commands pin is the "
+         "measurement, not the RULE: the '1/8 hits' tally is warm and no "
+         "command re-derives it, and nothing goes red if a later session "
+         "builds on the features anyway."),
     11: (MECHANICAL, "python3 quality/test_floor.py", CITED,
          "anaphora's author-level Spearman against birth year -- the "
-         "period-reading test the two caught features failed"),
+         "period-reading test the caught feature failed. ONE feature, not the "
+         "two the doctrine's title still counts: the rhyme_predictability "
+         "clause was superseded by measurement 2026-08-13 (cold 0.340 at "
+         "p=0.0015 against the warm 0.422 at p=.13). The same test file pins "
+         "the PREDICTABLE_RHYME note on the WARM 0.560, which is that repin "
+         "arriving here second-hand"),
     12: (PROSE, None, None,
          "'Stop rescuing it' binds on whoever proposes the next "
          "operationalization. Both recorded operationalizations were run once "

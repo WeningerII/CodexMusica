@@ -300,6 +300,40 @@ looking right.
    its own label-permutation null), but the scored verdict was an artifact of
    the seed. Any number from a randomised split needs its own distribution.
 
+   **ALL FOUR FIGURES ABOVE ARE WARM AND ARE REPINNED 2026-08-13. THE DOCTRINE
+   REPLICATES COLD -- ONLY ITS NUMBERS MOVE, AND NOTHING ABOUT IT IS
+   WEAKENED.** Cold, at the same one hard-coded seed, P2's comparison is
+   **0.717 -> 0.638**; over the same 200 seeds the medians are **0.638 and
+   0.640**. The sign of the difference flips exactly as it did warm -- at the
+   median the within-item set sits marginally ABOVE the absolute one, so "hold
+   or improve" holds in BOTH readings and the recorded FAILED stays a property
+   of `SEED` rather than of the respecification. The fall at the recorded seed
+   is in fact LARGER cold (0.079 against 0.055), which sharpens the doctrine
+   instead of softening it. The superseded warm quartet -- 0.659 -> 0.604,
+   medians 0.603 and 0.606 -- is kept above rather than overwritten
+   (doctrine 17).
+
+   SAY WHAT EACH NUMBER IS A COORDINATE OF (doctrine 58), because these differ
+   by DESIGN and by CACHE STATE at once: 0.659/0.717 are the ABSOLUTE
+   ten-feature Experiment 1 joint held-out AUC, warm/cold; 0.604/0.638 are the
+   WITHIN-ITEM eight-feature Experiment 1 joint, warm/cold; the medians are the
+   same statistics over 200 CV seeds rather than the one recorded draw. **And
+   0.638 appears twice under two different meanings** -- it is the WITHIN-ITEM
+   set's observed cold Experiment 1 AUC AND, separately, the ABSOLUTE set's
+   cold Experiment 1 seed MEDIAN. Two statistics that land on the same three
+   decimals; the recorded absolute draw sitting well above its own median is
+   this doctrine's whole point. Medians pinned in
+   `quality/audit_joint_auc_null.py`'s `PINNED` (`seed_median`), observations
+   in `quality/test_discriminate.py`'s `PINNED` (`joint_all`);
+   `quality/RESULTS_WITHIN_ITEM.md` P1/P2 carries both readings.
+
+   WHAT IS NOT REPINNED HERE: the label-permutation nulls the parenthesis
+   above rests on are `quality/NULL_AUDIT.md` §1.3's and are WARM. They have
+   not been re-run cold, so the strengthened conclusion is stated on warm
+   nulls with cold observations sitting in the same place relative to them --
+   which is weaker than a cold null and is said rather than glossed
+   (doctrine 20).
+
 74. **Check that your H0 is uniform before quoting a p from it.** A pooled
    Fisher p of 0.950 was read as 1-in-20. Under 200 H0 replicates at the real
    item sizes the per-item p has median 0.559, not 0.500, and the share
@@ -411,12 +445,97 @@ without them.
    identical to its absolute form -- recentring is a monotone transform, so it
    buys cross-tradition comparability and exactly zero power.
 
+   **THE TWO AUCs ARE REPINNED 2026-08-13: ~~0.604~~ -> 0.638 and ~~0.877~~ ->
+   0.891.** The superseded pair is kept above rather than overwritten
+   (doctrine 17). Both were WARM -- served from a feature cache keyed with no
+   fingerprint of the code that wrote it -- and both moved when the run was
+   recomputed cold. SAY WHAT EACH IS A COORDINATE OF (doctrine 58), because
+   these differ by DESIGN as well as by cache state: 0.638 and 0.891 are the
+   **WITHIN-ITEM eight-feature** joint held-out AUC for **Experiment 1** and
+   **Experiment 2**, at the one hard-coded CV seed, COLD. Their ABSOLUTE
+   ten-feature twins are 0.717 and 0.964 and are a different feature set, not a
+   different reading of these. Pinned as `wi_exp1`/`wi_exp2` `joint_all` in
+   `quality/test_discriminate.py` and RECORDED in
+   `quality/audit_joint_auc_null.py`; `quality/RESULTS_WITHIN_ITEM.md` carries
+   both readings side by side.
+
+   **"1/8 hits in each experiment" IS NOT RE-DERIVED COLD AND MAY NOT BE
+   QUOTED AS CURRENT.** It is a tally over permutation p-values; the AUC is
+   free and a p costs 20,000 shuffles per feature, so no p in that tally has
+   been re-run cold at all -- and two of the eight within-item AUCs it counts
+   moved. Doctrine 20: an instrument that has not fired has not returned a
+   null. The tally is UNVERIFIED, which is neither confirmed nor refuted, and
+   the honest reading is that the hit counts are warm figures kept for the
+   record.
+
+   **The layer-level claim is unchanged; the reach of the word "no" is not.**
+   Experiment 1 is 0.638 within-item and 0.717 absolute at n=15, and
+   `quality/NULL_AUDIT.md` §1.3 measured that neither beats its own
+   label-permutation null's MAXIMUM (that audit is warm and has not been re-run
+   cold, so it moves nothing in either direction). What did move is one
+   feature: cold, `rhyme_predictability_mean` clears FDR in BOTH designs with
+   the predicted sign, which doctrine 11 below now records and which this
+   doctrine's "no", read strictly, denies. Cross-design is not cross-tradition
+   (doctrine 8) and the two experiments share their entire human side, so
+   nothing here promotes a feature -- but the sentence is dented and says so
+   rather than being quoted flat. The standing record is `quality/RESULTS.md`
+   § "`rhyme_predictability` is REINSTATED, narrowly".
+
 11. **Two features have now been caught reading period, not quality.**
    syntactic_inversion_rate is an Early Modern English archaism detector, and
    rhyme_predictability's cross-design replication was an OOV artifact (an
    unreadable word was scored as maximally rare, so CMUdict's inability to
    read Shakespeare registered as his unpredictability). Assume any new
    feature is doing this until a within-item version says otherwise.
+
+   **THE COUNT IS ONE, NOT TWO, AS OF 2026-08-13: the SECOND clause is
+   SUPERSEDED BY MEASUREMENT.** The paragraph above is kept whole and dated
+   rather than rewritten (doctrine 17) -- it is the record of what was believed
+   on 2026-08-09 and of the arithmetic that produced it. Read the opening count
+   as ONE. *(The title is also the row `CLAUDE.md`'s doctrine index carries,
+   and this file does not own that file. Repinning the title to "One feature
+   ..." means moving the index row in the same commit -- which
+   `quality/verify_doctrines.py` now enforces, so the two can no longer drift
+   apart in silence.)*
+
+   **CLAUSE 1 STANDS, UNTOUCHED -- `syntactic_inversion_rate`.** Cold it reads
+   **0.583** in Experiment 1 and **0.833** in Experiment 2, wrong-signed, both
+   essentially unmoved from their warm readings. It is still an Early Modern
+   English archaism detector and should still be retired rather than ported.
+   (`quality/test_discriminate.py` PINNED, `abs_exp1`/`abs_exp2`.)
+
+   **CLAUSE 2 IS SUPERSEDED -- `rhyme_predictability`.** The OOV defect was
+   real, the fix is real and both are still in the code; what is wrong is the
+   numbers the fix was measured against. The clause rests on Experiment 2 at
+   **AUC 0.422, p = .13**, with predictability held out at **0.560** -- and
+   those are WARM readings that the comparator does not produce. **Cold it
+   gives AUC 0.340 at p = 0.0015, and the predictability-only joint is 0.648.**
+   `rhyme_predictability_mean` therefore clears Benjamini-Hochberg FDR at
+   q = 0.10 in BOTH designs with the predicted sign (lower), and "0.560 is
+   chance" is arithmetic on a number nothing produces. It was the stale cache
+   that destroyed the Experiment 2 effect, not the OOV fix. Doctrine 58 twice
+   over: 0.422/0.340 are the same feature's Exp 2 AUC warm/cold, while
+   0.560/0.648 are the predictability-ONLY joint's Exp 2 AUC warm/cold -- a
+   different statistic from the same run, not a second reading of the first.
+   `quality/RESULTS.md` § "`rhyme_predictability` is REINSTATED, narrowly"
+   carries the table, the cold p's and the BH argument in full.
+
+   **THE STANDING INSTRUCTION IS UNCHANGED, AND IT IS UNMET.** "Assume any new
+   feature is doing this until a within-item version says otherwise" still
+   binds, and no within-item version has said otherwise -- which is the one
+   thing that could have promoted this from a superseded clause to a cleared
+   feature. `wi_predictability_advantage` is `mean(pred) - 0.5`, a monotone
+   transform, so its AUC is **bit-identical** to the absolute feature's in both
+   experiments: 0.26153846153846155 and 0.33963815789473684, the same floats,
+   pinned as such in `quality/test_discriminate.py`. It is the same measurement
+   under another name and it cannot corroborate anything. **UNMET, not met** --
+   doctrine 20, and "cannot tell" is not "none".
+
+   **What the reinstatement does NOT buy.** Experiment 1's 15 survived and 117
+   forgotten sonnets are a SUBSET of Experiment 2's 152 human items and share
+   their cache keys, so a feature clearing both designs is a replication across
+   LABELS, not across traditions. Doctrine 8 decides what that is worth, and
+   cross-design is not cross-tradition.
 
 12. **Wimsatt binding is unsupported here, under two operationalizations.**
    Raw differing-category fraction: null. Excess over a permutation null from

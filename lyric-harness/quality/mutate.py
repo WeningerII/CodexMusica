@@ -88,6 +88,32 @@ catch anything. What it pins is narrow (`mandated`/`judged`/`refused`/
 `violations`); Whitman and the limericks still print unasserted, so a mutation
 that moves only those is still invisible to it.
 
+A SHRINKING INVENTORY IS A FAILURE, NOT A "CANNOT TELL"
+--------------------------------------------------------
+`--dry-run` exits 0 when every declared mutation applies to the current source
+and 1 when any does not, naming each mutation, the KIND of defect and the file
+it targets. It costs ~0.15 s and reads 0.7 MB, so there is no budget argument
+for not asking.
+
+It is the only carrier of that fact that cannot be silenced by writing a file.
+`quality/counters.py`'s `mutations declared` row is derived from this command
+and it does fail -- once. Its remedy for a moved value cell is `--write`, and
+`--write` commits `REFUSED (cost) — the instrument did not answer` into
+BACKLOG.md and exits 0, after which `--check` compares REFUSED against REFUSED
+and prints PASS with the mutations still inert. That path is not hypothetical:
+the `public symbols` row moves under sibling lots every few hours and `--write`
+is its remedy too, so a lot clearing an unrelated red cell launders this one in
+the same command. Measured, both directions, in `main()`'s comment below.
+
+FOUR KINDS, BECAUSE FOUR REMEDIES. STALE (anchor gone -- re-anchor or retire
+with a reason), AMBIGUOUS (anchor names more than one site -- `apply_mutation`
+replaces EVERY occurrence, so the planted defect would be larger than the
+`rationale` describes, and a mutation that silently MOVES is worse than one
+that fails), NO-OP (`old` == `new` -- nothing is planted), NO-FILE (the target
+module is gone). `anchor_defect` is the single predicate; `apply_mutation`,
+`--dry-run` and `quality/test_mutation.py` section 2 are its three callers,
+which until 2026-08-14 were three separately-maintained spellings of it.
+
 NEVER LEAVES A MUTATED FILE ON DISK
 -----------------------------------
 No mutation is ever written into the working tree. ONE frozen snapshot of the
@@ -131,6 +157,7 @@ LOAD_SENSITIVE.
 """
 
 import argparse
+import collections
 import concurrent.futures as futures
 import hashlib
 import json
@@ -1132,6 +1159,119 @@ MUTATIONS = [
 
 
 # ---------------------------------------------------------------------------
+# Does the list still fit the code? -- ONE predicate, three callers
+# ---------------------------------------------------------------------------
+#
+# THIS EXISTS BECAUSE THE PREDICATE HAD THREE COPIES AND THEY HAD ALREADY
+# STARTED TO DIFFER. `apply_mutation` rejected `src.count(old) != 1` and then
+# separately rejected `out == src`; `main`'s `--dry-run` rejected
+# `src.count(old) != 1` and then separately rejected `old == new`;
+# `quality/test_mutation.py`'s section 2 rejected `n != 1 or old == new` in one
+# expression and reported a count for the no-op case that had nothing to do
+# with the defect (`anchor occurs 1x` on a mutation whose real fault is that it
+# changes nothing). Three spellings of one question is the shape doctrine 48
+# keeps naming: the copies agree exactly as long as somebody remembers to edit
+# all of them, and the one that goes stale is the one nobody runs. All three
+# call this now, so a repair lands once.
+#
+# THE KINDS ARE SEPARATE BECAUSE THE REMEDIES ARE. Collapsing them under one
+# word -- `--dry-run` printed `STALE` for every kind, including an anchor
+# matching TWICE, which is not stale at all -- tells a reader the code moved
+# when what actually happened is that the anchor stopped naming one site.
+
+#: An anchor that is GONE. The mutation is declared and inert: it will never be
+#: applied, so whatever it was planted to detect is no longer being asked.
+STALE = "STALE"
+#: An anchor that names MORE THAN ONE site. Not a smaller defect than STALE and
+#: arguably a worse one -- `apply_mutation` patches with `str.replace`, which
+#: rewrites EVERY occurrence, so the mutation silently becomes a different and
+#: larger planted defect than the one its own `rationale` describes, and a
+#: mutation that quietly moves is worse than one that fails.
+AMBIGUOUS = "AMBIGUOUS"
+#: `old` and `new` are the same text. Nothing is planted, so a "caught" verdict
+#: would be the suite disagreeing with an unmodified tree.
+NO_OP = "NO-OP"
+#: The file the mutation names is not there at all. Kept apart from STALE
+#: because a moved anchor is repaired inside a file that exists and this is not.
+MISSING_FILE = "NO-FILE"
+
+#: What a reader is owed the moment any of the above fires. A drifted anchor is
+#: a repair somebody makes DELIBERATELY, and there are exactly two honest ones.
+REPAIR = (
+    "A mutation that does not apply is DECLARED AND INERT: adversary 4 is "
+    "smaller than it says it is, and nothing else in this repo is looking. "
+    "There are exactly two honest repairs and deleting the line is neither.\n"
+    "  1. THE CODE MOVED -- re-anchor `old=` on the line that now carries the "
+    "decision. The planted defect is still detectable; only its coordinates "
+    "changed.\n"
+    "  2. THE DECISION IS GONE -- retire the mutation WITH A REASON, the way "
+    "`quality/test_mutation.py`'s ALLOWLIST carries prose: a bare deletion "
+    "gives the next reader no way to tell 'we decided' from 'we gave up', and "
+    "the mutation is the only record that the defect was ever detectable.\n"
+    "  Do NOT close this by shortening the list. A hole closed by deleting "
+    "the mutation that found it is the one repair this instrument cannot "
+    "survive.")
+
+
+def anchor_defect(mut, src):
+    """-> None if `mut` applies cleanly to `src`, else (kind, why).
+
+    `src` is the CURRENT text of `mut.file`. The caller supplies it because the
+    two callers read it differently: `apply_mutation` reads a shadow tree and
+    `survey_anchors` reads the working tree once per FILE rather than once per
+    mutation (32 of the 57 target `lyric_harness.py`, so re-reading per
+    mutation was 7.7 MB of reads to answer a 0.7 MB question).
+    """
+    n = src.count(mut.old)
+    if n == 0:
+        return (STALE,
+                "anchor occurs 0x — the code moved out from under it, so this "
+                "mutation can never be applied and detects nothing")
+    if n > 1:
+        return (AMBIGUOUS,
+                f"anchor occurs {n}x — `apply_mutation` replaces EVERY "
+                f"occurrence, so this would plant a bigger defect than its "
+                f"rationale describes and a 'caught' verdict would be about "
+                f"the wrong site. Lengthen `old=` until it names one")
+    if mut.old == mut.new:
+        return (NO_OP,
+                "`old` and `new` are the same text, so nothing is planted and "
+                "any red test is disagreeing with an unmodified tree")
+    return None
+
+
+def survey_anchors(muts, root=ROOT):
+    """-> [(name, kind, file, why), ...] for every mutation that does not apply.
+
+    ONE READ PER FILE, and a target file that is absent is a NAMED finding
+    rather than a traceback. That is not tidiness: `quality/counters.py`'s
+    `mutations_declared()` parses this runner's `N/M mutations apply cleanly`
+    line, and a `FileNotFoundError` kills the line entirely -- so a mutation
+    pointed at a renamed module used to reach the counters table as `the
+    instrument did not answer` (a parse failure, doctrine 79's refusal) rather
+    than as the mutation's own name. Same fact, and only one of the two
+    spellings tells anybody which mutation to repair.
+    """
+    cache, bad = {}, []
+    for m in muts:
+        if m.file not in cache:
+            try:
+                cache[m.file] = open(os.path.join(root, m.file),
+                                     encoding="utf-8").read()
+            except OSError as e:
+                cache[m.file] = e
+        src = cache[m.file]
+        if isinstance(src, OSError):
+            bad.append((m.name, MISSING_FILE, m.file,
+                        f"cannot read the file this mutation targets: {src}"))
+            continue
+        d = anchor_defect(m, src)
+        if d:
+            bad.append((m.name, d[0], m.file, d[1]))
+    return bad
+
+
+# ---------------------------------------------------------------------------
 # Test inventory
 # ---------------------------------------------------------------------------
 
@@ -1485,16 +1625,20 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
 # ---------------------------------------------------------------------------
 
 def apply_mutation(tree, mut):
-    """Write the mutant into the SHADOW copy. Never touches the real tree."""
+    """Write the mutant into the SHADOW copy. Never touches the real tree.
+
+    The precondition is `anchor_defect`'s, not a second spelling of it: this
+    function and `--dry-run` and `quality/test_mutation.py` section 2 all ask
+    one question of one predicate, so `--dry-run` reporting clean can never
+    mean anything other than that the sweep would apply.
+    """
     path = os.path.join(tree, mut.file)
     src = open(path, encoding="utf-8").read()
-    n = src.count(mut.old)
-    if n != 1:
-        raise ValueError(
-            f"{mut.name}: anchor text occurs {n} times in {mut.file} "
-            f"(need exactly 1). The code moved under the mutation list.")
+    d = anchor_defect(mut, src)
+    if d:
+        raise ValueError(f"{mut.name} [{d[0]}] in {mut.file}: {d[1]}")
     out = src.replace(mut.old, mut.new)
-    if out == src:
+    if out == src:                       # unreachable via anchor_defect; belt
         raise ValueError(f"{mut.name}: mutation is a no-op")
     open(path, "w", encoding="utf-8").write(out)
 
@@ -1783,18 +1927,57 @@ def main(argv=None):
         return 2
 
     if a.dry_run:
-        bad = []
-        for m in muts:
-            src = open(os.path.join(ROOT, m.file), encoding="utf-8").read()
-            n = src.count(m.old)
-            if n != 1:
-                bad.append(f"{m.name}: anchor occurs {n}x in {m.file}")
-            elif m.old == m.new:
-                bad.append(f"{m.name}: no-op")
-        for b in bad:
-            print("STALE  " + b)
+        # THE INVENTORY SHRINKING MUST READ AS "SOMETHING IS BROKEN", NOT AS
+        # "CANNOT TELL". That distinction is the whole reason this branch has
+        # an exit code and a shaped message rather than a count.
+        #
+        # On 2026-08-13 a lot refactoring `Mandate.returns_check` folded QS3's
+        # anchor into a list comprehension. `--dry-run` fell to 56/57 and
+        # adversary 4 lost a member from a tidy refactor in a different file.
+        # It was caught because a THIRD lot happened to run
+        # `quality/counters.py --write` in that window. That is luck, and the
+        # instrument it relied on is the wrong KIND of signal: an anchor that
+        # stops matching makes `mutations_declared()` RAISE, which
+        # `counters.py` renders as `REFUSED (cost) — the instrument did not
+        # answer`. Doctrine 79 says a refusal is not a failure and that is
+        # correct in its own terms -- but `--check`'s own printed remedy for a
+        # value cell that moved is `--write`, and `--write` COMMITS the refusal
+        # into BACKLOG.md and exits 0, after which `--check` reads REFUSED
+        # against REFUSED and prints PASS. Measured 2026-08-14 on a shadow
+        # tree with M1 and QS3 both drifted: `--check` exit 1, then `--write`
+        # exit 0, then `--check` exit 0 with two mutations permanently inert.
+        # `--write` is run routinely, because the `public symbols` row moves
+        # under sibling lots and that is its remedy too -- so the mute is not
+        # an edge case, it is the ordinary repair path.
+        #
+        # THIS exit code cannot be laundered by writing a file. It is a
+        # question asked of the source every time it is asked at all.
+        bad = survey_anchors(muts, ROOT)
+        for name, kind, path, why in bad:
+            print(f"{kind:9s} {name:5s} {path:22s} {why}")
+        # Byte-shape of the next line is load-bearing: `counters.py`'s
+        # `mutations_declared()` greps `(\d+)/(\d+) mutations apply cleanly`
+        # out of this stdout and REFUSES rather than guessing if it moves.
         print(f"{len(muts) - len(bad)}/{len(muts)} mutations apply cleanly")
-        return 1 if bad else 0
+        if not bad:
+            # Disclosed on the clean path too, so a SHRINKING inventory is
+            # visible by eye and not only by an exit code nobody reads: a
+            # deleted mutation leaves 57/57 behind, and only these numbers move
+            # (`quality/test_mutation.py` section 1 is what asserts them).
+            series = collections.Counter(
+                "M-series" if m.name.startswith("M") else "Q-series"
+                for m in muts)
+            print("  " + ", ".join("%s %d" % (k, series[k])
+                                   for k in sorted(series))
+                  + " across %d target file(s)" % len({m.file for m in muts}))
+            return 0
+        kinds = collections.Counter(k for _, k, _, _ in bad)
+        print()
+        print("REFUSED — %d of %d declared mutation(s) do not apply (%s)."
+              % (len(bad), len(muts),
+                 ", ".join("%d %s" % (n, k) for k, n in sorted(kinds.items()))))
+        print(REPAIR)
+        return 1
 
     base = _scratch_base()
     swept = sweep_scratch(base)
