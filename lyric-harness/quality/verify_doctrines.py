@@ -13,6 +13,9 @@ definition. This asserts:
   6. every defined doctrine carries a REGISTRY row: either the command that
      goes red when it is violated, or an explicit PROSE / N-A marker with a
      reason. A doctrine with neither FAILS.
+  7. every row of CLAUDE.md's INDEX TABLE agrees with the definition it points
+     at -- same TITLE, and the same home file/part -- so a title repinned in
+     one place and not the other goes red.
 
 Run:  python3 quality/verify_doctrines.py
       python3 quality/verify_doctrines.py --baseline   (re-derive (3)'s file)
@@ -70,6 +73,53 @@ re-checked on every run:
     declared;
   * every file path named in any row must exist.
 
+CHECK (7) IS NEW (2026-08-13), and it closes a hole this file had from the
+day the index table was written. Everything above reads the NUMBERS. Nothing
+read the TITLES: the index carries one row per doctrine (`| 59 | `C` | <title>
+|`) and the definition carries the same title in bold, and the two could
+disagree in every character without a single check moving. That is not
+hypothetical -- doctrine 59's title was repinned in `quality/METHOD.md` on
+2026-08-13 ("Refusing on SCRIPT..." -> "Refusing because the ORTHOGRAPHY DOES
+NOT WRITE THE DECIDING SEGMENT...") and the index row kept the old wording,
+silently, until a human noticed. The index is the thing a reader consults to
+find a doctrine; an index that names a doctrine by a title the doctrine no
+longer has sends the reader to the wrong place, or to the right place
+believing the wrong thing.
+
+THE TWO SIDES ARE NOT BYTE-IDENTICAL BY NATURE, so the check is equality on a
+NORMALISED form, and every tolerance in that normalisation is declared and
+MEASURED rather than assumed. The normalisation folds: the line WRAP (a
+definition's title wraps across source lines with indentation; a table cell
+cannot); a trailing PERIOD (`Four layers.**` against `Four layers`); inline
+EMPHASIS (`**`, backticks); STRUCK spans (`~~...~~`, which a doctrine-17
+supersession leaves visible in place -- struck text is the superseded title,
+never the current one, so it is dropped on both sides); DASH spelling (em
+dash, en dash and `--` fold together); and an ESCAPED PIPE (`\|`, the one
+character a markdown cell cannot carry raw). On top of equality there is
+exactly ONE structural tolerance: the index row may carry a TRAILING
+PARENTHESISED annotation the definition does not -- doctrine 59's repinned
+row is one -- and the annotation is required to be balanced and at the END, so
+`1/(n+1)` inside doctrine 57's title is compared, not stripped.
+
+WHAT IT DELIBERATELY DOES NOT TOLERATE, and this is the load-bearing choice:
+ABBREVIATION. A prefix match was the obvious design and it was rejected on a
+measurement -- all 95 rows agree with their definitions in FULL, so a
+prefix/abbreviation tolerance would buy nothing today and would silently pass
+an index row truncated to its first three words, or a repin that lands past
+the truncation point. Nor is case, wording, or ordinary punctuation
+tolerated. If a future title is long enough that the index really must
+abbreviate it, this check goes red and the choice gets made in the open.
+
+THE TOLERANCES ARE COUNTED ON EVERY RUN, not described here and left to rot.
+The check re-runs itself with each fold disabled and prints how many rows NEED
+it, so a fold that no row exercises is DISCLOSED as unexercised rather than
+carried as though it were doing work. Measured at the time of writing: WRAP
+and PERIOD are load-bearing, the trailing-annotation tolerance is exercised by
+exactly one row (59), and EMPHASIS / STRUCK / DASH / PIPE are unexercised --
+both sides happen to spell those the same way today. They are kept because
+they are facts about the two formats rather than facts about today's rows,
+and the print is what stops that claim from going stale.
+
 WHAT MECHANICAL DOES AND DOES NOT CLAIM. It claims that at least one INSTANCE
 of the doctrine is pinned by a command that goes red. It does not claim the
 doctrine is exhaustively enforced -- no command can see that a future analysis
@@ -113,6 +163,22 @@ PRESPLIT_EXCLUDE = "## Known gaps, priority order"
 #: A doctrine DEFINITION is a numbered item at the head of a line whose title is
 #: bold.  Both files use it; nothing else in the repo does.
 DEF = re.compile(r"^(\d+)\. \*\*", re.M)
+
+#: A DEFINITION's TITLE is the bold run that opens it. Non-greedy and DOTALL
+#: because a long title wraps across source lines; `_TITLE_MAX_LINES` is what
+#: stops a definition with a broken `**` from swallowing the paragraphs after
+#: it and comparing something that is not a title at all.
+DEF_TITLE = re.compile(r"^(\d+)\. \*\*(.*?)\*\*", re.M | re.S)
+_TITLE_MAX_LINES = 6
+
+#: CLAUDE.md's index table: `| 59 | `C` | <title> |`. Read ONLY from inside the
+#: index section -- another table with the same column shape elsewhere in the
+#: file must not be read as an index row.
+INDEX_HEAD = "## The doctrine index"
+INDEX_ROW = re.compile(r"^\|\s*(\d+)\s*\|\s*`([A-FW])`\s*\|(.*?)\|[ \t]*$", re.M)
+#: `W` is CLAUDE.md; `A`-`F` are METHOD.md's own parts, which the index's
+#: closing paragraph names one by one.
+METHOD_PART = re.compile(r"^## Part ([A-F]) · ", re.M)
 
 #: A REFERENCE is "doctrine"/"doctrines" followed by one or more numbers joined
 #: by /, comma, &, +, "and", "or".  The separator run must be followed by a
@@ -679,6 +745,161 @@ def gap_check():
     return defined, cited
 
 
+# ── the index table against the definitions ───────────────────────────────
+#
+# The numbering checks above all read `^\d+\. \*\*` and stop at the `**`. This
+# reads what comes AFTER it, which is the half nothing was looking at.
+
+#: Each fold is (name, why it exists). Every one is measured on every run --
+#: `index_check` re-runs the comparison with each disabled and reports how many
+#: rows need it, so an over-broad tolerance is visible instead of assumed.
+FOLDS = (
+    ("wrap", "a definition's title wraps across source lines with "
+             "indentation; a table cell is one line"),
+    ("period", "a definition's title ends `.**`; the index cell does not"),
+    ("emphasis", "inline `**` and backticks are formatting, not wording"),
+    ("struck", "`~~...~~` is a superseded title kept visible (doctrine 17); "
+               "struck text is never the current title"),
+    ("dash", "em dash, en dash and `--` are one dash"),
+    ("pipe", "`\\|` is the only way a `|` reaches a markdown cell"),
+)
+
+
+def _norm(s, skip=()):
+    """-> the comparable form of a title. Every fold is named in FOLDS."""
+    if "struck" not in skip:
+        s = re.sub(r"~~.*?~~", "", s)
+    if "emphasis" not in skip:
+        s = s.replace("**", "").replace("`", "")
+    if "pipe" not in skip:
+        s = s.replace("\\|", "|")
+    if "dash" not in skip:
+        s = s.replace("—", "-").replace("–", "-")
+        s = re.sub(r"-{2,}", "-", s)
+    if "wrap" not in skip:
+        s = re.sub(r"\s+", " ", s)
+    s = s.strip()
+    if "period" not in skip:
+        s = s.rstrip(" .")
+    return s
+
+
+def _verdict(dtitle, ititle, skip=()):
+    """-> "same" | "annotated" | "" for one row's pair of titles.
+
+    "annotated" is the ONE structural tolerance: the index row may carry a
+    trailing parenthesised note the definition does not (a dated repin, which
+    is what doctrine 17 asks for). It must be BALANCED and at the END, so
+    doctrine 57's own `1/(n+1)` is compared rather than stripped -- and
+    ABBREVIATION is not tolerated in either direction, because all 95 rows
+    agree in full and a prefix rule would pass a truncated one.
+    """
+    d, i = _norm(dtitle, skip), _norm(ititle, skip)
+    if d == i:
+        return "same"
+    if i.startswith(d) and d:
+        rest = i[len(d):].strip()
+        if len(rest) > 2 and rest.startswith("(") and rest.endswith(")"):
+            depth = 0
+            for ch in rest:
+                depth += (ch == "(") - (ch == ")")
+                if depth < 0:
+                    return ""
+            if depth == 0:
+                return "annotated"
+    return ""
+
+
+def def_titles():
+    """-> ({n: (rel, part, title)}, problems) for both doctrine files."""
+    out, problems = {}, []
+    for rel in ("CLAUDE.md", "quality/METHOD.md"):
+        text = open(os.path.join(ROOT, rel), encoding="utf-8").read()
+        parts = [(m.start(), m.group(1)) for m in METHOD_PART.finditer(text)]
+        for run in re.finditer(
+                r"<!-- DOCTRINE-BLOCK -->(.*?)<!-- /DOCTRINE-BLOCK -->",
+                text, re.S):
+            off = run.start(1)
+            for m in DEF_TITLE.finditer(run.group(1)):
+                n, title = int(m.group(1)), m.group(2)
+                if title.count("\n") + 1 > _TITLE_MAX_LINES:
+                    problems.append(
+                        f"doctrine {n}: the bold title in {rel} runs "
+                        f"{title.count(chr(10)) + 1} lines, so its closing "
+                        f"`**` is probably missing. Not compared.")
+                    continue
+                pos = off + m.start()
+                part = "W" if rel == "CLAUDE.md" else None
+                for start, letter in parts:
+                    if start < pos:
+                        part = letter
+                out[n] = (rel, part, title)
+    return out, problems
+
+
+def index_rows():
+    """-> ({n: (letter, title)}, problems), read only from the index section."""
+    text = open(os.path.join(ROOT, "CLAUDE.md"), encoding="utf-8").read()
+    if INDEX_HEAD not in text:
+        return {}, [f"CLAUDE.md carries no `{INDEX_HEAD}` section, so the "
+                    f"index cannot be checked at all."]
+    body = text.split(INDEX_HEAD, 1)[1].split("\n## ")[0]
+    out, problems = {}, []
+    for m in INDEX_ROW.finditer(body):
+        n = int(m.group(1))
+        if n in out:
+            problems.append(f"doctrine {n} has more than one index row.")
+        out[n] = (m.group(2), m.group(3))
+    return out, problems
+
+
+def index_check(defs):
+    """-> (problems, stats). The index row and the definition must AGREE.
+
+    Numbers were already checked four ways above; this is the first thing that
+    reads the TITLE the index carries, and the home file/part beside it.
+    """
+    dt, problems = def_titles()
+    rows, rp = index_rows()
+    problems += rp
+    stats = {"rows": len(rows), "same": 0, "annotated": 0,
+             "needed": {name: 0 for name, _ in FOLDS}}
+
+    for n in sorted(set(defs) | set(rows)):
+        if n not in rows:
+            problems.append(f"doctrine {n} is defined and has NO index row. "
+                            f"Every number resolves through that table.")
+            continue
+        if n not in defs:
+            problems.append(f"doctrine {n} has an index row and is defined "
+                            f"nowhere.")
+            continue
+        letter, ititle = rows[n]
+        rel, part, dtitle = dt[n]
+        if part != letter:
+            where = "CLAUDE.md" if letter == "W" else f"METHOD part {letter}"
+            problems.append(
+                f"doctrine {n}: the index says `{letter}` ({where}) and the "
+                f"definition is in {rel}"
+                + (f" part {part}." if part and part != "W" else "."))
+        verdict = _verdict(dtitle, ititle)
+        if not verdict:
+            problems.append(
+                f"doctrine {n}: the index title and the definition title "
+                f"DISAGREE. A title repinned in one place and not the other "
+                f"is the defect this catches.\n"
+                f"           index: {_norm(ititle)!r}\n"
+                f"           {rel + ':':<14s} {_norm(dtitle)!r}")
+            continue
+        stats[verdict] += 1
+        # WHICH FOLDS ARE DOING WORK, re-derived per run rather than written
+        # down: a tolerance nobody exercises is disclosed, not carried quietly.
+        for name, _ in FOLDS:
+            if not _verdict(dtitle, ititle, skip=(name,)):
+                stats["needed"][name] += 1
+    return problems, stats
+
+
 # ── the pre-split baseline ────────────────────────────────────────────────
 #
 # DERIVED FROM HISTORY, NEVER FROM THE WORKING TREE. `--baseline` used to
@@ -991,6 +1212,18 @@ def main():
     for n in sorted(missing_gaps):
         ok = False
         print(f"         known gap {n} cited, not defined")
+
+    iprob, istats = index_check(defs)
+    print(f"[{'ok  ' if not iprob else 'FAIL'}] every index row's TITLE agrees "
+          f"with its definition's title  ({istats['rows']} rows: "
+          f"{istats['same']} identical after normalisation, "
+          f"{istats['annotated']} carrying a trailing annotation)")
+    for p in iprob:
+        ok = False
+        print(f"         {p}")
+    used = [f"{name} {istats['needed'][name]}" for name, _ in FOLDS]
+    print(f"[note] rows that NEED each fold: {', '.join(used)}  "
+          f"(a fold at 0 is unexercised — declared, not doing work)")
 
     problems, counts = registry_check(defs)
     print(f"[{'ok  ' if not problems else 'FAIL'}] every doctrine carries a "

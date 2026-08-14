@@ -715,17 +715,48 @@ null is most wrong. The two constraints close on each other.
 
 ## Doctrine 76: the detection floor, stated beside the null
 
-`python3 quality/positive_control.py`, re-run today and unchanged — it is
-outside the retraction and this cell did not touch it:
+`python3 quality/positive_control.py`, re-run at the declared seed `20260810`
+and reproducing cell for cell — it is outside the *time-layer retraction* and
+this cell did not touch it:
 
 | events | slots | c=0.40 | c=0.50 | c=0.60 | c=0.75 | c=0.90 |
 |---:|---:|---:|---:|---:|---:|---:|
-| 8 | 65 | 0.02 | 0.06 | 0.13 | 0.82 | 1.00 |
+| 8 | 65 | 0.02 | 0.06 | 0.13 | 0.82 † | 1.00 |
 | 20 | 120 | 0.04 | 0.24 | 0.88 | 1.00 | 1.00 |
-| 40 | 240 | 0.24 | 0.94 | 1.00 | 1.00 | 1.00 |
+| 40 | 240 | 0.24 | 0.94 ‡ | 1.00 | 1.00 | 1.00 |
+
+> † **NOT A CELL VALUE — ONE SEED'S DRAW, MARKED 2026-08-13.** This table is the
+> FOURTH copy of `positive_control.py`'s power sweep in this repo, and it is the
+> copy the 2026-08-13 power repin did not reach: the sentence above said
+> *"re-run today and unchanged"*, and being outside the **time-layer**
+> retraction was read as being outside that repin too. It is not — the two are
+> different events, and *unchanged* here is REPRODUCIBILITY at a fixed seed, not
+> stability across seeds. ~~0.82~~ is superseded as a point value and kept
+> visible (doctrine 17).
+>
+> **The spread, the median, the seed list and the full argument are NOT restated
+> here** — they live once, under this table's own copy in
+> `quality/POSITIVE_CONTROL.md` (the `†` note beneath its version of these same
+> rows, and the box below it). Read them there. A fourth transcription of a
+> ten-seed sweep is a fourth thing to go stale, which is the defect this note
+> exists to stop rather than to repeat. What has to be carried HERE, because it
+> changes how the row may be read: `python3 quality/positive_control.py --check`
+> pins this case as a **BAND, not a cell**, because a cell pin on it would be
+> red nine seeds in ten — so no reader may plan a cell around `0.82`, and the
+> sentence below must not rest on it.
+>
+> ‡ **NOT RE-RUN — stated so it is not mistaken for a checked cell.** The
+> "40 events at 50%" sentence directly below rests on this cell, and `0.50` at
+> 40 events is not among the cells `POSITIVE_CONTROL.md`'s box records as
+> seed-swept (that list is the ceiling, the floor, and `c=0.60` at 8 and 40
+> events). It reproduces at the declared seed; its spread across seeds is
+> UNMEASURED here, and this note claims nothing about it either way
+> (doctrine 20/28 — "not checked" is not "checked and stable").
 
 The statistic needs roughly **40 events at 50% phase concentration** for 0.80
-power. Its framing sentence — *"the corrected sonnets carry 5–8 events"* — is
+power — a threshold crossing read off `‡` above, so read it as the order of
+magnitude it is and not as a boundary anyone has pinned. Its framing sentence —
+*"the corrected sonnets carry 5–8 events"* — is
 the voided figure; at the honest family they carry **0**. So the detection floor
 is not merely unmet. **It is unreachable by a factor of ∞ at the registered
 window and by 10× at the only window that fires**, and the gap between "what

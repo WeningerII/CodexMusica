@@ -129,18 +129,43 @@ end to end). The split:
     12 cross-validated joint AUCs    < 1 CPU-s
 
 Against a warm fingerprint-matching cache the same 69 checks take 6.9 s wall /
-6.5 s CPU — but see COLD vs WARM above for why that is a developer's
-convenience and not what CI gets. The
-20,000-shuffle permutation tests that dominate `discriminate.main`'s own
-report are NOT run here; the AUCs this file pins do not need them.
+6.5 s CPU -- but see COLD vs WARM above for why that is a developer's
+convenience and not what CI gets. The 20,000-shuffle permutation tests that
+dominate `discriminate.main`'s own report are NOT run here; the AUCs this file
+pins do not need them.
+
+QUOTE THE CPU FIGURE, NOT THE WALL FIGURE. Two cold runs on this box measured
+CPU 1056.7 s and 1053.2 s -- 0.3% apart -- while their WALL times were 1066.1 s
+and 1441.2 s, a 35% spread caused entirely by other work on the same four
+cores. Wall time here is a measurement of the neighbours.
 
 THREAD PINNING IS NOT OPTIONAL and is done below, before numpy is imported.
 `audit_joint_auc_null.py` measured the same BLAS spin-wait at 625 CPU-s
 unpinned against 32 pinned for identical output; the matrices here are 132x10
 and 192x8, far smaller than the cost of waking four threads to serve them.
 
-This is too expensive for a per-commit hook. See the RUN line below for where
-it belongs.
+
+WHERE THIS BELONGS
+------------------
+NOT a per-commit hook: 17.6 CPU-minutes is roughly 35x the whole rest of
+`quality/test_*.py` put together, and none of it can be shortened without
+giving up the cold guarantee, because 99.8% of it is the 384 extractions the
+cold guarantee IS.
+
+Run it where the numbers it guards are read or published:
+  * before editing `quality/RESULTS.md`, `RESULTS_WITHIN_ITEM.md` or any
+    document quoting an AUC from this module;
+  * on any change to `features.py`, `within_item.py`, `discriminate.py`, or
+    `lyric_harness.py`'s comparator path -- the first three of which the cache
+    fingerprint already names, and the fourth of which is the path by which
+    the cache went stale in the first place;
+  * on a schedule (nightly / pre-release), never on a pull request.
+
+The cheap companion that DOES belong on every commit is
+`quality/audit_joint_auc_null.py --check`, which grades four of these eight in
+~40 s -- but only against a warm cache, and it REFUSES (exit 2) without one.
+The two are complements, not substitutes: that one is fast and conditional,
+this one is slow and unconditional.
 
 Run: python3 quality/test_discriminate.py [--cache=PATH]
      Exit 0 pass, 1 drifted, 2 REFUSED (a declared resource is absent --

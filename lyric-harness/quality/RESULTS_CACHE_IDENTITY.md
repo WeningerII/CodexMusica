@@ -29,6 +29,11 @@ costs.
 
 ## What the identity is
 
+*(AS IT WAS WHEN THIS WAS FOUND, 2026-08-13. `SOURCE_FILES` moved to
+`_digest_source` at the landing later the same day; `RESOURCE_FILES` still
+reads exactly as described here. §What landed has the current state. This
+section is left in its own tense because the cost below was paid under it.)*
+
 `quality/discriminate.py`'s `cache_identity()` keys the stored feature-vector
 cache on, among other things, a `_digest_file` of every entry in
 `SOURCE_FILES`:

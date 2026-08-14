@@ -459,17 +459,43 @@ use the caesura at
 all — it is a whole-line predicate. So the marked-mode +0.6 pp is very largely
 not a caesura measurement, which is a second reason not to read it.
 
-### 2.2 Kalevala 81.2% alliteration — and the obvious null is a no-op
+### 2.2 Kalevala alliteration — and the obvious null is a no-op
 
 > **REPINNED 2026-08-13: 81.3%, and the line count was wrong in the record all
 > along.** `python3 quality/audit_kalevala_null.py --check` measures **22,795**
-> verse lines (the record says 22,822) and **3,253** of the first 4,000
-> alliterating (the record says 3,246), i.e. **81.3%** rather than 81.2%.
-> The script had been PRINTING the line-count disagreement on every run —
-> `verse lines extracted: 22795   (data/sources.tsv records 22,822)` — and
+> verse lines and **3,253** of the first 4,000 alliterating, i.e. **81.3%**
+> rather than the ~~81.2%~~ this section was written against.
+>
+> **THE RECORD HAS SINCE CAUGHT UP, AND THIS BOX NO LONGER DESCRIBES A
+> DISAGREEMENT — RE-VERIFIED 2026-08-13, later the same day.** As first written
+> this box said *"the record says 22,822"* and *"the record says 3,246"*. Those
+> were claims about the CURRENT contents of another file, and the origin row
+> `data/sources.tsv:58` has been repinned to **22,795** and **3,253 (81.3%)**
+> with the superseded figures kept visible and dated beside them. Both
+> parentheticals are therefore struck: ~~(the record says 22,822)~~ ~~(the
+> record says 3,246)~~. **Do not re-copy the origin's numbers into this
+> sentence** — read them at `data/sources.tsv:58`, which is where they are
+> maintained; a sentence of the form *"file X records Y"* is a hard-coded copy
+> of another file and goes false the moment that file moves, which is exactly
+> what happened here.
+>
+> The script had been PRINTING the line-count disagreement on every run and
 > exiting 0 regardless, because `main()` returned None and `sys.exit` was never
 > called with a code. Nothing ran it, so nobody read the disagreement it was
-> printing to itself. Fourth instrument of that shape found in a day.
+> printing to itself. Fourth instrument of that shape found in a day. **The
+> line it printed is quoted below AS IT READ on 2026-08-13 BEFORE the record
+> moved; it is a historical exhibit, not the program's current output:**
+>
+> ~~`verse lines extracted: 22795   (data/sources.tsv records 22,822)`~~
+>
+> It does not read that way now. `quality/audit_kalevala_null.py` owns that
+> line and has since been given both the origin's line number and an explicit
+> verdict word, so the disagreement it once printed silently is now stated as
+> agreement or disagreement in the text. **Run the instrument and read its first
+> two lines rather than trusting this transcript** — a quoted copy of another
+> program's stdout is the same hard-coded copy as a quoted copy of another
+> file's contents, and it goes stale the same way, twice over here: once when
+> the number moved and once when the line's wording did.
 >
 > **The finding of this section is untouched and is not about the rate.** The
 > within-line shuffle is still a no-op — it agrees with the observation on
@@ -484,8 +510,21 @@ not a caesura measurement, which is a second reason not to read it.
 > alliterating in each window. The null medians are samples and are left to the
 > printed p.
 
-`data/sources.tsv` and `POSITIVE_CONTROL.md` Part E record "81.2% alliterate"
-as a bare rate. **The audit brief's default null for a line-internal relation
+`data/sources.tsv:58` and `quality/POSITIVE_CONTROL.md` Part E record the
+Kalevala alliteration rate **as a bare rate, with no null beside it** — and it
+is the bareness, not the value, that this section is about.
+
+> **STRUCK AND CONVERTED TO A REFERENCE 2026-08-13.** This sentence used to read
+> *"...record `81.2% alliterate` as a bare rate"*, which was a hard-coded copy
+> of two other files' contents and is now **FALSE FOR BOTH**: each was repinned
+> to **81.3%** the same day, with ~~81.2%~~ kept visible and dated in place. The
+> number is deliberately NOT restated here. Read it at `data/sources.tsv:58` —
+> the origin row every other site quotes — or run
+> `python3 quality/audit_kalevala_null.py --check`, which measures it. Updating
+> the copy instead of removing it would only reschedule this same failure for
+> the next time the origin moves.
+
+**The audit brief's default null for a line-internal relation
 would have manufactured a perfect null here:** "two or more words in this line
 share an initial class" is *invariant* under any permutation of the line's
 words. Measured: a within-line shuffle agrees with the observation on
@@ -503,7 +542,7 @@ destroy co-membership and nothing else.
   length-conditional word inventory. Destroys strictly less than A.
 
 ```
-first 4000 lines (the recorded window), 22,796 verse lines extracted
+first 4000 lines (the recorded window), 22,796 verse lines extracted   [see † below]
   R_obs 81.3%   NULL A  N=200: median 30.1%, min 28.7%, max 33.1%
                 excess over MEDIAN +51.2 pp, over MAX +48.3 pp
                 p = 0.0050  <- AT THE FLOOR
@@ -513,17 +552,58 @@ all 22,795 verse lines
                 NULL B  median 30.2%, max 31.0%   over MAX +51.6 pp  p at floor
 ```
 
+> † **THE TWO COUNTS IN THIS BLOCK DIFFER BY EXACTLY ONE LINE, AND IT IS NOT AN
+> EDITION, A BOUNDARY OFF-BY-ONE OR AN APPARATUS FILTER — MEASURED 2026-08-13.**
+> The block is left verbatim because it is what the run printed. **22,796 is the
+> extraction from the RAW GITenberg file; 22,795 is `corpus/fin_kalevala.txt`,
+> and the extra line is the single `* * *` divider before the epilogue.** Run
+> down below (§3 item 4), where this used to be recorded as a guess.
+
 The constraint is real and enormous. **But roughly 30 of the 81 points are
-chance** — a third of the recorded headline is the null, so "81.2% alliterate"
-was never a usable number even though it was never a wrong one.
+chance** — a third of the recorded headline is the null, so the recorded rate
+was never a usable number even though it was never a wrong one. *(This sentence
+quoted* "81.2% alliterate" *until 2026-08-13; the rate is now ~~81.2%~~ →
+**81.3%** at `data/sources.tsv:58`, and the sentence is deliberately rewritten
+to name no value at all, because its argument is about the MISSING null and
+holds at any rate the origin row carries.)*
 
 *Independently reached by a sibling cell mid-audit* (commit `5094bf2`, which
 also fixed three `fin.py` defects). My observed rate moved 81.1% → 81.3% under
 me when that landed, which is itself worth recording: the rate is a coordinate
 of the `fin.py` revision and it moved twice in one afternoon. The lift did not.
-My extraction gives **22,796** verse lines from the raw GITenberg file and
-**22,795** from `corpus/fin_kalevala.txt`, against the recorded **22,822**.
-The rates agree to the decimal on all three.
+
+**The three line counts, and what each one IS — RESOLVED 2026-08-13.** This
+paragraph used to end *"My extraction gives **22,796** verse lines from the raw
+GITenberg file and **22,795** from `corpus/fin_kalevala.txt`, against the
+recorded **22,822**. The rates agree to the decimal on all three."* The middle
+term and the recorded term have since converged, and the first is now explained
+rather than merely reported:
+
+| count | what it is |
+|---:|---|
+| **22,795** | `corpus/fin_kalevala.txt`, and — since 2026-08-13 — `data/sources.tsv:58` too, where ~~22,822~~ is kept visible and dated. Both instruments return it: `audit_kalevala_null.py --check` and `kalevala_rate.py`. |
+| **22,796** | this audit's own extraction **from the raw GITenberg file**, which is 22,795 verse lines **plus the single `* * *` divider** before the epilogue. |
+| ~~22,822~~ | the superseded record. **Not reproduced by any filter of the raw file** — see §3 item 4. |
+
+The **22,796** is settled by measurement, not inference. The raw file
+(`7000-8.txt`, md5 `87449afc4728aa740409c5c405e21a15`, 636,150 bytes — re-fetched
+and checksummed 2026-08-13) has, between `Mieleni minun tekevi` and the PG end
+marker, **22,845 non-blank lines: 49 indented four spaces (the runo headings)
+and 22,796 indented two.** The two extractors in this repo drop different things
+from that 22,796:
+
+* `quality/audit_kalevala_null.py`'s `verse_lines` filters on **content** — it
+  drops numeral-only lines and short `runo` headings — and has no rule for a
+  line of asterisks, so `* * *` survives as a verse line. **→ 22,796.**
+* `quality/kalevala_rate.py`'s `extract` filters on **indentation plus a
+  letter-bearing test**, and `* * *` carries no letter, so it drops. **→ 22,795,
+  which is what got staged.**
+
+Diffed directly: the multiset difference between the two extractions of the same
+raw bytes is exactly one element, `'* * *'`, in that direction and with nothing
+in the other. This is also why the same script reports 22,796 on the raw file
+and 22,795 on the staged one — one extractor, two inputs, and the divider was
+already gone from the second.
 
 ### 2.3 律詩 88.1% at the mandated positions
 
@@ -683,8 +763,65 @@ independently. *Also reached by a sibling cell* (commit `22876d1`).
    auditing it.
 3. **"253 poems / 88.1%" and "300 poems / 264 = 88.0%"** are the same statistic
    at two values of `tang_poems(limit=…)`.
-4. **Kalevala 22,822 vs 22,796 verse lines** — a filter difference, almost
-   certainly runo headings. Immaterial to the rate, unstated.
+4. ~~**Kalevala 22,822 vs 22,796 verse lines** — a filter difference, almost
+   certainly runo headings. Immaterial to the rate, unstated.~~
+   **RUN DOWN 2026-08-13. The DIAGNOSIS was wrong, not just the digits — and
+   correcting the mechanism is the finding here.** A plausible-but-wrong
+   mechanism is worse than an unexplained number, because it stops the next
+   person looking. **Three counts, and they have THREE different causes; the
+   entry above blurred them into one.** The raw GITenberg file was re-fetched
+   and checksummed (`87449afc4728aa740409c5c405e21a15`, 636,150 bytes,
+   byte-identical to the record) and every claim below was measured.
+   - **"Almost certainly runo headings" is REFUTED, on both files.** There are
+     exactly **49** runo headings in the raw body (the lines indented four
+     spaces), and none of the gaps in question is 49: 22,822−22,796 = **26**,
+     22,822−22,795 = **27**, 22,845−22,822 = **23**. On the STAGED file no
+     heading filter fires at all — zero numeral-only lines, zero runo headings —
+     so the hypothesis is not merely unproven there, it is measurably empty.
+   - **22,796 has TWO independent causes, and this document's own sentence names
+     the first.** §2.2 says the figure came *"from the raw GITenberg file"*, so
+     that is the one this entry is accountable for:
+     1. **On the RAW file — the `* * *` divider, and it is a real extra line.**
+        `audit_kalevala_null.py`'s `verse_lines` filters on CONTENT and has no
+        rule for a line of asterisks, so the divider survives as a verse line;
+        `kalevala_rate.py`'s `extract` requires a letter-bearing line at indent
+        2, so it drops. Multiset difference between the two extractions of the
+        same bytes: exactly `{'* * *': 1}`, nothing in the other direction.
+        Derivation under §2.2. **This is not a reader off-by-one** —
+        `verse_lines` discards empty strings, and returns 22,795 on the staged
+        file under 0, 1 and 3 trailing newlines alike (measured), so it cannot
+        be inflated by one.
+     2. **On the STAGED file — a trailing-newline off-by-one in the reader.**
+        `corpus/fin_kalevala.txt` ends with a newline, so
+        `read().split("\n")` yields **22,796** elements of which the last is
+        `""`, while `splitlines()`, `list(open(...))` and `verse_lines` all give
+        **22,795**. Found by a sibling lot and recorded where it belongs, in
+        `verse_lines`'s own docstring in `quality/audit_kalevala_null.py` (that
+        function owns the definition of a verse line; not this file's to edit —
+        cited, not copied). **This one says nothing about the corpus at all.**
+     Keep the two apart. They are the same digits reached by a corpus fact and
+     by a reader defect, and collapsing them would re-create exactly the blur
+     this entry is being corrected for — doctrine 44's habit, applied to numbers
+     rather than to blockers.
+   - **22,822 itself: CANNOT TELL** (doctrine 20/28 — recorded as a third state,
+     not harmonised to 22,795). It is **not reproduced by any reading of this
+     file**: 36 combinations of 3 start boundaries (`Mieleni minun tekevi`,
+     file top, `*** START`) × 3 end boundaries (`End of the Project Gutenberg`,
+     `*** END`, file end) × 4 line filters (non-blank, indent 2, indent 2-or-4,
+     letter-bearing) yield 22,796–23,192, and **22,822 is not among them**; the
+     nearest attainable values are 22,797 and 22,845. Its provenance — a
+     different edition, a different source file, or a miscount — is not
+     determinable from anything in this repository.
+     **`data/sources.tsv:83` offers "the 27 extra were most likely runo headings
+     counted as verse", and that is a HYPOTHESIS, flagged here rather than
+     inherited as a fact:** it is not reproduced by any whole-class filter above,
+     and there are 49 headings, not 27, so it would require 22 of them to have
+     been counted and 27 not — which nothing in this repo shows. That row is the
+     staging cell's to keep or revise; this entry only records that the audit
+     could not confirm it. The figure is superseded at the origin
+     (`data/sources.tsv:58`, where ~~22,822~~ is kept visible and dated), so
+     nothing downstream depends on resolving it; this entry records that it was
+     chased and did not close, rather than leaving the old guess standing.
 5. **`RESULTS_FWER.md` P2's table is a six-row table printed as three rows of
    six numbers**, so reading it gives 8.8% where the text says 5.4%. The mean
    is correct over six sonnets; the layout makes the claim uncheckable by
