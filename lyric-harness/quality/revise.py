@@ -1040,8 +1040,61 @@ class Reviser:
         COPIES — nothing the caller handed in is mutated, and the defect
         itself is still reachable through `SlopFloor` directly for whoever
         fixes it there.
+
+        A DECLARED RETURN IS SUBTRACTED, because the floor would charge the
+        writer for obeying the mandate. Doctrine 3's inversion is exactly this:
+        where a return is REQUIRED, repetition IS the requirement, and
+        `RefrainScheme.check_identity`'s own docstring already says handing
+        these pairs to a rhyme grader "would flag every correct refrain".
+        `to_mandate` acts on that by keeping identity out of `Mandate.groups`
+        -- but an A-1 mark also carries a rhyme LETTER, so `to_mandate` builds
+        groups from `blocks(self.code)` and the return pairs come back in
+        through the rhyme half. `--returns=` is blunter still: it passes the
+        same group list as both `groups` and `returns`. So on every path a
+        writer actually uses, the floor was seeing the returns after all.
+
+        WHAT THAT COST, measured on this repo's own villanelle fixture -- a
+        formally perfect one:
+
+            SHIPPED   pairs=93   REPEAT_IN_VERSE=1   ("carried by 6 of 93
+                                 pairs, under the declared 50% needed to read
+                                 it as a refrain")
+            SUBTRACT  pairs=81   REPEAT_IN_VERSE=0
+
+        while `returns_check` on the same draft returns [] -- the returns are
+        perfect and the layer that understands them says so. Two layers, one
+        draft, opposite verdicts, and the one that was wrong is the one that
+        does not know what a refrain is. Before today's severity split those
+        were FLAGS; the demotion masked this and never named it.
+
+        SUBTRACT RATHER THAN LICENSE-IN-PLACE, which was the obvious-looking
+        fix and is inverted. Licensing would route a 2x chorus into the
+        one-off branch (`seen == 1`) and flag it as "recurs NOWHERE"; a 3x
+        chorus would land on the recurring branch and be handed the 93.5%
+        disclosure, which was measured on recurring rhyme REPETENDS and says
+        nothing about a declared identity. There is no threshold that fixes
+        it, because a return's pair-density is a fact about how many times the
+        chorus repeats -- song structure, not craft.
+
+        `return_pairs()` and not `identity_pairs()`: `requirement()` answers
+        LICENSE_REPEAT for non-verbatim and UNKNOWN returns too, so an
+        identical word is not a defect there either.
+
+        SECOND-ORDER, AND THE REASON THIS IS NOT ONLY A SEVERITY QUESTION: the
+        return pairs were also inflating `npairs`, the denominator every real
+        radif is licensed against, so they could push a genuine refrain under
+        `radif_min_pair_fraction` and un-license it. They leave the numerator
+        and the denominator together.
+
+        This changes the pair set the FEATURE layer sees as well, not just the
+        relation layer -- `PREDICTABLE_RHYME`'s denominator moves on a draft
+        with returns. That is defensible (a returned line's rhyme was already
+        scored at its first instance, so those pairs were double-counted) but
+        it is a change beyond the relation checks and is said out loud here
+        rather than slipped in.
         """
-        pairs = m.pairs0()
+        ident = {(i - 1, j - 1) for i, j, *_ in m.return_pairs()}
+        pairs = [p for p in m.pairs0() if p not in ident]
         qf = copy.copy(self.floor.qf)
         qf.pairs_from_scheme = staticmethod(lambda _s, _p=pairs: list(_p))
         fl = copy.copy(self.floor)

@@ -685,6 +685,61 @@ def test_x_is_not_a_rhyme_class_in_the_floor_either():
           "L5 is declared free; it answers nothing")
 
 
+def test_a_declared_return_is_not_slop():
+    """17b. the floor charged the writer for obeying the mandate.
+
+    NOTHING PINNED THIS, WHICH IS WHY IT SHIPPED. `_floor_for` handed the
+    slop floor `m.pairs0()`, and on every path a writer actually uses the
+    declared return pairs are IN pairs0 -- an A-1 mark carries a rhyme letter
+    so `to_mandate` builds groups from `blocks(self.code)`, and `--returns=`
+    passes one group list as both `groups` and `returns`. So the floor read a
+    correct refrain as a word rhyming with itself.
+    """
+    print("\n17b. a declared RETURN is the requirement, not the slop")
+    lines = [l.strip() for l in VILLANELLE.strip().splitlines()
+             if l.strip()] if isinstance(VILLANELLE, str) else list(VILLANELLE)
+    m = SC.mandate(SC.REFRAIN_FORMS["villanelle"])
+    fl, pseudo = R._floor_for(m)
+
+    rp = list(m.return_pairs())
+    check("the villanelle's refrain pairs are IN pairs0 — this is the leak",
+          len(rp) == 12 and len(m.pairs0()) == 93,
+          f"{len(m.pairs0())} rhyme pairs, {len(rp)} of them declared returns")
+    check("and the floor is handed pairs0 MINUS them",
+          len(fl._pairs(lines, pseudo)) == 81,
+          f"93 - 12 = {len(fl._pairs(lines, pseudo))}. Both the numerator and "
+          f"the denominator: the returns were also inflating `npairs`, which "
+          f"is what every real radif is licensed against.")
+
+    found = fl.check(lines, pseudo)
+    rep = [f for f in found if f.code == "REPEAT_IN_VERSE"]
+    check("a formally PERFECT villanelle draws no REPEAT_IN_VERSE",
+          not rep,
+          f"{[(f.severity, f.evidence[:60]) for f in rep]} — before this was "
+          f"subtracted the shipped code produced 1 ('carried by 6 of 93 "
+          f"pairs, under the declared 50% needed to read it as a refrain'), "
+          f"and before the 2026-08-14 severity split it was a FLAG."
+          if rep else "0 — it was 1, reading the refrain as slop")
+
+    check("the layer that DOES understand identity agreed all along",
+          list(m.returns_check(lines)) == [],
+          "returns_check() is empty on this draft: the returns are perfect. "
+          "Two layers, one draft, opposite verdicts — and the one that was "
+          "wrong is the one that does not know what a refrain is.")
+
+    # THE OTHER HALF, WITHOUT WHICH THIS IS JUST A MUTED CHECK. Removing a
+    # false charge is only correct if the true one survives.
+    broken = list(lines)
+    broken[5] = broken[5].replace("takes", "hauls")
+    m2 = SC.mandate(SC.REFRAIN_FORMS["villanelle"])
+    kinds = [k for _, _, _, k, _ in m2.returns_check(broken)]
+    check("a DRIFTED return is still caught, by the layer that owns it",
+          bool(kinds),
+          f"{sorted(set(kinds))} — one interior word changed and the refrain "
+          f"requirement fails, so the subtraction removed a false charge "
+          f"without removing a true one.")
+
+
 def test_the_field_is_the_graders_own_field():
     print("\n18. doctrine 94 — the brief and the verdict ask the same question")
     from lyric_harness import admits, best_score
@@ -2213,6 +2268,7 @@ if __name__ == "__main__":
                test_a_derived_cover_is_independent_at_another_theta,
                test_findings_are_not_printed_six_times,
                test_x_is_not_a_rhyme_class_in_the_floor_either,
+               test_a_declared_return_is_not_slop,
                test_the_field_is_the_graders_own_field,
                test_no_joint_candidate_was_a_coordinate_of_a_literal,
                test_the_four_rejections_on_the_songs_own_shape,
