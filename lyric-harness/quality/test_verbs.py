@@ -71,6 +71,17 @@ WHAT IS ASSERTED, AND IN WHAT ORDER
      FILE declared what (doctrine 79), which is the half only the command
      line knows — `quality/revise.py` carries both counts and neither path
 
+ 18. two sections MAY SHARE A NAME, and verse/chorus/bridge/chorus is the
+     commonest song form there is. `song`'s STRUCTURE cross-check counted
+     `l.section == s.name`, so each chorus was charged with BOTH choruses'
+     lines and `chorus: 4 lyric line(s), blueprint places 8` printed TWICE;
+     `quality/fit.py`'s `overlap_findings` bucketed on the same name while
+     `Placement.start` is section-RELATIVE, so all EIGHT chorus lines were
+     reported as intersecting their own return. Ten findings, one cause, on a
+     song with no defect in it. §7 cannot find this either: nothing raises,
+     nothing exits non-zero — the verb answers, fluently, about a defect that
+     is not there
+
 Run: python3 quality/test_verbs.py
 """
 
@@ -162,6 +173,23 @@ def test_the_map_is_not_stale():
         lh.VERB_LAYERS = saved
 
 
+def _fit_unsat_column(out):
+    """-> {section: UNSAT count} off a `fit` report, by COLUMN not by line.
+
+    Extracted from §2 so §3 can stop indexing `splitlines()[3]`; see the note
+    at that call site for what a positional assertion into a report costs the
+    first time a disclosure line is added above the table.
+    """
+    rows = {}
+    for line in out.splitlines():
+        f = line.split()
+        if len(f) >= 12 and f[0] in ("verse1", "verse2", "pre", "chorus",
+                                     "bridge", "chorus2", "outro"):
+            rows[f[0]] = f
+    # column order: section meter group bars lines units per_bar UNSAT ...
+    return {k: int(v[7].rstrip("*")) for k, v in rows.items()}
+
+
 def test_fit_answers_whether_the_words_fit_the_bars():
     print("\n2. `fit` — the chorus overflows and the 7/8 verses do not")
     rc, out, err = run("fit", EXAMPLE_BP, "--subdivision", "2")
@@ -170,14 +198,7 @@ def test_fit_answers_whether_the_words_fit_the_bars():
     check("the declared subdivision is echoed as a DECLARED coordinate",
           "2 slot(s) per pulse, DECLARED" in out)
 
-    rows = {}
-    for line in out.splitlines():
-        f = line.split()
-        if len(f) >= 12 and f[0] in ("verse1", "verse2", "pre", "chorus",
-                                     "bridge", "chorus2", "outro"):
-            rows[f[0]] = f
-    # column order: section meter group bars lines units per_bar UNSAT ...
-    unsat = {k: int(v[7].rstrip("*")) for k, v in rows.items()}
+    unsat = _fit_unsat_column(out)
     check("the 4/4 choruses report UNSATISFIABLE lines at Subdivision(2)",
           unsat.get("chorus", 0) > 0 and unsat.get("chorus2", 0) > 0,
           f"chorus {unsat.get('chorus')}, chorus2 {unsat.get('chorus2')}")
@@ -203,9 +224,17 @@ def test_fit_refuses_the_undeclared_subdivision():
     check("the slot questions are refused by name",
           "NO_SUBDIVISION" in out,
           "the refusal causes line carries it")
+    # READ THE COLUMN, NOT A LINE NUMBER. This was
+    # `out.split("TOTAL")[0].splitlines()[3]` — the fourth line of the
+    # report, which happened to be `verse1`'s row on the day it was written
+    # and became the COLUMN HEADER the moment a disclosure line was added
+    # above the table (the `isochrony:` line, 2026-08-14). A positional index
+    # into a human report is an assertion about the layout, not about the
+    # measurement, and it fails in the one direction that teaches nothing.
+    unsat = _fit_unsat_column(out)
     check("the SAME blueprint reports 0 UNSAT with nothing declared — the "
           "overflow is a fact about the DECLARATION, not about the words",
-          " 0 " in out.split("TOTAL")[0].splitlines()[3])
+          unsat and set(unsat.values()) == {0}, f"UNSAT by section: {unsat}")
 
 
 def test_function_is_not_section_name():
@@ -260,12 +289,49 @@ def test_function_is_not_section_name():
     check("the rhyme key is declared with the flag it produced",
           "IDENTITY key" in out)
 
+    # TWO WAYS TO DECLARE A FUNCTION, AND THEY ARE NOT THE SAME KIND OF
+    # MISTAKE — REPINNED 2026-08-14. This case used to assert an
+    # `UnknownFunction` TRACEBACK on stderr at exit 1, and it was asserting
+    # the wrong half of a real distinction: the value here was typed on THIS
+    # COMMAND LINE, which makes it a flag refusal exactly like
+    # `--fallback=bogus`, and `--fallback` has printed a named refusal at
+    # exit 2 since 2026-08-12. The claim the check exists to make — that it
+    # does NOT fall back to verse, and that the vocabulary is named — is
+    # unchanged and is asserted below; what changed is that a caller in a
+    # pipeline can now tell this refusal from a crash.
     rc, out, err = run("function", EXAMPLE_BP, "--function=chorus:middle8")
-    check("a function outside the vocabulary RAISES rather than falling "
-          "back to verse",
-          "UnknownFunction" in err and "not inferred from" in err.lower()
-          or "is not a declared section function" in err,
-          err.strip().splitlines()[-1][:120] if err else "")
+    check("a CLI-declared function outside the vocabulary REFUSES at exit 2, "
+          "naming the flag and the vocabulary, rather than tracebacking",
+          rc == 2 and "REFUSED" in out and "--function=chorus:middle8" in out
+          and "is not a declared section function" in out
+          and "Traceback" not in err,
+          (out.strip().splitlines() or [""])[0][:140])
+    check("and it still does NOT fall back to verse",
+          "does NOT fall back to `verse`" in out)
+
+    # THE OTHER HALF, AND IT MUST NOT MOVE. `_blueprint_or_refuse`'s own
+    # docstring says `grid.UnknownFunction` is deliberately NOT caught: a
+    # blueprint whose own section declares "middle8" has a defect in a
+    # DECLARED coordinate of the FILE, which is a different thing from a
+    # file this reader could not read, and the two must not reach the
+    # operator wearing the same word. Converting the CLI flag above is only
+    # correct if this stays a raise, so it is pinned here rather than
+    # assumed.
+    bad = json.load(open(EXAMPLE_BP))
+    bad["sections"][0]["function"] = "middle8"
+    with tempfile.NamedTemporaryFile("w", suffix=".json",
+                                     delete=False) as fh:
+        json.dump(bad, fh)
+        badpath = fh.name
+    try:
+        rc, out, err = run("function", badpath)
+        check("a BLUEPRINT-declared function outside the vocabulary still "
+              "RAISES — it is a defect in the file's own coordinate, not a "
+              "flag the command line got wrong",
+              rc == 1 and "UnknownFunction" in err,
+              (err.strip().splitlines() or [""])[-1][:120])
+    finally:
+        os.unlink(badpath)
 
 
 def test_refrain_writes_the_villanelle():
@@ -727,10 +793,20 @@ def test_relations_prints_the_search_burden_it_promises():
     # A schema filter that fires NOTHING has no burden to report, and the
     # sentence degrades to its pre-clause form rather than printing a zero
     # that would read as "the search was free" (doctrine 28).
-    rc, out2, _ = run("relations", quat, "--schema=zzz-no-such-schema")
+    #
+    # THE FIXTURE VALUE MOVED, and the reason is the distinction this case
+    # was accidentally collapsing. It was `--schema=zzz-no-such-schema`,
+    # which is a filter that matches NO SCHEMA AT ALL — a different event
+    # from a filter that selects real schemas none of which fire, and since
+    # 2026-08-14 it REFUSES at exit 2 rather than printing `schemas finding
+    # something: 0` in a genuine null's shape (§15). `prasa` is the case this
+    # check has always meant: it selects real schemas, they run, and nothing
+    # in an English quatrain answers them.
+    rc, out2, _ = run("relations", quat, "--schema=prasa")
     check("with nothing firing, the clause is absent rather than faked",
           rc == 0 and "member span(s) over" not in out2
-          and "reports the hypotheses per locus" in out2)
+          and "reports the hypotheses per locus" in out2,
+          [l for l in out2.splitlines() if "schemas finding" in l][:1])
 
     # The call site and the callee are pinned to each other. An arity that
     # drifts again fails HERE rather than reappearing as a missing clause.
@@ -961,6 +1037,427 @@ def test_no_broad_exception_handler_hides_a_call():
           len(broad) == 1, f"at lines {broad}")
 
 
+def _md5(s):
+    import hashlib
+    return hashlib.md5(s.encode()).hexdigest()
+
+
+def test_no_flag_silently_changes_a_measurement():
+    """15. A FLAG VALUE THE HARNESS DOES NOT HAVE MUST NOT CHANGE A NUMBER.
+
+    Three flags did, all three at exit 0, and each was found the same way:
+    by running the verb with a value that is not in its vocabulary and
+    DIFFING the output against the run with no flag at all.
+
+      * `scheme --profile bogus` — `PROFILES.get()` returned the default
+        weights, so the run was BYTE-IDENTICAL to no flag while `--profile
+        assonance` moved the violation count on the same four words.
+        `PROFILES["full"]` was ALSO `None`, so an unrecognised name was not
+        even distinguishable from the legitimate `full` inside `score()`.
+      * `fit --isochronous=true` (and the typo `--isochronus`) — a bare
+        presence flag standing between two flags that take values, so the
+        `=` spelling is the natural guess and was silently NOT the flag: 16
+        `NO_SETTING` refusals came back and the report named isochrony
+        nowhere at all.
+      * `relations --schema=bogus` — a substring filter that matched nothing
+        printed `schemas finding something: 0   refusing...: 0`, the same
+        shape as a genuine null, between the two paragraphs telling a reader
+        how to interpret exactly those counts.
+
+    What each check asserts is the pair doctrine 20 keeps apart: the bad
+    value REFUSES (exit 2, vocabulary named), and the coordinate is STATED in
+    the report whether it was declared or not — because a run whose
+    comparator is non-default and does not say so is doctrine 1 broken in the
+    rendering, and no exit code fixes that half.
+    """
+    print("\n15. no flag silently changes a measurement — the three Tier-1 "
+          "silent degradations, FIXED 2026-08-14")
+
+    # ---- 1. scheme --profile ------------------------------------------
+    quatrain = ["dawn", "again", "silt", "rebuilt"]
+    rc_none, none_out, _ = run("scheme", "ABAB", *quatrain)
+    rc_ass, ass_out, _ = run("scheme", "ABAB", "--profile", "assonance",
+                             *quatrain)
+    check("the profile is a REAL comparator on this input — the two runs "
+          "disagree, which is what makes silence about it a defect",
+          rc_none == 0 and rc_ass == 0
+          and _md5(none_out) != _md5(ass_out)
+          and none_out.count("VIOLATION") != ass_out.count("VIOLATION"),
+          f"violations {none_out.count('VIOLATION')} vs "
+          f"{ass_out.count('VIOLATION')}")
+
+    rc, out, err = run("scheme", "ABAB", "--profile", "bogus", *quatrain)
+    check("an undeclared profile REFUSES at exit 2 and NAMES the vocabulary "
+          "— it used to be byte-identical to no flag at all",
+          rc == 2 and "REFUSED" in out and "assonance" in out
+          and "full" in out and "rawi" in out and "Traceback" not in err,
+          (out.strip().splitlines() or [""])[0][:120])
+
+    check("the profile is PRINTED on every run, declared or not (doctrine "
+          "1 in the rendering) — nothing in this report named it before",
+          "profile: NONE DECLARED" in none_out
+          and "profile: assonance" in ass_out)
+
+    # `full` is a DECLARED name whose value is the Declaration's own weights.
+    # It must be accepted, must be named in the report, and must NOT be the
+    # value an unknown name lands on — which is what `PROFILES["full"] is
+    # None` made it.
+    rc_full, full_out, _ = run("scheme", "ABAB", "--profile", "full",
+                               *quatrain)
+    check("`full` is accepted and NAMED, and its numbers match the "
+          "undeclared run because it IS the Declaration's own weights",
+          rc_full == 0 and "profile: full" in full_out
+          and _md5(_strip_profile_line(full_out))
+          == _md5(_strip_profile_line(none_out)))
+
+    for spelling in (("--profile=assonance",), ("--profile", "assonance")):
+        rc, out, err = run("scheme", "ABAB", *quatrain, *spelling)
+        check(f"{' '.join(spelling)} is read AFTER the lines too — it used "
+              f"to fall into the line list and die on an AssertionError",
+              rc == 0 and "profile: assonance" in out
+              and "Traceback" not in err,
+              (err.strip().splitlines() or [""])[-1][:100])
+    rc, out, err = run("scheme", "ABAB", "--profile=assonance", *quatrain)
+    check("and the `=` spelling every sibling flag accepts is the flag here "
+          "too, in first position",
+          rc == 0 and "profile: assonance" in out
+          and "Traceback" not in err)
+
+    # ---- 2. fit --isochronous -----------------------------------------
+    rc_off, off, _ = run("fit", EXAMPLE_BP, "--subdivision", "2")
+    rc_on, on, _ = run("fit", EXAMPLE_BP, "--subdivision", "2",
+                       "--isochronous")
+    check("isochrony is a REAL coordinate on this fixture — declaring it "
+          "clears 16 NO_SETTING refusals",
+          rc_off == 0 and rc_on == 0 and "NO_SETTING" in off
+          and "NO_SETTING" not in on,
+          [l for l in off.splitlines() if "REFUSED, by cause" in l][:1])
+    check("the coordinate is PRINTED either way, in the same house style as "
+          "the `subdivision:` line beside it — isochrony was named NOWHERE "
+          "in this report",
+          "isochrony: NONE DECLARED" in off
+          and "isochrony: ASSUMED, DECLARED" in on)
+
+    rc, out, err = run("fit", EXAMPLE_BP, "--subdivision", "2",
+                       "--isochronous=true")
+    check("`--isochronous=true` REFUSES at exit 2 — it used to be silently "
+          "not the flag, restoring all 16 refusals",
+          rc == 2 and "REFUSED" in out and "takes NO value" in out
+          and "Traceback" not in err,
+          (out.strip().splitlines() or [""])[0][:120])
+
+    rc, out, err = run("fit", EXAMPLE_BP, "--subdivision", "2",
+                       "--isochronus")
+    check("and the one-letter typo `--isochronus` REFUSES too, naming the "
+          "flags this verb has — an unknown flag is not an ignorable one",
+          rc == 2 and "REFUSED" in out and "--isochronous" in out
+          and "--subdivision" in out,
+          (out.strip().splitlines() or [""])[0][:120])
+
+    # ---- 3. relations --schema= ---------------------------------------
+    rc_all, allout, _ = run("relations", EXAMPLE_TXT)
+    check("the unfiltered run states that NO filter was declared, and over "
+          "how many schemas the two counts below it were taken",
+          rc_all == 0 and "schema filter: NONE DECLARED" in allout
+          and "77 schemas asked" in allout)
+
+    rc, out, _ = run("relations", EXAMPLE_TXT, "--schema=rhyme")
+    check("a filter that matches states HOW MANY of the registry it "
+          "selected — `found`/`refused` are counts over a POPULATION and "
+          "the flag silently changed the denominator",
+          rc == 0 and "schema filter: 'rhyme'" in out
+          and "of 77 schemas asked" in out,
+          [l for l in out.splitlines() if "schema filter" in l][:1])
+
+    rc, out, err = run("relations", EXAMPLE_TXT, "--schema=bogus")
+    # The count line and the two interpretation paragraphs around it are the
+    # thing that must not be printed — a `0   0` between two paragraphs about
+    # how to read these counts is exactly what a genuine null looks like.
+    # (The refusal QUOTES the count line to say what it is refusing to print,
+    # so the assertion is on the report body, not on the substring.)
+    check("a filter matching NOTHING REFUSES at exit 2 instead of printing "
+          "`schemas finding something: 0`, which is a null's shape",
+          rc == 2 and out.lstrip().startswith("REFUSED")
+          and "matched 0 of 77" in out
+          and "TWO THINGS THESE COUNTS ARE NOT" not in out
+          and "refusing on a capability" not in out
+          and "Traceback" not in err,
+          (out.strip().splitlines() or [""])[0][:120])
+    check("and the refusal NAMES the vocabulary it would have accepted",
+          "perfect rhyme" in out and "alliteration" in out)
+
+
+def _strip_profile_line(out):
+    """The `scheme` report minus its own `profile:` disclosure line.
+
+    Needed by exactly one check: `--profile full` and no flag at all must
+    produce the same MEASUREMENT (that is what `full` means) and must NOT
+    produce the same REPORT (that is the fix). Comparing them requires
+    removing the one line that is allowed to differ.
+    """
+    return "\n".join(l for l in out.splitlines()
+                     if not l.strip().startswith("profile:"))
+
+
+def test_every_flag_value_refuses_in_one_shape():
+    """16. THE REFUSAL SHAPE IS ONE SHAPE, ON EVERY FLAG.
+
+    `--fallback=high|low` validated and exited 2 with a named message from
+    the day it was written. Seven other flag values refused correctly and did
+    it as an UNCAUGHT EXCEPTION — traceback, exit 1 — so one user mistake had
+    two answers depending on which flag was typed, and a pipeline could not
+    tell either of them from a crash in the spine. The MESSAGES were never
+    the problem; every one of these already named its own vocabulary. The
+    shape and the exit code were.
+    """
+    print("\n16. one refusal shape for every flag value — `REFUSED …`, exit "
+          "2, vocabulary named")
+    cases = [
+        ("--fallback (the model the rest copy)",
+         ("--fallback=bogus", "score", "cat", "--", "hat"), "'high' or 'low'"),
+        ("types --lang=",
+         ("types", "cat", "--", "hat", "--lang=bogus"), "no phonology"),
+        ("types --preset=",
+         ("types", "cat", "--", "hat", "--preset=bogus"), "wants one of"),
+        ("relations --lang=",
+         ("relations", EXAMPLE_TXT, "--lang=bogus"), "no phonology"),
+        ("fit --subdivision (not a number)",
+         ("fit", EXAMPLE_BP, "--subdivision", "x"), "positive whole number"),
+        ("fit --subdivision (out of range)",
+         ("fit", EXAMPLE_BP, "--subdivision", "0"), "positive whole number"),
+        ("cynghanedd --lang=",
+         ("cynghanedd", "--lang=bogus", "y cwch"), "wants one of"),
+    ]
+    for name, argv, needle in cases:
+        rc, out, err = run(*argv)
+        check(f"{name} refuses at exit 2, not a traceback at exit 1",
+              rc == 2 and out.lstrip().startswith("REFUSED")
+              and needle in out and "Traceback" not in err,
+              f"rc={rc} {(out.strip().splitlines() or [''])[0][:90]}")
+
+    # `cynghanedd --lang=` HAD THE SAME FIRST-POSITION-ONLY PARSE `--profile`
+    # did, found while fixing that one: read as `rest[0].startswith(...)`, so
+    # a trailing `--lang=eng` was not the flag AND the literal token
+    # `--lang=eng` was joined into the line being scored. Doctrine 45 — every
+    # result declares which phonology produced it — held in the printed
+    # header and not in the parse.
+    rc, out, _ = run("cynghanedd", "the cattle waded", "--lang=eng")
+    check("cynghanedd reads `--lang=` after the line too — it used to score "
+          "the flag itself as a word, under the default Welsh phonology",
+          rc == 0 and "phonology: eng" in out,
+          (out.strip().splitlines() or [""])[0][:100])
+
+    # THE TWO GLOBAL FLAGS AND THE VERB NAME ITSELF, same family one level
+    # out: `--voices=true` was neither the flag nor a verb, so it fell to the
+    # `unknown command` branch — which PRINTED AND RETURNED 0. A typo'd verb
+    # and a clean run of a real one were the same exit code.
+    rc, out, _ = run("--voices=true", "score", "cat", "--", "hat")
+    check("`--voices=true` REFUSES at exit 2 — the same `=`-on-a-bare-flag "
+          "hole `--isochronous` had, on the other global flag",
+          rc == 2 and "takes NO value" in out,
+          (out.strip().splitlines() or [""])[0][:110])
+    rc, out, _ = run("--voices", "score", "cat", "--", "hat")
+    check("and the flag itself still works, unchanged",
+          rc == 0 and "RHYME" in out)
+    rc, out, _ = run("schme", "ABAB")
+    check("an unknown VERB refuses at exit 2 too — it used to print one "
+          "line and return success",
+          rc == 2 and "unknown command" in out,
+          (out.strip().splitlines() or [""])[0][:110])
+
+
+def test_the_profile_lookup_raises_at_the_library_too():
+    """17. THE CLI WAS ONE SURFACE OF THE PROFILE HOLE; THIS IS THE HOLE.
+
+    `PROFILES["full"] is None` and `PROFILES.get(profile)` meant ANY caller
+    reaching `score`/`best_score`/`check_scheme`/`rhyme_graph` with a
+    `profile=` string the table does not have got the DEFAULT channel weights
+    and no signal of any kind — `quality/revise.py`, `quality/loop.py` and
+    `quality/test_band.py` all thread that parameter through. Fixing the flag
+    without fixing the lookup would leave the identical defect one import
+    away.
+    """
+    print("\n17. the profile lookup RAISES, and the default is a named "
+          "sentinel rather than None")
+    check("the default is an explicit sentinel, not None — that is what "
+          "made `full` and an unknown name the same value",
+          lh.PROFILES["full"] is lh.DECLARATION_CHANNELS
+          and lh.PROFILES["full"] is not None,
+          repr(lh.PROFILES["full"]))
+    check("and it is FALSY and answers .get like an empty mapping, so every "
+          "`if prof:` guard in score() reads as it did under None",
+          not lh.PROFILES["full"]
+          and lh.PROFILES["full"].get("require_final_consonant") is None
+          and lh.PROFILES["full"].get("weights", {}) == {})
+    check("an undeclared name RAISES UnknownProfile, naming the vocabulary",
+          _raises_unknown_profile(lambda: lh.channel_profile("bogus")))
+    check("UnknownProfile is a ValueError, so the CLI's one refusal handler "
+          "already catches it rather than needing a second",
+          issubclass(lh.UnknownProfile, ValueError))
+    check("None and 'full' both mean the Declaration's own weights, and "
+          "neither is the same as a name nobody declared",
+          lh.channel_profile(None) is lh.DECLARATION_CHANNELS
+          and lh.channel_profile("full") is lh.DECLARATION_CHANNELS)
+
+    decl, lex = lh.Declaration(), lh.Lexicon()
+    check("check_scheme raises on it BEFORE reading an anchor",
+          _raises_unknown_profile(
+              lambda: lh.check_scheme(lex, ["dawn", "again"], "AA", decl,
+                                      profile="bogus")))
+    check("rhyme_graph raises on it too — the graph is the primary object, "
+          "so which comparator built it is not substitutable (doctrine 2)",
+          _raises_unknown_profile(
+              lambda: lh.rhyme_graph(lex, ["dawn", "again"], decl,
+                                     profile="bogus")))
+    check("a declared profile still reaches the weights — the fix refuses "
+          "the unknown name and changes nothing about the known ones",
+          lh.check_scheme(lex, ["dawn", "silt"], "AA", decl,
+                          profile="assonance")["pair_scores"][0]["score"]
+          != lh.check_scheme(lex, ["dawn", "silt"], "AA", decl,
+                             profile="full")["pair_scores"][0]["score"])
+
+
+def _raises_unknown_profile(fn):
+    try:
+        fn()
+    except lh.UnknownProfile:
+        return True
+    return False
+
+
+_M44 = {"beats": 4, "unit": 4, "groups": [2, 2]}
+_VERSE = ("the door was numbered plainly on the frame",
+          "the window carried nothing but the cold",
+          "a stairwell climbed to nowhere anyone could name",
+          "the hallway kept a story never told")
+_CHORUS = ("we kept the ledger open every day",
+           "we checked the sum again into the night",
+           "and every debt was counted once again",
+           "we held the number up against the light")
+_BRIDGE = ("a bicycle leaned rusting by the gate",
+           "a kettle whistled somewhere out of sight")
+
+
+def _vcbc_blueprint(second="chorus", lopsided=False):
+    """verse / chorus / bridge / chorus, with BOTH choruses called `chorus`.
+
+    `lopsided` MOVES one line from the second chorus into the first rather
+    than deleting it: the draft's total stays 14, so `_meter_findings`'
+    correlate-by-position length check still passes and what is left is a
+    genuine PER-SECTION disagreement for the STRUCTURE cross-check to find.
+    """
+    def sec(n, bars, start, fn):
+        return {"name": n, "bars": bars, "start_bar": start,
+                "meter": dict(_M44), "function": fn}
+
+    def lines(texts, start, owner):
+        return [{"text": t, "bar": start + 2 * k, "beat": 1, "duration": 8,
+                 "section": owner} for k, t in enumerate(texts)]
+
+    ls = (lines(_VERSE, 1, "verse1") + lines(_CHORUS, 9, "chorus")
+          + lines(_BRIDGE, 17, "bridge") + lines(_CHORUS, 23, second))
+    if lopsided:
+        ls[13] = dict(ls[13], bar=16, section="chorus")
+    return {"title": "Ledger", "hooks": [_CHORUS[0]],
+            "sections": [sec("verse1", 8, 1, "verse"),
+                         sec("chorus", 8, 9, "chorus"),
+                         sec("bridge", 6, 17, "bridge"),
+                         sec(second, 8, 23, "chorus")],
+            "lines": ls}
+
+
+def _vcbc_lyric(second="chorus"):
+    out = []
+    for hdr, ls in (("verse1", _VERSE), ("chorus", _CHORUS),
+                    ("bridge", _BRIDGE), (second, _CHORUS)):
+        out.append(f"[{hdr}]")
+        out.extend(ls)
+        out.append("")
+    return "\n".join(out) + "\n"
+
+
+def _no_apparatus(text):
+    """The report with the run's own echo of its arguments removed."""
+    drop = ("BLUEPRINT:", "DECLARED", "HANDED IN", "STRUCTURE:")
+    return "\n".join(l for l in text.splitlines()
+                     if not any(w in l for w in drop))
+
+
+def test_song_does_not_invent_a_structure_defect_on_a_repeated_name():
+    print("\n18. `song` — two sections may share a name, and "
+          "verse/chorus/bridge/chorus is the commonest form there is")
+    # ONE CAUSE, TWO REPORTED DEFECTS, TEN FINDINGS, on a real song. `song`'s
+    # own STRUCTURE cross-check counted `[l for l in song.lines if l.section
+    # == s.name]`, so with two sections called `chorus` EACH entry counted
+    # BOTH choruses' lines and `chorus: 4 lyric line(s), blueprint places 8`
+    # printed TWICE -- a cross-check inventing a defect in a blueprint that
+    # was right. `quality/fit.py`'s `overlap_findings` bucketed on the same
+    # name while `Placement.start` is section-RELATIVE, so all EIGHT chorus
+    # lines were reported as sharing pulses with their own return fourteen
+    # bars later -- against that function's own docstring, which says lines
+    # are compared WITHIN a section and never across one. Renaming the second
+    # section cleared all ten and changed nothing else, which is what proved
+    # this was the KEY and not the model.
+    #
+    # NOT FINDABLE BY §7 ABOVE, which runs every verb without a traceback:
+    # nothing here raises, exits non-zero, or looks wrong to a rc check. The
+    # verb answers, fluently, about a song that has no such defect.
+    d = tempfile.mkdtemp()
+    paths = {}
+    for tag, second in (("dup", "chorus"), ("uniq", "chorus 2")):
+        bp = os.path.join(d, f"{tag}.blueprint.json")
+        tx = os.path.join(d, f"{tag}.txt")
+        with open(bp, "w") as fh:
+            json.dump(_vcbc_blueprint(second), fh)
+        with open(tx, "w") as fh:
+            fh.write(_vcbc_lyric(second))
+        paths[tag] = (bp, tx)
+
+    mand = "ABABCDCDEFCDCD"
+    rc, out, err = run("song", *paths["dup"], mand, "--subdivision", "4",
+                       expect_rc=0)
+    struct = [l.strip() for l in out.splitlines() if "STRUCTURE:" in l]
+    over = [l for l in out.splitlines() if "OVERLAPPING_SPANS" in l]
+    check("`song` runs on a blueprint with two sections named `chorus`",
+          rc == 0 and "Traceback" not in err,
+          (err.strip().splitlines() or ["(clean)"])[-1][:110])
+    check("the STRUCTURE cross-check reports NOTHING — the lyric and the "
+          "blueprint agree, and they did before too",
+          not struct, f"{len(struct)}: {struct}")
+    check("...and specifically not the doubled count, which it printed TWICE",
+          not [l for l in struct if "blueprint places 8" in l])
+    check("no chorus line overlaps its own return — EIGHT OVERLAPPING_SPANS "
+          "came out of this file, one per chorus line",
+          not over, f"{len(over)} OVERLAPPING_SPANS")
+
+    # THE CONTROL. The identical song with the second chorus renamed was
+    # always clean; the two runs must now be one run.
+    rc2, out2, _e = run("song", *paths["uniq"], mand, "--subdivision", "4",
+                        expect_rc=0)
+    check("renaming the second section changes NOTHING in the report — the "
+          "control that turns this from an argument into a measurement",
+          rc2 == 0 and _no_apparatus(out) == _no_apparatus(out2))
+
+    # AND THE CROSS-CHECK IS NOT SILENCED, which is how a fix like this goes
+    # wrong: a counter that reports nothing is not a counter that is right.
+    # One line MOVED from the second chorus into the first, in the blueprint
+    # only -- 5 and 3 against the lyric's 4 and 4.
+    bp3 = os.path.join(d, "lopsided.blueprint.json")
+    with open(bp3, "w") as fh:
+        json.dump(_vcbc_blueprint("chorus", lopsided=True), fh)
+    rc3, out3, _e3 = run("song", bp3, paths["dup"][1], mand,
+                         "--subdivision", "4", expect_rc=0)
+    hit = [l.strip() for l in out3.splitlines()
+           if "STRUCTURE:" in l and "lyric line(s)" in l]
+    check("a REAL per-instance mismatch is still reported, and the two "
+          "same-named choruses are told apart — 5 against one and 3 against "
+          "the other, where a name-keyed count says 8 for both",
+          rc3 == 0
+          and hit == ["STRUCTURE: chorus: 4 lyric line(s), blueprint places 5",
+                      "STRUCTURE: chorus: 4 lyric line(s), blueprint places 3"],
+          f"{hit}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -976,6 +1473,10 @@ if __name__ == "__main__":
     test_relations_prints_the_search_burden_it_promises()
     test_no_broad_exception_handler_hides_a_call()
     test_blueprint_mismatch_refuses_on_every_verb()
+    test_song_does_not_invent_a_structure_defect_on_a_repeated_name()
+    test_no_flag_silently_changes_a_measurement()
+    test_every_flag_value_refuses_in_one_shape()
+    test_the_profile_lookup_raises_at_the_library_too()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

@@ -27,6 +27,7 @@ import json
 import os
 import re
 import sys
+import textwrap
 import urllib.request
 from dataclasses import dataclass, field, asdict
 
@@ -185,8 +186,44 @@ CLICHE_PAIRS = {
 # Channel profiles: a scheme constraint is not one scalar — it can bind
 # individual channels. assonance = nucleus-only (Old French laisse);
 # rawi = final consonant identity, vowels free (Arabic qafiya core).
+class _DeclarationChannels:
+    """What `PROFILES["full"]` holds: USE THE DECLARATION'S OWN WEIGHTS.
+
+    IT USED TO HOLD `None`, AND THAT IS THE WHOLE DEFECT. Every reader
+    reached the table through `PROFILES.get(profile)`, which returns `None`
+    for `"full"` -- a legitimate, declared profile name -- and ALSO returns
+    `None` for a name the table does not have. So by the time any weight was
+    read, `profile="full"` and `profile="bogus"` were the SAME VALUE, and the
+    second silently became the first. Measured at the CLI on one quatrain
+    (`scheme ABAB dawn again silt rebuilt`): `--profile bogus` was
+    BYTE-IDENTICAL to no flag at all and exited 0, while `--profile
+    assonance` moved the violation count 2 -> 1 on the same four words. A
+    coordinate that changes a measurement must not be reachable by typo.
+
+    Falsy, and `.get` answers like an empty mapping, so every `if prof:` and
+    `prof.get(...)` guard downstream reads exactly as it did when this was
+    `None` -- the arithmetic is untouched. What changes is that the default is
+    now DISTINGUISHABLE from an unrecognised name, which is what lets
+    `channel_profile()` raise instead of guessing.
+    """
+
+    __slots__ = ()
+
+    def __bool__(self):
+        return False
+
+    def get(self, key, default=None):
+        return default
+
+    def __repr__(self):
+        return "<full: the Declaration's own channel weights>"
+
+
+#: The explicit sentinel `PROFILES["full"]` holds. NOT `None` -- see above.
+DECLARATION_CHANNELS = _DeclarationChannels()
+
 PROFILES = {
-    "full": None,
+    "full": DECLARATION_CHANNELS,
     "assonance": {"weights": {"nucleus": 0.85, "coda": 0.0, "stress": 0.15},
                   "interior": {"nucleus": 0.65, "coda": 0.0, "onset": 0.2,
                                "stress": 0.15}},
@@ -195,6 +232,51 @@ PROFILES = {
                           "stress": 0.15},
              "require_final_consonant": True},
 }
+
+
+class UnknownProfile(ValueError):
+    """A channel-profile name `PROFILES` does not have.
+
+    A `ValueError` on purpose: the CLI already has ONE refusal shape for a
+    declared coordinate it cannot read (`_blueprint_or_refuse`), and this
+    joins it rather than adding a second. A NAMED subclass so a caller that
+    wants to tell "you typed a profile that does not exist" apart from "your
+    blueprint's time signature is undeclared" can, without matching on
+    message text.
+    """
+
+
+def channel_profile(profile):
+    """`None` | a name | a pre-built dict -> the channel profile to score under.
+
+    THE LOOKUP RAISES. `PROFILES.get(profile)` did not, and every caller of
+    `score`/`best_score`/`check_scheme`/`rhyme_graph` inherited that: a
+    library caller passing `profile="assonanace"` got the DEFAULT channel
+    weights and no signal of any kind that the profile it declared had been
+    dropped. The CLI's `--profile` was one surface of that hole; this is the
+    hole.
+
+    `None` means "not declared" and returns the same sentinel `"full"` names,
+    because they are the same reading -- what neither of them is, any more, is
+    the same as a name nobody declared.
+    """
+    if profile is None:
+        return DECLARATION_CHANNELS
+    if not isinstance(profile, str):
+        # A pre-built weights dict, handed in directly. Unchanged: this path
+        # never went through the table and was never ambiguous.
+        return profile
+    try:
+        return PROFILES[profile]
+    except KeyError:
+        raise UnknownProfile(
+            f"{profile!r} is not a declared channel profile; declared "
+            f"profiles are {', '.join(sorted(PROFILES))}. The channel "
+            f"weights are a coordinate of the declaration (doctrine 1), so "
+            f"an unrecognised name is REFUSED rather than quietly scored "
+            f"under the default weights -- which is what `PROFILES.get()` "
+            f"did, and which made an unknown profile byte-identical to no "
+            f"profile at all.") from None
 
 
 # ---------------------------------------------------------------------------
@@ -1965,7 +2047,13 @@ def score(anc_a, anc_b, decl, word_a=None, word_b=None, profile=None):
         raise ValueError(
             f"Declaration.scalar_alignment must be 'head' or 'tail', "
             f"got {decl.scalar_alignment!r}")
-    prof = PROFILES.get(profile) if isinstance(profile, str) else profile
+    # `channel_profile`, NOT `PROFILES.get`: an unknown name RAISES here
+    # rather than returning `None` and being scored under `decl`'s own
+    # weights, which is what made an undeclared profile indistinguishable
+    # from the declared `full` (see `_DeclarationChannels`). The sentinel is
+    # falsy and answers `.get` like an empty mapping, so the three reads of
+    # `prof` below are unchanged.
+    prof = channel_profile(profile)
     if prof:
         w0 = prof["weights"]
         wi = prof.get("interior", prof["weights"])
@@ -2183,6 +2271,12 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
     that make a rate computable are returned explicitly: divide by
     `pairs_judged`, never by `pairs_mandated`.
     """
+    # FAIL FAST ON THE PROFILE, before a single anchor is read. `score()`
+    # would raise on it anyway, but it does so once per PAIR from four frames
+    # down, and this function's whole contract is "the comparator these
+    # counts were obtained under" -- an undeclared comparator is not a thing
+    # to discover partway through a matrix.
+    channel_profile(profile)
     assert len(scheme) == len(lines), "scheme length must equal line count"
     anchors, endwords = [], []
     for line in lines:
@@ -2363,6 +2457,10 @@ def rhyme_graph(lex, lines, decl, theta=None, profile=None):
     `refused_edges` names the pairs that were never compared. An edge missing
     for a refused pair is a missing MEASUREMENT, not a measured non-relation.
     """
+    # Same fail-fast as `check_scheme`, and for the same reason: the graph IS
+    # the primary object (doctrine 2), so which comparator built it is not a
+    # detail that may be silently substituted.
+    channel_profile(profile)
     if theta is None:
         theta = decl.theta_rhyme
     data = []
@@ -3230,7 +3328,12 @@ commands (the fifteen spine verbs):
   score  W1 -- W2         graded pair score with sub-scores
   candidates W [n]        ranked rhyme candidates
   meter  'template' L...  meter check ('.'=weak '/'=strong)
-  scheme SCHEME L1 L2 ... scheme check, e.g. AABB  [--profile assonance|rawi]
+  scheme SCHEME L1 L2 ... scheme check, e.g. AABB
+                          [--profile full|assonance|rawi] (or --profile=,
+                          either position) REBINDS THE CHANNEL WEIGHTS every
+                          score is computed under, so it is printed in the
+                          report on every run and an undeclared name REFUSES
+                          at exit 2 rather than falling back to `full`
   song   BLUEPRINT LYRIC [MANDATE] [--subdivision N] [--isochronous]
                           the marked [Section] lyric against the bar-grid
                           BLUEPRINT (positional, not --blueprint=): cross-
@@ -3402,6 +3505,159 @@ def _flag_value(args, flag, eq_only=False):
     return None
 
 
+def _strip_flag(args, flag, bare=False):
+    """-> `args` with `--flag=V`, `--flag V`, or a bare `--flag` removed.
+
+    THE COMPANION `_flag_value` NEVER HAD, and its absence is why `--profile`
+    was only ever recognised in FIRST POSITION: the `scheme` verb read
+    `rest[0] == "--profile"` and then consumed the flag by slicing `rest[2:]`,
+    so reading and removing were two different pieces of code that agreed on
+    exactly one spelling in exactly one place. `--profile=assonance` -- the
+    `=` spelling every sibling flag on every other verb accepts -- matched
+    neither, fell through into the LINE LIST as a fifth line, and died on
+    `check_scheme`'s length assertion with a traceback at exit 1; a trailing
+    `--profile assonance` after the lines did the same.
+
+    One reader, one remover, both spellings, any position, so no site has to
+    spell the parse twice and get it right twice. `bare` for a presence flag
+    that takes no value at all (`--isochronous`, `--voices`), where the token
+    AFTER the flag is an ordinary argument and must not be eaten.
+    """
+    out, skip, pre = [], False, flag + "="
+    for a in args:
+        if skip:
+            skip = False
+            continue
+        if a == flag:
+            skip = not bare
+            continue
+        if a.startswith(pre):
+            continue
+        out.append(a)
+    return out
+
+
+def _refuse(msg):
+    """Print the ONE refusal shape and exit 2. Never returns.
+
+    `_blueprint_or_refuse` has printed `  REFUSED -- {e}` at exit 2 since the
+    `song` verb's own handler was generalised, and `--fallback=high|low` had
+    a second, hand-rolled copy of the same idea two hundred lines away. This
+    is that shape, extracted, so a flag that refuses does not have to invent
+    one -- and so a caller in a pipeline can tell a refusal (2) from a pass
+    (0) and from a crash (1) on EVERY flag rather than on the two whose
+    authors happened to remember.
+    """
+    print(f"  REFUSED — {msg}")
+    sys.exit(2)
+
+
+def _value_in_vocabulary_or_refuse(flag, value, vocabulary, why=""):
+    """Membership-test a flag's value AT THE PARSE SITE, or refuse.
+
+    AT THE PARSE SITE is the whole point, and it is where `--profile` did not
+    have one. `PROFILES.get(profile)` three layers down returned the default
+    weights for an unrecognised name, so `scheme ABAB --profile bogus dawn
+    again silt rebuilt` was byte-identical to the same command with no flag
+    -- same numbers, same relations, same counts, exit 0 -- while `--profile
+    assonance` moved the violation count on those same four words. A flag
+    that CHANGES A MEASUREMENT and accepts a name the harness does not have
+    is a silent comparator substitution, which is doctrine 1 broken at the
+    one place a user could still have seen it.
+
+    The vocabulary is NAMED in the message, the same way `--fallback`'s and
+    `grid.as_function`'s already are: a refusal that does not say what would
+    have been accepted makes the reader guess a second time.
+    """
+    if value in vocabulary:
+        return value
+    _refuse(f"{flag} wants one of {', '.join(sorted(vocabulary))}; got "
+            f"{value!r}." + (f" {why}" if why else ""))
+
+
+def _bare_flag_or_refuse(args, flag, subject):
+    """-> True/False for a PRESENCE flag, refusing the `=` spelling loudly.
+
+    `--isochronous` takes no value, and the two flags standing beside it on
+    the same verbs (`--blueprint=`, `--subdivision`) both take one -- so
+    `--isochronous=true` is the natural guess, and `"--isochronous" in args`
+    is simply False for it. Measured on `fit quality/fixtures/
+    song.blueprint.json --subdivision 2`: `--isochronous=true` was
+    BYTE-IDENTICAL to omitting the flag, restoring 16 `NO_SETTING` refusals
+    at exit 0, and the string "isochron" appeared NOWHERE in either report --
+    so there was nothing to read even for a reader who went looking. A value
+    on a valueless flag is a REFUSAL now, not a shrug.
+    """
+    if flag in args:
+        return True
+    for a in args:
+        if a.startswith(flag + "="):
+            _refuse(f"{flag} takes NO value -- it is a bare presence flag "
+                    f"declaring {subject}, and {a!r} is not it. Write "
+                    f"{flag} on its own to declare it; omit it to leave it "
+                    f"UNDECLARED.")
+    return False
+
+
+def _no_unknown_flags_or_refuse(rest, known, verb):
+    """Refuse a flag this verb does not have, rather than ignoring it.
+
+    `--isochronus` -- one letter short of `--isochronous` -- was silently not
+    the flag: the membership test that reads it did not match, the declared
+    assumption was dropped, `fit` printed a full report at exit 0, and the 16
+    restored `NO_SETTING` refusals were the only trace. A typo in a flag that
+    changes a measurement has to be louder than the measurement it changed.
+
+    Call it with the flag VALUES already stripped (`_strip_flag`), so
+    `--subdivision -1`'s value is not itself read as an unknown flag.
+    """
+    bad = [a for a in rest if a.startswith("-")]
+    if bad:
+        _refuse(f"{verb} has no flag {bad[0].split('=', 1)[0]!r}. It takes: "
+                f"{', '.join(known)}. An unrecognised flag is refused rather "
+                f"than ignored -- a flag that is silently not read leaves a "
+                f"report that looks exactly like one you never asked for.")
+
+
+def _phonology_or_refuse(lang):
+    """`--lang=X` -> the declared phonology, or the ONE refusal shape.
+
+    `quality.phonology.get` already refuses correctly AND names its whole
+    declared vocabulary in the message -- it just did it as an `Unsupported`
+    traceback at exit 1, on `types` and on `relations` both, while
+    `--fallback=bogus` two hundred lines up printed a named refusal at exit
+    2. The message is carried through verbatim; what changes is that a caller
+    in a pipeline can now tell this refusal from a crash.
+    """
+    from quality.phonology import get as _get, Unsupported
+    try:
+        return _get(lang)
+    except Unsupported as e:
+        _refuse(f"--lang={lang}: {e}")
+
+
+def _subdivision_or_refuse(FT, raw, source):
+    """`--subdivision N` -> a `quality.fit.Subdivision`, or refuse by name.
+
+    Both failures on this flag were tracebacks at exit 1 -- `int(raw)` raising
+    `invalid literal for int() with base 10: 'x'`, and
+    `Subdivision.__post_init__` raising `slots_per_pulse must be >= 1` -- one
+    screen away from `--fallback`, which refuses by name at exit 2. Same
+    class of user mistake, two different answers, decided by which flag was
+    typed. The MESSAGES were never the problem and are carried through
+    unchanged; the shape and the exit code were.
+    """
+    if raw is None:
+        return None
+    try:
+        return FT.Subdivision(slots_per_pulse=int(raw), source=source)
+    except ValueError as e:
+        _refuse(f"--subdivision wants a positive whole number of slots per "
+                f"pulse; got {raw!r} ({e}). It is a DECLARED coordinate with "
+                f"no default -- omit it entirely and the slot questions "
+                f"refuse rather than assume a sixteenth-note grid.")
+
+
 def _blueprint_or_refuse(fn, *a, **k):
     """Run a blueprint reader, or print the ONE refusal shape and exit 2.
 
@@ -3437,8 +3693,7 @@ def _blueprint_or_refuse(fn, *a, **k):
     except reraise:
         raise
     except ValueError as e:
-        print(f"  REFUSED — {e}")
-        sys.exit(2)
+        _refuse(e)
 
 
 def _grid_song(GR, bp):
@@ -3500,10 +3755,15 @@ def main():
     fallback = _flag_value(args, "--fallback", eq_only=True)
     if fallback is not None:
         if fallback not in ("high", "low"):
-            print(f"  --fallback wants 'high' or 'low', got {fallback!r} "
-                  f"(quality.g2p.Fallback.min_confidence's own vocabulary; "
-                  f"doctrine 1 -- not free text, not coerced)")
-            sys.exit(2)
+            # THE MODEL THE OTHER FLAGS NOW COPY. Text unchanged apart from
+            # the `REFUSED --` prefix `_refuse` supplies: this flag has
+            # validated and exited 2 since it was written, and what was wrong
+            # was that it did so ALONE, in its own hand-rolled shape, while
+            # `--profile`, `--isochronous` and `--schema=` beside it took an
+            # undeclared value and changed a measurement in silence.
+            _refuse(f"--fallback wants 'high' or 'low', got {fallback!r} "
+                    f"(quality.g2p.Fallback.min_confidence's own vocabulary; "
+                    f"doctrine 1 -- not free text, not coerced)")
         args = [a for a in args if not a.startswith("--fallback=")]
 
     # --voices is a GLOBAL, bare-presence flag (no value, like --isochronous)
@@ -3514,7 +3774,10 @@ def main():
     # group, not a non-sung aside -- so `line_tokens`/`Lexicon.transcribe`
     # keep those words instead of erasing them. Omitted, nothing changes:
     # every verb reads `(...)` as a stage direction exactly as it always has.
-    voices = "--voices" in args
+    voices = _bare_flag_or_refuse(
+        args, "--voices",
+        "that `(...)`/`*...*` in the lyric file is VOICE-ATTRIBUTION notation "
+        "(a second voice, a group) rather than a non-sung stage direction")
     if voices:
         args = [a for a in args if a != "--voices"]
 
@@ -3603,11 +3866,20 @@ def main():
                   f"(not in the numerator or the denominator)")
 
     elif cmd == "cynghanedd":
+        # SAME DEFECT AS `scheme --profile`, FOUND WHILE FIXING IT: `--lang=`
+        # was read in FIRST POSITION ONLY, so `cynghanedd "the cattle waded"
+        # --lang=eng` was scored under the DEFAULT Welsh phonology AND had
+        # the literal token `--lang=eng` joined into the line it scored.
+        # Doctrine 45 -- every result declares which phonology produced it --
+        # held in the printed header and not in the parse.
         rest = args[1:]
-        language = "cym"
-        if rest and rest[0].startswith("--lang="):
-            language = rest[0].split("=", 1)[1]
-            rest = rest[1:]
+        language = _flag_value(rest, "--lang", eq_only=True) or "cym"
+        _value_in_vocabulary_or_refuse(
+            "--lang", language, ("cym", "eng"),
+            "cynghanedd is a WELSH form: 'cym' is the language of the form "
+            "and 'eng' is a labelled English imitation (doctrine 45). "
+            "Another language's phonology is refused, not substituted.")
+        rest = _strip_flag(rest, "--lang")
         res = check_cynghanedd(lex, " ".join(rest), decl, language=language)
         print(f"  phonology: {res['language']} — {res['phonology']}")
         if not res["found"]:
@@ -3688,14 +3960,57 @@ def main():
                       f"{u['role']}): {u['reason']}")
 
     elif cmd == "scheme":
+        # `--profile` IS THE COMPARATOR. It rebinds the channel weights every
+        # number below is computed under, so it is a declared coordinate in
+        # exactly doctrine 1's sense -- and it was read by `rest[0] ==
+        # "--profile"` with no membership test and consumed by a slice, which
+        # got three separate things wrong at once:
+        #
+        #   * AN UNKNOWN NAME WAS THE DEFAULT. `PROFILES.get(profile)` three
+        #     frames down returned `None` for `bogus` and `None` for `full`
+        #     alike, so `scheme ABAB --profile bogus dawn again silt rebuilt`
+        #     was BYTE-IDENTICAL to the same command with no flag (md5
+        #     c41b1dcd..., both), exit 0, while `--profile assonance` on
+        #     those four words moves the violation count 2 -> 1. The library
+        #     half is closed at `channel_profile`; this is the parse site,
+        #     where a user can still be told.
+        #   * `--profile=assonance` -- the spelling every sibling flag
+        #     accepts -- was not the flag. It fell into the LINE LIST and
+        #     died on `check_scheme`'s length assertion, traceback, exit 1.
+        #   * so did a trailing `--profile assonance` after the lines.
+        #
+        # `_flag_value`/`_strip_flag` take both spellings in any position;
+        # the membership test is `_value_in_vocabulary_or_refuse`, the shape
+        # `--fallback` has had since it was written.
         scheme = args[1]
         rest = args[2:]
-        profile = None
-        if rest and rest[0] == "--profile":
-            profile = rest[1]
-            rest = rest[2:]
+        profile = _flag_value(rest, "--profile")
+        if profile is not None:
+            _value_in_vocabulary_or_refuse(
+                "--profile", profile, PROFILES,
+                "The profile rebinds the CHANNEL WEIGHTS every score below "
+                "is computed under, so an unrecognised name cannot fall "
+                "through to the default ones -- that is a silent comparator "
+                "substitution (doctrine 1).")
+            rest = _strip_flag(rest, "--profile")
         lines = rest
         res = check_scheme(lex, lines, scheme, decl, profile=profile)
+        # THE COMPARATOR, NAMED, ON EVERY RUN -- declared or not. Nothing in
+        # this report said which profile produced it, so a run under
+        # non-default channel weights and a run under the default ones were
+        # two identically-shaped reports whose numbers disagreed, with the
+        # deciding coordinate visible only in the shell history. Doctrine 1
+        # broken in the RENDERING (doctrine 91): the declaration was read
+        # correctly and then not stated. House style is `fit`'s `subdivision:
+        # ... DECLARED` and `function`'s `rhyme key: ...` lines.
+        print(f"  profile: "
+              + (f"{profile} — channel weights DECLARED at the command "
+                 f"line, not the Declaration's"
+                 if profile is not None and PROFILES[profile] else
+                 f"{profile} — the Declaration's own channel weights, "
+                 f"DECLARED at the command line" if profile is not None else
+                 "NONE DECLARED — the Declaration's own channel weights "
+                 "(equivalent to --profile full)"))
         print(f"scheme {scheme}  endwords {res['endwords']}")
         for p in res["pair_scores"]:
             head, *rest = report_pair(
@@ -3901,7 +4216,6 @@ def main():
 
     elif cmd == "types":
         from quality import rhyme_types as RT
-        from quality.phonology import get as _getphon
         rest, lang, preset = args[1:], "eng", None
         keep = []
         for a in rest:
@@ -3912,7 +4226,20 @@ def main():
             else:
                 keep.append(a)
         w1, w2 = [s.strip() for s in " ".join(keep).split("--")]
-        phon = _getphon(lang)
+        # BOTH of this verb's flags name a declared vocabulary, both already
+        # refuse an undeclared value with a message that names it, and both
+        # did it as a traceback at exit 1 -- `phonology.Unsupported` and
+        # `rhyme_types.classify_pair`'s `ValueError`. Same class of mistake
+        # as `--fallback=bogus`, one screen away, which refuses at exit 2.
+        # Membership-tested HERE, at the parse site, so the refusal names the
+        # FLAG the user typed rather than the parameter four frames down.
+        phon = _phonology_or_refuse(lang)
+        if preset is not None:
+            _value_in_vocabulary_or_refuse(
+                "--preset", preset, RT.PRESETS,
+                "A preset sets the ANCHOR RULE and the channel selection at "
+                "once (doctrine 83), so an unrecognised name cannot fall "
+                "through to the default pair.")
         kw = {"preset": preset} if preset else {}
         try:
             t = RT.classify_pair(w1, w2, phon, **kw)
@@ -4025,21 +4352,59 @@ def main():
         raw = [l.rstrip() for l in open(keep[0]).read().splitlines()
                if not is_apparatus_line(l)]
         lines = [l for l in raw if l.strip()]
-        phon = _getphon(lang)
+        phon = _phonology_or_refuse(lang)
         st = RL.build_stream(raw, phon,
                              stanzas=RL.stanzas_from_blank_lines(raw))
+        # --schema= IS A SUBSTRING FILTER OVER THE POPULATION THE TWO COUNTS
+        # BELOW ARE TAKEN FROM, and an unmatched value used to filter all 77
+        # schemas out and print `schemas finding something: 0   refusing on a
+        # capability eng does not have: 0` at exit 0 -- the SAME SHAPE as a
+        # genuine null, wrapped in the two paragraphs about how to read these
+        # counts, and reachable by no other flag (no filter gives 25/26 on
+        # this repo's own fixture). Two changes, and they are different
+        # fixes:
+        #
+        #   * A FILTER THAT SELECTED NOTHING REFUSES. It is not a null and
+        #     must not be printed in a null's shape.
+        #   * THE FILTER IS DISCLOSED ON EVERY RUN, matched or not, because
+        #     `found`/`refused` are counts over a POPULATION and a count
+        #     whose denominator was silently changed is doctrine 91's defect
+        #     exactly. The filter stays a substring match on purpose -- it is
+        #     how `--schema=rhyme` reaches a family -- so saying HOW MANY of
+        #     the 77 it selected is the only way a reader can tell a narrow
+        #     filter from a wide one.
+        all_schemas = list(RL.all_schemas().values())
+        selected = [s for s in all_schemas
+                    if not want or want.lower() in s.name.lower()]
+        if want and not selected:
+            _refuse(
+                f"--schema={want!r} matched 0 of {len(all_schemas)} relation "
+                f"schemas. It is a SUBSTRING match on the schema NAME, not a "
+                f"schema id, and a filter that selects nothing is refused "
+                f"rather than reported as a null: `schemas finding "
+                f"something: 0` would be the same sentence this verb prints "
+                f"about a text that genuinely carries no named relation. The "
+                f"vocabulary is:\n"
+                + textwrap.fill(", ".join(sorted(s.name for s in all_schemas)),
+                                width=74, initial_indent="      ",
+                                subsequent_indent="      "))
         print(f"  phonology {lang}   lines {len(lines)}   "
               f"units {len(st.units)}   UNREADABLE tokens "
               f"{len(st.unreadable)}")
+        print(f"  schema filter: "
+              + (f"{want!r} — {len(selected)} of {len(all_schemas)} "
+                 f"schemas asked (SUBSTRING match on the name). The two "
+                 f"counts below are over those {len(selected)}, not over the "
+                 f"registry"
+                 if want else
+                 f"NONE DECLARED — all {len(all_schemas)} schemas asked"))
         if st.unreadable:
             print(f"    dropped: {[u for u in st.unreadable[:8]]}"
                   f"{' ...' if len(st.unreadable) > 8 else ''}")
         found = refused = 0
         scope = {}
         burdens = []            # (schema name, search_burden) for FIRING ones
-        for sch in RL.all_schemas().values():
-            if want and want.lower() not in sch.name.lower():
-                continue
+        for sch in selected:
             out = RL.realise(sch, st)
             if isinstance(out, RL.Refusal):
                 refused += 1
@@ -4151,16 +4516,41 @@ def main():
         # Without it the slot questions REFUSE rather than assuming a
         # sixteenth-note grid -- the same refusal `meter.pulse_groups` makes
         # about an undeclared 7/8.
+        #
+        # --isochronous IS A MEASUREMENT SWITCH AND IT WAS REACHABLE BY LUCK.
+        # It declares the assumption that the pulses are evenly spaced, which
+        # is what lets the slot questions be asked at all; without it 16
+        # placements on this repo's own fixture answer NO_SETTING. It is a
+        # BARE presence flag standing between two flags that take values, so
+        # `--isochronous=true` is the natural guess and `"--isochronous" in
+        # args` is simply False for it. Measured on `fit quality/fixtures/
+        # song.blueprint.json --subdivision 2`: `--isochronous=true` and the
+        # one-letter typo `--isochronus` were each BYTE-IDENTICAL to omitting
+        # the flag (md5 a5ae7335..., all three), exit 0, 16 NO_SETTING
+        # refusals restored -- and the string "isochron" appeared NOWHERE in
+        # the report either way, so there was nothing to read even for a
+        # reader who went looking. Three fixes, and the third is the one that
+        # matters: refuse the `=` spelling, refuse the typo, and STATE THE
+        # COORDINATE unconditionally.
         from quality import fit as FT
-        sub = _flag_value(args, "--subdivision")
-        sub = FT.Subdivision(
-            slots_per_pulse=int(sub),
-            source="lyric_harness.py fit --subdivision, an explicit decision "
-                   "by whoever ran the command") if sub is not None else None
+        sub_arg = _flag_value(args, "--subdivision")
+        sub = _subdivision_or_refuse(
+            FT, sub_arg,
+            "lyric_harness.py fit --subdivision, an explicit decision "
+            "by whoever ran the command")
+        isochronous = _bare_flag_or_refuse(
+            args, "--isochronous", "that the pulses are evenly spaced in "
+            "time (there is no audio and no tempo here, so isochrony is an "
+            "ASSUMPTION and never a measurement)")
+        _no_unknown_flags_or_refuse(
+            _strip_flag(_strip_flag(
+                [a for a in args[2:] if a != "-v"], "--subdivision"),
+                "--isochronous", bare=True),
+            ("--subdivision N", "--isochronous", "-v"), "fit")
         assume = FT.Isochrony(
             source="lyric_harness.py fit --isochronous, an explicit "
                    "assumption by whoever ran the command") \
-            if "--isochronous" in args else None
+            if isochronous else None
         song = _blueprint_or_refuse(FT.fit_song, args[1], subdivision=sub,
                                     assume=assume, strip_parens=not voices)
         print(f"  module: quality/fit.py — syllables against the pulses of "
@@ -4169,6 +4559,17 @@ def main():
               + (f"{sub.s} slot(s) per pulse, DECLARED" if sub else
                  "NONE DECLARED — the slot questions refuse rather than "
                  "assume one"))
+        # THE SAME LINE THE SUBDIVISION HAS ALWAYS HAD, for the coordinate
+        # standing next to it. Isochrony was named NOWHERE in this report, so
+        # `--isochronous` silently taken and `--isochronous` silently dropped
+        # printed the same header over different numbers.
+        print(f"  isochrony: "
+              + (f"ASSUMED, DECLARED at the command line — "
+                 f"{assume.source}" if assume else
+                 "NONE DECLARED — the placements that need an even pulse "
+                 "answer NO_SETTING rather than assume one (there is no "
+                 "audio and no declared tempo, so this is never a "
+                 "measurement)"))
         print(FT.report(song, verbose="-v" in args))
         print("\n  WHAT THIS LAYER CANNOT BE ASKED, AND WHY")
         for q, why in FT.UNANSWERABLE:
@@ -4191,19 +4592,37 @@ def main():
             byname = {}
             for pair in fnspec.split(","):
                 if ":" not in pair:
-                    print(f"  --function wants SECTION:FUNCTION, got "
-                          f"{pair!r}")
-                    return
+                    # WAS `print(...); return` -- a refusal at EXIT 0, which
+                    # a caller in a pipeline reads as a pass over a blueprint
+                    # nothing was declared on. Same for the one below.
+                    _refuse(f"--function wants SECTION:FUNCTION, got "
+                            f"{pair!r}")
                 k, v = pair.split(":", 1)
                 byname[k.strip()] = v.strip()
+            # THE VALUE, MEMBERSHIP-TESTED AT THE PARSE SITE. `grid.
+            # as_function` already refuses an undeclared function and names
+            # the whole 21-word vocabulary, and it did so from inside
+            # `song_from_blueprint` as an `UnknownFunction` traceback at exit
+            # 1. Asking it HERE separates the two cases
+            # `_blueprint_or_refuse`'s `_reraise=` exists to keep apart: a
+            # bad value TYPED ON THIS COMMAND LINE is a flag refusal like
+            # `--fallback`'s, while a bad value DECLARED IN THE BLUEPRINT
+            # FILE is a defect in that file's own coordinate and still
+            # raises, uncaught, exactly as that helper's docstring requires.
+            for k, v in sorted(byname.items()):
+                try:
+                    GR.as_function(v)
+                except GR.UnknownFunction as e:
+                    _refuse(f"--function={k}:{v} — {e}")
             for s in bp.get("sections", []):
                 if s["name"] in byname:
                     s["function"] = byname[s["name"]]
             unknown = sorted(set(byname) - {s["name"]
                                             for s in bp.get("sections", [])})
             if unknown:
-                print(f"  --function names no such section: {unknown}")
-                return
+                _refuse(f"--function names no such section: {unknown}. The "
+                        f"blueprint declares: "
+                        f"{sorted(s['name'] for s in bp.get('sections', []))}")
             decls.append(f"function of {sorted(byname)} declared on the "
                          f"command line, not read from the blueprint")
         title = _flag_value(args, "--title", eq_only=True)
@@ -4392,15 +4811,23 @@ def main():
         from quality import fit as FT
         bp_path = _flag_value(args, "--blueprint", eq_only=True)
         sub_arg = _flag_value(args, "--subdivision")
-        subdivision = FT.Subdivision(
-            slots_per_pulse=int(sub_arg),
-            source="lyric_harness.py brief/verify/revise --subdivision, an "
-                   "explicit decision by whoever ran the command") \
-            if sub_arg is not None else None
+        subdivision = _subdivision_or_refuse(
+            FT, sub_arg,
+            "lyric_harness.py brief/verify/revise --subdivision, an "
+            "explicit decision by whoever ran the command")
+        # THE SAME `=`-SPELLING HOLE `fit` HAD, on the same flag, three verbs
+        # wide: `--isochronous=true` was stripped from `args` by the
+        # `_FLAG_NAMES` pass below (its base matches) and then read by
+        # `"--isochronous" in args` as absent, so the assumption was consumed
+        # and dropped in one pass.
         assume = FT.Isochrony(
             source="lyric_harness.py brief/verify/revise --isochronous, an "
                    "explicit assumption by whoever ran the command") \
-            if "--isochronous" in args else None
+            if _bare_flag_or_refuse(
+                args, "--isochronous",
+                "that the pulses are evenly spaced in time (there is no "
+                "audio and no tempo here, so isochrony is an ASSUMPTION and "
+                "never a measurement)") else None
 
         # WHICH FILE IS WHICH — doctrine 79, and the half of the refusal only
         # this frame can supply. `quality/revise.py`'s message carries both
@@ -4539,6 +4966,40 @@ def main():
             could drift apart from each other."""
             briefs = rv.brief(lines, scheme, blueprint=blueprint,
                               subdivision=subdivision, assume=assume)
+            # THE WHOLE-DRAFT HALF OF THE SAME FINDING SET. `inspect()`
+            # returns `per_line` AND `whole`; `brief()` is built from
+            # `per_line` only, because a `Brief` carries a `line_no`,
+            # `candidates` and `must_answer` and a finding that names no
+            # line does not fit inside one. So every whole-draft finding
+            # this run computed was DISCARDED HERE, silently, on `brief`
+            # and on `song` both -- including the only FLAG the
+            # song-function layer has (`HOOK_ABSENT`), the six
+            # `grid.stanza_lock` shape codes, and `LEXICAL_MONOTONY`.
+            # Measured on `quality/fixtures/song.txt` with a blueprint
+            # declaring an absent hook: `inspect()` put 10 findings in
+            # `whole` and this report printed 0 of them, while the banner
+            # above said "meter and song-function join the rhyme/floor
+            # finding set" -- true of the SET, false of the report.
+            #
+            # THE FIX IS IN THE REPORT, NOT IN `brief()`, and the
+            # precedent is `quality/loop.py`'s: `revise_loop` has the
+            # identical problem one layer up (its stop conditions read
+            # `brief()` and so cannot see a whole-draft flag either) and
+            # does NOT fabricate a line number to smuggle one into a
+            # `Brief` -- it SURFACES them separately, as
+            # `LoopResult.whole`/`.whole_flags`, printed under the stop
+            # reason by `LoopResult.disclosure()`. Same move here, on the
+            # same grounds: the per-line half stays per-line, and the
+            # thing that names no line is printed as what it is.
+            #
+            # The second `inspect()` is what `Reviser.report()` already
+            # does for exactly this reason. It is not a second grading
+            # pass in any measurable sense: `_matrix`/`_field_cache` are
+            # warm from the `brief()` call above, measured at 0.02s
+            # against that call's 11.4s on the 16-line fixture.
+            found = rv.inspect(lines, scheme, blueprint=blueprint,
+                               subdivision=subdivision, assume=assume)
+            whole = dedupe_findings(found["whole"])
             # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
             # BACKLOG 1.2's acceptance names `brief` as well as
             # `check_scheme`, and a brief is where the misattribution
@@ -4561,9 +5022,18 @@ def main():
                     span_by_pair[(i, j)] = (v, s)
             except Exception:                # pragma: no cover
                 span_by_pair = {}
-            if not briefs:
+            # "nothing flagged" is now gated on BOTH halves. It used to be
+            # printed on a draft carrying a whole-draft FLAG, which is the
+            # worst reading this report can give: not a missing line, an
+            # affirmative all-clear over a defect the same run had found.
+            if not briefs and not whole:
                 print("  nothing flagged — every mandated pair passes the "
                       "band on the lines the harness could read")
+            elif not briefs:
+                print("  no LINE is flagged — every mandated pair passes the "
+                      "band on the lines the harness could read. The "
+                      "whole-draft findings below are not about one line and "
+                      "are not covered by that sentence")
             for b in briefs:
                 print(f"  L{b.line_no}: {b.text}")
                 for f in dedupe_findings(b.findings):
@@ -4597,6 +5067,30 @@ def main():
                           f"{', '.join(b.forbidden_modal)}")
                 if b.candidates:
                     print(f"      offered: {', '.join(b.candidates[:12])}")
+            # BELOW the per-line half on purpose: `inspect()`'s own
+            # NEAR_COLLISION evidence ends "See the whole-draft note
+            # below", and until now there was no below to see.
+            if whole:
+                flags = [f for f in whole if f.severity == "flag"]
+                print(f"\n  WHOLE DRAFT — {len(whole)} finding(s) that name "
+                      f"no single line, {len(flags)} of them FLAG(S)")
+                print("      Not a line to revise, and not covered by the "
+                      "per-line half above: these are properties of the "
+                      "ITEM (the hook, the shape of the grid, the "
+                      "vocabulary across the whole draft), so there is no "
+                      "line_no to hand back and no candidate field to "
+                      "offer. `verify()` DOES read them — its diff covers "
+                      "`whole` as well as `per_line` — so a whole-draft "
+                      "flag can REJECT a revision and can never ASK for "
+                      "one. Disclosed here for the same reason "
+                      "`quality/loop.py` discloses them under a SUCCESS: a "
+                      "silent one reads exactly like a clean draft.")
+                for f in whole:
+                    loc = (f" (lines {', '.join(map(str, f.locations))})"
+                           if f.locations else "")
+                    print(f"      FINDING [{f.severity.upper():4}] "
+                          f"{f.code}: {f.message}{loc}")
+                    print(f"         {f.evidence}")
 
         try:
             if cmd == "brief":
@@ -4628,9 +5122,18 @@ def main():
                 lyric_text = open(args[2]).read()
                 marked = parse_lyric_sections(lyric_text)
                 song_obj, _hooks = GR.song_from_blueprint(song_bp_path)
-                bp_sections = [(s.name, len([l for l in song_obj.lines
-                                             if l.section == s.name]))
-                              for s in song_obj.sections]
+                # `lines_in(s)` MATCHES BY BAR RANGE, and the section OBJECT is
+                # passed rather than its name for the reason that accessor
+                # refuses a repeated name in as many words: two sections may
+                # share one, and verse/chorus/bridge/chorus is the commonest
+                # song form there is. This counted `l.section == s.name` until
+                # then, so EACH chorus was charged with BOTH choruses' lines
+                # and `chorus: 4 lyric line(s), blueprint places 8` printed
+                # TWICE — a cross-check inventing a defect in a blueprint that
+                # was right, on the one verb whose job is to compare the two
+                # declarations against each other.
+                bp_sections = [(s.name, len(song_obj.lines_in(s)))
+                               for s in song_obj.sections]
                 if len(marked) != len(bp_sections):
                     print(f"  STRUCTURE: lyric has {len(marked)} marked "
                           f"section(s), blueprint declares "
@@ -4807,7 +5310,14 @@ def main():
                   f"stress {e['stress']}  "
                   f"agreement {e['strong_position_agreement']}")
     else:
-        print(f"unknown command {cmd}")
+        # WAS EXIT 0. An unrecognised verb printed one line and returned
+        # SUCCESS, so a pipeline could not tell `lyric_harness.py schme ...`
+        # (a typo) from a clean run of a real verb that found nothing -- the
+        # same shape of defect the flag values on every verb above had, at
+        # the verb level. `--voices=true` reached here too, since the global
+        # bare-presence parse did not consume it and it became `cmd`.
+        _refuse(f"unknown command {cmd!r}. Run with --help for the verb "
+                f"list; `wiring` prints which verb runs on which layer.")
 
 
 if __name__ == "__main__":
