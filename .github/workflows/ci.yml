@@ -690,7 +690,7 @@ jobs:
       # rather than a line to add here.
       - name: Confirm the harness needs no third-party packages
         working-directory: lyric-harness
-        run: python3 -c "import lyric_harness, quality.floor, quality.revise, quality.model_call; print('stdlib-only import OK')"
+        run: python3 -c "import lyric_harness, quality.floor, quality.revise, quality.propose; print('stdlib-only import OK')"
 
       # cmudict.dict is 3.6 MB, gitignored, and fetched from a moving master
       # branch with no checksum — which the audit flagged as its own defect
@@ -1267,7 +1267,7 @@ jobs:
       # 53-CPU-minute sweep would arrive here without anybody deciding it should.
       # Threads pinned: a sibling instrument measured 625 CPU-s of BLAS
       # spin-wait against 32 pinned, on matrices too small to be worth a thread.
-      - name: The 43 cheap suites (16 of them under 1 CPU-s)
+      - name: The 42 cheap suites (15 of them under 1 CPU-s)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1277,8 +1277,7 @@ jobs:
           set -e
           for f in align band coda controls corpus_audit crosslinguistic cym \
                    declared_inputs english_text fit floor fwer g2p grid \
-                   homograph ipa ltc mandate_language matrix meter model_call \
-                   msa_fin \
+                   homograph ipa ltc mandate_language matrix meter msa_fin \
                    mut_band mut_oracle nucleus null_shapes phon_fas phon_msa \
                    phon_non phon_san phonology phrase_commonplace \
                    positive_control provenance readability readings_seam \
