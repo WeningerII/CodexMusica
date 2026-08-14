@@ -655,10 +655,30 @@ jobs:
       # floor.py's `mattr_min` 0.7226 -> 0.7500, which it caught and named.
       # The full sweep belongs on the weekly schedule with a warm cache, never
       # on a PR that touches the comparator.
-      - name: Song-profile calibration, the checks that do not need the field sweep
-        if: always()
-        working-directory: lyric-harness
-        run: python3 quality/song_profile_calibration.py --check --without-predictability
+      # MOVED TO THE `suites` JOB 2026-08-14. The step is unchanged and the
+      # reasoning above still holds; what changed is which job can run it.
+      #
+      # ~~- name: Song-profile calibration, the checks that do not need the
+      #   field sweep~~
+      #
+      # It reaches `quality.features._tagger()`, which does `import nltk` —
+      # lazily, inside the function, so it is invisible to an import scan and
+      # to this job's own "needs no third-party packages" step, which passed
+      # because it imports only `lyric_harness`, `quality.floor` and
+      # `quality.revise`. The runner has no nltk and no tagger model, so this
+      # step died on `ModuleNotFoundError` every time.
+      #
+      # THIS IS THE ARGUMENT THE COMMENT BELOW ANTICIPATED. It says a
+      # requirements file here "is a change worth arguing rather than a line to
+      # add here" — and the argument resolves the other way: the boundary is
+      # right and this step was on the wrong side of it. `record` stays
+      # stdlib-only. `suites` already installs nltk and stages the tagger model
+      # for the four test files that reach the same function, so the step costs
+      # nothing extra there.
+      #
+      # Third instance of this defect on this branch: numpy/sklearn in
+      # `nightly`, nltk in `suites`, now nltk here. Each was a lazy import, and
+      # each was found by running CI rather than by reading it.
 
       # ADVERSARY 5 (CLAUDE.md's roster: "the CORPUS"). Added 2026-08-13, and
       # like adversary 7 it had NOTHING running it -- no CI step, no test, no
@@ -696,10 +716,28 @@ jobs:
       # the replicate count, since the draw costs the runtime and the check
       # does not read it: effectively instant. Proven red on an injected
       # figure before wiring.
-      - name: Tang rime-table ingestion against its committed shape
-        if: always()
-        working-directory: lyric-harness
-        run: python3 quality/audit_tang_null.py --check
+      # REMOVED FROM CI 2026-08-14, and NOT because the check is bad.
+      #
+      # ~~- name: Tang rime-table ingestion against its committed shape~~
+      #
+      # The 全唐诗 pool this arm reads is an absolute path OUTSIDE this
+      # repository — `TANG_POOL` overrides it — and no CI job fetches it. On
+      # the runner the glob matched nothing, `tang_poems()` returned [], and
+      # the coverage line divided by zero: a MISSING CORPUS crashing on an
+      # arithmetic line, which reads as a defect in the statistic rather than
+      # in the environment. It passed locally for the whole time it was wired,
+      # because the pool is on the machine it was written on.
+      #
+      # The crash is fixed at the source — `audit_tang_null.py` now REFUSES
+      # with exit 2 and names the override (doctrine 20: nothing was measured,
+      # so nothing moved). But a step that can only ever exit 2 here is a
+      # permanently-red gate, which is the thing this file argues against
+      # forty lines up. So the step goes rather than the check.
+      #
+      # THIS IS DOCTRINE 92's SHAPE: the check is admissible and the corpus is
+      # reachable, and they are not reachable in the same place. Run it wherever
+      # TANG_POOL points at a chinese-poetry checkout; re-wire it here the day
+      # the corpus is fetchable from CI, not before.
 
       # THE POOLED-FISHER H0 CALIBRATION. Added 2026-08-13, and it checks a
       # DIRECTION rather than a number, on purpose: every figure this script
@@ -1130,6 +1168,22 @@ jobs:
             echo "── quality/test_$f.py"
             python3 "quality/test_$f.py"
           done
+
+      # MOVED HERE FROM `record` 2026-08-14, because this job has the tagger.
+      # 64 CPU-s. It judges 13 of the 18 calibration constants EXACTLY and
+      # REFUSES the other 5 BY NAME rather than passing them silently (doctrine
+      # 20/79 -- band lo/hi, the predictability threshold and its two FPRs).
+      # Exits 0 on PARTIAL PASS with the counts on the line; proven to exit 1
+      # by perturbing floor.py's `mattr_min` 0.7226 -> 0.7500, which it caught
+      # and named. The FULL sweep is a different thing and runs nightly.
+      - name: Song-profile calibration, the checks that do not need the field sweep
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/song_profile_calibration.py --check --without-predictability
 
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.

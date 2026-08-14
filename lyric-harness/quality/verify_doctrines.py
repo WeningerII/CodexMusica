@@ -145,8 +145,21 @@ import re
 import subprocess
 import sys
 
-ROOT = "/home/user/CodexMusica/lyric-harness"
 SCRATCH = os.path.dirname(os.path.abspath(__file__))
+#: DERIVED, NOT LITERAL — fixed 2026-08-14. This read
+#: `ROOT = "/home/user/CodexMusica/lyric-harness"`, one author's machine baked
+#: into the file, with the correct idiom sitting on the line below it. On a CI
+#: runner the tree is elsewhere, so `os.walk(ROOT)` walked nothing: the check
+#: reported `TOTAL DEFINED 0`, declared all 95 doctrines LOST, and then died in
+#: `gap_check()` opening a CLAUDE.md that is tracked, present, and simply not
+#: at that path. It also took `counters.py`'s `doctrines` row down with it,
+#: since that counter shells out to this script.
+#: THE CHECK COULD NOT FAIL HONESTLY AND COULD NOT PASS HONESTLY — it was
+#: reading a directory that does not exist, so the answer was never about the
+#: repository. That is doctrine 48 one layer under the one this file enforces,
+#: and it survived because every local run happened to be on the machine the
+#: path names.
+ROOT = os.path.dirname(SCRATCH)
 BASELINE = os.path.join(SCRATCH, "baseline_defined.json")
 
 #: The tree the pre-split definition set is read from: the commit BEFORE

@@ -93,6 +93,34 @@ def main(limit=300, n=200):
           "Superseded values kept above (doctrine 17); the null verdict is "
           "unchanged, p stays at the floor.\n")
 
+    # REFUSE, DO NOT DIVIDE BY ZERO — added 2026-08-14, found by CI.
+    #
+    # The 全唐诗 pool is an absolute path OUTSIDE this repository, overridable
+    # by `TANG_POOL` and not fetched by any CI job. When it is absent
+    # `tang_poems()` returns [], `allch` is the empty string, and the coverage
+    # line below divided by zero — so a MISSING CORPUS crashed with a
+    # ZeroDivisionError pointing at an arithmetic line, which reads as a defect
+    # in the statistic rather than in the environment.
+    #
+    # That is doctrine 20 exactly: nothing was measured, so nothing moved, and
+    # "cannot tell" is not "failed". Exit 2, the code this file already uses
+    # for a refusal, and the message names the override. `run_positive_control`
+    # has carried the same guard at its own line 328 the whole time; this
+    # module reached `tang_poems()` without going through it.
+    if not poems:
+        print("REFUSED — the 全唐诗 pool yielded no poems.\n"
+              "  It is an absolute path OUTSIDE this repository, not committed\n"
+              "  and not fetched by CI. Set TANG_POOL to a checkout of\n"
+              "  chinese-poetry to run this arm somewhere other than the\n"
+              "  machine it was written on.\n"
+              "  Nothing was measured, so nothing moved (doctrine 20).")
+        # None is the REFUSAL sentinel, read by the dispatcher at the bottom.
+        # Returning 2 here would be wrong: `main()`'s value is a MEASUREMENT
+        # dict that the dispatcher feeds to `check()`, so a bare 2 would be
+        # graded as though it were one and come back exit 1 — a refusal
+        # rendered as a moved figure, which is the collapse doctrine 20 names.
+        return None
+
     ends = [[ln[-1] for ln in lines] for _, lines in poems]
     allch = "".join("".join(lines) for _, lines in poems)
     known = sum(1 for c in allch if ltc.readings(c))
@@ -206,4 +234,10 @@ if __name__ == "__main__":
         # The null draw costs the whole runtime and `check` does not read it.
         n = min(n, 5)
     _m = main(lim, n)
+    # A REFUSAL SHORT-CIRCUITS `check()` — it must never be graded. `main()`
+    # returns None when the 全唐诗 pool is absent, and exit 2 is this repo's
+    # code for "nothing was measured, so nothing moved": not 0, which would
+    # claim the arm reproduced, and not 1, which would claim a figure moved.
+    if _m is None:
+        sys.exit(2)
     sys.exit(check(_m) if "--check" in sys.argv else 0)
