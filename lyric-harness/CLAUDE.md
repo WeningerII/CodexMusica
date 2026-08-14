@@ -620,6 +620,31 @@ underneath the quality layer:
   `--subdivision 2` the 4/4 choruses of `quality/fixtures/song.blueprint.json`
   are UNSATISFIABLE and the 7/8 verses are not, because an eighth-note pulse
   subdivided twice is finer than a quarter-note one.
+  **THE TIME SIGNATURE ITSELF DID NOT HOLD THAT LINE UNTIL 2026-08-14.**
+  `Meter.groups` has always refused an undeclared value — "Empty means
+  UNDECLARED, and an undeclared grouping is refused rather than guessed",
+  raising `UNDECLARED_GROUPING` on the argument that there are 2^(n-1)
+  orderings and picking one by fiat is doctrine 19's error. The `beats` and
+  `unit` sitting one line above it silently became **4 and 4**, at FOUR sites
+  each spelling the literal (`Meter`'s field defaults, `grid.song_from_`
+  `blueprint`, `lyric_harness._grid_song`, and `fit._cycle_of`) — directly
+  under a docstring reading *"A time signature. Arbitrary; nothing here
+  privileges 4/4."* So half of one declaration failed safe and half failed
+  silent, inside one object, and a section that declared no meter was graded
+  in common time and told nobody. `UNDECLARED_METER` closes it.
+  **THE VALUE IS NOT CHANGED, only disclosed** — refusing outright would
+  reject every blueprint that omits the key, and 4/4 is a defensible reading
+  of silence in this repertoire; what is not defensible is not saying so. It
+  is a SCHEDULED refusal naming the one key that ends it, it names the
+  findings conditional on the guess (`CROWDED`, `SPARSE`,
+  `BEAT_OUTSIDE_CYCLE`…), and it carries on `Placement.meter_declared` so
+  BOTH readers answer alike — `from_blueprint` (the `fit` verb and
+  `Reviser._meter_findings`) and `from_song`. `grid.Meter.declared` carries
+  the same coordinate and defaults TRUE on purpose: writing `Meter(5, 4)` in
+  Python IS a declaration, and only a reader looking at an absent key cannot
+  tell. Every shipped blueprint declares a meter on every section, so no
+  existing fixture could ever have shown the default firing — which is why it
+  survived. `quality/test_fit.py`'s undeclared-signature test.
 - **`function`** reads `Section.function`, which is not `Section.name`: an
   undeclared function REFUSES and the harness never reads `"chorus"` out of a
   name. Three counts on every run — asked / answered / refused (doctrine 79).

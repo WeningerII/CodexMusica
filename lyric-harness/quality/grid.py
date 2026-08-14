@@ -89,6 +89,19 @@ class Meter:
     #: The ordered composition of the pulses. Empty means UNDECLARED, and an
     #: undeclared grouping is refused rather than guessed.
     groups: tuple = ()
+    #: Did the SIGNATURE above come from a declaration, or from these two
+    #: defaults? Added 2026-08-14, because `groups` refused an undeclared
+    #: value one line up while `beats`/`unit` silently became common time —
+    #: half of one declaration failing safe and half failing silent, directly
+    #: under a docstring reading "Arbitrary; nothing here privileges 4/4".
+    #:
+    #: TRUE by default on purpose. Writing `Meter()` in Python IS a
+    #: declaration — a person chose it. What cannot tell is a blueprint
+    #: READER looking at a section with no `meter` key, so
+    #: `song_from_blueprint` is the only site that passes False. `quality/
+    #: fit.py` carries the same coordinate on `Placement.meter_declared` and
+    #: raises `UNDECLARED_METER` from it.
+    declared: bool = True
 
     def __str__(self):
         return f"{self.beats}/{self.unit}"
@@ -476,9 +489,13 @@ def song_from_blueprint(obj):
             obj = json.load(fh)
     secs, bar = [], 1
     for s in obj.get("sections", []):
-        md = s.get("meter", {})
+        md = s.get("meter") or {}
+        # Both halves, independently: a section may legally declare `beats`
+        # and default `unit`, and calling that "declared" would hide the half
+        # that was guessed.
         meter = Meter(beats=int(md.get("beats", 4)), unit=int(md.get("unit", 4)),
-                      groups=tuple(md.get("groups", ())))
+                      groups=tuple(md.get("groups", ())),
+                      declared=("beats" in md and "unit" in md))
         start = int(s.get("start_bar", bar))
         secs.append(Section(name=s["name"], bars=int(s["bars"]), meter=meter,
                             start_bar=start,

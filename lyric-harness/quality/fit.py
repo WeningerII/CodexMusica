@@ -493,6 +493,23 @@ class Placement:
     section_start_bar: int = 1
     section_bars: object = None
     text: str = ""
+    #: Did the SIGNATURE come from a declaration, or from this module's
+    #: default? Added 2026-08-14 to close an asymmetry inside one object.
+    #: `Cycle`/`Meter` have always refused an undeclared GROUPING —
+    #: "Empty means UNDECLARED, and an undeclared grouping is refused rather
+    #: than guessed", and `UNDECLARED_GROUPING` is the refusal — while the
+    #: BEATS and UNIT beside it defaulted to 4 and 4 in silence, at four
+    #: separate sites each spelling the literal. So half of a meter
+    #: declaration failed safe and half fell into 4/4 without saying so, and
+    #: `grid.Meter`'s own docstring meanwhile reads "A time signature.
+    #: Arbitrary; nothing here privileges 4/4."
+    #:
+    #: Defaults TRUE so no existing caller changes behaviour: only the
+    #: blueprint readers, which can actually tell whether the key was there,
+    #: ever pass False. The value is not changed — 4/4 is still what an
+    #: undeclared section gets — because changing it would break every
+    #: blueprint that omits the key. What changes is that it is now SAID.
+    meter_declared: bool = True
 
     def __post_init__(self):
         object.__setattr__(self, "beat", _frac(self.beat))
@@ -928,6 +945,52 @@ def fit_line(text, placement, phon=None, subdivision=None, assume=None,
     fit = LineFit(units=units, placement=placement)
     p, c = placement, placement.cycle
     F, R = fit.findings, fit.refusals
+
+    # -- 0. was there a signature at all? -----------------------------------
+    #
+    # THE OTHER HALF OF `UNDECLARED_GROUPING`, added 2026-08-14. That refusal
+    # has always fired when a cycle does not say which pulses are heads, on
+    # the argument that there are 2^(n-1) orderings and representing one by
+    # fiat is doctrine 19's error. The BEATS and UNIT it sits beside were
+    # meanwhile defaulted to 4 and 4 in silence, at four separate sites each
+    # spelling the literal `4`: `Meter`'s own field defaults, `grid.Meter`'s
+    # blueprint reader, `lyric_harness._grid_song`, and `_cycle_of` here.
+    #
+    # So a blueprint section that declared no meter was graded in common time
+    # and told nobody, while the same section declaring no GROUPING refused
+    # loudly -- half a declaration failing safe and half failing silent, in
+    # one object. `grid.Meter`'s docstring reads "A time signature. Arbitrary;
+    # nothing here privileges 4/4" directly above the two fields that do.
+    #
+    # THE VALUE IS NOT CHANGED, only disclosed. Refusing outright would break
+    # every blueprint that omits the key, and 4/4 is a defensible reading of
+    # silence in this repertoire; what is not defensible is not saying so.
+    # Doctrine 20's shape: this is CANNOT TELL about the writer's intent, and
+    # a default that announces itself can be argued with.
+    if not getattr(p, "meter_declared", True):
+        R.append(FitRefusal(
+            "UNDECLARED_METER",
+            "what time signature this section is in",
+            missing=f"a `meter` declaring both beats and unit on section "
+                    f"{p.section!r}",
+            detail=(f"read as {c.signature} because that is this module's "
+                    f"default, NOT because the blueprint said so. Every "
+                    f"finding below that counts pulses -- CROWDED, SPARSE, "
+                    f"ANACRUSIS, BEAT_OUTSIDE_CYCLE, OVERRUNS_SECTION -- is "
+                    f"conditional on that guess. The grouping half of this "
+                    f"same declaration refuses rather than guesses "
+                    f"(UNDECLARED_GROUPING); this one defaults, and says so "
+                    f"instead of failing, because refusing would reject every "
+                    f"blueprint that omits the key. 5/4, 7/8, 6/8 and 12/8 "
+                    f"are all equally available and none is harder to "
+                    f"declare."),
+            ends_with=(f"adding \"meter\": {{\"beats\": N, \"unit\": D}} to "
+                       f"section {p.section!r} of the blueprint. This is "
+                       f"SCHEDULED and not PERMANENT because the work that "
+                       f"ends it is one key a writer already knows the answer "
+                       f"to -- unlike UNDECLARED_GROUPING beside it, which "
+                       f"needs an ordered composition most writers have never "
+                       f"had to name.")))
 
     # -- 1. is the declared placement even arithmetic? ----------------------
 
@@ -1418,10 +1481,16 @@ def from_blueprint(obj):
             obj = json.load(fh)
     secs, bar = [], 1
     for s in obj.get("sections", []):
-        cyc = _cycle_of(s.get("meter", {}))
+        md = s.get("meter") or {}
+        cyc = _cycle_of(md)
         start = int(s.get("start_bar", bar))
+        # DECLARED means the section said a signature, not that it said 4/4.
+        # `beats` and `unit` are read independently because a section may
+        # legally declare one and default the other, and calling that
+        # "declared" would hide exactly the half that was guessed.
         secs.append({"name": s["name"], "cycle": cyc,
-                     "bars": int(s["bars"]), "start_bar": start})
+                     "bars": int(s["bars"]), "start_bar": start,
+                     "meter_declared": ("beats" in md and "unit" in md)})
         bar = start + int(s["bars"])
     by_name = {s["name"]: s for s in secs}
 
@@ -1440,7 +1509,8 @@ def from_blueprint(obj):
             cycle=s["cycle"], bar=int(l["bar"]),
             beat=_frac(l.get("beat", 1)), duration=_frac(l.get("duration", 4)),
             section=s["name"], section_start_bar=s["start_bar"],
-            section_bars=s["bars"], text=l.get("text", "")))
+            section_bars=s["bars"], text=l.get("text", ""),
+            meter_declared=s.get("meter_declared", True)))
     return secs, places
 
 
@@ -1460,8 +1530,12 @@ def from_song(song):
             cyc = Cycle(pulses=m.beats, unit=m.unit,
                         groups=tuple(getattr(m, "groups", ()) or ()))
         start = int(getattr(s, "start_bar", bar) or bar)
+        # `getattr` with True, duck-typed like everything else here: a Song
+        # predating `grid.Meter.declared` reports declared, which is the same
+        # answer this function gave before the coordinate existed.
         secs.append({"name": s.name, "cycle": cyc, "bars": int(s.bars),
-                     "start_bar": start})
+                     "start_bar": start,
+                     "meter_declared": bool(getattr(m, "declared", True))})
         bar = start + int(s.bars)
     by_name = {s["name"]: s for s in secs}
     places = []
@@ -1477,7 +1551,7 @@ def from_song(song):
             cycle=s["cycle"], bar=int(l.bar), beat=_frac(l.beat),
             duration=_frac(l.duration), section=s["name"],
             section_start_bar=s["start_bar"], section_bars=s["bars"],
-            text=l.text))
+            text=l.text, meter_declared=s.get("meter_declared", True)))
     return secs, places
 
 
