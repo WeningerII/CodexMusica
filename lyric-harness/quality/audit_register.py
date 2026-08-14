@@ -61,11 +61,22 @@ RUN
     python3 quality/audit_register.py --slow          # + corpus derivations
     python3 quality/audit_register.py --consistency   # arithmetic only, instant
     python3 quality/audit_register.py --provenance    # unsourced names only
+    python3 quality/audit_register.py --check         # committed figures only
     python3 quality/audit_register.py --json          # machine-readable
 
 EXIT STATUS is meaningful, unlike `battery.py`'s: non-zero when a consistency
 check fails or a derivation returns FALSE. MOVED and UNVERIFIABLE do not fail
 the run — a register is allowed to age, it is not allowed to contradict itself.
+
+THAT POLICY IS RIGHT AND IT LEFT A HOLE, CLOSED 2026-08-14 BY `--check`. Every
+drift this instrument can find lands in MOVED, and MOVED does not fail; the
+run has meanwhile been exiting 1 continuously on D8/D9, a standing calibration
+pair nobody intends to clear this week. So a permanently-red 1 was the only
+signal, and six derivation VERDICTS changed and eleven rows' printed figures
+moved underneath it, without that number changing once. `--check` (exit 0 pass / 1 a figure moved / 2 cannot tell) pins
+the one-sided, repo-side figures and is green today, so it can be gated on
+without teaching anyone to ignore it. See `PINNED` for what it deliberately
+leaves out and why.
 """
 
 from __future__ import annotations
@@ -997,49 +1008,127 @@ def _d_doctrine_count():
          "predates the split)")
 
 
-def _d_fin_census():
+def _verse_body(path):
+    """A corpus file's sung lines. `#`, `---` and `[` are apparatus everywhere
+    in this repo, and both censuses below have to drop them the SAME way or
+    their totals are not comparable across languages."""
+    t = open(path, encoding="utf-8", errors="replace").read()
+    return "\n".join(l for l in t.split("\n")
+                     if l.strip() and not l.startswith("#")
+                     and not l.strip().startswith("---")
+                     and not l.strip().startswith("["))
+
+
+def _census_counts(mod, phon, tokens_of):
+    """-> the FOUR figures a phonology census returns: total / read / refused /
+    defective, summed over the files, NEVER collapsed into an `unreadable`.
+
+    ONE function, read by the derivation row AND by `check()`, so the printed
+    number and the pinned number cannot drift apart -- the same reason
+    `unread_final_piece` is one predicate rather than two (CLAUDE.md, hyphen
+    splitting x3).
+    """
+    agg = {"total": 0, "read": 0, "refused": 0, "defective": 0}
+    for f in tokens_of:
+        c = mod.readability_census(phon, tokens_of[f])
+        for k in agg:
+            agg[k] += c[k]
+    return agg
+
+
+def _fin_census():
     from quality.phonology import fin
-    F = fin.Finnish()
-    tot = unread = 0
-    for f in _song_files("fin_"):
-        t = open(f, encoding="utf-8", errors="replace").read()
-        body = "\n".join(l for l in t.split("\n")
-                         if l.strip() and not l.startswith("#")
-                         and not l.strip().startswith("---") and not l.strip().startswith("["))
-        c = fin.readability_census(F, fin._tokens(body))
-        tot += c["total"]
-        unread += c.get("refused", 0) + c.get("defective", 0)
+    toks = {f: fin._tokens(_verse_body(f)) for f in _song_files("fin_")}
+    return _census_counts(fin, fin.Finnish(), toks)
+
+
+def _cym_census():
+    """The Welsh census, through `cym`'s OWN tokenizer and `refusal_reason`.
+
+    THE TOKENIZER IS PART OF THE MEASUREMENT AND THIS RUNNER USED TO GET IT
+    WRONG. `cym.WORD_RE` admits `'` and `-` because both occur inside Welsh
+    words, so it also matches a run of bare punctuation -- the gwant `--`, a
+    lone elision apostrophe -- as if it were a word. Every caller INSIDE
+    `cym.py` drops those with `if w.strip("'-")` (three sites); this file did
+    not, so it counted 145 punctuation runs BOTH as tokens AND as declines,
+    and reported 29,714/271 where the module's own convention gives
+    29,569/126. Doctrine 58 one axis out: a count is a coordinate of the
+    tokenisation, and an auditor with a private tokenizer for the thing it
+    audits is measuring its own regex.
+    """
+    from quality.phonology import cym
+    toks = {}
+    for f in _song_files("cym_"):
+        raw = cym.WORD_RE.findall(cym.normalise(_verse_body(f)))
+        toks[f] = [w for w in raw if w.strip("'-")]
+    return _census_counts(cym, cym.Welsh(), toks)
+
+
+def _d_fin_census():
+    """M-4's `155 -> 139 unreadable`, against the module's own three counts.
+
+    DOCTRINE 79, AND THIS ROW USED TO BREAK IT. `fin.readability_census`
+    returns read / refused / defective as THREE counts precisely so they are
+    never summed, and this runner did `unread = refused + defective` and
+    printed the one number -- charging 567 correct REFUSALS (the phonology
+    declining to read a non-initial opening diphthong, which is a decision, not
+    a defect) to the same column as 151 genuine DEFECTS. That is doctrine 79's
+    own failure mode committed by the instrument that exists to catch it.
+    Reported as three now, and never summed.
+    """
+    c = _fin_census()
     return UNVERIFIABLE, \
-        ("the module's own tokenizer and census over all ten fin_* files give "
-         "%d tokens and %d unreadable, two orders off the entry's 155; the entry "
-         "states no tokenizer and no reason-code filter" % (tot, unread)), \
+        ("all ten fin_* files under the module's own tokenizer and census: "
+         "total %d, read %d, REFUSED %d, DEFECTIVE %d -- three counts, never "
+         "summed (doctrine 79; this row used to print refused+defective as one "
+         "'unreadable' figure). Two orders off the entry's 155 either way, and "
+         "the entry states no tokenizer and no reason-code filter, so which of "
+         "the three it meant cannot be recovered"
+         % (c["total"], c["read"], c["refused"], c["defective"])), \
         "all ten fin_* 155 -> 139 unreadable tokens"
 
 
 def _d_cym_readability():
-    from quality.phonology import cym
-    C = cym.Welsh()
-    tot = bad = 0
-    for f in _song_files("cym_"):
-        t = open(f, encoding="utf-8", errors="replace").read()
-        body = "\n".join(l for l in t.split("\n")
-                         if l.strip() and not l.startswith("#")
-                         and not l.strip().startswith("---") and not l.strip().startswith("["))
-        toks = cym.WORD_RE.findall(cym.normalise(body) if hasattr(cym, "normalise") else body)
-        tot += len(toks)
-        for w in toks:
-            try:
-                if not C.syllabify(w):
-                    bad += 1
-            except Exception:
-                bad += 1
-    return UNVERIFIABLE, \
-        ("cym exposes no readability_census, unlike msa and fin, so 'read / "
-         "refused / defective' cannot be split. Under the module's own WORD_RE "
-         "the five files give %d tokens and %d that syllabify() will not take "
-         "(bare -- runs and proclitic fragments like F' and 'N). A bare "
-         "'100.00%%' is not checkable without the three counts doctrine 79 asks for."
-         % (tot, bad)), \
+    """N-2's `100.00%`, which is CHECKABLE NOW and was not when this was written.
+
+    TWO DEFECTS, BOTH THIS RUNNER'S, FIXED 2026-08-14.
+
+    (1) THE PREMISE WAS FALSE FOR THREE DAYS. This row asserted `cym exposes no
+    readability_census, unlike msa and fin, so read/refused/defective cannot be
+    split`, and returned UNVERIFIABLE on that ground. `cym.readability_census`
+    has existed since commit `b609ba0`, 2026-08-11 -- the cell that gave Welsh
+    a `rhymes()` predicate added it. `MISSING.md` N-2 was told: its own body
+    reads `CLOSED 2026-08-11: cym.readability_census() exists`. The register
+    was updated and the instrument auditing the register was not, which is
+    adversary 8's own subject turned on adversary 8.
+
+    (2) IT ANSWERED A THREE-STATE QUESTION WITH A BOOLEAN. Having declared the
+    three counts unavailable it computed `if not C.syllabify(w): bad += 1` --
+    one bit, where `refusal_reason` returns a CODE and `UNREADABLE_REASONS`
+    maps that code to refused-or-defective. So the row asserted the split was
+    impossible while doing the arithmetic that made it impossible. Measured
+    through the census the answer is not close to ambiguous: of the 126 that do
+    not read, 0 are refusals and 126 are `vowelless_token` defects -- and
+    pinning that 0 is the point, exactly as `audit_hafez_radif.PINNED` pins its
+    own `refused: 0`.
+
+    VERDICT IS MOVED, NOT FALSE. N-2 has already struck its own `100.00%`
+    (`~~...~~`) and records what it owes; the register aged and said so, which
+    this module's exit policy explicitly permits. FALSE is for a register that
+    contradicts itself.
+    """
+    c = _cym_census()
+    pct = 100.0 * c["read"] / c["total"] if c["total"] else 0.0
+    return MOVED, \
+        ("cym.readability_census EXISTS (since b609ba0, 2026-08-11) and this "
+         "row's claim that it does not was stale for three days. The five "
+         "cym_* files under the module's own tokenizer and census: total %d, "
+         "read %d (%.2f%%), REFUSED %d, DEFECTIVE %d (all vowelless_token) -- "
+         "the three counts doctrine 79 asks for, so 100.00%% is checkable now "
+         "and does not reproduce. The runner's own former figure 29714/271 was "
+         "its private tokenizer counting 145 bare -- and apostrophe runs as "
+         "both tokens and declines"
+         % (c["total"], c["read"], pct, c["refused"], c["defective"])), \
         "cym reads all five Welsh files at 100.00% -- 0 unreadable in 29,571"
 
 
@@ -1416,7 +1505,261 @@ def coverage():
 # ---------------------------------------------------------------------------
 
 
+# ---------------------------------------------------------------------------
+# 6. THE CHECK. Adversary 8's own subject, turned on adversary 8.
+# ---------------------------------------------------------------------------
+
+#: THE COMMITTED FIGURES, so `--check` can go red instead of a human being
+#: expected to read four screens of report and compare them against
+#: `quality/RESULTS_REGISTER_AUDIT.md` by eye.
+#:
+#: THIS INSTRUMENT IS THE LAST OF ITS FAMILY TO GET ONE. `audit_spans.py`,
+#: `audit_corpus.py`, `audit_tang_null.py`, `audit_kalevala_null.py`,
+#: `canon_sources.py` (twice) and `audit_hafez_radif.py` were all closed the
+#: same way in this session, and every one of them had printed its own drift
+#: and exited 0. This one is not quite that shape and the difference is worth
+#: stating: its exit code IS meaningful (non-zero on a consistency failure or a
+#: FALSE derivation) and it has been exiting 1 the whole time, on D8/D9. But
+#: `MOVED` deliberately does not fail the run, and MOVED is where every drift
+#: lands -- so rows could go stale, and did (six verdicts changed and eleven
+#: rows' figures moved between 2026-08-11 and 2026-08-14), under a
+#: permanently-red exit that says nothing about which. A single number that has
+#: been 1 since the file was written is not a signal.
+#:
+#: MEASURED 2026-08-14, and the record HAD moved -- see
+#: `quality/RESULTS_REGISTER_AUDIT.md` §8 for the full table and the superseded
+#: values, kept visible and dated (doctrine 17).
+#:
+#: WHAT IS PINNED AND WHY THAT AND NOT MORE. There is NO DRAW anywhere on this
+#: instrument's path -- verified 2026-08-14 by three consecutive runs under
+#: `PYTHONHASHSEED=random`, byte-identical -- so the sibling clause "pin the
+#: exact counts and leave the Monte Carlo to the printed p" has no referent
+#: here. The analogous exclusions are three, and they are not laziness:
+#:
+#:   1. THE REGISTER SIDE. `_k1_claims` reads K-1's figures out of MISSING.md
+#:      at runtime, on purpose, and its own docstring says why: a transcribed
+#:      constant would compare the corpus against a number the register had
+#:      already struck through and then name the wrong side as the thing that
+#:      moved. Pinning those figures here would re-introduce exactly that.
+#:      So no derivation VERDICT is pinned either -- a verdict is a comparison
+#:      of two sides, and one of them is meant to move as entries are fixed.
+#:   2. ANYTHING MEASURED OVER A POPULATION NOT IN THE REPOSITORY. D8's
+#:      108/99/95 come from `/workspace/mm47873/47873-8.txt`, which no clone
+#:      has; the provenance pass's `578 entries recovered` and its 19-name list
+#:      come from agent-session transcripts under `/root/.claude/projects/`,
+#:      which no clone has either (`in_repo: False`, printed on every run).
+#:      Pinning a figure that is UNVERIFIABLE on a fresh checkout would make
+#:      the check a fact about this machine -- the population substitution
+#:      this instrument exists to catch, committed by its own checker.
+#:   3. `coverage()`'s `numbers_total` (1,702 today). It is a raw count of
+#:      every numeral in MISSING.md's prose, so it moves when anyone edits a
+#:      sentence. A gate that goes red on a typo fix is a gate people learn to
+#:      skip, which is the failure mode the CI comment for this step names.
+#:
+#: What IS pinned is one-sided and repo-side: facts about `RHYME_CANON.md`,
+#: `quality/canon_index.tsv`, `quality/relations.py`, the phonology modules and
+#: the corpus. Those move only when the thing measured moves.
+#:
+#: Doctrine 58: these are counts, and a count is a coordinate of a threshold
+#: AND of a rendering. Argue them and repin with the superseded value visible
+#: and dated (doctrine 17); do not tune the detectors to meet them.
+PINNED = {
+    # -- RHYME_CANON.md, as the §2-block detector reads it -------------------
+    "canon_entries": 117,
+    "canon_unsourced": 113,
+    "canon_year_tokens": 23,
+    "canon_refs_singleline": 611,
+    "canon_refs_multiline": 654,
+    "canon_distinct_indices": 555,
+    # -- quality/canon_index.tsv, the M-15a repair --------------------------
+    "index_rows": 601,
+    "index_external": 501,
+    "index_project": 68,
+    "index_unrecorded": 32,
+    "entries_external": 116,
+    "entries_none_external": 1,
+    "entries_cites_nothing": 0,
+    # -- quality/relations.py -----------------------------------------------
+    "schemas": 77,
+    "schemas_with_traditions": 75,
+    "schemas_no_tradition": 2,
+    "traditions_distinct": 298,
+    "traditions_attachments": 319,
+    "traditions_external": 212,
+    "traditions_project": 26,
+    "traditions_cannot_tell": 60,
+    # -- the two phonology censuses, THREE COUNTS EACH, never summed --------
+    #    (doctrine 79. `cym_refused: 0` is pinned BECAUSE it is zero: if a
+    #    re-ingestion starts refusing Welsh tokens the read rate would slide
+    #    while `cym_total` still matched. Same call `audit_hafez_radif.PINNED`
+    #    makes for its own `refused: 0`.)
+    "fin_total": 145280, "fin_read": 144562,
+    "fin_refused": 567, "fin_defective": 151,
+    "cym_total": 29569, "cym_read": 29443,
+    "cym_refused": 0, "cym_defective": 126,
+    # -- MISSING.md's shape, but NOT its prose (see exclusion 3) ------------
+    "coverage_entries": 75,
+    "coverage_audited": 19,
+}
+
+#: THE TEN CONSISTENCY CHECKS, PINNED POSITIONALLY against `CONSISTENCY`.
+#:
+#: WHY A VECTOR AND NOT A COUNT. `main()` already exits non-zero when a check
+#: returns False, so pinning "0 failures" would add nothing. It adds nothing
+#: for the state that MATTERS here: `n/a`. A check returns `None` when it
+#: cannot find its own subject in the entry any more -- and `main()` scores
+#: that as neither pass nor fail, so a check can go permanently INERT and the
+#: exit code stays exactly as green as if it had passed. C8 has already done
+#: this: it was the `FAIL` that RESULTS_REGISTER_AUDIT.md §2 quotes at length
+#: (26,773 divided by a population of 15,887), and M-1 has since been reworded
+#: so `_chk_m1_false_verdict_denominator`'s regex finds nothing. Whether the
+#: contradiction was FIXED or merely reworded past the detector is not
+#: something this file can tell, which is why the pin records `n/a` and says
+#: so rather than quietly reading it as a pass.
+#:
+#: PINNED 2026-08-14. SUPERSEDED, and kept visible per doctrine 17 -- as
+#: RESULTS_REGISTER_AUDIT.md §2 recorded them on 2026-08-11 at `1e035cb`:
+#:     C1 FAIL  C2 FAIL  C3 FAIL  C4 FAIL  C5 ok   C6 ok
+#:     C7 FAIL  C8 FAIL  C9 FAIL  C10 FAIL
+#: Eight of ten failed then; none fails now and one has gone inert. The
+#: entries were rewritten between those two dates and the checks were not
+#: touched, which is the right direction ("Fix the entry, do not tune the
+#: check") -- but it means the published §2 describes a register that no
+#: longer exists.
+PINNED_CONSISTENCY = ("ok", "ok", "ok", "ok", "ok",
+                      "ok", "ok", "n/a", "ok", "ok")
+
+#: Inputs `--check` cannot proceed without. Absent, the answer is `cannot tell`
+#: (exit 2), never `moved` (exit 1) -- doctrine 20, and doctrine 28's
+#: "distinguish none from cannot tell, mechanically". A clone with no
+#: `canon_index.tsv` has not drifted; it has not measured.
+REQUIRED = (("MISSING.md", MISSING_MD),
+            ("quality/RHYME_CANON.md", CANON_MD),
+            ("quality/canon_index.tsv", os.path.join(HERE, "canon_index.tsv")))
+
+
+def _measure_for_check():
+    """-> the pinned quantities, measured. Reads the SAME functions the report
+    prints from, so the two cannot disagree."""
+    pr = provenance_report()
+    cov = coverage()
+    fin_c, cym_c = _fin_census(), _cym_census()
+    t = pr["traditions"]
+    w = pr["index_witness"]
+    return {
+        "canon_entries": len(pr["canon_entries"]),
+        "canon_unsourced": len(pr["canon_unsourced"]),
+        "canon_year_tokens": pr["canon_year_tokens"],
+        "canon_refs_singleline": pr["canon_cell_ref_total_singleline"],
+        "canon_refs_multiline": pr["canon_cell_ref_total_multiline"],
+        "canon_distinct_indices": pr["canon_distinct_indices"],
+        "index_rows": pr["index_rows"],
+        "index_external": w.get("external"),
+        "index_project": w.get("project"),
+        "index_unrecorded": w.get("unrecorded"),
+        "entries_external": pr["entries_external"],
+        "entries_none_external": pr["entries_none_external"],
+        "entries_cites_nothing": pr["entries_cites_nothing"],
+        "schemas": len(pr["schemas"]),
+        "schemas_with_traditions": sum(1 for s in pr["schemas"] if s["n_traditions"]),
+        "schemas_no_tradition": len(pr["schemas_no_tradition"]),
+        "traditions_distinct": t["distinct"],
+        "traditions_attachments": t["attachments"],
+        "traditions_external": t["external"],
+        "traditions_project": t["project"],
+        "traditions_cannot_tell": t["cannot_tell"],
+        "fin_total": fin_c["total"], "fin_read": fin_c["read"],
+        "fin_refused": fin_c["refused"], "fin_defective": fin_c["defective"],
+        "cym_total": cym_c["total"], "cym_read": cym_c["read"],
+        "cym_refused": cym_c["refused"], "cym_defective": cym_c["defective"],
+        "coverage_entries": cov["entries"],
+        "coverage_audited": cov["entries_audited"],
+    }
+
+
+def check():
+    """-> exit code. 0 pass · 1 a figure moved · 2 cannot tell.
+
+    FAILS LOUDLY; it does not report and continue. It deliberately does NOT
+    inherit `main()`'s exit policy: D8 and D9 are a standing calibration pair
+    that will read FALSE until `MISSING.md` M-4 reinstates the Malay row, and a
+    gate that is red for a reason nobody intends to fix this week is a gate
+    people learn to skip. This asks a different question -- have the figures
+    this instrument DERIVES moved? -- and it is green today.
+    """
+    print()
+    print("=" * 74)
+    print("CHECK -- the committed register-audit figures against this run")
+    print("=" * 74)
+
+    missing = [n for n, p in REQUIRED if not os.path.exists(p)]
+    if missing:
+        print("  CANNOT TELL: required input absent -- %s" % ", ".join(missing))
+        print("  A checkout that cannot measure has not drifted. Exit 2, not 1")
+        print("  (doctrine 20/28).")
+        print()
+        print("RESULT: CANNOT TELL")
+        return 2
+
+    try:
+        m = _measure_for_check()
+    except Exception as e:                                        # noqa: BLE001
+        print("  CANNOT TELL: measurement raised %s: %s" % (type(e).__name__, e))
+        print()
+        print("RESULT: CANNOT TELL")
+        return 2
+
+    bad = 0
+    for k in sorted(PINNED):
+        ok = m.get(k) == PINNED[k]
+        bad += not ok
+        print("  [%s] %-24s committed %s%s"
+              % ("ok  " if ok else "FAIL", k, PINNED[k],
+                 "" if ok else ", measured %s" % (m.get(k),)))
+
+    # The ten checks, POSITIONALLY -- an `n/a` is a check that stopped finding
+    # its own subject, and `main()`'s exit code is structurally blind to it.
+    outcomes = []
+    for c in CONSISTENCY:
+        try:
+            okc, _detail = c.fn(read_entries())
+        except Exception:                                         # noqa: BLE001
+            okc = None
+        outcomes.append({True: "ok", False: "FAIL", None: "n/a"}[okc])
+    for i, c in enumerate(CONSISTENCY):
+        want = PINNED_CONSISTENCY[i]
+        have = outcomes[i] if i < len(outcomes) else None
+        ok = have == want
+        bad += not ok
+        print("  [%s] consistency %-12s committed %-4s%s"
+              % ("ok  " if ok else "FAIL", c.id, want,
+                 "" if ok else ", measured %s" % have))
+
+    if bad:
+        print()
+        print("  %d figure(s) moved. The canon, the survey index, the schema"
+              % bad)
+        print("  table, a phonology census or one of the ten checks has changed")
+        print("  under this instrument.")
+        print("  Repin with the date and keep the superseded value visible")
+        print("  (doctrine 17). Do not tune the detector to meet the pin.")
+    print()
+    print("RESULT:", "PASS" if not bad else "FAIL")
+    return 0 if not bad else 1
+
+
+#: Set for the duration of a `--json` run. The section rules used to print to
+#: stdout ALONGSIDE the JSON document, so `--json` -- the mode whose whole
+#: purpose is to be machine-readable -- emitted output that `json.loads`
+#: rejects at line 2. Every other print in `main()` was already gated on
+#: `not a.json`; the seven `_hr()` calls were not, and nothing ever consumed
+#: the flag, so nothing noticed. Fixed 2026-08-14.
+_QUIET = False
+
+
 def _hr(t=""):
+    if _QUIET:
+        return
     print("\n" + "=" * 78)
     if t:
         print(t)
@@ -1429,9 +1772,19 @@ def main(argv=None):
     ap.add_argument("--consistency", action="store_true", help="arithmetic pass only")
     ap.add_argument("--provenance", action="store_true", help="unsourced-name pass only")
     ap.add_argument("--coverage", action="store_true", help="coverage pass only")
+    ap.add_argument("--check", action="store_true",
+                    help="committed figures only; exit 1 on drift, 2 if it cannot tell")
     ap.add_argument("--only", action="append", help="restrict derivations to an entry id")
     ap.add_argument("--json", action="store_true", help="machine-readable")
     a = ap.parse_args(argv)
+
+    if a.check:
+        # The pins, and nothing else. The full report costs the derivations and
+        # `check()` reads none of them.
+        return check()
+
+    global _QUIET
+    _QUIET = a.json
 
     picked = a.consistency or a.provenance or a.coverage
     do_cons = a.consistency or not picked
@@ -1440,7 +1793,13 @@ def main(argv=None):
     do_cov = a.coverage or not picked
 
     result = {}
-    failures = 0
+    # TWO COUNTS, NOT ONE. These ask different things of a reader -- a register
+    # that contradicts ITSELF versus a claim that does not reproduce against
+    # the REPO -- and the footer used to print only their sum, so "2" could not
+    # be told apart from one of each. Doctrine 79's own habit, applied to the
+    # instrument's own footer. The exit code stays a single non-zero.
+    cons_failures = 0
+    false_derivations = 0
 
     if do_cons:
         _hr("1 · INTERNAL CONSISTENCY  (no corpus, no imports -- the cheapest pass)")
@@ -1452,7 +1811,7 @@ def main(argv=None):
                 ok, detail = None, "%s: %s" % (type(e).__name__, e)
             mark = {True: "ok  ", False: "FAIL", None: "n/a "}[ok]
             if ok is False:
-                failures += 1
+                cons_failures += 1
             rows.append({"id": c.id, "entry": c.entry, "ok": ok,
                          "question": c.question, "detail": detail, "why": c.why})
             if not a.json:
@@ -1467,7 +1826,7 @@ def main(argv=None):
         rows = run_derivations(slow=a.slow, only=set(a.only) if a.only else None)
         for r in rows:
             if r["verdict"] == FALSE:
-                failures += 1
+                false_derivations += 1
             if not a.json:
                 print("  %-13s %-4s %-10s %s" % (r["verdict"], r["id"], r["entry"], r["what"]))
                 print("         register:  %s" % r["stated"])
@@ -1602,12 +1961,18 @@ def main(argv=None):
         print(json.dumps(result, indent=1, ensure_ascii=False, default=str))
     else:
         _hr()
-        print("consistency failures + FALSE derivations: %d" % failures)
-        if failures:
+        print("consistency failures: %d   FALSE derivations: %d   (total %d)"
+              % (cons_failures, false_derivations,
+                 cons_failures + false_derivations))
+        if cons_failures or false_derivations:
             print("A register that contradicts itself is not a record. Fix the "
                   "entry, do not tune the check.")
+        print("MOVED and UNVERIFIABLE do not appear in that line and do not "
+              "fail this run;")
+        print("`--check` is the runner that goes red when a DERIVED figure "
+              "moves.")
 
-    return 1 if failures else 0
+    return 1 if (cons_failures or false_derivations) else 0
 
 
 if __name__ == "__main__":

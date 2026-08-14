@@ -497,7 +497,7 @@ jobs:
   #   * verify_entries.py was RED — a false BACKLOG line-count entry — and had
   #     been for an unknown period, because nothing ran it either.
   #
-  # WHY THESE FOUR AND NOT THE SUITES. These are the checks that compare the
+  # ~~WHY THESE FOUR AND NOT THE SUITES. These are the checks that compare the
   # RECORD against the CODE; they are cheap and they fail loud. The test suites
   # are a different job: quality/test_revise.py and test_loop.py each take 15+
   # minutes, and quality/song_profile_calibration.py --check — the fifth drift
@@ -506,7 +506,32 @@ jobs:
   # look thorough is how a required check becomes one people skip.
   #
   # Measured on this repo: 4s + 4s + 5s + 25s. The 10-minute timeout is a
-  # runaway guard, not a budget.
+  # runaway guard, not a budget.~~
+  #
+  # SUPERSEDED 2026-08-14, AND THIS PARAGRAPH IS NOW THE STALE RECORD IT WAS
+  # WRITTEN TO PREVENT. Struck rather than deleted (doctrine 17), because what
+  # it got wrong is the point. Four things in it are false:
+  #
+  #   * "THESE FOUR" — this job runs 22 checks.
+  #   * "test_revise.py and test_loop.py each take 15+ minutes" — MEASURED at
+  #     183.95 and 190.92 CPU-s, about three minutes each, both green. Neither
+  #     file declares the 15-minute figure anywhere; it was never run. The
+  #     refuting measurement now sits ~350 lines BELOW this claim IN THE SAME
+  #     FILE, which is exactly the shape this workflow's own checks exist to
+  #     catch — a figure quoted beside the command that prints it, where nobody
+  #     re-runs the command.
+  #   * "the suites are a different job" as an EXCLUSION — the `suites` job runs
+  #     all 44 on every pull request. It is a different job because it is
+  #     structured that way, not because the suites are unaffordable.
+  #   * "song_profile_calibration.py --check ... needs 2.5-4 hours" — `record`
+  #     runs it below at --without-predictability in 64s, and `nightly` runs the
+  #     full arm warm off a cache at ~85 CPU-s.
+  #
+  # WHAT IS ACTUALLY TRUE, and is the reason the split still exists: this job
+  # holds the checks that compare the RECORD against the CODE and cost seconds;
+  # `suites` holds the test modules; `nightly` holds the four instruments whose
+  # cost is measured in CPU-minutes. Three jobs, three cost classes, each
+  # membership decided by a measurement recorded at its own step.
   #
   # ALL FOUR WERE PROVEN TO FAIL before this job was added, by injecting the
   # breakage each one names and confirming a non-zero exit: a renumbered
@@ -880,6 +905,29 @@ jobs:
           MKL_NUM_THREADS: '1'
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/audit_band_control.py --check
+
+      # ADVERSARY 8 — the only adversary that attacks the RECORD rather than the
+      # work, and the one that found four false entries in a week. 2.5 CPU-s,
+      # MEASURED 2026-08-14.
+      #
+      # IT WAS ALREADY RUNNING IN CI AND ITS DRIFT WAS STILL INVISIBLE. The
+      # `verify_entries.py` step below shells out to this module and parses its
+      # printed derivation block, DELIBERATELY DISCARDING ITS EXIT CODE. So it
+      # has executed on every push while nothing read its verdict — the "prints
+      # its own drift and exits 0" shape, one indirection out, and the reason
+      # its own record went three days without a re-run and moved six derivation
+      # verdicts.
+      #
+      # `--check` IS A SEPARATE EXIT PATH AND DOES NOT INHERIT main()'s POLICY,
+      # which matters here more than anywhere else in this job: the bare runner
+      # exits 1 PERMANENTLY on D8/D9, a standing calibration pair that stays
+      # FALSE until MISSING.md M-4 reinstates the Malay row. Gating on the bare
+      # runner would install exactly the permanently-red check this file argues
+      # against twenty lines up.
+      - name: The record against the code (adversary 8)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_register.py --check
 
   # ── The suites: 45 test modules that nothing had ever run ────────────────
   #
