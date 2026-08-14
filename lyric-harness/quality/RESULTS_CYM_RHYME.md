@@ -800,34 +800,68 @@ The full order in which the record caught up, from `git log -S`:
 
 `8d3e05a` touched exactly five files and `data/sources.tsv` was not one of them,
 so the commit that repaired this contradiction was itself **one document
-short** — and it is the document a sourcing cell reads first. Four of its rows
-still present the pre-doctrine-82 figures as current, one of them under the
-words `FINAL FIGURES`. They are not this cell's to edit; the exact lines and
-their replacement text are in this lot's report. A row that quotes a retired
-comparator without saying so is doctrine 17's own failure mode.
+short** — and it is the document a sourcing cell reads first. **Seven of its
+rows** still present the pre-doctrine-82 figures as current — lines 82, 265,
+266, 267, 268, 269 and 273 — one of them under the words `FINAL FIGURES`. They
+are not this cell's to edit; the exact lines and their replacement text are in
+this lot's report. A row that quotes a retired comparator without saying so is
+doctrine 17's own failure mode.
+
+**One of those seven has a claim that does not merely go stale, it INVERTS.**
+Line 265, the *hwiangerddi* row, reads *"the observation is BELOW the null max,
+so there is no cynghanedd excess"*. Re-measured, the observation is 12.9%
+against a null max of 12.3% — **above** it, by +0.6 pp, with p at the floor. The
+sentence's own conclusion (traditional nursery verse carries no meaningful
+cynghanedd) survives at +0.6 pp on 1,712 lines, but the *reason it gives* is now
+false, and that is the harder kind of staleness to notice: a row whose number
+moved and whose verdict did not.
 
 **And the same rows carry a second, larger staleness.** `data/sources.tsv`
-records a seven-corpus specificity gradient whose figures are all
-pre-doctrine-82. `MISSING.md` N-1 re-measured the whole table on 2026-08-11;
-this lot re-ran four of its seven rows at the published n=200 and every one
-reproduces `MISSING.md`, not `data/sources.tsv`:
+carries a seven-corpus SPECIFICITY gradient — the control this project did not
+have until it was built, holding poet, edition, printer, century and
+transcriber constant and varying only the form — and every figure in it is
+pre-doctrine-82. `MISSING.md` N-1 re-measured the whole table on 2026-08-11.
+**This lot re-ran all seven rows at the published n=200, 19m 12s of CPU, and
+every one reproduces `MISSING.md` exactly — judged count, observation, null max
+and excess — and none reproduces `data/sources.tsv`:**
 
-| corpus | `sources.tsv` still says | re-measured 2026-08-14, n=200 |
-|---|---|---|
-| Llywelyn Goch cywydd | 52.8 / 18.5 / 30.6 / **+22.2** | 64/145 = **44.1%** / 19.3 / 28.3 / **+15.9** |
-| Twm o'r Nant *cerdd rydd* | 28.4 / 14.1 / 17.5 / **+10.8** | 228/804 = **28.4%** / 14.4 / 17.0 / **+11.4** |
-| Alun, his own hymns | 9.7 / 7.9 / 11.1 / **−1.4** | 38/262 = **14.5%** / 10.7 / 14.5 / **+0.0** |
-| Alun, strict metre | 54.1 / 24.6 / 27.8 / **+26.3** | 890/1558 = **57.1%** / 19.4 / 21.8 / **+35.3** |
+| corpus | judged | `sources.tsv` still says | re-measured 2026-08-14, n=200 |
+|---|---:|---|---|
+| Alun, strict metre | 1558 | 54.1 / 24.6 / 27.8 / **+26.3** | 890 = **57.1%** / 19.4 / 21.8 / **+35.3** |
+| Twm o'r Nant cywydd | 156 | 51.3 / 26.9 / 36.5 / **+14.7** | 72 = **46.2%** / 19.2 / 26.9 / **+19.2** |
+| Llywelyn Goch cywydd, 1862 | 145 | 52.8 / 18.5 / 30.6 / **+22.2** | 64 = **44.1%** / 19.3 / 28.3 / **+15.9** |
+| Twm o'r Nant *cerdd rydd* | 804 | 28.4 / 14.1 / 17.5 / **+10.8** | 228 = **28.4%** / 14.4 / 17.0 / **+11.4** |
+| Welsh *hwiangerddi* | 1712 | 13.0 / 11.4 / 13.2 / **−0.2** | 220 = **12.9%** / 10.8 / 12.3 / **+0.6** |
+| **Alun, his own hymns** | 262 | 9.7 / 7.9 / 11.1 / **−1.4** | 38 = **14.5%** / 10.7 / 14.5 / **+0.0** |
+| Mynyddog, song | 2893 | 8.2 / 7.5 / 8.6 / **−0.4** | 238 = **8.2%** / 7.7 / 8.9 / **−0.7** |
 
-(observed / null median / null max / excess over the null max. The remaining
-three rows — Twm's cywydd apart, which is in the block at the top of this
-section — were not re-run here; `MISSING.md` N-1 carries them.)
+(observed / null median / null max / excess over the null max. Read the excess
+column against `MISSING.md` N-1's own stated rounding rule: it differences the
+values AS PRINTED, so it records +19.3 and +15.8 where the runner — which
+differences at full precision and rounds last — prints +19.2 and +15.9. That
+0.1 is a rendering, not a disagreement, and `MISSING.md` says so in the
+paragraph under its table.)
 
-The GRADIENT'S DIRECTION — strict metre ≫ *cerdd rydd* ≫ song, hymn and nursery
-verse — is unchanged under either comparator, which is why the conclusion those
-rows draw survives the repin and only their numbers do not. **That is the
-distinction doctrine 17 exists to keep**: a check may be kept after its premise
-moves, but never quoted as if it had not.
+**The GRADIENT'S DIRECTION IS UNCHANGED and its sharpest row got sharper.**
+Strict metre (+35.3, +19.2, +15.9) ≫ 18th-century *cerdd rydd* (+11.4) ≫ nursery
+verse, hymn and 19th-century song (+0.6, +0.0, −0.7). The row that carries the
+finding is **Alun's own hymns**: same poet, same 1909 Ab Owen volume, same
+transcriber, same flattened-ASCII orthography, same checker, same null — and
++35.3 on his awdlau against **+0.0** on his hymns. Under the retired comparator
+that contrast was +26.3 against −1.4; under the current one it is wider. So the
+conclusion those `sources.tsv` rows draw **survives the repin and only their
+numbers do not** — which is exactly the distinction doctrine 17 exists to keep:
+a finding may be kept after its comparator moves, but never quoted as if it
+had not.
+
+One row changes its READING rather than its size, and it is worth naming
+because `MISSING.md` N-1 already argued it: the *hwiangerddi* went from **−0.2
+at p = 0.015** — a negative excess over the null max sitting beside a p that
+rejects, which check C10 correctly flagged as two columns pointing opposite
+ways — to **+0.6 with p at the floor**, and the contradiction dissolved. What
+now carries a p under 0.05 with no positive excess is **Alun's hymns at +0.0,
+p = 0.015**: two of 200 shuffles reached 14.5%. That is the honest shape of "at
+chance" and it is reported rather than smoothed (doctrine 57).
 
 Also green: `quality/test_fit.py` (§14 enumerates all nine phonologies),
 `quality/test_phonology.py`, `quality/verify_doctrines.py`,
