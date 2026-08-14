@@ -117,7 +117,7 @@ class WithinItemFeatures(QualityFeatures):
 
     # -- the eight -------------------------------------------------------
 
-    def extract(self, lines, scheme=None):
+    def extract(self, lines, scheme=None, mattr_window=None):
         lines = [l for l in lines if l.strip()]
         if not lines:
             return {n: NAN for n in self.NAMES}
@@ -162,10 +162,21 @@ class WithinItemFeatures(QualityFeatures):
         #   pairs; the old raw fraction scored that as a defect.
         f_bind = self._binding_excess(tagged, marked_idx, pairs)
 
-        # 7 rhyme-word type ratio relative to the item's own diversity
+        # 7 rhyme-word type ratio relative to the item's own diversity.
+        #   `base` carries the declared MATTR window exactly like the
+        #   absolute feature does, and the window decides WHICH STATISTIC it
+        #   is: at sonnet length (94-133 tokens) `base` is a real moving
+        #   average, at quatrain length (23-40) it is plain TTR, because
+        #   `_mattr` falls back below its own window. The subtraction does
+        #   not cancel that -- the minuend is always a plain type ratio over
+        #   the rhyme words -- so this feature is one statistic at one unit
+        #   and another at the other, and the window is where that is decided.
+        #   See `quality.floor.CALIBRATION["mattr_window"]`.
         rwords = [w for w, _ in marked]
         if rwords:
-            base = self._mattr([w for w, _ in marked + unmarked])
+            base = self._mattr(
+                [w for w, _ in marked + unmarked],
+                self.mattr_window if mattr_window is None else mattr_window)
             f_type = (len(set(rwords)) / len(rwords)) - base \
                 if math.isfinite(base) else NAN
         else:

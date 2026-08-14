@@ -44,6 +44,19 @@ PERIPHRASTIC_DO = {"do", "does", "did", "dost", "doth", "didst"}
 MAX_RANK = 20000          # frequency-list size; unknown words sort past the end
 CONC_ABSTRACT = 2.5       # Brysbaert midpoint used for the abstract-noun cut
 
+#: MATTR's moving-average window, in TOKENS. It was a bare default in
+#: `_mattr`'s signature until 2026-08-14 — no comment, no declaration, no
+#: results document, four call sites and not one passing it. It is a real
+#: coordinate and `_mattr`'s docstring carries the sweep that says so; the
+#: place to disagree with it is `quality.floor.FloorDeclaration.mattr_window`,
+#: whose provenance block is `quality.floor.CALIBRATION["mattr_window"]`.
+#:
+#: This constant is only the DEFAULT the declaration itself takes. Nothing
+#: reads it to decide anything: the gate threads `FloorDeclaration.
+#: mattr_window` into `extract()` on every call, so an override reaches the
+#: statistic rather than being quietly outranked by this line (doctrine 1).
+MATTR_WINDOW = 50
+
 
 # ---------------------------------------------------------------------------
 # Resources
@@ -232,12 +245,18 @@ class QualityFeatures:
         "content_word_freq_mean": "lower",
     }
 
-    def __init__(self, lex=None, decl=None):
+    def __init__(self, lex=None, decl=None, mattr_window=MATTR_WINDOW):
         self.lex = lex or Lexicon()
         self.decl = decl or Declaration()
         self.conc = load_concreteness()
         self.field = RhymeField(self.lex, self.decl)
         self.pos_tag = _tagger()
+        #: the window `extract()` uses when its caller names none. A caller
+        #: holding a `FloorDeclaration` should pass that declaration's
+        #: `mattr_window` per call instead of relying on this, so one shared
+        #: `QualityFeatures` can serve two declarations without either of
+        #: them silently mutating the other's statistic.
+        self.mattr_window = mattr_window
 
     # -- helpers ----------------------------------------------------------
 
@@ -372,9 +391,15 @@ class QualityFeatures:
         cb = wb[-1].lower().strip("'-.,;:!?") if wb else ""
         return ca, cb, k
 
-    def extract(self, lines, scheme=None):
+    def extract(self, lines, scheme=None, mattr_window=None):
         """Feature vector for one poem/lyric. `scheme` supplies the mandated
-        rhyme pairs; without it, adjacent couplets are assumed."""
+        rhyme pairs; without it, adjacent couplets are assumed.
+
+        `mattr_window` is the one feature parameter a caller can name here,
+        because it is the one that changes WHICH STATISTIC gets computed
+        rather than how it is scored — see `_mattr`. None means "use whatever
+        this instance was built with", so every existing caller is unmoved.
+        """
         lines = [l for l in lines if l.strip()]
         if not lines:
             return {n: float("nan") for n in self.NAMES}
@@ -420,8 +445,12 @@ class QualityFeatures:
                  for i, j in pairs if i in tagmap and j in tagmap]
         f_binding = sum(diffs) / len(diffs) if diffs else float("nan")
 
-        # 7 length-normalized lexical diversity
-        f_mattr = self._mattr(words)
+        # 7 length-normalized lexical diversity. THE WINDOW IS A COORDINATE
+        #   and it is threaded, not assumed: at a short unit the same call
+        #   returns plain TTR instead (see `_mattr`).
+        f_mattr = self._mattr(
+            words,
+            self.mattr_window if mattr_window is None else mattr_window)
 
         # 8 function-word share
         f_func = (sum(1 for _, t in flat if t in FUNCTION_TAGS) / len(flat)
@@ -461,11 +490,82 @@ class QualityFeatures:
         return tag
 
     @staticmethod
-    def _mattr(words, window=50):
+    def _mattr(words, window=MATTR_WINDOW):
         """Moving-average type/token ratio. Plain TTR is length-confounded --
-        longer texts always look less diverse -- and poem lengths vary."""
+        longer texts always look less diverse -- and poem lengths vary.
+
+        THE WINDOW, SWEPT 2026-08-14. The sentence above justifies MATTR. It
+        does not justify FIFTY, and until this date nothing did: `window=50`
+        was a bare default with no comment, absent from `FloorDeclaration`,
+        absent from `floor.CALIBRATION`, absent from every results document,
+        and not passed by any of its four call sites. It is now
+        `FloorDeclaration.mattr_window`; the provenance block is
+        `floor.CALIBRATION["mattr_window"]` and the numbers are repeated here
+        because this is where a reader meets the constant.
+
+        IT IS NOT ON A PLATEAU. Sonnet-level separation (`mattr` alone,
+        Experiment 2, 152 Shakespeare sonnets vs 40 model ones -- the same
+        AUC `test_discriminate.PINNED["abs_exp2"]` pins) falls MONOTONICALLY
+        across the whole swept range:
+
+            window   20     25     30     40     50     60     80    100
+            AUC     .928   .915   .907   .891   .870   .850   .811   .750
+
+        Fifty is 0.059 below the sweep's best and sits on the DESCENDING
+        limb, not on a flat. Paired bootstrap over the same items, 2000
+        draws: AUC(w=40) - AUC(w=50) = +0.021 [+0.009, +0.034], an interval
+        that excludes zero. So moving the window moves the measurement.
+
+        THE FLAT FPR COLUMN IS NOT EVIDENCE THAT IT DOESN'T. The song
+        profile's held-out mattr false-positive rate barely moves across a
+        TENFOLD change in window -- median 5.08-5.43% over windows 20 to 200,
+        200 author-held-out seeds each -- and that is a TAUTOLOGY, not a
+        finding: the threshold is the 5th percentile OF THE SAME
+        RECOMPUTED STATISTIC, so about 5% of held-out items fall below it
+        whatever the window is. A reader who concludes "FPR flat, therefore
+        window unimportant" has read the calibration rule, not the data.
+        What does move underneath that flat rate is WHICH items: +/-10
+        tokens of window changes 13-16% of the flagged set (Jaccard 0.869 at
+        w=40, 0.840 at w=60). The rate is stable; the accusations are not.
+
+        ADMISSIBILITY -- THE CONSTRAINT NOBODY HAD WRITTEN DOWN. The branch
+        below (`len(words) <= window` -> plain TTR) means a window is
+        admissible only if EVERY item in a profile's calibration set falls on
+        the same side of it. Otherwise one profile's percentile is a mixture
+        of two different statistics reported under a single threshold, which
+        is the defect doctrine 15 names. Measured over the three shipped
+        profiles' own calibration sets (section quatrains 23-40 tokens,
+        sonnets 94-133, song band 150-400), the admissible windows are
+
+            [1, 22]  union  [40, 93]
+
+        -- plus two degenerate branches, [133, 149] and [400, +inf), where the
+        SONNET profile has also collapsed to plain TTR and "MATTR" has stopped
+        being a moving average anywhere it is measured. 50 is inside the
+        usable set; 25, 30 and 100 are NOT, and neither is 38 or 39. That
+        matters because a naive retune toward the AUC gradient -- which points
+        DOWNWARD, at 20 -- would plausibly stop at 25 or 30, land on an
+        inadmissible value, and nothing in this repo would have said so.
+
+        AND IT IS KEPT ANYWAY, ON DOCTRINE 19. The shipped value costs ~0.06
+        AUC against the sweep's best and is kept because an in-sample argmax
+        is not a calibration. The sweep's best is read off the SAME 152-vs-40
+        corpus that reports the AUC, so 20 is an in-sample optimum with no
+        held-out standing (doctrine 19), and moving to it would be a threshold
+        change with no calibration behind the new number (doctrine 58). Window
+        size is also a genre question -- 20 tokens is about two lines of
+        English verse, 50 about five -- and doctrine 6 says a number like that
+        belongs in a declaration rather than in a constant. So it is declared,
+        priced, and left where it is. A future move must be argued, must be
+        repinned with its date, and must land inside [1, 22] or [40, 93].
+        """
         if not words:
             return float("nan")
+        # THE FALLBACK IS A DIFFERENT STATISTIC, not a degraded one. Every
+        # window >= the item's own token count returns the identical plain
+        # TTR, so the value is FROZEN in `window` from that point up -- which
+        # is why `floor.PROFILES`' `section` entry, whose longest quatrain is
+        # 40 tokens, reports a plain-TTR number under a MATTR name.
         if len(words) <= window:
             return len(set(words)) / len(words)
         ratios = [len(set(words[i:i + window])) / window

@@ -6,8 +6,8 @@
     python3 quality/song_profile_calibration.py --seeds 50  # faster, wider intervals
     python3 quality/song_profile_calibration.py --sample 400  # bounded, NO VERDICT, exit 3
     python3 quality/song_profile_calibration.py --check --without-predictability
-                                                # ~75 CPU-s cold; judges 14
-                                                # of 19 constants, refuses 5
+                                                # ~75 CPU-s cold; judges 15
+                                                # of 20 constants, refuses 5
                                                 # (was 13 of 18 until the
                                                 #  CLICHE_PAIR FPR joined
                                                 #  2026-08-14)
@@ -158,7 +158,7 @@ whole of what the profile shipped before 2026-08-13 and they cost ~75 CPU-s
 from cold with no cache at all, because none of them touches `RhymeField`.
 Their answers are EXACT -- not sampled, not interpolated -- so the mode can
 genuinely FAIL on drift, which is what a gate has to be able to do and what
-`--sample` can never do. It refuses five of the eighteen shipped constants and
+`--sample` can never do. It refuses five of the nineteen shipped constants and
 names all five (`DROPPED_BY_NO_PRED`): the band, whose selection rule reads
 every check's sub-bin homogeneity and is therefore a DIFFERENT rule with four;
 `predictability`'s own threshold and FPR; and the union FPR, which over four
@@ -193,12 +193,24 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 import lyric_harness  # noqa: E402
 import quality.features  # noqa: E402
 from quality.features import FUNCTION_TAGS, QualityFeatures, _tagger  # noqa: E402
-from quality.floor import PROFILES, SlopFloor  # noqa: E402
+from quality.floor import FloorDeclaration, PROFILES, SlopFloor  # noqa: E402
 
 ROOT = os.path.join(HERE, "..")
 #: The item unit and the marker rule are quality/audit_corpus.py's, verbatim,
 #: so this and the corpus audit cannot disagree about what an item is.
 _MARKER = re.compile(r"^(#|--- |\[)")
+
+#: MATTR's window, READ OFF THE SHIPPED DECLARATION rather than left to
+#: `_mattr`'s own default. This file computes the `mattr` percentile that
+#: `floor.PROFILES`' `song` entry ships, so if the two ever disagreed about
+#: the window, `--check` would be comparing a threshold against a different
+#: statistic and would report agreement or drift for the wrong reason. Taking
+#: it from `FloorDeclaration` makes that disagreement impossible to have.
+#: The window itself is a coordinate with a sweep behind it -- see
+#: `quality.floor.CALIBRATION["mattr_window"]`; every song-band item is
+#: 150-400 tokens, comfortably past 50, so every `mattr` below IS a genuine
+#: moving average (unlike the `section` profile's, which is plain TTR).
+MATTR_WINDOW = FloorDeclaration().mattr_window
 
 #: (feature, side, percentile). "lo" flags below the 5th, "hi" above the 95th.
 #: `predictability` closes the gap this file's own module docstring names:
@@ -619,7 +631,7 @@ def population(verbose=True, qf=None, with_predictability=True, scorer=None,
         rows.append({
             "file": base, "author": a, "born": born, "died": died,
             "title": title, "n_lines": len(body), "n_tokens": len(words),
-            "mattr": QualityFeatures._mattr(words),
+            "mattr": QualityFeatures._mattr(words, MATTR_WINDOW),
             "fwr": (sum(1 for _, tg in flat if tg in FUNCTION_TAGS)
                     / len(flat)) if flat else float("nan"),
             "predictability": (scorer.frac(body)
@@ -1129,7 +1141,7 @@ def report_examples(rows, lo, hi, full, scorer):
         per = [QualityFeatures._tokens(l) for l in body]
         words = [w.lower() for t in per for w in t]
         flat = [(w.lower(), tg) for t in per for w, tg in tag(t)]
-        v = {"mattr": QualityFeatures._mattr(words),
+        v = {"mattr": QualityFeatures._mattr(words, MATTR_WINDOW),
              "fwr": sum(1 for _, tg in flat if tg in FUNCTION_TAGS) / len(flat),
              "predictability": scorer.frac(body),
              "anaphora": anaphora(body), "cv": line_cv(body)}
@@ -1178,7 +1190,7 @@ def report_sample_resolution(rows, lo, hi, full, boot=200, seed=SAMPLE_SEED):
 
 #: Constants `--without-predictability` cannot decide, and why. Each is named
 #: rather than silently dropped: a check that quietly stops asking about three
-#: of eighteen constants is a partial check reported as a whole one, and the
+#: of nineteen constants is a partial check reported as a whole one, and the
 #: whole argument for that mode is that it says which is which.
 DROPPED_BY_NO_PRED = [
     ("band lo (tokens)", "the band rule tests every CHECK's sub-bin "
@@ -1276,6 +1288,49 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
               % (lo, hi, p.lo, p.hi))
     cmp("band lo (tokens)", float(p.lo), float(lo), 0)
     cmp("band hi (tokens)", float(p.hi), float(hi), 0)
+    # THE MATTR WINDOW IS A COORDINATE OF EVERY ROW BELOW, and until
+    # 2026-08-14 nothing here named it. `threshold mattr` and `held-out FPR
+    # mattr` are readings at `FloorDeclaration.mattr_window` = 50 tokens; the
+    # band lo/hi above are too, because the band rule's homogeneity test is
+    # computed on the same statistic (at window 20 the rule returns 100-350,
+    # 2,953 items over 132 authors, instead of 150-400 / 1,859 / 108 -- so
+    # every threshold in this block would then be a percentile of a different
+    # population). `MATTR_WINDOW` at the top of this file is read off the
+    # shipped declaration precisely so this comparison cannot become a
+    # threshold from one window against a statistic from another. If a future
+    # run moves the window, these rows drift for a reason that is NOT corpus
+    # change and must not be repinned as if it were. The sweep, the
+    # admissible set [1,22] u [40,93], and why 50 is kept rather than retuned
+    # toward the gradient: `quality.floor.CALIBRATION["mattr_window"]`.
+    #
+    # STRUCTURAL, like the two checks at the end of this function: it reads
+    # the band edge and the declaration and owes nothing to how many items
+    # were scored, so a `--sample` run judges it exactly as a full one does.
+    # What it asserts is ADMISSIBILITY at this profile: the band's lower edge
+    # must EXCEED the window, so that every item in the calibration set is on
+    # the moving-average side of `_mattr`'s `len(words) <= window` branch. If
+    # it ever did not, `threshold mattr` below would be a percentile over a
+    # MIXTURE of two statistics and would be unreadable rather than merely
+    # drifted -- the defect doctrine 15 names, and the one the `section`
+    # profile is on the other side of (every quatrain there falls back, so
+    # its `mattr` figures are plain TTR; that is stated in its own note).
+    # The JUDGED edge is the SHIPPED profile's `p.lo`, not this run's `lo`:
+    # `lo` is refused outright in `--without-predictability` (a four-check
+    # band rule is a different rule) and carries no verdict under `--sample`,
+    # so judging on it would manufacture a DRIFT out of a mode. This run's
+    # edge is printed beside it as context.
+    counts["asked"] += 1
+    counts["answered"] += 1
+    if p.lo > MATTR_WINDOW:
+        print("   %-34s shipped lo %d > window %d (this run's band lo %d): "
+              "every item is a genuine moving average"
+              % ("MATTR window admissibility", p.lo, MATTR_WINDOW, lo))
+    else:
+        bad.append("the shipped band lo %d does not exceed the MATTR window "
+                   "%d, so the mattr percentile mixes moving-average and "
+                   "plain-TTR items" % (p.lo, MATTR_WINDOW))
+        print("   %-34s DRIFT: shipped lo %d <= window %d"
+              % ("MATTR window admissibility", p.lo, MATTR_WINDOW))
     for f, _, _ in CHECKS:
         # A check absent from the SHIPPED profile is not drift -- it is the
         # gap this file's own module docstring names (`predictability`, as
@@ -1463,10 +1518,20 @@ def main():
         # and 4b's Bonferroni denominator all follow from the same list
         # (doctrine 91: a count is a coordinate of the rendering).
         CHECKS = [c for c in CHECKS if c[0] != "predictability"]
+        # `20` IS HAND-KEPT AND HAS NOW GONE STALE TWICE -- 18 -> 19 when
+        # the CLICHE_PAIR FPR joined, 19 -> 20 when `mattr_window` did,
+        # and it was still printing 18 after both. It cannot be derived
+        # here: the authoritative count is the `asked` half of the
+        # doctrine-79 triple, which is accumulated by the checks BELOW and
+        # does not exist yet at this line. So it is repinned by hand and
+        # the triple is named as the thing to trust -- if the two ever
+        # disagree again, the triple is right and this sentence is not.
         print("MODE  --without-predictability: %d checks, not 5. The dropped "
-              "one is the whole cost (96%% of a cold run) and 5 of the 18 "
-              "shipped constants go undecided with it; they are listed by "
-              "name in section 6." % len(CHECKS))
+              "one is the whole cost (96%% of a cold run) and 5 of the 20 "
+              "shipped constants go undecided with it (that 20 is hand-kept; "
+              "the `asked` count in the doctrine-79 triple below is the "
+              "derived one); they are listed by name in section 6."
+              % len(CHECKS))
 
     ph = Phases()
     cache = PredictabilityCache(

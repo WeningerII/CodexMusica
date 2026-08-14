@@ -282,6 +282,13 @@ PINNED = {
             "concreteness_p90": 0.6353276353276354,
             "abstract_noun_ratio": 0.3148148148148148,
             "pos_binding_diversity": 0.46096866096866096,
+            # THE COORDINATE THIS PINS IS THE WINDOW, and it took until
+            # 2026-08-14 for anything to say so. `mattr` is a moving average
+            # over `FloorDeclaration.mattr_window` tokens (50), so this
+            # number is a reading at ONE window and not a property of the
+            # feature -- move the window and it moves, monotonically and by
+            # far more than any tolerance here. The sweep and the admissible
+            # range are `quality.floor.CALIBRATION["mattr_window"]`.
             "mattr": 0.3658119658119658,
             "function_word_ratio": 0.5358974358974359,
             "syntactic_inversion_rate": 0.582905982905983,
@@ -299,6 +306,19 @@ PINNED = {
             "concreteness_p90": 0.22911184210526317,
             "abstract_noun_ratio": 0.7921875,
             "pos_binding_diversity": 0.4915296052631579,
+            # SAME COORDINATE, and this is the cell the 2026-08-14 window
+            # sweep was run against: `mattr` alone, Exp 2, at each window.
+            #     window   20     25     30     40     50     60     80   100
+            #     AUC     .928   .915   .907   .891   .870   .850   .811  .750
+            # 0.8695723684210527 is the window-50 entry, reproduced to the
+            # last digit by an independent instrument. The column is
+            # MONOTONE, so this pin sits on a slope: the shipped window costs
+            # ~0.06 AUC against the sweep's best and is kept because an
+            # in-sample argmax over the same 152-vs-40 corpus is not a
+            # calibration (doctrine 19). Any future move must land inside
+            # [1,22] u [40,93] -- outside that a profile's calibration set
+            # straddles `_mattr`'s plain-TTR fallback. Do not tune the window
+            # to move this number; repin it with a date and an argument.
             "mattr": 0.8695723684210527,
             "function_word_ratio": 0.13519736842105262,
             "syntactic_inversion_rate": 0.8330592105263158,
