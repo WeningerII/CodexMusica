@@ -18,8 +18,21 @@ on:
   workflow_dispatch:
   # Weekly, so the slow cross-artifact meta-test (see the `tandem` job) has a home,
   # and so a full re-verify catches bit-rot from the toolchain rather than from us.
+  #
+  # TWO CRONS NOW, AND EVERY SCHEDULED JOB NAMES THE ONE IT WANTS. While there
+  # was exactly one cron, `github.event_name == 'schedule'` identified it
+  # precisely; with two it does not. An unpinned scheduled job silently joins
+  # every new cadence anybody adds — adding the nightly below would, on its
+  # own, have promoted the 25-minute `tandem` job from weekly to daily. So
+  # `tandem` names the weekly cron and the two nightly jobs name the nightly
+  # one, and a third cron cannot change what any existing job does.
   schedule:
     - cron: '0 6 * * 1'
+    # Nightly, for the checks the measurement in `suites` prices out of a pull
+    # request. Deliberately NOT at :00 — GitHub's scheduler queues cron runs
+    # globally and the top of the hour is the most contended minute there is,
+    # which shows up as a scheduled run starting late or being dropped.
+    - cron: '17 4 * * *'
 
 jobs:
   # Cheap, fast-failing gates, run FIRST and alone so an expensive job never
@@ -426,8 +439,17 @@ jobs:
   # unique is [1/4]'s comparison against the 18 committed tests/*_audit.json
   # snapshots, which nothing else reads. That is worth a weekly run, not 25+
   # minutes on every pull request.
+  #
+  # PINNED TO THE WEEKLY CRON. This read `github.event_name == 'schedule'`,
+  # which was exact while this workflow had one schedule. It now has two, and
+  # an unpinned condition would have made this 25+ minute job run every night
+  # — the precise outcome its own comment above argues against, arrived at by
+  # editing a different part of the file. Naming the cron keeps "weekly, not
+  # per-PR" true no matter what cadences get added later.
   tandem:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 6 * * 1')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -714,3 +736,91 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/positive_control.py --check
+
+      # ADVERSARY 4's AIM. Added 2026-08-14. 0.06 CPU-s — the cheapest step in
+      # this job and, per CPU-second, the most informative one in the file.
+      #
+      # quality/mutate.py declares 57 mutations (33 M-series, 24 Q-series,
+      # across 7 target files) and every one is anchored on an EXACT TEXT MATCH
+      # in the file it mutates — not a name, not a line number, a literal
+      # source fragment. So an ordinary, correct, well-reviewed edit to a
+      # comparator silently DETACHES the mutation that was measuring that
+      # comparator's test coverage. Nothing else in the repo notices: the
+      # mutation stops being applied, the sweep reports on whatever still
+      # attaches, and the score drops without anybody reading the drop as a
+      # loss of coverage. mutate.py's own taxonomy calls this STALE and names
+      # the remedy (re-anchor, or retire with a reason).
+      #
+      # THREE DRIFTED IN 24 HOURS. That is this repo's measured rate, not a
+      # hypothetical, and it is why `--dry-run` earns a step of its own:
+      # it re-reads the shipped sources and re-applies all 57 anchors, so it
+      # answers "is adversary 4 still pointed at the code?" FROM THE CODE on
+      # every run. It is the only carrier of that fact that cannot be silenced
+      # by writing a file — a committed score can be repinned, an anchor that
+      # no longer matches cannot be argued with.
+      #
+      # Verified green 2026-08-14 before wiring: `57/57 mutations apply
+      # cleanly, M-series 33, Q-series 24 across 7 target file(s)`.
+      #
+      # TRAP, VERIFIED 2026-08-14: `mutate.py --dry-run | head -1` exits 1 via
+      # SIGPIPE on the CLEAN path — head closes the pipe, Python takes EPIPE,
+      # and a green run reports red. DO NOT PIPE THIS STEP. It is deliberately
+      # run bare, and this comment is here so the next person to "just add a
+      # `| tail`" finds out from the file rather than from a red build.
+      - name: Mutation anchors still apply (all 57 — adversary 4 is still aimed at the code)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/mutate.py --dry-run
+
+      # The other half of the pair, and a different question. `--dry-run` above
+      # proves the anchors ATTACH; this proves the LIST is coherent — that each
+      # declared mutation exists, that it reverts the thing its name says it
+      # reverts, and that it targets the SHIPPED comparator rather than a copy.
+      # Sections 1-3 only: it reads the list and the source and forks nothing.
+      # 0.06 CPU-s, MEASURED 2026-08-14, green (`the mutation list is well
+      # formed and every anchor still applies`).
+      #
+      # `--static` IS LOAD-BEARING, not tidiness. Bare `python3
+      # quality/test_mutation.py` runs the FULL SWEEP at
+      # `--jobs=os.cpu_count()`, forking the whole test suite once per
+      # mutation — mutate.py prices the honest version of that instrument at
+      # ~53 CPU-minutes. That is a nightly or a human's machine, never a step
+      # in a job budgeted in seconds. This is why test_mutation.py is also
+      # deferred by name in the `suites` job: a bare glob would have run the
+      # sweep on every pull request.
+      - name: Mutation list is well formed (static — no sweep, forks nothing)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/test_mutation.py --static
+
+      # THE HAFEZ RADIF AND QĀFIYA RATES against their committed values.
+      # Added 2026-08-14. 15.79 CPU-s, MEASURED.
+      #
+      # quality/phonology/fas.py produces three rates this project has started
+      # quoting — radif detected in 315 of 495 ghazals, a rhymes()
+      # None/True/False split of 60.2/38.8/1.0% over 20,388 pairs, and a
+      # seven-point threshold sweep — and every one of them was a bare rate
+      # with no automated witness. `--check` pins the DETERMINISTIC half: the
+      # detected counts and every cell of the sweep. It leaves the null medians
+      # to the printed p, because those ride a permutation draw and pinning a
+      # sample fails on the seed (doctrine 57) — the same line
+      # audit_time_pooled_null.py draws next door, for the same reason.
+      #
+      # Verified green 2026-08-14 before wiring: RESULT: PASS, with every sweep
+      # cell [ok] against its committed count (318/318/315/311/310/306/301/297).
+      - name: Hafez radif/qāfiya rates against their committed values
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/hafez_rate.py --check
+
+      # The same 495 ghazals through the OTHER instrument, and it is a separate
+      # question rather than a duplicate of the step above: hafez_rate.py
+      # checks the rates `phonology/fas.py` reports, this checks the radif
+      # AUDIT's own threshold ladder (mf=0.50 upward — 311/311/309/306/300/297,
+      # a different ladder over the same corpus). Either can move without the
+      # other, and a check that only watched one would call that agreement.
+      # 0.24 CPU-s, MEASURED 2026-08-14. Verified green before wiring.
+      - name: Hafez radif audit against its committed sweep
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_hafez_radif.py --check
