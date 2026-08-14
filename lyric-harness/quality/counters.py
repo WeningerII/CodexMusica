@@ -1037,20 +1037,42 @@ def public_symbols():
     methods = sum(u.methods for u in units if u.in_scope and not u.is_test)
     nowhere = sorted(((n, m, s, k) for m, s, k, n, v, _ in rows
                       if v == "NOWHERE"), reverse=True)
-    cell = ("**%d** public top-level functions/classes under `quality/` and "
-            "the root — **%d** named by another production module, **%d** by "
-            "tests only, **%d** only inside their own module, **%d** by "
-            "nothing anywhere, **%d** REFUSED (%s). Reference, NOT execution: "
-            "a symbol whose only caller is itself dead still counts named. "
-            "This row is a READING OF THE TREE AT RUN TIME and it moves: the "
-            "NOWHERE bucket is a queue under active repair, not a settled "
-            "property, and any lot adding a public `def` moves the total — so "
-            "a FAIL here is that movement, cleared by `--write`, and the "
-            "figures are quotable only with the run that produced them"
+    #: THE POPULATION IS `__all__`-GATED, and until 2026-08-14 the cell did
+    #: not say so. `symbol_reach` takes a module's symbols from `__all__`
+    #: where it declares one (the DERIVATION paragraph above states this),
+    #: so a public top-level `def` in such a module that the `__all__` omits
+    #: is outside this count entirely. The cell's own sentence "any lot
+    #: adding a public `def` moves the total" was therefore false for ten of
+    #: the modules in scope, and it was BELIEVED: 2026-08-14 added
+    #: `fit.AssumedMeter` -- a public class, documented as the only way past
+    #: a new refusal -- and reported the resulting `--check` FAIL as that
+    #: class moving the total. The total did not move and could not have.
+    #: Counted and disclosed rather than folded in: `__all__` IS the module's
+    #: own declaration of its surface and doctrine 1 does not let this file
+    #: outrank it, so the gap goes on the record the same way the unmeasured
+    #: methods already do.
+    gated = sorted((u.mod, n) for u in units
+                   if u.in_scope and not u.is_test and u.exported is not None
+                   for n in sorted(u.defs) if n not in u.exported)
+    cell = ("**%d** DECLARED-public top-level functions/classes under "
+            "`quality/` and the root — **%d** named by another production "
+            "module, **%d** by tests only, **%d** only inside their own "
+            "module, **%d** by nothing anywhere, **%d** REFUSED (%s). "
+            "Reference, NOT execution: a symbol whose only caller is itself "
+            "dead still counts named. DECLARED: the population is `__all__` "
+            "where the module declares one, so a lot adding a public `def` "
+            "moves the total only where there is no `__all__` to omit it — "
+            "**%d** public top-level defs are outside this count for that "
+            "reason and are listed in the evidence. This row is a READING OF "
+            "THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue "
+            "under active repair, not a settled property — so a FAIL here is "
+            "that movement, cleared by `--write`, and the figures are "
+            "quotable only with the run that produced them"
             % (total, by["PRODUCTION"], by["TESTS"], by["OWN"], by["NOWHERE"],
                by["REFUSED"],
                ", ".join("%d %s" % (n, k.lower())
-                         for k, n in sorted(kinds.items())) or "none"))
+                         for k, n in sorted(kinds.items())) or "none",
+               len(gated)))
     top = ["%s.%s (%s, %d lines)" % (m, s, k, n)
            for n, m, s, k in nowhere[:10]]
     ev = ["named by nothing, longest first: %s%s"
@@ -1060,7 +1082,11 @@ def public_symbols():
           "re-run rather than quoting it",
           "OUT OF SCOPE and unmeasured: %d public methods on those classes — "
           "a dead method on a live class is invisible to a top-level sweep"
-          % methods]
+          % methods,
+          "OUTSIDE THE POPULATION, public at the top level and omitted by "
+          "their own module's `__all__`: %s — each is invisible to every "
+          "bucket above, so adding or stranding one moves no figure here"
+          % ("; ".join("%s.%s" % g for g in gated) or "none")]
     return Answered(cell, "\n      ".join(ev))
 
 

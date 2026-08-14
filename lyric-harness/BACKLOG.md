@@ -587,7 +587,7 @@ never one (doctrine 79).
 | MISSING entries by status | 49 OPEN / 14 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,611 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **979** public top-level functions/classes under `quality/` and the root — **157** named by another production module, **238** by tests only, **532** only inside their own module, **10** by nothing anywhere, **42** REFUSED (33 ambiguous, 4 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property, and any lot adding a public `def` moves the total — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **985** DECLARED-public top-level functions/classes under `quality/` and the root — **156** named by another production module, **247** by tests only, **529** only inside their own module, **10** by nothing anywhere, **43** REFUSED (34 ambiguous, 4 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **19** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **57 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
@@ -596,12 +596,47 @@ never one (doctrine 79).
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | sonnet battery | 82/1014 = 8.1% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
 | band FPR on random pairs | **2.10%** (84 of 4,000 at seed 20260810, the runner's own default n; 2.00% = 60 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
-| register-audit findings | **1** — FALSE derivations: D9 (M-4) | `python3 quality/audit_register.py` |
+| register-audit findings | **0** — FALSE derivations: none | `python3 quality/audit_register.py` |
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |
 <!-- /COUNTERS -->
 
 > **The register-audit row was 9 findings on 2026-08-11** before seven were
 > closed; the two that remain are deliberate.
+
+> **The symbol census read 157 named by another production module / 238 by
+> tests only on 2026-08-14**, at the same total and with the other three
+> buckets unchanged. It reads 154 / 241 later the same day, and the cause is
+> one commit: `b560014` replaced `lyric_harness._grid_song`'s hand-built
+> `GR.Section`/`GR.Meter`/`GR.Line`/`GR.Song` construction with a single
+> `GR.song_from_blueprint` call, which deleted the last non-test reference to
+> all four of those classes (PRODUCTION -> TESTS, -4) and passed
+> `GR.UnknownFunction` to a `_reraise` tuple (TESTS -> PRODUCTION, +1). Net
+> -3 / +3; no symbol entered or left the population, which is why the total
+> did not move. Re-derived with `--write`, never retyped (doctrine 58).
+>
+> **AND THE TOTAL COULD NOT HAVE MOVED FOR THE REASON `ed7a2f7` GAVE, which
+> is why that commit's row is superseded rather than simply stale.** Its
+> message explains its own `--check` FAIL as "`AssumedMeter` is a new public
+> class ... and the resulting diff is that one row". The row it wrote kept the
+> total and all five verdict buckets and its ONLY diff was `32 ambiguous, 5
+> dynamic` -> `33 ambiguous, 4 dynamic`. Both halves are true and the
+> explanation joining them is not. The census takes a module's symbols from
+> `__all__` where it declares one; `quality/fit.py` declares one; and
+> `AssumedMeter` was never added to it — so the class sits OUTSIDE the
+> population and adding it could not move any figure. The movement that day
+> was a single reclassification, `quality.phonology.declared` DYNAMIC ->
+> AMBIGUOUS, because the same commit introduced a LOCAL variable named
+> `declared` in `fit.py`: `declared` is a public top-level `def` in both
+> `quality/ipa.py` and `quality/phonology/__init__.py`, so a bare identifier
+> in a file importing either cannot be attributed to one, and an AMBIGUOUS
+> refusal outranks the string-constant DYNAMIC one it previously carried.
+> The gate is not a bug — `__all__` is the module's own declaration of its
+> surface and doctrine 1 does not let the counter outrank it — but the cell
+> did not disclose it, so the cell now says DECLARED-public, states the rule,
+> and counts the public top-level defs it excludes (18 at this reading, listed
+> in the evidence). `fit.AssumedMeter` is one of them, and that it is public,
+> documented as the only way past a refusal, and invisible to this census is a
+> fact about `fit.py`'s `__all__` for that file's owner to settle.
 
 > **"surviving mutations 1 of 3 tested" was the state of §1.1 before it was
 > done.** ~~The harness now declares **33** mutations and catches 32~~ — the

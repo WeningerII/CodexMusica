@@ -746,7 +746,7 @@ is known to exist and to be digitised; and the only thing between this project
 and testing it is an egress block, which doctrine 49 says is a claim about the
 network at a moment rather than about the world.
 
-### K-6 · Eight non-English phonologies, ZERO songs `OPEN`
+### K-6 · ~~Eight non-English phonologies, ZERO songs~~ — **six of the eight now have song text; two still have none** `OPEN`
 **Found 2026-08-10, while closing K-1.** K-1 built a song corpus and every one
 of its 143 files is English. The eight phonology cells (cym fin fas ltc msa non
 san som) between them hold **five** text files, across three languages —
@@ -766,6 +766,65 @@ tradition.
 > `fas_hafez.json` should not be in the list. `corpus/fas_hafez.LICENSE.txt` is
 > a licence, not a corpus, and is excluded from both readings. Say the number
 > the list supports.
+
+> **REPINNED 2026-08-14 at `b560014`. `ZERO` IS NOT A NUMBER THAT DRIFTED — IT
+> IS A CLAIM ABOUT A KIND OF FILE EXISTING AT ALL, AND SIX OF THE EIGHT CELLS
+> NOW HAVE ONE.** A stale count is repinned; a claim of the form "there are
+> none" is either true or structurally wrong, and this one understated the tree
+> by **117 files**. `corpus/song/` holds **260** `.txt` files, **143** of them
+> English and **117** not. The paragraph above is the 2026-08-10 reading and
+> stays dated; nothing in it may be quoted forward.
+>
+> Re-derive, in this order:
+>
+> ```
+> python3 quality/counters.py            # the `corpus/song/` row counts the tree at run time: 260 files
+> ls corpus/song/*.txt | wc -l           # 260
+> ls corpus/song/*.txt | grep -vc /eng_  # 117
+> python3 quality/verify_entries.py      # STAGED_FILE_COUNT re-measures each bullet below
+> ```
+>
+> - `ltc_` — **67 Middle Chinese files**, against the `no text at all` this
+>   entry records.
+> - `fas_` — **31 Persian files**, against one JSON at the corpus root.
+> - `fin_` — **11 Finnish files**, against one root `.txt`.
+> - `cym_` — **five Welsh files**, against two root `.txt`.
+> - `san_` — **two Sanskrit files**, against one root `.txt`.
+> - `msa_` — one Malay file, against the `no text at all` this entry records.
+>   (This is the one row `STAGED_FILE_COUNT` cannot check: its pattern requires
+>   a PLURAL — `files` or `texts` — so a count of one is invisible to it. Said
+>   here rather than left as a gap in the checked set, and counted by the `ls`
+>   above like every other row.)
+> - `non_`, `som_` — **still zero, and they are now the only two.** Both are
+>   BLOCKED for reasons this register already owns and neither is waiting on a
+>   sourcing round: K-4 (Old Norse, doctrine 92 — the admissible and the
+>   complete sources are disjoint) and K-5 (Somali, doctrine 44 — not
+>   obtainable from this container).
+>
+> **So "`ltc`, `msa`, `non` and `som` have no text at all" retires for `ltc`
+> and `msa` and stands for `non` and `som`**, and the entry's closing sentence
+> — "the only tradition we can measure a song against is the one tradition" —
+> is no longer true in any reading. Counted as SONGS by K-1's own rule (a song
+> is a `--- TITLE:` line), the non-English side is **20,386** against English's
+> **4,930**: the corpus is now saturated in the corner this entry says is
+> starved. M-11 owns the per-prefix song counts — its table carries the five
+> that are its own subject (9,857) and its prose carries `ltc_`'s 10,529 — and
+> `CORPUS_TABLE_ROW` checks that table on every run, so the numbers are not
+> restated here and there is one place to repin.
+>
+> **THREE INSTRUMENTS ALREADY DISAGREED WITH THIS ENTRY IN WRITING, AND TWO OF
+> THEM CITE IT BY NAME WHILE STATING THE OPPOSITE FIGURE.**
+> `quality/negative_control.py`'s `arm_langs` docstring: "which is
+> `MISSING.md` K-6 ... `corpus/song/` holds 260 files under seven language
+> prefixes". `quality/RESULTS_NULL_SHAPES.md` §4 quotes this entry's own
+> sentence and answers it with the same 260. `quality/test_readability.py`
+> asserts "the corpus is no longer monolingual, which is why the scope is now
+> explicit" and prints `MISSING K-6` in the failure message. So the register
+> was the LAST reader of the corpus to be told, and a cell briefed from this
+> page rather than from those three would have taken the five files at
+> `corpus/` for the whole non-English corpus — doctrine 48, an entry read as a
+> briefing is an instrument, and this one was pointing at the wrong tree.
+
 **Staged, not sourced:** 297 non-English lyricists now carry rows in
 `data/lyricists.tsv` with a `lang` column (added in the same commit; the 221
 pre-existing rows are backfilled `eng`, which is the gap stated as data).
@@ -797,7 +856,10 @@ carries `d (century only; upper bound assumed)` rather than pretending to a
 verified year. 18 rows across cym/som/san are on that footing.
 
 > **RE-DERIVED 2026-08-11 from `data/lyricists.tsv`. The table above is dated
-> and stays dated; this is what it says today.**
+> and stays dated; ~~this is what it says today~~ — SUPERSEDED 2026-08-14, and
+> every figure in this block is now the 2026-08-11 reading of commit `ebbd741`,
+> kept under doctrine 17 and quotable only with that commit beside it. The
+> block below is what the file says at `b560014`.**
 >
 > - **The staged population is 319, not 297.** Two languages moved: `ltc`
 >   59 → **76** (17 of them `FOUND_NOT_ON_LIST`, the 10th-century Later Shu
@@ -817,6 +879,79 @@ verified year. 18 rows across cym/som/san are on that footing.
 >   msa 1). Doctrine 81's cost is that much larger than this entry records, and
 >   it is still the correct direction for a ledger that is evidence rather than
 >   an estimate.
+
+> **REPINNED 2026-08-14 from `data/lyricists.tsv` at `b560014`. Command:**
+>
+> ```
+> python3 -c "import csv,collections; r=[x for x in csv.DictReader(open('data/lyricists.tsv'),delimiter='\t') if x['lang']!='eng']; print(len(r)); print(collections.Counter(x['lang'] for x in r)); print(collections.Counter(x['status'] for x in r))"
+> python3 quality/audit_register.py        # derivations D11 (Somali) and D12 (this table)
+> ```
+>
+> - **The staged population is ~~319~~ 331**, and the 319 was already the
+>   second value in this block. `fin` **14 → 26** joins the `ltc` 59 → 76 and
+>   `cym` 35 → 40 recorded above; `fas` 76, `san` 62, `non` 25, `msa` 8 and
+>   `som` 18 hold.
+> - **"Somali's 0 staged / 13 refused / 5 blocked are unchanged and CONFIRMED
+>   exactly" WAS ALREADY CONTRADICTED BY K-5 ON THIS PAGE WHEN IT WAS
+>   WRITTEN.** Measured: **0 staged / 14 `REFUSED_DATE` / 4
+>   `BLOCKED_ORTHOGRAPHY`**. K-5 states the same correction in its own prose —
+>   "the counts are 14 fail the DATE gate and 4 clear, not 13 and 5", Cilmi
+>   Boodheri's row moved because `provenance.py` declares a 95-year term where
+>   the ledger computed `died + 70` — and `audit_register.py`'s D11 has been
+>   printing MOVED `14 / 4` on every run since. A word like `CONFIRMED
+>   exactly` is a measurement claim, not an emphasis, and it was the one figure
+>   in the block that had not been re-measured at all.
+> - **The status enumeration is not stale — IT IS A BROKEN PARTITION, and the
+>   two defects hide each other exactly.** The sentence above reads as a
+>   partition: 33 + 47 + 174 + 29 + 17 + 13 + 5 + 1 = 319, its own stated
+>   population, closed. Today the same eight slots hold 33 + 70 + 171 + 9 + 17
+>   + 14 + 4 + 1, and that **also sums to 319** — so a reader who checks the
+>   arithmetic against the population this block states finds it closes, and
+>   concludes the entry is sound. The population is **331**. The 12 rows in the
+>   difference all carry a NINTH status the enumeration has no slot for:
+>   **`SOURCED_BY_PUBLICATION` = 12**, all `fin`. A stale total and a missing
+>   category are individually detectable; together they are not, and that is
+>   the reason this is written up as a defect in the SENTENCE rather than as
+>   eight fresher integers. It is `C4`'s finding at the non-English layer: K-1
+>   quoted two statuses of five and invited an addition that did not close, and
+>   `audit_register.py`'s `_chk_status_partition` was built for exactly that.
+>   K-6 has no such check, and this is what its absence bought.
+> - **`SOURCED_BY_PUBLICATION` IS NEW, IT IS NOT A RELABEL, AND IT IS DECLARED
+>   NOWHERE.** It first appears at commit `debf64e` (2026-08-11), on **12 rows
+>   that were added, not moved** — `fin` went 14 → 26 in the same commit and no
+>   pre-existing row changed status. It occurs in `data/lyricists.tsv` and in
+>   no other file in this repository — not in `quality/provenance.py`, not in
+>   `quality/audit_register.py`, not in `quality/METHOD.md`, not in
+>   `quality/LABELS.md`, not in `data/CHANNELS.md` — so there is no written
+>   statement anywhere of what the status MEANS, and the only evidence for it
+>   is the rows themselves.
+> - **What the 12 rows say, read rather than guessed.** All 12 are `fin`, all
+>   12 point at one file, `corpus/song/fin_wahanen_laulukirja.txt` (the
+>   *Wähänen Laulu-kirja*, Turku 1864), and all 12 have **`born`, `died`,
+>   `pd_route` and `pd_expired` EMPTY** — the only rows in the ledger that do.
+>   Their notes record why: the 1864 printing gives pen-names (`Kallio`,
+>   `Tuokko`), initials and surnames (`A. Oksanen`, `C. Helenius`), and in one
+>   case an abbreviation with the surname suppressed (`J. G. D-n`), and the
+>   rows exist so the abbreviation is recorded as an abbreviation and not
+>   resolved to a guess. So the admission was decided on the BOOK, not on an
+>   author life — the EDITION gate that doctrine 80 says is the binding one,
+>   reached without the author gate having anything to work on. That is a
+>   distinct provenance route and doctrine 24 is the rule for it: a status
+>   that would otherwise be deleted into `SOURCED` must RELABEL instead, and
+>   the test of the rule is whether the ledger can say MORE afterwards. It
+>   can — "sourced, author unidentifiable, publication-dated" is a fact the
+>   single `SOURCED` bucket cannot express. Under doctrine 79 the two are
+>   reported apart and never summed: **70 `SOURCED` and 12
+>   `SOURCED_BY_PUBLICATION`**, and "82 sourced" is a number this entry does
+>   not state anywhere and must not.
+> - **What is owed, and it is not a number.** The status vocabulary needs a
+>   declared home — the nine names, what each asserts, and which gate decided
+>   it — and `audit_register.py` needs a `_chk` that FAILS when the statuses
+>   present in `data/lyricists.tsv` are not the statuses the entry enumerates.
+>   Until then any ninth status added tomorrow is invisible in the same way.
+> - **The century-only bound holds at 68**, six languages, san 36 / som 15 /
+>   non 13 / cym 2 / fas 1 / msa 1 — CONFIRMED exactly at `b560014`, and it is
+>   the only figure in the block above that re-derives unchanged.
 
 ---
 
@@ -896,24 +1031,64 @@ doctrine 79.
 
 **And the 102 makes the point a third time, which is why it is corrected here
 rather than quietly replaced.** `CLAUDE.md` carries TWO numbering systems that
-do not collide — the doctrine run, and a `Known gaps` list of **7** cited
-elsewhere as `known gap N`. Both are written `^\d+\. \*\*`, so a bare regex over
-the file returned **27** where the doctrine block holds **20**; 27 + 75 = 102.
-Two independent runs added together as if they were one. Measured
-2026-08-11 by `python3 quality/verify_doctrines.py`, which reads only between
+do not collide — the doctrine run, and a `Known gaps` list cited elsewhere as
+`known gap N`. Both are written `^\d+\. \*\*`, so a bare regex over the file
+counts them together. **At commit `d11ca0a`, 2026-08-11**, that regex returned
+**27** where the doctrine block held **20**, the gaps list ran **1–7**, and
+27 + 75 = 102. Two independent runs added together as if they were one.
+Measured by `python3 quality/verify_doctrines.py`, which reads only between
 the `<!-- DOCTRINE-BLOCK -->` markers that exist for exactly this reason:
 
 | | doctrines | `known gap N` |
 |---|---:|---:|
-| `CLAUDE.md` | 20 | 7 |
+| `CLAUDE.md` | 20 | ~~7~~ **10** |
 | `quality/METHOD.md` | 75 | 0 |
-| **total** | **95**, a contiguous run 1–95, nothing defined twice | **7**, a separate run 1–7 |
+| **total** | **95**, a contiguous run 1–95, nothing defined twice | ~~**7**, a separate run 1–7~~ **10**, a separate run 1–10 |
 
-**The counter is now the record.** `python3 quality/counters.py --check` FAILS
-if `BACKLOG.md`'s counters table disagrees with the measurement, so this figure
-cannot go stale again without a red test. That is the doctrine-48 move this
-entry was itself an instance of: L-5 recorded the drift of a number in prose,
-and the prose drifted.
+> **REPINNED 2026-08-14 at `b560014`: the gaps run is 1–10, the bare regex
+> returns 30, and 30 + 75 = 105.** The `7` and the `1–7` above were correct on
+> 2026-08-11 and are kept struck under doctrine 17; the `95` and the `20` and
+> the `75` are unchanged and re-derive exactly. Superseded values, with the
+> commit each was last true at:
+>
+> | measured at | date | gaps run | bare `^N. **` over `CLAUDE.md` | + 75 |
+> |---|---|---:|---:|---:|
+> | `d11ca0a` … `e85609a` | 2026-08-11 | 1–7 | 27 | 102 |
+> | `4efc370` … `19d2f1e` | 2026-08-13 | 1–9 | 29 | 104 |
+> | `d9f266d` … `b560014` | 2026-08-14 | **1–10** | **30** | **105** |
+>
+> ```
+> grep -cE '^[0-9]+\. \*\*' CLAUDE.md            # 30
+> grep -cE '^[0-9]+\. \*\*' quality/METHOD.md    # 75
+> python3 quality/verify_doctrines.py            # "every `known gap N` resolves against CLAUDE.md's own 1-10 list"
+> python3 quality/counters.py                    # doctrines row, evidence line: "1–10, 10 items … bare count is 30 = 20 + 10"
+> ```
+>
+> **THIS IS THE ONE FIGURE ON THIS PAGE THAT `CLAUDE.md` HAD ALREADY REPINNED
+> CORRECTLY, AND IT IS THE MODEL.** `CLAUDE.md`'s "Two numbering systems"
+> paragraph carries the run as `1–10` with BOTH earlier repins named in place
+> — 1–7 → 1–9 on 2026-08-13, 1–9 → 1–10 on 2026-08-14 — which is doctrine 17
+> done properly, in the file this entry is about, for this exact number. The
+> register printed `7`, undated and unstruck, as a present-tense measurement
+> for a day after that. Copy the `CLAUDE.md` paragraph, not this one.
+
+**The counter is now the record — for the 95, and NOT for the 7, which is the
+whole of why this drifted again.** `python3 quality/counters.py --check` FAILS
+if `BACKLOG.md`'s counters table disagrees with the measurement, and the
+committed `doctrines` row states only the **95**. `counters.doctrines()` DOES
+derive the gaps run live and has been printing `1–10, 10 items … bare count is
+30` in its evidence line; `audit_register.py`'s D23 prints the same 30 in its
+`measured:` line. **Neither is asserted, because only a row's VALUE and its
+`measured by` cell are checked, and the evidence line is not a row.** So the
+guard this paragraph claims — "this figure cannot go stale again without a red
+test" — was true of the 95 and false of the 7, and the sentence asserting it
+went stale in the same breath. That is the doctrine-48 move this entry was
+itself an instance of, failing a second time in the same place: L-5 recorded
+the drift of a number in prose, the prose drifted, the correction to the prose
+drifted, and the instrument that could have caught it was printing the right
+answer all along into a field nothing reads. **What is owed:** the gaps run
+belongs in the committed counters table as its own row, so that `--check` goes
+red on it.
 
 ---
 
@@ -1504,14 +1679,31 @@ which is the right shape for the P11 homograph gap and for partial nuclei.
 Decision owed: mine the idea into `relations.py` and delete the file, or give it
 a `__main__` and keep it as a comparison runner.
 
-> **DECIDED 2026-08-11, and "genuinely stranded" no longer holds.** The file is
-> **1,566 lines** (not 1,325 — a line count is a coordinate of the counting
-> convention AND of the date), it now has an `if __name__ == "__main__"`, and it
+> **DECIDED 2026-08-11, and "genuinely stranded" no longer holds.** The file
+> now has an `if __name__ == "__main__"`, and it
 > has callers: `quality/relations.py` and `quality/test_relations.py`.
-> The 1,566 is `wc -l` and `str.splitlines()`, which agree; `audit_register.py`
-> D22 prints 1,567 because it computes `src.count("\n") + 1`, which invents a
+> **REPINNED 2026-08-14 at `b560014`: `quality/rhyme_constraints.py` is 1,611
+> lines** — ~~1,566~~ when this block was written (`ade8546`, 2026-08-11),
+> ~~1,609~~ later the same day (`e4cdf72`), ~~1,607~~ on 2026-08-12
+> (`11aa19b`), 1,611 since 2026-08-13 (`010f7a7`).
+> **The sentence that went stale is the sentence that said it would.** This
+> block already declared a line count "a coordinate of the counting convention
+> AND OF THE DATE", and then the date moved three times under the figure while
+> the figure stood still. `BACKLOG.md` §4.4 — the same claim, in the other
+> register — says **1,611** with `1,566` and `1,609` struck beside it, and has
+> a note explaining that it names exactly ONE module so
+> `MODULE_LINE_COUNT` can check it. Two registers, one file, two answers, for
+> three days, and the checkable one was right.
+> The 1,611 is `wc -l` and `str.splitlines()`, which agree; `audit_register.py`
+> D22 prints ~~1,567~~ **1,612** because it computes `src.count("\n") + 1`,
+> which invents a
 > final line whenever a file ends in a newline. The counting convention was
 > named as a coordinate here and then two instruments picked different ones.
+> Re-derive with `wc -l quality/rhyme_constraints.py`, or with
+> `python3 quality/counters.py` (the `stranded modules` row, which uses
+> `splitlines()`); `python3 quality/verify_entries.py`'s `MODULE_LINE_COUNT`
+> shape now checks the sentence above on every run, which it could not do
+> while the count sat beside the words "the file" and named no module.
 > **Both branches of the decision were taken, deliberately.** The knowledge sets
 > were mined into `relations.py` — `Syllable.onset/nucleus/coda/prominence/moras`
 > may each hold a scalar or a `Readings` frozenset, with the TYPE as the marker

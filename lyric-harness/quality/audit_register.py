@@ -69,14 +69,36 @@ check fails or a derivation returns FALSE. MOVED and UNVERIFIABLE do not fail
 the run — a register is allowed to age, it is not allowed to contradict itself.
 
 THAT POLICY IS RIGHT AND IT LEFT A HOLE, CLOSED 2026-08-14 BY `--check`. Every
-drift this instrument can find lands in MOVED, and MOVED does not fail; the
+drift this instrument can find lands in MOVED, and MOVED does not fail; ~~the
 run has meanwhile been exiting 1 continuously on D8/D9, a standing calibration
-pair nobody intends to clear this week. So a permanently-red 1 was the only
+pair nobody intends to clear this week~~. So a permanently-red 1 was the only
 signal, and six derivation VERDICTS changed and eleven rows' printed figures
 moved underneath it, without that number changing once. `--check` (exit 0 pass / 1 a figure moved / 2 cannot tell) pins
 the one-sided, repo-side figures and is green today, so it can be gated on
 without teaching anyone to ignore it. See `PINNED` for what it deliberately
 leaves out and why.
+
+AND THE "STANDING CALIBRATION PAIR" WAS NOT ONE — STRUCK 2026-08-14, LATER THE
+SAME DAY. D9 was not calibration; it was a check that had INVERTED. It carried
+`the Malay d. s. b. row was false and is struck through` as a hardcoded
+register-side literal, and that sentence is not in MISSING.md — M-4 says the
+opposite, in capitals, and has since the withdrawal was retracted. So the one
+row holding this file's exit code at 1 was reporting FALSE *for the code
+agreeing with the record*. D8 is UNVERIFIABLE without `MSA_SOURCE`, so the
+"pair" was one inverted row. THE RUN NOW EXITS 0, and that is the repair: this
+file's exit code went from a constant nobody could read to one that can change.
+
+THE SHAPE THAT PRODUCED IT, since it produced FIVE rows and not one. A
+derivation that TRANSCRIBES its register side compares the repo against a
+sentence MISSING.md may already have struck — and then names the register as
+the side that moved. D20 and D21 had been reporting MOVED on every run since
+2026-08-11 for entries repaired that day (F-1's ninth phonology, M-15's 75-of-77
+population). A check that CANNOT PASS is the mirror of doctrine 48's check that
+cannot fail: both teach a reader to skip the column. D9, D20 and D21 now READ
+their claim out of the entry, the way `_k1_claims` has since it was written and
+`quality/verify_doctrines.py` does for the doctrine run and the known-gaps list;
+`PINNED` exclusion 1 had already stated the rule as policy. D7 and D8 are the
+same shape and are NOT fixed here — see `_d_jne`.
 """
 
 from __future__ import annotations
@@ -619,6 +641,32 @@ def _song_stats(files):
     return songs, lines, tags
 
 
+#: AN ENTRY'S CURRENT TEXT: struck-through spans removed, blockquote markers
+#: dropped, whitespace flattened to one line so a claim that wraps across four
+#: source lines is one string to a regex.
+#:
+#: THE STRIKE RULE IS THE POINT.  Doctrine 17 keeps a superseded figure VISIBLE
+#: -- `~~8~~ **9 at debf64e**` -- and `~~...~~` is exactly how this register
+#: says a figure has stopped asserting anything.  A reader that does not strip
+#: them reads the entry's HISTORY as its claim.  `_k1_claims` has stripped them
+#: since it was written; this is that one line lifted out so every derivation
+#: below shares it instead of growing a private copy of the rule (doctrine 1:
+#: one place to change one answer).
+#:
+#: `> ` IS DROPPED because a blockquote continuation is markdown, not content:
+#: M-15's own repair is written inside one, and `298 distinct Tradition rows,
+#: 319\n> attachments` flattens to `... 319 > attachments` without this.
+#: VERIFIED equivalent for K-1 before `_k1_claims` was moved onto it -- all six
+#: of its figures parse identically with and without the `>` strip.
+def _entry_now(entries, ident):
+    t = entry_text(entries, ident)
+    if not t:
+        return ""
+    t = re.sub(r"~~[^~]*~~", "", t)
+    t = "\n".join(re.sub(r"^\s*>\s?", "", l) for l in t.split("\n"))
+    return " ".join(t.split())
+
+
 #: K-1's figures, READ OUT OF THE REGISTER rather than transcribed into this
 #: file.  Four of them moved on 2026-08-11 when 819 duplicated Lyrical Ballads
 #: lines and one joint-attribution hymn came out of `corpus/song/`, and a
@@ -629,10 +677,9 @@ def _song_stats(files):
 #: layer up.  Struck-through spans (`~~5,006~~ 4,993`) are removed first, so
 #: the claim read is the entry's CURRENT claim.
 def _k1_claims(entries):
-    t = entry_text(entries, "K-1")
+    t = _entry_now(entries, "K-1")
     if not t:
         return {}
-    t = " ".join(re.sub(r"~~[^~]*~~", "", t).split())
     out = {}
 
     def grab(key, pat, *groups):
@@ -737,6 +784,42 @@ def _d_chorus_stubs():
 
 
 def _d_jne():
+    """THIS ROW CARRIES THE SAME DEFECT D9/D20/D21 WERE JUST FIXED FOR, AND IT
+    IS DELIBERATELY LEFT STANDING. Recorded here so the next session does not
+    have to re-find it.
+
+    The register-side literal below is `Finnish j. n. e. on 8 stub lines, 16
+    unreadable tokens`. M-4 NO LONGER SAYS THAT: its table row reads `~~8~~
+    **9 at debf64e**` and its prose states `9 occurrences ... that is 18
+    tokens`, naming the same three files this function measures. Re-derived
+    2026-08-14 and the repo agrees with the entry exactly -- 9 stubs, 18
+    tokens, `fin_kanteletar` 7 / `fin_kanteletar_uudempia` 1 /
+    `fin_wahanen_laulukirja` 1. So the honest verdict against the CURRENT M-4
+    is CONFIRMED, and the MOVED this prints is measured against a sentence the
+    register struck three days ago -- the same permanently-MOVED shape as D20
+    and D21.
+
+    NOT CHANGED HERE, because the change is not this file's alone to make.
+    `quality/test_register_audit.py::test_calibration_finnish_arithmetic`
+    ASSERTS `verdict == "MOVED"`, with a docstring reading *"MOVED is the
+    honest verdict here ... The register's own owner moves the 8/16; this file
+    only asserts that the auditor still measures correctly."* The register's
+    owner HAS moved it, so that test's premise is now false and the pin must
+    move in the same commit as this function. Deriving it here alone would
+    turn a green suite red and leave a session unable to tell a real
+    regression from this repair. THE OWED EDIT, precisely: drop that check's
+    `verdict == "MOVED"` assertion to `verdict in ("CONFIRMED", "MOVED")`, or
+    repin it to CONFIRMED -- the sibling check above it (`9 occurrences` /
+    `18 tokens` in the detail) is the one that pins the MEASUREMENT and needs
+    no change either way. Then this function becomes `_claim_or_unverifiable`
+    against M-4's own `9`/`18`.
+
+    D8 is the third member of the family and is left for the same reason:
+    its literal `d. s. b. occurs ZERO times` is the WITHDRAWN M-4's sentence,
+    and `test_calibration_malay_withdrawal` pins `verdict in (FALSE,
+    UNVERIFIABLE)`, which a derived reading would break wherever `MSA_SOURCE`
+    is set.
+    """
     tot = collections.Counter()
     for f in _song_files("fin_"):
         n = len(re.findall(r"\bj\.\s*n\.\s*e\.", open(f, encoding="utf-8", errors="replace").read()))
@@ -771,13 +854,116 @@ def _d_dsb():
         "d. s. b. occurs ZERO times in the only Malay file"
 
 
+def _m4_stub_rows(entries):
+    """-> [(language, [stub forms], withdrawn)] from M-4's own stub table.
+
+    THE THIRD INSTANCE OF THE `_f1_claim` DEFECT, AND THE ONE THAT HAD
+    INVERTED.  The literal here was `the Malay d. s. b. row was false and is
+    struck through`, and that sentence IS NOT IN MISSING.md -- `grep -n
+    "struck through" MISSING.md` returns nothing.  It is a fossil of a
+    WITHDRAWN version of M-4.  The entry's live text says the opposite in
+    capitals: *"THE MALAY ROW WAS WITHDRAWN ON 2026-08-11 AND THE WITHDRAWAL
+    WAS ITSELF FALSE. Restored"*, and closes *"lyric_harness.CHORUS_STUB_FORMS
+    shipped the msa row throughout and was right the whole time."*
+
+    So this row was reporting FALSE -- the verdict that FAILS THE RUN -- for
+    the code agreeing with the register.  The check had inverted, not merely
+    gone stale, and it was the only thing holding the exit code at 1.  It also
+    read as a standing instruction to DELETE the `msa` row, which would have
+    re-committed the withdrawal M-4 spends eight paragraphs retracting.
+
+    WHAT IS DERIVED, and why it is the table and not a sentence.  M-4's stub
+    table IS the register's list of (language, printing convention); reading it
+    means a row struck there withdraws the convention here automatically, with
+    no literal to re-type.  The comparison is by STUB FORM rather than by
+    language code, on purpose: M-4's Welsh row names `&c.`, which the `eng`
+    pattern already matches, so keying on the language code alone would report
+    a phantom gap while keying on the form shows what is true -- Welsh is read,
+    under English's label, which is doctrine 45's coordinate and belongs in the
+    detail rather than in a verdict.
+    """
+    raw = entry_text(entries, "M-4")
+    out = []
+    for ln in raw.split("\n"):
+        if not ln.startswith("|") or "---" in ln:
+            continue
+        cells = [c.strip() for c in ln.strip("|").split("|")]
+        if len(cells) < 2:
+            continue
+        lang, stub = cells[0], cells[1]
+        if lang.lower() in ("language", ""):
+            continue
+        # A cell wholly inside `~~...~~` is withdrawn in place -- this file's
+        # own rule, and the one `_entry_now` applies to prose.
+        withdrawn = bool(re.fullmatch(r"~~.*~~", lang)) or \
+            bool(re.fullmatch(r"~~.*~~", stub))
+        # A WITHDRAWN row's own form is still READ, from inside the strike, so
+        # the code can be asked whether it still declares what the register has
+        # retracted -- that is the FALSE case this row exists to catch, and
+        # stripping the strike here would silently drop the row instead
+        # (found by the planted-withdrawal control, which reported MOVED).
+        forms = re.findall(r"`([^`]+)`",
+                           stub if withdrawn else re.sub(r"~~[^~]*~~", "", stub))
+        if not forms:
+            continue
+        out.append((re.sub(r"[~*]", "", lang), forms, withdrawn))
+    return out
+
+
 def _d_stub_forms():
     import lyric_harness as LH
     forms = [(f[0], f[1]) for f in getattr(LH, "CHORUS_STUB_FORMS", ())]
     langs = [f[0] for f in forms]
-    return (FALSE if "msa" in langs else CONFIRMED), \
-        "CHORUS_STUB_FORMS declares %s" % (forms,), \
-        "the Malay d. s. b. row was false and is struck through"
+    rows = _m4_stub_rows(read_entries())
+    got = "CHORUS_STUB_FORMS declares %s" % (forms,)
+    if not rows:
+        return UNVERIFIABLE, got, ("M-4 no longer carries a `| language | "
+                                   "stub |` table this checker can read")
+
+    # Each convention M-4 names, asked of the code the way a reader's line
+    # would ask it: the stub stands at end of line, which is what every
+    # pattern in the table is anchored to.
+    answered, unread, resurrected, named = [], [], [], set()
+    for lang, stubs, withdrawn in rows:
+        hits = set()
+        for s in stubs:
+            m = LH.chorus_stub_match("lorem ipsum " + s)
+            if m:
+                hits.add(m[0])
+        if not withdrawn:
+            named |= hits
+        if withdrawn:
+            if hits:
+                resurrected.append("%s (%s), struck in M-4 and still matched by %s"
+                                   % (lang, "/".join(stubs), "/".join(sorted(hits))))
+        elif hits:
+            answered.append("%s %s -> %s" % (lang, "/".join(stubs),
+                                             "/".join(sorted(hits))))
+        else:
+            unread.append("%s %s" % (lang, "/".join(stubs)))
+
+    live = [r for r in rows if not r[2]]
+    stated = ("M-4's stub table names %d conventions -- %s -- and %s"
+              % (len(live), "; ".join("%s %s" % (l, "/".join(s)) for l, s, _ in live),
+                 "none is withdrawn" if len(live) == len(rows)
+                 else "%d is/are withdrawn" % (len(rows) - len(live))))
+    got = "%s; M-4's rows answered: %s%s%s" % (
+        got, "; ".join(answered) or "none",
+        "; NOT matched by any declared form: " + "; ".join(unread) if unread else "",
+        "; STRUCK IN M-4 BUT STILL DECLARED: " + "; ".join(resurrected)
+        if resurrected else "")
+
+    # FALSE is reserved for the two ways the code and the record CONTRADICT:
+    # a convention the register has withdrawn that the code still reads, or one
+    # the register asserts that nothing in the code can read. A convention the
+    # code declares and the table has not caught up with is drift, i.e. MOVED.
+    if resurrected or unread:
+        return FALSE, got, stated
+    unnamed = sorted(set(langs) - named)
+    if unnamed:
+        return MOVED, got + "; declared but named by no live M-4 row: %s" \
+            % " ".join(unnamed), stated
+    return CONFIRMED, got, stated
 
 
 def _d_lyricists():
@@ -927,14 +1113,125 @@ def _d_five_of():
         "five/of passes at nucleus 0.603 against a threshold of 0.600"
 
 
+#: F-1's own list of phonology modules, as a backticked run of three-letter
+#: codes.  The LIST is read, not the count word: a list settles the count AND
+#: the "is English one of them" clause at once, and it is what the entry
+#: actually maintains -- `eng` was inserted into it by the commit that closed
+#: the English half.
+_F1_MODULE_LIST = re.compile(r"`((?:[a-z]{3})(?:\s+[a-z]{3}){2,})`")
+_F1_COUNT_WORD = re.compile(r"holds\s+\*\*([a-z]+)\*\*\s+modules")
+_NUMBER_WORD = {"six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10,
+                "eleven": 11, "twelve": 12, "thirteen": 13, "fourteen": 14}
+
+
+def _f1_claim(entries):
+    """-> {"modules": [...], "count": n|None} read out of F-1, or None.
+
+    THIS FUNCTION IS THE FIX, AND THE DEFECT IT REPLACES IS WORTH NAMING.
+    `_d_phonologies` carried the string `eight phonologies, and English is not
+    one` as a LITERAL.  F-1 was repaired on 2026-08-11 -- `eng.py` landed at
+    `c74fb48` and the entry's own title now reads `~~Eight~~ NINE phonologies,
+    and English IS one now` -- so from that day the literal asserted a sentence
+    MISSING.md no longer contained, and D20 reported MOVED on every run,
+    forever, naming the REGISTER as the side that had drifted when the register
+    was the side that had been FIXED.
+
+    A CHECK THAT CANNOT PASS IS THE MIRROR OF DOCTRINE 48's CHECK THAT CANNOT
+    FAIL, and it costs more: a permanently-red row trains its reader to skip
+    the column, so the next row that goes red for a real reason is skipped too.
+
+    DERIVED, NOT REPINNED, and that is the whole choice.  Repinning the literal
+    to `nine ... and English IS one` would fix these two rows and leave the
+    MECHANISM -- the next repair to F-1 re-opens it, and this file has already
+    been bitten five times by the same shape (D7, D8, D9, D20, D21).  Reading
+    the entry makes the class impossible: a repair to MISSING.md moves BOTH
+    sides at once and the verdict follows with no edit here.  The precedent is
+    this file's own `_k1_claims` (whose docstring records being bitten on
+    2026-08-11) and `quality/verify_doctrines.py`, which derives the doctrine
+    run from the `<!-- DOCTRINE-BLOCK -->` markers and the known-gaps list from
+    CLAUDE.md's own heading rather than from a remembered range -- CLAUDE.md
+    cites that as the reason entry 10 "was defined the moment it was written
+    and no third repin of a hardcoded range was possible".  `PINNED`'s
+    exclusion 1 below already states the rule as this instrument's POLICY; it
+    had simply never been applied to these rows.
+
+    THE COST, STATED: a derivation depends on WORDING, so a rewrite of F-1 can
+    make this unreadable.  That is why the answer is then UNVERIFIABLE and says
+    which sentence it lost -- a visible refusal, not a silent pass (doctrine
+    79, and `_claim_or_unverifiable`'s three outcomes).
+    """
+    t = _entry_now(entries, "F-1")
+    if not t:
+        return None
+    m = _F1_MODULE_LIST.search(t)
+    if not m:
+        return None
+    w = _F1_COUNT_WORD.search(t)
+    return {"modules": sorted(set(m.group(1).split())),
+            "count": _NUMBER_WORD.get(w.group(1).lower()) if w else None}
+
+
 def _d_phonologies():
     import glob
     mods = sorted(os.path.basename(p)[:-3] for p in
                   glob.glob(os.path.join(HERE, "phonology", "*.py"))
                   if not os.path.basename(p).startswith("__"))
-    return (CONFIRMED if "eng" not in mods and len(mods) == 8 else MOVED), \
-        "%d modules: %s" % (len(mods), " ".join(mods)), \
-        "eight phonologies, and English is not one"
+    got = "%d modules: %s" % (len(mods), " ".join(mods))
+    c = _f1_claim(read_entries())
+    if c is None:
+        return UNVERIFIABLE, got, ("F-1 no longer lists its phonology modules "
+                                   "as a backticked run of three-letter codes, "
+                                   "so there is no claim here to re-derive")
+    stated = ("F-1 lists %d phonology modules -- %s -- so English %s one"
+              % (len(c["modules"]), " ".join(c["modules"]),
+                 "IS" if "eng" in c["modules"] else "is NOT"))
+    # The entry's own count word is checked against the entry's own list. A
+    # register that disagrees with itself is this instrument's first subject,
+    # and a derivation that read only the list would not notice.
+    if c["count"] is not None and c["count"] != len(c["modules"]):
+        return MOVED, got, (stated + ", and F-1's own count word says %d, "
+                            "which its own list contradicts" % c["count"])
+    return (CONFIRMED if mods == c["modules"] else MOVED), got, stated
+
+
+def _m15_claim(entries):
+    """-> {"populated", "schemas", "rows", "attachments", "all_rn"} from M-15.
+
+    SAME DEFECT, SAME FIX AS `_f1_claim` -- and M-15 is the entry that ARGUES
+    the point in its own prose.  The literal here was `traditions declared on
+    77 schemas and populated on ZERO`, and M-15's title has read `~~declared on
+    77 schemas and populated on ZERO~~ **75 of 77 populated, and the SOURCE is
+    the gap**` since the layer was populated at `e4cc054`.  M-15's own first
+    paragraph says why that matters: *"The ZERO was left standing as live
+    heading text under a blockquote that already corrected it, which is how a
+    superseded figure keeps being quoted: BACKLOG.md §2.5 copied it forward for
+    a day."*  This file was the SECOND copy, and it went on quoting the ZERO
+    for three days after the entry struck it -- while reporting the entry as
+    the thing that had moved.
+
+    FOUR FIGURES AND ONE BOOLEAN, not one number.  M-15 does not close on the
+    75/77: it says the SOURCE is the gap, that every `Tradition.source` is an
+    `R<n>` pointer back into RHYME_CANON.md.  Confirming the count while
+    ignoring the clause the entry is actually open on would be the auditor
+    reading half a claim.
+    """
+    t = _entry_now(entries, "M-15")
+    if not t:
+        return None
+    pop = re.search(r"(\d+)\s+of\s+(\d+)\s+(?:schemas\s+now\s+carry\s+traditions"
+                    r"|populated)", t)
+    if not pop:
+        return None
+    rows = re.search(r"([\d,]+)\s+distinct\s+.?Tradition.?\s+rows,\s*"
+                     r"([\d,]+)\s+attachments", t)
+    return {
+        "populated": int(pop.group(1)),
+        "schemas": int(pop.group(2)),
+        "rows": int(rows.group(1).replace(",", "")) if rows else None,
+        "attachments": int(rows.group(2).replace(",", "")) if rows else None,
+        "all_rn": bool(re.search(r"every single\s+.?Tradition\.source.?\s+is an"
+                                 r"\s+.?R<n>.?\s+pointer", t)),
+    }
 
 
 def _d_traditions_populated():
@@ -942,15 +1239,33 @@ def _d_traditions_populated():
     S = R.all_schemas()
     pop = [n for n, s in S.items() if getattr(s, "traditions", ())]
     rows = set()
+    attach = 0
     for s in S.values():
         for t in s.traditions:
+            attach += 1
             rows.add((t.name, t.lang, t.source))
     ext = [r for r in rows if not re.fullmatch(r"R\d+[a-z]?(\+R\d+[a-z]?)*", r[2] or "")]
-    return (CONFIRMED if not pop else MOVED), \
-        ("%d schemas, %d with traditions populated, %d distinct Tradition rows; "
-         "%d of them cite a source that is not an R<n> pointer into RHYME_CANON.md"
-         % (len(S), len(pop), len(rows), len(ext))), \
-        "traditions declared on 77 schemas and populated on ZERO"
+    got = ("%d schemas, %d with traditions populated, %d distinct Tradition "
+           "rows over %d attachments; %d of them cite a source that is not an "
+           "R<n> pointer into RHYME_CANON.md"
+           % (len(S), len(pop), len(rows), attach, len(ext)))
+    c = _m15_claim(read_entries())
+    if c is None:
+        return UNVERIFIABLE, got, ("M-15 no longer states its populated-of-"
+                                   "declared figure in a form this checker can "
+                                   "read")
+    parts = ["M-15: %d of %d schemas populated" % (c["populated"], c["schemas"])]
+    ok = (c["populated"], c["schemas"]) == (len(pop), len(S))
+    if c["rows"] is not None:
+        parts.append("%d distinct Tradition rows over %d attachments"
+                     % (c["rows"], c["attachments"]))
+        ok = ok and (c["rows"], c["attachments"]) == (len(rows), attach)
+    if c["all_rn"]:
+        parts.append("and EVERY Tradition.source an R<n> pointer into "
+                     "RHYME_CANON.md -- which is the gap this entry stays open "
+                     "on, not the count")
+        ok = ok and not ext
+    return (CONFIRMED if ok else MOVED), got, ", ".join(parts)
 
 
 def _d_rhyme_constraints():
@@ -1215,8 +1530,13 @@ DERIVATIONS = [
     Claim("D18", "E-5", "now ~ why", 0.902, _d_now_why, "python3 lyric_harness.py score now -- why"),
     Claim("D19", "L-1/dctr 94", "five ~ of nucleus", 0.603, _d_five_of,
           "python3 lyric_harness.py score five -- of"),
-    Claim("D20", "F-1", "phonology modules", 8, _d_phonologies, "quality/audit_register.py"),
-    Claim("D21", "M-15", "traditions populated", 0, _d_traditions_populated, "quality/audit_register.py"),
+    # `stated=None` on these three, like D3/D10 above: their register side is
+    # READ from MISSING.md at run time, so a constant here would be a fourth
+    # copy of the figure that has just been removed from three others -- and
+    # `run_derivations` uses `c.stated` only as the fallback when a derivation
+    # returns no register-side text at all, which these never do.
+    Claim("D20", "F-1", "phonology modules", None, _d_phonologies, "quality/audit_register.py"),
+    Claim("D21", "M-15", "traditions populated", None, _d_traditions_populated, "quality/audit_register.py"),
     Claim("D22", "M-16", "rhyme_constraints", 1325, _d_rhyme_constraints, "quality/audit_register.py"),
     Claim("D23", "L-5", "doctrines (CLAUDE.md + METHOD.md)", 95,
           _d_doctrine_count, "python3 quality/verify_doctrines.py"),

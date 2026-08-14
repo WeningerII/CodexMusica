@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""ENTRY CLAIMS — the sentences in MISSING.md and BACKLOG.md, checked.
+"""ENTRY CLAIMS — the sentences in MISSING.md and BACKLOG.md, checked; and
+every backticked repo PATH in the three standing prose documents.
 
     python3 quality/verify_entries.py                 # check; non-zero on a FALSE claim
     python3 quality/verify_entries.py --refusals      # + every refused claim, by kind
@@ -8,6 +9,7 @@
     python3 quality/verify_entries.py --slow          # + audit_register's corpus derivations
     python3 quality/verify_entries.py --no-derivations  # skip the audit_register subprocess
     python3 quality/verify_entries.py --pins          # every pin the audit scripts commit to
+    python3 quality/verify_entries.py --prose         # every path cited by the prose docs
 
 WHY THIS FILE EXISTS.
 
@@ -124,6 +126,63 @@ questions about a CITATION rather than about a measurement.
   whether it EXISTS, which is the one thing that can never be true of scratch.
   `SCRATCH_NAMESPACED` is shape 9 and asks the other question.
 
+ONE SHAPE REACHES BEYOND THE TWO REGISTERS, AND ONLY ONE. `REPO_PATH_EXISTS`
+asks a question that has nothing to do with the MISSING/BACKLOG entry format --
+does a backticked path exist -- and for as long as it was pointed at the two
+registers alone, a stale path anywhere else in the repo was checked by nothing.
+`quality/verify_doctrines.py` reads CLAUDE.md for doctrine numbering and the
+known-gaps list, and `quality/audit_register.py` reads it for the doctrine
+extraction regex; NEITHER looks at a path. So `PROSE_DOCS` -- CLAUDE.md,
+README.md and `quality/METHOD.md`, the three documents this repo tells a
+session to read before it writes -- are swept for that ONE shape.
+
+WHY ONLY THAT ONE, MEASURED RATHER THAN ARGUED. Every shape was run over the
+three documents before the scope was widened, and the other eight are not
+merely useless over prose, they are WRONG over it:
+
+  SYMBOL_ABSENT       1 FALSE. CLAUDE.md's "reachable from the CLI by nothing
+                      at all: `lex = Lexicon()` at the top of `main()`" is a
+                      wiring narrative, not an absence claim; the shape reads
+                      "nothing ... `main()`" and `_entry_modules` supplies
+                      `quality/g2p.py` from the same paragraph. Separating the
+                      two needs the sentence read, which is the guess this
+                      file refuses to make.
+  STAGED_FILE_COUNT   1 FALSE. "Seven Welsh files ... are on disk" is TRUE --
+                      five under `corpus/song/cym_*` and two under `corpus/`
+                      -- and the shape's denominator is `corpus/song/` alone.
+                      Inside the register "staged" always means that
+                      directory; in prose it does not, and the shape has no
+                      way to know which sentence it is in.
+  MODULE_LINE_COUNT   1 FALSE, 1 AMBIGUOUS_SCOPE. METHOD.md quotes
+                      `quality/kalevala_rate.py` printing `82.5971%
+                      (18828/22795 lines)` -- a CORPUS line count inside
+                      program output, adjacent to the module name precisely
+                      because that module is the thing being quoted. This is
+                      the K-1 false positive its own docstring records, one
+                      axis further out, and ADJACENCY cannot fix it.
+  SCRATCH_NAMESPACED  1 TRUE and it is the wrong kind of true: METHOD.md's
+                      only scratch citation is `scratchpad/raw/` inside
+                      doctrine 77's own narrative of the defect. Reading a
+                      doctrine's illustration as a citation of a working file
+                      is not a check, and one hit does not pay for the shape.
+  HASATTR             no instance. CORPUS_MARKER_ABSENT, CORPUS_TABLE_ROW: no
+                      instance. STATUS_XREF: gated to a BACKLOG.md heading by
+                      construction and meaningless anywhere else.
+
+Widening is therefore per-SHAPE and never per-FILE, and `PROSE_SHAPES` is the
+declared list. A shape earns a place in it by being run over the documents
+first and shown not to misfire -- the same standard `POSITIVE_CONTROLS` holds
+a shape to, applied to its SCOPE rather than to its logic.
+
+WHAT THE PROSE SWEEP IS NOT COUNTED IN. Its verdicts are reported in their own
+section with their own counts and are deliberately NOT folded into the
+register's asked/answered/refused triple. CLAUDE.md alone is some three
+thousand segments, of which one shape is asked; adding them to a denominator
+that means "claims drawn from the two registers" would triple the refused
+count with prose nobody proposed to check, and doctrine 79's numbers are only
+honest while they answer one question each. A FALSE verdict there does move
+the exit code, because a stale path is a stale path whichever file states it.
+
 RELATION TO `quality/audit_register.py`. That instrument carries 26 HAND-WRITTEN
 derivations (D1-D26), one per known quantitative claim, each with bespoke code.
 This one carries no per-entry code at all: it sweeps every segment and asks
@@ -155,6 +214,25 @@ from quality.counters import missing_entry_statuses  # noqa: E402  the ONE parse
 MISSING_MD = os.path.join(ROOT, "MISSING.md")
 BACKLOG_MD = os.path.join(ROOT, "BACKLOG.md")
 SONG_DIR = os.path.join(ROOT, "corpus", "song")
+
+#: The standing prose documents, swept for `PROSE_SHAPES` only. These three and
+#: not a glob over `*.md`: the RESULTS documents are a laboratory notebook, and
+#: a path in one of them is as often a URL, a path inside somebody else's
+#: repository, or a scratch file that is uncommitted by construction as it is a
+#: claim about this tree. MEASURED before it was declared, at b560014 and with
+#: the predicate below already in place: over all 43 other `.md` files this
+#: shape answers 430 TRUE and 29 FALSE, spread across twelve documents, and
+#: most of those 29 are that category rather than staleness -- an
+#: `archive.org/download/...` URL, `全唐诗/唐诗三百首.json` inside somebody
+#: else's corpus, `latin-ocr/...txt` naming a file on GitHub,
+#: `scratchpad/cellAJ/align_ocr.py` which doctrine 77 says can never be
+#: committed. Over these three it is 117 TRUE and 0 FALSE, because these three
+#: cite only this repository. A gate that opened at 29 red would be switched
+#: off within the week (CI's own comment: a permanently-red gate is one people
+#: learn to skip), so the RESULTS documents need a predicate that can tell a
+#: repo path from a foreign one before they can join. `--prose` prints the
+#: population this actually reads.
+PROSE_DOCS = ("CLAUDE.md", "README.md", "quality/METHOD.md")
 
 TRUE = "TRUE"
 FALSE = "FALSE"
@@ -385,6 +463,60 @@ def _backlog_status(heading):
     return m.group(1) if m else None
 
 
+def read_prose():
+    """-> ([Entry], [(rel, reason)]) over `PROSE_DOCS`, one Entry per document.
+
+    THE SAME BLOCK RULE, REUSED AND NOT RE-INVENTED. A prose document has no
+    `### ` entries -- CLAUDE.md and README.md have none at all -- so there is
+    nothing here to key on but the block boundaries, and those are exactly
+    what `_segments_of` already computes. It is called with a whole file as
+    one Entry's body rather than given a second implementation, for the reason
+    `_md_blocks` states about itself: this file gets one idea of what a block
+    is, or the two drift and the drift is the defect the file exists to catch.
+
+    `_unstrike` FIRST, and it is load-bearing here in a way it is not on the
+    registers. All three documents correct themselves in place with `~~old~~`
+    runs, and CLAUDE.md does it constantly -- a struck path is the record's
+    OWN statement that a claim was withdrawn, and reporting one as stale would
+    fail a document for having been fixed.
+
+    A DOCUMENT THAT CANNOT BE READ IS RETURNED AS A REASON, NEVER SKIPPED.
+    Dropping it would let this whole check go quiet by a typo in `PROSE_DOCS`
+    or a renamed file, and print a clean result over documents it never
+    opened -- doctrine 20, and the same refusal `pin_moves()` makes about a
+    depth-1 checkout.
+    """
+    entries, refused = [], []
+    for rel in PROSE_DOCS:
+        try:
+            raw = open(os.path.join(ROOT, rel), encoding="utf-8").read()
+        except OSError as exc:
+            refused.append((rel, "%s: %s" % (type(exc).__name__, exc)))
+            continue
+        entries.append(prose_entry(rel, raw))
+    return entries, refused
+
+
+def prose_entry(rel, raw):
+    """-> one Entry carrying a whole document's segments. PURE: no disk.
+
+    Kept free of I/O for the reason `pin_verdict` is: the positive control
+    below drives this with a synthetic document and proves the reader can
+    still produce a FALSE, and a control that needed a real document in the
+    repository to be stale could only ever run once -- it would expire the
+    moment somebody fixed the staleness, which is precisely when the control
+    is most needed. The `HASATTR` repin note at `POSITIVE_CONTROLS` is the
+    same lesson learned on a shape.
+    """
+    lines = _unstrike(raw).split("\n")
+    e = Entry(rel, rel, "", None, 1,
+              [(j + 1, lines[j]) for j in range(len(lines))])
+    # The synthetic heading is empty, so `_segments_of`'s heading segment
+    # carries no text and is dropped rather than counted as an asked claim.
+    e.segments = [s for s in _segments_of(e) if s.text.strip()]
+    return e
+
+
 # ---------------------------------------------------------------------------
 # 2. The instruments the shapes call
 # ---------------------------------------------------------------------------
@@ -605,6 +737,42 @@ PATH_ABSENT_PHRASES = (
 ABSENCE_WINDOW = 120
 
 
+def _absence_window(low, end):
+    """-> the span after a path in which an absence phrase BINDS TO THAT PATH.
+
+    TRUNCATED AT THE NEXT BACKTICK, and that clause is the whole of the rule.
+    A window of N characters is subject-blind: it will read a phrase about
+    whatever the sentence talks about NEXT as though it were about the path.
+    CLAUDE.md is the case that forced it --
+
+        `quality/RESULTS_NULL_SHAPES.md`, `quality/NULL_AUDIT.md` §1.1, and
+        METHOD § The sonnet battery for why `verse.txt` was deleted.
+
+    -- where "was deleted" is true of `verse.txt` and of nothing else in the
+    sentence. Both `.md` files exist, both were read as asserted ABSENT, and
+    the shape called a correct sentence FALSE twice. `verse.txt` is invisible
+    to `PATH_RE` on purpose (no `/`, doctrine 34's deleted file, cited
+    historically), so the phrase it belongs to had no owner and drifted to the
+    nearest path that would take it.
+
+    A backtick is the right boundary because it is where this repo changes
+    subject: every path, symbol and marker in both registers and all three
+    prose documents is written inside one. The rule is POSITIONAL and reads no
+    English, which is the same standing `PATH_ABSENT_PHRASES` has -- a closed
+    list rather than a negation parser.
+
+    IT COSTS NOTHING ON THE LIVE REGISTERS, measured rather than assumed:
+    across every segment of MISSING.md and BACKLOG.md exactly one absence
+    claim is asserted at all (M-3's `scratch/src_msa/extract_pantun.py`, which
+    states its phrase with no intervening backtick), and no segment's
+    absent-set changes under this rule. It removes two false positives and
+    moves no true one.
+    """
+    window = low[end:end + ABSENCE_WINDOW]
+    cut = window.find("`")
+    return window if cut < 0 else window[:cut]
+
+
 def shape_repo_path(seg):
     """A backticked repo PATH -- `quality/phonology/fin.py` -- must exist,
     unless the sentence says in so many words that it does not.
@@ -628,7 +796,7 @@ def shape_repo_path(seg):
     low = seg.text.lower()
     asserted_absent = set()
     for m in PATH_RE.finditer(seg.text):
-        window = low[m.end():m.end() + ABSENCE_WINDOW]
+        window = _absence_window(low, m.end())
         if any(ph.lower() in window for ph in PATH_ABSENT_PHRASES):
             asserted_absent.add(m.group(1))
     present = [h for h in hits
@@ -965,6 +1133,12 @@ SHAPES = [
 #: disagreement even when the claim itself is judged correctly.
 ABSENCE_SHAPES = {"SYMBOL_ABSENT", "CORPUS_MARKER_ABSENT"}
 
+#: The shapes asked of `PROSE_DOCS`. ONE, and the docstring at the head of this
+#: file records what each of the other eight did when it was run over the same
+#: three documents. This is a declared list and not "every shape that does not
+#: crash": a shape reaches it by being measured over the documents first.
+PROSE_SHAPES = ("REPO_PATH_EXISTS",)
+
 _ALL_ENTRIES = []
 
 
@@ -1041,6 +1215,79 @@ POSITIVE_CONTROLS = [
 ]
 
 _BY_NAME = {name: fn for name, _v, fn in SHAPES}
+
+
+#: A synthetic prose document whose every reading is DECLARED, driven through
+#: the real reader by `prose_self_test`. Doctrine 76 applies to the SCOPE as
+#: much as to the shape: "no stale path in CLAUDE.md" is a null, and it is an
+#: easy null to fake -- a typo in `PROSE_DOCS`, a reader that silently drops a
+#: block, an `_unstrike` that eats the document, and this check goes green
+#: forever while looking at nothing at all.
+PROSE_CONTROL_DOC = (
+    "# probe\n"
+    "\n"
+    "A live citation of `quality/counters.py`, which is on disk.\n"
+    "\n"
+    "A stale citation of `quality/no_such_file_at_all.py` and nothing that\n"
+    "disclaims it.\n"
+    "\n"
+    "A disclaimed citation: `quality/also_not_here.py` does not exist.\n"
+    "\n"
+    "~~A struck citation of `quality/struck_and_gone.py`.~~\n"
+    "\n"
+    "See `quality/counters.py` for why `verse.txt` was deleted.\n"
+)
+
+
+def prose_self_test():
+    """-> [(name, 'ok'|reason)]. Four declared readings of one document.
+
+    STALE      an existing-looking path that is not on disk must be FALSE.
+               This is the whole point of the widening and the probe that
+               proves the scope can still fire.
+    DISCLAIMED a path the sentence says is absent, and which is absent, must
+               be TRUE -- M-3's case, moved into prose.
+    STRUCK     a path inside a `~~...~~` run must not be reported at all. All
+               three documents correct themselves that way.
+    SUBJECT    the last line is CLAUDE.md:958's shape exactly: a path that
+               EXISTS, followed by a different subject's "was deleted". It
+               must be TRUE. Before `_absence_window` truncated at the next
+               backtick this returned FALSE, and it is the regression this
+               probe exists to hold.
+    """
+    e = prose_entry("PROBE.md", PROSE_CONTROL_DOC)
+    seen = []
+    for seg in e.segments:
+        v = shape_repo_path(seg)
+        if v is not None:
+            seen.append((seg.text, v))
+
+    out = []
+    false = [(t, v) for t, v in seen if v.status == FALSE]
+    if len(false) == 1 and false[0][1].claim == "quality/no_such_file_at_all.py":
+        out.append(("prose STALE probe", "ok"))
+    else:
+        out.append(("prose STALE probe",
+                    "expected exactly one FALSE naming the missing path, got %s"
+                    % ([(v.status, v.claim) for _t, v in false] or "none")))
+
+    dis = [v for t, v in seen if "also_not_here" in t]
+    out.append(("prose DISCLAIMED probe",
+                "ok" if len(dis) == 1 and dis[0].status == TRUE
+                else "expected one TRUE, got %s"
+                     % [v.status for v in dis]))
+
+    struck = [v.claim for _t, v in seen if "struck_and_gone" in v.claim]
+    out.append(("prose STRUCK probe",
+                "ok" if not struck
+                else "a struck path was reported: %s" % struck))
+
+    subj = [v for t, v in seen if "was deleted" in t]
+    out.append(("prose SUBJECT probe",
+                "ok" if len(subj) == 1 and subj[0].status == TRUE
+                else "expected one TRUE, got %s"
+                     % [(v.status, v.measured[:60]) for v in subj]))
+    return out
 
 
 def self_test():
@@ -1746,6 +1993,39 @@ def sweep():
     return _ALL_ENTRIES, results
 
 
+def sweep_prose():
+    """-> (results, refusals) — `PROSE_SHAPES` over every segment of PROSE_DOCS.
+
+    Separate from `sweep()` and not a widening of it, which is the whole design
+    and not a convenience. `sweep()`'s asked/answered/refused triple answers
+    "of the claims drawn from the two registers, how many did a shape reach";
+    CLAUDE.md is thousands of segments of which one shape is asked, so folding
+    them in would bury that number under prose nobody proposed to check while
+    leaving the triple's own sentence unchanged. Doctrine 79 is about counting
+    the population you named, and these are two populations.
+
+    A shape that raises is caught and reported as `NO_INSTRUMENT`, the same way
+    `sweep()` does it: a prose document is not the population these shapes were
+    written against, and an exception on one segment must not take the register
+    check down with it.
+    """
+    entries, refusals = read_prose()
+    fns = [(n, fn) for n, _v, fn in SHAPES if n in PROSE_SHAPES]
+    results = []
+    for e in entries:
+        for seg in e.segments:
+            for name, fn in fns:
+                try:
+                    v = fn(seg)
+                except Exception as exc:                        # noqa: BLE001
+                    v = Verdict(name, REFUSED, seg.text[:70],
+                                "%s: %s" % (type(exc).__name__, exc),
+                                NO_INSTRUMENT)
+                if v is not None:
+                    results.append((seg, v))
+    return results, refusals
+
+
 def status_content(entries, results):
     """-> (open_but_filled, shut_but_open). The two directions of item 2.
 
@@ -1795,7 +2075,25 @@ def main(argv=None):
                     help="print every pin quality/audit_*.py commits to, and "
                          "exit 0 — the population the doctrine 17 check "
                          "derives its expectations from")
+    ap.add_argument("--prose", action="store_true",
+                    help="print every repo path the prose documents cite and "
+                         "the verdict on each, and exit 0 — the population "
+                         "REPO_PATH_EXISTS reads outside the two registers")
     a = ap.parse_args(argv)
+
+    if a.prose:
+        results, refusals = sweep_prose()
+        print("PROSE DOCUMENTS — %s" % ", ".join(PROSE_DOCS))
+        print("shapes asked: %s" % ", ".join(PROSE_SHAPES))
+        for rel, why in refusals:
+            print("  [REFUSED] %s could not be read — %s" % (rel, why))
+        for seg, v in results:
+            print("\n  [%-5s] %s:%d" % (v.status, seg.entry.source, seg.lineno))
+            print("      paths : %s" % v.claim)
+            print("      repo  : %s" % v.measured)
+        print("\n%d citation(s) over %d document(s)."
+              % (len(results), len(PROSE_DOCS) - len(refusals)))
+        return 0
 
     if a.pins:
         rels = audit_modules()
@@ -1922,6 +2220,41 @@ def main(argv=None):
             for v in vs:
                 print("         %s -> %s" % (v.claim, v.measured))
 
+    prose_results, prose_refusals = sweep_prose()
+    prose_false = [(s, v) for s, v in prose_results if v.status == FALSE]
+    prose_true = [(s, v) for s, v in prose_results if v.status == TRUE]
+    print()
+    print("REPO PATHS IN PROSE — %s, over %s"
+          % (", ".join(PROSE_SHAPES), ", ".join(PROSE_DOCS)))
+    print("-" * 78)
+    print("  a backticked repo path in one of those documents must exist, "
+          "unless the")
+    print("  sentence says in so many words that it does not. Counted apart "
+          "from the")
+    print("  register's triple above: these are not claims drawn from an "
+          "entry.")
+    for rel, why in prose_refusals:
+        print("  [REFUSED] %s could not be read — %s" % (rel, why))
+        print("            doctrine 20 — this is not a pass. A document this "
+              "check never")
+        print("            opened cannot be reported clean.")
+    # SEGMENTS and PATHS are different counts and the report gives both: one
+    # sentence can cite four paths, so "94 checked" against 117 actual
+    # citations would understate the population by a quarter (doctrine 91 — a
+    # count is a coordinate of the rendering).
+    prose_paths = sum(len(set(PATH_RE.findall(s.text))) for s, _v in prose_results)
+    print("  %d path citation(s) in %d segment(s): %d segment(s) true, %d FALSE."
+          % (prose_paths, len(prose_results), len(prose_true), len(prose_false)))
+    if not prose_results and not prose_refusals:
+        print("    [dead] no prose document cites a repo path at all — so "
+              "nothing here")
+        print("           proves the scope reads them; see the probes below.")
+    for seg, v in prose_false:
+        print("\n  [FAIL] %s:%d" % (seg.entry.source, seg.lineno))
+        print("         doc says : %s" % v.claim)
+        print("         repo says: %s" % v.measured)
+        print("         text     : %s" % seg.text[:150])
+
     moves, live_pins, pin_files, pin_refusal = pin_supersession()
     vanished = [m for m in moves if m.status == "VANISHED"]
     unmarked = [m for m in moves if m.status == "UNMARKED"]
@@ -2025,7 +2358,7 @@ def main(argv=None):
 
     # Doctrine 76/31: a null needs the demonstration that the instrument could
     # have found something, and it needs it BEFORE the null is believed.
-    probes = self_test() + pin_self_test()
+    probes = self_test() + prose_self_test() + pin_self_test()
     broken = [(n, r) for n, r in probes if r != "ok"]
     print()
     print("POSITIVE CONTROL — can each shape still fire?")
@@ -2036,7 +2369,11 @@ def main(argv=None):
     print("  (STATUS_XREF is exercised by the sweep itself: %d live "
           "cross-references resolved.)" % per.get("STATUS_XREF", [0, 0])[0])
 
-    bad = len(false) + len(filled) + len(broken) + len(vanished)
+    # A prose REFUSAL counts too, and that is the point of returning it rather
+    # than skipping the document: an unreadable CLAUDE.md must not read as a
+    # clean CLAUDE.md (doctrine 20/28).
+    bad = (len(false) + len(filled) + len(broken) + len(vanished)
+           + len(prose_false) + len(prose_refusals))
     print()
     print("RESULT:", "PASS" if not bad else "FAIL (%d)" % bad)
     if bad:
