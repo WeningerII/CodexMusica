@@ -1308,6 +1308,36 @@ rather than this paragraph — a roster copied into two files drifts in both.
    INVISIBLE and now lands in `new_notes`, never `new_flags`. The loop can see a
    change it was blind to in both directions and still cannot reject on it.
    `quality/test_revise.py` test 34.
+   **AND THAT WIRING TOOK `report` AND LEFT `substitution_report`, WHICH THAT
+   FUNCTION'S OWN DOCSTRING CALLS THE SHARPER HALF — WIRED 2026-08-14.** It sits
+   100 lines below `report` in the same module and its only callers were
+   `readability.py`'s `main()`, which prints a COUNT and never a word, and one
+   test. So every draft-grading surface could say the LINE was unreadable and
+   none could say WHICH WORD the harness would have rhymed on instead — the
+   actionable half, and the dangerous one, because "the substituted word is a
+   plausible English word and nothing about the output looks wrong". It is now
+   `SUBSTITUTED_END_WORD` in `report`'s own finding list, so `inspect` reaches
+   it through the call it already makes (one definition, two surfaces) and the
+   `readability` verb gains it too. A **note**, arriving as one from `report`
+   rather than downgraded here, because it is not a second charge.
+   **DO NOT OVERSTATE WHAT IT BUYS, AND THE MEASUREMENT IS WHY.** Over the 143
+   English song files 8,842 lines are substitutions and **8,840 of them are
+   ALREADY `UNREADABLE_END_WORD`** — the line was never silent, only the word
+   was. What the wiring newly makes VISIBLE AT ALL is 2 lines.
+   **AND `substitution_report`'s claim to be "a strict subset of the
+   unreadable-final lines" IS FALSE, measured while wiring it** (6 of 31,355
+   over all 260 `corpus/song/` files): a final token that READS and yields NO
+   SYLLABLE — `mm` is `['M']`, and a lone consonant syllabifies to nothing — is
+   dropped by `word_syllable_map` exactly as an OOV word is while `line_anchors`
+   still returns an anchor built on the PREVIOUS word, so `final_unreadable` is
+   False and the whole module was silent. Byron's `...lay white on the turf,[mm]`
+   is anchored on `turf` and reported READABLE: invented relation #4 of that
+   module's docstring, at a site `unread_final_piece` does not cover. Those 2
+   lines are the only population here no other finding reaches, and
+   `corpus_rate` now returns `substituted_flagged`/`substituted_silent` as two
+   counts that are never summed. `quality/test_revise.py` test 36,
+   `quality/test_readability.py` tests 2/5/7 (the [mm] line is test 7's
+   exemplar, and it fires that code and NO other).
    ~~`quality/readability.py`'s own report never joins the revision loop, and
    the data is already on the path.** `Reviser._matrix` computes
    `readability_records` for EVERY line on EVERY run. The only readability
@@ -1336,6 +1366,39 @@ rather than this paragraph — a roster copied into two files drifts in both.
    `quality/test_revise.py` test 35 pins the `Reviser` side and the
    byte-identical-evidence invariant; `quality/test_fit.py` already carried the
    `fit` side.
+   **THE SAME SHAPE ONE RELATION FURTHER OUT SURVIVED THAT EXTRACTION —
+   `SectionFit.uncovered_bars`, WIRED 2026-08-14.** Bars of a section no line's
+   declared span touches. `overlap_findings` was moved off `SectionFit` and onto
+   the flat `LineFit` list precisely because "written as a method on `SongFit`
+   this check would have stayed unreachable from the revision loop"; coverage is
+   a SECTION-level relation by the identical argument, and it was left as a
+   method, so it stayed exactly there — `SongFit.table` -> `fit.report` -> the
+   `fit` verb, and nothing else. MEASURED on one blueprint before the wiring:
+   `fit` printed `4 3..6` and `2 11..12` on two sections while `inspect()`
+   returned ELEVEN distinct codes, not one of them about a bar nobody sings.
+   `fit.uncovered_bar_findings(fits, sections)` takes the same flat list
+   `overlap_findings` does; the second argument is not decoration, because a
+   section with NO LINES — a declared instrumental, the archetypal case — puts
+   nothing in that list at all. It was a TABLE COLUMN and not a `FitFinding`, so
+   the code is new, and `_uncovered_bars` is now the one definition both the
+   column and the finding go through.
+   **THE CHARGE IS THE DECISION, AND THE COUNTERFACTUAL WAS MEASURED.** A bar
+   nobody covers is a fact about the DECLARATION (bar/beat/duration), not about
+   any line's WORDS — no rewrite moves it, and the loop's only move is a word
+   swap on a named line. So it is WHOLE-DRAFT with NO locations, and a **note**
+   (`fit.py` marks it satisfiable — a rest, an instrumental, or a melisma that
+   layer's own `UNANSWERABLE` says it cannot see; `revise.py` re-decides
+   nothing). Charged instead as a PER-LINE FLAG on the same draft the loop goes
+   from **SUCCESS in 0 rounds to NO_PROGRESS in 2 with all four lines
+   permanently `unresolved`**, briefed with an empty candidate field on 3 of 4 —
+   which is the destroyed SUCCESS `inspect()`'s own readability block already
+   priced. It never reaches `verify()`'s gate either way: coverage is a function
+   of the blueprint alone, so it is identical on both sides and cancels out of
+   the diff. NOT summed into any existing count (doctrine 79/91):
+   `SongFit.section_findings` is separate from `SongFit.findings()`, which is
+   the per-LINE set, and the finding is not a `FitRefusal`, so `fit.report`'s
+   REFUSED-by-cause totals are unmoved. `quality/test_revise.py` test 37,
+   `quality/test_fit.py`'s `test_uncovered_bars_asked_of_a_flat_list...`.
    ~~`OVERLAPPING_SPANS` is reachable from `fit` and from nothing else.**
    `Reviser._meter_findings` calls `quality/fit.py`'s `fit_line` once per line
    and never builds a `SongFit` — and an overlap is a relation BETWEEN two

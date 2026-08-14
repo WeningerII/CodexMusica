@@ -788,6 +788,107 @@ def test_overlap_is_asked_of_a_flat_line_list_not_only_of_a_songfit():
           "severity decision of its own here (doctrine 6)")
 
 
+def test_uncovered_bars_asked_of_a_flat_list_not_only_of_a_songfit():
+    """`uncovered_bars` reached ONE surface, and the loop is not it.
+
+    The identical shape `overlap_findings` was in, one relation further out,
+    and it survived the extraction that fixed the other: `SectionFit.
+    uncovered_bars` is a METHOD on the object `revise.Reviser._meter_findings`
+    never builds, so `SongFit.table` -> `fit.report` -> the `fit` verb was the
+    whole of its reach. Coverage is a relation between a SECTION and the lines
+    declared in it, so `fit_line` cannot produce it from inside one line —
+    which is word for word the argument `overlap_findings`'s own docstring
+    makes, ending "Written as a method on `SongFit` this check would have
+    stayed unreachable from the revision loop."
+
+    THE THREE THINGS THIS PINS, in the order they can break:
+      1. the finding and the table column are ONE definition (`_uncovered_
+         bars`), so the `fit` verb's `empty bars` column and the loop's
+         finding cannot report two different sets of bars;
+      2. the flat `LineFit` list answers on its own, which is what makes the
+         wiring in `revise.py` a call and not a second copy;
+      3. a section with NO LINES — the archetypal empty instrumental — is
+         reachable only through the declared `sections` argument, so dropping
+         that argument silently deletes the case the check is named after.
+    """
+    print("\n  uncovered bars: a SECTION-level relation, taken off the flat "
+          "list")
+    from quality.fit import _uncovered_bars, uncovered_bar_findings
+    bp = {"bpm": 120, "meter": "4/4",
+          "sections": [{"name": "V", "function": "verse",
+                        "start_bar": 1, "bars": 8,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+                       {"name": "SOLO", "start_bar": 9, "bars": 4,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": "the harbour lights came on across the bay",
+                     "bar": 1, "beat": 1, "duration": 8, "section": "V"},
+                    {"text": "we counted every boat that slipped away",
+                     "bar": 7, "beat": 1, "duration": 8, "section": "V"}]}
+    secs, places = from_blueprint(bp)
+    fits = [fit_line(p.text, p, line_index=i) for i, p in enumerate(places)]
+
+    ub = uncovered_bar_findings(fits, secs)
+    check("the flat list plus the declared sections — what `_meter_findings` "
+          "holds — answers on its own",
+          [f.code for f in ub] == ["UNCOVERED_BARS", "UNCOVERED_BARS"]
+          and "3, 4, 5, 6" in ub[0].message
+          and "9, 10, 11, 12" in ub[1].message,
+          "no SongFit and no SectionFit: every coordinate it needs "
+          "(`section`, `section_start_bar`, `section_bars`, `cycle`) is "
+          "already on the Placement. "
+          f"{[f.message for f in ub]}")
+    check("the LINELESS section is found, and ONLY the `sections` argument "
+          "can find it — it contributes no LineFit at all",
+          [f.code for f in uncovered_bar_findings(fits)] == ["UNCOVERED_BARS"],
+          "dropped, `SOLO` disappears: an 8-bar instrumental declared and "
+          "never written to is the archetypal case, and it is exactly the "
+          "one a flat-list-only signature cannot see")
+
+    # ONE DEFINITION, NOT TWO THAT AGREE TODAY. `SongFit.table`'s column and
+    # the finding must be the same tuple, computed by the same function.
+    song = fit_song(bp)
+    rows = {r["section"]: r["uncovered_bars"] for r in song.table()}
+    check("the `empty bars` table column and the finding are the same bars, "
+          "because both go through `_uncovered_bars`",
+          rows == {"V": (3, 4, 5, 6), "SOLO": (9, 10, 11, 12)}
+          and all(str(b) in f.message
+                  for f in song.section_findings for b in rows[
+                      f.message.split("section ")[1].split("'")[1]]),
+          f"{rows}")
+    check("`SectionFit.uncovered_bars` still answers, and the shared helper "
+          "reproduces it span for span",
+          all(s.uncovered_bars() == _uncovered_bars(
+              [(l.placement.start, l.placement.end) for l in s.lines],
+              s.cycle.pulses, s.bars, s.start_bar) for s in song.sections))
+
+    # THE COUNT IT MUST NOT INFLATE (doctrine 79/91). `SongFit.findings()` is
+    # the per-LINE set; a caller counting it is counting lines with something
+    # wrong, and a bar nobody sings is not one of those.
+    check("it is NOT folded into `SongFit.findings()` — a section fact in a "
+          "per-line count would charge lines that are individually correct",
+          "UNCOVERED_BARS" not in {f.code for f in song.findings()}
+          and len(song.section_findings) == 2,
+          f"{len(song.section_findings)} section finding(s), "
+          f"{len(song.findings())} line finding(s)")
+    check("SATISFIABLE, always — an empty bar is a rest, a break, or a "
+          "melisma this layer declares itself unable to see; calling it a "
+          "contradiction would be a norm nobody declared (doctrine 6)",
+          all(f.satisfiable for f in song.section_findings)
+          and all(f.kind == "placement" for f in song.section_findings))
+
+    # NON-DISCRIMINATING, and it is why the gap survived: every shipped
+    # blueprint places at least one line in every bar, so no existing fixture
+    # could tell the wiring from its absence (doctrine 94 pointed at a
+    # fixture set rather than at a rule).
+    clean = fit_song(BLUEPRINT)
+    check("NON-DISCRIMINATING: the shipped blueprint has NO uncovered bar, "
+          "so it reports zero either side of the wiring",
+          not clean.section_findings
+          and all(r["uncovered_bars"] == () for r in clean.table()),
+          "which is why nothing here could see the gap before it was built "
+          "a blueprint that could")
+
+
 def test_fit_song_reads_a_real_grid_song():
     """`from_song`'s branch, executed for the first time.
 
@@ -852,6 +953,7 @@ def main():
               test_the_placement_codes_no_test_reached,
               test_prominence_off_head_can_fire_and_can_stay_silent,
               test_overlap_is_asked_of_a_flat_line_list_not_only_of_a_songfit,
+              test_uncovered_bars_asked_of_a_flat_list_not_only_of_a_songfit,
               test_fit_song_reads_a_real_grid_song,
               test_an_undeclared_signature_says_so,
               test_two_sections_may_share_a_name,

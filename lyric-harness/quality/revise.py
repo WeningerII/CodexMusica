@@ -1060,6 +1060,41 @@ class Reviser:
                 f"SETTING, not once per line it happens to fall on "
                 f"(the same move COLLISION_CUT_IS_SCALAR_ONLY makes).",
                 sorted(lns)))
+        # A BAR NO LINE COVERS IS THE SAME SHAPE OF GAP `overlap_findings`
+        # WAS, ONE RELATION FURTHER OUT, AND IT SURVIVED THE SAME WAY.
+        # Coverage is a relation between a SECTION and the lines declared in
+        # it, so `fit_line` cannot see it from inside one line — and
+        # `SectionFit.uncovered_bars` was left as a method on the object this
+        # method never builds, so the `fit` verb printed an `empty bars`
+        # column while `inspect`/`brief`/`verify`/`revise`/`song` said nothing
+        # about it at all. MEASURED on one blueprint before the wiring: `fit`
+        # printed `4 3..6` and `2 11..12` on two sections and `inspect()`
+        # returned eleven distinct codes, none of them about a bar nobody
+        # sings. `fit.uncovered_bar_findings` takes the SAME flat list
+        # `overlap_findings` does, plus the declared section list, which is
+        # the only way a section with NO LINES — the archetypal empty
+        # instrumental — can be seen at all.
+        #
+        # WHOLE-DRAFT, WITH NO LOCATIONS, AND THAT IS THE CHARGE DECISION.
+        # A per-line finding here would name lines that are individually
+        # correct: their bar/beat/duration are exactly what the writer
+        # declared, and no rewrite of their WORDS moves the answer — the loop
+        # is a word swap on a named line and has no move for this. That is
+        # the shape whose price this method's sibling block already measured
+        # (see `inspect`: a flag with no move "returns NO_PROGRESS after 1
+        # round with L4 permanently unresolved ... the cost is a destroyed
+        # SUCCESS"), and it is why the finding names a SECTION and no line.
+        #
+        # SEVERITY IS STILL NOT RE-DECIDED HERE — the same `satisfiable`
+        # rule the per-line loop above uses. `fit.py` marks UNCOVERED_BARS
+        # satisfiable (an empty bar is a rest, a break, or a melisma this
+        # layer cannot see), so it lands as a `note`, and the argument for
+        # that lives in `fit.py` beside `crowded` and `fighting`, which are
+        # counts and not verdicts for the same reason.
+        for f in FT.uncovered_bar_findings(fits, secs):
+            whole.append(Finding(
+                f.code, "flag" if not f.satisfiable else "note",
+                f.message, f.evidence, []))
         return per, whole
 
     # -- section function ---------------------------------------------------
@@ -1604,6 +1639,29 @@ class Reviser:
         # directions, and — because every one of these is a note — it still
         # cannot REJECT on one. That is doctrine 7 exactly: the loop discloses
         # the refusal and does not order the writer around it.
+        #
+        # AND ONE MORE CODE JOINED THE SAME CALL 2026-08-14, WITH NO SECOND
+        # WIRE. `readability.substitution_report` — the sharper half by its
+        # own docstring, "the substituted word is a plausible English word and
+        # nothing about the output looks wrong" — sat 100 lines below
+        # `report` in that module with two callers: its own `main()`, which
+        # prints a COUNT and never a word, and one test. It is now folded
+        # into `report`'s own finding list as `SUBSTITUTED_END_WORD`, so this
+        # loop reaches it through the call it already makes rather than
+        # through a second one (the same "one definition, two surfaces" the
+        # paragraph above states).
+        # WHAT IT ADDS IS NARROWER THAN THE CODE COUNT SUGGESTS, MEASURED:
+        # over the 143 English song files 8,840 of 8,842 substitution lines
+        # are ALREADY `UNREADABLE_END_WORD` — the LINE was never silent, only
+        # the WORD was — so this is the actionable half of a finding that
+        # already existed, not a newly visible population. The exception is
+        # real and small: 2 lines whose end token READS and yields no
+        # syllable (`...on the turf,[mm]`) are anchored on the previous word,
+        # reported readable, and reached by NOTHING else in either module.
+        # It arrives a NOTE from `report` itself and needs no downgrade.
+        # COST, warm, on the 16-line `quality/fixtures/song.txt`: `report`
+        # goes 0.0181s -> 0.0260s, of which 0.0079s is the new call, against
+        # `inspect()`'s tens of seconds on the same draft.
         #
         # PER LINE, NOT WHOLE-DRAFT: these findings NAME the lines they are
         # about, so they follow the floor's own branch at the top of this

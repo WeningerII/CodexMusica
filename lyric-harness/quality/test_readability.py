@@ -185,10 +185,25 @@ def test_real_corpus_line():
           f"{[(s['true_final'], s['would_have_used']) for s in subs]}")
 
     rep = report(LEX, [a, b])
-    check("the report emits an UNREADABLE_END_WORD finding",
-          [f.code for f in rep["findings"]] == ["UNREADABLE_END_WORD"])
+    check("the report emits an UNREADABLE_END_WORD finding, and beside it "
+          "the SUBSTITUTED_END_WORD note that names the word `drong` and "
+          "`zong` would each have been rhymed on instead (WIRED 2026-08-14; "
+          "before that the count reached `main()` and the WORDS reached "
+          "nothing)",
+          [f.code for f in rep["findings"]] == ["UNREADABLE_END_WORD",
+                                                "SUBSTITUTED_END_WORD"],
+          f"{[f.code for f in rep['findings']]}")
     check("the finding carries the line numbers",
           rep["findings"][0].locations == [1, 2])
+    subst = next(f for f in rep["findings"]
+                 if f.code == "SUBSTITUTED_END_WORD")
+    check("...and it is a NOTE, not a second charge: the LINE is already "
+          "flagged above and what this adds is which WORD",
+          subst.severity == "note" and subst.locations == [1, 2]
+          and all(w in subst.message
+                  for w in ("'drong'", "'zong'",
+                            repr(subs[0]["would_have_used"]))),
+          f"{subst.severity} {subst.locations} :: {subst.message}")
 
 
 # ---------------------------------------------------------------------------
@@ -424,6 +439,34 @@ def test_corpus_song_rate_is_pinned():
           "earlier word", r["substituted_end_word"] == 8842,
           f"{r['substituted_end_word']}  (was 9805 over the polluted "
           f"denominator)")
+    # THE SUBSET CLAIM, PINNED 2026-08-14 — and it is pinned because it is
+    # FALSE. `substitution_report`'s docstring called itself "a strict subset
+    # of the unreadable-final lines" from the day it was written; nothing
+    # checked it, and wiring the finding into `report` is what made it worth
+    # checking. Two lines of 151,894 are substitutions on a final token that
+    # READS: `mm` transcribes to ['M'] and a lone consonant syllabifies to
+    # nothing, so `word_syllable_map` drops it exactly as it drops an OOV
+    # word while `line_anchors` still returns an anchor built on the previous
+    # word. TWO COUNTS, NEVER SUMMED (doctrine 79): the first is the
+    # population whose LINE was already flagged and whose WORD was not, the
+    # second is the population NOTHING in this module reached before the
+    # wiring. If `substituted_silent` ever moves, either the corpus changed
+    # or `line_anchors` did, and both are things a reader needs told.
+    check("8840 + 2, not 8842 + 0 — the substitution is NOT a subset of the "
+          "unreadable-final lines, and the 2 are the only lines in this "
+          "module that no other finding reaches",
+          r["substituted_flagged"] == 8840 and r["substituted_silent"] == 2,
+          f"{r['substituted_flagged']} already flagged as a LINE by "
+          f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
+          f"{r['substituted_silent']} reached by nothing "
+          f"(Byron's `...on the turf,[mm]` and D'Urfey's `_Sh----_`)")
+    check("and the complement is the larger half and is not a defect: 412 "
+          "unreadable-final lines are NOT substitutions",
+          r["unreadable_final"] - r["substituted_flagged"] == 412
+          and r["unreadable_final_piece"] == 174,
+          f"{r['unreadable_final'] - r['substituted_flagged']} = 174 cause "
+          f"PIECE (`hill-zide` keeps its own token in the syllable map, so "
+          f"nothing is substituted) + 238 where no earlier word read either")
     check("the rate is not uniform across files — a subset rate is a "
           "different number",
           max(d["rate"] for d in r["per_file"]) > 0.20
@@ -604,6 +647,16 @@ SONG_EXEMPLARS = [
      "Furl that Banner, for 'tis weary;",
      "the end rhyme `weary` is sound; CMUdict has no `furl`, so a mosaic "
      "anchor reaching back past it would join phones across a hole"),
+    ("SUBSTITUTED_END_WORD", "eng_british_lord_byron.txt",
+     "And the foam of his gasping lay white on the turf,[mm]",
+     "the RESIDUE, and the only case in this module where NO OTHER FINDING "
+     "FIRES AT ALL. `mm` transcribes to ['M'] -- it READS -- and a lone "
+     "consonant syllabifies to nothing, so `word_syllable_map` drops it "
+     "exactly as it drops an OOV word while `line_anchors` still returns an "
+     "anchor, built on `turf`. `final_unreadable` is therefore False and "
+     "every other code in this file stays silent. 2 lines of 151,894 in the "
+     "143 English song files; invented relation #4 of the module docstring "
+     "at a site `unread_final_piece` does not reach"),
 ]
 
 #: The same defect on the OTHER population, and the reason its price there is
@@ -667,7 +720,7 @@ def test_every_emitted_code_has_a_case():
     with open(RD.__file__, encoding="utf-8") as f:
         emitted = set(_re.findall(r'code="([A-Z_]+)"', f.read()))
     covered = {"UNREADABLE_END_WORD"} | {c for c, *_ in SONG_EXEMPLARS}
-    check("report() emits exactly the four codes this file has cases for",
+    check("report() emits exactly the five codes this file has cases for",
           emitted == covered,
           f"in source but uncovered: {sorted(emitted - covered)}; "
           f"covered but no longer emitted: {sorted(covered - emitted)}")
