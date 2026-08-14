@@ -4289,9 +4289,11 @@ def main():
         # THE LABEL SAYS SO AND WHY A SENTENCE IS PRINTED AHEAD OF THE
         # NUMBERS RATHER THAN GLUING THEM TO THE TWO ABOVE. Those two count
         # LINE ENDS as `line_readability` judges them, and it judges a
-        # hyphenated compound on its LAST PIECE (`hill-zide` is anchored on
-        # `zide`, `threshing-floor` on `floor`); `transcribe_word` judges the
-        # whole token and refuses `a-bed` outright. Measured on the Barnes
+        # hyphenated compound on its LAST PIECE — `threshing-floor` is READ
+        # there because `floor` reads, and `hill-zide` REFUSES there because
+        # `zide` does not, neither of them on the token as a whole.
+        # `transcribe_word` judges the whole token, so `a-bed` refuses to it
+        # while the line ending in it reads above. Measured on the Barnes
         # file with the fallback OFF: 414 line ends are READABLE to the two
         # lines above and REFUSED to these three, every single one of the 414
         # hyphenated (`a-bed`, `Jack-daw`, `Year-clock`), and the reverse

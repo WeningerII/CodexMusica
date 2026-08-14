@@ -998,9 +998,19 @@ rather than this paragraph — a roster copied into two files drifts in both.
    shipped default (`min_confidence="high"`); only `"low"` reaches the
    letter-to-sound layer, which `test_g2p.py`'s
    `test_letter_layer_costs_more_than_it_buys` measures as net harmful (it
-   answers Shakespeare's own real refusals wrong about 40% of the time,
-   against ~3% for the derived layers) and which the wiring does not
-   default to. What the wiring closes: known DICTIONARY-DERIVED refusals
+   answers Shakespeare's own real refusals wrong **50.0%** of the time — 5 of
+   the 10 pairs only it can judge — against **5.1%** for the derived layers,
+   2 of 39, a **9.8x** gap. REPINNED 2026-08-13, and ~~"about 40% ... against
+   ~3%"~~ were BOTH stale by the same 2026-08-11 coda-identity fix that moved
+   §9 from 38/39 to 37/39 and never reached §10's MESSAGE STRING, which quoted
+   the literal `1/39 = 3%` — doctrine 48 inside an f-string. §10 now COMPUTES
+   both rates from the same three battery runs and asserts the RATIO, so
+   neither figure can drift alone again. Measured independently the same day by
+   two lots that agreed to the decimal. The three battery arms in full:
+   off 1064/1014/50/82, `high` 1064/1053/11/84, `low` 1064/1063/1/89 —
+   mandated/judged/refused/violations. The conclusion is unchanged and the
+   absolute case is STRONGER, so the shipped default was never at risk) and
+   which the wiring does not default to. What the wiring closes: known DICTIONARY-DERIVED refusals
    (`viewest`, `o'er`, `savour`, `groun'`) now read correctly wherever a
    caller opts in; what it does not close is this gap's own canary, and
    the gap entry stays open on that basis, not closed on the strength of
@@ -1182,7 +1192,7 @@ cannot be renumbered — only added.
 | 8 | `B` | Never fit on one tradition |
 | 9 | `W` | Optimizing toward the phonetic maximum is the slop direction |
 | 10 | `B` | The quality layer has NO demonstrated cross-design signal |
-| 11 | `B` | Two features have now been caught reading period, not quality |
+| 11 | `B` | One feature has now been caught reading period, not quality (REPINNED 2026-08-13 from ~~"Two features..."~~ — the second was superseded by the cold comparator) |
 | 12 | `B` | Wimsatt binding is unsupported here, under two operationalizations |
 | 13 | `B` | Any resource used to score a cell must be INDEPENDENT of that cell's label |
 | 14 | `B` | A control may not be defined in terms of the quantity it controls |

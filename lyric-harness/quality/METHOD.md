@@ -481,7 +481,7 @@ without them.
    rather than being quoted flat. The standing record is `quality/RESULTS.md`
    § "`rhyme_predictability` is REINSTATED, narrowly".
 
-11. **Two features have now been caught reading period, not quality.**
+11. **One feature has now been caught reading period, not quality.**
    syntactic_inversion_rate is an Early Modern English archaism detector, and
    rhyme_predictability's cross-design replication was an OOV artifact (an
    unreadable word was scored as maximally rare, so CMUdict's inability to
