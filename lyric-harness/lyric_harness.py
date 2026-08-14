@@ -3402,34 +3402,82 @@ def _flag_value(args, flag, eq_only=False):
     return None
 
 
+def _blueprint_or_refuse(fn, *a, **k):
+    """Run a blueprint reader, or print the ONE refusal shape and exit 2.
+
+    The `song` verb has had this since 2026-08-12 and the argument is written
+    out where it lives (see the `except ValueError` near the bottom of
+    `main`): one refusal shape, reached by every verb that can provoke it,
+    because a user-facing verb tracebacking where its sibling refuses is the
+    same defect twice. `grid`, `fit` and `function` were outside that handler
+    and printed a raw traceback on the identical bad file.
+
+    Deliberately `ValueError` and no wider, for the reason recorded at the
+    other site: it is the blueprint-reading family a wrong file provokes --
+    an undeclared time signature, `pulses must be positive`, `groups (3, 3)
+    sum to 6, not 4`, and `json.JSONDecodeError`, which is a subclass. It
+    does NOT catch `KeyError`, because `KeyError: 'bars'` from a malformed
+    section is indistinguishable at this frame from a `KeyError` that is a
+    real defect in the spine -- and one of those was found precisely because
+    it escaped.
+
+    `_reraise=` NAMES THE ValueError SUBCLASSES THIS MUST NOT SWALLOW, and it
+    exists because the first version of this helper swallowed one. `ValueError`
+    is a wide net and `grid.UnknownFunction` is a subclass of it, so catching
+    the family caught the one member `_grid_song`'s own docstring says is
+    "deliberately not caught". `quality/test_verbs.py` failed on it inside the
+    hour, and it was right to: a blueprint declaring "middle8" is a defect in
+    a DECLARED coordinate, not a file this reader could not read, and the two
+    must not reach the operator wearing the same word. `except ()` matches
+    nothing, so the default is a no-op.
+    """
+    reraise = k.pop("_reraise", ())
+    try:
+        return fn(*a, **k)
+    except reraise:
+        raise
+    except ValueError as e:
+        print(f"  REFUSED — {e}")
+        sys.exit(2)
+
+
 def _grid_song(GR, bp):
     """A blueprint dict -> a `quality.grid.Song`. One loader, two verbs.
 
-    `function` and `title` are DECLARED coordinates and are read straight
-    through: an absent `function` stays UNDECLARED and every function check
-    refuses, which is the intended default -- the harness must not read
-    "chorus" out of a section's NAME. `GR.UnknownFunction` is deliberately not
-    caught: a blueprint declaring "middle8" has a defect, and swallowing it
-    would hand back a silently UNDECLARED section.
+    IT USED TO BE A THIRD LOADER, WHICH IS WHAT THIS DOCSTRING'S OWN FIRST
+    LINE SAID IT WAS NOT. Until 2026-08-14 this function re-derived the
+    blueprint shape by hand alongside `grid.song_from_blueprint` and
+    `fit.from_blueprint`, and got three coordinates wrong in the same
+    direction, all toward the common-time cliche the harness exists to
+    resist:
+
+      * `meter` fell to 4/4 in silence. Worse, after the 2026-08-14 refusal
+        landed in the other two readers it did NOT pass `declared=`, so the
+        invented 4/4 inherited `Meter.declared = True` -- the coordinate
+        added to DETECT the default ended up certifying it, and `stanza_lock`
+        then charged the writer with a `METER_LOCKED` monotony that no
+        blueprint had declared and the harness had invented.
+      * `start_bar` fell to the literal 1 instead of the running cursor both
+        siblings keep, so every section began at bar 1 and they all overlapped
+        -- and `grid.py` attributes lines to sections by bar range, so a whole
+        song collapsed onto its first section.
+      * `beat`/`duration` fell to 1 and 4, and a `duration` of 4 is the same
+        4/4 assumption smuggled in as a span; under a declared 7/8 it silently
+        covers 4 of 7 pulses and fires `CROWDED` off a span nobody wrote.
+
+    So this delegates now. `function` and `title` remain DECLARED coordinates
+    read straight through: an absent `function` stays UNDECLARED and every
+    function check refuses -- the harness must not read "chorus" out of a
+    section's NAME. `GR.UnknownFunction` is deliberately not caught: a
+    blueprint declaring "middle8" has a defect, and swallowing it would hand
+    back a silently UNDECLARED section.
+
+    The `hooks` half of the reader's pair is dropped here on purpose -- the
+    `function` verb assembles its own hook list from the blueprint AND from
+    `--hook=` flags, and taking this one too would double every hook.
     """
-    from fractions import Fraction as _F
-    secs, lines = [], []
-    for s in bp.get("sections", []):
-        m = s.get("meter", {})
-        secs.append(GR.Section(
-            name=s["name"], bars=int(s["bars"]),
-            start_bar=int(s.get("start_bar", 1)),
-            function=s.get("function", GR.UNDECLARED),
-            meter=GR.Meter(beats=int(m.get("beats", 4)),
-                           unit=int(m.get("unit", 4)),
-                           groups=tuple(m.get("groups", ())))))
-    for l in bp.get("lines", []):
-        lines.append(GR.Line(
-            text=l.get("text", ""), bar=int(l["bar"]),
-            beat=_F(str(l.get("beat", 1))),
-            duration=_F(str(l.get("duration", 4))),
-            section=l.get("section", "")))
-    return GR.Song(sections=secs, lines=lines, title=bp.get("title", ""))
+    song, _hooks = GR.song_from_blueprint(bp)
+    return song
 
 
 def main():
@@ -4071,8 +4119,9 @@ def main():
 
     elif cmd == "grid":
         from quality import grid as GR
-        bp = json.load(open(args[1]))
-        song = _grid_song(GR, bp)
+        bp = _blueprint_or_refuse(lambda p: json.load(open(p)), args[1])
+        song = _blueprint_or_refuse(_grid_song, GR, bp,
+                                   _reraise=(GR.UnknownFunction,))
         secs, lines = song.sections, song.lines
         total = sum(s.bars for s in secs)
         print(f"  sections {len(secs)}  bars {total}  lines {len(lines)}")
@@ -4112,8 +4161,8 @@ def main():
             source="lyric_harness.py fit --isochronous, an explicit "
                    "assumption by whoever ran the command") \
             if "--isochronous" in args else None
-        song = FT.fit_song(args[1], subdivision=sub, assume=assume,
-                           strip_parens=not voices)
+        song = _blueprint_or_refuse(FT.fit_song, args[1], subdivision=sub,
+                                    assume=assume, strip_parens=not voices)
         print(f"  module: quality/fit.py — syllables against the pulses of "
               f"the bar they are declared in")
         print(f"  subdivision: "
@@ -4166,7 +4215,8 @@ def main():
             if a.startswith("--hook="):
                 hooks.append(a.split("=", 1)[1])
                 decls.append("hook declared on the command line")
-        song = _grid_song(GR, bp)
+        song = _blueprint_or_refuse(_grid_song, GR, bp,
+                                   _reraise=(GR.UnknownFunction,))
         key = GR.rime_cmudict(lex) if "--rhyme-key=cmudict" in args else None
         rep = GR.song_function_report(song, hooks=hooks, rhyme_key=key)
         p = rep["profile"]
