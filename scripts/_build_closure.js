@@ -65,6 +65,25 @@ const INERT = [
     re: /^mcp\/(?!package\.json$)/,
     why: 'the connector is a separate package; only mcp/package.json feeds server.json',
   },
+  {
+    // Added 2026-08-14, after this list was written and after the directory
+    // arrived. Deny-by-default had been doing its job in the meantime — every
+    // .py edit under it read as `closure` and bought a full rebuild — which is
+    // the correct direction to be wrong in and an expensive one: 32.9
+    // runner-minutes per run (a 7.7-minute rebuild plus 25.2 runner-minutes of
+    // catalog shards, measured 2026-08-14 from run 31769893295) spent on a
+    // change no artifact builder can read.
+    //
+    // The claim is NOT that the harness is unimportant. ci.yml's `record` and
+    // `suites` jobs run it on every pull request and neither consults this
+    // list, so nothing about its coverage changes here. The claim is only that
+    // it cannot move api/ or codex.html — and that claim is PROVED on every
+    // run rather than asserted, because check_build_closure.js traces a real
+    // build of all three artifacts and fails on any file the build reads that
+    // this list calls inert.
+    re: /^lyric-harness\//,
+    why: 'a separate Python program with its own CI jobs; the three artifact builders are Node and none of them reads it',
+  },
   { re: /^render\.yaml$/, why: 'deployment config for the connector; not a build input' },
   { re: /^eslint\.config\.js$/, why: 'lint config; not read by any builder' },
   { re: /^\.(gitignore|prettierrc|prettierignore|npmrc|nvmrc)/, why: 'tooling config' },
