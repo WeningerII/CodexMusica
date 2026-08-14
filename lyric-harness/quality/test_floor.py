@@ -323,19 +323,52 @@ def test_calibration_block_is_honest():
 
 
 def test_predictability_is_demoted():
-    print("\n11. the withdrawn claim is not quietly re-asserted")
+    print("\n11. the note stays a note after the number moved in its favour")
     lines = ["The candle burned and set the room on fire",
              "And all night long she nursed a small desire",
              "He said the word and then he turned to go",
              "She never asked the thing she had to know"]
+
+    # THIS FIXTURE FIRES NOTHING, and until 2026-08-14 that made every pin in
+    # this section VACUOUS. Four lines land in the `section` profile, which
+    # measured no `predictable_pair_fraction_max` and therefore refuses to run
+    # the check at all (§10 pins that refusal) -- so `fs` was empty, `all()`
+    # over it was True, and "its evidence states the failed replication"
+    # asserted nothing about any string. Doctrine 76 one layer in: a pin is
+    # only as good as the demonstration that it could have failed.
     fs = [f for f in FLOOR.check(lines, "AABB")
           if f.code == "PREDICTABLE_RHYME"]
-    check("PREDICTABLE_RHYME, if it fires, is a note not a flag",
-          all(f.severity == "note" for f in fs),
-          "held out at 0.560 on human-vs-generated, which is chance "
-          "(doctrine 11): it may not carry a rejection")
-    check("its evidence states the failed replication",
-          all("0.560" in f.evidence for f in fs) if fs else True)
+    check("the section profile emits no PREDICTABLE_RHYME to pin",
+          not fs,
+          "so the pins below declare the threshold themselves rather than "
+          "asserting over an empty list")
+
+    # The same lines under a DECLARED threshold -- both pairs sit at 0.944 and
+    # 0.998 predictability against the shipped 0.90 axis, so the finding fires
+    # and its real evidence string can be read.
+    decl = FloorDeclaration(predictable_pair_fraction_max=0.8333)
+    fs = [f for f in SlopFloor(decl).check(lines, "AABB")
+          if f.code == "PREDICTABLE_RHYME"]
+    check("a declared threshold makes the finding fire, so these pins bite",
+          len(fs) == 1, f"{len(fs)} finding(s)")
+    check("PREDICTABLE_RHYME is a note, never a flag",
+          all(f.severity == "note" for f in fs) and bool(fs),
+          "doctrine 7 -- a floor may not order the region it already passed. "
+          "This is the reason it may not reject, and it does not depend on "
+          "the AUC: the severity is unchanged by the 2026-08-14 repin below")
+    check("its evidence carries the COLD predictability-only AUC",
+          all("0.648" in f.evidence for f in fs) and bool(fs),
+          "predictability-only joint, Exp 2, absolute feature set, cold "
+          "(quality/test_discriminate.py PINNED abs_exp2.joint_solo)")
+    check("and does not still carry the superseded warm figure",
+          all("0.560" not in f.evidence for f in fs) and bool(fs),
+          "REPINNED 2026-08-14: 0.560 was a warm reading and 'which is "
+          "chance' was arithmetic on it. This pin required 0.560 until then, "
+          "so the string and the test moved together or not at all")
+    check("it names what the number is a coordinate of",
+          all("0.964" in f.evidence for f in fs) and bool(fs),
+          "doctrine 58: 0.648 is only readable against the ten-feature "
+          "joint on the SAME human-vs-generated split")
 
 
 def test_out_of_domain_is_announced():

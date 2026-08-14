@@ -41,9 +41,46 @@ wrong sign below is a failed prediction and is reported as one.
 **Detecting bad writing works. Ranking good writing barely does.** That gap —
 0.971 against 0.709 on the pre-fix reading, **0.964 against 0.717 cold** — is
 the whole argument in two numbers. A floor is objectively enforceable; a
-ceiling is not. Build the rejection gate. The gap narrowed by 0.062 between the
-two readings and the argument did not change; doctrine 7 is still stated in the
-pre-fix pair, which is a repin someone owning `CLAUDE.md` has to make.
+ceiling is not. Build the rejection gate. The gap is **0.262 pre-fix and 0.247
+cold, so it narrowed by 0.015**, and the argument did not change; doctrine 7 is
+still stated in the pre-fix pair, which is a repin someone owning `CLAUDE.md`
+has to make.
+
+> **~~"The gap narrowed by 0.062 between the two readings."~~ WITHDRAWN
+> 2026-08-14. The 0.015 above is measured; where 0.062 came from is `CANNOT
+> TELL` (doctrine 20/28), and it is recorded as that rather than quietly
+> replaced.**
+>
+> The sentence's own subject is the Exp 2 − Exp 1 gap across the two readings
+> it names, and that arithmetic does not produce 0.062 under any pairing:
+> pre-fix 0.971 − 0.709 = 0.262, cold 0.964 − 0.717 = 0.247, narrowing
+> **0.015** (0.0143 at the precision `test_discriminate.py` pins). Bringing in
+> the warm reading does not help either — warm 0.975 − 0.659 = 0.316, so
+> warm→cold is 0.069 and pre-fix→warm is +0.054, a WIDENING. No pair of the
+> five gaps on record (absolute pre-fix 0.262, warm 0.316, cold 0.247;
+> within-item warm 0.273, cold 0.253) differs by 0.062; the nearest is 0.063,
+> and it is warm-absolute minus cold-within-item, which crosses the cache
+> state AND the feature set at once and is the same collapse doctrine 58 is
+> about.
+>
+> **The one quantity in the repo that IS 0.062** is the cold
+> predictability-only spread, Exp 1 − Exp 2: 0.70997150997151 −
+> 0.6476973684210526 = **0.062274**, i.e. the **0.710** and **0.648** two rows
+> apart in "The joint held-out AUCs, cold" below — a different FEATURE SET
+> (two features, not ten), and a LEVEL rather than a narrowing of anything.
+> The same commit (`de4313e`) added that table and this sentence, so a
+> transcription is plausible. It is not established, and this document does
+> not assert it: five other pairs of three-decimal figures in this file and
+> `RESULTS_WITHIN_ITEM.md` also differ by exactly 0.062 (0.366−0.304,
+> 0.582−0.520, 0.676−0.614, 0.719−0.657, and the pair above), so a digit match
+> is a coincidence rate, not a provenance. `git log -S"0.062"` returns exactly
+> one commit and its diff carries no working.
+>
+> What can be said: the figure was never reproducible from the sentence it
+> was attached to, the narrowing it claimed is real but is 0.015, and the
+> conclusion it supports — that the argument did not change — is unaffected in
+> either direction, because 0.015 and 0.062 are both small against a gap of
+> 0.247.
 
 ## Experiment 1 — within-Shakespeare survival
 
