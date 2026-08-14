@@ -98,13 +98,23 @@ result from a layer that was asked and came back clean.
   back later, without the call site in view — could not tell "meter clean"
   from "meter never asked."
 
-  NEVER ASKED, from here or from `quality/revise.py` — `quality/
-  readability.py`'s own report. Its `UNREADABLE_END_WORD` and
-  `UNREADABLE_END_WORD_PIECE` flags speak about EVERY line; what reaches
-  this loop is `grade`'s `refusals`, scoped to pairs the MANDATE puts
-  together, so an unreadable end word on a line the mandate leaves free is
-  invisible here. Not fixed in this module: the join belongs in
-  `Reviser.inspect`, which this file does not own.
+  ASKED SINCE 2026-08-14 — `quality/readability.py`'s own report.
+  `Reviser.inspect` folds it in, so an unreadable end word on a line the
+  mandate leaves FREE reaches this loop, where it used to be invisible: what
+  arrived before was only `grade`'s `refusals`, scoped to pairs the MANDATE
+  puts together.
+  IT ARRIVES AS A NOTE, so nothing in this file's control flow changes. A
+  refusal is not a violation (doctrine 79), and `SCHEME_UNREADABLE` — the same
+  refusal on a pair the mandate DECLARED — was already a note, so flagging this
+  one would make an unreadable word on an UNMANDATED line fail harder than the
+  identical word on a mandated one. Measured both ways: as a note the loop
+  returns SUCCESS in 0 rounds on a draft whose only defect is an unreadable
+  free-line end word; as a flag it returns NO_PROGRESS with that line
+  unresolved — and NO_PROGRESS rather than ROUND_LIMIT, because the loop
+  notices a barren round before exhausting `max_rounds`.
+  ~~NEVER ASKED, from here or from `quality/revise.py`. Not fixed in this
+  module: the join belongs in `Reviser.inspect`, which this file does not
+  own.~~
 
 THE STOP CONDITIONS ARE PER-LINE SCOPED, WHICH IS THE ONE THING "SUCCESS"
 DOES NOT MEAN. `brief()` is built out of `inspect()`'s `per_line` half only,

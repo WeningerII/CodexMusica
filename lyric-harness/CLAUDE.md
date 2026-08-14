@@ -1194,7 +1194,30 @@ rather than this paragraph — a roster copied into two files drifts in both.
    — comparing across two DIFFERENT functions (does the outro reprise the
    intro) is not asked by anything. The primitive that would answer it
    already exists; nothing calls it that way.~~
-8. **`quality/readability.py`'s own report never joins the revision loop, and
+8. **CLOSED 2026-08-14 — the readability report joins the revision loop.**
+   `Reviser.inspect` folds `readability.report`'s findings in, so an unreadable
+   end word on a line THE MANDATE LEAVES FREE is now reported. Measured before:
+   `readability.report` said `[('UNREADABLE_END_WORD','flag',[4])]` and
+   `inspect()` said `[]`.
+   BOTH ARRIVE AS **NOTES**, and the asymmetry resolves toward
+   `SCHEME_UNREADABLE` rather than toward `readability.report`. A refusal is not
+   a violation (doctrine 79) — `inspect()`'s own comment records the price of
+   getting this backwards, a loop that "briefed a model to rewrite lines that
+   rhyme perfectly well, Barnes's Dorset `drong`/`zong` among them". And the
+   consistency argument is decisive: `SCHEME_UNREADABLE` is the SAME refusal on
+   a pair the mandate DECLARED and is already a note, so a flag here would make
+   an unreadable word on an UNMANDATED line fail harder than the identical word
+   on a mandated one. The downgrade is stated in each finding's own evidence
+   rather than applied silently. No new opt-out: `Lexicon(fallback=...)` already
+   sits at the right layer, and a second switch would be a second place to
+   change one answer (doctrine 1).
+   THE BLAST RADIUS MOVES BOTH WAYS AT `verify()`, measured: unreadable ->
+   readable was `accepted=False, fixed=[]` — a real repair called a no-op — and
+   is now `accepted=True` with the fix named; readable -> unreadable was
+   INVISIBLE and now lands in `new_notes`, never `new_flags`. The loop can see a
+   change it was blind to in both directions and still cannot reject on it.
+   `quality/test_revise.py` test 34.
+   ~~`quality/readability.py`'s own report never joins the revision loop, and
    the data is already on the path.** `Reviser._matrix` computes
    `readability_records` for EVERY line on EVERY run. The only readability
    findings that reach the finding set are `grade()`'s `refusals`, which
@@ -1206,8 +1229,23 @@ rather than this paragraph — a roster copied into two files drifts in both.
    44's "hard to build" nor doctrine 92's "cannot obtain": the measurement is
    already computed, on the path, and thrown away. The join belongs in
    `Reviser.inspect`. Found 2026-08-13 by asking what a default `revise_loop`
-   run actually consults.
-9. **`OVERLAPPING_SPANS` is reachable from `fit` and from nothing else.**
+   run actually consults.~~
+9. **CLOSED 2026-08-13 BY COMMIT `9c9a5c5`, AND THIS ENTRY WAS NEVER TOLD.**
+   `_meter_findings` has called `FT.overlap_findings(fits)` since that commit —
+   `git blame` puts it there — so the entry below spent a day describing as
+   pending a change that had already shipped, and a lot was briefed to make it
+   before anyone checked. That is this file's own recurring failure mode aimed
+   at a gap entry rather than at a capability.
+   VERIFIED BY MUTATION rather than by reading the log: on a purpose-built
+   overlap blueprint, reverting the call gives `fit` `over 4` and `song` twelve
+   findings with ZERO mentioning the overlap; at head `song` gives twenty
+   findings of which EIGHT are `OVERLAPPING_SPANS`. All four shipped blueprints
+   measure 0 overlaps, which confirms the "zero test churn" claim and is also
+   exactly why the gap survived — no existing fixture could see it.
+   `quality/test_revise.py` test 35 pins the `Reviser` side and the
+   byte-identical-evidence invariant; `quality/test_fit.py` already carried the
+   `fit` side.
+   ~~`OVERLAPPING_SPANS` is reachable from `fit` and from nothing else.**
    `Reviser._meter_findings` calls `quality/fit.py`'s `fit_line` once per line
    and never builds a `SongFit` — and an overlap is a relation BETWEEN two
    lines, which cannot be seen from inside one. Measured at both surfaces on
@@ -1219,7 +1257,7 @@ rather than this paragraph — a roster copied into two files drifts in both.
    now calls it; the one-line change that would make `_meter_findings` call it
    too is verified at runtime and costs zero test churn, since all four
    shipped blueprints have 0 overlapping lines. Same shape as the
-   built-and-tested-was-not-the-reachable family above, one layer in.
+   built-and-tested-was-not-the-reachable family above, one layer in.~~
 
 ## The doctrine index — every number, and where it lives
 
