@@ -848,6 +848,39 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/prasa_rate.py --check
 
+      # THE CONJUNCTIVE BAND'S NEGATIVE CONTROL. 3.86 CPU-s, MEASURED
+      # 2026-08-14. The last "prints its own drift and exits 0" runner in the
+      # repo, and the one where that mattered most: its figures flipped sign
+      # TWICE in three days — +6.7 -> +3.3 (2026-08-10), +6.7 -> +9.3
+      # (2026-08-11), +6.7 -> +5.3 (2026-08-13) — and nothing anywhere said so.
+      #
+      # `--check` pins ONLY the deterministic half: the corpus shape and the
+      # four observed capture COUNTS (39/16 Whitman, 449/411 sonnets). Counts
+      # rather than rates, so the pin survives the report's one-decimal
+      # rendering. It leaves the null medians, BOTH excesses and the p unpinned,
+      # because each rides a permutation draw and both sonnet arms sit at
+      # 1/(n+1) — an empirical p at the resolution floor reports the resolution,
+      # not the effect (doctrine 57).
+      #
+      # THE TWO `*_captured_off` PINS ARE THE CONTROL ON THE CONTROL, and the
+      # failure text says how to read them: if OFF moved, the ingestion or the
+      # null machinery moved; if only ON moved, the band's own comparator did,
+      # and the Whitman/sonnet split says on which corpus.
+      #
+      # Exit 2 — not 1 — if the lexicon or either corpus is missing: nothing was
+      # measured, so nothing moved. The full n=200 run (196 CPU-s) is wired
+      # NOWHERE, not even nightly, because it would buy four null medians and
+      # two p-values that `--check` deliberately does not assert: a job that
+      # grades nothing.
+      - name: Band negative control against its committed capture counts
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/audit_band_control.py --check
+
   # ── The suites: 45 test modules that nothing had ever run ────────────────
   #
   # THE CLAIM THIS JOB EXISTS TO CORRECT. The `record` job's comment above

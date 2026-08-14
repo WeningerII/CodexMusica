@@ -859,9 +859,16 @@ descriptors in any generation-facing output — era+region+technique.
   `R_obs 10.7%, null median 5.3%, excess +5.3 pp, p 0.0199`.
   THE CONTROL ON THE CONTROL, and it is what makes this readable: the band-OFF
   row reproduces TO THE DECIMAL on both corpora — Whitman's null 19.3/8.7/27.3
-  and the sonnets' 29.9/25.5/35.6, +23.6 pp and +17.9 pp over the null max, at
-  the full n=200. So the null machinery is demonstrably unchanged and every
-  figure that moved is downstream of the band-ON comparator alone.
+  and the sonnets' 29.9/25.5/35.6, +23.6 pp over the null MEDIAN and +17.9 pp
+  over the null MAX, at the full n=200. So the null machinery is demonstrably
+  unchanged and every figure that moved is downstream of the band-ON comparator
+  alone.
+  CORRECTED 2026-08-14: this sentence read "+23.6 pp and +17.9 pp over the null
+  max", attaching ONE label to TWO statistics — and it did so twenty-five lines
+  above the paragraph that warns, in this file, about exactly that conflation.
+  +23.6 is over the median (53.5 − 29.9); only +17.9 is over the max
+  (53.5 − 35.6). Found by `audit_band_control.py --check`, which now prints the
+  two under separate labels so the report cannot restate the ambiguity.
   **The band's effect on the separation is +6.7 -> +5.3 pp — MEASURED
   2026-08-13.** REPINNED from +6.7 -> +9.3 pp (MEASURED 2026-08-11, the
   17.3%/8.0% comparator), which had itself superseded +6.7 -> +3.3 pp
@@ -893,7 +900,10 @@ descriptors in any generation-facing output — era+region+technique.
   `battery.py` has printed under `false chains (should be near zero)` since
   the first commit.
   ONE STATISTIC, TWO MEANINGS, and the record has been quoting both under one
-  word: +6.7, +3.3 and +9.3 are the excess over the null MEDIAN; the +17.9 pp
+  word: +6.7, +3.3, +9.3 and +5.3 are the excess over the null MEDIAN (**+5.3
+  added 2026-08-14 — it is the CURRENT head figure and this warning list had
+  omitted it, so the sentence naming the trap left out the number most likely to
+  be quoted**); the +17.9 pp
   cited in METHOD § doctrine 71 is the excess over the null MAX, on a
   different corpus. Doctrine 91 — a count is a coordinate of the rendering. A negative control is a text in which the
   property is ABSENT, and this one carries it as epistrophe, in the one
