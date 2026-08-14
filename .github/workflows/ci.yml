@@ -970,6 +970,23 @@ jobs:
           key: lyric-harness-predictability-v1-${{ github.run_id }}
           restore-keys: lyric-harness-predictability-v1-
 
+      # THE ONE PLACE THIS REPO LEAVES THE STANDARD LIBRARY, AND IT IS DELIBERATE.
+      # The `record` job's comment states the boundary — "the harness is pure
+      # standard library by design, and quality/declared_inputs.py is the record
+      # of that boundary" — and that is true of the harness. It is NOT true of
+      # three instruments that only run here: discriminate.py imports numpy and
+      # sklearn LAZILY at its line 524, inside the function that fits the
+      # classifier, so the dependency is invisible to a module-level import scan
+      # and to every check `record` runs.
+      #
+      # FOUND BY RUNNING CI, NOT BY READING IT. This job was written without a
+      # pip step and its first real execution failed three steps in a row inside
+      # two seconds — too fast to be a run, which is what a missing import looks
+      # like. Nothing local caught it because this container already had both
+      # packages installed. Added 2026-08-14.
+      - name: Install the two packages the nightly instruments need
+        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn
+
       - name: Stage the pronunciation dictionary
         working-directory: lyric-harness
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
