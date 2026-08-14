@@ -87,6 +87,20 @@ per field is the work:
             reported 4 of its 12 true instances.  `mirrored()` replaces it and
             `order_burden()` counts what it costs.  All 60 symmetric schemas
             are byte-identical before and after.
+
+P14 AND P15 CLOSED 2026-08-13, and both are one sentence: A DECLARED
+COORDINATE'S VALUE SET IS ITSELF A CLAIM.  `ClassEqual(partition=lambda v: v)`
+declares a quotient and supplies the identity, which is not one -- it made
+`proest` UNSATISFIABLE (nucleus MUST DIFFER *and* nucleus CLASS-EQUAL are each
+other's negation under the identity), made `family rhyme` fire on `cat`~`bat`,
+and made the 同用 schema read 流/樓 as False while the phonology that owns the
+rime table reads True.  A quotient is now a NAMED capability the declaration
+supplies (`quotient:manner`, `quotient:同用`), so a schema whose grain nobody
+declared REFUSES with the name of what is missing.  `unmatched` is the same
+shape one level down: its vocabulary comment listed a value nothing implements
+('differ') and omitted the two `evaluate()` branches on, and an undeclared
+value took the default path in silence.  See `ClassEqual` and `UNMATCHED`.
+
   DECLARED  `Span.unit`, in the `INERT` table above section 11, WITH the
             reason, what would activate it, and which of doctrine 44/92's
             three blockers it is -- 'disjoint', not 'build', so "build the
@@ -132,13 +146,61 @@ class NoReferent(Exception):
 
 @dataclass(frozen=True)
 class Refusal:
+    """WHY the instrument declined, naming what it would have needed.
+
+    `capability` is ONE name and `missing` is ALL of them, and the two are
+    separate fields because they answer different questions.  `realise()`
+    checked capabilities in `RelationSchema.capabilities()` order -- which is
+    `sorted()`, so ALPHABETICAL -- and returned on the first failure, so a
+    schema wanting two capabilities reported one and the census column built
+    from it was FIRST-HIT rather than complete.  Measured on a `som` stream,
+    which supplies no prominence:
+
+        family rhyme   needs ('prominence', 'quotient:manner')  -> said 'prominence'
+        proest         needs ('prominence', 'quotient:vowel_class')
+                                                                -> said 'prominence'
+        dialect rhyme  needs ('poet', 'prominence')             -> said 'poet'
+
+    -- and in the first two cases the quotient is the capability that does not
+    exist on ANY declaration of that language, while `prominence` is one a
+    different phonology supplies.  Reporting the alphabetically-first of the
+    two names the CHEAPER blocker and hides the structural one, which inverts
+    the remedy: "declare a prominence-bearing phonology" reads as the whole
+    answer when it closes half the gap.  Doctrine 44 is exactly this
+    distinction -- "hard to build" against "cannot obtain" -- so a diagnostic
+    that truncates the list decides which of the two a reader sees.
+
+    `capability` KEEPS its old value (`missing[0]`) rather than becoming a
+    joined string: it is the GROUPING KEY that `relations_null.Coverage`,
+    `NEVER_PROVIDED` and this module's own `refusal_census()` bucket on, and a
+    key that silently changed shape would make every stored census
+    incomparable with the next one.  New readers should prefer `missing`.
+    """
     schema: str
     capability: str
     detail: str
+    #: EVERY capability the stream did not supply, in `capabilities()` order.
+    #: Defaults to `()` so the three-argument construction sites outside this
+    #: file (`quality/relations_null.py` builds a `'denominator'` refusal that
+    #: way) keep working unchanged; `realise()` always fills it.
+    missing: tuple = ()
 
     def __bool__(self):
         raise TypeError(
-            "a Refusal has no truth value; it is not False. Read .capability.")
+            "a Refusal has no truth value; it is not False. Read .capability "
+            "for the first missing capability, or .missing for all of them.")
+
+    @property
+    def complete(self):
+        """True when `missing` carries the whole set rather than one name.
+
+        A refusal raised somewhere other than the capability gate -- the span
+        refusal below, `relations_null`'s `'denominator'` -- leaves `missing`
+        empty, and a consumer counting capabilities must be able to tell that
+        apart from "nothing was missing", which is not a state a Refusal can
+        be in.  Doctrine 28, at the scale of one dataclass.
+        """
+        return bool(self.missing)
 
 
 # ---------------------------------------------------------------------------
@@ -229,6 +291,52 @@ class Frames:
     bayt_source: str = "none"
 
 
+#: Capability prefix for a DECLARED QUOTIENT (defect P14).  `capabilities()`
+#: derives `quotient:manner`, `quotient:同用` and the like from the channel
+#: rules themselves, so a schema that compares a channel at a declared GRAIN
+#: refuses on a declaration that supplies no such grain, the same way one
+#: needing a caesura or a morphology resource already does.
+QUOTIENT_CAP = "quotient:"
+
+#: The SECOND-DECLARATION surfaces.  Each names a key in `Stream.alt`, and a
+#: `ChannelRule(surface=...)` reading one is answered by projecting the unit
+#: into that second stream (`ChannelSet.read` -> `_project`).  `Stream.provides`
+#: gates them all the same way -- the surface is supplied iff a caller declared
+#: a stream under that name -- so this tuple, and not any per-surface code, is
+#: the whole of what makes a surface reachable.
+#:
+#: `poet` ADDED 2026-08-13, and it is a correction rather than a feature.  It
+#: was the only surface any schema names that this tuple omitted, so
+#: `provides('poet')` fell through to the closing `return False` and `dialect
+#: rhyme` refused on EVERY text under EVERY declaration -- not "no caller has
+#: declared one yet" but "no caller can".  Two things make that an error and
+#: not a policy:
+#:
+#:   * `quality/declared_inputs.py` already classifies it the other way. Its
+#:     own header table reads `R2 historical  SWAPPABLE_PHONOLOGY  SCHEDULED`
+#:     and its §5 map sends "a PHONOLOGY at another coordinate" to R2 with the
+#:     words "(historical, dialect, Scots)".  So the repo declares dialect to
+#:     be the same family as `earlier`, which IS in this tuple, and two modules
+#:     disagreed about whether the same family was reachable.
+#:   * `dialect rhyme` and `historical rhyme` are the same schema up to the
+#:     surface name -- END_ANCHOR spans, nucleus+coda AGREE on the second
+#:     surface, nucleus DIFFER on the anchor in the declared one.  Nothing
+#:     distinguishes them that could justify wiring one and not the other.
+#:
+#: THIS DOES NOT MAKE THE SCHEMA FIRE.  A surface is supplied only by a caller
+#: handing over a second `Stream` built from a phonology at that coordinate;
+#: with no `alt` declared, `provides('poet')` is False and every count in this
+#: repo is byte-identical (asserted in `test_relations.py`).  What changes is
+#: the CLASSIFICATION of the gap: `dialect rhyme` moves from "cannot be nulled
+#: on any text under any declaration" to exactly where `historical rhyme`
+#: already sits -- blocked on a SOURCED dialect phonology, which this repo does
+#: not have and which `declared_inputs.PeriodPhonology` refuses to construct
+#: without a named reconstruction.  Doctrine 44: the build was one name in a
+#: tuple; the blocker is, and always was, the data.
+ALT_SURFACES = ("orthography", "earlier", "delivered", "sung", "licence",
+                "poet")
+
+
 @dataclass
 class Stream:
     units: list
@@ -282,7 +390,7 @@ class Stream:
             return self.frames.beat is not None
         if cap == "bayt":
             return self.frames.bayt_source != "none"
-        if cap in ("orthography", "earlier", "delivered", "sung", "licence"):
+        if cap in ALT_SURFACES:
             return cap in self.alt
         if cap in ("lexicon", "sense", "morphology"):
             res = self.declaration.get("resources", ())
@@ -290,6 +398,11 @@ class Stream:
             # key-spaces used to disagree and no declaration could satisfy both.
             return cap in res or any(
                 lv in res for lv, c in _CAP_OF_LEVEL.items() if c == cap)
+        if cap.startswith(QUOTIENT_CAP):
+            # DEFECT P14: a quotient nobody declared is not the identity, and a
+            # schema whose grain is undeclared refuses here rather than
+            # answering at the finest grain the channel happens to carry.
+            return _quotient_of(self, cap[len(QUOTIENT_CAP):]) is not None
         return False
 
     def line_of(self, span):
@@ -804,9 +917,44 @@ class ClassEqual(Predicate):
     """Equality under a DECLARED quotient.  Family rhyme's manner partition,
     the 同用 groupings (raw Qieyun lookup makes 流 and 樓 non-rhyming and they
     are the rhyme of 登鸛雀樓), any-vowel-with-any-vowel, 平/仄.  A boolean
-    x == y cannot express any of them."""
-    partition: object        # callable value -> class label, or dict
+    x == y cannot express any of them.
+
+    DEFECT P14, fixed.  `partition=lambda v: v` IS NOT A QUOTIENT, and four of
+    the five ClassEqual channels in this file shipped with exactly that while
+    their own `label` named a partition nobody had written -- "declared manner
+    partition", "declared length class", "declared 同用 grouping".  Under the
+    identity the predicate is plain equality, and all three consequences were
+    MEASURED, not argued:
+
+      proest         the channel list says nucleus MUST DIFFER *and* nucleus
+                     CLASS-EQUAL.  Under the identity those are each other's
+                     negation, so the schema was UNSATISFIABLE -- not strict,
+                     unsatisfiable: `tân`/`tôn`, `mab`/`heb`, `llon`/`llan`,
+                     `dydd`/`budd`, `cant`/`gwynt`, `gwyn`/`gwn` all read
+                     False, and no input of any kind could read True.
+      family rhyme   degenerates to nucleus AGREE + coda AGREE, so `cat`~`bat`
+                     -- an ordinary perfect rhyme -- came back True as a
+                     FAMILY relation.  `multisyllabic rhyme`'s coda is the
+                     same channel with the same identity partition.
+      同用           compares the RAW 廣韻 韻, which is doctrine 36's own
+                     error: 流 (尤) against 樓 (侯) read False here while
+                     `ltc.rhymes` -- the phonology that OWNS the table --
+                     reads True on the pair the grouping exists for.
+
+    So the quotient is a NAMED RESOURCE the stream supplies, the same shape
+    `IdentityRule`'s morphology resource already has (test P4): `resource`
+    names it, `RelationSchema.capabilities()` turns that into
+    `quotient:<name>`, and `realise()` REFUSES a schema whose declaration
+    supplies none -- naming it -- rather than answering under a quotient
+    nobody wrote.  `partition=` stays for a quotient the schema states in full
+    (`alliterative long line`'s vowel class is one), and an UNRESOLVED
+    partition reads None: a refusal, never a False.  Doctrine 45 -- a checker
+    that silently picks the finest possible grain is making a claim it never
+    states.
+    """
+    partition: object = None    # callable value -> class label, or dict
     label: str = "declared quotient"
+    resource: str = ""          # the quotient's name in the DECLARATION
     name: str = "CLASS-EQUAL"
 
     def _cls(self, v):
@@ -815,6 +963,13 @@ class ClassEqual(Predicate):
         return self.partition.get(v, ("__ungrouped__", v))
 
     def __call__(self, x, y):
+        if self.partition is None:
+            return Read(None, False,
+                        f"no {self.label} supplied by this declaration"
+                        + (f" (quotient {self.resource!r})"
+                           if self.resource else "")
+                        + "; the identity is not a quotient, so the answer is "
+                          "a REFUSAL and not a verdict at the finest grain")
         if x is None or y is None:
             return Read(None, False, "unreadable")
         # knowledge sets quotient element-wise: the CLASS of an uncertain
@@ -828,6 +983,44 @@ class ClassEqual(Predicate):
         cy = next(iter(cy)) if len(cy) == 1 else cy
         v, inf, note = _set_agree(cx, cy)
         return Read(v, inf if v is not None else True, note or self.label)
+
+
+def _quotient_of(stream, name):
+    """-> the callable the stream supplies for the named quotient, or None.
+
+    TWO SOURCES, and the DECLARATION WINS, because a declaration is where an
+    assumption is supposed to live (doctrine 1) and a caller who wrote one
+    down meant it:
+
+      declaration['quotients'][name]   the caller's own, per stream.
+      phon.quotients[name]             the PHONOLOGY's own.  This is the seam
+                                       that hands `ltc`'s 平水韻 同用 grouping
+                                       to the 同用 schema without this module
+                                       importing a phonology, hard-coding a
+                                       rime table, or re-deriving one from
+                                       channels it cannot see -- the same move
+                                       `rhyme_types.py` makes for `phon.rhymes`
+                                       (doctrine 84).  A phonology that
+                                       declares no grouping supplies none, and
+                                       the schema refuses instead.
+    """
+    if stream is None:
+        return None
+    q = (stream.declaration.get("quotients") or {}).get(name)
+    if q is None:
+        q = (getattr(stream.phon, "quotients", None) or {}).get(name)
+    return q
+
+
+def _bind_quotient(pred, stream):
+    """A ClassEqual whose quotient is DECLARED elsewhere, resolved against this
+    stream.  Any other predicate, and any partition the schema states in full,
+    is returned untouched."""
+    if getattr(pred, "resource", "") and pred.partition is None:
+        q = _quotient_of(stream, pred.resource)
+        if q is not None:
+            return replace(pred, partition=q)
+    return pred
 
 
 @dataclass(frozen=True)
@@ -863,7 +1056,10 @@ class PresentVsAbsent(Predicate):
     DEFECT P6, fixed.  This tested whole-channel EMPTINESS -- `_empty(bare)` --
     so it fired only on a bare member with no coda at all (`see`/`seed`) and
     returned False on every canonical pair in the repo's own list
-    (RHYME_COVERAGE.md line 148):
+    (RHYME_COVERAGE.md, the **ADDITIVE PAIR LIST**.  Cited by NAME: this read
+    "line 148", which pointed at the *subtractive* line even before §2 grew
+    and then missed by two.  A line number into a living document is the same
+    defect as a reused P-number, one layer down):
 
         year/feared  coda ('R',) vs ('R','D')   -> False
         down/found   coda ('N',) vs ('N','D')   -> False
@@ -1428,13 +1624,30 @@ class Figure:
 PAIR = Figure()
 
 
+#: What `unmatched` may say about the material the alignment left over, and
+#: THE LIST IS MEASURED AGAINST `evaluate()` RATHER THAN RECALLED (defect P15).
+#: The field's own comment used to read `exclude | differ | forbid`: 'differ'
+#: is implemented by nothing and declared by none of the 77 schemas, while
+#: 'require_a' and 'require_b' -- the two values `evaluate()` actually branches
+#: on, and the only thing keeping semirhyme and apocopated rhyme from
+#: collapsing into perfect rhyme -- were absent from the vocabulary they
+#: belong to.  A MUST-DIFFER is a CHANNEL rule (pararhyme), so 'differ' is
+#: closed by DELETION and not by wiring: two coordinates meaning one thing is
+#: a worse defect than one inert coordinate.
+#:   'exclude'    the overhang is outside the comparison (the default)
+#:   'forbid'     any overhang on either member fails the pair
+#:   'require_a'  member 1 MUST overhang and member 2 must not (apocopated)
+#:   'require_b'  member 2 MUST overhang and member 1 must not (semirhyme)
+UNMATCHED = ("exclude", "forbid", "require_a", "require_b")
+
+
 @dataclass(frozen=True)
 class RelationSchema:
     name: str
     spans: tuple                    # (SpanRule, SpanRule)
     align: str = "anchor"
     channels: tuple = ()
-    unmatched: str = "exclude"      # exclude | differ | forbid
+    unmatched: str = "exclude"      # one of UNMATCHED, above
     placement: tuple = ()
     identity: tuple = ()
     figure: object = PAIR
@@ -1443,6 +1656,20 @@ class RelationSchema:
     traditions: tuple = ()
     requires: tuple = ()
     note: str = ""
+
+    def __post_init__(self):
+        # `unmatched` had FOUR implemented values and its own comment named
+        # three, one of which -- 'differ' -- is implemented nowhere and
+        # declared by none of the 77 schemas (defect P15).  An undeclared value
+        # silently took the 'exclude' path, so a typo and a policy read the
+        # same.  Refuse at construction, where the declaration is written.
+        if self.unmatched not in UNMATCHED:
+            raise ValueError(
+                f"unmatched must be one of {UNMATCHED}, not "
+                f"{self.unmatched!r}. It is a SPAN coordinate over the "
+                f"material the alignment left over; a MUST-DIFFER on the "
+                f"matched material is a CHANNEL rule (pararhyme states it as "
+                f"ChannelRule('nucleus', DIFFER)) and never this field.")
 
     def capabilities(self):
         need = set(self.requires)
@@ -1453,6 +1680,11 @@ class RelationSchema:
         for c in self.channels:
             if c.surface != "phonemic":
                 need.add(c.surface)
+            # DEFECT P14: the GRAIN a channel is compared at is a capability of
+            # the declaration, not a constant of the schema.
+            q = getattr(c.predicate, "resource", "")
+            if q:
+                need.add(QUOTIENT_CAP + q)
         for i in self.identity:
             need.add(_CAP_OF_LEVEL.get(i.level, i.level))
         need.discard("token")        # always available: the surface text
@@ -1558,10 +1790,15 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
     enforced = []                    # the subset of `reads` the verdict sees
     for cr in schema.channels:
         mine = []
+        # DEFECT P14: a channel compared at a DECLARED GRAIN takes its quotient
+        # from the stream.  `realise()` has already refused the schema if the
+        # declaration supplies none; a caller reaching `evaluate()` directly
+        # gets the predicate's own refusal instead of a verdict at the identity.
+        pred = _bind_quotient(cr.predicate, stream)
         if cr.scope == "sequence":
             xa = _seq(a, stream, cr.channel, chans, cr.surface)
             xb = _seq(b, stream, cr.channel, chans, cr.surface)
-            mine.append((cr.channel, -1, cr.predicate(xa, xb)))
+            mine.append((cr.channel, -1, pred(xa, xb)))
         elif cr.scope in ("unmatched_a", "unmatched_b"):
             side = a if cr.scope.endswith("a") else b
             pos = (align.unmatched_a if cr.scope.endswith("a")
@@ -1569,7 +1806,7 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
             for q in pos:
                 v = chans.read(stream.units[side.idx[q]], cr.channel, stream,
                                cr.surface)
-                mine.append((cr.channel, q, cr.predicate(v, v)))
+                mine.append((cr.channel, q, pred(v, v)))
         else:
             pa = _positions(cr.scope, a, align, 0)
             pb = _positions(cr.scope, b, align, 1)
@@ -1578,7 +1815,7 @@ def evaluate(schema, a, b, stream, chans=DEFAULT_CHANNELS):
                                 cr.surface)
                 xb = chans.read(stream.units[b.idx[qb]], cr.channel, stream,
                                 cr.surface)
-                mine.append((cr.channel, qa, cr.predicate(xa, xb)))
+                mine.append((cr.channel, qa, pred(xa, xb)))
         reads.extend(mine)
         if cr.required:
             enforced.extend(mine)
@@ -1825,7 +2062,11 @@ def order_burden(schema, stream, chans=DEFAULT_CHANNELS):
             "recovered_instances": t.get("recovered_instances", 0),
             "recovered_true": t.get("recovered_true", 0)}
     if isinstance(out, Refusal):
-        return dict(base, instances=0, refused=out.capability)
+        # `refused` keeps its old single-name value so stored counts stay
+        # comparable; `refused_all` is the complete set beside it. Two keys
+        # rather than one widened key, for the reason `Refusal` gives.
+        return dict(base, instances=0, refused=out.capability,
+                    refused_all=out.missing)
     return dict(base, instances=len(out))
 
 
@@ -1834,14 +2075,27 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     """Find every instance of `schema` in the song.  -> [Instance] or Refusal.
 
     THE ALGORITHM
-      1. capability check.  A missing capability is a Refusal naming it.
+      1. capability check.  A missing capability is a Refusal naming EVERY
+         capability the stream did not supply, on `.missing`, not just the
+         first one to fail.
       2. enumerate candidate spans per member from the member's OWN SpanRule.
       3. bucket by (frame, schema's first AGREE channel).  Unknown keys are
          wildcards and join everything.
       4. for each candidate pair, DE-DUPLICATED by `mirrored()` rather than
          filtered on text order: placement -> align -> channels -> ternary
          verdict.
-      5. figures beyond the pair are assembled from the surviving edges.
+
+    THERE IS NO STEP 5 HERE, and this docstring used to claim one: "figures
+    beyond the pair are assembled from the surviving edges".  They are not --
+    `assemble()` is a SEPARATE call over this function's output, and the only
+    non-test caller in the repo is `quality/relations_null.py`, which makes it
+    only for the `line_fraction` statistic.  `relation_report()` -- this
+    module's own honest consumer, and what the CLI prints -- never calls it,
+    so every figure-quantified schema (monorhyme/leash, higaad, paroemion, the
+    Kalevala's exists_k) is reported there as pairwise EDGES and never as the
+    figure it declares.  Stated rather than wired: the report's shape is a
+    separate decision from this function's, and a docstring that describes a
+    step the code does not take is the defect this paragraph closes.
 
     `keep` defaults to True and None instances.  Pass keep="all" for the
     negative cases: doctrine 27 -- a chance draw that FAILS the filter scores
@@ -1849,17 +2103,32 @@ def realise(schema, stream, chans=DEFAULT_CHANNELS, max_pairs=2_000_000,
     first family-wise correction in this repo dropped exactly those and got 0%
     saturation on every corpus.
     """
-    for cap in schema.capabilities():
-        if not stream.provides(cap):
-            return Refusal(schema.name, cap,
-                           f"{schema.name} needs {cap!r}; this declaration "
-                           f"({stream.declaration.get('language', '?')}) does "
-                           f"not supply it. Refused rather than asserted.")
+    # THE WHOLE SET, not the first name.  This loop used to `return` inside the
+    # `for`, so the answer was whichever missing capability sorted first and a
+    # schema needing two reported one.  See `Refusal` for the measurement; the
+    # cost of completeness is one extra `provides()` call per satisfied
+    # capability on a refusing schema, and `provides()` is a dict lookup.
+    miss = tuple(c for c in schema.capabilities() if not stream.provides(c))
+    if miss:
+        lang = stream.declaration.get("language", "?")
+        head = (f"{schema.name} needs {miss[0]!r}" if len(miss) == 1 else
+                f"{schema.name} needs {len(miss)} capabilities this "
+                f"declaration does not supply: "
+                f"{', '.join(repr(c) for c in miss)}")
+        return Refusal(schema.name, miss[0],
+                       f"{head}; this declaration ({lang}) does not supply "
+                       f"{'it' if len(miss) == 1 else 'them'}. Refused rather "
+                       f"than asserted. Every missing name is on `.missing` — "
+                       f"declaring only the first would not make this schema "
+                       f"run.", missing=miss)
     try:
         A = list(enumerate_spans(schema.spans[0], stream))
         B = (A if schema.spans[0] == schema.spans[1]
              else list(enumerate_spans(schema.spans[1], stream)))
     except NoReferent as e:
+        # NOT a capability refusal: `missing` stays empty and `.complete` is
+        # False, because the span rule found no referent in a declaration that
+        # supplied everything the schema asked for.
         return Refusal(schema.name, "span", str(e))
     a_keys = {s.idx for s in A}
     b_keys = a_keys if B is A else {s.idx for s in B}
@@ -2040,9 +2309,37 @@ def mark_refrain_tail(stream, min_count=2, min_fraction=0.6, lines=None):
     the answer is ALWAYS zero: only the second hemistich of each bayt carries
     the rhyme (both do in the maṭlaʿ -- taṣrīʿ), so a fraction taken over ALL
     lines cannot reach any threshold.  `lines` is the declared rhyme-bearing
-    subset, which for Persian is exactly `fas.ghazal_rhyme_lines()`.  The same
-    applies to an English hymn whose refrain is every fourth line.
+    subset AS LINE INDICES into `stream.lines`; for Persian that convention is
+    `[0] + list(range(1, n_lines, 2))`.  The same applies to an English hymn
+    whose refrain is every fourth line.
+
+    THE CALL THIS DOCSTRING USED TO NAME COULD NOT WORK, AND FAILED SILENTLY.
+    It said the subset "is exactly `fas.ghazal_rhyme_lines()`" -- and
+    `quality/phonology/fas.py`'s `ghazal_rhyme_lines(hemistichs)` returns the
+    hemistich TEXTS (`[h[0]] + h[1::2]`), not their indices.  A set of strings
+    tested against an integer line index matches nothing, so the one call the
+    documentation named returned None on 495 of 495 Hafez ghazals with no
+    error, `refrain_source` was set to 'computed' anyway, and `epistrophe /
+    radif` and `qafiya (before the radif)` went from REFUSED to a measured
+    ZERO -- doctrine 20's collapse, manufactured by an argument type.  With the
+    INDICES it fires on 66 of the 495 (`corpus/fas_hafez.json`, ghazal 1's
+    radif `ها` over 6 lines, ghazal 2's `کجا` over 9, ghazal 3 and 4's `را`),
+    and `epistrophe / radif` returns 15/36/45/36 instances on those four.  The
+    argument is CHECKED below rather than left to a reader, because a
+    principle that lives only in prose gets followed exactly as often as
+    someone remembers it (doctrine 48) and nothing had ever run this line.
     """
+    if lines is not None:
+        wrong = [l for l in lines if isinstance(l, bool)
+                 or not isinstance(l, int)]
+        if wrong:
+            raise NoReferent(
+                f"`lines` is the rhyme-bearing subset as LINE INDICES into "
+                f"stream.lines; got {len(wrong)} element(s) that are not "
+                f"indices, first {wrong[0]!r}. `fas.ghazal_rhyme_lines()` "
+                f"returns hemistich TEXTS and matches no line at all -- use "
+                f"[0] + list(range(1, len(stream.lines), 2)) for the same "
+                f"Persian convention.")
     keep = None if lines is None else set(lines)
     tails = {}
     for li, ids in enumerate(stream.lines):
@@ -2089,12 +2386,38 @@ def search_caesura(stream):
     has to say which.
 
     EVERY word boundary is kept as a candidate rather than one being chosen by
-    a scorer.  k averaged 10.6 hypotheses per line on a real Welsh corpus, and
-    the same search run over lines whose words are shuffled WITHIN THE LINE
-    still reports cynghanedd on about a quarter of them -- so a bare rate
-    obtained by search is quoting the null back at itself, and only the EXCESS
-    over a matched control is attributable to the poet.  `Span.search_k` and
-    `Instance.search_k` carry k so that control can be built.
+    a scorer, and the same search run over lines whose words are shuffled
+    WITHIN THE LINE still reports cynghanedd on about a quarter of them -- so a
+    bare rate obtained by search is quoting the null back at itself, and only
+    the EXCESS over a matched control is attributable to the poet.
+    `Span.search_k` and `Instance.search_k` carry k so that control can be
+    built.
+
+    THIS FUNCTION'S k IS 4.0, NOT 10.6, AND THE 10.6 WAS ANOTHER MODULE'S.
+    This docstring read "k averaged 10.6 hypotheses per line on a real Welsh
+    corpus" from the day it was written, and nothing had ever run it.
+    MEASURED 2026-08-13 on `corpus/cym_alun_strict.txt` -- the same 1,558-line
+    edition METHOD doctrine 56 quotes 10.6 against -- this returns
+    **mean_k 4.02** over 1,558 lines.  The 10.6 is `quality/phonology/cym.py`'s
+    `cynghanedd_scan(...)["positions_tried"]`, printed by
+    `quality/cynghanedd_rate.py` as `mean placements tried = 10.6`, and it
+    reproduces exactly (10.62).  The gap is not a discrepancy, it is a
+    DIFFERENT SEARCH: the Welsh scanner tries the (n-1) two-part cuts AND the
+    C(n-1, 2) three-part cuts a `sain` reading needs, while this function
+    enumerates the two-part cuts alone, because `half_line_a`/`half_line_b` is
+    the only caesura locus in this registry and a three-part frame does not
+    exist here.  The identity holds on the text: mean over lines of
+    `k + C(k, 2)` is 10.70 against the scanner's 10.62, the residue being the
+    two modules' tokenisers.  So a null built on THIS k under-corrects any
+    three-part rule by a factor of ~2.6, and doctrine 58 is why the number is
+    now stated with the file it was measured on and the command that prints
+    the other one.
+
+    AND `search_burden()`'s mean_k IS A THIRD STATISTIC, not this one.  It
+    averages over MEMBER SPANS, of which each line contributes 2k (one per
+    half), so it is the size-biased mean sum(k^2)/sum(k) and reads HIGHER:
+    4.99 against this function's 4.10 on `corpus/cym_twm_or_nant_cywydd.txt`,
+    on the identical stream.  Two denominators, never a ratio (doctrine 79/91).
     """
     ks = []
     for li, ids in enumerate(stream.lines):
@@ -2109,10 +2432,32 @@ def search_caesura(stream):
             "note": "report the EXCESS over a null run under this same search"}
 
 
-def mark_printed_caesura(stream, marks="/|"):
+def mark_printed_caesura(stream, marks=("/", "|")):
     """A PRINTED caesura only. Punctuation is not metre: `cynghanedd()` split
     on `[,/|]`, so an editorial COMMA chose which rule each line was tested
-    against on 1,558 lines."""
+    against on 1,558 lines.
+
+    `marks` is a SEQUENCE OF MARKS and each may be more than one character; a
+    bare string still works and is iterated per character, which is what the
+    old `"/|"` default meant.  THE DEFAULT IS TWO OF DOCTRINE 55's THREE, ON
+    PURPOSE, and the omission is the whole reason this note exists: doctrine 55
+    names the caesura as PRINTED `/`, `|`, **or the gwant `--`**, and
+    `quality/phonology/cym.py`'s own `CAESURA_RE` carries all three.  This
+    default carries only the two that mean a caesura in every language a
+    stream can be built for -- `--` is an em-dash in English, and reading
+    ordinary punctuation as structure is the exact defect doctrine 55 was
+    written about.  MEASURED 2026-08-13, so the cost of the omission is not
+    left implicit: on `corpus/cym_alun_strict.txt` the default marks **0 of
+    1,558 lines** while 228 of them print the gwant, and
+    `marks=("--", "/", "|")` marks **100** (the other 128 print it line-final,
+    where no unit follows it -- the same trailing-dash case `cym._marked_parts`
+    drops).  A Welsh caller has to declare the gwant; before 2026-08-13 the
+    parameter's documented string form could not even express it, since
+    `"--/|"` iterates to a single `-` and would fire on every hyphenated
+    compound in a language that JOINS on the hyphen (doctrine 65).
+    """
+    if isinstance(marks, str):
+        marks = tuple(marks)
     for li, raw in enumerate(stream.text_lines):
         pos = min((raw.find(m) for m in marks if m in raw), default=-1)
         if pos < 0:
@@ -2318,14 +2663,18 @@ declare(RelationSchema(
     name="family rhyme",
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
     channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", ClassEqual(partition=lambda v: v,
+              ChannelRule("coda", ClassEqual(resource="manner",
                                              label="declared manner partition"),
                           "each")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="Forces the CLASS-EQUAL predicate. A boolean _cmp(x,y) returning x==y "
          "cannot express it. quality/fit_matrix.py is a fitted substitution "
          "matrix already built and shelved; the partition slot is where it "
-         "would plug in."))
+         "would plug in. DEFECT P14: the slot held `lambda v: v` and the "
+         "schema was therefore tail rhyme at the FINEST grain wearing a label "
+         "about manner classes — `cat`~`bat` read True as a FAMILY relation. "
+         "No manner partition is declared anywhere in this repo, so it refuses "
+         "for want of `quotient:manner` until one is."))
 
 declare(RelationSchema(
     name="additive rhyme",
@@ -2478,7 +2827,7 @@ declare(RelationSchema(
     name="multisyllabic rhyme",
     spans=(FREE_MULTI, FREE_MULTI), align="flush_right",
     channels=(ChannelRule("nucleus", AGREE, "each"),
-              ChannelRule("coda", ClassEqual(partition=lambda v: v,
+              ChannelRule("coda", ClassEqual(resource="manner",
                                              label="declared manner partition"),
                           "each"),
               ChannelRule("onset", DIFFER, "first")),
@@ -2882,13 +3231,20 @@ declare(RelationSchema(
     spans=(END_ANCHOR, END_ANCHOR), align="anchor",
     channels=(ChannelRule("coda", AGREE, "anchor"),
               ChannelRule("nucleus", DIFFER, "anchor"),
-              ChannelRule("nucleus", ClassEqual(partition=lambda v: v,
-                                                label="declared length class"),
-                          "anchor")),
+              ChannelRule("nucleus", ClassEqual(
+                  resource="vowel_class",
+                  label="declared vowel class (quantity, and simple vs "
+                        "diphthong / lleddf vs talgron)"), "anchor")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="a SINGLE CHANNEL carrying TWO predicates at once -- the vowels must "
          "differ in identity AND agree in length class. No one-predicate-per-"
-         "channel model can hold it; the channel list is a multiset."))
+         "channel model can hold it; the channel list is a multiset. DEFECT "
+         "P14: with the identity as the class map those two predicates are "
+         "each other's NEGATION, so the schema was UNSATISFIABLE and every "
+         "real Welsh proest pair read False. RHYME_CANON R11 is the spec — "
+         "same quantity and same type — and quality/phonology/cym.py declares "
+         "no such partition (Welsh vowel length is not written), so it refuses "
+         "for want of `quotient:vowel_class` rather than answering."))
 
 declare(RelationSchema(
     name="Scots vowel-length rhyme (Aitken's Law)",
@@ -2904,14 +3260,22 @@ declare(RelationSchema(
 declare(RelationSchema(
     name="Middle Chinese end rhyme (同用 group)",
     spans=(END_LAST, END_LAST), align="flush_right",
-    channels=(ChannelRule("nucleus", ClassEqual(partition=lambda v: v,
+    channels=(ChannelRule("nucleus", ClassEqual(resource="同用",
                                                 label="declared 同用 grouping"),
                           "last"),
               ChannelRule("prominence", AGREE, "last")),
     placement=(Placement("both_line_final"),), identity=(DISTINCT,),
     note="doctrine 36: the granularity a REFERENCE WORK records is not the "
          "granularity a FORM works at. prominence here carries 平/仄, because "
-         "that is what ltc declares -- there is no stress channel at all."))
+         "that is what ltc declares -- there is no stress channel at all. "
+         "DEFECT P14: the grouping this schema is NAMED for was the identity, "
+         "so it compared raw 廣韻 韻 and read 流/樓 -- the rhyme of 登鸛雀樓, "
+         "and the pair doctrine 36 is written about -- as False while "
+         "ltc.rhymes read True. `quality/phonology/ltc.py` now declares the "
+         "grouping as a quotient and this asks for it BY NAME, so a "
+         "declaration that authorises none (an English stream, or "
+         "standard='qieyun') refuses instead of firing: M-15's complaint that "
+         "this schema fired on four lines of English is now structural."))
 
 declare(RelationSchema(
     name="平仄 tonal template",
@@ -3054,6 +3418,182 @@ def capability_report(stream):
         (ok.append(n) if not miss else refused.setdefault(tuple(miss), []).append(n))
     return {"reachable": sorted(ok),
             "refused": {"+".join(k): sorted(v) for k, v in refused.items()}}
+
+
+# ---------------------------------------------------------------------------
+# 10z. CAPABILITIES NO DECLARATION CAN SUPPLY -- and WHICH blocker each is
+#
+# `capability_report` answers "what is missing from THIS stream".  This table
+# answers the harder question one level up: which capabilities are missing
+# from EVERY stream, because `Stream.provides` has no branch that could ever
+# return True for them.  A schema needing one cannot produce an observation on
+# any text, so it can never have a matched null either -- which is why
+# `quality/relations_null.py` carries a `NEVER_PROVIDED` dict of the same
+# shape and reads it for its `cannot_obtain` REMEDY string.
+#
+# THE CENSUS THAT PRODUCED THIS ran 2026-08-13 over all 77 schemas and found
+# THREE such capabilities: `poet`, `frequency`, `stub_resolution`.  `poet` is
+# gone -- see ALT_SURFACES; it was one name missing from a tuple, and the two
+# schemas it separated (`dialect rhyme`, `historical rhyme`) are the same
+# schema up to a surface name.  The other two are NOT the same kind of gap as
+# each other, and neither is a missing tuple entry.  Each entry below says
+# what `provides` would have to answer, WHY wiring it as a flag would be
+# worse than leaving it refused, and which of doctrine 44/92's three blockers
+# it is -- because "find a better source" is the answer to only one of them.
+#
+# WHY NOT JUST WIRE THEM.  Both schemas gate on a bare `requires=`, and
+# NEITHER reads its capability on any channel.  So making `provides` return
+# True does not make either schema CONSULT the thing it is named for; it makes
+# the schema fire on the channels it already has and label the output with a
+# property it never measured.  Measured for `trite rhyme` on an eight-line
+# English fixture, with `provides('frequency')` forced True: it returns
+# EXACTLY `perfect rhyme`'s four instances -- cat/hat and moon/tune, which are
+# in no cliche list, alongside fire/desire and night/light, which are -- and
+# nothing in the output can tell the two apart.  That is manufacturing a
+# result, and it is the defect this whole area exists to prevent.
+# ---------------------------------------------------------------------------
+
+
+@dataclass(frozen=True)
+class Unprovidable:
+    """One capability `Stream.provides` cannot answer True for, and why."""
+    capability: str
+    schemas: tuple
+    #: what a branch in `provides` would have to be handed
+    needs: str
+    #: what firing WITHOUT that would report, and why it would be wrong
+    would_manufacture: str
+    #: 'build' | 'obtain' | 'disjoint' -- doctrine 44's two and doctrine 92's
+    blocker: str
+    detail: str = ""
+
+
+UNPROVIDABLE = (
+    Unprovidable(
+        capability="frequency",
+        schemas=("trite rhyme",),
+        needs=(
+            "a rank over RHYME PAIRS at the line-final position, joined to "
+            "the stream, PLUS a declared cut on that rank. `quality/"
+            "frequency.py` already serves ranked tables and "
+            "`data/song_rhymepair_en.tsv` is already the pair-keyed shape "
+            "(15,409 distinct pairs, 91,636 tokens, per author), so the "
+            "DATA half is not the blocker -- doctrine 44's 'hard to build' "
+            "does not apply and neither does 'cannot obtain'."),
+        would_manufacture=(
+            "every perfect rhyme in the text, labelled trite. The schema's "
+            "two channels are nucleus AGREE and coda AGREE on the PHONEMIC "
+            "surface; nothing in it reads a rank."),
+        blocker="disjoint",
+        detail=(
+            "DOCTRINE 92, and it is `quality/phrase_commonplace.py`'s "
+            "recorded finding one level down -- that module refuses at the "
+            "PHRASE level for exactly this reason and this is the same "
+            "disjunction at the RHYME-PAIR level. A cliche is over-familiar "
+            "TO A LIVING LISTENER; every admissible English source here is "
+            "pre-1931 by the provenance gate. MEASURED 2026-08-13 against "
+            "`lyric_harness.CLICHE_PAIRS`, the repo's own 30-pair list: 7 of "
+            "the 30 have count ZERO in the pre-1931 table (beats/streets, "
+            "feel/real, tears/years, girl/world, alone/phone, baby/crazy, "
+            "cash/stash) -- the modern stock, invisible; and the table's own "
+            "top by author dispersion is me/thee (1,080 over 51 authors), "
+            "be/thee (482 over 50), away/day (805 over 61), none of which is "
+            "a cliche to anyone now. Eleven of the top fifteen are not in "
+            "the list at all. So a frequency-driven trite detector built on "
+            "the only admissible source would flag `me`/`thee` hardest and "
+            "miss `baby`/`crazy` entirely. `frequency.NO_INDEPENDENT_SOURCE` "
+            "already names the source that would fix it -- cell `eng-verse`, "
+            "'CONTEMPORARY English sung verse ... nothing in this repo has "
+            "all three, and nothing can'. WHAT WOULD LIFT IT: the same thing "
+            "that lifts eng-verse, i.e. a line-structured, rhyme-bearing, "
+            "post-1960 English corpus under a licence this repo accepts. "
+            "SEPARATELY, and it does not depend on the corpus: the schema is "
+            "`normative='deprecated'` and CLAUDE.md doctrine 9/48 keeps it "
+            "out of the cell grid on purpose, so even with the source the "
+            "cut would be an UNCALIBRATED THRESHOLD (doctrine 16/22) that "
+            "must be stated as a false-positive rate before it means "
+            "anything."),
+    ),
+    Unprovidable(
+        capability="stub_resolution",
+        schemas=("refrain by reference",),
+        needs=(
+            "a declared map from a stub LINE to the SPAN of lines it points "
+            "at -- not a line pointer, a span, because `&c.` stands for a "
+            "whole chorus and nothing in the text says how many lines that "
+            "is. `Stream.line_status` already MARKS the stub and "
+            "`lyric_harness.chorus_stub_match` already names which "
+            "tradition's convention it read; what is absent is the "
+            "resolution, and `relations.py` ships no detector on purpose "
+            "(BACKLOG 2.4: `&c.` is an EDITION's fact, not English's)."),
+        would_manufacture=(
+            "ordinary verbatim refrains, reported as refrains BY REFERENCE. "
+            "The schema's one channel is token AGREE over the whole line, so "
+            "with the flag set and the stub still tokenising to `c` it would "
+            "fire on every exactly-repeated line in the text and on no stub "
+            "at all -- the inverse of what it is for."),
+        blocker="build",
+        detail=(
+            "DOCTRINE 44's 'hard to build', and `quality/declared_inputs.py` "
+            "says so first: its header excludes this row from the six "
+            "declared-input families precisely because the map 'is derivable "
+            "from the text itself', making it a producer defect (P10) and "
+            "not an input nobody can supply. HOW HARD, measured 2026-08-13 "
+            "over `corpus/song/`: 843 stub lines; matching each stub's "
+            "incipit against earlier lines resolves 158 (18.7%) to a UNIQUE "
+            "earlier line, leaves 224 (26.6%) with no earlier match at all, "
+            "and 461 (54.7%) ambiguous between 2 and 9 candidates. And a "
+            "unique match still gives only the chorus's FIRST line. So the "
+            "naive resolver is wrong more often than right and the honest "
+            "version is an edition-level annotation. "
+            "SECOND, INDEPENDENT BLOCKER, and it is the one that decides the "
+            "question: `relations_null.null_menu('refrain by reference', "
+            "'count')` is EMPTY -- no randomisation in `NULLS` moves "
+            "whole-line token identity, so the schema's primary statistic "
+            "CANNOT FAIL (doctrine 63/68). Wiring the capability would "
+            "therefore start a schema firing with no null behind it, which "
+            "is the exact move this area exists to prevent. The positional "
+            "statistics DO have a menu (local_fraction@0/@2 under "
+            "global_redeal), so a resolution built later must be reported on "
+            "those and never on `count`."),
+    ),
+)
+
+
+def check_unprovidable(stream):
+    """MEASURE every UNPROVIDABLE claim.  -> list of finding strings, empty
+    when every entry still holds.
+
+    Fails in BOTH directions, like `check_inert`.  An entry whose capability
+    has become reachable is a stale table, not a passing test -- that is the
+    day the entry has to be replaced by the wiring and by whatever null the
+    newly-firing schema is reported against.  An entry naming a capability no
+    schema asks for any more is an entry that outlived its schema.
+    """
+    out = []
+    named = {c for s in REGISTRY.values() for c in s.capabilities()}
+    for e in UNPROVIDABLE:
+        if e.blocker not in ("build", "obtain", "disjoint"):
+            out.append(f"{e.capability}: blocker {e.blocker!r} is not one of "
+                       f"doctrine 44/92's three")
+        if e.capability not in named:
+            out.append(f"{e.capability}: DECLARED UNPROVIDABLE and no schema "
+                       f"asks for it — the entry outlived its schema, retire "
+                       f"it")
+        if stream is not None and stream.provides(e.capability):
+            out.append(f"{e.capability}: DECLARED UNPROVIDABLE and this "
+                       f"stream SUPPLIES it — the declaration is false, and "
+                       f"{', '.join(e.schemas)} now fires. Replace the entry "
+                       f"with the wiring and name the null it is reported "
+                       f"against.")
+        for name in e.schemas:
+            if name not in REGISTRY:
+                out.append(f"{e.capability}: names schema {name!r}, which is "
+                           f"not in the registry")
+            elif e.capability not in REGISTRY[name].capabilities():
+                out.append(f"{e.capability}: names schema {name!r}, which no "
+                           f"longer requires it")
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -3229,7 +3769,7 @@ def inert_census(stream):
     return out
 
 
-def check_inert(stream, chans=DEFAULT_CHANNELS):
+def check_inert(stream):
     """MEASURE every INERT claim on a real stream. -> list of finding strings,
     empty when every declaration holds.
 
@@ -3237,6 +3777,13 @@ def check_inert(stream, chans=DEFAULT_CHANNELS):
     direction: a field that gained a second value is no longer inert and its
     entry now lies in the other direction, and a field that vanished has been
     closed without its entry being retired.
+
+    THIS FUNCTION USED TO TAKE `chans=DEFAULT_CHANNELS` AND NEVER READ IT --
+    an unread coordinate inside the function whose entire job is to catch
+    unread coordinates.  No caller ever passed it.  Removed 2026-08-13 rather
+    than given an INERT entry, because the three honest ends are wire, delete,
+    or keep-and-declare, and a parameter no schema and no declaration asks for
+    is the delete case.
     """
     out = []
     census = inert_census(stream)
@@ -4146,7 +4693,15 @@ def relation_report(stream, chans=None, schemas=None):
     for name, s in reg.items():
         out = realise(s, stream, keep="all", **kw)
         if isinstance(out, Refusal):
-            refusals.append((name, out.capability, tradition_scope(s, lang)))
+            # THE WHOLE SET in the printed row.  `out.capability` alone is the
+            # alphabetically-first name, so a reader of this report used to be
+            # told "declare prominence" for a schema that also wants a
+            # quotient no declaration in the repo supplies -- one blocker
+            # named, one hidden, and the two have different remedies
+            # (doctrine 44).  `+`-joined, matching `capability_report`'s own
+            # key so the two reports can be compared row for row.
+            refusals.append((name, "+".join(out.missing) or out.capability,
+                             tradition_scope(s, lang)))
             continue
         t = sum(1 for i in out if i.verdict is True)
         f = sum(1 for i in out if i.verdict is False)
@@ -4220,6 +4775,9 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
            "SequenceSuffix", "SubsequenceOf", "Read", "ChannelSet",
            "DEFAULT_CHANNELS", "evaluate", "realise", "assemble",
            "mirrored", "order_burden", "Inert", "INERT", "check_inert",
+           "ALT_SURFACES", "QUOTIENT_CAP",
+           "Unprovidable", "UNPROVIDABLE", "check_unprovidable",
+           "print_unprovidable_report",
            "mark_refrain_tail", "search_caesura", "mark_printed_caesura",
            "REGISTRY", "QUERIES", "declare", "all_schemas",
            "capability_report", "tri_and", "tri_or",
@@ -4230,7 +4788,8 @@ __all__ = ["Unit", "Stream", "Frames", "build_stream", "tokenise",
 
 
 def main(argv):
-    """`python3 quality/relations.py FILE [--lang=xxx]`.
+    """`python3 quality/relations.py FILE [--lang=xxx] [--inert]
+    [--unprovidable]`.
 
     THE HONEST CONSUMER, reachable.  The `relations` verb in lyric_harness.py
     prints a schema name and a count and cannot say which tradition the schema
@@ -4240,7 +4799,7 @@ def main(argv):
     library.
     """
     from quality.phonology import get as get_phonology
-    lang, paths, limit, inert = "eng", [], None, False
+    lang, paths, limit, inert, unprov = "eng", [], None, False, False
     for a in argv:
         if a.startswith("--lang="):
             lang = a.split("=", 1)[1]
@@ -4248,6 +4807,8 @@ def main(argv):
             limit = int(a.split("=", 1)[1])
         elif a == "--inert":
             inert = True
+        elif a == "--unprovidable":
+            unprov = True
         else:
             paths.append(a)
     if not paths:
@@ -4263,16 +4824,58 @@ def main(argv):
                   f"rule-shape-only {len(r['rule_shape']):3d}  "
                   f"unsourced {len(r['unsourced'])}")
         return 0
+    # APPARATUS IS `[Section]`, `--- ` OR `#`, and this reader kept only the
+    # first of the three -- so a `#` stage direction or a `--- TITLE:` note
+    # reached build_stream as a line of verse, was tokenised, and entered
+    # every schema's span enumeration and the stanza frame.  The SAME file
+    # through `python3 lyric_harness.py relations FILE` dropped it, because
+    # that verb was centralised onto `is_apparatus_line` on 2026-08-12 and
+    # this one, in a different file, was not: two surfaces over one text,
+    # reading different lines.  SPELLED HERE rather than imported: P10's
+    # invariant is that this module imports nothing from lyric_harness (the
+    # `&c.` detector is the EDITION's business and must not leak in), and
+    # `quality/readability.py`'s `read_lines` and `quality/grid.py`'s
+    # `read_marked_songs` already carry their own copy for the same reason.
+    # `load_lyric_lines` would be wrong even if it were importable: it drops
+    # BLANK lines, and this module derives the stanza frame from them.
     raw = [l.rstrip() for l in open(paths[0]).read().splitlines()
-           if not l.strip().startswith("[")]
+           if not l.strip().startswith(("[", "---", "#"))]
     st = build_stream(raw, get_phonology(lang), declaration={"language": lang},
                       stanzas=stanzas_from_blank_lines(raw))
     print(f"  {paths[0]}   lines {sum(1 for l in raw if l.strip())}   units "
           f"{len(st.units)}   UNREADABLE tokens {len(st.unreadable)}")
     if inert:
         return print_inert_report(st)
+    if unprov:
+        return print_unprovidable_report(st)
     print_relation_report(relation_report(st), limit=limit)
     return 0
+
+
+def print_unprovidable_report(stream):
+    """`--unprovidable`: the capabilities NO declaration can supply, the
+    schemas each one strands, and which of doctrine 44/92's three blockers it
+    is -- plus the MEASURED check that each is still unsupplied.
+
+    `capability_report` answers this for one stream. This answers it for every
+    stream there can be, which is the number that decides whether a gap is a
+    corpus problem or a build.
+    """
+    print(f"\nUNPROVIDABLE CAPABILITIES — {len(UNPROVIDABLE)} of the "
+          f"{len({c for s in REGISTRY.values() for c in s.capabilities()})} "
+          f"any schema names")
+    for e in UNPROVIDABLE:
+        print(f"\n  {e.capability}   [{e.blocker}]   strands "
+              f"{', '.join(e.schemas)}")
+        print(f"    NEEDS            {e.needs}")
+        print(f"    WOULD MANUFACTURE {e.would_manufacture}")
+        print(f"    {e.detail}")
+    bad = check_unprovidable(stream)
+    print(f"\n  ALT_SURFACES (a declaration CAN supply these): "
+          f"{', '.join(ALT_SURFACES)}")
+    print(f"  check_unprovidable: "
+          f"{'every entry holds' if not bad else bad}")
+    return 1 if bad else 0
 
 
 def print_inert_report(stream):

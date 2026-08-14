@@ -17,6 +17,7 @@ MISSING F-1, and this fixture does not close it.
 
 Run: python3 quality/test_relations.py
 """
+import dataclasses
 import os
 import sys
 
@@ -161,12 +162,34 @@ def test_inventory():
             findings[name] = len(res)
     check("nothing raises on a plain English quatrain", raised == 0,
           f"ran={ran} refused={refused} raised={raised}")
-    check("53 of 77 run on an English stream; the other 24 REFUSE, naming a "
-          "capability", ran == 53 and refused == 24,
+    check("49 of 77 run on an English stream; the other 28 REFUSE, naming a "
+          "capability", ran == 49 and refused == 28,
           f"ran={ran} refused={refused}; capability_report says "
           f"{len(rep['reachable'])} reachable "
           f"(2 of those refuse at the SPAN, which is correct: 'penult' and "
-          f"'final_unstressed' name nothing in a line of monosyllables)")
+          f"'final_unstressed' name nothing in a line of monosyllables). "
+          f"WAS 53/24 until P14: `family rhyme`, `multisyllabic rhyme`, "
+          f"`proest` and the 同用 schema compare a channel at a DECLARED "
+          f"GRAIN, and a plain English declaration supplies none of the three "
+          f"quotients, so they refuse by name instead of answering at the "
+          f"identity. Four schemas moved from the wrong column to the honest "
+          f"one; nothing else in the inventory moved.")
+    _q = {n: getattr(R.realise(R.REGISTRY[n], st), "capability",
+                     "<RAN — did not refuse>")
+          for n in ("family rhyme", "multisyllabic rhyme", "proest",
+                    "Middle Chinese end rhyme (同用 group)")}
+    check("...and the four are refused for the QUOTIENT they name, not for "
+          "some other missing capability",
+          _q == {"family rhyme": "quotient:manner",
+                 "multisyllabic rhyme": "quotient:manner",
+                 "proest": "quotient:vowel_class",
+                 "Middle Chinese end rhyme (同用 group)": "quotient:同用"},
+          f"{_q}. "
+          "M-15 was that the 同用 schema fired on four lines of English and "
+          "nothing in the output could say the tradition had not matched. It "
+          "is structural now: an English declaration authorises no 平水韻 "
+          "grouping, so the schema cannot run at all rather than running and "
+          "being labelled RULE SHAPE ONLY afterwards.")
     nonzero = {k: v for k, v in findings.items() if v}
     check("a four-line AABB quatrain yields findings for >= 15 schemas",
           len(nonzero) >= 15, f"{len(nonzero)} schemas found something")
@@ -348,7 +371,9 @@ def test_p6_present_vs_absent():
         res = R.realise(schema, st, keep="all")
         return res[0].verdict if res and not isinstance(res, R.Refusal) else None
 
-    # RHYME_COVERAGE.md line 148's own list
+    # RHYME_COVERAGE.md's own ADDITIVE PAIR LIST, cited by NAME rather than by
+    # line number: the number this used to carry pointed at the subtractive
+    # line before §2 grew and missed by two after it.
     for a, b in (("year", "feared"), ("down", "found"), ("rain", "brains"),
                  ("prove", "moved"), ("stow", "hope")):
         check(f"additive: {a}/{b}", v(add, a, b) is True,
@@ -438,6 +463,221 @@ def test_p8_stanza():
     check("two stanzas, each a monorhyme, are two findings — P3 and P8 "
           "together", len(found) == 2 and {f[0] for f in found} == {0, 1},
           f"{[(f[0], len(f[1]), f[2]) for f in found]}")
+
+
+# ---------------------------------------------------------------------------
+# P14. ClassEqual's partition was the IDENTITY on four of its five channels
+#
+# NUMBERED 14 AND 15, NOT 12 AND 13, and the reason is a finding of its own:
+# quality/RHYME_COVERAGE.md numbers the same set TWICE and the two disagree by
+# one — §4's table runs P0..P12 (thirteen rows) while its own §2 prose calls
+# them "13 producer defects (P1–P13)". Both readings therefore already claim
+# P12 and P13, so a new defect taking either label would name a row that
+# exists. Starting at 14 collides with neither; renaming a shipped row to make
+# room would be worse (doctrine 48's own failure mode, and every P-number in
+# this file names a row a reader can go and check).
+# ---------------------------------------------------------------------------
+
+#: Welsh proest pairs. The coda agrees, the vowels differ, and the vowels are
+#: of one quantity — RHYME_CANON R11's spec. The circumflex is what marks
+#: Welsh length in the orthography, so `tân`/`tôn` is the pair that needs no
+#: length rule to be read as two long vowels.
+PROEST = [("tân", "tôn"), ("llon", "llan"), ("mab", "heb"), ("dydd", "budd"),
+          ("gwyn", "gwn"), ("cant", "gwynt")]
+
+_LONG = "âêîôûŵŷ"
+
+
+def _quantity(v):
+    """A DECLARED Welsh vowel quantity, supplied by this test and by nothing
+    in the repo: the circumflex marks a long vowel and its absence here means
+    short. It is deliberately NOT shipped in quality/phonology/cym.py — Welsh
+    length is largely predictable from the following consonant and is not a
+    fact this repo has sourced (doctrine 44: the blocker is the TABLE, not the
+    difficulty), and a test fixture that declared it in the module would be
+    the harness inventing the tradition's own rule."""
+    return "long" if any(c in _LONG for c in (v or "")) else "short"
+
+
+#: A DECLARED English manner partition, likewise a fixture. CMUdict phones,
+#: coda position, four classes and everything else its own class.
+_MANNER = {"P": "stop", "B": "stop", "T": "stop", "D": "stop", "K": "stop",
+           "G": "stop", "M": "nasal", "N": "nasal", "NG": "nasal",
+           "F": "fric", "V": "fric", "S": "fric", "Z": "fric", "TH": "fric",
+           "DH": "fric", "SH": "fric", "ZH": "fric", "L": "liquid",
+           "R": "liquid"}
+
+
+def _manner(v):
+    return tuple(_MANNER.get(p, p) for p in (v or ()))
+
+
+def test_p14_identity_partition():
+    print("\nP14. a quotient nobody declared is not the identity — proest was "
+          "UNSATISFIABLE, family rhyme fired on cat/bat, 同用 read 流/樓 False")
+    from quality.phonology import cym as _cym, ltc as _ltc
+    CYM, MC = _cym.Welsh(), _ltc.MiddleChinese()
+
+    def cym_stream(a, b, **decl):
+        return R.build_stream([a, b], CYM,
+                              declaration=dict({"language": "cym"}, **decl))
+
+    # -- the demonstration, kept runnable: the OLD channel pair, on real Welsh
+    old = R.RelationSchema(
+        name="probe-proest-identity",
+        spans=(R.END_ANCHOR, R.END_ANCHOR), align="anchor",
+        channels=(R.ChannelRule("coda", R.AGREE, "anchor"),
+                  R.ChannelRule("nucleus", R.DIFFER, "anchor"),
+                  R.ChannelRule("nucleus", R.ClassEqual(
+                      partition=lambda v: v, label="identity"), "anchor")),
+        placement=(R.Placement("both_line_final"),), identity=(R.DISTINCT,))
+    verdicts = []
+    for a, b in PROEST:
+        res = R.realise(old, cym_stream(a, b), keep="all")
+        verdicts += [i.verdict for i in res]
+    check("the identity partition makes proest UNSATISFIABLE, and it is not a "
+          "matter of degree: MUST-DIFFER and CLASS-EQUAL are each other's "
+          "negation under it",
+          len(verdicts) == 6 and set(verdicts) == {False},
+          f"{len(PROEST)} real Welsh proest pairs, {verdicts}. Either the "
+          f"nuclei are equal (DIFFER reads False) or they are not (CLASS-EQUAL "
+          f"reads False), so no input of any kind can read True — the schema "
+          f"was not strict, it was empty, and it answered FALSE rather than "
+          f"refusing, which is a WRONG ANSWER and not a missing one.")
+
+    # -- and the shipped schema now REFUSES for want of the declared class
+    got = R.realise(R.REGISTRY["proest"], cym_stream("tân", "tôn"))
+    check("the shipped proest REFUSES on a declaration that names no vowel "
+          "class, instead of answering False",
+          isinstance(got, R.Refusal) and got.capability == "quotient:vowel_class",
+          f"{got if isinstance(got, R.Refusal) else [i.verdict for i in got]}")
+
+    # -- DECLARED, it is satisfiable, and the class does real work
+    def proest(a, b):
+        res = R.realise(R.REGISTRY["proest"],
+                        cym_stream(a, b, quotients={"vowel_class": _quantity}),
+                        keep="all")
+        return res[0].verdict if res and not isinstance(res, R.Refusal) else None
+
+    check("with the quantity DECLARED, tân/tôn is proest — the first True this "
+          "schema has ever been able to return", proest("tân", "tôn") is True)
+    check("...and so is llon/llan, two SHORT vowels under one coda",
+          proest("llon", "llan") is True)
+    check("...and tân/llon is not: long answered by short is the fault the "
+          "class requirement exists to catch", proest("tân", "llon") is False)
+    check("...and tôn/tôn is not either: the vowels must still DIFFER, so the "
+          "class agreement did not swallow the other predicate",
+          proest("tôn", "tôn") is False)
+
+    # -- family rhyme: the same identity, the opposite symptom
+    fam = R.REGISTRY["family rhyme"]
+    got = R.realise(fam, stream(["the cat", "the bat"]))
+    check("family rhyme no longer fires on cat/bat — it REFUSES for want of "
+          "the manner partition its own label names",
+          isinstance(got, R.Refusal) and got.capability == "quotient:manner",
+          "it read True on an ordinary perfect rhyme, as a FAMILY relation, "
+          "because coda CLASS-EQUAL under the identity IS coda AGREE. Every "
+          "instance the schema has ever reported was tail rhyme at the finest "
+          "grain wearing a label about manner classes.")
+
+    def family(a, b):
+        st = stream([f"the {a}", f"the {b}"],
+                    declaration={"quotients": {"manner": _manner}})
+        res = R.realise(fam, st, keep="all")
+        return res[0].verdict if res and not isinstance(res, R.Refusal) else None
+
+    check("DECLARED, the partition does the work the label claims: cat/cap is "
+          "family rhyme (T and P are both stops)",
+          family("cat", "cap") is True)
+    check("...and cat/can is NOT (T is a stop, N is a nasal)",
+          family("cat", "can") is False,
+          "the identity partition read cat/cap False and cat/bat True — "
+          "exactly backwards for a relation defined on manner classes.")
+
+    # -- 同用: the table existed the whole time and nothing handed it over
+    ltc_st = R.build_stream(["黃河入海流", "更上一層樓"], MC,
+                            declaration={"language": "ltc"})
+    res = R.realise(R.REGISTRY["Middle Chinese end rhyme (同用 group)"],
+                    ltc_st, keep="all")
+    check("流/樓 — the rhyme of 登鸛雀樓 — is TRUE at the relation layer, and "
+          "agrees with the phonology that owns the table",
+          len(res) == 1 and res[0].verdict is True
+          and MC.rhymes("流", "樓") is True,
+          f"{[i.verdict for i in res]} against ltc.rhymes -> "
+          f"{MC.rhymes('流', '樓')}. The nuclei are 尤 and 侯, two 廣韻 "
+          f"categories the 平水韻 同用 grouping merges; comparing them at the "
+          f"identity is doctrine 36's own error, and the schema is NAMED for "
+          f"the grouping it was not consulting.")
+    from quality.phonology import declared as _declared
+    _lang_imports = [m for m in _relations_import_paths()
+                     if m.startswith("quality.phonology.")
+                     and m.rsplit(".", 1)[1] in set(_declared())]
+    check("...and the grouping reaches the schema from the PHONOLOGY, not "
+          "from a table copied into relations.py",
+          "同用" in getattr(MC, "quotients", {})
+          and MC.quotients["同用"]("侯") == MC.quotients["同用"]("尤") == "尤"
+          and not _lang_imports,
+          f"doctrine 84 and rhyme_types.py's own move: where a phonology "
+          f"declares the relation, the producer asks it instead of "
+          f"re-deriving one. relations.py imports no LANGUAGE "
+          f"({_lang_imports or 'none'}) — `quality.phonology.get` in main() "
+          f"is the registry accessor and names no language — so the 平水韻 "
+          f"table stays in the one module that owns it and `phon.quotients` "
+          f"is the seam. Copying it here would have given the repo two "
+          f"sources for one grouping, which is the defect the fix is not "
+          f"allowed to trade for.")
+    raw = R.build_stream(["黃河入海流", "更上一層樓"],
+                         _ltc.MiddleChinese(standard="qieyun"),
+                         declaration={"language": "ltc"})
+    got = R.realise(R.REGISTRY["Middle Chinese end rhyme (同用 group)"], raw)
+    check("...and a declaration that authorises NO grouping refuses rather "
+          "than firing: standard='qieyun' is the raw rime class",
+          isinstance(got, R.Refusal) and got.capability == "quotient:同用",
+          "'qieyun' means finer than any poet worked to, and 流/樓 being "
+          "False under it is doctrine 36's demonstration — which `rhymes()` "
+          "still gives. A schema named for the 同用 group has nothing to ask "
+          "for there, and saying so is not the same as answering False.")
+
+
+# ---------------------------------------------------------------------------
+# P15. `unmatched`'s vocabulary named a value nothing implements
+# ---------------------------------------------------------------------------
+
+def test_p15_unmatched_vocabulary():
+    print("\nP15. `unmatched` declared 'differ', implemented it nowhere, and "
+          "omitted the two values evaluate() actually branches on")
+    branches = {c for c in R.evaluate.__code__.co_consts if isinstance(c, str)}
+    check("the four values are MEASURED against evaluate()'s own branches, "
+          "not recalled",
+          getattr(R, "UNMATCHED", ()) ==
+          ("exclude", "forbid", "require_a", "require_b")
+          and {"forbid", "require_a", "require_b"} <= branches
+          and "differ" not in branches,
+          f"the field's comment read `exclude | differ | forbid`. 'differ' is "
+          f"in no branch of evaluate() and on none of the {len(R.REGISTRY)} "
+          f"schemas; 'require_a'/'require_b' are two branches and two schemas "
+          f"(apocopated rhyme, semirhyme) and were not in the vocabulary at "
+          f"all. A MUST-DIFFER on the matched material is a CHANNEL rule — "
+          f"pararhyme states it as ChannelRule('nucleus', DIFFER) — so the "
+          f"honest close of the value is a DELETION, not a wiring.")
+    used = {s.unmatched for s in R.REGISTRY.values()}
+    check("...and every schema in the registry declares one of the four",
+          used <= set(R.UNMATCHED) and used == {"exclude", "forbid",
+                                                "require_a", "require_b"},
+          f"{sorted(used)}")
+    raised = None
+    try:
+        R.RelationSchema(name="probe-unmatched",
+                         spans=(R.END_ANCHOR, R.END_ANCHOR),
+                         unmatched="differ")
+    except ValueError as e:                                   # noqa: BLE001
+        raised = str(e)
+    check("an undeclared value REFUSES at construction rather than taking the "
+          "'exclude' path in silence", raised is not None
+          and "unmatched must be one of" in raised,
+          f"{raised!r} — it used to build fine and behave as 'exclude', so a "
+          f"typo and a policy read the same, which is doctrine 16's failure "
+          f"mode: an undeclared setting failing toward whoever guessed.")
 
 
 # ---------------------------------------------------------------------------
@@ -547,6 +787,307 @@ def test_refusal_is_not_false():
     except TypeError:
         check("a Refusal has no truth value", True,
               "so it cannot be coerced into the False it is not")
+
+
+# ---------------------------------------------------------------------------
+# The refusal was FIRST-HIT. Three sections, from a census of all 77 schemas
+# run 2026-08-13:
+#
+#   1. `realise()` named the alphabetically-first missing capability and
+#      returned, so a schema wanting two reported one.
+#   2. `poet` had no branch in `Stream.provides` at all, which made `dialect
+#      rhyme` refusable on every text under every declaration.
+#   3. `frequency` and `stub_resolution` are the same shape and are NOT fixed
+#      here — they are declared, with the blocker each one is.
+# ---------------------------------------------------------------------------
+
+
+def test_refusal_names_every_missing_capability():
+    """§1. FIRST-HIT -> COMPLETE.
+
+    `RelationSchema.capabilities()` returns `tuple(sorted(...))`, so the
+    capability `realise()` used to report was whichever name sorted first.
+    Measured before the fix on the som stream below:
+
+        family rhyme  ('prominence', 'quotient:manner')      -> 'prominence'
+        proest        ('prominence', 'quotient:vowel_class') -> 'prominence'
+
+    -- and in both cases the quotient is the capability NO declaration of that
+    language supplies, while `prominence` is one a different phonology has.
+    Naming only the first names the cheaper blocker and hides the structural
+    one, which inverts the remedy (doctrine 44).
+    """
+    print("\nR1. a refusal names EVERY missing capability, not the first one "
+          "to sort")
+    st = R.build_stream(["hooyo macaan", "hooyo macaan"], som.Somali(),
+                        declaration={"language": "som"})
+
+    got = {}
+    for n in ("family rhyme", "proest", "dialect rhyme", "trite rhyme"):
+        res = R.realise(R.REGISTRY[n], st)
+        got[n] = (res.capability, res.missing)
+
+    check("a schema needing TWO capabilities reports two",
+          got["family rhyme"][1] == ("prominence", "quotient:manner")
+          and got["proest"][1] == ("prominence", "quotient:vowel_class"),
+          f"{ {k: v[1] for k, v in got.items()} } — before the fix each of "
+          f"these returned after the FIRST failing capability and `.missing` "
+          f"did not exist")
+    check("...and `.capability` still holds the first, so it stays a stable "
+          "grouping key",
+          all(m and cap == m[0] for cap, m in got.values()),
+          "relations_null.Coverage buckets cannot_obtain rows on it; a key "
+          "that silently changed shape would make every stored census "
+          "incomparable with the next one")
+    check("the detail names all of them, not just the key",
+          all(m and all(c in R.realise(R.REGISTRY[n], st).detail for c in m)
+              for n, (_, m) in got.items()),
+          "a reader of the message gets the same set as a reader of the field")
+
+    # THE MECHANICAL CROSS-CHECK: `missing` must equal what `provides` says,
+    # for every schema on this stream. A hand-listed expectation would only
+    # test the four above.
+    disagree = []
+    for n, s in R.REGISTRY.items():
+        want = tuple(c for c in s.capabilities() if not st.provides(c))
+        out = R.realise(s, st)
+        if want and (not isinstance(out, R.Refusal) or out.missing != want):
+            disagree.append(n)
+    check("`missing` equals `provides`'s own answer for all 77 schemas",
+          not disagree, f"disagreements: {disagree}")
+
+    check("`.complete` separates a capability refusal from every other kind",
+          R.realise(R.REGISTRY["family rhyme"], st).complete,
+          "doctrine 28 at the scale of one dataclass: a span refusal or "
+          "relations_null's 'denominator' refusal leaves `missing` empty, and "
+          "empty must not read as 'nothing was missing'")
+    check("a Refusal built the old three-argument way still constructs",
+          R.Refusal("x", "denominator", "d").missing == ()
+          and not R.Refusal("x", "denominator", "d").complete,
+          "quality/relations_null.py builds one that way and this file may "
+          "not edit it")
+
+
+class DialectFixture(EnglishFixture):
+    """A SECOND DECLARATION, and a fixture — not a dialect claim.
+
+    It exists to prove that `poet` is a real surface read through
+    `Stream.alt`, and it holds exactly one merge: `prove` takes `love`'s
+    nucleus. That is the class CLAUDE.md's own Test discipline section names
+    ("love/prove and its class are CONSONANCE in the declared General American
+    dialect, which is correct and now named"), so the pair is one the repo has
+    already located rather than one invented for a test.
+
+    It is NOT a declared phonology and must never be read as one. A real
+    dialect coordinate goes through `quality.declared_inputs.PeriodPhonology`,
+    which REFUSES to construct without a named reconstruction and a source —
+    which is precisely the blocker that remains after the wiring below.
+    """
+    MERGES = {"prove": "love"}
+
+    def syllabify(self, word):
+        base = super().syllabify(word)
+        src = self.MERGES.get(lh.fold_apostrophes(word).lower())
+        if not src:
+            return base
+        other = super().syllabify(src)
+        if len(base) != len(other):
+            return base
+        return [dataclasses.replace(s, nucleus=o.nucleus)
+                for s, o in zip(base, other)]
+
+
+def test_poet_is_an_alt_surface():
+    """§2. `poet` had NO BRANCH, so `dialect rhyme` was unrefusable-by-anyone.
+
+    Measured before the fix: `Stream.provides('poet')` fell through every
+    branch to the closing `return False`, on every stream, under every
+    declaration — including one declaring an `alt` under that exact name. So
+    `dialect rhyme` could not produce an observation on any text and therefore
+    could not have a matched null either.
+    """
+    print("\nR2. `poet` is a SECOND-DECLARATION surface, like `earlier`")
+    check("`poet` is in ALT_SURFACES, and that tuple is the only gate",
+          "poet" in R.ALT_SURFACES and "earlier" in R.ALT_SURFACES,
+          f"{R.ALT_SURFACES}")
+
+    # THE SCHEMAS ARE THE SAME SCHEMA UP TO THE SURFACE NAME. Asserted
+    # mechanically, because that is the argument for wiring one exactly as the
+    # other already was, and an argument stated in prose is not checked.
+    d, h = R.REGISTRY["dialect rhyme"], R.REGISTRY["historical rhyme"]
+    check("`dialect rhyme` and `historical rhyme` differ ONLY in the surface "
+          "their channels read",
+          d.spans == h.spans and d.align == h.align
+          and d.placement == h.placement and d.identity == h.identity
+          and [(c.channel, c.predicate, c.scope) for c in d.channels]
+          == [(c.channel, c.predicate, c.scope) for c in h.channels]
+          and [c.surface for c in d.channels] == ["poet", "poet", "phonemic"]
+          and [c.surface for c in h.channels] == ["earlier", "earlier",
+                                                  "phonemic"],
+          "so nothing distinguished them that could justify wiring one and "
+          "not the other")
+
+    # INERT BY DEFAULT. A capability nobody declared must not move a count.
+    plain = stream(["my love", "i cannot prove"])
+    check("with no alt declared, `poet` is still not supplied",
+          not plain.provides("poet"))
+    check("...and `dialect rhyme` still refuses, naming it",
+          R.realise(d, plain).capability == "poet")
+    check("...and `capability_report` still lists it under 'poet'",
+          any("poet" in k for k in R.capability_report(plain)["refused"]),
+          f"{ {k: v for k, v in R.capability_report(plain)['refused'].items() if 'poet' in k} }")
+
+    # AND THE SURFACE IS GENUINELY READ. Not a flag: the verdict comes from
+    # the second stream's nuclei, and flipping the merge off flips the answer.
+    poet = R.build_stream(["my love", "i cannot prove"], DialectFixture(),
+                          declaration={"language": "eng", "dialect": "fixture"})
+    plain.alt["poet"] = poet
+    out = R.realise(d, plain)
+    check("a declared `poet` surface supplies the capability",
+          plain.provides("poet"))
+    check("...and `dialect rhyme` FIRES on love/prove, which is CONSONANCE in "
+          "the declared dialect",
+          not isinstance(out, R.Refusal) and len(out) == 1
+          and out[0].verdict is True,
+          f"REFUSED on {out.capability!r}" if isinstance(out, R.Refusal)
+          else str([i.describe(plain) for i in out]))
+    check("...on the SECOND declaration's nuclei, not the first's",
+          poet.units[poet.lines[1][-1]].syl.nucleus
+          == poet.units[poet.lines[0][-1]].syl.nucleus
+          != plain.units[plain.lines[1][-1]].syl.nucleus,
+          "the schema wants nucleus AGREE on `poet` AND nucleus DIFFER on the "
+          "anchor in the declared one; a bare flag could satisfy neither")
+
+    # THE BLOCKER THAT REMAINS, stated so the wiring is not mistaken for a
+    # capability the repo can use.
+    same = R.build_stream(["my love", "i cannot prove"], ENG,
+                          declaration={"language": "eng"})
+    plain.alt["poet"] = same
+    flat = R.realise(d, plain)
+    check("an alt that is the SAME phonology finds nothing, which is why the "
+          "wiring is not the capability",
+          not isinstance(flat, R.Refusal) and len(flat) == 0,
+          "doctrine 44: the build was one name in a tuple; the blocker is a "
+          "SOURCED dialect phonology, and this repo has none")
+
+
+def test_unprovidable_is_declared_and_measured():
+    """§3. `frequency` and `stub_resolution` are DECLARED, not built.
+
+    Both gate on a bare `requires=` and NEITHER is read by any channel, so
+    wiring either as a flag makes its schema fire on the channels it already
+    has and label the output with a property it never measured. That is
+    measured here rather than argued, on both schemas.
+    """
+    print("\nR3. the two capabilities that stay unprovidable, and why wiring "
+          "them would MANUFACTURE")
+    st = stream(QUATRAIN)
+    check("check_unprovidable finds nothing wrong with the table",
+          R.check_unprovidable(st) == [], R.check_unprovidable(st))
+    check("every entry's blocker is one of doctrine 44/92's three",
+          all(e.blocker in ("build", "obtain", "disjoint")
+              for e in R.UNPROVIDABLE),
+          f"{ {e.capability: e.blocker for e in R.UNPROVIDABLE} }")
+    check("`poet` is NOT in the table any more; the other two are",
+          {e.capability for e in R.UNPROVIDABLE}
+          == {"frequency", "stub_resolution"},
+          f"{sorted(e.capability for e in R.UNPROVIDABLE)}")
+
+    # A MAXIMALLY DECLARED STREAM still supplies neither.
+    rich = R.build_stream(QUATRAIN, ENG, declaration={
+        "language": "eng",
+        "resources": ("lexicon", "sense", "morphology", "token", "lexeme"),
+        "quotients": {"manner": lambda v: v, "vowel_class": lambda v: v}})
+    R.search_caesura(rich)
+    R.mark_refrain_tail(rich)
+    rich.alt.update({s: rich for s in R.ALT_SURFACES})
+    still = [e.capability for e in R.UNPROVIDABLE if rich.provides(e.capability)]
+    check("neither is reachable from a stream declaring everything a caller "
+          "CAN declare — including every alt surface",
+          not still, f"now provided: {still}")
+
+    # THE MANUFACTURING, MEASURED. Force the flag and compare.
+    def forced(cap, name, on=st):
+        orig = R.Stream.provides
+        R.Stream.provides = lambda self, c: (True if c == cap
+                                             else orig(self, c))
+        try:
+            return R.realise(R.REGISTRY[name], on)
+        finally:
+            R.Stream.provides = orig
+
+    trite = forced("frequency", "trite rhyme")
+    perfect = R.realise(R.REGISTRY["perfect rhyme"], st)
+
+    def pairs(x):
+        return sorted((i.a.idx, i.b.idx, i.verdict) for i in x)
+
+    check("a flagged `frequency` makes `trite rhyme` return EXACTLY perfect "
+          "rhyme's instances",
+          pairs(trite) == pairs(perfect) and len(trite) == 2,
+          f"{[i.describe(st) for i in trite]} — cat/hat and moon/tune are in "
+          f"no cliche list, and nothing in the output could say so, because "
+          f"the schema's channels are nucleus/coda on the PHONEMIC surface "
+          f"and none of them reads a rank")
+    check("...so no channel of `trite rhyme` reads its own capability",
+          all(c.surface == "phonemic"
+              for c in R.REGISTRY["trite rhyme"].channels),
+          "the same is true of `refrain by reference`: one token channel, "
+          "phonemic surface, and the stub still tokenises to 'c'")
+
+    # A PLAIN REFRAIN and A REAL STUB, side by side under the forced flag.
+    # The stub line is what the schema is FOR and it is the one that finds
+    # nothing, which is the whole objection to wiring the flag.
+    plain_refrain = stream(["and so we sang", "we walked away", "and so we sang"])
+    real_stub = stream(["and so we sang", "we walked away", "and so we sang, &c."])
+    hit = forced("stub_resolution", "refrain by reference", plain_refrain)
+    miss = forced("stub_resolution", "refrain by reference", real_stub)
+    check("a flagged `stub_resolution` fires on ORDINARY verbatim repetition",
+          not isinstance(hit, R.Refusal) and len(hit) > 0,
+          f"{len(hit)} instances on a plainly repeated line — which is "
+          f"`refrain/chorus`, a schema this registry already has")
+    check("...and finds NOTHING on the line that actually carries the stub",
+          not isinstance(miss, R.Refusal) and len(miss) == 0,
+          f"{len(miss)} instances: `&c.` tokenises to `c`, so the pointer "
+          f"line is not equal to the line it points at and never will be "
+          f"until something RESOLVES it. The flag inverts the schema — it "
+          f"reports the cases the schema is not for and misses every case it "
+          f"is for.")
+
+    # THE SECOND, INDEPENDENT BLOCKER on `refrain by reference`, cross-checked
+    # against the null module rather than asserted here.
+    try:
+        import quality.relations_null as N
+    except Exception as exc:                                  # noqa: BLE001
+        check("relations_null imports", False, str(exc))
+        return
+    check("`refrain by reference`'s `count` statistic has NO null in NULLS",
+          N.null_menu(R.REGISTRY["refrain by reference"], "count") == (),
+          "so wiring the capability would start a schema firing with nothing "
+          "behind it that could fail — doctrine 63/68. Its positional "
+          "statistics DO have a menu: local_fraction@2 -> "
+          f"{N.null_menu(R.REGISTRY['refrain by reference'], 'local_fraction@2')}")
+
+    # THE TWO TABLES MUST NOT DRIFT. relations_null.py is not editable from
+    # here; this pins the edit that is owed there and stays green after it.
+    extra = [c for c in N.NEVER_PROVIDED
+             if c not in {e.capability for e in R.UNPROVIDABLE}]
+    check("every capability relations.py calls unprovidable is also in "
+          "relations_null.NEVER_PROVIDED",
+          {e.capability for e in R.UNPROVIDABLE} <= set(N.NEVER_PROVIDED),
+          "the reverse containment is NOT required while a row there is being "
+          "retired")
+    check("...and every EXTRA row there is one this file has since made "
+          "REACHABLE, never a gap relations.py forgot",
+          all(rich.provides(c) for c in extra),
+          f"extra rows: {extra} — OWED IN quality/relations_null.py (this "
+          f"file may not edit it): drop the 'poet' row from NEVER_PROVIDED, "
+          f"because `dialect rhyme` is now `historical rhyme`'s case — "
+          f"blocked on a SOURCED dialect phonology, not on a branch that does "
+          f"not exist. Its `cannot_obtain` remedy string currently reads "
+          f"'BUILD it: no stream field carries the writer's dialect', which "
+          f"is the wrong remedy now; the right one is its own 'declare the "
+          f"capability on the stream'. Empty list here = the edit has landed.")
 
 
 # ---------------------------------------------------------------------------
@@ -670,9 +1211,29 @@ def test_tradition_provenance():
           f"{len(CS.index())} rows. `loaded()` False would make every witness "
           f"below `None` — cannot tell — which is not `no witness`.")
 
+    # CANNOT TELL IS NOT FAILED — corrected 2026-08-14, found by CI.
+    #
+    # This asserted `rows is not None`, which turns the ABSENCE OF THE
+    # TRANSCRIPT STORE into a test failure. That store lives at
+    # `CS.TRANSCRIPT_GLOB`, outside the repository, untracked and machine-local
+    # — and `canon_sources.py`'s own docstring has always said so: `verified`
+    # is "a property of THIS MACHINE that expires with it". So off that machine
+    # the refusal is the DOCUMENTED, EXPECTED answer, and this check was
+    # reading it as a defect. On a CI runner it failed at file 37 of 42 and
+    # took the five after it down with it.
+    #
+    # Doctrine 20/28, which this suite enforces elsewhere: "no transcript" and
+    # "the rebuild disagrees with the prose" are two states and must not
+    # collapse. `rebuild()` already distinguishes them in `why`; only the
+    # caller was summing them. The POSITION_CHECKS half is a property of the
+    # committed table and is asserted either way.
     rows, why = CS.rebuild(write=False)
-    check("the POSITIONAL reading is checked against the canon's own prose",
-          rows is not None and len(CS.POSITION_CHECKS) >= 30, why or "")
+    _absent = rows is None and "no transcript" in (why or "")
+    check("the POSITIONAL reading is checked against the canon's own prose, "
+          "or REFUSES because the transcripts are not on this machine",
+          (rows is not None or _absent) and len(CS.POSITION_CHECKS) >= 30,
+          ("REFUSED, not failed: %s. Set CANON_TRANSCRIPTS to a session store "
+           "to run the rebuild." % why) if _absent else (why or ""))
 
     # The shift that a head-only check set cannot see.
     check("the checks reach PAST the first sourceless indic entry (position 32)",
@@ -765,12 +1326,26 @@ def test_tradition_provenance():
           "diacritics makes `chân` and `chan` the same token, and a filter "
           "that can only delete is what stops that becoming a citation.")
 
+    # REWRITTEN 2026-08-13. This pinned the literal 781 and went red when
+    # `canon_blocks` was fixed to end a block at a `## ` heading as well as at
+    # the next entry: the correct count is 654, and 781 was 127 of §3's own
+    # non-relation declarations being read as R112's. The check's INTENT was
+    # never stale -- the multi-line reader does still find more than the
+    # single-line one -- so it is written as the RELATION now, computed on both
+    # sides. A literal here could only ever re-stale on the next canon edit,
+    # and this test's own subject is a number that went wrong by being copied.
+    _multi = sum(len(CS.refs_in(f)) for _, _, _, f in CS.canon_blocks())
+    _single = sum(len(CS.first_line_refs(f)) for _, _, _, f in CS.canon_blocks())
     check("the multi-line `from:` reader finds more than the single-line one",
-          sum(len(CS.refs_in(f)) for _, _, _, f in CS.canon_blocks()) == 781,
-          "audit_register.py --provenance counted 611 with a single-line "
-          "regex on the first occurrence only. R1's from-line runs onto a "
-          "second line, R29's onto three, and §H/§I write `from:` inline. "
-          "Doctrine 58 inside the adversary built to find doctrine-58 errors.")
+          _multi > _single,
+          "multi-line %d, single-line %d. audit_register.py --provenance "
+          "counted the single-line reading with a regex on the first "
+          "occurrence only. R1's from-line runs onto a second line, R29's onto "
+          "three, and §H/§I write `from:` inline. Doctrine 58 inside the "
+          "adversary built to find doctrine-58 errors -- and the 781 this "
+          "check used to pin was itself a doctrine-58 error one layer further "
+          "in, since a block that ran past `## 3.` counted another section's "
+          "declarations as its own." % (_multi, _single))
 
     check("RHYME_CANON.md now carries publication YEARS, and they are the "
           "real ones",
@@ -833,6 +1408,25 @@ def test_null_module():
           N.NULLS["identity"].fn([["a", "b"]], None) == [["a", "b"]],
           "`identity` is not a control; it exists so a difference between "
           "observed and null can never be the rendering.")
+
+
+def _relations_import_paths():
+    """The FULL dotted path of every import in relations.py, where the helper
+    below keeps only the top-level package. `from quality import
+    rhyme_constraints` and `import quality.phonology.ltc` are both `quality`
+    to that one and they are not the same claim: the first is a sibling in the
+    quality layer, the second would be this module reaching into a LANGUAGE,
+    which is the thing its own docstring says it never does."""
+    import ast
+    with open(os.path.join(HERE, "relations.py"), encoding="utf-8") as fh:
+        tree = ast.parse(fh.read())
+    out = set()
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Import):
+            out |= {a.name for a in node.names}
+        elif isinstance(node, ast.ImportFrom) and node.module:
+            out |= {f"{node.module}.{a.name}" for a in node.names}
+    return out
 
 
 def _relations_imports():
@@ -1181,6 +1775,413 @@ def test_known_open_defects():
           "tuple (doctrine 1).")
 
 
+# ---------------------------------------------------------------------------
+# X. THE SURFACES THAT HAD NEVER RUN.  An execution-trace differential found
+#    `print_inert_report`, `print_relation_report` and the caesura/refrain
+#    frame writers with no live caller anywhere in the repository, while
+#    `quality/RESULTS_CYM_RHYME.md` §10a and METHOD doctrine 56 both publish
+#    answers obtained from them.  Doctrine 48: a principle is only real once
+#    it is mechanical, and a check that cannot fail is decoration.  Every
+#    number below is MEASURED by running the thing.
+# ---------------------------------------------------------------------------
+
+METIDJA = os.path.join(HERE, "..", "metidja.txt")
+
+
+def _capture(fn, *a, **kw):
+    """-> (return value, printed text). The renderers are the never-executed
+    half, so their OUTPUT has to be looked at, not only their exit code."""
+    import contextlib
+    import io
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        out = fn(*a, **kw)
+    return out, buf.getvalue()
+
+
+def _cym_stream(name):
+    """-> (raw lines, Stream) for one staged Welsh file, through the real
+    `cym` phonology rather than the English fixture. Blank lines and the
+    printed gwant are KEPT: `mark_printed_caesura` reads `text_lines`."""
+    from quality.phonology import get as _get
+    raw = [l.rstrip() for l in
+           open(os.path.join(HERE, "..", "corpus", name),
+                encoding="utf-8").read().splitlines()]
+    return raw, R.build_stream(raw, _get("cym"),
+                               declaration={"language": "cym"},
+                               stanzas=R.stanzas_from_blank_lines(raw))
+
+
+def test_inert_command_runs_and_can_fail():
+    """X1. `relations.py --inert` — the command every `Inert.measured` field
+    names, RUN.
+
+    `print_inert_report`'s own docstring promises "Exit 1 on any finding, so a
+    declaration that has become false is a failing command and not a paragraph
+    somebody reads", and until 2026-08-13 the command had never once been
+    invoked. Both halves are pinned here: that it exits 0 on the file its own
+    entries name, and that it CAN exit 1 — because a check that cannot fail is
+    decoration and the promise is worth exactly what its falsifier is worth.
+    """
+    print("\nX1. --inert: the published answer, and the falsifier that makes "
+          "it worth publishing")
+    import inspect
+    rc, text = _capture(R.main, ["--inert", METIDJA])
+    check("`relations.py --inert metidja.txt` RUNS and exits 0 — the three "
+          "declared-inert coordinates all still hold",
+          rc == 0 and "VERDICT: every declaration holds" in text
+          and "FAIL" not in text,
+          "measured: Span.unit 1 value over 5,761 observations, "
+          "rhyme_constraints.Span.unit 1 over 40, "
+          "rhyme_constraints.Span.terminator@branch 1 (frame side) over 11, "
+          "and 0 SYMMETRIC schemas recovering a deleted instance. This is "
+          "the command in every INERT entry's `measured` field and nothing "
+          "in this repository had ever run it.")
+    _q = stream(QUATRAIN)
+    _rcq, _ctext = _capture(R.print_inert_report, _q)
+    _census = R.inert_census(_q)
+    check("...and the census it PRINTS is the one check_inert() reads, so "
+          "the number a reader sees and the verdict cannot drift",
+          _rcq == 0 and _ctext.count("MEASURED  :") == len(R.INERT) == 3
+          and all(f"{len(v)} value(s) over {n} observations" in _ctext
+                  for n, v in _census.values()),
+          f"{len(R.INERT)} entries, {_ctext.count('MEASURED  :')} MEASURED "
+          f"rows, census {[(n, v) for n, v in _census.values()]} — doctrine "
+          f"58: the count is taken over the text in hand, never recorded in "
+          f"the entry.")
+
+    # THE FALSIFIER, ARM 1: real input, no patching. A stream with no spans
+    # tests nothing, and doctrine 20 says not-tested is not a pass.
+    rc0, t0 = _capture(R.print_inert_report, stream([]))
+    check("EXIT 1 IS REACHABLE ON REAL INPUT: a stream with no observations "
+          "fails rather than passing vacuously",
+          rc0 == 1 and "not a pass" in t0,
+          "doctrine 20. `Span.unit: no observations on this stream, so the "
+          "inertness claim was not tested`. Verified end to end through the "
+          "CLI as well: `python3 quality/relations.py --inert EMPTY` exits 1.")
+
+    # THE FALSIFIER, ARM 2: the direction that actually matters — somebody
+    # starts SETTING the field and the entry silently becomes a lie.
+    _orig = R.enumerate_spans
+
+    def _two_valued(rule, stream_, **kw):
+        for n, sp in enumerate(_orig(rule, stream_, **kw)):
+            yield dataclasses.replace(sp, unit="phone") if n % 3 == 0 else sp
+    R.enumerate_spans = _two_valued
+    try:
+        bad = R.check_inert(stream(QUATRAIN))
+        rc1, t1 = _capture(R.print_inert_report, stream(QUATRAIN))
+    finally:
+        R.enumerate_spans = _orig
+    check("...and EXIT 1 on the direction that matters — a declared-inert "
+          "field that GAINS a second value",
+          rc1 == 1 and any("Span.unit" in b and "LIVE now" in b for b in bad),
+          f"{bad[:1]} — so a later session that wires Span.unit gets a "
+          f"failing command, not a field quietly acquiring a semantics "
+          f"nobody declared. Restored afterwards: check_inert is clean "
+          f"again ({R.check_inert(stream(QUATRAIN))}).")
+    check("...and the run is clean again once the patch is removed, so this "
+          "test cannot leave the module poisoned",
+          R.check_inert(stream(QUATRAIN)) == [])
+
+    # The unread coordinate INSIDE the unread-coordinate checker.
+    check("check_inert() takes (stream) alone — its `chans` parameter was "
+          "declared and never read, and is gone",
+          list(inspect.signature(R.check_inert).parameters) == ["stream"],
+          f"{inspect.signature(R.check_inert)} — an unread parameter in the "
+          f"one function whose job is to catch unread coordinates. No caller "
+          f"passed it; doctrine 1's three honest ends are wire, delete or "
+          f"declare, and nothing declares it.")
+
+    # WHAT --inert DOES NOT ANSWER, so the citation in the record is not
+    # mistaken for this command's own output.
+    check("the INERT table is THREE span-shaped fields, and none of them is "
+          "an anchor / diacritic / glide coordinate",
+          {e.field for e in R.INERT} == {
+              "Span.unit", "rhyme_constraints.Span.unit",
+              "rhyme_constraints.Span.terminator@branch"},
+          "quality/RESULTS_CYM_RHYME.md §10a is headed "
+          "'None of the four declared coordinates is inert "
+          "(`relations.py --inert`'s question)' and its four coordinates are "
+          "anchor depth, anchor rule, diacritics and glide — measured by "
+          "quality/cym_rhyme_rate.py over pair verdicts, not by this "
+          "command, which reports three entirely different fields. The "
+          "shared name is `relations.py`'s OWN §10a (the INERT section, and "
+          "what this report's header prints); the two are different "
+          "questions and only one of them has a command.")
+
+
+def test_relation_report_renderer_runs():
+    """X2. `print_relation_report` — the module's default human-facing output,
+    never executed in any traced scenario.
+
+    A renderer nothing runs is a renderer whose KeyError nobody has met. The
+    unsourced branch is the one that reads a second dict by schema name, so
+    it is exercised on a real text where an unsourced schema actually fires.
+    """
+    print("\nX2. the default report path, RUN — and its printed numbers "
+          "checked against the dict it renders")
+    rep = R.relation_report(stream(QUATRAIN))
+    _, text = _capture(R.print_relation_report, rep)
+    check("print_relation_report() runs and prints doctrine 79's three "
+          "counts as the dict holds them",
+          f"REFUSED {rep['refused']}" in text
+          and f"RAN AND FOUND NOTHING {rep['ran_found_nothing']}" in text
+          and f"RAN AND FIRED {rep['ran_and_fired']}" in text,
+          "the renderer and relation_report() are two objects and only the "
+          "dict had a test; a renderer that quietly printed the wrong field "
+          "would have been invisible.")
+    check("...and the three INSTANCE counts too, UNDECIDED included",
+          f"decided-true {rep['instances']['true']}" in text
+          and f"UNDECIDED {rep['instances']['undecided']}" in text
+          and "A COUNT HERE IS NOT EVIDENCE" in text,
+          f"{rep['instances']} — the ternary this module exists to preserve, "
+          f"and the pointer to the matched control, both reach stdout.")
+
+    # THE WHOLE VERB, on a real public-domain text, through main().
+    rc, out = _capture(R.main, [METIDJA])
+    check("`python3 quality/relations.py metidja.txt` RUNS end to end and "
+          "exits 0",
+          rc == 0 and "phonology eng   schemas declared 77" in out
+          and "RAN AND FIRED 24" in out,
+          "REFUSED 26 · RAN AND FOUND NOTHING 27 · RAN AND FIRED 24; "
+          "instances 1167 / 4518 / 2. Measured 2026-08-13, the first run of "
+          "this verb's own renderer.")
+    check("...and the UNSOURCED branch — a second dict read by schema name — "
+          "is exercised rather than merely present",
+          "[UNSOURCED] blues AAB stanza" in out
+          and "no tradition sourced:" in out,
+          "the only branch in the renderer that indexes UNSOURCED[schema]; "
+          "on a text where no unsourced schema fires it is never reached, "
+          "which is every fixture in this file.")
+
+    # THE APPARATUS FILTER, which this reader was the last holdout of.
+    import tempfile
+    with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False,
+                                     encoding="utf-8") as fh:
+        fh.write("# (instrumental fade, 7/8)\n--- TITLE: probe\n"
+                 + open(METIDJA, encoding="utf-8").read())
+        probe = fh.name
+    try:
+        _, tagged = _capture(R.main, [probe])
+        _, plain = _capture(R.main, [METIDJA])
+    finally:
+        os.unlink(probe)
+    check("a `#` stage direction and a `--- TITLE:` note are APPARATUS here "
+          "too — this reader kept only the `[` case",
+          "lines 16   units 96" in tagged and "lines 16   units 96" in plain,
+          "`lyric_harness.py`'s relations verb was centralised onto "
+          "is_apparatus_line on 2026-08-12 and this module's own main() was "
+          "not, so the same file read through the two surfaces was two "
+          "different texts — the stage direction tokenised, rhyme-graded and "
+          "counted into the stanza frame on one of them. Spelled inline, not "
+          "imported: P10's invariant is that relations.py imports nothing "
+          "from lyric_harness, and readability.py / grid.py carry their own "
+          "copy for the same reason. BLANK lines still go through, which is "
+          "why load_lyric_lines would be wrong here even if it were "
+          "importable — relations.py derives the stanza frame from them.")
+
+
+def test_caesura_layer_reconciled():
+    """X3. Doctrine 56, and the 10.6 that `search_caesura` claimed as its own.
+
+    `quality/RHYME_COVERAGE.md` §11 holds `search_caesura` up as the REFERENCE
+    IMPLEMENTATION other languages should copy, and its docstring quoted
+    "k averaged 10.6 hypotheses per line". Nothing had ever called it. Run on
+    the very edition METHOD doctrine 56 measures 10.6 against, it returns
+    4.02 — the 10.6 belongs to a DIFFERENT search in a different module, and
+    the difference is the three-part `sain` placements.
+    """
+    print("\nX3. the caesura search: three k's, three denominators, one "
+          "published number")
+    from quality.phonology import get as _get
+    cym = _get("cym")
+    raw, alun = _cym_stream("cym_alun_strict.txt")
+    res = R.search_caesura(alun)
+    ks = [len(alun.frames.caesura[li]) for li in sorted(alun.frames.caesura)]
+    two_and_three = sum(k + k * (k - 1) / 2 for k in ks) / len(ks)
+    tried = [cym.cynghanedd_scan(l)["positions_tried"]
+             for l in raw if l.strip()]
+    scan_mean = sum(tried) / sum(1 for t in tried if t)
+
+    check("search_caesura() RUNS on the staged Welsh strict-metre edition, "
+          "and its own k is 4.02 per line — NOT the 10.6 it used to quote",
+          res["lines"] == 1558 and round(res["mean_k"], 2) == 4.02,
+          f"corpus/cym_alun_strict.txt: mean_k {res['mean_k']:.4f} over "
+          f"{res['lines']} lines. k is the count of word-initial units after "
+          f"the first, i.e. the TWO-part cuts, because half_line_a / "
+          f"half_line_b is the only caesura locus in this registry.")
+    check("...and the 10.6 REPRODUCES, from cym.cynghanedd_scan()'s "
+          "positions_tried — a different module and a wider search",
+          round(scan_mean, 1) == 10.6,
+          f"{scan_mean:.4f} over the same 1,558 lines. "
+          f"`python3 quality/cynghanedd_rate.py corpus/cym_alun_strict.txt 1` "
+          f"prints `mean placements tried = 10.6` beside `890/1558 = 57.1%`, "
+          f"which is METHOD doctrine 56's own Alun figure.")
+    check("...and the gap is exactly the THREE-part sain cuts: mean of "
+          "k + C(k,2) lands on the scanner's number",
+          round(two_and_three, 1) == 10.7
+          and abs(two_and_three - scan_mean) < 0.1,
+          f"k+C(k,2) = {two_and_three:.4f} against the scanner's "
+          f"{scan_mean:.4f}; the residue is the two modules' tokenisers "
+          f"(relations.tokenise against cym.WORD_RE/normalise). So a null "
+          f"built on THIS k under-corrects a three-part rule by ~2.6x, which "
+          f"is doctrine 56's own failure mode one level in.")
+
+    # THE THIRD k, and the reason no printed number has ever contained it.
+    _, twm = _cym_stream("cym_twm_or_nant_cywydd.txt")
+    caesura_schemas = [n for n, s in R.REGISTRY.items()
+                       if "caesura" in s.capabilities()]
+    before = {n: R.search_burden(R.REGISTRY[n], twm)["members"]
+              for n in caesura_schemas}
+    refused = {n: isinstance(R.realise(R.REGISTRY[n], twm), R.Refusal)
+               for n in caesura_schemas}
+    check("with no caesura declared all four caesura schemas REFUSE and "
+          "their search burden is literally zero members",
+          len(caesura_schemas) == 4 and all(refused.values())
+          and set(before.values()) == {0},
+          f"{sorted(caesura_schemas)} — so the mean_k the `relations` verb "
+          f"prints live has never contained one caesura hypothesis on any "
+          f"input, because nothing in this repository calls search_caesura "
+          f"and the schemas that would carry it refuse first.")
+    twm_res = R.search_caesura(twm)
+    burden = R.search_burden(R.REGISTRY["cynghanedd draws"], twm)
+    tks = [len(twm.frames.caesura[li]) for li in sorted(twm.frames.caesura)]
+    check("declaring the search moves them from REFUSED to firing, and the "
+          "caesura's k enters search_burden() for the first time",
+          not isinstance(R.realise(R.REGISTRY["cynghanedd draws"], twm),
+                         R.Refusal)
+          and burden["members"] == 1280 and burden["searched"] == 1278
+          and burden["max_k"] == 15,
+          f"corpus/cym_twm_or_nant_cywydd.txt: REFUSED 26 -> 22, fired "
+          f"41 -> 44, decided-true 13,715 -> 13,773. `cynghanedd draws` "
+          f"returns 50 true instances where it returned a refusal.")
+    check("...and search_burden()'s mean_k is a THIRD statistic — size-biased "
+          "over member spans, not per line",
+          round(twm_res["mean_k"], 2) == 4.10
+          and round(burden["mean_k"], 2) == 4.99
+          and burden["members"] == 2 * sum(tks)
+          and abs(burden["mean_k"]
+                  - sum(k * k for k in tks) / sum(tks)) < 1e-9,
+          f"per line {twm_res['mean_k']:.4f}; per member span "
+          f"{burden['mean_k']:.4f}. Each line contributes 2k spans (one per "
+          f"half), so the span mean is sum(k^2)/sum(k) and a long line counts "
+          f"more than once. Two denominators, never a ratio (doctrine 79/91) "
+          f"— and neither of them is the 10.6.")
+
+
+def test_printed_caesura_reads_none_of_welsh():
+    """X4. Doctrine 55 names THREE printed caesura marks and this function's
+    default carries two — measured, so the omission is not implicit.
+
+    The one it drops is the gwant `--`, which is the only printed caesura mark
+    that occurs anywhere in this repository's staged Welsh corpora.
+    """
+    print("\nX4. the printed caesura: doctrine 55's third mark, and what its "
+          "absence from the default costs")
+    from quality.phonology import get as _get
+    CAESURA_RE = _get("cym").CAESURA_RE
+    raw, alun = _cym_stream("cym_alun_strict.txt")
+    R.mark_printed_caesura(alun)
+    default_hits = len(alun.frames.caesura)
+    alun.frames.caesura.clear()
+    R.mark_printed_caesura(alun, marks=("--", "/", "|"))
+    gwant_hits = len(alun.frames.caesura)
+    printed = sum(1 for l in raw if "--" in l)
+    check("the shipped default reads ZERO printed caesurae on the edition "
+          "that prints 228 of them",
+          default_hits == 0 and printed == 228,
+          "corpus/cym_alun_strict.txt, e.g. `Ust! y ffrwd,--pa sibrwd sydd?`. "
+          "The default is `('/', '|')` and the gwant is neither.")
+    check("...and declaring the gwant reads 100 of them",
+          gwant_hits == 100,
+          f"{gwant_hits} of {printed}: the other {printed - gwant_hits} print "
+          f"the gwant line-final, where no unit follows it — the same "
+          f"trailing-dash case cym._marked_parts drops rather than reporting "
+          f"the whole line unreadable.")
+    check("`marks` can hold a multi-character mark at all — a bare string is "
+          "still iterated per character, which is what '/|' meant",
+          all(CAESURA_RE.match(m) for m in ("--", "/", "|"))
+          and not CAESURA_RE.match("-"),
+          "cym.CAESURA_RE carries all three of doctrine 55's marks. A caller "
+          "spelling the gwant into the old string default got `-`, which "
+          "fires on every hyphenated compound in a language that JOINS on "
+          "the hyphen (doctrine 65) — so the mark was not merely absent from "
+          "the default, it was inexpressible through the documented type.")
+    check("the default stays TWO marks on purpose: an English em-dash is "
+          "punctuation, and punctuation is not metre",
+          R.mark_printed_caesura.__defaults__[0] == ("/", "|"),
+          "doctrine 55's own case was a printed COMMA selecting which rule "
+          "each of 1,558 lines was tested against. Adding `--` to the default "
+          "would move that defect one glyph over for every non-Welsh stream; "
+          "the mark inventory is a DECLARATION (doctrine 1) and the caller "
+          "makes it.")
+
+
+def test_refrain_tail_documented_call_was_impossible():
+    """X5. `mark_refrain_tail`'s own docstring named a call that returns None
+    on every ghazal in the corpus, silently, and nothing had ever run it.
+
+    `lines=` is a set of LINE INDICES; `fas.ghazal_rhyme_lines(hemistichs)`
+    returns hemistich TEXTS. Strings tested against integer indices match
+    nothing, `refrain_source` is set to 'computed' regardless, and the two
+    refrain schemas go from REFUSED to a measured ZERO — doctrine 20's
+    collapse produced by an argument type.
+    """
+    print("\nX5. the refrain tail: the documented call could not work, and "
+          "failed without an error")
+    import json
+    from quality.phonology import get as _get
+    from quality.phonology import fas as fas_mod
+    fas = _get("fas")
+    data = json.load(open(os.path.join(HERE, "..", "corpus",
+                                       "fas_hafez.json"), encoding="utf-8"))
+    poem = data[0]["poem"]
+    texts = fas_mod.ghazal_rhyme_lines(poem)
+    check("fas.ghazal_rhyme_lines() returns hemistich TEXTS, and "
+          "mark_refrain_tail wants indices — the mismatch is a fact about "
+          "the two signatures",
+          all(isinstance(x, str) for x in texts) and len(texts) == 8,
+          "`[h[0]] + h[1::2]` over 14 hemistichs. Both are correct on their "
+          "own; the docstring joining them was not.")
+    st = R.build_stream(poem, fas, declaration={"language": "fas"})
+    try:
+        R.mark_refrain_tail(st, lines=texts)
+        raised = ""
+    except R.NoReferent as exc:
+        raised = str(exc)
+    check("passing it REFUSES by name now, where it used to return None on "
+          "495 of 495 ghazals with no error",
+          "LINE INDICES" in raised and "ghazal_rhyme_lines" in raised,
+          raised or "NOTHING RAISED — the silent path is back")
+
+    idx = [0] + list(range(1, len(poem), 2))
+    st2 = R.build_stream(poem, fas, declaration={"language": "fas"})
+    before = {n: isinstance(R.realise(R.REGISTRY[n], st2), R.Refusal)
+              for n in R.REGISTRY if "refrain_tail" in
+              R.REGISTRY[n].capabilities()}
+    got = R.mark_refrain_tail(st2, lines=idx)
+    radif = R.realise(R.REGISTRY["epistrophe / radif"], st2)
+    check("...and with the INDICES it finds Hafez's radif, which is what the "
+          "function is for",
+          got is not None and got["depth"] == 1 and got["run"] == ("ها",)
+          and len(got["lines"]) == 6,
+          f"{got and got['run']} over {got and len(got['lines'])} "
+          f"rhyme-bearing hemistichs of ghazal 1. MEASURED over the whole "
+          f"corpus: it fires on 66 of the 495 ghazals in "
+          f"corpus/fas_hafez.json (ghazal 2 `کجا`, ghazals 3 and 4 `را`) and "
+          f"on 0 of 495 through the call the docstring named.")
+    check("...and the two schemas that ride refrain_tail move from REFUSED "
+          "to instances, not from REFUSED to a measured zero",
+          set(before.values()) == {True}
+          and sum(1 for i in radif if i.verdict is True) == 15,
+          f"before: {sorted(before)} all REFUSED. after: `epistrophe / "
+          f"radif` {sum(1 for i in radif if i.verdict is True)} true "
+          f"instances. Through the documented call both schemas ran and "
+          f"reported 0 — a refusal turned into a null by a type error nobody "
+          f"could see (doctrine 20).")
+
+
 if __name__ == "__main__":
     test_inventory()
     test_p0_unreadable_final_token()
@@ -1191,15 +2192,25 @@ if __name__ == "__main__":
     test_p6_present_vs_absent()
     test_p7_project()
     test_p8_stanza()
+    test_p14_identity_partition()
+    test_p15_unmatched_vocabulary()
     test_build_stream_is_linear()
     test_sequence_predicates_are_implemented()
     test_head_anchored_relations_are_reachable()
     test_refusal_is_not_false()
+    test_refusal_names_every_missing_capability()
+    test_poet_is_an_alt_surface()
+    test_unprovidable_is_declared_and_measured()
     test_rhyme_constraints_unreadable_nucleus()
     test_traditions()
     test_tradition_provenance()
     test_null_module()
     test_known_open_defects()
+    test_inert_command_runs_and_can_fail()
+    test_relation_report_renderer_runs()
+    test_caesura_layer_reconciled()
+    test_printed_caesura_reads_none_of_welsh()
+    test_refrain_tail_documented_call_was_impossible()
     print("=" * 66)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

@@ -408,8 +408,27 @@ def sweep_record(lex, decl, verbose=True):
         rel = os.path.relpath(path, ROOT)
         for n, line in enumerate(open(path, encoding="utf-8",
                                       errors="replace"), 1):
+            # A NUMBER BELONGS TO THE LAST PAIR NAMED BEFORE IT, and until
+            # 2026-08-13 nothing here said so. The tail scan below looks 90
+            # characters past a pair for its number; that window runs clean
+            # past a SECOND pair named later on the same line, and the number
+            # it then finds is the second pair's. ADJUDICATED, not guessed --
+            # `quality/RESULTS_REVISION_LOOP.md:323` reads
+            #     The `ear`/`clear` row is the one to read. `ear` ~ `will`
+            #     scores **0.996** and is typed **RHYME**.
+            # and this sweep charged `ear`/`clear` with `will`'s 0.996, then
+            # reported it as a DISAGREES against its true 1.0. The document is
+            # correct and the instrument was not: adversary 7 was making, on
+            # its own record, the exact error it exists to find -- printing a
+            # number beside a pair that did not produce it (doctrine 45, the
+            # coordinate being WHICH PAIR the number is a claim about).
+            # Cutting the window at the next pair mention is the whole fix.
+            starts = sorted({m.start() for m in PAIR_RE.finditer(line)} |
+                            {m.start() for m in BARE_RE.finditer(line)})
             for m in PAIR_RE.finditer(line):
-                tailtext = line[m.end():m.end() + 90]
+                later = [s for s in starts if s >= m.end()]
+                stop = min(m.end() + 90, later[0]) if later else m.end() + 90
+                tailtext = line[m.end():stop]
                 if "bit" in tailtext[:40]:
                     continue
                 nm = NUM_RE.search(tailtext)
@@ -507,23 +526,79 @@ def sweep_record(lex, decl, verbose=True):
 
 # ---------------------------------------------------------------------------
 
+#: THE COMMITTED FIGURES, pinned so `--check` can go red. These are
+#: `RESULTS_SPANS.md`'s headline, and until 2026-08-13 nothing could fail on
+#: them: `main` returned a literal 0 whatever the sweep found, so the process
+#: exited 0 while printing that 382 of 1014 report lines name a pair that did
+#: not produce their number. A check that cannot fail is decoration
+#: (doctrine 48) -- the same defect found in `verify_doctrines.py`'s
+#: contiguity check the same day, and this instrument is the one CLAUDE.md
+#: calls adversary 7, so it is the worst place in the layer to have it.
+#: Doctrine 58: these are thresholds nobody wrote down until now. Argue them
+#: and repin; do not tune anything to meet them.
+PINNED = {
+    "mandated": 1064, "judged": 1014, "refused": 50,
+    "violations": 82,
+    #: report lines that name the two words that actually produced the number
+    "claimed": 632,
+    #: the same question asked of the violations alone
+    "violations_claimed": 36,
+}
+
+
+def check(fresh):
+    """-> exit code. FAILS LOUDLY; it does not report and continue."""
+    print()
+    print("=" * 74)
+    print("CHECK -- RESULTS_SPANS.md's committed headline against this run")
+    print("=" * 74)
+    bad = 0
+    for key, want in sorted(PINNED.items()):
+        got = fresh.get(key)
+        ok = got == want
+        bad += not ok
+        print(f"  [{'ok  ' if ok else 'FAIL'}] {key:20s} "
+              f"committed {want}" + ("" if ok else f", measured {got}"))
+    if bad:
+        print()
+        print(f"  {bad} figure(s) moved. RESULTS_SPANS.md's headline no "
+              f"longer reproduces.")
+        print("  Repin it with the date and keep the superseded value "
+              "visible (doctrine 17); do not adjust the sweep to match.")
+    print()
+    print("RESULT:", "PASS" if not bad else "FAIL")
+    return 0 if not bad else 1
+
+
 def main(argv):
     only = None
     for a in argv:
         if a.startswith("--only"):
             only = (a.split("=", 1)[1] if "=" in a
                     else argv[argv.index(a) + 1])
+    want_check = "--check" in argv
+    if want_check and only is None:
+        # The pinned figures all come from sweep 1, and sweeps 2 and 3 add
+        # about two minutes for nothing this mode reads.
+        only = "battery"
     lex = lh.Lexicon()
     decl = lh.Declaration()
     print(__doc__.strip().splitlines()[0])
     print(f"declaration: dialect {decl.dialect}, theta_rhyme "
           f"{decl.theta_rhyme}, band on, fitted {decl.fitted}")
+    battery = None
     if only in (None, "battery"):
-        sweep_battery(lex, decl)
+        battery = sweep_battery(lex, decl)
     if only in (None, "corpus"):
         sweep_corpus(lex)
     if only in (None, "record"):
         sweep_record(lex, decl)
+    if want_check:
+        if battery is None:
+            print("REFUSED — --check needs sweep 1; do not pass "
+                  "--only=corpus/record with it")
+            return 2
+        return check(battery)
     return 0
 
 

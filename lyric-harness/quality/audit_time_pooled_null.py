@@ -177,6 +177,72 @@ def main(reps=200, k_items=23, n_perm=400):
     print(f"\n    items significant at .05 per arm: median "
           f"{q(sig, 0.5)}/{k_items}   (RECORDED: 1/23 and 1/26)")
 
+    return {"per_item_p_median": q(all_ps, 0.5),
+            "share_arm_median_ge_0701":
+                sum(1 for m in medians if m >= 0.701) / len(medians),
+            "share_pooled_ge_0950":
+                sum(1 for pp in pooled if pp >= 0.950) / len(pooled),
+            "reps": reps, "k_items": k_items}
+
+
+#: WHAT `--check` ASSERTS, and what it deliberately does not.
+#:
+#: Every number this script prints is a MONTE CARLO estimate, so pinning one to
+#: three decimals would pin a sample and fail on the seed -- doctrine 57's own
+#: warning, applied to the file that raises it. What IS stable is the DIRECTION
+#: of the two findings, and those are what the record rests on:
+#:
+#:   1. The per-item p under H0 is NOT uniform. Fisher's method requires U(0,1)
+#:      and the median measures 0.56-0.58 against 0.500 at every n tried (5, 20,
+#:      50). That is doctrine 74 -- check your H0 is uniform before quoting a p
+#:      from it -- and it is the reason RESULTS_FWER's pooled 0.950 was ~1-in-12
+#:      rather than 1-in-20. If somebody fixes the pairing that causes it, THIS
+#:      CHECK SHOULD GO RED, and that is correct: it would mean the recorded
+#:      calibration finding no longer describes the instrument.
+#:   2. The recorded 0.701 sits in the upper tail of the H0 arm-median
+#:      distribution, not in its body.
+#:
+#: The fast/reference equivalence is already a hard `assert` in `main` and needs
+#: nothing here -- it is the one thing in this file that could always fail.
+#:
+#: Tolerances are wide ON PURPOSE and are declared, not tuned: they are set to
+#: pass at every n measured on 2026-08-13 and to fail on a real change of sign.
+CHECK_REPS = 50            #: ~26 s. Declared, not a default inherited from main.
+UNIFORM_MEDIAN = 0.500
+MIN_EXCESS = 0.02          #: the non-uniformity must survive; measured 0.06-0.08
+MAX_SHARE_0701 = 0.10      #: 0.701 in the upper tail; measured 0.000-0.020
+
+
+def check(m):
+    """-> exit code. FAILS LOUDLY; it does not report and continue."""
+    print()
+    print("=" * 74)
+    print("CHECK -- the two DIRECTIONS the record rests on, at "
+          f"reps={m['reps']}")
+    print("=" * 74)
+    bad = 0
+    excess = m["per_item_p_median"] - UNIFORM_MEDIAN
+    ok1 = excess >= MIN_EXCESS
+    bad += not ok1
+    print(f"  [{'ok  ' if ok1 else 'FAIL'}] per-item p under H0 is NOT uniform"
+          f"   median {m['per_item_p_median']:.3f} vs {UNIFORM_MEDIAN:.3f}, "
+          f"excess {excess:+.3f} (need >= {MIN_EXCESS})")
+    if not ok1:
+        print("         If the pairing was fixed this is EXPECTED to fail. "
+              "Re-read doctrine 74 and repin the record; do not widen the "
+              "tolerance to make it pass.")
+    ok2 = m["share_arm_median_ge_0701"] <= MAX_SHARE_0701
+    bad += not ok2
+    print(f"  [{'ok  ' if ok2 else 'FAIL'}] the recorded 0.701 sits in the "
+          f"UPPER TAIL   share {m['share_arm_median_ge_0701']:.3f} "
+          f"(need <= {MAX_SHARE_0701})")
+    print()
+    print("RESULT:", "PASS" if not bad else "FAIL")
+    return 0 if not bad else 1
+
 
 if __name__ == "__main__":
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 200)
+    argv = [a for a in sys.argv[1:] if a != "--check"]
+    if "--check" in sys.argv:
+        sys.exit(check(main(CHECK_REPS)))
+    main(int(argv[0]) if argv else 200)

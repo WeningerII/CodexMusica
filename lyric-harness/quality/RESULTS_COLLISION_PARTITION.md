@@ -6,6 +6,67 @@ particular `examples/never_been_to_a_scene.txt` and `examples/cherokee_bill.txt`
 are read-only to this cell and no line of either changed, and this cell
 proposes no line change (see §7).
 
+> ## BOTH INPUTS ARE GONE FROM HEAD — ANNOTATED 2026-08-13
+>
+> **`examples/never_been_to_a_scene.txt` and `examples/cherokee_bill.txt` no
+> longer exist**, and neither does `examples/`. Both were deleted in commit
+> `11aa19b`, *"Remove Claude-authored example lyrics from the repo; fix the
+> CLI's apparatus-line gap"*, 2026-08-12. Confirmed by `ls lyric-harness/examples`
+> → *No such file or directory* and by `git log --diff-filter=D --
+> 'lyric-harness/examples/*'` → `11aa19b`, nothing since. **Every command in
+> this file is unrunnable as written.** Recover both, read-only:
+>
+>     git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
+>     git show 11aa19b^:lyric-harness/examples/cherokee_bill.txt        > /tmp/cbill.txt
+>
+> and substitute those paths. The recovered files are 41 lines / 291 tokens and
+> 28 lines / 327 tokens, which is what this file says they are.
+>
+> Re-run against the recovered text at head on 2026-08-13. **This document is
+> in much better shape than its siblings: its load-bearing arithmetic — the
+> collision counts, the relation typing, the merges, the residue — reproduces
+> to the number.** Superseded values are kept visible (doctrine 17).
+>
+> | § | figure | 2026-08-13 verdict |
+> |---|---|---|
+> | §1 | `never_been_to_a_scene` passes 8/8, 0 violations, **26** collisions | **REPRODUCES EXACTLY** |
+> | §1 | `cherokee_bill` passes 14/14, 0 violations, **12** collisions — *not* 26 | **REPRODUCES EXACTLY.** §1's correction of the brief still stands |
+> | §1 | `cherokee_bill` 6 lines flagged, not 17 | **DOES NOT REPRODUCE** — 0 lines to revise, **14** carrying notes only. The rise is 11 × `MODAL_RHYME`, a note that did not exist on 2026-08-11; §5's own re-count of the same header moved for the same reason |
+> | §1 | every finding `SCHEME_COLLISION` at severity NOTE, zero candidate fields | **DOES NOT REPRODUCE** — `MODAL_RHYME` notes now carry candidate fields on both songs. That is `RESULTS_REVISION_LOOP.md`'s doctrine-9 work, not a change here |
+> | §1 | `OUT_OF_CALIBRATED_LENGTH` fires *(marked "no longer" already)* | still gone; the annotation was right |
+> | §2 | `never_been_to_a_scene`: 26 collisions = 12 RHYME / **7 ASSONANCE** / 7 REPEAT | **REPRODUCES EXACTLY**, all four numbers. Counted at head as 7 `NEAR_COLLISION` + 3 `SCHEME_COLLISION` + 16 merge edges (9 RHYME + 7 REPEAT) |
+> | §2 | `cherokee_bill`: 12 collisions = 3 RHYME / **8 ASSONANCE** / 1 REPEAT | **REPRODUCES EXACTLY**, all four numbers |
+> | §2 | both: **38** = 15 RHYME / **15 ASSONANCE (39.5%)** / 8 REPEAT | **REPRODUCES EXACTLY** |
+> | §2 | the draft-level `COLLISION_CUT_IS_SCALAR_ONLY` count | **REPRODUCES** — prints `7 of the 26` and `8 of the 12` |
+> | §4(a) | `never_been_to_a_scene`: **4 merges absorbing 16 of 26**, on A[13,17]+E[33,37], B[14,16]+F[34,36], C[15,19]+G[35,39], D[18,20]+H[38,40] | **REPRODUCES EXACTLY**, group for group |
+> | §4(a) | `cherokee_bill`: **1 merge absorbing 4 of 12**, B[3,4]+N[27,28] | **REPRODUCES EXACTLY** |
+> | §4(b) | with `returns=((13,33),(17,37),(15,35),(18,38),(19,39))`: A+E, C+G, D+H → `GROUPS_DECLARED_RETURN`; **B+F stays `MANDATE_GROUPS_INDISTINGUISHABLE`** | **REPRODUCES EXACTLY.** The discrimination still discriminates, and still on L16 `drive` / L36 `alive` |
+> | §4(d) | the header now reports two counts; `verify()` keys a whole finding on its first line | **NOT RE-RUN — COST.** The two-count header is visible in every run above, so the mechanism is confirmed even where the counts moved |
+> | §5 | the verbatim `cherokee_bill` brief head: `0 line(s) TO REVISE, **5** carrying notes only, of 28` | **PARTLY.** `0 line(s) TO REVISE` reproduces and is the load-bearing half; **5 → 14** carrying notes, for the §1 reason. The declaration line also moved: `frequency source wordfreq20k.txt` is now `eng-song conditional, falling back to data/opensubtitles_en_50k.tsv` |
+> | §5 | the `MANDATE_GROUPS_INDISTINGUISHABLE` evidence edges: `L3~L27 'kill'~'still' 1.000 RHYME; L3~L28 'kill'~'will' 1.000 RHYME; L4~L27 'will'~'still' 1.000 RHYME; L4~L28 'will'~'will' 1.000 REPEAT` | **REPRODUCES EXACTLY**, all four edges, scores and relations |
+> | §5 | `COLLISION_CUT_IS_SCALAR_ONLY: 8 of the 12` | **REPRODUCES EXACTLY** |
+> | §5 | L13's two `NEAR_COLLISION` notes: `'wall' ~ 'floor' 0.996 ASSONANCE`, `'call' ~ 'floor' 0.996 ASSONANCE` | **REPRODUCES EXACTLY** |
+> | §5 | the "this morning" contrast block (`6 line(s) flagged`, `OUT_OF_CALIBRATED_LENGTH: 327 tokens`) | historical by construction, and correctly labelled as such |
+> | §5 | `never_been_to_a_scene` now carries **14** `ANAPHORA_OVERLOAD` findings at severity flag | **REPRODUCES EXACTLY** — 14 of 41 lines, opening `i` at 34%, lines 5, 7, 8, 14, 15, 17, 18, 19, 23, 34, 35, 37, 38, 39 |
+> | §5 | **`cherokee_bill` still has zero lines to revise** | **REPRODUCES** |
+> | §6 | 20 edges → **5** findings (mandate); **15** edges (band); **3** findings (value layer) | **REPRODUCES EXACTLY** |
+> | §6 | the three value-layer findings are `does`/`mailboxes`, `does`/`winters`, `heat`/`receipt` | **REPRODUCES EXACTLY** — L1~L5 1.000, L1~L7 0.910, L2~L28 1.000, all typed RHYME |
+> | §6 | "after the partition, the loop still has nothing to ASK of either song" | **HOLDS for `cherokee_bill`** (0 to revise). **NO LONGER HOLDS for `never_been_to_a_scene`**: 14 lines to revise, all of it `ANAPHORA_OVERLOAD` — which is exactly the "another cell's length profile" caveat this sentence already carries, now arrived |
+> | §7 | `THETA_COLLISION` = 0.9 and the collision set is bit-identical to `check_scheme`'s | **NOT RE-RUN — COST.** Pinned by `test_revise.py` 23, not this file |
+>
+> **Bounded (doctrine 79):** 18 figures re-measured, 2 not run for COST. No test
+> suite and no `battery.py` was executed. Total run time for the re-measurement,
+> both songs: about 90 s (`Reviser.report` 17.1 s on `never_been_to_a_scene`,
+> 58.3 s on `cherokee_bill`, 17.0 s for the §4(b) `returns=` case).
+>
+> **The one thing worth saying about the shape of that table.** Sixteen of the
+> twenty checked figures come back to the digit across two comparator changes
+> and a floor rewrite, and the four that moved are all the same movement — a
+> note (`MODAL_RHYME`) and a flag (`ANAPHORA_OVERLOAD`) joining the report from
+> other cells, changing what the HEADER counts and nothing about the collision
+> arithmetic this file is actually about. That is the difference between a
+> figure that was a coordinate of a setting and one that was a measurement.
+
 This is the follow-on to `RESULTS_REVISION_LOOP.md` §6, which ended:
 
 > **So: on the mandate the song was written to, the loop has nothing useful to
@@ -45,10 +106,11 @@ The block that commissioned this work asserted, for both songs, "26 findings,
 every one `SCHEME_COLLISION`". Run:
 
 ```
+git show 11aa19b^:lyric-harness/examples/cherokee_bill.txt > /tmp/cbill.txt   # gone from head
 python3 - <<'PY'
 import sys; sys.path.insert(0, '.')
 from quality.revise import Reviser
-lines = [l.rstrip() for l in open('examples/cherokee_bill.txt') if l.strip()]
+lines = [l.rstrip() for l in open('/tmp/cbill.txt') if l.strip()]   # was examples/cherokee_bill.txt
 Reviser().report(lines, "".join(c * 2 for c in "ABCDEFGHIJKLMN"))
 PY
 ```

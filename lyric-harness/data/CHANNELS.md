@@ -40,7 +40,7 @@ Last probed 2026-08-10 unless noted.
 | channel | how | note |
 |---|---|---|
 | **`git clone` of any public GitHub repo** | plain `git clone https://github.com/OWNER/REPO` | works even though `codeload` is blocked. This is the single most useful channel in the list. |
-| **GITenberg** | `github.com/GITenberg` — Project Gutenberg mirrored as ~50k repos | **overturned a committed NOT-FOUND row**: the Finnish Kalevala, recorded as unreachable, fetched in one call and validated at 81.2% alliteration (doctrine 49) |
+| **GITenberg** | `github.com/GITenberg` — Project Gutenberg mirrored as ~50k repos | **overturned a committed NOT-FOUND row**: the Finnish Kalevala, recorded as unreachable, fetched in one call and validated at **81.3%** alliteration *(~~81.2%~~ REPINNED 2026-08-13: 3,253 of the first 4,000 verse lines, and 22,795 lines extracted rather than the 22,822 recorded — MEASURED by `quality/audit_kalevala_null.py --check`; the origin row is `data/sources.tsv:58`)* (doctrine 49) |
 | **GITenberg search via `WebFetch`** | fetch the org's HTML search page | **no rate limit**, unlike the MCP `search_repositories` tool, which throttles after ~8 calls |
 | `mcp__github__search_code` | GitHub-wide code search | good for locating a known text by a line of it. Doctrine 51: count DISTINCT BYTES, not distinct URLs — five hits in four repos turned out to be three copies of one file plus a fork |
 | `huggingface.co` datasets | the HF MCP tools, and `hf_fs` | how `wikimedia/wikisource` is reachable despite wikisource itself being blocked |

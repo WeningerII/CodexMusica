@@ -131,7 +131,8 @@ FALLBACK_MODES = {
 class English(Phonology):
     language = "eng"
     name = "English (General American)"
-    notation = "ARPAbet, CMUdict 0.7b; stress digits 0/1/2 on vowel phones"
+    notation = ("ARPAbet, cmusphinx/cmudict master working copy (post-0.7b); "
+                "stress digits 0/1/2 on vowel phones")
     grid_unit = "syllable"
     prominence_rule = (
         "lexical stress from CMUdict (1 or 2 -> prominent, 0 -> not), with the "
@@ -142,7 +143,19 @@ class English(Phonology):
         "none declared. Rhyme is the channel comparison under Declaration's "
         "theta and conjunctive band, so `rhymes()` stays the inherited stub "
         "and the channels decide -- see this module's docstring")
-    source = "cmudict-0.7b (public domain); see data/sources.tsv"
+    # CORRECTED 2026-08-13. This read `cmudict-0.7b (public domain)` and both
+    # halves were false. `cmudict-0.7b` 404s at cmusphinx/cmudict master --
+    # what ships is the master working copy, which carries no release version
+    # of its own -- and the licence is BSD-2-clause, a REDISTRIBUTION GRANT,
+    # not a public-domain dedication. The pointer at `data/sources.tsv` was
+    # false too, in the way doctrine 34 is about: there was no row there to
+    # point at until the same date, so the citation resolved to nothing.
+    # No non-commercial restriction anywhere in the chain -- checked, not
+    # assumed: `noncommercial_marker()` returns None on the fetched licence
+    # text, so doctrine 85 does not fire.
+    source = ("cmusphinx/cmudict master working copy, md5 "
+              "5837aa6e49fd070d482b8ca0525f28ef; BSD-2-clause (Carnegie "
+              "Mellon University), NOT public domain; see data/sources.tsv")
 
     def __init__(self, fallback=None):
         """`fallback` is a DECLARED coordinate, defaulting to the refusal.

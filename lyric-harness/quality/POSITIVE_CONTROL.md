@@ -6,7 +6,25 @@ periodicity when periodicity is there?** Second, the specification for the
 corpus that replaces `verse.txt`, defined by the structural property under test
 rather than by a genre.
 
-Run: `python3 quality/positive_control.py`.
+Run: `python3 quality/positive_control.py` (Part A, the synthetic instrument
+check) and `python3 quality/run_positive_control.py` (Parts B/D, the 律詩 arms).
+
+**BOTH NOW HAVE A `--check` THAT CAN FAIL — ADDED 2026-08-13.** This is
+doctrine 31's own instrument ("run the positive control before believing any
+null"), and CLAUDE.md's reading order sends a session here first of the three.
+Until this date neither file could fail: `main()` printed and returned `None`,
+`sys.exit` was never called with a code, and NOTHING invoked either one — not
+CI, not a test, not another module. `wiring` listed both under "one-shot
+runners, standalone by design", which is discoverability, not invocation. The
+doctrine that gates every null in the project rested on a command a human had
+to remember to type and then read with their own eyes — and, as Part D below
+records, it had been printing numbers that disagreed with this document.
+
+Three exits, not two (doctrine 20/28): **0** pass, **1** a pinned figure moved
+or a direction flipped, **2** the run could not resolve the question — for Part
+A a `n_perm`/`trials` too coarse for the margins (doctrine 57), for Part D the
+全唐诗 pool or the rime table being absent, which is the ordinary case off the
+machine this was written on.
 
 > ## THIS FILE IS ON THE BOUNDARY OF THE 2026-08-11 RETRACTION, and the boundary
 > ## runs THROUGH it rather than around it.
@@ -54,11 +72,60 @@ Power at α=0.05, sweeping periods (2,3,4,6,8) exactly as the real layer does:
 
 | events | slots | c=0.40 | c=0.50 | c=0.60 | c=0.75 | c=0.90 |
 |---|---|---|---|---|---|---|
-| **8** | **65** | 0.02 | 0.06 | 0.13 | **0.82** | 1.00 |
+| **8** | **65** | 0.02 | 0.06 | 0.13 | 0.82 † | 1.00 |
 | 12 | 75 | 0.04 | 0.09 | 0.37 | 1.00 | 1.00 |
 | 20 | 120 | 0.04 | 0.24 | 0.88 | 1.00 | 1.00 |
 | 40 | 240 | 0.24 | **0.94** | 1.00 | 1.00 | 1.00 |
 | 80 | 300 | **0.78** | 1.00 | 1.00 | 1.00 | 1.00 |
+
+> † **THIS IS ONE SEED'S DRAW, NOT THE CELL'S VALUE — DE-BOLDED AND REPINNED
+> 2026-08-13.** Ten seeds give `0.68 0.72 0.73 0.74 0.74 0.74 0.77 0.79 0.80
+> 0.82`: **median 0.74, spread 0.68–0.82, and only 2 of 10 reach 0.80** —
+> ~~0.82~~ is the MAXIMUM, kept visible and dated (doctrine 17). Quote it as
+> **0.74 (0.68–0.82 over ten seeds)** and never as a cell: a reader planning a
+> cell needs to know the number is a DISTRIBUTION, not a point. The bold is
+> gone because bold in this table marks a cell that has reached usable power
+> (0.94 and 0.78 below), and this one has not.
+> `quality/positive_control.py --check` pins this case as a **BAND
+> (0.50–0.95)** rather than a cell, precisely because a cell pin would be red
+> on nine seeds in ten; the ceiling and floor ARE pinned as bounds, because
+> those have zero and near-zero spread. Doctrine 73 — a single seed is a coin
+> flip reported as a verdict. Full argument in the box below.
+
+**EVERY CELL ABOVE REPRODUCES EXACTLY AT THE DECLARED SEED `20260810` — RE-RUN
+2026-08-13.** All 31 cells, to
+two decimals, against a fresh `python3 quality/positive_control.py`. That is
+REPRODUCIBILITY, which is not stability: † above is the cell where the two are
+different questions, and the seed is a coordinate of the table (doctrine 1).
+This is
+the only table in this document that did not move (contrast Part D, below).
+
+> **THE 0.82 IS A LUCKY DRAW, AND THE SENTENCE BELOW RESTS ON IT — REPINNED
+> 2026-08-13.** Each cell is a share of 100 Bernoulli trials at a fixed seed.
+> `power(65, 8, 0.75)` re-run under **ten seeds** (`trials=100, n_perm=400`)
+> gives `0.68 0.72 0.73 0.74 0.74 0.74 0.77 0.79 0.80 0.82` — **median 0.74,
+> and 0.82 is the MAXIMUM**. Only 2 of 10 seeds reach 0.80 at all.
+>
+> So the value to quote is **0.74 (0.68–0.82 over ten seeds)**; ~~0.82~~ is
+> superseded and kept visible (doctrine 17). The paragraph two below, and
+> CLAUDE.md's known gap 3 — *"8 events needs ~75% of an item's rhymes on one
+> phase to reach 0.80 power"* — turned this one draw into a threshold
+> crossing that **does not reproduce**: at 75% concentration the layer reaches
+> about 0.74, not 0.80. The direction of the finding is untouched and if
+> anything sharpened — 8 events is underpowered, and slightly more so than
+> recorded.
+>
+> This is doctrine 57 one axis out. An empirical p at 1/(n+1) reports the
+> resolution; a Monte Carlo power estimate quoted to two decimals reports the
+> replicate count. It is also why `--check` pins **thresholds and orderings**
+> here rather than the table's own numbers: a `--check` that pinned 0.82 would
+> have been red on nine seeds out of ten, which is how a required check
+> becomes one people delete.
+>
+> The other cells the check reads were swept the same way: ceiling 1.00 with
+> **zero spread** across 10 seeds × 3 sizes, floor 0.00–0.08 against a declared
+> α of 0.05, `c=0.60` at 8 events 0.04–0.21 (median 0.15, recorded 0.13),
+> `c=0.60` at 40 events 1.00 with zero spread.
 
 ~~The corrected sonnets carry **5–8 events over 60–75 slots** — the top row.~~
 **`VOID` 2026-08-11: 5–8 events is the count at `m` = scored. At the candidate
@@ -69,7 +136,9 @@ have at 8 events" but "what does it cost to make an event attainable at all",
 and the answer to that is `null_samples` and `window`, not concentration.
 
 At 8 events the layer needs **three quarters of an item's internal rhymes on a
-single metrical phase** before it can see anything. That is an enormous effect,
+single metrical phase** before it can see anything — and even there it reaches
+only ~0.74 power, not the 0.80 this sentence used to imply (repinned
+2026-08-13, box above). That is an enormous effect,
 far larger than any real form plausibly imposes — and it was the OPTIMISTIC
 reading. The pessimistic one, which is now the true one, is that a real item
 produces no events for the statistic to be underpowered on.
@@ -242,13 +311,40 @@ AUTHOR, and has no concept of an edition or transcription layer with its own
 date and its own rights. For most corpora that gap is harmless. For an oral
 tradition it is the whole question.
 
-### cynghanedd: PHONOLOGY BUILT, TEXT NOT REACHABLE
+### cynghanedd: PHONOLOGY BUILT, TEXT FOUND 2026-08-10 — THIS CELL NOW RUNS
+
+> **THE HEADING ABOVE READ "TEXT NOT REACHABLE" UNTIL 2026-08-13, AND HAD BEEN
+> FALSE FOR THREE DAYS.** `data/sources.tsv:56` has read **OVERTURNED — source
+> located via GITenberg** since 2026-08-10, and seven Welsh files totalling
+> 8,758 lines are on disk with their own rows. The cell has RUN: Gwaith Alun,
+> 1,558 lines, answers **57.1%** in search mode against a 200-shuffle null max
+> of **21.8%** — **+35.3 pp, p at the 0.005 floor** — and Twm o'r Nant's
+> cywydd **46.2%** against a null max of 26.9%. Both measured 2026-08-13 at
+> the script's full n=200.
+>
+> THE PARAGRAPHS BELOW ARE KEPT (doctrine 17) BECAUSE THEIR CHANNEL MAP IS
+> STILL CORRECT — Hugging Face really does hold no strict metre. What was
+> wrong was the conclusion drawn from it, and doctrine 49 names the error:
+> a sourcing failure is a claim about the network at a moment, and this one
+> was re-run and fell. The route nobody had tried was GITenberg over
+> `raw.githubusercontent.com`, which answers 200.
+>
+> ONE BELIEF IN THIS SECTION IS THE REASON THE ORIGINAL SEARCH FAILED, and it
+> is stated below as if it were a fact: that GitHub search "is scoped to this
+> repository". It is not — `search_repositories` and `search_code` query all
+> of GitHub. `data/sources.tsv:56` records this as the single wrong belief
+> that cost the search.
+>
+> STILL GENUINELY BLOCKED, and recorded where it belongs rather than here: no
+> cerdd-dafod treatise, no Welsh PROSE negative arm, and the hymn and
+> medieval-cywydd corpora (`data/sources.tsv:271`, `:272`).
 
 Cynghanedd is the cell that would matter most, because its constraint is
 **internal to the line** rather than line-final — the one thing every control
 this project can currently reach lacks (see Part D, arm C1).
 
-**The corpus is blocked.** Hugging Face holds 25 Welsh datasets and no strict
+**The corpus is blocked.** *(Superseded — see the box above.)* Hugging Face
+holds 25 Welsh datasets and no strict
 metre; the Hub's own full-text search on `cynghanedd englyn cywydd` returns
 empty; PyPI has no such distribution; 16 GitHub raw probes 404; Gutenberg and
 Wikisource are **403 CONNECT policy denials**, confirmed in the proxy relay log
@@ -290,6 +386,23 @@ poems of eight uniform lines of five or seven characters:
 | rhyme agreement at mandated positions (lines 2,4,6,8) | **88.1%** |
 | character coverage by the rime table | **99.3%** |
 
+> **THE SIBLING ARM MOVED 2026-08-13, AND THIS ONE WAS NOT RE-MEASURED.**
+> `quality/audit_tang_null.py`'s 300-poem arm — Part D arm A, not this table —
+> now reads **90.0%** agreement (recorded 88.0%) and **12848/12864 = 99.9%**
+> coverage (recorded 99.3%). The rime table reads 68 characters it could not
+> read when those figures were written.
+>
+> This table is the **253-poem** arm and reproducing it needs the filter that
+> produced 253, which the runner's `limit` argument does not express. So the
+> 88.1% and the 99.3% here are **NOT VERIFIED, NOT REFUTED** — the honest third
+> state (doctrine 28), and the direction of the sibling arm's movement suggests
+> both would rise rather than fall if run. What is certain is that the coverage
+> figure this table shares with its sibling, 99.3%, is stale in the sibling and
+> is unlikely to be current here.
+>
+> The residue argument below is unaffected either way: it is about WHICH pairs
+> fail (通押 pairs the 平水韻 standard later separated), not about how many.
+
 **The 11.9% residue is diagnostic, not noise, and it is not being tuned away.**
 Every recurring failure is a documented **通押** pair — adjacent rhymes Tang
 poets used together that the 13th-century 平水韻 standard later separated:
@@ -319,16 +432,48 @@ character is exactly one syllable and the grid is therefore perfect. Periods
 swept (2,4,5,7,10,14) — a 5-character couplet is 10 syllables, a 7-character
 couplet is 14.
 
+**REPINNED 2026-08-13 — three of the four arms had drifted, and this table was
+never told.** The row that matters is arm A: its 264/36 is the same statistic
+`quality/audit_tang_null.py` repinned to **90.0%** (= 270/300) on 2026-08-13
+when that file was wired into CI. That file found the drift, was corrected, and
+this table's copy of the identical number was left standing — doctrine 58 one
+axis out, a count is a coordinate of the rime table, and two documents quoting
+it drift independently. Superseded values kept visible (doctrine 17).
+
 | arm | n | refused | sat | median p | sig | Fisher |
 |---|---|---|---|---|---|---|
-| **A** mandated rhyme, lines 2/4/6/8 | 264 | 36 | 10.0% | 0.000 | **264/264** | **0** |
-| **B** internal, line-finals excluded | 300 | 0 | 50.0% | 0.529 | 18/300 | **0.883** |
+| **A** mandated rhyme, lines 2/4/6/8 | **270** ~~264~~ | **30** ~~36~~ | 10.0% | 0.000 | **270/270** ~~264/264~~ | **0** |
+| **B** internal, line-finals excluded | 300 | 0 | 50.0% | **0.543** ~~0.529~~ | **15/300** ~~18/300~~ | **0.923** ~~0.883~~ |
 | **C1** same positions, rhyme NOT required | 300 | 0 | 10.0% | 0.000 | **300/300** | **0** |
-| **C2** rhyming, positions randomised | 264 | 36 | 10.0% | 0.584 | 15/264 | **1** |
+| **C2** rhyming, positions randomised | **270** ~~264~~ | **30** ~~36~~ | 10.0% | 0.584 | **14/270** ~~15/264~~ | **1** |
+
+**No conclusion in this Part changes.** Arm A is still unanimous, C1 still
+matches it exactly, and B and C2 are still null — which is why `--check` pins
+the *shape* (n / refused / saturation, all exact functions of the corpus and
+the rime table) as numbers, and holds the *p-values* to directions only. The
+median p and Fisher figures above ride a seeded permutation draw at
+`n_perm=2000`; pinning them to three decimals would witness `n_perm` rather
+than the effect (doctrine 57), which is the same reasoning
+`quality/audit_time_pooled_null.py` applies to the pooled-Fisher calibration.
+
+> **AND UNTIL 2026-08-13 THIS ARM COULD NOT REPORT ITS OWN DRIFT.**
+> `run_positive_control.py`'s `main()` returned `None`, `sys.exit` was never
+> called with a code, and nothing invoked it — `quality/audit_tang_null.py`
+> imports `tang_poems` from it, which is import reachability, not invocation
+> reachability. The four arms had no automated caller of any kind, so the run
+> above exited 0 while printing numbers that disagreed with this table.
+> `--check` now exits 1 when the shape moves or a direction flips, and **2 —
+> CANNOT TELL** when the 全唐诗 pool or `data/qieyun_mc.tsv` is absent. That
+> third exit is the ordinary case off this machine: the pool is an absolute
+> path outside the repository, and `ltc.py::_load_table` returns an empty dict
+> rather than raising when the rime table is missing — so before this change,
+> **an absent corpus rendered as `med_p= nan / Fisher_p= n/a` and exit 0**,
+> which is a corpus that is not there reported as a result (doctrine 20/28).
 
 ### Arm A passed, and C1 shows the pass was tautological
 
-Arm A is unanimous — every one of 264 poems significant, Fisher p = 0. It
+Arm A is unanimous — every one of **270** (~~264~~, repinned 2026-08-13) poems
+significant, Fisher p = 0. It
 establishes something real and something the project had never had: **the
 plumbing works on natural non-English text.** A stream built by `ltc` rather
 than CMUdict, indexed, run through the statistic and its permutation null, on
@@ -354,8 +499,9 @@ rhyme**.
 ### Arm B is the real question, and it replicates the English null
 
 With the guaranteed line-final periodicity excluded, internal rhyme placement
-in Tang regulated verse shows **no periodic structure**: 18/300 at α=0.05,
-Fisher p = 0.883.
+in Tang regulated verse shows **no periodic structure**: **15/300** at α=0.05,
+Fisher p = **0.923** (~~18/300, 0.883~~, repinned 2026-08-13). The null is
+unchanged and marginally stronger.
 
 That is the Chinese analogue of H1, and it agrees with the English sonnet arm
 (Fisher p = 0.950, k=23). **Two language families, two unrelated prosodic
@@ -388,7 +534,7 @@ failures are as informative as the finds.
 | cell | outcome | scale |
 |---|---|---|
 | Persian ghazal | **FOUND** `kavehbc/hafez`, MIT + author d.1390 | 495 ghazals, radif visible in **297** |
-| Finnish Kalevala | **FOUND** `GITenberg/Kalevala_7000`, PD both routes | **22,822 verse lines**, 81.2% alliterate |
+| Finnish Kalevala | **FOUND** `GITenberg/Kalevala_7000`, PD both routes | **22,795 verse lines**, 81.3% alliterate *(REPINNED 2026-08-13 from 22,822 / 81.2%)* |
 | Finnish SKVR | already held; row sharpened | 87,898 poems / 1,305,915 lines |
 | Sanskrit | **FOUND** DCS, **CC BY 4.0** | 270 texts; yamaka sarga complete |
 | Old Norse | **CONTESTED** `sagadb.org`; Háttatal **blocked** | 1,228 lines / 814 blocked |
@@ -409,8 +555,13 @@ from its *name*, without knowing paths — verified directly.
 `raw.githubusercontent.com/GITenberg/<slug>_<PGID>/master/<PGID>-8.txt` is 200.
 This **directly overturns a NOT-FOUND row this project had already written**:
 the Finnish Kalevala was recorded as unreachable and is now fetched, 636 KB,
-validated at 81.2% alliteration. Every earlier search that failed *because
-Gutenberg is blocked* should be re-run through it — including Welsh.
+validated at **81.3%** alliteration *(~~81.2%~~ REPINNED 2026-08-13 — 3,253 of
+the first 4,000 verse lines, 22,795 extracted; the SAME repin the Part E table
+row above already carries, twenty lines up. This paragraph went on quoting the
+superseded figure after that row had moved, so the file disagreed with itself;
+origin row `data/sources.tsv:58`, instrument
+`quality/audit_kalevala_null.py --check`)*. Every earlier search that failed
+*because Gutenberg is blocked* should be re-run through it — including Welsh.
 
 ### Two finds that change what the layer can test
 

@@ -74,7 +74,17 @@ USE
 
     python3 quality/g2p.py --train          # rebuild data/g2p_letter_rules.tsv
     python3 quality/g2p.py --evaluate       # held-out CMUdict accuracy
+    python3 quality/g2p.py --counts=high FILE.txt   # doctrine 79's three
+                                            # counts over a lyric file, or
+                                            # over words given on the line
     python3 quality/g2p.py WORD ...         # read some words
+
+`--train` is the only producer `data/g2p_letter_rules.tsv` has, and it is
+reachable from nowhere else in the repo — so the rules ship without anything
+that re-derives them on a run. VERIFIED 2026-08-13: it still executes and
+reproduces the shipped file BYTE-IDENTICALLY (65s over 105,744 training
+headwords), and `quality/test_g2p.py` §21 now pins that, cheaply by default
+and in full under `--slow`.
 """
 
 import os
@@ -937,6 +947,25 @@ class Fallback:
         `dictionary`, `fallback` (morphology + elision + letter, itemised), and
         `refused`. A rate computed off this must divide by dictionary+fallback
         and report `refused` beside it, never inside it.
+
+        **WHICH LEXICON THIS IS BOUND TO CHANGES THE ANSWER, and a report has
+        to use the right one.** `dictionary` here means only "`self.lex
+        .transcribe_word` read it". Built over the real `Lexicon` — what
+        `quality/phonology/eng.py` does — that phrase covers
+        `Lexicon.transcribe_word`'s own inherited reductions (`wights`,
+        `crown'd`, `feelin'`), exactly as this module's header declares the
+        dictionary layer. Built over `lyric_harness._DictionaryOnlyLexicon` —
+        what `Lexicon(fallback=...)` does, to break the recursion — those
+        reductions are invisible to `self.lex`, the morphology layer
+        re-derives them from scratch, and they land in the MIDDLE column
+        instead. The same nine words come out `5 / 2 / 2` one way and
+        `2 / 5 / 2` the other, and only the first is what the harness
+        actually read. So a caller holding a `Lexicon` wants
+        `lexicon_three_counts(lex, words)` below, which asks the harness's own
+        pre-fallback path what it could already read and charges the fallback
+        with what it ADDED and nothing else. `quality/test_g2p.py` §22 pins
+        both answers so the wrong one cannot be wired into a report by
+        accident.
         """
         out = Counter()
         by_layer = Counter()
@@ -952,6 +981,211 @@ class Fallback:
         return {"dictionary": out["dictionary"], "fallback": out["fallback"],
                 "refused": out["refused"], "by_layer": dict(by_layer),
                 "total": len(words)}
+
+
+# ---------------------------------------------------------------------------
+# THE REPORTING PATH FOR THE THREE COUNTS
+#
+# `Fallback.three_counts` (above) and `English.three_counts`
+# (`quality/phonology/eng.py`) have both existed since this layer was built,
+# and NOTHING THAT REPORTS HAS EVER CALLED EITHER. A run that opts in with
+# `--fallback=high` has the three counts sitting in memory and prints none of
+# them: `lyric_harness.py`'s `readability` verb prints READ and REFUSED, two
+# counts, and the middle column — how much of READ was DERIVED rather than
+# looked up — is exactly what doctrine 79 says may not be folded away. That
+# is doctrine 79's own instrument built and left in the drawer, which is the
+# defect this section closes on the library side.
+#
+# Two functions, because they are two different jobs and a caller may want
+# only the first: `lexicon_three_counts` COUNTS (correctly, over a `Lexicon`),
+# `format_three_counts` RENDERS. Neither computes a rate over `total`.
+# ---------------------------------------------------------------------------
+
+class _NoFallbackView:
+    """A `Lexicon` seen as it was BEFORE the fallback was opted into.
+
+    Same `entries`, same `freq_rank`, same `strip_parens`, `g2p_fallback` set
+    to None — so `Lexicon.transcribe_word` runs its dictionary lookup and its
+    own inherited reductions (plural `-s` with conditioned voicing, `crown'd`,
+    `feelin'`) and then stops at the OOV return instead of consulting the
+    fallback. That is the boundary the `dictionary` column has to be drawn on:
+    a word the harness could ALREADY read is not something the fallback added.
+
+    It borrows the caller's dicts rather than copying them and never writes to
+    the `Lexicon` it was handed, because that object belongs to the caller and
+    a counting helper that mutates its input is a counting helper nobody can
+    call twice.
+    """
+
+    def __init__(self, lex):
+        from lyric_harness import Lexicon
+        self.entries = lex.entries
+        self.freq_rank = getattr(lex, "freq_rank", {})
+        self.strip_parens = getattr(lex, "strip_parens", True)
+        self.g2p_fallback = None
+        # Bound once, not per word: a corpus file is ~100k tokens and this is
+        # called on every one of them.
+        self._read = Lexicon.transcribe_word
+
+    def transcribe_word(self, word):
+        return self._read(self, word)
+
+
+def lexicon_three_counts(lex, words):
+    """-> doctrine 79's three counts over a `lyric_harness.Lexicon`.
+
+    `dictionary` is what the harness reads with NO fallback declared,
+    `fallback` is what `lex.g2p_fallback` added on top of that (itemised by
+    layer), `refused` is what neither reached. They sum to `total`, and
+    `total` is never a denominator here — see `format_three_counts`.
+
+    WITH NO FALLBACK DECLARED the middle column is 0 and PRESENT, not absent
+    (doctrine 20's shape: a layer that was not asked reports zero answers, and
+    that is different from a layer that was asked and found none). The mode it
+    was asked under is returned as `fallback_mode` so a reader of the numbers
+    can see which of the three declarations produced them.
+
+    A token that is not a word at all — punctuation the tokeniser let through,
+    a bare apostrophe — is neither read nor refused, so it is counted apart as
+    `skipped` rather than being billed to the dictionary or to the fallback.
+    `given == total + skipped`, always.
+
+    A READING THAT COMES BACK LABELLED `dictionary` IS COUNTED AS ONE, even
+    though the harness's own pre-fallback path refused it. That is not a
+    contradiction and the case is real: `double-eyed` in `metidja.txt`.
+    `Lexicon.transcribe_word` refuses the hyphenated token whole;
+    `Fallback._compound` splits on the hyphen exactly as `Lexicon.transcribe`
+    has always split a LINE, finds `double` and `eyed` both in CMUdict, and
+    returns layer `dictionary` because the weakest piece is a dictionary
+    piece. Nothing was derived — a tokenisation disagreement was settled — so
+    charging it to the middle column would report a derivation that did not
+    happen. `quality/phonology/eng.py`'s header makes the same call for the
+    same reason, on the nine sonnet compounds (`to-day`, `Easter-day`) that
+    move into the first column rather than the second. This function was
+    written charging them to `fallback` and its own first run over
+    `metidja.txt` printed `by layer: dictionary 1`, which is how the case was
+    found: a layer name that cannot occur in the column it was printed under.
+    """
+    fb = getattr(lex, "g2p_fallback", None)
+    base = _NoFallbackView(lex)
+    out, by = Counter(), Counter()
+    skipped = 0
+    for w in words:
+        phones, oov = base.transcribe_word(w)
+        if phones and not oov:
+            out["dictionary"] += 1
+            continue
+        if not phones and not oov:
+            skipped += 1               # nothing there to read or to refuse
+            continue
+        r = fb.read(w) if fb is not None else None
+        if r is None:
+            out["refused"] += 1
+        elif r.layer == "dictionary":
+            out["dictionary"] += 1     # a tokenisation agreement, not a
+            out["compound_agreement"] += 1   # derivation; see the docstring
+        else:
+            out["fallback"] += 1
+            by[r.layer] += 1
+    total = out["dictionary"] + out["fallback"] + out["refused"]
+    return {"dictionary": out["dictionary"], "fallback": out["fallback"],
+            "refused": out["refused"], "by_layer": dict(by),
+            "total": total, "skipped": skipped, "given": len(words),
+            "compound_agreement": out["compound_agreement"],
+            "fallback_mode": None if fb is None else fb.min_confidence}
+
+
+def format_three_counts(c, what="words", indent="  "):
+    """-> [str] ready to print. THE RATE DIVIDES BY `dictionary + fallback`.
+
+    That division is the whole point of the function existing: a caller left
+    to render this itself divides by `total` — the sonnet battery did exactly
+    that and recorded Shakespeare as failing to rhyme `viewest`/`renewest`
+    (doctrine 79) — so the arithmetic is done here once, with the refusals
+    printed BESIDE the rate and never inside it.
+
+    The fallback column is itemised even when it is empty, and the mode is
+    named, so a reader can tell "nothing was derived" from "nothing was
+    asked".
+    """
+    read = c["dictionary"] + c["fallback"]
+    tot = c["total"]
+    mode = c.get("fallback_mode", None)
+    lines = [
+        f"{indent}three counts ({what}, doctrine 79 — never summed): "
+        f"dictionary {c['dictionary']}   fallback {c['fallback']}   "
+        f"REFUSED {c['refused']}   of {tot}",
+    ]
+    if c.get("skipped"):
+        lines.append(f"{indent}  ({c['skipped']} token(s) skipped: nothing "
+                     f"there to read or to refuse)")
+    if c.get("compound_agreement"):
+        lines.append(f"{indent}  {c['compound_agreement']} of the dictionary "
+                     f"column is hyphenated compounds the fallback split and "
+                     f"read from CMUdict whole — a tokenisation agreement, "
+                     f"not a derivation")
+    if mode is None:
+        lines.append(f"{indent}  fallback: NONE DECLARED, so the middle "
+                     f"column is a zero and not a measurement — "
+                     f"`--fallback=high|low` asks the question")
+    else:
+        itemised = ", ".join(f"{k} {v}" for k, v in
+                             sorted(c["by_layer"].items())) or "none fired"
+        lines.append(f"{indent}  fallback={mode}, by layer: {itemised}")
+        if "letter" in c["by_layer"]:
+            lines.append(
+                f"{indent}  WARNING {c['by_layer']['letter']} reading(s) came "
+                f"from the LETTER layer, whose phones no dictionary entry "
+                f"supplied — measured net harmful on the sonnets' own "
+                f"mandated rhymes (quality/test_g2p.py §10)")
+    if read:
+        lines.append(f"{indent}  refusal rate {c['refused']}/{tot} = "
+                     f"{c['refused'] / tot:.2%} of {what}; the derived share "
+                     f"of what WAS read is {c['fallback']}/{read} = "
+                     f"{c['fallback'] / read:.2%}")
+    else:
+        lines.append(f"{indent}  nothing was read, so there is no rate to "
+                     f"report — {c['refused']} refusal(s) and that is the "
+                     f"whole finding")
+    return lines
+
+
+def _counts_main(args):
+    """`--counts[=high|low|off] WORD-OR-FILE ...` — the three counts, printed.
+
+    A file argument is read through `load_lyric_lines`/`line_tokens`, the same
+    two definitions every CLI verb uses for "the sung words of a lyric file",
+    so this counts the same population the rest of the harness scores rather
+    than a second, private idea of what a word is.
+    """
+    from lyric_harness import Lexicon, load_lyric_lines, line_tokens
+    mode = args[0].split("=", 1)[1] if "=" in args[0] else "high"
+    if mode not in ("high", "low", "off"):
+        print(f"  --counts wants high, low or off, got {mode!r} "
+              f"(Fallback.min_confidence's own vocabulary plus `off` for the "
+              f"no-fallback baseline; doctrine 1 — not free text)",
+              file=sys.stderr)
+        return 2
+    rest = args[1:]
+    if not rest:
+        print("  --counts needs words or a lyric file to count",
+              file=sys.stderr)
+        return 2
+    lex = Lexicon(fallback=None if mode == "off" else mode)
+    words, sources = [], []
+    for a in rest:
+        if os.path.exists(a):
+            n0 = len(words)
+            for line in load_lyric_lines(a):
+                words.extend(line_tokens(line, strip_parens=lex.strip_parens))
+            sources.append(f"{a}: {len(words) - n0} token(s)")
+        else:
+            words.append(a)
+    for s in sources:
+        print(f"  read {s}")
+    for line in format_three_counts(lexicon_three_counts(lex, words)):
+        print(line)
+    return 0
 
 
 # ---------------------------------------------------------------------------
@@ -1023,11 +1257,17 @@ def evaluate_heldout(lex, fallback_factory, limit=None, stressless=False):
 
 def main(argv):
     from lyric_harness import Lexicon
-    lex = Lexicon()
     args = argv[1:]
     if not args:
         print(__doc__)
         return 0
+    # Ahead of `Lexicon()` because this verb builds its own, with the declared
+    # fallback mode on it — `lexicon_three_counts` reads `lex.g2p_fallback`,
+    # so a second dictionary-only one built here first would be 126k entries
+    # loaded for nothing.
+    if args[0].startswith("--counts"):
+        return _counts_main(args)
+    lex = Lexicon()
     if args[0] == "--train":
         train_letter_rules(lex.entries)
         return 0

@@ -123,14 +123,32 @@ looking right.
 
 56. **A search over placements needs a null under the same search.** Trying
    every word boundary for the caesura and keeping the best is k hypotheses per
-   line, and on this corpus k averages 10.6. Run that identical search over
+   line, and on this corpus k averages 10.6 -- and **10.6 is
+   `quality/phonology/cym.py`'s `cynghanedd_scan(...)["positions_tried"]`**,
+   which tries the (n-1) two-part cuts AND the C(n-1,2) three-part cuts a
+   *sain* reading needs. `quality/relations.py`'s `search_caesura`, which
+   enumerates the two-part cuts alone, returns **4.02** on the identical 1,558
+   lines (MEASURED 2026-08-13; the identity that reconciles them is mean of
+   k + C(k,2) = 10.70 against the scanner's 10.62). `search_caesura`'s own
+   docstring quoted 10.6 as its own figure from the day it was written.
+   **A k is a coordinate of the SEARCH that produced it**, so a null built on
+   `search_caesura`'s k under-corrects a three-part rule by ~2.6x.
+   Run that identical search over
    lines whose words have been SHUFFLED WITHIN THE LINE -- same words, same
    consonants, same length, arrangement destroyed -- and it still reports
    cynghanedd on about a quarter of them. So a bare "26% of lines carry
    cynghanedd", obtained by search, is quoting the null back at itself. The
    excess over the shuffled null is the part attributable to the poet, and it
    is the only part worth reporting. Two editions, 200 shuffles each:
-   Alun 54.1% vs null max 27.8% (+26.3); Twm o'r Nant 51.3% vs 36.5% (+14.7).
+   **Alun 57.1% vs null max 21.8% (+35.3); Twm o'r Nant 46.2% vs 26.9%
+   (+19.2)** — MEASURED 2026-08-13, `quality/cynghanedd_rate.py`, both at
+   n=200. REPINNED from Alun 54.1% / 27.8% (+26.3) and Twm 51.3% / 36.5%
+   (+14.7), which are the PRE-doctrine-82 comparator's — before `extent` lost
+   its default — and reproduce nowhere at head. Item 82 of this file already
+   recorded that comparator move; THIS item was never repinned to match, so
+   METHOD.md carried both readings at once for three days. Doctrine 58: a rate
+   is a coordinate of the comparator. The excess GREW on both editions, so the
+   doctrine's conclusion is stronger than when it was written.
    This is the `infer_chains` comparator bug in a new place: whatever advantage
    the hypothesis gets, the comparator gets too. `quality/cynghanedd_rate.py`.
    Note what the same file says about `caesura='marked'` on Twm o'r Nant --
@@ -161,13 +179,39 @@ looking right.
    State what each null PRESERVES and what it DESTROYS, every time.
 
 64. **A big true effect and an uninterpretable headline are compatible.**
-   Kalevala weak alliteration is 82.6% observed against a null max of 30.6% --
-   the constraint is real and the excess is 51.7 points. It is also true that
+   Kalevala weak alliteration is 82.6% observed against a null max of **30.8%**
+   -- the constraint is real and the excess is 51.8 points. It is also true that
    nearly a THIRD of lines alliterate with their words redealt at random, so
-   only 63.7% of the hits are above chance. "81.2% of Kalevala lines
-   alliterate" was never wrong and was never usable. Report the excess over the
+   only 63.7% of the hits are above chance. **"81.3% of Kalevala lines
+   alliterate"** was never wrong and was never usable. Report the excess over the
    null, not the rate; a rate is a statement about the language's redundancy as
    much as about the poet.
+   **REPINNED 2026-08-13, and the superseded readings are kept visible and
+   dated (doctrine 17): ~~81.2%~~, ~~null max 30.6%~~, ~~excess 51.7 points~~.**
+   The headline this item quotes AS the unusable one is
+   `data/sources.tsv`'s, and it moved: `quality/audit_kalevala_null.py --check`
+   pins **3,253 of the first 4,000 verse lines = 81.3%** (superseding 3,246 =
+   81.2%) and 22,795 verse lines extracted rather than the 22,822 recorded.
+   `quality/audit_kalevala_null.py`'s own header lists this line as one of four
+   sites still carrying 81.2% with no repin beside it; this is that repin.
+   THE 82.6% IS UNTOUCHED and reproduces exactly -- `quality/kalevala_rate.py`
+   prints `R_obs = 82.5971% (18828/22795 lines)`, seed 20260810, N=200 -- and so
+   does 63.7%. THE NULL MAX DID MOVE and had not been re-read: the across-line
+   permutation (the null this item's neighbour doctrine 63 argues for -- permute
+   the whole token sequence, re-cut on the original line lengths) now gives
+   median 30.0241%, **max 30.7962%, excess over the max +51.8008%**. 30.6% is
+   `kalevala_rate.py`'s own docstring figure (30.62%) and it was measured on the
+   SUPERSEDED 22,822-line extraction, so the re-extraction that moved 81.2% to
+   81.3% moved the null underneath this sentence too and nothing re-read it.
+   The recorded 51.7 was never the across-line arm's number at all: it is the
+   length-matched unigram resample's (+51.7482 against ITS max of 30.8489%), so
+   this one sentence was quoting a rate, a maximum and an excess from a mix of
+   two nulls and one stale corpus. Doctrine 58's clause, one axis out: **re-run
+   the control when the CORPUS moves**, and name which null every figure in a
+   sentence came from. These are Monte Carlo estimates at a fixed seed, not
+   exact counts, and `audit_kalevala_null.py` deliberately pins neither -- what
+   is pinned is 18,828/22,795 and 3,253/4,000, and the separation is fifty
+   points wide either way.
 
 68. **The identity-map trap has more than one shape.** Doctrine 63 caught it in
    Finnish, where the predicate is symmetric over the line's word multiset. It
@@ -217,12 +261,78 @@ looking right.
    the text. **Check that the negative control LACKS the property before
    checking that it clears its null.** `quality/RESULTS_NULL_SHAPES.md`.
 
+   **AMENDED AGAIN 2026-08-13 — the AMENDMENT expired faster than the instance
+   did, and that is the finding.** Same script, same seed, same n=200: band OFF
+   26.0% / null median 19.3% / +6.7 pp / p 0.0547, unchanged to the decimal;
+   band ON **10.7%** / null median **5.3%** / **+5.3 pp** / **p 0.0199**. So
+   the separation FALLS again — +6.7 -> +5.3, MEASURED 2026-08-13, REPINNED
+   from +6.7 -> +9.3 (2026-08-11), which had superseded +6.7 -> +3.3
+   (2026-08-10). **The sign did not flip; it flipped BACK**, and the paragraph
+   above — which retired doctrine 71's own sentence on this text — is now the
+   stale figure. Three comparators, three answers, one text. The clause the
+   2026-08-11 amendment added, *re-run the control when the COMPARATOR moves*,
+   is the clause that caught its own paragraph, which is the strongest thing
+   that can be said for it.
+   THE CONTROL ON THE CONTROL, and it is why the movement is attributable: the
+   band-OFF row reproduces to the decimal on BOTH corpora — the sonnet arm was
+   re-run at full n=200 and gives null median 29.9%, min 25.5%, max 35.6%,
+   +23.6 pp, +17.9 pp over the MAX, p at the 0.0050 floor. The null machinery
+   is unchanged, so everything that moved is downstream of the band-ON
+   comparator alone. The observation falls 15.3 pp and the null median falls
+   14.0 pp TOGETHER, which is this doctrine's sentence verbatim; meanwhile the
+   sonnets go +23.6 -> +27.6 pp with p at the floor in BOTH arms, so the band
+   tightens the positive corpus while narrowing the negative one. The
+   instrument is fine and the Whitman comparison is the empty part.
+   NOTE THE TWO STATISTICS THIS PARAGRAPH QUOTES UNDER ONE WORD: +6.7, +3.3,
+   +9.3 and +5.3 are the excess over the null MEDIAN; the +17.9 pp above is
+   the excess over the null MAX, which grows with n and is not comparable
+   across sample sizes (doctrine 57's mirror, doctrine 91's rendering point).
+   The doctrine's conclusion is untouched either way, because it rests on
+   `RESULTS_NULL_SHAPES.md` §2 and on none of these numbers: seven of Whitman's
+   NINE detected links (78%) are REPEAT on an identical token — REPINNED
+   2026-08-13 from 7 of 14 (50%), the REPEAT count unmoved and the RHYME links
+   collapsed 7 -> 2, so the ground STRENGTHENED as the null argument weakened.
+
 73. **A single CV seed is a coin flip reported as a verdict.** RESULTS_WITHIN_
    ITEM P2 recorded "FAILED. 0.659 -> 0.604" off one hard-coded seed. Over 200
    seeds the medians are 0.603 and 0.606 -- the sign of the difference flips.
    The document's CONCLUSION survives and is strengthened (neither AUC beats
    its own label-permutation null), but the scored verdict was an artifact of
    the seed. Any number from a randomised split needs its own distribution.
+
+   **ALL FOUR FIGURES ABOVE ARE WARM AND ARE REPINNED 2026-08-13. THE DOCTRINE
+   REPLICATES COLD -- ONLY ITS NUMBERS MOVE, AND NOTHING ABOUT IT IS
+   WEAKENED.** Cold, at the same one hard-coded seed, P2's comparison is
+   **0.717 -> 0.638**; over the same 200 seeds the medians are **0.638 and
+   0.640**. The sign of the difference flips exactly as it did warm -- at the
+   median the within-item set sits marginally ABOVE the absolute one, so "hold
+   or improve" holds in BOTH readings and the recorded FAILED stays a property
+   of `SEED` rather than of the respecification. The fall at the recorded seed
+   is in fact LARGER cold (0.079 against 0.055), which sharpens the doctrine
+   instead of softening it. The superseded warm quartet -- 0.659 -> 0.604,
+   medians 0.603 and 0.606 -- is kept above rather than overwritten
+   (doctrine 17).
+
+   SAY WHAT EACH NUMBER IS A COORDINATE OF (doctrine 58), because these differ
+   by DESIGN and by CACHE STATE at once: 0.659/0.717 are the ABSOLUTE
+   ten-feature Experiment 1 joint held-out AUC, warm/cold; 0.604/0.638 are the
+   WITHIN-ITEM eight-feature Experiment 1 joint, warm/cold; the medians are the
+   same statistics over 200 CV seeds rather than the one recorded draw. **And
+   0.638 appears twice under two different meanings** -- it is the WITHIN-ITEM
+   set's observed cold Experiment 1 AUC AND, separately, the ABSOLUTE set's
+   cold Experiment 1 seed MEDIAN. Two statistics that land on the same three
+   decimals; the recorded absolute draw sitting well above its own median is
+   this doctrine's whole point. Medians pinned in
+   `quality/audit_joint_auc_null.py`'s `PINNED` (`seed_median`), observations
+   in `quality/test_discriminate.py`'s `PINNED` (`joint_all`);
+   `quality/RESULTS_WITHIN_ITEM.md` P1/P2 carries both readings.
+
+   WHAT IS NOT REPINNED HERE: the label-permutation nulls the parenthesis
+   above rests on are `quality/NULL_AUDIT.md` §1.3's and are WARM. They have
+   not been re-run cold, so the strengthened conclusion is stated on warm
+   nulls with cold observations sitting in the same place relative to them --
+   which is weaker than a cold null and is said rather than glossed
+   (doctrine 20).
 
 74. **Check that your H0 is uniform before quoting a p from it.** A pooled
    Fisher p of 0.950 was read as 1-in-20. Under 200 H0 replicates at the real
@@ -335,12 +445,97 @@ without them.
    identical to its absolute form -- recentring is a monotone transform, so it
    buys cross-tradition comparability and exactly zero power.
 
-11. **Two features have now been caught reading period, not quality.**
+   **THE TWO AUCs ARE REPINNED 2026-08-13: ~~0.604~~ -> 0.638 and ~~0.877~~ ->
+   0.891.** The superseded pair is kept above rather than overwritten
+   (doctrine 17). Both were WARM -- served from a feature cache keyed with no
+   fingerprint of the code that wrote it -- and both moved when the run was
+   recomputed cold. SAY WHAT EACH IS A COORDINATE OF (doctrine 58), because
+   these differ by DESIGN as well as by cache state: 0.638 and 0.891 are the
+   **WITHIN-ITEM eight-feature** joint held-out AUC for **Experiment 1** and
+   **Experiment 2**, at the one hard-coded CV seed, COLD. Their ABSOLUTE
+   ten-feature twins are 0.717 and 0.964 and are a different feature set, not a
+   different reading of these. Pinned as `wi_exp1`/`wi_exp2` `joint_all` in
+   `quality/test_discriminate.py` and RECORDED in
+   `quality/audit_joint_auc_null.py`; `quality/RESULTS_WITHIN_ITEM.md` carries
+   both readings side by side.
+
+   **"1/8 hits in each experiment" IS NOT RE-DERIVED COLD AND MAY NOT BE
+   QUOTED AS CURRENT.** It is a tally over permutation p-values; the AUC is
+   free and a p costs 20,000 shuffles per feature, so no p in that tally has
+   been re-run cold at all -- and two of the eight within-item AUCs it counts
+   moved. Doctrine 20: an instrument that has not fired has not returned a
+   null. The tally is UNVERIFIED, which is neither confirmed nor refuted, and
+   the honest reading is that the hit counts are warm figures kept for the
+   record.
+
+   **The layer-level claim is unchanged; the reach of the word "no" is not.**
+   Experiment 1 is 0.638 within-item and 0.717 absolute at n=15, and
+   `quality/NULL_AUDIT.md` §1.3 measured that neither beats its own
+   label-permutation null's MAXIMUM (that audit is warm and has not been re-run
+   cold, so it moves nothing in either direction). What did move is one
+   feature: cold, `rhyme_predictability_mean` clears FDR in BOTH designs with
+   the predicted sign, which doctrine 11 below now records and which this
+   doctrine's "no", read strictly, denies. Cross-design is not cross-tradition
+   (doctrine 8) and the two experiments share their entire human side, so
+   nothing here promotes a feature -- but the sentence is dented and says so
+   rather than being quoted flat. The standing record is `quality/RESULTS.md`
+   § "`rhyme_predictability` is REINSTATED, narrowly".
+
+11. **One feature has now been caught reading period, not quality.**
    syntactic_inversion_rate is an Early Modern English archaism detector, and
    rhyme_predictability's cross-design replication was an OOV artifact (an
    unreadable word was scored as maximally rare, so CMUdict's inability to
    read Shakespeare registered as his unpredictability). Assume any new
    feature is doing this until a within-item version says otherwise.
+
+   **THE COUNT IS ONE, NOT TWO, AS OF 2026-08-13: the SECOND clause is
+   SUPERSEDED BY MEASUREMENT.** The paragraph above is kept whole and dated
+   rather than rewritten (doctrine 17) -- it is the record of what was believed
+   on 2026-08-09 and of the arithmetic that produced it. Read the opening count
+   as ONE. *(The title is also the row `CLAUDE.md`'s doctrine index carries,
+   and this file does not own that file. Repinning the title to "One feature
+   ..." means moving the index row in the same commit -- which
+   `quality/verify_doctrines.py` now enforces, so the two can no longer drift
+   apart in silence.)*
+
+   **CLAUSE 1 STANDS, UNTOUCHED -- `syntactic_inversion_rate`.** Cold it reads
+   **0.583** in Experiment 1 and **0.833** in Experiment 2, wrong-signed, both
+   essentially unmoved from their warm readings. It is still an Early Modern
+   English archaism detector and should still be retired rather than ported.
+   (`quality/test_discriminate.py` PINNED, `abs_exp1`/`abs_exp2`.)
+
+   **CLAUSE 2 IS SUPERSEDED -- `rhyme_predictability`.** The OOV defect was
+   real, the fix is real and both are still in the code; what is wrong is the
+   numbers the fix was measured against. The clause rests on Experiment 2 at
+   **AUC 0.422, p = .13**, with predictability held out at **0.560** -- and
+   those are WARM readings that the comparator does not produce. **Cold it
+   gives AUC 0.340 at p = 0.0015, and the predictability-only joint is 0.648.**
+   `rhyme_predictability_mean` therefore clears Benjamini-Hochberg FDR at
+   q = 0.10 in BOTH designs with the predicted sign (lower), and "0.560 is
+   chance" is arithmetic on a number nothing produces. It was the stale cache
+   that destroyed the Experiment 2 effect, not the OOV fix. Doctrine 58 twice
+   over: 0.422/0.340 are the same feature's Exp 2 AUC warm/cold, while
+   0.560/0.648 are the predictability-ONLY joint's Exp 2 AUC warm/cold -- a
+   different statistic from the same run, not a second reading of the first.
+   `quality/RESULTS.md` § "`rhyme_predictability` is REINSTATED, narrowly"
+   carries the table, the cold p's and the BH argument in full.
+
+   **THE STANDING INSTRUCTION IS UNCHANGED, AND IT IS UNMET.** "Assume any new
+   feature is doing this until a within-item version says otherwise" still
+   binds, and no within-item version has said otherwise -- which is the one
+   thing that could have promoted this from a superseded clause to a cleared
+   feature. `wi_predictability_advantage` is `mean(pred) - 0.5`, a monotone
+   transform, so its AUC is **bit-identical** to the absolute feature's in both
+   experiments: 0.26153846153846155 and 0.33963815789473684, the same floats,
+   pinned as such in `quality/test_discriminate.py`. It is the same measurement
+   under another name and it cannot corroborate anything. **UNMET, not met** --
+   doctrine 20, and "cannot tell" is not "none".
+
+   **What the reinstatement does NOT buy.** Experiment 1's 15 survived and 117
+   forgotten sonnets are a SUBSET of Experiment 2's 152 human items and share
+   their cache keys, so a feature clearing both designs is a replication across
+   LABELS, not across traditions. Doctrine 8 decides what that is worth, and
+   cross-design is not cross-tradition.
 
 12. **Wimsatt binding is unsupported here, under two operationalizations.**
    Raw differing-category fraction: null. Excess over a permutation null from
@@ -454,13 +649,53 @@ without them.
    said the Hafez corpus showed radif in 297 of 495 ghazals. A fresh
    implementation found 315 and was told to report the discrepancy rather than
    tune to it. Neither number was wrong: 297 is EXACTLY `min_fraction=1.0` and
-   315 is 0.60, on a sweep that runs 318/318/315/311/310/306/301/297. The
+   315 is 0.60, on a sweep that runs 318/318/315/311/310/306/301/297 at
+   `min_fraction` **0.40 / 0.50 / 0.60 / 0.70 / 0.75 / 0.80 / 0.90 / 1.00**. The
    disagreement was never about the text; it was about a parameter the first
    count had not stated. Any bare n-of-N in this repo is a coordinate of some
    setting -- write the setting next to the number, or the next person to
    measure it will think one of you is wrong. (And neither threshold dominates
    here: 0.60 wrongly admits ghazal 100, 1.00 truncates ghazal 422's radif from
    `amade i` to `i`. Both are reported for that reason.)
+   **THE GRID WAS MISSING FROM THIS ITEM UNTIL 2026-08-13 -- this item's own
+   complaint, turned on this item.** The eight counts stood here as a bare
+   tuple for as long as the item has existed: eight numbers, no axis, ordered
+   by nothing a reader could see, in the paragraph that says write the setting
+   next to the number. It is RECOVERED, not reconstructed by argument --
+   `quality/hafez_rate.py`'s module-level `SWEEP` constant IS that grid, and its
+   `--check` pins the eight counts POSITIONALLY against it rather than as a set,
+   so the ordering is enforced and not merely intended. Re-run 2026-08-13, green
+   on all eight (`python3 quality/hafez_rate.py --check`).
+   **AND THE TUPLE IS A COORDINATE OF THE PREDICATE, NOT ONLY OF THE
+   THRESHOLD** -- one axis further out than this item had gone, found by
+   running the two instruments side by side. `quality/audit_hafez_radif.py`
+   sweeps its own STATED 6-point grid (0.50/0.60/0.70/0.80/0.90/1.00) and gets
+   **311/311/309/306/300/297**, so it answers **311** at min_fraction 0.60 where
+   the tuple above answers 315. Neither is wrong and they are not asking one
+   question. `fas.radif` is handed the ghazal's RHYME LINES
+   (`fas.ghazal_rhyme_lines`: both halves of the maṭlaʿ, then the second half of
+   every bayt) and looks for the longest verbatim trailing token SEQUENCE that
+   recurs across them, gated by `min_count=3` / `min_lines=4` / `max_tokens=6`;
+   `audit_hafez_radif.radif_share` implements `data/sources.tsv`'s own sentence
+   instead -- what share of the EVEN hemistichs end in the same single TOKEN as
+   the maṭlaʿ's first hemistich, with no count, length or multi-token gate at
+   all. The two AGREE at 1.00 (297 both ways), which is exactly why the
+   divergence stayed invisible: the one number the record ever quoted is the one
+   coordinate on which the two predicates cannot disagree.
+   **A THIRD "IMPLEMENTATION" WAS REPORTED AND IT IS NOT ONE -- REFUTED
+   2026-08-13, recorded because the trap is cheap to fall into twice.** A lot
+   reported `fas.radif` itself as a third answer, `317/312/305/9/0/0/0/0` over
+   0.30-1.00, and read it as `min_fraction` meaning something incompatible
+   inside `fas.py`. It is not a semantics defect: it is `fas.radif` handed the
+   ghazal's ALL 8,384 hemistichs instead of its rhyme lines. The odd hemistichs
+   do not carry the radif, so the achievable share is capped near one half and
+   the count falls off a cliff between 0.60 (9) and 0.70 (0) -- the signature of
+   a wrong POPULATION, not of a wrong threshold. Measured directly at the
+   shipped defaults, `fas.radif` over `ghazal_rhyme_lines` reproduces the
+   recorded tuple exactly and positionally at the grid named above, and adds 322
+   at 0.30. So there are TWO predicates here, not three, and the count is a
+   coordinate of THREE things: the threshold, the rendering (doctrine 91) and
+   the line population the predicate is asked about.
    **Second instance, one round later, so this is a pattern and not an
    anecdote:** `data/sources.tsv` recorded 82 ABAB pantun quatrains. A fresh
    implementation confirmed 80 of 82 -- and the two that separate are the only
@@ -541,23 +776,63 @@ cost falls, and why a refusal counted as a failure charges the wrong layer.
    The tri-state exists for exactly this: return None where the verdict depends
    on a distinction the edition has already collapsed, rather than True.
 
-59. **Refusing on SCRIPT has a measurable cost, and it should be paid in the
-   open.** `fas.rhymes` returns None on 60.2% of 20,388 real Hafez pairs,
-   because unvocalised Perso-Arabic does not write short vowels -- that is the
-   designed outcome, not a failure. The 1.0% that come back False are almost
-   all molamma' lines: Arabic hemistichs rhyming on an unwritten i'rab case
-   vowel, which read as Persian end in a consonant. The module refuses by
-   SCRIPT rather than by language, so Arabic-in-Arabic-script is accepted and
-   those Falses are the price. Left standing and declared rather than patched,
-   because a patch would be a language detector nobody calibrated.
-   **AMENDED, and the amendment matters more than the original.** This item as
-   first written implied the 60.2% None was a flat tax spread over all pairs.
-   It is not. On RANDOM Hafez word pairs the module is decisive ~95% of the
-   time -- it returns False. The refusal concentrates almost entirely on pairs
-   that already agree on the written consonant skeleton, which is to say on the
-   candidate rhymes. It refuses where the question is hard and answers where it
-   is easy. That is the designed behaviour and it was asserted here before it
-   was measured. See doctrine 67.
+59. **Refusing because the ORTHOGRAPHY DOES NOT WRITE THE DECIDING SEGMENT has
+   a measurable cost, and it should be paid in the open.**
+   **TITLE AND FIGURE REPINNED 2026-08-13; the SUPERSEDED title, kept visible
+   and dated (doctrine 17), is ~~"Refusing on SCRIPT has a measurable cost, and
+   it should be paid in the open"~~.** Nothing about the module moved and no
+   count changed -- what changed is which axis the 60.2% is attached to, and it
+   was attached to the wrong one **by a factor of 1,754**. The old title named
+   SCRIPT and the figure beside it was never the script refusal; this item's own
+   BODY has said "because unvocalised Perso-Arabic does not write short vowels"
+   since it was written, so the title and the body were describing two different
+   layers under one number. THE NUMBER IS NOT RENUMBERED and must not be: a
+   doctrine number can only be added, never renumbered (CLAUDE.md's index), and
+   `python3 quality/verify_doctrines.py` resolves every `doctrine N` citation
+   in the repo against it -- four thousand of them and rising, which is why the
+   count is not written here: only the command is, so a reader gets today's
+   number instead of the day this line was typed. A TITLE can be repinned in
+   place because no citation resolves through it; a NUMBER cannot.
+
+   `fas.rhymes` returns None on **60.2% of 20,388** real Hafez pairs, and
+   `quality/hafez_rate.py` splits that None into the two structurally unrelated
+   causes `Verdicts.verdict` has ALWAYS branched on and always dropped on the
+   floor. Both halves are now printed and both are pinned APART, because their
+   SUM is the number fourteen files quote and a change of two orders of
+   magnitude in the smaller one is invisible in it:
+
+     - **INDETERMINATE -- 12,276 pairs, 60.2119%.** Both words read perfectly
+       well. `_tail_verdict` returns None because the two nucleus sets are
+       COMPATIBLE and the short vowel that would separate them is not written.
+       This is the 60.2%, this is what the title now names, and it is a fact
+       about an orthography rather than about a writing system being refused.
+     - **SCRIPT -- 7 pairs, 0.0343%.** `tails()` is None: the word is outside
+       the declared Perso-Arabic inventory, or its parse enumeration hit
+       MAX_PARSES. Per TYPE that is **1 of 2,675** distinct qāfiya words,
+       **0.0374%** -- a single word, not a broad tax, which is the number that
+       shows the two axes were never the same size.
+
+   The script axis is still real and still paid in the open; it is simply three
+   orders of magnitude smaller than the figure that used to stand for it. Its
+   actual content is the 1.0% that come back False, almost all molamma' lines:
+   Arabic hemistichs rhyming on an unwritten i'rab case vowel, which read as
+   Persian end in a consonant. The module refuses by SCRIPT rather than by
+   language, so Arabic-in-Arabic-script is accepted and those Falses are the
+   price. Left standing and declared rather than patched, because a patch would
+   be a language detector nobody calibrated.
+   **AMENDED SEPARATELY, and the amendment matters more than the original.**
+   This item as first written implied the 60.2% None was a flat tax spread over
+   all pairs. It is not. On RANDOM Hafez word pairs the module is decisive
+   **~94.6% of the time under NULL 4** -- it returns False. NAME THE NULL: that
+   figure is NULL 4 (qāfiya words redealt across ghazals, length-matched), the
+   TIGHTEST of the three random-pair arms `hafez_rate.py` prints, and the other
+   two are looser -- NULL 5 (both members drawn from all 64,325 corpus TOKENS)
+   is decisive 93.4% and NULL 5b (drawn from the corpus word TYPES) 92.6%
+   (median None 5.4395% / 6.6117% / 7.3916%, N=200, seed 20260810). The refusal
+   concentrates almost entirely on pairs that already agree on the written
+   consonant skeleton, which is to say on the candidate rhymes. It refuses where
+   the question is hard and answers where it is easy. That is the designed
+   behaviour and it was asserted here before it was measured. See doctrine 67.
 
 60. **Derive a refusal from what the RELATION needs, not from which relation
    looks vulnerable.** Doctrine 53 said Guðni Jónsson's ǫ/ø->ö merger corrupts
@@ -573,14 +848,38 @@ cost falls, and why a refusal counted as a failure charges the wrong layer.
 
 67. **A refusal rate is not a tax -- measure WHERE it falls.** `fas.rhymes`
    returns None on 60.2% of real Hafez rhyme pairs, and doctrine 59 read that
-   as the price of refusing on script. Measured against random pairs drawn from
-   the same corpus, the module answers False 92% of the time and refuses only
-   ~5%. So the refusal is not spread evenly: it lands on exactly the pairs that
+   as the price of refusing on script -- which it was not, twice over: the
+   script half of that None is 7 pairs of 20,388, and doctrine 59's title has
+   been repinned onto the axis its own figure was measuring. Measured against
+   random pairs drawn from the same corpus, the module answers False 92% of the
+   time and refuses only **5.4% under NULL 4**. So the refusal is not spread
+   evenly: it lands on exactly the pairs that
    already share a written consonant skeleton, the ones where the unwritten
    short vowel actually decides the answer. Among pairs it DOES decide, True is
-   97.5% observed against a 2.2% null max. A high None-rate can mean the
-   instrument is blunt or that it is aimed; only a matched control tells you
-   which, and this project asserted the wrong one for a day.
+   **97.5% observed against NULL 4's null MAX of 2.4%** -- 2.449%, against a
+   null MEDIAN of 2.214% over N=200 at seed 20260810. (The 92% False rate above
+   is null-INVARIANT and needs no label -- 92.49 / 92.17 / 91.97 across the
+   three arms -- which is exactly why the refusal rate beside it does need one.)
+   **REPINNED 2026-08-13. This sentence read ~~"97.5% observed against a 2.2%
+   null max"~~, which quoted the MEDIAN under the word MAX** (doctrine 17: the
+   superseded reading stays visible). 97.5% was and is right; only the
+   comparator was mislabelled, and it was mislabelled in the direction that
+   makes the separation look 0.2 points wider than it is. This is CLAUDE.md's
+   own band-section finding -- "ONE STATISTIC, TWO MEANINGS, and the record has
+   been quoting both under one word" -- reappearing in a second arm, which is
+   doctrine 91: a count is a coordinate of the RENDERING, and "the null" is two
+   renderings of one sample.
+   **AND NAME WHICH NULL, every time.** `hafez_rate.py` prints THREE random-pair
+   arms and the figures above are NULL 4 (qāfiya words redealt across ghazals,
+   length-matched) ONLY -- the TIGHTEST of the three. NULL 5 (both members drawn
+   from all 64,325 corpus TOKENS) refuses 6.6% and NULL 5b (drawn from the
+   corpus word TYPES) 7.4%; True-among-decided nulls are max 1.5% and 0.87%
+   there. Quoting the tightest arm unlabelled reports the most flattering of
+   three answers as if it were the only one -- the same failure doctrine 58
+   names for a threshold, one axis out onto the CONTROL.
+   A high None-rate can mean the instrument is blunt or that it is aimed; only
+   a matched control tells you which, and this project asserted the wrong one
+   for a day.
 
 79. **A REFUSAL is not a failure, and putting it in the numerator charges the
    wrong layer.** The sonnet battery divided violations by the 1064 pairs the
@@ -671,7 +970,11 @@ is fetched. These bind while you are reading what you fetched.
    of any public GitHub repo works, and GUTENBERG IS MIRRORED ON GITHUB as the
    GITenberg org. The second directly overturned a NOT-FOUND row this project
    had already written and committed — the Finnish Kalevala, recorded as
-   unreachable, fetched in one call and validated at 81.2% alliteration. A
+   unreachable, fetched in one call and validated at 81.2% alliteration
+   (REPINNED 2026-08-13: 81.3%, 3,253 of the first 4,000 verse lines, and
+   22,795 lines extracted rather than the 22,822 recorded -- MEASURED by
+   `quality/audit_kalevala_null.py --check`, which had printed the line-count
+   disagreement on every run and exited 0 regardless). A
    sourcing failure is a claim about the network at a moment, not about the
    world; date it and re-run it when the map changes.
 
@@ -1058,6 +1361,27 @@ needs no negative control. What is gone is the empirical warrant.
 The instrument is fine: the SAME statistic under the SAME null gives
 sonnets 52.0% vs a null max of 34.2%, +17.9 pp with p at the floor.
 It is the Whitman COMPARISON that was uninformative, not the harness.
+
+REPINNED 2026-08-13, and every conclusion in the paragraph above
+SURVIVES the repin -- which is worth saying, because it did not
+survive the 2026-08-11 one. Under the shipped comparator the Whitman
+arm reads 26.0% -> 10.7% with null medians 19.3% -> 5.3%, so the
+separation moves +6.7 -> +5.3 pp (p 0.0547 -> 0.0199 at n=200), and
+the sentence "a filter that lowers chance and signal together has not
+tightened anything" is true again on this text: the observation falls
+15.3 points and the null median 14.0. The 20.0%/p=0.2090 pair is the
+pre-`b1d7f64` comparator's; the intervening 17.3%/+9.3/p=0.006
+reading, which briefly made the separation FLIP SIGN, does not
+reproduce either. The sonnet arm re-run at full n=200 gives band OFF
+53.5% against a null median 29.9% and max 35.6% -- so +23.6 pp over
+the median and **+17.9 pp over the MAX, reproducing to the decimal**
+-- with p at the 0.0050 floor, and band ON 48.9% moving the
+median-excess to +27.6 pp against a null median 21.3% (min 16.4,
+max 27.6), so `+17.9 pp over the null max` becomes +21.3 pp. The
+`52.0%` and the `34.2%` null max above are both superseded.
+Note that this paragraph's +17.9 is an excess over the null MAX while
+its +6.7/+3.3 are excesses over the null MEDIAN; a MAX grows with n
+and is not comparable across sample sizes (doctrine 57's mirror).
 
 ### verse.txt, deleted 2026-08-10
 

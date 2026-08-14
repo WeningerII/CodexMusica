@@ -37,7 +37,9 @@ TWO TIERS, matching what a person backspacing through a draft actually does.
 
 STOP CONDITIONS, and they are not one thing.
 
-  SUCCESS       `brief()` has nothing left carrying a "flag" finding.
+  SUCCESS       `brief()` has nothing left carrying a "flag" finding —
+                which is a PER-LINE statement and not a clean bill of
+                health; see "THE STOP CONDITIONS ARE PER-LINE SCOPED" below.
   NO_PROGRESS   a whole round fixed nothing; running an identical round
                 again would not either, so the loop does not.
   ROUND_LIMIT   `ReviseDeclaration.max_rounds` reached — declared since the
@@ -49,6 +51,90 @@ because every one of a pivot's groups has three or more members) is NOT a
 stop condition on its own. The loop keeps going on every OTHER flagged line
 and reports the dead end in the result — it does not discard the draft over
 one line it could not solve.
+
+WHICH LAYERS ONE RUN ACTUALLY ASKS, AND WHICH IT DOES NOT. Doctrine 48 in
+this module's own back yard: a grading layer that is off unless a caller
+passes a parameter, and does not SAY it was off, is indistinguishable in the
+result from a layer that was asked and came back clean.
+
+  ALWAYS ASKED, whatever the caller passes — the mandate's rhyme grading
+  (`Reviser.grade`), the slop floor (`quality/floor.py`), doctrine 9's modal
+  exclusion in BOTH of its directions (reactively, as the FORBIDDEN head of
+  every candidate field; and proactively, as `MODAL_RHYME` on a pair that
+  never failed anything), the declared returns (`Mandate.returns_check`,
+  which is VACUOUS rather than skipped when the mandate declares none — a
+  letter string declares none, `--returns=` and A-1 notation declare some),
+  and the readability REFUSALS of mandated pairs.
+
+  ASKED IS NOT THE SAME AS ACTIONABLE, and the floor is where the two come
+  apart furthest. It is called on every run, but its LENGTH-SENSITIVE half
+  is gated by doctrine 15: outside a calibrated profile's measured range
+  every one of its findings is downgraded to a note, and inside one the two
+  that can still be flags — `LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY` — are
+  whole-draft and invisible below. Measured on this suite's own fixture:
+  4 lines is 37 tokens and lands in the `section` profile exactly, so
+  `LEXICAL_MONOTONY` IS a flag there; 8 and 10 lines (74 and 93 tokens) fall
+  between two profiles and every floor finding becomes a note. What is left
+  that can actually start a round is the LENGTH-INDEPENDENT half —
+  `CLICHE_PAIR` and `REPEAT_IN_VERSE`, which are flags at any length and are
+  in `RHYME_FINDINGS`, so they earn a candidate field. `ANAPHORA_OVERLOAD`
+  names lines and so IS briefed, but it is not in `RHYME_FINDINGS`: the line
+  comes back with an empty field and the round reports "no candidates
+  offered". The same is true of every meter flag and of
+  `RETURN_NOT_VERBATIM` — seen, briefed, and left where they are, which is a
+  reported dead end rather than a silent pass.
+
+  OPT-IN, and silently absent without the parameter — meter
+  (`quality/fit.py`) and song-function (`quality/grid.py`) BOTH ride the one
+  `blueprint=` coordinate, so omitting it drops TWO layers, not one;
+  `subdivision=` then decides whether meter's slot questions are answered or
+  refused; `profile=` picks the comparator every score is read under.
+  `LoopResult.disclosure()` states each of them on every run, both ways —
+  the same move `Reviser.inspect`'s own `blueprint_declared` key makes one
+  level down, and the CLI's `_say_blueprint()` makes one level up. This
+  module was the gap between those two: `revise_loop` has taken
+  `blueprint=` since meter joined the loop and its RESULT said nothing about
+  whether it got one, so a caller holding a `LoopResult` — or reading one
+  back later, without the call site in view — could not tell "meter clean"
+  from "meter never asked."
+
+  ASKED SINCE 2026-08-14 — `quality/readability.py`'s own report.
+  `Reviser.inspect` folds it in, so an unreadable end word on a line the
+  mandate leaves FREE reaches this loop, where it used to be invisible: what
+  arrived before was only `grade`'s `refusals`, scoped to pairs the MANDATE
+  puts together.
+  IT ARRIVES AS A NOTE, so nothing in this file's control flow changes. A
+  refusal is not a violation (doctrine 79), and `SCHEME_UNREADABLE` — the same
+  refusal on a pair the mandate DECLARED — was already a note, so flagging this
+  one would make an unreadable word on an UNMANDATED line fail harder than the
+  identical word on a mandated one. Measured both ways: as a note the loop
+  returns SUCCESS in 0 rounds on a draft whose only defect is an unreadable
+  free-line end word; as a flag it returns NO_PROGRESS with that line
+  unresolved — and NO_PROGRESS rather than ROUND_LIMIT, because the loop
+  notices a barren round before exhausting `max_rounds`.
+  ~~NEVER ASKED, from here or from `quality/revise.py`. Not fixed in this
+  module: the join belongs in `Reviser.inspect`, which this file does not
+  own.~~
+
+THE STOP CONDITIONS ARE PER-LINE SCOPED, WHICH IS THE ONE THING "SUCCESS"
+DOES NOT MEAN. `brief()` is built out of `inspect()`'s `per_line` half only,
+so a WHOLE-DRAFT finding — one with no single line to hand back — is
+structurally invisible to `flagged` below, flag or not. Three codes are
+whole-draft AND a flag: `LEXICAL_MONOTONY` and `FUNCTION_WORD_HEAVY` (the
+floor, and only where the draft's token count is inside a calibrated
+profile's MEASURED range — outside it they are downgraded to notes, so the
+loop's blindness to them is invisible at most lengths too), and
+`HOOK_ABSENT` (song-function, so only once a blueprint is declared). Every
+one of them IS read by `verify()`, whose diff covers `whole` as well as
+`per_line` — so a whole-draft flag can REJECT a revision and can never ASK
+for one, and `revise_loop` can and does return SUCCESS on a draft still
+carrying one. That asymmetry is not closed by widening the stop condition:
+this loop's only move is a word swap on a NAMED line, none of the three
+names one, and promoting them would spend every round of `max_rounds` on a
+defect the loop has no move for and then report ROUND_LIMIT about it. It is
+DISCLOSED instead — `LoopResult.whole`/`.whole_flags` carry them out of the
+run and `__str__` prints them under the stop reason, so SUCCESS is never
+read as "clean" when it means "nothing left that this loop can act on."
 """
 
 import os
@@ -60,7 +146,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import raw_final_token  # noqa: E402
+from lyric_harness import load_lyric_lines, raw_final_token  # noqa: E402
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 
 __all__ = ["LineAttempt", "RoundResult", "LoopResult", "revise_loop",
@@ -147,11 +233,86 @@ class RoundResult:
 class LoopResult:
     """-> from `revise_loop`. `stop_reason` is one of "success",
     "no_progress", "round_limit" — never a fourth value, so a caller can
-    switch on it exhaustively."""
+    switch on it exhaustively.
+
+    THE FIELDS BELOW `unresolved` ARE THE DISCLOSURE, and they are metadata
+    about the CALL, not verdicts about the draft: which optional grading
+    layers were asked at all, the three pair counts doctrine 79 says are
+    never one number, and the whole-draft findings the per-line stop
+    condition is structurally unable to see (this module's own docstring,
+    "THE STOP CONDITIONS ARE PER-LINE SCOPED"). They default to the values a
+    run that asked nothing optional would produce, so a `LoopResult` built by
+    hand in a test is still a legal one.
+    """
     stop_reason: str
     lines: list
     rounds: list          # [RoundResult]
     unresolved: list      # [Brief], still carrying a flag finding at stop
+    #: `Reviser.inspect`'s OWN key, read out rather than recomputed here from
+    #: `blueprint is not None` — one definition of "was meter asked", so this
+    #: module cannot come to disagree with the module it drives (doctrine 1).
+    blueprint_declared: bool = False
+    #: meter's slot questions are ANSWERED with one and REFUSED without one;
+    #: `quality/fit.py` has no default subdivision and must not acquire one.
+    subdivision_declared: bool = False
+    #: the comparator every score in this run was read under (`None` = the
+    #: declared default). Doctrine 45: a checker that silently picks one is
+    #: making a claim it never states.
+    profile: object = None
+    #: [Finding] — `inspect()`'s whole-draft half at the stop point. NOT
+    #: reachable from `unresolved`, which holds `Brief`s and therefore only
+    #: ever holds per-LINE findings.
+    whole: list = field(default_factory=list)
+    #: doctrine 79, three counts, never summed: a refusal (an end word the
+    #: harness could not read) is not a judged pair that came back clean.
+    pairs_mandated: int = 0
+    pairs_judged: int = 0
+    pairs_refused: int = 0
+
+    @property
+    def whole_flags(self):
+        """The whole-draft findings that are FLAGS — the ones `stop_reason`
+        above was never able to see. `LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY`,
+        `HOOK_ABSENT` are the only three codes that can appear here."""
+        return [f for f in self.whole if f.severity == "flag"]
+
+    def disclosure(self):
+        """-> [str]. What was ASKED and what the stop condition could not see.
+
+        Printed by `__str__` on every run, in both directions, for the reason
+        `Reviser.inspect`'s `blueprint_declared` key exists: silence about an
+        opt-in layer reads exactly like that layer having been checked and
+        found clean, and the caller who most needs to know is the one reading
+        the result without the call site in view.
+        """
+        out = []
+        if self.blueprint_declared:
+            out.append("  LAYERS: rhyme, slop floor, declared returns, AND "
+                      "meter + song-function (blueprint declared"
+                      + (", subdivision declared)" if self.subdivision_declared
+                         else ", NO SUBDIVISION DECLARED — meter's slot "
+                              "questions refuse rather than assume one)"))
+        else:
+            out.append("  LAYERS: rhyme, slop floor and declared returns "
+                      "ONLY. NO BLUEPRINT — meter and song-function were NOT "
+                      "ASKED, which is not the same as their being clean "
+                      "(doctrine 20: a refusal is not a pass)")
+        prof = ("declared default" if self.profile is None
+                else repr(self.profile))
+        out.append(f"  COMPARATOR: profile={prof}")
+        out.append(f"  PAIRS: mandated {self.pairs_mandated}, judged "
+                  f"{self.pairs_judged}, refused {self.pairs_refused} — three "
+                  f"counts, never summed (doctrine 79)")
+        if self.whole_flags:
+            out.append("  WHOLE-DRAFT FLAG(S) NO STOP CONDITION ABOVE CAN "
+                      "SEE: " + ", ".join(f.code for f in self.whole_flags))
+            out.append("    a whole-draft finding names no line, and this "
+                      "loop's only move is a word swap on a named line, so "
+                      "these were never briefed and never revised. "
+                      "`verify()` DOES read them, so one of these can reject "
+                      "a revision and can never ask for one. Disclosed here "
+                      "so a SUCCESS is not read as a clean draft")
+        return out
 
     def __str__(self):
         out = [f"revise_loop: {self.stop_reason.upper()} after "
@@ -166,7 +327,52 @@ class LoopResult:
         if self.unresolved:
             out.append(f"  unresolved: "
                       f"{', '.join('L' + str(b.line_no) for b in self.unresolved)}")
+        out.extend(self.disclosure())
         return "\n".join(out)
+
+
+def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
+           blueprint, subdivision, assume, profile):
+    """Build the `LoopResult`, and take the disclosure off `inspect()` on the
+    way out. Called at all three stop conditions and nowhere else.
+
+    ONE extra `inspect()` per RUN — not per round, not per line — on the
+    final draft, at the moment the loop is already holding it. What it reads
+    (`blueprint_declared`, the whole-draft finding list, `grade`'s three
+    counts) is exactly what `quality/revise.py` already mints and this module
+    was throwing away: the loop calls `brief()`, which calls `inspect()` and
+    keeps only the `per_line` half. This is deliberately a READ of that
+    module's own keys rather than a second computation of the same facts —
+    a locally recomputed `blueprint is not None` would be a second definition
+    that can drift (doctrine 1), and the three pair counts recomputed here
+    would be a second grader.
+
+    THE COST IS BOUNDED BY THE CALL THAT PRECEDES IT, and it was MEASURED
+    rather than assumed: every stop condition is reached immediately after
+    `brief(lines, ...)` on these same lines, so `Reviser._matrix_cache` and
+    `_field_cache` are already holding this exact draft. On the four-line
+    fixture this suite uses, a second `inspect()` straight after the first
+    costs 0.1s against the first one's 43.6s — 0.2% of a 75s run. The one
+    case where that does not hold is NO_PROGRESS after a round with several
+    rejected proposals: `verify()` inserts each `after` draft into the
+    8-entry matrix cache, so the entry for THESE lines can be evicted and the
+    pairwise matrix recomputed. That is O(n^2) `best_score` calls on a draft
+    of a few lines, not a rebuild of the candidate field, which is where a
+    run's time actually goes.
+    """
+    found = reviser.inspect(lines, mandate, profile=profile,
+                            blueprint=blueprint, subdivision=subdivision,
+                            assume=assume)
+    g = found["grade"]
+    return LoopResult(
+        stop_reason, lines, rounds, unresolved,
+        blueprint_declared=found["blueprint_declared"],
+        subdivision_declared=subdivision is not None,
+        profile=profile,
+        whole=list(found["whole"]),
+        pairs_mandated=g["pairs_mandated"],
+        pairs_judged=g["pairs_judged"],
+        pairs_refused=g["pairs_refused"])
 
 
 def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
@@ -268,6 +474,11 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     round regardless. RAISES `NoMandate` exactly when `brief()`/`verify()`
     already do: a loop with nothing to check against is not this module's
     problem to paper over.
+
+    `blueprint`/`subdivision`/`assume`/`profile` are the OPT-IN coordinates
+    and every one of them is restated in the returned `LoopResult` (see
+    `LoopResult.disclosure`), so which layers this run asked travels WITH the
+    result instead of living only on this call line.
     """
     propose = propose or default_propose
     propose_pair = propose_pair or default_propose_pair
@@ -277,10 +488,16 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         briefs = reviser.brief(lines, mandate, profile=profile,
                                blueprint=blueprint, subdivision=subdivision,
                                assume=assume)
+        # PER-LINE FLAGS ONLY, and this module's docstring says so out loud
+        # rather than leaving it to be inferred from `brief()`'s signature:
+        # `briefs` is built from `inspect()`'s `per_line` half, so a
+        # whole-draft flag is not in `b.findings` for ANY b and cannot be
+        # here. `_close` carries those out in `LoopResult.whole_flags`.
         flagged = [b for b in briefs
                   if any(f.severity == "flag" for f in b.findings)]
         if not flagged:
-            return LoopResult("success", lines, rounds, [])
+            return _close(reviser, "success", lines, rounds, [], mandate,
+                          blueprint, subdivision, assume, profile)
 
         attempts, fixed_this_round, touched = [], [], set()
         for b in flagged:
@@ -301,23 +518,40 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         rounds.append(RoundResult(round_no, attempts,
                                   sorted(fixed_this_round)))
         if not fixed_this_round:
-            return LoopResult("no_progress", lines, rounds, flagged)
+            return _close(reviser, "no_progress", lines, rounds, flagged,
+                          mandate, blueprint, subdivision, assume, profile)
 
     briefs = reviser.brief(lines, mandate, profile=profile,
                            blueprint=blueprint, subdivision=subdivision,
                            assume=assume)
     unresolved = [b for b in briefs
                  if any(f.severity == "flag" for f in b.findings)]
-    return LoopResult("round_limit", lines, rounds, unresolved)
+    return _close(reviser, "round_limit", lines, rounds, unresolved, mandate,
+                  blueprint, subdivision, assume, profile)
 
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
-        print("usage: python3 quality/loop.py FILE MANDATE", file=sys.stderr)
+        # RHYME AND FLOOR ONLY, said in the usage line rather than left for a
+        # reader to infer from the absence of a flag: this runner takes no
+        # `--blueprint`, so meter and song-function are never asked through
+        # it. `python3 lyric_harness.py revise FILE MANDATE
+        # --blueprint=BP.json` is the surface that reaches them. Every run
+        # here also prints the same fact under its own result
+        # (`LoopResult.disclosure`), so the two cannot come apart.
+        print("usage: python3 quality/loop.py FILE MANDATE\n"
+              "       rhyme + slop floor + declared returns only; meter and "
+              "song-function need a blueprint, which reaches the loop through "
+              "`lyric_harness.py revise ... --blueprint=`", file=sys.stderr)
         sys.exit(2)
-    with open(sys.argv[1], encoding="utf-8") as fh:
-        lines_ = [l.rstrip() for l in fh.read().splitlines()
-                 if l.strip() and not l.strip().startswith("[")]
+    # APPARATUS IS `[Section]`, `--- ` OR `#`, ONE DEFINITION — and this
+    # runner was the last holdout after `lyric_harness.py`'s own verbs were
+    # centralized onto `load_lyric_lines` (CLAUDE.md, 2026-08-12). Its own
+    # inline filter kept only the `[` case, so a `# stage direction` or a
+    # `--- TITLE:` note under a section header was fed to this module as sung
+    # text: tokenized, rhyme-graded, counted toward the floor's MATTR, and
+    # eligible to be handed back to a writer as a line to revise.
+    lines_ = load_lyric_lines(sys.argv[1])
     R = Reviser(rdecl=ReviseDeclaration())
     result = revise_loop(R, lines_, sys.argv[2])
     print(result)

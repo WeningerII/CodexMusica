@@ -101,6 +101,28 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-13: 429 findings — 1 FAIL, 230 WARN, 198 NOTE**, over the
+> same 269 files. `python3 quality/audit_corpus.py`, exit 1. **TWO of the three
+> FAILs were fixed and this file was never told**: E's two duplications are
+> gone, and the survivor is D's `corpus/fas_hafez.LICENSE.txt`, declared `fas`
+> and unreadable under it (1.0% of 626 sampled tokens). The WARN and NOTE
+> counts rose by 3 and 5 as the corpus grew.
+>
+> **AND NOTHING RUNS THIS.** An audit of all eight adversaries found this one —
+> adversary 5, "the CORPUS" — has ZERO automated callers: no CI step, no test,
+> no caller anywhere; only a `__main__` that fires when somebody types the
+> command. Its committed output had therefore drifted for as long as nobody
+> typed it. It already exits 1 on FAIL and takes three minutes, so it was
+> CI-shaped the whole time and simply unwired. Wired into the `record` job the
+> same day.
+>
+> Two things follow, and the second is the one worth keeping. First: a repin
+> where the FAIL count FALLS is still a repin — the number moved, and a record
+> that only gets corrected when it gets worse is a record nobody checks in the
+> good direction. Second: this is doctrine 48 at the level of a whole
+> instrument rather than a line of code. The audit could always fail; nothing
+> ever asked it to.
+
 ### A · ROW (doctrine 34) — 0 failures
 
 **Every one of the 269 files reaches a row.** Three declared routes:

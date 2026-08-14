@@ -18,8 +18,21 @@ on:
   workflow_dispatch:
   # Weekly, so the slow cross-artifact meta-test (see the `tandem` job) has a home,
   # and so a full re-verify catches bit-rot from the toolchain rather than from us.
+  #
+  # TWO CRONS NOW, AND EVERY SCHEDULED JOB NAMES THE ONE IT WANTS. While there
+  # was exactly one cron, `github.event_name == 'schedule'` identified it
+  # precisely; with two it does not. An unpinned scheduled job silently joins
+  # every new cadence anybody adds — adding the nightly below would, on its
+  # own, have promoted the 25-minute `tandem` job from weekly to daily. So
+  # `tandem` names the weekly cron and the two nightly jobs name the nightly
+  # one, and a third cron cannot change what any existing job does.
   schedule:
     - cron: '0 6 * * 1'
+    # Nightly, for the checks the measurement in `suites` prices out of a pull
+    # request. Deliberately NOT at :00 — GitHub's scheduler queues cron runs
+    # globally and the top of the hour is the most contended minute there is,
+    # which shows up as a scheduled run starting late or being dropped.
+    - cron: '17 4 * * *'
 
 jobs:
   # Cheap, fast-failing gates, run FIRST and alone so an expensive job never
@@ -426,8 +439,17 @@ jobs:
   # unique is [1/4]'s comparison against the 18 committed tests/*_audit.json
   # snapshots, which nothing else reads. That is worth a weekly run, not 25+
   # minutes on every pull request.
+  #
+  # PINNED TO THE WEEKLY CRON. This read `github.event_name == 'schedule'`,
+  # which was exact while this workflow had one schedule. It now has two, and
+  # an unpinned condition would have made this 25+ minute job run every night
+  # — the precise outcome its own comment above argues against, arrived at by
+  # editing a different part of the file. Naming the cron keeps "weekly, not
+  # per-PR" true no matter what cadences get added later.
   tandem:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && github.event.schedule == '0 6 * * 1')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
@@ -453,3 +475,846 @@ jobs:
 
       - name: Cross-artifact tandem (source ↔ HTML ↔ zip, + audit snapshots)
         run: npm run tandem
+
+  # ── The record checks: does the repo still say what the code does? ────────
+  #
+  # THE FIRST PYTHON THIS WORKFLOW HAS EVER RUN. Until now `lyric-harness/` —
+  # 74 production modules, ~57k lines, 44 test modules — was executed by CI
+  # zero times. No workflow referenced python, pytest or .py; no npm script
+  # invoked one; there is no pytest.ini, tox.ini, pre-commit or Makefile. Every
+  # check in that subtree ran only when a human remembered to type the command.
+  #
+  # An execution-traced audit on 2026-08-13 priced that. Findings the four
+  # checks below would each have caught, and did not because nothing ran them:
+  #   * CLAUDE.md asserted "Whitman 17.3% chained — MEASURED, and battery.py
+  #     prints it". battery.py printed 10.7%. Wrong by 6.6 points, in the one
+  #     place the sentence invites a reader to check it.
+  #   * The same block pinned the sonnet oracle at 81/8.0%; battery.py's own
+  #     EXPECTED had said 82/8.1% for two days.
+  #   * quality/matrix_eval.json went stale on 2026-08-10 and stayed stale
+  #     through 31 commits to the comparator, while NULL_AUDIT.md listed it
+  #     under "Reproduced exactly, no defect found".
+  #   * verify_entries.py was RED — a false BACKLOG line-count entry — and had
+  #     been for an unknown period, because nothing ran it either.
+  #
+  # ~~WHY THESE FOUR AND NOT THE SUITES. These are the checks that compare the
+  # RECORD against the CODE; they are cheap and they fail loud. The test suites
+  # are a different job: quality/test_revise.py and test_loop.py each take 15+
+  # minutes, and quality/song_profile_calibration.py --check — the fifth drift
+  # detector — re-derives a 143-file corpus and needs 2.5-4 hours, not the
+  # "order of an hour" its docstring claims. Putting a multi-hour job here to
+  # look thorough is how a required check becomes one people skip.
+  #
+  # Measured on this repo: 4s + 4s + 5s + 25s. The 10-minute timeout is a
+  # runaway guard, not a budget.~~
+  #
+  # SUPERSEDED 2026-08-14, AND THIS PARAGRAPH IS NOW THE STALE RECORD IT WAS
+  # WRITTEN TO PREVENT. Struck rather than deleted (doctrine 17), because what
+  # it got wrong is the point. Four things in it are false:
+  #
+  #   * "THESE FOUR" — this job runs 22 checks.
+  #   * "test_revise.py and test_loop.py each take 15+ minutes" — MEASURED at
+  #     183.95 and 190.92 CPU-s, about three minutes each, both green. Neither
+  #     file declares the 15-minute figure anywhere; it was never run. The
+  #     refuting measurement now sits ~350 lines BELOW this claim IN THE SAME
+  #     FILE, which is exactly the shape this workflow's own checks exist to
+  #     catch — a figure quoted beside the command that prints it, where nobody
+  #     re-runs the command.
+  #   * "the suites are a different job" as an EXCLUSION — the `suites` job runs
+  #     all 44 on every pull request. It is a different job because it is
+  #     structured that way, not because the suites are unaffordable.
+  #   * "song_profile_calibration.py --check ... needs 2.5-4 hours" — `record`
+  #     runs it below at --without-predictability in 64s, and `nightly` runs the
+  #     full arm warm off a cache at ~85 CPU-s.
+  #
+  # WHAT IS ACTUALLY TRUE, and is the reason the split still exists: this job
+  # holds the checks that compare the RECORD against the CODE and cost seconds;
+  # `suites` holds the test modules; `nightly` holds the four instruments whose
+  # cost is measured in CPU-minutes. Three jobs, three cost classes, each
+  # membership decided by a measurement recorded at its own step.
+  #
+  # ALL FOUR WERE PROVEN TO FAIL before this job was added, by injecting the
+  # breakage each one names and confirming a non-zero exit: a renumbered
+  # doctrine (gap at 50) -> verify_doctrines exit 1; a false MODULE_LINE_COUNT
+  # claim -> verify_entries exit 1; a false committed counter -> counters exit
+  # 1; a perturbed AUC -> eval_matrix exit 1. That exercise found a fifth
+  # defect: verify_doctrines' contiguity check printed WARN and never set
+  # `ok`, so a deleted or renumbered doctrine exited 0 -- this job's first step
+  # would have been green on precisely the breakage it is named for. Fixed in
+  # the same commit. A check that cannot fail is decoration (doctrine 48), and
+  # adding one to CI makes it worse than decoration: it makes it a promise.
+  record:
+    needs: gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      # fetch-depth 0 IS LOAD-BEARING, not hygiene. `verify_entries.py`'s
+      # doctrine-17 check asks whether a pin that MOVED left its superseded
+      # value visible and dated, and it answers that by walking `git log
+      # --name-only` + `git cat-file --batch` over the pin's own history. On
+      # the default depth-1 checkout there is no history: the walk finds zero
+      # moves and prints clean, so the check would pass by knowing nothing.
+      # Added 2026-08-13, having been proved against a real `--depth 1` clone.
+      # The script refuses loudly rather than passing falsely if this is ever
+      # removed (doctrine 20), so the failure mode is a red step naming this
+      # line, not a silent green.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # No pip install: the harness is pure standard library by design, and
+      # `quality/declared_inputs.py` is the record of that boundary. If this
+      # step ever needs a requirements file, that is a change worth arguing
+      # rather than a line to add here.
+      - name: Confirm the harness needs no third-party packages
+        working-directory: lyric-harness
+        run: python3 -c "import lyric_harness, quality.floor, quality.revise; print('stdlib-only import OK')"
+
+      # cmudict.dict is 3.6 MB, gitignored, and fetched from a moving master
+      # branch with no checksum — which the audit flagged as its own defect
+      # (doctrine 34, inside the function whose comment invokes doctrine 34).
+      # Caching it keeps CI off that fetch on most runs; it does not fix the
+      # provenance gap, and is not pretending to. data/opensubtitles_en_50k.tsv
+      # is repo-committed and provenance-gated, so it is never fetched.
+      - name: Cache CMUdict
+        uses: actions/cache@v4
+        with:
+          path: lyric-harness/cmudict.dict
+          key: cmudict-${{ hashFiles('lyric-harness/lyric_harness.py') }}
+          restore-keys: cmudict-
+
+      - name: Stage the lexicon
+        working-directory: lyric-harness
+        run: python3 -c "from lyric_harness import fetch_data; fetch_data(); print('lexicon staged')"
+
+      # Each check runs even if an earlier one failed: they answer independent
+      # questions, and a run that stops at the first red tells you less than
+      # one that reports all four. `if: always()` after the first is what makes
+      # the job a REPORT rather than a tripwire.
+      # RENAMED 2026-08-13: this step now runs three checks more than its old
+      # name promised — the pre-split baseline (nothing defined before the
+      # 2026-08-11 file split has been lost, re-derived from 9b5f7c9), the
+      # doctrine->check registry, and the baseline's own re-derivation. A step
+      # name is a promise; the old one had gone short of what the step does,
+      # which is the same defect in the same file that the registry exists to
+      # catch in the doctrines themselves.
+      - name: Doctrine numbering and the doctrine→check registry (1-95, no number in both files, every citation resolves, every doctrine mapped to a check or a declared refusal)
+        working-directory: lyric-harness
+        run: python3 quality/verify_doctrines.py
+
+      - name: Entry claims (the sentences in MISSING.md and BACKLOG.md, checked)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/verify_entries.py
+
+      - name: Committed counters against their measurement
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/counters.py --check
+
+      - name: The fitted-matrix artifact against a fresh derivation
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/eval_matrix.py --check
+
+      # ADVERSARY 7 (CLAUDE.md's roster: "the REPORT — do the number, the
+      # label and the evidence agree?"). Added 2026-08-13, and it is the
+      # adversary that had NOTHING running it: an audit found audit_spans.py
+      # had zero automated callers, and that its `main` returned a literal 0
+      # whatever the sweep found -- so it exited clean while reporting that
+      # 382 of 1014 sonnet report lines name a pair that did not produce
+      # their number. Sharpest instrument in the layer, unrun, and unable to
+      # fail if it had been run. `--check` runs sweep 1 only (~1 min) and
+      # exits 1 when RESULTS_SPANS.md's committed headline stops reproducing;
+      # proven red on injected drift before this step was added.
+      - name: Span/label agreement against RESULTS_SPANS.md's headline
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_spans.py --check
+
+      # THE SLOP FLOOR'S OWN CALIBRATION, on the only path cheap enough to gate
+      # on. Added 2026-08-13. The full `--check` was measured this day at ~2.1
+      # CPU-HOURS -- its docstring had claimed "order of an hour", and the error
+      # was doctrine 58's exact shape: the RATE quoted was right (0.64 s/word)
+      # and the COUNT it was multiplied by was never written down and was wrong
+      # ("a few thousand distinct end words" is 11,941, which is 331,604,100
+      # candidate scorings). A drift detector nobody can afford to run is
+      # decoration, so the floor's 18 shipped constants had no automated
+      # witness at all.
+      #
+      # `--without-predictability` runs the four checks that do not need the
+      # rhyme-field sweep: measured here at 64 CPU-seconds. It judges 13 of the
+      # 18 constants EXACTLY and REFUSES the other 5 BY NAME rather than passing
+      # them silently (doctrine 20/79 -- band lo/hi, the predictability
+      # threshold and its two FPRs). Exits 0 on PARTIAL PASS with the counts on
+      # the line; proven to exit 1 before this step was added, by perturbing
+      # floor.py's `mattr_min` 0.7226 -> 0.7500, which it caught and named.
+      # The full sweep belongs on the weekly schedule with a warm cache, never
+      # on a PR that touches the comparator.
+      # MOVED TO THE `suites` JOB 2026-08-14. The step is unchanged and the
+      # reasoning above still holds; what changed is which job can run it.
+      #
+      # ~~- name: Song-profile calibration, the checks that do not need the
+      #   field sweep~~
+      #
+      # It reaches `quality.features._tagger()`, which does `import nltk` —
+      # lazily, inside the function, so it is invisible to an import scan and
+      # to this job's own "needs no third-party packages" step, which passed
+      # because it imports only `lyric_harness`, `quality.floor` and
+      # `quality.revise`. The runner has no nltk and no tagger model, so this
+      # step died on `ModuleNotFoundError` every time.
+      #
+      # THIS IS THE ARGUMENT THE COMMENT BELOW ANTICIPATED. It says a
+      # requirements file here "is a change worth arguing rather than a line to
+      # add here" — and the argument resolves the other way: the boundary is
+      # right and this step was on the wrong side of it. `record` stays
+      # stdlib-only. `suites` already installs nltk and stages the tagger model
+      # for the four test files that reach the same function, so the step costs
+      # nothing extra there.
+      #
+      # Third instance of this defect on this branch: numpy/sklearn in
+      # `nightly`, nltk in `suites`, now nltk here. Each was a lazy import, and
+      # each was found by running CI rather than by reading it.
+
+      # ADVERSARY 5 (CLAUDE.md's roster: "the CORPUS"). Added 2026-08-13, and
+      # like adversary 7 it had NOTHING running it -- no CI step, no test, no
+      # caller, only a `__main__`. Its committed output had drifted unnoticed
+      # for as long as nobody typed the command: 423 findings / 3 FAIL became
+      # 429 / 1 FAIL, because two of the three FAILs were fixed and the record
+      # was never told. Repinned in RESULTS_CORPUS_AUDIT.md the same day.
+      #
+      # `--verify-shape`, NOT the raw exit code, and the distinction is the
+      # point. `main()` exits 1 on any FAIL, which is right for a human. But
+      # one FAIL is standing and TRUE -- corpus/fas_hafez.LICENSE.txt is an
+      # English licence document under corpus/, so the D check is correct to
+      # call it declared `fas` and unreadable. Gating on that paints the job
+      # permanently red on a finding nobody intends to close, and a
+      # permanently red gate is one nobody reads. `--verify-shape` asks what
+      # CI can actually answer: has the shape MOVED since the record was
+      # written? Proven red on injected drift before this step was added.
+      # ~3 minutes over 26 MB.
+      - name: Corpus audit against RESULTS_CORPUS_AUDIT.md's committed shape
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_corpus.py --verify-shape
+
+      # THE 律詩 POSITIVE CONTROL's INGESTION. Added 2026-08-13, and it is the
+      # third instrument found the same day that printed its own drift and
+      # could not act on it: `main()` returned None and `sys.exit` was never
+      # called with a code, so this exited 0 while printing `RECORDED 99.3%`
+      # beside a measured 99.9% and `RECORDED ... 88.0%` beside a measured
+      # 90.0%. Nothing ran it, so nobody read the comparison it was printing.
+      #
+      # `--check` pins only the DETERMINISTIC quantities -- the poem count and
+      # the coverage numerator/denominator -- because the agreement rate rides
+      # a permutation draw. The null verdict is left to the printed p, which is
+      # at its floor either way and is not what drifted. `--check` also caps
+      # the replicate count, since the draw costs the runtime and the check
+      # does not read it: effectively instant. Proven red on an injected
+      # figure before wiring.
+      # REMOVED FROM CI 2026-08-14, and NOT because the check is bad.
+      #
+      # ~~- name: Tang rime-table ingestion against its committed shape~~
+      #
+      # The 全唐诗 pool this arm reads is an absolute path OUTSIDE this
+      # repository — `TANG_POOL` overrides it — and no CI job fetches it. On
+      # the runner the glob matched nothing, `tang_poems()` returned [], and
+      # the coverage line divided by zero: a MISSING CORPUS crashing on an
+      # arithmetic line, which reads as a defect in the statistic rather than
+      # in the environment. It passed locally for the whole time it was wired,
+      # because the pool is on the machine it was written on.
+      #
+      # The crash is fixed at the source — `audit_tang_null.py` now REFUSES
+      # with exit 2 and names the override (doctrine 20: nothing was measured,
+      # so nothing moved). But a step that can only ever exit 2 here is a
+      # permanently-red gate, which is the thing this file argues against
+      # forty lines up. So the step goes rather than the check.
+      #
+      # THIS IS DOCTRINE 92's SHAPE: the check is admissible and the corpus is
+      # reachable, and they are not reachable in the same place. Run it wherever
+      # TANG_POOL points at a chinese-poetry checkout; re-wire it here the day
+      # the corpus is fetchable from CI, not before.
+
+      # THE POOLED-FISHER H0 CALIBRATION. Added 2026-08-13, and it checks a
+      # DIRECTION rather than a number, on purpose: every figure this script
+      # prints is a Monte Carlo estimate, so pinning one to three decimals
+      # would pin a sample and fail on the seed -- doctrine 57's own warning,
+      # applied to the file that raises it.
+      #
+      # The two directions are what the record actually rests on. (1) The
+      # per-item p under H0 is NOT uniform -- Fisher requires U(0,1) and the
+      # median measures 0.56-0.58 -- which is doctrine 74 and the reason
+      # RESULTS_FWER's pooled 0.950 was ~1-in-12 rather than 1-in-20. (2) The
+      # recorded 0.701 sits in the upper tail, not the body.
+      #
+      # NOTE WHAT A RED HERE WOULD MEAN: if somebody fixes the pairing that
+      # causes the non-uniformity, this check SHOULD fail, and the right
+      # response is to repin the record -- not to widen the tolerance. The
+      # check says so in its own failure text. ~26 s at a declared reps=50.
+      - name: Pooled-Fisher H0 calibration still reads as the record describes
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_time_pooled_null.py --check
+
+      # THE KALEVALA ALLITERATION COUNTS. Added 2026-08-13, and this one IS
+      # number-pinnable where the pooled-Fisher check next door is not: the
+      # alliteration counts are exact over a fixed window, so `--check` pins
+      # them and leaves the null medians (samples) to the printed p.
+      #
+      # It had drifted, and the script had been announcing the drift to itself:
+      # it printed `verse lines extracted: 22795   (data/sources.tsv records
+      # 22,822)` on every run and exited 0 anyway, because `main()` returned
+      # None and `sys.exit` was never called with a code. 3,246 of the first
+      # 4,000 is now 3,253 -- 81.2% -> 81.3%. Repinned in METHOD.md,
+      # POSITIVE_CONTROL.md and NULL_AUDIT.md the same day.
+      #
+      # §2.2's actual finding is untouched: the within-line shuffle is still a
+      # no-op on 4000/4000 and 22795/22795 lines, because the statistic reads
+      # CO-MEMBERSHIP and no permutation of a line's words changes which
+      # initials share it. 81.3% against a null median of ~30% is not sensitive
+      # to a tenth of a point; what it IS sensitive to is whether the recorded
+      # number is the one the code produces. ~5 s. Proven red before wiring.
+      - name: Kalevala alliteration counts against their committed values
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_kalevala_null.py --check
+
+      # DOCTRINE 31, whose instrument had no caller and exited 0 whatever it
+      # printed — in a repo whose own reading order says "About to believe a
+      # null: 31, 71 and 76, in that order". 35 s, stdlib only, needs nothing
+      # but the repo. It pins THRESHOLDS AND ORDERINGS, not cells, and that is
+      # deliberate: a ten-seed sweep found the recorded 0.82 power at c=0.75 is
+      # the MAXIMUM of ten draws (median 0.74, only 2 of 10 reach 0.80), so a
+      # check pinning the cell would have been red on nine seeds out of ten.
+      # The ceiling has zero spread across those seeds and the floor 0.00-0.08,
+      # so those are pinned as bounds and verified green on 10/10.
+      # Part B is NOT here: its corpus lives outside the repo and is not
+      # fetched by CI, so it would exit 2 (CANNOT TELL) on every run, and a
+      # step that permanently cannot tell is decoration.
+      - name: The positive control's own instrument (doctrine 31/76)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/positive_control.py --check
+
+      # ADVERSARY 4's AIM. Added 2026-08-14. 0.06 CPU-s — the cheapest step in
+      # this job and, per CPU-second, the most informative one in the file.
+      #
+      # quality/mutate.py declares 57 mutations (33 M-series, 24 Q-series,
+      # across 7 target files) and every one is anchored on an EXACT TEXT MATCH
+      # in the file it mutates — not a name, not a line number, a literal
+      # source fragment. So an ordinary, correct, well-reviewed edit to a
+      # comparator silently DETACHES the mutation that was measuring that
+      # comparator's test coverage. Nothing else in the repo notices: the
+      # mutation stops being applied, the sweep reports on whatever still
+      # attaches, and the score drops without anybody reading the drop as a
+      # loss of coverage. mutate.py's own taxonomy calls this STALE and names
+      # the remedy (re-anchor, or retire with a reason).
+      #
+      # THREE DRIFTED IN 24 HOURS. That is this repo's measured rate, not a
+      # hypothetical, and it is why `--dry-run` earns a step of its own:
+      # it re-reads the shipped sources and re-applies all 57 anchors, so it
+      # answers "is adversary 4 still pointed at the code?" FROM THE CODE on
+      # every run. It is the only carrier of that fact that cannot be silenced
+      # by writing a file — a committed score can be repinned, an anchor that
+      # no longer matches cannot be argued with.
+      #
+      # Verified green 2026-08-14 before wiring: `57/57 mutations apply
+      # cleanly, M-series 33, Q-series 24 across 7 target file(s)`.
+      #
+      # TRAP, VERIFIED 2026-08-14: `mutate.py --dry-run | head -1` exits 1 via
+      # SIGPIPE on the CLEAN path — head closes the pipe, Python takes EPIPE,
+      # and a green run reports red. DO NOT PIPE THIS STEP. It is deliberately
+      # run bare, and this comment is here so the next person to "just add a
+      # `| tail`" finds out from the file rather than from a red build.
+      - name: Mutation anchors still apply (all 57 — adversary 4 is still aimed at the code)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/mutate.py --dry-run
+
+      # The other half of the pair, and a different question. `--dry-run` above
+      # proves the anchors ATTACH; this proves the LIST is coherent — that each
+      # declared mutation exists, that it reverts the thing its name says it
+      # reverts, and that it targets the SHIPPED comparator rather than a copy.
+      # Sections 1-3 only: it reads the list and the source and forks nothing.
+      # 0.06 CPU-s, MEASURED 2026-08-14, green (`the mutation list is well
+      # formed and every anchor still applies`).
+      #
+      # `--static` IS LOAD-BEARING, not tidiness. Bare `python3
+      # quality/test_mutation.py` runs the FULL SWEEP at
+      # `--jobs=os.cpu_count()`, forking the whole test suite once per
+      # mutation — mutate.py prices the honest version of that instrument at
+      # ~53 CPU-minutes. That is a nightly or a human's machine, never a step
+      # in a job budgeted in seconds. This is why test_mutation.py is also
+      # deferred by name in the `suites` job: a bare glob would have run the
+      # sweep on every pull request.
+      - name: Mutation list is well formed (static — no sweep, forks nothing)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/test_mutation.py --static
+
+      # THE HAFEZ RADIF AND QĀFIYA RATES against their committed values.
+      # Added 2026-08-14. 15.79 CPU-s, MEASURED.
+      #
+      # quality/phonology/fas.py produces three rates this project has started
+      # quoting — radif detected in 315 of 495 ghazals, a rhymes()
+      # None/True/False split of 60.2/38.8/1.0% over 20,388 pairs, and a
+      # seven-point threshold sweep — and every one of them was a bare rate
+      # with no automated witness. `--check` pins the DETERMINISTIC half: the
+      # detected counts and every cell of the sweep. It leaves the null medians
+      # to the printed p, because those ride a permutation draw and pinning a
+      # sample fails on the seed (doctrine 57) — the same line
+      # audit_time_pooled_null.py draws next door, for the same reason.
+      #
+      # Verified green 2026-08-14 before wiring: RESULT: PASS, with every sweep
+      # cell [ok] against its committed count (318/318/315/311/310/306/301/297).
+      - name: Hafez radif/qāfiya rates against their committed values
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/hafez_rate.py --check
+
+      # The same 495 ghazals through the OTHER instrument, and it is a separate
+      # question rather than a duplicate of the step above: hafez_rate.py
+      # checks the rates `phonology/fas.py` reports, this checks the radif
+      # AUDIT's own threshold ladder (mf=0.50 upward — 311/311/309/306/300/297,
+      # a different ladder over the same corpus). Either can move without the
+      # other, and a check that only watched one would call that agreement.
+      # 0.24 CPU-s, MEASURED 2026-08-14. Verified green before wiring.
+      - name: Hafez radif audit against its committed sweep
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_hafez_radif.py --check
+
+      # SANSKRIT PRĀSA. Added 2026-08-14. 0.68 CPU-s, MEASURED.
+      #
+      # Two input modes, and the cheap one is what runs here. `--check` alone
+      # reads `corpus/san_dcs_verse.txt` — the slice this runner itself stages,
+      # TRACKED IN GIT, carrying all 1,930 recovered half-verses — so it needs
+      # no DCS clone. `--check ROOT` additionally re-derives the ingestion-side
+      # figures from a full checkout; a slice-only run prints those ten rows as
+      # [SKIP] and never as [ok], so the reduced scope is disclosed rather than
+      # silently passed. The default full run draws 1,000 permutations and takes
+      # ~27 minutes, which is why `check()` draws no null at all.
+      #
+      # It also pins doctrine 79's four-tuple (mandated, judged, refused,
+      # carrying) for all six variants at both units, which is how the
+      # measurement that matters here became mechanical: the published V1 rate
+      # refuses 2 of 1,930 and is safe, but V2 refuses 592 of 1,930 — a Sanskrit
+      # pāda opening on a vowel has no initial consonant to share — so its rate
+      # reads 3.23 points low against a MANDATED denominator. No published
+      # figure moved; the refusal count is now checked rather than invisible.
+      - name: Sanskrit prāsa figures against their committed counts
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/prasa_rate.py --check
+
+      # THE CONJUNCTIVE BAND'S NEGATIVE CONTROL. 3.86 CPU-s, MEASURED
+      # 2026-08-14. The last "prints its own drift and exits 0" runner in the
+      # repo, and the one where that mattered most: its figures flipped sign
+      # TWICE in three days — +6.7 -> +3.3 (2026-08-10), +6.7 -> +9.3
+      # (2026-08-11), +6.7 -> +5.3 (2026-08-13) — and nothing anywhere said so.
+      #
+      # `--check` pins ONLY the deterministic half: the corpus shape and the
+      # four observed capture COUNTS (39/16 Whitman, 449/411 sonnets). Counts
+      # rather than rates, so the pin survives the report's one-decimal
+      # rendering. It leaves the null medians, BOTH excesses and the p unpinned,
+      # because each rides a permutation draw and both sonnet arms sit at
+      # 1/(n+1) — an empirical p at the resolution floor reports the resolution,
+      # not the effect (doctrine 57).
+      #
+      # THE TWO `*_captured_off` PINS ARE THE CONTROL ON THE CONTROL, and the
+      # failure text says how to read them: if OFF moved, the ingestion or the
+      # null machinery moved; if only ON moved, the band's own comparator did,
+      # and the Whitman/sonnet split says on which corpus.
+      #
+      # Exit 2 — not 1 — if the lexicon or either corpus is missing: nothing was
+      # measured, so nothing moved. The full n=200 run (196 CPU-s) is wired
+      # NOWHERE, not even nightly, because it would buy four null medians and
+      # two p-values that `--check` deliberately does not assert: a job that
+      # grades nothing.
+      - name: Band negative control against its committed capture counts
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/audit_band_control.py --check
+
+      # ADVERSARY 8 — the only adversary that attacks the RECORD rather than the
+      # work, and the one that found four false entries in a week. 2.5 CPU-s,
+      # MEASURED 2026-08-14.
+      #
+      # IT WAS ALREADY RUNNING IN CI AND ITS DRIFT WAS STILL INVISIBLE. The
+      # `verify_entries.py` step below shells out to this module and parses its
+      # printed derivation block, DELIBERATELY DISCARDING ITS EXIT CODE. So it
+      # has executed on every push while nothing read its verdict — the "prints
+      # its own drift and exits 0" shape, one indirection out, and the reason
+      # its own record went three days without a re-run and moved six derivation
+      # verdicts.
+      #
+      # `--check` IS A SEPARATE EXIT PATH AND DOES NOT INHERIT main()'s POLICY,
+      # which matters here more than anywhere else in this job: the bare runner
+      # exits 1 PERMANENTLY on D8/D9, a standing calibration pair that stays
+      # FALSE until MISSING.md M-4 reinstates the Malay row. Gating on the bare
+      # runner would install exactly the permanently-red check this file argues
+      # against twenty lines up.
+      - name: The record against the code (adversary 8)
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/audit_register.py --check
+
+      # THE TWO WELSH RUNNERS. 15.79 and 7.26 CPU-s, MEASURED 2026-08-14.
+      #
+      # These close the repo's last contradiction: one deterministic quantity
+      # carried under TWO values for four days. The cynghanedd searched rate was
+      # recorded at 54.1% and measures 57.1%, because `skeleton()`'s terminus
+      # became a property of the half-line's diweddeb on 2026-08-10 at 21:19 and
+      # four documents were written on the wrong side of that change.
+      #
+      # BOTH PIN COUNTS, NOT RATES. `rates()` used to return tried/judged
+      # already divided, throwing away the only exactly-pinnable form of the
+      # quantity; it returns integers now and main() divides at the print site,
+      # so stdout is byte-identical. `by_type` is pinned as four numbers because
+      # a skeleton change moves four, not one — and that is what said the +47
+      # went almost entirely to `traws`, whose answer depends on where the span
+      # stops, rather than spreading evenly as a loosened threshold would.
+      #
+      # Published n=200 quantiles are NOT pinned (the same call audit_tang_null,
+      # audit_kalevala_null and audit_hafez_radif make). The full n=200 Alun run
+      # is 3m40 CPU and is wired nowhere.
+      - name: Welsh odl figures against RESULTS_CYM_RHYME.md's committed counts
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/cym_rhyme_rate.py --check
+
+      - name: Cynghanedd search rate against its committed counts (both editions)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/cynghanedd_rate.py --check
+
+      # THE TIME LAYER IS STILL MUTE, AND STILL FOR THE RECORDED REASON.
+      # 83 CPU-s, MEASURED 2026-08-14 — the most expensive step in this job, and
+      # the only one whose headline is a NEGATIVE.
+      #
+      # THAT IS WHY IT DOES NOT PIN THE RATE. `0.0%` is printed identically by
+      # FIVE states: a fired instrument measuring nothing (a real null); an
+      # instrument that cannot fire (mute — this layer); an item whose own
+      # inventory makes rhyme unsurprising (doctrine 28's refusal); a dead band;
+      # a dead corpus. `mean == 0.0%` goes green on all five, which is doctrine
+      # 20's false-negative-dressed-as-a-finding exactly.
+      #
+      # The pin is on the MECHANISM, as an inequality between two measured
+      # numbers: `m_needed >= 1` (the item's best pair IS significant before
+      # correction, so the correction is what silenced it) AND `share_firable
+      # == 0.0` (even the smallest family in the item exceeds that). Together
+      # they say mute BECAUSE THE FAMILY IS TOO LARGE and nothing else — each
+      # rival state breaks one clause, and `why_mute()` names which.
+      #
+      # Doctrine 28's two states are pinned as two numbers with no pin reading
+      # their total: 18 `cannot tell` and 2 answered-with-an-observed-zero. An
+      # 18/0/2 that became 20/0/0 leaves the rate, the p and every mute total
+      # untouched and still goes red here.
+      #
+      # A check that goes green after a widened tolerance on this arm is a claim
+      # that the time layer WORKS. The failure text says so, and says that a
+      # layer mute for a DIFFERENT reason is a new finding needing a new row in
+      # RESULTS_FWER.md rather than a repin.
+      - name: The time layer is still mute, and for the recorded reason
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/audit_fwer_fpr.py --check
+
+  # ── The suites: 45 test modules that nothing had ever run ────────────────
+  #
+  # THE CLAIM THIS JOB EXISTS TO CORRECT. The `record` job's comment above
+  # ("WHY THESE FOUR AND NOT THE SUITES") excluded every test module here on
+  # the ground that "quality/test_revise.py and test_loop.py each take 15+
+  # minutes". MEASURED 2026-08-14, sequentially, on an otherwise idle box,
+  # threads pinned, CPU taken from rusage rather than a wall clock:
+  #
+  #     test_loop.py     190.92 CPU-s   exit 0
+  #     test_revise.py   183.95 CPU-s   exit 0
+  #
+  # Three minutes each, both green. NEITHER FILE DECLARES THE 15-MINUTE FIGURE
+  # ANYWHERE, and test_loop's own docstring prices a single revision at 40-90s.
+  # So the sentence that kept 45 suites out of CI generalised from three
+  # expensive things to all of them, and the premise under the generalisation
+  # was a number nobody had run. Two independent measurements this session
+  # agree to within 2% on every file they share.
+  #
+  # ZERO FAILURES across all 46. Nothing needed a re-run, which also disposes
+  # of the worry that a session of parallel edits had left the suite red.
+  #
+  # WHY THE FLAGSHIP PAIR IS HERE AND NOT NIGHTLY. test_revise and test_loop
+  # are the revision loop -- this project's flagship verb and the thing a
+  # writer actually touches. Excluding them on cost would repeat, at 6.2
+  # CPU-minutes, exactly the error this header is about.
+  #
+  # AND THEY ARE NOT EVEN THE EXPENSIVE ONES. This comment said until
+  # 2026-08-14 that they were "the two most expensive cheap suites", written
+  # while test_verbs.py was the one file nobody had ever timed. It finished at
+  # 218.1 CPU-s, exit 0 -- MORE than test_loop (190.92) and test_revise
+  # (183.95). So the sentence arguing against pricing-by-impression was itself
+  # pricing by impression, in the same paragraph, about the very file whose
+  # number was missing. The full order, top of the cheap set: test_verbs 218.1,
+  # fwer 48.08, readability 46.38, msa_fin 29.30, g2p 25.21, floor 21.36.
+  #
+  # WHAT IS DELIBERATELY NOT HERE, each with the reason and its measurement:
+  #   test_discriminate.py  ~1055 CPU-s cold, and cold BY DESIGN -- it neither
+  #                         reads nor writes data/feature_cache.json under any
+  #                         flag, so no cache warms it. Nightly.
+  #   test_mutation.py      bare, this is a PARALLEL FULL SWEEP at
+  #                         --jobs=os.cpu_count(): 1328 CPU-s against 600s wall
+  #                         before being killed, and mutate.py prices the
+  #                         honest version at ~53 CPU-min. A plain
+  #                         `quality/test_*.py` glob would put that on every
+  #                         pull request, which is why this job names its files
+  #                         and does not glob. `--static` runs in `record` at
+  #                         0.06 CPU-s and asks a different question.
+  #
+  # depth-1 is sufficient and deliberate: NO test file walks git history (zero
+  # git log / cat-file / rev-list across all 46). Only `record` needs
+  # fetch-depth 0, for verify_entries.py's doctrine-17 pin walk.
+  #
+  # ~~No network: zero urllib/requests/http/socket calls across all 46. Only
+  # test_discriminate.py needs data/concreteness.txt or nltk, and it is not
+  # here -- every other file needs at most cmudict.dict.~~
+  #
+  # CORRECTED 2026-08-14, BEFORE THIS JOB EVER RAN. The second sentence was
+  # FALSE and would have made this job red on its first real execution. FOUR
+  # gated suites reach `quality.features` — test_crosslinguistic,
+  # test_phrase_commonplace, test_readability and test_revise — and
+  # `features._tagger()` does `import nltk` and reads `data/nltk`, which is
+  # GITIGNORED (lyric-harness/.gitignore:4). So the runner has neither the
+  # package nor the model, and a lot simulated the failure: ModuleNotFoundError
+  # after 19 of 28 assertions.
+  #
+  # The claim came from a measurement of what each file IMPORTS at module level.
+  # `_tagger()` imports lazily inside the function — the same shape that made
+  # `nightly` fail its first run on numpy at discriminate.py:524. Twice in one
+  # day, a lazy import defeated an import scan; the scan is the wrong
+  # instrument, and running the job is the right one.
+  #
+  # The first sentence stands: no test file makes a network call. `fetch_data.py`
+  # does, which is why it is a STEP rather than something a suite does for
+  # itself.
+  suites:
+    needs: gate
+    runs-on: ubuntu-latest
+    # A RUNAWAY GUARD, NOT A BUDGET. All 44 files in this job are now
+    # measured: the 42 cheap ones sum to 505 CPU-s and the revision pair adds
+    # 375, so the job is ~880 CPU-s / ~14.7 min and this guard is ~2x that.
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Stage the pronunciation dictionary
+        working-directory: lyric-harness
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+
+      # FOUR OF THE SUITES BELOW REACH `quality.features`, WHOSE `_tagger()`
+      # DOES `import nltk` AND READS `data/nltk` — a gitignored directory the
+      # runner does not have. See the corrected note in this job's header for
+      # how that was nearly shipped. `quality/fetch_data.py` stages the tagger
+      # model, the tokenizer and the concreteness norms; `pip install nltk`
+      # supplies the package it needs to read them.
+      - name: Install nltk (four suites reach the POS tagger through features.py)
+        run: python3 -m pip install --disable-pip-version-check nltk
+
+      - name: Stage the tagger model and the concreteness norms
+        working-directory: lyric-harness
+        run: python3 quality/fetch_data.py
+
+      # Named, never globbed -- see the header. A glob is how test_mutation.py's
+      # 53-CPU-minute sweep would arrive here without anybody deciding it should.
+      # Threads pinned: a sibling instrument measured 625 CPU-s of BLAS
+      # spin-wait against 32 pinned, on matrices too small to be worth a thread.
+      - name: The 42 cheap suites (15 of them under 1 CPU-s)
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -e
+          for f in align band coda controls corpus_audit crosslinguistic cym \
+                   declared_inputs english_text fit floor fwer g2p grid \
+                   homograph ipa ltc mandate_language matrix meter msa_fin \
+                   mut_band mut_oracle nucleus null_shapes phon_fas phon_msa \
+                   phon_non phon_san phonology phrase_commonplace \
+                   positive_control provenance readability readings_seam \
+                   register_audit relations song_function spans taxonomy \
+                   time_layer verbs; do
+            echo "── quality/test_$f.py"
+            python3 "quality/test_$f.py"
+          done
+
+      # MOVED HERE FROM `record` 2026-08-14, because this job has the tagger.
+      # 64 CPU-s. It judges 13 of the 18 calibration constants EXACTLY and
+      # REFUSES the other 5 BY NAME rather than passing them silently (doctrine
+      # 20/79 -- band lo/hi, the predictability threshold and its two FPRs).
+      # Exits 0 on PARTIAL PASS with the counts on the line; proven to exit 1
+      # by perturbing floor.py's `mattr_min` 0.7226 -> 0.7500, which it caught
+      # and named. The FULL sweep is a different thing and runs nightly.
+      - name: Song-profile calibration, the checks that do not need the field sweep
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/song_profile_calibration.py --check --without-predictability
+
+      # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
+      # green -- against the "15+ minutes each" that kept them out until today.
+      - name: The revision loop (test_revise 184s + test_loop 191s, measured)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -e
+          python3 quality/test_revise.py
+          python3 quality/test_loop.py
+
+  # ── Nightly: the checks the measurement above prices out of a pull request ─
+  #
+  # Named to the nightly cron, not to `schedule` -- see the two-crons comment
+  # at the top of this file. An unpinned condition here would also fire on the
+  # weekly cron, and a third cron would silently recruit this job too.
+  #
+  # This is where the honest-but-expensive instruments live. Each one below was
+  # kept out of `record` and `suites` by a MEASUREMENT, not by an impression,
+  # and the measurement is stated at the step.
+  nightly:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && github.event.schedule == '17 4 * * *')
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # song_profile_calibration's memo lives OUTSIDE the repo, at
+      # ~/.cache/lyric-harness/song_predictability_v1.tsv, which is what makes
+      # a nightly full --check affordable at all: 2.0-2.2 CPU-HOURS cold
+      # against ~85 CPU-s warm, and it is explicitly resumable. Restoring this
+      # is the difference between a job that finishes and one that times out.
+      - name: Restore the predictability memo
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/lyric-harness
+          key: lyric-harness-predictability-v1-${{ github.run_id }}
+          restore-keys: lyric-harness-predictability-v1-
+
+      # THE ONE PLACE THIS REPO LEAVES THE STANDARD LIBRARY, AND IT IS DELIBERATE.
+      # The `record` job's comment states the boundary — "the harness is pure
+      # standard library by design, and quality/declared_inputs.py is the record
+      # of that boundary" — and that is true of the harness. It is NOT true of
+      # three instruments that only run here: discriminate.py imports numpy and
+      # sklearn LAZILY at its line 524, inside the function that fits the
+      # classifier, so the dependency is invisible to a module-level import scan
+      # and to every check `record` runs.
+      #
+      # FOUND BY RUNNING CI, NOT BY READING IT. This job was written without a
+      # pip step and its first real execution failed three steps in a row inside
+      # two seconds — too fast to be a run, which is what a missing import looks
+      # like. Nothing local caught it because this container already had both
+      # packages installed. Added 2026-08-14.
+      - name: Install the two packages the nightly instruments need
+        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn
+
+      - name: Stage the pronunciation dictionary
+        working-directory: lyric-harness
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+
+      # The one instrument that needs the quality-layer resources: concreteness
+      # norms and the frequency list. `record` deliberately does NOT run this,
+      # which is why audit_joint_auc_null.py refuses there.
+      - name: Fetch the quality-layer resources
+        working-directory: lyric-harness
+        run: python3 quality/fetch_data.py
+
+      # ORDER IS LOAD-BEARING and this is the only place the chain is complete.
+      # discriminate.py is the ONLY caller of save_cache, data/feature_cache.json
+      # is gitignored, and audit_joint_auc_null.py --check REFUSES at exit 2
+      # without a warm cache -- correctly, per doctrine 20, but it means that
+      # check currently grades nothing anywhere else in this file. Here it
+      # grades something.
+      - name: Warm the feature cache (the only save_cache caller)
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/discriminate.py
+
+      - name: Joint AUC null against its cold pins (needs the warm cache above)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/audit_joint_auc_null.py --check
+
+      # 44 AUCs pinned FULL-PRECISION at a 0.0005 tolerance, cold. ~1055 CPU-s,
+      # and none of it is shortenable: 99.8% is the 384 feature extractions,
+      # and the extractions ARE the cold guarantee.
+      - name: Every discrimination AUC against its cold pin (~17.6 CPU-min)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/test_discriminate.py
+
+      # Adversary 4 for real: the suite re-run once per mutation. ~53 CPU-min.
+      # `record` runs --static (0.06 CPU-s) to prove the anchors still attach;
+      # this proves the tests still CATCH. Two questions, two costs.
+      - name: The full mutation sweep (~53 CPU-min — adversary 4 for real)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/test_mutation.py
+
+      # 2.0-2.2 CPU-hours cold, ~85 CPU-s warm off the cache restored above.
+      # `record` runs --without-predictability at 64s; this is the whole thing.
+      - name: Song-profile calibration, full (warm off the cache above)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/song_profile_calibration.py --check

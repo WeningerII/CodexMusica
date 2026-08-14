@@ -26,6 +26,12 @@ commissioned it, and **three recorded numbers did not reproduce**.
    own line-permutation null** — p ≈ 0.006 at n = 2000, against the recorded
    p = 0.209 — and the band's effect on the separation has **flipped sign**:
    recorded +6.7 → +3.3 pp, measured +6.7 → **+9.3** pp.
+   *(SUPERSEDED 2026-08-13. Re-measured at the same seed and n: band ON reads
+   R_obs **10.7%**, null median **5.3%**, excess **+5.3 pp**, p **0.0199** at
+   n = 200. So the separation FALLS, the sign did not flip but flipped BACK to
+   the 2026-08-10 direction, and the control does not clear at the floor. The
+   n = 2000 p was measured on R_obs 17.3%, which no longer reproduces. Finding
+   3 below is unaffected and is the one the withdrawal rests on.)*
 3. **Whitman was never eligible for the role, and that needs no null.** Half
    of its detected chain links are REPEAT on an identical token; `now` closes
    four consecutive lines. A negative control is a text in which the property
@@ -102,9 +108,13 @@ that put them there compared them to each other.
 ### 1.3 And the null moved further than the observation did
 
 ```
-$ python3 quality/audit_band_control.py 200        # today, shipped comparator
+$ python3 quality/audit_band_control.py 200        # 2026-08-11 comparator
   band OFF   obs 26.0%   null med 19.3%  max 27.3%   excess +6.7 pp   p 0.0547
   band ON    obs 17.3%   null med  8.0%  max 16.7%   excess +9.3 pp   p 0.0050
+
+$ python3 quality/audit_band_control.py 200        # 2026-08-13, same seed
+  band OFF   obs 26.0%   null med 19.3%  max 27.3%   excess +6.7 pp   p 0.0547
+  band ON    obs 10.7%   null med  5.3%  max 12.0%   excess +5.3 pp   p 0.0199
 ```
 against `NULL_AUDIT.md` §1.1's record, at the same n and the same seed:
 ```
@@ -116,13 +126,28 @@ The band-OFF row reproduces to the decimal, which is the check that the null
 itself is the same null. The band-ON row does not: the **null median halved**,
 16.7% → 8.0%.
 
-**The band's effect on the separation has flipped sign.**
+**The band's effect on the separation has flipped sign.** *(And on 2026-08-13
+it flipped BACK — see the third column. The heading is kept as written under
+doctrine 17; it is false at head.)*
 
-| | recorded | measured today |
-|---|---:|---:|
-| Whitman excess over null median, band OFF → ON | +6.7 → **+3.3** pp | +6.7 → **+9.3** pp |
-| Whitman p, band ON | 0.209 | 0.005 |
-| Sonnets excess, band OFF → ON | +23.6 → +23.5 pp | +23.6 → **+26.2** pp |
+| | recorded | measured 2026-08-11 | **re-measured 2026-08-13** |
+|---|---:|---:|---:|
+| Whitman excess over null median, band OFF → ON | +6.7 → **+3.3** pp | +6.7 → **+9.3** pp | +6.7 → **+5.3** pp |
+| Whitman p, band ON | 0.209 | 0.005 | **0.0199** |
+| Sonnets excess, band OFF → ON | +23.6 → +23.5 pp | +23.6 → **+26.2** pp | +23.6 → **+27.6** pp |
+
+The 2026-08-13 column is the same script at the same seed and n = 200. The
+band-OFF row is unchanged to the decimal on BOTH corpora — the sonnet arm was
+re-run at full n = 200 and gives null median 29.9%, min 25.5%, max 35.6%,
++23.6 pp, +17.9 pp over the MAX, p at the 0.0050 floor — so the null machinery
+is demonstrably identical and every figure that moved is downstream of the
+band-ON comparator alone. Whitman's observation falls 26.0 → 10.7 (−15.3 pp)
+and its null median falls 19.3 → 5.3 (−14.0 pp): **the band lowers chance and
+signal together**, which is doctrine 71's sentence verbatim, reinstated on this
+text one repin after it was retired. The same statistic under the same null
+gives the sonnets +23.6 → +27.6 with p at the 0.0050 floor in BOTH arms
+(null median 29.9% → 21.3%), so the band genuinely tightens the POSITIVE
+corpus. The instrument is fine; the Whitman comparison is the empty part.
 
 Doctrine 71's sentence — *"a filter that lowers chance and signal together has
 not tightened anything"* — is a true sentence about the comparator it was
@@ -476,10 +501,84 @@ Every floor-arm figure in §3 is the post-fix one. The pre-fix figures
 the third decimal; nothing that depends on them changes, because the argument
 is about a 51x range against a 1.15x move.
 
+## 4b. The relations layer: 3 schemas of 77 had a null
+
+`quality/relations.py` declares **77** relation schemas. `python3
+lyric_harness.py relations FILE` and `python3 quality/relations.py FILE` both
+print a per-schema instance count over all of them, and then a paragraph saying
+a count is not evidence. `quality/relations_null.py`'s recorded table controls
+**three**. The other 74 reach a shipped decision surface uncontrolled — and the
+gap had never been counted, because that file is named in **one markdown line
+in this entire repo** (`CLAUDE.md`'s `wiring` paragraph) and appears in neither
+this document nor `NULL_AUDIT.md`. An instrument nobody writes down is an
+instrument nobody checks.
+
+**"Nobody got to it" is 31 of the 74, and the other 43 need four different
+remedies (doctrine 44).** Census over the first 40 lines of
+`corpus/song/eng_american_edgar_allan_poe.txt`, `eng`, budget 2.0 s,
+2026-08-13: EXTENDABLE 31 · TOO EXPENSIVE 2 · NO INSTANCE 15 · CANNOT OBTAIN
+26 · CANNOT FAIL 0 here (3 derived without a text) · CONTROLLED 3. The largest
+cause is CANNOT OBTAIN — `realise()` never produces an observation at all — and
+**2 of those 26 are permanent**: `frequency` and `stub_resolution` have
+no branch in `Stream.provides`, so `trite rhyme` and `refrain
+by reference` cannot be nulled on any text under any declaration. That is a
+BUILD, not a corpus.
+
+**REPINNED 2026-08-13, three ways, all in this paragraph.** It read **3 of
+those 26 are permanent**, naming `poet` first and `dialect rhyme` with it;
+`poet` was added to `ALT_SURFACES` and left `NEVER_PROVIDED` earlier the same
+day, so `dialect rhyme` is declarable and the count is 2. **EXTENDABLE 31 is a
+`budget=2.0` reading and the budget is a wall-clock verdict this file's own
+census says does not reproduce** — at `budget=None` it is **33**, the two extra
+being `chain rhyme (rap)` and `compound / phrasal rhyme`. And the sweep line
+below (34 live schemas, 268 rows in 199 s) is the same budgeted reading; at
+`budget=None` it is **36 live / 292 rows**. Superseded figures kept visible
+(doctrine 17). `relations_null.py --verify` now pins the unbudgeted reading,
+because a marker whose value depends on how loaded the machine was is not a
+marker.
+
+**The sweep — 34 live schemas x 4 nulls x 10 replicates, same slice, 268 rows
+in 199 s. 87 rows (32.5%) are the null returning the observation EXACTLY**, 24
+of them `line_permutation · count`. So §1's identity-map finding was never a
+fact about this file's three arms; it holds across the registry. Of the 181
+rows where the null did move, **126 sit BELOW the null's max** — `consonance`
+23 against a null max of 191 (lift 0.19), `head rhyme (positional)` 4 against
+30. A count from this layer sitting below chance is the ORDINARY case, not a
+quirk of `internal rhyme`. 17 schemas clear their own null on at least one
+statistic; `perfect rhyme · count · within_line_shuffle` is +219 at 27.9x.
+
+**Detection floor, per schema (doctrines 31/76), and it needs FOUR counts.**
+`plant_locality` reorders the text's own lines so detected instances sit
+together — one member of the `line_permutation` null's own support, chosen
+adversarially, so the plant and the null max share a scale by construction.
+Floor clears **52** · floor does NOT clear **30** · statistic CONSTANT, no
+experiment **30** · not measurable **0**. The middle two were one number until
+they were split, and they are different findings: a row where the plant, the
+observation and every replicate are the same value has not FAILED a floor, it
+never had an experiment (doctrine 20).
+
+**Two coordinates moved DURING the run, and both are worth stating.**
+`internal rhyme · count` reads **20482** where `relations_null.py`'s own table
+records 20472, on the identical slice; `perfect rhyme` (2431) and Kalevala
+(.845) reproduce exactly. The cause is not this measurement:
+`quality/phonology/eng.py` and `ltc.py` were being edited the same afternoon by
+a parallel cell, and four schemas flipped between running and refusing on
+`quotient:*` mid-session. **The census is a coordinate of the PHONOLOGY
+MODULE's state, not a property of the registry** — doctrine 58 one axis
+further out again, and the first instance in this repo of a figure moving
+because a dependency changed while it was being read. And TOO EXPENSIVE is the
+one verdict that does not reproduce at all: its boundary is a wall-clock
+reading, and `compound / phrasal rhyme` crossed it between two runs of the same
+slice minutes apart. Doctrine 66 — read the printed seconds, not the
+membership.
+
 ## 5. What did NOT move
 
 * `python3 battery.py` — `mandated 1064, judged 1014, refused 50`,
-  `violations 81 (8.0%)`. Unchanged by everything in this file.
+  `violations 82 (8.1%)`. Unchanged by everything in this file.
+  REPINNED 2026-08-13 from `81 (8.0%)`: the claim is intact — nothing in this
+  file moved it — but cell BA's coda-identity fix later moved the baseline
+  itself, `81 -> 82`. `mandated`/`judged`/`refused` unchanged at 1064/1014/50.
 * `quality/negative_control.py`'s English arm reproduces, with drift confined
   to the two tradition groups whose corpus files were edited since the arm was
   written (`eng_british`, `eng_hymn` — five files changed in `debf64e`).

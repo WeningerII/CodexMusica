@@ -31,6 +31,24 @@ it is deciding what to DO about one:
 Test 7 is the invariant every tier is built on: the loop never changes a
 line it did not report changing, in any round, on any path.
 
+Tests 11-12 are WHICH LAYERS ONE RUN ASKS — the question "what is built here
+but not automated here", asked of this module about itself:
+  - 11 the OPT-IN pair (meter + song-function, both on `blueprint=`) is
+       stated in the RESULT in both directions, and the same run pins the
+       blind spot that made the disclosure necessary: `revise_loop` reports
+       SUCCESS on a draft still carrying `HOOK_ABSENT`, because every stop
+       condition reads `brief()`, and `brief()` is per-LINE
+  - 12 the DECLARED-RETURNS layer is ASKED without any opt-in and the loop
+       has no move for what it finds — `RETURN_NOT_VERBATIM` is briefed with
+       an EMPTY candidate field, so the line is a reported dead end rather
+       than a silent pass
+
+BOUNDED ON PURPOSE: every fixture here is 3-5 lines. One `revise_loop` run
+over a 4-line draft costs 40-90s wall clock (the candidate field is built
+over the complete lexicon pool), and a 28-line one has already blown a
+180-second budget once. A fixture in this file that grows past about a dozen
+lines is a fixture that stops being run.
+
 Run: python3 quality/test_loop.py
 """
 
@@ -45,6 +63,7 @@ from quality.loop import (default_propose, revise_loop,  # noqa: E402
                           swap_end_word)
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
+from quality import schemes as SC  # noqa: E402
 from lyric_harness import line_tokens, raw_final_token, Lexicon  # noqa: E402
 
 FAILURES = []
@@ -103,6 +122,52 @@ TOO_LARGE = ["We laughed the whole entire day",
             "It gleamed like polished silver",
             "Another walk beside the river",
             "The whole thing felt like a dream"]
+
+#: A FOUR-LINE blueprint over `CLICHE`, in memory rather than in
+#: `quality/fixtures/`: `fit.from_blueprint` takes a dict or a path, and the
+#: smallest blueprint shipped in this repo is 16 lines — four times the size
+#: this suite can afford to drive the loop over (see the module docstring on
+#: what a run costs). Every field here is load-bearing for test 11: the two
+#: sections declare `function`, which is what `grid.song_from_blueprint`
+#: reads and `fit.py` ignores, and `hooks` names a line that is NOT in the
+#: draft and cannot be put there by a proposer that only swaps end words —
+#: so `HOOK_ABSENT`, the ONE flag the song-function layer can raise, is
+#: guaranteed present at every stop condition rather than depending on what
+#: the stub happens to pick. Verified interactively before being pinned.
+CLICHE_BLUEPRINT = {
+    "title": "four line probe",
+    "hooks": ["a hook that is nowhere in this draft"],
+    "sections": [
+        {"name": "verse1", "bars": 2, "start_bar": 1, "function": "verse",
+         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+        {"name": "chorus1", "bars": 2, "start_bar": 3, "function": "chorus",
+         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+    ],
+    "lines": [
+        {"text": CLICHE[0], "bar": 1, "beat": 1, "duration": 4,
+         "section": "verse1"},
+        {"text": CLICHE[1], "bar": 2, "beat": 1, "duration": 4,
+         "section": "verse1"},
+        {"text": CLICHE[2], "bar": 3, "beat": 1, "duration": 4,
+         "section": "chorus1"},
+        {"text": CLICHE[3], "bar": 4, "beat": 1, "duration": 4,
+         "section": "chorus1"},
+    ],
+}
+
+#: L1 and L3 are DECLARED THE SAME LINE and are not verbatim — `reasons`/
+#: `reason`, `all the`/`every`. Verified interactively: `Mandate.
+#: returns_check` returns one `HEAD_AND_TAIL_PRESERVED` finding on this
+#: draft, `inspect()` turns it into a `RETURN_NOT_VERBATIM` FLAG on L3, and
+#: `brief()` hands that line back with ZERO candidates, because
+#: `RETURN_NOT_VERBATIM` is not in `RHYME_FINDINGS` and a return is not
+#: repaired by swapping an end word.
+RETURN_DRIFT = ["we counted every reason we were given",
+               "the kettle went on shouting in the hall",
+               "we counted all the reasons we were given",
+               "the morning came and did not care at all"]
+RETURN_DRIFT_MANDATE = SC.mandate([[1, 3], [2, 4]], n_lines=4,
+                                  returns=[[1, 3]])
 
 
 def test_success_stop():
@@ -337,6 +402,90 @@ def test_strip_parens_is_a_declared_coordinate():
           f"default={words_default!r} voiced={words_voiced!r}")
 
 
+def test_optin_layers_are_disclosed_and_success_is_per_line():
+    print("\n11. the OPT-IN layers are stated in the RESULT both ways — and "
+         "SUCCESS is per-LINE, on a draft still carrying a whole-draft FLAG")
+    R = Reviser()
+    res = revise_loop(R, CLICHE, "ABAB", blueprint=CLICHE_BLUEPRINT)
+    check("blueprint declared: the RESULT says so, not just the call site",
+          res.blueprint_declared is True)
+    text = "\n".join(res.disclosure())
+    check("...and names BOTH layers that ride the one coordinate — omitting "
+          "`blueprint=` drops meter AND song-function, not one of them",
+          "meter" in text and "song-function" in text, text)
+    check("no subdivision was declared, and the disclosure says the slot "
+          "questions REFUSED rather than assuming a grid",
+          res.subdivision_declared is False
+          and "NO SUBDIVISION DECLARED" in text)
+    check("doctrine 79: mandated / judged / refused survive the loop as "
+          "THREE counts rather than being discarded at the `brief()` call "
+          "that computed them",
+          (res.pairs_mandated, res.pairs_judged, res.pairs_refused)
+          == (2, 2, 0),
+          f"{res.pairs_mandated} / {res.pairs_judged} / {res.pairs_refused}")
+
+    # THE BLIND SPOT THE DISCLOSURE EXISTS FOR. `HOOK_ABSENT` is the only
+    # FLAG the song-function layer raises and it carries no line, so it lands
+    # in `inspect()`'s `whole` half, which `brief()` never reads -- the loop
+    # stops on SUCCESS with it standing. `verify()` DOES read it (CLAUDE.md
+    # records a CLI run rejecting a chorus swap for introducing exactly this
+    # code), so it can reject a revision and can never ask for one.
+    check("the loop reports SUCCESS...", res.stop_reason == "success",
+          res.stop_reason)
+    codes = [f.code for f in res.whole_flags]
+    check("...on a draft that STILL carries HOOK_ABSENT, a flag -- so "
+          "SUCCESS means 'nothing left this loop can act on', never 'clean'",
+          "HOOK_ABSENT" in codes, codes)
+    check("the two halves of the result openly disagree, which IS the "
+          "finding: `unresolved` (per-line, what every stop condition reads) "
+          "is EMPTY while `whole_flags` is not -- a `Brief` can only ever "
+          "carry a per-line finding, so no widening of `unresolved` would "
+          "have reached these",
+          res.unresolved == [] and res.whole_flags != [],
+          f"unresolved {res.unresolved}, whole flags {codes}")
+    check("the printed result carries the warning, not just the dataclass",
+          "NO STOP CONDITION ABOVE CAN SEE" in str(res))
+
+    def refuses_everything(brief, lines, attempt, reasons=None):
+        return None
+    R2 = Reviser(rdecl=ReviseDeclaration(max_rounds=1))
+    off = revise_loop(R2, CLICHE, "ABAB", propose=refuses_everything)
+    off_text = "\n".join(off.disclosure())
+    check("OMITTED is disclosed too, which is the whole point -- silence "
+          "about an opt-in layer reads exactly like that layer being clean",
+          off.blueprint_declared is False and "NOT" in off_text
+          and "meter" in off_text, off_text)
+
+
+def test_declared_returns_are_asked_and_have_no_move():
+    print("\n12. the DECLARED-RETURNS layer is asked with no opt-in at all, "
+         "and the loop reports having no move for it rather than passing")
+    R = Reviser(rdecl=ReviseDeclaration(max_rounds=1))
+    res = revise_loop(R, RETURN_DRIFT, RETURN_DRIFT_MANDATE)
+    flagged_codes = {f.code for b in res.unresolved for f in b.findings}
+    check("L3's broken return reaches the loop as a FLAG -- `returns_check` "
+          "is consulted on every run, not behind a parameter; a letter "
+          "scheme simply declares no returns for it to check",
+          [b.line_no for b in res.unresolved] == [3]
+          and "RETURN_NOT_VERBATIM" in flagged_codes,
+          f"unresolved {[b.line_no for b in res.unresolved]}, "
+          f"codes {sorted(flagged_codes)}")
+    l3 = [a for r in res.rounds for a in r.attempts if a.line_no == 3]
+    check("and the loop offers ZERO candidates for it -- a return is not "
+          "repaired by swapping an end word, so `RETURN_NOT_VERBATIM` earns "
+          "no candidate field and the attempt says so",
+          l3 and l3[0].tried == 0 and not l3[0].accepted
+          and "no candidates offered" in l3[0].reason,
+          l3[0].reason if l3 else None)
+    check("L1's rhyme WAS fixed in the same round -- one unsolvable line is "
+          "never a stop condition, which is the invariant this fixture "
+          "exercises against a real second layer rather than a stub",
+          res.rounds[0].fixed_lines == [1], res.rounds[0].fixed_lines)
+    check("L3 is byte-identical: a line the loop had no move for is left "
+          "exactly as written",
+          res.lines[2] == RETURN_DRIFT[2])
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -347,7 +496,9 @@ if __name__ == "__main__":
                test_the_loop_never_touches_an_unreported_line,
                test_swap_end_word_refuses_a_disagreeing_reading,
                test_no_mandate_is_a_refusal_not_a_pass,
-               test_strip_parens_is_a_declared_coordinate):
+               test_strip_parens_is_a_declared_coordinate,
+               test_optin_layers_are_disclosed_and_success_is_per_line,
+               test_declared_returns_are_asked_and_have_no_move):
         fn()
     print("=" * 62)
     if FAILURES:

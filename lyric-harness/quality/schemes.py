@@ -263,14 +263,97 @@ class RefrainScheme:
         A Mandate is a RHYME requirement, and doctrine 3 says REPEAT is a
         violation inside a verse and the requirement across returns. Handing
         these pairs to a rhyme grader would flag every correct refrain.
+
+        THE DRAFT HAS TO BE THE POEM THE NOTATION NUMBERS, and until
+        2026-08-13 nothing here tested that. Every finding below is positional
+        — "the notation's L5 is the draft's fifth line" — and `self.n_lines`
+        comes from the NOTATION while `len(lines)` comes from the DRAFT, two
+        independently sourced numbers that no constructor on this path
+        reconciles. (`Mandate` cannot have this defect the same way:
+        `Reviser.mandate` builds `SC.mandate(spec, n_lines=len(lines))`, so
+        the two agree by construction there.) The old `OUT_OF_RANGE` message
+        NAMED THAT MISMATCH — "the notation declares N lines and M were
+        given" — while its guard tested a refrain LINE INDEX against
+        `len(lines)`, and the two come apart in BOTH directions:
+
+        GENEROUS. On a form whose LAST LINE IS NOT A REFRAIN the mismatch
+        holds and no index is out of range, so nothing was reported at all.
+        The shipped `pantoum quatrain pair` (`aB1aB2 B1cB2c`, 8 lines, last
+        refrain line 7) checked against a 7-line draft returned `[]`, and
+        `lyric_harness.py refrain` printed "every declared refrain returned
+        VERBATIM" one line under its own "7 line(s) vs 8 declared". The
+        harness printed the evidence and the opposite verdict together.
+        MEASURED over `REFRAIN_FORMS`, that is the ONLY one of the eight
+        shipped forms that discriminates — the other seven close ON a refrain,
+        so their last line is also a refrain line and the index guard covers
+        for the missing check. That is why nothing found this. Doctrine 94:
+        no positive case can find it either, because every positive case hands
+        over a draft of exactly the right length.
+
+        MISLEADING. A `RefrainScheme` built directly rather than through
+        `parse_refrain` (which cannot number a refrain past its own line
+        count) can carry a refrain outside its own 1..n_lines; checked against
+        exactly `n_lines` lines the old message printed "declares 4 lines and
+        4 were given", two numbers that AGREE and name nothing.
+
+        Both are closed the way `Mandate.returns_check` closed its twin, and
+        phrased as that method phrases it so the two surfaces cannot drift:
+        the length disagreement is its own `LINE_COUNT` finding that says how
+        many requirements were graded on the positional reading ANYWAY and are
+        conditional on it, and `OUT_OF_RANGE` names the offending LINE, says
+        WHICH of the two ways it got out of range (doctrine 79 — a hand-built
+        scheme and a short draft need different repairs) and says the
+        requirement was NOT CHECKED rather than leaving a reader to infer a
+        clean pass from silence (doctrine 20).
         """
         from quality.grid import compare_returns, normalise_line
         out = []
-        for i, j, lab in self.repeat_pairs():
-            if i > len(lines) or j > len(lines):
+        n = len(lines)
+        pairs = self.repeat_pairs()
+        if n != self.n_lines:
+            unchecked = sum(1 for i, j, _ in pairs if i > n or j > n)
+            lo, hi = ((n + 1, self.n_lines) if n < self.n_lines
+                      else (self.n_lines + 1, n))
+            span, was = ((f"L{lo}", "was") if lo == hi
+                         else (f"L{lo}..L{hi}", "were"))
+            how = (f"{span} {was} never given" if n < self.n_lines else
+                   f"{span} {'is' if was == 'was' else 'are'} past the "
+                   f"notation's last line")
+            # THREE COUNTS, doctrine 79: declared, graded-on-the-assumption,
+            # and not reached at all. Summing them would hide which layer the
+            # unchecked ones belong to.
+            out.append((None, None, None, "LINE_COUNT",
+                        f"the notation numbers {self.n_lines} lines and {n} "
+                        f"were given — {how}, so the draft's line k is not "
+                        f"known to be the notation's line k and every "
+                        f"identity finding here is positional. Of "
+                        f"{len(pairs)} declared REPEAT pair(s): "
+                        f"{len(pairs) - unchecked} graded on that reading "
+                        f"ANYWAY and conditional on it, {unchecked} naming a "
+                        f"line past the draft and NOT CHECKED. This is the "
+                        f"assumption said out loud, not a clean pass "
+                        f"(doctrine 20)"))
+        for i, j, lab in pairs:
+            if i > n or j > n:
+                bad = [x for x in (i, j) if x > n]
+                names = "L" + ", L".join(str(x) for x in bad)
+                # WHICH of the two disagreements this is, said out loud. Past
+                # `self.n_lines` -> the SCHEME numbers a refrain outside its
+                # own declaration, which `parse_refrain` cannot produce and
+                # only a hand-built `RefrainScheme` reaches. Inside
+                # 1..n_lines and past `len(lines)` -> the DRAFT is short.
+                why = (f"and {names} is outside the notation's own "
+                       f"1..{self.n_lines} — this scheme was NOT built by "
+                       f"`parse_refrain`, which cannot number a refrain past "
+                       f"its own line count"
+                       if any(x > self.n_lines for x in bad) else
+                       f"though {names} is inside the notation's own "
+                       f"1..{self.n_lines} — the DRAFT is short")
                 out.append((lab, i, j, "OUT_OF_RANGE",
-                            f"the notation declares {self.n_lines} lines and "
-                            f"{len(lines)} were given"))
+                            f"refrain {lab} names {names}, past the {n} "
+                            f"line(s) given, {why}. The verbatim requirement "
+                            f"at L{i}/L{j} was NOT CHECKED — unasked, not "
+                            f"answered clean (doctrine 20)"))
                 continue
             a, b = lines[i - 1], lines[j - 1]
             if normalise_line(a) == normalise_line(b):
@@ -431,11 +514,23 @@ class Coordinates:
     crossings: int               # pairs of blocks that interleave (ABAB-like)
     nestings: int                # pairs of blocks that enclose (ABBA-like)
     adjacencies: int             # rhymes on consecutive lines (AABB-like)
+    #: UNREAD BY ANYTHING, production or test, since this class was written --
+    #: computed at every `coordinates()` call and never asked for. The `scheme`
+    #: verb prints eight of these twelve coordinates and skips this one.
+    #: Recorded rather than deleted: it is a real coordinate of the space
+    #: (doctrine 1) and the shape `ReviseDeclaration.max_rounds` had for the
+    #: whole time before `quality/loop.py` was written.
     contiguous_blocks: int       # blocks whose lines are all consecutive
+    #: read by tests only (`test_taxonomy.py`, `test_grid.py`); no production
+    #: reader, and structurally unreachable besides -- `sections=` is never
+    #: passed by any caller of `coordinates()` outside a test, so this is 0
+    #: and `sections` is `()` on every production call.
     section_crossing: int = 0    # rhymes spanning a section label boundary
     sections: tuple = ()
 
     def as_dict(self):
+        """UNCALLED by anything in this repo. Kept: it is the only accessor
+        that surfaces `contiguous_blocks`/`section_crossing` at all."""
         return dict(self.__dict__)
 
 
@@ -808,8 +903,17 @@ class Requirement:
 
     name: str
     #: must these two lines stand in a RHYME relation?
+    #: NO PRODUCTION READER. `grade()` decides rhyme from `Mandate.pairs()`
+    #: (a pair is mandated because it is in a group), never by asking this
+    #: field, so it is declared and read by `test_mandate_language.py` alone.
+    #: DELIBERATELY RESERVED: it is the coordinate that would let a mandate
+    #: state a REQUIRED IDENTITY WITHOUT a rhyme requirement, which is what a
+    #: non-rhyming refrain in free verse is, and the closed five-value set is
+    #: what makes such a value expressible at all.
     rhyme_required: object
     #: must they be the SAME LINE, verbatim?
+    #: NO PRODUCTION READER either: `inspect()` reaches identity through
+    #: `Mandate.returns_check()` / `Return.verbatim`, not through this field.
     identity_required: object
     #: is an identical end word here a VIOLATION? Doctrine 3's inversion, moved
     #: off the song-wide `repeat_licence` switch and onto the pair, which is
@@ -817,6 +921,11 @@ class Requirement:
     repeat_is_violation: object
     #: did the mandate SPEAK about this pair at all? False means out of scope,
     #: which is "cannot tell" and is not the same as `FREE`'s "nothing here".
+    #: NO PRODUCTION READER: it is False on `UNDECLARED` alone, and
+    #: `UNDECLARED` is only returned when `Mandate.scope` is non-empty, which
+    #: no production path ever makes it. `decided()` -- which IS on the
+    #: production path -- reports per-FIELD declaredness (is the value
+    #: `UNKNOWN`) and never consults this one.
     declared: bool
     gloss: str = ""
 
@@ -923,6 +1032,12 @@ class Return:
     #: TRUE (must be verbatim), FALSE (a return that need only keep its rhyme),
     #: or `UNKNOWN` (the caller declines to say, and the unknown propagates).
     verbatim: object = True
+    #: HOW this class was learnt, in words. A CLOSED LOOP as it stands: written
+    #: by `parse_returns`, read only by `_normalise_returns` to build the
+    #: merged class's own `origin`, and surfaced by nothing -- `describe()`
+    #: prints the label and the verbatim state and not this. `Mandate.origin`
+    #: is the one that reaches a report (`describe()`, and the CLI's MANDATE
+    #: line); this per-CLASS provenance has no reader.
     origin: str = ""
 
     # A return class IS its lines, so `set(r)`, `for i in r` and `i in r` all
@@ -1279,6 +1394,10 @@ class Mandate:
     #: (doctrine 28). A mandate written over a chorus says NOTHING about the
     #: verses, and reporting a verse rhyme as unintended against it charges
     #: the writer for a question that was never asked.
+    #: NEVER GIVEN A NON-EMPTY VALUE ON ANY PRODUCTION PATH -- no CLI verb
+    #: spells it and `Reviser.mandate()` forwards no `scope=`. `in_scope()`
+    #: is read (see there); this field is what is unreached, and the one
+    #: report it would change (`grade()`'s collision loop) does not ask.
     scope: tuple = ()
     #: the declared coordinates of what a return MEANS (doctrine 1)
     rule: "ReturnRule" = field(default_factory=lambda: ReturnRule())
@@ -1319,7 +1438,33 @@ class Mandate:
     # -- returns: the second and third statements -------------------------
 
     def in_scope(self, line):
-        """Does the mandate SPEAK about this line? Empty scope means all."""
+        """Does the mandate SPEAK about this line? Empty scope means all.
+
+        WHO READS THIS, since an audit called it declared-but-unread and it is
+        not: `requirement()` below, on every pair, and `requirement()` is on
+        the grading spine -- `quality/revise.py`'s `grade()` (per REPEAT pair)
+        and `inspect()` (per repeat finding) both call it, so one
+        `grade()`+`inspect()` pass over a 19-line villanelle reaches this
+        method 120 times. `quality/test_mandate_language.py` §11 pins that
+        rather than leaving it to prose (doctrine 48).
+
+        WHAT IS UNREACHED is the OTHER half: `Mandate.scope` is never given a
+        non-empty value on any production path. `Reviser.mandate()` is
+        `SC.mandate(spec, n_lines=...)` and forwards no `scope=`, and no CLI
+        verb spells it, so in production this always answers True and
+        `UNDECLARED` is never returned. A Python-API caller CAN reach it by
+        handing `brief`/`inspect`/`verify` a pre-built `Mandate` (the same and
+        only route `returns=` had before `--returns=` existed).
+
+        AND THE ONE PLACE IT WOULD CHANGE A REAL RUN STILL DOES NOT ASK.
+        `grade()`'s collision loop reports every pair at or above
+        `THETA_COLLISION` that shares no group, without consulting the
+        mandate's scope -- so on this repo's own 41-line fixture, scoped to
+        its chorus, 49 of the 73 collisions touch a line the mandate says it
+        does not speak about and are reported as `SCHEME_COLLISION` anyway.
+        That is exactly what `UNDECLARED`'s own gloss forbids: charging the
+        writer for a question nobody asked (doctrine 20).
+        """
         return (not self.scope) or line in self.scope
 
     def return_of(self, line):
@@ -1486,6 +1631,17 @@ class Mandate:
         this repo's own song, and "refrain" licenses every REPEAT in the lyric
         INCLUDING one inside a verse, which is the defect the flag exists to
         catch. A per-song switch cannot express a per-pair inversion.
+
+        THE GRADER DOES NOT CALL THIS METHOD. `quality/revise.py` reads the
+        FIELD instead -- `m.requirement(i, j).decided("repeat_is_violation")`,
+        at `grade()` and again at `inspect()` -- because it needs the
+        (is_declared, value) pair and not just the tri-state. So this method
+        is the DOCUMENTED spelling of a decision the production path takes
+        through `Requirement`, and the two can drift silently: changing this
+        method alone would leave every test in
+        `quality/test_mandate_language.py` green and change nothing about a
+        real grading run. §11 of that file pins them equal at every pair,
+        which is the only thing that stops the drift (doctrine 48).
         """
         return self.requirement(i, j).repeat_is_violation
 
@@ -1504,16 +1660,154 @@ class Mandate:
         Returns declared non-verbatim or UNDECLARED are skipped and reported
         as skipped: the mandate does not require identity there, so silence
         about them would be an answer the mandate never gave.
+
+        `OUT_OF_RANGE` IS THE ONE MEMBER OF THIS OUTPUT THAT REPORTS A MANDATE
+        THAT COULD NOT BE READ rather than a return that came back wrong, and
+        until 2026-08-13 its message NAMED A CONDITION THIS GUARD DOES NOT
+        TEST. The guard tests a return LINE INDEX against `len(lines)`; the
+        message said "the mandate declares N lines and M were given" — a
+        LENGTH MISMATCH between mandate and draft, which `Reviser.mandate`
+        (`SC.mandate(spec, n_lines=len(lines))`) refuses with `NoMandate`
+        several frames earlier, so no `Reviser.inspect()` call can reach this
+        branch by that route at all. On the input that DOES reach it — a
+        `Mandate` assembled around `_normalise_returns` (`dataclasses.replace`,
+        direct construction) carrying a `Return` outside its OWN 1..n_lines —
+        the old message printed "the mandate declares 4 lines and 4 were
+        given", which names nothing: the two numbers agree and the defect is
+        the index. It now names the OFFENDING LINE, says which of the two ways
+        it got out of range (doctrine 79: charge the right layer — a hand-built
+        mandate and a short draft need different repairs), and says the
+        verbatim requirement was NOT CHECKED rather than leaving a reader to
+        infer a clean pass from a finding about something else (doctrine 20).
+
+        AND THAT FIX CLOSED THE MISLEADING HALF AND LEFT THE GENEROUS HALF
+        STANDING — closed 2026-08-13, one lot later, by the lot that had named
+        it. THE DRAFT HAS TO BE THE POEM THE MANDATE NUMBERS. Every finding
+        below is positional — "the mandate's L5 is the draft's fifth line" —
+        and `self.n_lines` comes from the MANDATE while `len(lines)` comes from
+        the DRAFT. An index guard cannot see the two disagree: it only ever
+        asks whether a RETURN LINE falls past the draft, so a mandate whose
+        returns all land INSIDE a short draft tripped nothing and reported
+        nothing at all.
+
+            S.mandate([[1, 3]], n_lines=6,
+                      returns=[[1, 3]]).returns_check(['x', 'b', 'x'])  ->  []
+
+        Six lines declared, three given, L1/L3 verbatim, and the 6-vs-3
+        disagreement never mentioned. MEASURED over `REFRAIN_FORMS` put through
+        `RefrainScheme.to_mandate` and handed a one-line-short draft whose
+        returns all HOLD: exactly ONE of the eight — `pantoum quatrain pair`,
+        whose last return line is 7 of 8 — returned `[]`. The other seven close
+        ON a returning line, so their index guard fires anyway and covers for
+        the missing check. That is the same one-in-eight
+        `RefrainScheme.check_identity` measures, on the same registry, because
+        it is the same defect on the twin surface. Doctrine 94: no positive
+        case can find it either, because every positive case hands over a draft
+        of exactly the right length. And the OVER-LONG direction — a draft
+        LONGER than the mandate numbers, where a title line shifts every line
+        number down — no index guard can EVER reach.
+
+        UNREACHABLE FROM `Reviser.inspect()`, AND THAT IS A PROOF RATHER THAN A
+        CLAIM. `inspect()` calls `m.returns_check(lines)` on `m =
+        self.mandate(lines, mandate)`, which is `SC.mandate(spec,
+        n_lines=len(lines))`; with `n_lines` non-None EVERY branch of `mandate`
+        either returns an object whose `n_lines` IS that argument or raises
+        `NoMandate` (the `Mandate`, `Cover`, letter-string, RGS and
+        `RefrainScheme` branches each compare and refuse; the group-list and
+        re-open branches assign `n = n_lines` outright). So `n == self.n_lines`
+        there by construction and the `LINE_COUNT` branch is dead on that path.
+        `quality/test_mandate_language.py` §15 walks the branches rather than
+        asserting this. WHAT WOULD MAKE IT FIRE: a caller reaching
+        `returns_check` without going through `Reviser.mandate` (this method is
+        public), or `Reviser.mandate` learning to accept a length mismatch
+        instead of refusing it. Either one needs `quality/revise.py`'s loop
+        over this output to grow a `LINE_COUNT` branch FIRST — it currently
+        routes every kind but `OUT_OF_RANGE` into `add(j,
+        Finding("RETURN_NOT_VERBATIM", "flag", ...))`, and this finding's `j`
+        is `None` because a length disagreement names no pair. It belongs in
+        `whole` as a NOTE, beside
+        `RETURN_OUT_OF_RANGE`: it says which question could be asked, not that
+        a line is wrong, and doctrine 6/7 keep a disclosure out of the gate.
+
+        Both halves are now phrased the way `RefrainScheme.check_identity`
+        phrases its own, so the two surfaces cannot drift: the length
+        disagreement is its own `LINE_COUNT` finding that says how many
+        requirements were graded on the positional reading ANYWAY and are
+        conditional on it (doctrine 79's counts, declared / graded / not
+        reached, never summed), and it says the assumption out loud rather than
+        letting silence read as a pass (doctrine 20). It is NOT gated on the
+        mandate having any return at all — gating it would put the silence back
+        for every rhyme-only mandate, and this is the only method on `Mandate`
+        that is shown the draft.
         """
         from quality.grid import compare_returns, normalise_line
         out = []
-        for i, j, r in self.return_pairs():
+        n = len(lines)
+        declared = self.return_pairs()
+        # The pairs this method GRADES. Non-verbatim and UNKNOWN returns are
+        # skipped by the loop below and are a THIRD count in the message, never
+        # folded into either of the other two: the mandate did not require
+        # identity there, so they are neither graded nor blocked by a short
+        # draft (doctrine 79). `undeclared_returns()` is where those are asked.
+        #
+        # COMPUTED BESIDE THE LOOP RATHER THAN REPLACING IT. Folding this
+        # predicate into the loop header — `for i, j, r in [... if r.verbatim
+        # is True]` — reads better and DISARMS `quality/mutate.py`'s QS3,
+        # whose anchor is the literal `if r.verbatim is not True:` / `continue`
+        # two blocks down. `apply_mutation` raises on a stale anchor and
+        # `--dry-run` prints STALE, so it is loud rather than silent — but
+        # nothing in the regression sweep runs either, so adversary 4 would
+        # have lost a member to a tidier line until the next mutation sweep.
+        # Measured, not assumed: the first draft of this fix took QS3's `old=`
+        # string from 1 to 0, and `quality/test_mandate_language.py` §15b
+        # step 4 now pins all five where the sweep will see it.
+        pairs = [(i, j) for i, j, r in declared if r.verbatim is True]
+        if n != self.n_lines:
+            unchecked = sum(1 for i, j in pairs if i > n or j > n)
+            lo, hi = ((n + 1, self.n_lines) if n < self.n_lines
+                      else (self.n_lines + 1, n))
+            span, was = ((f"L{lo}", "was") if lo == hi
+                         else (f"L{lo}..L{hi}", "were"))
+            how = (f"{span} {was} never given" if n < self.n_lines else
+                   f"{span} {'is' if was == 'was' else 'are'} past the "
+                   f"mandate's last line")
+            out.append((None, None, None, "LINE_COUNT",
+                        f"the mandate numbers {self.n_lines} lines and {n} "
+                        f"were given — {how}, so the draft's line k is not "
+                        f"known to be the mandate's line k and every identity "
+                        f"finding here is positional. Of {len(declared)} "
+                        f"declared return pair(s): {len(pairs) - unchecked} "
+                        f"graded on that reading ANYWAY and conditional on "
+                        f"it, {unchecked} naming a line past the draft and "
+                        f"NOT CHECKED, {len(declared) - len(pairs)} declared "
+                        f"non-verbatim or UNKNOWN and never graded here. This "
+                        f"is the assumption said out loud, not a clean pass "
+                        f"(doctrine 20)"))
+        for i, j, r in declared:
             if r.verbatim is not True:
                 continue
-            if i > len(lines) or j > len(lines):
+            if i > n or j > n:
+                bad = [x for x in (i, j) if x > n]
+                names = "L" + ", L".join(str(x) for x in bad)
+                # WHICH of the two disagreements this is, said out loud. Past
+                # `self.n_lines` -> the RETURN is outside the mandate's own
+                # declaration, the one input `_normalise_returns` exists to
+                # raise on, reached by going around it; this is the only route
+                # that reaches `Reviser.inspect()`. Inside 1..n_lines and past
+                # `len(lines)` -> the DRAFT is short, reachable only by calling
+                # this method directly.
+                why = (f"and {names} is outside the mandate's own "
+                       f"1..{self.n_lines} — this return was built around the "
+                       f"constructor that refuses it"
+                       if any(x > self.n_lines for x in bad) else
+                       f"though {names} is inside the mandate's own "
+                       f"1..{self.n_lines} — the DRAFT is short")
                 out.append((r.label, i, j, "OUT_OF_RANGE",
-                            f"the mandate declares {self.n_lines} lines and "
-                            f"{len(lines)} were given"))
+                            f"return {r.label or '(unlabelled)'} names "
+                            f"{names}, past the {n} line(s) given, "
+                            f"{why}. The verbatim requirement at L{i}/L{j} "
+                            f"was NOT CHECKED — unasked, not answered clean "
+                            f"(doctrine 20)"))
                 continue
             a, b = lines[i - 1], lines[j - 1]
             if normalise_line(a) == normalise_line(b):
@@ -1805,6 +2099,58 @@ def _normalise_groups(raw, n_lines):
     return tuple(groups), free
 
 
+def _normalise_scope(raw, n_lines, groups, returns):
+    """-> the validated scope tuple. `()` means 'all of 1..n_lines'.
+
+    REFUSES a scope that leaves out a line the mandate's OWN groups or returns
+    name. Such a mandate says two incompatible things about the same pair --
+    `pairs()` mandates L1/L3 and `requirement(1, 3)` calls it `UNDECLARED` --
+    and `grade()` (`quality/revise.py`) reads BOTH: it iterates `pairs()` to
+    decide what to judge and `requirement()` to decide whether an identical end
+    word there is a violation. So the pair gets graded against a mandate that
+    simultaneously claims not to speak about it, which is doctrine 20's own
+    case: 'inconclusive by construction' dressed as an answer. `describe()`
+    would print the lie out loud -- 'every pair touching one of the other N is
+    UNDECLARED' -- while the grader charged those pairs anyway.
+
+    The refusal NAMES THE OTHER READING rather than picking one silently, the
+    same shape `to_letters()` and `to_notation()` already hold: a caller who
+    means 'grade only the chorus' is declaring narrower GROUPS, not a narrower
+    scope over the same groups.
+    """
+    if raw is None:
+        return ()
+    try:
+        sc = tuple(sorted({int(x) for x in raw}))
+    except (TypeError, ValueError):
+        raise NoMandate(
+            f"scope must be an iterable of 1-based line numbers; got {raw!r}.")
+    for i in sc:
+        if not 1 <= i <= n_lines:
+            raise NoMandate(f"scope line {i} is outside 1..{n_lines}.")
+    if not sc:
+        return ()                    # an empty scope is the absent one: all
+    named = {i for g in groups for i in g}
+    named |= {i for r in returns for i in getattr(r, "lines", r)}
+    missing = sorted(named - set(sc))
+    if missing:
+        raise NoMandate(
+            f"line(s) {missing} are named by this mandate's own groups or "
+            f"returns and are OUTSIDE its declared scope. A mandate cannot "
+            f"both require something of a line and say it does not speak "
+            f"about it: `pairs()` would mandate those pairs and "
+            f"`requirement()` would call them UNDECLARED, and the grader "
+            f"reads both -- so the pair is judged against a statement the "
+            f"mandate disclaims (doctrine 20).\n"
+            f"  to grade only part of the song -> declare the GROUPS over "
+            f"that part; `scope` then covers them and every OTHER line is "
+            f"UNDECLARED, which is the distinction it exists to make.\n"
+            f"  to say nothing is required of those lines -> leave them out "
+            f"of every group and out of `scope`; they are FREE, which is a "
+            f"DIFFERENT answer (doctrine 28).")
+    return sc
+
+
 def mandate(spec, n_lines=None, source="declared", origin=None,
             returns=None, scope=None, rule=None, carry_returns=True):
     """Anything that can name a song's requirements -> a `Mandate`.
@@ -1825,7 +2171,9 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
     (`'33-40<=13-20'`, `'1,6,12,18'`; see `parse_returns`), a list of `Return`,
     or a list of line lists. `scope` declares which lines the mandate speaks
     about; pairs outside it are `UNDECLARED` rather than `FREE`, which is
-    doctrine 28's distinction made mechanical.
+    doctrine 28's distinction made mechanical. A `scope` that leaves out a
+    line this mandate's own groups or returns NAME is a REFUSAL, not a
+    narrowing -- see `_normalise_scope`.
 
     `carry_returns=False` restores the OLD reading of an A-1 string -- rhyme
     only, identity silently dropped. It is reachable so the defect is
@@ -1868,11 +2216,17 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
         rets = list(spec.returns)
         if returns is not None:
             rets += _list_returns(returns)
-        sc = spec.scope if scope is None else tuple(sorted(set(scope)))
+        norm = _normalise_returns(rets, n, rule)
+        # THE RE-OPEN PATH IS CHECKED THE SAME WAY THE BUILD PATH IS. It used
+        # to take `scope` on trust -- not even the 1..n bound the constructor
+        # below enforces -- so `mandate(mandate('ABAB'), scope=[1, 2])` built
+        # a mandate that requires L1/L3 to rhyme and denies speaking about L3.
+        sc = spec.scope if scope is None else _normalise_scope(
+            scope, n, spec.groups, norm)
         return Mandate(n_lines=n, groups=spec.groups, labels=spec.labels,
                        free=spec.free, source=spec.source,
                        origin=spec.origin + " + returns",
-                       returns=_normalise_returns(rets, n, rule),
+                       returns=norm,
                        scope=sc, rule=rule)
 
     if spec is None:
@@ -1957,14 +2311,7 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                         source=source, origin=org, returns=rets, rule=rule)
         covered = {i for g in probe.expanded_groups() for i in g}
         free = tuple(i for i in range(1, n + 1) if i not in covered)
-    if scope is not None:
-        sc = tuple(sorted(set(int(x) for x in scope)))
-        for i in sc:
-            if not 1 <= i <= n:
-                raise NoMandate(
-                    f"scope line {i} is outside 1..{n}.")
-    else:
-        sc = ()
+    sc = _normalise_scope(scope, n, groups, rets)
     return Mandate(n_lines=n, groups=groups, labels=labels, free=free,
                    source=source, origin=org, returns=rets, scope=sc,
                    rule=rule)

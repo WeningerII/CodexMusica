@@ -31,6 +31,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.join(HERE, "..")
 sys.path.insert(0, ROOT)
 
+from lyric_harness import is_apparatus_line as G_APPARATUS         # noqa: E402
 from quality import grid as G                                      # noqa: E402
 from quality import schemes as S                                   # noqa: E402
 
@@ -403,6 +404,26 @@ def corpus_scan():
         "languages": collections.Counter(),
         "eng_repeat": collections.Counter(),
         "blocks_by_language": collections.Counter(),
+        # THE APPARATUS RULE'S OWN QUANTITIES (section 9). Carried on the pass
+        # section 6 was already making, for the reason the readability sweep
+        # gives: a second sweep derives the population from a second
+        # definition, and that is how a record and a behaviour drift apart.
+        "block_lines": 0,
+        "apparatus_survivors": [],
+        "empty_blocks": 0,
+        "empty_by_language": collections.Counter(),
+        "empty_repeat_blocks": 0,
+        "empty_marks": collections.Counter(),
+        # THE CROSS-FUNCTION QUANTITIES (section 10). Same pass again, same
+        # reason: a second sweep would derive the population from a second
+        # definition of "the first block of a function", and that is how a
+        # record and a behaviour drift apart.
+        "cross_pairs": 0,
+        "cross_shared": 0,
+        "cross_by_pair": collections.Counter(),
+        "cross_shared_by_pair": collections.Counter(),
+        "cross_kinds": collections.Counter(),
+        "cross_examples": [],
     }
     for path in sorted(glob.glob(os.path.join(CORPUS, "*.txt"))):
         out["files"] += 1
@@ -412,6 +433,17 @@ def corpus_scan():
             for b in song.blocks:
                 out["blocks"] += 1
                 out["blocks_by_language"][lang] += 1
+                out["block_lines"] += len(b.lines)
+                out["apparatus_survivors"].extend(
+                    (os.path.basename(path), b.source_line, l)
+                    for l in b.lines if G_APPARATUS(l))
+                if not b.lines:
+                    out["empty_blocks"] += 1
+                    out["empty_by_language"][lang] += 1
+                    out["empty_marks"][(os.path.basename(path),
+                                        b.source_line, b.mark)] += 1
+                    if b.function in ("chorus", "burden", "refrain"):
+                        out["empty_repeat_blocks"] += 1
                 if b.function:
                     out["mapped"] += 1
                     out["functions"][b.function] += 1
@@ -443,6 +475,36 @@ def corpus_scan():
                     out["variant_pairs"] += 1
             if has:
                 out["songs_with_returns"] += 1
+            # THE OTHER PAIRING, AND THE ONE NOTHING ASKED (section 10). The
+            # loop above compares a function with ITSELF; this compares two
+            # DIFFERENT functions in one song, which is what a reprise is.
+            # The four functions here are `MARK_FUNCTION`'s whole range —
+            # the corpus's printed marks carry no INTRO, OUTRO or REPRISE, so
+            # what this measures is the FALSE-POSITIVE side of the rule and
+            # not its positive side. That limit is the finding's coordinate,
+            # not a caveat on it.
+            firsts = {}
+            for fn in ("verse", "chorus", "burden", "refrain"):
+                inst = song.instances(fn)
+                if not inst:
+                    continue
+                bl = [b for b in inst[sorted(inst)[0]] if b.lines]
+                if bl:
+                    firsts[fn] = bl[0]
+            keys = sorted(firsts)
+            for x in range(len(keys)):
+                for y in range(x + 1, len(keys)):
+                    a, b = keys[x], keys[y]
+                    r = G.compare_returns(firsts[a].lines, firsts[b].lines)
+                    out["cross_pairs"] += 1
+                    out["cross_by_pair"][(a, b)] += 1
+                    out["cross_kinds"][r.kind] += 1
+                    if r.invariant_lines:
+                        out["cross_shared"] += 1
+                        out["cross_shared_by_pair"][(a, b)] += 1
+                        out["cross_examples"].append(
+                            (os.path.basename(path), song.title, a, b, r.kind,
+                             firsts[a].lines[r.invariant_lines[0] - 1]))
     _SCAN[0] = out
     return out
 
@@ -642,6 +704,263 @@ def test_the_report_prints_three_counts():
           [x.message for x in rep2["refusals"]][0])
 
 
+# ---------------------------------------------------------------------------
+# THE APPARATUS RULE, PRICED ON THE WHOLE CORPUS
+# ---------------------------------------------------------------------------
+
+#: The 14 blocks the centralized apparatus rule EMPTIES, named with the one
+#: line that used to be their entire "lyric". This is the whole price of the
+#: change, enumerated rather than summarized, and every one of them is the
+#: same shape: a `[` with NO CLOSING `]` on the same line, which `_MARK_RE`
+#: cannot match and which therefore opened no block and fell through to be
+#: scored as sung text. `[Exeunt.`, `[Drinks.`, `[Music:` -- a printer's stage
+#: direction read as a verse of a song.
+#:
+#: WHY THE LIST AND NOT JUST THE COUNT (doctrine 91, and CLAUDE.md's real-
+#: exemplars clause): 14 is a number a future edit can make true again by
+#: accident. These fourteen (file, source line, mark, the dropped line) are
+#: re-located in the corpus before they are used, so a corpus edit that moves
+#: one fails HERE rather than leaving the count standing on text nobody can
+#: find.
+EMPTIED_BY_APPARATUS = [
+    ("eng_british_felicia_hemans.txt", 1792, "VERSE 12", "[_Exeunt omnes._"),
+    ("eng_british_jean_ingelow.txt", 1841, "VERSE 6", "[_Much applause_."),
+    ("eng_british_jean_ingelow.txt", 1887, "VERSE 6",
+     "[_The fiddler and his daughter go away._"),
+    ("eng_british_jean_ingelow.txt", 1941, "VERSE 14",
+     "[_More tuning heard outside_."),
+    ("eng_british_robert_herrick.txt", 5944, "VERSE 10",
+     "[_1 Neatherd plays_"),
+    ("eng_hall_john_gay.txt", 446, "VERSE 2",
+     "[Holding _Macheath_, _Peachum_ pulling her."),
+    ("eng_hall_john_gay.txt", 459, "VERSE 2", "[Exeunt."),
+    ("eng_hall_john_gay.txt", 684, "VERSE 2", "[Rises."),
+    ("eng_hall_john_gay.txt", 708, "VERSE 2", "[Drinks."),
+    ("eng_hall_john_gay.txt", 744, "VERSE 6", "[Turns up the empty Bottle."),
+    ("eng_hall_john_gay.txt", 750, "VERSE 9", "[Turns up the empty Pot."),
+    ("eng_hall_thomas_durfey.txt", 593, "VERSE 12", "[Music:"),
+    ("eng_hall_thomas_durfey.txt", 7208, "VERSE 4", "[Music:"),
+    ("eng_hall_thomas_durfey.txt", 7251, "VERSE 10", "[Music:"),
+]
+
+
+def test_the_apparatus_rule_is_the_centres_and_its_price_is_named():
+    """`read_marked_songs` half-spelled the apparatus rule, and the half it
+    left out scored 133 stage directions as lyrics.
+
+    WHAT WAS WRONG. Three tests decided everything: `--- TITLE:` opens a song,
+    a RAW-line `#`/`--- ` skips a header, `_MARK_RE` opens a block. The append
+    branch had no test at all, so a line reaching it was a line of the song
+    whatever it was. Two consequences, and the second is the expensive one:
+    the `#`/`--- ` tests never stripped, so an indented one got through; and a
+    `[` WITH NO CLOSING `]` does not match `_MARK_RE`, opens no block, and
+    lands in the previous block's lyric.
+
+    MEASURED BEFORE IT WAS APPLIED, over all 260 files: 133 lines in 19 files
+    across 130 blocks, of which 14 blocks are emptied outright because a
+    one-line stage direction was their whole content. `quality/grid.py`'s
+    `read_marked_songs` now calls `lyric_harness.is_apparatus_line` on the
+    append branch and nowhere else -- AFTER `_MARK_RE`, because `[VERSE 1]` is
+    itself apparatus by that rule and is the thing that opens a block.
+
+    WHAT EMPTYING A BLOCK COSTS, ASKED RATHER THAN ASSUMED. Nothing, and the
+    corpus says so twice over. An empty block was ALREADY this corpus's
+    ordinary state -- 6,187 of 182,147 blocks before this rule, 5,884 of them
+    Persian, where a `[BAYT n]` mark routinely stands alone -- so no consumer
+    can ever have been entitled to index one. And none of the 14 is a
+    chorus/burden/refrain: `empty_repeat_blocks` is 0 both before and after,
+    so the ONE consumer of `Block.lines` in this repo (`compare_returns`, at
+    two sites in this file; grep found no third) is never handed one from the
+    corpus at all. `quality/test_grid.py` §23 hands it one anyway, from both
+    sides and with and without a phonology, and it answers rather than
+    raising.
+    """
+    c = corpus_scan()
+    print("\n9. THE APPARATUS RULE — `read_marked_songs` calls the one "
+          "definition, and what that cost")
+    print(f"     block lines held      : {c['block_lines']:,}   "
+          f"(450,396 before the rule; 133 apparatus lines left)")
+    print(f"     empty blocks          : {c['empty_blocks']:,} of "
+          f"{c['blocks']:,}   {dict(c['empty_by_language'])}")
+    print(f"     empty repeat blocks   : {c['empty_repeat_blocks']}")
+
+    check("NO line of any block, in any of the 260 files, is apparatus by "
+          "`lyric_harness.is_apparatus_line` — the invariant, not the four "
+          "shapes that happen to appear",
+          not c["apparatus_survivors"],
+          f"{len(c['apparatus_survivors'])} survivors of "
+          f"{c['block_lines']:,} block lines"
+          + ("" if not c["apparatus_survivors"] else
+             f"; first three: {c['apparatus_survivors'][:3]}"))
+
+    empty = {(f, n, m) for (f, n, m) in c["empty_marks"]}
+    missing = [(f, n, m) for f, n, m, _ in EMPTIED_BY_APPARATUS
+               if (f, n, m) not in empty]
+    check("all 14 named blocks are EMPTY — a mark whose only content was a "
+          "stage direction is a block with no words, and the reader now says "
+          "so instead of printing the direction as a verse",
+          not missing, f"{14 - len(missing)} of 14 empty"
+          + ("" if not missing else f"; not empty: {missing}"))
+
+    # THE PROVENANCE HALF. The dropped line has to still BE in the corpus at
+    # the line the mark's own `source_line` implies, and it has to be
+    # apparatus by the centre's rule -- otherwise this list is fourteen
+    # assertions about text that has moved, which is the failure mode a bare
+    # count of 14 could never show.
+    relocated, wrong_rule = [], []
+    for fname, n, mark, dropped in EMPTIED_BY_APPARATUS:
+        with open(os.path.join(CORPUS, fname), encoding="utf-8",
+                  errors="replace") as fh:
+            lines = fh.read().splitlines()
+        window = [l.strip() for l in lines[n:n + 4]]
+        if dropped not in window:
+            relocated.append((fname, n, dropped))
+        if not G_APPARATUS(dropped):
+            wrong_rule.append(dropped)
+    check("and each one's dropped line is still in the corpus, immediately "
+          "under its mark",
+          not relocated, f"{14 - len(relocated)} of 14 re-located"
+          + ("" if not relocated else f"; moved: {relocated}"))
+    check("every one of them is apparatus by the CENTRE's rule — none is "
+          "dropped by anything `grid.py` decided for itself",
+          not wrong_rule, "all 14 satisfy is_apparatus_line"
+          if not wrong_rule else str(wrong_rule))
+    check("and all 14 are the SAME defect: a `[` with no closing `]` on the "
+          "line, which `_MARK_RE` cannot match",
+          all(d.startswith("[") and "]" not in d
+              for _, _, _, d in EMPTIED_BY_APPARATUS),
+          f"{sorted({d.split()[0] for _, _, _, d in EMPTIED_BY_APPARATUS})}")
+
+    # THE CONSUMER QUESTION, ANSWERED ON THE CORPUS. `compare_returns` is the
+    # only reader of `Block.lines` anywhere in this repo, and it is reached
+    # only through `MarkedSong.instances('chorus'|'burden'|'refrain')`.
+    check("0 chorus/burden/refrain blocks are empty, so no return pair is "
+          "ever built from an emptied block — unchanged by this rule, which "
+          "empties only VERSE marks",
+          c["empty_repeat_blocks"] == 0,
+          f"{c['empty_repeat_blocks']} empty repeat blocks; the 14 are "
+          f"{sorted({m for _, _, m, _ in EMPTIED_BY_APPARATUS})}")
+    check("an empty block was ALREADY the corpus's ordinary state, which is "
+          "why nothing downstream could have been assuming otherwise",
+          c["empty_blocks"] > 6000 and c["empty_by_language"]["fas"] > 5000,
+          f"{c['empty_blocks']:,} empty of {c['blocks']:,} blocks "
+          f"({dict(c['empty_by_language'])}) — 6,187 before this rule and "
+          f"{c['empty_blocks']:,} after, so the rule added 14 to a population "
+          f"of thousands rather than creating the case")
+    check("every one of the 14 additions is English, so no non-English arm "
+          "moved at all",
+          c["empty_by_language"]["fas"] == 5884
+          and c["empty_by_language"]["fin"] == 88
+          and c["empty_by_language"]["san"] == 47,
+          f"{dict(c['empty_by_language'])} — eng 168 -> 182, everything else "
+          f"byte-identical")
+
+
+# ---------------------------------------------------------------------------
+# THE CROSS-FUNCTION REPRISE, PRICED ON THE CORPUS
+#
+# `compare_returns` never cared where its two line lists came from. Every
+# caller in `grid.py` handed it `song.instances_of(fn)` -- ONE function
+# against ITSELF -- so "does the outro reprise the intro" was unaskable with
+# the machinery to answer it sitting in the same file (CLAUDE.md known gap 7).
+#
+# The design question is not the comparison, it is WHICH PAIRS. This section
+# is the evidence the answer rests on, and it is the negative half: run the
+# rule over every cross-function pair the corpus can supply and count how
+# often it would say "reprise" about two sections that are not one.
+# ---------------------------------------------------------------------------
+
+#: One corpus hit, named rather than counted (doctrine 91). Tennyson's
+#: `[BURDEN]` is the line `Rode the six hundred.` and the first verse ENDS on
+#: it -- printed inside the verse, which is what a burden IS. A pairwise
+#: reprise check would report "the burden reprises the verse" about it, and
+#: the sentence is meaningless: they are the same repetend, marked twice.
+NAMED_CROSS_HIT = ("eng_british_alfred_tennyson.txt", "burden", "verse",
+                   "Rode the six hundred.")
+
+
+def test_which_pairs_may_be_asked_is_the_whole_design():
+    c = corpus_scan()
+    rate = c["cross_shared"] / c["cross_pairs"]
+    print("\n10. THE CROSS-FUNCTION REPRISE — the asked set, priced")
+    print(f"\n   Every UNORDERED pair of two DIFFERENT declared functions "
+          f"inside one song,\n   first block against first block, over the "
+          f"same {c['files']} files:")
+    print(f"     pairs compared           : {c['cross_pairs']:,}")
+    print(f"     >= 1 whole line in common: {c['cross_shared']:,}  "
+          f"({rate:.1%})")
+    for p, n in c["cross_by_pair"].most_common():
+        h = c["cross_shared_by_pair"][p]
+        print(f"       {p[0]+'/'+p[1]:20} {n:>5} asked  {h:>4} shared  "
+              f"{h/n:>6.1%}")
+    print(f"     kinds: {dict(c['cross_kinds'].most_common(6))}")
+
+    check("the corpus can supply cross-function pairs at all — four "
+          "functions, so six possible pairings",
+          c["cross_pairs"] == 889 and len(c["cross_by_pair"]) == 5,
+          f"{c['cross_pairs']:,} pairs over {len(c['cross_by_pair'])} of the "
+          f"6 possible pairings ({sorted(c['cross_by_pair'])}); "
+          f"burden/refrain never co-occur in one song, which is itself the "
+          f"corpus saying the two marks are one printer's choice")
+    check("ASKING EVERY PAIR WOULD BE WRONG 5.7% OF THE TIME — this is the "
+          "number the declared asked set exists for",
+          c["cross_shared"] == 51 and abs(rate - 0.057) < 0.001,
+          f"{c['cross_shared']} of {c['cross_pairs']:,} pairs share a whole "
+          f"line under the declared normalisation, and NOT ONE is a reprise: "
+          f"they are refrain lines a printer set inside the verse. On a "
+          f"21-function vocabulary that is 420 ordered questions per song at "
+          f"this error rate — doctrine 61, a rule that fires more often is "
+          f"not a better rule")
+    check("and the pairs that carry it are exactly the ones the default "
+          "convention does NOT ask",
+          not (set(c["cross_shared_by_pair"])
+               & {tuple(sorted(p)) for p in G.POPULAR_SONG.reprises}),
+          f"measured: {sorted(c['cross_shared_by_pair'])}; asked by "
+          f"POPULAR_SONG: {[tuple(p) for p in G.POPULAR_SONG.reprises]} — "
+          f"disjoint, so every one of the {c['cross_shared']} is silent under "
+          f"the shipped default")
+
+    # THE LIMIT OF THIS EVIDENCE, STATED. `MARK_FUNCTION` reads five marks
+    # onto four functions and none of them is an intro, an outro or a
+    # reprise, so no printed block in this corpus can WITNESS one of the
+    # three pairs the convention does ask. This measurement bounds the false
+    # positives and says nothing about the true positives, and pretending
+    # otherwise would be doctrine 20 pointed at a corpus.
+    check("the corpus cannot witness the asked pairs, and the reason is in "
+          "`MARK_FUNCTION` rather than in an argument",
+          not ({fn for p in G.POPULAR_SONG.reprises for fn in p}
+               & set(G.MARK_FUNCTION.values())
+               & {"intro", "outro", "reprise"}),
+          f"marks read: {sorted(set(G.MARK_FUNCTION.values()))}; functions "
+          f"the asked pairs name: "
+          f"{sorted({fn for p in G.POPULAR_SONG.reprises for fn in p})}. The "
+          f"printed record marks verses and repetends and does not mark a "
+          f"song's opening or its close, so the positive side of this check "
+          f"rests on the vocabulary's own glosses and is labelled as doing so")
+
+    # AND ONE HIT, LOCATED. A rate with no instance under it is doctrine 58's
+    # bare count: 51 is a number a later edit can make true again by accident.
+    fname, a, b, line = NAMED_CROSS_HIT
+    hits = [e for e in c["cross_examples"]
+            if e[0] == fname and (e[2], e[3]) == (a, b)]
+    check("the rate has an instance under it, re-located in the corpus",
+          any(e[5].strip() == line for e in hits),
+          f"{fname}: {[(e[1][:34], e[4], e[5][:28]) for e in hits[:3]]} — "
+          f"Tennyson's burden IS the verse's last line, so 'the burden "
+          f"reprises the verse' is a sentence about a mark, not about a song")
+
+    # THE PRIMITIVE ITSELF, ON THE CORPUS'S OWN BLOCKS. The claim gap 7 makes
+    # is that `compare_returns` was always able to do this and was never
+    # asked; the cheapest proof is that the corpus sweep above called it
+    # 889 times across two different functions and it answered every one.
+    check("`compare_returns` resolved every cross-function pair to a named "
+          "kind — the primitive needed nothing added to be asked this",
+          sum(c["cross_kinds"].values()) == c["cross_pairs"]
+          and set(c["cross_kinds"]) <= set(dict(G.VARIATION_KINDS)),
+          f"{len(c['cross_kinds'])} kinds used; the same ladder section 6 "
+          f"runs on same-function returns, on pairs it was never handed")
+
+
 if __name__ == "__main__":
     for fn in (test_function_is_declared_and_never_inferred,
                test_the_questions_that_needed_a_function,
@@ -650,7 +969,9 @@ if __name__ == "__main__":
                test_the_a1_notation,
                test_the_corpus_holds,
                test_the_two_songs_the_gap_register_named,
-               test_the_report_prints_three_counts):
+               test_the_report_prints_three_counts,
+               test_the_apparatus_rule_is_the_centres_and_its_price_is_named,
+               test_which_pairs_may_be_asked_is_the_whole_design):
         fn()
     print("=" * 70)
     if FAILURES:

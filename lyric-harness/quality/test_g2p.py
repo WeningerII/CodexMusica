@@ -17,10 +17,16 @@ not. So the tests here are not "does it read `viewest`". They are:
   6. that no reading is ever produced without its provenance;
   7. that `lh.Lexicon`'s OWN opt-in wiring to the fallback (§14-20) matches
      everything §1-13 establishes about `Fallback` standing alone -- default
-     off, known answers in, coinages still refused, no recursion.
+     off, known answers in, coinages still refused, no recursion;
+  8. that the letter layer's rules still have a LIVE PRODUCER (§21) and that
+     the three counts have a caller (§22-23). Both were built-and-never-run:
+     `train_letter_rules` was reachable only from `g2p.py --train`, so the
+     shipped `data/g2p_letter_rules.tsv` had nothing regenerating it, and
+     `three_counts` was reachable from nothing that prints.
 
 Run: python3 quality/test_g2p.py
      python3 quality/test_g2p.py --slow      # adds the corpus-scale counts
+                                             # and the full 65s rule rebuild
 """
 import os
 import re
@@ -419,17 +425,44 @@ def test_letter_layer_costs_more_than_it_buys():
     m2, j2, r2, v2 = _patched_battery("low")
     only_letter = r1 - r2                       # judged by the letter layer
     lv = [p for p in only_letter if p in v2]
+    # BOTH RATES ARE COMPUTED, NEITHER IS QUOTED. This message used to carry
+    # the derived layers' rate as the literal "1/39 = 3%", which went stale on
+    # 2026-08-11 the moment §9's own repin moved 38/39 to 37/39 and did not
+    # come here -- so the comparison that decides a shipped default was being
+    # read off a number one section above had already corrected. Doctrine 48:
+    # a figure that lives in a string gets updated exactly as often as someone
+    # remembers it. It is derived from the same three battery runs now.
+    derived_new = r0 - r1
+    derived_wrong = [p for p in derived_new if p in v1]
+    d_rate = len(derived_wrong) / len(derived_new) if derived_new else 0.0
+    l_rate = len(lv) / len(only_letter) if only_letter else 0.0
     check("it makes almost every remaining pair judgeable",
           len(r2) <= 1, f"refused {len(r1)} -> {len(r2)}")
     check("and about half of what it alone judges does NOT rhyme",
-          only_letter and len(lv) / len(only_letter) >= 0.4,
-          f"{len(lv)}/{len(only_letter)} = "
-          f"{len(lv)/len(only_letter):.0%} violations among the pairs only "
-          f"the letter layer could judge, against 1/39 = 3% for the derived "
-          f"layers. Violations {len(v0)} -> {len(v2)}. A refusal replaced by "
-          f"a coin flip is doctrine 79's defect arriving through a new door: "
-          f"the harness reporting Shakespeare as failing to rhyme, on a "
-          f"pronunciation nothing attested")
+          only_letter and l_rate >= 0.4,
+          f"{len(lv)}/{len(only_letter)} = {l_rate:.0%} violations among the "
+          f"pairs only the letter layer could judge, against "
+          f"{len(derived_wrong)}/{len(derived_new)} = {d_rate:.1%} for the "
+          f"derived layers. Violations {len(v0)} -> {len(v1)} (high) -> "
+          f"{len(v2)} (low). A refusal replaced by a coin flip is doctrine "
+          f"79's defect arriving through a new door: the harness reporting "
+          f"Shakespeare as failing to rhyme, on a pronunciation nothing "
+          f"attested")
+    # THE COMPARISON, not either number alone. `>= 0.4` above pins the letter
+    # layer's own rate and would still pass if the derived layers had rotted
+    # to 39% beside it; what decides the default is that one is far worse than
+    # the other, so that is asserted directly. 5x is a wide bound on purpose:
+    # the measured gap is about 10x and the claim being defended is a KIND
+    # difference, not a decimal.
+    check("the letter layer is wrong at MANY TIMES the derived layers' rate — "
+          "the comparison that decides the default, asserted rather than "
+          "read off two independently-drifting literals",
+          d_rate > 0 and l_rate >= 5 * d_rate,
+          f"letter {l_rate:.1%} against derived {d_rate:.1%} = "
+          f"{l_rate / d_rate:.1f}x. It buys {len(only_letter)} more judged "
+          f"pairs and pays {len(v2) - len(v1)} more violations for them; the "
+          f"derived layers bought {len(derived_new)} for "
+          f"{len(v1) - len(v0)}")
     check("which is why `high` is the default and `low` is reachable",
           English().fallback is None
           and English(fallback="low").fallback == "low",
@@ -524,7 +557,7 @@ def test_corpus_scale_counts():
     # NO ABSOLUTE COUNT IS PINNED HERE, deliberately. `corpus/song/eng_*.txt`
     # is owned by the corpus cells and moved twice while this file was being
     # written (a hymn file deleted, three edited), so `quality/test_readability
-    # .py`'s 151898 / 9078 are the pins for the corpus and this file must not
+    # .py`'s 151894 / 9078 are the pins for the corpus and this file must not
     # carry a second, staler copy of them — doctrine 58 the other way round: a
     # count is a coordinate of a file set, so a test that does not own the file
     # set has no business asserting one. What IS this module's property, and is
@@ -684,6 +717,223 @@ def _raises_any(fn):
         return True
 
 
+# ---------------------------------------------------------------------------
+# 21. THE LETTER LAYER'S RULES HAVE A LIVE PRODUCER
+#
+# `data/g2p_letter_rules.tsv` is a derived artifact and `train_letter_rules`
+# is its only producer. Nothing in this repo called that function outside
+# `g2p.py`'s own `--train` branch, so the rules shipped with NOTHING that
+# re-derives them on a run -- and an artifact whose producer is never executed
+# is one dictionary revision away from being an artifact whose producer no
+# longer works, with no signal in between. That is the same shape as a figure
+# with no producer at all, arriving slowly.
+#
+# The decisive check is regenerate-and-diff and it costs 65s, so it is bounded:
+# the DEFAULT run proves the producer still executes end to end (on a declared
+# subset, ~2s) and that the split it would train on is still the split the
+# shipped file's own header declares -- which is the "has the input moved
+# under it" question. `--slow` does the full byte-for-byte reproduction.
+# ---------------------------------------------------------------------------
+
+_SPLIT_HEADER = re.compile(
+    r"Training split = (\d+) CMUdict headwords; (\d+) held out "
+    r"\(fraction ([\d.]+), seed (\d+)\)")
+
+
+def test_letter_rules_have_a_live_producer():
+    print("\n21. data/g2p_letter_rules.tsv can still be regenerated")
+    import tempfile
+    shipped = G.LETTER_RULES_PATH
+    check("the shipped rules exist and load", os.path.exists(shipped)
+          and G.LetterRules(shipped).loaded, shipped)
+    # 1. HAS THE INPUT MOVED UNDER IT? The file states the split it was built
+    #    on; `_split_dict` says what that split is today. If cmudict.dict is
+    #    edited, these part company and every rule in the file is derived from
+    #    a training set that no longer exists.
+    head = ""
+    with open(shipped, encoding="utf-8") as f:
+        for line in f:
+            if not line.startswith("#"):
+                break
+            head += line
+    m = _SPLIT_HEADER.search(head)
+    tr, ho = G._split_dict(LEX.entries)
+    check("the shipped file declares the split it was built on", m is not None,
+          head.strip().splitlines()[1] if m else "NO SPLIT DECLARED")
+    check("and that split is still the one the current dictionary produces",
+          m is not None and (int(m.group(1)), int(m.group(2)),
+                             float(m.group(3)), int(m.group(4)))
+          == (len(tr), len(ho), G.HOLDOUT_FRACTION, G.HOLDOUT_SEED),
+          f"file says {m.groups() if m else '-'}; cmudict.dict + "
+          f"_split_dict say ({len(tr)}, {len(ho)}, {G.HOLDOUT_FRACTION}, "
+          f"{G.HOLDOUT_SEED}). Unequal means the rules were derived from a "
+          f"training set this repo no longer has, and no test would have said "
+          f"so")
+    # 2. DOES THE PRODUCER STILL RUN? Bounded: every 50th headword, which is
+    #    deterministic (sorted) and ~2.4% of the dictionary, so the EM and the
+    #    context back-off both execute on real data in about two seconds.
+    #    NEVER writes to data/ -- the shipped artifact is not this test's to
+    #    move.
+    sub = {w: LEX.entries[w] for w in sorted(LEX.entries)[::50]}
+    tmp = os.path.join(tempfile.mkdtemp(), "letter_rules_subset.tsv")
+    G.train_letter_rules(sub, out_path=tmp, verbose=False)
+    rules = G.LetterRules(tmp)
+    check(f"`train_letter_rules` still executes end to end ({len(sub)} "
+          f"headwords)", rules.loaded and os.path.getsize(tmp) > 0,
+          f"wrote {os.path.getsize(tmp)} bytes to a temp path; the producer "
+          f"is reachable from nowhere but `--train`, so this is the only "
+          f"thing in the repo that runs it")
+    check("and what it writes is readable by the loader that consumes it",
+          rules.read("hypotenuse") is not None,
+          "a producer whose output its own loader refuses is a producer that "
+          "does not work, and the file on disk would not say so")
+    if not SLOW:
+        print("      full regeneration + byte-diff — skipped, pass --slow "
+              "(65s over the whole training split)")
+        return
+    full = os.path.join(tempfile.mkdtemp(), "letter_rules_full.tsv")
+    G.train_letter_rules(LEX.entries, out_path=full, verbose=False)
+    with open(shipped, "rb") as a, open(full, "rb") as b:
+        same = a.read() == b.read()
+    check("REGENERATED BYTE-IDENTICAL to the shipped file", same,
+          "the decisive test: hard-EM alignment, context back-off and the "
+          "stress model are all deterministic given the seed, so anything "
+          "but equality means the shipped artifact and its producer have "
+          "parted company")
+
+
+# ---------------------------------------------------------------------------
+# 22. THE THREE COUNTS HAVE A REPORTING PATH
+#
+# `Fallback.three_counts` and `English.three_counts` were both built and
+# NEITHER WAS EVER CALLED BY ANYTHING THAT REPORTS. A run that opts in with
+# `--fallback=high` has doctrine 79's three counts in memory and prints two of
+# them at most. This section pins the reporting path that closes it on the
+# library side, and -- the load-bearing half -- pins WHICH of the two counting
+# instruments a report may use, because they disagree by construction.
+# ---------------------------------------------------------------------------
+
+#: Chosen to hit every column: two plain dictionary words, the three
+#: reductions `Lexicon.transcribe_word` has always had, a compound, one word
+#: per derived layer, and two genuine refusals.
+MIXED = ["love", "cats", "wights", "crown'd", "feelin'", "to-day",
+         "viewest", "o'er", "hypotenuse", "zzzqx"]
+
+
+def test_three_counts_have_a_reporting_path():
+    print("\n22. the three counts, counted correctly and rendered")
+    # Built once each: a `Lexicon` is 3.6MB of cmudict.dict plus the frequency
+    # list, and this section wants three of them, not six.
+    lex = lh.Lexicon(fallback="high")
+    lex_off = lh.Lexicon()
+    lex_low = lh.Lexicon(fallback="low")
+    c = G.lexicon_three_counts(lex, MIXED)
+    check("the three counts sum to the total, and the total is not a "
+          "denominator",
+          c["dictionary"] + c["fallback"] + c["refused"] == c["total"],
+          str({k: v for k, v in c.items() if k != "by_layer"}))
+    check("`given` accounts for every token handed in",
+          c["given"] == c["total"] + c["skipped"] == len(MIXED),
+          f"given {c['given']} = total {c['total']} + skipped {c['skipped']}")
+    off = G.lexicon_three_counts(lex_off, MIXED)
+    low = G.lexicon_three_counts(lex_low, MIXED)
+    check("with no fallback declared the middle column is 0 and PRESENT",
+          off["fallback"] == 0 and "fallback" in off
+          and off["fallback_mode"] is None,
+          f"{off['dictionary']} / {off['fallback']} / {off['refused']}; a "
+          f"layer that was not asked reports zero answers, which is not the "
+          f"same fact as a layer that was asked and found none (doctrine 20)")
+    check("the mode that produced the numbers travels with them",
+          c["fallback_mode"] == "high" and low["fallback_mode"] == "low",
+          "doctrine 1: a count derived under an assumption carries it")
+
+    # THE TWO INSTRUMENTS DISAGREE, AND ONLY ONE MAY BE REPORTED.
+    shim = lex.g2p_fallback.three_counts(MIXED)
+    eng = English(fallback="high").three_counts(MIXED)
+    check("`Fallback.three_counts` bound to the recursion-breaking shim "
+          "OVERCOUNTS the fallback column",
+          shim["dictionary"] < c["dictionary"]
+          and shim["fallback"] > c["fallback"],
+          f"shim-bound {shim['dictionary']}/{shim['fallback']}/"
+          f"{shim['refused']} against {c['dictionary']}/{c['fallback']}/"
+          f"{c['refused']}. `Lexicon(fallback=...)` hands `Fallback` a "
+          f"`_DictionaryOnlyLexicon`, which cannot see "
+          f"`Lexicon.transcribe_word`'s own reductions, so `wights`, "
+          f"`crown'd` and `feelin'` get re-derived by the morphology layer "
+          f"and reported as things the fallback ADDED. It added nothing: the "
+          f"harness read all three before this module existed")
+    check("`lexicon_three_counts` agrees with `English.three_counts` instead, "
+          "which is the instrument bound to a real Lexicon",
+          (c["dictionary"], c["fallback"], c["refused"], c["by_layer"])
+          == (eng["dictionary"], eng["fallback"], eng["refused"],
+              eng["by_layer"]),
+          f"{c['dictionary']}/{c['fallback']}/{c['refused']} both ways, "
+          f"by layer {c['by_layer']}. Two counting instruments that answer "
+          f"the same question differently are one instrument and one bug; "
+          f"this pins which is which")
+    check("a hyphenated compound read whole from CMUdict is DICTIONARY, and "
+          "the disclosure says so",
+          c["compound_agreement"] >= 1
+          and "dictionary" not in c["by_layer"],
+          f"compound_agreement {c['compound_agreement']}; `to-day` splits on "
+          f"the hyphen exactly as `Lexicon.transcribe` splits a LINE and both "
+          f"pieces are in CMUdict, so nothing was derived. A `dictionary` key "
+          f"inside `by_layer` is the bug this check exists for -- a layer "
+          f"name that cannot occur in the column it was printed under")
+
+    # THE RENDERING. The arithmetic doctrine 79 is about is a division, and
+    # the defect it was written from was dividing by the wrong denominator.
+    out = "\n".join(G.format_three_counts(c))
+    read = c["dictionary"] + c["fallback"]
+    check("the rendered line prints three numbers, named",
+          all(k in out for k in ("dictionary", "fallback", "REFUSED")), out)
+    # The fixture has refusals in it on purpose, so `read` and `total` are
+    # DIFFERENT numbers and this check has teeth. With no refusals the two
+    # denominators coincide and the assertion would pass without testing
+    # anything, which is the shape of a check that quietly stops working.
+    check("and the derived share divides by dictionary+fallback, never by "
+          "total",
+          read != c["total"]
+          and f"WAS read is {c['fallback']}/{read}" in out
+          and f"WAS read is {c['fallback']}/{c['total']}" not in out,
+          f"derived share printed over {read} (dictionary+fallback), not "
+          f"{c['total']} (total). The sonnet battery divided by the mandated "
+          f"total and recorded Shakespeare as failing to rhyme `viewest`/"
+          f"`renewest`; the division is done once, here, so a caller cannot "
+          f"repeat it. The REFUSAL rate above it is over `total` and that is "
+          f"correct -- it is the one rate whose denominator is everything")
+    check("a reading from the LETTER layer is flagged in the rendering",
+          low["by_layer"].get("letter", 0) >= 1
+          and "WARNING" in "\n".join(G.format_three_counts(low)),
+          f"by layer {low['by_layer']}; §10 measures that layer as net "
+          f"harmful, so a count that includes it may not be printed as though "
+          f"it were the same kind of number as a derived one")
+    empty = G.format_three_counts(
+        G.lexicon_three_counts(lex_off, ["zzzqx", "qqqzx"]))
+    check("nothing read is a finding, not a division by zero",
+          any("no rate" in l for l in empty), " / ".join(empty))
+
+
+def test_the_counts_are_reachable_from_a_command_line():
+    print("\n23. `python3 quality/g2p.py --counts=...` prints them")
+    import io
+    import contextlib
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        rc = G.main(["g2p.py", "--counts=high", "love", "viewest", "o'er",
+                     "hypotenuse"])
+    got = buf.getvalue()
+    check("the verb runs and exits 0", rc == 0, got.strip() or "(no output)")
+    check("and prints all three counts", "dictionary 1" in got
+          and "fallback 2" in got and "REFUSED 1" in got, got.strip())
+    err = io.StringIO()
+    with contextlib.redirect_stderr(err):
+        rc2 = G.main(["g2p.py", "--counts=maximum", "love"])
+    check("an undeclared mode REFUSES and exits 2 rather than counting under "
+          "a mode nobody declared", rc2 == 2,
+          err.getvalue().strip() or f"rc={rc2}")
+
+
 if __name__ == "__main__":
     test_default_is_off()
     test_battery_is_unmoved()
@@ -705,6 +955,9 @@ if __name__ == "__main__":
     test_lexicon_wiring_counts_are_inspectable()
     test_lexicon_wiring_no_recursion()
     test_lexicon_wiring_rejects_undeclared_modes()
+    test_letter_rules_have_a_live_producer()
+    test_three_counts_have_a_reporting_path()
+    test_the_counts_are_reachable_from_a_command_line()
     print("=" * 70)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING:")

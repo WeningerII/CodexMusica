@@ -72,7 +72,13 @@ Not False (they may well be the same word in two orthographies) and not True
 refusal is keyed to the FEATURE, never to a guess about which orthography a
 token came from — sniffing that per word would be a lexicon this module does
 not have. `merger_refusal_rate()` measures what it costs on real pairs, so the
-price is paid in the open the way `fas.py` pays its 60.2%.
+price is paid in the open the way `fas.py` pays its 60.2%. CHECKED 2026-08-13
+and the analogy holds exactly, which is worth saying because the same citation
+is wrong 900 lines down: `fas.py`'s 60.2% is ORTHOGRAPHIC INDETERMINACY —
+unvocalised Perso-Arabic does not write the short vowel that would decide the
+rhyme — and that is the same layer as this module's o~u / e~i / '~k refusal,
+where Straits Rumi does not write the contrast that would decide it. It is NOT
+a refusal on script. See `merger_refusal_rate` for the measured split.
 
 Folds that ARE applied are notational only — they change no phoneme:
 `ch`/`chh` and modern `c` all become one unit /tʃ/, `sh` and modern `sy` one
@@ -958,12 +964,50 @@ class Malay(Phonology):
     def merger_refusal_rate(self, pairs):
         """-> (n_refused, n_total). What reading two orthographies costs.
 
-        `fas.py` reports that it refuses 60.2% of real Hafez pairs on script
-        and leaves the number standing. The same accounting belongs here: the
-        o~u / e~i / '~k refusals are the designed outcome of reading a merged
-        orthography honestly, and their rate is the price. Pairs whose words
-        are simply unreadable are counted in the denominator, not the
-        numerator — doctrine 27, a draw that fails the filter belongs there.
+        `fas.py` refuses 60.2% of real Hafez pairs because its ORTHOGRAPHY
+        DOES NOT WRITE THE DECIDING SEGMENT — unvocalised Perso-Arabic omits
+        the short vowel — and leaves the number standing. The same accounting
+        belongs here: the o~u / e~i / '~k refusals are the designed outcome of
+        reading a merged orthography honestly, and their rate is the price.
+        Pairs whose words are simply unreadable are counted in the
+        denominator, not the numerator — doctrine 27, a draw that fails the
+        filter belongs there.
+
+        CORRECTED 2026-08-13, and the correction is to the CITATION only — the
+        arithmetic below is unchanged and was already right. This docstring
+        read "`fas.py` reports that it refuses 60.2% of real Hafez pairs ON
+        SCRIPT", which is wrong by a factor of 1,754. MEASURED, and pinned by
+        `python3 quality/hafez_rate.py --check`:
+
+            REFUSED_SCRIPT              7 / 20,388   0.0343%
+            REFUSED_INDETERMINATE  12,276 / 20,388  60.2119%
+
+        The script axis costs 0.03%; the 60.2% is indeterminacy, a different
+        claim about a different layer. The error came in through doctrine 59,
+        whose TITLE names the script axis while its BODY names the missing
+        short vowel — this module read the title as a measurement. Cite the
+        body. (Doctrine 59 itself is `quality/METHOD.md`'s to repair, not this
+        module's.)
+
+        WHY THE ACCOUNTING SURVIVES A WRONG WARRANT — doctrine 44: separate
+        "the number is wrong" from "the reasoning is wrong", they have
+        different remedies. What this method implements is the
+        indeterminacy/unreadable split, which is exactly the split `fas.py`
+        was NOT making until 2026-08-13 — so the code was already doing the
+        right thing under a sentence describing the wrong one, and nothing
+        downstream moves. `test_phon_msa.py` §16's 0/164, 0/328 and 3/4 are
+        unchanged.
+
+        The split is exact rather than approximate, and that rests on a
+        PRECONDITION worth writing down because it is not obvious.
+        `rhymes()` returns None from two structurally different places: the
+        merger branches in `_rime_verdict`, and `len(sa) < depth or len(sb) <
+        depth`. The `sa and sb` guard below removes the second only because
+        RIME_DEPTH is 1, where `len(sa) < 1` and `sa == []` are the same
+        test. At any depth > 1 a word that reads perfectly but is SHORTER
+        than the depth would land in the numerator as a merger refusal, which
+        is fas.py's own conflation in a second costume. Latent, not live:
+        this method calls `rhymes()` at its default and forwards no depth.
         """
         refused = 0
         for a, b in pairs:

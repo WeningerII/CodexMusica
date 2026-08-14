@@ -65,10 +65,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from lyric_harness import (Declaration, Lexicon, line_anchors,  # noqa: E402
+from lyric_harness import (Declaration, Lexicon,  # noqa: E402
+                           is_apparatus_line, line_anchors,
                            line_readability, line_tokens,
                            raw_final_token, readability_records,
-                           word_syllable_map)
+                           token_pieces, word_syllable_map)
 
 
 @dataclass
@@ -245,6 +246,25 @@ def read_lines(path):
     headers -- 29,990 of those from `[VERSE n]` alone -- not one syllable
     of it sung. `quality/test_readability.py` test 5 carries the corrected
     pin and the arithmetic that got it there.
+
+    CENTRALIZED 2026-08-13, and the fix above is the reason: this function
+    spelled the rule a SECOND time, and it spelled it differently. It tested
+    `--- ` WITH A TRAILING SPACE where `lyric_harness.is_apparatus_line` --
+    the one definition CLAUDE.md names, and the one every other reader in the
+    repo uses -- tests `---`. The two agree on `--- TITLE:` and on every
+    ordinary source note, and disagree on a RULE, which is why nobody noticed:
+    a run of four or more hyphens is not `--- `. MEASURED over the 143 English
+    song files: FOUR lines, all four Wordsworth epigraphs in
+    `corpus/song/eng_british_felicia_hemans.txt` (`----"'Tis not merely`,
+    `----"Sing aloud`, `----"His early days`, `----"How divine`), read as
+    verse here and as apparatus everywhere else. `lines_countable` 151,898 ->
+    151,894, and 151,894 is the figure `RESULTS_HYPHEN_REFUSAL.md` and
+    `lyric_harness.token_pieces` ALREADY carried -- so this closes a record
+    that disagreed with itself rather than moving one that agreed. No
+    unreadable-end-word count moves: all four end words (`merely`, `aloud`,
+    `days`, `divine`) are in CMUdict, so 9,078/174/149/8,842 are untouched and
+    only the denominator falls, 5.97638% -> 5.97654% and 6.09093% ->
+    6.09109%.
     """
     with open(path, encoding="utf-8", errors="replace") as f:
         out = []
@@ -252,7 +272,7 @@ def read_lines(path):
             s = raw.strip()
             if not s or not re.search(r"[A-Za-z]", s):
                 continue
-            if s.startswith("#") or s.startswith("--- ") or s.startswith("["):
+            if is_apparatus_line(s):
                 continue
             out.append(s)
         return out
@@ -268,6 +288,8 @@ def corpus_rate(lex, paths):
     """
     tot = unread = subst = 0
     by_token = by_piece = 0
+    overstates = 0
+    misfiled = misfiled_unexplained = 0
     words = {}
     per_file = []
     for p in sorted(paths):
@@ -277,12 +299,53 @@ def corpus_rate(lex, paths):
         u = [r for r in c if r["final_unreadable"]]
         t = [r for r in u if r["final_unreadable_cause"] == "token"]
         pc = [r for r in u if r["final_unreadable_cause"] == "piece"]
+        lo = [r for r in c
+              if not r["final_unreadable"] and r["final_unread_pieces"]]
         s = substitution_report(lex, lines)
         tot += len(c)
         unread += len(u)
         by_token += len(t)
         by_piece += len(pc)
+        overstates += len(lo)
         subst += len(s)
+        # THE POSITION INVARIANT, MEASURED RATHER THAN ASSERTED. `pc + lo` is
+        # the whole population the hyphen defect lives in: an end token with at
+        # least one piece that reads and at least one that does not. Before
+        # `interior_unreadable` was derived by POSITION, every one of these had
+        # its unread END-WORD piece filed as an INTERIOR unreadable -- 328 of
+        # 328 -- because the old rule was "an unreadable string spelled
+        # differently from the whole final token", and `zide` is spelled
+        # differently from `hill-zide`.
+        #
+        # It rides THIS loop rather than a sweep of its own because a second
+        # pass over the same 143 files would compute the population from a
+        # second definition, and the two would drift the way the record and the
+        # behaviour drifted before `unread_final_piece` became one predicate.
+        # The cost is nothing: the expensive part (`readability_records`) is
+        # already done, and the per-line token walk below runs only on the
+        # handful of lines that actually overlap.
+        #
+        # TWO COUNTS, NEVER SUMMED (doctrine 79). An overlap is not by itself a
+        # misfiling: Kingsley's `Sing heigh-ho, and heigh-ho!` really does carry
+        # `heigh` in BOTH places, once as an interior token's unread piece and
+        # once as the end token's, and the position rule is correct to report
+        # both. `interior_misfiled_unexplained` subtracts exactly those -- an
+        # overlap no EARLIER token accounts for is the defect, and it is the
+        # number that must stay 0. Collapsing the two would make the naive
+        # over-correction (subtract final pieces from interior, deleting a real
+        # interior gap) look like a fix instead of doctrine 24 broken.
+        for r in pc + lo:
+            over = [pi for pi in r["final_unread_pieces"]
+                    if pi in r["interior_unreadable"]]
+            if not over:
+                continue
+            misfiled += 1
+            earlier = set()
+            for tk in line_tokens(r["text"],
+                                  strip_parens=lex.strip_parens)[:-1]:
+                earlier.update(token_pieces(lex, tk)[1])
+            if any(pi not in earlier for pi in over):
+                misfiled_unexplained += 1
         for r in u:
             w = r["final_token"].lower()
             words[w] = words.get(w, 0) + 1
@@ -302,6 +365,17 @@ def corpus_rate(lex, paths):
             # have made their two effects inseparable (doctrine 58).
             "unreadable_final_token": by_token,
             "unreadable_final_piece": by_piece,
+            # The REPORT-layer half of the same defect: the last piece reads,
+            # so the anchor is right and only the printed word overstates.
+            # Never a refusal, and it is deliberately NOT added to `rate`.
+            "label_overstates": overstates,
+            # `unreadable_final_piece + label_overstates` -- every end token
+            # with a read piece and an unread piece, which is the population
+            # the position rule is about. Named so a reader can check the
+            # 174/149 split without recomputing it from two other keys.
+            "final_piece_population": by_piece + overstates,
+            "interior_misfiled": misfiled,
+            "interior_misfiled_unexplained": misfiled_unexplained,
             "rate": (unread / tot) if tot else 0.0,
             "rate_token": (by_token / tot) if tot else 0.0,
             "substituted_end_word": subst,
@@ -329,6 +403,16 @@ def main(argv):
           f"anchored on `hill`")
     print(f"  of which the rhyme word would have been SILENTLY SUBSTITUTED by "
           f"an earlier word: {res['substituted_end_word']}")
+    print(f"end token with a read piece AND an unread piece: "
+          f"{res['final_piece_population']} "
+          f"= {res['unreadable_final_piece']} refused (last piece unread) "
+          f"+ {res['label_overstates']} label-overstates (last piece reads, "
+          f"`threshing-floor` on `floor`)")
+    print(f"  of those, an end-word piece ALSO listed as interior: "
+          f"{res['interior_misfiled']}, of which "
+          f"{res['interior_misfiled_unexplained']} unexplained by an earlier "
+          f"token — the second number is the misfiling `interior_unreadable` "
+          f"was derived by POSITION to make impossible, and it must be 0")
     print(f"distinct unreadable finals: {res['distinct_unreadable_finals']}")
     print("most frequent:")
     for w, n in res["top_unreadable_finals"]:

@@ -81,7 +81,24 @@ bigger move this tier does not attempt, and it says so rather than pretend
 the search was wider than it was.
 
 THREE STOP CONDITIONS, and they are not one thing. SUCCESS — nothing left
-carries a flag finding. NO_PROGRESS — a whole round fixed nothing, so
+carries a flag finding **ON A LINE. That qualifier is load-bearing and was
+missing until 2026-08-13.** Every stop condition reads `brief()`, `brief()` is
+built from `inspect()`'s `per_line` half, and a WHOLE-DRAFT finding names no
+line — so it is in no `Brief` and no stop condition can see it. Exactly three
+codes are whole-draft AND a flag: `LEXICAL_MONOTONY` and `FUNCTION_WORD_HEAVY`
+(the floor, and only inside a calibrated profile's MEASURED range) and
+`HOOK_ABSENT` — which is the song-function layer's ONLY flag, so the layer
+wired in above can never stop this loop. `verify()` reads all three, because
+its diff covers `whole` as well as `per_line`. **So a whole-draft flag can
+REJECT a revision and can never ASK for one**, and `revise_loop` on a four-line
+draft with a declared blueprint returns SUCCESS with `LEXICAL_MONOTONY` and
+`HOOK_ABSENT` both standing. NOT closed by widening the stop condition: this
+loop's only move is a word swap on a named line, none of the three names one,
+so promoting them would spend every round of `max_rounds` on a defect the loop
+has no move for and then report ROUND_LIMIT. DISCLOSED instead —
+`LoopResult.whole`/`.whole_flags` carry them out and `LoopResult.disclosure()`
+prints them under the stop reason. `quality/test_loop.py` test 11.
+NO_PROGRESS — a whole round fixed nothing, so
 another identical round is not run. ROUND_LIMIT — `ReviseDeclaration.
 max_rounds` (declared since the first commit of `quality/revise.py`,
 default 4, unread by anything until this module) is reached. A single
@@ -99,7 +116,23 @@ default setting, and `revise_loop` would have tried to "fix" a refrain that
 was already right. Two changes, both required: `grade()` now asks the
 mandate's own `Mandate.repeat_is_violation(i, j)` per pair before falling
 back to the switch (a plain letter scheme with no declared returns is
-completely unaffected — the fallback is exactly the old behaviour); and
+unaffected AT THE DEFAULT `repeat_licence="unlicensed"` — and NOT unaffected
+at `repeat_licence="refrain"`, CORRECTED 2026-08-13, where this sentence
+claimed "completely unaffected — the fallback is exactly the old behaviour".
+It is not: a MANDATED pair under a plain letter scheme is `REQUIRE_RHYME`,
+whose `declared=True`/`repeat_is_violation=True` means `decided()` answers
+before the fallback is ever consulted, so the switch is INERT there. Measured
+on `AABB` with two identical-word pairs: `unlicensed` charges a violation
+either way, `refrain` used to LICENSE it and now charges it, and the
+`REFRAIN_REPEAT` notes drop to zero. The fix is not to weaken `REQUIRE_RHYME`
+— that value is doctrine 3 and three test sections rest on it — but to gate
+the mandate's answer on the mandate having declared any return at all, which
+is what this sentence always claimed was happening. A letter scheme cannot
+STATE the question: a letter has two states and the question has five answers,
+so `REQUIRE_RHYME`'s True there is `schemes.py`'s default and not the writer's
+declaration, and doctrine 1 says a declared coordinate is not silently
+outranked by another layer's default. `quality/test_mandate_language.py` §11
+pins the schemes-side facts so the fix is visible when it is made); and
 `inspect()` now emits `Mandate.returns_check()` findings
 (`RETURN_NOT_VERBATIM`, a flag), so `verify()`'s existing net-negative diff
 — the same mechanism meter rides — can for the first time see a revision
@@ -298,15 +331,17 @@ at all, doctrine 6/7's "two sources, deliberately kept apart" holding
 exactly as designed. `--returns=` fixes the MANDATE layer's
 misclassification; it was never going to silence the floor, and should not.
 
-**A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `--- `, OR `#` — NOTHING
-ELSE — CENTRALIZED 2026-08-12.** A `(parenthetical stage direction)` under a
+**A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `---`, OR `#` — NOTHING
+ELSE — CENTRALIZED 2026-08-12, CONVERGED 2026-08-13.** A `(parenthetical stage direction)` under a
 section header is not apparatus to any reader in this repo: it starts with
 `(`, and every line-loader here only ever excluded `[`/`---`/`#`. Written
 that way it is scored as sung text — tokenized, fed to the rhyme graph,
 counted toward MATTR — which is how a stage direction like "(instrumental
-fade, 7/8)" ends up polluting a real measurement. `quality/readability.py`'s
-`read_lines`, `quality/grid.py`'s `read_marked_songs`, and a dozen other
-readers under `quality/` already agreed on `#`/`--- `/`[...]` as apparatus;
+fade, 7/8)" ends up polluting a real measurement. A dozen readers under
+`quality/` already agreed on `#`/`---`/`[...]` as apparatus — but
+`quality/readability.py`'s `read_lines` and `quality/grid.py`'s
+`read_marked_songs`, the two this paragraph named, DID NOT, and saying they
+did is what let them keep their own spellings for a day (see below);
 `lyric_harness.py`'s own CLI verbs (`brief`, `verify`, `revise`, `song`,
 `density`, `graph`, `chains`, `partition`, `scheme`) were the one holdout,
 each with its own inline `not startswith("[")` filter, silently missing
@@ -315,6 +350,39 @@ the top) are now the one definition every verb calls — a stage direction,
 or any other non-sung line, belongs on a `#`-prefixed line under the
 section header it annotates, and it will be dropped exactly the way a
 `--- TITLE:` line already is everywhere else in this repo.
+
+**AND "CENTRALIZED" MEANT "A THIRD SPELLING WAS WRITTEN THAT DAY" — FOUND BY
+DIFFING THE TWO READERS THIS PARAGRAPH CITED AS AGREEING, FIXED 2026-08-13.**
+Both now CALL `is_apparatus_line`; neither did on 2026-08-12, and each was
+wrong in a different direction. `read_lines` tested `--- ` WITH A TRAILING
+SPACE, and a four-hyphen line is not `--- `: four Wordsworth epigraphs in
+`corpus/song/eng_british_felicia_hemans.txt` were verse to that one reader and
+apparatus to every other, `lines_countable` 151,898 -> **151,894**. The record
+was ALREADY self-contradictory on this: `quality/RESULTS_HYPHEN_REFUSAL.md`,
+`readability.py`'s own module docstring and `token_pieces` all said 151,894
+while `test_readability.py` test 5 pinned 151,898, so the fix closed a
+disagreement rather than moving an agreed number — and NO RATE MOVED, because
+all four end words are in CMUdict, so 9,078/174/149/8,842 are byte-identical
+and only the divisor fell. `read_marked_songs` never stripped before its test
+and routed `[` through `^\[([^\]]*)\]`, so a bracket with **no closing `]`**
+matched nothing, opened no block, and fell through to be scored as a LYRIC:
+**133 lines in 19 files across 130 blocks, 14 of them emptied outright**
+because a printer's stage direction — `[Exeunt.`, `[Drinks.`, `[Music:` — was
+the block's entire content. Emptying them costs nothing measurable and the
+corpus says so twice: an empty block was already ordinary here (6,187 of
+182,147, 5,884 of them Persian) and none of the 14 is a chorus/burden/refrain,
+so `compare_returns` — the only reader of `Block.lines` anywhere — is never
+handed one. ORDER IS THE REASON THIS IS ONE CLAUSE AND NOT A FILTER AT THE
+TOP: `[VERSE 1]` IS apparatus by this rule and is also the thing that opens a
+block, so `--- TITLE:` must be tested first and `_MARK_RE` before the
+apparatus drop. **Five `startswith("--- ")` sites still survive** —
+`quality/negative_control.py`, `cym_rhyme_rate.py` (x2), `test_cym.py`,
+`test_phonology.py`, all on the Welsh/negative-control path, unmeasured
+because that cell owns them. `grep -rn 'startswith("--- ")'` is the whole list
+and it is the check that this is finished. `quality/test_readability.py` test
+5 now sweeps all 189,066 letter-bearing corpus lines to prove `read_lines` and
+`is_apparatus_line` are the SAME predicate and not two that happen to agree;
+`quality/test_grid.py` §23, `quality/test_song_function.py` §9.
 
 **`--voices` — THE SAME `(...)` MEANT TWO OPPOSITE THINGS IN THIS REPO,
 DEPENDING WHICH FUNCTION READ IT — FOUND WRITING IN VOICE-ATTRIBUTION
@@ -450,7 +518,47 @@ the design on paper.
   cannot see the change it asked for is a rubber stamp in the other
   direction, and that is as true of a count as it is of a key.
 
-Full sweep after both fixes: `quality/test_loop.py` (10/10),
+**BLUEPRINT OMISSION, DISCLOSED AT THE LOOP TOO — FIXED 2026-08-13.**
+`_say_blueprint()` closed this at the CLI and `blueprint_declared` closed it at
+the `Reviser`. `revise_loop` sits BETWEEN those two and had a third copy of the
+same gap: `LoopResult` carried `stop_reason`/`lines`/`rounds`/`unresolved` and
+nothing about which layers the run actually asked, so a caller holding one —
+or reading a stored one later — could not tell "meter clean" from "meter never
+asked". `subdivision` and `profile` were undisclosed at every level.
+`LoopResult` now carries `blueprint_declared` (READ off `inspect()`'s own key,
+never recomputed from `blueprint is not None`, so the two cannot drift —
+doctrine 1), `subdivision_declared`, `profile`, `whole`, and
+`pairs_mandated`/`pairs_judged`/`pairs_refused` — doctrine 79's three counts,
+which `grade()` has always returned and the loop discarded at the very
+`brief()` call that computed them. One extra `inspect()` per RUN pays for it:
+measured at 0.1s against the first inspect's 43.6s on the same draft, because
+the caches are warm for the draft the loop is already holding.
+**AND OMITTING `blueprint=` DROPS TWO LAYERS, NOT ONE** — meter and
+song-function ride the same coordinate, and nothing said so until now.
+`quality/test_loop.py` test 11.
+
+**THE APPARATUS FILTER HAD ONE MORE HOLDOUT — FIXED 2026-08-13.** The
+centralization onto `load_lyric_lines` covered `lyric_harness.py`'s verbs on
+2026-08-12 and missed `quality/loop.py`'s own `__main__`, which kept only the
+`[` case. A `#` stage direction or a `--- TITLE:` note reached THE FLAGSHIP
+LOOP as sung text — tokenized, rhyme-graded, counted toward MATTR, and
+eligible to be handed back to the writer as a line to revise. It calls
+`load_lyric_lines` now.
+
+**AND ONE MORE AFTER THAT — FIXED 2026-08-13.** `quality/relations.py`'s own
+`main()` was a FOURTH site, keeping only the `[` case, so `python3
+quality/relations.py FILE` and `python3 lyric_harness.py relations FILE` read
+different texts out of one file. Spelled inline rather than imported: P10's
+guard (`quality/test_relations.py`) requires `relations.py` to import nothing
+from `lyric_harness`, and `load_lyric_lines` would be wrong here regardless —
+it drops blank lines, which this module derives its stanza frame from. No
+shipped corpus or fixture carries a `#`/`---` line, so no recorded number
+moves. FOUR HOLDOUTS FOUND BY FOUR SEPARATE LOTS OVER TWO DAYS, each after a
+paragraph in this file said the centralization was done;
+`grep -rn 'startswith("--- ")'` and `grep -rn 'startswith("\[")'` are the only
+checks that it actually is.
+
+Full sweep after both fixes: `quality/test_loop.py` (12/12, was 10/10),
 `quality/test_revise.py` (29/29), and every other test file under
 `quality/` — unaffected, confirmed by re-running rather than assumed clean
 because the module they share a diff mechanism with had just changed.
@@ -541,12 +649,25 @@ from the first run — do not drift from these either:**, merged into one run.)
    would be a worse defect than the leak. See RESULTS_BAND.md.
 
 4. **Four layers.** Signal (phoneme channels: nucleus/coda/onset/stress,
-   scored separately). Time (BUILT and POWERED, and it found nothing:
+   scored separately). Time (BUILT, and **MUTE** — not powered, and the
+   difference is the whole 2026-08-11 retraction, which this line had not been
+   told until 2026-08-13. It read "BUILT and POWERED, and it found nothing",
+   which is the sentence that would make a reader believe the layer works;
+   `quality/RESULTS_FWER.md` has said since 2026-08-11 that **the layer is not
+   measurable, it is MUTE**, and marked P1/P2/P4 VOID. A null from a powered
+   instrument and silence from an instrument that cannot fire are different
+   results, and doctrine 20 is the doctrine about not collapsing them.
    quality/time_layer.py, RESULTS_TIME.md, RESULTS_FWER.md. Placement of
    rhyme against a metric period, phase-invariant and self-normalizing,
    with family-wise error control across each position's candidate family
-   (median 89 on a quatrain, 156-282 on a sonnet; "~15" was the SCORED
-   family and is amended at doctrine 29). Saturation 6-16%.
+   (median 89 on a quatrain, 156-282 across 24 sonnets — MEASURED 2026-08-13,
+   median 203; 176-265 is the same statistic over sonnets 1-8 only; "~15" was
+   the SCORED family and is amended at doctrine 29).
+   ~~Saturation 6-16%.~~ **REPINNED 2026-08-13: 6-16% is `m` = SCORED and was
+   struck VOID at RESULTS_FWER.md's own P1 row on 2026-08-11 — this file went
+   on quoting it un-struck for two days. At the honest candidate family
+   saturation is 0.0%, 18 of 20 real sonnets return `cannot tell` and the other
+   2 return zero events.**
    The standing record of what that layer does and does not
    license is METHOD § Time layer.
    Still no beat grid — there is no audio, so isochrony is an assumed
@@ -566,9 +687,16 @@ from the first run — do not drift from these either:**, merged into one run.)
    exchange rate between surprise and clarity is not derivable; it is a
    genre's answer, so it belongs in a declaration, not in a constant.
 
-7. **Rejection, not selection.** Detecting bad writing held-out at AUC 0.971;
-   ranking good writing at 0.709. Enforce a floor, do not order the permitted
-   region.
+7. **Rejection, not selection.** Detecting bad writing held-out at AUC **0.964**;
+   ranking good writing at **0.717**. Enforce a floor, do not order the permitted
+   region. REPINNED 2026-08-14 from ~~0.971~~ / ~~0.709~~, which were the
+   PRE-OOV-FIX reading of 2026-08-09 and have been superseded TWICE: pre-fix
+   0.709/0.971, warm post-fix 0.659/0.975, COLD 0.717/0.964. The cold pair is
+   `quality/test_discriminate.py`'s `abs_exp1`/`abs_exp2` joint AUCs, 69/69
+   green on two independent full cold runs. **The argument is unchanged and the
+   gap is what carries it** — 0.247 cold against 0.262 pre-fix, so rejection
+   still beats selection by a quarter of an AUC and this doctrine never rested
+   on the third decimal.
 
 9. **Optimizing toward the phonetic maximum is the slop direction.** Handing a
    model "L2-L4 below theta" makes it reach for the highest-scoring rhyme,
@@ -694,34 +822,90 @@ descriptors in any generation-facing output — era+region+technique.
 ## Test discipline
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
   Lear limerick known-answers, Whitman negative control.
-- Current baselines, WITH the conjunctive band: sonnets **8.0%
-  violations (81/1014 JUDGED pairs; 73/1014 = 7.2% before `theta_coda`
+- Current baselines, WITH the conjunctive band: sonnets **8.1%
+  violations (82/1014 JUDGED pairs; 73/1014 = 7.2% before `theta_coda`
   was calibrated 0.60 -> 0.80 on 2026-08-11, and 35/1014 = 3.5% pre-band)**
-  — MEASURED, not recalled: `python3 battery.py` prints
-  `mandated 1064, judged 1014, refused 50` and `violations 81`.
+  — MEASURED 2026-08-13, not recalled: `python3 battery.py` prints
+  `mandated 1064, judged 1014, refused 50` and `violations 82`.
+  REPINNED 2026-08-13 from 81/8.0%, which was this file's figure from
+  2026-08-11 and no longer reproduces. `mandated`/`judged`/`refused` are
+  unchanged, so the movement is one pair crossing the band, not an
+  ingestion change.
   The rise is the typed residue: love/prove and its class are CONSONANCE in
   the declared General American dialect, which is correct and now named.
   Report **refused, judged and mandated as three separate counts, always** —
   50 of the 1064 mandated pairs are REFUSALS, end words absent from CMUdict,
   and charging them to the comparator is the triage rule two items below this
   one broken in the headline number (doctrine 79).
-  Whitman **17.3%** chained at theta 0.82 — MEASURED, and `battery.py` prints
-  it. The recorded 20.0% and 18.0% are the PRE-`b1d7f64` comparator's: they
-  reproduce exactly at head alignment with `theta_coda` 0.60 and in no other
-  cell of that 2x2, so three of the four Whitman figures in this repo's record
-  are a comparator that no longer ships. Doctrine 58, one axis further out —
-  **a rate is a coordinate of the COMPARATOR.** 26.0% band-OFF is
-  comparator-invariant and still reproduces, which is the check that it is the
-  same statistic.
-  **The band's empirical warrant stays withdrawn, and the REASON has changed.**
-  Under the shipped comparator the control DOES clear its own line-permutation
-  null — p 0.006 at n=2000 against the recorded 0.209, and the band's effect on
-  the separation FLIPS SIGN, +6.7 -> +9.3 pp where the record has +6.7 -> +3.3.
-  So doctrine 71's arithmetic no longer holds on this text. It is withdrawn on
-  a prior ground that needs no null at all: **half of Whitman's detected chain
-  links are REPEAT on an identical token** — `now` closes four consecutive
-  lines, which `battery.py` has printed under `false chains (should be near
-  zero)` since the first commit. A negative control is a text in which the
+  Whitman **10.7%** chained at theta 0.82 — MEASURED 2026-08-13, and
+  `battery.py` prints it: `lines captured in chains: 16 (10.7%) across 7
+  chains`, over 150 free-verse lines.
+  REPINNED 2026-08-13 from 17.3%, which this file asserted as "MEASURED, and
+  `battery.py` prints it" and which `battery.py` had stopped printing — the
+  claim was wrong by 6.6 points in the one place the sentence invites a reader
+  to check it. 17.3% was itself measured 2026-08-11; the recorded 20.0% and
+  18.0% are older still, the PRE-`b1d7f64` comparator's, reproducing exactly
+  at head alignment with `theta_coda` 0.60 and in no other cell of that 2x2.
+  So **four of the five Whitman figures in this repo's record are a comparator
+  that no longer ships**, and the count has grown once since it was written.
+  Doctrine 58, one axis further out — **a rate is a coordinate of the
+  COMPARATOR**, and a rate quoted with the command that prints it goes stale
+  the moment the comparator moves, silently, because nothing re-runs the
+  command. 26.0% band-OFF is comparator-invariant and still reproduces, which
+  is the check that it is the same statistic.
+  RE-VERIFIED 2026-08-13, and **the +9.3 does not reproduce.**
+  `python3 quality/audit_band_control.py 200` (seed 20260810) prints band OFF
+  `R_obs 26.0%, null median 19.3%, excess +6.7 pp, p 0.0547` and band ON
+  `R_obs 10.7%, null median 5.3%, excess +5.3 pp, p 0.0199`.
+  THE CONTROL ON THE CONTROL, and it is what makes this readable: the band-OFF
+  row reproduces TO THE DECIMAL on both corpora — Whitman's null 19.3/8.7/27.3
+  and the sonnets' 29.9/25.5/35.6, +23.6 pp over the null MEDIAN and +17.9 pp
+  over the null MAX, at the full n=200. So the null machinery is demonstrably
+  unchanged and every figure that moved is downstream of the band-ON comparator
+  alone.
+  CORRECTED 2026-08-14: this sentence read "+23.6 pp and +17.9 pp over the null
+  max", attaching ONE label to TWO statistics — and it did so twenty-five lines
+  above the paragraph that warns, in this file, about exactly that conflation.
+  +23.6 is over the median (53.5 − 29.9); only +17.9 is over the max
+  (53.5 − 35.6). Found by `audit_band_control.py --check`, which now prints the
+  two under separate labels so the report cannot restate the ambiguity.
+  **The band's effect on the separation is +6.7 -> +5.3 pp — MEASURED
+  2026-08-13.** REPINNED from +6.7 -> +9.3 pp (MEASURED 2026-08-11, the
+  17.3%/8.0% comparator), which had itself superseded +6.7 -> +3.3 pp
+  (MEASURED 2026-08-10, pre-`b1d7f64`).
+  **THE SIGN DOES NOT FLIP — IT FLIPPED BACK.** The separation FALLS when the
+  band goes on, the same direction the 2026-08-10 record had, because the
+  observation falls 15.3 pp and the null median falls 14.0 pp together. So
+  doctrine 71's own sentence — a filter that lowers chance and signal together
+  has not tightened anything — HOLDS on this text again. THE INSTRUMENT IS
+  FINE AND ONLY THE WHITMAN COMPARISON IS EMPTY: the same statistic under the
+  same null moves the SONNETS +23.6 -> +27.6 pp (53.5% -> 48.9% against null
+  medians 29.9% -> 21.3%), with p at the 0.0050 floor in both arms. The band
+  widens the separation on the positive corpus and narrows it on the negative
+  control, which is what a working filter looks like. And the 2026-08-11
+  amendment that retired it is the figure that went stale. Three comparators,
+  three answers, one text: the clause that caught this is doctrine 58 one axis
+  out, **re-run the control when the COMPARATOR moves**.
+  Nor does the control clear its null at the floor: p 0.0199 at n=200,
+  REPINNED from p 0.0050 — 0 of 200 permutations reached the observation then,
+  3 of 200 do now. The recorded `p 0.006 at n=2000` was measured on R_obs
+  17.3%, which no longer reproduces, so it is superseded whatever its
+  resolution was, and has not been re-run.
+  **The band's empirical warrant stays withdrawn**, on the prior ground that
+  needs no null at all — and that ground is now STRONGER, not weaker:
+  **seven of Whitman's NINE detected chain links (78%) are REPEAT on an
+  identical token**, MEASURED 2026-08-13. REPINNED from "half ... 7 RHYME and
+  7 REPEAT of 14" (MEASURED 2026-08-11): the REPEAT count did not move, the
+  RHYME links collapsed 7 -> 2. `now` closes four consecutive lines, which
+  `battery.py` has printed under `false chains (should be near zero)` since
+  the first commit.
+  ONE STATISTIC, TWO MEANINGS, and the record has been quoting both under one
+  word: +6.7, +3.3, +9.3 and +5.3 are the excess over the null MEDIAN (**+5.3
+  added 2026-08-14 — it is the CURRENT head figure and this warning list had
+  omitted it, so the sentence naming the trap left out the number most likely to
+  be quoted**); the +17.9 pp
+  cited in METHOD § doctrine 71 is the excess over the null MAX, on a
+  different corpus. Doctrine 91 — a count is a coordinate of the rendering. A negative control is a text in which the
   property is ABSENT, and this one carries it as epistrophe, in the one
   relation doctrine 3 says cannot be read without a declared context.
   `corpus/whitman.txt` was never eligible, at any rate, under any comparator.
@@ -733,10 +917,27 @@ descriptors in any generation-facing output — era+region+technique.
   comparator / band / structure / value. Fix only when a category
   accumulates. Every fixed case becomes a permanent regression.
 - Real exemplars over constructed tests. Constructed tests encode the
-  author's assumptions; canon corrects the checker (8 rule errors
-  found this way: strict groes final-consonant rule, sain any-stressed
-  link, radif licensing, hyphen splitting **x3**, collision bar, mosaic
-  anchor reach, prefix phrase-final seam). The third hyphen error was the
+  author's assumptions; canon corrects the checker (**7 rule-error
+  CATEGORIES** found this way: strict groes final-consonant rule, sain
+  any-stressed link, radif licensing, hyphen splitting **x3**, collision bar,
+  mosaic anchor reach, prefix phrase-final seam).
+  REPINNED 2026-08-13 from **8**, and the provenance is `git log`, not an
+  argument: commit `29d61f2` — whose own subject line is *"four adversaries
+  was never eight, and hyphen splitting x2 is x3"* — rewrote `7 rule errors`
+  to `8 rule errors` in the same edit that moved the hyphen count x2 -> x3.
+  It incremented a CATEGORY count because an INSTANCE count moved. The list
+  is 7 categories and 9 instances, so **8 is derivable under neither
+  convention**, and a commit correcting a miscount introduced one.
+  AND THEY ARE NOT ALL `check_cynghanedd`'s, which four separate sites say
+  they are. Only **two** are cynghanedd rules — strict groes and sain. Radif
+  licensing is the Persian ghazal band (METHOD § doctrine 18); hyphen
+  splitting x3 is the ENGLISH song corpus, 174 English line ends, three
+  paragraphs below this one; collision bar is a canon merge
+  (`quality/RHYME_CANON.md`); mosaic anchor reach is
+  `quality/RESULTS_SPANS.md`. Doctrine 43 — a checker can implement a
+  tradition's rules and never have read that tradition's language — rests on
+  the TWO, and is not weakened by that: two rule errors found by canon in a
+  language the checker could not read is the whole of its claim. The third hyphen error was the
   expensive one and it was a different KIND from the first two: they produced
   a refusal, this produced a WRONG ANSWER. **FIXED 2026-08-11, and it is a
   refusal now.** In **174** English song line ends the LAST letter-bearing
@@ -814,9 +1015,19 @@ rather than this paragraph — a roster copied into two files drifts in both.
    shipped default (`min_confidence="high"`); only `"low"` reaches the
    letter-to-sound layer, which `test_g2p.py`'s
    `test_letter_layer_costs_more_than_it_buys` measures as net harmful (it
-   answers Shakespeare's own real refusals wrong about 40% of the time,
-   against ~3% for the derived layers) and which the wiring does not
-   default to. What the wiring closes: known DICTIONARY-DERIVED refusals
+   answers Shakespeare's own real refusals wrong **50.0%** of the time — 5 of
+   the 10 pairs only it can judge — against **5.1%** for the derived layers,
+   2 of 39, a **9.8x** gap. REPINNED 2026-08-13, and ~~"about 40% ... against
+   ~3%"~~ were BOTH stale by the same 2026-08-11 coda-identity fix that moved
+   §9 from 38/39 to 37/39 and never reached §10's MESSAGE STRING, which quoted
+   the literal `1/39 = 3%` — doctrine 48 inside an f-string. §10 now COMPUTES
+   both rates from the same three battery runs and asserts the RATIO, so
+   neither figure can drift alone again. Measured independently the same day by
+   two lots that agreed to the decimal. The three battery arms in full:
+   off 1064/1014/50/82, `high` 1064/1053/11/84, `low` 1064/1063/1/89 —
+   mandated/judged/refused/violations. The conclusion is unchanged and the
+   absolute case is STRONGER, so the shipped default was never at risk) and
+   which the wiring does not default to. What the wiring closes: known DICTIONARY-DERIVED refusals
    (`viewest`, `o'er`, `savour`, `groun'`) now read correctly wherever a
    caller opts in; what it does not close is this gap's own canary, and
    the gap entry stays open on that basis, not closed on the strength of
@@ -832,7 +1043,10 @@ rather than this paragraph — a roster copied into two files drifts in both.
    one. It used to read: all four recorded Whitman figures (18.0, 20.0,
    21.3, 26.0) fall inside one line-permutation null spanning
    6.7%-27.3%. That arithmetic no longer holds. 18.0 and 20.0 are the
-   pre-`b1d7f64` comparator's and read 16.0 and 17.3 today; 21.3 has
+   pre-`b1d7f64` comparator's; 20.0 re-read as 17.3 on 2026-08-11 and reads
+   **10.7 on 2026-08-13** (`battery.py`, repinned in Test discipline above).
+   16.0 is 18.0's 2026-08-11 re-reading and was NOT re-verified in that
+   repin, so do not quote it without re-running. 21.3 has
    never been re-run under either, because it needs a fitted comparator
    threaded through `infer_chains` and that is still unbuilt. The
    withdrawal stands on the ground in quality/RESULTS_NULL_SHAPES.md §2
@@ -850,15 +1064,38 @@ rather than this paragraph — a roster copied into two files drifts in both.
    first run was fitted on 9.2% corrupted end words.)
    Remaining: sun/much needs a CONJUNCTIVE band rule, not a comparator
    -- its nucleus is identical, so it was never a floor case.
-3. **Time layer.** Placement half built, POWERED and null. The blocker
-   was never the comparator: it was multiplicity, and family-wise error
-   control fixed it (RESULTS_FWER.md). The beat grid still does not
+3. **Time layer.** Placement half built, and **MUTE**.
+   ~~POWERED and null. The blocker was never the comparator: it was
+   multiplicity, and family-wise error control fixed it (RESULTS_FWER.md).~~
+   **REPINNED 2026-08-13, and this was the live claim.** That sentence is this
+   file's copy of a headline `RESULTS_FWER.md` voided on 2026-08-11, and it is
+   the reason a reader would believe the layer works. **Family-wise error
+   control did not fix it.** It moved the layer from 87-97% saturation — no
+   power, because everything was an event — to 0%, no power, because nothing is
+   attainable. The reason is that `m` had been measured over band SURVIVORS
+   rather than over candidates: at the honest candidate family (89 on a
+   quatrain, 156-282 across 24 sonnets) NO POSITION ON ANY ITEM IN THIS
+   REPOSITORY clears its cut at window 32. So the blocker was multiplicity AND
+   the family size is the measurement that says so. The beat grid still does not
    exist and cannot until audio or a declared tempo enters. NOT a
    second rap corpus -- that was doctrine 8 broken twice (single
    source, single language) and no rap is admissible anyway. The
-   binding constraint is EVENTS PER ITEM: 8 events needs ~75% of an
-   item's rhymes on one phase to reach 0.80 power, so a cell needs ~40
-   events or pooling to reach it. See POSITIVE_CONTROL.md.
+   binding constraint is EVENTS PER ITEM: 8 events at ~75% of an item's
+   rhymes on one phase reaches **~0.74** power, so a cell needs ~40
+   events or pooling to clear 0.80. **REPINNED 2026-08-13 from "needs
+   ~75% ... to reach 0.80 power", which was a THRESHOLD CROSSING THAT
+   DOES NOT REPRODUCE.** `power(65, 8, 0.75)` over ten seeds gives
+   0.68 0.72 0.73 0.74 0.74 0.74 0.77 0.79 0.80 0.82 -- median 0.74, and
+   only 2 of 10 reach 0.80. The recorded 0.82 that
+   `POSITIVE_CONTROL.md` bolds is the MAXIMUM of that spread, and this
+   sentence had promoted one lucky draw into the number a reader plans a
+   cell around. Doctrine 73: a single seed is a coin flip reported as a
+   verdict. `positive_control.py --check` pins the c=0.75 case as a BAND
+   (0.50-0.95) rather than a cell for exactly this reason, and is green
+   on 10/10 seeds; the ceiling and floor ARE pinned, because those have
+   zero and near-zero spread. The direction of the finding is unchanged
+   and slightly sharpened -- the cell is further from 0.80 than recorded,
+   not closer. See POSITIVE_CONTROL.md.
 4. **Cross-line internal walk.** internal_matches supports two lines;
    no verse-wide positional graph yet.
 5. **Assonance corpus.** Moncrieff Song of Roland (1919, PD) pending
@@ -884,10 +1121,39 @@ rather than this paragraph — a roster copied into two files drifts in both.
    itself an imitation. Every result declares its phonology. It had
    built its skeleton from CMUdict since the first commit, so the seven
    recorded rule errors are findings about the RULES, never about Welsh.
-   PHONOLOGY still blocked: Indic (prasa), Old Norse (hendings).
-   TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
-   data/sources.tsv. The capability is built; the corpus is not
-   reachable.
+   ~~PHONOLOGY still blocked: Indic (prasa), Old Norse (hendings).~~
+   **SUPERSEDED 2026-08-14 — BOTH ARE BUILT, AND BOTH HAVE RUN.** This is the
+   same failure the Welsh half of this entry already carries a correction for:
+   a blocker asserted long after its own row recorded the unblock. Sanskrit is
+   `quality/phonology/san.py`, 571 lines, dated 2026-08-10 — `prasa()`,
+   `prasa_anchor()`, `prasa_depth()`, `antya_prasa()` — and the cell has fully
+   run, staged a corpus slice, and written two `data/sources.tsv` rows;
+   `prasa_rate.py --check` pins its counts and exits 0. Old Norse is
+   `quality/phonology/non.py`, 959 lines, with `RESULTS_NON_HATTATAL.md`,
+   `test_phon_non.py`, and five modules importing it. Twelve `sources.tsv` rows
+   carry the two corpora between them.
+   WHAT IS ACTUALLY BLOCKED IS NARROWER and belongs in the language of doctrine
+   44/92: nothing here is hard to build or impossible to obtain — the remaining
+   Sanskrit gap is that V2 ādyakṣara refuses on 30.7% of half-verses because a
+   pāda beginning with a vowel has no initial consonant to share, which is a
+   property of the language and not a defect.
+   **TEXT IS NO LONGER BLOCKED FOR WELSH — SUPERSEDED 2026-08-13.** This
+   entry read *"TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
+   data/sources.tsv. The capability is built; the corpus is not reachable."*
+   That row is `data/sources.tsv:56` and it has read **OVERTURNED — source
+   located via GITenberg** since 2026-08-10. **Seven Welsh files, 8,758
+   lines, are on disk**, each with its own row (`:68`, `:69`, `:265`–`:269`):
+   Gwaith Alun 1909 strict-metre (1,558), Twm o'r Nant cywydd (156),
+   Llywelyn Goch cywydd (149), and four song files. The cell has RUN — the
+   seven-corpus specificity gradient is `MISSING.md` N-1. So this gap entry
+   spent three days asserting a blocker that its own `sources.tsv` row had
+   already recorded as lifted, which is doctrine 39's failure mode inverted:
+   a NOT-FOUND row was correctly re-tested and overturned (doctrine 49), and
+   the gap entry that cited it was never told.
+   WHAT REMAINS BLOCKED IS NARROWER, and is recorded where it belongs: no
+   cerdd-dafod treatise, no Welsh PROSE negative arm
+   (`quality/RESULTS_CYM_RHYME.md`), and the hymn and medieval-cywydd corpora
+   are still genuinely NOT FOUND (`data/sources.tsv:271`, `:272`).
 7. **Blueprint identity-with-variation.** This entry named TWO gaps and one
    of them closed without the entry being told: **chorus variation is
    CLOSED** (`quality/grid.py`'s `compare_returns`, 12 named
@@ -898,12 +1164,100 @@ rather than this paragraph — a roster copied into two files drifts in both.
    days after this line was written and nobody split the sentence — doctrine
    48's own failure mode, caught by a real draft's final chorus coming back
    `HEAD_PRESERVED` in a real run rather than the boolean the sentence still
-   claimed. **Outro-extends-intro is still OPEN**: `compare_returns` takes two line lists and does not care where
+   claimed. **Outro-extends-intro — CLOSED 2026-08-14.** `grid.reprise_findings`
+   calls the same primitive across two DIFFERENT declared functions. THE DESIGN
+   WAS NEVER THE COMPARISON, IT WAS THE ASKED SET: `compare_returns(INTRO,
+   OUTRO)` already answers `EXTENDED_RETURN` with no special case, so the
+   primitive was never the missing piece — the CALL was. The asked set is
+   `FormConvention.reprises`, a declared coordinate holding three ordered pairs
+   taken from `SECTION_FUNCTIONS`' own glosses, because asking every ordered
+   pair is MEASURABLY WRONG: over `corpus/song/`, 51 of 889 cross-function pairs
+   (5.7%) share a whole line and NOT ONE is a reprise — they are refrain lines a
+   printer set inside the verse. All 51 are silent under the shipped default
+   (doctrine 61). The threshold keys on `Return.invariant_lines`, NOT on a
+   hand-copied subset of `VARIATION_KINDS` — that spelling is what rotted
+   `single_use`, which drifted from `FunctionSpec.recurrence` by one member and
+   silenced both gates it fed. `CROSS_FUNCTION_REPRISE` is a NOTE, so it reaches
+   `verify()`'s diff and cannot reject there (doctrine 6), proven by a
+   counterfactual that re-types only that code and flips acceptance to False.
+   The corpus bounds the FALSE-POSITIVE side and cannot supply the positive one
+   — no INTRO/OUTRO/REPRISE mark exists in `MARK_FUNCTION` — and that limit is
+   pinned by a test rather than papered over. `quality/test_grid.py` §24,
+   `test_song_function.py` §10. One thing the closure found on its way: `reprise`
+   is the only function whose gloss declares it IS a cross-function return, and
+   its `recurrence` is `"once"`, so `return_findings` answered `SINGLE_INSTANCE`
+   and stopped — the one property that defines the function was invisible to
+   every check in the file.
+   ~~**Outro-extends-intro is still OPEN**: `compare_returns` takes two line lists and does not care where
    they came from, but `song_function_report` only ever calls it on
    MULTIPLE INSTANCES OF THE SAME declared function (`song.instances_of(fn)`)
    — comparing across two DIFFERENT functions (does the outro reprise the
    intro) is not asked by anything. The primitive that would answer it
-   already exists; nothing calls it that way.
+   already exists; nothing calls it that way.~~
+8. **CLOSED 2026-08-14 — the readability report joins the revision loop.**
+   `Reviser.inspect` folds `readability.report`'s findings in, so an unreadable
+   end word on a line THE MANDATE LEAVES FREE is now reported. Measured before:
+   `readability.report` said `[('UNREADABLE_END_WORD','flag',[4])]` and
+   `inspect()` said `[]`.
+   BOTH ARRIVE AS **NOTES**, and the asymmetry resolves toward
+   `SCHEME_UNREADABLE` rather than toward `readability.report`. A refusal is not
+   a violation (doctrine 79) — `inspect()`'s own comment records the price of
+   getting this backwards, a loop that "briefed a model to rewrite lines that
+   rhyme perfectly well, Barnes's Dorset `drong`/`zong` among them". And the
+   consistency argument is decisive: `SCHEME_UNREADABLE` is the SAME refusal on
+   a pair the mandate DECLARED and is already a note, so a flag here would make
+   an unreadable word on an UNMANDATED line fail harder than the identical word
+   on a mandated one. The downgrade is stated in each finding's own evidence
+   rather than applied silently. No new opt-out: `Lexicon(fallback=...)` already
+   sits at the right layer, and a second switch would be a second place to
+   change one answer (doctrine 1).
+   THE BLAST RADIUS MOVES BOTH WAYS AT `verify()`, measured: unreadable ->
+   readable was `accepted=False, fixed=[]` — a real repair called a no-op — and
+   is now `accepted=True` with the fix named; readable -> unreadable was
+   INVISIBLE and now lands in `new_notes`, never `new_flags`. The loop can see a
+   change it was blind to in both directions and still cannot reject on it.
+   `quality/test_revise.py` test 34.
+   ~~`quality/readability.py`'s own report never joins the revision loop, and
+   the data is already on the path.** `Reviser._matrix` computes
+   `readability_records` for EVERY line on EVERY run. The only readability
+   findings that reach the finding set are `grade()`'s `refusals`, which
+   `refusals_for_pairs` scopes to pairs the MANDATE puts together — so an
+   unreadable end word on a line the mandate leaves free produces nothing at
+   all, while `readability.report`'s `UNREADABLE_END_WORD` and
+   `UNREADABLE_END_WORD_PIECE` are FLAGS about every line, and the loop's own
+   `SCHEME_UNREADABLE` counterpart is only a note. This is neither doctrine
+   44's "hard to build" nor doctrine 92's "cannot obtain": the measurement is
+   already computed, on the path, and thrown away. The join belongs in
+   `Reviser.inspect`. Found 2026-08-13 by asking what a default `revise_loop`
+   run actually consults.~~
+9. **CLOSED 2026-08-13 BY COMMIT `9c9a5c5`, AND THIS ENTRY WAS NEVER TOLD.**
+   `_meter_findings` has called `FT.overlap_findings(fits)` since that commit —
+   `git blame` puts it there — so the entry below spent a day describing as
+   pending a change that had already shipped, and a lot was briefed to make it
+   before anyone checked. That is this file's own recurring failure mode aimed
+   at a gap entry rather than at a capability.
+   VERIFIED BY MUTATION rather than by reading the log: on a purpose-built
+   overlap blueprint, reverting the call gives `fit` `over 4` and `song` twelve
+   findings with ZERO mentioning the overlap; at head `song` gives twenty
+   findings of which EIGHT are `OVERLAPPING_SPANS`. All four shipped blueprints
+   measure 0 overlaps, which confirms the "zero test churn" claim and is also
+   exactly why the gap survived — no existing fixture could see it.
+   `quality/test_revise.py` test 35 pins the `Reviser` side and the
+   byte-identical-evidence invariant; `quality/test_fit.py` already carried the
+   `fit` side.
+   ~~`OVERLAPPING_SPANS` is reachable from `fit` and from nothing else.**
+   `Reviser._meter_findings` calls `quality/fit.py`'s `fit_line` once per line
+   and never builds a `SongFit` — and an overlap is a relation BETWEEN two
+   lines, which cannot be seen from inside one. Measured at both surfaces on
+   one blueprint: `fit BLUEPRINT` prints `over 1` and two findings; `song
+   BLUEPRINT LYRIC` on the identical file prints five meter findings and not
+   one word about the overlap. `fit.overlap_findings(fits)` was extracted
+   2026-08-13 to take the flat `LineFit` list — the object BOTH callers
+   already hold — with identical arithmetic and evidence text, and `fit_song`
+   now calls it; the one-line change that would make `_meter_findings` call it
+   too is verified at runtime and costs zero test churn, since all four
+   shipped blueprints have 0 overlapping lines. Same shape as the
+   built-and-tested-was-not-the-reachable family above, one layer in.~~
 
 ## The doctrine index — every number, and where it lives
 
@@ -932,7 +1286,7 @@ cannot be renumbered — only added.
 | 8 | `B` | Never fit on one tradition |
 | 9 | `W` | Optimizing toward the phonetic maximum is the slop direction |
 | 10 | `B` | The quality layer has NO demonstrated cross-design signal |
-| 11 | `B` | Two features have now been caught reading period, not quality |
+| 11 | `B` | One feature has now been caught reading period, not quality (REPINNED 2026-08-13 from ~~"Two features..."~~ — the second was superseded by the cold comparator) |
 | 12 | `B` | Wimsatt binding is unsupported here, under two operationalizations |
 | 13 | `B` | Any resource used to score a cell must be INDEPENDENT of that cell's label |
 | 14 | `B` | A control may not be defined in terms of the quantity it controls |
@@ -980,7 +1334,7 @@ cannot be renumbered — only added.
 | 56 | `A` | A search over placements needs a null under the same search |
 | 57 | `A` | An empirical p sitting at 1/(n+1) is reporting the resolution, not the effect |
 | 58 | `B` | A recorded COUNT is a threshold nobody wrote down |
-| 59 | `C` | Refusing on SCRIPT has a measurable cost, and it should be paid in the open |
+| 59 | `C` | Refusing because the ORTHOGRAPHY DOES NOT WRITE THE DECIDING SEGMENT has a measurable cost, and it should be paid in the open (REPINNED 2026-08-13 from ~~"Refusing on SCRIPT..."~~ — the figure was attached to the wrong axis by a factor of 1,754) |
 | 60 | `C` | Derive a refusal from what the RELATION needs, not from which relation looks vulnerable |
 | 61 | `B` | A rule that fires more often is not a better rule |
 | 62 | `W` | The tradition frequently states the rule you were about to invent |
@@ -1032,7 +1386,11 @@ About to move a threshold: METHOD part B, and 5 above. About to believe a null:
 31, 71 and 76, in that order.
 
 **Two numbering systems, and they do not collide.** The `Known gaps` list above
-runs 1–7 and is cited elsewhere as `known gap N` (MATRIX_PREREGISTRATION.md,
+runs 1–9 (REPINNED 2026-08-13 from 1–7: entries 8 and 9 were added the same day
+and this sentence was never split, while `verify_doctrines.py` had been printing
+`CLAUDE.md's own 1-9 list` on every run — the file's own instrument contradicting
+its own prose, which is doctrine 48's failure mode inside the file that states
+doctrine 48) and is cited elsewhere as `known gap N` (MATRIX_PREREGISTRATION.md,
 fit_matrix.py, TIME_PREREGISTRATION.md, test_phon_san.py, test_phonology.py,
 test_relations.py, POSITIVE_CONTROL.md, time_layer.py). It is not part of the
 doctrine numbering and never was. The doctrine run is delimited in both files by

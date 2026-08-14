@@ -137,9 +137,29 @@ is the same null — and the band-ON row does not. The null MEDIAN halves,
 measured +6.7 → +9.3 pp.** Sonnets: recorded +23.6 → +23.5, measured
 +23.6 → +26.2. At n = 2000, two seeds, band ON gives p = 0.0055 and 0.0065.
 
+> **RE-MEASURED 2026-08-13, AND THE +9.3 IS ITSELF NOW SUPERSEDED.** Same
+> script, same seed 20260810, same n = 200: band OFF `obs 26.0% null med 19.3%
+> excess +6.7 pp p 0.0547` — unchanged to the decimal — and band ON
+> `obs 10.7% null med 5.3% excess +5.3 pp p 0.0199`.
+> **Whitman excess band OFF → ON is +6.7 → +5.3 pp.** The band-ON figures
+> above (17.3%, 8.0%, +9.3, p 0.0050) are the 2026-08-11 comparator's and no
+> longer reproduce; they stay visible under doctrine 17 and must not be quoted.
+> THE CONTROL ON THE CONTROL IS NOW DOUBLE. The sonnet band-OFF arm was also
+> re-run at the full n = 200 and reproduces to the decimal — null median 29.9%,
+> min 25.5%, max 35.6%, excess +23.6 pp, +17.9 pp over the null MAX, p at the
+> 0.0050 floor. So the null machinery is unchanged on BOTH corpora and every
+> figure that moved is downstream of the band-ON comparator alone.
+> **THE SIGN DID NOT FLIP; IT FLIPPED BACK.** The separation falls when the
+> band goes on — the 2026-08-10 direction — because the observation falls
+> 15.3 pp and the null median falls 14.0 pp together. Doctrine 71's sentence
+> below therefore holds again on this text, and the paragraph retiring it is
+> the stale one. The n = 2000 p values (0.0055, 0.0065) were measured on
+> R_obs 17.3% and are superseded rather than refuted; they have not been re-run.
+
 The sentence in doctrine 71 — *"a filter that lowers chance and signal together
 has not tightened anything"* — is true of the comparator it was written
-against, and the numbers it is stated in no longer reproduce.
+against, and the numbers it is stated in no longer reproduce. *(Amended
+2026-08-13: it is true of the SHIPPED comparator too. See the box above.)*
 
 **3. The gap-to-null-MAX is the wrong headline on a result this close.**
 Whitman's gap to the null MAX changes SIGN with the seed (+0.0067, +0.0267,
@@ -154,7 +174,12 @@ Doctrine 57's mirror: **a gap to a null MAXIMUM reports the sample size.**
 **WHAT DOES NOT CHANGE, AND IT IS THE PART THAT MATTERS.** The band's
 empirical warrant stays withdrawn. It is withdrawn harder: §2 of
 `RESULTS_NULL_SHAPES.md` decomposes Whitman's 14 detected chain links into
-**7 RHYME and 7 REPEAT, with 7 of 14 on an identical token** — `now` closes
+**7 RHYME and 7 REPEAT, with 7 of 14 on an identical token** *(REPINNED
+2026-08-13: **7 REPEAT and 2 RHYME of 9, 7 of 9 = 78% on an identical
+token.** The REPEAT count did not move; the RHYME links collapsed 7 → 2 under
+the same comparator change that weakened the null argument above, so this
+ground got STRONGER while that one got weaker — which is why the withdrawal
+was put on this footing rather than that one)* — `now` closes
 four consecutive lines of `Song of Myself`, which `battery.py` has been
 printing under the heading `false chains (should be near zero)` since the
 first commit. A negative control is a text in which the property is ABSENT.
@@ -370,7 +395,39 @@ when the instrument's H0 output is ≥ 0.883.
 
 ## 2. SURVIVES A MATCHED NULL, AND IS STRONGER FOR IT
 
-### 2.1 Cynghanedd — doctrines 56 and 57 reproduce exactly
+### 2.1 Cynghanedd — doctrine 57 reproduces exactly; THREE OF THE FOUR BLOCKS BELOW DO NOT
+
+> **REPINNED 2026-08-13, MEASURED at n=200 on the shipped code.** This heading
+> read *"doctrines 56 and 57 reproduce exactly"* and the block below says *"All
+> four match ... to the decimal"*. Two claims, both false as written, and the
+> heading is the load-bearing one. Measured:
+>
+> ```
+> Gwaith Alun, 1558 lines
+>   caesura='search'  R_obs 57.1%  null median 19.4%, min 16.6%, max 21.8%
+>                     excess over null MAX +35.3 pp   p = 0.005  <- AT THE FLOOR
+>   caesura='marked'  R_obs  8.3%  null median  6.0%, min  4.7%, max  7.5%
+>                     excess over null MAX  +0.8 pp   p = 0.005  <- AT THE FLOOR
+> Twm o'r Nant, 156 lines
+>   caesura='search'  R_obs 46.2%  null median 19.2%, min 11.5%, max 26.9%
+>                     excess over null MAX +19.2 pp   p = 0.005  <- AT THE FLOOR
+>   caesura='marked'  R_obs  3.2%  null median  5.1%, min  2.6%, max  9.6%
+>                     excess over null MAX  -6.4 pp   p = 0.975  BELOW chance
+> ```
+>
+> SUPERSEDED VALUES, kept visible: Alun search 54.1% / max 27.8% / +26.3;
+> Alun marked 8.2% / min 4.8% / max 7.6% / +0.6; Twm search 51.3% / median
+> 26.9% / min 18.6% / max 36.5% / +14.7. Those are the pre-doctrine-82
+> `skeleton()` terminus, before `extent` lost its default.
+>
+> **THE EXCESS GREW IN BOTH SEARCH ROWS, so this section's CONCLUSION is
+> stronger than when it was written — what failed is the claim of exact
+> reproduction.** The one block that survives untouched is Twm marked-mode,
+> which is precisely why the four are repinned separately rather than as a
+> set: a set-repin would have buried the fact that one of them never moved.
+> Note also that this block cites `CLAUDE.md` for doctrines 56 and 57, which
+> are defined in THIS file's parent `METHOD.md` — CLAUDE.md's own index says
+> nothing is defined in both places.
 
 `quality/cynghanedd_rate.py`, 200 within-line shuffles. Verified first that the
 null gets the *same search width*: `cynghanedd_scan` derives k from the token
@@ -394,14 +451,80 @@ Twm o'r Nant, 156 lines
 All four match `CLAUDE.md` doctrines 56 and 57 to the decimal, including the
 two results that both print p = 0.005 while beating the null max by 26.3 and
 0.6 points respectively. **One addition:** in `caesura='marked'` mode on Alun,
-**104 of the 127 hits are llusg**, and `llusg()` does not use the caesura at
+**104 of the 129 hits are llusg** *(REPINNED 2026-08-13 from "104 of the 127".
+The llusg count did not move at all; croes and traws gained 2 between them
+under the doctrine-82 comparator change, which is the expected direction and
+is why this ratio is the stable part of the block)*, and `llusg()` does not
+use the caesura at
 all — it is a whole-line predicate. So the marked-mode +0.6 pp is very largely
 not a caesura measurement, which is a second reason not to read it.
 
-### 2.2 Kalevala 81.2% alliteration — and the obvious null is a no-op
+### 2.2 Kalevala alliteration — and the obvious null is a no-op
 
-`data/sources.tsv` and `POSITIVE_CONTROL.md` Part E record "81.2% alliterate"
-as a bare rate. **The audit brief's default null for a line-internal relation
+> **REPINNED 2026-08-13: 81.3%, and the line count was wrong in the record all
+> along.** `python3 quality/audit_kalevala_null.py --check` measures **22,795**
+> verse lines and **3,253** of the first 4,000 alliterating, i.e. **81.3%**
+> rather than the ~~81.2%~~ this section was written against.
+>
+> **THE RECORD HAS SINCE CAUGHT UP, AND THIS BOX NO LONGER DESCRIBES A
+> DISAGREEMENT — RE-VERIFIED 2026-08-13, later the same day.** As first written
+> this box said *"the record says 22,822"* and *"the record says 3,246"*. Those
+> were claims about the CURRENT contents of another file, and the origin row
+> `data/sources.tsv:58` has been repinned to **22,795** and **3,253 (81.3%)**
+> with the superseded figures kept visible and dated beside them. Both
+> parentheticals are therefore struck: ~~(the record says 22,822)~~ ~~(the
+> record says 3,246)~~. **Do not re-copy the origin's numbers into this
+> sentence** — read them at `data/sources.tsv:58`, which is where they are
+> maintained; a sentence of the form *"file X records Y"* is a hard-coded copy
+> of another file and goes false the moment that file moves, which is exactly
+> what happened here.
+>
+> The script had been PRINTING the line-count disagreement on every run and
+> exiting 0 regardless, because `main()` returned None and `sys.exit` was never
+> called with a code. Nothing ran it, so nobody read the disagreement it was
+> printing to itself. Fourth instrument of that shape found in a day. **The
+> line it printed is quoted below AS IT READ on 2026-08-13 BEFORE the record
+> moved; it is a historical exhibit, not the program's current output:**
+>
+> ~~`verse lines extracted: 22795   (data/sources.tsv records 22,822)`~~
+>
+> It does not read that way now. `quality/audit_kalevala_null.py` owns that
+> line and has since been given both the origin's line number and an explicit
+> verdict word, so the disagreement it once printed silently is now stated as
+> agreement or disagreement in the text. **Run the instrument and read its first
+> two lines rather than trusting this transcript** — a quoted copy of another
+> program's stdout is the same hard-coded copy as a quoted copy of another
+> file's contents, and it goes stale the same way, twice over here: once when
+> the number moved and once when the line's wording did.
+>
+> **The finding of this section is untouched and is not about the rate.** The
+> within-line shuffle is still a no-op — it agrees with the observation on
+> 4000/4000 and 22795/22795 lines — because the statistic reads CO-MEMBERSHIP,
+> not arrangement, and no permutation of a line's words changes which initials
+> share it. The separation against a null that does destroy co-membership is
+> 81.3% against a median of ~30%, so a 0.1 pp movement in the observation is
+> not a quantity this argument is sensitive to. What it IS sensitive to is
+> whether the number in the record is the number the code produces.
+>
+> `--check` pins the DETERMINISTIC counts only — lines extracted, lines
+> alliterating in each window. The null medians are samples and are left to the
+> printed p.
+
+`data/sources.tsv:58` and `quality/POSITIVE_CONTROL.md` Part E record the
+Kalevala alliteration rate **as a bare rate, with no null beside it** — and it
+is the bareness, not the value, that this section is about.
+
+> **STRUCK AND CONVERTED TO A REFERENCE 2026-08-13.** This sentence used to read
+> *"...record `81.2% alliterate` as a bare rate"*, which was a hard-coded copy
+> of two other files' contents and is now **FALSE FOR BOTH**: each was repinned
+> to **81.3%** the same day, with ~~81.2%~~ kept visible and dated in place. The
+> number is deliberately NOT restated here. Read it at `data/sources.tsv:58` —
+> the origin row every other site quotes — or run
+> `python3 quality/audit_kalevala_null.py --check`, which measures it. Updating
+> the copy instead of removing it would only reschedule this same failure for
+> the next time the origin moves.
+
+**The audit brief's default null for a line-internal relation
 would have manufactured a perfect null here:** "two or more words in this line
 share an initial class" is *invariant* under any permutation of the line's
 words. Measured: a within-line shuffle agrees with the observation on
@@ -419,7 +542,7 @@ destroy co-membership and nothing else.
   length-conditional word inventory. Destroys strictly less than A.
 
 ```
-first 4000 lines (the recorded window), 22,796 verse lines extracted
+first 4000 lines (the recorded window), 22,796 verse lines extracted   [see † below]
   R_obs 81.3%   NULL A  N=200: median 30.1%, min 28.7%, max 33.1%
                 excess over MEDIAN +51.2 pp, over MAX +48.3 pp
                 p = 0.0050  <- AT THE FLOOR
@@ -429,17 +552,71 @@ all 22,795 verse lines
                 NULL B  median 30.2%, max 31.0%   over MAX +51.6 pp  p at floor
 ```
 
+> † **THE TWO COUNTS IN THIS BLOCK DIFFER BY EXACTLY ONE LINE, AND IT IS NOT AN
+> EDITION AND NOT AN APPARATUS FILTER — MEASURED 2026-08-13.** The block is left
+> verbatim because it is what the run printed. **22,796 is the extraction from
+> the RAW GITenberg file; 22,795 is `corpus/fin_kalevala.txt`, and the extra
+> line is the single `* * *` divider before the epilogue.** Run down below
+> (§3 item 4), where this used to be recorded as a guess — **and where a SECOND,
+> unrelated way of arriving at 22,796 is kept separate from this one**: on the
+> STAGED file a bare `read().split("\n")` counts the empty string after the
+> trailing newline. That is a reader off-by-one and a fact about a reader, not
+> about the corpus; the divider above is a fact about the file. Same digits,
+> different causes, deliberately not merged.
+
 The constraint is real and enormous. **But roughly 30 of the 81 points are
-chance** — a third of the recorded headline is the null, so "81.2% alliterate"
-was never a usable number even though it was never a wrong one.
+chance** — a third of the recorded headline is the null, so the recorded rate
+was never a usable number even though it was never a wrong one. *(This sentence
+quoted* "81.2% alliterate" *until 2026-08-13; the rate is now ~~81.2%~~ →
+**81.3%** at `data/sources.tsv:58`, and the sentence is deliberately rewritten
+to name no value at all, because its argument is about the MISSING null and
+holds at any rate the origin row carries.)*
 
 *Independently reached by a sibling cell mid-audit* (commit `5094bf2`, which
 also fixed three `fin.py` defects). My observed rate moved 81.1% → 81.3% under
 me when that landed, which is itself worth recording: the rate is a coordinate
 of the `fin.py` revision and it moved twice in one afternoon. The lift did not.
-My extraction gives **22,796** verse lines from the raw GITenberg file and
-**22,795** from `corpus/fin_kalevala.txt`, against the recorded **22,822**.
-The rates agree to the decimal on all three.
+
+**The three line counts, and what each one IS — RESOLVED 2026-08-13.** This
+paragraph used to end *"My extraction gives **22,796** verse lines from the raw
+GITenberg file and **22,795** from `corpus/fin_kalevala.txt`, against the
+recorded **22,822**. The rates agree to the decimal on all three."* The middle
+term and the recorded term have since converged, and the first is now explained
+rather than merely reported:
+
+| count | what it is |
+|---:|---|
+| **22,795** | `corpus/fin_kalevala.txt`, and — since 2026-08-13 — `data/sources.tsv:58` too, where ~~22,822~~ is kept visible and dated. Both instruments return it: `audit_kalevala_null.py --check` and `kalevala_rate.py`. |
+| **22,796** | this audit's own extraction **from the raw GITenberg file**, which is 22,795 verse lines **plus the single `* * *` divider** before the epilogue. **A SECOND and unrelated route reaches the same digits** — `read().split("\n")` on the STAGED file counts the empty string after its trailing newline — and that one is a reader defect saying nothing about the corpus. §3 item 4 keeps them apart; do not merge them. |
+| ~~22,822~~ | the superseded record. **Not reproduced by any filter of the raw file**, and the "runo headings" explanation is refuted — see §3 item 4. CANNOT TELL. |
+
+The **22,796** is settled by measurement, not inference. The raw file
+(`7000-8.txt`, md5 `87449afc4728aa740409c5c405e21a15`, 636,150 bytes — re-fetched
+and checksummed 2026-08-13) has, between `Mieleni minun tekevi` and the PG end
+marker, **22,845 non-blank lines: 49 indented four spaces (the runo headings)
+and 22,796 indented two.** The two extractors in this repo drop different things
+from that 22,796:
+
+* `quality/audit_kalevala_null.py`'s `verse_lines` filters on **content** — it
+  drops numeral-only lines and short `runo` headings — and has no rule for a
+  line of asterisks, so `* * *` survives as a verse line. **→ 22,796.**
+* `quality/kalevala_rate.py`'s `extract` filters on **indentation plus a
+  letter-bearing test**, and `* * *` carries no letter, so it drops. **→ 22,795,
+  which is what got staged.**
+
+Diffed directly: the multiset difference between the two extractions of the same
+raw bytes is exactly one element, `'* * *'`, in that direction and with nothing
+in the other. This is also why the same script reports 22,796 on the raw file
+and 22,795 on the staged one — one extractor, two inputs, and the divider was
+already gone from the second.
+
+**And this is specifically NOT the trailing-newline off-by-one** that reaches the
+same digits on the staged file (§3 item 4). `verse_lines` discards empty strings
+before counting, so it is structurally immune: fed the staged corpus with **0, 1
+and 3 trailing newlines**, it returns **22,795 every time** (measured). The
+divider is a line that is really there; the empty string is one that is not.
+Two mechanisms, one number, and the only reason to state both is that a reader
+who knows about the second will otherwise "explain" the first with it and stop.
 
 ### 2.3 律詩 88.1% at the mandated positions
 
@@ -468,6 +645,31 @@ R_obs 88.0%  (264/300; RECORDED 253 poems / 88.1% and 300 poems / 264 = 88.0%)
   N3  lines 1/3/5/7: 0.0%                            difference +88.0 pp
 pairwise chance agreement between two random rhyme-position characters: 5.4%
 ```
+
+> **RE-RUN 2026-08-13 AND TWO OF THESE MOVED.** `python3
+> quality/audit_tang_null.py` prints **character coverage 12848/12864 =
+> 99.9%** (recorded 99.3%, and the `(RECORDED 99.3%)` the script printed
+> beside it agreed with itself while disagreeing with the corpus) and
+> **R_obs 90.0%** at the mandated positions (recorded 88.0%). The poem count
+> is unchanged at 300. So the rime table now reads 68 characters it could not
+> read when this block was written, and 6 more poems agree at their mandated
+> positions.
+>
+> **THE NULL VERDICT IS UNTOUCHED AND IS STRONGER.** N1, N2 and N3 all still
+> separate at the floor, and the excess over the null MAX grows with the
+> observation. Nothing about §2.3's conclusion depends on which of 88.0 or
+> 90.0 is right; what depended on it was the claim that this file describes
+> the arm.
+>
+> **AND NOTHING RAN THIS FOR THREE DAYS.** The script prints `RECORDED:`
+> beside every figure and then exits 0 no matter how far they diverge --
+> `main()` returned None and `sys.exit` was never called with a code. An
+> instrument that prints its own drift and cannot act on it is doctrine 48's
+> failure mode, and it is the third one found in a day (`audit_spans.py`,
+> `audit_corpus.py`, this). `--check` now pins the DETERMINISTIC quantities
+> -- the poem count and the coverage numerator/denominator -- and exits 1 on
+> drift; the rate is left to the printed p, which is at its floor either way.
+> Proven red on an injected figure before it was wired.
 
 Survives overwhelmingly, and the C1 concern does **not** transfer to the rate:
 the mandated positions are special, not merely periodic. Part D's arms
@@ -502,15 +704,43 @@ independently. *Also reached by a sibling cell* (commit `22876d1`).
 | claim | source | re-run |
 |---|---|---|
 | sonnet battery 123/1064 = 11.6% violations | RESULTS_BAND P3 | `battery.py` — exact, **and the reproduction was the defect**: see §3.2 |
-| P4 held-out AUC 0.9177 (fitted) vs 0.9146 (hand-set) | RESULTS_MATRIX | `eval_matrix.py` — exact |
-| P6 19.1% vs 19.5% at 5% FPR, n=1010 | RESULTS_MATRIX | exact |
+| P4 held-out AUC 0.9177 (fitted) vs 0.9146 (hand-set) | RESULTS_MATRIX | `eval_matrix.py` — exact at 4 dp; **DRIFTED at full precision, see below** |
+| P6 19.1% vs 19.5% at 5% FPR, n=1010 | RESULTS_MATRIX | **NO LONGER EXACT — 19.2% today, see below** |
 | P2 stress −0.0999 bits; P3 empty/empty −0.000 | RESULTS_MATRIX | exact |
-| Exp1/Exp2 per-feature AUCs and p, both feature sets | RESULTS.md, RESULTS_WITHIN_ITEM | `discriminate.py` — exact |
-| Part D arms A / B / C1 / C2 | POSITIVE_CONTROL | `run_positive_control.py` — exact |
+| Exp1/Exp2 per-feature AUCs and p, both feature sets | RESULTS.md, RESULTS_WITHIN_ITEM | `discriminate.py` — exact **against a cache that is not invalidated, see below** |
+| Part D arms A / B / C1 / C2 | POSITIVE_CONTROL | `run_positive_control.py` — **A / B / C2 DRIFTED, C1 exact, see below** |
 | time-layer α floor at real item sizes (0.043 vs declared 0.05) | POSITIVE_CONTROL Part A | see §1.4 |
 
-`quality/matrix_eval.json` regenerates **byte-identical** to the committed
-artifact.
+> **CORRECTED 2026-08-13.** This section read `quality/matrix_eval.json`
+> regenerates **byte-identical** to the committed artifact. It does not, and
+> has not since the comparator moved. `eval_matrix.py` is DETERMINISTIC — two
+> independent re-runs are byte-identical to EACH OTHER — so the committed
+> artifact is what is stale, not the runner:
+>
+> | key | committed | re-run 2026-08-13 |
+> |---|---|---|
+> | `p4_fitted_auc` | 0.9177154058 | 0.9176654639 |
+> | `p4_handset_auc` | 0.9145955327 | 0.9146153846 |
+> | `p6_fitted_viol` | 0.1910891089 | 0.1920792079 |
+>
+> P4 survives at the 4 dp this table quotes; P6 does not (19.1% → 19.2%). The
+> artifact was last written 2026-08-10 and twelve commits have touched the
+> comparator since. **Nothing would ever have caught this**: `eval_matrix.py`
+> overwrites the artifact in place and exits 0, so the drift is visible only in
+> `git diff`, and unlike `song_profile_calibration.py`, `counters.py` and
+> `audit_corpus.py` it has no `--check`. That asymmetry is the finding.
+>
+> Two more rows above were re-run in the same audit and are no longer exact.
+> **Part D**: arm A `264/36 → 270/30`, arm B `med_p 0.529 → 0.543` and
+> `sig 18/300 → 15/300`, arm C2 `n=264 → 270`; C1 is the only arm with no
+> phonology gate and the only one still exact, which identifies the cause as
+> the four commits to `quality/phonology/ltc.py` since it was recorded.
+> **Exp1/Exp2**: `discriminate.py` reproduces only because its on-disk feature
+> cache is keyed on `tag:ident` with no fingerprint of the feature code or the
+> comparator those features call. Re-extracting three sonnets fresh moves
+> `rhyme_predictability_mean` 0.7423 → 0.9400. A run WITH the cache looks
+> exact; a fresh clone silently produces different numbers — and the
+> 0.709 / 0.971 pair that doctrine 7 is stated in comes out of that path.
 
 ---
 
@@ -546,8 +776,65 @@ artifact.
    auditing it.
 3. **"253 poems / 88.1%" and "300 poems / 264 = 88.0%"** are the same statistic
    at two values of `tang_poems(limit=…)`.
-4. **Kalevala 22,822 vs 22,796 verse lines** — a filter difference, almost
-   certainly runo headings. Immaterial to the rate, unstated.
+4. ~~**Kalevala 22,822 vs 22,796 verse lines** — a filter difference, almost
+   certainly runo headings. Immaterial to the rate, unstated.~~
+   **RUN DOWN 2026-08-13. The DIAGNOSIS was wrong, not just the digits — and
+   correcting the mechanism is the finding here.** A plausible-but-wrong
+   mechanism is worse than an unexplained number, because it stops the next
+   person looking. **Three counts, and they have THREE different causes; the
+   entry above blurred them into one.** The raw GITenberg file was re-fetched
+   and checksummed (`87449afc4728aa740409c5c405e21a15`, 636,150 bytes,
+   byte-identical to the record) and every claim below was measured.
+   - **"Almost certainly runo headings" is REFUTED, on both files.** There are
+     exactly **49** runo headings in the raw body (the lines indented four
+     spaces), and none of the gaps in question is 49: 22,822−22,796 = **26**,
+     22,822−22,795 = **27**, 22,845−22,822 = **23**. On the STAGED file no
+     heading filter fires at all — zero numeral-only lines, zero runo headings —
+     so the hypothesis is not merely unproven there, it is measurably empty.
+   - **22,796 has TWO independent causes, and this document's own sentence names
+     the first.** §2.2 says the figure came *"from the raw GITenberg file"*, so
+     that is the one this entry is accountable for:
+     1. **On the RAW file — the `* * *` divider, and it is a real extra line.**
+        `audit_kalevala_null.py`'s `verse_lines` filters on CONTENT and has no
+        rule for a line of asterisks, so the divider survives as a verse line;
+        `kalevala_rate.py`'s `extract` requires a letter-bearing line at indent
+        2, so it drops. Multiset difference between the two extractions of the
+        same bytes: exactly `{'* * *': 1}`, nothing in the other direction.
+        Derivation under §2.2. **This is not a reader off-by-one** —
+        `verse_lines` discards empty strings, and returns 22,795 on the staged
+        file under 0, 1 and 3 trailing newlines alike (measured), so it cannot
+        be inflated by one.
+     2. **On the STAGED file — a trailing-newline off-by-one in the reader.**
+        `corpus/fin_kalevala.txt` ends with a newline, so
+        `read().split("\n")` yields **22,796** elements of which the last is
+        `""`, while `splitlines()`, `list(open(...))` and `verse_lines` all give
+        **22,795**. Found by a sibling lot and recorded where it belongs, in
+        `verse_lines`'s own docstring in `quality/audit_kalevala_null.py` (that
+        function owns the definition of a verse line; not this file's to edit —
+        cited, not copied). **This one says nothing about the corpus at all.**
+     Keep the two apart. They are the same digits reached by a corpus fact and
+     by a reader defect, and collapsing them would re-create exactly the blur
+     this entry is being corrected for — doctrine 44's habit, applied to numbers
+     rather than to blockers.
+   - **22,822 itself: CANNOT TELL** (doctrine 20/28 — recorded as a third state,
+     not harmonised to 22,795). It is **not reproduced by any reading of this
+     file**: 36 combinations of 3 start boundaries (`Mieleni minun tekevi`,
+     file top, `*** START`) × 3 end boundaries (`End of the Project Gutenberg`,
+     `*** END`, file end) × 4 line filters (non-blank, indent 2, indent 2-or-4,
+     letter-bearing) yield 22,796–23,192, and **22,822 is not among them**; the
+     nearest attainable values are 22,797 and 22,845. Its provenance — a
+     different edition, a different source file, or a miscount — is not
+     determinable from anything in this repository.
+     **`data/sources.tsv:83` offers "the 27 extra were most likely runo headings
+     counted as verse", and that is a HYPOTHESIS, flagged here rather than
+     inherited as a fact:** it is not reproduced by any whole-class filter above,
+     and there are 49 headings, not 27, so it would require 22 of them to have
+     been counted and 27 not — which nothing in this repo shows. That row is the
+     staging cell's to keep or revise; this entry only records that the audit
+     could not confirm it. The figure is superseded at the origin
+     (`data/sources.tsv:58`, where ~~22,822~~ is kept visible and dated), so
+     nothing downstream depends on resolving it; this entry records that it was
+     chased and did not close, rather than leaving the old guess standing.
 5. **`RESULTS_FWER.md` P2's table is a six-row table printed as three rows of
    six numbers**, so reading it gives 8.8% where the text says 5.4%. The mean
    is correct over six sonnets; the layout makes the claim uncheckable by

@@ -307,6 +307,33 @@ _LEGACY_GROUPS = [
 #: its entries have never once been reached.
 GROUP_OF = {r: g[0] for g in _LEGACY_GROUPS for r in g}
 
+
+def tongyong_group(rhyme):
+    """-> the 同用 group representative of a 韻, or the 韻 itself.
+
+    THE SAME TABLE `rhyme_keys` FALLS BACK ON, exposed as a partition over the
+    RHYME rather than over a character, because that is the shape a channel
+    comparison needs: `quality/relations.py`'s `Middle Chinese end rhyme (同用
+    group)` reads `Syllable.nucleus`, which carries the raw 韻 and nothing
+    else, and until 2026-08-13 it compared that 韻 with the IDENTITY -- so
+    流 (尤) against 樓 (侯) came back False at the relation layer while
+    `rhymes()` came back True on the pair the grouping exists for. The table
+    was never consulted because nothing handed it over.
+
+    IT IS TONE-INVARIANT AND THE SOURCED TABLE IS NOT, so this is the coarser
+    of the two and the difference is MEASURED rather than waved at: over the
+    58 韻 of `data/ltc_rhyme_standards.tsv`, taken as 1,653 韻-pairs, this
+    partition agrees with the sourced 平水 部 on 1,649 and disagrees on 4 --
+    嚴/添 and 嚴/鹽 (the 入聲 業 split named in the `_LEGACY_GROUPS` comment
+    above), 眞/臻, and 祭/齊. That grain is the right one HERE and not merely
+    the available one: the relation's second channel is `prominence`, which
+    carries the 平/仄 binary, so 上, 去 and 入 are one value to it and a
+    partition that split them by tone could not be expressed anyway. A caller
+    who needs the tone-split cells wants `rhyme_keys`/`rhymes`, which read
+    (韻, 聲) and are not going through this.
+    """
+    return GROUP_OF.get(rhyme, rhyme)
+
 RHYME_GROUP_SOURCE = (
     "data/ltc_rhyme_standards.tsv, derived from hulbji/couyun (MIT) by "
     "majority vote of characters unambiguous in both tables; purity recorded "
@@ -441,6 +468,30 @@ class MiddleChinese(Phonology):
         self.variants = variants
         self.overlap = overlap
         self.edition = edition
+        #: QUOTIENTS THIS DECLARATION AUTHORISES, by name, for a channel
+        #: comparison that has to be made at a grain the channel does not
+        #: carry -- `quality/relations.py` asks for `quotient:同用` by name and
+        #: REFUSES the schema where a declaration supplies none, instead of
+        #: comparing the raw 韻 and calling that the 同用 group (doctrine 45).
+        #: It is supplied under 'pingshui' AND UNDER NEITHER OF THE OTHER TWO,
+        #: and each absence is a different statement:
+        #:   'qieyun'  authorises no grouping at all -- that is what the
+        #:             coordinate MEANS, and 流/樓 being False under it is
+        #:             doctrine 36's own demonstration, which `rhymes()` still
+        #:             gives. A schema NAMED for the grouping has nothing to
+        #:             ask for here.
+        #:   'cilin'   has a grouping and it is NOT a function of the 韻 alone:
+        #:             詞林正韻 merges 上 with 去 inside a 部 and holds the
+        #:             five 入聲 部 apart, so 冬 is 第1部 in 平上去 and 第15部
+        #:             in 入. Measured on the shipped table, 33 of its 58 韻
+        #:             take more than one 部 across the tones. The relation's
+        #:             prominence channel is the 平/仄 binary and cannot tell
+        #:             入 from 上去, so a 韻-keyed quotient would merge exactly
+        #:             the cells this standard separates. Refusing is the
+        #:             honest answer; `rhyme_keys` reads (韻, 聲) and is the
+        #:             method that can answer it.
+        self.quotients = ({"同用": tongyong_group}
+                          if standard == "pingshui" else {})
         self._ed = _load_editions().get(edition, {}) if edition else {}
         self._t = _load_table()
         self._std = _load_standards()
@@ -466,6 +517,7 @@ class MiddleChinese(Phonology):
         d["overlap_options"] = list(OVERLAPS)
         d["edition"] = self.edition
         d["edition_options"] = list(EDITIONS)
+        d["quotients"] = sorted(self.quotients)
         return d
 
     def variant_of(self, ch):

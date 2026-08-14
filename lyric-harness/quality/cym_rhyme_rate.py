@@ -212,7 +212,8 @@ def report(label, t, f, n_ref, vals, frozen, raw=(), note=""):
           % (label, t + f + n_ref, t + f, n_ref, 100 * obs, 100 * med,
              100 * mx, 100 * (obs - mx), p_hi, p_lo, 100 * differ,
              100 * frozen, ("  " + note) if note else ""))
-    return dict(mandated=t + f + n_ref, judged=t + f, refused=n_ref, obs=obs,
+    return dict(mandated=t + f + n_ref, judged=t + f, refused=n_ref,
+                true=t, false=f, obs=obs,
                 med=med, mx=mx, excess=obs - mx, p_hi=p_hi, p_lo=p_lo,
                 differ=differ, frozen=frozen)
 
@@ -224,19 +225,24 @@ def section1():
     print("1 . THE CORPUS, COUNTED")
     print("=" * 78)
     tot = 0
+    out = {}
     for f in [CYWYDD] + song_files():
         us = units(os.path.join(SONG, f))
         lines = sum(len(u) for u in us)
         tot += lines
+        out[f] = (len(us), lines)
         h = Counter(len(u) for u in us)
         print("  %-42s units %4d  lines %5d  len-hist %s"
               % (f, len(us), lines,
                  " ".join("%d:%d" % kv for kv in sorted(h.items())[:7])))
     print("  %-42s %16d lines over 5 files" % ("TOTAL", tot))
+    out["TOTAL"] = tot
     for f in STRICT:
         ws = units(os.path.join(CORPUS, f), marked=False)
+        out[f] = sum(len(u) for u in ws)
         print("  %-42s (outside corpus/song) lines %5d"
               % (f, sum(len(u) for u in ws)))
+    return out
 
 
 # ---------------------------------------------------------------- §2
@@ -272,7 +278,7 @@ def section2(n=N):
     def index_straddle(u):
         return [(i, i + 1) for i in range(1, len(u) - 1, 2)]
 
-    out = {}
+    out = {"lines": len(ws), "couplets": len(coup), "straddles": len(strad)}
     for label, kw in READINGS:
         rh = Cache(**kw)
         t, f, r = counts(rh, coup)
@@ -284,7 +290,7 @@ def section2(n=N):
         rh = Cache(**kw)
         t, f, r = counts(rh, strad)
         vals, frozen, raw = unit_null(rh, [ws], index_straddle, n)
-        report(label, t, f, r, vals, frozen, raw)
+        out["STRADDLE " + label] = report(label, t, f, r, vals, frozen, raw)
     print()
     print("  THE FALSE AND REFUSED COUPLETS, named (doctrine 89: a rate that "
           "hides its\n  exceptions is not a finding):")
@@ -362,6 +368,7 @@ def section4(n=N):
           % (len(quats), len(quats), 6 * len(quats)))
     pairs = [(u[i], u[j]) for u in quats
              for i in range(4) for j in range(i + 1, 4)]
+    out = {"blocks": len(quats)}
 
     def index(u):
         return [(i, j) for i in range(4) for j in range(i + 1, 4)]
@@ -370,7 +377,7 @@ def section4(n=N):
         rh = Cache(**kw)
         t, f, r = counts(rh, pairs)
         vals, frozen, raw = unit_null(rh, quats, index, n)
-        report(label, t, f, r, vals, frozen, raw)
+        out[label] = report(label, t, f, r, vals, frozen, raw)
     print("\n  THE NULL ON THOSE ROWS IS THE IDENTITY MAP, AND `differ 0.0%` "
           "IS HOW IT SAYS SO.\n  ALL SIX unordered pairs of a four-line unit "
           "are the same six pairs after any\n  permutation of the four end "
@@ -438,6 +445,7 @@ def section4(n=N):
           "Welsh song is not written in fours — 172 of the 305\n  hwiangerddi "
           "units are, 77 of 403 Mynyddog units are, and the cap of 8 per "
           "file\n  then throws away all but 18. §3 is the arm to read.")
+    return out
 
 
 # ---------------------------------------------------------------- §5
@@ -457,8 +465,11 @@ def section5(n=20000, seed=SEED):
           "rather than left to be reconstructed.\n" % (len(pool), n, seed))
     rng = random.Random(seed)
     draw = [(rng.choice(pool), rng.choice(pool)) for _ in range(n)]
+    out = {"pool": len(pool)}
     for label, kw in READINGS:
         c = cym.pair_census(C, draw, **kw)
+        out[label] = (c["mandated"], c["judged"], c["refused"], c["true"],
+                      dict(c["by_code"]))
         print("  %-30s mandated %6d judged %6d refused %5d (%.2f%%) | "
               "admits %6.3f%%  %s"
               % (label, c["mandated"], c["judged"], c["refused"],
@@ -469,6 +480,7 @@ def section5(n=20000, seed=SEED):
           "corpus. Nothing\n  was swept, nothing targeted, no threshold set "
           "to hit one of them -- there is\n  no threshold in this relation at "
           "all; `rhymes` is exact tuple equality.")
+    return out
 
 
 # ---------------------------------------------------------------- §6
@@ -489,8 +501,11 @@ def section6():
             toks.extend(x.lower() for x in ws)
             if ws:
                 ends.append(ws[-1].lower())
+    out = {}
     for name, pop in (("ALL tokens", toks), ("line-final tokens", ends)):
         c = cym.readability_census(C, pop)
+        out[name] = (c["total"], c["read"], c["refused"], c["defective"],
+                     dict(c["by_code"]))
         print("  %-20s total %6d  read %6d  refused %4d  defective %4d  %s"
               % (name, c["total"], c["read"], c["refused"], c["defective"],
                  dict(c["by_code"])))
@@ -504,6 +519,8 @@ def section6():
                         ("the straddling pairs", strad),
                         ("RANDOM line-final tokens", rand)):
         c = cym.pair_census(C, pairs)
+        out["PAIR " + name] = (c["mandated"], c["judged"], c["refused"],
+                               dict(c["by_code"]))
         print("  %-30s mandated %6d judged %6d refused %4d (%.2f%%)  %s"
               % (name, c["mandated"], c["judged"], c["refused"],
                  100 * c["refused"] / c["mandated"], dict(c["by_code"])))
@@ -511,11 +528,13 @@ def section6():
           "PAIR, so it\n  fires only where the collapsed distinction actually "
           "decides the answer.\n  The other two are word properties and are "
           "blunt by construction.")
+    out["glide_marked_ends"] = sum(1 for w in ends if C.glide_ambiguous(w))
+    out["proclitic_ends"] = sum(1 for w in ends if w in cym.PROCLITICS)
     print("  Word-level markers: %d of %d line-final tokens carry the "
           "ambiguous glide;\n  %d are PROCLITICS, which is what makes "
           "rule='prominent' refuse."
-          % (sum(1 for w in ends if C.glide_ambiguous(w)), len(ends),
-             sum(1 for w in ends if w in cym.PROCLITICS)))
+          % (out["glide_marked_ends"], len(ends), out["proclitic_ends"]))
+    return out
 
 
 # ---------------------------------------------------------------- §7
@@ -591,11 +610,13 @@ def section8():
          dict(rule="prominent"), None),
     ]
     ok = 0
+    out = {}
     for name, (a, b), kw, want in cases:
         got = C.rhymes(a, b, **kw)
         ok += got is want
         print("  %-44s expected %-5s got %-5s  %s"
               % (name, want, got, "ok" if got is want else "MISMATCH"))
+    out["tradition"] = (ok, len(cases))
     print("\n  %d of %d" % (ok, len(cases)))
     print("\n  THE SAME TEST ON THE TWO STRICT-METRE FILES OUTSIDE "
           "corpus/song/, staged by an\n  earlier round. `cym_twm_or_nant_"
@@ -618,11 +639,13 @@ def section8():
                              for i in range(0, len(ws) - 1, 2)])
             od = counts(rh, [(ws[i], ws[i + 1])
                              for i in range(1, len(ws) - 1, 2)])
+            out[(f, label)] = (ev, od)
             print("    %-32s %-20s couplet-parity %4d/%4d = %5.1f%%   "
                   "straddle %4d/%4d = %5.1f%%"
                   % (f, label, ev[0], ev[0] + ev[1],
                      100 * rate(ev[0], ev[1]), od[0], od[0] + od[1],
                      100 * rate(od[0], od[1])))
+    return out
 
 
 # ---------------------------------------------------------------- §9
@@ -634,6 +657,7 @@ def section9():
     print("  Doctrine 3: identity is not rhyme. A Welsh song corpus is full of "
           "refrains,\n  so a `rhymes()` that never typed REPEAT would report "
           "a refrain as a rhyme.\n")
+    out = {}
     for f in [CYWYDD] + song_files():
         us = units(os.path.join(SONG, f))
         c = Counter()
@@ -646,6 +670,7 @@ def section9():
                     if t is not None:
                         c[t] += 1
         tot = sum(c[k] for k in ("REPEAT", "RIME_RICHE", "RHYME"))
+        out[f] = (tot, c["REPEAT"], c["RIME_RICHE"], c["RHYME"])
         print("  %-42s of %5d TRUE verdicts: REPEAT %4d (%5.1f%%)  "
               "RIME_RICHE %3d  RHYME %4d"
               % (f, tot, c["REPEAT"], 100 * c["REPEAT"] / max(tot, 1),
@@ -659,28 +684,211 @@ def section9():
         if C.relation_type(a, b) == "RHYME":
             tails[C.shared_tail(a, b)] += 1
     print("   ", tails.most_common(14))
+    return out
 
 
 def main(argv):
     n = 20 if "--quick" in argv else N
+    if "--check" in argv:
+        n = CHECK_N
     print("quality/cym_rhyme_rate.py — Welsh end-rhyme (odl)")
     print("seed %d, %d replicates" % (SEED, n))
     print("declaration:")
     for k, v in C.rhyme_declaration().items():
         print("  %-22s %s" % (k, " ".join(str(v).split())[:120]))
-    section1()
-    section2(n)
+    m = {"s1": section1(), "s2": section2(n)}
     section3(n)
-    section4(n)
-    section5()
-    section6()
+    m["s4"] = section4(n)
+    m["s5"] = section5()
+    m["s6"] = section6()
     section7(n)
-    section8()
-    section9()
+    m["s8"] = section8()
+    m["s9"] = section9()
     print("\n" + "=" * 78)
     print("battery.py is the English comparator and nothing here touches it. "
           "Run it.")
+    return m
+
+
+# --------------------------------------------------------------- the check
+
+#: `--check`'s replicate count, and it is NOT the published 200. Every figure
+#: `check()` reads is EXACT over a fixed corpus -- a count, never a null
+#: quantile -- so none of them depends on it, and the null draw is this file's
+#: whole runtime. Declared here rather than left implicit at a call site.
+CHECK_N = 5
+
+#: THE COMMITTED FIGURES, so `--check` can go red instead of a human being
+#: expected to read nine sections off the screen and compare them with
+#: `RESULTS_CYM_RHYME.md`. Until 2026-08-14 `main()` returned None, nothing
+#: called `sys.exit` with a code, and this runner printed every figure in that
+#: document and exited 0 whatever it found -- the eighth instrument of this
+#: shape this session has closed, after `audit_spans.py`, `audit_corpus.py`,
+#: `audit_tang_null.py`, `audit_kalevala_null.py`, `canon_sources.py` (twice)
+#: and `audit_hafez_radif.py`. Doctrine 48.
+#:
+#: MEASURED 2026-08-14 AND NOTHING HAD DRIFTED. Every count below reproduces
+#: the figure `quality/RESULTS_CYM_RHYME.md` publishes, so there is no repin
+#: here -- the pin IS the finding, because the numbers were previously true by
+#: nobody's checking.
+#:
+#: WHAT IS PINNED AND WHY THAT RATHER THAN THE RATE. Counts only, and never a
+#: null quantile: `med`, `mx`, `excess`, `p_hi`, `p_lo` and `differ` are Monte
+#: Carlo estimates at a declared n, and pinning them would make this check a
+#: function of `CHECK_N` -- the same call `audit_tang_null.py`,
+#: `audit_kalevala_null.py` and `audit_hafez_radif.py` all make. `frozen` is
+#: NOT a Monte Carlo estimate (it is a share of pair-slots, exact given the
+#: seed) but it is left out for the same reason: it moves with n.
+#:
+#: MANDATED / JUDGED / REFUSED ARE PINNED AS THREE SEPARATE NUMBERS, never as
+#: a rate (doctrine 79). §2's `refused 3` and §6's `refused 0` are the two that
+#: matter: pinning a ZERO is the point, because if a re-ingestion starts
+#: refusing line-final tokens the published rate would slide silently while
+#: every other figure still matched.
+#:
+#: §6 AND `quality/test_cym.py` ARE TWO INDEPENDENT PATHS TO ONE QUANTITY, AND
+#: THEY ARE NOT COMPETING. That test PARSES the two word-level rows out of
+#: `RESULTS_CYM_RHYME.md` §6 and compares them with the live census, so it pins
+#: DOCUMENT against CODE. This pins CODE against a LITERAL. Together the three
+#: are forced equal, and a drift in any one of them turns something red:
+#: change the module and both go red; change the document and the test alone
+#: goes red; change this literal and this check alone goes red. Verified
+#: 2026-08-14 that they AGREE -- 29569/29443/0/126 and 5246/5198/0/48, both
+#: `vowelless_token` -- with `python3 quality/test_cym.py` green on the same
+#: working tree. `rule="prominent"`'s loaded `refused` bucket (126 line-final,
+#: 8173 over all tokens) is test_cym.py §2's and is deliberately NOT duplicated
+#: here: §5's `prominent` row already exercises the same branch through
+#: `pair_census`, and a third copy of a number is how a repo ends up carrying
+#: one quantity under two values.
+#:
+#: Doctrine 58: these are counts, and a count is a coordinate of a threshold
+#: AND of a rendering. Argue them and repin with the superseded value visible
+#: and dated (doctrine 17); do not tune `rimes()` to meet them.
+PINNED = {
+    # §1 the corpus, counted -- (units, lines) per file, then the two
+    # strict-metre files outside corpus/song/ as bare line counts.
+    "s1": {CYWYDD: (1, 108),
+           "cym_song_alun.txt": (29, 215),
+           "cym_song_hwiangerddi.txt": (305, 1408),
+           "cym_song_mynyddog.txt": (403, 2756),
+           "cym_song_twm_or_nant.txt": (71, 759),
+           "TOTAL": 5246,
+           "cym_alun_strict.txt": 1558,
+           "cym_twm_or_nant_cywydd.txt": 156},
+    # §2 the cywydd -- (mandated, judged, refused, true) per reading, plus the
+    # negative straddle arm. 51/51 against 0/53 is the finding this cell made.
+    "s2": {"lines": 108, "couplets": 54, "straddles": 53,
+           "depth 1 (SHIPPED)": (54, 51, 3, 51),
+           "depth 2 (rich grade)": (54, 51, 3, 45),
+           "prominent (ENGLISH PORT)": (54, 52, 2, 2),
+           "diacritics=keep": (54, 51, 3, 50),
+           "glide=vocalic": (54, 54, 0, 52),
+           "glide=consonantal": (54, 54, 0, 53),
+           "STRADDLE depth 1 (SHIPPED)": (53, 53, 0, 0)},
+    # §4 the 108 -- the arm negative_control.py recorded as 108/108 refused.
+    "s4": {"blocks": 18,
+           "depth 1 (SHIPPED)": (108, 108, 0, 29),
+           "depth 2 (rich grade)": (108, 108, 0, 19),
+           "prominent (ENGLISH PORT)": (108, 102, 6, 16)},
+    # §5 the uncalibrated FPR draw -- (mandated, judged, refused, TRUE). The
+    # `admits` percentages the document prints are these four divided; the
+    # counts are what is exact. `prominent` refuses 1297 where the shipped
+    # reading refuses 344, which is doctrine 79's point in one row.
+    "s5": {"pool": 5246,
+           "depth 1 (SHIPPED)": (20000, 19656, 344, 415),
+           "depth 2 (rich grade)": (20000, 19656, 344, 314),
+           "prominent (ENGLISH PORT)": (20000, 18703, 1297, 107),
+           "diacritics=keep": (20000, 19656, 344, 403),
+           "glide=vocalic": (20000, 19657, 343, 415),
+           "glide=consonantal": (20000, 19657, 343, 416)},
+    # §6 where the refusal falls. THE TWO WORD-LEVEL ROWS ARE THE ONES
+    # test_cym.py parses out of the document; see the note above.
+    "s6": {"ALL tokens": (29569, 29443, 0, 126, {"vowelless_token": 126}),
+           "line-final tokens": (5246, 5198, 0, 48,
+                                 {"vowelless_token": 48}),
+           "PAIR MANDATED (cywydd couplets)":
+               (54, 51, 3, {"undecided_glide": 3}),
+           "PAIR the straddling pairs": (53, 53, 0, {}),
+           "PAIR RANDOM line-final tokens":
+               (20000, 19656, 344, {"vowelless_token": 343,
+                                    "undecided_glide": 1}),
+           "glide_marked_ends": 34,
+           "proclitic_ends": 117},
+    # §8 the tradition test (doctrine 37), then the two strict-metre files
+    # outside corpus/song/ as ((true, false, refused) at couplet parity,
+    # (true, false, refused) at straddle parity). Twm o'r Nant is ONE cywydd,
+    # so 69/77 against 0/77 is §2 replicated on a poet three centuries later;
+    # Alun is an aggregate of several pieces with no unit markers and NEITHER
+    # of its columns is the form's own arm, which is why both are high.
+    "s8": {"tradition": (14, 14),
+           ("cym_twm_or_nant_cywydd.txt", "depth 1 (SHIPPED)"):
+               ((69, 8, 1), (0, 77, 0)),
+           ("cym_twm_or_nant_cywydd.txt", "diacritics=keep"):
+               ((61, 17, 0), (0, 77, 0)),
+           ("cym_twm_or_nant_cywydd.txt", "prominent (PORT)"):
+               ((1, 70, 7), (0, 69, 8)),
+           ("cym_alun_strict.txt", "depth 1 (SHIPPED)"):
+               ((289, 486, 4), (423, 348, 7)),
+           ("cym_alun_strict.txt", "diacritics=keep"):
+               ((289, 486, 4), (423, 348, 7)),
+           ("cym_alun_strict.txt", "prominent (PORT)"):
+               ((8, 750, 21), (14, 744, 20))},
+    # §9 REPEAT -- (TRUE verdicts, REPEAT, RIME_RICHE, RHYME) per file.
+    # The cywydd's REPEAT is 0 and the pin is on the zero: doctrine 3's trap
+    # is what made `whitman.txt` ineligible, and a corpus that started
+    # carrying refrains would move this row before it moved any rate.
+    "s9": {CYWYDD: (51, 0, 6, 45),
+           "cym_song_alun.txt": (89, 0, 10, 79),
+           "cym_song_hwiangerddi.txt": (521, 42, 58, 421),
+           "cym_song_mynyddog.txt": (1106, 39, 94, 973),
+           "cym_song_twm_or_nant.txt": (303, 1, 37, 265)},
+}
+
+
+def check(m):
+    """-> exit code. FAILS LOUDLY; it does not report and continue."""
+    print()
+    print("=" * 78)
+    print("CHECK -- the committed Welsh odl figures against this run")
+    print("=" * 78)
+    bad = total = 0
+    for sec in sorted(PINNED):
+        want, got = PINNED[sec], m.get(sec) or {}
+        if not want:
+            continue
+        print("  %s" % sec)
+        for k in want:
+            g = got.get(k)
+            # §2/§4 rows come back as the full `report()` dict; the pin is the
+            # three counts plus TRUE, and never a null quantile.
+            if isinstance(g, dict) and "mandated" in g:
+                g = (g["mandated"], g["judged"], g["refused"], g["true"])
+            # §5 rows carry a by-code dict the pin does not name yet.
+            if sec == "s5" and isinstance(g, tuple):
+                g = g[:4]
+            ok = g == want[k]
+            bad += not ok
+            total += 1
+            print("    [%s] %-34s committed %s%s"
+                  % ("ok  " if ok else "FAIL", str(k)[:34], want[k],
+                     "" if ok else ", measured %s" % (g,)))
+    print()
+    if bad:
+        print("  %d of %d figure(s) moved. The ingestion, the unit rule, the "
+              "end-word rule or" % (bad, total))
+        print("  `rimes()` has changed under this arm.")
+        print("  Repin with the date and keep the superseded value visible "
+              "(doctrine 17),")
+        print("  and re-run `python3 quality/test_cym.py` -- it parses §6's "
+              "two rows out of")
+        print("  RESULTS_CYM_RHYME.md, so a §6 move that leaves it GREEN "
+              "means the document")
+        print("  moved with the code and only this literal is stale.")
+    print("RESULT:", "PASS" if not bad else "FAIL")
+    return 0 if not bad else 1
 
 
 if __name__ == "__main__":
+    if "--check" in sys.argv[1:]:
+        sys.exit(check(main(sys.argv[1:])))
     main(sys.argv[1:])

@@ -736,9 +736,35 @@ def is_apparatus_line(line):
     comment) rather than sung text. Matches the convention already used
     throughout `quality/` (readability.py's `read_lines`, grid.py's
     `read_marked_songs`, fin_rhyme_rate.py, audit_register.py, etc.): a
-    `[Section]` header, a `--- ` source note, or a `#` comment -- the last
+    `[Section]` header, a `---` source note, or a `#` comment -- the last
     of which is the place a stage direction belongs, since unlike a bare
     `(...)` parenthetical it is unambiguously apparatus and never scored.
+
+    `---`, WITH NO TRAILING SPACE, AND THAT IS THE WHOLE OF THE 2026-08-13
+    CONVERGENCE. Two readers were still spelling this rule themselves after
+    the 2026-08-12 centralization and both spelled it wrong, in opposite
+    ways, and both now CALL this function:
+
+      `quality/readability.py`'s `read_lines` tested `--- ` with a trailing
+      space. A four-hyphen epigraph is not `--- `, so four Wordsworth
+      epigraphs in `corpus/song/eng_british_felicia_hemans.txt` were verse to
+      that one reader and apparatus to every other. `lines_countable`
+      151,898 -> 151,894 -- which is the figure `quality/
+      RESULTS_HYPHEN_REFUSAL.md` and `token_pieces` below had recorded all
+      along, so the fix closed a self-contradicting record rather than moving
+      an agreed number.
+
+      `quality/grid.py`'s `read_marked_songs` never stripped before its test
+      and routed `[` through `^\\[([^\\]]*)\\]`, so a bracket with NO CLOSING
+      `]` matched nothing, opened no block, and was scored as a LYRIC: 133
+      lines in 19 files across 130 blocks, 14 of which had a stage direction
+      (`[Exeunt.`, `[Drinks.`, `[Music:`) as their entire content.
+
+    STILL OUTSTANDING, and it is a different lot's to close: five more
+    `startswith("--- ")` sites survive (`quality/negative_control.py`,
+    `cym_rhyme_rate.py` x2, `test_cym.py`, `test_phonology.py`), all on the
+    Welsh/negative-control path. They are not measured here because this cell
+    does not own them; `grep -rn 'startswith("--- ")'` is the whole list.
     """
     s = line.strip()
     return s.startswith("[") or s.startswith("---") or s.startswith("#")
@@ -997,10 +1023,15 @@ def token_pieces(lex, token):
     `#`/`---`/`[` markers (189,261 counting every non-blank line; at the time
     this was measured, `quality.readability.read_lines` did NOT exclude those
     markers and returned 188,805 -- FIXED 2026-08-12, and `read_lines` now
-    returns 151,898 on the current corpus, matching this figure rather than
-    disagreeing with it -- doctrine 91, the count is a coordinate of the
-    rendering, and a corpus cell was de-duplicating this corpus in the same
-    round so it is pinned to a COMMIT and not to a date): **323 line ends
+    returns 151,894 on the current corpus, THE SAME FIGURE, because as of
+    2026-08-13 it calls `is_apparatus_line` rather than spelling the rule a
+    second time. It carried its own `--- ` WITH A TRAILING SPACE for a day and
+    returned 151,898 on that spelling: the difference is four Wordsworth
+    epigraphs in `eng_british_felicia_hemans.txt` that open on FOUR hyphens,
+    which `--- ` cannot match and `---` does -- doctrine 91, the count is a
+    coordinate of the rendering, and a corpus cell was de-duplicating this
+    corpus in the same round so it is pinned to a COMMIT and not to a
+    date): **323 line ends
     have an unread piece inside an end token that yields phones**, and the
     split by WHICH piece is the triage:
 
@@ -2045,10 +2076,24 @@ class CandidateEngine:
                 self.index.append((word, anc, rank))
 
     def candidates(self, text, n=20, include_perfect=True):
+        """-> ONE dict shape, always, whether or not the query reads.
+
+        The no-anchor return used to be `{"error", "oov"}` and nothing else,
+        so a caller that read `res["anchor_syllables"]` or `res["candidates"]`
+        -- the two keys the success return exists to carry -- raised KeyError
+        on every unreadable query instead of seeing a refusal. The CLI's own
+        `candidates` verb did exactly that and crashed on `hypotenuse`, this
+        repo's OWN canary word (known gap 1); `quality/revise.py` escaped
+        only because `_field` happens to read `res.get("candidates", [])`.
+        A refusal is not a failure and it is not an empty field either
+        (doctrine 79) -- `error` is set and the counts are honest zeroes, so
+        no consumer can mistake "cannot tell" for "none" (doctrine 28).
+        """
         phones, words, oov = self.lex.transcribe(text)
         anc_q = anchor(syllabify(phones))
         if not anc_q:
-            return {"error": "no anchor", "oov": oov}
+            return {"query": text, "anchor_syllables": 0, "oov": oov,
+                    "candidates": [], "error": "no anchor"}
         query_word = words[-1].lower() if words else ""
         scored = []
         for word, anc, rank in self.index:
@@ -3452,6 +3497,24 @@ def main():
         n = int(args[2]) if len(args) > 2 else 20
         eng = CandidateEngine(lex, decl)
         res = eng.candidates(word, n)
+        # A query the declared dialect cannot READ is a REFUSAL, named and
+        # exited 2 -- never a traceback, and never an empty field printed as
+        # though the search had run and found nothing (doctrine 79: the
+        # refusal is charged to CMUdict, not to the word; doctrine 28: a
+        # caller in a pipeline has to be able to tell "cannot tell" from
+        # "none"). This verb raised `KeyError: 'anchor_syllables'` on every
+        # OOV query for as long as it has shipped -- including on
+        # `hypotenuse`, the canary this repo's own known gap 1 names.
+        if res.get("error"):
+            print(f"  REFUSED — '{word}': {res['error']}. Its end word is "
+                  f"not readable in the declared dialect "
+                  f"(out-of-vocabulary: {res['oov'] or 'none'}), so there is "
+                  f"no anchor to search a candidate field against. Nothing "
+                  f"here says the word has no rhymes. `--fallback=high|low`, "
+                  f"ahead of the verb, reaches quality/g2p.py's derivation "
+                  f"layers; known gap 1 says what that does and does not "
+                  f"close.")
+            sys.exit(2)
         print(f"candidates for '{word}' "
               f"(anchor {res['anchor_syllables']} syllable(s)):")
         for c in res["candidates"]:
@@ -3746,6 +3809,36 @@ def main():
                 doc = None
             head = (doc or "").strip().splitlines()[0] if doc else ""
             print(f"    python3 {m:<34} {head[:76]}")
+        # RUNNABLE AND IMPORTED — the blind spot this verb had until
+        # 2026-08-13. `runners` above is drawn from `orphan`, and `orphan`
+        # excludes anything that appears in an import anywhere, so a module
+        # that is BOTH a library and a command could never reach either list.
+        # `battery.py` was the case that matters: the first line of CLAUDE.md's
+        # Test discipline, absent from README, and invisible to the one verb
+        # written so that "is this plugged in?" is a command rather than an
+        # audit -- because `audit_spans.py` and `redteam_band.py` import it.
+        # `verify_doctrines.py` the same, via `counters.py`/`audit_register.py`.
+        # A COUNT IS NOT DISCOVERABILITY applies here too: these are named,
+        # with the command that runs them, exactly like the standalone set.
+        also = sorted(m for m in prod
+                      if m not in orphan
+                      and not _os.path.basename(m).startswith("test_")
+                      and _os.path.basename(m) != "__init__.py"
+                      and "data/" not in m
+                      and _runnable(m))
+        print(f"\n  ALSO RUNNABLE, and imported by production code "
+              f"(`__main__` + a caller): {len(also)}")
+        print("    not 'standalone by design' -- these are libraries you can "
+              "also run, and the count above deliberately excludes them")
+        for m in also:
+            try:
+                doc = _ast.get_docstring(_ast.parse(
+                    open(_os.path.join(base, m), errors="replace").read()))
+            except SyntaxError:
+                doc = None
+            head = (doc or "").strip().splitlines()[0] if doc else ""
+            print(f"    python3 {m:<34} {head[:76]}")
+
         tot = 0
         for m in stranded:
             n = sum(1 for _ in open(_os.path.join(base, m), errors="replace"))
@@ -3895,6 +3988,7 @@ def main():
                   f"{' ...' if len(st.unreadable) > 8 else ''}")
         found = refused = 0
         scope = {}
+        burdens = []            # (schema name, search_burden) for FIRING ones
         for sch in RL.all_schemas().values():
             if want and want.lower() not in sch.name.lower():
                 continue
@@ -3916,6 +4010,10 @@ def main():
                        "rule_shape": "[RULE SHAPE ONLY] ",
                        "unsourced": "[UNSOURCED SCHEMA] "}.get(sc, "")
                 scope[sc] = scope.get(sc, 0) + 1
+                # Doctrine 56, asked of the schemas that actually FIRED --
+                # the burden behind THESE counts, not a whole-registry
+                # average that no printed number was obtained under.
+                burdens.append((sch.name, RL.search_burden(sch, st)))
                 print(f"  {tag}{sch.name}  ({len(hits)} instance(s))")
                 for t in getattr(sch, "traditions", ())[:2]:
                     print(f"      canon {getattr(t, 'source', '?')}: "
@@ -3925,10 +4023,33 @@ def main():
         print(f"  schemas finding something: {found}   "
               f"refusing on a capability {lang} does not have: {refused}")
         print("  TWO THINGS THESE COUNTS ARE NOT:")
-        try:
-            burden = RL.search_burden(st)
-        except Exception:
-            burden = None
+        # `RL.search_burden(schema, stream)` takes TWO arguments; this call
+        # site passed ONE, inside a blanket `except Exception` that turned the
+        # resulting TypeError into `burden = None` -- which renders as the
+        # clause below simply not being there. So the doctrine 56 disclosure
+        # this paragraph PROMISES ("`search_k` is now consumed") had never
+        # once run, on any input, and nothing reported that. The handler is
+        # GONE rather than narrowed: `search_burden` already catches the one
+        # exception its own enumeration raises (`NoReferent`, per rule), and
+        # every schema counted here has already had `realise` enumerate the
+        # same spans without raising, so anything thrown from this line is a
+        # programming error and belongs in the open. Doctrine 48 -- a
+        # principle that lives only in prose gets followed exactly as often
+        # as someone remembers it, and a handler that cannot tell a bug from
+        # a capability gap is what let this one survive unnoticed.
+        loci = sum(b["members"] for _, b in burdens)
+        searched = sum(b["searched"] for _, b in burdens)
+        worst = max(burdens, key=lambda t: t[1]["mean_k"], default=None)
+        # loci and `searched` are the same kind of count and may be summed;
+        # mean_k is NOT averaged across schemas (doctrine 79 -- never sum
+        # what asks different things of a reader). The heaviest schema is
+        # NAMED, because that is the one whose bare rate is quoting the null
+        # back at itself.
+        burden = (f"{loci} member span(s) over {len(burdens)} firing "
+                  f"schema(s), {searched} of them reached by a search over "
+                  f"more than one hypothesis; heaviest {worst[0]!r} at "
+                  f"mean_k {worst[1]['mean_k']:.2f}, max_k "
+                  f"{worst[1]['max_k']}") if burdens else ""
         print("   1. EVIDENCE. These are INSTANCES. `search_k` is now "
               "consumed — `search_burden()` reports the hypotheses per locus"
               + (f", here {burden}" if burden else "") + " — but a count "
@@ -4135,6 +4256,71 @@ def main():
         print(f"    by cause: {rep['lines_unreadable_final_token']} the whole "
               f"end word, {rep['lines_unreadable_final_piece']} the LAST "
               f"piece of a compound")
+        # AND WITH `--fallback` DECLARED, THE TWO LINES ABOVE ARE NOT ENOUGH.
+        # "read" there means "the harness produced phones", and once a
+        # fallback is consulted that silently becomes "produced OR INVENTED
+        # phones". On corpus/song/eng_hall_william_barnes.txt the line-end
+        # refusals fall 2298 -> 476 at `--fallback=low` and the word-token
+        # refusal rate falls 18.29% -> 5.26%, and 8,784 of the readings that
+        # bought that fall came from the LETTER layer, whose phones no
+        # dictionary entry supplied -- which quality/test_g2p.py §10 measures
+        # as answering Shakespeare's own real refusals wrong 50.0% of the
+        # time against 5.1% for the derived layers, 9.8x, which is why `high`
+        # is the shipped default. The falling rate is the only thing this
+        # verb has ever printed. The middle column is what it cost, and
+        # doctrine 79 says the two are never one number.
+        #
+        # WHY THE MIDDLE COLUMN IS THE DERIVATION, AND NOT AN ARTIFACT OF
+        # WHICH SHIM `Fallback` HAPPENS TO BE BUILT OVER. `Lexicon.__init__`
+        # wraps `_DictionaryOnlyLexicon` -- bare `entries`, none of
+        # `transcribe_word`'s own `-s`/`'d`/`in'` reductions -- and it has to,
+        # because `Fallback.read` calls back into `transcribe_word` and the
+        # real object would recurse. Counting against THAT boundary would
+        # charge every plural and every `crown'd` to the fallback: readings
+        # this harness already had before anyone declared one, reported as
+        # derivations, and the middle column would then be measuring the
+        # recursion guard rather than the flag. `lexicon_three_counts` does
+        # not use the shim. It counts against `quality.g2p._NoFallbackView`,
+        # which runs THIS class's `transcribe_word` with `g2p_fallback` set
+        # to None -- so column one is exactly what this Lexicon read before
+        # the flag, and column two is exactly what the flag added to it.
+        #
+        # WORD TOKENS, NOT LINE ENDS -- A DIFFERENT POPULATION, WHICH IS WHY
+        # THE LABEL SAYS SO AND WHY A SENTENCE IS PRINTED AHEAD OF THE
+        # NUMBERS RATHER THAN GLUING THEM TO THE TWO ABOVE. Those two count
+        # LINE ENDS as `line_readability` judges them, and it judges a
+        # hyphenated compound on its LAST PIECE — `threshing-floor` is READ
+        # there because `floor` reads, and `hill-zide` REFUSES there because
+        # `zide` does not, neither of them on the token as a whole.
+        # `transcribe_word` judges the whole token, so `a-bed` refuses to it
+        # while the line ending in it reads above. Measured on the Barnes
+        # file with the fallback OFF: 414 line ends are READABLE to the two
+        # lines above and REFUSED to these three, every single one of the 414
+        # hyphenated (`a-bed`, `Jack-daw`, `Year-clock`), and the reverse
+        # direction is 0. So a reader who subtracted one from the other would
+        # be measuring the hyphen rule and calling it a fallback effect.
+        # AN EXACT REFINEMENT IS NOT AVAILABLE FROM THIS FILE: it needs
+        # `quality/readability.py` to expose the LAYER each per-line record
+        # was read at, which is that module's to add and is recorded as the
+        # follow-up rather than reached across for here.
+        if lex.g2p_fallback is not None:
+            # `Lexicon.__init__` imported `quality.g2p` to build the very
+            # `Fallback` this gate tests for, so passing the gate guarantees
+            # the module is already in `sys.modules` and this import is a
+            # dict lookup. With no `--fallback` the gate is False, nothing
+            # here is imported, tokenized, counted or printed, and the verb
+            # is byte-identical to what it was before this block existed.
+            from quality.g2p import (format_three_counts,
+                                     lexicon_three_counts)
+            print("  A DIFFERENT POPULATION FROM THE TWO LINES ABOVE — DO "
+                  "NOT SUBTRACT. Those count LINE ENDS, and a hyphenated "
+                  "end word is READ there when its LAST PIECE reads; these "
+                  "count EVERY WORD TOKEN, and refuse the token whole.")
+            _words = [w for _l in lines
+                      for w in line_tokens(_l, strip_parens=lex.strip_parens)]
+            for _out in format_three_counts(
+                    lexicon_three_counts(lex, _words), what="word tokens"):
+                print(_out)
 
     elif cmd in ("brief", "verify", "revise", "song"):
         from quality import loop as LP
@@ -4165,6 +4351,20 @@ def main():
             source="lyric_harness.py brief/verify/revise --isochronous, an "
                    "explicit assumption by whoever ran the command") \
             if "--isochronous" in args else None
+
+        # WHICH FILE IS WHICH — doctrine 79, and the half of the refusal only
+        # this frame can supply. `quality/revise.py`'s message carries both
+        # COUNTS ("blueprint declares 16 line(s), 4 were handed to the loop")
+        # and neither PATH, correctly: it is a library, it was handed a list
+        # of strings and a blueprint object, and it was never told what the
+        # command line called them. A caller fixes a count mismatch by editing
+        # one of two files and has to be told WHICH TWO, so the paths are
+        # collected here as each verb reads its own arguments and printed
+        # under the refusal. Order matters and is the message's own: the side
+        # that DECLARES first, the side that was HANDED IN after it.
+        sides = []
+        if bp_path:
+            sides.append(("DECLARED  --blueprint=", bp_path))
 
         def _say_blueprint():
             """Printed only once a mandate spec is known to be present —
@@ -4350,6 +4550,7 @@ def main():
 
         try:
             if cmd == "brief":
+                sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
@@ -4372,6 +4573,8 @@ def main():
                 # to the words and not the blueprint, or the reverse.
                 from quality import grid as GR
                 song_bp_path = args[1]
+                sides.append(("DECLARED  song's BLUEPRINT", song_bp_path))
+                sides.append(("HANDED IN song's LYRIC", args[2]))
                 lyric_text = open(args[2]).read()
                 marked = parse_lyric_sections(lyric_text)
                 song_obj, _hooks = GR.song_from_blueprint(song_bp_path)
@@ -4403,23 +4606,24 @@ def main():
                           + (f", subdivision={sub_arg}" if sub_arg else
                              ", NO SUBDIVISION DECLARED — the slot "
                              "questions refuse rather than assume one"))
-                try:
-                    _print_brief_report(lines, scheme, song_bp_path)
-                except NoMandate:
-                    # Let the SAME handler brief/verify/revise use catch
-                    # this one (below) -- NoMandate IS-A ValueError, so
-                    # without this it would print here in a shape that
-                    # only looks like the shared refusal, drifting from it
-                    # the next time either message changes.
-                    raise
-                except ValueError as e:
-                    # A structure mismatch severe enough to break the
-                    # blueprint/draft position correlation `_meter_findings`
-                    # requires (doctrine 20: a refusal, not a traceback) --
-                    # the STRUCTURE lines above already said WHERE.
-                    print(f"  REFUSED — {e}")
-                    sys.exit(2)
+                # NO `except ValueError` OF ITS OWN — MOVED OUT 2026-08-13.
+                # This call used to be wrapped in a private copy of the
+                # refusal that now sits on the shared handler below, and a
+                # second copy is exactly what "do not invent a second refusal
+                # shape" forbids: `brief`, `verify` and `revise` reach the
+                # SAME `Reviser._meter_findings` through the SAME
+                # `_print_brief_report`, and three of the four verbs printed
+                # a raw traceback where the fourth refused. The private copy
+                # was also strictly narrower than it looked — it started
+                # AFTER `GR.song_from_blueprint` above, so a blueprint this
+                # verb could not parse at all (`Invalid literal for
+                # Fraction`, a JSON syntax error) escaped `song` too. One
+                # handler, on the try every verb on this branch already
+                # shares, covers both.
+                _print_brief_report(lines, scheme, song_bp_path)
             elif cmd == "verify":
+                sides.append(("HANDED IN verify's BEFORE", args[1]))
+                sides.append(("HANDED IN verify's AFTER", args[2]))
                 before = load_lyric_lines(args[1])
                 after = load_lyric_lines(args[2])
                 scheme = _mandate_arg(args[3] if len(args) > 3 else None,
@@ -4449,6 +4653,7 @@ def main():
                 # real writing supplies its own `propose`/`propose_pair`
                 # through the Python API; this verb exists so the control
                 # flow itself is runnable and inspectable without one.
+                sides.append(("HANDED IN revise's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
                 scheme = _mandate_arg(args[2] if len(args) > 2 else None,
                                       lines)
@@ -4467,9 +4672,46 @@ def main():
             # Exit 2, not 0. A refusal is not a pass and a caller in a
             # pipeline has to be able to tell them apart; the traceback this
             # replaces said the same thing in six frames of noise.
+            #
+            # FIRST, and not merely by luck: `NoMandate` IS-A `ValueError`,
+            # so this clause has to sit ahead of the one below or every
+            # missing mandate would print the generic refusal instead of the
+            # one that names what is missing.
             print("  REFUSED — this verb was given nothing to check against.")
             for ln in str(e).splitlines():
                 print(f"  {ln}")
+            sys.exit(2)
+        except ValueError as e:
+            # THE SAME REFUSAL, FOR ALL FOUR VERBS — FIXED 2026-08-13. A
+            # blueprint whose line count does not match the draft is a
+            # DECLARATION MISMATCH, not a crash: `Reviser._meter_findings`
+            # correlates blueprint placements to draft lines BY POSITION and
+            # raises rather than silently misaligning every line after the
+            # first difference, which is the right call and is deliberately
+            # worded. Only `song` routed it — it had a private copy of this
+            # handler — so `brief FILE MANDATE --blueprint=BP`, `verify` and
+            # `revise` printed a raw traceback and exited 1 on the identical
+            # user mistake that `song` answered with `REFUSED` and exit 2.
+            # Same family as the `candidates` KeyError fixed earlier the same
+            # day (a user-facing verb tracebacking where its sibling refuses)
+            # except loud rather than silent, and the same remedy: ONE
+            # refusal shape, reached by every verb that can provoke it.
+            #
+            # BROAD ON `ValueError` AND NOT WIDER, ON PURPOSE. It catches the
+            # rest of the blueprint-reading family a wrong file provokes —
+            # `pulses must be positive`, `groups (3, 3) sum to 6, not 4`,
+            # `Invalid literal for Fraction`, and `json.JSONDecodeError`,
+            # which is a `ValueError` subclass — all of which are a statement
+            # about the FILE the caller named. It deliberately does NOT catch
+            # `KeyError`: `KeyError: 'bars'` from a section missing a
+            # required field looks identical, at this frame, to
+            # `KeyError: 'anchor_syllables'`, which was a REAL defect in this
+            # spine and was found precisely because it escaped. Swallowing
+            # that class here would hide the next one (doctrine 48's own
+            # failure mode, and §12's argument against broad handlers).
+            print(f"  REFUSED — {e}")
+            for role, path in sides:
+                print(f"    {role}: {path}")
             sys.exit(2)
 
     elif cmd == "demo":

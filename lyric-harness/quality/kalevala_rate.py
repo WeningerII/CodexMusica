@@ -3,10 +3,24 @@
 
 WHY THIS FILE EXISTS
 
-`data/sources.tsv` records the Kalevala as validated at "81.2% alliteration",
-from 3,246 of the first 4,000 verse lines carrying two or more words with a
-shared initial under `quality/phonology/fin.py`. That number has no null behind
-it. Finnish has a small consonant inventory, initial position carries most of
+`data/sources.tsv:58` records the Kalevala as validated at a BARE ALLITERATION
+RATE over the first 4,000 verse lines -- the count of lines carrying two or more
+words with a shared initial under `quality/phonology/fin.py`, divided by 4,000.
+**Read the current figure there, and the one it superseded, rather than here.**
+That number, whatever it is, has no null behind it, and the null is what this
+file supplies; not one word of the argument below turns on its value.
+
+  DELIBERATELY NOT COPIED, 2026-08-13. This paragraph used to open
+  `data/sources.tsv` records the Kalevala as validated at "81.2%
+  alliteration", from 3,246 of the first 4,000 verse lines -- a hard-coded
+  copy of another file's contents, and FALSE from the moment that file moved.
+  It has moved: the origin row was repinned to 3,253 of the first 4,000
+  (81.3%), with 3,246 (81.2%) kept visible and dated beside it. A sentence of
+  the form "file X records Y" is a copy that nothing re-runs, so it is now a
+  POINTER; `python3 quality/audit_kalevala_null.py --check` is the instrument
+  that measures the row and will fail if the two disagree.
+
+Finnish has a small consonant inventory, initial position carries most of
 the redundancy, and the vowel-initial words alliterate as ONE class by the
 tradition's own rule -- so a large fraction of arbitrary Finnish word-pairs
 share an initial before any poet is involved. Doctrine 56: a rate without a
@@ -75,38 +89,108 @@ a figura etymologica (`laulan laulun`). Variants 5-7 bound that: 5 forbids the
 pair being the same word-form, 6 and 7 forbid it sharing a 4-character prefix.
 If the lift survives those, the effect is not stem repetition.
 
-WHAT IT SAYS (seed 20260810, N=200; every figure re-checked at N=2000)
+WHAT IT SAYS
+
+  EVERY FIGURE IN THIS SECTION IS A QUOTATION OF ONE COMMAND'S OUTPUT, AND IT
+  IS NAMED SO A READER CAN RE-RUN IT RATHER THAN TRUST IT:
+
+      python3 quality/kalevala_rate.py corpus/fin_kalevala.txt 200
+
+  at the module's fixed `SEED = 20260810`, MEASURED 2026-08-13.
+
+  REPINNED 2026-08-13, AND THE CAUSE IS DETERMINED RATHER THAN GUESSED -- THE
+  FIGURES WERE STALE IN THE COMMIT THAT INTRODUCED THEM. Every figure below
+  moved 0.1-0.3 pp against the values committed here on 2026-08-10, struck and
+  kept visible under doctrine 17.
+
+  The observed rate is a coordinate of `quality/phonology/fin.py`, and it was
+  run down by recomputing this exact corpus under EVERY revision of that module
+  in the repository's history:
+
+      fefd37e   weak 82.3119%  strong 55.7271%   283 tokens unreadable
+      5094bf2   weak 82.5971%  strong 55.9202%     0 tokens unreadable
+      f94383c   weak 82.5971%  strong 55.9202%     0
+      4281adb   weak 82.5971%  strong 55.9202%     0
+      HEAD      weak 82.5971%  strong 55.9202%     0
+
+  ~~82.31%~~ / ~~55.73%~~ are `fefd37e`'s answers to the decimal. `5094bf2` is
+  the commit that FIXED THREE `fin.py` DEFECTS (doctrine 37's Finnish hiatus
+  apostrophe among them), taking 283 unreadable tokens to 0 and the rate to
+  82.60% -- and it is the same commit that ADDED THIS FILE with 82.31% already
+  in its docstring. The block was written from a run made against the phonology
+  that commit replaced, so it never reproduced, at any commit, from the day it
+  landed. Doctrine 58: argued and repinned, never tuned to hit the old number.
+
+  TWO OTHER EXPLANATIONS ARE ON THE RECORD AND BOTH ARE REFUTED BY THE ABOVE.
+  `quality/METHOD.md` attributes the movement to the superseded 22,822-line
+  extraction; `corpus/fin_kalevala.txt` has exactly ONE commit in this
+  repository and it is 22,795 lines, no 22,822-line file has ever existed here,
+  and this docstring said "22,795 verse lines" in the same breath as 82.31%.
+  The corpus never moved. The phonology did. (That site is METHOD's to correct;
+  named here, not edited.) See `quality/NULL_AUDIT.md` §2.2, which records the
+  same movement from the other side and gets the cause right.
 
   The rate SEPARATES, and by a lot. Against the across-line permutation:
 
-    weak    82.31% observed   null median 29.86%, max 30.62%   +51.69 over max
-    strong  55.73% observed   null median  7.18%, max  7.73%   +48.00 over max
+    weak    82.60% observed   null median 30.02%, max 30.80%   +51.80 over max
+    strong  55.92% observed   null median  7.22%, max  7.71%   +48.21 over max
 
-  So the 81.2% in data/sources.tsv was not an artifact -- but it was also not
-  interpretable, because the missing number is 29.86%. Nearly a THIRD of
-  Kalevala lines would carry weak alliteration with their words redealt at
-  random, which is the redundancy the unit was built to price. Reported as a
-  rate alone, "82%" invites the reading that the poet is responsible for 82
-  points of it; he is responsible for 52, and 64% of the observed hits are
-  above chance. The strong grade is the cleaner instrument by that measure:
-  87% of its hits are above chance, because a shared C+V costs far more to
-  hit by accident.
+      superseded 2026-08-10, kept visible (doctrine 17):
+        weak  ~~82.31% / median 29.86% / max 30.62% / +51.69 over max~~
+        strong ~~55.73% / median  7.18% / max  7.73% / +48.00 over max~~
+
+  So the rate recorded at `data/sources.tsv:58` was not an artifact -- but it
+  was also not interpretable, because the missing number is 30.02%. Nearly a
+  THIRD of Kalevala lines would carry weak alliteration with their words
+  redealt at random, which is the redundancy the unit was built to price.
+  Reported as a rate alone, "82%" invites the reading that the poet is
+  responsible for 82 points of it; he is responsible for 52, and 64% of the
+  observed hits are above chance. The strong grade is the cleaner instrument by
+  that measure: 87% of its hits are above chance, because a shared C+V costs
+  far more to hit by accident.
+
+      This sentence used to open "So the 81.2% in data/sources.tsv was not an
+      artifact". That was a claim about what another file records, and it went
+      false when the row was repinned to 81.3% (~~81.2%~~ kept visible there).
+      It is a POINTER now for the same reason the opening paragraph is: the
+      argument needs "the recorded rate", never its digits. The 29.86% it
+      paired with was THIS file's own measurement and is repinned above, not
+      pointed at -- a figure this file produces is one it must state.
 
   Every p is AT its floor -- 0.0050 at N=200 and 0.0005 at N=2000 -- and it
   stays there because the null's MAXIMUM is fifty points below the
-  observation. Raising N does not move it: 2000 replicates moved the weak
-  null's max from 30.62% to 30.81%. The gap is the result; the p only ever
-  reported the resolution (doctrine 57).
+  observation. Raising N does not move it: 2000 replicates move the weak
+  null's max from 30.80% to 30.81%, 0.02 pp for ten times the work. The gap is
+  the result; the p only ever reported the resolution (doctrine 57).
+
+      REPINNED 2026-08-13 from ~~"moved the weak null's max from 30.62% to
+      30.81%"~~, and BOTH ENDS WERE RE-RUN rather than one being assumed:
+
+        python3 quality/kalevala_rate.py corpus/fin_kalevala.txt  200
+            weak null max 30.7962%,  p 0.0050 at floor
+        python3 quality/kalevala_rate.py corpus/fin_kalevala.txt 2000
+            weak null max 30.8138%,  p 0.0005 at floor
+
+      The N=2000 end did NOT move -- 30.81% then and now. The N=200 end did,
+      ~~30.62%~~ -> 30.80%, for the same `fin.py` reason as the block above.
+      So this sentence's own point is now STRONGER than when it was written:
+      the two sample sizes differ by 0.02 pp rather than 0.19. Repinned
+      because the figure moved, not because the claim weakened.
 
   The within-line shuffle returns the observation EXACTLY, on every replicate,
   for all seven symmetric variants. It is the identity map here.
 
   A positional residue exists and is small. Requiring the alliterating pair to
   be ADJACENT, and testing it against the within-line shuffle -- identical
-  words, identical line, only the order moved -- gives 69.09% vs a null median
-  of 62.54% (max 63.24), +5.85 over the max; strong_adjacent 45.10% vs 40.67%
-  (max 41.30), +3.80. So Kalevala alliteration is a constraint on which words
+  words, identical line, only the order moved -- gives 69.36% vs a null median
+  of 62.88% (max 63.71), +5.65 over the max; strong_adjacent 45.28% vs 40.91%
+  (max 41.54), +3.74. So Kalevala alliteration is a constraint on which words
   share a line FIRST, and on where they sit within it only secondarily.
+
+      REPINNED 2026-08-13 from ~~69.09% vs 62.54% (max 63.24), +5.85~~ and
+      ~~45.10% vs 40.67% (max 41.30), +3.80~~ -- same command, same seed, same
+      `fin.py` revision as the block above, and the residue stays small and
+      positive, which is the only thing this paragraph claims.
 
 CORPUS
 
@@ -134,6 +218,14 @@ CORPUS
 
 Run:
   python3 quality/kalevala_rate.py [corpus/fin_kalevala.txt] [n_replicates]
+  python3 quality/kalevala_rate.py --check      # ~5s, EXITS 1 IF A PIN MOVED
+
+`--check` re-measures the deterministic figures above -- corpus shape and the
+nine observed rates -- and exits non-zero if any of them has drifted from what
+this docstring records. It exists because eight figures here were wrong from
+the day they were committed and nothing could notice: the numbers were prose,
+and prose has no exit code. The nulls are deliberately not pinned; see the note
+above `PINNED_SHAPE`.
 """
 
 import os
@@ -555,11 +647,94 @@ def hyphen_sensitivity(path, fin, cp):
           "beside the number it could move.\n")
 
 
+#: WHAT `--check` PINS, AND WHAT IT REFUSES TO PIN.
+#:
+#: This file recorded eight figures that had never reproduced from any commit
+#: in the repository's history (see WHAT IT SAYS, above), and nothing noticed,
+#: because the numbers lived in prose and the code held no copy of them to
+#: compare against. `verify_against_module` is a real non-zero exit path and
+#: it fires -- but it checks CODE against CODE (this module's cache against
+#: `fin.py`'s own answers) and has nothing to say about whether the docstring
+#: still describes the output. That is the gap this closes.
+#:
+#: PINNED: the DETERMINISTIC quantities only -- corpus shape and the nine
+#: observed rates. They involve no seed and no Monte Carlo, so an exact pin is
+#: the right instrument and a disagreement is always real.
+#:
+#: DELIBERATELY NOT PINNED: every null median, min and max in this file. Those
+#: are samples. Pinning a sampled figure as a cell is the defect
+#: `quality/POSITIVE_CONTROL.md` records against its own power table -- a pin
+#: that is red on most draws is a pin people delete. The nulls are judged by
+#: the printed gap, which is fifty points wide and survives any draw.
+#:
+#: POSITIVE CONTROL, because a check nobody has seen fail is not a check
+#: (doctrine 31/76). Both were run 2026-08-13 and both exit 1:
+#:   PINNED_OBSERVED["weak"] = 0.823119   -> [FAIL], the REAL historical drift,
+#:       i.e. `fefd37e`'s answer against HEAD's. This check would have caught
+#:       the defect it was written for, on the day the file was committed.
+#:   PINNED_SHAPE["lines"] = 22822        -> [FAIL], the superseded line count.
+PINNED_SHAPE = {"lines": 22795, "tokens": 67288, "types": 20040,
+                "unreadable": 0}
+
+#: MEASURED 2026-08-13 at HEAD's `fin.py`; see the provenance table above for
+#: what these were under `fefd37e` and why that matters.
+PINNED_OBSERVED = {"weak": 0.825971, "strong": 0.559202,
+                   "weak_min3": 0.107875, "weak_cons_only": 0.701294,
+                   "weak_distinct": 0.821101, "weak_nostem4": 0.811406,
+                   "strong_nostem4": 0.540426, "weak_adjacent": 0.693617,
+                   "strong_adjacent": 0.452775}
+
+
+def check(path=None):
+    """Re-measure the deterministic figures and compare them to the record.
+
+    Costs ~5s, almost all of it `verify_against_module`. Returns an exit code:
+    0 if every pin holds, 1 if any moved. Doctrine 58 -- if one is red, ARGUE
+    it and repin the docstring; never edit the pin to match a run.
+    """
+    path = path or DEFAULT_CORPUS
+    fin = get("fin")
+    cp = Corpus(path, fin)
+    rows = []
+    got = {"lines": cp.n_lines, "tokens": int(cp.flat.size),
+           "types": len(cp.vocab),
+           "unreadable": int((~cp.readable[cp.flat]).sum())}
+    for k, want in PINNED_SHAPE.items():
+        rows.append((got[k] == want, f"corpus {k:<11} committed {want}",
+                     "" if got[k] == want else f", measured {got[k]}"))
+
+    # the fast path must still equal fin.py before its rates mean anything
+    verify_against_module(cp)
+
+    m = cp.observed()
+    for name, _d, fn in variants(cp):
+        obs = float(fn(m).mean())
+        want = PINNED_OBSERVED[name]
+        ok = abs(obs - want) < 5e-7
+        rows.append((ok, f"R_obs  {name:<16} committed {want:.4%}",
+                     "" if ok else f", measured {obs:.4%}"))
+
+    print("=" * 74)
+    print("CHECK -- the committed DETERMINISTIC figures against this run")
+    print("=" * 74)
+    for ok, text, extra in rows:
+        print(f"  [{'ok  ' if ok else 'FAIL'}] {text}{extra}")
+    bad = sum(1 for ok, _t, _e in rows if not ok)
+    print()
+    print("  null medians/maxima are NOT pinned here: they are samples, and a"
+          "\n  cell pin on a sampled figure is red on most draws. Read the gap.")
+    print()
+    print("RESULT: PASS" if not bad else f"RESULT: FAIL -- {bad} pin(s) moved")
+    return 1 if bad else 0
+
+
 def main(argv):
     if argv[:1] == ["--extract"]:
         n = extract(argv[1], argv[2])
         print(f"{argv[2]}: {n} verse lines")
-        return
+        return 0
+    if argv[:1] == ["--check"]:
+        return check(argv[1] if len(argv) > 1 else None)
     path = argv[0] if argv else DEFAULT_CORPUS
     n_rep = int(argv[1]) if len(argv) > 1 else 200
 
@@ -583,7 +758,8 @@ def main(argv):
           f"pairs vs alliterates, both strengths, zero disagreements\n")
     hyphen_sensitivity(path, fin, cp)
     report(cp, n_rep)
+    return 0
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:])
+    sys.exit(main(sys.argv[1:]) or 0)

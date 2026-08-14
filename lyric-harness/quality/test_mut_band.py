@@ -390,7 +390,10 @@ def test_declaration_defaults_are_pinned():
          "DECLARED 2026-08-11, not changed. Held out the tail reading moves "
          "the scalar total on 59% of random pairs, the RELATION on 0, and the "
          "sonnet oracle on nothing at all (81/1014 either way, in both "
-         "halves). quality/test_align.py; mutation M31."),
+         "halves, as measured then; the oracle has since moved to 82/1014 for "
+         "an unrelated reason -- cell BA's coda-identity fix -- and the "
+         "EITHER-WAY invariant, which is the claim here, is untouched by "
+         "that). quality/test_align.py; mutation M31."),
         ("nucleus_agreement", "scalar",
          "the SHAPE of the nucleus question, declared 2026-08-11. The "
          "incumbent, not the winner: the sonnets cannot price this channel. "

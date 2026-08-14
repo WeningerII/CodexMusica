@@ -9,8 +9,11 @@ will never return one. Two project rules force that shape:
   - No weighted quality score, ever. The exchange rate between surprise and
     clarity is not derivable; it is a genre's answer, so it belongs in a
     declaration rather than in a constant.
-  - Rejection, not selection. Detecting bad writing held out at AUC 0.971;
-    ranking good writing at 0.709. Enforce a floor, do not order what passes.
+  - Rejection, not selection. Detecting bad writing held out at AUC 0.964;
+    ranking good writing at 0.717. Enforce a floor, do not order what passes.
+    (Both ABSOLUTE ten-feature joints, cold: 0.964 is Experiment 2, human vs
+    generated; 0.717 is Experiment 1, anthologized vs not. REPINNED
+    2026-08-14 from 0.971/0.709 — see the cold-repin section below.)
 
 So `check()` returns findings a writer or a revision loop can act on, each with
 the measurement that triggered it. A caller that wants a single number has to
@@ -26,12 +29,15 @@ by one model. That is:
   - one generator
   - a 400-year register gap between the classes
 
-The joint classifier separating those two sets reached AUC 0.971, but the same
+The joint classifier separating those two sets reached AUC 0.964, but the same
 analysis showed it is largely reading REGISTER AND PERIOD rather than quality:
-five of ten features separated with the WRONG sign, and after a within-item
-respecification that removes level effects it fell to 0.877. So this gate is
-well evidenced as "does this look like the model's sonnets rather than
-Shakespeare's" and is UNVALIDATED as a general slop detector.
+five of ten features separated with the WRONG sign, and a within-item
+respecification that removes level effects takes it to 0.891. Both figures are
+Experiment 2 (human vs generated) read cold, so the only coordinate that moves
+between them is the FEATURE SET — ten absolute features against eight
+within-item ones. So this gate is well evidenced as "does this look like the
+model's sonnets rather than Shakespeare's" and is UNVALIDATED as a general slop
+detector.
 
 WHAT THE CALIBRATION RUN CHANGED
 
@@ -54,14 +60,66 @@ One check is unregistered. ANAPHORA_OVERLOAD separates at |0.853|, third-best
 of the set, and was never pre-registered — so it is a post-hoc finding and
 owes its own replication before anyone leans on it.
 
-One check reproduced its own withdrawal. PREDICTABLE_RHYME, this project's
-former candidate universal, came out at 0.560 — chance — matching the number
-that withdrew it after the out-of-vocabulary artifact was fixed. It is a note
-here and may not carry a rejection.
+One check is a NOTE for a reason that changed under it. PREDICTABLE_RHYME, this
+project's former candidate universal, was recorded here as reproducing its own
+withdrawal at 0.560 — chance. Cold, the predictability-only joint reads 0.648
+on human-vs-generated and 0.710 on anthologized-vs-not: above chance in both,
+and far under the 0.964 the ten-feature joint reaches on the same
+human-vs-generated split. So predictability is a WEAK separator carried by
+stronger features rather than a dead one, and it is STILL a note that may not
+carry a rejection — on doctrine 7, which was always the better reason: a floor
+may not order the region it has already passed.
 
 Every finding therefore carries the evidence that supports it, and the module
 exposes `CALIBRATION` so a caller can see what the numbers came from. Do not
 quote a threshold without it.
+
+WHERE EVERY AUC ABOVE CAME FROM — REPINNED 2026-08-14, MEASURED 2026-08-13
+
+Every AUC in this module is now the COLD reading, pinned in
+`quality/test_discriminate.py` and reproducible with `python3
+quality/test_discriminate.py` (grades eight joint AUCs and thirty-six
+per-feature AUCs cold, reading no cache). Until 2026-08-14 this module quoted
+the PRE-FIX and WARM readings, and two of the sentences built on them were
+arithmetic on numbers nothing now produces. Superseded, kept rather than
+overwritten (doctrine 17):
+
+    absolute joint held-out, Exp 1 (ten features, anthologized vs not)
+        pre-fix 0.709  ->  warm 0.659  ->  COLD 0.717
+    absolute joint held-out, Exp 2 (ten features, human vs generated)
+        pre-fix 0.971  ->  warm 0.975  ->  COLD 0.964
+    within-item joint, Exp 1 (respecified eight)
+        warm 0.604  ->  COLD 0.638
+    within-item joint, Exp 2 (respecified eight)
+        warm 0.877  ->  COLD 0.891
+    predictability-only joint, Exp 2 (two features)
+        warm 0.560  ->  COLD 0.648
+
+THREE AXES, AND THE SENTENCE THIS MODULE CARRIED COLLAPSED ALL THREE. "Removing
+level effects dropped joint AUC from 0.971 to 0.877" subtracted a WITHIN-ITEM,
+WARM figure from an ABSOLUTE, PRE-FIX one, so it charged the respecification
+for the out-of-vocabulary fix and for a stale cache as well. Like for like —
+same design, same cache state, only the feature set moving — it is 0.964 ->
+0.891. DESIGN (Exp 1 / Exp 2), FEATURE SET (ten absolute / eight within-item /
+two predictability-only) and CACHE STATE (pre-fix / warm / cold) are three
+separate coordinates, and a figure quoted without all three is unreadable
+(doctrine 58).
+
+The warm readings were served by a feature cache keyed with no fingerprint of
+the code that wrote it, so they reproduced whatever `features.py` looked like
+on 2026-08-09; the cache carries a fingerprint of its inputs now and discards
+itself when one moves. `quality/RESULTS.md` "Cold repin — 2026-08-13" is the
+record.
+
+WHAT THIS REPIN DID NOT CHANGE: PREDICTABLE_RHYME'S SEVERITY. Cold,
+predictability is no longer chance, and `rhyme_predictability_mean` clears FDR
+in BOTH designs with the predicted sign — a finding `RESULTS.md` reinstates
+under "`rhyme_predictability` is REINSTATED, narrowly". That is a STRONGER
+result than this module used to record, and the check is still a NOTE. The
+evidence string was repinned; the finding was not promoted. Doctrine 7 is what
+holds it there, and it does not depend on the number: a floor may not order the
+permitted region, so a check that says "this rhyme sits at the top of its own
+candidate field" hands a decision back and never carries a rejection.
 
 THE SONG PROFILE, ADDED 2026-08-11, IS A DIFFERENT KIND OF CALIBRATION
 
@@ -133,7 +191,10 @@ CALIBRATION = {
     "known_limits": "one form, one language, one generator, 400-year register "
                     "gap. Reads register and period as well as craft; five of "
                     "ten features separated with the wrong sign, and removing "
-                    "level effects dropped joint AUC from 0.971 to 0.877. The "
+                    "level effects takes the human-vs-generated joint from "
+                    "0.964 (ten absolute features) to 0.891 (eight within-item "
+                    "ones) -- same design, same cold reading, only the feature "
+                    "set moving. The "
                     "`song` profile is NOT part of this: it has no generated "
                     "class, no AUC, and its evidence is a held-out "
                     "false-positive rate on human song text -- see that "
@@ -164,7 +225,14 @@ CALIBRATION = {
         "slop evidence. || ANAPHORA_OVERLOAD was never pre-registered and "
         "separates at |0.853|, third-best here; being unregistered it is a "
         "post-hoc finding and needs its own replication. || "
-        "PREDICTABLE_RHYME reproduced its own withdrawal: 0.560, chance."
+        "PREDICTABLE_RHYME was this project's candidate universal and is not "
+        "one. Cold, the predictability-only joint reaches 0.648 on "
+        "human-vs-generated against 0.964 for the ten-feature joint on the "
+        "same split: a real but weak separator, carried by stronger features. "
+        "It stays a NOTE and may not reject (doctrine 7). REPINNED 2026-08-14 "
+        "-- this read 'reproduced its own withdrawal: 0.560, chance', which "
+        "was a warm reading and does not reproduce cold; the module docstring "
+        "carries the supersession."
     ),
 }
 
@@ -625,11 +693,16 @@ class SlopFloor:
                 f"uniformity is the form. Retained only as 'outside the human "
                 f"range', and meaningful, if at all, in free verse"))
 
-        # 5. predictable rhyme -- a NOTE, not a flag. This was the project's
-        #    candidate universal until its cross-design replication turned out
-        #    to be an out-of-vocabulary artifact. It runs only under a profile
-        #    that measured it; the section profile did not, so it stays silent
-        #    there rather than borrowing the sonnet cut.
+        # 5. predictable rhyme -- a NOTE, not a flag, and the reason is
+        #    doctrine 7 rather than the AUC. This was the project's candidate
+        #    universal; its cross-design replication was recorded as an
+        #    out-of-vocabulary artifact, and cold that withdrawal does not
+        #    reproduce (see the cold-repin section of the module docstring).
+        #    The severity did not move with the number: a floor may not order
+        #    the region it already passed, whatever the separation turns out
+        #    to be. It runs only under a profile that measured it; the section
+        #    profile did not, so it stays silent there rather than borrowing
+        #    the sonnet cut.
         thr = d.resolve("predictable_pair_fraction_max", prof)
         pairs = self._pairs(lines, scheme)
         preds = self.qf._predictability(lines, pairs) if thr is not None else []
@@ -642,13 +715,18 @@ class SlopFloor:
                     f"{len(obvious)} of {len(preds)} rhymes are near the top "
                     f"of their own candidate field",
                     f"{frac:.0%} of pairs above {d.predictability_max:.2f} "
-                    f"predictability. This does NOT detect generated text: "
-                    f"held out, predictability alone reached 0.560 on "
-                    f"human-vs-generated, which is chance. It separates "
-                    f"anthologized from unanthologized sonnets (AUC 0.304, "
-                    f"p=.012) at n=15, which does not exclude chance either. "
-                    f"Computed against an English frequency list; unvalidated "
-                    f"outside English"))
+                    f"predictability. A NOTE, and it may not reject: a rhyme "
+                    f"at the top of its own candidate field is a decision "
+                    f"handed back, not a verdict, because a floor may not "
+                    f"order the region it already passed (doctrine 7). Nor is "
+                    f"it on its own a generated-text detector. Held out and "
+                    f"cold, predictability alone reaches AUC 0.648 on "
+                    f"human-vs-generated and 0.710 on anthologized-vs-not "
+                    f"(n=15) — above chance in both, and well under the 0.964 "
+                    f"the ten-feature joint reaches on the same "
+                    f"human-vs-generated split, so it is a weak separator "
+                    f"carried by stronger features. Computed against an "
+                    f"English frequency list; unvalidated outside English"))
 
         # 6-8. relation-level defects the correctness engine already names.
         # These are length-independent, so they run under every profile and

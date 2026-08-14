@@ -50,8 +50,15 @@ Three nulls for the radif, stated as preserve/destroy:
           construction rather than by luck. Second, and worse: a ghazal that
           HAS a radif has identical line-final tokens, and permuting identical
           elements is the identity map -- measured, 297 of the 315 detected
-          ghazals come back byte-for-byte unchanged, and 94.6% of detected
-          ghazals are unchanged in any given replicate. The null is a no-op on
+          ghazals come back byte-for-byte unchanged, and **94.5%** (5,951 of
+          6,300) of detected ghazals are unchanged in any given replicate.
+          REPINNED 2026-08-13 from **94.6%**, which is what this line said and
+          which the run has never printed at the shipped default: the block is
+          `min(n, 20)`, so it is twenty replicates whatever N is, and twenty
+          replicates give 5,951/6,300 = 94.4603%. Kept out of `PINNED` all the
+          same -- it is a DRAW and doctrine 57 is this file's own doctrine; the
+          arithmetic that matters is 297 of 315, which IS pinned
+          (`all_finals_identical`) and IS exact. The null is a no-op on
           exactly the population it was pointed at. It is reported anyway,
           because a null that returns the observed value to four significant
           figures is the clearest possible statement that a randomisation can
@@ -101,6 +108,63 @@ excess over the null MAXIMUM, not over its median; an empirical p AND its floor
 1/(N+1); and a note when p is sitting ON that floor, because a p at the floor
 reports the resolution of the experiment and not the size of the effect.
 
+THREE COUNTS, NOT TWO, AT EVERY GATE (doctrine 79) -- ADDED 2026-08-13
+A refusal is not a failure and must never sit in the numerator. This file has
+three separate places where a question is REFUSED rather than answered NO, and
+until this date all three were collapsed into the NO:
+
+  RADIF     `radif_detail` returns a `reason` on every call, and three of its
+            five reasons say REFUSED in as many words -- one of them literally
+            ("a single pair is no evidence either way, so this is a refusal and
+            not a negative"). `detected()` was a bare boolean over all five.
+  QĀFIYA    `Persian.qafiya` returns None for a line that does not carry the
+            radif, so there IS no qāfiya word to compare. `qafiya_words` DROPPED
+            those, correctly, and then reported the two counts it had dropped
+            between as the hard-coded literals "20,661" and "273" in a print
+            string, computed by nobody and checked by nothing.
+  VERDICT   `Verdicts.verdict` already BRANCHES on the two causes of None and
+            then throws the branch away -- see the next paragraph, which is the
+            finding of the 2026-08-13 audit and the reason this file was opened.
+
+WHAT THE 60.2% ACTUALLY IS -- MEASURED 2026-08-13, and it is not what fourteen
+places in this repo say it is. The rate reproduces exactly (None 60.2462%, True
+38.7532%, False 1.0006%, 20,388 pairs; nothing has drifted). But `rhymes()`
+returns None from two structurally different places, and `verdict()` has always
+had the branch that tells them apart:
+
+  REFUSED_SCRIPT          7 pairs   0.0343%   `tails()` is None: the word is
+                                              out of the declared Perso-Arabic
+                                              inventory, or its parse
+                                              enumeration hit MAX_PARSES. This
+                                              is the SCRIPT refusal.
+  REFUSED_INDETERMINATE  12,276     60.2119%  both words read perfectly well;
+                                              `_tail_verdict` returns None
+                                              because the two nucleus sets are
+                                              COMPATIBLE and the short vowel
+                                              that would separate them is not
+                                              written.
+
+Exactly ONE qāfiya word TYPE of 2,675 refuses on script. So doctrine 59's
+"refusing on SCRIPT has a measurable cost" names the wrong cost by a factor of
+1,754: the script axis costs 0.03%, and the 60.2% is the price of an
+ORTHOGRAPHY THAT DOES NOT WRITE THE DECIDING SEGMENT, which is a different
+claim about a different layer. Doctrine 59's own body says so ("because
+unvocalised Perso-Arabic does not write short vowels"); its title and
+`quality/phonology/msa.py`'s citation of it do not. Both counts are printed
+and both are pinned, so the two can never again be quoted as one number.
+
+DOCTRINE 67 -- a refusal rate is not a tax, measure WHERE it falls. Two splits,
+both free, both previously discarded:
+  * the cause split above: the branch is ALREADY EVALUATED inside `verdict()`
+    on every one of the 20,388 observed pairs and its result is dropped on the
+    floor. Counting it costs two memoised dict hits per pair on the OBSERVED
+    pass only -- the 600 null replicates keep the identical fast path.
+  * `Verdicts.ids` is fully populated by the time the observed tally returns --
+    every distinct normalised qāfiya word mapped to a tail-set id, or to -1 for
+    "refuses". Nothing has ever read it for reporting. It answers the per-TYPE
+    question, which is a different number from the per-PAIR one and is the one
+    that shows the script refusal is a single word rather than a broad tax.
+
 Nothing here writes to `quality/phonology/`. Every phonological judgement is
 made by `fas` through its own public API -- `normalise`, `tokens`,
 `in_inventory`, `ghazal_rhyme_lines`, `radif_detail`, `tails`, and
@@ -108,6 +172,7 @@ made by `fas` through its own public API -- `normalise`, `tokens`,
 
 Run:
   python3 quality/hafez_rate.py [n_replicates]
+  python3 quality/hafez_rate.py --check        (exit 1 on drift)
 """
 
 import collections
@@ -221,27 +286,88 @@ def probe(lines):
     return fas.radif_detail(lines, min_count=1, min_fraction=0.0, max_tokens=1)
 
 
+def judgeable(d):
+    """-> False when `radif_detail` REFUSED this ghazal rather than answering NO.
+
+    `radif_detail` returns five distinct `reason` strings and exactly three of
+    them are refusals -- an empty line after normalisation, a token outside the
+    declared Perso-Arabic inventory ("refused on script, never on language"),
+    and fewer than `min_lines` lines ("a single pair is no evidence either way,
+    so this is a refusal and not a negative"). All three leave `lines` below
+    `RADIF_MIN_LINES`, and the two judged outcomes -- "no trailing token
+    sequence recurs" and "recurs" -- both leave it at or above. So the test is
+    STRUCTURAL and reads no reason string, which is what keeps it from breaking
+    when a message is reworded.
+    """
+    return d["lines"] >= fas.RADIF_MIN_LINES
+
+
+def verdict_radif(d, mf):
+    """-> True / False / None. NONE IS A REFUSAL, not a NO (doctrine 79).
+
+    This used to be `detected()`, a bare boolean answering a three-state
+    question, so a ghazal the phonology declined to judge was counted as a
+    ghazal MEASURED NOT TO HAVE a radif and went into the denominator of
+    "detections out of 495". The sibling instrument `audit_hafez_radif.py`
+    found the identical collapse in its own `has_radif` an hour before this
+    file was opened; the shape is the same and so is the correction.
+
+    On `corpus/fas_hafez.json` all three refusal branches are EMPTY -- 0
+    refused of 495, minimum rhyme-line count 6 against a min_lines of 4, and
+    zero out-of-inventory ghazals -- so every published figure reproduces
+    unchanged and no rate moves. The branch is written anyway because the
+    collapse was real in the code and dormant only in this corpus, and because
+    a permuted replicate or a second recension (doctrine 91) is not obliged to
+    keep it dormant. `refused` is PINNED at 0 for exactly that reason.
+    """
+    if not judgeable(d):
+        return None
+    if d["radif"] is None:
+        return False
+    return (d["count"] >= fas.RADIF_MIN_COUNT
+            and d["fraction"] >= mf - 1e-12)
+
+
 def detected(d, mf):
-    return (d["radif"] is not None
-            and d["count"] >= fas.RADIF_MIN_COUNT
-            and d["fraction"] >= mf - 1e-12
-            and d["lines"] >= fas.RADIF_MIN_LINES)
+    """Kept, and kept BOOLEAN, because the sweep and all three nulls want the
+    predicate. A refusal is False here -- but no caller now reaches this
+    without `radif_counts()` having counted the refusals separately, and this
+    reproduces every boolean the old three-clause `detected` ever returned."""
+    return verdict_radif(d, mf) is True
+
+
+def radif_counts(ps, mf):
+    """-> (carrying, judged, refused) at threshold `mf`. THREE COUNTS, NEVER
+    SUMMED, and no refusal in the numerator (doctrine 79)."""
+    vs = [verdict_radif(d, mf) for d in ps]
+    return (sum(1 for v in vs if v is True),
+            sum(1 for v in vs if v is not None),
+            sum(1 for v in vs if v is None))
 
 
 def sweep_counts(sets, probes=None):
-    """-> {min_fraction: number of ghazals with a radif}."""
+    """-> {min_fraction: number of ghazals with a radif}.
+
+    `probes=` has existed since this function was written and NOTHING has ever
+    passed it, so the one caller re-probed all 495 ghazals that
+    `check_equivalence` had just probed and discarded. `check_equivalence`
+    returns its probe list now and the caller threads it through.
+    """
     ps = probes if probes is not None else [probe(s) for s in sets]
     return {mf: sum(1 for d in ps if detected(d, mf)) for mf in SWEEP}
 
 
 def check_equivalence(sets, tag):
-    """Assert the k=1 shortcut against fas.radif itself, on this exact data."""
+    """Assert the k=1 shortcut against fas.radif itself, on this exact data.
+
+    -> the probe list, so the caller does not rebuild it (see `sweep_counts`).
+    """
     ps = [probe(s) for s in sets]
     for mf in SWEEP:
         fast = sum(1 for d in ps if detected(d, mf))
         full = sum(1 for s in sets if fas.radif(s, min_fraction=mf) is not None)
         assert fast == full, (tag, mf, fast, full)
-    return True
+    return ps
 
 
 # -- the three radif nulls ---------------------------------------------------
@@ -352,19 +478,51 @@ class Verdicts:
             self.memo[k] = v
         return v
 
-    def tally(self, groups):
+    def tally(self, groups, causes=None):
+        """-> Counter over True/False/None.
+
+        Pass a Counter as `causes` and the two structurally different sources
+        of None are counted apart (doctrines 67 and 79). The branch that tells
+        them apart is `verdict`'s own first line and has always been evaluated;
+        this reads it instead of dropping it. `tail_id` is memoised on the
+        normalised word, so the two lookups are dict hits over a table the
+        tally has already built.
+
+        The 600 NULL replicates pass `causes=None` and keep the identical fast
+        path, because the cost of this split must not land on the hot loop --
+        it is a question about the OBSERVED corpus and is asked once.
+        """
         c = collections.Counter()
         for g in groups:
             for a, b in itertools.combinations(g, 2):
-                c[self.verdict(a, b)] += 1
+                if causes is None:
+                    c[self.verdict(a, b)] += 1
+                    continue
+                ia, ib = self.tail_id(a), self.tail_id(b)
+                v = self.verdict(a, b)
+                c[v] += 1
+                causes["REFUSED_SCRIPT" if (ia < 0 or ib < 0) else
+                       "REFUSED_INDETERMINATE" if v is None else
+                       "TRUE" if v else "FALSE"] += 1
         return c
 
-    def self_test(self, groups):
+    def type_counts(self):
+        """-> (types, types_refusing). DOCTRINE 67 at the WORD level.
+
+        `self.ids` is fully populated once a tally has run and is read by
+        nothing but `verdict`. It answers a question the per-PAIR rate cannot:
+        whether the script refusal is a broad property of unvocalised Persian
+        or a single unreadable word. No computation at all -- a Counter over a
+        dict that is already built.
+        """
+        return (len(self.ids), sum(1 for i in self.ids.values() if i < 0))
+
+    def self_test(self, groups, causes=None):
         direct = collections.Counter()
         for g in groups:
             for a, b in itertools.combinations(g, 2):
                 direct[self.P.rhymes(a, b)] += 1
-        memo = self.tally(groups)
+        memo = self.tally(groups, causes)
         assert direct == memo, (direct, memo)
         return direct
 
@@ -377,7 +535,48 @@ def qafiya_words(sets, phon):
     carry the detected radif. Dropping the Nones is what makes the pair count
     20,388 rather than 20,661.
     """
-    return [[fas.normalise(q) for q in phon.qafiya(s)[1] if q] for s in sets]
+    return qafiya_slots(sets, phon)[0]
+
+
+def qafiya_slots(sets, phon):
+    """-> (groups, slot/pair counts). DOCTRINE 79 AT THE SLOT GATE.
+
+    A line whose qāfiya slot is None is a line the phonology REFUSED to supply
+    a comparison word for -- it does not carry the detected radif, so there is
+    nothing sitting in the qāfiya position to compare. Dropping it is right;
+    dropping it SILENTLY is not, and that is what happened: the counts on
+    either side of the drop were reported as the hard-coded literals "20,661"
+    and "273" inside a print string, derived by hand once and re-derived by
+    nothing since.
+
+    They are exact and free -- `phon.qafiya(s)` is already called once per
+    ghazal here and the Nones it returns are already being counted, in the
+    sense that they are being skipped. All six numbers are measured now and
+    all six are pinned:
+
+      slots     4,687 mandated  ->  4,652 judged  +  35 refused
+      pairs    20,661 mandated  -> 20,388 judged  + 273 refused
+
+    Note the two refusal counts are NOT proportional and must not be derived
+    from one another: one refused SLOT removes as many pairs as that ghazal has
+    other slots, so 35 slots cost 273 pairs.
+    """
+    groups, widths = [], []
+    for s in sets:
+        slots = phon.qafiya(s)[1]        # the one call, exactly as before
+        widths.append(len(slots))
+        groups.append([fas.normalise(q) for q in slots if q])
+    mandated = sum(widths)
+    judged = sum(len(g) for g in groups)
+    # The mandated PAIR count is over every slot the form puts a question to,
+    # refused ones included -- that is what makes 273 a refusal rather than an
+    # absence. Rebuilt from the per-ghazal slot widths, not from a literal.
+    pairs_m = sum(w * (w - 1) // 2 for w in widths)
+    pairs_j = sum(len(g) * (len(g) - 1) // 2 for g in groups)
+    return (groups, {"slots_mandated": mandated, "slots_judged": judged,
+                     "slots_refused": mandated - judged,
+                     "pairs_mandated": pairs_m, "pairs_judged": pairs_j,
+                     "pairs_refused": pairs_m - pairs_j})
 
 
 def split(counter):
@@ -451,12 +650,33 @@ def main(n=N_DEFAULT):
           f"min_lines={fas.RADIF_MIN_LINES} max_tokens={fas.RADIF_MAX_TOKENS}; "
           f"min_fraction swept over {SWEEP}")
 
+    measured = {"ghazals": len(data), "hemistichs": n_hemi,
+                "rhyme_lines": n_lines}
+
     # -- sanity: the k=1 shortcut, and normalisation idempotence -------------
-    check_equivalence(sets, "observed")
+    obs_probes = check_equivalence(sets, "observed")
     check_equivalence(as_lines(tok_sets), "observed-normalised")
-    obs_sweep = sweep_counts(sets)
+    obs_sweep = sweep_counts(sets, obs_probes)
+    measured["sweep"] = tuple(obs_sweep[mf] for mf in SWEEP)
     print(f"\nobserved sweep (reproduces the record): "
           + " ".join(f"{obs_sweep[mf]}@{mf:.2f}" for mf in SWEEP))
+
+    # -- DOCTRINE 79 at the RADIF gate: three counts, never summed -----------
+    car, jud, ref = radif_counts(obs_probes, fas.RADIF_MIN_FRACTION)
+    measured.update(radif_mandated=len(sets), radif_judged=jud,
+                    radif_refused=ref)
+    print("\ndoctrine 79 -- the sweep's denominator, as three counts that are "
+          "never summed:")
+    print(f"  MANDATED  {len(sets):4d}   ghazals the sweep puts the question to")
+    print(f"  JUDGED    {jud:4d}   at least min_lines={fas.RADIF_MIN_LINES} "
+          f"rhyme-lines, every token in inventory")
+    print(f"  REFUSED   {ref:4d}   an empty line, a token off-script, or too "
+          f"few lines to tell")
+    print(f"  -> 'detections out of {len(sets)}' below is out of JUDGED, which "
+          f"equals MANDATED here because")
+    print(f"     {ref} were refused (min rhyme-lines "
+          f"{min(len(s) for s in sets)} against min_lines="
+          f"{fas.RADIF_MIN_LINES}). That is a measurement, not a construction.")
 
     # =====================================================================
     print("\n" + "=" * 78)
@@ -562,6 +782,8 @@ def main(n=N_DEFAULT):
           "reads.\n  It is invariant too, and (b) is why:")
     obs_len = radif_lengths(sets)
     obs_multi = sum(1 for x in obs_len if x > 1)
+    measured.update(detected_060=len(det_idx), all_finals_identical=allsame,
+                    radif_multi_token=obs_multi, radif_detected=len(obs_len))
     rng = random.Random(SEED)
     multi_null = []
     for _ in range(n):
@@ -576,23 +798,69 @@ def main(n=N_DEFAULT):
     print("2. QĀFIYA: WHAT rhymes() SAYS ABOUT TWO ARBITRARY HAFEZ WORDS")
     print("=" * 78)
 
-    qw = qafiya_words(sets, phon)
+    qw, slot = qafiya_slots(sets, phon)
+    measured.update(slot)
     V = Verdicts(phon)
-    obs_c = V.self_test(qw)                 # asserts the memo == uncached pass
+    cause = collections.Counter()
+    obs_c = V.self_test(qw, cause)          # asserts the memo == uncached pass
     total = sum(obs_c.values())
     ident = sum(1 for g in qw for a, b in itertools.combinations(g, 2) if a == b)
     o = split(obs_c)
+    measured.update(true=obs_c[True], false=obs_c[False], none=obs_c[None],
+                    identity=ident,
+                    none_script=cause["REFUSED_SCRIPT"],
+                    none_indeterminate=cause["REFUSED_INDETERMINATE"])
+
+    # -- DOCTRINE 79 at the SLOT gate: the two literals, measured ------------
+    print("\ndoctrine 79 -- the pair population, as three counts, MEASURED "
+          "rather than written into the print string as literals:")
+    print(f"  slots  MANDATED {slot['slots_mandated']:6d}   JUDGED "
+          f"{slot['slots_judged']:6d}   REFUSED {slot['slots_refused']:4d}"
+          f"   (a line that does not carry the radif has no qāfiya position)")
+    print(f"  pairs  MANDATED {slot['pairs_mandated']:6d}   JUDGED "
+          f"{slot['pairs_judged']:6d}   REFUSED {slot['pairs_refused']:4d}"
+          f"   (one refused SLOT costs as many pairs as its ghazal has others,")
+    print(f"         so {slot['slots_refused']} slots cost "
+          f"{slot['pairs_refused']} pairs -- the two are not proportional and "
+          f"neither is derivable from the other)")
+
     print(f"\nobserved: {total} within-ghazal qāfiya pairs "
-          f"(both members present; 20,661 line-pairs minus 273 with a None slot)")
+          f"(both members present; {slot['pairs_mandated']} line-pairs minus "
+          f"{slot['pairs_refused']} with a None slot)")
     print(f"  True  {obs_c[True]:6d}  {o[True]:.4%}"
           f"   of which bare identity (REPEAT, not rhyme): {ident} "
           f"({ident/total:.4%})")
     print(f"  False {obs_c[False]:6d}  {o[False]:.4%}")
     print(f"  None  {obs_c[None]:6d}  {o[None]:.4%}"
-          f"   <- the declared refusal on unwritten short vowels")
+          f"   <- TWO refusals under one word; split below")
     dec = obs_c[True] + obs_c[False]
     print(f"  decided {dec} ({dec/total:.4%}); True among decided "
           f"{obs_c[True]/dec:.4%}")
+
+    # -- DOCTRINES 67 and 79: WHERE the None falls, from a branch already
+    #    evaluated on every one of these pairs and previously discarded.
+    n_types, n_ref_types = V.type_counts()
+    measured.update(qafiya_types=n_types, qafiya_types_refusing=n_ref_types)
+    scr, ind = cause["REFUSED_SCRIPT"], cause["REFUSED_INDETERMINATE"]
+    print(f"\ndoctrine 67 -- WHERE the {obs_c[None]} refusals fall. `verdict()` "
+          f"has always BRANCHED on this and\n  thrown the branch away; "
+          f"`rhymes()` returns None from two unrelated places:")
+    print(f"  REFUSED_SCRIPT         {scr:6d}  {scr/total:8.4%}  `tails()` is "
+          f"None -- out of the declared Perso-Arabic")
+    print(f"                                            inventory, or the "
+          f"parse enumeration hit MAX_PARSES")
+    print(f"  REFUSED_INDETERMINATE  {ind:6d}  {ind/total:8.4%}  both words "
+          f"read; the nucleus sets are COMPATIBLE and")
+    print(f"                                            the short vowel that "
+          f"would separate them is unwritten")
+    print(f"  per TYPE: {n_ref_types} of {n_types} distinct qāfiya words "
+          f"refuse on script ({n_ref_types/n_types:.4%}).")
+    print(f"  So the headline {o[None]:.1%} is NOT the price of refusing on "
+          f"script -- that price is {scr/total:.4%}.\n  It is the price of an "
+          f"orthography that does not write the deciding segment, which is a\n"
+          f"  different claim about a different layer. Doctrine 59's body says "
+          f"so and its title\n  does not; both counts are printed and both are "
+          f"pinned so they cannot be quoted as one.")
 
     sizes = [len(g) for g in qw]
     pool = [w for g in qw for w in g]
@@ -656,6 +924,8 @@ def main(n=N_DEFAULT):
     none_ = sum(1 for c in cls if c["joined"] == 0)
     miss = sum(c["joined"] + c["absent"] for c in cls)
     mj = sum(c["joined"] for c in cls)
+    measured.update(gap_ghazals=len(idx), gap_full=full, gap_part=part,
+                    gap_none=none_, gap_lines=miss, gap_joined=mj)
     print(f"  gap ghazals                 {len(idx)}  (ids "
           f"{', '.join(str(ids[i]) for i in idx)})")
     print(f"  fully explained by joining  {full}")
@@ -752,7 +1022,142 @@ def main(n=N_DEFAULT):
               f"= {d['fraction']:.2f}")
 
     print("\n" + "=" * 78)
+    return measured
+
+
+#: THE COMMITTED FIGURES, so `--check` can go red instead of a human being
+#: expected to read four rates off the screen and compare them by eye. Until
+#: 2026-08-13 `main()` returned None and nothing ever called `sys.exit` with a
+#: code, so this runner printed 60.2%/38.8%/1.0% over 20,388 pairs and its five
+#: nulls and exited 0 whatever it found. It has no CI step, no test and no
+#: caller -- the EIGHTH instrument of this shape found in one session, after
+#: `audit_spans.py`, `audit_corpus.py`, `audit_tang_null.py`,
+#: `audit_kalevala_null.py`, `canon_sources.py` twice and `audit_hafez_radif.py`.
+#: Doctrine 48: a principle that lives only in prose gets followed exactly as
+#: often as somebody remembers it.
+#:
+#: MEASURED 2026-08-13, and unlike the Tang and Kalevala arms NOTHING HAD
+#: DRIFTED. Every figure this file's own docstring publishes reproduces to the
+#: printed digit -- None 60.2462%, True 38.7532%, False 1.0006%, 20,388 pairs,
+#: 315 of 495 at min_fraction 0.60, and the sweep 318/318/315/311/310/306/301/
+#: 297 positionally. So there is NO REPIN HERE and no superseded value to keep
+#: visible under doctrine 17: the pin IS the finding, because these numbers --
+#: quoted in at least fourteen other files -- were true by nobody's checking.
+#:
+#: WHAT IS PINNED AND WHY THAT RATHER THAN THE RATES. Every count here is EXACT
+#: over a fixed corpus at fixed thresholds, so it is pinnable. The null medians,
+#: minima, maxima and every empirical p are MONTE CARLO ESTIMATES and are NOT
+#: pinned -- the same call `audit_tang_null.py`, `audit_kalevala_null.py` and
+#: `audit_hafez_radif.py` make, and the call doctrine 57 demands of a file that
+#: raises doctrine 57. Pinning a null median to four digits would pin a SAMPLE
+#: and go red on a seed change while the corpus sat unmoved. The separations are
+#: not close and do not need the pin: 297 against a null max of 0 at
+#: min_fraction 1.00, and True-among-decided 97.5% against a null max of 2.4%.
+#: Verdict COUNTS are pinned instead of verdict RATES for the same reason
+#: doctrine 79 wants three counts and not one ratio -- a rate hides which of its
+#: two numbers moved.
+#:
+#: THE THREE REFUSAL COUNTS ARE PINNED SEPARATELY AND ONE OF THEM IS A ZERO.
+#: `radif_refused` is 0 today and pinning a zero is the point: if a re-ingestion
+#: or a second recension (doctrine 91) starts refusing ghazals, the sweep would
+#: slide silently while every other pinned figure still matched.
+#: `none_script`/`none_indeterminate` are pinned APART because their sum is the
+#: number fourteen files quote and their split is the finding -- 7 against
+#: 12,276, so a change that moved the script refusal by two orders of magnitude
+#: would not move the total enough to be visible in `none`.
+#:
+#: Doctrine 58: these are counts, and a count is a coordinate of a threshold AND
+#: of a rendering (doctrine 91). Argue them and repin with the superseded value
+#: visible and dated (doctrine 17); do not tune `fas.py` to meet them -- this
+#: file imports that module's public API precisely so it cannot.
+PINNED = {
+    # corpus
+    "ghazals": 495, "hemistichs": 8384, "rhyme_lines": 4687,
+    # radif: the sweep, POSITIONALLY against SWEEP
+    "sweep": (318, 318, 315, 311, 310, 306, 301, 297),
+    # radif: doctrine 79's three counts at the shipped min_fraction
+    "radif_mandated": 495, "radif_judged": 495, "radif_refused": 0,
+    "detected_060": 315, "all_finals_identical": 297,
+    "radif_detected": 315, "radif_multi_token": 83,
+    # qafiya: doctrine 79 at the slot gate -- the two former literals
+    "slots_mandated": 4687, "slots_judged": 4652, "slots_refused": 35,
+    "pairs_mandated": 20661, "pairs_judged": 20388, "pairs_refused": 273,
+    # qafiya: the verdict distribution, as counts
+    "true": 7901, "false": 204, "none": 12283, "identity": 366,
+    # doctrines 67 and 79: WHERE the None falls
+    "none_script": 7, "none_indeterminate": 12276,
+    "qafiya_types": 2675, "qafiya_types_refusing": 1,
+    # the 0.60-vs-1.00 joined-writing claim
+    "gap_ghazals": 18, "gap_full": 16, "gap_part": 0, "gap_none": 2,
+    "gap_lines": 33, "gap_joined": 30,
+}
+
+#: `--check` reads no null, and the null draw is the entire runtime (149 CPU-s
+#: at N=200 against ~9 at N=5). Capped rather than skipped, because the null
+#: arms are what `check_equivalence` re-validates the k=1 shortcut against.
+N_CHECK = 5
+
+_ORDER = ("ghazals", "hemistichs", "rhyme_lines",
+          "radif_mandated", "radif_judged", "radif_refused",
+          "detected_060", "all_finals_identical",
+          "radif_detected", "radif_multi_token",
+          "slots_mandated", "slots_judged", "slots_refused",
+          "pairs_mandated", "pairs_judged", "pairs_refused",
+          "true", "false", "none", "identity",
+          "none_script", "none_indeterminate",
+          "qafiya_types", "qafiya_types_refusing",
+          "gap_ghazals", "gap_full", "gap_part", "gap_none",
+          "gap_lines", "gap_joined")
+
+
+def check(m):
+    """-> exit code. FAILS LOUDLY; it does not report and continue."""
+    print()
+    print("=" * 78)
+    print("CHECK -- the committed Hafez counts against this run")
+    print("=" * 78)
+    bad = 0
+    for k in _ORDER:
+        ok = m.get(k) == PINNED[k]
+        bad += not ok
+        print(f"  [{'ok  ' if ok else 'FAIL'}] {k:22s} committed {PINNED[k]}"
+              + ("" if ok else f", measured {m.get(k)}"))
+    got = m.get("sweep")
+    for i, mf in enumerate(SWEEP):
+        want = PINNED["sweep"][i]
+        have = got[i] if got and i < len(got) else None
+        ok = have == want
+        bad += not ok
+        print(f"  [{'ok  ' if ok else 'FAIL'}] sweep mf={mf:.2f}          "
+              f"committed {want}" + ("" if ok else f", measured {have}"))
+    # The two counts whose SUM is the figure fourteen other files quote. Named
+    # on its own line so a run that moved the split without moving the total
+    # says which half went (doctrine 79 -- never sum what asks two questions).
+    if (m.get("none_script"), m.get("none_indeterminate")) != \
+            (PINNED["none_script"], PINNED["none_indeterminate"]):
+        print()
+        print("  THE REFUSAL SPLIT MOVED. `none` is the sum fourteen files "
+              "quote as 60.2%;")
+        print("  its two halves are 0.03% script and 60.21% indeterminate, and "
+              "a change of two")
+        print("  orders of magnitude in the first is invisible in the sum. "
+              "Report the halves.")
+    if bad:
+        print()
+        print(f"  {bad} figure(s) moved. The ingestion, the recension "
+              f"(doctrine 91), `fas.py`'s")
+        print("  phonology or the qāfiya construction has changed under this "
+              "arm.")
+        print("  Repin with the date and keep the superseded value visible "
+              "(doctrine 17);")
+        print("  do not tune `fas.py` to meet a number this file committed.")
+    print()
+    print("RESULT:", "PASS" if not bad else "FAIL")
+    return 0 if not bad else 1
 
 
 if __name__ == "__main__":
+    if "--check" in sys.argv[1:]:
+        rest = [a for a in sys.argv[1:] if a != "--check"]
+        sys.exit(check(main(int(rest[0]) if rest else N_CHECK)))
     main(int(sys.argv[1]) if len(sys.argv) > 1 else N_DEFAULT)

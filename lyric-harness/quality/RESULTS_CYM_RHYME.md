@@ -1,7 +1,24 @@
 # RESULTS — Welsh end-rhyme (*odl*), and the form that falsifies the English anchor
 
 **Runner:** `python3 quality/cym_rhyme_rate.py` (add `--quick` for 20 replicates)
-· **regressions:** `python3 quality/test_phonology.py` §10g–10j.
+· **regressions:** `python3 quality/test_phonology.py` §10g–10j,
+`python3 quality/test_cym.py`.
+
+**AND THE RUNNER CAN NOW GO RED — ADDED 2026-08-14.**
+`python3 quality/cym_rhyme_rate.py --check` compares **48 committed counts**
+from §§1, 2, 4, 5, 6, 8 and 9 against a fresh run and exits **1** when any of
+them moves; `python3 quality/cynghanedd_rate.py --check` does the same for
+**22 counts** over the two strict-metre editions and exits **2** — not 1 — if
+those corpora are not on disk, because nothing measured is not the same as
+nothing moved (doctrine 20). Until that date `main()` returned `None` in both
+files, `sys.exit` was never called with a code, and both printed every figure
+in this document and **exited 0 whatever they found**. They are the last two of
+a family of nine closed this session; doctrine 48.
+
+Nothing had drifted. Every count in the tables below re-derives, so **the pin
+is the finding** — the numbers were previously true by nobody's checking. What
+had drifted is one number this document only cross-references, and §11a is now
+the record of it.
 
 **Seed 20260811, N=200 replicates, depth 1 unless a row says otherwise.** Every
 rate is over JUDGED pairs and is printed beside its MANDATED and REFUSED counts,
@@ -531,7 +548,7 @@ form (Twm o'r Nant's couplets), not parallelism.
 
 ---
 
-## 10a · None of the four declared coordinates is inert (`relations.py --inert`'s question)
+## 10a · None of the four declared coordinates is inert (doctrine 1's inverse failure)
 
 Doctrine 1's inverse failure — a coordinate nobody reads is a stated assumption
 that is not in force — measured over the staged corpus's 8,115 offset-1 and
@@ -545,6 +562,20 @@ coordinate's name.
 | anchor rule | `rule="prominent"` | 1416 | the falsified English port |
 | diacritics | `diacritics="keep"` | 22 | True→False 21, None→False 1 |
 | glide | `glide="vocalic"` | 13 | None→True 6, None→False 7 |
+
+**THIS IS NOT `relations.py --inert`'S QUESTION, AND THE HEADING SAID IT WAS —
+CORRECTED 2026-08-13.** That command reports three span-shaped fields
+(`Span.unit`, `rhyme_constraints.Span.unit`,
+`rhyme_constraints.Span.terminator@branch`) and NONE of the four coordinates
+above; the `§10a` it prints in its own header is `relations.py`'s section
+number, not this file's. Two different questions collided on one section
+number, and the heading promised that a command answered this table.
+
+RUN 2026-08-13 for the first time: `python3 quality/relations.py --inert
+metidja.txt` exits 0, `VERDICT: every declaration holds`, all three declared
+coordinates single-valued over 5,761 / 40 / 11 observations. So the command
+works and its answer is real — it is simply an answer to something else, and
+running it neither confirms nor falsifies one row of the table above.
 | glide | `glide="consonantal"` | 13 | None→False 6, None→True 7 |
 
 The glide rows are the informative pair: `undecided` refuses **13** pairs that
@@ -614,8 +645,15 @@ tests (§10i): it rhymes THROUGH the hyphen, at rime `('a', 'rdd')`.
 ## 11 · The battery did not move
 
 `python3 battery.py` → `mandated 1064, judged 1014, refused 50`,
-`violations 81 (8.0% of judged)`. Unchanged, and it must be: the battery is
-English sonnets and nothing in this cell touches the English comparator.
+`violations 82 (8.1% of judged)`. Unchanged by THIS cell, and it must be: the
+battery is English sonnets and nothing here touches the English comparator.
+
+REPINNED 2026-08-13 from `81 (8.0%)`, which is what this section recorded when
+it was written and what `battery.py` printed then. The claim above is
+untouched — the move came later and from elsewhere (cell BA's coda-identity
+fix, `violations 81 -> 82`), so the invariant this section asserts still
+holds; only the baseline it was pinned against has moved. `mandated` /
+`judged` / `refused` are unchanged at 1064 / 1014 / 50.
 
 `python3 quality/cynghanedd_rate.py corpus/cym_alun_strict.txt 20` →
 `caesura='search' 890/1558 = 57.1%`, which is the figure `cym.py`'s own
@@ -624,6 +662,206 @@ from the cynghanedd path** so this could not move: the diacritic fold and the
 glide alternative are applied inside `rimes()` and by nothing else, and
 `syllabify`, `skeleton`, `answer` and `cynghanedd` are byte-identical in
 behaviour. §10j of `quality/test_phonology.py` pins it.
+
+---
+
+## 11a · That cross-reference is the number the repository carried under TWO values, and this is the record of it (doctrine 17)
+
+**MEASURED 2026-08-14 at the published n=200, and the value below is the one
+that reproduces at head.**
+
+```
+corpus/cym_alun_strict.txt: 1558 lines
+  caesura='search'  R_obs 57.1% (890/1558)  null median 19.4%, min 16.6%, max 21.8%
+                    excess over null MAX +35.3 pp   p = 0.005  <- AT THE FLOOR
+  caesura='marked'  R_obs  8.3% (129/1558)  null median  6.0%, min  4.7%, max  7.5%
+                    excess over null MAX  +0.8 pp   p = 0.005  <- AT THE FLOOR
+corpus/cym_twm_or_nant_cywydd.txt: 156 lines
+  caesura='search'  R_obs 46.2% (72/156)    null median 19.2%, min 11.5%, max 26.9%
+                    excess over null MAX +19.2 pp   p = 0.005  <- AT THE FLOOR
+  caesura='marked'  R_obs  3.2% (5/156)     null median  5.1%, min  2.6%, max  9.6%
+                    excess over null MAX  -6.4 pp   p = 0.975  BELOW chance
+```
+
+Every one of those eight rows reproduces `quality/NULL_AUDIT.md` §2.1's repinned
+block **to the decimal**, on two independent runs of `n=200` timed in this lot.
+
+**SUPERSEDED, KEPT VISIBLE AND DATED.** The same command over the same bytes
+returned this, until **2026-08-10 21:19**. The four OBSERVED counts were
+re-derived in this lot by checking out the old `cym.py` and running it; the
+null quantiles beside them are `quality/NULL_AUDIT.md` §2.1's own recorded
+n=200 figures and were **not** re-run, which is stated rather than implied:
+
+```
+  Alun   caesura='search'  R_obs 54.1% (843/1558)  null median 24.6%, max 27.8%  +26.3 pp
+  Alun   caesura='marked'  R_obs  8.2% (127/1558)  null median  6.0%, max  7.6%   +0.6 pp
+  Twm    caesura='search'  R_obs 51.3% (80/156)    null median 26.9%, max 36.5%  +14.7 pp
+  Twm    caesura='marked'  R_obs  3.2% (5/156)     null median  5.1%, max  9.6%   -6.4 pp
+```
+
+**Three of those four moved and the fourth did not, and that is why they are
+listed separately rather than as a set.** Twm's `marked` row is byte-identical
+across the change — 5 of 156, `llusg` 4 and `traws` 1 on both sides — because
+`llusg()` is a whole-line predicate that never reads the caesura, so a change to
+where a half-line's span stops cannot reach it. A set-repin would have buried
+the one row that is evidence the change was targeted rather than global.
+
+**BOTH RECORDS EXISTED IN THIS REPOSITORY AT ONCE, FOR THREE DAYS**, and the
+reason is a timestamp. `quality/phonology/cym.py`'s `skeleton()` changed, and
+every document written before that change kept the old figure while every
+document written after it carried the new one. `quality/NULL_AUDIT.md` §2.1 and
+`quality/METHOD.md` item 56 were on the old side until they were repinned on
+**2026-08-13** (commit `8d3e05a`); `MISSING.md` N-1 re-measured on
+**2026-08-11** and has been right since; this document and `cym.py`'s own
+docstring were written after the change and always reproduced. That is doctrine
+58 at its most literal: **a rate is a coordinate of the comparator that
+produced it**, and a document is a coordinate of the day it was written.
+
+**WHICH CHANGE, VERIFIED BY RUNNING THE OLD CODE RATHER THAN BY READING THE
+LOG.** `git show <rev>:quality/phonology/cym.py` at four revisions, each run
+through the shipped `cynghanedd_rate.py` against the byte-identical corpus
+(`corpus/cym_alun_strict.txt` has ONE commit in its history, `cc08b43`, so the
+text is not a variable):
+
+| revision | date | `skeleton()` | Alun `search` |
+|---|---|---|---:|
+| `cc08b43` | 2026-08-10 04:29 | `skeleton(self, text)` | **843/1558 = 54.1%** |
+| `d91cc55` | 2026-08-10 21:19 | `skeleton(self, text, extent)` | (checkpoint, mid-write) |
+| `34f495d` | 2026-08-10 21:39 | + the `DOSBARTH` class table | **890/1558 = 57.1%** |
+| `9414415` | 2026-08-11 06:13 | the end-rhyme cell (this document) | **890/1558 = 57.1%** |
+
+So the deciding change is **doctrine 82's** — `skeleton()`'s terminus became a
+property of the half-line's DIWEDDEB and `extent` lost its default — and it
+landed on **2026-08-10, not 2026-08-11**. The 06:13 commit of 2026-08-11 is
+merely the LAST commit to touch `cym.py`; it added `rhymes()` and moved the
+cynghanedd path not at all, which the two identical rows above **measure**
+rather than assert, and which is the same claim §11 makes from the other side.
+
+### The number moved. Did it IMPROVE? — measured, because those are not the same question
+
+**Yes, and none of the four pieces of evidence is the raw rate.**
+
+1. **The excess over the null MAX grew on BOTH editions**: Alun +26.3 → **+35.3
+   pp**, Twm o'r Nant +14.7 → **+19.2 pp**. A rate is not evidence; the excess
+   over a matched control is.
+2. **The NULL FELL, which is the direction that matters.** Alun's shuffled null
+   median went 24.6% → 19.4% and Twm's 26.9% → 19.2%. A rule that merely read
+   MORE of the line would fire more often on shuffled text too; this one fires
+   *less* on arbitrary arrangements while firing more on real strict metre. That
+   is doctrine 94 from the sensitive side — a positive-case suite cannot catch a
+   rule that is too generous, and the null is the thing that can.
+3. **Twm o'r Nant is the row to read, because there the observation FELL**:
+   80/156 → 72/156, 51.3% → 46.2%. The class rule detects *less* cynghanedd in
+   that edition and is still the better rule, because its null fell further than
+   its observation did. A cell that had been reading the raw rate would have
+   called this a regression.
+4. **Where the +47 on Alun went, by rule**: croes 187 → 184, **traws 319 →
+   375**, sain 272 → 279, llusg 65 → 52. It is almost entirely *traws*, and
+   *traws* is the rule whose answer depends on where the span stops — so the
+   move is concentrated in exactly the place a terminus correction should move
+   it, and not spread evenly as a loosened threshold would be.
+
+### Doctrine 50/86 — the eight digraphs — RULED OUT BY MEASUREMENT, not by argument
+
+Doctrine 50 says an orthographic layer can silently destroy the constraint a
+cell measures, and Welsh is the standing example: `ch dd ff ng ll ph rh th`
+(plus the nasal-mutation trigraphs `ngh mh nh`) are **single consonants**, and a
+skeleton that split them would be wrong in every line while still looking
+plausible. So a skeleton change is exactly where that failure would hide.
+
+It is not what happened here, and the check is two measurements rather than a
+reading of the diff:
+
+* **The orthographic layer is byte-identical across the change.** `DIGRAPHS`,
+  `VOWELS`, `CONSONANTS`, `units()`, `normalise()` and `PROCLITICS` compare
+  equal between `cc08b43` and head. The change is entirely in **where the span
+  stops**, never in **what a unit is**.
+* **The digraphs survive into the skeletons at head.** Over all 4,635 readable
+  half-line skeletons of `corpus/cym_alun_strict.txt`, every one of the eleven
+  appears as a single skeleton unit and none appears as its letters:
+  `dd` 2499, `ll` 1207, `ch` 1012, `th` 885, `rh` 482, `ff` 287, `ng` 167, `ph`
+  69, `nh` 53, `ngh` 39, `mh` 33 — 6,733 occurrences, 26 distinct units in all.
+
+**Doctrine 86's inversion holds.** The reflex "the number moved, so the
+orthography broke" is the wrong one here: the orthography did not move, the
+SPAN did, and the null is what says the span moved in the right direction.
+
+### What is still carrying the superseded value, and the repin that was one document short
+
+The full order in which the record caught up, from `git log -S`:
+
+| document | first carried 57.1% | |
+|---|---|---|
+| `quality/phonology/cym.py` docstring | `34f495d`, 2026-08-10 21:39 | the change documented itself in its own commit |
+| `MISSING.md` N-1 | `75059e0`, 2026-08-11 02:37 | re-measured the whole seven-corpus gradient |
+| **this document** | `49be381`, 2026-08-11 05:57 | written after the change; never carried the old value |
+| `CLAUDE.md`, `EXEMPLARS.md`, `METHOD.md`, `NULL_AUDIT.md`, `POSITIVE_CONTROL.md` | `8d3e05a`, 2026-08-13 18:55 | *"Welsh: the corpus stopped being blocked three days ago and four documents never heard"* |
+| **`data/sources.tsv`** | — | **never** |
+
+`8d3e05a` touched exactly five files and `data/sources.tsv` was not one of them,
+so the commit that repaired this contradiction was itself **one document
+short** — and it is the document a sourcing cell reads first. **Seven of its
+rows** still present the pre-doctrine-82 figures as current — lines 82, 265,
+266, 267, 268, 269 and 273 — one of them under the words `FINAL FIGURES`. They
+are not this cell's to edit; the exact lines and their replacement text are in
+this lot's report. A row that quotes a retired comparator without saying so is
+doctrine 17's own failure mode.
+
+**One of those seven has a claim that does not merely go stale, it INVERTS.**
+Line 265, the *hwiangerddi* row, reads *"the observation is BELOW the null max,
+so there is no cynghanedd excess"*. Re-measured, the observation is 12.9%
+against a null max of 12.3% — **above** it, by +0.6 pp, with p at the floor. The
+sentence's own conclusion (traditional nursery verse carries no meaningful
+cynghanedd) survives at +0.6 pp on 1,712 lines, but the *reason it gives* is now
+false, and that is the harder kind of staleness to notice: a row whose number
+moved and whose verdict did not.
+
+**And the same rows carry a second, larger staleness.** `data/sources.tsv`
+carries a seven-corpus SPECIFICITY gradient — the control this project did not
+have until it was built, holding poet, edition, printer, century and
+transcriber constant and varying only the form — and every figure in it is
+pre-doctrine-82. `MISSING.md` N-1 re-measured the whole table on 2026-08-11.
+**This lot re-ran all seven rows at the published n=200, 19m 12s of CPU, and
+every one reproduces `MISSING.md` exactly — judged count, observation, null max
+and excess — and none reproduces `data/sources.tsv`:**
+
+| corpus | judged | `sources.tsv` still says | re-measured 2026-08-14, n=200 |
+|---|---:|---|---|
+| Alun, strict metre | 1558 | 54.1 / 24.6 / 27.8 / **+26.3** | 890 = **57.1%** / 19.4 / 21.8 / **+35.3** |
+| Twm o'r Nant cywydd | 156 | 51.3 / 26.9 / 36.5 / **+14.7** | 72 = **46.2%** / 19.2 / 26.9 / **+19.2** |
+| Llywelyn Goch cywydd, 1862 | 145 | 52.8 / 18.5 / 30.6 / **+22.2** | 64 = **44.1%** / 19.3 / 28.3 / **+15.9** |
+| Twm o'r Nant *cerdd rydd* | 804 | 28.4 / 14.1 / 17.5 / **+10.8** | 228 = **28.4%** / 14.4 / 17.0 / **+11.4** |
+| Welsh *hwiangerddi* | 1712 | 13.0 / 11.4 / 13.2 / **−0.2** | 220 = **12.9%** / 10.8 / 12.3 / **+0.6** |
+| **Alun, his own hymns** | 262 | 9.7 / 7.9 / 11.1 / **−1.4** | 38 = **14.5%** / 10.7 / 14.5 / **+0.0** |
+| Mynyddog, song | 2893 | 8.2 / 7.5 / 8.6 / **−0.4** | 238 = **8.2%** / 7.7 / 8.9 / **−0.7** |
+
+(observed / null median / null max / excess over the null max. Read the excess
+column against `MISSING.md` N-1's own stated rounding rule: it differences the
+values AS PRINTED, so it records +19.3 and +15.8 where the runner — which
+differences at full precision and rounds last — prints +19.2 and +15.9. That
+0.1 is a rendering, not a disagreement, and `MISSING.md` says so in the
+paragraph under its table.)
+
+**The GRADIENT'S DIRECTION IS UNCHANGED and its sharpest row got sharper.**
+Strict metre (+35.3, +19.2, +15.9) ≫ 18th-century *cerdd rydd* (+11.4) ≫ nursery
+verse, hymn and 19th-century song (+0.6, +0.0, −0.7). The row that carries the
+finding is **Alun's own hymns**: same poet, same 1909 Ab Owen volume, same
+transcriber, same flattened-ASCII orthography, same checker, same null — and
++35.3 on his awdlau against **+0.0** on his hymns. Under the retired comparator
+that contrast was +26.3 against −1.4; under the current one it is wider. So the
+conclusion those `sources.tsv` rows draw **survives the repin and only their
+numbers do not** — which is exactly the distinction doctrine 17 exists to keep:
+a finding may be kept after its comparator moves, but never quoted as if it
+had not.
+
+One row changes its READING rather than its size, and it is worth naming
+because `MISSING.md` N-1 already argued it: the *hwiangerddi* went from **−0.2
+at p = 0.015** — a negative excess over the null max sitting beside a p that
+rejects, which check C10 correctly flagged as two columns pointing opposite
+ways — to **+0.6 with p at the floor**, and the contradiction dissolved. What
+now carries a p under 0.05 with no positive excess is **Alun's hymns at +0.0,
+p = 0.015**: two of 200 shuffles reached 14.5%. That is the honest shape of "at
+chance" and it is reported rather than smoothed (doctrine 57).
 
 Also green: `quality/test_fit.py` (§14 enumerates all nine phonologies),
 `quality/test_phonology.py`, `quality/verify_doctrines.py`,

@@ -104,6 +104,35 @@ Whitman, 150 lines of free verse, at the documented theta 0.82:
 | before | 26.0% | 15 |
 | **with the conjunctive band** | **20.0%** | **13** |
 
+> **TWO DEFECTS IN THAT TABLE, both found 2026-08-13 by re-measuring rather
+> than by reading, and they are different in kind.**
+>
+> **The right-hand column is MISLABELLED, not stale.** Measured today at the
+> same theta: band OFF gives **chains ≥2 = 15** and **chains ≥3 = 5**. The
+> recorded 15 is a `chains ≥2` count sitting under a `chains ≥3` header. This
+> is not drift — the band-OFF row is comparator-INVARIANT (26.0% reproduces in
+> all four cells of the alignment × `theta_coda` 2×2, see
+> `RESULTS_NULL_SHAPES.md` §1.2), so the 15 could never have moved. The label
+> was wrong when it was written. Doctrine 91, and precisely the question
+> `quality/audit_spans.py` exists to ask: *do the number, the label and the
+> evidence agree?*
+>
+> **The band-ON row is a comparator this repo replaced.** 20.0% is the
+> pre-`b1d7f64` head-aligned comparator at `theta_coda 0.60`; the shipped one
+> reads **10.7%** (band ON chains ≥2 = 7, chains ≥3 = 1), so "removes six
+> percentage points" is now 15.3. Doctrine 58 one axis out: a rate is a
+> coordinate of the COMPARATOR.
+>
+> **What this does NOT do is weaken P4's conclusion — it strengthens the
+> reason and removes the warrant.** The band's empirical warrant is
+> WITHDRAWN, and not on any figure in this table: `corpus/whitman.txt` was
+> never an eligible negative control, because 7 of its 9 detected chain links
+> (78%) are REPEAT on an identical token. A negative control is a text in
+> which the property is ABSENT. The band still ships on the doctrine 3/24
+> argument that it RELABELS rather than rejects, which is a claim about the
+> taxonomy and needs no control at all. See `quality/NULL_AUDIT.md` and
+> `quality/RESULTS_NULL_SHAPES.md` §2.
+
 This is the number the fitted matrix went the wrong way on, and it is why the
 band is shipped as the default while the matrix is not. Free verse produces
 plenty of accidental nucleus agreement; requiring the coda to agree as well

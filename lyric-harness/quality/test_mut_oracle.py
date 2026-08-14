@@ -8,27 +8,45 @@ THE ORACLE HAD NO ASSERTION
 ---------------------------
 `battery.py` is this project's oracle: 152 self-labelled sonnets, 1,064
 mandated pairs, and the number every result in `CLAUDE.md` is quoted against.
-Its `__main__` prints and returns. **Its exit status is 0 whatever it
-observes.** So "run all 23 test files and battery.py" was 23 checks and one
+Its `__main__` printed and returned, and **its exit status was 0 whatever it
+observed.** So "run all 23 test files and battery.py" was 23 checks and one
 report, and a mutation that moved the headline from 81 violations to 300 would
 have been recorded as passing. Mutation M21 -- the battery's own denominator
 reverted from JUDGED pairs to MANDATED pairs, which is doctrine 79's defect
 planted in the one place doctrine 79 was written about -- is caught by nothing
 else in the repo.
 
-This file gives the oracle an assertion, and pins the three counts separately
-because doctrine 79 is precisely that they are three counts and not one.
+PAST TENSE SINCE `9396946` (2026-08-11), corrected here 2026-08-13: battery.py
+now carries `assert_pinned` and exits 1 on drift, so the gap this file was
+built to close is closed at the source too. This file is not thereby
+redundant -- it pins the counts SEPARATELY, which is the doctrine-79 claim
+that they are three counts and not one, where `EXPECTED` is a single dict
+whose failure does not say which count moved. It also still covers M21, and
+battery's own assert covers only the four sonnet counts: Whitman and the
+limericks print unasserted at either end.
 
-THE PINNED NUMBERS DISAGREE WITH CLAUDE.md, AND THE CODE IS RIGHT
------------------------------------------------------------------
-`CLAUDE.md`'s "Current baselines" says **73/1014, 7.2%**. The shipped harness
-says **81/1014, 8.0%**, and `quality/RESULTS_REDTEAM.md` predicted exactly
-that: "Battery moves 73/1014 (7.2%) -> 81/1014 (8.0%), exactly as predicted"
-when `theta_coda` was calibrated 0.60 -> 0.80. So 7.2% is the PRE-CALIBRATION
-figure left standing in the doctrine file, and 73 and 81 are the same
-measurement at two settings of one coordinate -- doctrine 58, a bare n-of-N is
-a coordinate of a setting somebody did not write down. The setting is named
-beside every number below.
+THE PINNED NUMBERS ONCE DISAGREED WITH CLAUDE.md, AND THE CODE WAS RIGHT
+------------------------------------------------------------------------
+`CLAUDE.md`'s "Current baselines" said **73/1014, 7.2%** while the shipped
+harness said **81/1014, 8.0%**, and `quality/RESULTS_REDTEAM.md` predicted
+exactly that: "Battery moves 73/1014 (7.2%) -> 81/1014 (8.0%), exactly as
+predicted" when `theta_coda` was calibrated 0.60 -> 0.80. So 7.2% was the
+PRE-CALIBRATION figure left standing in the doctrine file, and 73 and 81 are
+the same measurement at two settings of one coordinate -- doctrine 58, a bare
+n-of-N is a coordinate of a setting somebody did not write down. The setting
+is named beside every number below.
+
+RESOLVED, TWICE, and the second time is the instructive one. CLAUDE.md was
+repinned to 81/8.0%, and then the shipped figure moved again -- cell BA's
+coda-identity fix, 81 -> 82 -- and CLAUDE.md went stale a SECOND time, in the
+same block, by the same mechanism, and stayed stale until an audit re-ran
+`battery.py` on 2026-08-13 and found it printing 8.1% beside a file asserting
+8.0% "MEASURED, and battery.py prints it". Repinned in `e06734d`. The lesson
+this file was written to record is therefore not "someone forgot once": a
+figure quoted alongside the command that prints it goes stale silently every
+time the coordinate moves, because nothing re-runs the command. Nothing in
+this repo's CI runs any Python. Live values come from `battery.EXPECTED`, not
+from this docstring, which is why the checks below did not rot with it.
 """
 
 import io

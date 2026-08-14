@@ -29,5 +29,13 @@ EMPTY CELLS (honest, waiting on infrastructure or history):
 - Assonance song (Moncrieff Roland pending verification)
 - Syllabic, holorime (Mairzy Doats PD in 2039), broken, split,
   semirhyme, off-centered (thin in PD song; rap owns it)
-- Prasa (needs Indic G2P), real Welsh cynghanedd (needs Welsh
-  phonology), skaldic hendings, rhyming simile (idiom not song)
+- Prasa (needs Indic G2P), skaldic hendings, rhyming simile (idiom not song)
+  - *Welsh cynghanedd LEFT THIS LIST 2026-08-13, and was never in it for the
+    stated reason.* It read "real Welsh cynghanedd (needs Welsh phonology)":
+    the phonology was built 2026-08-11 (`quality/phonology/cym.py`, all four
+    types — croes, traws, sain, llusg) and the TEXT was located 2026-08-10
+    (`data/sources.tsv:56`, OVERTURNED via GITenberg). Seven Welsh files,
+    8,758 lines, are on disk. Live exemplars: Gwaith Alun 1909,
+    `corpus/cym_alun_strict.txt`, 1,558 strict-metre lines, 57.1% answered in
+    search mode against a 200-shuffle null max of 21.8%, p at the floor; and
+    Llywelyn Goch's cywydd, `corpus/song/cym_cynghanedd_llywelyn_goch_cywydd.txt`.

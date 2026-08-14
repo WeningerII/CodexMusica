@@ -762,6 +762,63 @@ def test_the_segmentation_is_re_derivable_offline():
           f"segmentation is right, so it should have been refused")
 
 
+def test_the_grouping_is_handed_over_and_not_only_held():
+    print("\n16. the 同用 grouping is DECLARED to callers that compare "
+          "channels, not only used inside rhymes()")
+    l = MiddleChinese()
+    check("the table answers as a partition over the 韻, not only over a "
+          "character", ltc.tongyong_group("侯") == ltc.tongyong_group("尤")
+          == "尤" and ltc.tongyong_group("山") == "刪",
+          "`rhyme_keys` takes a CHARACTER and reads (韻, 聲); a channel "
+          "comparison holds the 韻 alone and had no way to ask for the "
+          "grouping. quality/relations.py's 'Middle Chinese end rhyme (同用 "
+          "group)' therefore compared 尤 with 侯 at the IDENTITY and read "
+          "流/樓 -- the pair the whole grouping exists for -- as False, while "
+          "this module read True. The table was never wrong; nothing handed "
+          "it over.")
+    check("a 韻 the grouping does not list is its own group, which can only "
+          "make a checker stricter", ltc.tongyong_group("zzz") == "zzz")
+    check("the declaration says which quotients it authorises",
+          l.declaration()["quotients"] == ["同用"]
+          and l.quotients["同用"] is ltc.tongyong_group)
+    check("...and 'qieyun' authorises NONE, because that is what the "
+          "coordinate means",
+          MiddleChinese(standard="qieyun").quotients == {},
+          "the raw rime class is finer than any poet used and 流/樓 is False "
+          "under it (section 2) -- a schema NAMED for the 同用 group has "
+          "nothing to ask for there, and refusing is not the same answer as "
+          "False (doctrine 79).")
+    check("...and neither does 'cilin', because its 部 is not a function of "
+          "the 韻 alone", MiddleChinese(standard="cilin").quotients == {},
+          "詞林正韻 merges 上 with 去 inside a 部 and holds the five 入聲 部 "
+          "apart, so 冬 is 第1部 in 平上去 and 第15部 in 入. A 韻-keyed "
+          "quotient would merge exactly the cells this standard separates; "
+          "`rhyme_keys` reads (韻, 聲) and is the method that can answer it.")
+
+    # THE PRICE OF THE TONE-INVARIANT GRAIN, MEASURED (doctrine 58: a figure
+    # in a docstring nobody re-derives is a threshold nobody wrote down).
+    by_rhyme = collections.defaultdict(set)
+    for (rhyme, tone), row in ltc._load_standards().items():
+        if row.get("pingshui"):
+            by_rhyme[rhyme].add(row["pingshui"][0])
+    rhymes = sorted(by_rhyme)
+    agree = [
+        (a, b) for i, a in enumerate(rhymes) for b in rhymes[i + 1:]
+        if (ltc.tongyong_group(a) == ltc.tongyong_group(b))
+        == (bool(by_rhyme[a] & by_rhyme[b]) and by_rhyme[a] == by_rhyme[b])]
+    total = len(rhymes) * (len(rhymes) - 1) // 2
+    check("the tone-invariant partition agrees with the SOURCED 平水 table on "
+          "1,649 of 1,653 韻-pairs, and the 4 exceptions are named",
+          len(agree) == 1649 and total == 1653,
+          f"{len(agree)}/{total}. The four are 嚴/添 and 嚴/鹽 (the 入聲 業 "
+          f"split section 3 pins), 眞/臻, and 祭/齊. The relation layer's "
+          f"second channel is `prominence`, which carries the 平/仄 binary, "
+          f"so 上, 去 and 入 are ONE value there and a tone-split partition "
+          f"could not be expressed at that layer even if it were handed over. "
+          f"The grain is stated rather than assumed, and this is the number "
+          f"it costs.")
+
+
 if __name__ == "__main__":
     for fn in (test_standard_is_a_declared_coordinate,
                test_doctrine_36_demonstration_stays_runnable,
@@ -777,7 +834,8 @@ if __name__ == "__main__":
                test_tone_class_refusal_now_propagates,
                test_the_denominator_was_narrower_than_the_script,
                test_the_edition_is_a_coordinate_and_the_control_did_not_move,
-               test_the_segmentation_is_re_derivable_offline):
+               test_the_segmentation_is_re_derivable_offline,
+               test_the_grouping_is_handed_over_and_not_only_held):
         fn()
     print("=" * 62)
     if FAILURES:

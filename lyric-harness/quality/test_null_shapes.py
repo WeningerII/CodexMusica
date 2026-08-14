@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""Regressions for the two null constructors in `quality/controls.py`.
+"""Regressions for the null constructors in `quality/controls.py` (§1-4) and
+for the coverage machinery in `quality/relations_null.py` (§5-8).
 
 Every check here is a defect that was FOUND in this code, not a property
 somebody thought would be nice to have.
@@ -21,6 +22,35 @@ somebody thought would be nice to have.
      make its null readable, and doctrine 76 says a null without a detection
      floor is an unfalsifiable claim wearing a number.
 
+§5-8 are the relations layer, added when `relations_null.py` grew a census
+and a whole-registry sweep. THREE of the 77 schemas in `relations.REGISTRY`
+had a hand-written arm; 74 shipped a printed instance count with no matched
+control, and the census exists to say WHICH OF FIVE REASONS applies to each,
+because they have five different remedies (doctrine 44).
+
+  5. THE GUARDS MUST NOT DISQUALIFY THE ARMS THE FILE ALREADY REPORTS.
+     `statistic_degeneracy` drops a statistic that is constant by
+     construction (doctrine 20). If it dropped `internal rhyme ·
+     local_fraction@0`, `perfect rhyme · local_fraction@2` or `Kalevala ·
+     line_fraction`, it would have deleted this file's own recorded table
+     while looking like a tightening.
+  6. THE DERIVATION IS NOT THE AUTHORITY (doctrine 68). `null_menu` derives
+     `perfect rhyme · count · line_final_permutation` to be an identity map;
+     the recorded table measured 89.5% of replicates differing on exactly
+     that pair. So the SWEEP must run it anyway, and this asserts the plan
+     does.
+  7. THE SECOND RUNNER MUST AGREE WITH THE FIRST. `sweep` shares replicates
+     across schemas where `run_many` does not; on the same schema, statistic,
+     null, seed and slice the two must return the identical observation and
+     the identical replicate values, or one of them is wrong and nothing says
+     which. `keep` is asserted not to be a coordinate of any number here for
+     the same reason.
+  8. `NEVER_PROVIDED` HAS TO STAY FALSE. Three capabilities have no branch in
+     `Stream.provides` at all, so three schemas can never produce an
+     observation on any text. The day one is implemented that is a
+     capability, not a comment, and this fails until the table is updated
+     (doctrine 48).
+
 None of these touches the time layer, so the file runs in seconds.
 
 Run: python3 quality/test_null_shapes.py
@@ -37,6 +67,8 @@ sys.path.insert(0, ROOT)
 from lyric_harness import Lexicon, line_tokens, word_syllable_map  # noqa: E402
 from quality.controls import (cross_item_redeal, differs,          # noqa: E402
                               rime_pool_redeal)
+import quality.relations as R                                      # noqa: E402
+import quality.relations_null as N                                 # noqa: E402
 
 LEX = Lexicon()
 PASS, FAIL = [], []
@@ -164,6 +196,19 @@ def main():
           % (cm, cd))
     check("the floor arms are not each other", mono != disp)
 
+    relations_sections()
+
+    # 9. THE LEDGER RUNS IN THE SUITE, not only from the CLI. `--verify` is a
+    # command someone has to remember, which is the exact failure doctrine 48
+    # names -- and EXTENDABLE was a number in a docstring that no code read
+    # until the ledger existed. The CHEAP tier only: `--verify --deep` is a
+    # full sweep at 2m5s and would break this file's "runs in seconds"
+    # promise, so it belongs on a nightly and not here.
+    print("\n9. THE EXTENSION LEDGER (doctrine 48)")
+    bad = N.verify_extension()
+    check("every marker in EXTENSION_LEDGER still says what it said",
+          not bad, "\n          ".join(bad))
+
     print("\n" + "=" * 62)
     if FAIL:
         print("FAILED: %s" % ", ".join(FAIL))
@@ -171,6 +216,164 @@ def main():
     print("%d checks pass — the constructors reproduce and the floor moves"
           % len(PASS))
     return 0
+
+
+# ---------------------------------------------------------------------------
+# §5-8  quality/relations_null.py — the census, the sweep, the planted floor
+# ---------------------------------------------------------------------------
+
+#: An ABCD ABCD text: every rhyme partner is FOUR lines away. Constructed, and
+#: admissible for the same reason ITEMS above is -- these are claims about the
+#: FUNCTIONS, not about English verse. The wide gap is the point: it puts the
+#: observed `local_fraction@2` on the floor so the planted arm has somewhere to
+#: go, which a quatrain would not.
+FAR = [
+    "the winter froze the shallow lake",
+    "a lantern burned across the night",
+    "the miller hummed a quiet song",
+    "the gutters filled with autumn rain",
+    "the carpenter had bread to make",
+    "the harbour tower showed a light",
+    "the road to market ran too long",
+    "the horses waited on the plain",
+]
+
+#: The (schema, statistic) pairs `relations_null.ARMS` actually reports. The
+#: guard in §5 must pass every one of them: a tightening that disqualifies the
+#: results the file already carries is not a tightening.
+RECORDED_PAIRS = (
+    ("internal rhyme", "count"),
+    ("internal rhyme", "local_fraction@0"),
+    ("perfect rhyme", "count"),
+    ("perfect rhyme", "local_fraction@2"),
+    ("Kalevala alliteration (weak)", "line_fraction"),
+)
+
+
+def relations_sections():
+    from quality.phonology import get as get_phonology
+    phon = get_phonology("eng")
+    toks = [R.tokenise(l) for l in FAR]
+    stream = N._stream_of(toks, phon, "eng")
+
+    print("\n5. THE CENSUS — a partition, and it must not disqualify the arms")
+    cov = N.coverage()
+    names = [c.schema for c in cov]
+    check("every declared schema is classified exactly once",
+          len(names) == len(set(names)) == len(R.REGISTRY),
+          "%d schemas declared, %d classified, %d verdicts"
+          % (len(R.REGISTRY), len(names), len(set(c.verdict for c in cov))))
+    check("the six verdicts partition the registry",
+          sum(sum(1 for c in cov if c.verdict == v) for v in N.VERDICTS)
+          == len(cov))
+    bad = [(s, st) for s, st in RECORDED_PAIRS
+           if N.statistic_degeneracy(R.REGISTRY[s], st)]
+    check("no recorded ARM pair is dropped as constant-by-construction",
+          not bad, "would have deleted: %s" % (bad,))
+    # THE CONSTANT CASES ARE MEASURED, NOT ARGUED. `_GAP_FORCED` is a claim
+    # about `Placement._raw`, so the claim is checked against `_raw` running on
+    # a real stream rather than against a reading of it.
+    kal = R.REGISTRY["Kalevala alliteration (weak)"]
+    v, _ref = N._measure(stream, kal, [N.STATISTICS["local_fraction@0"]],
+                         keep=("true", "none"))
+    check("a `same_line` schema really does sit at local_fraction@0 == 1.0",
+          v is not None and v[0] == 1.0, "measured %s" % (v,))
+    per = R.REGISTRY["perfect rhyme"]
+    v2, _r2 = N._measure(stream, per, [N.STATISTICS["local_fraction@0"]],
+                         keep=("true", "none"))
+    check("a `different_lines` schema really does sit at "
+          "local_fraction@0 == 0.0",
+          v2 is not None and v2[0] == 0.0, "measured %s" % (v2,))
+    check("`line_fraction` is refused on a plain pair figure "
+          "(it is `count` rescaled, not a second statistic)",
+          bool(N.statistic_degeneracy(per, "line_fraction")))
+
+    print("\n6. THE DERIVATION IS NOT THE AUTHORITY (doctrine 68)")
+    menu = N.null_menu(per, "count")
+    check("null_menu DERIVES line_final_permutation to be an identity map "
+          "for `perfect rhyme · count`",
+          "line_final_permutation" not in menu, "derived menu %s" % (menu,))
+    # ...and the recorded table measured 89.5% of replicates differing on it,
+    # so a sweep that trusted the derivation would drop a real arm.
+    _res, _cen = N.sweep(FAR, phon, "eng", n=1, budget=None,
+                         schemas={"perfect rhyme": per})
+    ran = {(r.statistic, r.null) for r in _res if not isinstance(r, R.Refusal)}
+    check("the SWEEP runs it anyway", ("count", "line_final_permutation")
+          in ran, "sweep ran %s" % (sorted(ran),))
+    check("null_menu reproduces the recorded identity-map row: "
+          "line_permutation does not move `internal rhyme · count`",
+          "line_permutation" not in
+          N.null_menu(R.REGISTRY["internal rhyme"], "count"))
+    check("null_menu reproduces the recorded identity-map rows: only "
+          "global_redeal moves Kalevala `line_fraction`",
+          N.null_menu(kal, "line_fraction") == ("global_redeal",),
+          "derived %s; the table records 0%% differing under "
+          "within_line_shuffle AND line_permutation"
+          % (N.null_menu(kal, "line_fraction"),))
+
+    print("\n7. THE SECOND RUNNER AGREES WITH THE FIRST")
+    one = N.run_many(FAR, phon, "perfect rhyme", ["count"],
+                     null="global_redeal", n=6, language="eng")[0]
+    swept, _c = N.sweep(FAR, phon, "eng", n=6, budget=None,
+                        schemas={"perfect rhyme": per})
+    mine = [r for r in swept if not isinstance(r, R.Refusal)
+            and r.statistic == "count" and r.null == "global_redeal"]
+    check("sweep and run_many return the same observation",
+          len(mine) == 1 and mine[0].observed == one.observed,
+          "run_many %s  sweep %s"
+          % (one.observed, mine[0].observed if mine else None))
+    check("sweep and run_many draw the SAME replicates (doctrine 66)",
+          bool(mine) and mine[0].values == one.values,
+          "run_many %s\n          sweep    %s"
+          % (one.values, mine[0].values if mine else None))
+    a_all, _ = N._measure(stream, per, [N.STATISTICS["count"],
+                                        N.STATISTICS["local_fraction@2"]],
+                          keep="all")
+    a_cheap, _ = N._measure(stream, per, [N.STATISTICS["count"],
+                                          N.STATISTICS["local_fraction@2"]],
+                            keep=("true", "none"))
+    check("`keep` is not a coordinate of any statistic here",
+          a_all == a_cheap, "keep='all' %s  keep=('true','none') %s"
+          % (a_all, a_cheap))
+
+    print("\n8. NEVER_PROVIDED, and the planted floor (doctrines 44, 31/76)")
+    # A stream declaring everything a caller CAN declare. If one of these
+    # capabilities ever becomes reachable, this fails and the table in
+    # relations_null.py has to be corrected rather than quietly outlived.
+    rich = R.build_stream(FAR, phon, declaration={
+        "language": "eng",
+        "resources": ("lexicon", "sense", "morphology", "token", "lexeme")})
+    R.search_caesura(rich)
+    R.mark_refrain_tail(rich)
+    # AND EVERY ALT SURFACE, which this check did not declare until 2026-08-13
+    # and which quietly defeated it. `poet` sat in NEVER_PROVIDED while being
+    # reachable the moment a caller declared an alt surface -- and this "stream
+    # declaring everything a caller CAN declare" declared no `alt` at all, so
+    # the one capability the table was wrong about was the one the tripwire
+    # could not see. A maximally-declared stream that is not maximally declared
+    # is a check that cannot fail (doctrine 48), and it failed to fail on the
+    # exact row it existed to guard.
+    rich.alt.update({s: rich for s in R.ALT_SURFACES})
+    still = [c for c in N.NEVER_PROVIDED if rich.provides(c)]
+    check("no capability in NEVER_PROVIDED is reachable from a maximally "
+          "declared stream", not still, "now provided: %s" % (still,))
+    check("every NEVER_PROVIDED capability is actually asked for by a schema",
+          all(any(c in s.capabilities() for s in R.REGISTRY.values())
+              for c in N.NEVER_PROVIDED))
+
+    planted, refusal = N.plant_locality(FAR, phon, per, "eng")
+    check("the planted text is a PERMUTATION of the same lines, so it is "
+          "inside the line_permutation null's own support",
+          refusal is None and planted is not None
+          and sorted(map(tuple, planted)) == sorted(map(tuple, toks)))
+    obs, _ = N._measure(stream, per, [N.STATISTICS["local_fraction@2"]],
+                        keep=("true", "none"))
+    floor = N.sensitivity(FAR, phon, per, "local_fraction@2", "eng")
+    check("the planted floor MOVES the locality statistic (doctrine 76)",
+          not isinstance(floor, R.Refusal) and floor is not None
+          and obs is not None and floor > obs[0],
+          "observed %s  planted %s — a null on a statistic that cannot move "
+          "is not a negative result" % (obs[0] if obs else None, floor))
 
 
 if __name__ == "__main__":

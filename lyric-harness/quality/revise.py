@@ -91,6 +91,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
+from quality import readability as RD  # noqa: E402
 from quality import schemes as SC  # noqa: E402
 from quality.floor import Finding, SlopFloor  # noqa: E402
 from quality.schemes import Mandate, NoMandate  # noqa: E402
@@ -109,16 +110,26 @@ __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME"}
 
-#: The three things a band-passing pair that shares no mandated group can BE.
-#: One code said all three until 2026-08-11 and its message said "rhyme" for
+#: What a band-passing pair that shares no mandated group can BE.
+#: One code said all of it until 2026-08-11 and its message said "rhyme" for
 #: every one of them; doctrine 3 says identity is not rhyme and a near-relation
 #: is not rhyme, and doctrine 24 says a rule that would delete a category must
 #: relabel instead. Measured on this repo's two songs: of 38 collisions, 15
 #: (39.5%) are ASSONANCE — pairs THIS MODULE'S OWN `grade()` calls a violation
 #: when they are mandated — and 8 are REPEAT. So the single code was making a
 #: claim the same module contradicts three functions away.
+#:
+#: `COLLISION_UNDECLARED` IS THE FOURTH AND IT IS NOT A RELATION — it is the
+#: MANDATE'S OWN ANSWER, added 2026-08-13. The first three all assert that the
+#: mandate had something to say here and this pair is outside it ("share no
+#: mandated group"); a mandate with a declared `Mandate.scope` says of some
+#: lines that it does not speak about them AT ALL, and `Mandate.requirement`
+#: answers `UNDECLARED` — "cannot tell" — rather than `FREE`. It is a member of
+#: this set because it IS a collision report and a caller partitioning findings
+#: into collisions and non-collisions must not lose it; it is a separate CODE
+#: because the other three name a defect-or-not on a question that was asked.
 COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
-                      "REPEAT_ACROSS_GROUPS"}
+                      "REPEAT_ACROSS_GROUPS", "COLLISION_UNDECLARED"}
 
 #: Score at or above which two lines that share NO group are reported as an
 #: unintended rhyme. Same constant the spine's `check_scheme` uses, kept equal
@@ -197,6 +208,12 @@ class ReviseDeclaration:
     #: structure you declare, which is the vacuous pass this module exists to
     #: close. The alternative stays reachable so the choice is measurable
     #: rather than settled by fiat (the shape of doctrine 82/84).
+    #:
+    #: "disjunctive" is read PER LINE, which is how the sentence above is
+    #: written: EVERY line of a failing pair must answer another of its OWN
+    #: groups before the pair is excused, so a line in exactly one group is
+    #: never excused from it. See `grade()` for the predicate and
+    #: `test_revise.py` test 31 for what reading it per PAIR did instead.
     overlap_rule: str = "conjunctive"
 
     #: Doctrine 3: REPEAT is a violation inside a verse and the REQUIREMENT
@@ -447,10 +464,18 @@ class Reviser:
             r["groups"] = [m.labels[k] for k in
                            sorted(set(m.groups_of(i)) & set(m.groups_of(j)))]
 
-        verdicts, satisfied = [], {k: True for k in range(len(m.groups))}
+        # WHICH (LINE, GROUP) PAIRS WERE NEVER JUDGED. A refusal is not a
+        # failure (doctrine 79) and it is not a pass either (doctrine 20), so
+        # it is kept apart from `unanswered` below rather than folded into it:
+        # the disjunctive excusal may buy nothing with an UNKNOWN, and the
+        # reason it may not is different from the reason it may buy nothing
+        # with a failure.
+        unknown = set()
+        verdicts = []
         for (i, j, k) in pairs:
             if (i, j) in refused:
-                satisfied[k] = None if satisfied[k] else satisfied[k]
+                unknown.add((i, k))
+                unknown.add((j, k))
                 continue
             s = matrix[i - 1][j - 1]
             rel = s["relation"]
@@ -469,8 +494,6 @@ class Reviser:
                              "endwords": (endwords[i - 1], endwords[j - 1]),
                              "score": s["total"], "relation": rel,
                              "why": why})
-            if why:
-                satisfied[k] = False
 
         # Doctrine 3, resolved PER PAIR by the mandate's own declaration
         # first, and by the song-wide `repeat_licence` switch only where the
@@ -493,45 +516,147 @@ class Reviser:
                 continue
             if v["relation"] == "REPEAT":
                 i, j = v["lines"]
-                declared, is_violation = m.requirement(i, j).decided(
-                    "repeat_is_violation")
+                # GATED ON THE MANDATE HAVING DECLARED ANY RETURN AT ALL --
+                # fixed 2026-08-13, and the comment below was already claiming
+                # this. A mandated pair under a plain LETTER scheme is
+                # REQUIRE_RHYME, whose declared=True/violation=True means
+                # decided() answers before the fallback is ever consulted, so
+                # `repeat_licence="refrain"` was INERT on every letter scheme:
+                # measured on AABB with two identical-word pairs, "refrain"
+                # used to LICENSE the repeat and had come to charge it.
+                # A letter cannot STATE this question -- two states for a
+                # question with five answers -- so REQUIRE_RHYME's True there
+                # is schemes.py's DEFAULT, not the writer's declaration, and
+                # doctrine 1 says a declared coordinate is not silently
+                # outranked by another layer's default. NOT fixed by weakening
+                # REQUIRE_RHYME: that value is doctrine 3 and three sections of
+                # quality/test_mandate_language.py rest on it.
+                declared, is_violation = (
+                    (False, None) if not m.returns
+                    else m.requirement(i, j).decided("repeat_is_violation"))
                 if not (is_violation if declared else not default_licensed):
                     continue
             violations.append(v)
         repeats = [v for v in verdicts if v["relation"] == "REPEAT"]
 
         # The DISJUNCTIVE reading, kept reachable so the default is a measured
-        # choice. A pivot's failure in one group is excused when it fully
-        # satisfies another group it belongs to.
+        # choice. THE CONDITION IS PER LINE, and it is stated per line in
+        # every place this repo writes it down: `ReviseDeclaration.
+        # overlap_rule` ("a line in k groups must answer ALL k" /
+        # "answering one of them excuses the rest") and `quality/schemes.py`'s
+        # own argument for the default ("adding a group to a cover can only
+        # ever give an OVERLAPPING LINE another way to be excused"). So a line
+        # is excused from group k exactly when it belongs to another group it
+        # ANSWERS -- every one of its own pairs there judged and passing.
+        #
+        # A PAIR IS THE REPORTING SHAPE, NOT THE OBLIGATION, and reading it as
+        # the obligation was the defect here until 2026-08-13: the excusal
+        # fired when EITHER endpoint had another satisfied group, so a line in
+        # exactly ONE group -- with no other group to answer and no "rest" to
+        # be excused from -- had its ONLY mandated obligation dropped because
+        # its PARTNER happened to be a pivot. That line then answered nothing
+        # at all and the loop said so nowhere: doctrine 20's vacuous pass, one
+        # level down, inside the module written to close it. Both endpoints
+        # must be excused, because a violation on (i, j) in group k is the only
+        # evidence either line failed k.
         excused = []
         if self.rdecl.overlap_rule == "disjunctive":
+            # WHETHER A **LINE** ANSWERS A **GROUP**, per (line, group). The
+            # old rule read `satisfied[k]` -- one boolean per GROUP -- and a
+            # group-wide flag cannot state a per-line fact: a pivot that
+            # rhymes with every other member of group k has ANSWERED k even
+            # when two OTHER members of k fail each other, and the flag said
+            # it had not. Read off `violations` rather than off the raw `why`
+            # for the same reason `violations` exists: a REPEAT the MANDATE
+            # requires is the form and not a failure, so it must not count
+            # against the line that carries it (doctrine 3, per pair).
+            unanswered = set()
+            for v in violations:
+                unanswered.add((v["lines"][0], v["group"]))
+                unanswered.add((v["lines"][1], v["group"]))
+
+            def answers_another(ln, k):
+                """-> the OTHER groups of `ln` that `ln` answers in full."""
+                return [k2 for k2 in m.groups_of(ln)
+                        if k2 != k and (ln, k2) not in unanswered
+                        and (ln, k2) not in unknown]
+
             keep = []
             for v in violations:
-                out_ = False
-                for ln in v["lines"]:
-                    others = [k2 for k2 in m.groups_of(ln)
-                              if k2 != v["group"] and satisfied.get(k2)]
-                    if others:
-                        out_ = True
-                        break
-                (excused if out_ else keep).append(v)
+                i, j = v["lines"]
+                by_i = answers_another(i, v["group"])
+                by_j = answers_another(j, v["group"])
+                if by_i and by_j:
+                    v = dict(v)
+                    # WHICH line was excused BY WHICH group. The finding used
+                    # to say only that the pair "was excused", which names
+                    # neither -- and on an overlapping cover the whole point
+                    # is that a line has more than one group to be talked
+                    # about (doctrine 2).
+                    v["excused_by"] = {ln: [m.labels[k2] for k2 in got]
+                                       for ln, got in ((i, by_i), (j, by_j))}
+                    excused.append(v)
+                else:
+                    keep.append(v)
             violations = keep
 
         # A pair that band-passes while sharing NO group. Under a letter
         # scheme this was "unintended rhyme across scheme letters"; under a
         # cover it is the same statement without the letters.
+        #
+        # AND SINCE 2026-08-13 IT ASKS WHETHER THE MANDATE SPEAKS ABOUT THE
+        # PAIR AT ALL. "Shares no mandated group" is a statement the mandate
+        # can only make about lines it REACHES: `Mandate.scope` declares which
+        # those are, and `Mandate.requirement` answers `UNDECLARED` — 'cannot
+        # tell' — for a pair touching a line outside it, which is a DIFFERENT
+        # answer from `FREE`'s 'nothing required here' (doctrine 28). This loop
+        # never asked, so on this repo's own 41-line fixture scoped to its
+        # chorus, 49 of 73 collisions were reported against a mandate that says
+        # it does not speak about them, and the rendered finding called those
+        # lines `free` — the one word doctrine 28 exists to keep separate.
+        # MEASURED: `inspect()` on that fixture was BYTE-IDENTICAL scope-on and
+        # scope-off, same 73 collisions, same 97 per-line findings.
+        #
+        # THE SET DOES NOT CHANGE, the LABEL does (doctrine 24: relabel, never
+        # delete). Suppressing the 49 would make a scoped run indistinguishable
+        # from one where those pairs were checked and came back clean, which is
+        # doctrine 20's collapse pointed the other way — and an unmandated
+        # rhyme is quite often the best thing in a song, so deleting the report
+        # costs the writer a real sonic event to spare them a mislabel. See
+        # `inspect()` for what the fourth code says.
+        #
+        # GATED ON `scope` BEING DECLARED AT ALL, the same shape the repeat
+        # licence above is gated on `m.returns`, and for two reasons that are
+        # both load-bearing: `UNDECLARED` is reachable through scope and
+        # nothing else (`quality/test_mandate_language.py` §11 pins that), so
+        # the gate cannot change an answer; and every production mandate has an
+        # empty scope, so the default path runs the identical code it ran
+        # before rather than a new branch measured to agree with it.
         collisions = []
         n = len(lines)
+        scoped = bool(getattr(m, "scope", ()))
         for i in range(n):
             for j in range(i + 1, n):
                 if set(m.groups_of(i + 1)) & set(m.groups_of(j + 1)):
                     continue
                 s = matrix[i][j]
                 if s["total"] >= THETA_COLLISION:
+                    # The CLASSIFICATION comes from `requirement()` — the
+                    # mandate's own five-value answer, so this loop and the
+                    # grader cannot drift about what UNDECLARED means. The
+                    # DETAIL (which endpoint is outside) comes from
+                    # `in_scope()`, because a writer told "the mandate does not
+                    # speak about this pair" is owed which half of it.
+                    und = scoped and m.requirement(i + 1,
+                                                   j + 1) is SC.UNDECLARED
                     collisions.append({
                         "lines": (i + 1, j + 1),
                         "endwords": (endwords[i], endwords[j]),
-                        "score": s["total"], "relation": s["relation"]})
+                        "score": s["total"], "relation": s["relation"],
+                        "undeclared": bool(und),
+                        "undeclared_lines": (
+                            [ln for ln in (i + 1, j + 1)
+                             if not m.in_scope(ln)] if und else [])})
         return {"mandate": m, "endwords": endwords, "readability": records,
                 "verdicts": verdicts, "violations": violations,
                 "repeats": repeats, "excused": excused,
@@ -680,7 +805,7 @@ class Reviser:
         return out
 
     @staticmethod
-    def _collision_code(relation):
+    def _collision_code(relation, undeclared=False):
         """One code per RELATION, because they are three different reports.
 
         `SCHEME_COLLISION`      the pair is a rhyme the mandate did not ask
@@ -696,7 +821,27 @@ class Reviser:
                                 a second place.
         `REPEAT_ACROSS_GROUPS`  the same word twice. Doctrine 3's first
                                 sentence: identity is not rhyme.
+
+        AND ONE THAT IS NOT A RELATION AT ALL, which is why it is a parameter
+        and not a fourth branch of the same `if`:
+
+        `COLLISION_UNDECLARED`  `Mandate.requirement` answers `UNDECLARED` for
+                                this pair — the mandate's `scope` does not
+                                reach one of its lines. It OUTRANKS the
+                                relation, because the other three each say
+                                what an ANSWERED question answered, and this
+                                one says the question was never asked
+                                (doctrine 20). The relation is not lost: the
+                                finding names the code this pair WOULD have
+                                carried, which is this same function called
+                                without the flag.
+
+        `undeclared` defaults False, so every existing caller — including
+        `quality/test_revise.py` test 23, which calls this with one positional
+        argument — reads exactly as it did.
         """
+        if undeclared:
+            return "COLLISION_UNDECLARED"
         if relation in RHYME_RELATIONS:
             return "SCHEME_COLLISION"
         if relation == "REPEAT":
@@ -745,10 +890,25 @@ class Reviser:
                 f"every line after the first difference. They must be the "
                 f"same draft.")
         per, refusals = {}, {}
-        for i, (p, text) in enumerate(zip(places, lines)):
+        fits = [FT.fit_line(text, p, subdivision=subdivision, assume=assume,
+                            line_index=i, strip_parens=self.lex.strip_parens)
+                for i, (p, text) in enumerate(zip(places, lines))]
+        # OVERLAPPING_SPANS IS A RELATION BETWEEN LINES, so `fit_line` cannot
+        # see it from inside one line, and this loop reported nothing about it
+        # for as long as it has existed -- while the `fit` verb, which calls
+        # `fit_song`, has always printed it on the same blueprint. Measured
+        # 2026-08-13 on one file: `fit` prints `over 1` and two findings;
+        # `song` printed five meter findings and never mentioned the overlap.
+        # `fit.overlap_findings` takes exactly this flat list, which is the
+        # object BOTH callers already hold, so the two surfaces now share ONE
+        # check rather than one surface having a check and the other not.
+        # NO SEVERITY DECISION IS MADE HERE, per this method's own docstring:
+        # fit.py marks an overlap satisfiable (two vocal parts is legal), so
+        # the rule below files it as a `note`, which is correct.
+        for i, fs in FT.overlap_findings(fits).items():
+            fits[i].findings.extend(fs)
+        for i, lf in enumerate(fits):
             ln = i + 1
-            lf = FT.fit_line(text, p, subdivision=subdivision, assume=assume,
-                             line_index=i, strip_parens=self.lex.strip_parens)
             for f in lf.findings:
                 ev = f.evidence
                 if f.conditional_on:
@@ -881,6 +1041,25 @@ class Reviser:
         not shown a note about not having asked), but a caller reading this
         dict alone, later, without the call site in view, has no other way
         to tell "meter is clean" from "meter was never asked."
+
+        A FOURTH SOURCE, ALWAYS ASKED AND NEEDING NO PARAMETER —
+        `quality/readability.py`'s own report, over EVERY line. The mandate's
+        refusals (`SCHEME_UNREADABLE`) only ever covered pairs the mandate
+        puts TOGETHER, so an unreadable end word on a line the mandate leaves
+        FREE produced nothing at all, though `_matrix` computes the record for
+        it on every run. Every one of those findings arrives as a NOTE even
+        where `readability.report` calls it a flag — see the block itself for
+        why, and for why that asymmetry resolves in this direction.
+
+        A DECLARED `Mandate.scope` IS A Finding, and the difference from the
+        paragraph above is the whole of doctrine 20. An omitted blueprint is a
+        layer the caller declined to ask for; a declared scope is the caller
+        DECLARING that the mandate does not speak about certain lines, and
+        every collision touching one of them is then `UNDECLARED` rather than
+        an unintended rhyme. Those come back as `COLLISION_UNDECLARED` per
+        line plus one whole-draft `MANDATE_SCOPE_DECLARED`, both notes. With
+        no scope — every mandate this repo builds from the CLI — neither is
+        ever emitted and every finding here is bit-for-bit what it was.
         """
         m = self.mandate(lines, mandate)
         per, whole = {}, []
@@ -978,8 +1157,13 @@ class Reviser:
         default_licensed = self.rdecl.repeat_licence == "refrain"
         for v in rep["repeats"]:
             i, j = v["lines"]
-            declared, is_violation = m.requirement(i, j).decided(
-                "repeat_is_violation")
+            # Same gate as `grade()` above, and for the same reason: without
+            # it a letter scheme's REQUIRE_RHYME answers before the switch is
+            # read, and the REFRAIN_REPEAT notes below drop to zero at
+            # repeat_licence="refrain".
+            declared, is_violation = (
+                (False, None) if not m.returns
+                else m.requirement(i, j).decided("repeat_is_violation"))
             if declared:
                 if is_violation:
                     continue          # SCHEME_VIOLATION already covers it
@@ -1012,21 +1196,62 @@ class Reviser:
         for label, i, j, kind, msg in m.returns_check(lines):
             ev = _KIND_GLOSS.get(kind, "")
             if kind == "OUT_OF_RANGE":
-                whole.append(Finding("RETURN_OUT_OF_RANGE", "note", msg, ev,
-                                     []))
+                # `OUT_OF_RANGE` IS NOT A VARIATION KIND and `_KIND_GLOSS` has
+                # no row for it -- it is the one member of `returns_check`'s
+                # output that reports a mandate that could not be READ rather
+                # than a return that came back wrong, so `ev` was the empty
+                # string and this was the only Finding in this method shipped
+                # with no evidence at all (doctrine 79: a count with no
+                # coordinate, and here not even a count).
+                #
+                # WHAT REACHES THIS LINE, PRECISELY. Not the case the message
+                # from `quality/schemes.py` names -- "the mandate declares N
+                # lines and M were given" cannot happen here, because
+                # `Reviser.mandate` is `SC.mandate(spec, n_lines=len(lines))`
+                # and every constructor path in it REFUSES a length mismatch
+                # with `NoMandate` several frames earlier. What can: a
+                # `Mandate` assembled by hand (`dataclasses.replace`, direct
+                # construction) carrying a `Return` whose line lies outside
+                # its OWN 1..n_lines -- the one input `_normalise_returns`
+                # exists to raise on, reached by going around it. The
+                # evidence says which, since the message says the other.
+                whole.append(Finding(
+                    "RETURN_OUT_OF_RANGE", "note", msg,
+                    f"return {label or '(unlabelled)'} declares L{i} and L{j} "
+                    f"the SAME LINE and the draft has {len(lines)}, so this "
+                    f"return's verbatim requirement was NOT CHECKED — "
+                    f"unasked, not answered clean (doctrine 20). A mandate "
+                    f"built through `quality.schemes.mandate` cannot get "
+                    f"here: it refuses an out-of-range return line, and it "
+                    f"refuses a draft whose length disagrees with the "
+                    f"mandate's. This one was built around that constructor.",
+                    [x for x in (i, j) if x <= len(lines)]))
                 continue
             add(j, Finding("RETURN_NOT_VERBATIM", "flag", msg,
                            f"{kind}: {ev}" if ev else kind, [i, j]))
         for v in rep["excused"]:
             i, j = v["lines"]
+            # WHICH GROUP EXCUSED WHICH LINE. `grade()` grants the excuse per
+            # LINE and both endpoints have to earn it separately, so a finding
+            # that named neither was reporting the conclusion and withholding
+            # the whole of the reason -- on the one reading where a line
+            # having more than one group is the entire subject (doctrine 2).
+            by = "; ".join(f"L{ln} answers {', '.join(labs)}"
+                           for ln, labs in sorted(v.get("excused_by",
+                                                        {}).items()))
             add(j, Finding(
                 "MANDATE_EXCUSED_BY_OVERLAP", "note",
                 f"L{i}/L{j} fail group {v['label']} and were EXCUSED because "
                 f"overlap_rule='disjunctive'",
-                f"{v['why']}. Under the declared default (conjunctive) this "
-                f"is a violation. The disjunctive reading gets weaker the "
-                f"more structure you declare, which is why it is reachable "
-                f"and not the default.", [i, j]))
+                f"{v['why']}. {by}. EVERY line of the pair had to answer "
+                f"another of its OWN groups in full — a line in one group "
+                f"has nothing else to answer and is never excused here, "
+                f"which is doctrine 20 held at the line: an obligation "
+                f"dropped with nothing answered in its place is a vacuous "
+                f"pass. Under the declared default (conjunctive) this is a "
+                f"violation. The disjunctive reading gets weaker the more "
+                f"structure you declare, which is why it is reachable and "
+                f"not the default.", [i, j]))
         # A REFUSAL IS NOT A VIOLATION. Before the readability fix these
         # arrived as violations and this loop briefed a model to rewrite
         # lines that rhyme perfectly well -- Barnes's Dorset `drong`/`zong`
@@ -1043,6 +1268,130 @@ class Reviser:
                     f"not read an end word, so this rhyme is UNKNOWN rather "
                     f"than absent",
                     r["reason"], [i, j]))
+        # THE READABILITY REPORT, JOINED — AND IT IS THE SAME LAYER AS THE
+        # BLOCK ABOVE, WHICH IS WHY IT SITS HERE.
+        #
+        # `refusals_for_pairs` (above) is scoped to pairs the MANDATE puts
+        # together, so an unreadable end word on a line the mandate leaves
+        # FREE produced NOTHING AT ALL — while `_matrix` had already computed
+        # a `readability_records` entry for that very line, on every run, and
+        # thrown it away. MEASURED on a 4-line draft with `zzzqx` at the end
+        # of L4 and only L1/L2 mandated: `readability.report` says
+        # UNREADABLE_END_WORD on L4 and `inspect()` said nothing whatsoever.
+        # Put the identical word on a MANDATED line and SCHEME_UNREADABLE
+        # fires — so the defect is invisible to exactly the input a reader
+        # reaches for first.
+        #
+        # ONE DEFINITION, TWO SURFACES, the same move `fit.overlap_findings`
+        # makes for meter: `readability.report` is what the `readability` verb
+        # prints, and calling it is a call rather than a second copy of the
+        # by_token/by_piece partition and its evidence prose. Its records are
+        # recomputed rather than handed `_matrix`'s, because `report(lex,
+        # lines)` is that module's signature and this cell does not own that
+        # file — and the two CANNOT disagree about the only field these
+        # findings read: `final_unreadable` is `not line_anchors(...)`, and
+        # `promote` — the one coordinate `_matrix` passes and `report` does
+        # not — flips it on 0 of 4,784 real corpus lines and 0 of 41 fixture
+        # lines, at BOTH of the boolean's values. Pinned in test_revise.py
+        # test 34 rather than left as a hope. Warm cost 0.009s against
+        # inspect()'s tens of seconds.
+        #
+        # SEVERITY IS RE-DECIDED HERE, AND THAT IS THE DECISION — the one
+        # place this method departs from `_meter_findings`'s "severity is not
+        # re-decided here", so it owes a reason. `readability.report` calls
+        # UNREADABLE_END_WORD and UNREADABLE_END_WORD_PIECE **flags**; every
+        # one of them arrives here as a **note**.
+        #
+        #  - A REFUSAL IS NOT A VIOLATION, and this loop has already paid for
+        #    getting that backwards once: the comment above this block records
+        #    that these arrived as violations before the readability fix and
+        #    the loop "briefed a model to rewrite lines that rhyme perfectly
+        #    well — Barnes's Dorset `drong`/`zong` among them". The gap is the
+        #    LEXICON'S, not the poet's (doctrine 79 — a refusal in the
+        #    numerator charges the wrong layer), and `verify()`'s gate is the
+        #    numerator: it rejects on `new_flags` alone.
+        #  - INTERNAL CONSISTENCY DECIDES IT EVEN IF THE ABOVE DID NOT.
+        #    `SCHEME_UNREADABLE` — the SAME refusal, on a pair the mandate
+        #    DECLARED — is a note. Importing these as flags would make an
+        #    unreadable word on a line nobody mandated fail HARDER than the
+        #    identical word on a line the mandate put in a group. There is no
+        #    reading of doctrine 6/7 under which that is coherent.
+        #  - WHY fit.py'S SEVERITY IS KEPT AND THIS ONE IS NOT: `FitFinding.
+        #    satisfiable` answers a LOOP question — the writer's own
+        #    declaration contradicts itself and only the writer can resolve
+        #    it. `readability.py`'s severity answers a REPORT question — does
+        #    this hole invalidate the rate being printed — and that module's
+        #    own `Finding` docstring says it is shaped so "a caller that
+        #    already renders floor findings renders these with no new code".
+        #    It is built for RENDERING, not for gating.
+        #  - AND THE LOOP HAS NO MOVE. None of these codes is in
+        #    RHYME_FINDINGS, so `brief()` hands the line back with an EMPTY
+        #    candidate field. As a flag each one would be briefed, attempted
+        #    and never resolved. MEASURED both ways on a 4-line draft whose
+        #    only defect is `zzzqx` ending a FREE line: as a note the loop
+        #    returns SUCCESS in 0 rounds; kept at `readability.report`'s own
+        #    `flag` it returns NO_PROGRESS after 1 round with L4 permanently
+        #    `unresolved`. Add a genuinely fixable SCHEME_VIOLATION on L1/L2
+        #    and the flag variant returns NO_PROGRESS after 2 rounds, still
+        #    unresolved on L4. NOT `ROUND_LIMIT`: the loop notices a round
+        #    that fixed nothing before it exhausts `max_rounds`, so the cost
+        #    is a destroyed SUCCESS rather than a burnt budget — which is the
+        #    same conclusion `quality/loop.py`'s docstring reaches about
+        #    promoting the three whole-draft flags, arrived at one stop
+        #    condition earlier.
+        #
+        # NO NEW OPT-OUT, and the reason is that one already exists AT THE
+        # RIGHT LAYER. `modal_exclusion=0`, `field_band='scalar'` and the rest
+        # are switches on a JUDGEMENT with two defensible answers. This is not
+        # a judgement: CMUdict either has the word or it does not, and the
+        # declared coordinate that moves that answer is `Lexicon(fallback=
+        # "high"|"low")` (doctrine 1). MEASURED: `viewest` at the end of a
+        # free line reports UNREADABLE_END_WORD at the shipped default and
+        # CLEAN at both `high` and `low`. A second switch in `ReviseDeclara-
+        # tion` would be a second place to change one answer, which is the
+        # thing doctrine 1 forbids.
+        #
+        # THE BLAST RADIUS IS AT `verify()`, AND IT MOVES BOTH WAYS — MEASURED
+        # on the same 4-line draft, join on against join off:
+        #   unreadable -> readable   was accepted=False, fixed=[] ("nothing
+        #                            was fixed" — a real repair called a
+        #                            no-op); is now accepted=True with
+        #                            fixed=[(4, UNREADABLE_END_WORD)]
+        #   readable -> unreadable   was accepted=True with new_notes=[] —
+        #                            the loop could not see the regression AT
+        #                            ALL; is now accepted=True with the code
+        #                            in `new_notes` and never in `new_flags`
+        # So the join lets `verify()` see a change it was blind to in both
+        # directions, and — because every one of these is a note — it still
+        # cannot REJECT on one. That is doctrine 7 exactly: the loop discloses
+        # the refusal and does not order the writer around it.
+        #
+        # PER LINE, NOT WHOLE-DRAFT: these findings NAME the lines they are
+        # about, so they follow the floor's own branch at the top of this
+        # method — one Finding appended to each line in its `locations`, which
+        # is what lets `verify()`'s multiset diff see ONE line stop being
+        # unreadable while the others still are. As per-line NOTES they are
+        # briefed and disclosed and start no round: `revise_loop`'s `flagged`
+        # filter reads severity, so SUCCESS, NO_PROGRESS and ROUND_LIMIT all
+        # mean exactly what they meant before this block existed.
+        _downgraded = (
+            " SEVERITY: `readability.report` calls this a FLAG; the revision "
+            "loop files it as a NOTE. A refusal is not a violation "
+            "(doctrine 79), and `SCHEME_UNREADABLE` — the same refusal on a "
+            "pair the mandate DECLARED — is already a note, so a flag here "
+            "would fail an unmandated line harder than a mandated one. The "
+            "lexicon cannot read the word; the line is not thereby wrong. "
+            "`Lexicon(fallback='high'|'low')` is the declared coordinate that "
+            "changes what is readable (doctrine 1) — there is no second "
+            "switch for it in `ReviseDeclaration`.")
+        for f in RD.report(self.lex, lines)["findings"]:
+            ev = f.evidence + (_downgraded if f.severity == "flag" else "")
+            note = Finding(f.code, "note", f.message, ev, list(f.locations))
+            if note.locations:
+                for ln in dict.fromkeys(note.locations):
+                    add(ln, note)
+            else:
+                whole.append(note)
         # THE COLLISION SET, PARTITIONED. Two moves and neither changes the
         # SET: it is still every pair at or above `THETA_COLLISION` sharing no
         # group, still exactly `check_scheme`'s. What changes is which LAYER
@@ -1087,12 +1436,46 @@ class Reviser:
             i, j = c["lines"]
             if (i, j) in absorbed:
                 continue
-            code = self._collision_code(c["relation"])
+            code = self._collision_code(c["relation"], c.get("undeclared"))
             pair = (f"{c['endwords'][0]!r} ~ {c['endwords'][1]!r} "
                     f"{c['score']:.3f} {c['relation']}")
             gi = ", ".join(m.labels[k] for k in m.groups_of(i)) or "free"
             gj = ", ".join(m.labels[k] for k in m.groups_of(j)) or "free"
-            if code == "SCHEME_COLLISION":
+            if c["relation"] not in RHYME_RELATIONS and \
+                    c["relation"] != "REPEAT":
+                # COUNTED OFF THE RELATION, not off which code was emitted.
+                # `COLLISION_CUT_IS_SCALAR_ONLY` is a statement about the CUT,
+                # and the cut is applied identically to every pair in the set,
+                # so an undeclared near-relation belongs in this count exactly
+                # as much as a declared one — and its denominator is the whole
+                # collision set either way. On a mandate with no scope nothing
+                # is undeclared and this is the same number the `else` branch
+                # below used to increment.
+                near += 1
+            if code == "COLLISION_UNDECLARED":
+                out = c.get("undeclared_lines") or []
+                which = " and ".join(f"L{x}" for x in out) or f"L{i}/L{j}"
+                is_are = "is" if len(out) == 1 else "are"
+                would = self._collision_code(c["relation"])
+                msg = (f"L{i} and L{j} collide — {pair} — and the mandate "
+                       f"DOES NOT SPEAK about {which}: UNDECLARED, not an "
+                       f"unintended rhyme")
+                ev = (f"`Mandate.scope` declares {len(m.scope)} of "
+                      f"{m.n_lines} line(s) and {which} {is_are} outside it, "
+                      f"so "
+                      f"`requirement(L{i}, L{j})` is UNDECLARED — 'cannot "
+                      f"tell' — and NOT `FREE`'s 'nothing required here' "
+                      f"(doctrine 28). Reported rather than SUPPRESSED, "
+                      f"because those two are also both different from "
+                      f"silence: dropping this pair would make a scoped run "
+                      f"indistinguishable from one where these lines were "
+                      f"checked and came back clean, which is doctrine 20's "
+                      f"collapse pointed the other way. It would be reported "
+                      f"as {would} if the mandate reached these lines. "
+                      f"Whether the collision is a defect is not a question "
+                      f"this mandate asked, so the loop states the sonic "
+                      f"fact and charges nothing")
+            elif code == "SCHEME_COLLISION":
                 msg = (f"L{i} ({gi}) and L{j} ({gj}) RHYME and share no "
                        f"mandated group — {pair}")
                 ev = ("an unintended rhyme across groups. Whether that is a "
@@ -1111,7 +1494,6 @@ class Reviser:
                       "score separates those, so the loop names the relation "
                       "and stops")
             else:
-                near += 1
                 msg = (f"L{i} ({gi}) and L{j} ({gj}) collide as "
                        f"{c['relation']}, WHICH IS NOT A RHYME — {pair}")
                 ev = (f"scalar {c['score']:.3f} >= {THETA_COLLISION} (the "
@@ -1144,6 +1526,37 @@ class Reviser:
                 f"a song is a real sonic event and deleting it would be the "
                 f"worse defect. `lyric_harness.check_scheme` carries the same "
                 f"untyped message and is not this cell's file", []))
+        if getattr(m, "scope", ()):
+            # SAID ONCE, ABOUT THE MANDATE, and only when the coordinate was
+            # DECLARED — a mandate with no scope speaks about every line and
+            # has nothing to disclose, which is why the default path never
+            # reaches this branch. Doctrine 1: an analysis states its
+            # assumptions, and "which lines am I even talking about" is the
+            # assumption every collision above rests on. Doctrine 79: the
+            # counts are kept SEPARATE rather than summed, because "collides
+            # inside what the mandate speaks about" and "collides where it
+            # does not" ask different things of a writer.
+            und = [c for c in rep["collisions"] if c.get("undeclared")]
+            outside = sorted(i for i in range(1, m.n_lines + 1)
+                             if not m.in_scope(i))
+            whole.append(Finding(
+                "MANDATE_SCOPE_DECLARED", "note",
+                f"this mandate SPEAKS ABOUT {len(m.scope)} of {m.n_lines} "
+                f"line(s); of its {len(rep['collisions'])} collision(s), "
+                f"{len(rep['collisions']) - len(und)} are inside that scope "
+                f"and {len(und)} touch a line it does not speak about",
+                f"the {len(und)} are reported as COLLISION_UNDECLARED and "
+                f"charged to nobody: `Mandate.requirement` answers UNDECLARED "
+                f"there, which is 'cannot tell' and not `FREE`'s 'nothing "
+                f"required' (doctrine 28). Lines outside the scope: "
+                f"{outside}. "
+                f"They are still graded by every mandate-INDEPENDENT layer in "
+                f"this loop — the slop floor, the readability refusals, meter "
+                f"and song function if a blueprint was declared — because "
+                f"none of those consults a mandate at all (doctrine 6/7: two "
+                f"sources, deliberately kept apart). A scope narrows what the "
+                f"MANDATE claims, never what the draft is measured on",
+                outside))
         if blueprint is not None:
             m_per, m_whole = self._meter_findings(lines, blueprint,
                                                    subdivision, assume)

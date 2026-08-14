@@ -8,13 +8,65 @@ are untouched here on purpose.
 
 **The result is the second of the two H-1's brief allowed: a measured argument
 that the available corpus cannot support the check, and exactly what it would
-take.** The instrument is built, it runs, it ships REFUSING, and every number
-below re-derives from it. Doctrine 84: the demonstration stays reachable, so
-this file is checkable rather than quotable.
+take.** The instrument is built, it runs, and it ships REFUSING. Doctrine 84:
+the demonstration stays reachable, so this file is checkable rather than
+quotable.
 
-    python3 quality/phrase_commonplace.py --measure      # T1, T2, T3
-    python3 quality/phrase_commonplace.py --self-test    # the four fixtures
+    python3 quality/phrase_commonplace.py --measure      # §1 §2 §3 §4
+    python3 quality/phrase_commonplace.py --nulls        # §5
+    python3 quality/phrase_commonplace.py --period       # §6
+    python3 quality/phrase_commonplace.py --scaling      # §9's second table
+    python3 quality/phrase_commonplace.py --self-test    # §8, the four fixtures
     python3 quality/phrase_commonplace.py FILE           # refuses, exit 2
+    python3 quality/phrase_commonplace.py --check        # 0 pass 1 moved 2 cannot tell
+
+---
+
+## THE SENTENCE THAT USED TO BE HERE, AND WHY IT IS GONE — 2026-08-14
+
+Line 11 of this file read, in an unbroken sentence with the paragraph above:
+
+> The instrument is built, it runs, it ships REFUSING, **and every number
+> below re-derives from it.**
+
+**That clause was false from the day it was written, and it stayed false for
+three days after two of the sections it covered had already been annotated
+WITHDRAWN.** It is a document asserting a mechanical property it did not have,
+which is worse than any single wrong number in it: a reader who checks one
+section and finds it reproduces is licensed by that sentence to believe the
+rest do too. §5 and §6 had no producer, §9's scaling table had none, and §0
+and §7 read inputs deleted in `11aa19b`.
+
+It is replaced by a claim that is now true and, more to the point, by a table
+that can be checked one row at a time instead of trusted in one clause. Where
+a row says PINNED, `--check` goes red if the figure moves.
+
+| § | figures | producer | runs? | reproduces? |
+|---|---|---|---|---|
+| **0** | features computed vs read on a sonnet | ad-hoc, ~10 lines over `SlopFloor`+`QualityFeatures`; **not a shipped command** | yes | **YES, exactly** — re-run 2026-08-14, same ten computed, same two read, `concreteness computed? True / READ? False` |
+| **0** | 152,313 / 152,154 / 159 | `--measure` | yes | **YES** · PINNED |
+| **0** | the two `examples/` floor reports | **INPUT DELETED** (`11aa19b`) | no | **NO** — annotated 2026-08-13, values kept; token counts 327/291 reproduce, the findings do not |
+| **1** | 143 authors, 991,751 tokens, the line counts | `--measure` | yes | **YES** · PINNED |
+| **2** | T1, all five rows | `--measure` | yes | **YES, to the digit** · PINNED |
+| **3** | T2, all eight published rows | `--measure` | yes | **YES, to the digit** · PINNED — and the producer prints a NINTH row this section omits, see §3 |
+| **4** | T3, 81 firings / 72 witnesses / the full list | `--measure` | yes | **YES, every witness** · PINNED |
+| **5** | the doctrine-68 `differ` fractions | **BUILT 2026-08-14**, `--nulls` | yes | **CLOSE, NOT EXACT** — 97.6–97.8% vs 97.8–98.0%, 99.9% vs 100.0% · PINNED as a floor |
+| **5** | null rates 0.02% / 0.05%, lifts 59x / 17x, observed 0.98% / 0.85% | **BUILT 2026-08-14**, `--nulls` | yes | **NO** — measured 0.028% / 0.035%, 36.8x / 28.9x, observed 1.01%. Recorded values SUPERSEDED, kept visible |
+| **6** | 115 authors, 1620–1929, bands 27/34/43/11 | **BUILT 2026-08-14**, `--period` | yes | **YES, EXACTLY** — and this overturns part of the 2026-08-13 withdrawal, see §6 · PINNED |
+| **6** | the four correlations, the eight band rates | **BUILT 2026-08-14**, `--period` | yes | **NO, but close** — see §6 for how close and why not closer. New values PINNED, recorded ones SUPERSEDED |
+| **7** | nine firings, every witness, line number and author count | `--force -n 3 -k 5`, **INPUT DELETED** | only via `git show` | **YES, exactly** — re-run 2026-08-13 off the recovered files |
+| **8** | the `--self-test` transcript | `--self-test` | yes | **NO — DRIFTED, FOUND 2026-08-14.** `FIXTURE_SILENT` changed in `11aa19b`; the transcript still showed the old string. Corrected in §8 |
+| **9** | the three-class table, the doctrine 92 argument | none needed — a licensing argument, not a measurement | n/a | n/a |
+| **9** | the scaling table, rows 1 and 2 (71/107 authors) | **NONE, and the selection rule was never written down** | n/a | **NO — UNREPRODUCIBLE AS RECORDED.** Replaced with a declared rule, see §9 · PINNED |
+| **9** | the scaling table, row 3 (143 authors) | `--measure` (it is T1's n=4/n=5 at k≥3) | yes | **YES** · PINNED |
+| **10** | the `SEARCH:` row | none — a record of a search, not a measurement | n/a | n/a |
+| **11** | prose | none | n/a | n/a |
+
+**34 figures are pinned and `--check` reads all of them.** Three exit codes,
+because two would collapse the case this file is about: **0** every pin holds,
+**1** a figure moved, **2** cannot tell — the corpus is not on disk, or the
+tagger the T2 columns and NULL C need is not installed, in which case nothing
+was measured and nothing moved (doctrines 20, 28).
 
 ---
 
@@ -48,10 +100,45 @@ concreteness READ?     False
 So the semantic feature is not merely absent from the writing path — it is
 computed on the writing path and thrown away.
 
+> **RE-MEASURED 2026-08-14 AND IT REPRODUCES EXACTLY** — all ten computed
+> features in the same order, the same two read, `concreteness computed? True`
+> and `concreteness READ? False`. It is the one block in this file whose
+> producer is neither a shipped command nor absent but **ad-hoc**: about ten
+> lines wrapping `QualityFeatures.extract`'s return in a recording `dict`
+> subclass and running `SlopFloor.report` on a sonnet. It is not in
+> `phrase_commonplace.py` and it is not in `--check`, because it measures
+> `quality/floor.py` and `quality/features.py`, which this cell does not own
+> (doctrine 34's ownership half). **So it reproduces today and nothing will
+> notice when it stops** — recorded as the residual gap rather than closed,
+> since closing it means writing in a sibling's file.
+
 **And the floor says nothing at all about either song in `examples/`:**
 
+> **THE INPUT IS GONE FROM HEAD AND THIS BLOCK NO LONGER REPRODUCES —
+> ANNOTATED 2026-08-13.** `examples/` was deleted entire in commit `11aa19b`
+> (*"Remove Claude-authored example lyrics from the repo; fix the CLI's
+> apparatus-line gap"*, 2026-08-12); `ls lyric-harness/examples` returns *No
+> such file or directory* and `git log --diff-filter=D --
+> 'lyric-harness/examples/*'` names `11aa19b` and nothing since. Recover both,
+> read-only:
+>
+>     git show 11aa19b^:lyric-harness/examples/cherokee_bill.txt        > /tmp/cbill.txt
+>     git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
+>
+> Re-run at head 2026-08-13: **`327 tokens` and `291 tokens` reproduce
+> exactly**, and the rest of this block does not. `cherokee_bill` now reports
+> `0 flag(s), 0 note(s)` — no findings at all — and `never_been_to_a_scene`
+> reports `1 flag(s), 1 note(s)`: an `ANAPHORA_OVERLOAD` **flag** (14 of 41
+> lines open with `i`, 34%) and a `PREDICTABLE_RHYME` note. So the sentence
+> below this block — *at song length nothing length-sensitive runs at all* —
+> **is false at head**, and it is false because of the exact work this section
+> names as live: the `song` profile (150–400 tokens) shipped, and 327 and 291
+> both sit inside it. `RESULTS_SONG_FLOOR.md` §6 is the record. Kept as
+> written per doctrine 17. **Nothing in §1–§6 or §8–§9 reads these two files**,
+> and none of it was re-run here (COST).
+
 ```
-$ python3 -c "...SlopFloor().report(lines)"
+$ python3 -c "...SlopFloor().report(lines)"      # UNRUNNABLE — see the note above
 examples/cherokee_bill.txt          SLOP FLOOR — 0 flag(s), 1 note(s)
   [NOTE] OUT_OF_CALIBRATED_LENGTH: 327 tokens is outside every calibrated length
 examples/never_been_to_a_scene.txt  SLOP FLOOR — 0 flag(s), 1 note(s)
@@ -144,6 +231,16 @@ cell wrote (doctrine 16).
   5 |  2 |   0.06%  |      0/5     =   0.0%    |  80.0%
 ```
 
+> **THE PRODUCER PRINTS NINE ROWS AND THIS TABLE HAS EIGHT — FOUND
+> 2026-08-14.** `--measure` also emits `4 | 8 | 0.01% | 0/1 = 0.0% | 100.0%`,
+> which this section drops with no note. Every published row reproduces to the
+> digit; the defect is an omission, not a drift, and it is the smaller sibling
+> of the one this file's header is about — a table that is a subset of its
+> producer's output reads, to anyone re-running the command, exactly like a
+> table that has moved. The row is now in `--check`'s pins (`t2[(4,8)]`), so
+> the omission cannot become a drift later. Not silently inserted into the
+> table above, because the table above is what reproduced.
+
 **This is a LOWER bound and it is declared as one.** The reference is a
 REFERENCE and not truth (doctrine 94): it under-counts, because a phrase with
 one content word is scaffolding too — `the voice of the` is the English
@@ -220,19 +317,124 @@ empirically. Doctrine 68 says report the fraction of replicates that differ
 from the observation at all, because a randomisation that tests nothing is the
 most dangerous object in this repo.
 
-| | preserves | destroys | is a null about | replicates differing |
-|---|---|---|---|---|
-| **NULL A** within-line word shuffle | word multiset, length, every unigram frequency | word order, hence which n-grams exist | whether the words are arranged as English arranges them | **97.8–98.0%** |
-| **NULL C** frequency-matched content substitution | order, every closed-class token, the frame, each content word's frequency decile | which content words fill the frame | whether the dispersion belongs to the PHRASE or to the FRAME | **100.0%** |
+> **PRODUCER BUILT 2026-08-14 — `--nulls`. THE WITHDRAWAL BELOW STANDS AS TO
+> ORIGIN AND IS NOW NARROWED AS TO FACT.** Read the 2026-08-13 block first;
+> this one amends it.
+>
+> Both randomisations are derivable from what ships, so the honest remedy was
+> to write the code rather than to retire the section. It is written, it is in
+> `quality/phrase_commonplace.py` (`_null_a`, `_null_c`, `freq_bands`,
+> `nulls`), and the design is DECLARED where the withdrawn figures' was not:
+> the same seeded 8,000-line held-out sample §3 and §4 use, 5 replicates,
+> frequency bands as ten equal-size bands of TYPES ranked by corpus frequency
+> with alphabetic tie-break (doctrine 66), and NULL C's replacement pools
+> derived from the tagger rather than from a list this cell wrote
+> (doctrine 16).
+>
+> **MEASURED 2026-08-14, n=4 k≥2, seed 20260811:**
+>
+> | | recorded (withdrawn) | measured 2026-08-14 | verdict |
+> |---|---|---|---|
+> | observed fire rate | 0.98% and 0.85% | **1.01%** | recorded values NOT reproduced; 1.01% is §3's own figure to the digit, so the three-values-for-one-statistic tell below is confirmed and the OBSERVATION was the part that was wrong |
+> | NULL A replicates differing | 97.8–98.0% | **97.6–97.8%** | **substantially reproduces** |
+> | NULL C replicates differing | 100.0% | **99.9%** | **substantially reproduces** |
+> | NULL A fire rate | 0.02% | **0.028%** | close, not equal — SUPERSEDED |
+> | NULL C fire rate | 0.05% | **0.035%** | SUPERSEDED |
+> | NULL A lift | 59x | **36.8x** | SUPERSEDED — and 59x never followed from its own row: 0.98/0.02 is 49 |
+> | NULL C lift | 17x | **28.9x** | SUPERSEDED — 17x DID follow from its row, 0.85/0.05 |
+>
+> **WHAT THIS CHANGES ABOUT THE WITHDRAWAL AND WHAT IT DOES NOT.** It does not
+> restore a single recorded figure: not one of the seven is reproduced, and
+> two of the three that come close (the `differ` fractions) are the two the
+> withdrawal never disputed. It DOES retire the phrase "a number with no
+> origin" for the `differ` column specifically — a design that lands within
+> 0.2 points of 97.8–98.0% and 100.0% on the first honest attempt was
+> measured by something, once, by somebody. That is a claim about origin, not
+> about validity, and the numbers stay withdrawn either way because no
+> committed code produces them and no reader can check them.
+>
+> **DOCTRINE 68 IS NOW DISCHARGED.** The `differ` column is not decoration: it
+> is the measurement that the randomisation randomises. 97.6% of NULL A's
+> shuffled lines and 99.9% of NULL C's substituted lines differ from the
+> original, so neither is the identity map, and `--check` pins that as a
+> FLOOR (90%) rather than as a value — the question is whether the
+> randomisation randomises at all, and that answer is not a third decimal.
+> The null RATES are deliberately NOT pinned: they ride a seeded five-replicate
+> draw and `random.shuffle`/`random.choice` are not a stable contract across
+> CPython versions, so pinning them would produce a red saying "your Python
+> changed". Same call `audit_tang_null.py` and `audit_kalevala_null.py` make.
+>
+> **THE ARGUMENT AT THE END OF THE SECTION IS UNCHANGED AND IS NOW MEASURED
+> RATHER THAN ASSERTED.** Neither randomisation is a null about
+> over-familiarity; A prices grammaticality and C prices the frame. The new
+> lifts move in opposite directions from the recorded ones — A falls 59x→36.8x,
+> C rises 17x→28.9x — and the conclusion survives both, because it never rested
+> on their size or their order. It rests on what each null DESTROYS.
+>
+> ---
+>
+> **WITHDRAWN 2026-08-13 — NO PRODUCER, AND THERE NEVER WAS ONE.** Every
+> figure in this section — NULL A 97.8–98.0%, NULL C 100.0%, observed
+> 0.98%/0.85%, NULL A 0.02%, NULL C 0.05%, and the lifts 59x and 17x — stays
+> visible below under doctrine 17 and MUST NOT BE QUOTED.
+> `phrase_commonplace.py --measure` prints the population counts, T1, T2 and
+> T3 and stops; there is no shuffle, no frequency-decile substitution and no
+> replicate loop anywhere in this repo. `59x`, `0.98%` and `+0.117` return
+> exactly ONE file each on a repo-wide grep, and it is this one. The commit
+> that created this cell added three files, none has ever held such a script,
+> and `git log --all --diff-filter=D` names no deleted one — so this is not a
+> lost tool, it is a number with no origin.
+>
+> A CONTRADICTION SITS ON THE FACE OF THE BLOCK. §3 measures the same n=4
+> k>=2 fire rate as **1.01%**; this section calls it 0.98% on one line and
+> 0.85% on the next, with no sample, seed or replicate count declared. Three
+> values for one statistic is the tell.
+>
+> So the sentence below — "checked by measurement and not by argument" — is
+> FALSE as written, which is why this notice sits above it rather than after
+> it. WHAT SURVIVES: the argument at the end of the section, that neither
+> randomisation is a null about over-familiarity and that the identity-map
+> trap in this cell lives in the STATISTIC (T3's witness list is the
+> high-frequency tail of English 4-grams) rather than in either randomisation,
+> is derived BY READING T3 — and T3 reproduces to the digit, all 72 witnesses.
+> What does not survive is doctrine 68's requirement, which is now
+> UNDISCHARGED. §1–§4 and §7 all reproduce exactly; the boundary between what
+> reproduces and what does not falls precisely where a runnable command stops.
+
+| | preserves | destroys | is a null about | replicates differing (recorded) | replicates differing (**MEASURED 2026-08-14**) |
+|---|---|---|---|---|---|
+| **NULL A** within-line word shuffle | word multiset, length, every unigram frequency | word order, hence which n-grams exist | whether the words are arranged as English arranges them | ~~97.8–98.0%~~ | **97.6–97.8%** |
+| **NULL C** frequency-matched content substitution | order, every closed-class token, the frame, each content word's frequency decile | which content words fill the frame | whether the dispersion belongs to the PHRASE or to the FRAME | ~~100.0%~~ | **99.9%** |
 
 **Neither is the identity map, checked by measurement and not by argument.**
 That check was run because this repo has found five distinct shapes of the
-trap; the two obvious candidates here both pass it.
+trap; the two obvious candidates here both pass it. *That sentence was FALSE
+when written — no code checked anything — and it is TRUE from 2026-08-14, by
+`--nulls`, which is why the notice sits above rather than here.*
+
+Recorded, and superseded — the code block as it stood, kept per doctrine 17:
 
 ```
 n=4   observed 0.98% fires at k>=2   NULL A 0.02%   lift 59x
 n=4   observed 0.85% fires at k>=2   NULL C 0.05%   lift 17x
 ```
+
+**MEASURED 2026-08-14** — `python3 quality/phrase_commonplace.py --nulls`,
+8,000 held-out lines, 5 replicates, seed 20260811:
+
+```
+== §5  the two randomisations (n=8000 held-out lines, 5 replicates, seed 20260811) ==
+  observed fire rate at n=4 k>=2: 1.01%
+  null | mean fire rate |  lift | replicates DIFFERING from the observation
+   A   |      0.028%    |  36.8x | 97.6% – 97.8%
+   C   |      0.035%    |  28.9x | 99.9% – 99.9%
+```
+
+ONE OBSERVED RATE NOW, NOT THREE. `1.01%` is §3's figure, this section's
+figure and the producer's figure, because they are one call into one index on
+one seeded sample. The recorded 0.98% and 0.85% are not two readings of a
+noisy statistic — the statistic has no noise in it — so they were two
+different quantities, and nothing in this file says which.
 
 **And the lift is not evidence of what it looks like.** NULL A destroys word
 order, so a line loses its n-grams by ceasing to be English: its 59x prices
@@ -258,6 +460,110 @@ not by reading a lift.
 Doctrine 11 says assume any new feature is reading period until a measurement
 says otherwise, so this was tested before anything else.
 
+> **PRODUCER BUILT 2026-08-14 — `--period` — AND IT OVERTURNS THE SHARPEST
+> CLAUSE OF THE WITHDRAWAL BELOW.** Read the 2026-08-13 block first; this one
+> amends it, and the amendment is the most interesting result in this file.
+>
+> The withdrawal's own closing paragraph specified what to build: *"per-author
+> leave-one-out fire rate over authors with a death year and >=40 lines,
+> against an archaic-2sg rate over a DECLARED closed paradigm (doctrine 46),
+> Pearson and Spearman, four bands. ~60 lines against an index that already
+> exists."* That is exactly what was built, and it took 0.8 seconds to run.
+>
+> **THE AUTHOR SET REPRODUCES EXACTLY, AND THAT IS THE FINDING.**
+>
+> | figure | recorded | measured 2026-08-14 | verdict |
+> |---|---|---|---|
+> | authors with a death year and ≥40 lines | 115 | **115** | **EXACT** |
+> | span | 1620..1929 | **1620..1929** | **EXACT** |
+> | band counts | 27 / 34 / 43 / 11 | **27 / 34 / 43 / 11** | **EXACT, all four** |
+> | CHECK pearson | +0.117 | +0.1110 | close, SUPERSEDED |
+> | CHECK spearman | +0.071 | +0.0554 | close, SUPERSEDED |
+> | CONTROL pearson | −0.212 | −0.1868 | close, SUPERSEDED |
+> | CONTROL spearman | −0.367 | −0.3503 | close, SUPERSEDED |
+> | mean fire-rate by band | 14.69 / 12.41 / 14.69 / 17.93% | **14.88 / 12.59 / 14.73 / 17.92%** | within 0.2pp, SUPERSEDED |
+> | mean archaic rate by band | 15.18 / 10.64 / 7.38 / 9.22% | **13.25 / 8.88 / 6.28 / 8.02%** | 1–2pp low, SUPERSEDED — see the paradigm note |
+>
+> **§5's WITHDRAWAL CALLS ITS FIGURES "a number with no origin". THAT IS
+> FALSIFIED FOR §6.** Four author counts and a two-century span reproducing to
+> the unit, from a design reconstructed out of the prose that withdrew them,
+> is not what an invented table does. §6's figures were MEASURED, by something
+> that was never committed. The withdrawal's literal claim — *"produced by no
+> code in this repo and by no code this repo has ever held"* — remains true and
+> is the reason the numbers stayed withdrawn; what does not survive is the
+> inference from it that nothing ever computed them. **Doctrine 44/92's own
+> distinction, turned on this document: "nobody wrote the code" and "the code
+> was written and not committed" are different findings with different
+> remedies, and only the second one is recoverable in an afternoon.** It was.
+>
+> **WHY THE RATES STILL DO NOT MATCH, and it is not a mystery in one case.**
+> The control's 1–2pp gap is the PARADIGM: the withdrawn section named
+> `thou/thee/thy/hath/doth/dost/…`, and `hath` and `doth` are 3rd-person
+> singular `-th`, not 2sg. `ARCHAIC_2SG` here is a clean 2sg paradigm and
+> excludes them, which is why every measured control rate is LOWER. Restoring
+> `hath`/`doth` moves the four bands to 14.31 / 9.52 / 6.54 / 8.82%, and
+> adding `ye` as well reaches 15.38 / 10.71 / 7.52 / 9.25% against the
+> recorded 15.18 / 10.64 / 7.38 / 9.22 — within 0.2pp on all four. **The
+> recorded control was measured over a paradigm that mixed two persons and a
+> plural pronoun.** That is a reason to prefer the declared list, not the
+> recorded numbers: a control whose strength moves when you add words to it is
+> a control you can tune, and doctrine 46 says the list is part of the
+> grammar, not an optimisation. The productive `-est` on lexical verbs is
+> excluded for the same reason and the module says so.
+>
+> The CHECK's 0.2pp gap has **no such explanation and is left as one**:
+> `corpus/song/` is byte-identical to its state at this cell's own commit
+> (`git diff ce2c0e6 HEAD -- corpus/song/` is empty), and neither dropping
+> short lines, nor `k>5`, nor scoring without leave-one-out closes it — the
+> last two miss by 2–4 points, not by 0.2. **CANNOT TELL** why 14.69 is not
+> 14.88 (doctrine 20/28). It is recorded as an open discrepancy rather than
+> smoothed, because 0.2pp on four bands at once is the signature of one small
+> undeclared coordinate, and this cell could not find which.
+>
+> **THE POSITIVE CONTROL IS DISCHARGED AGAIN, AND ITS CONCLUSION IS UNCHANGED.**
+> Spearman −0.3503 for the control against +0.0554 for the check: the control
+> declines with date, so the design HAS power, and against it the check is
+> period-flat — 6.3x weaker in rank terms (the recorded run said 4–5x). So
+> doctrine 11's default is lifted again on a measurement rather than on an
+> assertion, and §9's doctrine 92 disjunction, which needs no correlation at
+> all, is unaffected either way.
+>
+> Every figure in this amendment is PINNED. §6 has no randomisation anywhere
+> in it, so `--check` compares all fifteen values exactly and goes red on any
+> of them.
+>
+> ---
+>
+> **WITHDRAWN 2026-08-13 — NO PRODUCER.** 1.01x/1.00x, 0.60x, the 115-author
+> filter, pearson +0.117 / spearman +0.071, pearson −0.212 / spearman −0.367,
+> and the entire four-row death-band table are produced by no code in this
+> repo and by no code this repo has ever held. `author_meta` parses birth and
+> death years into `PhraseIndex.meta` and NOTHING READS THAT FIELD — the parse
+> is the only trace that this analysis was ever contemplated. The archaic-2sg
+> paradigm appears nowhere in the module. The figures are internally
+> consistent (27+34+43+11 = 115; 0.367/0.071 ≈ the "4–5x" claimed below),
+> which is exactly why this needed a grep rather than a reading.
+>
+> THE CONSEQUENCE IS NOT SMALL. This section IS the cell's doctrine 31/76
+> positive control, so that control is UNDISCHARGED, and doctrine 11's default
+> — assume a new feature reads period until a measurement says otherwise —
+> applies again. "Period-reading is not this check's primary defect" is hereby
+> UNMEASURED, not disproven. The cell's verdict does not rest on it: §9's
+> doctrine 92 disjunction is a licensing argument about the corpus cutoff and
+> needs no correlation at all.
+>
+> IT ESCAPED INTO PRODUCTION. `quality/phrase_commonplace.py`'s module
+> docstring states the −0.367 control as fact, and quotes a range "+0.07 to
+> +0.10" whose upper end appears nowhere in this file — this section carries
+> ONE spearman. That is drift stacked on an unreproducible base, and it is
+> corrected at the same date.
+>
+> TO REPRODUCE: per-author leave-one-out fire rate over authors with a death
+> year and >=40 lines, against an archaic-2sg rate over a DECLARED closed
+> paradigm (doctrine 46 — a function-word list is part of a phonology, not an
+> optimisation), Pearson and Spearman, four bands. ~60 lines against an index
+> that already exists.
+
 **The first design was wrong and its result is WITHDRAWN.** It binned
 phrase-sharing between author pairs by the **gap** between their death years
 and found no trend (1.01x at n=3, 1.00x at n=4). Doctrine 31 says run the
@@ -274,6 +580,8 @@ nothing (doctrines 76, 90 — the null and the statistic are chosen together).
 coordinate the use case cares about, since a writer using this harness sits at
 2026:
 
+Recorded, and superseded — kept per doctrine 17:
+
 ```
 n=3 k>=5, 115 authors with a death year and >=40 lines, 1620..1929
   CHECK        fire-rate vs death year:      pearson +0.117  spearman +0.071
@@ -286,8 +594,25 @@ n=3 k>=5, 115 authors with a death year and >=40 lines, 1620..1929
   1900-1930  |      11 |        17.93%  |            9.22%
 ```
 
+**MEASURED 2026-08-14** — `python3 quality/phrase_commonplace.py --period`,
+against the DECLARED `ARCHAIC_2SG` paradigm. Every value below is PINNED:
+
+```
+== §6  period-reading (doctrine 11) and its positive control (doctrines 31, 76) ==
+  n=3 k>=5, 115 authors with a death year and >=40 lines, 1620..1929
+    CHECK        fire-rate vs death year:   pearson +0.1110  spearman +0.0554
+    POS CONTROL  archaic-2sg vs death year: pearson -0.1868  spearman -0.3503
+
+  death band | authors | mean fire-rate | mean archaic rate
+  1600-1830  |      27 |        14.88%  |          13.25%
+  1830-1870  |      34 |        12.59%  |           8.88%
+  1870-1900  |      43 |        14.73%  |           6.28%
+  1900-1930  |      11 |        17.92%  |           8.02%
+```
+
 The control declines monotonically to 1900 and the design therefore has power.
-Against it the check is period-**flat**, 4–5x weaker in rank terms.
+Against it the check is period-**flat**, ~~4–5x~~ **6.3x** weaker in rank
+terms (0.3503 / 0.0554), MEASURED 2026-08-14.
 
 **This is the surprise of the run, and it buys nothing.** Period-reading is
 not this check's primary defect — grammar-reading is. But flatness across
@@ -299,6 +624,37 @@ outside it, which is doctrine 15's lesson on the date axis.
 ---
 
 ## 7 · The verdict on real lines, verbatim
+
+> **THE INPUTS ARE GONE FROM HEAD; THE NUMBERS ARE NOT — ANNOTATED
+> 2026-08-13.** `examples/cherokee_bill.txt` and
+> `examples/never_been_to_a_scene.txt` were deleted in commit `11aa19b`
+> (2026-08-12), so all four commands in this section are unrunnable as written.
+> Prefix them with:
+>
+>     git show 11aa19b^:lyric-harness/examples/cherokee_bill.txt        > /tmp/cbill.txt
+>     git show 11aa19b^:lyric-harness/examples/never_been_to_a_scene.txt > /tmp/nbtas.txt
+>
+> and substitute those paths. **Re-run that way at head on 2026-08-13, this
+> section reproduces completely — every figure, every witness phrase, every
+> author count, every line number.** Specifically:
+>
+> | figure | verdict |
+> |---|---|
+> | `-n 3 -k 5` on `cherokee_bill`: 4 firings — L1 `in the name` 7, L13 `it was a` 11, L24 `it could not` 7, L26 `and that was` 5 | **REPRODUCES EXACTLY** |
+> | `-n 3 -k 5` on `never_been_to_a_scene`: 5 firings — L11 `and the whole` 6, L18 `to see how` 5, L25 `is on the` 13, L26 `which is the` 7, L38 `to see how` 5 | **REPRODUCES EXACTLY** |
+> | nine firings across both songs, eight distinct witnesses | **REPRODUCES** |
+> | `-n 4 -k 1` on `cherokee_bill`: L16 `went down without a` 1, L21 `raised his voice and` 1 | **REPRODUCES EXACTLY** |
+> | `-n 4 -k 1` on `never_been_to_a_scene`: no line reaches the threshold | **REPRODUCES EXACTLY** |
+> | *and every rope in Arkansas began to braid for him* scores 0 at n=3 and above | **REPRODUCES** — the line is absent from the n=3 output |
+> | the same line scores **32** at n=2, on `and every` | **REPRODUCES EXACTLY** — `line 12   32 authors  'and every'` |
+>
+> **Bounded (doctrine 79):** 7 figures re-measured, at ~12 s per run, five runs.
+> The n=2 witnesses `for him` (29) and `began to` (20) and their POS tags were
+> **not re-run — COST**; the `--measure`, `--self-test` and null/period arms of
+> this file were not run either, and two of those already carry their own
+> WITHDRAWN blocks above. **The refusal this whole document argues for is
+> unaffected by the deletion**: the instrument still ships refusing, and the
+> evidence for the refusal is these nine firings, all of which came back.
 
 Both songs in `examples/`, at the two settings that fire at all. Nine firings
 across both songs at n=3 k≥5; **not one is a cliché.**
@@ -381,18 +737,71 @@ and no larger pre-1931 corpus reaches it. It is the wrong instrument for the
 defect, and it is pinned as `FIXTURE_SILENT` in the module so that stays true
 and visible rather than becoming something a later session quietly "fixes".
 
+> **THE LAST CLAUSE IS FALSE AT HEAD — ANNOTATED 2026-08-14.** This line IS
+> NO LONGER `FIXTURE_SILENT`. Commit `11aa19b` (2026-08-12) replaced it with
+> `and every gallows post remembered his weight` in the same sweep that
+> deleted `examples/`, because the Arkansas line is Claude-authored text and
+> that commit removed Claude-authored lyrics from the repo. See §8.
+>
+> **The mechanism the sentence is about survives the substitution intact**, and
+> that is checkable rather than argued: the replacement line is a cliché as a
+> FIGURE (the same stock hanging-ballad trope) and unique as a STRING, it
+> scores 0 at every n from 3 to 6, and `test_phrase_commonplace.py` pins that
+> range rather than one n. What is no longer true is the mechanical claim in
+> this sentence — that the demonstration is nailed down in the module under
+> that name. It is nailed down under a different string, and this paragraph is
+> the pointer that says so, since the Arkansas line is now recoverable only via
+> `git show 11aa19b^:lyric-harness/examples/cherokee_bill.txt`.
+
 ---
 
 ## 8 · Fixtures (doctrine 94)
 
 A positive-case suite cannot find a rule that is too generous, so the module
-carries one of each and `--self-test` runs all four:
+carries one of each and `--self-test` runs all four.
+
+> **THIS TRANSCRIPT HAD DRIFTED — FOUND AND CORRECTED 2026-08-14.** The block
+> below is the transcript as published, and its SILENT line names *'and every
+> rope in Arkansas began to braid for him'*. `FIXTURE_SILENT` stopped being
+> that line on 2026-08-12: commit `11aa19b` — the same commit that deleted
+> `examples/`, and for the same reason, since the Arkansas line is
+> Claude-authored — replaced it with **`and every gallows post remembered his
+> weight`**. The transcript was never updated, so for two days §8 published a
+> command's output that the command did not produce.
+>
+> Nothing else in the block moved: the string changed and the verdict did not.
+> The new fixture is silent at every n from 3 to 6, exactly as the old one
+> was, and the four PASS lines are unchanged. **This is the mildest case in
+> the file and the most instructive**, because it is the only one where the
+> producer existed, ran, was green in CI the whole time, and the document
+> still said something false — a transcript is a figure too, and a test that
+> pins `FIXTURE_SILENT`'s BEHAVIOUR cannot notice that a document quotes its
+> old VALUE.
+>
+> §7 below still discusses the Arkansas line, correctly, as the case that
+> motivated H-1 — and its claim that the line "is pinned as `FIXTURE_SILENT`
+> in the module" is FALSE at head for the same reason. See the note there.
+
+Published, and superseded:
 
 ```
 $ python3 quality/phrase_commonplace.py --self-test
   FIRE   PASS  'the glory of the morning on the water'
          -> 8 authors, witness 'the glory of the'
   SILENT PASS  'and every rope in Arkansas began to braid for him'
+         -> 0 authors, witness None
+  REFUSE PASS  check() refuses by default and is TRUTHY, so it cannot be read
+               as a clean pass
+  REACH  PASS  force=True reaches the instrument (doctrine 84): 1 note(s)
+```
+
+**MEASURED 2026-08-14, at head:**
+
+```
+$ python3 quality/phrase_commonplace.py --self-test
+  FIRE   PASS  'the glory of the morning on the water'
+         -> 8 authors, witness 'the glory of the'
+  SILENT PASS  'and every gallows post remembered his weight'
          -> 0 authors, witness None
   REFUSE PASS  check() refuses by default and is TRUTHY, so it cannot be read
                as a clean pass
@@ -454,7 +863,29 @@ is the blocker, and "find a better source" is not the remedy.
 
 ### The second blocker, which IS a size problem
 
-Separately and less fundamentally, sparsity is doctrine 44's "hard to build":
+Separately and less fundamentally, sparsity is doctrine 44's "hard to build".
+
+> **ROWS 1 AND 2 HAVE NO PRODUCER AND NO DECLARED SELECTION RULE —
+> FOUND 2026-08-14.** Row 3 (143 authors) is `--measure`'s own T1 at n=4 and
+> n=5, k≥3, and reproduces exactly. Rows 1 and 2 are a sub-corpus of 71 and
+> 107 authors, and **nothing in this file or in the module says WHICH 71**.
+> The two token counts are the test and they fail it: 478,763 and 775,914 are
+> not produced by the first m files in sorted order (414,250 / 863,565), nor
+> by `random.Random` at this module's own SEED (671,374 / 833,647), nor at
+> seven other seeds tried, nor by smallest-first, largest-first or stride-2.
+> **UNREPRODUCIBLE AS RECORDED** — doctrine 58 in its purest form: a count
+> that is a coordinate of a rule nobody wrote down. Kept visible per
+> doctrine 17 and MUST NOT BE QUOTED.
+>
+> This is a THIRD category, and it is worth separating from the other two in
+> this file (doctrine 44/92 applied to the record itself): §5 and §6 had
+> figures whose producer was never committed but whose DESIGN was recoverable
+> from the prose — §6's recovered exactly. Here the design is not recoverable,
+> because a sub-sample is defined by its selection rule and the prose does not
+> contain one. Nobody can write the missing code, because nobody can know what
+> it was.
+
+Recorded, and superseded:
 
 ```
  authors | tokens  |  n=4 reaching k>=3 | n=5 reaching k>=3
@@ -463,9 +894,26 @@ Separately and less fundamentally, sparsity is doctrine 44's "hard to build":
      143 |  991751 |      457           |    21
 ```
 
-Super-linear, so more pre-1931 text would genuinely relieve it. **It would not
-touch the disjunction**, and relieving it alone would deliver a better-powered
-detector of the wrong thing — doctrine 61, one level up.
+**MEASURED 2026-08-14** — `python3 quality/phrase_commonplace.py --scaling`,
+under a DECLARED rule: **the first m files in the canonical sorted order.**
+Deterministic, arbitrary with respect to token count (which is the property a
+sub-sample needs), and — unlike a seeded draw — independent of which `random`
+implementation the interpreter ships. All three rows PINNED:
+
+```
+== §9  the sparsity scaling (rule: first m files, sorted) ==
+ authors | tokens  | n=4 reaching k>=3 | n=5 reaching k>=3
+      71 |  414250 |         104       |           5
+     107 |  863565 |         342       |          15
+     143 |  991751 |         457       |          21
+```
+
+Super-linear, so more pre-1931 text would genuinely relieve it — and the
+finding is unchanged under the new rule, which is the only thing this table
+was ever load-bearing for: 104 → 342 → 457 at n=4 against a 2.4x token range,
+and 5 → 15 → 21 at n=5. **It would not touch the disjunction**, and relieving
+it alone would deliver a better-powered detector of the wrong thing —
+doctrine 61, one level up.
 
 ---
 
@@ -504,6 +952,47 @@ note	Recorded per doctrine 39: a failed search is a row, not a memory. This is
 	records against wordfreq20k.txt.
 ```
 
+### Owed to files this cell does not own — ADDED 2026-08-14
+
+Three, all reported rather than written, because they are one file each and
+none of them is `phrase_commonplace.py` or this document.
+
+1. **`--check` IS NOT IN CI, AND THAT IS THE WHOLE POINT OF IT.** It runs in
+   **23.8 CPU-s / 31.8 s wall** on this machine, cold, with no fetched
+   resource beyond the tagger. **PRICED HONESTLY, NOT FAVOURABLY**: against
+   the `suites` job's own published costs (test_verbs 218.1, fwer 48.08,
+   readability 46.38, msa_fin 29.30, g2p 25.21, floor 21.36 CPU-s; 42 files
+   totalling 505) that is fifth or sixth most expensive of 43, and about 4.7%
+   on the job. Not free — and the alternative is 34 figures nobody re-reads.
+   It reads 34 pinned figures that nothing else reads. One line in
+   `.github/workflows/ci.yml`, in the `record` or `suites` job:
+   `python3 quality/phrase_commonplace.py --check`. Until that line exists, the
+   pins go red only when somebody remembers to run them, which is doctrine 48
+   stated about the instrument that this section's own audit produced.
+
+2. **`test_phrase_commonplace.py` NEEDS `nltk` AND THE `suites` JOB DOES NOT
+   INSTALL IT.** The test imports `quality.features._tagger` and calls it. The
+   `suites` job runs `actions/setup-python@v5` and one `fetch_data()` for
+   cmudict — no `pip install`, and `data/nltk/` is gitignored, so neither the
+   package nor the model is present. Simulated by blocking the import: the test
+   dies with `ModuleNotFoundError: No module named nltk` after 19 of its 28
+   assertions — so it fails RED, not silently, but for a reason that is about
+   the runner and not about this instrument. The workflow's own comment states the opposite — *"Only
+   test_discriminate.py needs data/concreteness.txt or nltk, and it is not
+   here"* — and that sentence is false for this file. The `nightly` job does
+   both installs; `suites` does neither.
+
+3. **NOBODY HAS OBSERVED (2) BECAUSE `suites` HAS NEVER RUN.** `suites` was
+   added in `dbfa52e` and declares `needs: gate`. Run 358 (`31765254223`, the
+   first run to contain it) shows `gate` FAILING at **Formatting (prettier
+   --check)** on `lyric-harness/quality/baseline_defined.json`, 3.5 seconds in,
+   with `suites`, `verify`, `record`, `freshness` and `catalog` all
+   **skipped**. So the statement that this test "is now gated in CI" is true of
+   the configuration and not yet of any execution: as of 2026-08-14 no CI run
+   has executed `quality/test_phrase_commonplace.py` even once. Fixing the
+   prettier failure will make (2) visible immediately, as a red on this file,
+   for a reason that has nothing to do with this file.
+
 **The floor integration is NOT proposed.** `quality/floor.py` is held by a
 sibling calibrating the song-length profile and is not this cell's to edit;
 more to the point, §3–§7 are the argument that this check must not be wired
@@ -524,3 +1013,40 @@ the same way — imagery and concreteness in particular have a MODERN,
 independent, already-downloaded resource in `data/concreteness.txt` that the
 writing path computes and discards (§0), which is a very different starting
 position from this one.
+
+---
+
+## 12 · Doctrine 44/92, turned on this document — 2026-08-14
+
+The audit that produced the 2026-08-14 annotations asked one question of every
+section: *is there code that produces this figure, does it run, and does the
+figure come back?* Doctrine 44 separates "hard to build" from "cannot obtain",
+and doctrine 92 adds "the admissible and the complete are disjoint". Applied to
+a RECORD rather than to a corpus, the same cut yields **four** states, and this
+file had one of each. They are not interchangeable and they do not have the
+same remedy.
+
+| state | what it means | where it was | remedy | done? |
+|---|---|---|---|---|
+| **REPRODUCES** | producer ships, runs, figure returns | §1 §2 §3 §4 §7 §0's line counts | pin it so it cannot drift silently | **yes** — `--check`, 34 pins |
+| **PRODUCER NEVER COMMITTED, DESIGN RECOVERABLE** | a figure was measured by something, and the prose carries enough to rebuild it | **§5, §6** | write the code, run it, report what matches and what does not | **yes** — §6's author set came back exact; §5's doctrine-68 column came back within 0.2pp; every rate is superseded |
+| **INPUT DELETED** | the producer runs and its input is gone from head | **§0's floor block, §7** | record what it claimed, that its input is gone, the date, and the `git show` that recovers it | **yes**, 2026-08-13 |
+| **UNREPRODUCIBLE — the rule was never written down** | no code, and the prose does not determine what the code would have been | **§9 rows 1–2** | **CANNOT TELL.** Say so, keep the value visible, and declare a rule going forward rather than guessing the old one | **yes** — §9 |
+
+**A fifth state, and it is the one that produced the audit.** §8 had a
+producer, that producer ran, it was green, and the document still quoted a
+string the producer had stopped emitting. **A green test is not a check on the
+document.** `test_phrase_commonplace.py` pins `FIXTURE_SILENT`'s behaviour and
+therefore could not notice §8 quoting its old value; nothing anywhere read the
+document. That is the gap `--check` closes for the 34 figures it covers, and
+does not close for §8's transcript, §0's recording-dict block, or any prose
+claim in this file — all of which are still checked by a reader and by nobody
+else.
+
+**What the header's replaced sentence got wrong is worth naming precisely.**
+It was not wrong about any number. It asserted a MECHANICAL property — *every
+number below re-derives from it* — of a document, and a mechanical property is
+either enforced by a mechanism or it is a hope. There was no mechanism. The
+table in the header is the honest form of that sentence: it is per-row, it
+says which rows are enforced and by what, and a reader who checks one row
+learns something about that row and nothing about the others.

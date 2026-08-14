@@ -68,6 +68,9 @@ REJECT_TOO_RECENT = "REJECT_TOO_RECENT"
 REJECT_NO_EVIDENCE = "REJECT_NO_EVIDENCE"
 
 REJECT_PUBLICATION_TOO_RECENT = "REJECT_PUBLICATION_TOO_RECENT"
+#: doctrine 85 -- an express non-commercial grant is a rejection, whatever the
+#: dates say. Checked BEFORE every admitting route: see `admit`.
+REJECT_NONCOMMERCIAL = "REJECT_NONCOMMERCIAL"
 
 ADMITTED = {ADMIT_PD_AFFIRMED, ADMIT_DATE_VERIFIED,
             ADMIT_PUBLICATION_VERIFIED}
@@ -86,6 +89,67 @@ OPEN_NOT_PD = {"cc-by-4.0", "cc-by-3.0", "cc-by-sa-4.0", "cc-by-sa-3.0"}
 #: never be read as a grant over the texts.
 SOFTWARE_LICENCES = {"mit", "apache-2.0", "gpl-2.0", "gpl-3.0", "lgpl-3.0",
                      "bsd-3-clause", "agpl-3.0"}
+
+#: EXPRESS non-commercial restrictions. Doctrine 85: an express non-commercial
+#: grant is a REJECTION, and it has to bind the same way in every language.
+#:
+#: Matched two ways, and the split is deliberate. Licence IDENTIFIERS are a
+#: closed vocabulary and match by prefix, so the whole `cc-by-nc*` family is
+#: covered without listing every suffix. Free PROSE is matched only against
+#: phrases that are unambiguous PROHIBITIONS -- because the licence column of
+#: data/sources.tsv is free text written by whoever staged the row, and the
+#: row for the MIT replacement list says "No non-commercial clause anywhere in
+#: the chain -- which is the point". A substring search for "non-commercial"
+#: refuses that row: it would reject the admissible file for describing the
+#: inadmissible one it replaced. `_NC_NEGATIONS` is the guard, and
+#: quality/test_provenance.py pins both directions.
+NONCOMMERCIAL_ID_PREFIXES = ("cc-by-nc", "cc-nc", "by-nc")
+
+#: Prohibitions stated in prose, in the languages this repo has actually met
+#: one in. 資料自由使用，但不得為商業用途 is the rime-aca digitiser's grant, the
+#: exact string doctrine 85 was written about.
+NONCOMMERCIAL_PROSE = (
+    "不得為商業", "不得用於商業", "非商業",
+    "non-commercial use only", "noncommercial use only",
+    "not for commercial use", "no commercial use",
+    "nicht kommerziell", "pas d'utilisation commerciale",
+)
+
+#: Phrases that MENTION a non-commercial clause in order to deny one. Checked
+#: before the prose markers; a row that says a restriction is absent is not a
+#: row that carries one.
+_NC_NEGATIONS = (
+    "no non-commercial clause", "no noncommercial clause",
+    "without a non-commercial", "not non-commercial",
+    "no commercial restriction", "free of any non-commercial",
+)
+
+
+def noncommercial_marker(licence):
+    """-> the matched marker, or None. Doctrine 85 made mechanical.
+
+    Until 2026-08-13 nothing in this module could express a non-commercial
+    refusal: `grep -i non-commercial quality/provenance.py` returned zero hits
+    while four separate refusals in this project's record cite doctrine 85 --
+    pantunis-data, CELT, 4,347 ci and 734 樂府. Every one of those was a human
+    reading licence text at fetch time. The gate would have admitted them all,
+    because an NC grant is not a date and every admitting route here tests a
+    date. That is the gap this closes.
+    """
+    if not licence:
+        return None
+    lic = " ".join(str(licence).lower().split())
+    for neg in _NC_NEGATIONS:
+        if neg in lic:
+            return None
+    ident = lic.split()[0].strip(",;.") if lic.split() else ""
+    for pre in NONCOMMERCIAL_ID_PREFIXES:
+        if ident.startswith(pre):
+            return ident
+    for marker in NONCOMMERCIAL_PROSE:
+        if marker in lic:
+            return marker
+    return None
 
 #: verification sources that count as authority evidence
 TRUSTED_VERIFICATION = {"wikidata", "viaf", "dataset_field", "critical_edition",
@@ -254,6 +318,31 @@ class ProvenanceGate:
             return REJECT_GENERATED, (
                 "content or a key column is model-generated; scoring it "
                 "measures the model, not the tradition")
+
+        # LICENCE BEFORE DATES -- doctrine 85, and the ORDER is the whole fix.
+        #
+        # Every admitting route below tests a DATE: route 1 an affirmation,
+        # route 2 an author's death year, route 3 a publication year. A
+        # non-commercial grant is none of those, so before this check existed
+        # there was no position in the flow at which one could be refused --
+        # `cc-by-nc-sa-4.0` over a 12th-century author admitted at route 2 on
+        # the strength of the author being long dead, which is true and beside
+        # the point. Marking the row `contested=true` did not save it either:
+        # that only voids route 1, and REJECT_CONTESTED_NO_DATE is reached
+        # further down, after route 2 has already returned.
+        #
+        # So this sits ahead of all three. An express NC restriction is a
+        # property of the GRANT, not of the work's age, and no amount of age
+        # cures it.
+        marker = noncommercial_marker(src.licence if src else None)
+        if marker:
+            return REJECT_NONCOMMERCIAL, (
+                f"source '{item.source_id}' carries an express non-commercial "
+                f"restriction ({marker!r}); doctrine 85 -- the stated target "
+                f"of this project is an MCP server beside Codex Musica, and a "
+                f"grant that excludes commercial use is a REJECTION whatever "
+                f"the dates say. Refused here rather than at fetch time by a "
+                f"human remembering to read the licence")
 
         # route 1 -- express PD affirmation at source level
         if src and self.decl.allow_source_affirmation and not src.contested:
