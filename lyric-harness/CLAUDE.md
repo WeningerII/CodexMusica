@@ -335,21 +335,48 @@ was wrong.** That the floor still SPEAKS about a verbatim chorus is right and
 is unchanged. That it FAILED the draft for it was never measured, and the
 premise which excused not measuring it was false: `radif_min_pair_fraction`
 was carried as definitional because "this project has no corpus of radif verse
-to calibrate it against", while `corpus/song/eng_*` held **1,872 items inside
+to calibrate it against", while `corpus/song/eng_*` held **1,859 items inside
 this profile's own token band** — the population four of the five other
-thresholds were already calibrated on. Measured: 46 of those items carry a
-repetend closing ≥2 pairs and the declared 0.50 **refuses to license 43 of the
-46, a 93.5% false-positive rate on canonical published verse** against the ~5%
+thresholds were already calibrated on. Measured: 57 of those items carry a
+repetend closing ≥2 pairs and the declared 0.50 **refuses to license 54 of the
+57, a 94.7% false-positive rate on canonical published verse** against the ~5%
 its siblings hold to. It is also anti-correlated with its own target — it
-admits two ONE-word runs and charges every repetend of three words or more,
-Burns's six-word `a health to them that's aw'` included. Neither density
-(0.125 vs 0.150 median, one-word against multi-word) nor run length (FPR
-60.9/73.9/78.3% at ≥2/3/4 words) reaches 5%, **so the value is NOT repinned** —
+admits two ONE-word runs (`john` 8/16 and `da` 7/11, beside the two-word `john
+tod` 12/21) and charges every repetend of three words or more, 10 of 10,
+Burns's six-word `a health to them that's awa` at 4/20 included. Neither density
+(0.1292 vs 0.1417 median, one-word against multi-word) nor run length (FPR
+70.2/82.5/86.0% at ≥2/3/4 words) reaches 5%, **so the value is NOT repinned** —
 retuning with no calibration behind the new number is doctrine 58's error. The
 RECURRING case is a note from that date; a run closing ONE pair recurs nowhere,
 is a one-off self-rhyme outside everything measured, and **stays a flag**.
 Splitting those two cost zero test churn, which is itself the evidence that
 `quality/test_floor.py`'s existing assertions were all about the one-off.
+**EVERY COUNT IN THIS PARAGRAPH IS REPINNED 2026-08-14, FROM ~~1,872 items /
+46 carriers / 43 refused / 93.5% FPR / density 0.125 vs 0.150 / run-length FPR
+60.9-73.9-78.3%~~ — commit `d362b9e`'s own figures, and not one of them
+reproduces.** Three independent re-derivations agree on 1,859/57/54/94.7%, one
+of them run against the tree AS OF `d362b9e` with `_strip_radif`, `_tokens`
+and the corpus byte-identical to it — so the record was wrong on the day it
+was written, not stale since. `quality/floor.py` had been contradicting itself
+twelve lines apart the whole time: the `song` Profile declares `n_human=1859`
+and that same profile's `source=` reads "1,859 items over 108 authors".
+**1,872 IS reachable, two ways, and neither of them is this band** — `hi=405`
+instead of 400, or a whitespace `.split()` token count instead of the
+profile's own `QualityFeatures._tokens` — and under BOTH the carrier counts
+stay 57/54/94.7%, so nothing about the band rescues 46/43. **46/43/93.5% is
+not reachable under any defensible protocol.** It appears only at bands
+nowhere near the declared one (`150–330…349`, `56–222`), and at none of those
+do the record's other four figures follow; swept over every band
+`lo ∈ 1..800, hi ∈ lo..3000` under three tokenizers and three pairing
+conventions, NO band returns 46/43 together with the recorded run-length
+profile — that profile needs 18/12/10 carriers with runs of ≥2/3/4 words and
+the best any 46/43 band reaches is 15/10/8. **THE FINDING IS UNCHANGED AND
+SHARPER: the false-positive rate went UP.** Nothing was tuned to bring 93.5%
+back — doctrine 58 aimed at the measurement rather than at the threshold, and
+the same argument that keeps 0.50 keeps 94.7%. What DOES reproduce exactly,
+and is why this repin lands on the counts and not on the mechanism: the three
+admitted repetends above, the Burns figure, and every repetend of ≥3 words
+charged, 10 of 10.
 
 **A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `---`, OR `#` — NOTHING
 ELSE — CENTRALIZED 2026-08-12, CONVERGED 2026-08-13.** A `(parenthetical stage direction)` under a

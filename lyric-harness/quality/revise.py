@@ -1070,9 +1070,11 @@ class Reviser:
         SUBTRACT RATHER THAN LICENSE-IN-PLACE, which was the obvious-looking
         fix and is inverted. Licensing would route a 2x chorus into the
         one-off branch (`seen == 1`) and flag it as "recurs NOWHERE"; a 3x
-        chorus would land on the recurring branch and be handed the 93.5%
-        disclosure, which was measured on recurring rhyme REPETENDS and says
-        nothing about a declared identity. There is no threshold that fixes
+        chorus would land on the recurring branch and be handed the
+        refrain-licence disclosure (~~93.5%~~ 94.7% as of the 2026-08-14
+        re-derivation -- see `SlopFloor.radif_min_pair_fraction`), which was
+        measured on recurring rhyme REPETENDS and says nothing about a
+        declared identity. There is no threshold that fixes
         it, because a return's pair-density is a fact about how many times the
         chorus repeats -- song structure, not craft.
 

@@ -235,19 +235,35 @@ CALIBRATION = {
         "carries the supersession. || "
         "REPEAT_IN_VERSE's refrain licence was carried as impossible to "
         "calibrate -- 'this project has no corpus of radif verse' -- while "
-        "corpus/song/eng_* sat in the repository with 1,872 items inside this "
+        "corpus/song/eng_* sat in the repository with 1,859 items inside this "
         "profile's own token band. MEASURED 2026-08-14: at the declared 0.50, "
-        "43 of the 46 items carrying a real repetend are REFUSED the licence, "
-        "a 93.5% false-positive rate on canonical human verse against the ~5% "
+        "54 of the 57 items carrying a real repetend are REFUSED the licence, "
+        "a 94.7% false-positive rate on canonical human verse against the ~5% "
         "the five percentile thresholds hold to. Worse, the cut is anti"
         "-correlated with its own target: it admits two one-word runs and "
         "charges every repetend of three words or more, Burns's six-word "
-        "\"a health to them that's aw'\" included. Density does not separate "
-        "refrain from coincidence (0.125 vs 0.150 median) and neither does "
-        "run length (FPR 60.9/73.9/78.3% at >= 2/3/4 words). The value is NOT "
+        "\"a health to them that's awa\" at 4 of 20 pairs included. Density "
+        "does not separate refrain from coincidence (0.1292 vs 0.1417 "
+        "median) and neither does "
+        "run length (FPR 70.2/82.5/86.0% at >= 2/3/4 words). The value is NOT "
         "repinned -- nothing measured supports a replacement -- and the "
         "unlicensed case is a NOTE from that date, so it discloses rather "
-        "than fails (doctrine 22/16/58)."
+        "than fails (doctrine 22/16/58). "
+        "REPINNED 2026-08-14 from ~~1,872 items, 43 of 46 refused, 93.5% FPR, "
+        "density 0.125 vs 0.150, run-length FPR 60.9/73.9/78.3%~~ -- the "
+        "figures commit d362b9e recorded the same day, none of which "
+        "reproduces. This module contradicted itself twelve lines apart the "
+        "whole time: the `song` Profile below declares n_human=1859 and its "
+        "own `source=` says '1,859 items over 108 authors'. 1,872 IS "
+        "reachable, two ways, and NEITHER is this band -- hi=405 instead of "
+        "400, or a whitespace `.split()` token count instead of "
+        "QualityFeatures._tokens -- and under BOTH the carrier counts stay "
+        "57/54/94.7%. Re-derived at head and again against the tree AS OF "
+        "d362b9e -- corpus, `_tokens` and `_strip_radif` byte-identical to "
+        "that commit -- so the record was wrong when it was written, not "
+        "drifted since. THE FINDING IS UNCHANGED AND SHARPER -- the "
+        "false-positive rate went UP, so nothing here is retuned to recover "
+        "the old number (doctrine 58)."
     ),
 }
 
@@ -549,15 +565,39 @@ class FloorDeclaration:
     #: the error the rest of this module exists to avoid.~~
     #:
     #: STRUCK 2026-08-14, AND THE PREMISE WAS FALSE. The corpus was in the
-    #: repository the whole time — `corpus/song/eng_*`, 1,872 items inside
+    #: repository the whole time — `corpus/song/eng_*`, 1,859 items inside
     #: this profile's own 150-400 token band, the same population four of the
     #: five thresholds above were calibrated on. Nobody ran it. Measured now:
-    #: 46 of those items carry a repetend closing >= 2 pairs, and 0.50 refuses
-    #: to license 43 of the 46 — a 93.5% FPR on canonical human verse against
+    #: 57 of those items carry a repetend closing >= 2 pairs, and 0.50 refuses
+    #: to license 54 of the 57 — a 94.7% FPR on canonical human verse against
     #: the ~5% its siblings hold to. Density does not separate refrain from
-    #: coincidence (one-word runs median 0.125, multi-word refrain tails
-    #: 0.150), and licensing on run length instead only reaches 60.9% / 73.9%
-    #: / 78.3% at >= 2 / 3 / 4 words. No cut on either axis reaches 5%.
+    #: coincidence (one-word runs median 0.1292, multi-word refrain tails
+    #: 0.1417), and licensing on run length instead only reaches 70.2% / 82.5%
+    #: / 86.0% at >= 2 / 3 / 4 words. No cut on either axis reaches 5%.
+    #:
+    #: REPINNED 2026-08-14 from ~~1,872 items, 46 carriers, 43 refused, 93.5%
+    #: FPR, density 0.125 / 0.150, run-length FPR 60.9 / 73.9 / 78.3%~~ --
+    #: commit d362b9e's own figures, re-derived by three independent runs and
+    #: reproduced by none of them. The protocol every figure above depends on,
+    #: stated so a disagreement lands in a coordinate (doctrine 1):
+    #:   * POPULATION `song_profile_calibration.items_in` over
+    #:     corpus/song/eng_*.txt, non-empty bodies, 4,930 items.
+    #:   * BAND 150 <= n <= 400 with n = sum(len(QualityFeatures._tokens(l))),
+    #:     the profile's own tokenizer -> 1,859. `.split()` gives 1,872 at the
+    #:     same bounds and `_tokens` gives 1,872 at hi=405; both are why the
+    #:     stale number looked plausible, and under BOTH the carrier counts
+    #:     stay 57 / 54 / 94.7%.
+    #:   * PAIRING `SlopFloor._pairs`' mandate-less fallback, adjacent
+    #:     couplets. Reading every adjacent pair instead gives 96 / 95.
+    #:   * CARRIER an ITEM holding a repetend that closes >= 2 pairs.
+    #:     Counted per REPETEND instead: 64 / 61 = 95.3%.
+    #:   * DEDUP none (by body: unchanged; by title: 55 / 52).
+    #: 46 / 43 / 93.5% IS reachable -- at lo=150, hi=330..349, and at bands
+    #: like 56-222 -- and at NONE of them does the rest of the record follow;
+    #: over every band lo in 1..800, hi in lo..3000 there is no band at all
+    #: that returns 46 / 43 together with the recorded run-length profile.
+    #: THE FINDING IS UNCHANGED AND THE RATE WENT UP. Nothing below is tuned
+    #: to bring 93.5% back, which is the same doctrine 58 that keeps 0.50.
     #:
     #: THE VALUE IS DELIBERATELY NOT MOVED. Nothing measured supports a
     #: replacement, and repinning to a number that merely looks better is
@@ -836,45 +876,69 @@ class SlopFloor:
                 # measurement is the whole reason. `radif_min_pair_fraction`
                 # was carried as "definitional" on the stated ground that this
                 # project has no corpus of radif verse to calibrate it
-                # against. IT HAD 1,872 ITEMS THE WHOLE TIME:
+                # against. IT HAD 1,859 ITEMS THE WHOLE TIME:
                 # `corpus/song/eng_*` inside the `song` profile's own 150-400
                 # token band, the population four of the other five thresholds
-                # were already calibrated on. Run over them, 46 items carry a
+                # were already calibrated on. Run over them, 57 items carry a
                 # repetend closing >= 2 pairs, and at the declared 0.50 the
-                # gate refuses to license 43 OF THE 46 — a 93.5% false-positive
+                # gate refuses to license 54 OF THE 57 — a 94.7% false-positive
                 # rate on canonical, published human verse, against the ~5%
                 # each of its five siblings is held to. Doctrine 22 says state
                 # a threshold as a false-positive rate; stated that way, this
                 # one is not entitled to fail anybody.
                 #
+                # REPINNED 2026-08-14 from ~~1,872 items, 46 carriers, 43
+                # refused, 93.5%~~ — this comment's own first figures, which
+                # no re-derivation reproduces, including one run against the
+                # tree as of the commit that wrote them. `_strip_radif`,
+                # `_tokens` and the corpus are byte-identical to that commit,
+                # so the record was wrong on the day, not stale. See
+                # `FloorDeclaration.radif_min_pair_fraction` above for the
+                # protocol each figure depends on and for the two ways 1,872
+                # is reachable (hi=405, or a `.split()` token count) —
+                # neither moves 57 / 54 / 94.7%. THE ARGUMENT IS UNCHANGED
+                # AND THE RATE ROSE, so nothing here is retuned to recover
+                # the old number.
+                #
                 # AND IT IS NOT MIS-SET, IT IS ON THE WRONG AXIS. Density does
                 # not separate a refrain from a coincidence. The one-word runs
                 # this declaration's own example warns about — "two of
                 # thirty-one pairs ending in `it`" — sit at median density
-                # 0.125; genuine multi-word refrain tails sit at 0.150.
+                # 0.1292 (n=44); genuine multi-word refrain tails sit at
+                # 0.1417 (n=20), REPINNED 2026-08-14 from ~~0.125 / 0.150~~,
+                # which is the per-REPETEND median of the 150-400 band and is
+                # the protocol every other figure here uses.
                 # Length is the axis that reasoning implies and it is not
                 # enough either: licensing on runs of >= 2, 3 or 4 words moves
-                # the FPR only to 60.9%, 73.9% and 78.3%. NO CUT ON EITHER
+                # the FPR only to 70.2%, 82.5% and 86.0% (REPINNED from
+                # ~~60.9%, 73.9%, 78.3%~~). NO CUT ON EITHER
                 # AXIS REACHES 5%, so no value is repinned here — retuning a
                 # threshold to make a case pass, with no calibration behind
                 # the new number, is exactly what doctrine 58 forbids. The
                 # incumbent is kept and its cost is stated.
                 #
                 # WHAT 0.50 LICENSES IS BACKWARDS, which is the sharpest form
-                # of the finding: of the three repetends it admits, two are
-                # ONE-WORD runs, and EVERY repetend of three words or more in
-                # the corpus is charged — Burns's six-word "a health to them
-                # that's aw'" at 20% density, Gilbert's "punishment fit the
-                # crime", Blake's "never can it be". It licenses the
-                # coincidences and charges the refrains.
+                # of the finding: of the three repetends it admits — 'da'
+                # 7/11, 'john' 8/16, 'john tod' 12/21 — two are ONE-WORD
+                # runs, and EVERY repetend of three words or more in the
+                # corpus is charged, 10 of 10 — Burns's six-word "a health to
+                # them that's awa" at 4/20 = 20% density, Gilbert's
+                # "punishment fit the crime" at 3/37, Blake's "never can it
+                # be" at 2/18. It licenses the coincidences and charges the
+                # refrains. THIS HALF REPRODUCES
+                # EXACTLY: the admitted three, the Burns figure and the 10 of
+                # 10 are byte-identical across every re-derivation, which is
+                # what locates the repin above in the COUNTS and not in the
+                # mechanism.
                 #
                 # The `a == b` branch below is UNTOUCHED and stays a flag:
                 # there the qafiya UNDER the repetend is the same word too, so
                 # no refrain reading is available and it is plain self-rhyme.
                 # THREE CASES, AND ONLY THE MIDDLE ONE MOVED. `not in
                 # licensed` was covering two unlike things under one severity,
-                # and the 93.5% above is a measurement of the second only —
-                # the sweep counted repetends closing >= 2 pairs and nothing
+                # and the 94.7% above (REPINNED 2026-08-14 from ~~93.5%~~) is
+                # a measurement of the second only — the sweep counted
+                # repetends closing >= 2 pairs and nothing
                 # else, so applying its verdict to a one-off would be charging
                 # a rate to a population it was never measured on.
                 seen = len(runs.get(run, ()))
@@ -886,11 +950,14 @@ class SlopFloor:
                     why = (f"carried by {seen} of {npairs} pairs, under the "
                            f"declared {need:.0%} needed to read it as a "
                            f"refrain. DISCLOSED, NOT CHARGED: that cut refuses "
-                           f"43 of the 46 corpus/song/eng_* items carrying a "
-                           f"recurring repetend — 93.5% of canonical human "
+                           f"54 of the 57 corpus/song/eng_* items carrying a "
+                           f"recurring repetend — 94.7% of canonical human "
                            f"verse against the ~5% every percentile threshold "
                            f"here holds to — so it may not fail a draft "
-                           f"(doctrine 22/16)")
+                           f"(doctrine 22/16). REPINNED 2026-08-14 from "
+                           f"43 of 46 / 93.5%, which no re-derivation "
+                           f"reproduces; the rate ROSE, so the disclosure "
+                           f"stands and nothing was retuned to recover it")
                 elif len(stripped) > 1:
                     # Closes ONE pair while the item has others to contrast it
                     # against. Not a repetend at all: a one-off self-rhyme,
