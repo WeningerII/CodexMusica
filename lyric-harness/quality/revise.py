@@ -346,8 +346,132 @@ class Reviser:
         `spec=None` used to fall through to "no scheme declared", which
         mandated nothing and reported nothing flagged. Doctrine 20: that is a
         refusal wearing a pass, and it is now a refusal that says so.
+
+        A BLANK LINE IN THE DRAFT IS THE SECOND REFUSAL, and it is the same
+        defect one coordinate over: the mandate and the draft disagree about
+        WHICH LINES THEY ARE TALKING ABOUT rather than about how many there
+        are. `n_lines=len(lines)` below commits this whole class to "the list
+        handed in IS the line list" — `_matrix` builds an n x n matrix over
+        it, `grade()` reads `matrix[i - 1][j - 1]`, `brief()` reads
+        `lines[ln - 1]`, and `verify(targeted=...)` takes the CALLER's own
+        1-based numbers into it. `Mandate.pairs0()` is 0-based against that
+        same list. TWO LAYERS UNDERNEATH DISAGREE, correctly and on purpose:
+        `SlopFloor.check` opens with `lines = [l for l in lines if l.strip()]`
+        and `QualityFeatures.extract` does the same, because a stanza break
+        must not become a datapoint (`quality/test_floor.py` test 2 pins that
+        and is right). So the two halves of `inspect()` count lines
+        differently and neither says so.
+
+        MEASURED, on a 5-line draft with a blank at L2 and groups 1,3;4,5
+        (reachable through a plain letter scheme, `inspect(RAW, 'AXABB')` —
+        not only through a hand-built `Cover`):
+
+          - `pairs0()` is [(0, 2), (3, 4)]. Against the floor's own 4-element
+            list, (3, 4) is out of range and the guard in
+            `SlopFloor._relation_findings` DROPS it, so the mandated pair
+            L4/L5 is never graded. On the blank-free draft that pair carries
+            a `REPEAT_IN_VERSE` FLAG — something `verify()` can reject on.
+          - (0, 2) is graded, as stripped[0]/stripped[2] = RAW L1/L4, a pair
+            the mandate never groups. An UNDECLARED pair, silently judged.
+          - Every floor finding's `locations` is `enumerate()`d over the
+            STRIPPED list and filed by `inspect()` as RAW line numbers. On a
+            5-line draft with a LEADING blank, `ANAPHORA_OVERLOAD` comes back
+            at [1, 2, 3, 4] when the true raw lines are [2, 3, 4, 5], so
+            `brief()` briefs the EMPTY LINE and never reaches the last real
+            one. It is not only an off-by-one into another real line: on the
+            same shape with a CLICHE_PAIR, a FLAG lands on the blank, and
+            `revise_loop` then returns `stop_reason=no_progress` with its
+            first attempt logged as `line 1 tier 1 accepted=False, "no
+            candidates offered"` — the loop asking for a better end word
+            for "".
+
+        REFUSED RATHER THAN STRIPPED, and stripping was the obvious-looking
+        fix. `SlopFloor._pairs` ALREADY carries the guard that would have
+        caught this (`if scheme and len(scheme) == len(lines)`) and
+        `_floor_for` goes around it with a lambda that ignores both
+        arguments — but re-arming it would only turn a wrong answer into a
+        silent fallback to adjacent couplets, which is a different wrong
+        answer. Stripping here would silently RENUMBER THE WRITER'S
+        DECLARATION: `[[4, 5]]` means raw L4/L5, and after a strip it would
+        mean two different lines. It would also break two coordinates that
+        are not ours to move — `verify()`'s `targeted={4}` is the caller's
+        line numbering, and a pre-built `Mandate` carries `n_lines` from the
+        raw draft, so a strip would make this method refuse it for a length
+        mismatch it did not have. An index map in both directions was the
+        third option and it repairs only the floor's half: the blank line is
+        still a real line to `_matrix`, to `readability.report`, to
+        `fit.py`'s bar placement and to `grid.py`'s rebuilt `Song`, and it is
+        still a briefable line with no text in it.
+
+        `NoMandate` is the same instrument `SC.mandate` already uses for the
+        sibling defect one line apart, for the reason written there: silently
+        ignoring a length mismatch is how the old loop dropped a declared
+        scheme on the floor and passed vacuously.
+
+        NOT REACHABLE FROM THE CLI, which is why it survived:
+        `load_lyric_lines` and `parse_lyric_sections` both drop blanks and all
+        four verbs route through one of them. Fully reachable from the Python
+        API, on every entry — `grade`, `group_merges`, `inspect`, `brief`
+        (via `inspect`) and `verify` (via `inspect` on BOTH drafts, so a blank
+        at the same index in before and after — which passes verify's own
+        length gate — is caught here rather than nowhere).
         """
+        self._refuse_blank(lines)
         return SC.mandate(spec, n_lines=len(lines))
+
+    @staticmethod
+    def blank_lines(lines):
+        """-> the 1-based numbers of the lines this class cannot grade.
+
+        ONE SPELLING OF "BLANK", and it is deliberately the same predicate
+        the two layers that disagree with this one use: `SlopFloor.check`'s
+        `[l for l in lines if l.strip()]`, `QualityFeatures.extract`'s copy of
+        it, and `lyric_harness.load_lyric_lines`'s `if l.strip()`. A refusal
+        keyed on a NARROWER test than the strip it is protecting against
+        would let exactly the drafts that skew the indices through.
+        """
+        return [i + 1 for i, l in enumerate(lines) if not str(l).strip()]
+
+    @classmethod
+    def _refuse_blank(cls, lines):
+        """RAISE `NoMandate` if the draft carries a line the floor will drop.
+
+        Called from BOTH mandate constructors. `mandate()` is the choke point
+        every grading path routes through (`grade`, `group_merges`,
+        `inspect`, and so `brief`/`verify`); `mandate_from_graph` is the one
+        builder that does not go through it, and it reaches `_matrix` — so
+        without this it would spend a full n x n pass over a line list it
+        cannot number before the refusal arrived from somewhere else.
+        """
+        blank = cls.blank_lines(lines)
+        if blank:
+            raise NoMandate(
+                f"line{'s' if len(blank) > 1 else ''} "
+                f"{', '.join('L%d' % b for b in blank)} of this "
+                f"{len(lines)}-line draft "
+                f"{'are' if len(blank) > 1 else 'is'} blank, and a blank line "
+                f"is not a line this loop can grade.\n"
+                f"This is a REFUSAL, not a pass, and not a defect in the "
+                f"writing: it is the mandate and the draft disagreeing about "
+                f"WHICH LINES they name.\n"
+                f"A Reviser takes the list it is handed AS the line list — "
+                f"`mandate()` is `n_lines=len(lines)`, `Mandate.pairs0()` is "
+                f"0-based into it, `verify(targeted=...)` and `Brief.line_no` "
+                f"are the caller's own 1-based numbers into it. "
+                f"`SlopFloor.check` and `QualityFeatures.extract` are not: "
+                f"both open by dropping blank lines, because a stanza break "
+                f"must not become a datapoint. Handed a draft with a blank, "
+                f"those two halves of `inspect()` number lines differently — "
+                f"a mandated pair falls off the end and is dropped in "
+                f"silence, an undeclared pair is graded in its place, and "
+                f"every floor finding's `locations` is filed one or more "
+                f"lines short of where it was measured.\n"
+                f"Stripping the blanks here would silently RENUMBER the "
+                f"declaration you just made, so the draft is handed back "
+                f"instead. Drop the blank lines yourself before you call — "
+                f"`lyric_harness.load_lyric_lines` is what every CLI verb "
+                f"uses and is why none of them can reach this — and renumber "
+                f"the mandate to match.")
 
     def mandate_from_graph(self, lines, theta=None, profile=None,
                            origin=None):
@@ -377,7 +501,13 @@ class Reviser:
         mandate rejects, the slop floor, and the joint candidate field at a
         pivot. And a cover derived at one theta is a perfectly ordinary
         independent mandate when graded at another.
+
+        A BLANK LINE IS REFUSED HERE TOO, by the same `_refuse_blank` the
+        declared path uses — the cover this returns is 1-based against the
+        list it was handed, so it carries the same numbering the floor will
+        not agree with. See `mandate()`.
         """
+        self._refuse_blank(lines)
         theta = self.decl.theta_rhyme if theta is None else theta
         _, _, records, matrix = self._matrix(lines, profile=profile)
         n = len(lines)
