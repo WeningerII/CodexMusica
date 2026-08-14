@@ -1164,12 +1164,36 @@ rather than this paragraph — a roster copied into two files drifts in both.
    days after this line was written and nobody split the sentence — doctrine
    48's own failure mode, caught by a real draft's final chorus coming back
    `HEAD_PRESERVED` in a real run rather than the boolean the sentence still
-   claimed. **Outro-extends-intro is still OPEN**: `compare_returns` takes two line lists and does not care where
+   claimed. **Outro-extends-intro — CLOSED 2026-08-14.** `grid.reprise_findings`
+   calls the same primitive across two DIFFERENT declared functions. THE DESIGN
+   WAS NEVER THE COMPARISON, IT WAS THE ASKED SET: `compare_returns(INTRO,
+   OUTRO)` already answers `EXTENDED_RETURN` with no special case, so the
+   primitive was never the missing piece — the CALL was. The asked set is
+   `FormConvention.reprises`, a declared coordinate holding three ordered pairs
+   taken from `SECTION_FUNCTIONS`' own glosses, because asking every ordered
+   pair is MEASURABLY WRONG: over `corpus/song/`, 51 of 889 cross-function pairs
+   (5.7%) share a whole line and NOT ONE is a reprise — they are refrain lines a
+   printer set inside the verse. All 51 are silent under the shipped default
+   (doctrine 61). The threshold keys on `Return.invariant_lines`, NOT on a
+   hand-copied subset of `VARIATION_KINDS` — that spelling is what rotted
+   `single_use`, which drifted from `FunctionSpec.recurrence` by one member and
+   silenced both gates it fed. `CROSS_FUNCTION_REPRISE` is a NOTE, so it reaches
+   `verify()`'s diff and cannot reject there (doctrine 6), proven by a
+   counterfactual that re-types only that code and flips acceptance to False.
+   The corpus bounds the FALSE-POSITIVE side and cannot supply the positive one
+   — no INTRO/OUTRO/REPRISE mark exists in `MARK_FUNCTION` — and that limit is
+   pinned by a test rather than papered over. `quality/test_grid.py` §24,
+   `test_song_function.py` §10. One thing the closure found on its way: `reprise`
+   is the only function whose gloss declares it IS a cross-function return, and
+   its `recurrence` is `"once"`, so `return_findings` answered `SINGLE_INSTANCE`
+   and stopped — the one property that defines the function was invisible to
+   every check in the file.
+   ~~**Outro-extends-intro is still OPEN**: `compare_returns` takes two line lists and does not care where
    they came from, but `song_function_report` only ever calls it on
    MULTIPLE INSTANCES OF THE SAME declared function (`song.instances_of(fn)`)
    — comparing across two DIFFERENT functions (does the outro reprise the
    intro) is not asked by anything. The primitive that would answer it
-   already exists; nothing calls it that way.
+   already exists; nothing calls it that way.~~
 8. **`quality/readability.py`'s own report never joins the revision loop, and
    the data is already on the path.** `Reviser._matrix` computes
    `readability_records` for EVERY line on EVERY run. The only readability

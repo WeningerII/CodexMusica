@@ -414,6 +414,16 @@ def corpus_scan():
         "empty_by_language": collections.Counter(),
         "empty_repeat_blocks": 0,
         "empty_marks": collections.Counter(),
+        # THE CROSS-FUNCTION QUANTITIES (section 10). Same pass again, same
+        # reason: a second sweep would derive the population from a second
+        # definition of "the first block of a function", and that is how a
+        # record and a behaviour drift apart.
+        "cross_pairs": 0,
+        "cross_shared": 0,
+        "cross_by_pair": collections.Counter(),
+        "cross_shared_by_pair": collections.Counter(),
+        "cross_kinds": collections.Counter(),
+        "cross_examples": [],
     }
     for path in sorted(glob.glob(os.path.join(CORPUS, "*.txt"))):
         out["files"] += 1
@@ -465,6 +475,36 @@ def corpus_scan():
                     out["variant_pairs"] += 1
             if has:
                 out["songs_with_returns"] += 1
+            # THE OTHER PAIRING, AND THE ONE NOTHING ASKED (section 10). The
+            # loop above compares a function with ITSELF; this compares two
+            # DIFFERENT functions in one song, which is what a reprise is.
+            # The four functions here are `MARK_FUNCTION`'s whole range —
+            # the corpus's printed marks carry no INTRO, OUTRO or REPRISE, so
+            # what this measures is the FALSE-POSITIVE side of the rule and
+            # not its positive side. That limit is the finding's coordinate,
+            # not a caveat on it.
+            firsts = {}
+            for fn in ("verse", "chorus", "burden", "refrain"):
+                inst = song.instances(fn)
+                if not inst:
+                    continue
+                bl = [b for b in inst[sorted(inst)[0]] if b.lines]
+                if bl:
+                    firsts[fn] = bl[0]
+            keys = sorted(firsts)
+            for x in range(len(keys)):
+                for y in range(x + 1, len(keys)):
+                    a, b = keys[x], keys[y]
+                    r = G.compare_returns(firsts[a].lines, firsts[b].lines)
+                    out["cross_pairs"] += 1
+                    out["cross_by_pair"][(a, b)] += 1
+                    out["cross_kinds"][r.kind] += 1
+                    if r.invariant_lines:
+                        out["cross_shared"] += 1
+                        out["cross_shared_by_pair"][(a, b)] += 1
+                        out["cross_examples"].append(
+                            (os.path.basename(path), song.title, a, b, r.kind,
+                             firsts[a].lines[r.invariant_lines[0] - 1]))
     _SCAN[0] = out
     return out
 
@@ -816,6 +856,111 @@ def test_the_apparatus_rule_is_the_centres_and_its_price_is_named():
           f"byte-identical")
 
 
+# ---------------------------------------------------------------------------
+# THE CROSS-FUNCTION REPRISE, PRICED ON THE CORPUS
+#
+# `compare_returns` never cared where its two line lists came from. Every
+# caller in `grid.py` handed it `song.instances_of(fn)` -- ONE function
+# against ITSELF -- so "does the outro reprise the intro" was unaskable with
+# the machinery to answer it sitting in the same file (CLAUDE.md known gap 7).
+#
+# The design question is not the comparison, it is WHICH PAIRS. This section
+# is the evidence the answer rests on, and it is the negative half: run the
+# rule over every cross-function pair the corpus can supply and count how
+# often it would say "reprise" about two sections that are not one.
+# ---------------------------------------------------------------------------
+
+#: One corpus hit, named rather than counted (doctrine 91). Tennyson's
+#: `[BURDEN]` is the line `Rode the six hundred.` and the first verse ENDS on
+#: it -- printed inside the verse, which is what a burden IS. A pairwise
+#: reprise check would report "the burden reprises the verse" about it, and
+#: the sentence is meaningless: they are the same repetend, marked twice.
+NAMED_CROSS_HIT = ("eng_british_alfred_tennyson.txt", "burden", "verse",
+                   "Rode the six hundred.")
+
+
+def test_which_pairs_may_be_asked_is_the_whole_design():
+    c = corpus_scan()
+    rate = c["cross_shared"] / c["cross_pairs"]
+    print("\n10. THE CROSS-FUNCTION REPRISE — the asked set, priced")
+    print(f"\n   Every UNORDERED pair of two DIFFERENT declared functions "
+          f"inside one song,\n   first block against first block, over the "
+          f"same {c['files']} files:")
+    print(f"     pairs compared           : {c['cross_pairs']:,}")
+    print(f"     >= 1 whole line in common: {c['cross_shared']:,}  "
+          f"({rate:.1%})")
+    for p, n in c["cross_by_pair"].most_common():
+        h = c["cross_shared_by_pair"][p]
+        print(f"       {p[0]+'/'+p[1]:20} {n:>5} asked  {h:>4} shared  "
+              f"{h/n:>6.1%}")
+    print(f"     kinds: {dict(c['cross_kinds'].most_common(6))}")
+
+    check("the corpus can supply cross-function pairs at all — four "
+          "functions, so six possible pairings",
+          c["cross_pairs"] == 889 and len(c["cross_by_pair"]) == 5,
+          f"{c['cross_pairs']:,} pairs over {len(c['cross_by_pair'])} of the "
+          f"6 possible pairings ({sorted(c['cross_by_pair'])}); "
+          f"burden/refrain never co-occur in one song, which is itself the "
+          f"corpus saying the two marks are one printer's choice")
+    check("ASKING EVERY PAIR WOULD BE WRONG 5.7% OF THE TIME — this is the "
+          "number the declared asked set exists for",
+          c["cross_shared"] == 51 and abs(rate - 0.057) < 0.001,
+          f"{c['cross_shared']} of {c['cross_pairs']:,} pairs share a whole "
+          f"line under the declared normalisation, and NOT ONE is a reprise: "
+          f"they are refrain lines a printer set inside the verse. On a "
+          f"21-function vocabulary that is 420 ordered questions per song at "
+          f"this error rate — doctrine 61, a rule that fires more often is "
+          f"not a better rule")
+    check("and the pairs that carry it are exactly the ones the default "
+          "convention does NOT ask",
+          not (set(c["cross_shared_by_pair"])
+               & {tuple(sorted(p)) for p in G.POPULAR_SONG.reprises}),
+          f"measured: {sorted(c['cross_shared_by_pair'])}; asked by "
+          f"POPULAR_SONG: {[tuple(p) for p in G.POPULAR_SONG.reprises]} — "
+          f"disjoint, so every one of the {c['cross_shared']} is silent under "
+          f"the shipped default")
+
+    # THE LIMIT OF THIS EVIDENCE, STATED. `MARK_FUNCTION` reads five marks
+    # onto four functions and none of them is an intro, an outro or a
+    # reprise, so no printed block in this corpus can WITNESS one of the
+    # three pairs the convention does ask. This measurement bounds the false
+    # positives and says nothing about the true positives, and pretending
+    # otherwise would be doctrine 20 pointed at a corpus.
+    check("the corpus cannot witness the asked pairs, and the reason is in "
+          "`MARK_FUNCTION` rather than in an argument",
+          not ({fn for p in G.POPULAR_SONG.reprises for fn in p}
+               & set(G.MARK_FUNCTION.values())
+               & {"intro", "outro", "reprise"}),
+          f"marks read: {sorted(set(G.MARK_FUNCTION.values()))}; functions "
+          f"the asked pairs name: "
+          f"{sorted({fn for p in G.POPULAR_SONG.reprises for fn in p})}. The "
+          f"printed record marks verses and repetends and does not mark a "
+          f"song's opening or its close, so the positive side of this check "
+          f"rests on the vocabulary's own glosses and is labelled as doing so")
+
+    # AND ONE HIT, LOCATED. A rate with no instance under it is doctrine 58's
+    # bare count: 51 is a number a later edit can make true again by accident.
+    fname, a, b, line = NAMED_CROSS_HIT
+    hits = [e for e in c["cross_examples"]
+            if e[0] == fname and (e[2], e[3]) == (a, b)]
+    check("the rate has an instance under it, re-located in the corpus",
+          any(e[5].strip() == line for e in hits),
+          f"{fname}: {[(e[1][:34], e[4], e[5][:28]) for e in hits[:3]]} — "
+          f"Tennyson's burden IS the verse's last line, so 'the burden "
+          f"reprises the verse' is a sentence about a mark, not about a song")
+
+    # THE PRIMITIVE ITSELF, ON THE CORPUS'S OWN BLOCKS. The claim gap 7 makes
+    # is that `compare_returns` was always able to do this and was never
+    # asked; the cheapest proof is that the corpus sweep above called it
+    # 889 times across two different functions and it answered every one.
+    check("`compare_returns` resolved every cross-function pair to a named "
+          "kind — the primitive needed nothing added to be asked this",
+          sum(c["cross_kinds"].values()) == c["cross_pairs"]
+          and set(c["cross_kinds"]) <= set(dict(G.VARIATION_KINDS)),
+          f"{len(c['cross_kinds'])} kinds used; the same ladder section 6 "
+          f"runs on same-function returns, on pairs it was never handed")
+
+
 if __name__ == "__main__":
     for fn in (test_function_is_declared_and_never_inferred,
                test_the_questions_that_needed_a_function,
@@ -825,7 +970,8 @@ if __name__ == "__main__":
                test_the_corpus_holds,
                test_the_two_songs_the_gap_register_named,
                test_the_report_prints_three_counts,
-               test_the_apparatus_rule_is_the_centres_and_its_price_is_named):
+               test_the_apparatus_rule_is_the_centres_and_its_price_is_named,
+               test_which_pairs_may_be_asked_is_the_whole_design):
         fn()
     print("=" * 70)
     if FAILURES:

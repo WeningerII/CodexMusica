@@ -1456,6 +1456,76 @@ class FormConvention:
     #: a run of this many identical returns with no variation is the strophic
     #: default; below it, saying so would be noise
     return_lock_min: int = 2
+    #: ORDERED pairs (LATER, EARLIER) whose CROSS-FUNCTION reprise is asked.
+    #:
+    #: `compare_returns` never cared where its two line lists came from, and
+    #: for the whole life of this module the only caller handed it
+    #: `song.instances_of(fn)` -- two returns of ONE declared function. "Does
+    #: the outro come back to the intro" was unaskable, not because the
+    #: primitive was missing but because nothing called it across two
+    #: different functions (CLAUDE.md known gap 7).
+    #:
+    #: WHY A DECLARED SET AND NOT EVERY PAIR, MEASURED RATHER THAN ARGUED.
+    #: 21 functions give 420 ordered pairs, and a verse does not "reprise" a
+    #: chorus -- it shares a language with it. Over `corpus/song/`, on the
+    #: only cross-function pairs the printed marks can supply (verse, chorus,
+    #: burden, refrain -- `MARK_FUNCTION`'s whole range), 889 unordered pairs
+    #: of first blocks were compared and 51 of them -- 5.7% -- share at least
+    #: one whole line under the declared normalisation. NOT ONE IS A REPRISE:
+    #: they are refrain lines a printer set inside the verse (Tennyson's
+    #: `Rode the six hundred.` against `[BURDEN]`, Bliss's `Wonderful words
+    #: of life,` against `[REFRAIN]`, Lovelace's capitalised repetend). Asked
+    #: pairwise over everything, this check would report a reprise on 5.7% of
+    #: the cross-function pairs in this corpus and be wrong every time --
+    #: which is doctrine 61 exactly: a rule that fires more often is not a
+    #: better rule. So the SET is the measurement's own coordinate, and it is
+    #: declared here where a genre can override it rather than spelled into
+    #: the check.
+    #:
+    #: WHERE THE THREE MEMBERS COME FROM. Not taste: each one is a convention
+    #: `SECTION_FUNCTIONS` already states in its own gloss.
+    #:   ("outro", "intro")    `intro` is the ONE entry in the vocabulary
+    #:                         whose gloss declares its material returns --
+    #:                         "may state material that returns later" -- and
+    #:                         the outro is where a song comes back to it.
+    #:                         This is gap 7's own example, in its own words.
+    #:   ("outro", "chorus")   the close that is the chorus again.
+    #:   ("reprise", "chorus") `reprise` is the ONE entry whose gloss declares
+    #:                         it IS a cross-function return -- "a declared
+    #:                         return of earlier material, later and changed"
+    #:                         -- and it names no source. Without this pair a
+    #:                         declared reprise is checked by NOTHING: its
+    #:                         recurrence is "once", so `return_findings`
+    #:                         answers it SINGLE_INSTANCE and stops, and the
+    #:                         one property that defines the function is
+    #:                         invisible to every check in this file.
+    #: The corpus can bound the FALSE-POSITIVE side of this set and cannot
+    #: supply its positive side: `MARK_FUNCTION` reads no INTRO, OUTRO or
+    #: REPRISE mark, so no printed block in `corpus/song/` can witness one of
+    #: these three pairs. That is stated rather than papered over.
+    reprises: tuple = (("outro", "intro"), ("outro", "chorus"),
+                       ("reprise", "chorus"))
+    #: how many of the earlier section's lines must come back INTACT before
+    #: the later section is called a reprise of it. Doctrine 58: this is the
+    #: threshold the whole check turns on, so it travels with the convention
+    #: instead of being a bare `if` nobody wrote down.
+    #:
+    #: KEYED ON THE MEASUREMENT, NOT ON A LIST OF KINDS. The obvious spelling
+    #: is "these six of the twelve `VARIATION_KINDS` count as a reprise", and
+    #: it is the spelling that rots: `single_use` was exactly such a
+    #: hand-copied subset and it drifted from `FunctionSpec.recurrence` by one
+    #: member (`reprise`), silencing both gates it fed. `Return.
+    #: invariant_lines` is the kind ladder's own input rather than a second
+    #: copy of its output, so a kind added to `VARIATION_KINDS` tomorrow is
+    #: classified correctly here on the day it is added.
+    #:
+    #: AND IT IS THE THRESHOLD THAT KEEPS THE CHECK QUIET. Two sections that
+    #: merely share a language land on RESTATEMENT (token overlap, nothing
+    #: invariant), REWRITTEN_RETURN, or HEAD_PRESERVED on a shared opening
+    #: formula -- all of which have zero invariant lines and none of which is
+    #: a reprise. What survives is the claim a reader can check by eye: a
+    #: line of the earlier section is literally in the later one.
+    reprise_min_lines: int = 1
 
 
 POPULAR_SONG = FormConvention()
@@ -1593,6 +1663,137 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             f"the middle. Variation-on-return is a channel this song does "
             f"not use."))
     return findings, refusals, rets
+
+
+def reprise_findings(song, later="outro", earlier="intro",
+                     convention=POPULAR_SONG, rhyme_key=None, decl=None):
+    """Does ONE declared function's section come back to ANOTHER'S?
+    -> (findings, refusals, reprises).
+
+    The other half of `return_findings`, and the half nothing asked.
+    `compare_returns` takes two LINE LISTS and does not care where they came
+    from -- its own docstring says so -- but every caller in this module
+    handed it `song.instances_of(fn)`, so the only question ever put to it
+    was "does this function agree with ITSELF". "Does the outro reprise the
+    intro" needs the same primitive pointed at two DIFFERENT functions, and
+    that is all this is.
+
+    THE PAIR IS THE WHOLE DESIGN and it is `convention.reprises` -- read that
+    field before this docstring. Asking every ordered pair is 420 questions
+    and measurably wrong 5.7% of the time on this repo's own corpus.
+
+    THE THREE RULES THIS CHECK DECLARES, because each of them decides an
+    answer:
+
+      * THE STATEMENT IS THE FIRST INSTANCE of `earlier`. A chorus states its
+        material once and returns to it; whether its own returns agree is
+        `return_findings`' question and is answered separately, so taking the
+        first instance here neither double-charges nor hides that.
+      * THE REPRISE MUST BE LATER, in bars. A function that comes BEFORE the
+        one it is supposed to reprise is not a reprise; the pair is ordered
+        and this is where the order is enforced rather than assumed.
+      * A REPRISE IS INVARIANT LINES, not similarity. At least
+        `convention.reprise_min_lines` of the earlier section's lines must
+        come back INTACT under the declared normalisation. Two sections in
+        one writer's voice are similar by construction, and a check that
+        fired on similarity would fire on every well-written song.
+
+    Silence here is an ANSWER -- these two functions do not share a line --
+    and never a pass earned by not asking: a pair whose sides are not both
+    declared is refused, and `song_function_report` does not ASK it at all
+    (doctrine 20, and the same gate `SINGLE_USE_RECURRED` uses).
+    """
+    ln, en = as_function(later), as_function(earlier)
+    findings, refusals, out = [], [], []
+    e_inst = song.instances_of(en)
+    l_inst = song.instances_of(ln)
+    if not e_inst or not l_inst:
+        missing = [f for f, i in ((en, e_inst), (ln, l_inst)) if not i]
+        refusals.append(Refusal(
+            "REPRISE_SIDE_UNDECLARED",
+            f"'does the {ln} reprise the {en}' has no "
+            f"{' and no '.join(missing)}",
+            f"declared functions present: "
+            f"{sorted({s.function for s in song.sections if s.declared})}. A "
+            f"reprise is a relation between two sections and one of them is "
+            f"not in this song; reporting 'no reprise' would be an answer "
+            f"about a comparison that was never made (doctrine 28)."))
+        return findings, refusals, out
+
+    src = e_inst[0]
+    src_lines = [l.text for l in song.lines_in(src)]
+    for dst in l_inst:
+        if dst.start_bar <= src.start_bar:
+            refusals.append(Refusal(
+                "REPRISE_IS_NOT_LATER",
+                f"the {ln} at bar {dst.start_bar} does not come after the "
+                f"{en} at bar {src.start_bar}",
+                f"`reprises` is a set of ORDERED pairs and this one is "
+                f"declared (later={ln!r}, earlier={en!r}). Two sections in "
+                f"the other order may well share material; whatever that is, "
+                f"it is not the {ln} coming back to the {en}."))
+            continue
+        dst_lines = [l.text for l in song.lines_in(dst)]
+        if not [t for t in src_lines if normalise_line(t)] or \
+                not [t for t in dst_lines if normalise_line(t)]:
+            empty = [f"{s.name!r} ({f})" for s, f in
+                     ((src, en), (dst, ln))
+                     if not [t for t in [l.text for l in song.lines_in(s)]
+                             if normalise_line(t)]]
+            refusals.append(Refusal(
+                "REPRISE_SIDE_HAS_NO_WORDS",
+                f"'does the {ln} reprise the {en}' was not measured: a side "
+                f"has no words",
+                f"{' and '.join(empty)} carries no line the declared "
+                f"normalisation can read. An instrumental span and a span "
+                f"that reprises nothing are different answers (doctrine 28), "
+                f"and `compare_returns` reads two EMPTY line lists as "
+                f"VERBATIM -- which is correct arithmetic and would be a "
+                f"false reprise here."))
+            continue
+        r = compare_returns(src_lines, dst_lines, decl=decl,
+                            rhyme_key=rhyme_key,
+                            first_slot=song.slot_profile(src),
+                            again_slot=song.slot_profile(dst))
+        out.append((src, dst, r))
+        if r.kind == "STUB":
+            refusals.append(Refusal(
+                "REPRISE_STUB",
+                f"'does the {ln} reprise the {en}' was refused: one side is "
+                f"an abbreviated reference",
+                f"{src.name!r} -> {dst.name!r}. A printed '&c.' POINTS at a "
+                f"block it does not reproduce, so the lines it stands for "
+                f"were never compared -- and a stub is exactly the shape a "
+                f"real reprise takes in print, which is why this is a "
+                f"refusal and not a finding in either direction "
+                f"(MISSING.md A-1)."))
+            continue
+        if len(r.invariant_lines) < convention.reprise_min_lines:
+            continue                       # ANSWERED: it does not reprise it
+        # `kept` is non-empty at any `reprise_min_lines >= 1`, and a
+        # convention MAY legally declare 0 -- "every comparison counts" is a
+        # coherent thing for a genre to say, and it is how the threshold is
+        # shown to be the thing doing the work. A declared value must not be
+        # able to make this raise, so the quote is conditional rather than
+        # indexed blind.
+        kept = [src_lines[i - 1] for i in r.invariant_lines]
+        findings.append(GridFinding(
+            "CROSS_FUNCTION_REPRISE",
+            f"the {ln} reprises the {en}: {len(r.invariant_lines)} line(s) "
+            f"come back",
+            f"{src.name!r} ({en}, bars {src.start_bar}-{src.end_bar}) -> "
+            f"{dst.name!r} ({ln}, bars {dst.start_bar}-{dst.end_bar}) is "
+            f"{r.kind} -- {r.gloss}. Lines {list(r.invariant_lines)} of the "
+            f"{en} return intact"
+            + (f", beginning {kept[0]!r}" if kept else "") + "; "
+            f"{len(r.varied_lines)} more moved. Under {convention.name!r} "
+            f"this is a CONVENTION and not a defect -- it is reported "
+            f"because the harness could not previously say it at all: "
+            f"`compare_returns` was only ever asked whether a function "
+            f"agreed with ITSELF. Threshold: reprise_min_lines="
+            f"{convention.reprise_min_lines} line(s) invariant under "
+            f"{r.declaration.normalisation!r}."))
+    return findings, refusals, out
 
 
 def _channel_values(song, sections, rhyme_key=None):
@@ -1788,13 +1989,43 @@ def song_function_report(song, hooks=(), rhyme_key=None,
         f, r, rets = return_findings(song, fn, convention, rhyme_key, decl)
         ask_one(f, r)
         detail[fn] = rets
+    # THE CROSS-FUNCTION HALF. Every question above asks whether ONE declared
+    # function agrees with itself; this asks whether one comes back to
+    # ANOTHER, which is the same primitive pointed at a different pair and was
+    # asked by nothing (CLAUDE.md known gap 7).
+    #
+    # THE GATE IS BOTH SIDES PRESENT, and it is the same gate the single-use
+    # loop above uses, for the same reason. A song with no intro has no
+    # "does the outro reprise the intro" to answer, and asking anyway would
+    # spend a REPRISE_SIDE_UNDECLARED refusal on every song in the repo that
+    # has an outro and no intro -- which is most of them, and which would
+    # make the three counts report a song as partly-refused for the crime of
+    # not having a section. `reprise_findings` still refuses when called
+    # directly on a missing side; what this gate decides is whether the
+    # question is ASKED, and an unasked question is in none of the three
+    # counts (doctrine 79).
+    reprises = {}
+    for later, earlier in convention.reprises:
+        ln, en = as_function(later), as_function(earlier)
+        if not song.instances_of(ln) or not song.instances_of(en):
+            continue
+        f, r, reps = reprise_findings(song, ln, en, convention, rhyme_key,
+                                      decl)
+        ask_one(f, r)
+        reprises[(ln, en)] = reps
     f, r, ch = bridge_contrast(song, convention=convention,
                                rhyme_key=rhyme_key)
     ask_one(f, r)
     f, r = hook_findings(song, hooks)
     ask_one(f, r)
     return {"profile": prof, "findings": findings, "refusals": refusals,
-            "returns": detail, "contrast": ch,
+            "returns": detail,
+            #: {(later, earlier): [(earlier_section, later_section, Return)]}
+            #: -- a SEPARATE key from `returns`, which is keyed by one
+            #: function and holds that function's agreement with itself. The
+            #: two are different questions and folding them into one dict
+            #: would make a caller unable to tell them apart.
+            "reprises": reprises, "contrast": ch,
             "asked": asked, "answered": asked - refused_questions,
             "refused": refused_questions,
             #: how many refusal RECORDS the refused questions produced. Never
@@ -2004,6 +2235,7 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            "UNDECLARED", "UnknownFunction", "FunctionSpec",
            "SECTION_FUNCTIONS", "as_function", "FormConvention",
            "POPULAR_SONG", "function_profile", "return_findings",
+           "reprise_findings",
            "bridge_contrast", "song_function_report", "Refusal",
            # repetition with variation -- MISSING.md A-2, D-3
            "VARIATION_KINDS", "VariationDeclaration", "Return",

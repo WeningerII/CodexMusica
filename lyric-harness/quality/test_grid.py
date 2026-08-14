@@ -1243,6 +1243,268 @@ def test_read_marked_songs_drops_apparatus_by_the_one_rule():
             "prints no lines against one that prints four HAS lost four")
 
 
+# ---------------------------------------------------------------------------
+# THE CROSS-FUNCTION REPRISE — the primitive existed and nothing called it
+# this way (CLAUDE.md known gap 7, the half that was still open)
+#
+# `compare_returns` takes two LINE LISTS. `return_findings` only ever fed it
+# `song.instances_of(fn)` — two returns of ONE declared function — so "does
+# the outro come back to the intro" was unaskable while the machinery that
+# answers it sat in the same file, fully tested, on the wrong pair.
+#
+# THE DESIGN IS THE ASKED SET, not the comparison. Every ordered pair is 420
+# questions on a 21-function vocabulary and is measurably wrong: section 10 of
+# `quality/test_song_function.py` runs the rule over `corpus/song/` and finds
+# 51 of 889 cross-function block pairs sharing a whole line, none of them a
+# reprise. So the set is `FormConvention.reprises`, DECLARED beside the other
+# expectations a genre may override, and the tests below are about that field
+# as much as about the check.
+# ---------------------------------------------------------------------------
+
+#: An intro whose material returns — `SECTION_FUNCTIONS["intro"]`'s own gloss
+#: says it may, and it is the only entry in the vocabulary that says so.
+INTRO = ["the wire hums low across the yard",
+         "a counted step a counted breath"]
+
+#: The outro the gap register named: the intro, plus a close. Written from
+#: `INTRO` itself rather than retyped, so the positive case cannot drift away
+#: from the thing it is a positive case OF.
+OUTRO_REPRISE = INTRO + ["and the count goes on without a sum"]
+
+#: THE CONTROL. Same line count, same length, same voice, same closing line as
+#: the reprise above — and not one line of the intro in it.
+OUTRO_FRESH = ["the light goes out along the fence",
+               "a shuttered room a folded coat",
+               "and the count goes on without a sum"]
+
+#: THE FALSE POSITIVE, which is the risk this check actually runs. Same
+#: opening formula, same content words in a different order, heavy token
+#: overlap — a writer's voice, not a reprise. It lands on a NAMED variation
+#: kind (HEAD_PRESERVED), which is exactly why the threshold cannot be "the
+#: kind is one of these": no whole line survives, and a reader asked to check
+#: "the outro reprises the intro" by eye would find nothing to point at.
+OUTRO_ECHO = ["the wire that hums is low across the yard",
+              "a counted breath a counted step",
+              "and the count goes on without a sum"]
+
+VERSE = ["a folded map a steady hand",
+         "the gate keeps time the way it can"]
+CHORUS_LINES = ["we counted every reason we were given",
+                "we numbered every corner of the room"]
+
+
+def _reprise_song(outro, intro=INTRO, chorus=None, outro_first=False):
+    """intro / verse / chorus / outro, laid end to end, one bar per line.
+
+    `outro_first` swaps the two single-use sections' POSITIONS and nothing
+    else — the ordered-pair rule has to be tested on a song where the only
+    thing wrong is the order.
+    """
+    chorus = list(CHORUS_LINES if chorus is None else chorus)
+    blocks = [("i", "intro", list(intro)), ("v", "verse", list(VERSE)),
+              ("c", "chorus", chorus), ("o", "outro", list(outro))]
+    if outro_first:
+        blocks = [blocks[3], blocks[1], blocks[2], blocks[0]]
+    # `layout()` assigns the start bars, so the LINES are placed from the
+    # sections afterwards rather than from a second counter that would have
+    # to agree with it. A section with no lines still occupies a bar — an
+    # instrumental outro is a span of the song.
+    s = Song(sections=[Section(n, max(len(t), 1), function=f)
+                       for n, f, t in blocks],
+             title="The Count").layout()
+    s.lines = [Line(t, bar=sec.start_bar + j, duration=F(4))
+               for sec, (_, _, texts) in zip(s.sections, blocks)
+               for j, t in enumerate(texts)]
+    return s
+
+
+def _codes(fs):
+    return sorted({x.code for x in fs})
+
+
+def test_a_reprise_is_a_relation_between_two_DIFFERENT_functions():
+    """Known gap 7's open half: the primitive exists, nothing calls it across
+    two functions.
+
+    Four things are under test and only the first is the comparison:
+    that `compare_returns` was ALWAYS call-compatible with a cross-function
+    pair; that the pair asked is a DECLARED coordinate rather than a list
+    baked into the check; that a song sharing a language across two sections
+    stays quiet; and that a song with only one side of a pair is not ASKED at
+    all rather than refused on every run.
+    """
+    print("\n24. THE CROSS-FUNCTION REPRISE — does the outro come back to "
+          "the intro?")
+    import inspect as _inspect
+    from quality.grid import (FormConvention, POPULAR_SONG, SECTION_FUNCTIONS,
+                              compare_returns, reprise_findings,
+                              song_function_report)
+
+    # -- 1. the gap's own claim, verified rather than repeated --------------
+    params = list(_inspect.signature(compare_returns).parameters)
+    check("`compare_returns` takes two LINE LISTS and nothing that names a "
+          "section, a function, or an instance index — it was call-compatible "
+          "with a cross-function pair from the day it was written",
+          params[:2] == ["first", "again"]
+          and not ({"section", "function", "instance"} & set(params)),
+          f"signature: {params}")
+    cross = compare_returns(INTRO, OUTRO_REPRISE)
+    check("...and handed one intro and one outro it answers on the same "
+          "ladder, with no special case",
+          cross.kind == "EXTENDED_RETURN"
+          and cross.invariant_lines == (1, 2),
+          f"kind={cross.kind}, invariant={list(cross.invariant_lines)} — "
+          f"'outro-extends-intro' is EXTENDED_RETURN in the ladder's own "
+          f"vocabulary. The primitive was never the missing piece")
+
+    # -- 2. the positive case ----------------------------------------------
+    f, r, reps = reprise_findings(_reprise_song(OUTRO_REPRISE))
+    check("an outro built on the intro's lines IS found",
+          _codes(f) == ["CROSS_FUNCTION_REPRISE"] and not r,
+          f"findings {_codes(f)}, refusals {_codes(r)}")
+    ev = f[0].evidence if f else ""
+    check("and the finding names the KIND, the LINES and the THRESHOLD — not "
+          "a boolean",
+          "EXTENDED_RETURN" in ev and "[1, 2]" in ev
+          and "reprise_min_lines=1" in ev,
+          ev[:150])
+
+    # -- 3. the negative case, on the same words ---------------------------
+    f2, r2, _ = reprise_findings(_reprise_song(OUTRO_FRESH))
+    check("a DIFFERENT outro of the same length comes back clean — no "
+          "finding, and no refusal either: this was asked and answered",
+          not f2 and not r2,
+          f"findings {_codes(f2)}, refusals {_codes(r2)}")
+
+    # -- 4. THE FALSE POSITIVE, which is the real risk ---------------------
+    echo = _reprise_song(OUTRO_ECHO)
+    f3, r3, reps3 = reprise_findings(echo)
+    # NOT `reps3[0]` — a mutant that stops the comparison happening must
+    # report a FAILING CHECK, not raise an IndexError out of the assertion
+    # written to catch it (a crashed test says the suite is broken; this one
+    # has to say which claim is false).
+    seen = [(x.kind, len(x.invariant_lines)) for _, _, x in reps3]
+    check("two sections that share a LANGUAGE and no whole line stay quiet",
+          not f3 and not r3 and seen == [("HEAD_PRESERVED", 0)],
+          f"the comparison happened and landed on {seen} — a NAMED variation "
+          f"kind with no invariant line. A threshold written as 'the kind is "
+          f"one of these six' would report a reprise here; keyed on "
+          f"`Return.invariant_lines` it does not")
+    check("...and the quiet is not the check being broken: the same song "
+          "reports the reprise as soon as ONE line is held",
+          _codes(reprise_findings(
+              _reprise_song([INTRO[0]] + OUTRO_ECHO[1:]))[0])
+          == ["CROSS_FUNCTION_REPRISE"],
+          "one line of OUTRO_ECHO restored to the intro's wording, nothing "
+          "else touched")
+    # AND THE THRESHOLD IS WHAT IS DOING IT, shown by declaring it away rather
+    # than by argument. `reprise_min_lines=0` is a legal declaration -- "every
+    # comparison counts" -- and it is the shape of the rule this design
+    # REJECTED: any two sections that landed on a named kind. On this fixture
+    # that rule reports a reprise between an intro and an outro sharing no
+    # whole line, which is the false positive, made visible.
+    check("declaring the threshold to 0 makes the SAME song report a reprise "
+          "— so the quiet above is the threshold and not the fixture",
+          _codes(reprise_findings(
+              echo, convention=FormConvention(reprise_min_lines=0))[0])
+          == ["CROSS_FUNCTION_REPRISE"],
+          "doctrine 94: a positive-case suite cannot find a rule that is too "
+          "GENEROUS, so the generous rule is run here on purpose")
+
+    # -- 5. the asked set is a COORDINATE, not a list in the check ---------
+    # The task the design answers: a verse does not reprise a chorus, it
+    # shares a language with it. Here the verse and the chorus DO share a
+    # whole line — the strongest possible case — and the default says nothing,
+    # because the pair is not in `reprises`.
+    shared = _reprise_song(OUTRO_FRESH, chorus=[VERSE[0]] + CHORUS_LINES[1:])
+    rep = song_function_report(shared)
+    check("a verse and a chorus sharing a WHOLE LINE report no reprise under "
+          "the default convention — the pair is not asked",
+          "CROSS_FUNCTION_REPRISE" not in {x.code for x in rep["findings"]}
+          and ("chorus", "verse") not in rep["reprises"],
+          f"pairs asked: {sorted(rep['reprises'])}; findings "
+          f"{_codes(rep['findings'])}")
+    declared = FormConvention(reprises=(("chorus", "verse"),))
+    rep2 = song_function_report(shared, convention=declared)
+    check("...and the SAME song answers it when a convention declares the "
+          "pair — which is what makes this a coordinate and not a hard-coded "
+          "list",
+          "CROSS_FUNCTION_REPRISE" in {x.code for x in rep2["findings"]}
+          and ("chorus", "verse") in rep2["reprises"],
+          f"pairs asked: {sorted(rep2['reprises'])}; findings "
+          f"{_codes(rep2['findings'])} — doctrine 45: the expectation in "
+          f"force is declared by whoever is asking, and POPULAR_SONG is one "
+          f"answer rather than the only one")
+
+    # -- 6. the ORDER in the ordered pair ----------------------------------
+    f4, r4, _ = reprise_findings(_reprise_song(OUTRO_REPRISE,
+                                               outro_first=True))
+    check("an outro that comes BEFORE the intro is refused, not reported — "
+          "the pair is ordered and the bars are what enforce it",
+          not f4 and _codes(r4) == ["REPRISE_IS_NOT_LATER"],
+          f"findings {_codes(f4)}, refusals {_codes(r4)}. The two sections "
+          f"share both lines; what they do not share is an order in which "
+          f"one can come back to the other")
+
+    # -- 7. a side with no words -------------------------------------------
+    silent = _reprise_song([])
+    f5, r5, _ = reprise_findings(silent)
+    check("an instrumental outro REFUSES rather than reporting a reprise — "
+          "`compare_returns` reads two empty line lists as VERBATIM and that "
+          "is correct arithmetic and a false reprise here",
+          not f5 and _codes(r5) == ["REPRISE_SIDE_HAS_NO_WORDS"],
+          f"findings {_codes(f5)}, refusals {_codes(r5)} (doctrine 28: "
+          f"'no words' and 'no reprise' are two answers)")
+
+    # -- 8. THE COST ON A SONG THAT HAS ONE SIDE OF THE PAIR ---------------
+    # The gate is BOTH SIDES PRESENT. Called directly, a missing side
+    # refuses; asked through the report, it is not asked at all — otherwise
+    # every song with an outro and no intro pays a refusal for not having a
+    # section, and the three counts start reporting well-formed songs as
+    # partly refused (the same move `SINGLE_USE_RECURRED`'s count>1 gate
+    # makes).
+    _, r6, _ = reprise_findings(Song(sections=[
+        Section("o", 2, function="outro")], lines=[Line("x", bar=1)]))
+    check("called DIRECTLY with one side missing, it refuses",
+          _codes(r6) == ["REPRISE_SIDE_UNDECLARED"], _codes(r6))
+    moon, hooks = song_from_blueprint(
+        os.path.join(HERE, "fixtures", "moonlight_fixture.blueprint.json"))
+    real = song_function_report(moon, hooks=hooks)
+    check("asked through the report on the well-formed fixture — verse, "
+          "chorus, bridge and no intro, outro or reprise — NOTHING is asked "
+          "and nothing is refused",
+          not real["reprises"]
+          and [f.code for f in real["findings"]]
+          == ["RETURN_LOCKED", "HOOK_CONFINED", "TITLE_NOT_IN_HOOK"]
+          and (real["asked"], real["answered"], real["refused"]) == (4, 3, 1),
+          f"pairs asked: {sorted(real['reprises'])}; asked {real['asked']} "
+          f"answered {real['answered']} refused {real['refused']} — the same "
+          f"three counts section 19 pins, unchanged by this layer")
+
+    # -- 9. the declared set itself ----------------------------------------
+    # Pinned in BOTH directions, because half a set check is how `reprise`
+    # got past `single_use` for the life of the module (section 16).
+    bad = [p for p in POPULAR_SONG.reprises
+           if len(p) != 2 or p[0] == p[1]
+           or not set(p) <= set(SECTION_FUNCTIONS)]
+    check("every declared pair names two DIFFERENT functions and both are in "
+          "the vocabulary", not bad,
+          f"malformed: {bad}" if bad else
+          f"{list(POPULAR_SONG.reprises)} — a pair naming one function twice "
+          f"is `return_findings`' question, already asked and answered there")
+    check("the threshold is a DECLARED coordinate carrying a number, not an "
+          "`if` inside the check (doctrine 58)",
+          POPULAR_SONG.reprise_min_lines == 1
+          and "reprise_min_lines" in FormConvention.__dataclass_fields__,
+          f"reprise_min_lines={POPULAR_SONG.reprise_min_lines}")
+    check("and raising it silences the positive case, which is what makes it "
+          "a threshold rather than a decoration",
+          not reprise_findings(
+              _reprise_song(OUTRO_REPRISE),
+              convention=FormConvention(reprise_min_lines=3))[0],
+          "the intro holds 2 lines; asked for 3, the same song answers no")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -1266,7 +1528,8 @@ if __name__ == "__main__":
                test_return_never_returns_is_reached,
                test_a_return_that_loses_or_gains_a_line_is_not_verbatim,
                test_every_variation_kind_is_reportable,
-               test_read_marked_songs_drops_apparatus_by_the_one_rule):
+               test_read_marked_songs_drops_apparatus_by_the_one_rule,
+               test_a_reprise_is_a_relation_between_two_DIFFERENT_functions):
         fn()
     print("=" * 62)
     if FAILURES:

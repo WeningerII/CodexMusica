@@ -1018,9 +1018,28 @@ jobs:
   # git log / cat-file / rev-list across all 46). Only `record` needs
   # fetch-depth 0, for verify_entries.py's doctrine-17 pin walk.
   #
-  # No network: zero urllib/requests/http/socket calls across all 46. Only
+  # ~~No network: zero urllib/requests/http/socket calls across all 46. Only
   # test_discriminate.py needs data/concreteness.txt or nltk, and it is not
-  # here -- every other file needs at most cmudict.dict.
+  # here -- every other file needs at most cmudict.dict.~~
+  #
+  # CORRECTED 2026-08-14, BEFORE THIS JOB EVER RAN. The second sentence was
+  # FALSE and would have made this job red on its first real execution. FOUR
+  # gated suites reach `quality.features` — test_crosslinguistic,
+  # test_phrase_commonplace, test_readability and test_revise — and
+  # `features._tagger()` does `import nltk` and reads `data/nltk`, which is
+  # GITIGNORED (lyric-harness/.gitignore:4). So the runner has neither the
+  # package nor the model, and a lot simulated the failure: ModuleNotFoundError
+  # after 19 of 28 assertions.
+  #
+  # The claim came from a measurement of what each file IMPORTS at module level.
+  # `_tagger()` imports lazily inside the function — the same shape that made
+  # `nightly` fail its first run on numpy at discriminate.py:524. Twice in one
+  # day, a lazy import defeated an import scan; the scan is the wrong
+  # instrument, and running the job is the right one.
+  #
+  # The first sentence stands: no test file makes a network call. `fetch_data.py`
+  # does, which is why it is a STEP rather than something a suite does for
+  # itself.
   suites:
     needs: gate
     runs-on: ubuntu-latest
@@ -1038,6 +1057,19 @@ jobs:
       - name: Stage the pronunciation dictionary
         working-directory: lyric-harness
         run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+
+      # FOUR OF THE SUITES BELOW REACH `quality.features`, WHOSE `_tagger()`
+      # DOES `import nltk` AND READS `data/nltk` — a gitignored directory the
+      # runner does not have. See the corrected note in this job's header for
+      # how that was nearly shipped. `quality/fetch_data.py` stages the tagger
+      # model, the tokenizer and the concreteness norms; `pip install nltk`
+      # supplies the package it needs to read them.
+      - name: Install nltk (four suites reach the POS tagger through features.py)
+        run: python3 -m pip install --disable-pip-version-check nltk
+
+      - name: Stage the tagger model and the concreteness norms
+        working-directory: lyric-harness
+        run: python3 quality/fetch_data.py
 
       # Named, never globbed -- see the header. A glob is how test_mutation.py's
       # 53-CPU-minute sweep would arrive here without anybody deciding it should.
