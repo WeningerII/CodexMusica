@@ -62,7 +62,7 @@ def test_radif():
           k == 1 and call == "light" and answer == "alight",
           f"stripped {k} word(s) -> call={call!r} answer={answer!r}")
 
-    vals = qf._predictability(GHAZAL, pairs)
+    vals = [v for _i, _j, v in qf._predictability(GHAZAL, pairs)]
     spread = (max(vals) - min(vals)) if vals else 0.0
     check("per-pair values are not all identical",
           len(vals) >= 2 and spread > 1e-9,

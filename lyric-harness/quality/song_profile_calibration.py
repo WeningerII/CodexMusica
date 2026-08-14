@@ -565,7 +565,8 @@ def predictability_frac(qf, lines, obvious_cutoff=0.90):
     check does not fire on an item it cannot read" -- the same behaviour
     `floor.py`'s live `if preds:` guard gives a real draft.
     """
-    preds = qf._predictability(lines, _couplet_pairs(lines))
+    preds = [v for _i, _j, v
+             in qf._predictability(lines, _couplet_pairs(lines))]
     if not preds:
         return float("nan")
     obvious = [p for p in preds if p > obvious_cutoff]

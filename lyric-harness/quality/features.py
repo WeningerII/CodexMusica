@@ -270,12 +270,34 @@ class QualityFeatures:
     # -- the ten ----------------------------------------------------------
 
     def _predictability(self, lines, pairs):
-        """For each mandated pair, how obvious was the answering word?
+        """For each scorable pair, how obvious was the answering word?
+
+        -> [(i, j, value)], 0-based line indices, ALIGNED to the pair each
+        value came from.
 
         1.0 = the answer is the single most common word that rhymes with the
         call (fire -> desire). 0.0 = rarer than everything in the field. This
         is the continuous replacement for the harness's 30-entry CLICHE_PAIRS
         lookup, and it is the feature the whole thesis leans on.
+
+        IT RETURNED BARE FLOATS UNTIL 2026-08-14, AND THEY WERE NOT ALIGNED
+        WITH `pairs`. The five `continue` guards below drop a pair silently,
+        so `vals` was SHORTER than `pairs` and every value after the first
+        skip sat at the wrong index. Measured on three pairs whose middle one
+        ends in an unreadable word: three pairs in, two values out, and
+        `vals[1]` was the value of `pairs[2]`.
+        The alignment was never USED, which is why nothing caught it: every
+        consumer wanted a mean, a min, or a fraction, and those are statistics
+        over the values that need no correspondence. So this was a latent
+        defect rather than a live one — and the moment anything tries to NAME
+        the predictable pairs (which is exactly what a per-line
+        PREDICTABLE_RHYME would need), it becomes a live one that reports the
+        wrong lines. Returning the pair with its value removes the trap
+        instead of documenting it.
+        THE FLOATS ARE BIT-FOR-BIT UNCHANGED. Only the container moved, so
+        every calibrated constant and every pinned AUC downstream of this
+        function is untouched; the callers below extract `v` and compute what
+        they always computed.
         """
         vals = []
         for i, j in pairs:
@@ -318,7 +340,7 @@ class QualityFeatures:
                                   self.lex.freq_rank[answer])
             else:
                 continue          # pronounceable but unranked: no basis
-            vals.append(1.0 - pos / max(1, len(words)))
+            vals.append((i, j, 1.0 - pos / max(1, len(words))))
         return vals
 
     def _pronounceable(self, word):
@@ -366,7 +388,7 @@ class QualityFeatures:
         words = [w for w, _ in flat]
 
         # 1-2 rhyme predictability
-        pred = self._predictability(lines, pairs)
+        pred = [v for _i, _j, v in self._predictability(lines, pairs)]
         f_pred_mean = sum(pred) / len(pred) if pred else float("nan")
         f_pred_min = min(pred) if pred else float("nan")
 

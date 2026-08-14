@@ -740,7 +740,11 @@ class SlopFloor:
         #    the sonnet cut.
         thr = d.resolve("predictable_pair_fraction_max", prof)
         pairs = self._pairs(lines, scheme)
-        preds = self.qf._predictability(lines, pairs) if thr is not None else []
+        # `_predictability` returns (i, j, value) aligned to its pairs since
+        # 2026-08-14; this check wants the values only, and the ratio below
+        # is why the misalignment it used to carry was never visible here.
+        preds = ([v for _i, _j, v in self.qf._predictability(lines, pairs)]
+                 if thr is not None else [])
         if preds:
             obvious = [p for p in preds if p > d.predictability_max]
             frac = len(obvious) / len(preds)
