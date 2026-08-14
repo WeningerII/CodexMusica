@@ -77,6 +77,84 @@ A counter that cannot be re-derived is doctrine 58 wearing a table cell, so
 every counter below states its derivation in the docstring beside it and names
 the command a human runs to see the same number.
 
+AND THERE IS A THIRD KIND, WHICH IS NOT A KIND OF REFUSAL AT ALL. The two above
+are ANSWERS: a counter looked at the question and said "no measurement exists"
+or "this run declined to pay". `Counter.measure`'s `except` arm produces a third
+object that wears the same class -- a traceback rendered as `REFUSED (cost) —
+the instrument did not answer: ValueError: ...`. That is not a verdict, it is a
+CRASH, and until 2026-08-14 it was written into BACKLOG.md as though it were
+one. `Refused.broken` types it, and the whole of `--write`'s and `--check`'s
+new behaviour rests on that one flag. See WHAT `--write` MAY NOT WRITE below.
+
+WHAT `--write` MAY NOT WRITE, AND WHY THE REMEDY HAD A HOLE IN IT.
+Found 2026-08-14 by an adversary pointed at the REMEDY rather than at the
+check, and measured end to end in a `mutate.build_shadow` tree.
+
+`quality/mutate.py` declares 57 mutations, each anchored on an EXACT text match
+in a source file. A sibling lot's refactor moves the code, the anchor stops
+matching, `mutations_declared()` raises, and `Counter.measure` turns the raise
+into `Refused(COST, ...)`. `--check` goes correctly RED. But `--check`'s own
+printed remedy for a moved value is `python3 quality/counters.py --write`, and
+`--write` wrote the refusal INTO the table and exited 0 -- after which `--check`
+read REFUSED against REFUSED and printed PASS, permanently, with two mutations
+declared and inert and nothing anywhere still asking. Measured on a shadow tree
+with M1 and QS3 both drifted: `--check` 1, `--write` 0, `--check` 0, while
+`quality/mutate.py --dry-run` stayed at 55/57 and exit 1 throughout.
+
+THAT PATH IS THE ORDINARY ONE. The `public symbols` row moves whenever any lot
+adds a public `def`, `--write` is that row's correct remedy, and a lot clearing
+it would have laundered a drifted anchor in the same keystroke. It nearly did:
+`quality/mutate.py`'s own `--dry-run` comment records the 2026-08-13 QS3
+near-miss, where a `--write` run is what HAPPENED to expose the drift.
+
+THE PREDICATE, and it is not `volatile`, not `slow`, and not `kind`.
+`committed_cell` already special-cases the first two and the obvious patch was
+"any non-`slow` refusal is unwritable". MEASURED, that patch turns a healthy
+tree permanently red: `adversaries built, of 8` refuses for JUDGEMENT on every
+run by design, is neither volatile nor slow, and its refusal is exactly what
+belongs in its cell -- so the patch produces a FAIL whose stated remedy is
+"REPAIR IT" against a counter that has nothing wrong with it, and no `--write`
+can ever clear it. A permanently red check is a muted one, which is the reason
+`Counter.restated` is reported and not asserted three paragraphs up.
+
+`kind` cannot separate them either, and that is the sharper half: COST holds
+BOTH the declared cheap-path thrift (`mutations caught`, legitimate) and the
+caught exception (`mutations declared`, broken). Two enum members, three
+answers -- doctrine 28's own shape one level in.
+
+What separates them is the PROVENANCE of the refusal, so it is marked where it
+is made rather than inferred afterwards:
+
+  DECLARED   the counter RETURNED a `Refused`. `adversaries_built` returns one
+             because no measurement exists; `mutations_caught` returns one on
+             the cheap path and another on `TimeoutExpired`, both anticipated
+             and both carrying a reason its author wrote in advance. A working
+             instrument answering "cannot tell" IS the measurement, and it
+             stays writable.
+  BROKEN     `Counter.measure` MANUFACTURED a `Refused` out of an exception the
+             counter did not anticipate. The instrument did not answer. There
+             is nothing to record, and `--write` records nothing: the row is
+             left byte-identical to what it already said, `--write` exits 1
+             naming the counter, and `--check` reports the counter BROKEN
+             regardless of what the cell holds -- so no sequence of writes can
+             turn that row green. Only repairing the counter can.
+
+SO `slow` IS NOT THE CARVE-OUT, IN EITHER DIRECTION. A `slow` counter's
+committed cell is a CONSTANT (`committed_cell`, below): it is the cheap-path
+refusal on every run, `--slow` or not, so nothing measured can ever be
+laundered into it and it needs no protection. And a `slow` counter whose
+instrument CRASHES under `--slow` is a broken instrument like any other and is
+reported like any other. Once the predicate is provenance, no carve-out is
+needed at all -- which is the argument that it is the right one.
+
+WHY THE ROW IS KEPT RATHER THAN THE WHOLE WRITE REFUSED. Refusing to write
+anything would hold every OTHER row hostage to one broken counter, and the
+`public symbols` row moves hourly under sibling lots. A remedy withdrawn from
+the rows that legitimately have one is a remedy people route around by
+retyping, which is the defect this file exists to end (doctrine 48). The
+refusal is scoped to the finding: every healthy row is refreshed, the broken
+row is untouched, and the exit code says so.
+
 WHAT `--check` GUARANTEES, AND EXACTLY HOW WIDE THAT IS. `MISSING.md` leans on
 this command: "`--check` FAILS if BACKLOG.md's counters table disagrees with the
 measurement, so this figure cannot go stale again without a red test." On
@@ -161,6 +239,14 @@ TABLE_HEADER = "| counter | measured | measured by |"
 #: What the table says instead of a number for a quantity that is moving.
 RUNTIME_CELL = ("MEASURED AT RUNTIME — `python3 quality/counters.py`")
 
+#: The cell a BROKEN counter gets when there is NO committed row to keep -- a
+#: counter added in the same edit that broke it, or a row deleted by hand.
+#: Reached only in that case: an existing row is preserved verbatim instead
+#: (`committed_cell`). It is deliberately not a measurement and not a refusal
+#: shape, so nothing reads it as either, and it cannot launder anything because
+#: `check()` reports a broken counter on the flag and never on the cell.
+BROKEN_CELL = "NOT MEASURED — the instrument is broken; repair the counter"
+
 JUDGEMENT = "JUDGEMENT"
 COST = "COST"
 
@@ -178,13 +264,28 @@ class Answered:
 
     kind = None
     refused = False
+    broken = False
 
 
 class Refused:
-    def __init__(self, kind, reason, remedy=""):
+    """A counter's answer of "cannot tell", or the wreckage of one.
+
+    `broken` is the difference and it is set at the SITE, never inferred later.
+    A counter that RETURNS a `Refused` has answered: it looked at the question,
+    found no measurement (JUDGEMENT) or declined to pay for one (COST), and
+    wrote the reason in advance. `Counter.measure`'s `except` arm CONSTRUCTS one
+    out of a traceback instead, and that is not an answer -- it is the absence
+    of the instrument. Only the second kind is `broken`, and only the second
+    kind is barred from the committed table. The module header states why no
+    property of the COUNTER (`volatile`, `slow`) and no value of `kind`
+    separates these two, and what each of those predicates gets wrong.
+    """
+
+    def __init__(self, kind, reason, remedy="", broken=False):
         self.kind = kind
         self.reason = reason
         self.remedy = remedy
+        self.broken = broken
         self.evidence = reason
         self.cell = "REFUSED (%s) — %s" % (kind.lower(), reason)
 
@@ -229,8 +330,14 @@ class Counter:
         try:
             return self.fn()
         except Exception as e:                                   # noqa: BLE001
+            # `broken=True` is the whole of the anti-laundering fix and it is
+            # set HERE because here is the only place that knows the counter
+            # did not answer. Everything downstream reads the flag rather than
+            # re-deriving it from the counter's other properties, which is what
+            # the header argues no downstream predicate can do correctly.
             return Refused(COST, "the instrument did not answer: %s: %s"
-                           % (type(e).__name__, e), self.command)
+                           % (type(e).__name__, e), self.command,
+                           broken=True)
 
 
 # ---------------------------------------------------------------------------
@@ -977,8 +1084,28 @@ def mutations_declared():
               "the declared mutation count")
     applied, n = int(m.group(1)), int(m.group(2))
     if applied != n:
-        raise ValueError("%d of %d mutations no longer apply; a mutation that "
-                         "does not apply is declared and inert" % (applied, n))
+        # THE FIRST NUMBER IS THE COUNT THAT DRIFTED, and until 2026-08-14 it
+        # was `applied` -- the count that still APPLIES -- interpolated into a
+        # sentence about mutations that DO NOT. Two drifted anchors printed
+        # `55 of 57 mutations no longer apply`, a figure that is both wrong and
+        # wrong in the alarming direction, and that string reached BACKLOG.md
+        # verbatim through the laundering path this file now closes.
+        #
+        # AND `n - applied` IS A COUNT OF MUTATIONS, NOT OF EDITS, which the
+        # message now says on its face. Two of the 57 mutations share their
+        # anchor with another (M3/M5 and M14/M15 both anchor on one exact line
+        # of `lyric_harness.py`), so a single refactor at either site drifts
+        # TWO mutations and this count moves by two. `2 of 57` must not be read
+        # as two independent regressions: `quality/mutate.py --dry-run` names
+        # the mutations AND the files, and one file with two names under it is
+        # one repair.
+        raise ValueError("%d of %d declared mutations no longer apply (%d still "
+                         "do); a mutation that does not apply is declared and "
+                         "inert. This counts MUTATIONS, and two anchors are "
+                         "shared by two mutations each, so one drifted site can "
+                         "move it by two — `python3 quality/mutate.py "
+                         "--dry-run` names which"
+                         % (n - applied, n, applied))
     a = len(ALLOWLIST)
     cell = ("**%d declared, %d allowlisted equivalent** (%s — and the "
             "allowlist entry's PREMISE is itself under test)"
@@ -1423,11 +1550,31 @@ def measure(slow=False):
     return [(c, c.measure(slow=slow)) for c in COUNTERS]
 
 
-def committed_cell(counter, result):
+def committed_values():
+    """-> {counter key: the FIRST committed value for it}, or {} if unreadable.
+
+    FIRST and not last, matching `read_table`'s own rule that a reader sees the
+    first of a duplicated pair. Unreadable is `{}` rather than a raise because
+    the plain `python3 quality/counters.py` path prints a table without needing
+    BACKLOG.md to be well formed at all, and a missing marker there is
+    `read_table`'s finding to make, not this helper's.
+    """
+    try:
+        rows, _ = read_table()
+    except (OSError, ValueError):
+        return {}
+    out = {}
+    for key, value, _cmd in rows:
+        out.setdefault(key, value)
+    return out
+
+
+def committed_cell(counter, result, previous=None):
     """-> what belongs in BACKLOG.md for this counter, which is NOT always the
     measurement.
 
-    Three cases, and getting them wrong is how a check cries wolf:
+    Four cases, and getting them wrong is how a check cries wolf -- or, in the
+    fourth, how it stops crying at all:
 
       volatile -> the runtime marker, never a number. There is nothing to go
                   stale because nothing is recorded.
@@ -1436,19 +1583,41 @@ def committed_cell(counter, result):
                   ordinary `--check` would call the table stale for saying
                   exactly what it should say. The recorded table describes the
                   DEFAULT path; `--slow` reports its extra measurement to
-                  stdout and does not touch the file.
+                  stdout and does not touch the file. NOTE that this makes a
+                  slow counter's cell a CONSTANT, independent of what the run
+                  measured -- which is why `slow` needs no protection below and
+                  is the wrong carve-out for the fourth case.
+      broken   -> `previous`, unchanged: whatever the row already said. The
+                  counter CRASHED, so this run has nothing to record, and a
+                  crash written into the table reads back as a settled result
+                  that `--check` then matches against itself forever. That is
+                  the laundering path the module header measures end to end.
+                  `BROKEN_CELL` only when there is no row to keep.
       otherwise-> the measurement.
+
+    `previous` is the committed text, supplied by the caller because the two
+    callers have it already: `check` has parsed the table and `render` reads it
+    once for the whole write. A DECLARED refusal is not broken and takes the
+    last branch -- `adversaries built, of 8` records its own JUDGEMENT refusal
+    here, correctly, and always has.
     """
     if counter.volatile:
         return RUNTIME_CELL
     if counter.slow:
         return Refused(COST, "not measured on the cheap path",
                        "python3 quality/counters.py --slow").cell
+    if result.broken:
+        return BROKEN_CELL if previous is None else previous
     return result.cell
 
 
-def render(results):
+def render(results, previous=None):
     """-> the markdown table, exactly as it belongs in BACKLOG.md.
+
+    `previous` is the table as it stands, read ONCE here rather than per row,
+    and it is what a BROKEN counter's row is rebuilt from -- see
+    `committed_cell`. Every other row is rebuilt from the measurement, so one
+    dead instrument costs exactly its own row and no other.
 
     A `|` IN ANY CELL IS REFUSED, and it is refused here rather than escaped.
     Markdown's cell separator is the same character, so a measurement holding
@@ -1460,9 +1629,11 @@ def render(results):
     `register_findings()` interpolates identifiers out of another runner's
     output, so this is one upstream change away rather than hypothetical.
     """
+    if previous is None:
+        previous = committed_values()
     rows = [TABLE_HEADER, "|---|---|---|"]
     for c, r in results:
-        cell = committed_cell(c, r)
+        cell = committed_cell(c, r, previous.get(c.key))
         for part, what in ((c.key, "key"), (cell, "measured cell"),
                            (c.command, "command")):
             if "|" in part:
@@ -1554,12 +1725,24 @@ def read_table():
 
 
 def write_table(results):
+    """Splice a freshly rendered table between the markers. NOTHING ELSE MOVES.
+
+    The head and tail either side of the markers are carried across byte for
+    byte, so `--write` cannot touch a line of BACKLOG.md's prose -- which is
+    the guarantee that lets `Counter.restated` report a stale sentence without
+    offering `--write` as its remedy.
+
+    `previous` is read from the file BEFORE the splice, because a broken
+    counter's row is rebuilt from what that row already said and the splice is
+    what would destroy it.
+    """
     text = open(BACKLOG, encoding="utf-8").read()
     if OPEN_MARK not in text:
         raise ValueError("BACKLOG.md carries no %s marker" % OPEN_MARK)
+    previous = committed_values()
     head, rest = text.split(OPEN_MARK, 1)
     _, tail = rest.split(CLOSE_MARK, 1)
-    new = "%s%s\n%s\n%s%s" % (head, OPEN_MARK, render(results),
+    new = "%s%s\n%s\n%s%s" % (head, OPEN_MARK, render(results, previous),
                               CLOSE_MARK, tail)
     open(BACKLOG, "w", encoding="utf-8").write(new)
     return new
@@ -1590,6 +1773,16 @@ def check(results):
         left the newer half of that lesson unenforced. Both cells now.
       A DUPLICATE ROW HID BEHIND ITS TWIN -- see `read_table`.
       A FOURTH CELL WAS DROPPED -- see `read_table`.
+      A BROKEN INSTRUMENT OF ANY KIND, AND THIS ONE WAS FOUND A DAY LATER, ON
+        2026-08-14, BY ASKING THE SAME QUESTION OF THE REMEDY. The volatile
+        case below is a special case of it. For a NON-volatile counter the
+        crash string went into the cell, so `--write` made `--check` compare
+        REFUSED against REFUSED and print PASS forever. The condition is
+        `r.broken` now -- provenance, not any property of the counter -- and it
+        is checked BEFORE and INDEPENDENTLY of the value comparison, so no cell
+        content can satisfy it. `--write` cannot clear it either: it keeps the
+        row unchanged and exits 1. The module header carries the measurement
+        and the argument for the predicate.
       A BROKEN VOLATILE INSTRUMENT PASSED AS THRIFT. A volatile row's cell is
         the runtime marker, so nothing about the row moves when its counter
         stops working -- and the marker is not a blank, it is a CLAIM that the
@@ -1620,17 +1813,31 @@ def check(results):
     for key, value, command in committed_rows:
         by_key[key].append((value, command))
     for c, r in results:
-        want, want_cmd = committed_cell(c, r), "`%s`" % c.command
+        got = by_key.get(c.key)
+        # A BROKEN counter's row is KEPT rather than rewritten, so `want` is
+        # computed against what the table already says -- which makes the value
+        # comparison below silent for it and leaves exactly one finding, the
+        # repair, instead of a spurious second one about a cell nobody wrote.
+        want = committed_cell(c, r, got[0][0] if got else None)
+        want_cmd = "`%s`" % c.command
         # Before the absent-row `continue`: prose restating a counter whose
         # ROW has gone missing is the worst version of this, not an exempt one.
         if c.restated:
             reported.extend((c.key, ln, txt, want)
                             for ln, txt in _restated(c.restated))
-        got = by_key.get(c.key)
         if got is None:
             stale.append((c.key, "(absent from the table)", want))
             continue
-        if c.volatile and r.refused:
+        if r.broken:
+            stale.append((c.key,
+                          "the counter CRASHED, so this run measured nothing "
+                          "for this row: %s" % r.cell,
+                          "a working counter — REPAIR IT; `--write` cannot "
+                          "fix this and will not write a crash into the "
+                          "table: it leaves this row exactly as it stands and "
+                          "exits 1. (If a sibling cell was mid-write, re-run "
+                          "first.)"))
+        elif c.volatile and r.refused:
             stale.append((c.key,
                           "the row says the command measures this at runtime, "
                           "and it did not: %s" % r.cell,
@@ -1698,10 +1905,14 @@ def main(argv=None):
     asked = answered = refused = 0
     for c, r in results:
         asked += 1
-        # A VOLATILE counter that REFUSED is not a deliberate absence, it is a
-        # dead instrument, and printing both under one label is doctrine 28's
-        # two kinds of "cannot tell" collapsed into the flattering one.
-        mark = ("BROKEN" if c.volatile and r.refused else
+        # A counter that CRASHED is not a deliberate absence, it is a dead
+        # instrument, and printing both under one label is doctrine 28's two
+        # kinds of "cannot tell" collapsed into the flattering one. `r.broken`
+        # is the general case; the volatile clause is kept beside it because a
+        # volatile row's cell carries no measurement at all, so a volatile
+        # counter that refuses for ANY reason has stopped backing its own
+        # runtime marker.
+        mark = ("BROKEN" if r.broken or (c.volatile and r.refused) else
                 "VOLATILE" if c.volatile else
                 "REFUSED" if r.refused else "ok")
         print("  [%-8s] %s" % (mark, c.key))
@@ -1730,6 +1941,25 @@ def main(argv=None):
         write_table(results)
         print("\nBACKLOG.md's counters table rewritten between the %s markers."
               % OPEN_MARK)
+        # THE ONE THING `--write` WILL NOT DO. A crash is not a measurement, so
+        # a broken counter's row is left exactly as it stands and this exits
+        # non-zero. Without this, `--check`'s own printed remedy silenced the
+        # check: `--write` committed the traceback, `--check` matched REFUSED
+        # against REFUSED, and a drifted mutation anchor went green forever.
+        broken = [(c, r) for c, r in results if r.broken]
+        if broken:
+            print()
+            print("REFUSED to record %d counter(s): the instrument did not "
+                  "answer, and a crash is not a measurement. Each row below is "
+                  "byte-identical to what it already said." % len(broken))
+            for c, r in broken:
+                print("  %s" % c.key)
+                print("      %s" % r.reason)
+                print("      repair: %s" % (r.remedy or c.command))
+            print("`--check` reports these on the CRASH, not on the cell, so "
+                  "no further `--write` can turn them green. Repair the "
+                  "counter.")
+            return 1
         return 0
 
     if not a.check:
@@ -1776,8 +2006,10 @@ def main(argv=None):
           "(doctrine 48). A finding about the table's SHAPE (a duplicated row, "
           "a row of the wrong width, a second marker block or a second "
           "counters table) is not a number and `--write` will not clear it: "
-          "delete the extra row or block by hand. A BROKEN volatile counter is "
-          "neither — repair the counter." % len(stale))
+          "delete the extra row or block by hand. A BROKEN counter — volatile "
+          "or not — is neither: `--write` leaves its row untouched and exits "
+          "1, and this check reads the crash rather than the cell, so repairing "
+          "the counter is the only thing that clears it." % len(stale))
     print("\nRESULT: FAIL")
     return 1
 
