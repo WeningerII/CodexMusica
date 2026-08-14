@@ -929,6 +929,43 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/audit_register.py --check
 
+      # THE TWO WELSH RUNNERS. 15.79 and 7.26 CPU-s, MEASURED 2026-08-14.
+      #
+      # These close the repo's last contradiction: one deterministic quantity
+      # carried under TWO values for four days. The cynghanedd searched rate was
+      # recorded at 54.1% and measures 57.1%, because `skeleton()`'s terminus
+      # became a property of the half-line's diweddeb on 2026-08-10 at 21:19 and
+      # four documents were written on the wrong side of that change.
+      #
+      # BOTH PIN COUNTS, NOT RATES. `rates()` used to return tried/judged
+      # already divided, throwing away the only exactly-pinnable form of the
+      # quantity; it returns integers now and main() divides at the print site,
+      # so stdout is byte-identical. `by_type` is pinned as four numbers because
+      # a skeleton change moves four, not one — and that is what said the +47
+      # went almost entirely to `traws`, whose answer depends on where the span
+      # stops, rather than spreading evenly as a loosened threshold would.
+      #
+      # Published n=200 quantiles are NOT pinned (the same call audit_tang_null,
+      # audit_kalevala_null and audit_hafez_radif make). The full n=200 Alun run
+      # is 3m40 CPU and is wired nowhere.
+      - name: Welsh odl figures against RESULTS_CYM_RHYME.md's committed counts
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/cym_rhyme_rate.py --check
+
+      - name: Cynghanedd search rate against its committed counts (both editions)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/cynghanedd_rate.py --check
+
   # ── The suites: 45 test modules that nothing had ever run ────────────────
   #
   # THE CLAIM THIS JOB EXISTS TO CORRECT. The `record` job's comment above
