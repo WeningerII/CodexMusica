@@ -63,17 +63,52 @@ ONE RECORDED NUMBER DOES NOT REPRODUCE, AND IT IS THIS FILE'S OWN
 `quality/RESULTS_REDTEAM.md` ends section 3 with "Red-team FPR falls 10.67% ->
 3.15%". The 10.67% reproduces to the pair: 320 of 3,000 at `theta_coda` 0.60,
 broken down 13 / 26 / 60 / 234 across the four identity classes exactly as
-recorded. The 3.15% reproduces at NO setting. At the document's own seed and
-the shipped `theta_coda` 0.80 it is **3.57% (107 of 3,000)** and **3.60% (144
-of 4,000)** — verified by running the ORIGINAL script against the
-`lyric_harness.py` of its own commit, so it is not drift since. 3.15% is not
-this file at n = 3,000, 4,000 or 5,000, nor at `theta_coda` 0.85, 0.90 or 1.00
-(the nearest are 3.23% and 3.25%, at a `theta_coda` that is not shipped).
-Doctrine 58: a bare rate is a coordinate of a setting, and here no setting
-produces it. The DIRECTION and the SIZE of the calibration's effect stand —
-false positives fall 3.0x — and the digit does not. This paragraph is in the
-instrument rather than only in the report because the instrument is what
-someone re-runs.
+recorded. The 3.15% reproduces at NO setting. At the document's own seed the
+SHIPPED declaration gives **2.00% (60 of 3,000)** and **2.10% (84 of 4,000)**;
+the `theta_coda` 0.80 scalar this paragraph used to quote here gives 3.57%
+(107 of 3,000) and 3.60% (144 of 4,000) — that pair verified by running the
+ORIGINAL script against the `lyric_harness.py` of its own commit, so neither
+reading is drift. 3.15% is not this file at n = 3,000, 4,000 or 5,000, nor at
+`theta_coda` 0.85, 0.90 or 1.00 (the nearest are 3.23% and 3.25%, at a
+`theta_coda` that is not shipped). Doctrine 58: a bare rate is a coordinate of
+a setting, and here no setting produces it. The DIRECTION and the SIZE of the
+calibration's effect stand — false positives fall 3.0x — and the digit does
+not.
+
+**REPINNED 2026-08-14: ~~3.57% (107 of 3,000)~~ -> 2.00% (60 of 3,000) and
+~~3.60% (144 of 4,000)~~ -> 2.10% (84 of 4,000).** The superseded pair is kept
+struck rather than overwritten (doctrine 17), because it is still the correct
+answer to a question this file asks — section 9 prices that exact shape as its
+`scalar 0.80` row, on halves rather than on the whole sample. NOTHING DRIFTED:
+every figure named above re-derives to the unit at this seed. What was wrong is
+the SETTING the pair was attached to. `1c723cf` (2026-08-11 16:41) moved
+`Declaration.coda_agreement` from a scalar `theta_coda` cut to `identity`,
+which makes `theta_coda` INERT — `channel_agreement` answers this channel with
+a PREDICATE under any non-scalar shape, and the band-passing count is identical
+at `theta_coda` 0.60, 0.80, 0.90, 0.95 and 1.00, measured rather than argued.
+So "the shipped `theta_coda` 0.80" named a cut that had stopped deciding
+anything. Re-deriving the historical rates needs the old SHAPE declared
+explicitly, and then they are exact:
+`Declaration(coda_agreement="scalar", theta_coda=0.60)` -> 320 of 3,000;
+`theta_coda=0.80` -> 107 of 3,000 and 144 of 4,000; the shipped
+`Declaration()` -> 60 of 3,000 and 84 of 4,000.
+
+AND THE SENTENCE THIS PARAGRAPH USED TO CLOSE WITH IS FALSIFIED BY ITS OWN
+INSTANCE — READ IT BEFORE TYPING ANOTHER FIGURE INTO ANOTHER DOCSTRING. It
+read: "This paragraph is in the instrument rather than only in the report
+because the instrument is what someone re-runs." The figure went stale HERE,
+in the instrument, for three days — and re-running is precisely what did NOT
+save it: every one of those runs printed 2.10% in its own stdout, a few lines
+below a docstring claiming 3.60%, and a run does not read its own prose.
+Proximity to the code is not what protects a figure. BEING RE-DERIVED BY THE
+RUN is, and that counter already exists: `quality/counters.py`'s `band_fpr()`
+shells out to this file at BOTH n on `--write` and ASSERTS the committed cell
+on `--check`, so `BACKLOG.md`'s band-FPR row is a machine transcript of this
+file's stdout and cannot go stale without turning a check red. It carried
+2.10%/2.00% for the whole three days this docstring said 3.60%/3.57%. A figure
+hand-typed into prose is a figure nothing checks, wherever the prose lives —
+so quote the derived row, or quote the command, and keep prose figures to the
+ones a reader needs in order to READ the output rather than to trust it.
 
 RUN
     python3 quality/redteam_band.py [n_pairs]
