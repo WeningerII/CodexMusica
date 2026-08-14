@@ -1099,6 +1099,19 @@ class Reviser:
         words or not — with no convention in it at all, the same shape as
         `RETURN_NOT_VERBATIM` being a flag while `RETURN_LENGTH_DRIFT`'s
         sibling `RETURN_OUT_OF_RANGE` is a note.
+
+        `RETURN_SCHEME_DRIFT` (added 2026-08-14) is the note most likely to
+        be promoted by a later reader and must not be, because it is ABOUT
+        RHYME and rhyme is what the mandate flags. It is not a mandate:
+        `grid.return_findings` is never handed one, so its every answer is
+        measured against `POPULAR_SONG` and nothing it says is a requirement
+        the writer declared. THE FLAG FOR THIS ALREADY EXISTS ONE LAYER
+        DOWN — a writer who REQUIRES a return declares it as
+        `schemes.Return(verbatim=True)` and `Mandate.returns_check` breaks it
+        as `RETURN_NOT_VERBATIM`, a flag, above — so promoting it would fail
+        an undeclared return on a convention AND fail a declared one twice
+        under two names. The argument in full is at the finding's own site in
+        `quality/grid.py`.
         """
         song, hooks = GR.song_from_blueprint(blueprint)
         for l, text in zip(song.lines, lines):

@@ -1706,6 +1706,205 @@ def test_two_sections_may_share_a_name():
           all(p.start >= 0 for p in places),
           f"min offset {min(float(p.start) for p in places)}")
 
+# ---------------------------------------------------------------------------
+# THE SAME OBJECT'S THIRD STATE — `Return.rhyme_scheme_preserved`'s FALSE
+# ---------------------------------------------------------------------------
+
+#: One chorus and three candidate returns of it, each used in a two-chorus
+#: song. `_SD_HELD` rewrites three of the four lines and keeps the AABB
+#: partition (the Hanby shape); `_SD_BROKE` is the SAME rewrite with one end
+#: word swapped, so it recasts the partition; `_SD_CHORUS[:3]` drops a line,
+#: which changes the partition BY LENGTH and is the case the gate excludes.
+#: The first two differ by one word so nothing but the flag can explain a
+#: difference in what the callers report.
+_SD_CHORUS = [
+    "we are the wire that answers to the drive",
+    "we count the miles until we come alive",
+    "we hold the number steady till it goes",
+    "we let it climb as high as anyone knows",
+]
+_SD_HELD = [                                     # AABB -> AABB
+    "we are the wire that answers to the drive",
+    "we counted every mile before we came alive",
+    "we watched the number settle as it froze",
+    "we let it fall as low as anyone shows",
+]
+_SD_BROKE = [                                    # AABB -> AABC
+    "we are the wire that answers to the drive",
+    "we counted every mile before we came alive",
+    "we watched the number settle as it froze",
+    "we let it fall as low as anyone drives",
+]
+
+
+def _sd_song(second):
+    return Song(
+        sections=[Section("c1", 4, Meter(4, 4), function="chorus"),
+                  Section("c2", 4, Meter(4, 4), start_bar=5,
+                          function="chorus")],
+        lines=[*[Line(t, bar=1 + i, duration=F(4), section="c1")
+                 for i, t in enumerate(_SD_CHORUS)],
+               *[Line(t, bar=5 + i, duration=F(4), section="c2")
+                 for i, t in enumerate(second)]])
+
+
+def test_a_returns_broken_rhyme_scheme_reaches_the_report():
+    """`Return.rhyme_scheme_preserved`'s TRUE reached the quality ladder and
+    its FALSE reached nothing at all.
+
+    TRUE adds RHYME_PRESERVING_REWRITE; FALSE added no quality, no kind and
+    no finding, and only `describe()` — which no grading path calls — ever
+    printed it. Two songs identical but for one end word came back
+    byte-identical at every caller.
+    """
+    print("\n27. a Return's BROKEN rhyme scheme reaches the report — the "
+          "answer that was computed on every run and told to nobody")
+    from quality.grid import (POPULAR_SONG, VARIATION_KINDS, compare_returns,
+                              rime_cmudict, return_findings,
+                              song_function_report)
+    import lyric_harness as LH
+    key = rime_cmudict(LH.Lexicon())
+
+    held = compare_returns(_SD_CHORUS, _SD_HELD, rhyme_key=key)
+    broke = compare_returns(_SD_CHORUS, _SD_BROKE, rhyme_key=key)
+    check("the fixture isolates the flag and nothing else: same kind of "
+          "rewrite, one end word apart, opposite answers",
+          held.rhyme_scheme_preserved is True
+          and broke.rhyme_scheme_preserved is False
+          and held.line_distance == broke.line_distance
+          and len(held.varied_lines) == len(broke.varied_lines),
+          f"held {held.kind} / broke {broke.kind}; line distance "
+          f"{held.line_distance} both, {len(broke.varied_lines)} moved both")
+
+    f_held = {x.code for x in return_findings(
+        _sd_song(_SD_HELD), "chorus", rhyme_key=key)[0]}
+    f_broke = {x.code for x in return_findings(
+        _sd_song(_SD_BROKE), "chorus", rhyme_key=key)[0]}
+    check("the broken return earns a finding and the held one does not — "
+          "which is the asymmetry, closed",
+          f_broke - f_held == {"RETURN_SCHEME_DRIFT"} and not f_held - f_broke,
+          f"held {sorted(f_held)} -> broke {sorted(f_broke)}")
+
+    ev = [x.evidence for x in return_findings(
+        _sd_song(_SD_BROKE), "chorus", rhyme_key=key)[0]
+        if x.code == "RETURN_SCHEME_DRIFT"][0]
+    check("the evidence prints BOTH partitions, so the claim is one a reader "
+          "checks by eye rather than takes on trust",
+          "AABB" in ev and "AABC" in ev, ev[:90])
+    check("and NAMES the phonology that produced them (doctrine 45)",
+          "CMUdict" in ev)
+
+    # THE GATE. A return that drops a line has a different partition BY
+    # ARITHMETIC, and the ladder already names that TRUNCATED_RETURN.
+    cut = return_findings(_sd_song(_SD_CHORUS[:3]), "chorus",
+                          rhyme_key=key)[0]
+    cutr = compare_returns(_SD_CHORUS, _SD_CHORUS[:3], rhyme_key=key)
+    check("a TRUNCATED return is silent here even though its flag is False — "
+          "charging a LENGTH fact to the RHYME layer is doctrine 79's own "
+          "error, and the kind already says it",
+          cutr.rhyme_scheme_preserved is False
+          and "RETURN_SCHEME_DRIFT" not in {x.code for x in cut},
+          f"{cutr.kind}, flag {cutr.rhyme_scheme_preserved}, findings "
+          f"{sorted(x.code for x in cut)} — measured over corpus/song/ the "
+          f"gate takes the rule from 24 fires to 4, and all 20 it drops are "
+          f"line-count changes (ABCD -> A, A -> AA)")
+
+    # NO PHONOLOGY: this must stay CANNOT TELL, never a NO (doctrine 28/45).
+    blind = {x.code for x in return_findings(_sd_song(_SD_BROKE),
+                                             "chorus")[0]}
+    check("with no rhyme_key the finding does not fire — a silent default "
+          "here would be a claim about a phonology nobody named",
+          "RETURN_SCHEME_DRIFT" not in blind, sorted(blind))
+
+    # DOCTRINE 79. A finding is not a refusal and must not move the triple.
+    r_held = song_function_report(_sd_song(_SD_HELD), rhyme_key=key)
+    r_broke = song_function_report(_sd_song(_SD_BROKE), rhyme_key=key)
+    check("it reaches `song_function_report`",
+          "RETURN_SCHEME_DRIFT" in {x.code for x in r_broke["findings"]})
+    check("and the asked/answered/refused triple is UNMOVED — a finding is "
+          "not a refusal, and this is the inflation the report's own "
+          "docstring records being bitten by (doctrine 79)",
+          (r_held["asked"], r_held["answered"], r_held["refused"],
+           r_held["refusal_records"])
+          == (r_broke["asked"], r_broke["answered"], r_broke["refused"],
+              r_broke["refusal_records"]),
+          f"held asked {r_held['asked']} answered {r_held['answered']} "
+          f"refused {r_held['refused']} records {r_held['refusal_records']}; "
+          f"broke asked {r_broke['asked']} answered {r_broke['answered']} "
+          f"refused {r_broke['refused']} records "
+          f"{r_broke['refusal_records']}")
+
+    # DOCTRINE 24. The negative must not delete the positive's category.
+    check("`kind` and `qualities` are untouched — the ladder still answers "
+          "WHAT SURVIVED, and a rewrite that broke its rhyme still survived "
+          "as PARTIAL_RETURN (doctrine 24)",
+          broke.kind == "PARTIAL_RETURN"
+          and "RETURN_SCHEME_DRIFT" not in broke.qualities
+          and held.kind == "RHYME_PRESERVING_REWRITE",
+          f"{broke.kind}, qualities {sorted(broke.qualities)}")
+    check("and the name is not the positive's negation — it is a FINDING in "
+          "the RETURN_*_DRIFT family and not a rung of the ladder, so no kind "
+          "is deleted to make room for it",
+          "RETURN_SCHEME_DRIFT" not in dict(VARIATION_KINDS)
+          and "RHYME_PRESERVING_REWRITE" in dict(VARIATION_KINDS),
+          "RETURN_LENGTH_DRIFT / RETURN_METER_DRIFT / RETURN_SLOT_DRIFT / "
+          "RETURN_SCHEME_DRIFT — 'this returning function does not hold one "
+          "X across its returns', one channel over")
+
+    # WHERE THE FLAG LIVES. This is a CONVENTION and may not fail a draft.
+    # Pinned against `revise.py`'s SOURCE, the same move
+    # `test_mandate_language.test_line_count_cannot_fire_through_the_reviser`
+    # makes for RETURN_NOT_VERBATIM: the severity is decided in that file, so
+    # a promotion made there has to fail HERE.
+    rsrc = open(os.path.join(HERE, "revise.py")).read()
+    check("`revise.py` types every song-function finding a note except "
+          "HOOK_ABSENT, so this arrives as a NOTE and cannot fail "
+          "`verify()` — it is measured against a labelled CONVENTION "
+          "(doctrine 6)",
+          '"flag" if f.code == "HOOK_ABSENT" else "note"' in rsrc
+          and "RETURN_SCHEME_DRIFT" in rsrc,
+          f"{POPULAR_SONG.name!r} — `return_findings` is never handed a "
+          f"mandate, so nothing it says is a requirement the writer declared. "
+          f"The flag for a REQUIRED return is RETURN_NOT_VERBATIM, from "
+          f"`Mandate.returns_check`, one layer down.")
+
+
+def test_line_runs_is_surfaced_rather_than_computed_for_nobody():
+    """`Return.line_runs` had ZERO readers — production, tests, `describe()`.
+
+    `invariant_runs` is the MINIMUM over it, and a reader shown `(0, 0)` had
+    no way to tell one line that shares nothing from a block that shares
+    nothing. The minimum is the claim; this is the evidence for it.
+    """
+    print("\n27b. `Return.line_runs` — computed on every comparison, read by "
+          "nothing, now printed under the minimum it explains")
+    from quality.grid import compare_returns
+    r = compare_returns(_SD_CHORUS, _SD_BROKE)
+    check("it is computed, one row per line that moved",
+          len(r.line_runs) == len(r.varied_lines) and r.line_runs,
+          f"{r.line_runs}")
+    check("`invariant_runs` IS its per-channel minimum — which is why it is "
+          "the evidence and not a second measurement",
+          r.invariant_runs == (min(h for _l, h, _t in r.line_runs),
+                               min(t for _l, _h, t in r.line_runs)),
+          f"{r.invariant_runs} over {r.line_runs}")
+    d = r.describe()
+    check("and `describe()` now prints every one of them",
+          all(f"head {h}, tail {t}" in d for _l, h, t in r.line_runs),
+          [l for l in d.splitlines() if "word edits" in l])
+    # A hand-built `Return` (and a STUB) carries varied_lines with NO
+    # line_runs. Zipping the two would print nothing at all there.
+    from quality.grid import Return
+    bare = Return(
+        kind="PARTIAL_RETURN", qualities=frozenset({"PARTIAL_RETURN"}),
+        varied_lines=((2, 2, "a cat sat down", "a cat stood up", 2),))
+    row = [l for l in bare.describe().splitlines() if "word edits" in l]
+    check("a Return with varied lines and NO line_runs — hand-built, or a "
+          "STUB — still prints its edits rather than silently printing "
+          "nothing",
+          row == ["         ->  'a cat stood up'   (2 word edits)"],
+          f"{row} — the per-line runs are looked up by line number, never "
+          f"zipped, so a missing row drops the RUNS and not the LINE")
 
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
@@ -1733,7 +1932,9 @@ if __name__ == "__main__":
                test_read_marked_songs_drops_apparatus_by_the_one_rule,
                test_a_reprise_is_a_relation_between_two_DIFFERENT_functions,
                test_a_returns_own_refusals_reach_the_report,
-               test_two_sections_may_share_a_name):
+               test_two_sections_may_share_a_name,
+               test_a_returns_broken_rhyme_scheme_reaches_the_report,
+               test_line_runs_is_surfaced_rather_than_computed_for_nobody):
         fn()
     print("=" * 62)
     if FAILURES:

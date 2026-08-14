@@ -1415,6 +1415,56 @@ rather than this paragraph — a roster copied into two files drifts in both.
    that way the collection costs zero test churn. `STUB_RETURN` is skipped in
    `reprise_findings` alone, where `REPRISE_STUB` already says it in that
    function's own vocabulary. `quality/test_grid.py` §25.
+   **THE SAME OBJECT'S THIRD STATE — `Return.rhyme_scheme_preserved`'s FALSE.**
+   The paragraph above collects that field's CANNOT TELL. Its TRUE reached the
+   quality ladder as `RHYME_PRESERVING_REWRITE` and **its FALSE reached no
+   quality, no kind and no finding** — only `describe()`, which no grading path
+   calls. Measured on two songs identical but for one end word: every caller
+   came back BYTE-IDENTICAL, so "the chorus came back on a different rhyme
+   scheme" was answered on every run of the loop and told to nobody.
+   `RETURN_SCHEME_DRIFT` closes it, as the fourth member of the
+   `RETURN_LENGTH_DRIFT`/`METER`/`SLOT` family — *this returning function does
+   not hold one X across its returns*, one channel over. **NOT a quality and
+   not a kind**, and doctrine 24 is why rather than why not: the ladder answers
+   WHAT SURVIVED, and a rewrite that broke its rhyme still survived as
+   `PARTIAL_RETURN`, so relabelling it by what FAILED would delete the
+   observation that something held.
+   **THE GATE WAS MEASURED BEFORE IT WAS WRITTEN, and it is the positive's own
+   gate with the opposite answer** — equal line counts, at least one line
+   moved. Over `corpus/song/`: 1,920 return pairs, 947 hold, 949 CANNOT TELL,
+   24 FALSE. Ungated it fires on all 24 and **twenty of them differ only in
+   LINE COUNT** (`ABCD -> A`, `A -> AA` — Durfey's burdens printed short on the
+   return), which the ladder already names `TRUNCATED_RETURN`/`EXTENDED_RETURN`
+   and which charges a length fact to the rhyme layer (doctrine 79). Gated it
+   fires on **4 (0.21%)**: Scott's `AB -> AA` x3 and Hart's `ABAC -> ABCB`.
+   All four are already `REWRITTEN_RETURN`, whose own gloss says the harness
+   cannot choose between "a chorus that rewrites" and "a mark grouping two
+   different sections" — **so the printed corpus bounds the false-positive side
+   and does not supply the positive one**, the same limit
+   `CROSS_FUNCTION_REPRISE` states. The target population is the REVISION LOOP,
+   where a half-rewritten chorus is the ordinary output and lands on
+   `PARTIAL_RETURN`/`HEAD_PRESERVED` with nothing saying the rhyme went.
+   **IT FIRES ON ONE OF THE FOUR SHIPPED BLUEPRINTS AND IT IS A TRUE POSITIVE**
+   — `moonlight_fixture`'s verse 1 is ABAB (frame/name `EY M`, cold/told
+   `OW L D`) and verse 2 is ABCB (hand `AE N D` against can `AE N`). The key is
+   an IDENTITY key, stricter than the graded band, and its `declared_name` says
+   so inside the evidence, so the finding claims "not preserved under
+   perfect-rhyme identity" and never "does not rhyme". Same shape as this
+   entry's SHAPE layer: not untested, firing on the repo's own fixtures and
+   reporting to nobody.
+   **A NOTE, and this is the one most likely to be promoted later** because it
+   is about RHYME and rhyme is what the mandate flags. It must not be:
+   `return_findings` is never handed a mandate, so everything it says is
+   measured against `POPULAR_SONG` and doctrine 6 applies — and **the flag for
+   this already exists one layer down**, as `RETURN_NOT_VERBATIM` on a return
+   the writer DECLARED with `schemes.Return(verbatim=True)`. `reprise_findings`
+   does NOT get it: a reprise's own gloss is "later and CHANGED" and names no
+   channel it must hold. The triple is unmoved (a finding is not a refusal),
+   verified either side. `quality/test_grid.py` §26.
+   **AND `Return.line_runs` HAD ZERO READERS** — production, tests,
+   `describe()` — while `invariant_runs`, the MINIMUM over it, was printed.
+   SURFACED rather than deleted: a reader shown `(0, 0)` could not tell one
+   line that shares nothing from a block that shares nothing. §26b.
 
 ## The doctrine index — every number, and where it lives
 

@@ -1051,7 +1051,16 @@ class Return:
     #: without every one of its lines agreeing, and the corpus has 46 of those
     opening_run: int = 0
     closing_run: int = 0
-    #: (line, head, tail) for every line that moved
+    #: (line, head, tail) for every line that moved -- the PER-LINE runs that
+    #: `invariant_runs` above reduces to a minimum. SURFACED in `describe()`
+    #: 2026-08-14; until then it was computed on every comparison and read by
+    #: nothing in production or in a test, `describe()` included, which printed
+    #: the reduction and not its input. Kept rather than deleted because the
+    #: two claims are not the same claim: `invariant_runs` is the strict
+    #: "EVERY line that moved kept this much", and a reader shown `(0, 0)` has
+    #: no way to tell one line that shares nothing from a block that shares
+    #: nothing -- the Gitagovinda dhruva-tail against a rewrite. The minimum is
+    #: the claim; this is the evidence for it, and it is one f-string away.
     line_runs: tuple = ()
     rhyme_scheme_preserved: bool = None
     tune_slot_preserved: bool = None
@@ -1077,15 +1086,23 @@ class Return:
                 f"  tune slot preserved     "
                 f"{flag(self.tune_slot_preserved)}",
                 f"  shared head/tail runs   {self.invariant_runs} tokens "
-                f"(min over moved lines); block opening {self.opening_run}, "
-                f"closing {self.closing_run}",
+                f"(min over moved lines, each one listed below); block "
+                f"opening {self.opening_run}, closing {self.closing_run}",
                 f"  declaration: normalisation={d.normalisation!r} "
                 f"lexical_max_tokens={d.lexical_max_tokens} "
                 f"min_invariant_run={d.min_invariant_run} "
                 f"restatement_overlap={d.restatement_overlap}"]
+        runs = {ln: (h, t) for ln, h, t in self.line_runs}
         for v in self.varied_lines:
+            # `line_runs` is empty on a hand-built `Return` and on a STUB, so
+            # the per-line runs are looked up rather than zipped positionally
+            # -- a zip would silently print nothing at all there instead of
+            # printing the edits without them.
+            hr, tr = runs.get(v[0], (None, None))
             rows.append(f"    L{v[0]}  {v[2]!r}\n         ->  {v[3]!r}"
-                        f"   ({v[4]} word edits)")
+                        f"   ({v[4]} word edits"
+                        + (f"; head {hr}, tail {tr})" if hr is not None
+                           else ")"))
         for r in self.refusals:
             rows.append(f"  {r}")
         return "\n".join(rows)
@@ -1754,6 +1771,134 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             code, group[0].message,
             f"{group[0].evidence} [refused on {len(group)} of {len(rets)} "
             f"return comparison(s) for {fn!r}]"))
+
+    # THE SAME OBJECT'S THIRD STATE, COLLECTED 2026-08-14. The block above
+    # collects the return's CANNOT TELL. This collects its NO.
+    #
+    # `Return.rhyme_scheme_preserved` is computed on every comparison and its
+    # TRUE and its FALSE were not symmetric anywhere. TRUE reaches the quality
+    # ladder as RHYME_PRESERVING_REWRITE; FALSE reached no quality, no kind and
+    # no finding, and only `Return.describe()` -- which no grading path calls
+    # -- ever printed it. Measured on two constructed songs identical but for
+    # one end word: `return_findings`, `song_function_report` and
+    # `Reviser.inspect()['whole']` came back BYTE-IDENTICAL, and the only
+    # difference anywhere was the quality name the TRUE branch adds. So "the
+    # chorus came back on a different rhyme scheme" was answered on every run
+    # of the revision loop and told to nobody.
+    #
+    # A FINDING, NOT A QUALITY AND NOT A KIND, and doctrine 24 is why rather
+    # than why not. The ladder answers WHAT SURVIVED -- `kind` is the first
+    # rung that applies -- and a rewrite that broke its rhyme still survived as
+    # PARTIAL_RETURN or HEAD_PRESERVED or LEXICAL_VARIATION. Relabelling it by
+    # what FAILED would delete the observation that something held, which is
+    # the deletion doctrine 24 forbids. (It also cannot go in `qualities`
+    # as things stand: `if not q: q.add("REWRITTEN_RETURN")` treats a non-empty
+    # `q` as "some rung applied", so a non-ladder member in that set would
+    # suppress the residual and `next(...)` would raise.) The category gets its
+    # name at the layer that reports to a writer instead, in the vocabulary
+    # RETURN_LENGTH_DRIFT / RETURN_METER_DRIFT / RETURN_SLOT_DRIFT already use
+    # twenty lines above -- "this returning function does not hold one X across
+    # its returns" -- because that is exactly the claim, one channel over.
+    #
+    # THE GATE IS THE POSITIVE'S OWN GATE WITH THE OPPOSITE ANSWER, and it was
+    # measured before it was written. Over `corpus/song/` (1,920 return pairs,
+    # CMUdict): 947 hold, 949 are CANNOT TELL, 24 are FALSE. Ungated, this
+    # would fire on all 24 -- and TWENTY of them differ only in LINE COUNT
+    # (`ABCD -> A`, `A -> AA`, `ABA -> A`: Durfey's burdens printed short on
+    # the return). A partition over four lines and a partition over one are not
+    # the same object, the ladder already names those TRUNCATED_RETURN /
+    # EXTENDED_RETURN / HEAD_PRESERVED, and charging a LENGTH fact to the RHYME
+    # layer is doctrine 79's own error. Gated on equal line counts it fires on
+    # 4 (0.21%): Scott's `AB -> AA` three times and Hart's `ABAC -> ABCB`, both
+    # genuine recastings at equal length. `r.varied_lines` is redundant under
+    # that gate -- equal counts with nothing varied is VERBATIM, whose codes
+    # are equal by construction, and 0 of the 24 took that shape -- and is
+    # written anyway because it is the positive's own condition and the two
+    # must not be able to drift apart (`single_use` against
+    # `FunctionSpec.recurrence`, one file over).
+    #
+    # `reprise_findings` DOES NOT GET THIS, and that is the same discipline the
+    # block above uses one axis further out. A refusal about the DRAFT is
+    # collected there and one about the CALL is not; here the question is
+    # whether the CONVENTION says anything at all. It does for a returning
+    # function -- a singer who learned ABAB gets AABB. It says nothing about a
+    # reprise: `SECTION_FUNCTIONS` glosses one as "a declared return of earlier
+    # material, later and CHANGED" and names no channel it must hold, so a
+    # rhyme finding there would measure against an expectation nobody holds --
+    # the argument `song_function_report` already makes for not asking the five
+    # "open" functions about length.
+    #
+    # IT IS A NOTE AT `Reviser._function_findings`, WHICH IS THE DEFAULT AND IS
+    # ALSO THE ANSWER. Everything from this report is a note except HOOK_ABSENT
+    # because everything here is measured against `POPULAR_SONG`, a labelled
+    # CONVENTION, and doctrine 6 says a convention a writer may depart from
+    # cannot be the thing that fails `verify()`. This finding is the one most
+    # likely to be promoted by a later reader, because it is ABOUT RHYME and
+    # rhyme is what the mandate flags -- so: the flag for this already exists
+    # and is somewhere else. A writer who REQUIRES a return declares it with
+    # `schemes.Return(verbatim=True)`, and breaking it is RETURN_NOT_VERBATIM,
+    # a flag, from `Mandate.returns_check`. `return_findings` never sees a
+    # mandate at all, so nothing it can say is a requirement the writer
+    # declared, and a second flag on a declared return would be one question
+    # failed twice under two names. Hanby rewrites his chorus and keeps the
+    # rhyme; a writer may equally recast the scheme on purpose, and doctrine 7
+    # forbids a floor from manufacturing noise on that.
+    #
+    # THE TRIPLE IS UNMOVED, CHECKED: this appends to `findings`, and
+    # `song_function_report`'s `ask_one` counts `asked` per question and
+    # `refused_questions` only when `r` is non-empty. asked / answered /
+    # refused / refusal_records are identical either side of this block.
+    drifted = [(a, b, r) for a, b, r in rets
+               if r.rhyme_scheme_preserved is False and r.varied_lines]
+    if drifted:
+        from quality import schemes as S
+
+        def _read(sec):
+            """-> the lines of one instance under the DECLARED normalisation.
+
+            The same filter `compare_returns` applies to its own two lists, so
+            the gate and the comparison cannot disagree about which lines were
+            read.
+            """
+            return [l.text for l in song.lines_in(sec)
+                    if normalise_line(l.text)]
+
+        def _label(lines):
+            """-> the rhyme partition as letters, e.g. 'AABB'.
+
+            `UNREADABLE` is unreachable from here -- a None code is what
+            produced END_WORD_UNREADABLE above and a None never reaches a
+            False -- and is printed rather than raised, because a grading
+            path is not where an impossible branch should crash.
+            """
+            code = _rhyme_code(lines, rhyme_key)
+            return "UNREADABLE" if code is None else S.label(code)
+
+        rows = []
+        for a, b, r in drifted:
+            la, lb = _read(a), _read(b)
+            if len(la) != len(lb):
+                continue        # a LENGTH change; the ladder already names it
+            rows.append(f"bars {a.start_bar}-{a.end_bar} is {_label(la)} and "
+                        f"bars {b.start_bar}-{b.end_bar} is {_label(lb)} "
+                        f"({r.kind}, {len(r.varied_lines)} line(s) moved)")
+        if rows:
+            findings.append(GridFinding(
+                "RETURN_SCHEME_DRIFT",
+                f"the {fn} does not come back on the same rhyme scheme",
+                "; ".join(rows) + f". The words were rewritten AND the rhyme "
+                f"partition was recast, on {len(rows)} of {len(rets)} return "
+                f"comparison(s) at equal line count. This is the answer "
+                f"RHYME_PRESERVING_REWRITE is the other half of: Hanby "
+                f"rewrites his chorus and the partition holds, and that "
+                f"earns a name -- so this one does too rather than being "
+                f"silence. It is a CONVENTION of {convention.name!r} and NOT "
+                f"a defect the harness will fail a draft on: recasting a "
+                f"return's scheme is a decision, and it was unsayable, so it "
+                f"could not be one. A REQUIRED return is declared with "
+                f"`quality.schemes.Return(verbatim=True)` and broken returns "
+                f"there are RETURN_NOT_VERBATIM. Phonology: "
+                f"{drifted[0][2].declaration.rhyme_key or 'NONE DECLARED'}"))
 
     kinds = {r.kind for _, _, r in rets}
     spec = SECTION_FUNCTIONS[fn]
