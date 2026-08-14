@@ -324,12 +324,32 @@ draft. `quality/test_verbs.py` §6 covers both spellings on the same
 constructed pair to make the contrast mechanical rather than anecdotal.
 NOTE what this does NOT fix: the mandate-INDEPENDENT slop floor's
 `REPEAT_IN_VERSE` finding (`quality/floor.py`) still reports a verbatim
-chorus as repeated words, correctly and on purpose — it is a different
-question (does the draft's raw language behave like human verse did in
-calibration) asked by a layer that does not consult `Mandate.requirement`
-at all, doctrine 6/7's "two sources, deliberately kept apart" holding
-exactly as designed. `--returns=` fixes the MANDATE layer's
-misclassification; it was never going to silence the floor, and should not.
+chorus as repeated words — it is a different question (does the draft's raw
+language behave like human verse did in calibration) asked by a layer that
+does not consult `Mandate.requirement` at all, doctrine 6/7's "two sources,
+deliberately kept apart" holding exactly as designed. `--returns=` fixes the
+MANDATE layer's misclassification; it was never going to silence the floor,
+and should not.
+~~correctly and on purpose~~ — **REPINNED 2026-08-14, and only the SEVERITY
+was wrong.** That the floor still SPEAKS about a verbatim chorus is right and
+is unchanged. That it FAILED the draft for it was never measured, and the
+premise which excused not measuring it was false: `radif_min_pair_fraction`
+was carried as definitional because "this project has no corpus of radif verse
+to calibrate it against", while `corpus/song/eng_*` held **1,872 items inside
+this profile's own token band** — the population four of the five other
+thresholds were already calibrated on. Measured: 46 of those items carry a
+repetend closing ≥2 pairs and the declared 0.50 **refuses to license 43 of the
+46, a 93.5% false-positive rate on canonical published verse** against the ~5%
+its siblings hold to. It is also anti-correlated with its own target — it
+admits two ONE-word runs and charges every repetend of three words or more,
+Burns's six-word `a health to them that's aw'` included. Neither density
+(0.125 vs 0.150 median, one-word against multi-word) nor run length (FPR
+60.9/73.9/78.3% at ≥2/3/4 words) reaches 5%, **so the value is NOT repinned** —
+retuning with no calibration behind the new number is doctrine 58's error. The
+RECURRING case is a note from that date; a run closing ONE pair recurs nowhere,
+is a one-off self-rhyme outside everything measured, and **stays a flag**.
+Splitting those two cost zero test churn, which is itself the evidence that
+`quality/test_floor.py`'s existing assertions were all about the one-off.
 
 **A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `---`, OR `#` — NOTHING
 ELSE — CENTRALIZED 2026-08-12, CONVERGED 2026-08-13.** A `(parenthetical stage direction)` under a

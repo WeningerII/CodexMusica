@@ -232,7 +232,22 @@ CALIBRATION = {
         "It stays a NOTE and may not reject (doctrine 7). REPINNED 2026-08-14 "
         "-- this read 'reproduced its own withdrawal: 0.560, chance', which "
         "was a warm reading and does not reproduce cold; the module docstring "
-        "carries the supersession."
+        "carries the supersession. || "
+        "REPEAT_IN_VERSE's refrain licence was carried as impossible to "
+        "calibrate -- 'this project has no corpus of radif verse' -- while "
+        "corpus/song/eng_* sat in the repository with 1,872 items inside this "
+        "profile's own token band. MEASURED 2026-08-14: at the declared 0.50, "
+        "43 of the 46 items carrying a real repetend are REFUSED the licence, "
+        "a 93.5% false-positive rate on canonical human verse against the ~5% "
+        "the five percentile thresholds hold to. Worse, the cut is anti"
+        "-correlated with its own target: it admits two one-word runs and "
+        "charges every repetend of three words or more, Burns's six-word "
+        "\"a health to them that's aw'\" included. Density does not separate "
+        "refrain from coincidence (0.125 vs 0.150 median) and neither does "
+        "run length (FPR 60.9/73.9/78.3% at >= 2/3/4 words). The value is NOT "
+        "repinned -- nothing measured supports a replacement -- and the "
+        "unlicensed case is a NOTE from that date, so it discloses rather "
+        "than fails (doctrine 22/16/58)."
     ),
 }
 
@@ -525,11 +540,31 @@ class FloorDeclaration:
     predictable_pair_fraction_max: float = None
     predictability_max: float = 0.90
     #: What share of an item's rhyme pairs a repetend must close before it is
-    #: read as a radif rather than as repeated rhyme words. Also definitional:
-    #: this project has no corpus of radif verse to calibrate it against, and
-    #: guessing a number and calling it measured is the error the rest of this
-    #: module exists to avoid. A count alone will not do — two of thirty-one
-    #: pairs ending in "it" is coincidence, two of two is a refrain.
+    #: read as a radif rather than as repeated rhyme words. A count alone will
+    #: not do — two of thirty-one pairs ending in "it" is coincidence, two of
+    #: two is a refrain.
+    #:
+    #: ~~Also definitional: this project has no corpus of radif verse to
+    #: calibrate it against, and guessing a number and calling it measured is
+    #: the error the rest of this module exists to avoid.~~
+    #:
+    #: STRUCK 2026-08-14, AND THE PREMISE WAS FALSE. The corpus was in the
+    #: repository the whole time — `corpus/song/eng_*`, 1,872 items inside
+    #: this profile's own 150-400 token band, the same population four of the
+    #: five thresholds above were calibrated on. Nobody ran it. Measured now:
+    #: 46 of those items carry a repetend closing >= 2 pairs, and 0.50 refuses
+    #: to license 43 of the 46 — a 93.5% FPR on canonical human verse against
+    #: the ~5% its siblings hold to. Density does not separate refrain from
+    #: coincidence (one-word runs median 0.125, multi-word refrain tails
+    #: 0.150), and licensing on run length instead only reaches 60.9% / 73.9%
+    #: / 78.3% at >= 2 / 3 / 4 words. No cut on either axis reaches 5%.
+    #:
+    #: THE VALUE IS DELIBERATELY NOT MOVED. Nothing measured supports a
+    #: replacement, and repinning to a number that merely looks better is
+    #: doctrine 58's error. What changed instead is that the unlicensed case
+    #: is now a NOTE rather than a flag, so the cut discloses instead of
+    #: failing a writer — see `_relation_findings`. The threshold stays
+    #: definitional; what is no longer true is that it could not be priced.
     radif_min_pair_fraction: float = 0.50
 
     def resolve(self, key, profile):
@@ -792,13 +827,81 @@ class SlopFloor:
         for i, j, a, b, run in stripped:
             if run and run not in licensed:
                 # the shared run means the raw end words are identical
-                sev = "flag" if len(stripped) > 1 else "note"
+                #
+                # A NOTE, NOT A FLAG — DOWNGRADED 2026-08-14, and the
+                # measurement is the whole reason. `radif_min_pair_fraction`
+                # was carried as "definitional" on the stated ground that this
+                # project has no corpus of radif verse to calibrate it
+                # against. IT HAD 1,872 ITEMS THE WHOLE TIME:
+                # `corpus/song/eng_*` inside the `song` profile's own 150-400
+                # token band, the population four of the other five thresholds
+                # were already calibrated on. Run over them, 46 items carry a
+                # repetend closing >= 2 pairs, and at the declared 0.50 the
+                # gate refuses to license 43 OF THE 46 — a 93.5% false-positive
+                # rate on canonical, published human verse, against the ~5%
+                # each of its five siblings is held to. Doctrine 22 says state
+                # a threshold as a false-positive rate; stated that way, this
+                # one is not entitled to fail anybody.
+                #
+                # AND IT IS NOT MIS-SET, IT IS ON THE WRONG AXIS. Density does
+                # not separate a refrain from a coincidence. The one-word runs
+                # this declaration's own example warns about — "two of
+                # thirty-one pairs ending in `it`" — sit at median density
+                # 0.125; genuine multi-word refrain tails sit at 0.150.
+                # Length is the axis that reasoning implies and it is not
+                # enough either: licensing on runs of >= 2, 3 or 4 words moves
+                # the FPR only to 60.9%, 73.9% and 78.3%. NO CUT ON EITHER
+                # AXIS REACHES 5%, so no value is repinned here — retuning a
+                # threshold to make a case pass, with no calibration behind
+                # the new number, is exactly what doctrine 58 forbids. The
+                # incumbent is kept and its cost is stated.
+                #
+                # WHAT 0.50 LICENSES IS BACKWARDS, which is the sharpest form
+                # of the finding: of the three repetends it admits, two are
+                # ONE-WORD runs, and EVERY repetend of three words or more in
+                # the corpus is charged — Burns's six-word "a health to them
+                # that's aw'" at 20% density, Gilbert's "punishment fit the
+                # crime", Blake's "never can it be". It licenses the
+                # coincidences and charges the refrains.
+                #
+                # The `a == b` branch below is UNTOUCHED and stays a flag:
+                # there the qafiya UNDER the repetend is the same word too, so
+                # no refrain reading is available and it is plain self-rhyme.
+                # THREE CASES, AND ONLY THE MIDDLE ONE MOVED. `not in
+                # licensed` was covering two unlike things under one severity,
+                # and the 93.5% above is a measurement of the second only —
+                # the sweep counted repetends closing >= 2 pairs and nothing
+                # else, so applying its verdict to a one-off would be charging
+                # a rate to a population it was never measured on.
                 seen = len(runs.get(run, ()))
-                why = (f"carried by {seen} of {npairs} pairs, under the "
-                       f"declared {need:.0%} needed to read it as a refrain"
-                       if sev == "flag" else
-                       "only one rhyme pair here, so this cannot be told "
-                       "apart from a radif — the gate declines to decide")
+                if seen >= 2:
+                    # RECURS, but under the fraction. This is the measured
+                    # population and the refrain case: Burns's "a health to
+                    # them that's aw'" lands here. NOTE.
+                    sev = "note"
+                    why = (f"carried by {seen} of {npairs} pairs, under the "
+                           f"declared {need:.0%} needed to read it as a "
+                           f"refrain. DISCLOSED, NOT CHARGED: that cut refuses "
+                           f"43 of the 46 corpus/song/eng_* items carrying a "
+                           f"recurring repetend — 93.5% of canonical human "
+                           f"verse against the ~5% every percentile threshold "
+                           f"here holds to — so it may not fail a draft "
+                           f"(doctrine 22/16)")
+                elif len(stripped) > 1:
+                    # Closes ONE pair while the item has others to contrast it
+                    # against. Not a repetend at all: a one-off self-rhyme,
+                    # which is the defect this check was built for and is
+                    # outside everything measured above. STAYS A FLAG.
+                    sev = "flag"
+                    why = (f"carried by {seen} of {npairs} pairs — it recurs "
+                           f"NOWHERE, so no refrain reading is available and "
+                           f"the fraction never enters. A one-off self-rhyme "
+                           f"in an item with {npairs} pairs to contrast it "
+                           f"against")
+                else:
+                    sev = "note"
+                    why = ("only one rhyme pair here, so this cannot be told "
+                           "apart from a radif — the gate declines to decide")
                 repeat.append((i + 1, j + 1, " ".join(run), sev, why))
                 continue
             if not a or not b:
