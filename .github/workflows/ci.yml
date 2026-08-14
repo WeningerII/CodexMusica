@@ -1247,8 +1247,29 @@ jobs:
       # two seconds — too fast to be a run, which is what a missing import looks
       # like. Nothing local caught it because this container already had both
       # packages installed. Added 2026-08-14.
-      - name: Install the two packages the nightly instruments need
-        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn
+      #
+      # THEN IT HAPPENED AGAIN, ONE PACKAGE OVER, AND THE SECOND TIME WAS WORSE.
+      # The list said "the two packages" and stopped at numpy and scikit-learn.
+      # nltk is the third, reached the same lazy way — `quality/features.py`'s
+      # `_tagger()` does `import nltk` inside the function — and `suites` had
+      # already been bitten by exactly this and already carries the fix. The
+      # step below it, `quality/fetch_data.py`, was staging the tagger MODEL
+      # into a runner with no nltk to read it.
+      #
+      # WHAT MADE IT WORSE THAN A FAILED STEP: with nltk absent, nine test
+      # files are RED AT BASELINE here and green in `suites` on the same
+      # commit. test_mutation.py excludes red files from its detector set —
+      # correctly, a test that fails either way distinguishes nothing — and the
+      # nine are test_floor, test_fit, test_revise, test_loop, test_readability,
+      # test_verbs, test_crosslinguistic, test_phrase_commonplace and
+      # test_discriminate. Those are precisely the detectors for floor.py,
+      # revise.py and fit.py, so the sweep reported 14 SURVIVED mutants in
+      # those three files and told the reader to go write assertions that
+      # already exist and already catch them. An environment defect wearing the
+      # costume of a coverage hole. See the refusal test_mutation.py now makes
+      # when its detector set has been gutted. Added 2026-08-14.
+      - name: Install the three packages the nightly instruments need
+        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn nltk
 
       - name: Stage the pronunciation dictionary
         working-directory: lyric-harness

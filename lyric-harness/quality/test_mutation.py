@@ -387,7 +387,55 @@ def test_the_run(mode, only, jobs, mutation_jobs, confirm_all, timeout=420):
         print("        Neither caught nor a hole. Re-run these on a quiet "
               "machine before treating either answer as measured.")
 
+    # ------------------------------------------------------------------
+    # A SURVIVOR WHOSE OWN DETECTOR WAS EXCLUDED IS "CANNOT TELL", NOT "NO
+    # DETECTOR EXISTS". Doctrines 20 and 28: inconclusive by construction is
+    # not a null, and the report must distinguish "none" from "cannot tell".
+    #
+    # THIS FIRED FOR REAL ON 2026-08-14 and the report was wrong in the
+    # dangerous direction. The `nightly` job installed numpy and scikit-learn
+    # and not nltk, so nine test files went RED AT BASELINE there and green in
+    # `suites` on the same commit. `baseline()` excluded the nine -- correctly;
+    # a test that fails either way distinguishes nothing -- and the nine
+    # included test_floor.py, test_revise.py and test_fit.py. The sweep then
+    # reported 14 SURVIVED in floor.py, revise.py and fit.py: the three files
+    # whose detectors had just been removed. Every one of the 14 is caught by
+    # a test that exists. The verdict was an artifact of a missing pip install
+    # wearing the costume of a coverage hole, and the failure text sent the
+    # reader to "write a new assertion in quality/test_mut*.py" -- to write
+    # tests that were already there and already worked.
+    #
+    # The mapping below is the repo's file-naming convention, quality/X.py ->
+    # quality/test_X.py, and it is a DECLARED heuristic rather than a proof.
+    # It is used only to move a survivor from "hole" to "cannot tell", never
+    # the other way, so a wrong guess costs a demotion to inconclusive and
+    # never a false clean bill. When the detector set is whole -- `red` empty,
+    # which is every run this file was written against -- the partition is
+    # empty and this assertion grades exactly as it did before.
+    def _detector_of(path):
+        d, b = os.path.split(path)
+        return os.path.join(d, "test_" + b) if not b.startswith("test_") else path
+
+    red = [t for t, r in bl.items() if r["status"] != "PASS"]
+    _red = set(red)
+    _file_of = {r["name"]: r["file"] for r in results}
     unexpected = [n for n in survivors if n not in ALLOWLIST]
+    blocked = [n for n in unexpected
+               if _detector_of(_file_of.get(n, "")) in _red]
+    unexpected = [n for n in unexpected if n not in set(blocked)]
+    if blocked:
+        # Doctrine 79: three counts, reported apart and never summed. These are
+        # neither caught nor holes, and rolling them into either number is the
+        # error this block exists to stop.
+        print(f"  NOTE  {len(blocked)} survivor(s) INCONCLUSIVE — the mutated "
+              f"file's own detector was RED at baseline and excluded from the "
+              f"detector set, so 'survived' here cannot be distinguished from "
+              f"'nothing was asked': " + ", ".join(
+                  f"{n} ({_file_of.get(n, '?')}, detector "
+                  f"{_detector_of(_file_of.get(n, ''))} excluded)"
+                  for n in blocked))
+        print("        Fix the baseline first, then re-run. Until then this "
+              "is a fact about the environment, not about the suite.")
     check("the surviving set is empty, or exactly the declared allowlist",
           not unexpected,
           # The FILE is named alongside the layer, because a hole is routed by
