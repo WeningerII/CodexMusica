@@ -1236,6 +1236,18 @@ def test_line_count_cannot_fire_through_the_reviser():
        'add(j, Finding("RETURN_NOT_VERBATIM", "flag", msg,' in rsrc,
        "-- so revise.py needs a LINE_COUNT branch, into `whole` as a NOTE "
        "beside RETURN_OUT_OF_RANGE, BEFORE anything makes this reachable")
+    # DEMONSTRATED, not asserted: `verify()` does `sorted(ca - cb)` over
+    # `(line, code)` keys, and a `None` line makes that raise rather than
+    # mis-sort. One line of Python, so the sentence above is a fact.
+    try:
+        sorted([(1, "SCHEME_VIOLATION"), (None, "RETURN_NOT_VERBATIM")])
+        breaks = False
+    except TypeError:
+        breaks = True
+    ok("and that break is a DEMONSTRATION: sorting a `(None, code)` key "
+       "beside an `(int, code)` key raises TypeError, which is what "
+       "`verify()`'s `sorted(fixed)`/`sorted(new)` would do",
+       breaks)
     ok("`verify()` gates acceptance on `new_flags` only, which is why NOTE "
        "is the right severity there and not a matter of taste",
        'new_flags = {k for k in new if sev.get(k) == "flag"}' in rsrc
