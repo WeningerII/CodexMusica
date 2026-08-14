@@ -324,12 +324,32 @@ draft. `quality/test_verbs.py` §6 covers both spellings on the same
 constructed pair to make the contrast mechanical rather than anecdotal.
 NOTE what this does NOT fix: the mandate-INDEPENDENT slop floor's
 `REPEAT_IN_VERSE` finding (`quality/floor.py`) still reports a verbatim
-chorus as repeated words, correctly and on purpose — it is a different
-question (does the draft's raw language behave like human verse did in
-calibration) asked by a layer that does not consult `Mandate.requirement`
-at all, doctrine 6/7's "two sources, deliberately kept apart" holding
-exactly as designed. `--returns=` fixes the MANDATE layer's
-misclassification; it was never going to silence the floor, and should not.
+chorus as repeated words — it is a different question (does the draft's raw
+language behave like human verse did in calibration) asked by a layer that
+does not consult `Mandate.requirement` at all, doctrine 6/7's "two sources,
+deliberately kept apart" holding exactly as designed. `--returns=` fixes the
+MANDATE layer's misclassification; it was never going to silence the floor,
+and should not.
+~~correctly and on purpose~~ — **REPINNED 2026-08-14, and only the SEVERITY
+was wrong.** That the floor still SPEAKS about a verbatim chorus is right and
+is unchanged. That it FAILED the draft for it was never measured, and the
+premise which excused not measuring it was false: `radif_min_pair_fraction`
+was carried as definitional because "this project has no corpus of radif verse
+to calibrate it against", while `corpus/song/eng_*` held **1,872 items inside
+this profile's own token band** — the population four of the five other
+thresholds were already calibrated on. Measured: 46 of those items carry a
+repetend closing ≥2 pairs and the declared 0.50 **refuses to license 43 of the
+46, a 93.5% false-positive rate on canonical published verse** against the ~5%
+its siblings hold to. It is also anti-correlated with its own target — it
+admits two ONE-word runs and charges every repetend of three words or more,
+Burns's six-word `a health to them that's aw'` included. Neither density
+(0.125 vs 0.150 median, one-word against multi-word) nor run length (FPR
+60.9/73.9/78.3% at ≥2/3/4 words) reaches 5%, **so the value is NOT repinned** —
+retuning with no calibration behind the new number is doctrine 58's error. The
+RECURRING case is a note from that date; a run closing ONE pair recurs nowhere,
+is a one-off self-rhyme outside everything measured, and **stays a flag**.
+Splitting those two cost zero test churn, which is itself the evidence that
+`quality/test_floor.py`'s existing assertions were all about the one-off.
 
 **A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `---`, OR `#` — NOTHING
 ELSE — CENTRALIZED 2026-08-12, CONVERGED 2026-08-13.** A `(parenthetical stage direction)` under a
@@ -600,6 +620,50 @@ underneath the quality layer:
   `--subdivision 2` the 4/4 choruses of `quality/fixtures/song.blueprint.json`
   are UNSATISFIABLE and the 7/8 verses are not, because an eighth-note pulse
   subdivided twice is finer than a quarter-note one.
+  **THE TIME SIGNATURE ITSELF DID NOT HOLD THAT LINE UNTIL 2026-08-14.**
+  `Meter.groups` has always refused an undeclared value — "Empty means
+  UNDECLARED, and an undeclared grouping is refused rather than guessed",
+  raising `UNDECLARED_GROUPING` on the argument that there are 2^(n-1)
+  orderings and picking one by fiat is doctrine 19's error. The `beats` and
+  `unit` sitting one line above it silently became **4 and 4**, at FOUR sites
+  each spelling the literal (`Meter`'s field defaults, `grid.song_from_`
+  `blueprint`, `lyric_harness._grid_song`, and `fit._cycle_of`) — directly
+  under a docstring reading *"A time signature. Arbitrary; nothing here
+  privileges 4/4."* So half of one declaration failed safe and half failed
+  silent, inside one object, and a section that declared no meter was graded
+  in common time and told nobody.
+  ~~`UNDECLARED_METER` closes it. THE VALUE IS NOT CHANGED, only disclosed —
+  refusing outright would reject every blueprint that omits the key, and 4/4
+  is a defensible reading of silence in this repertoire.~~
+  **STRUCK THE SAME DAY IT WAS WRITTEN, AND BOTH CLAUSES WERE WRONG.** The
+  cost of refusing was never measured before it was quoted: it is **7 inline
+  test sections and ZERO shipped blueprints**, not "every blueprint that omits
+  the key". And a NOTE was the wrong instrument — this session had already
+  established that a warning is advisory to a human and invisible to an agent
+  in a hurry, so fixing a silent default with a disclosure swaps a silence for
+  a shrug. A default cannot be "defensible" under a docstring that says
+  nothing privileges it.
+  **THE READER REFUSES NOW.** An undeclared signature raises a `ValueError`
+  from BOTH readers — `fit.from_blueprint` and `grid.song_from_blueprint`, so
+  the `song` verb and the `grid` verb cannot answer differently about one file
+  — and the CLI turns it into `REFUSED …` exit 2 on the path a blueprint/draft
+  length mismatch already takes. `fit.AssumedMeter` is the only way past, and
+  being a `_Sourced` it cannot be constructed without naming who assumed and
+  why; that name is carried into `ASSUMED_METER` and into everything
+  conditional on it. 4/4 is still reachable — what is gone is reaching it with
+  nobody's name on it. `Placement.meter_declared`/`meter_assumed` and
+  `grid.Meter.declared`/`assumed` carry the coordinate, both defaulting to
+  DECLARED on purpose: writing `Meter(5, 4)` in Python IS a declaration, and
+  only a reader facing an absent key cannot tell.
+  **WHAT THE CHURN EXPOSED, which is the argument for taking it.** Three of
+  the repaired fixtures carried a top-level `"meter": "4/4"` — **a key no
+  reader reads** — so their authors had written a declaration that did nothing
+  and the silent default made it look like it worked. And `test_fit.py`'s own
+  "`from_song` is not a second, looser reader" caught that `grid.Meter` could
+  not carry the assumption's source, so the two readers diverged; `Meter.
+  assumed` closes it. Every shipped blueprint declares a meter on every
+  section, so no fixture could ever have shown the default firing — which is
+  why it survived. `quality/test_fit.py`'s undeclared-signature test.
 - **`function`** reads `Section.function`, which is not `Section.name`: an
   undeclared function REFUSES and the harness never reads `"chorus"` out of a
   name. Three counts on every run — asked / answered / refused (doctrine 79).
@@ -1258,6 +1322,72 @@ rather than this paragraph — a roster copied into two files drifts in both.
    too is verified at runtime and costs zero test churn, since all four
    shipped blueprints have 0 overlapping lines. Same shape as the
    built-and-tested-was-not-the-reachable family above, one layer in.~~
+10. **CLOSED 2026-08-14 — the SHAPE layer joins the revision loop, and it is
+   the layer this harness was built for.** `grid.stanza_lock` states its own
+   subject: *"THE SPECIFIC CLICHE THIS NAMES: sixteen bars of 4/4 carrying
+   four lines, repeated. Nothing in this repo could see that before — the
+   rhyme checker would certify it as clean, because every check it had was
+   about words."* It was reachable from `lyric_harness.py`'s `grid` verb and
+   from NOTHING that grades a draft: `song_function_report` never calls it, so
+   `METER_LOCKED`, `SECTION_LENGTH_LOCKED`, `QUATRAIN_LOCK`,
+   `DOWNBEAT_LOCKED`, `UNIFORM_ANACRUSIS` and `PHRASE_LENGTH_LOCKED` were six
+   findings computed by a function no grading path reached. Third instance of
+   the family gaps 8 and 9 belong to, and the largest: those two closed ONE
+   code each, this closes six, and they are the only checks in the repo that
+   ask about the song as a whole SHAPE rather than as words.
+   `Reviser._function_findings` calls it now. Measured on a purpose-built
+   locked grid — 16 bars of 4/4, four 4-bar sections, four lines each: the
+   whole-draft set goes **10 findings -> 15**, five of the six fire, and
+   stubbing `stanza_lock` to `[]` takes exactly those five back out.
+   `UNIFORM_ANACRUSIS` is correctly silent rather than missing — it is the
+   `elif` of `DOWNBEAT_LOCKED`, which fired (doctrine 24, the rule relabels).
+   NOTES, never flags, and the FLAG count is byte-identical either side of the
+   wiring: this is a measurement against a CONVENTION at an uncalibrated 0.90
+   threshold, and doctrine 6 says a convention a writer may depart from cannot
+   be what fails `verify()`. 5/4 and an 11-bar bridge are choices, not repairs.
+   NOT folded into `song_function_report`, whose contract is every
+   *function*-dependent question and whose doctrine-79 triple has already gone
+   negative once; `stanza_lock` never reads `Section.function`.
+   **AND THE "NO FIXTURE COULD SEE IT" STORY IS FALSE HERE — the truth is
+   worse.** Gap 9 got to say no shipped blueprint tripped `OVERLAPPING_SPANS`.
+   THREE OF FOUR trip `DOWNBEAT_LOCKED` right now (`song`, `mandate_song`,
+   `moonlight_fixture`, the last also `PHRASE_LENGTH_LOCKED`), so this layer
+   was not untested — it was firing on the repo's own fixtures and reporting
+   to nobody. Four of the six are tripped by no fixture at all, which is why
+   the test constructs the cliché rather than reaching for one.
+   **A DOCTRINE-17 CASUALTY FOUND ON THE WAY IN, PINNED NOT REPAIRED**:
+   `uniformity`'s docstring says the 41-line fixture "cleared the check by
+   giving every second line a pickup of 1.5 pulses" and that `downbeat_locked`
+   "fell to 51%". All 41 lines declare `beat: 1` today and it reads **1.00** —
+   the pickups are gone and the recorded figure does not reproduce. Restoring
+   them would re-commit the exact cheat `UNIFORM_ANACRUSIS` was written to
+   name, so the CURRENT reading is pinned instead and the fixture is left
+   alone. `quality/test_revise.py` test 36.
+   **SAME FAMILY, SECOND SITE, SAME DAY — a `Return`'s own refusals.**
+   `compare_returns` builds a `Return` carrying `.refusals` (`STUB_RETURN`,
+   `NO_RHYME_KEY`, `END_WORD_UNREADABLE`) and BOTH callers —
+   `return_findings` and `reprise_findings` — read `.kind` off it and dropped
+   the rest, so three codes were computed on every comparison and reachable
+   only by calling `describe()` on the object by hand. Nothing does. The
+   refusal list doctrine 79's triple is counted from was short by every
+   refusal the comparison itself made. ONE IS LIVE IN THE LOOP:
+   `_function_findings` always passes a real `rhyme_key`, so `NO_RHYME_KEY`
+   cannot fire there — but `END_WORD_UNREADABLE` can, the moment a chorus
+   carries a word the declared phonology cannot read, and "did the rhyme
+   survive the return" then answered CANNOT TELL to nobody.
+   **AND THE FIRST ATTEMPT COLLECTED ALL THREE, WHICH WAS WRONG AND SIX
+   EXISTING ASSERTIONS SAID SO.** `NO_RHYME_KEY` is a property of the CALL,
+   not of the draft — the caller passed no phonology, which is ONE fact that
+   `bridge_contrast` already states once as `CHANNEL_NOT_MEASURED`.
+   Collecting it per returning function turns one fact into N records, the
+   exact inflation `song_function_report`'s counting docstring records being
+   bitten by (`asked 3, answered -1, refused 4`), and §19's "a partly-refused
+   question is one refused question, not several" is the assertion that
+   caught it. The rule that fell out and is now written down: **a refusal
+   ABOUT THE DRAFT is collected; a refusal ABOUT THE CALL is not.** Scoped
+   that way the collection costs zero test churn. `STUB_RETURN` is skipped in
+   `reprise_findings` alone, where `REPRISE_STUB` already says it in that
+   function's own vocabulary. `quality/test_grid.py` §25.
 
 ## The doctrine index — every number, and where it lives
 
@@ -1386,11 +1516,16 @@ About to move a threshold: METHOD part B, and 5 above. About to believe a null:
 31, 71 and 76, in that order.
 
 **Two numbering systems, and they do not collide.** The `Known gaps` list above
-runs 1–9 (REPINNED 2026-08-13 from 1–7: entries 8 and 9 were added the same day
-and this sentence was never split, while `verify_doctrines.py` had been printing
-`CLAUDE.md's own 1-9 list` on every run — the file's own instrument contradicting
-its own prose, which is doctrine 48's failure mode inside the file that states
-doctrine 48) and is cited elsewhere as `known gap N` (MATRIX_PREREGISTRATION.md,
+runs 1–10 (REPINNED 2026-08-14 from 1–9 when the SHAPE layer closed as entry
+10; REPINNED 2026-08-13 from 1–7 before that, when entries 8 and 9 were added
+the same day and this sentence was never split, while `verify_doctrines.py` had
+been printing `CLAUDE.md's own 1-9 list` on every run — the file's own
+instrument contradicting its own prose, which is doctrine 48's failure mode
+inside the file that states doctrine 48. THE INSTRUMENT IS THE REASON THIS ONE
+DID NOT REPEAT: `verify_doctrines.py` derives the list from this file's own
+markdown rather than from a literal, so entry 10 was defined the moment it was
+written and no third repin of a hardcoded range was possible) and is cited
+elsewhere as `known gap N` (MATRIX_PREREGISTRATION.md,
 fit_matrix.py, TIME_PREREGISTRATION.md, test_phon_san.py, test_phonology.py,
 test_relations.py, POSITIVE_CONTROL.md, time_layer.py). It is not part of the
 doctrine numbering and never was. The doctrine run is delimited in both files by

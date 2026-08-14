@@ -89,6 +89,23 @@ class Meter:
     #: The ordered composition of the pulses. Empty means UNDECLARED, and an
     #: undeclared grouping is refused rather than guessed.
     groups: tuple = ()
+    #: Did the SIGNATURE above come from a declaration, or from these two
+    #: defaults? Added 2026-08-14, because `groups` refused an undeclared
+    #: value one line up while `beats`/`unit` silently became common time —
+    #: half of one declaration failing safe and half failing silent, directly
+    #: under a docstring reading "Arbitrary; nothing here privileges 4/4".
+    #:
+    #: TRUE by default on purpose. Writing `Meter()` in Python IS a
+    #: declaration — a person chose it. What cannot tell is a blueprint
+    #: READER looking at a section with no `meter` key, so
+    #: `song_from_blueprint` is the only site that passes False. `quality/
+    #: fit.py` carries the same coordinate on `Placement.meter_declared` and
+    #: raises `UNDECLARED_METER` from it.
+    declared: bool = True
+    #: WHOSE assumption, when `declared` is False. Empty and
+    #: undeclared is unreachable through the reader, which
+    #: refuses; this is either a declaration or a named guess.
+    assumed: str = ""
 
     def __str__(self):
         return f"{self.beats}/{self.unit}"
@@ -455,7 +472,7 @@ def _frac(x):
     return Fraction(x)
 
 
-def song_from_blueprint(obj):
+def song_from_blueprint(obj, assume_meter=None):
     """-> (Song, hooks) from a blueprint dict or path.
 
     Reads the same `sections`/`lines` shape `quality.fit.from_blueprint`
@@ -476,9 +493,29 @@ def song_from_blueprint(obj):
             obj = json.load(fh)
     secs, bar = [], 1
     for s in obj.get("sections", []):
-        md = s.get("meter", {})
-        meter = Meter(beats=int(md.get("beats", 4)), unit=int(md.get("unit", 4)),
-                      groups=tuple(md.get("groups", ())))
+        md = s.get("meter") or {}
+        # Both halves, independently: a section may legally declare `beats`
+        # and default `unit`, and calling that "declared" would hide the half
+        # that was guessed.
+        _declared = ("beats" in md and "unit" in md)
+        if not _declared and assume_meter is None:
+            # REFUSES, as of 2026-08-14, rather than falling to common time.
+            # `quality/fit.py`'s reader does the same and carries the full
+            # argument; the two must agree or the `song` verb and the `grid`
+            # verb would answer differently about one file.
+            raise ValueError(
+                f"section {s.get('name')!r} declares no time signature. This "
+                f"fell to 4/4 in silence until 2026-08-14, which is the one "
+                f"thing this class's own docstring says it does not do: "
+                f"'Arbitrary; nothing here privileges 4/4.' Declare "
+                f"\"meter\": {{\"beats\": N, \"unit\": D}}, or pass "
+                f"assume_meter=fit.AssumedMeter(..., source='who decided') "
+                f"and carry the assumption in the report.")
+        meter = Meter(
+            beats=int(md["beats"]) if _declared else int(assume_meter.beats),
+            unit=int(md["unit"]) if _declared else int(assume_meter.unit),
+            groups=tuple(md.get("groups", ())), declared=_declared,
+            assumed="" if _declared else assume_meter.source)
         start = int(s.get("start_bar", bar))
         secs.append(Section(name=s["name"], bars=int(s["bars"]), meter=meter,
                             start_bar=start,
@@ -1637,6 +1674,56 @@ def return_findings(song, function="chorus", convention=POPULAR_SONG,
             first_slot=slots[0], again_slot=slots[k])
         rets.append((inst[0], inst[k], r))
 
+    # THE RETURN'S OWN REFUSALS, COLLECTED 2026-08-14. `compare_returns`
+    # builds a `Return` carrying `.refusals` -- STUB_RETURN, NO_RHYME_KEY,
+    # END_WORD_UNREADABLE -- and this function appended the `Return` to `rets`
+    # and read `.kind` off it and nothing else. Three refusal codes were
+    # therefore computed on every comparison and reachable only by a caller
+    # holding the `Return` object and calling `describe()` on it by hand. No
+    # grading path does that, so `song_function_report`'s refusal list -- the
+    # list doctrine 79's asked/answered/refused triple is counted from -- was
+    # short by every refusal the comparison itself made.
+    #
+    # ONE OF THE THREE IS LIVE IN THE REVISION LOOP AND WAS THE WHOLE COST:
+    # `Reviser._function_findings` passes a real `rhyme_key`, so NO_RHYME_KEY
+    # cannot fire there -- but END_WORD_UNREADABLE can, and does, the moment a
+    # chorus carries a word the declared phonology cannot read. "Did the rhyme
+    # scheme survive the return" then answers CANNOT TELL and said so to
+    # nobody. That is doctrine 20 inside the layer that reports doctrine 20.
+    #
+    # DEDUPED BY CODE, because a chorus returning four times runs the same
+    # comparison three times and would otherwise record one identical refusal
+    # per return -- inflating `refusal_records` with no new information. The
+    # count is kept in the evidence instead, so nothing is hidden by the
+    # dedupe: a reader sees it was refused on N of the M comparisons.
+    # NO_RHYME_KEY IS DELIBERATELY NOT COLLECTED, and the first attempt at
+    # this collected it and broke six existing assertions — correctly. It is a
+    # property of the CALL, not of the draft: the caller passed no phonology,
+    # which is ONE fact, and this report already states it once as
+    # CHANNEL_NOT_MEASURED from `bridge_contrast`. Collecting it here turns
+    # that one fact into one record per returning function, which is the exact
+    # inflation `song_function_report`'s own counting docstring records being
+    # bitten by ("a three-question report came back asked 3, answered -1,
+    # refused 4"). §19's "a partly-refused question is one refused question,
+    # not several" is the assertion that caught it.
+    #
+    # The other two ARE about the draft and are collected: END_WORD_UNREADABLE
+    # says THIS SONG has a return whose end word the declared phonology cannot
+    # read, and STUB_RETURN says THIS RETURN is an abbreviated pointer. Neither
+    # is reported anywhere else on this path.
+    by_code = {}
+    for _first, _again, r in rets:
+        for ref in r.refusals:
+            if ref.code == "NO_RHYME_KEY":
+                continue
+            by_code.setdefault(ref.code, []).append(ref)
+    for code in sorted(by_code):
+        group = by_code[code]
+        refusals.append(Refusal(
+            code, group[0].message,
+            f"{group[0].evidence} [refused on {len(group)} of {len(rets)} "
+            f"return comparison(s) for {fn!r}]"))
+
     kinds = {r.kind for _, _, r in rets}
     spec = SECTION_FUNCTIONS[fn]
     if spec.returns_as == "new words" and kinds == {"VERBATIM"}:
@@ -1793,6 +1880,33 @@ def reprise_findings(song, later="outro", earlier="intro",
             f"agreed with ITSELF. Threshold: reprise_min_lines="
             f"{convention.reprise_min_lines} line(s) invariant under "
             f"{r.declaration.normalisation!r}."))
+
+    # THE SAME DROP, SECOND SITE — collected 2026-08-14 alongside
+    # `return_findings`'. This function holds a `Return` per candidate pair and
+    # read `.kind`, `.invariant_lines`, `.varied_lines` and `.declaration` off
+    # it while `.refusals` went nowhere.
+    #
+    # STUB_RETURN IS EXCLUDED HERE AND ONLY HERE. The loop above already
+    # answers that case with REPRISE_STUB, which says the same thing in this
+    # function's own vocabulary (which side is abbreviated, and that a stub is
+    # the shape a real reprise takes in print). Merging both would record one
+    # question as refused twice and put the same fact in the report under two
+    # names -- doctrine 79 asks for counts of one kind of thing, not for the
+    # same thing counted twice.
+    # NO_RHYME_KEY skipped for the reason given at the same collection in
+    # `return_findings`: it is a fact about the CALL, stated once already.
+    rby = {}
+    for _src, _dst, r in out:
+        for ref in r.refusals:
+            if ref.code in ("STUB_RETURN", "NO_RHYME_KEY"):
+                continue
+            rby.setdefault(ref.code, []).append(ref)
+    for code in sorted(rby):
+        group = rby[code]
+        refusals.append(Refusal(
+            code, group[0].message,
+            f"{group[0].evidence} [refused on {len(group)} of {len(out)} "
+            f"cross-function reprise comparison(s)]"))
     return findings, refusals, out
 
 

@@ -131,7 +131,7 @@ class WithinItemFeatures(QualityFeatures):
         # 1 predictability advantage over a uniform draw from the item's own
         #   candidate fields. 0.5 is the exact expectation of a uniform draw
         #   regardless of field size, so this carries no lexicon-size term.
-        pred = self._predictability(lines, pairs)
+        pred = [v for _i, _j, v in self._predictability(lines, pairs)]
         f_pred = (_mean(pred) - 0.5) if pred else NAN
 
         # 2-4 lexical deltas: rhyme position vs the item's own baseline

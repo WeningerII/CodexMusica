@@ -550,7 +550,8 @@ def test_zero_syllable_word_has_no_anchor():
     qf = QualityFeatures(lex=LEX, decl=DECL)
     real_line_a = "And some her Grace of _Sh----_"
     real_line_b = "Tho' she grows something fat:"
-    vals = qf._predictability([real_line_a, real_line_b], [(0, 1)])
+    vals = [v for _i, _j, v
+            in qf._predictability([real_line_a, real_line_b], [(0, 1)])]
     check("the real corpus couplet that found this scores (or "
           "correctly skips) instead of crashing the whole calibration "
           "run", vals == [] or all(v == v for v in vals), f"vals={vals!r}")
