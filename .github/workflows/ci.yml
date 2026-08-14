@@ -848,9 +848,17 @@ jobs:
   #
   # WHY THE FLAGSHIP PAIR IS HERE AND NOT NIGHTLY. test_revise and test_loop
   # are the revision loop -- this project's flagship verb and the thing a
-  # writer actually touches. Leaving them out because they are the two most
-  # expensive CHEAP suites would repeat, at 6.2 CPU-minutes, exactly the error
-  # this job's own header is about.
+  # writer actually touches. Excluding them on cost would repeat, at 6.2
+  # CPU-minutes, exactly the error this header is about.
+  #
+  # AND THEY ARE NOT EVEN THE EXPENSIVE ONES. This comment said until
+  # 2026-08-14 that they were "the two most expensive cheap suites", written
+  # while test_verbs.py was the one file nobody had ever timed. It finished at
+  # 218.1 CPU-s, exit 0 -- MORE than test_loop (190.92) and test_revise
+  # (183.95). So the sentence arguing against pricing-by-impression was itself
+  # pricing by impression, in the same paragraph, about the very file whose
+  # number was missing. The full order, top of the cheap set: test_verbs 218.1,
+  # fwer 48.08, readability 46.38, msa_fin 29.30, g2p 25.21, floor 21.36.
   #
   # WHAT IS DELIBERATELY NOT HERE, each with the reason and its measurement:
   #   test_discriminate.py  ~1055 CPU-s cold, and cold BY DESIGN -- it neither
@@ -875,16 +883,10 @@ jobs:
   suites:
     needs: gate
     runs-on: ubuntu-latest
-    # A RUNAWAY GUARD, NOT A BUDGET, and deliberately generous because one
-    # file is not yet priced. 41 of the 42 cheap suites are measured and sum
-    # to ~290 CPU-s; test_verbs.py is the exception -- it ran past 10 minutes
-    # locally without completing and neither of this session's two independent
-    # measurement passes had ever reached it. It is IN the list because it
-    # exits 0 and gates the CLI verbs, which nothing else covers; the number
-    # beside it is missing, and a guess here would be the exact defect this
-    # job's header is about. If it turns out to dominate, it earns its own
-    # step or a nightly slot -- on the measurement, not on this comment.
-    timeout-minutes: 45
+    # A RUNAWAY GUARD, NOT A BUDGET. All 44 files in this job are now
+    # measured: the 42 cheap ones sum to 505 CPU-s and the revision pair adds
+    # 375, so the job is ~880 CPU-s / ~14.7 min and this guard is ~2x that.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
 
