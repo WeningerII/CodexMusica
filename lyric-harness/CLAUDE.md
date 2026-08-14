@@ -631,20 +631,39 @@ underneath the quality layer:
   under a docstring reading *"A time signature. Arbitrary; nothing here
   privileges 4/4."* So half of one declaration failed safe and half failed
   silent, inside one object, and a section that declared no meter was graded
-  in common time and told nobody. `UNDECLARED_METER` closes it.
-  **THE VALUE IS NOT CHANGED, only disclosed** — refusing outright would
-  reject every blueprint that omits the key, and 4/4 is a defensible reading
-  of silence in this repertoire; what is not defensible is not saying so. It
-  is a SCHEDULED refusal naming the one key that ends it, it names the
-  findings conditional on the guess (`CROWDED`, `SPARSE`,
-  `BEAT_OUTSIDE_CYCLE`…), and it carries on `Placement.meter_declared` so
-  BOTH readers answer alike — `from_blueprint` (the `fit` verb and
-  `Reviser._meter_findings`) and `from_song`. `grid.Meter.declared` carries
-  the same coordinate and defaults TRUE on purpose: writing `Meter(5, 4)` in
-  Python IS a declaration, and only a reader looking at an absent key cannot
-  tell. Every shipped blueprint declares a meter on every section, so no
-  existing fixture could ever have shown the default firing — which is why it
-  survived. `quality/test_fit.py`'s undeclared-signature test.
+  in common time and told nobody.
+  ~~`UNDECLARED_METER` closes it. THE VALUE IS NOT CHANGED, only disclosed —
+  refusing outright would reject every blueprint that omits the key, and 4/4
+  is a defensible reading of silence in this repertoire.~~
+  **STRUCK THE SAME DAY IT WAS WRITTEN, AND BOTH CLAUSES WERE WRONG.** The
+  cost of refusing was never measured before it was quoted: it is **7 inline
+  test sections and ZERO shipped blueprints**, not "every blueprint that omits
+  the key". And a NOTE was the wrong instrument — this session had already
+  established that a warning is advisory to a human and invisible to an agent
+  in a hurry, so fixing a silent default with a disclosure swaps a silence for
+  a shrug. A default cannot be "defensible" under a docstring that says
+  nothing privileges it.
+  **THE READER REFUSES NOW.** An undeclared signature raises a `ValueError`
+  from BOTH readers — `fit.from_blueprint` and `grid.song_from_blueprint`, so
+  the `song` verb and the `grid` verb cannot answer differently about one file
+  — and the CLI turns it into `REFUSED …` exit 2 on the path a blueprint/draft
+  length mismatch already takes. `fit.AssumedMeter` is the only way past, and
+  being a `_Sourced` it cannot be constructed without naming who assumed and
+  why; that name is carried into `ASSUMED_METER` and into everything
+  conditional on it. 4/4 is still reachable — what is gone is reaching it with
+  nobody's name on it. `Placement.meter_declared`/`meter_assumed` and
+  `grid.Meter.declared`/`assumed` carry the coordinate, both defaulting to
+  DECLARED on purpose: writing `Meter(5, 4)` in Python IS a declaration, and
+  only a reader facing an absent key cannot tell.
+  **WHAT THE CHURN EXPOSED, which is the argument for taking it.** Three of
+  the repaired fixtures carried a top-level `"meter": "4/4"` — **a key no
+  reader reads** — so their authors had written a declaration that did nothing
+  and the silent default made it look like it worked. And `test_fit.py`'s own
+  "`from_song` is not a second, looser reader" caught that `grid.Meter` could
+  not carry the assumption's source, so the two readers diverged; `Meter.
+  assumed` closes it. Every shipped blueprint declares a meter on every
+  section, so no fixture could ever have shown the default firing — which is
+  why it survived. `quality/test_fit.py`'s undeclared-signature test.
 - **`function`** reads `Section.function`, which is not `Section.name`: an
   undeclared function REFUSES and the harness never reads `"chorus"` out of a
   name. Three counts on every run — asked / answered / refused (doctrine 79).

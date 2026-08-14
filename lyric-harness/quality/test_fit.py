@@ -618,9 +618,13 @@ def test_the_placement_codes_no_test_reached():
     sub = Subdivision(slots_per_pulse=2, source="test_fit placement codes")
 
     def codes(lines):
-        bp = {"bpm": 120, "meter": "4/4",
+        # `"meter": "4/4"` at TOP LEVEL is read by nothing — this fixture
+        # only ever got 4/4 from the silent section default, which is the
+        # defect `ASSUMED_METER` closes. Declared on the section now.
+        bp = {"bpm": 120,
               "sections": [{"name": "V", "function": "verse",
-                            "start_bar": 5, "bars": 4}],
+                            "start_bar": 5, "bars": 4,
+                            "meter": {"beats": 4, "unit": 4}}],
               "lines": lines}
         res = fit_song(bp, subdivision=sub)
         fs = res.findings() if callable(res.findings) else res.findings
@@ -721,9 +725,11 @@ def test_overlap_is_asked_of_a_flat_line_list_not_only_of_a_songfit():
     rather than a second copy of the arithmetic.
     """
     print("\n  overlap: the check takes the object BOTH surfaces hold")
-    bp = {"bpm": 120, "meter": "4/4",
+    # top-level "meter" is read by nothing; declare it where it is consulted
+    bp = {"bpm": 120,
           "sections": [{"name": "V", "function": "verse",
-                        "start_bar": 1, "bars": 8}],
+                        "start_bar": 1, "bars": 8,
+                        "meter": {"beats": 4, "unit": 4}}],
           "lines": [{"text": "the first line holds the whole bar down",
                      "bar": 1, "beat": 1, "duration": 16, "section": "V"},
                     {"text": "the second one comes in over the top",
@@ -860,17 +866,19 @@ def main():
 
 
 def test_an_undeclared_signature_says_so():
-    """`groups` refused an undeclared value; `beats`/`unit` silently became 4/4.
+    """`groups` refused an undeclared value; `beats`/`unit` fell to 4/4 silently.
 
     Half of one declaration failed safe and half failed silent, in the same
     object, under a docstring reading "Arbitrary; nothing here privileges
-    4/4". The value is unchanged — 4/4 is still what silence gets — but it is
-    now SAID, so a reader can argue with it.
+    4/4". The FIRST fix only disclosed it — kept 4/4, emitted a note — and a
+    note is advisory to a human and invisible to an agent in a hurry, which
+    swaps a silence for a shrug. The reader refuses now, and `AssumedMeter`
+    is the only way past, so 4/4 is still reachable but never anonymous.
     """
-    print("\n. an UNDECLARED time signature discloses instead of assuming")
+    print("\n. an UNDECLARED time signature REFUSES; an assumed one is worn")
     import glob
     from quality import grid as GR
-    from quality.fit import fit_song
+    from quality.fit import AssumedMeter, fit_song
 
     bp = {"sections": [
               {"name": "v", "bars": 4, "start_bar": 1,
@@ -881,63 +889,77 @@ def test_an_undeclared_signature_says_so():
                     {"text": "a freight goes by and shakes the door", "bar": 5,
                      "beat": 1, "duration": 4, "section": "c"}]}
 
-    got = [r for r in fit_song(bp).refusals() if r.code == "UNDECLARED_METER"]
-    check("it fires exactly once — on the silent section, not the declared one",
+    check("an undeclared signature with no assumption REFUSES at the reader "
+          "rather than falling to common time",
+          _raises(lambda: fit_song(bp), "declares no time signature"))
+    check("...and it is a ValueError, so the CLI turns it into `REFUSED —` "
+          "exit 2 rather than a traceback",
+          _raises(lambda: fit_song(bp), "nothing here privileges 4/4"))
+    check("the grid reader refuses identically — the `song` verb and the "
+          "`grid` verb cannot answer differently about one file",
+          _raises(lambda: GR.song_from_blueprint(bp),
+                  "declares no time signature"))
+
+    check("an AssumedMeter cannot be built without naming who assumed it "
+          "(`_Sourced`, checked at construction so it cannot be walked round)",
+          _raises(lambda: AssumedMeter(beats=4, unit=4), "has no source"))
+
+    am = AssumedMeter(beats=4, unit=4, source=SOURCE)
+    sf = fit_song(bp, assume_meter=am)
+    got = [r for r in sf.refusals() if r.code == "ASSUMED_METER"]
+    check("with a SOURCED assumption the run proceeds and fires exactly once "
+          "— on the silent section, not the declared one",
           len(got) == 1, f"{len(got)} refusal(s)")
-    check("and names the section, so a writer knows where to put the key",
-          got and "'c'" in got[0].missing, got[0].missing if got else "")
-    check("it says what it READ and that the reading was a default, not a "
-          "declaration",
-          got and "4/4" in got[0].detail and "default" in got[0].detail)
-    check("it names the findings that are conditional on the guess rather "
-          "than leaving a reader to work out the blast radius",
+    check("and it carries the source, so the assumption has a name on it",
+          got and SOURCE in got[0].detail)
+    check("it names what it READ and that the reading was an assumption",
+          got and "4/4" in got[0].detail and "NOT because" in got[0].detail)
+    check("it names the findings conditional on the assumption rather than "
+          "leaving a reader to work out the blast radius",
           got and all(w in got[0].detail
                       for w in ("CROWDED", "SPARSE", "BEAT_OUTSIDE_CYCLE")))
-    check("SCHEDULED, with the one key that ends it — this refusal is "
-          "resolvable and says how (the dataclass refuses to construct "
-          "otherwise)",
-          got and got[0].status == "SCHEDULED" and "beats" in got[0].ends_with,
-          got[0].ends_with[:70] if got else "")
+    check("SCHEDULED, naming the key that ends it — the dataclass refuses to "
+          "construct a SCHEDULED refusal that names no resolving work",
+          got and got[0].status == "SCHEDULED" and "beats" in got[0].ends_with)
 
-    # THE ASYMMETRY THAT PROMPTED THIS: both halves now behave the same way.
-    silent = [r.code for r in fit_song(bp).sections[1].lines[0].refusals]
-    declared = [r.code for r in fit_song(bp).sections[0].lines[0].refusals]
-    check("the silent section refuses on BOTH halves of its meter",
-          "UNDECLARED_METER" in silent and "UNDECLARED_GROUPING" in silent,
+    # THE ASYMMETRY THAT PROMPTED THIS: both halves now behave alike.
+    silent = {r.code for r in sf.sections[1].lines[0].refusals}
+    declared = {r.code for r in sf.sections[0].lines[0].refusals}
+    check("the assumed section reports on BOTH halves of its meter",
+          "ASSUMED_METER" in silent and "UNDECLARED_GROUPING" in silent,
           sorted(silent))
-    check("...and the 7/8 section that declared both refuses on NEITHER",
-          "UNDECLARED_METER" not in declared
-          and "UNDECLARED_GROUPING" not in declared,
+    check("...and the 7/8 section that declared both reports NEITHER",
+          not ({"ASSUMED_METER", "UNDECLARED_GROUPING"} & declared),
           sorted(declared))
 
-    # BOTH READERS, or the `fit` verb and the loop would disagree about the
-    # same song depending which door it came in.
-    song, _h = GR.song_from_blueprint(bp)
+    # BOTH READERS, or the two surfaces disagree about one song.
+    song, _h = GR.song_from_blueprint(bp, assume_meter=am)
     viasong = [r for r in fit_song(song).refusals()
-               if r.code == "UNDECLARED_METER"]
+               if r.code == "ASSUMED_METER"]
     check("`from_song` agrees with `from_blueprint` — one song, one answer, "
           "whichever reader built it",
           len(viasong) == len(got) == 1,
           f"from_song {len(viasong)}, from_blueprint {len(got)}")
-    check("`grid.Meter` carries the coordinate too, so the grid path is not "
-          "guessing on its own",
+    check("`grid.Meter` carries the coordinate, so the grid path is not "
+          "deciding this on its own",
           song.sections[0].meter.declared is True
           and song.sections[1].meter.declared is False)
     check("a Meter written BY HAND reports declared — a person choosing "
-          "`Meter(5, 4)` has declared it; only a reader looking at an absent "
-          "key cannot tell",
+          "`Meter(5, 4)` HAS declared it; only a reader facing an absent key "
+          "cannot tell, which is why the two blueprint readers are the only "
+          "sites that ever pass False",
           GR.Meter(5, 4).declared is True)
 
-    # NON-DISCRIMINATING, and this is why the default survived: nothing
-    # shipped could see it.
-    quiet = [p for p in sorted(glob.glob(os.path.join(HERE, "fixtures",
+    # NON-DISCRIMINATING, and this is why the default survived so long.
+    trips = [p for p in sorted(glob.glob(os.path.join(HERE, "fixtures",
                                                       "*.blueprint.json")))
              if [r for r in fit_song(p).refusals()
-                 if r.code == "UNDECLARED_METER"]]
+                 if r.code == "ASSUMED_METER"]]
     check("NON-DISCRIMINATING: every shipped blueprint declares a meter on "
           "every section, so no existing fixture could ever have shown the "
-          "default firing",
-          not quiet, f"{len(quiet)} fixture(s) would trip it")
+          "default firing — the cost of refusing was 7 inline test sections "
+          "and ZERO shipped blueprints, a number nobody had run",
+          not trips, f"{len(trips)} fixture(s) would trip it")
 
 
 if __name__ == "__main__":

@@ -102,6 +102,10 @@ class Meter:
     #: fit.py` carries the same coordinate on `Placement.meter_declared` and
     #: raises `UNDECLARED_METER` from it.
     declared: bool = True
+    #: WHOSE assumption, when `declared` is False. Empty and
+    #: undeclared is unreachable through the reader, which
+    #: refuses; this is either a declaration or a named guess.
+    assumed: str = ""
 
     def __str__(self):
         return f"{self.beats}/{self.unit}"
@@ -468,7 +472,7 @@ def _frac(x):
     return Fraction(x)
 
 
-def song_from_blueprint(obj):
+def song_from_blueprint(obj, assume_meter=None):
     """-> (Song, hooks) from a blueprint dict or path.
 
     Reads the same `sections`/`lines` shape `quality.fit.from_blueprint`
@@ -493,9 +497,25 @@ def song_from_blueprint(obj):
         # Both halves, independently: a section may legally declare `beats`
         # and default `unit`, and calling that "declared" would hide the half
         # that was guessed.
-        meter = Meter(beats=int(md.get("beats", 4)), unit=int(md.get("unit", 4)),
-                      groups=tuple(md.get("groups", ())),
-                      declared=("beats" in md and "unit" in md))
+        _declared = ("beats" in md and "unit" in md)
+        if not _declared and assume_meter is None:
+            # REFUSES, as of 2026-08-14, rather than falling to common time.
+            # `quality/fit.py`'s reader does the same and carries the full
+            # argument; the two must agree or the `song` verb and the `grid`
+            # verb would answer differently about one file.
+            raise ValueError(
+                f"section {s.get('name')!r} declares no time signature. This "
+                f"fell to 4/4 in silence until 2026-08-14, which is the one "
+                f"thing this class's own docstring says it does not do: "
+                f"'Arbitrary; nothing here privileges 4/4.' Declare "
+                f"\"meter\": {{\"beats\": N, \"unit\": D}}, or pass "
+                f"assume_meter=fit.AssumedMeter(..., source='who decided') "
+                f"and carry the assumption in the report.")
+        meter = Meter(
+            beats=int(md["beats"]) if _declared else int(assume_meter.beats),
+            unit=int(md["unit"]) if _declared else int(assume_meter.unit),
+            groups=tuple(md.get("groups", ())), declared=_declared,
+            assumed="" if _declared else assume_meter.source)
         start = int(s.get("start_bar", bar))
         secs.append(Section(name=s["name"], bars=int(s["bars"]), meter=meter,
                             start_bar=start,

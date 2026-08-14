@@ -510,6 +510,11 @@ class Placement:
     #: undeclared section gets — because changing it would break every
     #: blueprint that omits the key. What changes is that it is now SAID.
     meter_declared: bool = True
+    #: WHOSE assumption, when the signature was not declared.
+    #: Empty and undeclared is now unreachable: the reader
+    #: refuses rather than defaulting, so this is either a
+    #: declaration or somebody's named guess.
+    meter_assumed: str = ""
 
     def __post_init__(self):
         object.__setattr__(self, "beat", _frac(self.beat))
@@ -677,6 +682,39 @@ class _Sourced:
                 f"coordinate came from — a score, an arrangement, a decision "
                 f"somebody made — or leave the slot empty and take the "
                 f"refusal.")
+
+
+@dataclass(frozen=True)
+class AssumedMeter(_Sourced):
+    """A time signature nobody declared, ASSUMED on somebody's authority.
+
+    Added 2026-08-14, replacing a bare default. `beats`/`unit` used to fall to
+    4 and 4 at four separate sites with no announcement, while the `groups`
+    beside them refused an undeclared value — half of one declaration failing
+    safe and half failing silent, under a `grid.Meter` docstring reading "A
+    time signature. Arbitrary; nothing here privileges 4/4."
+
+    THE FIRST FIX ONLY DISCLOSED IT, and disclosure was the wrong instrument.
+    A whole-draft NOTE is advisory to a human and invisible to an agent in a
+    hurry — this repo's own recurring failure is a warning walked past, and
+    shipping another one to fix a silent default swaps a silence for a shrug.
+    So the reader REFUSES now, and this object is the only way past it.
+
+    Being a `_Sourced`, it cannot be built without saying where the assumption
+    came from, and the refusal it silences names that source in every finding
+    downstream of it. 4/4 remains available; what is gone is getting it
+    without anybody's name on it.
+    """
+    beats: int = 4
+    unit: int = 4
+    source: str = ""
+
+    def __post_init__(self):
+        self._check_source()
+
+    @property
+    def signature(self):
+        return f"{self.beats}/{self.unit}"
 
 
 @dataclass(frozen=True)
@@ -962,35 +1000,48 @@ def fit_line(text, placement, phon=None, subdivision=None, assume=None,
     # one object. `grid.Meter`'s docstring reads "A time signature. Arbitrary;
     # nothing here privileges 4/4" directly above the two fields that do.
     #
-    # THE VALUE IS NOT CHANGED, only disclosed. Refusing outright would break
-    # every blueprint that omits the key, and 4/4 is a defensible reading of
-    # silence in this repertoire; what is not defensible is not saying so.
-    # Doctrine 20's shape: this is CANNOT TELL about the writer's intent, and
-    # a default that announces itself can be argued with.
+    # THE FIRST FIX ONLY DISCLOSED IT, AND DISCLOSURE WAS THE WRONG
+    # INSTRUMENT. It kept 4/4 and emitted a whole-draft NOTE, on the argument
+    # that refusing would break every blueprint omitting the key. Measured,
+    # that cost was SEVEN inline test sections and ZERO shipped blueprints —
+    # so the argument was carrying a number nobody had run, which is the error
+    # this repo names most often. And a note is advisory to a human and
+    # invisible to an agent in a hurry: this session had already established
+    # that a warning is walked past, so fixing a silent default with a
+    # disclosure swapped a silence for a shrug.
+    #
+    # SO THE READER REFUSES NOW (`from_blueprint`, a ValueError the CLI turns
+    # into `REFUSED …` exit 2, the same path a blueprint/draft length mismatch
+    # already takes), and `AssumedMeter` is the only way past it. Being a
+    # `_Sourced` it cannot be built without naming who assumed and why, and
+    # that name is carried into this refusal and into everything conditional
+    # on it. 4/4 is still reachable; what is gone is reaching it with nobody's
+    # name on it.
+    #
+    # This branch is therefore no longer "we defaulted" — it is "somebody
+    # declared an assumption", which is a different and answerable state.
     if not getattr(p, "meter_declared", True):
+        who = getattr(p, "meter_assumed", "") or "(unattributed)"
         R.append(FitRefusal(
-            "UNDECLARED_METER",
+            "ASSUMED_METER",
             "what time signature this section is in",
             missing=f"a `meter` declaring both beats and unit on section "
                     f"{p.section!r}",
-            detail=(f"read as {c.signature} because that is this module's "
-                    f"default, NOT because the blueprint said so. Every "
-                    f"finding below that counts pulses -- CROWDED, SPARSE, "
-                    f"ANACRUSIS, BEAT_OUTSIDE_CYCLE, OVERRUNS_SECTION -- is "
-                    f"conditional on that guess. The grouping half of this "
-                    f"same declaration refuses rather than guesses "
-                    f"(UNDECLARED_GROUPING); this one defaults, and says so "
-                    f"instead of failing, because refusing would reject every "
-                    f"blueprint that omits the key. 5/4, 7/8, 6/8 and 12/8 "
-                    f"are all equally available and none is harder to "
-                    f"declare."),
-            ends_with=(f"adding \"meter\": {{\"beats\": N, \"unit\": D}} to "
-                       f"section {p.section!r} of the blueprint. This is "
-                       f"SCHEDULED and not PERMANENT because the work that "
-                       f"ends it is one key a writer already knows the answer "
-                       f"to -- unlike UNDECLARED_GROUPING beside it, which "
-                       f"needs an ordered composition most writers have never "
-                       f"had to name.")))
+            detail=(f"read as {c.signature} on the authority of an "
+                    f"`AssumedMeter` whose source is {who!r} — NOT because "
+                    f"the blueprint said so. Every finding below that counts "
+                    f"pulses (CROWDED, SPARSE, ANACRUSIS, BEAT_OUTSIDE_CYCLE, "
+                    f"OVERRUNS_SECTION) is conditional on that assumption. "
+                    f"REACHING THIS STATE NOW REQUIRES SOMEBODY TO HAVE NAMED "
+                    f"THEMSELVES: an undeclared signature with no assumption "
+                    f"REFUSES at the reader rather than falling to common "
+                    f"time, the same way the `groups` half of this same "
+                    f"declaration has always refused "
+                    f"(UNDECLARED_GROUPING)."),
+            ends_with=(f"adding \"meter\": {{\"beats\": N, \"unit\": D}} "
+                       f"to section {p.section!r}, which replaces "
+                       f"{who!r}'s assumption with the writer's own "
+                       f"declaration.")))
 
     # -- 1. is the declared placement even arithmetic? ----------------------
 
@@ -1469,7 +1520,7 @@ def _cycle_of(meterdict):
                  groups=tuple(meterdict.get("groups", ()) or ()))
 
 
-def from_blueprint(obj):
+def from_blueprint(obj, assume_meter=None):
     """-> (sections, placements) from a blueprint dict or path.
 
     Deliberately does NOT import `quality/grid.py`: a `grid.Song` is accepted
@@ -1482,15 +1533,32 @@ def from_blueprint(obj):
     secs, bar = [], 1
     for s in obj.get("sections", []):
         md = s.get("meter") or {}
-        cyc = _cycle_of(md)
+        # BOTH HALVES, INDEPENDENTLY: a section may legally declare `beats`
+        # and default `unit`, and calling that "declared" would hide exactly
+        # the half that was guessed.
+        declared = ("beats" in md and "unit" in md)
+        if declared:
+            cyc, assumed = _cycle_of(md), ""
+        elif assume_meter is not None:
+            cyc = Cycle(pulses=int(assume_meter.beats),
+                        unit=int(assume_meter.unit),
+                        groups=tuple(md.get("groups", ()) or ()))
+            assumed = assume_meter.source
+        else:
+            raise ValueError(
+                f"section {s.get('name')!r} declares no time signature, and "
+                f"no `assume_meter` was given. This USED to fall to 4/4 in "
+                f"silence at four separate sites, which is the one thing "
+                f"`Meter`'s own docstring says it does not do: 'Arbitrary; "
+                f"nothing here privileges 4/4.' Declare "
+                f"\"meter\": {{\"beats\": N, \"unit\": D}} on the section, or "
+                f"pass fit.AssumedMeter(beats=..., unit=..., source='who "
+                f"decided and why') and wear the assumption in the report. "
+                f"5/4, 7/8, 6/8 and 12/8 cost exactly the same to declare.")
         start = int(s.get("start_bar", bar))
-        # DECLARED means the section said a signature, not that it said 4/4.
-        # `beats` and `unit` are read independently because a section may
-        # legally declare one and default the other, and calling that
-        # "declared" would hide exactly the half that was guessed.
         secs.append({"name": s["name"], "cycle": cyc,
                      "bars": int(s["bars"]), "start_bar": start,
-                     "meter_declared": ("beats" in md and "unit" in md)})
+                     "meter_declared": declared, "meter_assumed": assumed})
         bar = start + int(s["bars"])
     by_name = {s["name"]: s for s in secs}
 
@@ -1510,7 +1578,8 @@ def from_blueprint(obj):
             beat=_frac(l.get("beat", 1)), duration=_frac(l.get("duration", 4)),
             section=s["name"], section_start_bar=s["start_bar"],
             section_bars=s["bars"], text=l.get("text", ""),
-            meter_declared=s.get("meter_declared", True)))
+            meter_declared=s.get("meter_declared", True),
+            meter_assumed=s.get("meter_assumed", "")))
     return secs, places
 
 
@@ -1535,7 +1604,8 @@ def from_song(song):
         # answer this function gave before the coordinate existed.
         secs.append({"name": s.name, "cycle": cyc, "bars": int(s.bars),
                      "start_bar": start,
-                     "meter_declared": bool(getattr(m, "declared", True))})
+                     "meter_declared": bool(getattr(m, "declared", True)),
+                     "meter_assumed": str(getattr(m, "assumed", "") or "")})
         bar = start + int(s.bars)
     by_name = {s["name"]: s for s in secs}
     places = []
@@ -1551,7 +1621,8 @@ def from_song(song):
             cycle=s["cycle"], bar=int(l.bar), beat=_frac(l.beat),
             duration=_frac(l.duration), section=s["name"],
             section_start_bar=s["start_bar"], section_bars=s["bars"],
-            text=l.text, meter_declared=s.get("meter_declared", True)))
+            text=l.text, meter_declared=s.get("meter_declared", True),
+            meter_assumed=s.get("meter_assumed", "")))
     return secs, places
 
 
@@ -1603,14 +1674,15 @@ def overlap_findings(fits):
     return out
 
 
-def fit_song(obj, phon=None, subdivision=None, assume=None, strip_parens=True):
+def fit_song(obj, phon=None, subdivision=None, assume=None,
+             strip_parens=True, assume_meter=None):
     """-> SongFit. `obj` is a blueprint path, a blueprint dict, or a Song.
 
     `strip_parens` see `read_line`, forwarded to every line in the song."""
     if hasattr(obj, "sections") and hasattr(obj, "lines"):
         secs, places = from_song(obj)
     else:
-        secs, places = from_blueprint(obj)
+        secs, places = from_blueprint(obj, assume_meter=assume_meter)
     out = SongFit(sections=[SectionFit(name=s["name"], cycle=s["cycle"],
                                        bars=s["bars"], start_bar=s["start_bar"])
                             for s in secs])

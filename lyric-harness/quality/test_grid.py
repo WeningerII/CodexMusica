@@ -428,7 +428,7 @@ def test_song_from_blueprint_rejects_an_undeclared_function():
     check("a bogus function name is not silently dropped to UNDECLARED",
           _raises(lambda: song_from_blueprint(
               {"sections": [{"name": "x", "bars": 4, "function": "verse-ish",
-                            "meter": {}}], "lines": []})),
+                            "meter": {"beats": 4, "unit": 4}}], "lines": []})),
           "doctrine 45's move for `language`: an unknown value raises "
           "rather than being coerced or ignored")
 
@@ -436,9 +436,9 @@ def test_song_from_blueprint_rejects_an_undeclared_function():
 def test_song_from_blueprint_owns_lines_by_bar_when_unnamed():
     print("\n14. a line naming no section, or an unknown one, is owned by "
           "BAR RANGE — the same fallback quality.fit.from_blueprint uses")
-    obj = {"sections": [{"name": "a", "bars": 4, "meter": {}},
+    obj = {"sections": [{"name": "a", "bars": 4, "meter": {"beats": 4, "unit": 4}},
                         {"name": "b", "bars": 4, "start_bar": 5,
-                         "meter": {}}],
+                         "meter": {"beats": 4, "unit": 4}}],
            "lines": [{"text": "in a, named", "bar": 2, "section": "a"},
                      {"text": "in b, unnamed", "bar": 6},
                      {"text": "in b, wrong name given", "bar": 7,
@@ -456,7 +456,7 @@ def test_song_from_blueprint_owns_lines_by_bar_when_unnamed():
 def test_song_from_blueprint_float_beats_are_exact():
     print("\n15. a float beat/duration in the JSON becomes the DECIMAL "
           "fraction, not its nearest binary neighbour")
-    obj = {"sections": [{"name": "a", "bars": 4, "meter": {}}],
+    obj = {"sections": [{"name": "a", "bars": 4, "meter": {"beats": 4, "unit": 4}}],
            "lines": [{"text": "x", "bar": 1, "beat": 1.1, "duration": 0.1}]}
     song, _ = song_from_blueprint(obj)
     from fractions import Fraction as Fr
@@ -496,9 +496,12 @@ def test_a_recurred_single_use_function_is_reported():
                               POPULAR_SONG, SECTION_FUNCTIONS)
 
     def report(fns):
-        bp = {"bpm": 120, "meter": "4/4", "hooks": ["hold the line"],
+        # top-level "meter" is read by NOTHING — this fixture only ever
+        # got 4/4 from the silent section default the reader now refuses.
+        bp = {"bpm": 120, "hooks": ["hold the line"],
               "sections": [{"name": f"S{i}", "function": f,
                             "start_bar": 1 + 4 * i, "bars": 4,
+                            "meter": {"beats": 4, "unit": 4},
                             "lines": [{"text": "hold the line now",
                                        "bar": 1 + 4 * i, "beat": 1,
                                        "duration": 1}]}
@@ -713,6 +716,7 @@ def test_the_ask_gate_reaches_every_function_that_is_expected_once():
         bp = {"hooks": ["hold the line"],
               "sections": [{"name": f"S{i}", "function": f,
                             "start_bar": 1 + 4 * i, "bars": 4 + i,
+                            "meter": {"beats": 4, "unit": 4},
                             "lines": [{"text": "hold the line now",
                                        "bar": 1 + 4 * i, "beat": 1,
                                        "duration": 1}]}
