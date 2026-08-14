@@ -966,6 +966,42 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/cynghanedd_rate.py --check
 
+      # THE TIME LAYER IS STILL MUTE, AND STILL FOR THE RECORDED REASON.
+      # 83 CPU-s, MEASURED 2026-08-14 — the most expensive step in this job, and
+      # the only one whose headline is a NEGATIVE.
+      #
+      # THAT IS WHY IT DOES NOT PIN THE RATE. `0.0%` is printed identically by
+      # FIVE states: a fired instrument measuring nothing (a real null); an
+      # instrument that cannot fire (mute — this layer); an item whose own
+      # inventory makes rhyme unsurprising (doctrine 28's refusal); a dead band;
+      # a dead corpus. `mean == 0.0%` goes green on all five, which is doctrine
+      # 20's false-negative-dressed-as-a-finding exactly.
+      #
+      # The pin is on the MECHANISM, as an inequality between two measured
+      # numbers: `m_needed >= 1` (the item's best pair IS significant before
+      # correction, so the correction is what silenced it) AND `share_firable
+      # == 0.0` (even the smallest family in the item exceeds that). Together
+      # they say mute BECAUSE THE FAMILY IS TOO LARGE and nothing else — each
+      # rival state breaks one clause, and `why_mute()` names which.
+      #
+      # Doctrine 28's two states are pinned as two numbers with no pin reading
+      # their total: 18 `cannot tell` and 2 answered-with-an-observed-zero. An
+      # 18/0/2 that became 20/0/0 leaves the rate, the p and every mute total
+      # untouched and still goes red here.
+      #
+      # A check that goes green after a widened tolerance on this arm is a claim
+      # that the time layer WORKS. The failure text says so, and says that a
+      # layer mute for a DIFFERENT reason is a new finding needing a new row in
+      # RESULTS_FWER.md rather than a repin.
+      - name: The time layer is still mute, and for the recorded reason
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/audit_fwer_fpr.py --check
+
   # ── The suites: 45 test modules that nothing had ever run ────────────────
   #
   # THE CLAIM THIS JOB EXISTS TO CORRECT. The `record` job's comment above

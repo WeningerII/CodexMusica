@@ -150,7 +150,7 @@ calls.
 | `time_layer.analyse()` (line 582, `if events is None`) | this document's P1/P2/P4 tables, `RESULTS_TIME.md`'s entire arm table, the Fisher pooling in `POSITIVE_CONTROL.md` Part A |
 | `time_layer.internal_control()` (line 693) | the H3 line-final tripwire in `RESULTS_TIME.md` |
 | `quality/test_fwer.py` | all four guarding assertions |
-| `quality/audit_fwer_fpr.py` | ~~the "9.6% at n=20" in `NULL_AUDIT.md`, `MISSING.md` L-1 and doctrine 72~~ **CORRECTED 2026-08-13: THIS SCRIPT CANNOT PRODUCE THAT FIGURE, AND HAS NOT SINCE 2026-08-11.** 9.6% is `family="scored"`. This script takes no `family=` argument at any invocation — it runs `TimeDeclaration`'s default, which became `"candidate"` on 2026-08-11 (`quality/time_layer.py:118`), so it changed arms without changing a line. Re-run at its own defaults on 2026-08-13 it prints **0.0% in both arms, p = 1.0000, MUTE 732 of 820 items**. The 9.6% is `quality/fwer_family.py --arms`'s to reproduce, not this one's. **AND THE SCRIPT NAMED `_fpr` COMPUTES NO FPR** — it computes SATURATIONS; the per-pair false-positive rate doctrine 22 asks for is at `fwer_family.py:147`, whose comment calls it "doctrine 22's currency". `grep -i fpr` over this file matches exactly one line: the `Run:` line quoting its own filename. This row is the one place the repo records which script feeds which claim, which is why it is the one that had to be wrong for two days without anyone noticing |
+| `quality/audit_fwer_fpr.py` | ~~the "9.6% at n=20" in `NULL_AUDIT.md`, `MISSING.md` L-1 and doctrine 72~~ **CORRECTED 2026-08-13: THIS SCRIPT CANNOT PRODUCE THAT FIGURE, AND HAS NOT SINCE 2026-08-11.** 9.6% is `family="scored"`. This script takes no `family=` argument at any invocation — it runs `TimeDeclaration`'s default, which became `"candidate"` on 2026-08-11 (`quality/time_layer.py:118`), so it changed arms without changing a line. Re-run at its own defaults on 2026-08-13 it prints **0.0% in both arms, p = 1.0000, MUTE 732 of 820 items**. The 9.6% is `quality/fwer_family.py --arms`'s to reproduce, not this one's. **AND THE SCRIPT NAMED `_fpr` COMPUTES NO FPR** — it computes SATURATIONS; the per-pair false-positive rate doctrine 22 asks for is at `fwer_family.py:147`, whose comment calls it "doctrine 22's currency". `grep -i fpr` over this file matches exactly one line: the `Run:` line quoting its own filename. This row is the one place the repo records which script feeds which claim, which is why it is the one that had to be wrong for two days without anyone noticing. **AND IT NOW HAS A `--check`, ADDED 2026-08-14** — every figure in this sentence reproduced on that date and is pinned, together with the REASON the layer is mute, because a 0.0% is printed identically by five different states and only one of them is this one. See "`--check` — the muteness is pinned, and pinned to its REASON" below |
 | `quality/fwer_family.py` | the measurements in this section, which is the instrument and not a claim |
 
 **OUTSIDE it — 0 calls, proved by execution:**
@@ -182,6 +182,154 @@ the top row"* — takes its event count FROM the voided figure. The power curve 
 unaffected; the row it points at is a claim about real items that no longer
 holds, because at the honest family size a real sonnet carries **0** events or
 refuses. See `POSITIVE_CONTROL.md`.
+
+## `--check` — the muteness is pinned, and pinned to its REASON
+
+`python3 quality/audit_fwer_fpr.py --check`. Added **2026-08-14**. Exit **0**
+pass / **1** moved / **2** refused — the three codes `audit_joint_auc_null.py`
+already uses; `audit_hafez_radif.py`'s `check()` is the 0/1 half of the same
+shape. Until this, the script named in the boundary table above **printed the
+muteness and exited 0 whatever it found**, which is the shape
+`audit_hafez_radif.py`'s own `PINNED` comment counts off across `audit_spans.py`,
+`audit_corpus.py`, `audit_tang_null.py`, `audit_kalevala_null.py` and
+`canon_sources.py`. The refusal path is proved as well as the other two: with
+the corpus shorter than the graded item count it prints `REFUSED — corpus/
+sonnets.txt parses 152 sonnets and this check grades the first N` and exits 2
+without running anything.
+
+**IT REPRODUCES.** Re-run at its own defaults on 2026-08-14, `python3
+quality/audit_fwer_fpr.py` prints exactly what the boundary-table row records
+for 2026-08-13: **0.0% in both arms, p = 1.0000 at the ceiling, MUTE 732 of 820
+items** — REAL 18 `cannot_tell` / 0 `refused` / 2 `answered`, NULL S 356/0/44,
+NULL L 358/0/42. 11 m 40 s wall, **666.6 CPU-s** at 820 items, threads pinned.
+Nothing has drifted, so there is no repin here: the pin **is** the finding, in
+the sense `audit_hafez_radif.py` means it. This layer's muteness was true by
+nobody checking, on the one arm in this repository whose headline is a
+NEGATIVE.
+
+### Why the pin cannot be the rate
+
+Doctrine 20, on the instrument built to satisfy it. **The rate is 0.0% and a
+`--check` asserting `mean == 0.0%` would go green on five different states:**
+
+| state | what 0.0% means there |
+|---|---|
+| an instrument that fired and measured no events | a NULL |
+| an instrument that could not fire at all | **MUTE — this layer, 18/20** |
+| an item whose own inventory makes rhyme unsurprising | REFUSED (doctrine 28's tripwire) |
+| a band that stopped finding any rhyme relation anywhere | the comparator died |
+| a corpus that shrank to nothing | the ingestion died |
+
+So the pin is on the STATE and the MECHANISM, and the rate is graded only as a
+consequence. **The predicate that separates row 2 from every other row is an
+inequality between two measured numbers, not a remembered figure:**
+
+> `m_needed >= 1` **and** `share_firable == 0.0`
+
+`m_needed = ln(1−α)/ln(1−min_p)` is the largest family at which the item's OWN
+BEST PAIR would still clear a Šidák cut, so `>= 1` says that pair **is**
+significant before correction — the correction is what silenced it, which is the
+recorded claim. `share_firable` is the share of the item's positions whose
+family is small enough for that pair to fire, so `== 0.0` says the **smallest**
+family in the item still exceeds `m_needed`. Together they say *mute because the
+family is too large* and nothing else, and each of the other four rows breaks
+one of them: a `refused` item never reaches the predicate and has no
+attainability fields at all; a dead band drives `best_score` under θ and
+`min_p` to 1.0, so `m_needed` goes to **0**; a collapsed candidate pool makes
+the families SMALL, which is muteness from the opposite end and shows up as
+`share_firable > 0`.
+
+### Doctrine 28, mechanically: 18 and 2 never sum to 20
+
+The REAL arm's three states are pinned as **three numbers** and no pin reads
+their total. The 2 `answered` items are additionally pinned as an **observed
+zero** — `attainable = True`, 0 events — which is the "none" half. An 18/0/2
+that became 20/0/0 would leave the printed rate, the empirical p and every
+"mute" total untouched and **is a different finding**.
+
+### What is measured, and what is only bounded
+
+| pinned EXACTLY (no draw enters) | measured 2026-08-14, n = 20 sonnets |
+|---|---|
+| θ, window, correction, family, α | 0.80 / 32 / Šidák / **candidate** / 0.05 |
+| candidate pairs per item (min, max) | **5,519 – 9,778** |
+| each item's median family (min, med, max) | **156 – 198 – 282** |
+| REAL `cannot_tell` / `refused` / `answered` | **18 / 0 / 2** |
+
+The family row is this document's own published **156–282 across 24 sonnets**,
+reproduced to the integer over the first 20. The **203** this document and
+`CLAUDE.md` doctrine 4 both quote is *sonnet 1's* median family and is item 0
+here; **198** is the median over the twenty per-item medians — the same
+measurement rendered differently (doctrine 91), and both appear so neither can
+be mistaken for the other.
+
+**NOT pinned, on doctrine 57:** `min_p`, `m_needed`'s value, the null medians,
+and the empirical p. Those ride the 20,000-draw within-item null. What is pinned
+about them is a DIRECTION with a declared tolerance — `m_needed >= 1` (measured
+11–37), median family / `m_needed` `>= 3×` (measured **5.5× – 21.3×**, and the
+record's own 9.4× sits inside it), candidate pairs `>= 3,000` (measured ≥ 5,519).
+Each floor is a round number set an order of magnitude off the measurement it
+guards, and set to fail on a change of KIND rather than a change of draw.
+
+The two null arms are graded on their **degeneracy**, which is the honest thing
+to pin about a comparison that did not happen: every replicate arm mean and
+every one of the 40 item rates ties the observation exactly, so p = 1.0000 is
+the identity-map check (doctrine 63/68) coming back positive and is not read as
+a null.
+
+### Proved red in both directions, before it was believed
+
+**MUTE FOR A DIFFERENT REASON — the case doctrine 20 names.** `_tdecl()` given
+`max_null_band_pass=0.02` (the shipped value is 0.152, and the 20 sonnets
+measure 0.025–0.065), so doctrine 28's inventory tripwire fires on every item.
+**The report is unchanged where a reader looks**: `mean event rate 0.0%`,
+`median 0.0% range 0.0%-0.0%`, `p = 1.0000 AT THE CEILING`, every replicate
+tying. The layer is still mute and still 0.0%. `--check` exits **1** on 8
+figures and names it:
+
+```
+[FAIL] REAL cannot_tell       committed 18, measured 0
+[FAIL] REAL refused           committed 0, measured 20
+[FAIL] 0 of 20 mute items are mute FOR THE RECORDED REASON
+       20 item(s): INVENTORY -- doctrine 28's band-pass tripwire fired ...
+```
+
+**A MEASURED FIGURE MOVES WHILE EVERY PRINTED COORDINATE STAYS IDENTICAL.**
+`_tdecl()` given `max_span=2` — a coordinate the header line does not print.
+The header is byte-identical, the rate is still 0.0%, and the family collapses:
+
+```
+[FAIL] candidate pairs        committed (5519, 9778), measured (2841, 4990)
+[FAIL] median family size     committed (156, 198, 282), measured (65, 94, 122)
+```
+
+That 94 is **Lever 3's own `p50 m_med` at `max_span=2`**, re-derived by a
+mutation rather than read off the table — the two agree, which is worth more
+than either alone.
+
+Both mutations were reverted and `--check` returns to exit **0**.
+
+### Cost, and where it belongs
+
+**CHECK_ITEMS = 20, CHECK_REPS = 2** — declared here, not inherited from
+`main`'s defaults, because the check reads no null MEDIAN and every replicate
+past the point where the arm's degeneracy is visible costs 40 items. 100 items,
+**81.6 / 83.4 / 83.7 CPU-s** over three runs (wall 85 s / 101 s / 100 s — it
+moves with load where the CPU figure does not; threads pinned) against the full
+run's 666.6.
+That is affordable in `.github/workflows/ci.yml`'s `record` job — the repo-root
+workflow, not `lyric-harness/`'s — whose 10-minute timeout is a runaway guard
+rather than a budget. It needs nothing that job does not already have:
+`corpus/sonnets.txt` is tracked, `cmudict.dict` is staged by the job's own
+`Stage the lexicon` step, and there is no network and no third-party package.
+It would become that job's most expensive single step — `audit_spans.py
+--check` at ~60 s and `song_profile_calibration.py --check
+--without-predictability` at 64 CPU-s are the current ceiling across its 19
+steps — and its natural neighbour is `audit_time_pooled_null.py --check`, the
+job's other time-layer drift detector. Two of that job's neighbours pin threads
+via `env:` and the rest do not; this one should, since its cost was measured
+pinned. It is **NOT WIRED**: nothing in CI runs it today, and
+`.github/workflows/ci.yml` is not this cell's file to edit.
 
 ## What the correction does
 

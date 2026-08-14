@@ -1438,9 +1438,23 @@ def register_findings():
     process, shared with the two counters above.
     """
     out, rc = _once("register", ["quality/audit_register.py", "--slow"])
-    m = _grab(r"consistency failures \+ FALSE derivations: (\d+)", out,
+    # REPAIRED 2026-08-14, and the break is worth recording because it is a
+    # doctrine-79 fix arriving as a parse error. The runner used to end on
+    # `consistency failures + FALSE derivations: N` — ONE integer over TWO
+    # questions, which is precisely what doctrine 79 forbids. Splitting it into
+    # `consistency failures: A   FALSE derivations: B   (total C)` was correct
+    # and broke this parser, and `counters.py --check` reported the row
+    # [BROKEN] rather than laundering the crash into the table.
+    #
+    # This counter keeps reading the TOTAL, on purpose: its committed cell is
+    # one number and the row's question is "what does the record adversary
+    # still find wrong". The two halves are named in the evidence beside it, so
+    # nothing here sums what the runner took apart — it quotes a total the
+    # runner itself computes and prints.
+    m = _grab(r"consistency failures: (\d+)\s+FALSE derivations: (\d+)"
+              r"\s+\(total (\d+)\)", out,
               "the register-audit finding count")
-    n = int(m.group(1))
+    n = int(m.group(3))
     false = re.findall(r"^  FALSE\s+(\S+)\s+(\S+)", out, re.M)
     ids = ", ".join("%s (%s)" % (i, e) for i, e in false) or "none"
     cell = ("**%d** — %s; both are the deliberate M-4 calibration pair"

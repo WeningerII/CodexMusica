@@ -91,6 +91,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
+from quality import readability as RD  # noqa: E402
 from quality import schemes as SC  # noqa: E402
 from quality.floor import Finding, SlopFloor  # noqa: E402
 from quality.schemes import Mandate, NoMandate  # noqa: E402
@@ -1041,6 +1042,15 @@ class Reviser:
         dict alone, later, without the call site in view, has no other way
         to tell "meter is clean" from "meter was never asked."
 
+        A FOURTH SOURCE, ALWAYS ASKED AND NEEDING NO PARAMETER —
+        `quality/readability.py`'s own report, over EVERY line. The mandate's
+        refusals (`SCHEME_UNREADABLE`) only ever covered pairs the mandate
+        puts TOGETHER, so an unreadable end word on a line the mandate leaves
+        FREE produced nothing at all, though `_matrix` computes the record for
+        it on every run. Every one of those findings arrives as a NOTE even
+        where `readability.report` calls it a flag — see the block itself for
+        why, and for why that asymmetry resolves in this direction.
+
         A DECLARED `Mandate.scope` IS A Finding, and the difference from the
         paragraph above is the whole of doctrine 20. An omitted blueprint is a
         layer the caller declined to ask for; a declared scope is the caller
@@ -1258,6 +1268,130 @@ class Reviser:
                     f"not read an end word, so this rhyme is UNKNOWN rather "
                     f"than absent",
                     r["reason"], [i, j]))
+        # THE READABILITY REPORT, JOINED — AND IT IS THE SAME LAYER AS THE
+        # BLOCK ABOVE, WHICH IS WHY IT SITS HERE.
+        #
+        # `refusals_for_pairs` (above) is scoped to pairs the MANDATE puts
+        # together, so an unreadable end word on a line the mandate leaves
+        # FREE produced NOTHING AT ALL — while `_matrix` had already computed
+        # a `readability_records` entry for that very line, on every run, and
+        # thrown it away. MEASURED on a 4-line draft with `zzzqx` at the end
+        # of L4 and only L1/L2 mandated: `readability.report` says
+        # UNREADABLE_END_WORD on L4 and `inspect()` said nothing whatsoever.
+        # Put the identical word on a MANDATED line and SCHEME_UNREADABLE
+        # fires — so the defect is invisible to exactly the input a reader
+        # reaches for first.
+        #
+        # ONE DEFINITION, TWO SURFACES, the same move `fit.overlap_findings`
+        # makes for meter: `readability.report` is what the `readability` verb
+        # prints, and calling it is a call rather than a second copy of the
+        # by_token/by_piece partition and its evidence prose. Its records are
+        # recomputed rather than handed `_matrix`'s, because `report(lex,
+        # lines)` is that module's signature and this cell does not own that
+        # file — and the two CANNOT disagree about the only field these
+        # findings read: `final_unreadable` is `not line_anchors(...)`, and
+        # `promote` — the one coordinate `_matrix` passes and `report` does
+        # not — flips it on 0 of 4,784 real corpus lines and 0 of 41 fixture
+        # lines, at BOTH of the boolean's values. Pinned in test_revise.py
+        # test 34 rather than left as a hope. Warm cost 0.009s against
+        # inspect()'s tens of seconds.
+        #
+        # SEVERITY IS RE-DECIDED HERE, AND THAT IS THE DECISION — the one
+        # place this method departs from `_meter_findings`'s "severity is not
+        # re-decided here", so it owes a reason. `readability.report` calls
+        # UNREADABLE_END_WORD and UNREADABLE_END_WORD_PIECE **flags**; every
+        # one of them arrives here as a **note**.
+        #
+        #  - A REFUSAL IS NOT A VIOLATION, and this loop has already paid for
+        #    getting that backwards once: the comment above this block records
+        #    that these arrived as violations before the readability fix and
+        #    the loop "briefed a model to rewrite lines that rhyme perfectly
+        #    well — Barnes's Dorset `drong`/`zong` among them". The gap is the
+        #    LEXICON'S, not the poet's (doctrine 79 — a refusal in the
+        #    numerator charges the wrong layer), and `verify()`'s gate is the
+        #    numerator: it rejects on `new_flags` alone.
+        #  - INTERNAL CONSISTENCY DECIDES IT EVEN IF THE ABOVE DID NOT.
+        #    `SCHEME_UNREADABLE` — the SAME refusal, on a pair the mandate
+        #    DECLARED — is a note. Importing these as flags would make an
+        #    unreadable word on a line nobody mandated fail HARDER than the
+        #    identical word on a line the mandate put in a group. There is no
+        #    reading of doctrine 6/7 under which that is coherent.
+        #  - WHY fit.py'S SEVERITY IS KEPT AND THIS ONE IS NOT: `FitFinding.
+        #    satisfiable` answers a LOOP question — the writer's own
+        #    declaration contradicts itself and only the writer can resolve
+        #    it. `readability.py`'s severity answers a REPORT question — does
+        #    this hole invalidate the rate being printed — and that module's
+        #    own `Finding` docstring says it is shaped so "a caller that
+        #    already renders floor findings renders these with no new code".
+        #    It is built for RENDERING, not for gating.
+        #  - AND THE LOOP HAS NO MOVE. None of these codes is in
+        #    RHYME_FINDINGS, so `brief()` hands the line back with an EMPTY
+        #    candidate field. As a flag each one would be briefed, attempted
+        #    and never resolved. MEASURED both ways on a 4-line draft whose
+        #    only defect is `zzzqx` ending a FREE line: as a note the loop
+        #    returns SUCCESS in 0 rounds; kept at `readability.report`'s own
+        #    `flag` it returns NO_PROGRESS after 1 round with L4 permanently
+        #    `unresolved`. Add a genuinely fixable SCHEME_VIOLATION on L1/L2
+        #    and the flag variant returns NO_PROGRESS after 2 rounds, still
+        #    unresolved on L4. NOT `ROUND_LIMIT`: the loop notices a round
+        #    that fixed nothing before it exhausts `max_rounds`, so the cost
+        #    is a destroyed SUCCESS rather than a burnt budget — which is the
+        #    same conclusion `quality/loop.py`'s docstring reaches about
+        #    promoting the three whole-draft flags, arrived at one stop
+        #    condition earlier.
+        #
+        # NO NEW OPT-OUT, and the reason is that one already exists AT THE
+        # RIGHT LAYER. `modal_exclusion=0`, `field_band='scalar'` and the rest
+        # are switches on a JUDGEMENT with two defensible answers. This is not
+        # a judgement: CMUdict either has the word or it does not, and the
+        # declared coordinate that moves that answer is `Lexicon(fallback=
+        # "high"|"low")` (doctrine 1). MEASURED: `viewest` at the end of a
+        # free line reports UNREADABLE_END_WORD at the shipped default and
+        # CLEAN at both `high` and `low`. A second switch in `ReviseDeclara-
+        # tion` would be a second place to change one answer, which is the
+        # thing doctrine 1 forbids.
+        #
+        # THE BLAST RADIUS IS AT `verify()`, AND IT MOVES BOTH WAYS — MEASURED
+        # on the same 4-line draft, join on against join off:
+        #   unreadable -> readable   was accepted=False, fixed=[] ("nothing
+        #                            was fixed" — a real repair called a
+        #                            no-op); is now accepted=True with
+        #                            fixed=[(4, UNREADABLE_END_WORD)]
+        #   readable -> unreadable   was accepted=True with new_notes=[] —
+        #                            the loop could not see the regression AT
+        #                            ALL; is now accepted=True with the code
+        #                            in `new_notes` and never in `new_flags`
+        # So the join lets `verify()` see a change it was blind to in both
+        # directions, and — because every one of these is a note — it still
+        # cannot REJECT on one. That is doctrine 7 exactly: the loop discloses
+        # the refusal and does not order the writer around it.
+        #
+        # PER LINE, NOT WHOLE-DRAFT: these findings NAME the lines they are
+        # about, so they follow the floor's own branch at the top of this
+        # method — one Finding appended to each line in its `locations`, which
+        # is what lets `verify()`'s multiset diff see ONE line stop being
+        # unreadable while the others still are. As per-line NOTES they are
+        # briefed and disclosed and start no round: `revise_loop`'s `flagged`
+        # filter reads severity, so SUCCESS, NO_PROGRESS and ROUND_LIMIT all
+        # mean exactly what they meant before this block existed.
+        _downgraded = (
+            " SEVERITY: `readability.report` calls this a FLAG; the revision "
+            "loop files it as a NOTE. A refusal is not a violation "
+            "(doctrine 79), and `SCHEME_UNREADABLE` — the same refusal on a "
+            "pair the mandate DECLARED — is already a note, so a flag here "
+            "would fail an unmandated line harder than a mandated one. The "
+            "lexicon cannot read the word; the line is not thereby wrong. "
+            "`Lexicon(fallback='high'|'low')` is the declared coordinate that "
+            "changes what is readable (doctrine 1) — there is no second "
+            "switch for it in `ReviseDeclaration`.")
+        for f in RD.report(self.lex, lines)["findings"]:
+            ev = f.evidence + (_downgraded if f.severity == "flag" else "")
+            note = Finding(f.code, "note", f.message, ev, list(f.locations))
+            if note.locations:
+                for ln in dict.fromkeys(note.locations):
+                    add(ln, note)
+            else:
+                whole.append(note)
         # THE COLLISION SET, PARTITIONED. Two moves and neither changes the
         # SET: it is still every pair at or above `THETA_COLLISION` sharing no
         # group, still exactly `check_scheme`'s. What changes is which LAYER
