@@ -825,6 +825,29 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/audit_hafez_radif.py --check
 
+      # SANSKRIT PRĀSA. Added 2026-08-14. 0.68 CPU-s, MEASURED.
+      #
+      # Two input modes, and the cheap one is what runs here. `--check` alone
+      # reads `corpus/san_dcs_verse.txt` — the slice this runner itself stages,
+      # TRACKED IN GIT, carrying all 1,930 recovered half-verses — so it needs
+      # no DCS clone. `--check ROOT` additionally re-derives the ingestion-side
+      # figures from a full checkout; a slice-only run prints those ten rows as
+      # [SKIP] and never as [ok], so the reduced scope is disclosed rather than
+      # silently passed. The default full run draws 1,000 permutations and takes
+      # ~27 minutes, which is why `check()` draws no null at all.
+      #
+      # It also pins doctrine 79's four-tuple (mandated, judged, refused,
+      # carrying) for all six variants at both units, which is how the
+      # measurement that matters here became mechanical: the published V1 rate
+      # refuses 2 of 1,930 and is safe, but V2 refuses 592 of 1,930 — a Sanskrit
+      # pāda opening on a vowel has no initial consonant to share — so its rate
+      # reads 3.23 points low against a MANDATED denominator. No published
+      # figure moved; the refusal count is now checked rather than invisible.
+      - name: Sanskrit prāsa figures against their committed counts
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/prasa_rate.py --check
+
   # ── The suites: 45 test modules that nothing had ever run ────────────────
   #
   # THE CLAIM THIS JOB EXISTS TO CORRECT. The `record` job's comment above

@@ -1111,7 +1111,22 @@ rather than this paragraph — a roster copied into two files drifts in both.
    itself an imitation. Every result declares its phonology. It had
    built its skeleton from CMUdict since the first commit, so the seven
    recorded rule errors are findings about the RULES, never about Welsh.
-   PHONOLOGY still blocked: Indic (prasa), Old Norse (hendings).
+   ~~PHONOLOGY still blocked: Indic (prasa), Old Norse (hendings).~~
+   **SUPERSEDED 2026-08-14 — BOTH ARE BUILT, AND BOTH HAVE RUN.** This is the
+   same failure the Welsh half of this entry already carries a correction for:
+   a blocker asserted long after its own row recorded the unblock. Sanskrit is
+   `quality/phonology/san.py`, 571 lines, dated 2026-08-10 — `prasa()`,
+   `prasa_anchor()`, `prasa_depth()`, `antya_prasa()` — and the cell has fully
+   run, staged a corpus slice, and written two `data/sources.tsv` rows;
+   `prasa_rate.py --check` pins its counts and exits 0. Old Norse is
+   `quality/phonology/non.py`, 959 lines, with `RESULTS_NON_HATTATAL.md`,
+   `test_phon_non.py`, and five modules importing it. Twelve `sources.tsv` rows
+   carry the two corpora between them.
+   WHAT IS ACTUALLY BLOCKED IS NARROWER and belongs in the language of doctrine
+   44/92: nothing here is hard to build or impossible to obtain — the remaining
+   Sanskrit gap is that V2 ādyakṣara refuses on 30.7% of half-verses because a
+   pāda beginning with a vowel has no initial consonant to share, which is a
+   property of the language and not a defect.
    **TEXT IS NO LONGER BLOCKED FOR WELSH — SUPERSEDED 2026-08-13.** This
    entry read *"TEXT blocked for Welsh: see SEARCH:welsh-cynghanedd-corpus in
    data/sources.tsv. The capability is built; the corpus is not reachable."*

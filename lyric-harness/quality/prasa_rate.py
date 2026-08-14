@@ -138,6 +138,16 @@ load-bearing, see the row for `OliverHellwig/sanskrit#dcs-conllu` in
 Run:
   python3 quality/prasa_rate.py /home/user/ohs [n_replicates]
   python3 quality/prasa_rate.py /home/user/ohs --stage   # write the slice
+  python3 quality/prasa_rate.py --check                  # staged slice only
+  python3 quality/prasa_rate.py --check /home/user/ohs   # + ingestion figures
+
+EXIT CODES, and the third one is doctrine 20's:
+  0  every committed figure reproduces
+  1  a figure MOVED -- see `PINNED` and repin with the superseded value visible
+  2  CANNOT TELL -- the corpus this check reads is not present. Not a pass and
+     not a failure; an input that was never there is a different result from a
+     number that changed, and collapsing the two is the false negative
+     doctrine 20 is about.
 """
 
 import collections
@@ -481,12 +491,186 @@ VARIANTS = [
 
 def score_all(units):
     """-> {variant label: value}. One pass, so every variant is scored on the
-    identical set of units and the table is internally comparable."""
+    identical set of units and the table is internally comparable.
+
+    THE DENOMINATOR HERE IS `len(units)` = MANDATED, NOT JUDGED. That is a
+    doctrine 79 collapse and it is left standing on purpose -- see
+    `state_counts()` below for the three counts, the measured size of the
+    collapse, and why the rate is disclosed rather than silently repinned.
+    """
     n = len(units)
     out = {}
     for label, fn, _kind in VARIANTS:
         out[label] = sum(fn(u) for u in units) / n if n else 0.0
     return out
+
+
+# ---------------------------------------------------------------------------
+# DOCTRINE 79 -- REFUSED, JUDGED and MANDATED are three counts, never summed,
+# and a refusal must not be scored as a judged NO.
+#
+# THE COLLAPSE, NAMED. `_agree_at` returns three things and its own docstring
+# says so -- a consonant (the rule FIRED), `False` (the pādas were compared and
+# DISAGREE), and `None` (some pāda is too short, or is VOWEL-INITIAL at that
+# akṣara, so there is no consonant to compare and the question cannot be put).
+# `v_dvitiya`/`v_adya`/`v_anyk` then map both `None` and `False` to 0.0, and
+# `score_all` divides by every unit. So a pāda the instrument CANNOT ASK about
+# is scored as a pāda that ANSWERED NO. That is doctrine 20's "inconclusive by
+# construction is not null" and doctrine 28's "none vs cannot tell", inside one
+# `in (None, False)`.
+#
+# `_agree_at`'s docstring cites doctrine 27 for keeping both in the
+# denominator. Doctrine 27 is about not conditioning a NULL on the filter it
+# calibrates, which is a different question from what a rate's denominator
+# means, and it does not license the collapse.
+#
+# HOW BIG IT IS -- MEASURED 2026-08-14, not argued, and it is not uniform:
+#
+#   V1 dvitīyākṣara  half-verse   2 refused of 1930  (0.10%)   6.995% -> 7.002%
+#   V1 dvitīyākṣara  verse        2 refused of  816  (0.25%)   0.000% -> 0.000%
+#   V2 ādyakṣara     half-verse 592 refused of 1930 (30.67%)   7.306% -> 10.538%
+#   V2 ādyakṣara     verse      409 refused of  816 (50.12%)   0.245% ->  0.491%
+#   V4 antya depth 2 half-verse 122 refused of 1930 (6.32%)
+#   V5 free anuprāsa half-verse 118 refused of 1930 (6.11%)
+#
+# So THE HEADLINE IS SAFE AND THE COLLAPSE IS REAL. `data/sources.tsv:91`
+# publishes V1 at 135/1930 = 6.995%, and V1's refusal rate is 2 in 1930 --
+# dormant, exactly as `audit_hafez_radif.py` found its own collapse dormant at
+# 0 refused of 495. But V2 is refused on nearly a THIRD of half-verses and on
+# HALF of verses, because a Sanskrit pāda beginning with a vowel has no initial
+# consonant to share, and its published-shaped rate is 3.23 points low as a
+# result. The branch is dormant in the number this repo quotes and live in the
+# table printed beside it.
+#
+# WHY THE RATE IS NOT REPINNED HERE. `score_all` and the nulls are left
+# BYTE-IDENTICAL so every figure in `data/sources.tsv:91` reproduces unchanged;
+# that row is not this cell's to move, and a rate that changed silently under a
+# `--check` being added in the same commit would be the worst of both. What is
+# added is DISCLOSURE and a PIN: the three counts are printed next to the rate
+# and committed in `PINNED`, so the refusal count is mechanical from now on and
+# the day a re-ingestion moves it, `--check` goes red instead of the rate
+# sliding quietly. Doctrine 17 -- keep the superseded reading visible.
+#
+# IS A VOWEL-INITIAL AKṢARA REALLY A REFUSAL? It is stated as one, not assumed.
+# The rule under test is agreement of an INITIAL CONSONANT, so a pāda with no
+# consonant in that slot is outside the rule's domain rather than a poet's
+# failure to satisfy it -- and the neighbouring traditions agree the question is
+# open, since Tamil etukai lets a vowel-initial second syllable agree by VOWEL.
+# Pinning all three counts is what makes both readings available to a later
+# reader: `carrying/judged` and `carrying/mandated` are both derivable from the
+# committed numbers, and neither is buried in a single printed percentage.
+# ---------------------------------------------------------------------------
+
+#: The three states, spelled once so every variant answers the same vocabulary.
+YES, NO, REFUSED = "yes", "no", "refused"
+
+
+def agree_state(unit, i):
+    """-> YES / NO / REFUSED for a fixed-position rule at akṣara `i`."""
+    a = _agree_at(unit, i)
+    if a is None:
+        return REFUSED
+    return NO if a is False else YES
+
+
+def anyk_state(unit):
+    """-> YES / NO / REFUSED for V3, the SEARCHED rule.
+
+    REFUSED only if EVERY searched position refused; one position that was
+    actually compared makes the unit judged, whatever the search then found.
+    """
+    judged = False
+    for i in range(_k_of(unit)):
+        a = _agree_at(unit, i)
+        if a is None:
+            continue
+        judged = True
+        if a is not False:
+            return YES
+    return NO if judged else REFUSED
+
+
+def end_state(unit, key):
+    """-> YES / NO / REFUSED for the antya-prāsa rules. A pāda whose last word
+    is shorter than the depth has NO rhyme key, so the unit cannot be judged --
+    `_end_agree` scores that 0.0, the same collapse one layer over."""
+    keys = [f[key] for f in unit]
+    if any(k is None for k in keys):
+        return REFUSED
+    return YES if len(set(keys)) == 1 else NO
+
+
+def free_state(unit):
+    """-> YES / NO / REFUSED for V5. A pāda with no word-initial consonant at
+    all supplies nothing to intersect, so the unit is refused, not a NO."""
+    if any(not f["inits"] for f in unit):
+        return REFUSED
+    return YES if frozenset.intersection(*[f["inits"] for f in unit]) else NO
+
+
+#: (label, state fn, the BINARY scorer it must agree with). The pairing is the
+#: point: `state_counts` asserts `state is YES` iff the shipped scorer returns
+#: 1.0, so the disclosure is provably about the SAME predicate the rate and the
+#: nulls use, and not a second predicate that happens to look similar.
+STATEFUL = [
+    ("V1 dvitiyaksara  aksara 2 all", lambda u: agree_state(u, 1), v_dvitiya),
+    ("V2 adyaksara     aksara 1 all", lambda u: agree_state(u, 0), v_adya),
+    ("V3 aksara-k      searched  all", anyk_state, v_anyk),
+    ("V4 antya-prasa   depth 1   all", lambda u: end_state(u, "end1"),
+     v_antya1),
+    ("V4 antya-prasa   depth 2   all", lambda u: end_state(u, "end2"),
+     v_antya2),
+    ("V5 free anuprasa any word  all", free_state, v_free),
+]
+
+
+def state_counts(units):
+    """-> {label: (mandated, judged, refused, carrying)}. FOUR numbers, and the
+    first three are doctrine 79's three counts, NEVER SUMMED."""
+    out = {}
+    for label, state_fn, score_fn in STATEFUL:
+        mandated = len(units)
+        judged = refused = carrying = 0
+        for u in units:
+            st = state_fn(u)
+            fired = score_fn(u) == 1.0
+            if (st == YES) != fired:
+                # The three-state view and the shipped binary scorer have come
+                # apart, so the disclosure would be about a DIFFERENT predicate
+                # from the rate and the nulls. Refuse rather than print a
+                # triple nobody can trace back to the published number.
+                sys.exit(f"state/scorer disagree on {label!r}: state={st}, "
+                         f"scorer fired={fired}, pāda={u[0]['text']!r}. "
+                         f"Refusing to report counts for a predicate that is "
+                         f"not the one scored.")
+            if st == REFUSED:
+                refused += 1
+            else:
+                judged += 1
+                carrying += fired
+        out[label] = (mandated, judged, refused, carrying)
+    return out
+
+
+def print_state_counts(units, uname):
+    """The doctrine 79 table, printed next to the rates it qualifies."""
+    print(f"\n  doctrine 79 -- MANDATED / JUDGED / REFUSED for {uname}, three "
+          f"counts, never summed.")
+    print(f"  The rates above divide by MANDATED. Both denominators are shown "
+          f"so neither is buried.")
+    print(f"    {'variant':<34}{'MAND':>7}{'JUDGED':>8}{'REFUSED':>9}"
+          f"{'CARRY':>7}{'/mand':>9}{'/judged':>9}")
+    sc = state_counts(units)
+    for label, _s, _f in STATEFUL:
+        man, jud, ref, car = sc[label]
+        print(f"    {label:<34}{man:>7}{jud:>8}{ref:>9}{car:>7}"
+              f"{car / man if man else 0:>9.3%}"
+              f"{car / jud if jud else 0:>9.3%}")
+    print("    A REFUSED unit could not be asked -- too short, or VOWEL-INITIAL "
+          "at the anchor, so")
+    print("    there is no consonant to compare. It is not a pāda that answered "
+          "NO (doctrine 20/28).")
+    return sc
 
 
 # ---------------------------------------------------------------------------
@@ -923,16 +1107,45 @@ def layer_sensitivity(root, recovered):
 
 # ---------------------------------------------------------------------------
 
-def main(root, n_rep=1000, stage=False, controls=True):
-    lines, recovered = build(root)
-    if stage:
-        return stage_slice(recovered, lines)
+def build_units(recovered):
+    """-> (cache, half, half_meta, verse_units, verse_meta, by_len).
 
+    Extracted from `main()` UNCHANGED so `measure()` can build the identical
+    units without drawing a single null. A `--check` that rebuilt the units by
+    its own slightly different route would be checking its own arithmetic.
+    """
     cache = {}
     for r in recovered:
         for p in r["padas"]:
             if p not in cache:
                 cache[p] = features(p)
+
+    half = [[cache[p] for p in r["padas"]] for r in recovered]
+    half_meta = [(r["text"], r["metre"]) for r in recovered]
+
+    byverse = collections.defaultdict(dict)
+    for r in recovered:
+        byverse[(r["text"], r["chapter"], r["verse"])][r["sub"]] = r
+    verse_units, verse_meta = [], []
+    for _key, subs in sorted(byverse.items()):
+        if "1" in subs and "2" in subs and subs["1"]["metre"] == subs["2"]["metre"]:
+            a, b = subs["1"], subs["2"]
+            verse_units.append([cache[p] for p in a["padas"] + b["padas"]])
+            verse_meta.append((a["text"], a["metre"]))
+
+    by_len = collections.defaultdict(list)
+    for f in cache.values():
+        by_len[f["n"]].append(f)
+    return cache, half, half_meta, verse_units, verse_meta, by_len
+
+
+def main(root, n_rep=1000, stage=False, controls=True):
+    lines, recovered = build(root)
+    if stage:
+        return stage_slice(recovered, lines)
+
+    cache, half, half_meta, verse_units, verse_meta, by_len = \
+        build_units(recovered)
 
     dis = end_dis = 0
     for r in recovered:
@@ -953,23 +1166,6 @@ def main(root, n_rep=1000, stage=False, controls=True):
           f"replicate pādas; the numbers are san's own)")
     if dis or end_dis:
         sys.exit("cache disagrees with san.py; refusing to report a rate.")
-
-    half = [[cache[p] for p in r["padas"]] for r in recovered]
-    half_meta = [(r["text"], r["metre"]) for r in recovered]
-
-    byverse = collections.defaultdict(dict)
-    for r in recovered:
-        byverse[(r["text"], r["chapter"], r["verse"])][r["sub"]] = r
-    verse_units, verse_meta = [], []
-    for _key, subs in sorted(byverse.items()):
-        if "1" in subs and "2" in subs and subs["1"]["metre"] == subs["2"]["metre"]:
-            a, b = subs["1"], subs["2"]
-            verse_units.append([cache[p] for p in a["padas"] + b["padas"]])
-            verse_meta.append((a["text"], a["metre"]))
-
-    by_len = collections.defaultdict(list)
-    for f in cache.values():
-        by_len[f["n"]].append(f)
 
     for uname, units, meta in (("half-verse (2 pādas)", half, half_meta),
                                ("verse (4 pādas)", verse_units, verse_meta)):
@@ -994,6 +1190,8 @@ def main(root, n_rep=1000, stage=False, controls=True):
               f"sizes min {sizes[0]} med {sizes[len(sizes) // 2]} "
               f"max {sizes[-1]}")
         print("=" * 78)
+
+        print_state_counts(units, uname)
 
         obs = score_all(units)
         print(f"  running {3 * n_rep} null replicates ...")
@@ -1107,7 +1305,373 @@ def stage_slice(recovered, lines):
     return out
 
 
+# ---------------------------------------------------------------------------
+# `--check` -- THE COMMITTED FIGURES, so a drift goes red instead of a human
+# being expected to read a 300-line report off the screen and compare.
+#
+# Until 2026-08-14 this runner printed its rates, its three nulls, its positive
+# control and its layer table and EXITED 0 whichever way every one of them
+# came out. It is the eighth instrument of that shape found in one session,
+# after audit_spans, audit_corpus, audit_tang_null, audit_kalevala_null,
+# canon_sources (twice) and audit_hafez_radif. Doctrine 48: a principle that
+# lives only in prose gets followed exactly as often as somebody remembers it.
+#
+# MEASURED 2026-08-14, and -- as with the Hafez arm and unlike the Tang and
+# Kalevala ones -- NOTHING HAD DRIFTED. Every figure `data/sources.tsv:91`
+# publishes reproduces exactly: 1930/2771 half-verses recovered, V1 firing on
+# 135/1930 = 6.995%, 0 of 816 at the verse unit, 16 per-metre strata at n>=25,
+# Gītagovinda's line-end antya-prāsa at 179/680 = 26.32%, and the layer table's
+# 42.60% / 27.45% / 5.01%. So there is no repin here -- THE PIN IS THE FINDING,
+# because the numbers were previously true by nobody's checking.
+#
+# TWO INPUTS, AND THE CHEAP ONE IS THE ONE CI CAN RUN.
+#   `--check`        reads `corpus/san_dcs_verse.txt`, the slice this runner
+#                    itself stages, which is IN THIS REPOSITORY and carries all
+#                    1930 recovered half-verses with their pāda boundaries. No
+#                    15,900-file external checkout needed. Doctrine 34 staged
+#                    that file exactly so the result could be re-run, and until
+#                    now nothing ever re-ran it.
+#   `--check ROOT`   additionally re-derives the INGESTION-side figures from
+#                    the DCS itself -- the 2771 `# text =` lines, the 841
+#                    not-recovered reasons, the Unsandhied layer table and the
+#                    line-end control -- none of which the slice can supply,
+#                    because the slice is by construction the half that was
+#                    recovered.
+# A slice-only run prints the root-only figures as SKIP, never as [ok]. A check
+# that silently reported PASS on a smaller question than it was asked is the
+# decoration this whole exercise exists to remove.
+#
+# WHAT IS PINNED, AND WHAT IS DELIBERATELY NOT.
+#   PINNED: counts. Every one is EXACT over a fixed corpus at a fixed rule --
+#   recovery counts, the doctrine 79 triples per variant per unit, the strata
+#   structure, the line-end hits and the layer-sensitivity counts. They are
+#   pinnable because re-running them cannot return a different number.
+#   NOT PINNED: every null median, min, max, lift and empirical p; the positive
+#   control's planted-detection rates; and the "0 of 16 strata clear alpha/m"
+#   line, which is a statement about 16 Monte Carlo p-values. Those ride a
+#   permutation draw, and doctrine 57 says an empirical p at 1/(n+1) reports
+#   the RESOLUTION and not the effect -- pinning a sample would fail on the
+#   seed and pass on nothing. Same call `audit_tang_null.py`,
+#   `audit_kalevala_null.py` and `audit_hafez_radif.py` all make.
+#
+# Doctrine 58: these are counts, and a count is a coordinate of a threshold AND
+# of a rendering (doctrine 91). Argue them and repin with the superseded value
+# visible and dated (doctrine 17); do not tune `recover()` or `features()` to
+# meet them.
+# ---------------------------------------------------------------------------
+
+DEFAULT_SLICE = os.path.abspath(os.path.join(HERE, "..", "corpus",
+                                             "san_dcs_verse.txt"))
+
+#: Keys that only a `--check ROOT` run can supply. A slice-only run must SKIP
+#: these, never quietly pass them.
+ROOT_ONLY = ("dcs_lines", "not_recovered", "reason_odd_length",
+             "reason_straddle", "layer_comparable", "layer_moved_aksara_count",
+             "layer_moved_anchor", "layer_moved_end_key",
+             "lineend_Gitagovinda", "lineend_Kiratarjuniya")
+
+PINNED = {
+    # -- recovery, from the slice ------------------------------------------
+    "recovered": 1930,
+    "criterion_named": 1907,
+    "criterion_selfsim": 23,
+    "recovered_Gitagovinda": 53,
+    "recovered_Kiratarjuniya": 1877,
+    "half_units": 1930,
+    "verse_units": 816,
+    "single_word_padas": 267,
+    "n1_strata_half": 30,
+    "strata_ge25": 16,
+    "strata_ge25_units": 1841,
+    "strata_ge25_carrying": 130,
+
+    # -- doctrine 79, THREE COUNTS + the numerator, per variant per unit ----
+    #    (mandated, judged, refused, carrying). NEVER SUMMED, and `refused` is
+    #    pinned in its own right: V1's 2 is the number that says the headline
+    #    rate is safe, and V2's 592 is the number that says the collapse is
+    #    real. If a re-ingestion starts refusing differently, the published
+    #    rate would slide while `carrying` alone still matched.
+    "counts79": {
+        "half-verse (2 pādas)": {
+            "V1 dvitiyaksara  aksara 2 all": (1930, 1928, 2, 135),
+            "V2 adyaksara     aksara 1 all": (1930, 1338, 592, 141),
+            "V3 aksara-k      searched  all": (1930, 1930, 0, 1128),
+            "V4 antya-prasa   depth 1   all": (1930, 1930, 0, 28),
+            "V4 antya-prasa   depth 2   all": (1930, 1808, 122, 0),
+            "V5 free anuprasa any word  all": (1930, 1812, 118, 737),
+        },
+        "verse (4 pādas)": {
+            "V1 dvitiyaksara  aksara 2 all": (816, 814, 2, 0),
+            "V2 adyaksara     aksara 1 all": (816, 407, 409, 2),
+            "V3 aksara-k      searched  all": (816, 816, 0, 14),
+            "V4 antya-prasa   depth 1   all": (816, 816, 0, 0),
+            "V4 antya-prasa   depth 2   all": (816, 722, 94, 0),
+            "V5 free anuprasa any word  all": (816, 717, 99, 23),
+        },
+    },
+
+    # -- DOCTRINE 28, and the zeros are the reason this block exists --------
+    #    `data/sources.tsv:91` publishes "at the 4-pāda verse unit it fires on
+    #    0 of 816". A bare 0 is exactly the figure doctrine 28 says must be
+    #    resolved, because it has two completely different readings: NONE (the
+    #    verses were asked and none carries prāsa) or CANNOT TELL (the
+    #    instrument could not ask). MEASURED: 814 of the 816 were JUDGED and 2
+    #    REFUSED, so the zero is a REAL NONE over 814 judged verses, not an
+    #    artefact of refusal. Same determination for V4 depth 2, which reads 0
+    #    at BOTH units over 1808 and 722 judged, and for the malini stratum's
+    #    0 of 26, which has 0 refusals. Recorded as its own pin so the
+    #    determination survives the next reader.
+    "verse_V1_zero_is_over_judged": 814,
+    "malini_n": 26,
+    "malini_refused": 0,
+    "malini_carrying": 0,
+
+    # -- root-only: ingestion, layer and line-end control --------------------
+    "dcs_lines": 2771,
+    "not_recovered": 841,
+    "reason_odd_length": 357,
+    "reason_straddle": 315,
+    "layer_comparable": 1858,
+    "layer_moved_aksara_count": 1583,
+    "layer_moved_anchor": 186,
+    "layer_moved_end_key": 1020,
+    #: (hit, judged) with identical final WORDS excluded as REPEAT (doctrine 3).
+    #: The 6.16x lift this repo quotes is hit/judged over a null MAX and only
+    #: the numerator and denominator are pinnable.
+    "lineend_Gitagovinda": (179, 680),
+    "lineend_Kiratarjuniya": (52, 2059),
+}
+
+
+def read_slice(path):
+    """-> the same `recovered` shape `build()` returns, from the staged slice.
+
+    The slice is this runner's OWN output, so reading it back re-derives every
+    per-pāda feature from the same strings `build()` would have handed on. What
+    it cannot re-derive is anything about the half-verses that were NOT
+    recovered -- they are not in the file -- which is exactly the ROOT_ONLY set.
+    """
+    out = []
+    for raw in open(path, encoding="utf-8"):
+        if raw.startswith("#") or not raw.strip():
+            continue
+        f = raw.rstrip("\n").split("\t")
+        if len(f) < 7:
+            continue
+        out.append({"text": f[0], "chapter": f[1], "verse": f[2], "sub": f[3],
+                    "line": " ".join(f[6].split(" | ")), "metre": f[4],
+                    "criterion": f[5], "padas": f[6].split(" | ")})
+    return out
+
+
+def measure(root=None, slice_path=None):
+    """-> the deterministic figures ONLY. Draws no null and touches no RNG.
+
+    `check` does not read a null, so it does not pay for one: a full `main()`
+    run is 3000 replicates per unit plus a positive control, and none of that
+    can be pinned anyway (doctrine 57).
+    """
+    m = {}
+    if root:
+        lines, recovered = build(root, verbose=False)
+        m["dcs_lines"] = len(lines)
+        reasons = collections.Counter()
+        for _t, _c, _v, _s, line in lines:
+            padas, why, _crit = recover(line)
+            if padas is None:
+                reasons[why] += 1
+        m["not_recovered"] = sum(reasons.values())
+        m["reason_odd_length"] = reasons["odd length, no ardhasama match"]
+        m["reason_straddle"] = reasons["word straddles the pada boundary"]
+    else:
+        recovered = read_slice(slice_path or DEFAULT_SLICE)
+
+    m["recovered"] = len(recovered)
+    crit = collections.Counter(r["criterion"] for r in recovered)
+    m["criterion_named"] = crit["named"]
+    m["criterion_selfsim"] = crit["selfsim"]
+    bytext = collections.Counter(r["text"] for r in recovered)
+    m["recovered_Gitagovinda"] = bytext["Gītagovinda"]
+    m["recovered_Kiratarjuniya"] = bytext["Kirātārjunīya"]
+
+    cache, half, half_meta, verse_units, _vm, _bl = build_units(recovered)
+    m["half_units"] = len(half)
+    m["verse_units"] = len(verse_units)
+    nwords = [f["nwords"] for u in half for f in u]
+    m["single_word_padas"] = sum(1 for x in nwords if x == 1)
+    strata = collections.defaultdict(list)
+    for i, u in enumerate(half):
+        for j, f in enumerate(u):
+            strata[(half_meta[i][0], f["n"], j % 2)].append((i, j))
+    m["n1_strata_half"] = len(strata)
+
+    m["counts79"] = {"half-verse (2 pādas)": state_counts(half),
+                     "verse (4 pādas)": state_counts(verse_units)}
+    m["verse_V1_zero_is_over_judged"] = \
+        m["counts79"]["verse (4 pādas)"]["V1 dvitiyaksara  aksara 2 all"][1]
+
+    groups = collections.defaultdict(list)
+    for r in recovered:
+        groups[(r["text"], r["metre"])].append([cache[p] for p in r["padas"]])
+    big = {k: v for k, v in groups.items() if len(v) >= 25}
+    m["strata_ge25"] = len(big)
+    m["strata_ge25_units"] = sum(len(v) for v in big.values())
+    m["strata_ge25_carrying"] = sum(int(sum(v_dvitiya(u) for u in v))
+                                    for v in big.values())
+    mal = groups.get(("Kirātārjunīya", "malini"), [])
+    m["malini_n"] = len(mal)
+    m["malini_refused"] = sum(1 for u in mal
+                              if agree_state(u, 1) == REFUSED)
+    m["malini_carrying"] = int(sum(v_dvitiya(u) for u in mal))
+
+    if root:
+        uns = unsandhied_lines(root)
+        moved_n = moved_anchor = moved_end = comparable = 0
+        for r in recovered:
+            toks = uns.get((r["text"], r["chapter"], r["verse"], r["sub"]))
+            if not toks or len(toks) != len(r["line"].split()):
+                continue
+            k = len(r["padas"][0].split())
+            a, b = " ".join(toks[:k]), " ".join(toks[k:])
+            if not a.strip() or not b.strip():
+                continue
+            comparable += 1
+            for f, g in zip([features(p) for p in r["padas"]],
+                            [features(p) for p in (a, b)]):
+                moved_n += f["n"] != g["n"]
+                fa = f["onsets"][1] if len(f["onsets"]) > 1 else None
+                ga = g["onsets"][1] if len(g["onsets"]) > 1 else None
+                moved_anchor += fa != ga
+                moved_end += f["end1"] != g["end1"]
+        m["layer_comparable"] = comparable
+        m["layer_moved_aksara_count"] = moved_n
+        m["layer_moved_anchor"] = moved_anchor
+        m["layer_moved_end_key"] = moved_end
+
+        by_chapter = collections.defaultdict(list)
+        for text, chapter, _v, _s, line in load_dcs(root):
+            by_chapter[(text, chapter)].append(line)
+        for text, key in (("Gītagovinda", "lineend_Gitagovinda"),
+                          ("Kirātārjunīya", "lineend_Kiratarjuniya")):
+            hit = judged = 0
+            for (t, _c), ls in by_chapter.items():
+                if t != text:
+                    continue
+                for a, b in zip(ls, ls[1:]):
+                    if a.split()[-1] == b.split()[-1]:
+                        continue          # REPEAT, not rhyme (doctrine 3)
+                    judged += 1
+                    hit += SAN.antya_prasa([a, b], depth=1)[1] == 1.0
+            m[key] = (hit, judged)
+    return m
+
+
+def check(m, rooted):
+    """-> exit code. 0 pass / 1 a figure moved / 2 cannot tell.
+
+    FAILS LOUDLY; it does not report and continue. And it does not report PASS
+    on a question it did not ask -- a slice-only run SKIPS the root-only rows
+    by name rather than counting them clean.
+    """
+    print()
+    print("=" * 74)
+    print("CHECK -- the committed prāsa figures against this run")
+    print("=" * 74)
+    print(f"  input: {'DCS checkout (full)' if rooted else DEFAULT_SLICE}")
+    if not rooted:
+        print("  slice-only: the ingestion, layer and line-end rows below are "
+              "SKIPPED, not passed.")
+    print()
+    bad = skipped = 0
+
+    def row(k, want, have):
+        nonlocal bad
+        ok = have == want
+        bad += not ok
+        print(f"  [{'ok  ' if ok else 'FAIL'}] {k:28s} committed {want}"
+              + ("" if ok else f", measured {have}"))
+
+    for k in ("recovered", "criterion_named", "criterion_selfsim",
+              "recovered_Gitagovinda", "recovered_Kiratarjuniya",
+              "half_units", "verse_units", "single_word_padas",
+              "n1_strata_half", "strata_ge25", "strata_ge25_units",
+              "strata_ge25_carrying", "verse_V1_zero_is_over_judged",
+              "malini_n", "malini_refused", "malini_carrying"):
+        row(k, PINNED[k], m.get(k))
+
+    print()
+    print("  doctrine 79 -- (mandated, judged, refused, carrying) per variant. "
+          "THREE COUNTS,")
+    print("  NEVER SUMMED. `refused` is pinned in its own right: a re-ingestion "
+          "that starts")
+    print("  refusing differently slides the published rate while `carrying` "
+          "still matches.")
+    for uname, table in PINNED["counts79"].items():
+        print(f"    {uname}")
+        got = (m.get("counts79") or {}).get(uname, {})
+        for label, want in table.items():
+            have = got.get(label)
+            ok = have == want
+            bad += not ok
+            print(f"      [{'ok  ' if ok else 'FAIL'}] {label:34s} committed "
+                  f"{want}" + ("" if ok else f", measured {have}"))
+
+    print()
+    for k in ROOT_ONLY:
+        if not rooted:
+            skipped += 1
+            print(f"  [SKIP] {k:28s} committed {PINNED[k]}   "
+                  f"(needs the DCS checkout)")
+        else:
+            row(k, PINNED[k], m.get(k))
+
+    print()
+    print("  NOT PINNED, on purpose (doctrine 57): every null median/min/max, "
+          "every lift,")
+    print("  every empirical p, the positive control's planted rates, and the "
+          "per-metre")
+    print("  family-wise verdict -- all ride a permutation draw, so a pin would "
+          "fail on the")
+    print("  seed and pass on nothing. Read them off a full run.")
+
+    if bad:
+        print()
+        print(f"  {bad} figure(s) moved. The DCS checkout, the metre table, the "
+              f"pāda-boundary")
+        print("  recovery or san.py's scansion has changed under this arm.")
+        print("  Repin with the date and keep the superseded value visible "
+              "(doctrine 17).")
+        print("  data/sources.tsv:90 and :91 quote these numbers and would need "
+              "the same repin.")
+    if skipped:
+        print(f"\n  {skipped} row(s) SKIPPED -- rerun as "
+              f"`prasa_rate.py --check ROOT` to check them.")
+    print()
+    print("RESULT:", "PASS" if not bad else "FAIL")
+    return 0 if not bad else 1
+
+
 if __name__ == "__main__":
+    if "--check" in sys.argv:
+        argv = [a for a in sys.argv[1:] if a != "--check"]
+        root = argv[0] if argv else None
+        # DOCTRINE 20/28: "cannot tell" is not "pass" and is not "fail", so it
+        # gets its own exit code. A caller in a pipeline has to be able to tell
+        # a figure that MOVED (1) from an input that was never there (2) --
+        # collapsing them would report a missing corpus as a drifted number.
+        if root and not os.path.isdir(os.path.join(root, "dcs", "data",
+                                                   "conllu", "files")):
+            print(f"CANNOT TELL: no DCS checkout at {root!r}. Run `--check` "
+                  f"with no argument to check the staged slice, or see the "
+                  f"module docstring for the fetch.")
+            print("RESULT: CANNOT TELL")
+            sys.exit(2)
+        if not root and not os.path.isfile(DEFAULT_SLICE):
+            print(f"CANNOT TELL: the staged slice {DEFAULT_SLICE!r} is "
+                  f"missing. Restage it with `prasa_rate.py ROOT --stage`.")
+            print("RESULT: CANNOT TELL")
+            sys.exit(2)
+        sys.exit(check(measure(root=root), rooted=bool(root)))
     if len(sys.argv) < 2:
         sys.exit(__doc__)
     _rest = sys.argv[2:]
