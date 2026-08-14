@@ -87,6 +87,7 @@ Run: python3 quality/test_verbs.py
 
 import json
 import os
+import re
 import subprocess
 import sys
 import tempfile
@@ -1084,6 +1085,100 @@ def test_blueprint_mismatch_refuses_on_every_verb():
           out.strip().splitlines()[0][:100] if out.strip() else "-")
 
 
+def test_qafiya_reads_a_file_the_way_every_other_verb_does():
+    print("\n14. `qafiya FILE` reads sung text, and a tie is disclosed")
+    # THE `open()` BRANCH OF THIS VERB HAD NO TEST AT ALL, which is why four
+    # sweeps missed it: §7 runs `qafiya` on a LIST of lines, and
+    # `quality/test_readability.py` calls `check_qafiya` with a two-element
+    # list. Neither touches the path the verb takes when handed a filename,
+    # and that path was the last reader in lyric_harness.py that scored
+    # APPARATUS AS SUNG TEXT -- blank-filtered only, no `is_apparatus_line`,
+    # no `encoding="utf-8"`.
+    with tempfile.TemporaryDirectory() as d:
+        appar = os.path.join(d, "appar.txt")
+        with open(appar, "w", encoding="utf-8") as fh:
+            fh.write("# author: A. Nonymous (1725-1807)\n"
+                     "# source: GITenberg/Some-Book_33180 33180.n.txt "
+                     "md5 5243a8d61b256db494f8315502b18819\n"
+                     "# songs: 10\n"
+                     "\n"
+                     "--- TITLE: The river\n"
+                     "[VERSE 1]\n"
+                     "the cattle waded through the silt\n"
+                     "past every fence the county rebuilt\n"
+                     "the summer left the garden wilt\n"
+                     "and slept beneath the wall he built\n")
+        rc, out, err = run("qafiya", appar)
+        endwords = re.findall(r"^  L\d+ \(([^)]*)\):", out, re.M)
+        check("`qafiya FILE` judges the four SUNG lines, not the apparatus",
+              rc == 0 and "Traceback" not in err and len(endwords) == 4,
+              f"judged {len(endwords)}: {endwords}")
+        check("no provenance header, title or section marker is scored as "
+              "a rhyme word",
+              endwords == ["silt", "rebuilt", "wilt", "built"],
+              f"got {endwords} -- the bare reader reported 'Nonymous', "
+              f"'b' (a fragment of the md5), 'songs', 'river' and 'VERSE', "
+              f"and charged an `ita` repeat against the checksum")
+        # NOT a source grep: run the verb with the locale that breaks it.
+        # 169 of the `corpus/song/*.txt` files carry non-ASCII bytes, and a
+        # bare `open()` decodes by locale -- so under `LC_ALL=C` this verb
+        # raised UnicodeDecodeError on every one of them. Every verb that
+        # reads lyric text is checked, because `qafiya` was not the only one.
+        nonascii = os.path.join(d, "utf8.txt")
+        with open(nonascii, "w", encoding="utf-8") as fh:
+            fh.write("the cattle waded through the silt\n"
+                     "past every fence the county’s rebuilt\n")
+        cenv = dict(os.environ, LC_ALL="C", LANG="C",
+                    PYTHONCOERCECLOCALE="0", PYTHONUTF8="0")
+        for verb in ("qafiya", "relations"):
+            p = subprocess.run([sys.executable, "lyric_harness.py",
+                                verb, nonascii], cwd=ROOT, env=cenv,
+                               capture_output=True, text=True, timeout=900)
+            check(f"`{verb}` reads UTF-8 under a C locale, not by locale",
+                  "UnicodeDecodeError" not in p.stderr,
+                  p.stderr.strip().splitlines()[-1][:90]
+                  if p.stderr.strip() else "-")
+
+        # The guard `partition` uses, for the reason `partition` uses it: the
+        # documented usage is `qafiya FILE|L...`, so ONE argument that is not
+        # a path is a LINE. It used to be `open()`ed and raise FileNotFound.
+        rc, out, err = run("qafiya", "the cattle waded through the silt")
+        check("a single bare LINE is a line, not a missing filename",
+              rc == 0 and "FileNotFoundError" not in err
+              and "(silt)" in out,
+              f"rc {rc} -- {err.strip().splitlines()[-1][:80] if err.strip() else out[:80]}")
+
+    # Doctrine 66. `max(set(vals), key=vals.count)` broke a tie by SET
+    # ITERATION ORDER, which PYTHONHASHSEED salts: the same command on
+    # `corpus/song/eng_hymn_newton.txt` returned rawi D, R, R, D, D under
+    # seeds 0-4. 23 of the 143 `corpus/song/eng_*.txt` files leave some
+    # profile slot tied once the reader above is fixed.
+    with tempfile.TemporaryDirectory() as d:
+        tie = os.path.join(d, "tie.txt")
+        with open(tie, "w", encoding="utf-8") as fh:
+            fh.write("The river took the bridge at dawn\n"
+                     "and no one saw the water again\n"
+                     "the cattle waded through the silt\n"
+                     "past every fence the county rebuilt\n")
+        seen = set()
+        for seed in ("0", "1", "2", "3", "4"):
+            env = dict(os.environ, PYTHONHASHSEED=seed)
+            p = subprocess.run([sys.executable, "lyric_harness.py",
+                                "qafiya", tie], cwd=ROOT, env=env,
+                               capture_output=True, text=True, timeout=900)
+            seen.add(p.stdout)
+        check("five PYTHONHASHSEEDs give ONE answer, byte for byte",
+              len(seen) == 1,
+              f"{len(seen)} distinct outputs -- a tie broken by iterating a "
+              f"set is a result that does not reproduce")
+        out = seen.pop()
+        check("and the tie is DISCLOSED, not silently broken",
+              "TIED:" in out and "does not establish rawi" in out
+              and "'N'" in out and "'T'" in out,
+              "doctrines 20/28: 'the text does not determine a single rawi' "
+              "is a real answer and must not be collapsed into a coin flip")
+
+
 def test_no_broad_exception_handler_hides_a_call():
     print("\n12. the mechanism that hid it: broad handlers in the spine")
     # Doctrine 48. `except Exception` around a call is how an arity bug
@@ -1557,6 +1652,7 @@ if __name__ == "__main__":
     test_no_flag_silently_changes_a_measurement()
     test_every_flag_value_refuses_in_one_shape()
     test_the_profile_lookup_raises_at_the_library_too()
+    test_qafiya_reads_a_file_the_way_every_other_verb_does()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

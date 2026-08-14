@@ -3183,16 +3183,50 @@ def check_qafiya(lex, lines, decl):
     parts = [None if i in refrain else _qafiya_parts(lex, lines[i])
              for i in range(len(lines))]
 
+    #: key -> {"candidates": [...], "count": n} for every profile slot the
+    #: text left TIED. Empty when every slot had an outright winner. See
+    #: `majority`; `profile` alone cannot carry this, which is the point.
+    tied = {}
+
     def majority(key):
         # A refused line contributes NOTHING to the established profile. It
         # used to contribute a substituted function word, and the profile is a
         # majority, so one unreadable end word could move the declared rawi for
         # every other line in the poem.
+        #
+        # THE TIE IS NOT BROKEN BY THE SET'S ITERATION ORDER ANY MORE, and
+        # that is doctrine 66 firing on this repo's own corpus. The line was
+        # `max(set(vals), key=vals.count)`; `set` iteration is salted by
+        # PYTHONHASHSEED, so on `corpus/song/eng_hymn_newton.txt` five runs of
+        # the SAME command returned rawi D, R, R, D, D under seeds 0-4. Not a
+        # near-miss: once the reader below is fixed, 23 of the 143
+        # `corpus/song/eng_*.txt` files leave some slot tied -- 12 on rawi
+        # (three of those four- and five-way), 10 on wasl_nucleus, 1 on ridf
+        # -- and wasl_nucleus and ridf drive `iqwa` and `sinad al-ridf`
+        # defects, so this was never a rawi-only problem.
+        #
+        # Sorting the candidates makes the pick reproduce. It does NOT make
+        # the pick meaningful -- first-alphabetically is an arbitrary rule,
+        # and a tie means the text genuinely does not establish this slot.
+        # So the tie is RECORDED rather than swallowed: doctrines 20 and 28
+        # want "cannot tell" kept mechanically distinct from a finding, and
+        # here the two failure modes are already distinguishable in the return
+        # value -- `None` means NO line offered a value for this slot, while a
+        # `tied` entry means several did and the corpus does not choose among
+        # them. Silently returning one of them collapses that distinction into
+        # a coin flip. The caller discloses it; see `main`'s `qafiya` verb.
         vals = [p[key] for p in parts
                 if p and not p.get("unreadable") and p[key] is not None]
         if not vals:
             return None
-        return max(set(vals), key=vals.count)
+        counts = _C(vals)
+        top = max(counts.values())
+        # Homogeneous per key -- every value here is a phoneme/class string,
+        # or (for `tasis`) a bool -- so a plain sort is total and stable.
+        winners = sorted(v for v, n in counts.items() if n == top)
+        if len(winners) > 1:
+            tied[key] = {"candidates": list(winners), "count": top}
+        return winners[0]
 
     prof = {k: majority(k) for k in ("rawi", "ridf", "tasis",
                                      "wasl", "wasl_nucleus")}
@@ -3229,7 +3263,8 @@ def check_qafiya(lex, lines, decl):
         else:
             seen[ew] = i + 1
         audit.append((i + 1, p["endword"], defects))
-    return {"profile": prof, "audit": audit, "refusals": refusals,
+    return {"profile": prof, "profile_tied": tied, "audit": audit,
+            "refusals": refusals,
             "lines_total": len(lines), "lines_refused": len(refusals),
             "lines_judged": len(lines) - len(refusals)
             - sum(1 for p in parts if p is None)}
@@ -3894,13 +3929,45 @@ def main():
             print(f"  {kind.upper()}: {why}")
 
     elif cmd == "qafiya":
-        lines = (open(args[1]).read().splitlines()
-                 if len(args) == 2 else args[1:])
-        lines = [l.strip() for l in lines if l.strip()]
+        # THE LAST READER THAT SCORED APPARATUS AS SUNG TEXT. It was
+        # `open(args[1]).read().splitlines()` filtered for blanks only -- no
+        # `is_apparatus_line`, no `encoding="utf-8"` -- while every sibling
+        # verb (density, graph, chains, partition, refrain, brief, verify,
+        # revise) went through `load_lyric_lines` and `relations`/`song`
+        # spell the apparatus test inline. So this one verb scored
+        # `#` provenance headers and `--- TITLE:` markers as sung text: over
+        # `corpus/song/eng_*.txt` it admitted 36,948 lines of the 189,261 it
+        # read that `load_lyric_lines` drops (19.5%). That is not cosmetic,
+        # it moves the ANSWER -- on `corpus/song/eng_hymn_newton.txt` the
+        # established rawi flips, and one run charged "ita (rhyme word
+        # repeats line 2)" against a fragment of an md5 checksum.
+        #
+        # The file-vs-lines guard is `partition`'s, for `partition`'s reason:
+        # the documented usage is `qafiya FILE|L...`, so a two-token
+        # invocation whose second token is a LINE must not be opened as a
+        # path. `os.path.exists` decides, exactly as it does there.
+        src = args[1:]
+        if len(src) == 1 and os.path.exists(src[0]):
+            lines = load_lyric_lines(src[0])
+        else:
+            lines = [l.strip() for l in src if l.strip()]
         res = check_qafiya(lex, lines, decl)
         print(f"  established profile: {res['profile']}   "
               f"(from {res['lines_judged']} judged line(s); "
               f"{res['lines_refused']} refused)")
+        # A tie is DISCLOSED, not resolved behind the reader's back: "this
+        # text does not establish a single rawi" is a real answer about the
+        # text, and it is the answer for 12 of the 143 English corpus files.
+        # The audit below is scored against one arbitrary candidate, so
+        # saying which -- and what it was tied with -- is the difference
+        # between a reproducible report and a reproducible-looking one.
+        for key, t in sorted(res["profile_tied"].items()):
+            cands = ", ".join(repr(c) for c in t["candidates"])
+            print(f"  TIED: the text does not establish {key} -- "
+                  f"{cands} each occur {t['count']} time(s). Scoring the "
+                  f"audit below against {t['candidates'][0]!r}, the first "
+                  f"in sort order, so the run reproduces; another candidate "
+                  f"would score it differently.")
         for n, ew, defects in res["audit"]:
             print(f"  L{n} ({ew}): "
                   + ("; ".join(defects) if defects else "sound"))
@@ -4354,7 +4421,15 @@ def main():
         # them (its P8 fix), and five schemas declare frame="stanza". Stripping
         # them first -- which every other verb here does -- would silently put
         # the whole text in stanza 0 and make those five unreachable.
-        raw = [l.rstrip() for l in open(keep[0]).read().splitlines()
+        # `encoding="utf-8"` for `load_lyric_lines`'s reason, not its
+        # reading: this verb genuinely cannot call it (blank lines are
+        # load-bearing here, see above), but it read the same UTF-8
+        # corpus through a locale-dependent decode. 169 of the
+        # `corpus/song/*.txt` files hold non-ASCII bytes, so under
+        # `LC_ALL=C` this raised UnicodeDecodeError rather than reading
+        # a curly apostrophe.
+        raw = [l.rstrip() for l in
+               open(keep[0], encoding="utf-8").read().splitlines()
                if not is_apparatus_line(l)]
         lines = [l for l in raw if l.strip()]
         phon = _phonology_or_refuse(lang)
@@ -5124,7 +5199,11 @@ def main():
                 song_bp_path = args[1]
                 sides.append(("DECLARED  song's BLUEPRINT", song_bp_path))
                 sides.append(("HANDED IN song's LYRIC", args[2]))
-                lyric_text = open(args[2]).read()
+                # Same locale-dependent decode as the `relations`
+                # reader above; this one keeps apparatus on purpose,
+                # because `parse_lyric_sections` is looking for the
+                # `[Section]` markers `is_apparatus_line` would drop.
+                lyric_text = open(args[2], encoding="utf-8").read()
                 marked = parse_lyric_sections(lyric_text)
                 song_obj, _hooks = GR.song_from_blueprint(song_bp_path)
                 # `lines_in(s)` MATCHES BY BAR RANGE, and the section OBJECT is
