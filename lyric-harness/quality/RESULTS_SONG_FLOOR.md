@@ -486,6 +486,113 @@ found it.
 
 ---
 
+## 8a. `CLICHE_PAIR` gets a false-positive rate — 2026-08-14
+
+The three shipping flags above were the only checks in this gate with a
+measured interruption rate. `CLICHE_PAIR` is a hard flag and had never had
+one. It does now, off the same machinery: **author-held out, 200 seeds, 50/50,
+same 150–400 band.** The protocol reproduces §2's `LEXICAL_MONOTONY` 5.43%,
+`FUNCTION_WORD_HEAVY` 5.23% and `ANAPHORA_OVERLOAD` 5.01% exactly, which is
+what makes the new row comparable to them.
+
+| check | AUTHOR-held-out FPR | point estimate | Wilson 95% CI | author-cluster bootstrap |
+|---|---|---|---|---|
+| `CLICHE_PAIR` | **6.36%** [4.23 – 8.37] | 118/1859 = 6.35% | [5.33 – 7.55] | 6.20% [4.02 – 9.10] |
+
+**It is in the family of the three that ship, and the measurement does not
+support demoting it.** It is NOT folded into §2's union of five: that union is
+over the length-sensitive checks the band rule, the tolerance and every
+threshold were chosen against, and a sixth member would silently redefine "one
+human song in five".
+
+### What the measurement did compel: a severity change OUTSIDE the band
+
+Bucketed by the live `declaration_for()` over all 4,930 corpus items:
+
+| bucket | items | fire | rate |
+|---|---:|---:|---:|
+| `exact:section` | 86 | 0 | 0.00% |
+| `exact:sonnet` | 437 | 24 | 5.49% |
+| `exact:song` | 1859 | 118 | **6.35%** |
+| `EXTRAPOLATED:section` | 631 | 14 | 2.22% |
+| `EXTRAPOLATED:sonnet` | 1160 | 43 | 3.71% |
+| `EXTRAPOLATED:song` | 472 | 34 | 7.20% |
+| `OUT_OF_CALIBRATED_LENGTH` | 285 | 42 | **14.74%** |
+
+`floor.py`'s `_relation_findings` hardcoded `"flag"` and is appended **after**
+`check()`'s `sev()` closure has run — and on the `prof is None` path the gate
+has already returned. So `CLICHE_PAIR` was emitted as a HARD FLAG on **133
+items where every length-sensitive finding had been downgraded to a note**, 42
+of them in the one bucket nothing was ever calibrated at, at 2.3× the in-band
+rate, where it was the only flag the gate could still emit. It now runs through
+`sev()`: exact → flag, extrapolated or out-of-range → note.
+
+**In band that costs nothing, and this is measured rather than asserted.**
+Re-running the same protocol against the changed gate, counting only items
+where `CLICHE_PAIR` is emitted as a **FLAG**: 118 of 1859, 6.35%, median
+6.36% [4.23 – 8.37]. Identical. All 133 out-of-band emissions became notes and
+no in-band one did.
+
+`quality/song_profile_calibration.py --check` now compares the shipped
+`held_out_fpr["cliche"]` against the corpus like every other constant here
+(judges 14 of 19, was 13 of 18); it needs no frequency layer, so
+`--without-predictability` decides it in ~75 CPU-s.
+
+### What the rate does NOT license
+
+An FPR says how often a check interrupts a human songwriter. It says nothing
+about what the check is FOR, and this list does not measure over-familiarity to
+a living listener. Measured against this repo's own pair table
+(`data/song_rhymepair_en.tsv`, 15,409 distinct pairs, 91,636 tokens, per
+author):
+
+- only **4 of the top 30** pairs by author dispersion are on the hand-typed
+  list — **13.3%** overlap; **3 of 10** at the top ten;
+- the list's own **median dispersion rank is #254 of 15,409**, and 7 of the 30
+  do not appear in the table at all;
+- **9 of the 30 never fire anywhere** in `corpus/song/eng_*`: `alone/phone`,
+  `baby/crazy`, `beats/streets`, `cash/stash`, `chance/dance`, `dough/flow`,
+  `feel/real`, `fun/sun`, `girl/world`.
+
+The table's most dispersed rhymes are `away/day` (61 authors), `be/me` (57),
+`me/thee` (51), `be/thee` (50); the first list member appears at #5. So the
+list has **low sensitivity** against the only rhyme-frequency evidence this
+repo owns. `quality/relations.py`'s `frequency` Unprovidable and
+`quality/phrase_commonplace.py` both REFUSE the over-familiarity claim at their
+own levels — every admissible English source here is pre-1931 — and a
+thirty-item list does not earn the claim they declined. The finding says so on
+its face, so a reader of a `CLICHE_PAIR` flag sees the limit, not just the hit.
+
+`CLICHE_PAIR` is also now a declared coordinate: `FloorDeclaration.
+cliche_pairs`, defaulting to the shipped 30 (doctrine 1). It was the only floor
+threshold with no field to disagree in. Replacing the set replaces the 6.35%
+with it, and the finding disowns the number when it does.
+
+### One precision defect, priced and recorded rather than fixed
+
+There is **no rhyme test in front of the membership test** — it is raw
+string-set membership on the two end words. `tears`/`years` fires **21 times
+over the corpus, 5 in band**, on couplets `song_rhymepair_en.tsv` records as
+NOT rhyming (count zero). That is a homograph: cmudict gives `tears` both
+`T EH1 R Z` (rips) and `T IH1 R Z` (weeping), and the table's `rime_key` reads
+`prons[0]`, which is the rips sense. Neither layer read which sense is on the
+page. Both candidate fixes were measured in band before this was left alone:
+
+| gate | in-band items firing |
+|---|---:|
+| none (shipped) | 118/1859 = 6.35% |
+| `prons[0]` perfect-rhyme | 114/1859 = 6.13% |
+| any-pronunciation perfect-rhyme | 118/1859 = 6.35% |
+
+The `prons[0]` gate buys its 4 items by asserting *tears-is-rips*, swapping one
+unmeasured convention for another. The any-pronunciation gate is a provable
+no-op here — all 136 in-band listed pairs pass it, and all 313 over the whole
+corpus — so it would be a gate that changes nothing, added to look careful. The
+defect is real on arbitrary text and is written down instead, in this section
+and in the finding a writer reads.
+
+---
+
 ## 9. What would have to be true for this profile to mean more
 
 Stated so the next cell does not have to rediscover the boundary.

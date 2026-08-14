@@ -6,8 +6,11 @@
     python3 quality/song_profile_calibration.py --seeds 50  # faster, wider intervals
     python3 quality/song_profile_calibration.py --sample 400  # bounded, NO VERDICT, exit 3
     python3 quality/song_profile_calibration.py --check --without-predictability
-                                                # ~75 CPU-s cold; judges 13
-                                                # of 18 constants, refuses 5
+                                                # ~75 CPU-s cold; judges 14
+                                                # of 19 constants, refuses 5
+                                                # (was 13 of 18 until the
+                                                #  CLICHE_PAIR FPR joined
+                                                #  2026-08-14)
     python3 quality/song_profile_calibration.py --no-cache  # recompute every item
 
 WHAT IT COSTS, AND WHY THAT IS THE FIRST THING THIS FILE SAYS. A drift
@@ -190,7 +193,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 import lyric_harness  # noqa: E402
 import quality.features  # noqa: E402
 from quality.features import FUNCTION_TAGS, QualityFeatures, _tagger  # noqa: E402
-from quality.floor import PROFILES  # noqa: E402
+from quality.floor import PROFILES, SlopFloor  # noqa: E402
 
 ROOT = os.path.join(HERE, "..")
 #: The item unit and the marker rule are quality/audit_corpus.py's, verbatim,
@@ -706,6 +709,62 @@ def fpr(items, thr):
     return out
 
 
+def cliche_fires(body, _floor=[]):
+    """Does `floor.SlopFloor`'s CLICHE_PAIR fire on this item?
+
+    Asked of the LIVE gate rather than reimplemented, unlike the four checks
+    above it: `anaphora`/`line_cv` are three-line statistics this file copies
+    verbatim so the copy is auditable, but CLICHE_PAIR rides `_strip_radif`,
+    the radif-licensing rule and a declared 30-pair list, and a second copy of
+    that would be a second thing to keep in step. The naive adjacent-couplet
+    pairing is `_couplet_pairs`' own, which is `SlopFloor._pairs`' fallback --
+    no corpus item declares a mandate.
+
+    NO SEVERITY IS READ HERE, on purpose. This measures how often the CHECK
+    FIRES on held-out human song in the band, which is the quantity
+    `floor.py`'s `held_out_fpr["cliche"]` ships; whether the gate is then
+    ALLOWED to emit it as a flag is a length question `sev()` answers, and
+    inside this band the two coincide by construction.
+    """
+    if not _floor:
+        _floor.append(SlopFloor())
+    f = _floor[0]
+    return any(x.code == "CLICHE_PAIR"
+               for x in f._relation_findings(body, _couplet_pairs(body)))
+
+
+def cliche_held_out(items, seeds, key="file"):
+    """-> ([rate] over `seeds` 50/50 splits as PROPORTIONS, n firing overall).
+
+    Its own function because CLICHE_PAIR has NO THRESHOLD: `author_held_out`
+    fits a percentile on the calibration half and scores the held-out half
+    with it, and there is nothing here to fit. What the split still buys is
+    the SPREAD -- 200 draws of "half the authors" is what makes the reported
+    interval an author-level one rather than an item-level one (doctrine 13),
+    and one draw is a coin flip reported as a verdict (doctrine 73).
+
+    The per-item answer is computed ONCE, before the seed loop. It is a pure
+    function of the item's own bytes and of the declared list, so scoring it
+    inside 200 splits would be the same 186,000 answers to 1,859 questions.
+    Returned alongside the rates so the caller's point estimate is the SAME
+    per-item answers the interval is built from, rather than a second pass
+    that could silently disagree with it.
+    """
+    scored = [(r[key], cliche_fires(r["_body"])) for r in items]
+    keys = sorted({k for k, _ in scored})
+    rates = []
+    for s in range(seeds):
+        rnd = random.Random(s)
+        sh = keys[:]
+        rnd.shuffle(sh)
+        cal = set(sh[:len(sh) // 2])
+        h = [hit for k, hit in scored if k not in cal]
+        if len(h) < 50:
+            continue
+        rates.append(sum(h) / len(h))
+    return rates, sum(hit for _, hit in scored)
+
+
 def author_held_out(items, seeds, key="file"):
     """-> [(thresholds, fpr)] over `seeds` 50/50 splits of the given key."""
     keys = sorted({r[key] for r in items})
@@ -875,6 +934,33 @@ def report_fpr(rows, lo, hi, seeds):
             if key == "file":
                 out[f] = (round(100 * m, 2), round(100 * p5, 2),
                           round(100 * p95, 2))
+    # CLICHE_PAIR, which is NOT one of the five and is NOT in "ANY".
+    #
+    # It reads no percentile and no length, so it is not a sixth member of the
+    # union above: the band rule, the tolerance and all five thresholds were
+    # chosen against those five, and folding a sixth in would silently
+    # redefine the one number this profile's note quotes as "one human song in
+    # five trips something". What the band DOES give it is the only population
+    # its interruption rate has ever been measured on -- which is why
+    # `floor.py`'s `sev()` lets it reject here and nowhere else, and why the
+    # rate belongs in this profile even though the check does not.
+    cl, k = cliche_held_out(items, seeds)
+    if cl:
+        m, p5, p95 = statistics.median(cl), q(cl, 0.05), q(cl, 0.95)
+        out["cliche"] = (round(100 * m, 2), round(100 * p5, 2),
+                         round(100 * p95, 2))
+        print("   CLICHE_PAIR (no threshold, not in ANY), %d seeds, "
+              "AUTHOR-held out" % len(cl))
+        print("      FPR %-9s median %6.2f%%  [5th-95th percentile of "
+              "seeds %5.2f-%5.2f%%]  min %5.2f%% max %5.2f%%"
+              % ("cliche", 100 * m, 100 * p5, 100 * p95, 100 * min(cl),
+                 100 * max(cl)))
+        print("      point estimate over the whole band %d/%d = %.2f%%. It "
+              "has no percentile to fit, so the split buys the SPREAD and "
+              "not the threshold." % (k, len(items), 100.0 * k / len(items)))
+    else:
+        out["cliche"] = (float("nan"),) * 3
+        print("   CLICHE_PAIR REFUSED: no split left >=50 items held out.")
     print("   The two splits agree on the MEDIAN and disagree on the SPREAD "
           "by about a factor of two. That gap is doctrine 13's price: the "
           "item split reports an interval that is roughly half as wide as "
@@ -1219,6 +1305,22 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
         # seeds are deterministic, so the median reproduces exactly at the
         # same --seeds; the tolerance is for a shorter run
         cmp("held-out FPR %s (%%)" % k, p.held_out_fpr[k][0], fprs[f][0], 1.0)
+    # CLICHE_PAIR's rate is a SHIPPED CONSTANT of this profile like any other
+    # -- `floor.py`'s `sev()` reads the band it was measured in to decide
+    # whether the check may reject, and the finding quotes the number on its
+    # face -- so it is checked here rather than left as a figure in a
+    # docstring nothing re-derives (doctrine 58). NOT in DROPPED_BY_NO_PRED:
+    # it touches no frequency layer, so `--without-predictability` judges it
+    # exactly.
+    measured_cl = fprs.get("cliche", (float("nan"),) * 3)[0]
+    if "cliche" not in p.held_out_fpr:
+        counts["asked"] += 1
+        counts["refused"] += 1
+        print("   %-34s NOT YET SHIPPED (measured %.2f%% below)"
+              % ("held-out FPR cliche (%)", measured_cl))
+    else:
+        cmp("held-out FPR cliche (%)", p.held_out_fpr["cliche"][0],
+            measured_cl, 1.0)
     cmp("profile n_generated", float(p.n_generated), 0.0, 0)
     # The period slope is quoted in the profile note AND inside the
     # ANAPHORA_OVERLOAD finding, so it is a shipped constant like any other.

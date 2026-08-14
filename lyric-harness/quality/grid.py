@@ -39,9 +39,16 @@ which shape it sees rather than passing in silence when the first shape has
 been swapped for the second (doctrine 24).
 
 This is the FIRST structural-cliche detector in the repo. Everything before it
-measured cliche at the word and rhyme-pair level -- CLICHE_PAIR,
-PREDICTABLE_RHYME -- and would happily certify the most exhausted form in
-popular music as clean, which is exactly what it did.
+worked at the word and rhyme-pair level -- CLICHE_PAIR, PREDICTABLE_RHYME --
+and would happily certify the most exhausted form in popular music as clean,
+which is exactly what it did. CORRECTED 2026-08-14: this read "measured
+cliche at the word and rhyme-pair level", and neither of those two measures
+cliche. `CLICHE_PAIR` is membership in a hand-typed 30-pair list whose overlap
+with the corpus's own most-dispersed rhymes is 4 of 30, and
+`PREDICTABLE_RHYME` is a rank inside a candidate field; `quality/floor.py`'s
+CLICHE_PAIR docstring section and `quality/phrase_commonplace.py` both refuse
+the over-familiarity claim outright. The sentence's point -- structure versus
+word -- is unaffected; the word "measured" was not earned.
 
 WHAT THE SECOND ROUND ADDED, AND WHY IT IS THE SAME GAP THREE TIMES
 
