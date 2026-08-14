@@ -693,11 +693,16 @@ class SlopFloor:
                 f"uniformity is the form. Retained only as 'outside the human "
                 f"range', and meaningful, if at all, in free verse"))
 
-        # 5. predictable rhyme -- a NOTE, not a flag. This was the project's
-        #    candidate universal until its cross-design replication turned out
-        #    to be an out-of-vocabulary artifact. It runs only under a profile
-        #    that measured it; the section profile did not, so it stays silent
-        #    there rather than borrowing the sonnet cut.
+        # 5. predictable rhyme -- a NOTE, not a flag, and the reason is
+        #    doctrine 7 rather than the AUC. This was the project's candidate
+        #    universal; its cross-design replication was recorded as an
+        #    out-of-vocabulary artifact, and cold that withdrawal does not
+        #    reproduce (see the cold-repin section of the module docstring).
+        #    The severity did not move with the number: a floor may not order
+        #    the region it already passed, whatever the separation turns out
+        #    to be. It runs only under a profile that measured it; the section
+        #    profile did not, so it stays silent there rather than borrowing
+        #    the sonnet cut.
         thr = d.resolve("predictable_pair_fraction_max", prof)
         pairs = self._pairs(lines, scheme)
         preds = self.qf._predictability(lines, pairs) if thr is not None else []

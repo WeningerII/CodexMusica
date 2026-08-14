@@ -687,9 +687,16 @@ from the first run — do not drift from these either:**, merged into one run.)
    exchange rate between surprise and clarity is not derivable; it is a
    genre's answer, so it belongs in a declaration, not in a constant.
 
-7. **Rejection, not selection.** Detecting bad writing held-out at AUC 0.971;
-   ranking good writing at 0.709. Enforce a floor, do not order the permitted
-   region.
+7. **Rejection, not selection.** Detecting bad writing held-out at AUC **0.964**;
+   ranking good writing at **0.717**. Enforce a floor, do not order the permitted
+   region. REPINNED 2026-08-14 from ~~0.971~~ / ~~0.709~~, which were the
+   PRE-OOV-FIX reading of 2026-08-09 and have been superseded TWICE: pre-fix
+   0.709/0.971, warm post-fix 0.659/0.975, COLD 0.717/0.964. The cold pair is
+   `quality/test_discriminate.py`'s `abs_exp1`/`abs_exp2` joint AUCs, 69/69
+   green on two independent full cold runs. **The argument is unchanged and the
+   gap is what carries it** — 0.247 cold against 0.262 pre-fix, so rejection
+   still beats selection by a quarter of an AUC and this doctrine never rested
+   on the third decimal.
 
 9. **Optimizing toward the phonetic maximum is the slop direction.** Handing a
    model "L2-L4 below theta" makes it reach for the highest-scoring rhyme,

@@ -54,7 +54,9 @@ has to make.
 > The sentence's own subject is the Exp 2 − Exp 1 gap across the two readings
 > it names, and that arithmetic does not produce 0.062 under any pairing:
 > pre-fix 0.971 − 0.709 = 0.262, cold 0.964 − 0.717 = 0.247, narrowing
-> **0.015** (0.0143 at the precision `test_discriminate.py` pins). Bringing in
+> **0.015** (0.0143 with the cold pair taken at the precision
+> `test_discriminate.py` pins and the pre-fix pair at the three decimals that
+> are the only reading the record has for it). Bringing in
 > the warm reading does not help either — warm 0.975 − 0.659 = 0.316, so
 > warm→cold is 0.069 and pre-fix→warm is +0.054, a WIDENING. No pair of the
 > five gaps on record (absolute pre-fix 0.262, warm 0.316, cold 0.247;
@@ -65,16 +67,18 @@ has to make.
 >
 > **The one quantity in the repo that IS 0.062** is the cold
 > predictability-only spread, Exp 1 − Exp 2: 0.70997150997151 −
-> 0.6476973684210526 = **0.062274**, i.e. the **0.710** and **0.648** two rows
-> apart in "The joint held-out AUCs, cold" below — a different FEATURE SET
+> 0.6476973684210526 = **0.062274**, i.e. the **0.710** and **0.648** sitting
+> side by side in the "ABSOLUTE, predictability only" row of "The joint
+> held-out AUCs, cold" below — a different FEATURE SET
 > (two features, not ten), and a LEVEL rather than a narrowing of anything.
 > The same commit (`de4313e`) added that table and this sentence, so a
 > transcription is plausible. It is not established, and this document does
-> not assert it: five other pairs of three-decimal figures in this file and
-> `RESULTS_WITHIN_ITEM.md` also differ by exactly 0.062 (0.366−0.304,
-> 0.582−0.520, 0.676−0.614, 0.719−0.657, and the pair above), so a digit match
-> is a coincidence rate, not a provenance. `git log -S"0.062"` returns exactly
-> one commit and its diff carries no working.
+> not assert it: sweeping every three-decimal figure in this file and
+> `RESULTS_WITHIN_ITEM.md` finds **six** pairs differing by exactly 0.062 —
+> 0.366−0.304, 0.580−0.518, 0.582−0.520, 0.676−0.614, 0.719−0.657 and
+> 0.710−0.648 — so a digit match here is a coincidence rate, not a
+> provenance. `git log -S"0.062"` returns exactly one commit and its diff
+> carries no working.
 >
 > What can be said: the figure was never reproducible from the sentence it
 > was attached to, the narrowing it claimed is real but is 0.015, and the

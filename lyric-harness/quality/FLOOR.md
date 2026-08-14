@@ -99,13 +99,30 @@ length.
 > 8 says a replication across two overlapping label contrasts in one corpus is
 > not a replication across traditions.
 >
-> **The shipped code still emits 0.560** — `quality/floor.py` carries it in
+> ~~**The shipped code still emits 0.560** — `quality/floor.py` carries it in
 > the `PREDICTABLE_RHYME` finding's own evidence string, in
 > `CALIBRATION["failed_expectations"]`, and in its module docstring, and
 > `quality/test_floor.py` §11 pins that the evidence contains it. Neither file
 > is owned here; the repin is theirs to make, and until they make it a caller
 > reads a superseded number out of a live finding rather than out of a
-> document.
+> document.~~
+>
+> **CLOSED 2026-08-14.** The repin is made: all three sites now carry the cold
+> **0.648**, and `quality/test_floor.py` §11 pins that the evidence contains
+> `0.648` and does **NOT** contain `0.560`, so the string and its test can no
+> longer move apart.
+>
+> **AND §11's OLD PINS WERE VACUOUS**, which is the finding this paragraph did
+> not anticipate. `PREDICTABLE_RHYME` does not fire on that fixture at all — 4
+> lines take the `section` profile, which declares no
+> `predictable_pair_fraction_max` — so `all("0.560" in f.evidence for f in fs)`
+> was asserting over an EMPTY LIST and passed no matter what the string said.
+> The pin guarding the stale number could never have caught the stale number.
+> Doctrine 48 one layer in: not a check that lives only in prose, but a check
+> that runs, passes, and quantifies over nothing. §11 now pins the silence
+> explicitly FIRST, then re-runs the same lines under a declared threshold so
+> the finding actually fires, and pins severity, presence and absence there.
+> 86 -> 90 checks, exit 0 both.
 
 `report()` prints all three on every run, beside the checks that worked. A gate
 that only shows its working results is advertising.
