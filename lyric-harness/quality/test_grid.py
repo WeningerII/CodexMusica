@@ -1505,6 +1505,95 @@ def test_a_reprise_is_a_relation_between_two_DIFFERENT_functions():
           "the intro holds 2 lines; asked for 3, the same song answers no")
 
 
+def test_a_returns_own_refusals_reach_the_report():
+    """`compare_returns` builds a `Return` carrying `.refusals`, and both
+    callers read `.kind` off it and dropped the rest.
+
+    STUB_RETURN, NO_RHYME_KEY and END_WORD_UNREADABLE were computed on every
+    comparison and reachable only by calling `describe()` on the object by
+    hand. No grading path does that, so the refusal list doctrine 79's triple
+    is counted from was short by every refusal the comparison itself made.
+    """
+    print("\n25. a Return's OWN refusals reach the report — three codes that "
+          "no grading path could see")
+    from quality.grid import (compare_returns, rime_cmudict, return_findings,
+                              song_from_blueprint, song_function_report)
+    import lyric_harness as LH
+
+    secs = [("verse1", "verse"), ("chorus1", "chorus"),
+            ("verse2", "verse"), ("chorus2", "chorus")]
+    bp = {"sections": [{"name": n, "bars": 4, "start_bar": 1 + 4 * i,
+                        "meter": {"beats": 4, "unit": 4}, "function": fn}
+                       for i, (n, fn) in enumerate(secs)],
+          "lines": [{"text": "", "bar": 1 + b, "beat": 1, "duration": 4,
+                     "section": secs[b // 4][0]} for b in range(16)]}
+    # The chorus ends on a word CMUdict cannot read. This is the LIVE case:
+    # `Reviser._function_findings` always passes a real rhyme_key, so
+    # NO_RHYME_KEY cannot fire through the loop — END_WORD_UNREADABLE can.
+    ch = ["there's a barn outside bogalusa",
+          "where the tape runs in the red",
+          "and the words i could not say to you",
+          "come back in second bogalusa"]
+    lines = (["the wire hums low across the yard",
+              "a freight goes by and shakes the door",
+              "i counted every passing car",
+              "and never once got up for more"] + ch
+             + ["my father worked the beaumont line",
+                "he said a man who leaves leaves clean",
+                "i took the highway east at nine",
+                "and left the porch light in between"] + ch)
+    song, _h = song_from_blueprint(bp)
+    for l, t in zip(song.lines, lines):
+        l.text = t
+    key = rime_cmudict(LH.Lexicon())
+
+    _f, refs, rets = return_findings(song, "chorus", rhyme_key=key)
+    carried = sum(len(r.refusals) for _a, _b, r in rets)
+    check("the Return objects carry refusals at all — the thing that was "
+          "being computed and thrown away",
+          carried > 0, f"{carried} across {len(rets)} comparison(s)")
+    check("END_WORD_UNREADABLE now reaches the returned refusal list",
+          "END_WORD_UNREADABLE" in [r.code for r in refs],
+          [r.code for r in refs])
+    check("and it says on how many comparisons it was refused, so the dedupe "
+          "hides nothing",
+          any("return comparison(s)" in r.evidence for r in refs))
+
+    rep = song_function_report(song, hooks=(), rhyme_key=key)
+    check("it survives into `song_function_report`'s refusal list",
+          "END_WORD_UNREADABLE" in [r.code for r in rep["refusals"]])
+    check("doctrine 79's triple still holds with the new records in it — no "
+          "negative count, and the parts do not exceed what was asked",
+          rep["answered"] >= 0 and rep["refused"] >= 0
+          and rep["answered"] + rep["refused"] <= rep["asked"],
+          f"asked {rep['asked']} answered {rep['answered']} "
+          f"refused {rep['refused']} records {rep['refusal_records']}")
+
+    # PROVENANCE: empty the Returns' refusals and the code vanishes.
+    real = compare_returns
+    import quality.grid as _G
+    try:
+        def _bare(first, again, **kw):
+            r = real(first, again, **kw)
+            object.__setattr__(r, "refusals", ())
+            return r
+        _G.compare_returns = _bare
+        rev = song_function_report(song, hooks=(), rhyme_key=key)
+    finally:
+        _G.compare_returns = real
+    check("REVERTED, the same song reports it nowhere — so it comes from the "
+          "Return and not from a second path that already had it",
+          "END_WORD_UNREADABLE" not in [r.code for r in rev["refusals"]],
+          f"records reverted {rev['refusal_records']} -> "
+          f"head {rep['refusal_records']}")
+
+    # A refusal is not a finding: this may not fail anything.
+    check("nothing was promoted to a FINDING by the collection — a refusal "
+          "stays a refusal (doctrine 79/20)",
+          len(rep["findings"]) == len(rev["findings"]),
+          f"{len(rev['findings'])} -> {len(rep['findings'])}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -1529,7 +1618,8 @@ if __name__ == "__main__":
                test_a_return_that_loses_or_gains_a_line_is_not_verbatim,
                test_every_variation_kind_is_reportable,
                test_read_marked_songs_drops_apparatus_by_the_one_rule,
-               test_a_reprise_is_a_relation_between_two_DIFFERENT_functions):
+               test_a_reprise_is_a_relation_between_two_DIFFERENT_functions,
+               test_a_returns_own_refusals_reach_the_report):
         fn()
     print("=" * 62)
     if FAILURES:

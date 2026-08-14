@@ -1319,6 +1319,31 @@ rather than this paragraph — a roster copied into two files drifts in both.
    them would re-commit the exact cheat `UNIFORM_ANACRUSIS` was written to
    name, so the CURRENT reading is pinned instead and the fixture is left
    alone. `quality/test_revise.py` test 36.
+   **SAME FAMILY, SECOND SITE, SAME DAY — a `Return`'s own refusals.**
+   `compare_returns` builds a `Return` carrying `.refusals` (`STUB_RETURN`,
+   `NO_RHYME_KEY`, `END_WORD_UNREADABLE`) and BOTH callers —
+   `return_findings` and `reprise_findings` — read `.kind` off it and dropped
+   the rest, so three codes were computed on every comparison and reachable
+   only by calling `describe()` on the object by hand. Nothing does. The
+   refusal list doctrine 79's triple is counted from was short by every
+   refusal the comparison itself made. ONE IS LIVE IN THE LOOP:
+   `_function_findings` always passes a real `rhyme_key`, so `NO_RHYME_KEY`
+   cannot fire there — but `END_WORD_UNREADABLE` can, the moment a chorus
+   carries a word the declared phonology cannot read, and "did the rhyme
+   survive the return" then answered CANNOT TELL to nobody.
+   **AND THE FIRST ATTEMPT COLLECTED ALL THREE, WHICH WAS WRONG AND SIX
+   EXISTING ASSERTIONS SAID SO.** `NO_RHYME_KEY` is a property of the CALL,
+   not of the draft — the caller passed no phonology, which is ONE fact that
+   `bridge_contrast` already states once as `CHANNEL_NOT_MEASURED`.
+   Collecting it per returning function turns one fact into N records, the
+   exact inflation `song_function_report`'s counting docstring records being
+   bitten by (`asked 3, answered -1, refused 4`), and §19's "a partly-refused
+   question is one refused question, not several" is the assertion that
+   caught it. The rule that fell out and is now written down: **a refusal
+   ABOUT THE DRAFT is collected; a refusal ABOUT THE CALL is not.** Scoped
+   that way the collection costs zero test churn. `STUB_RETURN` is skipped in
+   `reprise_findings` alone, where `REPRISE_STUB` already says it in that
+   function's own vocabulary. `quality/test_grid.py` §25.
 
 ## The doctrine index — every number, and where it lives
 
