@@ -134,10 +134,10 @@ convenience and not what CI gets. The 20,000-shuffle permutation tests that
 dominate `discriminate.main`'s own report are NOT run here; the AUCs this file
 pins do not need them.
 
-QUOTE THE CPU FIGURE, NOT THE WALL FIGURE. Two cold runs on this box measured
-CPU 1056.7 s and 1053.2 s -- 0.3% apart -- while their WALL times were 1066.1 s
-and 1441.2 s, a 35% spread caused entirely by other work on the same four
-cores. Wall time here is a measurement of the neighbours.
+QUOTE THE CPU FIGURE, NOT THE WALL FIGURE. Three cold runs on this box measured
+CPU 1056.7 / 1053.2 / 1055.4 s -- a 0.3% spread -- while their WALL times were
+1066.1 / 1441.2 / 1418.8 s, a 35% spread caused entirely by other work on the
+same four cores. Wall time here is a measurement of the neighbours.
 
 THREAD PINNING IS NOT OPTIONAL and is done below, before numpy is imported.
 `audit_joint_auc_null.py` measured the same BLAS spin-wait at 625 CPU-s
