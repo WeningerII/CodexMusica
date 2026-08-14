@@ -404,6 +404,58 @@ def test_song_from_blueprint_matches_the_hand_rolled_reader():
           got.title == "")
 
 
+STRING_METER = os.path.join(HERE, "fixtures", "string_meter.blueprint.json")
+
+
+def test_a_signature_string_is_refused_and_named():
+    print("\n11b. a `meter` written as a signature STRING is refused by name, "
+          "not crashed on")
+    from quality.meter import MeterDeclarationError, section_meter
+    try:
+        song_from_blueprint(STRING_METER)
+        raised = None
+    except MeterDeclarationError as e:
+        raised = e
+    except Exception as e:                                  # pragma: no cover
+        raised = e
+    check("song_from_blueprint raises MeterDeclarationError, NOT the "
+          "AttributeError this used to be -- `'str' object has no attribute "
+          "'get'` names neither the file, the section, nor the field, and "
+          "AttributeError is outside the refusal family, so the CLI "
+          "tracebacked at exit 1 instead of refusing at 2",
+          isinstance(raised, MeterDeclarationError), repr(raised))
+    msg = str(raised)
+    check("the message names the SECTION, quotes the VALUE it found, names "
+          "its TYPE, and shows the shape this schema wants -- a diagnosis a "
+          "writer can act on without opening the reader",
+          "'intro'" in msg and '"4/4"' in msg and "a string" in msg
+          and '"beats": 4' in msg and '"unit": 4' in msg, msg)
+    check("and it does NOT say the section declares no time signature: it "
+          "declares one on that very line, and the reader may not assert "
+          "otherwise",
+          "no time signature" not in msg and "undeclared" not in msg.lower(),
+          msg)
+    check("an ABSENT meter is still not an error -- it comes back {} and "
+          "each reader keeps its own documented default, exactly as "
+          "`s.get(\"meter\", {})` did",
+          section_meter(None) == {} and section_meter({}) == {})
+    check("a dict passes through untouched, so no valid blueprint changes "
+          "shape on the way in",
+          section_meter({"beats": 7, "unit": 8, "groups": [3, 2, 2]})
+          == {"beats": 7, "unit": 8, "groups": [3, 2, 2]})
+    for bad, named in ((4, "a number"), ([4, 4], "an array"),
+                       (True, "a boolean")):
+        try:
+            section_meter(bad, "verse")
+            got = ""
+        except MeterDeclarationError as e:
+            got = str(e)
+        check(f"{named} is refused the same way and NAMED {named} -- the "
+              f"type in the message is JSON's, because JSON is what the "
+              f"operator wrote, and the article agrees with it",
+              named in got and "'verse'" in got, got[:120])
+
+
 def test_song_from_blueprint_reads_function_and_hooks():
     print("\n12. song_from_blueprint reads a blueprint that DOES declare "
           "function and hooks")
@@ -1918,6 +1970,7 @@ if __name__ == "__main__":
                test_four_four_does_not_read_the_grouping,
                test_the_shipped_blueprint_is_declared_honestly,
                test_song_from_blueprint_matches_the_hand_rolled_reader,
+               test_a_signature_string_is_refused_and_named,
                test_song_from_blueprint_reads_function_and_hooks,
                test_song_from_blueprint_rejects_an_undeclared_function,
                test_song_from_blueprint_owns_lines_by_bar_when_unnamed,

@@ -110,7 +110,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 if os.path.join(HERE, "..") not in sys.path:
     sys.path.insert(0, os.path.join(HERE, ".."))
 
-from quality.meter import Cycle  # noqa: E402
+from quality.meter import Cycle, section_meter  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # REFUSALS — the same discipline as quality/declared_inputs.py, one layer over
@@ -1543,7 +1543,13 @@ class SongFit:
         return [r for l in self.lines for r in l.refusals]
 
 
-def _cycle_of(meterdict):
+def _cycle_of(raw, section=None):
+    # `section_meter` is the SHARED predicate -- `grid.song_from_blueprint`
+    # and `lyric_harness._grid_song` read the same field through the same
+    # call, so a `"meter": "4/4"` cannot be a refusal there and a traceback
+    # here. It returns `{}` for an ABSENT meter, which keeps the defaults
+    # below exactly as they were.
+    meterdict = section_meter(raw, section)
     return Cycle(pulses=int(meterdict.get("beats", 4)),
                  unit=int(meterdict.get("unit", 4)),
                  groups=tuple(meterdict.get("groups", ()) or ()))
@@ -1612,7 +1618,13 @@ def from_blueprint(obj, assume_meter=None):
             obj = json.load(fh)
     secs, bar = [], 1
     for s in obj.get("sections", []):
-        md = s.get("meter") or {}
+        # `section_meter` is the SHARED TYPE CHECK, and it runs BEFORE the
+        # declaration test rather than instead of it: it turns a
+        # `"meter": "4/4"` string into an accurate refusal naming what it
+        # found, and answers `{}` for an ABSENT meter -- which is exactly
+        # what the undeclared-signature refusal below is for. Two
+        # different defects, two different messages, one field.
+        md = section_meter(s.get("meter"), s.get("name"))
         # BOTH HALVES, INDEPENDENTLY: a section may legally declare `beats`
         # and default `unit`, and calling that "declared" would hide exactly
         # the half that was guessed.

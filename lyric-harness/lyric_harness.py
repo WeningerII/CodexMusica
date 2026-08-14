@@ -3537,7 +3537,7 @@ def _strip_flag(args, flag, bare=False):
     return out
 
 
-def _refuse(msg):
+def _refuse(msg, sides=()):
     """Print the ONE refusal shape and exit 2. Never returns.
 
     `_blueprint_or_refuse` has printed `  REFUSED -- {e}` at exit 2 since the
@@ -3549,6 +3549,11 @@ def _refuse(msg):
     authors happened to remember.
     """
     print(f"  REFUSED — {msg}")
+    # `sides` lets a verb that was handed TWO files name which is which
+    # (doctrine 79: the declaration and the draft are different things,
+    # and a caller cannot fix the right one without being told).
+    for role, path in sides:
+        print(f"    {role}: {path}")
     sys.exit(2)
 
 
@@ -5262,10 +5267,11 @@ def main():
             # spine and was found precisely because it escaped. Swallowing
             # that class here would hide the next one (doctrine 48's own
             # failure mode, and §12's argument against broad handlers).
-            print(f"  REFUSED — {e}")
-            for role, path in sides:
-                print(f"    {role}: {path}")
-            sys.exit(2)
+            # `_refuse` and not a fourth `print(f"  REFUSED — ...")`: this
+            # clause and the `grid`/`fit`/`function` branches above have to
+            # print the SAME refusal about the SAME file, and the only way
+            # that is guaranteed rather than believed is one printer.
+            _refuse(e, sides)
 
     elif cmd == "demo":
         print("DECLARATION")

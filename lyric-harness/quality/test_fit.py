@@ -37,7 +37,7 @@ from quality.fit import (ANSWERABLE, UNANSWERABLE, FitFinding,  # noqa: E402
                          Subdivision, _max_prominent_on_heads, _no_tempo,
                          fit_line, fit_song, from_blueprint, from_song,
                          overlap_findings, read_line, report)
-from quality.meter import Cycle                        # noqa: E402
+from quality.meter import Cycle, MeterDeclarationError  # noqa: E402
 
 BLUEPRINT = os.path.join(HERE, "fixtures", "song.blueprint.json")
 
@@ -889,6 +889,55 @@ def test_uncovered_bars_asked_of_a_flat_list_not_only_of_a_songfit():
           "a blueprint that could")
 
 
+def test_the_two_readers_refuse_a_signature_string_identically():
+    """The property the shared predicate exists to establish.
+
+    `fit.from_blueprint` and `grid.song_from_blueprint` are DELIBERATELY
+    independent readers of one file -- `fit.py` builds `Placement`/`SectionFit`
+    (WHERE a line sits), `grid.py` builds `Section`/`Line` with `function`
+    (what a section is FOR), and neither imports the other. Independent readers
+    that disagree about whether a file is READABLE are a different thing from
+    independent readers that build different objects out of it, and only the
+    second was ever intended. Both used to reach straight for
+    `.get("beats", 4)`, so both raised `AttributeError` on `"meter": "4/4"` --
+    agreeing, but by accident and in a form that named nothing. They now agree
+    on purpose, through `meter.section_meter`, BYTE FOR BYTE.
+    """
+    print("\n  a signature STRING: one predicate, one message, two readers")
+    from quality.grid import song_from_blueprint
+    from quality.meter import MeterDeclarationError
+    bad = os.path.join(HERE, "fixtures", "string_meter.blueprint.json")
+
+    def caught(fn):
+        try:
+            fn()
+        except MeterDeclarationError as e:
+            return ("MeterDeclarationError", str(e))
+        except Exception as e:                              # noqa: BLE001
+            return (type(e).__name__, str(e))
+        return ("no raise", "")
+
+    a, b = caught(lambda: from_blueprint(bad)), caught(
+        lambda: song_from_blueprint(bad))
+    check("fit.from_blueprint refuses rather than raising AttributeError",
+          a[0] == "MeterDeclarationError", a[0])
+    check("grid.song_from_blueprint refuses rather than raising "
+          "AttributeError",
+          b[0] == "MeterDeclarationError", b[0])
+    check("and the two messages are IDENTICAL — `song` and `grid` cannot "
+          "answer differently about one file, which is the whole reason the "
+          "predicate is shared rather than spelled twice",
+          a == b, f"{a[1][:80]!r} vs {b[1][:80]!r}")
+    check("the message names the section, the value, and its type",
+          "'intro'" in a[1] and '"4/4"' in a[1] and "a string" in a[1], a[1])
+    check("`fit_song` takes the same refusal, since it goes through the same "
+          "reader",
+          caught(lambda: fit_song(bad))[0] == "MeterDeclarationError")
+    check("and it is a ValueError, so the CLI's existing blueprint-refusal "
+          "handler routes it with no second handler invented",
+          issubclass(MeterDeclarationError, ValueError))
+
+
 def test_fit_song_reads_a_real_grid_song():
     """`from_song`'s branch, executed for the first time.
 
@@ -954,6 +1003,7 @@ def main():
               test_prominence_off_head_can_fire_and_can_stay_silent,
               test_overlap_is_asked_of_a_flat_line_list_not_only_of_a_songfit,
               test_uncovered_bars_asked_of_a_flat_list_not_only_of_a_songfit,
+              test_the_two_readers_refuse_a_signature_string_identically,
               test_fit_song_reads_a_real_grid_song,
               test_an_undeclared_signature_says_so,
               test_two_sections_may_share_a_name,
@@ -1055,10 +1105,27 @@ def test_an_undeclared_signature_says_so():
           GR.Meter(5, 4).declared is True)
 
     # NON-DISCRIMINATING, and this is why the default survived so long.
-    trips = [p for p in sorted(glob.glob(os.path.join(HERE, "fixtures",
-                                                      "*.blueprint.json")))
-             if [r for r in fit_song(p).refusals()
-                 if r.code == "ASSUMED_METER"]]
+    # A FIXTURE THAT CANNOT BE READ AT ALL CANNOT DEMONSTRATE A DEFAULT, and
+    # `string_meter.blueprint.json` exists precisely to be unreadable -- it is
+    # the never-migrated `"meter": "4/4"` string schema, kept as a defect under
+    # test. It is SKIPPED here and NAMED below rather than silently excluded,
+    # because a glob that quietly drops whatever it cannot load would drop a
+    # REAL fixture that broke, which is the failure this check exists to catch.
+    unreadable = []
+    trips = []
+    for p in sorted(glob.glob(os.path.join(HERE, "fixtures",
+                                           "*.blueprint.json"))):
+        try:
+            refs = fit_song(p).refusals()
+        except MeterDeclarationError:
+            unreadable.append(os.path.basename(p))
+            continue
+        if [r for r in refs if r.code == "ASSUMED_METER"]:
+            trips.append(p)
+    check("the only fixture that refuses to load is the one shipped BROKEN "
+          "on purpose -- a glob that silently dropped anything it could not "
+          "read would drop a real fixture that broke",
+          unreadable == ["string_meter.blueprint.json"], unreadable)
     check("NON-DISCRIMINATING: every shipped blueprint declares a meter on "
           "every section, so no existing fixture could ever have shown the "
           "default firing — the cost of refusing was 7 inline test sections "

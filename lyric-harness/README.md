@@ -85,13 +85,35 @@ Verification mode (scheme/song) is for declared forms; discovery is for rap
 verse where chain lengths are improvised and the sound moves.
 
 ## Song structure layer
-`python3 lyric_harness.py song blueprint.json lyric.txt` checks a lyric sheet
-against a declared blueprint (sections with type, line count, scheme; repeats
-by "ref"). Chorus refs demand verbatim identity — the band-pass inverts by
-section type: REPEAT is a violation inside a verse and the requirement across
-chorus instances. Advisories: structural monotony, cross-verse rhyme-sound
-reuse, bridge non-novelty. Counts come from declared genre presets, never
-discovery. [Section] headers, Suno-compatible.
+    python3 lyric_harness.py song quality/fixtures/song.blueprint.json \
+        quality/fixtures/song.txt '--returns=6,13;7,14' --subdivision 2
+
+checks a lyric sheet against a declared blueprint. A blueprint is BARS, not
+stanzas: each section declares `bars`, `start_bar`, an optional `function` and
+a `meter` OBJECT — `{"beats": 7, "unit": 8, "groups": [3, 2, 2]}` — and each
+line declares the `bar`, `beat` and `duration` it is sung over. There is no
+per-section line count and no per-section scheme; lines-per-section is
+EMERGENT from where the lines fall on the grid. `song` cross-checks the
+lyric's own `[Section]` markers against the blueprint's sections
+(`STRUCTURE:`), then runs the same report `brief` runs, with meter
+(`quality/fit.py`) and song function (`quality/grid.py`) joining the rhyme and
+slop-floor findings.
+
+The MANDATE is required and is not optional politeness — with nothing declared
+to check against, the verb REFUSES and exits 2 rather than passing vacuously
+(doctrine 20). `--returns=` is the spelling for a VERBATIM chorus: identity is
+the requirement there, where `--groups=` would charge the same repeat as a
+violation. `--subdivision N` is likewise declared and has no default; without
+it the slot questions refuse rather than assume a sixteenth-note grid.
+[Section] headers, Suno-compatible.
+
+**A `meter` written as a signature STRING is refused, not parsed.**
+`"meter": "4/4"` names a duration and cannot name a grouping — 7/8 admits 64
+of them — so `grid`, `fit`, `function` and `song` all answer the same
+`REFUSED — section 'intro' declares "meter": "4/4", a string; ...` at exit 2
+rather than guessing. `quality/fixtures/string_meter.blueprint.json` is the
+specimen; it was this repo's own root `blueprint.json` until 2026-08-14, and
+the command line above used to name it.
 
 ## Next step
 Wrap these six functions as MCP tools (mcp-builder pattern) and point the

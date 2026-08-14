@@ -495,12 +495,20 @@ def song_from_blueprint(obj, assume_meter=None):
     verbatim (a list of raw phrase strings) -- `hook_findings` already
     coerces each one to a `Hook`, so no wrapping happens here.
     """
+    from quality.meter import section_meter
     if isinstance(obj, str):
         with open(obj) as fh:
             obj = json.load(fh)
     secs, bar = [], 1
     for s in obj.get("sections", []):
-        md = s.get("meter") or {}
+        # `section_meter` is the SHARED TYPE CHECK -- `fit.from_blueprint`
+        # and `lyric_harness._grid_song` read the same field through the
+        # same call, so a `"meter": "4/4"` (a STRING, the root
+        # blueprint's never-migrated schema) cannot be an accurate
+        # refusal here and a bare AttributeError there. It answers `{}`
+        # for an absent meter, which is what the DECLARATION check below
+        # then refuses -- the two compose and neither replaces the other.
+        md = section_meter(s.get("meter"), s.get("name"))
         # Both halves, independently: a section may legally declare `beats`
         # and default `unit`, and calling that "declared" would hide the half
         # that was guessed.

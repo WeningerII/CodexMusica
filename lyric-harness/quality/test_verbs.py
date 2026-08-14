@@ -551,16 +551,95 @@ def test_every_verb_runs():
     # reachability and a KeyError is not an import. `song` was REBUILT
     # 2026-08-12 onto the same bar-grid/Reviser pipeline `brief` uses (see
     # `lyric_harness._print_brief_report`), so it no longer touches the old
-    # schema at all -- this repo's own root `blueprint.json` is a THIRD,
-    # never-migrated schema (no `lines` array, a single top-level `scheme`
-    # string) that neither the old nor the new `song` can read, and is left
-    # alone here since migrating a dead schema nothing reads teaches nothing
-    # a fresh fixture wouldn't.
+    # schema at all.
+    #
+    # THE ROOT `blueprint.json` IS GONE -- DELETED 2026-08-14, and this
+    # comment used to justify keeping it: "a THIRD, never-migrated schema ...
+    # left alone here since migrating a dead schema nothing reads teaches
+    # nothing a fresh fixture wouldn't". That argument rested on the file
+    # being INERT and the file was not inert. `README.md` named it as the
+    # documented FIRST command to run against the song layer, so the one
+    # blueprint a new reader was told to open was the one blueprint no reader
+    # in this repo can read -- and it crashed with an `AttributeError` naming
+    # neither the file nor the field. Migrating it in place would have made a
+    # SECOND demonstration blueprint that no suite exercises, which is how it
+    # drifted through three schemas in the first place; the README now names
+    # the fixture pair THIS function already runs, so the documented command
+    # and the tested command are one command. The specimen survives as
+    # `quality/fixtures/string_meter.blueprint.json`, where it is a defect
+    # under test rather than a trap under a canonical name (§7b below,
+    # `quality/test_grid.py` §11b, `quality/test_fit.py`).
     rc, out, err = run("song", EXAMPLE_BP, EXAMPLE_TXT)
     check("`song` on a real bar-grid blueprint runs the brief-report "
           "pipeline without a traceback, and REFUSES for want of a mandate "
           "rather than passing vacuously",
           "Traceback" not in err and "no mandate was declared" in out)
+
+
+def test_the_four_blueprint_verbs_cannot_answer_differently():
+    print("\n7b. one unreadable `meter`, four verbs, ONE answer — FIXED "
+          "2026-08-14")
+    # THE MEASUREMENT THIS REPLACES, taken at head before the fix, on the file
+    # that was then this repo's root `blueprint.json`:
+    #
+    #   song     -> AttributeError: 'str' object has no attribute 'get'   rc 1
+    #                 (quality/grid.py:480, via GR.song_from_blueprint)
+    #   fit      -> AttributeError: 'str' object has no attribute 'get'   rc 1
+    #                 (quality/fit.py:1404, via _cycle_of)
+    #   grid     -> AttributeError: 'str' object has no attribute 'get'   rc 1
+    #                 (lyric_harness.py:3423, via _grid_song)
+    #   function -> AttributeError: 'str' object has no attribute 'get'   rc 1
+    #                 (lyric_harness.py:3423, via _grid_song)
+    #
+    # Three separate frames raising the same opaque sentence, none of which
+    # names the file, the section, or the field. `AttributeError` is outside
+    # the `ValueError` family `main()` routes to `REFUSED — ...`/exit 2, so
+    # every one of them was a traceback at exit 1: indistinguishable, to a
+    # caller in a pipeline, from the harness being broken.
+    #
+    # WHAT IS PINNED HERE IS AGREEMENT, not just non-crashing. A refusal that
+    # says one thing under `song` and another under `grid` is a worse defect
+    # than a shared crash, because the operator then has to decide which verb
+    # to believe about one file.
+    bad = os.path.join(HERE, "fixtures", "string_meter.blueprint.json")
+    seen = {}
+    for verb, argv in (("grid", ["grid", bad]),
+                       ("fit", ["fit", bad, "--subdivision", "2"]),
+                       ("function", ["function", bad]),
+                       ("song", ["song", bad, EXAMPLE_TXT, "ABAB"])):
+        rc, out, err = run(*argv)
+        first = next((l for l in out.splitlines() if "REFUSED" in l), "")
+        seen[verb] = (rc, "Traceback" in err, first.strip())
+    check("all four REFUSE at exit 2 — a refusal is not a pass and not a "
+          "crash, and a caller in a pipeline has to be able to tell all "
+          "three apart",
+          all(v[0] == 2 and not v[1] and v[2] for v in seen.values()),
+          {k: (v[0], v[1]) for k, v in seen.items()})
+    check("and all four print the IDENTICAL refusal line — the property the "
+          "shared `meter.section_meter` predicate exists to establish",
+          len({v[2] for v in seen.values()}) == 1,
+          sorted({v[2][:90] for v in seen.values()}))
+    line = seen["song"][2]
+    check("the refusal names the section, quotes the value it found, names "
+          "its type, and shows the shape wanted",
+          "'intro'" in line and '"4/4"' in line and "a string" in line
+          and '"beats": 4' in line, line[:200])
+    check("it does NOT claim the section declares no time signature — the "
+          "section declares one on that very line, and a refusal that "
+          "states a falsehood sends a writer to add a key that is already "
+          "there",
+          "no time signature" not in line, line[:200])
+    check("the advice it gives is reachable: it asks for an edit to the "
+          "file, and names no flag — `grep -n 'assume_meter\\|AssumedMeter' "
+          "lyric_harness.py` returns nothing, so a message naming one would "
+          "be a refusal with no exit",
+          "assume_meter" not in line and "AssumedMeter" not in line
+          and "rewrite that one field" in line)
+    # The other half of the same property: a VALID blueprint is unchanged.
+    rc, out, err = run("grid", EXAMPLE_BP)
+    check("a blueprint whose meter IS an object still runs — the type check "
+          "is a new refusal on a new input, not a new refusal on old ones",
+          rc == 0 and "REFUSED" not in out and "Traceback" not in err)
 
 
 def test_fallback_reaches_every_verb_ahead_of_the_verb_name():
@@ -1466,6 +1545,7 @@ if __name__ == "__main__":
     test_refrain_writes_the_villanelle()
     test_brief_refuses_instead_of_tracebacking()
     test_every_verb_runs()
+    test_the_four_blueprint_verbs_cannot_answer_differently()
     test_the_fifteen_original_verbs_are_untouched()
     test_fallback_reaches_every_verb_ahead_of_the_verb_name()
     test_readability_prints_what_the_fallback_invented()
