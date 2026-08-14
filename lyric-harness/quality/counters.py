@@ -43,10 +43,23 @@ WHAT DRIFTED, AND WHY -- because the reason is the part that stops it recurring:
 
   * `band FPR on random pairs | 3.57% (107/3,000 at seed 20260810)`.
     Not wrong -- unreproducible from its own stated command. `redteam_band.py`
-    defaults to n=4,000 and prints 3.60%; 3.57% needs the explicit argument
-    `3000`, which the row does not give. Doctrine 58: a recorded COUNT is a
-    threshold nobody wrote down, and doctrine 91: it is a coordinate of the
-    RENDERING too. So this counter measures BOTH n and prints them together.
+    defaults to n=4,000 and printed 3.60% there when this was written; 3.57%
+    needs the explicit argument `3000`, which the row does not give. Doctrine
+    58: a recorded COUNT is a threshold nobody wrote down, and doctrine 91: it
+    is a coordinate of the RENDERING too. So this counter measures BOTH n and
+    prints them together.
+    NEITHER RATE IN THIS BULLET IS THE CURRENT READING, AND THE COUNTER IS WHY
+    THAT COST NOTHING -- REPINNED 2026-08-14: ~~3.60% (144/4,000)~~ -> 2.10%
+    (84/4,000) and ~~3.57% (107/3,000)~~ -> 2.00% (60/3,000), superseded by
+    `1c723cf` (2026-08-11 16:41), which moved `Declaration.coda_agreement`
+    from a scalar `theta_coda` cut to `identity` and left `theta_coda` inert.
+    Kept struck rather than overwritten (doctrine 17): same seed, same n, and
+    still exact under an explicit `Declaration(coda_agreement="scalar",
+    theta_coda=0.80)`. The committed cell followed the comparator on the next
+    `--write` and `BACKLOG.md`'s band-FPR row reads 2.10%/2.00% today, while
+    this hand-typed bullet did not move for three days. That is the same
+    lesson as the drift above, aimed one layer in at the prose of the file
+    that fixed it.
 
   * `corpus/song/ files`, `data/sources.tsv rows`, `data/lyricists.tsv rows`.
     Transcriptions as-of-a-date of quantities that move whenever a corpus cell
@@ -1037,20 +1050,42 @@ def public_symbols():
     methods = sum(u.methods for u in units if u.in_scope and not u.is_test)
     nowhere = sorted(((n, m, s, k) for m, s, k, n, v, _ in rows
                       if v == "NOWHERE"), reverse=True)
-    cell = ("**%d** public top-level functions/classes under `quality/` and "
-            "the root — **%d** named by another production module, **%d** by "
-            "tests only, **%d** only inside their own module, **%d** by "
-            "nothing anywhere, **%d** REFUSED (%s). Reference, NOT execution: "
-            "a symbol whose only caller is itself dead still counts named. "
-            "This row is a READING OF THE TREE AT RUN TIME and it moves: the "
-            "NOWHERE bucket is a queue under active repair, not a settled "
-            "property, and any lot adding a public `def` moves the total — so "
-            "a FAIL here is that movement, cleared by `--write`, and the "
-            "figures are quotable only with the run that produced them"
+    #: THE POPULATION IS `__all__`-GATED, and until 2026-08-14 the cell did
+    #: not say so. `symbol_reach` takes a module's symbols from `__all__`
+    #: where it declares one (the DERIVATION paragraph above states this),
+    #: so a public top-level `def` in such a module that the `__all__` omits
+    #: is outside this count entirely. The cell's own sentence "any lot
+    #: adding a public `def` moves the total" was therefore false for ten of
+    #: the modules in scope, and it was BELIEVED: 2026-08-14 added
+    #: `fit.AssumedMeter` -- a public class, documented as the only way past
+    #: a new refusal -- and reported the resulting `--check` FAIL as that
+    #: class moving the total. The total did not move and could not have.
+    #: Counted and disclosed rather than folded in: `__all__` IS the module's
+    #: own declaration of its surface and doctrine 1 does not let this file
+    #: outrank it, so the gap goes on the record the same way the unmeasured
+    #: methods already do.
+    gated = sorted((u.mod, n) for u in units
+                   if u.in_scope and not u.is_test and u.exported is not None
+                   for n in sorted(u.defs) if n not in u.exported)
+    cell = ("**%d** DECLARED-public top-level functions/classes under "
+            "`quality/` and the root — **%d** named by another production "
+            "module, **%d** by tests only, **%d** only inside their own "
+            "module, **%d** by nothing anywhere, **%d** REFUSED (%s). "
+            "Reference, NOT execution: a symbol whose only caller is itself "
+            "dead still counts named. DECLARED: the population is `__all__` "
+            "where the module declares one, so a lot adding a public `def` "
+            "moves the total only where there is no `__all__` to omit it — "
+            "**%d** public top-level defs are outside this count for that "
+            "reason and are listed in the evidence. This row is a READING OF "
+            "THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue "
+            "under active repair, not a settled property — so a FAIL here is "
+            "that movement, cleared by `--write`, and the figures are "
+            "quotable only with the run that produced them"
             % (total, by["PRODUCTION"], by["TESTS"], by["OWN"], by["NOWHERE"],
                by["REFUSED"],
                ", ".join("%d %s" % (n, k.lower())
-                         for k, n in sorted(kinds.items())) or "none"))
+                         for k, n in sorted(kinds.items())) or "none",
+               len(gated)))
     top = ["%s.%s (%s, %d lines)" % (m, s, k, n)
            for n, m, s, k in nowhere[:10]]
     ev = ["named by nothing, longest first: %s%s"
@@ -1060,7 +1095,11 @@ def public_symbols():
           "re-run rather than quoting it",
           "OUT OF SCOPE and unmeasured: %d public methods on those classes — "
           "a dead method on a live class is invisible to a top-level sweep"
-          % methods]
+          % methods,
+          "OUTSIDE THE POPULATION, public at the top level and omitted by "
+          "their own module's `__all__`: %s — each is invisible to every "
+          "bucket above, so adding or stranding one moves no figure here"
+          % ("; ".join("%s.%s" % g for g in gated) or "none")]
     return Answered(cell, "\n      ".join(ev))
 
 
@@ -1399,12 +1438,30 @@ def band_fpr():
     declared as a REFERENCE, not as truth.
 
     MEASURED AT TWO n, deliberately. The committed row read `3.57% (107/3,000
-    at seed 20260810)`, which is real and does not reproduce from the runner's
-    own default: `redteam_band.py` defaults to n=4,000 and prints 3.60%. The
-    seed was written down and the POPULATION SIZE was not, which is doctrine 58
-    (a recorded count is a threshold nobody wrote down) sharpened by doctrine 91
-    (a count is a coordinate of the rendering, not only of the threshold). Both
-    are re-derived here so neither can be quoted without the other.
+    at seed 20260810)`, which was real and did not reproduce from the runner's
+    own default: `redteam_band.py` defaults to n=4,000 and printed 3.60% there.
+    The seed was written down and the POPULATION SIZE was not, which is
+    doctrine 58 (a recorded count is a threshold nobody wrote down) sharpened
+    by doctrine 91 (a count is a coordinate of the rendering, not only of the
+    threshold). Both are re-derived here so neither can be quoted without the
+    other.
+
+    THAT PAIR IS HISTORY, NOT THE CURRENT READING -- REPINNED 2026-08-14:
+    ~~3.60% (144/4,000)~~ -> 2.10% (84/4,000) and ~~3.57% (107/3,000)~~ ->
+    2.00% (60/3,000). Superseded by `1c723cf` (2026-08-11 16:41), which moved
+    `Declaration.coda_agreement` from a scalar `theta_coda` cut to `identity`
+    and left `theta_coda` inert; kept struck rather than overwritten (doctrine
+    17), and still exact under an explicit
+    `Declaration(coda_agreement="scalar", theta_coda=0.80)`.
+
+    NOT ONE LINE OF THE BODY BELOW NEEDED TO CHANGE, AND THAT IS THE POINT.
+    It shells out to the runner at both n and reads whatever the runner
+    prints, so `BACKLOG.md`'s row moved with the comparator on the next
+    `--write` -- it reads 2.10%/2.00% today -- and `--check` stayed green
+    throughout. The prose six lines up did not move for three days. A derived
+    cell and a hand-typed sentence about it went stale at different rates
+    inside ONE function, which is the cheapest available demonstration that
+    the protection is the derivation and not the proximity.
     """
     vals = []
     for n in (4000, 3000):
@@ -1783,8 +1840,11 @@ def check(results):
         uses to re-derive the figure, and a figure whose stated command does
         not produce it is precisely the defect that put `band_fpr()` in this
         file (`3.57% (107/3,000)` against a runner that defaults to 4,000 --
-        doctrine 58 sharpened by 91). Checking the value and not the command
-        left the newer half of that lesson unenforced. Both cells now.
+        doctrine 58 sharpened by 91; that rate is the PRE-`1c723cf` scalar
+        comparator's and the same command reads 2.00% at n=3,000 today,
+        repinned 2026-08-14 -- what is cited here is the row's SHAPE, never a
+        live figure). Checking the value and not the command left the newer
+        half of that lesson unenforced. Both cells now.
       A DUPLICATE ROW HID BEHIND ITS TWIN -- see `read_table`.
       A FOURTH CELL WAS DROPPED -- see `read_table`.
       A BROKEN INSTRUMENT OF ANY KIND, AND THIS ONE WAS FOUND A DAY LATER, ON

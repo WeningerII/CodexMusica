@@ -7,13 +7,44 @@ permissions:
 
 on:
   push:
-    # The production branch is included so a DIRECT push to it (bypassing a PR)
-    # still runs the full gate set and shows red — `master` was dead (no such
-    # branch). NOTE: this makes CI run and report, but it does not BLOCK the
-    # concurrent sync-pages publish; enforcing "green before live" requires
-    # branch protection on the production branch (a repo Setting, not workflow
-    # config) requiring these checks on PRs + disallowing direct pushes.
-    branches: [main]
+    # EVERY BRANCH, and the absence of a list is the point.
+    #
+    # This filter read `branches: [main]` until 2026-08-14, which meant a commit
+    # pushed to a branch with no open PR got NO CI AT ALL. Six such commits went
+    # uncovered on 2026-08-14 before anyone noticed; the branch was eventually
+    # covered by two manual `workflow_dispatch` runs (runs 358 and 365, 31.7 and
+    # 32.1 minutes of wall clock). That workaround costs MORE than the run it
+    # stands in for — `tandem` is pinned to dispatch and joins every one of them
+    # — and it covers only whatever commit happened to be at the tip when
+    # somebody remembered to press the button.
+    #
+    # `[main, 'claude/**']` was the alternative, and it is the defect this file
+    # already argues against one level down. The two-crons note below rejects an
+    # unpinned condition because it "silently joins every new cadence anybody
+    # adds"; a pinned LIST fails the other way — it silently drops every new
+    # branch NAME anybody adds. That is not hypothetical here: `master` sat in
+    # this very filter naming a branch that did not exist, and nothing ever
+    # noticed, because a filter matching nothing looks exactly like a filter
+    # matching everything it was asked about. '**' has nothing to remember and
+    # nothing to rot.
+    #
+    # `branches:` rather than a bare `push:`, so TAG pushes still do not start a
+    # run: a tag carries no branch, and sync-pages.yml keys its publish off this
+    # workflow's runs.
+    #
+    # SAFE FOR PUBLISHING — checked, not assumed. sync-pages.yml's `workflow_run`
+    # trigger filters `branches: [main]` (sync-pages.yml:31), and that filter
+    # matches the TRIGGERING RUN's head branch, so a run started by a push to
+    # `claude/x` never reaches it. Its job `if:` then independently requires
+    # `workflow_run.event == 'push'` AND a head_repository equal to this
+    # repository. Widening this filter only adds runs that fail the first test.
+    #
+    # NOTE, unchanged by the widening: CI running and reporting on a DIRECT push
+    # to the production branch does not BLOCK the concurrent sync-pages publish;
+    # enforcing "green before live" requires branch protection on the production
+    # branch (a repo Setting, not workflow config) requiring these checks on PRs
+    # + disallowing direct pushes.
+    branches: ['**']
   pull_request:
   workflow_dispatch:
   # Weekly, so the slow cross-artifact meta-test (see the `tandem` job) has a home,
@@ -33,6 +64,73 @@ on:
     # globally and the top of the hour is the most contended minute there is,
     # which shows up as a scheduled run starting late or being dropped.
     - cron: '17 4 * * *'
+
+# ONE LIVE RUN PER BRANCH. This is the `gate` job's argument (below) restated at
+# the level of the RUN instead of the JOB, and it was the larger of the two leaks
+# the entire time `gate` was being written.
+#
+# `gate` exists because 53 minutes of runner time went on results that a
+# 35-second failure had already guaranteed would be discarded. Nothing in that
+# sentence is specific to a FAILING job: a run that has been superseded by a
+# newer commit on the same branch is also computing an answer nobody will read.
+# Until 2026-08-14 there was no `concurrency` key anywhere in this file, so every
+# push started a complete parallel run and not one of them was ever stopped.
+#
+# MEASURED, from the Actions API rather than from memory — runs 359-363,
+# 2026-08-14 03:56-04:44Z, five `pull_request` runs on one branch, fully
+# overlapping, none cancelled. Summing job durations: 69.8 runner-minutes each,
+# 349 for the burst, to learn what run 363 alone would have said. Cancelling the
+# superseded four the moment their successor starts leaves ~223, a 36% saving
+# rather than the 5x that "cancel four of five runs" suggests — most of a run's
+# cost lands in its first twelve minutes and two of those pushes were twelve
+# minutes apart. The saving is real and it is not the headline number.
+#
+# WHY THE GROUP KEY IS NOT SIMPLY `github.ref`:
+#
+#   1. SCHEDULED AND MANUAL RUNS ARE ALONE IN THEIR GROUP (`github.run_id` is
+#      unique per run), so they can neither cancel nor be cancelled nor queue
+#      behind anything. `tandem` (weekly) and `nightly` (budgeted at up to 240
+#      minutes) are the two most expensive things this file can start and
+#      neither is reproducible on demand from a later commit. Keying them by ref
+#      would put them in the same group as pushes to main: not cancelled, but
+#      QUEUED — a push to main during a nightly would wait hours for CI, and
+#      sync-pages would publish that late. This also makes "a schedule can never
+#      be cancelled" true by construction, rather than true by an argument about
+#      what `github.ref` happens to hold during a cron.
+#
+#   2. PUSH AND PULL_REQUEST FOR THE SAME BRANCH SHARE A GROUP. With the push
+#      filter widened to '**' above, a push to a branch that has an open PR fires
+#      BOTH events; keyed on `github.ref` they land in different groups
+#      (`refs/heads/x` vs `refs/pull/N/merge`) and both run to completion. That
+#      is +69.8 runner-minutes on every push during a PR — more than this block
+#      and the closure rule save put together. `github.head_ref ||
+#      github.ref_name` is the branch NAME under both events, so they collide
+#      and the newer cancels the older.
+#
+#   3. THE SOURCE REPOSITORY IS IN THE KEY. sync-pages.yml documents at length
+#      that `branches: [main]` matches a branch NAME and not a repository, so a
+#      fork whose branch is literally called `main` satisfies it. The same trick
+#      applies to a concurrency group: without the repo in the key, a fork PR
+#      from a branch named `main` would share a group with pushes to production,
+#      and an outsider could stall or cancel the very run sync-pages keys its
+#      publish off. `head_repository` is what separates WeningerII/CodexMusica
+#      from anyone/CodexMusica, exactly as it does there.
+#
+# AND THE CANCEL TEST IS ON THE GROUP'S OWN BRANCH COMPONENT, not on
+# `github.ref`. `github.ref != 'refs/heads/main'` reads correctly for a push and
+# is wrong for the one run that matters: during a pull_request run `github.ref`
+# is `refs/pull/N/merge`, which is never equal to `refs/heads/main` even when the
+# PR's head branch IS `main` — so that form answers "yes, cancel" for the only
+# event that could take production's run down. Testing the same expression the
+# group is built from means no run can cancel anything in the `main` group,
+# whatever event produced it.
+concurrency:
+  group: >-
+    ${{ github.workflow }}-${{ (github.event_name == 'schedule' || github.event_name ==
+    'workflow_dispatch') && github.run_id || format('{0}@{1}',
+    github.event.pull_request.head.repo.full_name || github.repository, github.head_ref ||
+    github.ref_name) }}
+  cancel-in-progress: ${{ (github.head_ref || github.ref_name) != 'main' }}
 
 jobs:
   # Cheap, fast-failing gates, run FIRST and alone so an expensive job never
@@ -61,10 +159,20 @@ jobs:
 
       # ── Can this diff move a built artifact? ──────────────────────────────
       #
-      # The freshness rebuild is ~30 of its ~34 minutes, the catalog shards add
-      # ~62 runner-minutes, and both ran on every push including one that only
+      # ~~The freshness rebuild is ~30 of its ~34 minutes, the catalog shards add
+      # ~62 runner-minutes~~, and both ran on every push including one that only
       # touched a README. That is the repo's single strongest deterrent to a
       # drive-by contribution: a one-word docs fix cost a 35-minute round trip.
+      #
+      # BOTH FIGURES STRUCK AND RE-MEASURED 2026-08-14, from the Actions API
+      # (run 31769893295, job durations summed): the rebuild step is 7.7 min of
+      # an 11.7-min `freshness`, and the four catalog shards are 25.2
+      # runner-minutes, not 62. A whole run is 69.8 runner-minutes, so this step
+      # is worth 32.9 of them — half a run, not the ~96 the struck numbers
+      # promise. Nobody had to measure anything to doubt them: every CI run in
+      # the week before finished in 13-18 minutes of WALL clock, which a
+      # 30-minute rebuild cannot fit inside. The struck text is kept because the
+      # decision it justifies is still the right one at the smaller number.
       #
       # THE ASYMMETRY IS THE WHOLE DESIGN. Deciding "rebuild" when we did not
       # need to costs runner minutes. Deciding "skip" when we did need to ships
@@ -277,10 +385,18 @@ jobs:
   # Reproducibility + two-sided gates. Separate job so the fresh rebuild runs in
   # parallel with `verify`, and still gates the merge (runs on PRs).
   #
-  # The rebuild dominates this job: ~30 min of its ~34 min at 2,503 traditions,
-  # against <1s for the byte-comparison it exists to enable. It is linear in
-  # catalog size (19 min at 1,426), so treat any figure quoted here as a
-  # measurement with a shelf life, not a constant.
+  # The rebuild dominates this job: ~~a claimed 30 min of its 34 min~~ a
+  # measured 7.7 min of its 11.7 min at 2,503 traditions, against <1s for the
+  # byte-comparison it exists to enable. It is linear in catalog size (~~19 min
+  # at 1,426~~), so treat any figure quoted here as a measurement with a shelf
+  # life, not a constant.
+  #
+  # RE-MEASURED 2026-08-14 (run 31769893295, step "Build a fresh artifact from
+  # source": 04:28:54Z-04:36:34Z = 460s). The struck sentence is precisely what
+  # the sentence after it warns about, in the same paragraph, about itself. The
+  # 1,426-tradition figure is struck rather than corrected because it cannot be
+  # re-measured now; linear scaling from 7.7 min at 2,503 puts it near 4.4, so
+  # whatever it measured, it was not this build on this runner.
   freshness:
     needs: gate
     runs-on: ubuntu-latest
@@ -359,7 +475,9 @@ jobs:
     # smoke.js drives the search → score → translate engine over every tradition
     # and reads no documentation, so a docs-only diff cannot change one of its
     # 5,879 assertions. Same allowlist, same fail-safe default as `freshness`;
-    # this is ~62 runner-minutes that a README fix was paying for.
+    # this is ~~a claimed 62~~ a measured 25.2 runner-minutes that a README fix
+    # was paying for (re-measured 2026-08-14, run 31769893295, the four shards:
+    # 6.9 + 5.9 + 6.4 + 6.0).
     if: needs.gate.outputs.artifacts_affected == 'true'
     runs-on: ubuntu-latest
     strategy:
@@ -1247,8 +1365,29 @@ jobs:
       # two seconds — too fast to be a run, which is what a missing import looks
       # like. Nothing local caught it because this container already had both
       # packages installed. Added 2026-08-14.
-      - name: Install the two packages the nightly instruments need
-        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn
+      #
+      # THEN IT HAPPENED AGAIN, ONE PACKAGE OVER, AND THE SECOND TIME WAS WORSE.
+      # The list said "the two packages" and stopped at numpy and scikit-learn.
+      # nltk is the third, reached the same lazy way — `quality/features.py`'s
+      # `_tagger()` does `import nltk` inside the function — and `suites` had
+      # already been bitten by exactly this and already carries the fix. The
+      # step below it, `quality/fetch_data.py`, was staging the tagger MODEL
+      # into a runner with no nltk to read it.
+      #
+      # WHAT MADE IT WORSE THAN A FAILED STEP: with nltk absent, nine test
+      # files are RED AT BASELINE here and green in `suites` on the same
+      # commit. test_mutation.py excludes red files from its detector set —
+      # correctly, a test that fails either way distinguishes nothing — and the
+      # nine are test_floor, test_fit, test_revise, test_loop, test_readability,
+      # test_verbs, test_crosslinguistic, test_phrase_commonplace and
+      # test_discriminate. Those are precisely the detectors for floor.py,
+      # revise.py and fit.py, so the sweep reported 14 SURVIVED mutants in
+      # those three files and told the reader to go write assertions that
+      # already exist and already catch them. An environment defect wearing the
+      # costume of a coverage hole. See the refusal test_mutation.py now makes
+      # when its detector set has been gutted. Added 2026-08-14.
+      - name: Install the three packages the nightly instruments need
+        run: python3 -m pip install --disable-pip-version-check numpy scikit-learn nltk
 
       - name: Stage the pronunciation dictionary
         working-directory: lyric-harness

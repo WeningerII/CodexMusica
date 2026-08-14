@@ -88,14 +88,66 @@ Half the sonnets and half the random pairs, untouched:
 
 `theta_coda 0.80` is **SHIPPED**: false positives cut 2.6× for 0.6pp of
 true-positive cost, reproducing in both halves in the same direction. Battery
-moves 73/1014 (7.2%) → **81/1014 (8.0%)**, exactly as predicted. Red-team FPR
-falls 10.67% → **3.57%** (107 of 3,000 at seed 20260810; 3.60% at n=4,000).
+moves 73/1014 (7.2%) → ~~**81/1014 (8.0%)**, exactly as predicted~~. Red-team
+FPR falls 10.67% → ~~**3.57%** (107 of 3,000 at seed 20260810; 3.60% at
+n=4,000)~~.
+
+> **BOTH RIGHT-HAND FIGURES ARE REPINNED 2026-08-14 — AND BOTH DIED ON
+> 2026-08-11, NOT TODAY.** Battery ~~81/1014 (8.0%)~~ → **82/1014 (8.1%)**;
+> red-team FPR ~~3.57% (107 of 3,000)~~ → **2.00% (60 of 3,000)** and
+> ~~3.60% (144 of 4,000)~~ → **2.10% (84 of 4,000)**, both at this document's
+> own seed 20260810. The superseded pair is kept above rather than overwritten
+> (doctrine 17), and here that is load-bearing twice over:
+> `quality/test_mut_oracle.py` cites this document's `81/1014` prediction BY
+> NAME, so deleting the figure would break a live cross-reference as well as
+> the record.
+>
+> **SAY WHAT EACH IS A COORDINATE OF (doctrine 58).** Every struck figure is
+> `coda_agreement="scalar"` at `theta_coda 0.80`; every figure replacing it is
+> `coda_agreement="identity"`, which is a PREDICATE and not a magnitude — so
+> `theta_coda` is INERT under it and no sweep of that threshold reaches these
+> numbers from those. `n` is the other coordinate and it is the one this
+> document kept dropping: `quality/redteam_band.py` **defaults to n=4,000**
+> (`redteam_band.py:634`), so the bare command prints the 4,000 row and never
+> the 3,000 one, and a rate written without its population size cannot be
+> reproduced from the command written beside it (doctrine 91).
+>
+> **THE SUPERSESSION WAS ALREADY ON RECORD AND THIS FILE WAS NEVER TOLD.**
+> Commit **`1c723cf`, 2026-08-11 16:41:41 +0000**, *"Cell BA: the coda channel
+> manufactured rhymes, and R~L is the argmax of the whole matrix"*, changed
+> `Declaration.coda_agreement` to `identity` and states both moves in its own
+> message: *"REDTEAM FPR: 3.60% (144/4000) -> 2.10% (84/4000)"* and
+> *"C shipped 1064/1014/50/82 (+1)"* — the +1 being sonnet 91's `costs` against
+> `boast`, RHYME → ASSONANCE, which had been passing on a coda margin of
+> EXACTLY ZERO. `quality/RESULTS_CODA_SHAPE.md:299`/`:308` has carried the FPR
+> pair since that day. So this is not a new measurement; it is a sibling
+> document that was updated and a sibling that was not.
+>
+> **AND IT IS SHARPER THAN "NOBODY LOOKED".** `1c723cf`'s own message NAMES
+> this file as still carrying a stale claim, and the follow-up sweep
+> **`bec7bd2`, 2026-08-11 17:43:53 +0000** — *"fifteen files, and two real
+> defects were hiding behind stale pins"* — did open this document and did edit
+> it, inserting the `AMENDED 2026-08-11` paragraph forty lines below, and
+> walked past these figures to get there. The sweep repaired the sentence it
+> had been handed and re-read nothing around it.
+>
+> **THE ARGUMENT IS UNCHANGED AND THE DIRECTION IS ENLARGED, NOT REVERSED.**
+> The SHIP decision this section reaches is unaffected: false positives now
+> fall 10.67% → 2.00% at n=3,000 where the struck sentence claimed → 3.57%.
+> The held-out table above is the SCALAR comparator's and has NOT been re-run
+> under `identity`; the fit/held pair that has is section 9 of the same run,
+> which reads scalar 0.80 **3.47% / 3.67%** → identity **1.93% / 2.07%** at
+> n=3,000 — better in both halves, the same direction, which is the property
+> the decision rested on. The 10.67% baseline (320 of 3,000, broken 13 / 26 /
+> 60 / 234) is comparator-invariant and still reproduces exactly, which is the
+> check that this is the same statistic and not a different one.
 
 > **`3.15%` WAS WRONG AND IS CORRECTED IN PLACE, 2026-08-11.** Every other
 > number in this document reproduces exactly — including the pre-calibration
 > 10.67% (320 of 3,000) and its 13 / 26 / 60 / 234 breakdown — and **3.15%
-> reproduces at no setting.** Re-measured today at this document's own seed and
-> the shipped `theta_coda = 0.80`: 107/3,000 = **3.57%**, 144/4,000 = 3.60%,
+> reproduces at no setting.** Re-measured **2026-08-11** at this document's own
+> seed and the then-shipped `theta_coda = 0.80`: 107/3,000 = **3.57%**,
+> 144/4,000 = 3.60%,
 > 175/5,000 = 3.50%; at `theta_coda` 0.85 / 0.90 / 1.00 it is 3.23% / 2.50% /
 > 2.00% at n=3,000. Cell H established the cause and it is worse than drift:
 > **3.15% was 63/2,000 put beside a 320/3,000 baseline** — a before-and-after
@@ -105,8 +157,43 @@ falls 10.67% → **3.57%** (107 of 3,000 at seed 20260810; 3.60% at n=4,000).
 > its own commit (`b1d7f64`), which gives the same answer. The claim the
 > sentence makes — false positives cut ~3× — is unaffected.
 >
-> Confirmed here independently: `python3 quality/redteam_band.py 3000` prints
-> `ADMITTED AS RHYME WHERE IDENTITY SAYS OTHERWISE: 107 of 3,000 (3.57%)`.
+> **EVERY FIGURE IN THIS CORRECTION IS THE PRE-`1c723cf` COMPARATOR'S**, added
+> 2026-08-11 and superseded by `coda_agreement="identity"` some five hours
+> later the same day (see the repin above). They are kept unstruck because the
+> claim they carry is about `3.15%` and not about the band: `3.15%` reproduces
+> at no setting of the comparator that was shipped when it was written, and
+> a comparator change afterwards cannot make it reproduce retroactively.
+
+> **THE VERBATIM EXPECTED-OUTPUT BLOCK THAT SAT HERE IS GONE, 2026-08-14, AND
+> IT IS NOT REPLACED BY UPDATED DIGITS.** It read: *"Confirmed here
+> independently: `python3 quality/redteam_band.py 3000` prints `ADMITTED AS
+> RHYME WHERE IDENTITY SAYS OTHERWISE: 107 of 3,000 (3.57%)`."* That command
+> has not printed that line since 2026-08-11.
+>
+> **RUN IT — DO NOT READ A NUMBER HERE.** `python3 quality/redteam_band.py
+> 3000` prints one line opening `ADMITTED AS RHYME WHERE IDENTITY SAYS
+> OTHERWISE:`; with no argument the same runner prints that line at its own
+> default n=4,000. WHAT IT HAS PRINTED, RECORDED AS HISTORY AND NOT AS AN
+> EXPECTATION: `107 of 3,000 (3.57%)` on 2026-08-11 under
+> `coda_agreement="scalar"`; `60 of 3,000 (2.00%)` on 2026-08-14 under the
+> shipped `identity`.
+>
+> **WHY THE BLOCK IS RETIRED RATHER THAN REPINNED.** A block quoting a command
+> AND its output makes two claims, and only the first is a property of this
+> document — what the command PRINTS is a coordinate of the COMPARATOR, so it
+> goes stale the moment the comparator moves, silently, because nothing
+> re-runs the command. This exact block has now failed that way TWICE, once as
+> `3.15%` and once as `3.57%`, which is the evidence that retyping the digits
+> would only re-arm it for the next `Declaration` change; and it is the worst
+> shape to fail in, because it invites a reader to check and then contradicts
+> what their own run says. Deleting it outright is the other error — that
+> removes the reader's ability to check anything. What CANNOT go stale is an
+> instrument, and one already exists and is not this file:
+> `quality/counters.py`'s `band_fpr()` re-derives this runner at BOTH n on
+> every `--write` and ASSERTS them on every `--check`, and `BACKLOG.md`'s
+> counter table carries the live machine-written cell. This paragraph points
+> there and asserts no current value of its own — doctrine 17 applied to an
+> output block rather than to a sentence.
 
 `theta_nucleus` is **NOT** changed. ~~Tightening it costs 2.7pp of true
 positives for 4.4pp of false — a worse trade~~ — and `five`/`of` still passes at

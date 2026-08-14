@@ -162,10 +162,24 @@ CLICHE_BLUEPRINT = {
 #: `brief()` hands that line back with ZERO candidates, because
 #: `RETURN_NOT_VERBATIM` is not in `RHYME_FINDINGS` and a return is not
 #: repaired by swapping an end word.
+# L1/L3 are the DECLARED VERBATIM RETURN, drifted. L2/L4 carry a CLICHE_PAIR
+# the loop can actually repair, and that division is the point: §12 asserts
+# that one unsolvable line is never a stop condition, which needs a solvable
+# line beside it to mean anything.
+#
+# L2/L4 USED TO BE 'hall'/'at all' AND CARRIED NO FINDING AT ALL. The fixed
+# line was L1, and it was "fixed" by swapping the end word of a line the
+# mandate REQUIRES to be identical to L3 -- the loop was paid for breaking the
+# refrain. It could only score that because `_floor_for` handed the slop floor
+# the declared return pair, so the floor read a required identity as a
+# self-rhyme (doctrine 3 inverted). Subtracting the returns removed L1's
+# finding, this section went red, and the assertion turned out to have been
+# pinning the defect. The invariant is real, so it keeps its test; the fixture
+# is what changed, and the repaired line is L2 now.
 RETURN_DRIFT = ["we counted every reason we were given",
-               "the kettle went on shouting in the hall",
+               "the kettle on the stove had caught the light",
                "we counted all the reasons we were given",
-               "the morning came and did not care at all"]
+               "the morning came and did not care that night"]
 RETURN_DRIFT_MANDATE = SC.mandate([[1, 3], [2, 4]], n_lines=4,
                                   returns=[[1, 3]])
 
@@ -477,10 +491,19 @@ def test_declared_returns_are_asked_and_have_no_move():
           l3 and l3[0].tried == 0 and not l3[0].accepted
           and "no candidates offered" in l3[0].reason,
           l3[0].reason if l3 else None)
-    check("L1's rhyme WAS fixed in the same round -- one unsolvable line is "
+    check("L2's rhyme WAS fixed in the same round -- one unsolvable line is "
           "never a stop condition, which is the invariant this fixture "
           "exercises against a real second layer rather than a stub",
-          res.rounds[0].fixed_lines == [1], res.rounds[0].fixed_lines)
+          res.rounds[0].fixed_lines == [2], res.rounds[0].fixed_lines)
+    check("and L1 is NOT touched, though it ends on the same word as L3 -- "
+          "the mandate REQUIRES that identity, so it is the requirement and "
+          "not a self-rhyme, and the floor is no longer handed the pair",
+          res.lines[0] == RETURN_DRIFT[0]
+          and not any(f.code == "REPEAT_IN_VERSE"
+                      for b in res.unresolved for f in b.findings),
+          f"L1 {res.lines[0]!r}; before the returns were subtracted the floor "
+          f"charged L1 with REPEAT_IN_VERSE and the loop 'repaired' it by "
+          f"swapping the end word of a line declared verbatim-identical to L3")
     check("L3 is byte-identical: a line the loop had no move for is left "
           "exactly as written",
           res.lines[2] == RETURN_DRIFT[2])

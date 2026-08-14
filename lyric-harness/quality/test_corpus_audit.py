@@ -261,6 +261,170 @@ def test_every_file_reaches_a_row():
           len(files) > 200, len(files))
 
 
+#: A file that names TWO sources, one of which has a row and one of which does
+#: not.  This is the shape three real corpus files had, and the shape check A
+#: could not see: `Sources.route` stops at the first header id that resolves,
+#: so the declared half answered for the undeclared one.
+_TWO_SOURCES = """\
+# author: PLANTED FIXTURE D
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 \
+cc5e9f7b88436840e62b5ae53ca193e8
+# licence: public domain - Project Gutenberg; edition published 1912
+# source: GITenberg/There-Is-No-Such-Book_99999 99999.txt md5 \
+00000000000000000000000000000000
+# licence: public domain - Project Gutenberg; edition published 1899
+
+--- TITLE: one
+--- SOURCE: PG2619
+[VERSE 1]
+The listening earth had turned her face away,
+And all the singing rivers held their breath.
+"""
+
+
+def _plant_two_sources(tmp, name, body):
+    p = os.path.join(tmp, name)
+    open(p, "w", encoding="utf-8").write(body)
+    return AC.display_path(p), AC.CorpusFile(p)
+
+
+def test_a_second_header_source_must_reach_a_row_too():
+    """Doctrine 34, and the hole this test was written for.
+
+    `check_row` used to ask `Sources.route`, which returns on the FIRST
+    `# source:` id that matches a row. A file with two headers passed if
+    EITHER resolved, so doctrine 34's real question — is everything in this
+    file DECLARED — was being answered by a different question, is this file
+    REACHABLE. Three shipped files were in exactly that state and the auditor
+    reported 0 FAIL over all 269 of them:
+
+        corpus/song/eng_american_ann_taylor.txt              42947, declared 2nd
+        corpus/song/eng_american_jane_taylor.txt             42947, declared 3rd
+        corpus/song/eng_american_margaret_junkin_preston.txt 16480, declared 1st
+
+    BOTH ORDERS ARE PLANTED, because the bug is not about position: the
+    Beechenbrook case declared the undeclared source FIRST and still passed,
+    since `parent_ids` is scanned longest-first and not in header order. And
+    the pin that makes this a demonstration rather than an assertion is the
+    third check below: `route()` STILL answers ROUTE_HEADER on the planted
+    file. The old check was not merely quiet on this fixture — it was
+    affirmatively satisfied by it.
+
+    The control is the other half, and it is the half a liveness test skips:
+    withdraw the unresolved header and the check must go silent. A check that
+    fires on the fixture and on its control is not detecting anything.
+    """
+    tmp = tempfile.mkdtemp(prefix="audit_corpus_a_")
+    src = AC.Sources()
+
+    def fails_for(rel, findings):
+        return [f for f in findings
+                if f.severity == AC.FAIL and f.path == rel]
+
+    # 1 — good header first, undeclared second (the Taylor shape)
+    rel, cf = _plant_two_sources(tmp, "eng_planted_two.txt", _TWO_SOURCES)
+    fs = fails_for(rel, AC.check_row([(rel, cf)], src))
+    check("A FAILs the second `# source:` id when the first one resolves",
+          len(fs) == 1 and "There-Is-No-Such-Book_99999" in fs[0].what,
+          [(f.severity, f.what[:90]) for f in fs])
+
+    # 2 — undeclared FIRST, good second (the Beechenbrook shape)
+    swapped = _TWO_SOURCES.split("\n")
+    swapped = "\n".join(swapped[:1] + swapped[3:5] + swapped[1:3]
+                        + swapped[5:])
+    rel2, cf2 = _plant_two_sources(tmp, "eng_planted_swap.txt", swapped)
+    check("...and the planted file really is the same two declarations in the "
+          "other order",
+          cf2.source_declarations() == list(reversed(cf.source_declarations())),
+          (cf.source_declarations(), cf2.source_declarations()))
+    fs = fails_for(rel2, AC.check_row([(rel2, cf2)], src))
+    check("A FAILs the FIRST `# source:` id too — the defect is not positional",
+          len(fs) == 1 and "There-Is-No-Such-Book_99999" in fs[0].what,
+          [(f.severity, f.what[:90]) for f in fs])
+
+    # 3 — the demonstration: the OLD answer passes this file outright
+    check("`route()` still answers ROUTE_HEADER on it, which is exactly why "
+          "the old check reported 0 FAIL on the three real files",
+          src.route(cf, rel) == (AC.ROUTE_HEADER,
+                                 "GITenberg/The-Home-Book-of-Verse---Volume-1_2619"),
+          src.route(cf, rel))
+
+    # 4 — the control: withdraw the unresolved header, the check goes silent
+    only_good = "\n".join(l for l in _TWO_SOURCES.split("\n")
+                          if "99999" not in l and "1899" not in l)
+    rel3, cf3 = _plant_two_sources(tmp, "eng_planted_one.txt", only_good)
+    check("...and the fixture with only its resolving header is SILENT",
+          not fails_for(rel3, AC.check_row([(rel3, cf3)], src)),
+          [(f.severity, f.what[:90])
+           for f in fails_for(rel3, AC.check_row([(rel3, cf3)], src))])
+
+
+def test_every_declared_source_reaches_a_row():
+    """Doctrine 34 over the live corpus, at the DECLARATION and not the file.
+
+    `test_every_file_reaches_a_row` is the file-level assertion and it passed
+    for the whole time the two editions below were undeclared. This is the one
+    that could not.
+
+    EXERCISED, NOT MERELY QUIET — the zero below is only news if the check ran
+    on something, and its silent failure mode is a regex that stops extracting
+    ids at all. 336 id-shaped `# source:` declarations across 269 files, 59 of
+    which declare two or more; the remaining 16 `# source:` lines are the prose
+    form (`# source: GITenberg PG 12907 -- file raw_12907-8.txt`), name no id,
+    and are deliberately not covered — see `CorpusFile.source_declarations`.
+
+    THE FALSE-POSITIVE HALF IS PINNED WITH THE SAME WEIGHT, because this
+    module's own history is that a check which manufactures findings costs
+    more than one that misses them (33 FAILs, 30 of them its own). Two shipped
+    headers write a LONGER repo slug than the table does for the same GITenberg
+    repo, and a containment-only match reports both as undeclared. They are one
+    source, and stage 3 of `resolve_declared` — same org, same Project
+    Gutenberg ebook number — is what says so.
+    """
+    files, src = corpus()
+    decls = {rel: cf.source_declarations() for rel, cf in files}
+    total = sum(len(v) for v in decls.values())
+    check("336 id-shaped `# source:` declarations are checked, over 269 files",
+          total == 336 and len(files) == 269, (total, len(files)))
+    check("59 files declare two or more sources — the case the file-level "
+          "check cannot see",
+          sum(1 for v in decls.values() if len(v) > 1) == 59,
+          sum(1 for v in decls.values() if len(v) > 1))
+    bad = [(rel, d) for rel, cf in files for d, _, _ in src.undeclared_sources(cf)]
+    check("every declared `# source:` id reaches a data/sources.tsv row",
+          not bad, bad[:6])
+
+    # the two rows this fix added, by name: a zero above with these rows
+    # deleted is the state the corpus shipped in.
+    for sid in ("GITenberg/Little-Ann-and-Other-Poems_42947",
+                "GITenberg/BeechenbrookA-Rhyme-of-the-War_16480"):
+        check("data/sources.tsv declares %s" % sid, sid in src.by_id,
+              sorted(k for k in src.by_id if "42947" in k or "16480" in k))
+
+    # the abbreviated-slug pairs, which stage 3 exists for
+    for declared, row in (
+            ("GITenberg/Kanteletar--Suomen-kansan-wanhoja-lauluja-ja-wirsi-_7078",
+             "GITenberg/Kanteletar_7078"),
+            ("GITenberg/Malay-Magic-Being-an-introduction-to-the-folklore-and-"
+             "popular-religion-of-the-Malay-Peninsula_47873",
+             "GITenberg/Malay-Magic_47873")):
+        got = src.resolve_declared(declared)
+        check("the header's full slug resolves to the table's short one "
+              "(%s)" % row.split("/")[-1],
+              got is not None and _PG_NUM(got) == _PG_NUM(row), (declared, got))
+
+    # ...and stage 3 must not become a wildcard: a different ebook number is
+    # a different edition and must still be unresolved.
+    check("a same-org id with an ebook number no row carries stays UNRESOLVED",
+          src.resolve_declared("GITenberg/There-Is-No-Such-Book_99999") is None,
+          src.resolve_declared("GITenberg/There-Is-No-Such-Book_99999"))
+
+
+def _PG_NUM(sid):
+    m = AC._PG_ID.match(sid.split("#")[0])
+    return m.group(2) if m else None
+
+
 def test_no_recorded_hash_has_drifted():
     files, src = corpus()
     fs = [f for f in AC.check_hash(files, src) if f.severity == AC.FAIL]

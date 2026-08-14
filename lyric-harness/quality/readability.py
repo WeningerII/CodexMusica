@@ -122,6 +122,14 @@ def report(lex, lines):
     label_overstates = [r for r in countables
                         if not r["final_unreadable"]
                         and r["final_unread_pieces"]]
+    # WIRED 2026-08-14. `substitution_report` sat 100 lines below this
+    # function with two callers -- this module's own `main()`, which prints a
+    # COUNT and never a word, and one test. Every surface that GRADES a draft
+    # (`report` here, and through it `revise.Reviser.inspect` -> `brief` ->
+    # `verify` -> the `brief`/`verify`/`revise`/`song` verbs) could say the
+    # LINE was unreadable and none of them could say WHICH WORD the harness
+    # would have rhymed on instead, which is the actionable half.
+    substituted = substitution_report(lex, lines)
     n = len(countables)
     out = {
         "lines_total": len(lines),
@@ -136,6 +144,15 @@ def report(lex, lines):
         "lines_unreadable_final_piece": len(by_piece),
         "lines_label_overstates": len(label_overstates),
         "lines_interior_unreadable_only": len(interior_only),
+        # A COUNT OF ITS OWN, NEVER ADDED TO ANY RATE ABOVE (doctrine 79/91,
+        # and the same treatment `label_overstates` already gets). It is
+        # ~99.98% a re-cut of the `token` population, so summing it into
+        # `lines_unreadable_final` would double-charge 8,840 English corpus
+        # lines; and it is not a pure subset either, so subtracting it from
+        # anything would be wrong in the other direction. Two counts, never
+        # summed -- `substitution_report`'s docstring holds the measurement.
+        "lines_substituted_end_word": len(substituted),
+        "substituted_end_words": substituted,
         "rate_unreadable_final": (len(unread_final) / n) if n else 0.0,
         "unreadable_final_words": sorted(
             {r["final_token"].lower() for r in unread_final}),
@@ -206,6 +223,42 @@ def report(lex, lines):
                       "and consonant-skeleton paths skip the word entirely."),
             locations=[r["line"] for r in interior_only],
         ))
+    if substituted:
+        flagged = {r["line"] for r in unread_final}
+        silent = [s for s in substituted if s["line"] not in flagged]
+        pairs = ", ".join(f"L{s['line']} {s['true_final']!r}->"
+                          f"{s['would_have_used']!r}"
+                          for s in substituted[:20])
+        out["findings"].append(Finding(
+            code="SUBSTITUTED_END_WORD",
+            severity="note",
+            message=(f"{len(substituted)} line(s) would have had the RHYME "
+                     f"WORD SILENTLY REPLACED by an earlier word: "
+                     f"{pairs}"),
+            evidence=(
+                "`word_syllable_map` emits no syllable for a word CMUdict "
+                "cannot read, so anything taking its last entry as the rhyme "
+                "word takes an EARLIER word instead -- the defect the shipped "
+                "file carried in `_qafiya_parts`, where `zun` reported as "
+                "`the` and `grow'st` as `thou`. THIS IS NOT A SECOND CHARGE. "
+                f"{len(substituted) - len(silent)} of these {len(substituted)} "
+                f"line(s) are ALREADY flagged above by UNREADABLE_END_WORD, "
+                "which says the LINE cannot be read; what no other finding in "
+                "this module says is WHICH WORD would have been used, and "
+                "that is the only part a writer or a caller can act on -- the "
+                "substitute is a plausible English word, so nothing about the "
+                "output looks wrong. "
+                + (f"{len(silent)} of them carry NO other finding at all: "
+                   "the end token READS and yields no syllable (a lone "
+                   "consonant such as `mm`), so `line_anchors` returns an "
+                   "anchor built on the previous word and `final_unreadable` "
+                   "is False. That is an INVENTED relation, not a missing "
+                   "one, at a site `unread_final_piece` does not cover."
+                   if silent else
+                   "Every one of them is also flagged above, so this finding "
+                   "adds the word and no new line.")),
+            locations=[s["line"] for s in substituted],
+        ))
     return out
 
 
@@ -213,10 +266,43 @@ def substitution_report(lex, lines):
     """Lines where the last READABLE word is not the last word.
 
     This is the `relations.py` `_loci('line_final_token')` defect, and the
-    shipped file carried it in `_qafiya_parts`. It is a strict subset of the
-    unreadable-final lines (the map has to keep at least one earlier word), and
-    it is the more dangerous half, because the substituted word is a plausible
-    English word and nothing about the output looks wrong.
+    shipped file carried it in `_qafiya_parts`. It is ~~a strict subset of the
+    unreadable-final lines (the map has to keep at least one earlier word),
+    and~~ it is the more dangerous half, because the substituted word is a
+    plausible English word and nothing about the output looks wrong.
+
+    THE SUBSET CLAIM IS NOT TRUE, AND IT WAS MEASURED RATHER THAN REASONED
+    (2026-08-14, wiring this into `report`). Over the 143 English song files:
+    8,842 substitution lines, of which **8,840** are `final_unreadable` and
+    cause `token` — and **2 ARE NOT UNREADABLE AT ALL**. Over all 260
+    `corpus/song/` files it is 6 of 31,355. The mechanism is a third one, next
+    to the two the module docstring lists: a final token that DOES read and
+    yields NO SYLLABLE. `mm` transcribes to `['M']` and `syllabify` returns
+    nothing for a lone consonant, so `word_syllable_map` drops it exactly as
+    it drops an OOV word — while `line_anchors` still finds an anchor (built
+    on the previous word), so `final_unreadable` is `not anchors` = False and
+    `report` says nothing whatsoever. Byron's `...lay white on the turf,[mm]`
+    is anchored on `turf`, reported READABLE, and is invented-relation #4 of
+    the module docstring at a site `unread_final_piece` does not cover.
+    Those 2 lines are the ONLY population in this module that no other
+    finding reaches; the other 8,840 already have their LINE flagged by
+    `UNREADABLE_END_WORD` and are missing only the substituted WORD.
+
+    THIS IS NOT A NEW CLAIM ABOUT `mm`, AND THAT IS WHY IT IS SAFE.
+    `quality/test_readability.py` test 6 has pinned since 2026-08-13 that
+    `sh`/`shh`/`hm`/`hmm`/`mm` each yield NO ANCHOR ON THEIR OWN, and it was
+    written off the OTHER of these two lines -- D'Urfey's `_Sh----_`, which
+    tokenizes to `sh`. What that test does not ask, because nothing did, is
+    what happens when such a token ends a line whose EARLIER words read: the
+    line-level `line_anchors` then returns the anchor those earlier words
+    built, so the token-level refusal is real and the LINE-level one never
+    fires. Both halves of the same 2-line population, found from opposite
+    ends a day apart.
+
+    The complement is the larger number and is not a defect here: 412 English
+    unreadable-final lines are NOT substitutions — 174 are cause `piece`
+    (`hill-zide` keeps its own token in the map, so nothing is substituted)
+    and 238 are lines where no earlier word read either.
     """
     out = []
     for i, text in enumerate(lines):
@@ -287,6 +373,7 @@ def corpus_rate(lex, paths):
     any recorded number needs told.
     """
     tot = unread = subst = 0
+    subst_flagged = subst_silent = 0
     by_token = by_piece = 0
     overstates = 0
     misfiled = misfiled_unexplained = 0
@@ -308,6 +395,24 @@ def corpus_rate(lex, paths):
         by_piece += len(pc)
         overstates += len(lo)
         subst += len(s)
+        # THE SUBSET CLAIM, MEASURED IN THE PASS THAT WAS ALREADY BEING MADE.
+        # `substitution_report`'s docstring called itself "a strict subset of
+        # the unreadable-final lines" from the day it was written and nothing
+        # ever checked it. It is not one: a final token that READS and
+        # syllabifies to NOTHING (`mm` -> ['M']) is dropped by
+        # `word_syllable_map` and kept by `line_anchors`, so the substitution
+        # happens and `final_unreadable` is False. TWO COUNTS, NEVER SUMMED
+        # (doctrine 79) -- `substituted_flagged` is the population
+        # UNREADABLE_END_WORD already names as a LINE, where the gap was only
+        # the WORD; `substituted_silent` is the population NO finding in this
+        # module reaches at all, and it is the one that must be watched.
+        # It rides this loop for the same reason the position invariant below
+        # does: a second sweep would derive the population from a second
+        # definition, and the two would drift.
+        unread_lines = {r["line"] for r in u}
+        flagged = sum(1 for x in s if x["line"] in unread_lines)
+        subst_flagged += flagged
+        subst_silent += len(s) - flagged
         # THE POSITION INVARIANT, MEASURED RATHER THAN ASSERTED. `pc + lo` is
         # the whole population the hyphen defect lives in: an end token with at
         # least one piece that reads and at least one that does not. Before
@@ -379,6 +484,8 @@ def corpus_rate(lex, paths):
             "rate": (unread / tot) if tot else 0.0,
             "rate_token": (by_token / tot) if tot else 0.0,
             "substituted_end_word": subst,
+            "substituted_flagged": subst_flagged,
+            "substituted_silent": subst_silent,
             "distinct_unreadable_finals": len(words),
             "top_unreadable_finals": sorted(words.items(),
                                             key=lambda kv: (-kv[1], kv[0]))[:20],
@@ -402,7 +509,13 @@ def main(argv):
           f"LAST piece is unread — `hill-zide`, refused rather than "
           f"anchored on `hill`")
     print(f"  of which the rhyme word would have been SILENTLY SUBSTITUTED by "
-          f"an earlier word: {res['substituted_end_word']}")
+          f"an earlier word: {res['substituted_end_word']} "
+          f"= {res['substituted_flagged']} whose LINE is flagged above "
+          f"(only the WORD was missing) "
+          f"+ {res['substituted_silent']} that NO finding reaches — a final "
+          f"token that READS and syllabifies to nothing, anchored on the "
+          f"previous word. The substitution is NOT a subset of the "
+          f"unreadable-final lines and the second number is why")
     print(f"end token with a read piece AND an unread piece: "
           f"{res['final_piece_population']} "
           f"= {res['unreadable_final_piece']} refused (last piece unread) "

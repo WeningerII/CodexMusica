@@ -1,0 +1,15 @@
+{
+  "_note": "A DEFECT SPECIMEN, and the only reason it is in the repo. This is verbatim the schema this project's root `blueprint.json` carried until 2026-08-14: `meter` as a SIGNATURE STRING, plus a top-level `meter_default` and a single song-wide `scheme` string, and no `lines` array at all. No reader here has ever read that shape. It sat at the repo root under the canonical name, named by README.md as the first command to run, and all three blueprint readers answered it with `AttributeError: 'str' object has no attribute 'get'` at exit 1 -- an opaque crash that named neither the field nor the file. It lives here now so the refusal that replaced that crash has a permanent witness under test (quality/test_grid.py, test_fit.py, test_verbs.py) instead of a trap at the repo root. DO NOT MIGRATE IT: the moment its `meter` becomes an object it stops being the input the refusal exists to describe.",
+  "meter_default": "4/4",
+  "sections": [
+    { "name": "intro", "bars": 5, "meter": "4/4" },
+    { "name": "verse", "bars": 11, "meter": "4/4" },
+    { "name": "turn", "bars": 3, "meter": "7/8" },
+    { "name": "chorus", "bars": 14, "meter": "4/4" },
+    { "name": "verse", "bars": 9, "meter": "4/4" },
+    { "name": "break", "bars": 6, "meter": "6/8" },
+    { "name": "chorus", "bars": 14, "meter": "4/4" },
+    { "name": "coda", "bars": 19, "meter": "5/4" }
+  ],
+  "scheme": "ABCADEBFDGCHEIFAJGKBHA"
+}

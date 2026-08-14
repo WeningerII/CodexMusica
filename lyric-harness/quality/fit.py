@@ -110,7 +110,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 if os.path.join(HERE, "..") not in sys.path:
     sys.path.insert(0, os.path.join(HERE, ".."))
 
-from quality.meter import Cycle  # noqa: E402
+from quality.meter import Cycle, section_meter  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # REFUSALS — the same discipline as quality/declared_inputs.py, one layer over
@@ -1394,6 +1394,28 @@ def _frac_value_name(v):
 # ---------------------------------------------------------------------------
 
 
+def _uncovered_bars(spans, pulses, bars, start_bar):
+    """-> tuple of ABSOLUTE bar numbers that no span touches.
+
+    `spans` is an iterable of (start, end) pulse offsets measured from the
+    SECTION's own first downbeat, which is the only frame in which they are
+    commensurable (see `Placement`). The one definition of bar coverage in
+    this module: `SectionFit.uncovered_bars` calls it with its own lines'
+    placements and `uncovered_bar_findings` calls it with a flat `LineFit`
+    list's, so the table column and the finding cannot report two different
+    sets of bars.
+    """
+    P = Fraction(pulses)
+    covered = set()
+    for a, b in spans:
+        k = int(a // P)
+        while Fraction(k) * P < b:
+            if 0 <= k < bars:
+                covered.add(k)
+            k += 1
+    return tuple(start_bar + k for k in range(bars) if k not in covered)
+
+
 @dataclass
 class SectionFit:
     name: str
@@ -1445,18 +1467,18 @@ class SectionFit:
 
     def uncovered_bars(self):
         """Bars of the section no line's declared span touches. A grid fact,
-        available because the placement is declared."""
-        P = Fraction(self.cycle.pulses)
-        covered = set()
-        for l in self.lines:
-            a, b = l.placement.start, l.placement.end
-            k = int(a // P)
-            while Fraction(k) * P < b:
-                if 0 <= k < self.bars:
-                    covered.add(k)
-                k += 1
-        return tuple(self.start_bar + k for k in range(self.bars)
-                     if k not in covered)
+        available because the placement is declared.
+
+        The arithmetic moved to `_uncovered_bars` 2026-08-14 and this method
+        CALLS it rather than keeping a copy: `uncovered_bar_findings` needs
+        the same answer from a flat `LineFit` list (see that function), and
+        two spellings of a coverage rule is how the record and the behaviour
+        drift apart — the failure `unread_final_piece` was collapsed into one
+        predicate to prevent (doctrine 1).
+        """
+        return _uncovered_bars(
+            [(l.placement.start, l.placement.end) for l in self.lines],
+            self.cycle.pulses, self.bars, self.start_bar)
 
     def fighting(self):
         """Lines whose declared prominence cannot all reach the declared
@@ -1478,6 +1500,13 @@ class SectionFit:
 @dataclass
 class SongFit:
     sections: list = field(default_factory=list)
+    #: [FitFinding] that belong to a SECTION rather than to any line —
+    #: `UNCOVERED_BARS` is the whole population today. Deliberately NOT
+    #: folded into `findings()`: that method is the per-LINE set, a caller
+    #: counting it is counting lines with something wrong, and a section fact
+    #: added to it would inflate that count with something no line did
+    #: (doctrine 79/91 — never sum two counts that ask different questions).
+    section_findings: list = field(default_factory=list)
 
     @property
     def lines(self):
@@ -1514,10 +1543,67 @@ class SongFit:
         return [r for l in self.lines for r in l.refusals]
 
 
-def _cycle_of(meterdict):
+def _cycle_of(raw, section=None):
+    # `section_meter` is the SHARED predicate -- `grid.song_from_blueprint`
+    # and `lyric_harness._grid_song` read the same field through the same
+    # call, so a `"meter": "4/4"` cannot be a refusal there and a traceback
+    # here. It returns `{}` for an ABSENT meter, which keeps the defaults
+    # below exactly as they were.
+    meterdict = section_meter(raw, section)
     return Cycle(pulses=int(meterdict.get("beats", 4)),
                  unit=int(meterdict.get("unit", 4)),
                  groups=tuple(meterdict.get("groups", ()) or ()))
+
+
+def section_key(placement):
+    """-> the hashable IDENTITY of the section instance a `Placement` sits in.
+
+    TWO SECTIONS MAY SHARE A NAME, and verse/chorus/bridge/chorus is the most
+    ordinary song form there is. A name is what the writer CALLS a span
+    (`grid.Section`'s own docstring: "it is what the writer calls this span,
+    and it is deliberately not evidence"), so it identifies a span no better
+    than a title identifies a line. `grid.Song.lines_in` already refuses to
+    match on it — "Matching by name was wrong and the demo caught it: a song
+    with two sections both called 'chorus' collapsed them" — and this is the
+    same sentence said in `fit.py`'s own vocabulary, where the collapse is
+    arithmetic rather than a count.
+
+    The pair is `(section_start_bar, section)` and the FIRST half is the
+    load-bearing one: `Placement.start`/`.end` are pulse offsets FROM THE
+    SECTION'S OWN FIRST DOWNBEAT, so two placements' numbers are commensurable
+    exactly when they share that downbeat. The name rides along so a caller
+    reading a key can see which span it names, and so two spans that somehow
+    declare the same start bar under different names stay apart.
+    """
+    return (placement.section_start_bar, placement.section)
+
+
+def _owner_of(secs, name, bar, get):
+    """-> the section a line belongs to, resolving a REPEATED name by bar.
+
+    `get(section, field)` reads `"name"`/`"start_bar"`/`"bars"` off whatever
+    shape the caller's sections are (this module's dicts, or a duck-typed
+    `grid.Section`), so one resolution serves both readers here.
+
+    A declared name still wins over the bar range when it is UNAMBIGUOUS —
+    that is a declaration, and doctrine 1 says a declared coordinate is not
+    silently outranked. It cannot win when the writer used it twice: a
+    `{"section": "chorus"}` on a song with two choruses names a SET, and the
+    bar is the coordinate that says which member. `{s["name"]: s for s in
+    secs}` answered "the last one" there, silently, which put every line of
+    the FIRST chorus 14 bars before its own section's downbeat and gave it a
+    NEGATIVE offset.
+    """
+    hits = [s for s in secs if get(s, "name") == name]
+    if len(hits) == 1:
+        return hits[0]
+    for s in hits or ():
+        if get(s, "start_bar") <= bar < get(s, "start_bar") + get(s, "bars"):
+            return s
+    for s in secs:
+        if get(s, "start_bar") <= bar < get(s, "start_bar") + get(s, "bars"):
+            return s
+    return secs[-1] if secs else None
 
 
 def from_blueprint(obj, assume_meter=None):
@@ -1532,7 +1618,13 @@ def from_blueprint(obj, assume_meter=None):
             obj = json.load(fh)
     secs, bar = [], 1
     for s in obj.get("sections", []):
-        md = s.get("meter") or {}
+        # `section_meter` is the SHARED TYPE CHECK, and it runs BEFORE the
+        # declaration test rather than instead of it: it turns a
+        # `"meter": "4/4"` string into an accurate refusal naming what it
+        # found, and answers `{}` for an ABSENT meter -- which is exactly
+        # what the undeclared-signature refusal below is for. Two
+        # different defects, two different messages, one field.
+        md = section_meter(s.get("meter"), s.get("name"))
         # BOTH HALVES, INDEPENDENTLY: a section may legally declare `beats`
         # and default `unit`, and calling that "declared" would hide exactly
         # the half that was guessed.
@@ -1560,15 +1652,13 @@ def from_blueprint(obj, assume_meter=None):
                      "bars": int(s["bars"]), "start_bar": start,
                      "meter_declared": declared, "meter_assumed": assumed})
         bar = start + int(s["bars"])
-    by_name = {s["name"]: s for s in secs}
 
     def owner(l):
-        if l.get("section") in by_name:
-            return by_name[l["section"]]
-        for s in secs:
-            if s["start_bar"] <= int(l["bar"]) < s["start_bar"] + s["bars"]:
-                return s
-        return secs[-1] if secs else None
+        # NOT `{s["name"]: s for s in secs}` — that silently kept the LAST of
+        # two same-named sections, so a verse/chorus/bridge/chorus blueprint
+        # measured the first chorus's lines from the second chorus's downbeat.
+        return _owner_of(secs, l.get("section"), int(l["bar"]),
+                         lambda s, f: s[f])
 
     places = []
     for l in obj.get("lines", []):
@@ -1607,16 +1697,13 @@ def from_song(song):
                      "meter_declared": bool(getattr(m, "declared", True)),
                      "meter_assumed": str(getattr(m, "assumed", "") or "")})
         bar = start + int(s.bars)
-    by_name = {s["name"]: s for s in secs}
     places = []
     for l in song.lines:
-        s = by_name.get(getattr(l, "section", ""))
-        if s is None:
-            for cand in secs:
-                if cand["start_bar"] <= l.bar < cand["start_bar"] + cand["bars"]:
-                    s = cand
-                    break
-        s = s or secs[-1]
+        # Same resolution `from_blueprint` uses, and for the same reason: a
+        # `grid.Song` carries `Line.section` as a NAME, and a name a writer
+        # used twice picks out a set of spans rather than one.
+        s = _owner_of(secs, getattr(l, "section", ""), int(l.bar),
+                      lambda s, f: s[f]) or secs[-1]
         places.append(Placement(
             cycle=s["cycle"], bar=int(l.bar), beat=_frac(l.beat),
             duration=_frac(l.duration), section=s["name"],
@@ -1645,10 +1732,21 @@ def overlap_findings(fits):
     measured from the section's own first downbeat (see `Placement`), so two
     numbers from different sections are not commensurable and their
     intersection would be arithmetic on two different units.
+
+    WITHIN A SECTION IS NOT WITHIN A SECTION NAME, and keying on the name broke
+    exactly the invariant the paragraph above states. Two sections called
+    `chorus` are two spans with two different downbeats; bucketed together,
+    every line of the first chorus "intersects" its own return fourteen bars
+    later, because both are 0 pulses from their own section's start and 0
+    equals 0. Measured on a four-section verse/chorus/bridge/chorus blueprint:
+    EIGHT spurious `OVERLAPPING_SPANS`, every one of them a line against its
+    own repeat, all of which vanished when the second section was renamed —
+    which is what proved it was the key and not the arithmetic. `section_key`
+    buckets on the section's own downbeat instead.
     """
     by_section = {}
     for idx, f in enumerate(fits):
-        by_section.setdefault(f.placement.section, []).append(idx)
+        by_section.setdefault(section_key(f.placement), []).append(idx)
     out = {}
     for members in by_section.values():
         for m in range(len(members)):
@@ -1674,6 +1772,107 @@ def overlap_findings(fits):
     return out
 
 
+def _sec(s, key):
+    """One field of a declared section, whichever shape the caller holds:
+    `from_blueprint`/`from_song` hand back dicts, a `SongFit` holds
+    `SectionFit` objects, and both are legitimate arguments below."""
+    return s[key] if isinstance(s, dict) else getattr(s, key)
+
+
+def uncovered_bar_findings(fits, sections=()):
+    """-> [FitFinding], one per SECTION holding a bar no line's declared span
+    touches. NOT keyed to any line, and that is the point.
+
+    THE SAME EXTRACTION `overlap_findings` IS, ONE RELATION FURTHER OUT.
+    `SectionFit.uncovered_bars` answers this and `SongFit.table` prints it,
+    which made the whole check reachable from the `fit` verb and from nothing
+    else: `revise.Reviser._meter_findings` calls `fit_line` per line and never
+    builds a `SongFit`, so a bar nobody sings was invisible to `inspect`,
+    `brief`, `verify`, `revise` and `song`. Coverage is a relation between a
+    SECTION and the lines declared inside it, so `fit_line` structurally
+    cannot produce it — the identical argument that moved `overlap_findings`
+    out of `SectionFit.overlaps`, and `overlap_findings`'s own docstring
+    states the consequence of not making the move: "Written as a method on
+    `SongFit` this check would have stayed unreachable from the revision
+    loop." `uncovered_bars` was left as a method on `SongFit`, so it stayed
+    exactly there.
+
+    `fits` is the flat `LineFit` list in declared order — the object BOTH
+    callers already hold — and every coordinate this needs is on the
+    `Placement`: `section`, `section_start_bar`, `section_bars` and the
+    section's own `cycle`. `sections` is the declared section list
+    (`from_blueprint`/`from_song`'s dicts, or a `SongFit`'s `SectionFit`
+    objects) and is OPTIONAL, but it is not decoration: a section with NO
+    LINES AT ALL contributes nothing to `fits`, so without it the archetypal
+    case — an instrumental break declared as bars and never written to —
+    would be silently skipped by the check named after it. Supplied, it also
+    fixes the order; omitted, sections come out in order of first appearance.
+
+    SATISFIABLE, ALWAYS, AND THAT IS THE SEVERITY DECISION MADE HERE RATHER
+    THAN DOWNSTREAM (`_meter_findings` reads `satisfiable` and forms no
+    second opinion). An empty bar is not a contradiction in the declaration:
+    a rest, an instrumental break, a held note over the bar line, a vamp, a
+    section whose words are not written yet. `UNANSWERABLE` in this module
+    already says melisma is PERMANENT without a setting, so this layer cannot
+    even tell a held syllable from a silent bar — charging the writer for one
+    would be a norm nobody declared (doctrine 6), which is the same reason
+    `crowded` and `fighting` are counts and not verdicts.
+    """
+    by_section, order = {}, []
+    for f in fits:
+        name = f.placement.section
+        if name not in by_section:
+            by_section[name] = []
+            order.append(name)
+        by_section[name].append(f)
+    geometry = {}
+    for s in sections:
+        name = _sec(s, "name")
+        geometry[name] = (_sec(s, "cycle").pulses, int(_sec(s, "bars")),
+                          int(_sec(s, "start_bar")))
+        if name not in by_section:
+            by_section[name] = []
+            order.append(name)
+    if sections:
+        order = [_sec(s, "name") for s in sections] + \
+            [n for n in order if n not in {_sec(s, "name") for s in sections}]
+    out = []
+    for name in order:
+        members = by_section[name]
+        if name in geometry:
+            pulses, bars, start_bar = geometry[name]
+        elif members:
+            p = members[0].placement
+            if p.section_bars is None:
+                continue
+            pulses, bars = p.cycle.pulses, int(p.section_bars)
+            start_bar = int(p.section_start_bar)
+        else:                                    # pragma: no cover
+            continue
+        ub = _uncovered_bars([(m.placement.start, m.placement.end)
+                              for m in members], pulses, bars, start_bar)
+        if not ub:
+            continue
+        held = ", ".join(str(b) for b in range(start_bar, start_bar + bars)
+                         if b not in ub) or "none"
+        out.append(FitFinding(
+            "UNCOVERED_BARS",
+            f"{len(ub)} of {bars} bar(s) of section {name!r} carry no "
+            f"line: {', '.join(str(b) for b in ub)}",
+            f"{len(members)} line(s) are declared in this section and their "
+            f"spans cover bars {held}"
+            f". LEGAL, and named rather than charged: an empty bar is a rest, "
+            f"an instrumental break, a held syllable this layer cannot see "
+            f"(melisma is PERMANENT without a setting — see UNANSWERABLE), or "
+            f"a section whose words are not written yet. It is a fact about "
+            f"the DECLARATION — bar, beat and duration — and not about any "
+            f"line's WORDS, so no line is named: rewriting one would not "
+            f"change the answer. `SongFit.table`'s `empty bars` column is the "
+            f"same tuple, computed by the same `_uncovered_bars`.",
+            kind="placement"))
+    return out
+
+
 def fit_song(obj, phon=None, subdivision=None, assume=None,
              strip_parens=True, assume_meter=None):
     """-> SongFit. `obj` is a blueprint path, a blueprint dict, or a Song.
@@ -1686,15 +1885,25 @@ def fit_song(obj, phon=None, subdivision=None, assume=None,
     out = SongFit(sections=[SectionFit(name=s["name"], cycle=s["cycle"],
                                        bars=s["bars"], start_bar=s["start_bar"])
                             for s in secs])
-    by_name = {s.name: s for s in out.sections}
+    # KEYED ON THE SECTION, NOT ON ITS NAME. `{s.name: s for s in
+    # out.sections}` kept the last of two same-named sections, so every line
+    # of a repeated chorus was filed under its LAST instance: the first
+    # `SectionFit` reported zero lines and the second reported double, and
+    # `table()`'s per-bar density, `uncovered_bars()` and `overlaps()` all
+    # read off those lists.
+    by_sec = {(s.start_bar, s.name): s for s in out.sections}
     fits = []
     for i, p in enumerate(places):
         f = fit_line(p.text, p, phon=phon, subdivision=subdivision,
                      assume=assume, line_index=i, strip_parens=strip_parens)
         fits.append(f)
-        by_name[p.section].lines.append(f)
+        by_sec[section_key(p)].lines.append(f)
     for i, fs in overlap_findings(fits).items():
         fits[i].findings.extend(fs)
+    # SECTION-scoped, so it goes on the SongFit and never on a line. The
+    # `fit` verb has always had this number as a table column; a caller that
+    # reads findings rather than renders a table had no way to reach it.
+    out.section_findings.extend(uncovered_bar_findings(fits, secs))
     return out
 
 
@@ -1837,7 +2046,7 @@ __all__ = ["Unit", "RefusedToken", "LineUnits", "read_line", "Placement",
            "Subdivision", "Isochrony", "FitFinding", "FitRefusal", "Refused",
            "FitError", "LineFit", "fit_line", "SectionFit", "SongFit",
            "fit_song", "from_blueprint", "from_song", "overlap_findings",
-           "report",
+           "uncovered_bar_findings", "report",
            "ANSWERABLE", "UNANSWERABLE"]
 
 

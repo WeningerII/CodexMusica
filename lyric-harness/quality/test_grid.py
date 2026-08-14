@@ -404,6 +404,58 @@ def test_song_from_blueprint_matches_the_hand_rolled_reader():
           got.title == "")
 
 
+STRING_METER = os.path.join(HERE, "fixtures", "string_meter.blueprint.json")
+
+
+def test_a_signature_string_is_refused_and_named():
+    print("\n11b. a `meter` written as a signature STRING is refused by name, "
+          "not crashed on")
+    from quality.meter import MeterDeclarationError, section_meter
+    try:
+        song_from_blueprint(STRING_METER)
+        raised = None
+    except MeterDeclarationError as e:
+        raised = e
+    except Exception as e:                                  # pragma: no cover
+        raised = e
+    check("song_from_blueprint raises MeterDeclarationError, NOT the "
+          "AttributeError this used to be -- `'str' object has no attribute "
+          "'get'` names neither the file, the section, nor the field, and "
+          "AttributeError is outside the refusal family, so the CLI "
+          "tracebacked at exit 1 instead of refusing at 2",
+          isinstance(raised, MeterDeclarationError), repr(raised))
+    msg = str(raised)
+    check("the message names the SECTION, quotes the VALUE it found, names "
+          "its TYPE, and shows the shape this schema wants -- a diagnosis a "
+          "writer can act on without opening the reader",
+          "'intro'" in msg and '"4/4"' in msg and "a string" in msg
+          and '"beats": 4' in msg and '"unit": 4' in msg, msg)
+    check("and it does NOT say the section declares no time signature: it "
+          "declares one on that very line, and the reader may not assert "
+          "otherwise",
+          "no time signature" not in msg and "undeclared" not in msg.lower(),
+          msg)
+    check("an ABSENT meter is still not an error -- it comes back {} and "
+          "each reader keeps its own documented default, exactly as "
+          "`s.get(\"meter\", {})` did",
+          section_meter(None) == {} and section_meter({}) == {})
+    check("a dict passes through untouched, so no valid blueprint changes "
+          "shape on the way in",
+          section_meter({"beats": 7, "unit": 8, "groups": [3, 2, 2]})
+          == {"beats": 7, "unit": 8, "groups": [3, 2, 2]})
+    for bad, named in ((4, "a number"), ([4, 4], "an array"),
+                       (True, "a boolean")):
+        try:
+            section_meter(bad, "verse")
+            got = ""
+        except MeterDeclarationError as e:
+            got = str(e)
+        check(f"{named} is refused the same way and NAMED {named} -- the "
+              f"type in the message is JSON's, because JSON is what the "
+              f"operator wrote, and the article agrees with it",
+              named in got and "'verse'" in got, got[:120])
+
+
 def test_song_from_blueprint_reads_function_and_hooks():
     print("\n12. song_from_blueprint reads a blueprint that DOES declare "
           "function and hooks")
@@ -1598,6 +1650,314 @@ def test_a_returns_own_refusals_reach_the_report():
           f"{len(rev['findings'])} -> {len(rep['findings'])}")
 
 
+def test_two_sections_may_share_a_name():
+    """§26. `song_from_blueprint` had `{s.name: s for s in secs}` too.
+
+    `Song.lines_in` has refused to key on a name since the demo caught it --
+    "Repeated section names are normal and are exactly why this cannot key on
+    the name" -- and this reader was still doing exactly that one screen above
+    the `Line` it builds, silently dropping the FIRST of two sections called
+    `chorus`.
+
+    LATENT HERE, AND SAID SO RATHER THAN OVERSOLD. The only field read off the
+    resolved owner is `s.name`, which is the same string for both instances,
+    so no output of this function moved and no assertion in this file could
+    have caught it. `quality/fit.py` held the identical dict and read
+    `cycle`/`start_bar`/`bars` off it, where it was NOT latent: it measured
+    the first chorus's lines 56 pulses before their own downbeat, and
+    `fit.overlap_findings` -- bucketing on the same name -- then reported
+    every chorus line as intersecting its own return. A defect invisible only
+    because of what the caller happens to read is one field away from being
+    visible, which is why it is fixed and pinned here rather than left.
+    """
+    print("\n26. a repeated section name is a SONG FORM — the reader owns "
+          "lines by the section INSTANCE, not by what it is called")
+    M = {"beats": 4, "unit": 4, "groups": [2, 2]}
+
+    def sec(n, bars, start, fn):
+        return {"name": n, "bars": bars, "start_bar": start,
+                "meter": dict(M), "function": fn}
+    obj = {"title": "Ledger",
+           "sections": [sec("verse1", 8, 1, "verse"),
+                        sec("chorus", 8, 9, "chorus"),
+                        sec("bridge", 6, 17, "bridge"),
+                        sec("chorus", 8, 23, "chorus")],
+           "lines": [{"text": f"line at bar {b}", "bar": b, "beat": 1,
+                      "duration": 8, "section": s}
+                     for b, s in [(1, "verse1"), (3, "verse1"), (5, "verse1"),
+                                  (7, "verse1"),
+                                  (9, "chorus"), (11, "chorus"),
+                                  (13, "chorus"), (15, "chorus"),
+                                  (17, "bridge"), (19, "bridge"),
+                                  (23, "chorus"), (25, "chorus"),
+                                  (27, "chorus"), (29, "chorus")]]}
+    song, _h = song_from_blueprint(obj)
+    check("the reader keeps FOUR sections — two of them called `chorus`",
+          [s.name for s in song.sections]
+          == ["verse1", "chorus", "bridge", "chorus"])
+    check("each chorus instance owns its own four lines, by bar range",
+          [len(song.lines_in(s)) for s in song.sections] == [4, 4, 2, 4],
+          f"{[len(song.lines_in(s)) for s in song.sections]}")
+    check("`instances_of` finds BOTH — the function is the key that may "
+          "repeat, and it is keyed on the DECLARED function, never the name",
+          [s.start_bar for s in song.instances_of("chorus")] == [9, 23])
+    check("`lines_in` still refuses the repeated NAME as a string, which is "
+          "the precedent the rest of this fix is written from",
+          _raises(lambda: song.lines_in("chorus")))
+    check("the two instances occupy the same TUNE SLOT — the measurement a "
+          "collapsed pair could not have been asked for",
+          song.slot_profile(song.sections[1])
+          == song.slot_profile(song.sections[3]))
+
+    # THE RESOLUTION RULE, pinned where it IS observable. A name used once
+    # still outranks the bar range (doctrine 1: a declaration is not silently
+    # outranked). A name used twice names a SET, so the bar says which member;
+    # `by_name` answered "the last one" there, and answered it in silence.
+    amb = {"sections": [sec("a", 4, 1, "verse"), sec("c", 4, 5, "chorus"),
+                        sec("c", 4, 9, "chorus")],
+           "lines": [{"text": "declared into a, sitting in c", "bar": 6,
+                      "beat": 1, "duration": 4, "section": "a"},
+                     {"text": "declared into c, in the first", "bar": 6,
+                      "beat": 1, "duration": 4, "section": "c"},
+                     {"text": "declared into c, in the second", "bar": 10,
+                      "beat": 1, "duration": 4, "section": "c"},
+                     {"text": "declared into c, sitting in neither", "bar": 2,
+                      "beat": 1, "duration": 4, "section": "c"}]}
+    asong, _h2 = song_from_blueprint(amb)
+    check("a UNIQUE declared name outranks the bar range, unchanged",
+          asong.lines[0].section == "a")
+    check("a REPEATED name is resolved by the bar, to each instance in turn",
+          [len(asong.lines_in(s)) for s in asong.sections] == [1, 2, 1],
+          f"{[len(asong.lines_in(s)) for s in asong.sections]}")
+    # THE ONE PLACE THE LATENCY LIFTS, and the only assertion in this section
+    # that could have caught the dict. When the ambiguous name's bar is in
+    # NEITHER instance, `by_name` answered `the last one` and this answers
+    # `the section the bar is actually in`, so the two disagree in the one
+    # field this reader reads.
+    check("a repeated name whose bar is in neither instance falls through to "
+          "the bar range — an ambiguous name carries no information, and "
+          "`by_name` answered `whichever came last` in silence",
+          [l.section for l in asong.lines] == ["a", "c", "c", "a"],
+          f"{[l.section for l in asong.lines]}")
+
+    # BOTH READERS OR NEITHER. `quality/fit.py` reads the same blueprint
+    # independently, and the repo's own rule is that the two must agree or the
+    # `grid` verb and the `song` verb answer differently about one file.
+    from quality import fit as FT
+    _s, places = FT.from_blueprint(obj)
+    check("`quality.fit.from_blueprint` resolves it identically — one file, "
+          "one answer, whichever reader is asked",
+          [p.section_start_bar for p in places]
+          == [song.section_at(l.bar) and
+              [s for s in song.sections
+               if s.start_bar <= l.bar <= s.end_bar][0].start_bar
+              for l in song.lines])
+    check("...and no line sits before its own section's downbeat, which is "
+          "what the name-keyed reader produced: -56 pulses for the first "
+          "chorus, a `pickup` fourteen bars long",
+          all(p.start >= 0 for p in places),
+          f"min offset {min(float(p.start) for p in places)}")
+
+# ---------------------------------------------------------------------------
+# THE SAME OBJECT'S THIRD STATE — `Return.rhyme_scheme_preserved`'s FALSE
+# ---------------------------------------------------------------------------
+
+#: One chorus and three candidate returns of it, each used in a two-chorus
+#: song. `_SD_HELD` rewrites three of the four lines and keeps the AABB
+#: partition (the Hanby shape); `_SD_BROKE` is the SAME rewrite with one end
+#: word swapped, so it recasts the partition; `_SD_CHORUS[:3]` drops a line,
+#: which changes the partition BY LENGTH and is the case the gate excludes.
+#: The first two differ by one word so nothing but the flag can explain a
+#: difference in what the callers report.
+_SD_CHORUS = [
+    "we are the wire that answers to the drive",
+    "we count the miles until we come alive",
+    "we hold the number steady till it goes",
+    "we let it climb as high as anyone knows",
+]
+_SD_HELD = [                                     # AABB -> AABB
+    "we are the wire that answers to the drive",
+    "we counted every mile before we came alive",
+    "we watched the number settle as it froze",
+    "we let it fall as low as anyone shows",
+]
+_SD_BROKE = [                                    # AABB -> AABC
+    "we are the wire that answers to the drive",
+    "we counted every mile before we came alive",
+    "we watched the number settle as it froze",
+    "we let it fall as low as anyone drives",
+]
+
+
+def _sd_song(second):
+    return Song(
+        sections=[Section("c1", 4, Meter(4, 4), function="chorus"),
+                  Section("c2", 4, Meter(4, 4), start_bar=5,
+                          function="chorus")],
+        lines=[*[Line(t, bar=1 + i, duration=F(4), section="c1")
+                 for i, t in enumerate(_SD_CHORUS)],
+               *[Line(t, bar=5 + i, duration=F(4), section="c2")
+                 for i, t in enumerate(second)]])
+
+
+def test_a_returns_broken_rhyme_scheme_reaches_the_report():
+    """`Return.rhyme_scheme_preserved`'s TRUE reached the quality ladder and
+    its FALSE reached nothing at all.
+
+    TRUE adds RHYME_PRESERVING_REWRITE; FALSE added no quality, no kind and
+    no finding, and only `describe()` — which no grading path calls — ever
+    printed it. Two songs identical but for one end word came back
+    byte-identical at every caller.
+    """
+    print("\n27. a Return's BROKEN rhyme scheme reaches the report — the "
+          "answer that was computed on every run and told to nobody")
+    from quality.grid import (POPULAR_SONG, VARIATION_KINDS, compare_returns,
+                              rime_cmudict, return_findings,
+                              song_function_report)
+    import lyric_harness as LH
+    key = rime_cmudict(LH.Lexicon())
+
+    held = compare_returns(_SD_CHORUS, _SD_HELD, rhyme_key=key)
+    broke = compare_returns(_SD_CHORUS, _SD_BROKE, rhyme_key=key)
+    check("the fixture isolates the flag and nothing else: same kind of "
+          "rewrite, one end word apart, opposite answers",
+          held.rhyme_scheme_preserved is True
+          and broke.rhyme_scheme_preserved is False
+          and held.line_distance == broke.line_distance
+          and len(held.varied_lines) == len(broke.varied_lines),
+          f"held {held.kind} / broke {broke.kind}; line distance "
+          f"{held.line_distance} both, {len(broke.varied_lines)} moved both")
+
+    f_held = {x.code for x in return_findings(
+        _sd_song(_SD_HELD), "chorus", rhyme_key=key)[0]}
+    f_broke = {x.code for x in return_findings(
+        _sd_song(_SD_BROKE), "chorus", rhyme_key=key)[0]}
+    check("the broken return earns a finding and the held one does not — "
+          "which is the asymmetry, closed",
+          f_broke - f_held == {"RETURN_SCHEME_DRIFT"} and not f_held - f_broke,
+          f"held {sorted(f_held)} -> broke {sorted(f_broke)}")
+
+    ev = [x.evidence for x in return_findings(
+        _sd_song(_SD_BROKE), "chorus", rhyme_key=key)[0]
+        if x.code == "RETURN_SCHEME_DRIFT"][0]
+    check("the evidence prints BOTH partitions, so the claim is one a reader "
+          "checks by eye rather than takes on trust",
+          "AABB" in ev and "AABC" in ev, ev[:90])
+    check("and NAMES the phonology that produced them (doctrine 45)",
+          "CMUdict" in ev)
+
+    # THE GATE. A return that drops a line has a different partition BY
+    # ARITHMETIC, and the ladder already names that TRUNCATED_RETURN.
+    cut = return_findings(_sd_song(_SD_CHORUS[:3]), "chorus",
+                          rhyme_key=key)[0]
+    cutr = compare_returns(_SD_CHORUS, _SD_CHORUS[:3], rhyme_key=key)
+    check("a TRUNCATED return is silent here even though its flag is False — "
+          "charging a LENGTH fact to the RHYME layer is doctrine 79's own "
+          "error, and the kind already says it",
+          cutr.rhyme_scheme_preserved is False
+          and "RETURN_SCHEME_DRIFT" not in {x.code for x in cut},
+          f"{cutr.kind}, flag {cutr.rhyme_scheme_preserved}, findings "
+          f"{sorted(x.code for x in cut)} — measured over corpus/song/ the "
+          f"gate takes the rule from 24 fires to 4, and all 20 it drops are "
+          f"line-count changes (ABCD -> A, A -> AA)")
+
+    # NO PHONOLOGY: this must stay CANNOT TELL, never a NO (doctrine 28/45).
+    blind = {x.code for x in return_findings(_sd_song(_SD_BROKE),
+                                             "chorus")[0]}
+    check("with no rhyme_key the finding does not fire — a silent default "
+          "here would be a claim about a phonology nobody named",
+          "RETURN_SCHEME_DRIFT" not in blind, sorted(blind))
+
+    # DOCTRINE 79. A finding is not a refusal and must not move the triple.
+    r_held = song_function_report(_sd_song(_SD_HELD), rhyme_key=key)
+    r_broke = song_function_report(_sd_song(_SD_BROKE), rhyme_key=key)
+    check("it reaches `song_function_report`",
+          "RETURN_SCHEME_DRIFT" in {x.code for x in r_broke["findings"]})
+    check("and the asked/answered/refused triple is UNMOVED — a finding is "
+          "not a refusal, and this is the inflation the report's own "
+          "docstring records being bitten by (doctrine 79)",
+          (r_held["asked"], r_held["answered"], r_held["refused"],
+           r_held["refusal_records"])
+          == (r_broke["asked"], r_broke["answered"], r_broke["refused"],
+              r_broke["refusal_records"]),
+          f"held asked {r_held['asked']} answered {r_held['answered']} "
+          f"refused {r_held['refused']} records {r_held['refusal_records']}; "
+          f"broke asked {r_broke['asked']} answered {r_broke['answered']} "
+          f"refused {r_broke['refused']} records "
+          f"{r_broke['refusal_records']}")
+
+    # DOCTRINE 24. The negative must not delete the positive's category.
+    check("`kind` and `qualities` are untouched — the ladder still answers "
+          "WHAT SURVIVED, and a rewrite that broke its rhyme still survived "
+          "as PARTIAL_RETURN (doctrine 24)",
+          broke.kind == "PARTIAL_RETURN"
+          and "RETURN_SCHEME_DRIFT" not in broke.qualities
+          and held.kind == "RHYME_PRESERVING_REWRITE",
+          f"{broke.kind}, qualities {sorted(broke.qualities)}")
+    check("and the name is not the positive's negation — it is a FINDING in "
+          "the RETURN_*_DRIFT family and not a rung of the ladder, so no kind "
+          "is deleted to make room for it",
+          "RETURN_SCHEME_DRIFT" not in dict(VARIATION_KINDS)
+          and "RHYME_PRESERVING_REWRITE" in dict(VARIATION_KINDS),
+          "RETURN_LENGTH_DRIFT / RETURN_METER_DRIFT / RETURN_SLOT_DRIFT / "
+          "RETURN_SCHEME_DRIFT — 'this returning function does not hold one "
+          "X across its returns', one channel over")
+
+    # WHERE THE FLAG LIVES. This is a CONVENTION and may not fail a draft.
+    # Pinned against `revise.py`'s SOURCE, the same move
+    # `test_mandate_language.test_line_count_cannot_fire_through_the_reviser`
+    # makes for RETURN_NOT_VERBATIM: the severity is decided in that file, so
+    # a promotion made there has to fail HERE.
+    rsrc = open(os.path.join(HERE, "revise.py")).read()
+    check("`revise.py` types every song-function finding a note except "
+          "HOOK_ABSENT, so this arrives as a NOTE and cannot fail "
+          "`verify()` — it is measured against a labelled CONVENTION "
+          "(doctrine 6)",
+          '"flag" if f.code == "HOOK_ABSENT" else "note"' in rsrc
+          and "RETURN_SCHEME_DRIFT" in rsrc,
+          f"{POPULAR_SONG.name!r} — `return_findings` is never handed a "
+          f"mandate, so nothing it says is a requirement the writer declared. "
+          f"The flag for a REQUIRED return is RETURN_NOT_VERBATIM, from "
+          f"`Mandate.returns_check`, one layer down.")
+
+
+def test_line_runs_is_surfaced_rather_than_computed_for_nobody():
+    """`Return.line_runs` had ZERO readers — production, tests, `describe()`.
+
+    `invariant_runs` is the MINIMUM over it, and a reader shown `(0, 0)` had
+    no way to tell one line that shares nothing from a block that shares
+    nothing. The minimum is the claim; this is the evidence for it.
+    """
+    print("\n27b. `Return.line_runs` — computed on every comparison, read by "
+          "nothing, now printed under the minimum it explains")
+    from quality.grid import compare_returns
+    r = compare_returns(_SD_CHORUS, _SD_BROKE)
+    check("it is computed, one row per line that moved",
+          len(r.line_runs) == len(r.varied_lines) and r.line_runs,
+          f"{r.line_runs}")
+    check("`invariant_runs` IS its per-channel minimum — which is why it is "
+          "the evidence and not a second measurement",
+          r.invariant_runs == (min(h for _l, h, _t in r.line_runs),
+                               min(t for _l, _h, t in r.line_runs)),
+          f"{r.invariant_runs} over {r.line_runs}")
+    d = r.describe()
+    check("and `describe()` now prints every one of them",
+          all(f"head {h}, tail {t}" in d for _l, h, t in r.line_runs),
+          [l for l in d.splitlines() if "word edits" in l])
+    # A hand-built `Return` (and a STUB) carries varied_lines with NO
+    # line_runs. Zipping the two would print nothing at all there.
+    from quality.grid import Return
+    bare = Return(
+        kind="PARTIAL_RETURN", qualities=frozenset({"PARTIAL_RETURN"}),
+        varied_lines=((2, 2, "a cat sat down", "a cat stood up", 2),))
+    row = [l for l in bare.describe().splitlines() if "word edits" in l]
+    check("a Return with varied lines and NO line_runs — hand-built, or a "
+          "STUB — still prints its edits rather than silently printing "
+          "nothing",
+          row == ["         ->  'a cat stood up'   (2 word edits)"],
+          f"{row} — the per-line runs are looked up by line number, never "
+          f"zipped, so a missing row drops the RUNS and not the LINE")
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -1610,6 +1970,7 @@ if __name__ == "__main__":
                test_four_four_does_not_read_the_grouping,
                test_the_shipped_blueprint_is_declared_honestly,
                test_song_from_blueprint_matches_the_hand_rolled_reader,
+               test_a_signature_string_is_refused_and_named,
                test_song_from_blueprint_reads_function_and_hooks,
                test_song_from_blueprint_rejects_an_undeclared_function,
                test_song_from_blueprint_owns_lines_by_bar_when_unnamed,
@@ -1623,7 +1984,10 @@ if __name__ == "__main__":
                test_every_variation_kind_is_reportable,
                test_read_marked_songs_drops_apparatus_by_the_one_rule,
                test_a_reprise_is_a_relation_between_two_DIFFERENT_functions,
-               test_a_returns_own_refusals_reach_the_report):
+               test_a_returns_own_refusals_reach_the_report,
+               test_two_sections_may_share_a_name,
+               test_a_returns_broken_rhyme_scheme_reaches_the_report,
+               test_line_runs_is_surfaced_rather_than_computed_for_nobody):
         fn()
     print("=" * 62)
     if FAILURES:

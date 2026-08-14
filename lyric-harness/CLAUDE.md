@@ -335,21 +335,48 @@ was wrong.** That the floor still SPEAKS about a verbatim chorus is right and
 is unchanged. That it FAILED the draft for it was never measured, and the
 premise which excused not measuring it was false: `radif_min_pair_fraction`
 was carried as definitional because "this project has no corpus of radif verse
-to calibrate it against", while `corpus/song/eng_*` held **1,872 items inside
+to calibrate it against", while `corpus/song/eng_*` held **1,859 items inside
 this profile's own token band** — the population four of the five other
-thresholds were already calibrated on. Measured: 46 of those items carry a
-repetend closing ≥2 pairs and the declared 0.50 **refuses to license 43 of the
-46, a 93.5% false-positive rate on canonical published verse** against the ~5%
+thresholds were already calibrated on. Measured: 57 of those items carry a
+repetend closing ≥2 pairs and the declared 0.50 **refuses to license 54 of the
+57, a 94.7% false-positive rate on canonical published verse** against the ~5%
 its siblings hold to. It is also anti-correlated with its own target — it
-admits two ONE-word runs and charges every repetend of three words or more,
-Burns's six-word `a health to them that's aw'` included. Neither density
-(0.125 vs 0.150 median, one-word against multi-word) nor run length (FPR
-60.9/73.9/78.3% at ≥2/3/4 words) reaches 5%, **so the value is NOT repinned** —
+admits two ONE-word runs (`john` 8/16 and `da` 7/11, beside the two-word `john
+tod` 12/21) and charges every repetend of three words or more, 10 of 10,
+Burns's six-word `a health to them that's awa` at 4/20 included. Neither density
+(0.1292 vs 0.1417 median, one-word against multi-word) nor run length (FPR
+70.2/82.5/86.0% at ≥2/3/4 words) reaches 5%, **so the value is NOT repinned** —
 retuning with no calibration behind the new number is doctrine 58's error. The
 RECURRING case is a note from that date; a run closing ONE pair recurs nowhere,
 is a one-off self-rhyme outside everything measured, and **stays a flag**.
 Splitting those two cost zero test churn, which is itself the evidence that
 `quality/test_floor.py`'s existing assertions were all about the one-off.
+**EVERY COUNT IN THIS PARAGRAPH IS REPINNED 2026-08-14, FROM ~~1,872 items /
+46 carriers / 43 refused / 93.5% FPR / density 0.125 vs 0.150 / run-length FPR
+60.9-73.9-78.3%~~ — commit `d362b9e`'s own figures, and not one of them
+reproduces.** Three independent re-derivations agree on 1,859/57/54/94.7%, one
+of them run against the tree AS OF `d362b9e` with `_strip_radif`, `_tokens`
+and the corpus byte-identical to it — so the record was wrong on the day it
+was written, not stale since. `quality/floor.py` had been contradicting itself
+twelve lines apart the whole time: the `song` Profile declares `n_human=1859`
+and that same profile's `source=` reads "1,859 items over 108 authors".
+**1,872 IS reachable, two ways, and neither of them is this band** — `hi=405`
+instead of 400, or a whitespace `.split()` token count instead of the
+profile's own `QualityFeatures._tokens` — and under BOTH the carrier counts
+stay 57/54/94.7%, so nothing about the band rescues 46/43. **46/43/93.5% is
+not reachable under any defensible protocol.** It appears only at bands
+nowhere near the declared one (`150–330…349`, `56–222`), and at none of those
+do the record's other four figures follow; swept over every band
+`lo ∈ 1..800, hi ∈ lo..3000` under three tokenizers and three pairing
+conventions, NO band returns 46/43 together with the recorded run-length
+profile — that profile needs 18/12/10 carriers with runs of ≥2/3/4 words and
+the best any 46/43 band reaches is 15/10/8. **THE FINDING IS UNCHANGED AND
+SHARPER: the false-positive rate went UP.** Nothing was tuned to bring 93.5%
+back — doctrine 58 aimed at the measurement rather than at the threshold, and
+the same argument that keeps 0.50 keeps 94.7%. What DOES reproduce exactly,
+and is why this repin lands on the counts and not on the mechanism: the three
+admitted repetends above, the Burns figure, and every repetend of ≥3 words
+charged, 10 of 10.
 
 **A LYRIC FILE'S APPARATUS LINES ARE `[Section]`, `---`, OR `#` — NOTHING
 ELSE — CENTRALIZED 2026-08-12, CONVERGED 2026-08-13.** A `(parenthetical stage direction)` under a
@@ -1281,6 +1308,36 @@ rather than this paragraph — a roster copied into two files drifts in both.
    INVISIBLE and now lands in `new_notes`, never `new_flags`. The loop can see a
    change it was blind to in both directions and still cannot reject on it.
    `quality/test_revise.py` test 34.
+   **AND THAT WIRING TOOK `report` AND LEFT `substitution_report`, WHICH THAT
+   FUNCTION'S OWN DOCSTRING CALLS THE SHARPER HALF — WIRED 2026-08-14.** It sits
+   100 lines below `report` in the same module and its only callers were
+   `readability.py`'s `main()`, which prints a COUNT and never a word, and one
+   test. So every draft-grading surface could say the LINE was unreadable and
+   none could say WHICH WORD the harness would have rhymed on instead — the
+   actionable half, and the dangerous one, because "the substituted word is a
+   plausible English word and nothing about the output looks wrong". It is now
+   `SUBSTITUTED_END_WORD` in `report`'s own finding list, so `inspect` reaches
+   it through the call it already makes (one definition, two surfaces) and the
+   `readability` verb gains it too. A **note**, arriving as one from `report`
+   rather than downgraded here, because it is not a second charge.
+   **DO NOT OVERSTATE WHAT IT BUYS, AND THE MEASUREMENT IS WHY.** Over the 143
+   English song files 8,842 lines are substitutions and **8,840 of them are
+   ALREADY `UNREADABLE_END_WORD`** — the line was never silent, only the word
+   was. What the wiring newly makes VISIBLE AT ALL is 2 lines.
+   **AND `substitution_report`'s claim to be "a strict subset of the
+   unreadable-final lines" IS FALSE, measured while wiring it** (6 of 31,355
+   over all 260 `corpus/song/` files): a final token that READS and yields NO
+   SYLLABLE — `mm` is `['M']`, and a lone consonant syllabifies to nothing — is
+   dropped by `word_syllable_map` exactly as an OOV word is while `line_anchors`
+   still returns an anchor built on the PREVIOUS word, so `final_unreadable` is
+   False and the whole module was silent. Byron's `...lay white on the turf,[mm]`
+   is anchored on `turf` and reported READABLE: invented relation #4 of that
+   module's docstring, at a site `unread_final_piece` does not cover. Those 2
+   lines are the only population here no other finding reaches, and
+   `corpus_rate` now returns `substituted_flagged`/`substituted_silent` as two
+   counts that are never summed. `quality/test_revise.py` test 36,
+   `quality/test_readability.py` tests 2/5/7 (the [mm] line is test 7's
+   exemplar, and it fires that code and NO other).
    ~~`quality/readability.py`'s own report never joins the revision loop, and
    the data is already on the path.** `Reviser._matrix` computes
    `readability_records` for EVERY line on EVERY run. The only readability
@@ -1309,6 +1366,39 @@ rather than this paragraph — a roster copied into two files drifts in both.
    `quality/test_revise.py` test 35 pins the `Reviser` side and the
    byte-identical-evidence invariant; `quality/test_fit.py` already carried the
    `fit` side.
+   **THE SAME SHAPE ONE RELATION FURTHER OUT SURVIVED THAT EXTRACTION —
+   `SectionFit.uncovered_bars`, WIRED 2026-08-14.** Bars of a section no line's
+   declared span touches. `overlap_findings` was moved off `SectionFit` and onto
+   the flat `LineFit` list precisely because "written as a method on `SongFit`
+   this check would have stayed unreachable from the revision loop"; coverage is
+   a SECTION-level relation by the identical argument, and it was left as a
+   method, so it stayed exactly there — `SongFit.table` -> `fit.report` -> the
+   `fit` verb, and nothing else. MEASURED on one blueprint before the wiring:
+   `fit` printed `4 3..6` and `2 11..12` on two sections while `inspect()`
+   returned ELEVEN distinct codes, not one of them about a bar nobody sings.
+   `fit.uncovered_bar_findings(fits, sections)` takes the same flat list
+   `overlap_findings` does; the second argument is not decoration, because a
+   section with NO LINES — a declared instrumental, the archetypal case — puts
+   nothing in that list at all. It was a TABLE COLUMN and not a `FitFinding`, so
+   the code is new, and `_uncovered_bars` is now the one definition both the
+   column and the finding go through.
+   **THE CHARGE IS THE DECISION, AND THE COUNTERFACTUAL WAS MEASURED.** A bar
+   nobody covers is a fact about the DECLARATION (bar/beat/duration), not about
+   any line's WORDS — no rewrite moves it, and the loop's only move is a word
+   swap on a named line. So it is WHOLE-DRAFT with NO locations, and a **note**
+   (`fit.py` marks it satisfiable — a rest, an instrumental, or a melisma that
+   layer's own `UNANSWERABLE` says it cannot see; `revise.py` re-decides
+   nothing). Charged instead as a PER-LINE FLAG on the same draft the loop goes
+   from **SUCCESS in 0 rounds to NO_PROGRESS in 2 with all four lines
+   permanently `unresolved`**, briefed with an empty candidate field on 3 of 4 —
+   which is the destroyed SUCCESS `inspect()`'s own readability block already
+   priced. It never reaches `verify()`'s gate either way: coverage is a function
+   of the blueprint alone, so it is identical on both sides and cancels out of
+   the diff. NOT summed into any existing count (doctrine 79/91):
+   `SongFit.section_findings` is separate from `SongFit.findings()`, which is
+   the per-LINE set, and the finding is not a `FitRefusal`, so `fit.report`'s
+   REFUSED-by-cause totals are unmoved. `quality/test_revise.py` test 37,
+   `quality/test_fit.py`'s `test_uncovered_bars_asked_of_a_flat_list...`.
    ~~`OVERLAPPING_SPANS` is reachable from `fit` and from nothing else.**
    `Reviser._meter_findings` calls `quality/fit.py`'s `fit_line` once per line
    and never builds a `SongFit` — and an overlap is a relation BETWEEN two
@@ -1388,6 +1478,56 @@ rather than this paragraph — a roster copied into two files drifts in both.
    that way the collection costs zero test churn. `STUB_RETURN` is skipped in
    `reprise_findings` alone, where `REPRISE_STUB` already says it in that
    function's own vocabulary. `quality/test_grid.py` §25.
+   **THE SAME OBJECT'S THIRD STATE — `Return.rhyme_scheme_preserved`'s FALSE.**
+   The paragraph above collects that field's CANNOT TELL. Its TRUE reached the
+   quality ladder as `RHYME_PRESERVING_REWRITE` and **its FALSE reached no
+   quality, no kind and no finding** — only `describe()`, which no grading path
+   calls. Measured on two songs identical but for one end word: every caller
+   came back BYTE-IDENTICAL, so "the chorus came back on a different rhyme
+   scheme" was answered on every run of the loop and told to nobody.
+   `RETURN_SCHEME_DRIFT` closes it, as the fourth member of the
+   `RETURN_LENGTH_DRIFT`/`METER`/`SLOT` family — *this returning function does
+   not hold one X across its returns*, one channel over. **NOT a quality and
+   not a kind**, and doctrine 24 is why rather than why not: the ladder answers
+   WHAT SURVIVED, and a rewrite that broke its rhyme still survived as
+   `PARTIAL_RETURN`, so relabelling it by what FAILED would delete the
+   observation that something held.
+   **THE GATE WAS MEASURED BEFORE IT WAS WRITTEN, and it is the positive's own
+   gate with the opposite answer** — equal line counts, at least one line
+   moved. Over `corpus/song/`: 1,920 return pairs, 947 hold, 949 CANNOT TELL,
+   24 FALSE. Ungated it fires on all 24 and **twenty of them differ only in
+   LINE COUNT** (`ABCD -> A`, `A -> AA` — Durfey's burdens printed short on the
+   return), which the ladder already names `TRUNCATED_RETURN`/`EXTENDED_RETURN`
+   and which charges a length fact to the rhyme layer (doctrine 79). Gated it
+   fires on **4 (0.21%)**: Scott's `AB -> AA` x3 and Hart's `ABAC -> ABCB`.
+   All four are already `REWRITTEN_RETURN`, whose own gloss says the harness
+   cannot choose between "a chorus that rewrites" and "a mark grouping two
+   different sections" — **so the printed corpus bounds the false-positive side
+   and does not supply the positive one**, the same limit
+   `CROSS_FUNCTION_REPRISE` states. The target population is the REVISION LOOP,
+   where a half-rewritten chorus is the ordinary output and lands on
+   `PARTIAL_RETURN`/`HEAD_PRESERVED` with nothing saying the rhyme went.
+   **IT FIRES ON ONE OF THE FOUR SHIPPED BLUEPRINTS AND IT IS A TRUE POSITIVE**
+   — `moonlight_fixture`'s verse 1 is ABAB (frame/name `EY M`, cold/told
+   `OW L D`) and verse 2 is ABCB (hand `AE N D` against can `AE N`). The key is
+   an IDENTITY key, stricter than the graded band, and its `declared_name` says
+   so inside the evidence, so the finding claims "not preserved under
+   perfect-rhyme identity" and never "does not rhyme". Same shape as this
+   entry's SHAPE layer: not untested, firing on the repo's own fixtures and
+   reporting to nobody.
+   **A NOTE, and this is the one most likely to be promoted later** because it
+   is about RHYME and rhyme is what the mandate flags. It must not be:
+   `return_findings` is never handed a mandate, so everything it says is
+   measured against `POPULAR_SONG` and doctrine 6 applies — and **the flag for
+   this already exists one layer down**, as `RETURN_NOT_VERBATIM` on a return
+   the writer DECLARED with `schemes.Return(verbatim=True)`. `reprise_findings`
+   does NOT get it: a reprise's own gloss is "later and CHANGED" and names no
+   channel it must hold. The triple is unmoved (a finding is not a refusal),
+   verified either side. `quality/test_grid.py` §26.
+   **AND `Return.line_runs` HAD ZERO READERS** — production, tests,
+   `describe()` — while `invariant_runs`, the MINIMUM over it, was printed.
+   SURFACED rather than deleted: a reader shown `(0, 0)` could not tell one
+   line that shares nothing from a block that shares nothing. §26b.
 
 ## The doctrine index — every number, and where it lives
 

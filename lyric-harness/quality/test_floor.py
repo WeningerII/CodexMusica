@@ -142,6 +142,112 @@ def test_cliche_pair():
     f = find(lines, "CLICHE_PAIR", "AA")
     check("rain/pain fires", f is not None,
           f.evidence if f else "no CLICHE_PAIR finding")
+    # The list is a DECLARED COORDINATE (doctrine 1), not a module constant
+    # the caller has to argue with. Until 2026-08-14 it was the only floor
+    # threshold with no field to disagree in.
+    d = FloorDeclaration()
+    check("the stock list is a declared coordinate",
+          isinstance(d.cliche_pairs, frozenset) and len(d.cliche_pairs) == 30,
+          f"FloorDeclaration.cliche_pairs, {len(d.cliche_pairs)} pairs")
+    check("...and it is DEFINITIONAL, not a measured threshold",
+          "cliche_pairs" in CALIBRATION.get("definitional", []),
+          "there is no percentile to move: the only disagreement available "
+          "is which pairs are on the list")
+    empty = SlopFloor(decl=FloorDeclaration(cliche_pairs=frozenset()),
+                      qf=FLOOR.qf)
+    check("declaring an empty list silences the check",
+          not any(x.code == "CLICHE_PAIR" for x in empty.check(lines, "AA")),
+          "the declaration is READ, not decorative")
+    swapped = SlopFloor(
+        decl=FloorDeclaration(cliche_pairs=frozenset(
+            [frozenset(("rain", "pain")), frozenset(("moon", "june"))])),
+        qf=FLOOR.qf)
+    g = [x for x in swapped.check(lines, "AA") if x.code == "CLICHE_PAIR"]
+    check("a swapped list does not inherit the shipped list's FPR",
+          bool(g) and "does not describe it" in g[0].evidence
+          and "no measured rate behind it at all" in g[0].evidence
+          and f is not None and "does not describe it" not in f.evidence,
+          "the 6.35% is a property of THIS set on THIS corpus (doctrine 22), "
+          "so the finding disowns it the moment the set is replaced")
+    # WHAT THE FLAG IS NOT. The rate licenses it to fire; it does not make
+    # the list a cliche detector, and the finding a writer reads has to say
+    # so where they will see it.
+    check("the finding states what it is NOT, not only what fired",
+          f is not None and "WHAT IT IS NOT" in f.evidence
+          and "13.3%" in f.evidence and "#254 of 15,409" in f.evidence,
+          "measured: 4 of the top 30 pairs by author dispersion in "
+          "data/song_rhymepair_en.tsv are on the list; 9 of the 30 never "
+          "fire anywhere in corpus/song/eng_*")
+    check("...and it names the missing rhyme test",
+          f is not None and "tears" in f.evidence
+          and "no rhyme test" in f.evidence,
+          "raw string-set membership: tears/years fires 21x over the corpus "
+          "on couplets the repo's own perfect-rhyme table gives count zero")
+
+
+def test_cliche_pair_may_only_reject_where_it_was_measured():
+    print("\n6b. CLICHE_PAIR runs at every length and rejects at one")
+    # 34 tokens -> the `section` profile EXACTLY.
+    inband = ["She stood alone and watched the falling rain",
+              "And every year she carried all the pain",
+              "The kettle cooled beside an empty chair",
+              "A neighbour's radio was playing somewhere"]
+    n = sum(len(FLOOR.qf._tokens(x)) for x in inband)
+    prof, exact = declaration_for(n)
+    f = find(inband, "CLICHE_PAIR", "AABB")
+    check("inside a measured range it is a FLAG",
+          exact and f is not None and f.severity == "flag",
+          f"{n} tokens, profile {prof.name if prof else None}, exact={exact}, "
+          f"severity={f.severity if f else None}")
+    # Past every profile's reach: the branch where `check()` returns early and
+    # CLICHE_PAIR used to be the ONLY flag the gate could still emit.
+    huge = inband + ["word " * 40] * 40
+    m = sum(len(FLOOR.qf._tokens(x)) for x in huge)
+    pr, ex = declaration_for(m)
+    fs = FLOOR.check(huge, None)
+    g = [x for x in fs if x.code == "CLICHE_PAIR"]
+    check("past every profile's reach it still RUNS",
+          pr is None and g,
+          f"{m} tokens, profile None; the membership test is length-blind "
+          f"and nothing about it changed")
+    check("...but it may not reject there",
+          g and g[0].severity == "note",
+          "MEASURED 2026-08-14: 14.74% of the 285 corpus items in this "
+          "bucket fire it, against 6.35% in band. An unmeasured rate may "
+          "not carry a rejection (doctrine 22)")
+    check("...and it was the ONLY flag the gate could emit there",
+          not [x for x in fs if x.severity == "flag"
+               and x.code != "REPEAT_IN_VERSE"],
+          "OUT_OF_CALIBRATED_LENGTH returns before every length-sensitive "
+          "check; REPEAT_IN_VERSE stays a flag on purpose, since a word "
+          "rhymed with itself needs no calibration")
+    # And the announcement has to be TRUE. It said "every finding below is
+    # downgraded to a note" while `_relation_findings` hardcoded a flag.
+    stretched = inband + ["word " * 40]
+    s_tok = sum(len(FLOOR.qf._tokens(x)) for x in stretched)
+    sp, sx = declaration_for(s_tok)
+    ext = find(stretched, "EXTRAPOLATED_LENGTH")
+    check("a length between profiles is announced as extrapolated",
+          sp is not None and not sx and ext is not None,
+          f"{s_tok} tokens, profile {sp.name if sp else None}, exact={sx}")
+    check("the extrapolation banner names which checks still ran",
+          ext is not None and "REPEAT_IN_VERSE" in ext.evidence
+          and "CLICHE_PAIR" in ext.evidence
+          and "may not reject" in ext.evidence,
+          "it claimed 'every finding below is downgraded to a note' and that "
+          "was false — `_relation_findings` is appended AFTER `sev()` and "
+          "hardcoded a flag — and false in the direction that makes a "
+          "surviving flag look impossible")
+    sf = find(stretched, "CLICHE_PAIR")
+    check("...and the banner's claim now matches the severity emitted",
+          sf is not None and sf.severity == "note",
+          f"severity={sf.severity if sf else None}")
+    oob = find(huge, "OUT_OF_CALIBRATED_LENGTH")
+    check("the out-of-range banner does too",
+          oob is not None and "REPEAT_IN_VERSE" in oob.evidence
+          and "CLICHE_PAIR" in oob.evidence,
+          "a reader of the finding can tell which of the relation checks "
+          "can still fail them")
 
 
 def test_anaphora():
@@ -227,12 +333,15 @@ def test_length_is_a_coordinate():
     tok = sum(len(FLOOR.qf._tokens(x)) for x in long_bad)
     pr, ex = declaration_for(tok)
     if pr is not None and not ex:
-        # only the LENGTH-CALIBRATED checks are downgraded. Self-rhyme, radif,
-        # cliche and shared suffix do not depend on length, so extrapolating a
-        # percentile has nothing to do with them and they keep their severity.
+        # The five LENGTH-CALIBRATED checks are downgraded because their
+        # thresholds were extrapolated. CLICHE_PAIR is downgraded too, and
+        # for a different reason (see test 6b): it borrows no percentile, but
+        # the false-positive rate that lets it reject was only ever measured
+        # in band. Self-rhyme, radif and shared suffix keep their severity —
+        # a word rhymed with itself is a fact about two lines.
         sized = {"LEXICAL_MONOTONY", "FUNCTION_WORD_HEAVY",
                  "ANAPHORA_OVERLOAD", "UNIFORM_LINE_LENGTH",
-                 "PREDICTABLE_RHYME"}
+                 "PREDICTABLE_RHYME", "CLICHE_PAIR"}
         bad = [f.code for f in fs
                if f.code in sized and f.severity == "flag"]
         check("no length-calibrated flag survives extrapolation", not bad,
@@ -641,6 +750,7 @@ if __name__ == "__main__":
                test_repeat_in_verse, test_single_pair_repeat_is_undecidable,
                test_radif_is_not_a_repeat,
                test_shared_suffix_needs_a_real_stem, test_cliche_pair,
+               test_cliche_pair_may_only_reject_where_it_was_measured,
                test_anaphora, test_anaphora_is_a_note_about_a_figure,
                test_thresholds_are_declared_not_hidden,
                test_length_is_a_coordinate,

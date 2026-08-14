@@ -124,12 +124,44 @@ unchanged and the 49 come back under a fourth code, `COLLISION_UNDECLARED`
 `MANDATE_SCOPE_DECLARED` stating the coordinate and the two counts separately.
 Every production mandate has an empty scope, so the default path is untouched.
 
+Test 38 is the LINE-NUMBERING seam, and it is a refusal rather than a repair.
+`Mandate.pairs0()` is 0-based against the RAW list a caller hands in;
+`SlopFloor.check` and `QualityFeatures.extract` both open by dropping blank
+lines, which is correct for a direct floor caller (`test_floor.py` test 2, and
+this fix does not touch it). Handed a draft with a blank, the two halves of
+`inspect()` therefore number lines differently and neither says so. Measured
+on a 5-line draft with a blank at L2 and groups 1,3;4,5, reachable through a
+plain letter string:
+
+  - the mandated pair L4/L5 is (3, 4) in `pairs0()`, out of range against the
+    floor's 4-element list, and DROPPED by the guard in
+    `_relation_findings` — the finding it loses is a REPEAT_IN_VERSE FLAG
+  - (0, 2) is graded in its place, as raw L1/L4, a pair the mandate never
+    groups
+  - every floor finding's `locations` is `enumerate()`d over the STRIPPED
+    list and filed as RAW line numbers: `ANAPHORA_OVERLOAD` comes back at
+    [1, 2, 3, 4] on a draft whose true raw lines are [2, 3, 4, 5], so
+    `brief()` briefs the EMPTY line and skips a real one
+
+`Reviser.mandate` REFUSES such a draft with `NoMandate`, the same instrument
+`quality/schemes.py` already uses for the sibling defect one coordinate over.
+Stripping would have silently RENUMBERED the writer's declaration, and would
+have moved two coordinates that are not this module's to move —
+`verify(targeted=...)` is the caller's numbering, and a pre-built `Mandate`
+carries `n_lines` from the raw draft. NOT reachable from the CLI, where
+`load_lyric_lines` and `parse_lyric_sections` drop blanks; fully reachable
+from the Python API on every entry.
+
 Run: python3 quality/test_revise.py
 """
 
 import collections
+import json
 import os
+import shutil
+import subprocess
 import sys
+import tempfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
@@ -141,6 +173,7 @@ from lyric_harness import (Declaration, NEAR_RELATIONS,  # noqa: E402
 from quality import fit as FT  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
 from quality import readability as RD  # noqa: E402
+from quality import revise as RV  # noqa: E402
 from quality import schemes as SC  # noqa: E402
 from quality.revise import (COLLISION_FINDINGS, THETA_COLLISION,  # noqa: E402
                             Brief, NoMandate, ReviseDeclaration, Reviser)
@@ -683,6 +716,61 @@ def test_x_is_not_a_rhyme_class_in_the_floor_either():
           not b or not any(mem for _, mem, calls in b[0].must_answer
                            if 1 in mem),
           "L5 is declared free; it answers nothing")
+
+
+def test_a_declared_return_is_not_slop():
+    """17b. the floor charged the writer for obeying the mandate.
+
+    NOTHING PINNED THIS, WHICH IS WHY IT SHIPPED. `_floor_for` handed the
+    slop floor `m.pairs0()`, and on every path a writer actually uses the
+    declared return pairs are IN pairs0 -- an A-1 mark carries a rhyme letter
+    so `to_mandate` builds groups from `blocks(self.code)`, and `--returns=`
+    passes one group list as both `groups` and `returns`. So the floor read a
+    correct refrain as a word rhyming with itself.
+    """
+    print("\n17b. a declared RETURN is the requirement, not the slop")
+    lines = [l.strip() for l in VILLANELLE.strip().splitlines()
+             if l.strip()] if isinstance(VILLANELLE, str) else list(VILLANELLE)
+    m = SC.mandate(SC.REFRAIN_FORMS["villanelle"])
+    fl, pseudo = R._floor_for(m)
+
+    rp = list(m.return_pairs())
+    check("the villanelle's refrain pairs are IN pairs0 — this is the leak",
+          len(rp) == 12 and len(m.pairs0()) == 93,
+          f"{len(m.pairs0())} rhyme pairs, {len(rp)} of them declared returns")
+    check("and the floor is handed pairs0 MINUS them",
+          len(fl._pairs(lines, pseudo)) == 81,
+          f"93 - 12 = {len(fl._pairs(lines, pseudo))}. Both the numerator and "
+          f"the denominator: the returns were also inflating `npairs`, which "
+          f"is what every real radif is licensed against.")
+
+    found = fl.check(lines, pseudo)
+    rep = [f for f in found if f.code == "REPEAT_IN_VERSE"]
+    check("a formally PERFECT villanelle draws no REPEAT_IN_VERSE",
+          not rep,
+          f"{[(f.severity, f.evidence[:60]) for f in rep]} — before this was "
+          f"subtracted the shipped code produced 1 ('carried by 6 of 93 "
+          f"pairs, under the declared 50% needed to read it as a refrain'), "
+          f"and before the 2026-08-14 severity split it was a FLAG."
+          if rep else "0 — it was 1, reading the refrain as slop")
+
+    check("the layer that DOES understand identity agreed all along",
+          list(m.returns_check(lines)) == [],
+          "returns_check() is empty on this draft: the returns are perfect. "
+          "Two layers, one draft, opposite verdicts — and the one that was "
+          "wrong is the one that does not know what a refrain is.")
+
+    # THE OTHER HALF, WITHOUT WHICH THIS IS JUST A MUTED CHECK. Removing a
+    # false charge is only correct if the true one survives.
+    broken = list(lines)
+    broken[5] = broken[5].replace("takes", "hauls")
+    m2 = SC.mandate(SC.REFRAIN_FORMS["villanelle"])
+    kinds = [k for _, _, _, k, _ in m2.returns_check(broken)]
+    check("a DRIFTED return is still caught, by the layer that owns it",
+          bool(kinds),
+          f"{sorted(set(kinds))} — one interior word changed and the refrain "
+          f"requirement fails, so the subtraction removed a false charge "
+          f"without removing a true one.")
 
 
 def test_the_field_is_the_graders_own_field():
@@ -2195,6 +2283,572 @@ def test_stanza_lock_reaches_the_loop_not_only_the_grid_verb():
           "UNIFORM_ANACRUSIS was written to name (doctrine 24)")
 
 
+#: A 4-line draft and a blueprint declaring a hook that IS NOT IN IT, plus
+#: the mandate that makes both CLI verbs run rather than refuse. Small on
+#: purpose: test 37 runs the CLI as a SUBPROCESS twice, and the 16-line
+#: `fixtures/song.txt` costs ~16s a run against this one's ~5s.
+ABSENT_HOOK = "a phrase this draft does not contain anywhere"
+GAP_LINES = ["the wire hums low across the yard",
+             "a freight goes by and shakes the door",
+             "i counted every passing car",
+             "and never once got up for more"]
+GAP_SCHEME = "ABAB"
+GAP_BLUEPRINT = {
+    "_note": "Constructed (doctrine 94) for test 37: a blueprint whose "
+             "declared hook is absent from the draft, so HOOK_ABSENT — the "
+             "song-function layer's ONLY flag — is whole-draft and a FLAG.",
+    "title": "The Passing Car",
+    "hooks": [ABSENT_HOOK],
+    "sections": [
+        {"name": "verse", "bars": 2, "start_bar": 1, "function": "verse",
+         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+        {"name": "chorus", "bars": 2, "start_bar": 3, "function": "chorus",
+         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+    "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+               "section": "verse" if i < 2 else "chorus"}
+              for i, t in enumerate(GAP_LINES)]}
+
+
+def test_the_whole_draft_half_reaches_the_report():
+    print("\n37. the WHOLE-DRAFT half of the finding set reaches the REPORT "
+          "— `brief()` is per_line-only by construction and the CLI printed "
+          "nothing else, so five findings including a FLAG were computed and "
+          "discarded on every `brief` and `song` run")
+
+    found = R.inspect(GAP_LINES, GAP_SCHEME, blueprint=GAP_BLUEPRINT)
+
+    # 1. THE MECHANISM, stated as an assertion rather than as prose.
+    #    `_function_findings` builds its findings with `locations=[]`;
+    #    `inspect`'s router (`quality/revise.py`, the `if f.locations: ...
+    #    else: whole.append(f)` arm) puts anything with no locations into
+    #    `whole`; `brief()` iterates `found["per_line"]` and nothing else.
+    hook = [f for f in found["whole"] if f.code == "HOOK_ABSENT"]
+    check("HOOK_ABSENT is in `inspect()`'s WHOLE bucket, as a FLAG",
+          len(hook) == 1 and hook[0].severity == "flag",
+          sorted(f.code for f in found["whole"]))
+    check("it names NO line — which is why no `Brief` can carry it: a Brief "
+          "is `line_no` + `candidates` + `must_answer`, and a finding with "
+          "no line has no place to sit inside one",
+          hook and not hook[0].locations)
+    per_codes = {f.code for fs in found["per_line"].values() for f in fs}
+    check("and it is in no per-line list either, so this is a REACHABILITY "
+          "gap and not a duplicate",
+          "HOOK_ABSENT" not in per_codes, sorted(per_codes))
+    briefs = R.brief(GAP_LINES, GAP_SCHEME, blueprint=GAP_BLUEPRINT)
+    check("`brief()` returns not one Brief carrying it — UNCHANGED by this "
+          "fix, and deliberately so: fabricating a line number to smuggle a "
+          "whole-draft finding into a per-line record is the move "
+          "`quality/loop.py` declined to make when its stop conditions hit "
+          "this same wall (`LoopResult.whole_flags` instead)",
+          not any(f.code == "HOOK_ABSENT"
+                  for b in briefs for f in b.findings))
+
+    # 2. THE REPORT PATH, run as a user runs it. A subprocess and not an
+    #    import for the reason `quality/test_verbs.py`'s own runner gives:
+    #    what is under test is REACHABILITY FROM THE COMMAND LINE, and the
+    #    library layer was never the thing that was broken here.
+    tmp = tempfile.mkdtemp(prefix="lh_whole_")
+    try:
+        bp_path = os.path.join(tmp, "gap.blueprint.json")
+        lyric = os.path.join(tmp, "gap.txt")
+        with open(bp_path, "w", encoding="utf-8") as fh:
+            json.dump(GAP_BLUEPRINT, fh)
+        with open(lyric, "w", encoding="utf-8") as fh:
+            fh.write("[verse]\n" + "\n".join(GAP_LINES[:2])
+                     + "\n\n[chorus]\n" + "\n".join(GAP_LINES[2:]) + "\n")
+        root = os.path.join(HERE, "..")
+
+        def cli(*args):
+            p = subprocess.run([sys.executable, "lyric_harness.py", *args],
+                               cwd=root, capture_output=True, text=True,
+                               timeout=900)
+            return p.returncode, p.stdout
+
+        rc_b, out_b = cli("brief", lyric, GAP_SCHEME, "--blueprint=" + bp_path)
+        rc_s, out_s = cli("song", bp_path, lyric, GAP_SCHEME)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+    for verb, rc, out in (("brief", rc_b, out_b), ("song", rc_s, out_s)):
+        check(f"`{verb}` exits 0 on this draft", rc == 0, f"rc {rc}")
+        check(f"`{verb}` PRINTS HOOK_ABSENT — the whole point: this verb's "
+              f"own banner says song-function joins the finding set, and "
+              f"until this fix that was true of the SET and false of the "
+              f"report",
+              "HOOK_ABSENT" in out,
+              "banner said it, report did not" if "HOOK_ABSENT" not in out
+              else "")
+        check(f"`{verb}` marks it a FLAG rather than folding it in "
+              f"unlabelled — a whole-draft NOTE and a whole-draft FLAG are "
+              f"not the same news (doctrine 79)",
+              "[FLAG] HOOK_ABSENT" in out)
+        check(f"`{verb}` says in the report itself that a whole-draft "
+              f"finding names no line and cannot be briefed, so a reader is "
+              f"not left to wonder which line to revise",
+              "WHOLE DRAFT" in out and "name no single line" in out)
+        check(f"`{verb}` does NOT print the unqualified all-clear over a "
+              f"draft carrying a whole-draft flag",
+              "nothing flagged" not in out)
+
+    # 3. THE ASYMMETRY IS UNDISTURBED, and it is the reason the fix went in
+    #    the report rather than in the stop condition. `verify()`'s diff
+    #    covers `whole` as well as `per_line`, so a whole-draft flag can
+    #    REJECT a revision and can never ASK for one — `quality/loop.py`'s
+    #    docstring argues the case and `LoopResult.disclosure()` prints it.
+    #    Printing the bucket does not widen what may reject.
+    with_hook = list(GAP_LINES)
+    with_hook[3] = ABSENT_HOOK
+    fixed = {f.code for f in
+             R.inspect(with_hook, GAP_SCHEME,
+                       blueprint=GAP_BLUEPRINT)["whole"]}
+    check("putting the hook INTO the draft clears HOOK_ABSENT, so the "
+          "finding tracks the draft and not the blueprint's stored text",
+          "HOOK_ABSENT" not in fixed, sorted(fixed))
+    res = R.verify(with_hook, GAP_LINES, GAP_SCHEME, targeted={4},
+                   blueprint=GAP_BLUEPRINT)
+    check("verify() still REJECTS a revision that erases the hook, keyed on "
+          "`(0, 'HOOK_ABSENT')` — the whole bucket's own key shape, "
+          "untouched by this fix",
+          not res["accepted"] and (0, "HOOK_ABSENT") in res["new"],
+          res["reasons"])
+    check("and it reaches the ACCEPTANCE GATE, not just the disclosure: the "
+          "whole-draft flag is the ONLY member of `new_flags`, so the "
+          "rejection rests on the half of the finding set the report was "
+          "throwing away",
+          res["new_flags"] == [(0, "HOOK_ABSENT")],
+          f"new_flags={res['new_flags']}, new_notes={res['new_notes']}")
+    check("and it is still true that no Brief asks for the hook back: the "
+          "loop can reject on it and can never brief it, which is DISCLOSED "
+          "now instead of silent",
+          not any(f.code == "HOOK_ABSENT" for b in
+                  R.brief(GAP_LINES, GAP_SCHEME, blueprint=GAP_BLUEPRINT)
+                  for f in b.findings))
+
+
+#: A 5-line draft with a BLANK at L2 and the mandate a writer would declare
+#: over it: L1 with L3, L4 with L5. The blank is the whole fixture — every
+#: real line is ordinary, and the two halves of `inspect()` still disagree
+#: about which line is which.
+BLANK_DRAFT = ["we walked out into the rain",
+               "",
+               "the fire was burning bright",
+               "the empty road was lost in rain",
+               "and nothing else remained in rain"]
+#: the SAME four lines and the SAME declared grouping, renumbered BY HAND —
+#: which is the only party entitled to renumber it (see `Reviser.mandate`).
+BLANK_DRAFT_CLEAN = [l for l in BLANK_DRAFT if l.strip()]
+#: a LEADING blank, for the `locations` half: every real line opens with the
+#: same word, so `ANAPHORA_OVERLOAD` names all four of them.
+LEADING_BLANK = ["",
+                 "and the river ran on",
+                 "and the river ran cold",
+                 "and the river ran wide",
+                 "and the river ran old"]
+#: `CLICHE` behind a leading blank, mandated 1,3;2,4 — chosen so the skew
+#: puts a FLAG on the blank line rather than merely off by one. With the
+#: guard disarmed, `revise_loop` on this draft stops at NO_PROGRESS with
+#: `line 1 tier 1 accepted=False, "no candidates offered"`: it is trying to
+#: swap the end word of ''.
+BLANK_CLICHE = [""] + list(CLICHE)
+
+
+def _floor_as_inspect_would(lines, spec):
+    """What `inspect()` hands the floor, reconstructed AROUND the refusal.
+
+    `SC.mandate(spec, n_lines=len(lines))` is `Reviser.mandate` minus the
+    blank-line check and `_floor_for`/`SlopFloor.check` are the shipped ones,
+    so this is not a model of the defect — it is the defect, one call from
+    where a caller used to reach it. Keeping the measurement in the suite is
+    the point: a refusal with no record of what it refuses is a rule nobody
+    can re-derive.
+    """
+    m = SC.mandate(spec, n_lines=len(lines))
+    fl, pseudo = R._floor_for(m)
+    return m, fl.check(lines, pseudo)
+
+
+def _refuses(fn):
+    try:
+        fn()
+        return False
+    except NoMandate:
+        return True
+
+
+def test_a_blank_line_is_refused_not_renumbered():
+    print("\n38. one draft, TWO line-numberings, and neither half said so")
+
+    # -- the seam ---------------------------------------------------------
+    m, blank_found = _floor_as_inspect_would(BLANK_DRAFT, "AXABB")
+    kept = [l for l in BLANK_DRAFT if l.strip()]
+    check("the mandate is 0-based against the RAW list",
+          m.n_lines == 5 and m.pairs0() == [(0, 2), (3, 4)],
+          f"groups {m.groups} -> pairs0 {m.pairs0()}; the declared pair "
+          f"L4/L5 is (3, 4)")
+    check("the floor re-indexes underneath it — 5 lines handed in, 4 graded",
+          len(kept) == 4,
+          "`SlopFloor.check` opens `[l for l in lines if l.strip()]` and "
+          "`QualityFeatures.extract` repeats it. BOTH ARE RIGHT for a direct "
+          "floor caller — `test_floor.py` test 2 pins it, 'a stanza break "
+          "must not become a datapoint' — and this fix does not touch them")
+    check("so the mandated pair L4/L5 falls off the end and is DROPPED",
+          m.pairs0()[1][1] >= len(kept),
+          "`if i >= len(lines) or j >= len(lines): continue` in "
+          "`_relation_findings` — no finding, no count, no refusal")
+    check("and the pair that IS graded is one the mandate never declared",
+          (kept[0], kept[2]) == (BLANK_DRAFT[0], BLANK_DRAFT[3])
+          and (1, 4) not in [(i, j) for i, j, _ in m.pairs()],
+          "pairs0's (0, 2) lands on stripped[0]/stripped[2] = raw L1/L4")
+
+    # -- the counterfactual: what the drop costs --------------------------
+    rep = [f for f in blank_found if f.code == "REPEAT_IN_VERSE"]
+    _mc, clean_found = _floor_as_inspect_would(BLANK_DRAFT_CLEAN, "AABB")
+    rep_clean = [f for f in clean_found if f.code == "REPEAT_IN_VERSE"]
+    check("COUNTERFACTUAL — blank-free, the DECLARED pair earns a FLAG",
+          len(rep_clean) == 1 and rep_clean[0].severity == "flag"
+          and rep_clean[0].locations == [3],
+          f"{[(f.severity, f.locations) for f in rep_clean]} — L3/L4 of the "
+          f"clean draft are L4/L5 of the raw one, and they close on the same "
+          f"word. A flag is something `verify()` can reject on")
+    check("with the blank, that flag is GONE and a note about an UNDECLARED "
+          "pair stands in its place",
+          len(rep) == 1 and rep[0].severity == "note"
+          and rep[0].locations == [1],
+          f"{[(f.severity, f.locations) for f in rep]} — 'only one rhyme "
+          f"pair here' is true of the pair set the floor was left holding, "
+          f"and that pair set is not the mandate. Two errors, one cause, and "
+          f"the writer is told about neither")
+
+    # -- the same seam, seen in `locations` -------------------------------
+    _ml, lead_found = _floor_as_inspect_would(LEADING_BLANK, [[2, 4], [3, 5]])
+    ana = [f for f in lead_found if f.code == "ANAPHORA_OVERLOAD"]
+    truth = [i for i, l in enumerate(LEADING_BLANK, 1)
+             if l.strip().lower().startswith("and")]
+    check("EVERY floor finding's locations are enumerate()d over the "
+          "STRIPPED list and filed by `inspect()` as RAW line numbers",
+          len(ana) == 1 and ana[0].locations == [1, 2, 3, 4]
+          and truth == [2, 3, 4, 5],
+          f"ANAPHORA_OVERLOAD at {ana[0].locations if ana else None}, true "
+          f"raw lines {truth}. L1 is the EMPTY line, so `brief()` briefs '' "
+          f"and the last real line is never named by this finding at all")
+
+    _mb, blank_cliche = _floor_as_inspect_would(BLANK_CLICHE, [[1, 3], [2, 4]])
+    cli = [f for f in blank_cliche if f.code == "CLICHE_PAIR"]
+    check("and the skew is not always off-by-one into another real line: "
+          "here a FLAG is filed on the BLANK itself",
+          len(cli) == 1 and cli[0].severity == "flag"
+          and 1 in cli[0].locations and not BLANK_CLICHE[0].strip(),
+          f"CLICHE_PAIR at {cli[0].locations if cli else None}; the pairs it "
+          f"measured are raw L2/L4 and L3/L5. With this guard disarmed, "
+          f"`revise_loop` on this draft returns stop_reason=no_progress and "
+          f"its first attempt is `line 1 tier 1 accepted=False, 'no "
+          f"candidates offered'` — the loop asking for a better end word "
+          f"for ''")
+
+    # -- the refusal ------------------------------------------------------
+    for fn, args in (("mandate", (BLANK_DRAFT, "AXABB")),
+                     ("grade", (BLANK_DRAFT, "AXABB")),
+                     ("group_merges", (BLANK_DRAFT, "AXABB")),
+                     ("inspect", (BLANK_DRAFT, "AXABB")),
+                     ("brief", (BLANK_DRAFT, "AXABB")),
+                     ("mandate_from_graph", (BLANK_DRAFT,)),
+                     ("verify", (BLANK_DRAFT, list(BLANK_DRAFT), "AXABB"))):
+        check(f"{fn}() refuses a draft with a blank line",
+              _refuses(lambda f=fn, a=args: getattr(R, f)(*a)),
+              "NoMandate — the same instrument `SC.mandate` uses for the "
+              "sibling defect one coordinate over (a length mismatch), and "
+              "every CLI verb already renders it `REFUSED …`, exit 2")
+    try:
+        R.mandate(BLANK_DRAFT, "AXABB")
+        msg = ""
+    except NoMandate as e:
+        msg = str(e)
+    check("the refusal NAMES THE LINE and names the seam",
+          "L2" in msg and "SlopFloor.check" in msg and "RENUMBER" in msg,
+          "doctrine 6: locate the defect, name the layer, hand it back. A "
+          "refusal a caller cannot act on is a traceback with manners")
+
+    # verify()'s own length gate CANNOT see this one — both drafts are five
+    # lines and the blank sits at the same index in each — so the check has
+    # to live at the mandate or nowhere.
+    same = list(BLANK_DRAFT)
+    same[4] = "and nothing else remained in pain"
+    check("a blank at the SAME index in before AND after passes verify's "
+          "length gate, so the mandate is where it has to be caught",
+          len(BLANK_DRAFT) == len(same)
+          and _refuses(lambda: R.verify(BLANK_DRAFT, same, "AXABB",
+                                        targeted={5})),
+          "len(before) == len(after) == 5, and `targeted={5}` is the "
+          "CALLER's numbering into the raw list — the second coordinate a "
+          "strip-then-mandate fix would have silently moved")
+    check("a Mandate built over the RAW draft is the third: it carries "
+          "n_lines=5, so stripping first would make this method refuse it "
+          "for a length mismatch it does not have",
+          SC.mandate("AXABB").n_lines == 5
+          and _refuses(lambda: R.inspect(BLANK_DRAFT, SC.mandate("AXABB"))),
+          "`schemes.mandate` refuses a Mandate whose n_lines disagrees with "
+          "the draft; a strip would manufacture that disagreement")
+
+    # -- the invariant the refusal buys -----------------------------------
+    for name, lines, spec in (
+            ("the clean 4-line draft", BLANK_DRAFT_CLEAN, "AABB"),
+            ("the cliche fixture", CLICHE, "ABAB"),
+            ("the leading-blank draft, blanks removed",
+             [l for l in LEADING_BLANK if l.strip()], [[1, 3], [2, 4]])):
+        res = R.inspect(lines, spec)
+        locs = sorted({x for f in res["whole"] for x in f.locations}
+                      | {x for fs in res["per_line"].values() for f in fs
+                         for x in f.locations}
+                      | set(res["per_line"]))
+        check(f"every finding location is a real 1-based line of {name}",
+              bool(locs) and all(1 <= x <= len(lines) for x in locs),
+              f"{locs} over {len(lines)} lines — the invariant `inspect()` "
+              f"always assumed and never held")
+        check(f"and no brief on {name} is handed an empty line",
+              all(b.text.strip() for b in R.brief(lines, spec)),
+              "the loop's only move is a word swap on a named line, and "
+              "there is no word to swap in ''")
+
+
+#: The gap-2 blueprint. A section whose declared lines leave bars 5-8 with no
+#: line on them at all, plus a LINELESS section — the archetypal instrumental,
+#: and the case only the `sections` argument can reach. Constructed (doctrine
+#: 94) because every blueprint shipped in `quality/fixtures/` covers every bar
+#: it declares, which is exactly why nothing could see this gap.
+_UB_BLUEPRINT = {
+    "bpm": 120, "meter": "4/4",
+    "sections": [{"name": "verse1", "bars": 12, "start_bar": 1,
+                  "function": "verse",
+                  "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}},
+                 {"name": "solo", "bars": 4, "start_bar": 13,
+                  "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+    "lines": [
+        {"text": "the harbour lights came on across the bay",
+         "bar": 1, "beat": 1, "duration": 8, "section": "verse1"},
+        {"text": "a bell rang somewhere out beyond the pier",
+         "bar": 3, "beat": 1, "duration": 8, "section": "verse1"},
+        {"text": "we counted every boat that slipped away",
+         "bar": 9, "beat": 1, "duration": 8, "section": "verse1"},
+        {"text": "and one more sail went drifting toward the weir",
+         "bar": 11, "beat": 1, "duration": 8, "section": "verse1"}]}
+_UB_LINES = [l["text"] for l in _UB_BLUEPRINT["lines"]]
+
+
+def test_substituted_end_word_reaches_the_loop():
+    print("\n36. `readability.substitution_report` REACHES `inspect()` — the "
+          "sharper half of known gap 8, which the gap-8 wiring did not take")
+    m12 = SC.mandate([[1, 2]], n_lines=4)
+    # DISCRIMINATING, and constructed so the substitute is the trap the
+    # function's own docstring names: `sheer` is a plausible English word AND
+    # it rhymes with L2's `pier`, so a path that took the last word it could
+    # READ would report L4 as answering its group cleanly. `zong` is Barnes's
+    # Dorset spelling and CMUdict has no entry for it.
+    draft = ["the harbour lights came on across the bay",
+             "a bell rang somewhere out beyond the pier",
+             "we counted every boat that slipped away",
+             "and one more went out sailing to the sheer zong"]
+    res = R.inspect(draft, m12)
+    got = _find(res, "SUBSTITUTED_END_WORD")
+    check("the loop is told WHICH WORD would have been substituted — before "
+          "the wiring `substitution_report`'s only callers were "
+          "`readability.main()`, which prints a COUNT and never a word, and "
+          "one test",
+          len(got) == 1 and got[0].locations == [4]
+          and "'zong'->'sheer'" in got[0].message,
+          got[0].message if got else "not emitted")
+    check("...and it is filed on the LINE it is about, so a writer reading "
+          "L4's brief sees it",
+          4 in res["per_line"]
+          and any(f.code == "SUBSTITUTED_END_WORD" for f in res["per_line"][4]))
+    check("it is a NOTE, and NOT a downgrade: `readability.report` already "
+          "says note, so `inspect` re-decides nothing here",
+          bool(got) and got[0].severity == "note"
+          and RD.report(R.lex, draft)["findings"][-1].severity == "note",
+          f"severity {got[0].severity!r}" if got else "")
+    check("it is not a SECOND CHARGE, and it says so: this line is already "
+          "flagged by UNREADABLE_END_WORD and what the note adds is the word",
+          bool(_find(res, "UNREADABLE_END_WORD"))
+          and "NOT A SECOND CHARGE" in got[0].evidence)
+
+    # HOW MUCH THIS ACTUALLY BUYS, AND IT IS NARROWER THAN A NEW CODE LOOKS.
+    # 8,840 of 8,842 English-corpus substitution lines are ALREADY
+    # UNREADABLE_END_WORD, so on nearly all of them the LINE was never silent
+    # and only the WORD was. The residue is 2, and this is one of them: a
+    # final token that READS (`mm` -> ['M']) and syllabifies to nothing, so
+    # `line_anchors` returns an anchor built on the PREVIOUS word,
+    # `final_unreadable` is False, and every other code in either module
+    # stays silent. Doctrine 79 in the other direction: do not let one code
+    # take credit for a population another code already covers.
+    byron = _RD_HEAD[:2] + [
+        "And the foam of his gasping lay white on the turf,[mm]"]
+    solo = R.inspect(byron, SC.mandate([[1, 2]], n_lines=3))
+    codes = {f.code for f in solo["per_line"].get(3, [])}
+    check("the RESIDUE: on a real corpus line whose end token READS and "
+          "yields no syllable, this is the ONLY readability finding there "
+          "is — 2 lines of 151,894, and nothing reached them before",
+          codes == {"SUBSTITUTED_END_WORD"},
+          f"codes on Byron's `...on the turf,[mm]`: {sorted(codes)}; "
+          f"whole draft: "
+          f"{sorted({f.code for fs in solo['per_line'].values() for f in fs})}")
+
+    # -- THE STOP CONDITIONS ARE UNMOVED, the same check test 34 makes ------
+    from quality.loop import revise_loop
+    lr = revise_loop(R, draft, m12)
+    check("`revise_loop` still returns SUCCESS: a per-line NOTE is briefed "
+          "and disclosed and starts no round",
+          lr.stop_reason == "success" and not lr.unresolved,
+          f"{lr.stop_reason}, {len(lr.rounds)} round(s)")
+
+    # -- NON-DISCRIMINATING, and it is the input a reader reaches for first -
+    check("NON-DISCRIMINATING: a fully readable draft emits nothing, so the "
+          "code cannot pass for the wrong reason",
+          not _find(R.inspect(_RD_HEAD + ["and somewhere out beyond it sang "
+                                          "a lark"], m12),
+                    "SUBSTITUTED_END_WORD"))
+    check("NON-DISCRIMINATING, second cause: the PIECE half of the same "
+          "defect is NOT a substitution — `hill-zide` keeps its own token in "
+          "the syllable map, so 174 of the 9,252 unreadable-final lines are "
+          "correctly silent here",
+          not _find(R.inspect(_RD_PIECE, m12), "SUBSTITUTED_END_WORD")
+          and bool(_find(R.inspect(_RD_PIECE, m12),
+                         "UNREADABLE_END_WORD_PIECE")))
+
+
+def test_uncovered_bars_reaches_the_loop_not_only_fit():
+    print("\n37. `UNCOVERED_BARS` reaches `Reviser._meter_findings` — a "
+          "SECTION-level relation, taken off the flat list the same way "
+          "`overlap_findings` was")
+    sub = FT.Subdivision(slots_per_pulse=2, source="test 37")
+    m = SC.mandate("ABAB", n_lines=4)
+
+    song = FT.fit_song(_UB_BLUEPRINT, subdivision=sub)
+    rows = {r["section"]: r["uncovered_bars"] for r in song.table()}
+    check("the `fit` verb has always had this: its table prints 4 empty bars "
+          "in `verse1` and a wholly empty `solo`",
+          rows == {"verse1": (5, 6, 7, 8), "solo": (13, 14, 15, 16)},
+          f"{rows}")
+
+    res = R.inspect(_UB_LINES, m, blueprint=_UB_BLUEPRINT, subdivision=sub)
+    ub = _find(res, "UNCOVERED_BARS")
+    check("the revision loop now reports what the `fit` verb reports — "
+          "before the wiring `inspect()` returned eleven distinct codes on a "
+          "blueprint like this and NOT ONE was about a bar nobody sings",
+          len(ub) == 2
+          and sorted(f.message.split("section ")[1].split("'")[1]
+                     for f in ub) == ["solo", "verse1"],
+          f"{[f.message for f in ub]}")
+    check("the LINELESS section is among them, and only the declared section "
+          "list can reach it — `solo` contributes no LineFit at all",
+          any("'solo'" in f.message for f in ub),
+          "an instrumental break declared as bars and never written to is "
+          "the archetypal case for a check named `uncovered_bars`")
+
+    # THE SAME ARITHMETIC, NOT A SECOND COPY -- the invariant test 35 pins
+    # for `overlap_findings`, applied to this one.
+    check("the message and evidence are byte-identical to the `fit` "
+          "surface's — one function, two callers",
+          sorted((f.message, f.evidence) for f in song.section_findings)
+          == sorted((f.message, f.evidence) for f in ub))
+
+    # -- THE CHARGE, WHICH IS THE DECISION THIS WIRING MAKES ---------------
+    check("WHOLE-DRAFT, and it names NO LINE: bar/beat/duration are exactly "
+          "what the writer declared on every one of these lines, and no "
+          "rewrite of any line's WORDS moves the answer",
+          all(f.locations == [] for f in ub)
+          and not any(f.code == "UNCOVERED_BARS"
+                      for fs in res["per_line"].values() for f in fs),
+          f"locations {[f.locations for f in ub]}")
+    check("it is a NOTE, and `revise.py` forms no second opinion: `fit.py` "
+          "marks it satisfiable and this method's `satisfiable`->severity "
+          "rule is the one the per-line loop above it already uses",
+          all(f.severity == "note" for f in ub)
+          and all(f.satisfiable for f in song.section_findings),
+          "an empty bar is a rest, an instrumental, or a melisma this layer "
+          "declares itself unable to see (doctrine 6)")
+
+    # THE COUNTERFACTUAL, MEASURED RATHER THAN ARGUED, and it is the reason
+    # the two decisions above are not interchangeable. `revise.py`'s own
+    # readability block records the price of a flag the loop has no move for:
+    # "it returns NO_PROGRESS after 1 round with L4 permanently unresolved
+    # ... the cost is a destroyed SUCCESS". Charged PER LINE as a flag, this
+    # finding is exactly that shape -- the loop's only move is a word swap on
+    # a named line, and no word swap covers a bar.
+    from quality.loop import revise_loop
+    shipped = revise_loop(R, _UB_LINES, m, blueprint=_UB_BLUEPRINT,
+                          subdivision=sub)
+    check("SHIPPED (whole-draft note): the loop returns SUCCESS in 0 rounds "
+          "and carries the finding out in `LoopResult.whole`",
+          shipped.stop_reason == "success" and not shipped.unresolved
+          and any(f.code == "UNCOVERED_BARS" for f in shipped.whole),
+          f"{shipped.stop_reason}, {len(shipped.rounds)} round(s), "
+          f"whole={[f.code for f in shipped.whole]}")
+
+    _orig = RV.Reviser._meter_findings
+
+    def _as_per_line_flag(self, lines, blueprint, subdivision, assume=None):
+        per, whole = _orig(self, lines, blueprint, subdivision, assume=assume)
+        keep = []
+        for f in whole:
+            if f.code != "UNCOVERED_BARS":
+                keep.append(f)
+                continue
+            sec = f.message.split("section ")[1].split("'")[1]
+            _s, places = FT.from_blueprint(blueprint)
+            for i, p in enumerate(places):
+                if p.section == sec:
+                    per.setdefault(i + 1, []).append(RV.Finding(
+                        f.code, "flag", f.message, f.evidence, [i + 1]))
+        return per, keep
+
+    try:
+        RV.Reviser._meter_findings = _as_per_line_flag
+        counter = revise_loop(R, _UB_LINES, m, blueprint=_UB_BLUEPRINT,
+                              subdivision=sub)
+        briefs = R.brief(_UB_LINES, m, blueprint=_UB_BLUEPRINT,
+                         subdivision=sub)
+    finally:
+        RV.Reviser._meter_findings = _orig
+    check("COUNTERFACTUAL (per-line flag): the identical draft returns "
+          "NO_PROGRESS with EVERY line permanently unresolved — SUCCESS "
+          "destroyed, which is the measured price `inspect()`'s own comment "
+          "records for a flag the loop has no move for",
+          counter.stop_reason == "no_progress"
+          and sorted(b.line_no for b in counter.unresolved) == [1, 2, 3, 4],
+          f"{counter.stop_reason}, {len(counter.rounds)} round(s), "
+          f"unresolved {sorted(b.line_no for b in counter.unresolved)} "
+          f"— against SUCCESS in 0 rounds at head")
+    check("...and the brief it produces is empty of candidates on 3 of the 4 "
+          "lines: the code is in no candidate-bearing family, so each line "
+          "would be briefed, attempted and never resolved",
+          sum(1 for b in briefs if not b.candidates) == 3,
+          f"candidate fields {[len(b.candidates) for b in briefs]}")
+
+    # -- `verify()`, WHERE A NEW CODE BITES -------------------------------
+    # Coverage is a function of the BLUEPRINT alone, so it is identical on
+    # both sides of any word swap and cancels out of the multiset diff. That
+    # is what makes the note safe rather than merely mild: it cannot reject,
+    # and it could not reject even if it were a flag.
+    broken = _UB_LINES[:3] + ["and one more sail went drifting toward the "
+                              "kitchen"]
+    v = R.verify(broken, _UB_LINES, m, targeted=[4],
+                 blueprint=_UB_BLUEPRINT, subdivision=sub)
+    check("a word swap cannot move bar coverage, so UNCOVERED_BARS lands in "
+          "neither `fixed` nor `new` and can never reject a revision",
+          not any(c == "UNCOVERED_BARS" for _, c in v["new"])
+          and not any(c == "UNCOVERED_BARS" for _, c in v["fixed"]),
+          f"new {v['new']}, fixed {v['fixed']}")
+
+    # NON-DISCRIMINATING, and it is why the gap survived: every shipped
+    # blueprint covers every bar it declares.
+    clean = os.path.join(HERE, "fixtures", "mandate_song.blueprint.json")
+    cres = FT.fit_song(clean, subdivision=sub)
+    check("NON-DISCRIMINATING: the shipped blueprint has NO uncovered bar, "
+          "so it reports zero either side of the wiring — no existing "
+          "fixture could see this gap (doctrine 94, aimed at a fixture set)",
+          not cres.section_findings
+          and all(r["uncovered_bars"] == () for r in cres.table()))
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -2213,6 +2867,7 @@ if __name__ == "__main__":
                test_a_derived_cover_is_independent_at_another_theta,
                test_findings_are_not_printed_six_times,
                test_x_is_not_a_rhyme_class_in_the_floor_either,
+               test_a_declared_return_is_not_slop,
                test_the_field_is_the_graders_own_field,
                test_no_joint_candidate_was_a_coordinate_of_a_literal,
                test_the_four_rejections_on_the_songs_own_shape,
@@ -2231,7 +2886,11 @@ if __name__ == "__main__":
                test_scope_reaches_the_collision_loop,
                test_the_readability_report_joins_the_revision_loop,
                test_overlapping_spans_reaches_the_loop_not_only_fit,
-               test_stanza_lock_reaches_the_loop_not_only_the_grid_verb):
+               test_stanza_lock_reaches_the_loop_not_only_the_grid_verb,
+               test_the_whole_draft_half_reaches_the_report,
+               test_substituted_end_word_reaches_the_loop,
+               test_uncovered_bars_reaches_the_loop_not_only_fit,
+               test_a_blank_line_is_refused_not_renumbered):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -163,6 +163,84 @@ Two limits on it, both measured rather than assumed, both in the profile note:
     points at a HIGHER false-positive rate there, not a lower one.
 
 `quality/RESULTS_SONG_FLOOR.md` carries the full tables and the commands.
+
+CLICHE_PAIR HAS A FALSE-POSITIVE RATE NOW, AND IT IS NOT A CLICHE DETECTOR
+
+MEASURED 2026-08-14, off the same machinery that produced the three shipping
+flags' rates -- author-held-out, 200 seeds, 50/50, over the same 150-400 band;
+the protocol reproduces LEXICAL_MONOTONY 5.43%, FUNCTION_WORD_HEAVY 5.23% and
+ANAPHORA_OVERLOAD 5.01% exactly.
+
+    CLICHE_PAIR in-band FPR   median 6.36%, seed 5th-95th 4.23-8.37%
+                              point 118/1859 = 6.35%, Wilson [5.33, 7.55]
+                              author-cluster bootstrap 6.20% [4.02, 9.10]
+
+So it is in the family of the three that ship. That is what licenses it to
+fire, and this repin does NOT demote it. What the measurement did compel is
+one change, and it is a SEVERITY change outside the band. Bucketed by the live
+`declaration_for()` over all 4,930 corpus items:
+
+    exact:section              86 items    0 fire     0.00%
+    exact:sonnet              437         24         5.49%
+    exact:song               1859        118         6.35%
+    EXTRAPOLATED:section      631         14         2.22%
+    EXTRAPOLATED:sonnet      1160         43         3.71%
+    EXTRAPOLATED:song         472         34         7.20%
+    OUT_OF_CALIBRATED_LENGTH  285         42        14.74%   <- 2.3x in-band
+
+`_relation_findings` hardcoded "flag" and is appended AFTER the `sev()` closure
+in `check()` has been applied, so CLICHE_PAIR was emitted as a HARD FLAG on 133
+items where every length-sensitive finding had been downgraded to a note -- 42
+of them in the one bucket nothing was ever calibrated at, at 2.3x the in-band
+rate, where it was the only flag the gate could still emit. It now runs through
+`sev()` like every other flag: exact -> flag, extrapolated or out-of-range ->
+note. IN BAND THAT COSTS NOTHING, and that is measured, not asserted: 118 of
+1859 in-band items still carry it as a FLAG after the change, the same 6.35%.
+
+WHAT THE RATE DOES NOT LICENSE. An FPR says how often the check interrupts a
+human songwriter. It says nothing about what the check is FOR, and the list
+does not measure "over-familiar to a living listener". MEASURED against this
+repo's own pair table, `data/song_rhymepair_en.tsv` (15,409 distinct pairs,
+91,636 tokens, per author):
+
+  - only 4 of the top 30 pairs by AUTHOR DISPERSION are on the hand-typed
+    list -- 13.3% overlap; 3 of 10 at the top ten. The table's own most
+    dispersed pairs are away/day (61 authors), be/me (57), me/thee (51),
+    be/thee (50); the first list member appears at #5.
+  - the list's median dispersion rank is #254 of 15,409, and 7 of the 30 do
+    not appear in the table at all.
+  - 9 of the 30 NEVER FIRE anywhere in corpus/song/eng_*: alone/phone,
+    baby/crazy, beats/streets, cash/stash, chance/dance, dough/flow,
+    feel/real, fun/sun, girl/world.
+
+So the list has low SENSITIVITY against the only rhyme-frequency evidence this
+repo owns, and it is not a frequency instrument. `quality/relations.py`'s
+`frequency` Unprovidable and `quality/phrase_commonplace.py` both REFUSE the
+"cliche" claim at their own levels for exactly this reason -- every admissible
+English source here is pre-1931, and a cliche is over-familiar to a LIVING
+listener. This 30-item list does not get to make that claim by being shorter
+than they are. It is a NAMED STOCK LIST with a measured interruption rate, and
+the finding says so on its face.
+
+ONE PRECISION DEFECT, RECORDED AND NOT FIXED. The check is a raw string-set
+membership test with NO rhyme test in front of it. `tears`/`years` fires 21
+times over the corpus, 5 of them in band, on couplets `song_rhymepair_en.tsv`
+does not record as rhyming at all -- the pair has count ZERO there. That is a
+HOMOGRAPH: cmudict gives `tears` two pronunciations, T EH1 R Z (rips) and
+T IH1 R Z (weeping), and the table's `rime_key` reads `prons[0]`, which is the
+rips sense. Neither layer read which sense is on the page. Both candidate
+fixes were priced before this was left alone (MEASURED 2026-08-14, in band):
+
+    no rhyme test at all (shipped)   118/1859 = 6.35%
+    prons[0] perfect-rhyme gate      114/1859 = 6.13%
+    any-pronunciation gate           118/1859 = 6.35%
+
+The prons[0] gate buys its 4 items by ASSERTING tears-is-rips, which is one
+unmeasured convention swapped for another. The any-pronunciation gate is a
+provable no-op here -- all 136 in-band listed pairs pass it, and all 313 over
+the whole corpus -- so it would be a gate that changes nothing, added to look
+careful. The defect is real on arbitrary text and is written down here and in
+the finding instead.
 """
 
 import os
@@ -213,7 +291,14 @@ CALIBRATION = {
     #: NOT read off a distribution. `predictability_max` defines what counts
     #: as "obvious" within a candidate field; it is an axis, not a cut, and
     #: moving it moves what the calibrated fraction is a fraction OF.
-    "definitional": ["predictability_max", "radif_min_pair_fraction"],
+    #: `cliche_pairs` is the same shape one level up: it is not a threshold on
+    #: a scale at all, it is the EXTENSION of the word -- a hand-typed list of
+    #: 30 pairs, and the only thing that can be disagreed with about it is
+    #: which pairs are on it. It carries a measured in-band false-positive
+    #: rate (see the song profile's `held_out_fpr["cliche"]`) and no
+    #: sensitivity claim whatsoever.
+    "definitional": ["predictability_max", "radif_min_pair_fraction",
+                     "cliche_pairs"],
     #: Three results that contradict what this module was built expecting.
     #: Kept in the block that report() prints, not in a changelog.
     "failed_expectations": (
@@ -235,19 +320,35 @@ CALIBRATION = {
         "carries the supersession. || "
         "REPEAT_IN_VERSE's refrain licence was carried as impossible to "
         "calibrate -- 'this project has no corpus of radif verse' -- while "
-        "corpus/song/eng_* sat in the repository with 1,872 items inside this "
+        "corpus/song/eng_* sat in the repository with 1,859 items inside this "
         "profile's own token band. MEASURED 2026-08-14: at the declared 0.50, "
-        "43 of the 46 items carrying a real repetend are REFUSED the licence, "
-        "a 93.5% false-positive rate on canonical human verse against the ~5% "
+        "54 of the 57 items carrying a real repetend are REFUSED the licence, "
+        "a 94.7% false-positive rate on canonical human verse against the ~5% "
         "the five percentile thresholds hold to. Worse, the cut is anti"
         "-correlated with its own target: it admits two one-word runs and "
         "charges every repetend of three words or more, Burns's six-word "
-        "\"a health to them that's aw'\" included. Density does not separate "
-        "refrain from coincidence (0.125 vs 0.150 median) and neither does "
-        "run length (FPR 60.9/73.9/78.3% at >= 2/3/4 words). The value is NOT "
+        "\"a health to them that's awa\" at 4 of 20 pairs included. Density "
+        "does not separate refrain from coincidence (0.1292 vs 0.1417 "
+        "median) and neither does "
+        "run length (FPR 70.2/82.5/86.0% at >= 2/3/4 words). The value is NOT "
         "repinned -- nothing measured supports a replacement -- and the "
         "unlicensed case is a NOTE from that date, so it discloses rather "
-        "than fails (doctrine 22/16/58)."
+        "than fails (doctrine 22/16/58). "
+        "REPINNED 2026-08-14 from ~~1,872 items, 43 of 46 refused, 93.5% FPR, "
+        "density 0.125 vs 0.150, run-length FPR 60.9/73.9/78.3%~~ -- the "
+        "figures commit d362b9e recorded the same day, none of which "
+        "reproduces. This module contradicted itself twelve lines apart the "
+        "whole time: the `song` Profile below declares n_human=1859 and its "
+        "own `source=` says '1,859 items over 108 authors'. 1,872 IS "
+        "reachable, two ways, and NEITHER is this band -- hi=405 instead of "
+        "400, or a whitespace `.split()` token count instead of "
+        "QualityFeatures._tokens -- and under BOTH the carrier counts stay "
+        "57/54/94.7%. Re-derived at head and again against the tree AS OF "
+        "d362b9e -- corpus, `_tokens` and `_strip_radif` byte-identical to "
+        "that commit -- so the record was wrong when it was written, not "
+        "drifted since. THE FINDING IS UNCHANGED AND SHARPER -- the "
+        "false-positive rate went UP, so nothing here is retuned to recover "
+        "the old number (doctrine 58)."
     ),
 }
 
@@ -388,6 +489,23 @@ PROFILES = [
             "line_length_cv": (5.13, 3.04, 7.81),
             "predictability": (4.81, 2.52, 7.43),
             "ANY": (20.79, 12.57, 29.43),
+            #: NOT one of the five, and NOT inside "ANY". CLICHE_PAIR is
+            #: length-INDEPENDENT -- it borrows no percentile from this
+            #: profile and the band is not what makes it fire. What the band
+            #: gives it is the only population its interruption rate was ever
+            #: measured on, which is why it may only REJECT here (see `sev()`
+            #: in `check()`). Same protocol as the five above: author-held
+            #: out, 200 seeds, 50/50. Point estimate 118/1859 = 6.35%, Wilson
+            #: 95% CI [5.33, 7.55], author-cluster bootstrap 6.20%
+            #: [4.02, 9.10]. MEASURED 2026-08-14.
+            #:
+            #: "ANY" IS NOT RESTATED FOR IT. The union above is over the five
+            #: length-sensitive checks and stays that, because those five are
+            #: what the band rule, the tolerance and every threshold here were
+            #: chosen against; folding a sixth in would silently redefine the
+            #: one number this profile's note quotes as "one human song in
+            #: five trips something".
+            "cliche": (6.36, 4.23, 8.37),
         },
         source="corpus/song/eng_*.txt: 143 files, one author each, 4,930 "
                "`--- TITLE:` items, 152,325 sung lines, deduplicated "
@@ -549,15 +667,39 @@ class FloorDeclaration:
     #: the error the rest of this module exists to avoid.~~
     #:
     #: STRUCK 2026-08-14, AND THE PREMISE WAS FALSE. The corpus was in the
-    #: repository the whole time — `corpus/song/eng_*`, 1,872 items inside
+    #: repository the whole time — `corpus/song/eng_*`, 1,859 items inside
     #: this profile's own 150-400 token band, the same population four of the
     #: five thresholds above were calibrated on. Nobody ran it. Measured now:
-    #: 46 of those items carry a repetend closing >= 2 pairs, and 0.50 refuses
-    #: to license 43 of the 46 — a 93.5% FPR on canonical human verse against
+    #: 57 of those items carry a repetend closing >= 2 pairs, and 0.50 refuses
+    #: to license 54 of the 57 — a 94.7% FPR on canonical human verse against
     #: the ~5% its siblings hold to. Density does not separate refrain from
-    #: coincidence (one-word runs median 0.125, multi-word refrain tails
-    #: 0.150), and licensing on run length instead only reaches 60.9% / 73.9%
-    #: / 78.3% at >= 2 / 3 / 4 words. No cut on either axis reaches 5%.
+    #: coincidence (one-word runs median 0.1292, multi-word refrain tails
+    #: 0.1417), and licensing on run length instead only reaches 70.2% / 82.5%
+    #: / 86.0% at >= 2 / 3 / 4 words. No cut on either axis reaches 5%.
+    #:
+    #: REPINNED 2026-08-14 from ~~1,872 items, 46 carriers, 43 refused, 93.5%
+    #: FPR, density 0.125 / 0.150, run-length FPR 60.9 / 73.9 / 78.3%~~ --
+    #: commit d362b9e's own figures, re-derived by three independent runs and
+    #: reproduced by none of them. The protocol every figure above depends on,
+    #: stated so a disagreement lands in a coordinate (doctrine 1):
+    #:   * POPULATION `song_profile_calibration.items_in` over
+    #:     corpus/song/eng_*.txt, non-empty bodies, 4,930 items.
+    #:   * BAND 150 <= n <= 400 with n = sum(len(QualityFeatures._tokens(l))),
+    #:     the profile's own tokenizer -> 1,859. `.split()` gives 1,872 at the
+    #:     same bounds and `_tokens` gives 1,872 at hi=405; both are why the
+    #:     stale number looked plausible, and under BOTH the carrier counts
+    #:     stay 57 / 54 / 94.7%.
+    #:   * PAIRING `SlopFloor._pairs`' mandate-less fallback, adjacent
+    #:     couplets. Reading every adjacent pair instead gives 96 / 95.
+    #:   * CARRIER an ITEM holding a repetend that closes >= 2 pairs.
+    #:     Counted per REPETEND instead: 64 / 61 = 95.3%.
+    #:   * DEDUP none (by body: unchanged; by title: 55 / 52).
+    #: 46 / 43 / 93.5% IS reachable -- at lo=150, hi=330..349, and at bands
+    #: like 56-222 -- and at NONE of them does the rest of the record follow;
+    #: over every band lo in 1..800, hi in lo..3000 there is no band at all
+    #: that returns 46 / 43 together with the recorded run-length profile.
+    #: THE FINDING IS UNCHANGED AND THE RATE WENT UP. Nothing below is tuned
+    #: to bring 93.5% back, which is the same doctrine 58 that keeps 0.50.
     #:
     #: THE VALUE IS DELIBERATELY NOT MOVED. Nothing measured supports a
     #: replacement, and repinning to a number that merely looks better is
@@ -566,6 +708,31 @@ class FloorDeclaration:
     #: failing a writer — see `_relation_findings`. The threshold stays
     #: definitional; what is no longer true is that it could not be priced.
     radif_min_pair_fraction: float = 0.50
+    #: The stock rhyme-pair list CLICHE_PAIR tests membership against.
+    #:
+    #: DOCTRINE 1, and it is the reason this field exists at all: every other
+    #: threshold this gate applies was a coordinate a caller could disagree
+    #: IN. This one was a module-level constant in `lyric_harness.py` with no
+    #: field anywhere, which made it the only floor threshold that was not a
+    #: declared coordinate — a disagreement about it had nowhere to land but
+    #: an argument at large, which is the shape doctrine 1 exists to abolish.
+    #:
+    #: DEFINITIONAL, like the two above and more plainly than either: it is
+    #: not a cut on a scale, it is the EXTENSION of the word. There is no
+    #: percentile to move and no direction to move it in — the only thing
+    #: that can be disagreed with is which pairs are on it. A genre with its
+    #: own stock rhymes states them here rather than arguing with a list typed
+    #: for English pop.
+    #:
+    #: THE DEFAULT IS THE SHIPPED 30, and the shipped 30 are what carry the
+    #: measured 6.35% in-band false-positive rate (song profile,
+    #: `held_out_fpr["cliche"]`). A caller who replaces the set replaces that
+    #: measurement with it and inherits an UNCALIBRATED list: the rate is a
+    #: property of THIS set on THIS corpus, not of the membership test. The
+    #: finding says so on its face, so a swapped list cannot quietly borrow
+    #: the number.
+    cliche_pairs: frozenset = field(
+        default_factory=lambda: frozenset(CLICHE_PAIRS))
 
     def resolve(self, key, profile):
         """Override if set, else the profile's measurement, else None -- and
@@ -640,21 +807,43 @@ class SlopFloor:
                 f"band. MATTR in particular is a moving average over a "
                 f"50-token window and silently degrades to plain "
                 f"type-token ratio below that, so a threshold measured at one "
-                f"length is a different statistic at another. Relation-level "
-                f"checks (self-rhyme, radif, cliche, shared suffix) do not "
-                f"depend on length and did run"))
+                f"length is a different statistic at another. WHAT DID RUN: "
+                f"the relation-level checks (self-rhyme, radif, cliche, "
+                f"shared suffix), which read no percentile and do not depend "
+                f"on length. Of those, only REPEAT_IN_VERSE can still be a "
+                f"FLAG here — a word rhymed with itself is a fact about the "
+                f"two lines and needs no calibration. CLICHE_PAIR is a NOTE "
+                f"at this length: nothing about the membership test changes, "
+                f"but the only false-positive rate it has was measured "
+                f"in-band, and out here it runs at 14.74% against that "
+                f"6.35% (285 corpus items, 42 firing). RADIF_LICENSED and "
+                f"SHARED_SUFFIX are notes at every length"))
             return out + self._relation_findings(
-                lines, self._pairs(lines, scheme))
+                lines, self._pairs(lines, scheme), sev)
         if not exact:
             a, b = prof.band()
             out.append(Finding(
                 "EXTRAPOLATED_LENGTH", "note",
                 f"{n_tok} tokens is outside the {prof.name} profile's measured "
-                f"range ({prof.lo}-{prof.hi}); every finding below is "
-                f"downgraded to a note",
+                f"range ({prof.lo}-{prof.hi}); every finding below that rests "
+                f"on a measurement is downgraded to a note",
                 f"applied within the tolerance band {a}-{b}. A threshold read "
                 f"off one length distribution is an extrapolation at another, "
-                f"and an extrapolation may not reject"))
+                f"and an extrapolation may not reject. WHICH CHECKS THAT "
+                f"COVERS, because 'every finding below' was FALSE here until "
+                f"2026-08-14 and false in the direction that makes a "
+                f"surviving flag look impossible: the five length-sensitive "
+                f"checks (LEXICAL_MONOTONY, FUNCTION_WORD_HEAVY, "
+                f"ANAPHORA_OVERLOAD, UNIFORM_LINE_LENGTH, PREDICTABLE_RHYME) "
+                f"are downgraded, and so is CLICHE_PAIR — not because a "
+                f"percentile was extrapolated for it, it has none, but "
+                f"because its false-positive rate was only ever measured "
+                f"inside the song band and it runs 3.71-7.20% out here "
+                f"against 6.35% in it. The relation-level checks all still "
+                f"RAN, and REPEAT_IN_VERSE can still be a FLAG: a word "
+                f"rhymed with itself is a fact about two lines, calibrated "
+                f"against nothing. RADIF_LICENSED and SHARED_SUFFIX are "
+                f"notes at every length"))
 
         v = self.qf.extract(lines, scheme)
 
@@ -768,9 +957,14 @@ class SlopFloor:
                     f"English frequency list; unvalidated outside English"))
 
         # 6-8. relation-level defects the correctness engine already names.
-        # These are length-independent, so they run under every profile and
-        # under none.
-        out.extend(self._relation_findings(lines, pairs))
+        # These are length-independent, so they RUN under every profile and
+        # under none. `sev` goes with them anyway, and that is not a
+        # contradiction: running is one question and being allowed to REJECT
+        # is another. CLICHE_PAIR borrows no percentile from any profile, but
+        # the only false-positive rate it has was measured inside one band,
+        # so that band is the only place it may carry a rejection. See the
+        # CLICHE_PAIR section of this module's docstring for the numbers.
+        out.extend(self._relation_findings(lines, pairs, sev))
         return out
 
     @staticmethod
@@ -779,8 +973,27 @@ class SlopFloor:
             return QualityFeatures.pairs_from_scheme(scheme)
         return [(i, i + 1) for i in range(0, len(lines) - 1, 2)]
 
-    def _relation_findings(self, lines, pairs):
+    def _relation_findings(self, lines, pairs, sev=None):
         """Relation-level defects, with the radif band resolved by CONTEXT.
+
+        `sev` is `check()`'s own severity gate — `lambda default: default if
+        exact else "note"` — and it is passed IN rather than reproduced here.
+        It has to be, and the reason is a call-order bug this method carried
+        until 2026-08-14: these findings are appended AFTER `sev()` has been
+        applied to everything above them, and on the `prof is None` path the
+        gate has already returned, so hardcoding "flag" here put a hard flag
+        on 133 corpus items where every length-sensitive finding had been
+        downgraded to a note. Omitted, `sev` defaults to the identity, which
+        is what a direct caller with no length in hand should get.
+
+        NOT everything here goes through it. REPEAT_IN_VERSE stays a flag at
+        any length on purpose: a word rhymed with itself is a fact about two
+        lines, with no percentile and no measured rate behind it, so there is
+        nothing for a length to invalidate. CLICHE_PAIR is the opposite case
+        — the membership test is equally length-blind, but the only thing
+        licensing it to REJECT is a false-positive rate measured in one band,
+        and outside that band there is no measurement to lean on (14.74%
+        where nothing was calibrated, against 6.35% in band).
 
         Doctrine 3 says the REPEAT band inverts by context: the same identical
         end word is a violation inside a verse and a requirement as a
@@ -798,6 +1011,8 @@ class SlopFloor:
         only one pair there is no evidence either way, and the finding says so
         instead of guessing.
         """
+        if sev is None:
+            sev = lambda default: default  # noqa: E731
         out, cliche, suffix, repeat = [], [], [], []
         stripped, runs = [], {}
         for i, j in pairs:
@@ -836,77 +1051,107 @@ class SlopFloor:
                 # measurement is the whole reason. `radif_min_pair_fraction`
                 # was carried as "definitional" on the stated ground that this
                 # project has no corpus of radif verse to calibrate it
-                # against. IT HAD 1,872 ITEMS THE WHOLE TIME:
+                # against. IT HAD 1,859 ITEMS THE WHOLE TIME:
                 # `corpus/song/eng_*` inside the `song` profile's own 150-400
                 # token band, the population four of the other five thresholds
-                # were already calibrated on. Run over them, 46 items carry a
+                # were already calibrated on. Run over them, 57 items carry a
                 # repetend closing >= 2 pairs, and at the declared 0.50 the
-                # gate refuses to license 43 OF THE 46 — a 93.5% false-positive
+                # gate refuses to license 54 OF THE 57 — a 94.7% false-positive
                 # rate on canonical, published human verse, against the ~5%
                 # each of its five siblings is held to. Doctrine 22 says state
                 # a threshold as a false-positive rate; stated that way, this
                 # one is not entitled to fail anybody.
                 #
+                # REPINNED 2026-08-14 from ~~1,872 items, 46 carriers, 43
+                # refused, 93.5%~~ — this comment's own first figures, which
+                # no re-derivation reproduces, including one run against the
+                # tree as of the commit that wrote them. `_strip_radif`,
+                # `_tokens` and the corpus are byte-identical to that commit,
+                # so the record was wrong on the day, not stale. See
+                # `FloorDeclaration.radif_min_pair_fraction` above for the
+                # protocol each figure depends on and for the two ways 1,872
+                # is reachable (hi=405, or a `.split()` token count) —
+                # neither moves 57 / 54 / 94.7%. THE ARGUMENT IS UNCHANGED
+                # AND THE RATE ROSE, so nothing here is retuned to recover
+                # the old number.
+                #
                 # AND IT IS NOT MIS-SET, IT IS ON THE WRONG AXIS. Density does
                 # not separate a refrain from a coincidence. The one-word runs
                 # this declaration's own example warns about — "two of
                 # thirty-one pairs ending in `it`" — sit at median density
-                # 0.125; genuine multi-word refrain tails sit at 0.150.
+                # 0.1292 (n=44); genuine multi-word refrain tails sit at
+                # 0.1417 (n=20), REPINNED 2026-08-14 from ~~0.125 / 0.150~~,
+                # which is the per-REPETEND median of the 150-400 band and is
+                # the protocol every other figure here uses.
                 # Length is the axis that reasoning implies and it is not
                 # enough either: licensing on runs of >= 2, 3 or 4 words moves
-                # the FPR only to 60.9%, 73.9% and 78.3%. NO CUT ON EITHER
+                # the FPR only to 70.2%, 82.5% and 86.0% (REPINNED from
+                # ~~60.9%, 73.9%, 78.3%~~). NO CUT ON EITHER
                 # AXIS REACHES 5%, so no value is repinned here — retuning a
                 # threshold to make a case pass, with no calibration behind
                 # the new number, is exactly what doctrine 58 forbids. The
                 # incumbent is kept and its cost is stated.
                 #
                 # WHAT 0.50 LICENSES IS BACKWARDS, which is the sharpest form
-                # of the finding: of the three repetends it admits, two are
-                # ONE-WORD runs, and EVERY repetend of three words or more in
-                # the corpus is charged — Burns's six-word "a health to them
-                # that's aw'" at 20% density, Gilbert's "punishment fit the
-                # crime", Blake's "never can it be". It licenses the
-                # coincidences and charges the refrains.
+                # of the finding: of the three repetends it admits — 'da'
+                # 7/11, 'john' 8/16, 'john tod' 12/21 — two are ONE-WORD
+                # runs, and EVERY repetend of three words or more in the
+                # corpus is charged, 10 of 10 — Burns's six-word "a health to
+                # them that's awa" at 4/20 = 20% density, Gilbert's
+                # "punishment fit the crime" at 3/37, Blake's "never can it
+                # be" at 2/18. It licenses the coincidences and charges the
+                # refrains. THIS HALF REPRODUCES
+                # EXACTLY: the admitted three, the Burns figure and the 10 of
+                # 10 are byte-identical across every re-derivation, which is
+                # what locates the repin above in the COUNTS and not in the
+                # mechanism.
                 #
                 # The `a == b` branch below is UNTOUCHED and stays a flag:
                 # there the qafiya UNDER the repetend is the same word too, so
                 # no refrain reading is available and it is plain self-rhyme.
                 # THREE CASES, AND ONLY THE MIDDLE ONE MOVED. `not in
                 # licensed` was covering two unlike things under one severity,
-                # and the 93.5% above is a measurement of the second only —
-                # the sweep counted repetends closing >= 2 pairs and nothing
+                # and the 94.7% above (REPINNED 2026-08-14 from ~~93.5%~~) is
+                # a measurement of the second only — the sweep counted
+                # repetends closing >= 2 pairs and nothing
                 # else, so applying its verdict to a one-off would be charging
                 # a rate to a population it was never measured on.
+                # NAMED `rsev`, not `sev`: this local would otherwise
+                # shadow the severity gate this method is now handed,
+                # silently rebinding it before the CLICHE_PAIR block.
                 seen = len(runs.get(run, ()))
                 if seen >= 2:
                     # RECURS, but under the fraction. This is the measured
                     # population and the refrain case: Burns's "a health to
                     # them that's aw'" lands here. NOTE.
-                    sev = "note"
+                    rsev = "note"
                     why = (f"carried by {seen} of {npairs} pairs, under the "
                            f"declared {need:.0%} needed to read it as a "
                            f"refrain. DISCLOSED, NOT CHARGED: that cut refuses "
-                           f"43 of the 46 corpus/song/eng_* items carrying a "
-                           f"recurring repetend — 93.5% of canonical human "
+                           f"54 of the 57 corpus/song/eng_* items carrying a "
+                           f"recurring repetend — 94.7% of canonical human "
                            f"verse against the ~5% every percentile threshold "
                            f"here holds to — so it may not fail a draft "
-                           f"(doctrine 22/16)")
+                           f"(doctrine 22/16). REPINNED 2026-08-14 from "
+                           f"43 of 46 / 93.5%, which no re-derivation "
+                           f"reproduces; the rate ROSE, so the disclosure "
+                           f"stands and nothing was retuned to recover it")
                 elif len(stripped) > 1:
                     # Closes ONE pair while the item has others to contrast it
                     # against. Not a repetend at all: a one-off self-rhyme,
                     # which is the defect this check was built for and is
                     # outside everything measured above. STAYS A FLAG.
-                    sev = "flag"
+                    rsev = "flag"
                     why = (f"carried by {seen} of {npairs} pairs — it recurs "
                            f"NOWHERE, so no refrain reading is available and "
                            f"the fraction never enters. A one-off self-rhyme "
                            f"in an item with {npairs} pairs to contrast it "
                            f"against")
                 else:
-                    sev = "note"
+                    rsev = "note"
                     why = ("only one rhyme pair here, so this cannot be told "
                            "apart from a radif — the gate declines to decide")
-                repeat.append((i + 1, j + 1, " ".join(run), sev, why))
+                repeat.append((i + 1, j + 1, " ".join(run), rsev, why))
                 continue
             if not a or not b:
                 continue
@@ -915,7 +1160,7 @@ class SlopFloor:
                                "the qafiya under the refrain is the same "
                                "word in both lines"))
                 continue
-            if frozenset((a, b)) in CLICHE_PAIRS:
+            if frozenset((a, b)) in self.decl.cliche_pairs:
                 cliche.append((i + 1, j + 1, f"{a}/{b}"))
             for suf in SUFFIXES:
                 if (a.endswith(suf) and b.endswith(suf)
@@ -931,10 +1176,85 @@ class SlopFloor:
                     suffix.append((i + 1, j + 1, f"-{suf}"))
                     break
         if cliche:
+            n_list = len(self.decl.cliche_pairs)
+            shipped = self.decl.cliche_pairs == frozenset(CLICHE_PAIRS)
+            csev = sev("flag")
+            if not shipped:
+                why_sev = ("The list has been REPLACED through the "
+                           "declaration, so the shipped 6.35% in-band "
+                           "false-positive rate does not describe it and this "
+                           "finding has no measured rate behind it at all "
+                           "(doctrine 22). ")
+            elif csev == "flag":
+                why_sev = ("It fires as a FLAG because the text sits inside a "
+                           "profile's MEASURED range and the shipped list has "
+                           "a measured interruption rate on held-out human "
+                           "song: 6.36% median, 5th-95th percentile of seeds "
+                           "4.23-8.37%, point estimate 118/1859 = 6.35%, "
+                           "Wilson 95% CI [5.33, 7.55], author-held out, 200 "
+                           "seeds, 50/50 — the same protocol that gives "
+                           "LEXICAL_MONOTONY 5.43% and FUNCTION_WORD_HEAVY "
+                           "5.23%. THAT RATE WAS MEASURED IN THE SONG BAND "
+                           "(150-400 tokens) and nowhere else, so at section "
+                           "or sonnet length it is being carried across, not "
+                           "quoted from a reading taken there. What is known "
+                           "about those two: over the same 4,930 corpus items "
+                           "the check fires on 0.00% of the 86 that land in "
+                           "`section` exactly and 5.49% of the 437 that land "
+                           "in `sonnet` exactly — at or under the song "
+                           "rate, "
+                           "which is why the carry-over is not what `sev()` "
+                           "is guarding against. ")
+            else:
+                why_sev = ("It is a NOTE here and may not reject. The "
+                           "membership test is unchanged — it reads no "
+                           "percentile and no length — but the only "
+                           "false-positive rate licensing it was measured "
+                           "inside the song profile's 150-400 band (6.36% "
+                           "median, 118/1859 = 6.35%), and this text is "
+                           "outside a measured range. Bucketed over the 4,930 "
+                           "corpus items it runs 2.22-7.20% under "
+                           "extrapolation and 14.74% where no profile "
+                           "reaches, against that 6.35%. An unmeasured rate "
+                           "may not carry a rejection (doctrine 22). ")
             out.append(Finding(
-                "CLICHE_PAIR", "flag",
+                "CLICHE_PAIR", csev,
                 f"{len(cliche)} rhyme pair(s) on the stock list",
-                "; ".join(f"{c}" for _, _, c in cliche),
+                "; ".join(f"{c}" for _, _, c in cliche)
+                + f". WHAT THIS IS: membership in a hand-typed list of "
+                  f"{n_list} pair{'' if n_list == 1 else 's'} "
+                  f"(`FloorDeclaration.cliche_pairs`), nothing more. "
+                + why_sev
+                + "WHAT IT IS NOT: a cliche detector, and it does not measure "
+                  "over-familiarity to a living listener. Against this repo's "
+                  "own pair table (`data/song_rhymepair_en.tsv`, 15,409 "
+                  "distinct pairs by author dispersion) the shipped list has "
+                  "low SENSITIVITY: only 4 of the table's top 30 pairs are on "
+                  "it (13.3%; 3 of 10 at the top ten), its own median "
+                  "dispersion rank is #254 of 15,409, and 9 of its 30 pairs "
+                  "never fire anywhere in corpus/song/eng_*. The table's most "
+                  "dispersed rhymes are away/day, be/me, me/thee — none a "
+                  "cliche to anyone now, and none on the list. "
+                  "`quality/relations.py`'s `frequency` Unprovidable and "
+                  "`quality/phrase_commonplace.py` both REFUSE the "
+                  "over-familiarity claim at their own levels, because every "
+                  "admissible English source here is pre-1931; a shorter list "
+                  "does not earn the claim they declined. So this finding "
+                  "says 'this pair is on a named list that interrupts a human "
+                  "songwriter about 6% of the time', and it does not say the "
+                  "rhyme is tired. "
+                  "PRECISION DEFECT, RECORDED NOT FIXED: there is no rhyme "
+                  "test in front of the membership test — it is raw "
+                  "string-set membership on the two end words. "
+                  "`tears`/`years` fires 21 times over the "
+                  "corpus, 5 in band, on couplets the same "
+                  "pair table records as NOT rhyming (count zero), because "
+                  "cmudict's first pronunciation of `tears` is the rips sense "
+                  "and the table reads `prons[0]`. Neither layer read which "
+                  "sense is on the page. Both fixes were priced in band: a "
+                  "`prons[0]` gate takes 118 to 114 by asserting one "
+                  "convention over another, and an any-pronunciation gate "
+                  "changes nothing at all (136 of 136 listed pairs pass it)",
                 [i for i, _, _ in cliche]))
         if suffix:
             out.append(Finding(
@@ -943,11 +1263,14 @@ class SlopFloor:
                 f"ending (homeoteleuton)",
                 "; ".join(s for _, _, s in suffix),
                 [i for i, _, _ in suffix]))
-        for sev in ("flag", "note"):
-            rs = [r for r in repeat if r[3] == sev]
+        # `rsev` again, for the same reason: this loop variable shadowed the
+        # gate too. REPEAT_IN_VERSE does NOT go through it — see the
+        # docstring — so the severity here is the one decided above.
+        for rsev in ("flag", "note"):
+            rs = [r for r in repeat if r[3] == rsev]
             if rs:
                 out.append(Finding(
-                    "REPEAT_IN_VERSE", sev,
+                    "REPEAT_IN_VERSE", rsev,
                     f"{len(rs)} pair(s) rhyme a word with itself",
                     "; ".join(f"{w!r} — {why}" for _, _, w, _, why in rs),
                     [i for i, _, _, _, _ in rs]))
@@ -1081,7 +1404,17 @@ if __name__ == "__main__":
         floor.banner()
         sys.exit(0)
     print("DECLARATION")
-    print(json.dumps(floor.decl.__dict__, indent=2))
+    # `cliche_pairs` is a frozenset of frozensets and json has no shape for
+    # either, so it is rendered as sorted "a/b" strings — SORTED, because an
+    # arbitrary set iteration order printed as a declaration is a declaration
+    # that does not reproduce across processes (doctrine 66, the same trap
+    # `_anaphora`'s tie break carries a comment about).
+    def _jsonable(o):
+        if isinstance(o, (set, frozenset)):
+            return sorted("/".join(sorted(p)) if isinstance(
+                p, (set, frozenset)) else str(p) for p in o)
+        raise TypeError(repr(o))
+    print(json.dumps(floor.decl.__dict__, indent=2, default=_jsonable))
     demo = ["And so the morning comes and so it goes",
             "And all the world is turning in the rain",
             "And every heart is beating in the cold",

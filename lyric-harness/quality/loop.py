@@ -76,8 +76,21 @@ result from a layer that was asked and came back clean.
   `LEXICAL_MONOTONY` IS a flag there; 8 and 10 lines (74 and 93 tokens) fall
   between two profiles and every floor finding becomes a note. What is left
   that can actually start a round is the LENGTH-INDEPENDENT half —
-  `CLICHE_PAIR` and `REPEAT_IN_VERSE`, which are flags at any length and are
-  in `RHYME_FINDINGS`, so they earn a candidate field. `ANAPHORA_OVERLOAD`
+  `CLICHE_PAIR` and `REPEAT_IN_VERSE`, both in `RHYME_FINDINGS`, so both earn
+  a candidate field.
+  AMENDED 2026-08-14, and the amendment narrows this loop's reach: only
+  `REPEAT_IN_VERSE` is a flag at any length now. `CLICHE_PAIR` runs at any
+  length and may only REJECT inside the song profile's measured band, where
+  its false-positive rate was measured (6.35% in band against 14.74% outside
+  every profile — `quality/floor.py`'s CLICHE_PAIR docstring section). The
+  two questions came apart: the membership test is length-blind, its LICENCE
+  to reject is not. Priced on this suite's own fixtures, which is the only
+  honest way to state it: at 4 lines / 37 tokens the `section` profile covers
+  the draft exactly, so a stock pair still starts a round there; at 8 and 10
+  lines it is now a note and starts none, so a draft between profiles whose
+  ONLY defect is a stock rhyme reports SUCCESS with the note standing rather
+  than spending rounds on it. That is the same shape as the three whole-draft
+  flags above — disclosed in `LoopResult`, not acted on. `ANAPHORA_OVERLOAD`
   names lines and so IS briefed, but it is not in `RHYME_FINDINGS`: the line
   comes back with an empty field and the round reports "no candidates
   offered". The same is true of every meter flag and of

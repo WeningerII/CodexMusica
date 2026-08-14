@@ -68,6 +68,7 @@ so. See MISSING.md C-2.
 """
 
 import itertools
+import json
 from dataclasses import dataclass, field
 from fractions import Fraction
 from math import gcd
@@ -435,6 +436,79 @@ def get_named(name):
     return CATALOGUE[key]
 
 
+# ---------------------------------------------------------------------------
+# WHAT A BLUEPRINT SECTION'S `meter` FIELD MAY BE
+# ---------------------------------------------------------------------------
+
+
+class MeterDeclarationError(ValueError):
+    """A section's `meter` field is PRESENT and is not a meter object.
+
+    A `ValueError` subclass on purpose. `lyric_harness.py` already routes that
+    family, for the blueprint-reading verbs, to ONE `REFUSED — ...`/exit 2
+    shape; inheriting from it means this refusal reaches the operator through
+    the handler that already exists instead of a second one being invented for
+    it, which is the thing that shape was consolidated to prevent.
+    """
+
+
+# JSON's own names for the types a hand-written blueprint can put here. The
+# operator wrote JSON; telling them Python found a `str` names a language they
+# were not writing in.
+_JSON_TYPE = {str: "string", bool: "boolean", int: "number", float: "number",
+              list: "array", type(None): "null"}
+
+
+def section_meter(raw, section=None):
+    """-> a blueprint section's `meter` mapping, or `{}` when it declares none.
+
+    THE ONE PREDICATE THE THREE BLUEPRINT READERS SHARE.
+    `grid.song_from_blueprint`, `fit.from_blueprint` and
+    `lyric_harness._grid_song` each build a different object out of the same
+    `meter` field -- a `grid.Meter`, a `meter.Cycle`, and a `grid.Meter` again
+    -- and each used to reach straight for `.get("beats", 4)`. On a section
+    that declares `"meter": "4/4"` all three raised
+    `AttributeError: 'str' object has no attribute 'get'`, from three
+    different frames, and `AttributeError` is outside the refusal family, so
+    all three tracebacked at exit 1 and none of them named the field at fault.
+    The DIAGNOSIS is what was missing: the operator reading that traceback
+    cannot tell a mistyped meter from a corrupt file from a bug in the reader.
+
+    Routing all three through here is what makes `song` and `grid` unable to
+    answer differently about one file: same predicate, same message, same exit
+    code, whichever verb the operator happened to run first.
+
+    An ABSENT `meter` is not an error and never was -- it returns `{}` and each
+    reader applies its own documented default, exactly as `s.get("meter", {})`
+    did. Only a meter that IS declared and cannot be read raises. A declared
+    signature is likewise NOT parsed out of a string: `"4/4"` names a duration
+    and cannot name a grouping, and `meter.Cycle` exists precisely because
+    supplying the grouping a signature omits is an assertion, not a reading
+    (see `pulse_groups`, above -- 7/8 admits 64 groupings and this module
+    refuses to pick one).
+    """
+    if raw is None:
+        return {}
+    if isinstance(raw, dict):
+        return raw
+    try:
+        shown = json.dumps(raw)
+    except (TypeError, ValueError):        # pragma: no cover - non-JSON input
+        shown = repr(raw)
+    kind = _JSON_TYPE.get(type(raw), type(raw).__name__)
+    a_kind = f"{'an' if kind[0] in 'aeiou' else 'a'} {kind}"
+    who = f"section {section!r}" if section else "a section"
+    raise MeterDeclarationError(
+        f'{who} declares "meter": {shown}, {a_kind}; this schema wants an '
+        f'object — {{"beats": 4, "unit": 4}}, optionally with '
+        f'"groups": [2, 2]. The time signature IS declared on that section '
+        f'and is not being read for want of one: {a_kind} carries the '
+        f'duration and cannot carry the grouping, and supplying the grouping '
+        f'it omits would be an assertion rather than a reading. Nothing else '
+        f'about the section is at fault — rewrite that one field.')
+
+
 __all__ = ["compositions", "n_compositions", "lcm_fraction", "Marker",
            "Cycle", "Polymeter", "Polyrhythm", "Density", "MeterMap",
-           "CATALOGUE", "register_named", "get_named"]
+           "CATALOGUE", "register_named", "get_named",
+           "MeterDeclarationError", "section_meter"]

@@ -346,8 +346,132 @@ class Reviser:
         `spec=None` used to fall through to "no scheme declared", which
         mandated nothing and reported nothing flagged. Doctrine 20: that is a
         refusal wearing a pass, and it is now a refusal that says so.
+
+        A BLANK LINE IN THE DRAFT IS THE SECOND REFUSAL, and it is the same
+        defect one coordinate over: the mandate and the draft disagree about
+        WHICH LINES THEY ARE TALKING ABOUT rather than about how many there
+        are. `n_lines=len(lines)` below commits this whole class to "the list
+        handed in IS the line list" — `_matrix` builds an n x n matrix over
+        it, `grade()` reads `matrix[i - 1][j - 1]`, `brief()` reads
+        `lines[ln - 1]`, and `verify(targeted=...)` takes the CALLER's own
+        1-based numbers into it. `Mandate.pairs0()` is 0-based against that
+        same list. TWO LAYERS UNDERNEATH DISAGREE, correctly and on purpose:
+        `SlopFloor.check` opens with `lines = [l for l in lines if l.strip()]`
+        and `QualityFeatures.extract` does the same, because a stanza break
+        must not become a datapoint (`quality/test_floor.py` test 2 pins that
+        and is right). So the two halves of `inspect()` count lines
+        differently and neither says so.
+
+        MEASURED, on a 5-line draft with a blank at L2 and groups 1,3;4,5
+        (reachable through a plain letter scheme, `inspect(RAW, 'AXABB')` —
+        not only through a hand-built `Cover`):
+
+          - `pairs0()` is [(0, 2), (3, 4)]. Against the floor's own 4-element
+            list, (3, 4) is out of range and the guard in
+            `SlopFloor._relation_findings` DROPS it, so the mandated pair
+            L4/L5 is never graded. On the blank-free draft that pair carries
+            a `REPEAT_IN_VERSE` FLAG — something `verify()` can reject on.
+          - (0, 2) is graded, as stripped[0]/stripped[2] = RAW L1/L4, a pair
+            the mandate never groups. An UNDECLARED pair, silently judged.
+          - Every floor finding's `locations` is `enumerate()`d over the
+            STRIPPED list and filed by `inspect()` as RAW line numbers. On a
+            5-line draft with a LEADING blank, `ANAPHORA_OVERLOAD` comes back
+            at [1, 2, 3, 4] when the true raw lines are [2, 3, 4, 5], so
+            `brief()` briefs the EMPTY LINE and never reaches the last real
+            one. It is not only an off-by-one into another real line: on the
+            same shape with a CLICHE_PAIR, a FLAG lands on the blank, and
+            `revise_loop` then returns `stop_reason=no_progress` with its
+            first attempt logged as `line 1 tier 1 accepted=False, "no
+            candidates offered"` — the loop asking for a better end word
+            for "".
+
+        REFUSED RATHER THAN STRIPPED, and stripping was the obvious-looking
+        fix. `SlopFloor._pairs` ALREADY carries the guard that would have
+        caught this (`if scheme and len(scheme) == len(lines)`) and
+        `_floor_for` goes around it with a lambda that ignores both
+        arguments — but re-arming it would only turn a wrong answer into a
+        silent fallback to adjacent couplets, which is a different wrong
+        answer. Stripping here would silently RENUMBER THE WRITER'S
+        DECLARATION: `[[4, 5]]` means raw L4/L5, and after a strip it would
+        mean two different lines. It would also break two coordinates that
+        are not ours to move — `verify()`'s `targeted={4}` is the caller's
+        line numbering, and a pre-built `Mandate` carries `n_lines` from the
+        raw draft, so a strip would make this method refuse it for a length
+        mismatch it did not have. An index map in both directions was the
+        third option and it repairs only the floor's half: the blank line is
+        still a real line to `_matrix`, to `readability.report`, to
+        `fit.py`'s bar placement and to `grid.py`'s rebuilt `Song`, and it is
+        still a briefable line with no text in it.
+
+        `NoMandate` is the same instrument `SC.mandate` already uses for the
+        sibling defect one line apart, for the reason written there: silently
+        ignoring a length mismatch is how the old loop dropped a declared
+        scheme on the floor and passed vacuously.
+
+        NOT REACHABLE FROM THE CLI, which is why it survived:
+        `load_lyric_lines` and `parse_lyric_sections` both drop blanks and all
+        four verbs route through one of them. Fully reachable from the Python
+        API, on every entry — `grade`, `group_merges`, `inspect`, `brief`
+        (via `inspect`) and `verify` (via `inspect` on BOTH drafts, so a blank
+        at the same index in before and after — which passes verify's own
+        length gate — is caught here rather than nowhere).
         """
+        self._refuse_blank(lines)
         return SC.mandate(spec, n_lines=len(lines))
+
+    @staticmethod
+    def blank_lines(lines):
+        """-> the 1-based numbers of the lines this class cannot grade.
+
+        ONE SPELLING OF "BLANK", and it is deliberately the same predicate
+        the two layers that disagree with this one use: `SlopFloor.check`'s
+        `[l for l in lines if l.strip()]`, `QualityFeatures.extract`'s copy of
+        it, and `lyric_harness.load_lyric_lines`'s `if l.strip()`. A refusal
+        keyed on a NARROWER test than the strip it is protecting against
+        would let exactly the drafts that skew the indices through.
+        """
+        return [i + 1 for i, l in enumerate(lines) if not str(l).strip()]
+
+    @classmethod
+    def _refuse_blank(cls, lines):
+        """RAISE `NoMandate` if the draft carries a line the floor will drop.
+
+        Called from BOTH mandate constructors. `mandate()` is the choke point
+        every grading path routes through (`grade`, `group_merges`,
+        `inspect`, and so `brief`/`verify`); `mandate_from_graph` is the one
+        builder that does not go through it, and it reaches `_matrix` — so
+        without this it would spend a full n x n pass over a line list it
+        cannot number before the refusal arrived from somewhere else.
+        """
+        blank = cls.blank_lines(lines)
+        if blank:
+            raise NoMandate(
+                f"line{'s' if len(blank) > 1 else ''} "
+                f"{', '.join('L%d' % b for b in blank)} of this "
+                f"{len(lines)}-line draft "
+                f"{'are' if len(blank) > 1 else 'is'} blank, and a blank line "
+                f"is not a line this loop can grade.\n"
+                f"This is a REFUSAL, not a pass, and not a defect in the "
+                f"writing: it is the mandate and the draft disagreeing about "
+                f"WHICH LINES they name.\n"
+                f"A Reviser takes the list it is handed AS the line list — "
+                f"`mandate()` is `n_lines=len(lines)`, `Mandate.pairs0()` is "
+                f"0-based into it, `verify(targeted=...)` and `Brief.line_no` "
+                f"are the caller's own 1-based numbers into it. "
+                f"`SlopFloor.check` and `QualityFeatures.extract` are not: "
+                f"both open by dropping blank lines, because a stanza break "
+                f"must not become a datapoint. Handed a draft with a blank, "
+                f"those two halves of `inspect()` number lines differently — "
+                f"a mandated pair falls off the end and is dropped in "
+                f"silence, an undeclared pair is graded in its place, and "
+                f"every floor finding's `locations` is filed one or more "
+                f"lines short of where it was measured.\n"
+                f"Stripping the blanks here would silently RENUMBER the "
+                f"declaration you just made, so the draft is handed back "
+                f"instead. Drop the blank lines yourself before you call — "
+                f"`lyric_harness.load_lyric_lines` is what every CLI verb "
+                f"uses and is why none of them can reach this — and renumber "
+                f"the mandate to match.")
 
     def mandate_from_graph(self, lines, theta=None, profile=None,
                            origin=None):
@@ -377,7 +501,13 @@ class Reviser:
         mandate rejects, the slop floor, and the joint candidate field at a
         pivot. And a cover derived at one theta is a perfectly ordinary
         independent mandate when graded at another.
+
+        A BLANK LINE IS REFUSED HERE TOO, by the same `_refuse_blank` the
+        declared path uses — the cover this returns is 1-based against the
+        list it was handed, so it carries the same numbering the floor will
+        not agree with. See `mandate()`.
         """
+        self._refuse_blank(lines)
         theta = self.decl.theta_rhyme if theta is None else theta
         _, _, records, matrix = self._matrix(lines, profile=profile)
         n = len(lines)
@@ -930,6 +1060,41 @@ class Reviser:
                 f"SETTING, not once per line it happens to fall on "
                 f"(the same move COLLISION_CUT_IS_SCALAR_ONLY makes).",
                 sorted(lns)))
+        # A BAR NO LINE COVERS IS THE SAME SHAPE OF GAP `overlap_findings`
+        # WAS, ONE RELATION FURTHER OUT, AND IT SURVIVED THE SAME WAY.
+        # Coverage is a relation between a SECTION and the lines declared in
+        # it, so `fit_line` cannot see it from inside one line — and
+        # `SectionFit.uncovered_bars` was left as a method on the object this
+        # method never builds, so the `fit` verb printed an `empty bars`
+        # column while `inspect`/`brief`/`verify`/`revise`/`song` said nothing
+        # about it at all. MEASURED on one blueprint before the wiring: `fit`
+        # printed `4 3..6` and `2 11..12` on two sections and `inspect()`
+        # returned eleven distinct codes, none of them about a bar nobody
+        # sings. `fit.uncovered_bar_findings` takes the SAME flat list
+        # `overlap_findings` does, plus the declared section list, which is
+        # the only way a section with NO LINES — the archetypal empty
+        # instrumental — can be seen at all.
+        #
+        # WHOLE-DRAFT, WITH NO LOCATIONS, AND THAT IS THE CHARGE DECISION.
+        # A per-line finding here would name lines that are individually
+        # correct: their bar/beat/duration are exactly what the writer
+        # declared, and no rewrite of their WORDS moves the answer — the loop
+        # is a word swap on a named line and has no move for this. That is
+        # the shape whose price this method's sibling block already measured
+        # (see `inspect`: a flag with no move "returns NO_PROGRESS after 1
+        # round with L4 permanently unresolved ... the cost is a destroyed
+        # SUCCESS"), and it is why the finding names a SECTION and no line.
+        #
+        # SEVERITY IS STILL NOT RE-DECIDED HERE — the same `satisfiable`
+        # rule the per-line loop above uses. `fit.py` marks UNCOVERED_BARS
+        # satisfiable (an empty bar is a rest, a break, or a melisma this
+        # layer cannot see), so it lands as a `note`, and the argument for
+        # that lives in `fit.py` beside `crowded` and `fighting`, which are
+        # counts and not verdicts for the same reason.
+        for f in FT.uncovered_bar_findings(fits, secs):
+            whole.append(Finding(
+                f.code, "flag" if not f.satisfiable else "note",
+                f.message, f.evidence, []))
         return per, whole
 
     # -- section function ---------------------------------------------------
@@ -969,6 +1134,19 @@ class Reviser:
         words or not — with no convention in it at all, the same shape as
         `RETURN_NOT_VERBATIM` being a flag while `RETURN_LENGTH_DRIFT`'s
         sibling `RETURN_OUT_OF_RANGE` is a note.
+
+        `RETURN_SCHEME_DRIFT` (added 2026-08-14) is the note most likely to
+        be promoted by a later reader and must not be, because it is ABOUT
+        RHYME and rhyme is what the mandate flags. It is not a mandate:
+        `grid.return_findings` is never handed one, so its every answer is
+        measured against `POPULAR_SONG` and nothing it says is a requirement
+        the writer declared. THE FLAG FOR THIS ALREADY EXISTS ONE LAYER
+        DOWN — a writer who REQUIRES a return declares it as
+        `schemes.Return(verbatim=True)` and `Mandate.returns_check` breaks it
+        as `RETURN_NOT_VERBATIM`, a flag, above — so promoting it would fail
+        an undeclared return on a convention AND fail a declared one twice
+        under two names. The argument in full is at the finding's own site in
+        `quality/grid.py`.
         """
         song, hooks = GR.song_from_blueprint(blueprint)
         for l, text in zip(song.lines, lines):
@@ -1040,8 +1218,63 @@ class Reviser:
         COPIES — nothing the caller handed in is mutated, and the defect
         itself is still reachable through `SlopFloor` directly for whoever
         fixes it there.
+
+        A DECLARED RETURN IS SUBTRACTED, because the floor would charge the
+        writer for obeying the mandate. Doctrine 3's inversion is exactly this:
+        where a return is REQUIRED, repetition IS the requirement, and
+        `RefrainScheme.check_identity`'s own docstring already says handing
+        these pairs to a rhyme grader "would flag every correct refrain".
+        `to_mandate` acts on that by keeping identity out of `Mandate.groups`
+        -- but an A-1 mark also carries a rhyme LETTER, so `to_mandate` builds
+        groups from `blocks(self.code)` and the return pairs come back in
+        through the rhyme half. `--returns=` is blunter still: it passes the
+        same group list as both `groups` and `returns`. So on every path a
+        writer actually uses, the floor was seeing the returns after all.
+
+        WHAT THAT COST, measured on this repo's own villanelle fixture -- a
+        formally perfect one:
+
+            SHIPPED   pairs=93   REPEAT_IN_VERSE=1   ("carried by 6 of 93
+                                 pairs, under the declared 50% needed to read
+                                 it as a refrain")
+            SUBTRACT  pairs=81   REPEAT_IN_VERSE=0
+
+        while `returns_check` on the same draft returns [] -- the returns are
+        perfect and the layer that understands them says so. Two layers, one
+        draft, opposite verdicts, and the one that was wrong is the one that
+        does not know what a refrain is. Before today's severity split those
+        were FLAGS; the demotion masked this and never named it.
+
+        SUBTRACT RATHER THAN LICENSE-IN-PLACE, which was the obvious-looking
+        fix and is inverted. Licensing would route a 2x chorus into the
+        one-off branch (`seen == 1`) and flag it as "recurs NOWHERE"; a 3x
+        chorus would land on the recurring branch and be handed the
+        refrain-licence disclosure (~~93.5%~~ 94.7% as of the 2026-08-14
+        re-derivation -- see `SlopFloor.radif_min_pair_fraction`), which was
+        measured on recurring rhyme REPETENDS and says nothing about a
+        declared identity. There is no threshold that fixes
+        it, because a return's pair-density is a fact about how many times the
+        chorus repeats -- song structure, not craft.
+
+        `return_pairs()` and not `identity_pairs()`: `requirement()` answers
+        LICENSE_REPEAT for non-verbatim and UNKNOWN returns too, so an
+        identical word is not a defect there either.
+
+        SECOND-ORDER, AND THE REASON THIS IS NOT ONLY A SEVERITY QUESTION: the
+        return pairs were also inflating `npairs`, the denominator every real
+        radif is licensed against, so they could push a genuine refrain under
+        `radif_min_pair_fraction` and un-license it. They leave the numerator
+        and the denominator together.
+
+        This changes the pair set the FEATURE layer sees as well, not just the
+        relation layer -- `PREDICTABLE_RHYME`'s denominator moves on a draft
+        with returns. That is defensible (a returned line's rhyme was already
+        scored at its first instance, so those pairs were double-counted) but
+        it is a change beyond the relation checks and is said out loud here
+        rather than slipped in.
         """
-        pairs = m.pairs0()
+        ident = {(i - 1, j - 1) for i, j, *_ in m.return_pairs()}
+        pairs = [p for p in m.pairs0() if p not in ident]
         qf = copy.copy(self.floor.qf)
         qf.pairs_from_scheme = staticmethod(lambda _s, _p=pairs: list(_p))
         fl = copy.copy(self.floor)
@@ -1406,6 +1639,29 @@ class Reviser:
         # directions, and — because every one of these is a note — it still
         # cannot REJECT on one. That is doctrine 7 exactly: the loop discloses
         # the refusal and does not order the writer around it.
+        #
+        # AND ONE MORE CODE JOINED THE SAME CALL 2026-08-14, WITH NO SECOND
+        # WIRE. `readability.substitution_report` — the sharper half by its
+        # own docstring, "the substituted word is a plausible English word and
+        # nothing about the output looks wrong" — sat 100 lines below
+        # `report` in that module with two callers: its own `main()`, which
+        # prints a COUNT and never a word, and one test. It is now folded
+        # into `report`'s own finding list as `SUBSTITUTED_END_WORD`, so this
+        # loop reaches it through the call it already makes rather than
+        # through a second one (the same "one definition, two surfaces" the
+        # paragraph above states).
+        # WHAT IT ADDS IS NARROWER THAN THE CODE COUNT SUGGESTS, MEASURED:
+        # over the 143 English song files 8,840 of 8,842 substitution lines
+        # are ALREADY `UNREADABLE_END_WORD` — the LINE was never silent, only
+        # the WORD was — so this is the actionable half of a finding that
+        # already existed, not a newly visible population. The exception is
+        # real and small: 2 lines whose end token READS and yields no
+        # syllable (`...on the turf,[mm]`) are anchored on the previous word,
+        # reported readable, and reached by NOTHING else in either module.
+        # It arrives a NOTE from `report` itself and needs no downgrade.
+        # COST, warm, on the 16-line `quality/fixtures/song.txt`: `report`
+        # goes 0.0181s -> 0.0260s, of which 0.0079s is the new call, against
+        # `inspect()`'s tens of seconds on the same draft.
         #
         # PER LINE, NOT WHOLE-DRAFT: these findings NAME the lines they are
         # about, so they follow the floor's own branch at the top of this

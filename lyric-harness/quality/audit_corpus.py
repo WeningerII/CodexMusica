@@ -34,12 +34,32 @@ WHAT IT CHECKS, in the order the errors were actually found
 -----------------------------------------------------------
 
   A · ROW          Doctrine 34.  Every file under the audited root reaches a
-                   `data/sources.tsv` row by one of three declared routes, and
-                   every row that names a corpus path names one that exists.
-                   Reported in BOTH directions, because the two failures are
-                   different defects: an undeclared file never passed the
-                   provenance gate, and a row naming nothing is a claim about
-                   a population that is not here.
+                   `data/sources.tsv` row by one of three declared routes;
+                   EVERY `# source:` id the file's own header declares reaches
+                   one too; and every row that names a corpus path names one
+                   that exists.  Reported in all three directions, because the
+                   failures are different defects: an undeclared file never
+                   passed the provenance gate, and a row naming nothing is a
+                   claim about a population that is not here.
+
+                   THE MIDDLE ONE WAS MISSING UNTIL 2026-08-14, and it is the
+                   difference between two questions this check had been
+                   collapsing.  `route()` answers IS THIS FILE REACHABLE — it
+                   stops at the first header id that hits a row.  Doctrine 34's
+                   actual question is IS EVERYTHING IN THIS FILE DECLARED, and
+                   a file assembled from one declared source and one undeclared
+                   one answers yes to the first and no to the second.  Three
+                   files did: `eng_american_ann_taylor.txt` and
+                   `eng_american_jane_taylor.txt` each declared
+                   `GITenberg/Little-Ann-and-Other-Poems_42947` LAST, behind a
+                   Home-Book-of-Verse header that resolves, and
+                   `eng_american_margaret_junkin_preston.txt` declared
+                   `GITenberg/BeechenbrookA-Rhyme-of-the-War_16480` FIRST,
+                   ahead of a Poems-of-American-History header that resolves.
+                   Two real editions, named in a corpus header, in no row —
+                   inside a corpus this check reported clean, at 0 FAIL, across
+                   all 269 files.  Each unresolved id is its own FAIL: two
+                   holes in one file are two holes.
 
   B · HEADER       The file's own `#` header carries md5s, editions, licences
                    and counts.  Where the header and the row disagree, one of
@@ -216,10 +236,21 @@ _TOKEN_LETTERS = re.compile(r"[^\W\d_]+", re.UNICODE)
 
 _CJK = re.compile(r"[㐀-䶿一-鿿豈-﫿]")
 
+#: The FIRST token of a `# source:` line, which is where this corpus writes the
+#: source_id.  Everything after it on the line is the upstream filename, the
+#: md5 and the byte count, and check C is what reads those.
+_SOURCE_DECL = re.compile(r"^#\s*sources?:\s*(\S+)")
+
 #: `local:` rows name their file directly; everything else is reached through
 #: the file's own header naming a parent `source_id`, or through a row's prose
 #: naming the path.  Three routes, declared, and a file with none of them is
 #: the doctrine 34 defect.
+#:
+#: REACHING A ROW AND DECLARING EVERY SOURCE ARE TWO QUESTIONS, and these
+#: constants only answer the first.  `Sources.route` stops at the first header
+#: id that hits a row, which is the right answer to "is this file reachable"
+#: and the wrong answer to doctrine 34's "is everything in this file declared".
+#: `Sources.resolve_declared` answers the second, once per declaration.
 ROUTE_LOCAL = "local-row"
 ROUTE_HEADER = "header-names-parent-row"
 ROUTE_MENTION = "named-in-a-row"
@@ -280,6 +311,35 @@ class CorpusFile:
     def header_md5s(self):
         return set(re.findall(r"md5\s+([0-9a-f]{32})", self.header))
 
+    def source_declarations(self):
+        """-> [source_id, ...], in header order, one per `# source:` line that
+        opens with an id.  Duplicates are kept: a file that names one source
+        twice declared it twice.
+
+        THE RESTRICTION IS THE DESIGN AND IS WRITTEN DOWN RATHER THAN TAKEN
+        SILENTLY.  352 `# source:` lines ship in this corpus.  336 open with an
+        id-shaped token — `GITenberg/Little-Ann-and-Other-Poems_42947`,
+        `kanripo/KR4j0076`, `rsharifnasab/ganjoor_epub` — and those are the
+        declarations this returns.  The other 16 open with a bare org and say
+        the rest in prose: `# source: GITenberg PG 12907 -- file
+        raw_12907-8.txt, ISO-8859-1`.  A prose line names no id, so nothing is
+        invented for it; `Sources.route`'s whole-header match is what still
+        answers for those 16 files, exactly as before.
+
+        Reading an id out of prose is how an auditor manufactures findings, and
+        manufacturing findings is worse than missing them because a reader
+        cannot tell a manufactured one from a real one — see `_COUNT_FIELDS`,
+        whose first version cost this module 30 FAILs of its own.  If the prose
+        form is ever worth covering, the fix is to make those 16 headers write
+        an id, not to make this regex guess at one.
+        """
+        out = []
+        for l in self.header_lines:
+            m = _SOURCE_DECL.match(l)
+            if m and "/" in m.group(1):
+                out.append(m.group(1))
+        return out
+
     # -- tokens ------------------------------------------------------------
 
     def tokens(self, letters_only=False, lang=None):
@@ -292,6 +352,12 @@ class CorpusFile:
 # ---------------------------------------------------------------------------
 # 1. Reading data/sources.tsv
 # ---------------------------------------------------------------------------
+
+
+#: A GITenberg / Project Gutenberg source_id ends in `_<ebook number>`, and THAT
+#: is the identity of the edition — the slug in front of it is a title, and the
+#: table and the corpus headers do not always slug it to the same length.
+_PG_ID = re.compile(r"^([^/]+)/.*_(\d+)$")
 
 
 class Sources:
@@ -336,6 +402,64 @@ class Sources:
             if stem and stem in cf.header:
                 return sid
         return None
+
+    def resolve_declared(self, declared):
+        """-> the source_id ONE declared header id reaches, or None.
+
+        `parent_of` asks the header as a whole and stops at the first hit, so
+        it can only ever answer "this file is reachable".  This asks ONE
+        declaration, which is what doctrine 34 is actually about: a file
+        assembled from a declared source and an undeclared one is a file with
+        an undeclared source in it, and the declared half must not answer for
+        the other.
+
+        Three stages, and the counts are what this corpus measures over its 336
+        id-shaped declarations:
+
+          1. a row id contained in the declaration                        (326)
+          2. a row id's `#` stem contained in it — `#` is this table's
+             sub-scope convention, so a header naming `thabz/Kalliope`
+             resolves to the row `thabz/Kalliope#moore-irish-melodies`     (4)
+          3. same org AND same Project Gutenberg ebook number             (3)
+
+        STAGE 3 IS NOT A LOOSENING, IT IS THE IDENTITY OF A GITENBERG ID, and
+        without it this check would have manufactured three findings on its
+        first run.  The corpus header writes the full repo slug and the table
+        sometimes writes an abbreviated one for the same repo:
+
+            header  GITenberg/Kanteletar--Suomen-kansan-wanhoja-lauluja-ja-wirsi-_7078
+            row     GITenberg/Kanteletar_7078
+            header  GITenberg/Malay-Magic-Being-an-introduction-to-the-folklore-...-Peninsula_47873
+            row     GITenberg/Malay-Magic_47873
+
+        The trailing number is the PG ebook id, so those are one source, not
+        two.  Measured: stage 3 resolves 3 declarations and never to a row with
+        a different ebook number — it cannot reach past the number it matched.
+        The three ids this check DOES fail on are failing on the number too:
+        42947 and 16480 appear nowhere in `data/sources.tsv` at all.
+        """
+        for sid in self.parent_ids:
+            if sid in declared:
+                return sid
+        for sid in self.parent_ids:
+            stem = sid.split("#")[0]
+            if stem and stem in declared:
+                return sid
+        m = _PG_ID.match(declared)
+        if m:
+            org, num = m.group(1), m.group(2)
+            for sid in self.parent_ids:
+                m2 = _PG_ID.match(sid.split("#")[0])
+                if m2 and m2.group(1) == org and m2.group(2) == num:
+                    return sid
+        return None
+
+    def undeclared_sources(self, cf):
+        """-> [(declared_id, position, total)] for every `# source:` id in this
+        file's header that reaches no row.  Empty is the ordinary answer."""
+        decls = cf.source_declarations()
+        return [(d, i + 1, len(decls)) for i, d in enumerate(decls)
+                if self.resolve_declared(d) is None]
 
     def mentions(self, rel):
         """Sorted, so the answer does not depend on dict order (doctrine 66).
@@ -876,6 +1000,35 @@ def check_row(files, src):
                 "row: %s" % sid,
                 "the weakest of the three routes: it survives only as long as "
                 "somebody keeps writing the path into a note",
+                "34"))
+
+        # -- EVERY declared source, not just the first one that resolved -----
+        #
+        # `route()` above stops at the first header id that hits a row.  That
+        # is the right answer to "is this file reachable" and the wrong answer
+        # to doctrine 34's question, and the gap between the two is a file
+        # assembled from a declared source and an undeclared one.  Reported per
+        # UNRESOLVED ID rather than per file: two holes in one file are two
+        # holes, and a count that merges them is doctrine 79's error one layer
+        # down.
+        for d, pos, total in src.undeclared_sources(cf):
+            others = [x for x in cf.source_declarations() if x != d]
+            resolved = sorted({r for r in (src.resolve_declared(o)
+                                           for o in others) if r})
+            out.append(Finding(
+                "A", FAIL, rel,
+                "the header declares a source that reaches no "
+                "data/sources.tsv row: %s" % d,
+                "`# source:` declaration %d of %d in this header; %d of the "
+                "other %d resolve (%s)"
+                % (pos, total, len(resolved), len(others),
+                   ", ".join(resolved) if resolved else "none"),
+                "doctrine 34 asks whether everything in this file is DECLARED, "
+                "not whether the file is reachable. A file whose other header "
+                "id resolves passes `route()` on its declared half while this "
+                "one names an edition that never passed the provenance gate — "
+                "which is the rule verse.txt was deleted for, surviving inside "
+                "a corpus the check reported clean",
                 "34"))
     # the other direction
     named = src.named_paths()
