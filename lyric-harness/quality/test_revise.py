@@ -175,8 +175,9 @@ from quality import frequency as FREQ  # noqa: E402
 from quality import readability as RD  # noqa: E402
 from quality import revise as RV  # noqa: E402
 from quality import schemes as SC  # noqa: E402
-from quality.revise import (COLLISION_FINDINGS, THETA_COLLISION,  # noqa: E402
-                            Brief, NoMandate, ReviseDeclaration, Reviser)
+from quality.revise import (COLLISION_FINDINGS, SATISFACTION_FINDINGS,  # noqa: E402
+                            THETA_COLLISION, Brief, NoMandate,
+                            ReviseDeclaration, Reviser)
 
 FAILURES = []
 R = Reviser()
@@ -2849,6 +2850,98 @@ def test_uncovered_bars_reaches_the_loop_not_only_fit():
           and all(r["uncovered_bars"] == () for r in cres.table()))
 
 
+def test_a_holding_requirement_is_not_fixed_by_breaking_it():
+    """39. `verify()` paid a revision for breaking a chorus.
+
+    `fixed` was `set(cb - ca)` over EVERY code, so a finding that named
+    something RIGHT counted as repaired the moment the revision destroyed
+    the thing it named. Measured before the split, on the fixture below:
+
+        accepted : True
+        fixed    : [(0, 'RETURN_LOCKED')]
+        new_flags: []          new_notes: []
+        reasons  : ['fixed 1, introduced 0, changed only [7]']
+
+    THE DECLARED HALF WAS NEVER EXPOSED and this test says so in its own
+    third check: a return declared with `Return(verbatim=True)` raises
+    `RETURN_NOT_VERBATIM`, a FLAG, and the net-new gate rejects on it. Only
+    the CONVENTION half was reachable, because `grid.py`'s only flag is
+    `HOOK_ABSENT` -- so the fix DISCLOSES rather than rejects (doctrine 6),
+    and the rejection comes from `fixed` being correctly empty instead.
+    """
+    print("\n39. a requirement that HOLDS is not repaired by ending it")
+    import quality.schemes as _SC
+    M = {"beats": 4, "unit": 4, "groups": [2, 2]}
+
+    def _sec(n, fn, s):
+        return {"name": n, "function": fn, "bars": 4, "start_bar": s,
+                "meter": dict(M)}
+    CH = ["count me out slow",
+          "the river counts the stones it drags all night"]
+    base = (["the dock lights stutter on the bay",
+             "the kettle on the stove had caught the light"] + CH +
+            ["the winter came and took the day",
+             "he never taught the knot that night"] + CH)
+    bp = {"sections": [_sec("v1", "verse", 1), _sec("c1", "chorus", 5),
+                       _sec("v2", "verse", 9), _sec("c2", "chorus", 13)],
+          "lines": [{"text": t, "bar": b, "beat": 1, "duration": 4}
+                    for t, b in zip(base, [1, 2, 5, 6, 9, 10, 13, 14])]}
+    m = _SC.mandate("ABXXABXX")
+
+    found = R.inspect(list(base), m, blueprint=bp)
+    check("the two chorus instances are verbatim, so RETURN_LOCKED holds",
+          any(f.code == "RETURN_LOCKED" for f in found["whole"]),
+          sorted({f.code for f in found["whole"]}))
+
+    # BREAK-ONLY: the revision's entire accomplishment is ending the return.
+    only = list(base)
+    only[6] = "count me down slow"
+    r1 = R.verify(base, only, m, targeted={7}, blueprint=bp)
+    check("a revision whose ONLY effect is ending the return is REJECTED -- "
+          "it was accepted before, on the strength of the record it destroyed",
+          r1["accepted"] is False and r1["fixed"] == []
+          and r1["broken"] == [(0, "RETURN_LOCKED")],
+          f"accepted={r1['accepted']} fixed={r1['fixed']} "
+          f"broken={r1['broken']}")
+    check("...and the reason says which half it is, rather than 'nothing "
+          "was fixed' alone",
+          "regression and not a repair" in r1["reasons"][0],
+          r1["reasons"][0][:120])
+
+    # A REAL REPAIR that incidentally ends it: accepted, and DISCLOSED.
+    both = list(base)
+    both[1] = "the kettle on the stove had taken flight"   # offered, non-modal
+    both[6] = "count me down slow"
+    r2 = R.verify(base, both, m, targeted={2, 7}, blueprint=bp)
+    check("a genuine repair that incidentally ends it is ACCEPTED and says "
+          "so -- doctrine 6, the return is convention-measured and a writer "
+          "may depart from it",
+          r2["accepted"] is True and r2["broken"] == [(0, "RETURN_LOCKED")]
+          and "ENDING 1 holding requirement/licence" in r2["reasons"][0],
+          f"accepted={r2['accepted']} broken={r2['broken']} :: "
+          f"{r2['reasons'][0][:110]}")
+
+    # THE DECLARED HALF, which never needed this fix and must not lose its flag.
+    dec = ["we counted every reason we were given",
+           "the kettle on the stove had caught the light",
+           "we counted every reason we were given",
+           "the morning came and did not care that night"]
+    dm = _SC.mandate([[1, 3], [2, 4]], n_lines=4, returns=[[1, 3]])
+    broke = list(dec)
+    broke[0] = "we counted every reason we were driven"
+    r3 = R.verify(dec, broke, dm, targeted={1})
+    check("a DECLARED verbatim return still rejects on its own FLAG, so this "
+          "split changed nothing there",
+          r3["accepted"] is False
+          and (3, "RETURN_NOT_VERBATIM") in r3["new_flags"],
+          f"accepted={r3['accepted']} new_flags={r3['new_flags']}")
+
+    check("MANDATE_EXCUSED_BY_OVERLAP is NOT in the set -- it records a pair "
+          "that FAILED and was excused, so its removal IS a repair",
+          "MANDATE_EXCUSED_BY_OVERLAP" not in SATISFACTION_FINDINGS,
+          sorted(SATISFACTION_FINDINGS))
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -2890,7 +2983,8 @@ if __name__ == "__main__":
                test_the_whole_draft_half_reaches_the_report,
                test_substituted_end_word_reaches_the_loop,
                test_uncovered_bars_reaches_the_loop_not_only_fit,
-               test_a_blank_line_is_refused_not_renumbered):
+               test_a_blank_line_is_refused_not_renumbered,
+               test_a_holding_requirement_is_not_fixed_by_breaking_it):
         fn()
     print("=" * 62)
     if FAILURES:

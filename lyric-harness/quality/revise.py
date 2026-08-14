@@ -100,7 +100,8 @@ from quality.schemes import Mandate, NoMandate  # noqa: E402
 #: have to import two modules to declare what a draft is held to, or to catch
 #: the refusal when it declares nothing.
 __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
-           "COLLISION_FINDINGS", "RHYME_FINDINGS", "THETA_COLLISION"]
+           "COLLISION_FINDINGS", "RHYME_FINDINGS", "SATISFACTION_FINDINGS",
+           "THETA_COLLISION"]
 
 #: Findings that mean "this line's RHYME needs replacing". Each earns a
 #: candidate field with the modal region excluded.
@@ -109,6 +110,44 @@ __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
 #: OVERSIGHT — see `Reviser.brief`'s "WHY A COLLISION EARNS NO FIELD".
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
                   "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME"}
+
+#: Findings whose PRESENCE records that a requirement or a licence HOLDS.
+#: Everything else in the finding set names something WRONG, so its
+#: disappearance is a repair; these name something RIGHT, so their
+#: disappearance is a REGRESSION and can never be one.
+#:
+#: `verify()` diffed every code alike until 2026-08-14, which paid a
+#: revision for breaking a chorus. Measured, on a four-section blueprint
+#: whose two chorus instances are verbatim, changing one interior word of a
+#: chorus line the mandate leaves free:
+#:
+#:     accepted : True
+#:     fixed    : [(0, 'RETURN_LOCKED')]
+#:     new_flags: []          new_notes: []
+#:     reasons  : ['fixed 1, introduced 0, changed only [7]']
+#:
+#: `RETURN_LOCKED` is `grid.py` saying "every chorus return is verbatim in
+#: an identical slot". The revision destroyed that, and destroying it was
+#: the entire evidence that the revision fixed anything.
+#:
+#: THE DECLARED HALF WAS NEVER EXPOSED, and saying so is the point of
+#: naming the population: break a return the writer DECLARED with
+#: `schemes.Return(verbatim=True)` and `returns_check` raises
+#: `RETURN_NOT_VERBATIM`, a FLAG, which the net-new gate rejects on. Only
+#: the CONVENTION-measured half is reachable, because `grid.py`'s only flag
+#: is `HOOK_ABSENT` -- so this is the doctrine 6 region, where a writer may
+#: depart and the harness may not fail them for it.
+#:
+#: WHICH IS WHY BREAKING ONE IS DISCLOSED AND NOT REJECTED. A revision that
+#: repairs a real flag and incidentally ends a strophic return is accepted,
+#: and says so. A revision whose ONLY accomplishment is ending one now
+#: reports "nothing was fixed", because nothing was.
+#:
+#: `MANDATE_EXCUSED_BY_OVERLAP` is deliberately NOT here: it records a pair
+#: that FAILED its group and was excused, so its disappearance means the
+#: pair stopped failing, which is a real repair. The test is what the
+#: finding's own message asserts about the draft, not whether it is a note.
+SATISFACTION_FINDINGS = {"REFRAIN_REPEAT", "RETURN_LOCKED", "RADIF_LICENSED"}
 
 #: What a band-passing pair that shares no mandated group can BE.
 #: One code said all of it until 2026-08-11 and its message said "rhyme" for
@@ -2285,8 +2324,15 @@ class Reviser:
         # key whose count is unchanged (2 before, 2 after) nets to zero on
         # both sides and lands in neither -- exactly a plain set diff's
         # behaviour, and where the count genuinely moves this is the fix.
-        fixed, new = set(cb - ca), set(ca - cb)
+        gone, new = set(cb - ca), set(ca - cb)
+        # A finding that named something RIGHT cannot have been FIXED by its
+        # own removal (`SATISFACTION_FINDINGS`). Split rather than dropped:
+        # doctrine 24 says a rule that would delete a category must relabel,
+        # and the whole defect here was a regression wearing a repair's name.
+        broken = {k for k in gone if k[1] in SATISFACTION_FINDINGS}
+        fixed = gone - broken
         out["fixed"] = sorted(fixed)
+        out["broken"] = sorted(broken)
         out["new"] = sorted(new)
         sev = severities(f_before)
         sev.update(severities(f_after))
@@ -2315,7 +2361,12 @@ class Reviser:
             return out
 
         if not fixed:
-            out["reasons"].append("nothing was fixed")
+            out["reasons"].append(
+                "nothing was fixed"
+                + (f" — the only finding(s) removed were {sorted(broken)}, "
+                   f"which record a requirement or licence HOLDING, so "
+                   f"ending one is a regression and not a repair"
+                   if broken else ""))
             return out
         if len(new_flags) > self.rdecl.allow_net_new:
             out["reasons"].append(
@@ -2327,6 +2378,11 @@ class Reviser:
         note_disclosure = (f", disclosing {len(out['new_notes'])} new "
                             f"note(s) {out['new_notes']}"
                             if out["new_notes"] else "")
+        # DISCLOSED, NOT REJECTED ON. These are convention-measured (doctrine
+        # 6), and the declared half already has a flag of its own.
+        note_disclosure += (
+            f", and ENDING {len(broken)} holding requirement/licence "
+            f"{sorted(broken)}" if broken else "")
         out["reasons"].append(
             f"fixed {len(fixed)}, introduced {len(new_flags)}{note_disclosure}, "
             f"changed only {sorted(changed)}")

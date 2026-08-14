@@ -905,8 +905,8 @@ MUTATIONS = [
     ),
     Mutation(
         name="QR4", layer="structure", file=REVISE,
-        old="        fixed, new = set(cb - ca), set(ca - cb)",
-        new="        fixed, new = set(cb) - set(ca), set(ca) - set(cb)",
+        old="        gone, new = set(cb - ca), set(ca - cb)",
+        new="        gone, new = set(cb) - set(ca), set(ca) - set(cb)",
         subset=T_LOOP,
         rationale=(
             "The finding diff reverts from MULTISET subtraction to a plain set "
@@ -917,7 +917,12 @@ MUTATIONS = [
             "Doctrine 47 again — a loop that cannot see the change it asked "
             "for is a rubber stamp, and that is as true of a count as of a "
             "key. Invisible to every assertion that checks membership rather "
-            "than multiplicity."),
+            "than multiplicity. ANCHOR REPINNED 2026-08-14: the left-hand "
+            "side was renamed `fixed` -> `gone` when `verify()` split a "
+            "holding requirement out of `fixed` into `broken`. The "
+            "MUTATION IS UNCHANGED -- it still reverts multiset "
+            "subtraction to a plain set difference; only the line it "
+            "anchors on moved."),
     ),
     Mutation(
         name="QR5", layer="structure", file=REVISE,

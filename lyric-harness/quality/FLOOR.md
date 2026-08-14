@@ -41,7 +41,7 @@ negative class 40 sonnets by one model in the same form and register.
 | unit | 4-line quatrain (lines 1–4, 5–8, 9–12 of each sonnet) | whole 14-line sonnet |
 | token domain (human p05–p95) | 29–37 | 108–126 |
 | n | 456 human / 120 generated | 152 / 40 |
-| `mattr_min` | 0.7568 | 0.7557 |
+| `mattr_min` | 0.7568 (**plain TTR** — see below) | 0.7557 |
 | `function_word_ratio_max` | 0.5161 | 0.4788 |
 | `anaphora_max` | 0.5000 | 0.2857 |
 | `line_length_cv_min` | 0.0525 | 0.0939 |
@@ -51,7 +51,7 @@ Measured separation, as AUC in the direction *human scores higher*:
 
 | check | section | sonnet |
 |---|---|---|
-| MATTR | 0.776 | 0.870 |
+| MATTR | 0.776 (**plain TTR**) | 0.870 |
 | function-word ratio | 0.207 | 0.135 |
 | anaphora | 0.245 | 0.147 |
 | line-length CV | 0.424 | 0.350 |
@@ -61,6 +61,19 @@ Quatrains from one sonnet are **not independent**, so 456/120 overstates the
 evidence; the effective sample is 152 vs 40. Averaged to poem level the section
 AUCs come to 0.872 / 0.119 / 0.091 / 0.358 — the separation is real at poem
 level and weaker at the unit the gate actually judges.
+
+**The section column's two `mattr` figures are plain type-token ratio, not
+MATTR — corrected 2026-08-14, values unchanged.** At the declared window
+(`FloorDeclaration.mattr_window` = 50 tokens) every one of the 456 human
+quatrains and all 120 generated ones is shorter than the window, so `_mattr`
+returns a single type/token ratio and not one moving window is taken. Measured:
+plain TTR over the same items gives a 5th percentile of 0.7567567568 and an AUC
+of 0.7755573830 — the 0.7568 and 0.776 above, exactly. Both are frozen for
+every window ≥ 40 (the longest quatrain is 40 tokens), so this profile is blind
+to the window by construction. Threshold and item degenerate the same way, so
+the gate compares like with like at section length; what may not be done is
+quoting 0.7568 beside the sonnet or song profiles' figures, which are genuine
+moving averages.
 
 ## Three checks that did not do what they were built to do
 
@@ -150,6 +163,65 @@ statistic MATTR exists to avoid. Song sections in `lyric.txt` run 30–36 tokens
 So the first calibrated run compared one statistic against another statistic's
 percentile and returned confident numbers for a measurement that was never
 made.
+
+### The window is a coordinate too — declared and swept 2026-08-14
+
+Until 2026-08-14 the 50 above was a bare default in
+`QualityFeatures._mattr`'s signature: no comment justifying it (the docstring
+justified MATTR, not the window), no declaration field, no `CALIBRATION` entry,
+no results document, four call sites and none of them passing `window=`. It is
+now `FloorDeclaration.mattr_window`, threaded to every call site, at the value
+it always had. **No shipped number moved.** What was measured:
+
+| window | 20 | 25 | 30 | 40 | 50 | 60 | 80 | 100 |
+|---|---|---|---|---|---|---|---|---|
+| sonnet-level `mattr` AUC (Exp 2) | .928 | .915 | .907 | .891 | **.870** | .850 | .811 | .750 |
+
+**It is a slope, not a plateau.** The column falls monotonically across the
+whole range; 50 sits 0.059 below the sweep's best, on the descending limb.
+Paired bootstrap over the same items, 2000 draws: AUC(w=40) − AUC(w=50) =
++0.021 [+0.009, +0.034], excluding zero.
+
+**The flat false-positive column is a tautology, not reassurance.** The song
+profile's held-out `mattr` FPR barely moves across a 10× change in window —
+median over 200 author-held-out seeds at each:
+
+| window | 20 | 25 | 40 | 50 | 60 | 100 | 200 |
+|---|---|---|---|---|---|---|---|
+| held-out FPR | 5.10% | 5.09% | 5.32% | **5.43%** | 5.33% | 5.24% | 5.08% |
+
+The window-50 reading is the shipped 5.43%. The flatness is not a property of
+the data: the threshold is the 5th percentile *of the same recomputed
+statistic*, so about 5% of held-out items fall below it whatever the window
+is. Reading that column as "the window is unimportant" is reading the
+calibration rule. What moves underneath it is *which* items — ±10 tokens of
+window changes 13–16% of the flagged set (Jaccard 0.869 at w=40, 0.840 at
+w=60; 13.1% and 16.0% of the union changes hands across 92–93 flagged items,
+with the cut itself moving 0.7529 → 0.7226 → 0.6959). Below window 25 the
+band itself moves — at 20 the band rule returns 100–350 (2,953 items, 132
+authors) instead of 150–400 (1,859, 108), so every threshold there is a
+percentile of a different population; 25 through 100 all return the shipped
+band.
+
+**Admissible windows are [1, 22] ∪ [40, 93].** A window is admissible only if
+every item in a profile's calibration set falls on the *same* side of the
+`len(words) <= window` fallback; otherwise one profile reports a mixture of
+two statistics under a single threshold. Measured token ranges: section
+quatrains 23–40, sonnets 94–133, song band 150–400. 50 is inside the set;
+25, 30, 38, 39 and 100 are not. A retune that followed the AUC gradient
+downward and stopped at 25 or 30 would land outside it.
+
+**It is kept anyway, on doctrine 19.** The shipped value costs ~0.06 AUC
+against the sweep's best and is kept because an in-sample argmax is not a
+calibration: the peak is read off the same 152-vs-40 corpus that reports the
+AUC, so 20 has no held-out standing, and moving there would be a threshold
+change with no calibration behind the new number (doctrine 58). Window size is
+also a genre question — 20 tokens is about two lines of English verse, 50
+about five — and doctrine 6 puts a number like that in a declaration. Any
+future move must be argued, repinned with its date, and land in
+[1, 22] or [40, 93]. `quality/floor.py`'s `CALIBRATION["mattr_window"]` is the
+coordinate; `python3 quality/test_discriminate.py` reproduces the window-50
+reading (0.8695723684210527) cold.
 
 On the same six-section lyric sheet:
 

@@ -690,7 +690,7 @@ jobs:
       # rather than a line to add here.
       - name: Confirm the harness needs no third-party packages
         working-directory: lyric-harness
-        run: python3 -c "import lyric_harness, quality.floor, quality.revise; print('stdlib-only import OK')"
+        run: python3 -c "import lyric_harness, quality.floor, quality.revise, quality.propose; print('stdlib-only import OK')"
 
       # cmudict.dict is 3.6 MB, gitignored, and fetched from a moving master
       # branch with no checksum — which the audit flagged as its own defect

@@ -302,6 +302,33 @@ def test_thresholds_are_declared_not_hidden():
           "a disagreement lands in a coordinate of the declaration "
           "(doctrine 1), not in an argument about the gate")
 
+    # A DECLARED COORDINATE NOTHING READS IS DECORATION, which is this repo's
+    # own recurring failure mode ("BUILT AND NEVER WIRED", CLAUDE.md). The
+    # MATTR window was a bare default inside `features._mattr` until
+    # 2026-08-14 -- declaring it would buy nothing if `check()` did not
+    # actually thread it, so the test is that MOVING it moves the statistic
+    # the finding reports. `same` is 34 tokens: at the shipped 50 it is
+    # inside the window and `_mattr` degenerates to plain TTR, at 20 it is
+    # not and a real moving average is taken.
+    def _mattr_evidence(w):
+        fl = SlopFloor(decl=FloorDeclaration(mattr_window=w), qf=FLOOR.qf)
+        for f in fl.check(same, "ABAB"):
+            if f.code == "LEXICAL_MONOTONY":
+                return f.evidence
+        return ""
+
+    at50, at20 = _mattr_evidence(50), _mattr_evidence(20)
+    check("the declared MATTR window reaches the statistic, not just the doc",
+          bool(at50) and bool(at20) and at50 != at20,
+          "34 tokens: window 50 -> plain TTR, window 20 -> a real moving "
+          "average. If these two were equal the field would be a number "
+          "nothing reads")
+    check("...and the finding NAMES which statistic it computed",
+          at50.startswith("TTR ") and at20.startswith("MATTR "),
+          f"window 50 -> {at50[:16]!r}; window 20 -> {at20[:16]!r} — the "
+          f"`section` profile's own figures are plain TTR for exactly this "
+          f"reason (CALIBRATION['mattr_window'])")
+
 
 def test_length_is_a_coordinate():
     print("\n9b. a threshold measured at one length is not used at another")
@@ -547,13 +574,23 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
           "so nothing is downgraded for extrapolation")
     from quality.floor import PROFILES
     song = [p for p in PROFILES if p.name == "song"][0]
+    # `mattr_min` PINS A WINDOW AS WELL AS A PERCENTILE, and until 2026-08-14
+    # nothing here said so. 0.7226 is the 5th percentile of MATTR computed at
+    # `FloorDeclaration.mattr_window` = 50 tokens; at another window it is the
+    # 5th percentile of a different statistic and this equality would fail for
+    # a reason that has nothing to do with the corpus. The band is a
+    # coordinate of the window too -- at window 20 the band rule returns
+    # 100-350 (2,953 items, 132 authors) rather than the 150-400 / 1,859 /
+    # 108 quoted below, so the OTHER four thresholds move with it as well.
+    # The sweep, the admissible set [1,22] u [40,93] and the reason 50 is
+    # kept rather than retuned are `quality.floor.CALIBRATION["mattr_window"]`.
     check("the five song thresholds are the recorded corpus percentiles",
           song.percentiles == {"mattr_min": 0.7226,
                                "function_word_ratio_max": 0.4716,
                                "anaphora_max": 0.3000,
                                "line_length_cv_min": 0.1123,
                                "predictable_pair_fraction_max": 0.9286},
-          "150-400 tokens, 1,859 items, 108 authors; "
+          "150-400 tokens, 1,859 items, 108 authors, MATTR window 50; "
           "quality/RESULTS_SONG_FLOOR.md carries the commands")
 
 

@@ -277,8 +277,9 @@ CALIBRATION = {
                     "class, no AUC, and its evidence is a held-out "
                     "false-positive rate on human song text -- see that "
                     "profile's own source and note.",
-    #: LENGTH IS A COORDINATE, not a detail. MATTR is a moving average over a
-    #: 50-token window; below that the implementation falls back to plain TTR,
+    #: LENGTH IS A COORDINATE, not a detail. MATTR is a moving average over
+    #: `FloorDeclaration.mattr_window` tokens (50); below that the
+    #: implementation falls back to plain TTR,
     #: which is the length-confounded statistic MATTR exists to avoid. A
     #: 4-line chorus runs 30-36 tokens, so applying the sonnet threshold to it
     #: compares one statistic against another statistic's percentile and
@@ -297,8 +298,127 @@ CALIBRATION = {
     #: which pairs are on it. It carries a measured in-band false-positive
     #: rate (see the song profile's `held_out_fpr["cliche"]`) and no
     #: sensitivity claim whatsoever.
+    # ONE KEY, THREE ENTRIES. Two lots appended to this list on the same
+    # day and the merge produced a DUPLICATE `"definitional"` key --
+    # which Python does not error on, it silently keeps the last, so
+    # `cliche_pairs` vanished from the list while still being a declared
+    # field. `test_floor.py`'s "no threshold can hide outside both
+    # lists" is what caught it; nothing about the source looked wrong.
     "definitional": ["predictability_max", "radif_min_pair_fraction",
-                     "cliche_pairs"],
+                     "cliche_pairs", "mattr_window"],
+    #: `mattr_window` is definitional in the SAME sense and in that sense
+    #: only -- it defines what MATTR IS, so moving it moves what every
+    #: `mattr_min` percentile is a percentile of. It is emphatically NOT
+    #: inconsequential, and the entry below prices it.
+    #: THE SWEEP BEHIND `FloorDeclaration.mattr_window`, 2026-08-14.
+    #:
+    #: Recorded here so a future disagreement about the window lands in a
+    #: coordinate rather than in a function signature. Until this date the 50
+    #: was a bare default in `features.QualityFeatures._mattr`: no comment
+    #: justifying it (the docstring justified MATTR, not the window), no
+    #: declaration field, no CALIBRATION entry, no results document, four
+    #: call sites and not one of them passing `window=`.
+    #:
+    #: THE VALUE DID NOT MOVE. This entry is a record, not a retune.
+    "mattr_window": {
+        "value": 50,
+        "unit": "tokens",
+        "swept": "2026-08-14, over the SAME 152 Shakespeare sonnets vs 40 "
+                 "generated ones that Experiment 2 reports. `mattr`-alone "
+                 "AUC, the statistic test_discriminate.PINNED['abs_exp2'] "
+                 "pins at window 50.",
+        #: window -> sonnet-level mattr AUC (Exp 2). Reproduced independently
+        #: on 2026-08-14; the instrument returns 0.8695723684210527 at window
+        #: 50, which is the shipped pin to the last digit, so it is faithful.
+        "auc_by_window": {20: 0.928, 25: 0.915, 30: 0.907, 40: 0.891,
+                          50: 0.870, 60: 0.850, 80: 0.811, 100: 0.750},
+        "shape": "MONOTONICALLY DECREASING across the whole swept range. 50 "
+                 "sits 0.059 below the sweep's best, on the DESCENDING LIMB "
+                 "-- it is a SLOPE, not a plateau, and nothing here licenses "
+                 "the sentence 'the window does not matter'. Paired "
+                 "bootstrap over the same items, 2000 draws: AUC(w=40) - "
+                 "AUC(w=50) = +0.021 [+0.009, +0.034], CI excluding zero.",
+        "flat_fpr_is_a_tautology": (
+            "The song profile's held-out mattr false-positive rate is FLAT "
+            "across a 10x change in window -- median 5.08-5.43% over windows "
+            "20 to 200, 200 author-held-out seeds each (5.10 / 5.09 / 5.32 / "
+            "5.43 / 5.33 / 5.24 / 5.08 at 20/25/40/50/60/100/200; the "
+            "window-50 reading is the shipped 5.43) -- and that flatness is "
+            "NOT evidence that the window is unimportant. It is a tautology "
+            "of percentile calibration: the threshold is the 5th percentile "
+            "of the same recomputed statistic, so ~5% of held-out items fall "
+            "below it whatever the window is. A reader who concludes 'FPR "
+            "flat therefore window inconsequential' has read the "
+            "calibration RULE and not the data. What moves under the flat "
+            "rate is WHICH items: +/-10 tokens of window changes 13-16% of "
+            "the flagged set (Jaccard 0.869 at w=40, 0.840 at w=60; 13.1% "
+            "and 16.0% of the union changes hands, on 92-93 flagged items "
+            "with the cut itself moving 0.7529 -> 0.7226 -> 0.6959). The "
+            "rate is stable; the accusations are not. And below window 25 "
+            "the calibrated BAND itself moves -- window 20 makes the band "
+            "rule return 100-350 (2,953 items, 132 authors) instead of "
+            "150-400 (1,859, 108), so every threshold there is a percentile "
+            "of a DIFFERENT population. 25 through 100 all return the "
+            "shipped band."),
+        #: THE CONSTRAINT NOBODY HAD WRITTEN DOWN, and the one most worth
+        #: having. `_mattr` falls back to plain TTR when `len(words) <=
+        #: window`, so a window is admissible only if EVERY item in a
+        #: profile's calibration set falls on the SAME side of that branch.
+        #: Otherwise one profile reports a mixture of two statistics under a
+        #: single threshold -- the defect doctrine 15 names.
+        "admissible": "[1,22] union [40,93]",
+        "admissible_measured": (
+            "Calibration-set token ranges, measured 2026-08-14: section "
+            "quatrains 23-40 (456 human, 120 generated), sonnets 94-133 "
+            "(152 human, 40 generated), song band 150-400 (1,859 items). "
+            "Homogeneity per profile therefore admits [1,22] u [40,+inf) "
+            "for section, [1,93] u [133,+inf) for sonnet, [1,149] u "
+            "[400,+inf) for song. The intersection is [1,22] u [40,93] u "
+            "[133,149] u [400,+inf) -- and the last two branches are "
+            "DEGENERATE: at 133 and above the sonnet profile has collapsed "
+            "to plain TTR too, so 'MATTR' has stopped being a moving "
+            "average anywhere the gate measures it. The usable admissible "
+            "set is [1,22] u [40,93]. 50 is inside it. 25, 30, 38, 39 and "
+            "100 are NOT. A naive retune toward the AUC gradient -- which "
+            "points DOWN, at 20 -- that stopped at 25 or 30 would land on "
+            "an inadmissible value and nothing in this codebase would have "
+            "said so."),
+        #: THE LIVE DEFECT THE SWEEP FOUND, recorded next to the number that
+        #: caused it rather than in a changelog. See the `section` profile's
+        #: own note for the corrected label.
+        "section_profile_is_plain_ttr": (
+            "At window 50 ALL 456 human quatrains (and all 120 generated "
+            "ones) satisfy `len(words) <= window`, so the `section` "
+            "profile's `mattr_min` 0.7568 and its AUC 0.776 are PLAIN TTR "
+            "with zero moving windows behind them. Measured: plain TTR over "
+            "the same items gives 5th percentile 0.7567567568 and AUC "
+            "0.7755573830, i.e. the shipped figures exactly. Both are FROZEN "
+            "for every window >= 40 (the longest quatrain is 40 tokens), so "
+            "no window at or above the shipped one can move them. The "
+            "profile is labelled MATTR; its note now says TTR."),
+        "kept_because": (
+            "DOCTRINE 19, not inconsequence. The honest sentence is: the "
+            "shipped value costs ~0.06 AUC against the sweep's best and is "
+            "kept because an in-sample argmax is not a calibration. The "
+            "sweep's peak is read off the SAME 152-vs-40 corpus that "
+            "reports the AUC, so window 20 is an in-sample optimum with no "
+            "held-out standing; moving there would also be a threshold "
+            "change with no calibration behind the new number (doctrine "
+            "58). Window size is additionally a GENRE question -- 20 tokens "
+            "is about two lines of English verse, 50 about five -- and "
+            "doctrine 6 says a number like that belongs in a declaration "
+            "rather than in a constant. Hence: declared, priced, unmoved. "
+            "Any future move must be argued, repinned with its date, and "
+            "land inside [1,22] or [40,93]."),
+        "pinned_by": ("quality/test_discriminate.py PINNED['abs_exp1']"
+                      "['features']['mattr'] and PINNED['abs_exp2']"
+                      "['features']['mattr']; quality/test_floor.py's song "
+                      "percentile dict; quality/song_profile_calibration.py "
+                      "--check. Not one of the four NAMED the window before "
+                      "2026-08-14; each carries a comment saying so now, and "
+                      "`--check` additionally judges the window's "
+                      "admissibility at the song band."),
+    },
     #: Three results that contradict what this module was built expecting.
     #: Kept in the block that report() prints, not in a changelog.
     "failed_expectations": (
@@ -437,14 +557,37 @@ PROFILES = [
         name="section", unit="4-line quatrain, 29-37 tokens",
         lo=29, hi=37, n_human=456, n_generated=120,
         percentiles={
-            "mattr_min": 0.7568,                # human 5th
+            # PLAIN TTR, NOT MATTR. Kept under the key `mattr_min` because
+            # that is the key `resolve()` and every caller reads, and
+            # renaming it would silently stop LEXICAL_MONOTONY running at
+            # this length. The VALUE is unchanged and the label is corrected
+            # in the note below; `CALIBRATION["mattr_window"]` carries the
+            # measurement.
+            "mattr_min": 0.7568,                # human 5th -- a TTR 5th
             "function_word_ratio_max": 0.5161,  # human 95th
             "anaphora_max": 0.5000,             # human 95th
             "line_length_cv_min": 0.0525,       # human 5th
         },
-        measured_auc={"mattr": 0.776, "function_word_ratio": 0.207,
+        measured_auc={"mattr": 0.776,           # ALSO a plain-TTR AUC
+                      "function_word_ratio": 0.207,
                       "anaphora": 0.245, "line_length_cv": 0.424},
-        note="Quatrains from one sonnet are NOT independent, so the n above "
+        note="THE `mattr` FIGURES IN THIS PROFILE ARE PLAIN TTR, NOT MATTR "
+             "-- corrected 2026-08-14, values unchanged. At the declared "
+             "window (FloorDeclaration.mattr_window = 50) every one of the "
+             "456 human quatrains and all 120 generated ones satisfies "
+             "`len(words) <= window`, so `_mattr` returns a single "
+             "type/token ratio and NOT ONE moving window is taken. Measured: "
+             "plain TTR over the same items gives a 5th percentile of "
+             "0.7567567568 and an AUC of 0.7755573830 -- the 0.7568 and "
+             "0.776 above, exactly. Both are FROZEN for every window >= 40, "
+             "the longest quatrain here being 40 tokens, so no window at or "
+             "above the shipped one can move them and this profile is blind "
+             "to the coordinate by construction. The threshold and the items "
+             "it judges degenerate the SAME way, so the gate compares like "
+             "with like at this length -- what may not be done is quoting "
+             "0.7568 beside the sonnet or song profiles' MATTR figures, "
+             "which are genuine moving averages. "
+             "Quatrains from one sonnet are NOT independent, so the n above "
              "overstates the evidence: the effective sample is 152 vs 40. AUCs "
              "here are quatrain-level; averaged to poem level they come to "
              "0.872 / 0.119 / 0.091 / 0.358, i.e. the separation is real at "
@@ -650,6 +793,19 @@ class FloorDeclaration:
     `predictability_max` is the one number that is not a percentile. It
     defines what counts as "obvious" inside a candidate field — an axis, not a
     cut — so it has a real default.
+
+    `mattr_window` is the second, added 2026-08-14, and it was a bare default
+    in `features.QualityFeatures._mattr` until then — undeclared, unswept,
+    unquoted, and not passed by any of its four call sites. It is declared
+    here at the value it always had; nothing moved. What is new is that the
+    number is now a coordinate, and that
+    `CALIBRATION["mattr_window"]` prices it: the sweep is a monotone SLOPE
+    rather than a plateau, the flat false-positive column that looks like
+    reassurance is a tautology of percentile calibration, and only
+    [1,22] u [40,93] keeps a profile's calibration set on one side of the
+    plain-TTR fallback. The shipped 50 costs ~0.06 AUC against the sweep's
+    best and is kept because an in-sample argmax is not a calibration
+    (doctrine 19).
     """
     mattr_min: float = None
     function_word_ratio_max: float = None
@@ -733,6 +889,22 @@ class FloorDeclaration:
     #: the number.
     cliche_pairs: frozenset = field(
         default_factory=lambda: frozenset(CLICHE_PAIRS))
+    #: MATTR's moving-average window, in TOKENS. Definitional in the same
+    #: sense `predictability_max` is — it states what the statistic IS, so
+    #: moving it moves what every `mattr_min` percentile above is a
+    #: percentile OF, and a `mattr_min` measured at one window may not be
+    #: compared against a MATTR computed at another. NOT definitional in the
+    #: sense of "harmless": see `CALIBRATION["mattr_window"]` for the sweep,
+    #: for the admissible set [1,22] u [40,93] that any future move must land
+    #: inside, and for why 50 is kept rather than retuned toward the gradient.
+    #:
+    #: It is NOT resolvable from a profile: `resolve()` serves the four
+    #: percentile fields, and a window is not a percentile of anything, so no
+    #: profile carries one. That is deliberate — a per-profile window would
+    #: mean two profiles reporting two different statistics under the one
+    #: name `mattr`, which is exactly the mixture this coordinate exists to
+    #: keep out of a single profile.
+    mattr_window: int = 50
 
     def resolve(self, key, profile):
         """Override if set, else the profile's measurement, else None -- and
@@ -747,7 +919,14 @@ class SlopFloor:
 
     def __init__(self, decl=None, qf=None):
         self.decl = decl or FloorDeclaration()
-        self.qf = qf or QualityFeatures()
+        # The DECLARATION owns the window, not this feature extractor: a
+        # caller may hand in a shared `QualityFeatures` (test_floor.py does),
+        # and stamping the declaration's window onto it would silently move
+        # the other holder's statistic. So the window travels per call in
+        # `check()` instead, and this only sets the default for a `qf` this
+        # constructor builds itself.
+        self.qf = qf or QualityFeatures(
+            mattr_window=self.decl.mattr_window)
 
     # -- individual checks ------------------------------------------------
 
@@ -805,9 +984,11 @@ class SlopFloor:
                 f"profiles cover {', '.join(f'{p.name} {p.lo}-{p.hi}' for p in PROFILES)} "
                 f"tokens, each with a {PROFILES[0].tolerance:g}x tolerance "
                 f"band. MATTR in particular is a moving average over a "
-                f"50-token window and silently degrades to plain "
-                f"type-token ratio below that, so a threshold measured at one "
-                f"length is a different statistic at another. WHAT DID RUN: "
+                f"{d.mattr_window}-token window (declared: "
+                f"FloorDeclaration.mattr_window) and silently degrades to "
+                f"plain type-token ratio below that, so a threshold measured "
+                f"at one length is a different statistic at another. "
+                f"WHAT DID RUN: "
                 f"the relation-level checks (self-rhyme, radif, cliche, "
                 f"shared suffix), which read no percentile and do not depend "
                 f"on length. Of those, only REPEAT_IN_VERSE can still be a "
@@ -845,20 +1026,40 @@ class SlopFloor:
                 f"against nothing. RADIF_LICENSED and SHARED_SUFFIX are "
                 f"notes at every length"))
 
-        v = self.qf.extract(lines, scheme)
+        # THE WINDOW TRAVELS WITH THE DECLARATION. Without this the threshold
+        # would come from the declaration and the statistic from whatever
+        # window the `QualityFeatures` instance happened to be built with,
+        # which is doctrine 1's failure mode: a declared coordinate silently
+        # outranked by another layer's default.
+        v = self.qf.extract(lines, scheme, mattr_window=d.mattr_window)
 
-        # 1. lexical monotony -- the strongest single separator observed
+        # 1. lexical monotony -- the strongest single separator observed.
+        #    NAME THE STATISTIC THAT WAS ACTUALLY COMPUTED. `_mattr` returns
+        #    plain TTR whenever the item is no longer than the window; at the
+        #    shipped window that is EVERY item inside the section profile's
+        #    measured range. Reporting it as "MATTR" is the label defect the
+        #    2026-08-14 window sweep found; see CALIBRATION["mattr_window"].
+        stat = "TTR" if n_tok <= d.mattr_window else "MATTR"
         thr = d.resolve("mattr_min", prof)
         m = v.get("mattr")
         if thr is not None and m == m and m is not None and m < thr:
             out.append(Finding(
                 "LEXICAL_MONOTONY", sev("flag"),
                 "vocabulary repeats more than human verse did in calibration",
-                f"MATTR {m:.3f} < {thr:.4f} (human 5th percentile, {prof.name} "
-                f"profile); {prof.evidence_for('mattr')}. Caveat: within "
-                f"Shakespeare the direction REVERSES (0.366), so low MATTR is "
-                f"not evidence against a poem, only outside the range this "
-                f"corpus occupied"))
+                f"{stat} {m:.3f} < {thr:.4f} (human 5th percentile, "
+                f"{prof.name} profile); {prof.evidence_for('mattr')}. "
+                + (f"THE STATISTIC HERE IS PLAIN TTR, NOT MATTR: {n_tok} "
+                   f"tokens does not exceed the declared "
+                   f"{d.mattr_window}-token window, so the moving average "
+                   f"degenerates to one type/token ratio over the whole "
+                   f"item. The {prof.name} threshold was read off items that "
+                   f"degenerate the same way, so the comparison is like for "
+                   f"like -- but a MATTR quoted from another profile is not "
+                   f"the same statistic and may not be compared with it. "
+                   if stat == "TTR" else "")
+                + f"Caveat: within Shakespeare the direction REVERSES "
+                f"(0.366), so a low value is not evidence against a poem, "
+                f"only outside the range this corpus occupied"))
 
         # 2. function-word load
         thr = d.resolve("function_word_ratio_max", prof)
@@ -1291,10 +1492,15 @@ class SlopFloor:
             self.banner(stream)
         return found
 
-    @staticmethod
-    def banner(stream=sys.stdout):
+    def banner(self, stream=sys.stdout):
         """What the thresholds came from and what they failed at. Printed once
-        per run — repeating it per section trains the reader to skip it."""
+        per run — repeating it per section trains the reader to skip it.
+
+        An instance method since 2026-08-14, so it can print the DECLARED
+        MATTR window rather than a module default. A banner that quoted 50
+        while the caller's declaration said something else would be the
+        report lying about the run it is reporting.
+        """
         if not CALIBRATION.get("calibrated"):
             print("\n  *** THRESHOLDS ARE PROVISIONAL — estimates, not yet "
                   "derived from the calibration corpora. Findings indicate "
@@ -1303,10 +1509,23 @@ class SlopFloor:
               f"{CALIBRATION['negative_class']}", file=stream)
         print(f"  NOT validated outside {CALIBRATION['language']} or outside "
               f"the {CALIBRATION['form']}.", file=stream)
+        w = self.decl.mattr_window
+        print(f"  MATTR window {w} tokens (declared: "
+              f"FloorDeclaration.mattr_window; swept 2026-08-14, admissible "
+              f"[1,22] u [40,93], NOT a plateau — "
+              f"CALIBRATION['mattr_window'])", file=stream)
         for p in PROFILES:
             a, b = p.band()
             print(f"  profile {p.name:<8} {p.unit:<32} measured {p.lo}-{p.hi} "
                   f"tok, applied {a}-{b} ({p.tolerance:g}x)", file=stream)
+            # A profile whose whole MEASURED range sits inside the window is
+            # not reporting MATTR at all, and the banner is where a reader
+            # who never opens this file finds that out.
+            if p.hi <= w:
+                print(f"           `mattr` here is PLAIN TTR: the measured "
+                      f"range ends at {p.hi} tokens, inside the {w}-token "
+                      f"window, so no moving average is taken and the "
+                      f"figure is frozen in the window", file=stream)
             # A profile with no generated class cannot be read as a separation
             # and the banner has to say so where the reader is, not only in a
             # docstring three hundred lines up.
