@@ -1953,6 +1953,17 @@ def main(argv=None):
         # THIS exit code cannot be laundered by writing a file. It is a
         # question asked of the source every time it is asked at all.
         bad = survey_anchors(muts, ROOT)
+        # THE BOUND IS A COORDINATE, NOT A FOOTNOTE (doctrine 91, the shape
+        # `report()` already prints for `--tests`). `--only`/`--layer` make
+        # `2/2 mutations apply cleanly` render identically to a run that asked
+        # the whole inventory, and `counters.py` reads that line by regex. It
+        # invokes this command unbounded, so nothing is mis-stated today; it is
+        # one flag away from being so, and a run that ASKED LESS has to say it
+        # asked less rather than let the silence read as full coverage.
+        if len(muts) != len(MUTATIONS):
+            print("INVENTORY BOUNDED to %d of the %d declared mutation(s) — "
+                  "'apply cleanly' below is a statement about THESE only"
+                  % (len(muts), len(MUTATIONS)))
         for name, kind, path, why in bad:
             print(f"{kind:9s} {name:5s} {path:22s} {why}")
         # Byte-shape of the next line is load-bearing: `counters.py`'s
