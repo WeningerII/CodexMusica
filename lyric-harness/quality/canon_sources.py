@@ -785,7 +785,20 @@ def scope_witness(from_text, cell, name=""):
 # Rebuild + verify against the transcripts
 # ---------------------------------------------------------------------------
 
-TRANSCRIPT_GLOB = "/root/.claude/projects"
+#: OVERRIDABLE SINCE 2026-08-14, found by CI. This was the bare literal
+#: `/root/.claude/projects` — the agent-session transcript store, which is
+#: genuinely an absolute path outside this repository and genuinely cannot be
+#: made relative. That part is fine. What was not fine is that nothing could
+#: point it somewhere else, so on any machine but the one this was written on
+#: the rebuild silently found nothing.
+#:
+#: This module's own docstring has always said `verified` is "a property of
+#: THIS MACHINE that expires with it" — so the absence is the DOCUMENTED,
+#: EXPECTED state everywhere else, and `rebuild()` already returns
+#: `(None, why)` to say so. `CANON_TRANSCRIPTS` makes the override real, the
+#: way `TANG_POOL` already does for the 全唐诗 pool.
+TRANSCRIPT_GLOB = os.environ.get("CANON_TRANSCRIPTS",
+                                 "/root/.claude/projects")
 
 
 def _transcripts():

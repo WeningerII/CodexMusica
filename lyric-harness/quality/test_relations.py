@@ -1211,9 +1211,29 @@ def test_tradition_provenance():
           f"{len(CS.index())} rows. `loaded()` False would make every witness "
           f"below `None` — cannot tell — which is not `no witness`.")
 
+    # CANNOT TELL IS NOT FAILED — corrected 2026-08-14, found by CI.
+    #
+    # This asserted `rows is not None`, which turns the ABSENCE OF THE
+    # TRANSCRIPT STORE into a test failure. That store lives at
+    # `CS.TRANSCRIPT_GLOB`, outside the repository, untracked and machine-local
+    # — and `canon_sources.py`'s own docstring has always said so: `verified`
+    # is "a property of THIS MACHINE that expires with it". So off that machine
+    # the refusal is the DOCUMENTED, EXPECTED answer, and this check was
+    # reading it as a defect. On a CI runner it failed at file 37 of 42 and
+    # took the five after it down with it.
+    #
+    # Doctrine 20/28, which this suite enforces elsewhere: "no transcript" and
+    # "the rebuild disagrees with the prose" are two states and must not
+    # collapse. `rebuild()` already distinguishes them in `why`; only the
+    # caller was summing them. The POSITION_CHECKS half is a property of the
+    # committed table and is asserted either way.
     rows, why = CS.rebuild(write=False)
-    check("the POSITIONAL reading is checked against the canon's own prose",
-          rows is not None and len(CS.POSITION_CHECKS) >= 30, why or "")
+    _absent = rows is None and "no transcript" in (why or "")
+    check("the POSITIONAL reading is checked against the canon's own prose, "
+          "or REFUSES because the transcripts are not on this machine",
+          (rows is not None or _absent) and len(CS.POSITION_CHECKS) >= 30,
+          ("REFUSED, not failed: %s. Set CANON_TRANSCRIPTS to a session store "
+           "to run the rebuild." % why) if _absent else (why or ""))
 
     # The shift that a head-only check set cannot see.
     check("the checks reach PAST the first sourceless indic entry (position 32)",
