@@ -521,13 +521,37 @@ def song_from_blueprint(obj, assume_meter=None):
                             start_bar=start,
                             function=s.get("function", UNDECLARED)))
         bar = start + int(s["bars"])
-    by_name = {s.name: s for s in secs}
 
     def owner(l):
-        if l.get("section") in by_name:
-            return by_name[l["section"]]
-        for s in secs:
-            if s.start_bar <= int(l["bar"]) < s.start_bar + s.bars:
+        """-> the Section a blueprint line belongs to, name first, then bar.
+
+        NOT `{s.name: s for s in secs}`, which is what this was until the
+        repeated-name fix: that dict silently dropped the FIRST of two
+        sections called `chorus`, so every line of a verse/chorus/bridge/
+        chorus blueprint that named its section resolved to the LAST chorus.
+        `Song.lines_in` has refused to key on a name since the demo caught it
+        collapsing exactly this song ("Repeated section names are normal and
+        are exactly why this cannot key on the name"), and this reader was
+        still doing it one screen above the `Line` it builds.
+        LATENT RATHER THAN LOUD, and worth saying so: the only field read off
+        the owner below is `s.name`, which is the same string for both
+        instances, so no output of this function moved. `quality/fit.py`'s
+        copy of this same dict read `cycle`/`start_bar`/`bars` off it and was
+        NOT latent — it put the first chorus's lines 56 pulses before their
+        own downbeat. A defect that is currently invisible because of what
+        the caller happens to read is one field away from being visible.
+
+        A declared name still WINS over the bar range when it is unambiguous
+        (doctrine 1: a declaration is not silently outranked by inference).
+        It cannot win when the writer used it twice, because then it names a
+        set; the bar says which member.
+        """
+        name, bar = l.get("section"), int(l["bar"])
+        hits = [s for s in secs if s.name == name]
+        if len(hits) == 1:
+            return hits[0]
+        for s in (hits or []) + secs:
+            if s.start_bar <= bar < s.start_bar + s.bars:
                 return s
         return secs[-1] if secs else None
 

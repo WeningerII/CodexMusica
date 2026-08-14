@@ -853,7 +853,9 @@ def main():
               test_prominence_off_head_can_fire_and_can_stay_silent,
               test_overlap_is_asked_of_a_flat_line_list_not_only_of_a_songfit,
               test_fit_song_reads_a_real_grid_song,
-              test_an_undeclared_signature_says_so):
+              test_an_undeclared_signature_says_so,
+              test_two_sections_may_share_a_name,
+              test_an_ambiguous_name_cannot_outrank_the_bar):
         t()
     print("\n" + "=" * 62)
     if FAILURES:
@@ -960,6 +962,235 @@ def test_an_undeclared_signature_says_so():
           "default firing — the cost of refusing was 7 inline test sections "
           "and ZERO shipped blueprints, a number nobody had run",
           not trips, f"{len(trips)} fixture(s) would trip it")
+
+
+# ---------------------------------------------------------------------------
+# TWO SECTIONS MAY SHARE A NAME
+# ---------------------------------------------------------------------------
+
+#: verse / chorus / bridge / chorus, with BOTH choruses called `chorus` -- the
+#: commonest song form in existence, and the shape under which every keying
+#: site in this module answered wrongly. The two choruses are laid out
+#: identically inside themselves (line k at bar start+2k), which is what makes
+#: them the same tune, and is exactly why a name-keyed comparison reads every
+#: line as intersecting its own return: both are 0, 8, 16 and 24 pulses from
+#: their OWN downbeat, and 0 == 0.
+
+_M44 = {"beats": 4, "unit": 4, "groups": [2, 2]}
+_CHORUS = ("we kept the ledger open every day",
+           "we checked the sum again into the night",
+           "and every debt was counted once again",
+           "we held the number up against the light")
+
+
+def _repeated_name_blueprint(second="chorus", name_the_section=True):
+    def sec(n, bars, start, fn):
+        return {"name": n, "bars": bars, "start_bar": start,
+                "meter": dict(_M44), "function": fn}
+
+    def lines(texts, start, owner):
+        out = []
+        for k, t in enumerate(texts):
+            l = {"text": t, "bar": start + 2 * k, "beat": 1, "duration": 8}
+            if name_the_section:
+                l["section"] = owner
+            out.append(l)
+        return out
+
+    return {"title": "Ledger",
+            "sections": [sec("verse1", 8, 1, "verse"),
+                         sec("chorus", 8, 9, "chorus"),
+                         sec("bridge", 6, 17, "bridge"),
+                         sec(second, 8, 23, "chorus")],
+            "lines": (lines(("the door was numbered plainly on the frame",
+                             "the window carried nothing but the cold",
+                             "a stairwell climbed to nowhere anyone could name",
+                             "the hallway kept a story never told"),
+                            1, "verse1")
+                      + lines(_CHORUS, 9, "chorus")
+                      + lines(("a bicycle leaned rusting by the gate",
+                               "a kettle whistled somewhere out of sight"),
+                              17, "bridge")
+                      + lines(_CHORUS, 23, second))}
+
+
+def test_two_sections_may_share_a_name():
+    """A NAME IS NOT AN IDENTITY, and three sites in this module keyed on one.
+
+    `{s["name"]: s for s in secs}` keeps the LAST of two same-named sections
+    and drops the first without a word, and `overlap_findings` bucketed on
+    `placement.section` -- the name -- while `Placement.start` is measured from
+    the SECTION'S OWN first downbeat. Measured on the blueprint above, before
+    the fix:
+
+      * `from_blueprint` gave all four lines of the FIRST chorus a section
+        start bar of 23, so their offsets came out -56, -48, -40 and -32
+        pulses -- a line placed before its own section began, which
+        `Placement`'s docstring says can only ever be a pickup
+      * `fit_song` filed every chorus line under the SECOND `SectionFit`: the
+        first reported 0 lines and the second 8, so `per_bar`, `certain`,
+        `uncovered_bars()` and `overlaps()` were all computed off the wrong
+        list for both
+      * `overlap_findings` reported EIGHT `OVERLAPPING_SPANS`, one per chorus
+        line, each against its own repeat fourteen bars later
+
+    The rename is the control and it is what proves this is the KEY and not
+    the arithmetic: the identical blueprint with the second section called
+    `chorus 2` was clean on every count, before the fix and after it.
+    """
+    print("\n. a repeated section name is a SONG FORM, not a defect")
+    from quality import grid as GR
+
+    dup, uniq = _repeated_name_blueprint(), _repeated_name_blueprint("chorus 2")
+
+    # 1. THE READER. Every line sits at a non-negative offset in its OWN
+    #    section, and the two choruses keep their two different downbeats.
+    _s, places = from_blueprint(dup)
+    check("no line is placed before its own section's first downbeat — the "
+          "name-keyed reader put the first chorus at -56 pulses",
+          all(p.start >= 0 for p in places),
+          f"min offset {min(float(p.start) for p in places)}")
+    check("the two same-named choruses keep their two OWN downbeats",
+          [p.section_start_bar for p in places[4:8]] == [9] * 4
+          and [p.section_start_bar for p in places[10:]] == [23] * 4,
+          f"{[p.section_start_bar for p in places]}")
+
+    # 2. RENAME INVARIANCE, the control. A blueprint's meaning cannot depend
+    #    on whether the writer numbered the second chorus.
+    _s2, uplaces = from_blueprint(uniq)
+    check("renaming the second section changes NOTHING about where any line "
+          "sits — the control that says this was the key, not the grid",
+          [(p.bar, p.beat, p.start, p.end, p.section_start_bar)
+           for p in places]
+          == [(p.bar, p.beat, p.start, p.end, p.section_start_bar)
+              for p in uplaces])
+
+    # 3. `fit_song`'s own filing.
+    counts = [(s.name, s.start_bar, len(s.lines))
+              for s in fit_song(dup).sections]
+    check("each section instance gets ITS OWN lines — the name-keyed dict "
+          "filed 0 under the first chorus and 8 under the second",
+          counts == [("verse1", 1, 4), ("chorus", 9, 4),
+                     ("bridge", 17, 2), ("chorus", 23, 4)], f"{counts}")
+
+    # 4. `overlap_findings`, the eight spurious findings.
+    fits = [fit_line(p.text, p, line_index=i) for i, p in enumerate(places)]
+    ov = overlap_findings(fits)
+    check("a chorus does not overlap its own return — EIGHT "
+          "OVERLAPPING_SPANS came out of this blueprint, one per chorus line",
+          ov == {}, f"{sum(len(v) for v in ov.values())} finding(s)")
+    ufits = [fit_line(p.text, p, line_index=i) for i, p in enumerate(uplaces)]
+    check("...and the renamed blueprint answers identically, as it always did",
+          overlap_findings(ufits) == ov)
+
+    # 5. THE SAME BLUEPRINT WITH NO `"section"` ON ITS LINES, which is legal
+    #    and is the shape the eight findings actually came out of. `owner()`
+    #    resolves by BAR there, so the attribution was RIGHT even before the
+    #    fix -- both choruses genuinely sit at 0, 8, 16 and 24 pulses from
+    #    their own downbeat -- and a bucket keyed on the name puts all eight
+    #    in one bag and finds every line intersecting its own repeat. The two
+    #    defects mask each other in the shape above and do not here, which is
+    #    why both shapes are pinned.
+    unnamed = _repeated_name_blueprint(name_the_section=False)
+    _s5, bplaces = from_blueprint(unnamed)
+    check("naming the section on each line, or leaving the bar to say it, "
+          "puts every line in exactly the same place",
+          [(p.section, p.section_start_bar, p.start) for p in bplaces]
+          == [(p.section, p.section_start_bar, p.start) for p in places])
+    bfits = [fit_line(p.text, p, line_index=i) for i, p in enumerate(bplaces)]
+    check("...and NOTHING overlaps: this is the exact file that produced "
+          "eight OVERLAPPING_SPANS, one per chorus line, each against its "
+          "own return fourteen bars later",
+          overlap_findings(bfits) == {},
+          f"{sum(len(v) for v in overlap_findings(bfits).values())} finding(s)")
+    bcounts = [(s.name, s.start_bar, len(s.lines))
+               for s in fit_song(unnamed).sections]
+    check("...and `fit_song` files them one instance each here too",
+          bcounts == counts, f"{bcounts}")
+
+    # 6. THE CHECK IS NOT SILENCED, which is the half a fix like this gets
+    #    wrong: bucketing more finely could have closed the leak by deleting
+    #    the category (doctrine 24). A REAL overlap inside one instance of a
+    #    repeated name must still fire.
+    real = _repeated_name_blueprint()
+    real["lines"].append({"text": "a second voice comes in over the top",
+                          "bar": 23, "beat": 3, "duration": 4,
+                          "section": "chorus"})
+    _s3, rplaces = from_blueprint(real)
+    rfits = [fit_line(p.text, p, line_index=i) for i, p in enumerate(rplaces)]
+    rov = overlap_findings(rfits)
+    check("a GENUINE overlap inside one instance of a repeated name still "
+          "fires — the fix narrowed the bucket, it did not delete the check",
+          set(rov) == {10, 14}
+          and all(f.code == "OVERLAPPING_SPANS" for fs in rov.values()
+                  for f in fs),
+          f"indices {sorted(rov)}")
+    check("...and it is filed against the SECOND chorus, whose bar 23 it "
+          "shares, not against the first",
+          rplaces[14].section_start_bar == 23 and rplaces[10].bar == 23)
+
+    # 7. BOTH READERS, or `fit` and `song` answer differently about one file.
+    song, _h = GR.song_from_blueprint(dup)
+    _s4, viasong = from_song(song)
+    check("`from_song` resolves a repeated name the same way `from_blueprint` "
+          "does — one song, one answer, whichever reader built it",
+          [(p.section, p.section_start_bar, p.start) for p in viasong]
+          == [(p.section, p.section_start_bar, p.start) for p in places])
+
+    # 8. THE GRID SIDE, which had the same dict and was LATENT: the only
+    #    field it read off the resolved owner is `s.name`, identical for both
+    #    instances. `lines_in` matches by bar range and was already right, so
+    #    this pins the agreement rather than a change.
+    check("`grid.Song.lines_in` gives each chorus instance its own four "
+          "lines, and the blueprint reader agrees with it",
+          [len(song.lines_in(s)) for s in song.sections] == [4, 4, 2, 4])
+    check("`lines_in` still REFUSES the repeated name as a string — the "
+          "precedent this whole fix is the rest of",
+          _raises(lambda: song.lines_in("chorus"), "names 2 sections"))
+
+
+def test_an_ambiguous_name_cannot_outrank_the_bar():
+    """A name used twice names a SET; the bar says which member.
+
+    A name used ONCE still wins over the bar range, and that is doctrine 1 --
+    a declared coordinate is not silently outranked by another layer's
+    inference. The rule only changes where the declaration stops being one.
+    """
+    print("\n. an unambiguous name still wins; an ambiguous one cannot")
+    from quality import grid as GR
+    bp = {"sections": [{"name": "a", "bars": 4, "start_bar": 1,
+                        "meter": dict(_M44)},
+                       {"name": "c", "bars": 4, "start_bar": 5,
+                        "meter": dict(_M44)},
+                       {"name": "c", "bars": 4, "start_bar": 9,
+                        "meter": dict(_M44)}],
+          "lines": [{"text": "declared into a, sitting in c", "bar": 6,
+                     "beat": 1, "duration": 4, "section": "a"},
+                    {"text": "declared into c, sitting in the first", "bar": 6,
+                     "beat": 1, "duration": 4, "section": "c"},
+                    {"text": "declared into c, sitting in the second",
+                     "bar": 10, "beat": 1, "duration": 4, "section": "c"},
+                    {"text": "declared into c, sitting in neither", "bar": 2,
+                     "beat": 1, "duration": 4, "section": "c"}]}
+    _s, places = from_blueprint(bp)
+    check("a UNIQUE declared name outranks the bar range, unchanged",
+          places[0].section == "a" and places[0].section_start_bar == 1,
+          f"{places[0].section!r} @ {places[0].section_start_bar}")
+    check("a REPEATED name is resolved by the bar, to each instance in turn",
+          [p.section_start_bar for p in places[1:3]] == [5, 9],
+          f"{[p.section_start_bar for p in places[1:3]]}")
+    check("a repeated name whose bar is in NEITHER instance falls all the "
+          "way through to the plain bar range — an ambiguous name carries no "
+          "information, and the bar is the coordinate the pulse arithmetic "
+          "is done in. `by_name` answered `the last one` here, in silence",
+          places[3].section == "a" and places[3].section_start_bar == 1,
+          f"{places[3].section!r} @ {places[3].section_start_bar}")
+    song, _h = GR.song_from_blueprint(bp)
+    check("the grid reader resolves it the same way — pinned even though "
+          "only `s.name` is read off the owner there, so it cannot go quietly "
+          "wrong the day a second field is",
+          [l.section for l in song.lines] == ["a", "c", "c", "a"],
+          f"{[l.section for l in song.lines]}")
 
 
 if __name__ == "__main__":

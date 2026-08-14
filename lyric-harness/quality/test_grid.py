@@ -1598,6 +1598,115 @@ def test_a_returns_own_refusals_reach_the_report():
           f"{len(rev['findings'])} -> {len(rep['findings'])}")
 
 
+def test_two_sections_may_share_a_name():
+    """§26. `song_from_blueprint` had `{s.name: s for s in secs}` too.
+
+    `Song.lines_in` has refused to key on a name since the demo caught it --
+    "Repeated section names are normal and are exactly why this cannot key on
+    the name" -- and this reader was still doing exactly that one screen above
+    the `Line` it builds, silently dropping the FIRST of two sections called
+    `chorus`.
+
+    LATENT HERE, AND SAID SO RATHER THAN OVERSOLD. The only field read off the
+    resolved owner is `s.name`, which is the same string for both instances,
+    so no output of this function moved and no assertion in this file could
+    have caught it. `quality/fit.py` held the identical dict and read
+    `cycle`/`start_bar`/`bars` off it, where it was NOT latent: it measured
+    the first chorus's lines 56 pulses before their own downbeat, and
+    `fit.overlap_findings` -- bucketing on the same name -- then reported
+    every chorus line as intersecting its own return. A defect invisible only
+    because of what the caller happens to read is one field away from being
+    visible, which is why it is fixed and pinned here rather than left.
+    """
+    print("\n26. a repeated section name is a SONG FORM — the reader owns "
+          "lines by the section INSTANCE, not by what it is called")
+    M = {"beats": 4, "unit": 4, "groups": [2, 2]}
+
+    def sec(n, bars, start, fn):
+        return {"name": n, "bars": bars, "start_bar": start,
+                "meter": dict(M), "function": fn}
+    obj = {"title": "Ledger",
+           "sections": [sec("verse1", 8, 1, "verse"),
+                        sec("chorus", 8, 9, "chorus"),
+                        sec("bridge", 6, 17, "bridge"),
+                        sec("chorus", 8, 23, "chorus")],
+           "lines": [{"text": f"line at bar {b}", "bar": b, "beat": 1,
+                      "duration": 8, "section": s}
+                     for b, s in [(1, "verse1"), (3, "verse1"), (5, "verse1"),
+                                  (7, "verse1"),
+                                  (9, "chorus"), (11, "chorus"),
+                                  (13, "chorus"), (15, "chorus"),
+                                  (17, "bridge"), (19, "bridge"),
+                                  (23, "chorus"), (25, "chorus"),
+                                  (27, "chorus"), (29, "chorus")]]}
+    song, _h = song_from_blueprint(obj)
+    check("the reader keeps FOUR sections — two of them called `chorus`",
+          [s.name for s in song.sections]
+          == ["verse1", "chorus", "bridge", "chorus"])
+    check("each chorus instance owns its own four lines, by bar range",
+          [len(song.lines_in(s)) for s in song.sections] == [4, 4, 2, 4],
+          f"{[len(song.lines_in(s)) for s in song.sections]}")
+    check("`instances_of` finds BOTH — the function is the key that may "
+          "repeat, and it is keyed on the DECLARED function, never the name",
+          [s.start_bar for s in song.instances_of("chorus")] == [9, 23])
+    check("`lines_in` still refuses the repeated NAME as a string, which is "
+          "the precedent the rest of this fix is written from",
+          _raises(lambda: song.lines_in("chorus")))
+    check("the two instances occupy the same TUNE SLOT — the measurement a "
+          "collapsed pair could not have been asked for",
+          song.slot_profile(song.sections[1])
+          == song.slot_profile(song.sections[3]))
+
+    # THE RESOLUTION RULE, pinned where it IS observable. A name used once
+    # still outranks the bar range (doctrine 1: a declaration is not silently
+    # outranked). A name used twice names a SET, so the bar says which member;
+    # `by_name` answered "the last one" there, and answered it in silence.
+    amb = {"sections": [sec("a", 4, 1, "verse"), sec("c", 4, 5, "chorus"),
+                        sec("c", 4, 9, "chorus")],
+           "lines": [{"text": "declared into a, sitting in c", "bar": 6,
+                      "beat": 1, "duration": 4, "section": "a"},
+                     {"text": "declared into c, in the first", "bar": 6,
+                      "beat": 1, "duration": 4, "section": "c"},
+                     {"text": "declared into c, in the second", "bar": 10,
+                      "beat": 1, "duration": 4, "section": "c"},
+                     {"text": "declared into c, sitting in neither", "bar": 2,
+                      "beat": 1, "duration": 4, "section": "c"}]}
+    asong, _h2 = song_from_blueprint(amb)
+    check("a UNIQUE declared name outranks the bar range, unchanged",
+          asong.lines[0].section == "a")
+    check("a REPEATED name is resolved by the bar, to each instance in turn",
+          [len(asong.lines_in(s)) for s in asong.sections] == [1, 2, 1],
+          f"{[len(asong.lines_in(s)) for s in asong.sections]}")
+    # THE ONE PLACE THE LATENCY LIFTS, and the only assertion in this section
+    # that could have caught the dict. When the ambiguous name's bar is in
+    # NEITHER instance, `by_name` answered `the last one` and this answers
+    # `the section the bar is actually in`, so the two disagree in the one
+    # field this reader reads.
+    check("a repeated name whose bar is in neither instance falls through to "
+          "the bar range — an ambiguous name carries no information, and "
+          "`by_name` answered `whichever came last` in silence",
+          [l.section for l in asong.lines] == ["a", "c", "c", "a"],
+          f"{[l.section for l in asong.lines]}")
+
+    # BOTH READERS OR NEITHER. `quality/fit.py` reads the same blueprint
+    # independently, and the repo's own rule is that the two must agree or the
+    # `grid` verb and the `song` verb answer differently about one file.
+    from quality import fit as FT
+    _s, places = FT.from_blueprint(obj)
+    check("`quality.fit.from_blueprint` resolves it identically — one file, "
+          "one answer, whichever reader is asked",
+          [p.section_start_bar for p in places]
+          == [song.section_at(l.bar) and
+              [s for s in song.sections
+               if s.start_bar <= l.bar <= s.end_bar][0].start_bar
+              for l in song.lines])
+    check("...and no line sits before its own section's downbeat, which is "
+          "what the name-keyed reader produced: -56 pulses for the first "
+          "chorus, a `pickup` fourteen bars long",
+          all(p.start >= 0 for p in places),
+          f"min offset {min(float(p.start) for p in places)}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -1623,7 +1732,8 @@ if __name__ == "__main__":
                test_every_variation_kind_is_reportable,
                test_read_marked_songs_drops_apparatus_by_the_one_rule,
                test_a_reprise_is_a_relation_between_two_DIFFERENT_functions,
-               test_a_returns_own_refusals_reach_the_report):
+               test_a_returns_own_refusals_reach_the_report,
+               test_two_sections_may_share_a_name):
         fn()
     print("=" * 62)
     if FAILURES:

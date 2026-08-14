@@ -1520,6 +1520,57 @@ def _cycle_of(meterdict):
                  groups=tuple(meterdict.get("groups", ()) or ()))
 
 
+def section_key(placement):
+    """-> the hashable IDENTITY of the section instance a `Placement` sits in.
+
+    TWO SECTIONS MAY SHARE A NAME, and verse/chorus/bridge/chorus is the most
+    ordinary song form there is. A name is what the writer CALLS a span
+    (`grid.Section`'s own docstring: "it is what the writer calls this span,
+    and it is deliberately not evidence"), so it identifies a span no better
+    than a title identifies a line. `grid.Song.lines_in` already refuses to
+    match on it — "Matching by name was wrong and the demo caught it: a song
+    with two sections both called 'chorus' collapsed them" — and this is the
+    same sentence said in `fit.py`'s own vocabulary, where the collapse is
+    arithmetic rather than a count.
+
+    The pair is `(section_start_bar, section)` and the FIRST half is the
+    load-bearing one: `Placement.start`/`.end` are pulse offsets FROM THE
+    SECTION'S OWN FIRST DOWNBEAT, so two placements' numbers are commensurable
+    exactly when they share that downbeat. The name rides along so a caller
+    reading a key can see which span it names, and so two spans that somehow
+    declare the same start bar under different names stay apart.
+    """
+    return (placement.section_start_bar, placement.section)
+
+
+def _owner_of(secs, name, bar, get):
+    """-> the section a line belongs to, resolving a REPEATED name by bar.
+
+    `get(section, field)` reads `"name"`/`"start_bar"`/`"bars"` off whatever
+    shape the caller's sections are (this module's dicts, or a duck-typed
+    `grid.Section`), so one resolution serves both readers here.
+
+    A declared name still wins over the bar range when it is UNAMBIGUOUS —
+    that is a declaration, and doctrine 1 says a declared coordinate is not
+    silently outranked. It cannot win when the writer used it twice: a
+    `{"section": "chorus"}` on a song with two choruses names a SET, and the
+    bar is the coordinate that says which member. `{s["name"]: s for s in
+    secs}` answered "the last one" there, silently, which put every line of
+    the FIRST chorus 14 bars before its own section's downbeat and gave it a
+    NEGATIVE offset.
+    """
+    hits = [s for s in secs if get(s, "name") == name]
+    if len(hits) == 1:
+        return hits[0]
+    for s in hits or ():
+        if get(s, "start_bar") <= bar < get(s, "start_bar") + get(s, "bars"):
+            return s
+    for s in secs:
+        if get(s, "start_bar") <= bar < get(s, "start_bar") + get(s, "bars"):
+            return s
+    return secs[-1] if secs else None
+
+
 def from_blueprint(obj, assume_meter=None):
     """-> (sections, placements) from a blueprint dict or path.
 
@@ -1560,15 +1611,13 @@ def from_blueprint(obj, assume_meter=None):
                      "bars": int(s["bars"]), "start_bar": start,
                      "meter_declared": declared, "meter_assumed": assumed})
         bar = start + int(s["bars"])
-    by_name = {s["name"]: s for s in secs}
 
     def owner(l):
-        if l.get("section") in by_name:
-            return by_name[l["section"]]
-        for s in secs:
-            if s["start_bar"] <= int(l["bar"]) < s["start_bar"] + s["bars"]:
-                return s
-        return secs[-1] if secs else None
+        # NOT `{s["name"]: s for s in secs}` — that silently kept the LAST of
+        # two same-named sections, so a verse/chorus/bridge/chorus blueprint
+        # measured the first chorus's lines from the second chorus's downbeat.
+        return _owner_of(secs, l.get("section"), int(l["bar"]),
+                         lambda s, f: s[f])
 
     places = []
     for l in obj.get("lines", []):
@@ -1607,16 +1656,13 @@ def from_song(song):
                      "meter_declared": bool(getattr(m, "declared", True)),
                      "meter_assumed": str(getattr(m, "assumed", "") or "")})
         bar = start + int(s.bars)
-    by_name = {s["name"]: s for s in secs}
     places = []
     for l in song.lines:
-        s = by_name.get(getattr(l, "section", ""))
-        if s is None:
-            for cand in secs:
-                if cand["start_bar"] <= l.bar < cand["start_bar"] + cand["bars"]:
-                    s = cand
-                    break
-        s = s or secs[-1]
+        # Same resolution `from_blueprint` uses, and for the same reason: a
+        # `grid.Song` carries `Line.section` as a NAME, and a name a writer
+        # used twice picks out a set of spans rather than one.
+        s = _owner_of(secs, getattr(l, "section", ""), int(l.bar),
+                      lambda s, f: s[f]) or secs[-1]
         places.append(Placement(
             cycle=s["cycle"], bar=int(l.bar), beat=_frac(l.beat),
             duration=_frac(l.duration), section=s["name"],
@@ -1645,10 +1691,21 @@ def overlap_findings(fits):
     measured from the section's own first downbeat (see `Placement`), so two
     numbers from different sections are not commensurable and their
     intersection would be arithmetic on two different units.
+
+    WITHIN A SECTION IS NOT WITHIN A SECTION NAME, and keying on the name broke
+    exactly the invariant the paragraph above states. Two sections called
+    `chorus` are two spans with two different downbeats; bucketed together,
+    every line of the first chorus "intersects" its own return fourteen bars
+    later, because both are 0 pulses from their own section's start and 0
+    equals 0. Measured on a four-section verse/chorus/bridge/chorus blueprint:
+    EIGHT spurious `OVERLAPPING_SPANS`, every one of them a line against its
+    own repeat, all of which vanished when the second section was renamed —
+    which is what proved it was the key and not the arithmetic. `section_key`
+    buckets on the section's own downbeat instead.
     """
     by_section = {}
     for idx, f in enumerate(fits):
-        by_section.setdefault(f.placement.section, []).append(idx)
+        by_section.setdefault(section_key(f.placement), []).append(idx)
     out = {}
     for members in by_section.values():
         for m in range(len(members)):
@@ -1686,13 +1743,19 @@ def fit_song(obj, phon=None, subdivision=None, assume=None,
     out = SongFit(sections=[SectionFit(name=s["name"], cycle=s["cycle"],
                                        bars=s["bars"], start_bar=s["start_bar"])
                             for s in secs])
-    by_name = {s.name: s for s in out.sections}
+    # KEYED ON THE SECTION, NOT ON ITS NAME. `{s.name: s for s in
+    # out.sections}` kept the last of two same-named sections, so every line
+    # of a repeated chorus was filed under its LAST instance: the first
+    # `SectionFit` reported zero lines and the second reported double, and
+    # `table()`'s per-bar density, `uncovered_bars()` and `overlaps()` all
+    # read off those lists.
+    by_sec = {(s.start_bar, s.name): s for s in out.sections}
     fits = []
     for i, p in enumerate(places):
         f = fit_line(p.text, p, phon=phon, subdivision=subdivision,
                      assume=assume, line_index=i, strip_parens=strip_parens)
         fits.append(f)
-        by_name[p.section].lines.append(f)
+        by_sec[section_key(p)].lines.append(f)
     for i, fs in overlap_findings(fits).items():
         fits[i].findings.extend(fs)
     return out
