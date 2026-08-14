@@ -27,38 +27,65 @@ THE FIGURE THIS FILE PINS, AND THE ONE IT SUPERSEDES
 
 THE CLAIM UNDER AUDIT, quoted as each file reads it TODAY
 
-  quality/POSITIVE_CONTROL.md:435, Part E -- ALREADY REPINNED:
+  THE ORIGIN ROW MOVED, 2026-08-13, LATER THE SAME DAY, and this map moved
+  with it. Every entry below was RE-READ against the files as they stand, not
+  edited from memory; line numbers shift when the documents above them grow,
+  so a number here is only worth carrying if it was just checked.
+
+  data/sources.tsv:58, GITenberg/Kalevala_7000 -- THE ORIGIN, NOW REPINNED:
+      "SIZE: 22,795 verse lines extracted ... REPINNED 2026-08-13 from 22,822
+       (MEASURED 2026-08-10), -27 lines. ... VALIDATED: 3,253 of the first
+       4,000 verse lines (81.3%) ... REPINNED 2026-08-13 from 3,246 (81.2%)"
+      This entry read "STILL THE SUPERSEDED VALUE" until the row moved. The
+      row now also carries the WINDOW caveat none of the sites had: "81.3% is
+      the first 4,000 lines; over the WHOLE extraction the rate is
+      18,828/22,795 = 82.6%". Two statistics had been circulating as one
+      figure, and this file holds both -- see `PINNED`, which pins them
+      separately, and the header block above, which names the window on every
+      line that quotes a rate.
+  quality/POSITIVE_CONTROL.md:537, Part E -- REPINNED (was cited here as :435):
       "Finnish Kalevala | FOUND GITenberg/Kalevala_7000 | 22,795 verse lines,
        81.3% alliterate (REPINNED 2026-08-13 from 22,822 / 81.2%)"
-  quality/METHOD.md:714, doctrine 49 -- ALREADY REPINNED, in place:
+  quality/METHOD.md:854, doctrine 49 -- REPINNED, in place (was cited as :714):
       "validated at 81.2% alliteration (REPINNED 2026-08-13: 81.3%, 3,253 of
        the first 4,000 verse lines, and 22,795 lines extracted rather than the
        22,822 recorded -- MEASURED by quality/audit_kalevala_null.py --check)"
-  data/sources.tsv:58, GITenberg/Kalevala_7000 -- STILL THE SUPERSEDED VALUE:
-      "VALIDATED: 3,246 of the first 4,000 verse lines (81.2%) carry two or
-       more words sharing an initial under quality/phonology/fin.py"
 
-  STILL QUOTING 81.2% WITH NO REPIN BESIDE IT, and not one of them is this
-  file's to edit -- recorded here so the next cell to hold those files has the
-  list rather than the search:
-      quality/METHOD.md:175      doctrine 64's body, "81.2% of Kalevala lines
-                                 alliterate" -- quoted there AS the unusable
-                                 headline, so the doctrine survives the repin
-                                 and the number in it does not
-      quality/POSITIVE_CONTROL.md:456   "validated at 81.2% alliteration", in
-                                 prose, four lines under a table row (:435)
-                                 that HAS been repinned -- the same file
-                                 disagreeing with itself
-      data/CHANNELS.md:43        "validated at 81.2% alliteration"
-      data/sources.tsv:58        the origin of all of them, quoted above
+  THE "STILL QUOTING 81.2% WITH NO REPIN BESIDE IT" LIST IS NOW EMPTY, and the
+  rows are kept rather than deleted because the point of the list is the
+  history of who was told and when -- a closed row is the evidence the telling
+  worked. None of these was ever this file's to edit. CLOSED 2026-08-13:
+      quality/METHOD.md:185      CLOSED. Doctrine 64's body now reads "81.3% of
+        (was cited as :175)      Kalevala lines alliterate" and carries its own
+                                 struck ~~81.2%~~ / ~~null max 30.6%~~ /
+                                 ~~excess 51.7~~ at :190. The doctrine survived
+                                 the repin and the number in it did not, which
+                                 is what this row predicted.
+      quality/POSITIVE_CONTROL.md:558   CLOSED. Now "validated at **81.3%**
+        (was cited as :456)      alliteration (~~81.2%~~ REPINNED 2026-08-13)",
+                                 and the file says in place that it had
+                                 disagreed with its own table row twenty lines
+                                 up. Both halves of that file now agree.
+      data/CHANNELS.md:43        CLOSED. Now "**81.3%** (~~81.2%~~ REPINNED
+                                 2026-08-13 ... the origin row is
+                                 data/sources.tsv:58)". Line unmoved.
+      data/sources.tsv:58        CLOSED -- the origin, quoted above.
 
-  ALREADY DATED WHERE THEY STAND, so they are quotations and not claims:
+  ALREADY DATED WHERE THEY STAND, so they are quotations and not claims.
+  RE-READ 2026-08-13 and both still hold:
       quality/NULL_AUDIT.md:462, :487, :517 -- §2.2 carries the 2026-08-13
                                  repin in a block quote directly under its own
                                  heading, so its 81.2% mentions read as the
-                                 superseded figure they are
+                                 superseded figure they are. Lines unmoved.
       quality/kalevala_rate.py:6, :85 -- both say "data/sources.tsv records",
-                                 so they quote row :58 and move when it moves
+                                 so they quote row :58 and move when it moves.
+                                 THE ROW HAS NOW MOVED AND THEY HAVE NOT: both
+                                 still say the row records 81.2%, which it no
+                                 longer does. The construction that was meant
+                                 to keep them current is what let them go
+                                 stale -- "X records Y" is only self-updating
+                                 if somebody re-reads X. Not this file's to
+                                 fix; recorded here for the cell that holds it.
 
   It was recorded as a bare rate with no comparator of any kind.
 
@@ -243,6 +270,22 @@ from quality.readability import read_lines              # noqa: E402
 SEED = 20260810
 FIRST_N = 4000          # the window data/sources.tsv actually measured
 
+#: WHAT THE RECORD SAYS, as against `PINNED["extracted"]`, which is what THIS
+#: FILE MEASURES. Deliberately a second constant and not a reuse: they are two
+#: different facts that happen to coincide today, and on 2026-08-10..13 they
+#: did not (the row said 22,822 against this file's 22,795). Collapsing them
+#: would make the disagreement this instrument exists to print unprintable.
+#:
+#: REPINNED 2026-08-13 from 22,822, kept visible and dated (doctrine 17): the
+#: origin row `data/sources.tsv:58` was itself repinned to 22,795 by the cell
+#: that owns it, closing a drift this file had been PRINTING and exiting 0 on
+#: since it was written. This literal was `22,822` inside an f-string until
+#: that moment, which is why the print went stale silently -- doctrine 48, in
+#: the file that already had a header paragraph about the same line going
+#: stale. A number quoted from another file is now named, dated and compared
+#: mechanically rather than typed into a format string.
+SOURCES_TSV_EXTRACTED = 22795
+
 ORAL, LITERARY = "oral", "literary"
 
 #: The seven author files data/sources.tsv's own
@@ -278,7 +321,29 @@ SERIES = (
 
 def verse_lines(path):
     """The extraction data/sources.tsv describes: between the first verse line
-    and the PG end marker, non-empty, headings dropped."""
+    and the PG end marker, non-empty, headings dropped.
+
+    THREE LINE COUNTS ARE ON THE RECORD FOR THIS CORPUS AND THEY HAVE TWO
+    DIFFERENT CAUSES, measured 2026-08-13 rather than guessed:
+
+      22,795  what this returns, and what `data/sources.tsv:58` and `:83` now
+              both record.
+      22,822  the 2026-08-10 figure, superseded. The +27 is the RAW Gutenberg
+              file's runo headings counted as verse -- `sources.tsv:83` says
+              so, and it is not reproducible here because the staged
+              `corpus/fin_kalevala.txt` had them dropped at staging time.
+      22,796  `quality/NULL_AUDIT.md:686` carries this and calls it "a filter
+              difference, almost certainly runo headings". IT IS NOT. On the
+              staged file NO heading filter in this function fires at all --
+              zero numeral-only lines, zero runo headings -- and every variant
+              (no filters, numerals only, runo only, <=2 or <=4 words, an
+              indentation rule, "contains no letter") returns 22,795
+              identically. 22,796 is the TRAILING NEWLINE: the file ends with
+              one, so `read().split("\\n")` yields 22,796 elements of which the
+              last is "". `splitlines()`, `list(open(...))` and this function
+              all give 22,795. An off-by-one in the reader, not a filter, and
+              so it says nothing about headings. Not this file's row to fix.
+    """
     try:
         d = open(path, encoding="utf-8").read()
     except UnicodeDecodeError:
@@ -519,8 +584,10 @@ def main(path, n=200):
     fi = get("fin")
     lines = verse_lines(path)
     print(f"{path}")
+    agree = "agrees" if len(lines) == SOURCES_TSV_EXTRACTED else "DISAGREES"
     print(f"verse lines extracted: {len(lines)}"
-          f"   (data/sources.tsv records 22,822)")
+          f"   (data/sources.tsv:58 records {SOURCES_TSV_EXTRACTED:,}"
+          f" -- {agree})")
     rng = random.Random(SEED)
     measured = {"extracted": len(lines)}
 
@@ -582,6 +649,14 @@ def main(path, n=200):
 #:                           printed this disagreement and exited 0 anyway)
 #:   first-4000 alliterating  3,246 recorded  ->   3,253   (81.2% -> 81.3%)
 #: Doctrine 58: argue these and repin. Do not adjust `verse_lines` to hit them.
+#:
+#: AND THE RECORD HAS SINCE CAUGHT UP, LATER THE SAME DAY: `data/sources.tsv:58`
+#: was repinned to 22,795 and 3,253 (81.3%) by the cell that owns it, with
+#: 22,822 and 3,246 (81.2%) kept visible and dated beside them. So both figures
+#: above are now AGREEMENTS rather than drifts, and the arrow reads left-to-
+#: right as history, not as a live disagreement. Nothing here moved to make
+#: that true -- the measurement is the same measurement; the record moved to
+#: it, which is the direction doctrine 58 asks for.
 PINNED = {"extracted": 22795,
           "first 4000 lines (the recorded window)": {"lines": 4000,
                                                      "alliterating": 3253},
