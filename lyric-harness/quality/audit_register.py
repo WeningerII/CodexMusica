@@ -491,8 +491,27 @@ def _msa_source_population():
     Not in the repo. It is what M-3 and M-4 actually measured, and the fact
     that it is not in the repo is the finding, not an obstacle to it.
     """
-    for p in ("/workspace/mm47873/47873-8.txt",
-              os.path.join(ROOT, "corpus", "47873-8.txt")):
+    # THE DEFAULT NO LONGER NAMES ONE MACHINE — changed 2026-08-14, found by
+    # CI. The first candidate was the bare literal
+    # `/workspace/mm47873/47873-8.txt`, which exists on the machine this was
+    # written on and nowhere else. That made D8's VERDICT machine-dependent:
+    # FALSE where the file happens to sit, UNVERIFIABLE everywhere else — and
+    # `counters.py`'s `register-audit findings` row counts FALSE derivations,
+    # so the committed cell read 2 on one machine and measured 1 on the CI
+    # runner, failing a check nobody could clear. Running `counters.py --write`
+    # here wrote 2 straight back, which is why the "repin" in commit 913d5f6
+    # produced no diff at all and my own commit message claiming it was cleared
+    # was wrong.
+    #
+    # `MSA_SOURCE` is the override, the shape `TANG_POOL` and
+    # `CANON_TRANSCRIPTS` already use. With it unset the answer is
+    # UNVERIFIABLE EVERYWHERE, which is the honest default: PG47873 is not in
+    # this repository, and this function's own docstring says that absence is
+    # the finding rather than an obstacle to it. A verdict that depends on
+    # whose disk it runs on is not a verdict.
+    _msa_env = os.environ.get("MSA_SOURCE")
+    for p in ([_msa_env] if _msa_env else []) + [
+              os.path.join(ROOT, "corpus", "47873-8.txt")]:
         if os.path.exists(p):
             t = open(p, "rb").read().decode("latin-1").replace("\r\n", "\n")
             lines = t.split("\n")

@@ -596,7 +596,7 @@ never one (doctrine 79).
 | `data/lyricists.tsv` rows | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | sonnet battery | 82/1014 = 8.1% violations (`mandated 1064, judged 1014, refused 50`) | `python3 battery.py` |
 | band FPR on random pairs | **2.10%** (84 of 4,000 at seed 20260810, the runner's own default n; 2.00% = 60 of 3,000 at n=3,000 — the population size is a coordinate) | `python3 quality/redteam_band.py` |
-| register-audit findings | **2** — D8 (M-4), D9 (M-4); both are the deliberate M-4 calibration pair | `python3 quality/audit_register.py` |
+| register-audit findings | **1** — FALSE derivations: D9 (M-4) | `python3 quality/audit_register.py` |
 | adversaries built, of 8 | REFUSED (judgement) — `built` / `partial` / `ad hoc` / `missing` in §0 are statuses a person sets; no measurement distinguishes them (the INSTRUMENT column is checkable and `quality/verify_entries.py` checks it) | `read BACKLOG.md §0` |
 <!-- /COUNTERS -->
 
