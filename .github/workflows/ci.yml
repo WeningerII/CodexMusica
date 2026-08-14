@@ -824,3 +824,215 @@ jobs:
         if: always()
         working-directory: lyric-harness
         run: python3 quality/audit_hafez_radif.py --check
+
+  # ── The suites: 45 test modules that nothing had ever run ────────────────
+  #
+  # THE CLAIM THIS JOB EXISTS TO CORRECT. The `record` job's comment above
+  # ("WHY THESE FOUR AND NOT THE SUITES") excluded every test module here on
+  # the ground that "quality/test_revise.py and test_loop.py each take 15+
+  # minutes". MEASURED 2026-08-14, sequentially, on an otherwise idle box,
+  # threads pinned, CPU taken from rusage rather than a wall clock:
+  #
+  #     test_loop.py     190.92 CPU-s   exit 0
+  #     test_revise.py   183.95 CPU-s   exit 0
+  #
+  # Three minutes each, both green. NEITHER FILE DECLARES THE 15-MINUTE FIGURE
+  # ANYWHERE, and test_loop's own docstring prices a single revision at 40-90s.
+  # So the sentence that kept 45 suites out of CI generalised from three
+  # expensive things to all of them, and the premise under the generalisation
+  # was a number nobody had run. Two independent measurements this session
+  # agree to within 2% on every file they share.
+  #
+  # ZERO FAILURES across all 46. Nothing needed a re-run, which also disposes
+  # of the worry that a session of parallel edits had left the suite red.
+  #
+  # WHY THE FLAGSHIP PAIR IS HERE AND NOT NIGHTLY. test_revise and test_loop
+  # are the revision loop -- this project's flagship verb and the thing a
+  # writer actually touches. Leaving them out because they are the two most
+  # expensive CHEAP suites would repeat, at 6.2 CPU-minutes, exactly the error
+  # this job's own header is about.
+  #
+  # WHAT IS DELIBERATELY NOT HERE, each with the reason and its measurement:
+  #   test_discriminate.py  ~1055 CPU-s cold, and cold BY DESIGN -- it neither
+  #                         reads nor writes data/feature_cache.json under any
+  #                         flag, so no cache warms it. Nightly.
+  #   test_mutation.py      bare, this is a PARALLEL FULL SWEEP at
+  #                         --jobs=os.cpu_count(): 1328 CPU-s against 600s wall
+  #                         before being killed, and mutate.py prices the
+  #                         honest version at ~53 CPU-min. A plain
+  #                         `quality/test_*.py` glob would put that on every
+  #                         pull request, which is why this job names its files
+  #                         and does not glob. `--static` runs in `record` at
+  #                         0.06 CPU-s and asks a different question.
+  #
+  # depth-1 is sufficient and deliberate: NO test file walks git history (zero
+  # git log / cat-file / rev-list across all 46). Only `record` needs
+  # fetch-depth 0, for verify_entries.py's doctrine-17 pin walk.
+  #
+  # No network: zero urllib/requests/http/socket calls across all 46. Only
+  # test_discriminate.py needs data/concreteness.txt or nltk, and it is not
+  # here -- every other file needs at most cmudict.dict.
+  suites:
+    needs: gate
+    runs-on: ubuntu-latest
+    # A RUNAWAY GUARD, NOT A BUDGET, and deliberately generous because one
+    # file is not yet priced. 41 of the 42 cheap suites are measured and sum
+    # to ~290 CPU-s; test_verbs.py is the exception -- it ran past 10 minutes
+    # locally without completing and neither of this session's two independent
+    # measurement passes had ever reached it. It is IN the list because it
+    # exits 0 and gates the CLI verbs, which nothing else covers; the number
+    # beside it is missing, and a guess here would be the exact defect this
+    # job's header is about. If it turns out to dominate, it earns its own
+    # step or a nightly slot -- on the measurement, not on this comment.
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Stage the pronunciation dictionary
+        working-directory: lyric-harness
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+
+      # Named, never globbed -- see the header. A glob is how test_mutation.py's
+      # 53-CPU-minute sweep would arrive here without anybody deciding it should.
+      # Threads pinned: a sibling instrument measured 625 CPU-s of BLAS
+      # spin-wait against 32 pinned, on matrices too small to be worth a thread.
+      - name: The 42 cheap suites (15 of them under 1 CPU-s)
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -e
+          for f in align band coda controls corpus_audit crosslinguistic cym \
+                   declared_inputs english_text fit floor fwer g2p grid \
+                   homograph ipa ltc mandate_language matrix meter msa_fin \
+                   mut_band mut_oracle nucleus null_shapes phon_fas phon_msa \
+                   phon_non phon_san phonology phrase_commonplace \
+                   positive_control provenance readability readings_seam \
+                   register_audit relations song_function spans taxonomy \
+                   time_layer verbs; do
+            echo "── quality/test_$f.py"
+            python3 "quality/test_$f.py"
+          done
+
+      # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
+      # green -- against the "15+ minutes each" that kept them out until today.
+      - name: The revision loop (test_revise 184s + test_loop 191s, measured)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: |
+          set -e
+          python3 quality/test_revise.py
+          python3 quality/test_loop.py
+
+  # ── Nightly: the checks the measurement above prices out of a pull request ─
+  #
+  # Named to the nightly cron, not to `schedule` -- see the two-crons comment
+  # at the top of this file. An unpinned condition here would also fire on the
+  # weekly cron, and a third cron would silently recruit this job too.
+  #
+  # This is where the honest-but-expensive instruments live. Each one below was
+  # kept out of `record` and `suites` by a MEASUREMENT, not by an impression,
+  # and the measurement is stated at the step.
+  nightly:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'schedule' && github.event.schedule == '17 4 * * *')
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # song_profile_calibration's memo lives OUTSIDE the repo, at
+      # ~/.cache/lyric-harness/song_predictability_v1.tsv, which is what makes
+      # a nightly full --check affordable at all: 2.0-2.2 CPU-HOURS cold
+      # against ~85 CPU-s warm, and it is explicitly resumable. Restoring this
+      # is the difference between a job that finishes and one that times out.
+      - name: Restore the predictability memo
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/lyric-harness
+          key: lyric-harness-predictability-v1-${{ github.run_id }}
+          restore-keys: lyric-harness-predictability-v1-
+
+      - name: Stage the pronunciation dictionary
+        working-directory: lyric-harness
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+
+      # The one instrument that needs the quality-layer resources: concreteness
+      # norms and the frequency list. `record` deliberately does NOT run this,
+      # which is why audit_joint_auc_null.py refuses there.
+      - name: Fetch the quality-layer resources
+        working-directory: lyric-harness
+        run: python3 quality/fetch_data.py
+
+      # ORDER IS LOAD-BEARING and this is the only place the chain is complete.
+      # discriminate.py is the ONLY caller of save_cache, data/feature_cache.json
+      # is gitignored, and audit_joint_auc_null.py --check REFUSES at exit 2
+      # without a warm cache -- correctly, per doctrine 20, but it means that
+      # check currently grades nothing anywhere else in this file. Here it
+      # grades something.
+      - name: Warm the feature cache (the only save_cache caller)
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/discriminate.py
+
+      - name: Joint AUC null against its cold pins (needs the warm cache above)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/audit_joint_auc_null.py --check
+
+      # 44 AUCs pinned FULL-PRECISION at a 0.0005 tolerance, cold. ~1055 CPU-s,
+      # and none of it is shortenable: 99.8% is the 384 feature extractions,
+      # and the extractions ARE the cold guarantee.
+      - name: Every discrimination AUC against its cold pin (~17.6 CPU-min)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/test_discriminate.py
+
+      # Adversary 4 for real: the suite re-run once per mutation. ~53 CPU-min.
+      # `record` runs --static (0.06 CPU-s) to prove the anchors still attach;
+      # this proves the tests still CATCH. Two questions, two costs.
+      - name: The full mutation sweep (~53 CPU-min — adversary 4 for real)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/test_mutation.py
+
+      # 2.0-2.2 CPU-hours cold, ~85 CPU-s warm off the cache restored above.
+      # `record` runs --without-predictability at 64s; this is the whole thing.
+      - name: Song-profile calibration, full (warm off the cache above)
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/song_profile_calibration.py --check
