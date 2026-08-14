@@ -258,12 +258,37 @@ at HEAD, and its refusal text names one more drifted coordinate than it used
 to. It grades nothing in either case. Re-arming it needs a warm cache from
 `python3 quality/discriminate.py` — ~1,050 CPU-s, a bill HEAD already owed.
 
-`quality/test_discriminate.py` does not break. Its 44 pins come from
-`measure()`, which takes `(cache, stats)` and never reads the identity; it
-defaults to COLD and never opens `data/feature_cache.json` under any flag. It
-calls `cache_identity()` in exactly two places, neither of which this change
-touches: printing the digests, and its doctrine-20 refusal gate, which reads
-`identity["resources"]` — still byte-granular, still `ABSENT`-marked.
+**`quality/test_discriminate.py` does not break, and this was RUN rather than
+argued** — it pins 44 numbers cold and reasoning about whether they move is
+exactly the move this document exists to complain about.
+
+    COLD, new fingerprint a6d384095766dd66:  69 passed, 0 failed
+      wall 1840.9 s / CPU 1057.3 s, 384 extractions
+    WARM, same cache re-read:                69 passed, 0 failed
+      fingerprint match, 0 computed / 648 reused, wall 7.8 s / CPU 6.9 s
+
+All 44 pins hold at the `ast:` digests, and warm agrees with cold. The reason
+they could not have moved is structural: the pins come from `measure()`, which
+takes `(cache, stats)` and never reads the identity; the module defaults to
+COLD and never opens `data/feature_cache.json` under any flag. It calls
+`cache_identity()` in exactly two places, neither of which this change touches
+— printing the digests, and its doctrine-20 refusal gate, which reads
+`identity["resources"]`, still byte-granular and still `ABSENT`-marked.
+
+TWO FREE MEASUREMENTS FELL OUT OF RUNNING IT.
+
+  - **1,057.3 CPU-s is a THIRD independent reading of the cold rebuild cost**,
+    against the recorded 1,049.5 and 1,067.8. The ~1,050 CPU-s figure this
+    document repinned to is now measured three times and sits mid-range.
+  - **Wall was 1.74x CPU, and that is the unwarmable problem showing up as a
+    number.** The run took 30 wall-minutes for 17.6 CPU-minutes because THREE
+    `test_discriminate.py` processes from three different lots were doing the
+    identical cold rebuild at once, at load average 10, on a box whose own
+    test header specifies "box otherwise quiet". Nobody was warming a cache
+    the others could read. That is §Independently confirmed's observation
+    restated from the cost side: under parallel work this cache is not
+    expensive to warm, it is warmed three times simultaneously and kept by
+    none of them.
 
 ## The two-digest agreement in `test_discriminate.py` is weaker than it reads
 
