@@ -2358,6 +2358,131 @@ def test_the_loop_suspends_instead_of_guessing():
           rc5 == 2 and "REFUSED" in out5, f"rc {rc5}")
 
 
+#: Two mandated pairs that RHYME cleanly and are both MODAL — so the draft
+#: carries no flag at all and the loop has always stopped on it.
+MODAL_DRAFT = ["the bank foreclosed and boarded up the town",
+               "the freight train left the siding after four",
+               "we packed the truck and never once looked down",
+               "and drove until the county line was more"]
+
+
+def test_the_loop_pursues_a_note_it_can_brief():
+    print("\n21. `--pursue=` — the loop no longer stops on a note it has a "
+          "candidate field for (FIXED 2026-08-15)")
+    # THE DEFECT, found by writing a song through the loop. `MODAL_RHYME` is
+    # in `RHYME_FINDINGS`, so `brief()` hands a line carrying one a COMPLETE
+    # field with the modal words marked FORBIDDEN -- the machinery to fix it
+    # is built and reachable. And it is a NOTE, while every stop condition in
+    # quality/loop.py read `severity == "flag"`, so the loop reported SUCCESS
+    # and stopped before asking. Doctrine 9 is this project's central claim
+    # and its own loop could not enforce it.
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "modal.txt")
+    with open(draft, "w") as fh:
+        fh.write("\n".join(MODAL_DRAFT) + "\n")
+    mand = "--groups=1,3;2,4"
+
+    rc0, out0, _ = run("brief", draft, mand)
+    check("the fixture carries MODAL_RHYME and NO flag at all",
+          "MODAL_RHYME" in out0 and "[FLAG]" not in out0,
+          "so nothing but `pursue` can make the loop look at it")
+
+    rc1, base, _ = run("revise", draft, mand)
+    check("WITHOUT --pursue the loop stops and changes nothing",
+          rc1 == 0 and "SUCCESS" in base and "FINAL DRAFT" not in base,
+          "this is the behaviour every prior run had, unchanged by default")
+
+    rc2, out2, _ = run("revise", draft, mand, "--pursue=MODAL_RHYME")
+    check("WITH --pursue the loop keeps asking and revises the modal lines",
+          rc2 == 0 and "FINAL DRAFT" in out2 and "PURSUING" in out2,
+          "the same draft, the same proposer, one declared coordinate apart")
+    changed = [l for l in out2.splitlines() if l.strip().startswith("* L")]
+    check("and the lines it changed are the ones carrying the note",
+          len(changed) == 2 and "L3" in changed[0] and "L4" in changed[1],
+          f"{len(changed)} line(s) changed")
+
+    # THE SEPARATION THAT MAKES THIS LEGAL. Pursuing changes what the loop
+    # ASKS for; it must never change what verify() REJECTS, or a note would
+    # start failing revisions and doctrine 6/7 would be broken by the fix.
+    # STATED AS AN EQUALITY, not as an expected verdict. The first version of
+    # this assertion demanded ACCEPTED and failed -- and the failure was the
+    # TEST's: verify() rejects a revision that fixes nothing, which a draft
+    # against itself is, with or without this flag. What must hold is that
+    # the two runs AGREE, which is the actual invariant and a stricter one.
+    before = os.path.join(d, "before.txt")
+    with open(before, "w") as fh:                      # a real revision, so
+        fh.write("\n".join(MODAL_DRAFT[:2]              # the verdict is not
+                           + ["we packed the truck and never once looked "
+                              "aroun"] + MODAL_DRAFT[3:]) + "\n")
+    _, plain, _ = run("verify", before, draft, mand)
+    _, pursued, _ = run("verify", before, draft, mand, "--pursue=MODAL_RHYME")
+    strip = lambda s: "\n".join(l for l in s.splitlines()
+                                if "PURSUING" not in l)
+    check("`verify()` is UNTOUCHED — the verdict is byte-identical with the "
+          "note pursued",
+          strip(plain) == strip(pursued) and "VERDICT" in plain,
+          "pursuing changes what the loop ASKS for and never what verify "
+          "REJECTS (doctrine 6/7)")
+
+    rc3, out3, _ = run("brief", draft, mand, "--pursue=HOOK_ABSENT",
+                       expect_rc=2)
+    # THE MESSAGE, not just the code. `_no_unknown_flags_or_refuse` already
+    # exits 2 on any flag it does not know, so `rc == 2` alone passes against
+    # a build that never heard of `--pursue` -- measured, then tightened.
+    check("a code `brief()` cannot offer a field for REFUSES BY NAME",
+          rc3 == 2 and "cannot offer a candidate field" in out3
+          and "RHYME_FINDINGS" in out3,
+          "an inert coordinate would let a writer believe the loop was "
+          "looking when it never was")
+
+
+def test_the_candidate_field_says_which_ordering_it_is():
+    print("\n22. `candidates --modal` — two orderings, one question, and the "
+          "verb now says which it answered (FIXED 2026-08-15)")
+    # THE DEFECT: this verb ranks by RHYME SCORE; the loop's modal exclusion
+    # ranks by FREQUENCY over the grader-accepted pool. Two answers to "is
+    # this rhyme too predictable", and the one reachable from the command
+    # line is not the one the grader enforces. Found by using the verb to
+    # pre-screen a rhyme and having the loop reject the result anyway.
+    rc, out, _ = run("candidates", "lines", "7")
+    check("the default output NAMES its ordering and points at the other",
+          rc == 0 and "ORDERED BY RHYME SCORE" in out and "--modal" in out,
+          "silence here is what made the two lists look like one list")
+
+    rc2, out2, _ = run("candidates", "lines", "7", "--modal")
+    check("--modal prints the FORBIDDEN set with its exclusion count",
+          rc2 == 0 and "FORBIDDEN (modal" in out2
+          and "modal_exclusion=" in out2)
+
+    score_top = {c["word"] for c in
+                 lh.CandidateEngine(lh.Lexicon(), lh.Declaration())
+                 .candidates("lines", 7)["candidates"]}
+    forb = out2.split("modal_exclusion=")[1].split(":\n")[1]
+    forb = {w.strip() for w in forb.splitlines()[0].split(",") if w.strip()}
+    check("the two sets genuinely DIFFER — this is not a relabelling",
+          score_top != forb,
+          f"score-ranked {sorted(score_top)} vs modal {sorted(forb)}")
+
+    # ONE DEFINITION, and this is the assertion that keeps it that way: the
+    # verb calls `Reviser.modal_field`, the same method the loop calls, so
+    # what is printed here and what `brief()` forbids cannot drift apart.
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "modal.txt")
+    with open(draft, "w") as fh:
+        fh.write("\n".join(MODAL_DRAFT) + "\n")
+    _, bout, _ = run("brief", draft, "--groups=1,3;2,4")
+    bline = [l for l in bout.splitlines() if "FORBIDDEN (modal" in l]
+    bforb = {w.strip() for w in bline[0].split(":", 1)[1].split(",")
+             } if bline else set()
+    _, cout, _ = run("candidates", "town", "7", "--modal")
+    cforb = {w.strip() for w in
+             cout.split("modal_exclusion=")[1].split(":\n")[1]
+             .splitlines()[0].split(",") if w.strip()}
+    check("what the verb forbids is what brief() forbids, same word",
+          bforb and bforb == cforb,
+          f"brief {sorted(bforb)} vs candidates {sorted(cforb)}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -2384,6 +2509,8 @@ if __name__ == "__main__":
     test_propose_selects_who_writes_the_line()
     test_both_mandate_spellings_are_read()
     test_the_loop_suspends_instead_of_guessing()
+    test_the_loop_pursues_a_note_it_can_brief()
+    test_the_candidate_field_says_which_ordering_it_is()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

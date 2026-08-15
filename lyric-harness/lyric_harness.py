@@ -4523,6 +4523,33 @@ def main():
         for c in res["candidates"]:
             fl = f"   [{', '.join(c['flags'])}]" if c["flags"] else ""
             print(f"  {c['score']:.3f}  {c['tier']:<8} {c['word']}{fl}")
+        # WHICH ORDERING THIS IS, AND THE OTHER ONE — FIXED 2026-08-15.
+        # THE DEFECT: this verb ranks by RHYME SCORE and the loop's modal
+        # exclusion ranks by FREQUENCY, and neither said so. They are two
+        # answers to one question — "is this rhyme too predictable" — and the
+        # one a writer can reach from the command line is NOT the one the
+        # grader enforces. MEASURED on 'lines': this verb's top 7 is
+        # signs/mines/designs/shines/headlines/airlines/whines and the loop
+        # forbade shines/signs/designs/vines/declines/pines/sign — THREE in
+        # common. A writer pre-screening a rhyme here was screening against
+        # the wrong list and had nothing to tell them (doctrine 1: one
+        # question, one reading, and where there are two they are declared).
+        # `modal_field` is the LOOP'S OWN method, called here rather than
+        # reimplemented, so the two cannot drift.
+        print(f"\n  ORDERED BY RHYME SCORE, high to low. This is NOT the "
+              f"order doctrine 9 forbids on: `--modal` prints the loop's own "
+              f"set, which is ranked by FREQUENCY over the words the GRADER "
+              f"would accept, and the two lists differ.")
+        if "--modal" in args:
+            from quality.revise import (Reviser as _Rv,
+                                        ReviseDeclaration as _RD)
+            offered, forbidden = _Rv(lex=lex, decl=decl).modal_field(word)
+            print(f"\n  FORBIDDEN (modal — doctrine 9), what `verify()` "
+                  f"rejects a revision for taking, modal_exclusion="
+                  f"{_RD().modal_exclusion}:")
+            print(f"    {', '.join(forbidden) or '(none)'}")
+            print(f"  OFFERED after the exclusion ({len(offered)}):")
+            print(f"    {', '.join(offered[:24]) or '(none)'}")
 
     elif cmd == "meter":
         template = args[1]
@@ -5528,7 +5555,42 @@ def main():
         from quality.revise import Reviser
         from quality.schemes import NoMandate
         from quality import schemes as SC
-        rv = Reviser(lex=lex, decl=decl)
+        from quality.revise import ReviseDeclaration, RHYME_FINDINGS
+
+        # `--pursue=CODE,CODE` — WHICH NOTES THE LOOP KEEPS WORKING ON.
+        # Omitted, `pursue` is empty and every run reads exactly as it did
+        # before this flag existed. `ReviseDeclaration.pursue` carries the
+        # argument for why this is a declaration and not a re-typing of
+        # `MODAL_RHYME` to a flag.
+        _raw = _flag_value(args, "--pursue")
+        args = _strip_flag(args, "--pursue")
+        _pur = None
+        if _raw is not None:
+            _pur = [c.strip().upper() for c in _raw.split(",") if c.strip()]
+            # A code this loop can never brief is a REFUSAL, not a no-op: a
+            # silently-inert coordinate is what `--propose=bogus` and
+            # `--fallback=bogus` already refuse to be, and a writer who
+            # mistypes one would otherwise be told the draft is clean by a
+            # loop that was never looking (doctrine 1/20).
+            unknown = [c for c in _pur if c not in RHYME_FINDINGS]
+            if unknown:
+                _refuse(f"--pursue names {', '.join(unknown)}, which "
+                        f"`brief()` cannot offer a candidate field for",
+                        detail=["pursuable codes are the ones in "
+                                "quality.revise.RHYME_FINDINGS, because those "
+                                "are the findings a Brief answers with a "
+                                "field: " + ", ".join(sorted(RHYME_FINDINGS)),
+                                "a code outside that set would keep the loop "
+                                "asking on a line it has no move for, and "
+                                "spend every round reaching ROUND_LIMIT."])
+        rdecl = ReviseDeclaration(pursue=frozenset(_pur)) if _pur else None
+        rv = Reviser(lex=lex, decl=decl, rdecl=rdecl)
+        if _pur:
+            print(f"  PURSUING {len(_pur)} note code(s) beyond the flags: "
+                  f"{', '.join(sorted(_pur))} — the loop keeps asking on a "
+                  f"line carrying one, and `verify()` is UNCHANGED: it still "
+                  f"gates on new FLAGS alone, so a pursued note can ask for a "
+                  f"revision and still cannot reject one (doctrine 6/7)")
 
         # `--blueprint=`/`--subdivision`/`--isochronous`: THE SAME THREE
         # DECLARED COORDINATES the `fit` verb already reads, wired here for

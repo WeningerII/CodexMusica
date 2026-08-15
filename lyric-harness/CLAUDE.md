@@ -190,6 +190,50 @@ default 4, unread by anything until this module) is reached. A single
 unsolved line is NEVER a stop condition — the loop keeps going on every
 other flagged line and reports the dead end in the result.
 
+**AND "FLAGGED" WAS TOO NARROW: THE LOOP STOPPED ON THE ONE THING DOCTRINE 9
+IS ABOUT — `ReviseDeclaration.pursue`, FIXED 2026-08-15, FOUND BY WRITING A
+SONG THROUGH THE LOOP.** `MODAL_RHYME` and `PREDICTABLE_RHYME` are in
+`RHYME_FINDINGS`, so `brief()` hands a line carrying one a COMPLETE candidate
+field with the modal words marked FORBIDDEN — the machinery to fix them is
+built, reachable and correct. Both are NOTES, and every stop condition here
+read `severity == "flag"`, so the loop reported SUCCESS and stopped before it
+ever asked. MEASURED on a 33-line draft: `revise` converged after ONE answer
+and said SUCCESS while `song` on the byte-identical draft reported four
+`MODAL_RHYME` and `PREDICTABLE_RHYME` at 3 of 3, 100% of pairs above 0.90.
+**And on the song this repo had already declared finished at 0 FLAG — `warm`/
+`storm` and `june`/`soon`, each the #1 answer in its own field, both still
+standing.** Doctrine 9 is this project's central claim and its own loop could
+not enforce it; doctrine 48 is the entry for exactly this shape, one layer in,
+because here the mechanism WAS mechanical and the stop condition made it
+unreachable.
+**A DECLARED COORDINATE, NOT A PROMOTION**, and re-typing `MODAL_RHYME` as a
+flag was wrong twice over: doctrine 7 says a floor may not order the region it
+already passed and a pair that RHYMES is inside that region, and `verify()`
+gates on flags, so a promoted note would begin REJECTING revisions for
+introducing one — the exact regression `new_flags` was split out to end.
+**SO PURSUING CHANGES WHAT THE LOOP ASKS FOR AND NEVER WHAT IT REJECTS**:
+`verify()` is untouched, `quality/test_verbs.py` §21 pins the verdict as
+BYTE-IDENTICAL with the note pursued. The pair composes doctrine 9 end to end
+— the loop now ASKS for a non-modal word and `verify()`'s pre-existing
+`modal_taken` rejection refuses an answer that takes one. `--pursue=CODE,CODE`
+on the CLI; empty by default, so every earlier run reads unchanged; a code
+`brief()` cannot offer a field for REFUSES rather than sitting inert.
+
+**`candidates` AND THE LOOP ANSWERED ONE QUESTION TWO WAYS — FIXED
+2026-08-15, FOUND BY PRE-SCREENING A RHYME WITH THE WRONG LIST.** The verb
+ranks by RHYME SCORE; the modal exclusion ranks by FREQUENCY over the words
+the GRADER would accept. Neither said so, and the one a writer can reach from
+the command line is not the one `verify()` enforces. MEASURED on `lines`: the
+verb's top 7 is signs/mines/designs/shines/headlines/airlines/whines against
+the loop's shines/signs/designs/vines/declines/pines — **three in common**.
+The cost is not theoretical: `tinder`/`cinder` reads as fresh and is the #2
+answer in its own field, and `warning`/`morning` passed the verb's screen and
+the loop called it modal. `candidates W [n] --modal` now calls
+`Reviser.modal_field` — the LOOP'S OWN method, not a reimplementation — and
+the default output names its ordering and points at the other. §22's binding
+assertion is that what the verb forbids EQUALS what `brief()` forbids for the
+same word, so the two cannot drift.
+
 **A DECLARED REFRAIN WAS BEING ATTACKED, NOT PROTECTED — FIXED 2026-08-11.**
 `Mandate.returns` (the villanelle/triolet/radif machinery in
 `quality/schemes.py`) was read by the REPORTING layer only

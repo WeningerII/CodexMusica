@@ -286,6 +286,22 @@ def swap_end_word(text, new_word):
     return text[:last.start()] + cased + text[last.end():]
 
 
+def _open_lines(briefs, pursue=frozenset()):
+    """-> the briefs this loop still has work on. ONE definition, because the
+    SUCCESS test and the ROUND_LIMIT tally must not be able to disagree about
+    what "unresolved" means — they were two copies of the same comprehension
+    and this is what a coordinate added to one of them would have missed.
+
+    A FLAG ALWAYS COUNTS. A NOTE COUNTS ONLY IF ITS CODE WAS DECLARED in
+    `ReviseDeclaration.pursue`, which is empty by default — see that field for
+    why `MODAL_RHYME` is pursued rather than re-typed as a flag, and why
+    pursuing changes what the loop ASKS for and never what `verify()` rejects.
+    """
+    return [b for b in briefs
+            if any(f.severity == "flag" or f.code in pursue
+                   for f in b.findings)]
+
+
 def default_propose(brief, lines, attempt, reasons=None, whole=()):
     """-> a replacement line for `brief.line_no`, or `None` to give up.
 
@@ -717,6 +733,11 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     propose = propose or default_propose
     propose_pair = propose_pair or default_propose_pair
     rdecl = reviser.rdecl
+    # READ OFF THE DECLARATION, never a parameter of its own: a caller tunes
+    # this the way it tunes `modal_exclusion`, and one coordinate has one
+    # home (doctrine 1). `frozenset()` is the default, so every stop
+    # condition below reads exactly as it did before this existed.
+    pursue = frozenset(getattr(rdecl, "pursue", ()) or ())
     rounds = []
     for round_no in range(1, rdecl.max_rounds + 1):
         briefs = reviser.brief(lines, mandate, profile=profile,
@@ -727,8 +748,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         # `briefs` is built from `inspect()`'s `per_line` half, so a
         # whole-draft flag is not in `b.findings` for ANY b and cannot be
         # here. `_close` carries those out in `LoopResult.whole_flags`.
-        flagged = [b for b in briefs
-                  if any(f.severity == "flag" for f in b.findings)]
+        flagged = _open_lines(briefs, pursue)
         if not flagged:
             return _close(reviser, "success", lines, rounds, [], mandate,
                           blueprint, subdivision, assume, profile)
@@ -774,8 +794,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     briefs = reviser.brief(lines, mandate, profile=profile,
                            blueprint=blueprint, subdivision=subdivision,
                            assume=assume)
-    unresolved = [b for b in briefs
-                 if any(f.severity == "flag" for f in b.findings)]
+    unresolved = _open_lines(briefs, pursue)
     return _close(reviser, "round_limit", lines, rounds, unresolved, mandate,
                   blueprint, subdivision, assume, profile)
 
