@@ -2370,8 +2370,25 @@ def test_the_whole_draft_half_reaches_the_report():
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
 
+    # THE EXIT CODE IS PER-VERB SINCE `song` GAINED A THIRD ONE (2026-08-14,
+    # `quality/test_verbs.py` §16): 0 answered clean, 2 REFUSED, 3 answered
+    # with a FLAG standing. This draft carries TWO — a per-line
+    # SCHEME_VIOLATION on L3 and the whole-draft HOOK_ABSENT this section is
+    # about — so `song` is 3 here on the per-line rule alone. `rc == 0` was
+    # written before that code existed and was standing in for "the verb ran
+    # and produced a report"; the two `check`s below are this section's
+    # actual subject and both still hold.
+    #
+    # SPLIT RATHER THAN WIDENED FOR BOTH, which makes it a STRONGER
+    # assertion than the one it replaces: `brief` is pinned at exactly 0,
+    # which is the scoping decision (the gate is on the whole-song verb, not
+    # on the interactive one) and would now FAIL if `song`'s exit code ever
+    # leaked into `brief`.
     for verb, rc, out in (("brief", rc_b, out_b), ("song", rc_s, out_s)):
-        check(f"`{verb}` exits 0 on this draft", rc == 0, f"rc {rc}")
+        answered = (0,) if verb == "brief" else (0, 3)
+        check(f"`{verb}` answers on this draft rather than refusing or "
+              f"crashing (exit {' or '.join(map(str, answered))})",
+              rc in answered, f"rc {rc}")
         check(f"`{verb}` PRINTS HOOK_ABSENT — the whole point: this verb's "
               f"own banner says song-function joins the finding set, and "
               f"until this fix that was true of the SET and false of the "
