@@ -880,6 +880,8 @@ Re-measured before anything was changed, for the reason lever 2 recorded: a
 named defect can be two-thirds shut and the live third a different shape.
 §28 fails 26 of its 34 checks against `be8d1ea`.
 
+**AND THAT GUARD ASKED THE NARROWER QUESTION AND REFUSED A LEGITIMATE RUN — caught by the battery, fixed the same day.** The `--subdivision`/`--isochronous` refusal above was written as `bp_path is None`, which is a question about the SPELLING `--blueprint=`. `song` declares its blueprint POSITIONALLY (`args[1]`), so `bp_path` is None on every legitimate `song` run and `song BP LYRIC --subdivision N` — a command whose blueprint is sitting in the argument list — refused. Seven invocations in `quality/test_verbs.py` do exactly that; four sections went red (§16 `song exits on a flag`, §15 the repeated-name blueprint, §24 both mandate spellings, §21 the rollup) for 15 failures. THE PREDICATE IS "no blueprint reaches the meter layer", NOT "no `--blueprint=` was typed". **AND §29 — THE SECTION SHIPPED WITH THE GUARD — COULD NOT HAVE CAUGHT IT.** It tested `song --blueprint=` and `brief --subdivision` as two separate halves and never the pair, so the one combination the guard broke was the one combination it did not exercise: doctrine 48 one layer up, inside the test written to enforce doctrine 48. §29 now runs `song BP LYRIC --cliques` under `--subdivision 1`, `--subdivision 2` and `--isochronous` and asserts all four reports DIFFER — read, not merely tolerated.
+
 **`--profile` — THE COMPARATOR EVERY SCORE IS READ UNDER — REACHED THE FOUR
 GRADING VERBS FROM NOTHING, WIRED 2026-08-15.** `Reviser.brief`, `.verify`,
 `.inspect` and `revise_loop` have ALL taken `profile=` since they were written,

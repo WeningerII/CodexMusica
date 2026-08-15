@@ -5979,7 +5979,17 @@ def main():
         # exact sentence `_no_unknown_flags_or_refuse` refuses on one line
         # up -- a flag silently not read leaves a report that looks like one
         # you never asked for -- so the answer is the same one.
-        if bp_path is None and (sub_arg is not None or assume is not None):
+        # AND `song` DECLARES ITS BLUEPRINT POSITIONALLY, so the predicate is
+        # "no blueprint reaches the meter layer", NOT "no `--blueprint=` was
+        # typed". Asking the narrower question refused `song BP LYRIC
+        # --subdivision N` -- a command whose blueprint is sitting in
+        # `args[1]` -- on the one verb of the four that always has one. Caught
+        # by the battery, not by the check that shipped with the guard: §29
+        # tested `song --blueprint=` and never tested `song --subdivision`,
+        # which is the same "a check that cannot fail" this lane is about,
+        # one layer up.
+        if (bp_path is None and cmd != "song"
+                and (sub_arg is not None or assume is not None)):
             _which = "--subdivision" if sub_arg is not None else "--isochronous"
             _refuse(f"{_which} was declared and no --blueprint was",
                     detail=["it is a coordinate of the METER check, and meter "

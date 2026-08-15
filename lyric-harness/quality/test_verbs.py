@@ -3124,6 +3124,34 @@ def test_the_comparator_and_the_meter_flags_reach_the_graders():
     check("the plain positional run is untouched",
           ghost[1] != plain[1] and plain[0] == 3, f"rc {plain[0]}")
 
+    # AND THE GUARD ABOVE MUST NOT FIRE ON THE ONE VERB THAT ALWAYS HAS A
+    # BLUEPRINT. `song`'s is `args[1]`, so `bp_path is None` is true on every
+    # legitimate `song` run -- asking that question refused
+    # `song BP LYRIC --subdivision N`, a command whose blueprint is sitting in
+    # the argument list, on all seven of this file's `song --subdivision`
+    # invocations. THAT IS WHAT THE FIRST VERSION OF THIS SECTION MISSED: it
+    # tested `song --blueprint=` and `brief --subdivision`, the two halves
+    # separately, and never the pair -- a check that could not fail on the
+    # combination the guard actually broke. The battery caught it; this
+    # section did not, and that is the reason these four lines exist.
+    sub1 = run("song", bp, ly, "--cliques", "--subdivision", "1",
+               expect_rc=3)
+    sub2 = run("song", bp, ly, "--cliques", "--subdivision", "2",
+               expect_rc=3)
+    iso = run("song", bp, ly, "--cliques", "--isochronous", expect_rc=3)
+    check("`song --subdivision N` is NOT refused for carrying the flag — its "
+          "blueprint is the FIRST POSITIONAL and the guard asks about the "
+          "meter layer, not about a spelling `song` does not use",
+          sub1[0] == 3 and "REFUSED" not in sub1[1],
+          sub1[1].strip().splitlines()[:1])
+    check("and `--isochronous` likewise", iso[0] == 3
+          and "REFUSED" not in iso[1], iso[1].strip().splitlines()[:1])
+    check("and all three are READ, not merely tolerated: 1, 2 and isochronous "
+          "each produce a report the plain run does not",
+          len({plain[1], sub1[1], sub2[1], iso[1]}) == 4,
+          "identical output under different declared subdivisions is the "
+          "'accepted and dropped' shape this whole section is about")
+
 
 if __name__ == "__main__":
     test_the_map_is_not_stale()
