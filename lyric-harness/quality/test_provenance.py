@@ -10,6 +10,7 @@ that failure in a new place.
 Run: python3 quality/test_provenance.py
 """
 
+import csv
 import io
 import os
 import sys
@@ -382,6 +383,99 @@ def test_the_dataset_a_date_names_has_to_have_a_row():
                   ok and hit == want, f"got {hit!r}")
 
 
+#: Files under `data/` that are NOT data and so are not asked for a row. A
+#: DECLARED list, not a heuristic: anything that stops matching one of these
+#: patterns becomes an orphan and fails, which is the direction an exclusion
+#: list has to fail in (doctrine 6 — rejection, not selection).
+_NOT_DATA = ("*.py",                    # builders; code, not a source
+             "*.md",                    # documentation
+             "data/LICENSE.*",          # licence text carried for a source
+             "*/build_report.json")     # a builder's own run report
+
+
+def test_every_data_table_has_a_provenance_row():
+    print("\n12. doctrine 34 asked of `data/` and not only `corpus/` "
+          "(FIXED 2026-08-15)")
+    # THE DEFECT: `audit_corpus.check_row` asks doctrine 34's question -- "does
+    # a data/sources.tsv row reach this file" -- and walks `corpus/` ONLY.
+    # Nothing asked it of `data/`, where the derived tables live. Ten of them
+    # carry a row anyway, by convention rather than by enforcement, and the
+    # convention had exactly one hole: `data/authority.tsv`, THE TABLE THE
+    # PROVENANCE GATE READS ITS DATES OUT OF, reachable by NONE of the three
+    # routes -- no row of its own, no header, not even a prose mention. The
+    # file that decides what may be scored at all had no provenance.
+    import fnmatch
+    import subprocess
+    root = os.path.join(HERE, "..")
+    try:
+        out = subprocess.run(["git", "ls-files", "data"], cwd=root,
+                             capture_output=True, text=True, timeout=60)
+        tracked = out.stdout.split() if out.returncode == 0 else None
+    except (OSError, subprocess.SubprocessError):
+        tracked = None
+    # A CENSUS THAT CANNOT SEE THE POPULATION MUST REFUSE, not pass. Globbing
+    # instead would silently fold in the gitignored artifacts
+    # (provenance_ledger.tsv, feature_cache.json, cmudict.dict, data/nltk),
+    # which have no row BECAUSE THEY ARE NOT COMMITTED -- and a check that
+    # reports them as defects punishes the table for working (doctrine 20).
+    check("the tracked population is readable — a census that cannot see its "
+          "population REFUSES rather than passing on an empty list",
+          bool(tracked), f"git ls-files returned {tracked!r}")
+    if not tracked:
+        return
+    sources = os.path.join(root, "data", "sources.tsv")
+    ids = {(r["source_id"] or "").strip() for r in
+           csv.DictReader(open(sources, encoding="utf-8"), delimiter="\t")}
+    prose = open(sources, encoding="utf-8", errors="replace").read()
+    by_row, by_prose, excluded, orphans = [], [], [], []
+    for f in sorted(tracked):
+        base = os.path.basename(f)
+        if any(fnmatch.fnmatch(f, pat) for pat in _NOT_DATA):
+            excluded.append(f)
+        elif f in ids or base in ids:
+            by_row.append(f)
+        elif base in prose:
+            by_prose.append(f)
+        else:
+            orphans.append(f)
+    check("every tracked data table is reached by a data/sources.tsv row or "
+          "by a row's prose — doctrine 34, asked of the directory the DATES "
+          "live in",
+          not orphans, f"ORPHANS: {orphans or 'none'}")
+    # FOUR COUNTS, NEVER SUMMED (doctrine 79/91). "21 accounted for" would
+    # hide that three of them are reached only by prose -- the weakest of the
+    # three routes, surviving exactly as long as somebody keeps writing the
+    # path into a note -- and that eleven were never asked.
+    check("and the routes are reported BY KIND rather than as one total",
+          len(by_row) + len(by_prose) + len(excluded) + len(orphans)
+          == len(tracked),
+          f"row {len(by_row)} · prose-only {len(by_prose)} "
+          f"({[os.path.basename(p) for p in by_prose]}) · "
+          f"declared-not-data {len(excluded)} · orphan {len(orphans)}")
+    check("data/authority.tsv — the table the gate reads its dates out of — "
+          "is reached by a ROW, not by the weakest route",
+          "data/authority.tsv" in ids,
+          "it was reached by NONE of the three routes until 2026-08-15")
+    # AND THE ROW HAS TO SAY THE TWO THINGS THAT MAKE IT AUDITABLE.
+    arow = [r for r in csv.DictReader(open(sources, encoding="utf-8"),
+                                      delimiter="\t")
+            if (r["source_id"] or "").strip() == "data/authority.tsv"]
+    # `blob` DEFAULTS TO EMPTY RATHER THAN GUARDING THE TWO CHECKS BEHIND
+    # `if arow:`. A guarded check does not fail when the row is missing -- it
+    # DISAPPEARS, and a section that silently sheds two checks reports the same
+    # "all pass" as one that ran them. That is the shape this whole file is
+    # about, and it does not get an exemption for being in the test.
+    check("exactly one row claims data/authority.tsv", len(arow) == 1,
+          f"{len(arow)} row(s)")
+    blob = " ".join(v or "" for v in arow[0].values()) if arow else ""
+    check("the row names the builder that writes the table",
+          "populate_authority.py" in blob, blob[:80] or "NO ROW")
+    check("and it states that the builder's inputs are NOT committed, so "
+          "'auditable' is not read as 'reproducible from this checkout'",
+          "NOT COMMITTED" in blob or "not committed" in blob,
+          blob[:80] or "NO ROW")
+
+
 if __name__ == "__main__":
     test_route_one_pd_affirmation()
     test_open_licence_is_not_a_pd_claim()
@@ -394,6 +488,7 @@ if __name__ == "__main__":
     test_report_counts()
     test_noncommercial_is_a_rejection()
     test_the_dataset_a_date_names_has_to_have_a_row()
+    test_every_data_table_has_a_provenance_row()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
