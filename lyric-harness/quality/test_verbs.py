@@ -2405,25 +2405,35 @@ def test_the_loop_pursues_a_note_it_can_brief():
     # THE SEPARATION THAT MAKES THIS LEGAL. Pursuing changes what the loop
     # ASKS for; it must never change what verify() REJECTS, or a note would
     # start failing revisions and doctrine 6/7 would be broken by the fix.
-    # STATED AS AN EQUALITY, not as an expected verdict. The first version of
-    # this assertion demanded ACCEPTED and failed -- and the failure was the
-    # TEST's: verify() rejects a revision that fixes nothing, which a draft
-    # against itself is, with or without this flag. What must hold is that
-    # the two runs AGREE, which is the actual invariant and a stricter one.
-    before = os.path.join(d, "before.txt")
-    with open(before, "w") as fh:                      # a real revision, so
-        fh.write("\n".join(MODAL_DRAFT[:2]              # the verdict is not
-                           + ["we packed the truck and never once looked "
-                              "aroun"] + MODAL_DRAFT[3:]) + "\n")
-    _, plain, _ = run("verify", before, draft, mand)
-    _, pursued, _ = run("verify", before, draft, mand, "--pursue=MODAL_RHYME")
-    strip = lambda s: "\n".join(l for l in s.splitlines()
-                                if "PURSUING" not in l)
-    check("`verify()` is UNTOUCHED — the verdict is byte-identical with the "
+    # STATED AS AN EQUALITY, AT THE LAYER THE COORDINATE LIVES IN. Two
+    # earlier versions of this assertion were wrong in different ways and both
+    # are worth recording. The first demanded ACCEPTED and failed -- the TEST
+    # was wrong, not the code: verify() rejects a revision that fixes nothing,
+    # which a draft against itself is, with or without pursuit. The second
+    # compared two CLI runs, and the refusal added above made them
+    # incomparable, because `verify --pursue` now exits 2 by design. The
+    # INVARIANT never moved: `pursue` changes what the LOOP asks for and must
+    # never change what verify() decides. So it is asserted through the API,
+    # where `pursue` is actually read, instead of through a CLI that refuses
+    # to carry it.
+    import quality.revise as RV
+    lex, dec = lh.Lexicon(), lh.Declaration()
+    before = list(MODAL_DRAFT)
+    after = list(MODAL_DRAFT)
+    after[2] = "we packed the truck and never once looked on"
+    groups = [[1, 3], [2, 4]]
+    plain = RV.Reviser(lex=lex, decl=dec).verify(before, after, groups)
+    pursued = RV.Reviser(lex=lex, decl=dec,
+                         rdecl=RV.ReviseDeclaration(
+                             pursue=frozenset({"MODAL_RHYME"}))
+                         ).verify(before, after, groups)
+    check("`verify()` is UNTOUCHED — same accept/fixed/broken/new with the "
           "note pursued",
-          strip(plain) == strip(pursued) and "VERDICT" in plain,
-          "pursuing changes what the loop ASKS for and never what verify "
-          "REJECTS (doctrine 6/7)")
+          all(plain.get(k) == pursued.get(k)
+              for k in ("accepted", "fixed", "broken", "new", "new_flags")),
+          f"accepted {plain.get('accepted')} vs {pursued.get('accepted')}; "
+          f"pursuing changes what the loop ASKS for and never what verify "
+          f"REJECTS (doctrine 6/7)")
 
     rc3, out3, _ = run("brief", draft, mand, "--pursue=HOOK_ABSENT",
                        expect_rc=2)

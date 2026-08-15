@@ -5583,6 +5583,27 @@ def main():
                                 "a code outside that set would keep the loop "
                                 "asking on a line it has no move for, and "
                                 "spend every round reaching ROUND_LIMIT."])
+        # ONLY `revise` RUNS A LOOP, so only `revise` can pursue anything —
+        # FIXED 2026-08-15, and this was MY defect from the commit that added
+        # the flag. `pursue` is read by `revise_loop` and by nothing else, so
+        # on `brief`/`verify`/`song` it was inert. Worse than inert: the
+        # disclosure below printed anyway, telling a caller "the loop keeps
+        # asking on a line carrying one" on three verbs that run no loop at
+        # all. A silent no-op is doctrine 1; a no-op that ANNOUNCES itself as
+        # working is that plus a false statement in the report a writer reads.
+        # `--propose` already had exactly this refusal one flag over — "only
+        # `revise` runs a proposer" — so the shape was written, and this flag
+        # was added to the shared block without it.
+        if _pur and cmd != "revise":
+            _refuse(f"--pursue={','.join(_pur)} on `{cmd}` — only `revise` "
+                    f"runs a loop, and `pursue` is read by `revise_loop` "
+                    f"alone",
+                    detail=["`brief` reports what it finds and asks for "
+                            "nothing; `verify` grades one revision and its "
+                            "gate is deliberately UNCHANGED by pursuit; "
+                            "`song` runs no loop. On all three this flag "
+                            "would change no output.",
+                            "run `revise FILE MANDATE --pursue=...` instead."])
         rdecl = ReviseDeclaration(pursue=frozenset(_pur)) if _pur else None
         rv = Reviser(lex=lex, decl=decl, rdecl=rdecl)
         if _pur:
