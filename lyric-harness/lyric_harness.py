@@ -6560,4 +6560,43 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # THE LAST TWO SHAPES THAT STILL REACHED A USER AS A TRACEBACK — FIXED
+    # 2026-08-15. Every verb in this file was given ONE refusal shape
+    # (`REFUSED — ...`, exit 2) a piece at a time — `candidates` on an OOV
+    # word, `--fallback=bogus`, a blueprint/draft length mismatch, `song`'s
+    # private handler, `--propose`'s vocabulary — and TWO whole classes were
+    # never covered, on any verb, because no single verb owned them.
+    # MEASURED at a3536ce, on the shipped file:
+    #     $ python3 lyric_harness.py brief                    -> IndexError, 1
+    #     $ python3 lyric_harness.py brief missing.txt ABAB   -> FileNotFound, 1
+    # Exit 1 is Python's own uncaught exception, so a caller in a pipeline
+    # reading 1 as "the harness crashed" was right, and reading it as "my
+    # arguments were wrong" had no way to tell (doctrine 20).
+    #
+    # THEY ARE CAUGHT SEPARATELY AND SAID DIFFERENTLY, because they are not
+    # the same fact. A named file that is not there is ALWAYS the caller's —
+    # `OSError` carries the filename and the OS's own reason, so the refusal
+    # can name both. A missing positional is NOT always the caller's: an
+    # `IndexError` from four frames inside a grader is a DEFECT in this file,
+    # and a handler that reported it as "you left out an argument" would be
+    # collapsing two different things into one message, which is the error
+    # doctrine 20 is about. So that refusal states the argument count it
+    # actually received AND says plainly that a complete-looking command line
+    # reaching it is a bug to report, with the exception carried through.
+    try:
+        main()
+    except OSError as e:
+        _refuse(f"{e.filename or 'a file this verb was given'} — "
+                f"{e.strerror or e}",
+                detail=["the path is read relative to the working directory, "
+                        "not to any file already handed in."])
+    except IndexError as e:
+        verb = sys.argv[1] if len(sys.argv) > 1 else "(no verb)"
+        n = max(0, len(sys.argv) - 2)
+        _refuse(f"{verb} — ran out of arguments at {n} given",
+                detail=["`--help` prints every verb's usage line; `wiring` "
+                        "prints which verb runs on which layer.",
+                        f"IF THE COMMAND LINE WAS COMPLETE this is a DEFECT "
+                        f"in lyric_harness.py and not your mistake — the "
+                        f"exception was {e!r}. Please report it with the "
+                        f"command you ran."])

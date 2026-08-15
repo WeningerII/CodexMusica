@@ -113,6 +113,7 @@ Run: python3 quality/test_verbs.py
 """
 
 import ast
+import glob
 import json
 import os
 import re
@@ -2483,6 +2484,102 @@ def test_the_candidate_field_says_which_ordering_it_is():
           f"brief {sorted(bforb)} vs candidates {sorted(cforb)}")
 
 
+def test_the_last_two_traceback_shapes_refuse():
+    print("\n23. a missing ARGUMENT and a missing FILE refuse instead of "
+          "tracebacking (FIXED 2026-08-15)")
+    # Every verb here was given ONE refusal shape a piece at a time -- an OOV
+    # `candidates` query, `--fallback=bogus`, a blueprint/draft mismatch,
+    # `song`'s private handler, `--propose`'s vocabulary. TWO CLASSES were
+    # covered on no verb at all, because no single verb owned them: a missing
+    # positional (IndexError) and a named file that is not there
+    # (FileNotFoundError). Both exited 1 -- Python's own uncaught-exception
+    # code -- so a caller reading 1 as "the harness crashed" was right and had
+    # no way to tell it from "my arguments were wrong" (doctrine 20).
+    d = tempfile.mkdtemp()
+    good = os.path.join(d, "q.txt")
+    with open(good, "w") as fh:
+        fh.write("the cat sat on the mat\na dog ran through the fog\n"
+                 "he wore a battered hat\nit vanished in the bog\n")
+    gone = os.path.join(d, "not-here.txt")
+
+    rc, out, err = run("brief", expect_rc=2)
+    check("a missing required argument REFUSES at 2, not 1",
+          rc == 2 and "REFUSED" in out and "Traceback" not in err,
+          f"rc {rc}")
+    check("and it names the verb and the count it actually received",
+          "brief" in out or "(no verb)" in out, out.strip().splitlines()[:1])
+    # NOT COLLAPSED (doctrine 20): an IndexError four frames inside a grader is
+    # a DEFECT in this file, not the caller's mistake, and the refusal has to
+    # say so rather than blame whoever typed the command.
+    check("and it says a complete command line reaching it is a DEFECT",
+          "DEFECT" in out and "IndexError" in out,
+          "the two readings are stated, not merged into one message")
+
+    rc2, out2, err2 = run("brief", gone, "ABAB", expect_rc=2)
+    check("a named file that is not there REFUSES at 2, not 1",
+          rc2 == 2 and "REFUSED" in out2 and "Traceback" not in err2,
+          f"rc {rc2}")
+    check("and it names the path and the OS's own reason",
+          "not-here.txt" in out2 and "No such file" in out2)
+
+    rc3, out3, _ = run("brief", good, "ABAB")
+    check("a REAL run is untouched — this catches errors, not results",
+          rc3 == 0 and "REFUSED" not in out3, f"rc {rc3}")
+
+
+def test_every_test_file_is_accounted_for_by_ci():
+    print("\n24. every quality/test_*.py is RUN, REFUSED BY NAME, or the "
+          "census fails (FIXED 2026-08-15)")
+    # THE DEFECT THIS CLOSES, found by this repo's own CI audit: 48 test files
+    # existed and 46 were accounted for. `test_propose.py` and
+    # `test_verify_entries.py` were in no step, no npm script, and had no
+    # caller -- written, green, and executed by no automated thing. The
+    # expensive one was `test_propose.py`, whose §7c/§7d are the ONLY
+    # assertions that cross the tier-1/tier-2 proposer seam for real: the very
+    # check written because the two flanking suites could not see the defect
+    # was itself reachable by no runner. Import reachability is not invocation
+    # reachability, one level up, at the test file.
+    #
+    # A NAMED LIST IS RIGHT AND HAS A MIRROR-IMAGE DEFECT. Globbing is how a
+    # 53-CPU-minute sweep arrives in CI without anybody deciding it should, so
+    # ci.yml names its suites on purpose. But a hand-kept list does not notice
+    # a file added later, because A LIST THAT IS SHORT LOOKS EXACTLY LIKE A
+    # LIST THAT IS COMPLETE. ci.yml's own comment states the arithmetic and
+    # then says it "is a check a human has to run" -- which is doctrine 48
+    # written down beside the thing it condemns. This is that check, run.
+    ci = os.path.join(ROOT, "..", ".github", "workflows", "ci.yml")
+    src = open(ci, encoding="utf-8").read()
+    on_disk = {os.path.basename(p)[len("test_"):-len(".py")]
+               for p in glob.glob(os.path.join(ROOT, "quality", "test_*.py"))}
+    # Every name this file mentions in a runnable position: the cheap loop, the
+    # revision step, and anything refused BY NAME with a reason.
+    named = set()
+    for m in re.finditer(r"for f in ([\s\S]*?); do", src):
+        named |= {w for w in m.group(1).replace("\\", "").split() if w}
+    for m in re.finditer(r"quality/test_([a-z0-9_]+)\.py", src):
+        named.add(m.group(1))
+    orphans = sorted(on_disk - named)
+    check("no test file is executed and named by NOTHING in ci.yml",
+          not orphans,
+          f"{len(on_disk)} on disk, {len(on_disk & named)} accounted for; "
+          f"ORPHANS: {orphans or 'none'}")
+    ghosts = sorted(n for n in named
+                    if not os.path.exists(
+                        os.path.join(ROOT, "quality", f"test_{n}.py")))
+    check("and ci.yml names no suite that does not exist on disk",
+          not ghosts, f"named-but-missing: {ghosts or 'none'}")
+    # The label a reader trusts must equal the list it labels. The struck
+    # (`~~...~~`) line is history under doctrine 17 and is deliberately skipped.
+    live = [l for l in src.splitlines()
+            if "cheap suites" in l and l.lstrip().startswith("- name:")]
+    if live:
+        want = int(re.search(r"The (\d+) cheap suites", live[0]).group(1))
+        got = len({w for w in re.search(r"for f in ([\s\S]*?); do", src)
+                   .group(1).replace("\\", "").split() if w})
+        check("the cheap step's LABEL equals the length of its own list",
+              want == got, f"label {want}, list {got}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -2511,6 +2608,8 @@ if __name__ == "__main__":
     test_the_loop_suspends_instead_of_guessing()
     test_the_loop_pursues_a_note_it_can_brief()
     test_the_candidate_field_says_which_ordering_it_is()
+    test_the_last_two_traceback_shapes_refuse()
+    test_every_test_file_is_accounted_for_by_ci()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

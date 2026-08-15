@@ -1160,6 +1160,47 @@ jobs:
 
   # ── The suites: 45 test modules that nothing had ever run ────────────────
   #
+  # AND THE CENSUS ITSELF WAS STALE — TWO MORE FILES RAN NOWHERE, FIXED
+  # 2026-08-15. `quality/test_*.py` is 48 files. This job named 42 in the cheap
+  # step and 2 in the revision step; `test_discriminate.py` and
+  # `test_mutation.py` are excluded BY NAME with a measurement, below. That
+  # accounts for 46. The remaining two — `test_propose.py` and
+  # `test_verify_entries.py` — were accounted for by nothing at all: no step
+  # here, no step in `record`, no npm script, no caller. They were written,
+  # they were green, and no automated thing had ever executed either one.
+  #
+  # THIS IS THE FAILURE THE LIST'S OWN DESIGN INVITES, and the file says so
+  # eighty lines down: "Named, never globbed". Naming is right — a glob is how
+  # test_mutation.py's 53-CPU-minute sweep arrives without anybody deciding it
+  # should — but a hand-kept list has the mirror-image defect, which is that a
+  # file added later joins nothing and nothing notices, because a list that is
+  # short looks exactly like a list that is complete. Same shape as the
+  # `master` branch filter at the top of this file: a name matching nothing
+  # reads like a name matching everything it was asked about.
+  #
+  # `quality/test_propose.py` is the one that cost something. CLAUDE.md's
+  # proposer-seam paragraph says §7c/§7d are the ONLY assertions that cross the
+  # tier-1/tier-2 seam for real — "§7d drives a REAL `revise_loop` into REAL
+  # tier 2 through `ModelProposer`, which before this contract landed raised
+  # `TypeError` on the first joint conflict WITH BOTH SUITES GREEN". So the
+  # single check written because the two flanking suites could not see the
+  # defect was itself reachable by no runner: import reachability is not
+  # invocation reachability, one level up, at the test file.
+  #
+  # BOTH PROVEN TWO-SIDED BEFORE WIRING (doctrine 48), by perturbing the
+  # shipped source each one guards and confirming a non-zero exit:
+  #   * `quality/propose.py`'s `render_pair`, `pivot_word` -> `anchor_word` (the
+  #     exact misreading e959706 fixed) -> test_propose.py exit 1, naming the
+  #     labelling assertion and the end-to-end tier-2 run. Restored: exit 0.
+  #   * `quality/verify_entries.py`'s `_unstrike`, newline-preserving sub -> a
+  #     plain " " (the exact defect its own docstring names) ->
+  #     test_verify_entries.py exit 1, "a multi-line struck run does not shift
+  #     line numbers: reported line [5], wanted 7". Restored: exit 0.
+  #
+  # COST, MEASURED 2026-08-15 by the convention this block already uses (CPU
+  # from rusage, threads pinned, not a wall clock): test_propose.py 39.77
+  # CPU-s exit 0, test_verify_entries.py 0.05 CPU-s exit 0.
+  #
   # THE CLAIM THIS JOB EXISTS TO CORRECT. The `record` job's comment above
   # ("WHY THESE FOUR AND NOT THE SUITES") excluded every test module here on
   # the ground that "quality/test_revise.py and test_loop.py each take 15+
@@ -1235,9 +1276,22 @@ jobs:
   suites:
     needs: gate
     runs-on: ubuntu-latest
-    # A RUNAWAY GUARD, NOT A BUDGET. All 44 files in this job are now
+    # A RUNAWAY GUARD, NOT A BUDGET. ~~All 44 files in this job are now
     # measured: the 42 cheap ones sum to 505 CPU-s and the revision pair adds
-    # 375, so the job is ~880 CPU-s / ~14.7 min and this guard is ~2x that.
+    # 375, so the job is ~880 CPU-s / ~14.7 min and this guard is ~2x that.~~
+    #
+    # REPINNED 2026-08-15 (doctrine 17 — struck and dated, not overwritten).
+    # 46 files, not 44: `test_propose.py` (39.77 CPU-s) and
+    # `test_verify_entries.py` (0.05 CPU-s) joined the cheap step, which is 44
+    # files summing to ~545 CPU-s. With the revision pair's 375 the job is
+    # ~920 CPU-s / ~15.3 min, and this guard is still ~2x that.
+    #
+    # THE 505 AND 375 ARE CARRIED, NOT RE-DERIVED, and that is disclosed rather
+    # than papered over: this lot measured the two ADDED files and did not
+    # re-time the 42 that were already here, so ~545 and ~920 inherit whatever
+    # 505 and 375 were worth (doctrine 58 — the addend is measured, the base is
+    # quoted). `timeout-minutes` is the only decision either number feeds, and
+    # it does not turn on the difference.
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
@@ -1267,7 +1321,25 @@ jobs:
       # 53-CPU-minute sweep would arrive here without anybody deciding it should.
       # Threads pinned: a sibling instrument measured 625 CPU-s of BLAS
       # spin-wait against 32 pinned, on matrices too small to be worth a thread.
-      - name: The 42 cheap suites (15 of them under 1 CPU-s)
+      # ~~- name: The 42 cheap suites (15 of them under 1 CPU-s)~~
+      #
+      # 44 SINCE 2026-08-15 — `propose` and `verify_entries` added; see this
+      # job's header for how they were found, what they cost and how each was
+      # proved two-sided. The "15 of them under 1 CPU-s" parenthetical is
+      # DROPPED rather than incremented to 16: this lot timed the two files it
+      # added and did not re-time the other 42, so 16 would be a number nobody
+      # ran (doctrine 58). `test_verify_entries.py` at 0.05 CPU-s is certainly
+      # in that set; whether the set was 15 before is not this lot's to assert.
+      #
+      # AND THE LIST NOW ACCOUNTS FOR EVERY FILE, which is the property that
+      # was missing rather than the two names. `ls quality/test_*.py` is 48;
+      # this step names 44, the step below names 2, and `test_discriminate.py`
+      # and `test_mutation.py` are refused by name with a measurement in the
+      # header. 44 + 2 + 2 = 48, so a file added tomorrow is again in no
+      # column — the arithmetic is the check, and it is a check a human has to
+      # run. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
+      # | sort) <(the names in this file, sorted)` is that command.
+      - name: The 44 cheap suites (propose + verify_entries joined 2026-08-15; they ran nowhere)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1280,9 +1352,9 @@ jobs:
                    homograph ipa ltc mandate_language matrix meter msa_fin \
                    mut_band mut_oracle nucleus null_shapes phon_fas phon_msa \
                    phon_non phon_san phonology phrase_commonplace \
-                   positive_control provenance readability readings_seam \
-                   register_audit relations song_function spans taxonomy \
-                   time_layer verbs; do
+                   positive_control propose provenance readability \
+                   readings_seam register_audit relations song_function spans \
+                   taxonomy time_layer verbs verify_entries; do
             echo "── quality/test_$f.py"
             python3 "quality/test_$f.py"
           done
