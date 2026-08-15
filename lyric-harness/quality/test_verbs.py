@@ -322,8 +322,19 @@ def test_function_is_not_section_name():
     check("the CLI declaration is LABELLED as one, not passed off as the "
           "blueprint's",
           "DECLARED AT THE CLI" in out)
+    # THE BLOCK ITSELF, NOT A WORD THAT APPEARS IN PROSE ABOUT IT —
+    # 2026-08-15. This read `"RHYME_PRESERVING_REWRITE" in out or "VERBATIM"
+    # in out`, and the first disjunct is satisfied by a STATIC explanatory
+    # sentence belonging to a different finding, about the VERSE. Measured:
+    # rendering no comparison at all (`for fn, rets in {}.items()`) left all
+    # twelve checks of this section green. Import reachability is not
+    # invocation reachability, one more time, in the only CLI-rendering
+    # assertion this comparison has.
     check("the two chorus returns are compared and get a NAMED kind",
-          "RHYME_PRESERVING_REWRITE" in out or "VERBATIM" in out)
+          "-- chorus: chorus -> chorus2" in out
+          and "return: VERBATIM" in out
+          and "invariant lines" in out,
+          "the comparison must be RENDERED, not merely mentioned in prose")
     check("the title/hook question is asked and answered",
           "TITLE_NOT_IN_HOOK" in out)
     check("a single prechorus is CANNOT TELL, not clean (doctrine 28)",
@@ -433,8 +444,20 @@ def test_brief_refuses_instead_of_tracebacking():
           "Traceback" not in err)
 
     rc, out, _ = run("brief", EXAMPLE_TXT, "--groups=2,4")
+    # PARENTHESISED, AND THE DEAD CLAUSE DROPPED — 2026-08-15. This read
+    # `rc == 0 and "group B" in out or "group A" in out`, which Python groups
+    # as `(rc == 0 and ...) or ("group A" in out)`, so the exit code was
+    # enforced by nothing: measured True at rc 0, 1, 2, 3 and 4 alike. And
+    # `--groups=2,4` declares ONE group, so `group B` can never appear —
+    # the conjunct carrying the exit code was permanently false and the
+    # check passed entirely on the `or` fallback.
     check("--groups= mandates a group the song has no letter for",
-          rc == 0 and "group B" in out or "group A" in out, out[:200])
+          rc == 0 and "group A" in out, out[:200])
+    rc, out2, _ = run("brief", EXAMPLE_TXT, "--groups=2,4;1,3")
+    check("and a SECOND declared group is labelled and graded too",
+          rc == 0 and "group A" in out2 and "group B" in out2,
+          "one group cannot demonstrate that the labels track the "
+          "declaration")
 
     rc, out, _ = run("brief", EXAMPLE_TXT, "--cliques")
     check("--cliques grades the song's OWN structure",
@@ -2258,6 +2281,43 @@ def test_both_mandate_spellings_are_read():
           "invalid literal for int()" not in out_t and rc_t != 1,
           "pulling a flag moves every positional behind it")
 
+    # PARSES IS NOT READ, and until 2026-08-15 that was the whole of what
+    # this section asserted about the trailing list. Every `verify` call in
+    # this file handed the SAME path in as BEFORE and AFTER, so nothing
+    # changed, so `targeted` -- which gates ONLY the "you touched a line
+    # nobody asked you to" rejection -- could not fire whatever it held.
+    # MEASURED: replacing the parse with `targeted = None` in
+    # `lyric_harness.py` left this file at rc 0 with 0 failures. The repo's
+    # signature failure one layer over, in a test: the value is parsed, and
+    # nothing asserts it is used.
+    #
+    # A REAL REVISION, and the line it moves is deliberately OUTSIDE the
+    # targeted set. Two runs of the same diff, differing only in the
+    # trailing list, must reach OPPOSITE verdicts.
+    after = os.path.join(d, "after.txt")
+    with open(txt) as fh:
+        moved = fh.read().replace("and drove until the radio was gone",
+                                  "and drove until the radio was blown")
+    with open(after, "w") as fh:
+        fh.write(moved)
+    check("the fixture for it really is a one-line difference",
+          moved != open(txt).read(),
+          "a no-op diff is how this assertion was vacuous in the first place")
+    rc_free, out_free, _ = run("verify", txt, after, MANDATE_THAT_FAILS, rets)
+    rc_tgt, out_tgt, _ = run("verify", txt, after, MANDATE_THAT_FAILS, rets,
+                             "1,3")
+    check("with NO targeted list the untargeted rejection cannot fire",
+          "VERDICT: ACCEPTED" in out_free and "not targeted" not in out_free,
+          out_free.strip().splitlines()[-1:])
+    check("declaring `1,3` REJECTS the same diff and NAMES the line it "
+          "touched — the trailing list is READ, not merely parsed",
+          "VERDICT: REJECTED" in out_tgt and "[4] were changed but not "
+          "targeted" in out_tgt,
+          out_tgt.strip().splitlines()[-1:])
+    check("and the two runs are not byte-identical",
+          out_free != out_tgt,
+          "identical output is what `targeted = None` produces")
+
     # The combinations that CANNOT be expressed refuse by name rather than
     # picking a winner -- the same reflex the drop failed to have.
     # The letter string is 16 chars for a 16-line fixture ON PURPOSE. `ABAB`
@@ -2487,14 +2547,32 @@ def test_the_candidate_field_says_which_ordering_it_is():
           rc2 == 0 and "FORBIDDEN (modal" in out2
           and "modal_exclusion=" in out2)
 
-    score_top = {c["word"] for c in
-                 lh.CandidateEngine(lh.Lexicon(), lh.Declaration())
-                 .candidates("lines", 7)["candidates"]}
-    forb = out2.split("modal_exclusion=")[1].split(":\n")[1]
-    forb = {w.strip() for w in forb.splitlines()[0].split(",") if w.strip()}
+    score_rank = [c["word"] for c in
+                  lh.CandidateEngine(lh.Lexicon(), lh.Declaration())
+                  .candidates("lines", 7)["candidates"]]
+    score_top = set(score_rank)
+    forb_order = [w.strip() for w in
+                  out2.split("modal_exclusion=")[1].split(":\n")[1]
+                  .splitlines()[0].split(",") if w.strip()]
+    forb = set(forb_order)
+    # LIKE WITH LIKE — 2026-08-15. This compared a 7-word score list against
+    # a 6-word FORBIDDEN set (`candidates lines 7` vs `modal_exclusion=6`),
+    # so `!=` held on CARDINALITY whatever the content: measured, a mutant
+    # making `--modal` a pure truncation of the score list — the literal
+    # relabelling this check is named after — passed it, and its own detail
+    # line printed the modal set as a strict subset while calling the two
+    # "genuinely DIFFER". Cut the score list to the same length first, and
+    # assert the ORDERING as well as the membership, since two rankings over
+    # the same words are still two different answers.
     check("the two sets genuinely DIFFER — this is not a relabelling",
-          score_top != forb,
-          f"score-ranked {sorted(score_top)} vs modal {sorted(forb)}")
+          set(score_rank[:len(forb_order)]) != forb
+          and score_rank[:len(forb_order)] != forb_order,
+          f"score-ranked {score_rank[:len(forb_order)]} vs "
+          f"modal {forb_order}")
+    check("and they overlap rather than being disjoint — the same question "
+          "asked two ways, not two unrelated lists",
+          score_top & forb,
+          f"{len(score_top & forb)} word(s) in common")
 
     # ONE DEFINITION, and this is the assertion that keeps it that way: the
     # verb calls `Reviser.modal_field`, the same method the loop calls, so

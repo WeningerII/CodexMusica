@@ -589,9 +589,11 @@ def test_pair_prompt_states_the_tier2_situation():
           "THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING" in p
           and "L3 to end on 'mankind'" in p
           and "L1 to end on 'deliver'" in p)
-    check("...and the prompt makes NO claim about a current end word it "
-          "would get wrong",
-          _false_end_word_claims(p) == [], _false_end_word_claims(p))
+    _bad7, _seen7 = _end_word_claims(p)
+    check("...and the prompt makes NO claim about a current end word at all "
+          "— which is a stronger statement than making none it gets wrong",
+          _bad7 == [] and _seen7 == 0,
+          f"{_seen7} status-quo claim(s) inspected, {len(_bad7)} false")
     check("both option lists are present and attributed to the right line",
           "mankind" in p and "deliver" in p
           and "PIVOT OPTIONS" in p and "ANCHOR OPTIONS" in p)
@@ -724,10 +726,58 @@ def test_model_proposer_serves_a_real_tier_2():
     # proposal, and the old rendering turned that into "L3 ... (ends on
     # 'mankind')" beside a line ending on "dream" — wrong on both lines, in
     # every one of these prompts.
-    bad = [c for p in seen for c in _false_end_word_claims(p)]
+    scans = [_end_word_claims(p) for p in seen]
+    bad = [c for b, _ in scans for c in b]
+    examined = sum(n for _, n in scans)
     check("across every prompt a real loop generated, not one misstates "
           "what a line currently ends on",
           bad == [], bad[:3])
+    # AND THE DENOMINATOR, SAID OUT LOUD — 2026-08-15. The line above passed
+    # against a `render_pair` carrying the exact 2026-08-14 misstatement,
+    # because the shipped rendering makes NO status-quo claim (that IS the
+    # fix) and the scanner therefore inspected nothing. "Zero false claims"
+    # and "zero claims" are the same bytes and opposite facts, which is
+    # doctrine 20 in a test. What the rendering does today is the STRONGER
+    # property, so it is the one asserted; the scan above stays as the guard
+    # for anyone who re-adds a claim, and the next check proves that guard
+    # is alive rather than trusting it.
+    check("and it makes NO such claim to begin with — the prompt prints the "
+          "line and lets the writer read where it ends",
+          examined == 0,
+          f"{examined} status-quo claim(s) inspected across {len(seen)} "
+          f"prompt(s)")
+    pivot_no = next(m.group(1) for row in seen[0].split("\n")
+                    for m in [_ROLE_ROW.match(row)] if m)
+    planted = seen[0] + (f"\n  as they stand now, L{pivot_no} currently ends "
+                         f"on 'mankind'\n")
+    bad_p, examined_p = _end_word_claims(planted)
+    check("the guard is LIVE: plant the 2026-08-14 misstatement back into a "
+          "real prompt and the scan reports it",
+          examined_p == 1 and len(bad_p) == 1,
+          f"examined {examined_p}, flagged {len(bad_p)}")
+
+    # THE PROPERTY THE MISREADING ACTUALLY BROKE, asserted directly and on
+    # every prompt: `pivot_word`/`anchor_word` are the PROPOSAL. A search
+    # proposing the word a line already ends on is proposing a no-op, so the
+    # two rendered words must DIFFER from the two lines' current end words —
+    # and under the old reading they were printed as those very words. This
+    # is the non-vacuous half: it inspects two claims per prompt.
+    proposals = 0
+    mismatched = []
+    for p in seen:
+        for marker in ("PIVOT   L", "ANCHOR  L"):
+            text = _labelled_line(p, marker)
+            word = _proposed_word(p, marker)
+            if not (text and word):
+                continue
+            proposals += 1
+            if _last_word(text) == word.lower():
+                mismatched.append((marker.strip(), text, word))
+    check("the words it prints ARE the proposal — each differs from what "
+          "its own line currently ends on",
+          proposals and not mismatched,
+          f"{proposals} proposal(s) inspected, {len(mismatched)} equal to "
+          f"the status quo: {mismatched[:2]}")
     check("a proposer reading ONLY the prompt reaches SUCCESS in ONE "
           "backtrack -- the same result `loop.default_propose_pair` gets "
           "off the object, so the rendering carries what the object does",
@@ -739,38 +789,62 @@ def test_model_proposer_serves_a_real_tier_2():
 
 
 _ROLE_ROW = re.compile(r"^\s*(?:PIVOT|ANCHOR)\s+L(\d+): (.*)$")
-_ENDS_ON = re.compile(r"\(ends on '([^']*)'\)")
-_INSTEAD = re.compile(r"L(\d+) could end on instead of '([^']*)'")
+#: A STATUS-QUO claim, and the `s`/`ing` is what makes it one. The shipped
+#: rendering says `L3 to end on 'mankind'` and `words L1 could end on` — both
+#: PROPOSALS, and both use the bare infinitive, so neither matches. What
+#: matches is the present indicative quoting a word: the 2026-08-14 defect's
+#: `(ends on 'mankind')`, and any later re-phrasing of it (`L3 currently ends
+#: on 'mankind'`). Keyed on the VERB FORM rather than on one literal layout,
+#: because the previous spelling of this scanner pinned two exact phrasings
+#: that the fix then removed, and a detector matching nothing reads exactly
+#: like a detector finding nothing (doctrine 20).
+_ENDS_ON = re.compile(r"end(?:s|ing) on ['\"]([^'\"]+)['\"]")
+#: The other half of the same defect: offering the anchor a word "instead of"
+#: a word it does not in fact end on.
+_INSTEAD = re.compile(r"instead of ['\"]([^'\"]+)['\"]")
+_LINE_REF = re.compile(r"\bL(\d+)\b")
 
 
-def _false_end_word_claims(prompt):
-    """-> every place the prompt says a line ends on a word it does not.
+def _end_word_claims(prompt):
+    """-> (false_claims, examined). Every place the prompt states what a line
+    CURRENTLY ends on, and whether that statement is true.
 
-    THE INVARIANT, and it is the one that was missing. A tier-2 prompt may
-    say whatever it likes about what a line SHOULD end on; it may not
-    misstate what a line DOES end on, because a writer answering it is
-    then working from a draft that does not exist. Written as a scan over
-    the RENDERED text rather than over the `PairBrief`, so it holds for
-    however `render_pair` chooses to phrase the claim, and so re-adding a
-    correct `(ends on ...)` later passes rather than being forbidden.
+    THE INVARIANT. A tier-2 prompt may say whatever it likes about what a
+    line SHOULD end on; it may not misstate what a line DOES end on, because
+    a writer answering it is then working from a draft that does not exist.
+    Scanned over the RENDERED text rather than the `PairBrief`, so it holds
+    for however `render_pair` phrases a claim.
+
+    IT RETURNS ITS OWN DENOMINATOR, and that is the 2026-08-15 repair. The
+    previous version returned only the bad list, and the shipped rendering
+    makes NO status-quo claim at all — that IS the 2026-08-14 fix — so the
+    list was empty because there was nothing to inspect, not because
+    everything inspected was true. Same bytes, opposite meanings, which is
+    doctrine 20 exactly. The caller now asserts the count as well as the
+    verdict.
+
+    ATTRIBUTION IS BY POSITION WITHIN THE ROW, not by the row's role, so a
+    claim written anywhere — `... L3 currently ends on 'x' and L1 currently
+    ends on 'y'` — is charged to the right line. Each quoted word belongs to
+    the last `L<n>` printed before it.
     """
     texts = {}
     for row in prompt.split("\n"):
         m = _ROLE_ROW.match(row)
         if m:
             texts[m.group(1)] = _ENDS_ON.sub("", m.group(2)).strip()
-    bad = []
+    bad, examined = [], 0
     for row in prompt.split("\n"):
-        m = _ROLE_ROW.match(row)
-        if m:
-            claim = _ENDS_ON.search(row)
-            if claim and _last_word(texts[m.group(1)]) != claim.group(1):
+        refs = [(m.start(), m.group(1)) for m in _LINE_REF.finditer(row)]
+        for claim in list(_ENDS_ON.finditer(row)) + list(
+                _INSTEAD.finditer(row)):
+            owner = [n for pos, n in refs if pos < claim.start()]
+            if not owner or owner[-1] not in texts:
+                continue
+            examined += 1
+            if _last_word(texts[owner[-1]]) != claim.group(1).lower():
                 bad.append(row.strip())
-        m2 = _INSTEAD.search(row)
-        if m2 and m2.group(1) in texts:
-            if _last_word(texts[m2.group(1)]) != m2.group(2):
-                bad.append(row.strip())
-    return bad
+    return bad, examined
 
 
 def _last_word(text):

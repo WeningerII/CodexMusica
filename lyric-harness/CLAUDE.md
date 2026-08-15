@@ -1174,6 +1174,60 @@ Deus ex Homine, Chocolate Secrets. No artist/producer names as
 descriptors in any generation-facing output — era+region+technique.
 
 ## Test discipline
+
+**DOCTRINE 48 TURNED ON THE SUITES THEMSELVES — SEVEN CHECKS THAT COULD NOT
+FAIL, FIXED 2026-08-15.** Every one was found by MUTATION or by AST, never by
+reading, because a check that cannot fail reads exactly like a check that
+passes. The two worst were the two that named the strongest claims in their
+own sections:
+
+- **`verify`'s TARGETED line list was parsed and never read.** Every `verify`
+  call in `quality/test_verbs.py` handed the SAME path in as BEFORE and AFTER,
+  so nothing changed, so `targeted` — which gates only the "you touched a line
+  nobody asked you to" rejection — could not fire whatever it held. MEASURED:
+  `targeted = None` in `lyric_harness.py` left the whole file at rc 0, 0
+  failures. §19 now drives a REAL one-line revision on an UNTARGETED line and
+  requires the same diff to reach OPPOSITE verdicts with and without the
+  trailing list (ACCEPTED against `REJECTED … [4] were changed but not
+  targeted`); the mutant now fails 2 checks.
+- **The tier-2 prompt's end-word invariant examined ZERO claims.** It scanned
+  for two literal phrasings — `(ends on 'X')` and `L<n> could end on instead
+  of 'X'` — that the 2026-08-14 fix had REMOVED, so `bad == []` meant "nothing
+  to inspect" and read as "nothing wrong": doctrine 20 inside a test.
+  Re-planting the exact defect it is named after left the whole propose suite
+  green. Keyed on the VERB FORM now (`ends on` / `ending on`, present
+  indicative — `to end on` and `could end on` are proposals and stay
+  unmatched), attributed by position so a claim written anywhere in the prompt
+  is charged to the right line, and it RETURNS ITS OWN DENOMINATOR. The
+  section asserts the count as well as the verdict, and since the honest count
+  today is ZERO — the rendering claims nothing, which is the stronger property
+  — a **planted** misstatement is fed to the scanner in the same section to
+  prove the guard is alive. The non-vacuous half is new: the two words the
+  prompt prints must DIFFER from what their own lines currently end on, which
+  is what "these are the proposal, not the status quo" means, checked on every
+  prompt a real loop generates.
+
+The other five: an assertion whose condition was `8 == 2 * 2 ** 2 and 50 == 2
+* 5 ** 2` — no Name, no Call, no Attribute, unmovable by any change to this
+repository — while naming the claim that the tier-2 bound tracks a DECLARED
+coordinate (test 13 now hands test 16 its measured `(width, count)`, so both
+runs are read); `rc == 0 and "group B" in out or "group A" in out`, which
+Python groups so that the exit code is enforced by nothing (True at rc 0, 1,
+2, 3 and 4 alike) and whose named clause is unreachable because the command
+declares ONE group; `candidates --modal`'s "this is not a relabelling",
+comparing a 7-word list to a 6-word set so `!=` held on CARDINALITY and a
+literal truncation mutant passed it; `function`'s only CLI-rendering
+assertion for the return comparison, satisfied by static explanatory PROSE
+about a different finding, so deleting the whole rendering left the section
+green; and `gm_edges <= {...}`, where `set() <= anything` is True, so a merge
+detector that recovers NOTHING satisfied the one assertion naming its recall.
+**THE INSTRUMENT IS THE CHECK THAT THIS IS DONE**: an AST sweep for `check()`
+conditions containing no Name, Call, Attribute or Subscript node reports
+**6 of 656** here against **7 of 647** at `945ac41`, and all 6 survivors are
+the True/False arms of `try/except` refusal blocks in `test_revise.py`, which
+are legitimate. Five of the seven are pinned by a production MUTATION that
+the repaired check now fails and the old one did not.
+
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
   Lear limerick known-answers, Whitman negative control.
 - Current baselines, WITH the conjunctive band: sonnets **8.1%
