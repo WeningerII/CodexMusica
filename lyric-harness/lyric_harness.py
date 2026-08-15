@@ -5487,8 +5487,8 @@ def main():
             cleaned.append(a)
         args = cleaned
 
-        def _mandate_arg(spec, lines):
-            """CLI spelling -> anything `quality.schemes.mandate` accepts.
+        def _mandate_arg(args, at, lines):
+            """CLI spelling(s) -> anything `quality.schemes.mandate` accepts.
 
             `brief FILE ABAB` could only ever name a PARTITION, and the song
             in examples/ has no letter scheme at all — its cliques overlap,
@@ -5515,31 +5515,113 @@ def main():
             directly. `--returns=` closes that: same syntax as `--groups=`,
             same 1-based/';'-separated groups, but every group becomes a
             RETURN CLASS instead of a plain rhyme requirement.
+
+            A FOURTH GAP, IN THE READER RATHER THAN IN THE VOCABULARY —
+            FOUND BY WRITING A SONG THROUGH THE LOOP, FIXED 2026-08-15. The
+            three spellings above were all reachable and only ONE OF THEM WAS
+            EVER READ: the mandate came out of a single positional slot, so a
+            second spelling on the same command line was never looked at.
+            A song with ABAB verses AND a verbatim chorus needs both at once —
+            `--groups=` cannot say "identity required" and `--returns=` cannot
+            say "these merely rhyme" — and that is the ordinary shape of a
+            popular song, not a corner case.
+
+            IT FAILED TWO DIFFERENT WAYS, and the quiet one is the bad one.
+            `song`/`brief`/`revise` read slot N and DROPPED the rest without a
+            word: `song ... --groups=A --returns=B` was measured
+            BYTE-IDENTICAL to `song ... --groups=A`, so a declared chorus was
+            silently ungraded and the report said nothing. `verify` has a
+            trailing line-number positional, so the unread flag reached
+            `int()` instead and it refused with `invalid literal for int()
+            with base 10: '--returns=1'` — the same defect wearing a crash.
+            One coordinate, dropped in silence by three verbs and mis-blamed
+            by the fourth; doctrine 1 says a declared coordinate is not
+            silently outranked, and doctrine 20 says a refusal has to name its
+            own cause.
+
+            NOT COMBINABLE, and these REFUSE rather than pick a winner:
+            `--cliques` with anything (it DERIVES its groups from observed
+            rhyme, so what a writer additionally declared cannot be layered on
+            a cover that was not declared at all — doctrine 14), a letter
+            string with anything (a letter is a property of a LINE and cannot
+            carry an overlapping return class — doctrine 2), and the same
+            spelling handed in twice.
+
+            -> (scheme, tail), where `tail` is the positionals that FOLLOW the
+            mandate. It is returned rather than recomputed because removing a
+            flag MOVES every positional after it, and `verify`'s targeted line
+            numbers are one of them.
             """
-            if spec is None:
-                return None                     # let the refusal fire
-            if spec == "--cliques":
+            flags, tail = [], []
+            for tok in args[at:]:
+                if tok == "--cliques":
+                    flags.append(("--cliques", None))
+                elif tok.startswith("--groups="):
+                    flags.append(("--groups=", tok.split("=", 1)[1]))
+                elif tok.startswith("--returns="):
+                    flags.append(("--returns=", tok.split("=", 1)[1]))
+                else:
+                    tail.append(tok)
+
+            names = [n for n, _ in flags]
+            if len(names) != len(set(names)):
+                _refuse("the same mandate spelling was handed in more than "
+                        "once, and this reader will not choose between them",
+                        detail=[f"handed in: {' '.join(names)}"])
+            if "--cliques" in names and len(flags) > 1:
+                _refuse("--cliques cannot be combined with another mandate "
+                        "spelling",
+                        detail=["--cliques DERIVES its groups from the song's "
+                                "own rhyme graph (source=derived, doctrine "
+                                "14), so it is not a declaration another one "
+                                "can be layered onto.",
+                                "declare the whole mandate with --groups= "
+                                "and/or --returns=, or hand in --cliques "
+                                "alone."])
+            if flags and not names:              # unreachable; keeps the pair honest
+                _refuse("mandate flags were found and none was named")
+
+            def _groups(raw):
+                # 1-based, ';'-separated, MAY OVERLAP
+                return [[int(x) for x in g.split(",") if x.strip()]
+                        for g in raw.split(";") if g.strip()]
+
+            by = dict(flags)
+            if not flags:
+                # No flag: the mandate is the FIRST positional, as it always
+                # was — a letter string, or None so the refusal can fire.
+                spec = tail[0] if tail else None
+                return spec, tail[1:]
+            if "--cliques" in by:
                 # The song's OWN structure. `mandate_from_graph` marks it
                 # source="derived", so the brief says out loud that its groups
                 # band-pass BY CONSTRUCTION (doctrine 14).
-                return rv.mandate_from_graph(lines)
-            if spec.startswith("--groups="):
-                # --groups=1,3;2,4;27,6 — 1-based, ';'-separated, MAY OVERLAP
-                return [[int(x) for x in g.split(",") if x.strip()]
-                        for g in spec.split("=", 1)[1].split(";") if g.strip()]
-            if spec.startswith("--returns="):
-                # --returns=11,19,27;12,20,28 — same syntax as --groups=, but
-                # every line in a group is declared the SAME LINE: REQUIRE
-                # RETURN, not REQUIRE RHYME. Realised into a `Mandate` here
-                # (not left as a plain list) because `Reviser.mandate()`
-                # forwards no `returns=` of its own (`SC.mandate(spec,
-                # n_lines=...)`, nothing else) — the ONLY way to get identity
-                # semantics into `rv.brief`/`.verify`/`.inspect` is to hand
-                # them an ALREADY-BUILT Mandate, which is what this returns.
-                groups = [[int(x) for x in g.split(",") if x.strip()]
-                          for g in spec.split("=", 1)[1].split(";") if g.strip()]
-                return SC.mandate(groups, n_lines=len(lines), returns=groups)
-            return spec                         # a letter string
+                return rv.mandate_from_graph(lines), tail
+            if tail and not tail[0].lstrip("-").replace(",", "").isdigit():
+                # A letter string BESIDE a flag. Refused rather than ignored:
+                # silently dropping it is the very defect this block closes.
+                _refuse(f"mandate {tail[0]!r} was handed in beside "
+                        f"{' '.join(names)}, and a letter scheme cannot be "
+                        f"combined with either",
+                        detail=["a letter is a property of a LINE (doctrine "
+                                "2), so it cannot carry an overlapping group "
+                                "or a return class.",
+                                "spell the whole mandate as --groups= and/or "
+                                "--returns=."])
+
+            g = _groups(by["--groups="]) if "--groups=" in by else []
+            r = _groups(by["--returns="]) if "--returns=" in by else []
+            # `--returns=` groups are REQUIRE_RETURN — identity REQUIRED,
+            # REPEAT is the requirement and not a violation (doctrine 3's
+            # second half). `--groups=` groups are plain REQUIRE_RHYME. Both
+            # go into ONE cover with `returns=` naming which of them are the
+            # return classes, because a Mandate is the only object that can
+            # hold two different requirement kinds at once, and
+            # `Reviser.mandate()` forwards no `returns=` of its own.
+            if r:
+                return (SC.mandate(g + r, n_lines=len(lines), returns=r),
+                        tail)
+            return g, tail                       # --groups= alone, as before
 
         def _say_derived(m):
             """Doctrine 14, out loud. A cover read off the rhyme graph is
@@ -5889,8 +5971,7 @@ def main():
             if cmd == "brief":
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
-                scheme = _mandate_arg(args[2] if len(args) > 2 else None,
-                                      lines)
+                scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -5947,8 +6028,7 @@ def main():
                 lines = ([l for _, ls in marked for l in ls] if marked else
                         [l.strip() for l in lyric_text.splitlines()
                          if l.strip() and not is_apparatus_line(l)])
-                scheme = _mandate_arg(args[3] if len(args) > 3 else None,
-                                      lines)
+                scheme, _tail = _mandate_arg(args, 3, lines)
                 _say_derived(scheme)
                 if scheme is not None:
                     print(f"  BLUEPRINT: {song_bp_path} — meter and "
@@ -5977,13 +6057,16 @@ def main():
                 sides.append(("HANDED IN verify's AFTER", args[2]))
                 before = load_lyric_lines(args[1])
                 after = load_lyric_lines(args[2])
-                scheme = _mandate_arg(args[3] if len(args) > 3 else None,
-                                      before)
+                scheme, tail = _mandate_arg(args, 3, before)
                 _say_derived(scheme)
                 if scheme is not None:
                     _say_blueprint()
-                targeted = ({int(x) for x in args[4].split(",")}
-                            if len(args) > 4 else None)
+                # `tail` and NOT `args[4]`: pulling a mandate flag out moves
+                # every positional behind it, and this one is the targeted
+                # line list. Reading the raw index is what met `--returns=1`
+                # at `int()` and refused in the wrong layer's words.
+                targeted = ({int(x) for x in tail[0].split(",")}
+                            if tail else None)
                 v = rv.verify(before, after, scheme, targeted=targeted,
                               blueprint=bp_path, subdivision=subdivision,
                               assume=assume)
@@ -6009,8 +6092,7 @@ def main():
                 # this.
                 sides.append(("HANDED IN revise's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
-                scheme = _mandate_arg(args[2] if len(args) > 2 else None,
-                                      lines)
+                scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme)
                 if scheme is not None:
                     _say_blueprint()

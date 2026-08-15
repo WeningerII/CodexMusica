@@ -2201,6 +2201,73 @@ def test_propose_selects_who_writes_the_line():
           "the --propose block is clean")
 
 
+def test_both_mandate_spellings_are_read():
+    print("\n19. a SECOND mandate spelling is READ, not dropped in silence "
+          "(FIXED 2026-08-15)")
+    # THE DEFECT, found by writing a song through the loop rather than by
+    # reading the code. The mandate came out of ONE positional slot, so a
+    # second spelling on the same command line was never looked at -- and a
+    # song with rhyming verses AND a verbatim chorus needs both at once,
+    # because `--groups=` cannot say "identity required" and `--returns=`
+    # cannot say "these merely rhyme". That is the ordinary shape of a
+    # popular song, not a corner case.
+    #
+    # IT FAILED TWO WAYS AND THE QUIET ONE IS WHY THIS TEST EXISTS. `song`
+    # dropped the unread flag with no message at all, so a declared chorus
+    # went ungraded and the report said nothing was wrong -- the reason the
+    # first assertion below is a DIFFERENCE between two runs and not a
+    # string match: the old code's two outputs were BYTE-IDENTICAL, which is
+    # the only shape that proves a silent drop. `verify` has a trailing
+    # line-number positional, so the same unread flag reached `int()` and
+    # refused in the wrong layer's words (`invalid literal for int() with
+    # base 10: '--returns=1'`), which is doctrine 20's "a refusal must name
+    # its own cause" broken by a parser.
+    d = tempfile.mkdtemp()
+    bpp, txt = _noisy_song(d)
+    # lines 5/6 and 15/16 of the fixture are byte-identical choruses, so
+    # this is a TRUE return declaration and not a constructed one.
+    rets = "--returns=5,15;6,16"
+
+    rc_g, out_g, _ = run("song", bpp, txt, MANDATE_THAT_FAILS,
+                         "--subdivision", "1")
+    rc_b, out_b, _ = run("song", bpp, txt, MANDATE_THAT_FAILS, rets,
+                         "--subdivision", "1")
+    check("`song` with --groups= AND --returns= is not the --groups= run",
+          out_g != out_b,
+          "byte-identical is exactly what the defect looked like")
+    check("the declared return is GRADED, not dropped",
+          "REFRAIN_REPEAT" in out_b and "REFRAIN_REPEAT" not in out_g,
+          f"REFRAIN_REPEAT present={'REFRAIN_REPEAT' in out_b}, "
+          f"absent without the flag={'REFRAIN_REPEAT' not in out_g}")
+    check("the rhyme half still fails on the same run (both kinds held at "
+          "once)", rc_b == 3 and "SCHEME_VIOLATION" in out_b,
+          f"rc {rc_b}")
+
+    rc_v, out_v, _ = run("verify", txt, txt, MANDATE_THAT_FAILS, rets)
+    check("`verify` takes both spellings instead of meeting one at int()",
+          "invalid literal for int()" not in out_v and rc_v != 1,
+          f"rc {rc_v}")
+    rc_t, out_t, _ = run("verify", txt, txt, MANDATE_THAT_FAILS, rets, "1,3")
+    check("verify's TARGETED line list still parses behind two flags",
+          "invalid literal for int()" not in out_t and rc_t != 1,
+          "pulling a flag moves every positional behind it")
+
+    # The combinations that CANNOT be expressed refuse by name rather than
+    # picking a winner -- the same reflex the drop failed to have.
+    # The letter string is 16 chars for a 16-line fixture ON PURPOSE. `ABAB`
+    # also refuses here, but on LENGTH -- it would pass this assertion against
+    # the unfixed reader and prove nothing (measured: it did). A scheme the
+    # old code accepted is the only one whose refusal is about the
+    # COMBINATION.
+    for args, why in (
+            (("--cliques", MANDATE_THAT_FAILS), "--cliques with another"),
+            (("ABABCCDDEEFFGGHH", rets), "a letter string with a flag"),
+            ((MANDATE_THAT_FAILS, "--groups=5,7"), "the same spelling twice")):
+        rc, out, _ = run("brief", txt, *args, expect_rc=2)
+        check(f"REFUSES {why}", rc == 2 and "REFUSED" in out,
+              f"rc {rc}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -2225,6 +2292,7 @@ if __name__ == "__main__":
     test_the_report_rolls_up_without_dropping_anything()
     test_song_exits_on_a_flag()
     test_propose_selects_who_writes_the_line()
+    test_both_mandate_spellings_are_read()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

@@ -368,6 +368,34 @@ does not consult `Mandate.requirement` at all, doctrine 6/7's "two sources,
 deliberately kept apart" holding exactly as designed. `--returns=` fixes the
 MANDATE layer's misclassification; it was never going to silence the floor,
 and should not.
+**AND FOR THREE DAYS IT COULD NOT BE USED WITH `--groups=` — FIXED
+2026-08-15, FOUND BY WRITING A SONG THROUGH THE LOOP RATHER THAN BY READING
+THE CODE.** The mandate was read from ONE positional slot, so a second
+spelling on the same command line was never looked at. A song with rhyming
+verses AND a verbatim chorus needs both at once — `--groups=` cannot say
+"identity required" and `--returns=` cannot say "these merely rhyme" — so the
+paragraph above shipped a vocabulary the reader could not accept, which is the
+ordinary shape of a popular song and not a corner case.
+IT FAILED TWO WAYS AND THE QUIET ONE IS THE BAD ONE. `song`/`brief`/`revise`
+dropped the unread flag in silence: `song … --groups=A --returns=B` was
+MEASURED BYTE-IDENTICAL to `song … --groups=A`, so a declared chorus went
+ungraded and the report said nothing was wrong. `verify` has a trailing
+line-number positional, so the same unread flag reached `int()` and refused in
+the wrong layer's words — `invalid literal for int() with base 10:
+'--returns=1'`. One coordinate, dropped silently by three verbs and mis-blamed
+by the fourth (doctrine 1, and doctrine 20 on a refusal naming its own cause).
+Both spellings now go into ONE cover with `returns=` naming which groups are
+the return classes, because a `Mandate` is the only object that holds two
+requirement kinds at once. The combinations that CANNOT be expressed REFUSE
+rather than pick a winner: `--cliques` with anything (it DERIVES its groups,
+doctrine 14), a letter string with anything (a letter is a property of a LINE
+and carries no overlapping return class, doctrine 2), and the same spelling
+twice. `quality/test_verbs.py` §19, whose first assertion is a DIFFERENCE
+between two runs and not a string match — byte-identical output is the only
+shape that proves a silent drop. 7 of its 8 checks fail against the unfixed
+reader; the 8th is why the letter string there is 16 chars for a 16-line
+fixture, since `ABAB` refuses on LENGTH and would have passed against the
+defect.
 ~~correctly and on purpose~~ — **REPINNED 2026-08-14, and only the SEVERITY
 was wrong.** That the floor still SPEAKS about a verbatim chorus is right and
 is unchanged. That it FAILED the draft for it was never measured, and the
