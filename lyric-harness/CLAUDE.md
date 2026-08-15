@@ -68,6 +68,91 @@ generation is a `propose`/`propose_pair` callable the caller supplies, and
 the one shipped here (`swap_end_word`, a single-word splice) exists to prove
 the loop's OWN control flow, not to write a good line.
 
+**THE TWO SEAMS ARE NOT ONE SEAM, AND TIER 2's WAS STARVED — FIXED
+2026-08-14.** `propose(brief, lines, attempt, reasons=None, whole=())` and
+`propose_pair(pair_brief) -> (str, str) | None` are the contracts.
+`propose_pair` USED to take four bare strings — the two line texts and two
+words — while both line numbers, the whole draft, the group label and
+members, the pivot's own `Brief`, the attempt index and the previous
+rejection all sat in scope at the call site and were passed to nobody. Tier 1
+has had a rejection-feedback channel since it was written; tier 2 kept NO
+reasons at all, so its writer could not be told why the last attempt was
+refused and composed blind. `PairBrief` carries all of it.
+AND BOTH TIERS WERE GRADED ON A RUBRIC NEITHER WAS SHOWN: `verify()` reads
+the WHOLE-draft findings and no proposer ever saw them — measured at
+`whole_flags ['LEXICAL_MONOTONY', 'HOOK_ABSENT']` against a proposer whose
+entire view was `['CLICHE_PAIR', 'CROWDED', 'PROMINENCE_EXCEEDS_HEADS']`.
+`whole=` closes it, read once per round off the SAME `inspect()` key
+`LoopResult.whole` already uses rather than derived a second time.
+NO COMPATIBILITY SHIM, and the reason is that neither end can dispatch
+honestly: under a two-shape interface the CALLEE would have to type-test its
+own first argument to learn which contract it is in (one fact read twice) and
+the CALLER can only ask `inspect.signature`, which is unreadable for builtins
+and C callables and is a second statement of the contract beside the
+docstring. The break set is ENUMERATED instead — any four-positional
+`propose_pair=`, any four-parameter `propose=` — and both raise `TypeError`
+at the FIRST proposal, before a line of the draft is touched.
+**`pivot_word`/`anchor_word` ARE THE PROPOSAL, NOT THE STATUS QUO** — the
+current words are the last tokens of `pivot_text`/`anchor_text`. That
+sentence is load-bearing: `quality/propose.py`'s `render_pair` held the
+opposite reading and printed `(ends on 'mankind')` beside a line ending on
+"dream", so every tier-2 prompt of every real run misstated the draft on both
+lines and in the options heading at once. One field, two readings, in two
+modules (doctrine 1). Neither suite could see it — one built its own
+stand-in object with the same misreading baked into the fixture, the other
+drove tier 2 with its own stub — and NOTHING crossed the seam until
+`quality/test_propose.py` §7c/§7d were written to. §7d drives a REAL
+`revise_loop` into REAL tier 2 through `ModelProposer`, which before this
+contract landed raised `TypeError` on the first joint conflict with both
+suites green.
+
+**WHO WRITES THE LINE IS `--propose=`, AND THE LOOP CAN NOW SUSPEND RATHER
+THAN GUESS — `defer:PATH` BUILT 2026-08-15.** `revise_loop` has taken
+`propose=`/`propose_pair=` since it was written and for most of that time the
+only proposer reachable from the command line was the stub, so the flagship
+verb's every demo was a single-word splice. Four spellings now: `stub` (the
+default, and it stays the default because CI runs `revise` and a default that
+opened a socket would make a suite's result depend on a remote service),
+`replay:PATH`, `defer:PATH`, and `call:MODULE:FACTORY` — where the CALLER
+names both halves and this repo ships no module of its own, because the
+proposing half is not this project's to ship.
+
+**THE CONSTRAINT `defer:` EXISTS FOR IS NOT A LANGUAGE PROBLEM, and the first
+diagnosis of it in this project said it was.** A proposer is
+`callable(prompt) -> str`; anything can be one. What cannot happen is a CHILD
+PROCESS re-entering the agent that spawned it — while `revise_loop` runs,
+whoever started it is blocked waiting for it to return, so a proposer needing
+a writer's judgement has nobody to ask, four frames down, through a contract
+whose return type is `str | None`. `None` is unavailable as a suspension
+signal because it already means THIS PROPOSER GAVE UP and the loop acts on
+that. `call:` answers this by reaching a service, which needs a credential.
+`defer:` answers it by reaching NOTHING: the loop stops at the first request
+it has no answer for, writes down what it asked, and exits **4** — a fourth
+code for the reason `song` needed a third (0 clean, 2 the harness could not
+answer, 1 Python's own, 3 answered-with-a-flag-standing; a gate that is
+WAITING is not a gate that failed). The writer fills `pending.answer`; the
+SAME command run again replays every answer in order and continues.
+
+**RESUMPTION IS SOUND ONLY BECAUSE THE LOOP IS DETERMINISTIC, and that was
+verified rather than assumed** — by inspection (no set iteration in its
+control flow, doctrine 66) and empirically (three separate processes,
+byte-identical output, so hash randomisation would have shown).
+
+**THE ENFORCEMENT IS THE POINT, not the convenience.** The failure this closes
+was never that the loop was wrong — it is that a writer disciplined enough to
+drive it by hand is a writer who can also decide not to, and this file's own
+history is the evidence: the loop was run by hand exactly once, converged in
+three rounds, and rejected two drafts for modal rhymes, after a full session
+of not running it at all. There is now no path from "flags outstanding" to a
+final draft except through the gates, because the verb emits none until the
+run it is resuming reaches a stop condition. Re-running without answering
+returns the same question, not a worse song.
+**AND A FINISHED DEFERRED RUN IS A RECORDED ONE**: the state's `answered`
+block is byte-for-byte the schema `replay:` reads, ASSERTED and not claimed —
+`quality/test_verbs.py` §20 hands it to `--propose=replay:` and requires the
+same final draft, so a session that wrote a song is reproducible by someone
+with no writer and no credential (doctrine 14).
+
 TWO TIERS, matching what backspacing through a draft actually does. TIER 1
 swaps a flagged line's own word for an offered candidate. TIER 2
 BACKTRACKS: `Brief.joint_conflict` means `joint_field` already searched the
@@ -104,6 +189,50 @@ max_rounds` (declared since the first commit of `quality/revise.py`,
 default 4, unread by anything until this module) is reached. A single
 unsolved line is NEVER a stop condition — the loop keeps going on every
 other flagged line and reports the dead end in the result.
+
+**AND "FLAGGED" WAS TOO NARROW: THE LOOP STOPPED ON THE ONE THING DOCTRINE 9
+IS ABOUT — `ReviseDeclaration.pursue`, FIXED 2026-08-15, FOUND BY WRITING A
+SONG THROUGH THE LOOP.** `MODAL_RHYME` and `PREDICTABLE_RHYME` are in
+`RHYME_FINDINGS`, so `brief()` hands a line carrying one a COMPLETE candidate
+field with the modal words marked FORBIDDEN — the machinery to fix them is
+built, reachable and correct. Both are NOTES, and every stop condition here
+read `severity == "flag"`, so the loop reported SUCCESS and stopped before it
+ever asked. MEASURED on a 33-line draft: `revise` converged after ONE answer
+and said SUCCESS while `song` on the byte-identical draft reported four
+`MODAL_RHYME` and `PREDICTABLE_RHYME` at 3 of 3, 100% of pairs above 0.90.
+**And on the song this repo had already declared finished at 0 FLAG — `warm`/
+`storm` and `june`/`soon`, each the #1 answer in its own field, both still
+standing.** Doctrine 9 is this project's central claim and its own loop could
+not enforce it; doctrine 48 is the entry for exactly this shape, one layer in,
+because here the mechanism WAS mechanical and the stop condition made it
+unreachable.
+**A DECLARED COORDINATE, NOT A PROMOTION**, and re-typing `MODAL_RHYME` as a
+flag was wrong twice over: doctrine 7 says a floor may not order the region it
+already passed and a pair that RHYMES is inside that region, and `verify()`
+gates on flags, so a promoted note would begin REJECTING revisions for
+introducing one — the exact regression `new_flags` was split out to end.
+**SO PURSUING CHANGES WHAT THE LOOP ASKS FOR AND NEVER WHAT IT REJECTS**:
+`verify()` is untouched, `quality/test_verbs.py` §21 pins the verdict as
+BYTE-IDENTICAL with the note pursued. The pair composes doctrine 9 end to end
+— the loop now ASKS for a non-modal word and `verify()`'s pre-existing
+`modal_taken` rejection refuses an answer that takes one. `--pursue=CODE,CODE`
+on the CLI; empty by default, so every earlier run reads unchanged; a code
+`brief()` cannot offer a field for REFUSES rather than sitting inert.
+
+**`candidates` AND THE LOOP ANSWERED ONE QUESTION TWO WAYS — FIXED
+2026-08-15, FOUND BY PRE-SCREENING A RHYME WITH THE WRONG LIST.** The verb
+ranks by RHYME SCORE; the modal exclusion ranks by FREQUENCY over the words
+the GRADER would accept. Neither said so, and the one a writer can reach from
+the command line is not the one `verify()` enforces. MEASURED on `lines`: the
+verb's top 7 is signs/mines/designs/shines/headlines/airlines/whines against
+the loop's shines/signs/designs/vines/declines/pines — **three in common**.
+The cost is not theoretical: `tinder`/`cinder` reads as fresh and is the #2
+answer in its own field, and `warning`/`morning` passed the verb's screen and
+the loop called it modal. `candidates W [n] --modal` now calls
+`Reviser.modal_field` — the LOOP'S OWN method, not a reimplementation — and
+the default output names its ordering and points at the other. §22's binding
+assertion is that what the verb forbids EQUALS what `brief()` forbids for the
+same word, so the two cannot drift.
 
 **A DECLARED REFRAIN WAS BEING ATTACKED, NOT PROTECTED — FIXED 2026-08-11.**
 `Mandate.returns` (the villanelle/triolet/radif machinery in
@@ -330,6 +459,34 @@ does not consult `Mandate.requirement` at all, doctrine 6/7's "two sources,
 deliberately kept apart" holding exactly as designed. `--returns=` fixes the
 MANDATE layer's misclassification; it was never going to silence the floor,
 and should not.
+**AND FOR THREE DAYS IT COULD NOT BE USED WITH `--groups=` — FIXED
+2026-08-15, FOUND BY WRITING A SONG THROUGH THE LOOP RATHER THAN BY READING
+THE CODE.** The mandate was read from ONE positional slot, so a second
+spelling on the same command line was never looked at. A song with rhyming
+verses AND a verbatim chorus needs both at once — `--groups=` cannot say
+"identity required" and `--returns=` cannot say "these merely rhyme" — so the
+paragraph above shipped a vocabulary the reader could not accept, which is the
+ordinary shape of a popular song and not a corner case.
+IT FAILED TWO WAYS AND THE QUIET ONE IS THE BAD ONE. `song`/`brief`/`revise`
+dropped the unread flag in silence: `song … --groups=A --returns=B` was
+MEASURED BYTE-IDENTICAL to `song … --groups=A`, so a declared chorus went
+ungraded and the report said nothing was wrong. `verify` has a trailing
+line-number positional, so the same unread flag reached `int()` and refused in
+the wrong layer's words — `invalid literal for int() with base 10:
+'--returns=1'`. One coordinate, dropped silently by three verbs and mis-blamed
+by the fourth (doctrine 1, and doctrine 20 on a refusal naming its own cause).
+Both spellings now go into ONE cover with `returns=` naming which groups are
+the return classes, because a `Mandate` is the only object that holds two
+requirement kinds at once. The combinations that CANNOT be expressed REFUSE
+rather than pick a winner: `--cliques` with anything (it DERIVES its groups,
+doctrine 14), a letter string with anything (a letter is a property of a LINE
+and carries no overlapping return class, doctrine 2), and the same spelling
+twice. `quality/test_verbs.py` §19, whose first assertion is a DIFFERENCE
+between two runs and not a string match — byte-identical output is the only
+shape that proves a silent drop. 7 of its 8 checks fail against the unfixed
+reader; the 8th is why the letter string there is 16 chars for a 16-line
+fixture, since `ABAB` refuses on LENGTH and would have passed against the
+defect.
 ~~correctly and on purpose~~ — **REPINNED 2026-08-14, and only the SEVERITY
 was wrong.** That the floor still SPEAKS about a verbatim chorus is right and
 is unchanged. That it FAILED the draft for it was never measured, and the
@@ -609,6 +766,15 @@ Full sweep after both fixes: `quality/test_loop.py` (12/12, was 10/10),
 `quality/test_revise.py` (29/29), and every other test file under
 `quality/` — unaffected, confirmed by re-running rather than assumed clean
 because the module they share a diff mechanism with had just changed.
+**BOTH COUNTS ARE SUPERSEDED, MEASURED 2026-08-14 and quoted with the command
+that produced them (`grep -cE '^[0-9]+[a-z]?\. '` for sections, `'^\s+(PASS|
+FAIL)'` for checks, over the suite's own stdout): `test_loop.py` **16
+sections / 86 checks**, `test_revise.py` **39 sections**, and
+`quality/test_propose.py` — which did not exist when the line above was
+written — **13 sections / 104 checks**. The two figures above are a SECTION
+count doubled, not a section/check pair, so `12/12` never carried a check
+count at all and the shape of the old notation is itself the reason it went
+stale unnoticed.
 
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that

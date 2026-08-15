@@ -35,6 +35,52 @@ TWO TIERS, matching what a person backspacing through a draft actually does.
   it. It says so in the result rather than pretending the search was wider
   than it was.
 
+TIER 2 ASKED A WRITER TO COMPOSE BLIND, AND IT IS THE HARDER TIER — FIXED
+2026-08-14. This module called `propose_pair(pivot_text, anchor_text,
+pivot_word, anchor_word)`: FOUR BARE STRINGS, for the task of writing TWO
+coupled lines that must rhyme with each other AND keep every other group
+they answer — while tier 1, which swaps one word on one line, has always
+been handed `propose(brief, lines, attempt, reasons)`. Everything the four
+strings left out was IN SCOPE at that call site and thrown away: which
+LINES these two are, the draft they sit in, the group being backtracked and
+its members, the pivot's own `Brief` (its findings, its `joint_conflict`,
+its `field_declaration`), and the previous attempt's rejection — which this
+tier did not even keep. And the situation itself needed explaining: tier 2
+only fires once `joint_field` has PROVED that no single word answers every
+group at once, which is the one thing a writer most needs told and the one
+thing four strings cannot say. It is a `PairBrief` now, one argument, and
+`propose_pair(pair_brief) -> (str, str) | None` is the contract.
+
+  THE FOUR-STRING ARITY IS GONE RATHER THAN KEPT BESIDE IT, and that is a
+  decision with an argument rather than a shim by reflex. A compatibility
+  shim would have to DISPATCH ON SHAPE, and neither end of the call can do
+  that honestly. THE CALLEE CANNOT TELL WHICH IT GOT: under a two-shape
+  interface `propose_pair(x)` receives either a `PairBrief` or
+  `pivot_text`, a `str`, and a proposer written with `*args` — legal, and
+  exactly what a decorator or a `functools.partial` wrapper produces — has
+  to type-test its own first argument to discover which contract it is in.
+  That is one fact read twice, in the caller's own body, with the
+  declaration removed: the shape of defect doctrine 1 is about. THE CALLER
+  CANNOT TELL EITHER, except through `inspect.signature`, which is
+  unreadable for builtins, C callables and `*args`, and which would then be
+  a SECOND statement of this contract sitting beside this docstring — the
+  thing that drifts. This repo's own answer to "two readings of one input"
+  is a DECLARED COORDINATE (`strip_parens`, `fallback`, `subdivision`), not
+  a silent adapter, and an adapter is the only shape available here.
+
+  WHAT BREAKS, NAMED RATHER THAN HOPED ABOUT. Any callable passed as
+  `propose_pair=` taking four positionals, and any passed as `propose=`
+  taking exactly four (`whole` is new and positional-fifth). Both raise
+  `TypeError` naming the callable, at the FIRST proposal, before a single
+  line of the draft has been touched — this loop mutates nothing until
+  `verify()` accepts something, so a break here costs a run and never a
+  draft. The set in this repo is enumerable and was enumerated: the two
+  stubs below, and `quality/test_loop.py`'s own inline proposers. Nothing
+  else passes either parameter — `lyric_harness.py`'s `revise` verb and
+  `quality/test_revise.py` both call `revise_loop` without them and take
+  the stubs. A loud break at a named call site is worth more than a silent
+  adapter that lets a writer go on composing blind.
+
 STOP CONDITIONS, and they are not one thing.
 
   SUCCESS       `brief()` has nothing left carrying a "flag" finding —
@@ -148,6 +194,46 @@ defect the loop has no move for and then report ROUND_LIMIT about it. It is
 DISCLOSED instead — `LoopResult.whole`/`.whole_flags` carry them out of the
 run and `__str__` prints them under the stop reason, so SUCCESS is never
 read as "clean" when it means "nothing left that this loop can act on."
+
+AND THE PROPOSER WAS GRADED ON THAT RUBRIC WITHOUT EVER BEING SHOWN IT —
+FIXED 2026-08-14. The paragraph above is written from the STOP CONDITION's
+side. From the WRITER's side the same asymmetry is worse, because
+`verify()`'s half of it is not blindness but ENFORCEMENT: its diff covers
+`whole` as well as `per_line`, so a revision that introduces
+`LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY` or `HOOK_ABSENT` — or any of the
+codes `_function_findings`/`_meter_findings` file with empty `locations` —
+is REJECTED for it, and until now nothing ever told the proposer those
+codes existed. `propose(brief, lines, attempt, reasons=None, whole=())` and
+`PairBrief.whole` close that: the rubric a proposal is marked against is
+handed to whoever writes it.
+
+  NOT ON `Brief`, and this module's own argument above is why. A `Brief` is
+  a per-LINE record; widening it to carry a finding that names no line is
+  the move `LoopResult.whole`/`.whole_flags`/`disclosure()` exist precisely
+  to avoid. `whole` travels as its own argument, so a proposer can tell
+  "this is about MY line" from "this is about the draft" without reading a
+  `locations` list to find out which it was handed.
+
+  NO STOP CONDITION MOVES. `flagged` is still built from `brief()`, still
+  per-line, and SUCCESS/NO_PROGRESS/ROUND_LIMIT mean exactly what they meant
+  before. Showing a writer a defect is not the same as the loop claiming a
+  move for it: this tier's only move is still a word swap on a named line,
+  and none of these names one.
+
+  ONE SOURCE, NOT A SECOND DERIVATION. `revise_loop` reads
+  `inspect()["whole"]` — the same key `_close` reads to fill
+  `LoopResult.whole` — rather than re-running the floor and the function
+  layer here. Doctrine 1: two derivations of one fact drift, and this file
+  has already paid that price once (`blueprint_declared` is READ off
+  `inspect()` rather than recomputed from `blueprint is not None`).
+  COST: one extra `inspect()` per ROUND, and only on a round that has
+  something flagged — the success path returns before it. It is the same
+  warm-cache call `_close` already makes for the same reason, and it was
+  MEASURED the same way rather than assumed: on this suite's four-line
+  fixture the round's own `brief()` costs 7.92s cold and the `inspect()`
+  immediately after it costs 0.01s — 0.1% — because `brief()` has just
+  filled `Reviser._matrix_cache`/`_field_cache` with this exact draft. The
+  whole four-line run is 10.3s.
 """
 
 import os
@@ -162,8 +248,9 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 from lyric_harness import load_lyric_lines, raw_final_token  # noqa: E402
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 
-__all__ = ["LineAttempt", "RoundResult", "LoopResult", "revise_loop",
-          "swap_end_word", "default_propose", "default_propose_pair"]
+__all__ = ["LineAttempt", "PairBrief", "RoundResult", "LoopResult",
+          "revise_loop", "swap_end_word", "default_propose",
+          "default_propose_pair"]
 
 _WORD_RE = re.compile(r"[A-Za-z'\-]+")
 
@@ -199,29 +286,134 @@ def swap_end_word(text, new_word):
     return text[:last.start()] + cased + text[last.end():]
 
 
-def default_propose(brief, lines, attempt, reasons=None):
+def _open_lines(briefs, pursue=frozenset()):
+    """-> the briefs this loop still has work on. ONE definition, because the
+    SUCCESS test and the ROUND_LIMIT tally must not be able to disagree about
+    what "unresolved" means — they were two copies of the same comprehension
+    and this is what a coordinate added to one of them would have missed.
+
+    A FLAG ALWAYS COUNTS. A NOTE COUNTS ONLY IF ITS CODE WAS DECLARED in
+    `ReviseDeclaration.pursue`, which is empty by default — see that field for
+    why `MODAL_RHYME` is pursued rather than re-typed as a flag, and why
+    pursuing changes what the loop ASKS for and never what `verify()` rejects.
+    """
+    return [b for b in briefs
+            if any(f.severity == "flag" or f.code in pursue
+                   for f in b.findings)]
+
+
+def default_propose(brief, lines, attempt, reasons=None, whole=()):
     """-> a replacement line for `brief.line_no`, or `None` to give up.
 
     The MECHANICAL stub tier 1 ships with: walk `brief.candidates` in the
     order `joint_field` already ranked them (modal region excluded, so this
     is already "not the obvious one" before this function does anything),
     one per attempt. `reasons` (the previous attempt's rejection, `None` on
-    the first try) is accepted and ignored here — a proposer that actually
-    writes would read it; this one only proves the loop calls it correctly.
+    the first try) and `whole` (the draft-level findings `verify()` grades
+    this proposal against — see the module docstring) are both accepted and
+    both ignored here. A proposer that actually WRITES would read them; this
+    one only proves the loop calls it correctly, and ignoring an argument in
+    a stub is not the same as the loop declining to pass it.
     """
     if attempt >= len(brief.candidates):
         return None
     return swap_end_word(brief.text, brief.candidates[attempt])
 
 
-def default_propose_pair(pivot_text, anchor_text, pivot_word, anchor_word):
+def default_propose_pair(pair_brief):
     """-> (new_pivot_text, new_anchor_text), or `None`. Tier 2's stub,
-    same mechanism as `default_propose`: one word swapped on each line."""
-    new_pivot = swap_end_word(pivot_text, pivot_word)
-    new_anchor = swap_end_word(anchor_text, anchor_word)
+    same mechanism as `default_propose`: one word swapped on each line.
+
+    It reads exactly the four fields the old four-string signature carried
+    (`pivot_text`, `anchor_text`, `pivot_word`, `anchor_word`) and ignores
+    the other eleven, so the SEARCH this stub drives is byte-identical to
+    what it drove before the `PairBrief` existed — the contract widened and
+    the shipped behaviour did not move. Every other field is there for a
+    proposer that writes rather than splices.
+    """
+    new_pivot = swap_end_word(pair_brief.pivot_text, pair_brief.pivot_word)
+    new_anchor = swap_end_word(pair_brief.anchor_text, pair_brief.anchor_word)
     if new_pivot is None or new_anchor is None:
         return None
     return new_pivot, new_anchor
+
+
+@dataclass
+class PairBrief:
+    """What a TIER-2 writer is asked to do: TWO coupled lines, at once.
+
+    The tier-1 counterpart is `quality/revise.py`'s `Brief`, and this is
+    deliberately NOT one. A `Brief` is per-LINE — one line, its findings,
+    its candidate field — and a backtrack is a statement about a PAIR: the
+    pivot cannot be fixed on its own, so the word of the line it has to
+    match moves too. Two lines, two words, one group, and a reason the
+    single-line move was already proven impossible.
+
+    WHAT IS BEING ASKED, in the fields' own terms. The pivot (`pivot_line_no`
+    / `pivot_text`) is in more than one mandated group and `joint_field` has
+    already searched the COMPLETE pool and found nothing that answers all of
+    them at once — that is `brief.joint_conflict`, and it is why this is
+    tier 2 and not another tier-1 retry. So the loop proposes to move the
+    ANCHOR (`anchor_line_no` / `anchor_text`), which is one of the words the
+    pivot must answer: with the anchor on `anchor_word`, the pivot's
+    conjunction is satisfiable again and `pivot_word` satisfies it. Both new
+    lines must scan as writing; the two words are what makes the mandate
+    hold.
+
+    THE TWO `_word` FIELDS ARE THE PROPOSAL, NOT THE STATUS QUO.
+    `pivot_word`/`anchor_word` are the words THIS attempt is asking for; the
+    words currently at the ends of the two lines are the last tokens of
+    `pivot_text`/`anchor_text` and are read the one way this project reads
+    an end word (`lyric_harness.raw_final_token`). A proposer is free to
+    return lines ending elsewhere — `verify()` re-derives the true finding
+    set either way and rejects a pair that does not actually hold — but the
+    two offered fields are what the loop's own search believes will.
+
+    `pivot_offered`/`anchor_offered` are the COMPLETE fields those two words
+    were drawn from, in `joint_field`/`modal_field`'s own ranking with the
+    modal head already excluded (doctrine 9). The loop's search itself walks
+    only the first `ReviseDeclaration.backtrack_width` of each — a bound on
+    effort, not a claim about the field — so a writer holding the whole
+    field can reach past where the mechanical search stops.
+
+    `label`/`members` are the two-line group being backtracked;
+    `brief` is the pivot's own `Brief` (its findings, `must_answer`,
+    `joint_conflict` and `field_declaration` — the coordinates the empty
+    intersection is a fact ABOUT, doctrine 58); `lines` is the whole draft
+    as a snapshot tuple, so a proposer can see what the two lines sit
+    between; `attempt` is the 0-based index of this proposal within this
+    pivot's tier-2 search this round, counting every call including the ones
+    a proposer refused, exactly as tier 1's `attempt` does; `reasons` is
+    `verify()`'s rejection of the PREVIOUS attempt (`None` on the first),
+    the feedback path tier 1 has had since it was written and this tier had
+    not; `whole` is `inspect()`'s whole-draft findings — the half no `Brief`
+    can carry and `verify()` grades this pair against anyway (see the module
+    docstring).
+
+    `reasons` and `whole` default the way `LoopResult`'s disclosure fields
+    do, and for the same reason: a `PairBrief` built by hand in a test — a
+    renderer's test, say — is still a legal one, and the defaults are what a
+    first attempt on a clean-at-the-draft-level song actually gets.
+
+    NO `__str__` HERE ON PURPOSE. Rendering a `PairBrief` for a human is
+    another cell's file; two renderings of one object is what doctrine 1
+    forbids, and a dataclass's own repr is enough to debug the loop with.
+    """
+    pivot_line_no: int
+    pivot_text: str
+    pivot_word: str
+    pivot_offered: tuple
+    anchor_line_no: int
+    anchor_text: str
+    anchor_word: str
+    anchor_offered: tuple
+    label: str
+    members: tuple
+    brief: object                # the pivot's own `quality.revise.Brief`
+    lines: tuple                 # the whole draft, this attempt's snapshot
+    attempt: int
+    reasons: tuple = None        # the PREVIOUS attempt's rejection
+    whole: tuple = ()            # `inspect()`'s whole-draft findings
 
 
 @dataclass
@@ -389,11 +581,16 @@ def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
 
 
 def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
-               assume, profile, propose):
+               assume, profile, propose, whole=()):
     tried = 0
     reasons = None
     for attempt in range(rdecl.attempts_per_line):
-        candidate = propose(b, lines, attempt, reasons)
+        # `whole` LAST AND POSITIONAL, matching the declared contract
+        # `propose(brief, lines, attempt, reasons=None, whole=())`. It is
+        # what `verify()` two lines below will ALSO read (its diff covers
+        # `whole`), so a proposal is now marked against a rubric its author
+        # was shown. The stub ignores it; a writer would not.
+        candidate = propose(b, lines, attempt, reasons, whole)
         if candidate is None:
             break
         tried += 1
@@ -415,26 +612,48 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
 
 
 def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
-               assume, profile, propose_pair):
+               assume, profile, propose_pair, whole=()):
     two_member = [(lab, mem, calls) for lab, mem, calls in b.must_answer
                   if len(mem) == 2]
     too_large = len(b.must_answer) - len(two_member)
     tried = 0
-    for label, _members, calls in two_member:
-        anchor_line, anchor_word = calls[0]
+    # ATTEMPT AND REASONS ARE THE PIVOT'S, NOT THE GROUP'S. `attempt` counts
+    # every call to `propose_pair` this pivot makes this round — including
+    # the ones the proposer refused, exactly as tier 1's `attempt` counts a
+    # refused candidate — and `reasons` carries the last rejection forward
+    # across groups, because the writer is being asked about ONE pivot the
+    # whole way down and a rejection is about the pair that was tried, not
+    # about which group's turn it was.
+    attempt = 0
+    reasons = None
+    for label, members, calls in two_member:
+        # `anchor_current`/`pivot_current` are the words ALREADY THERE, and
+        # they are here to be EXCLUDED from the two searches: re-proposing
+        # the word that is already at the end of the line is not a revision.
+        # The words being PROPOSED are `w` and `v` below, which is what
+        # `PairBrief.pivot_word`/`.anchor_word` carry.
+        anchor_line, anchor_current = calls[0]
         anchor_text = lines[anchor_line - 1]
         other_calls = [w for lab2, _m2, cl2 in b.must_answer if lab2 != label
                        for _, w in cl2]
         if not other_calls:
             continue
-        pivot_word = raw_final_token(b.text) or ""
+        pivot_current = raw_final_token(b.text) or ""
         p_offered, _p_forbidden = reviser.joint_field(
-            other_calls, exclude=(pivot_word,))
+            other_calls, exclude=(pivot_current,))
         for w in p_offered[:rdecl.backtrack_width]:
             a_offered, _a_forbidden = reviser.modal_field(
-                w, exclude=(anchor_word,))
+                w, exclude=(anchor_current,))
             for v in a_offered[:rdecl.backtrack_width]:
-                pair = propose_pair(b.text, anchor_text, w, v)
+                pair = propose_pair(PairBrief(
+                    pivot_line_no=b.line_no, pivot_text=b.text,
+                    pivot_word=w, pivot_offered=tuple(p_offered),
+                    anchor_line_no=anchor_line, anchor_text=anchor_text,
+                    anchor_word=v, anchor_offered=tuple(a_offered),
+                    label=label, members=tuple(members),
+                    brief=b, lines=tuple(lines), attempt=attempt,
+                    reasons=reasons, whole=whole))
+                attempt += 1
                 if pair is None:
                     continue
                 tried += 1
@@ -454,6 +673,7 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                         f"L{b.line_no} could take {w!r}; "
                         + "; ".join(res["reasons"]),
                         (b.line_no, anchor_line)), after
+                reasons = tuple(res["reasons"])
     detail = (f"tried {tried} anchor/pivot pair(s) across "
              f"{len(two_member)} two-line group(s), none accepted")
     if too_large:
@@ -492,10 +712,32 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     and every one of them is restated in the returned `LoopResult` (see
     `LoopResult.disclosure`), so which layers this run asked travels WITH the
     result instead of living only on this call line.
+
+    THE TWO WRITER CONTRACTS, both fixed and both stated here rather than
+    left to be read off a call site:
+
+        propose(brief, lines, attempt, reasons=None, whole=()) -> str | None
+        propose_pair(pair_brief) -> (str, str) | None
+
+    Neither is arity-compatible with what this module called before
+    2026-08-14, on purpose and with an argument — see the module docstring,
+    "THE FOUR-STRING ARITY IS GONE RATHER THAN KEPT BESIDE IT". A callable
+    of the old shape raises `TypeError` at its first call, before any line
+    of the draft has been touched.
+
+    `whole` and `PairBrief.whole` are read ONCE PER ROUND, off
+    `inspect()["whole"]` — the same key `_close` reads to fill
+    `LoopResult.whole`, not a second derivation of it — and only on a round
+    that has something flagged, since the success path returns above it.
     """
     propose = propose or default_propose
     propose_pair = propose_pair or default_propose_pair
     rdecl = reviser.rdecl
+    # READ OFF THE DECLARATION, never a parameter of its own: a caller tunes
+    # this the way it tunes `modal_exclusion`, and one coordinate has one
+    # home (doctrine 1). `frozenset()` is the default, so every stop
+    # condition below reads exactly as it did before this existed.
+    pursue = frozenset(getattr(rdecl, "pursue", ()) or ())
     rounds = []
     for round_no in range(1, rdecl.max_rounds + 1):
         briefs = reviser.brief(lines, mandate, profile=profile,
@@ -506,11 +748,26 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         # `briefs` is built from `inspect()`'s `per_line` half, so a
         # whole-draft flag is not in `b.findings` for ANY b and cannot be
         # here. `_close` carries those out in `LoopResult.whole_flags`.
-        flagged = [b for b in briefs
-                  if any(f.severity == "flag" for f in b.findings)]
+        flagged = _open_lines(briefs, pursue)
         if not flagged:
             return _close(reviser, "success", lines, rounds, [], mandate,
                           blueprint, subdivision, assume, profile)
+
+        # THE OTHER HALF OF `inspect()`, READ OFF ITS OWN KEY. `brief()` above
+        # calls `inspect()` and keeps only `per_line`; the `whole` half —
+        # `LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY`, `HOOK_ABSENT` and every
+        # finding `_function_findings`/`_meter_findings` file with empty
+        # `locations` — is what `verify()` will grade every proposal below
+        # against, and it was never shown to whoever writes them. It is READ
+        # here, exactly as `_close` reads it for `LoopResult.whole`, rather
+        # than recomputed from the floor and the function layer: doctrine 1,
+        # two derivations of one fact drift. AFTER the success return, so a
+        # round with nothing flagged pays nothing, and after `brief()`, so
+        # the caches are warm for this exact draft — the same measured
+        # argument `_close`'s own docstring makes for its extra `inspect()`.
+        whole = tuple(reviser.inspect(
+            lines, mandate, profile=profile, blueprint=blueprint,
+            subdivision=subdivision, assume=assume)["whole"])
 
         attempts, fixed_this_round, touched = [], [], set()
         for b in flagged:
@@ -519,11 +776,11 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             if b.joint_conflict:
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,
-                    subdivision, assume, profile, propose_pair)
+                    subdivision, assume, profile, propose_pair, whole)
             else:
                 attempt, lines = _try_tier1(
                     reviser, b, lines, mandate, rdecl, blueprint,
-                    subdivision, assume, profile, propose)
+                    subdivision, assume, profile, propose, whole)
             attempts.append(attempt)
             if attempt.accepted:
                 fixed_this_round.extend(attempt.touched)
@@ -537,8 +794,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     briefs = reviser.brief(lines, mandate, profile=profile,
                            blueprint=blueprint, subdivision=subdivision,
                            assume=assume)
-    unresolved = [b for b in briefs
-                 if any(f.severity == "flag" for f in b.findings)]
+    unresolved = _open_lines(briefs, pursue)
     return _close(reviser, "round_limit", lines, rounds, unresolved, mandate,
                   blueprint, subdivision, assume, profile)
 

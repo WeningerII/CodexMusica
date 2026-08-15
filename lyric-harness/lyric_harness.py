@@ -24,6 +24,7 @@ Data files expected beside this script:
 """
 
 import json
+import math
 import os
 import re
 import sys
@@ -3295,6 +3296,100 @@ def dedupe_findings(findings):
     return out
 
 
+# ---------------------------------------------------------------------------
+# THE ROLLUP — ONE FACT ABOUT THE DRAFT, SAID ONCE
+#
+# MEASURED, not guessed at. A real `song` run on a 16-line draft against a
+# blueprint declaring `--subdivision 1` printed 91 findings over 208 lines, of
+# which 48 were three codes each firing on ALL SIXTEEN lines --
+# `SLOTS_EXCEEDED` x16, `CROWDED` x16, `PROMINENCE_EXCEEDS_HEADS` x16. Every
+# one is CORRECT: the declared grid really is too tight for every line. But
+# sixteen copies of one fact is one fact, and stating it sixteen times buries
+# the three `REPEAT_IN_VERSE` flags that are the actual craft criticism.
+#
+# WHAT THIS IS NOT. It is not a filter and it does not decide anything. The
+# FINDINGS are unchanged, the counts are unchanged, the severities are
+# unchanged, and `song`'s exit code is computed from the finding set BEFORE
+# this runs -- rendering may never move a verdict (doctrine 91: a count is a
+# coordinate of the RENDERING, and this is the rendering). A rolled-up code
+# names every line it fired on and carries its own count; nothing is summed
+# across codes or across severities (doctrine 79).
+#
+# TWO RULES, ONE THRESHOLD, both spelled here so the number is not one nobody
+# wrote down (doctrine 58):
+#   SATURATED  the code fires on >= ROLLUP_SATURATION of the BRIEFED lines --
+#              "(nearly) every line", which is a statement about the draft as
+#              a whole rather than about any line in it.
+#   IDENTICAL  every occurrence RENDERS THE SAME CHARACTERS. That is one fact
+#              fanned out, not N measurements that happen to share a code:
+#              `ANAPHORA_OVERLOAD` is a whole-draft rate attached to each of
+#              the lines that carry the opening word, so its message, its
+#              evidence AND its `locations` list are byte-identical on all of
+#              them. A per-PAIR code (`NEAR_COLLISION`, `SCHEME_COLLISION`)
+#              names different words every time and is never caught by this.
+# Both need ROLLUP_MIN_LINES before they fire at all, so a four-line draft is
+# rendered exactly as it was before this existed.
+# ---------------------------------------------------------------------------
+
+#: Share of the BRIEFED lines a code must fire on to be one fact about the
+#: draft. 0.80 and not 1.00: the one-line-short case is the same fact --
+#: on the measured 16-line run `SLOTS_EXCEEDED` would still have printed 15
+#: blocks had a single short line fit its bar.
+ROLLUP_SATURATION = 0.80
+
+#: Below this many lines a rollup saves nothing and costs a reader the
+#: per-line detail. Four is also the shortest draft `quality/floor.py` has a
+#: calibrated profile for, so nothing shorter than a quatrain is ever folded.
+ROLLUP_MIN_LINES = 4
+
+
+def line_range(nums):
+    """-> 'L1-L16' when the lines are contiguous, else every line named.
+
+    NEVER truncated with an ellipsis. The rollup's whole warrant is that it
+    loses nothing, and "L1, L3, L7 and 6 others" loses the six.
+    """
+    ns = sorted(set(nums))
+    if not ns:
+        return "no line"
+    if len(ns) > 2 and ns == list(range(ns[0], ns[-1] + 1)):
+        return f"L{ns[0]}-L{ns[-1]}"
+    return ", ".join(f"L{n}" for n in ns)
+
+
+def rollup_findings(briefs):
+    """Group every per-line finding by (code, severity) and say which groups
+    are ONE FACT. -> (groups, rolled).
+
+    `groups` is {(code, severity): [(line_no, finding), ...]} in first-seen
+    order; `rolled` is {(code, severity): "saturated" | "identical"} for the
+    subset that renders as a single row. A key absent from `rolled` prints
+    per line exactly as it always has.
+
+    Pure and module-level on purpose: this is the arithmetic the report's
+    headline counts are computed from, and a rendering rule that can only be
+    checked by reading stdout is a rule nobody checks (`quality/test_verbs.py`
+    §15 calls it directly).
+    """
+    n_briefed = len(briefs)
+    groups = {}
+    for b in briefs:
+        for f in dedupe_findings(b.findings):
+            key = (getattr(f, "code", "?"), getattr(f, "severity", "note"))
+            groups.setdefault(key, []).append((b.line_no, f))
+    need = math.ceil(ROLLUP_SATURATION * n_briefed) if n_briefed else 0
+    rolled = {}
+    for key, items in groups.items():
+        lines_hit = {ln for ln, _ in items}
+        if len(lines_hit) < ROLLUP_MIN_LINES:
+            continue
+        if len(lines_hit) >= need:
+            rolled[key] = "saturated"
+        elif len({str(f) for _, f in items}) == 1:
+            rolled[key] = "identical"
+    return groups, rolled
+
+
 def _fmt_score(w1, w2, s):
     lines = [f"{w1}  ~  {w2}",
              f"  total: {s['total']}   relation: {s['relation']}"]
@@ -3378,7 +3473,15 @@ commands (the fifteen spine verbs):
                           `brief`, below). REBUILT 2026-08-12 off the dead
                           per-section {"lines", "scheme"} schema; MANDATE is
                           required for the same reason it is on `brief` --
-                          doctrine 20
+                          doctrine 20.
+                          EXIT CODES, and `song` is the only verb with three:
+                          0 answered and no line carries a flag; 2 REFUSED
+                          (no mandate, a blueprint/draft mismatch — the
+                          harness did not answer); 3 answered and at least
+                          one line carries a FLAG. NOTES never move it. This
+                          is the WHOLE-SONG verb, so it is the one a pipeline
+                          gates on; it used to exit 0 with sixteen flags
+                          standing
   chains FILE [theta]     inferred rhyme chains
   graph  FILE [theta]     the full pairwise matrix, cliques and overlaps
   internal "line"         internal (within-line) matches
@@ -3439,13 +3542,31 @@ the quality layer (each says which module answered):
   verify BEFORE AFTER [MANDATE] [lines] [--blueprint=B] [--subdivision N]
          [--isochronous]  did the revision earn it
   revise FILE [MANDATE] [--blueprint=B] [--subdivision N] [--isochronous]
+         [--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY]
                           the automated write-check-fix LOOP: brief() and
-                          verify() driven to convergence with a mechanical
-                          stub proposer (quality/loop.py). Two tiers -- swap
-                          a flagged line's own word, or BACKTRACK an anchor
-                          when `joint_conflict` says no word answers a pivot
-                          at all -- and three stop conditions: success,
-                          no_progress, or the declared max_rounds
+                          verify() driven to convergence (quality/loop.py).
+                          Two tiers -- swap a flagged line's own word, or
+                          BACKTRACK an anchor when `joint_conflict` says no
+                          word answers a pivot at all -- and three stop
+                          conditions: success, no_progress, or the declared
+                          max_rounds.
+                          --propose= says WHO WRITES THE LINE, and `stub` is
+                          the DEFAULT: quality/loop.py's mechanical
+                          single-word splice, which proves the control flow
+                          and does not write. `replay:PATH` re-runs recorded
+                          proposals and reaches nothing outside the process,
+                          which is how the loop is driven over real proposed
+                          text in CI. `call:MODULE:FACTORY` is the SEAM and
+                          the caller states it: MODULE is any importable
+                          module you supply, FACTORY an attribute on it
+                          returning callable(prompt) -> str, wrapped in
+                          quality/propose.py's ModelProposer. This harness
+                          names no module of its own and has NO default one
+                          -- an undeclared coordinate REFUSES with exit 2
+                          rather than being guessed at, the same way
+                          --subdivision does, and every failure to meet the
+                          contract is a printed refusal, never a traceback
+                          and never a silent downgrade to the stub
   readability FILE        what the ingestion layer could not read"""
 
 
@@ -3572,7 +3693,7 @@ def _strip_flag(args, flag, bare=False):
     return out
 
 
-def _refuse(msg, sides=()):
+def _refuse(msg, sides=(), detail=()):
     """Print the ONE refusal shape and exit 2. Never returns.
 
     `_blueprint_or_refuse` has printed `  REFUSED -- {e}` at exit 2 since the
@@ -3582,13 +3703,32 @@ def _refuse(msg, sides=()):
     one -- and so a caller in a pipeline can tell a refusal (2) from a pass
     (0) and from a crash (1) on EVERY flag rather than on the two whose
     authors happened to remember.
+
+    TWO SUB-LISTS, TWO MEANINGS, AND THEY ARE NOT INTERCHANGEABLE. They were
+    briefly two different FUNCTIONS of the same name, landing from two cells
+    at the same insertion point -- `_refuse(msg, sides)` iterating PAIRS and
+    `_refuse(msg, detail)` iterating STRINGS. Python keeps the second
+    definition silently, so whichever lost the race would have had every one
+    of its call sites unpack a string into `role, path` (`ValueError: too
+    many values to unpack`) or print a tuple where a sentence belongs. That
+    exact shadowing already crashed the `song` verb on this branch once, so
+    the two are ONE function with two named parameters and neither is
+    positional past the message:
+
+      `sides`   [(role, path)] -- WHICH FILE IS WHICH, for a verb handed two
+                of them (doctrine 79: the declaration and the draft are
+                different things, and a caller cannot fix the right one
+                without being told which is which).
+      `detail`  [str] -- the sentences under the refusal: what was looked
+                for, what was NOT silently substituted, and what to type
+                instead. A flag refusal has no second file to name; it has
+                a contract the caller can still meet.
     """
     print(f"  REFUSED — {msg}")
-    # `sides` lets a verb that was handed TWO files name which is which
-    # (doctrine 79: the declaration and the draft are different things,
-    # and a caller cannot fix the right one without being told).
     for role, path in sides:
         print(f"    {role}: {path}")
+    for ln in detail:
+        print(f"    {ln}")
     sys.exit(2)
 
 
@@ -3734,6 +3874,518 @@ def _blueprint_or_refuse(fn, *a, **k):
         raise
     except ValueError as e:
         _refuse(e)
+# ---------------------------------------------------------------------------
+# WHO WRITES THE LINE — `--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY`
+#
+# `revise` drives `quality/loop.py`'s accept/reject/retry/backtrack/stop
+# control flow, and until this flag existed the only thing it could drive was
+# `default_propose`, a single-word splice whose output reads "boarded up the
+# main". That proposer exists to prove the control flow and says so in its own
+# docstring; it is not a way to get a line. `revise_loop` has taken
+# `propose=`/`propose_pair=` since it was written and NOTHING on this command
+# line could hand it one -- the same built-and-tested-was-not-the-reachable
+# shape `--blueprint` and `--fallback` were, one layer further in.
+#
+# `stub` IS THE DEFAULT AND STAYS IT. A default that opens a socket is not a
+# default: CI runs `quality/test_verbs.py`, which runs `revise`, and a run
+# that reached out over the network would make a test suite's result depend on
+# a remote service being up. Reaching anything at all is a DECLARED coordinate
+# (doctrine 1), spelled on the command line, never inferred from an
+# environment variable happening to be set.
+#
+# `replay:PATH` REACHES NOTHING AT ALL. It reads proposals recorded from an
+# earlier run, so the loop's control flow can be driven over REAL proposed
+# text in CI and in review, reproducibly -- which a live call is not.
+#
+# `call:MODULE:FACTORY` IS THE SEAM, AND THE CALLER STATES IT. This project's
+# first page says the model proposes and these tools grade. The proposing half
+# is not this repo's to ship: an adapter that dials one service is a choice
+# about a vendor, a product and a price, made inside a music repository, and
+# every one of those is the caller's to make and to change without touching
+# this file. So the harness NAMES NOTHING. It is told which module to import
+# and which attribute on it produces the call, it checks that what came back
+# meets the contract below, and it refuses by name when it does not.
+#
+#   MODULE   any importable module -- installed, or on PYTHONPATH, or beside
+#            this script. The harness imports exactly what it is told.
+#   FACTORY  an attribute on it (dotted paths walked) that, CALLED WITH NO
+#            ARGUMENTS, returns the `call` a `ModelProposer` takes:
+#            `callable(prompt) -> str`.
+#
+# THERE IS NO DEFAULT MODULE AND NO FALLBACK ONE, the same way `--subdivision`
+# has no default: an undeclared coordinate REFUSES rather than being guessed
+# at, and a guess here would be this file choosing a vendor by omission.
+#
+# `quality/propose.py` IS IMPORTED LAZILY, inside the one branch that needs
+# it. It is another cell's module and may not have landed; `stub` and
+# `replay:` must keep working meanwhile, and a top-level import would make the
+# whole CLI un-runnable until it exists. `wiring`'s import reachability walks
+# the AST and reads lazy imports inside function bodies (its own comment says
+# so), so it is NOT reported STRANDED on the strength of being imported this
+# way.
+# ---------------------------------------------------------------------------
+
+#: THE CONTRACT, keyed on the ROLE rather than on a module name, because only
+#: one of the two roles has a name this file is entitled to know. Printed by
+#: the refusals, so a caller reads what was checked rather than "it did not
+#: work", and a sibling cell reads what it has to satisfy.
+#:
+#: `quality.propose` is this repo's own and vendor-neutral: `ModelProposer`
+#: takes any `callable(prompt) -> str`. Its members are PROBED in order and
+#: the first hit wins, because that seam is a sibling's to spell.
+#:
+#: The other row has no probe list on purpose. The caller declared the exact
+#: attribute in `--propose=call:MODULE:FACTORY`, so there is nothing to guess
+#: at -- guessing would be the failure mode this whole spelling removes.
+PROPOSE_CONTRACT = {
+    "quality.propose": ("ModelProposer",),
+    "MODULE:FACTORY (declared by --propose=call:)":
+        ("FACTORY() -> callable(prompt) -> str",),
+}
+
+
+def _first_attr(mod, names):
+    """-> (name, value) for the first of `names` `mod` actually has, else
+    (None, None). The probe is declared in `PROPOSE_CONTRACT` rather than
+    guessed at the call site, so a refusal can print what it looked for."""
+    for n in names:
+        if hasattr(mod, n):
+            return n, getattr(mod, n)
+    return None, None
+
+
+def _replay_proposer(path):
+    """-> (propose, propose_pair, disclosure) reading recorded proposals.
+
+    THE FILE IS THE RECORD OF A RUN, not a script: JSON, one object.
+
+        {"propose": [{"line": 3, "attempt": 0, "text": "..."}],
+         "propose_pair": [{"pivot": "...", "anchor": "...",
+                           "pivot_word": "...", "anchor_word": "...",
+                           "new_pivot": "...", "new_anchor": "..."}]}
+
+    THE TWO ARE KEYED DIFFERENTLY BECAUSE THE LOOP CALLS THEM DIFFERENTLY.
+    Tier 1's `propose(brief, lines, attempt, reasons=None, whole=())` has a
+    line number, so (line, attempt) is its key. Tier 2's
+    `propose_pair(pair_brief)` is handed ONE `quality.loop.PairBrief`, whose
+    two `_word` fields are THE WORDS THIS ATTEMPT IS ASKING FOR rather than
+    the ones currently at the two line ends — so the key is the four
+    coordinates that identify the proposal: the two texts as they stand and
+    the two words being asked for. Keying on the pivot's line number alone
+    would collapse every attempt in one backtrack search into a single
+    record and replay the first one forever.
+
+    READ OFF THE `PairBrief` BY ATTRIBUTE, never by unpacking. The contract
+    moved on 2026-08-14 from four positional strings to one object, and this
+    reader is duck-typed the same way `quality/propose.py` is: it takes
+    `getattr`s off whatever it is handed, so a hand-built stand-in in a test
+    replays exactly as the real one does.
+
+    A MISS IS A MISS AND IS COUNTED. Returning `None` for an unrecorded key
+    is exactly what the stub does when it runs out of candidates — the loop
+    reads it as "this proposer gave up here", which is true. What would be
+    dishonest is a miss that silently fell back to the stub's word swap, so
+    it does not: the counts are printed under the result, and a replay that
+    matched NOTHING says so rather than reporting the loop's verdict on a
+    draft no recorded proposal ever touched.
+    """
+    try:
+        with open(path) as fh:
+            rec = json.load(fh)
+    except OSError as e:
+        _refuse(f"--propose=replay:{path} — {e.strerror or e}",
+                detail=["`replay:PATH` reads a recorded run; the path is read "
+                 "relative to the working directory, not to the lyric file"])
+    except ValueError as e:                    # json.JSONDecodeError IS-A this
+        _refuse(f"--propose=replay:{path} — not readable as JSON: {e}",
+                detail=['expected {"propose": [{"line": N, "attempt": N, '
+                 '"text": "..."}], "propose_pair": [...]}'])
+    if not isinstance(rec, dict):
+        _refuse(f"--propose=replay:{path} — the top level is "
+                f"{type(rec).__name__}, not an object",
+                detail=['expected {"propose": [...], "propose_pair": [...]}'])
+    ones, pairs = {}, {}
+    try:
+        for r in rec.get("propose", []):
+            ones[(int(r["line"]), int(r["attempt"]))] = r["text"]
+        for r in rec.get("propose_pair", []):
+            pairs[(r["pivot"], r["anchor"],
+                   r["pivot_word"], r["anchor_word"])] = (r["new_pivot"],
+                                                          r["new_anchor"])
+    except (KeyError, TypeError, ValueError) as e:
+        _refuse(f"--propose=replay:{path} — a record is malformed: {e!r}",
+                detail=["`propose` records need line/attempt/text; `propose_pair` "
+                 "records need pivot/anchor/pivot_word/anchor_word/"
+                 "new_pivot/new_anchor"])
+    if not ones and not pairs:
+        _refuse(f"--propose=replay:{path} — the file parses and records "
+                f"NOTHING (0 propose, 0 propose_pair)",
+                detail=["an empty replay would drive the loop with a proposer that "
+                 "gives up on every line, and report that as the loop's "
+                 "verdict on the draft. Doctrine 20: that is a refusal, not "
+                 "a result"])
+    tally = {"hit": 0, "miss": 0}
+
+    def propose(brief, lines, attempt, reasons=None, whole=()):
+        # `whole` is accepted and unused, exactly as `reasons` is: a replay
+        # answers from a record and reads neither. A proposer that WRITES
+        # reads both (`quality/propose.py` renders them into the prompt);
+        # this one only has to have the signature the loop calls.
+        text = ones.get((brief.line_no, attempt))
+        tally["hit" if text is not None else "miss"] += 1
+        return text
+
+    def propose_pair(pair_brief):
+        key = (getattr(pair_brief, "pivot_text", None),
+               getattr(pair_brief, "anchor_text", None),
+               getattr(pair_brief, "pivot_word", None),
+               getattr(pair_brief, "anchor_word", None))
+        hit = pairs.get(key)
+        tally["hit" if hit is not None else "miss"] += 1
+        return hit
+
+    def disclosure(done=False):
+        head = (f"  PROPOSER: replay:{path} — {len(ones)} recorded line "
+                f"proposal(s), {len(pairs)} recorded pair(s)")
+        if not done:
+            return head + "; nothing outside this process is reached by " \
+                          "this spelling"
+        return (f"{head}; {tally['hit']} consulted and answered, "
+                f"{tally['miss']} asked and NOT recorded (the loop read "
+                f"those as this proposer giving up, never as the stub's "
+                f"word swap)"
+                + ("" if tally["hit"] else
+                   ". NOT ONE recorded proposal matched what the loop asked "
+                   "for, so every line below is the loop's verdict on the "
+                   "draft it was handed and no recorded text was tried"))
+    return propose, propose_pair, disclosure
+
+
+class _NeedProposal(Exception):
+    """The loop asked for a line nobody has written yet. NOT an error.
+
+    This is the control flow `defer:` exists for, and it is an exception
+    because the loop is a CALL STACK: `revise_loop` -> `_try_tier1` ->
+    `propose`, and the proposer is four frames down with no way to return
+    "stop, ask a human, and come back later" through a contract whose return
+    type is `str | None`. `None` already means something else and means it
+    load-bearingly — the loop reads it as THIS PROPOSER GAVE UP and moves on,
+    which is the one reading a suspension must not have.
+    """
+
+    def __init__(self, kind, record, prompt):
+        super().__init__(f"a {kind} proposal is required")
+        self.kind, self.record, self.prompt = kind, record, prompt
+
+
+def _defer_state(path):
+    """-> the deferred-run state at `path`, or an empty one. Never raises."""
+    empty = {"version": 1, "answered": {"propose": [], "propose_pair": []},
+             "pending": None}
+    if not os.path.exists(path):
+        return empty
+    try:
+        with open(path, encoding="utf-8") as fh:
+            st = json.load(fh)
+    except OSError as e:
+        _refuse(f"--propose=defer:{path} — {e.strerror or e}")
+    except ValueError as e:
+        _refuse(f"--propose=defer:{path} — not readable as JSON: {e}",
+                detail=["this file is written by this verb; if you edited it, "
+                        "only the `pending.answer` field is yours to fill"])
+    if not isinstance(st, dict) or "answered" not in st:
+        _refuse(f"--propose=defer:{path} — not a deferred-run state",
+                detail=['expected {"answered": {...}, "pending": {...}}'])
+    st.setdefault("pending", None)
+    st["answered"].setdefault("propose", [])
+    st["answered"].setdefault("propose_pair", [])
+    return st
+
+
+def _defer_proposer(path):
+    """-> (propose, propose_pair, disclosure) that SUSPENDS instead of guessing.
+
+    THE PROBLEM THIS SOLVES, stated plainly because it is not a Python
+    problem and the first diagnosis of it in this project said it was. A
+    proposer is `callable(prompt) -> str`; anything can be one. What cannot
+    happen is a CHILD PROCESS re-entering the agent that spawned it: while
+    `revise_loop` runs, whoever started it is blocked waiting for it to
+    return, so a proposer that needs a writer's judgement has nobody to ask.
+    `call:` answers this by reaching a service — which needs a credential and
+    is not always available. `defer:` answers it WITHOUT reaching anything:
+    the loop stops at the first unanswered request, writes down exactly what
+    it asked for, and exits. The writer answers in the file. The same command
+    run again picks up where it stopped.
+
+    SO THE LOOP IS NOT DRIVEN, IT IS RESUMED, and that is the whole design.
+    Re-running replays every answer already given IN ORDER and continues past
+    them — which is sound only because `revise_loop` is deterministic:
+    verified by inspection (it iterates no set in its control flow, doctrine
+    66) and empirically (three separate processes, byte-identical output, so
+    hash randomisation would have shown).
+
+    ENFORCEMENT IS THE POINT, not convenience. There is no path from "flags
+    outstanding" to a final draft except through the gates, because this verb
+    will not emit one until the loop it is resuming actually converges. A
+    writer who skips a round does not get a worse song; they get exit 4 and
+    the same question again. That matters because the failure this closes was
+    never that the loop was wrong — it was that a writer with the discipline
+    to run it by hand is a writer who can also decide not to.
+
+    THE STATE FILE'S `answered` BLOCK IS A REPLAY FILE, byte-for-byte the
+    schema `--propose=replay:` reads, and that is deliberate rather than
+    convenient: a finished deferred run is a recorded run, so the session
+    that wrote a song can be re-run by anyone with no writer present and no
+    credential (doctrine 14's independence, and the only way a measurement
+    involving a writer is reproducible here at all).
+    """
+    from quality import propose as PR
+    st = _defer_state(path)
+    pend = st.get("pending")
+    if pend is not None:
+        # A pending request with no answer is the gate. Refusing to advance is
+        # the enforcement; printing the prompt again is so the writer never has
+        # to go looking for what was asked.
+        if pend.get("answer") in (None, "", {}):
+            print(f"  SUSPENDED — a {pend['kind']} proposal is required and "
+                  f"`pending.answer` in {path} is still empty.")
+            print(f"  Answer it there, then run the same command again.\n")
+            print(pend.get("prompt", ""))
+            sys.exit(4)
+        # Answered: fold it into the record and clear the slot. The loop below
+        # re-runs from the top and replays it along with everything earlier.
+        rec, ans = dict(pend["record"]), pend["answer"]
+        if pend["kind"] == "propose":
+            parsed = ans if isinstance(ans, str) else None
+            parsed = PR.parse_line(parsed) if parsed is not None else None
+            if parsed is None:
+                _refuse(f"--propose=defer:{path} — `pending.answer` is not "
+                        f"unambiguously one line",
+                        detail=["`quality.propose.parse_line` is STRICT on "
+                                "purpose: a mis-parsed answer writes a line "
+                                "nobody proposed into the draft, and verify() "
+                                "cannot catch that — a mis-parsed line is just "
+                                "a changed line, which is what was asked for."])
+            rec["text"] = parsed
+            st["answered"]["propose"].append(rec)
+        else:
+            parsed = PR.parse_pair(ans) if isinstance(ans, str) else None
+            if parsed is None:
+                _refuse(f"--propose=defer:{path} — `pending.answer` is not a "
+                        f"readable PIVOT/ANCHOR pair",
+                        detail=["tier 2 has TWO slots and their order is not "
+                                "something a response format can be trusted "
+                                "to have got right, so both markers are "
+                                "required (quality/propose.py `parse_pair`)."])
+            rec["new_pivot"], rec["new_anchor"] = parsed
+            st["answered"]["propose_pair"].append(rec)
+        st["pending"] = None
+
+    ones = {(int(r["line"]), int(r["attempt"])): r["text"]
+            for r in st["answered"]["propose"]}
+    pairs = {(r["pivot"], r["anchor"], r["pivot_word"], r["anchor_word"]):
+             (r["new_pivot"], r["new_anchor"])
+             for r in st["answered"]["propose_pair"]}
+    tally = {"hit": 0}
+
+    def _suspend(kind, record, prompt):
+        st["pending"] = {"kind": kind, "record": record, "prompt": prompt,
+                         "answer": None}
+        raise _NeedProposal(kind, record, prompt)
+
+    def propose(brief, lines, attempt, reasons=None, whole=()):
+        text = ones.get((brief.line_no, attempt))
+        if text is not None:
+            tally["hit"] += 1
+            return text
+        _suspend("propose",
+                 {"line": brief.line_no, "attempt": attempt, "text": None},
+                 PR.render_line(brief, lines, whole=whole, attempt=attempt,
+                                reasons=reasons))
+
+    def propose_pair(pair_brief):
+        key = (getattr(pair_brief, "pivot_text", None),
+               getattr(pair_brief, "anchor_text", None),
+               getattr(pair_brief, "pivot_word", None),
+               getattr(pair_brief, "anchor_word", None))
+        hit = pairs.get(key)
+        if hit is not None:
+            tally["hit"] += 1
+            return hit
+        _suspend("propose_pair",
+                 {"pivot": key[0], "anchor": key[1], "pivot_word": key[2],
+                  "anchor_word": key[3], "new_pivot": None,
+                  "new_anchor": None},
+                 PR.render_pair(pair_brief))
+
+    def disclosure(done=False):
+        n = len(ones) + len(pairs)
+        head = (f"  PROPOSER: defer:{path} — {n} answer(s) already given, "
+                f"replayed in order")
+        if not done:
+            return (head + "; nothing outside this process is reached, and "
+                    "the loop SUSPENDS at the first unanswered request "
+                    "rather than guessing")
+        return (f"{head}; {tally['hit']} consulted and answered. The loop ran "
+                f"to a stop condition, so this state is COMPLETE and its "
+                f"`answered` block is a valid --propose=replay: file")
+
+    disclosure.state = st                    # the verb writes it on suspension
+    return propose, propose_pair, disclosure
+
+
+def _resolve_proposer(spec):
+    """`--propose=`'s value -> (propose, propose_pair, disclosure).
+
+    `disclosure(done=False)` is printed TWICE — once before the loop, for
+    the identity, and once after it with `done=True`, because `replay:` only
+    knows how much of its record was actually consulted once the run is over
+    and a proposer that answered nothing must say so under its own result
+    rather than only in a count nobody re-reads. Every failure in this
+    function is a printed refusal and exit 2, never a traceback and never a
+    silent fall back to the stub.
+    """
+    if spec == "stub":
+        def disclosure(done=False):
+            return ("  PROPOSER: stub (the default) — quality/loop.py's "
+                    "`default_propose`, a single-word splice that proves the "
+                    "loop's control flow and does not write. Nothing outside "
+                    "this process was reached. `--propose=replay:PATH` or "
+                    "`--propose=call:MODULE:FACTORY` for text something else "
+                    "actually wrote")
+        return None, None, disclosure           # `revise_loop`'s own defaults
+
+    if spec.startswith("replay:"):
+        return _replay_proposer(spec.split(":", 1)[1])
+
+    if spec.startswith("defer:"):
+        return _defer_proposer(spec.split(":", 1)[1])
+
+    if not spec.startswith("call:"):
+        _refuse(f"--propose wants 'stub', 'replay:PATH', 'defer:PATH' or "
+                f"'call:MODULE:FACTORY', got {spec!r}",
+                detail=["a value this flag does not define is not coerced to the "
+                 "nearest one and is not defaulted to `stub` (doctrine 1) — "
+                 "the same shape `--fallback=bogus` already holds"])
+
+    # `call:MODULE:FACTORY`. EVERY NAME HERE CAME OFF THE COMMAND LINE. This
+    # file imports what it was told to import and nothing else; there is no
+    # default module, no fallback module and no probe list for the caller's
+    # half of the seam, because a guess at any of the three would be this
+    # harness choosing a proposer on the writer's behalf.
+    rest = spec[len("call:"):]
+    if ":" not in rest or not rest.split(":", 1)[0].strip() \
+            or not rest.split(":", 1)[1].strip():
+        _refuse(f"--propose=call: — MODULE and FACTORY are both required, "
+                f"got {rest!r}",
+                detail=["spelling: --propose=call:MODULE:FACTORY, e.g. "
+                 "`--propose=call:my_adapters.drafting:make_call`",
+                 "MODULE is any importable module you supply; FACTORY is an "
+                 "attribute on it (dotted paths are walked) that, called "
+                 "with NO arguments, returns callable(prompt) -> str",
+                 "nothing is assumed for an omitted half — an undeclared "
+                 "coordinate refuses rather than being guessed at, the same "
+                 "way `--subdivision` does (doctrine 1)"])
+    mod_name, attr_path = rest.split(":", 1)
+    mod_name, attr_path = mod_name.strip(), attr_path.strip()
+
+    # THE CALLER'S HALF IS RESOLVED FIRST, and the order is a decision. Both
+    # halves have to be there, so either could be checked first — but one of
+    # them is a string the caller typed on this command line and the other is
+    # a module they did not name, and a refusal about the thing they typed is
+    # the one they can act on. Resolving `quality/propose.py` first would
+    # answer `--propose=call:no_such_module:x` by complaining about a file
+    # the caller never mentioned.
+    import importlib
+    try:
+        mod = importlib.import_module(mod_name)
+    except ImportError as e:
+        _refuse(f"--propose=call:{mod_name}:{attr_path} — {mod_name!r} is "
+                f"not importable ({e})",
+                detail=["this harness imports exactly the module it is told to and "
+                 "names none of its own — nothing is substituted for one it "
+                 "cannot find",
+                 "the module must be installed, on PYTHONPATH, or beside "
+                 "lyric_harness.py"])
+    obj, walked = mod, mod_name
+    for part in attr_path.split("."):
+        walked += "." + part
+        if not hasattr(obj, part):
+            _refuse(f"--propose=call:{mod_name}:{attr_path} — {mod_name!r} "
+                    f"has no {walked[len(mod_name) + 1:]!r}",
+                    detail=[f"resolved as far as {walked.rsplit('.', 1)[0]!r}",
+                     "FACTORY is the attribute YOU declared, so it is not "
+                     "searched for under another name"])
+        obj = getattr(obj, part)
+    if not callable(obj):
+        want = PROPOSE_CONTRACT["MODULE:FACTORY (declared by "
+                                "--propose=call:)"][0]
+        _refuse(f"--propose=call:{mod_name}:{attr_path} — the declared "
+                f"FACTORY is a {type(obj).__name__}, not callable",
+                detail=[f"the contract is {want}"])
+    try:
+        call = obj()
+    except TypeError as e:
+        _refuse(f"--propose=call:{mod_name}:{attr_path} — the declared "
+                f"FACTORY did not accept a no-argument call: {e}",
+                detail=["FACTORY is called with NO arguments and must return the "
+                 "callable(prompt) -> str, so anything it needs — an "
+                 "endpoint, a credential, a model choice, a budget — is "
+                 "closed over on YOUR side of this seam and named nowhere "
+                 "in this repository"])
+    if not callable(call):
+        _refuse(f"--propose=call:{mod_name}:{attr_path} — FACTORY() returned "
+                f"a {type(call).__name__}, not a callable",
+                detail=["quality/propose.py's ModelProposer takes one `call`, and "
+                 "calls it with a rendered prompt"])
+
+    # THE CALLER'S HALF IS SATISFIED. Now this repo's own, and it is the
+    # LAST thing checked for the reason given above.
+    try:
+        from quality import propose as PR
+    except ImportError as e:
+        _refuse(f"--propose=call:{mod_name}:{attr_path} — the declared "
+                f"FACTORY resolved, and quality/propose.py is not importable "
+                f"({e})",
+                detail=["the prompt renderer is another cell's module and may not "
+                 "have landed yet; `--propose=stub` and "
+                 "`--propose=replay:PATH` do not need it",
+                 "NOTHING was called on your side before this refusal — the "
+                 "FACTORY was invoked, the callable it returned was not"])
+    # PROBED, not assumed: `ModelProposer` is a sibling's to spell and an
+    # `AttributeError` from three frames down is exactly the traceback this
+    # flag's whole shape exists to replace.
+    _pname, Proposer = _first_attr(PR, PROPOSE_CONTRACT["quality.propose"])
+    if Proposer is None:
+        _refuse("--propose=call: — quality/propose.py has no "
+                f"{PROPOSE_CONTRACT['quality.propose'][0]}",
+                detail=[f"probed for: "
+                 f"{', '.join(PROPOSE_CONTRACT['quality.propose'])}"])
+    try:
+        proposer = Proposer(call)
+    except TypeError as e:
+        _refuse(f"--propose=call:{mod_name}:{attr_path} — ModelProposer(call) "
+                f"did not accept it: {e}",
+                detail=["quality/propose.py's ModelProposer takes one `call`"])
+    one = getattr(proposer, "propose", None)
+    two = getattr(proposer, "propose_pair", None)
+    if one is None:
+        _refuse("--propose=call: — the ModelProposer has no `.propose`",
+                detail=["quality/loop.py calls propose(brief, lines, attempt, "
+                        "reasons=None, whole=()) and "
+                        "propose_pair(pair_brief)"])
+
+    def disclosure(done=False):
+        return (f"  PROPOSER: call:{mod_name}:{attr_path} — DECLARED on the "
+                f"command line and imported as named; this harness supplied "
+                f"no module of its own. Wrapped in quality/propose.py's "
+                f"{Proposer.__name__}. Whatever that call reaches, and what "
+                f"it costs, is on the far side of this seam"
+                + ("" if two is not None else
+                   ". NO `.propose_pair`: tier 2 (the backtrack) fell back "
+                   "to quality/loop.py's own stub pair-swap, so any "
+                   "backtracked line is a SPLICE and not proposed text"))
+    return one, two, disclosure
 
 
 def _grid_song(GR, bp):
@@ -3871,6 +4523,33 @@ def main():
         for c in res["candidates"]:
             fl = f"   [{', '.join(c['flags'])}]" if c["flags"] else ""
             print(f"  {c['score']:.3f}  {c['tier']:<8} {c['word']}{fl}")
+        # WHICH ORDERING THIS IS, AND THE OTHER ONE — FIXED 2026-08-15.
+        # THE DEFECT: this verb ranks by RHYME SCORE and the loop's modal
+        # exclusion ranks by FREQUENCY, and neither said so. They are two
+        # answers to one question — "is this rhyme too predictable" — and the
+        # one a writer can reach from the command line is NOT the one the
+        # grader enforces. MEASURED on 'lines': this verb's top 7 is
+        # signs/mines/designs/shines/headlines/airlines/whines and the loop
+        # forbade shines/signs/designs/vines/declines/pines/sign — THREE in
+        # common. A writer pre-screening a rhyme here was screening against
+        # the wrong list and had nothing to tell them (doctrine 1: one
+        # question, one reading, and where there are two they are declared).
+        # `modal_field` is the LOOP'S OWN method, called here rather than
+        # reimplemented, so the two cannot drift.
+        print(f"\n  ORDERED BY RHYME SCORE, high to low. This is NOT the "
+              f"order doctrine 9 forbids on: `--modal` prints the loop's own "
+              f"set, which is ranked by FREQUENCY over the words the GRADER "
+              f"would accept, and the two lists differ.")
+        if "--modal" in args:
+            from quality.revise import (Reviser as _Rv,
+                                        ReviseDeclaration as _RD)
+            offered, forbidden = _Rv(lex=lex, decl=decl).modal_field(word)
+            print(f"\n  FORBIDDEN (modal — doctrine 9), what `verify()` "
+                  f"rejects a revision for taking, modal_exclusion="
+                  f"{_RD().modal_exclusion}:")
+            print(f"    {', '.join(forbidden) or '(none)'}")
+            print(f"  OFFERED after the exclusion ({len(offered)}):")
+            print(f"    {', '.join(offered[:24]) or '(none)'}")
 
     elif cmd == "meter":
         template = args[1]
@@ -4876,7 +5555,63 @@ def main():
         from quality.revise import Reviser
         from quality.schemes import NoMandate
         from quality import schemes as SC
-        rv = Reviser(lex=lex, decl=decl)
+        from quality.revise import ReviseDeclaration, RHYME_FINDINGS
+
+        # `--pursue=CODE,CODE` — WHICH NOTES THE LOOP KEEPS WORKING ON.
+        # Omitted, `pursue` is empty and every run reads exactly as it did
+        # before this flag existed. `ReviseDeclaration.pursue` carries the
+        # argument for why this is a declaration and not a re-typing of
+        # `MODAL_RHYME` to a flag.
+        _raw = _flag_value(args, "--pursue")
+        args = _strip_flag(args, "--pursue")
+        _pur = None
+        if _raw is not None:
+            _pur = [c.strip().upper() for c in _raw.split(",") if c.strip()]
+            # A code this loop can never brief is a REFUSAL, not a no-op: a
+            # silently-inert coordinate is what `--propose=bogus` and
+            # `--fallback=bogus` already refuse to be, and a writer who
+            # mistypes one would otherwise be told the draft is clean by a
+            # loop that was never looking (doctrine 1/20).
+            unknown = [c for c in _pur if c not in RHYME_FINDINGS]
+            if unknown:
+                _refuse(f"--pursue names {', '.join(unknown)}, which "
+                        f"`brief()` cannot offer a candidate field for",
+                        detail=["pursuable codes are the ones in "
+                                "quality.revise.RHYME_FINDINGS, because those "
+                                "are the findings a Brief answers with a "
+                                "field: " + ", ".join(sorted(RHYME_FINDINGS)),
+                                "a code outside that set would keep the loop "
+                                "asking on a line it has no move for, and "
+                                "spend every round reaching ROUND_LIMIT."])
+        # ONLY `revise` RUNS A LOOP, so only `revise` can pursue anything —
+        # FIXED 2026-08-15, and this was MY defect from the commit that added
+        # the flag. `pursue` is read by `revise_loop` and by nothing else, so
+        # on `brief`/`verify`/`song` it was inert. Worse than inert: the
+        # disclosure below printed anyway, telling a caller "the loop keeps
+        # asking on a line carrying one" on three verbs that run no loop at
+        # all. A silent no-op is doctrine 1; a no-op that ANNOUNCES itself as
+        # working is that plus a false statement in the report a writer reads.
+        # `--propose` already had exactly this refusal one flag over — "only
+        # `revise` runs a proposer" — so the shape was written, and this flag
+        # was added to the shared block without it.
+        if _pur and cmd != "revise":
+            _refuse(f"--pursue={','.join(_pur)} on `{cmd}` — only `revise` "
+                    f"runs a loop, and `pursue` is read by `revise_loop` "
+                    f"alone",
+                    detail=["`brief` reports what it finds and asks for "
+                            "nothing; `verify` grades one revision and its "
+                            "gate is deliberately UNCHANGED by pursuit; "
+                            "`song` runs no loop. On all three this flag "
+                            "would change no output.",
+                            "run `revise FILE MANDATE --pursue=...` instead."])
+        rdecl = ReviseDeclaration(pursue=frozenset(_pur)) if _pur else None
+        rv = Reviser(lex=lex, decl=decl, rdecl=rdecl)
+        if _pur:
+            print(f"  PURSUING {len(_pur)} note code(s) beyond the flags: "
+                  f"{', '.join(sorted(_pur))} — the loop keeps asking on a "
+                  f"line carrying one, and `verify()` is UNCHANGED: it still "
+                  f"gates on new FLAGS alone, so a pursued note can ask for a "
+                  f"revision and still cannot reject one (doctrine 6/7)")
 
         # `--blueprint=`/`--subdivision`/`--isochronous`: THE SAME THREE
         # DECLARED COORDINATES the `fit` verb already reads, wired here for
@@ -4908,6 +5643,37 @@ def main():
                 "that the pulses are evenly spaced in time (there is no "
                 "audio and no tempo here, so isochrony is an ASSUMPTION and "
                 "never a measurement)") else None
+
+        # `--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY` — read here with
+        # the other three flags and RESOLVED inside the `revise` branch, so a
+        # spelling that cannot be honoured refuses AFTER the mandate refusal
+        # rather than ahead of it (doctrine 20 again: `revise FILE` with no
+        # mandate must
+        # print the missing-mandate refusal first, and `quality/test_verbs.py`
+        # §6 pins the refusal to line 1).
+        #
+        # `eq_only`, the same reasoning `--fallback` records: `stub`,
+        # `replay:PATH` and `call:M:F` are all bare words and `--propose
+        # replay:x FILE.txt` would give a following-token reader nothing to
+        # distinguish a value from a filename.
+        #
+        # REFUSED ON THE OTHER THREE VERBS RATHER THAN IGNORED. `brief`,
+        # `verify` and `song` do not run a proposer at all — they grade a
+        # draft that already exists — so accepting the flag there and doing
+        # nothing with it would be a silent no-op on a flag whose entire
+        # subject is who wrote the words. That is the "silent downgrade"
+        # this flag's own shape exists to refuse.
+        propose_spec = _flag_value(args, "--propose", eq_only=True)
+        if propose_spec is not None and cmd != "revise":
+            _refuse(f"--propose={propose_spec} on `{cmd}` — only `revise` "
+                    f"runs a proposer",
+                    detail=[f"`{cmd}` grades a draft it is handed; nothing in it "
+                     f"writes a line, so this flag would have had no effect "
+                     f"and saying so is the point (it is not ignored)",
+                     "`revise FILE MANDATE --propose=...` is the verb that "
+                     "drives quality/loop.py"])
+        propose_spec = propose_spec or "stub"
+        song_counts = None
 
         # WHICH FILE IS WHICH — doctrine 79, and the half of the refusal only
         # this frame can supply. `quality/revise.py`'s message carries both
@@ -4949,7 +5715,24 @@ def main():
         # positional argument, not `--blueprint=` -- see its branch below --
         # but it can still take `--subdivision`/`--isochronous` as trailing
         # flags, so it shares this same stripping pass.)
-        _FLAG_NAMES = ("--blueprint", "--subdivision", "--isochronous")
+        _FLAG_NAMES = ("--blueprint", "--subdivision", "--isochronous",
+                       "--propose")
+        #: The flags with NO following value to eat. `--isochronous` is a bare
+        #: presence flag; `--propose` is `=`-only for the reason `--fallback`
+        #: records (its values are bare words a following-token reader could
+        #: not tell from a filename), so a space-separated `--propose stub`
+        #: must not silently swallow `stub` and leave the default standing.
+        _NO_VALUE = ("--isochronous", "--propose")
+        if "--propose" in args:
+            _refuse("--propose wants the `=` spelling: --propose=stub, "
+                    "--propose=replay:PATH, --propose=defer:PATH, "
+                    "--propose=call:MODULE:FACTORY",
+                    detail=["a space-separated `--propose stub` cannot be told from "
+                     "a positional argument that happens to be that word — "
+                     "the same reason `--fallback` is `=`-only, and it is a "
+                     "refusal rather than a swallowed token because the "
+                     "swallowed token would leave the DEFAULT proposer "
+                     "running under a command line that asked for another"])
         args, _skip = list(args), False
         cleaned = []
         for a in args:
@@ -4958,14 +5741,14 @@ def main():
                 continue
             base = a.split("=", 1)[0]
             if base in _FLAG_NAMES:
-                if "=" not in a and base != "--isochronous":
+                if "=" not in a and base not in _NO_VALUE:
                     _skip = True          # space-separated form: eat the value
                 continue
             cleaned.append(a)
         args = cleaned
 
-        def _mandate_arg(spec, lines):
-            """CLI spelling -> anything `quality.schemes.mandate` accepts.
+        def _mandate_arg(args, at, lines):
+            """CLI spelling(s) -> anything `quality.schemes.mandate` accepts.
 
             `brief FILE ABAB` could only ever name a PARTITION, and the song
             in examples/ has no letter scheme at all — its cliques overlap,
@@ -4992,31 +5775,113 @@ def main():
             directly. `--returns=` closes that: same syntax as `--groups=`,
             same 1-based/';'-separated groups, but every group becomes a
             RETURN CLASS instead of a plain rhyme requirement.
+
+            A FOURTH GAP, IN THE READER RATHER THAN IN THE VOCABULARY —
+            FOUND BY WRITING A SONG THROUGH THE LOOP, FIXED 2026-08-15. The
+            three spellings above were all reachable and only ONE OF THEM WAS
+            EVER READ: the mandate came out of a single positional slot, so a
+            second spelling on the same command line was never looked at.
+            A song with ABAB verses AND a verbatim chorus needs both at once —
+            `--groups=` cannot say "identity required" and `--returns=` cannot
+            say "these merely rhyme" — and that is the ordinary shape of a
+            popular song, not a corner case.
+
+            IT FAILED TWO DIFFERENT WAYS, and the quiet one is the bad one.
+            `song`/`brief`/`revise` read slot N and DROPPED the rest without a
+            word: `song ... --groups=A --returns=B` was measured
+            BYTE-IDENTICAL to `song ... --groups=A`, so a declared chorus was
+            silently ungraded and the report said nothing. `verify` has a
+            trailing line-number positional, so the unread flag reached
+            `int()` instead and it refused with `invalid literal for int()
+            with base 10: '--returns=1'` — the same defect wearing a crash.
+            One coordinate, dropped in silence by three verbs and mis-blamed
+            by the fourth; doctrine 1 says a declared coordinate is not
+            silently outranked, and doctrine 20 says a refusal has to name its
+            own cause.
+
+            NOT COMBINABLE, and these REFUSE rather than pick a winner:
+            `--cliques` with anything (it DERIVES its groups from observed
+            rhyme, so what a writer additionally declared cannot be layered on
+            a cover that was not declared at all — doctrine 14), a letter
+            string with anything (a letter is a property of a LINE and cannot
+            carry an overlapping return class — doctrine 2), and the same
+            spelling handed in twice.
+
+            -> (scheme, tail), where `tail` is the positionals that FOLLOW the
+            mandate. It is returned rather than recomputed because removing a
+            flag MOVES every positional after it, and `verify`'s targeted line
+            numbers are one of them.
             """
-            if spec is None:
-                return None                     # let the refusal fire
-            if spec == "--cliques":
+            flags, tail = [], []
+            for tok in args[at:]:
+                if tok == "--cliques":
+                    flags.append(("--cliques", None))
+                elif tok.startswith("--groups="):
+                    flags.append(("--groups=", tok.split("=", 1)[1]))
+                elif tok.startswith("--returns="):
+                    flags.append(("--returns=", tok.split("=", 1)[1]))
+                else:
+                    tail.append(tok)
+
+            names = [n for n, _ in flags]
+            if len(names) != len(set(names)):
+                _refuse("the same mandate spelling was handed in more than "
+                        "once, and this reader will not choose between them",
+                        detail=[f"handed in: {' '.join(names)}"])
+            if "--cliques" in names and len(flags) > 1:
+                _refuse("--cliques cannot be combined with another mandate "
+                        "spelling",
+                        detail=["--cliques DERIVES its groups from the song's "
+                                "own rhyme graph (source=derived, doctrine "
+                                "14), so it is not a declaration another one "
+                                "can be layered onto.",
+                                "declare the whole mandate with --groups= "
+                                "and/or --returns=, or hand in --cliques "
+                                "alone."])
+            if flags and not names:              # unreachable; keeps the pair honest
+                _refuse("mandate flags were found and none was named")
+
+            def _groups(raw):
+                # 1-based, ';'-separated, MAY OVERLAP
+                return [[int(x) for x in g.split(",") if x.strip()]
+                        for g in raw.split(";") if g.strip()]
+
+            by = dict(flags)
+            if not flags:
+                # No flag: the mandate is the FIRST positional, as it always
+                # was — a letter string, or None so the refusal can fire.
+                spec = tail[0] if tail else None
+                return spec, tail[1:]
+            if "--cliques" in by:
                 # The song's OWN structure. `mandate_from_graph` marks it
                 # source="derived", so the brief says out loud that its groups
                 # band-pass BY CONSTRUCTION (doctrine 14).
-                return rv.mandate_from_graph(lines)
-            if spec.startswith("--groups="):
-                # --groups=1,3;2,4;27,6 — 1-based, ';'-separated, MAY OVERLAP
-                return [[int(x) for x in g.split(",") if x.strip()]
-                        for g in spec.split("=", 1)[1].split(";") if g.strip()]
-            if spec.startswith("--returns="):
-                # --returns=11,19,27;12,20,28 — same syntax as --groups=, but
-                # every line in a group is declared the SAME LINE: REQUIRE
-                # RETURN, not REQUIRE RHYME. Realised into a `Mandate` here
-                # (not left as a plain list) because `Reviser.mandate()`
-                # forwards no `returns=` of its own (`SC.mandate(spec,
-                # n_lines=...)`, nothing else) — the ONLY way to get identity
-                # semantics into `rv.brief`/`.verify`/`.inspect` is to hand
-                # them an ALREADY-BUILT Mandate, which is what this returns.
-                groups = [[int(x) for x in g.split(",") if x.strip()]
-                          for g in spec.split("=", 1)[1].split(";") if g.strip()]
-                return SC.mandate(groups, n_lines=len(lines), returns=groups)
-            return spec                         # a letter string
+                return rv.mandate_from_graph(lines), tail
+            if tail and not tail[0].lstrip("-").replace(",", "").isdigit():
+                # A letter string BESIDE a flag. Refused rather than ignored:
+                # silently dropping it is the very defect this block closes.
+                _refuse(f"mandate {tail[0]!r} was handed in beside "
+                        f"{' '.join(names)}, and a letter scheme cannot be "
+                        f"combined with either",
+                        detail=["a letter is a property of a LINE (doctrine "
+                                "2), so it cannot carry an overlapping group "
+                                "or a return class.",
+                                "spell the whole mandate as --groups= and/or "
+                                "--returns=."])
+
+            g = _groups(by["--groups="]) if "--groups=" in by else []
+            r = _groups(by["--returns="]) if "--returns=" in by else []
+            # `--returns=` groups are REQUIRE_RETURN — identity REQUIRED,
+            # REPEAT is the requirement and not a violation (doctrine 3's
+            # second half). `--groups=` groups are plain REQUIRE_RHYME. Both
+            # go into ONE cover with `returns=` naming which of them are the
+            # return classes, because a Mandate is the only object that can
+            # hold two different requirement kinds at once, and
+            # `Reviser.mandate()` forwards no `returns=` of its own.
+            if r:
+                return (SC.mandate(g + r, n_lines=len(lines), returns=r),
+                        tail)
+            return g, tail                       # --groups= alone, as before
 
         def _say_derived(m):
             """Doctrine 14, out loud. A cover read off the rhyme graph is
@@ -5043,7 +5908,33 @@ def main():
             """`brief`'s own report, factored out so `song` can print the
             identical thing after its own structural pre-check — one report
             format for "what to revise and what is forbidden", not two that
-            could drift apart from each other."""
+            could drift apart from each other.
+
+            -> {"flags": n, "notes": n, "flagged_lines": [...], ...}. The
+            counts are what `song` gates its EXIT CODE on, and they are
+            computed from `rv.brief()`'s finding set BEFORE any of the
+            rendering below runs: a rollup, an ordering or a heading may
+            never move a verdict (doctrine 91 — a count is a coordinate of
+            the rendering, so the rendering must not be a coordinate of the
+            count).
+
+            THREE SECTIONS, IN THIS ORDER, AND THE ORDER IS THE FIX. A real
+            16-line run printed 91 findings over 208 lines with the three
+            actionable `REPEAT_IN_VERSE` flags at output lines 45, 61 and
+            177 — scattered through 48 correct, long, near-identical
+            evidence paragraphs about a declared grid being one fact too
+            tight. Nothing here drops a finding; what changes is which of
+            them a reader reaches first (measured after: all four flag
+            decisions inside one six-line block at output line 19).
+
+              ROLLED UP     the codes that fire on (nearly) every line, one
+                            row each, with their own count and every line
+                            named (`rollup_findings`, above).
+              WHAT TO CHANGE  the FLAG inventory, one line per decision, no
+                            evidence. This is the part a writer acts on.
+              THE EVIDENCE  everything not rolled up, in full, flagged lines
+                            first — the paragraphs that used to be first.
+            """
             briefs = rv.brief(lines, scheme, blueprint=blueprint,
                               subdivision=subdivision, assume=assume)
             # THE WHOLE-DRAFT HALF OF THE SAME FINDING SET. `inspect()`
@@ -5102,6 +5993,69 @@ def main():
                     span_by_pair[(i, j)] = (v, s)
             except Exception:                # pragma: no cover
                 span_by_pair = {}
+            whole_flags = [f for f in whole
+                           if getattr(f, "severity", "") == "flag"]
+            # THE COUNTS ARE TAKEN HERE, off the finding set, BEFORE a single
+            # line of the rendering below runs. `song` gates its exit code on
+            # them, and a rollup that collapsed 48 findings into 3 rows must
+            # not move a verdict by one (doctrine 91: a count is a coordinate
+            # of the rendering, so the rendering may not be a coordinate of
+            # the count).
+            groups, rolled = rollup_findings(briefs)
+            n_flag = sum(len(v) for (_c, sev), v in groups.items()
+                         if sev == "flag")
+            n_note = sum(len(v) for (_c, sev), v in groups.items()
+                         if sev != "flag")
+            rolled_n = sum(len(groups[k]) for k in rolled)
+            flagged_lines = sorted({ln for (_c, sev), items in groups.items()
+                                    if sev == "flag" for ln, _f in items})
+
+            def _counts():
+                """The report's own arithmetic, handed to the caller.
+
+                `flags` and `whole_flags` are SEPARATE and are never added
+                together here (doctrine 79): one names lines and one cannot,
+                and `song` says both out loud rather than a sum when it
+                chooses its exit code.
+                """
+                return {"briefed": len(briefs), "flags": n_flag,
+                        "notes": n_note, "flagged_lines": flagged_lines,
+                        "rolled_codes": len(rolled),
+                        "rolled_findings": rolled_n,
+                        "whole": len(whole), "whole_flags": len(whole_flags)}
+
+            def _print_whole():
+                """BELOW the per-line half on purpose: `inspect()`'s own
+                NEAR_COLLISION evidence ends "See the whole-draft note
+                below", and until now there was no below to see.
+
+                A closure rather than a block at the end of the function
+                because three paths reach it — no briefs at all, briefs with
+                nothing left to print, and the ordinary report — and a fourth
+                copy of the same paragraph is what doctrine 1 forbids.
+                """
+                if not whole:
+                    return
+                print(f"\n  WHOLE DRAFT — {len(whole)} finding(s) that name "
+                      f"no single line, {len(whole_flags)} of them FLAG(S)")
+                print("      Not a line to revise, and not covered by the "
+                      "per-line half above: these are properties of the "
+                      "ITEM (the hook, the shape of the grid, the "
+                      "vocabulary across the whole draft), so there is no "
+                      "line_no to hand back and no candidate field to "
+                      "offer. `verify()` DOES read them — its diff covers "
+                      "`whole` as well as `per_line` — so a whole-draft "
+                      "flag can REJECT a revision and can never ASK for "
+                      "one. Disclosed here for the same reason "
+                      "`quality/loop.py` discloses them under a SUCCESS: a "
+                      "silent one reads exactly like a clean draft.")
+                for f in whole:
+                    loc = (f" (lines {', '.join(map(str, f.locations))})"
+                           if f.locations else "")
+                    print(f"      FINDING [{f.severity.upper():4}] "
+                          f"{f.code}: {f.message}{loc}")
+                    print(f"         {f.evidence}")
+
             # "nothing flagged" is now gated on BOTH halves. It used to be
             # printed on a draft carrying a whole-draft FLAG, which is the
             # worst reading this report can give: not a missing line, an
@@ -5109,18 +6063,141 @@ def main():
             if not briefs and not whole:
                 print("  nothing flagged — every mandated pair passes the "
                       "band on the lines the harness could read")
-            elif not briefs:
+                return _counts()
+            if not briefs:
                 print("  no LINE is flagged — every mandated pair passes the "
                       "band on the lines the harness could read. The "
                       "whole-draft findings below are not about one line and "
                       "are not covered by that sentence")
-            for b in briefs:
-                print(f"  L{b.line_no}: {b.text}")
-                for f in dedupe_findings(b.findings):
-                    print(f"      FINDING {f}")
-                for (i, j), (v, s) in sorted(span_by_pair.items()):
-                    if b.line_no not in (i, j):
+                _print_whole()
+                return _counts()
+
+            # THE HEADLINE, AND IT IS COUNTS BY KIND RATHER THAN ONE TOTAL.
+            # Flags and notes are not added together anywhere in this report:
+            # they ask different things of a writer (a flag is a defect, a
+            # note is a measurement handed back), and doctrine 79's whole
+            # subject is what a summed numerator hides. The whole-draft half
+            # is a THIRD count and is not folded into either — it names no
+            # line, so it cannot be a per-line total.
+            print(f"  REPORT: {len(briefs)} line(s) briefed — "
+                  f"{n_flag} FLAG, {n_note} NOTE (two counts, never summed: "
+                  f"doctrine 79)"
+                  + (f"; {len(whole)} WHOLE-DRAFT finding(s), "
+                     f"{len(whole_flags)} of them FLAG(S), below"
+                     if whole else ""))
+            if rolled:
+                print(f"          {len(rolled)} code(s) covering "
+                      f"{rolled_n} finding(s) are ROLLED UP below, and "
+                      f"{n_flag + n_note - rolled_n} print in full. Nothing "
+                      f"is dropped — a rolled code names every line it "
+                      f"fired on and carries its own count")
+                print(f"          ROLLUP RULE (declared: "
+                      f"lyric_harness.ROLLUP_SATURATION"
+                      f"/ROLLUP_MIN_LINES): a code on >= "
+                      f"{ROLLUP_SATURATION:.0%} of the briefed lines, or one "
+                      f"whose text is IDENTICAL everywhere it fires; either "
+                      f"way >= {ROLLUP_MIN_LINES} lines")
+
+                print("\n  ROLLED UP — one fact about the DRAFT, said once")
+                for key in groups:
+                    if key not in rolled:
                         continue
+                    code, sev = key
+                    items = groups[key]
+                    ls = sorted({ln for ln, _ in items})
+                    f0 = items[0][1]
+                    print(f"    [{sev.upper():4}] {code}  x{len(items)} on "
+                          f"{line_range(ls)} ({len(ls)} of {len(briefs)} "
+                          f"briefed line(s), {rolled[key]}): "
+                          f"{getattr(f0, 'message', '')}")
+                    ev = getattr(f0, "evidence", "")
+                    if ev and rolled[key] == "identical":
+                        print(f"           the SAME text on every one, so it "
+                              f"is one measurement: {ev}")
+                    elif ev:
+                        print(f"           L{items[0][0]}, as the sample "
+                              f"(the other {len(ls) - 1} differ only in "
+                              f"their numbers): {ev}")
+
+            # WHAT A WRITER ACTS ON, AHEAD OF WHY. Flags only, one row each,
+            # no evidence — the evidence is correct and long and was what
+            # buried this. A rolled-up code is ONE decision here however many
+            # lines it fired on, which is the honest count: a grid that is
+            # too tight for all sixteen lines is one thing to change.
+            #
+            # THE WHOLE-DRAFT FLAGS ARE IN THIS INVENTORY TOO, and marked as
+            # naming no line. They are the half `brief()` structurally cannot
+            # carry, and `verify()` reads them — a whole-draft flag can
+            # REJECT a revision — so leaving them out of the one list headed
+            # "what to change" would be the same silence this section was
+            # written to end, one layer over.
+            decisions = []
+            for key in groups:
+                code, sev = key
+                if sev != "flag":
+                    continue
+                items = groups[key]
+                ls = sorted({ln for ln, _ in items})
+                if key in rolled:
+                    decisions.append(f"{code} — {line_range(ls)} "
+                                     f"(x{len(items)}, rolled up above)")
+                else:
+                    for ln in ls:
+                        decisions.append(f"{code} — L{ln}")
+            for f in whole_flags:
+                decisions.append(f"{getattr(f, 'code', '?')} — WHOLE DRAFT "
+                                 f"(names no line; see below)")
+            print(f"\n  WHAT TO CHANGE — {len(decisions)} decision(s). "
+                  f"Flags only; the notes below are measurements handed "
+                  f"back, not defects (doctrine 6)")
+            if not decisions:
+                print("    nothing on any line, and nothing about the draft "
+                      "as a whole, carries a flag. The notes below still say "
+                      "what the draft is doing")
+            for i, d in enumerate(decisions, 1):
+                print(f"    {i}. {d}")
+
+            # THE EVIDENCE, LAST AND UNABRIDGED. Ordered by the lines that
+            # carry a flag THIS SECTION still prints — not by `flagged_lines`,
+            # which on the measured run is every line in the draft (the
+            # saturated `SLOTS_EXCEEDED` is on all sixteen) and would have
+            # made "flagged first" mean nothing at all. Inside a line, flags
+            # before notes, so the ordering is the same claim at every scale.
+            lead = {ln for key, items in groups.items()
+                    if key[1] == "flag" and key not in rolled
+                    for ln, _f in items}
+            order = sorted(briefs,
+                           key=lambda b: (b.line_no not in lead, b.line_no))
+            blocks = []
+            for b in order:
+                keep = [f for f in dedupe_findings(b.findings)
+                        if (getattr(f, "code", "?"),
+                            getattr(f, "severity", "note")) not in rolled]
+                keep.sort(key=lambda f: getattr(f, "severity", "") != "flag")
+                spans = [(i, j) for (i, j) in span_by_pair
+                         if b.line_no in (i, j)]
+                apparatus = (b.must_answer or b.joint_conflict
+                             or b.must_rhyme_with or b.forbidden_modal
+                             or b.candidates)
+                if not (keep or spans or apparatus):
+                    # Every finding on this line is in a rollup row above,
+                    # which named it. Printing the line again with nothing
+                    # under it would be the noise this section is fixing.
+                    continue
+                blocks.append((b, keep, spans))
+            if not blocks:
+                print("\n  THE EVIDENCE — nothing to print: every finding on "
+                      "every briefed line is in a ROLLED UP row above, and "
+                      "no line carries a candidate field")
+            else:
+                print("\n  THE EVIDENCE — every finding not rolled up, in "
+                      "full; the lines carrying an un-rolled flag first")
+            for b, keep, spans in blocks:
+                print(f"  L{b.line_no}: {b.text}")
+                for f in keep:
+                    print(f"      FINDING {f}")
+                for (i, j) in sorted(spans):
+                    v, s = span_by_pair[(i, j)]
                     head, *rest = report_pair(
                         s, v["endwords"][0], v["endwords"][1],
                         indent="          ")
@@ -5147,37 +6224,14 @@ def main():
                           f"{', '.join(b.forbidden_modal)}")
                 if b.candidates:
                     print(f"      offered: {', '.join(b.candidates[:12])}")
-            # BELOW the per-line half on purpose: `inspect()`'s own
-            # NEAR_COLLISION evidence ends "See the whole-draft note
-            # below", and until now there was no below to see.
-            if whole:
-                flags = [f for f in whole if f.severity == "flag"]
-                print(f"\n  WHOLE DRAFT — {len(whole)} finding(s) that name "
-                      f"no single line, {len(flags)} of them FLAG(S)")
-                print("      Not a line to revise, and not covered by the "
-                      "per-line half above: these are properties of the "
-                      "ITEM (the hook, the shape of the grid, the "
-                      "vocabulary across the whole draft), so there is no "
-                      "line_no to hand back and no candidate field to "
-                      "offer. `verify()` DOES read them — its diff covers "
-                      "`whole` as well as `per_line` — so a whole-draft "
-                      "flag can REJECT a revision and can never ASK for "
-                      "one. Disclosed here for the same reason "
-                      "`quality/loop.py` discloses them under a SUCCESS: a "
-                      "silent one reads exactly like a clean draft.")
-                for f in whole:
-                    loc = (f" (lines {', '.join(map(str, f.locations))})"
-                           if f.locations else "")
-                    print(f"      FINDING [{f.severity.upper():4}] "
-                          f"{f.code}: {f.message}{loc}")
-                    print(f"         {f.evidence}")
+            _print_whole()
+            return _counts()
 
         try:
             if cmd == "brief":
                 sides.append(("HANDED IN brief's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
-                scheme = _mandate_arg(args[2] if len(args) > 2 else None,
-                                      lines)
+                scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme)
                 if scheme is not None:
                     _say_blueprint()
@@ -5234,8 +6288,7 @@ def main():
                 lines = ([l for _, ls in marked for l in ls] if marked else
                         [l.strip() for l in lyric_text.splitlines()
                          if l.strip() and not is_apparatus_line(l)])
-                scheme = _mandate_arg(args[3] if len(args) > 3 else None,
-                                      lines)
+                scheme, _tail = _mandate_arg(args, 3, lines)
                 _say_derived(scheme)
                 if scheme is not None:
                     print(f"  BLUEPRINT: {song_bp_path} — meter and "
@@ -5257,19 +6310,23 @@ def main():
                 # Fraction`, a JSON syntax error) escaped `song` too. One
                 # handler, on the try every verb on this branch already
                 # shares, covers both.
-                _print_brief_report(lines, scheme, song_bp_path)
+                song_counts = _print_brief_report(lines, scheme,
+                                                  song_bp_path)
             elif cmd == "verify":
                 sides.append(("HANDED IN verify's BEFORE", args[1]))
                 sides.append(("HANDED IN verify's AFTER", args[2]))
                 before = load_lyric_lines(args[1])
                 after = load_lyric_lines(args[2])
-                scheme = _mandate_arg(args[3] if len(args) > 3 else None,
-                                      before)
+                scheme, tail = _mandate_arg(args, 3, before)
                 _say_derived(scheme)
                 if scheme is not None:
                     _say_blueprint()
-                targeted = ({int(x) for x in args[4].split(",")}
-                            if len(args) > 4 else None)
+                # `tail` and NOT `args[4]`: pulling a mandate flag out moves
+                # every positional behind it, and this one is the targeted
+                # line list. Reading the raw index is what met `--returns=1`
+                # at `int()` and refused in the wrong layer's words.
+                targeted = ({int(x) for x in tail[0].split(",")}
+                            if tail else None)
                 v = rv.verify(before, after, scheme, targeted=targeted,
                               blueprint=bp_path, subdivision=subdivision,
                               assume=assume)
@@ -5282,24 +6339,71 @@ def main():
                         print(f"    {k}: {v[k]}")
 
             else:
-                # `revise` — quality/loop.py driven end to end, with the
-                # STOCK mechanical proposer (quality/loop.py's own docstring:
-                # it swaps one word and writes nothing, which is enough to
-                # prove the loop's accept/reject/retry/backtrack/stop control
-                # flow -- not a way to get a good line). A caller wanting
-                # real writing supplies its own `propose`/`propose_pair`
-                # through the Python API; this verb exists so the control
-                # flow itself is runnable and inspectable without one.
+                # `revise` — quality/loop.py driven end to end. WHO WRITES
+                # THE LINE IS `--propose=`, DEFAULTING TO `stub`: the same
+                # mechanical single-word splice this verb has always run
+                # (quality/loop.py's own docstring — it proves the loop's
+                # accept/reject/retry/backtrack/stop control flow and is not
+                # a way to get a good line), now one of three declared
+                # spellings rather than the only reachable one. See
+                # `_resolve_proposer` for why the default may not reach
+                # anything outside this process, and why a `call:` that
+                # cannot be honoured refuses instead of quietly becoming
+                # this.
                 sides.append(("HANDED IN revise's FILE", args[1]))
                 lines = load_lyric_lines(args[1])
-                scheme = _mandate_arg(args[2] if len(args) > 2 else None,
-                                      lines)
+                scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme)
                 if scheme is not None:
                     _say_blueprint()
-                result = LP.revise_loop(rv, lines, scheme, blueprint=bp_path,
-                                        subdivision=subdivision, assume=assume)
+                propose, propose_pair, say_proposer = _resolve_proposer(
+                    propose_spec)
+                # DISCLOSED BEFORE THE RUN AS WELL AS AFTER IT, and the two
+                # are the same callable. Which proposer wrote the draft is
+                # the first thing a reader of this output needs and the last
+                # thing they can reconstruct from it — the same argument
+                # `_say_blueprint()` already makes one flag over.
+                print(say_proposer())
+                try:
+                    result = LP.revise_loop(rv, lines, scheme,
+                                            blueprint=bp_path,
+                                            subdivision=subdivision,
+                                            assume=assume, propose=propose,
+                                            propose_pair=propose_pair)
+                except _NeedProposal as need:
+                    # EXIT 4 — SUSPENDED, and it is a fourth code for the same
+                    # reason `song`'s flag verdict needed a third: 0 is "the
+                    # draft is clean", 2 is "the harness could not answer", 1
+                    # is Python's own uncaught exception, and 3 is "answered,
+                    # and a flag stands". None of those is "answered, and it
+                    # is your turn" — a gate that is WAITING is not a gate
+                    # that failed, and a caller in a pipeline has to tell a
+                    # suspension from a verdict (doctrine 20, one code
+                    # further out).
+                    path = propose_spec.split(":", 1)[1]
+                    with open(path, "w", encoding="utf-8") as fh:
+                        json.dump(say_proposer.state, fh, indent=2)
+                        fh.write("\n")
+                    print(f"\n  SUSPENDED — the loop asked for a "
+                          f"{need.kind} it has no answer for, and will not "
+                          f"guess one.")
+                    print(f"  Written to {path}. Fill `pending.answer`, then "
+                          f"run the SAME command again.\n")
+                    print(need.prompt)
+                    sys.exit(4)
                 print(result)
+                print(say_proposer(done=True))
+                if propose_spec.startswith("defer:"):
+                    # The run reached a stop condition, so `pending` is empty
+                    # and `answered` is now a COMPLETE record. Written on the
+                    # way out for the same reason it is written on suspension:
+                    # a state file that only exists while a run is unfinished
+                    # would make the replayable artefact the one thing a
+                    # finished run does not leave behind.
+                    with open(propose_spec.split(":", 1)[1], "w",
+                              encoding="utf-8") as fh:
+                        json.dump(say_proposer.state, fh, indent=2)
+                        fh.write("\n")
                 if result.lines != lines:
                     print("\n  FINAL DRAFT:")
                     for i, l in enumerate(result.lines, 1):
@@ -5351,6 +6455,77 @@ def main():
             # print the SAME refusal about the SAME file, and the only way
             # that is guaranteed rather than believed is one printer.
             _refuse(e, sides)
+
+        # ---------------------------------------------------------------
+        # `song`'S EXIT CODE — A FLAG IS NOT A REFUSAL AND IT IS NOT A PASS
+        #
+        # THE DEFECT: a real run reported 19 FLAG findings on 16 lines and
+        # exited 0, so nothing in a pipeline could gate on it. `song` is the
+        # WHOLE-SONG verb — the one a build step runs — and it answered
+        # "there are nineteen things wrong with this" in the same byte a
+        # clean song answers with.
+        #
+        # WHAT THE OTHER VERBS DO, checked before choosing rather than
+        # asserted: `brief`, `verify`, `revise` and `song` all exit 2 on a
+        # refusal (`NoMandate`, a blueprint/draft length mismatch, an
+        # unparseable blueprint) and 0 on absolutely everything else —
+        # `verify` prints `VERDICT: REJECTED` and exits 0, `revise` prints
+        # `no_progress` and exits 0, `candidates` exits 2 on a word it
+        # cannot read, `--fallback=bogus` exits 2. So 2 in this project
+        # already means ONE thing, consistently: THE HARNESS DID NOT ANSWER.
+        #
+        # WHICH IS WHY A FLAG MAY NOT BE 2. A flag is the harness answering
+        # — it read the song and found a defect. Charging that to the
+        # refusal code would make "sixteen lines overflow their bars"
+        # indistinguishable from "no mandate was declared", which is
+        # doctrine 20's own collapse ("inconclusive by construction" is not
+        # a result) run backwards. And it may not stay 0, because that is
+        # the defect. So it is a THIRD code.
+        #
+        #   0  answered, and nothing carries a flag
+        #   1  NOT USED HERE — an uncaught exception is Python's own 1, and
+        #      a gate that read 1 as "flags found" would pass a crash
+        #   2  REFUSED (doctrine 20): could not answer
+        #   3  answered, and at least one FLAG stands
+        #
+        # BOTH HALVES OF THE FINDING SET COUNT, and the whole-draft half is
+        # the one a gate would most easily have lost. `brief()` is built
+        # from `inspect()`'s `per_line` half, so a finding that names no
+        # line is in no `Brief` — `HOOK_ABSENT` (the song-function layer's
+        # ONLY flag), `LEXICAL_MONOTONY`, `FUNCTION_WORD_HEAVY`. `verify()`
+        # already reads them and a whole-draft flag can REJECT a revision,
+        # so a `song` that exited 0 over one would be certifying a draft the
+        # very same run refuses to accept a revision of. THE TWO COUNTS ARE
+        # NOT SUMMED (doctrine 79): the message states them separately,
+        # because one names lines and the other structurally cannot.
+        #
+        # SCOPED TO `song`, ON PURPOSE. `brief` is the interactive "what do
+        # I fix next" verb and every one of its useful runs has flags; a
+        # gate wants the whole-song verb, and moving `brief` in the same
+        # commit would silently change an exit code four other cases in
+        # `quality/test_verbs.py` assert on. NOTES NEVER MOVE IT: a note is
+        # a measurement handed back and doctrine 6 says a convention a
+        # writer may depart from cannot be the thing that fails a check.
+        # Computed from the finding set, never from the rendering — the
+        # rollup above collapses 48 findings into 3 rows and does not move
+        # this by one (`quality/test_verbs.py` §15).
+        if cmd == "song" and song_counts and (song_counts["flags"]
+                                              or song_counts["whole_flags"]):
+            per_line = (f"{song_counts['flags']} FLAG finding(s) on "
+                        f"{len(song_counts['flagged_lines'])} line(s) "
+                        f"{line_range(song_counts['flagged_lines'])}"
+                        if song_counts["flags"] else "no per-line FLAG")
+            whole_part = (f"{song_counts['whole_flags']} WHOLE-DRAFT FLAG(S) "
+                          f"naming no line"
+                          if song_counts["whole_flags"] else
+                          "no whole-draft FLAG")
+            print(f"\n  EXIT 3 — {per_line}; {whole_part}. Two counts, not a "
+                  f"sum (doctrine 79): one names lines and the other cannot. "
+                  f"Not a refusal (2, doctrine 20: the harness answered) and "
+                  f"not a pass (0). {song_counts['notes']} NOTE(s) are "
+                  f"reported above and are NOT counted here — a note is a "
+                  f"measurement handed back, never a defect (doctrine 6/79)")
+            sys.exit(3)
 
     elif cmd == "demo":
         print("DECLARATION")
@@ -5406,4 +6581,43 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # THE LAST TWO SHAPES THAT STILL REACHED A USER AS A TRACEBACK — FIXED
+    # 2026-08-15. Every verb in this file was given ONE refusal shape
+    # (`REFUSED — ...`, exit 2) a piece at a time — `candidates` on an OOV
+    # word, `--fallback=bogus`, a blueprint/draft length mismatch, `song`'s
+    # private handler, `--propose`'s vocabulary — and TWO whole classes were
+    # never covered, on any verb, because no single verb owned them.
+    # MEASURED at a3536ce, on the shipped file:
+    #     $ python3 lyric_harness.py brief                    -> IndexError, 1
+    #     $ python3 lyric_harness.py brief missing.txt ABAB   -> FileNotFound, 1
+    # Exit 1 is Python's own uncaught exception, so a caller in a pipeline
+    # reading 1 as "the harness crashed" was right, and reading it as "my
+    # arguments were wrong" had no way to tell (doctrine 20).
+    #
+    # THEY ARE CAUGHT SEPARATELY AND SAID DIFFERENTLY, because they are not
+    # the same fact. A named file that is not there is ALWAYS the caller's —
+    # `OSError` carries the filename and the OS's own reason, so the refusal
+    # can name both. A missing positional is NOT always the caller's: an
+    # `IndexError` from four frames inside a grader is a DEFECT in this file,
+    # and a handler that reported it as "you left out an argument" would be
+    # collapsing two different things into one message, which is the error
+    # doctrine 20 is about. So that refusal states the argument count it
+    # actually received AND says plainly that a complete-looking command line
+    # reaching it is a bug to report, with the exception carried through.
+    try:
+        main()
+    except OSError as e:
+        _refuse(f"{e.filename or 'a file this verb was given'} — "
+                f"{e.strerror or e}",
+                detail=["the path is read relative to the working directory, "
+                        "not to any file already handed in."])
+    except IndexError as e:
+        verb = sys.argv[1] if len(sys.argv) > 1 else "(no verb)"
+        n = max(0, len(sys.argv) - 2)
+        _refuse(f"{verb} — ran out of arguments at {n} given",
+                detail=["`--help` prints every verb's usage line; `wiring` "
+                        "prints which verb runs on which layer.",
+                        f"IF THE COMMAND LINE WAS COMPLETE this is a DEFECT "
+                        f"in lyric_harness.py and not your mistake — the "
+                        f"exception was {e!r}. Please report it with the "
+                        f"command you ran."])

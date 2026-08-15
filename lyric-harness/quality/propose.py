@@ -526,6 +526,16 @@ def render_pair(pair_brief):
     `brief`, `lines`, `attempt`, `reasons`, `whole`. Read by `getattr` with
     defaults, and `quality.loop` is NOT imported (it imports proposers; the
     dependency runs one way).
+
+    `pivot_word`/`anchor_word` ARE THE PROPOSAL — the words the loop's own
+    search is asking for on THIS attempt — and NOT what the two lines
+    currently end on. That is `PairBrief`'s own declared reading and this
+    function had the opposite one until 2026-08-14, which put a false
+    statement about the draft into every tier-2 prompt a real run produced.
+    Nothing here derives the CURRENT end word: it is `lyric_harness.`
+    `raw_final_token`'s job, this module imports `re` and nothing else, and
+    a second spelling of "the end word" would be the same defect one layer
+    down. The line text is printed in full instead.
     """
     g = pair_brief
     p_no = getattr(g, "pivot_line_no", 0)
@@ -576,11 +586,38 @@ def render_pair(pair_brief):
     out.append("")
 
     out.append("THE TWO LINES")
-    out.append(f"  PIVOT   L{p_no}: {p_text}"
-               + (f"   (ends on {p_word!r})" if p_word else ""))
-    out.append(f"  ANCHOR  L{a_no}: {a_text}"
-               + (f"   (ends on {a_word!r})" if a_word else ""))
+    out.append(f"  PIVOT   L{p_no}: {p_text}")
+    out.append(f"  ANCHOR  L{a_no}: {a_text}")
     out.append("")
+
+    # `pivot_word`/`anchor_word` ARE THE PROPOSAL, NOT THE STATUS QUO, and
+    # this block used to say the opposite. It rendered them as
+    # `(ends on 'mankind')` beside a line ending on "dream" — so on a real
+    # `revise_loop` run the prompt told the writer what each line currently
+    # ended on and was WRONG ON BOTH, then offered the anchor a word
+    # "instead of 'kind'" when the anchor ended on "silver". One field, two
+    # readings, in two modules (doctrine 1); `quality/loop.py`'s `PairBrief`
+    # states the intended one in its own docstring under a heading, and this
+    # is the side that had misread it. NOT repaired by deriving the current
+    # end word here: that is `lyric_harness.raw_final_token`'s one job, this
+    # module imports `re` and nothing else on purpose, and a second spelling
+    # of "the end word" is the defect one layer down. The line text is
+    # already printed directly above — a writer can see where it ends —
+    # so the fix is to label the two words for what they are and claim
+    # nothing about what is being replaced.
+    if p_word or a_word:
+        out.append("THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING")
+        if p_word:
+            out.append(f"  L{p_no} to end on {p_word!r}")
+        if a_word:
+            out.append(f"  L{a_no} to end on {a_word!r}")
+        out.append("  Offered, not required — they are the pair the "
+                   "mechanical search believes makes")
+        out.append("  the mandate hold. Ending elsewhere is allowed; the "
+                   "grader re-derives the findings")
+        out.append("  either way and rejects a pair that does not actually "
+                   "hold.")
+        out.append("")
 
     out.append(f"THE WHOLE DRAFT (context — only L{p_no} and L{a_no} may "
                f"change)")
@@ -613,8 +650,8 @@ def render_pair(pair_brief):
         out.append("  (none offered)")
     out.append("")
 
-    out.append(f"ANCHOR OPTIONS — words L{a_no} could end on instead of "
-               f"{a_word!r}")
+    out.append(f"ANCHOR OPTIONS — words L{a_no} could end on instead of what "
+               f"it ends on now")
     if a_off:
         out.extend(_offered_block(a_off, decl))
     else:

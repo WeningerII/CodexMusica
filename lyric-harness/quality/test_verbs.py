@@ -70,6 +70,33 @@ WHAT IS ASSERTED, AND IN WHAT ORDER
      blueprint that already matches its draft. The refusal now names WHICH
      FILE declared what (doctrine 79), which is the half only the command
      line knows — `quality/revise.py` carries both counts and neither path
+ 15. the REPORT is rendered, not summarised. A real 16-line run printed 91
+     findings over 208 lines of which 48 were three codes each firing on all
+     sixteen — one fact (the declared grid is too tight) stated three ways,
+     sixteen times, with the run's three actual craft flags buried at output
+     lines 45, 61 and 177. What is pinned is that the rollup LOSES NOTHING:
+     the per-code counts are re-derived from the RENDERED output and must
+     match, `rollup_findings`/`line_range` are exercised directly on both
+     sides of their declared threshold, and the flag inventory leads
+ 16. `song` EXITS 3 with a flag standing. It exited 0 with nineteen, so no
+     pipeline could gate on the whole-song verb. 2 was unavailable (every
+     verb here already uses it for exactly one thing — the harness did not
+     answer) and 1 was unavailable (an uncaught exception is Python's own
+     1). NOTES never move it, which is the case that PROVES doctrine 6
+     rather than asserting it
+ 17. `revise --propose=stub|replay:PATH|call:MODULE:FACTORY` — WHO WRITES
+     THE LINE. `revise_loop` has taken `propose=` since it was written and
+     nothing on the command line could hand it one, so the only reachable
+     proposer was a single-word splice. `stub` stays the DEFAULT because
+     THIS FILE runs `revise` in CI and a default that reaches out of the
+     process is not a default. `replay:PATH` drives the same loop over
+     recorded text. `call:MODULE:FACTORY` is a CALLER-DECLARED seam with no
+     default and no fallback module: this repo's first page says the model
+     proposes and these tools grade, so the proposing half is not this
+     repo's to ship and this file may not pick one by omission. What is
+     pinned is the CONTRACT and every way of failing it — each a printed
+     refusal at exit 2 — exercised against an "adapter" this suite writes
+     into a temp dir, so the whole section runs inside the process
 
  18. two sections MAY SHARE A NAME, and verse/chorus/bridge/chorus is the
      commonest song form there is. `song`'s STRUCTURE cross-check counted
@@ -85,6 +112,8 @@ WHAT IS ASSERTED, AND IN WHAT ORDER
 Run: python3 quality/test_verbs.py
 """
 
+import ast
+import glob
 import json
 import os
 import re
@@ -111,15 +140,27 @@ def check(name, cond, detail=""):
         FAILURES.append(name)
 
 
-def run(*args, expect_rc=None):
+def run(*args, expect_rc=None, env=None):
     """The verb, as a user runs it. -> (rc, stdout, stderr).
 
     A subprocess and not an import, deliberately: what is under test is
     REACHABILITY FROM THE COMMAND LINE, and calling the module's function
     directly would pass in exactly the state this file exists to detect.
+
+    `env` overlays the caller's environment (it does not replace it — a bare
+    environment would lose PATH and the interpreter would not start). §17
+    uses it for exactly one thing: a `PYTHONPATH` pointing at a temp dir, so
+    the module `--propose=call:MODULE:FACTORY` names is one this suite WROTE
+    and whose factory returns a pure function. Nothing in this file reaches
+    outside the process, and nothing in it may ever set a credential.
     """
+    e = None
+    if env:
+        e = dict(os.environ)
+        e.update(env)
     p = subprocess.run([sys.executable, "lyric_harness.py", *args],
-                       cwd=ROOT, capture_output=True, text=True, timeout=900)
+                       cwd=ROOT, capture_output=True, text=True, timeout=900,
+                       env=e)
     if expect_rc is not None and p.returncode != expect_rc:
         print(f"          (rc {p.returncode}, expected {expect_rc})")
     return p.returncode, p.stdout, p.stderr
@@ -539,9 +580,15 @@ def test_every_verb_runs():
     check("this test covers every verb main() dispatches",
           not missing, f"uncovered: {missing or 'none'}")
     bad = []
+    # 3 JOINED (0, 2) HERE 2026-08-14 and it is `song`'s alone: 0 answered
+    # clean, 2 REFUSED, 3 answered with a FLAG standing (§16 below argues the
+    # code and pins all three). This set is "did not raise", so it has to
+    # carry every code the dispatch can deliberately return -- and it must
+    # NOT carry 1, because an uncaught exception is Python's own 1 and that
+    # is the whole thing this line is checking for.
     for verb, argv in sorted(cases.items()):
         rc, out, err = run(*argv)
-        if "Traceback" in err or rc not in (0, 2):
+        if "Traceback" in err or rc not in (0, 2, 3):
             bad.append(f"{verb} (rc {rc})")
     check(f"none of the {len(cases)} verbs raises",
           not bad, f"raised: {bad or 'none'}")
@@ -1588,13 +1635,22 @@ def test_song_does_not_invent_a_structure_defect_on_a_repeated_name():
         paths[tag] = (bp, tx)
 
     mand = "ABABCDCDEFCDCD"
-    rc, out, err = run("song", *paths["dup"], mand, "--subdivision", "4",
-                       expect_rc=0)
+    # `song` ANSWERED is 0 OR 3 since §16 landed — 3 when a flag stands,
+    # which this fixture's mandate deliberately makes it do (12 per-line
+    # FLAGs: 5 SCHEME_VIOLATION and a 4-line REPEAT_IN_VERSE). This
+    # section's subject is the STRUCTURE cross-check, and its `rc == 0` was
+    # standing in for "did not crash or refuse". That meaning is `in (0, 3)`
+    # now, and it is NOT weaker where it matters: 1 (a traceback) and 2 (a
+    # refusal) still fail, which is the whole discrimination the line was
+    # making. Widened rather than pinned to 3 so the assertion keeps holding
+    # if the fixture's mandate is ever made to hold.
+    ANSWERED = (0, 3)
+    rc, out, err = run("song", *paths["dup"], mand, "--subdivision", "4")
     struct = [l.strip() for l in out.splitlines() if "STRUCTURE:" in l]
     over = [l for l in out.splitlines() if "OVERLAPPING_SPANS" in l]
     check("`song` runs on a blueprint with two sections named `chorus`",
-          rc == 0 and "Traceback" not in err,
-          (err.strip().splitlines() or ["(clean)"])[-1][:110])
+          rc in ANSWERED and "Traceback" not in err,
+          (err.strip().splitlines() or [f"(clean, rc {rc})"])[-1][:110])
     check("the STRUCTURE cross-check reports NOTHING — the lyric and the "
           "blueprint agree, and they did before too",
           not struct, f"{len(struct)}: {struct}")
@@ -1606,11 +1662,11 @@ def test_song_does_not_invent_a_structure_defect_on_a_repeated_name():
 
     # THE CONTROL. The identical song with the second chorus renamed was
     # always clean; the two runs must now be one run.
-    rc2, out2, _e = run("song", *paths["uniq"], mand, "--subdivision", "4",
-                        expect_rc=0)
+    rc2, out2, _e = run("song", *paths["uniq"], mand, "--subdivision", "4")
     check("renaming the second section changes NOTHING in the report — the "
           "control that turns this from an argument into a measurement",
-          rc2 == 0 and _no_apparatus(out) == _no_apparatus(out2))
+          rc2 == rc and _no_apparatus(out) == _no_apparatus(out2),
+          f"rc {rc} vs {rc2}")
 
     # AND THE CROSS-CHECK IS NOT SILENCED, which is how a fix like this goes
     # wrong: a counter that reports nothing is not a counter that is right.
@@ -1620,16 +1676,940 @@ def test_song_does_not_invent_a_structure_defect_on_a_repeated_name():
     with open(bp3, "w") as fh:
         json.dump(_vcbc_blueprint("chorus", lopsided=True), fh)
     rc3, out3, _e3 = run("song", bp3, paths["dup"][1], mand,
-                         "--subdivision", "4", expect_rc=0)
+                         "--subdivision", "4")
     hit = [l.strip() for l in out3.splitlines()
            if "STRUCTURE:" in l and "lyric line(s)" in l]
     check("a REAL per-instance mismatch is still reported, and the two "
           "same-named choruses are told apart — 5 against one and 3 against "
           "the other, where a name-keyed count says 8 for both",
-          rc3 == 0
+          rc3 in ANSWERED
           and hit == ["STRUCTURE: chorus: 4 lyric line(s), blueprint places 5",
                       "STRUCTURE: chorus: 4 lyric line(s), blueprint places 3"],
-          f"{hit}")
+          f"rc {rc3}: {hit}")
+
+
+#: 16 lines, 4/4 throughout, and a grid so tight that EVERY line overflows
+#: it. Constructed (doctrine 94): the point is the saturated case, which no
+#: shipped fixture produces, and a rollup rule can only be tested on a draft
+#: that actually saturates. The words are ordinary enough to also carry three
+#: A FAILING MANDATE is declared over it at the call site (`--groups=1,3;2,4`
+#: — store/own and four/gone), so the draft carries BOTH kinds of flag at
+#: once: a saturated one that rolls up and two that do not. That contrast is
+#: the whole subject of §15, and it has to be built in rather than hoped for.
+#: It used to lean on `REPEAT_IN_VERSE` from a verbatim chorus, which
+#: `d362b9e` correctly recalibrated into a licensed radif NOTE — the fixture
+#: had been resting on a threshold, not on a fact.
+NOISY_LINES = [
+    "The bank foreclosed and boarded up the store",
+    "the freight train left the siding after four",
+    "we packed the truck with everything we own",
+    "and drove until the radio was gone",
+    "the well is running dry and so am I",
+    "the well is running dry and so am I",
+    "The neighbors moved to Houston in the fall",
+    "they left a mattress leaning on the wall",
+    "we watched the county auction off the fire",
+    "and every bidder set the price on fire",
+    "nobody here is waiting for a sign",
+    "nobody here is standing in a line",
+    "the water table dropped below the town",
+    "the water table dropped and let us down",
+    "the well is running dry and so am I",
+    "the well is running dry and so am I",
+]
+NOISY_SECTIONS = [("verse1", 4), ("chorus", 2), ("verse2", 4),
+                  ("bridge", 4), ("chorus2", 2)]
+
+#: store/own and four/gone — two mandated pairs that do NOT rhyme, so the
+#: draft carries two SCHEME_VIOLATION flags on named lines beside the
+#: saturated SLOTS_EXCEEDED. One rolls up, the others must not.
+MANDATE_THAT_FAILS = "--groups=1,3;2,4"
+
+
+def _noisy_song(d):
+    """-> (blueprint path, lyric path) for the saturated 16-line case."""
+    lyric, i = [], 0
+    sections, bar = [], 1
+    for name, n in NOISY_SECTIONS:
+        lyric.append(f"[{name}]")
+        lyric.extend(NOISY_LINES[i:i + n])
+        lyric.append("")
+        sections.append({"name": name, "bars": n, "start_bar": bar,
+                         "function": ("chorus" if name.startswith("chorus")
+                                      else name.rstrip("12")),
+                         "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}})
+        i += n
+        bar += n
+    bp = {"title": "The well is running dry",
+          "hooks": ["the well is running dry"], "sections": sections,
+          "lines": [{"text": t, "bar": n + 1, "beat": 1, "duration": 4,
+                     "section": [s["name"] for s in sections
+                                 if s["start_bar"] <= n + 1
+                                 < s["start_bar"] + s["bars"]][0]}
+                    for n, t in enumerate(NOISY_LINES)]}
+    bpp = os.path.join(d, "noisy.blueprint.json")
+    txt = os.path.join(d, "noisy.txt")
+    with open(bpp, "w") as fh:
+        json.dump(bp, fh)
+    with open(txt, "w") as fh:
+        fh.write("\n".join(lyric) + "\n")
+    return bpp, txt
+
+
+def test_the_report_rolls_up_without_dropping_anything():
+    print("\n15. the report — 48 findings that were ONE FACT, rolled up, and "
+          "the count unmoved (FIXED 2026-08-14)")
+    # MEASURED BOTH WAYS on this fixture at `--subdivision 1`, same command,
+    # against the branch point: 226 lines of output and 96 printed finding
+    # blocks before, 132 and 39 after. 48 of those findings were ONE FACT
+    # (the declared grid is too tight) stated three ways on every line --
+    # SLOTS_EXCEEDED x16, CROWDED x16, PROMINENCE_EXCEEDS_HEADS x16. The
+    # per-code counts are IDENTICAL on both sides, all 18 codes of them,
+    # which is the invariant this section exists to hold: 18 FLAG + 78 NOTE
+    # before, 18 FLAG + 78 NOTE after. What moved is the reading order --
+    # 18 flag decisions scattered from output line 7 became 3 in one block
+    # at line 16.
+    #
+    # WHAT IS PINNED IS THE INVARIANT, NOT THE PRETTINESS: a rollup that
+    # loses a finding is worse than the noise it replaces, so the per-code
+    # counts before and after must be IDENTICAL, and they are checked by
+    # re-deriving them from the rendered output rather than from the object
+    # the renderer was handed.
+    #
+    # THE ARITHMETIC IS ALSO TESTED DIRECTLY. `rollup_findings` and
+    # `line_range` are module-level and pure for this reason: a rendering
+    # rule that can only be checked by parsing stdout is a rule nobody
+    # checks, and the threshold it keys on is a declared constant rather
+    # than a number nobody wrote down (doctrine 58).
+    class _F:
+        def __init__(self, code, severity, message="m", evidence="e",
+                     locations=()):
+            self.code, self.severity = code, severity
+            self.message, self.evidence = message, evidence
+            self.locations = list(locations)
+
+        def __str__(self):
+            # `quality/floor.py`'s own `Finding.__str__`, which is what
+            # `rollup_findings` compares -- message, LOCATIONS and EVIDENCE.
+            # A stub that dropped the evidence would make every per-pair
+            # finding look identical and this section would pass on a rule
+            # it never tested.
+            loc = (f" (lines {', '.join(map(str, self.locations))})"
+                   if self.locations else "")
+            return (f"[{self.severity.upper():4}] {self.code}: "
+                    f"{self.message}{loc}\n         {self.evidence}")
+
+    class _B:
+        def __init__(self, line_no, findings):
+            self.line_no, self.findings = line_no, findings
+
+    every = [_B(i, [_F("WIDE", "flag", evidence=f"{i} of 4")])
+             for i in range(1, 17)]
+    groups, rolled = lh.rollup_findings(every)
+    check("a code on every briefed line is SATURATED",
+          rolled.get(("WIDE", "flag")) == "saturated", str(rolled))
+    check("and it carries its own count, not a summed one",
+          len(groups[("WIDE", "flag")]) == 16)
+
+    # 80%, and the boundary is checked on both sides rather than asserted.
+    part = [_B(i, [_F("WIDE", "flag")]) for i in range(1, 14)] + \
+           [_B(i, [_F("OTHER", "note")]) for i in range(14, 17)]
+    _g, r2 = lh.rollup_findings(part)
+    check("13 of 16 (81%) still saturates; the threshold is a declared "
+          "constant, not a guess",
+          r2.get(("WIDE", "flag")) == "saturated"
+          and lh.ROLLUP_SATURATION == 0.80, str(r2))
+    half = [_B(i, [_F("HALF", "note", evidence=f"pair {i}")])
+            for i in range(1, 9)] + \
+           [_B(i, [_F("X", "note")]) for i in range(9, 17)]
+    _g, r3 = lh.rollup_findings(half)
+    check("8 of 16 (50%) with DIFFERENT text on each line does NOT roll up "
+          "— a per-pair code names different words every time",
+          ("HALF", "note") not in r3, str(r3))
+    same = [_B(i, [_F("SAME", "note", evidence="one rate")])
+            for i in range(1, 9)] + \
+           [_B(i, [_F("X", "note")]) for i in range(9, 17)]
+    _g, r4 = lh.rollup_findings(same)
+    check("8 of 16 with BYTE-IDENTICAL text DOES — that is one measurement "
+          "fanned out (ANAPHORA_OVERLOAD's shape), not eight",
+          r4.get(("SAME", "note")) == "identical", str(r4))
+    small = [_B(i, [_F("TINY", "flag")]) for i in range(1, 4)]
+    _g, r5 = lh.rollup_findings(small)
+    check(f"below ROLLUP_MIN_LINES ({lh.ROLLUP_MIN_LINES}) nothing rolls up "
+          "— a quatrain renders exactly as it did before this existed",
+          not r5, str(r5))
+    check("the line range is contiguous where it can be and NEVER elided",
+          lh.line_range([1, 2, 3, 4]) == "L1-L4"
+          and lh.line_range([1, 3, 7]) == "L1, L3, L7",
+          f"{lh.line_range([1, 2, 3, 4])} / {lh.line_range([1, 3, 7])}")
+
+    # AND THE SAME THING END TO END, through the verb.
+    d = tempfile.mkdtemp()
+    bpp, txt = _noisy_song(d)
+    rc, out, err = run("song", bpp, txt, MANDATE_THAT_FAILS,
+                       "--subdivision", "1")
+    check("the fixture really does saturate, or this section tests nothing",
+          "SLOTS_EXCEEDED  x16" in out and "CROWDED  x16" in out
+          and "PROMINENCE_EXCEEDS_HEADS  x16" in out,
+          out[:200] if "Traceback" not in err else err[-300:])
+    per_code = {}
+    for m in re.finditer(r"FINDING \[(FLAG|NOTE)\s*\] ([A-Z_]+)", out):
+        per_code[m.group(1, 2)] = per_code.get(m.group(1, 2), 0) + 1
+    for m in re.finditer(r"^\s*\[(FLAG|NOTE)\s*\] ([A-Z_]+)\s+x(\d+) on ",
+                         out, re.M):
+        per_code[m.group(1, 2)] = per_code.get(m.group(1, 2), 0) \
+            + int(m.group(3))
+    check("NOTHING IS DROPPED: the rendered report still accounts for all "
+          "three saturated codes at x16 apiece",
+          per_code.get(("FLAG", "SLOTS_EXCEEDED")) == 16
+          and per_code.get(("NOTE", "CROWDED")) == 16
+          and per_code.get(("NOTE", "PROMINENCE_EXCEEDS_HEADS")) == 16,
+          str(sorted(per_code.items())))
+    check("the two SCHEME_VIOLATION flags survive the rollup — they are "
+          "the craft criticism the 48 were burying, and they are NOT "
+          "saturated, so the rule had to leave them alone",
+          per_code.get(("FLAG", "SCHEME_VIOLATION")) == 2,
+          str(per_code.get(("FLAG", "SCHEME_VIOLATION"))))
+    check("the counts are printed as TWO, by kind, and never summed "
+          "(doctrine 79/91)",
+          re.search(r"REPORT: 16 line\(s\) briefed — \d+ FLAG, \d+ NOTE",
+                    out) is not None,
+          [l for l in out.splitlines() if "REPORT:" in l][:1])
+    check("the rollup declares the threshold it keyed on rather than "
+          "applying a number nobody wrote down (doctrine 58)",
+          "ROLLUP RULE (declared: lyric_harness.ROLLUP_SATURATION" in out)
+    # THE LEAD. The whole complaint was that the actionable findings were
+    # buried under correct, long evidence paragraphs.
+    idx = [i for i, l in enumerate(out.splitlines())
+           if l.startswith("  WHAT TO CHANGE")]
+    ev = [i for i, l in enumerate(out.splitlines())
+          if l.startswith("  THE EVIDENCE")]
+    check("the flag inventory leads and the evidence follows it",
+          idx and ev and idx[0] < ev[0], f"WHAT TO CHANGE {idx}, EVIDENCE {ev}")
+    check("a saturated flag is ONE decision in that inventory, not sixteen "
+          "— a grid too tight for every line is one thing to change",
+          re.search(r"\d+\. SLOTS_EXCEEDED — L1-L16 \(x16, rolled up above\)",
+                    out) is not None,
+          "\n".join(out.splitlines()[idx[0]:ev[0]]) if idx and ev else "")
+    check("`brief` shares the identical report — one format, not two that "
+          "drift (this is the same `_print_brief_report`)",
+          "WHAT TO CHANGE" in run("brief", txt, MANDATE_THAT_FAILS,
+                                  f"--blueprint={bpp}",
+                                  "--subdivision", "1")[1])
+
+
+def test_song_exits_on_a_flag():
+    print("\n16. `song` — a FLAG is not a refusal and it is not a pass "
+          "(FIXED 2026-08-14)")
+    # THE DEFECT: `song` printed 18 FLAG findings on 16 lines and exited 0,
+    # so nothing in a pipeline could gate on it. THE ARGUMENT for a third
+    # code rather than reusing 2: every verb in this file already exits 2 for
+    # exactly one thing -- THE HARNESS DID NOT ANSWER (`NoMandate` §6, a
+    # blueprint/draft mismatch §13, `candidates` on an unreadable word §10,
+    # `--fallback=bogus` §9). A flag is the harness ANSWERING. Charging it to
+    # 2 would make "sixteen lines overflow their bars" indistinguishable from
+    # "no mandate was declared", which is doctrine 20's own collapse run
+    # backwards. 1 is unavailable because an uncaught exception is Python's
+    # own 1 and a gate reading 1 as "flags found" would pass a crash.
+    d = tempfile.mkdtemp()
+    bpp, txt = _noisy_song(d)
+    rc, out, err = run("song", bpp, txt, MANDATE_THAT_FAILS,
+                       "--subdivision", "1", expect_rc=3)
+    check("flags present -> exit 3, so a pipeline can gate on the "
+          "whole-song verb", rc == 3, f"rc={rc}")
+    check("and it SAYS which code it took and why, rather than leaving a "
+          "caller to look 3 up",
+          "EXIT 3 —" in out and "Not a refusal" in out,
+          [l for l in out.splitlines() if "EXIT 3" in l][:1])
+    check("no traceback — the exit is a decision, not an escape",
+          "Traceback" not in err)
+
+    # NOTES NEVER MOVE IT, and this is the case that proves it rather than
+    # asserting it: 8 NOTE findings, 0 FLAG, exit 0. Doctrine 6 -- a
+    # convention a writer is free to depart from cannot be the thing that
+    # fails a check.
+    quat = os.path.join(d, "q.txt")
+    with open(quat, "w") as fh:
+        fh.write("The river took the bridge at dawn\n"
+                 "and no one saw the water again\n"
+                 "the cattle waded through the silt\n"
+                 "past every fence the county rebuilt\n")
+    qbp = os.path.join(d, "q.blueprint.json")
+    with open(qbp, "w") as fh:
+        json.dump({"title": "The river", "hooks": ["the river"],
+                   "sections": [{"name": "a", "bars": 4, "start_bar": 1,
+                                 "function": "verse",
+                                 "meter": {"beats": 4, "unit": 4,
+                                           "groups": [2, 2]}}],
+                   "lines": [{"text": t, "bar": i + 1, "beat": 1,
+                              "duration": 4, "section": "a"}
+                             for i, t in enumerate(open(quat).read()
+                                                   .splitlines())]}, fh)
+    rc0, out0, _ = run("song", qbp, quat, "--groups=3,4", expect_rc=0)
+    check("a draft with NOTES and no flag exits 0 — a note is a measurement "
+          "handed back, never a defect (doctrine 6/79)",
+          rc0 == 0 and "0 FLAG" in out0 and " NOTE" in out0,
+          [l for l in out0.splitlines() if "REPORT:" in l][:1])
+    check("the refusal code is untouched: no mandate is still 2, and it is "
+          "still the FIRST thing printed",
+          run("song", qbp, quat)[0] == 2)
+
+    # THE RENDERING MAY NOT MOVE THE VERDICT. The rollup collapses 48 of the
+    # findings into 3 rows on the run above, so 18 FLAGS reach the reader as
+    # 3 decisions; the exit code is computed from the finding SET before any
+    # of that runs, so it is the same 3 either way (doctrine 91).
+    check("the exit code counts FINDINGS, not printed blocks — 18 flags "
+          "over 3 printed decisions is still exit 3",
+          "18 FLAG" in out and "3 decision(s)" in out and rc == 3,
+          [l for l in out.splitlines() if "REPORT:" in l][:1])
+
+    # SCOPED TO `song`, DELIBERATELY. `brief` is the interactive "what do I
+    # fix next" verb; every useful run of it has flags, and four cases in
+    # this file assert its exit 0. A gate wants the whole-song verb.
+    check("`brief` on the SAME flagged draft still exits 0 — the change is "
+          "scoped to the verb a pipeline gates on",
+          run("brief", txt, MANDATE_THAT_FAILS, f"--blueprint={bpp}",
+              "--subdivision", "1")[0] == 0)
+
+
+def test_propose_selects_who_writes_the_line():
+    print("\n17. `revise --propose=stub|replay:PATH|call:MODULE:FACTORY` — "
+          "who writes the line, declared (BUILT 2026-08-14)")
+    # `revise_loop` has taken `propose=`/`propose_pair=` since it was
+    # written and nothing on this command line could hand it one, so the only
+    # reachable proposer was `default_propose` -- a single-word splice that
+    # produces "waded through the on". Same built-and-tested-was-not-the-
+    # reachable shape as `--blueprint` and `--fallback`, one layer further in.
+    #
+    # AND THE THIRD SPELLING NAMES NOTHING. `call:MODULE:FACTORY` is a
+    # CALLER-DECLARED coordinate with no default and no fallback module, the
+    # same shape `--subdivision` is: this repo's first page says the model
+    # proposes and these tools grade, so the proposing half is not this
+    # repo's to ship and this file may not pick one by omission. What is
+    # tested here is therefore the CONTRACT and the REFUSALS -- every way the
+    # declared seam can fail to be met, each one printed and exit 2.
+    d = tempfile.mkdtemp()
+    quat = os.path.join(d, "q.txt")
+    with open(quat, "w") as fh:
+        fh.write("The river took the bridge at dawn\n"
+                 "and no one saw the water again\n"
+                 "the cattle waded through the silt\n"
+                 "past every fence the county rebuilt\n")
+
+    # THE DEFAULT IS THE STUB AND IT MUST STAY THE STUB. A default that
+    # reaches out of the process is not a default: THIS FILE runs `revise`
+    # (§7), in CI.
+    rc, out, err = run("revise", quat, "ABAB", expect_rc=0)
+    check("with no --propose at all, the stub runs and SAYS it is the stub",
+          rc == 0 and "PROPOSER: stub (the default)" in out,
+          [l for l in out.splitlines() if "PROPOSER" in l][:1])
+    check("and says out loud that nothing outside the process was reached",
+          "Nothing outside this process was reached" in out)
+    check("--propose=stub is the same run, spelled",
+          "PROPOSER: stub (the default)" in run("revise", quat, "ABAB",
+                                                "--propose=stub")[1])
+
+    # THE REFUSALS, all of them `--fallback=bogus`'s shape: printed, named,
+    # exit 2, no traceback, no silent downgrade.
+    rc, out, err = run("revise", quat, "ABAB", "--propose=bogus", expect_rc=2)
+    check("an undeclared value REFUSES with exit 2 and names the vocabulary",
+          # EVERY spelling, not a prefix of them: this assertion caught the
+          # `defer:PATH` build growing the vocabulary and leaving the refusal
+          # naming three of four, which is the shape a reader trusts and
+          # cannot check.
+          rc == 2 and ("'stub', 'replay:PATH', 'defer:PATH' or "
+                       "'call:MODULE:FACTORY'") in out
+          and "Traceback" not in err, out.strip().splitlines()[-2:][:1])
+    rc, out, _ = run("revise", quat, "ABAB", "--propose", "stub", expect_rc=2)
+    check("the space-separated spelling REFUSES rather than swallowing the "
+          "value and leaving the default running (`--fallback`'s reason)",
+          rc == 2 and "wants the `=` spelling" in out,
+          out.strip().splitlines()[:1])
+    for verb, argv in (("brief", ["brief", quat, "ABAB"]),
+                       ("verify", ["verify", quat, quat, "ABAB"]),
+                       ("song", ["song", EXAMPLE_BP, EXAMPLE_TXT, "ABAB"])):
+        rc, out, _ = run(*argv, "--propose=call:x:y", expect_rc=2)
+        check(f"--propose on `{verb}` REFUSES instead of being a silent "
+              f"no-op on a flag about who wrote the words",
+              rc == 2 and "only `revise` runs a proposer" in out,
+              out.strip().splitlines()[:1])
+
+    # `replay:PATH` -- the loop driven over REAL proposed text, reaching
+    # nothing outside the process, which is the only way a non-stub proposer
+    # can be exercised here at all.
+    rp = os.path.join(d, "replay.json")
+    with open(rp, "w") as fh:
+        json.dump({"propose": [
+            {"line": 3, "attempt": 0,
+             "text": "the cattle waded past the muddy lawn"},
+            {"line": 4, "attempt": 0,
+             "text": "past every fence the county left to rot"}],
+            "propose_pair": []}, fh)
+    rc, out, err = run("revise", quat, "ABAB", f"--propose=replay:{rp}",
+                       expect_rc=0)
+    check("replay: drives the loop and the recorded text reaches it",
+          rc == 0 and "left to rot" in out and "Traceback" not in err,
+          [l for l in out.splitlines() if "L4" in l][-1:])
+    check("it discloses how much of its record was CONSULTED and how much "
+          "was asked for and missing — a miss is a give-up, never the stub",
+          "consulted and answered" in out and "NOT recorded" in out,
+          [l for l in out.splitlines() if "PROPOSER: replay" in l][-1:])
+    check("doctrine 9 still holds over replayed text: the modal candidate "
+          "is rejected even when a proposer proposed it",
+          "modal candidate 'lawn'" in out,
+          [l for l in out.splitlines() if "modal candidate" in l][:1])
+
+    bad = os.path.join(d, "bad.json")
+    with open(bad, "w") as fh:
+        fh.write("{not json")
+    rc, out, err = run("revise", quat, "ABAB", f"--propose=replay:{bad}",
+                       expect_rc=2)
+    check("an unreadable replay file REFUSES with the expected shape "
+          "printed, not a JSONDecodeError traceback",
+          rc == 2 and "not readable as JSON" in out
+          and "Traceback" not in err, out.strip().splitlines()[:1])
+    empty = os.path.join(d, "empty.json")
+    with open(empty, "w") as fh:
+        json.dump({"propose": [], "propose_pair": []}, fh)
+    rc, out, _ = run("revise", quat, "ABAB", f"--propose=replay:{empty}",
+                     expect_rc=2)
+    check("a replay recording NOTHING refuses rather than reporting the "
+          "loop's verdict on a draft no proposal touched (doctrine 20)",
+          rc == 2 and "the file parses and records" in out,
+          [l for l in out.splitlines() if "REFUSED" in l][:1])
+    rc, out, _ = run("revise", quat, "ABAB",
+                     f"--propose=replay:{os.path.join(d, 'nope.json')}",
+                     expect_rc=2)
+    check("a missing replay file refuses by name",
+          rc == 2 and "No such file" in out, out.strip().splitlines()[:1])
+
+    # `call:MODULE:FACTORY` — THE DECLARED SEAM. Every case below runs
+    # entirely inside this process: the "adapter" is a module this test
+    # WRITES, whose factory returns a pure function. That is the point of the
+    # spelling — the harness imports what it is told, so what it is told can
+    # be something with no outside world in it at all.
+    rc, out, _ = run("revise", quat, "ABAB", "--propose=call:", expect_rc=2)
+    check("a half-declared seam REFUSES rather than being completed with a "
+          "default module — this file may not pick a proposer by omission",
+          rc == 2 and "MODULE and FACTORY are both required" in out,
+          [l for l in out.splitlines() if "REFUSED" in l][:1])
+    rc, out, _ = run("revise", quat, "ABAB", "--propose=call:only_a_module",
+                     expect_rc=2)
+    check("and so does a MODULE with no FACTORY",
+          rc == 2 and "MODULE and FACTORY are both required" in out,
+          [l for l in out.splitlines() if "REFUSED" in l][:1])
+    rc, out, err = run("revise", quat, "ABAB",
+                       "--propose=call:no_such_module_anywhere:make",
+                       expect_rc=2)
+    check("an unimportable declared MODULE refuses BY THE NAME THE CALLER "
+          "TYPED, and nothing is substituted for it",
+          rc == 2 and "no_such_module_anywhere" in out
+          and "not importable" in out and "Traceback" not in err,
+          [l for l in out.splitlines() if "REFUSED" in l][:1])
+
+    # A module this test writes, with four attributes: a good factory, one
+    # that is not callable, one that needs an argument, and one whose result
+    # is not callable. `PYTHONPATH` puts it on the path -- the harness itself
+    # adds nothing and searches nowhere.
+    adapter = os.path.join(d, "scratch_adapter.py")
+    with open(adapter, "w") as fh:
+        fh.write("def make_call():\n"
+                 "    def call(prompt):\n"
+                 "        return 'the cattle waded past the muddy lawn'\n"
+                 "    return call\n"
+                 "not_callable = 3\n"
+                 "def needs_an_arg(x):\n"
+                 "    return x\n"
+                 "def returns_a_string():\n"
+                 "    return 'not a callable'\n"
+                 "class Nested:\n"
+                 "    @staticmethod\n"
+                 "    def make():\n"
+                 "        return lambda prompt: 'x'\n")
+    envp = {"PYTHONPATH": d}
+    for attr, why, phrase in (
+            ("no_such_attr", "a FACTORY the module does not have",
+             "has no"),
+            ("not_callable", "a FACTORY that is not callable at all",
+             "not callable"),
+            ("needs_an_arg", "a FACTORY that will not take a no-argument "
+                             "call", "no-argument call"),
+            ("returns_a_string", "a FACTORY whose RESULT is not the "
+                                 "callable(prompt) -> str", "not a callable")):
+        rc, out, err = run("revise", quat, "ABAB",
+                           f"--propose=call:scratch_adapter:{attr}",
+                           expect_rc=2, env=envp)
+        check(f"{why} REFUSES by name at exit 2",
+              rc == 2 and phrase in out and "Traceback" not in err,
+              [l for l in out.splitlines() if "REFUSED" in l][:1])
+
+    # THE FULLY SATISFIED CALLER HALF. With `quality/propose.py` absent this
+    # lands on the LAST refusal in the chain, which is the proof the ordering
+    # is what it claims: the caller's module was imported, its factory found,
+    # invoked, and its result checked, all BEFORE this repo's own module was
+    # asked for. Once that module lands, the same command runs the loop.
+    landed = os.path.exists(os.path.join(ROOT, "quality", "propose.py"))
+    rc, out, err = run("revise", quat, "ABAB",
+                       "--propose=call:scratch_adapter:make_call",
+                       env=envp)
+    check("a fully-resolved declared seam neither raises nor invents a "
+          "third exit code",
+          "Traceback" not in err and rc in (0, 2),
+          err.strip()[-200:] if err.strip() else f"rc={rc}")
+    if not landed:
+        check("with quality/propose.py absent, a fully-resolved caller seam "
+              "refuses on THIS repo's half — and says the caller's half was "
+              "fine, which is the ordering claim",
+              rc == 2 and "quality/propose.py is not importable" in out
+              and "the declared FACTORY resolved" in out,
+              [l for l in out.splitlines() if "REFUSED" in l][:1])
+        check("and it states that nothing on the caller's side was CALLED "
+              "before refusing — the factory ran, the callable did not",
+              "the callable it returned was not" in out)
+    else:
+        check("quality/propose.py has landed: the declared seam drives the "
+              "loop end to end with a proposer written outside this repo",
+              rc == 0 and "PROPOSER: call:scratch_adapter:make_call" in out,
+              [l for l in out.splitlines() if "PROPOSER" in l][:1])
+    rc2, out2, _ = run("revise", quat, "ABAB",
+                       "--propose=call:scratch_adapter:Nested.make",
+                       env=envp)
+    check("a DOTTED factory path is walked rather than rejected",
+          rc2 == rc and "Nested.make" in out2,
+          [l for l in out2.splitlines() if "REFUSED" in l or "PROPOSER" in l][:1])
+
+    # THE LAZY IMPORT. `quality/propose.py` is another cell's and may not
+    # have landed; `stub` and `replay:` must keep working meanwhile, and a
+    # top-level import would make the WHOLE CLI un-runnable until it exists.
+    src = open(os.path.join(ROOT, "lyric_harness.py")).read()
+    top = [n for n in ast.walk(ast.parse(src))
+           if isinstance(n, (ast.Import, ast.ImportFrom)) and n.col_offset == 0]
+    named = {getattr(n, "module", "") or "" for n in top} | \
+            {a.name for n in top for a in n.names}
+    check("the sibling module is not imported at module scope — the CLI "
+          "runs with it absent, which is how it runs right now",
+          not any("propose" in m for m in named),
+          str(sorted(m for m in named if m)))
+    check("the contract is DECLARED rather than guessed at the call site — "
+          "a sibling reads PROPOSE_CONTRACT and satisfies it",
+          "ModelProposer" in lh.PROPOSE_CONTRACT["quality.propose"]
+          and len(lh.PROPOSE_CONTRACT) == 2,
+          str(lh.PROPOSE_CONTRACT))
+    # AND THIS FILE NAMES NO PROVIDER. The proposing half is the caller's;
+    # a module name, an environment variable or a product name hardcoded
+    # here would be this repo choosing one, which is the thing the `call:`
+    # spelling exists to stop. Checked mechanically so it cannot creep back.
+    check("neither lyric_harness.py nor this file hardcodes a proposer "
+          "module, endpoint or credential name for --propose",
+          not re.search(r"(?i)api[_-]?key|_API_KEY|endpoint\s*=",
+                        src.split("def _resolve_proposer")[1]
+                        .split("def _grid_song")[0]),
+          "the --propose block is clean")
+
+
+def test_both_mandate_spellings_are_read():
+    print("\n19. a SECOND mandate spelling is READ, not dropped in silence "
+          "(FIXED 2026-08-15)")
+    # THE DEFECT, found by writing a song through the loop rather than by
+    # reading the code. The mandate came out of ONE positional slot, so a
+    # second spelling on the same command line was never looked at -- and a
+    # song with rhyming verses AND a verbatim chorus needs both at once,
+    # because `--groups=` cannot say "identity required" and `--returns=`
+    # cannot say "these merely rhyme". That is the ordinary shape of a
+    # popular song, not a corner case.
+    #
+    # IT FAILED TWO WAYS AND THE QUIET ONE IS WHY THIS TEST EXISTS. `song`
+    # dropped the unread flag with no message at all, so a declared chorus
+    # went ungraded and the report said nothing was wrong -- the reason the
+    # first assertion below is a DIFFERENCE between two runs and not a
+    # string match: the old code's two outputs were BYTE-IDENTICAL, which is
+    # the only shape that proves a silent drop. `verify` has a trailing
+    # line-number positional, so the same unread flag reached `int()` and
+    # refused in the wrong layer's words (`invalid literal for int() with
+    # base 10: '--returns=1'`), which is doctrine 20's "a refusal must name
+    # its own cause" broken by a parser.
+    d = tempfile.mkdtemp()
+    bpp, txt = _noisy_song(d)
+    # lines 5/6 and 15/16 of the fixture are byte-identical choruses, so
+    # this is a TRUE return declaration and not a constructed one.
+    rets = "--returns=5,15;6,16"
+
+    rc_g, out_g, _ = run("song", bpp, txt, MANDATE_THAT_FAILS,
+                         "--subdivision", "1")
+    rc_b, out_b, _ = run("song", bpp, txt, MANDATE_THAT_FAILS, rets,
+                         "--subdivision", "1")
+    check("`song` with --groups= AND --returns= is not the --groups= run",
+          out_g != out_b,
+          "byte-identical is exactly what the defect looked like")
+    check("the declared return is GRADED, not dropped",
+          "REFRAIN_REPEAT" in out_b and "REFRAIN_REPEAT" not in out_g,
+          f"REFRAIN_REPEAT present={'REFRAIN_REPEAT' in out_b}, "
+          f"absent without the flag={'REFRAIN_REPEAT' not in out_g}")
+    check("the rhyme half still fails on the same run (both kinds held at "
+          "once)", rc_b == 3 and "SCHEME_VIOLATION" in out_b,
+          f"rc {rc_b}")
+
+    rc_v, out_v, _ = run("verify", txt, txt, MANDATE_THAT_FAILS, rets)
+    check("`verify` takes both spellings instead of meeting one at int()",
+          "invalid literal for int()" not in out_v and rc_v != 1,
+          f"rc {rc_v}")
+    rc_t, out_t, _ = run("verify", txt, txt, MANDATE_THAT_FAILS, rets, "1,3")
+    check("verify's TARGETED line list still parses behind two flags",
+          "invalid literal for int()" not in out_t and rc_t != 1,
+          "pulling a flag moves every positional behind it")
+
+    # The combinations that CANNOT be expressed refuse by name rather than
+    # picking a winner -- the same reflex the drop failed to have.
+    # The letter string is 16 chars for a 16-line fixture ON PURPOSE. `ABAB`
+    # also refuses here, but on LENGTH -- it would pass this assertion against
+    # the unfixed reader and prove nothing (measured: it did). A scheme the
+    # old code accepted is the only one whose refusal is about the
+    # COMBINATION.
+    for args, why in (
+            (("--cliques", MANDATE_THAT_FAILS), "--cliques with another"),
+            (("ABABCCDDEEFFGGHH", rets), "a letter string with a flag"),
+            ((MANDATE_THAT_FAILS, "--groups=5,7"), "the same spelling twice")):
+        rc, out, _ = run("brief", txt, *args, expect_rc=2)
+        check(f"REFUSES {why}", rc == 2 and "REFUSED" in out,
+              f"rc {rc}")
+
+
+def test_the_loop_suspends_instead_of_guessing():
+    print("\n20. `--propose=defer:PATH` — the loop SUSPENDS and cannot be "
+          "walked past (BUILT 2026-08-15)")
+    # WHAT THIS IS FOR, and it is not convenience. A proposer is
+    # `callable(prompt) -> str` and anything can be one -- but a CHILD PROCESS
+    # cannot re-enter the agent that spawned it, because that agent is blocked
+    # waiting for the child to return. `call:` answers that by reaching a
+    # service, which needs a credential. `defer:` answers it by reaching
+    # NOTHING: the loop stops at the first request it has no answer for,
+    # writes down what it asked, and exits 4. The same command run again
+    # replays every answer in order and continues.
+    #
+    # THE ENFORCEMENT IS THE POINT. The failure this closes was never that the
+    # loop was wrong -- it is that a writer disciplined enough to drive it by
+    # hand is a writer who can also decide not to, and skip straight to a
+    # final draft. There is no path here from "flags outstanding" to a draft
+    # except through the gates, and assertion 2 is the one that proves it.
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "draft.txt")
+    state = os.path.join(d, "state.json")
+    with open(draft, "w") as fh:
+        fh.write("\n".join(NOISY_LINES[:4]) + "\n")
+    mand = "--groups=1,3;2,4"
+
+    rc, out, _ = run("revise", draft, mand, f"--propose=defer:{state}",
+                     expect_rc=4)
+    check("the first run SUSPENDS at exit 4 rather than guessing a line",
+          rc == 4 and "SUSPENDED" in out, f"rc {rc}")
+    check("exit 4 is its own code, not reused",
+          rc not in (0, 2, 3), "0 clean / 2 refused / 3 flag standing")
+    st = json.load(open(state))
+    check("the state names what it asked for and leaves a slot for it",
+          st["pending"]["answer"] is None
+          and st["pending"]["record"]["line"] == 3
+          and len(st["pending"]["prompt"].splitlines()) > 20,
+          f"pending={st['pending']['record']}")
+
+    # THE GATE. Running again without answering must not advance, must not
+    # fall back to the stub, and must not emit a draft.
+    rc2, out2, _ = run("revise", draft, mand, f"--propose=defer:{state}",
+                       expect_rc=4)
+    check("re-running WITHOUT an answer does not advance the loop",
+          rc2 == 4 and "SUSPENDED" in out2 and "FINAL DRAFT" not in out2,
+          f"rc {rc2}")
+
+    # A malformed answer is refused, not written into the draft: a mis-parsed
+    # line is just a changed line, and verify() cannot tell those apart.
+    st["pending"]["answer"] = "line one\nline two"
+    json.dump(st, open(state, "w"))
+    rc3, out3, _ = run("revise", draft, mand, f"--propose=defer:{state}",
+                       expect_rc=2)
+    check("an answer that is not unambiguously ONE line REFUSES",
+          rc3 == 2 and "REFUSED" in out3, f"rc {rc3}")
+
+    answers = ["we packed the truck with everything we wore",
+               "and drove until the county line was far"]
+    for want in answers:
+        st = json.load(open(state))
+        st["pending"]["answer"] = want
+        json.dump(st, open(state, "w"))
+        rc, out, _ = run("revise", draft, mand, f"--propose=defer:{state}")
+    check("answering drives the loop to a stop condition",
+          rc == 0 and "SUCCESS" in out, f"rc {rc}")
+    check("only the answered lines changed",
+          "* L3: " + answers[0] in out and "* L4: " + answers[1] in out
+          and "* L1:" not in out and "* L2:" not in out)
+
+    # THE FINISHED STATE IS A RECORDED RUN. Asserted rather than claimed in a
+    # docstring: a deferred session is only reproducible if someone with no
+    # writer and no credential can re-run it (doctrine 14).
+    st = json.load(open(state))
+    check("a converged run leaves no pending request", st["pending"] is None)
+    rep = os.path.join(d, "replay.json")
+    json.dump(st["answered"], open(rep, "w"))
+    rc4, out4, _ = run("revise", draft, mand, f"--propose=replay:{rep}")
+    check("the `answered` block IS a valid --propose=replay: file",
+          rc4 == 0 and "* L3: " + answers[0] in out4
+          and "* L4: " + answers[1] in out4,
+          "same draft, no writer present")
+
+    rc5, out5, _ = run("revise", draft, mand, "--propose=defer", expect_rc=2)
+    check("`defer` without a PATH refuses like every other flag value",
+          rc5 == 2 and "REFUSED" in out5, f"rc {rc5}")
+
+
+#: Two mandated pairs that RHYME cleanly and are both MODAL — so the draft
+#: carries no flag at all and the loop has always stopped on it.
+MODAL_DRAFT = ["the bank foreclosed and boarded up the town",
+               "the freight train left the siding after four",
+               "we packed the truck and never once looked down",
+               "and drove until the county line was more"]
+
+
+def test_the_loop_pursues_a_note_it_can_brief():
+    print("\n21. `--pursue=` — the loop no longer stops on a note it has a "
+          "candidate field for (FIXED 2026-08-15)")
+    # THE DEFECT, found by writing a song through the loop. `MODAL_RHYME` is
+    # in `RHYME_FINDINGS`, so `brief()` hands a line carrying one a COMPLETE
+    # field with the modal words marked FORBIDDEN -- the machinery to fix it
+    # is built and reachable. And it is a NOTE, while every stop condition in
+    # quality/loop.py read `severity == "flag"`, so the loop reported SUCCESS
+    # and stopped before asking. Doctrine 9 is this project's central claim
+    # and its own loop could not enforce it.
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "modal.txt")
+    with open(draft, "w") as fh:
+        fh.write("\n".join(MODAL_DRAFT) + "\n")
+    mand = "--groups=1,3;2,4"
+
+    rc0, out0, _ = run("brief", draft, mand)
+    check("the fixture carries MODAL_RHYME and NO flag at all",
+          "MODAL_RHYME" in out0 and "[FLAG]" not in out0,
+          "so nothing but `pursue` can make the loop look at it")
+
+    rc1, base, _ = run("revise", draft, mand)
+    check("WITHOUT --pursue the loop stops and changes nothing",
+          rc1 == 0 and "SUCCESS" in base and "FINAL DRAFT" not in base,
+          "this is the behaviour every prior run had, unchanged by default")
+
+    rc2, out2, _ = run("revise", draft, mand, "--pursue=MODAL_RHYME")
+    check("WITH --pursue the loop keeps asking and revises the modal lines",
+          rc2 == 0 and "FINAL DRAFT" in out2 and "PURSUING" in out2,
+          "the same draft, the same proposer, one declared coordinate apart")
+    changed = [l for l in out2.splitlines() if l.strip().startswith("* L")]
+    check("and the lines it changed are the ones carrying the note",
+          len(changed) == 2 and "L3" in changed[0] and "L4" in changed[1],
+          f"{len(changed)} line(s) changed")
+
+    # THE SEPARATION THAT MAKES THIS LEGAL. Pursuing changes what the loop
+    # ASKS for; it must never change what verify() REJECTS, or a note would
+    # start failing revisions and doctrine 6/7 would be broken by the fix.
+    # STATED AS AN EQUALITY, AT THE LAYER THE COORDINATE LIVES IN. Two
+    # earlier versions of this assertion were wrong in different ways and both
+    # are worth recording. The first demanded ACCEPTED and failed -- the TEST
+    # was wrong, not the code: verify() rejects a revision that fixes nothing,
+    # which a draft against itself is, with or without pursuit. The second
+    # compared two CLI runs, and the refusal added above made them
+    # incomparable, because `verify --pursue` now exits 2 by design. The
+    # INVARIANT never moved: `pursue` changes what the LOOP asks for and must
+    # never change what verify() decides. So it is asserted through the API,
+    # where `pursue` is actually read, instead of through a CLI that refuses
+    # to carry it.
+    import quality.revise as RV
+    lex, dec = lh.Lexicon(), lh.Declaration()
+    before = list(MODAL_DRAFT)
+    after = list(MODAL_DRAFT)
+    after[2] = "we packed the truck and never once looked on"
+    groups = [[1, 3], [2, 4]]
+    plain = RV.Reviser(lex=lex, decl=dec).verify(before, after, groups)
+    pursued = RV.Reviser(lex=lex, decl=dec,
+                         rdecl=RV.ReviseDeclaration(
+                             pursue=frozenset({"MODAL_RHYME"}))
+                         ).verify(before, after, groups)
+    check("`verify()` is UNTOUCHED — same accept/fixed/broken/new with the "
+          "note pursued",
+          all(plain.get(k) == pursued.get(k)
+              for k in ("accepted", "fixed", "broken", "new", "new_flags")),
+          f"accepted {plain.get('accepted')} vs {pursued.get('accepted')}; "
+          f"pursuing changes what the loop ASKS for and never what verify "
+          f"REJECTS (doctrine 6/7)")
+
+    # ONLY `revise` RUNS A LOOP, and this flag was added to the block SHARED by
+    # brief/verify/revise/song, so on three of the four it changed no output --
+    # and PRINTED ITS DISCLOSURE ANYWAY, telling a caller "the loop keeps asking
+    # on a line carrying one" on verbs that run no loop at all. A silent no-op
+    # is doctrine 1; a no-op that ANNOUNCES ITSELF AS WORKING is that plus a
+    # false sentence in the report a writer reads to decide whether the draft is
+    # finished. `--propose` has carried this same refusal one flag over since it
+    # landed, so the shape was already in this file when the gap was made.
+    #
+    # THESE THREE WERE WRITTEN ONCE, DELETED BY MY OWN NEXT EDIT, AND RESTORED.
+    # The rewrite of the assertion just above spliced the file between two
+    # anchors and these sat between them. The suite went green because a
+    # deleted assertion cannot fail -- which is this file's whole subject,
+    # committed by the commit that fixed it.
+    for verb, extra in (("brief", []), ("song", []), ("verify", [draft])):
+        rcx, outx, _ = run(verb, draft, *extra, mand, "--pursue=MODAL_RHYME",
+                           expect_rc=2)
+        check(f"`--pursue` on `{verb}` REFUSES rather than announcing a loop "
+              f"it does not run",
+              rcx == 2 and "REFUSED" in outx and "PURSUING" not in outx,
+              f"rc {rcx}")
+
+    rc3, out3, _ = run("brief", draft, mand, "--pursue=HOOK_ABSENT",
+                       expect_rc=2)
+    # THE MESSAGE, not just the code. `_no_unknown_flags_or_refuse` already
+    # exits 2 on any flag it does not know, so `rc == 2` alone passes against
+    # a build that never heard of `--pursue` -- measured, then tightened.
+    check("a code `brief()` cannot offer a field for REFUSES BY NAME",
+          rc3 == 2 and "cannot offer a candidate field" in out3
+          and "RHYME_FINDINGS" in out3,
+          "an inert coordinate would let a writer believe the loop was "
+          "looking when it never was")
+
+
+def test_the_candidate_field_says_which_ordering_it_is():
+    print("\n22. `candidates --modal` — two orderings, one question, and the "
+          "verb now says which it answered (FIXED 2026-08-15)")
+    # THE DEFECT: this verb ranks by RHYME SCORE; the loop's modal exclusion
+    # ranks by FREQUENCY over the grader-accepted pool. Two answers to "is
+    # this rhyme too predictable", and the one reachable from the command
+    # line is not the one the grader enforces. Found by using the verb to
+    # pre-screen a rhyme and having the loop reject the result anyway.
+    rc, out, _ = run("candidates", "lines", "7")
+    check("the default output NAMES its ordering and points at the other",
+          rc == 0 and "ORDERED BY RHYME SCORE" in out and "--modal" in out,
+          "silence here is what made the two lists look like one list")
+
+    rc2, out2, _ = run("candidates", "lines", "7", "--modal")
+    check("--modal prints the FORBIDDEN set with its exclusion count",
+          rc2 == 0 and "FORBIDDEN (modal" in out2
+          and "modal_exclusion=" in out2)
+
+    score_top = {c["word"] for c in
+                 lh.CandidateEngine(lh.Lexicon(), lh.Declaration())
+                 .candidates("lines", 7)["candidates"]}
+    forb = out2.split("modal_exclusion=")[1].split(":\n")[1]
+    forb = {w.strip() for w in forb.splitlines()[0].split(",") if w.strip()}
+    check("the two sets genuinely DIFFER — this is not a relabelling",
+          score_top != forb,
+          f"score-ranked {sorted(score_top)} vs modal {sorted(forb)}")
+
+    # ONE DEFINITION, and this is the assertion that keeps it that way: the
+    # verb calls `Reviser.modal_field`, the same method the loop calls, so
+    # what is printed here and what `brief()` forbids cannot drift apart.
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "modal.txt")
+    with open(draft, "w") as fh:
+        fh.write("\n".join(MODAL_DRAFT) + "\n")
+    _, bout, _ = run("brief", draft, "--groups=1,3;2,4")
+    bline = [l for l in bout.splitlines() if "FORBIDDEN (modal" in l]
+    bforb = {w.strip() for w in bline[0].split(":", 1)[1].split(",")
+             } if bline else set()
+    _, cout, _ = run("candidates", "town", "7", "--modal")
+    cforb = {w.strip() for w in
+             cout.split("modal_exclusion=")[1].split(":\n")[1]
+             .splitlines()[0].split(",") if w.strip()}
+    check("what the verb forbids is what brief() forbids, same word",
+          bforb and bforb == cforb,
+          f"brief {sorted(bforb)} vs candidates {sorted(cforb)}")
+
+
+def test_the_last_two_traceback_shapes_refuse():
+    print("\n23. a missing ARGUMENT and a missing FILE refuse instead of "
+          "tracebacking (FIXED 2026-08-15)")
+    # Every verb here was given ONE refusal shape a piece at a time -- an OOV
+    # `candidates` query, `--fallback=bogus`, a blueprint/draft mismatch,
+    # `song`'s private handler, `--propose`'s vocabulary. TWO CLASSES were
+    # covered on no verb at all, because no single verb owned them: a missing
+    # positional (IndexError) and a named file that is not there
+    # (FileNotFoundError). Both exited 1 -- Python's own uncaught-exception
+    # code -- so a caller reading 1 as "the harness crashed" was right and had
+    # no way to tell it from "my arguments were wrong" (doctrine 20).
+    d = tempfile.mkdtemp()
+    good = os.path.join(d, "q.txt")
+    with open(good, "w") as fh:
+        fh.write("the cat sat on the mat\na dog ran through the fog\n"
+                 "he wore a battered hat\nit vanished in the bog\n")
+    gone = os.path.join(d, "not-here.txt")
+
+    rc, out, err = run("brief", expect_rc=2)
+    check("a missing required argument REFUSES at 2, not 1",
+          rc == 2 and "REFUSED" in out and "Traceback" not in err,
+          f"rc {rc}")
+    check("and it names the verb and the count it actually received",
+          "brief" in out or "(no verb)" in out, out.strip().splitlines()[:1])
+    # NOT COLLAPSED (doctrine 20): an IndexError four frames inside a grader is
+    # a DEFECT in this file, not the caller's mistake, and the refusal has to
+    # say so rather than blame whoever typed the command.
+    check("and it says a complete command line reaching it is a DEFECT",
+          "DEFECT" in out and "IndexError" in out,
+          "the two readings are stated, not merged into one message")
+
+    rc2, out2, err2 = run("brief", gone, "ABAB", expect_rc=2)
+    check("a named file that is not there REFUSES at 2, not 1",
+          rc2 == 2 and "REFUSED" in out2 and "Traceback" not in err2,
+          f"rc {rc2}")
+    check("and it names the path and the OS's own reason",
+          "not-here.txt" in out2 and "No such file" in out2)
+
+    rc3, out3, _ = run("brief", good, "ABAB")
+    check("a REAL run is untouched — this catches errors, not results",
+          rc3 == 0 and "REFUSED" not in out3, f"rc {rc3}")
+
+
+def test_every_test_file_is_accounted_for_by_ci():
+    print("\n24. every quality/test_*.py is RUN, REFUSED BY NAME, or the "
+          "census fails (FIXED 2026-08-15)")
+    # THE DEFECT THIS CLOSES, found by this repo's own CI audit: 48 test files
+    # existed and 46 were accounted for. `test_propose.py` and
+    # `test_verify_entries.py` were in no step, no npm script, and had no
+    # caller -- written, green, and executed by no automated thing. The
+    # expensive one was `test_propose.py`, whose §7c/§7d are the ONLY
+    # assertions that cross the tier-1/tier-2 proposer seam for real: the very
+    # check written because the two flanking suites could not see the defect
+    # was itself reachable by no runner. Import reachability is not invocation
+    # reachability, one level up, at the test file.
+    #
+    # A NAMED LIST IS RIGHT AND HAS A MIRROR-IMAGE DEFECT. Globbing is how a
+    # 53-CPU-minute sweep arrives in CI without anybody deciding it should, so
+    # ci.yml names its suites on purpose. But a hand-kept list does not notice
+    # a file added later, because A LIST THAT IS SHORT LOOKS EXACTLY LIKE A
+    # LIST THAT IS COMPLETE. ci.yml's own comment states the arithmetic and
+    # then says it "is a check a human has to run" -- which is doctrine 48
+    # written down beside the thing it condemns. This is that check, run.
+    ci = os.path.join(ROOT, "..", ".github", "workflows", "ci.yml")
+    src = open(ci, encoding="utf-8").read()
+    on_disk = {os.path.basename(p)[len("test_"):-len(".py")]
+               for p in glob.glob(os.path.join(ROOT, "quality", "test_*.py"))}
+    # Every name this file mentions in a runnable position: the cheap loop, the
+    # revision step, and anything refused BY NAME with a reason.
+    named = set()
+    for m in re.finditer(r"for f in ([\s\S]*?); do", src):
+        named |= {w for w in m.group(1).replace("\\", "").split() if w}
+    for m in re.finditer(r"quality/test_([a-z0-9_]+)\.py", src):
+        named.add(m.group(1))
+    orphans = sorted(on_disk - named)
+    check("no test file is executed and named by NOTHING in ci.yml",
+          not orphans,
+          f"{len(on_disk)} on disk, {len(on_disk & named)} accounted for; "
+          f"ORPHANS: {orphans or 'none'}")
+    ghosts = sorted(n for n in named
+                    if not os.path.exists(
+                        os.path.join(ROOT, "quality", f"test_{n}.py")))
+    check("and ci.yml names no suite that does not exist on disk",
+          not ghosts, f"named-but-missing: {ghosts or 'none'}")
+    # The label a reader trusts must equal the list it labels. The struck
+    # (`~~...~~`) line is history under doctrine 17 and is deliberately skipped.
+    live = [l for l in src.splitlines()
+            if "cheap suites" in l and l.lstrip().startswith("- name:")]
+    if live:
+        want = int(re.search(r"The (\d+) cheap suites", live[0]).group(1))
+        got = len({w for w in re.search(r"for f in ([\s\S]*?); do", src)
+                   .group(1).replace("\\", "").split() if w})
+        check("the cheap step's LABEL equals the length of its own list",
+              want == got, f"label {want}, list {got}")
 
 
 if __name__ == "__main__":
@@ -1653,6 +2633,15 @@ if __name__ == "__main__":
     test_every_flag_value_refuses_in_one_shape()
     test_the_profile_lookup_raises_at_the_library_too()
     test_qafiya_reads_a_file_the_way_every_other_verb_does()
+    test_the_report_rolls_up_without_dropping_anything()
+    test_song_exits_on_a_flag()
+    test_propose_selects_who_writes_the_line()
+    test_both_mandate_spellings_are_read()
+    test_the_loop_suspends_instead_of_guessing()
+    test_the_loop_pursues_a_note_it_can_brief()
+    test_the_candidate_field_says_which_ordering_it_is()
+    test_the_last_two_traceback_shapes_refuse()
+    test_every_test_file_is_accounted_for_by_ci()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

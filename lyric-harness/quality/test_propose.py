@@ -562,9 +562,17 @@ def test_a_forbidden_word_is_rejected_by_the_grader():
 def test_pair_prompt_states_the_tier2_situation():
     print("\n7. TIER 2 — the pair prompt says the MANDATE is what needs "
           "revising, and round-trips through ModelProposer")
-    pb = PB(pivot_line_no=3, pivot_text=DRAFT[2], pivot_word="dream",
+    # THE `_word` FIELDS ARE THE PROPOSAL. This fixture used to set them to
+    # "dream" and "silver" — the words the two lines ALREADY end on — which
+    # made the suite agree with a `render_pair` that printed them as
+    # `(ends on 'dream')` and read as correct. On a real `revise_loop` they
+    # are the words the search is ASKING FOR, so the rendering was wrong on
+    # both lines at once and no test could see it, because the fixture
+    # encoded the same misreading. They differ from the current end words
+    # here on purpose: that is the only way this section can fail.
+    pb = PB(pivot_line_no=3, pivot_text=DRAFT[2], pivot_word="mankind",
             pivot_offered=["mankind", "signed", "kind"],
-            anchor_line_no=1, anchor_text=DRAFT[0], anchor_word="silver",
+            anchor_line_no=1, anchor_text=DRAFT[0], anchor_word="deliver",
             anchor_offered=["deliver", "river", "quiver"],
             label="A", members=[1, 3], brief=PIVOT_BRIEF, lines=DRAFT,
             attempt=0, reasons=None, whole=WHOLE)
@@ -574,9 +582,16 @@ def test_pair_prompt_states_the_tier2_situation():
           "came back empty" in p and "no better word" in p)
     check("...and names what actually needs revising",
           "MANDATE is" in p, [r for r in p.split("\n") if "MANDATE" in r])
-    check("both lines are present, both numbered, both end words named",
-          all(s in p for s in ("PIVOT   L3:", "ANCHOR  L1:", "'dream'",
-                               "'silver'")))
+    check("both lines are present and both numbered",
+          all(s in p for s in ("PIVOT   L3:", "ANCHOR  L1:")))
+    check("the two `_word` fields are labelled as the SEARCH'S PROPOSAL and "
+          "not as what the lines end on",
+          "THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING" in p
+          and "L3 to end on 'mankind'" in p
+          and "L1 to end on 'deliver'" in p)
+    check("...and the prompt makes NO claim about a current end word it "
+          "would get wrong",
+          _false_end_word_claims(p) == [], _false_end_word_claims(p))
     check("both option lists are present and attributed to the right line",
           "mankind" in p and "deliver" in p
           and "PIVOT OPTIONS" in p and "ANCHOR OPTIONS" in p)
@@ -614,6 +629,206 @@ def test_pair_prompt_states_the_tier2_situation():
     check("a single-line response to a PAIR request is refused rather than "
           "written into one of the two slots",
           ModelProposer(one_line).propose_pair(pb) is None)
+
+
+#: The same three lines `quality/test_loop.py` carries under this name, and
+#: they are here for the same verified property: `brief(SILVER_MIND, [[1,3],
+#: [2,3]])` reports L3 `joint_conflict=True` — "silver" and "mind" share no
+#: rhyme, so no single word answers both groups — which is the ONLY way into
+#: tier 2. Spelled out rather than imported from that suite, matching how
+#: `CLICHE` above is spelled out: a test suite importing another test suite's
+#: fixtures makes one file's edit break the other's run for no stated reason.
+SILVER_MIND = ["It gleamed like polished silver",
+               "We wandered deep into the mind",
+               "The whole thing felt like a dream"]
+
+
+def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
+    print("\n7c. `PB` is a SECOND statement of `loop.PairBrief`, and it is "
+          "pinned to the first")
+    import dataclasses
+
+    from quality.loop import PairBrief
+
+    # `PB`'s own docstring says it exists so this suite need not wait on the
+    # sibling's dataclass to land. IT HAS LANDED, so that reason has expired
+    # and what is left is doctrine 1: two statements of one contract, which
+    # drift. Keep `PB` — it builds odd cases a frozen dataclass makes
+    # awkward — and make the drift a failing test rather than a surprise.
+    declared = {f.name for f in dataclasses.fields(PairBrief)}
+    used = {"pivot_line_no", "pivot_text", "pivot_word", "pivot_offered",
+            "anchor_line_no", "anchor_text", "anchor_word", "anchor_offered",
+            "label", "members", "brief", "lines", "attempt", "reasons",
+            "whole"}
+    check("every field this suite builds a `PB` out of is a real "
+          "`PairBrief` field", used <= declared, sorted(used - declared))
+    check("...and `PairBrief` has grown no field this suite is blind to",
+          declared <= used, sorted(declared - used))
+    check("`render_pair` reads the REAL dataclass, not just the stand-in",
+          render_pair(PairBrief(
+              pivot_line_no=3, pivot_text=DRAFT[2], pivot_word="dream",
+              pivot_offered=["mankind"], anchor_line_no=1,
+              anchor_text=DRAFT[0], anchor_word="silver",
+              anchor_offered=["deliver"], label="A", members=[1, 3],
+              brief=PIVOT_BRIEF, lines=DRAFT, attempt=0)).count("PIVOT") > 0)
+
+
+def test_model_proposer_serves_a_real_tier_2():
+    print("\n7d. END TO END — TIER 2. `propose_pair` is a DIFFERENT contract "
+          "from `propose`, and until now NOTHING crossed the two modules on it")
+    from quality.loop import revise_loop, swap_end_word
+    from quality.revise import Reviser
+
+    # THE DEFECT THIS PINS, MEASURED BEFORE IT WAS FIXED. `loop.py` called
+    # `propose_pair(pivot_text, anchor_text, pivot_word, anchor_word)` — four
+    # bare strings — while `ModelProposer.propose_pair` took ONE brief. A
+    # `revise_loop` that reached tier 2 through this proposer raised
+    # `TypeError: propose_pair() takes 2 positional arguments but 5 were
+    # given`, on the first joint conflict, and BOTH suites were green: section
+    # 7 above builds its own `PB` and calls the method directly, and
+    # `test_loop.py` drives tier 2 with its own stub. Neither one crossed the
+    # seam. The only check that could have caught it is a real loop reaching
+    # real tier 2 through the real proposer, which is this one.
+    seen = []
+
+    def call(prompt):
+        seen.append(prompt)
+        pivot = _labelled_line(prompt, "PIVOT   L")
+        anchor = _labelled_line(prompt, "ANCHOR  L")
+        # Take the pair the prompt says the SEARCH is proposing, which is
+        # what `loop.default_propose_pair` takes off the object. Taking the
+        # first OFFERED word instead reaches `no_progress` over all 50
+        # attempts -- the offered field is the whole pool the search walks,
+        # so its head is not the pair being tried this attempt and
+        # `verify()` turns every one of them down. That is a true fact
+        # about the two fields and it is why they are rendered apart.
+        p_word = _proposed_word(prompt, "PIVOT   L")
+        a_word = _proposed_word(prompt, "ANCHOR  L")
+        if not all((pivot, anchor, p_word, a_word)):
+            return "I cannot answer that."
+        return (f"PIVOT: {swap_end_word(pivot, p_word)}\n"
+                f"ANCHOR: {swap_end_word(anchor, a_word)}")
+
+    R = Reviser()
+    res = revise_loop(R, SILVER_MIND, [[1, 3], [2, 3]],
+                      propose_pair=ModelProposer(call).propose_pair)
+    check("the loop reaches tier 2 through `ModelProposer` at all -- an "
+          "arity mismatch here is a TypeError, not a quiet no-op",
+          seen, f"{len(seen)} pair prompt(s)")
+    check("the prompt it was handed is the one `render_pair` builds, so the "
+          "stub answered off the PROMPT and never saw a PairBrief",
+          all("PIVOT OPTIONS" in p and "ANCHOR OPTIONS" in p for p in seen))
+    # THIS IS WHERE THE MISREADING SHOWED, and only here: section 7 builds
+    # its own `PB`, so it could only ever be as right as the fixture. On a
+    # REAL run the loop fills the two `_word` fields with its search's
+    # proposal, and the old rendering turned that into "L3 ... (ends on
+    # 'mankind')" beside a line ending on "dream" — wrong on both lines, in
+    # every one of these prompts.
+    bad = [c for p in seen for c in _false_end_word_claims(p)]
+    check("across every prompt a real loop generated, not one misstates "
+          "what a line currently ends on",
+          bad == [], bad[:3])
+    check("a proposer reading ONLY the prompt reaches SUCCESS in ONE "
+          "backtrack -- the same result `loop.default_propose_pair` gets "
+          "off the object, so the rendering carries what the object does",
+          res.stop_reason == "success" and len(seen) == 1,
+          f"{res.stop_reason} after {len(seen)} prompt(s)")
+    check("L2 -- in neither backtracked group -- is untouched, so tier 2 "
+          "stayed inside its two-line group",
+          res.lines[1] == SILVER_MIND[1], res.lines)
+
+
+_ROLE_ROW = re.compile(r"^\s*(?:PIVOT|ANCHOR)\s+L(\d+): (.*)$")
+_ENDS_ON = re.compile(r"\(ends on '([^']*)'\)")
+_INSTEAD = re.compile(r"L(\d+) could end on instead of '([^']*)'")
+
+
+def _false_end_word_claims(prompt):
+    """-> every place the prompt says a line ends on a word it does not.
+
+    THE INVARIANT, and it is the one that was missing. A tier-2 prompt may
+    say whatever it likes about what a line SHOULD end on; it may not
+    misstate what a line DOES end on, because a writer answering it is
+    then working from a draft that does not exist. Written as a scan over
+    the RENDERED text rather than over the `PairBrief`, so it holds for
+    however `render_pair` chooses to phrase the claim, and so re-adding a
+    correct `(ends on ...)` later passes rather than being forbidden.
+    """
+    texts = {}
+    for row in prompt.split("\n"):
+        m = _ROLE_ROW.match(row)
+        if m:
+            texts[m.group(1)] = _ENDS_ON.sub("", m.group(2)).strip()
+    bad = []
+    for row in prompt.split("\n"):
+        m = _ROLE_ROW.match(row)
+        if m:
+            claim = _ENDS_ON.search(row)
+            if claim and _last_word(texts[m.group(1)]) != claim.group(1):
+                bad.append(row.strip())
+        m2 = _INSTEAD.search(row)
+        if m2 and m2.group(1) in texts:
+            if _last_word(texts[m2.group(1)]) != m2.group(2):
+                bad.append(row.strip())
+    return bad
+
+
+def _last_word(text):
+    """-> the final letter-bearing token of `text`, lowercased, or ''."""
+    words = re.findall(r"[A-Za-z][A-Za-z']*", text)
+    return words[-1].lower() if words else ""
+
+
+def _labelled_line(prompt, marker):
+    """-> the line text printed after `marker` in a tier-2 prompt, or None."""
+    for row in prompt.split("\n"):
+        if marker in row:
+            body = row.split(":", 1)[1]
+            return body.split("   (ends on")[0].strip()
+    return None
+
+
+def _proposed_word(prompt, marker):
+    """-> the word the prompt says the search proposes for `marker`'s line.
+
+    Read out of the rendered `THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING`
+    block by LINE NUMBER, so it cannot accidentally pick up the other role's
+    word, and so a rendering that stopped carrying the proposal at all makes
+    the stub decline rather than silently answer from somewhere else.
+    """
+    line_no = None
+    for row in prompt.split("\n"):
+        if marker in row:
+            m = re.search(r"L(\d+):", row)
+            if m:
+                line_no = m.group(1)
+            break
+    if line_no is None:
+        return None
+    m = re.search(r"^\s*L%s to end on '([^']*)'$" % line_no, prompt,
+                  re.MULTILINE)
+    return m.group(1) if m else None
+
+
+def _first_option(prompt, heading):
+    """-> the first word offered under `heading`, or None.
+
+    Reads the RENDERED prompt, the same way `_reads_the_prompt` does for
+    tier 1: a stub that reached into the `PairBrief` instead would prove
+    nothing about what the prompt actually carries.
+    """
+    rows = prompt.split("\n")
+    for i, row in enumerate(rows):
+        if heading in row:
+            for nxt in rows[i + 1:]:
+                words = re.findall(r"[A-Za-z']+", nxt)
+                if not nxt.strip():
+                    continue
+                if not nxt.startswith(" "):
+                    break
+                if words:
+                    return words[0]
+    return None
 
 
 def test_model_proposer_surface():
@@ -687,7 +902,9 @@ if __name__ == "__main__":
                test_parse_accepts_the_supported_shapes,
                test_parse_pair_needs_both_markers,
                test_pair_prompt_states_the_tier2_situation,
+               test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for,
                test_model_proposer_surface,
+               test_model_proposer_serves_a_real_tier_2,
                test_model_proposer_drives_a_real_loop_to_success,
                test_a_forbidden_word_is_rejected_by_the_grader):
         fn()

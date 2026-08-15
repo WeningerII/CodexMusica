@@ -190,6 +190,36 @@ class ReviseDeclaration:
     #: candidates offered per flagged rhyme, after the modal ones are removed
     offered: int = 24
 
+    #: WHICH NOTE CODES THE LOOP KEEPS WORKING ON, beyond the flags it always
+    #: pursues. EMPTY IS THE DEFAULT and reproduces every run this loop has
+    #: ever made.
+    #:
+    #: THE DEFECT THIS EXISTS FOR, found by writing a song through the loop.
+    #: `MODAL_RHYME` and `PREDICTABLE_RHYME` are in `RHYME_FINDINGS`, so
+    #: `brief()` hands a line carrying one a COMPLETE candidate field with the
+    #: modal words marked FORBIDDEN — the machinery to fix them is built and
+    #: reachable. And both are NOTES, while every stop condition in
+    #: `quality/loop.py` reads `severity == "flag"`, so the loop declared
+    #: SUCCESS and stopped before ever asking. MEASURED on a 33-line draft:
+    #: `revise` converged after ONE answer and reported SUCCESS; `song` on the
+    #: byte-identical draft reported four `MODAL_RHYME` and
+    #: `PREDICTABLE_RHYME` at 3 of 3, 100% of pairs above 0.90. Doctrine 9 is
+    #: this project's central claim and its own loop could not enforce it.
+    #:
+    #: A DECLARED COORDINATE AND NOT A PROMOTION. Re-typing `MODAL_RHYME` as a
+    #: flag was the wrong fix twice over: doctrine 7 says a floor may not
+    #: order the region it already passed, and a pair that rhymes IS inside
+    #: that region; and `verify()`'s gate reads flags, so a promoted note
+    #: would start REJECTING revisions for introducing one — the exact
+    #: regression `new_flags` was split out to end.
+    #:
+    #: SO PURSUING CHANGES WHAT THE LOOP ASKS FOR AND NEVER WHAT IT REJECTS.
+    #: `verify()` is untouched and still gates on `new_flags` alone. The pair
+    #: composes into doctrine 9 end to end: the loop now ASKS for a non-modal
+    #: word, and `verify()`'s pre-existing `modal_taken` rejection refuses an
+    #: answer that takes one.
+    pursue: frozenset = frozenset()
+
     #: HOW DEEP INTO THE SCORE-ORDERED POOL THE FIELD IS READ. `None` is the
     #: COMPLETE pool and is the default. This was a bare `n=200` inside
     #: `_field` — an undeclared literal that decided (a) which words the
