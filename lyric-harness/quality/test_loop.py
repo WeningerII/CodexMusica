@@ -43,11 +43,30 @@ but not automated here", asked of this module about itself:
        an EMPTY candidate field, so the line is a reported dead end rather
        than a silent pass
 
+Tests 13-16 are WHAT THE WRITER IS TOLD — the same question asked of the two
+`propose` seams rather than of the result:
+  - 13 tier 2 hands a `PairBrief`, one argument, carrying both LINE numbers,
+       the whole draft, the group being backtracked, the pivot's own
+       `Brief`, and the previous attempt's rejection. It passed four bare
+       strings until 2026-08-14 — for the HARDER of the two tiers, while
+       tier 1 got `brief`/`lines`/`attempt`/`reasons`
+  - 14 `propose` is shown `whole` — the draft-level findings `verify()` will
+       grade its proposal against. `HOOK_ABSENT` can REJECT a revision and
+       can never ask for one (test 11), and nothing used to tell the writer
+       it existed: a rubric enforced but not issued
+  - 15 tier 2 still CLEARS a real `joint_conflict` through the new contract,
+       driven by a caller-supplied proposer rather than the stub
+  - 16 `backtrack_width` still bounds the search to width^2 per two-line
+       group — 50 at the declared default, the same count as before
+
 BOUNDED ON PURPOSE: every fixture here is 3-5 lines. One `revise_loop` run
 over a 4-line draft costs 40-90s wall clock (the candidate field is built
 over the complete lexicon pool), and a 28-line one has already blown a
 180-second budget once. A fixture in this file that grows past about a dozen
-lines is a fixture that stops being run.
+lines is a fixture that stops being run. Tests 13 and 16 drive the same
+5-line fixture at two DIFFERENT `backtrack_width`s for the same reason: 8
+proposals and 50 are two points on one curve, and the cheap point is the one
+that carries the field assertions.
 
 Run: python3 quality/test_loop.py
 """
@@ -59,8 +78,8 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from quality.loop import (default_propose, revise_loop,  # noqa: E402
-                          swap_end_word)
+from quality.loop import (PairBrief, default_propose,  # noqa: E402
+                          default_propose_pair, revise_loop, swap_end_word)
 from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
 from quality.schemes import NoMandate  # noqa: E402
 from quality import schemes as SC  # noqa: E402
@@ -203,7 +222,13 @@ def test_success_stop():
 
 def test_no_progress_stop():
     print("\n2. NO_PROGRESS — a proposer that refuses everything")
-    def refuses_everything(brief, lines, attempt, reasons=None):
+    # FIVE PARAMETERS, not four: `whole` joined the contract 2026-08-14 and
+    # this signature is the migration. A four-parameter proposer raises
+    # TypeError at the first call now, loudly and before the draft is
+    # touched -- quality/loop.py's docstring argues that break rather than
+    # shimming around it, and these three inline proposers are the whole of
+    # what it broke in this repo.
+    def refuses_everything(brief, lines, attempt, reasons=None, whole=()):
         return None
     R = Reviser()
     res = revise_loop(R, CLICHE, "ABAB", propose=refuses_everything)
@@ -222,10 +247,10 @@ def test_no_progress_stop():
 def test_round_limit_stop():
     print("\n3. ROUND_LIMIT — partial progress, capped rather than repeated "
          "forever")
-    def picky(brief, lines, attempt, reasons=None):
+    def picky(brief, lines, attempt, reasons=None, whole=()):
         if brief.line_no == 2:
             return None
-        return default_propose(brief, lines, attempt, reasons)
+        return default_propose(brief, lines, attempt, reasons, whole)
     R = Reviser(rdecl=ReviseDeclaration(max_rounds=1))
     res = revise_loop(R, CLICHE, "ABAB", propose=picky)
     check("stops on ROUND_LIMIT, distinct from NO_PROGRESS",
@@ -460,7 +485,7 @@ def test_optin_layers_are_disclosed_and_success_is_per_line():
     check("the printed result carries the warning, not just the dataclass",
           "NO STOP CONDITION ABOVE CAN SEE" in str(res))
 
-    def refuses_everything(brief, lines, attempt, reasons=None):
+    def refuses_everything(brief, lines, attempt, reasons=None, whole=()):
         return None
     R2 = Reviser(rdecl=ReviseDeclaration(max_rounds=1))
     off = revise_loop(R2, CLICHE, "ABAB", propose=refuses_everything)
@@ -509,6 +534,220 @@ def test_declared_returns_are_asked_and_have_no_move():
           res.lines[2] == RETURN_DRIFT[2])
 
 
+def test_pair_brief_carries_the_situation():
+    print("\n13. TIER 2 hands its writer a `PairBrief`, not four bare "
+         "strings: BOTH line numbers, the whole draft, the group, and the "
+         "previous rejection")
+    seen = []
+
+    def recording(pair_brief):
+        seen.append(pair_brief)
+        return default_propose_pair(pair_brief)
+
+    # `backtrack_width=2` rather than the default 5 for cost, and it earns
+    # its keep twice: 2 two-line groups x 2 x 2 = 8 proposals, which is the
+    # low end of the bound test 16 pins at the default width. Verified
+    # interactively before being pinned, like every fixture in this file.
+    R = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
+    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE,
+                      propose_pair=recording)
+    check("tier 2 ran and actually proposed pairs", bool(seen), len(seen))
+    check("ONE argument, and it is a PairBrief -- not four positional "
+          "strings, which is what this tier passed until 2026-08-14",
+          all(isinstance(pb, PairBrief) for pb in seen),
+          [type(pb).__name__ for pb in seen[:1]])
+
+    first = seen[0]
+    check("the PIVOT's line number is on it: L3, the line whose conjunction "
+          "`joint_field` proved unsatisfiable",
+          first.pivot_line_no == 3, first.pivot_line_no)
+    check("...and the ANCHOR's, which is the OTHER line this move rewrites "
+          "-- a writer told only two texts cannot say which lines of the "
+          "song they are, and tier 2 changes two",
+          first.anchor_line_no in (1, 2), first.anchor_line_no)
+    check("the two line numbers ARE the named group's two members, so the "
+          "brief is internally checkable rather than merely populated",
+          all(set(pb.members) == {pb.pivot_line_no, pb.anchor_line_no}
+              and len(pb.members) == 2 for pb in seen),
+          sorted({pb.members for pb in seen}))
+    check("the group being backtracked is NAMED (`label`), which is the one "
+          "fact that says WHY these two lines and not two others",
+          sorted({pb.label for pb in seen}) == ["A", "B"],
+          sorted({pb.label for pb in seen}))
+    check("the WHOLE DRAFT travels with it, as a snapshot tuple",
+          all(list(pb.lines) == SILVER_NIGHT_LOCKED for pb in seen)
+          and isinstance(first.lines, tuple),
+          f"{type(first.lines).__name__} of {len(first.lines)}")
+    check("the pivot's own `Brief` rides along -- including the "
+          "`joint_conflict` that is the whole reason this is tier 2 and not "
+          "another tier-1 retry",
+          first.brief.line_no == 3 and first.brief.joint_conflict is True,
+          f"L{first.brief.line_no} joint_conflict="
+          f"{first.brief.joint_conflict}")
+    check("both candidate FIELDS are carried, and the two words this "
+          "attempt asks for are drawn from the front of them",
+          all(pb.pivot_word in pb.pivot_offered[:2]
+              and pb.anchor_word in pb.anchor_offered[:2] for pb in seen),
+          f"{first.pivot_word!r} from {first.pivot_offered[:2]}; "
+          f"{first.anchor_word!r} from {first.anchor_offered[:2]}")
+    check("the offered fields are the COMPLETE ones (24 = "
+          "`ReviseDeclaration.offered`), not the 2 the search walks -- a "
+          "bound on effort is not a claim about the field",
+          len(first.pivot_offered) == len(first.anchor_offered)
+          == R.rdecl.offered == 24,
+          f"{len(first.pivot_offered)} / {len(first.anchor_offered)}")
+
+    check("`attempt` counts this pivot's proposals, 0-based and gapless, "
+          "the same way tier 1's does",
+          [pb.attempt for pb in seen] == list(range(len(seen))),
+          [pb.attempt for pb in seen])
+    check("the FIRST attempt has no rejection to report",
+          first.reasons is None and first.attempt == 0)
+    check("...and every attempt after it carries the PREVIOUS one's "
+          "rejection -- the feedback path tier 1 has had since it was "
+          "written and this tier had none of",
+          sum(1 for pb in seen if pb.reasons) == len(seen) - 1,
+          f"{sum(1 for pb in seen if pb.reasons)} of {len(seen)}")
+    check("and the rejection is the real verdict text, not a placeholder: "
+          "every one of these pairs breaks a MANDATED pair elsewhere, which "
+          "is what SILVER_NIGHT_LOCKED was rebuilt to do",
+          all("SCHEME_VIOLATION" in "; ".join(pb.reasons)
+              for pb in seen if pb.reasons),
+          seen[1].reasons)
+    check("the whole-draft findings reach tier 2 as well -- the harder tier "
+          "is not the one told less",
+          all(isinstance(pb.whole, tuple) for pb in seen)
+          and {f.code for pb in seen for f in pb.whole}
+          == {"EXTRAPOLATED_LENGTH"},
+          sorted({f.code for pb in seen for f in pb.whole}))
+    check("8 pairs proposed = 2 two-line group(s) x width 2 x width 2",
+          len(seen) == 8 == 2 * R.rdecl.backtrack_width ** 2, len(seen))
+    check("the draft is untouched -- every pair was correctly rejected, so "
+          "widening the brief changed what the writer SEES and not what the "
+          "loop accepts",
+          res.lines == SILVER_NIGHT_LOCKED and res.stop_reason != "success",
+          res.stop_reason)
+
+
+def test_propose_sees_the_whole_draft_rubric():
+    print("\n14. `propose` is handed the WHOLE-DRAFT findings it is being "
+         "graded against -- HOOK_ABSENT among them, on a draft carrying one")
+    seen = []
+
+    def recording(brief, lines, attempt, reasons=None, whole=()):
+        seen.append((brief, tuple(whole)))
+        return default_propose(brief, lines, attempt, reasons, whole)
+
+    R = Reviser()
+    res = revise_loop(R, CLICHE, "ABAB", blueprint=CLICHE_BLUEPRINT,
+                      propose=recording)
+    check("the proposer was called at all", bool(seen), len(seen))
+    seen_whole = {f.code for _b, w in seen for f in w}
+    check("every call carried a non-empty whole-draft half",
+          all(w for _b, w in seen), [len(w) for _b, w in seen])
+    # THE ONE THE LOOP'S OWN DOCSTRING NAMES. `HOOK_ABSENT` is the only FLAG
+    # the song-function layer raises, it names no line, and `verify()`'s diff
+    # covers `whole` -- so it can REJECT a proposal and could never ask for
+    # one, and until 2026-08-14 nothing told the proposer it existed.
+    # CLAUDE.md records a real CLI run rejected for introducing exactly this
+    # code, by a stub that had never been shown it.
+    check("HOOK_ABSENT reaches the writer",
+          "HOOK_ABSENT" in seen_whole, sorted(seen_whole))
+    check("so does LEXICAL_MONOTONY -- the floor's whole-draft flag, and the "
+          "other half of the pair this loop can never ask for",
+          "LEXICAL_MONOTONY" in seen_whole)
+    check("what the writer was shown is EXACTLY what the result discloses: "
+          "one source (`inspect()['whole']`), not two derivations of it "
+          "(doctrine 1)",
+          {f.code for f in res.whole_flags} == {c for c in seen_whole
+                                                if c in ("HOOK_ABSENT",
+                                                         "LEXICAL_MONOTONY")}
+          == {"HOOK_ABSENT", "LEXICAL_MONOTONY"},
+          f"result {[f.code for f in res.whole_flags]}")
+    # AND IT IS NOT ON THE `Brief`, which is the point of passing it
+    # separately: a Brief is per-LINE, and these findings name no line.
+    per_line = {f.code for b, _w in seen for f in b.findings}
+    check("none of these codes is in ANY `Brief` -- widening `Brief` was "
+          "never the move, which is why `whole` is its own argument",
+          not (per_line & {"HOOK_ABSENT", "LEXICAL_MONOTONY"}),
+          sorted(per_line))
+    check("and NO stop condition moved: this is still the SUCCESS test 11 "
+          "pins, on a draft still carrying both flags",
+          res.stop_reason == "success" and res.unresolved == [],
+          res.stop_reason)
+
+
+def test_tier2_still_resolves_a_joint_conflict_through_pair_brief():
+    print("\n15. TIER 2 through the `PairBrief` contract still CLEARS a real "
+         "joint_conflict -- the mechanism, not merely the signature")
+    seen = []
+
+    def writes_from_the_pair_brief(pair_brief):
+        # A caller-supplied proposer that reads the brief rather than
+        # positional strings. Same splice as the stub, so what is under test
+        # is the contract carrying enough to do the job at all.
+        seen.append(pair_brief)
+        pivot = swap_end_word(pair_brief.pivot_text, pair_brief.pivot_word)
+        anchor = swap_end_word(pair_brief.anchor_text, pair_brief.anchor_word)
+        if pivot is None or anchor is None:
+            return None
+        return pivot, anchor
+
+    R = Reviser()
+    res = revise_loop(R, SILVER_MIND, [[1, 3], [2, 3]],
+                      propose_pair=writes_from_the_pair_brief)
+    check("stops on SUCCESS, exactly as test 4 does with the stub",
+          res.stop_reason == "success", res.stop_reason)
+    tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
+    check("exactly one tier-2 attempt ran, and it was accepted",
+          len(tier2) == 1 and tier2[0].accepted, tier2[0] if tier2 else None)
+    check("the lines it touched are the two the `PairBrief` NAMED, and no "
+          "third line -- the brief and the outcome agree",
+          set(tier2[0].touched)
+          == {seen[0].pivot_line_no, seen[0].anchor_line_no} == {1, 3},
+          f"touched {tier2[0].touched}, brief named "
+          f"L{seen[0].pivot_line_no}/L{seen[0].anchor_line_no}")
+    check("L2 (the untouched anchor) is byte-identical",
+          res.lines[1] == SILVER_MIND[1])
+    R2 = Reviser()
+    after = R2.brief(res.lines, [[1, 3], [2, 3]])
+    pivot_after = [b for b in after if b.line_no == 3]
+    check("re-briefed independently with a FRESH Reviser, L3 carries no "
+          "FLAG: the pivot is genuinely resolved at the mandate level",
+          not any(f.severity == "flag"
+                  for b in pivot_after for f in b.findings), pivot_after)
+
+
+def test_backtrack_width_still_bounds_the_search():
+    print("\n16. `backtrack_width` still bounds tier 2's search to the same "
+         "count it did before the `PairBrief` -- width^2 per two-line group")
+    seen = []
+
+    def counting(pair_brief):
+        seen.append(pair_brief)
+        return default_propose_pair(pair_brief)
+
+    R = Reviser()                       # the DECLARED default, width 5
+    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE,
+                      propose_pair=counting)
+    tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
+    check("50 pairs proposed = 2 two-line group(s) x width 5 x width 5 -- "
+          "the number this fixture's own comment recorded before the "
+          "contract changed, unmoved",
+          len(seen) == 50 == 2 * R.rdecl.backtrack_width ** 2, len(seen))
+    check("and the loop COUNTS what it proposed: `tried` on the attempt is "
+          "the same 50, so the result does not overstate the search",
+          tier2 and tier2[0].tried == len(seen) == 50,
+          tier2[0].tried if tier2 else None)
+    check("the bound is the DECLARED coordinate and not a constant: the "
+          "same fixture at `backtrack_width=2` proposes 8 (test 13), which "
+          "is 2 x 2^2 against this run's 2 x 5^2",
+          8 == 2 * 2 ** 2 and 50 == 2 * 5 ** 2)
+    check("every one of the 50 was rejected and the draft is untouched, "
+          "which is test 5's claim re-measured through the new contract",
+          not tier2[0].accepted and res.lines == SILVER_NIGHT_LOCKED)
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -521,7 +760,11 @@ if __name__ == "__main__":
                test_no_mandate_is_a_refusal_not_a_pass,
                test_strip_parens_is_a_declared_coordinate,
                test_optin_layers_are_disclosed_and_success_is_per_line,
-               test_declared_returns_are_asked_and_have_no_move):
+               test_declared_returns_are_asked_and_have_no_move,
+               test_pair_brief_carries_the_situation,
+               test_propose_sees_the_whole_draft_rubric,
+               test_tier2_still_resolves_a_joint_conflict_through_pair_brief,
+               test_backtrack_width_still_bounds_the_search):
         fn()
     print("=" * 62)
     if FAILURES:
