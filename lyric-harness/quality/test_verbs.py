@@ -2670,6 +2670,191 @@ def test_a_near_miss_flag_refuses_on_the_reviser_verbs():
           f"rc {rc}")
 
 
+def test_a_file_the_harness_cannot_read_refuses_on_every_verb():
+    print("\n26. an UNDECODABLE file and a MISTYPED path refuse on every verb "
+          "that reads a lyric (FIXED 2026-08-15)")
+    # §23 closed a MISSING file and this closes the two shapes it did not
+    # reach, both found by sweeping the verbs rather than by reading the code.
+    #
+    #   UNDECODABLE. `open(path, encoding="utf-8")` raises
+    #   `UnicodeDecodeError`, which is a `ValueError` -- so §23's `except
+    #   OSError` never saw it and seven verbs exited 1 with a traceback.
+    #   MEASURED at 6d204a7 on one eight-byte binary: chains graph density
+    #   relations qafiya partition refrain -> 1.
+    #
+    #   AND `readability` -> 0, WHICH IS THE ONE WORTH THE COMMIT. That verb
+    #   exists to answer "how much of this text could not be read", its
+    #   reader carried `errors="replace"`, and it printed `countable line
+    #   ends 1   read 1   REFUSED 0   (0.00%)` on a file it could not decode
+    #   at all. A refusal counter answering 0.00% about its own failure to
+    #   ingest, at the success exit code (doctrine 48, in the report's
+    #   headline).
+    #
+    #   MISTYPED PATH. `qafiya`/`partition` are `FILE|L...` and decided with
+    #   `os.path.exists`, so an absent path fell through to the LINE reading
+    #   and was GRADED: `qafiya nope.txt` printed `L1 (txt)` -- the file
+    #   extension scored as the rhyme word -- at exit 0.
+    d = tempfile.mkdtemp()
+    good = os.path.join(d, "q.txt")
+    with open(good, "w") as fh:
+        fh.write("the cat sat on the mat\na dog ran through the fog\n"
+                 "he wore a battered hat\nit vanished in the bog\n")
+    binary = os.path.join(d, "bad.bin")
+    with open(binary, "wb") as fh:
+        fh.write(b"\xff\xfe\x00\x80bad\xc3\x28")
+    gone = os.path.join(d, "nope.txt")
+
+    # ONE SHAPE ON EVERY VERB, which is the point of a sweep rather than a
+    # case: these were fixed one at a time before and that is how two whole
+    # classes went uncovered.
+    reading = (("chains", [binary]), ("graph", [binary]),
+               ("density", [binary]), ("relations", [binary]),
+               ("readability", [binary]), ("qafiya", [binary]),
+               ("partition", [binary]), ("refrain", ["villanelle", binary]),
+               ("brief", [binary, "ABAB"]), ("revise", [binary, "ABAB"]),
+               ("verify", [binary, binary, "ABAB"]))
+    for verb, argv in reading:
+        rc, out, err = run(verb, *argv, expect_rc=2)
+        check(f"`{verb}` REFUSES an undecodable file at 2, not 1",
+              rc == 2 and "REFUSED" in out and "Traceback" not in err,
+              f"rc {rc}")
+    rc, out, _ = run("chains", binary, expect_rc=2)
+    check("and the refusal names the PATH, the BYTE and the OFFSET",
+          "bad.bin" in out and "0xff" in out and "offset 0" in out,
+          "a refusal that does not locate the byte is a shrug (doctrine 20)")
+
+    # THE VERB HOLDING TWO FILES, which is why the exception is a class that
+    # carries the path rather than one more clause on `__main__`'s handler.
+    # The four Reviser verbs did NOT traceback at 6d204a7 -- they refused at
+    # 2, and refused in the wrong layer's words: `UnicodeDecodeError` is a
+    # `ValueError`, and their `except ValueError` is the BLUEPRINT/DRAFT
+    # LENGTH MISMATCH handler, so a decode failure was reported under it as
+    # `REFUSED — 'utf-8' codec can't decode byte 0xff in position 0` with no
+    # filename anywhere in it. Correct exit code, correct shape, and on a verb
+    # holding a BEFORE and an AFTER it named neither of them (doctrine 20 --
+    # a refusal that cannot say what it is about is inconclusive dressed as an
+    # answer). Asserted in BOTH argument positions so the check cannot pass by
+    # naming whichever file happens to be read first.
+    for pos, argv in (("second", [good, binary]), ("first", [binary, good])):
+        rc, out, _ = run("verify", *argv, "ABAB", expect_rc=2)
+        check(f"`verify` names WHICH of its two files failed to decode "
+              f"({pos} position)",
+              rc == 2 and "bad.bin" in out and "q.txt" not in out,
+              out.strip().splitlines()[:1])
+
+    # THE INGESTION-REFUSAL VERB, ASKED ITS OWN QUESTION. Kept separate from
+    # the sweep above because the failure was not a traceback -- it was a
+    # NUMBER, and the number was 0.00%.
+    rc, out, _ = run("readability", binary, expect_rc=2)
+    check("`readability` does not report 0.00% REFUSED on a file it could "
+          "not decode", rc == 2 and "0.00%" not in out and "read 1" not in out,
+          out.strip().splitlines()[:1])
+
+    # ONE HANDLER SERVED BOTH, WHICH IS HOW THE MODULE-IDENTITY BUG SHOWS.
+    # `readability` reaches the reader through `quality/readability.py`,
+    # which imports `lyric_harness` under its own name -- a SECOND execution
+    # of the same file, binding a second, unrelated `UndecodableLyricFile`.
+    # While that was true this verb alone kept exiting 1, with a traceback
+    # whose last line held the right message about the wrong class. Equal
+    # refusal text across the two paths is the evidence they are one class.
+    direct = run("chains", binary, expect_rc=2)[1]
+    through = run("readability", binary, expect_rc=2)[1]
+    check("a verb reaching the reader THROUGH quality/ refuses identically "
+          "to one reaching it directly",
+          direct.strip() == through.strip(),
+          "two module objects would make these two different classes")
+
+    # THE MISTYPED PATH, and BOTH readings of the argument it is ambiguous
+    # with, because a guard like this is wrong exactly when it eats a line.
+    for verb in ("qafiya", "partition"):
+        rc, out, err = run(verb, gone, expect_rc=2)
+        check(f"`{verb}` REFUSES a path-shaped token that is not a file",
+              rc == 2 and "REFUSED" in out and "Traceback" not in err,
+              f"rc {rc}")
+        check(f"and `{verb}`'s refusal states BOTH readings",
+              "FILE" in out and "LINE" in out,
+              "the caller cannot fix it without being told which it picked")
+    rc, out, _ = run("qafiya", "the cattle waded through the silt")
+    check("a real LINE is still read as a line", rc == 0
+          and "REFUSED" not in out, f"rc {rc}")
+    rc, out, _ = run("qafiya", "silt")
+    check("and so is a bare word — no separator, no extension, no refusal",
+          rc == 0 and "REFUSED" not in out, f"rc {rc}")
+    rc, out, _ = run("partition", "the silt", "rebuilt")
+    check("two LINE arguments are untouched", rc == 0
+          and "REFUSED" not in out, f"rc {rc}")
+
+    # AND EVERY REAL RUN IS UNTOUCHED. This catches errors, not results.
+    #
+    # `REFUSED —` AND NOT `REFUSED`, and the difference is not pedantry: this
+    # loop covers `readability`, whose ORDINARY report contains the word as a
+    # column label — `countable line ends 4   read 4   REFUSED 0   (0.00%)`.
+    # Spelled `"REFUSED" not in out` the check fails on a clean run of the one
+    # verb in the list most worth covering, which is a test that cannot pass
+    # rather than one that cannot fail, and the same mistake in the mirror.
+    # `_refuse` prints one shape and it carries the em dash.
+    for verb, argv in (("chains", [good]), ("density", [good]),
+                       ("readability", [good]), ("qafiya", [good]),
+                       ("partition", [good]), ("brief", [good, "ABAB"])):
+        rc, out, _ = run(verb, *argv)
+        check(f"`{verb}` on a real lyric still runs", rc == 0
+              and "REFUSED —" not in out, f"rc {rc}")
+
+
+def test_the_named_pair_disclosure_survives_the_module_boundary():
+    print("\n27. the NAMED PAIR IS NOT THE EVIDENCE banner reaches the verbs "
+          "that score through quality/ (FIXED 2026-08-15)")
+    # FOUND WHILE MEASURING §26's `sys.modules` alias -- by byte-diffing all
+    # 28 verb invocations with and without it, rather than by reasoning about
+    # what one line could touch. 27 of 28 came back identical. `song` did not:
+    # it GAINED four lines, and they are the loudest lines this report has.
+    #
+    # `report_pair` exists because "the defect was never that the provenance
+    # was unavailable after `best_score` recorded it -- it was that a consumer
+    # holding both printed only one". Its gate is
+    #
+    #     claimed = sp.claims(a, b) if isinstance(sp, Attribution) else True
+    #
+    # and `sp` arrives from `Reviser.inspect`, built by the copy of this file
+    # that `quality/` imported. `isinstance` against `__main__`'s `Attribution`
+    # is then FALSE for a real `Attribution`, `claimed` defaults to True, and
+    # the entire disclosure block is skipped. So the defect `report_pair` was
+    # written to end came back one level up, wearing module identity.
+    #
+    # AND THE REPORT CONTRADICTED ITSELF IN ADJACENT LINES, which is how it is
+    # checkable without trusting either half: `spans_note` is a plain string
+    # and never crossed the boundary, so `MOSAIC (both sides): the winning
+    # span reaches back past the end word` printed on all four pairs the whole
+    # time -- directly beneath the missing banner that says the same fact
+    # loudly. One is the invariant on the other.
+    fix = os.path.join(ROOT, "quality", "fixtures")
+    rc, out, _ = run("song", os.path.join(fix, "song.blueprint.json"),
+                     os.path.join(fix, "song.txt"), "--cliques", expect_rc=3)
+    lines = out.splitlines()
+    mosaic = [i for i, ln in enumerate(lines) if "MOSAIC (" in ln]
+    check("the fixture still carries a mosaic span to disclose", mosaic,
+          "a check with nothing to examine passes for the wrong reason "
+          "(doctrine 48) — this one names its own population")
+    orphans = [lines[i].strip()[:70] for i in mosaic
+               if i == 0 or "NAMED PAIR IS NOT THE EVIDENCE" not in lines[i - 1]]
+    check(f"every one of the {len(mosaic)} mosaic spans carries the banner",
+          not orphans, orphans)
+
+    # THE SAME PAIR THROUGH `brief`, which reaches `Reviser` by a different
+    # route and was equally blind. Two verbs, one boundary.
+    rc, out, _ = run("brief", os.path.join(fix, "song.txt"), "--cliques")
+    check("`brief` discloses it too", rc == 0
+          and "NAMED PAIR IS NOT THE EVIDENCE" in out, f"rc {rc}")
+
+    # AND THE NUMBER DID NOT MOVE. This is a RENDERING fix (doctrine 91):
+    # `report_pair`'s own docstring says it RELABELS rather than suppressing
+    # the number, so a verdict that changed here would mean the alias had
+    # done something else as well.
+    check("the verdict beside it is unchanged — 1.0 REPEAT on the named pair",
+          "(counting/counting): 1.0  REPEAT" in out,
+          "the alias fixed a report, and a verdict moving would say otherwise")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -2701,6 +2886,8 @@ if __name__ == "__main__":
     test_the_last_two_traceback_shapes_refuse()
     test_every_test_file_is_accounted_for_by_ci()
     test_a_near_miss_flag_refuses_on_the_reviser_verbs()
+    test_a_file_the_harness_cannot_read_refuses_on_every_verb()
+    test_the_named_pair_disclosure_survives_the_module_boundary()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

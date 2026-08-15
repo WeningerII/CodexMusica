@@ -853,6 +853,75 @@ def is_apparatus_line(line):
     return s.startswith("[") or s.startswith("---") or s.startswith("#")
 
 
+class UndecodableLyricFile(Exception):
+    """A file this harness was told to read as text is not valid UTF-8.
+
+    NOT AN `OSError`, WHICH IS THE WHOLE REASON THIS CLASS EXISTS.
+    `__main__`'s handler has caught `OSError` since 2026-08-15 and turns a
+    missing file or a directory into `REFUSED ... ` at exit 2 -- and
+    `UnicodeDecodeError` is a `ValueError`, so it sailed straight past that
+    handler and out as Python's own uncaught exception at exit 1. MEASURED
+    at `6d204a7`, on one undecodable file, over the verbs that read a lyric:
+
+        chains graph density relations qafiya partition refrain -> exit 1
+        brief verify revise song                                -> exit 2
+        readability                                             -> exit 0
+
+    Exit 1 is the code a caller reads as "the harness crashed" (doctrine 20),
+    so seven verbs blamed themselves for the caller's file. `readability`
+    is worse and is the entry below this one.
+
+    AND THE FOUR AT **2** ARE NOT THE GOOD ROW. They refused in another
+    layer's words: their `except ValueError` is the BLUEPRINT/DRAFT LENGTH
+    MISMATCH handler, `UnicodeDecodeError` IS a `ValueError`, and the message
+    that came out was `REFUSED — 'utf-8' codec can't decode byte 0xff in
+    position 0` — right code, right shape, and on `verify BEFORE AFTER`,
+    holding two files, naming NEITHER of them. Deriving from `Exception`
+    rather than `ValueError` is what stops that clause catching this.
+
+    AND THE EXCEPTION CARRIES NO FILENAME, which is why this is a class and
+    not one more clause on `__main__`'s `except`. `UnicodeDecodeError` knows
+    the byte, the offset and the codec and NOT the path -- so a handler at
+    the top could say "not valid UTF-8" and could not say WHICH FILE, on a
+    verb like `verify BEFORE AFTER` that is holding two. Raised where the
+    path is in scope, it names both.
+    """
+
+    def __init__(self, path, err):
+        self.path = path
+        self.err = err
+        byte = err.object[err.start]
+        super().__init__(f"{path} — not valid UTF-8: byte 0x{byte:02x} at "
+                         f"offset {err.start} ({err.reason})")
+
+
+def read_lyric_text(path):
+    """-> str. A lyric or corpus file's text, decoded STRICTLY.
+
+    The one definition of "read this file as text" for every reader in this
+    project that grades words: `load_lyric_lines` below and
+    `quality/readability.py`'s `read_lines`, which had its own second
+    spelling of it and got it wrong in the direction that is hardest to see.
+
+    TEXT MODE, `f.read()`, ON PURPOSE -- not `open(path, "rb").decode()`.
+    Universal-newline translation happens during the read, so a `\\r\\n` or
+    lone-`\\r` file splits the same way it always has here; decoding bytes by
+    hand would silently stop translating. And `.splitlines()` rather than
+    `.split("\\n")` is what `load_lyric_lines` has always done, so `read_lines`
+    adopting this function inherits `.splitlines()`'s extra separators (VT,
+    FF, FS/GS/RS, NEL, U+2028, U+2029). MEASURED before the swap over all 279
+    decodable files under `corpus/`, `quality/fixtures/` and `examples/`:
+    **0 files** contain any of them, so the two readers split every file in
+    this repository identically and no recorded line count moves (doctrine 58
+    -- the equivalence is measured, not assumed from the shape of the code).
+    """
+    try:
+        with open(path, encoding="utf-8") as f:
+            return f.read()
+    except UnicodeDecodeError as e:
+        raise UndecodableLyricFile(path, e) from e
+
+
 def load_lyric_lines(path):
     """-> list[str]. Non-empty, non-apparatus lines from a lyric file, in
 
@@ -860,9 +929,63 @@ def load_lyric_lines(path):
     and apparatus lines dropped. One definition so every verb agrees on
     what counts as sung text.
     """
-    with open(path, encoding="utf-8") as f:
-        return [l.strip() for l in f.read().splitlines()
-                if l.strip() and not is_apparatus_line(l)]
+    return [l.strip() for l in read_lyric_text(path).splitlines()
+            if l.strip() and not is_apparatus_line(l)]
+
+
+# A single `FILE|L...` token that is NOT on disk: is it a mistyped path, or a
+# one-word lyric line? Both readings are real, the verb cannot tell, and it
+# picked one silently -- so `qafiya nope.txt` GRADED THE PATH, reporting
+# `L1 (txt)` with the extension as the rhyme word, at exit 0. A wrong answer
+# at the success code, which is worse than the traceback the same typo earns
+# on every sibling verb.
+#
+# IT REFUSES ONLY FOR A TOKEN CARRYING A PATH MARKER, because the genuinely
+# ambiguous reading is narrower than the merely-absent one. `the cattle waded
+# through the silt` has whitespace and no marker: a LINE, unambiguously, and
+# `quality/test_verbs.py` has run exactly that. `silt` is a LINE too -- a bare
+# word with no separator and no extension is likelier sung than typed at a
+# shell. What refuses is a separator anywhere (`draft/verse.txt`, `../song`)
+# or a filename extension at the end (`nope.txt`).
+#
+# MEASURED AS A FALSE-POSITIVE RATE, over the 450,271 sung lines of
+# `corpus/song/` -- doctrine 22, state a threshold as an FPR and not as an
+# argument about how paths tend to look. **29 lines match, 0.0064%**, and the
+# split is the whole finding: **29 by the separator half, 0 by the extension
+# half.** Not one of the 29 is sung -- `http://www.ccel.org/...`, four Finnish
+# dates (`22/9 1879.`), Byron's transliterated Greek -- so they are apparatus
+# the corpus filter did not catch, and the extension half, which is the half a
+# mistyped path actually trips, has a measured zero.
+_PATH_SHAPED = re.compile(r"[/\\]|\.[A-Za-z0-9]{1,5}$")
+
+
+def _lyric_source(src, verb):
+    """-> list[str] | None. The `FILE|L...` argument shape, decided ONCE.
+
+    `None` means "the arguments ARE the lines" and the caller applies its own
+    normalization -- `qafiya` strips and drops blanks, `partition` does not,
+    and this function does not quietly make them agree on a question it was
+    not asked. What it decides is the READING, which they did agree on and
+    both spelled themselves: `os.path.exists(src[0])`, with the else-branch
+    taking a path-shaped token as a lyric.
+    """
+    if len(src) == 1 and os.path.exists(src[0]):
+        return load_lyric_lines(src[0])
+    if len(src) == 1 and _PATH_SHAPED.search(src[0]):
+        _refuse(f"{verb} — {src[0]!r} is not a file, and it is path-shaped",
+                detail=[f"the argument is `{verb} FILE|L...`: one token that "
+                        f"EXISTS on disk is read as a lyric FILE, anything "
+                        f"else as the lyric LINES themselves. This token is "
+                        f"on neither side — it is not on disk, and it carries "
+                        f"a path separator or a filename extension.",
+                        "Reading it as a one-word lyric would grade the PATH: "
+                        "`qafiya nope.txt` reported `L1 (txt)`, the extension "
+                        "scored as the rhyme word, at exit 0.",
+                        "If you meant the FILE, the path is read relative to "
+                        "the working directory. If you meant a LINE, pass it "
+                        "alongside the others — one line establishes no "
+                        "qafiya profile and partitions into one singleton."])
+    return None
 
 
 def line_tokens(text, strip_parens=True):
@@ -4642,11 +4765,14 @@ def main():
         # The file-vs-lines guard is `partition`'s, for `partition`'s reason:
         # the documented usage is `qafiya FILE|L...`, so a two-token
         # invocation whose second token is a LINE must not be opened as a
-        # path. `os.path.exists` decides, exactly as it does there.
+        # path. `os.path.exists` decides, exactly as it does there -- and
+        # BOTH verbs spelled that decision themselves until 2026-08-15, which
+        # is how they came to share a defect neither could see: the
+        # else-branch read a MISTYPED PATH as a lyric line. `_lyric_source`
+        # is the one definition now; the normalization below stays here.
         src = args[1:]
-        if len(src) == 1 and os.path.exists(src[0]):
-            lines = load_lyric_lines(src[0])
-        else:
+        lines = _lyric_source(src, "qafiya")
+        if lines is None:
             lines = [l.strip() for l in src if l.strip()]
         res = check_qafiya(lex, lines, decl)
         print(f"  established profile: {res['profile']}   "
@@ -5043,9 +5169,8 @@ def main():
     elif cmd == "partition":
         from quality import schemes as SC
         src = args[1:]
-        if len(src) == 1 and os.path.exists(src[0]):
-            lines = load_lyric_lines(src[0])
-        else:
+        lines = _lyric_source(src, "partition")
+        if lines is None:
             lines = src
         g = rhyme_graph(lex, lines, decl)
         cov = SC.Cover(n_lines=len(lines),
@@ -5125,8 +5250,15 @@ def main():
         # `corpus/song/*.txt` files hold non-ASCII bytes, so under
         # `LC_ALL=C` this raised UnicodeDecodeError rather than reading
         # a curly apostrophe.
-        raw = [l.rstrip() for l in
-               open(keep[0], encoding="utf-8").read().splitlines()
+        #
+        # `read_lyric_text` 2026-08-15, for the same reason one step on: the
+        # decode was right and it was a SECOND SPELLING of a rule that now
+        # has one definition, so this verb alone turned an undecodable file
+        # into a raw `UnicodeDecodeError` at exit 1 after every sibling had
+        # learned to refuse it. What that function does NOT do is drop blank
+        # lines -- it returns the text -- so the split and both filters below
+        # stay here, where the stanza frame needs them.
+        raw = [l.rstrip() for l in read_lyric_text(keep[0]).splitlines()
                if not is_apparatus_line(l)]
         lines = [l for l in raw if l.strip()]
         phon = _phonology_or_refuse(lang)
@@ -6636,6 +6768,36 @@ def main():
 
 
 if __name__ == "__main__":
+    # ONE FILE, TWO MODULE OBJECTS — and the first thing this branch has to
+    # do is stop being two, because an `except` clause below cannot catch a
+    # class raised by the other copy.
+    #
+    # Run as a script this file is `__main__`. Every module under `quality/`
+    # does `from lyric_harness import ...`, which finds no `lyric_harness` in
+    # `sys.modules`, RE-EXECUTES this whole file under that name, and binds a
+    # SECOND, unrelated set of every class and function in it. Two
+    # `Lexicon`s, two `Declaration`s, two of everything, differing by
+    # identity and by nothing else — which is invisible until identity is
+    # what a statement rests on. It rests on it here: `read_lyric_text`
+    # reached through `quality/readability.py` raises
+    # `lyric_harness.UndecodableLyricFile` and this block catches
+    # `__main__.UndecodableLyricFile`, so the refusal added in this same
+    # commit was caught for seven verbs and MISSED for the eighth —
+    # `readability`, which kept exiting 1 with a traceback whose last line
+    # reads `lyric_harness.UndecodableLyricFile: ... not valid UTF-8`. The
+    # message was right, the handler was right, and they were about two
+    # different classes.
+    #
+    # `setdefault` rather than assignment, and BEFORE `main()`, which is
+    # where every `from quality import ...` happens: any importer arriving
+    # afterwards is handed this module instead of re-running the file. It
+    # also stops the double execution (47.9ms, `-X importtime`) and collapses
+    # the two copies of every module-level cache into the one the CLI is
+    # actually using. `setdefault` is not paranoia about a race — it says
+    # that if something has ALREADY imported this file under its own name,
+    # that copy wins and this branch does not swap it out underneath it.
+    sys.modules.setdefault("lyric_harness", sys.modules["__main__"])
+
     # THE LAST TWO SHAPES THAT STILL REACHED A USER AS A TRACEBACK — FIXED
     # 2026-08-15. Every verb in this file was given ONE refusal shape
     # (`REFUSED — ...`, exit 2) a piece at a time — `candidates` on an OOV
@@ -6659,8 +6821,24 @@ if __name__ == "__main__":
     # doctrine 20 is about. So that refusal states the argument count it
     # actually received AND says plainly that a complete-looking command line
     # reaching it is a bug to report, with the exception carried through.
+    #
+    # AND `UnicodeDecodeError` IS NEITHER OF THOSE, WHICH IS WHY IT ESCAPED
+    # BOTH — added 2026-08-15, after the sweep above was re-run against the
+    # file the sweep itself produced. It is a `ValueError`, so `except
+    # OSError` never saw it, and it carries no filename, so a clause here
+    # could not have named the file even if it had. `UndecodableLyricFile`
+    # is raised at `read_lyric_text`, where the path is in scope, and this
+    # handler just prints what it was already told.
     try:
         main()
+    except UndecodableLyricFile as e:
+        _refuse(str(e),
+                detail=["this harness reads lyrics and corpora as UTF-8 and "
+                        "does NOT substitute a replacement character for a "
+                        "byte it cannot decode — a file read that way grades "
+                        "as text and reports nothing wrong (doctrine 20).",
+                        "if the file is in another encoding, convert it: "
+                        "`iconv -f latin1 -t utf-8 FILE > FILE.utf8`."])
     except OSError as e:
         _refuse(f"{e.filename or 'a file this verb was given'} — "
                 f"{e.strerror or e}",

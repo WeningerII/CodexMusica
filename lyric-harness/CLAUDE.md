@@ -762,6 +762,103 @@ paragraph in this file said the centralization was done;
 `grep -rn 'startswith("--- ")'` and `grep -rn 'startswith("\[")'` are the only
 checks that it actually is.
 
+**AND THE FIFTH SITE WAS NOT THE APPARATUS RULE — IT WAS THE DECODE, ONE LAYER
+EARLIER, FOUND 2026-08-15 BY SWEEPING THE VERBS RATHER THAN GREPPING THE
+PREDICATE.** The two checks that paragraph ends on find `startswith` and only
+`startswith`. Underneath it three readers still disagreed about the same file:
+`load_lyric_lines` decoded STRICTLY, `quality/readability.py`'s `read_lines`
+carried `errors="replace"`, and the `relations` verb spelled `open(...,
+encoding="utf-8")` a third time. `read_lyric_text` is the one definition now —
+text mode and `f.read()`, so universal-newline translation is untouched, and
+MEASURED at **0 of 279 files** under `corpus/`, `quality/fixtures/` and
+`examples/` where `.splitlines()` and iterating the handle would split
+differently, so no recorded line count moves (doctrine 58: the equivalence is
+measured, not read off the shape of the code).
+
+**THE COST WAS AN EXIT CODE ON SEVEN VERBS AND A NUMBER ON THE EIGHTH.**
+`UnicodeDecodeError` is a `ValueError`, so `__main__`'s `except OSError` — the
+handler that turns a missing file into `REFUSED` at exit 2 — never saw it, and
+`chains graph density relations qafiya partition refrain` each exited **1**,
+Python's own uncaught-exception code, on a file the caller mistyped. The eighth
+is the one worth the commit: `readability` exited **0** and printed `countable
+line ends 1   read 1   REFUSED 0   (0.00%)`. That verb's entire subject is how
+much of a text could not be ingested; `errors="replace"` had it certify a
+binary file as fully read, which is doctrine 48 in the headline of the report
+whose job is the refusal count. AND THE COORDINATE WAS BUYING NOTHING ON THE
+POPULATION IT EXISTS FOR: **0 of 269 files under `corpus/`** fail a strict
+decode, so it fired on no recorded measurement and only on a caller's mistake.
+`UndecodableLyricFile` is a CLASS and not one more clause on that handler
+because `UnicodeDecodeError` carries the byte, the offset and the codec and NOT
+the path — a clause at the top could say "not valid UTF-8" and could not say
+which file, on a verb like `verify BEFORE AFTER` holding two.
+
+**AND CATCHING IT EXPOSED THAT THIS FILE IS TWO MODULES.** Run as a script
+`lyric_harness.py` is `__main__`; every module under `quality/` does `from
+lyric_harness import ...`, which finds nothing by that name, RE-EXECUTES the
+whole file, and binds a second, unrelated copy of every class in it — invisible
+until identity is what a statement rests on, and it rests on it in an `except`.
+So the new refusal was caught for seven verbs and MISSED for `readability`, the
+one that reaches the reader through `quality/`, which kept exiting 1 with a
+traceback whose last line read `lyric_harness.UndecodableLyricFile: … not valid
+UTF-8` — the right message about the wrong class. `sys.modules.setdefault(
+"lyric_harness", sys.modules["__main__"])` ahead of dispatch collapses them,
+which also ends a 47.9ms double execution and a duplicated copy of every
+module-level cache. §26's binding assertion is that `chains` and `readability`
+refuse in BYTE-IDENTICAL text, which two module objects cannot.
+
+**AND THAT ONE LINE TURNED OUT TO BE A REPORT FIX, FOUND BY BYTE-DIFFING ALL 28
+VERB INVOCATIONS EITHER SIDE OF IT RATHER THAN BY REASONING ABOUT WHAT IT COULD
+TOUCH.** 27 came back identical; `song` GAINED four lines, and they are the
+loudest lines this report has. `report_pair` — *"the defect was never that the
+provenance was unavailable after `best_score` recorded it, it was that a
+consumer holding both printed only one"* — gates its whole disclosure on
+`isinstance(sp, Attribution)`, and `sp` arrives from `Reviser.inspect`, built by
+the copy `quality/` imported. Against `__main__`'s `Attribution` that test is
+FALSE for a real `Attribution`, `claimed` falls back to True, and the block is
+skipped. **So the defect `report_pair` exists to end came back one level up
+wearing module identity, and `NAMED PAIR IS NOT THE EVIDENCE` was dead on every
+verb that scores through `quality/` — `song`, `brief`, `verify`, `revise`.**
+THE REPORT HAD BEEN CONTRADICTING ITSELF IN ADJACENT LINES, which is what makes
+this checkable without trusting either half: `spans_note` is a plain string and
+never crossed the boundary, so `MOSAIC (both sides): the winning span reaches
+back past the end word` printed on all four pairs the whole time, directly
+beneath the missing banner that says the same fact loudly. §27 asserts the
+IMPLICATION rather than a count — every `MOSAIC` line must be immediately
+preceded by the banner — and names its own population first, so it cannot pass
+by examining nothing. It is a RENDERING fix and the verdict beside it is
+asserted unchanged (`(counting/counting): 1.0  REPEAT`), because a number moving
+here would mean the alias had done something else as well.
+
+**AND THE FOUR REVISER VERBS NEVER TRACEBACKED ON AN UNDECODABLE FILE AT ALL —
+THEY REFUSED IN THE WRONG LAYER'S WORDS**, which is worse and is why the sweep
+found it and reading the code did not. `UnicodeDecodeError` is a `ValueError`,
+and `brief`/`verify`/`revise`/`song`'s `except ValueError` is the BLUEPRINT/DRAFT
+LENGTH MISMATCH handler, so a decode failure came out as `REFUSED — 'utf-8'
+codec can't decode byte 0xff in position 0` — right exit code, right shape, and
+on `verify BEFORE AFTER`, which is holding two files, **naming neither of
+them.** `UndecodableLyricFile` derives from `Exception` and not `ValueError`
+precisely so that clause stops catching it; §26 asserts the path is named with
+the bad file in BOTH argument positions, so the check cannot pass by naming
+whichever file is read first.
+
+**A MISTYPED PATH WAS GRADED AS A LYRIC — SAME COMMIT, AND IT IS THE ONE THAT
+ANSWERED AT EXIT 0.** `qafiya`/`partition` are documented `FILE|L...` and each
+spelled the decision `os.path.exists(src[0])` itself, so an absent path fell
+through to the LINE reading and was scored: `qafiya nope.txt` reported `L1
+(txt)` — the file extension graded as the rhyme word. A wrong answer at the
+success code is worse than the traceback the same typo earns on every sibling
+verb. `_lyric_source` is the one definition and it REFUSES rather than picking,
+naming both readings — but only for a token carrying a path marker, since the
+genuinely ambiguous reading is narrower than the merely-absent one. MEASURED AS
+A FALSE-POSITIVE RATE over the 450,271 sung lines of `corpus/song/` (doctrine
+22, state it as an FPR and not as an argument about how paths tend to look):
+**29 match, 0.0064%, and all 29 are the separator half — the extension half,
+which is what a mistyped path actually trips, is ZERO.** Not one of the 29 is
+sung: a `http://` URL, four Finnish dates (`22/9 1879.`), Byron's transliterated
+Greek — apparatus the corpus filter did not catch. The two verbs keep their own
+normalization, because they disagreed about blank arguments and that was not
+the question asked.
+
 Full sweep after both fixes: `quality/test_loop.py` (12/12, was 10/10),
 `quality/test_revise.py` (29/29), and every other test file under
 `quality/` — unaffected, confirmed by re-running rather than assumed clean
