@@ -2336,6 +2336,24 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          f"below theta_rhyme={decl.theta_rhyme}"))
+                elif not admits(s, decl.theta_rhyme):
+                    # THE SECOND COPY OF THE SAME BLACKLIST, and it had the
+                    # same hole. See `quality/revise.py`'s `grade()` for the
+                    # measurement (`debenture`/`thermco`, 0.788 against theta
+                    # 0.75, "neither channel agrees", reported as no
+                    # violation). `NO_RELATION` is not REPEAT, not in
+                    # NEAR_RELATIONS, not NO_ANCHOR, and can sit above theta —
+                    # so it fell out of an enumerated chain into silence.
+                    #
+                    # THAT THIS LIST EXISTS TWICE IS THE STANDING DEFECT and
+                    # is left standing deliberately: `grade()` and
+                    # `check_scheme` are two readers of one question and the
+                    # record already says they must not drift, so both ends
+                    # move together here rather than one being taught to call
+                    # the other in the same commit that fixes what they say.
+                    violations.append(
+                        (i + 1, j + 1, s["total"],
+                         f"{s['relation']} not rhyme (conjunctive band)"))
             else:
                 if s["total"] >= 0.9:
                     # RELATION IS CARRIED NOW (2026-08-11), not dropped. A
