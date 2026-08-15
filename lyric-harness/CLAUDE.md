@@ -106,6 +106,53 @@ drove tier 2 with its own stub — and NOTHING crossed the seam until
 contract landed raised `TypeError` on the first joint conflict with both
 suites green.
 
+**WHO WRITES THE LINE IS `--propose=`, AND THE LOOP CAN NOW SUSPEND RATHER
+THAN GUESS — `defer:PATH` BUILT 2026-08-15.** `revise_loop` has taken
+`propose=`/`propose_pair=` since it was written and for most of that time the
+only proposer reachable from the command line was the stub, so the flagship
+verb's every demo was a single-word splice. Four spellings now: `stub` (the
+default, and it stays the default because CI runs `revise` and a default that
+opened a socket would make a suite's result depend on a remote service),
+`replay:PATH`, `defer:PATH`, and `call:MODULE:FACTORY` — where the CALLER
+names both halves and this repo ships no module of its own, because the
+proposing half is not this project's to ship.
+
+**THE CONSTRAINT `defer:` EXISTS FOR IS NOT A LANGUAGE PROBLEM, and the first
+diagnosis of it in this project said it was.** A proposer is
+`callable(prompt) -> str`; anything can be one. What cannot happen is a CHILD
+PROCESS re-entering the agent that spawned it — while `revise_loop` runs,
+whoever started it is blocked waiting for it to return, so a proposer needing
+a writer's judgement has nobody to ask, four frames down, through a contract
+whose return type is `str | None`. `None` is unavailable as a suspension
+signal because it already means THIS PROPOSER GAVE UP and the loop acts on
+that. `call:` answers this by reaching a service, which needs a credential.
+`defer:` answers it by reaching NOTHING: the loop stops at the first request
+it has no answer for, writes down what it asked, and exits **4** — a fourth
+code for the reason `song` needed a third (0 clean, 2 the harness could not
+answer, 1 Python's own, 3 answered-with-a-flag-standing; a gate that is
+WAITING is not a gate that failed). The writer fills `pending.answer`; the
+SAME command run again replays every answer in order and continues.
+
+**RESUMPTION IS SOUND ONLY BECAUSE THE LOOP IS DETERMINISTIC, and that was
+verified rather than assumed** — by inspection (no set iteration in its
+control flow, doctrine 66) and empirically (three separate processes,
+byte-identical output, so hash randomisation would have shown).
+
+**THE ENFORCEMENT IS THE POINT, not the convenience.** The failure this closes
+was never that the loop was wrong — it is that a writer disciplined enough to
+drive it by hand is a writer who can also decide not to, and this file's own
+history is the evidence: the loop was run by hand exactly once, converged in
+three rounds, and rejected two drafts for modal rhymes, after a full session
+of not running it at all. There is now no path from "flags outstanding" to a
+final draft except through the gates, because the verb emits none until the
+run it is resuming reaches a stop condition. Re-running without answering
+returns the same question, not a worse song.
+**AND A FINISHED DEFERRED RUN IS A RECORDED ONE**: the state's `answered`
+block is byte-for-byte the schema `replay:` reads, ASSERTED and not claimed —
+`quality/test_verbs.py` §20 hands it to `--propose=replay:` and requires the
+same final draft, so a session that wrote a song is reproducible by someone
+with no writer and no credential (doctrine 14).
+
 TWO TIERS, matching what backspacing through a draft actually does. TIER 1
 swaps a flagged line's own word for an offered candidate. TIER 2
 BACKTRACKS: `Brief.joint_conflict` means `joint_field` already searched the

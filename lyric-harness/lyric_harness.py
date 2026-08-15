@@ -3542,7 +3542,7 @@ the quality layer (each says which module answered):
   verify BEFORE AFTER [MANDATE] [lines] [--blueprint=B] [--subdivision N]
          [--isochronous]  did the revision earn it
   revise FILE [MANDATE] [--blueprint=B] [--subdivision N] [--isochronous]
-         [--propose=stub|replay:PATH|call:MODULE:FACTORY]
+         [--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY]
                           the automated write-check-fix LOOP: brief() and
                           verify() driven to convergence (quality/loop.py).
                           Two tiers -- swap a flagged line's own word, or
@@ -3875,7 +3875,7 @@ def _blueprint_or_refuse(fn, *a, **k):
     except ValueError as e:
         _refuse(e)
 # ---------------------------------------------------------------------------
-# WHO WRITES THE LINE — `--propose=stub|replay:PATH|call:MODULE:FACTORY`
+# WHO WRITES THE LINE — `--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY`
 #
 # `revise` drives `quality/loop.py`'s accept/reject/retry/backtrack/stop
 # control flow, and until this flag existed the only thing it could drive was
@@ -4061,6 +4061,179 @@ def _replay_proposer(path):
     return propose, propose_pair, disclosure
 
 
+class _NeedProposal(Exception):
+    """The loop asked for a line nobody has written yet. NOT an error.
+
+    This is the control flow `defer:` exists for, and it is an exception
+    because the loop is a CALL STACK: `revise_loop` -> `_try_tier1` ->
+    `propose`, and the proposer is four frames down with no way to return
+    "stop, ask a human, and come back later" through a contract whose return
+    type is `str | None`. `None` already means something else and means it
+    load-bearingly — the loop reads it as THIS PROPOSER GAVE UP and moves on,
+    which is the one reading a suspension must not have.
+    """
+
+    def __init__(self, kind, record, prompt):
+        super().__init__(f"a {kind} proposal is required")
+        self.kind, self.record, self.prompt = kind, record, prompt
+
+
+def _defer_state(path):
+    """-> the deferred-run state at `path`, or an empty one. Never raises."""
+    empty = {"version": 1, "answered": {"propose": [], "propose_pair": []},
+             "pending": None}
+    if not os.path.exists(path):
+        return empty
+    try:
+        with open(path, encoding="utf-8") as fh:
+            st = json.load(fh)
+    except OSError as e:
+        _refuse(f"--propose=defer:{path} — {e.strerror or e}")
+    except ValueError as e:
+        _refuse(f"--propose=defer:{path} — not readable as JSON: {e}",
+                detail=["this file is written by this verb; if you edited it, "
+                        "only the `pending.answer` field is yours to fill"])
+    if not isinstance(st, dict) or "answered" not in st:
+        _refuse(f"--propose=defer:{path} — not a deferred-run state",
+                detail=['expected {"answered": {...}, "pending": {...}}'])
+    st.setdefault("pending", None)
+    st["answered"].setdefault("propose", [])
+    st["answered"].setdefault("propose_pair", [])
+    return st
+
+
+def _defer_proposer(path):
+    """-> (propose, propose_pair, disclosure) that SUSPENDS instead of guessing.
+
+    THE PROBLEM THIS SOLVES, stated plainly because it is not a Python
+    problem and the first diagnosis of it in this project said it was. A
+    proposer is `callable(prompt) -> str`; anything can be one. What cannot
+    happen is a CHILD PROCESS re-entering the agent that spawned it: while
+    `revise_loop` runs, whoever started it is blocked waiting for it to
+    return, so a proposer that needs a writer's judgement has nobody to ask.
+    `call:` answers this by reaching a service — which needs a credential and
+    is not always available. `defer:` answers it WITHOUT reaching anything:
+    the loop stops at the first unanswered request, writes down exactly what
+    it asked for, and exits. The writer answers in the file. The same command
+    run again picks up where it stopped.
+
+    SO THE LOOP IS NOT DRIVEN, IT IS RESUMED, and that is the whole design.
+    Re-running replays every answer already given IN ORDER and continues past
+    them — which is sound only because `revise_loop` is deterministic:
+    verified by inspection (it iterates no set in its control flow, doctrine
+    66) and empirically (three separate processes, byte-identical output, so
+    hash randomisation would have shown).
+
+    ENFORCEMENT IS THE POINT, not convenience. There is no path from "flags
+    outstanding" to a final draft except through the gates, because this verb
+    will not emit one until the loop it is resuming actually converges. A
+    writer who skips a round does not get a worse song; they get exit 4 and
+    the same question again. That matters because the failure this closes was
+    never that the loop was wrong — it was that a writer with the discipline
+    to run it by hand is a writer who can also decide not to.
+
+    THE STATE FILE'S `answered` BLOCK IS A REPLAY FILE, byte-for-byte the
+    schema `--propose=replay:` reads, and that is deliberate rather than
+    convenient: a finished deferred run is a recorded run, so the session
+    that wrote a song can be re-run by anyone with no writer present and no
+    credential (doctrine 14's independence, and the only way a measurement
+    involving a writer is reproducible here at all).
+    """
+    from quality import propose as PR
+    st = _defer_state(path)
+    pend = st.get("pending")
+    if pend is not None:
+        # A pending request with no answer is the gate. Refusing to advance is
+        # the enforcement; printing the prompt again is so the writer never has
+        # to go looking for what was asked.
+        if pend.get("answer") in (None, "", {}):
+            print(f"  SUSPENDED — a {pend['kind']} proposal is required and "
+                  f"`pending.answer` in {path} is still empty.")
+            print(f"  Answer it there, then run the same command again.\n")
+            print(pend.get("prompt", ""))
+            sys.exit(4)
+        # Answered: fold it into the record and clear the slot. The loop below
+        # re-runs from the top and replays it along with everything earlier.
+        rec, ans = dict(pend["record"]), pend["answer"]
+        if pend["kind"] == "propose":
+            parsed = ans if isinstance(ans, str) else None
+            parsed = PR.parse_line(parsed) if parsed is not None else None
+            if parsed is None:
+                _refuse(f"--propose=defer:{path} — `pending.answer` is not "
+                        f"unambiguously one line",
+                        detail=["`quality.propose.parse_line` is STRICT on "
+                                "purpose: a mis-parsed answer writes a line "
+                                "nobody proposed into the draft, and verify() "
+                                "cannot catch that — a mis-parsed line is just "
+                                "a changed line, which is what was asked for."])
+            rec["text"] = parsed
+            st["answered"]["propose"].append(rec)
+        else:
+            parsed = PR.parse_pair(ans) if isinstance(ans, str) else None
+            if parsed is None:
+                _refuse(f"--propose=defer:{path} — `pending.answer` is not a "
+                        f"readable PIVOT/ANCHOR pair",
+                        detail=["tier 2 has TWO slots and their order is not "
+                                "something a response format can be trusted "
+                                "to have got right, so both markers are "
+                                "required (quality/propose.py `parse_pair`)."])
+            rec["new_pivot"], rec["new_anchor"] = parsed
+            st["answered"]["propose_pair"].append(rec)
+        st["pending"] = None
+
+    ones = {(int(r["line"]), int(r["attempt"])): r["text"]
+            for r in st["answered"]["propose"]}
+    pairs = {(r["pivot"], r["anchor"], r["pivot_word"], r["anchor_word"]):
+             (r["new_pivot"], r["new_anchor"])
+             for r in st["answered"]["propose_pair"]}
+    tally = {"hit": 0}
+
+    def _suspend(kind, record, prompt):
+        st["pending"] = {"kind": kind, "record": record, "prompt": prompt,
+                         "answer": None}
+        raise _NeedProposal(kind, record, prompt)
+
+    def propose(brief, lines, attempt, reasons=None, whole=()):
+        text = ones.get((brief.line_no, attempt))
+        if text is not None:
+            tally["hit"] += 1
+            return text
+        _suspend("propose",
+                 {"line": brief.line_no, "attempt": attempt, "text": None},
+                 PR.render_line(brief, lines, whole=whole, attempt=attempt,
+                                reasons=reasons))
+
+    def propose_pair(pair_brief):
+        key = (getattr(pair_brief, "pivot_text", None),
+               getattr(pair_brief, "anchor_text", None),
+               getattr(pair_brief, "pivot_word", None),
+               getattr(pair_brief, "anchor_word", None))
+        hit = pairs.get(key)
+        if hit is not None:
+            tally["hit"] += 1
+            return hit
+        _suspend("propose_pair",
+                 {"pivot": key[0], "anchor": key[1], "pivot_word": key[2],
+                  "anchor_word": key[3], "new_pivot": None,
+                  "new_anchor": None},
+                 PR.render_pair(pair_brief))
+
+    def disclosure(done=False):
+        n = len(ones) + len(pairs)
+        head = (f"  PROPOSER: defer:{path} — {n} answer(s) already given, "
+                f"replayed in order")
+        if not done:
+            return (head + "; nothing outside this process is reached, and "
+                    "the loop SUSPENDS at the first unanswered request "
+                    "rather than guessing")
+        return (f"{head}; {tally['hit']} consulted and answered. The loop ran "
+                f"to a stop condition, so this state is COMPLETE and its "
+                f"`answered` block is a valid --propose=replay: file")
+
+    disclosure.state = st                    # the verb writes it on suspension
+    return propose, propose_pair, disclosure
+
+
 def _resolve_proposer(spec):
     """`--propose=`'s value -> (propose, propose_pair, disclosure).
 
@@ -4085,8 +4258,11 @@ def _resolve_proposer(spec):
     if spec.startswith("replay:"):
         return _replay_proposer(spec.split(":", 1)[1])
 
+    if spec.startswith("defer:"):
+        return _defer_proposer(spec.split(":", 1)[1])
+
     if not spec.startswith("call:"):
-        _refuse(f"--propose wants 'stub', 'replay:PATH' or "
+        _refuse(f"--propose wants 'stub', 'replay:PATH', 'defer:PATH' or "
                 f"'call:MODULE:FACTORY', got {spec!r}",
                 detail=["a value this flag does not define is not coerced to the "
                  "nearest one and is not defaulted to `stub` (doctrine 1) — "
@@ -5385,7 +5561,7 @@ def main():
                 "audio and no tempo here, so isochrony is an ASSUMPTION and "
                 "never a measurement)") else None
 
-        # `--propose=stub|replay:PATH|call:MODULE:FACTORY` — read here with
+        # `--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY` — read here with
         # the other three flags and RESOLVED inside the `revise` branch, so a
         # spelling that cannot be honoured refuses AFTER the mandate refusal
         # rather than ahead of it (doctrine 20 again: `revise FILE` with no
@@ -5466,7 +5642,8 @@ def main():
         _NO_VALUE = ("--isochronous", "--propose")
         if "--propose" in args:
             _refuse("--propose wants the `=` spelling: --propose=stub, "
-                    "--propose=replay:PATH, --propose=call:MODULE:FACTORY",
+                    "--propose=replay:PATH, --propose=defer:PATH, "
+                    "--propose=call:MODULE:FACTORY",
                     detail=["a space-separated `--propose stub` cannot be told from "
                      "a positional argument that happens to be that word — "
                      "the same reason `--fallback` is `=`-only, and it is a "
@@ -6104,12 +6281,46 @@ def main():
                 # thing they can reconstruct from it — the same argument
                 # `_say_blueprint()` already makes one flag over.
                 print(say_proposer())
-                result = LP.revise_loop(rv, lines, scheme, blueprint=bp_path,
-                                        subdivision=subdivision, assume=assume,
-                                        propose=propose,
-                                        propose_pair=propose_pair)
+                try:
+                    result = LP.revise_loop(rv, lines, scheme,
+                                            blueprint=bp_path,
+                                            subdivision=subdivision,
+                                            assume=assume, propose=propose,
+                                            propose_pair=propose_pair)
+                except _NeedProposal as need:
+                    # EXIT 4 — SUSPENDED, and it is a fourth code for the same
+                    # reason `song`'s flag verdict needed a third: 0 is "the
+                    # draft is clean", 2 is "the harness could not answer", 1
+                    # is Python's own uncaught exception, and 3 is "answered,
+                    # and a flag stands". None of those is "answered, and it
+                    # is your turn" — a gate that is WAITING is not a gate
+                    # that failed, and a caller in a pipeline has to tell a
+                    # suspension from a verdict (doctrine 20, one code
+                    # further out).
+                    path = propose_spec.split(":", 1)[1]
+                    with open(path, "w", encoding="utf-8") as fh:
+                        json.dump(say_proposer.state, fh, indent=2)
+                        fh.write("\n")
+                    print(f"\n  SUSPENDED — the loop asked for a "
+                          f"{need.kind} it has no answer for, and will not "
+                          f"guess one.")
+                    print(f"  Written to {path}. Fill `pending.answer`, then "
+                          f"run the SAME command again.\n")
+                    print(need.prompt)
+                    sys.exit(4)
                 print(result)
                 print(say_proposer(done=True))
+                if propose_spec.startswith("defer:"):
+                    # The run reached a stop condition, so `pending` is empty
+                    # and `answered` is now a COMPLETE record. Written on the
+                    # way out for the same reason it is written on suspension:
+                    # a state file that only exists while a run is unfinished
+                    # would make the replayable artefact the one thing a
+                    # finished run does not leave behind.
+                    with open(propose_spec.split(":", 1)[1], "w",
+                              encoding="utf-8") as fh:
+                        json.dump(say_proposer.state, fh, indent=2)
+                        fh.write("\n")
                 if result.lines != lines:
                     print("\n  FINAL DRAFT:")
                     for i, l in enumerate(result.lines, 1):

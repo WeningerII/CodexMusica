@@ -2012,7 +2012,12 @@ def test_propose_selects_who_writes_the_line():
     # exit 2, no traceback, no silent downgrade.
     rc, out, err = run("revise", quat, "ABAB", "--propose=bogus", expect_rc=2)
     check("an undeclared value REFUSES with exit 2 and names the vocabulary",
-          rc == 2 and "'stub', 'replay:PATH' or 'call:MODULE:FACTORY'" in out
+          # EVERY spelling, not a prefix of them: this assertion caught the
+          # `defer:PATH` build growing the vocabulary and leaving the refusal
+          # naming three of four, which is the shape a reader trusts and
+          # cannot check.
+          rc == 2 and ("'stub', 'replay:PATH', 'defer:PATH' or "
+                       "'call:MODULE:FACTORY'") in out
           and "Traceback" not in err, out.strip().splitlines()[-2:][:1])
     rc, out, _ = run("revise", quat, "ABAB", "--propose", "stub", expect_rc=2)
     check("the space-separated spelling REFUSES rather than swallowing the "
@@ -2268,6 +2273,91 @@ def test_both_mandate_spellings_are_read():
               f"rc {rc}")
 
 
+def test_the_loop_suspends_instead_of_guessing():
+    print("\n20. `--propose=defer:PATH` — the loop SUSPENDS and cannot be "
+          "walked past (BUILT 2026-08-15)")
+    # WHAT THIS IS FOR, and it is not convenience. A proposer is
+    # `callable(prompt) -> str` and anything can be one -- but a CHILD PROCESS
+    # cannot re-enter the agent that spawned it, because that agent is blocked
+    # waiting for the child to return. `call:` answers that by reaching a
+    # service, which needs a credential. `defer:` answers it by reaching
+    # NOTHING: the loop stops at the first request it has no answer for,
+    # writes down what it asked, and exits 4. The same command run again
+    # replays every answer in order and continues.
+    #
+    # THE ENFORCEMENT IS THE POINT. The failure this closes was never that the
+    # loop was wrong -- it is that a writer disciplined enough to drive it by
+    # hand is a writer who can also decide not to, and skip straight to a
+    # final draft. There is no path here from "flags outstanding" to a draft
+    # except through the gates, and assertion 2 is the one that proves it.
+    d = tempfile.mkdtemp()
+    draft = os.path.join(d, "draft.txt")
+    state = os.path.join(d, "state.json")
+    with open(draft, "w") as fh:
+        fh.write("\n".join(NOISY_LINES[:4]) + "\n")
+    mand = "--groups=1,3;2,4"
+
+    rc, out, _ = run("revise", draft, mand, f"--propose=defer:{state}",
+                     expect_rc=4)
+    check("the first run SUSPENDS at exit 4 rather than guessing a line",
+          rc == 4 and "SUSPENDED" in out, f"rc {rc}")
+    check("exit 4 is its own code, not reused",
+          rc not in (0, 2, 3), "0 clean / 2 refused / 3 flag standing")
+    st = json.load(open(state))
+    check("the state names what it asked for and leaves a slot for it",
+          st["pending"]["answer"] is None
+          and st["pending"]["record"]["line"] == 3
+          and len(st["pending"]["prompt"].splitlines()) > 20,
+          f"pending={st['pending']['record']}")
+
+    # THE GATE. Running again without answering must not advance, must not
+    # fall back to the stub, and must not emit a draft.
+    rc2, out2, _ = run("revise", draft, mand, f"--propose=defer:{state}",
+                       expect_rc=4)
+    check("re-running WITHOUT an answer does not advance the loop",
+          rc2 == 4 and "SUSPENDED" in out2 and "FINAL DRAFT" not in out2,
+          f"rc {rc2}")
+
+    # A malformed answer is refused, not written into the draft: a mis-parsed
+    # line is just a changed line, and verify() cannot tell those apart.
+    st["pending"]["answer"] = "line one\nline two"
+    json.dump(st, open(state, "w"))
+    rc3, out3, _ = run("revise", draft, mand, f"--propose=defer:{state}",
+                       expect_rc=2)
+    check("an answer that is not unambiguously ONE line REFUSES",
+          rc3 == 2 and "REFUSED" in out3, f"rc {rc3}")
+
+    answers = ["we packed the truck with everything we wore",
+               "and drove until the county line was far"]
+    for want in answers:
+        st = json.load(open(state))
+        st["pending"]["answer"] = want
+        json.dump(st, open(state, "w"))
+        rc, out, _ = run("revise", draft, mand, f"--propose=defer:{state}")
+    check("answering drives the loop to a stop condition",
+          rc == 0 and "SUCCESS" in out, f"rc {rc}")
+    check("only the answered lines changed",
+          "* L3: " + answers[0] in out and "* L4: " + answers[1] in out
+          and "* L1:" not in out and "* L2:" not in out)
+
+    # THE FINISHED STATE IS A RECORDED RUN. Asserted rather than claimed in a
+    # docstring: a deferred session is only reproducible if someone with no
+    # writer and no credential can re-run it (doctrine 14).
+    st = json.load(open(state))
+    check("a converged run leaves no pending request", st["pending"] is None)
+    rep = os.path.join(d, "replay.json")
+    json.dump(st["answered"], open(rep, "w"))
+    rc4, out4, _ = run("revise", draft, mand, f"--propose=replay:{rep}")
+    check("the `answered` block IS a valid --propose=replay: file",
+          rc4 == 0 and "* L3: " + answers[0] in out4
+          and "* L4: " + answers[1] in out4,
+          "same draft, no writer present")
+
+    rc5, out5, _ = run("revise", draft, mand, "--propose=defer", expect_rc=2)
+    check("`defer` without a PATH refuses like every other flag value",
+          rc5 == 2 and "REFUSED" in out5, f"rc {rc5}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -2293,6 +2383,7 @@ if __name__ == "__main__":
     test_song_exits_on_a_flag()
     test_propose_selects_who_writes_the_line()
     test_both_mandate_spellings_are_read()
+    test_the_loop_suspends_instead_of_guessing()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
