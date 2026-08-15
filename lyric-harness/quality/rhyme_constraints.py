@@ -259,7 +259,17 @@ class Declaration:
     surfaces: tuple = ("phonemic",)  # orthographic / delivered / sung / dated
     caesura: str = "none"            # 'printed' | 'declared' | 'searched'
     anchors: tuple = ()              # anchor rules this declaration supports
-    tie_break: str = "lowest_index"  # doctrine 66: fixed and stated
+    # `tie_break: str = "lowest_index"` STOOD HERE UNTIL 2026-08-15 with the
+    # comment "doctrine 66: fixed and stated". IT WAS STATED AND IT WAS READ BY
+    # NOTHING. The rule is real -- `_backtrack`'s MRV `sorted(...)` and
+    # `exists_k`'s `max(...)` both settle a tie on the FIRST candidate, which
+    # is the lowest index, because Python's sort is stable and `max` keeps its
+    # first maximum -- but the field and the behaviour were never connected, so
+    # either could have moved without the other. A settable coordinate that no
+    # code consults is not "fixed and stated": it is a knob that lies. Doctrine
+    # 66 asks the rule to be fixed and stated, and it is now stated AT THE TWO
+    # SITES THAT ENFORCE IT, where a reader is looking when it matters, and
+    # pinned by quality/test_declared_inputs.py rather than asserted here.
     notes: str = ""
 
 
@@ -423,9 +433,18 @@ def read_channel(utt, name, extent):
             return _phone_projection(utt, name, extent)
         return tuple(_syl_knowledge(utt.decl.phonology, name, utt.sites[i].syl)
                      for i in extent.sites)
-    if name == "token":
-        return tuple(kn(utt.sites[i].surface.lower()) for i in extent.sites)
-    if name == "token_span":
+    if name in ("token", "token_span"):
+        # THE SURFACE IS A DECLARED INVENTORY TOO. Both of these read
+        # `Site.surface`, which is the ORTHOGRAPHIC form and not the phonemic
+        # one this declaration defaults to — so asking them of a declaration
+        # that does not supply that surface is the same defaulting the class
+        # docstring refuses for an undeclared channel. UNREADABLE for the whole
+        # extent, which becomes a REFUSAL upstream and never a False.
+        if "orthographic" not in utt.decl.surfaces:
+            return UNREADABLE
+        if name == "token":
+            return tuple(kn(utt.sites[i].surface.lower())
+                         for i in extent.sites)
         return (kn(tuple(dict.fromkeys(utt.sites[i].surface.lower()
                                        for i in extent.sites))),)
     if name == "juncture":
@@ -502,6 +521,21 @@ def declaration_for(phon, **kw):
         chans.append("prominence")
         anchors += ["last_prominent", "first_prominent", "penult_prominent"]
     chans += list(getattr(phon, "extra_channels", ()))
+    # SURFACES ARE PROBED THE SAME WAY THE CHANNELS ARE, and until 2026-08-15
+    # this was the one inventory `Declaration` carried and nobody filled or
+    # read. `token`/`token_span` read `Site.surface` — the ORTHOGRAPHIC form —
+    # while every declaration ever built here kept the `("phonemic",)` default,
+    # so `read_channel` was serving a surface no declaration claimed to supply.
+    # That is verbatim the case this class's own docstring refuses for
+    # channels: "a type that asks for an undeclared channel must be REFUSED,
+    # not defaulted." A `Site` always carries `.surface`, so `orthographic` is
+    # declared unconditionally and honestly; a phonology that reads a sung or
+    # dated surface adds it through `extra_surfaces` the way `extra_channels`
+    # already works, and one that supplies neither now gets a REFUSAL from
+    # `read_channel` instead of a token answer nobody declared.
+    surfs = ["phonemic", "orthographic"]
+    surfs += list(getattr(phon, "extra_surfaces", ()))
+    kw.setdefault("surfaces", tuple(surfs))
     return Declaration(language=getattr(phon, "language", "unset"),
                        phonology=phon, channels=tuple(chans),
                        anchors=tuple(anchors), **kw)
@@ -1026,6 +1060,10 @@ def _backtrack(utt, rt, doms, cap):
     """n-ary figures: analysed rhyme's 2x2 grid, sain's shared pivot, the
     blues AAB triangle. MRV ordering, edges applied the moment both of their
     endpoints are bound."""
+    # TIE-BREAK, FIXED AND STATED (doctrine 66): equal-sized domains keep
+    # ASCENDING SLOT ORDER, i.e. the lowest index wins, because `sorted` is
+    # stable and `range` feeds it in that order. Stated here rather than in a
+    # dataclass field nobody read -- see the note on `Declaration`.
     order = sorted(range(len(doms)), key=lambda s: len(doms[s]))
     by_slot = {}
     for e in rt.edges:
@@ -1086,6 +1124,9 @@ def _select(utt, rt, found):
     if s.quantifier == "exists_k":
         for fid, fs in by.items():
             if len(fs) >= s.k - 1:
+                # Same tie-break, same reason: `max` keeps its FIRST maximum,
+                # so equal (verdict, witness-length) settles on the earliest
+                # figure in `fs` -- lowest index, fixed and stated (doctrine 66).
                 best = max(fs, key=lambda x: (x.verdict is True, len(x.witness)))
                 out.append(replace(best, verdict=or3([x.verdict for x in fs])))
         return out

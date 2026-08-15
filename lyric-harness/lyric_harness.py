@@ -297,8 +297,19 @@ class Declaration:
     })
     trailing_syllable_penalty: float = 0.15   # semirhyme discount / extra syllable
     theta_rhyme: float = 0.75                 # lower edge of the match band
-    theta_repeat_onset: float = 0.95          # onset similarity above which full
-                                              # identity is REPEAT/rime riche band
+    # `theta_repeat_onset: float = 0.95` STOOD HERE UNTIL 2026-08-15, described
+    # as "onset similarity above which full identity is REPEAT/rime riche
+    # band". THERE IS NO SUCH BAND. `score()` decides REPEAT by `wa == wb` and
+    # RIME_RICHE by every channel comparing EQUAL with no extra syllable --
+    # exact identity, never a threshold. MEASURED before removal: the six-pair
+    # relation/score/flag report is md5 c9b9e7bf4bd2 at 0.0, at 0.5 and at 1.0,
+    # byte-identical, and 0.0 vs 1.0 are the two ends that would make
+    # EVERYTHING or NOTHING a REPEAT if the band existed. A Declaration field
+    # is where a disagreement is located (doctrine 1); this one could not hold
+    # one, which is worse than a missing setting because it reads as a knob.
+    # The exactness is deliberate -- "identity is not rhyme" is a band-PASS,
+    # not a similarity call -- so the repair is to stop advertising a
+    # threshold, not to introduce one.
     # --- the conjunctive band (quality/BAND_PREREGISTRATION.md) -------------
     # A scalar band lets a strong nucleus BUY a coda mismatch: sun/much has an
     # identical nucleus (AH) and reaches .772 against a .75 band. That is

@@ -839,7 +839,14 @@ class LineFit:
     heads: object = None                 # tuple of pulses, or FitRefusal
     slots: object = None                 # int, or FitRefusal
     max_prominent_on_heads: object = None
-    isochronous_positions: tuple = ()
+    # `isochronous_positions: tuple = ()` STOOD HERE UNTIL 2026-08-15. BOTH
+    # placement paths wrote it and NOTHING EVER READ IT, in this repo or its
+    # tests -- neither by attribute nor by name through `getattr`. It was not a
+    # broken wiring either: `_place_from_grid` builds `on` and
+    # `_place_isochronous` builds `landed`/`prom_on` as LOCALS, and each
+    # reports from its own, so removing the field loses no finding and changes
+    # no output. What it cost was a reader's belief that a `LineFit` carries
+    # its positions for downstream use; it carried a copy nobody collected.
 
     # -- the quantities, all exact ------------------------------------------
 
@@ -1323,7 +1330,6 @@ def _read_beatgrid(fit, grid, line_index):
     if not isinstance(heads, FitRefusal):
         hs = {Fraction(h) for h in heads}
         on = [(u.index, v, v in hs) for u, v in pos]
-    fit.isochronous_positions = tuple((u.index, v) for u, v in pos)
     cond = ("" if getattr(grid, "measured", False) else
             f"an ASSERTED grid ({grid.source}) — isochrony is not measured "
             f"here, so this is a function of the declaration (doctrine 4)")
@@ -1348,7 +1354,6 @@ def _place_isochronous(fit, assume):
         return
     step = p.duration / n
     pos = tuple((k, p.start + step * k) for k in range(n))
-    fit.isochronous_positions = pos
     val = fit.even_division
     if val is not None and (val.denominator & (val.denominator - 1)):
         fit.findings.append(FitFinding(
