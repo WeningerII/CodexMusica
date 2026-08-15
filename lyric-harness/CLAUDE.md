@@ -841,6 +841,45 @@ precisely so that clause stops catching it; §26 asserts the path is named with
 the bad file in BOTH argument positions, so the check cannot pass by naming
 whichever file is read first.
 
+**AND EVERY VERB'S OWN ARGUMENTS WERE THE LAST SHAPE LEFT — FIXED 2026-08-15.**
+The three fixes above close the argument shapes NO SINGLE VERB OWNED: a missing
+positional, a named file that is not there, an undecodable one. What was still
+open is the half each verb owns ITSELF, and it was the same defect fifteen
+times: `int(raw)`/`float(raw)`/`w1, w2 = rest.split("--")`/`assert len(scheme)
+== len(lines)` on text the caller typed, reaching the top as exit 1 while
+`_subdivision_or_refuse` sat one screen away doing it correctly for ONE FLAG.
+`candidates lines two`, `chains FILE x`, `graph FILE x`, `prasa x`, `cycle x`,
+`cycle 4`, `score dawn again`, `types dawn again`, `scheme ABAB` on two lines —
+all a bare traceback, all now `REFUSED … ` at 2 through `_number_or_refuse` and
+`_two_sides_or_refuse`, which carry the underlying `ValueError`'s own message
+through unchanged because the message was never the problem.
+**TWO OF THE FIFTEEN ANSWERED AT EXIT 0, AND THOSE ARE THE BAD ONES.**
+`candidates --modal=yes` was BYTE-IDENTICAL to passing no flag — `"--modal" in
+args` is an exact membership test, so the `=` spelling every sibling accepts
+fell through and the caller who asked for the FREQUENCY-ranked forbidden set
+was handed the RHYME-SCORE list, which is the precise substitution §22 exists
+to stop. And `refrain zzznotaform` printed `rhyme partition: AAABCDEFCGH` — an
+eleven-line poem made of the letters of the typo — because
+`REFRAIN_FORMS.get(name, name)` is a silent downgrade in a verb that prints its
+own vocabulary when called bare. `meter TEMPLATE` with no lines was worse than
+either: exit 0, stdout EMPTY, which in a pipeline reads as "checked, nothing
+wrong" from a verb whose every line of output is per-line.
+**THE FORM/NOTATION READING IS DISCLOSED, NOT GUESSED**, because the two
+vocabularies genuinely overlap in shape: `refrain` now prints `READ AS: named
+form 'villanelle'` or `READ AS: raw A-1 notation`, and refuses only on a
+CONJUNCTION — not declared, no capital, and not an alphabet-prefix scheme.
+Each signal alone is too weak, and THE RULE WAS RUN OVER THE SHIPPED VOCABULARY
+BEFORE IT WAS TRUSTED: a strict prefix test refuses the rondeau's `aabba aabR
+aabbaR`, whose `R` is the RENTREMENT and is a real notation. §28 asserts all
+eight shipped forms still resolve, which is the check that this rule cannot
+refuse one.
+**AND THE AUDIT THAT RAISED THESE NINE WAS 3 OF 9 STALE AT HEAD** — `grid`,
+`fit`, `song` and `function` on a MISSING blueprint, and `verify --nope`, were
+already closed by `6873e20`'s `except OSError` and `6d204a7`'s flag guard.
+Re-measured before anything was changed, for the reason lever 2 recorded: a
+named defect can be two-thirds shut and the live third a different shape.
+§28 fails 26 of its 34 checks against `be8d1ea`.
+
 **A MISTYPED PATH WAS GRADED AS A LYRIC — SAME COMMIT, AND IT IS THE ONE THAT
 ANSWERED AT EXIT 0.** `qafiya`/`partition` are documented `FILE|L...` and each
 spelled the decision `os.path.exists(src[0])` itself, so an absent path fell

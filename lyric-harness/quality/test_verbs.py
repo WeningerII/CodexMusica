@@ -2933,6 +2933,106 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
           "the alias fixed a report, and a verdict moving would say otherwise")
 
 
+def test_every_verb_reads_its_own_arguments():
+    print("\n28. a mistyped ARGUMENT refuses in the verb's own words, on "
+          "every verb that reads one (FIXED 2026-08-15)")
+    # §23 and §26 closed the argument shapes that no single verb owned — a
+    # missing positional, a named file that is not there, an undecodable one.
+    # This closes the shapes each verb owns ITSELF: a number that is not a
+    # number, a separator that is not there, an arity its own library asserts
+    # on. Every one was exit 1 with a bare traceback, which a caller reads as
+    # "the harness crashed" when the harness was handed 'two' for an integer
+    # (doctrine 20), while `_subdivision_or_refuse` sat one screen away doing
+    # it correctly for ONE flag.
+    #
+    # RE-MEASURED BEFORE IT WAS FIXED, and the audit that raised these nine
+    # was 3 of 9 out of date at HEAD: `grid`/`fit`/`song` on a MISSING
+    # blueprint, `function` on one, and `verify --nope` all already refused,
+    # closed by the `except OSError` of 6873e20 and the flag guard of
+    # 6d204a7. What was live is what is asserted here.
+    d = tempfile.mkdtemp()
+    small = os.path.join(d, "small.txt")
+    with open(small, "w") as fh:
+        fh.write("the cat sat on the mat\na dog ran through the fog\n"
+                 "he wore a battered hat\nit vanished in the bog\n")
+    notjson = os.path.join(d, "notjson.txt")
+    with open(notjson, "w") as fh:
+        fh.write("not json at all\n")
+
+    # ONE SHAPE, EVERY SITE. A sweep and not a case, because these were fixed
+    # one verb at a time before and that is how nine of them accumulated.
+    for label, argv in (
+            ("candidates N", ["candidates", "lines", "two"]),
+            ("chains THETA", ["chains", small, "x"]),
+            ("graph THETA", ["graph", small, "x"]),
+            ("prasa K", ["prasa", "x", "dawn again", "silt rebuilt"]),
+            ("cycle N/D", ["cycle", "x"]),
+            ("cycle N/D (no slash)", ["cycle", "4"]),
+            ("score, no --", ["score", "dawn", "again"]),
+            ("types, no --", ["types", "dawn", "again"]),
+            ("score, third field", ["score", "dawn", "--", "again", "--no"]),
+            ("scheme arity", ["scheme", "ABAB", "dawn", "again"]),
+            ("scheme + stray flag",
+             ["scheme", "AABB", "a", "b", "c", "d", "--nope"]),
+            ("refrain, unknown FORM", ["refrain", "zzznotaform"]),
+            ("meter, no lines", ["meter", "./"]),
+            ("meter + stray flag", ["meter", "./", "the cat", "--nope"]),
+            ("function, malformed blueprint",
+             ["function", notjson, "--function=verse1:verse"]),
+    ):
+        rc, out, err = run(*argv, expect_rc=2)
+        check(f"{label} REFUSES at 2, not 1",
+              rc == 2 and "REFUSED" in out and "Traceback" not in err,
+              f"rc {rc}")
+
+    # THE TWO SILENT ONES, which are worse than the tracebacks and need their
+    # own assertions: both answered at exit 0, one with the WRONG LIST and
+    # one with a partition of the typo itself.
+    plain = run("candidates", "lines", "5")[1]
+    eq = run("candidates", "lines", "5", "--modal=yes", expect_rc=2)
+    check("`--modal=yes` is no longer BYTE-IDENTICAL to passing no flag",
+          eq[0] == 2 and eq[1] != plain,
+          "identical output is what handed the RHYME-SCORE list to a caller "
+          "who asked for the FREQUENCY one — the substitution §22 exists for")
+    rc, out, _ = run("refrain", "zzznotaform", expect_rc=2)
+    check("and a mistyped FORM names the declared vocabulary",
+          "villanelle" in out and "triolet" in out,
+          "`.get(name, name)` printed an 11-line partition of the typo")
+
+    # SIBLING VERBS MUST AGREE ON ONE FILE. `function` read its blueprint
+    # with a bare `json.load(open(...))` while `grid` refused the identical
+    # bytes through `_blueprint_or_refuse`.
+    g = run("grid", notjson, expect_rc=2)
+    f = run("function", notjson, "--function=verse1:verse", expect_rc=2)
+    check("`function` and `grid` answer the same malformed blueprint the "
+          "same way", g[0] == f[0] == 2 and "REFUSED" in f[1],
+          f"grid rc {g[0]}, function rc {f[0]}")
+
+    # THE OTHER HALF, and for `refrain` it is the half the new rule could
+    # break: the notation test refuses a token whose letters are not the
+    # alphabet's first few, and the rondeau's `R` rentrement is exactly such
+    # a token. Every shipped form must still resolve, by name.
+    from quality import schemes as SC
+    for form in sorted(SC.REFRAIN_FORMS):
+        rc, out, _ = run("refrain", form)
+        check(f"the shipped form {form!r} still resolves", rc == 0
+              and "READ AS: named form" in out, f"rc {rc}")
+    for label, argv in (
+            ("meter", ["meter", "./", "the-cat", "the-dog"]),
+            ("scheme", ["scheme", "AABB", "dawn", "again", "silt",
+                        "rebuilt"]),
+            ("score", ["score", "dawn", "--", "again"]),
+            ("types", ["types", "dawn", "--", "again"]),
+            ("candidates --modal", ["candidates", "lines", "5", "--modal"]),
+            ("chains theta", ["chains", small, "0.8"]),
+            ("cycle", ["cycle", "7/8", "3+2+2"]),
+            ("refrain, raw notation", ["refrain", "ABaAabAB"]),
+    ):
+        rc, out, _ = run(*argv)
+        check(f"a real `{label}` run is untouched", rc == 0
+              and "REFUSED" not in out, f"rc {rc}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -2966,6 +3066,7 @@ if __name__ == "__main__":
     test_a_near_miss_flag_refuses_on_the_reviser_verbs()
     test_a_file_the_harness_cannot_read_refuses_on_every_verb()
     test_the_named_pair_disclosure_survives_the_module_boundary()
+    test_every_verb_reads_its_own_arguments()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
