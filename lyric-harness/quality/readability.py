@@ -68,7 +68,8 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 from lyric_harness import (Declaration, Lexicon,  # noqa: E402
                            is_apparatus_line, line_anchors,
                            line_readability, line_tokens,
-                           raw_final_token, readability_records,
+                           raw_final_token, read_lyric_text,
+                           readability_records,
                            token_pieces, word_syllable_map)
 
 
@@ -351,17 +352,46 @@ def read_lines(path):
     `days`, `divine`) are in CMUdict, so 9,078/174/149/8,842 are untouched and
     only the denominator falls, 5.97638% -> 5.97654% and 6.09093% ->
     6.09109%.
+
+    CONVERGED AGAIN 2026-08-15, AND THE SECOND SPELLING WAS THE DECODE.
+    The 2026-08-13 fix took this function's APPARATUS rule onto
+    `is_apparatus_line` and left `errors="replace"` sitting on the `open` --
+    a coordinate `lyric_harness.load_lyric_lines` has never had. So the two
+    readers still disagreed about the same file, one layer earlier: an
+    undecodable byte was a REFUSAL to every other reader in this repo and a
+    U+FFFD here.
+
+    THE COST LANDS ON THIS MODULE'S OWN HEADLINE, which is what makes it
+    worth the churn rather than a tidy-up. `readability` is the
+    INGESTION-REFUSAL verb -- its entire output is "how much of this text
+    could not be read". MEASURED at `6d204a7` on an eight-byte binary file:
+
+        $ python3 lyric_harness.py readability bad.bin
+          countable line ends 1   read 1   REFUSED 0   (0.00%)
+
+    Seven sibling verbs exit 1 on that file and four refuse at 2; this one
+    reports, at exit 0, that it read the whole thing and refused nothing.
+    `errors="replace"` had turned the bytes into a replacement character,
+    `re.search(r"[A-Za-z]")` kept the ASCII in the middle, and CMUdict was
+    asked about the result. A refusal counter that answers 0.00% on a file it
+    could not decode is doctrine 48's shape at the top of its own report.
+
+    AND IT WAS BUYING NOTHING ON THE POPULATION IT EXISTS FOR. MEASURED
+    before the swap: **0 of 269 files under `corpus/` fail a strict UTF-8
+    decode**, and the only undecodable file anywhere under `data/` is a
+    SQLite database no line reader opens. So `errors="replace"` never fired
+    on a single recorded measurement -- it was reachable only by a caller's
+    mistake, which is the one case where it does harm.
     """
-    with open(path, encoding="utf-8", errors="replace") as f:
-        out = []
-        for raw in f:
-            s = raw.strip()
-            if not s or not re.search(r"[A-Za-z]", s):
-                continue
-            if is_apparatus_line(s):
-                continue
-            out.append(s)
-        return out
+    out = []
+    for raw in read_lyric_text(path).splitlines():
+        s = raw.strip()
+        if not s or not re.search(r"[A-Za-z]", s):
+            continue
+        if is_apparatus_line(s):
+            continue
+        out.append(s)
+    return out
 
 
 def corpus_rate(lex, paths):

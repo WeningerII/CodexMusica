@@ -989,10 +989,17 @@ def test_what_the_loop_can_say_on_the_declared_mandate():
           f"(doctrine 2)")
     gm_edges = {(i, j) for mg in R.group_merges(lines, SONG_SCHEME)
                for i, j, *_ in mg["edges"]}
+    # NON-EMPTY, AND THE DETAIL LINE ALREADY SAID SO — 2026-08-15. This was
+    # `gm_edges <= {...}` alone, and `set() <= anything` is True: a detector
+    # that recovers NOTHING satisfies the containment perfectly. Measured
+    # with `group_merges` returning `[]`, this check passed while three
+    # sibling assertions failed -- so the suite was not blind, but the one
+    # assertion naming the detector's RECALL was the one that could not see
+    # it. The count is in the message below; it belongs in the condition.
     check("and every edge the merge detector recovers, from the GRAPH alone "
           "with no blueprint and no section name, is genuinely among those "
           "collisions",
-          gm_edges <= {tuple(c["lines"]) for c in ret},
+          gm_edges and gm_edges <= {tuple(c["lines"]) for c in ret},
           f"{len(gm_edges)} merge edges, all present in the {len(ret)} "
           f"chorus-crossing collisions. The section labels above come from "
           f"the blueprint; `group_merges` never reads it -- it asks whether "

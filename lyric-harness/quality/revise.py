@@ -687,6 +687,32 @@ class Reviser:
                 why = "NO_ANCHOR: nothing to compare (not a rhyme verdict)"
             elif s["total"] < self.decl.theta_rhyme:
                 why = f"below theta_rhyme={self.decl.theta_rhyme}"
+            elif not admits(s, self.decl.theta_rhyme):
+                # NO_RELATION FELL THROUGH ALL FOUR BRANCHES — FIXED
+                # 2026-08-15. The chain above is an ENUMERATED blacklist, and
+                # `NO_RELATION` — the band's STRONGEST rejection, set when
+                # NEITHER channel agrees — is in none of its sets: it is not
+                # REPEAT, not in `NEAR_RELATIONS` (which is only ASSONANCE and
+                # CONSONANCE), not `NO_ANCHOR`, and its scalar can sit ABOVE
+                # `theta_rhyme` because the scalar is a weighted channel mean
+                # and the conjunctive band is a separate predicate. So a
+                # mandated pair the band flatly refuses came back `why=None`,
+                # which is the same value a clean rhyme returns.
+                #
+                # MEASURED at a3536ce: `debenture`/`thermco`, total 0.788
+                # against theta 0.75, flags "conjunctive band: neither channel
+                # agrees" — and `brief FILE --groups=1,2` on those two lines
+                # reported `0 FLAG` and `nothing on any line carries a flag`.
+                #
+                # THE FIX IS TO END THE CHAIN POSITIVELY rather than to add
+                # `NO_RELATION` to a set. An enumerated blacklist is wrong in
+                # the same way every time a new relation is named — this asks
+                # `admits()`, the ONE predicate `grade()` is supposed to agree
+                # with, so a relation added tomorrow is refused by default
+                # instead of admitted by omission. The four branches above are
+                # untouched and still own their own messages, so nothing that
+                # was already reported changes wording (doctrine 1).
+                why = f"{rel} not rhyme (conjunctive band)"
             verdicts.append({"lines": (i, j), "group": k,
                              "label": m.labels[k],
                              "members": list(m.groups[k]),

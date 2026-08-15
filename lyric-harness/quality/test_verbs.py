@@ -322,8 +322,19 @@ def test_function_is_not_section_name():
     check("the CLI declaration is LABELLED as one, not passed off as the "
           "blueprint's",
           "DECLARED AT THE CLI" in out)
+    # THE BLOCK ITSELF, NOT A WORD THAT APPEARS IN PROSE ABOUT IT —
+    # 2026-08-15. This read `"RHYME_PRESERVING_REWRITE" in out or "VERBATIM"
+    # in out`, and the first disjunct is satisfied by a STATIC explanatory
+    # sentence belonging to a different finding, about the VERSE. Measured:
+    # rendering no comparison at all (`for fn, rets in {}.items()`) left all
+    # twelve checks of this section green. Import reachability is not
+    # invocation reachability, one more time, in the only CLI-rendering
+    # assertion this comparison has.
     check("the two chorus returns are compared and get a NAMED kind",
-          "RHYME_PRESERVING_REWRITE" in out or "VERBATIM" in out)
+          "-- chorus: chorus -> chorus2" in out
+          and "return: VERBATIM" in out
+          and "invariant lines" in out,
+          "the comparison must be RENDERED, not merely mentioned in prose")
     check("the title/hook question is asked and answered",
           "TITLE_NOT_IN_HOOK" in out)
     check("a single prechorus is CANNOT TELL, not clean (doctrine 28)",
@@ -433,8 +444,20 @@ def test_brief_refuses_instead_of_tracebacking():
           "Traceback" not in err)
 
     rc, out, _ = run("brief", EXAMPLE_TXT, "--groups=2,4")
+    # PARENTHESISED, AND THE DEAD CLAUSE DROPPED — 2026-08-15. This read
+    # `rc == 0 and "group B" in out or "group A" in out`, which Python groups
+    # as `(rc == 0 and ...) or ("group A" in out)`, so the exit code was
+    # enforced by nothing: measured True at rc 0, 1, 2, 3 and 4 alike. And
+    # `--groups=2,4` declares ONE group, so `group B` can never appear —
+    # the conjunct carrying the exit code was permanently false and the
+    # check passed entirely on the `or` fallback.
     check("--groups= mandates a group the song has no letter for",
-          rc == 0 and "group B" in out or "group A" in out, out[:200])
+          rc == 0 and "group A" in out, out[:200])
+    rc, out2, _ = run("brief", EXAMPLE_TXT, "--groups=2,4;1,3")
+    check("and a SECOND declared group is labelled and graded too",
+          rc == 0 and "group A" in out2 and "group B" in out2,
+          "one group cannot demonstrate that the labels track the "
+          "declaration")
 
     rc, out, _ = run("brief", EXAMPLE_TXT, "--cliques")
     check("--cliques grades the song's OWN structure",
@@ -2258,6 +2281,43 @@ def test_both_mandate_spellings_are_read():
           "invalid literal for int()" not in out_t and rc_t != 1,
           "pulling a flag moves every positional behind it")
 
+    # PARSES IS NOT READ, and until 2026-08-15 that was the whole of what
+    # this section asserted about the trailing list. Every `verify` call in
+    # this file handed the SAME path in as BEFORE and AFTER, so nothing
+    # changed, so `targeted` -- which gates ONLY the "you touched a line
+    # nobody asked you to" rejection -- could not fire whatever it held.
+    # MEASURED: replacing the parse with `targeted = None` in
+    # `lyric_harness.py` left this file at rc 0 with 0 failures. The repo's
+    # signature failure one layer over, in a test: the value is parsed, and
+    # nothing asserts it is used.
+    #
+    # A REAL REVISION, and the line it moves is deliberately OUTSIDE the
+    # targeted set. Two runs of the same diff, differing only in the
+    # trailing list, must reach OPPOSITE verdicts.
+    after = os.path.join(d, "after.txt")
+    with open(txt) as fh:
+        moved = fh.read().replace("and drove until the radio was gone",
+                                  "and drove until the radio was blown")
+    with open(after, "w") as fh:
+        fh.write(moved)
+    check("the fixture for it really is a one-line difference",
+          moved != open(txt).read(),
+          "a no-op diff is how this assertion was vacuous in the first place")
+    rc_free, out_free, _ = run("verify", txt, after, MANDATE_THAT_FAILS, rets)
+    rc_tgt, out_tgt, _ = run("verify", txt, after, MANDATE_THAT_FAILS, rets,
+                             "1,3")
+    check("with NO targeted list the untargeted rejection cannot fire",
+          "VERDICT: ACCEPTED" in out_free and "not targeted" not in out_free,
+          out_free.strip().splitlines()[-1:])
+    check("declaring `1,3` REJECTS the same diff and NAMES the line it "
+          "touched — the trailing list is READ, not merely parsed",
+          "VERDICT: REJECTED" in out_tgt and "[4] were changed but not "
+          "targeted" in out_tgt,
+          out_tgt.strip().splitlines()[-1:])
+    check("and the two runs are not byte-identical",
+          out_free != out_tgt,
+          "identical output is what `targeted = None` produces")
+
     # The combinations that CANNOT be expressed refuse by name rather than
     # picking a winner -- the same reflex the drop failed to have.
     # The letter string is 16 chars for a 16-line fixture ON PURPOSE. `ABAB`
@@ -2487,14 +2547,32 @@ def test_the_candidate_field_says_which_ordering_it_is():
           rc2 == 0 and "FORBIDDEN (modal" in out2
           and "modal_exclusion=" in out2)
 
-    score_top = {c["word"] for c in
-                 lh.CandidateEngine(lh.Lexicon(), lh.Declaration())
-                 .candidates("lines", 7)["candidates"]}
-    forb = out2.split("modal_exclusion=")[1].split(":\n")[1]
-    forb = {w.strip() for w in forb.splitlines()[0].split(",") if w.strip()}
+    score_rank = [c["word"] for c in
+                  lh.CandidateEngine(lh.Lexicon(), lh.Declaration())
+                  .candidates("lines", 7)["candidates"]]
+    score_top = set(score_rank)
+    forb_order = [w.strip() for w in
+                  out2.split("modal_exclusion=")[1].split(":\n")[1]
+                  .splitlines()[0].split(",") if w.strip()]
+    forb = set(forb_order)
+    # LIKE WITH LIKE — 2026-08-15. This compared a 7-word score list against
+    # a 6-word FORBIDDEN set (`candidates lines 7` vs `modal_exclusion=6`),
+    # so `!=` held on CARDINALITY whatever the content: measured, a mutant
+    # making `--modal` a pure truncation of the score list — the literal
+    # relabelling this check is named after — passed it, and its own detail
+    # line printed the modal set as a strict subset while calling the two
+    # "genuinely DIFFER". Cut the score list to the same length first, and
+    # assert the ORDERING as well as the membership, since two rankings over
+    # the same words are still two different answers.
     check("the two sets genuinely DIFFER — this is not a relabelling",
-          score_top != forb,
-          f"score-ranked {sorted(score_top)} vs modal {sorted(forb)}")
+          set(score_rank[:len(forb_order)]) != forb
+          and score_rank[:len(forb_order)] != forb_order,
+          f"score-ranked {score_rank[:len(forb_order)]} vs "
+          f"modal {forb_order}")
+    check("and they overlap rather than being disjoint — the same question "
+          "asked two ways, not two unrelated lists",
+          score_top & forb,
+          f"{len(score_top & forb)} word(s) in common")
 
     # ONE DEFINITION, and this is the assertion that keeps it that way: the
     # verb calls `Reviser.modal_field`, the same method the loop calls, so
@@ -2612,6 +2690,249 @@ def test_every_test_file_is_accounted_for_by_ci():
               want == got, f"label {want}, list {got}")
 
 
+def test_a_near_miss_flag_refuses_on_the_reviser_verbs():
+    print("\n25. a MISSPELLED flag refuses on brief/verify/revise/song "
+          "instead of producing the same bytes as omitting it (FIXED "
+          "2026-08-15)")
+    # `_no_unknown_flags_or_refuse` was written when `--isochronus` was caught
+    # in `fit`, and `fit` was its ONLY caller -- one verb of 28. The guard
+    # existed, was documented, was tested, and every other verb swallowed
+    # unrecognised flags. Import reachability is not invocation reachability,
+    # at the guard written for exactly this.
+    #
+    # WHAT IT COST, and it is the worst available shape: a near-miss spelling
+    # produced BYTE-IDENTICAL output to omitting the flag, at exit 0. There
+    # was nothing to notice. `revise --propse=defer:PATH` ran the STUB -- a
+    # word-splicer -- where the caller had asked for the deferred loop that
+    # refuses to advance without a writer, and the report did not say which
+    # had run. `brief --blueprnt=BP` dropped meter AND song-function while
+    # printing "BLUEPRINT: none declared".
+    d = tempfile.mkdtemp()
+    q = os.path.join(d, "q.txt")
+    with open(q, "w") as fh:
+        fh.write("the cat sat on the mat\na dog ran through the fog\n"
+                 "he wore a battered hat\nit vanished in the bog\n")
+    bp = os.path.join(ROOT, "quality", "fixtures", "song.blueprint.json")
+
+    # THE NEAR MISSES, one per flag these verbs actually declare.
+    for typo in ("--nope", "--blueprnt=" + bp, "--isochronus",
+                 "--propse=stub", "--pursu=MODAL_RHYME", "--subdivison=2"):
+        rc, out, err = run("brief", q, "ABAB", typo, expect_rc=2)
+        check(f"`brief` refuses {typo.split('=')[0]}",
+              rc == 2 and "REFUSED" in out and "Traceback" not in err,
+              f"rc {rc}")
+    check("and the refusal NAMES the flag and the whole vocabulary",
+          all(s in run("brief", q, "ABAB", "--propse=stub")[1]
+              for s in ("'--propse'", "--propose=", "--groups=", "--cliques")),
+          "a refusal that does not name the alternatives is a shrug")
+
+    for verb, extra in (("verify", [q]), ("revise", []), ("song", [])):
+        if verb == "song":
+            rc, out, _ = run("song", bp,
+                             os.path.join(ROOT, "quality", "fixtures",
+                                          "song.txt"),
+                             "--cliques", "--isochronus", expect_rc=2)
+        else:
+            rc, out, _ = run(verb, q, *extra, "ABAB", "--nope", expect_rc=2)
+        check(f"`{verb}` refuses an unrecognised flag too", rc == 2
+              and "REFUSED" in out, f"rc {rc}")
+
+    # THE OTHER HALF, and it is the half a guard like this gets wrong: every
+    # flag these verbs DO declare must still run.
+    for good in ("--groups=1,3;2,4", "--cliques", "--returns=1,3"):
+        rc, out, _ = run("brief", q, good)
+        check(f"`{good.split('=')[0]}` still runs", rc == 0
+              and "REFUSED" not in out, f"rc {rc}")
+    rc, out, _ = run("revise", q, "ABAB", "--propose=stub")
+    check("`--propose=stub` still runs", rc == 0 and "REFUSED" not in out,
+          f"rc {rc}")
+
+
+def test_a_file_the_harness_cannot_read_refuses_on_every_verb():
+    print("\n26. an UNDECODABLE file and a MISTYPED path refuse on every verb "
+          "that reads a lyric (FIXED 2026-08-15)")
+    # §23 closed a MISSING file and this closes the two shapes it did not
+    # reach, both found by sweeping the verbs rather than by reading the code.
+    #
+    #   UNDECODABLE. `open(path, encoding="utf-8")` raises
+    #   `UnicodeDecodeError`, which is a `ValueError` -- so §23's `except
+    #   OSError` never saw it and seven verbs exited 1 with a traceback.
+    #   MEASURED at 6d204a7 on one eight-byte binary: chains graph density
+    #   relations qafiya partition refrain -> 1.
+    #
+    #   AND `readability` -> 0, WHICH IS THE ONE WORTH THE COMMIT. That verb
+    #   exists to answer "how much of this text could not be read", its
+    #   reader carried `errors="replace"`, and it printed `countable line
+    #   ends 1   read 1   REFUSED 0   (0.00%)` on a file it could not decode
+    #   at all. A refusal counter answering 0.00% about its own failure to
+    #   ingest, at the success exit code (doctrine 48, in the report's
+    #   headline).
+    #
+    #   MISTYPED PATH. `qafiya`/`partition` are `FILE|L...` and decided with
+    #   `os.path.exists`, so an absent path fell through to the LINE reading
+    #   and was GRADED: `qafiya nope.txt` printed `L1 (txt)` -- the file
+    #   extension scored as the rhyme word -- at exit 0.
+    d = tempfile.mkdtemp()
+    good = os.path.join(d, "q.txt")
+    with open(good, "w") as fh:
+        fh.write("the cat sat on the mat\na dog ran through the fog\n"
+                 "he wore a battered hat\nit vanished in the bog\n")
+    binary = os.path.join(d, "bad.bin")
+    with open(binary, "wb") as fh:
+        fh.write(b"\xff\xfe\x00\x80bad\xc3\x28")
+    gone = os.path.join(d, "nope.txt")
+
+    # ONE SHAPE ON EVERY VERB, which is the point of a sweep rather than a
+    # case: these were fixed one at a time before and that is how two whole
+    # classes went uncovered.
+    reading = (("chains", [binary]), ("graph", [binary]),
+               ("density", [binary]), ("relations", [binary]),
+               ("readability", [binary]), ("qafiya", [binary]),
+               ("partition", [binary]), ("refrain", ["villanelle", binary]),
+               ("brief", [binary, "ABAB"]), ("revise", [binary, "ABAB"]),
+               ("verify", [binary, binary, "ABAB"]))
+    for verb, argv in reading:
+        rc, out, err = run(verb, *argv, expect_rc=2)
+        check(f"`{verb}` REFUSES an undecodable file at 2, not 1",
+              rc == 2 and "REFUSED" in out and "Traceback" not in err,
+              f"rc {rc}")
+    rc, out, _ = run("chains", binary, expect_rc=2)
+    check("and the refusal names the PATH, the BYTE and the OFFSET",
+          "bad.bin" in out and "0xff" in out and "offset 0" in out,
+          "a refusal that does not locate the byte is a shrug (doctrine 20)")
+
+    # THE VERB HOLDING TWO FILES, which is why the exception is a class that
+    # carries the path rather than one more clause on `__main__`'s handler.
+    # The four Reviser verbs did NOT traceback at 6d204a7 -- they refused at
+    # 2, and refused in the wrong layer's words: `UnicodeDecodeError` is a
+    # `ValueError`, and their `except ValueError` is the BLUEPRINT/DRAFT
+    # LENGTH MISMATCH handler, so a decode failure was reported under it as
+    # `REFUSED — 'utf-8' codec can't decode byte 0xff in position 0` with no
+    # filename anywhere in it. Correct exit code, correct shape, and on a verb
+    # holding a BEFORE and an AFTER it named neither of them (doctrine 20 --
+    # a refusal that cannot say what it is about is inconclusive dressed as an
+    # answer). Asserted in BOTH argument positions so the check cannot pass by
+    # naming whichever file happens to be read first.
+    for pos, argv in (("second", [good, binary]), ("first", [binary, good])):
+        rc, out, _ = run("verify", *argv, "ABAB", expect_rc=2)
+        check(f"`verify` names WHICH of its two files failed to decode "
+              f"({pos} position)",
+              rc == 2 and "bad.bin" in out and "q.txt" not in out,
+              out.strip().splitlines()[:1])
+
+    # THE INGESTION-REFUSAL VERB, ASKED ITS OWN QUESTION. Kept separate from
+    # the sweep above because the failure was not a traceback -- it was a
+    # NUMBER, and the number was 0.00%.
+    rc, out, _ = run("readability", binary, expect_rc=2)
+    check("`readability` does not report 0.00% REFUSED on a file it could "
+          "not decode", rc == 2 and "0.00%" not in out and "read 1" not in out,
+          out.strip().splitlines()[:1])
+
+    # ONE HANDLER SERVED BOTH, WHICH IS HOW THE MODULE-IDENTITY BUG SHOWS.
+    # `readability` reaches the reader through `quality/readability.py`,
+    # which imports `lyric_harness` under its own name -- a SECOND execution
+    # of the same file, binding a second, unrelated `UndecodableLyricFile`.
+    # While that was true this verb alone kept exiting 1, with a traceback
+    # whose last line held the right message about the wrong class. Equal
+    # refusal text across the two paths is the evidence they are one class.
+    direct = run("chains", binary, expect_rc=2)[1]
+    through = run("readability", binary, expect_rc=2)[1]
+    check("a verb reaching the reader THROUGH quality/ refuses identically "
+          "to one reaching it directly",
+          direct.strip() == through.strip(),
+          "two module objects would make these two different classes")
+
+    # THE MISTYPED PATH, and BOTH readings of the argument it is ambiguous
+    # with, because a guard like this is wrong exactly when it eats a line.
+    for verb in ("qafiya", "partition"):
+        rc, out, err = run(verb, gone, expect_rc=2)
+        check(f"`{verb}` REFUSES a path-shaped token that is not a file",
+              rc == 2 and "REFUSED" in out and "Traceback" not in err,
+              f"rc {rc}")
+        check(f"and `{verb}`'s refusal states BOTH readings",
+              "FILE" in out and "LINE" in out,
+              "the caller cannot fix it without being told which it picked")
+    rc, out, _ = run("qafiya", "the cattle waded through the silt")
+    check("a real LINE is still read as a line", rc == 0
+          and "REFUSED" not in out, f"rc {rc}")
+    rc, out, _ = run("qafiya", "silt")
+    check("and so is a bare word — no separator, no extension, no refusal",
+          rc == 0 and "REFUSED" not in out, f"rc {rc}")
+    rc, out, _ = run("partition", "the silt", "rebuilt")
+    check("two LINE arguments are untouched", rc == 0
+          and "REFUSED" not in out, f"rc {rc}")
+
+    # AND EVERY REAL RUN IS UNTOUCHED. This catches errors, not results.
+    #
+    # `REFUSED —` AND NOT `REFUSED`, and the difference is not pedantry: this
+    # loop covers `readability`, whose ORDINARY report contains the word as a
+    # column label — `countable line ends 4   read 4   REFUSED 0   (0.00%)`.
+    # Spelled `"REFUSED" not in out` the check fails on a clean run of the one
+    # verb in the list most worth covering, which is a test that cannot pass
+    # rather than one that cannot fail, and the same mistake in the mirror.
+    # `_refuse` prints one shape and it carries the em dash.
+    for verb, argv in (("chains", [good]), ("density", [good]),
+                       ("readability", [good]), ("qafiya", [good]),
+                       ("partition", [good]), ("brief", [good, "ABAB"])):
+        rc, out, _ = run(verb, *argv)
+        check(f"`{verb}` on a real lyric still runs", rc == 0
+              and "REFUSED —" not in out, f"rc {rc}")
+
+
+def test_the_named_pair_disclosure_survives_the_module_boundary():
+    print("\n27. the NAMED PAIR IS NOT THE EVIDENCE banner reaches the verbs "
+          "that score through quality/ (FIXED 2026-08-15)")
+    # FOUND WHILE MEASURING §26's `sys.modules` alias -- by byte-diffing all
+    # 28 verb invocations with and without it, rather than by reasoning about
+    # what one line could touch. 27 of 28 came back identical. `song` did not:
+    # it GAINED four lines, and they are the loudest lines this report has.
+    #
+    # `report_pair` exists because "the defect was never that the provenance
+    # was unavailable after `best_score` recorded it -- it was that a consumer
+    # holding both printed only one". Its gate is
+    #
+    #     claimed = sp.claims(a, b) if isinstance(sp, Attribution) else True
+    #
+    # and `sp` arrives from `Reviser.inspect`, built by the copy of this file
+    # that `quality/` imported. `isinstance` against `__main__`'s `Attribution`
+    # is then FALSE for a real `Attribution`, `claimed` defaults to True, and
+    # the entire disclosure block is skipped. So the defect `report_pair` was
+    # written to end came back one level up, wearing module identity.
+    #
+    # AND THE REPORT CONTRADICTED ITSELF IN ADJACENT LINES, which is how it is
+    # checkable without trusting either half: `spans_note` is a plain string
+    # and never crossed the boundary, so `MOSAIC (both sides): the winning
+    # span reaches back past the end word` printed on all four pairs the whole
+    # time -- directly beneath the missing banner that says the same fact
+    # loudly. One is the invariant on the other.
+    fix = os.path.join(ROOT, "quality", "fixtures")
+    rc, out, _ = run("song", os.path.join(fix, "song.blueprint.json"),
+                     os.path.join(fix, "song.txt"), "--cliques", expect_rc=3)
+    lines = out.splitlines()
+    mosaic = [i for i, ln in enumerate(lines) if "MOSAIC (" in ln]
+    check("the fixture still carries a mosaic span to disclose", mosaic,
+          "a check with nothing to examine passes for the wrong reason "
+          "(doctrine 48) — this one names its own population")
+    orphans = [lines[i].strip()[:70] for i in mosaic
+               if i == 0 or "NAMED PAIR IS NOT THE EVIDENCE" not in lines[i - 1]]
+    check(f"every one of the {len(mosaic)} mosaic spans carries the banner",
+          not orphans, orphans)
+
+    # THE SAME PAIR THROUGH `brief`, which reaches `Reviser` by a different
+    # route and was equally blind. Two verbs, one boundary.
+    rc, out, _ = run("brief", os.path.join(fix, "song.txt"), "--cliques")
+    check("`brief` discloses it too", rc == 0
+          and "NAMED PAIR IS NOT THE EVIDENCE" in out, f"rc {rc}")
+
+    # AND THE NUMBER DID NOT MOVE. This is a RENDERING fix (doctrine 91):
+    # `report_pair`'s own docstring says it RELABELS rather than suppressing
+    # the number, so a verdict that changed here would mean the alias had
+    # done something else as well.
+    check("the verdict beside it is unchanged — 1.0 REPEAT on the named pair",
+          "(counting/counting): 1.0  REPEAT" in out,
+          "the alias fixed a report, and a verdict moving would say otherwise")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -2642,6 +2963,9 @@ if __name__ == "__main__":
     test_the_candidate_field_says_which_ordering_it_is()
     test_the_last_two_traceback_shapes_refuse()
     test_every_test_file_is_accounted_for_by_ci()
+    test_a_near_miss_flag_refuses_on_the_reviser_verbs()
+    test_a_file_the_harness_cannot_read_refuses_on_every_verb()
+    test_the_named_pair_disclosure_survives_the_module_boundary()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

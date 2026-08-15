@@ -87,6 +87,16 @@ from lyric_harness import line_tokens, raw_final_token, Lexicon  # noqa: E402
 
 FAILURES = []
 
+#: Test 13's MEASURED (backtrack_width, pairs proposed), read by test 16 so
+#: its "the bound is the declared coordinate and not a constant" check
+#: compares two RUNS rather than two literals. It read
+#: `8 == 2 * 2 ** 2 and 50 == 2 * 5 ** 2` until 2026-08-15 -- a condition
+#: containing no Name, Call or Attribute node anywhere, so no mutation of any
+#: production file could move it and it evaluated True with the loop deleted.
+#: Found by an AST sweep for constant-only `check()` conditions; it was the
+#: only one of 612 outside the True/False arms of refusal try/excepts.
+_NARROW_RUN = []
+
 
 def check(name, cond, detail=""):
     print(f"  {'PASS' if cond else 'FAIL'}  {name}")
@@ -622,6 +632,11 @@ def test_pair_brief_carries_the_situation():
           sorted({f.code for pb in seen for f in pb.whole}))
     check("8 pairs proposed = 2 two-line group(s) x width 2 x width 2",
           len(seen) == 8 == 2 * R.rdecl.backtrack_width ** 2, len(seen))
+    # HANDED TO TEST 16, which compares this run against its own. Recorded
+    # as a (width, count) PAIR rather than a bare number, so the comparison
+    # there reads two measurements and cannot be satisfied by arithmetic on
+    # two literals -- see the note at that check.
+    _NARROW_RUN.append((R.rdecl.backtrack_width, len(seen)))
     check("the draft is untouched -- every pair was correctly rejected, so "
           "widening the brief changed what the writer SEES and not what the "
           "loop accepts",
@@ -739,10 +754,25 @@ def test_backtrack_width_still_bounds_the_search():
           "the same 50, so the result does not overstate the search",
           tier2 and tier2[0].tried == len(seen) == 50,
           tier2[0].tried if tier2 else None)
+    # TWO RUNS, NOT TWO LITERALS — 2026-08-15. This said
+    # `8 == 2 * 2 ** 2 and 50 == 2 * 5 ** 2`, which is arithmetic: no Name,
+    # no Call, no Attribute, nothing this repository could change to make it
+    # false. It named the strongest claim in the section — that the bound
+    # tracks a DECLARED coordinate rather than a hardcoded number — and
+    # asserted it of nothing. Test 13 now hands its measured (width, count)
+    # over and the same sentence is checked against both runs, so deleting
+    # either loop, or fixing either width, fails here.
     check("the bound is the DECLARED coordinate and not a constant: the "
           "same fixture at `backtrack_width=2` proposes 8 (test 13), which "
           "is 2 x 2^2 against this run's 2 x 5^2",
-          8 == 2 * 2 ** 2 and 50 == 2 * 5 ** 2)
+          len(_NARROW_RUN) == 1
+          and _NARROW_RUN[0][1] == 2 * _NARROW_RUN[0][0] ** 2
+          and len(seen) == 2 * R.rdecl.backtrack_width ** 2
+          and _NARROW_RUN[0][0] != R.rdecl.backtrack_width
+          and _NARROW_RUN[0][1] != len(seen),
+          f"width {_NARROW_RUN[0][0] if _NARROW_RUN else '?'} -> "
+          f"{_NARROW_RUN[0][1] if _NARROW_RUN else '?'} pair(s) against "
+          f"width {R.rdecl.backtrack_width} -> {len(seen)}")
     check("every one of the 50 was rejected and the draft is untouched, "
           "which is test 5's claim re-measured through the new contract",
           not tier2[0].accepted and res.lines == SILVER_NIGHT_LOCKED)
