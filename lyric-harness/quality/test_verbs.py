@@ -2435,6 +2435,28 @@ def test_the_loop_pursues_a_note_it_can_brief():
           f"pursuing changes what the loop ASKS for and never what verify "
           f"REJECTS (doctrine 6/7)")
 
+    # ONLY `revise` RUNS A LOOP, and this flag was added to the block SHARED by
+    # brief/verify/revise/song, so on three of the four it changed no output --
+    # and PRINTED ITS DISCLOSURE ANYWAY, telling a caller "the loop keeps asking
+    # on a line carrying one" on verbs that run no loop at all. A silent no-op
+    # is doctrine 1; a no-op that ANNOUNCES ITSELF AS WORKING is that plus a
+    # false sentence in the report a writer reads to decide whether the draft is
+    # finished. `--propose` has carried this same refusal one flag over since it
+    # landed, so the shape was already in this file when the gap was made.
+    #
+    # THESE THREE WERE WRITTEN ONCE, DELETED BY MY OWN NEXT EDIT, AND RESTORED.
+    # The rewrite of the assertion just above spliced the file between two
+    # anchors and these sat between them. The suite went green because a
+    # deleted assertion cannot fail -- which is this file's whole subject,
+    # committed by the commit that fixed it.
+    for verb, extra in (("brief", []), ("song", []), ("verify", [draft])):
+        rcx, outx, _ = run(verb, draft, *extra, mand, "--pursue=MODAL_RHYME",
+                           expect_rc=2)
+        check(f"`--pursue` on `{verb}` REFUSES rather than announcing a loop "
+              f"it does not run",
+              rcx == 2 and "REFUSED" in outx and "PURSUING" not in outx,
+              f"rc {rcx}")
+
     rc3, out3, _ = run("brief", draft, mand, "--pursue=HOOK_ABSENT",
                        expect_rc=2)
     # THE MESSAGE, not just the code. `_no_unknown_flags_or_refuse` already
