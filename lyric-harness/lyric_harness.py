@@ -5933,6 +5933,25 @@ def main():
         # existed.
         from quality import fit as FT
         bp_path = _flag_value(args, "--blueprint", eq_only=True)
+        # `--profile` — THE COMPARATOR EVERY SCORE BELOW IS READ UNDER, and
+        # it was reachable on `scheme` and on nothing else — WIRED 2026-08-15.
+        # `Reviser.brief`, `.verify` and `revise_loop` have ALL taken
+        # `profile=` since they were written, and `_matrix` forwards it to
+        # `best_score` — the same parameter `scheme --profile` rebinds. No
+        # CLI spelling reached any of the four verbs that grade a draft, so
+        # the one flag that changes what every number MEANS was API-only.
+        # `revise` printed the coordinate anyway (`COMPARATOR: profile=
+        # declared default`), which is a report naming a setting its own
+        # caller could not set. Same shape as `--blueprint` before
+        # 2026-08-11: built, tested, and unreachable.
+        rv_profile = _flag_value(args, "--profile")
+        if rv_profile is not None:
+            _value_in_vocabulary_or_refuse(
+                "--profile", rv_profile, PROFILES,
+                "The profile rebinds the CHANNEL WEIGHTS every score in this "
+                "report is computed under, so an unrecognised name cannot "
+                "fall through to the default ones -- that is a silent "
+                "comparator substitution (doctrine 1).")
         sub_arg = _flag_value(args, "--subdivision")
         subdivision = _subdivision_or_refuse(
             FT, sub_arg,
@@ -5951,6 +5970,24 @@ def main():
                 "that the pulses are evenly spaced in time (there is no "
                 "audio and no tempo here, so isochrony is an ASSUMPTION and "
                 "never a measurement)") else None
+
+        # A METER COORDINATE DECLARED WITH NO METER TO CHECK — 2026-08-15.
+        # `--subdivision`/`--isochronous` are coordinates OF THE METER LAYER,
+        # and meter rides `--blueprint`. Given without one they were accepted,
+        # consumed, and dropped: MEASURED byte-identical, md5 202b23ce64 for
+        # `brief FILE --groups=...` with each of them and without. That is the
+        # exact sentence `_no_unknown_flags_or_refuse` refuses on one line
+        # up -- a flag silently not read leaves a report that looks like one
+        # you never asked for -- so the answer is the same one.
+        if bp_path is None and (sub_arg is not None or assume is not None):
+            _which = "--subdivision" if sub_arg is not None else "--isochronous"
+            _refuse(f"{_which} was declared and no --blueprint was",
+                    detail=["it is a coordinate of the METER check, and meter "
+                            "is only asked when a blueprint is declared "
+                            "(omitting one drops meter AND song-function).",
+                            "declare `--blueprint=B` too, or drop the flag: "
+                            "leaving it in produces a rhyme-and-floor report "
+                            "byte-identical to one that never carried it."])
 
         # `--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY` — read here with
         # the other three flags and RESOLVED inside the `revise` branch, so a
@@ -6023,8 +6060,8 @@ def main():
         # positional argument, not `--blueprint=` -- see its branch below --
         # but it can still take `--subdivision`/`--isochronous` as trailing
         # flags, so it shares this same stripping pass.)
-        _FLAG_NAMES = ("--blueprint", "--subdivision", "--isochronous",
-                       "--propose")
+        _FLAG_NAMES = ("--blueprint", "--profile", "--subdivision",
+                       "--isochronous", "--propose")
         #: The flags with NO following value to eat. `--isochronous` is a bare
         #: presence flag; `--propose` is `=`-only for the reason `--fallback`
         #: records (its values are bare words a following-token reader could
@@ -6087,7 +6124,8 @@ def main():
             [a for a in args
              if a.split("=", 1)[0] not in ("--groups", "--returns",
                                            "--cliques")],
-            ("--blueprint=B", "--subdivision N", "--isochronous",
+            ("--blueprint=B", "--profile=" + "|".join(sorted(PROFILES)),
+             "--subdivision N", "--isochronous",
              "--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY",
              "--pursue=CODE,CODE", "--groups=", "--returns=", "--cliques"),
             cmd)
@@ -6281,7 +6319,8 @@ def main():
                             first — the paragraphs that used to be first.
             """
             briefs = rv.brief(lines, scheme, blueprint=blueprint,
-                              subdivision=subdivision, assume=assume)
+                              subdivision=subdivision, assume=assume,
+                              profile=rv_profile)
             # THE WHOLE-DRAFT HALF OF THE SAME FINDING SET. `inspect()`
             # returns `per_line` AND `whole`; `brief()` is built from
             # `per_line` only, because a `Brief` carries a `line_no`,
@@ -6313,7 +6352,8 @@ def main():
             # pass in any measurable sense: `_matrix`/`_field_cache` are
             # warm from the `brief()` call above, measured at 0.02s
             # against that call's 11.4s on the 16-line fixture.
-            found = rv.inspect(lines, scheme, blueprint=blueprint,
+            found = rv.inspect(lines, scheme, profile=rv_profile,
+                               blueprint=blueprint,
                                subdivision=subdivision, assume=assume)
             whole = dedupe_findings(found["whole"])
             # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
@@ -6595,6 +6635,26 @@ def main():
                 # declares. The two can drift independently -- a verse added
                 # to the words and not the blueprint, or the reverse.
                 from quality import grid as GR
+                # `song --blueprint=X` WAS ACCEPTED AND NEVER OPENED —
+                # 2026-08-15. This verb's blueprint is its FIRST POSITIONAL,
+                # so the flag spelling has nothing to bind to: `bp_path` is
+                # parsed above, stripped from `args` by the shared
+                # `_FLAG_NAMES` pass, and never read here. MEASURED, with a
+                # path that does not exist: byte-identical to omitting the
+                # flag, exit 3 either way. A caller who names a blueprint and
+                # is graded against a different one is the worst available
+                # outcome for a declared coordinate (doctrine 1).
+                if bp_path is not None:
+                    _refuse(f"song takes its blueprint as the FIRST "
+                            f"POSITIONAL, not as --blueprint=; got "
+                            f"{bp_path!r} beside {args[1]!r}",
+                            sides=[("DECLARED by --blueprint=", bp_path),
+                                   ("DECLARED positionally", args[1])],
+                            detail=["usage: song BLUEPRINT LYRIC [MANDATE] "
+                                    "[--subdivision N] [--isochronous]",
+                                    "the flag was accepted and never opened, "
+                                    "so the two spellings disagreeing was "
+                                    "silent."])
                 song_bp_path = args[1]
                 sides.append(("DECLARED  song's BLUEPRINT", song_bp_path))
                 sides.append(("HANDED IN song's LYRIC", args[2]))
@@ -6674,7 +6734,7 @@ def main():
                             if tail else None)
                 v = rv.verify(before, after, scheme, targeted=targeted,
                               blueprint=bp_path, subdivision=subdivision,
-                              assume=assume)
+                              assume=assume, profile=rv_profile)
                 print(f"  VERDICT: "
                       f"{'ACCEPTED' if v.get('accepted') else 'REJECTED'}")
                 for r in v.get("reasons", []):
@@ -6713,7 +6773,9 @@ def main():
                     result = LP.revise_loop(rv, lines, scheme,
                                             blueprint=bp_path,
                                             subdivision=subdivision,
-                                            assume=assume, propose=propose,
+                                            assume=assume,
+                                            profile=rv_profile,
+                                            propose=propose,
                                             propose_pair=propose_pair)
                 except _NeedProposal as need:
                     # EXIT 4 — SUSPENDED, and it is a fourth code for the same

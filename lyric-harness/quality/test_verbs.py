@@ -3033,6 +3033,98 @@ def test_every_verb_reads_its_own_arguments():
               and "REFUSED" not in out, f"rc {rc}")
 
 
+def test_the_comparator_and_the_meter_flags_reach_the_graders():
+    print("\n29. `--profile` reaches the four verbs that grade a draft, and "
+          "a coordinate with nothing to bind to REFUSES (FIXED 2026-08-15)")
+    # `--profile` REBINDS THE CHANNEL WEIGHTS EVERY SCORE IS READ UNDER, and
+    # it was reachable on `scheme` and on nothing else. `Reviser.brief`,
+    # `.verify`, `.inspect` and `revise_loop` have ALL taken `profile=` since
+    # they were written -- `_matrix` forwards it to `best_score`, the same
+    # parameter `scheme --profile` rebinds -- and no CLI spelling reached any
+    # of the four verbs that grade a draft. `revise` printed the coordinate
+    # anyway: `COMPARATOR: profile=declared default`, a report naming a
+    # setting its own caller could not set. Built, tested, unreachable --
+    # the shape `--blueprint` had before 2026-08-11.
+    d = tempfile.mkdtemp()
+    q = os.path.join(d, "q.txt")
+    with open(q, "w") as fh:
+        fh.write("the cattle waded through the silt\n"
+                 "past every fence the county rebuilt\n"
+                 "the dawn came up again\n"
+                 "and found us where we had been\n")
+    bp = os.path.join(ROOT, "quality", "fixtures", "song.blueprint.json")
+    ly = os.path.join(ROOT, "quality", "fixtures", "song.txt")
+    M = "--groups=1,2;3,4"
+
+    rc_base, base, _ = run("brief", q, M)
+    rc_prof, prof, _ = run("brief", q, M, "--profile=assonance")
+    # BOTH RUNS MUST SUCCEED, and that clause is the whole assertion. Against
+    # the unfixed tree `--profile` REFUSED, so `base != prof` held on a
+    # refusal and this check passed for the wrong reason -- measured, then
+    # tightened. A comparator that is reachable produces a REPORT that
+    # differs, not an error that differs.
+    check("`--profile` REACHES `brief` — both runs report, and the report "
+          "is not the one produced without it",
+          rc_base == 0 and rc_prof == 0 and "REFUSED" not in prof
+          and base != prof,
+          f"rc {rc_base}/{rc_prof}; byte-identical is what an unreachable "
+          f"comparator looks like")
+    check("and an unrecognised profile REFUSES by name rather than falling "
+          "through to the default weights",
+          run("brief", q, M, "--profile=bogus", expect_rc=2)[0] == 2
+          and "assonance" in run("brief", q, M, "--profile=bogus",
+                                 expect_rc=2)[1],
+          "a silent comparator substitution is doctrine 1's own case")
+    rc, out, _ = run("revise", q, M, "--profile=assonance")
+    check("`revise` now REPORTS the profile it was handed, not a default it "
+          "could not be given", rc == 0 and "profile='assonance'" in out,
+          [ln for ln in out.splitlines() if "COMPARATOR" in ln][:1])
+    for verb, argv in (("verify", ["verify", q, q, M]),
+                       ("song", ["song", bp, ly, "--cliques"])):
+        rc, out, _ = run(*argv, "--profile=assonance",
+                         expect_rc=None)
+        check(f"`{verb}` takes it too", "REFUSED" not in out, f"rc {rc}")
+
+    # A COORDINATE WITH NOTHING TO BIND TO. `--subdivision`/`--isochronous`
+    # are coordinates OF THE METER LAYER and meter rides `--blueprint`; given
+    # without one they were accepted, consumed and dropped -- MEASURED
+    # byte-identical, md5 202b23ce64 with each and without.
+    for flag in ("--subdivision", "--isochronous"):
+        argv = ["brief", q, M, flag] + (["2"] if flag == "--subdivision"
+                                        else [])
+        rc, out, err = run(*argv, expect_rc=2)
+        check(f"`{flag}` with no --blueprint REFUSES instead of being "
+              f"dropped", rc == 2 and "REFUSED" in out
+              and "Traceback" not in err, f"rc {rc}")
+    rc, out, _ = run("brief", q, M, "--subdivision", "2",
+                     f"--blueprint={bp}", expect_rc=2)
+    # THE OTHER SIDE OF THE SAME RULE: declared WITH a blueprint, the flag is
+    # read and the run reaches the grader. It refuses here on the blueprint/
+    # draft LENGTH mismatch (16 lines against 4), which is a different layer
+    # and the right one -- the assertion is that it is not refused for
+    # carrying `--subdivision` at all.
+    check("and WITH a blueprint the same flag is read, not refused for "
+          "itself",
+          rc == 2 and "was declared and no --blueprint was" not in out
+          and "REFUSED" in out,
+          out.strip().splitlines()[:1])
+
+    # `song`'s BLUEPRINT IS ITS FIRST POSITIONAL, so `--blueprint=` had
+    # nothing to bind to: parsed, stripped, never opened. MEASURED with a
+    # path that does not exist -- byte-identical to omitting it, exit 3.
+    plain = run("song", bp, ly, "--cliques", expect_rc=3)
+    ghost = run("song", bp, ly, "--cliques",
+                "--blueprint=/nonexistent/nope.json", expect_rc=2)
+    check("`song --blueprint=` REFUSES rather than being silently ignored",
+          ghost[0] == 2 and "FIRST POSITIONAL" in ghost[1],
+          f"rc {ghost[0]}")
+    check("and it names BOTH spellings, so the caller can see which lost",
+          "/nonexistent/nope.json" in ghost[1] and bp in ghost[1],
+          "a coordinate declared twice and read once is doctrine 1's case")
+    check("the plain positional run is untouched",
+          ghost[1] != plain[1] and plain[0] == 3, f"rc {plain[0]}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -3067,6 +3159,7 @@ if __name__ == "__main__":
     test_a_file_the_harness_cannot_read_refuses_on_every_verb()
     test_the_named_pair_disclosure_survives_the_module_boundary()
     test_every_verb_reads_its_own_arguments()
+    test_the_comparator_and_the_meter_flags_reach_the_graders()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

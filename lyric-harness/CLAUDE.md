@@ -880,6 +880,45 @@ Re-measured before anything was changed, for the reason lever 2 recorded: a
 named defect can be two-thirds shut and the live third a different shape.
 §28 fails 26 of its 34 checks against `be8d1ea`.
 
+**`--profile` — THE COMPARATOR EVERY SCORE IS READ UNDER — REACHED THE FOUR
+GRADING VERBS FROM NOTHING, WIRED 2026-08-15.** `Reviser.brief`, `.verify`,
+`.inspect` and `revise_loop` have ALL taken `profile=` since they were written,
+and `_matrix` forwards it to `best_score` — the same parameter `scheme
+--profile` rebinds. No CLI spelling reached any of `brief`/`verify`/`revise`/
+`song`, so the one flag that changes what every number MEANS was API-only. AND
+`revise` PRINTED THE COORDINATE ANYWAY: `COMPARATOR: profile=declared default`,
+a report naming a setting its own caller could not set. Same shape as
+`--blueprint` before 2026-08-11 — built, tested, unreachable — and the same fix:
+parse it beside the other three, validate against `PROFILES` with the shape
+`--fallback` has had since it was written, pass it through. `--profile=bogus`
+refuses by name rather than falling through to the default weights, which is
+the silent comparator substitution doctrine 1 is about.
+
+**AND TWO COORDINATES WITH NOTHING TO BIND TO WERE ACCEPTED AND DROPPED.**
+`--subdivision`/`--isochronous` are coordinates of the METER layer, and meter
+rides `--blueprint`; declared without one they were consumed and ignored —
+MEASURED byte-identical, md5 `202b23ce64` for `brief FILE --groups=…` with each
+of them and without. That is verbatim the sentence `_no_unknown_flags_or_refuse`
+already refuses on, so it gets the same answer. `song --blueprint=X` is the
+sharper case and was the lane's BLOCKER: this verb's blueprint is its FIRST
+POSITIONAL, so the flag had nothing to bind to — parsed, stripped by the shared
+`_FLAG_NAMES` pass, never opened. Measured with a path that does not exist:
+byte-identical to omitting it, exit 3 either way, so a caller who named one
+blueprint and was graded against another had no way to tell. It refuses now and
+NAMES BOTH SPELLINGS.
+**THE AUDIT'S FOURTH ITEM IN THIS LANE WAS ALREADY CLOSED** — "a refusal blames
+the mandate layer for a flag from another layer" is what `6d204a7`'s flag guard
+fixed; `brief … --profile=assonance` now says `brief has no flag '--profile'`
+rather than reporting it as a letter scheme. Re-measured before anything was
+touched, as with the two levers before it. `quality/test_verbs.py` §29 fails 10
+of its 11 checks against `e743663`; the 11th is the control that must pass on
+both trees.
+AND ONE OF ITS CHECKS PASSED FOR THE WRONG REASON FIRST: `--profile` REACHES
+`brief` was written as `base != prof`, and against the unfixed tree the profiled
+run REFUSED, so the two outputs differed and the check went green on an error.
+It requires both runs to exit 0 now — a reachable comparator produces a REPORT
+that differs, not an error that differs.
+
 **A MISTYPED PATH WAS GRADED AS A LYRIC — SAME COMMIT, AND IT IS THE ONE THAT
 ANSWERED AT EXIT 0.** `qafiya`/`partition` are documented `FILE|L...` and each
 spelled the decision `os.path.exists(src[0])` itself, so an absent path fell
