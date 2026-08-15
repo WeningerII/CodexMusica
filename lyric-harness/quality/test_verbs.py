@@ -2933,6 +2933,226 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
           "the alias fixed a report, and a verdict moving would say otherwise")
 
 
+def test_every_verb_reads_its_own_arguments():
+    print("\n28. a mistyped ARGUMENT refuses in the verb's own words, on "
+          "every verb that reads one (FIXED 2026-08-15)")
+    # §23 and §26 closed the argument shapes that no single verb owned — a
+    # missing positional, a named file that is not there, an undecodable one.
+    # This closes the shapes each verb owns ITSELF: a number that is not a
+    # number, a separator that is not there, an arity its own library asserts
+    # on. Every one was exit 1 with a bare traceback, which a caller reads as
+    # "the harness crashed" when the harness was handed 'two' for an integer
+    # (doctrine 20), while `_subdivision_or_refuse` sat one screen away doing
+    # it correctly for ONE flag.
+    #
+    # RE-MEASURED BEFORE IT WAS FIXED, and the audit that raised these nine
+    # was 3 of 9 out of date at HEAD: `grid`/`fit`/`song` on a MISSING
+    # blueprint, `function` on one, and `verify --nope` all already refused,
+    # closed by the `except OSError` of 6873e20 and the flag guard of
+    # 6d204a7. What was live is what is asserted here.
+    d = tempfile.mkdtemp()
+    small = os.path.join(d, "small.txt")
+    with open(small, "w") as fh:
+        fh.write("the cat sat on the mat\na dog ran through the fog\n"
+                 "he wore a battered hat\nit vanished in the bog\n")
+    notjson = os.path.join(d, "notjson.txt")
+    with open(notjson, "w") as fh:
+        fh.write("not json at all\n")
+
+    # ONE SHAPE, EVERY SITE. A sweep and not a case, because these were fixed
+    # one verb at a time before and that is how nine of them accumulated.
+    for label, argv in (
+            ("candidates N", ["candidates", "lines", "two"]),
+            ("chains THETA", ["chains", small, "x"]),
+            ("graph THETA", ["graph", small, "x"]),
+            ("prasa K", ["prasa", "x", "dawn again", "silt rebuilt"]),
+            ("cycle N/D", ["cycle", "x"]),
+            ("cycle N/D (no slash)", ["cycle", "4"]),
+            ("score, no --", ["score", "dawn", "again"]),
+            ("types, no --", ["types", "dawn", "again"]),
+            ("score, third field", ["score", "dawn", "--", "again", "--no"]),
+            ("scheme arity", ["scheme", "ABAB", "dawn", "again"]),
+            ("scheme + stray flag",
+             ["scheme", "AABB", "a", "b", "c", "d", "--nope"]),
+            ("refrain, unknown FORM", ["refrain", "zzznotaform"]),
+            ("meter, no lines", ["meter", "./"]),
+            ("meter + stray flag", ["meter", "./", "the cat", "--nope"]),
+            ("function, malformed blueprint",
+             ["function", notjson, "--function=verse1:verse"]),
+    ):
+        rc, out, err = run(*argv, expect_rc=2)
+        check(f"{label} REFUSES at 2, not 1",
+              rc == 2 and "REFUSED" in out and "Traceback" not in err,
+              f"rc {rc}")
+
+    # THE TWO SILENT ONES, which are worse than the tracebacks and need their
+    # own assertions: both answered at exit 0, one with the WRONG LIST and
+    # one with a partition of the typo itself.
+    plain = run("candidates", "lines", "5")[1]
+    eq = run("candidates", "lines", "5", "--modal=yes", expect_rc=2)
+    check("`--modal=yes` is no longer BYTE-IDENTICAL to passing no flag",
+          eq[0] == 2 and eq[1] != plain,
+          "identical output is what handed the RHYME-SCORE list to a caller "
+          "who asked for the FREQUENCY one — the substitution §22 exists for")
+    rc, out, _ = run("refrain", "zzznotaform", expect_rc=2)
+    check("and a mistyped FORM names the declared vocabulary",
+          "villanelle" in out and "triolet" in out,
+          "`.get(name, name)` printed an 11-line partition of the typo")
+
+    # SIBLING VERBS MUST AGREE ON ONE FILE. `function` read its blueprint
+    # with a bare `json.load(open(...))` while `grid` refused the identical
+    # bytes through `_blueprint_or_refuse`.
+    g = run("grid", notjson, expect_rc=2)
+    f = run("function", notjson, "--function=verse1:verse", expect_rc=2)
+    check("`function` and `grid` answer the same malformed blueprint the "
+          "same way", g[0] == f[0] == 2 and "REFUSED" in f[1],
+          f"grid rc {g[0]}, function rc {f[0]}")
+
+    # THE OTHER HALF, and for `refrain` it is the half the new rule could
+    # break: the notation test refuses a token whose letters are not the
+    # alphabet's first few, and the rondeau's `R` rentrement is exactly such
+    # a token. Every shipped form must still resolve, by name.
+    from quality import schemes as SC
+    for form in sorted(SC.REFRAIN_FORMS):
+        rc, out, _ = run("refrain", form)
+        check(f"the shipped form {form!r} still resolves", rc == 0
+              and "READ AS: named form" in out, f"rc {rc}")
+    for label, argv in (
+            ("meter", ["meter", "./", "the-cat", "the-dog"]),
+            ("scheme", ["scheme", "AABB", "dawn", "again", "silt",
+                        "rebuilt"]),
+            ("score", ["score", "dawn", "--", "again"]),
+            ("types", ["types", "dawn", "--", "again"]),
+            ("candidates --modal", ["candidates", "lines", "5", "--modal"]),
+            ("chains theta", ["chains", small, "0.8"]),
+            ("cycle", ["cycle", "7/8", "3+2+2"]),
+            ("refrain, raw notation", ["refrain", "ABaAabAB"]),
+    ):
+        rc, out, _ = run(*argv)
+        check(f"a real `{label}` run is untouched", rc == 0
+              and "REFUSED" not in out, f"rc {rc}")
+
+
+def test_the_comparator_and_the_meter_flags_reach_the_graders():
+    print("\n29. `--profile` reaches the four verbs that grade a draft, and "
+          "a coordinate with nothing to bind to REFUSES (FIXED 2026-08-15)")
+    # `--profile` REBINDS THE CHANNEL WEIGHTS EVERY SCORE IS READ UNDER, and
+    # it was reachable on `scheme` and on nothing else. `Reviser.brief`,
+    # `.verify`, `.inspect` and `revise_loop` have ALL taken `profile=` since
+    # they were written -- `_matrix` forwards it to `best_score`, the same
+    # parameter `scheme --profile` rebinds -- and no CLI spelling reached any
+    # of the four verbs that grade a draft. `revise` printed the coordinate
+    # anyway: `COMPARATOR: profile=declared default`, a report naming a
+    # setting its own caller could not set. Built, tested, unreachable --
+    # the shape `--blueprint` had before 2026-08-11.
+    d = tempfile.mkdtemp()
+    q = os.path.join(d, "q.txt")
+    with open(q, "w") as fh:
+        fh.write("the cattle waded through the silt\n"
+                 "past every fence the county rebuilt\n"
+                 "the dawn came up again\n"
+                 "and found us where we had been\n")
+    bp = os.path.join(ROOT, "quality", "fixtures", "song.blueprint.json")
+    ly = os.path.join(ROOT, "quality", "fixtures", "song.txt")
+    M = "--groups=1,2;3,4"
+
+    rc_base, base, _ = run("brief", q, M)
+    rc_prof, prof, _ = run("brief", q, M, "--profile=assonance")
+    # BOTH RUNS MUST SUCCEED, and that clause is the whole assertion. Against
+    # the unfixed tree `--profile` REFUSED, so `base != prof` held on a
+    # refusal and this check passed for the wrong reason -- measured, then
+    # tightened. A comparator that is reachable produces a REPORT that
+    # differs, not an error that differs.
+    check("`--profile` REACHES `brief` — both runs report, and the report "
+          "is not the one produced without it",
+          rc_base == 0 and rc_prof == 0 and "REFUSED" not in prof
+          and base != prof,
+          f"rc {rc_base}/{rc_prof}; byte-identical is what an unreachable "
+          f"comparator looks like")
+    check("and an unrecognised profile REFUSES by name rather than falling "
+          "through to the default weights",
+          run("brief", q, M, "--profile=bogus", expect_rc=2)[0] == 2
+          and "assonance" in run("brief", q, M, "--profile=bogus",
+                                 expect_rc=2)[1],
+          "a silent comparator substitution is doctrine 1's own case")
+    rc, out, _ = run("revise", q, M, "--profile=assonance")
+    check("`revise` now REPORTS the profile it was handed, not a default it "
+          "could not be given", rc == 0 and "profile='assonance'" in out,
+          [ln for ln in out.splitlines() if "COMPARATOR" in ln][:1])
+    for verb, argv in (("verify", ["verify", q, q, M]),
+                       ("song", ["song", bp, ly, "--cliques"])):
+        rc, out, _ = run(*argv, "--profile=assonance",
+                         expect_rc=None)
+        check(f"`{verb}` takes it too", "REFUSED" not in out, f"rc {rc}")
+
+    # A COORDINATE WITH NOTHING TO BIND TO. `--subdivision`/`--isochronous`
+    # are coordinates OF THE METER LAYER and meter rides `--blueprint`; given
+    # without one they were accepted, consumed and dropped -- MEASURED
+    # byte-identical, md5 202b23ce64 with each and without.
+    for flag in ("--subdivision", "--isochronous"):
+        argv = ["brief", q, M, flag] + (["2"] if flag == "--subdivision"
+                                        else [])
+        rc, out, err = run(*argv, expect_rc=2)
+        check(f"`{flag}` with no --blueprint REFUSES instead of being "
+              f"dropped", rc == 2 and "REFUSED" in out
+              and "Traceback" not in err, f"rc {rc}")
+    rc, out, _ = run("brief", q, M, "--subdivision", "2",
+                     f"--blueprint={bp}", expect_rc=2)
+    # THE OTHER SIDE OF THE SAME RULE: declared WITH a blueprint, the flag is
+    # read and the run reaches the grader. It refuses here on the blueprint/
+    # draft LENGTH mismatch (16 lines against 4), which is a different layer
+    # and the right one -- the assertion is that it is not refused for
+    # carrying `--subdivision` at all.
+    check("and WITH a blueprint the same flag is read, not refused for "
+          "itself",
+          rc == 2 and "was declared and no --blueprint was" not in out
+          and "REFUSED" in out,
+          out.strip().splitlines()[:1])
+
+    # `song`'s BLUEPRINT IS ITS FIRST POSITIONAL, so `--blueprint=` had
+    # nothing to bind to: parsed, stripped, never opened. MEASURED with a
+    # path that does not exist -- byte-identical to omitting it, exit 3.
+    plain = run("song", bp, ly, "--cliques", expect_rc=3)
+    ghost = run("song", bp, ly, "--cliques",
+                "--blueprint=/nonexistent/nope.json", expect_rc=2)
+    check("`song --blueprint=` REFUSES rather than being silently ignored",
+          ghost[0] == 2 and "FIRST POSITIONAL" in ghost[1],
+          f"rc {ghost[0]}")
+    check("and it names BOTH spellings, so the caller can see which lost",
+          "/nonexistent/nope.json" in ghost[1] and bp in ghost[1],
+          "a coordinate declared twice and read once is doctrine 1's case")
+    check("the plain positional run is untouched",
+          ghost[1] != plain[1] and plain[0] == 3, f"rc {plain[0]}")
+
+    # AND THE GUARD ABOVE MUST NOT FIRE ON THE ONE VERB THAT ALWAYS HAS A
+    # BLUEPRINT. `song`'s is `args[1]`, so `bp_path is None` is true on every
+    # legitimate `song` run -- asking that question refused
+    # `song BP LYRIC --subdivision N`, a command whose blueprint is sitting in
+    # the argument list, on all seven of this file's `song --subdivision`
+    # invocations. THAT IS WHAT THE FIRST VERSION OF THIS SECTION MISSED: it
+    # tested `song --blueprint=` and `brief --subdivision`, the two halves
+    # separately, and never the pair -- a check that could not fail on the
+    # combination the guard actually broke. The battery caught it; this
+    # section did not, and that is the reason these four lines exist.
+    sub1 = run("song", bp, ly, "--cliques", "--subdivision", "1",
+               expect_rc=3)
+    sub2 = run("song", bp, ly, "--cliques", "--subdivision", "2",
+               expect_rc=3)
+    iso = run("song", bp, ly, "--cliques", "--isochronous", expect_rc=3)
+    check("`song --subdivision N` is NOT refused for carrying the flag — its "
+          "blueprint is the FIRST POSITIONAL and the guard asks about the "
+          "meter layer, not about a spelling `song` does not use",
+          sub1[0] == 3 and "REFUSED" not in sub1[1],
+          sub1[1].strip().splitlines()[:1])
+    check("and `--isochronous` likewise", iso[0] == 3
+          and "REFUSED" not in iso[1], iso[1].strip().splitlines()[:1])
+    check("and all three are READ, not merely tolerated: 1, 2 and isochronous "
+          "each produce a report the plain run does not",
+          len({plain[1], sub1[1], sub2[1], iso[1]}) == 4,
+          "identical output under different declared subdivisions is the "
+          "'accepted and dropped' shape this whole section is about")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -2966,6 +3186,8 @@ if __name__ == "__main__":
     test_a_near_miss_flag_refuses_on_the_reviser_verbs()
     test_a_file_the_harness_cannot_read_refuses_on_every_verb()
     test_the_named_pair_disclosure_survives_the_module_boundary()
+    test_every_verb_reads_its_own_arguments()
+    test_the_comparator_and_the_meter_flags_reach_the_graders()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

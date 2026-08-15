@@ -841,6 +841,102 @@ precisely so that clause stops catching it; §26 asserts the path is named with
 the bad file in BOTH argument positions, so the check cannot pass by naming
 whichever file is read first.
 
+**AND EVERY VERB'S OWN ARGUMENTS WERE THE LAST SHAPE LEFT — FIXED 2026-08-15.**
+The three fixes above close the argument shapes NO SINGLE VERB OWNED: a missing
+positional, a named file that is not there, an undecodable one. What was still
+open is the half each verb owns ITSELF, and it was the same defect fifteen
+times: `int(raw)`/`float(raw)`/`w1, w2 = rest.split("--")`/`assert len(scheme)
+== len(lines)` on text the caller typed, reaching the top as exit 1 while
+`_subdivision_or_refuse` sat one screen away doing it correctly for ONE FLAG.
+`candidates lines two`, `chains FILE x`, `graph FILE x`, `prasa x`, `cycle x`,
+`cycle 4`, `score dawn again`, `types dawn again`, `scheme ABAB` on two lines —
+all a bare traceback, all now `REFUSED … ` at 2 through `_number_or_refuse` and
+`_two_sides_or_refuse`, which carry the underlying `ValueError`'s own message
+through unchanged because the message was never the problem.
+**TWO OF THE FIFTEEN ANSWERED AT EXIT 0, AND THOSE ARE THE BAD ONES.**
+`candidates --modal=yes` was BYTE-IDENTICAL to passing no flag — `"--modal" in
+args` is an exact membership test, so the `=` spelling every sibling accepts
+fell through and the caller who asked for the FREQUENCY-ranked forbidden set
+was handed the RHYME-SCORE list, which is the precise substitution §22 exists
+to stop. And `refrain zzznotaform` printed `rhyme partition: AAABCDEFCGH` — an
+eleven-line poem made of the letters of the typo — because
+`REFRAIN_FORMS.get(name, name)` is a silent downgrade in a verb that prints its
+own vocabulary when called bare. `meter TEMPLATE` with no lines was worse than
+either: exit 0, stdout EMPTY, which in a pipeline reads as "checked, nothing
+wrong" from a verb whose every line of output is per-line.
+**THE FORM/NOTATION READING IS DISCLOSED, NOT GUESSED**, because the two
+vocabularies genuinely overlap in shape: `refrain` now prints `READ AS: named
+form 'villanelle'` or `READ AS: raw A-1 notation`, and refuses only on a
+CONJUNCTION — not declared, no capital, and not an alphabet-prefix scheme.
+Each signal alone is too weak, and THE RULE WAS RUN OVER THE SHIPPED VOCABULARY
+BEFORE IT WAS TRUSTED: a strict prefix test refuses the rondeau's `aabba aabR
+aabbaR`, whose `R` is the RENTREMENT and is a real notation. §28 asserts all
+eight shipped forms still resolve, which is the check that this rule cannot
+refuse one.
+**AND THE AUDIT THAT RAISED THESE NINE WAS 3 OF 9 STALE AT HEAD** — `grid`,
+`fit`, `song` and `function` on a MISSING blueprint, and `verify --nope`, were
+already closed by `6873e20`'s `except OSError` and `6d204a7`'s flag guard.
+Re-measured before anything was changed, for the reason lever 2 recorded: a
+named defect can be two-thirds shut and the live third a different shape.
+§28 fails 26 of its 34 checks against `be8d1ea`.
+
+**AND THE TABLE THAT GATE READS ITS DATES OUT OF HAD NO PROVENANCE OF ITS OWN — FIXED 2026-08-15.** `audit_corpus.check_row` asks doctrine 34's question — does a `data/sources.tsv` row reach this file — and walks `corpus/` ONLY. Nothing ever asked it of `data/`, where the derived tables live. Ten of them carry a row anyway, BY CONVENTION RATHER THAN BY ENFORCEMENT, and an unenforced convention had exactly one hole: `data/authority.tsv`, 13,997 death-year records, reachable by NONE of the three routes — no row, no header, not even a prose mention. Every other tracked data table is reached by at least one. The file that decides what may be scored at all was the file with no provenance.
+
+The row is written now and says the two things that make it auditable: the BUILDER (`quality/populate_authority.py`) and that the builder's INPUTS (`data/authority_src/`) are not in the repository — gitignored, never committed — so `auditable` is not read as `reproducible from this checkout`, which are different claims and only the first is true here. It also records what the table's own contents fail: 204 rows fail `trusted()` under the default strict declaration (200 `qid_only_no_date`, 4 `model_recall`) and 187 more name an undeclared dataset. Recorded rather than deleted, which is the point of a table whose rejections are as auditable as its admissions.
+
+`quality/test_provenance.py` §12 asks the question of `data/` and reports FOUR COUNTS, never summed (doctrine 79/91): reached by a row **11**, by prose only **3** (`lyricists.tsv`, `qieyun_mc.tsv`, `sources.tsv` — the weakest route, surviving exactly as long as somebody keeps writing the path into a note), declared-not-data **11**, orphan **0**. The not-data list is DECLARED (`*.py`, `*.md`, `LICENSE.*`, `build_report.json`), so a new table that stops matching it becomes an orphan and FAILS rather than slipping into a bucket. The census uses `git ls-files` and REFUSES if it cannot read the population, because globbing would fold in the gitignored artifacts — `provenance_ledger.tsv`, `feature_cache.json`, `cmudict.dict`, `data/nltk` — which have no row BECAUSE THEY ARE NOT COMMITTED, and reporting those as defects punishes the table for working (doctrine 20). §12 is 7 checks and fails 5 with the row removed. **TWO OF THEM ORIGINALLY VANISHED INSTEAD OF FAILING**, guarded behind `if arow:` — a section that silently sheds two checks prints the same `all pass` as one that ran them, so the guard was replaced by an explicit `exactly one row claims it` check and an empty default.
+
+**THE DATE GATE TRUSTED A SCHEME AND NEVER READ WHAT IT NAMED — FIXED 2026-08-15.** `AuthorRecord.trusted()` is `verification_source.split(":")[0] in TRUSTED_VERIFICATION`: it reads the text before the first colon and stops. Four of the five trusted schemes name authorities OUTSIDE this repo (`wikidata`, `viaf`, `critical_edition`, `printed_authority`) and have no row to reach. The fifth, `dataset_field:`, NAMES A DATASET IN THIS REPO — and its payload was never looked at, so `dataset_field:` followed by any string whatever cleared the gate that decides what may be scored at all. A check that cannot fail on its discriminating coordinate, doctrine 48, inside `quality/provenance.py`.
+
+`resolve_dataset_field` gives the payload THREE DECLARED ROUTES — path prefix, owner, repo name — the same shape `audit_corpus.route()` uses for corpus files, and written down for the reason doctrine 1 exists: a resolution rule nobody can read is a rule nobody can disagree with in a coordinate. `REJECT_UNDECLARED_DATASET` is its OWN verdict rather than a second meaning for `REJECT_UNVERIFIED_DATE` (doctrine 79): "wikipedia is not an authority" and "this authority is real and never passed the provenance gate" are different failures and merging them hides the second inside the first's total. `require_declared_dataset` is a declared coordinate, not a hardcoded rule.
+
+MEASURED against the shipped table. **187 of 13,997 `data/authority.tsv` rows reach no `data/sources.tsv` row** — 178 `corpus_1835/csv/authors.csv`, 9 `trister95/dbnl_bear/notebook/poezie.csv` — and every one of them passed before this. Those two datasets have no row and I cannot write one without licence research I have not done, so they REJECT and the count is REPORTED rather than asserted to be zero (doctrine 58). **NO RECORDED VERDICT MOVES**: the whole of `data/provenance_ledger.tsv` — which is gitignored and so is not in the repository — was replayed, 87,433 rows, and every verdict is identical; 385 `reason` cells gained the row they resolved to, which routes 2 and 3 make load-bearing because both are ambiguous in principle.
+
+**TWO PAYLOADS WERE SPELLING DEFECTS, NOT PROVENANCE ONES, and correcting them is what kept 385 admissions honest rather than merely alive.** `dataset_field:OpenITI_metadata_2025-1-9` (213 rows) and `dataset_field:benyehuda` (2) named datasets whose TARGET ROW'S OWN NOTE declares this exact route — `OpenITI/RELEASE` says "metadata carries author death dates in AH -> dataset_field route" — and `quality/CORPUS_INVENTORY.md` independently records the OpenITI file as `metadata/OpenITI_metadata_2025-1-9` INSIDE that repo. Re-spelled with the `#subset` convention `data/sources.tsv` already uses. `quality/populate_authority.py`'s `OPENITI_RELEASE` constant was corrected in the same lot, or its next run writes the unreachable spelling straight back in — the generator, not only the artifact.
+
+**AND THE RESOLVER'S FIRST DRAFT COULD RETURN AN ID THAT NAMED NO ROW.** It stripped `#subset` from the row ids and returned the STRIPPED string, so a table holding only `OpenITI/RELEASE#metadata` answered `OpenITI/RELEASE` — the function whose entire job is proving a row exists, handing back a source_id that is not one. `quality/test_provenance.py` §11's route-1 case caught it before it shipped, and the section now asserts the invariant over EVERY shipped payload rather than the four cases it started with. §11 is 18 checks and fails 6 against pre-fix semantics, proved by mutation; the other 12 are controls that must pass on both trees.
+
+**AND THAT GUARD ASKED THE NARROWER QUESTION AND REFUSED A LEGITIMATE RUN — caught by the battery, fixed the same day.** The `--subdivision`/`--isochronous` refusal above was written as `bp_path is None`, which is a question about the SPELLING `--blueprint=`. `song` declares its blueprint POSITIONALLY (`args[1]`), so `bp_path` is None on every legitimate `song` run and `song BP LYRIC --subdivision N` — a command whose blueprint is sitting in the argument list — refused. Seven invocations in `quality/test_verbs.py` do exactly that; four sections went red (§16 `song exits on a flag`, §15 the repeated-name blueprint, §24 both mandate spellings, §21 the rollup) for 15 failures. THE PREDICATE IS "no blueprint reaches the meter layer", NOT "no `--blueprint=` was typed". **AND §29 — THE SECTION SHIPPED WITH THE GUARD — COULD NOT HAVE CAUGHT IT.** It tested `song --blueprint=` and `brief --subdivision` as two separate halves and never the pair, so the one combination the guard broke was the one combination it did not exercise: doctrine 48 one layer up, inside the test written to enforce doctrine 48. §29 now runs `song BP LYRIC --cliques` under `--subdivision 1`, `--subdivision 2` and `--isochronous` and asserts all four reports DIFFER — read, not merely tolerated.
+
+**`--profile` — THE COMPARATOR EVERY SCORE IS READ UNDER — REACHED THE FOUR
+GRADING VERBS FROM NOTHING, WIRED 2026-08-15.** `Reviser.brief`, `.verify`,
+`.inspect` and `revise_loop` have ALL taken `profile=` since they were written,
+and `_matrix` forwards it to `best_score` — the same parameter `scheme
+--profile` rebinds. No CLI spelling reached any of `brief`/`verify`/`revise`/
+`song`, so the one flag that changes what every number MEANS was API-only. AND
+`revise` PRINTED THE COORDINATE ANYWAY: `COMPARATOR: profile=declared default`,
+a report naming a setting its own caller could not set. Same shape as
+`--blueprint` before 2026-08-11 — built, tested, unreachable — and the same fix:
+parse it beside the other three, validate against `PROFILES` with the shape
+`--fallback` has had since it was written, pass it through. `--profile=bogus`
+refuses by name rather than falling through to the default weights, which is
+the silent comparator substitution doctrine 1 is about.
+
+**AND TWO COORDINATES WITH NOTHING TO BIND TO WERE ACCEPTED AND DROPPED.**
+`--subdivision`/`--isochronous` are coordinates of the METER layer, and meter
+rides `--blueprint`; declared without one they were consumed and ignored —
+MEASURED byte-identical, md5 `202b23ce64` for `brief FILE --groups=…` with each
+of them and without. That is verbatim the sentence `_no_unknown_flags_or_refuse`
+already refuses on, so it gets the same answer. `song --blueprint=X` is the
+sharper case and was the lane's BLOCKER: this verb's blueprint is its FIRST
+POSITIONAL, so the flag had nothing to bind to — parsed, stripped by the shared
+`_FLAG_NAMES` pass, never opened. Measured with a path that does not exist:
+byte-identical to omitting it, exit 3 either way, so a caller who named one
+blueprint and was graded against another had no way to tell. It refuses now and
+NAMES BOTH SPELLINGS.
+**THE AUDIT'S FOURTH ITEM IN THIS LANE WAS ALREADY CLOSED** — "a refusal blames
+the mandate layer for a flag from another layer" is what `6d204a7`'s flag guard
+fixed; `brief … --profile=assonance` now says `brief has no flag '--profile'`
+rather than reporting it as a letter scheme. Re-measured before anything was
+touched, as with the two levers before it. `quality/test_verbs.py` §29 fails 10
+of its 11 checks against `e743663`; the 11th is the control that must pass on
+both trees.
+AND ONE OF ITS CHECKS PASSED FOR THE WRONG REASON FIRST: `--profile` REACHES
+`brief` was written as `base != prof`, and against the unfixed tree the profiled
+run REFUSED, so the two outputs differed and the check went green on an error.
+It requires both runs to exit 0 now — a reachable comparator produces a REPORT
+that differs, not an error that differs.
+
 **A MISTYPED PATH WAS GRADED AS A LYRIC — SAME COMMIT, AND IT IS THE ONE THAT
 ANSWERED AT EXIT 0.** `qafiya`/`partition` are documented `FILE|L...` and each
 spelled the decision `os.path.exists(src[0])` itself, so an absent path fell

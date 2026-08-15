@@ -3979,6 +3979,101 @@ def _subdivision_or_refuse(FT, raw, source):
                 f"refuse rather than assume a sixteenth-note grid.")
 
 
+def _number_or_refuse(raw, cast, role, usage, extra=""):
+    """-> cast(raw), or the ONE refusal shape at exit 2. Never returns wrong.
+
+    `_subdivision_or_refuse` above did this for ONE flag on 2026-08-14 and
+    the argument it was written on is general: `int(raw)`/`float(raw)` on a
+    positional the caller typed is the SAME class of user mistake as a bad
+    `--subdivision`, and it was answered differently -- exit 1, a bare
+    `ValueError: invalid literal for int() with base 10: 'two'` -- purely by
+    which slot the wrong text landed in. MEASURED at `be8d1ea`, all exit 1:
+
+        candidates lines two        chains FILE x        graph FILE x
+        prasa x LINES               cycle x              cycle 4
+
+    Exit 1 is Python's own uncaught-exception code, so five verbs told a
+    caller the harness had crashed when the caller had mistyped a number
+    (doctrine 20). The MESSAGE was never the problem -- the underlying
+    `ValueError` says exactly what is wrong with the text and is carried
+    through unchanged; the SHAPE and the exit code were.
+    """
+    try:
+        return cast(raw)
+    except (TypeError, ValueError) as e:
+        _refuse(f"{role} wants {'a whole number' if cast is int else 'a number'}"
+                f"; got {raw!r} ({e})",
+                detail=[f"usage: {usage}"] + ([extra] if extra else []))
+
+
+def _two_sides_or_refuse(rest, verb, usage):
+    """-> (left, right) around a single `--`, or refuse by name.
+
+    `score` and `types` both read `w1, w2 = [s.strip() for s in
+    rest.split("--")]`, which raises on BOTH sides of the arity: too few
+    fields (`score dawn again`, no separator) is `not enough values to
+    unpack`, and too many (`score dawn -- again --nope`, where an unknown
+    flag splits a third field) is `too many values to unpack`. Both were
+    exit 1. The separator IS this verb's grammar, so a missing one is the
+    ordinary user mistake, not a defect in the grader.
+    """
+    parts = [s.strip() for s in rest.split("--")]
+    if len(parts) != 2 or not parts[0] or not parts[1]:
+        _refuse(f"{verb} compares TWO words and needs `--` between them; "
+                f"got {len(parts)} field(s) from {rest!r}",
+                detail=[f"usage: {usage}",
+                        "a third field usually means an unrecognised flag "
+                        "was counted as one side of the comparison."])
+    return parts[0], parts[1]
+
+
+def _is_scheme_notation(spec):
+    """-> True if `spec`'s distinct letters are the alphabet's first N.
+
+    Which is what a rhyme scheme IS. 7 of the 8 forms `quality/schemes.py`
+    ships satisfy it; `zzznotaform` draws on {z,n,o,t,a,f,r,m} and does not.
+    THE EIGHTH IS WHY THIS IS NOT THE WHOLE TEST, and it was found by running
+    the rule over the shipped vocabulary before trusting it: the rondeau's
+    `aabba aabR aabbaR` uses `R` for the RENTREMENT, a conventional letter
+    outside the run, so a strict prefix rule refuses a real notation.
+    """
+    letters = {c.lower() for c in spec if c.isalpha()}
+    return bool(letters) and letters == {
+        chr(ord("a") + i) for i in range(len(letters))}
+
+
+def _refrain_spec_or_refuse(name, forms):
+    """-> the A-1 spec for `name`, refusing a mistyped FORM rather than
+    reading it as notation. Discloses which of the two readings it took.
+
+    `spec = FORMS.get(args[1], args[1])` is the silent downgrade: `refrain
+    zzznotaform` printed `rhyme partition: AAABCDEFCGH` at exit 0 -- eleven
+    "lines" that are the letters of the typo -- while the verb already knew
+    the declared vocabulary and prints it when called with no argument.
+
+    THE TWO READINGS GENUINELY OVERLAP IN SHAPE, so this refuses on a
+    CONJUNCTION and discloses otherwise (doctrine 20: the reading is stated,
+    never assumed). A token is a mistyped form when it is not declared AND
+    carries no capital AND is not an alphabet-prefix scheme. Each signal
+    alone is too weak -- `abab` is a real capital-less notation, the rondeau
+    is a real non-prefix one -- and every one of the 8 shipped specs carries
+    a capital, because a notation with none marks no verbatim return at all
+    and this verb's whole subject is the return.
+    """
+    if name in forms:
+        return forms[name], f"named form {name!r}"
+    if not any(c.isupper() for c in name) and not _is_scheme_notation(name):
+        _refuse(f"refrain — {name!r} is not a declared form, and does not "
+                f"read as A-1 notation either",
+                detail=[f"declared forms: {', '.join(sorted(forms))}",
+                        "A-1 notation is a rhyme scheme where a CAPITAL is a "
+                        "line that must come back VERBATIM — `ABaAabAB`. "
+                        f"{name!r} has no capital and its letters are not the "
+                        f"alphabet's first few, so reading it as notation "
+                        f"would print a partition of the typo itself."])
+    return name, "raw A-1 notation (no declared form of that name)"
+
+
 def _blueprint_or_refuse(fn, *a, **k):
     """Run a blueprint reader, or print the ONE refusal shape and exit 2.
 
@@ -4626,7 +4721,7 @@ def main():
 
     elif cmd == "score":
         rest = " ".join(args[1:])
-        w1, w2 = [s.strip() for s in rest.split("--")]
+        w1, w2 = _two_sides_or_refuse(rest, "score", "score A -- B")
         _, _, oov1 = lex.transcribe(w1)
         _, _, oov2 = lex.transcribe(w2)
         ancs1, _, _ = line_anchors(lex, w1)
@@ -4638,7 +4733,9 @@ def main():
 
     elif cmd == "candidates":
         word = args[1]
-        n = int(args[2]) if len(args) > 2 else 20
+        n = (_number_or_refuse(args[2], int, "candidates N",
+                              "candidates W [n] [--modal]")
+             if len(args) > 2 else 20)
         eng = CandidateEngine(lex, decl)
         res = eng.candidates(word, n)
         # A query the declared dialect cannot READ is a REFUSAL, named and
@@ -4681,6 +4778,21 @@ def main():
               f"order doctrine 9 forbids on: `--modal` prints the loop's own "
               f"set, which is ranked by FREQUENCY over the words the GRADER "
               f"would accept, and the two lists differ.")
+        # A BARE FLAG, AND `--modal=yes` WAS SILENTLY NOT IT — 2026-08-15.
+        # `"--modal" in args` is an exact membership test, so the `=`
+        # spelling every sibling flag on this file accepts fell through and
+        # the run came back BYTE-IDENTICAL to passing no flag at all: the
+        # caller who asked for the FREQUENCY-ranked forbidden set was handed
+        # the RHYME-SCORE list, which is the exact substitution §22 exists to
+        # stop. It takes no value, so a value is refused rather than guessed.
+        _modal_eq = [a for a in args if a.startswith("--modal=")]
+        if _modal_eq:
+            _refuse(f"--modal takes no value; got {_modal_eq[0]!r}",
+                    detail=["usage: candidates W [n] --modal",
+                            "bare `--modal` prints the loop's own "
+                            "FREQUENCY-ranked forbidden set; without it the "
+                            "list is ranked by RHYME SCORE, and the two "
+                            "differ (doctrine 9)."])
         if "--modal" in args:
             from quality.revise import (Reviser as _Rv,
                                         ReviseDeclaration as _RD)
@@ -4695,6 +4807,23 @@ def main():
     elif cmd == "meter":
         template = args[1]
         lines = args[2:]
+        # ZERO LINES ITERATED ZERO TIMES AND THE VERB FELL OFF THE END —
+        # exit 0, stdout empty, stderr empty, which a caller in a pipeline
+        # reads as "meter checked, nothing wrong" (doctrine 20). A verb whose
+        # entire output is per-line has nothing to say about no lines, and
+        # saying nothing is the one answer it must not give.
+        # AND AN UNRECOGNISED FLAG WAS SCORED AS A LINE OF VERSE. `meter`
+        # declares no flags at all, so every `--token` in the line list is a
+        # mistake, and it was measured as one syllable of sung text.
+        _no_unknown_flags_or_refuse(lines, ("(none — meter takes no flags)",),
+                                    "meter")
+        if not lines:
+            _refuse("meter was given a TEMPLATE and no lines to check it "
+                    "against",
+                    detail=["usage: meter TEMPLATE L...",
+                            "every line of this verb's output is per-line, "
+                            "so an empty draft produces an empty report that "
+                            "is indistinguishable from a clean one."])
         for e in check_meter(lex, lines, template):
             mark = "ok " if e.get("syllable_match") else "BAD"
             print(f"  L{e['line']} [{mark}] {e['syllables']} syl "
@@ -4797,7 +4926,9 @@ def main():
 
     elif cmd == "graph":
         lines = load_lyric_lines(args[1])
-        th = float(args[2]) if len(args) > 2 else None
+        th = (_number_or_refuse(args[2], float, "graph THETA",
+                                "graph FILE [theta]")
+              if len(args) > 2 else None)
         g = rhyme_graph(lex, lines, decl, theta=th)
         print(f"nodes {len(g['endwords'])}  edges {len(g['edges'])}  "
               f"pairs judged {g['pairs_judged']}/{g['pairs_total']}"
@@ -4824,7 +4955,8 @@ def main():
             print("disjoint cliques: letter-representable")
 
     elif cmd == "prasa":
-        pos = int(args[1])
+        pos = _number_or_refuse(args[1], int, "prasa K",
+                                "prasa K L...")
         res = check_prasa(lex, args[2:], pos)
         for r in res["lines"]:
             print(f"  syllable-{pos} consonant "
@@ -4835,7 +4967,9 @@ def main():
 
     elif cmd == "chains":
         lines = load_lyric_lines(args[1])
-        th = float(args[2]) if len(args) > 2 else None
+        th = (_number_or_refuse(args[2], float, "chains THETA",
+                                "chains FILE [theta]")
+              if len(args) > 2 else None)
         for ch in infer_chains(lex, lines, decl, theta_chain=th):
             single = ch["length"] == 1
             tag = ("free " if single else
@@ -4889,6 +5023,23 @@ def main():
                 "substitution (doctrine 1).")
             rest = _strip_flag(rest, "--profile")
         lines = rest
+        # AN AssertionError AT EXIT 1 WHERE `brief` AND `song` REFUSE THE
+        # IDENTICAL MISMATCH AT 2 — 2026-08-15. `check_scheme`'s own
+        # `assert len(scheme) == len(lines)` is a library CONTRACT and stays
+        # exactly where it is; what was missing is the verb reading its own
+        # arguments before handing them over. It bites twice, and the second
+        # is the quiet one: any unrecognised flag on this verb is counted as
+        # a FIFTH LINE, so `scheme AABB a b c d --nope` failed on arity and
+        # blamed the scheme.
+        _no_unknown_flags_or_refuse(lines, ("--profile assonance|rawi",),
+                                    "scheme")
+        if len(scheme) != len(lines):
+            _refuse(f"scheme — the scheme {scheme!r} is {len(scheme)} "
+                    f"character(s) and the draft is {len(lines)} line(s)",
+                    detail=["usage: scheme LETTERS [--profile P] L...",
+                            "one letter per line, in order. A stray token "
+                            "counts as a line, so an unrecognised flag "
+                            "reaches this check as an extra one."])
         res = check_scheme(lex, lines, scheme, decl, profile=profile)
         # THE COMPARATOR, NAMED, ON EVERY RUN -- declared or not. Nothing in
         # this report said which profile produced it, so a run under
@@ -5120,7 +5271,9 @@ def main():
                 preset = a.split("=", 1)[1]
             else:
                 keep.append(a)
-        w1, w2 = [s.strip() for s in " ".join(keep).split("--")]
+        w1, w2 = _two_sides_or_refuse(
+            " ".join(keep), "types",
+            "types W1 -- W2 [--lang=] [--preset=]")
         # BOTH of this verb's flags name a declared vocabulary, both already
         # refuse an undeclared value with a message that names it, and both
         # did it as a traceback at exit 1 -- `phonology.Unsupported` and
@@ -5207,6 +5360,9 @@ def main():
         from fractions import Fraction as _F
         from quality import meter as MT
         spec = args[1] if len(args) > 1 else "4/4"
+        if spec.count("/") != 1 or not all(spec.split("/")):
+            _refuse(f"cycle wants a time signature as N/D; got {spec!r}",
+                    detail=["usage: cycle N/D [a+b+c]"])
         num, den = spec.split("/")
         groups = tuple(int(x) for x in args[2].split("+")) if len(args) > 2 \
             else ()
@@ -5494,7 +5650,8 @@ def main():
         # cannot be made to answer any other way without inferring, which is
         # the one thing this layer is built not to do.
         from quality import grid as GR
-        bp = json.load(open(args[1]))
+        bp = _blueprint_or_refuse(
+            lambda path: json.load(open(path, encoding="utf-8")), args[1])
         decls = []
         fnspec = _flag_value(args, "--function", eq_only=True)
         if fnspec:
@@ -5589,9 +5746,10 @@ def main():
             print("  refrain NOTATION|FORM [FILE]")
             print(f"  named forms: {', '.join(sorted(SC.REFRAIN_FORMS))}")
             return
-        spec = SC.REFRAIN_FORMS.get(args[1], args[1])
+        spec, how = _refrain_spec_or_refuse(args[1], SC.REFRAIN_FORMS)
         sch = SC.parse_refrain(spec)
         print("  module: quality/schemes.py — parse_refrain / RefrainScheme")
+        print(f"  READ AS: {how}")
         if args[1] in SC.REFRAIN_FORMS:
             print(f"  named form: {args[1]!r}")
         print(f"  {sch.describe()}")
@@ -5775,6 +5933,25 @@ def main():
         # existed.
         from quality import fit as FT
         bp_path = _flag_value(args, "--blueprint", eq_only=True)
+        # `--profile` — THE COMPARATOR EVERY SCORE BELOW IS READ UNDER, and
+        # it was reachable on `scheme` and on nothing else — WIRED 2026-08-15.
+        # `Reviser.brief`, `.verify` and `revise_loop` have ALL taken
+        # `profile=` since they were written, and `_matrix` forwards it to
+        # `best_score` — the same parameter `scheme --profile` rebinds. No
+        # CLI spelling reached any of the four verbs that grade a draft, so
+        # the one flag that changes what every number MEANS was API-only.
+        # `revise` printed the coordinate anyway (`COMPARATOR: profile=
+        # declared default`), which is a report naming a setting its own
+        # caller could not set. Same shape as `--blueprint` before
+        # 2026-08-11: built, tested, and unreachable.
+        rv_profile = _flag_value(args, "--profile")
+        if rv_profile is not None:
+            _value_in_vocabulary_or_refuse(
+                "--profile", rv_profile, PROFILES,
+                "The profile rebinds the CHANNEL WEIGHTS every score in this "
+                "report is computed under, so an unrecognised name cannot "
+                "fall through to the default ones -- that is a silent "
+                "comparator substitution (doctrine 1).")
         sub_arg = _flag_value(args, "--subdivision")
         subdivision = _subdivision_or_refuse(
             FT, sub_arg,
@@ -5793,6 +5970,34 @@ def main():
                 "that the pulses are evenly spaced in time (there is no "
                 "audio and no tempo here, so isochrony is an ASSUMPTION and "
                 "never a measurement)") else None
+
+        # A METER COORDINATE DECLARED WITH NO METER TO CHECK — 2026-08-15.
+        # `--subdivision`/`--isochronous` are coordinates OF THE METER LAYER,
+        # and meter rides `--blueprint`. Given without one they were accepted,
+        # consumed, and dropped: MEASURED byte-identical, md5 202b23ce64 for
+        # `brief FILE --groups=...` with each of them and without. That is the
+        # exact sentence `_no_unknown_flags_or_refuse` refuses on one line
+        # up -- a flag silently not read leaves a report that looks like one
+        # you never asked for -- so the answer is the same one.
+        # AND `song` DECLARES ITS BLUEPRINT POSITIONALLY, so the predicate is
+        # "no blueprint reaches the meter layer", NOT "no `--blueprint=` was
+        # typed". Asking the narrower question refused `song BP LYRIC
+        # --subdivision N` -- a command whose blueprint is sitting in
+        # `args[1]` -- on the one verb of the four that always has one. Caught
+        # by the battery, not by the check that shipped with the guard: §29
+        # tested `song --blueprint=` and never tested `song --subdivision`,
+        # which is the same "a check that cannot fail" this lane is about,
+        # one layer up.
+        if (bp_path is None and cmd != "song"
+                and (sub_arg is not None or assume is not None)):
+            _which = "--subdivision" if sub_arg is not None else "--isochronous"
+            _refuse(f"{_which} was declared and no --blueprint was",
+                    detail=["it is a coordinate of the METER check, and meter "
+                            "is only asked when a blueprint is declared "
+                            "(omitting one drops meter AND song-function).",
+                            "declare `--blueprint=B` too, or drop the flag: "
+                            "leaving it in produces a rhyme-and-floor report "
+                            "byte-identical to one that never carried it."])
 
         # `--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY` — read here with
         # the other three flags and RESOLVED inside the `revise` branch, so a
@@ -5865,8 +6070,8 @@ def main():
         # positional argument, not `--blueprint=` -- see its branch below --
         # but it can still take `--subdivision`/`--isochronous` as trailing
         # flags, so it shares this same stripping pass.)
-        _FLAG_NAMES = ("--blueprint", "--subdivision", "--isochronous",
-                       "--propose")
+        _FLAG_NAMES = ("--blueprint", "--profile", "--subdivision",
+                       "--isochronous", "--propose")
         #: The flags with NO following value to eat. `--isochronous` is a bare
         #: presence flag; `--propose` is `=`-only for the reason `--fallback`
         #: records (its values are bare words a following-token reader could
@@ -5929,7 +6134,8 @@ def main():
             [a for a in args
              if a.split("=", 1)[0] not in ("--groups", "--returns",
                                            "--cliques")],
-            ("--blueprint=B", "--subdivision N", "--isochronous",
+            ("--blueprint=B", "--profile=" + "|".join(sorted(PROFILES)),
+             "--subdivision N", "--isochronous",
              "--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY",
              "--pursue=CODE,CODE", "--groups=", "--returns=", "--cliques"),
             cmd)
@@ -6123,7 +6329,8 @@ def main():
                             first — the paragraphs that used to be first.
             """
             briefs = rv.brief(lines, scheme, blueprint=blueprint,
-                              subdivision=subdivision, assume=assume)
+                              subdivision=subdivision, assume=assume,
+                              profile=rv_profile)
             # THE WHOLE-DRAFT HALF OF THE SAME FINDING SET. `inspect()`
             # returns `per_line` AND `whole`; `brief()` is built from
             # `per_line` only, because a `Brief` carries a `line_no`,
@@ -6155,7 +6362,8 @@ def main():
             # pass in any measurable sense: `_matrix`/`_field_cache` are
             # warm from the `brief()` call above, measured at 0.02s
             # against that call's 11.4s on the 16-line fixture.
-            found = rv.inspect(lines, scheme, blueprint=blueprint,
+            found = rv.inspect(lines, scheme, profile=rv_profile,
+                               blueprint=blueprint,
                                subdivision=subdivision, assume=assume)
             whole = dedupe_findings(found["whole"])
             # THE SPANS THAT PRODUCED EACH FAILING NUMBER, beside it.
@@ -6437,6 +6645,26 @@ def main():
                 # declares. The two can drift independently -- a verse added
                 # to the words and not the blueprint, or the reverse.
                 from quality import grid as GR
+                # `song --blueprint=X` WAS ACCEPTED AND NEVER OPENED —
+                # 2026-08-15. This verb's blueprint is its FIRST POSITIONAL,
+                # so the flag spelling has nothing to bind to: `bp_path` is
+                # parsed above, stripped from `args` by the shared
+                # `_FLAG_NAMES` pass, and never read here. MEASURED, with a
+                # path that does not exist: byte-identical to omitting the
+                # flag, exit 3 either way. A caller who names a blueprint and
+                # is graded against a different one is the worst available
+                # outcome for a declared coordinate (doctrine 1).
+                if bp_path is not None:
+                    _refuse(f"song takes its blueprint as the FIRST "
+                            f"POSITIONAL, not as --blueprint=; got "
+                            f"{bp_path!r} beside {args[1]!r}",
+                            sides=[("DECLARED by --blueprint=", bp_path),
+                                   ("DECLARED positionally", args[1])],
+                            detail=["usage: song BLUEPRINT LYRIC [MANDATE] "
+                                    "[--subdivision N] [--isochronous]",
+                                    "the flag was accepted and never opened, "
+                                    "so the two spellings disagreeing was "
+                                    "silent."])
                 song_bp_path = args[1]
                 sides.append(("DECLARED  song's BLUEPRINT", song_bp_path))
                 sides.append(("HANDED IN song's LYRIC", args[2]))
@@ -6516,7 +6744,7 @@ def main():
                             if tail else None)
                 v = rv.verify(before, after, scheme, targeted=targeted,
                               blueprint=bp_path, subdivision=subdivision,
-                              assume=assume)
+                              assume=assume, profile=rv_profile)
                 print(f"  VERDICT: "
                       f"{'ACCEPTED' if v.get('accepted') else 'REJECTED'}")
                 for r in v.get("reasons", []):
@@ -6555,7 +6783,9 @@ def main():
                     result = LP.revise_loop(rv, lines, scheme,
                                             blueprint=bp_path,
                                             subdivision=subdivision,
-                                            assume=assume, propose=propose,
+                                            assume=assume,
+                                            profile=rv_profile,
+                                            propose=propose,
                                             propose_pair=propose_pair)
                 except _NeedProposal as need:
                     # EXIT 4 — SUSPENDED, and it is a fourth code for the same

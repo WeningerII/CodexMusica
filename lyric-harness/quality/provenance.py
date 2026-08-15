@@ -68,6 +68,13 @@ REJECT_TOO_RECENT = "REJECT_TOO_RECENT"
 REJECT_NO_EVIDENCE = "REJECT_NO_EVIDENCE"
 
 REJECT_PUBLICATION_TOO_RECENT = "REJECT_PUBLICATION_TOO_RECENT"
+#: doctrine 34/48 -- the date's scheme was an authority and the DATASET IT
+#: NAMED had no `data/sources.tsv` row. Its own verdict rather than
+#: `REJECT_UNVERIFIED_DATE`, because the two are different failures and
+#: doctrine 79 does not sum counts: one says "wikipedia is not an authority",
+#: the other says "this authority is real and never passed the provenance
+#: gate". Merging them would hide the second inside the first's total.
+REJECT_UNDECLARED_DATASET = "REJECT_UNDECLARED_DATASET"
 #: doctrine 85 -- an express non-commercial grant is a rejection, whatever the
 #: dates say. Checked BEFORE every admitting route: see `admit`.
 REJECT_NONCOMMERCIAL = "REJECT_NONCOMMERCIAL"
@@ -155,6 +162,78 @@ def noncommercial_marker(licence):
 TRUSTED_VERIFICATION = {"wikidata", "viaf", "dataset_field", "critical_edition",
                         "printed_authority"}
 
+#: the one scheme in `TRUSTED_VERIFICATION` whose payload NAMES A DATASET IN
+#: THIS REPO, and so is the one scheme that can be checked against
+#: `data/sources.tsv`. `wikidata`/`viaf` name external authorities and
+#: `critical_edition`/`printed_authority` name print; none of those has a row
+#: to reach, and demanding one would refuse them for being what they are.
+DATASET_SCHEME = "dataset_field"
+
+
+def resolve_dataset_field(payload, source_ids):
+    """-> source_id | None. Which `data/sources.tsv` row a `dataset_field:`
+    payload names, by THREE DECLARED ROUTES tried in order -- the same shape
+    `audit_corpus.route()` uses for corpus files, and declared here for the
+    same reason: a resolution rule that is not written down is a rule nobody
+    can disagree with in a coordinate (doctrine 1).
+
+      1. PATH PREFIX. Progressively shorter `/`-joined prefixes of the
+         payload's path against the row ids: `chinese-poetry/chinese-poetry`
+         resolves itself, and a payload naming a file inside a declared repo
+         resolves to the repo.
+      2. OWNER. Any path segment that is the OWNER half of a row id:
+         `chinese-poetry/authors.song.json` -> `chinese-poetry/chinese-poetry`.
+         The payload names a repo's owner and a file, not `owner/repo`.
+      3. REPO NAME. Any path segment that is the REPO half of a row id:
+         `disco/author_metadata.tsv` -> `pruizf/disco`. The payload dropped
+         the owner.
+
+    Routes 2 and 3 are AMBIGUOUS IN PRINCIPLE -- two owners could ship a repo
+    of the same name -- so each takes the lexicographically first match and
+    the caller is told WHICH row was reached, never just that one was. The
+    `#subset` suffix a row id may carry is stripped before matching: a subset
+    is a slice of the same source, not a different one.
+
+    THE RETURN IS ALWAYS AN ID THAT IS ACTUALLY IN `source_ids`. The first
+    version of this stripped `#subset` from the row ids and then returned the
+    STRIPPED string, so a table holding only `OpenITI/RELEASE#metadata` would
+    answer `OpenITI/RELEASE` -- a source_id naming no row, handed back by the
+    function whose whole job is proving a row exists. Caught by
+    `quality/test_provenance.py` §11's route-1 case before it shipped.
+    """
+    ids = set(source_ids)
+    #: bare form -> a REAL id carrying it, preferring the unsuffixed row when
+    #: the table holds both `X` and `X#subset`.
+    bare = {}
+    for s in sorted(ids):
+        b = s.split("#", 1)[0]
+        if b not in bare or bare[b] != b:
+            bare[b] = b if b in ids else s
+    owners, names = {}, {}
+    for b, real in sorted(bare.items()):
+        if "/" in b:
+            o, n = b.split("/", 1)
+            owners.setdefault(o, real)
+            names.setdefault(n, real)
+        else:
+            names.setdefault(b, real)
+    body = payload.replace("#", ":").split(":")[0]
+    parts = [p for p in body.split("/") if p]
+    if payload in ids:                       # exact, suffix and all
+        return payload
+    for n in range(len(parts), 0, -1):
+        cand = "/".join(parts[:n])
+        if cand in ids:
+            return cand
+        if cand in bare:
+            return bare[cand]
+    for p in parts:
+        if p in owners:
+            return owners[p]
+        if p in names:
+            return names[p]
+    return None
+
 
 @dataclass
 class ProvenanceDeclaration:
@@ -180,6 +259,14 @@ class ProvenanceDeclaration:
     override_source_terms: bool = False
     #: reject dates whose verification source is not in TRUSTED_VERIFICATION
     strict: bool = True
+    #: ALSO require a `dataset_field:` payload to name a dataset that has a
+    #: `data/sources.tsv` row. Its own coordinate rather than a second meaning
+    #: for `strict`, because the two are separable questions and a caller who
+    #: wants the scheme checked and the payload not must be able to SAY so
+    #: rather than argue it (doctrine 1). Defaults on: with it off the scheme
+    #: check admits `dataset_field:` followed by anything whatever, which is a
+    #: check that cannot fail on its discriminating coordinate (doctrine 48).
+    require_declared_dataset: bool = True
     #: a source-level PD affirmation admits every item from that source
     allow_source_affirmation: bool = True
     note: str = ("conservative: term chosen to clear the longest applicable "
@@ -236,7 +323,22 @@ class AuthorRecord:
     note: str = ""
 
     def trusted(self):
+        """-> bool. Whether the SCHEME is an authority. THIS IS HALF THE
+        QUESTION and the docstring says so because the code cannot: it reads
+        the text before the first `:` and never looks at what follows, so
+        `dataset_field:` followed by ANY STRING AT ALL passes here. The other
+        half -- does the named dataset reach a `data/sources.tsv` row -- needs
+        the source table and is asked by `ProvenanceGate.date_is_declared`.
+        Kept separate rather than merged because this half is genuinely
+        answerable without the table and 204 of the shipped rows fail it
+        (`qid_only_no_date`, `model_recall`)."""
         return self.verification_source.split(":")[0] in TRUSTED_VERIFICATION
+
+    def dataset_payload(self):
+        """-> str | None. What a `dataset_field:` record names, or None when
+        this record's scheme is not the one that names a dataset."""
+        scheme, _, rest = self.verification_source.partition(":")
+        return rest if scheme == DATASET_SCHEME and rest else None
 
 
 # ---------------------------------------------------------------------------
@@ -309,6 +411,23 @@ class ProvenanceGate:
         self.sources = sources if sources is not None else load_sources()
         self.authority = authority if authority is not None else load_authority()
 
+    def date_is_declared(self, rec):
+        """-> (ok, resolved_source_id_or_None). THE HALF `AuthorRecord.trusted`
+        CANNOT ASK, because it needs the source table this object holds: does
+        the dataset a `dataset_field:` record names actually have a
+        `data/sources.tsv` row?
+
+        A record whose scheme is not `dataset_field` has no dataset to reach
+        and is `(True, None)` -- `wikidata`, `viaf`, `critical_edition` and
+        `printed_authority` name authorities that live outside this repo, and
+        demanding a row of them would refuse them for being what they are.
+        """
+        payload = rec.dataset_payload()
+        if payload is None:
+            return True, None
+        hit = resolve_dataset_field(payload, self.sources)
+        return hit is not None, hit
+
     def admit(self, item):
         """-> (verdict, human-readable reason)."""
         src = self.sources.get(item.source_id)
@@ -363,11 +482,38 @@ class ProvenanceGate:
                     f"death year {rec.death_year} for '{item.author_key}' is "
                     f"sourced to '{rec.verification_source or 'nothing'}', "
                     f"which is not an authority record")
+            # THE PAYLOAD, NOT ONLY THE SCHEME -- 2026-08-15. `trusted()`
+            # above reads the text before the first `:` and stops, so
+            # `dataset_field:` followed by any string at all cleared it: a
+            # check that cannot fail on the coordinate that discriminates.
+            # MEASURED against the shipped table: 187 of 13,998
+            # `data/authority.tsv` rows name a dataset with NO `sources.tsv`
+            # row -- 178 `corpus_1835/csv/authors.csv`, 9
+            # `trister95/dbnl_bear/notebook/poezie.csv` -- and every one of
+            # them passed. This is doctrine 34's own rule ("a file with no row
+            # never passed the provenance gate") applied to the table that
+            # supplies the DATES rather than the texts, which is the half
+            # `audit_corpus` check A never covered.
+            ok, hit = self.date_is_declared(rec)
+            if self.decl.require_declared_dataset and not ok:
+                return REJECT_UNDECLARED_DATASET, (
+                    f"death year {rec.death_year} for '{item.author_key}' is "
+                    f"sourced to dataset "
+                    f"'{rec.dataset_payload()}', which reaches no "
+                    f"data/sources.tsv row by any of the three declared "
+                    f"routes (path prefix, owner, repo name) -- the scheme is "
+                    f"an authority and the dataset it names never passed the "
+                    f"provenance gate")
             if rec.death_year <= self.decl.cutoff_death_year():
+                # WHICH ROW WAS REACHED, not merely that one was: routes 2 and
+                # 3 of `resolve_dataset_field` are ambiguous in principle, so
+                # a reason that says "declared" without naming the row it
+                # landed on is unauditable.
+                via = f", dataset declared at {hit}" if hit else ""
                 return ADMIT_DATE_VERIFIED, (
                     f"author died {rec.death_year}, clears "
                     f"{self.decl.term_years}-year term "
-                    f"(cutoff {self.decl.cutoff_death_year()})")
+                    f"(cutoff {self.decl.cutoff_death_year()}){via}")
             return REJECT_TOO_RECENT, (
                 f"author died {rec.death_year}, inside the declared "
                 f"{self.decl.term_years}-year term")

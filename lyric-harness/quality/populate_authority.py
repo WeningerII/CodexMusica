@@ -33,7 +33,18 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "..", "data")
 SRC = os.path.join(DATA, "authority_src")
 
-OPENITI_RELEASE = "OpenITI_metadata_2025-1-9"
+#: SPELLED AS THE `data/sources.tsv` ROW IT NAMES, plus the `#subset` suffix
+#: that table already uses -- corrected 2026-08-15. It was
+#: `OpenITI_metadata_2025-1-9`, which reaches no row by any of
+#: `provenance.resolve_dataset_field`'s three routes, so the 213 authority rows
+#: this generator wrote named a dataset the provenance gate had never cleared.
+#: The row it means is real and DECLARES THIS EXACT ROUTE in its own note
+#: ("metadata carries author death dates in AH -> dataset_field route"), and
+#: quality/CORPUS_INVENTORY.md records the file as `metadata/` inside that same
+#: repo -- so the defect was the spelling, never the provenance. Fixing the
+#: constant here as well as the shipped table, or the next run of this script
+#: writes the unreachable spelling straight back in.
+OPENITI_RELEASE = "OpenITI/RELEASE#metadata_2025-1-9"
 
 #: Poetry markers in OpenITI. `_SHICR` is the corpus's own poetry tag; Diwan is
 #: the standard title for a collected-verse volume.
