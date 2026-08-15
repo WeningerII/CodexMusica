@@ -254,6 +254,134 @@ def test_noncommercial_is_a_rejection():
           f"refused: {now_refused or 'none'}")
 
 
+def test_the_dataset_a_date_names_has_to_have_a_row():
+    print("\n11. `dataset_field:` NAMES A DATASET, and the dataset has to "
+          "have a data/sources.tsv row (FIXED 2026-08-15)")
+    # THE DEFECT: `AuthorRecord.trusted()` is
+    # `verification_source.split(":")[0] in TRUSTED_VERIFICATION` -- it reads
+    # the text before the first colon and stops. `dataset_field:` followed by
+    # ANY STRING WHATEVER cleared it, so the one scheme in the trusted set
+    # whose payload names something IN THIS REPO was the one scheme whose
+    # payload was never looked at. A check that cannot fail on the coordinate
+    # that discriminates (doctrine 48), inside the gate that decides what may
+    # be scored at all.
+    from quality.provenance import (REJECT_UNDECLARED_DATASET,
+                                    resolve_dataset_field, AuthorRecord,
+                                    Source)
+
+    def rec(vs):
+        return AuthorRecord(author_key="a", death_year=800,
+                            verification_source=vs)
+
+    srcs = {"chinese-poetry/chinese-poetry": Source("chinese-poetry/chinese-poetry"),
+            "pruizf/disco": Source("pruizf/disco"),
+            "OpenITI/RELEASE#metadata_2025-1-9": Source("OpenITI/RELEASE#metadata_2025-1-9")}
+    g = ProvenanceGate(ProvenanceDeclaration(), srcs, {"a": rec("x")})
+
+    # THE THREE DECLARED ROUTES, each on its own, against a table small enough
+    # to read. Asserted separately because a rule with three routes and one
+    # test is a rule with one route and two accidents.
+    for payload, want, route in (
+            ("chinese-poetry/chinese-poetry", "chinese-poetry/chinese-poetry",
+             "1 · path prefix"),
+            ("chinese-poetry/authors.song.json",
+             "chinese-poetry/chinese-poetry", "2 · owner"),
+            ("disco/author_metadata.tsv:death", "pruizf/disco", "3 · repo name"),
+            ("OpenITI/RELEASE#metadata_2025-1-9", "OpenITI/RELEASE#metadata_2025-1-9",
+             "1 · path prefix, #subset stripped")):
+        got = resolve_dataset_field(payload, srcs)
+        check(f"route {route}: {payload!r} reaches its row", got == want,
+              f"got {got!r}")
+    check("and a payload naming nothing in the table reaches NOTHING — this "
+          "is the half `trusted()` cannot ask",
+          resolve_dataset_field("corpus_1835/csv/authors.csv", srcs) is None,
+          "a resolver that always resolves is the defect wearing a new name")
+    # THE INVARIANT THE FIRST DRAFT OF THE RESOLVER BROKE, asserted over the
+    # WHOLE SHIPPED TABLE rather than the four cases above: whatever comes
+    # back must BE a row. Stripping `#subset` from the row ids and returning
+    # the stripped string answered `OpenITI/RELEASE` from a table holding only
+    # `OpenITI/RELEASE#metadata` — a source_id naming no row, produced by the
+    # function whose entire job is proving a row exists.
+    _live_srcs = load_sources()
+    _ghosts = [(p, h) for p, h in
+               ((r.dataset_payload(), None) for r in load_authority().values())
+               if p is not None]
+    _ghosts = [(p, resolve_dataset_field(p, _live_srcs)) for p, _ in _ghosts]
+    _bad = [(p, h) for p, h in _ghosts if h is not None and h not in _live_srcs]
+    check("EVERY resolution over the shipped table returns an id that is "
+          "actually a row, never a stripped string that names none",
+          not _bad, f"{len(_ghosts)} payloads resolved; offenders: "
+                    f"{_bad[:3] or 'none'}")
+
+    # TWO-SIDED AT THE GATE. Against the unfixed tree the first of these
+    # ADMITTED: the scheme was trusted and the payload was never read.
+    g.authority = {"a": rec("dataset_field:corpus_1835/csv/authors.csv")}
+    v, why = g.admit(Item("x", "xx", "chinese-poetry/chinese-poetry", "a"))
+    check("a date sourced to an UNDECLARED dataset is REJECTED, with its own "
+          "verdict rather than folded into REJECT_UNVERIFIED_DATE "
+          "(doctrine 79 — two failures are two counts)",
+          v == REJECT_UNDECLARED_DATASET, f"got {v}")
+    check("and the refusal NAMES the dataset that reached no row "
+          "(doctrine 20 — a refusal states its own cause)",
+          "corpus_1835/csv/authors.csv" in why, why)
+
+    g.authority = {"a": rec("dataset_field:chinese-poetry/authors.song.json")}
+    v, why = g.admit(Item("x", "xx", "chinese-poetry/chinese-poetry", "a"))
+    check("a date sourced to a DECLARED dataset still admits",
+          v == ADMIT_DATE_VERIFIED, f"got {v}")
+    check("and the admission names WHICH row it resolved to — routes 2 and 3 "
+          "are ambiguous in principle, so 'declared' without a row is "
+          "unauditable",
+          "chinese-poetry/chinese-poetry" in why, why)
+
+    # THE SCHEMES WITH NO DATASET TO NAME must not be refused for lacking a
+    # row: `wikidata`, `viaf`, `critical_edition` and `printed_authority` name
+    # authorities that live OUTSIDE this repo, and demanding a row of them
+    # would refuse them for being what they are.
+    for vs in ("wikidata", "viaf", "critical_edition", "printed_authority"):
+        g.authority = {"a": rec(vs)}
+        check(f"`{vs}` is not asked for a sources.tsv row",
+              g.admit(Item("x", "xx", "chinese-poetry/chinese-poetry",
+                           "a"))[0] == ADMIT_DATE_VERIFIED, vs)
+
+    # THE COORDINATE IS REAL. A caller who wants the scheme checked and the
+    # payload not has to be able to SAY so rather than argue it (doctrine 1).
+    lax = ProvenanceGate(
+        ProvenanceDeclaration(require_declared_dataset=False), srcs,
+        {"a": rec("dataset_field:corpus_1835/csv/authors.csv")})
+    check("require_declared_dataset=False restores the old answer, so the "
+          "change is a DECLARED coordinate and not a new hardcoded rule",
+          lax.admit(Item("x", "xx", "chinese-poetry/chinese-poetry",
+                         "a"))[0] == ADMIT_DATE_VERIFIED)
+
+    # AND THE SHIPPED TABLE, measured rather than assumed.
+    live = ProvenanceGate(ProvenanceDeclaration(), load_sources(),
+                          load_authority())
+    unreachable = sorted(
+        k for k, r in live.authority.items()
+        if not live.date_is_declared(r)[0])
+    kinds = sorted({live.authority[k].dataset_payload()
+                    .replace("#", ":").split(":")[0] for k in unreachable})
+    check("the shipped data/authority.tsv has a KNOWN, NAMED set of rows that "
+          "reach no row — the number is reported, not asserted to be zero "
+          "(doctrine 58: a recorded count is a threshold nobody wrote down)",
+          kinds == ["corpus_1835/csv/authors.csv",
+                    "trister95/dbnl_bear/notebook/poezie.csv"],
+          f"{len(unreachable)} rows across {len(kinds)} datasets: {kinds}")
+    # THE TWO CORRECTED SPELLINGS. Both named a dataset whose TARGET ROW'S OWN
+    # `note` declares this exact route -- `OpenITI/RELEASE` says "metadata
+    # carries author death dates in AH -> dataset_field route" -- so the
+    # defect was the payload's spelling, not the provenance. Re-spelled with
+    # the `#subset` convention data/sources.tsv already uses.
+    for key, want in (("abiwardi_shacir", "OpenITI/RELEASE"),
+                      ("solomon_ibn_gabirol",
+                       "projectbenyehuda/public_domain_dump")):
+        if key in live.authority:
+            ok, hit = live.date_is_declared(live.authority[key])
+            check(f"the corrected spelling for {key!r} resolves to {want}",
+                  ok and hit == want, f"got {hit!r}")
+
+
 if __name__ == "__main__":
     test_route_one_pd_affirmation()
     test_open_licence_is_not_a_pd_claim()
@@ -265,6 +393,7 @@ if __name__ == "__main__":
     test_no_evidence()
     test_report_counts()
     test_noncommercial_is_a_rejection()
+    test_the_dataset_a_date_names_has_to_have_a_row()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
