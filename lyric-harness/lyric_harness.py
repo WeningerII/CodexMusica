@@ -5765,6 +5765,43 @@ def main():
             cleaned.append(a)
         args = cleaned
 
+        # AND NOW REFUSE WHAT IS LEFT — 2026-08-15. Everything these four
+        # verbs declare has been consumed above (`--blueprint`,
+        # `--subdivision`, `--isochronous`, `--propose` here; `--pursue`
+        # earlier; `--fallback`/`--voices` before any verb dispatched), so any
+        # token still starting with `-` and not a mandate spelling is a flag
+        # nobody read.
+        #
+        # `_no_unknown_flags_or_refuse` HAS EXISTED SINCE `--isochronus` was
+        # caught in `fit`, and `fit` was its ONLY caller — one verb of 28.
+        # Import reachability is not invocation reachability, at the guard
+        # written for exactly this. What it cost on these four, MEASURED at
+        # a3536ce by md5-ing the reports:
+        #
+        #   revise ... --propse=defer:PATH   BYTE-IDENTICAL to no flag at all,
+        #     exit 0, no pending file, and THE STUB WROTE THE SONG. The
+        #     deferred loop is the gate that refuses to advance without a
+        #     writer; one missing letter selected a word-splicer instead, and
+        #     nothing in the output said which had run.
+        #   brief ... --blueprnt=BP          BYTE-IDENTICAL to no blueprint:
+        #     meter AND song-function silently not asked, while the report's
+        #     own disclosure line printed "BLUEPRINT: none declared".
+        #   song ... --isochronus            BYTE-IDENTICAL, exit 3, on the
+        #     verb a pipeline gates on.
+        #
+        # A near-miss spelling producing the SAME BYTES as omitting the flag
+        # is the worst available shape: there is nothing to notice, and the
+        # disclosure that would have told you goes on to deny the flag was
+        # ever there.
+        _no_unknown_flags_or_refuse(
+            [a for a in args
+             if a.split("=", 1)[0] not in ("--groups", "--returns",
+                                           "--cliques")],
+            ("--blueprint=B", "--subdivision N", "--isochronous",
+             "--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY",
+             "--pursue=CODE,CODE", "--groups=", "--returns=", "--cliques"),
+            cmd)
+
         def _mandate_arg(args, at, lines):
             """CLI spelling(s) -> anything `quality.schemes.mandate` accepts.
 

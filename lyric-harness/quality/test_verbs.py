@@ -2612,6 +2612,64 @@ def test_every_test_file_is_accounted_for_by_ci():
               want == got, f"label {want}, list {got}")
 
 
+def test_a_near_miss_flag_refuses_on_the_reviser_verbs():
+    print("\n25. a MISSPELLED flag refuses on brief/verify/revise/song "
+          "instead of producing the same bytes as omitting it (FIXED "
+          "2026-08-15)")
+    # `_no_unknown_flags_or_refuse` was written when `--isochronus` was caught
+    # in `fit`, and `fit` was its ONLY caller -- one verb of 28. The guard
+    # existed, was documented, was tested, and every other verb swallowed
+    # unrecognised flags. Import reachability is not invocation reachability,
+    # at the guard written for exactly this.
+    #
+    # WHAT IT COST, and it is the worst available shape: a near-miss spelling
+    # produced BYTE-IDENTICAL output to omitting the flag, at exit 0. There
+    # was nothing to notice. `revise --propse=defer:PATH` ran the STUB -- a
+    # word-splicer -- where the caller had asked for the deferred loop that
+    # refuses to advance without a writer, and the report did not say which
+    # had run. `brief --blueprnt=BP` dropped meter AND song-function while
+    # printing "BLUEPRINT: none declared".
+    d = tempfile.mkdtemp()
+    q = os.path.join(d, "q.txt")
+    with open(q, "w") as fh:
+        fh.write("the cat sat on the mat\na dog ran through the fog\n"
+                 "he wore a battered hat\nit vanished in the bog\n")
+    bp = os.path.join(ROOT, "quality", "fixtures", "song.blueprint.json")
+
+    # THE NEAR MISSES, one per flag these verbs actually declare.
+    for typo in ("--nope", "--blueprnt=" + bp, "--isochronus",
+                 "--propse=stub", "--pursu=MODAL_RHYME", "--subdivison=2"):
+        rc, out, err = run("brief", q, "ABAB", typo, expect_rc=2)
+        check(f"`brief` refuses {typo.split('=')[0]}",
+              rc == 2 and "REFUSED" in out and "Traceback" not in err,
+              f"rc {rc}")
+    check("and the refusal NAMES the flag and the whole vocabulary",
+          all(s in run("brief", q, "ABAB", "--propse=stub")[1]
+              for s in ("'--propse'", "--propose=", "--groups=", "--cliques")),
+          "a refusal that does not name the alternatives is a shrug")
+
+    for verb, extra in (("verify", [q]), ("revise", []), ("song", [])):
+        if verb == "song":
+            rc, out, _ = run("song", bp,
+                             os.path.join(ROOT, "quality", "fixtures",
+                                          "song.txt"),
+                             "--cliques", "--isochronus", expect_rc=2)
+        else:
+            rc, out, _ = run(verb, q, *extra, "ABAB", "--nope", expect_rc=2)
+        check(f"`{verb}` refuses an unrecognised flag too", rc == 2
+              and "REFUSED" in out, f"rc {rc}")
+
+    # THE OTHER HALF, and it is the half a guard like this gets wrong: every
+    # flag these verbs DO declare must still run.
+    for good in ("--groups=1,3;2,4", "--cliques", "--returns=1,3"):
+        rc, out, _ = run("brief", q, good)
+        check(f"`{good.split('=')[0]}` still runs", rc == 0
+              and "REFUSED" not in out, f"rc {rc}")
+    rc, out, _ = run("revise", q, "ABAB", "--propose=stub")
+    check("`--propose=stub` still runs", rc == 0 and "REFUSED" not in out,
+          f"rc {rc}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -2642,6 +2700,7 @@ if __name__ == "__main__":
     test_the_candidate_field_says_which_ordering_it_is()
     test_the_last_two_traceback_shapes_refuse()
     test_every_test_file_is_accounted_for_by_ci()
+    test_a_near_miss_flag_refuses_on_the_reviser_verbs()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
