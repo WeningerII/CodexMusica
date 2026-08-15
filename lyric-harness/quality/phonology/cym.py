@@ -688,14 +688,66 @@ class Welsh(Phonology):
         before loose, so a line is reported as the tightest type it satisfies
         rather than the first one tried.
         """
+        # `caesura` WAS A PARAMETER THIS METHOD NEVER READ — FIXED 2026-08-15.
+        # Its sibling `cynghanedd()` validates the SAME NAME against the same
+        # two values and implements both; here it was accepted and dropped, so
+        # `cynghanedd_scan(line, caesura="marked")` performed a SEARCH — the
+        # opposite of what the caller declared — and reported
+        # `positions_tried` = k for a reading the caller had pinned to ONE
+        # placement. That field exists so doctrine 19/56's inflation can be
+        # CORRECTED rather than absorbed, so a wrong k is not cosmetic: it
+        # over-corrects a test that never swept. One coordinate, two readings,
+        # in one class (doctrine 1).
+        if caesura not in ("marked", "search"):
+            raise ValueError(
+                f"caesura={caesura!r}; declared values are 'marked' (the "
+                f"caesura must be printed) and 'search' (try every boundary "
+                f"and report how many were tried).")
         words = [w for w in WORD_RE.findall(normalise(line)) if w.strip("'-")]
         n = len(words)
         if n < 2:
             return {"type": None, "detail": "fewer than two words",
                     "positions_tried": 0, "caesura": None, "class": None}
-        two = [(i,) for i in range(1, n)]
-        three = list(itertools.combinations(range(1, n), 2))
-        tried = len(two) + len(three)
+        if caesura == "marked":
+            parts = self._marked_parts(line)
+            if parts is None:
+                # The refusal `cynghanedd(caesura="marked")` already gives, in
+                # this method's own return shape. `positions_tried` is 0 and
+                # not 1: no placement was available to try, and a 1 here would
+                # be a correction for a test that never happened.
+                ok, why = self.llusg(line)
+                if ok:
+                    return {"type": "llusg", "detail": why,
+                            "positions_tried": 0, "caesura": None,
+                            "class": None}
+                return {"type": None,
+                        "detail": ("no caesura is printed in this line, so "
+                                   "its position is not in the text; pass "
+                                   f"caesura='search' to try every "
+                                   f"boundary. llusg: {why}"),
+                        "positions_tried": 0, "caesura": None, "class": None}
+            # The PRINTED placement, as word indices, so the same croes/traws/
+            # sain code below judges it and the two readings cannot drift.
+            counts, acc = [], 0
+            for p in parts:
+                acc += len([w for w in WORD_RE.findall(p) if w.strip("'-")])
+                counts.append(acc)
+            cuts = tuple(c for c in counts[:-1] if 0 < c < n)
+            if len(cuts) == 1:
+                two, three = [(cuts[0],)], []
+            elif len(cuts) == 2:
+                two, three = [], [cuts]
+            else:
+                return {"type": None,
+                        "detail": (f"a printed caesura splits this line into "
+                                   f"{len(parts)} parts; croes/traws reads two "
+                                   f"and sain reads three"),
+                        "positions_tried": 0, "caesura": None, "class": None}
+            tried = 1
+        else:
+            two = [(i,) for i in range(1, n)]
+            three = list(itertools.combinations(range(1, n), 2))
+            tried = len(two) + len(three)
         best = None
         for cut in two:
             a = " ".join(words[:cut[0]])

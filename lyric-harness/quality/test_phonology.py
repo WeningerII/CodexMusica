@@ -992,6 +992,82 @@ def test_welsh_rhyme_leaves_cynghanedd_alone():
           "proper name that units() correctly refuses")
 
 
+def test_the_scan_reads_the_caesura_it_was_given():
+    """`cynghanedd_scan(caesura=...)` WAS ACCEPTED AND NEVER READ.
+
+    `cynghanedd()` validates the SAME PARAMETER NAME against the same two
+    values and implements both. `cynghanedd_scan()` took it, dropped it, and
+    swept every boundary whatever the caller declared — so
+    `caesura="marked"` performed the search it was written to refuse, and
+    reported `positions_tried` = k for a reading the caller had pinned to ONE
+    placement. That field is not decoration: doctrine 19/56 says a search over
+    placements needs its own null, and `positions_tried` is how the inflation
+    gets corrected rather than absorbed. A wrong k OVER-corrects a test that
+    never swept. One coordinate, two readings, in one class (doctrine 1).
+    """
+    print("\n10k. `cynghanedd_scan` reads its declared caesura "
+          "(FIXED 2026-08-15)")
+    c = get("cym")
+    # REAL LINES FROM THE STAGED EDITION, which prints the gwant as `--`.
+    both = "Och o'u swn!--yn gasach sydd;"
+    swept_only = "Ust! y ffrwd,--pa sibrwd sydd?"
+    unmarked = "Calon lân yn llawn daioni"
+
+    s, m = (c.cynghanedd_scan(both),
+            c.cynghanedd_scan(both, caesura="marked"))
+    check("a line whose PRINTED caesura works reads the same TYPE both ways",
+          s["type"] == m["type"] == "traws", f"{s['type']} / {m['type']}")
+    check("...and the two readings report DIFFERENT multiplicities, which is "
+          "the whole reason the coordinate exists — 1 declared placement is "
+          "not 15 searched ones (doctrine 19/56)",
+          m["positions_tried"] == 1 and s["positions_tried"] > 1,
+          f"marked k={m['positions_tried']}, search k={s['positions_tried']}")
+
+    s2, m2 = (c.cynghanedd_scan(swept_only),
+              c.cynghanedd_scan(swept_only, caesura="marked"))
+    check("a type that exists ONLY because the boundary was swept is reported "
+          "under `search` and REFUSED under `marked` — the edition does not "
+          "print that placement",
+          s2["type"] == "sain" and m2["type"] is None,
+          f"search={s2['type']} k={s2['positions_tried']}; "
+          f"marked={m2['type']} k={m2['positions_tried']}")
+
+    m3 = c.cynghanedd_scan(unmarked, caesura="marked")
+    check("a line with NO printed caesura refuses under `marked` and says so, "
+          "rather than falling back to the search it was told not to run",
+          m3["type"] is None and "not in the text" in m3["detail"]
+          and m3["positions_tried"] == 0,
+          f"k={m3['positions_tried']}: {m3['detail'][:60]}")
+    # k IS 0 AND NOT 1: no placement was available to try, and a 1 here would
+    # be a correction for a test that never happened (doctrine 20/79).
+
+    check("an undeclared value REFUSES by name, the way the sibling method "
+          "has since it was written",
+          _raises_value(lambda: c.cynghanedd_scan(unmarked, caesura="bogus")),
+          "silently searching for a caller who declared otherwise is the "
+          "substitution doctrine 1 is about")
+
+    # THE CONTROL: the default is untouched, so every recorded searched rate
+    # still reproduces. `quality/cynghanedd_rate.py` and this file's own §10c
+    # both call the scan with no caesura argument.
+    check("the DEFAULT reading is unchanged — omitting the argument still "
+          "sweeps every boundary",
+          c.cynghanedd_scan(unmarked)["positions_tried"]
+          == s2["positions_tried"] - 5,
+          f"{c.cynghanedd_scan(unmarked)['positions_tried']} placements on a "
+          f"5-word line, 15 on a 6-word one")
+
+
+def _raises_value(fn):
+    try:
+        fn()
+    except ValueError:
+        return True
+    except Exception:
+        return False
+    return False
+
+
 def test_every_module_declares_itself():
     print("\n11. every phonology declares what it reads and what it is")
     # Not a fixed count. A hardcoded set fails the moment a language is added,
@@ -1081,6 +1157,7 @@ if __name__ == "__main__":
                test_welsh_rhyme_against_the_tradition,
                test_welsh_rhyme_leaves_cynghanedd_alone,
                test_check_cynghanedd_defaults_to_welsh,
+               test_the_scan_reads_the_caesura_it_was_given,
                test_every_module_declares_itself,
                test_no_module_consults_english):
         fn()
