@@ -68,6 +68,44 @@ generation is a `propose`/`propose_pair` callable the caller supplies, and
 the one shipped here (`swap_end_word`, a single-word splice) exists to prove
 the loop's OWN control flow, not to write a good line.
 
+**THE TWO SEAMS ARE NOT ONE SEAM, AND TIER 2's WAS STARVED — FIXED
+2026-08-14.** `propose(brief, lines, attempt, reasons=None, whole=())` and
+`propose_pair(pair_brief) -> (str, str) | None` are the contracts.
+`propose_pair` USED to take four bare strings — the two line texts and two
+words — while both line numbers, the whole draft, the group label and
+members, the pivot's own `Brief`, the attempt index and the previous
+rejection all sat in scope at the call site and were passed to nobody. Tier 1
+has had a rejection-feedback channel since it was written; tier 2 kept NO
+reasons at all, so its writer could not be told why the last attempt was
+refused and composed blind. `PairBrief` carries all of it.
+AND BOTH TIERS WERE GRADED ON A RUBRIC NEITHER WAS SHOWN: `verify()` reads
+the WHOLE-draft findings and no proposer ever saw them — measured at
+`whole_flags ['LEXICAL_MONOTONY', 'HOOK_ABSENT']` against a proposer whose
+entire view was `['CLICHE_PAIR', 'CROWDED', 'PROMINENCE_EXCEEDS_HEADS']`.
+`whole=` closes it, read once per round off the SAME `inspect()` key
+`LoopResult.whole` already uses rather than derived a second time.
+NO COMPATIBILITY SHIM, and the reason is that neither end can dispatch
+honestly: under a two-shape interface the CALLEE would have to type-test its
+own first argument to learn which contract it is in (one fact read twice) and
+the CALLER can only ask `inspect.signature`, which is unreadable for builtins
+and C callables and is a second statement of the contract beside the
+docstring. The break set is ENUMERATED instead — any four-positional
+`propose_pair=`, any four-parameter `propose=` — and both raise `TypeError`
+at the FIRST proposal, before a line of the draft is touched.
+**`pivot_word`/`anchor_word` ARE THE PROPOSAL, NOT THE STATUS QUO** — the
+current words are the last tokens of `pivot_text`/`anchor_text`. That
+sentence is load-bearing: `quality/propose.py`'s `render_pair` held the
+opposite reading and printed `(ends on 'mankind')` beside a line ending on
+"dream", so every tier-2 prompt of every real run misstated the draft on both
+lines and in the options heading at once. One field, two readings, in two
+modules (doctrine 1). Neither suite could see it — one built its own
+stand-in object with the same misreading baked into the fixture, the other
+drove tier 2 with its own stub — and NOTHING crossed the seam until
+`quality/test_propose.py` §7c/§7d were written to. §7d drives a REAL
+`revise_loop` into REAL tier 2 through `ModelProposer`, which before this
+contract landed raised `TypeError` on the first joint conflict with both
+suites green.
+
 TWO TIERS, matching what backspacing through a draft actually does. TIER 1
 swaps a flagged line's own word for an offered candidate. TIER 2
 BACKTRACKS: `Brief.joint_conflict` means `joint_field` already searched the
@@ -609,6 +647,15 @@ Full sweep after both fixes: `quality/test_loop.py` (12/12, was 10/10),
 `quality/test_revise.py` (29/29), and every other test file under
 `quality/` — unaffected, confirmed by re-running rather than assumed clean
 because the module they share a diff mechanism with had just changed.
+**BOTH COUNTS ARE SUPERSEDED, MEASURED 2026-08-14 and quoted with the command
+that produced them (`grep -cE '^[0-9]+[a-z]?\. '` for sections, `'^\s+(PASS|
+FAIL)'` for checks, over the suite's own stdout): `test_loop.py` **16
+sections / 86 checks**, `test_revise.py` **39 sections**, and
+`quality/test_propose.py` — which did not exist when the line above was
+written — **13 sections / 104 checks**. The two figures above are a SECTION
+count doubled, not a section/check pair, so `12/12` never carried a check
+count at all and the shape of the old notation is itself the reason it went
+stale unnoticed.
 
 ## Commands (python3 lyric_harness.py ...)
 **Run `wiring` first.** It prints which verb runs on which layer, CHECKS that
