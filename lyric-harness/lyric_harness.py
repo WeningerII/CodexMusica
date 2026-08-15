@@ -6686,6 +6686,46 @@ def main():
                 lyric_text = open(args[2], encoding="utf-8").read()
                 marked = parse_lyric_sections(lyric_text)
                 song_obj, _hooks = GR.song_from_blueprint(song_bp_path)
+                # A `--- TITLE:` LINE IN THE LYRIC WAS DROPPED IN SILENCE —
+                # 2026-08-15. It is this repo's own item convention:
+                # `grid.read_marked_songs` parses it, `audit_corpus` counts
+                # `--- TITLE:` blocks as the unit every staged file writes, and
+                # `verify_entries` reads it as the rule for what a song IS. On
+                # this verb it is apparatus, so `load_lyric_lines` drops it —
+                # correctly, it is not sung — and NOTHING ELSE LOOKED AT IT.
+                # The title `hook_findings` grades comes from the blueprint's
+                # own `"title"` key alone, so a writer who named their song the
+                # way the corpus does was graded against a title they never
+                # gave. MEASURED: byte-identical, md5 d3ca7fb536, with and
+                # without the line. `TITLE_NOT_IN_HOOK` is a real check that
+                # fires correctly on a blueprint title — what was broken is
+                # which declaration reaches it. `song` hands the blueprint
+                # PATH down and the title is re-read from that file, so there
+                # is no seam to carry a second one; this REFUSES and names both
+                # spellings rather than inventing plumbing or dropping the
+                # coordinate, the same answer `song --blueprint=` gets.
+                _lyric_title = next(
+                    (l[len("--- TITLE:"):].strip()
+                     for l in lyric_text.splitlines()
+                     if l.startswith("--- TITLE:")), None)
+                if _lyric_title:
+                    _bp_title = song_obj.title or ""
+                    if _bp_title.strip().lower() != _lyric_title.lower():
+                        _refuse(
+                            f"song grades the title the BLUEPRINT declares, "
+                            f"and the lyric declares a different one",
+                            sides=[("DECLARED in the lyric  --- TITLE:",
+                                    _lyric_title),
+                                   ("DECLARED in the blueprint \"title\"",
+                                    _bp_title or "(absent)")],
+                            detail=["the `--- TITLE:` line is APPARATUS here "
+                                    "and is dropped before grading, so it "
+                                    "reached no check; put the title in the "
+                                    "blueprint's \"title\" key, or drop the "
+                                    "line.",
+                                    "TITLE_NOT_IN_HOOK reads the blueprint's "
+                                    "title only — a second spelling that "
+                                    "never arrives is worse than none."])
                 # `lines_in(s)` MATCHES BY BAR RANGE, and the section OBJECT is
                 # passed rather than its name for the reason that accessor
                 # refuses a repeated name in as many words: two sections may
