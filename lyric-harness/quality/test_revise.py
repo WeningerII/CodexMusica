@@ -1793,7 +1793,24 @@ def test_scheme_unreadable_is_not_a_violation():
           "SCHEME_UNREADABLE is not in RHYME_FINDINGS, and 'the harness "
           "could not read this' is a different instruction to a writer than "
           "'this does not rhyme'",
-          b1 is not None and not b1.candidates and not b1.must_answer)
+          b1 is not None and not b1.candidates and not b1.forbidden_modal,
+          f"candidates={len(b1.candidates) if b1 else '?'} "
+          f"forbidden={len(b1.forbidden_modal) if b1 else '?'}")
+    # THIS CHECK USED TO READ `not b1.must_answer` AS A SECOND PROOF OF THE
+    # SENTENCE ABOVE, WHICH IS THE EXACT CONFLATION `brief()` WAS CARRYING —
+    # repaired 2026-08-16 alongside it. The claim the check NAMES is about the
+    # candidate FIELD; `must_answer` is the MANDATE, a different coordinate,
+    # and the two were gated together. A line the mandate puts in a group is
+    # in that group whether or not the harness could read its end word, so
+    # the block is stated and the field is not, and BOTH halves are asserted
+    # here rather than one standing in for the other.
+    check("...and it IS told which group it is in, because the mandate "
+          "declared one — the field is empty, the mandate is not",
+          b1 is not None and len(b1.must_answer) == 1
+          and b1.must_answer[0][0] == "A"
+          and b1.must_rhyme_with == (2, "blue"),
+          f"must_answer={b1.must_answer if b1 else '?'} "
+          f"must_rhyme_with={b1.must_rhyme_with if b1 else '?'}")
 
     check("a readable draft under the same mandate emits none of it",
           not _find(R.inspect(readable, m), "SCHEME_UNREADABLE"))
@@ -2966,6 +2983,225 @@ def test_a_holding_requirement_is_not_fixed_by_breaking_it():
           sorted(SATISFACTION_FINDINGS))
 
 
+def test_the_mandate_block_is_gated_on_the_mandate():
+    """The brief's MANDATE block and its CANDIDATE FIELD are two gates.
+
+    FOUND 2026-08-16 BY WRITING A SONG THROUGH `--propose=defer:`, not by
+    reading the code, and it took a WRITER to find: the stub proposer never
+    reads the mandate block and never reasons about a word it was offered,
+    so no run before this one could see it (`quality/
+    COVERAGE_PREREGISTRATION.md`, rung 1).
+
+    `brief()` gated BOTH on `wants and groups` -- `wants` being "this line
+    carries a finding in `RHYME_FINDINGS`". So a line flagged for METER
+    ALONE while sitting in a mandated group got NO `must_answer`, and
+    `quality/propose.py`'s `_mandate_block`, with nothing to print, fell
+    through to `(no rhyme group declared for this line)`. That sentence
+    states something about the MANDATE; the condition that produced it is
+    about the FINDING SET. One question, two readings, and the rendered one
+    is FALSE (doctrine 1).
+
+    THE COST IS NOT THE SENTENCE. Told no group existed, the writer fixed
+    the meter by shortening the line and moved its END WORD -- and
+    `verify()` accepted, correctly by its own rules, so the word the other
+    half of the only mandated pair has to answer changed in silence.
+
+    THE FIELD IS STILL GATED ON `wants`, and check 4 is that half: a
+    meter-only line is not handed rhyme words it has no use for, which is
+    `brief()`'s own long-standing argument and is unaffected. Check 5 is the
+    CONTROL that makes this a repair rather than a deletion -- a line in NO
+    mandated group must still get the default sentence, or the fix would
+    have been to stop saying anything.
+    """
+    print("\n40. the MANDATE block is gated on the MANDATE, and the "
+          "CANDIDATE FIELD on the finding set -- two gates, not one")
+    from quality import propose as _PR
+    import quality.fit as _FT
+    import quality.schemes as _SC2
+
+    # L1/L2 are group A and do not rhyme (four ~ stairs, 0.612 NO_RELATION);
+    # L3 is in NO group. All three overflow their bar at subdivision 2, so
+    # every line is briefed and L1/L3 carry METER findings and no rhyme one.
+    lines = ["the kitchen light is burning at half past four",
+             "and nobody came back to climb the stairs",
+             "a radio nobody remembered to switch off"]
+    bp = {"_note": "constructed inline for this regression -- deliberately "
+                   "NOT a fixture file: it is three lines built to put a "
+                   "meter flag on a mandated line, not a song",
+          "sections": [{"name": "V1", "bars": 3, "start_bar": 1,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+                     "section": "V1"} for i, t in enumerate(lines)]}
+    R = Reviser()
+    m = _SC2.mandate([[1, 2]], n_lines=3)
+    sub = _FT.Subdivision(2, source="constructed for this regression")
+
+    found = R.inspect(lines, m, blueprint=bp, subdivision=sub)
+    codes1 = {f.code for f in found["per_line"].get(1, ())}
+    check("the premise: L1 carries a METER flag and NO rhyme finding, so "
+          "the old `wants` gate was False on a line the mandate speaks about",
+          "SLOTS_EXCEEDED" in codes1
+          and not (codes1 & RV.RHYME_FINDINGS),
+          f"L1 codes {sorted(codes1)}")
+    check("...and the mandate DOES speak about it -- this is the fact the "
+          "brief was contradicting",
+          m.groups_of(1) == [0] and m.labels[0] == "A"
+          and m.requirement(1, 2) is _SC2.REQUIRE_RHYME,
+          f"groups_of(1)={m.groups_of(1)} requirement={m.requirement(1, 2)}")
+
+    briefs = {b.line_no: b for b in R.brief(lines, m, blueprint=bp,
+                                            subdivision=sub)}
+    b1 = briefs.get(1)
+    check("L1's brief NAMES its group and the word it must answer, with no "
+          "rhyme finding anywhere on the line",
+          b1 is not None and b1.must_answer == [("A", [1, 2], [(2,
+                                                               "stairs")])]
+          and b1.must_rhyme_with == (2, "stairs"),
+          f"must_answer={b1.must_answer if b1 else '?'}")
+    check("...and it is handed NO candidate field and NO forbidden set: the "
+          "OFFER stays gated on the finding set, so a meter-only line is "
+          "never given rhyme words it has no use for",
+          b1 is not None and not b1.candidates and not b1.forbidden_modal
+          and b1.joint_conflict is False,
+          f"candidates={len(b1.candidates) if b1 else '?'} "
+          f"forbidden={b1.forbidden_modal if b1 else '?'}")
+
+    p1 = _PR.render_line(b1, lines, whole=found["whole"])
+    check("the TIER-1 PROMPT -- the surface a writer actually reads -- no "
+          "longer claims no group was declared, and states the group instead",
+          "(no rhyme group declared for this line)" not in p1
+          and "group A [1, 2] — this line must rhyme with: L2 ('stairs')"
+          in p1,
+          [l.strip() for l in p1.splitlines()
+           if "group" in l and "rhyme" in l][:2])
+
+    b3 = briefs.get(3)
+    check("CONTROL: L3 is in NO mandated group and STILL gets the default "
+          "sentence -- the repair states a fact, it does not delete a line "
+          "of the prompt",
+          b3 is not None and not b3.must_answer
+          and "(no rhyme group declared for this line)"
+          in _PR.render_line(b3, lines, whole=found["whole"]),
+          f"L3 must_answer={b3.must_answer if b3 else '?'}")
+
+    b2 = briefs.get(2)
+    check("CONTROL: L2 -- which carries SCHEME_VIOLATION -- is unchanged: "
+          "group named, field offered, modal head forbidden, exactly as "
+          "before the split",
+          b2 is not None and b2.must_answer
+          and b2.candidates and b2.forbidden_modal,
+          f"candidates={len(b2.candidates) if b2 else '?'} "
+          f"forbidden={len(b2.forbidden_modal) if b2 else '?'}")
+
+
+def test_rule_three_asks_whether_a_word_was_taken():
+    """`revise` and `verify` disagreed about the same before/after pair.
+
+    FOUND 2026-08-16 BY RUNNING `verify` ON A DRAFT `revise` HAD JUST
+    CONVERGED ON — the rung-1 re-run, `quality/COVERAGE_PREREGISTRATION.md`.
+    The loop returned SUCCESS; the verb, handed the identical pair with the
+    same mandate, blueprint and subdivision, returned `REJECTED — L2 took the
+    modal candidate 'stairs'`. One question, two answers, from two surfaces of
+    one module (doctrine 1).
+
+    AND THE REJECTION'S OWN SENTENCE WAS FALSE. L2 did not TAKE 'stairs' — it
+    already ended on 'stairs' and was revised elsewhere in the line, for its
+    METER. `forbidden_modal` carries two rules at once: the modal head
+    (doctrine 9) and `brief()`'s incumbent clause, *"the word currently there
+    is itself excluded"*. Check 1 measures that `stairs` is on the list ONLY
+    by the second, so the message named the rule that did not fire.
+
+    THE FIX IS THAT TAKING REQUIRES A CHANGE. Doctrine 9 is about REACHING for
+    the obvious answer, and a byte-identical end word reached for nothing.
+    Check 4 is the control that keeps the rule alive: a revision that really
+    does land on a modal candidate is still rejected, in the same words.
+    """
+    print("\n41. RULE 3 asks whether a modal candidate was TAKEN, and "
+          "`revise`/`verify` agree about one before/after pair")
+    from quality import loop as _LP
+    import quality.fit as _FT
+
+    before = ["the kitchen light is burning at half past four",
+              "and nobody came back to climb the stairs"]
+    bp = {"_note": "constructed inline for this regression, not a fixture",
+          "sections": [{"name": "V1", "bars": 2, "start_bar": 1,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+                     "section": "V1"} for i, t in enumerate(before)]}
+    R = Reviser()
+    sub = _FT.Subdivision(2, source="constructed for this regression")
+    kw = dict(blueprint=bp, subdivision=sub)
+
+    # 'four' ~ 'stairs' fails the mandate; L1 answering on 'glares' repairs
+    # the pair AND its own SLOTS_EXCEEDED, so L2 then needs only its meter.
+    ANSWERS = ["at four the kitchen light still glares",
+               "and nobody climbed the stairs"]
+
+    off, forb_ex = R.modal_field("four", exclude=("stairs",))
+    _o2, forb_raw = R.modal_field("four")
+    check("PREMISE: 'stairs' is NOT a modal candidate for 'four' under "
+          "either spelling — it reaches `forbidden_modal` only as the "
+          "INCUMBENT, so the old message named the rule that did not fire",
+          "stairs" not in forb_ex and "stairs" not in forb_raw,
+          f"excluded={forb_ex} raw={forb_raw}")
+
+    seq = list(ANSWERS)
+
+    def propose(brief, lines, attempt, reasons=None, whole=()):
+        return seq.pop(0) if seq else None
+
+    res = _LP.revise_loop(R, before, "AA", propose=propose, **kw)
+    check("PREMISE: the loop converges on this pair",
+          res.stop_reason == "success" and list(res.lines) == ANSWERS,
+          f"{res.stop_reason} -> {list(res.lines)}")
+
+    v = R.verify(before, list(res.lines), "AA", **kw)
+    check("`verify` on the draft the LOOP emitted now ACCEPTS it — the two "
+          "surfaces answer one question the same way",
+          v["accepted"] is True,
+          f"accepted={v['accepted']} reasons={v['reasons']}")
+    check("...and the skip is DISCLOSED rather than swallowed: 'kept a "
+          "forbidden word' and 'was never on the list' are different "
+          "outcomes (doctrine 20)",
+          v.get("modal_endword_unchanged") == [(2, "stairs")]
+          and any("KEPT its end word" in r for r in v["reasons"])
+          and not any("took the modal candidate" in r for r in v["reasons"]),
+          f"{v.get('modal_endword_unchanged')}")
+
+    # CONTROL — the rule is still load-bearing in the direction it was
+    # written for: a revision that lands ON a modal candidate is refused,
+    # in the same words, before anything else about the line is looked at.
+    took = [before[0], "and nobody came back to open the door"]
+    v2 = R.verify(before, took, "AA", **kw)
+    check("CONTROL: a revision that genuinely TAKES a modal candidate is "
+          "still rejected outright, and still says so",
+          v2["accepted"] is False
+          and v2.get("modal_violations") == [(2, "door")]
+          and any("took the modal candidate 'door'" in r
+                  for r in v2["reasons"]),
+          f"accepted={v2['accepted']} hits={v2.get('modal_violations')}")
+    check("CONTROL: and it is refused BEFORE the fixed/new accounting — "
+          "rule 3 rejects on its own, so the run stops there",
+          "new_flags" in v2 and not any("nothing was fixed" in r
+                                        for r in v2["reasons"])
+          and len(v2["reasons"]) == 1,
+          f"{v2['reasons']}")
+
+    # THE COROLLARY, AND IT CLOSES THE SECOND HALF OF THE SAME REPORT BUG.
+    # `forbidden_modal` is `modal_head + [cur]`, and `cur` IS the before
+    # end word, so `got == cur` now implies `got == was` and is skipped.
+    # `modal_violations` is therefore a SUBSET OF THE MODAL HEAD by
+    # construction — which is what makes the sentence "took the modal
+    # candidate" true of every entry it can ever hold, rather than true of
+    # most of them. Asserted rather than left as an argument.
+    check("COROLLARY: `modal_violations` can now only ever name a word "
+          "from the MODAL HEAD, never the incumbent — so the message "
+          "'took the modal candidate' is true by construction",
+          all(w in forb_ex for _ln, w in v2.get("modal_violations", []))
+          and "door" in forb_ex,
+          f"hits={v2.get('modal_violations')} head={forb_ex}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -3008,7 +3244,9 @@ if __name__ == "__main__":
                test_substituted_end_word_reaches_the_loop,
                test_uncovered_bars_reaches_the_loop_not_only_fit,
                test_a_blank_line_is_refused_not_renumbered,
-               test_a_holding_requirement_is_not_fixed_by_breaking_it):
+               test_a_holding_requirement_is_not_fixed_by_breaking_it,
+               test_the_mandate_block_is_gated_on_the_mandate,
+               test_rule_three_asks_whether_a_word_was_taken):
         fn()
     print("=" * 62)
     if FAILURES:

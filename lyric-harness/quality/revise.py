@@ -2370,25 +2370,72 @@ class Reviser:
                       field_declaration=self.field_declaration(),
                       keep=[i for i in range(1, len(lines) + 1)
                             if i not in found["per_line"]])
+            groups = m.partners(ln)
+            # ===============================================================
+            # THE MANDATE BLOCK IS GATED ON THE MANDATE. THE CANDIDATE FIELD
+            # IS GATED ON THE FINDING SET. THEY ARE TWO GATES — FIXED
+            # 2026-08-16, FOUND BY WRITING A SONG THROUGH `--propose=defer:`.
+            # ===============================================================
+            # Both used to sit behind `wants and groups`, so a line flagged
+            # for METER ALONE while sitting in a mandated group was briefed
+            # with NO `must_answer` at all — and `quality/propose.py`'s
+            # `_mandate_block`, finding nothing to print, fell through to its
+            # default sentence: `(no rhyme group declared for this line)`.
+            #
+            # THAT SENTENCE IS ABOUT THE MANDATE AND THE CONDITION WAS ABOUT
+            # THE FINDINGS. Doctrine 1: one question, two readings, and the
+            # rendered one was FALSE. MEASURED on a two-line draft
+            # (fingerprint `385ff1e4055e`, mandate `AA`, 2 bars of 4/4 at
+            # `--subdivision 2`): L1 carries `SLOTS_EXCEEDED` and no rhyme
+            # finding, `m.groups_of(1)` is `[0]` label `A` and
+            # `m.requirement(1, 2)` is `REQUIRE_RHYME` — and the tier-1 prompt
+            # told the writer no group was declared.
+            #
+            # THE COST IS NOT THE SENTENCE, IT IS WHAT A WRITER DOES NEXT.
+            # Told no group existed, the writer fixed the meter by shortening
+            # the line — `the kitchen light still burns` — and moved the end
+            # word `four` -> `burns`. `verify()` ACCEPTED it, correctly by its
+            # own rules (a flag fixed, none introduced), and the word the
+            # OTHER half of the only mandated pair has to answer had silently
+            # changed. Recorded in full at
+            # `quality/COVERAGE_PREREGISTRATION.md`, rung 1.
+            #
+            # THE FIELD STAYS BEHIND `wants`, and this method's own docstring
+            # is why: "a meter-only line is never handed a list of rhyme words
+            # it has no use for". That argument is about the OFFER and it
+            # still holds — a line whose rhyme is satisfied needs the
+            # CONSTRAINT stated and needs no replacement words. It also keeps
+            # `verify()`'s RULE 3 honest by construction: the modal exclusion
+            # is enforced off `b.forbidden_modal` — the brief's own list — so
+            # a line offered no field is a line the rule does not enforce
+            # against, and the writer is never rejected for taking a word
+            # nobody forbade.
+            #
+            # `joint_conflict` STAYS INSIDE THE FIELD BRANCH, deliberately:
+            # it reports that the CONJUNCTION of a pivot's groups is
+            # unsatisfiable, which is a fact about a search that was run, and
+            # it is what `quality/loop.py` dispatches tier 2 on. Setting it
+            # from a branch that computes no field would make it a claim about
+            # a search nobody performed (doctrine 20).
+            #
+            # EVERY group, not one. The old `_partner` picked the first
+            # mate of the line's single letter, which is all a letter
+            # scheme can express and is wrong for a pivot by construction.
+            for k, mates in groups:
+                b.must_answer.append(
+                    (m.labels[k], list(m.groups[k]),
+                     [(x, endwords[x - 1]) for x in mates]))
+            if groups and groups[0][1]:
+                _first = groups[0][1]
+                b.must_rhyme_with = (_first[0], endwords[_first[0] - 1])
             # ANY rhyme-implicating finding earns a candidate field, not just
             # a broken scheme. The cliche and predictable-rhyme cases are
             # precisely where a writer reaches for the obvious replacement, so
             # they are precisely where the modal exclusion has to be applied.
             wants = any(f.code in RHYME_FINDINGS for f in fs)
-            groups = m.partners(ln)
             if wants and groups:
-                # EVERY group, not one. The old `_partner` picked the first
-                # mate of the line's single letter, which is all a letter
-                # scheme can express and is wrong for a pivot by construction.
-                for k, mates in groups:
-                    b.must_answer.append(
-                        (m.labels[k], list(m.groups[k]),
-                         [(x, endwords[x - 1]) for x in mates]))
                 calls = [endwords[x - 1] for _, mates in groups for x in mates]
                 calls = [c for c in dict.fromkeys(calls) if c]
-                first = groups[0][1]
-                if first:
-                    b.must_rhyme_with = (first[0], endwords[first[0] - 1])
                 cur = self.floor.qf._endword(lines[ln - 1])
                 if calls:
                     b.candidates, b.forbidden_modal = self.joint_field(
@@ -2541,14 +2588,73 @@ class Reviser:
         out["independent"] = m.independent()
 
         # RULE 3 — the modal exclusion, enforced rather than merely suggested
+        # ===============================================================
+        # TAKING REQUIRES A CHANGE — FIXED 2026-08-16, FOUND BY RUNNING
+        # `verify` ON A DRAFT `revise` HAD JUST CONVERGED ON.
+        # ===============================================================
+        # `revise` returned SUCCESS and this method, handed the SAME
+        # before/after pair with the same mandate, blueprint and
+        # subdivision, returned `REJECTED — L2 took the modal candidate
+        # 'stairs'`. One question, two answers, from two surfaces of one
+        # module (doctrine 1), and the rejection's own sentence is FALSE:
+        # L2 did not TAKE 'stairs', L2 already ended on 'stairs' and was
+        # revised somewhere else in the line.
+        #
+        # `forbidden_modal` carries TWO rules at once. The head of it is
+        # the modal region — doctrine 9, do not pass the band by reaching
+        # for the most predictable word. The LAST entry is `brief()`'s
+        # incumbent clause, *"the word currently there is itself excluded:
+        # it is what was flagged, so re-proposing it is not a revision"*.
+        # MEASURED on the pair that exposed this: `modal_field('four')` is
+        # `['door','more','before','shore','sore','or']` with and without
+        # the exclusion, so **`stairs` is not a modal candidate for `four`
+        # under any spelling** — it was on the list only as the incumbent.
+        #
+        # THE END-WORD TEST IS THE WHOLE FIX, and it is a statement about
+        # what this rule ASKS. Doctrine 9 is about REACHING for the
+        # obvious answer; a line whose end word is byte-identical before
+        # and after reached for nothing. So a revision that leaves the end
+        # word alone and repairs the line elsewhere — the meter, the
+        # phrasing — is outside this rule entirely, and charging it here
+        # states a taking that did not happen.
+        #
+        # IT DOES NOT WEAKEN THE RULE, because the incumbent clause's real
+        # work is done by RULE 4 one block below: a line that keeps its
+        # end word keeps its rhyme finding, so "nothing was fixed" refuses
+        # it unless the revision repaired something ELSE — which is
+        # precisely the case this guard exists to let through. And
+        # doctrine 7 is the reason it must be let through: a line already
+        # sitting on a conventional word may still have its METER fixed,
+        # and blocking that would be the floor ordering the region it
+        # already passed (`MODAL_RHYME` is a NOTE for the same reason).
+        #
+        # THE FIELD IS STILL READ OFF `before` AND THAT IS DELIBERATE.
+        # Recomputing it against `after` was the other candidate fix and
+        # it is doctrine 48: a revision that repairs the rhyme clears the
+        # finding, so `brief(after)` offers no field, so the rule could
+        # never fire on any accepted revision. The field belongs to the
+        # state in which the line was flagged and a replacement was being
+        # searched for — which is also the field the WRITER was shown, so
+        # the offer and the enforcement stay the same object.
+        #
+        # THE SKIP IS DISCLOSED, NOT SWALLOWED (doctrine 20): a line that
+        # kept a forbidden end word is a different outcome from a line
+        # that was never on the list, and `modal_endword_unchanged` keeps
+        # the two apart in the returned dict.
         modal_hits = []
+        modal_kept = []
         for ln in changed:
             b = b_before.get(ln)
             if not b or not b.forbidden_modal:
                 continue
             got = self.floor.qf._endword(after[ln - 1])
-            if got in b.forbidden_modal:
-                modal_hits.append((ln, got))
+            if got not in b.forbidden_modal:
+                continue
+            if got == self.floor.qf._endword(before[ln - 1]):
+                modal_kept.append((ln, got))
+                continue
+            modal_hits.append((ln, got))
+        out["modal_endword_unchanged"] = modal_kept
         if modal_hits:
             out["reasons"].append(
                 "; ".join(f"L{ln} took the modal candidate {w!r}"
@@ -2584,6 +2690,17 @@ class Reviser:
         out["reasons"].append(
             f"fixed {len(fixed)}, introduced {len(new_flags)}{note_disclosure}, "
             f"changed only {sorted(changed)}")
+        # RULE 3's SKIP, SAID OUT LOUD. Appended rather than folded into the
+        # line above so the existing sentence is byte-identical wherever this
+        # is empty, which is every revision that moved its end word.
+        if modal_kept:
+            out["reasons"].append(
+                "; ".join(f"L{ln} KEPT its end word {w!r}, which is on this "
+                          f"line's forbidden list" for ln, w in modal_kept)
+                + " — RULE 3 asks whether a modal candidate was TAKEN, and a "
+                  "byte-identical end word took nothing. Disclosed because "
+                  "'kept a forbidden word' and 'was never on the list' are "
+                  "different outcomes (doctrine 20)")
         if not m.independent():
             out["reasons"].append(
                 "the mandate was DERIVED from the rhyme graph, so this "
