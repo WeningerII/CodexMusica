@@ -3198,6 +3198,298 @@ def test_the_collision_cut_is_one_constant_and_cannot_drift():
           "imitation's rhyme test are not the same setting")
 
 
+def test_both_meter_coordinates_are_disclosed_and_collisions_are_typed():
+    print("\n32. the report states BOTH meter coordinates, and `collisions` "
+          "is not one number for three kinds (FIXED 2026-08-16)")
+    # TWO COSMETIC FINDINGS, ONE SHAPE: a report naming some of what it did.
+    #
+    # (a) `--isochronous` was the only coordinate on these verbs that could be
+    #     READ, CHANGE THE ANALYSIS, and leave no trace in the output. It is
+    #     read -- `inspect()` drops the `NO_SETTING` refusal when it is given
+    #     -- but `verify` prints a SET DIFFERENCE (fixed/broken/untargeted/
+    #     modal_taken) and the flag moves BEFORE and AFTER identically, so
+    #     every finding it adds or removes cancels. Measured byte-identical on
+    #     a real pair where `--subdivision 2` DOES move the verdict body. That
+    #     is not "inert" and not "read": it is a coordinate with no reading,
+    #     which doctrine 1 does not allow. The banner named `subdivision` in
+    #     both states and isochrony in neither.
+    import io
+    import importlib
+    FT = importlib.import_module("quality.fit")
+    RV = importlib.import_module("quality.revise")
+
+    # THE UNDERLYING FACT FIRST, at the API, because it is what makes the
+    # disclosure load-bearing rather than decorative: if `assume` changed
+    # nothing, printing it would be noise.
+    lines = [ln for ln in
+             open(os.path.join(ROOT, "quality", "fixtures", "song.txt"),
+                  encoding="utf-8").read().splitlines()
+             if ln.strip() and not ln.startswith("[")]
+    bp = os.path.join(ROOT, "quality", "fixtures", "song.blueprint.json")
+    sub = FT.Subdivision(2, source="test 32")
+    r = RV.Reviser()
+    off = r.inspect(lines, "A" * len(lines), blueprint=bp, subdivision=sub)
+    on = r.inspect(lines, "A" * len(lines), blueprint=bp, subdivision=sub,
+                   assume=FT.Isochrony(source="test 32"))
+    off_w = sorted(f.code for f in off["whole"])
+    on_w = sorted(f.code for f in on["whole"])
+    check("`assume` CHANGES the finding set — the disclosure below is about "
+          "something real",
+          off_w != on_w, f"without {off_w}\n           with    {on_w}")
+    check("...specifically it retires the `NO_SETTING` refusal, which is the "
+          "whole point of declaring isochrony",
+          "NO_SETTING" in off_w and "NO_SETTING" not in on_w,
+          f"without {off_w}\n           with    {on_w}")
+
+    # AND NOW THE DISCLOSURE, END TO END THROUGH THE CLI. A REFUSING
+    # invocation is used ON PURPOSE and it is not a shortcut: the banner is
+    # printed BEFORE any refusal (doctrine 20 -- the refusal must be first
+    # among the FINDINGS, but the coordinates it ran under come first of all),
+    # and a non-refusing `verify` on the only blueprint fixture with a
+    # matching line count costs ~90s per invocation. What is asserted is that
+    # the two runs are DISTINGUISHABLE, which is exactly what was false.
+    two = os.path.join(ROOT, "quality", "fixtures", "song.txt")
+    a = run("verify", two, two, "A" * len(lines), f"--blueprint={bp}",
+            "--subdivision", "2")[1]
+    b = run("verify", two, two, "A" * len(lines), f"--blueprint={bp}",
+            "--subdivision", "2", "--isochronous")[1]
+    check("`verify` with and without `--isochronous` is DISTINGUISHABLE on "
+          "its printed surface",
+          a != b, "byte-identical output for two different analyses")
+    check("...and the difference is in the BLUEPRINT banner, not somewhere "
+          "incidental",
+          a.splitlines()[0] != b.splitlines()[0],
+          f"{a.splitlines()[0][:80]!r}\n           {b.splitlines()[0][:80]!r}")
+    check("the banner names the assumption when it IS made",
+          "ISOCHRONY ASSUMED" in b, b.splitlines()[0][:160])
+    check("...and names its ABSENCE when it is not — a coordinate is "
+          "declared in both states or it is not declared (doctrine 1)",
+          "no isochrony assumed" in a, a.splitlines()[0][:160])
+
+    # (b) `collisions N` sat at the end of the row that keeps mandated/judged/
+    #     refused apart for doctrine 79, summing a set this class splits into
+    #     three codes on purpose. A writer does something different about an
+    #     unasked rhyme, a pair that is not a rhyme at all, and the same word
+    #     twice.
+    refrain = ["we walked into the night", "the lamp was burning light",
+               "we walked into the night", "the lamp was burning light"]
+    # `_collisions_line` and NOT `next(... startswith("collisions"))`: against
+    # the pre-fix tree the count lived at the END of the `mandated ...` row, so
+    # a `next()` over lines STARTING with the word raised `StopIteration` and
+    # killed the section after the isochrony checks -- turning a clean
+    # two-sided FAIL into a crash that skipped the four checks below it. A
+    # regression that ERRORS instead of FAILING on the defect it names cannot
+    # be read as a verdict (doctrine 79: a crash is not a failure).
+    def _collisions_line(text):
+        for ln in text.splitlines():
+            if "collisions" in ln:
+                return ln
+        return ""
+
+    s = io.StringIO()
+    r.report(refrain, [[1, 2], [3, 4]], stream=s)
+    line = _collisions_line(s.getvalue())
+    check("the `collisions` count is on its OWN line, not appended to the "
+          "mandated/judged/refused row it shares no denominator with",
+          line.strip().startswith("collisions"), line.strip() or "(no line)")
+    check("the `collisions` count is BROKEN OUT by kind",
+          "—" in line, line.strip() or "(no line)")
+    check("...and a REFRAIN's returning lines are typed `same-word`, not "
+          "folded in with the rhymes",
+          "same-word 2" in line and "unasked-rhyme 2" in line, line.strip())
+    # TWO-SIDED: the same report on a draft with no repeated end word must NOT
+    # claim a `same-word` collision. A breakdown that always prints every
+    # label is the same defect as a single number wearing more words.
+    s2 = io.StringIO()
+    r.report(refrain, [[1, 3], [2, 4]], stream=s2)
+    line2 = _collisions_line(s2.getvalue())
+    check("...and the labels are DERIVED, not decoration: the same lines "
+          "under a mandate that makes the repeats intra-group report no "
+          "`same-word` collision at all",
+          "same-word" not in line2, line2.strip())
+    # THE KINDS MUST ACCOUNT FOR THE TOTAL. Without this, a code added to
+    # `_collision_code` and not to the header's label map would vanish from
+    # the breakdown while the total still counted it -- a report whose parts
+    # do not sum to its own whole, which is the defect one level in.
+    import re as _re
+    _m = _re.search(r"collisions (\d+)", line)
+    total = int(_m.group(1)) if _m else -1
+    parts = (sum(int(x) for x in _re.findall(r"\b(\d+)\b", line.split("—")[1]))
+             if "—" in line else -2)
+    check("the kinds SUM to the total — no collision falls outside every "
+          "label",
+          total == parts, f"total {total}, kinds sum {parts}: "
+                          f"{line.strip() or '(no line)'}")
+
+
+def test_every_report_names_the_draft_it_read():
+    print("\n33. a report names WHAT it graded — line count and fingerprint, "
+          "on every surface a figure gets quoted from (BUILT 2026-08-16)")
+    # THE DEFECT THIS PINS WAS COMMITTED, NOT HYPOTHESISED: a 41-line fixture
+    # was graded in place of the 41-line song a RESULTS document is about,
+    # the 41-character mandate bound cleanly to the wrong draft, and the
+    # complete, plausible report that came back was recorded as a drift in a
+    # figure that had never moved. A length that matches is not an identity
+    # that matches — and `report()` printed nothing else about its input, so
+    # nothing on the page could have shown the difference. The fingerprint
+    # is that missing coordinate (doctrine 1: an analysis states what it was
+    # run under, and the INPUT is the first such coordinate).
+    import hashlib
+    import importlib
+    import io
+    RV = importlib.import_module("quality.revise")
+    r = RV.Reviser()
+    A = ["we walked into the night", "the lamp was burning light",
+         "we walked into the night", "the lamp was burning light"]
+    # SAME LINE COUNT, different words — the exact shape that slipped
+    # through: every structural check (mandate arity, line count) is
+    # satisfied by both, and only content tells them apart.
+    B = ["a shadow crossed the empty wall", "and nothing here can hold",
+         "we sank right through the floor", "the tide came back again"]
+
+    def _draft_line(text):
+        for ln in text.splitlines():
+            if ln.strip().startswith("draft:"):
+                return ln.strip()
+        return ""
+
+    def _rep(lines):
+        s = io.StringIO()
+        r.report(lines, [[1, 3], [2, 4]], stream=s)
+        return s.getvalue()
+
+    da, da2, db = _draft_line(_rep(A)), _draft_line(_rep(A)), \
+        _draft_line(_rep(B))
+    check("`Reviser.report()` prints a `draft:` line carrying the count of "
+          "lines it graded",
+          da.startswith("draft: 4 line(s)"), da or "(no draft line)")
+    # RECOMPUTABLE BY A READER, or it is a decoration: the printed hex must
+    # be re-derivable from the draft by the stated rule (md5 over the joined
+    # lines, first 12), so a figure pinned in a document can be CHECKED
+    # against a candidate text later, which is the entire use.
+    want = hashlib.md5("\n".join(A).encode("utf-8")).hexdigest()[:12]
+    check("...and the fingerprint is RECOMPUTABLE from the draft by the "
+          "stated rule, not an opaque token",
+          want in da, f"expected md5 {want} in: {da or '(no draft line)'}")
+    check("two SAME-LENGTH drafts get DIFFERENT fingerprints — the 41=41 "
+          "case that produced the false collisions-69 repin",
+          bool(da) and bool(db) and da != db,
+          f"{da or '(none)'}\n           {db or '(none)'}")
+    check("...and the fingerprint is DETERMINISTIC: the same draft twice "
+          "prints the same non-empty line",
+          bool(da) and da == da2, f"{da!r} vs {da2!r}")
+
+    # END TO END THROUGH THE CLI, on both report surfaces. `brief` (which
+    # `song` shares) and `verify` — the verb least able to show its inputs,
+    # because its whole output is a set difference and everything the wrong
+    # draft changes on both sides cancels.
+    d = tempfile.mkdtemp()
+    fb, fa = os.path.join(d, "b.txt"), os.path.join(d, "a.txt")
+    with open(fb, "w") as fh:
+        fh.write("we walked into the night\nthe lamp was burning bright\n")
+    with open(fa, "w") as fh:
+        fh.write("we walked into the night\nthe lamp was burning light\n")
+    # GROUND TRUTH FOR THE CLI HALF, not just shape. This test WROTE these
+    # files, so it can recompute what every surface must print — and it has
+    # to, because without this an implementation that fingerprints the wrong
+    # thing consistently (verify's AFTER computed off a different draft; the
+    # raw file bytes instead of the graded lines) passes every shape and
+    # agreement check below while committing exactly the wrong-identity
+    # defect this section exists to close. Found by a hostile mutation
+    # during review: `draft_fingerprint(after + ['x'])` at the AFTER print
+    # went 13/13 green against the first draft of this section.
+    fp_b = hashlib.md5(b"we walked into the night\n"
+                       b"the lamp was burning bright").hexdigest()[:12]
+    fp_a = hashlib.md5(b"we walked into the night\n"
+                       b"the lamp was burning light").hexdigest()[:12]
+    bout = run("brief", fb, "AA")[1]
+    check("`brief` prints the draft line — and the md5 is THIS file's, "
+          "recomputed by the test that wrote it",
+          _draft_line(bout) == f"draft: 2 line(s), md5 {fp_b}",
+          f"{_draft_line(bout) or '(no draft line)'} vs expected md5 {fp_b}")
+    vout = run("verify", fb, fa, "AA")[1]
+    bef = next((ln.strip() for ln in vout.splitlines()
+                if ln.strip().startswith("BEFORE:")), "")
+    aft = next((ln.strip() for ln in vout.splitlines()
+                if ln.strip().startswith("AFTER")), "")
+    check("`verify` prints BOTH sides' fingerprints",
+          "md5" in bef and "md5" in aft,
+          f"{bef or '(no BEFORE)'} / {aft or '(no AFTER)'}")
+    check("...BEFORE is the before FILE's fingerprint, recomputed — not any "
+          "12 hex chars in the right place",
+          bef.endswith(f"md5 {fp_b}"), f"{bef} vs expected md5 {fp_b}")
+    check("...and AFTER is the after FILE's — each side hashed from its OWN "
+          "draft, which is the half a shape check cannot see",
+          aft.endswith(f"md5 {fp_a}"), f"{aft} vs expected md5 {fp_a}")
+    check("...and the two sides DIFFER when the drafts differ — a verdict "
+          "block that names neither input is the surface the wrong-draft "
+          "error lived on",
+          "md5" in bef and "md5" in aft
+          and bef.split("md5")[-1] != aft.split("md5")[-1],
+          f"{bef} / {aft}")
+    check("...printed BEFORE the verdict, so a recorded verdict sits under "
+          "the inputs it compared",
+          "VERDICT" in vout and bool(bef)
+          and vout.find("BEFORE:") < vout.find("VERDICT"),
+          "the identity of the inputs is a precondition of the verdict, "
+          "not a footnote to it")
+    # ONE IDENTITY, TWO SURFACES: `verify`'s BEFORE fingerprint and
+    # `brief`'s draft fingerprint on the same file must agree — two verbs
+    # disagreeing about what one file's content IS would be the fingerprint
+    # reproducing the defect it exists to close.
+    bmd5 = _draft_line(bout).split("md5")[-1].strip()
+    vmd5 = bef.split("md5")[-1].strip()
+    check("`brief` and `verify` agree on the same file's fingerprint — one "
+          "identity, not one per verb",
+          bool(bmd5) and bmd5 == vmd5,
+          f"brief {bmd5 or '(none)'} vs verify {vmd5 or '(none)'}")
+
+    # AND THE LOOP — the one caller that CHANGES the draft, so `lines` on
+    # its result identifies only what came OUT. Its disclosure must carry
+    # BOTH ends or no reader can say what a run was asked to revise. Two
+    # runs, one per direction of the (UNCHANGED) marker, because a marker
+    # that always prints is a marker (doctrine 48).
+    LP = importlib.import_module("quality.loop")
+    same = ["we walked into the night", "the lamp was burning bright"]
+    kept = LP.revise_loop(r, same, "AA")
+    kd = next((ln for ln in kept.disclosure() if "DRAFT" in ln), "")
+    check("`revise_loop`'s result discloses the draft at BOTH ends — handed "
+          "in and emitted",
+          "handed in 2 line(s)" in kd and "emitted 2 line(s)" in kd,
+          kd or "(no DRAFT line)")
+    check("...the recorded input fingerprint IS the entry draft's — "
+          "recomputable, like every other surface's",
+          getattr(kept, "input_fingerprint", "")
+          == hashlib.md5("\n".join(same).encode("utf-8")).hexdigest()[:12],
+          f"recorded {getattr(kept, 'input_fingerprint', '(no field)')!r}")
+    check("...a run that emitted its input verbatim SAYS SO at a glance — "
+          "comparing two hex strings by eye is the step that gets skipped",
+          "(UNCHANGED)" in kd, kd or "(no DRAFT line)")
+    moved = LP.revise_loop(r, ["we walked into the night",
+                               "the day was warm and slow"], "AA")
+    md = next((ln for ln in moved.disclosure() if "DRAFT" in ln), "")
+    in_fp = getattr(moved, "input_fingerprint", "")
+    out_fp = RV.draft_fingerprint(moved.lines) \
+        if hasattr(RV, "draft_fingerprint") else ""
+    check("...and a run that CHANGED the draft shows two different "
+          "fingerprints with no (UNCHANGED) claim — the marker is derived, "
+          "not decoration",
+          bool(in_fp) and bool(out_fp) and in_fp != out_fp
+          and "(UNCHANGED)" not in md, md or "(no DRAFT line)")
+    # THE ABSENT-INPUT BRANCH, exercised — a hand-built `LoopResult` (the
+    # dataclass docstring licenses them; tests build them) recorded no input,
+    # and its disclosure must print that absence AS an absence. An absent
+    # identity rendered as nothing would read exactly like the pre-fix
+    # reports; an absent identity rendered as some default hash would be an
+    # INVENTED identity, which is worse. Doctrine 20's shape, one branch in.
+    hand = LP.LoopResult("success", same, [], [])
+    hd = next((ln for ln in hand.disclosure() if "DRAFT" in ln), "")
+    check("a result built WITHOUT an input names that absence — never an "
+          "invented identity, never silence",
+          "NOT RECORDED" in hd and "emitted 2 line(s)" in hd
+          and "handed in" not in hd, hd or "(no DRAFT line)")
+
+
 def test_the_title_a_lyric_declares_reaches_the_check_or_refuses():
     print("\n30. a `--- TITLE:` line in the LYRIC is not dropped in silence "
           "(FIXED 2026-08-15)")
@@ -3296,6 +3588,8 @@ if __name__ == "__main__":
     test_the_comparator_and_the_meter_flags_reach_the_graders()
     test_the_title_a_lyric_declares_reaches_the_check_or_refuses()
     test_the_collision_cut_is_one_constant_and_cannot_drift()
+    test_both_meter_coordinates_are_disclosed_and_collisions_are_typed()
+    test_every_report_names_the_draft_it_read()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

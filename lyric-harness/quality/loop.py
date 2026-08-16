@@ -246,7 +246,8 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import load_lyric_lines, raw_final_token  # noqa: E402
-from quality.revise import ReviseDeclaration, Reviser  # noqa: E402
+from quality.revise import (ReviseDeclaration, Reviser,  # noqa: E402
+                            draft_fingerprint)
 
 __all__ = ["LineAttempt", "PairBrief", "RoundResult", "LoopResult",
           "revise_loop", "swap_end_word", "default_propose",
@@ -473,6 +474,17 @@ class LoopResult:
     pairs_mandated: int = 0
     pairs_judged: int = 0
     pairs_refused: int = 0
+    #: WHICH DRAFT WAS HANDED IN — count and `draft_fingerprint` of the lines
+    #: as `revise_loop` received them. This loop is the one caller that
+    #: CHANGES the draft, so `lines` above identifies only what came OUT;
+    #: without these two fields no reader of the result can say what went in,
+    #: and a wrong same-length input produces a plausible result naming
+    #: nothing (the collisions-69 misattribution — see
+    #: `quality.revise.draft_fingerprint`). Defaults keep a hand-built
+    #: `LoopResult` legal, and `disclosure()` prints the absence AS an
+    #: absence rather than inventing an identity (doctrine 20).
+    input_n: int = 0
+    input_fingerprint: str = ""
 
     @property
     def whole_flags(self):
@@ -491,6 +503,27 @@ class LoopResult:
         the result without the call site in view.
         """
         out = []
+        # THE DRAFT, BOTH ENDS, FIRST — the loop is the one caller that
+        # transforms its input, so its result must identify what went in AND
+        # what came out or neither figure below can be tied to a text. The
+        # `(UNCHANGED)` marker is load-bearing: a loop that emitted its input
+        # verbatim is a fact a reader wants at a glance, and comparing two
+        # 12-hex strings by eye is exactly the step that gets skipped.
+        fp_out = draft_fingerprint(self.lines)
+        if self.input_fingerprint:
+            out.append(f"  DRAFT: handed in {self.input_n} line(s), md5 "
+                       f"{self.input_fingerprint} — emitted "
+                       f"{len(self.lines)} line(s), md5 {fp_out}"
+                       + (" (UNCHANGED)"
+                          if fp_out == self.input_fingerprint else ""))
+        else:
+            # A hand-built result (tests do this; the dataclass docstring
+            # licenses it) recorded no input. Say so — an absent identity
+            # printed as nothing would read exactly like the pre-2026-08-16
+            # reports this line exists to end.
+            out.append(f"  DRAFT: emitted {len(self.lines)} line(s), md5 "
+                       f"{fp_out} — input NOT RECORDED (result built "
+                       f"without one; `revise_loop` always records it)")
         if self.blueprint_declared:
             out.append("  LAYERS: rhyme, slop floor, declared returns, AND "
                       "meter + song-function (blueprint declared"
@@ -537,9 +570,16 @@ class LoopResult:
 
 
 def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
-           blueprint, subdivision, assume, profile):
+           blueprint, subdivision, assume, profile, input_n=0, input_fp=""):
     """Build the `LoopResult`, and take the disclosure off `inspect()` on the
     way out. Called at all three stop conditions and nowhere else.
+
+    `input_n`/`input_fp` are the ENTRY draft's identity, captured by
+    `revise_loop` before its first round — by the time any stop condition
+    fires, `lines` has been rebound round by round and the input is gone
+    from every local. They default to the not-recorded state only so this
+    function's contract matches `LoopResult`'s; `revise_loop` always passes
+    them.
 
     ONE extra `inspect()` per RUN — not per round, not per line — on the
     final draft, at the moment the loop is already holding it. What it reads
@@ -577,7 +617,9 @@ def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
         whole=list(found["whole"]),
         pairs_mandated=g["pairs_mandated"],
         pairs_judged=g["pairs_judged"],
-        pairs_refused=g["pairs_refused"])
+        pairs_refused=g["pairs_refused"],
+        input_n=input_n,
+        input_fingerprint=input_fp)
 
 
 def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
@@ -738,6 +780,14 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # home (doctrine 1). `frozenset()` is the default, so every stop
     # condition below reads exactly as it did before this existed.
     pursue = frozenset(getattr(rdecl, "pursue", ()) or ())
+    # THE INPUT'S IDENTITY, CAPTURED BEFORE THE FIRST ROUND CAN REBIND
+    # `lines`. Every accepted proposal below does `attempt, lines = ...`, so
+    # by any stop condition the entry draft exists nowhere else — this pair
+    # is the only record of what this run was actually asked to revise, and
+    # it rides the result (`LoopResult.input_n`/`.input_fingerprint`) for the
+    # reason every other coordinate does: the caller who needs it is reading
+    # the result without the call site in view.
+    input_n, input_fp = len(lines), draft_fingerprint(lines)
     rounds = []
     for round_no in range(1, rdecl.max_rounds + 1):
         briefs = reviser.brief(lines, mandate, profile=profile,
@@ -751,7 +801,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         flagged = _open_lines(briefs, pursue)
         if not flagged:
             return _close(reviser, "success", lines, rounds, [], mandate,
-                          blueprint, subdivision, assume, profile)
+                          blueprint, subdivision, assume, profile,
+                          input_n=input_n, input_fp=input_fp)
 
         # THE OTHER HALF OF `inspect()`, READ OFF ITS OWN KEY. `brief()` above
         # calls `inspect()` and keeps only `per_line`; the `whole` half —
@@ -789,14 +840,16 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                                   sorted(fixed_this_round)))
         if not fixed_this_round:
             return _close(reviser, "no_progress", lines, rounds, flagged,
-                          mandate, blueprint, subdivision, assume, profile)
+                          mandate, blueprint, subdivision, assume, profile,
+                          input_n=input_n, input_fp=input_fp)
 
     briefs = reviser.brief(lines, mandate, profile=profile,
                            blueprint=blueprint, subdivision=subdivision,
                            assume=assume)
     unresolved = _open_lines(briefs, pursue)
     return _close(reviser, "round_limit", lines, rounds, unresolved, mandate,
-                  blueprint, subdivision, assume, profile)
+                  blueprint, subdivision, assume, profile,
+                  input_n=input_n, input_fp=input_fp)
 
 
 if __name__ == "__main__":

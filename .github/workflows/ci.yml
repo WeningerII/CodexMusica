@@ -530,14 +530,66 @@ jobs:
     # ~~if: always()~~ — REPLACED 2026-08-16, AND IT WAS PUTTING A RED X ON
     # EVERY COMMIT ON EVERY BRANCH WITH AN OPEN PR.
     #
-    # `always()` INCLUDES THE CANCELLED STATE. An open PR means every push
+    # `always()` INCLUDES THE CANCELLED STATE. ~~An open PR means every push
     # spawns two runs — one `push`, one `pull_request` — and the concurrency
-    # group cancels the `push` one within seconds, EVERY TIME, by design. That
-    # cancellation makes `needs.catalog.result` = `cancelled`, this job ran
-    # anyway, and the `*)` arm below turned it into
+    # group cancels the `push` one within seconds, EVERY TIME, by design.~~
+    # That cancellation makes `needs.catalog.result` = `cancelled`, this job
+    # ran anyway, and the `*)` arm below turned it into
     # `::error::catalog shards reported 'cancelled'` + exit 1. MEASURED on run
     # #426 (`c806457`): the run started 00:30:34 and this job errored at
     # 00:30:41 — SEVEN SECONDS IN, with no shard having done any work at all.
+    #
+    # THAT STRUCK SENTENCE IS FALSE AND WAS FALSE WHEN WRITTEN — REPINNED
+    # 2026-08-16, AND THE FIX BELOW IS UNAFFECTED (read the last paragraph of
+    # this block before touching `if:`). It is wrong twice:
+    #
+    #   "EVERY push spawns two runs" — 6 of the 18 shas on this branch spawned
+    #   a `push` run and NOTHING else (`e743663`, `868a23c`, `aaabe56`,
+    #   `7a89606`, `a6e0924`, `e076bf0`). A PR-synchronize run is not
+    #   guaranteed for every push.
+    #
+    #   "cancels the `push` one, EVERY TIME, by design" — three push runs on
+    #   this branch ran to completion and reported SUCCESS (#435 `1f53c93`,
+    #   #438 `a6e0924`, #440 `e076bf0`), and on `1f53c93` it was the
+    #   PULL_REQUEST run that died (#436 cancelled) while its push twin
+    #   succeeded. The tendency is real and strong — of the 12 shas carrying
+    #   both events, 11 lost the push run and 1 lost the PR run — but a
+    #   10-of-12 tendency was written down as a guarantee, which is doctrine
+    #   58's shape applied to a RULE rather than to a number.
+    #
+    # WHAT THE CONFIG ACTUALLY SAYS, read off the `concurrency:` block above
+    # rather than inferred from a pattern: the group is
+    # `CI-{repo}@{branch}` and THE EVENT NAME IS NOT IN THE KEY. So every run
+    # on a branch — `push` and `pull_request` alike — shares one group, and
+    # `cancel-in-progress` means WHICHEVER RUN STARTS LATER KILLS WHATEVER IS
+    # STILL RUNNING. Nothing singles out `push`. A run dies because something
+    # followed it: usually its own PR twin seconds later, sometimes the NEXT
+    # PUSH (that is why 4 of those 6 push-only shas were also cancelled — by
+    # my next commit, not by a twin), and it survives only when nothing
+    # follows before it finishes. The push run tends to lose because it is
+    # the one that starts FIRST, not because it is a push.
+    #
+    # AND THIS FILE ALREADY SAID THAT, CORRECTLY, FORTY LINES UP. The
+    # `concurrency:` header's reason 2 reads "`github.head_ref ||
+    # github.ref_name` is the branch NAME under both events, so they collide
+    # and THE NEWER CANCELS THE OLDER" — the accurate rule, written when the
+    # key was designed. The struck sentence was written later, from watching
+    # runs rather than from re-reading the block it was describing, and the
+    # two sat 40 lines apart in one file saying different things about one
+    # mechanism. That is the defect this repo keeps finding in its own
+    # records (doctrine 1: one question, one reading), and it is the reason
+    # the correction is written HERE, next to the wrong one, instead of
+    # quietly deleting it.
+    #
+    # NONE OF THIS WEAKENS THE `if:` BELOW, and the correction is recorded
+    # here precisely so nobody unwinds the guard on the strength of a
+    # corrected premise. `!cancelled()` rests on "a run being torn down must
+    # not be aggregated" — which is true whoever tore it down and whichever
+    # event was the victim. The guard would be equally necessary if the PR
+    # run were always the one cancelled, and 2026-08-16's run #441/#442 pair
+    # is the demonstration: `fe6a525`'s push run was cancelled, its
+    # `catalog-result` reported SUCCESS rather than manufacturing an error,
+    # and the surviving PR run #442 finished green with 0 failed jobs.
     #
     # The check run is stamped on the SHA, so the commit list showed a red X
     # against four consecutive green commits while the `pull_request` run on

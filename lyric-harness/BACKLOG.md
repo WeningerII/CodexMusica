@@ -548,6 +548,182 @@ assert the id, which would have caught gap 6 and would catch the rest), **a
 prints** (would have caught `verify_doctrines.py`). None is built; they are
 listed here rather than asserted as coverage.
 
+### 4.7 · The three "cosmetic" findings, and why two of them were not `CLOSED 2026-08-16`
+
+The same audit filed four findings as **cosmetic**. One (gap 6 filing the
+Welsh prose arm under "WHAT REMAINS BLOCKED" when its own source says
+*Blocker: **neither***) was repaired with the stale records, since it was the
+same sentence. The other three are here, and re-measuring them moved two out
+of the cosmetic class entirely.
+
+**`--isochronous` on `verify` was NOT cosmetic — it was the only coordinate in
+the CLI that could be READ, CHANGE THE ANALYSIS, and leave no trace.** The
+audit had reported it honestly as neither read nor inert: it could not
+construct an input that distinguished the two runs, so under doctrine 20 it
+refused to call it either. Measured now, at the API: `Reviser.inspect` with an
+`Isochrony` RETIRES the `NO_SETTING` refusal from `whole`, and on `brief` it
+also adds `EVEN_DIVISION_LANDINGS` and four `TUPLET_REQUIRED`. So the
+coordinate was read the whole time. **`verify` could not show it because
+`verify` prints a SET DIFFERENCE** — verdict plus fixed/broken/untargeted/
+modal_taken — and the flag moves the BEFORE and AFTER drafts identically, so
+everything it adds or removes cancels. Byte-identical output, measured, on a
+pair where `--subdivision 2` does change the verdict body.
+**IT WAS ONE VERB, NOT THE FLAG, AND THE FILE ALREADY PROVED THAT.**
+`quality/test_verbs.py` §29 has asserted since 2026-08-15 that `song` with
+`--subdivision 1`, `--subdivision 2`, `--isochronous` and none of them
+produces FOUR DISTINCT reports — so the coordinate was demonstrably visible on
+`song`, and it is visible on `fit` (`NO_SETTING` ×2 gives way to `ASSUMED`)
+and on `brief`. `verify` alone could not show it, because `verify` alone
+reports a DIFFERENCE rather than a state. §32 is therefore not a second copy
+of §29: §29 pins that the flag is read, §32 pins that the verb which cannot
+show a read flag says so anyway.
+The fix is the disclosure, not the analysis: the `BLUEPRINT:` banner named
+`subdivision` in BOTH states (declared, or refusing to assume one) and named
+isochrony in NEITHER, so a reader saw one meter coordinate disclosed and
+reasonably read that as the set. It now names both, and the two runs differ.
+Doctrine 1, and the sharpest case of it in this repo: **an analysis states the
+coordinates it ran under, INCLUDING the ones whose effect cancels** — those
+are exactly the ones no output will reveal.
+*A method note worth keeping: the first measurement of this said the flag was
+byte-identical on `brief` too, which would have made it a much larger defect.
+It was wrong — the run had REFUSED on a scheme/draft length mismatch and never
+reached the meter layer at all. A byte-identical pair of refusals is not
+evidence about a coordinate neither run consulted.*
+
+**`collisions N` was one number for three kinds.** It sat at the end of the row
+that keeps `mandated`/`judged`/`refused` apart for doctrine 79, summing a set
+`_collision_code` splits into three codes *because* "they are three different
+reports": an unintended RHYME, a pair that is NOT a rhyme under this harness's
+own band, and the same word twice. A writer does something different about
+each. Measured on a four-line refrain: `collisions 4` was two REPEATs and two
+rhymes. It is now `collisions 4 — unasked-rhyme 2  same-word 2`, on its own
+line rather than appended to counts it shares no denominator with (a collision
+is a pair the mandate did NOT ask about). `quality/test_verbs.py` §32 pins
+both, and asserts the kinds SUM to the total so a code added to
+`_collision_code` and not to the label map cannot vanish from the breakdown
+while the total still counts it.
+
+**A WITHDRAWN FINDING FROM THIS SAME LANE, AND IT IS THE MOST USEFUL THING IN
+IT.** While repinning the report header I re-ran `RESULTS_REVISION_LOOP.md`
+§6's ledger row — `mandated 8   judged 8   refused 0   violations 0
+collisions 26`, marked **REPRODUCES EXACTLY** — measured **69**, and recorded
+that the total had gone stale and the cause was unknown. **That was wrong. The
+row was right the whole time.** The 69 came from running
+`quality/fixtures/mandate_song.txt` when §6's input is
+`examples/never_been_to_a_scene.txt`, which was deleted at 11aa19b and no
+longer exists in the tree — recoverable only through the
+`git show 11aa19b^:...` line that document prints eight lines above the table
+I was editing. On the recovered draft it is
+`collisions 26 — unasked-rhyme 12  not-a-rhyme 7  same-word 7`.
+
+**Nothing could have caught it, and that is the finding.** Both drafts are
+**41 lines**, so a 41-character mandate bound cleanly to the wrong one and the
+run returned a complete, plausible report instead of refusing — the same shape
+as every defect in this backlog, arriving from the input side. A length that
+matches is not an identity that matches, and `Reviser.report()` takes `lines`
+and therefore ~~**prints nothing that identifies the draft it read**~~
+(**TRUE AT THE TIME OF THE ERROR AND FALSE SINCE LATER THE SAME DAY** — the
+fingerprint paragraph below closed exactly this, and this clause is kept in
+the past it describes rather than silently absorbed by its own fix): a
+measurement recorded from it could not be tied back to its input by anyone
+holding only the output. That is why a wrong-input run and a right-input run
+were indistinguishable on the page, and it is why this took a second reading
+rather than a failing check.
+
+**It was caught by a figure the same table already carried.** The row two below
+records `7 × NEAR_COLLISION` from the 2026-08-13 re-run; the recovered draft's
+breakdown reads `not-a-rhyme 7`. Two derivations, different days, different
+routes, same number — which is what a cross-check is for, and it existed before
+the error did.
+
+**AND THE 69 IS ACCOUNTED FOR RATHER THAN DISMISSED, which is the difference
+between identifying a wrong input and merely disowning a number.** On this
+mandate every collision is a pair over the cut that the mandate did not put in
+one group, and all 8 mandated pairs clear the cut (`violations 0`), so
+`collisions = (pairs >= THETA_COLLISION) - pairs_mandated` exactly. Measured on
+both drafts:
+
+| draft | lines | distinct end words | pairs >= 0.9 | - mandated | = collisions |
+|---|---|---|---|---|---|
+| `never_been_to_a_scene` (§6's input) | 41 | 34 | 34 | 8 | **26** |
+| `mandate_song` (what I ran) | 41 | 33 | 77 | 8 | **69** |
+
+Both identities hold to the unit. The gap is the DRAFT and nothing else: the
+fixture is constructed test data with **2.3x** as many pairs over the cut, which
+is what a fixture built to exercise mandate machinery should look like. No
+harness behaviour changed, on any date. **The candidate shape this suggests is a draft FINGERPRINT in
+the report header** (line count and a content hash), so a pinned figure names
+the text it came from. ~~Not built; listed, like the shapes in §4.6.~~
+**BUILT 2026-08-16, same day, on every surface a figure gets quoted from.**
+`quality.revise.draft_fingerprint(lines)` — md5 over `"\n".join(lines)`,
+first 12 hex, the width and algorithm the repo's existing citations
+(`c9b9e7bf4bd2` and kin) already established — and the four surfaces print
+it:
+- `Reviser.report()` — `draft: N line(s), md5 X` above the mandated/judged
+  counts, the header this whole error was recorded from;
+- `brief`/`song` (one shared `_print_brief_report`) — printed the moment
+  `rv.brief()` returns and BEFORE any render path forks, because the early
+  returns include `nothing flagged`, which is precisely the report a wrong
+  draft must not produce anonymously;
+- `verify` — `BEFORE:`/`AFTER :` fingerprints above the verdict, gated on a
+  mandate being present so a refusal stays the first thing printed. The verb
+  needed it most: its output is a set difference, so it is structurally the
+  least able to show its inputs;
+- `revise_loop` — the one caller that CHANGES the draft, so
+  `LoopResult.input_n`/`.input_fingerprint` are captured before the first
+  round can rebind `lines`, and `disclosure()` leads with
+  `DRAFT: handed in N, md5 X — emitted M, md5 Y`, with a derived
+  `(UNCHANGED)` marker because comparing two hex strings by eye is the step
+  that gets skipped. A hand-built `LoopResult` prints its missing input AS
+  missing (doctrine 20), never as an invented identity.
+A refusing run prints no fingerprint on any surface, and that is the design:
+a refusal names its own cause; it was the SUCCESSFUL, plausible report that
+used to name nothing. `quality/test_verbs.py` §33 pins all four surfaces —
+recomputability by the stated rule, the 41=41 same-length case, determinism,
+cross-surface agreement (`brief` and `verify` must fingerprint one file
+identically), order (inputs above the verdict they precondition), and both
+directions of the loop's `(UNCHANGED)` marker — 16 checks (~~13~~), proved
+two-sided: **16 of 16 fail against the pre-fix tree, with no crash.**
+**THE THREE ADDED CHECKS WERE BOUGHT BY AN ADVERSARIAL REVIEW OF THE FIRST
+DRAFT, and what it found is worth the sentence:** a hostile mutation that
+computed `verify`'s AFTER fingerprint from a DIFFERENT draft went **13/13
+green** against the first version, because the CLI hashes were pinned by
+shape and cross-surface agreement but never recomputed against ground truth
+— a fingerprint test committing the fingerprint's own defect (agreement is
+not correctness; two surfaces printing the same wrong identity agree). §33
+now recomputes the expected md5 of each CLI file FROM THE CONTENT THE TEST
+ITSELF WROTE, per side, and the mutant fails exactly the check built for it.
+The review also exercised the previously untested absent-input branch (a
+hand-built `LoopResult` must print `input NOT RECORDED`, never an invented
+identity), and surfaced two boundary facts now stated where they live: the
+`verify` fingerprints print above a DECLARED-but-unbindable mandate's
+refusal — kept, because an arity refusal is a claim about these drafts and
+belongs under their identity — and `"\n".join` is not injective over line
+lists, so the identity is the printed PAIR (count, hash), recorded in
+`draft_fingerprint`'s own docstring with the measured collision.
+What this does NOT
+do, stated so nobody reads coverage into it: it cannot retroactively validate
+any figure pinned before today — those name no fingerprint and never will —
+and it does not verify a draft against a PATH, only against content someone
+still has. It makes the next wrong-input run legible, not impossible.
+
+**The third finding was correctly cosmetic — it is a VERDICT, and it was
+recorded nowhere.** The question "should the collision cut and `grade()`'s cut be one?"
+is invited by `COLLISION_CUT_IS_SCALAR_ONLY`'s own text, which calls the
+difference "the defect ... surviving here". The answer is NO, and it is now
+written beside the cut in `Reviser._matrix` where the change would be made,
+re-measured 2026-08-16 on a symlinked copy rather than carried from the audit:
+adding `admits()` to the collision test deletes every `NEAR_COLLISION` (a
+`wall`~`floor` pair at 0.996 goes from four findings to none) and silently
+stops `MANDATE_GROUPS_INDISTINGUISHABLE` firing on a refrain, because
+`group_merges` condition (a) requires the cross edges to be IN the collision
+set and REPEAT is precisely what `admits()` rejects — 4 collisions and the
+finding, down to 2 and no finding. **The test churn is not the cost and was the
+only thing that looked like one:** `test_revise.py` goes 280/0 to 265/15, all
+in one file, while `test_loop`, `test_coda` and `test_mandate_language` do not
+move. A recorded verdict is cheap; rediscovering it by shipping the change is
+not.
+
 ---
 
 ## TIER 5 — whole absent layers (`MISSING` B, C, D, G, H)
@@ -675,7 +851,7 @@ never one (doctrine 79).
 | MISSING entries by status | 48 OPEN / 15 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1002** DECLARED-public top-level functions/classes under `quality/` and the root — **164** named by another production module, **255** by tests only, **529** only inside their own module, **10** by nothing anywhere, **44** REFUSED (34 ambiguous, 5 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **19** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1003** DECLARED-public top-level functions/classes under `quality/` and the root — **165** named by another production module, **255** by tests only, **529** only inside their own module, **10** by nothing anywhere, **44** REFUSED (34 ambiguous, 5 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **19** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **57 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
