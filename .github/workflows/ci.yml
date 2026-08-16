@@ -1290,9 +1290,32 @@ jobs:
     # than papered over: this lot measured the two ADDED files and did not
     # re-time the 42 that were already here, so ~545 and ~920 inherit whatever
     # 505 and 375 were worth (doctrine 58 — the addend is measured, the base is
-    # quoted). `timeout-minutes` is the only decision either number feeds, and
-    # it does not turn on the difference.
-    timeout-minutes: 30
+    # quoted). ~~`timeout-minutes` is the only decision either number feeds, and
+    # it does not turn on the difference.~~
+    #
+    # **IT TURNED ON THE DIFFERENCE — REPINNED 2026-08-16 FROM 30, AND THE
+    # GUARD FIRED ON A RUN WHOSE EVERY STEP HAD PASSED.** Run #425 on
+    # `5c4206a`: `gate`, `record`, `verify` and `freshness` all SUCCESS, and
+    # this job ran the 44 cheap suites (success), the song-profile calibration
+    # (success) and the revision loop (success) — then was cancelled TWO
+    # SECONDS after its last step finished. 23:54:24 -> 00:26:44 is **32m20s
+    # of WALL CLOCK against a 30-minute guard**, so a fully green run reported
+    # `cancelled`.
+    #
+    # THE ARITHMETIC ABOVE WAS NEVER WALL CLOCK AND THE GUARD WAS SET FROM IT.
+    # "~920 CPU-s / ~15.3 min" is a CPU-SECOND sum; this job is wall-clock
+    # bound and pays process startup on every one of 46 files. MEASURED per
+    # step on #425: cheap suites **21m52s**, calibration **47s**, revision pair
+    # **9m29s**. That is doctrine 58 one axis out — a recorded count became a
+    # threshold nobody re-measured, in the comment that says the count feeds
+    # exactly one decision.
+    #
+    # 60 is ~2x the MEASURED 32m20s, which is the "runaway guard, not a budget"
+    # this comment opens by claiming. The cheap step grew because six sections
+    # were added to it on 2026-08-15 (test_verbs §29/§30, test_provenance
+    # §11/§12, test_declared_inputs §15, test_phonology §10k) and nobody
+    # re-priced the job.
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v5
 
