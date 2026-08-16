@@ -250,6 +250,65 @@ def corpus():
     return _FILES, _SRC
 
 
+def test_the_walk_reports_what_it_did_not_walk():
+    """Doctrine 34 can only be asked of a file the WALK HANDED OVER.
+
+    `load()` reads two extensions. Anything else under `corpus/` reached no
+    check at all — so for a `.csv` or `.tsv` the question was not answered NO,
+    it was NOT ASKED, and the audit would report the tree clean without ever
+    having looked. MEASURED 2026-08-16: all 269 files are `.txt`/`.json`, so
+    the hole was LATENT — which is exactly why it survived a year of runs.
+
+    THE PLANT IS THE POINT. A latent hole cannot be demonstrated by asserting
+    zero: `unwalked() == []` is true of a working check and of a deleted one
+    alike. So this section CREATES a file the walk skips, requires the audit
+    to name it, and removes it — the same two-sided shape every other lane
+    this week used, applied to a population that is empty today.
+    """
+    import tempfile
+    base = tempfile.mkdtemp()
+    sub = os.path.join(base, "corpus")
+    os.makedirs(sub)
+    for n in ("a.txt", "b.json", "c.csv", "d.tsv", "notes.md"):
+        with open(os.path.join(sub, n), "w", encoding="utf-8") as fh:
+            fh.write("x\n")
+    walked = {os.path.basename(r) for r, _cf in AC.load(sub)}
+    skipped = {os.path.basename(p) for p in AC.unwalked(sub)}
+    check("the walk reads exactly the declared extensions",
+          walked == {"a.txt", "b.json"}, sorted(walked))
+    check("and everything else is REPORTED as unwalked rather than dropped "
+          "in silence — the population doctrine 34 was never asked of",
+          skipped == {"c.csv", "d.tsv", "notes.md"}, sorted(skipped))
+    check("the two sets partition the tree: nothing is in both, nothing is "
+          "in neither (doctrine 79 — two counts, and they must add up)",
+          not (walked & skipped) and len(walked) + len(skipped) == 5,
+          f"{len(walked)} walked + {len(skipped)} unwalked")
+    check("the exclusion is a NAMED constant, not a literal inside the walk",
+          AC.EXTS == (".txt", ".json"), str(AC.EXTS))
+    # AND THE SHIPPED TREE, stated rather than assumed: today it is empty, and
+    # a NOTE per skipped file means the committed shape moves the moment it is
+    # not — `--verify-shape` is what turns this from a report into a gate.
+    # THE WIRING, NOT THE HELPER — and this is the check the first draft
+    # of this section did not have. Everything above tests `unwalked()`
+    # and `load()` directly, so stubbing check A's call to `for p in []`
+    # left all of it GREEN: the population was computed correctly and
+    # reported to nobody, which is the exact shape this whole lane is
+    # about. Drive the AUDIT and require the finding.
+    _files, findings = AC.audit(sub)
+    named = sorted(f.path for f in findings if "NOT WALKED" in f.what)
+    check("the AUDIT reports every skipped file — not just the helper "
+          "that can find them",
+          {os.path.basename(p) for p in named}
+          == {"c.csv", "d.tsv", "notes.md"}, named)
+    check("...and it reports the tree it was HANDED, not the shipped one "
+          "— the first implementation called `unwalked()` with no root",
+          all(p.startswith(sub) or "/corpus/" in p for p in named)
+          and not any("song/" in p for p in named), named[:3])
+    check("the shipped corpus/ has NOTHING the walk skips today, so this "
+          "check is latent by measurement and not by construction",
+          AC.unwalked() == [], AC.unwalked()[:5])
+
+
 def test_every_file_reaches_a_row():
     """Doctrine 34, the live assertion. A file with no row IS the defect."""
     files, src = corpus()
