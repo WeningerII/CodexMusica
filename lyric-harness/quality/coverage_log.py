@@ -154,5 +154,113 @@ def inspect_codes(lines, mandate, **kw):
     return per, whole
 
 
+def codes_for(lines, mandate, **kw):
+    """-> frozenset of the codes that FIRED. The measurement, rebuilt.
+
+    Reads `Reviser.inspect()`'s structured `per_line` and `whole` halves.
+    Refusal codes are findings here and are counted as fired: `NO_SETTING`
+    firing IS the layer refusing, which is a state the experiment must see,
+    not a silence it must explain away.
+    """
+    sys.path.insert(0, ROOT)
+    from quality.revise import Reviser
+    d = Reviser().inspect(lines, mandate, **kw)
+    return frozenset({f.code for v in d["per_line"].values() for f in v}
+                     | {f.code for f in d["whole"]})
+
+
+def effect_of(lines, mandate, base, **delta):
+    """-> (added, removed) when `delta` is applied to `base`.
+
+    COORDINATES ARE MEASURED DIFFERENTIALLY AND THAT IS THE WHOLE POINT.
+    Seeing `--isochronous` in an argv proves the flag was TYPED, never that it
+    was READ -- and "declared, consumed, and dropped" is a defect shape this
+    repo has shipped more than once. A coordinate whose finding set does not
+    move on a draft that gives it something to say is UNREAD on that draft.
+    Two inspects, one diff, no prose.
+    """
+    before = codes_for(lines, mandate, **base)
+    after = codes_for(lines, mandate, **dict(base, **delta))
+    return after - before, before - after
+
+
+#: Known-answer cases. Each states what MUST fire and what MUST NOT, so the
+#: instrument is exercised in both directions -- an instrument that can only
+#: confirm firing cannot report silence, and silence is the finding.
+def validate(tmp=None):
+    """-> (passed, failures). Re-validation, two-sided, against known answers.
+
+    Rungs 0 and 1 disqualified two earlier measurements. Both were caught by
+    KNOWN-ANSWER cases rather than by inspection, so this function is the
+    instrument's own gate and every case below names the defect it regresses.
+    """
+    import json as _json, tempfile
+    tmp = tmp or tempfile.mkdtemp()
+    bp = os.path.join(tmp, "v.json")
+    _json.dump({"sections": [{"name": "v1", "bars": 2,
+                              "meter": {"beats": 4, "unit": 4,
+                                        "groups": [2, 2]}, "start_bar": 1}],
+                "lines": [{"text": "the kitchen light is burning at half past four",
+                           "bar": 1, "beat": 1, "duration": 4, "section": "v1"},
+                          {"text": "and nobody came back to climb the stairs",
+                           "bar": 2, "beat": 1, "duration": 4, "section": "v1"}]},
+               open(bp, "w"))
+    sys.path.insert(0, ROOT)
+    from quality import fit as FT
+    fail = ["the kitchen light is burning at half past four",
+            "and nobody came back to climb the stairs"]
+    good = ["the kitchen light is burning at half past four",
+            "and nobody came back to close the door"]
+    sub = {"blueprint": bp, "subdivision": FT.Subdivision(2, source="validate")}
+    out, bad = [], []
+
+    def check(name, cond, detail=""):
+        out.append((name, bool(cond), detail))
+        if not cond:
+            bad.append(name)
+
+    base = codes_for(fail, "AA")
+    check("POSITIVE: a couplet that breaks its mandate fires SCHEME_VIOLATION",
+          "SCHEME_VIOLATION" in base, sorted(base))
+    # DEFECT 6's REGRESSION, and the reason this function exists. The old
+    # grep counted `PREDICTABLE_RHYME` as fired because it is NAMED inside
+    # `EXTRAPOLATED_LENGTH`'s prose about tolerance bands. It must not be here.
+    check("NEGATIVE: a code merely NAMED in another finding's prose is NOT "
+          "fired (PREDICTABLE_RHYME)",
+          "PREDICTABLE_RHYME" not in base, sorted(base))
+    check("NEGATIVE: nor RADIF_LICENSED, same prose route",
+          "RADIF_LICENSED" not in base, sorted(base))
+    clean = codes_for(good, "AA")
+    check("NEGATIVE: a couplet that KEEPS its mandate does not fire "
+          "SCHEME_VIOLATION", "SCHEME_VIOLATION" not in clean, sorted(clean))
+    check("...and the instrument is not simply blind on that draft — it still "
+          "reports the floor", bool(clean), sorted(clean))
+    nosub = codes_for(fail, "AA", blueprint=bp)
+    check("POSITIVE: no subdivision declared -> NO_SUBDIVISION and NO_SETTING",
+          {"NO_SUBDIVISION", "NO_SETTING"} <= nosub, sorted(nosub))
+    withsub = codes_for(fail, "AA", **sub)
+    check("declaring a subdivision RETIRES NO_SUBDIVISION",
+          "NO_SUBDIVISION" not in withsub and "NO_SETTING" in withsub,
+          sorted(withsub))
+    # DEFECT 5's REGRESSION, measured DIFFERENTIALLY. `fit` without `-v` hid
+    # these; a presence check on argv would have proved nothing either way.
+    added, removed = effect_of(fail, "AA", sub,
+                               assume=FT.Isochrony(source="validate"))
+    check("DIFFERENTIAL: --isochronous is READ — it retires NO_SETTING",
+          "NO_SETTING" in removed, "removed=%s" % sorted(removed))
+    check("...and adds the findings a declared even division earns",
+          {"TUPLET_REQUIRED", "EVEN_DIVISION_LANDINGS"} <= added,
+          "added=%s" % sorted(added))
+    return out, bad
+
+
 if __name__ == "__main__":
+    if sys.argv[1:2] == ["--validate"]:
+        rows, bad = validate()
+        for name, ok, detail in rows:
+            print("  %s  %s" % ("PASS" if ok else "FAIL", name))
+            if not ok:
+                print("        %s" % (detail,))
+        print("\n%d checks, %d failing" % (len(rows), len(bad)))
+        sys.exit(1 if bad else 0)
     print(json.dumps(run(*sys.argv[1:]), indent=1))

@@ -486,6 +486,43 @@ prediction had been right; only the measurement was blind.
 result**, and it is the one this rung actually produced. Six defects, all in
 the instrument; none yet in the harness.
 
+### The measurement, REBUILT AND RE-VALIDATED 2026-08-16
+
+`quality/coverage_log.py --validate` — 9 known-answer checks, **9 passing**,
+and proved two-sided by mutation rather than asserted.
+
+**Two functions replace the grep.** `codes_for()` reads `Reviser.inspect()`'s
+structured `per_line` and `whole` halves; refusal codes count as FIRED, because
+`NO_SETTING` firing IS the layer refusing and that is a state the experiment
+must see rather than a silence it must explain away.
+
+**`effect_of()` is the more important one: coordinates are now measured
+DIFFERENTIALLY.** Seeing `--isochronous` in an argv proves the flag was TYPED,
+never that it was READ — and "declared, consumed, and dropped" is a defect
+shape this repo has shipped more than once. A coordinate whose finding set does
+not move, on a draft that gives it something to say, is UNREAD on that draft.
+Two inspects, one diff, no prose anywhere in the path.
+
+**The cases carry the defects they regress.** Defect 6 is pinned by a NEGATIVE:
+`PREDICTABLE_RHYME` must NOT be in the fired set for the rung-1 draft, though
+it is named in `EXTRAPOLATED_LENGTH`'s prose about tolerance bands. Defect 5 is
+pinned by the DIFFERENTIAL: `--isochronous` must retire `NO_SETTING` and add
+`TUPLET_REQUIRED` + `EVEN_DIVISION_LANDINGS`.
+
+**Two-sidedness, by mutation on a symlinked copy — and the two kill DIFFERENT
+checks, which is the property that matters:**
+
+| mutation | fails | which |
+|---|---|---|
+| `codes_for` returns nothing — a BLIND instrument | 6 of 9 | every POSITIVE, plus all three coordinate checks |
+| `codes_for` returns the whole vocabulary — a CREDULOUS instrument | 6 of 9 | every NEGATIVE, plus all three coordinate checks |
+
+A validator that only caught blindness could not have caught defect 6, which
+was an over-report; one that only caught credulity could not have caught
+defects 3 and 5, which were under-reports. Both directions are now pinned, and
+the three coordinate checks die under either — they are the strictest cases
+because a differential needs the instrument to be right about two runs at once.
+
 ### What rung 1 still owes
 
 The `--propose=defer:` writer session, `verify`, and the diff — none of which
