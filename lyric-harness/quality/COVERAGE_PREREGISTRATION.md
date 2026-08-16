@@ -680,6 +680,134 @@ without A in front of it is a QUESTION FOR THE RE-RUN and is not answered here
 — predicting it would be exactly the reasoning-instead-of-measuring this whole
 experiment exists to avoid.
 
+### RUNG 1, RE-RUN — the `defer:` session against the repaired brief, 2026-08-16
+
+Same draft, same fingerprint `385ff1e4055e`, same mandate `AA`, same blueprint
+at `--subdivision 2`. **It answers the question the paragraph above declined to
+predict, and the answer is the uncomfortable one: B fires HARDER, and A was
+hiding it.**
+
+**Defect A does not recur.** L1's brief now reads
+`group A [1, 2] — this line must rhyme with: L2 ('stairs')`, live, at exit 4.
+
+**The writer's two answers**, both checked against the harness's own verbs
+before submitting (`weight` for the syllable count, `score` for the pair — a
+fact that turns out to matter, see the bias note below):
+
+    L1  at four the kitchen light still glares      8 syllables, 8 slots
+    L2  and nobody climbed the stairs               7 syllables
+
+`glares ~ stairs` is **1.000 RHYME**. So L1's answer repaired BOTH its own
+`SLOTS_EXCEEDED` and the pair's `SCHEME_VIOLATION` in one move.
+
+#### B is worse when A is fixed, because the pair is now CLEAN when it goes stale
+
+In run 1 the stale field pointed at a deleted word and the violation it named
+was genuine — the field merely failed to fix. Here the violation has ALREADY
+BEEN REPAIRED inside the round, and L2's brief:
+
+1. displays `[flag] SCHEME_VIOLATION … evidence: score 0.612; 'four' ~ 'stairs'`
+   — a flag that no longer exists;
+2. offers **24 words all answering `four`**, every one of which would BREAK the
+   pair that now holds (`glares ~ floor` = **0.612 NO_RELATION**);
+3. **FORBIDS `stairs`** — the end word that is now correct — under
+   `3. The end word is NOT one of the FORBIDDEN words above … rejects on its
+   own.`
+
+So the field would MANUFACTURE the violation the brief claims is standing. A
+fixed defect A is what made this reachable: while A stood, the pair really was
+broken at this point in the round, and the stale field was merely useless
+rather than actively destructive.
+
+#### BOTH PATHS RUN FROM THE SAME SUSPENDED STATE, and the loop inverts
+
+| the writer | L2 answer | outcome |
+|---|---|---|
+| **ignores** the stale field, keeps the word the brief FORBADE | `and nobody climbed the stairs` | **SUCCESS**, 1 round, md5 `0a394f1f1442` |
+| **follows** the brief, takes offered words (`floor`, `star`, `car`) | 3 attempts x 2 rounds | **NO_PROGRESS**, L2 `unresolved`, md5 `01897e80c1e8` |
+
+The rejection, verbatim and identical on every one of the six attempts:
+`introduced 1 new flagged finding(s) [(2, 'SCHEME_VIOLATION')] while fixing 3;
+a revision may not trade one defect for another`. Round 2 re-asked the same
+three `(line, attempt)` keys and the replay served the same answers back, which
+is correct determinism and is why `NO_PROGRESS` is the right stop.
+
+**The loop rewards ignoring its own brief and punishes following it**, and the
+punished move is the one doctrine 9's machinery explicitly offered.
+
+#### WHY `stairs` SURVIVED RULE 3 — the exact anatomy of B
+
+`verify()` re-derives `b_before` from the lines it is HANDED. The loop hands it
+the MID-ROUND draft, where L1 is already `glares`. Measured, that fresh brief
+for L2 is:
+
+    must_answer : [('A', [1, 2], [(1, 'glares')])]
+    candidates  : 0        forbidden : []
+    codes       : CROWDED, PROMINENCE_EXCEEDS_HEADS, SLOTS_EXCEEDED
+
+No rhyme finding, so `wants` is False, so no field and no forbidden list — and
+RULE 3, which reads `b.forbidden_modal`, is inert. **The brief a writer READS
+and the brief `verify()` ENFORCES are two different objects, and only the
+second is current.** `quality/loop.py:741-748` is exactly right about the
+second and says nothing about the first; that is the sentence, stated as a
+measurement rather than an argument.
+
+Note what let the correct answer through: the field staying behind `wants` —
+the half of the defect-A fix that was deliberately NOT changed. Unplanned, and
+it is the "keeps the enforcement honest by construction" clause doing real
+work.
+
+#### DEFECT C — `revise` and `verify` disagree about the same before/after pair
+
+The `verify` verb, on the draft the LOOP accepted:
+
+    BEFORE: 2 line(s), md5 385ff1e4055e
+    AFTER : 2 line(s), md5 0a394f1f1442
+    VERDICT: REJECTED
+      L2 took the modal candidate 'stairs' …
+      fixed: [(0,'EXTRAPOLATED_LENGTH'), (1,'SLOTS_EXCEEDED'),
+              (2,'SCHEME_VIOLATION'), (2,'SLOTS_EXCEEDED')]
+
+Same draft, same mandate, same blueprint, same subdivision — **SUCCESS from
+`revise`, REJECTED from `verify`.** Root: `b_before` is derived from whatever
+`before` the caller passes, the loop passes a mid-round draft and the verb
+passes the original, and the modal exclusion is computed against it. So a
+writer driving by hand (`brief` then `verify`) gets the opposite verdict from
+one driving with `revise`, and the hand-driver is told the right answer is
+slop. Doctrine 1, between two surfaces of one module.
+
+#### DEFECT D — `forbidden_modal` carries two rules and the message names the wrong one
+
+`brief()` builds the list as the modal head **plus the incumbent word**:
+`joint_field(calls, exclude=(cur,))` then
+`if cur and cur not in b.forbidden_modal: b.forbidden_modal.append(cur)`.
+MEASURED: `modal_field('four')` is `['door','more','before','shore','sore',
+'or']` with and without the exclusion — **`stairs` is not a modal candidate for
+`four` under any spelling.** It is on the list only as the word already there.
+
+`verify()`'s rejection nonetheless reads `L2 took the modal candidate
+'stairs'`, which is false in its own terms. Two reasons to forbid a word — *it
+is the slop direction* and *re-proposing what is there is not a revision* — one
+list and one message (doctrine 79's shape, applied to a rejection rather than a
+count). Both rules are right; the report cannot say which fired, and here it
+names the one that did not.
+
+#### THE COVERAGE DIFF IS STILL NOT SCORED, and the reason is now about the WRITER
+
+**The SUCCESS arm is contaminated and the contamination is me.** I checked
+`score glares -- stairs` outside the loop and I already knew defect B existed,
+so I knowingly ignored a FORBIDDEN list I had reason to distrust. A writer who
+trusts the harness cannot do that. The honest measure of what this harness does
+to such a writer is the other arm: **NO_PROGRESS, L2 unresolved, six answers
+spent, final draft carrying its original second line.**
+
+So this run's codes stay out of the numerator too — not because a defect
+produced a wrong answer, as in run 1, but because the run that converged did so
+by routing around the instrument. That is the bias control this
+pre-registration named in §"bias controls" and it is firing on its author.
+Scoring coverage needs a rung whose writer has no privileged knowledge of the
+harness's defects, which is a condition on the SESSION and not on the draft.
+
 ## D. Judgement calls carried forward
 
 The derivation flagged its own uncertainty; carried here unresolved rather than
