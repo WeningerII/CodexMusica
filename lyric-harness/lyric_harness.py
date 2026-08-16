@@ -1986,6 +1986,27 @@ RHYME_RELATIONS = {"RHYME", "RIME_RICHE"}
 #: rhyme?" must answer no while the graph keeps the name.
 NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 
+#: THE UNINTENDED-RHYME CUT, and it lives HERE because two modules apply it to
+#: the same question and one definition is the only thing that keeps them
+#: equal. `check_scheme` below and `quality/revise.py`'s collision scan report
+#: the SAME SET — every pair at or above this scalar that shares no group —
+#: and `revise.py`'s own `COLLISION_CUT_IS_SCALAR_ONLY` finding says in as many
+#: words that "the two constants must not drift". UNTIL 2026-08-16 NOTHING
+#: STOPPED THEM: this module spelled a bare literal and `revise.py` declared a
+#: second constant of its own, so a lot moving either moved exactly one. `quality/mutate.py`
+#: QR6 is the proof rather than the worry — it raises the threshold to 1.1 to
+#: check the constant is load-bearing, and against the old spelling it moved
+#: `revise.py` ALONE, leaving the two halves of the repo reporting different
+#: collision sets while every suite stayed green.
+#:
+#: NOT UNIFIED WITH EVERY OTHER 0.9 IN THIS FILE, and that is a decision and
+#: not an oversight: `check_cynghanedd`'s llusg test also reads `>= 0.9` and is
+#: a DIFFERENT QUESTION — does a final penult rhyme an earlier syllable in the
+#: same line — which happens to have been given the same number. Binding it to
+#: this name would make a Welsh-imitation rule move whenever the English
+#: collision report was retuned (doctrine 1: one coordinate, one question).
+THETA_COLLISION = 0.9
+
 
 def admits(s, theta):
     """Does this scored pair count as RHYME at `theta`?
@@ -2489,7 +2510,12 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                         (i + 1, j + 1, s["total"],
                          f"{s['relation']} not rhyme (conjunctive band)"))
             else:
-                if s["total"] >= 0.9:
+                if s["total"] >= THETA_COLLISION:
+                    # THE CUT IS THE NAMED CONSTANT SINCE 2026-08-16 —
+                    # it was the literal `0.9` here and `THETA_COLLISION`
+                    # in `quality/revise.py`, two spellings of one number
+                    # that the collision finding itself says must not
+                    # drift. One definition now, at the top of this file.
                     # RELATION IS CARRIED NOW (2026-08-11), not dropped. A
                     # scalar-only cut here reported correctly-typed ASSONANCE
                     # and CONSONANCE edges under the label "unintended

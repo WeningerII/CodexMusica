@@ -943,7 +943,7 @@ MUTATIONS = [
             "why a positive-case suite built on letter schemes cannot see it."),
     ),
     Mutation(
-        name="QR6", layer="comparator", file=REVISE,
+        name="QR6", layer="comparator", file=LH,
         old="THETA_COLLISION = 0.9",
         new="THETA_COLLISION = 1.1",
         subset=T_LOOP,

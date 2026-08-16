@@ -3153,6 +3153,51 @@ def test_the_comparator_and_the_meter_flags_reach_the_graders():
           "'accepted and dropped' shape this whole section is about")
 
 
+def test_the_collision_cut_is_one_constant_and_cannot_drift():
+    print("\n31. the unintended-rhyme cut is ONE constant, not two spellings "
+          "of one number (FIXED 2026-08-16)")
+    # `quality/revise.py`'s own `COLLISION_CUT_IS_SCALAR_ONLY` finding says the
+    # two halves of this repo report THE SAME SET and that "the two constants
+    # must not drift". Until 2026-08-16 nothing stopped them: `revise.py`
+    # declared `THETA_COLLISION` and `lyric_harness.check_scheme` spelled a
+    # bare `0.9`, so a lot moving either moved exactly one. A promise in a
+    # comment is not a mechanism (doctrine 1).
+    import importlib
+    LH = importlib.import_module("lyric_harness")
+    RV = importlib.import_module("quality.revise")
+    check("`quality.revise.THETA_COLLISION` IS `lyric_harness`'s — the same "
+          "object, not a second literal that happens to be equal",
+          RV.THETA_COLLISION is LH.THETA_COLLISION,
+          f"revise {RV.THETA_COLLISION!r} / harness {LH.THETA_COLLISION!r}")
+    # AND THE SOURCE CARRIES ONE DEFINITION, which is the half an identity
+    # check cannot see: two modules could each hold `= 0.9` and `is` would
+    # still be True, because CPython caches small float constants per code
+    # object only when they are equal by value — the assertion above would
+    # pass against exactly the defect this closes if the two literals happened
+    # to be folded. Counted in the TEXT instead.
+    import re
+    root = os.path.join(ROOT)
+    decls = []
+    for rel in ("lyric_harness.py", os.path.join("quality", "revise.py")):
+        src = open(os.path.join(root, rel), encoding="utf-8").read()
+        n = len(re.findall(r"^THETA_COLLISION\s*=", src, re.M))
+        decls.append((rel, n))
+    check("exactly ONE module declares it",
+          sum(n for _r, n in decls) == 1, str(decls))
+    # THE THIRD `0.9` IN THIS FILE IS A DIFFERENT QUESTION AND MUST STAY ONE.
+    # `check_cynghanedd`'s llusg test — does a final penult rhyme an earlier
+    # syllable — was given the same number and binding it to this name would
+    # make a Welsh-imitation rule move whenever the English collision report
+    # was retuned. Asserted so a later lot "tidying the constants" has to read
+    # this rather than discover it.
+    src = open(os.path.join(root, "lyric_harness.py"), encoding="utf-8").read()
+    check("and the llusg threshold is still a SEPARATE literal, deliberately "
+          "not bound to it",
+          len(re.findall(r'if s\["total"\] >= 0\.9:', src)) == 1,
+          "one question, one coordinate — the collision cut and a Welsh "
+          "imitation's rhyme test are not the same setting")
+
+
 def test_the_title_a_lyric_declares_reaches_the_check_or_refuses():
     print("\n30. a `--- TITLE:` line in the LYRIC is not dropped in silence "
           "(FIXED 2026-08-15)")
@@ -3250,6 +3295,7 @@ if __name__ == "__main__":
     test_every_verb_reads_its_own_arguments()
     test_the_comparator_and_the_meter_flags_reach_the_graders()
     test_the_title_a_lyric_declares_reaches_the_check_or_refuses()
+    test_the_collision_cut_is_one_constant_and_cannot_drift()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")
