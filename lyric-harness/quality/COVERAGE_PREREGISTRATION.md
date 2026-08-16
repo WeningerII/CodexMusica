@@ -523,11 +523,104 @@ defects 3 and 5, which were under-reports. Both directions are now pinned, and
 the three coordinate checks die under either — they are the strictest cases
 because a differential needs the instrument to be right about two runs at once.
 
+### RUNG 1 RESULT — the `defer:` session, RUN 2026-08-16. Two harness defects, and they compound.
+
+The prediction was that gaps would sit in HANDOFFS rather than layers. Both do.
+Neither is reachable by the stub proposer; both required a writer.
+
+**DEFECT A — a line's brief states something FALSE about the mandate.**
+The loop flagged **L1** for a METER flag (`SLOTS_EXCEEDED`, 11 syllables into 8
+slots) and told the writer, under the heading `THE RHYME MANDATE ON L1`:
+
+> `(no rhyme group declared for this line)`
+
+L1 is in group A. `m.groups_of(1)` is `[0]`, label `A`; `m.requirement(1,2)` is
+`REQUIRE_RHYME`. MECHANISM, `quality/revise.py:2377`:
+
+```python
+wants = any(f.code in RHYME_FINDINGS for f in fs)
+if wants and groups:        # populates must_answer / must_rhyme_with
+```
+
+`must_answer` is gated on the line carrying a RHYME FINDING, not on the
+mandate. L1 carried only meter findings, so the block fell through to a default
+sentence that makes a claim about the MANDATE while the true condition is about
+FINDINGS. The two are different statements and only one of them is true.
+
+**Consequence, demonstrated:** told no rhyme group existed, the writer rewrote
+L1 to fix the meter — `the kitchen light still burns`, 5 syllables — changing
+the end word from `four` to `burns`. **The loop ACCEPTED it.** A writer
+following the brief exactly silently redefined the word the other half of the
+only mandated pair has to answer.
+
+**DEFECT B — the next line's brief then cites the DELETED word, and offers a
+field computed against it.** L2's brief displays the current draft correctly:
+
+```
+   L1  the kitchen light still burns
+>> L2  and nobody came back to climb the stairs
+```
+
+and two lines later says `group A [1, 2] — this line must rhyme with: L1
+('four')`, followed by **24 offered words** — `war, floor, store, bore,
+implore, for, your, are, sure, car, far, anymore, poor, bar, star, nor, tour,
+pure, whore, therefore, score, cure, secure, ignore`. Every one answers the
+deleted word. MEASURED: `four ~ floor` **1.000 RHYME**; `burns ~ floor`
+**0.555 NO_RELATION**. Taking the brief at its word and answering with an
+offered word leaves `SCHEME_VIOLATION` standing and the loop re-asks.
+
+**THIS HALF IS DOCUMENTED — AND THE ARGUMENT FOR IT DOES NOT COVER A WRITER.**
+`quality/loop.py:741-748` states the tradeoff plainly: one `brief()` per round,
+so a later line's candidate list "can go stale mid-round… deliberately not
+chased: `verify()` always re-derives the true finding set… so a stale candidate
+is simply rejected rather than wrongly accepted — correctness does not depend
+on re-briefing every line."
+
+That argument is **sound about acceptance and silent about guidance**. Nothing
+wrong is accepted, which is what it claims. But it was written when the only
+proposer was the mechanical stub, for which a rejected attempt costs nothing.
+**`--propose=defer:` changed the economics of a retry** — the proposer is now a
+person or a model — and "rejected rather than wrongly accepted" stops being a
+sufficient defence when the rejection follows a 24-word list the harness
+offered and the writer had no way to doubt. A stale field is cheap to reject
+and expensive to follow.
+
+**How they compound:** B alone would be a bounded annoyance — a stale field
+inside one round, self-correcting at the next. A is what lets the end word move
+at all, because it is the reason the writer never knew L1 was half of a
+mandated pair. Neither is visible to the stub, which never reads the mandate
+block and never reasons about a word it was offered.
+
+**Not fixed here, on purpose.** Defect A looks small and local — gate the block
+on the mandate rather than on the finding set. Defect B is architecturally
+significant: re-briefing per line changes the loop's cost model, and
+`loop.py`'s own docstring argues the current shape on measured grounds. That is
+a decision to take deliberately, not inside the run that found it.
+
 ### What rung 1 still owes
 
-The `--propose=defer:` writer session, `verify`, and the diff — none of which
+~~The `--propose=defer:` writer session, `verify`, and the diff — none of which
 mean anything until the measurement is rebuilt on `inspect_codes()` and
-re-validated against a known answer, exactly as rung 0 was.
+re-validated against a known answer, exactly as rung 0 was.~~ **REPINNED
+2026-08-16.** The rebuild landed at `9a8a426` (9 known-answer cases, two
+mutations killing different halves) and the `defer:` session ran against it;
+its result is the section above. TWO ITEMS REMAIN, and they are both about the
+DENOMINATOR rather than about the draft:
+
+- **`verify` on the before/after pair.** The session ended at exit 4 with
+  `SCHEME_VIOLATION` standing, so there is no converged AFTER to verify yet —
+  and producing one means answering L2 against `burns`, which is answering a
+  question the harness asked wrongly (defect A). Held until the fix decision.
+- **The coverage diff against §A–D.** Deferred for the same reason and NOT
+  because it is expensive: a code that fired only because the writer was
+  following a false brief is not evidence that a writing session reaches it.
+  Scoring this run's codes against the denominator would put defect A's own
+  output in the numerator (doctrine 79 — the refusal and the answer are not
+  summed, and a wrong answer is neither).
+
+That is a HALT, not a completion: rung 1 found what it was built to find at the
+first handoff and the ladder does not advance past an instrument reading a
+brief the harness got wrong.
 
 ## D. Judgement calls carried forward
 
