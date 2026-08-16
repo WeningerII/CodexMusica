@@ -484,7 +484,23 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
         out.append("  something else — a meter finding, say — in which case "
                    "keeping it is accepted.")
     else:
-        out.append("  (none — this line has no readable end word to keep)")
+        # THE SAME FALSE-CAUSE BUG AS THE HEAD'S BRANCH, one block down —
+        # found 2026-08-16 by the rung-1 blind run, in the prompt handed to
+        # the writer before they had answered anything. L1 of that draft ends
+        # on 'four', which is perfectly readable; this block said "no readable
+        # end word to keep" because the INCUMBENT IS ONLY RECORDED WHERE THE
+        # FIELD IS COMPUTED, and L1 carried a meter flag and no rhyme finding.
+        # An empty value stated the wrong reason for being empty, which is the
+        # whole of defect D one rule over.
+        if getattr(brief, "field_computed", False):
+            out.append("  (none — this line's end word could not be read, so "
+                       "there is no incumbent to keep)")
+        else:
+            out.append("  (none recorded — no candidate field was computed "
+                       "for this line, and the incumbent is only recorded")
+            out.append("  where one is. This says nothing about whether the "
+                       "end word is readable: it very likely is, and it is")
+            out.append("  still the word you would be replacing.)")
     out.append("")
 
     out.append("LINES THAT MUST NOT CHANGE")

@@ -993,6 +993,102 @@ pre-registration named in §"bias controls" and it is firing on its author.
 Scoring coverage needs a rung whose writer has no privileged knowledge of the
 harness's defects, which is a condition on the SESSION and not on the draft.
 
+### RUNG 1 — COMPLETE. The blind run, and the coverage diff, 2026-08-16
+
+The two earlier `defer:` sessions were written by an author who knew every
+defect in the harness, so neither could be scored (§"the coverage diff is still
+not scored"). This one was written by an agent with **no session history, no
+repository access and no tools** — it was handed the rendered `pending.prompt`
+text and nothing else, and answered from that alone (`tool_uses: 0` on both
+turns). Repo access was withheld deliberately: `CLAUDE.md` now documents
+defects A–D in full, so a writer allowed to read the tree would have been
+handed the answer key.
+
+That also sharpens the question from "can a writer converge" to **"is the brief
+sufficient on its own"**.
+
+Same draft, same fingerprint `385ff1e4055e`, mandate `AA`, blueprint at
+`--subdivision 2`.
+
+    L1  the kitchen light is on their chairs
+    L2  and no one came back up the stairs        md5 c70eb712783e
+
+**SUCCESS after 1 round, 2 answers, 0 rejections.**
+
+#### THE BRIEF WAS SUFFICIENT, AND DEFECT B FIRED ANYWAY
+
+B fired exactly as before and on an independent writer, which is what makes it
+a property of the harness rather than of how I write: after L1 moved to
+`chairs`, L2's brief still showed `SCHEME_VIOLATION … 'four' ~ 'stairs'`, still
+said `must rhyme with: L1 ('four')`, and still offered 24 words answering
+`four` — while the true pair `chairs ~ stairs` was **1.000 RHYME**, already
+repaired.
+
+**The writer converged anyway, and the reason is the defect-D fix.** It kept
+`stairs` and shortened the line for meter — it never touched the stale field.
+The block that told it that was legal is `THE WORD ALREADY THERE`, added hours
+earlier when the two rules were split: *"keeping the word you were given takes
+nothing … a line that keeps it is refused by rule 4 UNLESS the rewrite repaired
+something else — a meter finding, say — in which case keeping it is accepted."*
+So the D repair gave a blind writer a correct path that did not require
+trusting the half of the brief B corrupts. Not designed for that; measured.
+
+#### THE FOUR CELLS — scored from §A4's own table, never summed
+
+The denominator is parsed out of §A4 in this file rather than re-derived, so
+the score cannot drift from the record. The parse returns **94 codes, 52
+EXPECTED-REACHABLE**, reproducing this document's own "rung 1 tests at most 52
+of 94" exactly.
+
+| cell | count |
+|---|---:|
+| `FIRED` ∩ EXPECTED-REACHABLE | **12 of 52** |
+| `SILENT` ∩ EXPECTED-REACHABLE | **40** ← headline |
+| `FIRED` ∩ DECLARED-UNREACHABLE | **0** |
+| observed outside §A4 entirely | **0** |
+
+FIRED: `CROWDED`, `EXTRAPOLATED_LENGTH`, `FUNCTION_UNDECLARED`,
+`HOOK_UNDECLARED`, `MODAL_RHYME`, `NO_SETTING`, `PROMINENCE_CANNOT_ALIGN`,
+`PROMINENCE_EXCEEDS_HEADS`, `SCHEME_VIOLATION`, `SHARED_SUFFIX`,
+`SINGLE_INSTANCE`, `SLOTS_EXCEEDED`.
+
+**THE TWO ZERO CELLS ARE THE RESULT MOST WORTH KEEPING.** Nothing fired that
+the model declared unreachable, and nothing fired that the model does not list
+at all. §A4's reachability marks — written before any draft — held exactly,
+which is the pre-registration doing the one job a pre-registration exists for.
+
+**AND 40 IS NOT 40 DEFECTS. Saying so is not a hedge, it is the definition.**
+`EXPECTED REACHABLE` was assigned as *"a two-line draft CAN reach this"*, not
+*"this draft WILL"*. `UNREADABLE_END_WORD` needs an unreadable word;
+`CLICHE_PAIR` needs a cliché; `NO_SUBDIVISION` fires only when a subdivision is
+NOT declared, and this run declared one. So the 40 is the honest measure of a
+different quantity: **how much of the reachable surface one ordinary writing
+session touches — 23%.** The experiment's own hypothesis was that gaps where
+the program does not force usage are where it is soft, and this is that number.
+
+**WHAT SEPARATES THE TWO POPULATIONS IS THE NEXT MEASUREMENT AND IS NOT DONE.**
+Of the 40, some need a different DRAFT (a cliché pair, an OOV word), some need
+a different DECLARATION at the same rung (`--cliques` for
+`MANDATE_NOT_INDEPENDENT`, omitting `--subdivision` for `NO_SUBDIVISION`, a
+declared hook for `HOOK_ABSENT`), and some may be marked `R2` and be reachable
+by NO rung-1 configuration at all — that last set is the only one that is a
+finding about the harness, and it is unmeasured. It is a mechanical sweep over
+declarations, not a writing task, so it does not need a blind writer.
+
+#### ONE MORE DEFECT, FOUND IN THE PROMPT BEFORE THE WRITER ANSWERED
+
+`THE WORD ALREADY THERE` printed *"(none — this line has no readable end word
+to keep)"* on L1 — whose end word is `four`, plainly readable. The incumbent is
+only recorded where the FIELD is computed, and L1 carried a meter flag and no
+rhyme finding, so an empty value stated the wrong reason for being empty. That
+is the twin of the empty-head branch repaired the same day, one rule down, and
+it was fixed after the run rather than during it: the harness must not move
+while it is being measured. Three states there too now, and the no-field case
+says explicitly that it implies nothing about readability.
+
+**RUNG 1 IS COMPLETE.** It cost six harness defects (A, B, C, D, and the two
+renderer twins), of which five are fixed and B stands as a declared decision.
+
 ## D. Judgement calls carried forward
 
 The derivation flagged its own uncertainty; carried here unresolved rather than
