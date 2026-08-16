@@ -113,12 +113,30 @@ abbreviate it, this check goes red and the choice gets made in the open.
 THE TOLERANCES ARE COUNTED ON EVERY RUN, not described here and left to rot.
 The check re-runs itself with each fold disabled and prints how many rows NEED
 it, so a fold that no row exercises is DISCLOSED as unexercised rather than
-carried as though it were doing work. Measured at the time of writing: WRAP
-and PERIOD are load-bearing, the trailing-annotation tolerance is exercised by
-exactly one row (59), and EMPHASIS / STRUCK / DASH / PIPE are unexercised --
-both sides happen to spell those the same way today. They are kept because
-they are facts about the two formats rather than facts about today's rows,
-and the print is what stops that claim from going stale.
+carried as though it were doing work. WHICH FOLDS ARE DOING WORK IS THEREFORE
+NOT WRITTEN DOWN HERE: the `[note] rows that NEED each fold` line and the
+`carrying a trailing annotation` clause in the index headline are the answer,
+re-derived every run. The SHAPE of the answer is what this paragraph is for --
+some folds are load-bearing and some are unexercised, and both are kept,
+because they are facts about the two FORMATS rather than facts about today's
+rows.
+
+~~Measured at the time of writing: WRAP and PERIOD are load-bearing, the
+trailing-annotation tolerance is exercised by exactly one row (59), and
+EMPHASIS / STRUCK / DASH / PIPE are unexercised.~~
+
+STRUCK 2026-08-16, AND THE PARAGRAPH THAT CARRIED IT IS THE ONE THAT FORBIDS
+IT. `(59)` was TRUE at `be3ad5a` (2026-08-14 00:02) and FALSE eleven minutes
+later at `f570fbe` (00:13), which annotated row 11 and made it two. It then
+stood unstruck for two days across ~20 commits while the very next sentence
+claimed "the print is what stops that claim from going stale" -- the print
+never read the docstring, so nothing compared them and nothing could go red.
+That is doctrine 58 (a number in a docstring is a threshold nobody
+re-measures) committed three lines above this file's own statement of it, and
+doctrine 48 (a check that cannot fail is decoration) committed by a sentence
+CLAIMING a check. The repair is not a corrected number -- a corrected number
+would rot the same way. It is that the count is now stated NOWHERE but the
+run.
 
 WHAT MECHANICAL DOES AND DOES NOT CLAIM. It claims that at least one INSTANCE
 of the doctrine is pinned by a command that goes red. It does not claim the

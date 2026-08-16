@@ -1040,13 +1040,39 @@ class Reviser:
                                 for. The only one of the three the old single
                                 code was ever right about.
         `NEAR_COLLISION`        the scalar clears `THETA_COLLISION` and the
-                                relation is ASSONANCE or CONSONANCE, so this
-                                module's own `grade()` would call it a
-                                VIOLATION if the pair were mandated. Calling
-                                it an unintended RHYME is the brief and the
-                                verdict asking different questions
+                                relation is NOT a rhyme, so this module's own
+                                `grade()` would call it a VIOLATION if the
+                                pair were mandated. Calling it an unintended
+                                RHYME is the brief and the verdict asking
+                                different questions
                                 (`RESULTS_REVISION_LOOP.md` §1) surviving in
                                 a second place.
+
+                                STATED AS THE FALL-THROUGH IT IS, REPINNED
+                                2026-08-16 from ~~"the relation is ASSONANCE
+                                or CONSONANCE"~~. This is the `return` under
+                                every other branch, so it takes the COMPLEMENT
+                                of `RHYME_RELATIONS | {REPEAT}` -- today
+                                ASSONANCE, CONSONANCE **and `NO_RELATION`**,
+                                plus any relation a later lot adds. Naming two
+                                members of an open set is the exact shape that
+                                cost this file `grade()`'s NO_RELATION bug
+                                (fixed 2026-08-15, see the comment there): an
+                                ENUMERATION written where a RULE was meant,
+                                and the band's strongest rejection falling
+                                through every name in it. The enumeration in
+                                the gloss outlived the enumeration in the
+                                code by a day.
+
+                                `NO_ANCHOR` routes here too and is
+                                UNREACHABLE IN PRACTICE, by measurement and
+                                not by construction: an unanchored pair scores
+                                `total` **0.0**, so it cannot clear a cut of
+                                0.9. That is a fact about the SCORER, not
+                                about this function -- if a later lot ever
+                                gives an unreadable pair a non-zero scalar,
+                                "nothing to compare" starts being reported as
+                                a near-collision with no branch changed here.
         `REPEAT_ACROSS_GROUPS`  the same word twice. Doctrine 3's first
                                 sentence: identity is not rhyme.
 

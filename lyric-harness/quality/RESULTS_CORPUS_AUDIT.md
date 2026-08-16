@@ -101,8 +101,22 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
-> **REPINNED 2026-08-13: 429 findings — 1 FAIL, 230 WARN, 198 NOTE**, over the
-> same 269 files. `python3 quality/audit_corpus.py`, exit 1. **TWO of the three
+> **REPINNED 2026-08-16: 429 findings — 1 FAIL, 229 WARN, 199 NOTE**, over the
+> same 269 files (~~230 WARN, 198 NOTE~~, 2026-08-13). ONE finding changed
+> SEVERITY and none appeared or vanished: `_ABSENT_ON_PURPOSE` gained the
+> `FAILED SOURCE SEARCH` phrasing, so
+> `SEARCH:non-hattatal-third-edition-2026-08-11` — a doctrine 39 recorded
+> failed search, spelled the way the table actually spells it — stopped being
+> charged as a doctrine 34 WARN and became a NOTE. The total is unchanged at
+> 429 because it is one finding counted in a different column.
+> **AND THIS LINE IS WHY THE REPIN IS HERE AND NOT ONLY IN THE `.py`.**
+> `--verify-shape` announces itself as *"RESULTS_CORPUS_AUDIT.md's committed
+> shape against this run"* and then reads `PINNED_SHAPE` out of
+> `audit_corpus.py`; it has never read this file. So the sentence a human
+> greps for and the constant the gate compares are TWO records with one name,
+> and only one of them can go red. Repinned together, by re-running the
+> command — not by editing a number to meet a gate.
+> `python3 quality/audit_corpus.py`, exit 1. **TWO of the three
 > FAILs were fixed and this file was never told**: E's two duplications are
 > gone, and the survivor is D's `corpus/fas_hafez.LICENSE.txt`, declared `fas`
 > and unreadable under it (1.0% of 626 sampled tokens). The WARN and NOTE

@@ -390,11 +390,29 @@ It has an `if __name__ == "__main__"` and non-test callers.
 (The line count is now stated in a sentence naming exactly ONE module, because
 `python3 quality/verify_entries.py`'s `MODULE_LINE_COUNT` shape REFUSES a count
 whose module is ambiguous and the previous phrasing named three in one breath.
-The 1,566 is `wc -l` and `str.splitlines()`, which agree. `audit_register.py`
-D22 prints **1,567** for the same file: it computes `src.count("\n") + 1`, which
-counts a phantom final line whenever a file ends in a newline. That is an
-off-by-one in the auditor, not a drift in the module, and it is written up in
-this cell's `PATCHES-not-mine.md` rather than patched from here.) **Both branches were taken, and the file says which and
+~~The 1,566 is `wc -l` and `str.splitlines()`, which agree. `audit_register.py`
+D22 prints **1,567** for the same file~~ — **BOTH FIGURES STRUCK AND NOT
+REPLACED, 2026-08-16.** They were quoted in the PRESENT TENSE ("The 1,566 IS",
+"D22 PRINTS") five lines under a strike of 1,566 itself, so this one section
+stated the same quantity struck and unstruck at once; the file is 1,652 today
+and D22 prints 1,653, so the drift had reached 86.
+THE REASON NOTHING CAUGHT IT IS THE SENTENCE ABOVE, INVERTED. `MODULE_LINE_COUNT`
+was already live — it resolves the **1,652** at the head of this cell — but it
+matches a count followed by the word `lines` beside exactly ONE module name,
+and these two said "for the same file" instead of naming it. So the paragraph
+explaining that the count must name one module was itself the paragraph that
+did not, and it sat directly beneath the fix it describes.
+NO THIRD PAIR OF NUMBERS IS WRITTEN HERE. The count has ONE home in this cell
+— the `**1,652 lines**` claim above, which `MODULE_LINE_COUNT` re-derives every
+run — and what is restated here is only the CONVENTION, which does not rot:
+`wc -l` and `str.splitlines()` agree with each other; `audit_register.py` D22
+computes `src.count("\n") + 1` and therefore reports exactly one MORE than
+either, for any file ending in a newline. That is an off-by-one in the auditor,
+not a drift in the module, and it is written up in this cell's
+`PATCHES-not-mine.md` rather than patched from here. `MISSING.md` M-16 repinned
+its copy of these figures and this one did not, which is that entry's own
+sentence — *"Two registers, one file, two answers"* — coming back true with the
+registers swapped.) **Both branches were taken, and the file says which and
 why:** the knowledge sets are mined into `relations.py` — `Syllable` fields may
 now each hold a scalar or a `Readings` frozenset, with the TYPE as the marker so
 there is no flag to forget — **and** the module is kept as a comparison runner
@@ -459,6 +477,76 @@ denominator.
 every shape carries a TRUE probe and a FALSE probe so a clean run is a null with
 a positive control behind it (doctrines 31, 76); a shape matching no live
 segment is printed `[dead]` rather than passing quietly (doctrine 28).
+
+**AND THE REMAINDER WAS MEASURED RATHER THAN ESTIMATED, 2026-08-16.** A
+standing audit had flagged **13** stale-record findings across `CLAUDE.md`,
+`MISSING.md`, `BACKLOG.md`, `ci.yml`, `revise.py`, `audit_corpus.py` and
+`verify_doctrines.py`. All 13 were RE-MEASURED against the tree before any was
+touched — the standing rule since two consecutive lanes found the audit
+substantially stale — and **4 had closed on their own**: `ci.yml`'s file census
+(repinned 2026-08-15, and `ls quality/test_*.py` is 48 = 44 + 2 + 2 today),
+the `grade()`/`admits()` divergence (closed by the 2026-08-15 `NO_RELATION`
+fix — the recorded counterexample now returns a violation when measured), and
+two counters rows (cleared by `--write`). **9 were live and are repaired here.**
+
+**The headline is the coverage number, and it is bleak.** Of the 9 live stale
+records, exactly **ONE** was inside a live instrument's reach: §4.4's line
+counts, which `MODULE_LINE_COUNT` REFUSED for `AMBIGUOUS_SCOPE` because the
+sentence said "the same file" instead of naming the module — a refusal that is
+doctrine 20 working correctly and reporting nothing anyone read.
+**ONE MORE WAS VISIBLE AND BLESSED, WHICH IS WORSE THAN UNSEEN.**
+`audit_corpus.py`'s marker list did not recognise the phrasing three
+`sources.tsv` rows use for a recorded failed search, so it printed a doctrine
+34 WARN at a row obeying doctrine 39 — and `PINNED_SHAPE` had that WARN in its
+committed count, so `--verify-shape` returned PASS **because** the wrong
+verdict was being produced, and would have gone RED the moment it was fixed.
+A pin records what a run DOES, not what it SHOULD do; pinning a shape freezes
+its defects alongside its findings, and the only thing that separates them is
+a reader. That is the price of pinning, and it is worth paying — but it is a
+price, and this is what it looks like. The other
+**7 were outside every instrument in this repo**, and 3 of them sat in files
+whose own prose claims a check: a docstring saying "the print is what stops
+that claim from going stale" (the print never read the docstring), a paragraph
+saying "a number restated in prose beside its own counter is the next thing to
+drift" (restating a number beside its own counter), and an auditor comment
+saying "an auditor that reports it as a defect is punishing the table for
+working" (reporting it as a defect).
+
+**And the dominant failure mode is not carelessness — it is LATENCY.** 4 of
+the 9 were TRUE WHEN WRITTEN and falsified afterwards by a commit that did not
+revisit them, **two of those within the hour**: the annotation count went
+false **11 minutes** later (`be3ad5a` 00:02:21 -> `f570fbe` 00:13:48), and
+`sun/much`'s "Remaining" went false **21 minutes** later (`01a6e1c` 01:01:33
+-> `0c3a0b1` 01:22:57). A record can be stale before its author has finished
+the session that wrote it, so "check the records at the end" is not a
+schedule that works.
+
+**The third has a different mechanism and is the one worth generalising.**
+Gap 6's `data/sources.tsv:271` citation went false with NOT ONE CHARACTER OF
+THE SENTENCE CHANGING, and with nothing about Welsh changing either: `7ab38df`
+(2026-08-14, *"two editions were named in a corpus header and had no
+provenance row"*) inserted two unrelated English rows at positions 211 and
+220, and every citation below them slid by 2. So `:271`/`:272` — written to
+mean two `NOT FOUND` rows — came to mean a SATISFIED public-domain row and a
+RIGHTS REFUSAL, which is the worst possible pair to confuse for a sentence
+about what is blocked. **A line number into an append-only table is not an
+address, it is an offset from a moving origin**, and it can be invalidated by
+an edit that never touches the subject, the sentence, or the file the sentence
+is in. Every remaining `data/sources.tsv:NNN` citation in this repo carries
+that latent. Gap 6's are by `source_id` now.
+
+**What this buys the shape list.** Every repair above was written to be
+strike-and-date rather than overwrite (doctrine 17), and where a count could
+not be put inside a command's reach it was **struck and NOT replaced** — five
+of the nine now name the constant and the command instead of a digit, because
+a corrected number in the same unwatched place rots on the same clock. The
+candidate shapes this sweep surfaced, in priority order: **a `path:NNN`
+citation into a tracked TSV** (mechanically checkable — resolve the row and
+assert the id, which would have caught gap 6 and would catch the rest), **a
+`len(CONST)` claim about a named module constant** (would have caught gap 7's
+`VARIATION_KINDS`), and **a docstring figure that the same module's own run
+prints** (would have caught `verify_doctrines.py`). None is built; they are
+listed here rather than asserted as coverage.
 
 ---
 
@@ -584,7 +672,7 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 49 OPEN / 14 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 48 OPEN / 15 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
 | public symbols by where they are referenced | **1002** DECLARED-public top-level functions/classes under `quality/` and the root — **164** named by another production module, **255** by tests only, **529** only inside their own module, **10** by nothing anywhere, **44** REFUSED (34 ambiguous, 5 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **19** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
@@ -633,8 +721,32 @@ never one (doctrine 79).
 > The gate is not a bug — `__all__` is the module's own declaration of its
 > surface and doctrine 1 does not let the counter outrank it — but the cell
 > did not disclose it, so the cell now says DECLARED-public, states the rule,
-> and counts the public top-level defs it excludes (18 at this reading, listed
-> in the evidence). `fit.AssumedMeter` is one of them, and that it is public,
+> and counts the public top-level defs it excludes (~~18 at this reading~~ —
+> **the count is STRUCK and NOT replaced, 2026-08-16; the row four cells up
+> and the `OUTSIDE THE POPULATION` line of `python3 quality/counters.py` are
+> the reading, and they agree with each other at 19**), listed
+> in the evidence.
+>
+> **IT WAS NEVER 18, AND ONE COMMIT WROTE BOTH NUMBERS.** `git blame` puts
+> this sentence at `5afd656`, and `git show 5afd656:./BACKLOG.md` has **19**
+> in the generated table at the same commit — so the hand-typed paragraph
+> disagreed with the machine-written cell beside it from the first second
+> either existed. It then read as present tense ("at this reading") for two
+> days with no date and no strike.
+> **NOTHING WAS EVER GOING TO CATCH IT.** `counters.py --check` reads the 14
+> rows between this file's two counters-block markers and nothing else — it
+> says so itself, and the marker strings are deliberately NOT quoted in this
+> sentence, because writing one in prose makes the block parser count it and
+> turns the table into "2 opening and 1 closing markers", which is a FAIL this
+> paragraph earned once while being written — and
+> `Counter.restated` carries prose regexes for exactly two
+> figures, `mutations declared` and `sonnet battery`. This one was outside
+> every instrument in the file, which is why the repair is a strike rather
+> than a corrected digit: a third number here would be outside them too.
+> This is the exact defect §4's own words name — *"a number restated in prose
+> beside its own counter is the next thing to drift"* — committed in the
+> paragraph that names it.
+> `fit.AssumedMeter` is one of them, and that it is public,
 > documented as the only way past a refusal, and invisible to this census is a
 > fact about `fit.py`'s `__all__` for that file's owner to settle.
 

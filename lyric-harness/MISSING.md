@@ -170,8 +170,13 @@ measure its density.
 variation; reprise; truncated final chorus; added bar on the last return —
 none of it askable.
 **Now:** `quality/grid.py`'s `compare_returns` answers "with what variation"
-for a 12-way `VARIATION_KINDS` ladder including `TRUNCATED_RETURN` and
-`EXTENDED_RETURN` by name; `return_findings`/`song_function_report` run it
+over the ~~12-way~~ `VARIATION_KINDS` ladder including `TRUNCATED_RETURN` and
+`EXTENDED_RETURN` by name (**the width is struck and NOT replaced, 2026-08-16
+— it measures 15, it was already 15 when "12" was written, and the ladder-vs-
+boolean argument does not turn on it; run
+`python3 -c "from quality import grid as GR; print(len(GR.VARIATION_KINDS))"`.
+`CLAUDE.md` known gap 7 carried the same figure and is struck with this
+one**); `return_findings`/`song_function_report` run it
 over every declared function's own instances, answering "how many times"
 (`song.instances_of(fn)`) and "in what order" (bar-ordered by construction).
 `CLAUDE.md` known gap 7 has the same correction; `examples/nobodys_native_
@@ -223,9 +228,25 @@ realisation — all three need the ORTHOGRAPHY beside the phonology, which no
 caller currently passes. `lyric_harness.py` itself still runs its own
 five-relation path and does not call this.
 
-### E-3 · Internal rhyme is two-line only `OPEN`
-**Now:** `internal_matches` supports a pair of lines. No verse-wide or
-song-wide positional rhyme graph.
+### E-3 · ~~Internal rhyme is two-line only~~ Internal rhyme has two windows and neither is declared `PARTIAL`
+**Now:** ~~`internal_matches` supports a pair of lines. No verse-wide or
+song-wide positional rhyme graph.~~
+**REPINNED 2026-08-16 — the graph exists and this entry cited it without
+reading it.** `quality/relations.py`'s `internal rhyme` schema note names THIS
+ENTRY BY ID ("MISSING E-3: this is the song-wide positional graph the two-line
+`internal_matches` could not build"), and has since `410a461`, 2026-08-10. So
+the entry and the code have pointed at each other for six days, one saying the
+thing is missing and the other saying it is the thing. Measured: `realise()`
+returns true verdicts at line distances 1, 2 and 3 on a four-line fixture.
+**Missing (the narrowed claim):** not the graph — the DECLARATION of which
+window a caller is reading. `lyric_harness.internal_matches` takes at most two
+texts and `rhyme_density` calls it only on `lines[idx]`/`lines[idx + 1]`
+(`lyric_harness.py:2990`), so that layer is distance <= 1 structurally while
+`relations.py` is stanza-wide; neither site says so. Two answers to one
+question with no declared coordinate between them (doctrine 1). Status is
+`PARTIAL`, not `CLOSED`: the capability landed, the coordinate did not.
+**Verified 2026-08-16** against `quality/relations.py` and
+`lyric_harness.py:2925,2990`.
 
 ### E-4 · No rhyme density over time `OPEN`
 **Missing:** rhyme rate per bar, acceleration into a hook, thinning in a
