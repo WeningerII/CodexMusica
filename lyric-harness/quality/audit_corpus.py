@@ -1031,6 +1031,24 @@ def check_row(files, src):
                 "a corpus the check reported clean",
                 "34"))
     # the other direction
+    # THE POPULATION THIS CHECK WAS NEVER GIVEN. `load` walks two
+    # extensions; anything else under `corpus/` reaches no check at all,
+    # so doctrine 34's question is not answered NO for it — it is not
+    # asked. Reported per file, and silent when there are none, which is
+    # the honest shape: the finding is about a real excluded file, and
+    # today there are zero (all 269 are `.txt`/`.json`).
+    for p in LAST_UNWALKED:
+        out.append(Finding(
+            "A", NOTE, p,
+            "under corpus/ and NOT WALKED — the audit never asked "
+            "doctrine 34 of this file",
+            "load() reads %s; this file matches none of them"
+            % ", ".join(EXTS),
+            "a file the walk skips is not a file that passed. Widening "
+            "`EXTS` would hand it to every check including the byte and "
+            "language ones, which is a decision about what a CORPUS FILE "
+            "is and belongs to whoever adds the first one",
+            "34"))
     named = src.named_paths()
     have = {rel for rel, _ in files}
     for sid, paths in sorted(named.items()):
@@ -1754,7 +1772,47 @@ CHECKS = collections.OrderedDict([
 # ---------------------------------------------------------------------------
 
 
-def load(root=CORPUS_DIR, only=None, exts=(".txt", ".json")):
+#: THE EXTENSIONS THE WALK READS, named because it is an EXCLUSION and an
+#: exclusion nobody wrote down is a threshold nobody wrote down (doctrine
+#: 58). Doctrine 34 says a corpus file with no `data/sources.tsv` row IS
+#: the defect — and check A can only say that about a file the walk
+#: HANDED IT. A `.csv` or `.tsv` under `corpus/` was invisible to the
+#: question entirely, so the audit would report the tree clean without
+#: ever having looked at it. MEASURED 2026-08-16: all 269 files under
+#: `corpus/` are `.txt` or `.json`, so the hole is LATENT and not live —
+#: which is exactly why it survived, and exactly why it is reported as a
+#: count rather than left to the next reader to rediscover.
+EXTS = (".txt", ".json")
+
+
+def unwalked(root=CORPUS_DIR, exts=EXTS):
+    """-> sorted paths under `root` that `load` SKIPS on extension.
+
+    The population check A is blind to. Separate from `load` rather than
+    folded into its return, because two callers already take that return
+    and a census is a different question from a corpus.
+    """
+    out = []
+    for dirpath, _d, names in os.walk(root):
+        for n in sorted(names):
+            if exts and not n.endswith(exts):
+                out.append(display_path(os.path.join(dirpath, n)))
+    return sorted(out)
+
+
+#: What the LAST `load()` skipped on extension. Module state, and the
+#: coupling is stated rather than hidden: `audit()` calls `load()` and
+#: then the checks, in that order, so check A reports the tree it is
+#: actually auditing. `unwalked(root)` recomputes it for any other
+#: caller. THE FIRST DRAFT OF THIS CALLED `unwalked()` INSIDE check A
+#: WITH NO ROOT, so auditing a temp tree reported the SHIPPED corpus's
+#: skipped files — the wrong population, silently, on every non-default
+#: root.
+LAST_UNWALKED = []
+
+
+def load(root=CORPUS_DIR, only=None, exts=EXTS):
+    LAST_UNWALKED[:] = unwalked(root, exts)
     files = []
     for dirpath, _, names in os.walk(root):
         for n in sorted(names):

@@ -100,6 +100,15 @@ class MatrixDeclaration:
     use_stress_channel: bool = False
     source: str = "unset"
     n_positive: int = 0
+    #: THE POSITIVE PAIRS THIS MATRIX WAS FITTED ON, each as `"a|b"`. Declared
+    #: since this class was written and NEVER WRITTEN BY EITHER FITTER until
+    #: 2026-08-15, so every matrix shipped with `fitted_on=()` and `holdout`
+    #: was the only account of what the fit had seen -- and `holdout` is PROSE.
+    #: `fit_all`'s own docstring warns that "anything scored with this that was
+    #: in `items` is circular"; this is the field that lets a caller CHECK
+    #: that rather than remember it. `"a|b"` strings rather than 2-tuples
+    #: because `from_json` rebuilds a tuple of whatever JSON gives back, and
+    #: nested lists would not round-trip to the pairs that went in.
     fitted_on: tuple = ()
     holdout: str = ""
 
@@ -338,6 +347,19 @@ def endword(line):
     return toks[-1].lower().strip("'-") if toks else ""
 
 
+def _pair_ids(pos):
+    """-> tuple of `"a|b"`, sorted and DEDUPLICATED. What a matrix
+    was fitted on, in the one form that survives a JSON round trip:
+    `from_json` rebuilds a tuple from whatever the file holds, and a
+    list of 2-element lists would come back as a tuple of LISTS, so
+    `pair in decl.fitted_on` would answer False for a pair that was
+    in the fit. Deduplicated because the question this answers is
+    MEMBERSHIP -- was this pair seen -- and `n_positive` beside it
+    already carries the count with repeats (doctrine 79: two counts,
+    never merged into one field)."""
+    return tuple(sorted({f"{a}|{b}" for a, b in pos}))
+
+
 def corpus_pairs(items):
     """items: [(lines, scheme)] -> ([(word_a, word_b)], [all endwords])"""
     pos, words = [], []
@@ -389,6 +411,7 @@ def fit_folds(lex, items, mdecl=None, decl=None):
         bc = collect(lex, bg, decl)
         md = MatrixDeclaration(
             **{**mdecl.__dict__, "n_positive": len(pos),
+               "fitted_on": _pair_ids(pos),
                "holdout": f"fold {f + 1}/{mdecl.folds}, "
                           f"{len(test)} items never seen in training"})
         out.append((test, FittedComparator(fit(pc, bc, md), md)))
@@ -405,6 +428,7 @@ def fit_all(lex, items, mdecl=None, decl=None, source="unset"):
                           mdecl.seed)
     md = MatrixDeclaration(
         **{**mdecl.__dict__, "source": source, "n_positive": len(pos),
+           "fitted_on": _pair_ids(pos),
            "holdout": "NONE — fitted on all data. Scoring any item that was "
                       "in the training set with this matrix is circular; use "
                       "fit_folds() for evaluation."})

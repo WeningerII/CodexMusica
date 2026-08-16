@@ -84,7 +84,8 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
-                           RHYME_RELATIONS, CandidateEngine, Declaration,
+                           RHYME_RELATIONS, THETA_COLLISION,
+                           CandidateEngine, Declaration,
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, readability_records,
                            refusals_for_pairs)
@@ -171,11 +172,13 @@ COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
                       "REPEAT_ACROSS_GROUPS", "COLLISION_UNDECLARED"}
 
 #: Score at or above which two lines that share NO group are reported as an
-#: unintended rhyme. Same constant the spine's `check_scheme` uses, kept equal
-#: on purpose: the two must not drift — and the SET this module reports is
-#: still exactly `check_scheme`'s. What changed is only what each member is
-#: CALLED. Typing a finding is not moving a threshold (doctrine 58).
-THETA_COLLISION = 0.9
+#: unintended rhyme. IMPORTED from `lyric_harness` since 2026-08-16 rather
+#: than re-declared here: this comment already said "the two must not
+#: drift" and a second `= 0.9` is not a mechanism, it is a promise. The SET
+#: this module reports is still exactly `check_scheme`'s, and now it cannot
+#: stop being. Re-exported below so every existing `from quality.revise
+#: import THETA_COLLISION` keeps working (doctrine 58 — typing a finding is
+#: not moving a threshold, and neither is moving where it is written).
 
 
 @dataclass
@@ -1916,8 +1919,15 @@ class Reviser:
                 f"typed, because doctrine 24 says a rule that would delete a "
                 f"category must relabel instead — an ASSONANCE running across "
                 f"a song is a real sonic event and deleting it would be the "
-                f"worse defect. `lyric_harness.check_scheme` carries the same "
-                f"untyped message and is not this cell's file", []))
+                f"worse defect. `lyric_harness.check_scheme` TYPES ITS OWN "
+                f"members too, since 2026-08-11 — this sentence said it "
+                f"carried an untyped message until 2026-08-16, which was "
+                f"true when written and stopped being true five days "
+                f"later, in a finding whose whole subject is a claim two "
+                f"modules make about one set (doctrine 17). What they "
+                f"share now is the CUT, and it is ONE constant: "
+                f"`lyric_harness.THETA_COLLISION`, imported here rather "
+                f"than re-declared, so the two cannot drift", []))
         if getattr(m, "scope", ()):
             # SAID ONCE, ABOUT THE MANDATE, and only when the coordinate was
             # DECLARED — a mandate with no scope speaks about every line and

@@ -260,6 +260,162 @@ def test_the_scheduled_permanent_line():
           and "plumbing" in FAMILIES["R5"].why)
 
 
+#: Fields a `*Declaration` may carry that NOTHING is expected to read back,
+#: declared as a closed list so a new one has to be argued for rather than
+#: added. Empty today, and that is the point: every coordinate on every
+#: declaration in this repo is consulted by something.
+_MAY_BE_UNREAD = ()
+
+
+def test_every_declared_coordinate_is_read():
+    """A DECLARED COORDINATE NOTHING CONSULTS IS A KNOB THAT LIES.
+
+    Doctrine 1 says a disagreement is located in a coordinate of the tuple. A
+    field no code reads cannot hold one: it reads as a setting, it takes a
+    value, and moving it changes nothing. That is worse than a missing setting,
+    because a missing setting is visibly missing.
+
+    THREE WERE FOUND THE DAY THIS WAS WRITTEN, out of 90 fields across 8
+    declarations, and each had a different repair:
+
+      * `lyric_harness.Declaration.theta_repeat_onset` -- a THRESHOLD for a
+        boundary decided by EXACT EQUALITY. Measured byte-identical at 0.0,
+        0.5 and 1.0 (md5 c9b9e7bf4bd2), the two ends being the settings that
+        would make everything or nothing a REPEAT. Removed; the exactness is
+        deliberate and the repair was to stop advertising a threshold.
+      * `rhyme_constraints.Declaration.tie_break` -- a REAL rule ("doctrine
+        66: fixed and stated") that the code implements implicitly through
+        stable `sorted` and first-maximum `max`. The statement and the
+        behaviour were never connected, so either could move alone. Removed
+        as a field, stated at the two sites that enforce it, pinned below.
+      * `fit_matrix.MatrixDeclaration.fitted_on` -- a PROVENANCE field neither
+        fitter ever wrote, so every matrix claimed an empty training set while
+        `fit_all`'s own docstring warned that scoring a training item is
+        circular. WIRED rather than removed: this one has a job.
+    """
+    print("\n15. every field of every `*Declaration` is READ by something "
+          "(FIXED 2026-08-15)")
+    import ast
+    import re
+    root = os.path.join(HERE, "..")
+    srcs, tree_of = {}, {}
+    for base, dirs, files in os.walk(root):
+        dirs[:] = [d for d in dirs
+                   if d not in ("data", "corpus", "examples", "__pycache__",
+                                ".git", "scratch")]
+        for f in files:
+            if not f.endswith(".py"):
+                continue
+            p = os.path.join(base, f)
+            try:
+                srcs[p] = open(p, encoding="utf-8", errors="replace").read()
+                tree_of[p] = ast.parse(srcs[p])
+            except (OSError, SyntaxError):
+                continue
+    # A CENSUS THAT CANNOT SEE ITS POPULATION REFUSES (doctrine 20) -- an
+    # empty walk would report "0 dead fields" and read as a pass.
+    decls, declaring = {}, set()
+    for p, tree in tree_of.items():
+        for n in ast.walk(tree):
+            if isinstance(n, ast.ClassDef) and n.name.endswith("Declaration"):
+                rows = [b for b in n.body
+                        if isinstance(b, ast.AnnAssign)
+                        and isinstance(b.target, ast.Name)]
+                # THE DECLARING NODE IS ITSELF AN `ast.Name`, so without
+                # this the field counts as its own use and NOTHING is
+                # ever dead -- the check passes on every tree, which is
+                # exactly the shape it exists to find. Excluded by node
+                # IDENTITY, not by name, so a real read elsewhere in the
+                # same class still counts.
+                declaring |= {id(b.target) for b in rows}
+                decls[(os.path.relpath(p, root), n.name)] = [
+                    b.target.id for b in rows]
+    check("the declarations are found at all — a census that reads nothing "
+          "reports no defects and looks identical to a clean one",
+          len(decls) >= 6 and sum(len(v) for v in decls.values()) >= 50,
+          f"{len(decls)} declaration classes, "
+          f"{sum(len(v) for v in decls.values())} fields")
+
+    # THE CENSUS IS AST-ONLY, AND A REGEX SWEEP IS WRONG IN BOTH DIRECTIONS.
+    # Too narrow if it reads attribute syntax alone: `grid.Meter.assumed` is
+    # reached only as `getattr(m, "assumed", "")`, so a `\.name\b` sweep calls
+    # a live field dead. Too WIDE if it reads the raw text: a `\bname\b` sweep
+    # counts the field's name inside a COMMENT, and this file's own removals
+    # are documented in comments that name the fields they removed — planting
+    # `theta_repeat_onset` back as a live dataclass field left this section
+    # GREEN, because the note explaining its deletion referenced it. A check
+    # defeated by its own documentation is doctrine 48 with a paper trail.
+    # An AST carries no comments, so the same three forms count and prose does
+    # not: `x.name`, `getattr(x, "name")`/`d["name"]`, and `f(name=...)`.
+    used = set()
+    for p, tree in tree_of.items():
+        docstrings = set()
+        for n in ast.walk(tree):
+            if isinstance(n, (ast.Module, ast.ClassDef, ast.FunctionDef,
+                              ast.AsyncFunctionDef)) and n.body:
+                first = n.body[0]
+                if (isinstance(first, ast.Expr)
+                        and isinstance(first.value, ast.Constant)
+                        and isinstance(first.value.value, str)):
+                    docstrings.add(id(first.value))
+        for n in ast.walk(tree):
+            if isinstance(n, ast.Attribute):
+                used.add(n.attr)
+            elif isinstance(n, ast.Name):
+                if id(n) not in declaring:
+                    used.add(n.id)
+            elif isinstance(n, ast.keyword) and n.arg:
+                used.add(n.arg)
+            elif (isinstance(n, ast.Constant) and isinstance(n.value, str)
+                  and id(n) not in docstrings):
+                used.add(n.value)
+    dead = [f"{cls}.{f} ({rel})"
+            for (rel, cls), fields in sorted(decls.items())
+            for f in fields
+            if f not in _MAY_BE_UNREAD and f not in used]
+    check("no `*Declaration` field is referenced ONLY by the line that "
+          "declares it — doctrine 1's tuple cannot locate a disagreement in a "
+          "coordinate nothing consults",
+          not dead, f"{len(decls)} declarations, "
+                    f"{sum(len(v) for v in decls.values())} fields; "
+                    f"DEAD: {dead or 'none'}")
+
+    # AND THE TWO RULES THE REMOVALS RESTED ON, pinned here so the deletions
+    # are not the only record of them.
+    from lyric_harness import (Declaration, Lexicon, anchor, score,
+                               syllabify)
+    lex = Lexicon()
+    if lex is not None:
+        def _anc(w):
+            pr = lex.transcribe_word(w)
+            ph = pr[0] if pr and isinstance(pr[0], list) else pr
+            return anchor(syllabify(ph))
+        d = Declaration()
+        same = score(_anc("light"), _anc("light"), d,
+                     word_a="light", word_b="light")
+        rich = score(_anc("bear"), _anc("bare"), d,
+                     word_a="bear", word_b="bare")
+        check("REPEAT and RIME_RICHE are decided by EXACT identity, which is "
+              "why no threshold governs them",
+              same["relation"] == "REPEAT"
+              and rich["relation"] == "RIME_RICHE",
+              f"{same['relation']} / {rich['relation']}")
+
+    from quality.rhyme_constraints import Declaration as RCDecl
+    check("and `rhyme_constraints.Declaration` no longer offers a `tie_break` "
+          "knob for a rule its own code fixes",
+          "tie_break" not in RCDecl.__dataclass_fields__,
+          sorted(RCDecl.__dataclass_fields__))
+    # THE TIE-BREAK ITSELF, not the absence of the field: equal keys settle on
+    # the lowest index. Asserted on the primitives the two sites use, because
+    # that is exactly what those sites rely on.
+    check("the stated tie-break is the one the code actually takes — equal "
+          "keys settle on the LOWEST index (doctrine 66)",
+          sorted(range(4), key=lambda i: 0) == [0, 1, 2, 3]
+          and max([(0, "a"), (0, "b")], key=lambda x: x[0])[1] == "a",
+          "stable `sorted` and first-maximum `max`")
+
+
 def test_no_declaration_registers_without_a_source():
     print("\n4. The slots ship EMPTY, and an unsourced fill is refused")
     ctor = {
@@ -784,7 +940,8 @@ if __name__ == "__main__":
                test_R5_offbeat_accepts_a_beat_grid,
                test_R6_tone_accepts_a_channel_and_refuses_the_contour,
                test_the_module_holds_no_phonology,
-               test_the_frequency_licence_is_load_bearing):
+               test_the_frequency_licence_is_load_bearing,
+               test_every_declared_coordinate_is_read):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -3153,6 +3153,112 @@ def test_the_comparator_and_the_meter_flags_reach_the_graders():
           "'accepted and dropped' shape this whole section is about")
 
 
+def test_the_collision_cut_is_one_constant_and_cannot_drift():
+    print("\n31. the unintended-rhyme cut is ONE constant, not two spellings "
+          "of one number (FIXED 2026-08-16)")
+    # `quality/revise.py`'s own `COLLISION_CUT_IS_SCALAR_ONLY` finding says the
+    # two halves of this repo report THE SAME SET and that "the two constants
+    # must not drift". Until 2026-08-16 nothing stopped them: `revise.py`
+    # declared `THETA_COLLISION` and `lyric_harness.check_scheme` spelled a
+    # bare `0.9`, so a lot moving either moved exactly one. A promise in a
+    # comment is not a mechanism (doctrine 1).
+    import importlib
+    LH = importlib.import_module("lyric_harness")
+    RV = importlib.import_module("quality.revise")
+    check("`quality.revise.THETA_COLLISION` IS `lyric_harness`'s — the same "
+          "object, not a second literal that happens to be equal",
+          RV.THETA_COLLISION is LH.THETA_COLLISION,
+          f"revise {RV.THETA_COLLISION!r} / harness {LH.THETA_COLLISION!r}")
+    # AND THE SOURCE CARRIES ONE DEFINITION, which is the half an identity
+    # check cannot see: two modules could each hold `= 0.9` and `is` would
+    # still be True, because CPython caches small float constants per code
+    # object only when they are equal by value — the assertion above would
+    # pass against exactly the defect this closes if the two literals happened
+    # to be folded. Counted in the TEXT instead.
+    import re
+    root = os.path.join(ROOT)
+    decls = []
+    for rel in ("lyric_harness.py", os.path.join("quality", "revise.py")):
+        src = open(os.path.join(root, rel), encoding="utf-8").read()
+        n = len(re.findall(r"^THETA_COLLISION\s*=", src, re.M))
+        decls.append((rel, n))
+    check("exactly ONE module declares it",
+          sum(n for _r, n in decls) == 1, str(decls))
+    # THE THIRD `0.9` IN THIS FILE IS A DIFFERENT QUESTION AND MUST STAY ONE.
+    # `check_cynghanedd`'s llusg test — does a final penult rhyme an earlier
+    # syllable — was given the same number and binding it to this name would
+    # make a Welsh-imitation rule move whenever the English collision report
+    # was retuned. Asserted so a later lot "tidying the constants" has to read
+    # this rather than discover it.
+    src = open(os.path.join(root, "lyric_harness.py"), encoding="utf-8").read()
+    check("and the llusg threshold is still a SEPARATE literal, deliberately "
+          "not bound to it",
+          len(re.findall(r'if s\["total"\] >= 0\.9:', src)) == 1,
+          "one question, one coordinate — the collision cut and a Welsh "
+          "imitation's rhyme test are not the same setting")
+
+
+def test_the_title_a_lyric_declares_reaches_the_check_or_refuses():
+    print("\n30. a `--- TITLE:` line in the LYRIC is not dropped in silence "
+          "(FIXED 2026-08-15)")
+    # `--- TITLE:` IS THIS REPO'S OWN ITEM CONVENTION: `grid.read_marked_songs`
+    # parses it into `MarkedSong.title`, `audit_corpus` counts `--- TITLE:`
+    # blocks as the unit every staged file writes, and `verify_entries` reads
+    # it as the rule for what a song IS. On `song` it is apparatus, so
+    # `load_lyric_lines` drops it — correctly, it is not sung — AND NOTHING
+    # ELSE LOOKED AT IT. The title `hook_findings` grades comes from the
+    # blueprint's `"title"` key alone, so a writer who named their song the way
+    # the corpus does was graded against a title they never gave.
+    d = tempfile.mkdtemp()
+    bp = os.path.join(ROOT, "quality", "fixtures", "song.blueprint.json")
+    ly = os.path.join(ROOT, "quality", "fixtures", "song.txt")
+    titled = os.path.join(d, "titled.txt")
+    with open(ly, encoding="utf-8") as fh:
+        body = fh.read()
+    with open(titled, "w", encoding="utf-8") as fh:
+        fh.write("--- TITLE: The Whole Of My Wattage\n" + body)
+
+    # THE CONTROL FIRST, and it is what makes the rest mean anything: with no
+    # TITLE line the run is untouched.
+    plain = run("song", bp, ly, "--cliques", expect_rc=3)
+    check("a lyric with no `--- TITLE:` line grades exactly as before",
+          plain[0] == 3 and "REFUSED" not in plain[1], f"rc {plain[0]}")
+
+    rc, out, err = run("song", bp, titled, "--cliques", expect_rc=2)
+    check("a title the lyric declares and the blueprint does not REFUSES "
+          "rather than being dropped — MEASURED byte-identical before this "
+          "(md5 d3ca7fb536), which is what a silent drop looks like",
+          rc == 2 and "REFUSED" in out and "Traceback" not in err,
+          out.strip().splitlines()[:1])
+    check("and it names BOTH spellings, so the caller can see which one the "
+          "grader actually reads",
+          "The Whole Of My Wattage" in out and "blueprint" in out
+          and "(absent)" in out,
+          "a coordinate declared twice and read once is doctrine 1's case")
+
+    # THE OTHER SIDE: declared in BOTH and agreeing, the run proceeds. Without
+    # this the section would pass against a build that refused every lyric
+    # carrying a title, which is a different defect wearing the same rc.
+    import json
+    with open(bp, encoding="utf-8") as fh:
+        obj = json.load(fh)
+    obj["title"] = "The Whole Of My Wattage"
+    match = os.path.join(d, "match.blueprint.json")
+    with open(match, "w", encoding="utf-8") as fh:
+        json.dump(obj, fh)
+    rc2, out2, _ = run("song", match, titled, "--cliques", expect_rc=3)
+    check("and a lyric title that AGREES with the blueprint's grades normally",
+          rc2 == 3 and "REFUSED" not in out2, f"rc {rc2}")
+    # The comparison is case-insensitive on purpose: a title is a NAME, and
+    # `The Whole Of My Wattage` against `The whole of my wattage` is not two
+    # declarations disagreeing.
+    with open(titled, "w", encoding="utf-8") as fh:
+        fh.write("--- TITLE: the whole of my wattage\n" + body)
+    rc3, out3, _ = run("song", match, titled, "--cliques", expect_rc=3)
+    check("case alone is not a disagreement — a title is a name, not a token",
+          rc3 == 3 and "REFUSED" not in out3, f"rc {rc3}")
+
+
 if __name__ == "__main__":
     test_the_map_is_not_stale()
     test_fit_answers_whether_the_words_fit_the_bars()
@@ -3188,6 +3294,8 @@ if __name__ == "__main__":
     test_the_named_pair_disclosure_survives_the_module_boundary()
     test_every_verb_reads_its_own_arguments()
     test_the_comparator_and_the_meter_flags_reach_the_graders()
+    test_the_title_a_lyric_declares_reaches_the_check_or_refuses()
+    test_the_collision_cut_is_one_constant_and_cannot_drift()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

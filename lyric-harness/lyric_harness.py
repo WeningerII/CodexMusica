@@ -297,8 +297,19 @@ class Declaration:
     })
     trailing_syllable_penalty: float = 0.15   # semirhyme discount / extra syllable
     theta_rhyme: float = 0.75                 # lower edge of the match band
-    theta_repeat_onset: float = 0.95          # onset similarity above which full
-                                              # identity is REPEAT/rime riche band
+    # `theta_repeat_onset: float = 0.95` STOOD HERE UNTIL 2026-08-15, described
+    # as "onset similarity above which full identity is REPEAT/rime riche
+    # band". THERE IS NO SUCH BAND. `score()` decides REPEAT by `wa == wb` and
+    # RIME_RICHE by every channel comparing EQUAL with no extra syllable --
+    # exact identity, never a threshold. MEASURED before removal: the six-pair
+    # relation/score/flag report is md5 c9b9e7bf4bd2 at 0.0, at 0.5 and at 1.0,
+    # byte-identical, and 0.0 vs 1.0 are the two ends that would make
+    # EVERYTHING or NOTHING a REPEAT if the band existed. A Declaration field
+    # is where a disagreement is located (doctrine 1); this one could not hold
+    # one, which is worse than a missing setting because it reads as a knob.
+    # The exactness is deliberate -- "identity is not rhyme" is a band-PASS,
+    # not a similarity call -- so the repair is to stop advertising a
+    # threshold, not to introduce one.
     # --- the conjunctive band (quality/BAND_PREREGISTRATION.md) -------------
     # A scalar band lets a strong nucleus BUY a coda mismatch: sun/much has an
     # identical nucleus (AH) and reaches .772 against a .75 band. That is
@@ -1975,6 +1986,27 @@ RHYME_RELATIONS = {"RHYME", "RIME_RICHE"}
 #: rhyme?" must answer no while the graph keeps the name.
 NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 
+#: THE UNINTENDED-RHYME CUT, and it lives HERE because two modules apply it to
+#: the same question and one definition is the only thing that keeps them
+#: equal. `check_scheme` below and `quality/revise.py`'s collision scan report
+#: the SAME SET — every pair at or above this scalar that shares no group —
+#: and `revise.py`'s own `COLLISION_CUT_IS_SCALAR_ONLY` finding says in as many
+#: words that "the two constants must not drift". UNTIL 2026-08-16 NOTHING
+#: STOPPED THEM: this module spelled a bare literal and `revise.py` declared a
+#: second constant of its own, so a lot moving either moved exactly one. `quality/mutate.py`
+#: QR6 is the proof rather than the worry — it raises the threshold to 1.1 to
+#: check the constant is load-bearing, and against the old spelling it moved
+#: `revise.py` ALONE, leaving the two halves of the repo reporting different
+#: collision sets while every suite stayed green.
+#:
+#: NOT UNIFIED WITH EVERY OTHER 0.9 IN THIS FILE, and that is a decision and
+#: not an oversight: `check_cynghanedd`'s llusg test also reads `>= 0.9` and is
+#: a DIFFERENT QUESTION — does a final penult rhyme an earlier syllable in the
+#: same line — which happens to have been given the same number. Binding it to
+#: this name would make a Welsh-imitation rule move whenever the English
+#: collision report was retuned (doctrine 1: one coordinate, one question).
+THETA_COLLISION = 0.9
+
 
 def admits(s, theta):
     """Does this scored pair count as RHYME at `theta`?
@@ -2478,7 +2510,12 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                         (i + 1, j + 1, s["total"],
                          f"{s['relation']} not rhyme (conjunctive band)"))
             else:
-                if s["total"] >= 0.9:
+                if s["total"] >= THETA_COLLISION:
+                    # THE CUT IS THE NAMED CONSTANT SINCE 2026-08-16 —
+                    # it was the literal `0.9` here and `THETA_COLLISION`
+                    # in `quality/revise.py`, two spellings of one number
+                    # that the collision finding itself says must not
+                    # drift. One definition now, at the top of this file.
                     # RELATION IS CARRIED NOW (2026-08-11), not dropped. A
                     # scalar-only cut here reported correctly-typed ASSONANCE
                     # and CONSONANCE edges under the label "unintended
@@ -6675,6 +6712,46 @@ def main():
                 lyric_text = open(args[2], encoding="utf-8").read()
                 marked = parse_lyric_sections(lyric_text)
                 song_obj, _hooks = GR.song_from_blueprint(song_bp_path)
+                # A `--- TITLE:` LINE IN THE LYRIC WAS DROPPED IN SILENCE —
+                # 2026-08-15. It is this repo's own item convention:
+                # `grid.read_marked_songs` parses it, `audit_corpus` counts
+                # `--- TITLE:` blocks as the unit every staged file writes, and
+                # `verify_entries` reads it as the rule for what a song IS. On
+                # this verb it is apparatus, so `load_lyric_lines` drops it —
+                # correctly, it is not sung — and NOTHING ELSE LOOKED AT IT.
+                # The title `hook_findings` grades comes from the blueprint's
+                # own `"title"` key alone, so a writer who named their song the
+                # way the corpus does was graded against a title they never
+                # gave. MEASURED: byte-identical, md5 d3ca7fb536, with and
+                # without the line. `TITLE_NOT_IN_HOOK` is a real check that
+                # fires correctly on a blueprint title — what was broken is
+                # which declaration reaches it. `song` hands the blueprint
+                # PATH down and the title is re-read from that file, so there
+                # is no seam to carry a second one; this REFUSES and names both
+                # spellings rather than inventing plumbing or dropping the
+                # coordinate, the same answer `song --blueprint=` gets.
+                _lyric_title = next(
+                    (l[len("--- TITLE:"):].strip()
+                     for l in lyric_text.splitlines()
+                     if l.startswith("--- TITLE:")), None)
+                if _lyric_title:
+                    _bp_title = song_obj.title or ""
+                    if _bp_title.strip().lower() != _lyric_title.lower():
+                        _refuse(
+                            f"song grades the title the BLUEPRINT declares, "
+                            f"and the lyric declares a different one",
+                            sides=[("DECLARED in the lyric  --- TITLE:",
+                                    _lyric_title),
+                                   ("DECLARED in the blueprint \"title\"",
+                                    _bp_title or "(absent)")],
+                            detail=["the `--- TITLE:` line is APPARATUS here "
+                                    "and is dropped before grading, so it "
+                                    "reached no check; put the title in the "
+                                    "blueprint's \"title\" key, or drop the "
+                                    "line.",
+                                    "TITLE_NOT_IN_HOOK reads the blueprint's "
+                                    "title only — a second spelling that "
+                                    "never arrives is worse than none."])
                 # `lines_in(s)` MATCHES BY BAR RANGE, and the section OBJECT is
                 # passed rather than its name for the reason that accessor
                 # refuses a repeated name in as many words: two sections may

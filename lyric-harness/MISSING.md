@@ -1682,10 +1682,15 @@ a `__main__` and keep it as a comparison runner.
 > **DECIDED 2026-08-11, and "genuinely stranded" no longer holds.** The file
 > now has an `if __name__ == "__main__"`, and it
 > has callers: `quality/relations.py` and `quality/test_relations.py`.
-> **REPINNED 2026-08-14 at `b560014`: `quality/rhyme_constraints.py` is 1,611
+> **REPINNED 2026-08-15: `quality/rhyme_constraints.py` is 1,652
 > lines** — ~~1,566~~ when this block was written (`ade8546`, 2026-08-11),
 > ~~1,609~~ later the same day (`e4cdf72`), ~~1,607~~ on 2026-08-12
-> (`11aa19b`), 1,611 since 2026-08-13 (`010f7a7`).
+> (`11aa19b`), ~~1,611~~ 2026-08-13 (`010f7a7`) to 2026-08-15. The +41 is
+> the dead-coordinate lot: `tie_break` removed as a settable field and the
+> rule it stated written out at the two sites that ENFORCE it, plus
+> `surfaces` wired into `read_channel` and `declaration_for`. Growth in the
+> file's own account of why it is kept, again, which is what the sentence
+> below predicted.
 > **The sentence that went stale is the sentence that said it would.** This
 > block already declared a line count "a coordinate of the counting convention
 > AND OF THE DATE", and then the date moved three times under the figure while
