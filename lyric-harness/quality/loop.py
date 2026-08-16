@@ -303,6 +303,32 @@ def _open_lines(briefs, pursue=frozenset()):
                    for f in b.findings)]
 
 
+def _open_by_rule(briefs, pursue=frozenset()):
+    """-> (flagged, pursued), the two rules `_open_lines` unions, kept apart.
+
+    `_open_lines` answers ONE question — has this loop still got work here —
+    and that union is the right object for a stop condition. It is the wrong
+    object for a REPORT: `LoopResult.unresolved`'s own field comment read
+    "still carrying a flag finding at stop", which is FALSE for every line
+    held open by a pursued NOTE, and `--pursue` exists precisely to hold lines
+    open that carry no flag at all. So a `NO_PROGRESS` could not say which
+    rule kept it going (`BACKLOG.md` §4.8, found by the defect-D audit; same
+    shape as `forbidden_modal`, one module over).
+
+    THE TWO LISTS OVERLAP AND MUST NEVER BE SUMMED (doctrine 79/91). A line
+    carrying a `SCHEME_VIOLATION` flag AND a pursued `MODAL_RHYME` note is in
+    both, so `len(flagged) + len(pursued)` counts it twice and is not
+    `len(unresolved)`. The union stays the authority on how many lines are
+    open; these two say WHY, per line.
+    """
+    flagged = [b for b in briefs
+               if any(f.severity == "flag" for f in b.findings)]
+    pursued = [b for b in briefs
+               if any(f.severity != "flag" and f.code in pursue
+                      for f in b.findings)]
+    return flagged, pursued
+
+
 def default_propose(brief, lines, attempt, reasons=None, whole=()):
     """-> a replacement line for `brief.line_no`, or `None` to give up.
 
@@ -453,7 +479,16 @@ class LoopResult:
     stop_reason: str
     lines: list
     rounds: list          # [RoundResult]
-    unresolved: list      # [Brief], still carrying a flag finding at stop
+    #: [Brief] — the lines this loop still has work on at the stop point.
+    #:
+    #: ~~still carrying a flag finding at stop~~ — STRUCK 2026-08-16. That
+    #: was FALSE for every line held open by a PURSUED NOTE, and `--pursue`
+    #: exists precisely to hold open lines carrying no flag at all
+    #: (`ReviseDeclaration.pursue`, and `MODAL_RHYME` is the case it was
+    #: built for). One list, two rules, and the comment named one.
+    #: `unresolved_flagged`/`unresolved_pursued` below say which; this stays
+    #: the UNION, because that is the question a stop condition asks.
+    unresolved: list
     #: `Reviser.inspect`'s OWN key, read out rather than recomputed here from
     #: `blueprint is not None` — one definition of "was meter asked", so this
     #: module cannot come to disagree with the module it drives (doctrine 1).
@@ -465,6 +500,20 @@ class LoopResult:
     #: declared default). Doctrine 45: a checker that silently picks one is
     #: making a claim it never states.
     profile: object = None
+    #: WHY each unresolved line is open, as the two rules `unresolved` unions
+    #: — a FLAG, or a NOTE whose code the caller DECLARED in
+    #: `ReviseDeclaration.pursue`. Added 2026-08-16 with the strike above.
+    #:
+    #: THEY OVERLAP AND ARE NEVER SUMMED (doctrine 79/91): a line carrying a
+    #: `SCHEME_VIOLATION` and a pursued `MODAL_RHYME` is in both, so
+    #: `len(flagged) + len(pursued)` double-counts it and is not
+    #: `len(unresolved)`. The union remains the count of open lines.
+    #:
+    #: `pursued` is EMPTY on every run that did not declare `pursue`, which
+    #: is the default — so a reader who sees it non-empty knows a note is
+    #: holding the loop open, which was previously unsayable.
+    unresolved_flagged: list = field(default_factory=list)
+    unresolved_pursued: list = field(default_factory=list)
     #: [Finding] — `inspect()`'s whole-draft half at the stop point. NOT
     #: reachable from `unresolved`, which holds `Brief`s and therefore only
     #: ever holds per-LINE findings.
@@ -563,14 +612,31 @@ class LoopResult:
                 out.append(f"    [{mark}] L{a.line_no} tier{a.tier} "
                           f"({a.tried} tried): {a.reason}")
         if self.unresolved:
+            # WHICH RULE HOLDS EACH LINE OPEN — 2026-08-16. This printed a
+            # bare line list under a field whose own comment said "still
+            # carrying a flag", and a line held open by a PURSUED NOTE
+            # carries none. A reader could not tell a draft the loop failed
+            # to repair from one the caller asked it to keep polishing.
+            # `flag`/`note` per line, and NOT two totals: the two rules
+            # OVERLAP, so summing them double-counts a line carrying both
+            # (doctrine 79/91).
+            _fl = {b.line_no for b in self.unresolved_flagged}
+            _pu = {b.line_no for b in self.unresolved_pursued}
+
+            def _why(n):
+                bits = (["flag"] if n in _fl else []) + (["pursued note"]
+                                                         if n in _pu else [])
+                return "+".join(bits) or "?"
             out.append(f"  unresolved: "
-                      f"{', '.join('L' + str(b.line_no) for b in self.unresolved)}")
+                      + ", ".join(f"L{b.line_no} ({_why(b.line_no)})"
+                                  for b in self.unresolved))
         out.extend(self.disclosure())
         return "\n".join(out)
 
 
 def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
-           blueprint, subdivision, assume, profile, input_n=0, input_fp=""):
+           blueprint, subdivision, assume, profile, input_n=0, input_fp="",
+           pursue=frozenset()):
     """Build the `LoopResult`, and take the disclosure off `inspect()` on the
     way out. Called at all three stop conditions and nowhere else.
 
@@ -609,8 +675,16 @@ def _close(reviser, stop_reason, lines, rounds, unresolved, mandate,
                             blueprint=blueprint, subdivision=subdivision,
                             assume=assume)
     g = found["grade"]
+    # WHICH RULE HOLDS EACH OPEN LINE, derived HERE from the union this
+    # function was handed rather than recomputed at three call sites — one
+    # definition, so the report and the stop condition cannot disagree about
+    # what "unresolved" contains (doctrine 1, the argument `_open_lines`
+    # itself was written for).
+    _flagged, _pursued = _open_by_rule(unresolved, pursue)
     return LoopResult(
         stop_reason, lines, rounds, unresolved,
+        unresolved_flagged=_flagged,
+        unresolved_pursued=_pursued,
         blueprint_declared=found["blueprint_declared"],
         subdivision_declared=subdivision is not None,
         profile=profile,
@@ -649,7 +723,45 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     if reasons:
         detail += f"; last rejection: {'; '.join(reasons)}"
     elif tried == 0:
-        detail = "no candidates offered"
+        # ===========================================================
+        # `tried == 0` IS THREE RULES, AND THIS SAID ONE — FIXED
+        # 2026-08-16 (`BACKLOG.md` §4.8, found by the defect-D audit).
+        # ===========================================================
+        # It read `detail = "no candidates offered"` for every path
+        # that reaches here, and only ONE of them is about the offer.
+        # MEASURED: driving `revise_loop` with a proposer that returns
+        # `None` printed "no candidates offered" on a line whose
+        # `brief.candidates` held 24 WORDS. That is the harness taking
+        # the blame for the writer's refusal, on the ordinary `revise`
+        # output path via `LoopResult.__str__` — doctrine 79's shape
+        # (a refusal is not a failure, and putting it in the other
+        # layer's numerator charges the wrong one).
+        #
+        # The three are genuinely different things to tell a caller:
+        # nothing to propose FROM, a proposer that declined, and a
+        # budget that never let the question be asked. The third is
+        # doctrine 20's own case — INCONCLUSIVE BY CONSTRUCTION, not a
+        # dead end — and it is reachable, because `attempts_per_line`
+        # is a declared coordinate with no floor on it.
+        #
+        # `_replay_proposer.disclosure` ALREADY keeps the first two
+        # apart one layer up, so the repo stated this distinction and
+        # then lost it per line.
+        if rdecl.attempts_per_line < 1:
+            detail = (f"NOT ASKED — attempts_per_line="
+                      f"{rdecl.attempts_per_line}, so tier 1 never called "
+                      f"the proposer for this line. This is inconclusive by "
+                      f"construction, not a line the loop could not fix "
+                      f"(doctrine 20)")
+        elif not b.candidates:
+            detail = ("no candidate field was offered — the harness had "
+                      "nothing for the proposer to choose from, so this is "
+                      "a fact about the MANDATE and the lexicon, not about "
+                      "the proposer")
+        else:
+            detail = (f"the PROPOSER declined at attempt 0 with "
+                      f"{len(b.candidates)} candidate(s) offered — its "
+                      f"refusal, not an empty field")
     return LineAttempt(b.line_no, 1, False, tried, detail, ()), lines
 
 
@@ -802,7 +914,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         if not flagged:
             return _close(reviser, "success", lines, rounds, [], mandate,
                           blueprint, subdivision, assume, profile,
-                          input_n=input_n, input_fp=input_fp)
+                          input_n=input_n, input_fp=input_fp,
+                          pursue=pursue)
 
         # THE OTHER HALF OF `inspect()`, READ OFF ITS OWN KEY. `brief()` above
         # calls `inspect()` and keeps only `per_line`; the `whole` half —
@@ -841,7 +954,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
         if not fixed_this_round:
             return _close(reviser, "no_progress", lines, rounds, flagged,
                           mandate, blueprint, subdivision, assume, profile,
-                          input_n=input_n, input_fp=input_fp)
+                          input_n=input_n, input_fp=input_fp,
+                          pursue=pursue)
 
     briefs = reviser.brief(lines, mandate, profile=profile,
                            blueprint=blueprint, subdivision=subdivision,
@@ -849,7 +963,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     unresolved = _open_lines(briefs, pursue)
     return _close(reviser, "round_limit", lines, rounds, unresolved, mandate,
                   blueprint, subdivision, assume, profile,
-                  input_n=input_n, input_fp=input_fp)
+                  input_n=input_n, input_fp=input_fp, pursue=pursue)
 
 
 if __name__ == "__main__":

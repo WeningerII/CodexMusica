@@ -359,11 +359,29 @@ disclosed. And `candidates W n --modal` claimed its set is "what `verify()`
 rejects a revision for taking" flat; that holds only for a line in ONE group,
 because a PIVOT is enforced against the head of the INTERSECTION of its k
 fields, which a one-word verb cannot state.
-**THE SAME CONFLATION SURVIVES IN TWO MORE PLACES AND IS RECORDED, NOT FIXED**
-— `BACKLOG.md` §4.8: `quality/loop.py`'s `"no candidates offered"` merges "the
-harness computed no field" with "the proposer declined at attempt 0", and
-`LoopResult.unresolved` merges "still carrying a flag" with "still carrying a
-pursued NOTE", which its own comment denies.
+**AND THE SAME CONFLATION IN TWO MORE CONTAINERS — FIXED 2026-08-16,
+`BACKLOG.md` §4.8.** Found by asking the audit the wider question: where ELSE
+does one name carry two rules such that a report can name the wrong one.
+`quality/loop.py`'s tier-1 dead end printed `"no candidates offered"` for every
+path reaching `tried == 0` — MEASURED against a proposer returning `None` on a
+line whose `brief.candidates` held **24 words**, so the harness took the blame
+for the writer's refusal on the ordinary `revise` output path. **It is THREE
+rules, not two**: nothing to propose FROM, a proposer that declined, and
+`attempts_per_line < 1` — the question never put at all, doctrine 20's own
+case, reachable because that is a declared coordinate with no floor. The first
+two are measured on ONE run, which is what makes them two rules rather than two
+namings of one.
+**AND `LoopResult.unresolved` MERGED A FLAG WITH A PURSUED NOTE** against its
+own field comment (*"still carrying a flag finding at stop"*), which is false
+for every line `--pursue` holds open — the entire purpose of that coordinate.
+SPLIT, NOT REPLACED: `unresolved` stays the UNION because that is the question
+a stop condition asks, and `unresolved_flagged`/`unresolved_pursued` say WHY,
+with `__str__` printing `L3 (pursued note), L4 (flag)`. **Never summed** — they
+overlap on a line carrying both, measured on `_open_by_rule` at 2 + 2 = 4
+against a union of 3. `quality/test_loop.py` §17 is 8 checks and needs TWO
+mutations because the fix has two layers: the merged sentence and bare list
+kill 5, and making `unresolved_flagged` the union again — the old false comment
+made true — kills the other 2.
 
 **`candidates` AND THE LOOP ANSWERED ONE QUESTION TWO WAYS — FIXED
 2026-08-15, FOUND BY PRE-SCREENING A RHYME WITH THE WRONG LIST.** The verb
