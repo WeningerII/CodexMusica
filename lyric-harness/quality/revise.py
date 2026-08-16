@@ -860,6 +860,59 @@ class Reviser:
         # the gate cannot change an answer; and every production mandate has an
         # empty scope, so the default path runs the identical code it ran
         # before rather than a new branch measured to agree with it.
+        # ============================================================
+        # THE COLLISION CUT IS THE SCALAR ALONE, AND IT MUST STAY THAT
+        # WAY. VERDICT RECORDED 2026-08-16, MEASURED, NOT ARGUED.
+        # ============================================================
+        # `COLLISION_CUT_IS_SCALAR_ONLY` (below, in `inspect()`) says this
+        # cut and `grade()`'s ask "different questions about the same
+        # pair" and calls that "the defect ... surviving here". Read
+        # quickly, that is an invitation to unify them — to make this line
+        # `s["total"] >= THETA_COLLISION and admits(s, THETA_COLLISION)`,
+        # matching what `grade()` accepts. DO NOT. The disclosure is
+        # naming a difference that is CORRECT and deliberate; it is not a
+        # TODO. The unification was built on a symlinked copy of the tree
+        # and measured, and it costs two things, neither recoverable:
+        #
+        # (1) `NEAR_COLLISION` BECOMES UNREACHABLE. `admits()` requires a
+        #     relation in `RHYME_RELATIONS`, so a pair that is not a rhyme
+        #     could never enter this set, and `_collision_code` would only
+        #     ever return `SCHEME_COLLISION`. MEASURED on a four-line
+        #     fixture whose cross pairs are `wall`~`floor` at 0.996
+        #     ASSONANCE: per-line findings went from
+        #     `{2:[MODAL_RHYME], 3:[NEAR_COLLISION x2], 4:[MODAL_RHYME,
+        #     NEAR_COLLISION x2]}` to `{2:[MODAL_RHYME],
+        #     4:[MODAL_RHYME]}` — four findings deleted and the 0.996
+        #     pair reported NOWHERE. Doctrine 24: a rule that would delete
+        #     a category must relabel instead. An assonance running across
+        #     a song is a real sonic event.
+        #
+        # (2) THE REFRAIN MERGE SILENTLY STOPS FIRING, on exactly the case
+        #     it exists for. `group_merges` condition (a) requires every
+        #     cross edge to be IN this set and then separately allows
+        #     `admits(...) or relation == "REPEAT"` — so it is BUILT to
+        #     accept REPEAT edges, and REPEAT is precisely what `admits()`
+        #     rejects. MEASURED on a 4-line refrain (two lines returning
+        #     verbatim, mandate `[[1,2],[3,4]]`): HEAD reports 4
+        #     collisions — `(1,3) REPEAT`, `(1,4) RHYME`, `(2,3) RHYME`,
+        #     `(2,4) REPEAT` — and fires `MANDATE_GROUPS_INDISTINGUISHABLE`;
+        #     the patched tree reports 2 and the finding is GONE. A
+        #     refrain-detection feature disabled by a change to a
+        #     threshold two functions away, with no error anywhere.
+        #
+        # THE TEST CHURN IS NOT THE COST AND WAS THE ONLY THING THAT LOOKED
+        # LIKE ONE. `quality/test_revise.py` goes 280 PASS / 0 FAIL ->
+        # 265 / 15, all in one file, and `test_loop.py`, `test_coda.py` and
+        # `test_mandate_language.py` do not move. 15 cheap checks is what a
+        # deliberate change should cost; the two deletions above are what it
+        # actually costs. The failing checks say so in their own names --
+        # "some of them are outright REPEAT, the refrain itself" and "a
+        # near-relation is no longer reported as an unintended RHYME".
+        #
+        # WHAT THE TWO CUTS SHARE IS THE CONSTANT, NOT THE PREDICATE:
+        # `THETA_COLLISION` is imported from `lyric_harness` rather than
+        # re-declared (that is the 2026-08-16 fix), so the two cannot drift
+        # on the NUMBER while staying free to differ on the QUESTION.
         collisions = []
         n = len(lines)
         scoped = bool(getattr(m, "scope", ()))
@@ -1953,7 +2006,13 @@ class Reviser:
                 f"modules make about one set (doctrine 17). What they "
                 f"share now is the CUT, and it is ONE constant: "
                 f"`lyric_harness.THETA_COLLISION`, imported here rather "
-                f"than re-declared, so the two cannot drift", []))
+                f"than re-declared, so the two cannot drift. AND THE TWO "
+                f"QUESTIONS SHOULD NOT BE MADE ONE — that was MEASURED on "
+                f"2026-08-16 and the verdict is recorded beside the cut "
+                f"itself in `Reviser._matrix`: adding `admits()` here "
+                f"makes NEAR_COLLISION unreachable and silently stops the "
+                f"refrain merge firing. This sentence names a deliberate "
+                f"difference, not an open defect", []))
         if getattr(m, "scope", ()):
             # SAID ONCE, ABOUT THE MANDATE, and only when the coordinate was
             # DECLARED — a mandate with no scope speaks about every line and
@@ -2498,11 +2557,50 @@ class Reviser:
                              assume=assume)
         m, rep = found["mandate"], found["grade"]
         print("\n" + m.describe(), file=stream)
+        # COLLISIONS ARE FOUR COUNTS TOO, AND THIS LINE PRINTED ONE — 2026-08-16.
+        # Two lines of this same header keep `mandated`/`judged`/`refused`
+        # apart for doctrine 79, and the paragraph forty lines down makes the
+        # argument in full ("report the counts SEPARATELY rather than summing
+        # things that ask different things of a writer") — and then the last
+        # field on the same line summed a set whose members this class already
+        # splits into three codes on purpose. `_collision_code` exists because
+        # SCHEME_COLLISION, NEAR_COLLISION and REPEAT_ACROSS_GROUPS "are three
+        # different reports": an unintended RHYME the mandate did not ask for,
+        # a pair that IS NOT A RHYME under this harness's own band, and the
+        # same word twice. A writer does something different about each, and
+        # `collisions 4` said nothing about which.
+        #
+        # MEASURED on the four-line refrain fixture: `collisions 4` was two
+        # REPEATs and two rhymes, reported as one integer. The breakdown is
+        # built from the SAME call the per-line findings use, so the header
+        # and the findings below it cannot disagree about a pair's kind.
+        _ccounts = {}
+        for _c in rep["collisions"]:
+            _code = self._collision_code(_c["relation"], _c.get("undeclared"))
+            _ccounts[_code] = _ccounts.get(_code, 0) + 1
+        _cshort = {"SCHEME_COLLISION": "unasked-rhyme",
+                   "NEAR_COLLISION": "not-a-rhyme",
+                   "REPEAT_ACROSS_GROUPS": "same-word",
+                   "COLLISION_UNDECLARED": "undeclared"}
+        _cbits = "  ".join(
+            f"{_cshort[k]} {_ccounts[k]}"
+            for k in ("SCHEME_COLLISION", "NEAR_COLLISION",
+                      "REPEAT_ACROSS_GROUPS", "COLLISION_UNDECLARED")
+            if _ccounts.get(k))
         print(f"  mandated {rep['pairs_mandated']}   "
               f"judged {rep['pairs_judged']}   "
               f"refused {rep['pairs_refused']}   "
-              f"violations {len(rep['violations'])}   "
-              f"collisions {len(rep['collisions'])}", file=stream)
+              f"violations {len(rep['violations'])}", file=stream)
+        # ON ITS OWN LINE, and NOT summed with the mandate counts above: a
+        # collision is a pair the mandate did NOT ask about, so it shares no
+        # denominator with `mandated`/`judged`/`refused` and putting it at the
+        # end of that row invited exactly that reading. The total is still
+        # printed — it is the size of one set and that is a real quantity —
+        # but never alone.
+        print(f"  collisions {len(rep['collisions'])}"
+              + (f" — {_cbits}" if _cbits else
+                 " (none; the kinds are not listed because there is nothing "
+                 "to attribute)"), file=stream)
         flagged = {b.line_no for b in briefs}
         piv = m.overlapping_lines()
         if piv:

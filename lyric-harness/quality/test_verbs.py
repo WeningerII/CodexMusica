@@ -3198,6 +3198,130 @@ def test_the_collision_cut_is_one_constant_and_cannot_drift():
           "imitation's rhyme test are not the same setting")
 
 
+def test_both_meter_coordinates_are_disclosed_and_collisions_are_typed():
+    print("\n32. the report states BOTH meter coordinates, and `collisions` "
+          "is not one number for three kinds (FIXED 2026-08-16)")
+    # TWO COSMETIC FINDINGS, ONE SHAPE: a report naming some of what it did.
+    #
+    # (a) `--isochronous` was the only coordinate on these verbs that could be
+    #     READ, CHANGE THE ANALYSIS, and leave no trace in the output. It is
+    #     read -- `inspect()` drops the `NO_SETTING` refusal when it is given
+    #     -- but `verify` prints a SET DIFFERENCE (fixed/broken/untargeted/
+    #     modal_taken) and the flag moves BEFORE and AFTER identically, so
+    #     every finding it adds or removes cancels. Measured byte-identical on
+    #     a real pair where `--subdivision 2` DOES move the verdict body. That
+    #     is not "inert" and not "read": it is a coordinate with no reading,
+    #     which doctrine 1 does not allow. The banner named `subdivision` in
+    #     both states and isochrony in neither.
+    import io
+    import importlib
+    FT = importlib.import_module("quality.fit")
+    RV = importlib.import_module("quality.revise")
+
+    # THE UNDERLYING FACT FIRST, at the API, because it is what makes the
+    # disclosure load-bearing rather than decorative: if `assume` changed
+    # nothing, printing it would be noise.
+    lines = [ln for ln in
+             open(os.path.join(ROOT, "quality", "fixtures", "song.txt"),
+                  encoding="utf-8").read().splitlines()
+             if ln.strip() and not ln.startswith("[")]
+    bp = os.path.join(ROOT, "quality", "fixtures", "song.blueprint.json")
+    sub = FT.Subdivision(2, source="test 32")
+    r = RV.Reviser()
+    off = r.inspect(lines, "A" * len(lines), blueprint=bp, subdivision=sub)
+    on = r.inspect(lines, "A" * len(lines), blueprint=bp, subdivision=sub,
+                   assume=FT.Isochrony(source="test 32"))
+    off_w = sorted(f.code for f in off["whole"])
+    on_w = sorted(f.code for f in on["whole"])
+    check("`assume` CHANGES the finding set — the disclosure below is about "
+          "something real",
+          off_w != on_w, f"without {off_w}\n           with    {on_w}")
+    check("...specifically it retires the `NO_SETTING` refusal, which is the "
+          "whole point of declaring isochrony",
+          "NO_SETTING" in off_w and "NO_SETTING" not in on_w,
+          f"without {off_w}\n           with    {on_w}")
+
+    # AND NOW THE DISCLOSURE, END TO END THROUGH THE CLI. A REFUSING
+    # invocation is used ON PURPOSE and it is not a shortcut: the banner is
+    # printed BEFORE any refusal (doctrine 20 -- the refusal must be first
+    # among the FINDINGS, but the coordinates it ran under come first of all),
+    # and a non-refusing `verify` on the only blueprint fixture with a
+    # matching line count costs ~90s per invocation. What is asserted is that
+    # the two runs are DISTINGUISHABLE, which is exactly what was false.
+    two = os.path.join(ROOT, "quality", "fixtures", "song.txt")
+    a = run("verify", two, two, "A" * len(lines), f"--blueprint={bp}",
+            "--subdivision", "2")[1]
+    b = run("verify", two, two, "A" * len(lines), f"--blueprint={bp}",
+            "--subdivision", "2", "--isochronous")[1]
+    check("`verify` with and without `--isochronous` is DISTINGUISHABLE on "
+          "its printed surface",
+          a != b, "byte-identical output for two different analyses")
+    check("...and the difference is in the BLUEPRINT banner, not somewhere "
+          "incidental",
+          a.splitlines()[0] != b.splitlines()[0],
+          f"{a.splitlines()[0][:80]!r}\n           {b.splitlines()[0][:80]!r}")
+    check("the banner names the assumption when it IS made",
+          "ISOCHRONY ASSUMED" in b, b.splitlines()[0][:160])
+    check("...and names its ABSENCE when it is not — a coordinate is "
+          "declared in both states or it is not declared (doctrine 1)",
+          "no isochrony assumed" in a, a.splitlines()[0][:160])
+
+    # (b) `collisions N` sat at the end of the row that keeps mandated/judged/
+    #     refused apart for doctrine 79, summing a set this class splits into
+    #     three codes on purpose. A writer does something different about an
+    #     unasked rhyme, a pair that is not a rhyme at all, and the same word
+    #     twice.
+    refrain = ["we walked into the night", "the lamp was burning light",
+               "we walked into the night", "the lamp was burning light"]
+    # `_collisions_line` and NOT `next(... startswith("collisions"))`: against
+    # the pre-fix tree the count lived at the END of the `mandated ...` row, so
+    # a `next()` over lines STARTING with the word raised `StopIteration` and
+    # killed the section after the isochrony checks -- turning a clean
+    # two-sided FAIL into a crash that skipped the four checks below it. A
+    # regression that ERRORS instead of FAILING on the defect it names cannot
+    # be read as a verdict (doctrine 79: a crash is not a failure).
+    def _collisions_line(text):
+        for ln in text.splitlines():
+            if "collisions" in ln:
+                return ln
+        return ""
+
+    s = io.StringIO()
+    r.report(refrain, [[1, 2], [3, 4]], stream=s)
+    line = _collisions_line(s.getvalue())
+    check("the `collisions` count is on its OWN line, not appended to the "
+          "mandated/judged/refused row it shares no denominator with",
+          line.strip().startswith("collisions"), line.strip() or "(no line)")
+    check("the `collisions` count is BROKEN OUT by kind",
+          "—" in line, line.strip() or "(no line)")
+    check("...and a REFRAIN's returning lines are typed `same-word`, not "
+          "folded in with the rhymes",
+          "same-word 2" in line and "unasked-rhyme 2" in line, line.strip())
+    # TWO-SIDED: the same report on a draft with no repeated end word must NOT
+    # claim a `same-word` collision. A breakdown that always prints every
+    # label is the same defect as a single number wearing more words.
+    s2 = io.StringIO()
+    r.report(refrain, [[1, 3], [2, 4]], stream=s2)
+    line2 = _collisions_line(s2.getvalue())
+    check("...and the labels are DERIVED, not decoration: the same lines "
+          "under a mandate that makes the repeats intra-group report no "
+          "`same-word` collision at all",
+          "same-word" not in line2, line2.strip())
+    # THE KINDS MUST ACCOUNT FOR THE TOTAL. Without this, a code added to
+    # `_collision_code` and not to the header's label map would vanish from
+    # the breakdown while the total still counted it -- a report whose parts
+    # do not sum to its own whole, which is the defect one level in.
+    import re as _re
+    _m = _re.search(r"collisions (\d+)", line)
+    total = int(_m.group(1)) if _m else -1
+    parts = (sum(int(x) for x in _re.findall(r"\b(\d+)\b", line.split("—")[1]))
+             if "—" in line else -2)
+    check("the kinds SUM to the total — no collision falls outside every "
+          "label",
+          total == parts, f"total {total}, kinds sum {parts}: "
+                          f"{line.strip() or '(no line)'}")
+
+
 def test_the_title_a_lyric_declares_reaches_the_check_or_refuses():
     print("\n30. a `--- TITLE:` line in the LYRIC is not dropped in silence "
           "(FIXED 2026-08-15)")
@@ -3296,6 +3420,7 @@ if __name__ == "__main__":
     test_the_comparator_and_the_meter_flags_reach_the_graders()
     test_the_title_a_lyric_declares_reaches_the_check_or_refuses()
     test_the_collision_cut_is_one_constant_and_cannot_drift()
+    test_both_meter_coordinates_are_disclosed_and_collisions_are_typed()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

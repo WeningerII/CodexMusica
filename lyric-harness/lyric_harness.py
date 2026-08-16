@@ -6088,11 +6088,43 @@ def main():
             a disclosure about a layer that was never going to run either
             way (`quality/test_verbs.py` pins the refusal to line 1)."""
             if bp_path:
+                # BOTH METER COORDINATES, NOT ONE — 2026-08-16. This banner
+                # named `subdivision` in both states (declared, or refusing to
+                # assume one) and said NOTHING about isochrony in either, so a
+                # reader saw one meter coordinate disclosed and reasonably
+                # read that as the set. It is not: `--isochronous` is the
+                # OTHER one, and it moves the finding set. MEASURED on
+                # `brief` over `quality/fixtures/song.txt` + the shipped
+                # blueprint at subdivision 2 — it REMOVES the `NO_SETTING`
+                # refusal and ADDS `EVEN_DIVISION_LANDINGS` and four
+                # `TUPLET_REQUIRED`.
+                #
+                # AND `verify` IS WHY THIS IS A DISCLOSURE AND NOT A LOG LINE.
+                # `verify` prints a verdict plus fixed/broken/untargeted/
+                # modal_taken — a SET DIFFERENCE — and this flag moves the
+                # BEFORE and AFTER drafts identically, so every finding it
+                # adds or removes cancels. Measured byte-identical with and
+                # without on a real pair where `--subdivision 2` DOES change
+                # the verdict body, which is the positive control that the
+                # plumbing works. So on this one verb the coordinate was READ,
+                # was CHANGING the analysis, and could not be seen at all in
+                # the output: not inert, and not visible either. Naming it
+                # here is what makes the two runs distinguishable, and it is
+                # doctrine 1 — an analysis states the coordinates it was run
+                # under, including the ones whose effect cancels.
                 print(f"  BLUEPRINT: {bp_path} — meter and song-function "
                       f"join the rhyme/floor finding set"
                       + (f", subdivision={sub_arg}" if sub_arg else
                          ", NO SUBDIVISION DECLARED — the slot questions "
-                         "refuse rather than assume one"))
+                         "refuse rather than assume one")
+                      + (", ISOCHRONY ASSUMED — units evenly spaced across "
+                         "the span, a declared assumption and never a "
+                         "measurement (doctrine 4); every setting verdict "
+                         "below is conditional on it"
+                         if assume is not None else
+                         ", no isochrony assumed — the setting questions "
+                         "refuse (`NO_SETTING`) rather than divide the span "
+                         "evenly on their own"))
             else:
                 print("  BLUEPRINT: none declared — meter and song-function "
                       "are NOT asked; only rhyme and the slop floor are "

@@ -548,6 +548,78 @@ assert the id, which would have caught gap 6 and would catch the rest), **a
 prints** (would have caught `verify_doctrines.py`). None is built; they are
 listed here rather than asserted as coverage.
 
+### 4.7 · The three "cosmetic" findings, and why two of them were not `CLOSED 2026-08-16`
+
+The same audit filed four findings as **cosmetic**. One (gap 6 filing the
+Welsh prose arm under "WHAT REMAINS BLOCKED" when its own source says
+*Blocker: **neither***) was repaired with the stale records, since it was the
+same sentence. The other three are here, and re-measuring them moved two out
+of the cosmetic class entirely.
+
+**`--isochronous` on `verify` was NOT cosmetic — it was the only coordinate in
+the CLI that could be READ, CHANGE THE ANALYSIS, and leave no trace.** The
+audit had reported it honestly as neither read nor inert: it could not
+construct an input that distinguished the two runs, so under doctrine 20 it
+refused to call it either. Measured now, at the API: `Reviser.inspect` with an
+`Isochrony` RETIRES the `NO_SETTING` refusal from `whole`, and on `brief` it
+also adds `EVEN_DIVISION_LANDINGS` and four `TUPLET_REQUIRED`. So the
+coordinate was read the whole time. **`verify` could not show it because
+`verify` prints a SET DIFFERENCE** — verdict plus fixed/broken/untargeted/
+modal_taken — and the flag moves the BEFORE and AFTER drafts identically, so
+everything it adds or removes cancels. Byte-identical output, measured, on a
+pair where `--subdivision 2` does change the verdict body.
+**IT WAS ONE VERB, NOT THE FLAG, AND THE FILE ALREADY PROVED THAT.**
+`quality/test_verbs.py` §29 has asserted since 2026-08-15 that `song` with
+`--subdivision 1`, `--subdivision 2`, `--isochronous` and none of them
+produces FOUR DISTINCT reports — so the coordinate was demonstrably visible on
+`song`, and it is visible on `fit` (`NO_SETTING` ×2 gives way to `ASSUMED`)
+and on `brief`. `verify` alone could not show it, because `verify` alone
+reports a DIFFERENCE rather than a state. §32 is therefore not a second copy
+of §29: §29 pins that the flag is read, §32 pins that the verb which cannot
+show a read flag says so anyway.
+The fix is the disclosure, not the analysis: the `BLUEPRINT:` banner named
+`subdivision` in BOTH states (declared, or refusing to assume one) and named
+isochrony in NEITHER, so a reader saw one meter coordinate disclosed and
+reasonably read that as the set. It now names both, and the two runs differ.
+Doctrine 1, and the sharpest case of it in this repo: **an analysis states the
+coordinates it ran under, INCLUDING the ones whose effect cancels** — those
+are exactly the ones no output will reveal.
+*A method note worth keeping: the first measurement of this said the flag was
+byte-identical on `brief` too, which would have made it a much larger defect.
+It was wrong — the run had REFUSED on a scheme/draft length mismatch and never
+reached the meter layer at all. A byte-identical pair of refusals is not
+evidence about a coordinate neither run consulted.*
+
+**`collisions N` was one number for three kinds.** It sat at the end of the row
+that keeps `mandated`/`judged`/`refused` apart for doctrine 79, summing a set
+`_collision_code` splits into three codes *because* "they are three different
+reports": an unintended RHYME, a pair that is NOT a rhyme under this harness's
+own band, and the same word twice. A writer does something different about
+each. Measured on a four-line refrain: `collisions 4` was two REPEATs and two
+rhymes. It is now `collisions 4 — unasked-rhyme 2  same-word 2`, on its own
+line rather than appended to counts it shares no denominator with (a collision
+is a pair the mandate did NOT ask about). `quality/test_verbs.py` §32 pins
+both, and asserts the kinds SUM to the total so a code added to
+`_collision_code` and not to the label map cannot vanish from the breakdown
+while the total still counts it.
+
+**The third was correctly cosmetic — it is a VERDICT, and it was recorded
+nowhere.** The question "should the collision cut and `grade()`'s cut be one?"
+is invited by `COLLISION_CUT_IS_SCALAR_ONLY`'s own text, which calls the
+difference "the defect ... surviving here". The answer is NO, and it is now
+written beside the cut in `Reviser._matrix` where the change would be made,
+re-measured 2026-08-16 on a symlinked copy rather than carried from the audit:
+adding `admits()` to the collision test deletes every `NEAR_COLLISION` (a
+`wall`~`floor` pair at 0.996 goes from four findings to none) and silently
+stops `MANDATE_GROUPS_INDISTINGUISHABLE` firing on a refrain, because
+`group_merges` condition (a) requires the cross edges to be IN the collision
+set and REPEAT is precisely what `admits()` rejects — 4 collisions and the
+finding, down to 2 and no finding. **The test churn is not the cost and was the
+only thing that looked like one:** `test_revise.py` goes 280/0 to 265/15, all
+in one file, while `test_loop`, `test_coda` and `test_mandate_language` do not
+move. A recorded verdict is cheap; rediscovering it by shipping the change is
+not.
+
 ---
 
 ## TIER 5 — whole absent layers (`MISSING` B, C, D, G, H)
