@@ -2370,25 +2370,72 @@ class Reviser:
                       field_declaration=self.field_declaration(),
                       keep=[i for i in range(1, len(lines) + 1)
                             if i not in found["per_line"]])
+            groups = m.partners(ln)
+            # ===============================================================
+            # THE MANDATE BLOCK IS GATED ON THE MANDATE. THE CANDIDATE FIELD
+            # IS GATED ON THE FINDING SET. THEY ARE TWO GATES — FIXED
+            # 2026-08-16, FOUND BY WRITING A SONG THROUGH `--propose=defer:`.
+            # ===============================================================
+            # Both used to sit behind `wants and groups`, so a line flagged
+            # for METER ALONE while sitting in a mandated group was briefed
+            # with NO `must_answer` at all — and `quality/propose.py`'s
+            # `_mandate_block`, finding nothing to print, fell through to its
+            # default sentence: `(no rhyme group declared for this line)`.
+            #
+            # THAT SENTENCE IS ABOUT THE MANDATE AND THE CONDITION WAS ABOUT
+            # THE FINDINGS. Doctrine 1: one question, two readings, and the
+            # rendered one was FALSE. MEASURED on a two-line draft
+            # (fingerprint `385ff1e4055e`, mandate `AA`, 2 bars of 4/4 at
+            # `--subdivision 2`): L1 carries `SLOTS_EXCEEDED` and no rhyme
+            # finding, `m.groups_of(1)` is `[0]` label `A` and
+            # `m.requirement(1, 2)` is `REQUIRE_RHYME` — and the tier-1 prompt
+            # told the writer no group was declared.
+            #
+            # THE COST IS NOT THE SENTENCE, IT IS WHAT A WRITER DOES NEXT.
+            # Told no group existed, the writer fixed the meter by shortening
+            # the line — `the kitchen light still burns` — and moved the end
+            # word `four` -> `burns`. `verify()` ACCEPTED it, correctly by its
+            # own rules (a flag fixed, none introduced), and the word the
+            # OTHER half of the only mandated pair has to answer had silently
+            # changed. Recorded in full at
+            # `quality/COVERAGE_PREREGISTRATION.md`, rung 1.
+            #
+            # THE FIELD STAYS BEHIND `wants`, and this method's own docstring
+            # is why: "a meter-only line is never handed a list of rhyme words
+            # it has no use for". That argument is about the OFFER and it
+            # still holds — a line whose rhyme is satisfied needs the
+            # CONSTRAINT stated and needs no replacement words. It also keeps
+            # `verify()`'s RULE 3 honest by construction: the modal exclusion
+            # is enforced off `b.forbidden_modal` — the brief's own list — so
+            # a line offered no field is a line the rule does not enforce
+            # against, and the writer is never rejected for taking a word
+            # nobody forbade.
+            #
+            # `joint_conflict` STAYS INSIDE THE FIELD BRANCH, deliberately:
+            # it reports that the CONJUNCTION of a pivot's groups is
+            # unsatisfiable, which is a fact about a search that was run, and
+            # it is what `quality/loop.py` dispatches tier 2 on. Setting it
+            # from a branch that computes no field would make it a claim about
+            # a search nobody performed (doctrine 20).
+            #
+            # EVERY group, not one. The old `_partner` picked the first
+            # mate of the line's single letter, which is all a letter
+            # scheme can express and is wrong for a pivot by construction.
+            for k, mates in groups:
+                b.must_answer.append(
+                    (m.labels[k], list(m.groups[k]),
+                     [(x, endwords[x - 1]) for x in mates]))
+            if groups and groups[0][1]:
+                _first = groups[0][1]
+                b.must_rhyme_with = (_first[0], endwords[_first[0] - 1])
             # ANY rhyme-implicating finding earns a candidate field, not just
             # a broken scheme. The cliche and predictable-rhyme cases are
             # precisely where a writer reaches for the obvious replacement, so
             # they are precisely where the modal exclusion has to be applied.
             wants = any(f.code in RHYME_FINDINGS for f in fs)
-            groups = m.partners(ln)
             if wants and groups:
-                # EVERY group, not one. The old `_partner` picked the first
-                # mate of the line's single letter, which is all a letter
-                # scheme can express and is wrong for a pivot by construction.
-                for k, mates in groups:
-                    b.must_answer.append(
-                        (m.labels[k], list(m.groups[k]),
-                         [(x, endwords[x - 1]) for x in mates]))
                 calls = [endwords[x - 1] for _, mates in groups for x in mates]
                 calls = [c for c in dict.fromkeys(calls) if c]
-                first = groups[0][1]
-                if first:
-                    b.must_rhyme_with = (first[0], endwords[first[0] - 1])
                 cur = self.floor.qf._endword(lines[ln - 1])
                 if calls:
                     b.candidates, b.forbidden_modal = self.joint_field(

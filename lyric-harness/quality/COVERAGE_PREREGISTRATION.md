@@ -597,6 +597,49 @@ significant: re-briefing per line changes the loop's cost model, and
 `loop.py`'s own docstring argues the current shape on measured grounds. That is
 a decision to take deliberately, not inside the run that found it.
 
+#### DEFECT A IS FIXED — 2026-08-16, in the next commit and not in this run
+
+The gate is split: `must_answer`/`must_rhyme_with` are populated whenever the
+line has a mandated group, and the CANDIDATE FIELD stays behind `wants`.
+`brief()`'s own long-standing argument for the second gate — *"a meter-only
+line is never handed a list of rhyme words it has no use for"* — is about the
+OFFER and is untouched. It also keeps the enforcement honest by construction:
+`verify()`'s RULE 3 reads `b.forbidden_modal`, the brief's own list, so a line
+offered no field is a line the modal rule does not enforce against, and no
+writer is rejected for taking a word nobody forbade. `joint_conflict` stays
+inside the field branch — it reports that a search came back empty, and setting
+it from a branch that runs no search would be a claim about a search nobody
+performed (doctrine 20).
+
+**MEASURED BLAST RADIUS, on this repo's own shipped fixtures rather than on the
+probe draft.** Briefed lines that were in a mandated group and carried no rhyme
+finding — every one of which the tier-1 prompt told `(no rhyme group declared
+for this line)`:
+
+| mandate | briefed lines | newly stated | rate |
+|---|---:|---:|---:|
+| DECLARED (`mandate_song` 41-char, `song` `ABABCCDDEEFFGGHH`), with and without a blueprint | 106 | 23 | **21.7%** |
+| DERIVED (`mandate_from_graph`, three fixtures, with and without a blueprint) | 140 | 32 | **22.9%** |
+
+The two agree to about a point, which is the check that the derived cover's
+own bias — it is a fixed point of the grader, so it produces fewer rhyme
+findings and would inflate this count — is not what is driving the number
+(doctrine 14). **So roughly one briefed line in five was being told the
+mandate said nothing about it.** The rate rises with a blueprint declared, as
+it must: meter is the layer that flags a line without implicating its rhyme.
+
+**Defect B is still unfixed and still a deliberate decision**, unchanged from
+the paragraph above.
+
+`quality/test_revise.py` §40 is 7 checks and fails exactly 2 against the
+pre-fix gate, proved by restoring it; the other 5 are the premise and three
+controls, which must pass on both trees — including the one that matters most,
+that a line in NO mandated group **still** gets the default sentence. The
+repair states a fact; it does not delete a line of the prompt. §32's own
+`not b1.must_answer` clause carried the identical conflation — it read the
+mandate block as a second proof of a claim about the candidate field — and is
+repaired in the same commit; it also dies under the same mutant.
+
 ### What rung 1 still owes
 
 ~~The `--propose=defer:` writer session, `verify`, and the diff — none of which
@@ -610,17 +653,32 @@ DENOMINATOR rather than about the draft:
 - **`verify` on the before/after pair.** The session ended at exit 4 with
   `SCHEME_VIOLATION` standing, so there is no converged AFTER to verify yet —
   and producing one means answering L2 against `burns`, which is answering a
-  question the harness asked wrongly (defect A). Held until the fix decision.
+  question the harness asked wrongly (defect A). ~~Held until the fix
+  decision.~~ **The decision is taken and defect A is fixed** (section above),
+  so this is no longer held — it needs the session RE-RUN against the repaired
+  brief, not waiting on anything.
 - **The coverage diff against §A–D.** Deferred for the same reason and NOT
   because it is expensive: a code that fired only because the writer was
   following a false brief is not evidence that a writing session reaches it.
   Scoring this run's codes against the denominator would put defect A's own
   output in the numerator (doctrine 79 — the refusal and the answer are not
-  summed, and a wrong answer is neither).
+  summed, and a wrong answer is neither). **The 2026-08-16 run's codes stay
+  out of the numerator whatever happens next** — a repaired harness does not
+  retroactively make that session's numbers honest, and a re-run produces its
+  own.
 
-That is a HALT, not a completion: rung 1 found what it was built to find at the
-first handoff and the ladder does not advance past an instrument reading a
+That was a HALT, not a completion: rung 1 found what it was built to find at
+the first handoff and the ladder does not advance past an instrument reading a
 brief the harness got wrong.
+
+**THE HALT NARROWS TO ONE DEFECT, IT DOES NOT LIFT.** Defect B still stands, so
+a re-run can still hand a writer a candidate field computed against a word that
+is no longer in the draft. What changes is that the writer now knows the line
+is half of a mandated pair before they move its end word, which is the
+condition under which B was reachable at all on this draft. Whether B fires
+without A in front of it is a QUESTION FOR THE RE-RUN and is not answered here
+— predicting it would be exactly the reasoning-instead-of-measuring this whole
+experiment exists to avoid.
 
 ## D. Judgement calls carried forward
 
