@@ -75,6 +75,7 @@ about.
 
 import collections
 import copy
+import hashlib
 import os
 import sys
 from dataclasses import dataclass, field
@@ -102,7 +103,7 @@ from quality.schemes import Mandate, NoMandate  # noqa: E402
 #: the refusal when it declares nothing.
 __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
            "COLLISION_FINDINGS", "RHYME_FINDINGS", "SATISFACTION_FINDINGS",
-           "THETA_COLLISION"]
+           "THETA_COLLISION", "draft_fingerprint"]
 
 #: Findings that mean "this line's RHYME needs replacing". Each earns a
 #: candidate field with the modal region excluded.
@@ -179,6 +180,52 @@ COLLISION_FINDINGS = {"SCHEME_COLLISION", "NEAR_COLLISION",
 #: stop being. Re-exported below so every existing `from quality.revise
 #: import THETA_COLLISION` keeps working (doctrine 58 — typing a finding is
 #: not moving a threshold, and neither is moving where it is written).
+
+
+def draft_fingerprint(lines):
+    """-> 12 hex chars identifying WHAT was graded. md5 over the joined lines.
+
+    A report that prints counts and verdicts but nothing identifying its
+    input produces figures that cannot be tied back to their draft by anyone
+    holding only the output. That is not hypothetical: on 2026-08-16 a
+    41-line fixture was graded in place of the 41-line song a RESULTS
+    document is about, the 41-character mandate bound cleanly to the wrong
+    draft, and the run returned a complete, plausible report whose
+    `collisions 69` was then recorded as a drift in a figure that had never
+    moved (`BACKLOG.md` §4.7, `RESULTS_REVISION_LOOP.md`'s ledger). A length
+    that matches is not an identity that matches, and nothing in the output
+    could show it. Every report surface now prints this fingerprint beside
+    its line count, so a pinned figure NAMES the text it came from and two
+    same-length drafts are distinguishable on the page.
+
+    THE HASH IS OVER THE LINES AS THE GRADER RECEIVED THEM — `"\\n".join`,
+    UTF-8 — not over the file: a loader that strips markers or a caller that
+    filters blanks has already changed the graded population, and the
+    fingerprint must answer for what was GRADED, not what was on disk
+    (doctrine 91: a count is a coordinate of the rendering; the input is a
+    coordinate of the count). md5 because this is an IDENTITY CHECK against
+    accident, not an integrity check against an adversary — the repo already
+    speaks md5 for exactly this use (`c9b9e7bf4bd2` and kin) — and 12 hex
+    chars because that is the citation width those records established.
+    Doctrine 58 note: 12 is a written-down width; anyone re-deriving a
+    fingerprint by hand must truncate to the same 12 or the comparison fails
+    in the direction that LOOKS like a wrong draft.
+
+    THE IDENTITY IS THE PAIR (line count, hash), NOT THE HASH ALONE, and
+    every surface prints both — measured, not assumed: `"\\n".join` is not
+    injective over line LISTS, so `["one line\\nsecond line"]` and
+    `["one line", "second line"]` hash identically and differ only in the
+    count printed beside it (probe: both give `83de3eefe6d4`; 1 line(s) vs
+    2 line(s)). Unreachable from any CLI surface — every loader splits on
+    newlines, so no element can carry one — but a direct library caller can
+    construct it, and a rule with a known collision that relies on a second
+    printed field must SAY so where the rule is stated. The alternative (a
+    length-prefixed join making the hash injective) was considered and
+    rejected: it would break the one property the incident showed matters,
+    that a reader can re-derive the hash BY HAND from the stated rule.
+    """
+    return hashlib.md5(
+        "\n".join(lines).encode("utf-8")).hexdigest()[:12]
 
 
 @dataclass
@@ -2557,6 +2604,13 @@ class Reviser:
                              assume=assume)
         m, rep = found["mandate"], found["grade"]
         print("\n" + m.describe(), file=stream)
+        # WHAT WAS GRADED, before one figure about it. This header's counts
+        # get quoted into RESULTS documents and pinned; without this line
+        # they name no input, and a same-length wrong draft produces a
+        # plausible report nobody can tell apart from the right one — see
+        # `draft_fingerprint`'s docstring for the day that happened.
+        print(f"  draft: {len(lines)} line(s), md5 "
+              f"{draft_fingerprint(lines)}", file=stream)
         # COLLISIONS ARE FOUR COUNTS TOO, AND THIS LINE PRINTED ONE — 2026-08-16.
         # Two lines of this same header keep `mandated`/`judged`/`refused`
         # apart for doctrine 79, and the paragraph forty lines down makes the

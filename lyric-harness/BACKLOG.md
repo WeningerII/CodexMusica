@@ -621,10 +621,13 @@ I was editing. On the recovered draft it is
 run returned a complete, plausible report instead of refusing — the same shape
 as every defect in this backlog, arriving from the input side. A length that
 matches is not an identity that matches, and `Reviser.report()` takes `lines`
-and therefore **prints nothing that identifies the draft it read**: a
-measurement recorded from it cannot be tied back to its input by anyone
+and therefore ~~**prints nothing that identifies the draft it read**~~
+(**TRUE AT THE TIME OF THE ERROR AND FALSE SINCE LATER THE SAME DAY** — the
+fingerprint paragraph below closed exactly this, and this clause is kept in
+the past it describes rather than silently absorbed by its own fix): a
+measurement recorded from it could not be tied back to its input by anyone
 holding only the output. That is why a wrong-input run and a right-input run
-are indistinguishable on the page, and it is why this took a second reading
+were indistinguishable on the page, and it is why this took a second reading
 rather than a failing check.
 
 **It was caught by a figure the same table already carried.** The row two below
@@ -650,7 +653,59 @@ fixture is constructed test data with **2.3x** as many pairs over the cut, which
 is what a fixture built to exercise mandate machinery should look like. No
 harness behaviour changed, on any date. **The candidate shape this suggests is a draft FINGERPRINT in
 the report header** (line count and a content hash), so a pinned figure names
-the text it came from. Not built; listed, like the shapes in §4.6.
+the text it came from. ~~Not built; listed, like the shapes in §4.6.~~
+**BUILT 2026-08-16, same day, on every surface a figure gets quoted from.**
+`quality.revise.draft_fingerprint(lines)` — md5 over `"\n".join(lines)`,
+first 12 hex, the width and algorithm the repo's existing citations
+(`c9b9e7bf4bd2` and kin) already established — and the four surfaces print
+it:
+- `Reviser.report()` — `draft: N line(s), md5 X` above the mandated/judged
+  counts, the header this whole error was recorded from;
+- `brief`/`song` (one shared `_print_brief_report`) — printed the moment
+  `rv.brief()` returns and BEFORE any render path forks, because the early
+  returns include `nothing flagged`, which is precisely the report a wrong
+  draft must not produce anonymously;
+- `verify` — `BEFORE:`/`AFTER :` fingerprints above the verdict, gated on a
+  mandate being present so a refusal stays the first thing printed. The verb
+  needed it most: its output is a set difference, so it is structurally the
+  least able to show its inputs;
+- `revise_loop` — the one caller that CHANGES the draft, so
+  `LoopResult.input_n`/`.input_fingerprint` are captured before the first
+  round can rebind `lines`, and `disclosure()` leads with
+  `DRAFT: handed in N, md5 X — emitted M, md5 Y`, with a derived
+  `(UNCHANGED)` marker because comparing two hex strings by eye is the step
+  that gets skipped. A hand-built `LoopResult` prints its missing input AS
+  missing (doctrine 20), never as an invented identity.
+A refusing run prints no fingerprint on any surface, and that is the design:
+a refusal names its own cause; it was the SUCCESSFUL, plausible report that
+used to name nothing. `quality/test_verbs.py` §33 pins all four surfaces —
+recomputability by the stated rule, the 41=41 same-length case, determinism,
+cross-surface agreement (`brief` and `verify` must fingerprint one file
+identically), order (inputs above the verdict they precondition), and both
+directions of the loop's `(UNCHANGED)` marker — 16 checks (~~13~~), proved
+two-sided: **16 of 16 fail against the pre-fix tree, with no crash.**
+**THE THREE ADDED CHECKS WERE BOUGHT BY AN ADVERSARIAL REVIEW OF THE FIRST
+DRAFT, and what it found is worth the sentence:** a hostile mutation that
+computed `verify`'s AFTER fingerprint from a DIFFERENT draft went **13/13
+green** against the first version, because the CLI hashes were pinned by
+shape and cross-surface agreement but never recomputed against ground truth
+— a fingerprint test committing the fingerprint's own defect (agreement is
+not correctness; two surfaces printing the same wrong identity agree). §33
+now recomputes the expected md5 of each CLI file FROM THE CONTENT THE TEST
+ITSELF WROTE, per side, and the mutant fails exactly the check built for it.
+The review also exercised the previously untested absent-input branch (a
+hand-built `LoopResult` must print `input NOT RECORDED`, never an invented
+identity), and surfaced two boundary facts now stated where they live: the
+`verify` fingerprints print above a DECLARED-but-unbindable mandate's
+refusal — kept, because an arity refusal is a claim about these drafts and
+belongs under their identity — and `"\n".join` is not injective over line
+lists, so the identity is the printed PAIR (count, hash), recorded in
+`draft_fingerprint`'s own docstring with the measured collision.
+What this does NOT
+do, stated so nobody reads coverage into it: it cannot retroactively validate
+any figure pinned before today — those name no fingerprint and never will —
+and it does not verify a draft against a PATH, only against content someone
+still has. It makes the next wrong-input run legible, not impossible.
 
 **The third finding was correctly cosmetic — it is a VERDICT, and it was
 recorded nowhere.** The question "should the collision cut and `grade()`'s cut be one?"
@@ -796,7 +851,7 @@ never one (doctrine 79).
 | MISSING entries by status | 48 OPEN / 15 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1002** DECLARED-public top-level functions/classes under `quality/` and the root — **164** named by another production module, **255** by tests only, **529** only inside their own module, **10** by nothing anywhere, **44** REFUSED (34 ambiguous, 5 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **19** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1003** DECLARED-public top-level functions/classes under `quality/` and the root — **165** named by another production module, **255** by tests only, **529** only inside their own module, **10** by nothing anywhere, **44** REFUSED (34 ambiguous, 5 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **19** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **57 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

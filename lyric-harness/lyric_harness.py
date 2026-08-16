@@ -5900,7 +5900,8 @@ def main():
         from quality.revise import Reviser
         from quality.schemes import NoMandate
         from quality import schemes as SC
-        from quality.revise import ReviseDeclaration, RHYME_FINDINGS
+        from quality.revise import (ReviseDeclaration, RHYME_FINDINGS,
+                                    draft_fingerprint)
 
         # `--pursue=CODE,CODE` — WHICH NOTES THE LOOP KEEPS WORKING ON.
         # Omitted, `pursue` is empty and every run reads exactly as it did
@@ -6400,6 +6401,17 @@ def main():
             briefs = rv.brief(lines, scheme, blueprint=blueprint,
                               subdivision=subdivision, assume=assume,
                               profile=rv_profile)
+            # WHAT WAS GRADED, printed the moment the grader has read it and
+            # BEFORE any render path forks — the early returns below include
+            # `nothing flagged`, which is precisely the report a wrong draft
+            # must not produce anonymously. A run that REFUSES never reaches
+            # this line, and that is right: a refusal names its own cause,
+            # while a successful report used to name nothing about its
+            # input, so a same-length wrong draft was indistinguishable on
+            # the page (`quality.revise.draft_fingerprint`'s docstring
+            # records the day that cost a false repin).
+            print(f"  draft: {len(lines)} line(s), md5 "
+                  f"{draft_fingerprint(lines)}")
             # THE WHOLE-DRAFT HALF OF THE SAME FINDING SET. `inspect()`
             # returns `per_line` AND `whole`; `brief()` is built from
             # `per_line` only, because a `Brief` carries a `line_no`,
@@ -6845,6 +6857,39 @@ def main():
                 _say_derived(scheme)
                 if scheme is not None:
                     _say_blueprint()
+                    # BOTH SIDES, BEFORE THE VERDICT THAT COMPARES THEM.
+                    # `verify` is the one verb whose whole output is a SET
+                    # DIFFERENCE, so it is the verb least able to show which
+                    # drafts it read — two wrong inputs of the right length
+                    # produce a complete verdict block naming neither. The
+                    # `HANDED IN` sides above carry the PATHS, and a path is
+                    # not an identity: the false collisions-69 repin was made
+                    # from a right-shaped run on the wrong content.
+                    #
+                    # THE GATE IS "A MANDATE WAS DECLARED", NOT "IT BOUND" —
+                    # stated precisely because the first draft of this
+                    # comment overclaimed. With NO mandate this verb refuses
+                    # before reaching here and the refusal is the first
+                    # thing printed. With a DECLARED mandate that then fails
+                    # to BIND (wrong arity, say), these two lines print and
+                    # THEN the refusal — measured: `verify b.txt a.txt AAB`
+                    # on 2-line drafts prints BEFORE/AFTER above `REFUSED —
+                    # the scheme 'AAB' is 3 characters and the draft is 2
+                    # lines`. That ordering is KEPT, not tolerated: an arity
+                    # refusal is a claim ABOUT these drafts (3 letters
+                    # against THESE 2 lines), so the identity of the drafts
+                    # it was measured on belongs above it. `brief` prints no
+                    # fingerprint on the identical refusal — its draft line
+                    # sits after `rv.brief()`, which raises first — and that
+                    # asymmetry is the two verbs' report shapes, not a
+                    # drifted rule: `brief`'s refusal names its one draft's
+                    # line count itself, while an arity refusal here names a
+                    # count from EACH side's file and would otherwise name
+                    # neither identity.
+                    print(f"  BEFORE: {len(before)} line(s), md5 "
+                          f"{draft_fingerprint(before)}")
+                    print(f"  AFTER : {len(after)} line(s), md5 "
+                          f"{draft_fingerprint(after)}")
                 # `tail` and NOT `args[4]`: pulling a mandate flag out moves
                 # every positional behind it, and this one is the targeted
                 # line list. Reading the raw index is what met `--returns=1`
