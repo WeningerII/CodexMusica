@@ -603,8 +603,57 @@ both, and asserts the kinds SUM to the total so a code added to
 `_collision_code` and not to the label map cannot vanish from the breakdown
 while the total still counts it.
 
-**The third was correctly cosmetic — it is a VERDICT, and it was recorded
-nowhere.** The question "should the collision cut and `grade()`'s cut be one?"
+**A WITHDRAWN FINDING FROM THIS SAME LANE, AND IT IS THE MOST USEFUL THING IN
+IT.** While repinning the report header I re-ran `RESULTS_REVISION_LOOP.md`
+§6's ledger row — `mandated 8   judged 8   refused 0   violations 0
+collisions 26`, marked **REPRODUCES EXACTLY** — measured **69**, and recorded
+that the total had gone stale and the cause was unknown. **That was wrong. The
+row was right the whole time.** The 69 came from running
+`quality/fixtures/mandate_song.txt` when §6's input is
+`examples/never_been_to_a_scene.txt`, which was deleted at 11aa19b and no
+longer exists in the tree — recoverable only through the
+`git show 11aa19b^:...` line that document prints eight lines above the table
+I was editing. On the recovered draft it is
+`collisions 26 — unasked-rhyme 12  not-a-rhyme 7  same-word 7`.
+
+**Nothing could have caught it, and that is the finding.** Both drafts are
+**41 lines**, so a 41-character mandate bound cleanly to the wrong one and the
+run returned a complete, plausible report instead of refusing — the same shape
+as every defect in this backlog, arriving from the input side. A length that
+matches is not an identity that matches, and `Reviser.report()` takes `lines`
+and therefore **prints nothing that identifies the draft it read**: a
+measurement recorded from it cannot be tied back to its input by anyone
+holding only the output. That is why a wrong-input run and a right-input run
+are indistinguishable on the page, and it is why this took a second reading
+rather than a failing check.
+
+**It was caught by a figure the same table already carried.** The row two below
+records `7 × NEAR_COLLISION` from the 2026-08-13 re-run; the recovered draft's
+breakdown reads `not-a-rhyme 7`. Two derivations, different days, different
+routes, same number — which is what a cross-check is for, and it existed before
+the error did.
+
+**AND THE 69 IS ACCOUNTED FOR RATHER THAN DISMISSED, which is the difference
+between identifying a wrong input and merely disowning a number.** On this
+mandate every collision is a pair over the cut that the mandate did not put in
+one group, and all 8 mandated pairs clear the cut (`violations 0`), so
+`collisions = (pairs >= THETA_COLLISION) - pairs_mandated` exactly. Measured on
+both drafts:
+
+| draft | lines | distinct end words | pairs >= 0.9 | - mandated | = collisions |
+|---|---|---|---|---|---|
+| `never_been_to_a_scene` (§6's input) | 41 | 34 | 34 | 8 | **26** |
+| `mandate_song` (what I ran) | 41 | 33 | 77 | 8 | **69** |
+
+Both identities hold to the unit. The gap is the DRAFT and nothing else: the
+fixture is constructed test data with **2.3x** as many pairs over the cut, which
+is what a fixture built to exercise mandate machinery should look like. No
+harness behaviour changed, on any date. **The candidate shape this suggests is a draft FINGERPRINT in
+the report header** (line count and a content hash), so a pinned figure names
+the text it came from. Not built; listed, like the shapes in §4.6.
+
+**The third finding was correctly cosmetic — it is a VERDICT, and it was
+recorded nowhere.** The question "should the collision cut and `grade()`'s cut be one?"
 is invited by `COLLISION_CUT_IS_SCALAR_ONLY`'s own text, which calls the
 difference "the defect ... surviving here". The answer is NO, and it is now
 written beside the cut in `Reviser._matrix` where the change would be made,
