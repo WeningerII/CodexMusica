@@ -527,7 +527,31 @@ jobs:
   # surfaces here rather than being masked by a sibling.
   catalog-result:
     needs: catalog
-    if: always()
+    # ~~if: always()~~ — REPLACED 2026-08-16, AND IT WAS PUTTING A RED X ON
+    # EVERY COMMIT ON EVERY BRANCH WITH AN OPEN PR.
+    #
+    # `always()` INCLUDES THE CANCELLED STATE. An open PR means every push
+    # spawns two runs — one `push`, one `pull_request` — and the concurrency
+    # group cancels the `push` one within seconds, EVERY TIME, by design. That
+    # cancellation makes `needs.catalog.result` = `cancelled`, this job ran
+    # anyway, and the `*)` arm below turned it into
+    # `::error::catalog shards reported 'cancelled'` + exit 1. MEASURED on run
+    # #426 (`c806457`): the run started 00:30:34 and this job errored at
+    # 00:30:41 — SEVEN SECONDS IN, with no shard having done any work at all.
+    #
+    # The check run is stamped on the SHA, so the commit list showed a red X
+    # against four consecutive green commits while the `pull_request` run on
+    # the same sha reported SUCCESS with 0 failed jobs (run #427). A reader
+    # checking CI saw a colour that meant nothing about the code, which is the
+    # most expensive kind of wrong a gate can be.
+    #
+    # `cancelled` AND `failure` ARE DIFFERENT STATES (doctrine 79 — a refusal
+    # is not a failure, and putting it in the numerator charges the wrong
+    # layer). `!cancelled()` says: do not aggregate a run that is being torn
+    # down. It does NOT weaken the gate — the `*)` arm still fires on a
+    # `cancelled` result when the RUN itself was not cancelled, which is the
+    # case that means a shard hit its own timeout and IS a real error.
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - name: Aggregate the catalog shards
@@ -540,6 +564,14 @@ jobs:
               ;;
             skipped)
               echo "Shards skipped — the scope step found no changed path in the artifact build closure."
+              ;;
+            cancelled)
+              # Reached only when the RUN was not cancelled (the `if:` above),
+              # so this is a shard that died on its own — a timeout or a
+              # runner loss. Named apart from `failure` rather than folded in,
+              # because the two ask different things of whoever reads it.
+              echo "::error::catalog shards were CANCELLED while the run was not — a shard hit its own timeout or lost its runner"
+              exit 1
               ;;
             *)
               echo "::error::catalog shards reported '$result'"
