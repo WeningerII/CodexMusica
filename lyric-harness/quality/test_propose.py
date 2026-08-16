@@ -104,6 +104,12 @@ class B:
         self.must_rhyme_with = kw.get("must_rhyme_with")
         self.candidates = kw.get("candidates", [])
         self.forbidden_modal = kw.get("forbidden_modal", [])
+        #: The incumbent rule's own field since 2026-08-16 — see
+        #: `quality/revise.py`'s `Brief`. Defaulted so every existing stub
+        #: below keeps rendering, which is also the hazard: the renderer
+        #: reads it through `getattr`, so a stub that forgets it produces an
+        #: empty block rather than an error.
+        self.forbidden_incumbent = kw.get("forbidden_incumbent", "")
         self.keep = kw.get("keep", [])
         self.must_answer = kw.get("must_answer", [])
         self.joint_conflict = kw.get("joint_conflict", False)
@@ -130,7 +136,15 @@ PIVOT_BRIEF = B(
     findings=[F("SCHEME_VIOLATION", "flag",
                 "L1 and L3 are both in group A [1, 3] but do not rhyme",
                 "NO_RELATION (score 0.118; 'silver' ~ 'dream')", [1, 3])],
-    candidates=[], forbidden_modal=["dream"], keep=[],
+    # `forbidden_modal=["dream"]` UNTIL 2026-08-16, which encoded a Brief
+    # `brief()` can no longer emit: on a joint-conflict pivot the modal head
+    # is empty BY CONSTRUCTION (`joint_conflict` is `not candidates and not
+    # forbidden_modal`), so the only exclusion such a line ever carries is
+    # its INCUMBENT — which is now its own field. Nothing went red on the old
+    # spelling, which is exactly why it had to be moved deliberately: a stub
+    # that renders a state production cannot reach tests the renderer against
+    # a shape no writer will ever see.
+    candidates=[], forbidden_modal=[], forbidden_incumbent="dream", keep=[],
     must_answer=[("A", [1, 3], [(1, "silver")]),
                  ("B", [2, 3], [(2, "mind")])],
     joint_conflict=True)
@@ -360,10 +374,19 @@ def test_a_pivot_and_a_joint_conflict_are_stated():
           "MANDATE, not the line" in block)
     check("an empty candidate field says WHY rather than printing nothing",
           "no candidate field was offered" in _section(p, "OFFERED"))
+    # REPOINTED 2026-08-16. This asserted the literal "NOT one of the
+    # FORBIDDEN", which was the old item 3 — a sentence that promised a
+    # rejection `verify()` does not make: RULE 3 rejects for MOVING TO a modal
+    # word and does not reject for KEEPING the word already there. The check
+    # now requires the DISTINCTION rather than the old string, so it cannot go
+    # green against a prompt that has quietly reverted to the flat claim.
     check("the constraints are stated even with no candidates: one line, no "
-          "other line, no forbidden word",
+          "other line, and the forbidden rule stated as a MOVE",
           all(s in p for s in ("ONE line back", "ONLY L3 changes",
-                               "NOT one of the FORBIDDEN")))
+                               "MOVES TO is not one of the FORBIDDEN",
+                               "is not a move and is not rejected here"))
+          and "The end word is NOT one of the FORBIDDEN" not in p,
+          [l.strip() for l in p.splitlines() if l.strip()[:2] in ("1.", "3.")])
 
 
 # -- 5. parsing ---------------------------------------------------------
@@ -673,6 +696,25 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
               anchor_text=DRAFT[0], anchor_word="silver",
               anchor_offered=["deliver"], label="A", members=[1, 3],
               brief=PIVOT_BRIEF, lines=DRAFT, attempt=0)).count("PIVOT") > 0)
+
+    # THE SAME GUARD FOR `B`/`Brief`, ADDED 2026-08-16 — and the reason is
+    # that its absence was demonstrated rather than imagined. `Brief` grew
+    # `forbidden_incumbent` that day; `class B` above enumerates the field
+    # list BY HAND, and `render_line` reads every field through
+    # `getattr(brief, NAME, default)`. So a stub that has not grown the field
+    # renders the new rule as an EMPTY BLOCK — no error, no red — and the
+    # writer-facing prompt silently loses a rule while this suite reports all
+    # pass. That is the exact shape `PB` was pinned against one check above,
+    # left open on the sibling class.
+    from quality.revise import Brief as _RealBrief
+    b_declared = {f.name for f in dataclasses.fields(_RealBrief)}
+    b_used = set(vars(B()))
+    check("every field this suite builds a `B` out of is a real `Brief` "
+          "field", b_used <= b_declared, sorted(b_used - b_declared))
+    check("...and `Brief` has grown no field this stand-in is blind to — "
+          "which is what stops a new rule rendering as an empty block with "
+          "the suite green",
+          b_declared <= b_used, sorted(b_declared - b_used))
 
 
 def test_model_proposer_serves_a_real_tier_2():

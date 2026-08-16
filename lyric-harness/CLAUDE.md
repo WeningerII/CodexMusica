@@ -304,6 +304,85 @@ forbidden word" and "was never on the list" are different outcomes (doctrine
 end-word test removed; its second premise is the disagreement made mechanical —
 under the mutant the loop still converges while `verify` rejects.
 
+**AND THE FORBIDDEN LIST WAS TWO RULES IN ONE FIELD — SPLIT 2026-08-16.**
+`brief()` built `Brief.forbidden_modal` as the modal head (doctrine 9 — do not
+pass the band by reaching for the most predictable word) and then APPENDED the
+INCUMBENT under a different argument entirely (*"re-proposing the word that is
+already there is not a revision"*). One list, two questions, and **three
+renderers labelled the whole of it doctrine 9**: `Brief.__str__`, the CLI
+`brief`/`song` report, and the tier-1 writer prompt. `forbidden_modal` is the
+head alone now and `forbidden_incumbent` is its own field, with every surface
+naming the rule it is stating.
+**THE FIELDS OVERLAP ON PURPOSE AND THE OBVIOUS PARTITION IS A REGRESSION.**
+`joint_field`'s `exclude=(cur,)` never filtered the FORBIDDEN half — it builds
+`drop` and uses it only for the offered `rest` — so the head contains the
+incumbent whenever the word already there is genuinely modal, which is **2 of 2
+briefed lines on this repo's own `MODAL_DRAFT`** (`down` at index 0, `more` at
+index 1). Subtracting `cur` to make the two disjoint would stop `verify()`
+rejecting a revision that moves a DIFFERENT line onto that word. What the
+fields no longer do is answer for each other.
+**RULE 3 READS A FIELD PER BRANCH, AND THAT IS THE LOAD-BEARING EDIT** —
+`modal_hits` off the head, `modal_kept` off the incumbent, with the loop gated
+on `(forbidden_modal or forbidden_incumbent)`. Gating on the head alone would
+have `continue`d past every line whose only exclusion is its incumbent and
+silently emptied `modal_endword_unchanged`, deleting the doctrine-20 disclosure
+that had shipped hours earlier — measured, not feared.
+**THREE SENTENCES WERE FALSE AND ONE OF THEM WAS MINE.** The tier-1 prompt's
+`do not end L{n} on any of these` is false of a word the line KEEPS (RULE 3
+asks whether one was TAKEN), so it is `do not MOVE TO`; its `Taking any one of
+them is REJECTED OUTRIGHT` was true of the head and false of the incumbent, and
+its single `({len(forbidden)})` summed two rules into one integer a writer
+reads (doctrine 79); and RULE 3's own comment, written the same day, claimed
+*"The LAST entry is `brief()`'s incumbent clause"* — false whenever the
+incumbent is already modal, because the append was guarded by `if cur not in
+forbidden_modal` and on `MODAL_DRAFT` the last entries are `renown` and `or`.
+Nothing indexed `[-1]`, so the code was never wrong; the prose was.
+**AND THE SPLIT MADE A THIRD CAUSE SAYABLE.** `candidates == []` can mean no
+rhyme finding earned a field, or nothing in the lexicon answers the groups, or
+**everything that answers is inside the modal head** — and the prompt
+enumerated only the first two, so in the third case both stated causes were
+false in the same breath. It could not be named while the head also held the
+incumbent. `quality/test_revise.py` §42 is 10 checks; §2's incumbent check is
+repointed at the new field, because it read `"fire" in b.forbidden_modal` and
+passed for the OTHER rule — `fire`/`desire` is the canonical modal pair, so
+`fire` is head[0] on its own merits and would sit there with the incumbent
+clause deleted. `quality/test_verbs.py` §22's equality is now STRUCTURAL rather
+than a property of its fixture, and `quality/test_propose.py` §7c gained the
+`B`/`Brief` field-set guard that `PB`/`PairBrief` already had — without it a
+stand-in that has not grown a field renders the new rule as an EMPTY BLOCK,
+no error and no red, which is how a writer-facing rule disappears.
+**TWO CLI SURFACES WERE REPAIRED IN THE SAME PASS.** The `verify` verb printed
+`untargeted` and `modal_taken`, two keys `Reviser.verify` has NEVER set, and
+printed neither of the two it does — so RULE 3's structured disclosure was
+unreachable from the command line while `revise.py`'s comment argued it was
+disclosed. And `candidates W n --modal` claimed its set is "what `verify()`
+rejects a revision for taking" flat; that holds only for a line in ONE group,
+because a PIVOT is enforced against the head of the INTERSECTION of its k
+fields, which a one-word verb cannot state.
+**AND THE SAME CONFLATION IN TWO MORE CONTAINERS — FIXED 2026-08-16,
+`BACKLOG.md` §4.8.** Found by asking the audit the wider question: where ELSE
+does one name carry two rules such that a report can name the wrong one.
+`quality/loop.py`'s tier-1 dead end printed `"no candidates offered"` for every
+path reaching `tried == 0` — MEASURED against a proposer returning `None` on a
+line whose `brief.candidates` held **24 words**, so the harness took the blame
+for the writer's refusal on the ordinary `revise` output path. **It is THREE
+rules, not two**: nothing to propose FROM, a proposer that declined, and
+`attempts_per_line < 1` — the question never put at all, doctrine 20's own
+case, reachable because that is a declared coordinate with no floor. The first
+two are measured on ONE run, which is what makes them two rules rather than two
+namings of one.
+**AND `LoopResult.unresolved` MERGED A FLAG WITH A PURSUED NOTE** against its
+own field comment (*"still carrying a flag finding at stop"*), which is false
+for every line `--pursue` holds open — the entire purpose of that coordinate.
+SPLIT, NOT REPLACED: `unresolved` stays the UNION because that is the question
+a stop condition asks, and `unresolved_flagged`/`unresolved_pursued` say WHY,
+with `__str__` printing `L3 (pursued note), L4 (flag)`. **Never summed** — they
+overlap on a line carrying both, measured on `_open_by_rule` at 2 + 2 = 4
+against a union of 3. `quality/test_loop.py` §17 is 8 checks and needs TWO
+mutations because the fix has two layers: the merged sentence and bare list
+kill 5, and making `unresolved_flagged` the union again — the old false comment
+made true — kills the other 2.
+
 **`candidates` AND THE LOOP ANSWERED ONE QUESTION TWO WAYS — FIXED
 2026-08-15, FOUND BY PRE-SCREENING A RHYME WITH THE WRONG LIST.** The verb
 ranks by RHYME SCORE; the modal exclusion ranks by FREQUENCY over the words

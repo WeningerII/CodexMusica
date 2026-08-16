@@ -378,7 +378,44 @@ class Brief:
     findings: list = field(default_factory=list)
     must_rhyme_with: tuple = None       # (line_no, endword) — the FIRST group
     candidates: list = field(default_factory=list)
+    #: THE MODAL HEAD, AND NOTHING ELSE — doctrine 9's own set: the most
+    #: frequent band-passing answers to this line's call words, which a
+    #: revision may not LAND ON.
+    #:
+    #: IT CARRIED A SECOND RULE UNTIL 2026-08-16 and no consumer could tell
+    #: the two apart. `brief()` appended the INCUMBENT — the word already at
+    #: the end of the line — under a different argument entirely ("re-
+    #: proposing what is there is not a revision"), so one list answered two
+    #: questions and every renderer labelled the whole of it doctrine 9.
+    #: MEASURED, on the pair that exposed it: `modal_field('four')` is
+    #: `['door','more','before','shore','sore','or']` with and without the
+    #: exclusion, so `stairs` was on the list under the second rule alone and
+    #: `verify()` still rejected it as "the modal candidate".
     forbidden_modal: list = field(default_factory=list)
+    #: THE WORD ALREADY AT THE END OF THIS LINE, carried separately since
+    #: 2026-08-16. Empty when the line has no field.
+    #:
+    #: A STRING AND NOT A LIST, because there is exactly one of them and a
+    #: one-element list invites the same summing the split exists to end.
+    #:
+    #: POPULATED FROM `self.floor.qf._endword(...)` AND FROM NOTHING ELSE,
+    #: and that is load-bearing rather than incidental: `verify()`'s RULE 3
+    #: compares against `_endword(before[ln - 1])`, so the two must be the
+    #: same function or the corollary that makes "took the modal candidate"
+    #: true by construction stops holding. `_endword` lowercases and strips
+    #: boundary apostrophes and hyphens — it is not a raw byte compare, and
+    #: anything populating this field by another route would silently
+    #: reintroduce the defect.
+    #:
+    #: THIS IS THE THIRD SPELLING OF THE INCUMBENT RULE IN THIS REPO AND
+    #: SAYING SO IS THE POINT (doctrine 1). The other two are `brief()`'s
+    #: own `joint_field(calls, exclude=(cur,))` — which drops it from the
+    #: OFFER — and `quality/loop.py`'s tier-2 `exclude=(pivot_current,)`/
+    #: `exclude=(anchor_current,)`, which does the same for the backtrack
+    #: search. All three say "do not re-propose the word that is there";
+    #: none of them is derived from the others, and a change to the rule has
+    #: to visit all three.
+    forbidden_incumbent: str = ""
     keep: list = field(default_factory=list)
 
     #: Every group this line belongs to: [(label, [lines], [(line, endword)])].
@@ -426,10 +463,21 @@ class Brief:
         if self.must_rhyme_with and not self.must_answer:
             n, w = self.must_rhyme_with
             out.append(f"    must rhyme with L{n} ({w!r})")
+        # TWO LINES, TWO RULES. Printing one list under one sentence is what
+        # made this renderer state doctrine 9 about a word that was only ever
+        # the incumbent. Each line now names the rule it is stating, and the
+        # consequences differ: landing on a modal word is a RULE 3 rejection
+        # on its own, while keeping the incumbent is not rejected here at all
+        # (`verify()` RULE 3 asks whether a word was TAKEN) and is caught, if
+        # at all, by RULE 4's "nothing was fixed".
         if self.forbidden_modal:
             out.append(f"    FORBIDDEN (modal — passing the band by taking "
                        f"these is the slop direction): "
                        f"{', '.join(self.forbidden_modal)}")
+        if self.forbidden_incumbent:
+            out.append(f"    ALREADY THERE (not a modal word — re-proposing "
+                       f"the end word that is already on this line is not a "
+                       f"revision): {self.forbidden_incumbent}")
         if self.candidates:
             out.append(f"    offered: {', '.join(self.candidates[:12])}"
                        + (" ..." if len(self.candidates) > 12 else ""))
@@ -2443,10 +2491,23 @@ class Reviser:
                     b.joint_conflict = (len(calls) > 1
                                         and not b.candidates
                                         and not b.forbidden_modal)
-                # the word currently there is itself excluded: it is what was
-                # flagged, so re-proposing it is not a revision
-                if cur and cur not in b.forbidden_modal:
-                    b.forbidden_modal.append(cur)
+                # THE WORD CURRENTLY THERE, ON ITS OWN FIELD SINCE
+                # 2026-08-16. It used to be APPENDED to `forbidden_modal`,
+                # which put two rules in one list under doctrine 9's name —
+                # see the two fields' own comments. `joint_field` above has
+                # already dropped it from the OFFER via `exclude=(cur,)`;
+                # this records it so a renderer can state the second rule
+                # instead of mislabelling it as the first.
+                #
+                # NOT SUBTRACTED FROM THE HEAD, deliberately. A word can be
+                # the incumbent AND genuinely modal — measured on this repo's
+                # own `MODAL_DRAFT`, where BOTH briefed lines sit on a word
+                # that is already inside their own head — and removing it
+                # from `forbidden_modal` would make `verify()` stop rejecting
+                # a revision that MOVES a different line onto it. The two
+                # fields overlap on purpose; what they no longer do is answer
+                # for each other.
+                b.forbidden_incumbent = cur or ""
             briefs.append(b)
         return briefs
 
@@ -2600,15 +2661,29 @@ class Reviser:
         # L2 did not TAKE 'stairs', L2 already ended on 'stairs' and was
         # revised somewhere else in the line.
         #
-        # `forbidden_modal` carries TWO rules at once. The head of it is
-        # the modal region — doctrine 9, do not pass the band by reaching
-        # for the most predictable word. The LAST entry is `brief()`'s
-        # incumbent clause, *"the word currently there is itself excluded:
-        # it is what was flagged, so re-proposing it is not a revision"*.
-        # MEASURED on the pair that exposed this: `modal_field('four')` is
-        # `['door','more','before','shore','sore','or']` with and without
-        # the exclusion, so **`stairs` is not a modal candidate for `four`
-        # under any spelling** — it was on the list only as the incumbent.
+        # `forbidden_modal` CARRIED TWO RULES AT ONCE — the modal region
+        # (doctrine 9, do not pass the band by reaching for the most
+        # predictable word) and `brief()`'s incumbent clause, *"the word
+        # currently there is itself excluded"*. MEASURED on the pair that
+        # exposed this: `modal_field('four')` is `['door','more','before',
+        # 'shore','sore','or']` with and without the exclusion, so
+        # **`stairs` is not a modal candidate for `four` under any
+        # spelling** — it was on the list only as the incumbent.
+        #
+        # ~~The LAST entry is `brief()`'s incumbent clause~~ — STRUCK
+        # 2026-08-16, THE SAME DAY IT WAS WRITTEN, and it was this comment's
+        # own sentence. There is no positional convention: the incumbent was
+        # appended only `if cur not in b.forbidden_modal`, so whenever the
+        # word already there is ALSO genuinely modal it was never appended
+        # at all and no entry was "last". That is not a corner case —
+        # measured on this repo's `MODAL_DRAFT`, BOTH briefed lines are in
+        # it, which is exactly why `quality/test_verbs.py` §22's equality
+        # passed. Nothing indexed `[-1]`, so the code was never wrong; the
+        # prose was, and a future reader could have implemented against it.
+        #
+        # THE RULES ARE TWO FIELDS NOW (`forbidden_modal` /
+        # `forbidden_incumbent`) and this block reads each from its own,
+        # so neither branch can answer for the other.
         #
         # THE END-WORD TEST IS THE WHOLE FIX, and it is a statement about
         # what this rule ASKS. Doctrine 9 is about REACHING for the
@@ -2645,15 +2720,24 @@ class Reviser:
         modal_kept = []
         for ln in changed:
             b = b_before.get(ln)
-            if not b or not b.forbidden_modal:
+            # BOTH FIELDS, OR THE DISCLOSURE IS DELETED BY THE SPLIT. Gating
+            # on `forbidden_modal` alone would `continue` past every line
+            # whose only exclusion is its incumbent — which is the exact
+            # shape of the pair defect C was found on — and
+            # `modal_endword_unchanged` would silently go empty.
+            if not b or not (b.forbidden_modal or b.forbidden_incumbent):
                 continue
             got = self.floor.qf._endword(after[ln - 1])
-            if got not in b.forbidden_modal:
+            was = self.floor.qf._endword(before[ln - 1])
+            if got == was:
+                # KEPT, not taken. Read off the incumbent field rather than
+                # inferred from membership of a merged list, so this branch
+                # states the rule it is about (doctrine 1).
+                if got and got == b.forbidden_incumbent:
+                    modal_kept.append((ln, got))
                 continue
-            if got == self.floor.qf._endword(before[ln - 1]):
-                modal_kept.append((ln, got))
-                continue
-            modal_hits.append((ln, got))
+            if got in b.forbidden_modal:
+                modal_hits.append((ln, got))
         out["modal_endword_unchanged"] = modal_kept
         if modal_hits:
             out["reasons"].append(
@@ -2695,12 +2779,16 @@ class Reviser:
         # is empty, which is every revision that moved its end word.
         if modal_kept:
             out["reasons"].append(
-                "; ".join(f"L{ln} KEPT its end word {w!r}, which is on this "
-                          f"line's forbidden list" for ln, w in modal_kept)
+                "; ".join(f"L{ln} KEPT its end word {w!r} — the INCUMBENT, "
+                          f"not a modal candidate"
+                          + ("; it is also in this line's modal head"
+                             if w in (b_before[ln].forbidden_modal
+                                      if ln in b_before else ()) else "")
+                          for ln, w in modal_kept)
                 + " — RULE 3 asks whether a modal candidate was TAKEN, and a "
                   "byte-identical end word took nothing. Disclosed because "
-                  "'kept a forbidden word' and 'was never on the list' are "
-                  "different outcomes (doctrine 20)")
+                  "'kept the word already there' and 'was never excluded at "
+                  "all' are different outcomes (doctrine 20)")
         if not m.independent():
             out["reasons"].append(
                 "the mandate was DERIVED from the rhyme graph, so this "

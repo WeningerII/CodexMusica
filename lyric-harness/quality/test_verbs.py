@@ -2592,6 +2592,31 @@ def test_the_candidate_field_says_which_ordering_it_is():
     check("what the verb forbids is what brief() forbids, same word",
           bforb and bforb == cforb,
           f"brief {sorted(bforb)} vs candidates {sorted(cforb)}")
+    # THIS EQUALITY PASSED FOR AN UNSTATED REASON UNTIL 2026-08-16, and the
+    # reason was a property of THIS FIXTURE rather than of the code. `brief()`
+    # used to APPEND the incumbent to the same list the verb prints, so the
+    # two sets could only be equal when nothing was appended — and nothing was
+    # appended here because BOTH briefed lines of MODAL_DRAFT sit on an end
+    # word that is already inside its own modal head ('down' is head[0] for
+    # the call 'town', 'more' is head[1] for 'four'). Change one end word to a
+    # non-modal rhyme and this section went red against code that had not
+    # moved. The two rules are two fields now, so the equality holds BY
+    # CONSTRUCTION; the two checks below pin that rather than the luck.
+    _, iline, _ = run("brief", draft, "--groups=1,3;2,4")
+    incumbents = [l for l in iline.splitlines() if "ALREADY THERE" in l]
+    check("the incumbent rule is printed on its OWN line, under its own "
+          "name — so it is neither lost from the report nor scraped into "
+          "`bforb` by the filter above",
+          len(incumbents) == len(bline)
+          and not any("FORBIDDEN (modal" in l for l in incumbents),
+          f"{len(bline)} modal line(s), {len(incumbents)} incumbent line(s)")
+    _rv_src = open(os.path.join(HERE, "revise.py")).read()
+    check("...and the equality above is now STRUCTURAL rather than a "
+          "property of this fixture: the incumbent is on a different field, "
+          "so no end word can ever be appended to the modal list",
+          "forbidden_incumbent" in _rv_src
+          and "forbidden_modal.append(cur)" not in _rv_src,
+          "the append that made this equality coincidental is gone")
 
 
 def test_the_last_two_traceback_shapes_refuse():

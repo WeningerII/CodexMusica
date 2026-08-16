@@ -520,11 +520,20 @@ def test_declared_returns_are_asked_and_have_no_move():
           f"unresolved {[b.line_no for b in res.unresolved]}, "
           f"codes {sorted(flagged_codes)}")
     l3 = [a for r in res.rounds for a in r.attempts if a.line_no == 3]
+    # REPOINTED 2026-08-16. This read `"no candidates offered" in reason`,
+    # which was the ONE sentence `_try_tier1` printed for all three ways of
+    # reaching `tried == 0` (§17). This line is the FIRST of those — the
+    # harness genuinely offered nothing — so the check keeps its claim and
+    # gains the discrimination it never had: it now requires the attempt to
+    # name THIS rule and to rule out the proposer's, so it cannot go green
+    # against a message that blames the writer for an empty field.
     check("and the loop offers ZERO candidates for it -- a return is not "
           "repaired by swapping an end word, so `RETURN_NOT_VERBATIM` earns "
-          "no candidate field and the attempt says so",
+          "no candidate field and the attempt says WHICH rule that is",
           l3 and l3[0].tried == 0 and not l3[0].accepted
-          and "no candidates offered" in l3[0].reason,
+          and "no candidate field was offered" in l3[0].reason
+          and "not about the proposer" in l3[0].reason
+          and "PROPOSER declined" not in l3[0].reason,
           l3[0].reason if l3 else None)
     check("L2's rhyme WAS fixed in the same round -- one unsolvable line is "
           "never a stop condition, which is the invariant this fixture "
@@ -778,6 +787,139 @@ def test_backtrack_width_still_bounds_the_search():
           not tier2[0].accepted and res.lines == SILVER_NIGHT_LOCKED)
 
 
+
+def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
+    """Two containers in this module merged two rules apiece.
+
+    Both found by the audit that preceded the `forbidden_modal` split
+    (`BACKLOG.md` §4.8), by asking where ELSE one name carries two rules such
+    that a report can name the wrong one — the same question, one module over.
+
+    (a) `_try_tier1`'s dead-end detail printed "no candidates offered" for
+    every path reaching `tried == 0`, and only one of THREE is about the
+    offer. MEASURED before the fix: a proposer returning `None` produced that
+    sentence on a line whose `brief.candidates` held 24 words — the harness
+    taking the blame for the writer's refusal, on the ordinary `revise` output
+    path. The third path is `attempts_per_line < 1`, where the question was
+    never put at all: doctrine 20's own case, and reachable because that is a
+    declared coordinate with no floor.
+
+    (b) `LoopResult.unresolved` unions two rules — a FLAG, or a NOTE whose
+    code the caller declared in `pursue` — while its own field comment read
+    "still carrying a flag finding at stop". That is false for every line held
+    open by a pursued note, which is the entire purpose of `--pursue`.
+
+    THE TWO LISTS ARE NEVER SUMMED (doctrine 79/91): they OVERLAP, so
+    `len(flagged) + len(pursued)` double-counts a line carrying both. Check 6
+    measures that on `_open_by_rule` directly, which is a pure function of the
+    briefs and does not need a draft that happens to produce the collision.
+    """
+    print("\n17. a tier-1 DEAD END and an OPEN LINE each name their own "
+          "rule — two containers, two rules apiece")
+    from quality.loop import _open_by_rule, _open_lines
+    from quality import fit as _FT
+
+    D = ["the kitchen light is burning at half past four",
+         "and nobody came back to climb the stairs"]
+    bp = {"sections": [{"name": "V1", "bars": 2, "start_bar": 1,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+                     "section": "V1"} for i, t in enumerate(D)]}
+    sub = _FT.Subdivision(2, source="constructed for this regression")
+    decline = lambda *a, **k: None                            # noqa: E731
+
+    def reason_for(res, ln):
+        for r in res.rounds:
+            for a in r.attempts:
+                if a.line_no == ln:
+                    return a.reason
+        return ""
+
+    # (a1) THE PROPOSER DECLINED, and a real field was on the table.
+    r1 = revise_loop(Reviser(), D, "AA", propose=decline)
+    d1 = reason_for(r1, 2)
+    check("a proposer that declines is reported as the PROPOSER's refusal, "
+          "with the size of the field it declined, not as an empty offer",
+          "PROPOSER declined" in d1 and "24 candidate(s) offered" in d1
+          and "no candidates offered" not in d1, d1[:100])
+
+    # (a2) THE HARNESS OFFERED NOTHING — a meter-only line carries no rhyme
+    # finding, so `brief()` computes no field for it at all.
+    r2 = revise_loop(Reviser(), D, "AA", blueprint=bp, subdivision=sub,
+                     propose=decline)
+    d2 = reason_for(r2, 1)
+    check("a line the harness could not offer a field for says so, and says "
+          "it is a fact about the MANDATE and the lexicon",
+          "no candidate field was offered" in d2
+          and "not about the proposer" in d2, d2[:100])
+    check("...and BOTH rules are visible on the SAME run, which is what "
+          "makes them two rules rather than two namings of one",
+          "no candidate field was offered" in d2
+          and "PROPOSER declined" in reason_for(r2, 2),
+          f"L1: {d2[:44]!r} | L2: {reason_for(r2, 2)[:44]!r}")
+
+    # (a3) NOT ASKED — inconclusive by construction, not a dead end.
+    r3 = revise_loop(Reviser(rdecl=ReviseDeclaration(attempts_per_line=0)),
+                     D, "AA", propose=lambda *a, **k: "x")
+    d3 = reason_for(r3, 2)
+    check("a budget of zero attempts is INCONCLUSIVE BY CONSTRUCTION and "
+          "says so by name — the loop never put the question (doctrine 20)",
+          "NOT ASKED" in d3 and "attempts_per_line=0" in d3
+          and "doctrine 20" in d3, d3[:100])
+
+    # (b) A PURSUED NOTE HOLDS LINES OPEN THAT CARRY NO FLAG AT ALL.
+    MODAL = ["the bank foreclosed and boarded up the town",
+             "the freight train left the siding after four",
+             "we packed the truck and never once looked down",
+             "and drove until the county line was more"]
+    rp = revise_loop(
+        Reviser(rdecl=ReviseDeclaration(pursue=frozenset({"MODAL_RHYME"}),
+                                        attempts_per_line=1)),
+        MODAL, [[1, 3], [2, 4]], propose=decline)
+    check("lines held open by a PURSUED NOTE are unresolved with an EMPTY "
+          "flagged list — the exact state the old field comment denied",
+          rp.unresolved and not rp.unresolved_flagged
+          and [b.line_no for b in rp.unresolved_pursued]
+          == [b.line_no for b in rp.unresolved],
+          f"unresolved={[b.line_no for b in rp.unresolved]} "
+          f"flagged={[b.line_no for b in rp.unresolved_flagged]} "
+          f"pursued={[b.line_no for b in rp.unresolved_pursued]}")
+    check("...and the rendered line SAYS which rule holds each one open",
+          any("unresolved:" in l and "pursued note" in l and "flag" not in
+              l.split("unresolved:")[1] for l in str(rp).splitlines()),
+          [l.strip() for l in str(rp).splitlines() if "unresolved:" in l])
+
+    # THE NON-SUMMING RULE, measured on the pure function rather than on a
+    # draft that happens to collide.
+    class _F:
+        def __init__(self, code, severity):
+            self.code, self.severity = code, severity
+
+    class _B:
+        def __init__(self, n, fs):
+            self.line_no, self.findings = n, fs
+
+    both = _B(1, [_F("SCHEME_VIOLATION", "flag"), _F("MODAL_RHYME", "note")])
+    only_flag = _B(2, [_F("SCHEME_VIOLATION", "flag")])
+    only_note = _B(3, [_F("MODAL_RHYME", "note")])
+    fl, pu = _open_by_rule([both, only_flag, only_note],
+                          frozenset({"MODAL_RHYME"}))
+    check("the two lists OVERLAP by construction, so summing them is wrong: "
+          "a line carrying a flag AND a pursued note is in both",
+          [b.line_no for b in fl] == [1, 2]
+          and [b.line_no for b in pu] == [1, 3]
+          and len(fl) + len(pu) == 4
+          and len(_open_lines([both, only_flag, only_note],
+                              frozenset({"MODAL_RHYME"}))) == 3,
+          f"flagged={[b.line_no for b in fl]} "
+          f"pursued={[b.line_no for b in pu]} -> 2+2=4, union=3")
+    check("CONTROL: with `pursue` empty — the default — the pursued list is "
+          "empty and the union is the flagged list exactly",
+          _open_by_rule([both, only_flag, only_note], frozenset())[1] == []
+          and [b.line_no for b in _open_by_rule(
+              [both, only_flag, only_note], frozenset())[0]] == [1, 2])
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -794,7 +936,8 @@ if __name__ == "__main__":
                test_pair_brief_carries_the_situation,
                test_propose_sees_the_whole_draft_rubric,
                test_tier2_still_resolves_a_joint_conflict_through_pair_brief,
-               test_backtrack_width_still_bounds_the_search):
+               test_backtrack_width_still_bounds_the_search,
+               test_a_dead_end_and_an_open_line_each_name_their_own_rule):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -724,6 +724,72 @@ in one file, while `test_loop`, `test_coda` and `test_mandate_language` do not
 move. A recorded verdict is cheap; rediscovering it by shipping the change is
 not.
 
+### 4.8 · Two more containers that merge two rules `FOUND AND CLOSED 2026-08-16`
+
+Found by the audit that preceded the `forbidden_modal` split (defect D), by
+asking the deliberately wider question *"where else does one name carry two
+rules, such that a report can name the wrong one?"* rather than only fixing the
+site in hand. Both are in `quality/loop.py`, both survive that repair
+untouched, and both were PROVED by running the code rather than by reading it.
+
+**(a) `"no candidates offered"` is printed when the PROPOSER declined.**
+`_try_tier1`'s dead-end detail is chosen on `tried == 0`, which is true both
+when `brief()` computed no candidate field AND when the proposer returned
+`None` on its first attempt. Reproduced by driving `revise_loop` with a
+proposer that returns `None`: the line prints `no candidates offered` while
+`brief.candidates` held **24 words**. It reaches a writer on the ordinary
+`revise` path through `LoopResult.__str__`. Doctrine 79's exact shape, and
+note that `_replay_proposer.disclosure` ALREADY keeps the two apart — so the
+repo states the distinction one layer up and loses it per line.
+
+**(b) `LoopResult.unresolved` merges a FLAG with a pursued NOTE.**
+`_open_lines` fills one list from two rules — the brief carries a flag, or it
+carries a note whose code is in `ReviseDeclaration.pursue` — and the field's
+own comment says *"still carrying a flag finding at stop"*, which is false
+whenever `--pursue` is used. So `NO_PROGRESS` cannot say which rule kept the
+loop open. Same remedy shape as D: two lists, or a per-entry mark, plus a
+`pursue` line in `disclosure()`.
+
+~~**NOT FIXED IN THE SAME COMMIT, on purpose.** D's repair is already four
+production files and three suites; folding a second module's report semantics
+into it would make the mutation evidence for either half unreadable.~~ Recorded
+here with the measurement attached so the next lot does not have to rediscover
+it — which is the whole argument for §4.7 existing.
+
+**CLOSED IN THE NEXT COMMIT, and (a) turned out to be THREE rules.**
+
+`tried == 0` is reached three ways and the sentence named one. Alongside the
+two above there is `attempts_per_line < 1` — **the loop never put the question
+at all**, which is doctrine 20's own case (inconclusive by construction, not a
+dead end) and is reachable because that is a declared coordinate with no floor
+on it. All three now say which:
+
+    L1  no candidate field was offered — the harness had nothing for the
+        proposer to choose from … not about the proposer
+    L2  the PROPOSER declined at attempt 0 with 24 candidate(s) offered —
+        its refusal, not an empty field
+        NOT ASKED — attempts_per_line=0 … inconclusive by construction,
+        not a line the loop could not fix (doctrine 20)
+
+The first two are MEASURED ON ONE RUN — `revise … --blueprint` with a declining
+proposer puts the meter-only L1 in the first state and L2 in the second — which
+is what makes them two rules rather than two namings of one.
+
+**(b) IS A SPLIT, NOT A REPLACEMENT.** `unresolved` stays the UNION, because
+"has this loop still got work here" is the question a stop condition asks and
+the union is its right answer; the field's own false comment is struck, and
+`unresolved_flagged`/`unresolved_pursued` say WHY per line. `__str__` prints
+`L3 (pursued note), L4 (flag)` rather than a bare list. **The two are never
+summed** — they overlap on a line carrying a flag AND a pursued note, measured
+on `_open_by_rule` directly (2 + 2 = 4 against a union of 3), which is why the
+union keeps the count.
+
+`quality/test_loop.py` §17 is 8 checks. Two mutations are needed because the
+fix has two layers: restoring the merged sentence and the bare line list kills
+**5**, and separately making `unresolved_flagged` the union again — the old
+false comment made true — kills the other **2**. The 8th is the empty-`pursue`
+control, which must pass on every tree.
+
 ---
 
 ## TIER 5 — whole absent layers (`MISSING` B, C, D, G, H)

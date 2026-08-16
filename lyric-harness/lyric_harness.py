@@ -4834,10 +4834,25 @@ def main():
             from quality.revise import (Reviser as _Rv,
                                         ReviseDeclaration as _RD)
             offered, forbidden = _Rv(lex=lex, decl=decl).modal_field(word)
+            # THE CLAIM IS SCOPED NOW — 2026-08-16. It read "what `verify()`
+            # rejects a revision for taking" flat, and that is true only for
+            # a line in ONE mandated group. `brief()` enforces off
+            # `joint_field(calls, ...)` — a head over the INTERSECTION of
+            # every call's field, ranked on the summed conditional — so for a
+            # PIVOT the two are different POPULATIONS, not just different
+            # orders, and this verb takes one word and cannot express a pivot
+            # at all. It was also wrong a second way until the same day: the
+            # list `brief()` printed carried the INCUMBENT as well, so the
+            # two sets were not the same KIND of object. The split fixed that
+            # half; this states the half that remains.
             print(f"\n  FORBIDDEN (modal — doctrine 9), what `verify()` "
-                  f"rejects a revision for taking, modal_exclusion="
+                  f"rejects a revision for MOVING TO on a line in ONE "
+                  f"mandated group, modal_exclusion="
                   f"{_RD().modal_exclusion}:")
             print(f"    {', '.join(forbidden) or '(none)'}")
+            print(f"  A PIVOT is a different question: a line in k groups is "
+                  f"enforced against the head of the INTERSECTION of its k "
+                  f"fields, which this one-word verb cannot state.")
             print(f"  OFFERED after the exclusion ({len(offered)}):")
             print(f"    {', '.join(offered[:24]) or '(none)'}")
 
@@ -6654,7 +6669,7 @@ def main():
                          if b.line_no in (i, j)]
                 apparatus = (b.must_answer or b.joint_conflict
                              or b.must_rhyme_with or b.forbidden_modal
-                             or b.candidates)
+                             or b.forbidden_incumbent or b.candidates)
                 if not (keep or spans or apparatus):
                     # Every finding on this line is in a rollup row above,
                     # which named it. Printing the line again with nothing
@@ -6695,9 +6710,23 @@ def main():
                 if not b.must_answer and b.must_rhyme_with:
                     n, w = b.must_rhyme_with
                     print(f"      must rhyme with L{n} ({w!r})")
+                # TWO RULES, TWO LINES — split 2026-08-16. This label used to
+                # sit over a list that also carried the INCUMBENT, so the word
+                # already on the line was announced to a writer as a modal
+                # candidate. The `FORBIDDEN (modal` prefix is deliberately
+                # byte-identical to what it has always been: `quality/
+                # test_verbs.py` §22 scrapes this exact line and compares it
+                # to `candidates W n --modal`, and the second line below must
+                # NOT match that substring or it would be compared as if it
+                # were the modal head.
                 if b.forbidden_modal:
                     print(f"      FORBIDDEN (modal — doctrine 9): "
                           f"{', '.join(b.forbidden_modal)}")
+                if b.forbidden_incumbent:
+                    print(f"      ALREADY THERE (a different rule — "
+                          f"re-proposing the end word that is already on "
+                          f"this line is not a revision): "
+                          f"{b.forbidden_incumbent}")
                 if b.candidates:
                     print(f"      offered: {', '.join(b.candidates[:12])}")
             _print_whole()
@@ -6903,7 +6932,20 @@ def main():
                       f"{'ACCEPTED' if v.get('accepted') else 'REJECTED'}")
                 for r in v.get("reasons", []):
                     print(f"    {r}")
-                for k in ("fixed", "broken", "untargeted", "modal_taken"):
+                # THE KEYS `verify()` ACTUALLY RETURNS — corrected
+                # 2026-08-16. This tuple asked for `untargeted` and
+                # `modal_taken`, and `Reviser.verify` has never set either:
+                # the untargeted case returns early with only a `reasons`
+                # string, and the modal list has been `modal_violations`
+                # since it was written. So the STRUCTURED half of RULE 3's
+                # disclosure was unreachable from the command line while
+                # `revise.py`'s own comment argued it was "DISCLOSED, NOT
+                # SWALLOWED (doctrine 20)" — true at the API and false here.
+                # Found while splitting the modal field, because
+                # `modal_endword_unchanged` would have been dropped in
+                # exactly the same silence.
+                for k in ("fixed", "broken", "new_flags", "new_notes",
+                          "modal_violations", "modal_endword_unchanged"):
                     if v.get(k):
                         print(f"    {k}: {v[k]}")
 

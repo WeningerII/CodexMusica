@@ -307,11 +307,26 @@ def test_the_brief_excludes_the_modal_region():
               for w in b.forbidden_modal),
           f"forbidden {b.forbidden_modal[:5]} rank ahead of offered "
           f"{b.candidates[:5]} on (conditional count desc, freq_rank asc)")
-    check("the current end word is itself forbidden",
+    # REPOINTED 2026-08-16. This check NAMES the incumbent rule and used to
+    # evidence it with `"fire" in b.forbidden_modal` — which passed, but for
+    # the OTHER rule: `fire`/`desire` is the canonical modal pair, so `fire`
+    # is head[0] of its own field on its own merits and would be on that list
+    # with the incumbent clause deleted entirely. That is the
+    # "passes for the wrong reason" shape CLAUDE.md's Test discipline section
+    # enumerates, and the two-field split is what makes it sayable.
+    check("the current end word is carried as the INCUMBENT, on its own "
+          "field — re-proposing what is already there is not a revision",
+          b.forbidden_incumbent == "fire",
+          f"forbidden_incumbent={b.forbidden_incumbent!r}")
+    check("...and this fixture cannot prove that rule ALONE, which is why "
+          "the field is asserted rather than list membership: 'fire' is "
+          "ALSO head[0] of its own modal field, so it would sit on the "
+          "modal list under doctrine 9 with the incumbent clause deleted",
           "fire" in b.forbidden_modal,
-          "re-proposing what was flagged is not a revision")
-    check("nothing forbidden leaks into the offered list",
-          not (set(b.candidates) & set(b.forbidden_modal)))
+          f"overlap is real and deliberate; head={b.forbidden_modal[:3]}")
+    check("nothing forbidden leaks into the offered list — neither rule",
+          not (set(b.candidates) & set(b.forbidden_modal))
+          and b.forbidden_incumbent not in b.candidates)
     off = ReviseDeclaration(modal_exclusion=0)
     plain = Reviser(lex=R.lex, decl=R.decl, rdecl=off, floor=R.floor)
     plain._engine = R.engine
@@ -961,7 +976,8 @@ def test_what_the_loop_can_say_on_the_declared_mandate():
           f"{sorted(coll)}. The length-sensitive floor findings are a "
           f"separate layer and are NOT this cell's (quality/floor.py)")
     check("and NOT ONE collision earns a candidate field",
-          not any(b.candidates or b.forbidden_modal for b in briefs
+          not any(b.candidates or b.forbidden_modal or b.forbidden_incumbent
+                  for b in briefs
                   if all(f.code in COLLISION_FINDINGS for f in b.findings)),
           "no collision code is in RHYME_FINDINGS, and that is a DECISION "
           "with a measurement behind it, not a gap -- see test 24")
@@ -1151,7 +1167,8 @@ def test_why_a_collision_earns_no_field():
                                   for f in b.findings)]
     check("so a line whose only findings are collisions is briefed with no "
           "words at all — and doctrine 7 is the second reason",
-          only and not any(b.candidates or b.forbidden_modal for b in only),
+          only and not any(b.candidates or b.forbidden_modal
+                            or b.forbidden_incumbent for b in only),
           f"{len(only)} such line(s). The loop is a FLOOR: rejection, not "
           f"selection. A collision on a draft with zero violations is not a "
           f"rejection, so offering replacements would be ordering the "
@@ -1793,9 +1810,11 @@ def test_scheme_unreadable_is_not_a_violation():
           "SCHEME_UNREADABLE is not in RHYME_FINDINGS, and 'the harness "
           "could not read this' is a different instruction to a writer than "
           "'this does not rhyme'",
-          b1 is not None and not b1.candidates and not b1.forbidden_modal,
+          b1 is not None and not b1.candidates and not b1.forbidden_modal
+          and not b1.forbidden_incumbent,
           f"candidates={len(b1.candidates) if b1 else '?'} "
-          f"forbidden={len(b1.forbidden_modal) if b1 else '?'}")
+          f"forbidden={len(b1.forbidden_modal) if b1 else '?'} "
+          f"incumbent={(b1.forbidden_incumbent if b1 else '?')!r}")
     # THIS CHECK USED TO READ `not b1.must_answer` AS A SECOND PROOF OF THE
     # SENTENCE ABOVE, WHICH IS THE EXACT CONFLATION `brief()` WAS CARRYING —
     # repaired 2026-08-16 alongside it. The claim the check NAMES is about the
@@ -3062,7 +3081,7 @@ def test_the_mandate_block_is_gated_on_the_mandate():
           "OFFER stays gated on the finding set, so a meter-only line is "
           "never given rhyme words it has no use for",
           b1 is not None and not b1.candidates and not b1.forbidden_modal
-          and b1.joint_conflict is False,
+          and not b1.forbidden_incumbent and b1.joint_conflict is False,
           f"candidates={len(b1.candidates) if b1 else '?'} "
           f"forbidden={b1.forbidden_modal if b1 else '?'}")
 
@@ -3106,10 +3125,14 @@ def test_rule_three_asks_whether_a_word_was_taken():
 
     AND THE REJECTION'S OWN SENTENCE WAS FALSE. L2 did not TAKE 'stairs' — it
     already ended on 'stairs' and was revised elsewhere in the line, for its
-    METER. `forbidden_modal` carries two rules at once: the modal head
+    METER. `forbidden_modal` CARRIED two rules at once: the modal head
     (doctrine 9) and `brief()`'s incumbent clause, *"the word currently there
-    is itself excluded"*. Check 1 measures that `stairs` is on the list ONLY
+    is itself excluded"*. Check 1 measures that `stairs` was on the list ONLY
     by the second, so the message named the rule that did not fire.
+    (The two rules are two fields as of the same day — see §42 — so check 4
+    now reads the disclosure off `forbidden_incumbent`. This section is kept
+    on the CONFLATED story it was written for because that is the history the
+    fix is answering; §42 owns the split itself.)
 
     THE FIX IS THAT TAKING REQUIRES A CHANGE. Doctrine 9 is about REACHING for
     the obvious answer, and a byte-identical end word reached for nothing.
@@ -3202,6 +3225,137 @@ def test_rule_three_asks_whether_a_word_was_taken():
           f"hits={v2.get('modal_violations')} head={forb_ex}")
 
 
+def test_the_forbidden_list_is_two_rules_in_two_fields():
+    """One list answered two questions and every renderer named only one.
+
+    `brief()` built `forbidden_modal` as the modal head (doctrine 9 — do not
+    pass the band by reaching for the most predictable word) and then APPENDED
+    the incumbent (`brief()`'s own clause: re-proposing the word already there
+    is not a revision). Nothing marked which entry came from which rule, so
+    three renderers labelled the whole list doctrine 9 and `verify()` rejected
+    an incumbent as "the modal candidate" (§41).
+
+    THE OVERLAP IS REAL AND DELIBERATE, which is why this is a split and not a
+    move: a word can be the incumbent AND genuinely modal, and check 3 proves
+    that happens on this repo's own fixture. Subtracting the incumbent from
+    the head would make `verify()` stop rejecting a revision that MOVES a
+    DIFFERENT line onto it.
+
+    THE SPLIT IS ALSO WHAT KEEPS `verify()` HONEST. RULE 3's two branches now
+    read a field each: `modal_hits` off the head, `modal_kept` off the
+    incumbent. Gating the loop on the head alone would have deleted the
+    doctrine-20 disclosure outright — measured, and check 5 is that guard.
+    """
+    print("\n42. the FORBIDDEN list is TWO RULES, and they are two fields")
+    from quality import propose as _PR
+    import quality.fit as _FT
+
+    R = Reviser()
+    b = [x for x in R.brief(CLICHE, "ABAB") if x.line_no == 1][0]
+    check("the modal head no longer carries the incumbent as a member "
+          "APPENDED to it — the two are separate fields",
+          isinstance(b.forbidden_incumbent, str) and b.forbidden_incumbent,
+          f"head={b.forbidden_modal} incumbent={b.forbidden_incumbent!r}")
+
+    # The four-line probe from §41: L1/L2 are group A and do NOT rhyme, so L2
+    # carries a real field whose incumbent 'stairs' is provably NOT modal for
+    # the call 'four'. This is the repo's one ready-made witness where the two
+    # rules DISAGREE about a word.
+    before = ["the kitchen light is burning at half past four",
+              "and nobody came back to climb the stairs"]
+    b2 = [x for x in R.brief(before, "AA") if x.line_no == 2][0]
+    check("on a line whose end word is NOT modal for its call, the head "
+          "excludes it and the incumbent field carries it — one word, one "
+          "rule, and the two lists disagree",
+          "stairs" not in b2.forbidden_modal
+          and b2.forbidden_incumbent == "stairs",
+          f"head={b2.forbidden_modal} incumbent={b2.forbidden_incumbent!r}")
+
+    # CONTROL — the fields OVERLAP where both rules genuinely apply, and this
+    # is the case that made test_verbs §22's equality pass for an unstated
+    # reason. Asserted so a later lot cannot "tidy" the overlap away.
+    MODAL_DRAFT = ["the bank foreclosed and boarded up the town",
+                   "the freight train left the siding after four",
+                   "we packed the truck and never once looked down",
+                   "and drove until the county line was more"]
+    b3 = [x for x in R.brief(MODAL_DRAFT, [[1, 3], [2, 4]])
+          if x.line_no == 3][0]
+    check("CONTROL: where the incumbent is ALSO genuinely modal the two "
+          "fields OVERLAP, and that is deliberate — subtracting it from the "
+          "head would stop `verify()` rejecting a DIFFERENT line that moves "
+          "onto the same word",
+          b3.forbidden_incumbent == "down"
+          and "down" in b3.forbidden_modal,
+          f"head={b3.forbidden_modal} incumbent={b3.forbidden_incumbent!r}")
+
+    # THE PRECISION CONSTRAINT. `verify()` RULE 3 compares the incumbent
+    # against `_endword(before[ln - 1])`; if the field were populated by any
+    # other route the corollary that makes "took the modal candidate" true by
+    # construction would stop holding. `_endword` lowercases and strips
+    # boundary apostrophes and hyphens, so it is not a raw token compare.
+    check("the incumbent field is EXACTLY `_endword` of the line, the same "
+          "function RULE 3 compares against",
+          b2.forbidden_incumbent == R.floor.qf._endword(before[1]),
+          f"{b2.forbidden_incumbent!r} vs "
+          f"{R.floor.qf._endword(before[1])!r}")
+
+    # THE DISCLOSURE SURVIVES THE SPLIT — this is the one hard break a naive
+    # head-only split causes, and RULE 3's gate is what prevents it.
+    sub = _FT.Subdivision(2, source="constructed for this regression")
+    bp = {"_note": "constructed inline for this regression, not a fixture",
+          "sections": [{"name": "V1", "bars": 2, "start_bar": 1,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+                     "section": "V1"} for i, t in enumerate(before)]}
+    after = ["at four the kitchen light still glares",
+             "and nobody climbed the stairs"]
+    v = R.verify(before, after, "AA", blueprint=bp, subdivision=sub)
+    check("`verify()` still DISCLOSES a kept incumbent that is not modal — "
+          "gating RULE 3 on the head alone would have deleted this outright",
+          v["accepted"] is True
+          and v.get("modal_endword_unchanged") == [(2, "stairs")],
+          f"accepted={v['accepted']} kept={v.get('modal_endword_unchanged')}")
+    check("...and the disclosure now NAMES the incumbent rule rather than "
+          "saying 'on this line's forbidden list'",
+          any("the INCUMBENT, not a modal candidate" in r
+              for r in v["reasons"]),
+          [r for r in v["reasons"] if "KEPT" in r][:1])
+
+    # CONTROL — doctrine 9's own rejection is untouched by the split.
+    took = [before[0], "and nobody came back to open the door"]
+    v2 = R.verify(before, took, "AA", blueprint=bp, subdivision=sub)
+    check("CONTROL: moving onto a modal-head word is still rejected outright",
+          v2["accepted"] is False
+          and v2.get("modal_violations") == [(2, "door")],
+          f"accepted={v2['accepted']} hits={v2.get('modal_violations')}")
+
+    # THE RENDERERS. Each must state the rule it is about, and the tier-1
+    # prompt is the only channel that ever told a writer about rule 2 at all.
+    p = _PR.render_line(b2, before, whole=())
+    check("the tier-1 prompt gives each rule its OWN block, its OWN count "
+          "and its OWN consequence — and no longer says 'do not END on', "
+          "which is false of a word the line keeps",
+          "FORBIDDEN — do not MOVE L2 TO any of these (6)" in p
+          and "THE WORD ALREADY THERE — a DIFFERENT rule" in p
+          and "\n  stairs\n" in p
+          and "do not end L2 on any of these" not in p,
+          [l for l in p.splitlines()
+           if "FORBIDDEN" in l or "ALREADY THERE" in l])
+    check("...and the prompt's restatement of RULE 3 no longer promises a "
+          "rejection the grader does not make",
+          "MOVES TO is not one of the FORBIDDEN words above" in p
+          and "KEEPING the" in p and "is not a move and is not rejected" in p,
+          [l.strip() for l in p.splitlines() if l.strip().startswith("3.")])
+    s = str(b2)
+    check("`Brief.__str__` states both rules, and no longer prints the "
+          "incumbent under doctrine 9's sentence",
+          "FORBIDDEN (modal" in s and "ALREADY THERE (not a modal word" in s
+          and "stairs" not in s.split("ALREADY THERE")[0].split(
+              "FORBIDDEN (modal")[-1].split("\n")[0],
+          [l.strip() for l in s.splitlines()
+           if "FORBIDDEN" in l or "ALREADY THERE" in l])
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -3246,7 +3400,8 @@ if __name__ == "__main__":
                test_a_blank_line_is_refused_not_renumbered,
                test_a_holding_requirement_is_not_fixed_by_breaking_it,
                test_the_mandate_block_is_gated_on_the_mandate,
-               test_rule_three_asks_whether_a_word_was_taken):
+               test_rule_three_asks_whether_a_word_was_taken,
+               test_the_forbidden_list_is_two_rules_in_two_fields):
         fn()
     print("=" * 62)
     if FAILURES:
