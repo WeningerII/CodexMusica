@@ -331,8 +331,15 @@ def test_the_brief_excludes_the_modal_region():
     plain = Reviser(lex=R.lex, decl=R.decl, rdecl=off, floor=R.floor)
     plain._engine = R.engine
     b0 = [x for x in plain.brief(CLICHE, "ABAB") if x.line_no == 1][0]
+    # ASSERTS WHAT ITS NAME CLAIMS — 2026-08-16. This was a strict length
+    # inequality, which passed at `modal_exclusion=0` while the "disabled"
+    # list still held ONE entry: the incumbent, appended after the head was
+    # sliced. `0 < 6` and `1 < 6` are indistinguishable to `<`, which is the
+    # same false sentence `quality/mutate.py`'s QR2 rationale carried. Now
+    # the head is the head alone, so the assertion its name makes — the
+    # mechanism is OFF — is the assertion it can make.
     check("with the rule disabled the modal words come back",
-          len(b0.forbidden_modal) < len(b.forbidden_modal),
+          len(b0.forbidden_modal) == 0 < len(b.forbidden_modal),
           "modal_exclusion=0 is reachable so the defect it prevents is "
           "demonstrable, and it is not the default")
 
@@ -1195,10 +1202,14 @@ def test_the_modal_set_against_a_declared_reference():
         if not calls or calls in seen:
             continue
         seen.add(calls)
-        cur = R.floor.qf._endword(b.text)
+        # THE `w == cur` SKIP IS GONE — 2026-08-16. It was written when
+        # `forbidden_modal` also carried the INCUMBENT, where it correctly
+        # removed an entry that was on the list for the other rule. The two
+        # rules are two fields now, so this list is the modal head alone and
+        # the skip removed nothing but LEGITIMATE head members — understating
+        # the very set this section exists to characterise. Measured: it
+        # discarded 10 genuine head words from the sample.
         for w in b.forbidden_modal:
-            if w == cur:
-                continue
             tot += 1
             if all(tail(c) is not None and tail(c) == tail(w) for c in calls):
                 ident += 1

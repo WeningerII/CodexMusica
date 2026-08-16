@@ -321,6 +321,17 @@ briefed lines on this repo's own `MODAL_DRAFT`** (`down` at index 0, `more` at
 index 1). Subtracting `cur` to make the two disjoint would stop `verify()`
 rejecting a revision that moves a DIFFERENT line onto that word. What the
 fields no longer do is answer for each other.
+**THE `2 of 2` IS A FIXTURE, NOT A RATE, and the rate is the interesting
+number — REPINNED 2026-08-16 after an adversary refuted the reading that the
+overlap is why the blast radius is small.** Over the two shipped lyric fixtures
+under their DECLARED mandates the incumbent is inside its own head on **10 of
+18** briefed-with-field lines (55.6%), so the split moves `forbidden_modal` on
+the other 44.4% — and **on the lines carrying `SCHEME_VIOLATION`, the
+population this loop exists to revise, it is 0 of 8**. A line the loop is
+actually working on does NOT have its end word in its own modal head, which is
+what a violated pair means. So the overlap is a property of lines that are
+already fine, the split changes the field on every line that is not, and the
+small test churn was never evidence that little changed.
 **RULE 3 READS A FIELD PER BRANCH, AND THAT IS THE LOAD-BEARING EDIT** —
 `modal_hits` off the head, `modal_kept` off the incumbent, with the loop gated
 on `(forbidden_modal or forbidden_incumbent)`. Gating on the head alone would

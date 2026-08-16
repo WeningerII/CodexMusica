@@ -911,6 +911,65 @@ disappears with the suite green. `PB`/`PairBrief` already had that guard;
 §42 is 10 checks. `test_revise` 295→ with §42, `test_propose` 107→109,
 `test_loop` and `test_verbs` unmoved in count.
 
+#### THE AUDIT OUTLIVED THE COMMIT, and it caught a defect the split INTRODUCED
+
+The workflow was killed by a worker restart at 35 agents / 3.4M tokens, with
+the Audit phase complete and Verify at 16 of 30. **Five of the sixteen verdicts
+came back REFUTED, and I had read exactly one of them before shipping.**
+Harvesting the rest found three things worth having.
+
+**A DEFECT I INTRODUCED, and it is the same class as the one I was fixing.**
+`quality/propose.py`'s empty-head branch prints *"(none — no modal head was
+computed for this line)"*, and after the split that is FALSE on two reachable
+populations: a JOINT-CONFLICT pivot, where `joint_field` ran over every call
+word and returned nothing — on `SILVER_MIND` L3 the same prompt says *"nothing
+in the lexicon answers all of those groups at once"* eleven lines above, so it
+contradicted itself — and `modal_exclusion=0`, where `ranked[:0]` is empty on
+EVERY line while the field is fully computed (2 of 2 on `CLICHE`, each with 24
+candidates offered). **Before the split both printed the incumbent under "the
+most predictable answers in this field" instead**, so one false sentence was
+traded for another. `Brief.field_computed` is the third state, and the branch
+now says which.
+
+**MY OWN RATE WAS A FIXTURE, NOT A RATE.** I recorded "2 of 2 briefed lines on
+`MODAL_DRAFT`", which is true and reads as though the overlap is typical. An
+adversary refuted the load-bearing reading — that the overlap is *why* the
+blast radius is small. Re-measured over the two shipped lyric fixtures under
+their declared mandates: the incumbent is inside its own head on **10 of 18**
+briefed-with-field lines (55.6%), and **on the lines carrying
+`SCHEME_VIOLATION` — the population this loop exists to revise — it is 0 of
+8.** A line the loop is working on does not have its end word in its own modal
+head, because that is what a violated pair means. The overlap is a property of
+lines that are already fine; the split changes the field on every line that is
+not; and the small test churn was never evidence that little changed.
+
+**AND THE `B`/`Brief` GUARD DID NOT COVER WHAT I CLAIMED.** It pins the stub
+CLASS to the dataclass's field list — but every fixture in `test_propose.py`
+left `forbidden_incumbent` at the default, so the entire writer-facing
+statement of rule 2 could still be deleted with that suite green. A pinned
+class says nothing about an INSTANCE that never sets the field. `PLAIN_BRIEF`
+and `PIVOT_BRIEF` carry it now and §2 asserts the block.
+
+**THREE MORE, ALL "PASSES FOR AN UNSTATED REASON".** `verify()`'s new
+kept-branch guard `got == b.forbidden_incumbent` can never be false when
+reached — doctrine 48 inside the fix — and is replaced by the invariant stated
+in a comment, with §42's precision check as the thing that would go red.
+§22's `if w == cur: continue` was written for the merged field and now discards
+10 genuine head words from its own sample. And §2's `modal_exclusion=0` check
+was a strict length inequality that passed while the "disabled" list still held
+one entry — the same false sentence `mutate.py`'s QR2 rationale carried; it
+asserts `== 0` now.
+
+**ONE LATENT DIVERGENCE, MEASURED AND NOT "FIXED".** The three spellings of the
+incumbent rule are built from different functions. Over 881 real lines of
+`corpus/song/eng_*`, `raw_final_token` and `line_anchors` agree on **0.00%**
+— one spelling in two places — while both differ from `_endword` on **7.83%**
+(69 of 881), on CASE (`'Lee'`/`'lee'`). It is LATENT, not live: `joint_field`
+lowercases its own `exclude`, so the difference is absorbed at the one site
+that consumes tier 2's values. Recorded as a hazard with a number rather than
+repaired, because nothing is broken today and the honest claim is the narrow
+one.
+
 **TWO SIBLINGS FOUND AND NOT FIXED**, recorded at `BACKLOG.md` §4.8:
 `quality/loop.py` prints `"no candidates offered"` when the PROPOSER declined
 (reproduced with `brief.candidates` holding 24 words), and
