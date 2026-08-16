@@ -373,11 +373,58 @@ mandates NO pair and cannot flag anything."* The positive control also holds —
 `SUBSTITUTED_END_WORD`, so the instrument's silence elsewhere is real silence
 and not blindness.
 
-**One discrepancy carried forward, unresolved:** source extraction finds **95**
-finding codes; the independent derivation enumerated **99** constructions
-(94 in scope + 5 out). The gap is not chased here and not papered over — it is
-resolved before the rung-1 diff, because a denominator that disagrees with the
-vocabulary by 4 cannot produce a trustworthy silent-count either way.
+## The 95-vs-99 discrepancy, RESOLVED 2026-08-16 — the answer is 100
+
+Resolved before the rung-1 diff, as this file required, and NEITHER original
+number was right. A third method (a naive AST pass) gave a third answer, 101.
+The three were reconciled by enumerating and diffing rather than arguing, and
+they converge:
+
+```
+AST   101 − 7 bogus letters + 6 it could not see = 100
+agent  99 + 1 module it never read               = 100
+```
+
+**Four causes, each verified at a line of source:**
+
+1. **`A`–`G` are not finding codes.** `quality/audit_corpus.py` reuses
+   `Finding()` with a CHECK LETTER as its first argument, so a bare AST pass
+   collects seven. Excluded by MINIMUM LENGTH 4 — deliberately not by
+   "must contain an underscore", which would have deleted `CROWDED`, `SPARSE`
+   and `ANACRUSIS`.
+2. **A conditional first argument.** `grid.ingest_mark` builds
+   `Refusal("MARK_NOT_A_FUNCTION" if reason else "MARK_UNRECOGNISED", ...)` —
+   an `ast.IfExp`, invisible to a pass reading only `ast.Constant`. The agent
+   had both; the AST had neither.
+3. **A variable first argument, which no static pass can resolve.**
+   `Reviser._collision_code()` RETURNS the code and `quality/revise.py:2025`
+   passes it as `Finding(code, ...)`, so `SCHEME_COLLISION`, `NEAR_COLLISION`,
+   `REPEAT_ACROSS_GROUPS` and `COLLISION_UNDECLARED` are invisible statically.
+   The agent read them correctly; the extractor was blind. They are now
+   DECLARED in `quality/coverage_log.py` with that reason attached.
+4. **The derivation missed `PHRASE_CLICHE_REFUSED`**
+   (`quality/phrase_commonplace.py:402`) because that module was outside the
+   seven it read. Found only because the vocabulary is built independently of
+   the denominator — which is the reason this file forbids seeding one from the
+   other.
+
+**A THIRD FINDING, produced by the reconciliation itself:**
+`quality/phrase_commonplace.py` **has no production caller.** Every reference
+to it in `grid.py`, `floor.py` and `relations.py` is PROSE inside a docstring;
+no module imports it. It escapes the stranded-module check only by having a
+`__main__`. So `PHRASE_CLICHE_REFUSED` joins `NO_TEMPO` as a second refusal
+that cannot fire on any path a session takes — and unlike `NO_TEMPO` it is a
+whole layer, not one function. Classified `(A)` + NOT-CLI-REACHABLE, on the
+derivation's own convention: "is this phrase a commonplace" is a writing
+question whose only blocker is plumbing, and its rhyme-pair sibling
+`CLICHE_PAIR` is already in scope.
+
+**The corrected totals: 100 finding codes — (A) 95, (B) 5**, and the NOT-CLI-
+REACHABLE count rises from 9 to **10**. Rung 1 still tests at most 52.
+
+`quality/coverage_log.py`'s extractor now reproduces 100 independently, with
+the letter exclusion, the `IfExp` walk and the declared indirect four; the
+three defect classes are recorded in its docstring rather than fixed silently.
 
 ## D. Judgement calls carried forward
 
