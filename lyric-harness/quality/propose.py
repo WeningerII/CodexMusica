@@ -260,9 +260,21 @@ def _enforced_block(line_no, n_lines, indent="  "):
         f"{indent}2. ONLY L{line_no} changes. Any other line that comes back "
         f"different is rejected",
         f"{indent}   outright, whatever else the revision achieved.",
-        f"{indent}3. The end word is NOT one of the FORBIDDEN words above. "
-        f"That is checked before",
-        f"{indent}   anything else about the line and rejects on its own.",
+        # ITEM 3 WAS FALSE TWICE OVER — corrected 2026-08-16. It said "the
+        # end word is NOT one of the FORBIDDEN words above … rejects on its
+        # own", and `verify()` RULE 3 rejects only for MOVING TO a modal
+        # word. A line that KEEPS its end word takes nothing and is not
+        # rejected here at all, whether or not that word is on the list —
+        # so the sentence was false for the incumbent, and false for a head
+        # word that is also the incumbent. Two items now, because RULE 3 has
+        # two behaviours and this block's own docstring promises one item
+        # per early return.
+        f"{indent}3. The end word L{line_no} MOVES TO is not one of the "
+        f"FORBIDDEN words above. That is",
+        f"{indent}   checked before anything else about the line and rejects "
+        f"on its own. KEEPING the",
+        f"{indent}   word already there is not a move and is not rejected "
+        f"here — see item 4.",
         f"{indent}4. The line must FIX at least one finding. A rewrite that "
         f"is differently defective",
         f"{indent}   is rejected as 'nothing was fixed'.",
@@ -324,6 +336,7 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
     lines = _ordered(lines)
     candidates = _ordered(getattr(brief, "candidates", ()) or ())
     forbidden = _ordered(getattr(brief, "forbidden_modal", ()) or ())
+    incumbent = getattr(brief, "forbidden_incumbent", "") or ""
     keep = _ordered(getattr(brief, "keep", ()) or ())
     findings = _ordered(getattr(brief, "findings", ()) or ())
     whole = _ordered(whole or ())
@@ -376,30 +389,79 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
                    "here and rhymes is accepted, and")
         out.append("  a word that is here is not accepted for being here.")
     else:
-        out.append("  (no candidate field was offered for this line — either "
-                   "no rhyme finding is what")
-        out.append("  flagged it, or nothing in the lexicon answers its "
-                   "groups. Read the findings above:")
-        out.append("  a meter, return or anaphora finding is not repaired by "
-                   "swapping an end word.)")
+        # THREE CAUSES, AND THIS ENUMERATED TWO — fixed 2026-08-16, and the
+        # split above is what made the third one SAYABLE. `candidates == []`
+        # can mean (a) no rhyme finding earned a field, (b) nothing in the
+        # lexicon answers the groups, or (c) everything that answers is
+        # inside the modal head and was excluded. In case (c) both of the
+        # stated causes were false in the same breath. It could not be named
+        # before, because `forbidden_modal` also held the incumbent, so a
+        # renderer could not say "every answering word is modal" without
+        # implicating a word that is on the list for another reason.
+        if forbidden:
+            out.append("  (no candidate field was offered — and it is NOT "
+                       "that nothing answers this line:")
+            out.append("  every word that answers its groups is in the "
+                       "FORBIDDEN list below, so the field is")
+            out.append("  empty because doctrine 9 emptied it. The mandate, "
+                       "not the lexicon, is the binding")
+            out.append("  constraint here.)")
+        else:
+            out.append("  (no candidate field was offered for this line — "
+                       "either no rhyme finding is what")
+            out.append("  flagged it, or nothing in the lexicon answers its "
+                       "groups. Read the findings above:")
+            out.append("  a meter, return or anaphora finding is not "
+                       "repaired by swapping an end word.)")
     out.append("")
 
-    out.append(f"FORBIDDEN — do not end L{line_no} on any of these "
+    # TWO BLOCKS, TWO RULES, TWO COUNTS — split 2026-08-16. This was ONE
+    # block over `forbidden_modal`, which carried the modal head AND the
+    # incumbent, and it attached ONE consequence sentence to both. Three
+    # things were wrong at once and each is repaired below:
+    #   - the heading said "do not END on any of these", which is false of a
+    #     word the line KEEPS: `verify()` RULE 3 asks whether a word was
+    #     TAKEN, so it is now "do not MOVE TO";
+    #   - "REJECTED OUTRIGHT" is true of the modal head and false of the
+    #     incumbent, which RULE 3 does not reject for at all;
+    #   - the count `({len(forbidden)})` summed two rules into one integer
+    #     the writer reads (doctrine 79).
+    # The clause "plus the word that is there now" was the ONLY thing in the
+    # whole prompt that hinted at rule 2, so it is moved into rule 2's own
+    # block rather than deleted.
+    out.append(f"FORBIDDEN — do not MOVE L{line_no} TO any of these "
                f"({len(forbidden)})")
     if forbidden:
         out.append("  " + ", ".join(str(w) for w in forbidden))
-        out.append("  These are the most predictable answers in this field, "
-                   "plus the word that is there")
-        out.append("  now. Taking any one of them is REJECTED OUTRIGHT — "
-                   "before the grader looks at whether")
-        out.append("  the line fixed anything at all. Passing the rhyme band "
-                   "by reaching for the most")
-        out.append("  predictable word in it is the slop direction, and it "
-                   "is the one move this loop refuses")
-        out.append("  mechanically rather than merely discouraging "
-                   "(doctrine 9).")
+        out.append("  These are the most predictable answers in this field. "
+                   "MOVING to one of them is")
+        out.append("  REJECTED OUTRIGHT — before the grader looks at whether "
+                   "the line fixed anything at")
+        out.append("  all. Passing the rhyme band by reaching for the most "
+                   "predictable word in it is the")
+        out.append("  slop direction, and it is the one move this loop "
+                   "refuses mechanically rather than")
+        out.append("  merely discouraging (doctrine 9).")
     else:
         out.append("  (none — no modal head was computed for this line)")
+    out.append("")
+
+    out.append(f"THE WORD ALREADY THERE — a DIFFERENT rule from the one "
+               f"above ({1 if incumbent else 0})")
+    if incumbent:
+        out.append(f"  {incumbent}")
+        out.append("  This is the end word L%d already has. Re-proposing it "
+                   "is not a revision — but it" % line_no)
+        out.append("  is NOT rejected outright the way the list above is: "
+                   "the grader asks whether a modal")
+        out.append("  candidate was TAKEN, and keeping the word you were "
+                   "given takes nothing. A line that")
+        out.append("  keeps it is refused by rule 4 below ('nothing was "
+                   "fixed') UNLESS the rewrite repaired")
+        out.append("  something else — a meter finding, say — in which case "
+                   "keeping it is accepted.")
+    else:
+        out.append("  (none — this line has no readable end word to keep)")
     out.append("")
 
     out.append("LINES THAT MUST NOT CHANGE")
@@ -671,9 +733,22 @@ def render_pair(pair_brief):
     out.append(f"  2. ONLY L{p_no} and L{a_no} change. Every other line must "
                f"come back byte-identical, or the")
     out.append("     revision is rejected outright.")
-    out.append("  3. Neither end word may be a forbidden modal one for its "
-               "own line: the most predictable")
-    out.append("     answer in a field is rejected on sight (doctrine 9).")
+    # ITEM 3, MADE HONEST ABOUT ITS OWN SCOPE — 2026-08-16. It said "neither
+    # end word may be a forbidden modal one for its own line", which reads as
+    # a live constraint on both. It is not, for the PIVOT: tier 2 fires only
+    # on `Brief.joint_conflict`, and that flag is `len(calls) > 1 and not
+    # candidates and not forbidden_modal` — so the pivot's modal head is
+    # EMPTY BY CONSTRUCTION every time this prompt is rendered, and item 3
+    # could only ever bind the anchor. Neither list is printed here at all.
+    # Stated rather than quietly left, because a rule a writer cannot see and
+    # that cannot fire is decoration (doctrine 48).
+    out.append("  3. Neither end word may be the most predictable answer in "
+               "its own field (doctrine 9),")
+    out.append(f"     and this is checked only for a word a line MOVES TO. "
+               f"For L{p_no} the modal head is")
+    out.append("     empty by construction — this tier runs precisely "
+               "because nothing answered all of")
+    out.append(f"     its groups — so in practice item 3 binds L{a_no}.")
     out.append("  4. The rewrite must FIX something. It may not trade one "
                "defect for another: new FLAG")
     out.append("     findings anywhere in the draft reject it (new NOTES do "

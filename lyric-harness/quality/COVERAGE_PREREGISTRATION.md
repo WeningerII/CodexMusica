@@ -843,6 +843,81 @@ both trees. The second premise is itself the disagreement made mechanical — th
 loop still converges under the mutant while `verify` rejects, which is defect C
 reproduced inside the test written to close it.
 
+#### D's SECOND HALF IS FIXED TOO — the field is split, 2026-08-16
+
+The corollary above closed D's *message*. Its *container* stayed merged, and
+that half was audited before it was touched — five independent read-only lenses
+over consumers, renderers, test blast radius, the same conflation elsewhere, and
+checks that pass for an unstated reason, each finding then handed to an
+adversary told to refute it. **One of my own framings came back refuted and the
+correction is in the record below**, which is the argument for running the audit
+rather than trusting the plan.
+
+`forbidden_modal` is the modal head alone; `forbidden_incumbent` is its own
+field; every renderer names the rule it is stating.
+
+**THE OBVIOUS PARTITION IS A LIVE REGRESSION, and this is the finding the audit
+was worth running for.** `joint_field`'s `exclude=(cur,)` never filtered the
+FORBIDDEN half — it builds `drop` and applies it only to the offered `rest` —
+so the head contains the incumbent whenever the word already there is genuinely
+modal. MEASURED: **2 of 2 briefed lines** on this repo's own `MODAL_DRAFT`
+(`down` at index 0 for the call `town`, `more` at index 1 for `four`). Writing
+`[w for w in forb if w != cur]` would therefore DROP a genuine modal-head
+member on both, and `verify()` would stop rejecting a revision that moves a
+DIFFERENT line onto that word. The fields overlap on purpose; what they no
+longer do is answer for each other.
+
+**THE LOAD-BEARING EDIT IS RULE 3's GATE, NOT THE DECLARATION.** Gating the
+loop on `forbidden_modal` alone would `continue` past every line whose only
+exclusion is its incumbent, emptying `modal_endword_unchanged` and deleting the
+doctrine-20 disclosure that had shipped hours earlier. The audit measured this
+by monkeypatching the split at runtime before any file was edited: `[(2,
+'stairs')] → []`. RULE 3 now reads a field per branch.
+
+**MY OWN CLAIM, REFUTED.** I recorded D as "no consumer can tell a modal-head
+entry from the incumbent". That is false: `verify()` already told them apart,
+because `got == was` IS `got == cur`. The real, narrower defect is that nothing
+could tell whether an entry EQUALING the incumbent is ALSO a head member — and
+that the RENDERERS never distinguished the rules at all. Recorded rather than
+quietly reworded (doctrine 17).
+
+**THREE FALSE SENTENCES, ONE OF THEM WRITTEN THE SAME DAY BY THE C FIX.** The
+tier-1 prompt's `do not end L{n} on any of these` is false of a word the line
+KEEPS, so it is `do not MOVE TO`; `Taking any one of them is REJECTED
+OUTRIGHT` was true of the head and false of the incumbent; and RULE 3's own new
+comment claimed *"The LAST entry is `brief()`'s incumbent clause"*, which is
+false whenever the incumbent is already modal — on `MODAL_DRAFT` the last
+entries are `renown` and `or`. Nothing indexed `[-1]`, so the code was never
+wrong and the prose was.
+
+**AND THE SPLIT MADE A THIRD CAUSE SAYABLE.** `candidates == []` means one of
+three things and the prompt enumerated two; in the third — every answering word
+is inside the modal head — both stated causes were false at once. It could not
+be named while the head also carried the incumbent.
+
+**THE TEST THAT PASSED FOR THE OTHER RULE.** §2's check named the incumbent
+clause and evidenced it with `"fire" in b.forbidden_modal` — which passes, but
+`fire`/`desire` is the canonical modal pair, so `fire` is head[0] on its own
+merits and would sit there with the incumbent clause deleted entirely.
+Repointed at the new field, with the overlap asserted beside it.
+
+**AND A DRIFT HAZARD ONE LAYER OUT.** `quality/test_propose.py`'s `class B`
+enumerates `Brief`'s fields by hand and `render_line` reads them through
+`getattr(..., default)`, so a stand-in that has not grown a field renders the
+new rule as an EMPTY BLOCK — no error, no red — and a writer-facing rule
+disappears with the suite green. `PB`/`PairBrief` already had that guard;
+`B`/`Brief` did not. It does now, and it fails under mutation.
+
+§42 is 10 checks. `test_revise` 295→ with §42, `test_propose` 107→109,
+`test_loop` and `test_verbs` unmoved in count.
+
+**TWO SIBLINGS FOUND AND NOT FIXED**, recorded at `BACKLOG.md` §4.8:
+`quality/loop.py` prints `"no candidates offered"` when the PROPOSER declined
+(reproduced with `brief.candidates` holding 24 words), and
+`LoopResult.unresolved` merges a FLAG with a pursued NOTE against its own
+comment. Folding a second module's report semantics into this commit would make
+the mutation evidence for either half unreadable.
+
 #### THE COVERAGE DIFF IS STILL NOT SCORED, and the reason is now about the WRITER
 
 **The SUCCESS arm is contaminated and the contamination is me.** I checked

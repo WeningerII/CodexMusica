@@ -724,6 +724,38 @@ in one file, while `test_loop`, `test_coda` and `test_mandate_language` do not
 move. A recorded verdict is cheap; rediscovering it by shipping the change is
 not.
 
+### 4.8 · Two more containers that merge two rules `FOUND 2026-08-16`, OPEN
+
+Found by the audit that preceded the `forbidden_modal` split (defect D), by
+asking the deliberately wider question *"where else does one name carry two
+rules, such that a report can name the wrong one?"* rather than only fixing the
+site in hand. Both are in `quality/loop.py`, both survive that repair
+untouched, and both were PROVED by running the code rather than by reading it.
+
+**(a) `"no candidates offered"` is printed when the PROPOSER declined.**
+`_try_tier1`'s dead-end detail is chosen on `tried == 0`, which is true both
+when `brief()` computed no candidate field AND when the proposer returned
+`None` on its first attempt. Reproduced by driving `revise_loop` with a
+proposer that returns `None`: the line prints `no candidates offered` while
+`brief.candidates` held **24 words**. It reaches a writer on the ordinary
+`revise` path through `LoopResult.__str__`. Doctrine 79's exact shape, and
+note that `_replay_proposer.disclosure` ALREADY keeps the two apart — so the
+repo states the distinction one layer up and loses it per line.
+
+**(b) `LoopResult.unresolved` merges a FLAG with a pursued NOTE.**
+`_open_lines` fills one list from two rules — the brief carries a flag, or it
+carries a note whose code is in `ReviseDeclaration.pursue` — and the field's
+own comment says *"still carrying a flag finding at stop"*, which is false
+whenever `--pursue` is used. So `NO_PROGRESS` cannot say which rule kept the
+loop open. Same remedy shape as D: two lists, or a per-entry mark, plus a
+`pursue` line in `disclosure()`.
+
+**NOT FIXED IN THE SAME COMMIT, on purpose.** D's repair is already four
+production files and three suites; folding a second module's report semantics
+into it would make the mutation evidence for either half unreadable. Recorded
+here with the measurement attached so the next lot does not have to rediscover
+it — which is the whole argument for §4.7 existing.
+
 ---
 
 ## TIER 5 — whole absent layers (`MISSING` B, C, D, G, H)
