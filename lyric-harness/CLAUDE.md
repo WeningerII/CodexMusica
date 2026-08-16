@@ -1596,8 +1596,26 @@ rather than this paragraph — a roster copied into two files drifts in both.
    matrix is not shipped because nothing shows it helps, not because
    something shows it hurts. (Both figures here are the CLEAN ones; the
    first run was fitted on 9.2% corrupted end words.)
-   Remaining: sun/much needs a CONJUNCTIVE band rule, not a comparator
-   -- its nucleus is identical, so it was never a floor case.
+   ~~Remaining: sun/much needs a CONJUNCTIVE band rule, not a comparator
+   -- its nucleus is identical, so it was never a floor case.~~
+   **STRUCK 2026-08-16: THE RULE THIS SENTENCE ASKS FOR SHIPPED TWENTY-ONE
+   MINUTES AFTER IT WAS WRITTEN, AND THE SENTENCE STOOD FOR SIX DAYS.**
+   `01a6e1c` (2026-08-10 01:01:33) wrote the ask; `0c3a0b1` (01:22:57, *"Add
+   the conjunctive coda band"*) built it, and `git merge-base --is-ancestor`
+   confirms that order. The diagnosis was exactly right — a band rule, not a
+   comparator — which is what makes the staleness interesting: this is not a
+   forecast that failed, it is a correct prescription whose own fill was never
+   recorded next to it.
+   `python3 lyric_harness.py score sun -- much` today:
+   `total: 0.772   relation: ASSONANCE`, `flags: conjunctive band: nucleus
+   agrees, coda does not` — the 0.772 scalar is UNCHANGED and still above the
+   0.75 band, so nothing here was fixed by moving a threshold; `admits()`
+   rejects it on the RELATION (`lyric_harness.py:2011`). `Declaration()
+   .conjunctive_band` is `True` — the SHIPPED default, not an opt-in.
+   Recorded in three other places while this line said "Remaining":
+   `quality/RESULTS_BAND.md:13` (`P1 — sun/much stops being admitted as rhyme
+   | **CONFIRMED** — types as ASSONANCE`), and doctrines 3 and 24 in this
+   file, which describe the rule as shipped. Only the gap list was never told.
 3. **Time layer.** Placement half built, and **MUTE**.
    ~~POWERED and null. The blocker was never the comparator: it was
    multiplicity, and family-wise error control fixed it (RESULTS_FWER.md).~~
@@ -1605,12 +1623,40 @@ rather than this paragraph — a roster copied into two files drifts in both.
    file's copy of a headline `RESULTS_FWER.md` voided on 2026-08-11, and it is
    the reason a reader would believe the layer works. **Family-wise error
    control did not fix it.** It moved the layer from 87-97% saturation — no
-   power, because everything was an event — to 0%, no power, because nothing is
-   attainable. The reason is that `m` had been measured over band SURVIVORS
-   rather than over candidates: at the honest candidate family (89 on a
-   quatrain, 156-282 across 24 sonnets) NO POSITION ON ANY ITEM IN THIS
-   REPOSITORY clears its cut at window 32. So the blocker was multiplicity AND
-   the family size is the measurement that says so. The beat grid still does not
+   power, because everything was an event — to 0%, no power, because ~~nothing
+   is attainable~~. The reason is that `m` had been measured over band
+   SURVIVORS rather than over candidates: at the honest candidate family (89 on
+   a quatrain, 156-282 across 24 sonnets) ~~NO POSITION ON ANY ITEM IN THIS
+   REPOSITORY clears its cut at window 32~~. So the blocker was multiplicity AND
+   the family size is the measurement that says so.
+   **BOTH ABSOLUTES ARE STRUCK, REPINNED 2026-08-16, AND THE STRIKE IS THE
+   FINDING — THE DIRECTION IS UNCHANGED.** `python3 quality/audit_fwer_fpr.py
+   --check` (PASS, exit 0) pins the REAL arm as **18 `cannot_tell` / 0
+   `refused` / 2 `answered`**, and pins the 2 `answered` as `2 attainable, 0
+   events -- an observed zero, not a refusal`. `python3
+   quality/time_attainable.py` agrees independently: `32 real | 18/20 mute |
+   ev>0 0`. So 2 of the 20 items ARE attainable and came back with a MEASURED
+   ZERO. "Nothing is attainable" and "NO POSITION ON ANY ITEM" state the
+   20/0/0 reading, and this file's own instrument has pinned 18/0/2 the whole
+   time.
+   Two doctrines, not one. **Doctrine 20:** an observed zero is a NULL — the
+   layer looked and found no event — while "nothing is attainable" is
+   INCONCLUSIVE BY CONSTRUCTION, the layer unable to look. Collapsing the
+   first into the second charges a real measurement to the instrument's
+   blindness and throws away the only two items that answered. **Doctrine
+   79:** 18 and 2 are two counts and this sentence read them as their sum.
+   `quality/RESULTS_FWER.md:243-248` says so in as many words — *"18 and 2
+   never sum to 20 ... An 18/0/2 that became 20/0/0 would leave the printed
+   rate, the empirical p and every 'mute' total untouched and **is a different
+   finding**"* — which is exactly why no instrument went red on this: every
+   number a command checks is identical under both readings, and the only
+   thing that differs is the English.
+   **WHAT IS UNCHANGED, and it is the whole load-bearing claim:** the layer is
+   MUTE, the blocker is multiplicity, and the family size is the measurement
+   that says so. 18 of 20 items are mute, pinned to the recorded REASON
+   (`m_needed >= 1` AND `share_firable == 0.0`, median family / m_needed
+   5.5x-21.3x). The layer is not usable; it is just not usable for the reason
+   stated in one absolute too many. The beat grid still does not
    exist and cannot until audio or a declared tempo enters. NOT a
    second rap corpus -- that was doctrine 8 broken twice (single
    source, single language) and no rap is admissible anyway. The
@@ -1630,8 +1676,33 @@ rather than this paragraph — a roster copied into two files drifts in both.
    zero and near-zero spread. The direction of the finding is unchanged
    and slightly sharpened -- the cell is further from 0.80 than recorded,
    not closer. See POSITIVE_CONTROL.md.
-4. **Cross-line internal walk.** internal_matches supports two lines;
-   no verse-wide positional graph yet.
+4. **Cross-line internal walk.** ~~internal_matches supports two lines;
+   no verse-wide positional graph yet.~~
+   **REPINNED 2026-08-16 — THE GRAPH WAS BUILT ON 2026-08-10 AND THIS ENTRY
+   WAS NEVER TOLD.** `quality/relations.py`'s `internal rhyme` schema IS the
+   song-wide positional graph, and its own `note=` field has said so in those
+   words for six days (`REGISTRY['internal rhyme'].note` ends "MISSING E-3:
+   this is the song-wide positional graph the two-line `internal_matches`
+   could not build"). Measured on a four-line fixture, `realise()` returns
+   true verdicts at line distances **1, 2 AND 3** — the whole stanza, not a
+   sliding pair.
+   **WHAT ACTUALLY REMAINS IS A DOCTRINE 1 PROBLEM, NOT A MISSING BUILD:
+   "internal rhyme" HAS TWO READINGS IN THIS REPO AND NEITHER NAMES THE
+   OTHER.** `lyric_harness.internal_matches` takes `text_a` and an optional
+   `text_b` — exactly two texts — and `rhyme_density`, its only cross-line
+   caller, walks `range(len(lines) - 1)` with `text_b=lines[idx + 1]`
+   (`lyric_harness.py:2990`), so the ENTIRE `lyric_harness` reading is
+   distance <= 1 **structurally**, not by threshold. `relations.py` reaches
+   distance 3 on the same text. So a reader asking this harness "what rhymes
+   internally" gets a different answer depending on which layer answers, and
+   nothing discloses the difference at either site. That is the live gap: not
+   an unbuilt graph, but an undeclared coordinate — the WINDOW — with two
+   values and no statement of which is being read.
+   Reproduce both halves:
+   `python3 -c "import inspect,lyric_harness as LH; print(inspect.signature(LH.internal_matches))"`
+   against `realise(REGISTRY['internal rhyme'], build_stream(...))`.
+   `MISSING.md` E-3 carried the identical stale sentence and is repinned with
+   this one.
 5. **Assonance corpus.** Moncrieff Song of Roland (1919, PD) pending
    verification that translation preserves laisse assonance.
 6. **Non-English phonology.** FOUR CELLS UNBLOCKED (quality/phonology/):
@@ -1676,25 +1747,78 @@ rather than this paragraph — a roster copied into two files drifts in both.
    data/sources.tsv. The capability is built; the corpus is not reachable."*
    That row is `data/sources.tsv:56` and it has read **OVERTURNED — source
    located via GITenberg** since 2026-08-10. **Seven Welsh files, 8,758
-   lines, are on disk**, each with its own row (`:68`, `:69`, `:265`–`:269`):
-   Gwaith Alun 1909 strict-metre (1,558), Twm o'r Nant cywydd (156),
-   Llywelyn Goch cywydd (149), and four song files. The cell has RUN — the
+   lines, are on disk** (`wc -l corpus/cym_* corpus/song/cym_*` — the total
+   reproduces exactly), each with its own row: `GITenberg/Gwaith-Alun_14865`
+   1909 strict-metre (1,558), `GITenberg/Gwaith-Twm-o-r-Nant-Cyfrol-2_2734`
+   cywydd (156), `.../Some-Specimens-of-the-Poetry-of-the-Ancient-Welsh-
+   Bards_32767` — Llywelyn Goch cywydd (149) — and four song rows
+   (`Yr-Hwiangerddi_8194`, `Gwaith-Mynyddog.-Cyfrol-II_14547`, and the two
+   `#songs` halves of Alun and Twm o'r Nant). The cell has RUN — the
    seven-corpus specificity gradient is `MISSING.md` N-1. So this gap entry
    spent three days asserting a blocker that its own `sources.tsv` row had
    already recorded as lifted, which is doctrine 39's failure mode inverted:
    a NOT-FOUND row was correctly re-tested and overturned (doctrine 49), and
    the gap entry that cited it was never told.
+   **THE CITATIONS ARE BY `source_id` NOW, NOT BY LINE NUMBER — REPINNED
+   2026-08-16, AND THE SPELLING IS THE FIX.** This paragraph read
+   ~~`:68`, `:69`, `:265`–`:269`~~ for the seven and
+   ~~`data/sources.tsv:271`, `:272`~~ for the two NOT FOUND rows. Both were
+   TRUE when written (`8d3e05a`, 2026-08-13) and both are FALSE now, by the
+   same mechanism and without one character of either sentence changing:
+   `7ab38df` (2026-08-14, *"two editions were named in a corpus header and had
+   no provenance row"*) INSERTED TWO UNRELATED ENGLISH ROWS at positions 211
+   and 220 — `GITenberg/BeechenbrookA-Rhyme-of-the-War_16480` and
+   `GITenberg/Little-Ann-and-Other-Poems_42947` — and everything below them
+   slid by two. Nothing about Welsh changed; nothing in this paragraph was
+   edited; a commit that never touched the subject, the sentence, or even the
+   file the sentence is in made the sentence false. `:265`/`:266` are Malay searches and the
+   Welsh song rows have slid to `:267`–`:271`; `:271`/`:272` now land on a
+   SATISFIED public-domain row and a RIGHTS REFUSAL, so the sentence saying
+   "still genuinely NOT FOUND" was pointing at a row that was found and a row
+   that was refused — the two verdicts doctrine 79 most needs kept apart. The
+   rows meant are `SEARCH:welsh-hymn-corpus-tune-and-metre` and
+   `SEARCH:welsh-cywydd-medieval-poets`, both still `NOT FOUND`, and naming
+   them is what makes the citation survive the next insertion. **A LINE
+   NUMBER INTO AN APPEND-ONLY TABLE IS NOT AN ADDRESS, IT IS AN OFFSET FROM
+   A MOVING ORIGIN**, and every other `data/sources.tsv:NNN` citation in this
+   repo carries the same defect latent.
    WHAT REMAINS BLOCKED IS NARROWER, and is recorded where it belongs: no
-   cerdd-dafod treatise, no Welsh PROSE negative arm
-   (`quality/RESULTS_CYM_RHYME.md`), and the hymn and medieval-cywydd corpora
-   are still genuinely NOT FOUND (`data/sources.tsv:271`, `:272`).
+   cerdd-dafod treatise (`quality/RESULTS_CYM_RHYME.md` item 1, *Blocker:
+   **cannot obtain***), and the hymn and medieval-cywydd corpora are still genuinely
+   NOT FOUND (`SEARCH:welsh-hymn-corpus-tune-and-metre`,
+   `SEARCH:welsh-cywydd-medieval-poets`).
+   **AND THE WELSH PROSE NEGATIVE ARM IS NOT ON THAT LIST — MOVED OUT
+   2026-08-16.** This sentence filed it under "WHAT REMAINS BLOCKED" while the
+   source it cites labels it the opposite: `quality/RESULTS_CYM_RHYME.md`
+   item 3 reads *"Blocker: **neither** — it is a staging request, and the
+   material is one `curl` away on a channel that already answers"*, and
+   `data/sources.tsv`'s `NOTE:gitenberg-welsh-holdings-enumerated` row already
+   names a reachable Welsh PROSE holding (`Gwaith-Samuel-Roberts_14354
+   (prose)`). The neighbouring item IS correctly labelled `cannot obtain`, so
+   the file distinguishes the two and this paragraph flattened them. Calling
+   an unstaged-but-reachable text "blocked" is doctrine 20 pointed at the
+   corpus: work nobody has done, recorded as work nobody can do.
 7. **Blueprint identity-with-variation.** This entry named TWO gaps and one
    of them closed without the entry being told: **chorus variation is
-   CLOSED** (`quality/grid.py`'s `compare_returns`, 12 named
+   CLOSED** (`quality/grid.py`'s `compare_returns`, over the ~~12~~ named
    `VARIATION_KINDS` — VERBATIM, LEXICAL_VARIATION, HEAD_PRESERVED,
    RHYME_PRESERVING_REWRITE and the rest — not a verbatim/not-verbatim
    boolean; `return_findings` runs it over every declared function's own
-   recurrences). "Current refs are verbatim-only" stopped being true two
+   recurrences).
+   **THE COUNT IS STRUCK AND NOT REPLACED, 2026-08-16.** `VARIATION_KINDS`
+   measures **15** today
+   (`python3 -c "from quality import grid as GR; print(len(GR.VARIATION_KINDS))"`),
+   and writing 15 here would only reset the clock on the same defect. **It was
+   never 12 in the first place:** `git log -S'12 named' -- CLAUDE.md` gives
+   `8592e8b` (2026-08-12), whose own subject line is *"Fix stale gap status"*,
+   and at that very commit the tuple already had 15 members — it passed 12 on
+   2026-08-11 at `d944ff7`. So the commit written to repair a stale status
+   wrote a count that was stale on arrival, which is doctrine 58 with the
+   shortest possible fuse. The ARGUMENT this sentence is making — a graded
+   ladder rather than a verbatim/not-verbatim boolean — does not turn on the
+   cardinality, so the cardinality is not stated; the constant is named and
+   the command is beside it. `MISSING.md`'s "12-way ladder" is the same figure
+   in the other register and is struck with it. "Current refs are verbatim-only" stopped being true two
    days after this line was written and nobody split the sentence — doctrine
    48's own failure mode, caught by a real draft's final chorus coming back
    `HEAD_PRESERVED` in a real run rather than the boolean the sentence still

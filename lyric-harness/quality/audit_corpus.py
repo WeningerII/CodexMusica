@@ -962,10 +962,34 @@ def readability(cf, lang):
 #: source (doctrine 85), a recorded failed search (doctrine 39), or a file
 #: deleted for cause (verse.txt).  In all three the absence IS the record, and
 #: an auditor that reports it as a defect is punishing the table for working.
+#:
+#: `FAILED SOURCE SEARCH` ADDED 2026-08-16, and it is the docstring rule above
+#: catching this list not meeting it.  Three rows write a recorded failed
+#: search that way -- `SEARCH:gitagovinda-raga-tala-headings` spells it
+#: `n/a - failed source search, recorded as a row (doctrine 39)`, CITING THE
+#: DOCTRINE IN THE CELL -- and none of the seven markers here matched any of
+#: them, so `SEARCH:non-hattatal-third-edition-2026-08-11` was charged as a
+#: doctrine 34 WARN for having done exactly what doctrine 39 asks.  The
+#: auditor was punishing the table for working, in the one file whose comment
+#: says not to.
+#:
+#: THE RESIDUAL IS NAMED RATHER THAN CLAIMED CLOSED.  This is still an
+#: ENUMERATION OF PHRASINGS and the phrasings live in a TSV this file does not
+#: own, so a fourth spelling produces a silent WARN again -- the failure mode
+#: is unchanged in kind, only one instance narrower.  The structural
+#: alternative -- treat every `SEARCH:`-prefixed source_id as declared-absent
+#: -- was MEASURED AND REJECTED: `SEARCH:welsh-cynghanedd-corpus` reads
+#: `OVERTURNED -- source located via GITenberg` and another reads `ROUTE FOUND
+#: AND BLOCKED`, so the prefix marks *a search was run*, NOT *it found
+#: nothing*, and a row that DID locate its material and then names a missing
+#: path is a real defect this would silence.  A cheap marker list that
+#: under-matches beats a structural rule that over-matches, because the first
+#: fails loudly (a WARN nobody asked for) and the second fails silently.
 _ABSENT_ON_PURPOSE = (
     ("REJECTED", "rejected"), ("REFUSED", "refused"), ("REMOVED", "removed"),
     ("DELETED", "deleted"), ("NOT FOUND", "not found"),
     ("NOT-FOUND", "not found"), ("UNREACHABLE", "unreachable"),
+    ("FAILED SOURCE SEARCH", "failed source search"),
 )
 
 
@@ -2299,7 +2323,22 @@ def main(argv=None):
 #: repin; do not quiet a finding to meet them. A FAIL count that FALLS is still
 #: drift and still fails here -- a record that is only corrected when it gets
 #: worse is a record nobody checks in the good direction.
-PINNED_SHAPE = {"files": 269, "FAIL": 1, "WARN": 230, "NOTE": 198}
+#:
+#: REPINNED 2026-08-16 from ~~{"files": 269, "FAIL": 1, "WARN": 230,
+#: "NOTE": 198}~~ -- ONE finding changed SEVERITY, none appeared or vanished.
+#: `_ABSENT_ON_PURPOSE` gained the `FAILED SOURCE SEARCH` phrasing, so
+#: `SEARCH:non-hattatal-third-edition-2026-08-11` stopped being a doctrine 34
+#: WARN and became the doctrine 39 NOTE it always was. WARN 230 -> 229 and
+#: NOTE 198 -> 199 in one move, and the two numbers are the SAME finding seen
+#: twice: their sum is unchanged at 428, which is what a reclassification
+#: looks like and what an appearing or disappearing finding does NOT look
+#: like. That invariant is the argument for this repin -- it is not offered as
+#: a rule the file enforces, because two independent moves could cancel.
+#: THE PARAGRAPH ABOVE IS WHY THIS IS WRITTEN OUT: the counts were re-derived
+#: by running the command and reading its output, NOT by editing 230 down to
+#: 229 to make a red gate green. `python3 quality/audit_corpus.py` prints
+#: `269 files, 429 findings: 1 FAIL, 229 WARN, 199 NOTE`.
+PINNED_SHAPE = {"files": 269, "FAIL": 1, "WARN": 229, "NOTE": 199}
 
 
 def _verify_shape(files, findings):
