@@ -426,6 +426,72 @@ REACHABLE count rises from 9 to **10**. Rung 1 still tests at most 52.
 the letter exclusion, the `IfExp` walk and the declared indirect four; the
 three defect classes are recorded in its docstring rather than fixed silently.
 
+## Rung 1 — STARTED 2026-08-16, HALTED ON THE INSTRUMENT
+
+The draft, fixed per the specification: a two-line couplet mandated `AA` whose
+pair FAILS on first writing — `four` ~ `stairs`, **0.612 NO_RELATION**, below
+`theta_rhyme` 0.750, so `brief` has something to flag and the write-check-fix
+cycle can actually run. Blueprint: one section, 2 bars, 4/4 as 2+2, two placed
+lines. Draft fingerprint `385ff1e4055e`.
+
+**HALTED BEFORE THE `defer:` SESSION, DELIBERATELY.** The pre-registration says
+rung 0 validates the apparatus; rung 1 showed the apparatus is still not fit to
+measure the thing. Running the writer session on a device known to be wrong
+would be the exact error this repo keeps correcting — a measurement taken with
+an instrument whose defects are already visible.
+
+**THE DECIDING RESULT: the logger reported 18 fired codes where the API
+reports 8.** On one two-line draft, grepping `brief`'s output for code names
+inflated coverage by **125%**, and every one of the ten extras was PROSE:
+`PREDICTABLE_RHYME` appears inside `EXTRAPOLATED_LENGTH`'s explanation of
+tolerance bands; `RADIF_LICENSED`, `CLICHE_PAIR` and `REPEAT_IN_VERSE` inside
+other findings' evidence. **A report that explains which checks did not run
+necessarily names them**, so grepping counts the disclosure as the finding —
+and inflates in the OPTIMISTIC direction, which is the direction that would
+have made this experiment report a healthier pipeline than exists.
+
+Two of the ten would have been recorded as `FIRED ∩ DECLARED UNREACHABLE` —
+the pre-registration's *second* finding type — and both were artefacts. The
+experiment would have manufactured its own headline.
+
+**The true fired set at rung 1, read from `Reviser.inspect()`: 8 codes.**
+per-line `CROWDED`, `PROMINENCE_EXCEEDS_HEADS`, `SCHEME_VIOLATION`,
+`SLOTS_EXCEEDED`; whole-draft `EXTRAPOLATED_LENGTH`, `FUNCTION_UNDECLARED`,
+`HOOK_UNDECLARED`, `NO_SETTING`. All eight are in the denominator's R2 set. No
+surprises in either direction.
+
+**Doctrine 91 is the rule that was broken and is now obeyed:** a count is a
+coordinate of the RENDERING, so the rendering must not be the source of the
+count. `coverage_log.inspect_codes()` reads the structured finding set;
+output-grepping survives only for pure-CLI surfaces exposing no API.
+
+### Instrument defects found by rungs 0 and 1 — six, and zero harness defects
+
+| # | defect | direction of error |
+|---|---|---|
+| 1 | codes matched by regex over prose with a noise blocklist | false positives |
+| 2 | a REFUSAL was indistinguishable from SILENCE | collapsed 4 states to 3 |
+| 3 | verbs evidence firing with a REPORT, not a code | false silence |
+| 4 | the refusal detector caught a report's `REFUSED, by cause:` HEADER | false refusals |
+| 5 | coverage depended on the verb's VERBOSITY — `fit` without `-v` hides real fired codes | false silence |
+| 6 | prose mentions counted as fired findings — 18 against a true 8 | **+125%, optimistic** |
+
+Defect 5 nearly produced a fake finding of its own: `--isochronous` appeared to
+retire `NO_SETTING` and add nothing, and a mechanism was hypothesised (an early
+return in `_place_isochronous` swallowing the finding) before `-v` showed
+`TUPLET_REQUIRED` and `EVEN_DIVISION_LANDINGS` both firing normally. The
+prediction had been right; only the measurement was blind.
+
+**That the apparatus is harder to build than the thing it measures is itself a
+result**, and it is the one this rung actually produced. Six defects, all in
+the instrument; none yet in the harness.
+
+### What rung 1 still owes
+
+The `--propose=defer:` writer session, `verify`, and the diff — none of which
+mean anything until the measurement is rebuilt on `inspect_codes()` and
+re-validated against a known answer, exactly as rung 0 was.
+
 ## D. Judgement calls carried forward
 
 The derivation flagged its own uncertainty; carried here unresolved rather than

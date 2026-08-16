@@ -127,5 +127,32 @@ def run(*argv):
         fh.write(json.dumps(rec) + "\n")
     return rec
 
+def inspect_codes(lines, mandate, **kw):
+    """-> (per_line_codes, whole_codes) READ FROM THE FINDING SET, not the page.
+
+    THE GREP PATH ABOVE IS NOT A COVERAGE MEASUREMENT and rung 1 proved it:
+    on one two-line draft it reported 18 codes where the API reports 8. All
+    ten extras were PROSE -- `PREDICTABLE_RHYME` appears inside
+    `EXTRAPOLATED_LENGTH`'s explanation of tolerance bands, `RADIF_LICENSED`
+    and `CLICHE_PAIR` inside other findings' evidence. A report that explains
+    which checks did NOT run necessarily names them, so grepping a report for
+    code names counts the disclosure as the finding -- and inflates in the
+    OPTIMISTIC direction, which is the direction that would have made this
+    whole experiment report a healthier pipeline than exists.
+
+    Doctrine 91 states the rule this function obeys: a count is a coordinate
+    of the RENDERING, so the rendering must not be the source of the count.
+    `Reviser.inspect()` returns `per_line` and `whole` as structured findings
+    carrying `.code`; that is the population. Output-grepping is kept only for
+    pure-CLI surfaces that expose no API.
+    """
+    sys.path.insert(0, ROOT)
+    from quality.revise import Reviser
+    d = Reviser().inspect(lines, mandate, **kw)
+    per = sorted({f.code for v in d["per_line"].values() for f in v})
+    whole = sorted({f.code for f in d["whole"]})
+    return per, whole
+
+
 if __name__ == "__main__":
     print(json.dumps(run(*sys.argv[1:]), indent=1))
