@@ -268,6 +268,42 @@ documents as a deliberate tradeoff whose argument is about ACCEPTANCE and
 silent about GUIDANCE. `quality/COVERAGE_PREREGISTRATION.md`, rung 1, holds
 both in full.
 
+**AND `revise` AND `verify` DISAGREED ABOUT ONE BEFORE/AFTER PAIR — FIXED
+2026-08-16, FOUND BY RUNNING `verify` ON A DRAFT `revise` HAD JUST CONVERGED
+ON.** The loop returned SUCCESS; the verb, handed the identical pair with the
+same mandate, blueprint and subdivision, returned `REJECTED — L2 took the modal
+candidate 'stairs'`. Doctrine 1 between two surfaces of one module — **and the
+rejection's own sentence was FALSE**: L2 did not TAKE `stairs`, it already
+ended on `stairs` and was revised elsewhere in the line, for its meter.
+`forbidden_modal` carries TWO rules at once — the modal head (doctrine 9) and
+`brief()`'s incumbent clause, *"the word currently there is itself excluded"* —
+and MEASURED, `modal_field('four')` is `['door','more','before','shore','sore',
+'or']` with and without the exclusion, so **`stairs` is not a modal candidate
+for `four` under any spelling** and was on the list only as the incumbent. The
+report named the rule that did not fire.
+**TAKING REQUIRES A CHANGE.** RULE 3 skips a line whose end word is
+byte-identical before and after: doctrine 9 is about REACHING for the obvious
+answer and a kept word reached for nothing. IT DOES NOT WEAKEN THE RULE,
+because the incumbent clause's real work is RULE 4's one block down — a line
+that keeps its end word keeps its rhyme finding, so "nothing was fixed" refuses
+it unless the revision repaired something ELSE, which is exactly the case this
+guard lets through. Doctrine 7 is why it must: a line already sitting on a
+conventional word may still have its METER fixed, and blocking that is the
+floor ordering the region it already passed.
+**THE FIELD IS STILL READ OFF `before`, DELIBERATELY** — recomputing it against
+`after` was the other candidate fix and is doctrine 48, since a revision that
+repairs the rhyme clears the finding, so `brief(after)` offers no field and the
+rule could never fire on any accepted revision. **THE SECOND HALF CLOSES AS A
+COROLLARY**: `forbidden_modal` is `modal_head + [cur]` and `cur` IS the
+`before` end word, so `got == cur` now implies `got == was` and is skipped —
+`modal_violations` is a SUBSET OF THE MODAL HEAD by construction, and "took the
+modal candidate" is true of every entry it can hold. The skip is DISCLOSED via
+`modal_endword_unchanged` and in the acceptance reasons, because "kept a
+forbidden word" and "was never on the list" are different outcomes (doctrine
+20). `quality/test_revise.py` §41 is 7 checks and fails exactly 2 with the
+end-word test removed; its second premise is the disagreement made mechanical —
+under the mutant the loop still converges while `verify` rejects.
+
 **`candidates` AND THE LOOP ANSWERED ONE QUESTION TWO WAYS — FIXED
 2026-08-15, FOUND BY PRE-SCREENING A RHYME WITH THE WRONG LIST.** The verb
 ranks by RHYME SCORE; the modal exclusion ranks by FREQUENCY over the words

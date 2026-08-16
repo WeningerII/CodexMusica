@@ -2588,14 +2588,73 @@ class Reviser:
         out["independent"] = m.independent()
 
         # RULE 3 — the modal exclusion, enforced rather than merely suggested
+        # ===============================================================
+        # TAKING REQUIRES A CHANGE — FIXED 2026-08-16, FOUND BY RUNNING
+        # `verify` ON A DRAFT `revise` HAD JUST CONVERGED ON.
+        # ===============================================================
+        # `revise` returned SUCCESS and this method, handed the SAME
+        # before/after pair with the same mandate, blueprint and
+        # subdivision, returned `REJECTED — L2 took the modal candidate
+        # 'stairs'`. One question, two answers, from two surfaces of one
+        # module (doctrine 1), and the rejection's own sentence is FALSE:
+        # L2 did not TAKE 'stairs', L2 already ended on 'stairs' and was
+        # revised somewhere else in the line.
+        #
+        # `forbidden_modal` carries TWO rules at once. The head of it is
+        # the modal region — doctrine 9, do not pass the band by reaching
+        # for the most predictable word. The LAST entry is `brief()`'s
+        # incumbent clause, *"the word currently there is itself excluded:
+        # it is what was flagged, so re-proposing it is not a revision"*.
+        # MEASURED on the pair that exposed this: `modal_field('four')` is
+        # `['door','more','before','shore','sore','or']` with and without
+        # the exclusion, so **`stairs` is not a modal candidate for `four`
+        # under any spelling** — it was on the list only as the incumbent.
+        #
+        # THE END-WORD TEST IS THE WHOLE FIX, and it is a statement about
+        # what this rule ASKS. Doctrine 9 is about REACHING for the
+        # obvious answer; a line whose end word is byte-identical before
+        # and after reached for nothing. So a revision that leaves the end
+        # word alone and repairs the line elsewhere — the meter, the
+        # phrasing — is outside this rule entirely, and charging it here
+        # states a taking that did not happen.
+        #
+        # IT DOES NOT WEAKEN THE RULE, because the incumbent clause's real
+        # work is done by RULE 4 one block below: a line that keeps its
+        # end word keeps its rhyme finding, so "nothing was fixed" refuses
+        # it unless the revision repaired something ELSE — which is
+        # precisely the case this guard exists to let through. And
+        # doctrine 7 is the reason it must be let through: a line already
+        # sitting on a conventional word may still have its METER fixed,
+        # and blocking that would be the floor ordering the region it
+        # already passed (`MODAL_RHYME` is a NOTE for the same reason).
+        #
+        # THE FIELD IS STILL READ OFF `before` AND THAT IS DELIBERATE.
+        # Recomputing it against `after` was the other candidate fix and
+        # it is doctrine 48: a revision that repairs the rhyme clears the
+        # finding, so `brief(after)` offers no field, so the rule could
+        # never fire on any accepted revision. The field belongs to the
+        # state in which the line was flagged and a replacement was being
+        # searched for — which is also the field the WRITER was shown, so
+        # the offer and the enforcement stay the same object.
+        #
+        # THE SKIP IS DISCLOSED, NOT SWALLOWED (doctrine 20): a line that
+        # kept a forbidden end word is a different outcome from a line
+        # that was never on the list, and `modal_endword_unchanged` keeps
+        # the two apart in the returned dict.
         modal_hits = []
+        modal_kept = []
         for ln in changed:
             b = b_before.get(ln)
             if not b or not b.forbidden_modal:
                 continue
             got = self.floor.qf._endword(after[ln - 1])
-            if got in b.forbidden_modal:
-                modal_hits.append((ln, got))
+            if got not in b.forbidden_modal:
+                continue
+            if got == self.floor.qf._endword(before[ln - 1]):
+                modal_kept.append((ln, got))
+                continue
+            modal_hits.append((ln, got))
+        out["modal_endword_unchanged"] = modal_kept
         if modal_hits:
             out["reasons"].append(
                 "; ".join(f"L{ln} took the modal candidate {w!r}"
@@ -2631,6 +2690,17 @@ class Reviser:
         out["reasons"].append(
             f"fixed {len(fixed)}, introduced {len(new_flags)}{note_disclosure}, "
             f"changed only {sorted(changed)}")
+        # RULE 3's SKIP, SAID OUT LOUD. Appended rather than folded into the
+        # line above so the existing sentence is byte-identical wherever this
+        # is empty, which is every revision that moved its end word.
+        if modal_kept:
+            out["reasons"].append(
+                "; ".join(f"L{ln} KEPT its end word {w!r}, which is on this "
+                          f"line's forbidden list" for ln, w in modal_kept)
+                + " — RULE 3 asks whether a modal candidate was TAKEN, and a "
+                  "byte-identical end word took nothing. Disclosed because "
+                  "'kept a forbidden word' and 'was never on the list' are "
+                  "different outcomes (doctrine 20)")
         if not m.independent():
             out["reasons"].append(
                 "the mandate was DERIVED from the rhyme graph, so this "

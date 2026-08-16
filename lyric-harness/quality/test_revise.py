@@ -3094,6 +3094,114 @@ def test_the_mandate_block_is_gated_on_the_mandate():
           f"forbidden={len(b2.forbidden_modal) if b2 else '?'}")
 
 
+def test_rule_three_asks_whether_a_word_was_taken():
+    """`revise` and `verify` disagreed about the same before/after pair.
+
+    FOUND 2026-08-16 BY RUNNING `verify` ON A DRAFT `revise` HAD JUST
+    CONVERGED ON — the rung-1 re-run, `quality/COVERAGE_PREREGISTRATION.md`.
+    The loop returned SUCCESS; the verb, handed the identical pair with the
+    same mandate, blueprint and subdivision, returned `REJECTED — L2 took the
+    modal candidate 'stairs'`. One question, two answers, from two surfaces of
+    one module (doctrine 1).
+
+    AND THE REJECTION'S OWN SENTENCE WAS FALSE. L2 did not TAKE 'stairs' — it
+    already ended on 'stairs' and was revised elsewhere in the line, for its
+    METER. `forbidden_modal` carries two rules at once: the modal head
+    (doctrine 9) and `brief()`'s incumbent clause, *"the word currently there
+    is itself excluded"*. Check 1 measures that `stairs` is on the list ONLY
+    by the second, so the message named the rule that did not fire.
+
+    THE FIX IS THAT TAKING REQUIRES A CHANGE. Doctrine 9 is about REACHING for
+    the obvious answer, and a byte-identical end word reached for nothing.
+    Check 4 is the control that keeps the rule alive: a revision that really
+    does land on a modal candidate is still rejected, in the same words.
+    """
+    print("\n41. RULE 3 asks whether a modal candidate was TAKEN, and "
+          "`revise`/`verify` agree about one before/after pair")
+    from quality import loop as _LP
+    import quality.fit as _FT
+
+    before = ["the kitchen light is burning at half past four",
+              "and nobody came back to climb the stairs"]
+    bp = {"_note": "constructed inline for this regression, not a fixture",
+          "sections": [{"name": "V1", "bars": 2, "start_bar": 1,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+                     "section": "V1"} for i, t in enumerate(before)]}
+    R = Reviser()
+    sub = _FT.Subdivision(2, source="constructed for this regression")
+    kw = dict(blueprint=bp, subdivision=sub)
+
+    # 'four' ~ 'stairs' fails the mandate; L1 answering on 'glares' repairs
+    # the pair AND its own SLOTS_EXCEEDED, so L2 then needs only its meter.
+    ANSWERS = ["at four the kitchen light still glares",
+               "and nobody climbed the stairs"]
+
+    off, forb_ex = R.modal_field("four", exclude=("stairs",))
+    _o2, forb_raw = R.modal_field("four")
+    check("PREMISE: 'stairs' is NOT a modal candidate for 'four' under "
+          "either spelling — it reaches `forbidden_modal` only as the "
+          "INCUMBENT, so the old message named the rule that did not fire",
+          "stairs" not in forb_ex and "stairs" not in forb_raw,
+          f"excluded={forb_ex} raw={forb_raw}")
+
+    seq = list(ANSWERS)
+
+    def propose(brief, lines, attempt, reasons=None, whole=()):
+        return seq.pop(0) if seq else None
+
+    res = _LP.revise_loop(R, before, "AA", propose=propose, **kw)
+    check("PREMISE: the loop converges on this pair",
+          res.stop_reason == "success" and list(res.lines) == ANSWERS,
+          f"{res.stop_reason} -> {list(res.lines)}")
+
+    v = R.verify(before, list(res.lines), "AA", **kw)
+    check("`verify` on the draft the LOOP emitted now ACCEPTS it — the two "
+          "surfaces answer one question the same way",
+          v["accepted"] is True,
+          f"accepted={v['accepted']} reasons={v['reasons']}")
+    check("...and the skip is DISCLOSED rather than swallowed: 'kept a "
+          "forbidden word' and 'was never on the list' are different "
+          "outcomes (doctrine 20)",
+          v.get("modal_endword_unchanged") == [(2, "stairs")]
+          and any("KEPT its end word" in r for r in v["reasons"])
+          and not any("took the modal candidate" in r for r in v["reasons"]),
+          f"{v.get('modal_endword_unchanged')}")
+
+    # CONTROL — the rule is still load-bearing in the direction it was
+    # written for: a revision that lands ON a modal candidate is refused,
+    # in the same words, before anything else about the line is looked at.
+    took = [before[0], "and nobody came back to open the door"]
+    v2 = R.verify(before, took, "AA", **kw)
+    check("CONTROL: a revision that genuinely TAKES a modal candidate is "
+          "still rejected outright, and still says so",
+          v2["accepted"] is False
+          and v2.get("modal_violations") == [(2, "door")]
+          and any("took the modal candidate 'door'" in r
+                  for r in v2["reasons"]),
+          f"accepted={v2['accepted']} hits={v2.get('modal_violations')}")
+    check("CONTROL: and it is refused BEFORE the fixed/new accounting — "
+          "rule 3 rejects on its own, so the run stops there",
+          "new_flags" in v2 and not any("nothing was fixed" in r
+                                        for r in v2["reasons"])
+          and len(v2["reasons"]) == 1,
+          f"{v2['reasons']}")
+
+    # THE COROLLARY, AND IT CLOSES THE SECOND HALF OF THE SAME REPORT BUG.
+    # `forbidden_modal` is `modal_head + [cur]`, and `cur` IS the before
+    # end word, so `got == cur` now implies `got == was` and is skipped.
+    # `modal_violations` is therefore a SUBSET OF THE MODAL HEAD by
+    # construction — which is what makes the sentence "took the modal
+    # candidate" true of every entry it can ever hold, rather than true of
+    # most of them. Asserted rather than left as an argument.
+    check("COROLLARY: `modal_violations` can now only ever name a word "
+          "from the MODAL HEAD, never the incumbent — so the message "
+          "'took the modal candidate' is true by construction",
+          all(w in forb_ex for _ln, w in v2.get("modal_violations", []))
+          and "door" in forb_ex,
+          f"hits={v2.get('modal_violations')} head={forb_ex}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -3137,7 +3245,8 @@ if __name__ == "__main__":
                test_uncovered_bars_reaches_the_loop_not_only_fit,
                test_a_blank_line_is_refused_not_renumbered,
                test_a_holding_requirement_is_not_fixed_by_breaking_it,
-               test_the_mandate_block_is_gated_on_the_mandate):
+               test_the_mandate_block_is_gated_on_the_mandate,
+               test_rule_three_asks_whether_a_word_was_taken):
         fn()
     print("=" * 62)
     if FAILURES:

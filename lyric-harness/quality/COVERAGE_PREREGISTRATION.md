@@ -792,6 +792,57 @@ list and one message (doctrine 79's shape, applied to a rejection rather than a
 count). Both rules are right; the report cannot say which fired, and here it
 names the one that did not.
 
+#### C AND D ARE FIXED — 2026-08-16. TAKING REQUIRES A CHANGE.
+
+RULE 3 now skips a line whose end word is byte-identical before and after.
+Doctrine 9 is about REACHING for the obvious answer, and a line that kept its
+end word reached for nothing; the revision happened somewhere else in the line
+— here, in the meter. Measured on the pair that exposed it, `verify` now
+returns **ACCEPTED**, agreeing with the loop:
+
+    BEFORE: 385ff1e4055e   AFTER: 0a394f1f1442   VERDICT: ACCEPTED
+      fixed 4, introduced 0, disclosing 4 new note(s) …
+      L2 KEPT its end word 'stairs', which is on this line's forbidden list …
+
+**IT DOES NOT WEAKEN THE RULE.** The incumbent clause's real work is done by
+RULE 4 one block down: a line that keeps its end word keeps its rhyme finding,
+so *"nothing was fixed"* refuses it unless the revision repaired something
+ELSE — which is exactly the case this guard exists to let through. Doctrine 7
+is why it must be let through: a line already sitting on a conventional word
+may still have its METER fixed, and blocking that is the floor ordering the
+region it already passed. Control, measured: a revision that really does land
+on a modal candidate is still refused in the same words —
+`L2 took the modal candidate 'door'`, `modal_violations [(2, 'door')]`, one
+reason and nothing else, so the rule still rejects on its own before the
+fixed/new accounting.
+
+**THE FIELD IS STILL READ OFF `before`, DELIBERATELY.** Recomputing it against
+`after` was the other candidate fix and it is doctrine 48: a revision that
+repairs the rhyme clears the finding, so `brief(after)` offers no field, so the
+rule could never fire on any accepted revision — a check that cannot fail. The
+field belongs to the state in which the line was flagged and a replacement was
+being searched for, which is also the field the WRITER was shown, so the offer
+and the enforcement stay one object.
+
+**D CLOSES AS A COROLLARY, PROVABLY AND NOT INCIDENTALLY.**
+`forbidden_modal` is `modal_head + [cur]` and `cur` IS the `before` end word,
+so `got == cur` now implies `got == was` and is skipped. Therefore
+`modal_violations ⊆ modal_head` **by construction**, and the sentence "took the
+modal candidate" is true of every entry the list can ever hold rather than true
+of most of them. §41's last check asserts the subset rather than leaving it as
+an argument.
+
+**THE SKIP IS DISCLOSED, NOT SWALLOWED.** `modal_endword_unchanged` carries
+the `(line, word)` pairs and the acceptance reasons say so in words, because
+"kept a forbidden word" and "was never on the list" are different outcomes
+(doctrine 20) and a silent skip would collapse them.
+
+`quality/test_revise.py` §41 is 7 checks and fails exactly 2 with the end-word
+test removed; the other 5 are two premises and three controls that must pass on
+both trees. The second premise is itself the disagreement made mechanical — the
+loop still converges under the mutant while `verify` rejects, which is defect C
+reproduced inside the test written to close it.
+
 #### THE COVERAGE DIFF IS STILL NOT SCORED, and the reason is now about the WRITER
 
 **The SUCCESS arm is contaminated and the contamination is me.** I checked
