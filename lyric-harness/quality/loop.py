@@ -459,6 +459,15 @@ class RoundResult:
     round_no: int
     attempts: list = field(default_factory=list)     # [LineAttempt]
     fixed_lines: list = field(default_factory=list)   # sorted, this round
+    #: Line numbers this round OPENED and never asked about, because an
+    #: EARLIER fix in the same round closed them. Added 2026-08-16 with the
+    #: per-line re-brief.
+    #:
+    #: NOT A `LineAttempt`, and that is the whole reason it is a second list:
+    #: no attempt was made, so a record with `accepted=False` would be a
+    #: failure that never happened, and `len(attempts)` would stop counting
+    #: attempts (doctrine 79 — two kinds, never summed into one container).
+    resolved_elsewhere: list = field(default_factory=list)
 
 
 @dataclass
@@ -611,6 +620,17 @@ class LoopResult:
                 mark = "OK" if a.accepted else "--"
                 out.append(f"    [{mark}] L{a.line_no} tier{a.tier} "
                           f"({a.tried} tried): {a.reason}")
+            # NOT FOLDED INTO THE ATTEMPT LIST ABOVE. A line closed by an
+            # earlier fix in the same round was never asked about, so it is
+            # neither an accepted attempt nor a failed one, and printing it
+            # as `[--]` would report a dead end that never happened.
+            if r.resolved_elsewhere:
+                out.append(
+                    "    [==] "
+                    + ", ".join(f"L{n}" for n in r.resolved_elsewhere)
+                    + " — opened this round and NOT asked about: an earlier "
+                      "fix in the same round closed them (re-briefed against "
+                      "the current draft, not the round's opening snapshot)")
         if self.unresolved:
             # WHICH RULE HOLDS EACH LINE OPEN — 2026-08-16. This printed a
             # bare line list under a field whose own comment said "still
@@ -850,7 +870,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     the loop the same way it already tunes `modal_exclusion` or
     `field_band` — one declaration, not a second set of knobs.
 
-    ONE `brief()` PER ROUND, not one per line fixed. Fixing line X inside a
+    ~~ONE `brief()` PER ROUND, not one per line fixed. Fixing line X inside a
     round can change what a LATER flagged line Y in the SAME round must
     satisfy (if X is one of Y's call words), so Y's candidate list from this
     round's brief can go stale mid-round. This is deliberately not chased:
@@ -858,7 +878,34 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     `lines` before accepting anything, so a stale candidate is simply
     rejected rather than wrongly accepted — correctness does not depend on
     re-briefing every line, and Y is re-briefed fresh at the top of the next
-    round regardless. RAISES `NoMandate` exactly when `brief()`/`verify()`
+    round regardless.~~
+    **STRUCK 2026-08-16 — DEFECT B of the rung-1 coverage experiment. EVERY
+    WORD OF THAT ARGUMENT IS STILL TRUE AND IT ANSWERS A DIFFERENT QUESTION.**
+    It is about ACCEPTANCE: nothing wrong is accepted, which is what it
+    claims. A brief is GUIDANCE, and the argument says nothing about that —
+    so Y was handed a `must rhyme with`, a candidate field and a
+    `SCHEME_VIOLATION` evidence string computed against a word no longer in
+    the draft, and on the blind re-run the flag it was briefed to fix had
+    ALREADY BEEN REPAIRED by X's own answer, with 24 offered words every one
+    of which would have broken the rhyme that now held.
+    THE ECONOMICS CHANGED UNDER IT: the argument was written when the only
+    proposer was the free mechanical stub, for which a rejected attempt costs
+    nothing. `--propose=defer:` made the proposer a person or a model.
+    MEASURED on the rung-1 draft — a writer who followed the stale field
+    exactly burned all three attempts twice over and the loop returned
+    NO_PROGRESS with the line unresolved, while the correct move was to
+    ignore the field the harness had just offered. A stale field is cheap to
+    reject and expensive to follow.
+    A LINE IS NOW RE-BRIEFED IF THE DRAFT MOVED SINCE THE ROUND OPENED, and
+    a line an earlier fix CLOSED is not asked about at all
+    (`RoundResult.resolved_elsewhere`). COST, MEASURED on the 41-line
+    `mandate_song` fixture over two runs each: **30.3–30.8s before, 31.2–33.7s
+    after — +0.9 to +2.9s, +3% to +9%** — and the OUTCOME is byte-identical on
+    both runs (`no_progress`, 2 rounds, 5 lines fixed, final draft md5
+    `ef78e300f1a9`), which is the old argument holding exactly as it always
+    did. Nothing is re-derived until an accepted proposal has actually moved
+    the draft, so a round that fixes nothing pays zero.
+    RAISES `NoMandate` exactly when `brief()`/`verify()`
     already do: a loop with nothing to check against is not this module's
     problem to paper over.
 
@@ -934,9 +981,77 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             subdivision=subdivision, assume=assume)["whole"])
 
         attempts, fixed_this_round, touched = [], [], set()
+        resolved_elsewhere = []
+        # THE DRAFT `briefs` AND `whole` WERE BUILT ON. Every accepted
+        # proposal below rebinds `lines`, so this is how the loop knows its
+        # own guidance has gone stale.
+        brief_lines = list(lines)
         for b in flagged:
             if b.line_no in touched:
                 continue
+            # ===========================================================
+            # RE-BRIEF WHEN THE DRAFT HAS MOVED — FIXED 2026-08-16.
+            # DEFECT B of the rung-1 coverage experiment.
+            # ===========================================================
+            # This loop briefed ONCE PER ROUND and then walked the flagged
+            # lines proposing against that snapshot. Fixing line X inside a
+            # round changes what a LATER flagged line Y must answer whenever
+            # X is one of Y's call words — so Y was handed a candidate field,
+            # a `must rhyme with`, and a `SCHEME_VIOLATION` evidence string
+            # computed against a word no longer in the draft.
+            #
+            # THE OLD ARGUMENT WAS SOUND AND ANSWERED A DIFFERENT QUESTION.
+            # It ran: `verify()` always re-derives the true finding set for
+            # the CURRENT lines before accepting anything, so a stale
+            # candidate is REJECTED rather than wrongly accepted, and
+            # correctness does not depend on re-briefing. Every word of that
+            # is still true — and it is about ACCEPTANCE. It says nothing
+            # about GUIDANCE, and guidance is what a brief is.
+            #
+            # WHAT CHANGED THE ECONOMICS: `--propose=defer:`. The argument
+            # was written when the only proposer was the free mechanical
+            # stub, for which a rejected attempt costs nothing. The proposer
+            # is now a person or a model, and MEASURED on the rung-1 draft, a
+            # writer who followed the stale field exactly burned all three
+            # attempts twice over and the loop returned NO_PROGRESS with the
+            # line unresolved — while the correct answer was to ignore the
+            # field the harness had just offered. A stale field is cheap to
+            # reject and expensive to follow.
+            #
+            # AND THE STALE HALF CAN BE A FLAG THAT IS ALREADY REPAIRED.
+            # On the blind re-run, L1's fix repaired the PAIR, and L2 was
+            # then briefed to fix a `SCHEME_VIOLATION` that no longer
+            # existed, with 24 offered words every one of which would have
+            # broken the rhyme that now held.
+            #
+            # THE COST IS PAID ONLY WHERE THE DEFECT EXISTS: nothing is
+            # re-derived until an accepted proposal has actually moved the
+            # draft, so a round that fixes nothing, and the whole of the
+            # first line of every round, cost exactly what they did before.
+            if lines != brief_lines:
+                fresh = reviser.brief(lines, mandate, profile=profile,
+                                      blueprint=blueprint,
+                                      subdivision=subdivision, assume=assume)
+                # `whole` is the rubric `verify()` grades against and it
+                # moves with the draft too, so it is re-read here rather
+                # than left pointing at the top of the round. Cheap by the
+                # same measured argument the first read makes: `brief()`
+                # above has just warmed the caches for exactly these lines.
+                whole = tuple(reviser.inspect(
+                    lines, mandate, profile=profile, blueprint=blueprint,
+                    subdivision=subdivision, assume=assume)["whole"])
+                brief_lines = list(lines)
+                still_open = {x.line_no: x
+                              for x in _open_lines(fresh, pursue)}
+                if b.line_no not in still_open:
+                    # AN EARLIER FIX THIS ROUND CLOSED IT. Asking anyway is
+                    # what the stale snapshot used to do: it briefed a line
+                    # whose finding was gone and spent a writer's attempt on
+                    # it. Recorded rather than skipped in silence — and NOT
+                    # as a failed `LineAttempt`, because no attempt was made.
+                    resolved_elsewhere.append(b.line_no)
+                    continue
+                b = still_open[b.line_no]
             if b.joint_conflict:
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,
@@ -950,7 +1065,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 fixed_this_round.extend(attempt.touched)
                 touched.update(attempt.touched)
         rounds.append(RoundResult(round_no, attempts,
-                                  sorted(fixed_this_round)))
+                                  sorted(fixed_this_round),
+                                  sorted(resolved_elsewhere)))
         if not fixed_this_round:
             return _close(reviser, "no_progress", lines, rounds, flagged,
                           mandate, blueprint, subdivision, assume, profile,

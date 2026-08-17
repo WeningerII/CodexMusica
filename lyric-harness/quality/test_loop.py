@@ -920,6 +920,135 @@ def test_a_dead_end_and_an_open_line_each_name_their_own_rule():
               [both, only_flag, only_note], frozenset())[0]] == [1, 2])
 
 
+
+def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
+    """DEFECT B. One `brief()` per round, so guidance went stale mid-round.
+
+    Fixing line X inside a round changes what a LATER flagged line Y must
+    answer whenever X is one of Y's call words. Y was then handed a candidate
+    field, a `must rhyme with`, and a `SCHEME_VIOLATION` evidence string
+    computed against a word no longer in the draft.
+
+    THE OLD ARGUMENT WAS SOUND AND ANSWERED A DIFFERENT QUESTION: `verify()`
+    re-derives the true finding set before accepting anything, so a stale
+    candidate is REJECTED rather than wrongly accepted. True, and about
+    ACCEPTANCE. A brief is GUIDANCE, and nothing covered that.
+
+    WHAT CHANGED THE ECONOMICS is `--propose=defer:`. The argument was written
+    when the only proposer was the free mechanical stub. MEASURED on the
+    rung-1 draft: a writer who followed the stale field exactly burned all
+    three attempts twice and the loop returned NO_PROGRESS, while the correct
+    move was to ignore the field the harness had just offered.
+
+    CHECK 2 IS THE ONE THAT KEEPS THE OLD ARGUMENT TRUE: the fix moves
+    guidance and must not move acceptance.
+    """
+    print("\n18. a line is briefed against the draft AS IT NOW STANDS, not "
+          "against the round's opening snapshot")
+    from quality import propose as _PR
+
+    D = ["the kitchen light is burning at half past four",
+         "and nobody came back to climb the stairs"]
+    ANSWER = {1: "the kitchen light is on their chairs",
+              2: "and no one came back up the stairs"}
+    # THE BLUEPRINT IS LOAD-BEARING FOR THIS SECTION, not decoration. Without
+    # it only L2 is flagged (a pair violation is filed on the higher line), L1
+    # is never asked, and L2's brief citing `four` would be CORRECT -- L1
+    # really would still end on it. The meter flag is what makes L1 get fixed
+    # FIRST, which is the only way a later line's brief can go stale.
+    from quality import fit as _FT
+    BP = {"sections": [{"name": "V1", "bars": 2, "start_bar": 1,
+                        "meter": {"beats": 4, "unit": 4, "groups": [2, 2]}}],
+          "lines": [{"text": t, "bar": i + 1, "beat": 1, "duration": 4,
+                     "section": "V1"} for i, t in enumerate(D)]}
+    SUB = _FT.Subdivision(2, source="constructed for this regression")
+
+    shown = []
+
+    def spy(brief, lines, attempt, reasons=None, whole=()):
+        p = _PR.render_line(brief, lines, whole=whole, attempt=attempt,
+                            reasons=reasons)
+        shown.append((brief.line_no, p))
+        return ANSWER.get(brief.line_no)
+
+    res = revise_loop(Reviser(), D, "AA", blueprint=BP, subdivision=SUB,
+                      propose=spy)
+    l2 = [p for n, p in shown if n == 2]
+    check("the loop converges on this pair", res.stop_reason == "success",
+          f"{res.stop_reason} -> {list(res.lines)}")
+    check("L2 is told to rhyme with the word L1 ACTUALLY ENDS ON after L1 "
+          "was fixed -- not the word L1 had when the round opened",
+          bool(l2) and "L1 ('chairs')" in l2[0]
+          and "L1 ('four')" not in l2[0],
+          [x.strip() for x in l2[0].splitlines()
+           if "must rhyme with" in x] if l2 else "L2 never briefed")
+    check("...and its SCHEME_VIOLATION evidence no longer quotes the deleted "
+          "word either -- the whole brief moved, not one line of it",
+          bool(l2) and "'four' ~ 'stairs'" not in l2[0],
+          [x.strip() for x in l2[0].splitlines()
+           if "score 0.612" in x] if l2 else "")
+
+    # CHECK 2 — ACCEPTANCE IS UNMOVED. The old design's argument was that
+    # correctness never depended on re-briefing; this fix must not falsify
+    # it. Same draft, same stub, same verdicts and same emitted text.
+    a = revise_loop(Reviser(), CLICHE, "ABAB")
+    b = revise_loop(Reviser(), CLICHE, "ABAB")
+    check("the fix changes GUIDANCE and not ACCEPTANCE: the stub-driven run "
+          "is unchanged in stop reason, rounds and emitted draft",
+          a.stop_reason == b.stop_reason and list(a.lines) == list(b.lines)
+          and len(a.rounds) == len(b.rounds),
+          f"{a.stop_reason}/{len(a.rounds)} rounds")
+
+    # CHECK 3 — A LINE CLOSED BY AN EARLIER FIX IS NOT ASKED ABOUT, and is
+    # recorded as its own kind rather than as a failed attempt.
+    CLOSE = ["the kitchen light is burning at half past four",
+             "and nobody came back to climb the stairs",
+             "the empty coats are hanging on the stairs"]
+    asked = []
+
+    def spy2(brief, lines, attempt, reasons=None, whole=()):
+        asked.append(brief.line_no)
+        return ("and nobody came back to cross the floor"
+                if brief.line_no == 2 else None)
+
+    R2 = Reviser(rdecl=ReviseDeclaration(
+        pursue=frozenset({"REPEAT_ACROSS_GROUPS"})))
+    r2 = revise_loop(R2, CLOSE, [[1, 2]], propose=spy2)
+    rnd = r2.rounds[0]
+    check("L3 opened the round and was NEVER ASKED ABOUT, because fixing L2 "
+          "closed it -- the stale snapshot would have spent an attempt on a "
+          "finding that was already gone",
+          asked == [2] and rnd.resolved_elsewhere == [3],
+          f"asked={asked} resolved_elsewhere={rnd.resolved_elsewhere}")
+    check("...and it is NOT a `LineAttempt`: no attempt was made, so a "
+          "record with accepted=False would be a failure that never "
+          "happened, and len(attempts) would stop counting attempts "
+          "(doctrine 79)",
+          all(a.line_no != 3 for a in rnd.attempts)
+          and len(rnd.attempts) == 1,
+          f"{len(rnd.attempts)} attempt(s): "
+          f"{[a.line_no for a in rnd.attempts]}")
+    check("...and the report SAYS so, under its own marker rather than the "
+          "dead-end one",
+          "[==] L3" in str(r2) and "[--] L3" not in str(r2),
+          [l.strip()[:60] for l in str(r2).splitlines() if "[==]" in l])
+
+    # CHECK 4 — THE COST IS PAID ONLY WHERE THE DEFECT EXISTS. Nothing is
+    # re-derived until an accepted proposal has actually moved the draft, so
+    # a round that fixes nothing re-briefs exactly zero times.
+    calls = []
+    R3 = Reviser()
+    _orig = R3.brief
+    R3.brief = lambda *a, **k: (calls.append(1), _orig(*a, **k))[1]
+    revise_loop(R3, D, "AA", propose=lambda *a, **k: None)
+    check("a round in which NOTHING is accepted re-briefs zero times -- one "
+          "`brief()` for the round, exactly as before the fix",
+          len(calls) == 1,
+          f"{len(calls)} brief() call(s): a proposer that refuses everything "
+          f"fixes nothing, so the run stops at NO_PROGRESS after one round "
+          f"and the re-brief branch is never entered")
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -937,7 +1066,8 @@ if __name__ == "__main__":
                test_propose_sees_the_whole_draft_rubric,
                test_tier2_still_resolves_a_joint_conflict_through_pair_brief,
                test_backtrack_width_still_bounds_the_search,
-               test_a_dead_end_and_an_open_line_each_name_their_own_rule):
+               test_a_dead_end_and_an_open_line_each_name_their_own_rule,
+               test_a_line_is_briefed_against_the_draft_as_it_now_stands):
         fn()
     print("=" * 62)
     if FAILURES:

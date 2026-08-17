@@ -304,6 +304,40 @@ forbidden word" and "was never on the list" are different outcomes (doctrine
 end-word test removed; its second premise is the disagreement made mechanical —
 under the mutant the loop still converges while `verify` rejects.
 
+**AND THE BRIEF WENT STALE MID-ROUND — FIXED 2026-08-16, DEFECT B, AND THE
+ARGUMENT IT OVERTURNS IS STILL TRUE.** `revise_loop` briefed ONCE PER ROUND
+and then walked the flagged lines proposing against that snapshot, so fixing
+line X handed a LATER line Y a `must rhyme with`, a candidate field and a
+`SCHEME_VIOLATION` evidence string computed against a word no longer in the
+draft. `quality/loop.py`'s own docstring called this deliberate: *"`verify()`
+always re-derives the true finding set for the CURRENT `lines` before
+accepting anything, so a stale candidate is simply rejected rather than
+wrongly accepted — correctness does not depend on re-briefing every line."*
+**Every word of that is true, and it is about ACCEPTANCE. A brief is
+GUIDANCE, and the argument covers none of it.**
+**THE ECONOMICS CHANGED UNDER IT.** It was written when the only proposer was
+the free mechanical stub, for which a rejected attempt costs nothing;
+`--propose=defer:` made the proposer a person or a model. MEASURED on the
+rung-1 draft: a writer following the stale field exactly burned all three
+attempts twice over and the loop returned NO_PROGRESS with the line
+unresolved, while the correct move was to ignore the field the harness had
+just offered. And on the blind re-run the flag Y was briefed to fix had
+**already been repaired by X's own answer**, with 24 offered words every one
+of which would have broken the rhyme that then held.
+**A LINE IS RE-BRIEFED IF THE DRAFT MOVED SINCE THE ROUND OPENED**, and a line
+an earlier fix CLOSED is not asked about at all — recorded on
+`RoundResult.resolved_elsewhere` and rendered `[==]`, NOT as a `LineAttempt`,
+because no attempt was made and `accepted=False` would be a failure that never
+happened (doctrine 79). **COST, MEASURED** on the 41-line `mandate_song`
+fixture, two runs each: **30.3–30.8s before, 31.2–33.7s after (+3% to +9%)**,
+with the OUTCOME BYTE-IDENTICAL both times — `no_progress`, 2 rounds, 5 lines
+fixed, final md5 `ef78e300f1a9` — which is the old argument holding exactly as
+it always did. Nothing is re-derived until an accepted proposal has actually
+moved the draft, so a round that fixes nothing pays zero.
+`quality/test_loop.py` §18 is 8 checks and fails 5 with the re-brief removed;
+the 3 survivors are the two invariance controls and convergence itself, which
+must hold on both trees precisely because acceptance was never the defect.
+
 **AND THE FORBIDDEN LIST WAS TWO RULES IN ONE FIELD — SPLIT 2026-08-16.**
 `brief()` built `Brief.forbidden_modal` as the modal head (doctrine 9 — do not
 pass the band by reaching for the most predictable word) and then APPENDED the
