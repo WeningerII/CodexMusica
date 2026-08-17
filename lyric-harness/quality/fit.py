@@ -283,6 +283,86 @@ class LineUnits:
 
 
 _WORDISH = re.compile(r"[^\W\d_]+(?:['’‑-][^\W\d_]+)*", re.UNICODE)
+#: COORDINATES THAT ARE DECLARED AND INERT, in the shape `quality/relations.py`
+#: settled on (see its `Inert`/`INERT`/`check_inert`). Doctrine 1: a coordinate
+#: nobody reads is a stated assumption that is not in force, and doctrine 48: a
+#: check that cannot fire is decoration. The three honest ends are WIRE, DELETE,
+#: or KEEP IT AND DECLARE IT — and taking the third in prose alone is how a
+#: reader ends up believing a dead guard is live.
+#:
+#: Both entries below were found on 2026-08-17 by sweeping the finding codes no
+#: coverage rung had reached (`quality/COVERAGE_PREREGISTRATION.md` §E3b).
+#: `quality/test_fit.py` re-derives both and fails in BOTH directions.
+class InertCoordinate:
+    """field, why it is inert, what would activate it, and what BLOCKS it.
+
+    `blocker` is one of relations.py's three, and naming it is the whole
+    point: "build the thing" answers only one of them.
+      'build'    -- hard to build, and nothing else is in the way.
+      'obtain'   -- the input cannot be obtained at all.
+      'disjoint' -- both halves exist and never co-occur in one object.
+    """
+    __slots__ = ("field", "reason", "activates_when", "blocker", "measured")
+
+    def __init__(self, field, reason, activates_when, blocker, measured):
+        self.field, self.reason = field, reason
+        self.activates_when, self.blocker = activates_when, blocker
+        self.measured = measured
+
+
+INERT = (
+    InertCoordinate(
+        field="fit.NO_TEMPO / declared_inputs.TimeGrid.tempo_bpm",
+        reason=(
+            "BOTH HALVES OF THE TEMPO STORY ARE UNWIRED, and each is dead in "
+            "its own direction. `_no_tempo` builds a PERMANENT refusal for "
+            "want of a tempo and no production path constructs it -- a "
+            "repo-wide grep finds exactly one caller and it is this module's "
+            "own test, which asserts the refusal's strings and that it raises. "
+            "`declared_inputs` declares `tempo_bpm` and NOTHING anywhere reads "
+            "it, so a caller can declare a tempo that no code will use while "
+            "the refusal for its absence can never fire. This module's own "
+            "docstring is why: it never asks a per-second question, so "
+            "'syllables per second', 'too fast to sing' and 'the pickup is "
+            "200 ms' are refused by NOT BEING ASKED rather than by refusing."),
+        activates_when=(
+            "one real per-second question is asked of this module. Then "
+            "`tempo_bpm` has a reader and `_no_tempo` guards it. Wiring "
+            "either half alone closes nothing: a declared tempo nobody reads "
+            "is the same constant one step over, and a refusal with no "
+            "question to refuse is this entry again."),
+        blocker="build",
+        measured="grep -rn '_no_tempo(\\|tempo_bpm' --include='*.py' ."),
+    InertCoordinate(
+        field="fit.PROMINENCE_UNDECIDED",
+        reason=(
+            "THE BRANCH WORKS AND NOTHING PRODUCES ITS INPUT. `read_line` "
+            "refuses when `_resolve_prominence` sees a multi-valued "
+            "`Readings`; fed one deliberately it yields undecided units and a "
+            "`?` in `pattern()`, so the code is live. What no shipped "
+            "phonology does is produce one. AND WIRING IT NAIVELY WOULD BE A "
+            "WRONG ANSWER, which is the finding rather than the excuse: "
+            "MEASURED over CMUdict, all five words on this repo's own English "
+            "homograph list (wind, live, read, bow, tear) carry ONE "
+            "prominence pattern and two NUCLEI -- the ambiguity P11 already "
+            "handles for rhyme is never a prominence ambiguity. The entries "
+            "that DO disagree on prominence are reduction variants (`our`, "
+            "`will`, `can`, `did`), 4.24% of corpus lines, where CMUdict did "
+            "not decline to say anything -- it listed two PERFORMANCES of one "
+            "word. Reporting those as 'the phonology left it undecided' would "
+            "merge two kinds of fact under one count (doctrine 79)."),
+        activates_when=(
+            "the lexicon marks WHICH multi-parse entries are lexically "
+            "ambiguous (two words) as against reduction variants (one word, "
+            "two performances). CMUdict does not carry that distinction and "
+            "`ENG_HOMOGRAPHS` is five hand-listed words in a test file. With "
+            "the mark, a phonology can return `Readings` for the lexical case "
+            "only and the refusal becomes true when it fires."),
+        blocker="disjoint",
+        measured="python3 quality/test_fit.py  (see the INERT section)"),
+)
+
+
 _HAS_DIGIT = re.compile(r"\d")
 
 

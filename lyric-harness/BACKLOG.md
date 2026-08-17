@@ -954,7 +954,7 @@ the fix inert where the defect is not.
 
 ---
 
-### 4.10 · Two checks that cannot fire in any real run `FOUND 2026-08-17, OPEN`
+### 4.10 · Two checks that cannot fire in any real run `FOUND AND CLOSED 2026-08-17, DECLARED INERT`
 
 Found by sweeping the 16 finding codes no coverage rung had reached
 (`quality/COVERAGE_PREREGISTRATION.md` §E). Thirteen turned out to be
@@ -999,6 +999,29 @@ looking like a live guard on the default path.
 **Neither is a wrong answer being reported.** Nothing the harness says today
 is false because of these. They are checks that cannot participate, which is
 the failure mode doctrine 48 names and the reason this sweep was run.
+
+**CLOSED BY THE THIRD END — KEPT AND DECLARED INERT, MECHANICALLY.** Both are
+now entries in `quality/fit.py`'s `INERT`, in the shape `quality/relations.py`
+settled on for this exact problem, and `quality/test_fit.py` re-derives both
+and fails in BOTH directions: three mutations, each red — something starting to
+CALL `_no_tempo`, an entry renamed off its subject, and a blocker outside the
+declared three.
+
+**And the second decision was NOT the obvious one, because measuring it
+changed the answer.** Wiring `PROMINENCE_UNDECIDED` naively looked right —
+`P11` already established that an unresolved homograph must read UNDECIDED
+rather than be guessed, and `fit.py` guesses. But MEASURED: all five words on
+this repo's own English homograph list (`wind`, `live`, `read`, `bow`, `tear`)
+carry **one** prominence pattern and **two nuclei**, so the ambiguity P11
+handles is never a prominence ambiguity. The CMUdict entries that do disagree
+on prominence are reduction variants — `our`, `will`, `can`, `did` — on 4.24%
+of corpus lines, where the dictionary did not decline to say anything; it
+listed two PERFORMANCES of one word. Reporting those as *"the phonology left
+it undecided"* would merge two kinds of fact under one count (doctrine 79) and
+make the check fire for the wrong reason, which is worse than its being dead.
+The blocker is therefore `disjoint` and it is nameable: the lexicon does not
+mark WHICH multi-parse entries are lexically ambiguous as against reduction
+variants, and `ENG_HOMOGRAPHS` is five hand-listed words in a test file.
 
 ---
 
@@ -1127,7 +1150,7 @@ never one (doctrine 79).
 | MISSING entries by status | 48 OPEN / 15 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1009** DECLARED-public top-level functions/classes under `quality/` and the root — **165** named by another production module, **253** by tests only, **534** only inside their own module, **11** by nothing anywhere, **46** REFUSED (34 ambiguous, 7 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **19** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1009** DECLARED-public top-level functions/classes under `quality/` and the root — **165** named by another production module, **253** by tests only, **534** only inside their own module, **11** by nothing anywhere, **46** REFUSED (34 ambiguous, 7 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **20** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **57 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
