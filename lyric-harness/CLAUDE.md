@@ -25,12 +25,18 @@ These outrank any inference a session draws from the code.
    the enforcement half of a system whose intended order is
    **PLAN → WRITE → REVISE**: a first phase in which the PROGRAM works out how
    to put the song together — the structure, the blueprint, the mandate — then
-   writing against that plan, then the revise/verify loop enforcing it. The
-   planning phase DOES NOT EXIST YET: as of this note, nothing in this tree
-   generates a blueprint or a mandate, and every run to date had the operator
-   hand-writing both. That is the hole, not the design. Do not describe this
-   project as a grader, and do not present operator-authored plans as the
-   system working as intended.
+   writing against that plan, then the revise/verify loop enforcing it.
+   ~~The planning phase DOES NOT EXIST YET: as of this note, nothing in this
+   tree generates a blueprint or a mandate, and every run to date had the
+   operator hand-writing both.~~ STRUCK LATER THE SAME DAY: `quality/plan.py`
+   and the `plan` verb are the phase's v1 — structure from a declared pattern
+   grammar, schemes from the FULL `rgs()` enumeration, meters from a declared
+   cycle set, every free choice seeded and disclosed, refusals for unknown
+   forms and unattainable lengths, and a round-trip test proving the graders
+   accept what it emits (`quality/test_plan.py`). Still true and still the
+   rule: do not describe this project as a grader, and do not present
+   operator-authored plans as the system working as intended — the planner
+   is the front door now, and hand-written blueprints are for tests.
 
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One

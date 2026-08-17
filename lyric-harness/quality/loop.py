@@ -287,6 +287,28 @@ def swap_end_word(text, new_word):
     return text[:last.start()] + cased + text[last.end():]
 
 
+#: THE MANDATORY PURSUE SET — OWNER'S STANDING ORDER, 2026-08-17, AND IT IS
+#: NOT A COORDINATE. `ReviseDeclaration.pursue` can ADD codes; nothing can
+#: remove these. The order, verbatim in intent: enforcement must be
+#: "mandatory, unskippable — the system passes through grading and revision
+#: until nothing it can act on is left standing, no exceptions." The history
+#: that earned it: `--pursue` was built as an opt-in flag, the operator ran
+#: the loop without it, and a draft whose EVERY rhyme pair was the most
+#: predictable answer in its own field was reported SUCCESS. An enforcement
+#: that depends on the operator remembering a flag is prose one level up —
+#: the exact failure doctrine 48 names — so the set lives here, in the loop,
+#: below every invocation. Success while one of these stands is UNREPORTABLE:
+#: the loop keeps asking until the finding clears, or it stops loudly with
+#: the line named in `unresolved_pursued` and the CLI exits nonzero.
+#:
+#: `MODAL_RHYME` is the member because it is the per-LINE laziness finding
+#: with a built candidate field (doctrine 9's own machinery); the whole-draft
+#: `PREDICTABLE_RHYME` fraction empties as a consequence of clearing it and
+#: cannot be pursued per-line (it names no line). `verify()` is untouched:
+#: pursuing changes what the loop ASKS FOR, never what it rejects.
+MANDATORY_PURSUE = frozenset({"MODAL_RHYME"})
+
+
 def _open_lines(briefs, pursue=frozenset()):
     """-> the briefs this loop still has work on. ONE definition, because the
     SUCCESS test and the ROUND_LIMIT tally must not be able to disagree about
@@ -1084,7 +1106,10 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     # this the way it tunes `modal_exclusion`, and one coordinate has one
     # home (doctrine 1). `frozenset()` is the default, so every stop
     # condition below reads exactly as it did before this existed.
-    pursue = frozenset(getattr(rdecl, "pursue", ()) or ())
+    # THE UNION IS THE ENFORCEMENT. `rdecl.pursue` adds; nothing subtracts —
+    # an empty declaration still pursues MANDATORY_PURSUE, which is what
+    # makes the owner's order mechanism rather than memory.
+    pursue = MANDATORY_PURSUE | frozenset(getattr(rdecl, "pursue", ()) or ())
     # THE INPUT'S IDENTITY, CAPTURED BEFORE THE FIRST ROUND CAN REBIND
     # `lines`. Every accepted proposal below does `attempt, lines = ...`, so
     # by any stop condition the entry draft exists nowhere else — this pair

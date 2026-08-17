@@ -598,6 +598,10 @@ def test_every_verb_runs():
         "verify": ["verify", quat, quat, "ABAB"],
         "revise": ["revise", quat, "ABAB"],
         "readability": ["readability", quat],
+        # The planning phase (2026-08-17). Behavioural coverage lives in
+        # quality/test_plan.py — this row is the dispatch-reachability claim
+        # only, same as every other verb's.
+        "plan": ["plan", "--seed=7", "--lines=22"],
     }
     missing = sorted(lh._dispatched_verbs() - set(cases))
     check("this test covers every verb main() dispatches",
@@ -2022,9 +2026,14 @@ def test_propose_selects_who_writes_the_line():
     # THE DEFAULT IS THE STUB AND IT MUST STAY THE STUB. A default that
     # reaches out of the process is not a default: THIS FILE runs `revise`
     # (§7), in CI.
-    rc, out, err = run("revise", quat, "ABAB", expect_rc=0)
+    # rc 3 SINCE 2026-08-17: mandatory pursuit holds this fixture's modal
+    # residue open past what the stub can clear, and a loop that gives up
+    # with a pursued line standing exits 3 — success below 100% became
+    # unreportable (loop.MANDATORY_PURSUE). The subject here is the PROPOSER
+    # DISCLOSURE, which is unchanged.
+    rc, out, err = run("revise", quat, "ABAB", expect_rc=3)
     check("with no --propose at all, the stub runs and SAYS it is the stub",
-          rc == 0 and "PROPOSER: stub (the default)" in out,
+          rc == 3 and "PROPOSER: stub (the default)" in out,
           [l for l in out.splitlines() if "PROPOSER" in l][:1])
     check("and says out loud that nothing outside the process was reached",
           "Nothing outside this process was reached" in out)
@@ -2068,10 +2077,11 @@ def test_propose_selects_who_writes_the_line():
             {"line": 4, "attempt": 0,
              "text": "past every fence the county left to rot"}],
             "propose_pair": []}, fh)
+    # rc 3 since 2026-08-17 — same fixture, same mandatory-pursuit residue.
     rc, out, err = run("revise", quat, "ABAB", f"--propose=replay:{rp}",
-                       expect_rc=0)
+                       expect_rc=3)
     check("replay: drives the loop and the recorded text reaches it",
-          rc == 0 and "left to rot" in out and "Traceback" not in err,
+          rc == 3 and "left to rot" in out and "Traceback" not in err,
           [l for l in out.splitlines() if "L4" in l][-1:])
     check("it discloses how much of its record was CONSULTED and how much "
           "was asked for and missing — a miss is a give-up, never the stub",
@@ -2175,9 +2185,10 @@ def test_propose_selects_who_writes_the_line():
     rc, out, err = run("revise", quat, "ABAB",
                        "--propose=call:scratch_adapter:make_call",
                        env=envp)
-    check("a fully-resolved declared seam neither raises nor invents a "
-          "third exit code",
-          "Traceback" not in err and rc in (0, 2),
+    check("a fully-resolved declared seam neither raises nor invents an "
+          "UNDECLARED exit code — 0, 2 and (since 2026-08-17) 3 are the "
+          "declared vocabulary, and 3 is this fixture's honest verdict",
+          "Traceback" not in err and rc in (0, 2, 3),
           err.strip()[-200:] if err.strip() else f"rc={rc}")
     if not landed:
         check("with quality/propose.py absent, a fully-resolved caller seam "
@@ -2192,7 +2203,7 @@ def test_propose_selects_who_writes_the_line():
     else:
         check("quality/propose.py has landed: the declared seam drives the "
               "loop end to end with a proposer written outside this repo",
-              rc == 0 and "PROPOSER: call:scratch_adapter:make_call" in out,
+              rc == 3 and "PROPOSER: call:scratch_adapter:make_call" in out,
               [l for l in out.splitlines() if "PROPOSER" in l][:1])
     rc2, out2, _ = run("revise", quat, "ABAB",
                        "--propose=call:scratch_adapter:Nested.make",
@@ -2448,19 +2459,42 @@ def test_the_loop_pursues_a_note_it_can_brief():
           "MODAL_RHYME" in out0 and "[FLAG]" not in out0,
           "so nothing but `pursue` can make the loop look at it")
 
+    # ~~WITHOUT --pursue the loop stops and changes nothing~~ RESTATED
+    # 2026-08-17: that check pinned the OPT-IN behaviour, and the opt-in
+    # behaviour was the defect — the operator ran without the flag and an
+    # all-modal draft was reported SUCCESS. `quality/loop.py` now carries
+    # `MANDATORY_PURSUE` (owner's standing order, recorded on the constant):
+    # the union is below every invocation, so a bare `revise` pursues too.
     rc1, base, _ = run("revise", draft, mand)
-    check("WITHOUT --pursue the loop stops and changes nothing",
-          rc1 == 0 and "SUCCESS" in base and "FINAL DRAFT" not in base,
-          "this is the behaviour every prior run had, unchanged by default")
+    check("WITHOUT --pursue the loop pursues ANYWAY — mandatory, unskippable",
+          rc1 == 0 and "FINAL DRAFT" in base,
+          "the flagless-but-modal draft is revised on a bare invocation")
 
     rc2, out2, _ = run("revise", draft, mand, "--pursue=MODAL_RHYME")
-    check("WITH --pursue the loop keeps asking and revises the modal lines",
+    check("naming the code explicitly is a no-op — `pursue` is ADDITIVE over "
+          "a mandatory floor, not the switch that turns enforcement on",
           rc2 == 0 and "FINAL DRAFT" in out2 and "PURSUING" in out2,
-          "the same draft, the same proposer, one declared coordinate apart")
+          "same draft, same proposer, same outcome either way")
     changed = [l for l in out2.splitlines() if l.strip().startswith("* L")]
     check("and the lines it changed are the ones carrying the note",
           len(changed) == 2 and "L3" in changed[0] and "L4" in changed[1],
           f"{len(changed)} line(s) changed")
+    # EXIT 3 WHEN THE LOOP GIVES UP WITH A PURSUED LINE STANDING — the other
+    # half of the order: "the loop gave up" must be distinguishable from
+    # "the draft is clean" by a caller reading only the exit code. The
+    # proposer is a declared `call:` adapter that DECLINES every ask, so the
+    # pursued lines survive to the stop and the exit says so.
+    decl_mod = os.path.join(d, "declining_adapter.py")
+    with open(decl_mod, "w") as fh:
+        fh.write("def make():\n"
+                 "    return lambda prompt: 'no.'\n")
+    rc3, out3, _ = run("revise", draft, mand,
+                       "--propose=call:declining_adapter:make",
+                       expect_rc=3, env={"PYTHONPATH": d})
+    check("a run ending with pursued lines UNRESOLVED exits 3, not 0 — "
+          "success below 100% is unreportable",
+          rc3 == 3 and "unresolved" in out3.lower(),
+          f"rc {rc3}")
 
     # THE SEPARATION THAT MAKES THIS LEGAL. Pursuing changes what the loop
     # ASKS for; it must never change what verify() REJECTS, or a note would
