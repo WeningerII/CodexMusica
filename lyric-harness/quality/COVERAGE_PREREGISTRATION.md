@@ -1267,6 +1267,98 @@ the brief is insufficient at this shape — a rung-2 brief carries return and
 hook material a rung-1 brief never did — and only SECOND that the draft spec
 is too tight. Rung 1 has one precedent for each, so neither gets assumed.
 
+### R2.7 RUNG 2 — RUN 2026-08-16. The prediction is FALSIFIED on two codes.
+
+**The seed was written blind and it PASSED.** A writer with no session
+history, no repository access and no tools (`tool_uses: 0`) was given the FORM
+from §R2.1 and nothing else — not a subject, not an example, not a word of
+mine — and returned eight lines, a title and a hook. I built the blueprint
+around them and edited nothing.
+
+    i keep the porch light on for you        md5 fb9b542845c7
+    in case the long road lets you through
+    your coat still hangs behind the door
+    the kettle knows your name
+    i sweep the same three feet of floor
+    the radio plays the same
+    i keep the porch light on for you
+    in case the long road lets you through
+
+`brief` reports **0 FLAG, 32 NOTE**; `revise` returns **SUCCESS after 0
+rounds** with the draft UNCHANGED.
+
+**THAT IS ITSELF A RESULT AND IT COST RUNG 2 ITS REVISION PATH.** Rung 1's
+spec deliberately seeded a draft that failed its own mandate, so the loop had
+work and every handoff got exercised. Rung 2's spec did not, and a competent
+writer given only the form satisfied all five declared groups on the first
+attempt. The whole write-check-fix cycle therefore ran zero times in the
+writing session. A future rung either seeds a failing draft on purpose — which
+is a spec decision, not something the measurer may do afterwards — or accepts
+that a clean seed measures the REPORT and not the LOOP.
+
+#### The four cells, against the pre-registered denominator of 71
+
+| cell | count |
+|---|---:|
+| `FIRED` ∩ denominator (52 `R2` + 19 `R8`) | **12 of 71** |
+| `SILENT` ∩ denominator | 59 |
+| **`FIRED` ∩ `R3` — the falsification cell** | **2** |
+| `FIRED` ∩ `NC`, and codes outside the model | **0**, **0** |
+
+#### THE PREDICTION IS WRONG, SPECIFICALLY, AND THE ERROR IS INSTRUCTIVE
+
+`DOWNBEAT_LOCKED` and `PHRASE_LENGTH_LOCKED` were both marked `R3` — *"the
+shape-lock family, because uniformity across sections cannot be measured with
+three"* — and both fired at rung 2. **The error is that I filed all five
+shape-lock codes under one argument and two of them are not about sections at
+all.** Their own evidence says so: *"every line starts on beat one"* and
+*"every line is the same length in beats"*. That is uniformity across LINES,
+and eight lines supplies it.
+
+**AND THEY FIRED OFF MY DECLARATION, NOT THE WRITER'S WORDS** — the finding is
+stamped `[SHAPE: read off the DECLARED grid — bars, meters and line
+placement]`, and the grid is mine: I gave every line `beat: 1, duration: 4`,
+which is maximally uniform. So the layer is correct, my reachability argument
+was lazy, and the trigger is a blueprint I wrote. All three are worth saying
+separately (doctrine 79) rather than collapsing into "prediction missed".
+
+The three still marked `R3` on the same argument — `QUATRAIN_LOCK`,
+`SECTION_LENGTH_LOCKED`, `UNIFORM_ANACRUSIS` — are NOT repinned here, because
+this run did not test them and correcting a mark by analogy is how the
+original error was made.
+
+#### The declaration sweep, round 1 — and a monotonicity shortcut
+
+Reachability is MONOTONE IN LENGTH: any code a two-line draft can reach, an
+eight-line draft containing those two lines also reaches. So rung 1's 52 are
+reachable at rung 2 by construction and need no re-sweeping, and the sweep
+chased the 19 `R8` alone. Eight configurations, varying the mandate, the
+return declaration, the hook's placement, section functions, meters, line
+slots and one OOV end word — **the eight sung lines are the writer's
+throughout and were never edited.**
+
+**9 of 19 `R8` reached.** Ten remain: `COLLISION_CUT_IS_SCALAR_ONLY`,
+`GROUPS_DECLARED_RETURN`, `HOOK_CONFINED`, `MANDATE_EXCUSED_BY_OVERLAP`,
+`NEAR_COLLISION`, `RADIF_LICENSED`, `RETURNS_WITH_SAME_WORDS`,
+`RETURN_LENGTH_DRIFT`, `SINGLE_USE_RECURRED`, `STUB_RETURN`.
+
+**THE RESIDUE IS NOT A FINDING YET, and rung 1 is the reason to say so
+out loud.** That sweep needed a second round plus a correction to get from 12
+to 52, and its last survivor looked exactly like a dead check until the
+emission site was read — the failure was my configuration, not the harness.
+Ten after one round is an ordinary round-1 number. Round 2 is owed.
+
+#### What prediction 3 got, and what it did not
+
+The forced-loop variant (mandate `1,3;2,4` against returns `1,7;2,8` — a
+declaration change, no words touched) made the loop work: **SUCCESS in 1
+round, fixing L3 and L4**. It chose to move the VERSE rather than break the
+verbatim chorus, which is the right answer and is the re-brief operating on a
+draft with a returning section for the first time. But it never had to choose
+between fixing a line and preserving a return, so the collision prediction 3
+names is still untested. That needs a mandate that can only be satisfied by
+editing a chorus line, and it is owed with the sweep's round 2.
+
 ## D. Judgement calls carried forward
 
 The derivation flagged its own uncertainty; carried here unresolved rather than
