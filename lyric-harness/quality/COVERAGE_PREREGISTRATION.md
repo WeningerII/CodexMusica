@@ -1522,7 +1522,36 @@ BLIND WRITER ASKED FOR IT IN THE SPEC**, which is a rung-4 seed decision and
 not a repair: it is the same lever that made rung 3 work, applied to the
 words instead of to the mandate.
 
-Rung 3's denominator is therefore **71 + 10 = 81 of 94**.
+~~Rung 3's denominator is therefore **71 + 10 = 81 of 94**.~~
+
+**REPINNED 2026-08-17 — 73 + 10 = 83, AND THE OLD LINE IS STRUCK RATHER THAN
+CORRECTED (doctrine 17).** The repin of `DOWNBEAT_LOCKED` and
+`PHRASE_LENGTH_LOCKED` from `R3` to `R8` two paragraphs above was SUBTRACTED
+from the `R3` list and never ADDED to the `R8` one, so the cumulative total
+carried the old marks. Post-repin the partition is **`R8` 21 · `R3` 13**, and
+the ladder is:
+
+| rung | denominator | derivation |
+|---|---:|---|
+| 1 | 52 | `R2` 48 + `R2*` 4 |
+| 2 | **73** | 52 + `R8` 21 ~~71~~ |
+| 3 | **83** | 73 + the 10 `R3` codes predicted reachable ~~81~~ |
+
+**The check that the repin is right is that the remainder now closes.** At 81
+the leftover was 13 with no account of it; at 83 it is **11 = 8 `NC` + 3
+surface-blocked** (`CHANNEL_NOT_MEASURED`, `NO_RHYME_KEY`, `REPRISE_STUB`),
+every one of them named. Two codes that had already FIRED sat in no
+denominator at all, which is the same defect as the 48/4/34/8 line above and
+the same fix: **doctrine 91 — a count is a coordinate of the RENDERING, so
+the rendering must not be the source of the count.** The TABLE is the
+authority; this line is derived from it and follows it.
+
+**Nothing about rung 2's reported RESULT moves**, and that is deliberate: its
+four cells were scored against the denominator as it stood, `FIRED ∩
+denominator 12 of 71` with the two repinned codes reported SEPARATELY in the
+falsification cell. Folding them in retroactively would erase the falsified
+prediction, which is the most informative thing rung 2 produced (doctrine 79 —
+they are different counts and are never summed).
 
 ### R3.4 Predicted refusals
 
@@ -1732,6 +1761,141 @@ hypothesis was that it never exercised the handoff. Rung 3 changed exactly one
 thing — a seed specified to fail — and the first defect it found is in the
 handoff, in the same family as all six of rung 1's. **The spec decision was
 the whole difference.**
+
+### R3.8 THE DECLARATION SWEEP — rung 3 scored, 2026-08-17
+
+The words never change; only the declaration does (§R2.2). Each of the 9 codes
+that stayed SILENT on the draft as written got a declaration aimed at it.
+
+| code | verdict | what was declared |
+|---|---|---|
+| `CROSS_FUNCTION_REPRISE` | **FIRED** | nothing — fired on the draft as written |
+| `SECTION_LENGTH_LOCKED` | **FIRED** | every section 8 bars |
+| `UNIFORM_ANACRUSIS` | **FIRED** | alternate lines on beat 4, one shared pickup |
+| `NO_COMPARATOR` | **FIRED** | every section a `bridge`; no verse or chorus to contrast with |
+| `REPRISE_IS_NOT_LATER` | **FIRED** | the `outro` declared at bar 1 and the `intro` at bar 45 |
+| `REPRISE_SIDE_HAS_NO_WORDS` | **FIRED** | an INSTRUMENTAL intro — a declared `intro` whose bar span holds no line |
+| `PREDICTABLE_RHYME` | **FIRED** | `predictability_max` 0.90 → 0.50, a declared coordinate |
+| `QUATRAIN_LOCK` | SILENT | **unreachable at 26 lines — see below** |
+| `BRIDGE_IS_A_VERSE` | SILENT | 6 of 7 channels matched; `line_length` separates |
+| `PROMINENCE_UNDECIDED` | SILENT | no undecided unit exists in the words |
+
+#### The four cells, against the repinned denominator of 83
+
+| cell | count |
+|---|---:|
+| `FIRED` ∩ denominator | **78 of 83** |
+| `SILENT` ∩ denominator | 5 |
+| `FIRED` ∩ outside the denominator | 0 |
+| codes outside the model | 0 |
+
+78 = rung 1's 52 + rung 2's 19 + rung 3's 7.
+
+#### `QUATRAIN_LOCK` IS A MIS-MARKING, AND IT IS ARITHMETIC
+
+`stanza_lock` fires it at `four_lines_per_section >= 0.90`. On a 26-line draft
+the best attainable partition is six 4-line sections and a remainder, so
+**6/7 = 0.857 < 0.90 and no declaration reaches it**. It was filed `R3` —
+"needs a fuller song" — and the true constraint is that the LINE COUNT MUST BE
+DIVISIBLE BY 4. A 24- or 28-line draft reaches it and a 26-line one never
+will, however many sections it declares. **This is the same error rung 2
+made** (`DOWNBEAT_LOCKED` filed under a section argument when it measures
+lines), and the same lesson: a reachability mark asserted by family rather
+than measured is wrong about roughly one code in ten.
+
+#### THE OTHER TWO ARE WORDS-BOUND, AND THE SWEEP PROVED IT RATHER THAN ASSUMING IT
+
+`BRIDGE_IS_A_VERSE` needs every declared contrast channel to agree. Six of the
+seven were forced to agree by declaration — `meter`, `bars`, `line_count`,
+`line_duration`, `downbeat_rate`, `rhyme_inventory` — and the seventh is
+`line_length`, measured **9.25 against 8.875**. That is the writer's own line
+lengths and no declaration moves it.
+
+`PROMINENCE_UNDECIDED` needs a unit whose readings DISAGREE — a homograph the
+phonology will not resolve. Every line of this draft was checked and **none
+carries one**. The remedy the refusal itself names ("a declared reading for the
+ambiguous word") RESOLVES the ambiguity; nothing declares one INTO a draft.
+
+#### THE LADDER IS EXHAUSTED, AND THAT IS THE RESULT THAT CLOSES IT
+
+Five codes remain inside the denominator. **Four are words-bound**
+(`BRIDGE_IS_A_VERSE`, `PROMINENCE_UNDECIDED`, `STUB_RETURN`,
+`RADIF_LICENSED`) **and the fifth is arithmetic** (`QUATRAIN_LOCK`). **Not one
+of them is reachable by writing a LONGER song**, which was the ladder's entire
+premise. Rung 4 as more-of-the-same would score exactly 78 again.
+
+The ladder answered the question it could answer: **78 of 83 codes are reached
+by the CLI writing path, and the remaining 5 are blocked by what the words
+contain, not by how many there are.** Reaching them needs a different lever —
+a seed that specifies a FORM rather than a length — and that is a new
+pre-registration, not another rung of this one.
+
+## E. DISPOSITIONS — the 16 codes no rung reaches, and why, 2026-08-17
+
+Written so that "not reached" is never mistaken for "not working", and never
+for "we stopped bothering". Each is a REFUSAL WITH A STATED REASON (doctrine
+20), and the four groups below are different kinds of fact and are never
+summed (doctrine 79).
+
+### E1. The 5 inside the denominator — blocked by the WORDS, not the length
+
+| code | blocked by | proven to fire? |
+|---|---|---|
+| `STUB_RETURN` | needs an abbreviated pointer — the printer's `[Chorus]` | **YES**, `quality/test_song_function.py` §322 |
+| `RADIF_LICENSED` | needs a repetend closing ≥2 pairs and ≥50% of them | **YES**, `quality/test_floor.py` §113, a ghazal fixture |
+| `BRIDGE_IS_A_VERSE` | `line_length` 9.25 vs 8.875; six channels forced, this one is the words | see §R3.8 |
+| `PROMINENCE_UNDECIDED` | needs a homograph the phonology leaves undecided | see §R3.8 |
+| `QUATRAIN_LOCK` | needs a line count divisible by 4; 26 cannot reach 0.90 | see §R3.8 |
+
+**"NOT YET REACHED BY THE BLIND PATH" IS THE CLAIM, AND IT IS NOT
+"UNREACHABLE".** Two of these five are already PROVEN to fire on constructed
+input. The open question is narrower and is about SONGWRITING rather than
+about the harness: *does a blind writer, writing a song, produce a draft that
+contains one?* That question is answerable and the method does not break
+anything:
+
+**A FORM-SPECIFIED SEED KEEPS THE WRITER BLIND.** §R2.2 forbids telling the
+writer what the harness checks. It does not forbid choosing a genre — every
+rung already specified shape (line count, section count, which sections
+rhyme), and rung 3's whole lesson was that the SPEC is the lever. A **ghazal**
+has a radif by definition; a **printed lead sheet** abbreviates the return by
+convention; a **24-line** draft is divisible by 4. None of those mentions the
+harness, a finding code, or what is being measured. A future run whose seed
+names a form rather than a length is a clean measurement of exactly this, with
+its own falsifiable claim: *does a writer asked for a ghazal produce a radif
+the floor recognises?* If they do not, that is a finding about the gap between
+a named form and what writers do with it, and it is worth more than the code.
+
+**Deliberately NOT done inside this experiment.** This pre-registration's
+denominator, bias controls and four cells are built around length. Bolting a
+form-based seed onto it would silently change the instrument mid-run, which is
+the one thing a pre-registration exists to prevent.
+
+### E2. The 3 blocked by SURFACE, at every rung
+
+`CHANNEL_NOT_MEASURED` and `NO_RHYME_KEY` are scoped by their own §A4 entry to
+the `function` verb, **which is not on the song-writing path at any rung** —
+no length and no declaration puts them there. `REPRISE_STUB` is words-bound in
+exactly the way E1 describes. These three were excluded in §R3.3 BEFORE rung 3
+ran and are recorded here unchanged.
+
+### E3. The 8 `NC` codes — a different instrument, named as one
+
+Not CLI-reachable at all. Reaching them means driving the API directly, which
+is **a different experiment with a different denominator and different bias
+controls**, not a further rung of this one. Naming it as separate is the
+honest disposition; folding it in would let an API result be read as a
+statement about the writing path, which is the exact confusion this
+pre-registration was built to avoid. **No claim is made here about whether the
+8 work** — only that this instrument cannot ask.
+
+### E4. What this experiment now says, in one sentence
+
+**78 of the 83 finding codes a song-writer can reach from the command line
+were reached, every one of the remaining 5 is blocked by what a draft
+CONTAINS rather than by how long it is, and 11 more are out of this
+instrument's reach for stated reasons.** The ladder is closed. Eight harness
+defects were found along the way, all eight in the writer handoff.
 
 ## D. Judgement calls carried forward
 

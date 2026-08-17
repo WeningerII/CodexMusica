@@ -497,6 +497,27 @@ two hundred `scored on: humming ~ coming`. Both report paths in `grade()` read
 the one gate. `quality/test_revise.py` §44, 6 checks, 3 mutations, two of them
 controls proving no VERDICT moved.
 
+**THE COVERAGE EXPERIMENT IS CLOSED — 2026-08-17, 78 of 83.**
+`quality/COVERAGE_PREREGISTRATION.md` §R3.8/§E. The ladder ran rungs 0-3 (2
+lines, 8, 26) against a denominator of 94 in-scope finding codes, repinned to
+83 reachable from the CLI writing path. **78 fired.** The 5 that did not are
+blocked by what a draft CONTAINS, not by how long it is — four words-bound
+(`STUB_RETURN`, `RADIF_LICENSED`, `BRIDGE_IS_A_VERSE`, `PROMINENCE_UNDECIDED`)
+and one arithmetic (`QUATRAIN_LOCK` needs a line count divisible by 4). **A
+longer song reaches none of them, which is the result that closes the
+ladder** — rung 4 as more-of-the-same would score 78 again. Two of the five
+are already proven to fire on constructed input, so the open claim is "not yet
+reached by the BLIND PATH", never "unreachable". Reaching them needs a seed
+that specifies a FORM (a ghazal has a radif by definition; a lead sheet
+abbreviates the return) — which keeps the writer blind, and which is a NEW
+pre-registration rather than another rung of this one. 11 further codes are
+out of the instrument's reach for stated reasons: 8 `NC` (an API-level
+experiment, named as separate), 3 scoped to the `function` verb or words-bound.
+**EIGHT HARNESS DEFECTS WERE FOUND AND ALL EIGHT WERE IN THE WRITER HANDOFF**
+— six at rung 1, zero at rung 2, two at rung 3. Rung 2's null is the load-
+bearing measurement: it was LONGER than rung 1 and found nothing, which is
+what proved length is the coverage lever and the SPEC is the defect lever.
+
 **`candidates` AND THE LOOP ANSWERED ONE QUESTION TWO WAYS — FIXED
 2026-08-15, FOUND BY PRE-SCREENING A RHYME WITH THE WRONG LIST.** The verb
 ranks by RHYME SCORE; the modal exclusion ranks by FREQUENCY over the words
