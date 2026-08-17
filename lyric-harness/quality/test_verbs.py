@@ -598,6 +598,10 @@ def test_every_verb_runs():
         "verify": ["verify", quat, quat, "ABAB"],
         "revise": ["revise", quat, "ABAB"],
         "readability": ["readability", quat],
+        # The planning phase (2026-08-17). Behavioural coverage lives in
+        # quality/test_plan.py — this row is the dispatch-reachability claim
+        # only, same as every other verb's.
+        "plan": ["plan", "--seed=7", "--lines=22"],
     }
     missing = sorted(lh._dispatched_verbs() - set(cases))
     check("this test covers every verb main() dispatches",

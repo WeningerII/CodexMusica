@@ -3745,6 +3745,19 @@ the quality layer (each says which module answered):
                           --subdivision does, and every failure to meet the
                           contract is a printed refusal, never a traceback
                           and never a silent downgrade to the stub
+  plan --seed=N [--form=verse-chorus] [--lines=N] [--fill=DRAFT]
+       [--out=PATH]      the PLANNING phase: a request in, a blueprint and
+                          a mandate out (quality/plan.py). Structure from a
+                          declared pattern grammar, schemes from the FULL
+                          rgs() enumeration, meters from a declared cycle
+                          set -- every free choice seeded, disclosed beside
+                          its choice set, and reproducible byte for byte.
+                          Writes NO WORDS: emits line SLOTS, the writer
+                          brief, and the exact grading command. --fill=DRAFT
+                          completes the blueprint from a finished draft
+                          (count mismatch REFUSED, never zipped). Unknown
+                          forms, blocked forms and unattainable lengths
+                          refuse by name with the alternatives listed
   readability FILE        what the ingestion layer could not read"""
 
 
@@ -3769,6 +3782,8 @@ VERB_LAYERS = (
      "quality/grid.py, then shares this same report"),
     ("revise", "quality/loop.py", "the automated write-check-fix loop, "
      "driven on top of brief/verify"),
+    ("plan", "quality/plan.py", "the planning phase -- request to "
+     "blueprint + mandate, generated from the enumerated scheme space"),
     ("readability", "quality/readability.py", "ingestion refusals"),
     ("grid", "quality/grid.py", "bar grid, stanza lock"),
     ("function", "quality/grid.py", "section function, returns, hook"),
@@ -5371,6 +5386,77 @@ def main():
                   f"(doctrine 84 — 'declared_relation' means the phonology "
                   f"answered, not the channels)")
 
+    elif cmd == "plan":
+        from quality import plan as PLN
+        rest = args[1:]
+        seed = _flag_value(rest, "--seed")
+        form = _flag_value(rest, "--form") or "verse-chorus"
+        nlines = _flag_value(rest, "--lines")
+        fill = _flag_value(rest, "--fill")
+        out_path = _flag_value(rest, "--out")
+        rest = _strip_flag(rest, "--seed")
+        rest = _strip_flag(rest, "--form")
+        rest = _strip_flag(rest, "--lines")
+        rest = _strip_flag(rest, "--fill")
+        rest = _strip_flag(rest, "--out")
+        if rest:
+            _refuse(f"plan does not take {rest[0]!r}",
+                    detail=["usage: plan --seed=N [--form=verse-chorus] "
+                            "[--lines=N] [--fill=DRAFT] [--out=PATH]",
+                            "an unrecognised flag is refused rather than "
+                            "ignored -- a flag silently not read leaves a "
+                            "plan that looks exactly like one you never "
+                            "asked for"])
+        try:
+            the_plan = PLN.make_plan(
+                seed=int(seed) if seed is not None else None,
+                form=form,
+                lines=int(nlines) if nlines is not None else None)
+        except PLN.PlanRefused as e:
+            _refuse(str(e))
+        except ValueError:
+            _refuse("plan --seed and --lines take integers")
+        print(f"  PLAN: form={form} seed={seed} -> "
+              f"{the_plan['total_lines']} line(s), "
+              f"{len(the_plan['sections'])} section(s), pattern "
+              f"{the_plan['choices']['pattern']['name']} (chosen from "
+              f"{', '.join(the_plan['choices']['pattern']['chosen_from'])})")
+        m = the_plan["choices"]["meter"]["value"]
+        print(f"  METER: {m['beats']}/{m['unit']} as "
+              f"{tuple(m['groups'])} -- one of "
+              f"{len(the_plan['choices']['meter']['chosen_from'])} declared; "
+              f"subdivision {the_plan['subdivision']}, "
+              f"{the_plan['choices']['bars_per_line']} bar(s) per line")
+        for func, sch in the_plan["choices"]["schemes"].items():
+            print(f"  SCHEME {func}: rgs {tuple(sch['rgs'])} -- one of "
+                  f"{sch['chosen_from']} enumerated with a mandated pair")
+        print(f"  GROUPS : {the_plan['groups']}")
+        print(f"  RETURNS: {the_plan['returns'] or '(none)'}")
+        print()
+        print(the_plan["writer_brief"])
+        print()
+        if fill:
+            with open(fill, encoding="utf-8") as fh:
+                draft_lines = [l.rstrip("\n") for l in fh if l.strip()]
+            try:
+                bp = PLN.fill_plan(the_plan, draft_lines)
+            except PLN.PlanRefused as e:
+                _refuse(str(e))
+            payload, what = bp, "completed blueprint"
+        else:
+            payload = the_plan
+            what = "plan (line slots empty -- the writer is outside)"
+        if out_path:
+            with open(out_path, "w", encoding="utf-8") as fh:
+                json.dump(payload, fh, indent=1, sort_keys=True)
+                fh.write("\n")
+            print(f"  WROTE {what} -> {out_path}")
+        else:
+            print(json.dumps(payload, indent=1, sort_keys=True))
+        print()
+        print("  GRADE IT: " + PLN.grading_command(
+            the_plan, draft_path=fill or "DRAFT.txt",
+            bp_path=out_path or "BP.json"))
     elif cmd == "partition":
         from quality import schemes as SC
         src = args[1:]
