@@ -34,7 +34,8 @@ from quality.meter_bands import (AMENDMENT_MIN_KEPT_FRACTION,  # noqa: E402
                                  ExcludedLine, LineRecord, amendment,
                                  lyric_lines, measure_corpus, measure_line,
                                  nearest_rank, per_file_exclusion,
-                                 percentile_table, proposed_bands)
+                                 percentile_table, proposed_bands, reader,
+                                 reader_trial)
 
 FAILURES = []
 
@@ -103,15 +104,17 @@ def test_lyric_filter():
 
 def test_exclusion_not_imputation():
     print("\n3. exclusion, not imputation (doctrine 79)")
-    syl, prom, causes = measure_line("kiss me though you make believe")
-    check("a clean line is MEASURED — no causes, plausible counts",
-          causes == () and syl == 7 and 0 < prom <= syl,
+    syl, prom, derived, causes = measure_line(
+        "kiss me though you make believe")
+    check("a clean line is MEASURED — no causes, plausible counts, and "
+          "derived 0 under the default reader by construction",
+          causes == () and syl == 7 and 0 < prom <= syl and derived == 0,
           f"{syl} syllables, {prom} prominent, causes {causes}")
-    _, _, causes = measure_line("we drove out on route 66 tonight")
+    _, _, _, causes = measure_line("we drove out on route 66 tonight")
     check("a numeral puts the line OUT with the cause NAMED — its count is a "
           "lower bound, and a lower bound in a percentile is a lie",
           "NUMERAL" in causes, causes)
-    _, _, causes = measure_line("the florgleblat sang zzyxxqj at dawn")
+    _, _, _, causes = measure_line("the florgleblat sang zzyxxqj at dawn")
     check("an out-of-lexicon token puts the line OUT with the cause NAMED",
           "OUT_OF_LEXICON" in causes, causes)
 
@@ -259,11 +262,87 @@ def test_the_amendment():
           res["verdict"][:70])
 
 
+def test_the_reader_trial():
+    print("\n8. the reader trial — certain vs derived "
+          "(METER_BANDS_PREREGISTRATION_READER.md)")
+    # THE SEAM. The dialect word the default reader refuses is READ by the
+    # declared fallback reader, counted, and TAGGED as derived — refusals
+    # and syllables from one source of truth (the phonology), so the two
+    # can never disagree about which words were read.
+    ph = reader("fallback-low")
+    syl, prom, derived, causes = measure_line(
+        "gie me a canty hour at hame", phon=ph)
+    check("the dialect line the default reader refuses is READ under "
+          "fallback-low, with the derived tokens COUNTED, not hidden",
+          causes == () and derived >= 2 and syl >= 7 and 0 <= prom <= syl,
+          f"{syl} syllables, {prom} prominent, {derived} derived")
+    _, _, derived0, causes0 = measure_line("gie me a canty hour at hame")
+    check("...and the same line under the DEFAULT reader is still refused — "
+          "run one stays reproducible, byte for byte",
+          "OUT_OF_LEXICON" in causes0 and derived0 == 0,
+          f"causes {causes0}")
+    try:
+        reader("cmudict-plus-vibes")
+        check("an undeclared reader mode is refused by name", False)
+    except CalibrationRefused as e:
+        check("an undeclared reader mode is refused by name",
+              "not declared" in str(e), str(e)[:60])
+
+    # The trial's verdicts, on hand-built records. CERTAIN: forty lines of
+    # (8,4). DERIVED: twenty of (8,5) — syllables agree exactly, prominent
+    # differs by exactly +1 at every point: BOTH within tolerance -> both
+    # adopt.
+    cert = [LineRecord("A", i, 8, 4, 0) for i in range(1, 41)]
+    der = [LineRecord("B", i, 8, 5, 2) for i in range(1, 21)]
+    t = reader_trial(_cal(cert + der, []))
+    check("agreement within ±1 on both quantities adopts BOTH pool bands",
+          t["gate_met"] and t["verdicts"]["DENSITY"]
+          and t["verdicts"]["PROMINENCE"]
+          and t["adopted"]["DENSITY"] is not None
+          and t["adopted"]["PROMINENCE"] is not None
+          and "BOTH" in t["verdict"], t["verdict"][:50])
+
+    # DERIVED prominent runs 2 hotter — the smallest disagreement past the
+    # registered ±1 (a tolerance quietly widened would wrongly adopt here,
+    # the same minimal-warp lesson mutation M4 taught section 7). Syllables
+    # still agree: the declared PARTIAL outcome, DENSITY adopts alone.
+    der_hot = [LineRecord("B", i, 8, 6, 2) for i in range(1, 21)]
+    t = reader_trial(_cal(cert + der_hot, []))
+    check("a stress channel running 2 hot refuses PROMINENCE while DENSITY "
+          "still adopts — the declared PARTIAL outcome",
+          t["verdicts"]["DENSITY"] and not t["verdicts"]["PROMINENCE"]
+          and t["adopted"]["DENSITY"] is not None
+          and t["adopted"]["PROMINENCE"] is None
+          and "PARTIAL" in t["verdict"],
+          t["tables"]["PROMINENCE"]["deltas"])
+
+    # The hard gate: 30 measured (20 certain + 10 derived, so a mutant that
+    # opens the gate proceeds to a verdict and fails THIS check by name
+    # instead of crashing on an unrelated refusal), 11 excluded = 26.8% >
+    # 25% — STOPPED, and no split, no tables, no adoption computed past it.
+    excl = [ExcludedLine("A", i, ("OUT_OF_LEXICON",)) for i in range(50, 61)]
+    t = reader_trial(_cal(cert[:20] + der[:10], excl))
+    check("past the exclusion ceiling the trial STOPS AT THE GATE — "
+          "nothing adopts and no table is computed to be tempted by",
+          not t["gate_met"] and t["adopted"] == {}
+          and "STOPPED" in t["verdict"] and "tables" not in t,
+          f"exclusion {t['exclusion']:.3f}")
+
+    # A sweep with no derived lines has nothing on trial.
+    try:
+        reader_trial(_cal(cert, []))
+        check("a trial with no derived lines is REFUSED, not vacuously "
+              "passed", False)
+    except CalibrationRefused as e:
+        check("a trial with no derived lines is REFUSED, not vacuously "
+              "passed", "derived" in str(e), str(e)[:60])
+
+
 if __name__ == "__main__":
     for fn in (test_nearest_rank, test_lyric_filter,
                test_exclusion_not_imputation, test_determinism,
                test_real_file, test_proposal_is_derived,
-               test_the_amendment):
+               test_the_amendment, test_the_reader_trial):
         fn()
     print("=" * 62)
     if FAILURES:

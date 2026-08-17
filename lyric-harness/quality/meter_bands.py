@@ -60,11 +60,16 @@ class CalibrationRefused(Exception):
 
 @dataclass(frozen=True)
 class LineRecord:
-    """One measured line: where it came from and what it asks for."""
+    """One measured line: where it came from and what it asks for.
+
+    `derived` counts the tokens read by a non-dictionary layer of the
+    declared reader (`phon.derived`); 0 means dictionary-certain. The
+    reader registration's CERTAIN/DERIVED split keys on it."""
     path: str
     lineno: int
     syllables: int
     prominent: int
+    derived: int = 0
 
 
 @dataclass(frozen=True)
@@ -109,26 +114,55 @@ def lyric_lines(path):
     return out
 
 
-def measure_line(text):
-    """-> (syllables, prominent, causes). Empty causes means MEASURED.
+#: The declared readers (METER_BANDS_PREREGISTRATION_READER.md). "default"
+#: is run one's reader unchanged, so the bare command keeps reproducing run
+#: one; "fallback-low" is the reader amendment — the eng phonology with the
+#: G2P fallback at min_confidence="low", from which read_line derives the
+#: matching Lexicon so refusals and syllables can never disagree.
+READER_MODES = ("default", "fallback-low")
+_READERS = {}
+
+
+def reader(mode="default"):
+    """-> the phonology for a declared reader mode, or None for default."""
+    if mode not in READER_MODES:
+        raise CalibrationRefused(
+            f"reader {mode!r} is not declared; the modes are {READER_MODES}")
+    if mode == "default":
+        return None
+    if mode not in _READERS:
+        from quality.phonology.eng import English
+        _READERS[mode] = English(fallback="low")
+    return _READERS[mode]
+
+
+def measure_line(text, phon=None):
+    """-> (syllables, prominent, derived, causes). Empty causes = MEASURED.
 
     Causes, when present, name why the line is excluded from the envelope:
     the refused tokens' own causes (NUMERAL, OUT_OF_LEXICON), ZERO_UNITS for
     a line that tokenised to nothing, PROMINENCE_UNDECIDED if any unit's
     prominence resolved to None — a guess in any of these is a hidden
     coordinate, so the line is counted OUT, never counted wrong.
+
+    `derived` counts the tokens the declared reader answered on a
+    non-dictionary layer (0 under the default reader by construction) — the
+    CERTAIN/DERIVED split the reader registration adjudicates with.
     """
     import quality.fit as FT
-    lu = FT.read_line(text)
+    lu = FT.read_line(text, phon=phon) if phon is not None \
+        else FT.read_line(text)
     causes = sorted({r.cause for r in lu.refused})
     if not lu.units and not causes:
         causes = ["ZERO_UNITS"]
     if any(u.prominence is None for u in lu.units):
         causes.append("PROMINENCE_UNDECIDED")
-    return lu.syllables, len(lu.prominent), tuple(causes)
+    derived = len(phon.derived(text)) if phon is not None \
+        and hasattr(phon, "derived") else 0
+    return lu.syllables, len(lu.prominent), derived, tuple(causes)
 
 
-def measure_corpus(root=None, corpus_glob=None):
+def measure_corpus(root=None, corpus_glob=None, reader_mode="default"):
     """-> Calibration over the preregistered population.
 
     Conservation is checked here, not trusted: measured + excluded must equal
@@ -142,6 +176,7 @@ def measure_corpus(root=None, corpus_glob=None):
         raise CalibrationRefused(
             f"no corpus files match {corpus_glob or CORPUS_GLOB!r} under "
             f"{root or ROOT!r} — an empty population has no percentiles")
+    phon = reader(reader_mode)
     cal = Calibration(files=len(paths))
     for p in paths:
         with open(p, encoding="utf-8") as fh:
@@ -149,7 +184,7 @@ def measure_corpus(root=None, corpus_glob=None):
         rel = os.path.relpath(p, root or ROOT)
         for lineno, text in lyric_lines(p):
             cal.lyric_lines += 1
-            syl, prom, causes = measure_line(text)
+            syl, prom, derived, causes = measure_line(text, phon=phon)
             if causes:
                 cal.excluded.append(ExcludedLine(rel, lineno, causes))
                 continue
@@ -158,7 +193,7 @@ def measure_corpus(root=None, corpus_glob=None):
                     f"{rel}:{lineno}: prominent {prom} outside [0, {syl}] — "
                     f"the reader is broken and every number above it is void "
                     f"(prediction P2)")
-            cal.records.append(LineRecord(rel, lineno, syl, prom))
+            cal.records.append(LineRecord(rel, lineno, syl, prom, derived))
     if len(cal.records) + len(cal.excluded) != cal.lyric_lines:
         raise CalibrationRefused(
             f"conservation failed: {len(cal.records)} measured + "
@@ -331,6 +366,89 @@ def report_amendment(cal):
     return a
 
 
+#: Reader-registration coordinates (METER_BANDS_PREREGISTRATION_READER.md).
+READER_GATE_MAX_EXCLUSION = 0.25
+READER_POINTS = (5, 50, 95)
+READER_TOLERANCE = 1
+
+
+def reader_trial(cal):
+    """The registered CERTAIN-vs-DERIVED trial, per quantity.
+
+    -> dict with the hard gate, the disjoint split, both envelopes at the
+    registered points, deltas, and INDEPENDENT verdicts for DENSITY and
+    PROMINENCE. Partial adoption is a declared outcome. Refuses a sweep
+    with no derived lines — a trial with an empty dock proves nothing."""
+    out = {"exclusion": cal.excluded_fraction,
+           "gate_met": cal.excluded_fraction <= READER_GATE_MAX_EXCLUSION}
+    if not out["gate_met"]:
+        out["verdicts"] = {}
+        out["adopted"] = {}
+        out["verdict"] = (f"STOPPED AT THE GATE — exclusion "
+                          f"{cal.excluded_fraction:.2%} exceeds the "
+                          f"{READER_GATE_MAX_EXCLUSION:.0%} ceiling; the "
+                          f"reader did not restore the population and "
+                          f"nothing is adopted")
+        return out
+    certain = [r for r in cal.records if r.derived == 0]
+    derived = [r for r in cal.records if r.derived >= 1]
+    out["certain"], out["derived"] = len(certain), len(derived)
+    if not derived:
+        raise CalibrationRefused(
+            "the reader trial needs derived lines to try — this sweep has "
+            "none (was it run with the default reader?)")
+    out["verdicts"], out["adopted"], out["tables"] = {}, {}, {}
+    pool_bands = proposed_bands(cal)
+    for band_name, get in (("DENSITY", lambda r: r.syllables),
+                           ("PROMINENCE", lambda r: r.prominent)):
+        c = percentile_table([get(r) for r in certain], READER_POINTS)
+        d = percentile_table([get(r) for r in derived], READER_POINTS)
+        deltas = {p: d[p] - c[p] for p in READER_POINTS}
+        agreed = all(abs(v) <= READER_TOLERANCE for v in deltas.values())
+        out["tables"][band_name] = {"certain": c, "derived": d,
+                                    "deltas": deltas}
+        out["verdicts"][band_name] = agreed
+        out["adopted"][band_name] = pool_bands[band_name] if agreed else None
+    n_adopted = sum(1 for v in out["verdicts"].values() if v)
+    out["verdict"] = {
+        2: "ADOPTED, BOTH — certain and derived lines are one population "
+           "at every registered point; the full-pool bands carry",
+        1: "PARTIAL — the quantity that agreed adopts, the one that "
+           "disagreed refuses and waits for a better reader (the declared "
+           "partial outcome, not a failure mode)",
+        0: "NOT ADOPTED — the derived lines are a different population "
+           "under this reader; the next step is the other fork, "
+           "registered, not a fourth reading of this one",
+    }[n_adopted]
+    return out
+
+
+def report_reader_trial(cal):
+    """Print the reader trial — everything RESULTS_METER_BANDS_READER.md
+    quotes."""
+    t = reader_trial(cal)
+    print("READER TRIAL — certain vs derived "
+          "(METER_BANDS_PREREGISTRATION_READER.md)")
+    print(f"  hard gate: exclusion {t['exclusion']:.2%} vs ceiling "
+          f"{READER_GATE_MAX_EXCLUSION:.0%} — "
+          f"{'MET' if t['gate_met'] else 'NOT MET'}")
+    if t["gate_met"]:
+        print(f"  the split: {t['certain']} CERTAIN line(s) (derived=0), "
+              f"{t['derived']} DERIVED (>=1 non-dictionary token)")
+        for name in ("DENSITY", "PROMINENCE"):
+            tab = t["tables"][name]
+            row = ", ".join(
+                f"p{p} {tab['certain'][p]} vs {tab['derived'][p]} "
+                f"({tab['deltas'][p]:+d})" for p in READER_POINTS)
+            print(f"  {name:>10}: {row} -> "
+                  f"{'agree' if t['verdicts'][name] else 'DISAGREE'}")
+            if t["adopted"][name]:
+                print(f"  {'':>10}  ADOPTS pool band "
+                      f"[{t['adopted'][name][0]}, {t['adopted'][name][1]}]")
+    print(f"  VERDICT: {t['verdict']}")
+    return t
+
+
 def report(cal):
     """Print the whole result — everything RESULTS_METER_BANDS.md quotes."""
     print("METER BANDS CALIBRATION — corpus/song/eng_*.txt")
@@ -371,8 +489,21 @@ if __name__ == "__main__":
     import sys
     sys.path.insert(0, ROOT)
     sys.path.insert(0, os.path.dirname(ROOT))
-    cal = measure_corpus()
+    mode = "default"
+    for a in sys.argv[1:]:
+        if a.startswith("--reader="):
+            mode = a.split("=", 1)[1]
+        elif a != "--amendment":
+            raise SystemExit(f"unknown flag {a!r}; declared: "
+                             f"--reader={'|'.join(READER_MODES)}, "
+                             f"--amendment")
+    cal = measure_corpus(reader_mode=mode)
+    if mode != "default":
+        print(f"READER: {mode} (METER_BANDS_PREREGISTRATION_READER.md)")
     report(cal)
     if "--amendment" in sys.argv[1:]:
         print()
         report_amendment(cal)
+    if mode != "default":
+        print()
+        report_reader_trial(cal)
