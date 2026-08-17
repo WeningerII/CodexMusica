@@ -141,6 +141,29 @@ SILVER_NIGHT_LOCKED = ["It gleamed like polished silver",
                        "A memory I could not deliver",
                        "Everything was burning bright"]
 SILVER_NIGHT_LOCKED_MANDATE = [[1, 3], [2, 3], [1, 4], [2, 5]]
+#: THE SAME DRAFT WITH THE ANCHOR LOCKS REMOVED — added 2026-08-17 with the
+#: defect F repair. `SILVER_NIGHT_LOCKED_MANDATE` locks L1 and L2 to families
+#: of their own (L4, L5), which is now a condition `_try_tier2` REFUSES to
+#: search rather than a search that runs and rejects: the anchor conjunction
+#: is empty, so the fixture proposes zero pairs. Tests 13 and 16 need pairs
+#: to count, so they use this mandate and get their proposals rejected by a
+#: NO-OP PROPOSER instead — a pair that changes nothing is rejected by
+#: `verify()`'s own "nothing was fixed" rule, which is a real verdict and not
+#: a mandate rigged to be unsatisfiable. MEASURED: 2 two-line groups (A, B),
+#: pivot L3, anchors L1/L2, 8 pairs at width 2 and 50 at width 5 — the same
+#: two numbers the locked mandate produced before the repair.
+SILVER_NIGHT_OPEN_MANDATE = [[1, 3], [2, 3]]
+
+
+def _no_op_pair(pair_brief):
+    """A proposer that hands both lines back UNCHANGED.
+
+    Its rejection is `verify()`'s own no-op rule, so every attempt fails for
+    a stated reason without the fixture having to encode an unsatisfiable
+    mandate — which is what the anchor-lock shape used to do, and what the
+    defect F repair now refuses to search at all.
+    """
+    return (pair_brief.pivot_text, pair_brief.anchor_text)
 
 #: Verified interactively: BOTH of L5's groups have 3 members
 #: ([1,2,5] and [3,4,5]), so neither qualifies for tier 2's two-line
@@ -325,9 +348,26 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
 
 
 def test_tier2_tries_and_correctly_rejects():
-    print("\n5. TIER 2 — a resolving pair is tried and REJECTED for "
-         "introducing a new FLAG elsewhere, which is not a bug in the "
-         "search")
+    """~~5. TIER 2 — a resolving pair is tried and REJECTED for introducing a
+    new FLAG elsewhere, which is not a bug in the search.~~
+
+    **RESTATED 2026-08-17 WITH THE DEFECT F REPAIR, AND THE OLD SENTENCE WAS
+    PINNING THE DEFECT.** This section asserted `tried > 0` — "it did not bail
+    out early" — on a fixture whose own comment says every backtrack here
+    breaks a real mandated pair, because L1 and L2 are locked to families of
+    their own. Both halves were true and together they said the loop was
+    right to propose 50 pairs it would reject every time. It was not: the
+    anchor's own groups were never in the anchor's search, so the offer was
+    illegal BY CONSTRUCTION and no consumer could say so (doctrine 48).
+
+    THE FIXTURE IS UNCHANGED AND ITS VERDICT IS BETTER. `_try_tier2` folds
+    the anchor's obligations into the anchor field, the conjunction comes
+    back EMPTY, and the loop refuses with a reason instead of spending a
+    writer's attempts. `tried == 0` here is now the CORRECT answer and the
+    old check would have to be deleted to state it.
+    """
+    print("\n5. TIER 2 — an anchor locked to a family of its own is REFUSED, "
+         "not searched (restated 2026-08-17: this asserted the opposite)")
     R = Reviser()
     res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE)
     check("cannot reach SUCCESS -- L1 and L2 are each locked to their own "
@@ -335,11 +375,19 @@ def test_tier2_tries_and_correctly_rejects():
           "answer the pivot breaks a real mandated pair",
           res.stop_reason != "success", res.stop_reason)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
-    check("tier 2 DID search (tried > 0), it did not bail out early",
-          tier2 and tier2[0].tried > 0, tier2[0].tried if tier2 else None)
+    check("tier 2 proposes NOTHING here, and that is the repair: every pair "
+          "it used to offer was rejected by its own grader, so `tried == 0` "
+          "is the honest count rather than an early bail-out",
+          tier2 and tier2[0].tried == 0,
+          tier2[0].tried if tier2 else None)
+    check("...and the reason names WHICH search failed -- the anchor's own "
+          "conjunction, not a proposer that came back short (doctrine 58)",
+          tier2 and "EMPTY ANCHOR field" in tier2[0].reason
+          and "unsatisfiable at this anchor" in tier2[0].reason,
+          tier2[0].reason[:170] if tier2 else None)
     check("and every attempt was correctly rejected, none silently kept",
           tier2 and not tier2[0].accepted)
-    check("the draft is untouched -- a rejected search changes nothing",
+    check("the draft is untouched -- a refused search changes nothing",
           res.lines == SILVER_NIGHT_LOCKED)
 
 
@@ -561,15 +609,24 @@ def test_pair_brief_carries_the_situation():
 
     def recording(pair_brief):
         seen.append(pair_brief)
-        return default_propose_pair(pair_brief)
+        return _no_op_pair(pair_brief)
 
     # `backtrack_width=2` rather than the default 5 for cost, and it earns
     # its keep twice: 2 two-line groups x 2 x 2 = 8 proposals, which is the
     # low end of the bound test 16 pins at the default width. Verified
     # interactively before being pinned, like every fixture in this file.
+    #
+    # THE MANDATE IS `..._OPEN_` AND THE PROPOSER IS A NO-OP, 2026-08-17.
+    # Under the locked mandate this fixture now proposes ZERO pairs -- the
+    # anchors are locked to families of their own, which the defect F repair
+    # refuses to search rather than searching and rejecting (test 5). This
+    # section is about what a `PairBrief` CARRIES, so it needs pairs; the
+    # rejection that populates `reasons` comes from `verify()`'s no-op rule
+    # instead of from a mandate rigged to be unsatisfiable. Same 8, same two
+    # labels, same pivot.
     R = Reviser(rdecl=ReviseDeclaration(backtrack_width=2))
-    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE,
-                      propose_pair=recording)
+    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+                      propose=lambda *a, **k: None, propose_pair=recording)
     check("tier 2 ran and actually proposed pairs", bool(seen), len(seen))
     check("ONE argument, and it is a PairBrief -- not four positional "
           "strings, which is what this tier passed until 2026-08-14",
@@ -628,9 +685,9 @@ def test_pair_brief_carries_the_situation():
           sum(1 for pb in seen if pb.reasons) == len(seen) - 1,
           f"{sum(1 for pb in seen if pb.reasons)} of {len(seen)}")
     check("and the rejection is the real verdict text, not a placeholder: "
-          "every one of these pairs breaks a MANDATED pair elsewhere, which "
-          "is what SILVER_NIGHT_LOCKED was rebuilt to do",
-          all("SCHEME_VIOLATION" in "; ".join(pb.reasons)
+          "it is `verify()`'s own no-op rule, fired by a proposer that hands "
+          "both lines back unchanged",
+          all("nothing was fixed" in "; ".join(pb.reasons)
               for pb in seen if pb.reasons),
           seen[1].reasons)
     check("the whole-draft findings reach tier 2 as well -- the harder tier "
@@ -749,11 +806,13 @@ def test_backtrack_width_still_bounds_the_search():
 
     def counting(pair_brief):
         seen.append(pair_brief)
-        return default_propose_pair(pair_brief)
+        return _no_op_pair(pair_brief)
 
+    # `..._OPEN_` AND THE NO-OP PROPOSER, 2026-08-17 — same reason as test
+    # 13. The number this section exists to pin is unmoved: 2 x 5^2 = 50.
     R = Reviser()                       # the DECLARED default, width 5
-    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_LOCKED_MANDATE,
-                      propose_pair=counting)
+    res = revise_loop(R, SILVER_NIGHT_LOCKED, SILVER_NIGHT_OPEN_MANDATE,
+                      propose=lambda *a, **k: None, propose_pair=counting)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     check("50 pairs proposed = 2 two-line group(s) x width 5 x width 5 -- "
           "the number this fixture's own comment recorded before the "
@@ -1049,6 +1108,173 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
           f"and the re-brief branch is never entered")
 
 
+#: A PIVOT WHOSE ANCHOR IS ITSELF A PIVOT, and no returns anywhere — the
+#: shape that isolates the anchor half of defect F from the return half.
+#: L3 is the pivot (groups B [1, 3] and C [3, 4]); backtracking B moves L1,
+#: and L1 has a group of its own (A [1, 2], call word 'hear') that the
+#: rewrite does NOT touch and that its new end word therefore still owes.
+ANCHOR_IS_A_PIVOT = ["so keep the dial lit and hold it near",
+                     "there is nobody lost while somebody can hear",
+                     "a nurse in akron calls me on her break",
+                     "she says the ward is quiet till we wake",
+                     "the studio is one room and a chair",
+                     "i talk into the mic like you are there"]
+ANCHOR_GROUPS = [[1, 2], [1, 3], [3, 4], [5, 6]]
+
+#: THE SAME SHAPE WITH A LIVE CONJUNCTION. Above, the anchor's own call and
+#: the pivot's remaining call do not rhyme, so the folded field is EMPTY and
+#: no prompt is ever built — which is the right outcome and the wrong fixture
+#: for asking what the prompt says. Here L4's `door` rhymes with L1's `four`,
+#: so the anchor's conjunction is non-empty and a `PairBrief` is actually
+#: rendered: pivot L2, anchor L3, and L3 owes `door` to a group the backtrack
+#: does not touch.
+ANCHOR_HAS_A_LIVE_GROUP = ["the kitchen light is burning at half past four",
+                           "and nobody came back to climb the stairs",
+                           "she left the coffee cooling on the chairs",
+                           "i heard him turn the handle of the door"]
+LIVE_GROUPS = [[1, 2], [2, 3], [3, 4]]
+
+
+def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
+    """DEFECT F. Both tier-2 searches read the PIVOT's group list and nothing
+    else — not the requirement KIND, and not the ANCHOR's own groups.
+
+    FOUND BY RUNG 3 of the coverage experiment, by COMPLETING a defer session
+    rather than stopping at the first prompt. Not a reading: the pair the
+    prompt printed under *THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING* was
+    put through `verify()` and came back
+
+        accepted  : False
+        new_flags : [(5, 'SCHEME_VIOLATION'), (19, 'RETURN_NOT_VERBATIM')]
+
+    Two rejections, one sentence. `(19, ...)` is the SEARCH half of defect E —
+    `other_calls` never read `return_groups`, so a group requiring identity
+    contributed its end word to a RHYME search. `(5, ...)` is the anchor half
+    — `modal_field(w)` is derived from the pivot's candidate alone, so an
+    anchor that is itself a pivot was searched as though the shared group
+    were its only obligation.
+
+    DOCTRINE 48 ONE LAYER OVER. The offer was never put through the check
+    that judges the answer, so "this pair cannot be accepted" was not a
+    verdict the loop could reach — and a blind writer that took the only
+    correct move available to it was rejected for a flag on a line the prompt
+    had never mentioned.
+
+    CHECK 8 IS THE CONTROL THAT KEEPS THE FIX HONEST: on the ordinary shape —
+    an anchor in one group — nothing changes at all.
+    """
+    print("\n19. tier 2 does not offer a pair its own grader would reject")
+    import dataclasses
+    from quality import propose as _PR
+    import quality.schemes as _SC
+    from quality.schemes import Return
+    from quality.loop import _anchor_obligations
+    from quality.revise import Reviser as _R
+
+    RV = _R()
+    m = _SC.mandate(ANCHOR_GROUPS, n_lines=6)
+    calls, rets = _anchor_obligations(RV, m, ANCHOR_IS_A_PIVOT, 1, 3)
+    check("the anchor's OWN call words are read off the mandate, and the "
+          "group being backtracked is the only one dropped",
+          calls == ["hear"] and rets == [],
+          f"partners(1)={m.partners(1)} -> calls={calls} rets={rets}")
+
+    # THE HEADLINE, MEASURED. `w` is the PIVOT's proposed word, drawn the way
+    # the loop draws it — L3 must answer group C [3, 4], call word 'wake'.
+    # The old anchor field was `modal_field(w)`; the new one is the
+    # conjunction with the anchor's own calls. Both are computed here so the
+    # difference is a number in this suite and not a claim in a comment.
+    pf, _ = RV.joint_field(["wake"], exclude=("break",))
+    w = pf[0]
+    old, _ = RV.modal_field(w, exclude=("near",))
+    new, _ = RV.joint_field([w] + calls, exclude=("near",))
+    check("the OLD anchor field offered words every one of which breaks a "
+          "group nobody had mentioned; the folded one is empty, which is the "
+          "true answer",
+          len(old) > 0 and new == [],
+          f"pivot word {w!r}: unfolded={len(old)} word(s) e.g. {old[:4]} "
+          f":: folded={new}")
+
+    # A RETURN IS ASKED OF `requirement`, NOT OF `returns` MEMBERSHIP -- the
+    # same discrimination §43 of `test_revise.py` makes one layer down.
+    RET_G = [[1, 2], [1, 3], [3, 4]]
+    mr = _SC.mandate(RET_G, n_lines=6, returns=[[1, 2]])
+    _c, r2 = _anchor_obligations(RV, mr, ANCHOR_IS_A_PIVOT, 1, 3)
+    ml = dataclasses.replace(mr, returns=(
+        Return(lines=(1, 2), label="R1", verbatim=False),))
+    _c2, r3 = _anchor_obligations(RV, ml, ANCHOR_IS_A_PIVOT, 1, 3)
+    check("an anchor pinned by a verbatim return is reported as PINNED, and "
+          "a LICENSED repeat over the same two lines is NOT",
+          r2 and not r3,
+          f"verbatim -> {r2}; verbatim=False -> {r3}")
+
+    # THE DEAD END NAMES WHICH SEARCH FAILED. `starved` is its own count and
+    # is not folded into "none accepted" (doctrine 79) -- before the fold the
+    # anchor field was never empty here, so this sentence was unsayable.
+    res = revise_loop(RV, ANCHOR_IS_A_PIVOT, m,
+                      propose=lambda *a, **k: None,
+                      propose_pair=lambda *a, **k: None)
+    det = res.rounds[0].attempts[-1].reason
+    check("an EMPTY ANCHOR conjunction is reported as its own outcome, not "
+          "as a search that came back short",
+          "EMPTY ANCHOR field" in det and "unsatisfiable at this anchor" in det
+          and "L1's own group(s)" in det, det[:200])
+
+    # THE RETURN PIN — rung 3's own shape, with the PIVOT (L3) in a declared
+    # verbatim return. Every word this tier could offer it is illegal, so no
+    # pair is put to a proposer at all.
+    PIN = ANCHOR_IS_A_PIVOT + [ANCHOR_IS_A_PIVOT[2]]
+    mp = _SC.mandate([[1, 2], [1, 3], [3, 4], [5, 6], [3, 7]], n_lines=7,
+                     returns=[[3, 7]])
+    asked = []
+    res2 = revise_loop(RV, PIN, mp, propose=lambda *a, **k: None,
+                       propose_pair=lambda pb: asked.append(pb))
+    pinned_det = [a.reason for r in res2.rounds for a in r.attempts
+                  if a.tier == 2]
+    check("a pivot pinned by a declared verbatim return is NOT SEARCHED, and "
+          "the reason names the group rather than reporting an empty field",
+          any("PINNED by return group" in d for d in pinned_det)
+          and any("is itself a RETURN" in d for d in pinned_det),
+          pinned_det[:1])
+    check("...and no pair is put to a proposer at all — a refusal is not a "
+          "failed search (doctrine 20)",
+          asked == [] and any("NOT ATTEMPTED" in d for d in pinned_det),
+          f"{len(asked)} pair prompt(s) asked :: {pinned_det[:1]}")
+
+    # THE WRITER IS TOLD. The prompt renders THE RHYME MANDATE ON THE PIVOT;
+    # until this fix it rendered no block for the anchor, so the writer was
+    # asked to move a word without being told what it owed.
+    seen = []
+    revise_loop(RV, ANCHOR_HAS_A_LIVE_GROUP,
+                _SC.mandate(LIVE_GROUPS, n_lines=4),
+                propose=lambda *a, **k: None,
+                propose_pair=lambda pb: seen.append(pb))
+    withc = [pb for pb in seen if pb.anchor_calls]
+    check("`PairBrief.anchor_calls` carries the anchor's own call words to "
+          "the renderer, and the prompt says so in its own block",
+          withc and withc[0].anchor_calls == ("door",)
+          and "AND THE ANCHOR HAS GROUPS OF ITS OWN — L3 is a pivot too"
+          in _PR.render_pair(withc[0])
+          and "L3 must also answer: 'door'" in _PR.render_pair(withc[0]),
+          f"{len(withc)} of {len(seen)} pair brief(s) carry anchor_calls")
+
+    # CONTROL — THE ORDINARY SHAPE IS UNTOUCHED. An anchor in one group has
+    # no other obligation, so `anchor_calls` is empty and the block does not
+    # render. A fix that also fired here would be a second defect.
+    plain = []
+    revise_loop(Reviser(), SILVER_MIND, [[1, 3], [2, 3]],
+                propose=lambda *a, **k: None,
+                propose_pair=lambda pb: plain.append(pb))
+    check("CONTROL: an anchor in ONE group carries no extra calls and the "
+          "new block does not render — the fix is inert where the defect is "
+          "not",
+          plain and all(pb.anchor_calls == () for pb in plain)
+          and "AND THE ANCHOR HAS GROUPS OF ITS OWN"
+          not in _PR.render_pair(plain[0]),
+          f"{len(plain)} pair brief(s), anchor_calls "
+          f"{[pb.anchor_calls for pb in plain[:3]]}")
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -1067,7 +1293,8 @@ if __name__ == "__main__":
                test_tier2_still_resolves_a_joint_conflict_through_pair_brief,
                test_backtrack_width_still_bounds_the_search,
                test_a_dead_end_and_an_open_line_each_name_their_own_rule,
-               test_a_line_is_briefed_against_the_draft_as_it_now_stands):
+               test_a_line_is_briefed_against_the_draft_as_it_now_stands,
+               test_tier2_does_not_offer_a_pair_its_own_grader_rejects):
         fn()
     print("=" * 62)
     if FAILURES:

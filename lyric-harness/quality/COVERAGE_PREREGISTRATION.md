@@ -1522,6 +1522,187 @@ reading is that the brief does not carry enough to repair a cross-section
 mandate — a real finding about the brief. Only if the brief demonstrably
 carries it does the spec become the suspect.
 
+### R3.7 RUNG 3 — RUN 2026-08-17. The spec change worked, and it found DEFECT E.
+
+**The seed failed as specified.** A blind writer (no history, no repo, no
+tools, `tool_uses: 0`) was given the SHAPE and the WITHIN-SECTION rhyme scheme
+and returned 26 lines, a title and a hook — *night tower*, md5 `3ff8efd288f3`,
+~235 tokens, 7 sections. Graded against the stricter declaration it was never
+shown, `brief` reports **1 FLAG**: `SCHEME_VIOLATION` on L7, which is exactly
+the planted cross-section mandate `3,7`. **Rung 2's failure mode did not
+recur** — the loop had work, and it went to the handoff.
+
+**Predictions that came in.** `CROSS_FUNCTION_REPRISE` fired (INTRO → OUTRO,
+reported as `EXTENDED_RETURN`), as did `HOOK_CONFINED`, `METER_LOCKED`,
+`TITLE_NOT_IN_HOOK`, `COUNT_IS_A_LOWER_BOUND` and `UNREADABLE_INTERIOR_WORD`.
+**And the carried-forward prediction was right**: `NEAR_COLLISION` and
+`COLLISION_CUT_IS_SCALAR_ONLY` — two of rung 2's four words-bound codes —
+fired with **no declaration aimed at them**, because a 26-line song contains
+near-relation pairs that an 8-line one did not (`'ear'~'chair'` 0.927,
+`'ear'~'there'` 0.927).
+
+#### DEFECT E — a declared RETURN is rendered to the writer as a rhyme
+
+The loop went straight to TIER 2: L7 is in three groups and nothing answers
+all of them, which is correct — the planted mandate IS unsatisfiable, and the
+prompt says so (*"The MANDATE is what needs revising"*). What it also says,
+and should not, is this:
+
+    group D [7, 8]  — this line must rhyme with: L8 ('hear')
+    group M [3, 7]  — this line must rhyme with: L3 ('break')
+    group N [7, 19] — this line must rhyme with: L19 ('ear')
+
+**Group N is not a rhyme group. It is the declared verbatim chorus return.**
+MEASURED: `requirement(7, 8)` and `requirement(7, 3)` are `REQUIRE_RHYME`;
+`requirement(7, 19)` is `REQUIRE_RETURN` — identity REQUIRED, the two lines
+must be THE SAME LINE. All three printed the same sentence, on BOTH the tier-1
+and tier-2 surfaces.
+
+**THE REQUIREMENT HANDED TO THE WRITER IS THE WRONG ONE AND STRICTLY WEAKER.**
+A writer who supplies a different line that rhymes with `ear` has done exactly
+what the brief asked and has silently broken the return. And it is worse than
+a mislabel: rule 2 forbids changing L19, so the return cannot be satisfied by
+ANY legal answer — the writer is being asked for something impossible while
+being told it is an ordinary rhyme.
+
+**MECHANISM.** `Brief.must_answer` carries every group a line is in and **no
+requirement kind**, so both renderers had nothing to distinguish on. Same
+shape as defect D one layer over: one container, two kinds, one sentence that
+names only the first. The mandate has always known; the brief never asked.
+
+**FIXED.** `Brief.return_groups` carries the labels whose requirement is
+`REQUIRE_RETURN`, asked of `Mandate.requirement` rather than inferred from
+`returns` membership (doctrine 1 — a second derivation drifts). Both renderers
+name it, and the tier-1/tier-2 prompt states the honest consequence: *"if this
+line has to move to satisfy something else, the RETURN is what breaks, and
+that is a fact about the mandate rather than about anything you can write."*
+A set of labels rather than a fourth tuple field, because `must_answer`'s
+3-tuple is read by tier 2's search, by `propose.py` and by `__str__`, and
+widening it would turn a rendering fix into a four-site refactor.
+
+**PINNED.** `quality/test_revise.py` §43, 8 checks on a 4-line fixture whose
+one draft carries both kinds at once — group A is the declared verbatim
+return, group B an ordinary rhyme group — so the positive and its control are
+the same run. FOUR MUTATIONS, each red in exactly the checks that own it:
+killing the field reds 5; reverting `Brief.__str__` reds 1; reverting
+`propose._mandate_block` reds 3 (both prompts plus the consequence); and
+deriving `return_groups` from `returns` MEMBERSHIP instead of
+`Mandate.requirement` reds exactly 1 — the `Return(verbatim=False)` control,
+which is `LICENSE_REPEAT` and must NOT be rendered as a return. That last
+mutation is the one that matters: it is the fix a reader would call
+equivalent, and it is the check that says it is not. `quality/test_propose.py`
+§7c caught the stand-in `class B` going blind to the new field on the same
+run, which is the guard behaving as specified rather than a second defect.
+
+#### DEFECT F — the pair tier 2 OFFERS is rejected by the grader that offers it
+
+**Found by completing the defer session**, which is the half rung 1 could only
+do once. With defect E fixed the corrected prompt went to a fresh blind writer
+(no history, no repo, no tools, `tool_uses: 0`), and it did **exactly the right
+thing**: it returned L7 BYTE-IDENTICAL — preserving the declared return — and
+moved the anchor to `chair`, which rhymes with `ear` at 0.927. Under the OLD
+prompt that answer is unreachable: a writer told "L7 must rhyme with L19
+('ear')" is entitled to move L7, and doing so silently breaks the return.
+**The fix changed the answer, which is the only evidence that the rendering
+was load-bearing.**
+
+**And the loop rejected it**: `introduced 1 new flagged finding(s) [(5,
+'SCHEME_VIOLATION')] while fixing 4`. L3 is in TWO groups — `partners(3)` is
+`[(1, [5]), (12, [7])]` — and the tier-2 prompt renders **THE RHYME MANDATE ON
+THE PIVOT** only. The writer was told to move the anchor's end word and never
+told what else that anchor has to answer.
+
+**THE SHARPER MEASUREMENT: the grader's own proposal fails its own check.**
+Running the pair the prompt offers under *THE PAIR THE GRADER'S OWN SEARCH IS
+PROPOSING* — L7 → `care`, L3 → `share` — through `verify()`:
+
+    accepted  : False
+    new_flags : [(5, 'SCHEME_VIOLATION'), (19, 'RETURN_NOT_VERBATIM')]
+
+Two rejections, and they are the two halves of one sentence. `_try_tier2`
+builds both searches out of the PIVOT's group list and nothing else:
+
+    other_calls = [w for lab2, _m2, cl2 in b.must_answer if lab2 != label
+                   for _, w in cl2]
+    p_offered, _ = reviser.joint_field(other_calls, exclude=(pivot_current,))
+    a_offered, _ = reviser.modal_field(w, exclude=(anchor_current,))
+
+- `other_calls` does not read `return_groups`, so group N contributes `'ear'`
+  to a RHYME search — **the search half of defect E**, still open after the
+  rendering half was fixed. Every one of the 24 pivot options breaks the
+  return; the field cannot contain the one legal answer, which is the word
+  already there.
+- `a_offered` is derived from the pivot's candidate `w` ALONE. The anchor's
+  own `must_answer` is never consulted, so an anchor that is itself a pivot is
+  searched as though it had no other obligations. All 24 anchor options are
+  `-air`/`-are` words and L5 ends on `awake`.
+
+**This is doctrine 48 one layer over.** The offered pair is not merely
+unhelpful — it is unacceptable BY CONSTRUCTION, and nothing in the loop could
+report that, because the offer is never put through the check that judges the
+answer.
+
+**FIXED.** Both searches now ask the MANDATE before either runs.
+`_anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line)` reads
+`Mandate.partners`/`requirement` for the anchor, drops only the group being
+backtracked, and returns `(other call words, return-group labels)`; the anchor
+field is `joint_field([w] + a_other)`. A line pinned by a verbatim return —
+pivot or anchor — is **NOT SEARCHED**, with the group named, and a group that
+IS a return has no backtrack at all. `PairBrief.anchor_calls` carries the
+anchor's obligations to `render_pair`, which prints them under **AND THE
+ANCHOR HAS GROUPS OF ITS OWN**.
+
+**Three counts, never summed** (doctrine 79). `tried` is pairs actually put to
+a proposer; `pinned` is groups REFUSED unsearched; `starved` is groups whose
+anchor conjunction came back EMPTY. The last one was unsayable before the
+fold: `modal_field(w)` was never empty here — it returned 24 words each of
+which broke a group nobody had mentioned — so a dead end that is a fact about
+the MANDATE was reported as a proposer that could not find anything.
+
+**MEASURED AFTER.** Rung 3's own draft now runs to a stop condition with no
+suspension and no prompt issued: `NOT ATTEMPTED — all 3 two-line group(s) are
+pinned by a declared verbatim return, so this tier has no legal move and the
+MANDATE is what needs revising`, draft byte-identical at md5 `3ff8efd288f3`,
+L7 reported unresolved. **That is the whole planted seed answered correctly**
+— the cross-section mandate `3,7` really is unsatisfiable against the return
+`7,19`, and the loop now says so instead of spending a writer's attempts on
+pairs it would reject.
+
+**PINNED.** `quality/test_loop.py` §19, 8 checks, and the isolation is in the
+fixtures: `ANCHOR_IS_A_PIVOT` has no returns anywhere (the anchor half alone),
+`ANCHOR_HAS_A_LIVE_GROUP` gives the anchor's conjunction a non-empty answer so
+a prompt is actually built, and the pin fixture puts the PIVOT in a return.
+Check 8 is the control that keeps the fix inert on the ordinary shape — an
+anchor in one group carries no extra calls and renders no new block. FIVE
+MUTATIONS, each red in the checks that own it: unfolding the anchor field
+reds 1, removing the return pin reds 2, inferring a return from `returns`
+membership reds exactly the `verbatim=False` control, dropping the prompt
+block reds 1, and folding `starved` into "none accepted" reds 1.
+
+**AND THREE OLDER SECTIONS WERE PINNING THE DEFECT — restated 2026-08-17.**
+`test_loop.py` §5 asserted *"tier 2 DID search (`tried > 0`), it did not bail
+out early"* on `SILVER_NIGHT_LOCKED`, a fixture whose own comment says every
+backtrack here breaks a real mandated pair because L1 and L2 are locked to
+families of their own. Both halves were true, and together they said the loop
+was RIGHT to propose 50 pairs it would reject every time. §13 and §16 then
+measured the SIZE of that doomed search — 8 at width 2, 50 at width 5 — and
+called the numbers a contract. **A test that measures a wrong behaviour
+precisely is what keeps it.** §5 now asserts the opposite and says why; §13
+and §16 keep their subjects and their two numbers exactly, on the same draft
+with the anchor locks removed and a NO-OP PROPOSER supplying the rejections,
+so the count is still `2 x width²` and the rejection is still `verify()`'s own
+verdict — just not one manufactured by an unsatisfiable mandate.
+
+**THE GENERAL SHAPE, now five instances deep.** The instrument built to close
+a defect reproduces that defect one layer up, and the test written to pin a
+behaviour is one of the layers.
+
+**RUNG 3 CONFIRMS RUNG 2'S DIAGNOSIS.** Rung 2 found nothing and the
+hypothesis was that it never exercised the handoff. Rung 3 changed exactly one
+thing — a seed specified to fail — and the first defect it found is in the
+handoff, in the same family as all six of rung 1's. **The spec decision was
+the whole difference.**
+
 ## D. Judgement calls carried forward
 
 The derivation flagged its own uncertainty; carried here unresolved rather than

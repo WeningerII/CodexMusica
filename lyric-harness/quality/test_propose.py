@@ -113,6 +113,12 @@ class B:
         self.field_computed = kw.get("field_computed", False)
         self.keep = kw.get("keep", [])
         self.must_answer = kw.get("must_answer", [])
+        #: Labels among `must_answer` whose mandate is REQUIRE_RETURN, added
+        #: 2026-08-17 for the same reason as `forbidden_incumbent` above and
+        #: caught by the same guard in §7c. `must_answer` carries the group
+        #: but not the KIND of requirement, so without this the renderers
+        #: printed "must rhyme with" over a declared verbatim return.
+        self.return_groups = kw.get("return_groups", ())
         self.joint_conflict = kw.get("joint_conflict", False)
         self.field_declaration = kw.get(
             "field_declaration", "field_depth=complete pool, "
@@ -739,7 +745,9 @@ def test_the_stand_in_agrees_with_the_dataclass_it_stands_in_for():
     used = {"pivot_line_no", "pivot_text", "pivot_word", "pivot_offered",
             "anchor_line_no", "anchor_text", "anchor_word", "anchor_offered",
             "label", "members", "brief", "lines", "attempt", "reasons",
-            "whole"}
+            # `anchor_calls` — the anchor's OWN groups, added 2026-08-17 for
+            # defect F and caught here by this very guard on the same run.
+            "whole", "anchor_calls"}
     check("every field this suite builds a `PB` out of is a real "
           "`PairBrief` field", used <= declared, sorted(used - declared))
     check("...and `PairBrief` has grown no field this suite is blind to",

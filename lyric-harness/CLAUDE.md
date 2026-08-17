@@ -427,6 +427,59 @@ against a union of 3. `quality/test_loop.py` §17 is 8 checks and needs TWO
 mutations because the fix has two layers: the merged sentence and bare list
 kill 5, and making `unresolved_flagged` the union again — the old false comment
 made true — kills the other 2.
+**AND THE MANDATE BLOCK CALLED A RETURN A RHYME — FIXED 2026-08-17, DEFECT E,
+FOUND BY RUNG 3 OF THE COVERAGE EXPERIMENT.** `Brief.must_answer` is `(label,
+members, [(line, endword), ...])` and carries no requirement KIND, so every
+renderer printed one sentence over all of them. MEASURED on a blind writer's
+draft graded against `--groups` and `--returns` together, where one flagged
+line sat in a group of each: `requirement(7, 8)` and `requirement(7, 3)` are
+`REQUIRE_RHYME`, `requirement(7, 19)` is `REQUIRE_RETURN`, and the prompt said
+*"group C [7, 19] — this line must rhyme with: L19 ('ear')"* for all three.
+That is not a looser wording, it is A DIFFERENT AND STRICTLY WEAKER
+REQUIREMENT: a writer who answers with a rhyme has not returned,
+`RETURN_NOT_VERBATIM` is a FLAG, and the loop then rejects the answer its own
+prompt asked for. `Brief.return_groups` is the fix, populated by asking
+`Mandate.requirement` — never by testing `returns` membership, which would be
+a second statement of it (doctrine 1) and would mark `Return(verbatim=False)`,
+a `LICENSE_REPEAT`, as something the grader does not enforce. **THE HONEST
+CONSEQUENCE SHIPS WITH IT** (doctrine 20): rule 2 forbids the writer moving
+the other endpoint, so where a return endpoint must ALSO move to answer a
+rhyme group, no legal answer satisfies both — the prompt now says the RETURN
+is what breaks and that this is a fact about the mandate rather than about
+anything they can write. `quality/test_revise.py` §43 is 8 checks and needs
+FOUR mutations: killing the field reds 5, reverting either renderer reds that
+renderer's 1 and 3, and inferring the field from `returns` membership reds
+exactly the one check that distinguishes the two — the `verbatim=False`
+control.
+**AND THE SEARCH UNDER IT OFFERED A PAIR THE GRADER REJECTS — FIXED
+2026-08-17, DEFECT F, `BACKLOG.md` §4.9.** Found by COMPLETING rung 3's defer
+session rather than stopping at the first prompt, which is the half rung 1
+only reached once. MEASURED: the pair printed under *THE PAIR THE GRADER'S OWN
+SEARCH IS PROPOSING* came back from `verify()` as `accepted False, new_flags
+[(5, 'SCHEME_VIOLATION'), (19, 'RETURN_NOT_VERBATIM')]` — **the offer failing
+the check that judges the answer**, which is doctrine 48 one layer over.
+`_try_tier2` built both searches out of the PIVOT's group list and nothing
+else, so `other_calls` fed a REQUIRE_RETURN group's end word into a RHYME
+search (the search half of defect E, still open after the rendering half
+landed) and `modal_field(w)` searched the anchor as though the shared group
+were its only obligation. `_anchor_obligations` asks the mandate for both now;
+a line pinned by a verbatim return is NOT SEARCHED with the group named; and
+`PairBrief.anchor_calls` reaches the prompt. **THREE COUNTS, NEVER SUMMED** —
+`tried`, `pinned`, `starved` — and the third was unsayable before the fold,
+because `modal_field(w)` was never empty here: it returned 24 words each of
+which broke a group nobody had mentioned. On rung 3's own draft the loop now
+answers the planted seed correctly — `NOT ATTEMPTED — all 3 two-line group(s)
+are pinned by a declared verbatim return`, draft byte-identical, no prompt
+issued.
+**AND THREE OF `test_loop.py`'s OWN SECTIONS WERE PINNING IT.** §5 asserted
+*"tier 2 DID search (`tried > 0`), it did not bail out early"* on a fixture
+whose own comment says every backtrack there breaks a real mandated pair —
+both halves true, and together they said the loop was right to propose 50
+pairs it would reject every time. §13 and §16 then measured the SIZE of that
+doomed search and called 8 and 50 a contract. A test that measures a wrong
+behaviour precisely is what keeps it. §5 now asserts the opposite and says
+why; §13 and §16 keep their subjects and both numbers on the same draft with
+the anchor locks removed and a NO-OP PROPOSER supplying the rejections.
 
 **`candidates` AND THE LOOP ANSWERED ONE QUESTION TWO WAYS — FIXED
 2026-08-15, FOUND BY PRE-SCREENING A RHYME WITH THE WRONG LIST.** The verb

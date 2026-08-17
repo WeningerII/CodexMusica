@@ -436,6 +436,28 @@ class Brief:
     #: the writer. `quality/test_revise.py` §42's precision check pins THIS
     #: field to `_endword`; nothing pins the other two.
     forbidden_incumbent: str = ""
+    #: WHICH of `must_answer`'s groups are RETURNS rather than rhymes —
+    #: the group LABELS whose `Mandate.requirement` is `REQUIRE_RETURN`.
+    #: Added 2026-08-16 (defect E of the coverage experiment, rung 3).
+    #:
+    #: `must_answer` carries every group a line is in and NO requirement kind,
+    #: so a declared RETURN — where the two lines must be THE SAME LINE —
+    #: rendered identically to an ordinary rhyme group, and both renderers
+    #: said *"this line must rhyme with"*. That is the WRONG requirement and
+    #: a strictly WEAKER one: a writer who supplies a different line that
+    #: rhymes has done exactly what they were told and broken the return.
+    #:
+    #: MEASURED on rung 3's draft, where L7 is a chorus line in three groups:
+    #: `requirement(7, 8)` and `requirement(7, 3)` are `REQUIRE_RHYME` and
+    #: `requirement(7, 19)` is `REQUIRE_RETURN`, and all three printed the
+    #: same sentence. The mandate has always known; the brief never asked.
+    #:
+    #: A SET OF LABELS RATHER THAN A FOURTH TUPLE FIELD, deliberately:
+    #: `must_answer`'s 3-tuple is read by `quality/loop.py`'s tier-2 search,
+    #: by `propose.py` and by `__str__`, and widening it would make one
+    #: rendering fix a four-site refactor. The label is the key those sites
+    #: already carry.
+    return_groups: tuple = ()
     #: Was the modal head COMPUTED at all for this line? Added 2026-08-16,
     #: because an EMPTY `forbidden_modal` means two different things and a
     #: renderer had no way to ask which.
@@ -493,7 +515,12 @@ class Brief:
                 out.append(f"        {f.evidence}")
         for lab, mem, calls in self.must_answer:
             shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
-            out.append(f"    must answer group {lab} {mem}: {shown}")
+            if lab in self.return_groups:
+                out.append(f"    group {lab} {mem} is a RETURN: this line "
+                           f"must BE {shown} — the same line, word for word, "
+                           f"not merely a rhyme")
+            else:
+                out.append(f"    must answer group {lab} {mem}: {shown}")
         if self.must_answer and len(self.must_answer) > 1:
             out.append(f"    L{self.line_no} is a PIVOT — it is in "
                        f"{len(self.must_answer)} groups and must answer every "
@@ -2512,10 +2539,20 @@ class Reviser:
             # EVERY group, not one. The old `_partner` picked the first
             # mate of the line's single letter, which is all a letter
             # scheme can express and is wrong for a pivot by construction.
+            _returns = []
             for k, mates in groups:
                 b.must_answer.append(
                     (m.labels[k], list(m.groups[k]),
                      [(x, endwords[x - 1]) for x in mates]))
+                # WHICH KIND OF REQUIREMENT THIS GROUP IS. Asked of the
+                # MANDATE, never inferred from the words: `Mandate.
+                # requirement` is the one object that holds both kinds, and
+                # a renderer that guessed from `returns` membership would be
+                # a second statement of it (doctrine 1).
+                if any(getattr(m.requirement(ln, x), "name", "")
+                       == "REQUIRE_RETURN" for x in mates):
+                    _returns.append(m.labels[k])
+            b.return_groups = tuple(_returns)
             if groups and groups[0][1]:
                 _first = groups[0][1]
                 b.must_rhyme_with = (_first[0], endwords[_first[0] - 1])

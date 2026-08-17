@@ -3367,6 +3367,127 @@ def test_the_forbidden_list_is_two_rules_in_two_fields():
            if "FORBIDDEN" in l or "ALREADY THERE" in l])
 
 
+def test_a_return_is_not_rendered_as_a_rhyme():
+    """`must_answer` carried the GROUP and dropped the REQUIREMENT KIND.
+
+    FOUND BY RUNG 3 of the coverage experiment (see
+    `quality/COVERAGE_PREREGISTRATION.md` §R3.7) — a blind writer's draft
+    graded against a declaration carrying both `--groups` and `--returns`,
+    where one flagged line sat in a group of each. Measured at the API level
+    on that draft:
+
+        L7~L8   REQUIRE_RHYME
+        L7~L3   REQUIRE_RHYME
+        L7~L19  REQUIRE_RETURN     <- and the prompt said "must rhyme with"
+
+    `Brief.must_answer` is `(label, members, [(line, endword), ...])`. There
+    is no requirement in that tuple, so BOTH renderers printed one sentence
+    over all three: "this line must rhyme with: L19 ('ear')". That is not a
+    lighter wording of the mandate, it is A DIFFERENT AND STRICTLY WEAKER
+    REQUIREMENT — a writer who answers it with a rhyme has not returned, and
+    `RETURN_NOT_VERBATIM` is a FLAG, so the loop rejects the very answer its
+    own prompt asked for.
+
+    THE HONEST CONSEQUENCE IS PART OF THE FIX. Rule 2 forbids the writer
+    changing the other line, so where a return endpoint must ALSO move to
+    satisfy a rhyme group, no legal answer satisfies both. Saying so is
+    doctrine 20: the writer is owed the fact that the mandate, not their
+    writing, is what breaks.
+
+    ASKED OF THE MANDATE, NOT INFERRED FROM MEMBERSHIP — check 3 is the
+    reason. `Return(verbatim=False)` is `LICENSE_REPEAT`, membership in
+    `returns` and all, and a writer told that line "must BE" the other one
+    would be told something the grader will not enforce.
+    """
+    print("\n43. a declared RETURN is not rendered as a rhyme")
+    import dataclasses
+    from quality import propose as _PR
+    import quality.schemes as _SC
+    from quality.schemes import Return
+    from quality.loop import PairBrief
+
+    DEC = ["we counted every reason we were given",
+           "the kettle on the stove had caught the light",
+           "we counted every reason we were given",
+           "the morning came and did not care that night"]
+    dm = _SC.mandate([[1, 3], [2, 4]], n_lines=4, returns=[[1, 3]])
+    bs = {b.line_no: b for b in R.brief(DEC, dm)}
+    b3, b4 = bs[3], bs[4]
+
+    check("the brief for a line in a declared verbatim return CARRIES the "
+          "requirement kind, which `must_answer` alone cannot say",
+          b3.return_groups == ("A",),
+          f"return_groups={b3.return_groups} must_answer={b3.must_answer}")
+    check("CONTROL: an ordinary rhyme group is NOT marked, though its "
+          "members sit in `must_answer` in exactly the same shape",
+          b4.return_groups == () and b4.must_answer,
+          f"return_groups={b4.return_groups} must_answer={b4.must_answer}")
+
+    # THE MECHANISM. Same `returns` membership, same group, same lines --
+    # only `verbatim` differs, and only `requirement()` can see it.
+    lic = dataclasses.replace(dm, returns=(
+        Return(lines=(1, 3), label="R1", verbatim=False),))
+    b3l = [x for x in R.brief(DEC, lic) if x.line_no == 3][0]
+    check("a LICENSED repeat is not marked a return — the field is asked of "
+          "`Mandate.requirement`, not inferred from `returns` membership",
+          lic.requirement(1, 3).name == "LICENSE_REPEAT"
+          and b3l.return_groups == () and b3l.must_answer,
+          f"requirement={lic.requirement(1, 3).name} "
+          f"return_groups={b3l.return_groups}")
+
+    # BOTH RENDERERS. `Brief.__str__` is the API-facing one; `render_line`
+    # and `render_pair` are the two that reach a writer, and rung 3 found
+    # this in the TIER 2 prompt, so all three are pinned.
+    s = str(b3)
+    check("`Brief.__str__` says the line must BE the other one, word for "
+          "word, and no longer says 'must rhyme with'",
+          "group A [1, 3] is a RETURN" in s and "must BE L1 ('given')" in s
+          and "not merely a rhyme" in s
+          and "group A [1, 3] — this line must rhyme with" not in s,
+          [l.strip() for l in s.splitlines() if "group A" in l])
+
+    p1 = _PR.render_line(b3, DEC, whole=())
+    check("the TIER 1 prompt says the same",
+          "group A [1, 3] is a RETURN" in p1
+          and "the same line word for word" in p1
+          and "must rhyme with: L1" not in p1,
+          [l.strip() for l in p1.splitlines() if "group A" in l])
+    # The consequence is hard-wrapped across three lines, so it is asserted
+    # against the whitespace-collapsed text -- pinning the sentence and not
+    # the wrap column, which a later lot may move.
+    flat = " ".join(p1.split())
+    check("...and it states the rule-2 consequence rather than leaving the "
+          "writer to discover that no legal answer satisfies both",
+          "rule 2 below forbids you changing the other line" in flat
+          and "the RETURN is what breaks" in flat
+          and "a fact about the mandate rather than about anything you can "
+              "write" in flat,
+          [l.strip() for l in p1.splitlines() if "rule 2" in l])
+
+    pb = PairBrief(pivot_line_no=3, pivot_text=DEC[2], pivot_word="given",
+                   pivot_offered=["risen"], anchor_line_no=1,
+                   anchor_text=DEC[0], anchor_word="given",
+                   anchor_offered=["driven"], label="A", members=[1, 3],
+                   brief=b3, lines=DEC, attempt=0)
+    p2 = _PR.render_pair(pb)
+    check("the TIER 2 prompt says the same — this is the channel rung 3 "
+          "found it on, and it renders the mandate through the SAME block",
+          "group A [1, 3] is a RETURN" in p2
+          and "the same line word for word" in p2
+          and "must rhyme with: L1" not in p2,
+          [l.strip() for l in p2.splitlines() if "group A" in l])
+
+    # CONTROL ON THE RENDERERS -- the ordinary sentence is not gone, it is
+    # merely no longer printed over a return.
+    p4 = _PR.render_line(b4, DEC, whole=())
+    check("CONTROL: an ordinary group still renders 'must rhyme with', and "
+          "is not relabelled a return",
+          "group B [2, 4] — this line must rhyme with: L2 ('light')" in p4
+          and "RETURN" not in p4.split("THE RHYME MANDATE")[-1].split(
+              "OFFERED")[0],
+          [l.strip() for l in p4.splitlines() if "group B" in l])
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -3412,7 +3533,8 @@ if __name__ == "__main__":
                test_a_holding_requirement_is_not_fixed_by_breaking_it,
                test_the_mandate_block_is_gated_on_the_mandate,
                test_rule_three_asks_whether_a_word_was_taken,
-               test_the_forbidden_list_is_two_rules_in_two_fields):
+               test_the_forbidden_list_is_two_rules_in_two_fields,
+               test_a_return_is_not_rendered_as_a_rhyme):
         fn()
     print("=" * 62)
     if FAILURES:

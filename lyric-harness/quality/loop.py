@@ -441,6 +441,14 @@ class PairBrief:
     attempt: int
     reasons: tuple = None        # the PREVIOUS attempt's rejection
     whole: tuple = ()            # `inspect()`'s whole-draft findings
+    #: THE ANCHOR'S OWN CALL WORDS — every group the anchor is in APART from
+    #: the one being backtracked, added 2026-08-17 for defect F. `brief`
+    #: above is the PIVOT's, and it says nothing about the other line; a
+    #: writer asked to move the anchor's end word was never told what else
+    #: that end word has to answer, and the rejection it earned named a line
+    #: the prompt had not mentioned. Empty is the ordinary case — an anchor
+    #: in one group only — and is not a disclosure gap.
+    anchor_calls: tuple = ()
 
 
 @dataclass
@@ -785,6 +793,48 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     return LineAttempt(b.line_no, 1, False, tried, detail, ()), lines
 
 
+def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line):
+    """-> (other call words, return-group labels) for the ANCHOR.
+
+    The anchor of a tier-2 backtrack is a line like any other: it can sit in
+    groups of its own, and it can sit in a declared verbatim return. Neither
+    was ever asked — `_try_tier2` derived both of its searches from the
+    PIVOT's `Brief`, which is written about the pivot — so an anchor that is
+    itself a pivot was searched as though the shared group were its only
+    obligation (defect F).
+
+    THE GROUP CONTAINING THE PIVOT IS DROPPED, and it is the only one: that
+    group is what the backtrack is rewriting, and its call word is the pivot's
+    proposed word, which the caller supplies. Everything else the anchor is in
+    still holds after the rewrite and every word in it is a call the anchor's
+    new end word has to answer too.
+
+    ASKED OF THE MANDATE. `Mandate.partners`/`requirement` is the one object
+    that holds both the grouping and the requirement kind; deriving either
+    from the words would be a second statement of it (doctrine 1).
+    """
+    # THE SPEC MAY STILL BE A SPEC. `revise_loop` takes whatever mandate
+    # spelling its caller used and hands it down unresolved — `verify()`
+    # resolves its own — so this asks `Reviser.mandate` rather than assuming
+    # an object, which is the one place in this module that needs the built
+    # `Mandate` before `verify()` gets there.
+    if not hasattr(mandate, "partners"):
+        mandate = reviser.mandate(list(lines), mandate)
+    calls, rets = [], []
+    for k, mates in mandate.partners(anchor_line):
+        if pivot_line in mandate.groups[k]:
+            continue
+        if any(getattr(mandate.requirement(anchor_line, x), "name", "")
+               == "REQUIRE_RETURN" for x in mates):
+            rets.append(mandate.labels[k])
+            continue
+        for x in mates:
+            w = reviser.floor.qf._endword(lines[x - 1])
+            if w:
+                calls.append(w)
+    return calls, sorted(rets)
+
+
 def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose_pair, whole=()):
     two_member = [(lab, mem, calls) for lab, mem, calls in b.must_answer
@@ -800,6 +850,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     # about which group's turn it was.
     attempt = 0
     reasons = None
+    pinned = []
+    starved = []
     for label, members, calls in two_member:
         # `anchor_current`/`pivot_current` are the words ALREADY THERE, and
         # they are here to be EXCLUDED from the two searches: re-proposing
@@ -808,16 +860,75 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         # `PairBrief.pivot_word`/`.anchor_word` carry.
         anchor_line, anchor_current = calls[0]
         anchor_text = lines[anchor_line - 1]
+        # BOTH SEARCHES USED TO READ THE PIVOT'S GROUP LIST AND NOTHING ELSE
+        # — defect F of the rung-3 coverage experiment, and it made the pair
+        # this tier OFFERS one its own `verify()` REJECTS. MEASURED on that
+        # draft: the offered pair came back `new_flags [(5,
+        # 'SCHEME_VIOLATION'), (19, 'RETURN_NOT_VERBATIM')]`. An offer that
+        # is never put through the check that judges the answer cannot
+        # report its own impossibility (doctrine 48), so both halves are
+        # asked of the MANDATE here before either search runs.
+        #
+        # (a) A RETURN PINS THE PIVOT. If another of this pivot's groups is a
+        # declared verbatim return, the only legal end word is the one
+        # already there — which `exclude` removes — so every word the search
+        # could offer breaks the return. Refused with a reason rather than
+        # searched: the writer is owed "no legal answer exists", not 24 words
+        # each of which is illegal.
+        rets = set(getattr(b, "return_groups", ()) or ())
+        if label in rets:
+            # THE GROUP BEING BACKTRACKED IS ITSELF A RETURN. There is no
+            # backtrack here at all: the move is to change the anchor so the
+            # pivot can move, and both of those break a requirement that the
+            # two lines be THE SAME LINE.
+            pinned.append(
+                f"group {label} {list(members)} is itself a RETURN — the two "
+                f"lines must be identical, so neither end of it is a line "
+                f"this tier can move")
+            continue
+        pivot_ret = sorted(rets - {label})
+        if pivot_ret:
+            pinned.append(
+                f"group {label} {list(members)}: L{b.line_no} is PINNED by "
+                f"return group(s) {', '.join(pivot_ret)} — a verbatim return "
+                f"fixes the whole line, so no word this tier could offer it "
+                f"is legal")
+            continue
         other_calls = [w for lab2, _m2, cl2 in b.must_answer if lab2 != label
                        for _, w in cl2]
         if not other_calls:
             continue
+        # (b) THE ANCHOR HAS ITS OWN GROUPS, and `modal_field(w)` never asked
+        # about them: an anchor that is itself a pivot was searched as though
+        # the shared group were its only obligation. Asked of the mandate,
+        # not inferred from the pivot's brief, because the pivot's brief is
+        # written about the pivot.
+        a_other, anchor_ret = _anchor_obligations(
+            reviser, mandate, lines, anchor_line, b.line_no)
+        if anchor_ret:
+            pinned.append(
+                f"group {label} {list(members)}: L{anchor_line} is PINNED by "
+                f"return group(s) {', '.join(anchor_ret)} — the anchor "
+                f"cannot move either, so this group has no backtrack "
+                f"available")
+            continue
         pivot_current = raw_final_token(b.text) or ""
         p_offered, _p_forbidden = reviser.joint_field(
             other_calls, exclude=(pivot_current,))
-        for w in p_offered[:rdecl.backtrack_width]:
-            a_offered, _a_forbidden = reviser.modal_field(
-                w, exclude=(anchor_current,))
+        walked = p_offered[:rdecl.backtrack_width]
+        empty_anchor = 0
+        for w in walked:
+            a_offered, _a_forbidden = reviser.joint_field(
+                [w] + a_other, exclude=(anchor_current,))
+            if not a_offered:
+                # THE ANCHOR'S OWN CONJUNCTION CAME BACK EMPTY, which is a
+                # sentence only the folded field can form — `modal_field(w)`
+                # alone was never empty here and offered 24 illegal words
+                # instead. Counted, so the dead end below can say WHICH
+                # search failed rather than "none accepted" (doctrine 58: it
+                # is a fact about the mandate at a declared field depth).
+                empty_anchor += 1
+                continue
             for v in a_offered[:rdecl.backtrack_width]:
                 pair = propose_pair(PairBrief(
                     pivot_line_no=b.line_no, pivot_text=b.text,
@@ -826,7 +937,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     anchor_word=v, anchor_offered=tuple(a_offered),
                     label=label, members=tuple(members),
                     brief=b, lines=tuple(lines), attempt=attempt,
-                    reasons=reasons, whole=whole))
+                    reasons=reasons, whole=whole,
+                    anchor_calls=tuple(a_other)))
                 attempt += 1
                 if pair is None:
                     continue
@@ -848,8 +960,42 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                         + "; ".join(res["reasons"]),
                         (b.line_no, anchor_line)), after
                 reasons = tuple(res["reasons"])
-    detail = (f"tried {tried} anchor/pivot pair(s) across "
-             f"{len(two_member)} two-line group(s), none accepted")
+        if walked and empty_anchor == len(walked):
+            starved.append(
+                f"group {label} {list(members)}: every one of the "
+                f"{len(walked)} pivot word(s) walked left L{anchor_line} "
+                f"with an EMPTY field — nothing answers the new pivot word "
+                f"AND L{anchor_line}'s own group(s) at once")
+    # PINNED IS ITS OWN COUNT AND IS NEVER FOLDED INTO `tried` (doctrine 79):
+    # a group the loop REFUSED to search because no legal answer exists is
+    # not a group it searched and failed. Reporting them together would say
+    # the loop looked and came back empty, which is a claim about the
+    # lexicon rather than about the mandate.
+    if pinned and len(pinned) == len(two_member):
+        # EVERY group refused, so "none accepted" would be the wrong lead: no
+        # pair was ever put to a proposer, and the outcome is a fact about
+        # the MANDATE (doctrine 20 — a refusal is not a failed search).
+        detail = (f"NOT ATTEMPTED — all {len(two_member)} two-line group(s) "
+                  f"are pinned by a declared verbatim return, so this tier "
+                  f"has no legal move and the MANDATE is what needs "
+                  f"revising: " + "; ".join(pinned))
+    else:
+        detail = (f"tried {tried} anchor/pivot pair(s) across "
+                 f"{len(two_member) - len(pinned)} two-line group(s), none "
+                 f"accepted")
+        if pinned:
+            detail += (f"; a further {len(pinned)} group(s) NOT SEARCHED "
+                       f"because a declared verbatim return pins a line: "
+                       + "; ".join(pinned))
+    # STARVED IS A THIRD COUNT, and it is the one the anchor's own groups
+    # made sayable: before they were folded in, `modal_field(w)` came back
+    # full of words that all broke a group nobody had mentioned, so this
+    # dead end was reported as a proposer that could not find anything.
+    if starved:
+        detail += (f"; {len(starved)} group(s) reached an EMPTY ANCHOR "
+                   f"field — the conjunction is unsatisfiable at this "
+                   f"anchor, not a search that came back short: "
+                   + "; ".join(starved))
     if too_large:
         detail += (f"; {too_large} of {len(b.must_answer)} group(s) have "
                   f"3+ members and were NOT attempted — fixing those means "

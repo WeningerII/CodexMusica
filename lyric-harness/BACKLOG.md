@@ -792,6 +792,66 @@ control, which must pass on every tree.
 
 ---
 
+### 4.9 · Tier 2 offered a pair its own grader rejects `FOUND AND CLOSED 2026-08-17`
+
+Found by rung 3 of the coverage experiment, by COMPLETING a defer session
+rather than stopping at the first prompt — see
+`quality/COVERAGE_PREREGISTRATION.md` §R3.7, defect F. Not a reading: the pair
+the tier-2 prompt prints under *THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING*
+was run through `verify()` and came back
+
+    accepted  : False
+    new_flags : [(5, 'SCHEME_VIOLATION'), (19, 'RETURN_NOT_VERBATIM')]
+
+**One sentence, two consequences.** `_try_tier2` builds both searches out of
+the PIVOT's group list and nothing else:
+
+    other_calls = [w for lab2, _m2, cl2 in b.must_answer if lab2 != label
+                   for _, w in cl2]
+    p_offered, _ = reviser.joint_field(other_calls, exclude=(pivot_current,))
+    a_offered, _ = reviser.modal_field(w, exclude=(anchor_current,))
+
+**(a) The PIVOT field ignores the requirement KIND.** `other_calls` does not
+read `Brief.return_groups`, so a group whose requirement is `REQUIRE_RETURN`
+contributes its end word to a RHYME search. This is the SEARCH half of defect
+E, still open after the rendering half landed: the prompt now correctly says
+*"this line must BE L19"*, and the field beneath it still offers 24 words each
+of which breaks the return. The one legal answer — the word already there — is
+`exclude`d by construction, so the field cannot contain it.
+
+**(b) The ANCHOR field ignores the ANCHOR's own groups.** `a_offered` is
+`modal_field(w)` — derived from the pivot's candidate alone. An anchor that is
+itself a pivot is searched as though the shared group were its only
+obligation. MEASURED on rung 3's draft: `partners(3)` is `[(1, [5]), (12,
+[7])]`, all 24 anchor options are `-air`/`-are` words, and L5 ends on `awake`.
+The prompt does not tell the writer either — it renders **THE RHYME MANDATE ON
+THE PIVOT** and no block for the anchor.
+
+**Why this is doctrine 48 and not merely a weak search.** The offer was never
+put through the check that judges the answer, so "this pair cannot be
+accepted" was not a verdict the loop could reach. A blind writer took the
+correct move available to it — keeping the pivot byte-identical to preserve
+the return, moving the anchor to `chair` — and was rejected on (b), with
+nothing in the prompt that could have told it why.
+
+**CLOSED.** `_anchor_obligations` asks `Mandate.partners`/`requirement` for
+the anchor and drops only the group being backtracked; the anchor field is
+`joint_field([w] + a_other)`; a line pinned by a verbatim return is NOT
+SEARCHED, with the group named; and `PairBrief.anchor_calls` carries the
+anchor's obligations into the prompt under **AND THE ANCHOR HAS GROUPS OF ITS
+OWN**. THREE COUNTS, NEVER SUMMED (doctrine 79): `tried` (pairs put to a
+proposer), `pinned` (groups refused unsearched), `starved` (groups whose
+anchor conjunction came back empty) — the last unsayable before the fold,
+because `modal_field(w)` was never empty here.
+
+`quality/test_loop.py` §19 is 8 checks over three fixtures, one per half:
+`ANCHOR_IS_A_PIVOT` carries no returns at all, `ANCHOR_HAS_A_LIVE_GROUP` gives
+the anchor's conjunction a non-empty answer so a prompt is actually built, and
+the pin fixture puts the PIVOT in a return. Check 8 is the control that keeps
+the fix inert where the defect is not.
+
+---
+
 ## TIER 5 — whole absent layers (`MISSING` B, C, D, G, H)
 
 Not debt, not defects — **never built**. Listed so they are not mistaken for
