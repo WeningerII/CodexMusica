@@ -328,7 +328,17 @@ R2 · `HOOK_UNDECLARED` R2 · `TITLE_UNDECLARED` R2 ·
 | API-only coordinates | 2 in scope | 42 ruled out |
 | finding codes | 94 | 5 |
 
-Reachability of the 94: **R2 48** · **R2\* 4** · **NM 33** · **NC 9**.
+Reachability of the 94: **R2 48** · **R2\* 4** · ~~**NM 33** · **NC 9**~~
+**NM 34** · **NC 8** — REPINNED 2026-08-16, before rung 2 leans on the NM list.
+
+Parsing §A4's own table returns 48 / 4 / 34 / 8. `R2` and `R2*` reproduce
+EXACTLY, so **the reachable set is 52 either way and rung 1's entire score is
+unaffected** — the disagreement is a single code sitting on the NM/NC line.
+The TABLE is the authority and this line is a derived summary of it (doctrine
+91: a count is a coordinate of the rendering, so the rendering must not be the
+source of the count), so the summary is repinned rather than the table
+re-marked. Nothing about rung 1 moves; what moves is the list rung 2 is about
+to be measured against, which is why it is settled now rather than after.
 
 **Rung 1 therefore tests at most 52 of 94 codes.** An empty result means CLIMB,
 not sound — a couplet cannot reach returns, cross-section reprise, the collision
@@ -1139,6 +1149,123 @@ harness rot. It is that **nothing about writing a song exercises the surface**,
 which is the hypothesis this experiment was built to test, now measured rather
 than argued: a writer cannot be relied on to reach a check, so every check has
 to be reachable by a test that does not depend on one.
+
+## RUNG 2 — PRE-REGISTERED 2026-08-16, BEFORE ANY DRAFT EXISTS
+
+Everything below is written before a line is drafted, a blueprint declared or
+a writer spawned. That is the only property that makes the classification in
+§R2.3 worth anything: rung 1 earned the right to be believed here by having
+its own marks come back correct in both directions across 36 configurations,
+and the way to keep that is to be able to be wrong in public.
+
+### R2.1 The draft specification, fixed in advance
+
+**8 sung lines, 3 sections, and the chorus RETURNS.** That last clause is the
+whole reason rung 2 exists — a couplet cannot have a second instance of
+anything, so the entire return/reprise layer was unreachable at rung 1 by
+construction, not by accident.
+
+    CHORUS   2 lines   function="chorus"
+    VERSE    4 lines   function="verse"
+    CHORUS   2 lines   function="chorus"   -- VERBATIM return of lines 1-2
+
+Declared alongside it: a **hook** (a fragment, present in the chorus), a
+**title**, a per-section **meter**, `--subdivision 2`, and a mandate covering
+the verse's rhyme plus `--returns=` naming the chorus pair. A 2-line chorus is
+thin as songwriting and is chosen anyway: it is the SMALLEST shape in which
+"does this come back, and did it come back unchanged" is a question the
+harness can be asked at all, and rung 2's job is to make that question
+sayable, not to be a good song.
+
+**WHY NOT 12 LINES.** Every extra line costs a full `inspect()` in the loop
+and rung 1 measured 30s for 41 lines with a warm cache; 8 keeps a blind
+writer's session inside a handful of turns. If the classification below is
+wrong in the direction of "needs more", rung 3 is where that is paid.
+
+### R2.2 Bias controls — BLIND FROM LINE ONE
+
+Rung 1's first two sessions were unscoreable because I wrote them knowing
+every defect in the harness, and the coverage number only became honest on the
+third attempt with an outside writer. Rung 2 therefore fixes the protocol in
+advance:
+
+- every prompt goes to a writer with **no session history, no repository
+  access and no tools** — the rendered `pending.prompt` and nothing else;
+- **I never touch the draft**, at any point, including to "unstick" it;
+- if the writer stalls, that is a RESULT about the brief and is recorded as
+  one, not repaired by me stepping in;
+- repo access is withheld specifically because `CLAUDE.md` now documents
+  defects A–D and their fixes in full — a writer allowed to read the tree
+  would be handed the answer key.
+
+### R2.3 THE FALSIFIABLE CLAIM — which of the 34 `NM` codes rung 2 reaches
+
+Marked now, per code. **`R8` = reachable at this rung's declared shape · `R3`
+= still needs a fuller song.** The headline check afterwards is the same pair
+of cells rung 1 used: an `R8` code that stays SILENT after the declaration
+sweep is a mis-marking, and an `R3` code that FIRES is the model being wrong
+in the other direction.
+
+**Reachable at rung 2 (`R8`) — 19 predicted.** The return family, which a
+second chorus instance makes sayable for the first time: `RETURN_LOCKED`,
+`RETURNS_WITH_SAME_WORDS`, `RETURN_LENGTH_DRIFT`, `RETURN_METER_DRIFT`,
+`RETURN_SLOT_DRIFT`, `RETURN_SCHEME_DRIFT`, `STUB_RETURN`,
+`GROUPS_DECLARED_RETURN`, `SINGLE_USE_RECURRED`, `HOOK_CONFINED`,
+`HOOK_PLACEMENT_PARTLY_UNDECLARED`, `END_WORD_UNREADABLE`. The collision
+family, which needs enough cross pairs to have an unmandated one:
+`SCHEME_COLLISION`, `NEAR_COLLISION`, `REPEAT_ACROSS_GROUPS`,
+`COLLISION_CUT_IS_SCALAR_ONLY`. The overlap family, which needs a line in two
+groups: `MANDATE_EXCUSED_BY_OVERLAP`, `MANDATE_GROUPS_INDISTINGUISHABLE`. And
+`RADIF_LICENSED`, which needs a repetend closing two pairs.
+
+**Still needs rung 3 (`R3`) — 15 predicted.** The reprise family, because a
+reprise is a relation between two DIFFERENT declared functions and this shape
+declares only verse and chorus: `CROSS_FUNCTION_REPRISE`, `REPRISE_IS_NOT_
+LATER`, `REPRISE_SIDE_HAS_NO_WORDS`, `REPRISE_STUB`. The shape-lock family,
+because uniformity across sections cannot be measured with three:
+`QUATRAIN_LOCK`, `SECTION_LENGTH_LOCKED`, `DOWNBEAT_LOCKED`,
+`UNIFORM_ANACRUSIS`, `PHRASE_LENGTH_LOCKED`. `BRIDGE_IS_A_VERSE`, which needs
+a bridge. `PREDICTABLE_RHYME`, which needs ≥108 tokens. And the four
+comparator/refusal codes whose own table entry already scopes them to the
+`function` verb or to a channel this path does not measure: `NO_COMPARATOR`,
+`CHANNEL_NOT_MEASURED`, `NO_RHYME_KEY`, `PROMINENCE_UNDECIDED`.
+
+So **rung 2's denominator is 52 + 19 = 71 of 94**, and the 8 `NC` codes plus
+15 `R3` codes are declared unreachable in advance.
+
+### R2.4 Predicted refusals, written down so a surprise is legible
+
+The declared shape answers `function`, `hook` and `title`, so rung 1's four
+loudest refusals — `FUNCTION_UNDECLARED`, `HOOK_UNDECLARED`,
+`TITLE_UNDECLARED`, `SINGLE_INSTANCE` on the chorus — should all go quiet, and
+`SINGLE_INSTANCE` should survive on the VERSE alone. `NO_SETTING` stays: there
+is still no audio and no beat grid, and R5 is permanent. If
+`FUNCTION_UNDECLARED` fires anyway, the blueprint reader is not seeing a
+declaration this spec makes.
+
+### R2.5 Standing predictions about WHERE the defects will be
+
+Rung 1's six defects were ALL in the handoff between harness and writer —
+brief, prompt, verdict, report — and NONE in a checking layer. Those handoffs
+are now repaired, so the prediction for rung 2 is that its yield moves:
+
+1. **The return layer's own reports are the most likely site**, because
+   `compare_returns` has never once been driven by a writing session — every
+   test of it constructs its input directly.
+2. **A second prediction, riskier and therefore worth writing down:** the
+   VARIATION_KINDS ladder will name a kind that the loop can neither ask for
+   nor act on, the same shape `HOOK_ABSENT` had — a finding with no move.
+3. **And a null prediction:** the per-line re-brief landed hours ago and has
+   never run against a draft with a returning section. If defect B's fix has a
+   bug, a chorus whose two instances must stay identical is where it surfaces,
+   because fixing instance one changes what instance two must match.
+
+### R2.6 What would falsify the setup rather than the harness
+
+If the blind writer cannot converge at all, the honest reading is FIRST that
+the brief is insufficient at this shape — a rung-2 brief carries return and
+hook material a rung-1 brief never did — and only SECOND that the draft spec
+is too tight. Rung 1 has one precedent for each, so neither gets assumed.
 
 ## D. Judgement calls carried forward
 
