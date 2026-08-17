@@ -29,8 +29,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-from quality.meter_bands import (CalibrationRefused, lyric_lines,  # noqa: E402
-                                 measure_corpus, measure_line, nearest_rank,
+from quality.meter_bands import (AMENDMENT_MIN_KEPT_FRACTION,  # noqa: E402
+                                 Calibration, CalibrationRefused,
+                                 ExcludedLine, LineRecord, amendment,
+                                 lyric_lines, measure_corpus, measure_line,
+                                 nearest_rank, per_file_exclusion,
                                  percentile_table, proposed_bands)
 
 FAILURES = []
@@ -189,10 +192,78 @@ def test_proposal_is_derived():
           set(t) == {1, 5, 25, 50, 75, 95, 99})
 
 
+def _cal(records, excluded):
+    """A hand-built Calibration — the amendment is aggregation over the
+    sweep's records, so its logic is testable without a corpus or a
+    lexicon."""
+    c = Calibration(files=len({r.path for r in records}
+                              | {e.path for e in excluded}),
+                    raw_lines=0, lyric_lines=len(records) + len(excluded))
+    c.records = list(records)
+    c.excluded = list(excluded)
+    return c
+
+
+def test_the_amendment():
+    print("\n7. the amendment — the registered subset test "
+          "(METER_BANDS_PREREGISTRATION_AMENDMENT.md)")
+    # File A: 10 lines, all read. File B: 10 lines, 6 excluded — 60% is
+    # over the declared 15%, so B is HIGH and A is LOW.
+    a_recs = [LineRecord("A", i, 8, 4) for i in range(1, 11)]
+    b_recs = [LineRecord("B", i, 8, 4) for i in range(1, 5)]
+    b_excl = [ExcludedLine("B", i, ("OUT_OF_LEXICON",))
+              for i in range(5, 11)]
+    rates = per_file_exclusion(_cal(a_recs + b_recs, b_excl))
+    check("per-file rates are the file's OWN conservation — A 0/10, B 6/10",
+          rates["A"] == (10, 0, 0.0) and rates["B"] == (10, 6, 0.6), rates)
+
+    res = amendment(_cal(a_recs + b_recs, b_excl))
+    check("the split lands as declared — A LOW, B HIGH",
+          res["low_files"] == 1 and res["high_files"] == 1)
+    check("the floor is measured against MEASURED lines — LOW keeps 10/14",
+          res["floor_met"] and abs(res["kept_fraction"] - 10 / 14) < 1e-9,
+          f"{res['kept_fraction']:.3f}")
+    check("identical distributions agree at every registered point and the "
+          "verdict is ADOPTED",
+          res["adopted"] and all(d == 0 for q in res["deltas"].values()
+                                 for d in q.values()), res["verdict"][:60])
+
+    # B's CERTAIN lines are longer (10 syllables) and numerous enough to
+    # drag the pool's p50 exactly TWO away from the LOW subset's — the
+    # smallest warp past the registered ±1, chosen so that a tolerance
+    # quietly widened to ±5 would wrongly ADOPT and go red here (mutation
+    # M4's first draft used a delta of 6, which even the widened mutant
+    # refused — a check that cannot fail is decoration, doctrine 48).
+    b_long = [LineRecord("B", i, 10, 5) for i in range(1, 12)]
+    b_excl2 = [ExcludedLine("B", i, ("OUT_OF_LEXICON",))
+               for i in range(12, 15)]
+    res = amendment(_cal(a_recs + b_long, b_excl2))
+    check("a warped pool is caught — deltas exceed ±1 and the verdict is "
+          "NOT ADOPTED (the licence is the agreement, not the wish)",
+          not res["adopted"]
+          and any(abs(d) > 1 for q in res["deltas"].values()
+                  for d in q.values()),
+          res["deltas"])
+
+    # LOW keeps 3 of 13 measured — under the 40% floor: REFUSED, and no
+    # envelope is even computed from the thin subset.
+    a_thin = [LineRecord("A", i, 8, 4) for i in range(1, 4)]
+    b_many = [LineRecord("B", i, 8, 4) for i in range(1, 11)]
+    b_excl3 = [ExcludedLine("B", i, ("OUT_OF_LEXICON",))
+               for i in range(11, 15)]
+    res = amendment(_cal(a_thin + b_many, b_excl3))
+    check("a too-thin subset is REFUSED, not licensed from — "
+          f"{AMENDMENT_MIN_KEPT_FRACTION:.0%} floor",
+          not res["floor_met"] and not res["adopted"]
+          and "REFUSED" in res["verdict"] and "deltas" not in res,
+          res["verdict"][:70])
+
+
 if __name__ == "__main__":
     for fn in (test_nearest_rank, test_lyric_filter,
                test_exclusion_not_imputation, test_determinism,
-               test_real_file, test_proposal_is_derived):
+               test_real_file, test_proposal_is_derived,
+               test_the_amendment):
         fn()
     print("=" * 62)
     if FAILURES:

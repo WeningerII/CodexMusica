@@ -226,6 +226,111 @@ def sensitivity(cal, points=PERCENTILE_POINTS):
     }
 
 
+#: Amendment coordinates (METER_BANDS_PREREGISTRATION_AMENDMENT.md): a LOW
+#: file's exclusion rate is at most this; the subset test is refused as too
+#: thin unless LOW files keep at least this fraction of the measured lines.
+AMENDMENT_MAX_FILE_EXCLUSION = 0.15
+AMENDMENT_MIN_KEPT_FRACTION = 0.40
+AMENDMENT_POINTS = (5, 50, 95)
+AMENDMENT_TOLERANCE = 1
+
+
+def per_file_exclusion(cal):
+    """-> {path: (lyric, excluded, rate)} for every file in the sweep."""
+    lyric = Counter(r.path for r in cal.records)
+    for e in cal.excluded:
+        lyric[e.path] += 0  # a file can be all-excluded; make the key exist
+    exc = Counter(e.path for e in cal.excluded)
+    out = {}
+    for path in set(lyric) | set(exc):
+        n = lyric.get(path, 0) + exc.get(path, 0)
+        out[path] = (n, exc.get(path, 0), exc.get(path, 0) / n if n else 0.0)
+    return out
+
+
+def amendment(cal):
+    """The registered subset test, run on the sweep's own records — the
+    measurement does not move, only the aggregation.
+
+    -> dict with the split, both envelopes at the registered points, the
+    per-point deltas, and the VERDICT the adoption rule dictates. The
+    meaningfulness floor refuses a too-thin subset rather than licensing
+    from it (a licence issued by 12% of the data is not a licence)."""
+    rates = per_file_exclusion(cal)
+    low = {p for p, (_, _, r) in rates.items()
+           if r <= AMENDMENT_MAX_FILE_EXCLUSION}
+    keep = [r for r in cal.records if r.path in low]
+    kept_fraction = len(keep) / len(cal.records) if cal.records else 0.0
+    result = {
+        "low_files": len(low), "high_files": len(rates) - len(low),
+        "kept": len(keep), "kept_fraction": kept_fraction,
+        "floor_met": kept_fraction >= AMENDMENT_MIN_KEPT_FRACTION,
+        "rates": rates,
+    }
+    if not result["floor_met"]:
+        result["verdict"] = ("REFUSED — LOW files keep "
+                             f"{kept_fraction:.1%} of measured lines, under "
+                             f"the {AMENDMENT_MIN_KEPT_FRACTION:.0%} floor; "
+                             "too thin to license anything")
+        result["adopted"] = False
+        return result
+    deltas, envelopes = {}, {}
+    for name, get in (("syllables", lambda r: r.syllables),
+                      ("prominent", lambda r: r.prominent)):
+        pool = percentile_table([get(r) for r in cal.records],
+                                AMENDMENT_POINTS)
+        sub = percentile_table([get(r) for r in keep], AMENDMENT_POINTS)
+        envelopes[name] = {"pool": pool, "subset": sub}
+        deltas[name] = {p: sub[p] - pool[p] for p in AMENDMENT_POINTS}
+    result["envelopes"] = envelopes
+    result["deltas"] = deltas
+    agreed = all(abs(d) <= AMENDMENT_TOLERANCE
+                 for q in deltas.values() for d in q.values())
+    result["adopted"] = agreed
+    result["verdict"] = (
+        "ADOPTED — the subset agrees within ±1 at every registered point, "
+        "so the FULL-pool bands carry their robustness licence"
+        if agreed else
+        "NOT ADOPTED — the subset disagrees beyond ±1 at a registered "
+        "point; the certain-line envelope is warped by what drops out")
+    return result
+
+
+def report_amendment(cal):
+    """Print the amendment analysis — everything its RESULTS page quotes."""
+    a = amendment(cal)
+    print("AMENDMENT — is the certain-line envelope stable? "
+          "(METER_BANDS_PREREGISTRATION_AMENDMENT.md)")
+    print(f"  split at file exclusion <= {AMENDMENT_MAX_FILE_EXCLUSION:.0%}: "
+          f"{a['low_files']} LOW file(s), {a['high_files']} HIGH")
+    print(f"  LOW keeps {a['kept']} of {len(cal.records)} measured lines "
+          f"({a['kept_fraction']:.1%}); floor "
+          f"{AMENDMENT_MIN_KEPT_FRACTION:.0%} "
+          f"{'MET' if a['floor_met'] else 'NOT MET'}")
+    worst = sorted(a["rates"].items(), key=lambda kv: -kv[1][2])[:5]
+    print("  highest per-file exclusion:")
+    for path, (n, e, r) in worst:
+        print(f"    {r:>7.2%}  {e:>6}/{n:<6}  {path}")
+    named = ["corpus/song/eng_hall_thomas_durfey.txt",
+             "corpus/song/eng_celtic_robert_burns.txt",
+             "corpus/song/eng_hymn_watts.txt"]
+    for path in named:
+        if path in a["rates"]:
+            n, e, r = a["rates"][path]
+            side = "HIGH" if r > AMENDMENT_MAX_FILE_EXCLUSION else "LOW"
+            print(f"  A1 names {path}: {r:.2%} -> {side}")
+    if "deltas" in a:
+        print(f"  registered points p{AMENDMENT_POINTS}: pool vs LOW subset")
+        for name in ("syllables", "prominent"):
+            env, d = a["envelopes"][name], a["deltas"][name]
+            row = ", ".join(
+                f"p{p} {env['pool'][p]}->{env['subset'][p]} ({d[p]:+d})"
+                for p in AMENDMENT_POINTS)
+            print(f"    {name:>10}: {row}")
+    print(f"  VERDICT: {a['verdict']}")
+    return a
+
+
 def report(cal):
     """Print the whole result — everything RESULTS_METER_BANDS.md quotes."""
     print("METER BANDS CALIBRATION — corpus/song/eng_*.txt")
@@ -266,4 +371,8 @@ if __name__ == "__main__":
     import sys
     sys.path.insert(0, ROOT)
     sys.path.insert(0, os.path.dirname(ROOT))
-    report(measure_corpus())
+    cal = measure_corpus()
+    report(cal)
+    if "--amendment" in sys.argv[1:]:
+        print()
+        report_amendment(cal)
