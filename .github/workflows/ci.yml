@@ -146,6 +146,54 @@ jobs:
   # Only put a check here if it is fast AND its failure invalidates the slow jobs.
   # Anything needing Chromium, a fresh build, or minutes of CPU belongs below.
   gate:
+    # ONE RUN PER COMMIT, and this line is the whole of it.
+    #
+    # `push:` above has no branch filter (deliberately — see its own note), and
+    # `pull_request:` fires on the same commit whenever that branch has an open
+    # PR. So every push to a PR branch started TWO runs, the concurrency group
+    # below matched them to each other, and `cancel-in-progress` killed
+    # whichever lost the race. The surviving run was green and the dead one left
+    # seven `cancelled` check runs attached to the head SHA — which GitHub's PR
+    # page counts under "N failing checks". MEASURED on ca7177f: run
+    # 32049875360 all-green, run 32049871881 cancelled at 3s, PR reading
+    # "7 cancelled, 5 skipped, 6 successful" and displaying SEVEN FAILING
+    # CHECKS on a branch whose CI had passed. A report that says a green run is
+    # red is worse than no report (doctrine 20), and it cost two people two
+    # separate looks at this page before anybody read the conclusions.
+    #
+    # THE PUSH RUN IS THE ONE THAT SURVIVES, because it is the one with no
+    # coverage hole: it fires on every branch whether or not a PR exists, which
+    # is the property the `push:` note above spends thirty lines defending. The
+    # `pull_request:` trigger is kept for the case the push trigger genuinely
+    # cannot see — a PR FROM A FORK, whose commits are never pushed to this
+    # repo at all — and that is exactly what this condition tests. Same-repo
+    # PRs skip; forks run; schedule and workflow_dispatch are untouched.
+    #
+    # ON `gate` AND NOT ON NINE JOBS: every other job reaches back to this one
+    # through `needs:` (verify, freshness, catalog, record, suites directly;
+    # catalog-result through catalog), and `tandem`/`nightly` already pin
+    # themselves to schedule/dispatch. Skipping the root skips the tree, so the
+    # rule lives in one place and cannot drift job by job.
+    #
+    # `catalog-result` IS THE ONE JOB THAT STILL RUNS on a skipped same-repo PR
+    # event, and it is LEFT ALONE ON PURPOSE. Its `if: ${{ !cancelled() }}` is
+    # true when its dependency SKIPPED, so it fires, takes the `skipped)` arm
+    # and reports success — one green check on the PR event instead of seven
+    # cancelled ones. Adding this condition there too would skip it, and that
+    # guard carries forty lines arguing why it must not be unwound on the
+    # strength of a corrected premise (read them before touching it). It is
+    # also the useful outcome: the `pull_request` event still produces a check
+    # run, so any branch protection expecting one on PRs keeps getting it.
+    #
+    # THIS DOES NOT REPLACE THAT GUARD. `!cancelled()` answers "do not
+    # aggregate a run being torn down", which stays true whoever tears it down
+    # — the NEXT PUSH cancels a run just as readily as a twin, and 4 of the 6
+    # push-only shas in its own note died that way. This line only stops the
+    # twin from being created; cancellation by a later push is untouched and
+    # still needs the guard.
+    if: >-
+      github.event_name != 'pull_request'
+      || github.event.pull_request.head.repo.full_name != github.repository
     runs-on: ubuntu-latest
     outputs:
       # Whether this diff can possibly change api/ or codex.html. Consumed by the
