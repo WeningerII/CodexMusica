@@ -152,6 +152,9 @@ def test_determinism():
     check("the same corpus measures identically twice",
           a.records == b.records and a.excluded == b.excluded
           and a.lyric_lines == b.lyric_lines)
+    check("...and the sweep RECORDS which declared reader produced it, so "
+          "the REPRODUCE line can never name a different run's command",
+          a.reader_mode == "default", a.reader_mode)
 
 
 def test_real_file():

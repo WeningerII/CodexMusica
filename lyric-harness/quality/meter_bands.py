@@ -82,10 +82,16 @@ class ExcludedLine:
 
 @dataclass
 class Calibration:
-    """The whole sweep: what was read, what was measured, what was refused."""
+    """The whole sweep: what was read, what was measured, what was refused.
+
+    `reader_mode` records WHICH declared reader produced these numbers, so
+    the REPRODUCE line can never name a command that reproduces a different
+    run — the defect the first fallback sweep printed before this field
+    existed."""
     files: int = 0
     raw_lines: int = 0
     lyric_lines: int = 0
+    reader_mode: str = "default"
     records: list = field(default_factory=list)
     excluded: list = field(default_factory=list)
 
@@ -177,7 +183,7 @@ def measure_corpus(root=None, corpus_glob=None, reader_mode="default"):
             f"no corpus files match {corpus_glob or CORPUS_GLOB!r} under "
             f"{root or ROOT!r} — an empty population has no percentiles")
     phon = reader(reader_mode)
-    cal = Calibration(files=len(paths))
+    cal = Calibration(files=len(paths), reader_mode=reader_mode)
     for p in paths:
         with open(p, encoding="utf-8") as fh:
             cal.raw_lines += sum(1 for _ in fh)
@@ -481,8 +487,10 @@ def report(cal):
           f"{bands['DENSITY'][1]}] syllables/line")
     print(f"    PROMINENCE band [{bands['PROMINENCE'][0]}, "
           f"{bands['PROMINENCE'][1]}] prominent/line")
-    print("  REPRODUCE: python3 quality/meter_bands.py   (from the harness "
-          "root)")
+    flag = ("" if cal.reader_mode == "default"
+            else f" --reader={cal.reader_mode}")
+    print(f"  REPRODUCE: python3 quality/meter_bands.py{flag}   (from the "
+          f"harness root)")
 
 
 if __name__ == "__main__":
