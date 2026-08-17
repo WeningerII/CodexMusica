@@ -1420,6 +1420,108 @@ does not test the thing rung 1 found defects in** — which is the real lesson
 for rung 3's spec, and it is a lesson about the EXPERIMENT rather than about
 the harness.
 
+## RUNG 3 — PRE-REGISTERED 2026-08-16, BEFORE ANY DRAFT EXISTS
+
+### R3.1 The draft specification, and the ONE change rung 2 earned
+
+**A full song: 7 sections, 26 lines, ≥ 108 tokens.**
+
+    INTRO      2 lines   function="intro"
+    VERSE 1    4 lines   function="verse"
+    CHORUS 1   4 lines   function="chorus"
+    VERSE 2    4 lines   function="verse"
+    BRIDGE     4 lines   function="bridge"
+    CHORUS 2   4 lines   function="chorus"    -- returns
+    OUTRO      4 lines   function="outro"     -- reprises the INTRO
+
+Seven sections give the shape-lock family something to measure uniformity
+across; an intro/outro pair is what makes a CROSS-FUNCTION REPRISE sayable at
+all; a bridge is what `BRIDGE_IS_A_VERSE` needs; and ≥108 tokens is
+`PREDICTABLE_RHYME`'s own stated floor.
+
+**THE SEED IS SPECIFIED TO FAIL, and this is the change.** Rung 2's writer was
+given the complete form and produced a draft that satisfied every declared
+group first time, so `revise` returned SUCCESS in 0 rounds and **the loop ran
+zero times**. Rung 1's six defects were all in the handoff between harness and
+writer; rung 2 found none, and the most likely reason is that its writer never
+had to receive a brief, act on it and be graded. A rung that does not make the
+writer work does not test the thing rung 1 found defects in.
+
+**HOW THE FAILURE IS GUARANTEED WITHOUT ME TOUCHING A WORD.** The writer is
+told the SHAPE and the WITHIN-SECTION rhyme scheme. The harness then grades
+against a declaration that is STRICTER than what the writer was shown — a
+cross-section mandate tying chorus line 1 to verse line 1, plus `--returns=`
+on the chorus and `--subdivision 2` against a bar grid the writer is not given
+a syllable budget for. Declarations are mine; words are the writer's; the gap
+between what a writer was told and what a producer's chart actually demands is
+the ordinary condition of songwriting, not an artificial cruelty. Rung 1 set
+the precedent by specifying a seed that failed its own mandate.
+
+### R3.2 Bias controls — unchanged from rung 2, plus one addition
+
+Blind from line one: no session history, no repository access, no tools, the
+rendered prompt and nothing else, and I never touch the draft including to
+unstick it. **NEW: the writer is not told the stricter declaration**, and that
+withholding is recorded here in advance so it cannot be mistaken later for an
+oversight. If the writer stalls under it, that is a RESULT about the brief.
+
+### R3.3 THE FALSIFIABLE CLAIM
+
+Rung 2 established that reachability is MONOTONE IN LENGTH, so all 71 of rung
+2's denominator carry forward untested. The claim is about the 15 codes marked
+`R3` — **minus the two rung 2 already falsified** (`DOWNBEAT_LOCKED`,
+`PHRASE_LENGTH_LOCKED`, which fired at eight lines and are hereby repinned
+`R8`), leaving 13:
+
+**Reached at rung 3 (10 predicted):** `CROSS_FUNCTION_REPRISE`,
+`REPRISE_IS_NOT_LATER`, `REPRISE_SIDE_HAS_NO_WORDS` (a declared instrumental
+section), `QUATRAIN_LOCK`, `SECTION_LENGTH_LOCKED`, `UNIFORM_ANACRUSIS`,
+`BRIDGE_IS_A_VERSE`, `PREDICTABLE_RHYME`, `NO_COMPARATOR`,
+`PROMINENCE_UNDECIDED`.
+
+**NOT reached, and the reason is the SURFACE rather than the length (3):**
+`CHANNEL_NOT_MEASURED` and `NO_RHYME_KEY` are scoped by their own table entry
+to the `function` verb, which is not on the writing path at any rung;
+`REPRISE_STUB` needs an abbreviated pointer in the WORDS, the same
+words-bound limit rung 2 hit.
+
+**CARRIED FORWARD UNRESOLVED — rung 2's four words-bound codes.**
+`NEAR_COLLISION`, `COLLISION_CUT_IS_SCALAR_ONLY`, `STUB_RETURN` and
+`RADIF_LICENSED` need the draft to CONTAIN something. A 26-line song is far
+likelier than an 8-line one to hold a near-relation pair, so the first two are
+predicted to fire **without any declaration aimed at them** — and if they do
+not, that is the second measurement of the same limit rather than a defect.
+
+Rung 3's denominator is therefore **71 + 10 = 81 of 94**.
+
+### R3.4 Predicted refusals
+
+Seven declared functions should silence `FUNCTION_UNDECLARED` entirely, which
+has fired on every rung so far. `SINGLE_INSTANCE` should survive on intro,
+bridge and outro and vanish on verse and chorus. `NO_SETTING` stays: there is
+still no audio.
+
+### R3.5 Standing predictions
+
+1. **The handoff is where the defects will be, if there are any** — that is
+   rung 1's pattern and rung 2 did not test it. The specific site to watch is
+   the brief for a line inside a RETURNING section: fixing chorus 1 line 1
+   must not silently desynchronise chorus 2.
+2. **The reprise layer's refusals are the least-driven code in the repo** and
+   have never been produced by anything but a constructed test.
+3. **A null prediction, stated so it can fail:** the shape-lock family will
+   fire on MY declared grid rather than on the writer's words, exactly as
+   `DOWNBEAT_LOCKED` did at rung 2. If so, the family is measuring the
+   blueprint author and not the songwriter, and that is worth saying plainly
+   rather than counting as coverage.
+
+### R3.6 What would falsify the setup rather than the harness
+
+If the writer cannot converge under the withheld declaration, the first
+reading is that the brief does not carry enough to repair a cross-section
+mandate — a real finding about the brief. Only if the brief demonstrably
+carries it does the spec become the suspect.
+
 ## D. Judgement calls carried forward
 
 The derivation flagged its own uncertainty; carried here unresolved rather than
