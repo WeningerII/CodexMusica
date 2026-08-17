@@ -9,6 +9,29 @@ Declaration-driven rhyme, meter, and song-structure engine. The model
 proposes; these tools grade. Target: MCP server beside Codex Musica —
 Codex Musica describes the recording, this disciplines the words.
 
+## TWO STANDING RULES FROM THE OWNER — read before proposing any architecture
+
+Recorded 2026-08-17, verbatim intent, after both were violated in one session.
+These outrank any inference a session draws from the code.
+
+1. **THE RECIPE ENGINE AND THE LYRICS DO NOT TOUCH. EVER.** "Beside" above
+   means beside: two separate instruments for two separate questions. No
+   bridge, no import, no pipeline from `start_recipe`/`render_recipe` into
+   this tree, no blueprint or mandate derived from a recipe. A session that
+   proposes connecting them is repeating a mistake the owner has had to
+   correct multiple times.
+
+2. **THIS PROJECT IS A SONGWRITER, NOT A GRADER.** The checking machinery is
+   the enforcement half of a system whose intended order is
+   **PLAN → WRITE → REVISE**: a first phase in which the PROGRAM works out how
+   to put the song together — the structure, the blueprint, the mandate — then
+   writing against that plan, then the revise/verify loop enforcing it. The
+   planning phase DOES NOT EXIST YET: as of this note, nothing in this tree
+   generates a blueprint or a mandate, and every run to date had the operator
+   hand-writing both. That is the hole, not the design. Do not describe this
+   project as a grader, and do not present operator-authored plans as the
+   system working as intended.
+
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One
 doctrine numbered 1–95 spans the two files and the index at the bottom of this
