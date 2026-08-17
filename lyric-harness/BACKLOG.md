@@ -290,10 +290,45 @@ re-derived rather than recorded. Full account in `MISSING.md` M-6 and
 `python3 quality/verify_entries.py`, shapes `SYMBOL_ABSENT` and
 `STAGED_FILE_COUNT`.
 
-### 2.8 · Five relations.py defects left OPEN by triage
-`Span.unit` (needs the granularity ladder), `SpanRule.terminator` (duplicates
+### 2.8 · ~~Five relations.py defects left OPEN by triage~~ `ALL FIVE CLOSED 2026-08-11 — THIS SUMMARY WAS STALE, REPINNED 2026-08-17`
+~~`Span.unit` (needs the granularity ladder), `SpanRule.terminator` (duplicates
 `magnitude`), chorus-stub line status, homograph knowledge sets, text-order
-convention. All asserted as OPEN in the suite so closing one fails a test.
+convention. All asserted as OPEN in the suite so closing one fails a test.~~
+
+**THE WORK WAS DONE AND THIS LINE DID NOT FOLLOW IT.** Every one of the five
+reached one of the three honest ends on 2026-08-11, and
+`quality/test_relations.py::test_known_open_defects` asserts each closure — so
+RE-OPENING one is now the test failure, exactly as closing one used to be.
+Verified green 2026-08-17, 0 failures. What the five actually became:
+
+- **`SpanRule.terminator` — DELETED.** Measured a strict function of
+  `magnitude` across all 154 member rules, so it carried zero information;
+  wiring it would have invented a semantics no schema asks for.
+- **`Span.unit` — KEPT AND DECLARED INERT**, with the blocker named as
+  `disjoint` rather than `build`: every piece exists (three phonologies
+  declare `grid_unit='mora'`, all nine return Syllables, the consumer is in
+  `rhyme_constraints.read_channel`) and no two are in one object.
+  `check_inert()` re-derives it and fails in BOTH directions.
+- **text-order — WIRED, and the earlier DECLINE was FALSE.** It had been
+  recorded as "a naming decision, not a defect, for no measurable gain".
+  Measured: 114 instances recovered across 17 asymmetric schemas, 72 of them
+  TRUE, and ZERO on any of the 60 symmetric ones. `mosaic rhyme` alone
+  recovered 69 true instances that existed only because the positional skip
+  was removed — a schema's recall was a function of which member the text
+  printed first.
+- **chorus-stub line status — CLOSED as a declared coordinate.**
+  `Stream.line_status` holds it; `relations.py` ships no detector and does not
+  import `lyric_harness`, so the tokeniser is unchanged.
+- **homograph knowledge sets — CLOSED both halves.** A channel may hold a
+  `Readings` and an unresolved homograph reads UNDECIDED end to end, with an
+  uncertain read acting as a WILDCARD in the candidate index so the pair
+  survives to be refused rather than being deleted from the sample.
+
+**The lesson is the entry, not the code.** A summary line that outlived its
+subject by six days is the same defect as the coverage denominator that did
+not follow its own repin (doctrine 91) — a rendering used as the source of
+truth. Anyone reading this file for what is open was being told five things
+were broken that the suite would fail if anyone re-broke.
 
 ---
 
@@ -352,7 +387,7 @@ column is a path and `python3 quality/verify_entries.py` now checks it.
 
 ## TIER 4 — instrument honesty
 
-### 4.1 · The time layer's α is not controlled `L-1` — CAUSE FOUND, STILL OPEN
+### 4.1 · The time layer's α is not controlled `L-1` — CAUSE FOUND, LEVERS MEASURED 2026-08-11, TASK DISCHARGED — `L-1 STAYS OPEN`
 ~~"5.4% against 5.0%" is n=6; at n=20 it is 9.6%.~~ The guarding test runs three
 sonnets and asserts only `mean < 0.20`, which cannot detect a 2× miss.
 
@@ -365,10 +400,50 @@ constant replaced by the quantity it stood in for — saturation by `1−(1−r)
 from the measured per-pair FPR, the α tolerance by `α + 2 s.e.` over 1,321 slot
 decisions (n=20, 6.2%, which CAN detect the 2× miss), the band-pass guard by 2×
 the measured max over 30 real sonnets.
-**Still open, and the open part moved:** at the honest family the layer cannot
+~~**Still open, and the open part moved:** at the honest family the layer cannot
 produce an event at all — at `null_samples=2000` the Šidák cut (2.5e-4) sits
 BELOW the p-value floor (5e-4). **Owed: `null_samples` and `window`, measured
-against the candidate family.** Not a corpus, and not a fourth instrument.
+against the candidate family.** Not a corpus, and not a fourth instrument.~~
+
+**THE OWED MEASUREMENT WAS MADE ON 2026-08-11 AND THIS LINE DID NOT FOLLOW IT
+— REPINNED 2026-08-17.** `quality/time_attainable.py` is the runner and
+`quality/RESULTS_FWER.md` §"THE LEVERS, MEASURED — and the layer cannot speak"
+is the write-up. **Both named levers are dead, and the arithmetic is the same
+in both cases.** Verified green today: `quality/test_fwer.py`, all regressions
+pass.
+
+**And the diagnosis in the struck sentence was wrong in an instructive way.**
+`min_p` is not sitting on a resolution floor — it is reporting a RATE.
+`_pvalue` returns `(ge + 1)/(n_valid + 1)`, and for the best pair in a real
+sonnet every one of the 40-83 draws at or above it is an exact TIE at 1.000
+with ZERO strictly above: the comparator saturates at a perfect rhyme, so
+`min_p` converges on the density of perfect chance re-pairings. **Raising
+`null_samples` estimates that rate MORE PRECISELY rather than lowering it, and
+it estimates it UPWARD** — 3.998e-3 at 2,000 draws, 4.200e-3 at 20,000,
+4.415e-3 at 200,000. A 100x more expensive null makes the gap WORSE. Doctrine
+57 warned about an empirical p sitting AT `1/(n+1)`; this is the complementary
+trap, a p sitting far above it and reporting a rate.
+
+**The real gap is a factor of ~10, not 1.4.** `M_NEEDED = ln(1-alpha) /
+ln(1-min_p)` is 18-28 across the corpus against a median family of 198-217 at
+the registered window. The 1.4x in the earlier record compared `min_p` against
+the LOOSEST cut in the item — the cut at the smallest family, at a position
+where the best pair almost never sits.
+
+**So the honest state is that the layer is MUTE at an honest family size, and
+that is a finding rather than a defect** (doctrine 20 — "cannot tell" is an
+answer). Not owed: a second corpus, a fourth instrument, more `null_samples`,
+a narrower window, a shorter `max_span`, or more text. All six were measured
+and none is a route.
+
+**THE BACKLOG TASK IS DISCHARGED AND `MISSING.md` L-1 STAYS OPEN, which is not
+a contradiction.** This entry owed a MEASUREMENT and the measurement is made.
+L-1 records a missing CAPABILITY — a false-event rate controlled at α — and
+the capability is still missing; what changed is that its absence is now
+arithmetic rather than an unexamined hope. Marking this entry `CLOSED` while
+L-1 read `OPEN` was caught by `quality/verify_entries.py`'s STATUS_XREF check
+on the first run after the edit, which is the check doing exactly its job: a
+task one can finish is not the same object as a gap one cannot.
 
 ### 4.2 · Real sonnets do not separate from scrambled text on event rate `L-2` — MECHANISM FOUND
 ~~10.9% observed vs 9.6% word-scramble, p=0.095.~~ Until that separates, a null
