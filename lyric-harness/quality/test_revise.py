@@ -3488,6 +3488,100 @@ def test_a_return_is_not_rendered_as_a_rhyme():
           [l.strip() for l in p4.splitlines() if "group B" in l])
 
 
+#: BACKLOG 1.2's own example, rebuilt as two lines. `best_score` takes a max
+#: over k span pairs; here the winner on the right is the LAST SYLLABLE of
+#: `receipt`, so a report naming `'go' ~ 'receipt'` names a pair that had
+#: nothing to do with the number.
+GO_RECEIPT = ["i never got the chance to let it go",
+              "she signed her name across the bottom of receipt"]
+#: The control: both winners are whole end words, so the ordinary sentence is
+#: TRUE and the extra one would be noise.
+EXACT_PAIR = ["the kitchen light is burning at half past four",
+              "and nobody came back to climb the stairs"]
+
+
+def test_a_report_says_when_the_named_pair_is_not_the_evidence():
+    """BACKLOG 1.2, the WRITER-FACING half. `check_scheme` closed it; the
+    findings that reach a writer did not.
+
+    `best_score` picks ONE span pair out of k and has carried an
+    `Attribution` naming the winner since adversary 7. `lyric_harness.
+    check_scheme` prints it through `spans_note`. `inspect()`'s findings —
+    the ones `brief()` and `quality/propose.py` hand to whoever is rewriting
+    the line — printed the two END WORDS, the number, and nothing else. Two
+    words and a number on one line is an ASSERTION (doctrine 45), and it was
+    being made without ever being checked.
+
+    THE GATE IS THE DESIGN, not a detail. MEASURED on rung 3's 26-line draft:
+    325 of 325 pairs carry a provenance note and 208 of them name something
+    other than the two end words, so printing it always would bury the cases
+    that matter under two hundred that say `scored on: humming ~ coming`.
+    `Attribution.claims` is the assertion evaluated, and the note is printed
+    exactly when it comes back False.
+
+    CHECK 5 IS THE ONE THAT KEEPS THIS A REPORT CHANGE: no verdict moves.
+    """
+    print("\n44. a report says when the pair it NAMES is not the pair that "
+          "was scored")
+    import lyric_harness as _LH
+
+    R2 = Reviser()
+    a, e, _rec, mat = R2._matrix(GO_RECEIPT)
+    s = mat[0][1]
+    check("the harness already knows: `best_score` carries an `Attribution` "
+          "whose winning span is NOT the end word on the right",
+          s.spans.claims(e[0], e[1]) is False and s.spans.differs,
+          f"named {e[0]!r} ~ {e[1]!r}; scored on "
+          f"{_LH.span_label(s.spans['a'])} ~ {_LH.span_label(s.spans['b'])}")
+
+    ev = [f.evidence for b in R2.brief(GO_RECEIPT, [[1, 2]])
+          for f in b.findings if f.code == "SCHEME_VIOLATION"]
+    check("...and the finding a WRITER is handed now says so, in the same "
+          "string that makes the claim",
+          ev and "NAMED PAIR IS NOT THE EVIDENCE" in ev[0]
+          and "last 1 of 2 syllables of 'receipt'" in ev[0],
+          ev[0] if ev else "no SCHEME_VIOLATION")
+
+    # THE GATE. The same code path on a pair whose end words ARE the winners
+    # must add NOTHING -- a sentence printed on every finding is not a report,
+    # it is noise, and the 208-of-325 measurement above is why.
+    a2, e2, _r2, mat2 = R2._matrix(EXACT_PAIR)
+    s2 = mat2[0][1]
+    check("CONTROL: where the end words ARE the evidence the note is EMPTY, "
+          "though `spans_note` itself is not",
+          s2.spans.claims(e2[0], e2[1]) is True
+          and R2._attribution(s2, e2[0], e2[1]) == ""
+          and _LH.spans_note(s2) != "",
+          f"gate={R2._attribution(s2, e2[0], e2[1])!r} :: "
+          f"raw={_LH.spans_note(s2)[:60]!r}")
+    ev2 = [f.evidence for b in R2.brief(EXACT_PAIR, [[1, 2]])
+           for f in b.findings if f.code == "SCHEME_VIOLATION"]
+    check("...so the ordinary finding is byte-unchanged by this repair",
+          ev2 and "NAMED PAIR" not in ev2[0], ev2[0] if ev2 else "none")
+
+    # THE COLLISION HALF reads the same gate off the same matrix, and a
+    # near-relation collision is exactly where an interior reach is likeliest
+    # to be what scored.
+    import inspect as _inspect
+    grade_src = _inspect.getsource(Reviser.grade)
+    check("the collision record carries the same field, so the two report "
+          "paths cannot drift about one question (doctrine 1)",
+          '"attribution": self._attribution(' in grade_src
+          and grade_src.count("self._attribution(") == 2,
+          f"{grade_src.count('self._attribution(')} call site(s) in grade()")
+
+    # NOTHING ABOUT THE VERDICT MOVED. This is a REPORT repair; a score,
+    # a relation or a `why` that changed would make it something else.
+    rep = R2.grade(GO_RECEIPT, R2.mandate(GO_RECEIPT, [[1, 2]]))
+    v = rep["verdicts"][0]
+    check("CONTROL: the verdict itself is untouched -- same score, same "
+          "relation, same `why`; only the report gained a sentence",
+          abs(v["score"] - s["total"]) < 1e-12
+          and v["relation"] == s["relation"]
+          and v["why"] == f"below theta_rhyme={R2.decl.theta_rhyme}",
+          f"score={v['score']:.3f} relation={v['relation']} why={v['why']!r}")
+
+
 if __name__ == "__main__":
     for fn in (test_the_loop_does_not_write,
                test_the_brief_excludes_the_modal_region,
@@ -3534,7 +3628,8 @@ if __name__ == "__main__":
                test_the_mandate_block_is_gated_on_the_mandate,
                test_rule_three_asks_whether_a_word_was_taken,
                test_the_forbidden_list_is_two_rules_in_two_fields,
-               test_a_return_is_not_rendered_as_a_rhyme):
+               test_a_return_is_not_rendered_as_a_rhyme,
+               test_a_report_says_when_the_named_pair_is_not_the_evidence):
         fn()
     print("=" * 62)
     if FAILURES:

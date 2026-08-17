@@ -481,6 +481,22 @@ behaviour precisely is what keeps it. §5 now asserts the opposite and says
 why; §13 and §16 keep their subjects and both numbers on the same draft with
 the anchor locks removed and a NO-OP PROPOSER supplying the rejections.
 
+**AND THE FINDING NAMED A PAIR THAT DID NOT PRODUCE THE NUMBER — FIXED
+2026-08-17, `BACKLOG.md` §1.2 CLOSED.** `best_score` takes a max over k span
+pairs and has carried an `Attribution` naming the winner since adversary 7;
+`check_scheme` prints it through `spans_note`. **`brief` did not** — and
+`brief` is the half a writer reads. `inspect()`'s findings printed two end
+words and a number, which is an ASSERTION (doctrine 45), without ever
+evaluating it: `go/receipt 0.579` was `go` ~ the last syllable of `receipt`.
+`Reviser._attribution` appends the provenance, GATED ON `Attribution.claims`
+so it fires exactly when the ordinary sentence would be false. THE GATE WAS
+MEASURED, not assumed: on rung 3's 26-line draft 325 of 325 pairs carry a
+note, **208** name something other than the two end words, and **4 of the 13
+mandated pairs** do — so printing it always would bury the live cases under
+two hundred `scored on: humming ~ coming`. Both report paths in `grade()` read
+the one gate. `quality/test_revise.py` §44, 6 checks, 3 mutations, two of them
+controls proving no VERDICT moved.
+
 **`candidates` AND THE LOOP ANSWERED ONE QUESTION TWO WAYS — FIXED
 2026-08-15, FOUND BY PRE-SCREENING A RHYME WITH THE WRONG LIST.** The verb
 ranks by RHYME SCORE; the modal exclusion ranks by FREQUENCY over the words

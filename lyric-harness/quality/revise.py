@@ -89,7 +89,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            CandidateEngine, Declaration,
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, readability_records,
-                           refusals_for_pairs)
+                           refusals_for_pairs, spans_note)
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
@@ -773,6 +773,33 @@ class Reviser:
 
     # -- the graph, once --------------------------------------------------
 
+    @staticmethod
+    def _attribution(s, word_a, word_b):
+        """-> the provenance note, but ONLY when the two words a finding is
+        about are not what produced the number. "" otherwise.
+
+        BACKLOG 1.2, the half `check_scheme` closed and the WRITER-FACING
+        half that did not. `best_score` takes a max over k span pairs and has
+        carried an `Attribution` naming the winner since adversary 7;
+        `check_scheme` prints it through `spans_note`, and `inspect()`'s
+        findings — the ones that reach a writer through `brief()` and
+        `quality/propose.py` — printed `'break' ~ 'ear'` and the number and
+        nothing else. Two words and a number on one line is an ASSERTION
+        (doctrine 45), and `Attribution.claims` is that assertion evaluated.
+
+        GATED ON `claims`, NOT PRINTED ALWAYS, and the gate is the whole
+        design. MEASURED on rung 3's own 26-line draft: 325 of 325 pairs have
+        a provenance note, 208 of them name something other than the two end
+        words, and 4 of the 13 MANDATED pairs do. Appending the note to every
+        finding would bury the four cases that matter under 200 that say
+        `scored on: humming ~ coming`. A report says the extra sentence
+        exactly when the ordinary one would be false.
+        """
+        sp = getattr(s, "spans", None)
+        if sp is None or sp.claims(word_a, word_b):
+            return ""
+        return " — NAMED PAIR IS NOT THE EVIDENCE: " + spans_note(s)
+
     def _matrix(self, lines, profile=None):
         """-> (anchors, endwords, readability records, full pair matrix).
 
@@ -886,6 +913,10 @@ class Reviser:
                              "members": list(m.groups[k]),
                              "endwords": (endwords[i - 1], endwords[j - 1]),
                              "score": s["total"], "relation": rel,
+                             # BACKLOG 1.2 — "" unless the two end words this
+                             # verdict names are NOT what produced the score.
+                             "attribution": self._attribution(
+                                 s, endwords[i - 1], endwords[j - 1]),
                              "why": why})
 
         # Doctrine 3, resolved PER PAIR by the mandate's own declaration
@@ -1099,6 +1130,13 @@ class Reviser:
                         "lines": (i + 1, j + 1),
                         "endwords": (endwords[i], endwords[j]),
                         "score": s["total"], "relation": s["relation"],
+                        # BACKLOG 1.2, the same gate as `verdicts` above: a
+                        # collision is reported as two end words and a
+                        # number, and a near-relation collision is exactly
+                        # where an interior reach is likeliest to be what
+                        # scored.
+                        "attribution": self._attribution(
+                            s, endwords[i], endwords[j]),
                         "undeclared": bool(und),
                         "undeclared_lines": (
                             [ln for ln in (i + 1, j + 1)
@@ -1722,7 +1760,8 @@ class Reviser:
                 f"L{i} and L{j} are both in group {v['label']} "
                 f"{v['members']} but do not rhyme",
                 f"{v['why']} (score {v['score']:.3f}; "
-                f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})", [i, j]))
+                f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})"
+                f"{v.get('attribution', '')}", [i, j]))
         # DOCTRINE 9, ASKED OF A PAIR THAT ALREADY PASSES, NOT ONLY ONE THAT
         # FAILED. `modal_field` has existed since the candidate field was
         # built, and every caller of it -- `joint_field`'s own candidate
@@ -2077,7 +2116,8 @@ class Reviser:
                 continue
             code = self._collision_code(c["relation"], c.get("undeclared"))
             pair = (f"{c['endwords'][0]!r} ~ {c['endwords'][1]!r} "
-                    f"{c['score']:.3f} {c['relation']}")
+                    f"{c['score']:.3f} {c['relation']}"
+                    f"{c.get('attribution', '')}")
             gi = ", ".join(m.labels[k] for k in m.groups_of(i)) or "free"
             gj = ", ".join(m.labels[k] for k in m.groups_of(j)) or "free"
             if c["relation"] not in RHYME_RELATIONS and \

@@ -1393,6 +1393,24 @@ measurer from editing them:
   `repeat_licence="refrain"` alone, and its exact trigger is identified but
   UNCONFIRMED. This one is the weakest of the four and is owed a read.
 
+  **THE READ IS PAID, 2026-08-17, AND THE CLASSIFICATION HOLDS.**
+  `SlopFloor._relation_findings` licenses a run when BOTH conditions hold: the
+  same trailing token-run closes **at least 2** mandated pairs, AND its share
+  of all mandated pairs is **at or above `radif_min_pair_fraction`, declared
+  0.50**. The run is taken from `QualityFeatures._strip_radif`, which is what
+  exposes the qafiya underneath — so the finding is a statement about
+  IDENTICAL TRAILING WORDS across half the pairs, and the rhyme is then scored
+  on what precedes them. `repeat_licence="refrain"` is a different switch and
+  does not reach it.
+
+  **So it is words-bound, and now mechanically so rather than by assertion.**
+  The declared coordinate is a FRACTION of pairs carrying a repetend; lowering
+  it cannot manufacture a repetend that is not in the draft, and doctrine 14
+  forbids defining it in terms of the quantity it controls. MEASURED on rung
+  3's draft: 13 mandated pairs, **zero** repetends of any length, so no value
+  of `radif_min_pair_fraction` reaches it. The debt this entry recorded is
+  discharged; the code stays in the words-bound set for a stated reason.
+
 **PREDICTION 3 IS ANSWERED, AND IT IS A NULL.** Forced with a mandate
 satisfiable only by touching a chorus line (`--groups=1,4;4,6
 --returns=1,7`), the loop **backtracked through tier 2** — changed L4 AND its
@@ -1491,6 +1509,18 @@ words-bound limit rung 2 hit.
 likelier than an 8-line one to hold a near-relation pair, so the first two are
 predicted to fire **without any declaration aimed at them** — and if they do
 not, that is the second measurement of the same limit rather than a defect.
+
+**SETTLED AT RUNG 3, TWO OF FOUR (see §R3.7).** `NEAR_COLLISION` and
+`COLLISION_CUT_IS_SCALAR_ONLY` FIRED, with no declaration aimed at them, on
+`'ear'~'chair'` and `'ear'~'there'` at 0.927 — the prediction as written. The
+other two remain words-bound and both now say WHY mechanically rather than by
+assertion: `RADIF_LICENSED`'s trigger is read and recorded above (a repetend
+closing ≥2 pairs and ≥50% of them; rung 3's draft has zero), and `STUB_RETURN`
+needs an abbreviated pointer — the printer's `[Chorus]` convention — which
+§R2.2 forbids the measurer from writing in. **Reaching either one needs a
+BLIND WRITER ASKED FOR IT IN THE SPEC**, which is a rung-4 seed decision and
+not a repair: it is the same lever that made rung 3 work, applied to the
+words instead of to the mandate.
 
 Rung 3's denominator is therefore **71 + 10 = 81 of 94**.
 

@@ -93,7 +93,7 @@ re-derived — which is how `30 / 29` survived three mutations being added.
 each caught by the file that declares it.** A new coordinate with a default is a
 new place for a silent drift; it belongs in the list so that stays true.
 
-### 1.2 · `best_score` does not report which span won `M-17, OPEN`
+### 1.2 · `best_score` does not report which span won `M-17, CLOSED 2026-08-17`
 `line_anchors` returns several candidate spans per line; `best_score` takes the
 max; `check_scheme` prints the score beside `endwords[i]/endwords[j]`. When the
 winner is an interior mosaic reach, **the report names a pair that had nothing
@@ -101,6 +101,33 @@ to do with the number** — `go/receipt 0.579 RHYME` was `get to go` ~ `ceipt`.
 This is the original bad report line and it is still there. Doctrine 45.
 **Acceptance:** every score carries the two spans that produced it, and
 `check_scheme`/`brief` print them. Adversary 7's first instrument.
+
+**CLOSED IN TWO HALVES, AND THE SECOND ONE WAS THE WRITER'S.** Adversary 7
+closed the first: `best_score` returns a `Scored` carrying an `Attribution`
+that names the winning span pair, the words each covers, `search_k`, ties and
+the mosaic/substituted verdicts, and `check_scheme` prints it through
+`spans_note`. **`brief` did not**, and `brief` is the half a writer reads.
+`inspect()`'s findings printed two end words and a number — the assertion —
+without ever evaluating it. `Reviser._attribution` is the repair, and it is
+GATED ON `Attribution.claims`: the provenance is appended exactly when the
+ordinary sentence would be false.
+
+**The gate is the design, and it was measured, not assumed.** On rung 3's
+26-line draft **325 of 325** pairs carry a provenance note and **208** name
+something other than the two end words, so printing it always buries the cases
+that matter under two hundred `scored on: humming ~ coming`. **4 of the 13
+MANDATED pairs** on that draft name a pair that is not the evidence, so this
+was live and not latent. Both report paths in `grade()` — `verdicts` and
+`collisions` — read the one gate, so they cannot drift about one question
+(doctrine 1).
+
+`quality/test_revise.py` §44 is 6 checks on BACKLOG 1.2's own `go/receipt`
+example plus an exact-span control, and needs THREE mutations: removing the
+gate reds the two control checks (the note appears where the ordinary sentence
+is true), cutting the finding's call site reds the writer-facing check, and
+dropping the collision call site reds the no-drift check. Two checks are
+controls that the VERDICT did not move — same score, same relation, same
+`why`. This is a report repair and nothing else.
 
 ### 1.3 · `theta_nucleus` is a coin flip `CLOSED 2026-08-11`
 `five`/`of` passes at nucleus similarity **0.603** against a threshold of
