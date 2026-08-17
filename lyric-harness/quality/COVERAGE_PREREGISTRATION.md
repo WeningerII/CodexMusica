@@ -1089,6 +1089,57 @@ says explicitly that it implies nothing about readability.
 **RUNG 1 IS COMPLETE.** It cost six harness defects (A, B, C, D, and the two
 renderer twins), of which five are fixed and B stands as a declared decision.
 
+### THE DECLARATION SWEEP — what the 40 SILENT actually were, 2026-08-16
+
+The writing session's 40 silent codes conflate two populations, and only one is
+a fact about the harness: *"a different two-line configuration would trip this"*
+versus *"no rung-1 run can trip this at all, despite the `R2` mark"*. The second
+is a mis-marking or a dead check — the shape that already caught `NO_TEMPO`.
+Separating them needs no writer and no bias control, because it varies the
+DECLARATIONS and the draft's SHAPE, never the quality of the writing. That is
+what `R2` was defined to mean: *a two-line draft CAN reach it*.
+
+**36 configurations, in two rounds plus one correction.** Round 1 was 23 broad
+configurations — omitting `--subdivision`, omitting the blueprint, `--cliques`,
+`--isochronous`, `Subdivision(1)`, zero-duration and out-of-cycle and
+overrunning and overlapping spans, an 8-bar section with 2 bars sung, a 7/8
+meter, declared hooks and titles, OOV end words, hyphenated pieces, a cliché
+pair, a repeated end word, anaphora. Round 2 was one configuration aimed at
+each code still silent.
+
+| stage | EXPECTED-REACHABLE reached |
+|---|---:|
+| the blind writing session | 12 of 52 |
+| after round 1 (23 configs) | 40 of 52 |
+| after round 2 (12 configs) | 51 of 52 |
+| after one correction | **52 of 52** |
+
+**THE RESIDUE IS ZERO, AND THAT IS THE RESULT.** Every code the
+pre-registration marked `R2` or `R2*` is reachable by some rung-1
+configuration. Nothing is mis-marked; no reachable check is dead at this rung.
+Combined with the session's own two zero cells — nothing fired that was marked
+unreachable, nothing fired that §A4 does not list — **the reachability model
+written before any draft existed is correct in both directions across 36
+configurations.** That is the strongest thing this experiment has produced, and
+it is a negative result: there was nothing rotten behind the 40.
+
+**THE LAST ONE TOOK TWO ATTEMPTS AND THE FIRST WAS MY ERROR, not the
+harness's.** `HOOK_PLACEMENT_UNDECLARED` needs a hook that RECURS into sections
+that declare no function; my first attempt declared `function: "chorus"`, so
+the hook was placed, and it occurred once, so `HOOK_DOES_NOT_RECUR` fired
+instead. With the hook in both lines and the section's `function` omitted it
+fires immediately. Recorded because a single failed attempt looked exactly like
+a dead check for as long as it took to read the emission site — which is the
+argument for chasing a residue to zero rather than reporting it.
+
+**SO THE 23% STANDS AND ITS MEANING NARROWS.** One ordinary writing session
+touches 12 of 52; the whole 52 is reachable, but only under deliberate,
+adversarial configuration — 36 hand-built cases against 1 song. The gap is not
+harness rot. It is that **nothing about writing a song exercises the surface**,
+which is the hypothesis this experiment was built to test, now measured rather
+than argued: a writer cannot be relied on to reach a check, so every check has
+to be reachable by a test that does not depend on one.
+
 ## D. Judgement calls carried forward
 
 The derivation flagged its own uncertainty; carried here unresolved rather than
