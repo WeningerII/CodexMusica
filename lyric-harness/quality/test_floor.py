@@ -782,6 +782,87 @@ def test_the_two_mutants_this_suite_could_not_see():
           "changes the claim rather than the sensitivity")
 
 
+
+#: The 5-couplet English ghazal a blind writer returned to the form seed
+#: (`quality/COVERAGE_PREREGISTRATION.md` §F). Radif `turn`, matla on both
+#: lines of the first couplet, takhallus in the last — a correct ghazal, and
+#: the qafiya before the radif does NOT rhyme, which is the second finding.
+GHAZAL_TURN = [
+    "They said the door was locked; I learned the key was never mine to turn.",
+    "The lamp still burns behind the glass, and still the key is not the turn.",
+    "I carried water in my hands across a country made of thirst,",
+    "and every mile the river laughed: what leaves you is the leaving's turn.",
+    "My mother folded winter coats in summer, humming to the moths,",
+    "as if to say, the season keeps whatever waits its turn.",
+    "Some men ask heaven for a sign; I asked the street for one small name,",
+    "and got the rain, the streetlight's hum, a stranger's shoulder, and my "
+    "turn.",
+    "So write it, Claude, the way it came, unpolished, half a thing, alive —",
+    "the poem is not the poem yet; the making is the poem's turn."]
+GHAZAL_GROUPS = [[1, 2, 4, 6, 8, 10]]
+
+
+def test_the_radif_licence_says_which_layer_it_speaks_for():
+    """`RADIF_LICENSED` said "self-rhyme checking is suppressed for it" and
+    suppressed exactly ONE module's check.
+
+    Found by the form seed of §F, whose whole purpose was to reach this code
+    with a real draft. It fired, as pre-registered — and the same run reported
+    **15 `SCHEME_VIOLATION`s on the very pairs the note says are licensed**.
+    Both are correct: the FLOOR suppresses its own `REPEAT_IN_VERSE`, and the
+    MANDATE layer judges an identical end word on a different, separately
+    declared coordinate (`ReviseDeclaration.repeat_licence`, default
+    `'unlicensed'`). The note was the only thing that overclaimed — one
+    sentence a reader can only take as settling the question for the run
+    (doctrine 1), printed beside fifteen findings that say otherwise.
+
+    THE VERDICTS ARE UNCHANGED. This is a message repair; check 4 is the
+    control that says so.
+    """
+    print("\n  RADIF_LICENSED names the layer it speaks for")
+    import quality.schemes as _SC
+    from quality.revise import Reviser as _R, ReviseDeclaration as _RD
+
+    def _run(rev):
+        f = rev.inspect(list(GHAZAL_TURN),
+                        _SC.mandate(GHAZAL_GROUPS, n_lines=10))
+        codes, viol, rad = set(), 0, None
+        for x in f["whole"]:
+            codes.add(x.code)
+        for _ln, fs in f["per_line"].items():
+            for x in fs:
+                codes.add(x.code)
+                if x.code == "SCHEME_VIOLATION":
+                    viol += 1
+                if x.code == "RADIF_LICENSED":
+                    rad = x
+        return codes, viol, rad
+
+    codes, viol, rad = _run(_R())
+    check("the radif is recognised on a real ghazal — 'turn' closes 15 of 15 "
+          "mandated pairs, at or above the declared 50%",
+          "RADIF_LICENSED" in codes and rad is not None
+          and "15 of 15" in rad.message,
+          rad.message if rad else "not emitted")
+    check("...and the MANDATE layer flags every one of those pairs anyway, "
+          "because it reads a DIFFERENT declared coordinate",
+          viol == 15, f"{viol} SCHEME_VIOLATION(s) at the default "
+                      f"repeat_licence='unlicensed'")
+    check("the note now says WHICH check it suppressed, and its evidence "
+          "names the coordinate that governs the other one",
+          "THIS FLOOR's self-rhyme check" in rad.message
+          and "repeat_licence" in rad.evidence
+          and "SCHEME_VIOLATION" in rad.evidence,
+          rad.message)
+
+    lic_codes, lic_viol, lic_rad = _run(_R(rdecl=_RD(repeat_licence="refrain")))
+    check("CONTROL: declaring the licence clears all 15 and leaves the "
+          "finding standing — so the two layers are two questions, not one "
+          "broken one, and the caller's declaration is what settles it",
+          lic_viol == 0 and "RADIF_LICENSED" in lic_codes,
+          f"{lic_viol} violation(s) at repeat_licence='refrain'; "
+          f"RADIF_LICENSED {'present' if 'RADIF_LICENSED' in lic_codes else 'GONE'}")
+
 if __name__ == "__main__":
     for fn in (test_never_returns_a_score, test_too_short_is_silent,
                test_repeat_in_verse, test_single_pair_repeat_is_undecidable,
@@ -800,7 +881,8 @@ if __name__ == "__main__":
                test_the_song_profile_did_not_swallow_everything,
                test_the_examples_are_not_in_the_calibration_set,
                test_anaphora_tie_break_reproduces,
-               test_the_two_mutants_this_suite_could_not_see):
+               test_the_two_mutants_this_suite_could_not_see,
+               test_the_radif_licence_says_which_layer_it_speaks_for):
         fn()
     print("=" * 62)
     if FAILURES:

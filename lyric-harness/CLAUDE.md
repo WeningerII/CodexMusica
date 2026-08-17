@@ -497,7 +497,7 @@ two hundred `scored on: humming ~ coming`. Both report paths in `grade()` read
 the one gate. `quality/test_revise.py` §44, 6 checks, 3 mutations, two of them
 controls proving no VERDICT moved.
 
-**THE COVERAGE EXPERIMENT IS CLOSED — 2026-08-17, 78 of 83.**
+**THE COVERAGE EXPERIMENT IS CLOSED — 2026-08-17, 79 of 82** (78 of 83 at the ladder's close; `PROMINENCE_UNDECIDED` then left the denominator as unreachable by any draft, and the §F form seed closed `RADIF_LICENSED`)**.**
 `quality/COVERAGE_PREREGISTRATION.md` §R3.8/§E. The ladder ran rungs 0-3 (2
 lines, 8, 26) against a denominator of 94 in-scope finding codes, repinned to
 83 reachable from the CLI writing path. **78 fired.** The 5 that did not are
@@ -513,7 +513,20 @@ abbreviates the return) — which keeps the writer blind, and which is a NEW
 pre-registration rather than another rung of this one. 11 further codes are
 out of the instrument's reach for stated reasons: 8 `NC` (an API-level
 experiment, named as separate), 3 scoped to the `function` verb or words-bound.
-**EIGHT HARNESS DEFECTS WERE FOUND AND ALL EIGHT WERE IN THE WRITER HANDOFF**
+**AND THE FORM SEED (§F) CLOSED THE LAST REACHABLE CODE.** The ladder could
+not reach `RADIF_LICENSED` at any length; a blind writer asked for *a ghazal*
+— a FORM, not a feature — returned one whose radif `turn` closes 15 of 15
+mandated pairs. The same run found a message that overclaimed: the floor's
+note said *"self-rhyme checking is suppressed"* while 15 `SCHEME_VIOLATION`s
+fired on the same pairs. Both were correct — the floor suppresses its OWN
+`REPEAT_IN_VERSE`, the mandate layer reads `repeat_licence` (15 violations at
+the default, 0 at `'refrain'`, the finding unmoved in both) — and the sentence
+was what claimed a settlement for a layer its module does not own. The three
+remaining codes get a stated refusal rather than a run: reaching them means
+dictating a line, declaring a grid the measurer writes, or asking for a bridge
+that fails to contrast, and none of those still measures the writer.
+
+**NINE HARNESS FINDINGS AND EVERY ONE WAS IN A MESSAGE OR A HANDOFF**
 — six at rung 1, zero at rung 2, two at rung 3. Rung 2's null is the load-
 bearing measurement: it was LONGER than rung 1 and found nothing, which is
 what proved length is the coverage lever and the SPEC is the defect lever.

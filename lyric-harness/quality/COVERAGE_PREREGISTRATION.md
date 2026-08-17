@@ -2024,6 +2024,76 @@ phrase at all, or couplets that do not share a rhyme before it — the run says
 nothing about `RADIF_LICENSED` and the seed is what needs rewriting. That is
 recorded as a REFUSAL of the run, not as a SILENT cell.
 
+### F6. RESULT — RUN 2026-08-17. The claim held, and the run paid for itself twice.
+
+**A blind writer (no history, no repo, no tools, `tool_uses: 0`) returned a
+correct ghazal.** Radif `turn`; the matla ends both lines of the first couplet
+on it and every second line after; a takhallus in the last couplet. 10 lines.
+
+**`RADIF_LICENSED` FIRED, as pre-registered.** Under a mandate grouping the six
+radif lines, `'turn'` closes **15 of 15** mandated pairs — 100% against the
+declared 50% floor and the ≥2 minimum. **The code closes and the score is 79 of
+82.** The writing path DOES reach it when the seed names the form, which is
+what §E1 predicted and what the length ladder could not test.
+
+#### AND THE SAME RUN FOUND A MESSAGE THAT OVERCLAIMED
+
+The run reported `RADIF_LICENSED` **and 15 `SCHEME_VIOLATION`s on the very
+pairs the note calls licensed**, every one of them `REPEAT not rhyme
+(identical word) 'turn' ~ 'turn'`. The note read *"self-rhyme checking is
+suppressed for it"* — full stop.
+
+**BOTH WERE CORRECT AND THE SENTENCE WAS NOT.** The floor suppresses its OWN
+`REPEAT_IN_VERSE`. The mandate layer judges an identical end word on a
+different, separately declared coordinate — `ReviseDeclaration.repeat_licence`,
+default `'unlicensed'`. MEASURED on this draft: **15 violations at the default
+and 0 at `repeat_licence='refrain'`, with `RADIF_LICENSED` unmoved in both.**
+So the two layers are two questions and the caller's declaration settles the
+second; what was wrong was one sentence claiming a settlement for a layer its
+module does not own (doctrine 1). The message now says *"THIS FLOOR's
+self-rhyme check"* and its evidence names the coordinate that governs the
+other. `quality/test_floor.py` pins all four properties including the control.
+
+**MY DECLARATION WAS THE THING AT FAULT, AND THAT IS WORTH RECORDING.** A radif
+IS a licensed repeat; grading a ghazal at `repeat_licence='unlicensed'` is a
+mis-declaration, not a harness defect. The finding is that the harness let the
+mis-declaration read as a contradiction instead of as a coordinate nobody set.
+
+#### A SECOND OBSERVATION, NOT A CLAIM THIS RUN PRE-REGISTERED
+
+The qafiya — the rhyme that must precede the radif — does **not** rhyme:
+stripped of `turn` the five pairs read `to`~`the`, `the`~`leaving's`,
+`leaving's`~`its`, `its`~`my`, `my`~`poem's`. A ghazal requires both. So the
+writer produced the radif and not the qafiya. **This is recorded and NOT
+scored**: §F pre-registered one claim and this is not it, and a finding
+promoted after the fact is the thing pre-registration exists to prevent. It is
+the obvious seed for any future run.
+
+### F7. DISPOSITIONS — the other three, and why no run is owed
+
+Written before F6 was run (§F1) and unchanged by it.
+
+- **`STUB_RETURN`** — reaching it means asking for a line that IS the pointer.
+  That is transcription, not a form request, and the unit test already answers
+  what it would show.
+- **`QUATRAIN_LOCK`** — reads lines-per-section off the BLUEPRINT, which the
+  measurer writes. It would fire because of a grid I declared.
+- **`BRIDGE_IS_A_VERSE`** — fires when a bridge FAILS to contrast. Rung 3's
+  writer produced one that DID contrast, on `line_length` at 9.25 against
+  8.875, with six channels forced to agree by declaration (§R3.8). Asking for
+  a bridge that does not contrast is asking for a defect.
+
+**All three are proven to fire and none is reachable by a seed that still
+measures the writer.** They stay SILENT with this argument attached, which is
+a refusal with a stated reason and not a gap (doctrine 20).
+
+### F8. FINAL: 79 of 82
+
+`FIRED` 79 · `SILENT` 3 · outside the denominator 12 (8 `NC`, 3
+surface-blocked, `PROMINENCE_UNDECIDED`). **Nine harness findings across the
+whole experiment** — six at rung 1, zero at rung 2, two at rung 3, one here —
+and every one of them in a message or a handoff rather than in a verdict.
+
 ## D. Judgement calls carried forward
 
 The derivation flagged its own uncertainty; carried here unresolved rather than
