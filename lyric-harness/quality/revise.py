@@ -415,7 +415,50 @@ class Brief:
     #: search. All three say "do not re-propose the word that is there";
     #: none of them is derived from the others, and a change to the rule has
     #: to visit all three.
+    #:
+    #: AND THEY ARE BUILT FROM DIFFERENT FUNCTIONS THAT DISAGREE — MEASURED
+    #: 2026-08-16, over 881 real lines of `corpus/song/eng_*`. This field
+    #: and `verify()`'s RULE 3 use `QualityFeatures._endword`; `loop.py`'s
+    #: tier-2 pivot uses `raw_final_token` and its anchor uses
+    #: `line_anchors`'s last token. `raw_final_token` and `line_anchors`
+    #: agree with each other on **0.00%** — they are one spelling in two
+    #: places — but both differ from `_endword` on **7.83%** (69 of 881),
+    #: and the axis is CASE: `_endword` lowercases and they do not
+    #: (`'Lee'`/`'lee'`, `'Victory'`/`'victory'`).
+    #:
+    #: IT IS LATENT AND NOT LIVE, and saying which is the point of measuring
+    #: rather than asserting: `joint_field` lowercases its own argument
+    #: (`{w.lower() for w in exclude if w}`), so the case difference is
+    #: absorbed at the one site that consumes tier 2's values. Nothing is
+    #: broken today. What is true is that a change moving the incumbent rule
+    #: off `_endword` — or a caller reading these values for anything but
+    #: `exclude=` — meets a 7.83% disagreement with no test between it and
+    #: the writer. `quality/test_revise.py` §42's precision check pins THIS
+    #: field to `_endword`; nothing pins the other two.
     forbidden_incumbent: str = ""
+    #: Was the modal head COMPUTED at all for this line? Added 2026-08-16,
+    #: because an EMPTY `forbidden_modal` means two different things and a
+    #: renderer had no way to ask which.
+    #:
+    #: `quality/propose.py`'s empty-head branch printed *"(none — no modal
+    #: head was computed for this line)"*, and that is FALSE wherever the
+    #: head ran and came back empty. Two reachable populations, both
+    #: measured: a JOINT-CONFLICT pivot, where `joint_field` searched over
+    #: every call word and returned nothing — on `SILVER_MIND` L3 the same
+    #: prompt says *"nothing in the lexicon answers all of those groups at
+    #: once"* eleven lines above, so it contradicted itself — and
+    #: `modal_exclusion=0`, where `ranked[:0]` is empty on EVERY line while
+    #: the field itself is fully computed (2 of 2 briefed lines on `CLICHE`,
+    #: each with 24 candidates offered).
+    #:
+    #: THE SPLIT CREATED THE SECOND HALF OF THIS AND IS WHY IT IS HERE.
+    #: Before it, `forbidden_modal` also carried the incumbent, so on both
+    #: populations the list was non-empty and the branch never fired — it
+    #: printed the incumbent under "the most predictable answers in this
+    #: field" instead, which was the OTHER false sentence. One false
+    #: sentence was traded for another until this field existed to tell the
+    #: two apart.
+    field_computed: bool = False
     keep: list = field(default_factory=list)
 
     #: Every group this line belongs to: [(label, [lines], [(line, endword)])].
@@ -2488,6 +2531,10 @@ class Reviser:
                 if calls:
                     b.candidates, b.forbidden_modal = self.joint_field(
                         calls, exclude=(cur,), profile=profile)
+                    # SET HERE AND NOWHERE ELSE — this is the one statement
+                    # that `joint_field` ran, so an EMPTY head can be told
+                    # apart from a head nobody asked for. See the field.
+                    b.field_computed = True
                     b.joint_conflict = (len(calls) > 1
                                         and not b.candidates
                                         and not b.forbidden_modal)
@@ -2730,10 +2777,17 @@ class Reviser:
             got = self.floor.qf._endword(after[ln - 1])
             was = self.floor.qf._endword(before[ln - 1])
             if got == was:
-                # KEPT, not taken. Read off the incumbent field rather than
-                # inferred from membership of a merged list, so this branch
-                # states the rule it is about (doctrine 1).
-                if got and got == b.forbidden_incumbent:
+                # KEPT, not taken. `was` IS `b.forbidden_incumbent` here —
+                # both are `_endword` of the same `before` line — so the
+                # equality is an INVARIANT and testing it at run time would
+                # be a check that cannot fail (doctrine 48, and the audit
+                # caught this branch's first draft doing exactly that). The
+                # invariant is asserted where it belongs, in
+                # `quality/test_revise.py` §42's precision check, which is
+                # what would go red if the field were ever populated from
+                # anything but `_endword`. Only `got`'s truthiness is a real
+                # condition: an unreadable end word is empty on both sides.
+                if got:
                     modal_kept.append((ln, got))
                 continue
             if got in b.forbidden_modal:

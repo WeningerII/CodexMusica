@@ -443,7 +443,30 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
                    "refuses mechanically rather than")
         out.append("  merely discouraging (doctrine 9).")
     else:
-        out.append("  (none — no modal head was computed for this line)")
+        # THREE STATES, NOT TWO — fixed 2026-08-16, and the two-field split
+        # is what made the third one reachable rather than what caused it.
+        # "no modal head was computed" is FALSE wherever `joint_field` RAN
+        # and returned nothing, and there are two such populations: a
+        # joint-conflict pivot (where this same prompt already says "nothing
+        # in the lexicon answers all of those groups at once" eleven lines
+        # up, so it contradicted itself) and `modal_exclusion=0`, where
+        # `ranked[:0]` is empty on every line while the field is fully
+        # computed. Before the split BOTH printed the incumbent under "the
+        # most predictable answers in this field" instead, so one false
+        # sentence was simply traded for another until `field_computed`
+        # existed to tell them apart.
+        if getattr(brief, "field_computed", False):
+            out.append("  (none — the modal head was COMPUTED for this line "
+                       "and came back EMPTY, which is not")
+            out.append("  the same as it not having been asked. Either "
+                       "nothing in the lexicon answers this")
+            out.append("  line's groups at all — see the mandate block "
+                       "above — or the modal exclusion is")
+            out.append("  declared at 0, which forbids nothing by design. "
+                       "Doctrine 9 is not being applied")
+            out.append("  to you here; it found nothing to apply.)")
+        else:
+            out.append("  (none — no modal head was computed for this line)")
     out.append("")
 
     out.append(f"THE WORD ALREADY THERE — a DIFFERENT rule from the one "
@@ -461,7 +484,23 @@ def render_line(brief, lines, whole=(), attempt=0, reasons=None):
         out.append("  something else — a meter finding, say — in which case "
                    "keeping it is accepted.")
     else:
-        out.append("  (none — this line has no readable end word to keep)")
+        # THE SAME FALSE-CAUSE BUG AS THE HEAD'S BRANCH, one block down —
+        # found 2026-08-16 by the rung-1 blind run, in the prompt handed to
+        # the writer before they had answered anything. L1 of that draft ends
+        # on 'four', which is perfectly readable; this block said "no readable
+        # end word to keep" because the INCUMBENT IS ONLY RECORDED WHERE THE
+        # FIELD IS COMPUTED, and L1 carried a meter flag and no rhyme finding.
+        # An empty value stated the wrong reason for being empty, which is the
+        # whole of defect D one rule over.
+        if getattr(brief, "field_computed", False):
+            out.append("  (none — this line's end word could not be read, so "
+                       "there is no incumbent to keep)")
+        else:
+            out.append("  (none recorded — no candidate field was computed "
+                       "for this line, and the incumbent is only recorded")
+            out.append("  where one is. This says nothing about whether the "
+                       "end word is readable: it very likely is, and it is")
+            out.append("  still the word you would be replacing.)")
     out.append("")
 
     out.append("LINES THAT MUST NOT CHANGE")

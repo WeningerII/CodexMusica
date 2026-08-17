@@ -911,6 +911,65 @@ disappears with the suite green. `PB`/`PairBrief` already had that guard;
 §42 is 10 checks. `test_revise` 295→ with §42, `test_propose` 107→109,
 `test_loop` and `test_verbs` unmoved in count.
 
+#### THE AUDIT OUTLIVED THE COMMIT, and it caught a defect the split INTRODUCED
+
+The workflow was killed by a worker restart at 35 agents / 3.4M tokens, with
+the Audit phase complete and Verify at 16 of 30. **Five of the sixteen verdicts
+came back REFUTED, and I had read exactly one of them before shipping.**
+Harvesting the rest found three things worth having.
+
+**A DEFECT I INTRODUCED, and it is the same class as the one I was fixing.**
+`quality/propose.py`'s empty-head branch prints *"(none — no modal head was
+computed for this line)"*, and after the split that is FALSE on two reachable
+populations: a JOINT-CONFLICT pivot, where `joint_field` ran over every call
+word and returned nothing — on `SILVER_MIND` L3 the same prompt says *"nothing
+in the lexicon answers all of those groups at once"* eleven lines above, so it
+contradicted itself — and `modal_exclusion=0`, where `ranked[:0]` is empty on
+EVERY line while the field is fully computed (2 of 2 on `CLICHE`, each with 24
+candidates offered). **Before the split both printed the incumbent under "the
+most predictable answers in this field" instead**, so one false sentence was
+traded for another. `Brief.field_computed` is the third state, and the branch
+now says which.
+
+**MY OWN RATE WAS A FIXTURE, NOT A RATE.** I recorded "2 of 2 briefed lines on
+`MODAL_DRAFT`", which is true and reads as though the overlap is typical. An
+adversary refuted the load-bearing reading — that the overlap is *why* the
+blast radius is small. Re-measured over the two shipped lyric fixtures under
+their declared mandates: the incumbent is inside its own head on **10 of 18**
+briefed-with-field lines (55.6%), and **on the lines carrying
+`SCHEME_VIOLATION` — the population this loop exists to revise — it is 0 of
+8.** A line the loop is working on does not have its end word in its own modal
+head, because that is what a violated pair means. The overlap is a property of
+lines that are already fine; the split changes the field on every line that is
+not; and the small test churn was never evidence that little changed.
+
+**AND THE `B`/`Brief` GUARD DID NOT COVER WHAT I CLAIMED.** It pins the stub
+CLASS to the dataclass's field list — but every fixture in `test_propose.py`
+left `forbidden_incumbent` at the default, so the entire writer-facing
+statement of rule 2 could still be deleted with that suite green. A pinned
+class says nothing about an INSTANCE that never sets the field. `PLAIN_BRIEF`
+and `PIVOT_BRIEF` carry it now and §2 asserts the block.
+
+**THREE MORE, ALL "PASSES FOR AN UNSTATED REASON".** `verify()`'s new
+kept-branch guard `got == b.forbidden_incumbent` can never be false when
+reached — doctrine 48 inside the fix — and is replaced by the invariant stated
+in a comment, with §42's precision check as the thing that would go red.
+§22's `if w == cur: continue` was written for the merged field and now discards
+10 genuine head words from its own sample. And §2's `modal_exclusion=0` check
+was a strict length inequality that passed while the "disabled" list still held
+one entry — the same false sentence `mutate.py`'s QR2 rationale carried; it
+asserts `== 0` now.
+
+**ONE LATENT DIVERGENCE, MEASURED AND NOT "FIXED".** The three spellings of the
+incumbent rule are built from different functions. Over 881 real lines of
+`corpus/song/eng_*`, `raw_final_token` and `line_anchors` agree on **0.00%**
+— one spelling in two places — while both differ from `_endword` on **7.83%**
+(69 of 881), on CASE (`'Lee'`/`'lee'`). It is LATENT, not live: `joint_field`
+lowercases its own `exclude`, so the difference is absorbed at the one site
+that consumes tier 2's values. Recorded as a hazard with a number rather than
+repaired, because nothing is broken today and the honest claim is the narrow
+one.
+
 **TWO SIBLINGS FOUND AND NOT FIXED**, recorded at `BACKLOG.md` §4.8:
 `quality/loop.py` prints `"no candidates offered"` when the PROPOSER declined
 (reproduced with `brief.candidates` holding 24 words), and
@@ -933,6 +992,153 @@ by routing around the instrument. That is the bias control this
 pre-registration named in §"bias controls" and it is firing on its author.
 Scoring coverage needs a rung whose writer has no privileged knowledge of the
 harness's defects, which is a condition on the SESSION and not on the draft.
+
+### RUNG 1 — COMPLETE. The blind run, and the coverage diff, 2026-08-16
+
+The two earlier `defer:` sessions were written by an author who knew every
+defect in the harness, so neither could be scored (§"the coverage diff is still
+not scored"). This one was written by an agent with **no session history, no
+repository access and no tools** — it was handed the rendered `pending.prompt`
+text and nothing else, and answered from that alone (`tool_uses: 0` on both
+turns). Repo access was withheld deliberately: `CLAUDE.md` now documents
+defects A–D in full, so a writer allowed to read the tree would have been
+handed the answer key.
+
+That also sharpens the question from "can a writer converge" to **"is the brief
+sufficient on its own"**.
+
+Same draft, same fingerprint `385ff1e4055e`, mandate `AA`, blueprint at
+`--subdivision 2`.
+
+    L1  the kitchen light is on their chairs
+    L2  and no one came back up the stairs        md5 c70eb712783e
+
+**SUCCESS after 1 round, 2 answers, 0 rejections.**
+
+#### THE BRIEF WAS SUFFICIENT, AND DEFECT B FIRED ANYWAY
+
+B fired exactly as before and on an independent writer, which is what makes it
+a property of the harness rather than of how I write: after L1 moved to
+`chairs`, L2's brief still showed `SCHEME_VIOLATION … 'four' ~ 'stairs'`, still
+said `must rhyme with: L1 ('four')`, and still offered 24 words answering
+`four` — while the true pair `chairs ~ stairs` was **1.000 RHYME**, already
+repaired.
+
+**The writer converged anyway, and the reason is the defect-D fix.** It kept
+`stairs` and shortened the line for meter — it never touched the stale field.
+The block that told it that was legal is `THE WORD ALREADY THERE`, added hours
+earlier when the two rules were split: *"keeping the word you were given takes
+nothing … a line that keeps it is refused by rule 4 UNLESS the rewrite repaired
+something else — a meter finding, say — in which case keeping it is accepted."*
+So the D repair gave a blind writer a correct path that did not require
+trusting the half of the brief B corrupts. Not designed for that; measured.
+
+#### THE FOUR CELLS — scored from §A4's own table, never summed
+
+The denominator is parsed out of §A4 in this file rather than re-derived, so
+the score cannot drift from the record. The parse returns **94 codes, 52
+EXPECTED-REACHABLE**, reproducing this document's own "rung 1 tests at most 52
+of 94" exactly.
+
+| cell | count |
+|---|---:|
+| `FIRED` ∩ EXPECTED-REACHABLE | **12 of 52** |
+| `SILENT` ∩ EXPECTED-REACHABLE | **40** ← headline |
+| `FIRED` ∩ DECLARED-UNREACHABLE | **0** |
+| observed outside §A4 entirely | **0** |
+
+FIRED: `CROWDED`, `EXTRAPOLATED_LENGTH`, `FUNCTION_UNDECLARED`,
+`HOOK_UNDECLARED`, `MODAL_RHYME`, `NO_SETTING`, `PROMINENCE_CANNOT_ALIGN`,
+`PROMINENCE_EXCEEDS_HEADS`, `SCHEME_VIOLATION`, `SHARED_SUFFIX`,
+`SINGLE_INSTANCE`, `SLOTS_EXCEEDED`.
+
+**THE TWO ZERO CELLS ARE THE RESULT MOST WORTH KEEPING.** Nothing fired that
+the model declared unreachable, and nothing fired that the model does not list
+at all. §A4's reachability marks — written before any draft — held exactly,
+which is the pre-registration doing the one job a pre-registration exists for.
+
+**AND 40 IS NOT 40 DEFECTS. Saying so is not a hedge, it is the definition.**
+`EXPECTED REACHABLE` was assigned as *"a two-line draft CAN reach this"*, not
+*"this draft WILL"*. `UNREADABLE_END_WORD` needs an unreadable word;
+`CLICHE_PAIR` needs a cliché; `NO_SUBDIVISION` fires only when a subdivision is
+NOT declared, and this run declared one. So the 40 is the honest measure of a
+different quantity: **how much of the reachable surface one ordinary writing
+session touches — 23%.** The experiment's own hypothesis was that gaps where
+the program does not force usage are where it is soft, and this is that number.
+
+**WHAT SEPARATES THE TWO POPULATIONS IS THE NEXT MEASUREMENT AND IS NOT DONE.**
+Of the 40, some need a different DRAFT (a cliché pair, an OOV word), some need
+a different DECLARATION at the same rung (`--cliques` for
+`MANDATE_NOT_INDEPENDENT`, omitting `--subdivision` for `NO_SUBDIVISION`, a
+declared hook for `HOOK_ABSENT`), and some may be marked `R2` and be reachable
+by NO rung-1 configuration at all — that last set is the only one that is a
+finding about the harness, and it is unmeasured. It is a mechanical sweep over
+declarations, not a writing task, so it does not need a blind writer.
+
+#### ONE MORE DEFECT, FOUND IN THE PROMPT BEFORE THE WRITER ANSWERED
+
+`THE WORD ALREADY THERE` printed *"(none — this line has no readable end word
+to keep)"* on L1 — whose end word is `four`, plainly readable. The incumbent is
+only recorded where the FIELD is computed, and L1 carried a meter flag and no
+rhyme finding, so an empty value stated the wrong reason for being empty. That
+is the twin of the empty-head branch repaired the same day, one rule down, and
+it was fixed after the run rather than during it: the harness must not move
+while it is being measured. Three states there too now, and the no-field case
+says explicitly that it implies nothing about readability.
+
+**RUNG 1 IS COMPLETE.** It cost six harness defects (A, B, C, D, and the two
+renderer twins), of which five are fixed and B stands as a declared decision.
+
+### THE DECLARATION SWEEP — what the 40 SILENT actually were, 2026-08-16
+
+The writing session's 40 silent codes conflate two populations, and only one is
+a fact about the harness: *"a different two-line configuration would trip this"*
+versus *"no rung-1 run can trip this at all, despite the `R2` mark"*. The second
+is a mis-marking or a dead check — the shape that already caught `NO_TEMPO`.
+Separating them needs no writer and no bias control, because it varies the
+DECLARATIONS and the draft's SHAPE, never the quality of the writing. That is
+what `R2` was defined to mean: *a two-line draft CAN reach it*.
+
+**36 configurations, in two rounds plus one correction.** Round 1 was 23 broad
+configurations — omitting `--subdivision`, omitting the blueprint, `--cliques`,
+`--isochronous`, `Subdivision(1)`, zero-duration and out-of-cycle and
+overrunning and overlapping spans, an 8-bar section with 2 bars sung, a 7/8
+meter, declared hooks and titles, OOV end words, hyphenated pieces, a cliché
+pair, a repeated end word, anaphora. Round 2 was one configuration aimed at
+each code still silent.
+
+| stage | EXPECTED-REACHABLE reached |
+|---|---:|
+| the blind writing session | 12 of 52 |
+| after round 1 (23 configs) | 40 of 52 |
+| after round 2 (12 configs) | 51 of 52 |
+| after one correction | **52 of 52** |
+
+**THE RESIDUE IS ZERO, AND THAT IS THE RESULT.** Every code the
+pre-registration marked `R2` or `R2*` is reachable by some rung-1
+configuration. Nothing is mis-marked; no reachable check is dead at this rung.
+Combined with the session's own two zero cells — nothing fired that was marked
+unreachable, nothing fired that §A4 does not list — **the reachability model
+written before any draft existed is correct in both directions across 36
+configurations.** That is the strongest thing this experiment has produced, and
+it is a negative result: there was nothing rotten behind the 40.
+
+**THE LAST ONE TOOK TWO ATTEMPTS AND THE FIRST WAS MY ERROR, not the
+harness's.** `HOOK_PLACEMENT_UNDECLARED` needs a hook that RECURS into sections
+that declare no function; my first attempt declared `function: "chorus"`, so
+the hook was placed, and it occurred once, so `HOOK_DOES_NOT_RECUR` fired
+instead. With the hook in both lines and the section's `function` omitted it
+fires immediately. Recorded because a single failed attempt looked exactly like
+a dead check for as long as it took to read the emission site — which is the
+argument for chasing a residue to zero rather than reporting it.
+
+**SO THE 23% STANDS AND ITS MEANING NARROWS.** One ordinary writing session
+touches 12 of 52; the whole 52 is reachable, but only under deliberate,
+adversarial configuration — 36 hand-built cases against 1 song. The gap is not
+harness rot. It is that **nothing about writing a song exercises the surface**,
+which is the hypothesis this experiment was built to test, now measured rather
+than argued: a writer cannot be relied on to reach a check, so every check has
+to be reachable by a test that does not depend on one.
 
 ## D. Judgement calls carried forward
 

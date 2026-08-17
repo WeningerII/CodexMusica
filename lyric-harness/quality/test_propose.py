@@ -110,6 +110,7 @@ class B:
         #: reads it through `getattr`, so a stub that forgets it produces an
         #: empty block rather than an error.
         self.forbidden_incumbent = kw.get("forbidden_incumbent", "")
+        self.field_computed = kw.get("field_computed", False)
         self.keep = kw.get("keep", [])
         self.must_answer = kw.get("must_answer", [])
         self.joint_conflict = kw.get("joint_conflict", False)
@@ -144,7 +145,14 @@ PIVOT_BRIEF = B(
     # spelling, which is exactly why it had to be moved deliberately: a stub
     # that renders a state production cannot reach tests the renderer against
     # a shape no writer will ever see.
-    candidates=[], forbidden_modal=[], forbidden_incumbent="dream", keep=[],
+    candidates=[], forbidden_modal=[], forbidden_incumbent="dream",
+    # `field_computed=True` is the whole point of this fixture's shape: a
+    # joint conflict means `joint_field` RAN over both call words and came
+    # back empty, so the empty-head branch must NOT say "no modal head was
+    # computed" here. It said exactly that until 2026-08-16, eleven lines
+    # under this same prompt's "nothing in the lexicon answers all of those
+    # groups at once" — the prompt contradicting itself.
+    field_computed=True, keep=[],
     must_answer=[("A", [1, 3], [(1, "silver")]),
                  ("B", [2, 3], [(2, "mind")])],
     joint_conflict=True)
@@ -155,6 +163,14 @@ PLAIN_BRIEF = B(
                 "fire/desire; go/know", [1, 2])],
     candidates=["attire", "sire", "choir", "our"],
     forbidden_modal=["fire", "higher", "conspire", "entire"],
+    # THE INCUMBENT, ADDED 2026-08-16. Without it this fixture rendered a
+    # `Brief` shape `brief()` cannot emit — every real briefed line with a
+    # field carries an incumbent — and the ENTIRE writer-facing statement of
+    # rule 2 could be deleted with this suite fully green. `class B`'s field
+    # list is pinned to `Brief` by §7c, but a pinned CLASS says nothing about
+    # an INSTANCE that leaves the field at its default.
+    forbidden_incumbent="fire",
+    field_computed=True,
     keep=[3, 4],
     must_answer=[("A", [1, 3], [(3, "desire")])])
 
@@ -291,6 +307,45 @@ def test_forbidden_words_are_present_and_labelled():
           "`verify()` never checks where the end word came from, and a "
           "prompt that demanded it would be enforcing a rule nobody grades",
           "Offered, NOT required" in _section(p, "OFFERED"))
+
+    # RULE 2 HAD ZERO ASSERTIONS IN THE SUITE THAT OWNS `render_line` —
+    # added 2026-08-16. The whole writer-facing statement of the incumbent
+    # rule could be deleted with this file fully green, because every fixture
+    # here left `forbidden_incumbent` at the stand-in's default. §7c pins the
+    # stub CLASS to `Brief`'s field list; a pinned class says nothing about an
+    # INSTANCE that never sets the field.
+    inc = _section(p, "THE WORD ALREADY THERE")
+    check("the INCUMBENT reaches the prompt, in its own block, under its own "
+          "rule -- not folded into the modal list",
+          PLAIN_BRIEF.forbidden_incumbent in inc
+          and "DIFFERENT rule" in inc,
+          inc.split("\n")[0])
+    check("...and that block states the consequence RULE 3 actually applies: "
+          "keeping it is NOT rejected outright, which is the opposite of "
+          "what the modal block above says about its own words",
+          "NOT rejected outright" in inc and "nothing was fixed" in inc,
+          [l.strip() for l in inc.splitlines() if "rejected" in l][:1])
+    check("the two blocks are DISJOINT -- no word appears under both rules, "
+          "so a reader cannot attribute one to the other",
+          PLAIN_BRIEF.forbidden_incumbent not in block
+          or PLAIN_BRIEF.forbidden_incumbent in PLAIN_BRIEF.forbidden_modal,
+          f"incumbent={PLAIN_BRIEF.forbidden_incumbent!r} "
+          f"head={PLAIN_BRIEF.forbidden_modal}")
+
+    # THE EMPTY-HEAD BRANCH HAS THREE STATES AND SAID ONE.
+    jc = render_line(PIVOT_BRIEF, DRAFT)
+    check("a JOINT-CONFLICT pivot -- head computed, came back empty -- is "
+          "NOT told 'no modal head was computed', which the same prompt "
+          "contradicts eleven lines up",
+          "no modal head was computed" not in jc
+          and "came back EMPTY" in jc
+          and "nothing in the lexicon answers all of those groups" in jc,
+          [l.strip() for l in jc.splitlines() if "none —" in l][:1])
+    check("CONTROL: a line whose field was never computed DOES keep the "
+          "original sentence -- the repair adds a state, it does not "
+          "rename the one that was right",
+          "no modal head was computed" in render_line(
+              B(line_no=1, text="x"), ["x"]))
 
     # THE CAP IS DISCLOSED WHEN IT BITES. A truncated field with no count
     # beside it is a threshold nobody wrote down (doctrine 58).
