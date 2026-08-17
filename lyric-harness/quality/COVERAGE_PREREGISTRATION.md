@@ -1359,6 +1359,67 @@ between fixing a line and preserving a return, so the collision prediction 3
 names is still untested. That needs a mandate that can only be satisfied by
 editing a chorus line, and it is owed with the sweep's round 2.
 
+### R2.8 Sweep rounds 2–3, prediction 3, and RUNG 2's ACTUAL YIELD
+
+**15 of 19 `R8` reached.** Round 2 took four more (`HOOK_CONFINED` by naming a
+hook that recurs more than twice, `RETURN_LENGTH_DRIFT` by giving chorus 2 one
+line, `SINGLE_USE_RECURRED` by declaring `reprise` twice — its own
+`recurrence` is `"once"` — and `GROUPS_DECLARED_RETURN` by merging two groups
+the mandate declares a return). Round 3 took two more once I read the emission
+sites instead of guessing, which is rung 1's lesson applied on purpose:
+
+- `RETURNS_WITH_SAME_WORDS` fires when a function whose `returns_as` is **"new
+  words"** returns VERBATIM. That is a VERSE, not a chorus. L1–L2 and L7–L8
+  are identical, so declaring those two sections as verses is the whole trick.
+  My round-2 attempt reordered the words instead, which is the wrong axis.
+- `MANDATE_EXCUSED_BY_OVERLAP` needs BOTH endpoints of the failing pair to
+  fully answer another group — the excusal is PER LINE (`grade()`'s own
+  argument). Round 2 gave only one endpoint a second group.
+
+**THE FOUR THAT REMAIN ARE OUT OF REACH BY PROTOCOL, NOT BY DEFECT.** Every
+one needs the DRAFT'S WORDS to contain something, and §R2.2 forbids the
+measurer from editing them:
+
+- `NEAR_COLLISION` and `COLLISION_CUT_IS_SCALAR_ONLY` need an unmandated pair
+  that scores ≥ 0.9 and is NOT a rhyme. MEASURED on this draft: **every one of
+  its eight cross pairs at ≥ 0.9 is RHYME or REPEAT** — `you`/`through`,
+  `door`/`floor`, `name`/`same` and the two verbatim repeats. There is no
+  near-relation in it to collide. This is a fact about the writer's words, and
+  no declaration reaches it.
+- `STUB_RETURN` needs a line that is an ABBREVIATED POINTER — *"an abbreviated
+  reference is a POINTER, not a reproduction"* — the printer's `[Chorus]`
+  convention. A declaration cannot manufacture one.
+- `RADIF_LICENSED` needs a repetend the floor recognises; not reached by
+  `repeat_licence="refrain"` alone, and its exact trigger is identified but
+  UNCONFIRMED. This one is the weakest of the four and is owed a read.
+
+**PREDICTION 3 IS ANSWERED, AND IT IS A NULL.** Forced with a mandate
+satisfiable only by touching a chorus line (`--groups=1,4;4,6
+--returns=1,7`), the loop **backtracked through tier 2** — changed L4 AND its
+anchor L6, keeping the verbatim chorus intact — and reached SUCCESS in one
+round. It never chose to break the return. The re-brief landed the same day
+and this is the first time it has run against a returning section under a
+conflict; it behaved correctly.
+
+#### RUNG 2 FOUND ZERO HARNESS DEFECTS, and that is the headline
+
+Rung 1 found six. Rung 2 found none. Its entire yield is **one falsified
+prediction, which was mine** (`DOWNBEAT_LOCKED` / `PHRASE_LENGTH_LOCKED`
+marked `R3` on a lazy argument), and **one protocol limit** (four codes
+reachable at this shape but not on this draft's words). The three standing
+predictions in §R2.5 all came back null: the return layer's reports were
+correct under seven configurations, no `VARIATION_KINDS` member turned out to
+be unaskable, and the re-brief handled a returning section correctly.
+
+**THE MOST LIKELY EXPLANATION IS NOT THAT THE RETURN LAYER IS CLEAN.** It is
+that rung 2 never exercised the handoff, because the blind writer's seed
+passed and the revision path only ran under declarations I authored. Rung 1's
+six defects were ALL in the handoff, and rung 2's writer never had to receive
+a brief, act on it and be graded. **A rung that does not make the writer work
+does not test the thing rung 1 found defects in** — which is the real lesson
+for rung 3's spec, and it is a lesson about the EXPERIMENT rather than about
+the harness.
+
 ## D. Judgement calls carried forward
 
 The derivation flagged its own uncertainty; carried here unresolved rather than
