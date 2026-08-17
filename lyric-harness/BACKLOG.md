@@ -93,7 +93,7 @@ re-derived — which is how `30 / 29` survived three mutations being added.
 each caught by the file that declares it.** A new coordinate with a default is a
 new place for a silent drift; it belongs in the list so that stays true.
 
-### 1.2 · `best_score` does not report which span won `M-17, OPEN`
+### 1.2 · `best_score` does not report which span won `M-17, CLOSED 2026-08-17`
 `line_anchors` returns several candidate spans per line; `best_score` takes the
 max; `check_scheme` prints the score beside `endwords[i]/endwords[j]`. When the
 winner is an interior mosaic reach, **the report names a pair that had nothing
@@ -101,6 +101,33 @@ to do with the number** — `go/receipt 0.579 RHYME` was `get to go` ~ `ceipt`.
 This is the original bad report line and it is still there. Doctrine 45.
 **Acceptance:** every score carries the two spans that produced it, and
 `check_scheme`/`brief` print them. Adversary 7's first instrument.
+
+**CLOSED IN TWO HALVES, AND THE SECOND ONE WAS THE WRITER'S.** Adversary 7
+closed the first: `best_score` returns a `Scored` carrying an `Attribution`
+that names the winning span pair, the words each covers, `search_k`, ties and
+the mosaic/substituted verdicts, and `check_scheme` prints it through
+`spans_note`. **`brief` did not**, and `brief` is the half a writer reads.
+`inspect()`'s findings printed two end words and a number — the assertion —
+without ever evaluating it. `Reviser._attribution` is the repair, and it is
+GATED ON `Attribution.claims`: the provenance is appended exactly when the
+ordinary sentence would be false.
+
+**The gate is the design, and it was measured, not assumed.** On rung 3's
+26-line draft **325 of 325** pairs carry a provenance note and **208** name
+something other than the two end words, so printing it always buries the cases
+that matter under two hundred `scored on: humming ~ coming`. **4 of the 13
+MANDATED pairs** on that draft name a pair that is not the evidence, so this
+was live and not latent. Both report paths in `grade()` — `verdicts` and
+`collisions` — read the one gate, so they cannot drift about one question
+(doctrine 1).
+
+`quality/test_revise.py` §44 is 6 checks on BACKLOG 1.2's own `go/receipt`
+example plus an exact-span control, and needs THREE mutations: removing the
+gate reds the two control checks (the note appears where the ordinary sentence
+is true), cutting the finding's call site reds the writer-facing check, and
+dropping the collision call site reds the no-drift check. Two checks are
+controls that the VERDICT did not move — same score, same relation, same
+`why`. This is a report repair and nothing else.
 
 ### 1.3 · `theta_nucleus` is a coin flip `CLOSED 2026-08-11`
 `five`/`of` passes at nucleus similarity **0.603** against a threshold of
@@ -263,10 +290,45 @@ re-derived rather than recorded. Full account in `MISSING.md` M-6 and
 `python3 quality/verify_entries.py`, shapes `SYMBOL_ABSENT` and
 `STAGED_FILE_COUNT`.
 
-### 2.8 · Five relations.py defects left OPEN by triage
-`Span.unit` (needs the granularity ladder), `SpanRule.terminator` (duplicates
+### 2.8 · ~~Five relations.py defects left OPEN by triage~~ `ALL FIVE CLOSED 2026-08-11 — THIS SUMMARY WAS STALE, REPINNED 2026-08-17`
+~~`Span.unit` (needs the granularity ladder), `SpanRule.terminator` (duplicates
 `magnitude`), chorus-stub line status, homograph knowledge sets, text-order
-convention. All asserted as OPEN in the suite so closing one fails a test.
+convention. All asserted as OPEN in the suite so closing one fails a test.~~
+
+**THE WORK WAS DONE AND THIS LINE DID NOT FOLLOW IT.** Every one of the five
+reached one of the three honest ends on 2026-08-11, and
+`quality/test_relations.py::test_known_open_defects` asserts each closure — so
+RE-OPENING one is now the test failure, exactly as closing one used to be.
+Verified green 2026-08-17, 0 failures. What the five actually became:
+
+- **`SpanRule.terminator` — DELETED.** Measured a strict function of
+  `magnitude` across all 154 member rules, so it carried zero information;
+  wiring it would have invented a semantics no schema asks for.
+- **`Span.unit` — KEPT AND DECLARED INERT**, with the blocker named as
+  `disjoint` rather than `build`: every piece exists (three phonologies
+  declare `grid_unit='mora'`, all nine return Syllables, the consumer is in
+  `rhyme_constraints.read_channel`) and no two are in one object.
+  `check_inert()` re-derives it and fails in BOTH directions.
+- **text-order — WIRED, and the earlier DECLINE was FALSE.** It had been
+  recorded as "a naming decision, not a defect, for no measurable gain".
+  Measured: 114 instances recovered across 17 asymmetric schemas, 72 of them
+  TRUE, and ZERO on any of the 60 symmetric ones. `mosaic rhyme` alone
+  recovered 69 true instances that existed only because the positional skip
+  was removed — a schema's recall was a function of which member the text
+  printed first.
+- **chorus-stub line status — CLOSED as a declared coordinate.**
+  `Stream.line_status` holds it; `relations.py` ships no detector and does not
+  import `lyric_harness`, so the tokeniser is unchanged.
+- **homograph knowledge sets — CLOSED both halves.** A channel may hold a
+  `Readings` and an unresolved homograph reads UNDECIDED end to end, with an
+  uncertain read acting as a WILDCARD in the candidate index so the pair
+  survives to be refused rather than being deleted from the sample.
+
+**The lesson is the entry, not the code.** A summary line that outlived its
+subject by six days is the same defect as the coverage denominator that did
+not follow its own repin (doctrine 91) — a rendering used as the source of
+truth. Anyone reading this file for what is open was being told five things
+were broken that the suite would fail if anyone re-broke.
 
 ---
 
@@ -325,7 +387,7 @@ column is a path and `python3 quality/verify_entries.py` now checks it.
 
 ## TIER 4 — instrument honesty
 
-### 4.1 · The time layer's α is not controlled `L-1` — CAUSE FOUND, STILL OPEN
+### 4.1 · The time layer's α is not controlled `L-1` — CAUSE FOUND, LEVERS MEASURED 2026-08-11, TASK DISCHARGED — `L-1 STAYS OPEN`
 ~~"5.4% against 5.0%" is n=6; at n=20 it is 9.6%.~~ The guarding test runs three
 sonnets and asserts only `mean < 0.20`, which cannot detect a 2× miss.
 
@@ -338,10 +400,50 @@ constant replaced by the quantity it stood in for — saturation by `1−(1−r)
 from the measured per-pair FPR, the α tolerance by `α + 2 s.e.` over 1,321 slot
 decisions (n=20, 6.2%, which CAN detect the 2× miss), the band-pass guard by 2×
 the measured max over 30 real sonnets.
-**Still open, and the open part moved:** at the honest family the layer cannot
+~~**Still open, and the open part moved:** at the honest family the layer cannot
 produce an event at all — at `null_samples=2000` the Šidák cut (2.5e-4) sits
 BELOW the p-value floor (5e-4). **Owed: `null_samples` and `window`, measured
-against the candidate family.** Not a corpus, and not a fourth instrument.
+against the candidate family.** Not a corpus, and not a fourth instrument.~~
+
+**THE OWED MEASUREMENT WAS MADE ON 2026-08-11 AND THIS LINE DID NOT FOLLOW IT
+— REPINNED 2026-08-17.** `quality/time_attainable.py` is the runner and
+`quality/RESULTS_FWER.md` §"THE LEVERS, MEASURED — and the layer cannot speak"
+is the write-up. **Both named levers are dead, and the arithmetic is the same
+in both cases.** Verified green today: `quality/test_fwer.py`, all regressions
+pass.
+
+**And the diagnosis in the struck sentence was wrong in an instructive way.**
+`min_p` is not sitting on a resolution floor — it is reporting a RATE.
+`_pvalue` returns `(ge + 1)/(n_valid + 1)`, and for the best pair in a real
+sonnet every one of the 40-83 draws at or above it is an exact TIE at 1.000
+with ZERO strictly above: the comparator saturates at a perfect rhyme, so
+`min_p` converges on the density of perfect chance re-pairings. **Raising
+`null_samples` estimates that rate MORE PRECISELY rather than lowering it, and
+it estimates it UPWARD** — 3.998e-3 at 2,000 draws, 4.200e-3 at 20,000,
+4.415e-3 at 200,000. A 100x more expensive null makes the gap WORSE. Doctrine
+57 warned about an empirical p sitting AT `1/(n+1)`; this is the complementary
+trap, a p sitting far above it and reporting a rate.
+
+**The real gap is a factor of ~10, not 1.4.** `M_NEEDED = ln(1-alpha) /
+ln(1-min_p)` is 18-28 across the corpus against a median family of 198-217 at
+the registered window. The 1.4x in the earlier record compared `min_p` against
+the LOOSEST cut in the item — the cut at the smallest family, at a position
+where the best pair almost never sits.
+
+**So the honest state is that the layer is MUTE at an honest family size, and
+that is a finding rather than a defect** (doctrine 20 — "cannot tell" is an
+answer). Not owed: a second corpus, a fourth instrument, more `null_samples`,
+a narrower window, a shorter `max_span`, or more text. All six were measured
+and none is a route.
+
+**THE BACKLOG TASK IS DISCHARGED AND `MISSING.md` L-1 STAYS OPEN, which is not
+a contradiction.** This entry owed a MEASUREMENT and the measurement is made.
+L-1 records a missing CAPABILITY — a false-event rate controlled at α — and
+the capability is still missing; what changed is that its absence is now
+arithmetic rather than an unexamined hope. Marking this entry `CLOSED` while
+L-1 read `OPEN` was caught by `quality/verify_entries.py`'s STATUS_XREF check
+on the first run after the edit, which is the check doing exactly its job: a
+task one can finish is not the same object as a gap one cannot.
 
 ### 4.2 · Real sonnets do not separate from scrambled text on event rate `L-2` — MECHANISM FOUND
 ~~10.9% observed vs 9.6% word-scramble, p=0.095.~~ Until that separates, a null
@@ -792,6 +894,137 @@ control, which must pass on every tree.
 
 ---
 
+### 4.9 · Tier 2 offered a pair its own grader rejects `FOUND AND CLOSED 2026-08-17`
+
+Found by rung 3 of the coverage experiment, by COMPLETING a defer session
+rather than stopping at the first prompt — see
+`quality/COVERAGE_PREREGISTRATION.md` §R3.7, defect F. Not a reading: the pair
+the tier-2 prompt prints under *THE PAIR THE GRADER'S OWN SEARCH IS PROPOSING*
+was run through `verify()` and came back
+
+    accepted  : False
+    new_flags : [(5, 'SCHEME_VIOLATION'), (19, 'RETURN_NOT_VERBATIM')]
+
+**One sentence, two consequences.** `_try_tier2` builds both searches out of
+the PIVOT's group list and nothing else:
+
+    other_calls = [w for lab2, _m2, cl2 in b.must_answer if lab2 != label
+                   for _, w in cl2]
+    p_offered, _ = reviser.joint_field(other_calls, exclude=(pivot_current,))
+    a_offered, _ = reviser.modal_field(w, exclude=(anchor_current,))
+
+**(a) The PIVOT field ignores the requirement KIND.** `other_calls` does not
+read `Brief.return_groups`, so a group whose requirement is `REQUIRE_RETURN`
+contributes its end word to a RHYME search. This is the SEARCH half of defect
+E, still open after the rendering half landed: the prompt now correctly says
+*"this line must BE L19"*, and the field beneath it still offers 24 words each
+of which breaks the return. The one legal answer — the word already there — is
+`exclude`d by construction, so the field cannot contain it.
+
+**(b) The ANCHOR field ignores the ANCHOR's own groups.** `a_offered` is
+`modal_field(w)` — derived from the pivot's candidate alone. An anchor that is
+itself a pivot is searched as though the shared group were its only
+obligation. MEASURED on rung 3's draft: `partners(3)` is `[(1, [5]), (12,
+[7])]`, all 24 anchor options are `-air`/`-are` words, and L5 ends on `awake`.
+The prompt does not tell the writer either — it renders **THE RHYME MANDATE ON
+THE PIVOT** and no block for the anchor.
+
+**Why this is doctrine 48 and not merely a weak search.** The offer was never
+put through the check that judges the answer, so "this pair cannot be
+accepted" was not a verdict the loop could reach. A blind writer took the
+correct move available to it — keeping the pivot byte-identical to preserve
+the return, moving the anchor to `chair` — and was rejected on (b), with
+nothing in the prompt that could have told it why.
+
+**CLOSED.** `_anchor_obligations` asks `Mandate.partners`/`requirement` for
+the anchor and drops only the group being backtracked; the anchor field is
+`joint_field([w] + a_other)`; a line pinned by a verbatim return is NOT
+SEARCHED, with the group named; and `PairBrief.anchor_calls` carries the
+anchor's obligations into the prompt under **AND THE ANCHOR HAS GROUPS OF ITS
+OWN**. THREE COUNTS, NEVER SUMMED (doctrine 79): `tried` (pairs put to a
+proposer), `pinned` (groups refused unsearched), `starved` (groups whose
+anchor conjunction came back empty) — the last unsayable before the fold,
+because `modal_field(w)` was never empty here.
+
+`quality/test_loop.py` §19 is 8 checks over three fixtures, one per half:
+`ANCHOR_IS_A_PIVOT` carries no returns at all, `ANCHOR_HAS_A_LIVE_GROUP` gives
+the anchor's conjunction a non-empty answer so a prompt is actually built, and
+the pin fixture puts the PIVOT in a return. Check 8 is the control that keeps
+the fix inert where the defect is not.
+
+---
+
+### 4.10 · Two checks that cannot fire in any real run `FOUND AND CLOSED 2026-08-17, DECLARED INERT`
+
+Found by sweeping the 16 finding codes no coverage rung had reached
+(`quality/COVERAGE_PREREGISTRATION.md` §E). Thirteen turned out to be
+positively tested already; two more (`NO_RHYME_KEY`, `REPRISE_STUB`) fire and
+merely had no test, now `quality/test_grid.py` §30. The last two are doctrine
+48 — a check that cannot fail is decoration — and they are unreachable for
+DIFFERENT reasons, which is why they are two entries and not one.
+
+**(a) `NO_TEMPO` is never called.** `quality/fit.py:184` builds a PERMANENT
+`FitRefusal` for want of a tempo. A repo-wide grep finds exactly one caller:
+`quality/test_fit.py`, which asserts its `status`, `missing` and `detail`
+strings and that it raises rather than answering. **No production path
+constructs it**, so no run of the harness can ever emit it. The module's own
+docstring explains why — it never asks a per-second question, so "syllables
+per second", "too fast to sing" and "the pickup is 200 ms" are refused by NOT
+BEING ASKED rather than by refusing. That is a defensible design; what is not
+defensible is a refusal object plus a test that reads as if the guard were
+live. **AND THE OTHER HALF IS UNWIRED TOO:** `quality/declared_inputs.py:546`
+declares `tempo_bpm`, and a grep finds NO reader anywhere. A caller can
+declare a tempo and nothing will use it, while the refusal that exists for its
+absence can never fire. Both halves of the tempo story are scaffolding.
+**Decide:** either delete both and let `MISSING.md` C-5 carry the gap alone,
+or wire one real per-second question so the refusal guards something.
+
+**(b) `PROMINENCE_UNDECIDED` has a working branch and no producer.**
+`quality/fit.py:1227` refuses when `units.prominence_undecided` is non-empty,
+which needs `_resolve_prominence` to see a multi-valued `Readings`. MEASURED:
+the branch WORKS — a phonology whose `syllabify_line` returns
+`Readings({0, 1})` for one word yields 2 undecided units and a `?` in
+`pattern()`. What no phonology does is produce one. `Readings` is constructed
+in exactly one file in the repo, `quality/test_homograph.py`, and even its
+`EnglishAllReadings`/`EnglishUncertain` classes set `prominence` to a plain
+int per parse, so `read_line` came back with **0 undecided units on every
+homograph tried** (`record`, `wound`, `desert`, `read`, `bass`). So the
+refusal is live code guarding a state the shipped phonologies cannot enter.
+**Decide:** either wire the English phonology to keep a `Readings` where
+CMUdict's parses disagree on stress — which is what the class is FOR and would
+make several homograph questions answerable — or mark the check as reachable
+only through a caller-supplied phonology and pin that with a test, so it stops
+looking like a live guard on the default path.
+
+**Neither is a wrong answer being reported.** Nothing the harness says today
+is false because of these. They are checks that cannot participate, which is
+the failure mode doctrine 48 names and the reason this sweep was run.
+
+**CLOSED BY THE THIRD END — KEPT AND DECLARED INERT, MECHANICALLY.** Both are
+now entries in `quality/fit.py`'s `INERT`, in the shape `quality/relations.py`
+settled on for this exact problem, and `quality/test_fit.py` re-derives both
+and fails in BOTH directions: three mutations, each red — something starting to
+CALL `_no_tempo`, an entry renamed off its subject, and a blocker outside the
+declared three.
+
+**And the second decision was NOT the obvious one, because measuring it
+changed the answer.** Wiring `PROMINENCE_UNDECIDED` naively looked right —
+`P11` already established that an unresolved homograph must read UNDECIDED
+rather than be guessed, and `fit.py` guesses. But MEASURED: all five words on
+this repo's own English homograph list (`wind`, `live`, `read`, `bow`, `tear`)
+carry **one** prominence pattern and **two nuclei**, so the ambiguity P11
+handles is never a prominence ambiguity. The CMUdict entries that do disagree
+on prominence are reduction variants — `our`, `will`, `can`, `did` — on 4.24%
+of corpus lines, where the dictionary did not decline to say anything; it
+listed two PERFORMANCES of one word. Reporting those as *"the phonology left
+it undecided"* would merge two kinds of fact under one count (doctrine 79) and
+make the check fire for the wrong reason, which is worse than its being dead.
+The blocker is therefore `disjoint` and it is nameable: the lexicon does not
+mark WHICH multi-parse entries are lexically ambiguous as against reduction
+variants, and `ENG_HOMOGRAPHS` is five hand-listed words in a test file.
+
+---
+
 ## TIER 5 — whole absent layers (`MISSING` B, C, D, G, H)
 
 Not debt, not defects — **never built**. Listed so they are not mistaken for
@@ -917,7 +1150,7 @@ never one (doctrine 79).
 | MISSING entries by status | 48 OPEN / 15 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1009** DECLARED-public top-level functions/classes under `quality/` and the root — **165** named by another production module, **253** by tests only, **534** only inside their own module, **11** by nothing anywhere, **46** REFUSED (34 ambiguous, 7 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **19** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1009** DECLARED-public top-level functions/classes under `quality/` and the root — **165** named by another production module, **253** by tests only, **534** only inside their own module, **11** by nothing anywhere, **46** REFUSED (34 ambiguous, 7 dynamic, 5 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **20** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **57 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

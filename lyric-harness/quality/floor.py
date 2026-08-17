@@ -1237,12 +1237,24 @@ class SlopFloor:
             out.append(Finding(
                 "RADIF_LICENSED", "note",
                 f"a refrain closes {len(runs[run])} of {npairs} rhyme pairs; "
-                f"self-rhyme checking is suppressed for it",
+                f"THIS FLOOR's self-rhyme check is suppressed for it",
                 f"repetend {' '.join(run)!r} recurs across "
                 f"{len(runs[run]) / npairs:.0%} of pairs, at or above the "
                 f"declared {need:.0%}, so it is read as a radif rather than "
                 f"as repeated rhyme words. The rhyme is scored on the qafiya "
-                f"that precedes it", ls))
+                f"that precedes it. WHAT IS SUPPRESSED IS THIS MODULE'S "
+                f"`REPEAT_IN_VERSE` AND NOTHING ELSE — the MANDATE layer "
+                f"judges an identical end word separately, on the declared "
+                f"`ReviseDeclaration.repeat_licence`, and under the default "
+                f"'unlicensed' it reports every one of these pairs as a "
+                f"`SCHEME_VIOLATION` (REPEAT not rhyme) beside this note. "
+                f"MEASURED on a 5-couplet English ghazal, radif 'turn': 15 "
+                f"violations at the default and 0 at repeat_licence="
+                f"'refrain', with this finding unmoved in both. A radif is a "
+                f"LICENSED repeat and declaring it is the caller's move; "
+                f"saying 'self-rhyme checking is suppressed' full stop would "
+                f"claim a settlement this module cannot make for a layer it "
+                f"does not own (doctrine 1)", ls))
 
         for i, j, a, b, run in stripped:
             if run and run not in licensed:

@@ -2938,9 +2938,21 @@ def test_the_named_pair_disclosure_survives_the_module_boundary():
     check("the fixture still carries a mosaic span to disclose", mosaic,
           "a check with nothing to examine passes for the wrong reason "
           "(doctrine 48) — this one names its own population")
-    orphans = [lines[i].strip()[:70] for i in mosaic
-               if i == 0 or "NAMED PAIR IS NOT THE EVIDENCE" not in lines[i - 1]]
-    check(f"every one of the {len(mosaic)} mosaic spans carries the banner",
+    # THE BANNER MAY SIT ON THE SAME LINE OR THE ONE ABOVE — widened
+    # 2026-08-17, when `BACKLOG.md` §1.2's writer-facing half landed. A
+    # `Finding.evidence` is ONE string, so `Reviser._attribution` appends the
+    # provenance inline and the banner arrives on the mosaic line itself.
+    # This check used to read `lines[i - 1]` alone, which encoded a LAYOUT
+    # rather than the invariant it is about: no mosaic disclosure appears
+    # without the banner accompanying it. Two new disclosures appeared on
+    # this fixture the day the rule was widened, both correct.
+    def _banner(i):
+        return ("NAMED PAIR IS NOT THE EVIDENCE" in lines[i]
+                or (i > 0
+                    and "NAMED PAIR IS NOT THE EVIDENCE" in lines[i - 1]))
+    orphans = [lines[i].strip()[:70] for i in mosaic if not _banner(i)]
+    check(f"every one of the {len(mosaic)} mosaic spans carries the banner, "
+          f"on its own line or the one above it",
           not orphans, orphans)
 
     # THE SAME PAIR THROUGH `brief`, which reaches `Reviser` by a different

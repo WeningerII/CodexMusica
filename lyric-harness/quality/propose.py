@@ -217,10 +217,30 @@ def _mandate_block(brief, indent="  "):
     and are restated here in the same terms it uses."""
     out = []
     must_answer = _ordered(getattr(brief, "must_answer", ()) or ())
+    rets = set(getattr(brief, "return_groups", ()) or ())
     for lab, mem, calls in must_answer:
         shown = ", ".join(f"L{n} ({w!r})" for n, w in _ordered(calls))
-        out.append(f"{indent}group {lab} {list(_ordered(mem))} — this line "
-                   f"must rhyme with: {shown}")
+        if lab in rets:
+            # A DECLARED RETURN IS NOT A RHYME GROUP, and this said it was —
+            # defect E, 2026-08-16. `Mandate.requirement` answers
+            # REQUIRE_RETURN here: the two lines must be THE SAME LINE.
+            # Printing "must rhyme with" hands the writer a strictly WEAKER
+            # requirement, so a different line that rhymes reads as
+            # compliance and silently breaks the return.
+            out.append(f"{indent}group {lab} {list(_ordered(mem))} is a "
+                       f"RETURN — this line must BE {shown}, the same line "
+                       f"word for word.")
+            out.append(f"{indent}  A rhyme is NOT enough here, and note that "
+                       f"rule 2 below forbids you changing the other line: "
+                       f"if this")
+            out.append(f"{indent}  line has to move to satisfy something "
+                       f"else, the RETURN is what breaks, and that is a "
+                       f"fact about the")
+            out.append(f"{indent}  mandate rather than about anything you "
+                       f"can write.")
+        else:
+            out.append(f"{indent}group {lab} {list(_ordered(mem))} — this "
+                       f"line must rhyme with: {shown}")
     if len(must_answer) > 1:
         out.append(f"{indent}This line is a PIVOT: it is in "
                    f"{len(must_answer)} groups and must answer EVERY one of "
@@ -624,9 +644,9 @@ def render_pair(pair_brief):
     `pair_brief` is duck-typed on `quality.loop.PairBrief`: `pivot_line_no`,
     `pivot_text`, `pivot_word`, `pivot_offered`, `anchor_line_no`,
     `anchor_text`, `anchor_word`, `anchor_offered`, `label`, `members`,
-    `brief`, `lines`, `attempt`, `reasons`, `whole`. Read by `getattr` with
-    defaults, and `quality.loop` is NOT imported (it imports proposers; the
-    dependency runs one way).
+    `brief`, `lines`, `attempt`, `reasons`, `whole`, `anchor_calls`. Read by
+    `getattr` with defaults, and `quality.loop` is NOT imported (it imports
+    proposers; the dependency runs one way).
 
     `pivot_word`/`anchor_word` ARE THE PROPOSAL — the words the loop's own
     search is asking for on THIS attempt — and NOT what the two lines
@@ -751,10 +771,37 @@ def render_pair(pair_brief):
         out.append("  (none offered)")
     out.append("")
 
+    # THE ANCHOR'S OWN MANDATE. This block did not exist until 2026-08-17 and
+    # its absence was defect F: the prompt printed THE RHYME MANDATE ON THE
+    # PIVOT, told the writer to move the anchor's end word, and never said
+    # what else that word had to answer. MEASURED — a writer that took the
+    # only correct move available to it was rejected for a flag on a line the
+    # prompt had not mentioned.
+    a_calls = list(getattr(g, "anchor_calls", ()) or ())
+    if a_calls:
+        shown = ", ".join(repr(w) for w in a_calls)
+        out.append(f"AND THE ANCHOR HAS GROUPS OF ITS OWN — L{a_no} is a "
+                   f"pivot too")
+        out.append(f"  Besides group {label} {list(members)}, L{a_no} must "
+                   f"also answer: {shown}.")
+        out.append(f"  Those groups are NOT being rewritten, so they still "
+                   f"hold: whatever L{a_no} moves")
+        out.append(f"  to has to answer them as well, and a new end word "
+                   f"that breaks one of them is a")
+        out.append(f"  new FLAG under item 4 below. The ANCHOR OPTIONS list "
+                   f"already has them folded in.")
+        out.append("")
+
     out.append(f"ANCHOR OPTIONS — words L{a_no} could end on instead of what "
                f"it ends on now")
     if a_off:
         out.extend(_offered_block(a_off, decl))
+    elif a_calls:
+        out.append(f"  (none offered — NOTHING answers group {label} "
+                   f"{list(members)} AND L{a_no}'s own group(s) at once, so "
+                   f"the conjunction")
+        out.append("   is unsatisfiable at this line and the MANDATE is what "
+                   "needs revising, not the words)")
     else:
         out.append("  (none offered)")
     out.append("")

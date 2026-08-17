@@ -89,7 +89,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            CandidateEngine, Declaration,
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, readability_records,
-                           refusals_for_pairs)
+                           refusals_for_pairs, spans_note)
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
@@ -436,6 +436,28 @@ class Brief:
     #: the writer. `quality/test_revise.py` §42's precision check pins THIS
     #: field to `_endword`; nothing pins the other two.
     forbidden_incumbent: str = ""
+    #: WHICH of `must_answer`'s groups are RETURNS rather than rhymes —
+    #: the group LABELS whose `Mandate.requirement` is `REQUIRE_RETURN`.
+    #: Added 2026-08-16 (defect E of the coverage experiment, rung 3).
+    #:
+    #: `must_answer` carries every group a line is in and NO requirement kind,
+    #: so a declared RETURN — where the two lines must be THE SAME LINE —
+    #: rendered identically to an ordinary rhyme group, and both renderers
+    #: said *"this line must rhyme with"*. That is the WRONG requirement and
+    #: a strictly WEAKER one: a writer who supplies a different line that
+    #: rhymes has done exactly what they were told and broken the return.
+    #:
+    #: MEASURED on rung 3's draft, where L7 is a chorus line in three groups:
+    #: `requirement(7, 8)` and `requirement(7, 3)` are `REQUIRE_RHYME` and
+    #: `requirement(7, 19)` is `REQUIRE_RETURN`, and all three printed the
+    #: same sentence. The mandate has always known; the brief never asked.
+    #:
+    #: A SET OF LABELS RATHER THAN A FOURTH TUPLE FIELD, deliberately:
+    #: `must_answer`'s 3-tuple is read by `quality/loop.py`'s tier-2 search,
+    #: by `propose.py` and by `__str__`, and widening it would make one
+    #: rendering fix a four-site refactor. The label is the key those sites
+    #: already carry.
+    return_groups: tuple = ()
     #: Was the modal head COMPUTED at all for this line? Added 2026-08-16,
     #: because an EMPTY `forbidden_modal` means two different things and a
     #: renderer had no way to ask which.
@@ -493,7 +515,12 @@ class Brief:
                 out.append(f"        {f.evidence}")
         for lab, mem, calls in self.must_answer:
             shown = ", ".join(f"L{n} ({w!r})" for n, w in calls)
-            out.append(f"    must answer group {lab} {mem}: {shown}")
+            if lab in self.return_groups:
+                out.append(f"    group {lab} {mem} is a RETURN: this line "
+                           f"must BE {shown} — the same line, word for word, "
+                           f"not merely a rhyme")
+            else:
+                out.append(f"    must answer group {lab} {mem}: {shown}")
         if self.must_answer and len(self.must_answer) > 1:
             out.append(f"    L{self.line_no} is a PIVOT — it is in "
                        f"{len(self.must_answer)} groups and must answer every "
@@ -746,6 +773,33 @@ class Reviser:
 
     # -- the graph, once --------------------------------------------------
 
+    @staticmethod
+    def _attribution(s, word_a, word_b):
+        """-> the provenance note, but ONLY when the two words a finding is
+        about are not what produced the number. "" otherwise.
+
+        BACKLOG 1.2, the half `check_scheme` closed and the WRITER-FACING
+        half that did not. `best_score` takes a max over k span pairs and has
+        carried an `Attribution` naming the winner since adversary 7;
+        `check_scheme` prints it through `spans_note`, and `inspect()`'s
+        findings — the ones that reach a writer through `brief()` and
+        `quality/propose.py` — printed `'break' ~ 'ear'` and the number and
+        nothing else. Two words and a number on one line is an ASSERTION
+        (doctrine 45), and `Attribution.claims` is that assertion evaluated.
+
+        GATED ON `claims`, NOT PRINTED ALWAYS, and the gate is the whole
+        design. MEASURED on rung 3's own 26-line draft: 325 of 325 pairs have
+        a provenance note, 208 of them name something other than the two end
+        words, and 4 of the 13 MANDATED pairs do. Appending the note to every
+        finding would bury the four cases that matter under 200 that say
+        `scored on: humming ~ coming`. A report says the extra sentence
+        exactly when the ordinary one would be false.
+        """
+        sp = getattr(s, "spans", None)
+        if sp is None or sp.claims(word_a, word_b):
+            return ""
+        return " — NAMED PAIR IS NOT THE EVIDENCE: " + spans_note(s)
+
     def _matrix(self, lines, profile=None):
         """-> (anchors, endwords, readability records, full pair matrix).
 
@@ -859,6 +913,10 @@ class Reviser:
                              "members": list(m.groups[k]),
                              "endwords": (endwords[i - 1], endwords[j - 1]),
                              "score": s["total"], "relation": rel,
+                             # BACKLOG 1.2 — "" unless the two end words this
+                             # verdict names are NOT what produced the score.
+                             "attribution": self._attribution(
+                                 s, endwords[i - 1], endwords[j - 1]),
                              "why": why})
 
         # Doctrine 3, resolved PER PAIR by the mandate's own declaration
@@ -1072,6 +1130,13 @@ class Reviser:
                         "lines": (i + 1, j + 1),
                         "endwords": (endwords[i], endwords[j]),
                         "score": s["total"], "relation": s["relation"],
+                        # BACKLOG 1.2, the same gate as `verdicts` above: a
+                        # collision is reported as two end words and a
+                        # number, and a near-relation collision is exactly
+                        # where an interior reach is likeliest to be what
+                        # scored.
+                        "attribution": self._attribution(
+                            s, endwords[i], endwords[j]),
                         "undeclared": bool(und),
                         "undeclared_lines": (
                             [ln for ln in (i + 1, j + 1)
@@ -1695,7 +1760,8 @@ class Reviser:
                 f"L{i} and L{j} are both in group {v['label']} "
                 f"{v['members']} but do not rhyme",
                 f"{v['why']} (score {v['score']:.3f}; "
-                f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})", [i, j]))
+                f"{v['endwords'][0]!r} ~ {v['endwords'][1]!r})"
+                f"{v.get('attribution', '')}", [i, j]))
         # DOCTRINE 9, ASKED OF A PAIR THAT ALREADY PASSES, NOT ONLY ONE THAT
         # FAILED. `modal_field` has existed since the candidate field was
         # built, and every caller of it -- `joint_field`'s own candidate
@@ -2050,7 +2116,8 @@ class Reviser:
                 continue
             code = self._collision_code(c["relation"], c.get("undeclared"))
             pair = (f"{c['endwords'][0]!r} ~ {c['endwords'][1]!r} "
-                    f"{c['score']:.3f} {c['relation']}")
+                    f"{c['score']:.3f} {c['relation']}"
+                    f"{c.get('attribution', '')}")
             gi = ", ".join(m.labels[k] for k in m.groups_of(i)) or "free"
             gj = ", ".join(m.labels[k] for k in m.groups_of(j)) or "free"
             if c["relation"] not in RHYME_RELATIONS and \
@@ -2512,10 +2579,20 @@ class Reviser:
             # EVERY group, not one. The old `_partner` picked the first
             # mate of the line's single letter, which is all a letter
             # scheme can express and is wrong for a pivot by construction.
+            _returns = []
             for k, mates in groups:
                 b.must_answer.append(
                     (m.labels[k], list(m.groups[k]),
                      [(x, endwords[x - 1]) for x in mates]))
+                # WHICH KIND OF REQUIREMENT THIS GROUP IS. Asked of the
+                # MANDATE, never inferred from the words: `Mandate.
+                # requirement` is the one object that holds both kinds, and
+                # a renderer that guessed from `returns` membership would be
+                # a second statement of it (doctrine 1).
+                if any(getattr(m.requirement(ln, x), "name", "")
+                       == "REQUIRE_RETURN" for x in mates):
+                    _returns.append(m.labels[k])
+            b.return_groups = tuple(_returns)
             if groups and groups[0][1]:
                 _first = groups[0][1]
                 b.must_rhyme_with = (_first[0], endwords[_first[0] - 1])

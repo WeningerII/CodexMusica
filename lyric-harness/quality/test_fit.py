@@ -38,6 +38,7 @@ from quality.fit import (ANSWERABLE, UNANSWERABLE, FitFinding,  # noqa: E402
                          fit_line, fit_song, from_blueprint, from_song,
                          overlap_findings, read_line, report)
 from quality.meter import Cycle, MeterDeclarationError  # noqa: E402
+from quality import fit as FIT                          # noqa: E402
 
 BLUEPRINT = os.path.join(HERE, "fixtures", "song.blueprint.json")
 
@@ -982,6 +983,130 @@ def test_fit_song_reads_a_real_grid_song():
           and secs[0]["cycle"].groups == (3, 2, 2))
 
 
+
+def test_the_two_inert_coordinates_are_measured_not_asserted():
+    """`fit.INERT` — two checks that cannot fire, DECLARED rather than left
+    to a reader to discover, and re-derived here so the declaration cannot
+    outlive its subject.
+
+    Found 2026-08-17 by sweeping the finding codes no coverage rung had
+    reached (`quality/COVERAGE_PREREGISTRATION.md` §E3b). Doctrine 48: a
+    check that cannot fire is decoration. The three honest ends are wire,
+    delete, or keep-and-declare — and `quality/relations.py` settled on the
+    third for exactly this shape, with a `check_inert()` that fails in BOTH
+    directions. This is that check for this module.
+
+    IT FAILS IF THE FIELD GAINS LIFE (someone starts calling `_no_tempo`,
+    something starts reading `tempo_bpm`, a shipped phonology starts
+    returning a `Readings` prominence) WITHOUT the entry being updated —
+    and it fails if the entry survives its subject's deletion.
+    """
+    print("\n  INERT — two coordinates declared dead, re-derived here")
+    import os
+    import re as _re
+    import subprocess
+
+    root = os.path.join(HERE, "..")
+    # THE ENTRIES MUST NAME THEIR ACTUAL SUBJECTS. Counting them is not
+    # enough: an entry renamed off its subject leaves the dead code declared
+    # by nothing while this section still reads green, which is the "entry
+    # outlives its subject" direction `check_inert()` exists to catch.
+    want = {"fit.NO_TEMPO / declared_inputs.TimeGrid.tempo_bpm",
+            "fit.PROMINENCE_UNDECIDED"}
+    check("both entries are present, name their SUBJECTS, and each names one "
+          "of the three blockers",
+          {e.field for e in FIT.INERT} == want
+          and all(e.blocker in ("build", "obtain", "disjoint")
+                  for e in FIT.INERT)
+          and all(e.reason and e.activates_when and e.measured
+                  for e in FIT.INERT),
+          {e.field: e.blocker for e in FIT.INERT})
+
+    # --- NO_TEMPO: the entry survives only while nothing calls it. The
+    # INERT block in fit.py NAMES both fields in its own prose, and a
+    # declaration that mentions a field is not a reader of it -- so the
+    # block's own line span is excluded before anything is counted. (This
+    # is the "a grep for a read finds one" trap relations.py hit; the fix
+    # there and here is to census what the code DOES, not what it says.)
+    src = open(os.path.join(HERE, "fit.py"), encoding="utf-8").read()
+    lo = src.index("INERT = (")
+    hi = src.index("_HAS_DIGIT = re.compile", lo)
+    decl_span = range(src[:lo].count("\n") + 1, src[:hi].count("\n") + 1)
+
+    def _mentions(pattern):
+        out = subprocess.run(
+            ["grep", "-rn", "--include=*.py", "-e", pattern, root],
+            capture_output=True, text=True).stdout.splitlines()
+        keep = []
+        for l in out:
+            path, _, rest = l.partition(":")
+            num = int(rest.split(":", 1)[0])
+            if "/test_" in path:
+                continue
+            if path.endswith("fit.py") and num in decl_span:
+                continue
+            keep.append(f"{os.path.basename(path)}:{num}")
+        return keep
+
+    callers = [l for l in _mentions(r"_no_tempo(")
+               if src.splitlines()[int(l.split(":")[1]) - 1].strip()
+               != "def _no_tempo(question):"]
+    check("`_no_tempo` still has NO production caller, so the refusal it "
+          "builds cannot be emitted by any run",
+          not callers and hasattr(FIT, "_no_tempo"),
+          callers or "only its own definition, and its own test")
+
+    readers = _mentions("tempo_bpm")
+    check("...and `tempo_bpm` is still DECLARED and read by nothing — a "
+          "caller may set a tempo no code will use",
+          readers and all(l.startswith("declared_inputs.py") for l in readers),
+          readers)
+
+    # --- PROMINENCE_UNDECIDED: the branch WORKS; nothing feeds it.
+    from quality.phonology import Readings
+
+    class _Syl:
+        def __init__(self, text, prom):
+            self.text, self.prominence, self.moras = text, prom, 1
+
+    class _Undecided:
+        language, grid_unit = "eng", "syllable"
+        prominence_rule = "constructed for this check"
+        def prominences(self, w):
+            return "/"
+        def syllabify_line(self, text):
+            return [_Syl(w, Readings({0, 1}) if w == "record" else 0)
+                    for w in text.split()]
+
+    live = FIT.read_line("the record was a record", phon=_Undecided())
+    check("the branch is LIVE when fed a multi-valued `Readings` — this is "
+          "not dead code, it is code with no producer",
+          len(live.prominence_undecided) == 2 and "?" in live.pattern(),
+          f"{len(live.prominence_undecided)} undecided, "
+          f"pattern {live.pattern()!r}")
+
+    # ...and the shipped English never produces one, on the repo's OWN
+    # homograph list, which is the measurement the entry rests on.
+    import lyric_harness as _LH
+    lex = _LH.Lexicon()
+    pats = {}
+    for w in ("wind", "live", "read", "bow", "tear"):
+        pats[w] = {tuple(1 if sy["stress"] in (1, 2) else 0
+                         for sy in _LH.syllabify(p))
+                   for p in lex.entries[w]}
+    check("every word on this repo's English homograph list has ONE "
+          "prominence pattern across its parses — the ambiguity P11 handles "
+          "is a NUCLEUS ambiguity and never a prominence one",
+          all(len(v) == 1 for v in pats.values()),
+          {w: sorted(v) for w, v in pats.items()})
+    for probe in ("the record was a record of the year",
+                  "they wound the bandage round the wound"):
+        u = FIT.read_line(probe)
+        check(f"...so the shipped path leaves nothing undecided: {probe[:34]!r}",
+              not u.prominence_undecided,
+              f"pattern {u.pattern()!r}")
+
+
 def main():
     for t in (test_the_count_is_in_the_phonologys_own_grid_unit,
               test_a_refused_token_makes_the_count_a_lower_bound,
@@ -1007,7 +1132,8 @@ def main():
               test_fit_song_reads_a_real_grid_song,
               test_an_undeclared_signature_says_so,
               test_two_sections_may_share_a_name,
-              test_an_ambiguous_name_cannot_outrank_the_bar):
+              test_an_ambiguous_name_cannot_outrank_the_bar,
+              test_the_two_inert_coordinates_are_measured_not_asserted):
         t()
     print("\n" + "=" * 62)
     if FAILURES:

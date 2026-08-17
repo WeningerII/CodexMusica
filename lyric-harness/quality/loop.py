@@ -441,6 +441,14 @@ class PairBrief:
     attempt: int
     reasons: tuple = None        # the PREVIOUS attempt's rejection
     whole: tuple = ()            # `inspect()`'s whole-draft findings
+    #: THE ANCHOR'S OWN CALL WORDS — every group the anchor is in APART from
+    #: the one being backtracked, added 2026-08-17 for defect F. `brief`
+    #: above is the PIVOT's, and it says nothing about the other line; a
+    #: writer asked to move the anchor's end word was never told what else
+    #: that end word has to answer, and the rejection it earned named a line
+    #: the prompt had not mentioned. Empty is the ordinary case — an anchor
+    #: in one group only — and is not a disclosure gap.
+    anchor_calls: tuple = ()
 
 
 @dataclass
@@ -459,6 +467,15 @@ class RoundResult:
     round_no: int
     attempts: list = field(default_factory=list)     # [LineAttempt]
     fixed_lines: list = field(default_factory=list)   # sorted, this round
+    #: Line numbers this round OPENED and never asked about, because an
+    #: EARLIER fix in the same round closed them. Added 2026-08-16 with the
+    #: per-line re-brief.
+    #:
+    #: NOT A `LineAttempt`, and that is the whole reason it is a second list:
+    #: no attempt was made, so a record with `accepted=False` would be a
+    #: failure that never happened, and `len(attempts)` would stop counting
+    #: attempts (doctrine 79 — two kinds, never summed into one container).
+    resolved_elsewhere: list = field(default_factory=list)
 
 
 @dataclass
@@ -611,6 +628,17 @@ class LoopResult:
                 mark = "OK" if a.accepted else "--"
                 out.append(f"    [{mark}] L{a.line_no} tier{a.tier} "
                           f"({a.tried} tried): {a.reason}")
+            # NOT FOLDED INTO THE ATTEMPT LIST ABOVE. A line closed by an
+            # earlier fix in the same round was never asked about, so it is
+            # neither an accepted attempt nor a failed one, and printing it
+            # as `[--]` would report a dead end that never happened.
+            if r.resolved_elsewhere:
+                out.append(
+                    "    [==] "
+                    + ", ".join(f"L{n}" for n in r.resolved_elsewhere)
+                    + " — opened this round and NOT asked about: an earlier "
+                      "fix in the same round closed them (re-briefed against "
+                      "the current draft, not the round's opening snapshot)")
         if self.unresolved:
             # WHICH RULE HOLDS EACH LINE OPEN — 2026-08-16. This printed a
             # bare line list under a field whose own comment said "still
@@ -765,6 +793,48 @@ def _try_tier1(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     return LineAttempt(b.line_no, 1, False, tried, detail, ()), lines
 
 
+def _anchor_obligations(reviser, mandate, lines, anchor_line, pivot_line):
+    """-> (other call words, return-group labels) for the ANCHOR.
+
+    The anchor of a tier-2 backtrack is a line like any other: it can sit in
+    groups of its own, and it can sit in a declared verbatim return. Neither
+    was ever asked — `_try_tier2` derived both of its searches from the
+    PIVOT's `Brief`, which is written about the pivot — so an anchor that is
+    itself a pivot was searched as though the shared group were its only
+    obligation (defect F).
+
+    THE GROUP CONTAINING THE PIVOT IS DROPPED, and it is the only one: that
+    group is what the backtrack is rewriting, and its call word is the pivot's
+    proposed word, which the caller supplies. Everything else the anchor is in
+    still holds after the rewrite and every word in it is a call the anchor's
+    new end word has to answer too.
+
+    ASKED OF THE MANDATE. `Mandate.partners`/`requirement` is the one object
+    that holds both the grouping and the requirement kind; deriving either
+    from the words would be a second statement of it (doctrine 1).
+    """
+    # THE SPEC MAY STILL BE A SPEC. `revise_loop` takes whatever mandate
+    # spelling its caller used and hands it down unresolved — `verify()`
+    # resolves its own — so this asks `Reviser.mandate` rather than assuming
+    # an object, which is the one place in this module that needs the built
+    # `Mandate` before `verify()` gets there.
+    if not hasattr(mandate, "partners"):
+        mandate = reviser.mandate(list(lines), mandate)
+    calls, rets = [], []
+    for k, mates in mandate.partners(anchor_line):
+        if pivot_line in mandate.groups[k]:
+            continue
+        if any(getattr(mandate.requirement(anchor_line, x), "name", "")
+               == "REQUIRE_RETURN" for x in mates):
+            rets.append(mandate.labels[k])
+            continue
+        for x in mates:
+            w = reviser.floor.qf._endword(lines[x - 1])
+            if w:
+                calls.append(w)
+    return calls, sorted(rets)
+
+
 def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                assume, profile, propose_pair, whole=()):
     two_member = [(lab, mem, calls) for lab, mem, calls in b.must_answer
@@ -780,6 +850,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
     # about which group's turn it was.
     attempt = 0
     reasons = None
+    pinned = []
+    starved = []
     for label, members, calls in two_member:
         # `anchor_current`/`pivot_current` are the words ALREADY THERE, and
         # they are here to be EXCLUDED from the two searches: re-proposing
@@ -788,16 +860,75 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
         # `PairBrief.pivot_word`/`.anchor_word` carry.
         anchor_line, anchor_current = calls[0]
         anchor_text = lines[anchor_line - 1]
+        # BOTH SEARCHES USED TO READ THE PIVOT'S GROUP LIST AND NOTHING ELSE
+        # — defect F of the rung-3 coverage experiment, and it made the pair
+        # this tier OFFERS one its own `verify()` REJECTS. MEASURED on that
+        # draft: the offered pair came back `new_flags [(5,
+        # 'SCHEME_VIOLATION'), (19, 'RETURN_NOT_VERBATIM')]`. An offer that
+        # is never put through the check that judges the answer cannot
+        # report its own impossibility (doctrine 48), so both halves are
+        # asked of the MANDATE here before either search runs.
+        #
+        # (a) A RETURN PINS THE PIVOT. If another of this pivot's groups is a
+        # declared verbatim return, the only legal end word is the one
+        # already there — which `exclude` removes — so every word the search
+        # could offer breaks the return. Refused with a reason rather than
+        # searched: the writer is owed "no legal answer exists", not 24 words
+        # each of which is illegal.
+        rets = set(getattr(b, "return_groups", ()) or ())
+        if label in rets:
+            # THE GROUP BEING BACKTRACKED IS ITSELF A RETURN. There is no
+            # backtrack here at all: the move is to change the anchor so the
+            # pivot can move, and both of those break a requirement that the
+            # two lines be THE SAME LINE.
+            pinned.append(
+                f"group {label} {list(members)} is itself a RETURN — the two "
+                f"lines must be identical, so neither end of it is a line "
+                f"this tier can move")
+            continue
+        pivot_ret = sorted(rets - {label})
+        if pivot_ret:
+            pinned.append(
+                f"group {label} {list(members)}: L{b.line_no} is PINNED by "
+                f"return group(s) {', '.join(pivot_ret)} — a verbatim return "
+                f"fixes the whole line, so no word this tier could offer it "
+                f"is legal")
+            continue
         other_calls = [w for lab2, _m2, cl2 in b.must_answer if lab2 != label
                        for _, w in cl2]
         if not other_calls:
             continue
+        # (b) THE ANCHOR HAS ITS OWN GROUPS, and `modal_field(w)` never asked
+        # about them: an anchor that is itself a pivot was searched as though
+        # the shared group were its only obligation. Asked of the mandate,
+        # not inferred from the pivot's brief, because the pivot's brief is
+        # written about the pivot.
+        a_other, anchor_ret = _anchor_obligations(
+            reviser, mandate, lines, anchor_line, b.line_no)
+        if anchor_ret:
+            pinned.append(
+                f"group {label} {list(members)}: L{anchor_line} is PINNED by "
+                f"return group(s) {', '.join(anchor_ret)} — the anchor "
+                f"cannot move either, so this group has no backtrack "
+                f"available")
+            continue
         pivot_current = raw_final_token(b.text) or ""
         p_offered, _p_forbidden = reviser.joint_field(
             other_calls, exclude=(pivot_current,))
-        for w in p_offered[:rdecl.backtrack_width]:
-            a_offered, _a_forbidden = reviser.modal_field(
-                w, exclude=(anchor_current,))
+        walked = p_offered[:rdecl.backtrack_width]
+        empty_anchor = 0
+        for w in walked:
+            a_offered, _a_forbidden = reviser.joint_field(
+                [w] + a_other, exclude=(anchor_current,))
+            if not a_offered:
+                # THE ANCHOR'S OWN CONJUNCTION CAME BACK EMPTY, which is a
+                # sentence only the folded field can form — `modal_field(w)`
+                # alone was never empty here and offered 24 illegal words
+                # instead. Counted, so the dead end below can say WHICH
+                # search failed rather than "none accepted" (doctrine 58: it
+                # is a fact about the mandate at a declared field depth).
+                empty_anchor += 1
+                continue
             for v in a_offered[:rdecl.backtrack_width]:
                 pair = propose_pair(PairBrief(
                     pivot_line_no=b.line_no, pivot_text=b.text,
@@ -806,7 +937,8 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                     anchor_word=v, anchor_offered=tuple(a_offered),
                     label=label, members=tuple(members),
                     brief=b, lines=tuple(lines), attempt=attempt,
-                    reasons=reasons, whole=whole))
+                    reasons=reasons, whole=whole,
+                    anchor_calls=tuple(a_other)))
                 attempt += 1
                 if pair is None:
                     continue
@@ -828,8 +960,42 @@ def _try_tier2(reviser, b, lines, mandate, rdecl, blueprint, subdivision,
                         + "; ".join(res["reasons"]),
                         (b.line_no, anchor_line)), after
                 reasons = tuple(res["reasons"])
-    detail = (f"tried {tried} anchor/pivot pair(s) across "
-             f"{len(two_member)} two-line group(s), none accepted")
+        if walked and empty_anchor == len(walked):
+            starved.append(
+                f"group {label} {list(members)}: every one of the "
+                f"{len(walked)} pivot word(s) walked left L{anchor_line} "
+                f"with an EMPTY field — nothing answers the new pivot word "
+                f"AND L{anchor_line}'s own group(s) at once")
+    # PINNED IS ITS OWN COUNT AND IS NEVER FOLDED INTO `tried` (doctrine 79):
+    # a group the loop REFUSED to search because no legal answer exists is
+    # not a group it searched and failed. Reporting them together would say
+    # the loop looked and came back empty, which is a claim about the
+    # lexicon rather than about the mandate.
+    if pinned and len(pinned) == len(two_member):
+        # EVERY group refused, so "none accepted" would be the wrong lead: no
+        # pair was ever put to a proposer, and the outcome is a fact about
+        # the MANDATE (doctrine 20 — a refusal is not a failed search).
+        detail = (f"NOT ATTEMPTED — all {len(two_member)} two-line group(s) "
+                  f"are pinned by a declared verbatim return, so this tier "
+                  f"has no legal move and the MANDATE is what needs "
+                  f"revising: " + "; ".join(pinned))
+    else:
+        detail = (f"tried {tried} anchor/pivot pair(s) across "
+                 f"{len(two_member) - len(pinned)} two-line group(s), none "
+                 f"accepted")
+        if pinned:
+            detail += (f"; a further {len(pinned)} group(s) NOT SEARCHED "
+                       f"because a declared verbatim return pins a line: "
+                       + "; ".join(pinned))
+    # STARVED IS A THIRD COUNT, and it is the one the anchor's own groups
+    # made sayable: before they were folded in, `modal_field(w)` came back
+    # full of words that all broke a group nobody had mentioned, so this
+    # dead end was reported as a proposer that could not find anything.
+    if starved:
+        detail += (f"; {len(starved)} group(s) reached an EMPTY ANCHOR "
+                   f"field — the conjunction is unsatisfiable at this "
+                   f"anchor, not a search that came back short: "
+                   + "; ".join(starved))
     if too_large:
         detail += (f"; {too_large} of {len(b.must_answer)} group(s) have "
                   f"3+ members and were NOT attempted — fixing those means "
@@ -850,7 +1016,7 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     the loop the same way it already tunes `modal_exclusion` or
     `field_band` — one declaration, not a second set of knobs.
 
-    ONE `brief()` PER ROUND, not one per line fixed. Fixing line X inside a
+    ~~ONE `brief()` PER ROUND, not one per line fixed. Fixing line X inside a
     round can change what a LATER flagged line Y in the SAME round must
     satisfy (if X is one of Y's call words), so Y's candidate list from this
     round's brief can go stale mid-round. This is deliberately not chased:
@@ -858,7 +1024,34 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
     `lines` before accepting anything, so a stale candidate is simply
     rejected rather than wrongly accepted — correctness does not depend on
     re-briefing every line, and Y is re-briefed fresh at the top of the next
-    round regardless. RAISES `NoMandate` exactly when `brief()`/`verify()`
+    round regardless.~~
+    **STRUCK 2026-08-16 — DEFECT B of the rung-1 coverage experiment. EVERY
+    WORD OF THAT ARGUMENT IS STILL TRUE AND IT ANSWERS A DIFFERENT QUESTION.**
+    It is about ACCEPTANCE: nothing wrong is accepted, which is what it
+    claims. A brief is GUIDANCE, and the argument says nothing about that —
+    so Y was handed a `must rhyme with`, a candidate field and a
+    `SCHEME_VIOLATION` evidence string computed against a word no longer in
+    the draft, and on the blind re-run the flag it was briefed to fix had
+    ALREADY BEEN REPAIRED by X's own answer, with 24 offered words every one
+    of which would have broken the rhyme that now held.
+    THE ECONOMICS CHANGED UNDER IT: the argument was written when the only
+    proposer was the free mechanical stub, for which a rejected attempt costs
+    nothing. `--propose=defer:` made the proposer a person or a model.
+    MEASURED on the rung-1 draft — a writer who followed the stale field
+    exactly burned all three attempts twice over and the loop returned
+    NO_PROGRESS with the line unresolved, while the correct move was to
+    ignore the field the harness had just offered. A stale field is cheap to
+    reject and expensive to follow.
+    A LINE IS NOW RE-BRIEFED IF THE DRAFT MOVED SINCE THE ROUND OPENED, and
+    a line an earlier fix CLOSED is not asked about at all
+    (`RoundResult.resolved_elsewhere`). COST, MEASURED on the 41-line
+    `mandate_song` fixture over two runs each: **30.3–30.8s before, 31.2–33.7s
+    after — +0.9 to +2.9s, +3% to +9%** — and the OUTCOME is byte-identical on
+    both runs (`no_progress`, 2 rounds, 5 lines fixed, final draft md5
+    `ef78e300f1a9`), which is the old argument holding exactly as it always
+    did. Nothing is re-derived until an accepted proposal has actually moved
+    the draft, so a round that fixes nothing pays zero.
+    RAISES `NoMandate` exactly when `brief()`/`verify()`
     already do: a loop with nothing to check against is not this module's
     problem to paper over.
 
@@ -934,9 +1127,77 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
             subdivision=subdivision, assume=assume)["whole"])
 
         attempts, fixed_this_round, touched = [], [], set()
+        resolved_elsewhere = []
+        # THE DRAFT `briefs` AND `whole` WERE BUILT ON. Every accepted
+        # proposal below rebinds `lines`, so this is how the loop knows its
+        # own guidance has gone stale.
+        brief_lines = list(lines)
         for b in flagged:
             if b.line_no in touched:
                 continue
+            # ===========================================================
+            # RE-BRIEF WHEN THE DRAFT HAS MOVED — FIXED 2026-08-16.
+            # DEFECT B of the rung-1 coverage experiment.
+            # ===========================================================
+            # This loop briefed ONCE PER ROUND and then walked the flagged
+            # lines proposing against that snapshot. Fixing line X inside a
+            # round changes what a LATER flagged line Y must answer whenever
+            # X is one of Y's call words — so Y was handed a candidate field,
+            # a `must rhyme with`, and a `SCHEME_VIOLATION` evidence string
+            # computed against a word no longer in the draft.
+            #
+            # THE OLD ARGUMENT WAS SOUND AND ANSWERED A DIFFERENT QUESTION.
+            # It ran: `verify()` always re-derives the true finding set for
+            # the CURRENT lines before accepting anything, so a stale
+            # candidate is REJECTED rather than wrongly accepted, and
+            # correctness does not depend on re-briefing. Every word of that
+            # is still true — and it is about ACCEPTANCE. It says nothing
+            # about GUIDANCE, and guidance is what a brief is.
+            #
+            # WHAT CHANGED THE ECONOMICS: `--propose=defer:`. The argument
+            # was written when the only proposer was the free mechanical
+            # stub, for which a rejected attempt costs nothing. The proposer
+            # is now a person or a model, and MEASURED on the rung-1 draft, a
+            # writer who followed the stale field exactly burned all three
+            # attempts twice over and the loop returned NO_PROGRESS with the
+            # line unresolved — while the correct answer was to ignore the
+            # field the harness had just offered. A stale field is cheap to
+            # reject and expensive to follow.
+            #
+            # AND THE STALE HALF CAN BE A FLAG THAT IS ALREADY REPAIRED.
+            # On the blind re-run, L1's fix repaired the PAIR, and L2 was
+            # then briefed to fix a `SCHEME_VIOLATION` that no longer
+            # existed, with 24 offered words every one of which would have
+            # broken the rhyme that now held.
+            #
+            # THE COST IS PAID ONLY WHERE THE DEFECT EXISTS: nothing is
+            # re-derived until an accepted proposal has actually moved the
+            # draft, so a round that fixes nothing, and the whole of the
+            # first line of every round, cost exactly what they did before.
+            if lines != brief_lines:
+                fresh = reviser.brief(lines, mandate, profile=profile,
+                                      blueprint=blueprint,
+                                      subdivision=subdivision, assume=assume)
+                # `whole` is the rubric `verify()` grades against and it
+                # moves with the draft too, so it is re-read here rather
+                # than left pointing at the top of the round. Cheap by the
+                # same measured argument the first read makes: `brief()`
+                # above has just warmed the caches for exactly these lines.
+                whole = tuple(reviser.inspect(
+                    lines, mandate, profile=profile, blueprint=blueprint,
+                    subdivision=subdivision, assume=assume)["whole"])
+                brief_lines = list(lines)
+                still_open = {x.line_no: x
+                              for x in _open_lines(fresh, pursue)}
+                if b.line_no not in still_open:
+                    # AN EARLIER FIX THIS ROUND CLOSED IT. Asking anyway is
+                    # what the stale snapshot used to do: it briefed a line
+                    # whose finding was gone and spent a writer's attempt on
+                    # it. Recorded rather than skipped in silence — and NOT
+                    # as a failed `LineAttempt`, because no attempt was made.
+                    resolved_elsewhere.append(b.line_no)
+                    continue
+                b = still_open[b.line_no]
             if b.joint_conflict:
                 attempt, lines = _try_tier2(
                     reviser, b, lines, mandate, rdecl, blueprint,
@@ -950,7 +1211,8 @@ def revise_loop(reviser, lines, mandate, blueprint=None, subdivision=None,
                 fixed_this_round.extend(attempt.touched)
                 touched.update(attempt.touched)
         rounds.append(RoundResult(round_no, attempts,
-                                  sorted(fixed_this_round)))
+                                  sorted(fixed_this_round),
+                                  sorted(resolved_elsewhere)))
         if not fixed_this_round:
             return _close(reviser, "no_progress", lines, rounds, flagged,
                           mandate, blueprint, subdivision, assume, profile,
