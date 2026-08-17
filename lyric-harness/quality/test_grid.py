@@ -1958,6 +1958,76 @@ def test_line_runs_is_surfaced_rather_than_computed_for_nobody():
           f"{row} — the per-line runs are looked up by line number, never "
           f"zipped, so a missing row drops the RUNS and not the LINE")
 
+def test_two_refusals_that_nothing_had_ever_asserted_can_fire():
+    """`NO_RHYME_KEY` and `REPRISE_STUB` were named in this file and never
+    ASSERTED. Both fire; neither had a test that would notice if they stopped.
+
+    Found by a sweep over the 16 finding codes no coverage run had reached
+    (`quality/COVERAGE_PREREGISTRATION.md` §E). Thirteen of the sixteen turned
+    out to be positively tested somewhere. These two were mentioned only in
+    prose and in a comment saying one of them "cannot fire through the loop",
+    which is a statement about reachability from ONE caller and says nothing
+    about whether the code works.
+    """
+    print("\n30. two refusals nothing had ever asserted — they fire")
+    import quality.grid as _GR
+
+    # NO_RHYME_KEY -- the refusal for "no phonology was declared". A silent
+    # default here would make a claim about a language nobody named.
+    same = ["we counted every reason we were given",
+            "to keep on counting slow"]
+    r = _GR.compare_returns(same, list(same), rhyme_key=None)
+    codes = [x.code for x in r.refusals]
+    check("`compare_returns` with no phonology REFUSES the rhyme question "
+          "rather than defaulting to one",
+          codes == ["NO_RHYME_KEY"] and r.rhyme_scheme_preserved is None,
+          f"refusals={codes} preserved={r.rhyme_scheme_preserved}")
+    # ...and the CONTROL: given a key it answers instead of refusing.
+    r2 = _GR.compare_returns(same, list(same),
+                             rhyme_key=lambda w: w[-2:].lower())
+    check("...and with a key declared it ANSWERS, so the refusal is a "
+          "verdict about the declaration and not a permanent state",
+          "NO_RHYME_KEY" not in [x.code for x in r2.refusals]
+          and r2.rhyme_scheme_preserved is not None,
+          f"refusals={[x.code for x in r2.refusals]} "
+          f"preserved={r2.rhyme_scheme_preserved}")
+
+    # REPRISE_STUB -- one side of the reprise POINTS at a block instead of
+    # reproducing it. `&c.` is the convention `lyric_harness.is_chorus_stub`
+    # recognises; `[Chorus]` is NOT one of its forms, which is worth pinning
+    # because it is the shape a reader assumes.
+    import lyric_harness as _LH
+    check("the stub convention under test is the one the harness actually "
+          "recognises, not the one a reader would assume",
+          _LH.is_chorus_stub("&c.") and not _LH.is_chorus_stub("[Chorus]"),
+          f"&c.={_LH.is_chorus_stub('&c.')} "
+          f"[Chorus]={_LH.is_chorus_stub('[Chorus]')}")
+
+    song = Song(sections=[
+        Section("intro", 8, Meter(4, 4), function="intro"),
+        Section("v1", 8, Meter(4, 4), function="verse"),
+        Section("out", 8, Meter(4, 4), function="outro")]).layout()
+    song.lines = [
+        Line("three in the morning and the tower is humming", bar=1,
+             duration=F(4)),
+        Line("i am the voice that says the sun is coming", bar=3,
+             duration=F(4)),
+        Line("a nurse in akron calls me on her break", bar=9, duration=F(4)),
+        Line("a nurse in akron calls me on her fate", bar=11, duration=F(4)),
+        Line("&c.", bar=17, duration=F(4)),
+        Line("&c.", bar=19, duration=F(4))]
+    f, ref, out = _GR.reprise_findings(song)
+    check("an outro that POINTS at the intro is REFUSED, not graded — a "
+          "stub reproduces nothing, so the lines it stands for were never "
+          "compared",
+          [x.code for x in ref] == ["REPRISE_STUB"] and not f,
+          f"findings={[x.code for x in f]} refusals={[x.code for x in ref]}")
+    check("...and the comparison it refused is recorded as STUB rather than "
+          "silently dropped",
+          out and out[0][2].kind == "STUB",
+          [(a.name, b.name, r.kind) for a, b, r in out])
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -1987,7 +2057,8 @@ if __name__ == "__main__":
                test_a_returns_own_refusals_reach_the_report,
                test_two_sections_may_share_a_name,
                test_a_returns_broken_rhyme_scheme_reaches_the_report,
-               test_line_runs_is_surfaced_rather_than_computed_for_nobody):
+               test_line_runs_is_surfaced_rather_than_computed_for_nobody,
+               test_two_refusals_that_nothing_had_ever_asserted_can_fire):
         fn()
     print("=" * 62)
     if FAILURES:

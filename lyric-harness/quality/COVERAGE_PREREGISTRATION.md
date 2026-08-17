@@ -1889,6 +1889,38 @@ statement about the writing path, which is the exact confusion this
 pre-registration was built to avoid. **No claim is made here about whether the
 8 work** — only that this instrument cannot ask.
 
+### E3b. The sweep of the 16, RUN 2026-08-17 — and two of them cannot fire
+
+The dispositions above say what no RUNG reached. That is not the same question
+as whether the checks WORK, and the second question is answerable now, by
+construction, without a writer and without touching the blind experiment.
+Constructing an input to see whether a check fires is a unit test, not a
+coverage claim, and this repo already does it (`quality/test_floor.py`'s
+ghazal fixture for `RADIF_LICENSED`).
+
+**Triage first: 13 of the 16 were already positively tested.** A mention is
+not a test — `quality/coverage_log.py` asserts `RADIF_LICENSED` is ABSENT,
+which proves nothing — so each was checked for an assertion that it FIRES on
+an input containing its condition. All five rhyme/mandate codes, three of the
+five meter codes, and three of the six structure codes had one.
+
+**Two fired and merely had no test.** `NO_RHYME_KEY` refuses correctly when
+`compare_returns` is given no phonology, and `REPRISE_STUB` refuses correctly
+when one side of a reprise is `&c.` — with the aside that `[Chorus]` is NOT a
+form `is_chorus_stub` recognises, which is worth knowing since it is the shape
+a reader assumes. Both are now `quality/test_grid.py` §30, with controls in
+both directions.
+
+**Two cannot fire in any real run — `BACKLOG.md` §4.10, doctrine 48.**
+`NO_TEMPO` is constructed by no production path at all (its only caller is its
+own test), and `tempo_bpm` is a declared coordinate with no reader, so both
+halves of the tempo story are scaffolding. `PROMINENCE_UNDECIDED`'s branch
+WORKS when fed a multi-valued `Readings` — measured, 2 undecided units and a
+`?` in the pattern — but no shipped phonology produces one, so the guard
+cannot be entered on the default path. Neither makes anything the harness says
+false today; both are checks that cannot participate, which is exactly what
+this sweep was for.
+
 ### E4. What this experiment now says, in one sentence
 
 **78 of the 83 finding codes a song-writer can reach from the command line

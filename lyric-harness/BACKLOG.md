@@ -879,6 +879,54 @@ the fix inert where the defect is not.
 
 ---
 
+### 4.10 · Two checks that cannot fire in any real run `FOUND 2026-08-17, OPEN`
+
+Found by sweeping the 16 finding codes no coverage rung had reached
+(`quality/COVERAGE_PREREGISTRATION.md` §E). Thirteen turned out to be
+positively tested already; two more (`NO_RHYME_KEY`, `REPRISE_STUB`) fire and
+merely had no test, now `quality/test_grid.py` §30. The last two are doctrine
+48 — a check that cannot fail is decoration — and they are unreachable for
+DIFFERENT reasons, which is why they are two entries and not one.
+
+**(a) `NO_TEMPO` is never called.** `quality/fit.py:184` builds a PERMANENT
+`FitRefusal` for want of a tempo. A repo-wide grep finds exactly one caller:
+`quality/test_fit.py`, which asserts its `status`, `missing` and `detail`
+strings and that it raises rather than answering. **No production path
+constructs it**, so no run of the harness can ever emit it. The module's own
+docstring explains why — it never asks a per-second question, so "syllables
+per second", "too fast to sing" and "the pickup is 200 ms" are refused by NOT
+BEING ASKED rather than by refusing. That is a defensible design; what is not
+defensible is a refusal object plus a test that reads as if the guard were
+live. **AND THE OTHER HALF IS UNWIRED TOO:** `quality/declared_inputs.py:546`
+declares `tempo_bpm`, and a grep finds NO reader anywhere. A caller can
+declare a tempo and nothing will use it, while the refusal that exists for its
+absence can never fire. Both halves of the tempo story are scaffolding.
+**Decide:** either delete both and let `MISSING.md` C-5 carry the gap alone,
+or wire one real per-second question so the refusal guards something.
+
+**(b) `PROMINENCE_UNDECIDED` has a working branch and no producer.**
+`quality/fit.py:1227` refuses when `units.prominence_undecided` is non-empty,
+which needs `_resolve_prominence` to see a multi-valued `Readings`. MEASURED:
+the branch WORKS — a phonology whose `syllabify_line` returns
+`Readings({0, 1})` for one word yields 2 undecided units and a `?` in
+`pattern()`. What no phonology does is produce one. `Readings` is constructed
+in exactly one file in the repo, `quality/test_homograph.py`, and even its
+`EnglishAllReadings`/`EnglishUncertain` classes set `prominence` to a plain
+int per parse, so `read_line` came back with **0 undecided units on every
+homograph tried** (`record`, `wound`, `desert`, `read`, `bass`). So the
+refusal is live code guarding a state the shipped phonologies cannot enter.
+**Decide:** either wire the English phonology to keep a `Readings` where
+CMUdict's parses disagree on stress — which is what the class is FOR and would
+make several homograph questions answerable — or mark the check as reachable
+only through a caller-supplied phonology and pin that with a test, so it stops
+looking like a live guard on the default path.
+
+**Neither is a wrong answer being reported.** Nothing the harness says today
+is false because of these. They are checks that cannot participate, which is
+the failure mode doctrine 48 names and the reason this sweep was run.
+
+---
+
 ## TIER 5 — whole absent layers (`MISSING` B, C, D, G, H)
 
 Not debt, not defects — **never built**. Listed so they are not mistaken for
