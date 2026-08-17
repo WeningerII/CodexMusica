@@ -241,8 +241,12 @@ class ReviseDeclaration:
     offered: int = 24
 
     #: WHICH NOTE CODES THE LOOP KEEPS WORKING ON, beyond the flags it always
-    #: pursues. EMPTY IS THE DEFAULT and reproduces every run this loop has
-    #: ever made.
+    #: pursues. ~~EMPTY IS THE DEFAULT and reproduces every run this loop has
+    #: ever made.~~ STRUCK 2026-08-17: empty now ADDS nothing, and is no
+    #: longer a way to run without pursuit — `quality/loop.py` unions this
+    #: set with its own `MANDATORY_PURSUE` (owner's standing order; see the
+    #: constant), so `MODAL_RHYME` is pursued on every run and no value of
+    #: this field can switch that off. This field is the ADDITIVE half only.
     #:
     #: THE DEFECT THIS EXISTS FOR, found by writing a song through the loop.
     #: `MODAL_RHYME` and `PREDICTABLE_RHYME` are in `RHYME_FINDINGS`, so

@@ -241,8 +241,11 @@ def test_success_stop():
     R = Reviser()
     res = revise_loop(R, CLICHE, "ABAB")
     check("stops on SUCCESS", res.stop_reason == "success", res.stop_reason)
-    check("both flagged lines were fixed",
-          set(res.rounds[0].fixed_lines) == {1, 2},
+    # RESTATED 2026-08-17 under MANDATORY PURSUIT: the loop now also fixes
+    # the two lines carrying only a MODAL_RHYME note, because success while
+    # one stands is unreportable (owner's order — see loop.MANDATORY_PURSUE).
+    check("both flagged lines AND both mandatory-pursued lines were fixed",
+          set(res.rounds[0].fixed_lines) == {1, 2, 3, 4},
           f"fixed {res.rounds[0].fixed_lines}")
     check("no line left unresolved", res.unresolved == [])
     R2 = Reviser()
@@ -288,10 +291,17 @@ def test_round_limit_stop():
     res = revise_loop(R, CLICHE, "ABAB", propose=picky)
     check("stops on ROUND_LIMIT, distinct from NO_PROGRESS",
           res.stop_reason == "round_limit", res.stop_reason)
+    # RESTATED 2026-08-17 under MANDATORY PURSUIT. L1, L3 and L4 are fixed
+    # (L3/L4 were pursued); fixing L4's end word DISSOLVES the pair finding
+    # that flagged L2, so L2 is closed by its partner's repair — and L4's
+    # replacement word is itself directionally modal, so L4 is the line the
+    # round leaves standing. Measured, not narrated: doctrine 58.
     check("L1 WAS fixed this round -- this is real progress, not a stall",
-          res.rounds[0].fixed_lines == [1], res.rounds[0].fixed_lines)
-    check("L2 is the one left unresolved, and says why",
-          [b.line_no for b in res.unresolved] == [2],
+          res.rounds[0].fixed_lines == [1, 3, 4], res.rounds[0].fixed_lines)
+    check("the line left unresolved says why, and it is the PURSUED one",
+          [b.line_no for b in res.unresolved] == [4]
+          and {f.code for b in res.unresolved for f in b.findings}
+          == {"MODAL_RHYME"},
           res.unresolved[0].findings if res.unresolved else None)
     check("`max_rounds` is the declared bound that fired, not a hidden one",
           len(res.rounds) == R.rdecl.max_rounds == 1)
@@ -308,7 +318,16 @@ def test_tier2_backtrack_resolves_a_joint_conflict():
           "L3 answers two groups whose call words share no rhyme")
 
     res = revise_loop(R, SILVER_MIND, [[1, 3], [2, 3]])
-    check("stops on SUCCESS", res.stop_reason == "success", res.stop_reason)
+    # RESTATED 2026-08-17: the tier-2 fix lands ('mankind' for the pivot) and
+    # its accepted word is directionally modal against L2's 'mind', so
+    # mandatory pursuit holds L3 open and the stop is a LOUD no_progress with
+    # the line named — the lexicon has no better joint answer, and saying so
+    # beats calling it success (owner's order; loop.MANDATORY_PURSUE).
+    check("stops loudly, refusing to call a still-modal draft a success",
+          res.stop_reason == "no_progress"
+          and [b.line_no for b in res.unresolved_pursued] == [3],
+          f"{res.stop_reason} pursued="
+          f"{[b.line_no for b in res.unresolved_pursued]}")
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     check("exactly one tier-2 attempt ran, and it was accepted",
           len(tier2) == 1 and tier2[0].accepted,
@@ -586,7 +605,9 @@ def test_declared_returns_are_asked_and_have_no_move():
     check("L2's rhyme WAS fixed in the same round -- one unsolvable line is "
           "never a stop condition, which is the invariant this fixture "
           "exercises against a real second layer rather than a stub",
-          res.rounds[0].fixed_lines == [2], res.rounds[0].fixed_lines)
+          # RESTATED 2026-08-17: L4 (mandatory-pursued modal) is fixed in
+          # the same round as L2's flag — pursuit is not a second pass.
+          res.rounds[0].fixed_lines == [2, 4], res.rounds[0].fixed_lines)
     check("and L1 is NOT touched, though it ends on the same word as L3 -- "
           "the mandate REQUIRES that identity, so it is the requirement and "
           "not a self-rhyme, and the floor is no longer handed the pair",
@@ -777,8 +798,13 @@ def test_tier2_still_resolves_a_joint_conflict_through_pair_brief():
     R = Reviser()
     res = revise_loop(R, SILVER_MIND, [[1, 3], [2, 3]],
                       propose_pair=writes_from_the_pair_brief)
-    check("stops on SUCCESS, exactly as test 4 does with the stub",
-          res.stop_reason == "success", res.stop_reason)
+    # RESTATED 2026-08-17: same outcome as test 4 under mandatory pursuit —
+    # the backtrack clears the joint conflict, its accepted word is
+    # directionally modal, and the loop refuses to call that success.
+    check("stops loudly, exactly as test 4 does with the stub",
+          res.stop_reason == "no_progress"
+          and [b.line_no for b in res.unresolved_pursued] == [3],
+          res.stop_reason)
     tier2 = [a for r in res.rounds for a in r.attempts if a.tier == 2]
     check("exactly one tier-2 attempt ran, and it was accepted",
           len(tier2) == 1 and tier2[0].accepted, tier2[0] if tier2 else None)
@@ -1033,7 +1059,15 @@ def test_a_line_is_briefed_against_the_draft_as_it_now_stands():
     res = revise_loop(Reviser(), D, "AA", blueprint=BP, subdivision=SUB,
                       propose=spy)
     l2 = [p for n, p in shown if n == 2]
-    check("the loop converges on this pair", res.stop_reason == "success",
+    # RESTATED 2026-08-17: the pair CONVERGES TEXTUALLY — both lines reach
+    # the scripted answers — and the stop is no_progress, because the
+    # converged pair (chairs/stairs) is itself modal, mandatory pursuit holds
+    # it open, and the scripted proposer has no further answer. The subject
+    # of this section is the re-brief, and that is unchanged.
+    check("the loop converges on this pair (and then refuses to bless the "
+          "modal pair it converged TO)",
+          res.stop_reason == "no_progress"
+          and list(res.lines) == [ANSWER[1], ANSWER[2]],
           f"{res.stop_reason} -> {list(res.lines)}")
     check("L2 is told to rhyme with the word L1 ACTUALLY ENDS ON after L1 "
           "was fixed -- not the word L1 had when the round opened",
@@ -1214,7 +1248,9 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
     res = revise_loop(RV, ANCHOR_IS_A_PIVOT, m,
                       propose=lambda *a, **k: None,
                       propose_pair=lambda *a, **k: None)
-    det = res.rounds[0].attempts[-1].reason
+    # `attempts[-1]` stopped being the tier-2 attempt when mandatory pursuit
+    # added tier-1 attempts for the pursued lines after it; select by tier.
+    det = [a for a in res.rounds[0].attempts if a.tier == 2][-1].reason
     check("an EMPTY ANCHOR conjunction is reported as its own outcome, not "
           "as a search that came back short",
           "EMPTY ANCHOR field" in det and "unsatisfiable at this anchor" in det
@@ -1275,6 +1311,74 @@ def test_tier2_does_not_offer_a_pair_its_own_grader_rejects():
           f"{[pb.anchor_calls for pb in plain[:3]]}")
 
 
+#: Clean rhymes that ARE the modal answers — town/down, four/more — so the
+#: draft carries MODAL_RHYME on L3/L4 and not one flag. The same shape
+#: test_revise §42 measures; spelled out here per this file's own rule that
+#: one suite never imports another's fixtures.
+MODAL_DRAFT = ["the bank foreclosed and boarded up the town",
+               "the freight train left the siding after four",
+               "we packed the truck and never once looked down",
+               "and drove until the county line was more"]
+
+
+def test_pursuit_is_mandatory_and_success_below_it_unreportable():
+    """The owner's standing order, 2026-08-17, as mechanism.
+
+    `--pursue` was built opt-in. The operator ran the loop without it and a
+    draft whose EVERY rhyme pair was the most predictable answer in its own
+    field was reported SUCCESS — the exact prose-trust failure doctrine 48
+    names, in the loop built to end it. `MANDATORY_PURSUE` is the repair:
+    the loop unions it under every declaration, nothing subtracts from it,
+    and success while a member stands is unreportable.
+    """
+    print("\n20. pursuit is MANDATORY, and success below it is unreportable")
+    from quality.loop import MANDATORY_PURSUE
+
+    check("the mandatory set exists, is non-empty, and carries the code the "
+          "order was given about",
+          "MODAL_RHYME" in MANDATORY_PURSUE, sorted(MANDATORY_PURSUE))
+
+    # MODAL_DRAFT: clean rhymes that ARE the modal answers — no flag anywhere.
+    R2 = Reviser()
+    bs = R2.brief(list(MODAL_DRAFT), [[1, 3], [2, 4]])
+    check("the fixture carries MODAL_RHYME and NO flag, so nothing but "
+          "pursuit can open it",
+          not any(f.severity == "flag" for b in bs for f in b.findings)
+          and any(f.code == "MODAL_RHYME" for b in bs for f in b.findings))
+
+    # EMPTY DECLARATION, refusing proposer: the old behaviour was instant
+    # SUCCESS. Now the lines are opened anyway and the stop is loud.
+    res = revise_loop(R2, list(MODAL_DRAFT), [[1, 3], [2, 4]],
+                      propose=lambda *a, **k: None)
+    check("an EMPTY declaration still pursues — the loop cannot report "
+          "success while a mandatory finding stands",
+          res.stop_reason != "success"
+          and sorted(b.line_no for b in res.unresolved_pursued) == [3, 4],
+          f"stop={res.stop_reason} pursued="
+          f"{[b.line_no for b in res.unresolved_pursued]}")
+
+    # ...and the default mechanical proposer CLEARS them, reaching the only
+    # reportable success: nothing actionable left.
+    res2 = revise_loop(Reviser(), list(MODAL_DRAFT), [[1, 3], [2, 4]])
+    bs2 = Reviser().brief(list(res2.lines), [[1, 3], [2, 4]])
+    check("with a proposer that answers, the loop revises to the only "
+          "success there is: zero mandatory findings standing",
+          res2.stop_reason == "success"
+          and not any(f.code in MANDATORY_PURSUE
+                      for b in bs2 for f in b.findings),
+          f"stop={res2.stop_reason}")
+
+    # A declaration may ADD, never subtract: the union always holds.
+    from quality.revise import ReviseDeclaration as _RD
+    R3 = Reviser(rdecl=_RD(pursue=frozenset({"CLICHE_PAIR"})))
+    res3 = revise_loop(R3, list(MODAL_DRAFT), [[1, 3], [2, 4]],
+                       propose=lambda *a, **k: None)
+    check("a declaration that names OTHER codes still pursues the mandatory "
+          "set — `pursue` is additive only",
+          sorted(b.line_no for b in res3.unresolved_pursued) == [3, 4],
+          [b.line_no for b in res3.unresolved_pursued])
+
+
 if __name__ == "__main__":
     for fn in (test_success_stop,
                test_no_progress_stop,
@@ -1294,7 +1398,8 @@ if __name__ == "__main__":
                test_backtrack_width_still_bounds_the_search,
                test_a_dead_end_and_an_open_line_each_name_their_own_rule,
                test_a_line_is_briefed_against_the_draft_as_it_now_stands,
-               test_tier2_does_not_offer_a_pair_its_own_grader_rejects):
+               test_tier2_does_not_offer_a_pair_its_own_grader_rejects,
+               test_pursuit_is_mandatory_and_success_below_it_unreportable):
         fn()
     print("=" * 62)
     if FAILURES:

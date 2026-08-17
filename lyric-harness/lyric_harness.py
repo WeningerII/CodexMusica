@@ -7022,6 +7022,17 @@ def main():
                     for i, l in enumerate(result.lines, 1):
                         mark = "*" if l != lines[i - 1] else " "
                         print(f"  {mark} L{i}: {l}")
+                # EXIT 3 WHEN ANYTHING ACTIONABLE STANDS — 2026-08-17, the
+                # owner's order made a pipeline fact. `revise` used to exit 0
+                # on NO_PROGRESS with unresolved lines, so "the loop gave up"
+                # was indistinguishable from "the draft is clean" to any
+                # caller reading the code and not the prose. 3 already means
+                # "answered, and a finding stands" on `song`/`brief`;
+                # `result.unresolved` is the union of flagged and pursued, so
+                # a pursued note held open to the end is a 3 exactly like a
+                # flag.
+                if result.unresolved:
+                    sys.exit(3)
         except NoMandate as e:
             # Exit 2, not 0. A refusal is not a pass and a caller in a
             # pipeline has to be able to tell them apart; the traceback this

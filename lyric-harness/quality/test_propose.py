@@ -579,16 +579,20 @@ def test_model_proposer_drives_a_real_loop_to_success():
     res = revise_loop(R, CLICHE, "ABAB", propose=ModelProposer(call).propose)
     check("the loop reaches SUCCESS through the proposer",
           res.stop_reason == "success", res.stop_reason)
-    check("both flagged lines were fixed", set(res.rounds[0].fixed_lines)
-          == {1, 2}, res.rounds[0].fixed_lines)
+    # RESTATED 2026-08-17 under MANDATORY PURSUIT: all four lines are asked
+    # about — the two flagged AND the two carrying only the modal note — and
+    # all four are fixed, off the PROMPT alone, in one round to success.
+    check("both flagged lines AND both mandatory-pursued lines were fixed",
+          set(res.rounds[0].fixed_lines) == {1, 2, 3, 4},
+          res.rounds[0].fixed_lines)
     check("the stub was driven by the PROMPT and nothing else -- it never "
           "saw a Brief, so a prompt missing the line or the offered field "
           "could not have produced these",
-          len(seen) == 2 and all(_reads_the_prompt(p)[0] for p in seen),
+          len(seen) == 4 and all(_reads_the_prompt(p)[0] for p in seen),
           f"{len(seen)} prompt(s)")
-    check("the loop's output is a real draft, changed only on the two "
-          "flagged lines",
-          res.lines[2:] == CLICHE[2:] and res.lines[:2] != CLICHE[:2],
+    check("the loop's output is a real draft, and every changed line was "
+          "one the loop had opened",
+          all(res.lines[i] != CLICHE[i] for i in range(4)),
           res.lines)
 
     R2 = Reviser()
@@ -883,10 +887,17 @@ def test_model_proposer_serves_a_real_tier_2():
           proposals and not mismatched,
           f"{proposals} proposal(s) inspected, {len(mismatched)} equal to "
           f"the status quo: {mismatched[:2]}")
-    check("a proposer reading ONLY the prompt reaches SUCCESS in ONE "
-          "backtrack -- the same result `loop.default_propose_pair` gets "
-          "off the object, so the rendering carries what the object does",
-          res.stop_reason == "success" and len(seen) == 1,
+    # RESTATED 2026-08-17 under MANDATORY PURSUIT (loop.MANDATORY_PURSUE):
+    # the ONE backtrack still lands — same pair, same lines — and the loop
+    # then refuses to call the result a success, because the accepted word is
+    # directionally modal and the pair proposer has no further move. The
+    # subject of this check is that the PROMPT carries what the object does,
+    # and it still does: one prompt, one accepted backtrack, byte-identical
+    # final lines to `default_propose_pair`'s run in test_loop §4.
+    check("a proposer reading ONLY the prompt lands the ONE backtrack -- "
+          "the same result `loop.default_propose_pair` gets off the object, "
+          "then the same loud refusal to bless the modal residue",
+          res.stop_reason == "no_progress" and len(seen) == 1,
           f"{res.stop_reason} after {len(seen)} prompt(s)")
     check("L2 -- in neither backtracked group -- is untouched, so tier 2 "
           "stayed inside its two-line group",
