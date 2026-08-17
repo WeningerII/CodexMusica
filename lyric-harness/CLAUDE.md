@@ -513,6 +513,14 @@ abbreviates the return) — which keeps the writer blind, and which is a NEW
 pre-registration rather than another rung of this one. 11 further codes are
 out of the instrument's reach for stated reasons: 8 `NC` (an API-level
 experiment, named as separate), 3 scoped to the `function` verb or words-bound.
+**THE 8 `NC` ARE EXERCISED — `quality/test_nc_census.py`, 7 fired and 1
+declared inert.** They are still not scored into the 82, because the API is a
+different instrument and folding it in would let an API result read as a
+statement about the writing path. What changed is that "no claim is made about
+whether they work" is retired: seven were already asserted across three
+suites, `NO_TEMPO` cannot fire and is inert, and the census now answers in ONE
+place so the question stops being answered from the label `NC` instead of from
+the code.
 **AND THE FORM SEED (§F) CLOSED THE LAST REACHABLE CODE.** The ladder could
 not reach `RADIF_LICENSED` at any length; a blind writer asked for *a ghazal*
 — a FORM, not a feature — returned one whose radif `turn` closes 15 of 15

@@ -1900,8 +1900,41 @@ is **a different experiment with a different denominator and different bias
 controls**, not a further rung of this one. Naming it as separate is the
 honest disposition; folding it in would let an API result be read as a
 statement about the writing path, which is the exact confusion this
-pre-registration was built to avoid. **No claim is made here about whether the
-8 work** — only that this instrument cannot ask.
+pre-registration was built to avoid. ~~**No claim is made here about whether
+the 8 work** — only that this instrument cannot ask.~~
+
+**THE CLAIM IS NOW MADE, 2026-08-17: SEVEN OF THE EIGHT FIRE AND THE EIGHTH
+IS INERT.** `quality/test_nc_census.py` drives each one through the smallest
+API call that produces its condition — a mandate with a `scope`
+(`MANDATE_SCOPE_DECLARED`, `COLLISION_UNDECLARED`), a hand-built `Return`
+naming a line off the end of the draft (`RETURN_OUT_OF_RANGE`), a partial
+`BeatGrid` (`BEATGRID_INCOMPLETE`), a complete one landing a prominent unit
+off a head (`PROMINENCE_OFF_HEAD`), a section declaring no time signature run
+with a sourced `AssumedMeter` (`ASSUMED_METER`), and a song declaring an outro
+and no intro (`REPRISE_SIDE_UNDECLARED`). `NO_TEMPO` is the eighth and cannot
+fire; it is asserted INERT rather than omitted, because a census that quietly
+drops the member it cannot produce is how a set of eight becomes a set of
+seven nobody notices.
+
+**THE DISPOSITION ABOVE WAS RIGHT AND THE SENTENCE UNDER IT WAS LAZY.** The
+API IS a different instrument and folding its results into the writing-path
+denominator would still be wrong — that half stands, and the census is
+deliberately NOT scored into the 82. What was lazy was "no claim is made about
+whether the 8 work", repeated afterwards as *"eight problems nobody has
+looked at"*: seven of them were already asserted somewhere in the suites, in
+three different files, and the eighth was declared inert the same day. The
+answer was in the repo and the category label `NC` was being read instead of
+the code. **That is the identical failure the ladder kept finding in the
+harness's own reports** — a summary consulted in place of the thing it
+summarises — committed here in the experiment's own record.
+
+**WHY A CENSUS AND NOT A NOTE.** The seven assertions live in
+`test_revise.py`, `test_fit.py` and `test_grid.py`, and nothing anywhere said
+"these are the `NC` set, and here is each of them firing", so the question
+kept being re-asked and answered from the label. The census closes over its
+own list: adding a code without a probe fails it, probing something outside
+the set fails it, and mis-counting `NO_TEMPO` as fired fails it. Three
+mutations, each red.
 
 ### E3b. The sweep of the 16, RUN 2026-08-17 — and two of them cannot fire
 
@@ -2090,8 +2123,11 @@ a refusal with a stated reason and not a gap (doctrine 20).
 ### F8. FINAL: 79 of 82
 
 `FIRED` 79 · `SILENT` 3 · outside the denominator 12 (8 `NC`, 3
-surface-blocked, `PROMINENCE_UNDECIDED`). **Nine harness findings across the
-whole experiment** — six at rung 1, zero at rung 2, two at rung 3, one here —
+surface-blocked, `PROMINENCE_UNDECIDED`) — and the 12 are no longer merely
+excluded: the 8 `NC` are exercised in `quality/test_nc_census.py` (7 fired, 1
+inert), `PROMINENCE_UNDECIDED` is declared inert with its blocker named, and
+the 3 surface-blocked carry the argument in §E2. **Nine harness findings
+across the whole experiment** — six at rung 1, zero at rung 2, two at rung 3, one here —
 and every one of them in a message or a handoff rather than in a verdict.
 
 ## D. Judgement calls carried forward
