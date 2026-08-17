@@ -1791,6 +1791,18 @@ that stayed SILENT on the draft as written got a declaration aimed at it.
 
 78 = rung 1's 52 + rung 2's 19 + rung 3's 7.
 
+**~~83~~ 82, REPINNED 2026-08-17 — `PROMINENCE_UNDECIDED` LEAVES THE
+DENOMINATOR.** The sweep of the 16 (§E3b) established that its branch is live
+and NOTHING PRODUCES ITS INPUT: no shipped phonology returns a multi-valued
+`Readings` for prominence, and wiring one naively would report vowel reduction
+as "the phonology declined to say", which is a wrong answer rather than a
+missing one (`BACKLOG.md` §4.10, now declared inert with the measurement). A
+code no draft can reach is not a coverage gap in the WRITING path — it belongs
+with the `NC` codes and the surface-blocked three, outside the denominator and
+disposed of by argument. **The score is therefore 78 of 82 with 4 SILENT**,
+and the 12 outside are 8 `NC` + 3 surface-blocked + this one. Rung 3's cells
+above are left as measured on the day (doctrine 17).
+
 #### `QUATRAIN_LOCK` IS A MIS-MARKING, AND IT IS ARITHMETIC
 
 `stanza_lock` fires it at `four_lines_per_section >= 0.90`. On a 26-line draft
@@ -1822,7 +1834,9 @@ Five codes remain inside the denominator. **Four are words-bound**
 (`BRIDGE_IS_A_VERSE`, `PROMINENCE_UNDECIDED`, `STUB_RETURN`,
 `RADIF_LICENSED`) **and the fifth is arithmetic** (`QUATRAIN_LOCK`). **Not one
 of them is reachable by writing a LONGER song**, which was the ladder's entire
-premise. Rung 4 as more-of-the-same would score exactly 78 again.
+premise. A further rung of the same kind would score exactly 78 again.
+*(`PROMINENCE_UNDECIDED` left the denominator later the same day — see the
+repin above — so the standing figure is 4 SILENT of 82.)*
 
 The ladder answered the question it could answer: **78 of 83 codes are reached
 by the CLI writing path, and the remaining 5 are blocked by what the words
@@ -1928,6 +1942,87 @@ were reached, every one of the remaining 5 is blocked by what a draft
 CONTAINS rather than by how long it is, and 11 more are out of this
 instrument's reach for stated reasons.** The ladder is closed. Eight harness
 defects were found along the way, all eight in the writer handoff.
+
+## F. THE FORM SEED — PRE-REGISTERED 2026-08-17, BEFORE ANY DRAFT EXISTS
+
+**NOT A RUNG.** The length ladder is closed at §E4 and this does not extend
+it. It is a separate one-claim run with its own seed, its own denominator of
+ONE, and its own falsifiable statement. Calling it "rung 4" would imply the
+ladder's premise — that more length reaches more codes — which §R3.8
+disproved.
+
+### F1. Why only ONE of the four remaining codes gets a run
+
+All four are **already proven to fire**: `STUB_RETURN`
+(`quality/test_song_function.py` §322), `RADIF_LICENSED`
+(`quality/test_floor.py` §113), `BRIDGE_IS_A_VERSE`
+(`quality/test_song_function.py::_bridge_is_a_verse_fires`) and `QUATRAIN_LOCK`
+(`quality/test_grid.py` §4, on `cliche_song()`). **So no draft can tell us
+whether the code works.** The only open question is whether a WRITER'S OWN
+SONG reaches them, and that question is worth asking of exactly one.
+
+**THE TEST THAT INVALIDATES ITSELF.** If the seed specifies the form tightly
+enough to GUARANTEE the condition, the run stops measuring the writer and
+starts measuring the seed — and "does it fire when the condition is present"
+is what the four unit tests above already answer. Judged one at a time:
+
+- **`STUB_RETURN` — DICTATION, no run.** It needs a line that IS the pointer.
+  Asking for one is not a form request, it is transcription. (And the
+  convention it recognises is `&c.`, NOT `[Chorus]` — measured 2026-08-17,
+  `quality/test_grid.py` §30.)
+- **`QUATRAIN_LOCK` — MY DECLARATION, no run.** It reads lines-per-section off
+  the BLUEPRINT, which the measurer writes. Six sections of four lines would
+  fire it because of the grid I declared, not because of anything written.
+- **`BRIDGE_IS_A_VERSE` — ALREADY ANSWERED, no run.** It fires when a bridge
+  FAILS to contrast. Rung 3's blind writer produced a bridge that DID contrast
+  — six channels forced to agree by declaration and `line_length` still
+  separated them at 9.25 against 8.875 (§R3.8). A writer contrasting a bridge
+  unprompted is the finding; asking for a bridge that does not contrast would
+  be asking for a defect.
+- **`RADIF_LICENSED` — A REAL QUESTION, and the run below.** "Write a ghazal"
+  names a FORM, not a feature. A ghazal has a radif by definition, and whether
+  a writer executes one as a repetend the floor recognises is genuinely
+  unknown.
+
+### F2. The seed, fixed in advance
+
+A blind writer (no history, no repo, no tools) is asked for **a ghazal in
+English, 5 couplets**. The word "radif" may be used — it is the form's own
+vocabulary, in every description of it, and withholding the name of the form
+while asking for the form would be a stranger instruction than giving it. What
+is NOT said: that anything is being measured, that a harness exists, what
+`RADIF_LICENSED` is, or what threshold it applies.
+
+### F3. Bias controls
+
+As §R2.2, unchanged. The writer never sees the harness, the codes, the
+declaration, or this file. The declaration is written AFTER the draft arrives
+and may not edit the words.
+
+### F4. THE FALSIFIABLE CLAIM
+
+**`RADIF_LICENSED` fires on the draft under a mandate that pairs the couplets'
+end lines.** The trigger, read from `SlopFloor._relation_findings` on
+2026-08-17: the same trailing token-run must close **at least 2** mandated
+pairs AND at least **`radif_min_pair_fraction` = 0.50** of them.
+
+**What each outcome means, written before the run so neither is a surprise:**
+
+- **FIRES** — the code closes, the score goes to 79 of 82, and the writing
+  path is shown to reach it when the form is named.
+- **SILENT** — a finding about the gap between naming a form and producing it,
+  and it is worth MORE than the code. It would mean a writer asked for a
+  ghazal produced something ghazal-shaped whose repetend the floor does not
+  recognise, and the next question is which half is wrong: the draft, or a
+  0.50 threshold calibrated on nothing this repo has measured.
+- **REFUSED or SUSPENDED** — reported as neither, per doctrine 20.
+
+### F5. What would falsify the SETUP rather than the harness
+
+If the writer returns something that is not a ghazal — no repeated closing
+phrase at all, or couplets that do not share a rhyme before it — the run says
+nothing about `RADIF_LICENSED` and the seed is what needs rewriting. That is
+recorded as a REFUSAL of the run, not as a SILENT cell.
 
 ## D. Judgement calls carried forward
 
