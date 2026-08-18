@@ -454,18 +454,43 @@ def test_the_disclosure():
           "lines" in plan["writer_brief"]
           and "harness" not in plan["writer_brief"].lower()
           and "mandate" not in plan["writer_brief"].lower())
-    # An instrumental section is briefed as instrumental (seed 3 carries
-    # one at this writing; find one honestly instead of pinning the seed).
+    # EVERY section is briefed WITH ITS MEASUREMENTS — verse, chorus,
+    # instrumental, the whole roster (the owner's rule, 2026-08-18: the
+    # duration, meter and pickup were carried by the plan all along, so
+    # the brief surfaces them — required output, not a prose habit). Each
+    # expectation is DERIVED from the section's own dict and slots
+    # (doctrine 91: the words cannot drift from the numbers), and every
+    # section in the first 100 seeds is held to it.
+    n_secs, n_inst = 0, 0
+    misses = []
     for seed in range(100):
         p = make_plan(seed=seed)
-        if any(s["function"] in ZERO_LINE_FUNCTIONS
-               for s in p["sections"]):
-            check("an instrumental section is briefed as instrumental — "
-                  "bars with no words is a shape, not an omission",
-                  "instrumental" in p["writer_brief"], f"seed {seed}")
-            break
-    else:
-        check("an instrumental section appears within 100 seeds", False)
+        for s in p["sections"]:
+            n_secs += 1
+            im = s["meter"]
+            size = (f"{s['bars']} bar{'s' if s['bars'] != 1 else ''} "
+                    f"of {im['beats']}/{im['unit']}")
+            slots = [ls for ls in p["line_slots"]
+                     if ls["section"] == s["name"]]
+            if not slots:
+                n_inst += 1
+                want = (f"[{s['function'].upper()} — instrumental — "
+                        f"{size}, no words]")
+            else:
+                pickup = {0.0: "", 0.5: ", half-beat pickup",
+                          1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
+                k = len(slots)
+                want = (f"[{s['function'].upper()} — {k} "
+                        f"line{'s' if k != 1 else ''} — {size}{pickup}]")
+            if want not in p["writer_brief"]:
+                misses.append((seed, want))
+    check("EVERY section is briefed with its own duration, meter and "
+          "pickup, read from the dict and slots the grid grades — "
+          "measured-and-followed means surfaced, on sung and instrumental "
+          "rows alike",
+          n_secs > 0 and n_inst > 0 and not misses,
+          f"{n_secs} section(s) ({n_inst} instrumental) over 100 seeds; "
+          f"misses: {misses[:2] or 'none'}")
 
 
 if __name__ == "__main__":

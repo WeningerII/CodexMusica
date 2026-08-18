@@ -620,13 +620,26 @@ def writer_brief(plan):
     out = [f"Write a song: {plan['total_lines']} lines, "
            f"{len(plan['sections'])} sections, in this order:"]
     for sec in plan["sections"]:
-        n = sum(1 for s in plan["line_slots"]
-                if s["section"] == sec["name"])
-        if n == 0:
-            out.append(f"  [{sec['function'].upper()}] instrumental — "
-                       f"no words")
+        # EVERY section row carries its measurements — duration, meter,
+        # pickup — SURFACED from the section's own dict and its own line
+        # slots, the same numbers the grid grades (the owner's rule,
+        # 2026-08-18: measured-and-followed means required in the output,
+        # as implementation, not prose). Reading per section keeps the
+        # rows honest the day meters vary between sections.
+        slots = [s for s in plan["line_slots"]
+                 if s["section"] == sec["name"]]
+        im = sec["meter"]
+        size = (f"{sec['bars']} bar{'s' if sec['bars'] != 1 else ''} "
+                f"of {im['beats']}/{im['unit']}")
+        if not slots:
+            out.append(f"  [{sec['function'].upper()} — instrumental — "
+                       f"{size}, no words]")
         else:
-            out.append(f"  [{sec['function'].upper()}] {n} line(s)")
+            pickup = {0.0: "", 0.5: ", half-beat pickup",
+                      1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
+            n = len(slots)
+            out.append(f"  [{sec['function'].upper()} — {n} "
+                       f"line{'s' if n != 1 else ''} — {size}{pickup}]")
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
     if plan["groups"]:
