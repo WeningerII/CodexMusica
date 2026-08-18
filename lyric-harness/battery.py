@@ -118,13 +118,22 @@ def limerick_battery():
 
 
 # ----------------------------------------------------- negative control
-def whitman_battery():
-    text = open(corpus_path("whitman.txt"), encoding="utf-8").read()
+def whitman_verse(path=None):
+    """The negative control's declared population: 150 free-verse lines
+    from the Song of Myself opening region — the same slice every recorded
+    Whitman figure is measured on. Extracted (2026-08-18) so the structure
+    census reads the IDENTICAL population instead of respelling the slice
+    (doctrine 1); the arithmetic is untouched."""
+    text = open(path or corpus_path("whitman.txt"), encoding="utf-8").read()
     lines = [l.strip() for l in text.splitlines()]
     # grab Song of Myself opening region: contiguous verse lines
     start = next(i for i, l in enumerate(lines)
                  if l.startswith("I celebrate myself"))
-    verse = [l for l in lines[start:start + 220] if l and len(l) > 15][:150]
+    return [l for l in lines[start:start + 220] if l and len(l) > 15][:150]
+
+
+def whitman_battery():
+    verse = whitman_verse()
     chains = infer_chains(lex, verse, decl, theta_chain=0.82)  # literary discovery declaration
     chained = sum(c["length"] for c in chains if c["length"] >= 2)
     n_chains = sum(1 for c in chains if c["length"] >= 2)
