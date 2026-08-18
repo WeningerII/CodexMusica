@@ -474,13 +474,14 @@ def test_the_disclosure():
                      if ls["section"] == s["name"]]
             if not slots:
                 n_inst += 1
-                want = (f"[{s['function'].upper()}] instrumental — "
-                        f"{size}, no words")
+                want = (f"[{s['function'].upper()} — instrumental — "
+                        f"{size}, no words]")
             else:
                 pickup = {0.0: "", 0.5: ", half-beat pickup",
                           1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
-                want = (f"[{s['function'].upper()}] {len(slots)} line(s) "
-                        f"— {size}{pickup}")
+                k = len(slots)
+                want = (f"[{s['function'].upper()} — {k} "
+                        f"line{'s' if k != 1 else ''} — {size}{pickup}]")
             if want not in p["writer_brief"]:
                 misses.append((seed, want))
     check("EVERY section is briefed with its own duration, meter and "

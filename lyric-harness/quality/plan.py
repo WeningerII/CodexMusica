@@ -632,13 +632,14 @@ def writer_brief(plan):
         size = (f"{sec['bars']} bar{'s' if sec['bars'] != 1 else ''} "
                 f"of {im['beats']}/{im['unit']}")
         if not slots:
-            out.append(f"  [{sec['function'].upper()}] instrumental — "
-                       f"{size}, no words")
+            out.append(f"  [{sec['function'].upper()} — instrumental — "
+                       f"{size}, no words]")
         else:
             pickup = {0.0: "", 0.5: ", half-beat pickup",
                       1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
-            out.append(f"  [{sec['function'].upper()}] {len(slots)} "
-                       f"line(s) — {size}{pickup}")
+            n = len(slots)
+            out.append(f"  [{sec['function'].upper()} — {n} "
+                       f"line{'s' if n != 1 else ''} — {size}{pickup}]")
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
     if plan["groups"]:
