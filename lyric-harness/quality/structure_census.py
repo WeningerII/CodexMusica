@@ -218,11 +218,31 @@ def read_tsv(path):
         return [tuple(line.rstrip("\n").split("\t")) for line in fh]
 
 
-def run(files, out_path, label):
+def run(files, out_path, label, parts_dir=None):
+    """PER-FILE CHECKPOINTING (run-2 amendment, from run 1's own
+    operations): three shard processes were killed by a process cap
+    before their table landed, and the recovery re-ran whole shards
+    because nothing was written until the end. Each file's cells are now
+    written to a part file the moment they are computed — atomically, via
+    rename, so a killed process never leaves a half part — and a restart
+    REUSES every finished part. The most any interruption can cost is one
+    file. Parts live under TMPDIR keyed by the output's basename, never
+    beside a repo artifact."""
     phon = PH.get("eng")
+    parts = parts_dir or os.path.join(
+        os.environ.get("TMPDIR", "/tmp"),
+        os.path.basename(out_path) + ".parts")
+    os.makedirs(parts, exist_ok=True)
     all_rows = []
     t0 = time.time()
     for i, path in enumerate(files, 1):
+        base = os.path.basename(path)
+        part = os.path.join(parts, base + ".part.tsv")
+        if os.path.exists(part):
+            all_rows.extend(read_tsv(part))
+            print(f"  [{i}/{len(files)}] {base:44s} checkpointed — reused",
+                  flush=True)
+            continue
         tf = time.time()
         # A FRESH memo per file — the registration's own dedup rule is
         # "once per unique (structure, ordered spelling pair) PER FILE",
@@ -232,8 +252,11 @@ def run(files, out_path, label):
         # stay warm across files either way.
         memo = Memo(phon)
         cells = census_file(path, memo, dedup=True)
-        all_rows.extend(rows_for(path, cells))
-        print(f"  [{i}/{len(files)}] {os.path.basename(path):44s} "
+        rows = rows_for(path, cells)
+        write_tsv(part + ".tmp", rows)
+        os.replace(part + ".tmp", part)
+        all_rows.extend(rows)
+        print(f"  [{i}/{len(files)}] {base:44s} "
               f"{time.time() - tf:6.1f}s  memo {len(memo.d):>9,}",
               flush=True)
     write_tsv(out_path, all_rows)
