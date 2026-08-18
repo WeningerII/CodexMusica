@@ -220,11 +220,17 @@ def read_tsv(path):
 
 def run(files, out_path, label):
     phon = PH.get("eng")
-    memo = Memo(phon)
     all_rows = []
     t0 = time.time()
     for i, path in enumerate(files, 1):
         tf = time.time()
+        # A FRESH memo per file — the registration's own dedup rule is
+        # "once per unique (structure, ordered spelling pair) PER FILE",
+        # and the pilot measured a global memo at 6.05M entries over just
+        # 7 files, which extrapolates to an unbounded-memory full run.
+        # Word-level transcription caches live inside the phonology and
+        # stay warm across files either way.
+        memo = Memo(phon)
         cells = census_file(path, memo, dedup=True)
         all_rows.extend(rows_for(path, cells))
         print(f"  [{i}/{len(files)}] {os.path.basename(path):44s} "
