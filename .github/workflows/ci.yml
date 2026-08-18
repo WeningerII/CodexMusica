@@ -301,6 +301,21 @@ jobs:
       - name: Install connector dependencies
         run: npm ci --prefix mcp
 
+      # The lyric family's LIVE checks in mcp/test.mjs drive real python3
+      # subprocesses (mcp/lyric_tools.js). The runner has python3, but the
+      # slop floor reaches the POS tagger through quality/features.py, so
+      # nltk must be installed and the lexicon/tagger staged — the SAME
+      # three moves the Docker image makes at build. Without nltk the
+      # harness dies at import inside the subprocess and the live check
+      # reads exit 1: run #555's exact failure (2026-08-18), which the
+      # locally-green run never saw because the sandbox had nltk.
+      - name: Stage the lyric harness for mcp/test.mjs's live checks
+        run: |
+          python3 -m pip install --disable-pip-version-check nltk
+          cd lyric-harness
+          python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+          python3 quality/fetch_data.py
+
       # The browser binaries are CACHED keyed on the lockfile: on a hit the
       # install below finds them present and exits in seconds, and the
       # apt-get layer (`--with-deps`) — the exact step that stalled 1h44m

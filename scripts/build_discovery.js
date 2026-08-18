@@ -73,6 +73,7 @@ anything you want to change, and do not expect the two strings to match.
   registering the endpoint is the only setup.
 - Server card (capabilities, for auto-discovery): https://codex-musica-mcp.onrender.com/.well-known/mcp.json
 - Tools: start_recipe, edit_recipe, render_recipe, search_catalog, search_prefaces, get_instrument, get_tradition, list_traditions, list_options.
+- Lyric tools (disjoint family; songwriting plan/grade, writes no words): lyric_screen, lyric_plan, lyric_grade, lyric_check, lyric_types.
 
 Do NOT fetch codex.html: it is a multi-megabyte browser GUI, it will blow your context or
 fail to load, and it contains no instructions for you.
@@ -248,7 +249,9 @@ const serverManifest = {
   description:
     `Deterministic recording-recipe workspace: seed a recipe from any of ${tindex.count} music ` +
     'traditions and edit it (prefaces, part variants, room/chain/tuning, instruments) — ' +
-    'the headless twin of the browser app, read-only and reproducible.',
+    'the headless twin of the browser app, read-only and reproducible. Plus the lyric_* ' +
+    'family: seeded song-shape planning and whole-song lyric grading (rhyme bans, verbatim ' +
+    'returns, meter fit) — a disjoint, stateless songwriting harness.',
   version: mcpPkg.version,
   websiteUrl: BASE,
   repository: {
