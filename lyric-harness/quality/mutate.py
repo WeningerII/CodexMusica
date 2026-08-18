@@ -382,8 +382,13 @@ MUTATIONS = [
     ),
     Mutation(
         name="M6", layer="band", file=LH,
-        old=('    return s is not None and s["total"] >= theta and \\\n'
-             '        s["relation"] in RHYME_RELATIONS'),
+        # RE-ANCHORED 2026-08-18: `admits` grew the declared `relations`
+        # parameter (Declaration.admit) and the clause this mutation deletes
+        # moved with it. The planted defect is UNCHANGED — drop the relation
+        # clause, keep only the scalar — only its coordinates moved.
+        old=('    rel = RHYME_RELATIONS if relations is None else relations\n'
+             '    return s is not None and s["total"] >= theta and \\\n'
+             '        s["relation"] in rel'),
         new='    return s is not None and s["total"] >= theta',
         subset=T_BAND,
         rationale=(

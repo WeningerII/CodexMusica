@@ -239,9 +239,14 @@ def test_readable_pairs_are_untouched():
             ((1, 4), 0.477, "NO_RELATION"), ((2, 3), 0.748, "ASSONANCE"),
             ((2, 4), 0.748, "ASSONANCE"), ((3, 4), 1.0, "RHYME")]
     check("the demo's six pair scores are unchanged", got == want, f"{got}")
+    # RESTATED 2026-08-18: the refusal now NAMES the declared door — the
+    # admit set (`Declaration.admit`) a near relation could have entered
+    # through. Same verdict, same score, same relation; only the sentence
+    # grew the coordinate that governs it.
     check("the demo's single violation is unchanged",
           d["violations"] == [(1, 2, 0.729, "CONSONANCE not rhyme "
-                                            "(conjunctive band)")])
+                                            "(conjunctive band; not in the "
+                                            "declared admit set)")])
     check("the demo refuses nothing", d["pairs_refused"] == 0)
 
     g = rhyme_graph(LEX, demo, DECL)

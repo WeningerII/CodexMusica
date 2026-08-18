@@ -566,29 +566,39 @@ def test_model_proposer_drives_a_real_loop_to_success():
     from quality.loop import revise_loop, swap_end_word
     from quality.revise import Reviser
 
-    seen = []
+    # RESTATED 2026-08-18 under the TWO-TIER BAN. The stub used to take
+    # `offered[0]` on every prompt and reach success in 4 prompts. It
+    # stalls now, and the stall is the ban working: the offers are
+    # call-directional, so the FIRST offer can be modal FROM THE PARTNER'S
+    # side — the grader rejects it and says so in the prompt's REASONS
+    # block — and a writer who ignores the reasons re-proposes the same
+    # word forever (measured: no_progress, L4 standing, 9 prompts). So the
+    # stub now does what the reasons section exists for: on the k-th
+    # prompt for the same line it takes the k-th offer. Still driven by
+    # the PROMPT alone — its whole state is a count of its own calls.
+    seen, asked = [], {}
 
     def call(prompt):
         seen.append(prompt)
         text, offered, _forbidden = _reads_the_prompt(prompt)
         if text is None or not offered:
             return "I cannot answer that."
-        return f"LINE: {swap_end_word(text, offered[0])}"
+        k = asked.get(text, 0)
+        asked[text] = k + 1
+        return f"LINE: {swap_end_word(text, offered[min(k, len(offered) - 1)])}"
 
     R = Reviser()
     res = revise_loop(R, CLICHE, "ABAB", propose=ModelProposer(call).propose)
     check("the loop reaches SUCCESS through the proposer",
           res.stop_reason == "success", res.stop_reason)
-    # RESTATED 2026-08-17 under MANDATORY PURSUIT: all four lines are asked
-    # about — the two flagged AND the two carrying only the modal note — and
-    # all four are fixed, off the PROMPT alone, in one round to success.
     check("both flagged lines AND both mandatory-pursued lines were fixed",
           set(res.rounds[0].fixed_lines) == {1, 2, 3, 4},
           res.rounds[0].fixed_lines)
     check("the stub was driven by the PROMPT and nothing else -- it never "
           "saw a Brief, so a prompt missing the line or the offered field "
-          "could not have produced these",
-          len(seen) == 4 and all(_reads_the_prompt(p)[0] for p in seen),
+          "could not have produced these; retries past 4 are the rejected "
+          "first offers being re-asked, reasons in hand",
+          len(seen) >= 4 and all(_reads_the_prompt(p)[0] for p in seen),
           f"{len(seen)} prompt(s)")
     check("the loop's output is a real draft, and every changed line was "
           "one the loop had opened",

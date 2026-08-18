@@ -288,6 +288,34 @@ def channel_profile(profile):
 class Declaration:
     dialect: str = "cmudict (General American citation forms)"
     anchor: str = "last primary stress to end of unit"
+    # --- WHAT SATISFIES A MANDATE (owner's widening, 2026-08-18) -----------
+    # The admitted relation set, DECLARED. Default is the historical pair, so
+    # every undeclared run is byte-identical to before the coordinate
+    # existed. Widening to ASSONANCE / CONSONANCE is a legal declared move —
+    # the counterweight to the homeoteleuton class ban, so a writer pushed
+    # off the lazily-spelled end of perfect rhyme has the taxonomy's named
+    # near relations as first-class options instead of a shrunken pool. The
+    # repo's own count decided this shape: 601 surveyed structures, ~116
+    # canonical, 49 the engine names — and the door admitted 2. Validated in
+    # __post_init__ against ADMITTABLE_RELATIONS: an unknown name refuses at
+    # declaration time, not silently at grade time (doctrine 20).
+    admit: tuple = ("RHYME", "RIME_RICHE")
+
+    def __post_init__(self):
+        bad = [r for r in self.admit if r not in ADMITTABLE_RELATIONS]
+        if bad:
+            raise ValueError(
+                f"admit={self.admit!r} names {bad} — not admittable. The "
+                f"declared vocabulary is {sorted(ADMITTABLE_RELATIONS)} "
+                f"(REPEAT is licensed by repeat_licence, never admitted "
+                f"as rhyme).")
+        if not any(r in RHYME_RELATIONS for r in self.admit):
+            raise ValueError(
+                f"admit={self.admit!r} contains no rhyme relation — a "
+                f"mandate satisfiable ONLY by near relations is not a "
+                f"rhyme mandate, and declaring one is more likely a typo "
+                f"than a form. Include RHYME (or RIME_RICHE) alongside "
+                f"the near relations.")
     channel_weights: dict = field(default_factory=lambda: {
         "nucleus": 0.50, "coda": 0.35, "stress": 0.15,
     })
@@ -1986,6 +2014,102 @@ RHYME_RELATIONS = {"RHYME", "RIME_RICHE"}
 #: rhyme?" must answer no while the graph keeps the name.
 NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 
+#: What a Declaration may ADMIT as satisfying a mandate (`Declaration.admit`).
+#: The default is the historical pair; the near relations are LEGAL DECLARED
+#: MOVES — the owner's 2026-08-18 finding: a 601-entry world survey
+#: (quality/RHYME_CANON.md), ~116 canonical structures, 49 named engine
+#: types, and the grader's door admitted two. Widening is BY DECLARATION,
+#: never by default: an undeclared assonance still violates, because a
+#: mandate satisfied by any near-miss is the sun/much leak wearing a
+#: liberty's name. REPEAT is deliberately absent — identity has its own
+#: licence machinery (`repeat_licence`) and admitting it here would let a
+#: copied word satisfy a rhyme.
+ADMITTABLE_RELATIONS = frozenset(RHYME_RELATIONS | NEAR_RELATIONS)
+
+
+def spelled_rime(word, stress_from_end=None):
+    """-> the ORTHOGRAPHIC rime: the spelling from THE RHYMING SYLLABLE's
+    vowel letters to the end. hair -> 'air', chair -> 'air', stove ->
+    'ove', prayer -> 'ayer', sown -> 'own', bone -> 'one' — and with the
+    stress anchor, silver -> 'ilver' against deliver -> 'iver'.
+
+    THE HOMEOTELEUTON PREDICATE (owner's rule, 2026-08-18): two admitted
+    rhyme partners whose spelled rimes are IDENTICAL found each other by
+    pattern-matching the ending — the laziest class there is, ranked
+    beneath every frequency judgment and banned outright, whatever the
+    corpus says. This is a fact about SPELLING on purpose: same-sound
+    different-spelling pairs (bone/sown, prayer/hair) are where a writer
+    has actually reached, and they are judged by the frequency tier
+    instead. y counts as a vowel letter (day/way share 'ay'); w does not
+    (sown's rime is 'own'). Only ever consulted on pairs the comparator
+    already ADMITS, so eye-rhymes (come/home) never reach it.
+
+    `stress_from_end` anchors the rime at the RHYMING syllable, counted in
+    vowel groups from the end (1 = the last), exactly as the approved
+    definition says — "the string from the rhyming syllable's vowel
+    letters to the end". Without it the rime anchors at the last vowel
+    group, WHICH OVER-REACHES on feminine rhymes: silver/deliver would
+    share '-er' and the entire unstressed -er/-ing/-ed rhyme space would
+    be one banned class — precisely the "closing rhyme classes" the owner
+    ruled out. Callers with a lexicon derive it from the anchor rule the
+    whole harness already uses (last primary stress; see
+    `Reviser._spelled_rime`); the bare form is exact for every monosyllable
+    and every word stressed on its last full vowel group, which is all 19
+    cases the rule was argued on. Silent final -e never counts as a group
+    of its own (stove/bone/make fold), so groups approximate SPOKEN
+    syllables and the from-end count transfers.
+    """
+    w = fold_apostrophes(str(word)).lower().strip("'\"“”‘’.,;:!?()[]-")
+    letters = [c for c in w if c.isalpha()]
+    w = "".join(letters)
+    if not w:
+        return ""
+    vowels = set("aeiouy")
+    groups = []          # (start, end) of maximal vowel-letter runs
+    i = 0
+    while i < len(w):
+        if w[i] in vowels:
+            j = i
+            while j < len(w) and w[j] in vowels:
+                j += 1
+            groups.append((i, j))
+            i = j
+        else:
+            i += 1
+    if not groups:
+        return w
+    # word-final silent -e: an 'e'-only final group at the very end, with a
+    # consonant between it and an earlier vowel group (stove, bone, make) —
+    # folded BEFORE the from-end count, so it is never a syllable.
+    if (len(groups) >= 2 and groups[-1][1] == len(w)
+            and set(w[groups[-1][0]:groups[-1][1]]) == {"e"}
+            and groups[-2][1] < groups[-1][0]):
+        groups = groups[:-1]
+        groups[-1] = (groups[-1][0], len(w))  # extend through the folded e
+    k = 1 if stress_from_end is None else max(1, int(stress_from_end))
+    start = groups[-k][0] if k <= len(groups) else groups[0][0]
+    return w[start:]
+
+
+def admits(s, theta, relations=None):
+    """Does this scored pair count as satisfying a mandate at `theta`?
+
+    Two conditions, and the second is what the conjunctive band adds: the
+    scalar has to clear the band AND the relation has to be in the admitted
+    set. Before this, an ASSONANCE edge whose nucleus carried it over theta
+    was admitted as rhyme -- that is the sun/much leak, and it lives here
+    rather than in the comparator.
+
+    `relations` is `Declaration.admit` when a declaration is in play and
+    None everywhere else — None means the historical {RHYME, RIME_RICHE},
+    so every caller that never learned the coordinate behaves byte-for-byte
+    as it always has. A declared set is validated against
+    ADMITTABLE_RELATIONS by the Declaration, not re-checked here.
+    """
+    rel = RHYME_RELATIONS if relations is None else relations
+    return s is not None and s["total"] >= theta and \
+        s["relation"] in rel
+
 #: THE UNINTENDED-RHYME CUT, and it lives HERE because two modules apply it to
 #: the same question and one definition is the only thing that keeps them
 #: equal. `check_scheme` below and `quality/revise.py`'s collision scan report
@@ -2007,18 +2131,11 @@ NEAR_RELATIONS = {"ASSONANCE", "CONSONANCE"}
 #: collision report was retuned (doctrine 1: one coordinate, one question).
 THETA_COLLISION = 0.9
 
-
-def admits(s, theta):
-    """Does this scored pair count as RHYME at `theta`?
-
-    Two conditions, and the second is what the conjunctive band adds: the
-    scalar has to clear the band AND the relation has to be a rhyme relation.
-    Before this, an ASSONANCE edge whose nucleus carried it over theta was
-    admitted as rhyme -- that is the sun/much leak, and it lives here rather
-    than in the comparator.
-    """
-    return s is not None and s["total"] >= theta and \
-        s["relation"] in RHYME_RELATIONS
+# `admits()` is defined ABOVE, beside RHYME_RELATIONS / ADMITTABLE_RELATIONS
+# — one definition, one predicate. A second copy stood here until 2026-08-18
+# and, being later in the file, silently SHADOWED the parameterized one: the
+# `relations=` keyword raised TypeError on the first call. One question, one
+# name, ONE definition (doctrine 1).
 
 
 def nucleus_agrees(ta, tb, decl):
@@ -2477,10 +2594,15 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          "REPEAT not rhyme (identical word)"))
-                elif s["relation"] in NEAR_RELATIONS:
+                elif s["relation"] in NEAR_RELATIONS and \
+                        s["relation"] not in decl.admit:
+                    # An ADMITTED near relation falls through to `admits()`
+                    # below and satisfies on its scalar — the declared
+                    # widening (`Declaration.admit`), never the default.
                     violations.append(
                         (i + 1, j + 1, s["total"],
-                         f"{s['relation']} not rhyme (conjunctive band)"))
+                         f"{s['relation']} not rhyme (conjunctive band; "
+                         f"not in the declared admit set)"))
                 elif s["relation"] == NO_ANCHOR:
                     # Unreachable via an unreadable END word (those are already
                     # in `refusals`); reachable if a line has no word tokens.
@@ -2491,7 +2613,8 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     violations.append(
                         (i + 1, j + 1, s["total"],
                          f"below theta_rhyme={decl.theta_rhyme}"))
-                elif not admits(s, decl.theta_rhyme):
+                elif not admits(s, decl.theta_rhyme,
+                                relations=frozenset(decl.admit)):
                     # THE SECOND COPY OF THE SAME BLACKLIST, and it had the
                     # same hole. See `quality/revise.py`'s `grade()` for the
                     # measurement (`debenture`/`thermco`, 0.788 against theta
@@ -2551,7 +2674,8 @@ def check_scheme(lex, lines, scheme, decl, profile=None):
                     i1, i2, i3 = members[a], members[b], members[c]
                     def ok(x, y):
                         s = matrix[min(x, y)][max(x, y)]
-                        return admits(s, decl.theta_rhyme)
+                        return admits(s, decl.theta_rhyme,
+                                      relations=frozenset(decl.admit))
                     if any((min(x, y) + 1, max(x, y) + 1) in refused
                            for x, y in ((i1, i2), (i2, i3), (i1, i3))):
                         unknown_triangles += 1

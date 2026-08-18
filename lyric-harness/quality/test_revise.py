@@ -169,7 +169,7 @@ sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
 from lyric_harness import (Declaration, NEAR_RELATIONS,  # noqa: E402
                            check_scheme, line_anchors, load_lyric_lines,
-                           readability_records, rhyme_graph)
+                           readability_records, rhyme_graph, spelled_rime)
 from quality import fit as FT  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
 from quality import readability as RD  # noqa: E402
@@ -301,12 +301,22 @@ def test_the_brief_excludes_the_modal_region():
     def rank_key(w):
         return (-cond.get(w, 0), R.lex.freq_rank.get(w, 10 ** 9))
 
-    check("the forbidden words are the MOST PREDICTABLE ones under that key",
-          all(rank_key(w) <= max((rank_key(c) for c in b.candidates),
-                                  default=(0, 0))
+    # RESTATED 2026-08-18, the two-tier ban: a forbidden word is now EITHER
+    # same-spelled-rime with a call (tier 1, HOMEOTELEUTON — banned whatever
+    # its frequency rank, so the old "every forbidden word outranks every
+    # offer" invariant is DELIBERATELY false of it) OR it ranks ahead of
+    # every offered word (tier 2, the old rule over the differently-spelled
+    # remainder). The disjunction is the contract now, the way the
+    # conjunction was before.
+    call_rimes = {spelled_rime(c) for c in calls}
+    check("the forbidden words are the MOST PREDICTABLE ones under that key "
+          "— or same-spelled with a call, which tier 1 bans at ANY rank",
+          all(spelled_rime(w) in call_rimes
+              or rank_key(w) <= max((rank_key(c) for c in b.candidates),
+                                    default=(0, 0))
               for w in b.forbidden_modal),
-          f"forbidden {b.forbidden_modal[:5]} rank ahead of offered "
-          f"{b.candidates[:5]} on (conditional count desc, freq_rank asc)")
+          f"forbidden {b.forbidden_modal[:5]} — each same-rime with a call "
+          f"or ranked ahead of offered {b.candidates[:5]}")
     # REPOINTED 2026-08-16. This check NAMES the incumbent rule and used to
     # evidence it with `"fire" in b.forbidden_modal` — which passed, but for
     # the OTHER rule: `fire`/`desire` is the canonical modal pair, so `fire`
@@ -338,10 +348,16 @@ def test_the_brief_excludes_the_modal_region():
     # same false sentence `quality/mutate.py`'s QR2 rationale carried. Now
     # the head is the head alone, so the assertion its name makes — the
     # mechanism is OFF — is the assertion it can make.
-    check("with the rule disabled the modal words come back",
-          len(b0.forbidden_modal) == 0 < len(b.forbidden_modal),
-          "modal_exclusion=0 is reachable so the defect it prevents is "
-          "demonstrable, and it is not the default")
+    # RESTATED 2026-08-18: modal_exclusion is the FREQUENCY coordinate and 0
+    # disables exactly the frequency tier. The same-spelled class (tier 1)
+    # has no knob and stays banned — the owner's rule: homeoteleuton is not
+    # a frequency judgment, so no frequency setting can license it.
+    check("with the rule disabled the DIFFERENTLY-SPELLED modal words come "
+          "back — the same-spelled class stays banned at any setting",
+          all(spelled_rime(w) in call_rimes for w in b0.forbidden_modal)
+          and len(b0.forbidden_modal) < len(b.forbidden_modal),
+          "modal_exclusion=0 is reachable so the frequency tier's defect "
+          "is demonstrable; tier 1 deliberately has no such switch")
 
 
 def test_a_revision_may_not_trade_one_defect_for_another():
@@ -1542,8 +1558,16 @@ def test_modal_rhyme_fires_on_a_passing_pair():
          "candidate, and nothing had ever asked")
     modal = ["he laid it down and made his claim,",
              "an old and worn and common name."]
+    # `tame` STOOD HERE UNTIL 2026-08-18 as the clean exemplar, verified
+    # against the old single top-6 cliff. The two-tier ban caught it from
+    # the OTHER direction: tame's own same-spelled 'ame' class is absorbed
+    # by tier 1, so tier 2's six digs deeper into the differently-spelled
+    # remainder and reaches 'claim' — which is the ban doing its job, not
+    # this fixture's silence claim failing. The exemplar of silence moved
+    # to `became`: measured clean BOTH directions on the day of the
+    # restatement, and differently spelled ('ame' vs claim's 'aim').
     fresh = ["he laid it down and made his claim,",
-             "a wolf that time had long since made tame."]
+             "a wolf that gentler seasons soon became."]
     m = SC.mandate([[1, 2]], n_lines=2)
 
     res_modal = R.inspect(modal, m)
@@ -1557,8 +1581,10 @@ def test_modal_rhyme_fires_on_a_passing_pair():
     res_fresh = R.inspect(fresh, m)
     hits_fresh = [f for fs in res_fresh["per_line"].values()
                  for f in fs if f.code == "MODAL_RHYME"]
-    check("claim/tame -- not in the top-6 forbidden set either direction, "
-          "verified against modal_field('claim') directly -- stays silent",
+    check("claim/became -- outside both tiers in both directions, verified "
+          "against modal_field directly -- stays silent (claim/tame held "
+          "this slot until tier 2's deeper reach caught it from tame's "
+          "side, 2026-08-18)",
           not hits_fresh)
 
     check("MODAL_RHYME is a note, not a flag -- it discloses, it does not "
@@ -2991,8 +3017,13 @@ def test_a_holding_requirement_is_not_fixed_by_breaking_it():
           r1["reasons"][0][:120])
 
     # A REAL REPAIR that incidentally ends it: accepted, and DISCLOSED.
+    # `flight` STOOD HERE UNTIL 2026-08-18 with the comment "offered,
+    # non-modal" — true under the old cliff, false under the two-tier ban:
+    # flight/night share the spelled rime 'ight', tier 1 territory, so the
+    # repair itself became a rejected modal move. `ignite` is measured
+    # clean against 'night' both ways ('ite' vs 'ight').
     both = list(base)
-    both[1] = "the kettle on the stove had taken flight"   # offered, non-modal
+    both[1] = "the kettle on the stove began to ignite"
     both[6] = "count me down slow"
     r2 = R.verify(base, both, m, targeted={2, 7}, blueprint=bp)
     check("a genuine repair that incidentally ends it is ACCEPTED and says "
@@ -3354,10 +3385,17 @@ def test_the_forbidden_list_is_two_rules_in_two_fields():
     # THE RENDERERS. Each must state the rule it is about, and the tier-1
     # prompt is the only channel that ever told a writer about rule 2 at all.
     p = _PR.render_line(b2, before, whole=())
+    # The count is DERIVED from the brief rather than pinned as a literal —
+    # it was "(6)" until 2026-08-18, when the two-tier ban grew the
+    # forbidden list past the frequency six (the same-spelled class joined
+    # it), and a literal here would go stale on every future tier change
+    # while the property under test — the prompt states ITS OWN count — is
+    # about agreement, not about six.
     check("the tier-1 prompt gives each rule its OWN block, its OWN count "
           "and its OWN consequence — and no longer says 'do not END on', "
           "which is false of a word the line keeps",
-          "FORBIDDEN — do not MOVE L2 TO any of these (6)" in p
+          f"FORBIDDEN — do not MOVE L2 TO any of these "
+          f"({len(b2.forbidden_modal)})" in p
           and "THE WORD ALREADY THERE — a DIFFERENT rule" in p
           and "\n  stairs\n" in p
           and "do not end L2 on any of these" not in p,
