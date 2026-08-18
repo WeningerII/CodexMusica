@@ -37,6 +37,7 @@ are the cheap reflexes? Two tiers, transposing the owner's end-rhyme rule
 | items and lyric lines | the same one-definition readers the census used (`--- TITLE:` items, `is_apparatus_line`) |
 | population | word-within-line ordered pairs — the tradition binds within the line, per the catalog row's own documentation |
 | reader | `quality.structures.judge("kalevala-alliteration", a, b, phon=PH.get("fin"))` — the grader's own routing on the language's own phonology (doctrines 45/48); probed live before this registration: vaka/vanha TRUE, vanha/väinämöinen TRUE, vesi/meri FALSE |
+| tokenizer | `quality.phonology.fin._tokens` — the fin phonology's OWN word extraction, the definition `kalevala_rate.py` already imports. (DECLARED 2026-08-18 AFTER the first run and BEFORE any adoption: this row was missing, the instrument respelled tokenization with `lyric_harness.line_tokens`, whose ASCII class splits ä/ö — and the tier-2 table's own head convicted it, `inen`/`isen`/`in` at the top being suffix fragments. That run's numbers are VOID working notes. Doctrine 1: the coordinate that was not declared is the one that drifted.) |
 | verdict accounting | n_pairs / n_true / n_false / n_refused per corpus arm, never summed (doctrine 79) |
 
 ## Two nulls, both required (doctrine 27/31/76)

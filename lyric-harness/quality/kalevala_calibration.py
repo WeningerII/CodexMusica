@@ -33,6 +33,7 @@ import lyric_harness as LH                              # noqa: E402
 from quality import structures as ST                    # noqa: E402
 from quality import phonology as PH                     # noqa: E402
 from quality.structure_census import items_of           # noqa: E402
+from quality.phonology.fin import _tokens as fin_tokens  # noqa: E402
 
 ROW = "kalevala-alliteration"
 SEED = 20260818
@@ -63,10 +64,20 @@ class Judge:
 
 
 def item_words(item):
-    """-> per-line lowercased token lists for one item."""
+    """-> per-line lowercased token lists for one item.
+
+    THE TOKENIZER IS THE FIN PHONOLOGY'S OWN `_tokens` — the definition
+    `kalevala_rate.py` already imports. The first run of this instrument
+    used `lyric_harness.line_tokens`, whose ASCII `[A-Za-z'-]+` class the
+    record already documents SPLITTING accented words (`ceäre` -> `re`) —
+    and Finnish is full of ä/ö, so the tier-2 table's own head convicted
+    it: `inen`, `isen`, `in` at the top are suffix FRAGMENTS, not words.
+    Doctrine 1 in its purest form: the right definition existed, one
+    module respelled it. That run's numbers are VOID working notes; only
+    post-fix numbers are quotable."""
     out = []
     for line in item:
-        toks = [t.lower() for t in LH.line_tokens(line) if t]
+        toks = [t.lower() for t in fin_tokens(line)]
         if toks:
             out.append(toks)
     return out
