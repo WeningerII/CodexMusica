@@ -3636,44 +3636,73 @@ def test_the_title_a_lyric_declares_reaches_the_check_or_refuses():
 
 
 if __name__ == "__main__":
-    test_the_map_is_not_stale()
-    test_fit_answers_whether_the_words_fit_the_bars()
-    test_fit_refuses_the_undeclared_subdivision()
-    test_function_is_not_section_name()
-    test_refrain_writes_the_villanelle()
-    test_brief_refuses_instead_of_tracebacking()
-    test_every_verb_runs()
-    test_the_four_blueprint_verbs_cannot_answer_differently()
-    test_the_fifteen_original_verbs_are_untouched()
-    test_fallback_reaches_every_verb_ahead_of_the_verb_name()
-    test_readability_prints_what_the_fallback_invented()
-    test_candidates_refuses_an_unreadable_query()
-    test_relations_prints_the_search_burden_it_promises()
-    test_no_broad_exception_handler_hides_a_call()
-    test_blueprint_mismatch_refuses_on_every_verb()
-    test_song_does_not_invent_a_structure_defect_on_a_repeated_name()
-    test_no_flag_silently_changes_a_measurement()
-    test_every_flag_value_refuses_in_one_shape()
-    test_the_profile_lookup_raises_at_the_library_too()
-    test_qafiya_reads_a_file_the_way_every_other_verb_does()
-    test_the_report_rolls_up_without_dropping_anything()
-    test_song_exits_on_a_flag()
-    test_propose_selects_who_writes_the_line()
-    test_both_mandate_spellings_are_read()
-    test_the_loop_suspends_instead_of_guessing()
-    test_the_loop_pursues_a_note_it_can_brief()
-    test_the_candidate_field_says_which_ordering_it_is()
-    test_the_last_two_traceback_shapes_refuse()
-    test_every_test_file_is_accounted_for_by_ci()
-    test_a_near_miss_flag_refuses_on_the_reviser_verbs()
-    test_a_file_the_harness_cannot_read_refuses_on_every_verb()
-    test_the_named_pair_disclosure_survives_the_module_boundary()
-    test_every_verb_reads_its_own_arguments()
-    test_the_comparator_and_the_meter_flags_reach_the_graders()
-    test_the_title_a_lyric_declares_reaches_the_check_or_refuses()
-    test_the_collision_cut_is_one_constant_and_cannot_drift()
-    test_both_meter_coordinates_are_disclosed_and_collisions_are_typed()
-    test_every_report_names_the_draft_it_read()
+    _SECTIONS = (
+        test_the_map_is_not_stale,
+        test_fit_answers_whether_the_words_fit_the_bars,
+        test_fit_refuses_the_undeclared_subdivision,
+        test_function_is_not_section_name,
+        test_refrain_writes_the_villanelle,
+        test_brief_refuses_instead_of_tracebacking,
+        test_every_verb_runs,
+        test_the_four_blueprint_verbs_cannot_answer_differently,
+        test_the_fifteen_original_verbs_are_untouched,
+        test_fallback_reaches_every_verb_ahead_of_the_verb_name,
+        test_readability_prints_what_the_fallback_invented,
+        test_candidates_refuses_an_unreadable_query,
+        test_relations_prints_the_search_burden_it_promises,
+        test_no_broad_exception_handler_hides_a_call,
+        test_blueprint_mismatch_refuses_on_every_verb,
+        test_song_does_not_invent_a_structure_defect_on_a_repeated_name,
+        test_no_flag_silently_changes_a_measurement,
+        test_every_flag_value_refuses_in_one_shape,
+        test_the_profile_lookup_raises_at_the_library_too,
+        test_qafiya_reads_a_file_the_way_every_other_verb_does,
+        test_the_report_rolls_up_without_dropping_anything,
+        test_song_exits_on_a_flag,
+        test_propose_selects_who_writes_the_line,
+        test_both_mandate_spellings_are_read,
+        test_the_loop_suspends_instead_of_guessing,
+        test_the_loop_pursues_a_note_it_can_brief,
+        test_the_candidate_field_says_which_ordering_it_is,
+        test_the_last_two_traceback_shapes_refuse,
+        test_every_test_file_is_accounted_for_by_ci,
+        test_a_near_miss_flag_refuses_on_the_reviser_verbs,
+        test_a_file_the_harness_cannot_read_refuses_on_every_verb,
+        test_the_named_pair_disclosure_survives_the_module_boundary,
+        test_every_verb_reads_its_own_arguments,
+        test_the_comparator_and_the_meter_flags_reach_the_graders,
+        test_the_title_a_lyric_declares_reaches_the_check_or_refuses,
+        test_the_collision_cut_is_one_constant_and_cannot_drift,
+        test_both_meter_coordinates_are_disclosed_and_collisions_are_typed,
+        test_every_report_names_the_draft_it_read,
+    )
+    # SHARDING, 2026-08-18. This file is the longest suite in the repo —
+    # measured 21-22 minutes on CI run #524, and after the pool went
+    # four-wide it WAS the pool's wall (parallel width cannot beat the
+    # longest member). The sections are independent by construction (each
+    # builds its own tmpdirs and fixtures; the shared state is FAILURES,
+    # which only accumulates), so TEST_VERBS_SHARD=k/n runs the sections
+    # whose index ≡ k-1 (mod n) — interleaved, so the heavy sections
+    # spread across shards instead of stacking in one. Unset runs
+    # everything, byte-identical to the pre-shard file: the env var is a
+    # CI-shape coordinate, not a semantics one, and every section still
+    # runs EXACTLY ONCE across a full k=1..n matrix by the arithmetic of
+    # the residue classes — a section skipped by every shard is impossible
+    # by construction, not by review.
+    _shard = os.environ.get("TEST_VERBS_SHARD", "").strip()
+    if _shard:
+        k, n = (int(x) for x in _shard.split("/"))
+        if not (1 <= k <= n):
+            raise SystemExit(f"TEST_VERBS_SHARD={_shard!r} refuses: "
+                             f"k must be in 1..n")
+        run_sections = [f for i, f in enumerate(_SECTIONS)
+                        if i % n == k - 1]
+        print(f"SHARD {k}/{n}: {len(run_sections)} of {len(_SECTIONS)} "
+              f"sections (interleaved by index residue)")
+    else:
+        run_sections = list(_SECTIONS)
+    for _fn in run_sections:
+        _fn()
     print("=" * 62)
     if FAILURES:
         print(f"{len(FAILURES)} FAILING: {', '.join(FAILURES)}")

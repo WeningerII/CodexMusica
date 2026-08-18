@@ -1484,16 +1484,19 @@ jobs:
       # was missing rather than the two names. `ls quality/test_*.py` is 53
       # (48 until `test_nc_census.py` joined 2026-08-17; `test_plan.py` and
       # `test_meter_bands.py` the same day; `test_homeoteleuton.py` and
-      # `test_structures.py` 2026-08-18); this step names 49,
-      # the step below names 2, and `test_discriminate.py` and
+      # `test_structures.py` 2026-08-18); this step names 48,
+      # the `revision-loop` job names 2, the sharded `verbs` job names 1
+      # (moved out of this pool 2026-08-18 — at 21-22 measured minutes it
+      # WAS the four-wide pool's wall, since width cannot beat the longest
+      # member), and `test_discriminate.py` and
       # `test_mutation.py` are refused by name with a measurement in the
-      # header. 49 + 2 + 2 = 53, so a file added
+      # header. 48 + 2 + 1 + 2 = 53, so a file added
       # tomorrow is again in no column — the arithmetic is the check, and it is a check a human has to
       # run. `test_verbs.py` also fails on an unnamed file, which is what
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: The 49 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures 2026-08-18)
+      - name: The 48 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, 2026-08-18)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1522,7 +1525,6 @@ jobs:
                    nc_census plan positive_control propose provenance \
                    readability readings_seam register_audit relations \
                    song_function spans structures taxonomy time_layer \
-                   verbs \
                    verify_entries; do
             while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
               wait -n
@@ -1606,6 +1608,46 @@ jobs:
           set -e
           python3 quality/test_revise.py
           python3 quality/test_loop.py
+
+  # ── test_verbs, sharded (SPLIT OUT 2026-08-18) ───────────────────────────
+  # The longest suite in the repo — 21-22 minutes measured on runs #522 and
+  # #524 — and after the cheap pool went four-wide it WAS the pool's wall:
+  # parallel width cannot beat the longest member. Its 39 sections are
+  # independent (each builds its own tmpdirs), so TEST_VERBS_SHARD=k/n in
+  # the suite's own __main__ runs the index-residue classes — every
+  # section runs EXACTLY ONCE across the matrix by arithmetic, not by
+  # review, and an unset var still runs the whole file byte-identically
+  # (the local command nobody has to relearn).
+  verbs:
+    needs: gate
+    runs-on: ubuntu-latest
+    # ~11m expected per half; headroom, not a budget.
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
+    defaults:
+      run:
+        working-directory: lyric-harness
+    env:
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      TEST_VERBS_SHARD: ${{ matrix.shard }}/2
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Stage the pronunciation dictionary
+        run: python3 -c "import lyric_harness; lyric_harness.fetch_data()"
+      - name: Install nltk (sections reach the POS tagger through features.py)
+        run: python3 -m pip install --disable-pip-version-check nltk
+      - name: Stage the tagger model and the concreteness norms
+        run: python3 quality/fetch_data.py
+      - name: test_verbs shard ${{ matrix.shard }}/2 (the whole file, halved by section residue)
+        run: python3 quality/test_verbs.py
 
   # ── Nightly: the checks the measurement above prices out of a pull request ─
   #
