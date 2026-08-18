@@ -475,7 +475,8 @@ def read_line(text, phon=None, strip_parens=True):
                               getattr(s, "moras", 1) or 1))
     elif getattr(phon, "language", "") == "eng":
         import lyric_harness as _lh
-        lex = _english_lexicon(strip_parens=strip_parens)
+        lex = _english_lexicon(strip_parens=strip_parens,
+                               fallback=getattr(phon, "fallback", None))
         for k, s in enumerate(_lh.word_syllable_map(lex, text)):
             units.append(Unit(k, s.get("nucleus", ""), s["word"], s["widx"],
                               1 if s["stress"] in (1, 2) else 0, 1))
@@ -528,21 +529,33 @@ def read_line(text, phon=None, strip_parens=True):
 _LEX = {}
 
 
-def _english_lexicon(strip_parens=True):
-    """Cached per `strip_parens` value, not a single global -- a Lexicon
-    built with the wrong `strip_parens` silently ignores `read_line`'s own
-    parameter of that name, which is exactly the bug this replaced: `_LEX`
-    used to be one instance built with the constructor default (`True`),
-    reused for every call regardless of what `read_line`/`_chunks` were
-    told, so a whole-line-parenthetical read through `--voices` still lost
-    every word here even though `_chunks` (used only for the numeral scan)
-    kept them. See `word_syllable_map`, which is what actually turns this
-    Lexicon's `.strip_parens` into syllables for the ENGLISH path below."""
-    lex = _LEX.get(strip_parens)
+def _english_lexicon(strip_parens=True, fallback=None):
+    """Cached per (`strip_parens`, `fallback`), not a single global -- a
+    Lexicon built with the wrong `strip_parens` silently ignores
+    `read_line`'s own parameter of that name, which is exactly the bug this
+    replaced: `_LEX` used to be one instance built with the constructor
+    default (`True`), reused for every call regardless of what
+    `read_line`/`_chunks` were told, so a whole-line-parenthetical read
+    through `--voices` still lost every word here even though `_chunks`
+    (used only for the numeral scan) kept them. See `word_syllable_map`,
+    which is what actually turns this Lexicon's `.strip_parens` into
+    syllables for the ENGLISH path below.
+
+    `fallback` joined 2026-08-17 for the same reason, one coordinate over:
+    `read_line` derives it from the PHONOLOGY it was handed
+    (`getattr(phon, "fallback", None)`), so the refusal list
+    (`phon.unreadable`) and the syllable source (this Lexicon) can never
+    disagree about which words were read. A caller who built
+    `English(fallback="low")` and got a no-fallback Lexicon here would see
+    a dialect word marked READ while its syllables silently vanished from
+    the count — the near-miss shape `read_line`'s own docstring warns
+    about, one seam down."""
+    key = (strip_parens, fallback)
+    lex = _LEX.get(key)
     if lex is None:
         import lyric_harness as _lh
-        lex = _lh.Lexicon(strip_parens=strip_parens)
-        _LEX[strip_parens] = lex
+        lex = _lh.Lexicon(strip_parens=strip_parens, fallback=fallback)
+        _LEX[key] = lex
     return lex
 
 
