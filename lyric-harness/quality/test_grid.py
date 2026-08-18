@@ -2028,6 +2028,78 @@ def test_two_refusals_that_nothing_had_ever_asserted_can_fire():
           [(a.name, b.name, r.kind) for a, b, r in out])
 
 
+def test_function_aliases_are_claims_on_their_own_rows():
+    """The world's names for a function resolve — and each claim lives on
+    its row (2026-08-18). The bridge gloss had made the middle-8 claim in
+    prose since it was written while `as_function("middle-eight")` REFUSED:
+    the claim existed and was not resolvable. `FunctionSpec.aliases` is the
+    same move `structures.Structure.aliases` makes for rhyme rows, and the
+    map is DERIVED from the rows so a claim cannot exist in the map without
+    living on a row.
+
+    HAND-PROVEN MUTATION (2026-08-18): stripping the bridge row's
+    `aliases=` reds THREE checks here by name (resolution, the downstream
+    spec, the row-claim) — and the proof took two rounds, because this
+    section's first draft crashed on the mutant instead of failing: the
+    unguarded resolve raised before check() ran, exactly the
+    red-by-crash-is-not-red-by-named-check lesson it now documents.
+    """
+    print("\n31. function aliases — genre dialects resolve, claims live on "
+          "rows")
+    import quality.grid as _GR
+    # caught rather than propagated so a mutant that strips a row's
+    # aliases fails THIS check by name instead of crashing the suite —
+    # red-by-crash is not red-by-named-check (the M7/M19 lesson, and this
+    # section's own first draft repeated it: the stripped-alias mutant
+    # survived a `grep -c FAIL` because the comprehension raised).
+    got = {}
+    for a in ("middle-eight", "middle 8", "Middle_Eight",
+              "departure section", "instrumental solo",
+              "instrumental-break"):
+        try:
+            got[a] = _GR.as_function(a)
+        except _GR.UnknownFunction:
+            got[a] = "REFUSED"
+    check("the dialect names resolve to their functions — middle eight IS "
+          "bridge, an instrumental solo IS solo, an instrumental break IS "
+          "interlude",
+          got == {"middle-eight": "bridge", "middle 8": "bridge",
+                  "Middle_Eight": "bridge",
+                  "departure section": "bridge",
+                  "instrumental solo": "solo",
+                  "instrumental-break": "interlude"}, got)
+    try:
+        m8_spec = _GR.Section("m8", 8,
+                              function=_GR.as_function("middle 8")).spec
+    except _GR.UnknownFunction:
+        m8_spec = None
+    check("downstream reads the RESOLVED name — a Section declared "
+          "'middle 8' carries the bridge spec, so every recurrence and "
+          "contrast convention follows the row and never the dialect",
+          m8_spec is _GR.SECTION_FUNCTIONS["bridge"])
+    check("no alias shadows a declared function (refused at import if one "
+          "ever does)",
+          not any(a in _GR.SECTION_FUNCTIONS
+                  for a in _GR._FUNCTION_ALIASES))
+    derived = {}
+    for s in _GR.SECTION_FUNCTIONS.values():
+        for a in s.aliases:
+            derived.setdefault(a, s.name)
+    check("the map IS the rows' own declarations — no hand-written entry "
+          "can diverge from a row (doctrine 1)",
+          derived == _GR._FUNCTION_ALIASES)
+    try:
+        _GR.as_function("vibes-section")
+        check("an unknown name still refuses — aliases widened the "
+              "vocabulary's SPELLINGS, never its gate", False)
+    except _GR.UnknownFunction:
+        check("an unknown name still refuses — aliases widened the "
+              "vocabulary's SPELLINGS, never its gate", True)
+    check("the middle-8 claim lives on the bridge row itself, beside the "
+          "gloss that has argued it in prose since the row was written",
+          "middle-eight" in _GR.SECTION_FUNCTIONS["bridge"].aliases)
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -2058,7 +2130,8 @@ if __name__ == "__main__":
                test_two_sections_may_share_a_name,
                test_a_returns_broken_rhyme_scheme_reaches_the_report,
                test_line_runs_is_surfaced_rather_than_computed_for_nobody,
-               test_two_refusals_that_nothing_had_ever_asserted_can_fire):
+               test_two_refusals_that_nothing_had_ever_asserted_can_fire,
+               test_function_aliases_are_claims_on_their_own_rows):
         fn()
     print("=" * 62)
     if FAILURES:

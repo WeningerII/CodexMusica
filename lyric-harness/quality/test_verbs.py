@@ -352,10 +352,21 @@ def test_function_is_not_section_name():
     # does NOT fall back to verse, and that the vocabulary is named — is
     # unchanged and is asserted below; what changed is that a caller in a
     # pipeline can now tell this refusal from a crash.
+    # RESTATED 2026-08-18: this case's "outside the vocabulary" example was
+    # `middle8`, and the vocabulary MOVED under it on purpose — the bridge
+    # row's gloss had argued "a middle-8 is a bridge" since it was written,
+    # and `FunctionSpec.aliases` made the claim resolvable. So `middle8` is
+    # the POSITIVE control now (pinning the alias), and the refusal case
+    # uses a name no tradition claims.
     rc, out, err = run("function", EXAMPLE_BP, "--function=chorus:middle8")
+    check("`middle8` RESOLVES now — the bridge row's own alias, so the old "
+          "refusal fixture is this section's positive control",
+          rc == 0 and "Traceback" not in err,
+          (out.strip().splitlines() or [""])[0][:120])
+    rc, out, err = run("function", EXAMPLE_BP, "--function=chorus:vibes")
     check("a CLI-declared function outside the vocabulary REFUSES at exit 2, "
           "naming the flag and the vocabulary, rather than tracebacking",
-          rc == 2 and "REFUSED" in out and "--function=chorus:middle8" in out
+          rc == 2 and "REFUSED" in out and "--function=chorus:vibes" in out
           and "is not a declared section function" in out
           and "Traceback" not in err,
           (out.strip().splitlines() or [""])[0][:140])
@@ -371,7 +382,7 @@ def test_function_is_not_section_name():
     # correct if this stays a raise, so it is pinned here rather than
     # assumed.
     bad = json.load(open(EXAMPLE_BP))
-    bad["sections"][0]["function"] = "middle8"
+    bad["sections"][0]["function"] = "vibes"
     with tempfile.NamedTemporaryFile("w", suffix=".json",
                                      delete=False) as fh:
         json.dump(bad, fh)
