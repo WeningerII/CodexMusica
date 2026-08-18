@@ -147,6 +147,9 @@ jobs:
   # Anything needing Chromium, a fresh build, or minutes of CPU belongs below.
   gate:
     runs-on: ubuntu-latest
+    # Measured ~1 minute. A cap on the job every other job needs:, so a
+    # wedged gate can never hold the whole pipeline's queue hostage.
+    timeout-minutes: 10
     outputs:
       # Whether this diff can possibly change api/ or codex.html. Consumed by the
       # two jobs whose cost is linear in catalog size. See the step that sets it.
@@ -272,6 +275,11 @@ jobs:
   verify:
     needs: gate
     runs-on: ubuntu-latest
+    # MEASURED at ~8-12 minutes green. Absent, GitHub's default allowed the
+    # 2026-08-17 apt-get stall inside the Chromium install to burn 1h44m
+    # (run #506) until a human cancelled it — a hang is now a 30-minute
+    # failure with a name, never a six-hour vigil.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
 
@@ -293,7 +301,19 @@ jobs:
       - name: Install connector dependencies
         run: npm ci --prefix mcp
 
+      # The browser binaries are CACHED keyed on the lockfile: on a hit the
+      # install below finds them present and exits in seconds, and the
+      # apt-get layer (`--with-deps`) — the exact step that stalled 1h44m
+      # on run #506 — is only played on a cache miss. The step-level
+      # timeout is the second lock on the same door: even a miss that
+      # stalls dies in 10 minutes with the step named, not the job's 30.
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: pw-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install Chromium (for UI reachability)
+        timeout-minutes: 10
         run: npx playwright install --with-deps chromium
 
       # lint / format / validate / check-docs now run in the `gate` job above,
@@ -400,6 +420,10 @@ jobs:
   freshness:
     needs: gate
     runs-on: ubuntu-latest
+    # MEASURED at ~10-15 minutes green; the same apt-stall class as verify
+    # hung THIS job 44m+ on the run for PR #168 (2026-08-18). Same cap,
+    # same reason.
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v5
 
@@ -423,7 +447,14 @@ jobs:
 
       # faults.js injects a defect into codex.html and asserts check_mobile_layout
       # catches it — that gate drives a real browser, so this job needs one too.
+      # Same cache + step cap as verify's install, same measured hangs.
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: pw-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install Chromium (for the mobile-layout fault class)
+        timeout-minutes: 10
         run: npx playwright install --with-deps chromium
 
       - name: Build a fresh artifact from source
@@ -472,6 +503,10 @@ jobs:
   # grow with the catalog.
   catalog:
     needs: gate
+    # Measured ~8-10 min per shard at the current catalog size; the sharding
+    # note below prices its growth, and 45 leaves headroom for another such
+    # import before this cap needs to move WITH a new measurement.
+    timeout-minutes: 45
     # smoke.js drives the search → score → translate engine over every tradition
     # and reads no documentation, so a docs-only diff cannot change one of its
     # 5,879 assertions. Same allowlist, same fail-safe default as `freshness`;
@@ -527,6 +562,9 @@ jobs:
   # surfaces here rather than being masked by a sibling.
   catalog-result:
     needs: catalog
+    # A seconds-long fan-in; capped so a wedged runner cannot make it the
+    # slowest job in the run it exists to summarize.
+    timeout-minutes: 15
     # ~~if: always()~~ — REPLACED 2026-08-16, AND IT WAS PUTTING A RED X ON
     # EVERY COMMIT ON EVERY BRANCH WITH AN OPEN PR.
     #
@@ -653,6 +691,10 @@ jobs:
       github.event_name == 'workflow_dispatch' ||
       (github.event_name == 'schedule' && github.event.schedule == '0 6 * * 1')
     runs-on: ubuntu-latest
+    # Measured ~25 min, weekly. The cap is the measurement plus headroom —
+    # the same rule every job now carries, closed 2026-08-18 after two
+    # uncapped jobs hung 1h44m and 44m+ in the same week.
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v5
 
@@ -1459,6 +1501,17 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
         run: |
           set -e
+          # FOUR AT A TIME, 2026-08-18. These are 49 independent PROCESSES
+          # and they ran strictly serially — ~25 of the ~35 minutes every
+          # push cost. The runner has 4 vCPUs and the env above already pins
+          # each suite's math to one thread, so width-4 moves no number in
+          # any suite; only the wall clock moves. Each suite prints its own
+          # banner and verdict (output interleaves, and that is the price);
+          # a failing suite touches the marker inside its own subshell (the
+          # group's exit is the `touch`'s 0, so the throttle's `wait -n`
+          # never trips `set -e` for it) and the LAST line is the gate: the
+          # step fails if ANY suite failed, never silently.
+          rm -f /tmp/suites-failed
           for f in align band coda controls corpus_audit crosslinguistic cym \
                    declared_inputs english_text fit floor fwer g2p grid \
                    homeoteleuton homograph ipa ltc mandate_language \
@@ -1471,9 +1524,14 @@ jobs:
                    song_function spans structures taxonomy time_layer \
                    verbs \
                    verify_entries; do
-            echo "── quality/test_$f.py"
-            python3 "quality/test_$f.py"
+            while [ "$(jobs -rp | wc -l)" -ge 4 ]; do
+              wait -n
+            done
+            { echo "── quality/test_$f.py"
+              python3 "quality/test_$f.py" || touch /tmp/suites-failed; } &
           done
+          wait
+          test ! -f /tmp/suites-failed
 
       # MOVED HERE FROM `record` 2026-08-14, because this job has the tagger.
       # 64 CPU-s. It judges 13 of the 18 calibration constants EXACTLY and
