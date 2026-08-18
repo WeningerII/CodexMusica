@@ -167,8 +167,9 @@ def tier1_distribution(pairs):
 
 def tier2_conditional(pairs, n_items, seed=SEED):
     """Split-half: the conditional P(partner | call) derived on one seeded
-    half of the ITEMS, blocked-mass measured on the other half at k=6
-    (and the largest k the table supports where 6 lacks support)."""
+    half of the ITEMS, blocked-mass measured on the other half at k=6 —
+    with E2's registered sparsity disclosure (types with support, median
+    distinct partners, token-weighted coverage on the held half)."""
     rng = random.Random(seed)
     idxs = list(range(n_items))
     rng.shuffle(idxs)
@@ -180,23 +181,63 @@ def tier2_conditional(pairs, n_items, seed=SEED):
         (table if idx in half else held)[b][a] += 1
     blocked = total = 0
     covered_types = 0
+    covered_tokens = 0
     for call, partners in held.items():
         top = {w for w, _ in table[call].most_common(6)}
+        n_call = sum(partners.values())
         if table[call]:
             covered_types += 1
+            covered_tokens += n_call
         for w, n in partners.items():
             total += n
             if w in top:
                 blocked += n
+    dp = sorted(len(v) for v in table.values())
     return {
         "derive_items": len(half), "held_items": n_items - len(half),
         "held_call_types": len(held), "covered_call_types": covered_types,
+        "covered_token_share": covered_tokens / total if total else None,
+        "table_call_types": len(table),
+        "median_distinct_partners": dp[len(dp) // 2] if dp else None,
+        "fillable_k6": sum(1 for v in table.values() if len(v) >= 6),
         "blocked": blocked, "total": total,
         "blocked_mass": blocked / total if total else None,
         "head": {call: table[call].most_common(3)
                  for call in list(sorted(
                      table, key=lambda c: -sum(table[c].values())))[:5]},
     }
+
+
+#: THE ADOPTED CONSTANTS — written by the adopting sitting (2026-08-18)
+#: from the final run's own output, re-derived by `--check` the way
+#: meter_bands' adoption check does. RESULTS_KALEVALA_ALLITERATION.md is
+#: the record; every count here is exact and every rate derived from the
+#: exact counts beside it.
+ADOPTED = {
+    "constrained": (152917, 49649, 103186, 82),
+    "incidental": (135292, 19426, 114899, 967),
+    "true_pairs": 49649,
+    "table_rows": 37587,
+    "blocked_k6": (4891, 24116),
+}
+
+
+def emit_table(pairs, items_data, out_path):
+    """The shipped conditional: the FULL constrained corpus's realised
+    alliterating pairs, a/b/source/count — the analogue of
+    data/song_rhymepair_en.tsv, with the source file carried so a
+    consumer can hold items out (the leave-out discipline the eng tables
+    enforce at read time; doctrine 13/14)."""
+    counts = collections.Counter()
+    for idx, a, b in pairs:
+        src = items_data[idx][0]
+        key = (a, b) if a <= b else (b, a)
+        counts[(key[0], key[1], src)] += 1
+    with open(out_path, "w", encoding="utf-8") as fh:
+        fh.write("a\tb\tsource\tcount\n")
+        for (a, b, src), n in sorted(counts.items()):
+            fh.write(f"{a}\t{b}\t{src}\t{n}\n")
+    return len(counts)
 
 
 def main(check=False):
@@ -218,7 +259,18 @@ def main(check=False):
     print(f"E1: constrained {r_con:.4f} vs null-A max {nulls[-1]:.4f} "
           f"and incidental {r_inc:.4f} -> {'PASS' if e1 else 'FAIL'}")
     if check:
-        return 0 if e1 else 1
+        # THE ADOPTION CHECK — the shipped constants re-derived against
+        # the corpus, exact counts and E1's direction both. Drift in the
+        # corpus, the tokenizer, the judge or the arms fails loud here.
+        ok = (e1 and tuple(con) == ADOPTED["constrained"]
+              and tuple(inc) == ADOPTED["incidental"])
+        pairs = true_pairs(con_items, judge)
+        t2 = tier2_conditional(pairs, len(con_items))
+        ok = (ok and len(pairs) == ADOPTED["true_pairs"]
+              and (t2["blocked"], t2["total"]) == ADOPTED["blocked_k6"])
+        print(f"ADOPTION CHECK: "
+              f"{'PASS — the adopted counts re-derive exactly' if ok else 'FAIL — a shipped constant does not re-derive'}")
+        return 0 if ok else 1
     pairs = true_pairs(con_items, judge)
     print(f"\nTRUE constrained pairs: {len(pairs):,}")
     dist = tier1_distribution(pairs)
@@ -235,12 +287,19 @@ def main(check=False):
     print(f"\nTIER 2 — split-half conditional (derive {t2['derive_items']} "
           f"items, hold {t2['held_items']}):")
     print(f"  held call types {t2['held_call_types']:,}, with table "
-          f"support {t2['covered_call_types']:,}")
+          f"support {t2['covered_call_types']:,}; token-weighted coverage "
+          f"{t2['covered_token_share']:.1%}")
+    print(f"  table call types {t2['table_call_types']:,}, median distinct "
+          f"partners {t2['median_distinct_partners']}, k=6-fillable "
+          f"{t2['fillable_k6']:,}")
     print(f"  blocked mass at k=6: {t2['blocked']:,}/{t2['total']:,} = "
           f"{t2['blocked_mass']:.1%}")
     print("  table head (call: top partners):")
     for call, tops in t2["head"].items():
         print(f"    {call}: {tops}")
+    out = os.path.join(ROOT, "data", "kalevala_alliteration_pairs.tsv")
+    n_rows = emit_table(pairs, con_items, out)
+    print(f"\nSHIPPED TABLE: {n_rows:,} rows -> {out}")
     return 0
 
 

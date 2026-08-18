@@ -219,7 +219,16 @@ def make_plan(seed, form="verse-chorus", lines=None):
     # AFTER the scheme picks on purpose: RNG order is part of every
     # recorded plan's reproduction.
     from quality import structures as _ST
-    spool = sorted(s.name for s in _ST.STRUCTURES.values() if s.calibrated)
+    # LANGUAGE-AWARE (2026-08-18, forced by the Kalevala adoption's own
+    # registration): this planner plans ENGLISH songs, so the pool is
+    # rows calibrated FOR ENGLISH — kalevala-alliteration is calibrated
+    # ("fin",) and is deliberately NOT here, because a table fitted on
+    # one tradition is not quietly applied to another (doctrine 8). The
+    # eng pool therefore stays the sentinel until an English signal
+    # corpus is measured; the row is still DECLARABLE by a writer, and
+    # the grader disclosed the language mismatch out loud.
+    spool = sorted(s.name for s in _ST.STRUCTURES.values()
+                   if "eng" in s.calibrated)
     struct_meta = {}
     for func in dict.fromkeys(funcs):
         name = spool[0] if len(spool) == 1 else rng.choice(spool)

@@ -138,6 +138,43 @@ would be a door to declaring checks the grader must immediately disclaim.
 pair-check skip, disclosure stub, planner filter), each killed by a named
 check.
 
+**PHASE 2 OPENED AND ITS FIRST CALIBRATION ADOPTED THE SAME DAY
+(2026-08-18): the census, then Kalevala alliteration — and `calibrated`
+is a LANGUAGE TUPLE because of it.** The owner overturned
+one-structure-first: the census
+(`quality/STRUCTURE_CENSUS_PREREGISTRATION.md` →
+`RESULTS_STRUCTURE_CENSUS.md`, `data/structure_census_eng.tsv`) ran all
+57 non-comparator rows over English — 417M pair judgings, three counts
+never summed — and banked the CHANCE-RATE table that is the null half of
+every future laziness calibration (English alliterates by accident at
+~9% within a line; constrained/incidental is a declared per-cell tag,
+because laziness is a property of choices under a constraint and
+blending chance with choice is the bias the design refuses). Its E1
+falsifier fired once, honestly: iambic pentameter cannot end a line on a
+dactyl, so `dactylic-rhyme` left the constrained family by amendment.
+Then the first constrained measurement
+(`KALEVALA_ALLITERATION_PREREGISTRATION.md` →
+`RESULTS_KALEVALA_ALLITERATION.md`, `data/kalevala_alliteration_pairs.tsv`,
+adoption re-derived nightly by `kalevala_calibration.py --check`):
+Finnish verse under the rule alliterates at 0.3249 against its own
+vocabulary randomly re-paired at 0.1225 max over 200 resamples and
+unconstrained later Finnish at 0.1446 — and run 1 was VOIDED by its own
+table head (`inen`/`isen` are suffix fragments; the ASCII tokenizer had
+shredded ä/ö, and the fin phonology's `_tokens` was the one definition
+all along, doctrine 1). TIER 1 IS REFUSED BY MEASUREMENT: the
+shared-prefix distribution has no separable same-stem mass, so no
+HOMEOTELEUTON analogue exists for this structure — the end-rhyme rule's
+shape transposed, its content did not. The adopted conditional
+(`vanha`/`väinämöinen` 303 at its head) is type-sparse and token-dense
+like its English sibling: a BACKOFF source, never used alone. AND THE
+ADOPTION'S OWN REGISTRATION CARRIED A CONFLICT — "the planner pool grows
+to two" against its binding-scope non-claim — resolved for the non-claim
+(doctrine 8): `Structure.calibrated` is a tuple of language codes, the
+ENGLISH pool is UNCHANGED, the grader's disclosure names the draft's
+language, and `--structures=LABEL:NAME` ships on the CLI
+(`test_verbs.py` §39: the same draft grades differently with and without
+the declaration, which is the only shape that proves the flag is read).
+
 **METER JOINED THE SAME LOOP 2026-08-11, and rides the FIRST rejection
 above rather than adding a fifth.** `brief`/`inspect`/`verify` all take
 optional `blueprint=`/`subdivision=`/`assume=`; when given, `quality/fit.py`'s

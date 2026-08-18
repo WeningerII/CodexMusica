@@ -3832,6 +3832,10 @@ the quality layer (each says which module answered):
                           violation; use this for a verbatim chorus/refrain,
                           NOT --groups=, which defaults every pair to
                           REQUIRE_RHYME and would charge an identical return
+                          --structures=LABEL:NAME,... declares which catalog
+                          row each group DEMANDS (quality/structures.py names()
+                          lists the 58; world aliases resolve) -- shipped by
+                          the Kalevala adoption 2026-08-18
                           SCHEME_VIOLATION for being exactly identical), or
                           --cliques (the song's own graph structure).
                           With NO mandate it REFUSES: nothing declared means
@@ -6431,11 +6435,12 @@ def main():
         _no_unknown_flags_or_refuse(
             [a for a in args
              if a.split("=", 1)[0] not in ("--groups", "--returns",
-                                           "--cliques")],
+                                           "--cliques", "--structures")],
             ("--blueprint=B", "--profile=" + "|".join(sorted(PROFILES)),
              "--subdivision N", "--isochronous",
              "--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY",
-             "--pursue=CODE,CODE", "--groups=", "--returns=", "--cliques"),
+             "--pursue=CODE,CODE", "--groups=", "--returns=", "--cliques",
+             "--structures=LABEL:NAME,..."),
             cmd)
 
         def _mandate_arg(args, at, lines):
@@ -6511,6 +6516,8 @@ def main():
                     flags.append(("--groups=", tok.split("=", 1)[1]))
                 elif tok.startswith("--returns="):
                     flags.append(("--returns=", tok.split("=", 1)[1]))
+                elif tok.startswith("--structures="):
+                    flags.append(("--structures=", tok.split("=", 1)[1]))
                 else:
                     tail.append(tok)
 
@@ -6537,6 +6544,30 @@ def main():
                 return [[int(x) for x in g.split(",") if x.strip()]
                         for g in raw.split(";") if g.strip()]
 
+            def _structs(raw):
+                # --structures=B:kalevala-alliteration,A:qafiya — a group
+                # LABEL (A, B, ...) or a 1-based group index, a colon, and
+                # a catalog row name or world alias. SHIPPED BY THE
+                # KALEVALA ADOPTION (2026-08-18): the registration deferred
+                # this spelling to the first calibration on purpose, and
+                # that calibration adopted. Validation is the catalog's —
+                # an unknown name refuses through `_normalise_structures`
+                # as NoMandate, naming the vocabulary's size.
+                out = {}
+                for part in raw.split(","):
+                    part = part.strip()
+                    if not part:
+                        continue
+                    if ":" not in part:
+                        _refuse(f"--structures entry {part!r} has no ':' — "
+                                f"the spelling is LABEL:NAME (group label "
+                                f"or 1-based index, then a catalog row "
+                                f"name or alias)")
+                    key, name = part.split(":", 1)
+                    key = key.strip()
+                    out[int(key) - 1 if key.isdigit() else key] = name.strip()
+                return out
+
             by = dict(flags)
             if not flags:
                 # No flag: the mandate is the FIRST positional, as it always
@@ -6548,7 +6579,19 @@ def main():
                 # source="derived", so the brief says out loud that its groups
                 # band-pass BY CONSTRUCTION (doctrine 14).
                 return rv.mandate_from_graph(lines), tail
+            st = _structs(by["--structures="]) if "--structures=" in by \
+                else None
             if tail and not tail[0].lstrip("-").replace(",", "").isdigit():
+                if set(by) == {"--structures="}:
+                    # A letter string WITH --structures= is expressible and
+                    # NOT the conflict the refusal below closes: the letter
+                    # fully determines the cover and its labels, and
+                    # `structures` ANNOTATES those groups rather than
+                    # declaring new ones. Built here because
+                    # `Reviser.mandate()` forwards no structures= of its own
+                    # — the same reason the returns spelling builds early.
+                    return (SC.mandate(tail[0], n_lines=len(lines),
+                                       structures=st), tail[1:])
                 # A letter string BESIDE a flag. Refused rather than ignored:
                 # silently dropping it is the very defect this block closes.
                 _refuse(f"mandate {tail[0]!r} was handed in beside "
@@ -6562,6 +6605,10 @@ def main():
 
             g = _groups(by["--groups="]) if "--groups=" in by else []
             r = _groups(by["--returns="]) if "--returns=" in by else []
+            if st is not None and not (g or r):
+                _refuse("--structures= was handed in with no groups to "
+                        "annotate — declare the mandate it speaks about "
+                        "(a letter scheme, --groups= and/or --returns=)")
             # `--returns=` groups are REQUIRE_RETURN — identity REQUIRED,
             # REPEAT is the requirement and not a violation (doctrine 3's
             # second half). `--groups=` groups are plain REQUIRE_RHYME. Both
@@ -6570,8 +6617,13 @@ def main():
             # hold two different requirement kinds at once, and
             # `Reviser.mandate()` forwards no `returns=` of its own.
             if r:
-                return (SC.mandate(g + r, n_lines=len(lines), returns=r),
+                return (SC.mandate(g + r, n_lines=len(lines), returns=r,
+                                   structures=st),
                         tail)
+            if st is not None:
+                # --groups= with --structures=: built here for the same
+                # reason the returns branch builds here.
+                return SC.mandate(g, n_lines=len(lines), structures=st), tail
             return g, tail                       # --groups= alone, as before
 
         def _say_derived(m):
