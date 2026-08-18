@@ -33,7 +33,7 @@ are the cheap reflexes? Two tiers, transposing the owner's end-rhyme rule
 | coordinate | value |
 |---|---|
 | constrained corpus | `corpus/fin_kalevala.txt` (22,795 lines), `corpus/song/fin_kanteletar.txt` (28,935), `corpus/song/fin_kanteletar_uudempia.txt` (1,500) — 53,230 lines of verse that lives by the rule |
-| incidental corpus (null B) | the seven later-Finnish rhymed-verse files under `corpus/song/fin_*` EXCLUDING the two Kanteletar volumes — same language, same reader, NOT under the alliteration constraint |
+| incidental corpus (null B) | the ~~seven~~ **NINE** later-Finnish rhymed-verse files under `corpus/song/fin_*` EXCLUDING the two Kanteletar volumes — same language, same reader, NOT under the alliteration constraint. (CORRECTED 2026-08-18, before any measurement: the first commit of this row said "seven" from memory; `ls corpus/song/fin_*.txt \| grep -v kanteletar \| wc -l` is 9 — kivi, eino_leino, juteini, jh_erkko, julius_krohn, kramsu, kasimir_leino, cajander, wahanen_laulukirja. The POPULATION was always the exclusion rule, which is unambiguous; the count was a threshold nobody wrote down, doctrine 58's own case, caught by running the command before the instrument was built.) |
 | items and lyric lines | the same one-definition readers the census used (`--- TITLE:` items, `is_apparatus_line`) |
 | population | word-within-line ordered pairs — the tradition binds within the line, per the catalog row's own documentation |
 | reader | `quality.structures.judge("kalevala-alliteration", a, b, phon=PH.get("fin"))` — the grader's own routing on the language's own phonology (doctrines 45/48); probed live before this registration: vaka/vanha TRUE, vanha/väinämöinen TRUE, vesi/meri FALSE |
