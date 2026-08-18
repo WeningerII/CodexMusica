@@ -1481,6 +1481,117 @@ class Reviser:
                 f.message, f.evidence, []))
         return per, whole
 
+    # -- the calibrated bands ----------------------------------------------
+
+    def _band_findings(self, lines):
+        """-> {line_no: [Finding]}. The ADOPTED meter bands, enforced.
+
+        DENSITY [5, 12] syllables/line and PROMINENCE [2, 7] prominent/line
+        — measured over 139,694 sung English lines, adopted by the
+        registered rule (quality/RESULTS_METER_BANDS_READER.md), shipped as
+        `meter_bands.ADOPTED`, and re-derived against the corpus by
+        `python3 quality/meter_bands.py --check` so drift fails loud. Out of
+        band in EITHER direction is a per-line FLAG: too much and too little
+        are both refused, which is the whole reason these are bands and not
+        directions — a directional pursuit converges on empty lines or
+        stress-cram and fights the uniformity checks (the second sitting's
+        founding argument, recorded in METER_BANDS_PREREGISTRATION.md).
+
+        THE READER IS THE CALIBRATION'S READER, by registered condition:
+        `meter_bands.reader(ADOPTED_READER)` — the eng phonology with the
+        declared G2P fallback — through the same `fit.read_line` seam the
+        sweep used. Enforcing [5, 12] through any other reader would enforce
+        a different instrument's numbers.
+
+        NEEDS NO BLUEPRINT AND NO SUBDIVISION. The bands are pigeonhole
+        counts of the TEXT — no placement, no meter, no isochrony anywhere
+        in their derivation — so unlike `_meter_findings` this check runs on
+        every inspect, and its silence genuinely means clean.
+
+        A LINE THE READER CANNOT FULLY READ IS JUDGED ASYMMETRICALLY
+        (doctrine 79, the lower-bound rule): every count on such a line is a
+        LOWER BOUND, so a count already ABOVE the ceiling is a violation no
+        missing token can undo — that flags, with the refusal named in the
+        evidence — while a count below the floor proves nothing, and the
+        line gets a BAND_UNJUDGED note naming the channel and the tokens
+        instead of a flag it might not deserve. An undecided prominence
+        reading is the same shape one channel narrower: syllables still
+        judge both ways, prominence only upward.
+        """
+        from quality import meter_bands as MB
+        phon = MB.reader(MB.ADOPTED_READER)
+        d_lo, d_hi = MB.ADOPTED["DENSITY"]
+        p_lo, p_hi = MB.ADOPTED["PROMINENCE"]
+        basis = (f"band adopted at reader {MB.ADOPTED_READER!r} over "
+                 f"139,694 corpus lines (RESULTS_METER_BANDS_READER.md; "
+                 f"re-derive: python3 quality/meter_bands.py --check)")
+        per = {}
+        for i, text in enumerate(lines):
+            ln = i + 1
+            lu = FT.read_line(text, phon=phon)
+            syl, prom = lu.syllables, len(lu.prominent)
+            undecided = len(lu.prominence_undecided)
+            refused = [r.token for r in lu.refused]
+            complete = not refused and bool(lu.units)
+            fs = []
+            if complete and not (d_lo <= syl <= d_hi):
+                fs.append(Finding(
+                    "DENSITY_OUT_OF_BAND", "flag",
+                    f"{syl} syllable(s) — outside the calibrated "
+                    f"[{d_lo}, {d_hi}] band for a sung English line",
+                    f"{basis}. Fewer than {d_lo} and more than {d_hi} are "
+                    f"both refused; the fix is a rewrite of THIS line, not "
+                    f"a nudge in a direction.", [ln]))
+            elif not complete and syl > d_hi:
+                fs.append(Finding(
+                    "DENSITY_OUT_OF_BAND", "flag",
+                    f"at least {syl} syllable(s) — already over the "
+                    f"calibrated [{d_lo}, {d_hi}] band on the readable "
+                    f"tokens alone",
+                    f"{basis}. The count is a LOWER BOUND ({len(refused)} "
+                    f"token(s) refused: {', '.join(refused[:4])}"
+                    f"{'…' if len(refused) > 4 else ''}) and a lower bound "
+                    f"over the ceiling is a violation no missing token can "
+                    f"undo.", [ln]))
+            prom_certain = complete and not undecided
+            if prom_certain and not (p_lo <= prom <= p_hi):
+                fs.append(Finding(
+                    "PROMINENCE_OUT_OF_BAND", "flag",
+                    f"{prom} prominent syllable(s) — outside the calibrated "
+                    f"[{p_lo}, {p_hi}] band for a sung English line",
+                    f"{basis}. Too few and too many are both refused, for "
+                    f"the reason above.", [ln]))
+            elif not prom_certain and prom > p_hi:
+                fs.append(Finding(
+                    "PROMINENCE_OUT_OF_BAND", "flag",
+                    f"at least {prom} prominent syllable(s) — already over "
+                    f"the calibrated [{p_lo}, {p_hi}] band on what could be "
+                    f"read with certainty",
+                    f"{basis}. A lower bound over the ceiling is a "
+                    f"violation no refused token or undecided reading can "
+                    f"undo.", [ln]))
+            if not complete or undecided:
+                why = []
+                if refused:
+                    why.append(f"{len(refused)} token(s) unread: "
+                               + ", ".join(refused[:4])
+                               + ("…" if len(refused) > 4 else ""))
+                if not lu.units:
+                    why.append("no unit read at all")
+                if undecided:
+                    why.append(f"{undecided} prominence reading(s) "
+                               f"undecided")
+                fs.append(Finding(
+                    "BAND_UNJUDGED", "note",
+                    "this line's band verdicts are partial — counts are "
+                    "lower bounds, so only over-the-ceiling could be judged",
+                    f"{'; '.join(why)}. {basis}. A refusal is not a pass "
+                    f"(doctrine 20) and not a violation (doctrine 79); it "
+                    f"is said here so silence stays meaningful.", [ln]))
+            if fs:
+                per[ln] = fs
+        return per
+
     # -- section function ---------------------------------------------------
 
     def _function_findings(self, lines, blueprint):
@@ -2261,6 +2372,14 @@ class Reviser:
                     add(ln, f)
             whole.extend(m_whole)
             whole.extend(self._function_findings(lines, blueprint))
+        # The calibrated bands run UNCONDITIONALLY — no blueprint, no
+        # subdivision, no mandate in their derivation, so unlike the meter
+        # block above there is no opt-in coordinate to disclose and their
+        # silence genuinely means the draft's lines sit inside what 139,694
+        # sung English lines do (see `_band_findings`).
+        for ln, fs in self._band_findings(lines).items():
+            for f in fs:
+                add(ln, f)
         # `blueprint_declared` is NOT a Finding. Meter/function are an OPT-IN
         # third source (see this method's own docstring) and omitting them is
         # the ordinary, common case, not a defect on the draft -- so it does

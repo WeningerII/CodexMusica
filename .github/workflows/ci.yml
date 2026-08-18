@@ -1487,6 +1487,25 @@ jobs:
           OPENBLAS_NUM_THREADS: '1'
         run: python3 quality/song_profile_calibration.py --check --without-predictability
 
+      # The same pattern for the meter bands (DENSITY [5,12] / PROMINENCE
+      # [2,7], adopted 2026-08-17 in RESULTS_METER_BANDS_READER.md and
+      # shipped as `meter_bands.ADOPTED`, which `revise._band_findings`
+      # enforces as per-line flags): re-sweep the 143-file corpus at the
+      # ADOPTED reader, re-run the registered trial, compare. ~49 CPU-s,
+      # measured. Exits 1 NAMING the drift — a shipped constant that
+      # outlives its measurement fails loud here instead of lingering in
+      # the grader (doctrine 58/48). Proven to exit 1 by the suite's own
+      # mutation set (test_meter_bands section 9 drives the comparison
+      # logic; --check is this same comparison over the real sweep).
+      - name: Meter-band adoption check, the shipped constants re-derived
+        if: always()
+        working-directory: lyric-harness
+        env:
+          OMP_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OPENBLAS_NUM_THREADS: '1'
+        run: python3 quality/meter_bands.py --check
+
       # The revision loop itself. 374.87 CPU-s for the pair, MEASURED, both
       # green -- against the "15+ minutes each" that kept them out until today.
       - name: The revision loop (test_revise 184s + test_loop 191s, measured)

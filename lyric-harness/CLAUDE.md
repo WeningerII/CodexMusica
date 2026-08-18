@@ -90,6 +90,22 @@ tier as an unintended rhyme collision, because they are a style call and not
 a contradiction. Omit `blueprint=` and nothing changes — meter is opt-in.
 `quality/test_revise.py` test 25.
 
+**THE CALIBRATED BANDS ARE NOT OPT-IN (2026-08-18).** `inspect()` also runs
+`_band_findings` on every draft, blueprint or none: DENSITY [5, 12]
+syllables/line and PROMINENCE [2, 7] prominent/line, measured over 139,694
+corpus lines and adopted by three preregistrations
+(`quality/METER_BANDS_PREREGISTRATION*.md` → `RESULTS_METER_BANDS_READER.md`
+— two refusals, then one adoption). Out of band EITHER way is a per-line
+**flag** — the loop holds the line open, `revise` exits 3 if it stands —
+because these quantities have no correct direction and a band is the only
+refusable shape. The check reads with the calibration's own reader
+(`meter_bands.reader("fallback-low")`, the registered instrument-match
+condition), judges unreadable lines asymmetrically (a lower bound OVER the
+ceiling flags; under the floor it is a `BAND_UNJUDGED` note, doctrine 79),
+and the shipped constants (`meter_bands.ADOPTED`) are re-derived against
+the corpus by `python3 quality/meter_bands.py --check` in CI so drift fails
+loud. `quality/test_meter_bands.py` sections 9–10.
+
 **THE LOOP IS AUTOMATED: quality/loop.py, tests in test_loop.py.**
 `brief`/`verify` graded one round at a time by hand; `revise_loop(reviser,
 lines, mandate, ...)` drives them to convergence. It still never writes: text

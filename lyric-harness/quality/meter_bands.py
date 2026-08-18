@@ -377,6 +377,55 @@ READER_GATE_MAX_EXCLUSION = 0.25
 READER_POINTS = (5, 50, 95)
 READER_TOLERANCE = 1
 
+#: THE ADOPTED BANDS — RESULTS_METER_BANDS_READER.md, adopted 2026-08-17 by
+#: the registered rule (gate 8.28% <= 25%; certain-vs-derived +0/+0/+0 on
+#: syllables, +1/+1/+0 on prominents, both inside ±1). These are SHIPPED
+#: CONSTANTS in the song_profile_calibration.py pattern: declared here so
+#: enforcement can read them without a 49-second sweep, and re-derived
+#: against the sweep by `python3 quality/meter_bands.py --check`, which
+#: exits 1 naming any drift — a constant that outlives its measurement
+#: fails loud instead of lingering (doctrine 58/48).
+#:
+#: INSTRUMENT MATCH IS PART OF THE ADOPTION: these values are facts about
+#: lines read at ADOPTED_READER. An enforcement that reads drafts with any
+#: other reader is enforcing a different instrument's numbers, and the
+#: registration makes matching a condition of adoption, not a preference.
+ADOPTED = {"DENSITY": (5, 12), "PROMINENCE": (2, 7)}
+ADOPTED_READER = "fallback-low"
+
+
+def adoption_check(cal, expected=None):
+    """-> (ok, message). Re-derives the reader trial from a sweep and
+    compares its adoption against the shipped constants.
+
+    `expected` defaults to ADOPTED — the production comparison — and is a
+    parameter so the COMPARISON LOGIC is testable on synthetic sweeps
+    without touching the shipped values. Drift in either direction fails:
+    a trial that no longer adopts a band the constants ship, a trial that
+    adopts different edges, or a sweep run with the wrong reader.
+    """
+    expected = ADOPTED if expected is None else expected
+    if cal.reader_mode != ADOPTED_READER:
+        return False, (f"the sweep was read with {cal.reader_mode!r} but the "
+                       f"constants were adopted at {ADOPTED_READER!r} — a "
+                       f"check against the wrong instrument checks nothing")
+    t = reader_trial(cal)
+    drifts = []
+    for name, want in sorted(expected.items()):
+        got = t["adopted"].get(name)
+        if got is None:
+            drifts.append(f"{name}: the trial no longer adopts it "
+                          f"(verdict: {t['verdict']})")
+        elif tuple(got) != tuple(want):
+            drifts.append(f"{name}: shipped {list(want)}, re-derived "
+                          f"{list(got)}")
+    if drifts:
+        return False, "DRIFT — " + "; ".join(drifts)
+    return True, (f"the shipped bands re-derive exactly: "
+                  + ", ".join(f"{k} {list(v)}"
+                              for k, v in sorted(expected.items()))
+                  + f" over {len(cal.records)} lines at {cal.reader_mode}")
+
 
 def reader_trial(cal):
     """The registered CERTAIN-vs-DERIVED trial, per quantity.
@@ -501,10 +550,20 @@ if __name__ == "__main__":
     for a in sys.argv[1:]:
         if a.startswith("--reader="):
             mode = a.split("=", 1)[1]
-        elif a != "--amendment":
+        elif a not in ("--amendment", "--check"):
             raise SystemExit(f"unknown flag {a!r}; declared: "
                              f"--reader={'|'.join(READER_MODES)}, "
-                             f"--amendment")
+                             f"--amendment, --check")
+    if "--check" in sys.argv[1:]:
+        # The drift instrument: sweep at the ADOPTED reader (any --reader
+        # flag is ignored on purpose — checking the shipped constants
+        # against a different instrument checks nothing), re-run the trial,
+        # compare. Exit 1 names the drift.
+        cal = measure_corpus(reader_mode=ADOPTED_READER)
+        ok, msg = adoption_check(cal)
+        print(f"ADOPTION CHECK ({ADOPTED_READER}): "
+              f"{'PASS' if ok else 'FAIL'} — {msg}")
+        raise SystemExit(0 if ok else 1)
     cal = measure_corpus(reader_mode=mode)
     if mode != "default":
         print(f"READER: {mode} (METER_BANDS_PREREGISTRATION_READER.md)")
