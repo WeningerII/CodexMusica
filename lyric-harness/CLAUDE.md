@@ -93,6 +93,51 @@ survey (quality/RHYME_CANON.md) and the engine's 49 named types are the
 palette, and the door was admitting 2. Validated at declaration time;
 near-only refuses. `quality/test_homeoteleuton.py`, 4 mutations proven.
 
+**THE STRUCTURE CATALOG IS WIRED — MANDATE, GRADER AND PLANNER READ ONE
+TABLE (2026-08-18).** Phase A/B built the 58 rows (`quality/structures.py`:
+1 comparator sentinel, 9 presets, 48 named axis cells, world aliases); this
+sitting made them a DECLARED COORDINATE. `Mandate.structures` is an
+index-aligned tuple ("" = default), declared as `mandate(...,
+structures={"B": "kalevala-alliteration"})` by label, index or list, stored
+CANONICAL (an alias resolves at declaration, never downstream), refused as
+`NoMandate` on an unknown name — the catalog's own message carried through,
+because a `StructureRefused` escaping `mandate()` would be the right
+refusal in the wrong layer's words. The re-open path takes `structures=`
+the same way it takes `returns=`/`scope=` (before it joined that condition,
+a late declaration was DROPPED at the idempotence branch in silence), and
+the origin names what was actually re-declared. `grade()` routes every
+mandated pair through its group's row: REPEAT stays the identity
+machinery's first (an identical word trivially "satisfying" an alliteration
+demand is the laziness that machinery adjudicates), a non-default row's
+judge answers True/False/None, None is a REFUSAL RECORD (doctrine 79 —
+named structure, its own `groups`, counted in `pairs_refused`, rendered as
+`SCHEME_UNREADABLE`, never a violation), and every verdict carries
+`"structure"` — the row that answered, or None on a mandate that never
+learned the coordinate, which takes the byte-identical old path with no
+catalog import paid. TWO SCOPE DECISIONS, both about honesty rather than
+reach: the proactive pair check (HOMEOTELEUTON/MODAL_RHYME) SKIPS pairs
+judged under a non-default row, because the spelled-rime class and the
+eng-song modal table are END-RHYME calibrations and charging them to a
+coda-only hending grades the wrong axis with the wrong corpus; and the
+skip's counterweight is `Structure.calibrated` + the
+`STRUCTURE_UNCALIBRATED` whole-draft NOTE — a declared row with no measured
+laziness regime grades correctness and says out loud that laziness is NOT
+graded, once per draft, because silence there would read as clean (doctrine
+48). `calibrated` flips True only when a preregistered calibration ADOPTS a
+predictability table + lazy class under that row's own pairing relation
+(the meter-band pattern: register -> measure -> adopt -> CI re-derives);
+today it is True for exactly the sentinel, so `plan.py` — which now samples
+a per-function structure and discloses it in `choices.structures` — has a
+pool of one, a FORCED pick consuming no seed entropy. The CLI
+`--structures` flag is DELIBERATELY DEFERRED to the first calibration
+sitting (Kalevala alliteration against the Kanteletar's 28,935 lines): the
+only event that can produce a non-default pick is the same event that
+should ship the spelling, and a flag shipped before any row is calibrated
+would be a door to declaring checks the grader must immediately disclaim.
+`quality/test_structures.py` §4–7, 4 hand-proven mutations (routing gate,
+pair-check skip, disclosure stub, planner filter), each killed by a named
+check.
+
 **METER JOINED THE SAME LOOP 2026-08-11, and rides the FIRST rejection
 above rather than adding a fifth.** `brief`/`inspect`/`verify` all take
 optional `blueprint=`/`subdivision=`/`assume=`; when given, `quality/fit.py`'s

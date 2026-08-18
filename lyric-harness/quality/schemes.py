@@ -1381,6 +1381,14 @@ class Mandate:
     groups: tuple = ()
     #: display label per group, index-aligned with `groups`
     labels: tuple = ()
+    #: declared structure NAME per group, index-aligned with `groups` — the
+    #: catalog row (quality/structures.py) each group's pairs are judged
+    #: under. `()` or a "" slot means the DEFAULT (English end-rhyme, the
+    #: scalar comparator + Declaration.admit). Names are validated at
+    #: `mandate()` time, not here: a dataclass default must stay cheap and a
+    #: frozen instance built by code that bypassed `mandate()` still answers
+    #: through `structure_of`, which resolves absence to the default.
+    structures: tuple = ()
     #: 1-based lines in no group at all -- declared free, mandating nothing
     free: tuple = ()
     source: str = "declared"          # "declared" | "derived"
@@ -1403,6 +1411,24 @@ class Mandate:
     rule: "ReturnRule" = field(default_factory=lambda: ReturnRule())
 
     # -- what it requires -------------------------------------------------
+
+    def structure_of(self, group_index):
+        """-> the declared structure NAME for one group (the catalog row a
+        pair in that group is judged under). Undeclared means the default:
+        `quality/structures.DEFAULT`, English end-rhyme, the scalar
+        comparator's own path — so every mandate that never learned the
+        coordinate behaves byte-for-byte as it always has.
+
+        `structures` is index-aligned with `groups`, the same convention
+        `labels` uses; a shorter tuple reads as default for the tail, so a
+        mandate widened by one group does not silently shift every later
+        group's declaration (doctrine 66 — alignment by INDEX is only
+        stable when absence has one meaning, and here absence = default)."""
+        if group_index < len(self.structures) and \
+                self.structures[group_index]:
+            return self.structures[group_index]
+        from quality import structures as _ST
+        return _ST.DEFAULT
 
     def pairs(self):
         """-> [(i, j, group_index)], 1-based, i < j. THE mandate, expanded.
@@ -2152,7 +2178,8 @@ def _normalise_scope(raw, n_lines, groups, returns):
 
 
 def mandate(spec, n_lines=None, source="declared", origin=None,
-            returns=None, scope=None, rule=None, carry_returns=True):
+            returns=None, scope=None, rule=None, carry_returns=True,
+            structures=None):
     """Anything that can name a song's requirements -> a `Mandate`.
 
     Accepted, and all of them are the SAME kind of object once here:
@@ -2210,7 +2237,14 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                 f"{n_lines}.")
         spec = m
 
-    if isinstance(spec, Mandate) and (returns or scope):
+    if isinstance(spec, Mandate) and (returns or scope
+                                      or structures is not None):
+        # `structures` re-opens the same way `returns`/`scope` do — before
+        # it joined this condition, `mandate(m, structures={...})` fell
+        # through to the idempotence branch below and DROPPED the
+        # declaration in silence, the exact defect family `--returns=`
+        # beside `--groups=` was (a declared coordinate consumed and
+        # ignored, byte-identical to not declaring it).
         # re-open an existing mandate to add the statements it lacked
         n = spec.n_lines if n_lines is None else n_lines
         rets = list(spec.returns)
@@ -2223,11 +2257,23 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
         # a mandate that requires L1/L3 to rhyme and denies speaking about L3.
         sc = spec.scope if scope is None else _normalise_scope(
             scope, n, spec.groups, norm)
+        # The origin names what was actually re-declared — before
+        # `structures` joined the condition above this literal said
+        # "+ returns" unconditionally, which a structures-only re-open
+        # would have made a false statement about its own provenance.
+        added = [word for word, given in (("returns", returns),
+                                          ("scope", scope),
+                                          ("structures", structures))
+                 if given is not None]
         return Mandate(n_lines=n, groups=spec.groups, labels=spec.labels,
                        free=spec.free, source=spec.source,
-                       origin=spec.origin + " + returns",
+                       origin=spec.origin + " + " + " + ".join(added),
                        returns=norm,
-                       scope=sc, rule=rule)
+                       scope=sc, rule=rule,
+                       structures=(spec.structures if structures is None
+                                   else _normalise_structures(
+                                       structures, spec.labels,
+                                       len(spec.groups))))
 
     if spec is None:
         raise NoMandate(
@@ -2314,7 +2360,63 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
     sc = _normalise_scope(scope, n, groups, rets)
     return Mandate(n_lines=n, groups=groups, labels=labels, free=free,
                    source=source, origin=org, returns=rets, scope=sc,
-                   rule=rule)
+                   rule=rule,
+                   structures=_normalise_structures(structures, labels,
+                                                    len(groups)))
+
+
+def _normalise_structures(structures, labels, n_groups):
+    """{label_or_index: name} | [name...] | None -> the index-aligned tuple.
+
+    Every name resolves through the CATALOG (quality/structures.resolve) or
+    the whole mandate REFUSES — a structure that does not exist graded as
+    the default would be a silently different question (doctrine 20). A
+    label that names no group refuses the same way. "" slots mean default.
+    """
+    if not structures:
+        return ()
+    from quality import structures as _ST
+    out = [""] * n_groups
+    if isinstance(structures, dict):
+        lab_to_idx = {lab: k for k, lab in enumerate(labels)}
+        for key, name in structures.items():
+            if isinstance(key, int):
+                idx = key
+            elif key in lab_to_idx:
+                idx = lab_to_idx[key]
+            else:
+                raise NoMandate(
+                    f"structures declares group {key!r} and the mandate "
+                    f"has no such group label; its labels are "
+                    f"{list(labels)}. An unmatched declaration is refused, "
+                    f"never dropped (doctrine 20).")
+            if not (0 <= idx < n_groups):
+                raise NoMandate(
+                    f"structures declares group index {idx} and the "
+                    f"mandate has {n_groups} group(s).")
+            out[idx] = _resolve_structure(_ST, name) if name else ""
+    else:
+        seq = list(structures)
+        if len(seq) > n_groups:
+            raise NoMandate(
+                f"structures declares {len(seq)} entries for "
+                f"{n_groups} group(s) — they must be the same mandate.")
+        for k, name in enumerate(seq):
+            out[k] = _resolve_structure(_ST, name) if name else ""
+    return tuple(out)
+
+
+def _resolve_structure(_ST, name):
+    """The catalog's refusal, re-raised as THIS layer's. `mandate()` has
+    exactly one refusal type (`NoMandate` — every CLI surface turns it into
+    `REFUSED` at exit 2), and a `StructureRefused` escaping it would be the
+    right refusal in the wrong layer's words — the same defect the
+    undecodable-file handler had. The catalog's own message is carried
+    through unchanged because the message was never the problem."""
+    try:
+        return _ST.resolve(name)
+    except _ST.StructureRefused as e:
+        raise NoMandate(str(e)) from e
 
 
 def _list_returns(spec):
