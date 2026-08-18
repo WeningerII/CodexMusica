@@ -493,6 +493,104 @@ try {
   }
 }
 
+// The lyric family (mcp/lyric_tools.js) — the DISJOINT tool family over the
+// lyric harness CLI. Two layers here: (1) SDK-only — the five tools are
+// advertised with read-only annotations; (2) LIVE — python3 runs the real
+// verbs through the bridge, staged the way the Docker build stages them.
+// The live half skips loudly when python3 or the network is absent, but in
+// CI both exist, so a skip there is a real signal in the log.
+try {
+  const here = new URL('.', import.meta.url).pathname;
+  const sdkPath = (m) => import(require.resolve(m, { paths: [here] }));
+  const { buildServer } = await import('./tools.js');
+  const { Client } = await sdkPath('@modelcontextprotocol/sdk/client/index.js');
+  const { InMemoryTransport } = await sdkPath('@modelcontextprotocol/sdk/inMemory.js');
+
+  const server = buildServer();
+  const [clientSide, serverSide] = InMemoryTransport.createLinkedPair();
+  const client = new Client({ name: 'lyric-check', version: '0' }, { capabilities: {} });
+  await Promise.all([server.connect(serverSide), client.connect(clientSide)]);
+  const { tools } = await client.listTools();
+  const lyric = tools.filter((t) => t.name.startsWith('lyric_'));
+  assert.deepEqual(
+    lyric.map((t) => t.name).sort(),
+    ['lyric_check', 'lyric_grade', 'lyric_plan', 'lyric_screen', 'lyric_types'],
+    'the five lyric tools are advertised'
+  );
+  for (const t of lyric) {
+    assert.equal(t.annotations?.readOnlyHint, true, `${t.name} read-only`);
+    assert.equal(t.annotations?.openWorldHint, false, `${t.name} closed-world`);
+  }
+  console.log('  ok  lyric family advertised: 5 tools, read-only, closed-world');
+  passed++;
+
+  // LIVE: stage the lexicon exactly as the Docker build does, then drive
+  // the bridge with the control pair the ban was taught on, and one full
+  // plan->fill->grade round trip. These are the checks that catch a
+  // broken subprocess bridge, a wrong cwd, or an image missing python.
+  const { execFile } = await import('node:child_process');
+  const { promisify } = await import('node:util');
+  const run = promisify(execFile);
+  let staged = false;
+  try {
+    await run('python3', ['-c', 'import lyric_harness; lyric_harness.fetch_data()'], {
+      cwd: new URL('../lyric-harness', import.meta.url).pathname,
+      timeout: 120_000,
+    });
+    staged = true;
+  } catch (err) {
+    console.log(
+      `  --  lyric LIVE checks skipped (python3/lexicon unavailable: ${String(err.message).slice(0, 80)})`
+    );
+  }
+  if (staged) {
+    const callText = async (name, args) => {
+      const res = await client.callTool({ name, arguments: args });
+      assert.ok(!res.isError, `${name} answered without isError`);
+      return JSON.parse(res.content[0].text);
+    };
+    const screened = await callText('lyric_screen', { words: ['hair', 'chair'] });
+    assert.equal(screened.exit_code, 0, 'screen exit 0 — a banned pair is an ANSWER');
+    assert.ok(
+      screened.report.includes('BANNED: HOMEOTELEUTON'),
+      'the control pair is banned through the whole stack'
+    );
+    console.log('  ok  lyric_screen live: hair/chair BANNED: HOMEOTELEUTON, exit 0');
+    passed++;
+
+    // Seed 55 is Count to Five's shape: 22 lines, chorus lines 17-19
+    // returning verbatim as 20-22. The dummy draft honors the returns.
+    const draft = [];
+    const bank = (
+      'stone rain door light road name glass train hill salt wire ' +
+      'bell coat dust song tide map north paper'
+    ).split(' ');
+    for (let i = 1; i <= 19; i++)
+      draft.push(`we carry the morning to the ${bank[(i - 1) % bank.length]}`);
+    draft.push(draft[16], draft[17], draft[18]);
+    const graded = await callText('lyric_grade', { seed: 55, draft });
+    assert.ok([0, 3].includes(graded.exit_code), 'grade answered (0 or 3, never a refusal)');
+    assert.ok(
+      typeof graded.rendered_song === 'string' &&
+        graded.rendered_song.includes('[CHORUS — 3 lines —'),
+      'the rendered song carries the bracket headers'
+    );
+    assert.ok(
+      /pairs?/i.test(graded.report) || graded.report.includes('REPORT'),
+      'a grade report came back'
+    );
+    console.log('  ok  lyric_grade live: plan->fill->render->grade round trip answered');
+    passed++;
+  }
+} catch (err) {
+  if (/Cannot find package|Cannot find module/.test(err.message)) {
+    console.log('  --  lyric family checks skipped (SDK not installed in-container)');
+  } else {
+    console.error(`FAIL  lyric family\n      ${err.message}`);
+    process.exitCode = 1;
+  }
+}
+
 // Settle the queued async checks before counting. Without this the summary
 // prints while they are still in flight and reports a total that excludes them.
 await Promise.all(pending);

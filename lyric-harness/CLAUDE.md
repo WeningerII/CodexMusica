@@ -102,7 +102,17 @@ cynghanedd, weight. Loop: spec -> draft -> check -> revise flagged
 lines only -> re-check. Model never self-certifies. `screen` and the
 plan/render pair joined 2026-08-18 (standing rule 3): the wrap exposes
 only real entrances, and pair screening + performance-order rendering
-are entrances now, not operator habits.
+are entrances now, not operator habits. THE WRAP SHIPPED LATER THE SAME
+DAY, by the owner's direct request: five `lyric_*` tools
+(screen/plan/grade/check/types) on the CodexMusica connector
+(`mcp/lyric_tools.js`) — a DISJOINT family beside the recipe tools
+(standing rule 1 holds: zero shared state, subprocess-per-call over
+this CLI, stateless because a plan is a pure function of its seed), so
+the same tools reach every MCP client AND the website's Gemini chat
+(whose system prompt is the server's own instructions). `revise`/`loop`
+and `verify` are deliberately NOT wrapped yet (a 40-90s synchronous
+call is the wrong shape for chat); the seed sweep stays manual per the
+owner's pending ruling.
 
 **THE LOOP IS BUILT: quality/revise.py, tests in test_revise.py.**
 `Reviser.brief(lines, scheme)` returns line-scoped instructions;

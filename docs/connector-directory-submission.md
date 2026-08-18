@@ -86,8 +86,10 @@ is reproducible and matches the app exactly.
 
 ## Tools
 
-All 9 tools are read-only and deterministic, and state is passed in and out (no
-sessions). Each is annotated `readOnlyHint`/`idempotentHint`/`openWorldHint:false`
+All 14 tools are read-only and deterministic, and state is passed in and out (no
+sessions). Nine drive the recording-recipe workspace; five (`lyric_*`, added
+2026-08-18) are a disjoint songwriting plan/grade family over the repo's lyric
+harness — same annotations, no shared state, no words written by the server. Each is annotated `readOnlyHint`/`idempotentHint`/`openWorldHint:false`
 with a human-readable `title`.
 
 | Tool | Title | One-line summary |

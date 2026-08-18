@@ -11,3 +11,11 @@ codex.html
 /_dist_test
 tests
 references/_assets
+
+# Local-only lyric-harness artifacts: the image STAGES these itself (see
+# mcp/Dockerfile), so excluding them makes a local build byte-equal to
+# Render's fresh-clone build.
+lyric-harness/__pycache__
+lyric-harness/**/__pycache__
+lyric-harness/cmudict.dict
+lyric-harness/data/nltk

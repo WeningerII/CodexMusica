@@ -68,6 +68,16 @@ guitar-amp — if you can say it, it renders.
 | `get_instrument` / `get_tradition` | Full record + swappable variants / 13-axis profile. |
 | `list_options` / `list_traditions` | Enumerate the override spaces and the tradition catalog. |
 
+Beside the recipes — and never touching them — the `lyric_*` family plans and grades **songwriting**:
+
+| Tool | What it does |
+|---|---|
+| `lyric_screen` | Screen 2–12 candidate end words: every pair judged by the song grader itself — CLEAN, BANNED (`HOMEOTELEUTON` / `MODAL_RHYME`), an honest non-rhyme, or the grader's own refusal. Use BEFORE writing. |
+| `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/pickup, rhyme plan, verbatim returns, hook slot, and a writer brief. Writes no words. |
+| `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed, fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
+| `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes. |
+| `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
+
 Every tool is read-only and deterministic. State is passed in and out — Claude
 threads the `workspace` from each call into the next.
 

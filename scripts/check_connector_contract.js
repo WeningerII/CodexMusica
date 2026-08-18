@@ -106,6 +106,15 @@ const EXPECTED_TOOLS = [
   'get_tradition',
   'list_options',
   'list_traditions',
+  // The lyric family joined 2026-08-18 BY THE OWNER'S DIRECT REQUEST — the
+  // deliberate surface change this pin exists to force a decision on. A
+  // disjoint family (mcp/lyric_tools.js): subprocess over the lyric
+  // harness CLI, zero shared state with the recipe workspace.
+  'lyric_check',
+  'lyric_grade',
+  'lyric_plan',
+  'lyric_screen',
+  'lyric_types',
   'render_recipe',
   'search_catalog',
   'search_prefaces',

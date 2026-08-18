@@ -12,6 +12,7 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import * as E from './engine.js';
 import { TOOL_SCHEMAS } from './schemas.js';
+import { registerLyricTools, LYRIC_INSTRUCTIONS } from './lyric_tools.js';
 
 // Re-exported so existing importers keep working; the definitions live in
 // schemas.js, which does not import the MCP SDK.
@@ -187,11 +188,16 @@ export function registerTools(server) {
     },
     (a) => E.listOptions(a)
   );
+
+  // ── Lyrics (the DISJOINT family — lyric_tools.js; standing rule 1 of
+  //    lyric-harness/CLAUDE.md: the recipe engine and the lyrics do not
+  //    touch, so the registration is the only line they share) ───────────
+  registerLyricTools(server, tool);
 }
 
 export function buildServer() {
   const server = new McpServer(
-    { name: 'codex-musica', version: '2.1.0' },
+    { name: 'codex-musica', version: '2.2.0' },
     {
       instructions:
         `CodexMusica turns plain-language musical intent into a precise recording recipe over ${E.counts.traditions} ` +
@@ -208,7 +214,8 @@ export function buildServer() {
         `several edits in one edit_recipe call; thread the returned 'workspace' into the next call; resolve every word ` +
         `to an id with search_catalog / search_prefaces (never guess ids). Deterministic and reproducible — identical ` +
         `to what a human sees in the app. Present the FINAL recipe string to the user verbatim (exact characters) — ` +
-        `final meaning after your edits, not the untouched default.`,
+        `final meaning after your edits, not the untouched default.` +
+        LYRIC_INSTRUCTIONS,
     }
   );
   registerTools(server);

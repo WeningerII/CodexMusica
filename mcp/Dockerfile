@@ -19,6 +19,21 @@ COPY scripts ./scripts
 COPY references ./references
 COPY mcp/*.js ./mcp/
 
+# The lyric harness (mcp/lyric_tools.js runs it as python3 subprocesses —
+# pure stdlib except nltk, which the slop floor's POS tagger reaches through
+# quality/features.py). Staging mirrors CI's revision-loop job exactly:
+# fetch_data() downloads CMUdict, quality/fetch_data.py stages the tagger
+# model and concreteness norms into data/. All at BUILD time so a running
+# container makes no network calls (openWorldHint stays false).
+RUN apt-get update \
+ && apt-get install -y --no-install-recommends python3 python3-pip \
+ && rm -rf /var/lib/apt/lists/*
+COPY lyric-harness ./lyric-harness
+RUN python3 -m pip install --no-cache-dir --break-system-packages nltk \
+ && cd lyric-harness \
+ && python3 -c "import lyric_harness; lyric_harness.fetch_data()" \
+ && python3 quality/fetch_data.py
+
 ENV PORT=8080
 EXPOSE 8080
 WORKDIR /app/mcp

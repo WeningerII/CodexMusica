@@ -27,6 +27,23 @@ It reuses the shared SSOT modules in-process (`scripts/_workspace_ops.js` →
 | `get_tradition` / `list_traditions` | Full tradition record (incl. axis profile + default instruments); browse/filter traditions. |
 | `list_options` | Enumerate override spaces: `rooms`, `tunings`, `chain_sections`, `archetypes`, `aesthetics`, `arrangements`, `instrument_families`, `tradition_families`, `axes`. |
 
+**The lyric family** (2026-08-18) — a **disjoint** tool family over the
+[lyric harness](../lyric-harness/): songwriting planning and grading. It shares
+no state with the recipe workspace (standing rule 1 of `lyric-harness/CLAUDE.md`:
+the recipe engine and the lyrics do not touch) and runs each call as its own
+`python3` subprocess over the harness CLI — the tested entrance, never a
+re-implementation. Stateless (a plan is a pure function of its seed), serial
+(one python at a time), and slower than the recipe tools (~10–15 s per grading
+call: the pronunciation lexicon loads per process).
+
+| Tool | What it does |
+|---|---|
+| `lyric_screen` | Screen 2–12 candidate end words: every pair judged by the song grader itself — CLEAN, BANNED (`HOMEOTELEUTON` / `MODAL_RHYME`), an honest non-rhyme, or the grader's own refusal. Use BEFORE writing. |
+| `lyric_plan` | A declared integer seed → a complete, reproducible song shape: sections with bars/meter/pickup, rhyme plan, verbatim returns, hook slot, and a writer brief. Writes no words. |
+| `lyric_grade` | The whole-song verdict: re-derives the plan from the same seed, fills it with the draft, grades rhyme/returns/meter/functions/floor, and returns the rendered song (performance order, bracket headers) + the report. |
+| `lyric_check` | Grade pasted lyrics without a plan: declare a letter scheme (`ABAB`) or line-number groups (`1,3;2,4`), optional verbatim-return classes. |
+| `lyric_types` | The 9-axis rhyme-type coordinate for one word pair (taxonomy; for usable-or-banned use `lyric_screen`). |
+
 ## Quick start
 
 ```sh
@@ -104,7 +121,7 @@ below, which is the one surface here that spends money.
 ## `/chat` — driving the tools for a caller with no MCP client
 
 The published catalog page is static and cannot hold a model key, so its chat bar posts
-here and this service calls Gemini. Same nine tools, same engine, same determinism; the
+here and this service calls Gemini. Same tools, same engines, same determinism; the
 only difference is who pays for the inference.
 
 - `POST /chat` — `{message, history?, workspace?, sig?}` → `{reply, recipe, cards, tools,
@@ -161,6 +178,7 @@ For submission to Anthropic's [Connectors Directory](https://claude.com/docs/con
 - `server_stdio.js` — stdio entry (local).
 - `server_http.js` — Streamable HTTP entry (hosted connector) + the `/chat` mount.
 - `gemini_tools.js` — live `tools/list` → Gemini function declarations (pure; no SDK).
+- `lyric_tools.js` — the disjoint lyric family: subprocess bridge to `../lyric-harness/` (plan/grade/screen; writes no words).
 - `gemini_agent.js` — one conversational turn: the tool loop, usage and measured cost.
 - `chat.js` — the `/chat` router: rate limits, spend cap, signed envelope.
 - `test.mjs` — `npm test`.
