@@ -75,18 +75,28 @@ class Structure:
     aliases: tuple = ()
     cell: tuple = ()          # the axis key, kind == "cell" only
     doc: str = ""
-    #: Whether a MEASURED laziness/threshold regime exists for this row —
-    #: the two-tier ban's data (predictability table + lazy class) under
-    #: THIS structure's own pairing relation. True today for exactly the
-    #: comparator sentinel (English end-rhyme: theta, the conjunctive band,
-    #: the eng-song modal table, the spelled-rime class). Every other row
-    #: flips to True only when a preregistered calibration ADOPTS its
-    #: numbers (the meter-band pattern: register -> measure -> adopt ->
-    #: CI re-derives). The planner samples ONLY calibrated rows, and the
-    #: grader DISCLOSES an uncalibrated declaration out loud — a declared
-    #: structure with no laziness data grades correctness but cannot grade
-    #: laziness, and silence about that would read as clean (doctrine 48).
-    calibrated: bool = False
+    #: The LANGUAGES for which a MEASURED laziness/threshold regime exists
+    #: for this row — the two-tier ban's data (predictability table + lazy
+    #: class) under THIS structure's own pairing relation, per language.
+    #: A TUPLE OF LANGUAGE CODES, not a bool (RETYPED 2026-08-18 by the
+    #: Kalevala adoption): the first non-English calibration exposed a
+    #: conflict inside its own registration — "the planner pool grows to
+    #: two" versus its binding-scope non-claim that a table fitted on one
+    #: tradition is not quietly applied to another (doctrine 8) — and the
+    #: non-claim wins, so calibration is a fact ABOUT A LANGUAGE. Empty =
+    #: no regime anywhere. ("eng",) on the comparator sentinel: theta, the
+    #: conjunctive band, the eng-song modal table, the spelled-rime class.
+    #: ("fin",) on the kalevala-alliteration preset: the Kanteletar
+    #: conditional, adopted by RESULTS_KALEVALA_ALLITERATION.md. A row
+    #: flips only when a preregistered calibration ADOPTS its numbers (the
+    #: meter-band pattern: register -> measure -> adopt -> re-derive). The
+    #: planner samples only rows calibrated FOR ITS OWN LANGUAGE, and the
+    #: grader DISCLOSES a declaration whose regime does not cover the
+    #: draft's language — correctness grades either way, laziness does
+    #: not, and silence about that would read as clean (doctrine 48).
+    #: Truthiness is preserved on purpose: () is falsy, a non-empty tuple
+    #: truthy, so `if s.calibrated` still means "some regime exists".
+    calibrated: tuple = ()
 
     def judge(self, a, b, phon=None):
         """-> True / False / None (None = REFUSED: the phonology declined
@@ -158,14 +168,21 @@ def _build():
     add(Structure(
         name=DEFAULT, kind="comparator",
         aliases=("end-rhyme", "perfect-end-rhyme"),
-        calibrated=True,
+        calibrated=("eng",),
         doc="the default: last primary stress to line end, scalar + "
             "conjunctive band + Declaration.admit — grade()'s own path"))
+    #: Adopted laziness regimes per preset row, by language — each entry
+    #: is a preregistered calibration's ADOPTION and cites its RESULTS.
+    #: kalevala-alliteration: RESULTS_KALEVALA_ALLITERATION.md (Kanteletar
+    #: + Kalevala, 2026-08-18; the shipped conditional is
+    #: data/kalevala_alliteration_pairs.tsv).
+    preset_regimes = {"kalevala-alliteration": ("fin",)}
     for name in RT.PRESETS:
         if name == DEFAULT:
             continue
         add(Structure(
             name=name, kind="preset",
+            calibrated=preset_regimes.get(name, ()),
             doc=f"rhyme_types.PRESETS[{name!r}]: a declared anchor pair "
                 f"and channel demand, judged by RT.verdict"))
     # Phase B: every NAMED coordinate of the axis space, under every alias

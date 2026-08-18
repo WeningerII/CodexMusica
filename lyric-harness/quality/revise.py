@@ -1939,13 +1939,21 @@ class Reviser:
         # counting docstring records (one fact, N records).
         if getattr(m, "structures", ()) and any(m.structures):
             from quality import structures as _STw
+            # LANGUAGE-AWARE since the Kalevala adoption (2026-08-18):
+            # `calibrated` is a tuple of language codes, and this Reviser
+            # grades ENGLISH drafts, so the note fires unless the row's
+            # regime covers "eng" — a Finnish-measured table declared on
+            # an English draft is doctrine 8's case, disclosed rather
+            # than silently borrowed.
             _uncal = sorted({name for name in m.structures
-                             if name and not _STw.get(name).calibrated})
+                             if name
+                             and "eng" not in _STw.get(name).calibrated})
             if _uncal:
                 whole.append(Finding(
                     "STRUCTURE_UNCALIBRATED", "note",
                     f"declared structure(s) {', '.join(repr(x) for x in _uncal)} "
-                    f"have no measured laziness tier — correctness is graded "
+                    f"have no measured laziness tier FOR THIS DRAFT'S "
+                    f"LANGUAGE (eng) — correctness is graded "
                     f"by the catalog's own judge, laziness is NOT graded",
                     f"Structure.calibrated is False for these rows: no "
                     f"preregistered calibration has adopted a predictability "

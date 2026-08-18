@@ -3646,6 +3646,60 @@ def test_the_title_a_lyric_declares_reaches_the_check_or_refuses():
           rc3 == 3 and "REFUSED" not in out3, f"rc {rc3}")
 
 
+
+
+def test_the_structures_spelling_reaches_the_verbs():
+    """`--structures=` — SHIPPED BY THE KALEVALA ADOPTION (2026-08-18).
+
+    The structures registration deferred the CLI spelling to the first
+    calibration on purpose; that calibration adopted, so the spelling
+    ships. The binding assertion is a DIFFERENCE between two runs (the
+    §19 lesson: byte-identical output is the only shape that proves a
+    silent drop): the same draft under the same groups grades sun/silver
+    a VIOLATION without the declaration and NOT one with it.
+    """
+    print("\n39. `--structures=` reaches the verbs — the Kalevala "
+          "adoption's own spelling")
+    import tempfile
+    lines = ["the night was cold and bright", "we held each other tight",
+             "we walked beneath the sun", "and rivers ran with silver"]
+    with tempfile.NamedTemporaryFile("w", suffix=".txt",
+                                     delete=False) as fh:
+        fh.write("\n".join(lines) + "\n")
+        path = fh.name
+    try:
+        rc1, out1, _ = run("brief", path, "--groups=1,2;3,4",
+                           "--structures=B:kalevala-alliteration")
+        rc0, out0, _ = run("brief", path, "--groups=1,2;3,4")
+        check("the declaration CHANGES the grade — sun/silver is a "
+              "violation under the default question and NOT under the "
+              "declared alliteration",
+              rc1 == 0 and "SCHEME_VIOLATION" not in out1
+              and "SCHEME_VIOLATION" in out0)
+        check("...and the run that declared it carries the language-aware "
+              "disclosure: fin-calibrated, this draft is eng, laziness is "
+              "NOT graded",
+              "STRUCTURE_UNCALIBRATED" in out1
+              and "FOR THIS DRAFT'S LANGUAGE (eng)" in out1)
+        rc2, out2, _ = run("brief", path, "--groups=1,2",
+                           "--structures=A:vibes")
+        check("an unknown structure name REFUSES through the catalog's "
+              "own message, never defaulted",
+              rc2 == 2 and "not a declared structure" in out2
+              and "58 structures" in out2)
+        rc3, out3, _ = run("brief", path, "--structures=A:qafiya")
+        check("--structures= with no groups to annotate REFUSES and says "
+              "what to declare",
+              rc3 == 2 and "no groups to annotate" in out3)
+        rc4, out4, _ = run("brief", path, "AABB",
+                           "--structures=B:kalevala-alliteration")
+        check("a letter scheme WITH --structures= is expressible — the "
+              "letter determines the cover, structures annotate it",
+              rc4 == 0 and "STRUCTURE_UNCALIBRATED" in out4)
+    finally:
+        os.unlink(path)
+
+
 if __name__ == "__main__":
     _SECTIONS = (
         test_the_map_is_not_stale,
@@ -3686,6 +3740,7 @@ if __name__ == "__main__":
         test_the_collision_cut_is_one_constant_and_cannot_drift,
         test_both_meter_coordinates_are_disclosed_and_collisions_are_typed,
         test_every_report_names_the_draft_it_read,
+        test_the_structures_spelling_reaches_the_verbs,
     )
     # SHARDING, 2026-08-18. This file is the longest suite in the repo —
     # measured 21-22 minutes on CI run #524, and after the pool went

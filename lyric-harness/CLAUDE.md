@@ -33,10 +33,35 @@ These outrank any inference a session draws from the code.
    grammar, schemes from the FULL `rgs()` enumeration, meters from a declared
    cycle set, every free choice seeded and disclosed, refusals for unknown
    forms and unattainable lengths, and a round-trip test proving the graders
-   accept what it emits (`quality/test_plan.py`). Still true and still the
-   rule: do not describe this project as a grader, and do not present
-   operator-authored plans as the system working as intended — the planner
-   is the front door now, and hand-written blueprints are for tests.
+   accept what it emits (`quality/test_plan.py`). REWRITTEN AS V2 2026-08-18
+   after the owner caught v1's bias in one sitting of songs — 4 lines and
+   4/4, everywhere — and named the cause: tables (constants per function,
+   three meters by hand, five pattern strings). V2 replaces every table
+   with a generator over a derived space: meters from the {2,3}-composition
+   cycle grammar filtered by ONE derived envelope (slots-per-line floor =
+   the calibrated density band's floor, ceiling = band ceiling × one
+   declared multiplier), sampled BY DERIVATION — dimension pair, then beat
+   count, then grouping, each uniform over its own set, never uniform over
+   the enumerated leaves (which weight a cycle by how many groupings it
+   admits and hand nearly every plan the maximal beat count — the first
+   smoke run's own finding); lines per section uniform over the envelope;
+   schemes exact-uniform via Bell-triangle completion counts above the
+   enumeration bound, so large stanzas are reachable; patterns generated
+   from the section-function vocabulary's recurrence contracts, 14 of 21
+   functions including instrumentals (zero-line sections) and verbatim
+   returners; anacrusis per function KIND (the pickup is part of the tune —
+   per-instance draws handed the shape layer a RETURN_SLOT_DRIFT on the
+   planner's own verbatim returns). THE CORPUS SAMPLES NOTHING — measured
+   distributions as a sampler would give the unprecedented shape
+   probability ~zero (the owner's "move 37" ban), and `test_plan.py` §4
+   pins by AST that `plan.py` imports no corpus reader and opens no file.
+   The same section holds the samplers to their enumerations at small n —
+   a pin that caught `bell()` returning B(k−1) on the day it was written,
+   with every above-enumeration scheme pool disclosed an order of
+   magnitude small. Still true and still the rule: do not describe this
+   project as a grader, and do not present operator-authored plans as the
+   system working as intended — the planner is the front door now, and
+   hand-written blueprints are for tests.
 
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One
@@ -137,6 +162,43 @@ would be a door to declaring checks the grader must immediately disclaim.
 `quality/test_structures.py` §4–7, 4 hand-proven mutations (routing gate,
 pair-check skip, disclosure stub, planner filter), each killed by a named
 check.
+
+**PHASE 2 OPENED AND ITS FIRST CALIBRATION ADOPTED THE SAME DAY
+(2026-08-18): the census, then Kalevala alliteration — and `calibrated`
+is a LANGUAGE TUPLE because of it.** The owner overturned
+one-structure-first: the census
+(`quality/STRUCTURE_CENSUS_PREREGISTRATION.md` →
+`RESULTS_STRUCTURE_CENSUS.md`, `data/structure_census_eng.tsv`) ran all
+57 non-comparator rows over English — 417M pair judgings, three counts
+never summed — and banked the CHANCE-RATE table that is the null half of
+every future laziness calibration (English alliterates by accident at
+~9% within a line; constrained/incidental is a declared per-cell tag,
+because laziness is a property of choices under a constraint and
+blending chance with choice is the bias the design refuses). Its E1
+falsifier fired once, honestly: iambic pentameter cannot end a line on a
+dactyl, so `dactylic-rhyme` left the constrained family by amendment.
+Then the first constrained measurement
+(`KALEVALA_ALLITERATION_PREREGISTRATION.md` →
+`RESULTS_KALEVALA_ALLITERATION.md`, `data/kalevala_alliteration_pairs.tsv`,
+adoption re-derived nightly by `kalevala_calibration.py --check`):
+Finnish verse under the rule alliterates at 0.3249 against its own
+vocabulary randomly re-paired at 0.1225 max over 200 resamples and
+unconstrained later Finnish at 0.1446 — and run 1 was VOIDED by its own
+table head (`inen`/`isen` are suffix fragments; the ASCII tokenizer had
+shredded ä/ö, and the fin phonology's `_tokens` was the one definition
+all along, doctrine 1). TIER 1 IS REFUSED BY MEASUREMENT: the
+shared-prefix distribution has no separable same-stem mass, so no
+HOMEOTELEUTON analogue exists for this structure — the end-rhyme rule's
+shape transposed, its content did not. The adopted conditional
+(`vanha`/`väinämöinen` 303 at its head) is type-sparse and token-dense
+like its English sibling: a BACKOFF source, never used alone. AND THE
+ADOPTION'S OWN REGISTRATION CARRIED A CONFLICT — "the planner pool grows
+to two" against its binding-scope non-claim — resolved for the non-claim
+(doctrine 8): `Structure.calibrated` is a tuple of language codes, the
+ENGLISH pool is UNCHANGED, the grader's disclosure names the draft's
+language, and `--structures=LABEL:NAME` ships on the CLI
+(`test_verbs.py` §39: the same draft grades differently with and without
+the declaration, which is the only shape that proves the flag is read).
 
 **METER JOINED THE SAME LOOP 2026-08-11, and rides the FIRST rejection
 above rather than adding a fifth.** `brief`/`inspect`/`verify` all take

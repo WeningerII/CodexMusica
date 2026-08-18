@@ -1783,6 +1783,17 @@ jobs:
 
       # 2.0-2.2 CPU-hours cold, ~85 CPU-s warm off the cache restored above.
       # `record` runs --without-predictability at 64s; this is the whole thing.
+      # THE KALEVALA ADOPTION CHECK (2026-08-18) — the first non-English
+      # laziness regime's shipped constants re-derived against the corpus:
+      # both arms' exact verdict counts, the true-pair total, and the
+      # held-out blocked mass (quality/RESULTS_KALEVALA_ALLITERATION.md).
+      # A full remeasurement (~12 min: two arms + 200 null resamples), so
+      # it lives here and not in the per-push pool, the same reasoning
+      # that keeps the predictability check nightly.
+      - name: Kalevala alliteration adoption check (full remeasurement)
+        working-directory: lyric-harness
+        run: python3 quality/kalevala_calibration.py --check
+
       - name: Song-profile calibration, full (warm off the cache above)
         if: always()
         working-directory: lyric-harness

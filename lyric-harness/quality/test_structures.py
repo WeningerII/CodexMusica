@@ -300,32 +300,61 @@ def test_laziness_scope_and_disclosure():
           "STRUCTURE_UNCALIBRATED" not in [x.code for x in f0["whole"]]
           and any(x.code == "HOMEOTELEUTON"
                   for x in f0["per_line"].get(4, [])))
+    # DOCTRINE 8, MECHANICAL (2026-08-18): kalevala-alliteration IS
+    # calibrated — for FINNISH — and this Reviser grades English, so the
+    # disclosure still fires on an English draft declaring it. A regime
+    # measured on one tradition is not silently applied to another; the
+    # note now names the draft's language.
+    lines_k = ["the night was cold and bright", "we held each other tight",
+               "we walked beneath the sun", "and rivers ran with silver"]
+    m_k = SC.mandate([[1, 2], [3, 4]], n_lines=4,
+                     structures={"B": "kalevala-alliteration"})
+    f_k = R.inspect(lines_k, m_k)
+    kw = [x for x in f_k["whole"] if x.code == "STRUCTURE_UNCALIBRATED"]
+    check("a fin-calibrated row declared on an ENGLISH draft still gets "
+          "the disclosure — calibration is a fact about a language "
+          "(doctrine 8), and the note says whose",
+          len(kw) == 1 and "eng" in kw[0].message,
+          kw[0].message[:90] if kw else "no note")
 
 
 def test_planner_samples_calibrated():
-    print("\n7. the planner samples structures from CALIBRATED rows only")
-    # HAND-PROVEN MUTATION (2026-08-18): dropping the `if s.calibrated`
-    # filter reds the pool check — chosen_from balloons to the whole
-    # catalog, planning demands the grader must disclose as unenforceable.
+    print("\n7. the planner samples rows calibrated FOR ITS OWN LANGUAGE")
+    # HAND-PROVEN MUTATION (2026-08-18): dropping the language filter
+    # reds the pool checks — under the retyped marker an unfiltered pool
+    # would sample a Finnish-measured row into English plans.
+    #
+    # REPINNED BY THE KALEVALA ADOPTION (2026-08-18), and the repin is
+    # NOT the one the earlier comment predicted: the pool did not grow.
+    # The adoption's own registration carried a conflict — "the planner
+    # pool grows to two" against its binding-scope non-claim (a table
+    # fitted on one tradition is not quietly applied to another,
+    # doctrine 8) — and the non-claim won. `calibrated` is a LANGUAGE
+    # TUPLE now; the ENGLISH pool stays the sentinel until an English
+    # signal corpus is measured, and kalevala-alliteration is calibrated
+    # ("fin",), declarable, disclosed, and never auto-sampled here.
     from quality import plan as PL
-    pool = sorted(s.name for s in ST.STRUCTURES.values() if s.calibrated)
+    pool = sorted(s.name for s in ST.STRUCTURES.values()
+                  if "eng" in s.calibrated)
     p = PL.make_plan(2)
     meta = p["choices"]["structures"]
     check("every function kind gets a structure choice, disclosed with "
           "its pool", bool(meta) and
           all(set(v) == {"name", "chosen_from"} for v in meta.values()))
-    check("the pool IS the calibrated set — derived from the rows' own "
-          "marker, not a hand copy",
+    check("the pool IS the eng-calibrated set — derived from the rows' "
+          "own language marker, not a hand copy",
           all(v["chosen_from"] == pool for v in meta.values()),
           {k: v["chosen_from"][:3] for k, v in meta.items()})
-    check("every sampled name is a calibrated row",
-          all(ST.get(v["name"]).calibrated for v in meta.values()))
-    # TODAY the pool is exactly the sentinel. The first adopted structure
-    # calibration REPINS this check on purpose — the same way
-    # meter_bands.adoption_check made adoption a visible edit.
-    check("today that pool is exactly the comparator sentinel — the "
-          "first calibration sitting repins this line, visibly",
+    check("every sampled name is calibrated for eng",
+          all("eng" in ST.get(v["name"]).calibrated
+              for v in meta.values()))
+    check("the eng pool is exactly the comparator sentinel — the Kalevala "
+          "adoption left it UNCHANGED, which is doctrine 8 holding",
           pool == [ST.DEFAULT], pool)
+    check("kalevala-alliteration IS calibrated — for fin, and only fin — "
+          "and is therefore not in the eng pool",
+          ST.get("kalevala-alliteration").calibrated == ("fin",)
+          and "kalevala-alliteration" not in pool)
     check("the same seed reproduces the same plan byte for byte",
           PL.make_plan(2) == p)
 
