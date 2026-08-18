@@ -1439,17 +1439,19 @@ jobs:
       # in that set; whether the set was 15 before is not this lot's to assert.
       #
       # AND THE LIST NOW ACCOUNTS FOR EVERY FILE, which is the property that
-      # was missing rather than the two names. `ls quality/test_*.py` is 51
-      # (48 until `test_nc_census.py` joined 2026-08-17; `test_plan.py` the
-      # same day; `test_meter_bands.py` the same day); this step names 47,
+      # was missing rather than the two names. `ls quality/test_*.py` is 53
+      # (48 until `test_nc_census.py` joined 2026-08-17; `test_plan.py` and
+      # `test_meter_bands.py` the same day; `test_homeoteleuton.py` and
+      # `test_structures.py` 2026-08-18); this step names 49,
       # the step below names 2, and `test_discriminate.py` and
       # `test_mutation.py` are refused by name with a measurement in the
-      # header. 47 + 2 + 2 = 51, so a file added
+      # header. 49 + 2 + 2 = 53, so a file added
       # tomorrow is again in no column — the arithmetic is the check, and it is a check a human has to
       # run. `test_verbs.py` also fails on an unnamed file, which is what
-      # caught `nc_census` on the run that added it. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
+      # caught `nc_census` on the run that added it — and `structures` on
+      # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: The 47 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17)
+      - name: The 49 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures 2026-08-18)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1459,13 +1461,15 @@ jobs:
           set -e
           for f in align band coda controls corpus_audit crosslinguistic cym \
                    declared_inputs english_text fit floor fwer g2p grid \
-                   homograph ipa ltc mandate_language matrix meter \
+                   homeoteleuton homograph ipa ltc mandate_language \
+                   matrix meter \
                    meter_bands msa_fin \
                    mut_band mut_oracle nucleus null_shapes phon_fas phon_msa \
                    phon_non phon_san phonology phrase_commonplace \
                    nc_census plan positive_control propose provenance \
                    readability readings_seam register_audit relations \
-                   song_function spans taxonomy time_layer verbs \
+                   song_function spans structures taxonomy time_layer \
+                   verbs \
                    verify_entries; do
             echo "── quality/test_$f.py"
             python3 "quality/test_$f.py"

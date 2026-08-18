@@ -89,7 +89,7 @@ from lyric_harness import (NEAR_RELATIONS, NO_ANCHOR,  # noqa: E402
                            CandidateEngine, Declaration,
                            Lexicon, admits, best_score, bron_kerbosch,
                            line_anchors, readability_records,
-                           refusals_for_pairs, spans_note)
+                           refusals_for_pairs, spans_note, spelled_rime)
 from quality import fit as FT  # noqa: E402
 from quality import grid as GR  # noqa: E402
 from quality import frequency as FREQ  # noqa: E402
@@ -111,7 +111,8 @@ __all__ = ["Brief", "Mandate", "NoMandate", "ReviseDeclaration", "Reviser",
 #: NO COLLISION CODE IS IN HERE, AND THAT IS A DECISION RATHER THAN AN
 #: OVERSIGHT — see `Reviser.brief`'s "WHY A COLLISION EARNS NO FIELD".
 RHYME_FINDINGS = {"SCHEME_VIOLATION", "CLICHE_PAIR", "PREDICTABLE_RHYME",
-                  "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME"}
+                  "SHARED_SUFFIX", "REPEAT_IN_VERSE", "MODAL_RHYME",
+                  "HOMEOTELEUTON"}
 
 #: Findings whose PRESENCE records that a requirement or a licence HOLDS.
 #: Everything else in the finding set names something WRONG, so its
@@ -759,7 +760,8 @@ class Reviser:
                         records[j]["final_unreadable"]:
                     continue
                 s = matrix[i][j]
-                if admits(s, theta) or s["relation"] == "REPEAT":
+                if admits(s, theta, relations=frozenset(self.decl.admit)) \
+                        or s["relation"] == "REPEAT":
                     adj[i].add(j)
                     adj[j].add(i)
         cliques = []
@@ -880,13 +882,19 @@ class Reviser:
             why = None
             if rel == "REPEAT":
                 why = "REPEAT not rhyme (identical word)"
-            elif rel in NEAR_RELATIONS:
-                why = f"{rel} not rhyme (conjunctive band)"
+            elif rel in NEAR_RELATIONS and rel not in self.decl.admit:
+                # An ADMITTED near relation falls through to `admits()` and
+                # satisfies on its scalar — `Declaration.admit`, the owner's
+                # declared widening. Undeclared, this branch is byte-for-byte
+                # the old one.
+                why = (f"{rel} not rhyme (conjunctive band; not in the "
+                       f"declared admit set)")
             elif rel == NO_ANCHOR:
                 why = "NO_ANCHOR: nothing to compare (not a rhyme verdict)"
             elif s["total"] < self.decl.theta_rhyme:
                 why = f"below theta_rhyme={self.decl.theta_rhyme}"
-            elif not admits(s, self.decl.theta_rhyme):
+            elif not admits(s, self.decl.theta_rhyme,
+                            relations=frozenset(self.decl.admit)):
                 # NO_RELATION FELL THROUGH ALL FOUR BRANCHES — FIXED
                 # 2026-08-15. The chain above is an ENUMERATED blacklist, and
                 # `NO_RELATION` — the band's STRONGEST rejection, set when
@@ -1272,7 +1280,9 @@ class Reviser:
                 for i, j in cross:
                     s = matrix[i - 1][j - 1]
                     if (i, j) not in edges or not (
-                            admits(s, th) or s["relation"] == "REPEAT"):
+                            admits(s, th,
+                                   relations=frozenset(self.decl.admit))
+                            or s["relation"] == "REPEAT"):
                         ok = False
                         break
                 if not ok:
@@ -1898,6 +1908,36 @@ class Reviser:
                 continue          # a violation, or a declared identity
             i, j = v["lines"]
             wi, wj = (w.lower() for w in v["endwords"])
+            # TIER 1 FIRST — HOMEOTELEUTON (owner's rule, 2026-08-18): the
+            # pair's own SPELLINGS decide, no field consulted, so a
+            # same-rime partner outside the finite field cannot slip
+            # through. hAIR/chAIR, stOVE/cOVE, sOWN/grOWN: the rhyme was
+            # found by pattern-matching the ending, and it is banned
+            # whatever the corpus frequency says. Symmetric by
+            # construction, and pursued mandatorily (loop.MANDATORY_PURSUE)
+            # — the two-tier ban exists because a reviser iterating
+            # candidates until the modal check passed was landing at rank 7
+            # of the same predictability list, and same-spelled endings are
+            # rank zero: the ones a search finds without even hearing them.
+            ri, rj = self._spelled_rime(wi), self._spelled_rime(wj)
+            if ri and ri == rj:
+                add(j, Finding(
+                    "HOMEOTELEUTON", "note",
+                    f"L{i}/L{j} rhyme on the SAME SPELLED ENDING "
+                    f"({v['endwords'][0]!r}/{v['endwords'][1]!r}, both "
+                    f"-{ri}) — the laziest class, banned before any "
+                    f"frequency judgment",
+                    f"spelled rime {ri!r} on both sides. The near "
+                    f"relations the taxonomy names (declared via "
+                    f"Declaration.admit) are the palette that keeps this "
+                    f"ban from closing the class: reach for a "
+                    f"differently-spelled partner or a declared near "
+                    f"rhyme, not the next word in the same spelling "
+                    f"family.", [i, j]))
+                continue
+            # TIER 2 — the frequency ban over the differently-spelled
+            # remainder (`joint_field` composes the same two tiers for the
+            # OFFERS, so menu and verdict agree).
             _, forbidden_i = self.modal_field(wi, profile=profile)
             _, forbidden_j = self.modal_field(wj, profile=profile)
             hits = []
@@ -1917,8 +1957,10 @@ class Reviser:
                 f"forbidden-modal set would exclude if either line were "
                 f"being revised",
                 "; ".join(hits) + ". modal_exclusion="
-                f"{self.rdecl.modal_exclusion}; set it to 0 to silence this "
-                "the same way it silences the reactive check. Doctrine 9's "
+                f"{self.rdecl.modal_exclusion} over the differently-spelled "
+                "remainder (the same-spelled class is banned outright as "
+                "HOMEOTELEUTON); set it to 0 to silence this the same way "
+                "it silences the reactive check. Doctrine 9's "
                 "exclusion is otherwise only consulted when fixing an "
                 "already-flagged line; this asks the same question of a "
                 "pair that never failed anything, because a first draft "
@@ -2474,6 +2516,34 @@ class Reviser:
         self._field_cache[key] = passing
         return passing
 
+    def _spelled_rime(self, word):
+        """`lyric_harness.spelled_rime` anchored at the RHYMING syllable —
+        the same anchor rule the comparator declares (last primary stress),
+        read from this Reviser's own lexicon. silver/deliver anchor at
+        SIL/LIV and spell 'ilver'/'iver' — different, NOT homeoteleuton —
+        where the bare last-group form would merge the entire feminine -er
+        space into one banned class, which is exactly the "closing rhyme
+        classes" the owner ruled out. An OOV word falls back to the bare
+        form: for a monosyllabic or last-group-stressed word (all 19 argued
+        cases) the two agree exactly."""
+        phones, oov = self.lex.transcribe_word(word)
+        if oov or not phones:
+            return spelled_rime(word)
+        vowels = [p for p in phones if p[-1:].isdigit()]
+        if not vowels:
+            return spelled_rime(word)
+        anchor = None
+        for want in ("1", "2"):
+            for idx in range(len(vowels) - 1, -1, -1):
+                if vowels[idx].endswith(want):
+                    anchor = idx
+                    break
+            if anchor is not None:
+                break
+        if anchor is None:
+            anchor = len(vowels) - 1
+        return spelled_rime(word, stress_from_end=len(vowels) - anchor)
+
     def joint_field(self, calls, exclude=(), profile=None):
         """-> (offered, forbidden). The candidate field that answers EVERY
         call word, with the most PREDICTABLE members forbidden as modal.
@@ -2530,11 +2600,28 @@ class Reviser:
                         key=lambda w: (-cond.get(w, 0),
                                        self.lex.freq_rank.get(w, 10 ** 9),
                                        order.get(w, 10 ** 9), w))
+        # THE TWO-TIER BAN (owner's rule, 2026-08-18). Tier 1: HOMEOTELEUTON
+        # — a candidate whose SPELLED RIME equals any call word's
+        # (`lyric_harness.spelled_rime`) was found by pattern-matching the
+        # ending, the laziest class there is. Ranked beneath everything and
+        # banned whatever the corpus says. Tier 2: the top
+        # `modal_exclusion` most-predictable of the DIFFERENTLY-SPELLED
+        # remainder. Before the split, the class words and the frequency
+        # words competed for the same k slots — 'hair' spent two of six on
+        # air/fair, and 'prayer' (rank 7) walked through the gap; a reviser
+        # iterating candidates until the checker passed landed on rank 7
+        # EVERY time. The tiers close the gap from both sides, and the
+        # OFFERS below are built from what survives both, so the menu and
+        # the verdict cannot disagree.
+        call_rimes = {self._spelled_rime(c) for c in calls}
+        homeo = [w for w in ranked if self._spelled_rime(w) in call_rimes]
+        rest_ranked = [w for w in ranked
+                       if self._spelled_rime(w) not in call_rimes]
         k = self.rdecl.modal_exclusion
-        forbidden = ranked[:k]
+        forbidden = homeo + rest_ranked[:k]
         drop = set(forbidden) | {w.lower() for w in exclude if w}
         rest = []
-        for w in ranked[k:]:
+        for w in rest_ranked[k:]:
             if w in drop:
                 continue
             # single letters are lexicon artifacts, not words a writer can use

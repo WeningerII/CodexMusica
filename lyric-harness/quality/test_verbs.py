@@ -2399,7 +2399,13 @@ def test_the_loop_suspends_instead_of_guessing():
     check("an answer that is not unambiguously ONE line REFUSES",
           rc3 == 2 and "REFUSED" in out3, f"rc {rc3}")
 
-    answers = ["we packed the truck with everything we wore",
+    # RESTATED 2026-08-18: the first scripted answer ended 'wore' against
+    # L1's 'store' — the -ore spelling family, HOMEOTELEUTON under the
+    # two-tier ban, so the loop rightly refused to stop on it and the whole
+    # defer flow cascaded red. 'pour' is measured clean against 'store'
+    # both ways ('our' vs 'ore' — same sound, different spelling, below the
+    # frequency tier), which is exactly the reach the ban exists to force.
+    answers = ["we packed the truck and watched the last rain pour",
                "and drove until the county line was far"]
     for want in answers:
         st = json.load(open(state))
@@ -3521,7 +3527,14 @@ def test_every_report_names_the_draft_it_read():
     # runs, one per direction of the (UNCHANGED) marker, because a marker
     # that always prints is a marker (doctrine 48).
     LP = importlib.import_module("quality.loop")
-    same = ["we walked into the night", "the lamp was burning bright"]
+    # `night`/`bright` STOOD HERE UNTIL 2026-08-18 as the untouched draft —
+    # then the two-tier ban made 'ight'/'ight' HOMEOTELEUTON, mandatorily
+    # pursued, and the loop rightly started revising the very fixture whose
+    # job is to NOT change. `bone`/`sown` is measured clean under the full
+    # regime: a true rhyme, differently spelled ('one'/'own'), below the
+    # frequency tier in both directions, both lines inside the meter bands.
+    same = ["your laugh still shakes me to the bone",
+            "the fields behind the house are sown"]
     kept = LP.revise_loop(r, same, "AA")
     kd = next((ln for ln in kept.disclosure() if "DRAFT" in ln), "")
     check("`revise_loop`'s result discloses the draft at BOTH ends — handed "

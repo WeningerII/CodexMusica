@@ -306,7 +306,7 @@ def swap_end_word(text, new_word):
 #: `PREDICTABLE_RHYME` fraction empties as a consequence of clearing it and
 #: cannot be pursued per-line (it names no line). `verify()` is untouched:
 #: pursuing changes what the loop ASKS FOR, never what it rejects.
-MANDATORY_PURSUE = frozenset({"MODAL_RHYME"})
+MANDATORY_PURSUE = frozenset({"MODAL_RHYME", "HOMEOTELEUTON"})
 
 
 def _open_lines(briefs, pursue=frozenset()):

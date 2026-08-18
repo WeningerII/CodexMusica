@@ -73,6 +73,26 @@ so a loop that recommended it would manufacture what the floor rejects.
 `modal_exclusion=0` disables the rule and is reachable so the defect is
 demonstrable; it is not the default.
 
+**THE BAN IS TWO TIERS (owner's rule, 2026-08-18), because a single top-N
+cliff was beaten by its own reviser.** hAIR/chAIR, stOVE/wOVE/cOVE and
+sOWN/grOWN each passed at rank 7-11 of the very predictability ranking
+that computed the old cliff — a reviser iterating candidates until the
+checker passed was descending that ranking and stopping at rank 7 every
+time. Tier 1: HOMEOTELEUTON — a partner on the SAME SPELLED ENDING
+(`lyric_harness.spelled_rime`: silent-e folds, y is a vowel letter, w is
+not) is banned outright, whatever the corpus frequency, and the pair
+check reads the spellings directly so no finite field can shelter one.
+Tier 2: the top `modal_exclusion` of the DIFFERENTLY-spelled remainder.
+Both tiers land in `joint_field`'s forbidden set (the offers) AND the
+proactive pair check (`HOMEOTELEUTON` / `MODAL_RHYME` notes, both in
+`MANDATORY_PURSUE` — unskippable). The counterweight that keeps the ban
+from closing rhyme classes is `Declaration.admit`: what satisfies a
+mandate is a DECLARED set, default ("RHYME", "RIME_RICHE") byte-identical
+to history, widenable to ASSONANCE/CONSONANCE — the 601-entry world
+survey (quality/RHYME_CANON.md) and the engine's 49 named types are the
+palette, and the door was admitting 2. Validated at declaration time;
+near-only refuses. `quality/test_homeoteleuton.py`, 4 mutations proven.
+
 **METER JOINED THE SAME LOOP 2026-08-11, and rides the FIRST rejection
 above rather than adding a fifth.** `brief`/`inspect`/`verify` all take
 optional `blueprint=`/`subdivision=`/`assume=`; when given, `quality/fit.py`'s

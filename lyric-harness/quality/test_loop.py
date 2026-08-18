@@ -406,8 +406,19 @@ def test_tier2_tries_and_correctly_rejects():
           tier2[0].reason[:170] if tier2 else None)
     check("and every attempt was correctly rejected, none silently kept",
           tier2 and not tier2[0].accepted)
-    check("the draft is untouched -- a refused search changes nothing",
-          res.lines == SILVER_NIGHT_LOCKED)
+    # RESTATED 2026-08-18 under the two-tier ban: L2/L5 (night/bright)
+    # share the spelled rime 'ight' — HOMEOTELEUTON, mandatorily pursued —
+    # so the loop now legitimately repairs L5 by tier 1 before the pivot's
+    # tier-2 search refuses. The claim this check makes is unchanged and
+    # sharper: the REFUSED SEARCH changes nothing — every line the pivot's
+    # conjunction touches (L1-L4) is byte-identical — while L5's repair
+    # belongs to a different rule with its own regression suite.
+    check("the refused search changes nothing IT governs — L1-L4 are "
+          "byte-identical; L5 moved under tier 1 (night/bright, 'ight'), "
+          "a different rule",
+          res.lines[:4] == SILVER_NIGHT_LOCKED[:4]
+          and res.lines[4] != SILVER_NIGHT_LOCKED[4],
+          f"changed: {[i + 1 for i in range(5) if res.lines[i] != SILVER_NIGHT_LOCKED[i]]}")
 
 
 def test_tier2_declines_a_group_of_three_or_more():
