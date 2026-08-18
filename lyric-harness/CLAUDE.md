@@ -33,10 +33,35 @@ These outrank any inference a session draws from the code.
    grammar, schemes from the FULL `rgs()` enumeration, meters from a declared
    cycle set, every free choice seeded and disclosed, refusals for unknown
    forms and unattainable lengths, and a round-trip test proving the graders
-   accept what it emits (`quality/test_plan.py`). Still true and still the
-   rule: do not describe this project as a grader, and do not present
-   operator-authored plans as the system working as intended — the planner
-   is the front door now, and hand-written blueprints are for tests.
+   accept what it emits (`quality/test_plan.py`). REWRITTEN AS V2 2026-08-18
+   after the owner caught v1's bias in one sitting of songs — 4 lines and
+   4/4, everywhere — and named the cause: tables (constants per function,
+   three meters by hand, five pattern strings). V2 replaces every table
+   with a generator over a derived space: meters from the {2,3}-composition
+   cycle grammar filtered by ONE derived envelope (slots-per-line floor =
+   the calibrated density band's floor, ceiling = band ceiling × one
+   declared multiplier), sampled BY DERIVATION — dimension pair, then beat
+   count, then grouping, each uniform over its own set, never uniform over
+   the enumerated leaves (which weight a cycle by how many groupings it
+   admits and hand nearly every plan the maximal beat count — the first
+   smoke run's own finding); lines per section uniform over the envelope;
+   schemes exact-uniform via Bell-triangle completion counts above the
+   enumeration bound, so large stanzas are reachable; patterns generated
+   from the section-function vocabulary's recurrence contracts, 14 of 21
+   functions including instrumentals (zero-line sections) and verbatim
+   returners; anacrusis per function KIND (the pickup is part of the tune —
+   per-instance draws handed the shape layer a RETURN_SLOT_DRIFT on the
+   planner's own verbatim returns). THE CORPUS SAMPLES NOTHING — measured
+   distributions as a sampler would give the unprecedented shape
+   probability ~zero (the owner's "move 37" ban), and `test_plan.py` §4
+   pins by AST that `plan.py` imports no corpus reader and opens no file.
+   The same section holds the samplers to their enumerations at small n —
+   a pin that caught `bell()` returning B(k−1) on the day it was written,
+   with every above-enumeration scheme pool disclosed an order of
+   magnitude small. Still true and still the rule: do not describe this
+   project as a grader, and do not present operator-authored plans as the
+   system working as intended — the planner is the front door now, and
+   hand-written blueprints are for tests.
 
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One

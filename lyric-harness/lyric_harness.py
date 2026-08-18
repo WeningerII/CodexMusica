@@ -5547,20 +5547,24 @@ def main():
             _refuse(str(e))
         except ValueError:
             _refuse("plan --seed and --lines take integers")
+        pat = the_plan["choices"]["pattern"]
         print(f"  PLAN: form={form} seed={seed} -> "
               f"{the_plan['total_lines']} line(s), "
-              f"{len(the_plan['sections'])} section(s), pattern "
-              f"{the_plan['choices']['pattern']['name']} (chosen from "
-              f"{', '.join(the_plan['choices']['pattern']['chosen_from'])})")
+              f"{len(the_plan['sections'])} section(s): "
+              f"{'-'.join(pat['functions'])}")
+        print(f"    (pattern drawn from {pat['chosen_from']})")
         m = the_plan["choices"]["meter"]["value"]
         print(f"  METER: {m['beats']}/{m['unit']} as "
-              f"{tuple(m['groups'])} -- one of "
-              f"{len(the_plan['choices']['meter']['chosen_from'])} declared; "
+              f"{tuple(m['groups'])} -- "
+              f"{the_plan['choices']['meter']['chosen_from']}; "
               f"subdivision {the_plan['subdivision']}, "
               f"{the_plan['choices']['bars_per_line']} bar(s) per line")
         for func, sch in the_plan["choices"]["schemes"].items():
-            print(f"  SCHEME {func}: rgs {tuple(sch['rgs'])} -- one of "
-                  f"{sch['chosen_from']} enumerated with a mandated pair")
+            note = ("with a mandated pair" if sch["lines"] > 1
+                    else "(a one-line section mandates no pair)")
+            print(f"  SCHEME {func}: {sch['lines']} line(s), rgs "
+                  f"{tuple(sch['rgs'])} -- one of {sch['chosen_from']} "
+                  f"{note}")
         print(f"  GROUPS : {the_plan['groups']}")
         print(f"  RETURNS: {the_plan['returns'] or '(none)'}")
         print()
