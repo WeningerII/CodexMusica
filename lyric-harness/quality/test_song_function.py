@@ -105,10 +105,19 @@ def test_function_is_declared_and_never_inferred():
                "refrain", "hook", "tag"} <= set(G.SECTION_FUNCTIONS),
           f"{len(G.SECTION_FUNCTIONS)} functions: "
           f"{', '.join(sorted(G.SECTION_FUNCTIONS))}")
+    # RESTATED 2026-08-18: the fixture was `middle8`, and the vocabulary
+    # moved under it ON PURPOSE — `FunctionSpec.aliases` made the bridge
+    # gloss's own middle-8 claim resolvable. The CLAIM this check makes
+    # (unknown raises, no fallback to verse) is unchanged; the fixture is
+    # now a name no tradition claims, and the old fixture is the positive
+    # control pinning the alias.
     check("an unknown function RAISES rather than falling back to verse",
-          _raises(lambda: G.Section("x", 4, function="middle8"),
+          _raises(lambda: G.Section("x", 4, function="vibes"),
                   G.UnknownFunction),
           "the move check_cynghanedd made for `language` (doctrine 45)")
+    check("...and `middle8` RESOLVES through the constructor to the bridge "
+          "spec — the row's own alias, stored canonical",
+          G.Section("x", 4, function="middle8").function == "bridge")
     check("THE ONE THAT MATTERS — a section NAMED 'chorus' is UNDECLARED",
           G.Section("chorus", 16).function == G.UNDECLARED
           and G.Section("chorus2", 16).function == G.UNDECLARED,
@@ -121,11 +130,21 @@ def test_function_is_declared_and_never_inferred():
           all(s.recurrence in ("once", "returns", "open")
               and s.returns_as in ("verbatim", "new words", "varied", "n/a")
               for s in G.SECTION_FUNCTIONS.values()))
-    check("spelling variants normalise; synonyms do NOT",
+    # RESTATED 2026-08-18, and the RULE this check states is UNCHANGED —
+    # "claims live in the vocabulary with a gloss" — while its example
+    # inverted: `middle-8 -> bridge` IS now such a claim, living on the
+    # bridge row as `FunctionSpec.aliases` beside the gloss that had
+    # argued it in prose since the row was written. What still refuses is
+    # a synonym with NO row behind it.
+    check("spelling variants normalise; row-declared aliases resolve; a "
+          "claim with no row still refuses",
           G.as_function("PRE-CHORUS") == "prechorus"
-          and _raises(lambda: G.as_function("middle-8"), G.UnknownFunction),
-          "`pre-chorus` is a spelling of `prechorus`; `middle8 -> bridge` "
-          "would be a CLAIM, and claims live in the vocabulary with a gloss")
+          and G.as_function("middle-8") == "bridge"
+          and _raises(lambda: G.as_function("the-good-bit"),
+                      G.UnknownFunction),
+          "`pre-chorus` is a spelling of `prechorus`; `middle-8 -> bridge` "
+          "is a CLAIM and it lives in the vocabulary WITH a gloss, which "
+          "is exactly where this check always said claims belong")
 
 
 def test_the_questions_that_needed_a_function():

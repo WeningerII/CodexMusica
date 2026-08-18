@@ -134,9 +134,40 @@ def test_tsv_roundtrip():
         os.unlink(tmp)
 
 
+def test_checkpointing():
+    print("\n6. per-file checkpointing — an interruption costs one file")
+    import shutil
+    import tempfile
+    d = tempfile.mkdtemp()
+    try:
+        out1 = os.path.join(d, "a.tsv")
+        parts = os.path.join(d, "parts")
+        CEN.run([SMALL], out1, "test", parts_dir=parts)
+        base = os.path.basename(SMALL)
+        part = os.path.join(parts, base + ".part.tsv")
+        check("a finished file's cells land in an atomic part file",
+              os.path.exists(part)
+              and not os.path.exists(part + ".tmp")
+              and len(CEN.read_tsv(part)) == 114)
+        # plant a SENTINEL part: a resumed run must REUSE it verbatim,
+        # proving no recompute happens for a checkpointed file.
+        sentinel = [tuple(["eng", "eng", base, "eng_song", "masculine-rhyme",
+                           "cell", "endword-cross", "no",
+                           "1", "1", "0", "0", "1.000000"])]
+        CEN.write_tsv(part, sentinel)
+        out2 = os.path.join(d, "b.tsv")
+        CEN.run([SMALL], out2, "test", parts_dir=parts)
+        check("a restart reuses the part instead of recomputing — the "
+              "planted sentinel comes back verbatim",
+              CEN.read_tsv(out2) == sentinel)
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 if __name__ == "__main__":
     for fn in (test_rows, test_item_readers, test_cell_accounting,
-               test_constrained_tag, test_tsv_roundtrip):
+               test_constrained_tag, test_tsv_roundtrip,
+               test_checkpointing):
         fn()
     print("=" * 62)
     if FAILURES:

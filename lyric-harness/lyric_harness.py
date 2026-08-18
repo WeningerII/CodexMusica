@@ -4274,7 +4274,9 @@ def _blueprint_or_refuse(fn, *a, **k):
     is a wide net and `grid.UnknownFunction` is a subclass of it, so catching
     the family caught the one member `_grid_song`'s own docstring says is
     "deliberately not caught". `quality/test_verbs.py` failed on it inside the
-    hour, and it was right to: a blueprint declaring "middle8" is a defect in
+    hour, and it was right to: a blueprint declaring "vibes" is a defect in
+    ("middle8" was this sentence's example until 2026-08-18, when the
+    bridge row's aliases made it resolve — the mechanism is unchanged)
     a DECLARED coordinate, not a file this reader could not read, and the two
     must not reach the operator wearing the same word. `except ()` matches
     nothing, so the default is a no-op.
@@ -4828,7 +4830,8 @@ def _grid_song(GR, bp):
     read straight through: an absent `function` stays UNDECLARED and every
     function check refuses -- the harness must not read "chorus" out of a
     section's NAME. `GR.UnknownFunction` is deliberately not caught: a
-    blueprint declaring "middle8" has a defect, and swallowing it would hand
+    blueprint declaring "vibes" has a defect ("middle8" resolves since
+    the 2026-08-18 aliases), and swallowing it would hand
     back a silently UNDECLARED section.
 
     The `hooks` half of the reader's pair is dropped here on purpose -- the

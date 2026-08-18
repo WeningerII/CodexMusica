@@ -222,10 +222,22 @@ class FunctionSpec:
     returns_as: str
     #: functions this one is conventionally expected to CONTRAST with
     contrasts_with: tuple = ()
+    #: THE WORLD'S OWN NAMES FOR THIS FUNCTION (2026-08-18) — the same move
+    #: `structures.Structure.aliases` makes for rhyme rows: a genre dialect
+    #: naming the same function is a CLAIM, and this file's own rule is that
+    #: claims live in the vocabulary WITH a gloss, never in the spellings
+    #: table. The bridge row's gloss had made the middle-8 claim in prose
+    #: since it was written while `as_function("middle-eight")` refused —
+    #: the claim existed and was not resolvable, which is doctrine 48's
+    #: shape one field over. Each alias is enumerated in its spellings the
+    #: way `_FUNCTION_SPELLINGS` already enumerates, explicit over clever.
+    aliases: tuple = ()
 
 
-def _spec(name, gloss, recurrence, returns_as, contrasts_with=()):
-    return FunctionSpec(name, gloss, recurrence, returns_as, contrasts_with)
+def _spec(name, gloss, recurrence, returns_as, contrasts_with=(),
+          aliases=()):
+    return FunctionSpec(name, gloss, recurrence, returns_as, contrasts_with,
+                        aliases)
 
 
 #: THE VOCABULARY. D-1 asked for it by name. Every entry is declared here and
@@ -251,7 +263,11 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           "returns", "verbatim"),
     _spec("bridge", "appears once and CONTRASTS; a middle-8 is a bridge whose "
           "bar count happens to be 8, which this model already records, so it "
-          "is not a separate function", "once", "n/a", ("verse", "chorus")),
+          "is not a separate function", "once", "n/a", ("verse", "chorus"),
+          aliases=("middle-eight", "middle eight", "middle_eight",
+                   "middle-8", "middle 8", "middle8",
+                   "departure-section", "departure section",
+                   "departure_section")),
     _spec("breakdown", "strips the arrangement back", "open", "varied"),
     _spec("build", "raises tension toward a return", "open", "varied"),
     _spec("drop", "the arrival a build points at", "returns", "varied"),
@@ -259,8 +275,12 @@ SECTION_FUNCTIONS = {s.name: s for s in (
     _spec("turnaround", "carries the end of one section into the next",
           "returns", "verbatim"),
     _spec("interlude", "instrumental or spoken span between sung sections",
-          "open", "n/a"),
-    _spec("solo", "an instrumental span over section material", "open", "n/a"),
+          "open", "n/a",
+          aliases=("instrumental-break", "instrumental break",
+                   "instrumental_break")),
+    _spec("solo", "an instrumental span over section material", "open", "n/a",
+          aliases=("instrumental-solo", "instrumental solo",
+                   "instrumental_solo")),
     _spec("tag", "a short repeated fragment closing a section or the song",
           "returns", "verbatim"),
     _spec("hook", "a section that IS the hook. A hook is properly a FRAGMENT "
@@ -274,8 +294,23 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           "changed", "once", "varied"),
 )}
 
+#: The alias map, derived from the rows' own declarations — never written
+#: by hand here, so a claim cannot exist in the map without living on its
+#: row (doctrine 1). First declaration wins, and a collision with a real
+#: function name is refused at import: an alias that shadows a row would
+#: silently retype every blueprint using the shadowed name.
+_FUNCTION_ALIASES = {}
+for _s in SECTION_FUNCTIONS.values():
+    for _a in _s.aliases:
+        if _a in SECTION_FUNCTIONS:
+            raise UnknownFunction(
+                f"alias {_a!r} on {_s.name!r} shadows a declared function")
+        _FUNCTION_ALIASES.setdefault(_a, _s.name)
+
 #: Spelling variants only. NOT a synonym table: `middle8 -> bridge` would be a
-#: CLAIM, and claims live in the vocabulary above with a gloss.
+#: CLAIM, and claims live in the vocabulary above WITH a gloss — which is
+#: where they now do live: `FunctionSpec.aliases`, resolved through
+#: `_FUNCTION_ALIASES` above. This table stays spelling-only.
 _FUNCTION_SPELLINGS = {
     "pre-chorus": "prechorus", "pre_chorus": "prechorus",
     "pre chorus": "prechorus",
@@ -302,6 +337,7 @@ def as_function(value):
     if not v:
         return UNDECLARED
     v = _FUNCTION_SPELLINGS.get(v, v)
+    v = _FUNCTION_ALIASES.get(v, v)
     if v in SECTION_FUNCTIONS:
         return v
     raise UnknownFunction(
