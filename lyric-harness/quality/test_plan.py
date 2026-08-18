@@ -27,6 +27,10 @@ Sections:
      (this module imports no corpus)
   5  the disclosure — every free choice echoed beside the set (or the
      size of the set) it was chosen from
+  6  the rendering — the filled song in performance order is the
+     SYSTEM'S output (until 2026-08-18 the delivered song text was
+     assembled by hand in an operator's chat — the
+     no-private-instruments rule closes that)
 
 Run: python3 quality/test_plan.py
 """
@@ -493,9 +497,85 @@ def test_the_disclosure():
           f"misses: {misses[:2] or 'none'}")
 
 
+def test_the_rendering():
+    print("\n6. the filled song RENDERS in performance order — the "
+          "copy-paste artifact is the system's output")
+    # A shape with both a verbatim return and an instrumental, found
+    # honestly rather than pinned to a seed.
+    for seed in range(300):
+        p = make_plan(seed=seed)
+        if p["returns"] and any(s["function"] in ZERO_LINE_FUNCTIONS
+                                for s in p["sections"]):
+            break
+    else:
+        check("a returns+instrumental shape appears within 300 seeds",
+              False)
+        return
+    draft = dummy_draft(p)
+    text = PLN.render_song(p, draft)
+    lines = text.splitlines()
+
+    # Every section's header, in order, derived from the same dict and
+    # slots §5 derives from — and via the ONE builder the brief uses.
+    heads = []
+    for s in p["sections"]:
+        slots = [ls for ls in p["line_slots"]
+                 if ls["section"] == s["name"]]
+        heads.append(PLN.section_header(s, slots))
+    # A returning chorus renders the SAME header twice, so each is found
+    # from a moving cursor — plain index() would land on the first
+    # instance both times (which is exactly how this test first failed).
+    positions, cursor, ok_heads = [], 0, True
+    for h in heads:
+        try:
+            at = lines.index(h, cursor)
+        except ValueError:
+            ok_heads, at = False, -1
+        positions.append(at)
+        cursor = at + 1 if at >= 0 else cursor
+    check("every section's bracket header appears, in performance order, "
+          "from the SAME builder the writer brief uses (seed "
+          f"{p['request']['seed']})",
+          ok_heads and positions == sorted(positions), positions)
+
+    # Every line of the draft appears under its own section, in order —
+    # returns written out in full, never abbreviated.
+    body_ok = ok_heads
+    for s, at in zip(p["sections"], positions):
+        slots = [ls for ls in p["line_slots"]
+                 if ls["section"] == s["name"]]
+        for k, ls in enumerate(slots):
+            if (at < 0 or at + 1 + k >= len(lines)
+                    or lines[at + 1 + k] != draft[ls["line"] - 1]):
+                body_ok = False
+    check("every line sits under its own header in slot order — the "
+          "returned chorus is WRITTEN OUT, not '(x2)'", body_ok)
+    ret_pairs = [tuple(int(x) for x in r.split(","))
+                 for r in p["returns"].split(";")]
+    check("...and each returned line's text appears at BOTH its "
+          "positions in the rendering",
+          all(text.count(draft[a - 1]) >= 2 for a, _b in ret_pairs))
+
+    inst = next(s for s in p["sections"]
+                if s["function"] in ZERO_LINE_FUNCTIONS)
+    at = positions[p["sections"].index(inst)]
+    check("an instrumental section is a header with NO lines under it — "
+          "the hole in the song, measurements and all",
+          at + 1 >= len(lines) or lines[at + 1] == "")
+
+    try:
+        PLN.render_song(p, draft[:-1])
+        check("a short draft refuses to render — same song rule", False)
+    except PlanRefused as e:
+        check("a short draft refuses to render — the same refusal, and "
+              "the same wording, as fill_plan's",
+              "same song" in str(e))
+
+
 if __name__ == "__main__":
     for fn in (test_determinism, test_refusals, test_the_round_trip,
-               test_the_measure, test_the_disclosure):
+               test_the_measure, test_the_disclosure,
+               test_the_rendering):
         fn()
     print("=" * 62)
     if FAILURES:

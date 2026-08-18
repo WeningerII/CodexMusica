@@ -63,6 +63,26 @@ These outrank any inference a session draws from the code.
    system working as intended — the planner is the front door now, and
    hand-written blueprints are for tests.
 
+3. **NO PRIVATE INSTRUMENTS (2026-08-18).** The owner asked what "my
+   private workflow" meant and the honest answer was a confession: both
+   zero-flag songs to date were pre-screened pair by pair through an
+   OPERATOR'S SCRATCH SCRIPT (two dummy lines, a minimal mandate, read
+   the codes) that lived in one session's memory — below prose, below
+   doctrine 48, reachable by nobody — and the final performance-order
+   song text was assembled BY HAND in that operator's chat. The checks
+   were implemented; the working method was not. The rule: **any
+   measurement or step used in producing a delivered song goes through a
+   verb, and an improvised script used twice is a defect report, not a
+   convenience.** The fixes shipped with this rule: `screen` (pair ban
+   screening — the song grader itself on a minimal mandated pair,
+   `quality/test_screen.py` pins NO DRIFT against the full-draft grade)
+   and the rendered song (`plan --fill` emits the complete
+   performance-order text, headers from each section's own measurements,
+   returns written out — `render_song`, pinned in `test_plan.py` §6).
+   The seed-sweep instrument (looping `make_plan` with filters to find a
+   shape) stays manual for now BY THE OWNER'S PENDING RULING, and is
+   named here so it cannot become a quiet fourth instrument.
+
 **Read this file before you write. Read `quality/METHOD.md` when you are about
 to MEASURE** — a rate, a null, a threshold, a refusal, a provenance claim. One
 doctrine numbered 1–95 spans the two files and the index at the bottom of this
@@ -79,7 +99,10 @@ reached.
 Tools: transcribe, score, candidates, check_scheme, check_meter,
 check_song, infer_chains, rhyme_graph, internal, density, qafiya,
 cynghanedd, weight. Loop: spec -> draft -> check -> revise flagged
-lines only -> re-check. Model never self-certifies.
+lines only -> re-check. Model never self-certifies. `screen` and the
+plan/render pair joined 2026-08-18 (standing rule 3): the wrap exposes
+only real entrances, and pair screening + performance-order rendering
+are entrances now, not operator habits.
 
 **THE LOOP IS BUILT: quality/revise.py, tests in test_revise.py.**
 `Reviser.brief(lines, scheme)` returns line-scoped instructions;

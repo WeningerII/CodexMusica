@@ -86,6 +86,7 @@ from quality import meter_bands as MB
 __all__ = ["PLAN_FORMS", "ENVELOPE", "EXACT_ENUM_MAX", "SLOTS_CEILING_X",
            "GENERATOR_ROSTER", "ZERO_LINE_FUNCTIONS", "PlanRefused",
            "make_plan", "fill_plan", "writer_brief", "grading_command",
+           "render_song", "section_header",
            "meter_dims", "meter_space_size", "bell"]
 
 
@@ -613,6 +614,51 @@ def fill_plan(plan, lines):
     }
 
 
+def section_header(sec, slots):
+    """The bracket header for one section — measurements SURFACED from the
+    section's own dict and its own line slots, the same numbers the grid
+    grades (the owner's rule, 2026-08-18: measured-and-followed means
+    required in the output, as implementation, not prose). ONE builder
+    serves the writer brief and the rendered song so the two can never
+    disagree, and reading per section keeps the rows honest the day
+    meters vary between sections."""
+    im = sec["meter"]
+    size = (f"{sec['bars']} bar{'s' if sec['bars'] != 1 else ''} "
+            f"of {im['beats']}/{im['unit']}")
+    if not slots:
+        return f"[{sec['function'].upper()} — instrumental — {size}, no words]"
+    pickup = {0.0: "", 0.5: ", half-beat pickup",
+              1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
+    n = len(slots)
+    return (f"[{sec['function'].upper()} — {n} "
+            f"line{'s' if n != 1 else ''} — {size}{pickup}]")
+
+
+def render_song(plan, lines):
+    """The filled song in PERFORMANCE ORDER — every section under its own
+    bracket header, every line written out in full, returns included
+    verbatim, blank line between sections. This is the copy-paste
+    artifact, and it is the SYSTEM'S output now: until 2026-08-18 the
+    delivered song text was assembled by hand in an operator's chat
+    (Undertow, Count to Five), which is the no-private-instruments flaw
+    this function closes. Count mismatch refuses exactly as `fill_plan`
+    does and for the same reason."""
+    want = plan["total_lines"]
+    got = [l for l in lines if l.strip()]
+    if len(got) != want:
+        raise PlanRefused(f"the plan declares {want} line(s) and the draft "
+                          f"carries {len(got)} — they must be the same song.")
+    out = []
+    for sec in plan["sections"]:
+        slots = [s for s in plan["line_slots"]
+                 if s["section"] == sec["name"]]
+        out.append(section_header(sec, slots))
+        for s in slots:
+            out.append(got[s["line"] - 1])
+        out.append("")
+    return "\n".join(out).rstrip() + "\n"
+
+
 def writer_brief(plan):
     """The plan as a blind writer's seed — shape and rhyme plan, nothing
     about the harness (the coverage experiment's bias rule, kept)."""
@@ -620,26 +666,9 @@ def writer_brief(plan):
     out = [f"Write a song: {plan['total_lines']} lines, "
            f"{len(plan['sections'])} sections, in this order:"]
     for sec in plan["sections"]:
-        # EVERY section row carries its measurements — duration, meter,
-        # pickup — SURFACED from the section's own dict and its own line
-        # slots, the same numbers the grid grades (the owner's rule,
-        # 2026-08-18: measured-and-followed means required in the output,
-        # as implementation, not prose). Reading per section keeps the
-        # rows honest the day meters vary between sections.
         slots = [s for s in plan["line_slots"]
                  if s["section"] == sec["name"]]
-        im = sec["meter"]
-        size = (f"{sec['bars']} bar{'s' if sec['bars'] != 1 else ''} "
-                f"of {im['beats']}/{im['unit']}")
-        if not slots:
-            out.append(f"  [{sec['function'].upper()} — instrumental — "
-                       f"{size}, no words]")
-        else:
-            pickup = {0.0: "", 0.5: ", half-beat pickup",
-                      1.0: ", one-beat pickup"}[slots[0]["beat"] - 1]
-            n = len(slots)
-            out.append(f"  [{sec['function'].upper()} — {n} "
-                       f"line{'s' if n != 1 else ''} — {size}{pickup}]")
+        out.append("  " + section_header(sec, slots))
     out.append(f"Feel: {m['beats']}/{m['unit']} grouped "
                f"{'+'.join(str(g) for g in m['groups'])}.")
     if plan["groups"]:

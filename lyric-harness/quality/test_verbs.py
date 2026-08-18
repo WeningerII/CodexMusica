@@ -598,6 +598,10 @@ def test_every_verb_runs():
         "demo": ["demo"],
         "wiring": ["wiring"],
         "types": ["types", "fire", "--", "desire"],
+        # Pair ban screening (2026-08-18, the no-private-instruments
+        # rule). Behavioural coverage lives in quality/test_screen.py —
+        # this row is the dispatch-reachability claim only.
+        "screen": ["screen", "fire", "desire"],
         "partition": ["partition", quat],
         "cycle": ["cycle", "7/8", "3+2+2"],
         "relations": ["relations", quat],

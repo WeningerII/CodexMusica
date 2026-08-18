@@ -3722,6 +3722,66 @@ def _rel_show(stream, inst):
 
 
 # ---------------------------------------------------------------------------
+#: Pair-scoped finding codes `screen` relays. Everything else the carrier
+#: lines provoke is about the SCAFFOLD, not the pair, and relaying it
+#: would teach a caller to distrust the instrument.
+SCREEN_PAIR_CODES = ("HOMEOTELEUTON", "MODAL_RHYME")
+
+#: Two DIFFERENT carrier lines, every word CMUdict-readable, ending in the
+#: screened words. Different on purpose: with identical carriers the
+#: mosaic scorer finds the shared "evening to the" span and inflates a
+#: non-rhyme's reported score (measured 0.762 on stone/window before this
+#: was split), and two identical openings buy an ANAPHORA note about the
+#: scaffold. The pair checks themselves read end words only.
+_SCREEN_CARRIERS = ("we carry the evening to the {w}",
+                    "and no one had to tell us about {w}")
+
+
+def screen_pairs(words, lex=None, decl=None):
+    """Every unordered pair among `words`, judged by the REAL grader on a
+    minimal mandated pair — the same `Reviser.inspect` the `song` verb
+    runs, on two carrier lines whose only degree of freedom is the end
+    word. PROMOTED FROM AN OPERATOR'S SCRATCH SCRIPT 2026-08-18 (the
+    no-private-instruments rule, CLAUDE.md standing rule 3): this exact
+    trick pre-screened both zero-flag songs before a word was drafted,
+    and a step that decides which words even get tried must have an
+    entrance the system owns.
+
+    -> list of dicts, one per pair in declared order:
+       a, b, relation, score, why, codes (the SCREEN_PAIR_CODES present),
+       refused (bool), reason (the grader's own refusal sentence or None).
+    A banned pair is an ANSWER (refused=False, codes non-empty); refusal
+    is reserved for what the grader itself refuses to judge (doctrine 28).
+    """
+    from quality.revise import Reviser
+    from quality import schemes as SC
+    rv = Reviser(lex=lex, decl=decl) if (lex or decl) else Reviser()
+    out = []
+    for i in range(len(words)):
+        for j in range(i + 1, len(words)):
+            a, b = words[i], words[j]
+            found = rv.inspect(
+                [_SCREEN_CARRIERS[0].format(w=a),
+                 _SCREEN_CARRIERS[1].format(w=b)],
+                SC.mandate([[1, 2]], n_lines=2))
+            g = found["grade"]
+            codes = sorted({f.code for fs in found["per_line"].values()
+                            for f in fs if f.code in SCREEN_PAIR_CODES})
+            row = {"a": a, "b": b, "codes": codes, "refused": False,
+                   "reason": None, "relation": None, "score": None,
+                   "why": None}
+            if g["refusals"]:
+                row["refused"] = True
+                row["reason"] = g["refusals"][0]["reason"]
+            elif g["verdicts"]:
+                v = g["verdicts"][0]
+                row["relation"] = v["relation"]
+                row["score"] = v["score"]
+                row["why"] = v["why"]
+            out.append(row)
+    return out
+
+
 # THE USAGE TEXT AND THE WIRING MAP, AS DATA
 #
 # Both were previously inline in `main()`, and both went stale the moment a
@@ -3801,6 +3861,19 @@ the quality layer (each says which module answered):
   types  W1 -- W2 [--lang=] [--preset=]
                           full rhyme-type coordinate: 9 axes, per-member
                           anchor, traditional names
+  screen W1 W2 [W3...]    is this rhyme pair USABLE before a word is
+                          drafted: every unordered pair among the words,
+                          judged by the song grader itself on a minimal
+                          mandated pair (same Reviser, same declaration),
+                          relaying only pair-scoped findings —
+                          HOMEOTELEUTON, MODAL_RHYME — plus the verdict
+                          and the grader's own refusals. A banned pair is
+                          an ANSWER, exit 0. Promoted from an operator's
+                          scratch script 2026-08-18 (the
+                          no-private-instruments rule): this exact check
+                          pre-screened both zero-flag songs, and a step
+                          that decides which words get tried must have an
+                          entrance the system owns
   partition FILE|L...     the rhyme scheme as a SET PARTITION, canonical RGS,
                           crossings/nestings -- and it refuses when the
                           cliques overlap, because then no letter scheme
@@ -3901,6 +3974,8 @@ VERB_LAYERS = (
     ("demo", "lyric_harness.py", "the acceptance suite"),
     ("wiring", "lyric_harness.py", "this map, checked against the dispatch"),
     ("types", "quality/rhyme_types.py", "9-axis coordinate + anchor"),
+    ("screen", "quality/revise.py", "pair ban screening -- the song "
+     "grader on a minimal mandated pair"),
     ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
     ("refrain", "quality/schemes.py", "A-1 notation: the VERBATIM return"),
     ("cycle", "quality/meter.py", "exact-rational metric cycles"),
@@ -5517,6 +5592,60 @@ def main():
                   f"(doctrine 84 — 'declared_relation' means the phonology "
                   f"answered, not the channels)")
 
+    elif cmd == "screen":
+        rest = args[1:]
+        _usage = ("usage: screen WORD WORD [WORD...] — every unordered "
+                  "pair among the words, judged by the song grader on a "
+                  "minimal mandated pair")
+        bad_flag = [a for a in rest if a.startswith("--")]
+        if bad_flag:
+            _refuse(f"screen does not take {bad_flag[0]!r}",
+                    detail=[_usage,
+                            "an unrecognised flag is refused rather than "
+                            "ignored (doctrine 20)"])
+        words = [w for w in rest if w.strip()]
+        if len(words) < 2:
+            _refuse("screen needs at least two words",
+                    detail=[_usage,
+                            "one word screens against nothing — the "
+                            "question is about a PAIR"])
+        multi = [w for w in words if len(w.split()) != 1]
+        if multi:
+            _refuse(f"screen takes single words and {multi[0]!r} is not "
+                    f"one",
+                    detail=[_usage,
+                            "the screen judges END WORDS; a phrase's "
+                            "rhyme is graded in a draft, by `brief`/`song`"])
+        rows = screen_pairs(words, lex=lex, decl=decl)
+        n_banned = sum(1 for r in rows if r["codes"])
+        n_ref = sum(1 for r in rows if r["refused"])
+        print(f"  SCREEN: {len(rows)} pair(s) from {len(words)} word(s) — "
+              f"the song grader on a minimal mandated pair each, under "
+              f"the active declaration; only pair-scoped findings are "
+              f"relayed ({', '.join(SCREEN_PAIR_CODES)}), the carrier "
+              f"lines are scaffolding")
+        w = max(len(f"{r['a']} ~ {r['b']}") for r in rows)
+        for r in rows:
+            pair = f"{r['a']} ~ {r['b']}".ljust(w)
+            if r["refused"]:
+                print(f"  {pair}  REFUSED — {r['reason']}")
+            else:
+                verdict = f"{r['relation']} {r['score']:.3f}"
+                # `why is None` is the GRADE's own satisfaction marker —
+                # read it rather than re-listing the admit set here, so a
+                # widened `Declaration.admit` flows through untouched.
+                if r["codes"]:
+                    status = f"BANNED: {', '.join(r['codes'])}"
+                elif r["why"] is None:
+                    status = "CLEAN"
+                else:
+                    status = f"not a usable rhyme — {r['why']}"
+                print(f"  {pair}  {verdict}  {status}")
+        print(f"  {n_banned} banned, {n_ref} refused, "
+              f"{len(rows) - n_banned - n_ref} clean or non-rhyme — a "
+              f"banned pair is an ANSWER; refusal is the grader's own "
+              f"(doctrine 28)")
+
     elif cmd == "plan":
         from quality import plan as PLN
         rest = args[1:]
@@ -5578,6 +5707,13 @@ def main():
             except PLN.PlanRefused as e:
                 _refuse(str(e))
             payload, what = bp, "completed blueprint"
+            # THE SONG, PERFORMANCE ORDER — the copy-paste artifact is
+            # the system's output (no-private-instruments rule,
+            # 2026-08-18): headers from each section's own measurements,
+            # every line written out in full, returns included verbatim.
+            print("  THE SONG, PERFORMANCE ORDER:")
+            print()
+            print(PLN.render_song(the_plan, draft_lines))
         else:
             payload = the_plan
             what = "plan (line slots empty -- the writer is outside)"
