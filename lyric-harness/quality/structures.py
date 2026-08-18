@@ -75,6 +75,18 @@ class Structure:
     aliases: tuple = ()
     cell: tuple = ()          # the axis key, kind == "cell" only
     doc: str = ""
+    #: Whether a MEASURED laziness/threshold regime exists for this row —
+    #: the two-tier ban's data (predictability table + lazy class) under
+    #: THIS structure's own pairing relation. True today for exactly the
+    #: comparator sentinel (English end-rhyme: theta, the conjunctive band,
+    #: the eng-song modal table, the spelled-rime class). Every other row
+    #: flips to True only when a preregistered calibration ADOPTS its
+    #: numbers (the meter-band pattern: register -> measure -> adopt ->
+    #: CI re-derives). The planner samples ONLY calibrated rows, and the
+    #: grader DISCLOSES an uncalibrated declaration out loud — a declared
+    #: structure with no laziness data grades correctness but cannot grade
+    #: laziness, and silence about that would read as clean (doctrine 48).
+    calibrated: bool = False
 
     def judge(self, a, b, phon=None):
         """-> True / False / None (None = REFUSED: the phonology declined
@@ -146,6 +158,7 @@ def _build():
     add(Structure(
         name=DEFAULT, kind="comparator",
         aliases=("end-rhyme", "perfect-end-rhyme"),
+        calibrated=True,
         doc="the default: last primary stress to line end, scalar + "
             "conjunctive band + Declaration.admit — grade()'s own path"))
     for name in RT.PRESETS:

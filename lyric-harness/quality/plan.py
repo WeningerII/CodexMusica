@@ -206,6 +206,25 @@ def make_plan(seed, form="verse-chorus", lines=None):
         by_func[func] = code
         scheme_meta[func] = {"rgs": list(code), "chosen_from": pool}
 
+    # Structures: which catalog row each function's groups DEMAND
+    # (quality/structures.py). The pool is CALIBRATED rows ONLY — a row
+    # with no measured laziness regime can grade correctness but not
+    # laziness, and a planner that mandated one would be planning a check
+    # it cannot enforce (the grader would disclose STRUCTURE_UNCALIBRATED
+    # on every draft). Today the pool is exactly the comparator sentinel,
+    # so the pick is FORCED — a pool of one is not a free choice, so no
+    # seed entropy is consumed and every existing seed's plan reproduces
+    # byte-for-byte in its other choices. The disclosure ships now so the
+    # first adopted calibration widens the POOL, not the schema. Sampled
+    # AFTER the scheme picks on purpose: RNG order is part of every
+    # recorded plan's reproduction.
+    from quality import structures as _ST
+    spool = sorted(s.name for s in _ST.STRUCTURES.values() if s.calibrated)
+    struct_meta = {}
+    for func in dict.fromkeys(funcs):
+        name = spool[0] if len(spool) == 1 else rng.choice(spool)
+        struct_meta[func] = {"name": name, "chosen_from": list(spool)}
+
     groups, returns = [], []
     first_chorus = None
     for sec, func in zip(sections, funcs):
@@ -232,6 +251,12 @@ def make_plan(seed, form="verse-chorus", lines=None):
             "meter": {"value": dict(meter),
                       "chosen_from": [dict(m) for m in METER_SET]},
             "schemes": scheme_meta,
+            # The declared-structure coordinate, per function kind. All
+            # sentinel today (see the sampling comment above); the CLI
+            # spelling for a NON-default pick lands with the first
+            # calibration sitting, which is also the only event that can
+            # produce one.
+            "structures": struct_meta,
             "bars_per_line": BARS_PER_LINE,
             "subdivision": PLAN_SUBDIVISION,
         },

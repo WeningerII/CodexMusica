@@ -872,6 +872,18 @@ class Reviser:
         # with a failure.
         unknown = set()
         verdicts = []
+        # THE DECLARED-STRUCTURE ROUTE (phases A/B wired 2026-08-18). A
+        # group may declare a catalog row (quality/structures.py) and its
+        # pairs are then judged by THAT row's judge — a skothending by its
+        # coda demand at its own anchors, alliteration at the head — never
+        # by the scalar comparator, whose thresholds and admit set are
+        # END-RHYME instruments. The import is paid only when a mandate
+        # actually declares one: every mandate that never learned the
+        # coordinate takes the byte-identical old path.
+        _ST = None
+        if getattr(m, "structures", ()) and any(m.structures):
+            from quality import structures as _ST_mod
+            _ST = _ST_mod
         for (i, j, k) in pairs:
             if (i, j) in refused:
                 unknown.add((i, k))
@@ -880,8 +892,43 @@ class Reviser:
             s = matrix[i - 1][j - 1]
             rel = s["relation"]
             why = None
+            struct = m.structure_of(k) if _ST is not None else None
             if rel == "REPEAT":
+                # Identity is its own question under EVERY structure — the
+                # returns/licence machinery owns it, and an identical word
+                # trivially "satisfying" an alliteration demand is exactly
+                # the laziness that machinery exists to adjudicate.
                 why = "REPEAT not rhyme (identical word)"
+            elif _ST is not None and struct != _ST.DEFAULT:
+                sv = _ST.judge(struct, endwords[i - 1], endwords[j - 1])
+                if sv is None:
+                    refusals.append({
+                        "lines": (i, j),
+                        "endwords": (endwords[i - 1], endwords[j - 1]),
+                        "unreadable": [],
+                        # The scalar refusals get their "groups" annotated
+                        # in one pass above, BEFORE this loop runs — a
+                        # record minted here must carry its own or the
+                        # SCHEME_UNREADABLE renderer KeyErrors. This one
+                        # names group k alone, deliberately: the refusal
+                        # is about THIS group's declared structure, not
+                        # about every group the pair happens to share.
+                        "groups": [m.labels[k]],
+                        "reason": (f"the declared structure {struct!r} has "
+                                   f"no coordinates in this pair (a "
+                                   f"refused anchor or an unreadable "
+                                   f"member) — REFUSED, not failed "
+                                   f"(doctrine 79)")})
+                    refused.add((i, j))
+                    unknown.add((i, k))
+                    unknown.add((j, k))
+                    continue
+                if not sv:
+                    why = (f"does not satisfy the declared structure "
+                           f"{struct!r} — judged by the catalog's own "
+                           f"{_ST.get(struct).kind} judge at that "
+                           f"structure's anchors, not by the scalar "
+                           f"comparator")
             elif rel in NEAR_RELATIONS and rel not in self.decl.admit:
                 # An ADMITTED near relation falls through to `admits()` and
                 # satisfies on its scalar — `Declaration.admit`, the owner's
@@ -929,6 +976,17 @@ class Reviser:
                              # verdict names are NOT what produced the score.
                              "attribution": self._attribution(
                                  s, endwords[i - 1], endwords[j - 1]),
+                             # WHICH JUDGE ANSWERED. A catalog row name when
+                             # the mandate declared the coordinate (the
+                             # DEFAULT name for its undeclared groups), and
+                             # None when the mandate never learned it at all
+                             # — in which case the catalog default applies BY
+                             # DEFINITION, and the default's spelling is not
+                             # repeated here because `structures.DEFAULT` is
+                             # its one statement (doctrine 1) and paying the
+                             # catalog import on every structureless grade()
+                             # is what the lazy gate above exists to avoid.
+                             "structure": struct,
                              "why": why})
 
         # Doctrine 3, resolved PER PAIR by the mandate's own declaration
@@ -1866,6 +1924,36 @@ class Reviser:
                 whole.append(f)
 
         rep = self.grade(lines, m, profile=profile)
+        # A DECLARED STRUCTURE WITH NO LAZINESS DATA IS SAID OUT LOUD, ONCE
+        # PER DRAFT (doctrine 48: silence about it would read as clean).
+        # `Structure.calibrated` is True only where a preregistered
+        # calibration has ADOPTED a measured laziness regime under THAT
+        # structure's own pairing relation — today exactly the comparator
+        # sentinel. Every other declared row grades CORRECTNESS (its judge
+        # answers true/false/refused) and cannot grade LAZINESS: the modal
+        # table and the spelled-rime class are end-rhyme instruments, and
+        # the pair check above skips these verdicts for exactly that
+        # reason. One NOTE for the whole draft, not one per pair — the fact
+        # is about the DECLARATION, not about any line's words, and a
+        # per-pair charge would be the inflation `song_function_report`'s
+        # counting docstring records (one fact, N records).
+        if getattr(m, "structures", ()) and any(m.structures):
+            from quality import structures as _STw
+            _uncal = sorted({name for name in m.structures
+                             if name and not _STw.get(name).calibrated})
+            if _uncal:
+                whole.append(Finding(
+                    "STRUCTURE_UNCALIBRATED", "note",
+                    f"declared structure(s) {', '.join(repr(x) for x in _uncal)} "
+                    f"have no measured laziness tier — correctness is graded "
+                    f"by the catalog's own judge, laziness is NOT graded",
+                    f"Structure.calibrated is False for these rows: no "
+                    f"preregistered calibration has adopted a predictability "
+                    f"table or a lazy class under their own pairing "
+                    f"relation, so the two-tier ban (HOMEOTELEUTON / "
+                    f"MODAL_RHYME) does not apply to their pairs and nothing "
+                    f"stands in for it. The meter-band pattern is the road: "
+                    f"register -> measure -> adopt -> CI re-derives.", []))
         if not m.independent():
             whole.append(Finding(
                 "MANDATE_NOT_INDEPENDENT", "note",
@@ -1906,6 +1994,25 @@ class Reviser:
         for v in rep["verdicts"]:
             if v["why"] or v["relation"] == "REPEAT":
                 continue          # a violation, or a declared identity
+            # A PAIR JUDGED UNDER A DECLARED NON-DEFAULT STRUCTURE IS NOT
+            # ASKED THIS QUESTION. Both tiers below are END-RHYME laziness
+            # instruments — `spelled_rime` reads the spelled ENDING and the
+            # modal table ranks END-RHYME partners over eng-song pairs — so
+            # asking them of a skothending (coda-only, line-internal
+            # anchors) or a Kalevala alliteration (word ONSETS) would grade
+            # the wrong axis with the wrong corpus and call the answer
+            # doctrine 9. The structure's own laziness regime arrives only
+            # by preregistered calibration (Structure.calibrated), and until
+            # one adopts, the honest state is DISCLOSED once per draft by
+            # the uncalibrated-structure note rather than faked per pair
+            # here (doctrine 20). `structure` is None on every mandate that
+            # never learned the coordinate, so this line is unreachable on
+            # every pre-catalog path.
+            _vs = v.get("structure")
+            if _vs is not None:
+                from quality import structures as _STm
+                if _vs != _STm.DEFAULT:
+                    continue
             i, j = v["lines"]
             wi, wj = (w.lower() for w in v["endwords"])
             # TIER 1 FIRST — HOMEOTELEUTON (owner's rule, 2026-08-18): the
