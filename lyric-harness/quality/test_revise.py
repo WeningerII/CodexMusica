@@ -2755,10 +2755,21 @@ def test_substituted_end_word_reaches_the_loop():
         "And the foam of his gasping lay white on the turf,[mm]"]
     solo = R.inspect(byron, SC.mandate([[1, 2]], n_lines=3))
     codes = {f.code for f in solo["per_line"].get(3, [])}
+    # RESTATED 2026-08-18, when the calibrated bands joined `inspect()`:
+    # `mm` reads to ['M'] and yields no syllable, which makes this line's
+    # count a LOWER BOUND — and the band layer now SAYS so with a
+    # `BAND_UNJUDGED` note (its own doctrine-79 disclosure, from
+    # `_band_findings`). The claim this check makes is unchanged:
+    # SUBSTITUTED_END_WORD is still the only READABILITY finding here;
+    # BAND_UNJUDGED is a different layer speaking about the same token for
+    # its own reason, and pinning it in the set is what keeps a THIRD
+    # arrival on this line from passing silently.
     check("the RESIDUE: on a real corpus line whose end token READS and "
           "yields no syllable, this is the ONLY readability finding there "
-          "is — 2 lines of 151,894, and nothing reached them before",
-          codes == {"SUBSTITUTED_END_WORD"},
+          "is — 2 lines of 151,894, and nothing reached them before (the "
+          "band layer's BAND_UNJUDGED sits beside it since 2026-08-18, "
+          "about the same token, from its own layer)",
+          codes == {"SUBSTITUTED_END_WORD", "BAND_UNJUDGED"},
           f"codes on Byron's `...on the turf,[mm]`: {sorted(codes)}; "
           f"whole draft: "
           f"{sorted({f.code for fs in solo['per_line'].values() for f in fs})}")

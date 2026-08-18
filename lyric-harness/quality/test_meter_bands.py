@@ -341,11 +341,131 @@ def test_the_reader_trial():
               "passed", "derived" in str(e), str(e)[:60])
 
 
+def test_the_adoption_check():
+    print("\n9. the drift instrument — shipped constants vs a re-derived "
+          "trial")
+    from quality.meter_bands import (ADOPTED, ADOPTED_READER,
+                                     adoption_check)
+    check("the shipped constants are the adopted ones — DENSITY [5,12], "
+          "PROMINENCE [2,7], at the registered reader",
+          ADOPTED == {"DENSITY": (5, 12), "PROMINENCE": (2, 7)}
+          and ADOPTED_READER == "fallback-low")
+    # The comparison logic, on synthetic sweeps via `expected` — the
+    # production default (expected=None -> ADOPTED) is exercised by the CI
+    # step `python3 quality/meter_bands.py --check`, which runs the real
+    # 49-second derivation.
+    cert = [LineRecord("A", i, 8, 4, 0) for i in range(1, 41)]
+    der = [LineRecord("B", i, 8, 4, 2) for i in range(1, 21)]
+    cal = _cal(cert + der, [])
+    cal.reader_mode = "fallback-low"
+    ok, msg = adoption_check(cal, expected={"DENSITY": (8, 8),
+                                            "PROMINENCE": (4, 4)})
+    check("matching constants PASS with the derivation quoted",
+          ok and "re-derive exactly" in msg, msg[:70])
+    ok, msg = adoption_check(cal, expected={"DENSITY": (5, 12),
+                                            "PROMINENCE": (4, 4)})
+    check("a drifted band FAILS with both values NAMED — shipped and "
+          "re-derived", not ok and "DENSITY" in msg and "[5, 12]" in msg
+          and "[8, 8]" in msg, msg[:90])
+    cal_wrong = _cal(cert + der, [])
+    cal_wrong.reader_mode = "default"
+    ok, msg = adoption_check(cal_wrong, expected={"DENSITY": (8, 8)})
+    check("a sweep read with the WRONG reader is refused before any "
+          "comparison — checking against the wrong instrument checks "
+          "nothing", not ok and "wrong instrument" in msg, msg[:70])
+    hot = [LineRecord("B", i, 8, 6, 2) for i in range(1, 21)]
+    cal_hot = _cal(cert + hot, [])
+    cal_hot.reader_mode = "fallback-low"
+    ok, msg = adoption_check(cal_hot, expected={"DENSITY": (8, 8),
+                                                "PROMINENCE": (4, 6)})
+    check("a trial that no longer adopts a shipped band FAILS naming the "
+          "verdict, not just the numbers",
+          not ok and "no longer adopts" in msg, msg[:90])
+
+
+def test_the_enforcement():
+    print("\n10. THE ENFORCEMENT — the adopted bands are per-line FLAGS in "
+          "the grader (the second sitting's deliverable)")
+    from quality.revise import Reviser
+    R = Reviser()
+    lines = [
+        # 1: in band both ways (8 syllables) — must carry NO band finding.
+        "the bells ring out across the empty town",
+        # 2: 3 syllables — under the density floor.
+        "burn it down",
+        # 3: long — over both ceilings.
+        "counting every lit-up letter in the window of the shuttered "
+        "five and dime tonight",
+        # 4: in band, rhymes with 2 in the mandate so the rhyme layer has
+        # its say too — the band layer must not disturb it.
+        "the river carries every crown",
+    ]
+    found = R.inspect(lines, mandate="AXXA")
+    per = found["per_line"]
+
+    def band_codes(ln):
+        return sorted(f.code for f in per.get(ln, [])
+                      if f.code in ("DENSITY_OUT_OF_BAND",
+                                    "PROMINENCE_OUT_OF_BAND",
+                                    "BAND_UNJUDGED"))
+    check("an in-band line carries NO band finding — silence means clean, "
+          "because the check runs unconditionally",
+          band_codes(1) == [] and band_codes(4) == [], band_codes(1))
+    check("too FEW syllables is a FLAG — under the floor is refused, not "
+          "nudged",
+          band_codes(2) == ["DENSITY_OUT_OF_BAND"]
+          and all(f.severity == "flag" for f in per[2]
+                  if f.code == "DENSITY_OUT_OF_BAND"), band_codes(2))
+    check("too MANY syllables and too many prominents are BOTH flags on "
+          "the long line — a band, not a direction",
+          band_codes(3) == ["DENSITY_OUT_OF_BAND",
+                            "PROMINENCE_OUT_OF_BAND"], band_codes(3))
+    check("...and every band violation is severity FLAG — the loop holds "
+          "the line open until it is fixed, nothing to opt into",
+          all(f.severity == "flag" for ln in (2, 3) for f in per[ln]
+              if f.code.endswith("OUT_OF_BAND")))
+
+    # The lower-bound asymmetry (doctrine 79). `wi'` refuses even at
+    # fallback-low: a short line with it gets NO density flag (the floor
+    # cannot be proven) and a BAND_UNJUDGED note instead; a line already
+    # over the ceiling on readable tokens alone flags DESPITE the refusal.
+    found = R.inspect(
+        ["dance wi' me", "counting every lit-up letter in the window of "
+         "the shuttered five and dime wi' thee"], mandate="AA")
+    per = found["per_line"]
+    c1 = sorted(f.code for f in per.get(1, []) if "BAND" in f.code
+                or "OUT_OF" in f.code)
+    c2 = sorted(f.code for f in per.get(2, []) if "BAND" in f.code
+                or "OUT_OF" in f.code)
+    check("a refused token makes UNDER-the-floor unjudgeable: no flag, a "
+          "BAND_UNJUDGED note names the token instead",
+          "DENSITY_OUT_OF_BAND" not in c1 and "BAND_UNJUDGED" in c1, c1)
+    check("...but OVER-the-ceiling flags anyway — a lower bound above 12 "
+          "is a violation no missing token can undo",
+          "DENSITY_OUT_OF_BAND" in c2 and "BAND_UNJUDGED" in c2, c2)
+
+    # THE INSTRUMENT MATCH, FALSIFIABLE. This dialect line reads COMPLETE
+    # and in-band only under the calibration's own reader (section 8 proved
+    # the default refuses it) — so an enforcement quietly reading with the
+    # default reader would stamp BAND_UNJUDGED here, and this check is what
+    # goes red. The registered adoption condition, as a regression rather
+    # than prose.
+    found = R.inspect(["gie me a canty hour at hame",
+                       "the bells ring out across the empty town"],
+                      mandate="AA")
+    c1 = sorted(f.code for f in found["per_line"].get(1, [])
+                if "BAND" in f.code or "OUT_OF" in f.code)
+    check("a dialect line the fallback reads clean carries NO band finding "
+          "— enforcement reads with the CALIBRATION'S reader (the "
+          "registered instrument-match condition)", c1 == [], c1)
+
+
 if __name__ == "__main__":
     for fn in (test_nearest_rank, test_lyric_filter,
                test_exclusion_not_imputation, test_determinism,
                test_real_file, test_proposal_is_derived,
-               test_the_amendment, test_the_reader_trial):
+               test_the_amendment, test_the_reader_trial,
+               test_the_adoption_check, test_the_enforcement):
         fn()
     print("=" * 62)
     if FAILURES:
