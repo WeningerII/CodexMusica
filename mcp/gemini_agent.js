@@ -347,6 +347,7 @@ export async function runTurn({
       // Harvest the workspace on the way past. The model is never shown it, so
       // this is the only place it can be captured.
       let payload = null;
+      let lyricVerdict = null;
       if (!isError) {
         try {
           payload = JSON.parse(result?.content?.[0]?.text ?? '');
@@ -354,6 +355,23 @@ export async function runTurn({
           payload = null;
         }
         if (payload && payload.workspace) ws = payload.workspace;
+        // Harvest a lyric verdict the same way: a two-block lyric result
+        // carries it in the SECOND block (block 0 is the deliverable,
+        // deliberately not JSON); a one-block lyric result IS the verdict.
+        // Captured so the page can show the exit code and the banned-pair
+        // count on the tool chip whether or not the model relays either —
+        // the 2026-08-19 site transcript relayed neither.
+        const second = result?.content?.[1]?.text;
+        if (second != null) {
+          try {
+            lyricVerdict = JSON.parse(second);
+          } catch {
+            lyricVerdict = null;
+          }
+        }
+        if (!lyricVerdict && payload && typeof payload.exit_code === 'number') {
+          lyricVerdict = payload;
+        }
       }
       calls.push({
         name: fc.name,
@@ -366,6 +384,9 @@ export async function runTurn({
         error: isError ? (result?.content?.[0]?.text ?? '') : null,
         cards: payload?.cards ?? null,
         recipe: payload?.recipe ?? null,
+        exit_code: typeof lyricVerdict?.exit_code === 'number' ? lyricVerdict.exit_code : null,
+        banned_pairs:
+          typeof lyricVerdict?.banned_pairs === 'number' ? lyricVerdict.banned_pairs : null,
       });
       if (onEvent) onEvent({ type: 'tool', name: fc.name, isError });
       responses.push({ functionResponse: toFunctionResponse(fc.name, fc.id, result) });

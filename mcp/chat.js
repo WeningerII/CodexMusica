@@ -367,7 +367,16 @@ export async function createChatRouter({
         // model paraphrased is still shown exactly.
         recipe: lastRecipe?.recipe || null,
         cards: lastRecipe?.cards || null,
-        tools: run.calls.map((c) => ({ name: c.name, error: c.isError ? c.error : null })),
+        // exit_code and banned_pairs ride along for the lyric verbs (null for
+        // the recipe tools) so the page's tool chips can show the verdict the
+        // model may not relay — the two-tier ban is unskippable, and a count
+        // only the model ever saw protects nobody.
+        tools: run.calls.map((c) => ({
+          name: c.name,
+          error: c.isError ? c.error : null,
+          exit_code: c.exit_code ?? null,
+          banned_pairs: c.banned_pairs ?? null,
+        })),
         stopped: run.stopped,
         ...envelope,
         sig: sign(envelope),

@@ -584,6 +584,13 @@ try {
       song.includes('[CHORUS — 3 lines —') && !song.trimStart().startsWith('{'),
       'block 0 is the SONG as plain text, bracket headers intact'
     );
+    // The provenance stamp is SERVER-written under the song, inside the
+    // verbatim block: seed + exit + banned-pair count reach the user even
+    // through a client that relays nothing else.
+    assert.ok(
+      /\[GRADED — seed 55 — exit [03], .+ — \d+ banned pair\(s\)/.test(song),
+      'block 0 carries the [GRADED — seed …] stamp line'
+    );
     const gradeVerdict = JSON.parse(gradedRes.content[1].text);
     assert.ok([0, 3].includes(gradeVerdict.exit_code), 'grade answered (0 or 3, never a refusal)');
     assert.ok(
@@ -591,6 +598,28 @@ try {
       'a grade report came back in the verdict block'
     );
     console.log('  ok  lyric_grade live: two blocks — the song plain, the verdict JSON');
+    passed++;
+
+    // The two-tier ban reaches the verdict as banned_pairs — UNSKIPPABLE
+    // disclosure at the one surface with no revise loop. mass/pass is the
+    // demonstrative pair: it RHYMES, so it grades exit 0, and it is
+    // HOMEOTELEUTON (-ass on both sides), so a chat model shown only the
+    // exit code would present it as finished — the 2026-08-19 site
+    // transcript, in miniature.
+    const checked = await callText('lyric_check', {
+      lines: ['we carry the evening to the mass', 'and no one had to tell us about pass'],
+      scheme: 'AA',
+    });
+    assert.equal(checked.exit_code, 0, 'the banned pair rhymes — no flag stands');
+    assert.equal(checked.banned_pairs, 1, 'exactly one banned pair is surfaced');
+    assert.equal(checked.banned[0].code, 'HOMEOTELEUTON', 'named by the ban tier that caught it');
+    assert.deepEqual(checked.banned[0].lines, [1, 2], 'with the lines to revise');
+    assert.ok(
+      typeof checked.banned_pairs_meaning === 'string' &&
+        checked.banned_pairs_meaning.includes('UNSKIPPABLE'),
+      'and the meaning says the ban is unskippable'
+    );
+    console.log('  ok  lyric_check live: banned_pairs surfaces the ban at exit 0');
     passed++;
 
     const planRes = await client.callTool({ name: 'lyric_plan', arguments: { seed: 55 } });

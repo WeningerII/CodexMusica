@@ -1621,6 +1621,9 @@ body.is-dnd-active * { cursor: grabbing !important; }
   color: var(--text-2);
 }
 .chat-tool.is-error { background: var(--accent); color: #fff; }
+/* A lyric grade with banned pairs standing: not an error — the call answered —
+   but a verdict the user must see even when the reply relays none of it. */
+.chat-tool.is-alert { background: var(--accent); color: #fff; }
 
 .chat-bar {
   display: flex;
@@ -67055,9 +67058,19 @@ function _chatRenderReply(payload) {
     trace.className = 'chat-tools';
     for (const t of payload.tools) {
       const chip = document.createElement('span');
-      chip.className = 'chat-tool' + (t.error ? ' is-error' : '');
-      chip.textContent = t.name;
+      // Lyric verbs carry a verdict (exit code, banned-pair count) and the
+      // chip shows it whether or not the model relayed it in prose — a
+      // verdict only the model ever saw protects nobody. Recipe tools have
+      // neither and keep the bare name.
+      const banned = typeof t.banned_pairs === 'number' && t.banned_pairs > 0;
+      chip.className = 'chat-tool' + (t.error ? ' is-error' : banned ? ' is-alert' : '');
+      let label = t.name;
+      if (typeof t.exit_code === 'number') label += ` · exit ${t.exit_code}`;
+      if (banned) label += ` · ${t.banned_pairs} banned`;
+      chip.textContent = label;
       if (t.error) chip.title = t.error;
+      else if (banned)
+        chip.title = `${t.banned_pairs} banned pair(s) standing — the two-tier ban is unskippable; this song is not finished`;
       trace.appendChild(chip);
     }
     node.appendChild(trace);
