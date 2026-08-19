@@ -602,6 +602,9 @@ def test_every_verb_runs():
         # rule). Behavioural coverage lives in quality/test_screen.py —
         # this row is the dispatch-reachability claim only.
         "screen": ["screen", "fire", "desire"],
+        # Derived rhyme capacity (2026-08-18, density stage 1). Behavioural
+        # coverage lives in quality/test_capacity.py — dispatch only here.
+        "capacity": ["capacity", "--top=3"],
         "partition": ["partition", quat],
         "cycle": ["cycle", "7/8", "3+2+2"],
         "relations": ["relations", quat],

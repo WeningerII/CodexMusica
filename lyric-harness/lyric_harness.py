@@ -3874,6 +3874,15 @@ the quality layer (each says which module answered):
                           pre-screened both zero-flag songs, and a step
                           that decides which words get tried must have an
                           entrance the system owns
+  capacity WORD | --top=N what the LEXICON can sustain (quality/capacity.py,
+                          the density design's stage 1, derived 2026-08-18):
+                          a word's rhyme family, its spelling classes (tier
+                          1's ceiling — an earned scheme group needs distinct
+                          spellings of one sound), and where certified, the
+                          witness clique the grader itself accepted
+                          (chain_lo). Read from data/rhyme_capacity_eng.tsv;
+                          --check on the module re-derives it. A ceiling is
+                          not a score: nothing grades a draft against this
   partition FILE|L...     the rhyme scheme as a SET PARTITION, canonical RGS,
                           crossings/nestings -- and it refuses when the
                           cliques overlap, because then no letter scheme
@@ -3976,6 +3985,8 @@ VERB_LAYERS = (
     ("types", "quality/rhyme_types.py", "9-axis coordinate + anchor"),
     ("screen", "quality/revise.py", "pair ban screening -- the song "
      "grader on a minimal mandated pair"),
+    ("capacity", "quality/capacity.py", "derived rhyme-family capacity -- "
+     "what the lexicon sustains"),
     ("partition", "quality/schemes.py", "set partitions, Bell numbers"),
     ("refrain", "quality/schemes.py", "A-1 notation: the VERBATIM return"),
     ("cycle", "quality/meter.py", "exact-rational metric cycles"),
@@ -5645,6 +5656,82 @@ def main():
               f"{len(rows) - n_banned - n_ref} clean or non-rhyme — a "
               f"banned pair is an ANSWER; refusal is the grader's own "
               f"(doctrine 28)")
+
+    elif cmd == "capacity":
+        from quality import capacity as CAP
+        rest = args[1:]
+        _usage = ("usage: capacity WORD | capacity --top=N — what the "
+                  "lexicon can sustain (quality/capacity.py), read from "
+                  "the derived artifact")
+        top = _flag_value(rest, "--top")
+        rest = _strip_flag(rest, "--top")
+        bad_flag = [a for a in rest if a.startswith("--")]
+        if bad_flag:
+            _refuse(f"capacity does not take {bad_flag[0]!r}",
+                    detail=[_usage])
+        try:
+            rows = CAP.read_table()
+        except FileNotFoundError as e:
+            _refuse(str(e))
+        if top is not None:
+            try:
+                n = int(top)
+                assert n > 0
+            except (ValueError, AssertionError):
+                _refuse("--top takes a positive integer", detail=[_usage])
+            print(f"  CAPACITY: the {min(n, len(rows))} deepest rhyme "
+                  f"families of {len(rows)} — chain_hi is the spelling-"
+                  f"class count (tier 1's ceiling: an earned scheme group "
+                  f"needs distinct spellings), chain_lo is the size of a "
+                  f"witness clique THE GRADER ITSELF accepted")
+            for r in rows[:n]:
+                lo = (f"chain_lo {r['chain_lo']}" if r["certified"]
+                      else "uncertified (below the certification floor)")
+                print(f"  {r['family']:<14} {r['words']:4} word(s)  "
+                      f"chain_hi {r['chain_hi']:3}  {lo}  e.g. "
+                      f"{' '.join(r['examples'].split()[:5])}")
+            print(f"  The ceiling of English: only "
+                  f"{sum(1 for r in rows if r['chain_hi'] >= 12)} "
+                  f"families sustain a 12-chain, "
+                  f"{sum(1 for r in rows if r['chain_hi'] >= 20)} a "
+                  f"20-chain — the long dense verse switches families "
+                  f"because the lexicon forces it")
+        elif len(rest) == 1 and rest[0].strip():
+            word = rest[0].strip().lower()
+            from quality.revise import Reviser
+            rv = Reviser()
+            phones, oov = rv.lex.transcribe_word(word)
+            if oov or not phones:
+                _refuse(f"CMUdict has no pronunciation for {word!r} — "
+                        f"capacity is derived over the readable "
+                        f"population and refuses rather than guessing")
+            key = CAP._rime_key(phones)
+            label = CAP.fam_label(key)
+            row = next((r for r in rows if r["family"] == label), None)
+            fams = CAP.families(rv)
+            classes = fams.get(key, {})
+            mine = rv._spelled_rime(word)
+            mates = classes.get(mine, [])
+            print(f"  CAPACITY of {word!r}: family {label} — "
+                  f"{sum(len(v) for v in classes.values())} word(s), "
+                  f"{len(classes)} spelling class(es) = chain_hi "
+                  f"{len(classes)}")
+            print(f"  its class (-{mine}): "
+                  f"{', '.join(mates[:12])}{'…' if len(mates) > 12 else ''}"
+                  f" — ALL tier-1 banned against {word!r} "
+                  f"(HOMEOTELEUTON: same spelled ending)")
+            if row and row["certified"]:
+                print(f"  certified chain_lo {row['chain_lo']} — a "
+                      f"witness clique the grader accepted:")
+                print(f"    {row['witness']}")
+            else:
+                print(f"  below the certification floor "
+                      f"({CAP.CERTIFY_MIN_CLASSES} classes) — tier-1 "
+                      f"arithmetic answers alone: at most "
+                      f"{len(classes)} mutually-earned lines on this "
+                      f"sound")
+        else:
+            _refuse("capacity takes one word or --top=N", detail=[_usage])
 
     elif cmd == "plan":
         from quality import plan as PLN
