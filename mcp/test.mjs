@@ -568,18 +568,45 @@ try {
     for (let i = 1; i <= 19; i++)
       draft.push(`we carry the morning to the ${bank[(i - 1) % bank.length]}`);
     draft.push(draft[16], draft[17], draft[18]);
-    const graded = await callText('lyric_grade', { seed: 55, draft });
-    assert.ok([0, 3].includes(graded.exit_code), 'grade answered (0 or 3, never a refusal)');
+    // The Wide Room fix (2026-08-19): grade and plan lead with the
+    // deliverable as its OWN PLAIN-TEXT content block — the song, the plan
+    // report — and carry the JSON verdict second, because a render buried
+    // as an escaped JSON field is what a client model restyled to bare
+    // [SECTION] headers. Block 0 must parse as a song, not as JSON.
+    const gradedRes = await client.callTool({
+      name: 'lyric_grade',
+      arguments: { seed: 55, draft },
+    });
+    assert.ok(!gradedRes.isError, 'lyric_grade answered without isError');
+    assert.equal(gradedRes.content.length, 2, 'grade returns two blocks: song, then verdict');
+    const song = gradedRes.content[0].text;
     assert.ok(
-      typeof graded.rendered_song === 'string' &&
-        graded.rendered_song.includes('[CHORUS — 3 lines —'),
-      'the rendered song carries the bracket headers'
+      song.includes('[CHORUS — 3 lines —') && !song.trimStart().startsWith('{'),
+      'block 0 is the SONG as plain text, bracket headers intact'
     );
+    const gradeVerdict = JSON.parse(gradedRes.content[1].text);
+    assert.ok([0, 3].includes(gradeVerdict.exit_code), 'grade answered (0 or 3, never a refusal)');
     assert.ok(
-      /pairs?/i.test(graded.report) || graded.report.includes('REPORT'),
-      'a grade report came back'
+      /pairs?/i.test(gradeVerdict.report) || gradeVerdict.report.includes('REPORT'),
+      'a grade report came back in the verdict block'
     );
-    console.log('  ok  lyric_grade live: plan->fill->render->grade round trip answered');
+    console.log('  ok  lyric_grade live: two blocks — the song plain, the verdict JSON');
+    passed++;
+
+    const planRes = await client.callTool({ name: 'lyric_plan', arguments: { seed: 55 } });
+    assert.ok(!planRes.isError, 'lyric_plan answered without isError');
+    assert.equal(planRes.content.length, 2, 'plan returns two blocks: report, then verdict');
+    assert.ok(
+      planRes.content[0].text.includes('[CHORUS — 3 lines —') &&
+        !planRes.content[0].text.trimStart().startsWith('{'),
+      'block 0 is the plan report as plain text, bracket headers intact'
+    );
+    assert.equal(
+      JSON.parse(planRes.content[1].text).exit_code,
+      0,
+      'plan verdict block reports exit 0'
+    );
+    console.log('  ok  lyric_plan live: two blocks — the report plain, the verdict JSON');
     passed++;
   }
 } catch (err) {

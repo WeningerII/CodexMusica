@@ -114,6 +114,30 @@ and `verify` are deliberately NOT wrapped yet (a 40-90s synchronous
 call is the wrong shape for chat); the seed sweep stays manual per the
 owner's pending ruling.
 
+**THE CAPACITY LAYER (density stage 1, derived 2026-08-19).** The
+owner's ruling on rhyme density: solve, don't census — a survey of
+what's been done would band the middle and rate the marvel verse
+out-of-band (move 37 again). `quality/capacity.py` derives what the
+LEXICON sustains: 39,969 singable words collapse into 12,387
+perfect-rhyme families (the comparator's last-prominent anchor; run 1
+mirrored `_spelled_rime`'s primary-first anchor and was VOIDED by
+test_capacity's own control pair, gasoline/tambourine); a family's
+earned-chain ceiling is its spelling-class count (tier 1: an earned
+scheme group needs distinct spellings), and the certified floor is a
+witness clique built THROUGH `Reviser.inspect` and stored word for
+word. Headlines: 162 families sustain a 12-chain, 81 a 20-chain, the
+deepest certified chain is 40 (EY) at the declared construction cap —
+the long dense verse switches sound families because English forces
+it. Artifact `data/rhyme_capacity_eng.tsv`; `capacity` verb reads it;
+`--check` re-derives tier 1 exactly and re-grades the sample witnesses
+(nightly). Two declared bounds of `EXACT_ENUM_MAX`'s species: attempt
+cap 40, certification floor 20 classes (raised from 8 when the anchor
+correction tripled the certifiable tier — the reasons are numbers in
+the module). STAGES 2 AND 3 ARE DELIBERATELY UNBUILT — the earned-
+event counter (notes only) and the declared density coordinate await
+the owner's ruling on these results; a capacity is a ceiling, not a
+score, and nothing grades a draft against it.
+
 **THE LOOP IS BUILT: quality/revise.py, tests in test_revise.py.**
 `Reviser.brief(lines, scheme)` returns line-scoped instructions;
 `Reviser.verify(before, after, scheme, targeted=...)` returns a verdict.
