@@ -741,25 +741,33 @@ def test_the_report_prints_three_counts():
 #: re-located in the corpus before they are used, so a corpus edit that moves
 #: one fails HERE rather than leaving the count standing on text nobody can
 #: find.
+#:
+#: LINE NUMBERS REPINNED 2026-08-19: the taxonomy backfill inserted
+#: `# region:` (all eng files, +1) and `# function:` (gay, +1 more) header
+#: lines at the top of each file, so every source line below shifted by
+#: exactly that insertion — hemans/ingelow/herrick/durfey +1, gay +2. The
+#: text, the marks and the drops are unchanged; this pin firing on a
+#: header edit is the list doing its provenance job (and doctrine 91's
+#: warning about line numbers as addresses collecting its toll).
 EMPTIED_BY_APPARATUS = [
-    ("eng_british_felicia_hemans.txt", 1792, "VERSE 12", "[_Exeunt omnes._"),
-    ("eng_british_jean_ingelow.txt", 1841, "VERSE 6", "[_Much applause_."),
-    ("eng_british_jean_ingelow.txt", 1887, "VERSE 6",
+    ("eng_british_felicia_hemans.txt", 1793, "VERSE 12", "[_Exeunt omnes._"),
+    ("eng_british_jean_ingelow.txt", 1842, "VERSE 6", "[_Much applause_."),
+    ("eng_british_jean_ingelow.txt", 1888, "VERSE 6",
      "[_The fiddler and his daughter go away._"),
-    ("eng_british_jean_ingelow.txt", 1941, "VERSE 14",
+    ("eng_british_jean_ingelow.txt", 1942, "VERSE 14",
      "[_More tuning heard outside_."),
-    ("eng_british_robert_herrick.txt", 5944, "VERSE 10",
+    ("eng_british_robert_herrick.txt", 5945, "VERSE 10",
      "[_1 Neatherd plays_"),
-    ("eng_hall_john_gay.txt", 446, "VERSE 2",
+    ("eng_hall_john_gay.txt", 448, "VERSE 2",
      "[Holding _Macheath_, _Peachum_ pulling her."),
-    ("eng_hall_john_gay.txt", 459, "VERSE 2", "[Exeunt."),
-    ("eng_hall_john_gay.txt", 684, "VERSE 2", "[Rises."),
-    ("eng_hall_john_gay.txt", 708, "VERSE 2", "[Drinks."),
-    ("eng_hall_john_gay.txt", 744, "VERSE 6", "[Turns up the empty Bottle."),
-    ("eng_hall_john_gay.txt", 750, "VERSE 9", "[Turns up the empty Pot."),
-    ("eng_hall_thomas_durfey.txt", 593, "VERSE 12", "[Music:"),
-    ("eng_hall_thomas_durfey.txt", 7208, "VERSE 4", "[Music:"),
-    ("eng_hall_thomas_durfey.txt", 7251, "VERSE 10", "[Music:"),
+    ("eng_hall_john_gay.txt", 461, "VERSE 2", "[Exeunt."),
+    ("eng_hall_john_gay.txt", 686, "VERSE 2", "[Rises."),
+    ("eng_hall_john_gay.txt", 710, "VERSE 2", "[Drinks."),
+    ("eng_hall_john_gay.txt", 746, "VERSE 6", "[Turns up the empty Bottle."),
+    ("eng_hall_john_gay.txt", 752, "VERSE 9", "[Turns up the empty Pot."),
+    ("eng_hall_thomas_durfey.txt", 594, "VERSE 12", "[Music:"),
+    ("eng_hall_thomas_durfey.txt", 7209, "VERSE 4", "[Music:"),
+    ("eng_hall_thomas_durfey.txt", 7252, "VERSE 10", "[Music:"),
 ]
 
 
