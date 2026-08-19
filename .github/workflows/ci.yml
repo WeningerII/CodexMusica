@@ -328,8 +328,24 @@ jobs:
           path: ~/.cache/ms-playwright
           key: pw-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install Chromium (for UI reachability)
-        timeout-minutes: 10
-        run: npx playwright install --with-deps chromium
+        timeout-minutes: 20
+        # `--with-deps` bundled two deliveries with opposite reliability: the
+        # browser from Playwright's CDN (fast, and cached above) and the
+        # system packages from apt, which has repeatedly stalled on a slow
+        # Azure mirror and eaten the whole step (runs #559, #565, #570 —
+        # font packages at ~35 kB/s into a 10-minute timeout). Split them
+        # and retry the apt half — apt is idempotent, and a fresh attempt
+        # usually lands on a healthy mirror connection. Same packages, same
+        # rendering environment; only the delivery is hardened.
+        run: |
+          npx playwright install chromium
+          ok=0
+          for i in 1 2 3; do
+            if npx playwright install-deps chromium; then ok=1; break; fi
+            echo "install-deps attempt $i failed; retrying"
+            sleep 10
+          done
+          [ "$ok" = "1" ]
 
       # lint / format / validate / check-docs now run in the `gate` job above,
       # which this job depends on — repeating them here would just re-spend 41s.
@@ -469,8 +485,20 @@ jobs:
           path: ~/.cache/ms-playwright
           key: pw-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
       - name: Install Chromium (for the mobile-layout fault class)
-        timeout-minutes: 10
-        run: npx playwright install --with-deps chromium
+        timeout-minutes: 20
+        # Same hardening as the verify job's install step, for the same
+        # reason: the apt half of --with-deps flakes on a slow mirror, the
+        # CDN half never has. Split, retry apt up to three times, fail the
+        # step only when all three attempts fail.
+        run: |
+          npx playwright install chromium
+          ok=0
+          for i in 1 2 3; do
+            if npx playwright install-deps chromium; then ok=1; break; fi
+            echo "install-deps attempt $i failed; retrying"
+            sleep 10
+          done
+          [ "$ok" = "1" ]
 
       - name: Build a fresh artifact from source
         if: needs.gate.outputs.artifacts_affected == 'true'
