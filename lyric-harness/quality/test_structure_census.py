@@ -59,12 +59,12 @@ def test_item_readers():
                   if os.path.basename(f).startswith("eng_")) == 143)
     n_items = sum(len(CEN.items_of(f)) for f in files
                   if os.path.basename(f).startswith("eng_"))
-    # REPINNED 2026-08-19: 4,930 -> 4,979 — Pass-1 same-gate top-ups
-    # appended 49 new hymns to eleven eng_hymn_ files from already-cited
-    # editions, real growth the two readers still agree on.
+    # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 — Pass-1 batch 1's 49
+    # new eng_hymn_ hymns, then batch 2's 6 new eng_american_ items, real
+    # growth the two readers still agree on.
     check("the --- TITLE: split reproduces build_song_frequency's own "
-          "item count EXACTLY — 4,979 over the 143 files",
-          n_items == 4979, n_items)
+          "item count EXACTLY — 4,985 over the 143 files",
+          n_items == 4985, n_items)
     son = CEN.items_of(os.path.join(HERE, "..", "corpus", "sonnets.txt"))
     check("sonnets.txt reads through battery.parse_sonnets: 152 items "
           "of 14 lines, Gutenberg matter excluded by the oracle's reader",

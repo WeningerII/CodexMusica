@@ -2,6 +2,8 @@
 # region: american
 # source: GITenberg/The-Complete-Poetical-Works-of-Henry-Wadsworth-Longfellow_1365 1365.txt md5 4f667fa33248c2b82a849d1fcb0067df
 # licence: public domain - Project Gutenberg; Houghton Mifflin Cambridge Edition; edition published 1902 -- The Complete Poetical Works of Henry Wadsworth Longfellow
+# source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Pass-1 same-gate top-up 2026-08-19)
+# licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -288,3 +290,62 @@ Let us, then, be up and doing,
   With a heart for any fate;
 Still achieving, still pursuing,
   Learn to labor and to wait.
+
+--- TITLE: THE “CUMBERLAND.”
+--- SOURCE: PG54211
+[VERSE 1]
+    At anchor in Hampton Roads we lay,
+        On board the _Cumberland_ sloop of war,
+    And at times from the fortress across the bay
+              The alarm of drums swept past,
+              Or a bugle blast
+        From the camp on shore.
+[VERSE 2]
+    Then far away to the south uprose
+        A little feather of snow-white smoke,
+    And we knew that the iron ship of our foes
+              Was steadily steering its course
+              To try the force
+        Of our ribs of oak.
+[VERSE 3]
+    Down upon us heavily runs,
+        Silent and sullen, the floating fort,
+    Then comes a puff of smoke from her guns,
+              And leaps the terrible death,
+              With fiery breath,
+        From each open port.
+[VERSE 4]
+    We are not idle but send her straight
+        Defiance back in a full broadside!
+    As hail rebounds from a roof of slate
+              Rebounds our heavier hail
+              From each iron scale
+        Of the monster’s hide.
+[VERSE 5]
+    “Strike your flag!” the rebel cries,
+        In his arrogant old plantation strain.
+    “Never!” our gallant Morris replies;
+              “It is better to sink than to yield!”
+              And the whole air pealed
+        With the cheers of our men.
+[VERSE 6]
+    Then like a kraken, huge and black
+        She crushed our ribs in her iron grasp!
+    Down went the _Cumberland_ all awrack,
+              With a sudden shudder of death,
+              And the cannon’s breath
+        For her dying gasp.
+[VERSE 7]
+    Next morn, as the sun rose over the bay,
+        Still floated our flag at the mainmast head.
+    Lord, how beautiful was Thy day!
+              Every waft of the air
+              Was a whisper of prayer,
+        Or a dirge for the dead.
+[VERSE 8]
+    Ho! brave hearts that went down in the seas,
+        Ye are at peace in the troubled stream.
+    Ho! brave land! with hearts like these,
+              Thy flag, that is rent in twain,
+              Shall be one again,
+        And without a seam!
