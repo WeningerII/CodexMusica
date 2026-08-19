@@ -268,13 +268,26 @@ export function registerLyricTools(server, tool) {
         'every free choice is disclosed beside the space it was drawn from (meters from a derived cycle grammar — expect 5/8, ' +
         '7/8, 20/8, not always 4/4). It writes NO WORDS: the writer (model or human) writes to the brief, then lyric_grade ' +
         'checks the draft against this same seed. Try a few seeds and pick the shape that sings — the choice of seed is the ' +
-        "writer's taste and the plan's own record.",
+        "writer's taste and the plan's own record. The FIRST content block is the plan report and writer brief: when " +
+        'showing the shape, keep the bracket header rows exactly as written (they carry lines/bars/meter/pickup). The ' +
+        'second block is the verdict.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_plan,
     },
     (a) =>
       withTempDir(async (dir) => {
         const r = await runVerb(['plan', ...planArgs(a), `--out=${path.join(dir, 'plan.json')}`]);
-        return verdictOf(r);
+        const verdict = verdictOf(r);
+        // Same presentation-first shape as lyric_grade: the report (plan
+        // rows + writer brief, headers intact) leads as plain text.
+        if (r.code === 0) {
+          return {
+            content: [
+              { type: 'text', text: r.stdout },
+              { type: 'text', text: JSON.stringify({ exit_code: 0, meaning: verdict.meaning }) },
+            ],
+          };
+        }
+        return verdict;
       })
   );
 
@@ -285,10 +298,13 @@ export function registerLyricTools(server, tool) {
       title: 'Grade a draft against its plan',
       description:
         'The whole-song verdict: re-derives the plan from the SAME seed (and form/lines) given to lyric_plan, fills it with ' +
-        'the draft, and grades — rhyme mandate, verbatim returns, meter fit, section functions, the slop floor. Returns the ' +
-        "rendered song in performance order (present it VERBATIM — bracket headers carry each section's bars/meter/pickup) " +
-        'plus the grade report: FLAGS are defects with line numbers; NOTES are measurements, not defects. Exit 0 clean, 2 ' +
-        'refused (e.g. wrong line count), 3 flags standing. Revise the flagged lines only and call again. ~15s.',
+        'the draft, and grades — rhyme mandate, verbatim returns, meter fit, section functions, the slop floor. THE FIRST ' +
+        'CONTENT BLOCK OF THE RESULT IS THE FINISHED SONG in performance order: when presenting it, reproduce that block ' +
+        "CHARACTER FOR CHARACTER, exactly as you present a recipe string — the bracket headers carry each section's " +
+        'lines, bars, meter and pickup, and restyling them to bare [SECTION] deletes the measurements the format exists ' +
+        'to carry. The second block is the grade verdict: FLAGS are defects with line numbers; NOTES are measurements, ' +
+        'not defects. Exit 0 clean, 2 refused (e.g. wrong line count), 3 flags standing. Revise the flagged lines only ' +
+        'and call again. ~15s.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
     (a) =>
@@ -319,10 +335,22 @@ export function registerLyricTools(server, tool) {
         if (plan.returns) songArgs.push(`--returns=${plan.returns}`);
         songArgs.push('--subdivision', String(plan.subdivision));
         const p3 = await runVerb(songArgs);
-        return {
-          rendered_song: extractRender(p2.stdout),
-          ...verdictOf(p3),
-        };
+        const render = extractRender(p2.stdout);
+        const verdict = verdictOf(p3);
+        // The SONG leads as its own plain-text block so a client presents
+        // it instead of reformatting escaped JSON — the Wide Room
+        // screenshot (2026-08-19) showed a Claude client rewriting the
+        // bracket headers to bare [SECTION] when the render arrived as a
+        // JSON field. What arrives presentation-ready gets presented.
+        if (render) {
+          return {
+            content: [
+              { type: 'text', text: render },
+              { type: 'text', text: JSON.stringify(verdict) },
+            ],
+          };
+        }
+        return { rendered_song: null, ...verdict };
       })
   );
 
@@ -395,6 +423,10 @@ export const LYRIC_INSTRUCTIONS =
   'seed for a complete shape (sections, meter — often not 4/4, rhyme plan, hook slot) and write to its ' +
   'brief, honoring the verbatim returns; (3) lyric_grade with the SAME seed and the draft — present the ' +
   'rendered song VERBATIM with its bracket headers, then revise only the flagged lines and grade again. ' +
-  'For lyrics a user pastes, lyric_check with their declared scheme or groups. FLAGS are defects; NOTES ' +
+  'PRESENTATION IS PART OF THE CONTRACT: the first content block returned by lyric_grade and lyric_plan ' +
+  'is the deliverable — reproduce it character for character, exactly as you reproduce a recipe string; ' +
+  'the bracket headers ([CHORUS — 3 lines — 6 bars of 6/8, half-beat pickup]) are measurements, and ' +
+  'restyling them to bare [CHORUS] deletes what the format exists to carry. For lyrics a user pastes, ' +
+  'lyric_check with their declared scheme or groups. FLAGS are defects; NOTES ' +
   'are measurements and are not to be "fixed". Recipes describe the SOUND, lyric tools govern the WORDS; ' +
   'the conversation is the only place they meet.';

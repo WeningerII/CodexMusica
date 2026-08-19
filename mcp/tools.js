@@ -44,7 +44,13 @@ function tool(server, name, config, fn) {
   };
   server.registerTool(name, withAnnotations, async (args) => {
     try {
-      return jsonResult(await fn(args ?? {}));
+      const out = await fn(args ?? {});
+      // A handler may return a ready MCP result (multiple content blocks —
+      // lyric_grade leads with the SONG as plain text so a client presents
+      // it rather than reformatting escaped JSON; the Wide Room screenshot,
+      // 2026-08-19, is why). Anything else gets the JSON wrapping.
+      if (out && Array.isArray(out.content)) return out;
+      return jsonResult(out);
     } catch (err) {
       const msg = err && err.message ? err.message : String(err);
       return { content: [{ type: 'text', text: `Error: ${msg}` }], isError: true };

@@ -123,8 +123,22 @@ function addUsage(into, meta) {
 // model cannot read is an error it cannot recover from, and recovering (looking
 // an id up instead of guessing again) is exactly the behaviour under test.
 function toFunctionResponse(name, id, result) {
-  const text = result?.content?.[0]?.text ?? '';
+  const blocks = (result?.content ?? []).map((c) => c?.text ?? '');
+  const text = blocks[0] ?? '';
   if (result?.isError) return { name, ...(id ? { id } : {}), response: { error: text } };
+  // A multi-block result leads with a PRESENTATION block (plain text the
+  // model must reproduce verbatim — lyric_grade's rendered song) followed
+  // by a JSON verdict. Both must reach the model, named so the
+  // presentation block cannot be mistaken for reformatting material.
+  if (blocks.length > 1) {
+    let verdict;
+    try {
+      verdict = JSON.parse(blocks[1]);
+    } catch {
+      verdict = blocks[1];
+    }
+    return { name, ...(id ? { id } : {}), response: { presentation: text, verdict } };
+  }
   let parsed;
   try {
     parsed = JSON.parse(text);
