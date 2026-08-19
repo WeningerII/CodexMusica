@@ -76,7 +76,21 @@ function-blank until a vocabulary decision is earned by material).
 For each already-cited edition (the file headers' `# source:` rows, md5
 pinned): fetch the SAME bytes, count the marked songs it contains, and
 compare against what was extracted. Anything marked and unextracted
-enters under the existing gate — no new licence work. Discipline:
+enters under the existing gate — no new licence work.
+
+CITATION CONVENTION, learned the hard way (2026-08-19, the first
+verification sweep): seven sources were cited as `NNNNN.n.txt` with a
+hash no upstream file carries — the original staging normalized CRLF
+line endings to LF and pinned the NORMALIZED bytes, and the rule lived
+only in a dead session's memory. All 105 citations now verify: 95
+upstream-byte-identical, 3 filename spellings corrected (the repo ships
+`-0`/`-8` variants; same bytes), and the 7 derived pins re-spelled to
+carry BOTH hashes — upstream md5 first, then "(staged after CRLF->LF
+newline normalization ...) as NNNNN.n.txt md5 ...". To verify a derived
+pin: fetch the named upstream file, replace \r\n with \n, md5 the
+result. A future staging that transforms bytes records the
+transformation IN the citation, in this same shape — a hash whose
+recipe is unwritten is a rumor with a checksum. Discipline:
 
 1. The mark is the admission rule (doctrine 93): hymnal membership, a
    printed CHORUS/song heading, a song-anthology's own framing. No mark,
