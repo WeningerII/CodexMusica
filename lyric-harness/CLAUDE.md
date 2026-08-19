@@ -114,6 +114,34 @@ and `verify` are deliberately NOT wrapped yet (a 40-90s synchronous
 call is the wrong shape for chat); the seed sweep stays manual per the
 owner's pending ruling.
 
+**AND THE WRAP'S FIRST FIELD FAILURE WAS DOCTRINE 48 AT THE CONNECTOR
+(2026-08-19).** The site's chat planned, wrote and graded a song whose
+every intended rhyme was on the two-tier ban — 43 banned pairs when the
+clusters were screened after the fact (bend/friend/end/mend/trend/spend
+15 of 15; mass/pass/grass/glass, day/way, slow/glow/flow/sow;
+plain/stain/rain/chain/again) — and presented it as finished, seed and
+verdict withheld. Not a fabrication (the page's tool chips are the
+`/chat` response's real call list; the zero-anacrusis headers carry the
+builder's own unexampled spelling) and not, in the first instance, the
+model's defect: `lyric_screen` was skipped, and a mandated
+HOMEOTELEUTON pair grades EXIT 0 — the ban's pair findings are pursued
+NOTES whose enforcement lives in `loop.MANDATORY_PURSUE`, i.e. in the
+loop the wrap deliberately does not carry, and the wrap's own "NOTES
+are not to be fixed" wording then protected the banned pairs from
+revision. The fix (same day) is DISCLOSURE MADE MECHANICAL, never a
+severity change — doctrine 7 stands and the notes stay notes:
+`lyric_grade`/`lyric_check` verdicts carry `banned_pairs` (count,
+codes, lines — extracted from the report's own FINDING lines, the
+L{i}/L{j} shape `capacity.py` already parses) AHEAD of the report; a
+SERVER-written `[GRADED — seed N — exit E, … — N banned pair(s)]`
+stamp rides under the rendered song inside the verbatim block, so the
+seed and the verdict reach the user through a client that relays
+nothing; the chat page's tool chips print the exit code and banned
+count from the same harvested verdict; and the instructions now say
+the ban is unskippable at any exit code. All connector-side
+(`mcp/lyric_tools.js`, `gemini_agent.js`, `chat.js`, the page) — the
+harness itself is untouched.
+
 **THE CAPACITY LAYER (density stage 1, derived 2026-08-19).** The
 owner's ruling on rhyme density: solve, don't census — a survey of
 what's been done would band the middle and rate the marvel verse

@@ -97,12 +97,49 @@ const EXIT_MEANING = {
   3: 'answered — at least one FLAG stands; the report names the lines',
 };
 
+// Pull the two-tier ban's pair findings out of a grade report by their own
+// codes. Extraction, not re-implementation: HOMEOTELEUTON and MODAL_RHYME are
+// the grader's own pair-scoped findings on MANDATED pairs — the same two
+// `screen` relays, and the CLI loop's own MANDATORY_PURSUE set — printed one
+// per line as "FINDING [NOTE] CODE: L{i}/L{j} ..." (the L{i}/L{j} spelling
+// quality/capacity.py's _grade_group parses identically). WHY THIS SURFACES
+// AT ALL: on the CLI the revise loop is FORCED to pursue these notes; the
+// connector deliberately wraps no loop, so without this field the enforcement
+// half of the two-tier ban does not exist on the chat surface — the
+// 2026-08-19 site transcript graded a song whose every rhyme was banned at
+// exit 0 and the model presented it as finished.
+function extractBannedPairs(report) {
+  const out = [];
+  const seen = new Set();
+  const re = /FINDING \[[A-Z]+\] (HOMEOTELEUTON|MODAL_RHYME): (L(\d+)\/L(\d+)[^\n]*)/g;
+  for (let m; (m = re.exec(report)); ) {
+    const key = `${m[1]} ${m[3]} ${m[4]}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    out.push({ code: m[1], lines: [Number(m[3]), Number(m[4])], finding: m[2] });
+  }
+  return out;
+}
+
 function verdictOf(r) {
-  return {
+  const banned = extractBannedPairs(r.stdout);
+  const v = {
     exit_code: r.code,
     meaning: EXIT_MEANING[r.code] || `subprocess failure (${r.code}): ${r.stderr.slice(0, 400)}`,
-    report: r.stdout,
   };
+  // Before `report`, deliberately: a count buried under a long report is a
+  // count a reader in a hurry never reaches.
+  if (banned.length) {
+    v.banned_pairs = banned.length;
+    v.banned_pairs_meaning =
+      'UNSKIPPABLE, even at exit 0: these mandated pairs land on the two-tier ban ' +
+      '(HOMEOTELEUTON — same spelled ending; MODAL_RHYME — the most predictable partner). ' +
+      'A song presented with banned pairs standing is NOT finished: replace the end words ' +
+      'on the named lines (screen replacements with lyric_screen first) and grade again.';
+    v.banned = banned;
+  }
+  v.report = r.stdout;
+  return v;
 }
 
 function refuse(msg) {
@@ -302,9 +339,12 @@ export function registerLyricTools(server, tool) {
         'CONTENT BLOCK OF THE RESULT IS THE FINISHED SONG in performance order: when presenting it, reproduce that block ' +
         "CHARACTER FOR CHARACTER, exactly as you present a recipe string — the bracket headers carry each section's " +
         'lines, bars, meter and pickup, and restyling them to bare [SECTION] deletes the measurements the format exists ' +
-        'to carry. The second block is the grade verdict: FLAGS are defects with line numbers; NOTES are measurements, ' +
-        'not defects. Exit 0 clean, 2 refused (e.g. wrong line count), 3 flags standing. Revise the flagged lines only ' +
-        'and call again. ~15s.',
+        'to carry, and the [GRADED — seed …] stamp line under the song is part of the block. The second block is the ' +
+        'grade verdict: FLAGS are defects with line numbers; banned_pairs counts mandated pairs on the two-tier ban ' +
+        '(HOMEOTELEUTON / MODAL_RHYME) and is UNSKIPPABLE AT ANY EXIT CODE — banned_pairs above zero means the song is ' +
+        'NOT finished, whatever exit_code says: replace those end words (screen replacements with lyric_screen) and ' +
+        'grade again; other NOTES are measurements, not defects. Exit 0 clean, 2 refused (e.g. wrong line count), 3 ' +
+        'flags standing. Revise the flagged and banned lines only and call again. ~15s.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_grade,
     },
     (a) =>
@@ -342,10 +382,27 @@ export function registerLyricTools(server, tool) {
         // screenshot (2026-08-19) showed a Claude client rewriting the
         // bracket headers to bare [SECTION] when the render arrived as a
         // JSON field. What arrives presentation-ready gets presented.
+        //
+        // The stamp under the song is SERVER-written so the seed and the
+        // verdict reach the user even through a client that reproduces
+        // block 0 verbatim and relays nothing else (the 2026-08-19 site
+        // transcript: a real plan, a real grade, and the user shown
+        // neither). A bracket line is apparatus by the harness's own
+        // loader rule, never song text.
         if (render) {
+          const nBanned = verdict.banned_pairs || 0;
+          const flagsBit =
+            verdict.exit_code === 0
+              ? 'no FLAG stands'
+              : verdict.exit_code === 3
+                ? 'FLAGS STANDING'
+                : 'refused';
+          const stamp =
+            `[GRADED — seed ${a.seed} — exit ${verdict.exit_code}, ${flagsBit} — ` +
+            `${nBanned} banned pair(s)${nBanned ? ', UNSKIPPABLE — not finished' : ''}]`;
           return {
             content: [
-              { type: 'text', text: render },
+              { type: 'text', text: `${render}\n\n${stamp}` },
               { type: 'text', text: JSON.stringify(verdict) },
             ],
           };
@@ -364,7 +421,8 @@ export function registerLyricTools(server, tool) {
         "letter scheme ('ABAB', X = free) OR rhyme groups by line number ('1,3;2,4'), optionally verbatim-return classes — " +
         'and get the same rhyme grading and slop floor the full pipeline runs. A declaration is REQUIRED: nothing declared ' +
         'means nothing mandated, and "nothing flagged" about that would be a vacuous pass. FLAGS are defects with line ' +
-        'numbers; NOTES are measurements. ~10s.',
+        'numbers; banned_pairs counts declared pairs on the two-tier ban (HOMEOTELEUTON / MODAL_RHYME), unskippable at ' +
+        'any exit code; other NOTES are measurements. ~10s.',
       inputSchema: LYRIC_TOOL_SCHEMAS.lyric_check,
     },
     (a) =>
@@ -422,11 +480,15 @@ export const LYRIC_INSTRUCTIONS =
   '(HOMEOTELEUTON/MODAL_RHYME) is an answer, pick different words; (2) lyric_plan with a declared integer ' +
   'seed for a complete shape (sections, meter — often not 4/4, rhyme plan, hook slot) and write to its ' +
   'brief, honoring the verbatim returns; (3) lyric_grade with the SAME seed and the draft — present the ' +
-  'rendered song VERBATIM with its bracket headers, then revise only the flagged lines and grade again. ' +
+  'rendered song VERBATIM with its bracket headers, then revise the flagged AND banned lines and grade ' +
+  'again. THE BAN IS UNSKIPPABLE: a grade verdict with banned_pairs above zero is the harness answering ' +
+  'NO — the song is not finished even at exit 0. Replace the banned end words (screen the replacements ' +
+  'with lyric_screen) and grade again; never present a song as finished while banned pairs stand. ' +
   'PRESENTATION IS PART OF THE CONTRACT: the first content block returned by lyric_grade and lyric_plan ' +
   'is the deliverable — reproduce it character for character, exactly as you reproduce a recipe string; ' +
-  'the bracket headers ([CHORUS — 3 lines — 6 bars of 6/8, half-beat pickup]) are measurements, and ' +
-  'restyling them to bare [CHORUS] deletes what the format exists to carry. For lyrics a user pastes, ' +
-  'lyric_check with their declared scheme or groups. FLAGS are defects; NOTES ' +
-  'are measurements and are not to be "fixed". Recipes describe the SOUND, lyric tools govern the WORDS; ' +
-  'the conversation is the only place they meet.';
+  'the bracket headers ([CHORUS — 3 lines — 6 bars of 6/8, half-beat pickup]) are measurements, ' +
+  'restyling them to bare [CHORUS] deletes what the format exists to carry, and the [GRADED — seed …] ' +
+  'stamp line under the song is part of the block and reaches the user with it. For lyrics a user ' +
+  'pastes, lyric_check with their declared scheme or groups. FLAGS are defects; banned pairs are ' +
+  'unskippable whatever their severity; other NOTES are measurements and are not to be "fixed". Recipes ' +
+  'describe the SOUND, lyric tools govern the WORDS; the conversation is the only place they meet.';
