@@ -166,6 +166,44 @@ event counter (notes only) and the declared density coordinate await
 the owner's ruling on these results; a capacity is a ceiling, not a
 score, and nothing grades a draft against it.
 
+**THE CORPUS TAXONOMY (adopted 2026-08-19): language × region/tradition
+× function/venue, and the filename group token is DEMOTED.** The six
+words in the eng filenames (american/hymn/british/parlour/celtic/hall)
+answered two questions in one slot — region vs function — with the
+answer decided by which kind of book a file was staged from: ten-plus
+American hymnists filed under `hymn`, the Battle Hymn of the Republic
+under `american`, and the ENGLISH Taylor sisters under `american`
+because their anthology was printed in New York. The slot is split into
+two DECLARED per-song coordinates: `data/song_regions.tsv` (global — 4
+active rows; `welsh` is one tradition across `cym` and `eng`) and
+`data/song_functions_eng.tsv` (per-language — 9 active rows), each row
+carrying a definition and an EVIDENCE RULE. Assignment is
+evidence-or-blank: `# region:`/`# function:` file headers default,
+`--- REGION:`/`--- FUNCTION:` song lines override, blank is UNDECLARED
+and never guessed; REGION is single-valued (contested stays blank,
+recorded), FUNCTION takes N values each independently attested, with
+the multi-tag rate MEASURED by the report so tag inflation drifts a
+number instead of becoming a habit. Both vocabularies are closed sets
+— `quality/corpus_taxonomy.py --check` is the gate, and a new value enters by
+a defined table row in the same commit as its first song (reserved
+values wait in `quality/CORPUS_LOADING_PROTOCOL.md`, deliberately NOT
+in the tables: a value with zero members is the declared-but-unread
+defect in a taxonomy hat). THE TAXONOMY MOVES NO MEASUREMENT: the tag
+spellings are apparatus to every reader (pinned by
+`quality/test_taxonomy.py` §4 on tagged/untagged twins; the meter-band
+adoption re-derives exactly over the identical 139,694 lines), and the
+backfill's 21 staged-file md5 repins in `data/sources.tsv` are the
+corpus audit's check C working as designed. The language axis was
+never new — the filename prefix has dispatched the phonology since
+doctrine 45. `data/calibration_manifest.tsv`
+(`quality/corpus_manifest.py`) snapshots WHICH corpus state the
+adopted constants describe, so loading can drift the live tree
+visibly (`--check` exits 3, an answer) and reconcile deliberately —
+re-derive, re-adopt, re-snapshot in one closing sitting. The loading
+protocol itself, including the pass-1/pass-2 order, the adjudication
+records and the escalation rule for licences, is
+`quality/CORPUS_LOADING_PROTOCOL.md`.
+
 **THE LOOP IS BUILT: quality/revise.py, tests in test_revise.py.**
 `Reviser.brief(lines, scheme)` returns line-scoped instructions;
 `Reviser.verify(before, after, scheme, targeted=...)` returns a verdict.

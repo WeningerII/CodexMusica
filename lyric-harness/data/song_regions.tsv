@@ -1,0 +1,5 @@
+region	definition	evidence_rule
+english	English song tradition (England); absorbs the former 'british' filename token	author's tradition per file header; edition origin as tiebreak only
+scottish	Scots song tradition, including Scots-dialect song	author's tradition (Burns, Hogg, Scott, Nairne, Motherwell); Scots orthography corroborates
+irish	Irish song tradition in English (airs, national song)	author's tradition (Moore, Mangan, Walsh, Griffin, Kickham, Lover, Davis)
+american	United States song tradition	author's tradition; US publication as tiebreak only
