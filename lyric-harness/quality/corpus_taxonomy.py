@@ -40,6 +40,12 @@ header and `--- KEY:` shapes have been apparatus since 2026-08-12):
     --- REGION: scottish       <- per-song override, directly under the
     --- FUNCTION: hymn, patriotic  song's --- TITLE: line
 
+A VALUE IS ONE LOWERCASE TOKEN (VALUE_SHAPE), checked at the READ and
+separately from the closed table: a shaped-but-unknown value is a typo
+and refuses by name, while text that is not shaped like a value is not a
+declaration at all and never becomes data.  Prose explaining a decision
+belongs on a `-basis:` key (`# region-basis:`), which no reader parses.
+
 Resolution is per song: the song's own line if present, else the file
 header, else BLANK -- and blank means UNDECLARED, never guessed
 (evidence-or-blank: a value is assigned on its table row's evidence rule
@@ -117,16 +123,79 @@ def load_functions():
     return _load_table(FUNCTIONS_TSV, "function")
 
 
+#: THE SHAPE OF A DECLARED VALUE, and it is a SEPARATE GATE from the
+#: closed table.  A taxonomy value is one lowercase ASCII token; the
+#: underscore is in the class because two RESERVED values need it
+#: (`african_american`, `tin_pan_alley` -- CORPUS_LOADING_PROTOCOL.md).
+#:
+#: WHY THE READER AND NOT ONLY `check_file`.  The two gates answer
+#: different questions and a value must pass both, but they fail
+#: DIFFERENTLY and only one of them was ever asked by `report()`:
+#:
+#:   shape  — is this line a declaration at all?
+#:   table  — is this declared value in the closed vocabulary?
+#:
+#: A well-shaped value outside the table (`atlantean`) is a TYPO OF A
+#: VALUE and must keep flowing through the reader so `check_file` can
+#: refuse it BY NAME -- that behaviour is pinned and is unchanged here.
+#: Text that fails the shape is NOT a value at all, and treating it as
+#: one is what let a prose note become data: measured on a probe file
+#: whose header read `# region: CONTESTED, therefore blank -- see the
+#: note below`, `report()` invented a by_region CELL named after the
+#: sentence, split the `# function:` prose on its commas into two more,
+#: built a two-cell coverage grid from one song, counted it in the
+#: multi-tag histogram -- the very inflation metric this taxonomy exists
+#: to watch -- and reported `undeclared_region: 0` for a file that says
+#: the word "blank" in its own header.
+#:
+#: `check_file` DID catch it (that is how it was found, during the
+#: Montgomery merge) and `check_file` is a different function that no
+#: caller of `report()` has to run.  Doctrine 48: validation that lives
+#: beside the reader rather than inside it gets applied exactly as often
+#: as someone remembers.  One definition, at the read (doctrine 1).
+#:
+#: LATENT BY MEASUREMENT, NOT BY CONSTRUCTION: swept over every header
+#: and song value in the live corpus, the distinct set is {american,
+#: english, hymn, irish, nursery, patriotic, scottish, stage} and
+#: **0 fail this shape**, so no recorded count moves.  A planted prose
+#: line is what turns the gate red.
+VALUE_SHAPE = re.compile(r"^[a-z][a-z0-9_]*$")
+
+
 def _split_values(raw):
-    return tuple(v.strip() for v in raw.split(",") if v.strip())
+    """-> (values, malformed).  Both are tuples and they are NEVER summed:
+    a value is something the table can be asked about, a malformed
+    fragment is something no table has an opinion on."""
+    parts = tuple(v.strip() for v in raw.split(",") if v.strip())
+    good = tuple(v for v in parts if VALUE_SHAPE.match(v))
+    bad = tuple(v for v in parts if not VALUE_SHAPE.match(v))
+    return good, bad
 
 
 def read_file_taxonomy(path):
     """-> (header, songs).  header = {'region': str|'', 'function': tuple};
     songs = [{'title', 'region', 'functions', 'line_no'}] with PER-SONG
     values only (resolution against the header is resolve_songs' job, so
-    a caller can tell an override from an inheritance)."""
-    header = {"region": "", "function": ()}
+    a caller can tell an override from an inheritance).
+
+    THREE STATES PER AXIS, NEVER TWO AND NEVER SUMMED (doctrine 20/79):
+    a value, an honest blank, and a MALFORMED line -- text on a
+    `# region:`/`# function:`/`--- REGION:`/`--- FUNCTION:` key that is
+    not shaped like a declaration at all (see VALUE_SHAPE).  Malformed
+    text never becomes a value, because a caller counting values would
+    otherwise count a sentence; and it is never silently blanked either,
+    because "nobody declared a region" and "somebody wrote something
+    here and it cannot be read" are different facts and collapsing them
+    is a false negative dressed as a finding.  It is carried on
+    `header['malformed']` and each song's `['malformed']` as
+    (line_no, key, raw) so `check_file` can name the LINE rather than
+    the fragments a comma-split made of it.
+
+    Prose belongs on a `-basis:` key (`# region-basis:`), which the
+    header pattern below cannot match -- it requires the colon
+    immediately after the key word -- and which is therefore ignored
+    here exactly as any other comment is."""
+    header = {"region": "", "function": (), "malformed": []}
     songs = []
     cur = None
     with open(path, encoding="utf-8") as f:
@@ -135,19 +204,54 @@ def read_file_taxonomy(path):
             if line.startswith("#"):
                 m = re.match(r"#\s*(region|function):\s*(.+)$", line)
                 if m and cur is None:
-                    if m.group(1) == "region":
-                        header["region"] = m.group(2).strip()
+                    key, raw = m.group(1), m.group(2).strip()
+                    good, bad = _split_values(raw)
+                    if key == "region":
+                        # A region is SINGLE-VALUED, so a comma here is
+                        # itself the defect the doubled-region check
+                        # names; keep the raw text so that check still
+                        # sees it and only divert what is not a value.
+                        if len(good) == 1 and not bad:
+                            header["region"] = good[0]
+                        elif bad:
+                            header["malformed"].append((i, "# region:", raw))
+                        else:
+                            header["region"] = raw
                     else:
-                        header["function"] = _split_values(m.group(2))
+                        # ALL OR NOTHING PER LINE. If any fragment fails
+                        # the shape the whole line is prose, and pulling
+                        # the well-shaped words out of a sentence is the
+                        # same defect in miniature -- `# function: none,
+                        # really; this file is mixed` would otherwise
+                        # contribute the value `none` AND a malformed
+                        # record, inflating by_function and the multi-tag
+                        # histogram off a line already known unreadable.
+                        if bad:
+                            header["malformed"].append((i, "# function:", raw))
+                        else:
+                            header["function"] = good
                 continue
             if line.startswith(SONG_TITLE):
                 cur = {"title": line[len(SONG_TITLE):].strip(),
-                       "region": "", "functions": (), "line_no": i}
+                       "region": "", "functions": (), "line_no": i,
+                       "malformed": []}
                 songs.append(cur)
             elif line.startswith(SONG_REGION) and cur is not None:
-                cur["region"] = line[len(SONG_REGION):].strip()
+                raw = line[len(SONG_REGION):].strip()
+                good, bad = _split_values(raw)
+                if len(good) == 1 and not bad:
+                    cur["region"] = good[0]
+                elif bad:
+                    cur["malformed"].append((i, SONG_REGION, raw))
+                else:
+                    cur["region"] = raw
             elif line.startswith(SONG_FUNCTION) and cur is not None:
-                cur["functions"] = _split_values(line[len(SONG_FUNCTION):])
+                raw = line[len(SONG_FUNCTION):].strip()
+                good, bad = _split_values(raw)
+                if bad:  # all or nothing per line -- see the header case
+                    cur["malformed"].append((i, SONG_FUNCTION, raw))
+                else:
+                    cur["functions"] = good
     return header, songs
 
 
@@ -164,18 +268,39 @@ def resolve_songs(path):
 
 
 def check_file(path, regions, functions):
-    """-> [violation strings].  Empty means every assignment is legal."""
+    """-> [violation strings].  Empty means every assignment is legal.
+
+    TWO GATES, AND THE ORDER MATTERS.  The SHAPE gate ran at the read;
+    what reaches here is either a value the table can be asked about or
+    a malformed LINE.  A malformed line is reported ONCE, naming the key
+    and quoting the raw text -- not once per comma-separated fragment,
+    which is how a single prose note used to arrive as seven violations
+    that each looked like a bogus vocabulary word (found on the
+    Montgomery merge, whose `# function:` note produced exactly that)."""
     bad = []
     header, songs = read_file_taxonomy(path)
     rel = os.path.relpath(path, ROOT)
+    for line_no, key, raw in header["malformed"]:
+        bad.append(f"{rel} L{line_no}: '{key}' is not a declaration — "
+                   f"a value is one lowercase token ({VALUE_SHAPE.pattern}) "
+                   f"and this line reads {raw[:60]!r}. Prose belongs on a "
+                   f"'-basis:' key, which no reader parses as a value")
     if header["region"] and header["region"] not in regions:
         bad.append(f"{rel}: header region '{header['region']}' not in "
                    f"data/song_regions.tsv")
+    if header["region"] and "," in header["region"]:
+        bad.append(f"{rel}: header region is SINGLE-VALUED — a contested "
+                   f"region stays blank, recorded, never doubled")
     for v in header["function"]:
         if v not in functions:
             bad.append(f"{rel}: header function '{v}' not in "
                        f"data/song_functions_eng.tsv")
     for s in songs:
+        for line_no, key, raw in s["malformed"]:
+            bad.append(f"{rel} L{line_no} '{s['title'][:40]}': '{key}' is "
+                       f"not a declaration — a value is one lowercase token "
+                       f"({VALUE_SHAPE.pattern}) and this line reads "
+                       f"{raw[:60]!r}. Prose belongs on a '-basis:' key")
         if s["region"] and s["region"] not in regions:
             bad.append(f"{rel} L{s['line_no']} '{s['title'][:40]}': region "
                        f"'{s['region']}' not in the table")
@@ -198,15 +323,37 @@ def eng_files(root=SONG_DIR):
 def report(root=SONG_DIR):
     """-> dict.  Counts are kept apart (doctrine 79/91): undeclared region
     and undeclared function are different facts about different axes, and
-    the multi-tag histogram is per VALUE COUNT, never folded into cells."""
+    the multi-tag histogram is per VALUE COUNT, never folded into cells.
+
+    MALFORMED IS COUNTED AT THE LINE, NOT AT THE SONG, AND THAT IS A
+    DECISION RATHER THAN A CONVENIENCE.  A song under an unreadable
+    header genuinely HAS no declared region -- nobody successfully
+    declared one -- so it belongs in `undeclared_region`, and the
+    invariant `by_region + undeclared == songs` is kept whole rather
+    than grown a third term that every pin would have to restate.  What
+    doctrine 20 forbids is the collapse being SILENT, and it is not:
+    `malformed` carries (file, line, key, raw) for every unreadable
+    declaration, `malformed_files` counts the files, the printed report
+    shouts the block whenever it is non-empty, and `--check` refuses
+    outright at exit 2.  So "nobody declared a region" and "somebody
+    wrote something here and it cannot be read" remain separable facts,
+    answered by two counts that are never summed -- one about songs, one
+    about lines, which is why they are not summable even in principle."""
     regions = load_regions()
     functions = load_functions()
     by_region, by_function, cells = {}, {}, {}
     n_songs = 0
     und_region = 0
     und_function = 0
+    malformed = []
     multi = {}
     for path in eng_files(root):
+        head, songs = read_file_taxonomy(path)
+        for rec in head["malformed"]:
+            malformed.append((os.path.basename(path),) + rec)
+        for s in songs:
+            for rec in s["malformed"]:
+                malformed.append((os.path.basename(path),) + rec)
         for _title, region, funcs in resolve_songs(path):
             n_songs += 1
             if region:
@@ -226,6 +373,8 @@ def report(root=SONG_DIR):
             "by_function": by_function, "cells": cells,
             "undeclared_region": und_region,
             "undeclared_function": und_function,
+            "malformed": malformed,
+            "malformed_files": len({m[0] for m in malformed}),
             "multi_tag": multi,
             "vocab": {"regions": sorted(regions),
                       "functions": sorted(functions)}}
@@ -271,8 +420,19 @@ def main(argv):
     print("  cells (region x function), the coverage grid:")
     for (reg, fn), n in sorted(r["cells"].items()):
         print(f"    {reg} x {fn}: {n}")
+    # A THIRD STATE, PRINTED ONLY WHEN IT IS NON-ZERO, and printed at all
+    # because a silent zero and a silent seven look identical in a report
+    # whose other lines would absorb the seven as ordinary blanks.
+    if r["malformed"]:
+        print(f"  MALFORMED declarations: {len(r['malformed'])} line(s) over "
+              f"{r['malformed_files']} file(s) — NOT counted as values and "
+              f"NOT counted as undeclared; run --check to see them")
+        for fname, line_no, key, raw in r["malformed"][:5]:
+            print(f"    {fname} L{line_no} {key} {raw[:52]!r}")
     print("  Undeclared is an HONEST state (evidence-or-blank), and the "
-          "two undeclared counts answer different axes — never sum them.")
+          "two undeclared counts answer different axes — never sum them. "
+          "A MALFORMED line is a third state again: it is not a value and "
+          "it is not a blank, and it is never folded into either.")
     return 0
 
 

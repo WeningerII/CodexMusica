@@ -363,12 +363,15 @@ recur as authors accumulate sources, and it is a reader change rather
 than a merge decision, so it is named here for the owner rather than
 made mid-merge.
 
-*Also worth a line:* `# region:`/`# function:` accept any text and
+~~*Also worth a line:* `# region:`/`# function:` accept any text and
 comma-split it, so a prose note written on those keys becomes a set of
 bogus declarations. `check_file` caught exactly that during this merge
-and named all seven fragments — the gate working. The `-basis:` suffix
-is the spelling for prose, and both `# region-basis:` and
-`# function-basis:` now use it.
+and named all seven fragments — the gate working.~~ **STRUCK AND FIXED
+2026-08-20 — see §0.7, and the sentence understated it: `check_file`
+catching it is not the same as the corpus being safe from it, because
+`report()` never calls `check_file`.** The `-basis:` suffix is the
+spelling for prose, and both `# region-basis:` and `# function-basis:`
+use it.
 
 ### The merge is visible in the duplication census, which is the check working
 
@@ -383,6 +386,83 @@ apart. A new pin asserts the total series for that reason, so a future
 merge that actually loses an item cannot hide inside a reshuffle. Every
 readability rate is likewise unmoved, which is the independent check
 that this was a rehousing.
+
+---
+
+## 0.7 · A prose note on a value key was becoming data, and the checker that caught it was not the reader
+
+The Montgomery merge (§0.6) produced a `# function:` line carrying an
+explanatory paragraph. `check_file` refused it — as **seven** violations,
+each a fragment of English dressed as a bogus vocabulary word, because
+the reader had comma-split the sentence. That was the visible half and
+it looked like a message defect.
+
+**It was not. `report()` never calls `check_file`.** Probed on a file
+whose header reads `# region: CONTESTED, therefore blank -- see the note
+below`, the report:
+
+| | before |
+|---|---|
+| `by_region` | `{'CONTESTED, therefore blank -- see the note below': 1}` |
+| `by_function` | `{'none': 1, 'really; this file is mixed': 1}` |
+| `cells` | a **two-cell** coverage grid, from one song |
+| `multi_tag` | `{2: 1}` — inflating the tag-inflation metric this taxonomy exists to watch |
+| `undeclared_region` | **0**, for a file that says the word "blank" in its own header |
+
+`report()` is where every pinned count in this document and in the test
+suite comes from. The validation lived beside the reader instead of
+inside it, which is doctrine 48 exactly: applied as often as someone
+remembers to run the other function.
+
+### Two gates, and they fail differently
+
+`VALUE_SHAPE = ^[a-z][a-z0-9_]*$` now runs **at the read**, and it is
+deliberately separate from the closed table:
+
+- **shape** — is this line a declaration at all?
+- **table** — is this declared value in the closed vocabulary?
+
+A shaped-but-unknown value (`atlantean`) is a **typo of a value** and
+still refuses *by name*, unchanged — that behaviour is pinned, and two
+controls in the new test section exist to prove the shape gate did not
+swallow the table gate. Text failing the shape is **not a value**, never
+reaches any count, and is carried apart as `malformed` with its file,
+line, key and raw text. The underscore is in the character class because
+two reserved values need it (`african_american`, `tin_pan_alley`).
+
+**All or nothing per line.** The first cut still harvested the
+well-shaped fragments out of a sentence — `# function: none, really;
+this file is mixed` contributed the value `none` *and* a malformed
+record, so the leak survived in miniature. A line that fails the shape
+is prose entire.
+
+**Malformed is counted at the LINE, undeclared at the SONG.** A song
+under an unreadable header genuinely has no declared region, so it stays
+in `undeclared_region` and the invariant `by_region + undeclared ==
+songs` is kept whole rather than grown a third term every pin would have
+to restate. What doctrine 20 forbids is the collapse being *silent*, and
+it is not: `--check` refuses at exit 2, and the printed report shouts a
+`MALFORMED declarations:` block whenever one exists. Two counts that are
+not summable even in principle — one about songs, one about lines.
+
+### Latent by measurement, not by construction
+
+Swept over every header and song value in the live corpus, the distinct
+set is `{american, english, hymn, irish, nursery, patriotic, scottish,
+stage}` and **0 fail the shape**. No recorded count moves; `--check`
+still prints *the closed set holds*. A planted prose line is what turns
+the gate red.
+
+### Proven by mutation, because a check that cannot fail reads like one that passes
+
+`test_corpus_taxonomy` §3b is 10 checks. Disabling the shape gate fails
+**6 of 6** substantive checks and **0 of 4** controls. A second mutation
+restoring only the partial harvest fails 4, including the leak check,
+which reports the smoking gun directly: `{'none': 1} / {1: 1}`. The four
+controls — shaped-unknown still refuses by name, it is not diverted to
+malformed, a `-basis:` key stays invisible to the value reader, and a
+legal declaration beside prose is untouched — pass on both trees, which
+is what makes them controls.
 
 ---
 

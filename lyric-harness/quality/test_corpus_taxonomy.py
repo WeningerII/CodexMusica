@@ -15,6 +15,11 @@ Sections:
      the honest undeclared, never a guess
   3  the closed set — unknown region/function refuses naming file, song
      and value; a doubled region refuses (contested stays blank)
+  3b THE SHAPE GATE — prose on a `# region:`/`# function:` key is not a
+     declaration at all, never reaches report()'s counts, and is
+     reported once per LINE; with controls proving it did not swallow
+     the table gate (a shaped-but-unknown value still refuses by name)
+     nor the `-basis:` convention prose is supposed to use
   4  APPARATUS INVISIBILITY — the load-bearing control: tagged vs
      untagged twins through load_lyric_lines, read_marked_songs and
      readability.read_lines, byte-identical
@@ -127,6 +132,107 @@ def test_closed_set():
               any("SINGLE-VALUED" in b for b in bad))
         check("the three violations are three findings, each naming its "
               "song's line", len(bad) >= 3)
+    finally:
+        shutil.rmtree(d)
+
+
+def test_prose_on_a_value_key_is_not_a_declaration():
+    """3b. THE SHAPE GATE — prose on `# region:`/`# function:` is not data.
+
+    FOUND DURING THE MONTGOMERY MERGE, by writing an explanatory note on
+    a `# function:` key: the reader comma-split the sentence and
+    `check_file` reported SEVEN violations, each a fragment of English
+    dressed as a bogus vocabulary word.  That was the visible half.  The
+    invisible half is what this section exists for -- `report()` never
+    calls `check_file`, so on a probe file whose header read
+    `# region: CONTESTED, therefore blank -- see the note below` it
+    invented a by_region CELL named after the sentence, split the
+    `# function:` prose into two more, built a two-cell coverage grid
+    from one song, counted it in the MULTI-TAG histogram (the tag
+    inflation metric this taxonomy exists to watch), and reported
+    `undeclared_region: 0` for a file that says the word "blank" in its
+    own header.
+
+    Two gates, and the controls below are what keep them separate: a
+    well-shaped value outside the table (`atlantean`) must STILL refuse
+    by name, because that is a typo of a value and not prose."""
+    print("\n3b. the shape gate — prose on a value key is not a declaration")
+    regions, functions = TX.load_regions(), TX.load_functions()
+    prose_region = "CONTESTED, therefore blank -- see the note below"
+    d, p = _tmpfile(
+        "# author: Probe\n"
+        f"# region: {prose_region}\n"
+        "# function: none, really; this file is mixed\n\n"
+        "--- TITLE: A Song\n[VERSE 1]\nline one that is long enough\n")
+    try:
+        r = TX.report(root=os.path.dirname(p))
+        check("prose on `# region:` never becomes a region — no by_region "
+              "cell, no coverage cell, nothing named after a sentence",
+              r["by_region"] == {} and r["cells"] == {},
+              f"{r['by_region']} / {r['cells']}")
+        check("...and it does not leak through `# function:` either, NOT "
+              "EVEN the well-shaped first word: a line that fails the "
+              "shape is prose entire, and harvesting 'none' out of a "
+              "sentence is the same defect in miniature",
+              r["by_function"] == {} and r["multi_tag"] == {},
+              f"{r['by_function']} / {r['multi_tag']}")
+        check("the song is counted UNDECLARED on both axes — nobody "
+              "successfully declared anything for it",
+              r["undeclared_region"] == 1 and r["undeclared_function"] == 1,
+              f"{r['undeclared_region']} / {r['undeclared_function']}")
+        check("and the collapse is NOT silent (doctrine 20): the unreadable "
+              "lines are carried apart, at the LINE where the defect is",
+              r["malformed_files"] == 1 and len(r["malformed"]) == 2,
+              f"{r['malformed_files']} file(s), {len(r['malformed'])} line(s)")
+        bad = TX.check_file(p, regions, functions)
+        check("check_file reports ONE violation per LINE, not one per "
+              "comma-separated fragment — the Montgomery note produced "
+              "seven, and two lines of prose must produce two",
+              len(bad) == 2, f"{len(bad)}: {bad}")
+        check("...and each names the key and quotes the raw text, so the "
+              "reader is told what to fix rather than handed a word salad",
+              all("is not a declaration" in b for b in bad)
+              and any(prose_region[:20] in b for b in bad), bad)
+    finally:
+        shutil.rmtree(d)
+
+    # THE CONTROLS. The shape gate must not swallow the table gate: an
+    # unknown value that IS shaped like a value is a typo, and a typo has
+    # to refuse BY NAME or the closed set stops being enforceable.
+    d, p = _tmpfile(
+        "# author: Probe\n"
+        "--- TITLE: Shaped But Unknown\n--- REGION: atlantean\n"
+        "--- FUNCTION: dirge\n[VERSE 1]\nx\n")
+    try:
+        bad = TX.check_file(p, regions, functions)
+        check("CONTROL — a well-shaped unknown value still refuses BY NAME, "
+              "so the shape gate has not swallowed the table gate",
+              any("atlantean" in b and "not in the table" in b for b in bad)
+              and any("dirge" in b for b in bad), bad)
+        check("CONTROL — and it is NOT diverted to malformed: it is a typo "
+              "of a value, which is a different finding from prose",
+              not any("is not a declaration" in b for b in bad), bad)
+    finally:
+        shutil.rmtree(d)
+
+    # THE `-basis:` CONVENTION is what prose is supposed to use, and it
+    # works by the header pattern requiring the colon immediately after
+    # the key word. Pinned so a later regex loosening cannot re-open this.
+    d, p = _tmpfile(
+        "# author: Probe\n"
+        "# region: english\n"
+        "# region-basis: a long prose sentence, with commas, that would "
+        "be four bogus values if this key were parsed as a value key\n"
+        "# function-basis: likewise, prose, here\n\n"
+        "--- TITLE: A Song\n[VERSE 1]\nline one that is long enough\n")
+    try:
+        h, _songs = TX.read_file_taxonomy(p)
+        check("CONTROL — a `-basis:` key is invisible to the value reader: "
+              "the region is still english and nothing is malformed",
+              h["region"] == "english" and h["malformed"] == [],
+              f"{h['region']!r} / {h['malformed']}")
+        check("CONTROL — and a legal declaration beside it is untouched",
+              not TX.check_file(p, regions, functions))
     finally:
         shutil.rmtree(d)
 
@@ -289,6 +395,7 @@ def test_manifest():
 
 if __name__ == "__main__":
     for fn in (test_tables, test_resolution, test_closed_set,
+               test_prose_on_a_value_key_is_not_a_declaration,
                test_apparatus_invisibility, test_backfilled_corpus,
                test_manifest):
         fn()
