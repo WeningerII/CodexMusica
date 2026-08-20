@@ -2,6 +2,8 @@
 # region: american
 # source: GITenberg/Poems-Patriotic-Religious-Miscellaneous_937 937.txt md5 f8cf065fa323fdd6854884eb6be3d079
 # licence: public domain - Project Gutenberg; edition published 1880 -- Abram J. Ryan, Poems: Patriotic, Religious, Miscellaneous
+# source: GITenberg/Southern-War-SongsCamp-Fire-Patriotic-and-Sentimental_37538 37538.txt md5 df886b552595772b8a084851c897111a (Tier-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; edition published 1890 -- Southern War Songs, ed. W. L. Fagan
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -657,3 +659,35 @@ Nor nobler man hath less of blame,
 Nor blameless man hath purer name,
 Nor purer name hath grander fame,
  Nor fame -- another Lee.
+
+--- TITLE: THE SOUTHERN SOLDIER BOY
+--- SOURCE: PG37538
+[VERSE 1]
+Young as the youngest who donned the gray,
+  True as the truest who wore it,
+Brave as the bravest he marched away,
+(Hot tears on the cheeks of his mother lay);
+Triumphant waved our flag one day,
+  He fell in the front before it.
+[CHORUS]
+A grave in the wood with the grass o'ergrown,
+           A grave in the heart of his mother,
+         His clay in the one, lifeless and lone,
+           But his memory lives in the other.
+[VERSE 2]
+Firm as the firmest where duty led,
+  He hurried without a falter;
+Bold as the boldest he fought and bled,
+And the day was won--but the field was red;
+And the blood of his fresh young heart was shed,
+  On his country's hallowed altar.
+[VERSE 3]
+On the trampled breast of the battle plain,
+  Where the foremost ranks had wrestled,
+The fairest form 'mid all the slain,
+  Like a child asleep he nestled.
+[VERSE 4]
+In the solemn of the woods that swept
+  The field where his comrades found him,
+They buried him there--and strong men wept,
+  As in silence they gathered 'round him.

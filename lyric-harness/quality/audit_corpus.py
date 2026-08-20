@@ -2366,7 +2366,26 @@ def main(argv=None):
 #: trigger by their nature (the ratio is the honest form of that claim,
 #: per the check's own text). FAIL is the same one pre-existing
 #: fas_hafez.LICENSE.txt mislabel.
-PINNED_SHAPE = {"files": 514, "FAIL": 1, "WARN": 231, "NOTE": 429}
+#: REPINNED 2026-08-20 (second sitting, superseded values kept per
+#: doctrine 17): ~~{"files": 514, "FAIL": 1, "WARN": 231, "NOTE": 429}~~
+#: -- the Tier-1 concurrent load staged 234 new per-author files (514
+#: items) and topped up 18 existing ones (46 items) from five
+#: already-ADMITted song anthologies (PG37538, PG54211, PG15553,
+#: PG27129, PG26715), each extraction reconciled against its edition's
+#: own contents/index by a parallel agent, then landed by a single
+#: writer behind the containment dedup (114 cross-source reprints
+#: dropped). WARN is UNCHANGED at 231: every new file carries its own
+#: local: row with the staged md5, so check C gained nothing. The +172
+#: NOTEs are all check G's per-file elision-orthography disclosures
+#: (582 of the 601), which 19th-century song verse triggers by its
+#: nature ('tis, o'er). FAIL is the same one pre-existing
+#: fas_hafez.LICENSE.txt mislabel.
+#: REPINNED same sitting: 748 -> 742 files, 601 -> 598 NOTE -- six
+#: cross-book spelling-variant twin files (Boker, Macarthy, Flash,
+#: Sinclair, Falligant, Willson) merged after a systematic near-name
+#: scan, each pair identified by the editions' own indexes (the
+#: Falligant pair by the edition tying both credits to Savannah).
+PINNED_SHAPE = {"files": 742, "FAIL": 1, "WARN": 231, "NOTE": 598}
 
 
 def _verify_shape(files, findings):

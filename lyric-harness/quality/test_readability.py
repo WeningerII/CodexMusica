@@ -324,7 +324,8 @@ def test_corpus_song_rate_is_pinned():
     others = sorted(glob.glob(os.path.join(SONG, "*.txt")))
     # REPINNED 2026-08-20: 143 -> 388 (the Modern Scottish Minstrel mass
     # load, rev-2 restage)
-    check("388 ENGLISH song files present", len(paths) == 388, f"{len(paths)}")
+    # REPINNED 2026-08-20 (Tier-1 concurrent load): 388 -> 622 files.
+    check("616 ENGLISH song files present", len(paths) == 616, f"{len(paths)}")
     check("and the corpus is no longer monolingual, which is why the scope "
           "is now explicit", len(others) > len(paths),
           f"{len(others)} files total across "
@@ -423,32 +424,40 @@ def test_corpus_song_rate_is_pinned():
     # new files are SCOTS -- kye/waes/gudeman are exactly what CMUdict
     # cannot read, the same reason Barnes and Burns were already this
     # corpus's refusal concentration (doctrine 67: measure WHERE it falls).
-    check("countable lines 179193 — VERSE ONLY, now that apparatus lines "
+    # REPINNED 2026-08-20 (Tier-1 concurrent load): 179193 -> 194935
+    # countable lines, and the token rate FALLS 6.51% -> 6.23% — the same
+    # doctrine-67 argument in the other direction: the five Tier-1
+    # anthologies are mostly standard literary English (American, Victorian,
+    # Elizabethan), so the Scots concentration the mass load created is
+    # diluted, not repaired.
+    check("countable lines 194833 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 179193,
-          f"{r['lines_countable']}  (153224 before the 2026-08-20 mass "
-          f"load; 151894 before Pass-1; 188805 under the pre-fix reader)")
-    check("unreadable end word, cause TOKEN, 11658 — the Scots share grew, "
+          r["lines_countable"] == 194833,
+          f"{r['lines_countable']}  (179193 before the Tier-1 load; 153224 "
+          f"before the mass load; 151894 before Pass-1)")
+    check("unreadable end word, cause TOKEN, 12139 — the Scots share grew, "
           "and so did CMUdict's honest refusal count",
-          r["unreadable_final_token"] == 11658,
+          r["unreadable_final_token"] == 12139,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
-          f"(9094 before the mass load)")
-    check("rate on that quantity is 6.51% — up from 5.94%, the price of "
-          "1,489 scottish-region songs in a General American dictionary",
-          abs(r["rate_token"] - 0.065065) < 1e-5,
-          f"{r['rate_token']:.4%}  (5.9351% before the mass load)")
-    check("unreadable end word, cause PIECE, 192 — the price of the hyphen "
+          f"(11658 before the Tier-1 load; 9094 before the mass load)")
+    check("rate on that quantity is 6.23% — DOWN from 6.51%: the Tier-1 "
+          "anthologies are mostly standard literary English, so the Scots "
+          "concentration dilutes",
+          abs(r["rate_token"] - 0.062305) < 1e-5,
+          f"{r['rate_token']:.4%}  (6.5065% before the Tier-1 load; 5.9351% "
+          f"before the mass load)")
+    check("unreadable end word, cause PIECE, 201 — the price of the hyphen "
           "refusal on VERSE lines alone",
-          r["unreadable_final_piece"] == 192,
-          f"{r['unreadable_final_piece']}  (174 before the mass load)")
-    check("so the end-word refusal rate is 6.61% AFTER the rule and 6.51% "
+          r["unreadable_final_piece"] == 201,
+          f"{r['unreadable_final_piece']}  (192 before the Tier-1 load)")
+    check("so the end-word refusal rate is 6.33% AFTER the rule and 6.23% "
           "before it, and both are printed",
-          r["unreadable_final"] == 11850 and abs(r["rate"] - 0.066130) < 1e-5,
+          r["unreadable_final"] == 12340 and abs(r["rate"] - 0.063336) < 1e-5,
           f"{r['unreadable_final']} ({r['rate']:.4%})")
-    check("11355 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 11355,
-          f"{r['substituted_end_word']}  (8858 before the mass load)")
+    check("11788 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 11788,
+          f"{r['substituted_end_word']}  (11355 before the Tier-1 load)")
     # THE SUBSET CLAIM, PINNED 2026-08-14 — and it is pinned because it is
     # FALSE. `substitution_report`'s docstring called itself "a strict subset
     # of the unreadable-final lines" from the day it was written; nothing
@@ -462,21 +471,21 @@ def test_corpus_song_rate_is_pinned():
     # second is the population NOTHING in this module reached before the
     # wiring. If `substituted_silent` ever moves, either the corpus changed
     # or `line_anchors` did, and both are things a reader needs told.
-    check("11353 + 2, not 11355 + 0 — the substitution is NOT a subset of "
+    check("11786 + 2, not 11788 + 0 — the substitution is NOT a subset of "
           "the unreadable-final lines, and the 2 are the only lines in this "
           "module that no other finding reaches",
-          r["substituted_flagged"] == 11353 and r["substituted_silent"] == 2,
+          r["substituted_flagged"] == 11786 and r["substituted_silent"] == 2,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "
           f"(Byron's `...on the turf,[mm]` and D'Urfey's `_Sh----_`)")
-    check("and the complement is the larger half and is not a defect: 497 "
+    check("and the complement is the larger half and is not a defect: 554 "
           "unreadable-final lines are NOT substitutions",
-          r["unreadable_final"] - r["substituted_flagged"] == 497
-          and r["unreadable_final_piece"] == 192,
-          f"{r['unreadable_final'] - r['substituted_flagged']} = 192 cause "
+          r["unreadable_final"] - r["substituted_flagged"] == 554
+          and r["unreadable_final_piece"] == 201,
+          f"{r['unreadable_final'] - r['substituted_flagged']} = 201 cause "
           f"PIECE (`hill-zide` keeps its own token in the syllable map, so "
-          f"nothing is substituted) + 305 where no earlier word read either")
+          f"nothing is substituted) + 353 where no earlier word read either")
     check("the rate is not uniform across files — a subset rate is a "
           "different number",
           max(d["rate"] for d in r["per_file"]) > 0.20
@@ -501,14 +510,14 @@ def test_corpus_song_rate_is_pinned():
     # unexplained by an earlier token. 0 is what "derived by POSITION" means
     # measured rather than asserted, and it is the direct successor to the
     # 328 of 328.
-    check("the hyphen population is 367 end tokens with a read piece and an "
+    check("the hyphen population is 386 end tokens with a read piece and an "
           "unread piece (CLAUDE.md's 323 was this figure at the 143-file "
           "corpus)",
-          r["final_piece_population"] == 367,
+          r["final_piece_population"] == 386,
           f"{r['final_piece_population']}")
-    check("split 192 ANCHOR-layer (refused) + 175 REPORT-layer (label "
+    check("split 201 ANCHOR-layer (refused) + 185 REPORT-layer (label "
           "overstates, never refused)",
-          r["unreadable_final_piece"] == 192 and r["label_overstates"] == 175,
+          r["unreadable_final_piece"] == 201 and r["label_overstates"] == 185,
           f"{r['unreadable_final_piece']} + {r['label_overstates']}")
     check("0 of 323 have an end-word piece misfiled as interior — the "
           "328-of-328 defect, measured at zero",

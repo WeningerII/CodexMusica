@@ -570,6 +570,18 @@ def test_the_corpus_holds():
     # and those want opposite responses: the first is fine, the second is a
     # number that has been wrong in every rate quoted over this corpus. So
     # these are equalities now, and moving one is meant to cost a reading.
+    # REPINNED 2026-08-20 (Tier-1 sitting), TWO movements in one repin and
+    # they are different kinds. (1) INHERITED: the 2026-08-20 mass-load
+    # sitting pinned 2,732/247/713 from its gate run, then RESTAGED the
+    # whole load with the rev-2 parser and did not re-run this suite — at
+    # the restaged HEAD the corpus measured 2,723/242/709, so these pins
+    # were red on arrival (verified per-file: the Tier-1 diff moves NO
+    # existing file's mark counts). (2) REAL GROWTH: the Tier-1 war-song
+    # books state choruses as 'CHORUS--text' stanza heads; 48 became real
+    # [CHORUS] blocks (and their trailing bare 'CHORUS.' repeat POINTERS
+    # were stripped as apparatus — an instruction, not a block, the same
+    # reading the return machinery gives '&c.'). 2,723 -> 2,771, chorus
+    # 242 -> 290; burden and refrain untouched by Tier-1.
     # REPINNED AGAIN 2026-08-11, cell AC. 2,747 -> 2,732 whole corpus,
     # 2,443 -> 2,428 eng_*; BURDEN 1,784 -> 1,772, REFRAIN 716 -> 713.
     # The 15 that went are marks inside 63 near-duplicate items -- the same
@@ -579,9 +591,9 @@ def test_the_corpus_holds():
     # equality is what makes the second one cost a reading. It is also why
     # this is not a `>=`: a lower bound would have absorbed both silently.
     check("the repeat-block families are all expressible, none collapsed",
-          rep_total == 2732 and c["functions"]["chorus"] == 247
+          rep_total == 2771 and c["functions"]["chorus"] == 290
           and c["functions"]["burden"] == 1772
-          and c["functions"]["refrain"] == 713,
+          and c["functions"]["refrain"] == 709,
           f"{rep_total:,} repeat blocks held, and BURDEN is kept SEPARATE "
           f"from REFRAIN because the corpus marks them differently "
           f"(doctrine 24). BURDEN was 1,795 until 2026-08-11, then 1,784: the "
@@ -590,7 +602,7 @@ def test_the_corpus_holds():
           f"they were being counted twice and no rate over them was right.")
     check("the register's `2,454 marked repeat blocks` reproduces, and the "
           "unwritten coordinate was LANGUAGE SCOPE",
-          eng_total == 2428 and c["eng_repeat"]["chorus"] == 247,
+          eng_total == 2467 and c["eng_repeat"]["chorus"] == 290,
           f"eng_* only gives {eng_total:,} "
           f"({dict(c['eng_repeat'])}); the recorded 1,603/604/247 is the "
           f"state at commit ef0baa4 restricted to `eng_*`, and the whole "
@@ -924,17 +936,22 @@ def test_which_pairs_may_be_asked_is_the_whole_design():
 
     check("the corpus can supply cross-function pairs at all — four "
           "functions, so six possible pairings",
-          c["cross_pairs"] == 889 and len(c["cross_by_pair"]) == 5,
+          c["cross_pairs"] == 922 and len(c["cross_by_pair"]) == 5,
           f"{c['cross_pairs']:,} pairs over {len(c['cross_by_pair'])} of the "
           f"6 possible pairings ({sorted(c['cross_by_pair'])}); "
           f"burden/refrain never co-occur in one song, which is itself the "
           f"corpus saying the two marks are one printer's choice")
-    check("ASKING EVERY PAIR WOULD BE WRONG 5.7% OF THE TIME — this is the "
+    # REPINNED 2026-08-20 (Tier-1): 51 of 889 (5.7%) -> 61 of 922 (6.6%).
+    # The 10 new shared lines are the war-song shape — a chorus that sings
+    # a line the verse also sings (Goober Peas's own refrain line) — and
+    # the check below this one still holds: none lands in the asked set.
+    check("ASKING EVERY PAIR WOULD BE WRONG 6.6% OF THE TIME — this is the "
           "number the declared asked set exists for",
-          c["cross_shared"] == 51 and abs(rate - 0.057) < 0.001,
+          c["cross_shared"] == 61 and abs(rate - 0.0662) < 0.001,
           f"{c['cross_shared']} of {c['cross_pairs']:,} pairs share a whole "
           f"line under the declared normalisation, and NOT ONE is a reprise: "
-          f"they are refrain lines a printer set inside the verse. On a "
+          f"they are refrain lines a printer set inside the verse, or a "
+          f"war-song chorus line the verse itself sings. On a "
           f"21-function vocabulary that is 420 ordered questions per song at "
           f"this error rate — doctrine 61, a rule that fires more often is "
           f"not a better rule")

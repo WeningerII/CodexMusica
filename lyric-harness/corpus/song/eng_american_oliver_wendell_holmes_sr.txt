@@ -4,6 +4,8 @@
 # licence: public domain - Project Gutenberg; edition published 1895 -- The Poetical Works of Oliver Wendell Holmes, Complete
 # source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Pass-1 same-gate top-up 2026-08-19)
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
+# source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -321,3 +323,128 @@ As sad as earth, as sweet as heaven!
       Furrowed and ridged by the battle-field’s plough,
     Comes the loud summons; too long you have slumbered,
       Hear the last Angel-trump--Never or Now!
+
+--- TITLE: Old Ironsides
+--- SOURCE: PG15553
+[VERSE 1]
+Ay, tear her tattered ensign down!
+  Long has it waved on high,
+And many an eye has danced to see
+  That banner in the sky;
+Beneath it rung the battle shout,
+  And burst the cannon's roar;--
+The meteor of the ocean air
+  Shall sweep the clouds no more.
+[VERSE 2]
+Her deck, once red with heroes' blood,
+  Where knelt the vanquished foe,
+When winds were hurrying o'er the flood,
+  And waves were white below,
+No more shall feel the victor's tread,
+  Or know the conquered knee;
+The harpies of the shore shall pluck
+  The eagle of the sea!
+[VERSE 3]
+Oh, better that her shattered hulk
+  Should sink beneath the wave!
+Her thunders shook the mighty deep,
+  And there should be her grave;
+[VERSE 4]
+Nail to the mast her holy flag,
+  Set every threadbare sail,
+And give her to the god of storms,
+  The lightning, and the gale!
+
+--- TITLE: Under the Violets
+--- SOURCE: PG15553
+[VERSE 1]
+Her hands are cold; her face is white;
+  No more her pulses come and go;
+Her eyes are shut to life and light;--
+  Fold the white vesture, snow on snow,
+  And lay her where the violets blow.
+[VERSE 2]
+But not beneath a graven stone,
+  To plead for tears with alien eyes;
+A slender cross of wood alone
+  Shall say, that here a maiden lies
+  In peace beneath the peaceful skies.
+[VERSE 3]
+And gray old trees of hugest limb
+  Shall wheel their circling shadows round
+To make the scorching sunlight dim
+  That drinks the greenness from the ground,
+  And drop their dead leaves on her mound.
+[VERSE 4]
+When o'er their boughs the squirrels run,
+  And through their leaves the robins call,
+And, ripening in the autumn sun,
+  The acorns and the chestnuts fall,
+  Doubt not that she will heed them all.
+[VERSE 5]
+For her the morning choir shall sing
+  Its matins from the branches high,
+And every minstrel voice of Spring,
+  That trills beneath the April sky,
+  Shall greet her with its earliest cry.
+[VERSE 6]
+When, turning round their dial-track,
+  Eastward the lengthening shadows pass,
+Her little mourners, clad in black,
+  The crickets, sliding through the grass,
+  Shall pipe for her an evening mass.
+[VERSE 7]
+At last the rootlets of the trees
+  Shall find the prison where she lies,
+And bear the buried dust they seize
+  In leaves and blossoms to the skies.
+  So may the soul that warmed it rise!
+[VERSE 8]
+If any, born of kindlier blood,
+  Should ask, What maiden lies below?
+Say only this: A tender bud,
+  That tried to blossom in the snow,
+  Lies withered where the violets blow.
+
+--- TITLE: The Chambered Nautilus
+--- SOURCE: PG15553
+[VERSE 1]
+This is the ship of pearl, which, poets feign,
+     Sails the unshadowed main,--
+     The venturous bark that flings
+On the sweet summer wind its purpled wings
+In gulfs enchanted, where the Siren sings,
+     And coral reefs lie bare,
+Where the cold sea-maids rise to sun their streaming hair.
+[VERSE 2]
+Its webs of living gauze no more unfurl;
+     Wrecked is the ship of pearl!
+     And every chambered cell,
+Where its dim dreaming life was wont to dwell,
+As the frail tenant shaped his growing shell,
+     Before thee lies revealed,--
+Its irised ceiling rent, its sunless crypt unsealed!
+[VERSE 3]
+Year after year beheld the silent toil
+     That spread his lustrous coil;
+     Still, as the spiral grew,
+He left the past year's dwelling for the new,
+Stole with soft step its shining archway through,
+    Built up its idle door,
+Stretched in his last-found home, and knew the old no more.
+[VERSE 4]
+Thanks for the heavenly message brought by thee,
+    Child of the wandering sea,
+    Cast from her lap, forlorn!
+From thy dead lips a clearer note is born
+Than ever Triton blew from wreathed horn!
+    While on mine ear it rings,
+Through the deep caves of thought I hear a voice that sings:
+[VERSE 5]
+Build thee more stately mansions, O my soul,
+    As the swift seasons roll!
+   Leave thy low-vaulted past!
+Let each new temple, nobler than the last,
+Shut thee from heaven with a dome more vast,
+    Till thou at length art free,
+Leaving thine outgrown shell by life's unresting sea!

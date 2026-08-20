@@ -2,6 +2,8 @@
 # region: american
 # source: GITenberg/FannyWith-Other-Poems_34762 34762.txt md5 127db8670494a2cf8d63bb0e2537085a
 # licence: public domain - Project Gutenberg; edition published 1839 -- Fitz-Greene Halleck, Fanny, With Other Poems
+# source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -70,3 +72,36 @@ BY MISS * * * *.
             Alas! and I, alas! and I
           Have no accepted lover:
             Don't ask me why, don't ask me why.
+
+--- TITLE: On the Death of Joseph Rodman Drake
+--- SOURCE: PG15553
+[VERSE 1]
+Green be the turf above thee,
+  Friend of my better days!
+None knew thee but to love thee,
+  Nor named thee but to praise.
+[VERSE 2]
+Tears fell when thou wert dying,
+  From eyes unused to weep,
+And long, where thou art lying,
+  Will tears the cold turf steep.
+[VERSE 3]
+When hearts, whose truth was proven,
+  Like thine, are laid in earth,
+There should a wreath be woven
+  To tell the world their worth;
+[VERSE 4]
+And I, who woke each morrow
+  To clasp thy hand in mine,
+Who shared thy joy and sorrow,
+  Whose weal and woe were thine,
+[VERSE 5]
+It should be mine to braid it
+  Around thy faded brow,
+But I've in vain essayed it,
+  And feel I cannot now.
+[VERSE 6]
+While memory bids me weep thee,
+  Nor thoughts nor words are free,
+The grief is fixed too deeply
+  That mourns a man like thee.

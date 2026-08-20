@@ -79,6 +79,57 @@ collisions and two item-level ones.
 > and the cause is a joint or anonymous source whose attribution the extraction
 > had to invent.
 
+## 0.4 · The author dates the mass load derived were reading other people's deaths
+
+**125 committed files carried a `(birth-death)` annotation that no
+evidence supports, and the mechanism is the interesting part.** The
+Modern Scottish Minstrel mass load derived each poet's dates with a
+regex looking for a year near `died`/`death` in that poet's memoir. The
+Minstrel's memoirs are biographical prose about men whose fathers,
+patrons and idols also die in them, so the regex was reading **the wrong
+person's death year** and no rule in it could tell.
+
+Two of the proofs are self-refuting inside the source's own sentence:
+
+| author | recorded | the year actually belongs to |
+|---|---|---|
+| Joanna Baillie | 1762-**1778** | her FATHER — *"After his death, which took place in 1778, his daughters both continued..."* |
+| Allan Cunningham | 1784-**1796** | ROBERT BURNS — *"at the period of Burns' death, in 1796, he was only twelve years old"* |
+
+**IT WAS FOUND BY A RAIL BUILT FOR SOMETHING ELSE.** The Phase-1 lander
+compares the death year an anthology PRINTS against the one the corpus
+records before routing an item to an existing author file — a guard
+against two men sharing a name (Oxford's Alexander Hume, 1560-1609,
+against the corpus's two Minstrel-era Alexander Humes born 1809 and
+1811, which it also caught). Six authors came back contradicted —
+Baillie, Cunningham, Campbell, Lockhart, Wilson, Stoddart — and in all
+six the printed authority is right and the corpus was wrong.
+
+**THE ERROR RATE CANNOT BE BOUNDED FROM INSIDE THE SOURCE, and that is
+why the whole annotation goes rather than the six.** An internal
+heuristic — implausible lifespan, plus a possessive naming somebody
+other than the subject — flags **9 of 125**, and it MISSED four of the
+six the external evidence caught, because Campbell dead at 51 instead of
+67 looks perfectly ordinary. The repo's own instrument for this,
+`data/authority.tsv` (13,997 verified death years behind a provenance
+gate), covers **0 of the 112** — it is populated for the Syriac, Arabic
+and Hebrew cells, not for nineteenth-century Scottish minor poets. So
+there is no bound and no cheap re-derivation, and a derived field with
+an unmeasured error rate presented as fact is the defect, not the
+annotation's absence.
+
+**WITHDRAWN, NOT DELETED (doctrine 17).** Every one of the 125 files
+keeps its own superseded value struck on a `# dates: WITHDRAWN` line
+naming the reason, and the seven with contradicting printed evidence
+carry that evidence, so a later sitting can re-derive from authorities
+rather than rediscover the contradiction. **The licence claim is
+untouched**: these files rest on the parent row's ADMIT reasoning, not
+on per-author dates, and every songwriter in an 1855 anthology is long
+out of any life+70 term — this was an accuracy defect, never an
+admissibility one.
+
+---
+
 ---
 
 ## 1. The check list
@@ -101,6 +152,62 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-20 (second sitting): 830 findings — 1 FAIL, 231
+> WARN, 598 NOTE**, over **742 files** (~~514 files, 429 NOTE~~, earlier
+> the same day). The **Tier-1 concurrent load** staged every remaining
+> personally-attributed item from five already-licence-ADMITted song
+> anthologies: Southern War Songs (PG37538), American War Ballads vol. 2
+> (PG54211), the Golden Treasury of American Songs and Lyrics (PG15553),
+> Lyrics from the Song-Books of the Elizabethan Age (PG27129), and
+> Victorian Songs (PG26715) — **234 new per-author files (514 songs) and
+> 46 top-up songs into 18 existing files**, the corpus's first
+> multi-agent sitting: four extraction agents ran in parallel, each
+> validating its own parse by full reconciliation against its edition's
+> own contents or first-line index (Golden Treasury 147 of 148 with the
+> 148th credited '(?)' by the edition itself; Victorian 131 of 131 with
+> a per-line ledger; Elizabethan all 234 index entries, 14 skipped where
+> the edition's credit names no person; the war-songs pair 175 of 298
+> body items, 123 skips recorded by reason — no printed attribution,
+> pseudonym-only, music/arranger/performer-only). A single writer then
+> landed everything behind the containment dedup, which dropped **114
+> cross-source reprints** — including the 58 Elizabethan items that were
+> the corpus's original Campion/Dowland staging from the same book,
+> found rather than assumed. Routing caught five edition-spelling
+> variants of existing corpus authors ('Paul Lawrence Dunbar', 'Stephen
+> Collins Foster', 'Father Ryan', 'Christina G. Rossetti', 'Dinah Maria
+> Mulock Craik') that would otherwise have made duplicate author files,
+> and merged joint-songbook items into the Campion file per that file's
+> own precedent. Per-author regions were adjudicated for the Victorian
+> anthology's new authors ('Victorian' is an era, not a region): 4
+> irish, 2 scottish, remainder english. THE LOAD'S OWN POST-WRITE CHECK
+> CAUGHT A FORMATTING DEFECT AND THE FIRST FIX WAS WRONG TOO: the
+> war-song books print chorus apparatus two ways — a stanza-heading
+> `CHORUS--text` STATES the chorus, and a bare trailing `CHORUS.` after
+> a later stanza is the printer's REPEAT POINTER — and the first render
+> staged both as verse text. A first repair mistyped the pointers as
+> `[CHORUS]` marks on the FOLLOWING verse (Goober Peas's verses 3-5
+> briefly became three choruses) before the shape census over the
+> extraction itself settled the semantics: 49 inline statements are real
+> `[CHORUS]` blocks, 105 trailing pointers are apparatus and are
+> stripped, the same reading the return machinery gives `&c.`. The
+> affected files were regenerated from the extraction, not patched.
+> AND A SYSTEMATIC NEAR-NAME SCAN AFTER THE LANDING found six
+> cross-book spelling-variant TWIN FILES the exact-name routing had
+> created — George H./George Henry Boker, Harry Macarthy/McCarthy,
+> H. L./Harry L. Flash, Carrie Bell Sinclair with and without 'Miss',
+> Lieut./Robert Falligant (the edition ties both credits to Savannah),
+> Forceythe/Byron Forceythe Willson — each pair identified by the
+> editions' own indexes and merged into one file carrying both credits,
+> so the NET new-file count is 228 and the corpus lands at **616 eng
+> files / 6,352 songs**. The edition's own roster also SEPARATES one
+> near-pair — 'Hewett, John M.' and 'Hewitt, John H.' are two index
+> entries — so those two files stay apart, recorded not resolved.
+> WARN is UNCHANGED at 231 —
+> every new file ships its own per-file `local:` row with the staged
+> md5; the +172 NOTEs are all check G's elision-orthography disclosures
+> ('tis, o'er — 19th-century song verse triggers it by nature); FAIL is
+> the same pre-existing `fas_hafez.LICENSE.txt` mislabel.
+>
 > **REPINNED 2026-08-20: 661 findings — 1 FAIL, 231 WARN, 429 NOTE**, over
 > **514 files** (~~269 files, 202 NOTE~~, 2026-08-19). The owner-directed
 > mass load staged **245 new `eng_celtic_msm_*` files (812 songs)** — every
