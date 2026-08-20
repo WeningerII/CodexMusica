@@ -521,7 +521,19 @@ def author_of(path):
                 break
             if l.startswith("# author:"):
                 a = l[9:].strip()
-    m = re.search(r"\((\d{3,4})\??\s*[-–—]\s*(\d{3,4})", a)
+    # FOUR DIGITS, NOT THREE. `\d{3,4}` read Thomas Heywood's printed
+    # `(157?-1650)` as BORN IN THE YEAR 157 and Giles Fletcher's `(158?-`
+    # as 158 -- a ~1,400-year error on the very axis section 4
+    # correlates against, silently, from whichever staging first
+    # introduced an approximate date. A three-digit run before a `?` is a
+    # TRUNCATED year, not a small one; it is the same class as the HBV
+    # safe-subset gate's `186?--`, one module over, and the same answer:
+    # unreadable, so the author is UNDATED and section 4 drops it with
+    # the count reported. Verified before tightening -- every 3-digit
+    # match in `corpus/song/eng_*` is a truncated date (`157?`, `158?`,
+    # `187 `) and this corpus holds no genuine pre-1000 birth year, so
+    # the stricter read loses no real author.
+    m = re.search(r"\((\d{4})\??\s*[-–—]\s*(\d{4})", a)
     return a, (int(m.group(1)) if m else None), (int(m.group(2)) if m else None)
 
 
@@ -1041,12 +1053,39 @@ def report_period(rows, lo, hi, draws=2000):
     byauth = {}
     for r in items:
         byauth.setdefault(r["file"], []).append(r)
-    auths = sorted(byauth)
+    # AN AUTHOR WITH NO PRINTED DATES IS A REFUSAL, NOT A ZERO AND NOT A
+    # CRASH (doctrine 79/20). This section correlates a quality feature
+    # against BIRTH YEAR, so an author the corpus cannot date has no
+    # coordinate on this axis and is dropped from THIS check with the
+    # count reported -- exactly as `predictability` already drops an
+    # author whose every end word is OOV, twenty lines below.
+    #
+    # IT USED TO CRASH. `min(births)` on a list holding None raised
+    # `TypeError: '<' not supported between instances of 'NoneType' and
+    # 'NoneType'` and took the whole run down at section 4 -- after the
+    # expensive predictability half had already been paid. Two corpus
+    # events put Nones there and neither existed when this was written:
+    # the mass load's derived dates were WITHDRAWN (they were reading
+    # other people's deaths), and the Oxford/PAH/HBV anthologies print
+    # dates for some authors and not others.
+    all_auths = sorted(byauth)
+    auths = [a for a in all_auths
+             if byauth[a][0]["born"] is not None
+             and byauth[a][0]["died"] is not None]
+    undated = len(all_auths) - len(auths)
+    if not auths:
+        print("   REFUSED — no author in the band carries printed dates, so "
+              "there is no birth-year axis to correlate against.")
+        return {}
     births = [byauth[a][0]["born"] for a in auths]
-    print("   %d authors, born %d-%d, median %d; latest death in band %d. "
-          "The corpus holds no song by anyone alive after 1929, so nothing "
-          "below extrapolates to a lyric written now."
-          % (len(auths), min(births), max(births), statistics.median(births),
+    print("   %d of %d authors carry printed dates and are correlated below; "
+          "%d are UNDATED and dropped from this check alone (counted apart, "
+          "never as a zero). Dated: born %d-%d, median %d; latest death %d. "
+          "No song here is by anyone alive after 1929 — that is the "
+          "safe-subset gate's doing and not an accident of sampling, so "
+          "nothing below extrapolates to a lyric written now."
+          % (len(auths), len(all_auths), undated,
+             min(births), max(births), statistics.median(births),
              max(byauth[a][0]["died"] for a in auths)))
     n_checks = len(CHECKS)
     bonf = 0.05 / n_checks
