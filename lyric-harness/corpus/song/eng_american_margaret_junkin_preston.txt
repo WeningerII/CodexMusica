@@ -4,6 +4,8 @@
 # licence: public domain - Project Gutenberg; edition published 1866 -- Margaret Junkin Preston, Beechenbrook: A Rhyme of the War
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (filename corrected 2026-08-19: the repo ships 47476-8.txt; bytes verified identical)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/Southern-War-SongsCamp-Fire-Patriotic-and-Sentimental_37538 37538.txt md5 df886b552595772b8a084851c897111a (Pass-1 same-gate top-up 2026-08-19)
+# licence: public domain - Project Gutenberg; edition published 1890 -- Southern War Songs, ed. W. L. Fagan
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -570,3 +572,42 @@ Yea, it was noblest for him--it was best
   (Questioning naught of our Father's decrees),
 There to pass over the river and rest
   Under the shade of the trees!
+
+--- TITLE: THE SONG OF THE SNOW
+--- SOURCE: PG37538
+[VERSE 1]
+  Halt! the march is over;
+    Day is almost done;
+  Loose the cumbrous knapsack,
+    Drop the heavy gun.
+  Chilled, and worn, and weary,
+    Wander to and fro,
+  Seeking wood to kindle
+    Fires amidst the snow.
+[VERSE 2]
+  Round the camp-blaze gather,
+    Heed not sleep nor cold;
+  Ye are Spartan soldiers,
+    Strong, and brave, and bold.
+  Never Xerxian army
+    Yet subdued a foe,
+  Who but asked a blanket
+    On a bed of snow!
+[VERSE 3]
+  Shivering 'midst the darkness,
+    Christian men are found
+  There devoutly kneeling
+    On the frozen ground;
+  Pleading for their country
+    In its hour of woe,
+  For its soldiers marching
+    Shoeless through the snow!
+[VERSE 4]
+  Lost in heavy slumbers,
+    Free from toil and strife,
+  Dreaming of their dear ones--
+    Home, and child, and wife;
+  Tentless they are lying,
+    While the fires burn low--
+  Lying in their blankets,
+    'Midst December's snow.

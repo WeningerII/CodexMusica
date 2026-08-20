@@ -190,15 +190,19 @@ def test_backfilled_corpus():
           and headers["eng_hymn_borthwick.txt"]["region"] == "scottish"
           and headers["eng_hymn_cf_alexander.txt"]["region"] == "irish")
     r = TX.report()
-    check("the report counts the corpus: 4,930 songs, zero undeclared "
+    # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 songs (the taxonomy's own
+    # baseline, then Pass-1 batch 1's 49 new eng_hymn_ hymns, then batch 2's
+    # 6 new eng_american_ items from Southern War Songs / American War
+    # Ballads Vol. 2 — same already-cited-source top-up, different group).
+    check("the report counts the corpus: 4,985 songs, zero undeclared "
           "regions, undeclared functions counted APART (evidence-or-blank "
           "leaves most songs honestly untagged)",
-          r["songs"] == 4930 and r["undeclared_region"] == 0
+          r["songs"] == 4985 and r["undeclared_region"] == 0
           and r["undeclared_function"] > 3000
           and r["undeclared_function"] + sum(r["multi_tag"].values())
           == r["songs"])
     check("region totals partition the corpus (single-valued axis)",
-          sum(r["by_region"].values()) == 4930)
+          sum(r["by_region"].values()) == 4985)
 
 
 def test_manifest():

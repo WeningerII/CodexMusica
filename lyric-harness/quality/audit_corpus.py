@@ -2336,9 +2336,21 @@ def main(argv=None):
 #: a rule the file enforces, because two independent moves could cancel.
 #: THE PARAGRAPH ABOVE IS WHY THIS IS WRITTEN OUT: the counts were re-derived
 #: by running the command and reading its output, NOT by editing 230 down to
-#: 229 to make a red gate green. `python3 quality/audit_corpus.py` prints
-#: `269 files, 429 findings: 1 FAIL, 229 WARN, 199 NOTE`.
-PINNED_SHAPE = {"files": 269, "FAIL": 1, "WARN": 229, "NOTE": 199}
+#: 229 to make a red gate green.
+#:
+#: REPINNED 2026-08-19 from ~~{"files": 269, "FAIL": 1, "WARN": 229,
+#: "NOTE": 199}~~ -- Pass-1 same-gate top-ups appended 49 new hymns to
+#: eleven eng_hymn_ files from already-cited editions, real content growth.
+#: Five findings moved: check E gained 2 WARN + 2 NOTE on
+#: eng_hymn_watts.txt (pre-existing run-ons/title-echoes made newly visible
+#: by the batch's own added titles) and check G gained 1 NOTE on
+#: eng_hymn_cennick.txt (an elision-ratio disclosure, population-triggered).
+#: See quality/RESULTS_CORPUS_AUDIT.md's own 2026-08-19 repin for the full
+#: account, including a first (reverted, never-committed) extraction
+#: attempt that staged a source's own trailing licence text as verse.
+#: `python3 quality/audit_corpus.py` prints
+#: `269 files, 434 findings: 1 FAIL, 231 WARN, 202 NOTE`.
+PINNED_SHAPE = {"files": 269, "FAIL": 1, "WARN": 231, "NOTE": 202}
 
 
 def _verify_shape(files, findings):

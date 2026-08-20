@@ -101,6 +101,45 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-19: 434 findings — 1 FAIL, 231 WARN, 202 NOTE**, over the
+> same 269 files (~~229 WARN, 199 NOTE~~, 2026-08-16). Pass-1 same-gate
+> top-ups appended 49 new hymns to eleven `eng_hymn_*` files from
+> already-cited editions (Otterbein, Book of Hymns, and Watts's three own
+> collections) — real content growth, not drift. THIS REPIN SUPERSEDES A
+> FIRST ATTEMPT AT THE SAME PIN, never committed: that attempt's extraction
+> had let PG13341's own trailing scripture-index appendix and full Project
+> Gutenberg licence footer run on as the last item's own verses (the
+> source's LAST matched header had no next header to bound it, so its
+> block ran to end-of-file) — caught by an unrelated readability-statistic
+> investigation (`unreadable_final_piece` carrying thirteen literal
+> `Gutenberg-tm` tokens), reverted via `git checkout --`, and re-staged
+> after the extraction scripts were given a shared book-end boundary
+> detector. That detector's own first cut was ALSO wrong the same way one
+> layer down: Watts's `Hymns-and-Spiritual-Songs` divides into three
+> internal books, each closing with a real "End of the First/Second/Third
+> Book." line, and cutting at the FIRST such line (rather than the
+> source's true tail markers — the appendix's own `AN INDEX` title and the
+> Gutenberg boilerplate) discarded two of the source's three books outright
+> (48 items down to 13). Fixed by dropping the ambiguous book-divider
+> pattern and keying the boundary on markers that are structurally
+> guaranteed to appear once, at the true tail.
+> Five findings moved, all genuine and none a defect this (corrected) batch
+> introduced: check E gained four rows on `eng_hymn_watts.txt` (2 WARN, 2
+> NOTE) — RUN-ONs and TITLE ECHOes that PRE-DATE this batch (confirmed:
+> none of the five swallowed/echoing items carries the `--- SOURCE:` tag
+> every newly-staged item does), newly VISIBLE only because the batch's
+> own additions happen to supply titles the check cross-references
+> against ("Hosanna to the King" among them); recorded, not repaired, in
+> `CORPUS_LOADING_PROTOCOL.md`'s scope. And check G gained one NOTE for
+> `eng_hymn_cennick.txt` — the elision-ratio measurement, a disclosure not
+> a finding about correctness, firing because the file crossed the
+> population size the check reads at all. Repinned together by re-running
+> the command, over an isolated `git worktree` at the prior HEAD to get a
+> trustworthy before/after (a `git stash`-based comparison earlier in the
+> same sitting popped an unrelated stash from a different worktree by
+> accident — caught immediately, the popped changes reverted byte-for-byte
+> before anything else happened, and the stash left untouched for its
+> owner; the worktree route has no such failure mode).
 > **REPINNED 2026-08-16: 429 findings — 1 FAIL, 229 WARN, 199 NOTE**, over the
 > same 269 files (~~230 WARN, 198 NOTE~~, 2026-08-13). ONE finding changed
 > SEVERITY and none appeared or vanished: `_ABSENT_ON_PURPOSE` gained the

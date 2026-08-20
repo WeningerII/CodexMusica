@@ -413,37 +413,44 @@ def test_corpus_song_rate_is_pinned():
     # and 6.09093% -> 6.09109%, both inside the 1e-5 tolerances the two
     # checks below carry. Doctrine 58: the tolerance is part of the pin, so
     # the movement it absorbs is written down instead of being invisible.
-    check("countable lines 151894 — VERSE ONLY, now that apparatus lines "
+    # REPINNED 2026-08-19 (batch 2): Pass-1's second same-gate top-up batch
+    # added 6 new eng_american_ items (Southern War Songs / American War
+    # Ballads Vol. 2, already-cited) on top of batch 1's 49 eng_hymn_ hymns
+    # -- again real verse-line growth, not a rule change. 152911 -> 153224,
+    # 9084 -> 9094 tokens, 174 unmoved, 8848 -> 8858 substitutions.
+    check("countable lines 153224 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 151894,
+          r["lines_countable"] == 153224,
           f"{r['lines_countable']}  (was 188805 before the read_lines fix, "
           f"which counted 29,990 [VERSE n] markers and 6,917 other "
           f"apparatus lines as verse; and 151898 for one day between that "
-          f"fix and `is_apparatus_line` becoming this reader's only rule)")
-    check("unreadable end word, cause TOKEN, 9078 — matches cell AC's own "
-          "hand-computed VERSE-only row exactly",
-          r["unreadable_final_token"] == 9078,
+          f"fix and `is_apparatus_line` becoming this reader's only rule; "
+          f"151894 before Pass-1 batch 1, 152911 before batch 2)")
+    check("unreadable end word, cause TOKEN, 9094 — matches cell AC's own "
+          "hand-computed VERSE-only row exactly, plus Pass-1's own growth",
+          r["unreadable_final_token"] == 9094,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
-          f"(was 10044 over the polluted denominator)")
-    check("rate on that quantity is 5.98%, not 5.32% — the true verse rate "
+          f"(was 10044 over the polluted denominator, 9078 pre-Pass-1, "
+          f"9084 after batch 1)")
+    check("rate on that quantity is 5.94%, not 5.32% — the true verse rate "
           "cell AC could only get to by subtracting markers by hand",
-          abs(r["rate_token"] - 0.059764) < 1e-5,
+          abs(r["rate_token"] - 0.059351) < 1e-5,
           f"{r['rate_token']:.4%}  (was 5.3198% diluted by 29,990 "
-          f"[VERSE n] markers)")
+          f"[VERSE n] markers, 5.9764% pre-Pass-1, 5.9407% after batch 1)")
     check("unreadable end word, cause PIECE, 174 — the price of the hyphen "
           "refusal on VERSE lines alone",
           r["unreadable_final_piece"] == 174,
           f"{r['unreadable_final_piece']}  (was 187; the other 13 were on "
           f"apparatus lines that no longer reach the denominator)")
-    check("so the end-word refusal rate is 6.09% AFTER the rule and 5.98% "
+    check("so the end-word refusal rate is 6.05% AFTER the rule and 5.94% "
           "before it, and both are printed",
-          r["unreadable_final"] == 9252 and abs(r["rate"] - 0.060909) < 1e-5,
+          r["unreadable_final"] == 9268 and abs(r["rate"] - 0.060487) < 1e-5,
           f"{r['unreadable_final']} ({r['rate']:.4%})")
-    check("8842 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 8842,
+    check("8858 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 8858,
           f"{r['substituted_end_word']}  (was 9805 over the polluted "
-          f"denominator)")
+          f"denominator, 8842 pre-Pass-1, 8848 after batch 1)")
     # THE SUBSET CLAIM, PINNED 2026-08-14 — and it is pinned because it is
     # FALSE. `substitution_report`'s docstring called itself "a strict subset
     # of the unreadable-final lines" from the day it was written; nothing
@@ -457,10 +464,10 @@ def test_corpus_song_rate_is_pinned():
     # second is the population NOTHING in this module reached before the
     # wiring. If `substituted_silent` ever moves, either the corpus changed
     # or `line_anchors` did, and both are things a reader needs told.
-    check("8840 + 2, not 8842 + 0 — the substitution is NOT a subset of the "
+    check("8856 + 2, not 8858 + 0 — the substitution is NOT a subset of the "
           "unreadable-final lines, and the 2 are the only lines in this "
           "module that no other finding reaches",
-          r["substituted_flagged"] == 8840 and r["substituted_silent"] == 2,
+          r["substituted_flagged"] == 8856 and r["substituted_silent"] == 2,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "

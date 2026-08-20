@@ -2,6 +2,10 @@
 # region: american
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (filename corrected 2026-08-19: the repo ships 47476-8.txt; bytes verified identical)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/Southern-War-SongsCamp-Fire-Patriotic-and-Sentimental_37538 37538.txt md5 df886b552595772b8a084851c897111a (Pass-1 same-gate top-up 2026-08-19)
+# licence: public domain - Project Gutenberg; edition published 1890 -- Southern War Songs, ed. W. L. Fagan
+# source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Pass-1 same-gate top-up 2026-08-19)
+# licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -155,3 +159,93 @@ How must he smile on this dull world beneath,
   Fevered with swift renown,--
 He, with the martyr's amaranthine wreath
   Twining the victor's crown!
+
+--- TITLE: ELEGY ON THE DEATH OF LIEUT.-COL. CH. B. DREUX
+--- SOURCE: PG37538
+[VERSE 1]
+  Weep, Louisiana, weep! thy gallant dead
+  Weave the green laurel o'er the undaunted head!
+  Fling thy bright banner o'er the breast which bled
+              Defending thee!
+  Weep, weep, Imperial City, deep and wild!
+  Weep for thy martyred and heroic child,
+  The young, the brave, the free, the undefiled,
+              Ah, weep for him.
+  Lo! lo! the wail surgeth from embatteled bands,
+  By Yorktown's plains and Pensacola's sands,
+  Re-echoing to the golden sugar lands,
+              Adieu! Adieu!
+[VERSE 2]
+  The death of honor was the death he craved,
+  To die where weapons clashed and pennons waved,
+  To welcome Freedom o'er the opening impetuous grave,
+              And live for aye!
+  His blood had too much lightning to be still,
+  His spirit was the torrent, not the rill,
+  The gods have loved him, and the Eternal Hill
+              Is his at last!
+  He died while yet his chainless eye could roll,
+  Flashing the conflagrations of his soul,
+  The rose and mirror of the bold Creole,
+              He sleepeth well.
+[VERSE 3]
+  Lament, lone mother, for his early fate,
+  But, bear thy burden with a hope elate,
+  For thou hast shrined thy jewels in the state,
+              A priceless boon!
+  And thou, sad wife, thy sacred tears belong
+  To the untarnished and immortal throng,
+  For he shall fire the poet's heart and song,
+              In thrilling strains.
+  And the fair virgins of our sunny clime,
+  Shall wed their music to the minstrel's rhyme,
+  Making his fame melodious for all time;
+              It cannot die.
+
+--- TITLE: THERE’S LIFE IN THE OLD LAND YET
+--- SOURCE: PG54211
+[VERSE 1]
+    By the blue Patapsco’s billowy dash
+      The tyrant’s war-shout comes,
+    Along with cymbal’s fitful clash,
+      And the growl of his sullen drums.
+    We hear it, we heed it with vengeful thrills,
+      And we shall not forgive or forget;
+    There’s faith in the streams, there’s hope in the hills,
+      There’s life in the old land yet!
+[VERSE 2]
+    Minions! we sleep but we are not dead;
+      We are crushed, we are scourged, we are scarred;
+    We crouch--’t is to welcome the triumph tread
+      Of the peerless Beauregard.
+    Then woe to your vile, polluting horde,
+      When the Southern braves are met;
+    There’s faith in the victor’s stainless sword,
+      There’s life in the old land yet!
+[VERSE 3]
+    Bigots! ye quell not the valiant mind
+      With the clank of an iron chain;
+    The spirit of freedom sings in the wind,
+      O’er Merriman, Thomas, and Kane;
+    And we, though we smile not, are not thralls,--
+      Are piling a gory debt;
+        While down by McHenry’s dungeon walls
+      _There’s life in the old land yet_!
+[VERSE 4]
+    Our women have hung their harps away,
+      And they scowl on your brutal bands,
+    While the nimble poniard dares the day,
+      In their dear, defiant hands.
+    They will strip their tresses to string our bows,
+      Ere the Northern sun is set;
+    There’s faith in their unrelenting woes,
+      There’s life in the old land yet!
+[VERSE 5]
+    There’s life, though it throbbeth in silent veins,--
+      ’T is vocal without noise;
+    It gushed o’er Manassas’ solemn plains,
+      From the blood of the MARYLAND BOYS!
+    That blood shall cry aloud, and rise
+      With an everlasting threat;
+    By the death of the brave, by the GOD in the skies,
+      _There’s life in the old land yet_!
