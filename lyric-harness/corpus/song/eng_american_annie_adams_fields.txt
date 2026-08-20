@@ -2,10 +2,13 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
-# attribution: the edition's own trailing author credit after each poem
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# attribution: the edition's own trailing author credit after each poem; also credited 'Mrs. Annie Adams Fields' in the anthology merged here 2026-08-20 (same person: the editions' own printed dates agree, or the shorter form carries none)
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
+
 
 --- TITLE: "Still in Thy Love I Trust."
 --- SOURCE: PG15553
@@ -24,3 +27,36 @@ Striking a plaintive string,
 Like some poor harper at a palace portal,
 I wait without and sing,
 While those I love glide in and dwell immortal.
+
+--- TITLE: CEDAR MOUNTAIN
+--- SOURCE: PG47476
+[VERSE 1]
+Ring the bells, nor ring them slowly;
+Toll them not,--the day is holy!
+Golden-flooded noon is poured
+In grand libation to the Lord.
+[VERSE 2]
+No mourning mothers come to-day
+Whose hopeless eyes forget to pray:
+They each hold high the o'erflowing urn,
+And bravely to the altar turn.
+[VERSE 3]
+Ye limners of the ancient saint!
+To-day another virgin paint;
+Where with the lily once she stood
+Show now the new beatitude.
+[VERSE 4]
+To-day a mother crowned with pain,
+Of silver beauty beyond stain,
+Clasping a flower for our land
+A-sheathèd in her hand.
+[VERSE 5]
+Each pointed leaf with sword-like strength,
+Guarding the flower throughout its length;
+Each sword has won a sweet release
+To the flower of beauty and of peace.
+[VERSE 6]
+Ring the bells, nor ring them slowly,
+To the Lord the day is holy;
+To the young dead we consecrate
+These lives that now we dedicate.

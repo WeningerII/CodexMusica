@@ -3,6 +3,8 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.',
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1845; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 #          rights_url creativecommons.org/about/pdm
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel; or, The Songs of Scotland of the Past Half
 #          Century', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857 (title page reproduced in the file).
@@ -17,6 +19,7 @@
 # stripped: PG header/footer, editor's biographical memoirs, [n] footnote markers and footnote bodies,
 #          glossary, tables of contents
 # tune: 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
+
 
 --- TITLE: THE PLEUGHMAN
 [VERSE 1]
@@ -1327,3 +1330,42 @@ Oh, weep not for those who shall sorrow no more,
 Whose warfare is ended, whose combat is o'er;
 Let the song be exalted, be triumphant the chord,
 And rejoice for the dead who have died in the Lord.
+
+--- TITLE: The Land o’ the Leal
+--- SOURCE: PG66619
+[VERSE 1]
+I’m wearin’ awa’, John
+Like snaw-wreaths in thaw, John,
+I’m wearin’ awa’
+  To the land o’ the leal.
+There’s nae sorrow there, John,
+There’s neither cauld nor care, John,
+The day is aye fair
+  In the land o’ the leal.
+[VERSE 2]
+Our bonnie bairn’s there, John,
+She was baith gude and fair, John;
+And O! we grudged her sair
+  To the land o’ the leal.
+But sorrow’s sel’ wears past, John,
+And joy’s a-coming fast, John,
+The joy that’s aye to last
+  In the land o’ the leal.
+[VERSE 3]
+Sae dear’s the joy was bought, John,
+Sae free the battle fought, John,
+That sinfu’ man e’er brought
+  To the land o’ the leal.
+O, dry your glistening e’e, John!
+My saul langs to be free, John,
+And angels beckon me
+  To the land o’ the leal.
+[VERSE 4]
+O, haud ye leal and true, John!
+Your day it’s wearin’ through, John,
+And I’ll welcome you
+  To the land o’ the leal.
+Now fare-ye-weel, my ain John,
+This warld’s cares are vain, John,
+We’ll meet, and we’ll be fain,
+  In the land o’ the leal.

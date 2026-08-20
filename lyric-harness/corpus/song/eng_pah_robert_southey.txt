@@ -1,0 +1,67 @@
+# author: Robert Southey (1774-1843)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1843; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: His Books
+--- SOURCE: PG66619
+[VERSE 1]
+My days among the Dead are past;
+  Around me I behold,
+Where’er these casual eyes are cast,
+  The mighty minds of old:
+My never-failing friends are they,
+With whom I converse day by day.
+[VERSE 2]
+With them I take delight in weal
+  And seek relief in woe;
+And while I understand and feel
+  How much to them I owe,
+My cheeks have often been bedew’d
+With tears of thoughtful gratitude.
+[VERSE 3]
+My thoughts are with the Dead; with them
+  I live in long-past years,
+Their virtues love, their faults condemn,
+  Partake their hopes and fears;
+And from their lessons seek and find
+Instruction with an humble mind.
+[VERSE 4]
+My hopes are with the Dead; anon
+  My place with them will be,
+And I with them shall travel on
+  Through all Futurity;
+Yet leaving here a name, I trust,
+That will not perish in the dust.
+
+--- TITLE: THE BOWER OF PEACE
+--- SOURCE: PG47476
+[VERSE 1]
+When shall the Island Queen of Ocean lay
+      The thunderbolt aside,
+And, twining olives with her laurel crown,
+    Rest in the Bower of Peace?
+[VERSE 2]
+  Not long may this unnatural strife endure
+      Beyond the Atlantic deep;
+Not long may men, with vain ambition drunk,
+        And insolent in wrong,
+  Afflict with their misrule the indignant land
+      Where Washington hath left
+          His awful memory
+        A light for after-times!
+    Vile instruments of fallen Tyranny
+  In their own annals, by their countrymen.
+For lasting shame shall they be written down.
+  Soon may the better Genius there prevail!
+  Then will the Island Queen of Ocean lay
+        The thunderbolt aside,
+And, twining olives with her laurel crown,
+    Rest in the Bower of Peace.

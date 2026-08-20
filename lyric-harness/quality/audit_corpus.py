@@ -2385,7 +2385,29 @@ def main(argv=None):
 #: Sinclair, Falligant, Willson) merged after a systematic near-name
 #: scan, each pair identified by the editions' own indexes (the
 #: Falligant pair by the edition tying both credits to Savannah).
-PINNED_SHAPE = {"files": 742, "FAIL": 1, "WARN": 231, "NOTE": 598}
+#: REPINNED 2026-08-20 (Phase-1): 742 -> 1194 files, 598 -> 917 NOTE.
+#: Oxford (PG66619) and Poems of American History (PG47476) landed as
+#: 452 new per-author files + 314 items topped into 84 existing ones;
+#: the Home Book of Verse is HELD on a licence question its own text
+#: raised. WARN is UNCHANGED at 231 -- every new file carries its own
+#: local: row with the staged md5. THE APPEND BROKE 57 THINGS AND ALL
+#: WERE SELF-DESCRIBING METADATA ON THE FILES TOPPED UP: 55 check-C md5
+#: drifts (a row records the bytes it was written about, and appending
+#: changed them) and 2 check-B `# lines:` headers (Coleridge 598->726,
+#: Wordsworth 1751->2306). Both are repaired at the source rather than
+#: pinned around -- the rows are repinned in the table's own
+#: superseded-md5 convention, the headers recomputed through the
+#: audit's OWN CorpusFile.verse_lines so the count cannot drift from
+#: the definition that checks it. The 1 FAIL is the same pre-existing
+#: fas_hafez.LICENSE.txt mislabel.
+#: REPINNED same sitting: 1194 -> 1175 files, 917 -> 902 NOTE —
+#: a near-name scan merged 19 spelling-variant twin files the
+#: exact-name routing had created (a fuller form in one edition
+#: against a shorter one already staged). Each pair's identity is
+#: confirmed by the editions' OWN PRINTED DATES agreeing, and the
+#: same dates keep Sir Aubrey de Vere (1788-1846) apart from his
+#: son Aubrey Thomas (1814-1902), whom Oxford prints beside him.
+PINNED_SHAPE = {"files": 1175, "FAIL": 1, "WARN": 231, "NOTE": 902}
 
 
 def _verify_shape(files, findings):

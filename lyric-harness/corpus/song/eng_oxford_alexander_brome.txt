@@ -1,0 +1,38 @@
+# author: Alexander Brome (1620-1666)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1666; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: The Resolve
+--- SOURCE: PG66619
+[VERSE 1]
+Tell me not of a face that’s fair,
+  Nor lip and cheek that’s red,
+Nor of the tresses of her hair,
+  Nor curls in order laid,
+Nor of a rare seraphic voice
+  That like an angel sings;
+Though if I were to take my choice
+  I would have all these things:
+But if that thou wilt have me love,
+  And it must be a she,
+The only argument can move
+  Is that she will love me.
+[VERSE 2]
+The glories of your ladies be
+  But metaphors of things,
+And but resemble what we see
+  Each common object brings.
+Roses out-red their lips and cheeks,
+  Lilies their whiteness stain;
+What fool is he that shadows seeks
+  And may the substance gain?
+Then if thou’lt have me love a lass,
+  Let it be one that’s kind:
+Else I’m a servant to the glass
+  That’s with Canary lined.

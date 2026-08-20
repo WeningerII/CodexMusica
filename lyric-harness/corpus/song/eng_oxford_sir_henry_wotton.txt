@@ -1,0 +1,68 @@
+# author: Sir Henry Wotton (1568-1639)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1639; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: Elizabeth of Bohemia
+--- SOURCE: PG66619
+[VERSE 1]
+You meaner beauties of the night,
+  That poorly satisfy our eyes
+More by your number than your light,
+  You common people of the skies;
+  What are you when the moon shall rise?
+[VERSE 2]
+You curious chanters of the wood,
+  That warble forth Dime Nature’s lays,
+Thinking your passions understood
+  By your weak accents; what’s your praise
+  When Philomel her voice shall raise?
+[VERSE 3]
+You violets that first appear,
+  By your pure purple mantles known
+Like the proud virgins of the year,
+  As if the spring were all your own;
+  What are you when the rose is blown?
+[VERSE 4]
+So, when my mistress shall be seen
+  In form and beauty of her mind,
+By virtue first, then choice, a Queen,
+  Tell me, if she were not design’d
+  Th’ eclipse and glory of her kind.
+
+--- TITLE: The Character of a Happy Life
+--- SOURCE: PG66619
+[VERSE 1]
+How happy is he born and taught
+That serveth not another’s will;
+Whose armour is his honest thought,
+And simple truth his utmost skill!
+[VERSE 2]
+Whose passions not his masters are;
+Whose soul is still prepared for death,
+Untied unto the world by care
+Of public fame or private breath;
+[VERSE 3]
+Who envies none that chance doth raise,
+Nor vice; who never understood
+How deepest wounds are given by praise;
+Nor rules of state, but rules of good;
+Who hath his life from rumours freed;
+Whose conscience is his strong retreat;
+Whose state can neither flatterers feed,
+Nor ruin make oppressors great;
+[VERSE 4]
+Who God doth late and early pray
+More of His grace than gifts to lend;
+And entertains the harmless day
+With a religious book or friend;
+[VERSE 5]
+--This man is freed from servile bands
+Of hope to rise or fear to fall:
+Lord of himself, though not of lands,
+And having nothing, yet hath all.

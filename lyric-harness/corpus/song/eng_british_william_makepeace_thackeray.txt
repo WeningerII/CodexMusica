@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 3
 
 --- TITLE: AT THE CHURCH GATE.
 --- SOURCE: PG26715
@@ -110,3 +112,42 @@ Come with the dawn,
 Blue-devil sprite,
 Leave us to-night,
 Round the old tree.
+
+--- TITLE: POCAHONTAS
+--- SOURCE: PG47476
+[VERSE 1]
+Wearied arm and broken sword
+  Wage in vain the desperate fight;
+Round him press a countless horde,
+  He is but a single knight.
+Hark! a cry of triumph shrill
+  Through the wilderness resounds,
+  As, with twenty bleeding wounds,
+Sinks the warrior, fighting still.
+[VERSE 2]
+Now they heap the funeral pyre,
+  And the torch of death they light;
+Ah! 'tis hard to die by fire!
+  Who will shield the captive knight?
+Round the stake with fiendish cry
+  Wheel and dance the savage crowd,
+  Cold the victim's mien and proud,
+And his breast is bared to die.
+[VERSE 3]
+Who will shield the fearless heart?
+  Who avert the murderous blade?
+From the throng with sudden start
+  See, there springs an Indian maid.
+Quick she stands before the knight:
+  "Loose the chain, unbind the ring!
+  I am daughter of the king,
+And I claim the Indian right!"
+[VERSE 4]
+Dauntlessly aside she flings
+  Lifted axe and thirsty knife,
+Fondly to his heart she clings,
+  And her bosom guards his life!
+In the woods of Powhatan,
+  Still 'tis told by Indian fires
+  How a daughter of their sires
+Saved a captive Englishman.

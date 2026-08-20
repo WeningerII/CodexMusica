@@ -1,0 +1,307 @@
+# author: Robert Bridges (b. 1844)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1844; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 11
+
+--- TITLE: My Delight and Thy Delight
+--- SOURCE: PG66619
+[VERSE 1]
+My delight and thy delight
+Walking, like two angels white,
+In the gardens of the night:
+[VERSE 2]
+My desire and thy desire
+Twining to a tongue of fire,
+Leaping live, and laughing higher:
+[VERSE 3]
+Thro’ the everlasting strife
+In the mystery of life.
+[VERSE 4]
+Love, from whom the world begun,
+Hath the secret of the sun.
+[VERSE 5]
+Love can tell, and love alone,
+Whence the million stars were strewn,
+Why each atom knows its own,
+How, in spite of woe and death,
+Gay is life, and sweet is breath:
+[VERSE 6]
+This he taught us, this we knew,
+Happy in his science true,
+Hand in hand as we stood
+’Neath the shadows of the wood,
+Heart to heart as we lay
+In the dawning of the day.
+
+--- TITLE: Spirits
+--- SOURCE: PG66619
+[VERSE 1]
+Angel spirits of sleep,
+White-robed, with silver hair,
+In your meadows fair,
+Where the willows weep,
+And the sad moonbeam
+On the gliding stream
+Writes her scatter’d dream:
+[VERSE 2]
+Angel spirits of sleep,
+Dancing to the weir
+In the hollow roar
+Of its waters deep;
+Know ye how men say
+That ye haunt no more
+Isle and grassy shore
+With your moonlit play;
+That ye dance not here,
+White-robed spirits of sleep,
+All the summer night
+Threading dances light?
+
+--- TITLE: Nightingales
+--- SOURCE: PG66619
+[VERSE 1]
+  Beautiful must be the mountains whence ye come,
+  And bright in the fruitful valleys the streams, wherefrom
+            Ye learn your song:
+Where are those starry woods? O might I wander there,
+  Among the flowers, which in that heavenly air
+            Bloom the year long!
+[VERSE 2]
+  Nay, barren are those mountains and spent the streams:
+  Our song is the voice of desire, that haunts our dreams,
+            A throe of the heart,
+Whose pining visions dim, forbidden hopes profound,
+  No dying cadence nor long sigh can sound,
+            For all our art.
+[VERSE 3]
+  Alone, aloud in the raptured ear of men
+  We pour our dark nocturnal secret; and then,
+            As night is withdrawn
+From these sweet-springing meads and bursting boughs of May,
+  Dream, while the innumerable choir of day
+            Welcome the dawn.
+
+--- TITLE: A Passer-by
+--- SOURCE: PG66619
+[VERSE 1]
+Whither, O splendid ship, thy white sails crowding,
+  Leaning across the bosom of the urgent West,
+That fearest nor sea rising, nor sky clouding,
+  Whither away, fair rover, and what thy quest?
+  Ah! soon, when Winter has all our vales opprest,
+When skies are cold and misty, and hail is hurling,
+  Wilt thoù glìde on the blue Pacific, or rest
+In a summer haven asleep, thy white sails furling.
+[VERSE 2]
+I there before thee, in the country that well thou knowest,
+  Already arrived am inhaling the odorous air:
+I watch thee enter unerringly where thou goest,
+  And anchor queen of the strange shipping there,
+  Thy sails for awnings spread, thy masts bare:
+Nor is aught from the foaming reef to the snow-capp’d grandest
+  Peak, that is over the feathery palms, more fair
+Than thou, so upright, so stately and still thou standest.
+[VERSE 3]
+And yet, O splendid ship, unhail’d and nameless,
+  I know not if, aiming a fancy, I rightly divine
+That thou hast a purpose joyful, a courage blameless,
+  Thy port assured in a happier land than mine.
+But for all I have given thee, beauty enough is thine,
+  As thou, aslant with trim tackle and shrouding,
+From the proud nostril curve of a prow’s line
+  In the offing scatterest foam, thy white sails crowding.
+
+--- TITLE: Absence
+--- SOURCE: PG66619
+[VERSE 1]
+When my love was away,
+Full three days were not sped,
+I caught my fancy astray
+Thinking if she were dead,
+[VERSE 2]
+And I alone, alone:
+It seem’d in my misery
+In all the world was none
+Ever so lone as I.
+[VERSE 3]
+I wept; but it did not shame
+Nor comfort my heart: away
+I rode as I might, and came
+To my love at close of day.
+[VERSE 4]
+The sight of her still’d my fears,
+My fairest-hearted love:
+And yet in her eyes were tears:
+Which when I questioned of,
+[VERSE 5]
+‘O now thou art come,’ she cried,
+‘’Tis fled: but I thought to-day
+I never could here abide,
+If thou wert longer away.’
+
+--- TITLE: On a Dead Child
+--- SOURCE: PG66619
+[VERSE 1]
+Perfect little body, without fault or stain on thee,
+  With promise of strength and manhood full and fair!
+         Though cold and stark and bare,
+The bloom and the charm of life doth awhile remain on thee.
+[VERSE 2]
+Thy mother’s treasure wert thou;--alas! no longer
+  To visit her heart with wondrous joy; to be
+         Thy father’s pride:--ah, he
+Must gather his faith together, and his strength make stronger.
+[VERSE 3]
+To me, as I move thee now in the last duty,
+  Dost thou with a turn or gesture anon respond;
+         Startling my fancy fond
+With a chance attitude of the head, a freak of beauty.
+[VERSE 4]
+Thy hand clasps, as ’twas wont, my finger, and holds it:
+  But the grasp is the clasp of Death, heartbreaking and stiff;
+         Yet feels to my hand as if
+’Twas still thy will, thy pleasure and trust that enfolds it.
+[VERSE 5]
+So I lay thee there, thy sunken eyelids closing,--
+  Go lie thou there in thy coffin, thy last little bed!--
+         Propping thy wise, sad head,
+Thy firm, pale hands across thy chest disposing.
+[VERSE 6]
+So quiet! doth the change content thee?--Death, whither hath he taken thee?
+  To a world, do I think, that rights the disaster of this?
+         The vision of which I miss,
+Who weep for the body, and wish but to warm thee and awaken thee?
+[VERSE 7]
+Ah! little at best can all our hopes avail us
+  To lift this sorrow, or cheer us, when in the dark,
+         Unwilling, alone we embark,
+And the things we have seen and have known and have heard of, fail us.
+
+--- TITLE: Pater Filio
+--- SOURCE: PG66619
+[VERSE 1]
+Sense with keenest edge unusèd,
+  Yet unsteel’d by scathing fire;
+Lovely feet as yet unbruisèd
+  On the ways of dark desire;
+Sweetest hope that lookest smiling
+O’er the wilderness defiling!
+[VERSE 2]
+Why such beauty, to be blighted
+  By the swarm of foul destruction?
+Why such innocence delighted,
+  When sin stalks to thy seduction?
+All the litanies e’er chaunted
+Shall not keep thy faith undaunted.
+[VERSE 3]
+I have pray’d the sainted Morning
+  To unclasp her hands to hold thee;
+From resignful Eve’s adorning
+  Stol’n a robe of peace to enfold thee;
+With all charms of man’s contriving
+Arm’d thee for thy lonely striving.
+[VERSE 4]
+Me too once unthinking Nature,
+--Whence Love’s timeless mockery took me,--
+Fashion’d so divine a creature,
+  Yea, and like a beast forsook me.
+I forgave, but tell the measure
+Of her crime in thee, my treasure.
+
+--- TITLE: Winter Nightfall
+--- SOURCE: PG66619
+[VERSE 1]
+The day begins to droop,--
+  Its course is done:
+But nothing tells the place
+  Of the setting sun.
+[VERSE 2]
+The hazy darkness deepens,
+  And up the lane
+You may hear, but cannot see,
+  The homing wain.
+[VERSE 3]
+An engine pants and hums
+  In the farm hard by:
+Its lowering smoke is lost
+  In the lowering sky.
+[VERSE 4]
+The soaking branches drip,
+  And all night through
+The dropping will not cease
+  In the avenue.
+[VERSE 5]
+A tall man there in the house
+  Must keep his chair:
+He knows he will never again
+  Breathe the spring air:
+[VERSE 6]
+His heart is worn with work;
+  He is giddy and sick
+If he rise to go as far
+  As the nearest rick:
+[VERSE 7]
+He thinks of his morn of life,
+  His hale, strong years;
+And braves as he may the night
+  Of darkness and tears.
+
+--- TITLE: When Death to Either shall come
+--- SOURCE: PG66619
+[VERSE 1]
+When Death to either shall come,--
+  I pray it be first to me,--
+Be happy as ever at home,
+  If so, as I wish, it be.
+[VERSE 2]
+Possess thy heart, my own;
+  And sing to the child on thy knee,
+Or read to thyself alone
+  The songs that I made for thee.
+
+--- TITLE: A TOAST TO OUR NATIVE LAND
+--- SOURCE: PG47476
+[VERSE 1]
+Huge and alert, irascible yet strong,
+We make our fitful way 'mid right and wrong.
+One time we pour out millions to be free,
+Then rashly sweep an empire from the sea!
+One time we strike the shackles from the slaves,
+And then, quiescent, we are ruled by knaves.
+Often we rudely break restraining bars,
+And confidently reach out toward the stars.
+[VERSE 2]
+Yet under all there flows a hidden stream
+Sprung from the Rock of Freedom, the great dream
+Of Washington and Franklin, men of old
+Who knew that freedom is not bought with gold.
+This is the Land we love, our heritage,
+Strange mixture of the gross and fine, yet sage
+And full of promise,--destined to be great.
+Drink to Our Native Land! God Bless the State!
+
+--- TITLE: TO THE UNITED STATES OF AMERICA
+--- SOURCE: PG47476
+[VERSE 1]
+Brothers in blood! They who this wrong began
+To wreck our commonwealth, will rue the day
+When first they challenged freemen to the fray,
+And with the Briton dared the American.
+Now are we pledged to win the Rights of man;
+Labor and Justice now shall have their way,
+And in a League of Peace--God grant we may--
+Transform the earth, not patch up the old plan.
+[VERSE 2]
+Sure is our hope since he who led your nation
+Spake for mankind, and ye arose in awe
+Of that high call to work the world's salvation;
+Clearing your minds of all estranging blindness
+In the vision of Beauty and the Spirit's law,
+Freedom and Honor and sweet Loving-kindness.

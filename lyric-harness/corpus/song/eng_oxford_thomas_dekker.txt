@@ -1,0 +1,34 @@
+# author: Thomas Dekker (1575-1641)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1641; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: Sweet Content
+--- SOURCE: PG66619
+[VERSE 1]
+Art thou poor, yet hast thou golden slumbers?
+          O sweet content!
+Art thou rich, yet is thy mind perplex’d?
+          O punishment!
+Dost thou laugh to see how fools are vex’d
+To add to golden numbers golden numbers?
+    O sweet content! O sweet, O sweet content!
+Work apace, apace, apace, apace;
+Honest labour bears a lovely face;
+Then hey nonny nonny--hey nonny nonny!
+[VERSE 2]
+Canst drink the waters of the crispèd spring?
+          O sweet content!
+Swim’st thou in wealth, yet sink’st in thine own tears?
+          O punishment!
+Then he that patiently want’s burden bears,
+No burden bears, but is a king, a king!
+    O sweet content! O sweet, O sweet content!
+Work apace, apace, apace, apace;
+Honest labour bears a lovely face;
+Then hey nonny nonny--hey nonny nonny!

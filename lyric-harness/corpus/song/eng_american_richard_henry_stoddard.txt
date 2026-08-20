@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 9
 
 --- TITLE: Song
 --- SOURCE: PG15553
@@ -79,3 +81,480 @@ So with thoughts my brain is peopled,
   And they sing there all day long:
 But they will not fold their pinions
   In the little cage of Song.
+
+--- TITLE: MEN OF THE NORTH AND WEST
+--- SOURCE: PG47476
+[VERSE 1]
+Men of the North and West,
+    Wake in your might,
+Prepare, as the rebels have done,
+    For the fight!
+You cannot shrink from the test;
+Rise! Men of the North and West!
+[VERSE 2]
+They have torn down your banner of stars;
+    They have trampled the laws;
+They have stifled the freedom they hate,
+    For no cause!
+Do you love it or slavery best?
+Speak! Men of the North and West.
+[VERSE 3]
+They strike at the life of the State:
+    Shall the murder be done?
+They cry: "We are two!" And you:
+    "We are one!"
+You must meet them, then, breast to breast;
+On! Men of the North and West!
+[VERSE 4]
+Not with words; they laugh them to scorn,
+    And tears they despise;
+But with swords in your hands and death
+    In your eyes!
+Strike home! leave to God all the rest;
+Strike! Men of the North and West.
+
+--- TITLE: COLONEL ELLSWORTH
+--- SOURCE: PG47476
+[VERSE 1]
+It fell upon us like a crushing woe,
+Sudden and terrible. "Can it be?" we said,
+"That he from whom we hoped so much, is dead,
+Most foully murdered ere he met the foe?"
+Why not? The men that would disrupt the State
+By such base plots as theirs--frauds, thefts, and lies--
+What code of honor do they recognize?
+They thirst for blood to satisfy their hate,
+_Our_ blood: so be it; but for every blow
+Woe shall befall them; not in their wild way,
+But stern and pitiless, we will repay,
+Until, like swollen streams, _their_ blood shall flow;
+And should we pause; the thought of Ellsworth slain,
+Will steel our aching hearts to strike again!
+
+--- TITLE: THE LITTLE DRUMMER
+--- SOURCE: PG47476
+[VERSE 1]
+'Tis of a little drummer,
+  The story I shall tell;
+Of how he marched to battle,
+  Of all that there befell,
+Out in the west with Lyon
+  (For once the name was true!)
+For whom the little drummer beat
+  His _rat-tat-too_.
+[VERSE 2]
+Our army rose at midnight,
+  Ten thousand men as one,
+Each slinging off his knapsack
+  And snatching up his gun.
+"_Forward!_" and off they started,
+  As all good soldiers do,
+When the little drummer beats for them
+  The _rat-tat-too_.
+[VERSE 3]
+Across a rolling country,
+  Where the mist began to rise;
+Past many a blackened farmhouse,
+  Till the sun was in the skies;
+Then we met the rebel pickets,
+  Who skirmished and withdrew,
+While the little drummer beat, and beat
+  The _rat-tat-too_.
+[VERSE 4]
+Along the wooded hollows
+  The line of battle ran,
+Our centre poured a volley,
+  And the fight at once began;
+For the rebels answered shouting,
+  And a shower of bullets flew;
+But still the little drummer beat
+  His _rat-tat-too_.
+[VERSE 5]
+He stood among his comrades,
+  As they quickly formed the line,
+And when they raised their muskets
+  He watched the barrels shine.
+When the volley rang, he started,
+  For war to him was new;
+But still the little drummer beat
+  His _rat-tat-too_.
+[VERSE 6]
+It was a sight to see them,
+  That early autumn day,
+Our soldiers in their blue coats,
+  And the rebel ranks in gray;
+The smoke that rolled between them,
+  The balls that whistled through,
+And the little drummer as he beat
+  His _rat-tat-too_!
+[VERSE 7]
+His comrades dropped around him,--
+  By fives and tens they fell,
+Some pierced by minie bullets,
+  Some torn by shot and shell;
+They played against our cannon,
+  And a caisson's splinters flew;
+But still the little drummer beat
+  His _rat-tat-too_!
+[VERSE 8]
+The right, the left, the centre,--
+  The fight was everywhere;
+They pushed us here,--we wavered,--
+  We drove and broke them there.
+The graybacks fixed their bayonets,
+  And charged the coats of blue,
+But still the little drummer beat
+  His _rat-tat-too_!
+[VERSE 9]
+"Where is our little drummer?"
+  His nearest comrades say,
+When the dreadful fight is over,
+  And the smoke has cleared away.
+As the rebel corps was scattering
+  He urged them to pursue,
+So furiously he beat, and beat
+  The _rat-tat-too_!
+[VERSE 10]
+He stood no more among them,
+  For a bullet, as it sped,
+Had glanced and struck his ankle,
+  And stretched him with the dead!
+He crawled behind a cannon,
+  And pale and paler grew;
+But still the little drummer beat
+  His _rat-tat-too_!
+[VERSE 11]
+They bore him to the surgeon,
+  A busy man was he:
+"A drummer boy--what ails him?"
+  His comrades answered, "See!"
+As they took him from the stretcher
+  A heavy breath he drew,
+And his little fingers strove to beat
+  The _rat-tat-too_!
+[VERSE 12]
+The ball had spent its fury:
+  "A scratch!" the surgeon said,
+As he wound the snowy bandage
+  Which the lint was staining red.
+"I must leave you now, old fellow!"
+  "Oh, take me back with you,
+For I know the men are missing me
+  And the _rat-tat-too_!"
+[VERSE 13]
+Upon his comrade's shoulder
+  They lifted him so grand,
+With his dusty drum before him,
+  And his drumsticks in his hand!
+To the fiery front of battle,
+  That nearer, nearer drew,--
+And evermore he beat, and beat
+  His _rat-tat-too_!
+[VERSE 14]
+The wounded as he passed them
+  Looked up and gave a cheer;
+And one in dying blessed him,
+  Between a smile and tear.
+And the graybacks--they are flying
+  Before the coats of blue,
+For whom the little drummer beats
+  His _rat-tat-too_.
+[VERSE 15]
+When the west was red with sunset,
+  The last pursuit was o'er;
+Brave Lyon rode the foremost,
+  And looked the name he bore.
+And before him on his saddle,
+  As a weary child would do,
+Sat the little drummer, fast asleep,
+  With his _rat-tat-too_.
+
+--- TITLE: TWILIGHT ON SUMTER
+--- SOURCE: PG47476
+[VERSE 1]
+    Still and dark along the sea
+        Sumter lay;
+    A light was overhead,
+    As from burning cities shed,
+    And the clouds were battle-red,
+        Far away.
+    Not a solitary gun
+    Left to tell the fort had won
+        Or lost the day!
+    Nothing but the tattered rag
+    Of the drooping rebel flag,
+And the sea-birds screaming round it in their play.
+[VERSE 2]
+    How it woke one April morn
+        Fame shall tell;
+    As from Moultrie, close at hand,
+    And the batteries on the land,
+    Round its faint but fearless band
+        Shot and shell
+    Raining hid the doubtful light;
+    But they fought the hopeless fight
+        Long and well
+    (Theirs the glory, ours the shame!),
+    Till the walls were wrapped in flame,
+Then their flag was proudly struck, and Sumter fell!
+[VERSE 3]
+    Now--oh, look at Sumter now,
+        In the gloom!
+    Mark its scarred and shattered walls.
+    (Hark! the ruined rampart falls!)
+    There's a justice that appals
+        In its doom;
+    For this blasted spot of earth
+    Where rebellion had its birth
+        Is its tomb!
+    And when Sumter sinks at last
+    From the heavens, that shrink aghast,
+Hell shall rise in grim derision and make room!
+
+--- TITLE: ABRAHAM LINCOLN
+--- SOURCE: PG47476
+[VERSE 1]
+Not as when some great Captain falls,
+In battle, where his Country calls,
+    Beyond the struggling lines
+    That push his dread designs
+[VERSE 2]
+To doom, by some stray ball struck dead:
+Or, in the last charge, at the head
+    Of his determined men,
+    Who _must_ be victors then.
+[VERSE 3]
+Nor as when sink the civic great,
+The safer pillars of the State,
+    Whose calm, mature, wise words
+    Suppress the need of swords.
+[VERSE 4]
+With no such tears as e'er were shed
+Above the noblest of our dead
+    Do we to-day deplore
+    The Man that is no more.
+[VERSE 5]
+Our sorrow hath a wider scope,
+Too strange for fear, too vast for hope,
+    A wonder, blind and dumb,
+    That waits--what is to come!
+[VERSE 6]
+Not more astounded had we been
+If Madness, that dark night, unseen,
+    Had in our chambers crept,
+    And murdered while we slept!
+[VERSE 7]
+We woke to find a mourning earth,
+Our Lares shivered on the hearth,
+    The roof-tree fallen, all
+    That could affright, appall!
+[VERSE 8]
+Such thunderbolts, in other lands,
+Have smitten the rod from royal hands,
+    But spared, with us, till now,
+    Each laurelled Cæsar's brow.
+[VERSE 9]
+No Cæsar he whom we lament,
+A Man without a precedent,
+    Sent, it would seem, to do
+    His work, and perish, too.
+[VERSE 10]
+Not by the weary cares of State,
+The endless tasks, which will not wait,
+    Which, often done in vain,
+    Must yet be done again:
+[VERSE 11]
+Not in the dark, wild tide of war,
+Which rose so high, and rolled so far,
+    Sweeping from sea to sea
+    In awful anarchy:
+[VERSE 12]
+Four fateful years of mortal strife,
+Which slowly drained the nation's life
+    (Yet for each drop that ran
+    There sprang an armèd man!).
+[VERSE 13]
+Not then; but when, by measures meet
+By victory, and by defeat,
+    By courage, patience, skill,
+    The people's fixed, "_We will!_"
+[VERSE 14]
+Had pierced, had crushed Rebellion dead,
+Without a hand, without a head,
+    At last, when all was well,
+    He fell, O how he fell!
+[VERSE 15]
+The time, the place, the stealing shape,
+The coward shot, the swift escape,
+    The wife, the widow's scream,--
+    It is a hideous Dream!
+[VERSE 16]
+A dream? What means this pageant, then?
+These multitudes of solemn men,
+    Who speak not when they meet,
+    But throng the silent street?
+[VERSE 17]
+The flags half-mast that late so high
+Flaunted at each new victory?
+    (The stars no brightness shed,
+    But bloody looks the red!)
+[VERSE 18]
+The black festoons that stretch for miles,
+And turn the streets to funeral aisles?
+    (No house too poor to show
+    The nation's badge of woe.)
+[VERSE 19]
+The cannon's sudden, sullen boom,
+The bells that toll of death and doom,
+    The rolling of the drums,
+    The dreadful car that comes?
+[VERSE 20]
+Cursed be the hand that fired the shot,
+The frenzied brain that hatched the plot,
+    Thy country's Father slain
+    By thee, thou worse than Cain!
+[VERSE 21]
+Tyrants have fallen by such as thou,
+And good hath followed--may it now!
+    (God lets bad instruments
+    Produce the best events.)
+[VERSE 22]
+But he, the man we mourn to-day,
+No tyrant was: so mild a sway
+    In one such weight who bore
+    Was never known before.
+[VERSE 23]
+Cool should he be, of balanced powers,
+The ruler of a race like ours,
+    Impatient, headstrong, wild,
+    The Man to guide the Child.
+[VERSE 24]
+And this _he_ was, who most unfit
+(So hard the sense of God to hit)
+    Did seem to fill his place;
+    With such a homely face,
+[VERSE 25]
+Such rustic manners, speech uncouth
+(That somehow blundered out the truth),
+    Untried, untrained to bear
+    The more than kingly care.
+[VERSE 26]
+Ah! And his genius put to scorn
+The proudest in the purple born,
+    Whose wisdom never grew
+    To what, untaught, he knew,
+[VERSE 27]
+The People, of whom he was one:
+No gentleman, like Washington
+    (Whose bones, methinks, make room,
+    To have him in their tomb!).
+[VERSE 28]
+A laboring man, with horny hands,
+Who swung the axe, who tilled his lands,
+    Who shrank from nothing new,
+    But did as poor men do.
+[VERSE 29]
+One of the People! born to be
+Their curious epitome;
+    To share yet rise above
+    Their shifting hate and love.
+[VERSE 30]
+Common his mind (it seemed so then),
+His thoughts the thoughts of other men:
+    Plain were his words, and poor,
+    But now they will endure!
+[VERSE 31]
+No hasty fool, of stubborn will,
+But prudent, cautious, pliant still;
+    Who since his work was good
+    Would do it as he could.
+[VERSE 32]
+Doubting, was not ashamed to doubt,
+And, lacking prescience, went without:
+    Often appeared to halt,
+    And was, of course, at fault;
+[VERSE 33]
+Heard all opinions, nothing loath,
+And, loving both sides, angered both:
+    Was--_not_ like Justice, blind,
+    But watchful, clement, kind.
+[VERSE 34]
+No hero this of Roman mould,
+Nor like our stately sires of old:
+    Perhaps he was not great,
+    But he preserved the State!
+[VERSE 35]
+O honest face, which all men knew!
+O tender heart, but known to few!
+    O wonder of the age,
+    Cut off by tragic rage!
+[VERSE 36]
+Peace! Let the long procession come,
+For hark, the mournful, muffled drum,
+    The trumpet's wail afar,
+    And see, the awful car!
+[VERSE 37]
+Peace! Let the sad procession go,
+While cannon boom and bells toll slow.
+    And go, thou sacred car,
+    Bearing our woe afar!
+[VERSE 38]
+Go, darkly borne, from State to State,
+Whose loyal, sorrowing cities wait
+    To honor all they can
+    The dust of that good man.
+[VERSE 39]
+Go, grandly borne, with such a train
+As greatest kings might die to gain.
+    The just, the wise, the brave,
+    Attend thee to the grave.
+[VERSE 40]
+And you, the soldiers of our wars,
+Bronzed veterans, grim with noble scars,
+    Salute him once again,
+    Your late commander--slain!
+[VERSE 41]
+Yes, let your tears indignant fall,
+But leave your muskets on the wall;
+    Your country needs you now
+    Beside the forge--the plough.
+[VERSE 42]
+(When Justice shall unsheathe her brand,
+If Mercy may not stay her hand,
+    Nor would we have it so,
+    _She_ must direct the blow.)
+[VERSE 43]
+And you, amid the master-race,
+Who seem so strangely out of place,
+    Know ye who cometh? He
+    Who hath declared ye free.
+[VERSE 44]
+Bow while the body passes--nay,
+Fall on your knees, and weep, and pray!
+    Weep, weep--I would ye might--
+    Your poor black faces white!
+[VERSE 45]
+And, children, you must come in bands,
+With garlands in your little hands,
+    Of blue and white and red,
+    To strew before the dead.
+[VERSE 46]
+So sweetly, sadly, sternly goes
+The Fallen to his last repose.
+    Beneath no mighty dome,
+    But in his modest home;
+[VERSE 47]
+The churchyard where his children rest,
+The quiet spot that suits him best,
+    There shall his grave be made,
+    And there his bones be laid.
+[VERSE 48]
+And there his countrymen shall come,
+With memory proud, with pity dumb,
+    And strangers far and near,
+    For many and many a year.
+[VERSE 49]
+For many a year and many an age,
+While History on her ample page
+    The virtues shall enroll
+    Of that Paternal Soul.

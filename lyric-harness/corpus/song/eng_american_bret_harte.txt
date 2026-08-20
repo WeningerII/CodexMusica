@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own printed by-line credit, per item
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 4
 
 --- TITLE: JOHN BURNS OF GETTYSBURG
 --- SOURCE: PG54211
@@ -211,3 +213,33 @@ See the jasper gates swung wide,
 See the parted throng outside--
 Hears the voice to those who ride:
       “Pass in, Sanitary!”
+
+--- TITLE: What the Bullet sang
+--- SOURCE: PG66619
+[VERSE 1]
+O joy of creation,
+        To be!
+O rapture, to fly
+        And be free!
+Be the battle lost or won,
+Though its smoke shall hide the sun,
+I shall find my love--the one
+        Born for me!
+[VERSE 2]
+I shall know him where he stands
+        All alone,
+With the power in his hands
+        Not o’erthrown;
+I shall know him by his face,
+By his godlike front and grace;
+I shall hold him for a space
+        All my own!
+[VERSE 3]
+It is he--O my love!
+        So bold!
+It is I--all thy love
+        Foretold!
+It is I--O love, what bliss!
+Dost thou answer to my kiss?
+O sweetheart! what is this
+        Lieth there so cold?

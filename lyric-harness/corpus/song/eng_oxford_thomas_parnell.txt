@@ -1,0 +1,30 @@
+# author: Thomas Parnell (1679-1718)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1718; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: Song
+--- SOURCE: PG66619
+[VERSE 1]
+    When thy beauty appears
+    In its graces and airs
+All bright as an angel new dropp’d from the sky,
+At distance I gaze and am awed by my fears:
+    So strangely you dazzle my eye!
+[VERSE 2]
+    But when without art
+    Your kind thoughts you impart,
+When your love runs in blushes through every vein;
+When it darts from your eyes, when it pants in your heart,
+    Then I know you’re a woman again.
+[VERSE 3]
+    There’s a passion and pride
+    In our sex (she replied),
+And thus, might I gratify both, I would do:
+Still an angel appear to each lover beside,
+    But still be a woman to you.

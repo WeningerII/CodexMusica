@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 5
+# songs: 6
 
 --- TITLE: The Fool's Prayer
 --- SOURCE: PG15553
@@ -195,3 +197,55 @@ Hilt-buried in the dry and trodden sand,
 And ran and snatched it, and with battle-shout
 Lifted afresh he hewed his enemy down,
 And saved a great cause that heroic day.
+
+--- TITLE: THE DEAD PRESIDENT
+--- SOURCE: PG47476
+[VERSE 1]
+    Were there no crowns on earth,
+No evergreen to wreathe a hero's wreath,
+That he must pass beyond the gates of death,
+Our hero, our slain hero, to be crowned?
+Could there on our unworthy earth be found
+    Naught to befit his worth?
+[VERSE 2]
+    The noblest soul of all!
+When was there ever, since our Washington,
+A man so pure, so wise, so patient--one
+Who walked with this high goal alone in sight,
+To speak, to do, to sanction only Right,
+    Though very heaven should fall!
+[VERSE 3]
+    Ah, not for him we weep;
+What honor more could be in store for him?
+Who would have had him linger in our dim
+And troublesome world, when his great work was done--
+Who would not leave that worn and weary one
+    Gladly to go to sleep?
+[VERSE 4]
+    For us the stroke was just;
+We were not worthy of that patient heart;
+We might have helped him more, not stood apart,
+And coldly criticised his works and ways--
+Too late now, all too late--our little praise
+    Sounds hollow o'er his dust.
+[VERSE 5]
+    Be merciful, O our God!
+Forgive the meanness of our human hearts,
+That never, till a noble soul departs,
+See half the worth, or hear the angel's wings
+Till they go rustling heavenward as he springs
+    Up from the mounded sod.
+[VERSE 6]
+    Yet what a deathless crown
+Of Northern pine and Southern orange-flower,
+For victory, and the land's new bridal-hour,
+Would we have wreathed for that beloved brow!
+Sadly upon his sleeping forehead now
+    We lay our cypress down.
+[VERSE 7]
+    O martyred one, farewell!
+Thou hast not left thy people quite alone,
+Out of thy beautiful life there comes a tone
+Of power, of love, of trust, a prophecy,
+Whose fair fulfilment all the earth shall be,
+    And all the Future tell.

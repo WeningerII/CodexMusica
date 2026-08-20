@@ -2,10 +2,12 @@
 # region: irish
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 7
 
 --- TITLE: MAY DAY.
 --- SOURCE: PG26715
@@ -112,3 +114,100 @@ Then wake thee, my Lady-love,
   Bird of my bower!
 The sweetest and sleepiest
   Bird at this hour!
+
+--- TITLE: Song
+--- SOURCE: PG66619
+[VERSE 1]
+Sweet in her green dell the flower of beauty slumbers,
+  Lull’d by the faint breezes sighing through her hair;
+Sleeps she and hears not the melancholy numbers
+  Breathed to my sad lute ’mid the lonely air.
+[VERSE 2]
+Down from the high cliffs the rivulet is teeming
+  To wind round the willow banks that lure him from above:
+O that in tears, from my rocky prison streaming,
+  I too could glide to the bower of my love!
+[VERSE 3]
+Ah! where the woodbines with sleepy arms have wound her,
+  Opes she her eyelids at the dream of my lay,
+Listening, like the dove, while the fountains echo round her,
+  To her lost mate’s call in the forests far away.
+[VERSE 4]
+Come then, my bird! For the peace thou ever bearest,
+  Still Heaven’s messenger of comfort to me--
+Come--this fond bosom, O faithfullest and fairest,
+  Bleeds with its death-wound, its wound of love for thee!
+
+--- TITLE: To Helene
+--- SOURCE: PG66619
+[VERSE 1]
+I sent a ring--a little band
+  Of emerald and ruby stone,
+And bade it, sparkling on thy hand,
+  Tell thee sweet tales of one
+    Whose constant memory
+    Was full of loveliness, and thee.
+[VERSE 2]
+A shell was graven on its gold,--
+  ’Twas Cupid fix’d without his wings--
+To Helene once it would have told
+  More than was ever told by rings:
+    But now all’s past and gone,
+    Her love is buried with that stone.
+[VERSE 3]
+Thou shalt not see the tears that start
+  From eyes by thoughts like these beguiled;
+Thou shalt not know the beating heart,
+  Ever a victim and a child:
+    Yet Helene, love, believe
+    The heart that never could deceive.
+[VERSE 4]
+I’ll hear thy voice of melody
+  In the sweet whispers of the air;
+I’ll see the brightness of thine eye
+  In the blue evening’s dewy star;
+    In crystal streams thy purity;
+    And look on Heaven to look on thee.
+
+--- TITLE: The Fallen Star
+--- SOURCE: PG66619
+[VERSE 1]
+A star is gone! a star is gone!
+  There is a blank in Heaven;
+One of the cherub choir has done
+  His airy course this even.
+[VERSE 2]
+He sat upon the orb of fire
+  That hung for ages there,
+And lent his music to the choir
+  That haunts the nightly air.
+[VERSE 3]
+But when his thousand years are pass’d,
+  With a cherubic sigh
+He vanish’d with his car at last,
+  For even cherubs die!
+[VERSE 4]
+Hear how his angel-brothers mourn--
+  The minstrels of the spheres--
+Each chiming sadly in his turn
+  And dropping splendid tears.
+[VERSE 5]
+The planetary sisters all
+  Join in the fatal song,
+And weep this hapless brother’s fall,
+  Who sang with them so long.
+[VERSE 6]
+But deepest of the choral band
+  The Lunar Spirit sings,
+And with a bass-according hand
+  Sweeps all her sullen strings.
+[VERSE 7]
+From the deep chambers of the dome
+  Where sleepless Uriel lies,
+His rude harmonic thunders come
+  Mingled with mighty sighs.
+[VERSE 8]
+The thousand car-borne cherubim,
+  The wandering eleven,
+All join to chant the dirge of him
+  Who fell just now from Heaven.

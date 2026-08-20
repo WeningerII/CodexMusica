@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 6
+# songs: 7
 
 --- TITLE: DREAM-PEDLARY.
 --- SOURCE: PG26715
@@ -169,3 +171,26 @@ How many times do I love again?
 Unravelled from the tumbling main,
   And threading the eye of a yellow star:--
 So many times do I love again.
+
+--- TITLE: Wolfram’s Dirge
+--- SOURCE: PG66619
+[VERSE 1]
+If thou wilt ease thine heart
+Of love and all its smart,
+  Then sleep, dear, sleep;
+And not a sorrow
+  Hang any tear on your eyelashes;
+    Lie still and deep,
+  Sad soul, until the sea-wave washes
+The rim of the sun to-morrow,
+    In eastern sky.
+[VERSE 2]
+But wilt thou cure thine heart
+Of love and all its smart,
+  Then die, dear, die;
+’Tis deeper, sweeter,
+  Than on a rose-bank to lie dreaming
+    With folded eye;
+  And there alone, amid the beaming
+Of Love’s stars, thou’lt meet her
+    In eastern sky.

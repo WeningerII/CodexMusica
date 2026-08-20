@@ -3,6 +3,8 @@
 # source: GITenberg/The-Works-of-Lord-Byron.-Vol.-3_21811 21811-0.txt md5 db26005a023bcee3c85975f03559ccc6
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd
 # licence: public domain — Project Gutenberg text; author died 1824; every edition used was published 1931 or earlier
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # edition: The-Works-of-Lord-Byron.-Vol.-3 — 1900 — detected in file: '1900.' — The Works of Lord Byron, Poetry vol. III, ed. E. H. Coleridge
 # edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1919 — Quiller-Couch's Oxford Book of English Verse 1250-1900; the file's own dateline is the 1250-1900 title span
 # note: Works vol. 3 (ed. E. H. Coleridge) — Hebrew Melodies and the occasional
@@ -10,6 +12,8 @@
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
+
+
 --- TITLE: The Girl Of Cadiz.[1]
 [VERSE 1]
 Oh never talk again to me
@@ -1378,3 +1382,188 @@ Like the swell of Summer's ocean.
 [VERSE 3]
 _March_ 28 [1816].
 [First published, _Poems_, 1816.]
+
+--- TITLE: When we Two parted
+--- SOURCE: PG66619
+[VERSE 1]
+When we two parted
+  In silence and tears,
+Half broken-hearted
+  To sever for years,
+Pale grew thy cheek and cold,
+  Colder thy kiss;
+Truly that hour foretold
+  Sorrow to this.
+[VERSE 2]
+The dew of the morning
+  Sunk chill on my brow--
+It felt like the warning
+  Of what I feel now.
+Thy vows are all broken,
+  And light is thy fame;
+I hear thy name spoken,
+  And share in its shame.
+[VERSE 3]
+They name thee before me,
+  A knell to mine ear;
+A shudder comes o’er me--
+  Why wert thou so dear?
+They know not I knew thee,
+  Who knew thee too well:
+Long, long shall I rue thee,
+  Too deeply to tell.
+[VERSE 4]
+In secret we met--
+  In silence I grieve,
+That thy heart could forget,
+  Thy spirit deceive.
+If I should meet thee
+  After long years,
+How should I greet thee?
+  With silence and tears.
+
+--- TITLE: We’ll go no more a-roving
+--- SOURCE: PG66619
+[VERSE 1]
+So, we’ll go no more a-roving
+  So late into the night,
+Though the heart be still as loving,
+  And the moon be still as bright.
+[VERSE 2]
+For the sword outwears its sheath,
+  And the soul wears out the breast,
+And the heart must pause to breathe,
+  And love itself have rest.
+[VERSE 3]
+Though the night was made for loving,
+  And the day returns too soon,
+Yet we’ll go no more a-roving
+  By the light of the moon.
+
+--- TITLE: The Isles of Greece
+--- SOURCE: PG66619
+[VERSE 1]
+The isles of Greece! the isles of Greece
+  Where burning Sappho loved and sung,
+Where grew the arts of war and peace,
+  Where Delos rose, and Phœbus sprung!
+Eternal summer gilds them yet,
+But all, except their sun, is set.
+[VERSE 2]
+The Scian and the Teian muse,
+  The hero’s harp, the lover’s lute,
+Have found the fame your shores refuse:
+  Their place of birth alone is mute
+To sounds which echo further west
+Than your sires’ ‘Islands of the Blest.’
+[VERSE 3]
+The mountains look on Marathon--
+  And Marathon looks on the sea;
+And musing there an hour alone,
+  I dream’d that Greece might still be free;
+For standing on the Persians’ grave,
+I could not deem myself a slave.
+[VERSE 4]
+A king sate on the rocky brow
+  Which looks o’er sea-born Salamis;
+And ships, by thousands, lay below,
+  And men in nations;--all were his!
+He counted them at break of day--
+And when the sun set, where were they?
+[VERSE 5]
+And where are they? and where art thou,
+  My country? On thy voiceless shore
+The heroic lay is tuneless now--
+  The heroic bosom beats no more!
+And must thy lyre, so long divine,
+Degenerate into hands like mine?
+[VERSE 6]
+’Tis something in the dearth of fame,
+  Though link’d among a fetter’d race,
+To feel at least a patriot’s shame,
+  Even as I sing, suffuse my face;
+For what is left the poet here?
+For Greeks a blush--for Greece a tear.
+[VERSE 7]
+Must _we_ but weep o’er days more blest?
+  Must _we_ but blush?--Our fathers bled.
+Earth! render back from out thy breast
+  A remnant of our Spartan dead!
+Of the three hundred grant but three,
+To make a new Thermopylæ!
+[VERSE 8]
+What, silent still? and silent all?
+  Ah! no;--the voices of the dead
+Sound like a distant torrent’s fall,
+  And answer, ‘Let one living head,
+But one, arise,--we come, we come!’
+’Tis but the living who are dumb.
+[VERSE 9]
+In vain--in vain: strike other chords;
+  Fill high the cup with Samian wine!
+Leave battles to the Turkish hordes,
+  And shed the blood of Scio’s vine!
+Hark! rising to the ignoble call--
+How answers each bold Bacchanal!
+[VERSE 10]
+You have the Pyrrhic dance as yet;
+  Where is the Pyrrhic phalanx gone?
+Of two such lessons, why forget
+  The nobler and the manlier one?
+You have the letters Cadmus gave--
+Think ye he meant them for a slave?
+[VERSE 11]
+Fill high the bowl with Samian wine!
+  We will not think of themes like these!
+It made Anacreon’s song divine:
+  He served--but served Polycrates--
+A tyrant; but our masters then
+Were still, at least, our countrymen.
+[VERSE 12]
+The tyrant of the Chersonese
+  Was freedom’s best and bravest friend;
+_That_ tyrant was Miltiades!
+  O that the present hour would lend
+Another despot of the kind!
+Such chains as his were sure to bind.
+[VERSE 13]
+Fill high the bowl with Samian wine!
+  On Suli’s rock, and Parga’s shore,
+Exists the remnant of a line
+  Such as the Doric mothers bore;
+And there, perhaps, some seed is sown,
+The Heracleidan blood might own.
+[VERSE 14]
+Trust not for freedom to the Franks--
+  They have a king who buys and sells;
+In native swords and native ranks
+  The only hope of courage dwells:
+But Turkish force and Latin fraud
+Would break your shield, however broad.
+[VERSE 15]
+Fill high the bowl with Samian wine!
+  Our virgins dance beneath the shade--
+I see their glorious black eyes shine;
+  But gazing on each glowing maid,
+My own the burning tear-drop laves,
+To think such breasts must suckle slaves.
+[VERSE 16]
+Place me on Sunium’s marbled steep,
+  Where nothing, save the waves and I,
+May hear our mutual murmurs sweep;
+  There, swan-like, let me sing and die:
+A land of slaves shall ne’er be mine--
+Dash down yon cup of Samian wine!
+
+--- TITLE: WASHINGTON
+--- SOURCE: PG47476
+[VERSE 1]
+Where may the wearied eye repose
+  When gazing on the Great;
+Where neither guilty glory glows,
+  Nor despicable state?
+Yes--one--the first--the last--the best--
+The Cincinnatus of the West,
+  Whom envy dared not hate,
+Bequeath the name of Washington,
+To make men blush there was but one!

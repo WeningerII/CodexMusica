@@ -179,7 +179,12 @@ def test_backfilled_corpus():
     # behind the containment dedup.
     # REPINNED same sitting: 622 -> 616 -- six spelling-variant twin files
     # merged (the editions' own indexes identify each pair).
-    check("all 616 eng files are seen", len(files) == 616)
+    # REPINNED 2026-08-20 (Phase-1): 616 -> 1049 — Oxford (PG66619)
+    # and Poems of American History (PG47476) landed 452 new
+    # per-author files. The Home Book of Verse is HELD.
+    # (452 new files landed; 19 were then merged away as
+    # spelling-variant twins of authors already staged.)
+    check("all 1049 eng files are seen", len(files) == 1049)
     bad = []
     for p in files:
         bad.extend(TX.check_file(p, regions, functions))
@@ -187,8 +192,30 @@ def test_backfilled_corpus():
           not bad, bad[:3])
     headers = {os.path.basename(p): TX.read_file_taxonomy(p)[0]
                for p in files}
-    check("every file declares a region — the region axis is total",
-          all(h["region"] for h in headers.values()))
+    # THE REGION AXIS IS NO LONGER TOTAL, BY RULING AND ON PURPOSE
+    # (2026-08-20). It was total while every staged source carried a
+    # region in its own framing. The Phase-1 anthologies do not: all six
+    # extraction agents report independently that Oxford and Poems of
+    # American History print NO nationality for any author, and
+    # data/song_regions.tsv's rule is "author's tradition; edition origin
+    # as tiebreak only" — so a region taken from the edition's origin
+    # would be the TAYLOR-SISTERS DEFECT rebuilt at scale, which is the
+    # exact error this taxonomy was created to fix. 427 files therefore
+    # carry a BLANK region, each with its own `# region-basis:` line, and
+    # blank is what the taxonomy has always called the honest undeclared
+    # state. What is still TOTAL, and is the property worth pinning, is
+    # that every file DECLARES ITSELF one way or the other: a region from
+    # the closed set, or a blank with a stated basis. A file with neither
+    # is the defect this check now names.
+    declared = [b for b, h in headers.items() if h["region"]]
+    basis = {os.path.basename(p) for p in files
+             if "# region-basis:" in open(p, encoding="utf-8").read(4000)}
+    check("622 files declare a region and 427 declare a stated blank — "
+          "every file answers the axis, none is silently empty",
+          len(declared) == 622
+          and all(b in basis for b in headers if b not in set(declared)),
+          f"{len(declared)} declared, {len(headers) - len(declared)} blank, "
+          f"{len(basis)} carrying a region-basis line")
     check("THE TAYLOR PIN: eng_american_ann_taylor resolves english — the "
           "filename is the acquisition batch, not an analytic claim",
           headers["eng_american_ann_taylor.txt"]["region"] == "english"
@@ -213,15 +240,22 @@ def test_backfilled_corpus():
     # REPINNED 2026-08-20 (Tier-1 concurrent load): 5,792 -> 6,352 —
     # +560 songs (514 in new files, 46 topped up into 18 existing
     # files) after the dedup dropped 114 cross-source reprints.
-    check("the report counts the corpus: 6,352 songs, zero undeclared "
-          "regions, undeclared functions counted APART (evidence-or-blank "
-          "leaves most songs honestly untagged)",
-          r["songs"] == 6352 and r["undeclared_region"] == 0
+    # REPINNED 2026-08-20 (Phase-1): 6,352 -> 7,618 songs, and
+    # undeclared_region 0 -> 896 by the ruling above. The two counts are
+    # kept APART and never summed (doctrine 79): a song whose region is
+    # undeclared is not a song in some region, and by_region + undeclared
+    # == songs is the invariant that says so.
+    check("the report counts the corpus: 7,618 songs, 896 honestly "
+          "undeclared regions, undeclared functions counted APART "
+          "(evidence-or-blank leaves most songs untagged)",
+          r["songs"] == 7618 and r["undeclared_region"] == 896
           and r["undeclared_function"] > 3000
           and r["undeclared_function"] + sum(r["multi_tag"].values())
           == r["songs"])
-    check("region totals partition the corpus (single-valued axis)",
-          sum(r["by_region"].values()) == 6352)
+    check("region totals plus the undeclared partition the corpus — the "
+          "axis is single-valued, and a blank is counted, never dropped",
+          sum(r["by_region"].values()) + r["undeclared_region"] == 7618
+          and sum(r["by_region"].values()) == 6722)
 
 
 def test_manifest():

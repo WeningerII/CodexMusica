@@ -2,10 +2,14 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 9
 
 --- TITLE: Concord Hymn
 --- SOURCE: PG15553
@@ -136,3 +140,337 @@ Thou already slumberest deep;
 Woe and want thou canst outsleep;
 Want and woe, which torture us,
 Thy sleep makes ridiculous.
+
+--- TITLE: Give All to Love
+--- SOURCE: PG66619
+[VERSE 1]
+Give all to love;
+Obey thy heart;
+Friends, kindred, days,
+Estate, good fame,
+Plans, credit, and the Muse--
+Nothing refuse.
+[VERSE 2]
+’Tis a brave master;
+Let it have scope:
+Follow it utterly,
+Hope beyond hope:
+High and more high
+It dives into noon,
+With wing unspent,
+Untold intent;
+But it is a god,
+Knows its own path,
+And the outlets of the sky.
+[VERSE 3]
+It was never for the mean;
+It requireth courage stout,
+Souls above doubt,
+Valour unbending:
+Such ’twill reward;--
+They shall return
+More than they were,
+And ever ascending.
+[VERSE 4]
+Leave all for love;
+Yet, hear me, yet,
+One word more thy heart behoved,
+One pulse more of firm endeavour--
+Keep thee to-day,
+To-morrow, for ever,
+Free as an Arab
+Of thy beloved.
+[VERSE 5]
+Cling with life to the maid;
+But when the surprise,
+First vague shadow of surmise,
+Flits across her bosom young,
+Of a joy apart from thee,
+Free be she, fancy-free;
+Nor thou detain her vesture’s hem,
+Nor the palest rose she flung
+From her summer diadem.
+[VERSE 6]
+Though thou loved her as thyself,
+As a self of purer clay;
+Though her parting dims the day,
+Stealing grace from all alive;
+Heartily know,
+When half-gods go
+The gods arrive.
+
+--- TITLE: Uriel
+--- SOURCE: PG66619
+[VERSE 1]
+It fell in the ancient periods
+  Which the brooding soul surveys,
+Or ever the wild Time coin’d itself
+  Into calendar months and days.
+[VERSE 2]
+This was the lapse of Uriel,
+Which in Paradise befell.
+Once, among the Pleiads walking,
+Sayd overheard the young gods talking;
+And the treason, too long pent,
+To his ears was evident.
+The young deities discuss’d
+Laws of form, and metre just,
+Orb, quintessence, and sunbeams,
+What subsisteth, and what seems.
+One, with low tones that decide,
+And doubt and reverend use defied,
+With a look that solved the sphere,
+And stirr’d the devils everywhere,
+Gave his sentiment divine
+Against the being of a line.
+‘Line in nature is not found;
+Unit and universe are round;
+In vain produced, all rays return;
+Evil will bless, and ice will burn.’
+As Uriel spoke with piercing eye,
+A shudder ran around the sky;
+The stern old war-gods shook their heads;
+The seraphs frown’d from myrtle-beds;
+Seem’d to the holy festival
+The rash word boded ill to all;
+The balance-beam of Fate was bent;
+The bounds of good and ill were rent;
+Strong Hades could not keep his own,
+But all slid to confusion.
+[VERSE 3]
+A sad self-knowledge withering fell
+On the beauty of Uriel;
+In heaven once eminent, the god
+Withdrew that hour into his cloud;
+Whether doom’d to long gyration
+In the sea of generation,
+Or by knowledge grown too bright
+To hit the nerve of feebler sight.
+Straightway a forgetting wind
+Stole over the celestial kind,
+And their lips the secret kept,
+If in ashes the fire-seed slept.
+But, now and then, truth-speaking things
+Shamed the angels’ veiling wings;
+And, shrilling from the solar course,
+Or from fruit of chemic force,
+Procession of a soul in matter,
+Or the speeding change of water,
+Or out of the good of evil born,
+Came Uriel’s voice of cherub scorn,
+And a blush tinged the upper sky,
+And the gods shook, they knew not why.
+
+--- TITLE: Bacchus
+--- SOURCE: PG66619
+[VERSE 1]
+Bring me wine, but wine which never grew
+In the belly of the grape,
+Or grew on vine whose tap-roots, reaching through
+Under the Andes to the Cape,
+Suffer’d no savour of the earth to ’scape.
+[VERSE 2]
+Let its grapes the morn salute
+From a nocturnal root,
+Which feels the acrid juice
+Of Styx and Erebus;
+And turns the woe of Night,
+By its own craft, to a more rich delight.
+[VERSE 3]
+We buy ashes for bread;
+We buy diluted wine;
+Give me of the true,
+Whose ample leaves and tendrils curl’d
+Among the silver hills of heaven
+Draw everlasting dew;
+Wine of wine,
+Blood of the world,
+Form of forms, and mould of statures,
+That I intoxicated,
+And by the draught assimilated,
+May float at pleasure through all natures;
+The bird-language rightly spell,
+And that which roses say so well:
+[VERSE 4]
+Wine that is shed
+Like the torrents of the sun
+Up the horizon walls,
+Or like the Atlantic streams, which run
+When the South Sea calls.
+[VERSE 5]
+Water and bread,
+Food which needs no transmuting,
+Rainbow-flowering, wisdom-fruiting,
+Wine which is already man,
+Food which teach and reason can.
+[VERSE 6]
+Wine which Music is,--
+Music and wine are one,--
+That I, drinking this,
+Shall hear far Chaos talk with me;
+Kings unborn shall walk with me;
+And the poor grass shall plot and plan
+What it will do when it is man.
+Quicken’d so, will I unlock
+Every crypt of every rock.
+[VERSE 7]
+I thank the joyful juice
+For all I know;
+Winds of remembering
+Of the ancient being blow,
+And seeming-solid walls of use
+Open and flow.
+[VERSE 8]
+Pour, Bacchus! the remembering wine;
+Retrieve the loss of me and mine!
+Vine for vine be antidote,
+And the grape requite the lote!
+Haste to cure the old despair;
+Reason in Nature’s lotus drench’d--
+The memory of ages quench’d--
+Give them again to shine;
+Let wine repair what this undid;
+And where the infection slid,
+A dazzling memory revive;
+Refresh the faded tints,
+Recut the agèd prints,
+And write my old adventures with the pen
+Which on the first day drew,
+Upon the tablets blue,
+The dancing Pleiads and eternal men.
+
+--- TITLE: Brahma
+--- SOURCE: PG66619
+[VERSE 1]
+If the red slayer think he slays,
+  Or if the slain think he is slain,
+They know not well the subtle ways
+  I keep, and pass, and turn again.
+[VERSE 2]
+Far or forgot to me is near;
+  Shadow and sunlight are the same;
+The vanish’d gods to me appear;
+  And one to me are shame and fame.
+[VERSE 3]
+They reckon ill who leave me out;
+  When me they fly, I am the wings;
+I am the doubter and the doubt,
+  And I the hymn the Brahmin sings.
+[VERSE 4]
+The strong gods pine for my abode,
+  And pine in vain the sacred Seven;
+But thou, meek lover of the good!
+  Find me, and turn thy back on heaven.
+
+--- TITLE: BOSTON HYMN
+--- SOURCE: PG47476
+[VERSE 1]
+The word of the Lord by night
+  To the watching Pilgrims came,
+As they sat by the seaside,
+  And filled their hearts with flame.
+[VERSE 2]
+God said, I am tired of kings,
+  I suffer them no more;
+Up to my ear the morning brings
+  The outrage of the poor.
+[VERSE 3]
+Think ye I made this ball
+  A field of havoc and war,
+Where tyrants great and tyrants small
+  Might harry the weak and poor?
+[VERSE 4]
+My angel--his name is Freedom--
+  Choose him to be your king;
+He shall cut pathways east and west,
+  And fend you with his wing.
+[VERSE 5]
+Lo! I uncover the land,
+  Which I hid of old time in the West,
+As the sculptor uncovers the statue
+  When he has wrought his best;
+[VERSE 6]
+I show Columbia, of the rocks
+  Which dip their foot in the seas,
+And soar to the air-borne flocks
+  Of clouds and the boreal fleece.
+[VERSE 7]
+I will divide my goods;
+  Call in the wretch and slave;
+None shall rule but the humble,
+  And none but Toil shall have.
+[VERSE 8]
+I will have never a noble,
+  No lineage counted great;
+Fishers and choppers and ploughmen
+  Shall constitute a state.
+[VERSE 9]
+Go, cut down trees in the forest
+  And trim the straightest boughs;
+Cut down trees in the forest
+  And build me a wooden house.
+[VERSE 10]
+Call the people together,
+  The young men and the sires,
+The digger in the harvest-field,
+  Hireling and him that hires;
+[VERSE 11]
+And here in a pine state-house
+  They shall choose men to rule
+In every needful faculty,
+  In church and state and school.
+[VERSE 12]
+Lo, now! if these poor men
+  Can govern the land and sea,
+And make just laws below the sun,
+  As planets faithful be.
+[VERSE 13]
+And ye shall succor men;
+  'Tis nobleness to serve;
+Help them who cannot help again:
+  Beware from right to swerve.
+[VERSE 14]
+I break your bonds and masterships,
+  And I unchain the slave:
+Free be his heart and hand henceforth
+  As wind and wandering wave.
+[VERSE 15]
+I cause from every creature
+  His proper good to flow;
+As much as he is and doeth,
+  So much he shall bestow.
+[VERSE 16]
+But, laying hands on another,
+  To coin his labor and sweat,
+He goes in pawn to his victim
+  For eternal years in debt.
+[VERSE 17]
+To-day unbind the captive,
+  So only are ye unbound;
+Lift up a people from the dust,
+  Trump of their rescue, sound!
+[VERSE 18]
+Pay ransom to the owner
+  And fill the bag to the brim.
+Who is the owner? The slave is owner
+  And ever was. Pay him.
+[VERSE 19]
+O North! give him beauty for rags,
+  And honor, O South! for his shame;
+Nevada! coin thy golden crags
+  With Freedom's image and name.
+[VERSE 20]
+Up! and the dusky race
+  That sat in darkness long,--
+Be swift their feet as antelopes,
+  And as behemoth strong.
+[VERSE 21]
+Come, East and West and North,
+  By races, as snowflakes,
+And carry my purpose forth,
+  Which neither halts nor shakes.
+[VERSE 22]
+My will fulfilled shall be,
+  For, in daylight or in dark,
+My thunderbolt has eyes to see
+  His way home to the mark.

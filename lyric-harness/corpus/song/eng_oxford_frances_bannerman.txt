@@ -1,0 +1,36 @@
+# author: Frances Bannerman
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: An Upper Chamber
+--- SOURCE: PG66619
+[VERSE 1]
+I came into the City and none knew me;
+  None came forth, none shouted ‘He is here!
+Not a hand with laurel would bestrew me,
+  All the way by which I drew anear--
+  Night my banner, and my herald Fear.
+[VERSE 2]
+But I knew where one so long had waited
+  In the low room at the stairway’s height,
+Trembling lest my foot should be belated,
+  Singing, sighing for the long hours’ flight
+  Towards the moment of our dear delight.
+[VERSE 3]
+I came into the City when you hail’d me
+  Saviour, and again your chosen Lord:--
+Not one guessing what it was that fail’d me,
+  While along the way as they adored
+  Thousands, thousands, shouted in accord.
+[VERSE 4]
+But through all the joy I knew--I only--
+  How the hostel of my heart lay bare and cold,
+Silent of its music, and how lonely!
+  Never, though you crown me with your gold,
+  Shall I find that little chamber as of old!

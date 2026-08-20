@@ -61,10 +61,11 @@ def test_item_readers():
     # REPINNED 2026-08-20 (Tier-1 concurrent load): 388 -> 622 eng files
     # — 234 new per-author files from the five Tier-1 anthologies.
     # REPINNED same sitting: 622 -> 616 (six twin files merged).
-    check("the population: 616 eng_ files + 2 controls",
-          len(files) == 618
+    # REPINNED 2026-08-20 (Phase-1): 616 -> 1049 eng files (452 staged, 19 twins merged away).
+    check("the population: 1049 eng_ files + 2 controls",
+          len(files) == 1051
           and sum(1 for f in files
-                  if os.path.basename(f).startswith("eng_")) == 616)
+                  if os.path.basename(f).startswith("eng_")) == 1049)
     n_items = sum(len(CEN.items_of(f)) for f in files
                   if os.path.basename(f).startswith("eng_"))
     # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 — Pass-1 batch 1's 49
@@ -77,9 +78,10 @@ def test_item_readers():
     # REPINNED 2026-08-20 (Tier-1 concurrent load): 5,792 -> 6,352 —
     # +560 songs (514 in new files, 46 top-ups) after the containment
     # dedup dropped 114 cross-source reprints.
+    # REPINNED 2026-08-20 (Phase-1): 6,352 -> 7,618 items.
     check("the --- TITLE: split reproduces build_song_frequency's own "
-          "item count EXACTLY — 6,352 over the 622 files",
-          n_items == 6352, n_items)
+          "item count EXACTLY — 7,618 over the 1049 files",
+          n_items == 7618, n_items)
     son = CEN.items_of(os.path.join(HERE, "..", "corpus", "sonnets.txt"))
     check("sonnets.txt reads through battery.parse_sonnets: 152 items "
           "of 14 lines, Gutenberg matter excluded by the oracle's reader",

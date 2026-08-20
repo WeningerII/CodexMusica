@@ -1,0 +1,67 @@
+# author: Sir William Davenant (1606-1668)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1668; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 3
+
+--- TITLE: Aubade
+--- SOURCE: PG66619
+[VERSE 1]
+The lark now leaves his wat’ry nest,
+  And climbing shakes his dewy wings.
+He takes this window for the East,
+  And to implore your light he sings--
+Awake, awake! the morn will never rise
+Till she can dress her beauty at your eyes.
+[VERSE 2]
+The merchant bows unto the seaman’s star,
+  The ploughman from the sun his season takes;
+But still the lover wonders what they are
+  Who look for day before his mistress wakes.
+Awake, awake! break thro’ your veils of lawn!
+Then draw your curtains, and begin the dawn!
+
+--- TITLE: To a Mistress Dying
+--- SOURCE: PG66619
+[VERSE 1]
+_Lover._ Your beauty, ripe and calm and fresh
+          As eastern summers are,
+        Must now, forsaking time and flesh,
+          Add light to some small star.
+[VERSE 2]
+_Philosopher._ Whilst she yet lives, were stars decay’d,
+                Their light by hers relief might find;
+              But Death will lead her to a shade
+                Where Love is cold and Beauty blind.
+[VERSE 3]
+_Lover._ Lovers, whose priests all poets are,
+          Think every mistress, when she dies,
+        Is changed at least into a star:
+          And who dares doubt the poets wise?
+[VERSE 4]
+_Philosopher._ But ask not bodies doom’d to die
+                To what abode they go;
+              Since Knowledge is but Sorrow’s spy,
+                It is not safe to know.
+
+--- TITLE: Praise and Prayer
+--- SOURCE: PG66619
+[VERSE 1]
+Praise is devotion fit for mighty minds,
+  The diff’ring world’s agreeing sacrifice;
+Where Heaven divided faiths united finds:
+  But Prayer in various discord upward flies.
+[VERSE 2]
+For Prayer the ocean is where diversely
+  Men steer their course, each to a sev’ral coast;
+Where all our interests so discordant be
+  That half beg winds by which the rest are lost.
+[VERSE 3]
+By Penitence when we ourselves forsake,
+  ’Tis but in wise design on piteous Heaven;
+In Praise we nobly give what God may take,
+  And are, without a beggar’s blush, forgiven.

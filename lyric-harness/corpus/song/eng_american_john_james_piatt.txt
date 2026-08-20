@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
 
 --- TITLE: Apart
 --- SOURCE: PG15553
@@ -29,3 +31,58 @@ At sea are wrecks a-strand;
   On shore are shells that moan,
 Old anchors buried in barren sand,
   Sea-mist and dreams alone.
+
+--- TITLE: THE DEAR PRESIDENT
+--- SOURCE: PG47476
+[VERSE 1]
+Abraham Lincoln, the Dear President,
+Lay in the Round Hall at the Capitol,
+And there the people came to look their last.
+[VERSE 2]
+There came the widow, weeded for her mate;
+There came the mother, sorrowing for her son;
+There came the orphan, moaning for its sire.
+[VERSE 3]
+There came the soldier, bearing home his wound;
+There came the slave, who felt his broken chain;
+There came the mourners of a blacken'd Land.
+[VERSE 4]
+Through the dark April day, a ceaseless throng,
+They pass'd the coffin, saw the sleeping face,
+And, blessing it, in silence moved away.
+[VERSE 5]
+And one, a poet, spoke within his heart:
+"It harm'd him not to praise him when alive,
+And me it cannot harm to praise him dead.
+[VERSE 6]
+"Too oft the muse has blush'd to speak of men--
+No muse shall blush to speak her best of him,
+And still to speak her best of him is dumb.
+[VERSE 7]
+"O lofty wisdom's low simplicity!
+O awful tenderness of noted power!--
+No man e'er held so much of power so meek.
+[VERSE 8]
+"He was the husband of the husbandless,
+He was the father of the fatherless:
+Within his heart he weigh'd the common woe.
+[VERSE 9]
+"His call was like a father's to his sons!
+As to a father's voice, they, hearing, came--
+Eager to offer, strive, and bear, and die.
+[VERSE 10]
+"The mild bond-breaker, servant of his Lord,
+He took the sword, but in the name of Peace,
+And touched the fetter, and the bound was free.
+[VERSE 11]
+"Oh, place him not among the historic kings,
+Strong, barbarous chiefs and bloody conquerors,
+But with the Great and pure Republicans:
+[VERSE 12]
+"Those who have been unselfish, wise, and good,
+Bringers of Light and Pilots in the dark,
+Bearers of Crosses, Servants of the World.
+[VERSE 13]
+"And always, in his Land of birth and death,
+Be his fond name--warm'd in the people's hearts--
+Abraham Lincoln, the Dear President."

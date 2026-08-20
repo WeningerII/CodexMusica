@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 5
+# songs: 9
 
 --- TITLE: On The Life-mask Of Abraham Lincoln
 --- SOURCE: PG15553
@@ -108,3 +110,115 @@ Prays him to love me.
 [VERSE 3]
 Pity me, lean to me,
 Thou God above me!
+
+--- TITLE: AT THE PRESIDENT'S GRAVE
+--- SOURCE: PG47476
+[VERSE 1]
+All summer long the people knelt
+  And listened at the sick man's door:
+Each pang which that pale sufferer felt
+  Throbbed through the land from shore to shore;
+[VERSE 2]
+And as the all-dreaded hour drew nigh,
+  What breathless watching, night and day!
+What tears, what prayers! Great God on high,
+  Have we forgotten how to pray!
+[VERSE 3]
+O broken-hearted, widowed one,
+  Forgive us if we press too near!
+Dead is our husband, father, son,--
+  For we are all one household here.
+[VERSE 4]
+And not alone here by the sea,
+  And not in his own land alone,
+Are tears of anguish shed with thee--
+  In this one loss the world is one.
+[VERSE 5]
+EPITAPH
+[VERSE 6]
+    A man not perfect, but of heart
+      So high, of such heroic rage,
+    That even his hopes became a part
+      Of earth's eternal heritage.
+
+--- TITLE: CHARLESTON
+--- SOURCE: PG47476
+[VERSE 1]
+Is this the price of beauty! Fairest, thou,
+  Of all the cities of the sunrise sea,
+  Yet thrice art stricken. First, war harried thee;
+  Then the dread circling tempest drove its plough
+Right through thy palaces; and now, O now!
+  A sound of terror, and thy children flee
+  Into the night and death. O Deity!
+  Thou God of war and whirlwind, whose dark brow,
+Frowning, makes tremble sea and solid land!
+  These are thy creatures who to heaven cry
+  While hell roars 'neath them, and its portals ope;
+To thee they call,--to thee who bidst them die,
+  Who hast forgotten to withhold thy hand,--
+  For thou, Destroyer, art man's only Hope!
+
+--- TITLE: "THE WHITE CITY"
+--- SOURCE: PG47476
+[VERSE 1]
+Greece was; Greece is no more.
+Temple and town
+Have crumbled down;
+Time is the fire that hath consumed them all.
+Statue and wall
+In ruin strew the universal floor.
+[VERSE 2]
+II
+[VERSE 3]
+Greece lives, but Greece no more!
+Its ashes breed
+The undying seed
+Blown westward till, in Rome's imperial towers,
+Athens reflowers;
+Still westward--lo, a veiled and virgin shore!
+[VERSE 4]
+III
+[VERSE 5]
+Say not, "Greece is no more."
+Through the clear morn
+On light winds borne
+Her white-winged soul sinks on the New World's breast.
+Ah! happy West--
+Greece flowers anew, and all her temples soar!
+[VERSE 6]
+IV
+[VERSE 7]
+One bright hour, then no more
+Shall to the skies
+These columns rise.
+But though art's flower shall fade, again the seed
+Onward shall speed,
+Quickening the land from lake to ocean's roar.
+[VERSE 8]
+V
+[VERSE 9]
+Art lives, though Greece may never
+From the ancient mold
+As once of old
+Exhale to heaven the inimitable bloom;
+Yet from that tomb
+Beauty walks forth to light the world forever!
+
+--- TITLE: THE COMFORT OF THE TREES
+--- SOURCE: PG47476
+[VERSE 1]
+Gentle and generous, brave-hearted, kind,
+  And full of love and trust was he, our chief;
+  He never harmed a soul! Oh, dull and blind
+  And cruel, the hand that smote, beyond belief!
+Strike him? It could not be! Soon should we find
+  'Twas but a torturing dream--our sudden grief!
+  Then sobs and wailings down the northern wind
+  Like the wild voice of shipwreck from a reef!
+By false hope lulled (his courage gave us hope!)
+  By day, by night we watched,--until unfurled
+  At last the word of fate!--Our memories
+Cherish one tender thought in their sad scope:
+  He, looking from the window on this world,
+  Found comfort in the moving green of trees.

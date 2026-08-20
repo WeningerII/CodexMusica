@@ -2,6 +2,8 @@
 # region: english
 # source: GITenberg/The-Rubaiyat-of-Omar-Khayyam_246 246.txt md5 af6c1cfeda5f33f40ee15c4e6c2e3d8a
 # licence: public domain — Project Gutenberg text; author died 1883; every edition used was published 1931 or earlier
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1883; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # edition: The-Rubaiyat-of-Omar-Khayyam — 1859 — no imprint in the file; FitzGerald's Rubaiyat 1st ed. 1859, 5th ed. 1889 — the Gutenberg text prints both
 # note: The Rubaiyat is a TRANSLATION (from the Persian of Omar Khayyam) but the
 #       English quatrains are FitzGerald's own composition and are the reason he
@@ -10,6 +12,7 @@
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
 #--------------------------------------------------------------------------
+
 --- TITLE: Rubaiyat of Omar Khayyam (First Edition, 1859)
 [VERSE 1]
 Awake! for Morning in the Bowl of Night
@@ -893,3 +896,82 @@ And when like her, oh Saki, you shall pass
 Among the Guests Star-scatter'd on the Grass,
 And in your joyous errand reach the spot
 Where I made One--turn down an empty Glass!
+
+--- TITLE: Old Song
+--- SOURCE: PG66619
+[VERSE 1]
+’Tis a dull sight
+  To see the year dying,
+When winter winds
+  Set the yellow wood sighing:
+    Sighing, O sighing!
+[VERSE 2]
+When such a time cometh
+  I do retire
+Into an old room
+  Beside a bright fire:
+    O, pile a bright fire!
+[VERSE 3]
+And there I sit
+  Reading old things,
+Of knights and lorn damsels,
+  While the wind sings--
+    O, drearily sings!
+[VERSE 4]
+I never look out
+  Nor attend to the blast;
+For all to be seen
+  Is the leaves falling fast:
+    Falling, falling!
+[VERSE 5]
+But close at the hearth,
+  Like a cricket, sit I,
+Reading of summer
+  And chivalry--
+    Gallant chivalry!
+[VERSE 6]
+Then with an old friend
+  I talk of our youth--
+How ’twas gladsome, but often
+  Foolish, forsooth:
+    But gladsome, gladsome!
+[VERSE 7]
+Or, to get merry,
+  We sing some old rhyme
+That made the wood ring again
+  In summer time--
+    Sweet summer time!
+[VERSE 8]
+Then go we smoking,
+  Silent and snug:
+Naught passes between us,
+  Save a brown jug--
+    Sometimes!
+[VERSE 9]
+And sometimes a tear
+  Will rise in each eye,
+Seeing the two old friends
+  So merrily--
+    So merrily!
+[VERSE 10]
+And ere to bed
+  Go we, go we,
+Down on the ashes
+  We kneel on the knee,
+    Praying together!
+[VERSE 11]
+Thus, then, live I
+  Till, ’mid all the gloom,
+By Heaven! the bold sun
+  Is with me in the room
+    Shining, shining!
+[VERSE 12]
+Then the clouds part,
+  Swallows soaring between;
+The spring is alive,
+  And the meadows are green!
+[VERSE 13]
+I jump up like mad,
+  Break the old pipe in twain,
+And away to the meadows,
+  The meadows again!

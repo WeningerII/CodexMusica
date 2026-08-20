@@ -2,10 +2,13 @@
 # region: irish
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
-# attribution: the edition's own per-song author credit, cross-checked against its first-line index
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1867; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own per-song author credit, cross-checked against its first-line index; also credited 'Helen Selina, Lady Dufferin' in the anthology merged here 2026-08-20 (same person: the editions' own printed dates agree, or the shorter form carries none)
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 3
+
 
 --- TITLE: SONG.
 --- SOURCE: PG26715
@@ -101,4 +104,79 @@ My heart will travel back again
 I 'll think I see the little stile
   Where we sat, side by side,--
 And the springing corn and bright May morn,
+  When first you were my bride.
+
+--- TITLE: Lament of the Irish Emigrant
+--- SOURCE: PG66619
+[VERSE 1]
+I’m sittin’ on the stile, Mary,
+  Where we sat side by side
+On a bright May mornin’ long ago,
+  When first you were my bride;
+The corn was springin’ fresh and green,
+  And the lark sang loud and high--
+And the red was on your lip, Mary,
+  And the love-light in your eye.
+[VERSE 2]
+The place is little changed, Mary,
+  The day is bright as then,
+The lark’s loud song is in my ear,
+  And the corn is green again;
+But I miss the soft clasp of your hand,
+  And your breath warm on my cheek,
+And I still keep list’ning for the words
+  You never more will speak.
+[VERSE 3]
+’Tis but a step down yonder lane,
+  And the little church stands near,
+The church where we were wed, Mary,
+  I see the spire from here.
+But the graveyard lies between, Mary,
+  And my step might break your rest--
+For I’ve laid you, darling! down to sleep,
+  With your baby on your breast.
+[VERSE 4]
+I’m very lonely now, Mary,
+  For the poor make no new friends,
+But, O, they love the better still,
+  The few our Father sends!
+And you were all _I_ had, Mary,
+  My blessin’ and my pride:
+There’s nothin’ left to care for now,
+  Since my poor Mary died.
+[VERSE 5]
+Yours was the good, brave heart, Mary,
+  That still kept hoping on,
+When the trust in God had left my soul,
+  And my arm’s young strength was gone:
+There was comfort ever on your lip,
+  And the kind look on your brow--
+I bless you, Mary, for that same,
+  Though you cannot hear me now.
+[VERSE 6]
+I thank you for the patient smile
+  When your heart was fit to break,
+When the hunger pain was gnawin’ there,
+  And you hid it, for my sake!
+I bless you for the pleasant word,
+  When your heart was sad and sore--
+O, I’m thankful you are gone, Mary,
+  Where grief can’t reach you more!
+[VERSE 7]
+I’m biddin’ you a long farewell,
+  My Mary--kind and true!
+But I’ll not forget you, darling!
+  In the land I’m goin’ to;
+They say there’s bread and work for all,
+  And the sun shines always there--
+But I’ll not forget old Ireland,
+  Were it fifty times as fair!
+[VERSE 8]
+And often in those grand old woods
+  I’ll sit, and shut my eyes,
+And my heart will travel back again
+  To the place where Mary lies;
+And I’ll think I see the little stile
+  Where we sat side by side:
+And the springin’ corn, and the bright May morn,
   When first you were my bride.

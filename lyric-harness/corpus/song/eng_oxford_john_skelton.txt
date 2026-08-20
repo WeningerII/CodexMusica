@@ -1,0 +1,68 @@
+# author: John Skelton (1460?-1529)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1529; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: To Mistress Margery Wentworth
+--- SOURCE: PG66619
+[VERSE 1]
+With margerain gentle,
+  The flower of goodlihead,
+Embroidered the mantle
+  Is of your maidenhead.
+Plainly I cannot glose;
+  Ye be, as I divine,
+The pretty primrose,
+  The goodly columbine.
+[VERSE 2]
+Benign, courteous, and meek,
+  With wordes well devised;
+In you, who list to seek,
+  Be virtues well comprised.
+With margerain gentle,
+  The flower of goodlihead,
+Embroidered the mantle
+  Is of your maidenhead.
+
+--- TITLE: To Mistress Margaret Hussey
+--- SOURCE: PG66619
+[VERSE 1]
+  Merry Margaret
+  As midsummer flower,
+  Gentle as falcon
+  Or hawk of the tower:
+With solace and gladness,
+Much mirth and no madness,
+All good and no badness;
+    So joyously,
+    So maidenly,
+    So womanly
+    Her demeaning
+    In every thing,
+    Far, far passing
+    That I can indite,
+    Or suffice to write
+  Of Merry Margaret
+  As midsummer flower,
+  Gentle as falcon
+  Or hawk of the tower.
+  As patient and still
+  And as full of good will
+  As fair Isaphill,
+  Coliander,
+  Sweet pomander,
+  Good Cassander;
+  Steadfast of thought,
+  Well made, well wrought,
+  Far may be sought,
+  Ere that ye can find
+  So courteous, so kind
+  As merry Margaret,
+  This midsummer flower,
+  Gentle as falcon
+  Or hawk of the tower.

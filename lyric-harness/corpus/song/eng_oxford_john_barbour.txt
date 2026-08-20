@@ -1,0 +1,32 @@
+# author: John Barbour (d. 1395)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1395; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: Freedom
+--- SOURCE: PG66619
+[VERSE 1]
+A! Fredome is a noble thing!
+Fredome mays man to haiff liking;
+Fredome all solace to man giffis,
+He levys at ese that frely levys!
+A noble hart may haiff nane ese,
+Na ellys nocht that may him plese,
+[VERSE 2]
+Gyff fredome fail; for fre liking
+Is yarnyt our all othir thing.
+Na he that ay has levyt fre
+May nocht knaw weill the propyrtè,
+The angyr, na the wretchyt dome
+That is couplyt to foule thyrldome.
+Bot gyff he had assayit it,
+Than all perquer he suld it wyt;
+And suld think fredome mar to prise
+Than all the gold in warld that is.
+Thus contrar thingis evirmar
+Discoweryngis off the tothir ar.

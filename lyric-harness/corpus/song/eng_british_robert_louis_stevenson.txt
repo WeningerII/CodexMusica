@@ -2,6 +2,8 @@
 # region: scottish
 # source: GITenberg/A-Child-s-Garden-of-Verses_136 136.txt md5 967425ae2b902aed79e809fe1f06567f
 # licence: public domain — Project Gutenberg text; author died 1894; every edition used was published 1931 or earlier
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # edition: A-Child-s-Garden-of-Verses — 1885 — no imprint in the file; A Child's Garden of Verses, 1885
 # note: A Child's Garden of Verses complete.
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
@@ -1604,3 +1606,64 @@ And remember in your playing, as the sea-fog rolls to you,
 Long ere you could read it, how I told you what to do;
 And that while you thought of no one, nearly half the world away
 Some one thought of Louis on the beach of Monterey!
+
+--- TITLE: Romance
+--- SOURCE: PG66619
+[VERSE 1]
+I will make you brooches and toys for your delight
+Of bird-song at morning and star-shine at night.
+I will make a palace fit for you and me,
+Of green days in forests and blue days at sea.
+[VERSE 2]
+I will make my kitchen, and you shall keep your room,
+Where white flows the river and bright blows the broom,
+And you shall wash your linen and keep your body white
+In rainfall at morning and dewfall at night.
+[VERSE 3]
+And this shall be for music when no one else is near,
+The fine song for singing, the rare song to hear!
+That only I remember, that only you admire,
+Of the broad road that stretches and the roadside fire.
+
+--- TITLE: In the Highlands
+--- SOURCE: PG66619
+[VERSE 1]
+In the highlands, in the country places,
+Where the old plain men have rosy faces,
+    And the young fair maidens
+        Quiet eyes;
+Where essential silence cheers and blesses,
+And for ever in the hill-recesses
+    _Her_ more lovely music
+        Broods and dies--
+[VERSE 2]
+O to mount again where erst I haunted;
+Where the old red hills are bird-enchanted,
+    And the low green meadows
+        Bright with sward;
+And when even dies, the million-tinted,
+And the night has come, and planets glinted,
+    Lo, the valley hollow
+        Lamp-bestarr’d!
+[VERSE 3]
+O to dream, O to awake and wander
+There, and with delight to take and render,
+    Through the trance of silence,
+        Quiet breath!
+Lo! for there, among the flowers and grasses,
+Only the mightier movement sounds and passes;
+    Only winds and rivers,
+        Life and death.
+
+--- TITLE: Requiem
+--- SOURCE: PG66619
+[VERSE 1]
+Under the wide and starry sky
+  Dig the grave and let me lie:
+Glad did I live and gladly die,
+  And I laid me down with a will.
+[VERSE 2]
+This be the verse you grave for me:
+_Here he lies where he long’d to be;_
+_Home is the sailor, home from sea,_
+  _And the hunter home from the hill._

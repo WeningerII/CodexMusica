@@ -1,0 +1,42 @@
+# author: Jane Elliot (1727-1805)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1805; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: A Lament for Flodden
+--- SOURCE: PG66619
+[VERSE 1]
+I’ve heard them lilting at our ewe-milking,
+  Lasses a’ lilting before dawn o’ day;
+But now they are moaning on ilka green loaning--
+  The Flowers of the Forest are a’ wede away.
+[VERSE 2]
+At bughts, in the morning, nae blythe lads are scorning.
+  Lasses are lonely and dowie and wae;
+Nae daffing, nae gabbing, but sighing and sabbing,
+  Ilk ane lifts her leglin and hies her away.
+[VERSE 3]
+In hairst, at the shearing, nae youths now are jeering,
+  Bandsters are lyart, and runkled, and gray:
+At fair or at preaching, nae wooing, nae fleeching--
+  The Flowers of the Forest are a’ wede away.
+[VERSE 4]
+At e’en, in the gloaming, nae swankies are roaming
+  ’Bout stacks wi’ the lasses at bogle to play;
+But ilk ane sits eerie, lamenting her dearie--
+  The Flowers of the Forest are a’ wede away.
+[VERSE 5]
+Dool and wae for the order sent our lads to the Border!
+  The English, for ance, by guile wan the day;
+The Flowers of the Forest, that fought aye the foremost,
+  The prime of our land, lie cauld in the clay.
+[VERSE 6]
+We’ll hear nae mair lilting at our ewe-milking;
+  Women and bairns are heartless and wae;
+Sighing and moaning on ilka green loaning--
+  The Flowers of the Forest are a’ wede away.

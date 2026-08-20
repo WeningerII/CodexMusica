@@ -120,15 +120,164 @@ annotation's absence.
 
 **WITHDRAWN, NOT DELETED (doctrine 17).** Every one of the 125 files
 keeps its own superseded value struck on a `# dates: WITHDRAWN` line
-naming the reason, and the seven with contradicting printed evidence
+naming the reason, and the **seven** files with contradicting evidence
 carry that evidence, so a later sitting can re-derive from authorities
-rather than rediscover the contradiction. **The licence claim is
+rather than rediscover the contradiction. **Seven, not the six above,
+and the difference is the second route**: six were caught by the
+death-year rail comparing against an anthology's PRINTED dates, and the
+seventh — James Montgomery — was caught by the corpus contradicting
+ITSELF, since `eng_hymn_montgomery.txt` records 1771-1854 for the same
+man the Minstrel file dated 1771-1790. Both are external to the derived
+value and neither is the internal heuristic, which is the point; they
+are counted apart because they are different instruments (doctrine 79). **The licence claim is
 untouched**: these files rest on the parent row's ADMIT reasoning, not
 on per-author dates, and every songwriter in an 1855 anthology is long
 out of any life+70 term — this was an accuracy defect, never an
 admissibility one.
 
 ---
+
+## 0.5 · Phase 1 landed two anthologies, held a third, and left 427 regions blank on purpose
+
+**+433 files and +1,266 items, and the two decisions worth recording are
+both REFUSALS.** The Oxford Book of English Verse 1250-1900
+(`GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619`) and Poems
+of American History (`PG47476`, Stevenson) landed as 433 new per-author
+files carrying 904 items, plus 362 items topped up into 101 files the
+corpus already held. English total: **616 → 1,049 files, 6,352 → 7,618
+songs.** The corpus audit is at **1,175 files / 1 FAIL / 231 WARN / 902
+NOTE**, `--verify-shape` PASS.
+
+### The Home Book of Verse is HELD, and the etext dates itself
+
+Its four volumes were extracted and are **not landed**. The corpus's
+licence line for them asserts the 1912 first edition; the etext is not
+that printing. Two independent tells, both from inside the file:
+
+- **It prints death years the 1912 edition could not have known.** Over
+  the extraction's 1,938 items, **271 items across 112 distinct authors
+  carry a death year after 1912**, the latest being **G. K. Chesterton,
+  1936**. A further 247 items across 147 authors are open-ended (a birth
+  year and no death), which is what an edition prints for an author
+  living at the time it was set. *Declared counting rule, because the
+  date field has fifteen distinct spellings in this extraction:* split
+  on the first `-`; the first 4-digit group after it is the death year;
+  no group after it and one before it is open-ended; `fl. YYYY` floruits
+  are excluded from both.
+- **The body prints "Ford Madox Ford" while the volume's own index still
+  reads "Hueffer."** The name change is 1919, so the body was reset
+  after the index was.
+
+A 1930s printing's US copyright turns on renewal research this session
+cannot perform, and doctrine 85's shape applies to the near miss as much
+as to the express grant: the source stays in the lander's `SOURCES` so
+the decision is legible, and out of `EXTRACTIONS` so nothing from it can
+land by accident. This is the open question the owner inherits, not a
+verdict.
+
+### The region axis stopped being total, and that is the taxonomy working
+
+All six Phase-1 extraction agents report independently that **neither
+edition prints a nationality or tradition for any author.**
+`data/song_regions.tsv`'s evidence rule is *"author's tradition per file
+header; edition origin as tiebreak only"* — so filling the axis from
+Oxford's UK imprint or Stevenson's US one would rebuild **the
+Taylor-sisters defect at scale**, which is the single error this
+taxonomy was created to fix. The ruling was blank-where-unevidenced, and
+the result is:
+
+| | files |
+|---|---:|
+| region declared from the closed set | 622 |
+| stated blank, each with its own `# region-basis:` line | 427 |
+| silently empty | **0** |
+
+Six of the new files DO declare, because their edition prints the signal
+itself: King James I of Scotland by his own author heading, and
+Callanan, Ferguson, Fox, Rolleston and Hyde by Oxford's `FROM THE IRISH`
+headnotes. Everything else carries a basis line saying in full why it is
+blank. **The pin changed shape rather than loosening**: `every file
+declares a region` became *622 declare a region and 427 declare a stated
+blank — every file answers the axis, none is silently empty*, which is
+the property actually worth holding. Blank has always been this
+taxonomy's honest undeclared state; `report()` counts it into
+`undeclared_region` and never into `by_region`, so the invariant
+`by_region + undeclared == songs` holds at 6,722 + 896 = 7,618.
+
+**The filename token carries the batch, not the claim.** The new files
+are `eng_oxford_*` and `eng_pah_*` rather than `eng_british_*` /
+`eng_american_*` — the Taylor pin's own sentence is that the filename is
+the ACQUISITION BATCH and not an analytic claim, and a tradition-shaped
+token here would state in the filename precisely the claim the header
+declines to make.
+
+### 57 self-describing-metadata repairs, all found by the audit
+
+The first write left **58 FAILs**, and 57 were the corpus audit catching
+its own bookkeeping rather than any defect in the verse:
+
+- **55 × check C** — a topped-up file's `data/sources.tsv` row still
+  recorded the md5 of its PRE-APPEND bytes. Repinned using the table's
+  own superseded-md5 convention. Eight of the 55 were missed on the
+  first pass because their rows used an older `md5 X (repinned ...), N
+  bytes` phrasing my contiguous regex did not match — a reminder that
+  the row format has a history.
+- **2 × check B** — `# lines:` headers stale after the append (Coleridge
+  598 → 726, Wordsworth 1,751 → 2,306). Recomputed **through the audit's
+  own `CorpusFile.verse_lines`** rather than by a second line-counting
+  rule, which is doctrine 1: the header and the check must not be able
+  to disagree.
+
+The 58th is the pre-existing FAIL the audit has carried since before
+this load.
+
+### A pin that named the wrong failure, caught on its second occurrence
+
+`test_song_function` §9 pins 14 named blocks the apparatus rule empties,
+keyed on `(file, source_line, mark)`. Nine went red after this load —
+the six in `eng_hall_john_gay.txt` and three in
+`eng_hall_thomas_durfey.txt`. **All nine blocks were still empty.** The
+load wrote a multi-source header pair at the top of both files (Gay
+topped up from Oxford, Durfey additionally absorbing a twin), so every
+address below shifted: **Gay +2, Durfey +3.** The witnesses never moved;
+their addresses did.
+
+**The message said `not empty`, which was false of all nine.** That is
+two different findings collapsed into one sentence — a block that
+stopped being empty is a regression in the apparatus rule, a block that
+slid down three lines is bookkeeping — and the same list had already
+fired this way once before, on the 2026-08-19 taxonomy backfill's
+`# region:`/`# function:` header insertion. Twice is the argument for
+fixing the report rather than only the numbers.
+
+The check now resolves a missing address against the witness's own
+stable coordinates — same file, same mark, same dropped line in the
+window — and reports **MOVED** with its delta or **NO LONGER EMPTY**
+separately. Both branches are proven by mutation: restoring a
+pre-Phase-1 address reports `MOVED … [597], [3]`, and pointing a witness
+at a mark that is not an empty block reports `NO LONGER EMPTY`. The
+window is now one helper both halves of §9 call, because the provenance
+half's own `lines[n:n+4]` had been *tolerating* the shift silently while
+the other half failed on it — one question, two readings (doctrine 1).
+
+The list stays keyed on the line number deliberately: that is what makes
+it a provenance record rather than a text search. What changed is that a
+growing corpus now produces a self-explaining failure. This is the
+corpus-file instance of the defect this repo already records for
+`data/sources.tsv:NNN` citations — **a line number into a file that
+grows is not an address, it is an offset from a moving origin.**
+
+### 19 twin merges, and the control that says the rule is not "same surname"
+
+Near-name scanning against the live corpus found 19 authors already
+staged under a variant spelling; each merge was confirmed against the
+**editions' own printed dates** before the files were joined. The
+control is Oxford printing two men side by side: **Sir Aubrey de Vere
+(1788-1846)** and his son **Aubrey Thomas de Vere (1814-1902)**. They
+are kept in separate files, and they are the reason the merge rule reads
+dates rather than names — the same rail that caught Oxford's Alexander
+Hume (1560-1609) as a third man against the corpus's two Minstrel-era
+Humes, and the same rail that produced §0.4 above.
 
 ---
 

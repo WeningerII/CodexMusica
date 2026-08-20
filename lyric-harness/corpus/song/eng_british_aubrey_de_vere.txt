@@ -2,10 +2,13 @@
 # region: irish
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
-# attribution: the edition's own per-song author credit, cross-checked against its first-line index
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1902; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own per-song author credit, cross-checked against its first-line index; also credited 'Aubrey De Vere' in the anthology merged here 2026-08-20 (same person: the editions' own printed dates agree, or the shorter form carries none)
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 4
+
 
 --- TITLE: SONG.
 --- SOURCE: PG26715
@@ -82,3 +85,21 @@ Through the woods we walk together;
     He hath built a winter shed;
 And all night in rainy weather,
   I hear his gentle breathings by me.
+
+--- TITLE: Sorrow
+--- SOURCE: PG66619
+[VERSE 1]
+Count each affliction, whether light or grave,
+God’s messenger sent down to thee; do thou
+  With courtesy receive him; rise and bow;
+And, ere his shadow pass thy threshold, crave
+Permission first his heavenly feet to lave;
+  Then lay before him all thou hast; allow
+  No cloud of passion to usurp thy brow,
+Or mar thy hospitality; no wave
+Of mortal tumult to obliterate
+  The soul’s marmoreal calmness: Grief should be,
+Like joy, majestic, equable, sedate;
+  Confirming, cleansing, raising, making free;
+Strong to consume small troubles; to commend
+Great thoughts, grave thoughts, thoughts lasting to the end.

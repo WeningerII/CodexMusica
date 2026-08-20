@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 5
+# songs: 13
 
 --- TITLE: BALLAD.
 --- SOURCE: PG26715
@@ -144,3 +146,363 @@ The sun may set, but constant love
   Will shine when he 's away;
 So that dull night is never night,
   And day is brighter day.
+
+--- TITLE: Autumn
+--- SOURCE: PG66619
+[VERSE 1]
+I saw old Autumn in the misty morn
+Stand shadowless like Silence, listening
+To silence, for no lonely bird would sing
+Into his hollow ear from woods forlorn,
+Nor lowly hedge nor solitary thorn;--
+Shaking his languid locks all dewy bright
+With tangled gossamer that fell by night,
+  Pearling his coronet of golden corn.
+[VERSE 2]
+Where are the songs of Summer?--With the sun,
+Oping the dusky eyelids of the south,
+Till shade and silence waken up as one,
+And Morning sings with a warm odorous mouth.
+Where are the merry birds?--Away, away,
+On panting wings through the inclement skies,
+      Lest owls should prey
+      Undazzled at noonday,
+And tear with horny beak their lustrous eyes.
+[VERSE 3]
+Where are the blooms of Summer?--In the west,
+Blushing their last to the last sunny hours,
+When the mild Eve by sudden Night is prest
+Like tearful Proserpine, snatch’d from her flow’rs
+      To a most gloomy breast.
+Where is the pride of Summer,--the green prime,--
+The many, many leaves all twinkling?--Three
+On the moss’d elm; three on the naked lime
+Trembling,--and one upon the old oak-tree!
+  Where is the Dryad’s immortality?--
+Gone into mournful cypress and dark yew,
+Or wearing the long gloomy Winter through
+  In the smooth holly’s green eternity.
+[VERSE 4]
+The squirrel gloats on his accomplished hoard,
+The ants have brimm’d their garners with ripe grain,
+    And honey bees have stored
+The sweets of Summer in their luscious cells;
+The swallows all have wing’d across the main;
+But here the Autumn melancholy dwells,
+    And sighs her tearful spells
+Amongst the sunless shadows of the plain.
+      Alone, alone,
+      Upon a mossy stone,
+She sits and reckons up the dead and gone
+With the last leaves for a love-rosary,
+Whilst all the wither’d world looks drearily,
+Like a dim picture of the drownèd past
+In the hush’d mind’s mysterious far away,
+Doubtful what ghostly thing will steal the last
+Into that distance, gray upon the gray.
+[VERSE 5]
+O go and sit with her, and be o’ershaded
+Under the languid downfall of her hair:
+She wears a coronal of flowers faded
+Upon her forehead, and a face of care;--
+There is enough of wither’d everywhere
+To make her bower,--and enough of gloom;
+There is enough of sadness to invite,
+If only for the rose that died, whose doom
+Is Beauty’s,--she that with the living bloom
+Of conscious cheeks most beautifies the light:
+There is enough of sorrowing, and quite
+Enough of bitter fruits the earth doth bear,--
+Enough of chilly droppings for her bowl;
+Enough of fear and shadowy despair,
+To frame her cloudy prison for the soul!
+
+--- TITLE: Silence
+--- SOURCE: PG66619
+[VERSE 1]
+There is a silence where hath been no sound,
+  There is a silence where no sound may be,
+  In the cold grave--under the deep, deep sea,
+Or in wide desert where no life is found,
+Which hath been mute, and still must sleep profound;
+  No voice is hush’d--no life treads silently,
+  But clouds and cloudy shadows wander free,
+That never spoke, over the idle ground:
+But in green ruins, in the desolate walls
+  Of antique palaces, where Man hath been,
+Though the dun fox or wild hyæna calls,
+  And owls, that flit continually between,
+Shriek to the echo, and the low winds moan--
+There the true Silence is, self-conscious and alone.
+
+--- TITLE: Death
+--- SOURCE: PG66619
+[VERSE 1]
+It is not death, that sometime in a sigh
+  This eloquent breath shall take its speechless flight;
+That sometime these bright stars, that now reply
+  In sunlight to the sun, shall set in night;
+  That this warm conscious flesh shall perish quite,
+And all life’s ruddy springs forget to flow;
+  That thoughts shall cease, and the immortal sprite
+Be lapp’d in alien clay and laid below;
+It is not death to know this--but to know
+  That pious thoughts, which visit at new graves
+In tender pilgrimage, will cease to go
+  So duly and so oft--and when grass waves
+Over the pass’d-away, there may be then
+No resurrection in the minds of men.
+
+--- TITLE: Fair Ines
+--- SOURCE: PG66619
+[VERSE 1]
+O saw ye not fair Ines?
+  She’s gone into the West,
+To dazzle when the sun is down,
+  And rob the world of rest:
+She took our daylight with her,
+  The smiles that we love best,
+With morning blushes on her cheek,
+  And pearls upon her breast.
+[VERSE 2]
+O turn again, fair Ines,
+  Before the fall of night,
+For fear the Moon should shine alone,
+  And stars unrivall’d bright;
+And blessèd will the lover be
+  That walks beneath their light,
+And breathes the love against thy cheek
+  I dare not even write!
+[VERSE 3]
+Would I had been, fair Ines,
+  That gallant cavalier,
+Who rode so gaily by thy side,
+  And whisper’d thee so near!
+Were there no bonny dames at home,
+  Or no true lovers here,
+That he should cross the seas to win
+  The dearest of the dear?
+[VERSE 4]
+I saw thee, lovely Ines,
+  Descend along the shore,
+With bands of noble gentlemen,
+  And banners waved before;
+And gentle youth and maidens gay,
+  And snowy plumes they wore:
+It would have been a beauteous dream,--
+  If it had been no more!
+[VERSE 5]
+Alas, alas! fair Ines,
+  She went away with song,
+With Music waiting on her steps,
+  And shoutings of the throng;
+But some were sad, and felt no mirth,
+  But only Music’s wrong,
+In sounds that sang Farewell, farewell,
+  To her you’ve loved so long.
+[VERSE 6]
+Farewell, farewell, fair Ines!
+  That vessel never bore
+So fair a lady on its deck,
+  Nor danced so light before,--
+Alas for pleasure on the sea,
+  And sorrow on the shore!
+The smile that bless’d one lover’s heart
+  Has broken many more!
+
+--- TITLE: Time of Roses
+--- SOURCE: PG66619
+[VERSE 1]
+It was not in the Winter
+  Our loving lot was cast;
+It was the time of roses--
+  We pluck’d them as we pass’d!
+[VERSE 2]
+That churlish season never frown’d
+  On early lovers yet:
+O no--the world was newly crown’d
+  With flowers when first we met!
+[VERSE 3]
+’Twas twilight, and I bade you go,
+  But still you held me fast;
+It was the time of roses--
+  We pluck’d them as we pass’d!
+
+--- TITLE: Ruth
+--- SOURCE: PG66619
+[VERSE 1]
+She stood breast-high amid the corn,
+Clasp’d by the golden light of morn,
+Like the sweetheart of the sun,
+Who many a glowing kiss had won.
+[VERSE 2]
+On her cheek an autumn flush,
+Deeply ripen’d;--such a blush
+In the midst of brown was born,
+Like red poppies grown with corn.
+[VERSE 3]
+Round her eyes her tresses fell,
+Which were blackest none could tell,
+But long lashes veiled a light,
+That had else been all too bright.
+[VERSE 4]
+And her hat, with shady brim,
+Made her tressy forehead dim;
+Thus she stood amid the stooks,
+Praising God with sweetest looks:--
+[VERSE 5]
+Sure, I said, Heav’n did not mean,
+Where I reap thou shouldst but glean,
+Lay thy sheaf adown and come,
+Share my harvest and my home.
+
+--- TITLE: The Death-bed
+--- SOURCE: PG66619
+[VERSE 1]
+We watch’d her breathing thro’ the night,
+  Her breathing soft and low,
+As in her breast the wave of life
+  Kept heaving to and fro.
+[VERSE 2]
+So silently we seem’d to speak,
+  So slowly moved about,
+As we had lent her half our powers
+  To eke her living out.
+[VERSE 3]
+Our very hopes belied our fears,
+  Our fears our hopes belied--
+We thought her dying when she slept,
+  And sleeping when she died.
+[VERSE 4]
+For when the morn came dim and sad,
+  And chill with early showers,
+Her quiet eyelids closed--she had
+  Another morn than ours.
+
+--- TITLE: The Bridge of Sighs
+--- SOURCE: PG66619
+[VERSE 1]
+One more Unfortunate,
+  Weary of breath,
+Rashly importunate,
+  Gone to her death!
+[VERSE 2]
+Take her up tenderly,
+  Lift her with care;
+Fashion’d so slenderly
+  Young, and so fair!
+[VERSE 3]
+Look at her garments
+Clinging like cerements;
+Whilst the wave constantly
+  Drips from her clothing;
+Take her up instantly,
+  Loving, not loathing.
+[VERSE 4]
+Touch her not scornfully;
+Think of her mournfully,
+  Gently and humanly;
+Not of the stains of her,
+All that remains of her
+  Now is pure womanly.
+[VERSE 5]
+Make no deep scrutiny
+Into her mutiny
+  Rash and undutiful:
+Past all dishonour,
+Death has left on her
+  Only the beautiful.
+[VERSE 6]
+Still, for all slips of hers,
+  One of Eve’s family--
+Wipe those poor lips of hers
+  Oozing so clammily.
+[VERSE 7]
+Loop up her tresses
+  Escaped from the comb,
+Her fair auburn tresses;
+Whilst wonderment guesses
+  Where was her home?
+[VERSE 8]
+Who was her father?
+  Who was her mother?
+Had she a sister?
+  Had she a brother?
+Or was there a dearer one
+Still, and a nearer one
+  Yet, than all other?
+[VERSE 9]
+Alas! for the rarity
+Of Christian charity
+  Under the sun!
+O, it was pitiful!
+Near a whole city full,
+  Home she had none.
+[VERSE 10]
+Sisterly, brotherly,
+Fatherly, motherly
+  Feelings had changed:
+Love, by harsh evidence,
+Thrown from its eminence;
+Even God’s providence
+  Seeming estranged.
+[VERSE 11]
+Where the lamps quiver
+So far in the river,
+  With many a light
+From window and casement,
+From garret to basement,
+She stood, with amazement,
+  Houseless by night.
+[VERSE 12]
+The bleak wind of March
+  Made her tremble and shiver;
+But not the dark arch,
+Or the black flowing river:
+[VERSE 13]
+Mad from life’s history,
+Glad to death’s mystery,
+  Swift to be hurl’d--
+Anywhere, anywhere
+  Out of the world!
+[VERSE 14]
+In she plunged boldly--
+No matter how coldly
+  The rough river ran--
+Over the brink of it,
+Picture it--think of it,
+  Dissolute Man!
+Lave in it, drink of it,
+  Then, if you can!
+[VERSE 15]
+Take her up tenderly,
+  Lift her with care;
+Fashion’d so slenderly,
+  Young, and so fair!
+[VERSE 16]
+Ere her limbs frigidly
+Stiffen too rigidly,
+  Decently, kindly,
+Smooth and compose them;
+And her eyes, close them,
+  Staring so blindly!
+[VERSE 17]
+Dreadfully staring
+  Thro’ muddy impurity,
+As when with the daring
+Last look of despairing
+  Fix’d on futurity.
+[VERSE 18]
+Perishing gloomily,
+Spurr’d by contumely,
+Cold inhumanity,
+Burning insanity,
+  Into her rest.--
+Cross her hands humbly
+As if praying dumbly,
+  Over her breast!
+[VERSE 19]
+Owning her weakness,
+  Her evil behaviour,
+And leaving, with meekness,
+  Her sins to her Saviour!

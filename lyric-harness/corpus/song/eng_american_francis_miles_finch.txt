@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own printed by-line credit, per item
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
 
 --- TITLE: THE BLUE AND THE GRAY
 --- SOURCE: PG54211
@@ -72,3 +74,76 @@ Under the sod and the dew,
   Waiting the judgment-day;
 Love and tears for the Blue;
   Tears and love for the Gray.
+
+--- TITLE: NATHAN HALE
+--- SOURCE: PG47476
+[VERSE 1]
+To drum-beat and heart-beat,
+    A soldier marches by;
+There is color in his cheek,
+    There is courage in his eye,
+Yet to drum-beat and heart-beat
+    In a moment he must die.
+[VERSE 2]
+By the starlight and moonlight,
+    He seeks the Briton's camp;
+He hears the rustling flag
+    And the armèd sentry's tramp;
+And the starlight and moonlight
+    His silent wanderings lamp.
+[VERSE 3]
+With slow tread and still tread,
+    He scans the tented line;
+And he counts the battery guns,
+    By the gaunt and shadowy pine;
+And his slow tread and still tread
+    Gives no warning sign.
+[VERSE 4]
+The dark wave, the plumed wave,
+    It meets his eager glance;
+And it sparkles 'neath the stars,
+    Like the glimmer of a lance--
+A dark wave, a plumed wave,
+    On an emerald expanse.
+[VERSE 5]
+A sharp clang, a still clang,
+    And terror in the sound!
+For the sentry, falcon-eyed,
+    In the camp a spy hath found;
+With a sharp clang, a steel clang,
+    The patriot is bound.
+[VERSE 6]
+With calm brow, and steady brow,
+    He listens to his doom;
+In his look there is no fear,
+    Nor a shadow-trace of gloom;
+But with calm brow and steady brow,
+    He robes him for the tomb.
+[VERSE 7]
+In the long night, the still night,
+    He kneels upon the sod;
+And the brutal guards withhold
+    E'en the solemn word of God!
+In the long night, the still night,
+    He walks where Christ hath trod.
+[VERSE 8]
+'Neath the blue morn, the sunny morn,
+    He dies upon the tree;
+And he mourns that he can lose
+    But one life for Liberty;
+And in the blue morn, the sunny morn,
+    His spirit wings are free.
+[VERSE 9]
+But his last words, his message-words,
+    They burn, lest friendly eye
+Should read how proud and calm
+    A patriot could die,
+With his last words, his dying words,
+    A soldier's battle-cry.
+[VERSE 10]
+From Fame-leaf and Angel-leaf,
+    From monument and urn,
+The sad of earth, the glad of heaven,
+    His tragic fate shall learn;
+But on Fame-leaf and Angel-leaf
+    The name of HALE shall burn!

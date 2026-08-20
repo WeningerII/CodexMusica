@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 4
 
 --- TITLE: The Maryland Yellow-throat
 --- SOURCE: PG15553
@@ -149,3 +151,38 @@ But far away, and far away, the tawny thrush is singing;
 New England woods, at close of day, with that clear chant are ringing:
 And when my light of life is low, and heart and flesh are weary,
 I fain would hear, before I go, the wood notes of the veery.
+
+--- TITLE: MARE LIBERUM
+--- SOURCE: PG47476
+[VERSE 1]
+You dare to say with perjured lips,
+  "We fight to make the ocean free"?
+_You_, whose black trail of butchered ships
+  Bestrews the bed of every sea
+Where German submarines have wrought
+Their horrors! Have you never thought,--
+  What you call freedom, men call piracy!
+[VERSE 2]
+Unnumbered ghosts that haunt the wave
+  Where you have murdered, cry you down;
+And seamen whom you would not save
+  Weave now in weed-grown depths a crown
+Of shame for your imperious head,--
+A dark memorial of the dead,--
+  Women and children whom you sent to drown.
+[VERSE 3]
+Nay, not till thieves are set to guard
+  The gold, and corsairs called to keep
+O'er peaceful commerce watch and ward,
+  And wolves to herd the helpless sheep,
+Shall men and women look to thee,
+Thou ruthless Old Man of the Sea,
+  To safeguard law and freedom on the deep!
+[VERSE 4]
+In nobler breeds we put our trust:
+  The nations in whose sacred lore
+The "Ought" stands out above the "Must,"
+  And honor rules in peace and war.
+With these we hold in soul and heart,
+With these we choose our lot and part,
+  Till liberty is safe on sea and shore.

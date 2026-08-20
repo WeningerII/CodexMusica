@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 8
 
 --- TITLE: At Gibraltar
 --- SOURCE: PG15553
@@ -82,3 +84,219 @@ Creation arose but to see it,
    A million lamps in the blue;
 But a lover he shall be it
    If one sweet maid is true.
+
+--- TITLE: OUR FIRST CENTURY
+--- SOURCE: PG47476
+[VERSE 1]
+It cannot be that men who are the seed
+  Of Washington should miss fame's true applause;
+  Franklin did plan us; Marshall gave us laws;
+And slow the broad scroll grew a people's creed--
+Union and Liberty! then at our need,
+  Time's challenge coming, Lincoln gave it pause,
+  Upheld the double pillars of the cause,
+And dying left them whole--our crowning deed.
+[VERSE 2]
+Such was the fathering race that made all fast,
+  Who founded us, and spread from sea to sea
+  A thousand leagues the zone of liberty,
+And built for man this refuge from his past,
+  Unkinged, unchurched, unsoldiered; shamed were we,
+Failing the stature that such sires forecast!
+
+--- TITLE: ESSEX REGIMENT MARCH
+--- SOURCE: PG47476
+[VERSE 1]
+  WRITTEN FOR THE EIGHTH MASSACHUSETTS UNITED STATES VOLUNTEER
+  INFANTRY IN THE SPANISH WAR
+[VERSE 2]
+Once more the Flower of Essex is marching to the wars;
+We are up to serve the Country wherever fly her Stars;
+Ashore, afloat, or far or near, to her who bore us true,
+We will do a freeman's duty as we were born to do.
+  Lead the van, and may we lead it,
+    God of armies, till the wrong shall cease;
+  Speed the war, and may we speed it
+    To the sweet home-coming, God of peace!
+[VERSE 3]
+Our fathers fought their battles, and conquered for the right,
+Three hundred years victorious from every stubborn fight;
+And still the Flower of Essex from the ancient stock puts forth,
+Where the bracing blue sea-water strings the sinews of the North.
+[VERSE 4]
+The foe on field, the foe on deck to us is all the same;
+With both the Flower of Essex has played a winning game;
+We threw them on the village green, we cowed them in Algiers,
+And ship to ship we shocked them in our first great naval years.
+[VERSE 5]
+We rowed the Great Commander o'er the ice-bound Delaware,
+When the Christmas snow was falling in the dark and wintry air;
+And still the Flower of Essex, like the heroes gone before,
+Where the tide of danger surges shall take the laboring oar.
+[VERSE 6]
+The Flower that first lay bleeding along by Bloody Brook
+Full oft hath Death upgathered in war's red reaping-hook;
+Its home is on our headlands; 'tis sweeter than the rose;
+But sweetest in the battle's breath the Flower of Essex blows.
+[VERSE 7]
+At the best a dear home-coming, at the worst a soldier's grave,
+Beating the tropic jungle, ploughing the dark blue wave;
+But while the Flower of Essex from the granite rock shall come,
+None but the dead shall cease to fight till all go marching home.
+[VERSE 8]
+March onward to the leaguer wherever it may lie;
+The Colors make the Country whatever be the sky;
+Where round the Flag of Glory the storm terrific blows,
+We march, we sail, whoever fail, the Flower of Essex goes.
+
+--- TITLE: THE ISLANDS OF THE SEA
+--- SOURCE: PG47476
+[VERSE 1]
+God is shaping the great future of the Islands of the Sea;
+He has sown the blood of martyrs and the fruit is liberty;
+In thick clouds and in darkness He has sent abroad His word;
+He has given a haughty nation to the cannon and the sword.
+[VERSE 2]
+He has seen a people moaning in the thousand deaths they die;
+He has heard from child and woman a terrible dark cry;
+He has given the wasted talent of the steward faithless found
+To the youngest of the nations with His abundance crowned.
+[VERSE 3]
+He called her to do justice where none but she had power;
+He called her to do mercy to her neighbor at the door;
+He called her to do vengeance for her own sons foully dead;
+Thrice did He call unto her ere she inclined her head.
+[VERSE 4]
+She has gathered the vast Midland, she has searched her borders round;
+There has been a mighty hosting of her children on the ground;
+Her search-lights lie along the sea, her guns are loud on land;
+To do her will upon the earth her armies round her stand.
+[VERSE 5]
+The fleet, at her commandment, to either ocean turns;
+Belted around the mighty world her line of battle burns;
+She has loosed the hot volcanoes of the ships of flaming hell;
+With fire and smoke and earthquake shock her heavy vengeance fell.
+[VERSE 6]
+O joyfullest May morning when before our guns went down
+The Inquisition priesthood and the dungeon-making crown,
+While through red lights of battle our starry dawn burst out,
+Swift as the tropic sunrise that doth with glory shout!
+[VERSE 7]
+Be jubilant, free Cuba, our feet are on thy soil;
+Up mountain road, through jungle growth, our bravest for thee toil;
+There is no blood so precious as their wounds pour forth for thee;
+Sweet be thy joys, free Cuba,--sorrows have made thee free.
+[VERSE 8]
+Nor Thou, O noble Nation, who wast so slow to wrath,
+With grief too heavy-laden follow in duty's path;
+Not for ourselves our lives are; not for Thyself art Thou;
+The Star of Christian Ages is shining on Thy brow.
+[VERSE 9]
+Rejoice, O mighty Mother, that God hath chosen Thee
+To be the western warder of the Islands of the Sea;
+He lifteth up, He casteth down, He is the King of Kings,
+Whose dread commands o'er awe-struck lands are borne on eagle's wings.
+
+--- TITLE: O LAND BELOVED
+--- SOURCE: PG47476
+[VERSE 1]
+        O Land beloved!
+      My Country, dear, my own!
+      May the young heart that moved
+      For the weak words atone;
+The mighty lyre not mine, nor the full breath of song!
+      To happier sons shall these belong.
+      Yet doth the first and lonely voice
+      Of the dark dawn the heart rejoice,
+  While still the loud choir sleeps upon the bough;
+    And never greater love salutes thy brow
+      Than his, who seeks thee now.
+    Alien the sea and salt the foam
+    Where'er it bears him from his home;
+      And when he leaps to land,
+      A lover treads the strand;
+      Precious is every stone;
+      No little inch of all the broad domain
+      But he would stoop to kiss, and end his pain,
+      Feeling thy lips make merry with his own;
+        But oh, his trembling reed too frail
+        To bear thee Time's All-Hail!
+[VERSE 2]
+Faint is my heart, and ebbing with the passion of thy praise!
+      The poets come who cannot fail;
+    Happy are they who sing thy perfect days!
+  Happy am I who see the long night ended.
+  In the shadows of the age that bore me,
+    All the hopes of mankind blending,
+    Earth awaking, heaven descending,
+      While the new day steadfastly
+      Domes the blue deeps over thee!
+    Happy am I who see the Vision splendid
+    In the glowing of the dawn before me,
+      All the grace of heaven blending,
+      Man arising, Christ descending,
+        While God's hand in secrecy
+        Builds thy bright eternity.
+
+--- TITLE: SONNETS WRITTEN IN THE FALL OF 1914
+--- SOURCE: PG47476
+[VERSE 1]
+Awake, ye nations, slumbering supine,
+Who round enring the European fray!
+Heard ye the trumpet sound? "The Day! the Day!
+The last that shall on England's empire shine!
+The Parliament that broke the Right Divine
+Shall see her realm of reason swept away,
+And lesser nations shall the sword obey--
+The sword o'er all carve the great world's design!"
+So on the English Channel boasts the foe
+On whose imperial brow death's helmet nods.
+Look where his hosts o'er bloody Belgium go,
+And mix a nation's past with blazing sods!
+A kingdom's waste! a people's homeless woe!
+Man's broken Word, and violated gods!
+[VERSE 2]
+Far fall the day when England's realm shall see
+The sunset of dominion! Her increase
+Abolishes the man-dividing seas,
+And frames the brotherhood on earth to be!
+She, in free peoples planting sovereignty,
+Orbs half the civil world in British peace;
+And though time dispossess her, and she cease,
+Rome-like she greatens in man's memory.
+Oh, many a crown shall sink in war's turmoil,
+And many a new republic light the sky,
+Fleets sweep the ocean, nations till the soil,
+Genius be born and generations die,
+Orient and Occident together toil,
+Ere such a mighty work man rears on high!
+[VERSE 3]
+Hearken, the feet of the Destroyer tread
+The wine-press of the nations; fast the blood
+Pours from the side of Europe; in full flood
+On the Septentrional watershed
+The rivers of fair France are running red!
+England, the mother-eyrie of our brood,
+That on the summit of dominion stood,
+Shakes in the blast: heaven battles overhead!
+Lift up thy head, O Rheims, of ages heir
+That treasured up in thee their glorious sum;
+Upon whose brow, prophetically fair,
+Flamed the great morrow of the world to come;
+Haunt with thy beauty this volcanic air
+Ere yet thou close, O Flower of Christendom!
+[VERSE 4]
+As when the shadow of the sun's eclipse
+Sweeps on the earth, and spreads a spectral air,
+As if the universe were dying there,
+On continent and isle the darkness dips,
+Unwonted gloom, and on the Atlantic slips;
+So in the night the Belgian cities flare
+Horizon-wide; the wandering people fare
+Along the roads, and load the fleeing ships.
+And westward borne that planetary sweep,
+Darkening o'er England and her times to be,
+Already steps upon the ocean-deep!
+Watch well, my country, that unearthly sea,
+Lest when thou thinkest not, and in thy sleep,
+Unapt for war, that gloom enshadow thee!

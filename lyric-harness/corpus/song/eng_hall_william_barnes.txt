@@ -3,6 +3,8 @@
 # work: Poems of Rural Life in the Dorset Dialect, all three collections in one volume (London: Kegan Paul, Trench, Truebner & Co., 1903)
 # source: GITenberg raw.githubusercontent.com/GITenberg/Poems-of-Rural-Life-in-the-Dorset-Dialect_21785/master/21785-8.txt md5 6f74995246b13fc6aa63967ac765120c (608787 bytes), ISO-8859-1
 # licence: public domain -- author d. 1886; poems first published 1844/1859/1862, this collected edition 1903 (<=1931)
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # orthography: DORSET, UNNORMALISED. This is the LATIN-1 transcription and it is the one to use:
 #   the diaeresis in eä, oä (greäve, feäir, beäten, Jeäne) is Barnes's own mark for the Dorset diphthong and it is a SEPARATE CHARACTER here.
 #   the sibling ASCII transcription 21785.txt flattens ä to the two-letter sequence 'ae' (Greaeve, Feaeir) -- that transcription silently invents a letter and must NOT be used for any letter- or syllable-counted measure.
@@ -16489,3 +16491,33 @@ A LOT O' MAÏDENS A-RUNNÈN THE VIELDS.[F]
   "Oh! I've a-lost my shoe, Oh!"
   "There's Fanny into ditch, Oh!"
   "I'm wet all drough an' drough, Oh!"
+
+--- TITLE: Mater Dolorosa
+--- SOURCE: PG66619
+[VERSE 1]
+I’d a dream to-night
+  As I fell asleep,
+O! the touching sight
+  Makes me still to weep:
+Of my little lad,
+Gone to leave me sad,
+Ay, the child I had,
+  But was not to keep.
+[VERSE 2]
+As in heaven high,
+  I my child did seek,
+There in train came by
+  Children fair and meek,
+Each in lily white,
+With a lamp alight;
+Each was clear to sight,
+  But they did not speak.
+[VERSE 3]
+Then, a little sad,
+  Came my child in turn,
+But the lamp he had,
+  O it did not burn!
+He, to clear my doubt,
+Said, half turn’d about,
+‘Your tears put it out;
+  Mother, never mourn.’

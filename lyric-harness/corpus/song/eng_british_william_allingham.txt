@@ -2,10 +2,12 @@
 # region: irish
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 5
 
 --- TITLE: LOVELY MARY DONNELLY.
 --- SOURCE: PG26715
@@ -128,3 +130,69 @@ For the tide 's at rest from east to west,
       So fain would I come to thee!
 And the water 's bright in a still moonlight,
       As I look across the sea.
+
+--- TITLE: The Fairies
+--- SOURCE: PG66619
+[VERSE 1]
+Up the airy mountain,
+  Down the rushy glen,
+We daren’t go a-hunting
+  For fear of little men;
+Wee folk, good folk,
+  Trooping all together;
+Green jacket, red cap,
+  And white owl’s feather!
+[VERSE 2]
+Down along the rocky shore
+  Some make their home,
+They live on crispy pancakes
+  Of yellow tide-foam;
+Some in the reeds
+  Of the black mountain lake,
+With frogs for their watch-dogs,
+  All night awake.
+[VERSE 3]
+High on the hill-top
+  The old King sits;
+He is now so old and gray
+  He’s nigh lost his wits.
+[VERSE 4]
+With a bridge of white mist
+  Columbkill he crosses,
+On his stately journeys
+  From Slieveleague to Rosses;
+Or going up with music
+  On cold starry nights
+To sup with the Queen
+  Of the gay Northern Lights.
+[VERSE 5]
+They stole little Bridget
+  For seven years long;
+When she came down again
+  Her friends were all gone.
+They took her lightly back,
+  Between the night and morrow,
+They thought that she was fast asleep,
+  But she was dead with sorrow.
+They have kept her ever since
+  Deep within the lake,
+On a bed of flag-leaves,
+  Watching till she wake.
+[VERSE 6]
+By the craggy hill-side,
+  Through the mosses bare,
+They have planted thorn-trees
+  For pleasure here and there.
+If any man so daring
+  As dig them up in spite,
+He shall find their sharpest thorns
+  In his bed at night.
+[VERSE 7]
+Up the airy mountain,
+  Down the rushy glen,
+We daren’t go a-hunting
+  For fear of little men;
+Wee folk, good folk,
+  Trooping all together;
+Green jacket, red cap,
+  And white owl’s feather!

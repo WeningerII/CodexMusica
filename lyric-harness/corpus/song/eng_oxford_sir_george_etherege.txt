@@ -1,0 +1,43 @@
+# author: Sir George Etherege (1635-1691)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1691; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: Song
+--- SOURCE: PG66619
+[VERSE 1]
+Ladies, though to your conquering eyes
+Love owes his chiefest victories,
+And borrows those bright arms from you
+With which he does the world subdue,
+Yet you yourselves are not above
+The empire nor the griefs of love.
+[VERSE 2]
+Then rack not lovers with disdain,
+Lest Love on you revenge their pain:
+You are not free because you’re fair:
+The Boy did not his Mother spare.
+Beauty’s but an offensive dart:
+It is no armour for the heart.
+
+--- TITLE: To a Lady asking him how long he would love her
+--- SOURCE: PG66619
+[VERSE 1]
+It is not, Celia, in our power
+  To say how long our love will last;
+It may be we within this hour
+  May lose those joys we now do taste;
+The Blessèd, that immortal be,
+From change in love are only free.
+[VERSE 2]
+Then since we mortal lovers are,
+  Ask not how long our love will last;
+But while it does, let us take care
+  Each minute be with pleasure past:
+Were it not madness to deny
+To live because we’re sure to die?

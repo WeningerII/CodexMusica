@@ -4,6 +4,8 @@
 # work: The Beggar's Opera (first performed 1728) -- 69 airs, each set to a named existing tune
 # source: GITenberg raw.githubusercontent.com/GITenberg/The-Beggar-s-Opera--to-Which-is-Prefixed-the-Musick-to-Each-Song_25063/master/25063.txt md5 0d6606341010b4806c3ee14642e767b8 (139689 bytes)
 # licence: public domain -- author d. 1732; text of the 1765 edition, this printing London: William Heinemann 1921 (<=1931); PG header affirms free re-use
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # orthography: 18th-c London English, unnormalised (long-s already resolved by the transcriber; capitalised Nouns and 'd elision kept)
 # note: [air: ...] is the tune named in the printed AIR heading, NOT an editorial guess. Spoken prose between airs is excluded; the airs are the sung text.
 
@@ -774,3 +776,17 @@
   The Wretch of To-day, may be happy To-morrow.
 [CHORUS]
   _Chorus._ But think of this Maxim, &c.
+
+--- TITLE: Song
+--- SOURCE: PG66619
+[VERSE 1]
+O ruddier than the cherry!
+O sweeter than the berry!
+    O nymph more bright
+    Than moonshine night,
+Like kidlings blithe and merry!
+Ripe as the melting cluster!
+No lily has such lustre;
+    Yet hard to tame
+    As raging flame,
+And fierce as storms that bluster!

@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
 
 --- TITLE: Jerry an' Me
 --- SOURCE: PG15553
@@ -51,3 +53,91 @@ Whose goodmen full as old as mine
   Are somewhere on the sea,
 Who hear the breakin' bar an' think
   O' Jerry home an'--me.
+
+--- TITLE: MORGAN STANWOOD
+--- SOURCE: PG47476
+[VERSE 1]
+Morgan Stanwood, patriot!
+  Little more is known;
+Nothing of his home is left
+  But the door-step stone.
+[VERSE 2]
+Morgan Stanwood, to our thought
+  You return once more;
+Once again the meadows lift
+  Daisies to your door.
+[VERSE 3]
+Once again the morn is sweet,
+  Half the hay is down,--
+Hark! what means that sudden clang
+  From the distant town?
+[VERSE 4]
+Larum bell and rolling drum
+  Answer sea-borne guns;
+Larum bell and rolling drum
+  Summon Freedom's sons!
+[VERSE 5]
+And the mower thinks to him
+  Cry both bell and drum,
+"Morgan Stanwood, where art thou?
+  Here th' invaders come!"
+[VERSE 6]
+"Morgan Stanwood" need no more
+  Bell and drum-beat call;
+He is one who, hearing once,
+  Answers once for all.
+[VERSE 7]
+Ne'er the mower murmured then,
+  "Half my grass is mown,
+Homespun isn't soldier-wear,
+  Each may save his own."
+[VERSE 8]
+Fallen scythe and aftermath
+  Lie forgotten now;
+Winter need may come and find
+  But a barren mow.
+[VERSE 9]
+Down the musket comes. "Good wife,--
+  Wife, a quicker flint!"
+And the face that questions face
+  Hath no color in 't.
+[VERSE 10]
+"Wife, if I am late to-night,
+  Milk the heifer first;--
+Ruth, if I'm not home at all,--
+  Worse has come to worst."
+[VERSE 11]
+Morgan Stanwood sped along,
+  Not the common road;
+Over wall and hill-top straight,
+  Straight to death, he strode;
+[VERSE 12]
+Leaving her to hear at night
+  Tread of burdened men,
+By the gate and through the gate,
+  At the door, and then--
+[VERSE 13]
+Ever after that to hear,
+  When the grass is sweet,
+Through the gate and through the night,
+  Slowly coming feet.
+[VERSE 14]
+Morgan Stanwood's roof is gone;
+  Here the door-step lies;
+One may stand thereon and think,--
+  For the thought will rise,--
+[VERSE 15]
+Were we where the meadow was,
+  Mowing grass alone,
+Would we go the way he went,
+  From this very stone?
+[VERSE 16]
+Were we on the door-step here,
+  Parting for a day,
+Would we utter words as though
+  Parting were for aye?
+[VERSE 17]
+Would we? Heart, the hearth is dear,
+  Meadow-math is sweet;
+Parting be as parting may,
+  After all, we meet.
