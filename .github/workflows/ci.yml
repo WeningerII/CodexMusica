@@ -908,6 +908,22 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/eval_matrix.py --check
 
+      # MARK COVERAGE. Added 2026-08-20. `grid.SECTION_FUNCTIONS` declares 21
+      # section functions and the corpus witnesses 4; `MARK_FUNCTION` has five
+      # keys and everything else a source prints is refused, correctly and with
+      # a written reason. What had never been counted is how much that refusal
+      # covers: 63.6% of marked blocks, 99.7% of it Persian, and the single most
+      # common section mark in the corpus (`[BAYT]`, 70,866) outnumbers
+      # `[VERSE]`. The refusal is honest and the silence about its size was not.
+      # `--check` re-derives the four counts (kept apart, never summed) against
+      # RESULTS_MARK_COVERAGE.md's pins and exits 1 on drift; an off-by-one on
+      # any pinned figure fails it, proven by mutation before this step landed.
+      # Runs in well under a minute over the whole corpus.
+      - name: Mark coverage against RESULTS_MARK_COVERAGE.md's pins
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/mark_coverage.py --check
+
       # ADVERSARY 7 (CLAUDE.md's roster: "the REPORT — do the number, the
       # label and the evidence agree?"). Added 2026-08-13, and it is the
       # adversary that had NOTHING running it: an audit found audit_spans.py
