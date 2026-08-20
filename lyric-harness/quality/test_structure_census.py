@@ -53,18 +53,27 @@ def test_rows():
 def test_item_readers():
     print("\n2. the item readers are the existing ones, never respelled")
     files = CEN.corpus_files()
-    check("the declared run-1 population: 143 eng_ files + 2 controls",
-          len(files) == 145
+    # REPINNED 2026-08-20: 143 -> 388 eng files — the owner-directed mass
+    # load staged 245 eng_celtic_msm_* files from the Modern Scottish
+    # Minstrel (PG22515). The run-1 CENSUS ARTIFACT itself still describes
+    # the 143-file corpus (data/structure_census_eng.tsv is a snapshot,
+    # dated); this check is about the READERS agreeing on the live tree.
+    check("the population: 388 eng_ files + 2 controls",
+          len(files) == 390
           and sum(1 for f in files
-                  if os.path.basename(f).startswith("eng_")) == 143)
+                  if os.path.basename(f).startswith("eng_")) == 388)
     n_items = sum(len(CEN.items_of(f)) for f in files
                   if os.path.basename(f).startswith("eng_"))
     # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 — Pass-1 batch 1's 49
-    # new eng_hymn_ hymns, then batch 2's 6 new eng_american_ items, real
-    # growth the two readers still agree on.
+    # new eng_hymn_ hymns, then batch 2's 6 new eng_american_ items.
+    # REPINNED 2026-08-20: 4,985 -> 5,792 — the Minstrel mass load (+812
+    # staged by the rev-2 restage, and 5 items moved from
+    # eng_celtic_walter_scott to the new Rob Donn file after the edition's
+    # own section heading proved the original staging had mis-bounded
+    # Scott's section). Real growth the two readers still agree on.
     check("the --- TITLE: split reproduces build_song_frequency's own "
-          "item count EXACTLY — 4,985 over the 143 files",
-          n_items == 4985, n_items)
+          "item count EXACTLY — 5,792 over the 388 files",
+          n_items == 5792, n_items)
     son = CEN.items_of(os.path.join(HERE, "..", "corpus", "sonnets.txt"))
     check("sonnets.txt reads through battery.parse_sonnets: 152 items "
           "of 14 lines, Gutenberg matter excluded by the oracle's reader",

@@ -322,7 +322,9 @@ def test_corpus_song_rate_is_pinned():
     # set is part of the number (doctrine 58).
     paths = sorted(glob.glob(os.path.join(SONG, "eng_*.txt")))
     others = sorted(glob.glob(os.path.join(SONG, "*.txt")))
-    check("143 ENGLISH song files present", len(paths) == 143, f"{len(paths)}")
+    # REPINNED 2026-08-20: 143 -> 388 (the Modern Scottish Minstrel mass
+    # load, rev-2 restage)
+    check("388 ENGLISH song files present", len(paths) == 388, f"{len(paths)}")
     check("and the corpus is no longer monolingual, which is why the scope "
           "is now explicit", len(others) > len(paths),
           f"{len(others)} files total across "
@@ -413,44 +415,40 @@ def test_corpus_song_rate_is_pinned():
     # and 6.09093% -> 6.09109%, both inside the 1e-5 tolerances the two
     # checks below carry. Doctrine 58: the tolerance is part of the pin, so
     # the movement it absorbs is written down instead of being invisible.
-    # REPINNED 2026-08-19 (batch 2): Pass-1's second same-gate top-up batch
-    # added 6 new eng_american_ items (Southern War Songs / American War
-    # Ballads Vol. 2, already-cited) on top of batch 1's 49 eng_hymn_ hymns
-    # -- again real verse-line growth, not a rule change. 152911 -> 153224,
-    # 9084 -> 9094 tokens, 174 unmoved, 8848 -> 8858 substitutions.
-    check("countable lines 153224 — VERSE ONLY, now that apparatus lines "
+    # REPINNED 2026-08-19 (batches 1-2): 151894 -> 152911 -> 153224 lines.
+    # REPINNED 2026-08-20 (the Minstrel mass load, 245 files / 812 songs
+    # after the same sitting's rev-2 restage): 153224 -> 179193 countable
+    # lines. THE RATE MOVES AND THE MOVE IS THE
+    # CORPUS, NOT A RULE: token-unreadable rises 5.94% -> 6.51% because the
+    # new files are SCOTS -- kye/waes/gudeman are exactly what CMUdict
+    # cannot read, the same reason Barnes and Burns were already this
+    # corpus's refusal concentration (doctrine 67: measure WHERE it falls).
+    check("countable lines 179193 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 153224,
-          f"{r['lines_countable']}  (was 188805 before the read_lines fix, "
-          f"which counted 29,990 [VERSE n] markers and 6,917 other "
-          f"apparatus lines as verse; and 151898 for one day between that "
-          f"fix and `is_apparatus_line` becoming this reader's only rule; "
-          f"151894 before Pass-1 batch 1, 152911 before batch 2)")
-    check("unreadable end word, cause TOKEN, 9094 — matches cell AC's own "
-          "hand-computed VERSE-only row exactly, plus Pass-1's own growth",
-          r["unreadable_final_token"] == 9094,
+          r["lines_countable"] == 179193,
+          f"{r['lines_countable']}  (153224 before the 2026-08-20 mass "
+          f"load; 151894 before Pass-1; 188805 under the pre-fix reader)")
+    check("unreadable end word, cause TOKEN, 11658 — the Scots share grew, "
+          "and so did CMUdict's honest refusal count",
+          r["unreadable_final_token"] == 11658,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
-          f"(was 10044 over the polluted denominator, 9078 pre-Pass-1, "
-          f"9084 after batch 1)")
-    check("rate on that quantity is 5.94%, not 5.32% — the true verse rate "
-          "cell AC could only get to by subtracting markers by hand",
-          abs(r["rate_token"] - 0.059351) < 1e-5,
-          f"{r['rate_token']:.4%}  (was 5.3198% diluted by 29,990 "
-          f"[VERSE n] markers, 5.9764% pre-Pass-1, 5.9407% after batch 1)")
-    check("unreadable end word, cause PIECE, 174 — the price of the hyphen "
+          f"(9094 before the mass load)")
+    check("rate on that quantity is 6.51% — up from 5.94%, the price of "
+          "1,489 scottish-region songs in a General American dictionary",
+          abs(r["rate_token"] - 0.065065) < 1e-5,
+          f"{r['rate_token']:.4%}  (5.9351% before the mass load)")
+    check("unreadable end word, cause PIECE, 192 — the price of the hyphen "
           "refusal on VERSE lines alone",
-          r["unreadable_final_piece"] == 174,
-          f"{r['unreadable_final_piece']}  (was 187; the other 13 were on "
-          f"apparatus lines that no longer reach the denominator)")
-    check("so the end-word refusal rate is 6.05% AFTER the rule and 5.94% "
+          r["unreadable_final_piece"] == 192,
+          f"{r['unreadable_final_piece']}  (174 before the mass load)")
+    check("so the end-word refusal rate is 6.61% AFTER the rule and 6.51% "
           "before it, and both are printed",
-          r["unreadable_final"] == 9268 and abs(r["rate"] - 0.060487) < 1e-5,
+          r["unreadable_final"] == 11850 and abs(r["rate"] - 0.066130) < 1e-5,
           f"{r['unreadable_final']} ({r['rate']:.4%})")
-    check("8858 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 8858,
-          f"{r['substituted_end_word']}  (was 9805 over the polluted "
-          f"denominator, 8842 pre-Pass-1, 8848 after batch 1)")
+    check("11355 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 11355,
+          f"{r['substituted_end_word']}  (8858 before the mass load)")
     # THE SUBSET CLAIM, PINNED 2026-08-14 — and it is pinned because it is
     # FALSE. `substitution_report`'s docstring called itself "a strict subset
     # of the unreadable-final lines" from the day it was written; nothing
@@ -464,29 +462,29 @@ def test_corpus_song_rate_is_pinned():
     # second is the population NOTHING in this module reached before the
     # wiring. If `substituted_silent` ever moves, either the corpus changed
     # or `line_anchors` did, and both are things a reader needs told.
-    check("8856 + 2, not 8858 + 0 — the substitution is NOT a subset of the "
-          "unreadable-final lines, and the 2 are the only lines in this "
+    check("11353 + 2, not 11355 + 0 — the substitution is NOT a subset of "
+          "the unreadable-final lines, and the 2 are the only lines in this "
           "module that no other finding reaches",
-          r["substituted_flagged"] == 8856 and r["substituted_silent"] == 2,
+          r["substituted_flagged"] == 11353 and r["substituted_silent"] == 2,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "
           f"(Byron's `...on the turf,[mm]` and D'Urfey's `_Sh----_`)")
-    check("and the complement is the larger half and is not a defect: 412 "
+    check("and the complement is the larger half and is not a defect: 497 "
           "unreadable-final lines are NOT substitutions",
-          r["unreadable_final"] - r["substituted_flagged"] == 412
-          and r["unreadable_final_piece"] == 174,
-          f"{r['unreadable_final'] - r['substituted_flagged']} = 174 cause "
+          r["unreadable_final"] - r["substituted_flagged"] == 497
+          and r["unreadable_final_piece"] == 192,
+          f"{r['unreadable_final'] - r['substituted_flagged']} = 192 cause "
           f"PIECE (`hill-zide` keeps its own token in the syllable map, so "
-          f"nothing is substituted) + 238 where no earlier word read either")
+          f"nothing is substituted) + 305 where no earlier word read either")
     check("the rate is not uniform across files — a subset rate is a "
           "different number",
           max(d["rate"] for d in r["per_file"]) > 0.20
           and min(d["rate"] for d in r["per_file"]) == 0.0,
-          "23.62% (Edwin Waugh, up from 20.08% now the marker dilution "
-          "that used to blur even the worst file is gone) to 0.0% (38 "
-          "files, all readable); quoting one corpus-wide figure without "
-          "the file set is doctrine 58")
+          "51.11% (George Macindoe, a mass-loaded file of dense Scots — "
+          "`leeing`/`preeing`/`kebbocks` — displacing Edwin Waugh's "
+          "23.62%) to 0.0% (68 files, all readable); quoting one "
+          "corpus-wide figure without the file set is doctrine 58")
 
     # THE POSITION INVARIANT, CORPUS-WIDE. Test 9 pins it on four named lines;
     # this pins the population those lines were drawn from, and it costs
@@ -494,32 +492,38 @@ def test_corpus_song_rate_is_pinned():
     # making (a second sweep would derive the population from a second
     # definition, which is how a record and a behaviour drift apart).
     #
-    # 323 = 174 + 149 is CLAUDE.md's own split and it reproduces exactly at
-    # HEAD. The number that matters is the last one: `interior_misfiled` is 4
-    # raw overlaps, ALL FOUR of them Kingsley's `Sing heigh-ho, and heigh-ho!`
-    # where `heigh` really is in both places, and 0 of them unexplained by an
-    # earlier token. 0 is what "derived by POSITION" means measured rather
-    # than asserted, and it is the direct successor to the 328 of 328.
-    check("the hyphen population is 323 end tokens with a read piece and an "
-          "unread piece — CLAUDE.md's own figure, reproduced",
-          r["final_piece_population"] == 323,
+    # 323 = 174 + 149 was CLAUDE.md's own split, measured at the 143-file
+    # corpus, and it reproduced exactly until the corpus grew. REPINNED
+    # 2026-08-20 at the 388-file corpus: 367 = 192 + 175 (the mass-loaded
+    # Scots files carry their own hyphenated end words — `heigh-ho` among
+    # them). The number that matters is unchanged in kind:
+    # `interior_misfiled` is the raw overlap count and 0 of them are
+    # unexplained by an earlier token. 0 is what "derived by POSITION" means
+    # measured rather than asserted, and it is the direct successor to the
+    # 328 of 328.
+    check("the hyphen population is 367 end tokens with a read piece and an "
+          "unread piece (CLAUDE.md's 323 was this figure at the 143-file "
+          "corpus)",
+          r["final_piece_population"] == 367,
           f"{r['final_piece_population']}")
-    check("split 174 ANCHOR-layer (refused) + 149 REPORT-layer (label "
+    check("split 192 ANCHOR-layer (refused) + 175 REPORT-layer (label "
           "overstates, never refused)",
-          r["unreadable_final_piece"] == 174 and r["label_overstates"] == 149,
+          r["unreadable_final_piece"] == 192 and r["label_overstates"] == 175,
           f"{r['unreadable_final_piece']} + {r['label_overstates']}")
     check("0 of 323 have an end-word piece misfiled as interior — the "
           "328-of-328 defect, measured at zero",
           r["interior_misfiled_unexplained"] == 0,
           f"{r['interior_misfiled_unexplained']} unexplained of "
           f"{r['interior_misfiled']} raw overlaps")
-    check("and the 4 raw overlaps are REAL double occurrences, not "
+    check("and the 8 raw overlaps are REAL double occurrences, not "
           "misfilings — reported separately rather than summed (doctrine 79)",
-          r["interior_misfiled"] == 4,
-          f"{r['interior_misfiled']}: all four are Kingsley's `Sing heigh-ho, "
-          f"and heigh-ho!`, where `heigh` is an interior token's unread piece "
-          f"AND the end token's; suppressing them would delete a real "
-          f"interior gap (doctrine 24)")
+          r["interior_misfiled"] == 8,
+          f"{r['interior_misfiled']}: all eight are the same refrain shape — "
+          f"Kingsley's `Sing heigh-ho, and heigh-ho!` x4 and the mass-loaded "
+          f"David Macbeth Moir's `Sing heigh-ho! sing heigh-ho!--` x4 — "
+          f"where `heigh` is an interior token's unread piece AND the end "
+          f"token's; suppressing them would delete a real interior gap "
+          f"(doctrine 24)")
 
     # ONE RULE, AND THE TEST IS THAT IT IS ONE. The pin above is an
     # ARITHMETIC consequence of the rule; this is the rule itself, and it is

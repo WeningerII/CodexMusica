@@ -101,6 +101,50 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-20: 661 findings — 1 FAIL, 231 WARN, 429 NOTE**, over
+> **514 files** (~~269 files, 202 NOTE~~, 2026-08-19). The owner-directed
+> mass load staged **245 new `eng_celtic_msm_*` files (812 songs)** — every
+> unstaged author section of the already-licence-ADMITted Modern Scottish
+> Minstrel (PG22515), one file per author, behind dedup (CorpusIndex
+> against the live corpus AND in-batch), a non-English-orthography rail,
+> a TOC-shaped rail, and a 4-line floor. WARN is UNCHANGED at 231 because
+> every new file ships with its own per-file `local:` `data/sources.tsv`
+> row carrying the staged md5 — check C's "no hash recorded" exposure did
+> not grow by one file. The +227 NOTEs are check G's per-file
+> elision-orthography disclosures, which Scots files trigger by their
+> nature; the FAIL is the same pre-existing `fas_hafez.LICENSE.txt`
+> mislabel.
+> **THE LOAD'S FIRST CUT (238 files / 790 songs) WAS FULLY RESTAGED THE
+> SAME SITTING, never committed.** A post-load cross-check of every staged
+> heading against the edition's own CONTENTS author lists found: three
+> pseudo-author files named after SONG TITLES ('Oh, The Happy Time
+> Departed!', 'Broadswords Of Scotland', 'Her Hair Was Like The Cromla
+> Mist'), each carved out of a real author's section (Charles Mackay,
+> J. G. Lockhart, Robert Allan) because a column-0 italic music credit
+> (`_Air by Sir H. R. Bishop._`) between a song's title and its verse
+> made the title classify as an author heading; ~26 songs silently
+> DROPPED wherever that credit shape, a column-0 editorial headnote
+> (Macintyre's 350-line 'Bendourain'), or a two-line comma title
+> ('CABERFAE,' / 'THE STAGHEAD.') sat between title and verse;
+> vol II's INTRODUCTION quotes staged as 8 fake HUNTER/OWL "songs" under
+> Norman Macleod (sections now CLIP at 'END OF VOL.' markers); John
+> MacOdrum's one song absorbed into Duncan Macintyre's file, and four
+> more authors' songs absorbed into neighbours, because the biographical
+> regex missed their memoirs' wording (the CONTENTS census is now a head
+> authority alongside it); and one song ('WATTY M'NEIL') attributed to
+> Alexander Tait that is Charles Fleming's. The rev-2 restage also
+> merged multi-volume re-appearances of one author into one file (Rob
+> Donn's vol I + vol II selections; Evan M'Coll, whose second section the
+> edition itself cross-references 'For Biographical Sketch, see p. 222')
+> while keeping the memoir-attested name-twins apart (two William
+> Camerons, two John Finlays, two Alexander Humes — a section with its
+> own printed memoir is its own author identity). Two corpus CORRECTIONS
+> to previously-committed files shipped with the load: (1) five songs
+> staged under `eng_celtic_walter_scott.txt` on 2026-08-19 are **Rob
+> Donn's** — the edition's own `ROBERT MACKAY (ROB DONN).` heading sits
+> above them; moved to `eng_celtic_msm_robert_mackay_rob_donn.txt`
+> (Scott 19 -> 14 items). (2) One Robert Hogg song had been swallowed by
+> a FOOTNOTES pseudo-section; restored (5 -> 6).
 > **REPINNED 2026-08-19: 434 findings — 1 FAIL, 231 WARN, 202 NOTE**, over the
 > same 269 files (~~229 WARN, 199 NOTE~~, 2026-08-16). Pass-1 same-gate
 > top-ups appended 49 new hymns to eleven `eng_hymn_*` files from

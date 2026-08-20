@@ -427,9 +427,11 @@ def test_every_declared_source_reaches_a_row():
 
     EXERCISED, NOT MERELY QUIET — the zero below is only news if the check ran
     on something, and its silent failure mode is a regex that stops extracting
-    ids at all. 336 id-shaped `# source:` declarations across 269 files, 59 of
-    which declare two or more; the remaining 16 `# source:` lines are the prose
-    form (`# source: GITenberg PG 12907 -- file raw_12907-8.txt`), name no id,
+    ids at all. 587 id-shaped `# source:` declarations across 514 files
+    (REPINNED 2026-08-20 from 336/269: the Minstrel mass load's 245 files
+    each declare the parent GITenberg id), 62 of which declare two or more;
+    the handful of remaining `# source:` lines are the prose form
+    (`# source: GITenberg PG 12907 -- file raw_12907-8.txt`), name no id,
     and are deliberately not covered — see `CorpusFile.source_declarations`.
 
     THE FALSE-POSITIVE HALF IS PINNED WITH THE SAME WEIGHT, because this
@@ -443,11 +445,11 @@ def test_every_declared_source_reaches_a_row():
     files, src = corpus()
     decls = {rel: cf.source_declarations() for rel, cf in files}
     total = sum(len(v) for v in decls.values())
-    check("336 id-shaped `# source:` declarations are checked, over 269 files",
-          total == 336 and len(files) == 269, (total, len(files)))
-    check("59 files declare two or more sources — the case the file-level "
+    check("587 id-shaped `# source:` declarations are checked, over 514 files",
+          total == 587 and len(files) == 514, (total, len(files)))
+    check("62 files declare two or more sources — the case the file-level "
           "check cannot see",
-          sum(1 for v in decls.values() if len(v) > 1) == 59,
+          sum(1 for v in decls.values() if len(v) > 1) == 62,
           sum(1 for v in decls.values() if len(v) > 1))
     bad = [(rel, d) for rel, cf in files for d, _, _ in src.undeclared_sources(cf)]
     check("every declared `# source:` id reaches a data/sources.tsv row",
@@ -744,23 +746,30 @@ def test_item_level_near_duplication_series():
     Doctrine 16: 0.60 containment is an uncalibrated threshold and one of
     those fails toward whoever guessed. Doctrine 89: report the series, not
     the point, because a single count at a single cut cannot show whether the
-    population is real or manufactured by the cut. Measured over the 143
-    `eng_*` files at ITEM_SHARED_MIN 8, AFTER this round's deletions:
+    population is real or manufactured by the cut. Measured over the 388
+    `eng_*` files at ITEM_SHARED_MIN 8 (REPINNED 2026-08-20; the 143-file
+    column is the 2026-08-16 record):
 
-        cut   pairs  within  cross          BEFORE (2026-08-11, cell W's cut)
-        0.30     39      39      0            103   99   4
-        0.40     39      39      0            103   99   4
-        0.50     35      35      0             99   95   4
-        0.60     31      31      0             94   91   3
-        0.70     26      26      0             76   74   2
-        0.80     24      24      0             62   62   0
-        0.90     14      14      0             29   29   0
-        1.00      5       5      0              6    6   0
+        cut   pairs  within  cross          AT 143 FILES (2026-08-16)
+        0.30     43      39      4             39   39   0
+        0.50     38      35      3             35   35   0
+        0.60     31      31      0             31   31   0
+        0.80     24      24      0             24   24   0
+        1.00      5       5      0              5    5   0
 
-    THE CROSS-FILE ZERO IS THE LOAD-BEARING NUMBER and it holds at every cut,
-    which is the only form of that claim worth making: the fourth cross-file
-    pair was invisible at 0.60 and visible at 0.50, so a zero quoted at one
-    threshold would have been a zero about the threshold.
+    THE CROSS-FILE ZERO HOLDS AT THE AUDIT'S OWN FLOOR (0.60) AND ABOVE.
+    Below the floor the Minstrel mass load introduced four REAL cross-SOURCE
+    variant printings — two printings of one song from two different books,
+    textually far enough apart that neither is a copy of the other: Isobel
+    Pagan's 'Ca' the Yowes' against Burns's rewrite (0.50 — both
+    attributions are the tradition's own), James Home's Minstrel variant
+    against James Hogg's 'O, Saw Ye This Sweet Bonny Lassie' (0.58), James
+    Montgomery's Minstrel printing of 'Slavery That Was' against his own
+    hymnal's 'Ages, ages have departed' (0.54), and Charles Mackay's
+    'Cheer, Boys! Cheer!' against Henry Russell's parlour-song printing
+    (0.38). Each is a variant pair the dedup rail (floor 0.60) is CORRECT
+    to keep; deleting either half would erase a real printing. The
+    within-file series is UNCHANGED at every cut.
 
     The within-file count is NOT zero and is not claimed to be. 31 pairs
     remain, in the files where the source class does not decide which printing
@@ -776,26 +785,33 @@ def test_item_level_near_duplication_series():
     files, src = corpus()
     eng = [(r, c) for r, c in files if r.startswith("corpus/song/eng_")]
     recs = AC._item_signatures(eng)
-    check("143 eng_* files and 4,668 items are big enough to judge",
-          len({r for r, _ in eng}) == 143 and len(recs) == 4668,
+    check("388 eng_* files and 5,527 items are big enough to judge",
+          len({r for r, _ in eng}) == 388 and len(recs) == 5527,
           (len({r for r, _ in eng}), len(recs)))
     series = {}
     for cut in (0.30, 0.50, 0.60, 0.80, 1.00):
         ps = AC.item_overlap_pairs(recs, cut, AC.ITEM_SHARED_MIN)
         within = sum(1 for _, _, s, b in ps if s[0] == b[0])
         series[cut] = (len(ps), within, len(ps) - within)
-    check("NO cross-file item duplication survives at ANY cut from 0.30 to "
-          "1.00 — the 3 that did are fixed and the 4th, which lived below the "
-          "0.60 cut, with them",
-          all(v[2] == 0 for v in series.values()), series)
+    check("NO cross-file item duplication survives at the audit's own 0.60 "
+          "floor or above — below it sit exactly the 4 named cross-source "
+          "variant printings (Pagan~Burns, Home~Hogg, Montgomery~Montgomery, "
+          "Mackay~Russell)",
+          series[0.60][2] == 0 and series[0.80][2] == 0
+          and series[1.00][2] == 0 and series[0.30][2] == 4
+          and series[0.50][2] == 3, series)
     check("the within-file series is 39 / 35 / 31 / 24 / 5",
           [series[c][1] for c in (0.30, 0.50, 0.60, 0.80, 1.00)]
           == [39, 35, 31, 24, 5], series)
     shapes = {}
     for _rel, _i, _t, _n, shape, _h in AC.false_unit_items(eng):
         shapes[shape.split(" ")[0]] = shapes.get(shape.split(" ")[0], 0) + 1
-    check("4 CONTENTS pages, 3 RUN-ONs and 3 TITLE echoes remain, all named",
-          shapes == {"CONTENTS": 4, "RUN-ON": 3, "TITLE": 3}, shapes)
+    # REPINNED 2026-08-20: +2 RUN-ONs and +2 TITLE echoes, all in
+    # PRE-EXISTING files (Jean Ingelow, Watts) — the mass load's own titles
+    # supply new cross-references, the same mechanism as the 2026-08-19
+    # Watts finds. Recorded, not repaired, per CORPUS_LOADING_PROTOCOL.md.
+    check("4 CONTENTS pages, 5 RUN-ONs and 5 TITLE echoes remain, all named",
+          shapes == {"CONTENTS": 4, "RUN-ON": 5, "TITLE": 5}, shapes)
 
 
 def test_check_C_can_actually_fire():

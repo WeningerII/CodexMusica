@@ -165,7 +165,12 @@ def test_backfilled_corpus():
     regions = TX.load_regions()
     functions = TX.load_functions()
     files = TX.eng_files()
-    check("all 143 eng files are seen", len(files) == 143)
+    # REPINNED 2026-08-20: 143 -> 388 — the owner-directed mass load staged
+    # 245 new eng_celtic_msm_* files (812 songs) from the already-ADMITted
+    # Modern Scottish Minstrel (PG22515), one file per author (the load's
+    # first cut, 238 files, was restaged the same sitting by the rev-2
+    # parser — RESULTS_CORPUS_AUDIT.md's 2026-08-20 repin has the account).
+    check("all 388 eng files are seen", len(files) == 388)
     bad = []
     for p in files:
         bad.extend(TX.check_file(p, regions, functions))
@@ -190,19 +195,21 @@ def test_backfilled_corpus():
           and headers["eng_hymn_borthwick.txt"]["region"] == "scottish"
           and headers["eng_hymn_cf_alexander.txt"]["region"] == "irish")
     r = TX.report()
-    # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 songs (the taxonomy's own
-    # baseline, then Pass-1 batch 1's 49 new eng_hymn_ hymns, then batch 2's
-    # 6 new eng_american_ items from Southern War Songs / American War
-    # Ballads Vol. 2 — same already-cited-source top-up, different group).
-    check("the report counts the corpus: 4,985 songs, zero undeclared "
+    # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 songs (Pass-1 batches 1-2).
+    # REPINNED 2026-08-20: 4,985 -> 5,792 — the Modern Scottish Minstrel
+    # mass load (+812 staged by the rev-2 restage, and 5 items MOVED from
+    # eng_celtic_walter_scott to the new Rob Donn file after the edition's
+    # own 'ROBERT MACKAY (ROB DONN).' section heading proved the original
+    # staging had mis-bounded Scott's section).
+    check("the report counts the corpus: 5,792 songs, zero undeclared "
           "regions, undeclared functions counted APART (evidence-or-blank "
           "leaves most songs honestly untagged)",
-          r["songs"] == 4985 and r["undeclared_region"] == 0
+          r["songs"] == 5792 and r["undeclared_region"] == 0
           and r["undeclared_function"] > 3000
           and r["undeclared_function"] + sum(r["multi_tag"].values())
           == r["songs"])
     check("region totals partition the corpus (single-valued axis)",
-          sum(r["by_region"].values()) == 4985)
+          sum(r["by_region"].values()) == 5792)
 
 
 def test_manifest():
