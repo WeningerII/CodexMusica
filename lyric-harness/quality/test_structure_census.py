@@ -62,10 +62,11 @@ def test_item_readers():
     # — 234 new per-author files from the five Tier-1 anthologies.
     # REPINNED same sitting: 622 -> 616 (six twin files merged).
     # REPINNED 2026-08-20 (Phase-1): 616 -> 1049 eng files (452 staged, 19 twins merged away).
-    check("the population: 1049 eng_ files + 2 controls",
-          len(files) == 1051
+    # REPINNED 2026-08-20 (Montgomery twin): 1049 -> 1048.
+    check("the population: 1048 eng_ files + 2 controls",
+          len(files) == 1050
           and sum(1 for f in files
-                  if os.path.basename(f).startswith("eng_")) == 1049)
+                  if os.path.basename(f).startswith("eng_")) == 1048)
     n_items = sum(len(CEN.items_of(f)) for f in files
                   if os.path.basename(f).startswith("eng_"))
     # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 — Pass-1 batch 1's 49

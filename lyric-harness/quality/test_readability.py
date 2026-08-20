@@ -325,7 +325,12 @@ def test_corpus_song_rate_is_pinned():
     # REPINNED 2026-08-20: 143 -> 388 (the Modern Scottish Minstrel mass
     # load, rev-2 restage)
     # REPINNED 2026-08-20 (Tier-1 concurrent load): 388 -> 622 files.
-    check("1049 ENGLISH song files present", len(paths) == 1049, f"{len(paths)}")
+    # REPINNED 2026-08-20 (Phase-1): 622 -> 616 -> 1049 files.
+    # REPINNED 2026-08-20 (Montgomery twin): 1049 -> 1048. Every
+    # readability RATE below is unmoved: the merge rehoused 6 items and
+    # changed no verse byte, so only the file count moves. That the rates
+    # hold across a merge is the check that it was a merge.
+    check("1048 ENGLISH song files present", len(paths) == 1048, f"{len(paths)}")
     check("and the corpus is no longer monolingual, which is why the scope "
           "is now explicit", len(others) > len(paths),
           f"{len(others)} files total across "

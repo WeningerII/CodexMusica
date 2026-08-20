@@ -129,7 +129,14 @@ seventh — James Montgomery — was caught by the corpus contradicting
 ITSELF, since `eng_hymn_montgomery.txt` records 1771-1854 for the same
 man the Minstrel file dated 1771-1790. Both are external to the derived
 value and neither is the internal heuristic, which is the point; they
-are counted apart because they are different instruments (doctrine 79). **The licence claim is
+are counted apart because they are different instruments (doctrine 79).
+
+**One of the seven is now CLOSED rather than withdrawn** — Montgomery,
+by §0.6 below, whose dates are restored from the Minstrel's own printed
+memoir. That leaves six withdrawals carrying contradicting evidence and
+112 carrying none, and it is the worked example of what this section
+said a later sitting should do: re-derive from an authority rather than
+rediscover the contradiction. **The licence claim is
 untouched**: these files rest on the parent row's ADMIT reasoning, not
 on per-author dates, and every songwriter in an 1855 anthology is long
 out of any life+70 term — this was an accuracy defect, never an
@@ -278,6 +285,104 @@ are kept in separate files, and they are the reason the merge rule reads
 dates rather than names — the same rail that caught Oxford's Alexander
 Hume (1560-1609) as a third man against the corpus's two Minstrel-era
 Humes, and the same rail that produced §0.4 above.
+
+---
+
+## 0.6 · The Montgomery twin: one man, two files, three traditions, and a blank
+
+`eng_celtic_msm_james_montgomery.txt` (6 items, region `scottish`) and
+`eng_hymn_montgomery.txt` (45 items, region `english`) were the same
+person. They are now one file at **1,174 corpus files / 1,048 eng
+files**, item count **unmoved at 7,618** — a merge rehouses items, it
+does not remove them, which is why `files` moved in every pin and
+`songs` moved in none.
+
+### Identity, from the edition's own memoir and not from the surname
+
+The Minstrel prints a biography, and it matches the hymn editions' James
+Montgomery (1771-1854) at every joint: born at Irvine, Ayrshire, 4 Nov
+1771; a Moravian father who came from Ireland days before the birth;
+schooling at Grace Hill, Antrim, then Fulneck; the Sheffield *Register*
+and *Iris*; **two imprisonments in the Castle of York**, which is what
+the merged item *VERSES TO A ROBIN RED-BREAST, WHICH VISITS THE WINDOW
+OF MY PRISON EVERY DAY* is about; death at The Mount, Sheffield, 30 Apr
+1854, "in the eighty-second year of his age."
+
+### The dates come back, and the memoir convicts the regex a third time
+
+§0.4's withdrawal struck `(1771-1790)` for this author. **1790 is in
+that memoir**: *"His mother died at Barbadoes, in November 1790."* Same
+mechanism as Baillie's father and Cunningham's Burns — and the same
+memoir prints **both** correct years, so for the third time the source
+contained the right answer in the very prose the regex was searching.
+`# author: James Montgomery (1771-1854)` is restored with a
+`# dates-basis:` line quoting both sentences, and two independent
+authorities (the Minstrel, the hymnals) now concur.
+
+### Region: CONTESTED, therefore BLANK
+
+`data/song_regions.tsv` makes region single-valued and says a contested
+region stays blank, recorded, never doubled. Three traditions have a
+claim, and the file records all three:
+
+| | the claim |
+|---|---|
+| **scottish** | born Irvine, Ayrshire; an 1855 book titled *The Songs of Scotland* includes him on that basis |
+| **english** | left Scotland in his fourth year, never returned to live, and spent from his twenty-first year to his death at 82 in Sheffield, where the 45 hymn items were written |
+| **irish** | the memoir's own account: a Moravian father out of Ireland, and schooling at Grace Hill, Co. Antrim, ages 4–7 |
+
+**The orthographic route cannot break the tie, and I checked before
+relying on it.** The table offers *"Scots orthography corroborates"* for
+`scottish`, and Montgomery's six Minstrel items carry **zero** Scots
+markers — which looked at first like evidence that the `scottish` tag
+was the Taylor defect one axis over. It is not: **92 of the 245 Minstrel
+files (37.6%) carry no Scots marker**, and that group includes Gaelic
+poets in translation (Rob Donn, Dougal Buchanan, William Ross, Evan
+MacLachlan) who are indisputably Scottish. A null there distinguishes
+nothing, so it is not evidence against `scottish` and the retag it
+seemed to license would have been wrong. **What settles this is that two
+DELIBERATE assignments disagreed** — the taxonomy backfill's `english`,
+read off a Sheffield life, against the Minstrel file's `scottish`, read
+off the anthology's own claim — and blank is the taxonomy's answer to
+exactly that, not a failure to look.
+
+### The function header had to go, and the reader is why
+
+`resolve_songs` computes `funcs = s["functions"] or header["function"]`
+— **a per-song value can only FILL from the header, never clear it.** So
+a file-level `# function: hymn` would have silently tagged a German
+war-song, an Odd Fellows lodge song and a prison poem as hymns. The
+header default is deleted; the 45 hymn items carry `--- FUNCTION: hymn`
+each and the six carry nothing, which is the honest undeclared state.
+The per-song override lines have existed since the taxonomy shipped and
+**this is the corpus's first file to use them.**
+
+*Recorded, not fixed:* a file whose items genuinely differ has no way to
+say "this one is undeclared" except by tagging every sibling. That will
+recur as authors accumulate sources, and it is a reader change rather
+than a merge decision, so it is named here for the owner rather than
+made mid-merge.
+
+*Also worth a line:* `# region:`/`# function:` accept any text and
+comma-split it, so a prose note written on those keys becomes a set of
+bogus declarations. `check_file` caught exactly that during this merge
+and named all seven fragments — the gate working. The `-basis:` suffix
+is the spelling for prose, and both `# region-basis:` and
+`# function-basis:` now use it.
+
+### The merge is visible in the duplication census, which is the check working
+
+`Montgomery~Montgomery` was one of the 8 named cross-file variant
+printings — his Minstrel *Slavery That Was* against his hymnal's *Ages,
+ages have departed* at 0.54. It is now a **within-file** pair. The
+cross-file series falls 8 → 7 at the 0.30 cut and 5 → 4 at 0.50, the
+within-file series rises 45 → 46 and 38 → 39, and **the totals are
+unmoved at 53 / 43 / 31 / 24 / 5**. Nothing was deleted and no verse
+byte changed; a pair moved between two counts that are deliberately kept
+apart. A new pin asserts the total series for that reason, so a future
+merge that actually loses an item cannot hide inside a reshuffle. Every
+readability rate is likewise unmoved, which is the independent check
+that this was a rehousing.
 
 ---
 

@@ -184,7 +184,12 @@ def test_backfilled_corpus():
     # per-author files. The Home Book of Verse is HELD.
     # (452 new files landed; 19 were then merged away as
     # spelling-variant twins of authors already staged.)
-    check("all 1049 eng files are seen", len(files) == 1049)
+    # REPINNED 2026-08-20 (Montgomery twin): 1049 -> 1048 — the last
+    # known cross-source twin is merged. NOTE THAT `songs` DOES NOT MOVE
+    # (7,618 both sides): a twin merge changes which FILE holds an item,
+    # never whether the item is held, and pinning the two together would
+    # hide that distinction the first time a merge did drop something.
+    check("all 1048 eng files are seen", len(files) == 1048)
     bad = []
     for p in files:
         bad.extend(TX.check_file(p, regions, functions))
@@ -210,9 +215,14 @@ def test_backfilled_corpus():
     declared = [b for b, h in headers.items() if h["region"]]
     basis = {os.path.basename(p) for p in files
              if "# region-basis:" in open(p, encoding="utf-8").read(4000)}
-    check("622 files declare a region and 427 declare a stated blank — "
+    # REPINNED 2026-08-20 (Montgomery twin): 622/427 -> 620/428. The
+    # merged file's region went to BLANK (contested: born Irvine, lived
+    # and died Sheffield, schooled in Antrim — and the table makes region
+    # single-valued), so one 'english' and one 'scottish' declaration
+    # left and one stated blank arrived.
+    check("620 files declare a region and 428 declare a stated blank — "
           "every file answers the axis, none is silently empty",
-          len(declared) == 622
+          len(declared) == 620
           and all(b in basis for b in headers if b not in set(declared)),
           f"{len(declared)} declared, {len(headers) - len(declared)} blank, "
           f"{len(basis)} carrying a region-basis line")
@@ -245,17 +255,20 @@ def test_backfilled_corpus():
     # kept APART and never summed (doctrine 79): a song whose region is
     # undeclared is not a song in some region, and by_region + undeclared
     # == songs is the invariant that says so.
-    check("the report counts the corpus: 7,618 songs, 896 honestly "
+    # REPINNED 2026-08-20 (Montgomery twin): undeclared_region
+    # 896 -> 947 (+51, the merged file's whole holding), songs UNCHANGED
+    # at 7,618 — the merge moved items between files and dropped none.
+    check("the report counts the corpus: 7,618 songs, 947 honestly "
           "undeclared regions, undeclared functions counted APART "
           "(evidence-or-blank leaves most songs untagged)",
-          r["songs"] == 7618 and r["undeclared_region"] == 896
+          r["songs"] == 7618 and r["undeclared_region"] == 947
           and r["undeclared_function"] > 3000
           and r["undeclared_function"] + sum(r["multi_tag"].values())
           == r["songs"])
     check("region totals plus the undeclared partition the corpus — the "
           "axis is single-valued, and a blank is counted, never dropped",
           sum(r["by_region"].values()) + r["undeclared_region"] == 7618
-          and sum(r["by_region"].values()) == 6722)
+          and sum(r["by_region"].values()) == 6671)
 
 
 def test_manifest():

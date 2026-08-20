@@ -2407,7 +2407,17 @@ def main(argv=None):
 #: confirmed by the editions' OWN PRINTED DATES agreeing, and the
 #: same dates keep Sir Aubrey de Vere (1788-1846) apart from his
 #: son Aubrey Thomas (1814-1902), whom Oxford prints beside him.
-PINNED_SHAPE = {"files": 1175, "FAIL": 1, "WARN": 231, "NOTE": 902}
+#: REPINNED 2026-08-20: 1175 -> 1174 files, 902 -> 901 NOTE — the
+#: Montgomery twin. `eng_celtic_msm_james_montgomery.txt` (6 items)
+#: and `eng_hymn_montgomery.txt` (45) were one man, and the Minstrel's
+#: OWN memoir proves it end to end: Irvine 1771, a Moravian father out
+#: of Ireland, Fulneck, the Sheffield Iris, two imprisonments in the
+#: Castle of York (the subject of one merged item), death at Sheffield
+#: 1854. Merged into the larger holding. The ITEM count does not move
+#: (7,618 either way) because no item was dropped -- only the file
+#: holding them changed, which is why `songs` is absent from this pin
+#: and `files` is not.
+PINNED_SHAPE = {"files": 1174, "FAIL": 1, "WARN": 231, "NOTE": 901}
 
 
 def _verify_shape(files, findings):

@@ -1,15 +1,26 @@
 # author: James Montgomery (1771-1854)
-# region: english
-# function: hymn
+# dates-basis: RESTORED 2026-08-20 from the Modern Scottish Minstrel's OWN memoir, which prints both ends: 'born at Irvine, in the county of Ayr, on the 4th of November 1771' and 'He died at his residence, The Mount, Sheffield, on the 30th of April 1854, in the eighty-second year of his age.' This SUPERSEDES the '# dates: WITHDRAWN' line the merged file carried, whose struck value '(1771-1790)' was the mass load's regex reading the memoir's 'His mother died at Barbadoes, in November 1790' — the same defect as Baillie's father and Cunningham's Burns, and the third proof that the source contained the right answer in the same prose the regex was searching. The value also agrees with the hymn editions' 1771-1854, so two independent authorities concur.
+# region: 
+# region-basis: CONTESTED, therefore BLANK and recorded — data/song_regions.tsv makes region SINGLE-VALUED and says a contested region stays blank, never doubled and never split between two cells. FOR scottish: born Irvine, Ayrshire, 4 Nov 1771, and an 1855 anthology titled 'The Songs of Scotland' includes him on that basis. FOR english: he left Scotland in his fourth year, never returned to live, and spent from his twenty-first year to his death at 82 in Sheffield, where the 45 hymn items in this file were written and published. ALSO IRISH, recorded because the memoir states it: his father was a Moravian missionary who came from Ireland days before the birth, and the boy was schooled at Grace Hill, county Antrim, from his fourth to his seventh year. THE ORTHOGRAPHIC ROUTE CANNOT BREAK THE TIE: the table offers 'Scots orthography corroborates' for scottish, and this author's six Minstrel items carry ZERO Scots markers — but so do 92 of the 245 Minstrel files (37.6%), a group that includes Gaelic poets in translation (Rob Donn, Dougal Buchanan, William Ross, Evan MacLachlan), so a null there distinguishes nothing and is not evidence against scottish. Two deliberate assignments disagreed here — this file's backfilled 'english' and the Minstrel file's 'scottish' — and blank is the taxonomy's answer to exactly that, not a failure to look.
 # source: GITenberg/Book-of-Hymns-for-Public-and-Private-Devotion_33180 33180.txt md5 64d0c6795d7ccce38e3a860a062910c9 (staged after CRLF->LF newline normalization, verified 2026-08-19) as 33180.n.txt md5 5243a8d61b256db494f8315502b18819
 # licence: public domain - Gutenberg; edition published 1848
 # source: GITenberg/The-Otterbein-HymnalFor-Use-in-Public-and-Social-Worship_16455 16455.txt md5 6dcb1e67cd2f7a53a6b29cc3a78f5789 (staged after CRLF->LF newline normalization, verified 2026-08-19) as 16455.n.txt md5 647743d8c980eac4b66f7c35d2a20b37
 # licence: public domain - Gutenberg; edition published 1892
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
-# songs: 45
+# source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
+#         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
+# licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
+# attribution: the edition's own author-section heading ('JAMES MONTGOMERY'); author name printed as the edition prints it
+# structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
+# stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
+# merged: 2026-08-20 — eng_celtic_msm_james_montgomery.txt (6 items) was the same man and is merged in here, the larger holding. IDENTITY PROVEN FROM THE EDITION'S OWN MEMOIR, not from the shared surname: Irvine 1771, Moravian father, Fulneck, the Sheffield Register and Iris, two imprisonments in the Castle of York (which is what the merged item 'VERSES TO A ROBIN RED-BREAST ... MY PRISON' is about), death at Sheffield 1854 — one life, told once, matching the hymn editions' James Montgomery 1771-1854 at both ends.
+# function-basis: THE FILE-LEVEL DEFAULT IS DELETED ON PURPOSE. It read 'hymn', and resolve_songs() can only FILL from the header, never clear it, so the six merged Minstrel items — a German war-song, an Odd Fellows lodge song, a prison poem — would have silently inherited 'hymn'. The 45 hymn items carry '--- FUNCTION: hymn' each; the six carry nothing, which is the honest undeclared state.
+# songs: 51
 
 --- TITLE: Stand up, and bless the Lord
+--- FUNCTION: hymn
 [VERSE 1]
 Stand up, and bless the Lord,
 Ye people of his choice!
@@ -32,6 +43,7 @@ Then be his love in Christ proclaimed,
 With all our ransomed powers.
 
 --- TITLE: Thank and praise Jehovah's name
+--- FUNCTION: hymn
 [VERSE 1]
 Thank and praise Jehovah's name;
 For his mercies, firm and sure,
@@ -54,6 +66,7 @@ Like the years of his right hand--
 Like his own eternity.
 
 --- TITLE: Oh, where shall rest be found
+--- FUNCTION: hymn
 [VERSE 1]
 Oh, where shall rest be found--
 Rest for the weary soul?
@@ -81,6 +94,7 @@ Lest we be banished from thy face,
 And evermore undone.
 
 --- TITLE: Come, let us sing the song of songs
+--- FUNCTION: hymn
 [VERSE 1]
 Come, let us sing the song of songs,
 With hearts and voices swell the strain;
@@ -103,6 +117,7 @@ Living to sing, and dying cry,--
 "Worthy the Lamb, for he was slain!"
 
 --- TITLE: Lord! teach us how to pray aright
+--- FUNCTION: hymn
 [VERSE 1]
 Lord! teach us how to pray aright,
 With reverence and with fear;
@@ -125,6 +140,7 @@ We by the Spirit and thy Son,
 Shall pray, and pray aright.
 
 --- TITLE: Prayer is the soul's sincere desire
+--- FUNCTION: hymn
 [VERSE 1]
 Prayer is the soul's sincere desire,
 Uttered or unexpressed;
@@ -152,6 +168,7 @@ The path of prayer thyself hast trod;
 Lord! teach us how to pray.
 
 --- TITLE: Sow in the morn thy seed
+--- FUNCTION: hymn
 [VERSE 1]
 Sow in the morn thy seed,
 At eve hold not thy hand;
@@ -174,6 +191,7 @@ The angel-reapers shall descend,
 And heaven cry "Harvest-home!"
 
 --- TITLE: God is my strong salvation
+--- FUNCTION: hymn
 [VERSE 1]
 God is my strong salvation;
 What foe have I to fear?
@@ -194,6 +212,7 @@ Mercy thy days shall lengthen;
 The Lord will give thee peace.
 
 --- TITLE: Daughter of Zion, from the dust
+--- FUNCTION: hymn
 [VERSE 1]
 Daughter of Zion, from the dust
 Exalt thy fallen head;
@@ -216,6 +235,7 @@ Have heard thy voice in distant lands,
 And hasten to their home.
 
 --- TITLE: Pour out thy Spirit from on high
+--- FUNCTION: hymn
 [VERSE 1]
 Pour out thy Spirit from on high;
 Lord! thine assembled servants bless;
@@ -238,6 +258,7 @@ When the chief Shepherd shall appear,
 O God! may they and we be thine.
 
 --- TITLE: Come in, beloved of the Lord
+--- FUNCTION: hymn
 [VERSE 1]
 Come in, beloved of the Lord,
 Stranger nor foe art thou;
@@ -260,6 +281,7 @@ May each, translated into day,
 Be lost and found in him.
 
 --- TITLE: "Forever with the Lord!"
+--- FUNCTION: hymn
 [VERSE 1]
 "Forever with the Lord!"
 Amen, so let it be;
@@ -295,6 +317,7 @@ Bow of peace, bow of peace,
 Expands the bow of peace.
 
 --- TITLE: Our Heavenly Father, hear
+--- FUNCTION: hymn
 [VERSE 1]
 Our Heavenly Father, hear
 The prayer we offer now:
@@ -322,6 +345,7 @@ The sceptre, throne, and majesty
 Of heaven and earth are Thine.
 
 --- TITLE: God of all grace, we come to Thee
+--- FUNCTION: hymn
 [VERSE 1]
 God of all grace, we come to Thee,
 With humble, prayerful hearts;
@@ -344,6 +368,7 @@ We, in the spirit of Thy Son,
 Shall pray, and pray aright.
 
 --- TITLE: What shall we ask of God in prayer?
+--- FUNCTION: hymn
 [VERSE 1]
 What shall we ask of God in prayer?
 Whatever good we want;
@@ -371,6 +396,7 @@ And walk in holiness below
 To holiness above.
 
 --- TITLE: Almighty God, in humble prayer
+--- FUNCTION: hymn
 [VERSE 1]
 Almighty God, in humble prayer
 To Thee our souls we lift;
@@ -398,6 +424,7 @@ The old be guided by Thy truth
 In wisdom's pleasant ways!
 
 --- TITLE: Songs of praise the angels sang
+--- FUNCTION: hymn
 [VERSE 1]
 Songs of praise the angels sang,
 Heaven with hallelujahs rang,
@@ -425,6 +452,7 @@ Learning here, by faith and love,
 Songs of praise to sing above.
 
 --- TITLE: God, in the high and holy place
+--- FUNCTION: hymn
 [VERSE 1]
 God, in the high and holy place,
 Looks down upon the spheres;
@@ -457,6 +485,7 @@ How beautiful beyond compare
 Will Paradise be found!
 
 --- TITLE: According to thy gracious word
+--- FUNCTION: hymn
 [VERSE 1]
 According to thy gracious word,
 In meek humility,
@@ -484,6 +513,7 @@ Yea, while a breath, a pulse, remains,
 Will I remember thee.
 
 --- TITLE: Go to dark Gethsemane
+--- FUNCTION: hymn
 [VERSE 1]
 Go to dark Gethsemane,
 Ye that feel temptation's power,
@@ -507,6 +537,7 @@ Love's own sacrifice complete;
 Learn of Jesus Christ to die!
 
 --- TITLE: God made all his creatures free
+--- FUNCTION: hymn
 [VERSE 1]
 God made all his creatures free;
 Life itself is liberty;
@@ -529,6 +560,7 @@ And the new-born earth record
 Love, and Love alone, is Lord.
 
 --- TITLE: Hasten, Lord, to my release
+--- FUNCTION: hymn
 [VERSE 1]
 Hasten, Lord, to my release;
 Haste to help me, O my God!
@@ -546,6 +578,7 @@ Strength of my desiring heart,
 Father! Helper! haste to save!
 
 --- TITLE: Return, my soul, unto thy rest
+--- FUNCTION: hymn
 [VERSE 1]
 Return, my soul, unto thy rest,
 From vain pursuits and maddening cares;
@@ -568,6 +601,7 @@ Christ is thy rest; with lowly mind,
 His light and easy yoke receive.
 
 --- TITLE: As the hart, with eager looks
+--- FUNCTION: hymn
 [VERSE 1]
 As the hart, with eager looks,
 Panteth for the water-brooks,
@@ -584,6 +618,7 @@ And His countenance benign
 Be the saving health of thine.
 
 --- TITLE: O, where shall rest be found
+--- FUNCTION: hymn
 [VERSE 1]
 O, where shall rest be found,
 Rest for the weary soul?
@@ -601,6 +636,7 @@ The life of perfect love,--the rest
 Of immortality.
 
 --- TITLE: Heaven is a state of rest from sin
+--- FUNCTION: hymn
 [VERSE 1]
 Heaven is a state of rest from sin;
 But all who hope to enter there
@@ -618,6 +654,7 @@ And be from grace to glory led,
 From heaven below to heaven above.
 
 --- TITLE: The Lord is my Shepherd, no want shall I know
+--- FUNCTION: hymn
 [VERSE 1]
 The Lord is my Shepherd, no want shall I know;
 I feed in green pastures, safe folded I rest;
@@ -639,6 +676,7 @@ I seek, by the path which my forefathers trod
 Through the land of their sojourn, Thy kingdom of love.
 
 --- TITLE: Within Thy courts have millions met
+--- FUNCTION: hymn
 [VERSE 1]
 Within Thy courts have millions met,
 Millions this day before Thee bowed;
@@ -671,6 +709,7 @@ And all their prayers have reached Thy throne,
 In soul and truth who worshipped Thee.
 
 --- TITLE: Go to the grave in all thy glorious prime
+--- FUNCTION: hymn
 [VERSE 1]
 Go to the grave in all thy glorious prime,
 In full activity of zeal and power:
@@ -693,6 +732,7 @@ Where thou for faith and hope hast perfect love,
 And open vision for the written word.
 
 --- TITLE: Ages, ages have departed
+--- FUNCTION: hymn
 [VERSE 1]
 Ages, ages have departed,
 Since the first dark vessel bore
@@ -723,6 +763,7 @@ Slaves no longer,
 All are freemen in the Lord!
 
 --- TITLE: Climb we the mountain afar
+--- FUNCTION: hymn
 [VERSE 1]
 Climb we the mountain afar,
 In the still hour of even;
@@ -743,6 +784,7 @@ Lo, myriads of slaves into men are new-born;
 The word was omnipotent, and there is light!
 
 --- TITLE: Heralds of creation! cry
+--- FUNCTION: hymn
 [VERSE 1]
 Heralds of creation! cry,--
 Praise the Lord, the Lord most high!
@@ -775,6 +817,7 @@ Him let all His works confess!
 Him let all His children bless!
 
 --- TITLE: All ye nations, praise the Lord
+--- FUNCTION: hymn
 [VERSE 1]
 All ye nations, praise the Lord;
 All ye lands, your voices raise;
@@ -792,6 +835,7 @@ Praise Him in the heights above;
 Praise your Maker, all that breathe!
 
 --- TITLE: One prayer I have,--all prayers in one
+--- FUNCTION: hymn
 [VERSE 1]
 One prayer I have,--all prayers in one,
 When I am wholly Thine;
@@ -824,6 +868,7 @@ And all must fail when I go home,
 For this is not my rest.
 
 --- TITLE: Call the Lord thy sure salvation
+--- FUNCTION: hymn
 [VERSE 1]
 Call the Lord thy sure salvation,
 Rest beneath the Almighty's shade;
@@ -851,6 +896,7 @@ With the wings of His protection
 He shall shield thee from above.
 
 --- TITLE: Out of the depths of woe
+--- FUNCTION: hymn
 [VERSE 1]
 Out of the depths of woe,
 To Thee, O Lord, I cry;
@@ -878,6 +924,7 @@ Thy holy covenant is sure;
 Thy bow is in the cloud!
 
 --- TITLE: In time of tribulation
+--- FUNCTION: hymn
 [VERSE 1]
 In time of tribulation,
 Hear, Lord, our earnest cries;
@@ -915,6 +962,7 @@ Still on the wave thou treadest,
 And Thy redeemed pass o'er.
 
 --- TITLE: Yea, I will extol Thee
+--- FUNCTION: hymn
 [VERSE 1]
 Yea, I will extol Thee,
 Lord of Life and light!
@@ -942,6 +990,7 @@ Thee, my great Deliverer,
 Bless forevermore!
 
 --- TITLE: The glorious universe around
+--- FUNCTION: hymn
 [VERSE 1]
 The glorious universe around,
 The heavens with all their train,
@@ -974,6 +1023,7 @@ Derive its pulse from Thee the heart,
 Its life from Thee the soul.
 
 --- TITLE: O Spirit of the living God
+--- FUNCTION: hymn
 [VERSE 1]
 O Spirit of the living God,
 In all Thy plenitude of grace,
@@ -996,6 +1046,7 @@ Thy name, O Father, glorify,
 Till every people call Thee Lord.
 
 --- TITLE: God comes, with succor speedy
+--- FUNCTION: hymn
 [VERSE 1]
 God comes, with succor speedy,
 To those who suffer wrong;
@@ -1026,6 +1077,7 @@ His great, best name of Love.
 
 
 --- TITLE: Command thy blessing from above
+--- FUNCTION: hymn
 --- SOURCE: PG16455
 [VERSE 1]
 Command thy blessing from above
@@ -1049,6 +1101,7 @@ Whom thou hast joined none may divide,
   None dare to curse whom thou hast blest.
 
 --- TITLE: The heathen perish; day by day
+--- FUNCTION: hymn
 --- SOURCE: PG16455
 [VERSE 1]
 The heathen perish; day by day,
@@ -1067,6 +1120,7 @@ From every clime, from sun to sun,
 Gather God's children into one!
 
 --- TITLE: THE INSPIRATION
+--- FUNCTION: hymn
 --- SOURCE: PG47476
 [VERSE 1]
 Long lay the ocean-paths from man conceal'd;
@@ -1150,6 +1204,7 @@ By nature nursed beyond the jealous sea,
 Denied to ages, but betroth'd to me."
 
 --- TITLE: THE LUST OF GOLD
+--- FUNCTION: hymn
 --- SOURCE: PG47476
 [VERSE 1]
                         Rapacious Spain
@@ -1224,3 +1279,209 @@ Down to the dust the Charib people pass'd,
 Like autumn foliage withering in the blast:
 The whole race sunk beneath the oppressor's rod,
 And left a blank among the works of God.
+
+--- TITLE: "FRIENDSHIP, LOVE, AND TRUTH."
+--- SOURCE: PG22515
+[VERSE 1]
+When "Friendship, Love, and Truth" abound
+  Among a band of brothers,
+The cup of joy goes gaily round,
+  Each shares the bliss of others.
+Sweet roses grace the thorny way
+  Along this vale of sorrow;
+The flowers that shed their leaves to-day
+  Shall bloom again to-morrow.
+How grand in age, how fair in youth,
+Are holy "Friendship, Love, and Truth!"
+[VERSE 2]
+On halcyon wings our moments pass,
+  Life's cruel cares beguiling;
+Old Time lays down his scythe and glass,
+  In gay good-humour smiling:
+With ermine beard and forelock gray,
+  His reverend part adorning,
+He looks like Winter turn'd to May,
+  Night soften'd into Morning.
+How grand in age, how fair in youth,
+Are holy "Friendship, Love, and Truth!"
+[VERSE 3]
+From these delightful fountains flow
+  Ambrosial rills of pleasure;
+Can man desire, can Heaven bestow,
+  A more resplendent treasure?
+Adorn'd with gems so richly bright,
+  Will form a constellation,
+Where every star, with modest light,
+  Shall gild its proper station.
+How grand in age, how fair in youth,
+Are holy "Friendship, Love, and Truth!"
+
+--- TITLE: THE SWISS COWHERD'S SONG IN A FOREIGN LAND (IMITATED FROM THE FRENCH)
+--- SOURCE: PG22515
+[VERSE 1]
+Oh, when shall I visit the land of my birth--
+The loveliest land on the face of the earth?
+When shall I those scenes of affection explore,
+        Our forests, our fountains,
+        Our hamlets, our mountains,
+With pride of our mountains, the maid I adore?
+Oh, when shall I dance on the daisy-white mead,
+In the shade of an elm, to the sound of a reed?
+[VERSE 2]
+When shall I return to that lowly retreat,
+Where all my fond objects of tenderness meet,--
+The lambs and the heifers, that follow my call,
+        My father, my mother,
+        My sister, my brother,
+And dear Isabella, the joy of them all?
+Oh, when shall I visit the land of my birth?--
+'Tis the loveliest land on the face of the earth.
+
+--- TITLE: GERMAN WAR-SONG
+--- SOURCE: PG22515
+[VERSE 1]
+Heaven speed the righteous sword,
+And freedom be the word;
+Come, brethren, hand in hand,
+Fight for your fatherland.
+[VERSE 2]
+Germania from afar
+Invokes her sons to war;
+Awake! put forth your powers,
+And victory must be ours.
+[VERSE 3]
+On to the combat, on!
+Go where your sires have gone;
+Their might unspent remains,
+Their pulse is in our veins.
+[VERSE 4]
+On to the battle, on!
+Rest will be sweet anon;
+The slave may yield, may fly,--
+We conquer, or we die!
+[VERSE 5]
+O Liberty! thy form
+Shines through the battle-storm.
+Away with fear, away!
+Let justice win the day.
+
+--- TITLE: VIA CRUCIS, VIA LUCIS
+--- SOURCE: PG22515
+[VERSE 1]
+Night turns to day:--
+        When sullen darkness lowers,
+        And heaven and earth are hid from sight,
+        Cheer up, cheer up;
+        Ere long the opening flowers,
+        With dewy eyes, shall shine in light.
+[VERSE 2]
+Storms die in calms:--
+        When over land and ocean
+        Roll the loud chariots of the wind,
+        Cheer up, cheer up;
+        The voice of wild commotion,
+        Proclaims tranquillity behind.
+[VERSE 3]
+Winter wakes spring:--
+        When icy blasts are blowing
+        O'er frozen lakes, through naked trees,
+        Cheer up, cheer up;
+        All beautiful and glowing,
+        May floats in fragrance on the breeze.
+[VERSE 4]
+War ends in peace:--
+        Though dread artillery rattle,
+        And ghostly corses load the ground,
+        Cheer up, cheer up;
+        Where groan'd the field of battle,
+        The song, the dance, the feast, go round.
+[VERSE 5]
+Toil brings repose:--
+        With noontide fervours beating,
+        When droop thy temples o'er thy breast,
+        Cheer up, cheer up;
+        Gray twilight, cool and fleeting,
+        Wafts on its wing the hour of rest.
+[VERSE 6]
+Death springs to life:--
+        Though brief and sad thy story,
+        Thy years all spent in care and gloom,
+        Look up, look up;
+        Eternity and glory
+        Dawn through the portals of the tomb.
+
+--- TITLE: VERSES TO A ROBIN RED-BREAST, WHICH VISITS THE WINDOW OF MY PRISON EVERY DAY
+--- SOURCE: PG22515
+[VERSE 1]
+Welcome, pretty little stranger!
+  Welcome to my lone retreat!
+Here, secure from every danger,
+  Hop about, and chirp, and eat:
+    Robin! how I envy thee,
+    Happy child of Liberty!
+[VERSE 2]
+Now, though tyrant Winter, howling,
+  Shakes the world with tempests round,
+Heaven above with vapours scowling,
+  Frost imprisons all the ground:
+    Robin! what are these to thee?
+    Thou art bless'd with liberty.
+[VERSE 3]
+Though yon fair majestic river
+  Mourns in solid icy chains,
+Though yon flocks and cattle shiver
+  On the desolated plains:
+    Robin! thou art gay and free,
+    Happy in thy liberty.
+[VERSE 4]
+Hunger never shall disturb thee,
+  While my rates one crumb afford;
+Colds nor cramps shall ne'er oppress thee;
+  Come and share my humble board:
+    Robin! come and live with me--
+    Live, yet still at liberty.
+[VERSE 5]
+Soon shall Spring, in smiles and blushes,
+  Steal upon the blooming year;
+Then, amid the enamour'd bushes,
+  Thy sweet song shall warble clear:
+    Then shall I, too, join with thee--
+    Swell the hymn of Liberty.
+[VERSE 6]
+Should some rough, unfeeling dobbin,
+  In this iron-hearted age,
+Seize thee on thy nest, my Robin,
+  And confine thee in a cage,
+    Then, poor prisoner! think of me--
+    Think, and sigh for liberty.
+
+--- TITLE: SLAVERY THAT WAS
+--- SOURCE: PG22515
+[VERSE 1]
+Ages, ages have departed,
+  Since the first dark vessel bore
+Afric's children, broken-hearted,
+  To the Caribbéan shore;
+She, like Rachel,
+  Weeping, for they were no more.
+[VERSE 2]
+Millions, millions, have been slaughter'd,
+  In the fight and on the deep;
+Millions, millions more have water'd,
+  With such tears as captives weep,
+Fields of travail,
+  Where their bones till doomsday sleep.
+[VERSE 3]
+Mercy, Mercy, vainly pleading,
+  Rent her garments, smote her breast,
+Till a voice from Heaven proceeding,
+  Gladden'd all the gloomy west,--
+"Come, ye weary,
+  Come, and I will give you rest!"
+[VERSE 4]
+Tidings, tidings of salvation!
+  Britons rose with one accord,
+Purged the plague-spot from our nation,
+  Negroes to their rights restored;
+Slaves no longer,
+  _Freemen,--freemen_ of the _Lord_.
