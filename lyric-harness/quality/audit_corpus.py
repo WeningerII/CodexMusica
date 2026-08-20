@@ -2350,7 +2350,23 @@ def main(argv=None):
 #: attempt that staged a source's own trailing licence text as verse.
 #: `python3 quality/audit_corpus.py` prints
 #: `269 files, 434 findings: 1 FAIL, 231 WARN, 202 NOTE`.
-PINNED_SHAPE = {"files": 269, "FAIL": 1, "WARN": 231, "NOTE": 202}
+#:
+#: REPINNED 2026-08-20 from ~~{"files": 269, "FAIL": 1, "WARN": 231,
+#: "NOTE": 202}~~ -- the owner-directed mass load staged 245 new
+#: eng_celtic_msm_* files (812 songs) from the already-ADMITted Modern
+#: Scottish Minstrel (PG22515). The load's FIRST cut (238 files, 790
+#: songs, briefly on disk in this same sitting, never committed) was
+#: fully restaged by a rev-2 parser after a contents cross-check found
+#: three pseudo-author files named after song titles, ~26 silently
+#: dropped songs, and several misattributions -- see
+#: quality/RESULTS_CORPUS_AUDIT.md's 2026-08-20 repin for the account.
+#: WARN is UNCHANGED at 231: every new file carries its own local: row
+#: with the staged md5, so check C gained nothing. The +227 NOTEs are
+#: check G's per-file elision-orthography disclosures, which Scots files
+#: trigger by their nature (the ratio is the honest form of that claim,
+#: per the check's own text). FAIL is the same one pre-existing
+#: fas_hafez.LICENSE.txt mislabel.
+PINNED_SHAPE = {"files": 514, "FAIL": 1, "WARN": 231, "NOTE": 429}
 
 
 def _verify_shape(files, findings):
