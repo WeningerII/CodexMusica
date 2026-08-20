@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 3
 
 --- TITLE: SERENADE.
 --- SOURCE: PG26715
@@ -65,3 +67,39 @@ Call all the Loves to flutter nigh;
       And what she 'll say,--
       Speak when she may,--
 Is full of sense and majesty!
+
+--- TITLE: DARIEN
+--- SOURCE: PG47476
+[VERSE 1]
+  [The American Senate has ratified the isthmus
+  treaty.--WASHINGTON TELEGRAM.]
+[VERSE 2]
+"Silent upon a peak in Darien,"
+    The Spanish steel red in his conquering hand,
+    While golden, green and gracious the vast land
+Of that new world comes sudden into ken--
+Stands Nuñez da Balboa. North and south
+    He sees at last the full Pacific roll
+    In blue and silver on each shelf and shoal,
+And the white bar of the broad river's mouth,
+And the long, ranked palm-trees. "Queen of Heaven," he cried,
+    "To-day thou giv'st me this for all my pain,
+    And I the glorious guerdon give to Spain,
+A new earth and new sea to be her pride,
+War ground and treasure-house." And while he spoke
+The world's heart knew a mightier dawn was broke.
+[VERSE 3]
+"Silent, upon a peak in Darien"--
+    Four hundred years being fled, a Greater stood
+    On that same height; and did behold the flood
+Of blue waves leaping; Mother of all men!
+Wise Nature! And she spake, "The gift I gave
+    To Nuñez da Balboa could not keep
+    Spain from her sins; now must the ages sweep
+To larger legend, tho' her own was brave.
+Here on this ridge I do foresee fresh birth.
+    That which departed shall bring side by side,
+    The sea shall sever what hills did divide;
+Shall link in love." And there was joy on earth;
+Whilst England and Columbia, quitting fear,
+Kissed--and let in the eager waters there.

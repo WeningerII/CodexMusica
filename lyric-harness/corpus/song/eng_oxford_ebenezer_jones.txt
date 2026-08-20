@@ -1,0 +1,41 @@
+# author: Ebenezer Jones (1820-1860)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1860; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: When the World is burning
+--- SOURCE: PG66619
+[VERSE 1]
+When the world is burning,
+Fired within, yet turning
+  Round with face unscathed;
+Ere fierce flames, uprushing,
+O’er all lands leap, crushing,
+  Till earth fall, fire-swathed;
+Up amidst the meadows,
+Gently through the shadows,
+  Gentle flames will glide,
+Small, and blue, and golden.
+Though by bard beholden,
+When in calm dreams folden,--
+  Calm his dreams will bide.
+[VERSE 2]
+Where the dance is sweeping,
+Through the greensward peeping,
+  Shall the soft lights start;
+Laughing maids, unstaying,
+Deeming it trick-playing,
+High their robes upswaying,
+  O’er the lights shall dart;
+And the woodland haunter
+Shall not cease to saunter
+  When, far down some glade,
+Of the great world’s burning,
+One soft flame upturning
+Seems, to his discerning,
+  Crocus in the shade.

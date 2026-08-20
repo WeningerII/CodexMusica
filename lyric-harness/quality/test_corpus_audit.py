@@ -427,7 +427,7 @@ def test_every_declared_source_reaches_a_row():
 
     EXERCISED, NOT MERELY QUIET — the zero below is only news if the check ran
     on something, and its silent failure mode is a regex that stops extracting
-    ids at all. 837 id-shaped `# source:` declarations across 748 files
+    ids at all. 1367 id-shaped `# source:` declarations across 1175 files
     (REPINNED 2026-08-20 Tier-1 load; 587/514 at the Minstrel load)
     (REPINNED 2026-08-20 from 336/269: the Minstrel mass load's 245 files
     each declare the parent GITenberg id), 62 of which declare two or more;
@@ -446,15 +446,23 @@ def test_every_declared_source_reaches_a_row():
     files, src = corpus()
     decls = {rel: cf.source_declarations() for rel, cf in files}
     total = sum(len(v) for v in decls.values())
-    check("834 id-shaped `# source:` declarations are checked, over 742 files",
-          total == 834 and len(files) == 742, (total, len(files)))
+    # REPINNED 2026-08-20 (Montgomery twin): 1175 -> 1174 files. The
+    # DECLARATION count is unmoved at 1,367: the merged-away file's one
+    # `# source:` line was rewritten onto the survivor, so the corpus
+    # makes exactly the same set of provenance claims through one fewer
+    # file. Two counts, moving independently, which is why this check
+    # states both (doctrine 79).
+    check("1367 id-shaped `# source:` declarations are checked, over 1174 "
+          "files", total == 1367 and len(files) == 1174, (total, len(files)))
     # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
     # files gained their first second source citation.
     # 70 -> 73 same sitting: three twin merges gave their keepers a second
     # book (Boker, Macarthy, Willson).
-    check("73 files declare two or more sources — the case the file-level "
+    # 73 -> 144 (Phase-1): Oxford/PAH items topped up 84 existing files
+    # and 19 twin merges gave their keepers another book.
+    check("144 files declare two or more sources — the case the file-level "
           "check cannot see",
-          sum(1 for v in decls.values() if len(v) > 1) == 73,
+          sum(1 for v in decls.values() if len(v) > 1) == 144,
           sum(1 for v in decls.values() if len(v) > 1))
     bad = [(rel, d) for rel, cf in files for d, _, _ in src.undeclared_sources(cf)]
     check("every declared `# source:` id reaches a data/sources.tsv row",
@@ -755,12 +763,17 @@ def test_item_level_near_duplication_series():
     `eng_*` files at ITEM_SHARED_MIN 8 (REPINNED 2026-08-20; the 143-file
     column is the 2026-08-16 record):
 
-        cut   pairs  within  cross     AT 388 FILES     AT 143 FILES
-        0.30     46      39      7        43  39  4        39   39   0
-        0.50     40      35      5        38  35  3        35   35   0
+        cut   pairs  within  cross    AT 616 FILES     AT 143 FILES
+        0.30     53      45      8        46  39  7        39   39   0
+        0.50     43      38      5        40  35  5        35   35   0
         0.60     31      31      0        31  31  0        31   31   0
         0.80     24      24      0        24  24  0        24   24   0
         1.00      5       5      0         5   5  0         5    5   0
+
+    (REPINNED 2026-08-20, Phase-1. THE WITHIN-FILE COUNT ROSE 39 -> 45 AND
+    THAT IS THE TWIN MERGE, NOT NEW DUPLICATION: merging a
+    spelling-variant twin necessarily converts a CROSS-file variant pair
+    into a WITHIN-file one, so the two columns trade rather than grow.)
 
     (REPINNED 2026-08-20, Tier-1 concurrent load; the 388-file column is
     the same day's Minstrel-load record, the 143-file column 2026-08-16.)
@@ -773,7 +786,9 @@ def test_item_level_near_duplication_series():
     attributions are the tradition's own), James Home's Minstrel variant
     against James Hogg's 'O, Saw Ye This Sweet Bonny Lassie' (0.58), James
     Montgomery's Minstrel printing of 'Slavery That Was' against his own
-    hymnal's 'Ages, ages have departed' (0.54), and Charles Mackay's
+    hymnal's 'Ages, ages have departed' (0.54 — WITHIN-file since the two
+    Montgomery files were merged 2026-08-20, the pair itself unchanged),
+    and Charles Mackay's
     'Cheer, Boys! Cheer!' against Henry Russell's parlour-song printing
     (0.38). The Tier-1 load added three more of the same kind: Lamar
     Fontaine's 'All Quiet Along the Potomac To-Night' (Southern War
@@ -801,24 +816,42 @@ def test_item_level_near_duplication_series():
     files, src = corpus()
     eng = [(r, c) for r, c in files if r.startswith("corpus/song/eng_")]
     recs = AC._item_signatures(eng)
-    check("616 eng_* files and 6,027 items are big enough to judge",
-          len({r for r, _ in eng}) == 616 and len(recs) == 6027,
+    # REPINNED 2026-08-20 (Montgomery twin): 1049 -> 1048 files, items
+    # UNCHANGED at 7,258 — a twin merge rehouses items, it does not
+    # remove any.
+    check("1048 eng_* files and 7,258 items are big enough to judge",
+          len({r for r, _ in eng}) == 1048 and len(recs) == 7258,
           (len({r for r, _ in eng}), len(recs)))
     series = {}
     for cut in (0.30, 0.50, 0.60, 0.80, 1.00):
         ps = AC.item_overlap_pairs(recs, cut, AC.ITEM_SHARED_MIN)
         within = sum(1 for _, _, s, b in ps if s[0] == b[0])
         series[cut] = (len(ps), within, len(ps) - within)
+    # REPINNED 2026-08-20 (Montgomery twin): cross 8 -> 7 at the 0.30 cut
+    # and 5 -> 4 at 0.50, within 45 -> 46 and 38 -> 39, TOTALS UNMOVED at
+    # 53 / 43. Montgomery~Montgomery was a CROSS-FILE pair only because
+    # the man was in two files; merging them makes the same 0.54 pair a
+    # WITHIN-file one. Nothing was deleted and no text changed — the pair
+    # is still there, still under the 0.60 floor, still correct to keep.
+    # This is the merge showing up in the duplication census exactly where
+    # it should, which is the check doing its job rather than drifting.
     check("NO cross-file item duplication survives at the audit's own 0.60 "
           "floor or above — below it sit exactly the 7 named cross-source "
-          "variant printings (Pagan~Burns, Home~Hogg, Montgomery~Montgomery, "
-          "Mackay~Russell, Fontaine~Beers x2, Jones~Durfey)",
+          "variant printings (Pagan~Burns, Home~Hogg, Mackay~Russell, "
+          "Fontaine~Beers x2, Jones~Durfey, and Durfey's _Pills_ "
+          "reprinting the Earl of Dorset's song, which Oxford prints "
+          "under Dorset). Montgomery~Montgomery left this list by MERGER, "
+          "not by deletion — it is now within-file",
           series[0.60][2] == 0 and series[0.80][2] == 0
           and series[1.00][2] == 0 and series[0.30][2] == 7
-          and series[0.50][2] == 5, series)
-    check("the within-file series is 39 / 35 / 31 / 24 / 5",
+          and series[0.50][2] == 4, series)
+    check("the within-file series is 46 / 39 / 31 / 24 / 5",
           [series[c][1] for c in (0.30, 0.50, 0.60, 0.80, 1.00)]
-          == [39, 35, 31, 24, 5], series)
+          == [46, 39, 31, 24, 5], series)
+    check("the TOTAL series is unmoved at 53 / 43 / 31 / 24 / 5 — the "
+          "merge moved a pair between the two counts and created none",
+          [series[c][0] for c in (0.30, 0.50, 0.60, 0.80, 1.00)]
+          == [53, 43, 31, 24, 5], series)
     shapes = {}
     for _rel, _i, _t, _n, shape, _h in AC.false_unit_items(eng):
         shapes[shape.split(" ")[0]] = shapes.get(shape.split(" ")[0], 0) + 1

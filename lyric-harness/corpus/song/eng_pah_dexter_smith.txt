@@ -1,0 +1,33 @@
+# author: Dexter Smith
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: OUR NATIONAL BANNER
+--- SOURCE: PG47476
+[VERSE 1]
+O'er the high and o'er the lowly
+Floats that banner bright and holy
+  In the rays of Freedom's sun,
+In the nation's heart embedded,
+O'er our Union newly wedded,
+  One in all, and all in one.
+[VERSE 2]
+Let that banner wave forever,
+May its lustrous stars fade never,
+  Till the stars shall pale on high;
+While there's right the wrong defeating,
+While there's hope in true hearts beating,
+  Truth and freedom shall not die.
+[VERSE 3]
+As it floated long before us,
+Be it ever floating o'er us,
+  O'er our land from shore to shore:
+There are freemen yet to wave it,
+Millions who would die to save it,
+  Wave it, save it, evermore.

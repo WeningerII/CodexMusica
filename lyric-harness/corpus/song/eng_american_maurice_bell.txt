@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own printed by-line credit, per item
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
 
 --- TITLE: THE MEN
 --- SOURCE: PG54211
@@ -54,3 +56,56 @@ Mock the wearers and pass them on,
   Refuse them kindly word--and then
 Know if your freedom is ever won
   By human agents--these are the men!”
+
+--- TITLE: THE ALABAMA
+--- SOURCE: PG47476
+[VERSE 1]
+She has gone to the bottom! the wrath of the tide
+  Now breaks in vain insolence o'er her;
+No more the rough seas like a queen shall she ride,
+  While the foe flies in terror before her!
+[VERSE 2]
+Now captive or exiled, or silent in death,
+  The forms that so bravely did man her;
+Her deck is untrod, and the gale's stirring breath
+  Flouts no more the red cross of her banner!
+[VERSE 3]
+She is down 'neath the waters, but still her bright name
+  Is in death, as in life, ever glorious,
+And a sceptre all barren the conqueror must claim,
+  Though he boasts the proud title "Victorious."
+[VERSE 4]
+Her country's lone champion, she shunned not the fight,
+  Though unequal in strength, bold and fearless;
+And proved in her fate, though not matchless in might,
+  In daring at least she was peerless.
+[VERSE 5]
+No trophy hung high in the foe's hated hall
+  Shall speak of her final disaster,
+Nor tell of the danger that could not appall,
+  Nor the spirit that nothing could master!
+[VERSE 6]
+The death-shot has sped--she has grimly gone down,
+  But left her destroyer no token,
+And the mythical wand of her mystic renown,
+  Though the waters o'erwhelm, is unbroken.
+[VERSE 7]
+For lo! ere she settles beneath the dark wave
+  On her enemies' cheeks spreads a pallor,
+As another deck summons the swords of the brave
+  To gild a new name with their valor.
+[VERSE 8]
+Her phantom will yet haunt the wild roaring breeze,
+  Causing foemen to start and to shudder,
+While their commerce still steals like a thief o'er the seas,
+  And trembles from bowsprit to rudder.
+[VERSE 9]
+The spirit that shed on the wave's gleaming crest
+  The light of a legend romantic
+Shall live while a sail flutters over the breast
+  Of thy far-bounding billows, Atlantic!
+[VERSE 10]
+And as long as one swift keel the strong surges stems,
+  Or "poor Jack" loves his song and his story,
+Shall shine in tradition the valor of Semmes
+  And the brave ship that bore him to glory!

@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 4
 
 --- TITLE: NO AND YES.
 --- SOURCE: PG26715
@@ -75,3 +77,17 @@ She seemed to sing, in her wandering,
   Till doves in the elm-tops tall
 Grew mute to hear; as her song rang clear
   How love is the lord of all.
+
+--- TITLE: To Two Bereaved
+--- SOURCE: PG66619
+[VERSE 1]
+You must be sad; for though it is to Heaven,
+’Tis hard to yield a little girl of seven.
+Alas, for me ’tis hard my grief to rule,
+Who only met her as she went to school;
+Who never heard the little lips so sweet
+Say even ‘Good-morning,’ though our eyes would meet
+As whose would fain be friends! How must you sigh,
+Sick for your loss, when even so sad am I,
+Who never clasp’d the small hands any day!
+Fair flowers thrive round the little grave, I pray.

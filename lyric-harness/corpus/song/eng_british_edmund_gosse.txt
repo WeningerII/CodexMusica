@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
 
 --- TITLE: SONG FOR THE LUTE.
 --- SOURCE: PG26715
@@ -25,3 +27,42 @@ For after brief and summer hours
 Though fragrant as a flower you lie,
 You and your garland, bye and bye,
 Will fade and wither up and die.
+
+--- TITLE: Revelation
+--- SOURCE: PG66619
+[VERSE 1]
+      Into the silver night
+        She brought with her pale hand
+      The topaz lanthorn-light,
+    And darted splendour o’er the land;
+        Around her in a band,
+Ringstraked and pied, the great soft moths came flying,
+  And flapping with their mad wings, fann’d
+The flickering flame, ascending, falling, dying.
+[VERSE 2]
+      Behind the thorny pink
+        Close wall of blossom’d may,
+      I gazed thro’ one green chink
+    And saw no more than thousands may,--
+        Saw sweetness, tender and gay,--
+Saw full rose lips as rounded as the cherry,
+  Saw braided locks more dark than bay,
+And flashing eyes decorous, pure, and merry.
+[VERSE 3]
+     With food for furry friends
+       She pass’d, her lamp and she,
+    Till eaves and gable-ends
+  Hid all that saffron sheen from me:
+        Around my rosy tree
+Once more the silver-starry night was shining,
+  With depths of heaven, dewy and free,
+And crystals of a carven moon declining.
+[VERSE 4]
+     Alas! for him who dwells
+       In frigid air of thought,
+     When warmer light dispels
+  The frozen calm his spirit sought;
+      By life too lately taught
+He sees the ecstatic Human from him stealing;
+  Reels from the joy experience brought,
+And dares not clutch what Love was half revealing.

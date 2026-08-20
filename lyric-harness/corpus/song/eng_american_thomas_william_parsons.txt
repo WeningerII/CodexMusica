@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 5
 
 --- TITLE: Her Epitaph
 --- SOURCE: PG15553
@@ -143,3 +145,46 @@ In alternations of sublime repose,
   Musical motion, the perpetual play
 Of every faculty that Heaven bestows
   Through the bright, busy, and eternal day.
+
+--- TITLE: DIRGE
+--- SOURCE: PG47476
+[VERSE 1]
+Room for a Soldier! lay him in the clover;
+He loved the fields, and they shall be his cover;
+Make his mound with hers who called him once her lover:
+    Where the rain may rain upon it,
+    Where the sun may shine upon it,
+    Where the lamb hath lain upon it,
+    And the bee will dine upon it.
+[VERSE 2]
+Bear him to no dismal tomb under city churches;
+Take him to the fragrant fields, by the silver birches,
+Where the whippoorwill shall mourn, where the oriole perches:
+    Make his mound with sunshine on it,
+    Where the bee will dine upon it,
+    Where the lamb hath lain upon it,
+    And the rain will rain upon it.
+[VERSE 3]
+Busy as the busy bee, his rest should be the clover;
+Gentle as the lamb was he, and the fern should be his cover;
+Fern and rosemary shall grow my soldier's pillow over:
+    Where the rain may rain upon it,
+    Where the sun may shine upon it,
+    Where the lamb hath lain upon it,
+    And the bee will dine upon it.
+[VERSE 4]
+Sunshine in his heart, the rain would come full often
+Out of those tender eyes which evermore did soften;
+He never could look cold, till we saw him in his coffin:
+    Make his mound with sunshine on it,
+    Where the wind may sigh upon it,
+    Where the moon may stream upon it,
+    And Memory shall dream upon it.
+[VERSE 5]
+"Captain or Colonel,"--whatever invocation
+Suit our hymn the best, no matter for thy station,--
+On thy grave the rain shall fall from the eyes of a mighty nation!
+    Long as the sun doth shine upon it
+    Shall grow the goodly pine upon it,
+    Long as the stars do gleam upon it
+    Shall Memory come to dream upon it.

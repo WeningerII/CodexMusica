@@ -4,6 +4,8 @@
 # licence: public domain - Project Gutenberg; edition published 1835 -- J. R. Drake, The Culprit Fay, and Other Poems
 # source: GITenberg/Poems-of-American-Patriotism_6316 6316.txt md5 c5d0e430471ca913f603bcee22f83d8b
 # licence: public domain - Project Gutenberg; revised/extended edition dated July 4, 1922; edition published 1922 -- Poems of American Patriotism, ed. Brander Matthews
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -186,3 +188,42 @@ A face more pleasant than the face of men.
    Thy waves are old companions, I shall see
 A well-remembered form in each old tree,
 And hear a voice long loved in thy wild minstrelsy.
+
+--- TITLE: TO THE DEFENDERS OF NEW ORLEANS
+--- SOURCE: PG47476
+[VERSE 1]
+Hail sons of generous valor,
+  Who now embattled stand,
+To wield the brand of strife and blood,
+  For Freedom and the land.
+And hail to him your laurelled chief,
+  Around whose trophied name
+A nation's gratitude has twined
+  The wreath of deathless fame.
+[VERSE 2]
+Now round that gallant leader
+  Your iron phalanx form,
+And throw, like Ocean's barrier rocks,
+  Your bosoms to the storm.
+Though wild as Ocean's wave it rolls,
+  Its fury shall be low,
+For justice guides the warrior's steel,
+  And vengeance strikes the blow.
+[VERSE 3]
+High o'er the gleaming columns,
+  The bannered star appears,
+And proud amid its martial band,
+  His crest the eagle rears.
+And long as patriot valor's arm
+  Shall win the battle's prize,
+That star shall beam triumphantly,
+  That eagle seek the skies.
+[VERSE 4]
+Then on, ye daring spirits,
+  To danger's tumults now,
+The bowl is filled and wreathed the crown,
+  To grace the victor's brow;
+And they who for their country die,
+  Shall fill an honored grave;
+For glory lights the soldier's tomb,
+  And beauty weeps the brave.

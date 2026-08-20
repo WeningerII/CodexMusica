@@ -3,6 +3,8 @@
 # source: GITenberg/Andromeda-and-Other-Poems_11064 11064.txt md5 13aeced2a5046d1954d01283a795a9fa
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734
 # licence: public domain — Project Gutenberg text; author died 1875; every edition used was published 1931 or earlier
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # edition: Andromeda-and-Other-Poems — 1858 — no imprint in the file; Kingsley, Andromeda and Other Poems, 1858
 # edition: Victorian-Songs--Lyrics-of-the-Affections-and-Nature — 1895 — detected in file: 'Boston 1895' — Victorian Songs, ed. Edmund Gosse
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
@@ -1367,3 +1369,21 @@ He took to the sow that Wood-Lyon;
 To the rookling sow took he;
 And the dove flew up to Our Lady's bosom;
 And never again throve he.
+
+--- TITLE: Airly Beacon
+--- SOURCE: PG66619
+[VERSE 1]
+Airly Beacon, Airly Beacon;
+  O the pleasant sight to see
+Shires and towns from Airly Beacon,
+  While my love climb’d up to me!
+[VERSE 2]
+Airly Beacon, Airly Beacon;
+  O the happy hours we lay
+Deep in fern on Airly Beacon,
+  Courting through the summer’s day!
+[VERSE 3]
+Airly Beacon, Airly Beacon;
+  O the weary haunt for me,
+All alone on Airly Beacon,
+  With his baby on my knee!

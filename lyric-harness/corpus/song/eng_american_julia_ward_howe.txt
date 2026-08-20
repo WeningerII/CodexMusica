@@ -6,11 +6,14 @@
 # licence: public domain - Project Gutenberg; revised/extended edition dated July 4, 1922; edition published 1922 -- Poems of American Patriotism, ed. Brander Matthews
 # source: GITenberg/The-Story-of-the-Battle-Hymn-of-the-Republic_66683 66683-0.txt md5 b9fdd8065911988db6aa51ba5a0fcfa9 (filename corrected 2026-08-19: the repo ships 66683-0.txt; bytes verified identical)
 # licence: public domain - Project Gutenberg; 'Copyright, 1916, by Harper & Brothers'; edition published 1916 -- Florence Howe Hall, The Story of the Battle Hymn of the Republic
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # refrain-note: sung to 'John Brown's Body'; in performance the 'Glory, glory, hallelujah' chorus is interpolated between verses, but NEITHER printed source sets it under Howe's name - the chorus is printed in PG47476 under Charles Sprague Hall's 'John Brown's Body'. Not imported here.
 # refrain-note: each stanza closes on a varying tag ('His truth is marching on' / 'His day...' / 'Since God...' / 'Our God...' / 'While God...') - a mutating burden, not a verbatim repeat.
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
+
 
 --- TITLE: The Battle Hymn of the Republic
 --- SOURCE: PG66683
@@ -120,3 +123,244 @@ front._
   With a glory in His bosom that transfigures you and me:
   As He died to make men holy, let us die to make men free.
             While God is marching on.
+
+--- TITLE: OUR COUNTRY
+--- SOURCE: PG47476
+[VERSE 1]
+On primal rocks she wrote her name;
+  Her towers were reared on holy graves;
+The golden seed that bore her came
+  Swift-winged with prayer o'er ocean waves.
+[VERSE 2]
+The Forest bowed his solemn crest,
+  And open flung his sylvan doors;
+Meek Rivers led the appointed guest
+  To clasp the wide-embracing shores;
+[VERSE 3]
+Till, fold by fold, the broidered land
+  To swell her virgin vestments grew,
+While sages, strong in heart and hand,
+  Her virtue's fiery girdle drew.
+[VERSE 4]
+O Exile of the wrath of kings!
+  O Pilgrim Ark of Liberty!
+The refuge of divinest things,
+  Their record must abide in thee!
+[VERSE 5]
+First in the glories of thy front
+  Let the crown-jewel, Truth, be found;
+Thy right hand fling, with generous wont,
+  Love's happy chain to farthest bound!
+[VERSE 6]
+Let Justice, with the faultless scales,
+  Hold fast the worship of thy sons;
+Thy Commerce spread her shining sails
+  Where no dark tide of rapine runs!
+[VERSE 7]
+So link thy ways to those of God,
+  So follow firm the heavenly laws,
+That stars may greet thee, warrior-browed,
+  And storm-sped angels hail thy cause!
+[VERSE 8]
+O Lord, the measure of our prayers,
+  Hope of the world in grief and wrong,
+Be thine the tribute of the years,
+  The gift of Faith, the crown of Song!
+
+--- TITLE: ROBERT E. LEE
+--- SOURCE: PG47476
+[VERSE 1]
+A gallant foeman in the fight,
+  A brother when the fight was o'er,
+The hand that led the host with might
+  The blessed torch of learning bore.
+[VERSE 2]
+No shriek of shells nor roll of drums,
+  No challenge fierce, resounding far,
+When reconciling Wisdom comes
+  To heal the cruel wounds of war.
+[VERSE 3]
+Thought may the minds of men divide,
+  Love makes the heart of nations one,
+And so, thy soldier grave beside,
+  We honor thee, Virginia's son.
+
+--- TITLE: PARDON
+--- SOURCE: PG47476
+[VERSE 1]
+Pains the sharp sentence the heart in whose wrath it was uttered,
+        Now thou art cold;
+Vengeance, the headlong, and Justice, with purpose close muttered,
+        Loosen their hold.
+[VERSE 2]
+Death brings atonement; he did that whereof ye accuse him,--
+        Murder accurst;
+But from that crisis of crime in which Satan did lose him,
+        Suffered the worst.
+[VERSE 3]
+Harshly the red dawn arose on a deed of his doing,
+        Never to mend;
+But harsher days he wore out in the bitter pursuing
+        And the wild end.
+[VERSE 4]
+So lift the pale flag of truce, wrap those mysteries round him,
+        In whose avail
+Madness that moved, and the swift retribution that found him,
+        Falter and fail.
+[VERSE 5]
+So the soft purples that quiet the heavens with mourning,
+        Willing to fall,
+Lend him one fold, his illustrious victim adorning
+        With wider pall.
+[VERSE 6]
+Back to the cross, where the Saviour uplifted in dying
+        Bade all souls live,
+Turns the reft bosom of Nature, his mother, low sighing,
+        Greatest, forgive!
+
+--- TITLE: PARRICIDE
+--- SOURCE: PG47476
+[VERSE 1]
+O'er the warrior gauntlet grim
+Late the silken glove we drew,
+Bade the watch-fires slacken dim
+In the dawn's auspicious hue.
+    Stayed the armèd heel;
+    Stilled the clanging steel;
+Joys unwonted thrilled the silence through.
+[VERSE 2]
+Glad drew near the Easter tide;
+And the thoughts of men anew
+Turned to Him who spotless died
+For the peace that none shall rue.
+    Out of mortal pain
+    This abiding strain
+Issued: "Peace, my peace, I give to you."
+[VERSE 3]
+Musing o'er the silent strings,
+By their apathy opprest,
+Waiting for the spirit wings,
+To be touched and soul-possessed,
+    "I am dull," I said:
+    "Treason is not dead;
+Still in ambush lurks that shivering guest."
+[VERSE 4]
+Then a woman's shriek of fear
+Smote us in its arrowy flight;
+And a wonder wild and drear
+Did the hearts of men unite.
+    Has the seed of crime
+    Reached its flowering-time,
+That it shoots to this audacious height?
+[VERSE 5]
+Then, as frosts the landscape change,
+Stiffening from the summer's glow,
+Grew the jocund faces strange,
+Lay the loftiest emblem low:
+    Kings are of the past,
+    Suffered still to last;
+These twin crowns the present did bestow.
+[VERSE 6]
+Fair assassin, murder white,
+With thy serpent speed avoid
+Each unsullied household light,
+Every conscience unalloyed.
+    Neither heart nor home
+    Where good angels come
+Suffer thee in nearness to abide.
+[VERSE 7]
+Slanderer of the gracious brow,
+The untiring blood of youth,
+Servant of an evil now,
+Of a crime that beggars ruth,
+    Treason was thy dam,
+    Wolfling, when the Lamb,
+The Anointed, met thy venomed tooth.
+[VERSE 8]
+With the righteous did he fall,
+With the sainted doth he lie;
+While the gibbet's vultures call
+Thee, that, 'twixt the earth and sky,
+    Disavowed of both
+    In their Godward troth,
+Thou mayst make thy poor amend, and die.
+[VERSE 9]
+If it were my latest breath,
+Doomed his bloody end to share,
+I would brand thee with his death
+As a deed beyond despair.
+    Since the Christ was lost
+    For a felon's cost,
+None like thee of vengeance should beware.
+[VERSE 10]
+Leave the murderer, noble song,
+Helpless in the toils of fate:
+To the just thy meeds belong,
+To the martyr, to the state.
+    When the storm beats loud
+    Over sail and shroud,
+Tunefully the seaman cheers his mate.
+[VERSE 11]
+Never tempest lashed the wave
+But to leave it fresher calm;
+Never weapon scarred the brave
+But their blood did purchase balm.
+    God hath writ on high
+    Such a victory
+As uplifts the nation with its psalm.
+[VERSE 12]
+Honor to the heart of love,
+Honor to the peaceful will,
+Slow to threaten, strong to move,
+Swift to render good for ill!
+    Glory crowns his end,
+    And the captive's friend
+From his ashes makes us freemen still.
+
+--- TITLE: J. A. G.
+--- SOURCE: PG47476
+[VERSE 1]
+Our sorrow sends its shadow round the earth.
+So brave, so true! A hero from his birth!
+The plumes of Empire moult, in mourning draped,
+The lightning's message by our tears is shaped.
+[VERSE 2]
+Life's vanities that blossom for an hour
+Heap on his funeral car their fleeting flower.
+Commerce forsakes her temples, blind and dim,
+And pours her tardy gold, to homage him.
+[VERSE 3]
+The notes of grief to age familiar grow
+Before the sad privations all must know;
+But the majestic cadence which we hear
+To-day, is new in either hemisphere.
+[VERSE 4]
+What crown is this, high hung and hard to reach,
+Whose glory so outshines our laboring speech?
+The crown of Honor, pure and unbetrayed;
+He wins the spurs who bears the knightly aid.
+[VERSE 5]
+While royal babes incipient empire hold,
+And, for bare promise, grasp the sceptre's gold,
+This man such service to his age did bring
+That they who knew him servant, hailed him king.
+[VERSE 6]
+In poverty his infant couch was spread;
+His tender hands soon wrought for daily bread;
+But from the cradle's bound his willing feet
+The errand of the moment went to meet.
+[VERSE 7]
+When learning's page unfolded to his view,
+The quick disciple straight a teacher grew;
+And, when the fight of freedom stirred the land,
+Armed was his heart and resolute his hand.
+[VERSE 8]
+Wise in the council, stalwart in the field!
+Such rank supreme a workman's hut may yield.
+His onward steps like measured marbles show,
+Climbing the height where God's great flame doth glow.
+[VERSE 9]
+Ah! Rose of joy, that hid'st a thorn so sharp!
+Ah! Golden woof that meet'st a severed warp!
+Ah! Solemn comfort that the stars rain down!
+The hero's garland his, the martyr's crown.

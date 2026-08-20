@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 3
 
 --- TITLE: Hunting-song
 --- SOURCE: PG15553
@@ -29,3 +31,113 @@ But he that loves the hills, the hills,
 Let him come out to-day! (Bugle: Tarantara!)
 For the horses are neighing, and the hounds are baying,
 And the hunt's up, and away!
+
+--- TITLE: THE WORD OF THE LORD FROM HAVANA
+--- SOURCE: PG47476
+[VERSE 1]
+Thus spake the Lord:
+Because ye have not heard,
+Because ye have given no heed
+To my people in their need,
+[VERSE 2]
+Because the oppressed cried
+From the dust where he died,
+And ye turned your face away
+From his cry in that day,
+[VERSE 3]
+Because ye have bought and sold
+That which is above gold,
+Because your brother is slain
+While ye get you drunk with gain,
+[VERSE 4]
+(Behold, these are my people, I have brought them to birth,
+On whom the mighty have trod,
+The kings of the earth,
+Saith the Lord God!)
+[VERSE 5]
+Because ye have fawned and bowed down
+Lest the spoiler frown,
+And the wrongs that the spoiled have borne
+Ye have held in scorn,
+[VERSE 6]
+Therefore with rending and flame
+I have marred and smitten you,
+Therefore I have given you to shame,
+That the nations shall spit on you.
+[VERSE 7]
+Therefore my Angel of Death
+Hath stretched out his hand on you,
+Therefore I speak in my wrath,
+Laying command on you;
+[VERSE 8]
+(Once have I bared my sword,
+And the kings of the earth gave a cry;
+Twice have I bared my sword,
+That the kings of the earth should die;
+Thrice shall I bare my sword,
+And ye shall know my name, that it is I!)
+[VERSE 9]
+Ye who held peace less than right
+When a king laid a pitiful tax on you,
+Hold not your hand from the fight
+When freedom cries under the axe on you!
+[VERSE 10]
+(I who called France to you, call you to Cuba in turn!
+Repay--lest I cast you adrift and you perish astern!)
+[VERSE 11]
+Ye who made war that your ships
+Should lay to at the beck of no nation,
+Make war now on Murder, that slips
+The leash of her hounds of damnation!
+[VERSE 12]
+Ye who remembered the Alamo,
+Remember the Maine!
+
+--- TITLE: THE BATTLE OF MANILA
+--- SOURCE: PG47476
+[VERSE 1]
+By Cavité on the bay
+'Twas the Spanish squadron lay;
+And the red dawn was creeping
+O'er the city that lay sleeping
+To the east, like a bride, in the May.
+There was peace at Manila,
+In the May morn at Manila,--
+When ho, the Spanish admiral
+Awoke to find our line
+Had passed by gray Corregidor,
+Had laughed at shoal and mine,
+And flung to the sky its banners
+With "Remember" for the sign!
+[VERSE 2]
+With the ships of Spain before
+In the shelter of the shore,
+And the forts on the right,
+They drew forward to the fight,
+And the first was the gallant Commodore
+In the bay of Manila,
+In the doomed bay of Manila--
+With succor half the world away,
+No port beneath that sky,
+With nothing but their ships and guns
+And Yankee pluck to try,
+They had left retreat behind them,
+They had come to win or die!
+[VERSE 3]
+For we spoke at Manila,
+We said it at Manila,
+Oh be ye brave, or be ye strong,
+Ye build your ships in vain;
+The children of the sea queen's brood
+Will not give up the main;
+We hold the sea against the world
+As we held it against Spain.
+[VERSE 4]
+Be warned by Manila,
+Take warning by Manila,
+Ye may trade by land, ye may fight by land,
+Ye may hold the land in fee;
+But not go down to the sea in ships
+To battle with the free;
+For England and America
+Will keep and hold the sea!

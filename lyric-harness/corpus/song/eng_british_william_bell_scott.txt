@@ -2,10 +2,12 @@
 # region: scottish
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
 
 --- TITLE: PARTING AND MEETING AGAIN.
 --- SOURCE: PG26715
@@ -28,3 +30,174 @@ What time the white ships come and go
         Under the hill;
 They brought him back again to me,
 Brought him safely o'er the sea.
+
+--- TITLE: The Witch’s Ballad
+--- SOURCE: PG66619
+[VERSE 1]
+O I hae come from far away,
+  From a warm land far away,
+A southern land across the sea,
+With sailor-lads about the mast,
+Merry and canny, and kind to me.
+[VERSE 2]
+And I hae been to yon town
+  To try my luck in yon town;
+Nort, and Mysie, Elspie too.
+Right braw we were to pass the gate,
+Wi’ gowden clasps on girdles blue.
+[VERSE 3]
+Mysie smiled wi’ miminy mouth,
+  Innocent mouth, miminy mouth;
+[VERSE 4]
+Elspie wore a scarlet gown,
+Nort’s grey eyes were unco’ gleg.
+My Castile comb was like a crown.
+[VERSE 5]
+We walk’d abreast all up the street,
+  Into the market up the street;
+Our hair with marigolds was wound,
+Our bodices with love-knots laced,
+Our merchandise with tansy bound.
+[VERSE 6]
+Nort had chickens, I had cocks,
+  Gamesome cocks, loud-crowing cocks;
+Mysie ducks, and Elspie drakes,--
+For a wee groat or a pound;
+We lost nae time wi’ gives and takes.
+[VERSE 7]
+--Lost nae time, for well we knew,
+  In our sleeves full well we knew,
+When the gloaming came that night,
+Duck nor drake, nor hen nor cock
+Would be found by candle-light.
+[VERSE 8]
+And when our chaffering all was done,
+  All was paid for, sold and done,
+We drew a glove on ilka hand,
+We sweetly curtsied, each to each,
+And deftly danced a saraband.
+[VERSE 9]
+The market-lassies look’d and laugh’d,
+  Left their gear, and look’d and laugh’d;
+They made as they would join the game,
+But soon their mithers, wild and wud,
+With whack and screech they stopp’d the same.
+[VERSE 10]
+Sae loud the tongues o’ randies grew,
+  The flytin’ and the skirlin’ grew,
+At all the windows in the place,
+Wi’ spoons or knives, wi’ needle or awl,
+Was thrust out every hand and face.
+[VERSE 11]
+And down each stair they throng’d anon,
+  Gentle, semple, throng’d anon:
+Souter and tailor, frowsy Nan,
+The ancient widow young again,
+Simpering behind her fan.
+[VERSE 12]
+Without a choice, against their will,
+  Doited, dazed, against their will,
+The market lassie and her mither,
+The farmer and his husbandman,
+Hand in hand dance a’ thegither.
+[VERSE 13]
+Slow at first, but faster soon,
+  Still increasing, wild and fast,
+Hoods and mantles, hats and hose,
+Blindly doff’d and cast away,
+Left them naked, heads and toes.
+[VERSE 14]
+They would have torn us limb from limb,
+  Dainty limb from dainty limb;
+But never one of them could win
+Across the line that I had drawn
+With bleeding thumb a-widdershin.
+[VERSE 15]
+But there was Jeff the provost’s son,
+  Jeff the provost’s only son;
+[VERSE 16]
+There was Father Auld himsel’,
+The Lombard frae the hostelry,
+And the lawyer Peter Fell.
+[VERSE 17]
+All goodly men we singled out,
+  Waled them well, and singled out,
+And drew them by the left hand in;
+Mysie the priest, and Elspie won
+The Lombard, Nort the lawyer carle,
+I mysel’ the provost’s son.
+[VERSE 18]
+Then, with cantrip kisses seven,
+  Three times round with kisses seven,
+Warp’d and woven there spun we
+Arms and legs and flaming hair,
+Like a whirlwind on the sea.
+[VERSE 19]
+Like a wind that sucks the sea,
+  Over and in and on the sea,
+Good sooth it was a mad delight;
+And every man of all the four
+Shut his eyes and laugh’d outright.
+[VERSE 20]
+Laugh’d as long as they had breath,
+  Laugh’d while they had sense or breath;
+And close about us coil’d a mist
+Of gnats and midges, wasps and flies,
+Like the whirlwind shaft it rist.
+[VERSE 21]
+Drawn up I was right off my feet,
+  Into the mist and off my feet;
+And, dancing on each chimney-top,
+I saw a thousand darling imps
+Keeping time with skip and hop.
+[VERSE 22]
+And on the provost’s brave ridge-tile,
+  On the provost’s grand ridge-tile,
+The Blackamoor first to master me
+I saw, I saw that winsome smile,
+The mouth that did my heart beguile,
+And spoke the great Word over me,
+In the land beyond the sea.
+[VERSE 23]
+I call’d his name, I call’d aloud,
+  Alas! I call’d on him aloud;
+And then he fill’d his hand with stour,
+And threw it towards me in the air;
+My mouse flew out, I lost my pow’r!
+[VERSE 24]
+My lusty strength, my power were gone;
+  Power was gone, and all was gone.
+He will not let me love him more!
+Of bell and whip and horse’s tail
+He cares not if I find a store.
+[VERSE 25]
+But I am proud if he is fierce!
+  I am as proud as he is fierce;
+I’ll turn about and backward go,
+If I meet again that Blackamoor,
+And he’ll help us then, for he shall know
+I seek another paramour.
+[VERSE 26]
+And we’ll gang once more to yon town,
+  Wi’ better luck to yon town;
+We’ll walk in silk and cramoisie,
+And I shall wed the provost’s son
+My lady of the town I’ll be!
+[VERSE 27]
+For I was born a crown’d king’s child,
+  Born and nursed a king’s child,
+King o’ a land ayont the sea,
+Where the Blackamoor kiss’d me first,
+And taught me art and glamourie.
+[VERSE 28]
+Each one in her wame shall hide
+  Her hairy mouse, her wary mouse.
+Fed on madwort and agramie,--
+Wear amber beads between her breasts,
+And blind-worm’s skin about her knee.
+[VERSE 29]
+The Lombard shall be Elspie’s man,
+  Elspie’s gowden husband-man;
+Nort shall take the lawyer’s hand;
+The priest shall swear another vow:
+We’ll dance again the saraband!

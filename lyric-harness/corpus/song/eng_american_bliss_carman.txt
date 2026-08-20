@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 3
 
 --- TITLE: The Gravedigger
 --- SOURCE: PG15553
@@ -125,3 +127,35 @@ I saw retreating on the hills,
   Looming and sinister and black,
 The stealthy figure swift and huge
   Of One who strode and looked not back.
+
+--- TITLE: Why
+--- SOURCE: PG66619
+[VERSE 1]
+For a name unknown,
+Whose fame unblown
+Sleeps in the hills
+  For ever and aye;
+[VERSE 2]
+For her who hears
+The stir of the years
+Go by on the wind
+  By night and day;
+[VERSE 3]
+And heeds no thing
+Of the needs of spring,
+Of autumn’s wonder
+  Or winter’s chill;
+For one who sees
+The great sun freeze,
+As he wanders a-cold
+  From hill to hill;
+[VERSE 4]
+And all her heart
+Is a woven part
+Of the flurry and drift
+  Of whirling snow;
+[VERSE 5]
+For the sake of two
+Sad eyes and true,
+And the old, old love
+  So long ago.

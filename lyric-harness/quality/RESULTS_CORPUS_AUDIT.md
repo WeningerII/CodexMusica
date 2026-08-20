@@ -120,15 +120,349 @@ annotation's absence.
 
 **WITHDRAWN, NOT DELETED (doctrine 17).** Every one of the 125 files
 keeps its own superseded value struck on a `# dates: WITHDRAWN` line
-naming the reason, and the seven with contradicting printed evidence
+naming the reason, and the **seven** files with contradicting evidence
 carry that evidence, so a later sitting can re-derive from authorities
-rather than rediscover the contradiction. **The licence claim is
+rather than rediscover the contradiction. **Seven, not the six above,
+and the difference is the second route**: six were caught by the
+death-year rail comparing against an anthology's PRINTED dates, and the
+seventh — James Montgomery — was caught by the corpus contradicting
+ITSELF, since `eng_hymn_montgomery.txt` records 1771-1854 for the same
+man the Minstrel file dated 1771-1790. Both are external to the derived
+value and neither is the internal heuristic, which is the point; they
+are counted apart because they are different instruments (doctrine 79).
+
+**One of the seven is now CLOSED rather than withdrawn** — Montgomery,
+by §0.6 below, whose dates are restored from the Minstrel's own printed
+memoir. That leaves six withdrawals carrying contradicting evidence and
+112 carrying none, and it is the worked example of what this section
+said a later sitting should do: re-derive from an authority rather than
+rediscover the contradiction. **The licence claim is
 untouched**: these files rest on the parent row's ADMIT reasoning, not
 on per-author dates, and every songwriter in an 1855 anthology is long
 out of any life+70 term — this was an accuracy defect, never an
 admissibility one.
 
 ---
+
+## 0.5 · Phase 1 landed two anthologies, held a third, and left 427 regions blank on purpose
+
+**+433 files and +1,266 items, and the two decisions worth recording are
+both REFUSALS.** The Oxford Book of English Verse 1250-1900
+(`GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619`) and Poems
+of American History (`PG47476`, Stevenson) landed as 433 new per-author
+files carrying 904 items, plus 362 items topped up into 101 files the
+corpus already held. English total: **616 → 1,049 files, 6,352 → 7,618
+songs.** The corpus audit is at **1,175 files / 1 FAIL / 231 WARN / 902
+NOTE**, `--verify-shape` PASS.
+
+### The Home Book of Verse is HELD, and the etext dates itself
+
+Its four volumes were extracted and are **not landed**. The corpus's
+licence line for them asserts the 1912 first edition; the etext is not
+that printing. Two independent tells, both from inside the file:
+
+- **It prints death years the 1912 edition could not have known.** Over
+  the extraction's 1,938 items, **271 items across 112 distinct authors
+  carry a death year after 1912**, the latest being **G. K. Chesterton,
+  1936**. A further 247 items across 147 authors are open-ended (a birth
+  year and no death), which is what an edition prints for an author
+  living at the time it was set. *Declared counting rule, because the
+  date field has fifteen distinct spellings in this extraction:* split
+  on the first `-`; the first 4-digit group after it is the death year;
+  no group after it and one before it is open-ended; `fl. YYYY` floruits
+  are excluded from both.
+- **The body prints "Ford Madox Ford" while the volume's own index still
+  reads "Hueffer."** The name change is 1919, so the body was reset
+  after the index was.
+
+A 1930s printing's US copyright turns on renewal research this session
+cannot perform, and doctrine 85's shape applies to the near miss as much
+as to the express grant: the source stays in the lander's `SOURCES` so
+the decision is legible, and out of `EXTRACTIONS` so nothing from it can
+land by accident. This is the open question the owner inherits, not a
+verdict.
+
+### The region axis stopped being total, and that is the taxonomy working
+
+All six Phase-1 extraction agents report independently that **neither
+edition prints a nationality or tradition for any author.**
+`data/song_regions.tsv`'s evidence rule is *"author's tradition per file
+header; edition origin as tiebreak only"* — so filling the axis from
+Oxford's UK imprint or Stevenson's US one would rebuild **the
+Taylor-sisters defect at scale**, which is the single error this
+taxonomy was created to fix. The ruling was blank-where-unevidenced, and
+the result is:
+
+| | files |
+|---|---:|
+| region declared from the closed set | 622 |
+| stated blank, each with its own `# region-basis:` line | 427 |
+| silently empty | **0** |
+
+Six of the new files DO declare, because their edition prints the signal
+itself: King James I of Scotland by his own author heading, and
+Callanan, Ferguson, Fox, Rolleston and Hyde by Oxford's `FROM THE IRISH`
+headnotes. Everything else carries a basis line saying in full why it is
+blank. **The pin changed shape rather than loosening**: `every file
+declares a region` became *622 declare a region and 427 declare a stated
+blank — every file answers the axis, none is silently empty*, which is
+the property actually worth holding. Blank has always been this
+taxonomy's honest undeclared state; `report()` counts it into
+`undeclared_region` and never into `by_region`, so the invariant
+`by_region + undeclared == songs` holds at 6,722 + 896 = 7,618.
+
+**The filename token carries the batch, not the claim.** The new files
+are `eng_oxford_*` and `eng_pah_*` rather than `eng_british_*` /
+`eng_american_*` — the Taylor pin's own sentence is that the filename is
+the ACQUISITION BATCH and not an analytic claim, and a tradition-shaped
+token here would state in the filename precisely the claim the header
+declines to make.
+
+### 57 self-describing-metadata repairs, all found by the audit
+
+The first write left **58 FAILs**, and 57 were the corpus audit catching
+its own bookkeeping rather than any defect in the verse:
+
+- **55 × check C** — a topped-up file's `data/sources.tsv` row still
+  recorded the md5 of its PRE-APPEND bytes. Repinned using the table's
+  own superseded-md5 convention. Eight of the 55 were missed on the
+  first pass because their rows used an older `md5 X (repinned ...), N
+  bytes` phrasing my contiguous regex did not match — a reminder that
+  the row format has a history.
+- **2 × check B** — `# lines:` headers stale after the append (Coleridge
+  598 → 726, Wordsworth 1,751 → 2,306). Recomputed **through the audit's
+  own `CorpusFile.verse_lines`** rather than by a second line-counting
+  rule, which is doctrine 1: the header and the check must not be able
+  to disagree.
+
+The 58th is the pre-existing FAIL the audit has carried since before
+this load.
+
+### A pin that named the wrong failure, caught on its second occurrence
+
+`test_song_function` §9 pins 14 named blocks the apparatus rule empties,
+keyed on `(file, source_line, mark)`. Nine went red after this load —
+the six in `eng_hall_john_gay.txt` and three in
+`eng_hall_thomas_durfey.txt`. **All nine blocks were still empty.** The
+load wrote a multi-source header pair at the top of both files (Gay
+topped up from Oxford, Durfey additionally absorbing a twin), so every
+address below shifted: **Gay +2, Durfey +3.** The witnesses never moved;
+their addresses did.
+
+**The message said `not empty`, which was false of all nine.** That is
+two different findings collapsed into one sentence — a block that
+stopped being empty is a regression in the apparatus rule, a block that
+slid down three lines is bookkeeping — and the same list had already
+fired this way once before, on the 2026-08-19 taxonomy backfill's
+`# region:`/`# function:` header insertion. Twice is the argument for
+fixing the report rather than only the numbers.
+
+The check now resolves a missing address against the witness's own
+stable coordinates — same file, same mark, same dropped line in the
+window — and reports **MOVED** with its delta or **NO LONGER EMPTY**
+separately. Both branches are proven by mutation: restoring a
+pre-Phase-1 address reports `MOVED … [597], [3]`, and pointing a witness
+at a mark that is not an empty block reports `NO LONGER EMPTY`. The
+window is now one helper both halves of §9 call, because the provenance
+half's own `lines[n:n+4]` had been *tolerating* the shift silently while
+the other half failed on it — one question, two readings (doctrine 1).
+
+The list stays keyed on the line number deliberately: that is what makes
+it a provenance record rather than a text search. What changed is that a
+growing corpus now produces a self-explaining failure. This is the
+corpus-file instance of the defect this repo already records for
+`data/sources.tsv:NNN` citations — **a line number into a file that
+grows is not an address, it is an offset from a moving origin.**
+
+### 19 twin merges, and the control that says the rule is not "same surname"
+
+Near-name scanning against the live corpus found 19 authors already
+staged under a variant spelling; each merge was confirmed against the
+**editions' own printed dates** before the files were joined. The
+control is Oxford printing two men side by side: **Sir Aubrey de Vere
+(1788-1846)** and his son **Aubrey Thomas de Vere (1814-1902)**. They
+are kept in separate files, and they are the reason the merge rule reads
+dates rather than names — the same rail that caught Oxford's Alexander
+Hume (1560-1609) as a third man against the corpus's two Minstrel-era
+Humes, and the same rail that produced §0.4 above.
+
+---
+
+## 0.6 · The Montgomery twin: one man, two files, three traditions, and a blank
+
+`eng_celtic_msm_james_montgomery.txt` (6 items, region `scottish`) and
+`eng_hymn_montgomery.txt` (45 items, region `english`) were the same
+person. They are now one file at **1,174 corpus files / 1,048 eng
+files**, item count **unmoved at 7,618** — a merge rehouses items, it
+does not remove them, which is why `files` moved in every pin and
+`songs` moved in none.
+
+### Identity, from the edition's own memoir and not from the surname
+
+The Minstrel prints a biography, and it matches the hymn editions' James
+Montgomery (1771-1854) at every joint: born at Irvine, Ayrshire, 4 Nov
+1771; a Moravian father who came from Ireland days before the birth;
+schooling at Grace Hill, Antrim, then Fulneck; the Sheffield *Register*
+and *Iris*; **two imprisonments in the Castle of York**, which is what
+the merged item *VERSES TO A ROBIN RED-BREAST, WHICH VISITS THE WINDOW
+OF MY PRISON EVERY DAY* is about; death at The Mount, Sheffield, 30 Apr
+1854, "in the eighty-second year of his age."
+
+### The dates come back, and the memoir convicts the regex a third time
+
+§0.4's withdrawal struck `(1771-1790)` for this author. **1790 is in
+that memoir**: *"His mother died at Barbadoes, in November 1790."* Same
+mechanism as Baillie's father and Cunningham's Burns — and the same
+memoir prints **both** correct years, so for the third time the source
+contained the right answer in the very prose the regex was searching.
+`# author: James Montgomery (1771-1854)` is restored with a
+`# dates-basis:` line quoting both sentences, and two independent
+authorities (the Minstrel, the hymnals) now concur.
+
+### Region: CONTESTED, therefore BLANK
+
+`data/song_regions.tsv` makes region single-valued and says a contested
+region stays blank, recorded, never doubled. Three traditions have a
+claim, and the file records all three:
+
+| | the claim |
+|---|---|
+| **scottish** | born Irvine, Ayrshire; an 1855 book titled *The Songs of Scotland* includes him on that basis |
+| **english** | left Scotland in his fourth year, never returned to live, and spent from his twenty-first year to his death at 82 in Sheffield, where the 45 hymn items were written |
+| **irish** | the memoir's own account: a Moravian father out of Ireland, and schooling at Grace Hill, Co. Antrim, ages 4–7 |
+
+**The orthographic route cannot break the tie, and I checked before
+relying on it.** The table offers *"Scots orthography corroborates"* for
+`scottish`, and Montgomery's six Minstrel items carry **zero** Scots
+markers — which looked at first like evidence that the `scottish` tag
+was the Taylor defect one axis over. It is not: **92 of the 245 Minstrel
+files (37.6%) carry no Scots marker**, and that group includes Gaelic
+poets in translation (Rob Donn, Dougal Buchanan, William Ross, Evan
+MacLachlan) who are indisputably Scottish. A null there distinguishes
+nothing, so it is not evidence against `scottish` and the retag it
+seemed to license would have been wrong. **What settles this is that two
+DELIBERATE assignments disagreed** — the taxonomy backfill's `english`,
+read off a Sheffield life, against the Minstrel file's `scottish`, read
+off the anthology's own claim — and blank is the taxonomy's answer to
+exactly that, not a failure to look.
+
+### The function header had to go, and the reader is why
+
+`resolve_songs` computes `funcs = s["functions"] or header["function"]`
+— **a per-song value can only FILL from the header, never clear it.** So
+a file-level `# function: hymn` would have silently tagged a German
+war-song, an Odd Fellows lodge song and a prison poem as hymns. The
+header default is deleted; the 45 hymn items carry `--- FUNCTION: hymn`
+each and the six carry nothing, which is the honest undeclared state.
+The per-song override lines have existed since the taxonomy shipped and
+**this is the corpus's first file to use them.**
+
+*Recorded, not fixed:* a file whose items genuinely differ has no way to
+say "this one is undeclared" except by tagging every sibling. That will
+recur as authors accumulate sources, and it is a reader change rather
+than a merge decision, so it is named here for the owner rather than
+made mid-merge.
+
+~~*Also worth a line:* `# region:`/`# function:` accept any text and
+comma-split it, so a prose note written on those keys becomes a set of
+bogus declarations. `check_file` caught exactly that during this merge
+and named all seven fragments — the gate working.~~ **STRUCK AND FIXED
+2026-08-20 — see §0.7, and the sentence understated it: `check_file`
+catching it is not the same as the corpus being safe from it, because
+`report()` never calls `check_file`.** The `-basis:` suffix is the
+spelling for prose, and both `# region-basis:` and `# function-basis:`
+use it.
+
+### The merge is visible in the duplication census, which is the check working
+
+`Montgomery~Montgomery` was one of the 8 named cross-file variant
+printings — his Minstrel *Slavery That Was* against his hymnal's *Ages,
+ages have departed* at 0.54. It is now a **within-file** pair. The
+cross-file series falls 8 → 7 at the 0.30 cut and 5 → 4 at 0.50, the
+within-file series rises 45 → 46 and 38 → 39, and **the totals are
+unmoved at 53 / 43 / 31 / 24 / 5**. Nothing was deleted and no verse
+byte changed; a pair moved between two counts that are deliberately kept
+apart. A new pin asserts the total series for that reason, so a future
+merge that actually loses an item cannot hide inside a reshuffle. Every
+readability rate is likewise unmoved, which is the independent check
+that this was a rehousing.
+
+---
+
+## 0.7 · A prose note on a value key was becoming data, and the checker that caught it was not the reader
+
+The Montgomery merge (§0.6) produced a `# function:` line carrying an
+explanatory paragraph. `check_file` refused it — as **seven** violations,
+each a fragment of English dressed as a bogus vocabulary word, because
+the reader had comma-split the sentence. That was the visible half and
+it looked like a message defect.
+
+**It was not. `report()` never calls `check_file`.** Probed on a file
+whose header reads `# region: CONTESTED, therefore blank -- see the note
+below`, the report:
+
+| | before |
+|---|---|
+| `by_region` | `{'CONTESTED, therefore blank -- see the note below': 1}` |
+| `by_function` | `{'none': 1, 'really; this file is mixed': 1}` |
+| `cells` | a **two-cell** coverage grid, from one song |
+| `multi_tag` | `{2: 1}` — inflating the tag-inflation metric this taxonomy exists to watch |
+| `undeclared_region` | **0**, for a file that says the word "blank" in its own header |
+
+`report()` is where every pinned count in this document and in the test
+suite comes from. The validation lived beside the reader instead of
+inside it, which is doctrine 48 exactly: applied as often as someone
+remembers to run the other function.
+
+### Two gates, and they fail differently
+
+`VALUE_SHAPE = ^[a-z][a-z0-9_]*$` now runs **at the read**, and it is
+deliberately separate from the closed table:
+
+- **shape** — is this line a declaration at all?
+- **table** — is this declared value in the closed vocabulary?
+
+A shaped-but-unknown value (`atlantean`) is a **typo of a value** and
+still refuses *by name*, unchanged — that behaviour is pinned, and two
+controls in the new test section exist to prove the shape gate did not
+swallow the table gate. Text failing the shape is **not a value**, never
+reaches any count, and is carried apart as `malformed` with its file,
+line, key and raw text. The underscore is in the character class because
+two reserved values need it (`african_american`, `tin_pan_alley`).
+
+**All or nothing per line.** The first cut still harvested the
+well-shaped fragments out of a sentence — `# function: none, really;
+this file is mixed` contributed the value `none` *and* a malformed
+record, so the leak survived in miniature. A line that fails the shape
+is prose entire.
+
+**Malformed is counted at the LINE, undeclared at the SONG.** A song
+under an unreadable header genuinely has no declared region, so it stays
+in `undeclared_region` and the invariant `by_region + undeclared ==
+songs` is kept whole rather than grown a third term every pin would have
+to restate. What doctrine 20 forbids is the collapse being *silent*, and
+it is not: `--check` refuses at exit 2, and the printed report shouts a
+`MALFORMED declarations:` block whenever one exists. Two counts that are
+not summable even in principle — one about songs, one about lines.
+
+### Latent by measurement, not by construction
+
+Swept over every header and song value in the live corpus, the distinct
+set is `{american, english, hymn, irish, nursery, patriotic, scottish,
+stage}` and **0 fail the shape**. No recorded count moves; `--check`
+still prints *the closed set holds*. A planted prose line is what turns
+the gate red.
+
+### Proven by mutation, because a check that cannot fail reads like one that passes
+
+`test_corpus_taxonomy` §3b is 10 checks. Disabling the shape gate fails
+**6 of 6** substantive checks and **0 of 4** controls. A second mutation
+restoring only the partial harvest fails 4, including the leak check,
+which reports the smoking gun directly: `{'none': 1} / {1: 1}`. The four
+controls — shaped-unknown still refuses by name, it is not diverted to
+malformed, a `-basis:` key stays invisible to the value reader, and a
+legal declaration beside prose is untouched — pass on both trees, which
+is what makes them controls.
 
 ---
 

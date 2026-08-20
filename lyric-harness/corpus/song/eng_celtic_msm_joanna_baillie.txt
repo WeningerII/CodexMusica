@@ -4,11 +4,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('JOANNA BAILLIE'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 12
+# songs: 13
 
 --- TITLE: THE MAID OF LLANWELLYN
 --- SOURCE: PG22515
@@ -595,3 +597,33 @@ Syne blinkit sae sweet in his face,
     Married and carried awa';
     She thinks hersel' very weel aff,
     To be woo'd, and married, and a'.
+
+--- TITLE: The Outlaw’s Song
+--- SOURCE: PG66619
+[VERSE 1]
+The chough and crow to roost are gone,
+  The owl sits on the tree,
+The hush’d wind wails with feeble moan,
+  Like infant charity.
+The wild-fire dances on the fen,
+  The red star sheds its ray;
+Uprouse ye then, my merry men!
+  It is our op’ning day.
+[VERSE 2]
+Both child and nurse are fast asleep,
+  And closed is every flower,
+And winking tapers faintly peep
+  High from my lady’s bower;
+Bewilder’d hinds with shorten’d ken
+  Shrink on their murky way;
+Uprouse ye then, my merry men!
+  It is our op’ning day.
+[VERSE 3]
+Nor board nor garner own we now,
+  Nor roof nor latchèd door,
+Nor kind mate, bound by holy vow
+  To bless a good man’s store;
+Noon lulls us in a gloomy den,
+  And night is grown our day;
+Uprouse ye then, my merry men!
+  And use it as ye may.

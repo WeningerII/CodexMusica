@@ -1,0 +1,44 @@
+# author: Thomas Jordan (1612?-1685)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1685; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: Coronemus nos Rosis antequam marcescant
+--- SOURCE: PG66619
+[VERSE 1]
+Let us drink and be merry, dance, joke, and rejoice,
+With claret and sherry, theorbo and voice!
+The changeable world to our joy is unjust,
+      All treasure’s uncertain,
+      Then down with your dust!
+In frolics dispose your pounds, shillings, and pence,
+For we shall be nothing a hundred years hence.
+[VERSE 2]
+We’ll sport and be free with Moll, Betty, and Dolly,
+Have oysters and lobsters to cure melancholy:
+Fish-dinners will make a man spring like a flea,
+      Dame Venus, love’s lady,
+      Was born of the sea;
+With her and with Bacchus we’ll tickle the sense,
+For we shall be past it a hundred years hence.
+[VERSE 3]
+Your most beautiful bride who with garlands is crown’d
+And kills with each glance as she treads on the ground,
+Whose lightness and brightness doth shine in such splendour
+      That none but the stars
+      Are thought fit to attend her,
+Though now she be pleasant and sweet to the sense,
+Will be damnable mouldy a hundred years hence.
+[VERSE 4]
+Then why should we turmoil in cares and in fears,
+Turn all our tranquill’ty to sighs and to tears?
+Let’s eat, drink, and play till the worms do corrupt us,
+      ’Tis certain, _Post mortem_
+      _Nulla voluptas_.
+For health, wealth and beauty, wit, learning and sense,
+Must all come to nothing a hundred years hence.

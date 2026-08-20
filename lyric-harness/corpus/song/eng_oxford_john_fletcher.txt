@@ -1,0 +1,227 @@
+# author: John Fletcher (1579-1625)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1625; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 11
+
+--- TITLE: Sleep
+--- SOURCE: PG66619
+[VERSE 1]
+Come, Sleep, and with thy sweet deceiving
+    Lock me in delight awhile;
+    Let some pleasing dreams beguile
+    All my fancies; that from thence
+    I may feel an influence
+All my powers of care bereaving!
+[VERSE 2]
+Though but a shadow, but a sliding,
+    Let me know some little joy!
+    We that suffer long annoy
+    Are contented with a thought
+    Through an idle fancy wrought:
+O let my joys have some abiding!
+
+--- TITLE: Bridal Song
+--- SOURCE: PG66619
+[VERSE 1]
+Cynthia, to thy power and thee
+        We obey.
+Joy to this great company!
+        And no day
+Come to steal this night away
+  Till the rites of love are ended,
+And the lusty bridegroom say,
+  Welcome, light, of all befriended!
+[VERSE 2]
+Pace out, you watery powers below;
+        Let your feet,
+Like the galleys when they row,
+        Even beat;
+Let your unknown measures, set
+  To the still winds, tell to all
+That gods are come, immortal, great,
+  To honour this great nuptial!
+
+--- TITLE: Aspatia’s Song
+--- SOURCE: PG66619
+[VERSE 1]
+Lay a garland on my herse
+  Of the dismal yew;
+Maidens, willow branches bear;
+  Say, I died true.
+[VERSE 2]
+My love was false, but I was firm
+  From my hour of birth.
+Upon my buried body lie
+  Lightly, gentle earth!
+
+--- TITLE: Hymn to Pan
+--- SOURCE: PG66619
+[VERSE 1]
+Sing his praises that doth keep
+  Our flocks from harm,
+Pan, the father of our sheep;
+  And arm in arm
+Tread we softly in a round,
+Whilst the hollow neighbouring ground
+Fills the music with her sound.
+[VERSE 2]
+Pan, O great god Pan, to thee
+  Thus do we sing!
+Thou who keep’st us chaste and free
+  As the young spring:
+Ever be thy honour spoke
+From that place the morn is broke
+To that place day doth unyoke!
+
+--- TITLE: Away, Delights
+--- SOURCE: PG66619
+[VERSE 1]
+Away, delights! go seek some other dwelling,
+          For I must die.
+Farewell, false love! thy tongue is ever telling
+          Lie after lie.
+For ever let me rest now from thy smarts;
+          Alas, for pity go
+          And fire their hearts
+That have been hard to thee! Mine was not so.
+[VERSE 2]
+Never again deluding love shall know me,
+          For I will die;
+And all those griefs that think to overgrow me
+          Shall be as I:
+For ever will I sleep, while poor maids cry--
+          ‘Alas, for pity stay,
+          And let us die
+With thee! Men cannot mock us in the clay.’
+
+--- TITLE: Love’s Emblems
+--- SOURCE: PG66619
+[VERSE 1]
+Now the lusty spring is seen;
+  Golden yellow, gaudy blue,
+  Daintily invite the view:
+Everywhere on every green
+Roses blushing as they blow,
+  And enticing men to pull,
+Lilies whiter than the snow,
+  Woodbines of sweet honey full:
+    All love’s emblems, and all cry,
+    ‘Ladies, if not pluck’d, we die.’
+[VERSE 2]
+Yet the lusty spring hath stay’d;
+  Blushing red and purest white
+  Daintily to love invite
+Every woman, every maid:
+Cherries kissing as they grow,
+  And inviting men to taste,
+Apples even ripe below,
+  Winding gently to the waist:
+    All love’s emblems, and all cry,
+    ‘Ladies, if not pluck’d, we die.’
+
+--- TITLE: Hear, ye Ladies
+--- SOURCE: PG66619
+[VERSE 1]
+Hear, ye ladies that despise
+  What the mighty Love has done;
+Fear examples and be wise:
+  Fair Callisto was a nun;
+Leda, sailing on the stream
+  To deceive the hopes of man,
+Love accounting but a dream,
+  Doted on a silver swan;
+    Danaë, in a brazen tower,
+    Where no love was, loved a shower.
+[VERSE 2]
+Hear, ye ladies that are coy,
+  What the mighty Love can do;
+Fear the fierceness of the boy:
+  The chaste Moon he makes to woo;
+Vesta, kindling holy fires,
+  Circled round about with spies,
+Never dreaming loose desires,
+  Doting at the altar dies;
+    Ilion, in a short hour, higher
+    He can build, and once more fire.
+
+--- TITLE: God Lyaeus
+--- SOURCE: PG66619
+[VERSE 1]
+God Lyaeus, ever young,
+Ever honour’d, ever sung,
+Stain’d with blood of lusty grapes,
+In a thousand lusty shapes
+Dance upon the mazer’s brim,
+In the crimson liquor swim;
+[VERSE 2]
+From thy plenteous hand divine
+Let a river run with wine:
+  God of youth, let this day here
+  Enter neither care nor fear.
+
+--- TITLE: Beauty Clear and Fair
+--- SOURCE: PG66619
+[VERSE 1]
+Beauty clear and fair,
+      Where the air
+Rather like a perfume dwells;
+  Where the violet and the rose
+  Their blue veins and blush disclose,
+And come to honour nothing else;
+[VERSE 2]
+      Where to live near
+      And planted there
+Is to live, and still live new;
+  Where to gain a favour is
+  More than light, perpetual bliss--
+Make me live by serving you!
+[VERSE 3]
+Dear, again back recall
+      To this light,
+A stranger to himself and all!
+  Both the wonder and the story
+  Shall be yours, and eke the glory;
+I am your servant, and your thrall.
+
+--- TITLE: Melancholy
+--- SOURCE: PG66619
+[VERSE 1]
+Hence, all you vain delights,
+  As short as are the nights
+  Wherein you spend your folly!
+There’s naught in this life sweet,
+If men were wise to see’t,
+  But only melancholy--
+  O sweetest melancholy!
+Welcome, folded arms and fixèd eyes,
+A sight that piercing mortifies,
+A look that’s fasten’d to the ground,
+A tongue chain’d up without a sound!
+[VERSE 2]
+Fountain-heads and pathless groves,
+Places which pale passion loves!
+Moonlight walks, when all the fowls
+Are warmly housed, save bats and owls!
+  A midnight bell, a parting groan--
+  These are the sounds we feed upon:
+Then stretch our bones in a still gloomy valley,
+Nothing’s so dainty sweet as lovely melancholy.
+
+--- TITLE: Weep no more
+--- SOURCE: PG66619
+[VERSE 1]
+Weep no more, nor sigh, nor groan,
+Sorrow calls no time that’s gone:
+Violets pluck’d, the sweetest rain
+Makes not fresh nor grow again.
+Trim thy locks, look cheerfully;
+Fate’s hid ends eyes cannot see.
+Joys as wingèd dreams fly fast,
+Why should sadness longer last?
+Grief is but a wound to woe;
+Gentlest fair, mourn, mourn no moe.

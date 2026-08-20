@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
 
 --- TITLE: A NIGHT IN JUNE.
 --- SOURCE: PG26715
@@ -72,3 +74,44 @@ Cruel thus to mock mine eyes,
   Idle, thus to squander
     Love's own light on this dark spot;--
     For my lady cometh not!
+
+--- TITLE: BRITANNIA TO COLUMBIA
+--- SOURCE: PG47476
+[VERSE 1]
+  What is the voice I hear
+    On the wind of the Western Sea?
+  Sentinel, listen from out Cape Clear,
+    And say what the voice may be.
+"'Tis a proud, free people calling aloud to a people proud and free.
+[VERSE 2]
+  "And it says to them, 'Kinsmen, hail!
+    We severed have been too long;
+  Now let us have done with a wornout tale,
+    The tale of an ancient wrong,
+And our friendship last long as love doth last, and be stronger than
+    death is strong!'"
+[VERSE 3]
+  Answer them, sons of the selfsame race,
+    And blood of the selfsame clan,
+  Let us speak with each other, face to face,
+    And answer as man to man,
+And loyally love and trust each other as none but free men can.
+[VERSE 4]
+  Now fling them out to the breeze,
+    Shamrock, thistle, and rose,
+  And the Star-Spangled Banner unfurl with these,
+    A message to friends and foes,
+Wherever the sails of peace are seen and wherever the war wind blows.
+[VERSE 5]
+  A message to bond and thrall to wake,
+    For wherever we come, we twain,
+  The throne of the tyrant shall rock and quake
+    And his menace be void and vain,
+For you are lords of a strong young land and we are lords of the main.
+[VERSE 6]
+  Yes, this is the voice on the bluff March gale,
+    "We severed have been too long;
+  But now we have done with a wornout tale,
+    The tale of an ancient wrong,
+And our friendship shall last long as love doth last and be stronger than
+    death is strong."

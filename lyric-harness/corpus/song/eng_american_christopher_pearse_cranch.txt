@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
 
 --- TITLE: Stanzas
 --- SOURCE: PG15553
@@ -49,3 +51,46 @@ We, like parted drops of rain
   Swelling till they meet and run,
 Shall be all absorbed again,
   Melting, flowing into one.
+
+--- TITLE: AFTER THE CENTENNIAL
+--- SOURCE: PG47476
+[VERSE 1]
+Before our eyes a pageant rolled
+  Whose banners every land unfurled;
+And as it passed, its splendors told
+  The art and glory of the world.
+[VERSE 2]
+The nations of the earth have stood
+  With face to face and hand in hand,
+And sworn to common brotherhood
+  The sundered souls of every land.
+[VERSE 3]
+And while America is pledged
+  To light her Pharos towers for all,
+While her broad mantle, starred and edged
+  With truth, o'er high and low shall fall;
+[VERSE 4]
+And while the electric nerves still belt
+  The State and Continent in one,--
+The discords of the past shall melt
+  Like ice beneath the summer sun.
+[VERSE 5]
+O land of hope! thy future years
+  Are shrouded from our mortal sight;
+But thou canst turn the century's fears
+  To heralds of a cloudless light!
+[VERSE 6]
+The sacred torch our fathers lit
+  No wild misrule can ever quench;
+Still in our midst wise judges sit,
+  Whom party passion cannot blench.
+[VERSE 7]
+From soul to soul, from hand to hand
+  Thy sons have passed that torch along,
+Whose flame by Wisdom's breath is fanned
+  Whose staff is held by runners strong.
+[VERSE 8]
+O Spirit of immortal truth,
+  Thy power alone that circles all
+Can feed the fire as in its youth--
+  Can hold the runners lest they fall!

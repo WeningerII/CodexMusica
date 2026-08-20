@@ -4,6 +4,8 @@
 # licence: public domain - Project Gutenberg; edition published 1902 -- The Complete Poetical Works of Edgar Allan Poe
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -830,3 +832,123 @@ Some tomb from out whose sounding door
 She ne'er shall force an echo more,
 Thrilling to think, poor child of sin,
 It was the dead who groaned within!
+
+--- TITLE: For Annie
+--- SOURCE: PG66619
+[VERSE 1]
+Thank Heaven! the crisis--
+  The danger is past,
+And the lingering illness
+  Is over at last--
+And the fever called ‘Living’
+  Is conquer’d at last.
+[VERSE 2]
+Sadly, I know
+  I am shorn of my strength,
+And no muscle I move
+  As I lie at full length:
+But no matter--I feel
+  I am better at length.
+[VERSE 3]
+And I rest so composedly
+  Now, in my bed,
+That any beholder
+  Might fancy me dead--
+Might start at beholding me,
+  Thinking me dead.
+[VERSE 4]
+The moaning and groaning,
+  The sighing and sobbing,
+Are quieted now,
+  With that horrible throbbing
+At heart--ah, that horrible,
+  Horrible throbbing!
+[VERSE 5]
+The sickness--the nausea--
+  The pitiless pain--
+Have ceased, with the fever
+  That madden’d my brain--
+With the fever called ‘Living’
+  That burn’d in my brain.
+[VERSE 6]
+And O! of all tortures
+  That torture the worst
+Has abated--the terrible
+  Torture of thirst
+For the naphthaline river
+  Of Passion accurst--
+I have drunk of a water
+  That quenches all thirst.
+[VERSE 7]
+--Of a water that flows,
+  With a lullaby sound,
+From a spring but a very few
+  Feet under ground--
+From a cavern not very far
+  Down under ground.
+[VERSE 8]
+And ah! let it never
+  Be foolishly said
+That my room it is gloomy,
+  And narrow my bed;
+For man never slept
+  In a different bed--
+And, to _sleep_, you must slumber
+  In just such a bed.
+[VERSE 9]
+My tantalized spirit
+  Here blandly reposes,
+Forgetting, or never
+  Regretting its roses--
+Its old agitations
+  Of myrtles and roses:
+[VERSE 10]
+For now, while so quietly
+  Lying, it fancies
+A holier odour
+  About it, of pansies--
+A rosemary odour,
+  Commingled with pansies--
+With rue and the beautiful
+  Puritan pansies.
+[VERSE 11]
+And so it lies happily,
+  Bathing in many
+A dream of the truth
+  And the beauty of Annie--
+Drown’d in a bath
+  Of the tresses of Annie.
+[VERSE 12]
+She tenderly kiss’d me,
+  She fondly caress’d,
+And then I fell gently
+  To sleep on her breast--
+Deeply to sleep
+  From the heaven of her breast.
+[VERSE 13]
+When the light was extinguish’d,
+  She cover’d me warm,
+And she pray’d to the angels
+  To keep me from harm--
+To the queen of the angels
+  To shield me from harm.
+[VERSE 14]
+And I lie so composedly,
+  Now, in my bed
+(Knowing her love),
+  That you fancy me dead--
+And I rest so contentedly,
+  Now, in my bed
+(With her love at my breast),
+  That you fancy me dead--
+That you shudder to look at me,
+  Thinking me dead.
+[VERSE 15]
+But my heart it is brighter
+  Than all of the many
+Stars in the sky,
+  For it sparkles with Annie--
+It glows with the light
+  Of the love of my Annie--
+With the thought of the light
+  Of the eyes of my Annie.

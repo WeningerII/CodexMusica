@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 2
 
 --- TITLE: The Kings
 --- SOURCE: PG15553
@@ -54,3 +56,36 @@ To rise on the last redoubt;
 Nor covet the game at all,
 But fighting, fighting, fighting,
 Die, driven against the wall!"
+
+--- TITLE: JOHN BROWN: A PARADOX
+--- SOURCE: PG47476
+[VERSE 1]
+Compassionate eyes had our brave John Brown,
+And a craggy stern forehead, a militant frown;
+He, the storm-bow of peace. Give him volley on volley,
+The fool who redeemed us once of our folly,
+And the smiter that healed us, our right John Brown!
+[VERSE 2]
+Too vehement, verily, was John Brown!
+For waiting is statesmanlike; his the renown
+Of the holy rash arm, the equipper and starter
+Of freedmen; aye, call him fanatic and martyr:
+He can carry both halos, our plain John Brown.
+[VERSE 3]
+A scandalous stumbling-block was John Brown,
+And a jeer; but ah! soon from the terrified town,
+In his bleeding track made over hilltop and hollow,
+Wise armies and councils were eager to follow,
+And the children's lips chanted our lost John Brown.
+[VERSE 4]
+Star-led for us, stumbled and groped John Brown,
+Star-led, in the awful morasses to drown;
+And the trumpet that rang for a nation's upheaval,
+From the thought that was just, thro' the deed that was evil,
+Was blown with the breath of this dumb John Brown!
+[VERSE 5]
+Bared heads and a pledge unto mad John Brown!
+Now the curse is allayed, now the dragon is down,
+Now we see, clear enough, looking back at the onset,
+Christianity's flood-tide and Chivalry's sunset
+In the old broken heart of our hanged John Brown!

@@ -2,6 +2,8 @@
 # region: american
 # source: GITenberg/Poems_2558 2558.txt md5 2b1c7ef9adcfa51e4be5064e84846618
 # licence: public domain - Project Gutenberg; edition published 1860 -- George P. Morris, Poems
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -360,3 +362,33 @@ And shelter for the night have found,
 The dust may rise, the rain may fall--
 Beneath this roof we'll smile at all
     The dangers of the road!
+
+--- TITLE: POCAHONTAS
+--- SOURCE: PG47476
+[VERSE 1]
+Upon the barren sand
+  A single captive stood;
+Around him came, with bow and brand,
+  The red men of the wood.
+Like him of old, his doom he hears,
+  Rock-bound on ocean's brim--
+The chieftain's daughter knelt in tears,
+  And breathed a prayer for him.
+[VERSE 2]
+Above his head in air
+  The savage war-club swung:
+The frantic girl, in wild despair,
+  Her arms about him flung.
+Then shook the warriors of the shade,
+  Like leaves on aspen limb,
+Subdued by that heroic maid
+  Who breathed a prayer for him!
+[VERSE 3]
+"Unbind him!" gasped the chief:
+  "It is your king's decree!"
+He kiss'd away the tears of grief,
+  And set the captive free!
+'Tis ever thus, when in life's storm
+  Hope's star to man grows dim,
+An angel kneels, in woman's form,
+  And breathes a prayer for him.

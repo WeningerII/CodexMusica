@@ -1,0 +1,68 @@
+# author: George Peele (1558?-97)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1558; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: Fair and Fair
+--- SOURCE: PG66619
+[VERSE 1]
+     _Œnone._ Fair and fair, and twice so fair,
+                As fair as any may be;
+              The fairest shepherd on our green,
+                A love for any lady.
+[VERSE 2]
+     _Paris._ Fair and fair, and twice so fair,
+                As fair as any may be;
+              Thy love is fair for thee alone
+                And for no other lady.
+[VERSE 3]
+     _Œnone._ My love is fair, my love is gay,
+              As fresh as bin the flowers in May
+              And of my love my roundelay,
+              My merry, merry, merry roundelay,
+                Concludes with Cupid’s curse,--
+              ‘They that do change old love for new
+                Pray gods they change for worse!’
+_Ambo Simul._ They that do change old love for new,
+                Pray gods they change for worse!
+[VERSE 4]
+     _Œnone._ Fair and fair, etc.
+     _Paris._ Fair and fair, etc.
+              Thy love is fair, etc.
+     _Œnone._ My love can pipe, my love can sing,
+              My love can many a pretty thing,
+              And of his lovely praises ring
+              My merry, merry, merry roundelays
+                Amen to Cupid’s curse,--
+              ‘They that do change,’ etc.
+     _Paris._ They that do change, etc.
+      _Ambo._ Fair and fair, etc.
+
+--- TITLE: A Farewell to Arms
+--- SOURCE: PG66619
+[VERSE 1]
+His golden locks Time hath to silver turn’d;
+  O Time too swift, O swiftness never ceasing!
+His youth ’gainst time and age hath ever spurn’d,
+  But spurn’d in vain; youth waneth by increasing:
+Beauty, strength, youth, are flowers but fading seen;
+Duty, faith, love, are roots, and ever green.
+[VERSE 2]
+His helmet now shall make a hive for bees;
+  And, lovers’ sonnets turn’d to holy psalms,
+A man-at-arms must now serve on his knees,
+  And feed on prayers, which are Age his alms:
+But though from court to cottage he depart,
+His Saint is sure of his unspotted heart.
+[VERSE 3]
+And when he saddest sits in homely cell,
+  He’ll teach his swains this carol for a song,--
+‘Blest be the hearts that wish my sovereign well,
+  Curst be the souls that think her any wrong.’
+Goddess, allow this agèd man his right
+To be your beadsman now that was your knight.

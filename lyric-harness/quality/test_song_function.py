@@ -761,6 +761,42 @@ def test_the_report_prints_three_counts():
 #: text, the marks and the drops are unchanged; this pin firing on a
 #: header edit is the list doing its provenance job (and doctrine 91's
 #: warning about line numbers as addresses collecting its toll).
+#:
+#: LINE NUMBERS REPINNED AGAIN 2026-08-20 (Phase-1 load), and the SECOND
+#: occurrence is why the failure message below was split. The Phase-1
+#: concurrent load wrote a multi-source `# source:`/`# licence:` header
+#: pair at the top of both `eng_hall_*` files (gay topped up from Oxford,
+#: durfey additionally absorbing a spelling-variant twin), so every
+#: address below them shifted: **gay +2, durfey +3**. Hemans, Ingelow
+#: and Herrick were untouched by that load and did not move.
+#:
+#: NOTHING ABOUT THE CORPUS TEXT CHANGED — all nine blocks are still
+#: empty, still under the same mark, still holding the same dropped
+#: stage direction. This is the address moving, not the witness, and it
+#: is the corpus-file instance of the defect `CLAUDE.md` records for
+#: `data/sources.tsv:NNN` citations: **a line number into a file that
+#: grows is not an address, it is an offset from a moving origin.** The
+#: list stays keyed on the line number ON PURPOSE — that is what makes
+#: it a provenance record rather than a text search — but the check now
+#: says WHICH of the two things went wrong, because "the block is no
+#: longer empty" and "the block moved" are different findings and the
+#: first message stated only the first (doctrine 20/79).
+def _window(fname, n, span=4):
+    """The `span` lines under a mark at source line `n`, stripped.
+
+    ONE DEFINITION, read by both halves of section 9 (doctrine 1): the
+    provenance check asks whether the dropped line is still under its
+    mark, and the moved/missing split asks the same question of a
+    candidate address. Written twice these two could disagree about how
+    far "immediately under" reaches, and the answer to "did this witness
+    move or die" would depend on which half was asking.
+    """
+    with open(os.path.join(CORPUS, fname), encoding="utf-8",
+              errors="replace") as fh:
+        lines = fh.read().splitlines()
+    return [l.strip() for l in lines[n:n + span]]
+
+
 EMPTIED_BY_APPARATUS = [
     ("eng_british_felicia_hemans.txt", 1793, "VERSE 12", "[_Exeunt omnes._"),
     ("eng_british_jean_ingelow.txt", 1842, "VERSE 6", "[_Much applause_."),
@@ -770,16 +806,16 @@ EMPTIED_BY_APPARATUS = [
      "[_More tuning heard outside_."),
     ("eng_british_robert_herrick.txt", 5945, "VERSE 10",
      "[_1 Neatherd plays_"),
-    ("eng_hall_john_gay.txt", 448, "VERSE 2",
+    ("eng_hall_john_gay.txt", 450, "VERSE 2",
      "[Holding _Macheath_, _Peachum_ pulling her."),
-    ("eng_hall_john_gay.txt", 461, "VERSE 2", "[Exeunt."),
-    ("eng_hall_john_gay.txt", 686, "VERSE 2", "[Rises."),
-    ("eng_hall_john_gay.txt", 710, "VERSE 2", "[Drinks."),
-    ("eng_hall_john_gay.txt", 746, "VERSE 6", "[Turns up the empty Bottle."),
-    ("eng_hall_john_gay.txt", 752, "VERSE 9", "[Turns up the empty Pot."),
-    ("eng_hall_thomas_durfey.txt", 594, "VERSE 12", "[Music:"),
-    ("eng_hall_thomas_durfey.txt", 7209, "VERSE 4", "[Music:"),
-    ("eng_hall_thomas_durfey.txt", 7252, "VERSE 10", "[Music:"),
+    ("eng_hall_john_gay.txt", 463, "VERSE 2", "[Exeunt."),
+    ("eng_hall_john_gay.txt", 688, "VERSE 2", "[Rises."),
+    ("eng_hall_john_gay.txt", 712, "VERSE 2", "[Drinks."),
+    ("eng_hall_john_gay.txt", 748, "VERSE 6", "[Turns up the empty Bottle."),
+    ("eng_hall_john_gay.txt", 754, "VERSE 9", "[Turns up the empty Pot."),
+    ("eng_hall_thomas_durfey.txt", 597, "VERSE 12", "[Music:"),
+    ("eng_hall_thomas_durfey.txt", 7212, "VERSE 4", "[Music:"),
+    ("eng_hall_thomas_durfey.txt", 7255, "VERSE 10", "[Music:"),
 ]
 
 
@@ -833,13 +869,35 @@ def test_the_apparatus_rule_is_the_centres_and_its_price_is_named():
              f"; first three: {c['apparatus_survivors'][:3]}"))
 
     empty = {(f, n, m) for (f, n, m) in c["empty_marks"]}
-    missing = [(f, n, m) for f, n, m, _ in EMPTIED_BY_APPARATUS
-               if (f, n, m) not in empty]
+    # TWO FAILURES, NOT ONE (doctrine 20/79). A pinned address that no
+    # longer names an empty block can mean the block STOPPED BEING EMPTY
+    # -- a real regression in the apparatus rule -- or it can mean the
+    # file grew a header above it and the SAME empty block is three lines
+    # further down, which is bookkeeping. The first message said only the
+    # first, so the 2026-08-19 and 2026-08-20 header shifts both reported
+    # as "not empty" about blocks that were empty the whole time. `moved`
+    # is resolved by the witness's own stable coordinates -- same file,
+    # same mark, same dropped line in the window -- and is reported with
+    # its delta so the repin is mechanical rather than a re-derivation.
+    missing, moved = [], []
+    for f, n, m, dropped in EMPTIED_BY_APPARATUS:
+        if (f, n, m) in empty:
+            continue
+        here = [en for (ef, en, em) in empty if ef == f and em == m
+                and dropped in _window(f, en)]
+        (moved if here else missing).append((f, n, m, here))
     check("all 14 named blocks are EMPTY — a mark whose only content was a "
           "stage direction is a block with no words, and the reader now says "
           "so instead of printing the direction as a verse",
-          not missing, f"{14 - len(missing)} of 14 empty"
-          + ("" if not missing else f"; not empty: {missing}"))
+          not missing and not moved,
+          f"{14 - len(missing) - len(moved)} of 14 empty at their pinned "
+          f"address"
+          + (f"; NO LONGER EMPTY (a real regression): {missing}"
+             if missing else "")
+          + (f"; MOVED (the file grew above them; repin the address, the "
+             f"witness is intact): "
+             f"{[(f, n, m, h, [x - n for x in h]) for f, n, m, h in moved]}"
+             if moved else ""))
 
     # THE PROVENANCE HALF. The dropped line has to still BE in the corpus at
     # the line the mark's own `source_line` implies, and it has to be
@@ -848,11 +906,7 @@ def test_the_apparatus_rule_is_the_centres_and_its_price_is_named():
     # count of 14 could never show.
     relocated, wrong_rule = [], []
     for fname, n, mark, dropped in EMPTIED_BY_APPARATUS:
-        with open(os.path.join(CORPUS, fname), encoding="utf-8",
-                  errors="replace") as fh:
-            lines = fh.read().splitlines()
-        window = [l.strip() for l in lines[n:n + 4]]
-        if dropped not in window:
+        if dropped not in _window(fname, n):
             relocated.append((fname, n, dropped))
         if not G_APPARATUS(dropped):
             wrong_rule.append(dropped)

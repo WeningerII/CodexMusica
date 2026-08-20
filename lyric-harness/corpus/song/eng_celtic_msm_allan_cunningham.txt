@@ -4,11 +4,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('ALLAN CUNNINGHAM'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 10
+# songs: 13
 
 --- TITLE: SHE 'S GANE TO DWALL IN HEAVEN
 --- SOURCE: PG22515
@@ -420,3 +422,78 @@ Nay, even the laurell'd-templed bard
   Dew-footed at the gloamin',
 Melodious wooes the world's ear,
   To please thee, lovely woman!
+
+--- TITLE: The Sun rises bright in France
+--- SOURCE: PG66619
+[VERSE 1]
+The sun rises bright in France,
+  And fair sets he;
+But he has tint the blythe blink he had
+  In my ain countree.
+[VERSE 2]
+O, it’s nae my ain ruin
+  That saddens aye my e’e,
+But the dear Marie I left behin’
+  Wi’ sweet bairnies three.
+[VERSE 3]
+My lanely hearth burn’d bonnie,
+  And smiled my ain Marie;
+I’ve left a’ my heart behin’
+  In my ain countree.
+[VERSE 4]
+The bud comes back to summer,
+  And the blossom to the bee;
+But I’ll win back, O never,
+  To my ain countree.
+[VERSE 5]
+O, I am leal to high Heaven,
+  Where soon I hope to be,
+An’ there I’ll meet ye a’ soon
+  Frae my ain countree!
+
+--- TITLE: Hame, Hame, Hame
+--- SOURCE: PG66619
+[VERSE 1]
+Hame, hame, hame, O hame fain wad I be--
+  O hame, hame, hame, to my ain countree!
+[VERSE 2]
+When the flower is i’ the bud and the leaf is on the tree,
+The larks shall sing me hame in my ain countree;
+Hame, hame, hame, O hame fain wad I be--
+O hame, hame, hame, to my ain countree!
+[VERSE 3]
+The green leaf o’ loyaltie’s beginning for to fa’,
+The bonnie White Rose it is withering an’ a’;
+But I’ll water ’t wi’ the blude of usurping tyrannie,
+An’ green it will graw in my ain countree.
+[VERSE 4]
+O, there’s nocht now frae ruin my country can save,
+But the keys o’ kind heaven, to open the grave;
+That a’ the noble martyrs wha died for loyaltie
+May rise again an’ fight for their ain countree.
+[VERSE 5]
+The great now are gane, a’ wha ventured to save,
+The new grass is springing on the tap o’ their grave;
+But the sun through the mirk blinks blythe in my e’e,
+‘I’ll shine on ye yet in your ain countree.’
+[VERSE 6]
+Hame, hame, hame, O hame fain wad I be--
+O hame, hame, hame, to my ain countree!
+
+--- TITLE: The Spring of the Year
+--- SOURCE: PG66619
+[VERSE 1]
+Gone were but the winter cold,
+  And gone were but the snow,
+I could sleep in the wild woods
+  Where primroses blow.
+[VERSE 2]
+Cold’s the snow at my head,
+  And cold at my feet;
+And the finger of death’s at my e’en,
+  Closing them to sleep.
+[VERSE 3]
+Let none tell my father
+  Or my mother so dear,--
+I’ll meet them both in heaven
+  At the spring of the year.

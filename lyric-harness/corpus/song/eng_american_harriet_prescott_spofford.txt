@@ -2,10 +2,13 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
-# attribution: the edition's own trailing author credit after each poem
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# attribution: the edition's own trailing author credit after each poem; also credited 'Mrs. Harriet Prescott Spofford' in the anthology merged here 2026-08-20 (same person: the editions' own printed dates agree, or the shorter form carries none)
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 4
+
 
 --- TITLE: A Sigh
 --- SOURCE: PG15553
@@ -45,3 +48,101 @@ All silently their glances
   Slipped down the cruel sea,
 And wait! cried the night and wind and storm,--
   Wait, till I come to thee!
+
+--- TITLE: HOW WE BECAME A NATION
+--- SOURCE: PG47476
+[VERSE 1]
+When George the King would punish folk
+  Who dared resist his angry will--
+Resist him with their hearts of oak
+That neither King nor Council broke--
+  He told Lord North to mend his quill,
+  And sent his Parliament a Bill.
+[VERSE 2]
+The Boston Port Bill was the thing
+  He flourished in his royal hand;
+A subtle lash with scorpion sting,
+Across the seas he made it swing,
+  And with its cruel thong he planned
+  To quell the disobedient land.
+[VERSE 3]
+His minions heard it sing, and bare
+  The port of Boston felt his wrath;
+They let no ship cast anchor there,
+They summoned Hunger and Despair,--
+  And curses in an aftermath
+  Followed their desolating path.
+[VERSE 4]
+No coal might enter there, nor wood,
+  Nor Holland flax, nor silk from France;
+No drugs for dying pangs, no food
+For any mother's little brood.
+  "Now," said the King, "we have our chance,
+  We'll lead the haughty knaves a dance."
+[VERSE 5]
+No other flags lit up the bay,
+  Like full-blown blossoms in the air,
+Than where the British war-ships lay;
+The wharves were idle; all the day
+  The idle men, grown gaunt and spare,
+  Saw trouble, pall-like, everywhere.
+[VERSE 6]
+Then in across the meadow land,
+  From lonely farm and hunter's tent,
+From fertile field and fallow strand,
+Pouring it out with lavish hand,
+  The neighboring burghs their bounty sent,
+  And laughed at King and Parliament.
+[VERSE 7]
+To bring them succor, Marblehead
+  Joyous her deep-sea fishing sought.
+Her trees, with ringing stroke and tread,
+Old many-rivered Newbury sped,
+  And Groton in her granaries wrought,
+  And generous flocks old Windham brought.
+[VERSE 8]
+Rice from the Carolinas came,
+  Iron from Pennsylvania's forge,
+And, with a spirit all aflame,
+Tobacco-leaf and corn and game
+  The Midlands sent; and in his gorge
+  The Colonies defied King George!
+[VERSE 9]
+And Hartford hung, in black array,
+  Her town-house, and at half-mast there
+The flags flowed, and the bells all day
+Tolled heavily; and far away
+  In great Virginia's solemn air
+  The House of Burgesses held prayer.
+[VERSE 10]
+Down long glades of the forest floor
+  The same thrill ran through every vein,
+And down the long Atlantic's shore;
+Its heat the tyrant's fetters tore
+  And welded them through stress and strain
+  Of long years to a mightier chain.
+[VERSE 11]
+That mighty chain with links of steel
+  Bound all the Old Thirteen at last,
+Through one electric pulse to feel
+The common woe, the common weal.
+  And that great day the Port Bill passed
+  Made us a nation hard and fast.
+
+--- TITLE: CAN'T
+--- SOURCE: PG47476
+[VERSE 1]
+How history repeats itself
+  You'll say when you remember Grant,
+Who, in his boyhood days, once sought
+  Throughout the lexicon for "can't."
+[VERSE 2]
+He could not find the word that day,
+  The earnest boy whose name was Grant;
+He never found it through long years,
+  With all their power to disenchant.
+[VERSE 3]
+No hostile host could give him pause;
+  Rivers and mountains could not daunt;
+He never found that hindering word--
+  The steadfast man whose name was Grant.

@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 6
+# songs: 11
 
 --- TITLE: Destiny
 --- SOURCE: PG15553
@@ -195,3 +197,241 @@ I know as well as I know to pray,
 I know as well as a tongue can say,
 That the innocent Sultan Shah-Zaman
 Has gone to the city Isfahan.
+
+--- TITLE: FREDERICKSBURG
+--- SOURCE: PG47476
+[VERSE 1]
+The increasing moonlight drifts across my bed,
+And on the churchyard by the road, I know
+It falls as white and noiselessly as snow....
+'Twas such a night two weary summers fled;
+The stars, as now, were waning overhead.
+Listen! Again the shrill-lipped bugles blow
+Where the swift currents of the river flow
+Past Fredericksburg; far off the heavens are red
+With sudden conflagration: on yon height,
+Linstock in hand, the gunners hold their breath;
+A signal-rocket pierces the dense night,
+Flings its spent stars upon the town beneath:
+Hark!--the artillery massing on the right,
+Hark!--the black squadrons wheeling down to Death!
+
+--- TITLE: BY THE POTOMAC
+--- SOURCE: PG47476
+[VERSE 1]
+The soft new grass is creeping o'er the graves
+By the Potomac; and the crisp ground-flower
+Tilts its blue cup to catch the passing shower;
+The pine-cone ripens, and the long moss waves
+Its tangled gonfalons above our braves.
+Hark, what a burst of music from yon bower!--
+The Southern nightingale that hour by hour
+In its melodious summer madness raves.
+Ah, with what delicate touches of her hand,
+With what sweet voice of bird and rivulet
+And drowsy murmur of the rustling leaf
+Would Nature soothe us, bidding us forget
+The awful crime of this distracted land
+And all our heavy heritage of grief.
+
+--- TITLE: THE BELLS AT MIDNIGHT
+--- SOURCE: PG47476
+[VERSE 1]
+      In their dark House of Cloud
+The three weird sisters toil till time be sped;
+One unwinds life, one ever weaves the shroud,
+      One waits to part the thread.
+[VERSE 2]
+I
+[VERSE 3]
+CLOTHO
+[VERSE 4]
+How long, O sister, how long
+Ere the weary task is done?
+How long, O sister, how long
+Shall the fragile thread be spun?
+[VERSE 5]
+LACHESIS
+[VERSE 6]
+'Tis mercy that stays her hand,
+Else she had cut the thread;
+She is a woman too,
+Like her who kneels by his bed!
+[VERSE 7]
+ATROPOS
+[VERSE 8]
+Patience! the end is come;
+He shall no more endure:
+See! with a single touch!--
+My hand is swift and sure!
+[VERSE 9]
+II
+[VERSE 10]
+  Two Angels pausing in their flight.
+[VERSE 11]
+FIRST ANGEL
+[VERSE 12]
+Listen! what was it fell
+An instant ago on my ear--
+A sound like the throb of a bell
+From yonder darkling sphere!
+[VERSE 13]
+SECOND ANGEL
+[VERSE 14]
+The planet where mortals dwell!
+I hear it not ... yes, I hear;
+How it deepens--a sound of dole!
+[VERSE 15]
+FIRST ANGEL
+[VERSE 16]
+Listen! It is the knell
+Of a passing soul--
+The midnight lamentation
+Of some stricken nation
+For a Chieftain's soul!
+It is just begun,
+The many-throated moan ...
+Now the clangor swells
+As if a million bells
+Had blent their tones in one!
+Accents of despair
+Are these to mortal ear;
+But all this wild funereal music blown
+And sifted through celestial air
+Turns to triumphal pæans here!
+Wave upon wave the silvery anthems flow;
+Wave upon wave the deep vibrations roll
+From that dim sphere below.
+Come, let us go--
+Surely, some chieftain's soul!
+
+--- TITLE: AN ODE ON THE UNVEILING OF THE SHAW MEMORIAL ON BOSTON COMMON
+--- SOURCE: PG47476
+[VERSE 1]
+  Not with slow, funereal sound
+  Come we to this sacred ground;
+Not with wailing fife and solemn muffled drum,
+  Bringing a cypress wreath
+    To lay, with bended knee,
+  On the cold brows of Death--
+    Not so, dear God, we come,
+  But with the trumpets' blare
+And shot-torn battle-banners flung to air,
+      As for a victory!
+[VERSE 2]
+Hark to the measured tread of martial feet,
+The music and the murmurs of the street!
+    No bugle breathes this day
+    Disaster and retreat!--
+    Hark, how the iron lips
+    Of the great battle-ships
+  Salute the City from her azure Bay!
+[VERSE 3]
+II
+[VERSE 4]
+Time was--time was, ah, unforgotten years!--
+We paid our hero tribute of our tears.
+      But now let go
+All sounds and signs and formulas of woe:
+  'Tis Life, not Death, we celebrate;
+  To Life, not Death, we dedicate
+This storied bronze, whereon is wrought
+The lithe immortal figure of our thought,
+  To show forever to men's eyes,
+  Our children's children's children's eyes,
+      How once he stood
+      In that heroic mood,
+    He and his dusky braves
+    So fain of glorious graves!--
+    One instant stood, and then
+Drave through that cloud of purple steel and flame,
+Which wrapt him, held him, gave him not again,
+But in its trampled ashes left to Fame
+      An everlasting name!
+[VERSE 5]
+III
+[VERSE 6]
+    That was indeed to live--
+    At one bold swoop to wrest
+    From darkling death the best
+    That death to life can give.
+    He fell as Roland fell
+    That day at Roncevaux,
+With foot upon the ramparts of the foe!
+    A pæan, not a knell,
+    For heroes dying so!
+    No need for sorrow here,
+    No room for sigh or tear,
+Save such rich tears as happy eyelids know.
+    See where he rides, our Knight!
+    Within his eyes the light
+Of battle, and youth's gold about his brow;
+Our Paladin, our Soldier of the Cross,
+    Not weighing gain with loss--
+    World-loser, that won all
+    Obeying duty's call!
+    Not his, at peril's frown,
+    A pulse of quicker beat;
+    Not his to hesitate
+    And parley hold with Fate,
+    But proudly to fling down
+    His gauntlet at her feet.
+O soul of loyal valor and white truth,
+    Here, by this iron gate,
+Thy serried ranks about thee as of yore,
+    Stand thou for evermore
+    In thy undying youth!
+The tender heart, the eagle eye!
+    Oh, unto him belong
+    The homages of Song;
+    Our praises and the praise
+    Of coming days
+    To him belong--
+To him, to him, the dead that shall not die!
+
+--- TITLE: UNGUARDED GATES
+--- SOURCE: PG47476
+[VERSE 1]
+Wide open and unguarded stand our gates,
+Named of the four winds, North, South, East, and West;
+Portals that lead to an enchanted land
+Of cities, forests, fields of living gold,
+Vast prairies, lordly summits touched with snow,
+Majestic rivers sweeping proudly past
+The Arab's date-palm and the Norseman's pine--
+A realm wherein are fruits of every zone,
+Airs of all climes, for lo! throughout the year
+The red rose blossoms somewhere--a rich land,
+A later Eden planted in the wilds,
+With not an inch of earth within its bound
+But if a slave's foot press it sets him free.
+Here, it is written, Toil shall have its wage,
+And Honor honor, and the humblest man
+Stand level with the highest in the law.
+Of such a land have men in dungeons dreamed,
+And with the vision brightening in their eyes
+Gone smiling to the fagot and the sword.
+[VERSE 2]
+  Wide open and unguarded stand our gates,
+And through them presses a wild motley throng--
+Men from the Volga and the Tartar steppes,
+Featureless figures of the Hoang-Ho,
+Malayan, Scythian, Teuton, Kelt, and Slav,
+Flying the Old World's poverty and scorn;
+These bringing with them unknown gods and rites,
+Those, tiger passions, here to stretch their claws.
+In street and alley what strange tongues are loud,
+Accents of menace alien to our air,
+Voices that once the Tower of Babel knew!
+[VERSE 3]
+  O Liberty, white Goddess! is it well
+To leave the gates unguarded? On thy breast
+Fold Sorrow's children, soothe the hurts of fate,
+Lift the down-trodden, but with hands of steel
+Stay those who to thy sacred portals come
+To waste the gifts of freedom. Have a care
+Lest from thy brow the clustered stars be torn
+And trampled in the dust. For so of old
+The thronging Goth and Vandal trampled Rome,
+And where the temples of the Cæsars stood
+The lean wolf unmolested made her lair.

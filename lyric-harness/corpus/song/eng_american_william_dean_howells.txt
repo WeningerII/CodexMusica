@@ -2,10 +2,14 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 3
 
 --- TITLE: In August
 --- SOURCE: PG15553
@@ -33,3 +37,40 @@ There is no wind to stir the leaves,
 Only the querulous cricket grieves,
 And shrilling locust weaves
   A song of Summer dead.
+
+--- TITLE: Earliest Spring
+--- SOURCE: PG66619
+[VERSE 1]
+Tossing his mane of snows in wildest eddies and tangles,
+  Lion-like March cometh in, hoarse, with tempestuous breath,
+Through all the moaning chimneys, and ’thwart all the hollows and angles
+  Round the shuddering house, threating of winter and death.
+[VERSE 2]
+But in my heart I feel the life of the wood and the meadow
+  Thrilling the pulses that own kindred with fibres that lift
+Bud and blade to the sunward, within the inscrutable shadow,
+  Deep in the oak’s chill core, under the gathering drift.
+[VERSE 3]
+Nay, to earth’s life in mine some prescience, or dream, or desire
+  (How shall I name it aright?) comes for a moment and goes--
+Rapture of life ineffable, perfect--as if in the brier,
+  Leafless there by my door, trembled a sense of the rose.
+
+--- TITLE: THE BATTLE IN THE CLOUDS
+--- SOURCE: PG47476
+[VERSE 1]
+Where the dews and the rains of heaven have their fountain,
+  Like its thunder and its lightning our brave burst on the foe,
+Up above the clouds on Freedom's Lookout Mountain
+  Raining life-blood like water on the valleys down below.
+    Oh, green be the laurels that grow,
+    Oh, sweet be the wild-buds that blow,
+In the dells of the mountain where the brave are lying low.
+[VERSE 2]
+Light of our hope and crown of our story,
+  Bright as sunlight, pure as starlight shall their deed of daring glow.
+While the day and the night out of heaven shed their glory,
+  On Freedom's Lookout Mountain whence they routed Freedom's foe.
+    Oh, soft be the gales when they go
+    Through the pines on the summit where they blow,
+Chanting solemn music for the souls that passed below.
