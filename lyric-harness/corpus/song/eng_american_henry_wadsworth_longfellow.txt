@@ -4,6 +4,8 @@
 # licence: public domain - Project Gutenberg; Houghton Mifflin Cambridge Edition; edition published 1902 -- The Complete Poetical Works of Henry Wadsworth Longfellow
 # source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Pass-1 same-gate top-up 2026-08-19)
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
+# source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -349,3 +351,221 @@ Still achieving, still pursuing,
               Thy flag, that is rent in twain,
               Shall be one again,
         And without a seam!
+
+--- TITLE: Nature
+--- SOURCE: PG15553
+[VERSE 1]
+As a fond mother, when the day is o'er,
+  Leads by the hand her little child to bed,
+  Half willing, half reluctant to be led,
+And leave his broken playthings on the floor,
+Still gazing at them through the open door,
+  Nor wholly reassured and comforted
+  By promises of others in their stead,
+Which, though more splendid, may not please him more,--
+So Nature deals with us, and takes away
+  Our playthings one by one, and by the hand
+    Leads us to rest so gently, that we go
+Scarce knowing if we wish to go or stay,
+  Being too full of sleep to understand
+    How far the unknown transcends the what we know.
+
+--- TITLE: The Day is Done
+--- SOURCE: PG15553
+[VERSE 1]
+The day is done, and the darkness
+  Falls from the wings of Night,
+As a feather is wafted downward
+  From an eagle in his flight.
+[VERSE 2]
+I see the lights of the village
+  Gleam through the rain and the mist,
+And a feeling of sadness comes o'er me
+  That my soul cannot resist:
+[VERSE 3]
+A feeling of sadness and longing,
+  That is not akin to pain,
+And resembles sorrow only
+  As the mist resembles the rain.
+[VERSE 4]
+Come, read to me some poem,
+  Some simple and heartfelt lay,
+That shall soothe this restless feeling,
+  And banish the thoughts of day.
+[VERSE 5]
+Not from the grand old masters,
+  Not from the bards sublime,
+Whose distant footsteps echo
+  Through the corridors of Time.
+[VERSE 6]
+For, like strains of martial music,
+  Their mighty thoughts suggest
+Life's endless toil and endeavor;
+  And to-night I long for rest.
+[VERSE 7]
+Read from some humbler poet,
+  Whose songs gushed from his heart,
+As showers from the clouds of summer,
+  Or tears from the eyelids start;
+[VERSE 8]
+Who, through long days of labor,
+  And nights devoid of ease,
+Still heard in his soul the music
+  Of wonderful melodies.
+[VERSE 9]
+Such songs have power to quiet
+  The restless pulse of care,
+And come like the benediction
+  That follows after prayer.
+[VERSE 10]
+Then read from the treasured volume
+  The poem of thy choice,
+And lend to the rhyme of the poet
+  The beauty of thy voice.
+[VERSE 11]
+And the night shall be filled with music,
+  And the cares that infest the day
+Shall fold their tents, like the Arabs,
+  And as silently steal away.
+
+--- TITLE: Sir Humphrey Gilbert
+--- SOURCE: PG15553
+[VERSE 1]
+Southward with fleet of ice
+  Sailed the corsair Death;
+Wild and fast blew the blast,
+  And the east-wind was his breath.
+[VERSE 2]
+His lordly ships of ice
+  Glisten in the sun;
+On each side, like pennons wide,
+  Flashing crystal streamlets run.
+[VERSE 3]
+His sails of white sea-mist
+  Dripped with silver rain;
+But where he passed there were cast
+  Leaden shadows o'er the main.
+[VERSE 4]
+Eastward from Campobello
+  Sir Humphrey Gilbert sailed;
+Three days or more seaward he bore,
+  Then, alas! the land-wind failed.
+[VERSE 5]
+Alas! the land-wind failed,
+  And ice-cold grew the night;
+And nevermore, on sea or shore,
+  Should Sir Humphrey see the light.
+[VERSE 6]
+He sat upon the deck,
+  The Book was in his hand;
+"Do not fear! Heaven is as near,"
+  He said, "by water as by land!"
+[VERSE 7]
+In the first watch of the night,
+  Without a signal's sound,
+Out of the sea, mysteriously,
+  The fleet of Death rose all around.
+[VERSE 8]
+The moon and the evening star
+  Were hanging in the shrouds;
+Every mast, as it passed,
+  Seemed to rake the passing clouds.
+[VERSE 9]
+They grappled with their prize,
+  At midnight black and cold!
+As of a rock was the shock;
+  Heavily the ground-swell rolled.
+[VERSE 10]
+Southward through day and dark,
+  They drift in close embrace,
+With mist and rain, o'er the open main;
+  Yet there seems no change of place.
+[VERSE 11]
+Southward, forever southward,
+  They drift through dark and day;
+And like a dream, in the Gulf Stream
+  Sinking, vanish all away.
+
+--- TITLE: The Fire of Driftwood
+--- SOURCE: PG15553
+[VERSE 1]
+We sat within the farmhouse old,
+  Whose windows, looking o'er the bay,
+Gave to the sea-breeze, damp and cold,
+  An easy entrance, night and day.
+[VERSE 2]
+Not far away we saw the port,
+  The strange, old-fashioned, silent town,
+The lighthouse, the dismantled fort,
+  The wooden houses, quaint and brown.
+[VERSE 3]
+We sat and talked until the night,
+  Descending, filled the little room;
+Our faces faded from the sight,
+  Our voices only broke the gloom.
+[VERSE 4]
+We spake of many a vanished scene,
+  Of what we once had thought and said,
+Of what had been, and might have been,
+  And who was changed, and who was dead;
+[VERSE 5]
+And all that fills the hearts of friends,
+  When first they feel, with secret pain,
+Their lives thenceforth have separate ends,
+  And never can be one again;
+[VERSE 6]
+The first slight swerving of the heart,
+  That words are powerless to express,
+And leave it still unsaid in part,
+  Or say it in too great excess.
+[VERSE 7]
+The very tones in which we spake
+  Had something strange, I could but mark;
+The leaves of memory seemed to make
+  A mournful rustling in the dark.
+[VERSE 8]
+Oft died the words upon our lips,
+  As suddenly, from out the fire
+Built of the wreck of stranded ships,
+  The flames would leap and then expire.
+[VERSE 9]
+And, as their splendor flashed and failed,
+  We thought of wrecks upon the main,
+Of ships dismasted, that were hailed
+  And sent no answer back again.
+[VERSE 10]
+The windows, rattling in their frames,
+  The ocean, roaring up the beach,
+The gusty blast, the bickering flames,
+  All mingled vaguely in our speech;
+[VERSE 11]
+Until they made themselves a part
+  Of fancies floating through the brain,
+The long-lost ventures of the heart,
+  That send no answers back again.
+[VERSE 12]
+O flames that glowed! O hearts that yearned!
+  They were indeed too much akin,
+The driftwood fire without that burned,
+  The thoughts that burned and glowed within.
+
+--- TITLE: The Tide Rises, the Tide Falls
+--- SOURCE: PG15553
+[VERSE 1]
+The tide rises, the tide falls,
+The twilight darkens, the curlew calls;
+Along the sea-sands damp and brown
+The traveller hastens toward the town,
+  And the tide rises, the tide falls.
+[VERSE 2]
+Darkness settles on roofs and walls,
+But the sea in the darkness calls and calls;
+The little waves, with their soft, white hands,
+Efface the footprints in the sands,
+  And the tide rises, the tide falls.
+[VERSE 3]
+The morning breaks; the steeds in their stalls
+Stamp and neigh, as the hostler calls;
+The day returns, but nevermore
+Returns the traveller to the shore,
+  And the tide rises, the tide falls.

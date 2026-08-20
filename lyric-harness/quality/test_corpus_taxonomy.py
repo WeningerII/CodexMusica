@@ -170,7 +170,14 @@ def test_backfilled_corpus():
     # Modern Scottish Minstrel (PG22515), one file per author (the load's
     # first cut, 238 files, was restaged the same sitting by the rev-2
     # parser — RESULTS_CORPUS_AUDIT.md's 2026-08-20 repin has the account).
-    check("all 388 eng files are seen", len(files) == 388)
+    # REPINNED 2026-08-20 (Tier-1 concurrent load): 388 -> 622 — 234 new
+    # per-author files from five already-ADMITted song anthologies
+    # (Southern War Songs, American War Ballads v2, Golden Treasury of
+    # American Songs, Elizabethan song-books, Victorian Songs),
+    # extracted by four parallel agents — each reconciled against its
+    # edition's own contents/index — and landed by a single writer
+    # behind the containment dedup.
+    check("all 622 eng files are seen", len(files) == 622)
     bad = []
     for p in files:
         bad.extend(TX.check_file(p, regions, functions))
@@ -201,15 +208,18 @@ def test_backfilled_corpus():
     # eng_celtic_walter_scott to the new Rob Donn file after the edition's
     # own 'ROBERT MACKAY (ROB DONN).' section heading proved the original
     # staging had mis-bounded Scott's section).
-    check("the report counts the corpus: 5,792 songs, zero undeclared "
+    # REPINNED 2026-08-20 (Tier-1 concurrent load): 5,792 -> 6,352 —
+    # +560 songs (514 in new files, 46 topped up into 18 existing
+    # files) after the dedup dropped 114 cross-source reprints.
+    check("the report counts the corpus: 6,352 songs, zero undeclared "
           "regions, undeclared functions counted APART (evidence-or-blank "
           "leaves most songs honestly untagged)",
-          r["songs"] == 5792 and r["undeclared_region"] == 0
+          r["songs"] == 6352 and r["undeclared_region"] == 0
           and r["undeclared_function"] > 3000
           and r["undeclared_function"] + sum(r["multi_tag"].values())
           == r["songs"])
     check("region totals partition the corpus (single-valued axis)",
-          sum(r["by_region"].values()) == 5792)
+          sum(r["by_region"].values()) == 6352)
 
 
 def test_manifest():

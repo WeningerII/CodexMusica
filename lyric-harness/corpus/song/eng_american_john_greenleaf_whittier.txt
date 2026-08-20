@@ -4,6 +4,10 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/The-Works-of-John-Greenleaf-Whittier-Complete_9600 9600.txt md5 e38e8e349b9a0ec143dd90eab82017c9
 # licence: public domain - Project Gutenberg; edition published 1892 -- The Works of John Greenleaf Whittier, Complete
+# source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Tier-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -1382,3 +1386,411 @@ And heaped on the land against him barred
 The coals of his generous watch and ward.
 Frailest and bravest! the Bay State still
 Counts with her worthies John Underhill.
+
+--- TITLE: BARBARA FRIETCHIE
+--- SOURCE: PG54211
+[VERSE 1]
+Up from the meadows rich with corn,
+Clear in the cool September morn,
+[VERSE 2]
+The cluster’d spires of Frederick stand
+Green-wall’d by the hills of Maryland.
+[VERSE 3]
+Round about them orchards sweep,
+Apple- and peach-trees fruited deep.
+[VERSE 4]
+Fair as the garden of the Lord
+To the eyes of the famish’d rebel horde,
+[VERSE 5]
+On that pleasant morn of the early fall,
+When Lee march’d over the mountain-wall,--
+[VERSE 6]
+Over the mountains winding down,
+Horse and foot, into Frederick town.
+[VERSE 7]
+Forty flags with their silver stars,
+Forty flags with their crimson bars,
+[VERSE 8]
+Flapp’d in the morning wind: the sun
+Of noon look’d down, and saw not one.
+[VERSE 9]
+Up rose old Barbara Frietchie then,
+Bow’d with her fourscore years and ten;
+[VERSE 10]
+Bravest of all in Frederick town,
+She took up the flag the men haul’d down;
+[VERSE 11]
+In her attic window the staff she set,
+To show that one heart was loyal yet.
+[VERSE 12]
+Up the street came the rebel tread,
+Stonewall Jackson riding ahead.
+[VERSE 13]
+Under his slouch’d hat left and right
+He glanced: the old flag met his sight.
+[VERSE 14]
+“Halt!”--the dust-brown ranks stood fast
+“Fire!”--out blazed the rifle blast.
+[VERSE 15]
+It shiver’d the window, pane and sash;
+It rent the banner with seam and gash.
+[VERSE 16]
+Quick, as it fell from the broken staff,
+Dame Barbara snatch’d the silken scarf.
+[VERSE 17]
+She lean’d far out on the window-sill,
+And shook it forth with a royal will.
+[VERSE 18]
+“Shoot, if you must, this old gray head,
+But spare your country’s flag,” she said.
+[VERSE 19]
+A shade of sadness, a blush of shame
+Over the face of the leader came.
+[VERSE 20]
+The nobler nature within him stirr’d
+To life at that woman’s deed and word:
+[VERSE 21]
+“Who touches a hair of yon gray head
+Dies like a dog! March on!” he said.
+[VERSE 22]
+All day long through Frederick street
+Sounded the tread of marching feet:
+[VERSE 23]
+All day long that free flag tost
+Over the heads of the rebel host.
+[VERSE 24]
+Ever its torn folds rose and fell
+On the loyal winds that loved it well;
+[VERSE 25]
+And through the hill-gaps sunset light
+Shone over it with a warm good-night.
+[VERSE 26]
+Barbara Frietchie’s work is o’er,
+And the rebel rides on his raids no more,
+[VERSE 27]
+Honor to her! and let a tear
+Fall, for her sake, on Stonewall’s bier.
+[VERSE 28]
+Over Barbara Frietchie’s grave,
+Flag of Freedom and Union, wave!
+[VERSE 29]
+Peace and order and beauty draw
+Round thy symbol of light and law;
+[VERSE 30]
+And ever the stars above look down
+On thy stars below in Frederick town!
+
+--- TITLE: Ichabod
+--- SOURCE: PG15553
+[VERSE 1]
+So fallen! so lost! the light withdrawn
+  Which once he wore!
+The glory from his gray hairs gone
+  Forevermore!
+[VERSE 2]
+Revile him not,--the Tempter hath
+  A snare for all;
+And pitying tears, not scorn and wrath,
+  Befit his fall!
+[VERSE 3]
+Oh, dumb be passion's stormy rage,
+  When he who might
+Have lighted up and led his age,
+  Falls back in night.
+[VERSE 4]
+Scorn! would the angels laugh, to mark
+  A bright soul driven,
+Fiend-goaded, down the endless dark,
+  From hope and heaven!
+[VERSE 5]
+Let not the land once proud of him
+  Insult him now,
+Nor brand with deeper shame his dim,
+  Dishonored brow.
+[VERSE 6]
+But let its humbled sons, instead,
+  From sea to lake,
+A long lament, as for the dead,
+  In sadness make.
+[VERSE 7]
+Of all we loved and honored, naught
+  Save power remains,--
+A fallen angel's pride of thought,
+  Still strong in chains.
+[VERSE 8]
+All else is gone; from those great eyes
+  The soul has fled:
+When faith is lost, when honor dies.
+  The man is dead!
+[VERSE 9]
+Then, pay the reverence of old days
+  To his dead fame;
+Walk backward, with averted gaze,
+  And hide the shame!
+
+--- TITLE: Skipper Ireson's Ride
+--- SOURCE: PG15553
+[VERSE 1]
+Of all the rides since the birth of time,
+Told in story or sung in rhyme,--
+On Apuleius's Golden Ass,
+Or one-eyed Calendar's horse of brass,
+Witch astride of a human back,
+Islam's prophet on Al-Borak,--
+The strangest ride that ever was sped
+Was Ireson's, out from Marblehead!
+  Old Floyd Ireson, for his hard heart,
+  Tarred and feathered and carried in a cart
+    By the women of Marblehead!
+[VERSE 2]
+Body of turkey, head of owl,
+Wings a-droop like a rained-on fowl,
+Feathered and ruffled in every part,
+Skipper Ireson stood in the cart.
+Scores of women, old and young,
+Strong of muscle, and glib of tongue,
+Pushed and pulled up the rocky lane,
+Shouting and singing the shrill refrain:
+  "Here's Flud Oirson, fur his horrd horrt,
+  Torr'd an' futherr'd an' corr'd in a corrt
+    By the women o' Morble'ead!"
+[VERSE 3]
+Wrinkled scolds with hands on hips,
+Girls in bloom of cheek and lips,
+Wild-eyed, free-limbed, such as chase
+Bacchus round some antique vase,
+Brief of skirt, with ankles bare,
+Loose of kerchief and loose of hair,
+With conch-shells blowing and fish-horns' twang,
+Over and over the Maenads sang:
+  "Here's Flud Oirson, fur his horrd horrt,
+  Torr'd an' futherr'd an' corr'd in a corrt
+    By the women o' Morble'ead!"
+[VERSE 4]
+Small pity for him!--He sailed away
+From a leaking ship, in Chaleur Bay,--
+Sailed away from a sinking wreck,
+With his own town's-people on her deck!
+"Lay by! lay by!" they called to him.
+Back he answered, "Sink or swim!
+Brag of your catch of fish again!"
+And off he sailed through the fog and rain!
+  Old Floyd Ireson, for his hard heart,
+  Tarred and feathered and carried in a cart
+    By the women of Marblehead!
+[VERSE 5]
+Fathoms deep in dark Chaleur
+That wreck shall lie forevermore.
+Mother and sister, wife and maid,
+Looked from the rocks of Marblehead
+Over the moaning and rainy sea,--
+Looked for the coming that might not be!
+What did the winds and the sea-birds say
+Of the cruel captain who sailed away?--
+  Old Floyd Ireson, for his hard heart,
+  Tarred and feathered and carried in a cart
+    By the women of Marblehead!
+[VERSE 6]
+Through the street, on either side,
+Up flew windows, doors swung wide;
+Sharp-tongued spinsters, old wives gray,
+Treble lent the fish-horn's bray.
+Sea-worn grandsires, cripple-bound,
+Hulks of old sailors run aground,
+Shook head, and fist, and hat, and cane,
+And cracked with curses the hoarse refrain:
+  "Here's Flud Oirson, fur his horrd horrt,
+  Torr'd an' futherr'd an' corr'd in a corrt
+    By the women o' Morble'ead!"
+[VERSE 7]
+Sweetly along the Salem road
+Bloom of orchard and lilac showed.
+Little the wicked skipper knew
+Of the fields so green and the sky so blue.
+Riding there in his sorry trim,
+Like an Indian idol glum and grim,
+Scarcely he seemed the sound to hear
+Of voices shouting, far and near:
+  "Here's Flud Oirson, fur his horrd horrt,
+  Torr'd an' futherr'd an' corr'd in a corrt
+    By the women o' Morble'ead!"
+[VERSE 8]
+"Hear me, neighbors!" at last he cried,--
+"What to me is this noisy ride?
+What is the shame that clothes the skin
+To the nameless horror that lives within?
+Waking or sleeping, I see a wreck,
+And hear a cry from a reeling deck!
+Hate me and curse me,--I only dread
+The hand of God and the face of the dead!"
+  Said old Floyd Ireson, for his hard heart,
+  Tarred and feathered and carried in a cart
+    By the women of Marblehead!
+[VERSE 9]
+Then the wife of the skipper lost at sea
+Said, "God has touched him! Why should we?"
+Said an old wife, mourning her only son:
+"Cut the rogue's tether and let him run!"
+So with soft relentings and rude excuse,
+Half scorn, half pity, they cut him loose,
+And gave him a cloak to hide him in,
+And left him alone with his shame and sin.
+  Poor Floyd Ireson, for his hard heart,
+  Tarred and feathered and carried in a cart
+    By the women of Marblehead!
+
+--- TITLE: My Playmate
+--- SOURCE: PG15553
+[VERSE 1]
+The pines were dark on Ramoth hill,
+  Their song was soft and low;
+The blossoms in the sweet May wind
+  Were falling like the snow.
+[VERSE 2]
+The blossoms drifted at our feet,
+  The orchard birds sang clear;
+The sweetest and the saddest day
+  It seemed of all the year.
+[VERSE 3]
+For, more to me than birds or flowers,
+  My playmate left her home,
+And took with her the laughing spring,
+  The music and the bloom.
+[VERSE 4]
+She kissed the lips of kith and kin,
+  She laid her hand in mine:
+What more could ask the bashful boy
+  Who fed her father's kine?
+[VERSE 5]
+She left us in the bloom of May:
+  The constant years told o'er
+Their seasons with as sweet May morns,
+  But she came back no more.
+[VERSE 6]
+I walk, with noiseless feet, the round
+  Of uneventful years;
+Still o'er and o'er I sow the spring
+  And reap the autumn ears.
+[VERSE 7]
+She lives where all the golden year
+  Her summer roses blow;
+The dusky children of the sun
+  Before her come and go.
+[VERSE 8]
+There haply with her jewelled hands
+  She smooths her silken gown,--
+No more the homespun lap wherein
+  I shook the walnuts down.
+[VERSE 9]
+The wild grapes wait us by the brook,
+  The brown nuts on the hill,
+And still the May-day flowers make sweet
+  The woods of Follymill.
+[VERSE 10]
+The lilies blossom in the pond,
+  The bird builds in the tree,
+The dark pines sing on Ramoth hill
+  The slow song of the sea.
+[VERSE 11]
+I wonder if she thinks of them,
+  And how the old time seems,
+If ever the pines of Ramoth wood
+  Are sounding in her dreams.
+[VERSE 12]
+I see her face, I hear her voice:
+  Does she remember mine?
+And what to her is now the boy
+  Who fed her father's kine?
+[VERSE 13]
+What cares she that the orioles build
+  For other eyes than ours,--
+That other hands with nuts are filled,
+  And other laps with flowers?
+[VERSE 14]
+O playmate in the golden time!
+  Our mossy seat is green,
+Its fringing violets blossom yet,
+  The old trees o'er it lean.
+[VERSE 15]
+The winds so sweet with birch and fern
+  A sweeter memory blow;
+And there in spring the veeries sing
+  The song of long ago.
+[VERSE 16]
+And still the pines of Ramoth wood
+  Are moaning like the sea,--
+The moaning of the sea of change
+  Between myself and thee!
+
+--- TITLE: Telling the Bees
+--- SOURCE: PG15553
+[VERSE 1]
+Here is the place; right over the hill
+  Runs the path I took;
+You can see the gap in the old wall still,
+  And the stepping-stones in the shallow brook.
+[VERSE 2]
+There is the house, with the gate red-barred,
+  And the poplars tall;
+And the barn's brown length, and the cattle-yard,
+  And the white horns tossing above the wall.
+[VERSE 3]
+There are the beehives ranged in the sun;
+  And down by the brink
+Of the brook are her poor flowers, weed-o'errun,--
+  Pansy and daffodil, rose and pink.
+[VERSE 4]
+A year has gone, as the tortoise goes,
+  Heavy and slow;
+And the same rose blows, and the same sun glows,
+  And the same brook sings of a year ago.
+[VERSE 5]
+There's the same sweet clover-smell in the breeze;
+  And the June sun warm
+Tangles his wings of fire in the trees,
+  Setting, as then, over Fernside farm.
+[VERSE 6]
+I mind me how with a lover's care
+  From my Sunday coat
+I brushed off the burrs, and smoothed my hair,
+  And cooled at the brookside my brow and throat.
+[VERSE 7]
+Since we parted, a month had passed,--
+  To love, a year;
+Down through the beeches I looked at last
+  On the little red gate and the well-sweep near.
+[VERSE 8]
+I can see it all now,--the slantwise rain
+  Of light through the leaves,
+The sundown's blaze on her window-pane,
+  The bloom of her roses under the eaves.
+[VERSE 9]
+Just the same as a month before,--
+  The house and the trees,
+The barn's brown gable, the vine by the door,--
+  Nothing changed but the hives of bees.
+[VERSE 10]
+Before them, under the garden wall,
+  Forward and back,
+Went, drearily singing, the chore-girl small,
+Draping each hive with a shred of black.
+[VERSE 11]
+Trembling, I listened; the summer sun
+  Had the chill of snow;
+For I knew she was telling the bees of one
+  Gone on the journey we all must go!
+[VERSE 12]
+Then I said to myself, "My Mary weeps
+  For the dead to-day;
+Haply her blind old grandsire sleeps
+  The fret and the pain of his age away."
+[VERSE 13]
+But her dog whined low; on the doorway sill,
+  With his cane to his chin,
+The old man sat; and the chore-girl still
+  Sung to the bees stealing out and in.
+[VERSE 14]
+And the song she was singing ever since
+  In my ear sounds on:
+"Stay at home, pretty bees, fly not hence!
+  Mistress Mary is dead and gone!"

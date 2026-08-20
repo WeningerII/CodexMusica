@@ -58,10 +58,12 @@ def test_item_readers():
     # Minstrel (PG22515). The run-1 CENSUS ARTIFACT itself still describes
     # the 143-file corpus (data/structure_census_eng.tsv is a snapshot,
     # dated); this check is about the READERS agreeing on the live tree.
-    check("the population: 388 eng_ files + 2 controls",
-          len(files) == 390
+    # REPINNED 2026-08-20 (Tier-1 concurrent load): 388 -> 622 eng files
+    # — 234 new per-author files from the five Tier-1 anthologies.
+    check("the population: 622 eng_ files + 2 controls",
+          len(files) == 624
           and sum(1 for f in files
-                  if os.path.basename(f).startswith("eng_")) == 388)
+                  if os.path.basename(f).startswith("eng_")) == 622)
     n_items = sum(len(CEN.items_of(f)) for f in files
                   if os.path.basename(f).startswith("eng_"))
     # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 — Pass-1 batch 1's 49
@@ -71,9 +73,12 @@ def test_item_readers():
     # eng_celtic_walter_scott to the new Rob Donn file after the edition's
     # own section heading proved the original staging had mis-bounded
     # Scott's section). Real growth the two readers still agree on.
+    # REPINNED 2026-08-20 (Tier-1 concurrent load): 5,792 -> 6,352 —
+    # +560 songs (514 in new files, 46 top-ups) after the containment
+    # dedup dropped 114 cross-source reprints.
     check("the --- TITLE: split reproduces build_song_frequency's own "
-          "item count EXACTLY — 5,792 over the 388 files",
-          n_items == 5792, n_items)
+          "item count EXACTLY — 6,352 over the 622 files",
+          n_items == 6352, n_items)
     son = CEN.items_of(os.path.join(HERE, "..", "corpus", "sonnets.txt"))
     check("sonnets.txt reads through battery.parse_sonnets: 152 items "
           "of 14 lines, Gutenberg matter excluded by the oracle's reader",

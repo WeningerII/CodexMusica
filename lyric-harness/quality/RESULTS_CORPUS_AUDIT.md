@@ -101,6 +101,51 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-20 (second sitting): 833 findings — 1 FAIL, 231
+> WARN, 601 NOTE**, over **748 files** (~~514 files, 429 NOTE~~, earlier
+> the same day). The **Tier-1 concurrent load** staged every remaining
+> personally-attributed item from five already-licence-ADMITted song
+> anthologies: Southern War Songs (PG37538), American War Ballads vol. 2
+> (PG54211), the Golden Treasury of American Songs and Lyrics (PG15553),
+> Lyrics from the Song-Books of the Elizabethan Age (PG27129), and
+> Victorian Songs (PG26715) — **234 new per-author files (514 songs) and
+> 46 top-up songs into 18 existing files**, the corpus's first
+> multi-agent sitting: four extraction agents ran in parallel, each
+> validating its own parse by full reconciliation against its edition's
+> own contents or first-line index (Golden Treasury 147 of 148 with the
+> 148th credited '(?)' by the edition itself; Victorian 131 of 131 with
+> a per-line ledger; Elizabethan all 234 index entries, 14 skipped where
+> the edition's credit names no person; the war-songs pair 175 of 298
+> body items, 123 skips recorded by reason — no printed attribution,
+> pseudonym-only, music/arranger/performer-only). A single writer then
+> landed everything behind the containment dedup, which dropped **114
+> cross-source reprints** — including the 58 Elizabethan items that were
+> the corpus's original Campion/Dowland staging from the same book,
+> found rather than assumed. Routing caught five edition-spelling
+> variants of existing corpus authors ('Paul Lawrence Dunbar', 'Stephen
+> Collins Foster', 'Father Ryan', 'Christina G. Rossetti', 'Dinah Maria
+> Mulock Craik') that would otherwise have made duplicate author files,
+> and merged joint-songbook items into the Campion file per that file's
+> own precedent. Per-author regions were adjudicated for the Victorian
+> anthology's new authors ('Victorian' is an era, not a region): 4
+> irish, 2 scottish, remainder english. THE LOAD'S OWN POST-WRITE CHECK
+> CAUGHT A FORMATTING DEFECT AND THE FIRST FIX WAS WRONG TOO: the
+> war-song books print chorus apparatus two ways — a stanza-heading
+> `CHORUS--text` STATES the chorus, and a bare trailing `CHORUS.` after
+> a later stanza is the printer's REPEAT POINTER — and the first render
+> staged both as verse text. A first repair mistyped the pointers as
+> `[CHORUS]` marks on the FOLLOWING verse (Goober Peas's verses 3-5
+> briefly became three choruses) before the shape census over the
+> extraction itself settled the semantics: 49 inline statements are real
+> `[CHORUS]` blocks, 105 trailing pointers are apparatus and are
+> stripped, the same reading the return machinery gives `&c.`. The
+> affected files were regenerated from the extraction, not patched.
+> WARN is UNCHANGED at 231 —
+> every new file ships its own per-file `local:` row with the staged
+> md5; the +172 NOTEs are all check G's elision-orthography disclosures
+> ('tis, o'er — 19th-century song verse triggers it by nature); FAIL is
+> the same pre-existing `fas_hafez.LICENSE.txt` mislabel.
+>
 > **REPINNED 2026-08-20: 661 findings — 1 FAIL, 231 WARN, 429 NOTE**, over
 > **514 files** (~~269 files, 202 NOTE~~, 2026-08-19). The owner-directed
 > mass load staged **245 new `eng_celtic_msm_*` files (812 songs)** — every

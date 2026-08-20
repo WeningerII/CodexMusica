@@ -427,7 +427,8 @@ def test_every_declared_source_reaches_a_row():
 
     EXERCISED, NOT MERELY QUIET — the zero below is only news if the check ran
     on something, and its silent failure mode is a regex that stops extracting
-    ids at all. 587 id-shaped `# source:` declarations across 514 files
+    ids at all. 837 id-shaped `# source:` declarations across 748 files
+    (REPINNED 2026-08-20 Tier-1 load; 587/514 at the Minstrel load)
     (REPINNED 2026-08-20 from 336/269: the Minstrel mass load's 245 files
     each declare the parent GITenberg id), 62 of which declare two or more;
     the handful of remaining `# source:` lines are the prose form
@@ -445,11 +446,13 @@ def test_every_declared_source_reaches_a_row():
     files, src = corpus()
     decls = {rel: cf.source_declarations() for rel, cf in files}
     total = sum(len(v) for v in decls.values())
-    check("587 id-shaped `# source:` declarations are checked, over 514 files",
-          total == 587 and len(files) == 514, (total, len(files)))
-    check("62 files declare two or more sources — the case the file-level "
+    check("837 id-shaped `# source:` declarations are checked, over 748 files",
+          total == 837 and len(files) == 748, (total, len(files)))
+    # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
+    # files gained their first second source citation.
+    check("70 files declare two or more sources — the case the file-level "
           "check cannot see",
-          sum(1 for v in decls.values() if len(v) > 1) == 62,
+          sum(1 for v in decls.values() if len(v) > 1) == 70,
           sum(1 for v in decls.values() if len(v) > 1))
     bad = [(rel, d) for rel, cf in files for d, _, _ in src.undeclared_sources(cf)]
     check("every declared `# source:` id reaches a data/sources.tsv row",
@@ -750,12 +753,15 @@ def test_item_level_near_duplication_series():
     `eng_*` files at ITEM_SHARED_MIN 8 (REPINNED 2026-08-20; the 143-file
     column is the 2026-08-16 record):
 
-        cut   pairs  within  cross          AT 143 FILES (2026-08-16)
-        0.30     43      39      4             39   39   0
-        0.50     38      35      3             35   35   0
-        0.60     31      31      0             31   31   0
-        0.80     24      24      0             24   24   0
-        1.00      5       5      0              5    5   0
+        cut   pairs  within  cross     AT 388 FILES     AT 143 FILES
+        0.30     46      39      7        43  39  4        39   39   0
+        0.50     40      35      5        38  35  3        35   35   0
+        0.60     31      31      0        31  31  0        31   31   0
+        0.80     24      24      0        24  24  0        24   24   0
+        1.00      5       5      0         5   5  0         5    5   0
+
+    (REPINNED 2026-08-20, Tier-1 concurrent load; the 388-file column is
+    the same day's Minstrel-load record, the 143-file column 2026-08-16.)
 
     THE CROSS-FILE ZERO HOLDS AT THE AUDIT'S OWN FLOOR (0.60) AND ABOVE.
     Below the floor the Minstrel mass load introduced four REAL cross-SOURCE
@@ -767,9 +773,17 @@ def test_item_level_near_duplication_series():
     Montgomery's Minstrel printing of 'Slavery That Was' against his own
     hymnal's 'Ages, ages have departed' (0.54), and Charles Mackay's
     'Cheer, Boys! Cheer!' against Henry Russell's parlour-song printing
-    (0.38). Each is a variant pair the dedup rail (floor 0.60) is CORRECT
-    to keep; deleting either half would erase a real printing. The
-    within-file series is UNCHANGED at every cut.
+    (0.38). The Tier-1 load added three more of the same kind: Lamar
+    Fontaine's 'All Quiet Along the Potomac To-Night' (Southern War
+    Songs' credit) against Ethel Lynn Beers's 'The Picket-Guard' at 0.55
+    AND against her second printing at 0.50 — the Civil War's most
+    famously CONTESTED attribution, and both credits are the editions'
+    own, so the corpus records the dispute rather than adjudicating it —
+    and Robert Jones's Elizabethan 'Love is a bable' against D'Urfey's
+    Leveridge-set printing a century later (0.38). Each is a variant pair
+    the dedup rail (floor 0.60) is CORRECT to keep; deleting either half
+    would erase a real printing. The within-file series is UNCHANGED at
+    every cut across both loads.
 
     The within-file count is NOT zero and is not claimed to be. 31 pairs
     remain, in the files where the source class does not decide which printing
@@ -785,8 +799,8 @@ def test_item_level_near_duplication_series():
     files, src = corpus()
     eng = [(r, c) for r, c in files if r.startswith("corpus/song/eng_")]
     recs = AC._item_signatures(eng)
-    check("388 eng_* files and 5,527 items are big enough to judge",
-          len({r for r, _ in eng}) == 388 and len(recs) == 5527,
+    check("622 eng_* files and 6,027 items are big enough to judge",
+          len({r for r, _ in eng}) == 622 and len(recs) == 6027,
           (len({r for r, _ in eng}), len(recs)))
     series = {}
     for cut in (0.30, 0.50, 0.60, 0.80, 1.00):
@@ -794,12 +808,12 @@ def test_item_level_near_duplication_series():
         within = sum(1 for _, _, s, b in ps if s[0] == b[0])
         series[cut] = (len(ps), within, len(ps) - within)
     check("NO cross-file item duplication survives at the audit's own 0.60 "
-          "floor or above — below it sit exactly the 4 named cross-source "
+          "floor or above — below it sit exactly the 7 named cross-source "
           "variant printings (Pagan~Burns, Home~Hogg, Montgomery~Montgomery, "
-          "Mackay~Russell)",
+          "Mackay~Russell, Fontaine~Beers x2, Jones~Durfey)",
           series[0.60][2] == 0 and series[0.80][2] == 0
-          and series[1.00][2] == 0 and series[0.30][2] == 4
-          and series[0.50][2] == 3, series)
+          and series[1.00][2] == 0 and series[0.30][2] == 7
+          and series[0.50][2] == 5, series)
     check("the within-file series is 39 / 35 / 31 / 24 / 5",
           [series[c][1] for c in (0.30, 0.50, 0.60, 0.80, 1.00)]
           == [39, 35, 31, 24, 5], series)

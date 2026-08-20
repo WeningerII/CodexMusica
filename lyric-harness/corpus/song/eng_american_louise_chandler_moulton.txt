@@ -4,6 +4,8 @@
 # licence: public domain - Project Gutenberg; Home Book of Verse first published 1912; edition published 1912 -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f
 # licence: public domain - Project Gutenberg; Home Book of Verse first published 1912; edition published 1912 -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -175,3 +177,46 @@ But she's only a child now, as you see,
 Only a child in her careless grace:
 When Love and Womanhood come this way
 Will anything sadden the flower-like face?
+
+--- TITLE: The House of Death
+--- SOURCE: PG15553
+[VERSE 1]
+Not a hand has lifted the latchet
+  Since she went out of the door--
+No footstep shall cross the threshold,
+  Since she can come in no more.
+[VERSE 2]
+There is rust upon locks and hinges,
+  And mold and blight on the walls,
+And silence faints in the chambers,
+  And darkness waits in the halls--
+[VERSE 3]
+Waits as all things have waited
+  Since she went, that day of spring,
+Borne in her pallid splendor
+  To dwell in the Court of the King:
+[VERSE 4]
+With lilies on brow and bosom,
+  With robes of silken sheen,
+And her wonderful, frozen beauty,
+  The lilies and silk between.
+[VERSE 5]
+Red roses she left behind her,
+  But they died long, long ago
+'Twas the odorous ghost of a blossom
+  That seemed through the dusk to glow.
+[VERSE 6]
+The garments she left mock the shadows
+  With hints of womanly grace,
+And her image swims in the mirror
+  That was so used to her face.
+[VERSE 7]
+The birds make insolent music
+  Where the sunshine riots outside,
+And the winds are merry and wanton
+  With the summer's pomp and pride.
+[VERSE 8]
+But into this desolate mansion,
+  Where Love has closed the door,
+Nor sunshine nor summer shall enter,
+  Since she can come in no more.
