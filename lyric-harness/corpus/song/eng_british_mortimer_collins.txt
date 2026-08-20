@@ -2,10 +2,14 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1876, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1876, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 5
+# songs: 8
 
 --- TITLE: TO F. C.
 --- SOURCE: PG26715
@@ -108,3 +112,81 @@ His minstrel thou, whose brown wings fly
   Through silent æther's sunnier climes.
 Ah, never may thy music die!
   Sing on, dear Thrush, amid the limes!
+
+--- TITLE: KATE TEMPLE'S SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Only a touch, and nothing more;
+Ah! but never so touched before!
+Touch of lip, was it?  Touch of hand?
+Either is easy to understand.
+Earth may be smitten with fire or frost -
+Never the touch of true love lost.
+[VERSE 2]
+Only a word, was it?  Scarce a word!
+Musical whisper, softly heard,
+Syllabled nothing - just a breath -
+'Twill outlast life and 'twill laugh at death.
+Love with so little can do so much -
+Only a word, sweet!  Only a touch!
+
+--- TITLE: Ad Chloen, M. A.
+--- SOURCE: PG2622
+[VERSE 1]
+Lady, very fair are you,
+And your eyes are very blue,
+And your hose;
+And your brow is like the snow,
+And the various things you know
+Goodness knows.
+[VERSE 2]
+And the rose-flush on your cheek,
+And your algebra and Greek
+Perfect are;
+And that loving lustrous eye
+Recognizes in the sky
+Every star.
+[VERSE 3]
+You have pouting piquant lips,
+You can doubtless an eclipse
+Calculate;
+But for your cerulean hue,
+I had certainly from you
+Met my fate.
+[VERSE 4]
+If by an arrangement dual
+I were Adams mixed with Whewell,
+Then some day
+I, as wooer, perhaps might come
+To so sweet an Artium
+Magistra.
+
+--- TITLE: If
+--- SOURCE: PG2622
+[VERSE 1]
+If life were never bitter,
+And love were always sweet,
+Then who would care to borrow
+A moral from to-morrow--
+If Thames would always glitter,
+And joy would ne'er retreat,
+If life were never bitter,
+And love were always sweet!
+[VERSE 2]
+If care were not the waiter
+Behind a fellow's chair,
+When easy-going sinners
+Sit down to Richmond dinners,
+And life's swift stream flows straighter,
+By Jove, it would be rare,
+If care were not the waiter
+Behind a fellow's chair.
+[VERSE 3]
+If wit were always radiant,
+And wine were always iced,
+And bores were kicked out straightway
+Through a convenient gateway;
+Then down the year's long gradient
+'Twere sad to be enticed,
+If wit were always radiant,
+And wine were always iced.

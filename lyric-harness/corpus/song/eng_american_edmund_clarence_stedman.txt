@@ -6,10 +6,16 @@
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1908, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1908, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1908, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 19
+# songs: 22
 
 --- TITLE: KEARNEY AT SEVEN PINES
 --- SOURCE: PG54211
@@ -1444,3 +1450,144 @@ Thine ancient tribes from round the sphere
       To see made one
   Their brood throughout Earth's greenest space,
   Land of the new and lordlier race!
+
+--- TITLE: "Voice of the Western Wind"
+--- SOURCE: PG2619
+[VERSE 1]
+Voice of the western wind!
+Thou singest from afar,
+Rich with the music of a land
+Where all my memories are;
+But in thy song I only hear
+The echo of a tone
+That fell divinely on my ear
+In days forever flown.
+[VERSE 2]
+Star of the western sky!
+Thou beamest from afar,
+With lustre caught from eyes I knew
+Whose orbs were each a star;
+But, oh, those orbs--too wildly bright--
+No more eclipse thine own,
+And never shall I find the light
+Of days forever flown!
+
+--- TITLE: THE DOORSTEP
+--- SOURCE: PG2620
+[VERSE 1]
+The conference-meeting through at last,
+We boys around the vestry waited
+To see the girls come tripping past,
+Like snow-birds willing to be mated.
+[VERSE 2]
+Not braver he that leaps the wall
+By level musket-flashes bitten,
+Than I, that stepped before them all
+Who longed to see me get the mitten.
+[VERSE 3]
+But no! she blushed and took my arm:
+We let the old folks have the highway,
+And started toward the Maple Farm
+Along a kind of lovers' by-way.
+[VERSE 4]
+I can't remember what we said, -
+'Twas nothing worth a song or story;
+Yet that rude path by which we sped
+Seemed all transformed and in a glory.
+[VERSE 5]
+The snow was crisp beneath our feet,
+The moon was full, the fields were gleaming;
+By hood and tippet sheltered sweet,
+Her face with youth and health was beaming.
+[VERSE 6]
+The little hand outside her muff
+(O sculptor! if you could but mold it)
+So lightly touched my jacket-cuff,
+To keep it warm I had to hold it.
+[VERSE 7]
+To have her with me there alone, -
+'Twas love and fear and triumph blended;
+At last we reached the foot-worn stone
+Where that delicious journey ended.
+[VERSE 8]
+The old folks, too, were almost home:
+Her dimpled hand the latches fingered,
+We heard the voices nearer come,
+Yet on the doorstep still we lingered.
+[VERSE 9]
+She shook her ringlets from her hood,
+And with a "Thank you, Ned!" dissembled;
+But yet I knew she understood
+With what a daring wish I trembled.
+[VERSE 10]
+A cloud passed kindly overhead,
+The moon was slyly peeping through it,
+Yet hid its face, as if it said -
+"Come, now or never! do it! do it!"
+[VERSE 11]
+My lips till then had only known
+The kiss of mother and of sister, -
+But somehow, full upon her own
+Sweet, rosy, darling mouth, - I kissed her!
+[VERSE 12]
+Perhaps 'twas boyish love: yet still,
+O listless woman! weary lover!
+To feel once more that fresh, wild thrill
+I'd give - but who can live youth over?
+
+--- TITLE: Provencal Lovers
+--- SOURCE: PG2622
+[VERSE 1]
+Within the garden of Beaucaire
+He met her by a secret stair,--
+The night was centuries ago.
+Said Aucassin, "My love, my pet,
+These old confessors vex me so!
+They threaten all the pains of hell
+Unless I give you up, ma belle";--
+Said Aucassin to Nicolette.
+[VERSE 2]
+"Now who should there in Heaven be
+To fill your place, ma tres-douce mie?
+To reach that spot I little care!
+There all the droning priests are met;
+All the old cripples, too, are there
+That unto shrines and altars cling
+To filch the Peter-pence we bring";--
+Said Aucassin to Nicolette.
+[VERSE 3]
+"There are the barefoot monks and friars
+With gowns well tattered by the briars,
+The saints who lift their eyes and whine:
+I like them not--a starveling set!
+Who'd care with folk like these to dine?
+The other road 'twere just as well
+That you and I should take, ma belle!"--
+Said Aucassin to Nicolette.
+[VERSE 4]
+"To purgatory I would go
+With pleasant comrades whom we know,
+Fair scholars, minstrels, lusty knights
+Whose deeds the land will not forget,
+The captains of a hundred fights,
+The men of valor and degree:
+We'll join that gallant company,"--
+Said Aucassin to Nicolette.
+[VERSE 5]
+"There, too, are jousts and joyance rare,
+And beauteous ladies debonair,
+The pretty dames, the merry brides,
+Who with their wedded lords coquette
+And have a friend or two besides,--
+And all in gold and trappings gay,
+With furs, and crests in vair and gray,"--
+Said Aucassin to Nicolette.
+[VERSE 6]
+"Sweet players on the cithern strings,
+And they who roam the world like kings,
+Are gathered there, so blithe and free!
+Pardie! I'd join them now, my pet,
+If you went also, ma douce mie!
+The joys of Heaven I'd forego
+To have you with me there below,"--
+Said Aucassin to Nicolette.

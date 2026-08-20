@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1908, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1908, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 12
+# songs: 16
 
 --- TITLE: WASHINGTON
 --- SOURCE: PG47476
@@ -766,3 +770,119 @@ Unto all, from sea to sea;
 And no fratricidal slaughter
 Shall defile its sacred water;
 But--the hand that ope'd the gate shall forever hold the key!
+
+--- TITLE: IF
+--- SOURCE: PG2620
+[VERSE 1]
+Oh, if the world were mine, Love,
+I'd give the world for thee!
+Alas! there is no sign, Love,
+Of that contingency.
+[VERSE 2]
+Were I a king, - which isn't
+To be considered now, -
+A diadem had glistened
+Upon that lovely brow.
+[VERSE 3]
+Had fame with laurels crowned me, -
+She hasn't, up to date, -
+Nor time nor change had found me
+To love and thee ingrate.
+[VERSE 4]
+If Death threw down his gage, Love,
+Though life is dear to me,
+I'd die, e'en of old age, Love,
+To win a smile from thee.
+[VERSE 5]
+But being poor, we part, dear,
+And love, sweet love, must die;
+Thou wilt not break thy heart, dear,
+No more, I think, shall I!
+
+--- TITLE: DON'T
+--- SOURCE: PG2620
+[VERSE 1]
+Your eyes were made for laughter:
+Sorrow befits them not;
+Would you be blithe hereafter,
+Avoid the lover's lot.
+[VERSE 2]
+The rose and lily blended
+Possess your cheeks so fair;
+Care never was intended
+To leave his furrows there.
+[VERSE 3]
+Your heart was not created
+To fret itself away,
+By being unduly mated
+To common human clay.
+[VERSE 4]
+But hearts were made for loving -
+Confound philosophy!
+Forget what I've been proving,
+Sweet Phyllis, and love me!
+
+--- TITLE: The V-a-s-e
+--- SOURCE: PG2622
+[VERSE 1]
+From the madding crowd they stand apart,
+The maidens four and the Work of Art;
+[VERSE 2]
+And none might tell from sight alone
+In which had Culture ripest grown,--
+[VERSE 3]
+The Gotham Million fair to see,
+The Philadelphia Pedigree,
+[VERSE 4]
+The Boston Mind of azure hue,
+Or the soulful Soul from Kalamazoo,--
+[VERSE 5]
+For all loved Art in a seemly way,
+With an earnest soul and a capital A.
+[VERSE 6]
+......
+[VERSE 7]
+Long they worshipped; but no one broke
+The sacred stillness, until up spoke
+[VERSE 8]
+The Western one from the nameless place,
+Who blushing said: "What a lovely vace!"
+[VERSE 9]
+Over three faces a sad smile flew,
+And they edged away from Kalamazoo.
+[VERSE 10]
+But Gotham's haughty soul was stirred
+To crush the stranger with one small word.
+[VERSE 11]
+Deftly hiding reproof in praise,
+She cries: "'Tis, indeed, a lovely vaze!"
+[VERSE 12]
+But brief her unworthy triumph when
+The lofty one from the home of Penn,
+[VERSE 13]
+With the consciousness of two grandpapas,
+Exclaims: "It is quite a lovely vahs!"
+[VERSE 14]
+And glances round with an anxious thrill,
+Awaiting the word of Beacon Hill.
+[VERSE 15]
+But the Boston maid smiles courteouslee,
+And gently murmurs: "Oh pardon me!
+[VERSE 16]
+"I did not catch your remark, because
+I was so entranced with that charming vaws!"
+[VERSE 17]
+Dies erit praegelida
+Sinistra quum Bostonia.
+
+--- TITLE: The Net of Law
+--- SOURCE: PG2622
+[VERSE 1]
+The net of law is spread so wide,
+No sinner from its sweep may hide.
+[VERSE 2]
+Its meshes are so fine and strong,
+They take in every child of wrong.
+[VERSE 3]
+O wondrous web of mystery!
+Big fish alone escape from thee!

@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1894, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 2
 
 --- TITLE: KENTUCKY BELLE
 --- SOURCE: PG47476
@@ -156,3 +158,51 @@ The lad had got across the border, riding Kentucky Belle;
 And Kentuck she was thriving, and fat, and hearty, and well;
 He cared for her, and kept her, nor touched her with whip or spur.
 Ah! we've had many horses since, but never a horse like her!
+
+--- TITLE: Yellow Jessamine
+--- SOURCE: PG2621
+[VERSE 1]
+In tangled wreaths, in clustered gleaming stars,
+In floating, curling sprays,
+The golden flower comes shining through the woods
+These February days;
+Forth go all hearts, all hands, from out the town,
+To bring her gayly in,
+This wild, sweet Princess of far Florida--
+The yellow jessamine.
+[VERSE 2]
+The live-oaks smile to see her lovely face
+Peep from the thickets; shy,
+She hides behind the leaves her golden buds
+Till, bolder grown, on high
+She curls a tendril, throws a spray, then flings
+Herself aloft in glee,
+And, bursting into thousand blossoms, swings
+In wreaths from tree to tree.
+[VERSE 3]
+The dwarf-palmetto on his knees adores
+This Princess of the air;
+The lone pine-barren broods afar and sighs,
+"Ah! come, lest I despair;"
+The myrtle-thickets and ill-tempered thorns
+Quiver and thrill within,
+As through their leaves they feel the dainty touch
+Of yellow jessamine.
+[VERSE 4]
+The garden-roses wonder as they see
+The wreaths of golden bloom,
+Brought in from the far woods with eager haste
+To deck the poorest room,
+The rich man's house, alike; the loaded hands
+Give sprays to all they meet,
+Till, gay with flowers, the people come and go,
+And all the air is sweet.
+[VERSE 5]
+The Southern land, well weary of its green
+Which may not fall nor fade,
+Bestirs itself to greet the lovely flower
+With leaves of fresher shade;
+The pine has tassels, and the orange-trees
+Their fragrant work begin:
+The spring has come--has come to Florida,
+With yellow jessamine.

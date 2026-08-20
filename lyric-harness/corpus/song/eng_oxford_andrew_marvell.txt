@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1678; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1678, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 7
+# songs: 8
 
 --- TITLE: An Horatian Ode
 --- SOURCE: PG66619
@@ -439,3 +441,139 @@ Modest as morn, as mid-day bright,
 Gentle as evening, cool as night:
 --’Tis true; but all too weakly said.
 ’Twas more significant, she’s dead.
+
+--- TITLE: The Nymph Complaining for the Death of her Fawn
+--- SOURCE: PG2622
+[VERSE 1]
+The wanton troopers riding by
+Have shot my fawn, and it will die.
+Ungentle men!  They cannot thrive
+Who killed thee.  Thou ne'er didst, alive,
+Them any harm; alas! nor could
+Thy death to them do any good.
+I'm sure I never wished them ill,
+Nor do I for all this; nor will:
+But, if my simple prayers may yet
+Prevail with Heaven to forget
+Thy murder, I will join my tears
+Rather than fail.  But O my fears!
+It cannot die so.  Heaven's King
+Keeps register of everything,
+And nothing may we use in vain;
+Even beasts must be with justice slain;
+Else men are made their deodands.
+Though they should wash their guilty hands
+In this warm life-blood, which doth part
+From thine, and wound me to the heart,
+Yet could they not be clean; their stain
+Is dyed in such a purple grain,
+There is not such another in
+The world to offer for their sin.
+[VERSE 2]
+Inconstant Sylvio, when yet
+I had not found him counterfeit,
+One morning, I remember well,
+Tied in this silver chain and bell,
+Gave it to me: nay, and I know
+What he said then--I'm sure I do.
+Said he, "Look how your huntsman here
+Hath taught a fawn to hunt his deer!"
+But Sylvio soon had me beguiled:
+This waxed tame, while he grew wild,
+And, quite regardless of my smart,
+Left me his fawn, but took his heart.
+[VERSE 3]
+Thenceforth I set myself to play
+My solitary time away
+With this; and very well content
+Could so mine idle life have spent;
+For it was full of sport, and light
+Of foot and heart, and did invite
+Me to its game: it seemed to bless
+Itself in me.  How could I less
+Than love it?  Oh, I cannot be
+Unkind to a beast that loveth me!
+[VERSE 4]
+Had it lived long, I do not know
+Whether it, too, might have done so
+As Sylvio did; his gifts might be
+Perhaps as false, or more, than he.
+But I am sure, for aught that I
+Could in so short a time espy,
+Thy love was far more better than
+The love of false and cruel man.
+[VERSE 5]
+With sweetest milk and sugar first
+I it at mine own fingers nursed;
+And as it grew, so every day,
+It waxed more white and sweet than they.
+It had so sweet a breath! and oft
+I blushed to see its foot more soft,
+And white, shall I say? than my hand--
+Nay, any lady's of the land!
+[VERSE 6]
+It was a wondrous thing how fleet
+'Twas on those little silver feet.
+With what a pretty skipping grace
+It oft would challenge me the race;
+And when't had left me far away,
+'Twould stay, and run again, and stay;
+For it was nimbler much than hinds,
+And trod as if on the four winds.
+[VERSE 7]
+I have a garden of my own,
+But so with roses overgrown,
+And lilies, that you would it guess
+To be a little wilderness;
+And all the spring-time of the year
+It loved only to be there.
+Among the beds of lilies I
+Have sought it oft, where it should lie,
+Yet could not, till itself would rise,
+Find it, although before mine eyes;
+For in the flaxen lilies' shade,
+It like a bank of lilies laid.
+Upon the roses it would feed,
+Until its lips e'en seemed to bleed;
+And then to me 'twould boldly trip,
+And print those roses on my lip.
+But all its chief delight was still
+On roses thus itself to fill;
+And its pure virgin lips to fold
+In whitest sheets of lilies cold.
+Had it lived long, it would have been
+Lilies without, roses within.
+[VERSE 8]
+O help!  O help! I see it faint
+And die as calmly as a saint!
+See how it weeps! the tears do come
+Sad, slowly, dropping like a gum.
+So weeps the wounded balsam; so
+The holy frankincense doth flow;
+The brotherless Heliades
+Melt in such amber tears as these.
+[VERSE 9]
+I in a golden vial will
+Keep these two crystal tears, and fill
+It, till it doth overflow, with mine,
+Then place it in Diana's shrine.
+[VERSE 10]
+Now my sweet fawn is vanished to
+Whither the swans and turtles go;
+In fair Elysium to endure
+With milk-white lambs and ermines pure.
+O, do not run too fast, for I
+Will but bespeak thy grave, and die.
+[VERSE 11]
+First my unhappy statue shall
+Be cut in marble; and withal
+Let it be weeping too; but there
+The engraver sure his art may spare;
+For I so truly thee bemoan
+That I shall weep though I be stone,
+Until my tears, still dropping, wear
+My breast, themselves engraving there;
+Then at my feet shalt thou be laid,
+Of purest alabaster made;
+For I would have thine image be
+White as I can, though not as thee.

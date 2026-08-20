@@ -4,10 +4,12 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1892, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 5
+# songs: 6
 
 --- TITLE: Her Epitaph
 --- SOURCE: PG15553
@@ -188,3 +190,36 @@ On thy grave the rain shall fall from the eyes of a mighty nation!
     Shall grow the goodly pine upon it,
     Long as the stars do gleam upon it
     Shall Memory come to dream upon it.
+
+--- TITLE: Obituary
+--- SOURCE: PG2619
+[VERSE 1]
+Finding Francesca full of tears, I said,
+"Tell me thy trouble."  "Oh, my dog is dead!
+Murdered by poison!--no one knows for what!--
+Was ever dog born capable of that?"
+"Child,"--I began to say, but checked my thought,--
+"A better dog can easily be bought."
+For no--what animal could him replace?
+Those loving eyes!  That fond, confiding face!
+Those dear, dumb touches!  Therefore I was dumb.
+From word of mine could any comfort come?
+A bitter sorrow 'tis to lose a brute
+Friend, dog or horse, for grief must then be mute,--
+So many smile to see the rivers shed
+Of tears for one poor, speechless creature dead.
+When parents die there's many a word to say--
+Kind words, consoling_--one can always pray;
+When children die 'tis natural to tell
+Their mother, "Certainly, with them 'tis well!"
+But for a dog, 'twas all the life he had,
+Since death is end of dogs, or good or bad.
+This was his world; he was contented here;
+Imagined nothing better, naught more dear,
+Than his young mistress; sought no brighter sphere;
+Having no sin, asked not to be forgiven;
+Ne'er guessed at God nor ever dreamed of heaven.
+Now he has passed away, so much of love
+Goes from our life, without one hope above!
+When a dog dies there's nothing to be said
+But--kiss me, darling!--dear old Smiler's dead.

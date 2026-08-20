@@ -4,10 +4,14 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1895, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1895, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 12
 
 --- TITLE: A GARDEN LYRIC.
 --- SOURCE: PG26715
@@ -148,3 +152,460 @@ Sing thy song, thou trancèd thrush,
   Pipe thy best, thy clearest;--
 Hush, her lattice moves, O hush--
   _Dearest Mabel!--dearest ..._
+
+--- TITLE: RHYME OF ONE
+--- SOURCE: PG2619
+[VERSE 1]
+You sleep upon your mother's breast,
+Your race begun,
+A welcome, long a wished-for Guest,
+Whose age is One.
+[VERSE 2]
+A Baby-Boy, you wonder why
+You cannot run;
+You try to talk--how hard you try!--
+You're only One.
+[VERSE 3]
+Ere long you won't be such a dunce:
+You'll eat your bun,
+And fly your kite, like folk who once
+Were only One.
+[VERSE 4]
+You'll rhyme and woo, and fight and joke,
+Perhaps you'll pun!
+Such feats are never done by folk
+Before they're One.
+[VERSE 5]
+Some day, too, you may have your joy,
+And envy none;
+Yes, you, yourself, may own a Boy,
+Who isn't One.
+[VERSE 6]
+He'll dance, and laugh, and crow; he'll do
+As you have done:
+(You crown a happy home, though you
+Are only One.)
+[VERSE 7]
+But when he's grown shall you be here
+To share his fun,
+And talk of times when he (the Dear!)
+Was hardly One?
+[VERSE 8]
+Dear Child, 'tis your poor lot to be
+My little Son;
+I'm glad, though I am old, you see,--
+While you are One.
+
+--- TITLE: To my Grandmother
+--- SOURCE: PG2622
+[VERSE 1]
+Under the elm a rustic seat
+Was merriest Susan's pet retreat
+To merry-make
+[VERSE 2]
+This Relative of mine
+Was she seventy-and-nine
+When she died?
+By the canvas may be seen
+How she looked at seventeen,
+As a Bride.
+[VERSE 3]
+Beneath a summer tree
+Her maiden reverie
+Has a charm;
+Her ringlets are in taste;
+What an arm! and what a waist
+For an arm!
+[VERSE 4]
+With her bridal-wreath, bouquet,
+Lace farthingale, and gay
+Falbala,--
+If Romney's touch be true,
+What a lucky dog were you,
+Grandpapa!
+[VERSE 5]
+Her lips are sweet as love;
+They are parting!  Do they move?
+Are they dumb?
+Her eyes are blue, and beam
+Beseechingly, and seem
+To say, "Come!"
+[VERSE 6]
+What funny fancy slips
+From atween these cherry lips?
+Whisper me,
+Fair Sorceress in paint,
+What canon says I mayn't
+Marry thee?
+[VERSE 7]
+That good-for-nothing Time
+Has a confidence sublime!
+When I first
+Saw this Lady, in my youth,
+Her winters had, forsooth,
+Done their worst.
+[VERSE 8]
+Her locks, as white as snow,
+Once shamed the swarthy crow;
+By-and-by
+That fowl's avenging sprite
+Set his cruel foot for spite
+Near her eye.
+[VERSE 9]
+Her rounded form was lean,
+And her silk was bombazine:
+Well I wot
+With her needles would she sit,
+And for hours would she knit.--
+Would she not?
+[VERSE 10]
+Ah perishable clay!
+Her charms had dropped away
+One by one:
+But if she heaved a sigh
+With a burden, it was, "Thy
+Will be done."
+[VERSE 11]
+In travail, as in tears,
+With the fardel of her years
+Overpressed,
+In mercy she was borne
+Where the weary and the worn
+Are at rest.
+[VERSE 12]
+Oh, if you now are there,
+And sweet as once you were,
+Grandmamma,
+This nether world agrees
+You'll all the better please
+Grandpapa.
+
+--- TITLE: My Mistress's Boots
+--- SOURCE: PG2622
+[VERSE 1]
+She has dancing eyes and ruby lips,
+Delightful boots--and away she skips
+[VERSE 2]
+They nearly strike me dumb,--
+I tremble when they come
+Pit-a-pat:
+This palpitation means
+These Boots are Geraldine's--
+Think of that!
+[VERSE 3]
+O, where did hunter win
+So delicate a skin
+For her feet?
+You lucky little kid,
+You perished, so you did,
+For my Sweet.
+[VERSE 4]
+The fairy stitching gleams
+On the sides, and in the seams,
+And reveals
+That the Pixies were the wags
+Who tipped these funny tags,
+And these heels.
+[VERSE 5]
+What soles to charm an elf!--
+Had Crusoe, sick of self,
+Chanced to view
+One printed near the tide,
+O, how hard he would have tried
+For the two!
+[VERSE 6]
+For Gerry's debonair,
+And innocent and fair
+As a rose;
+She's an Angel in a frock,--
+She's an Angel with a clock
+To her hose!
+[VERSE 7]
+The simpletons who squeeze
+Their pretty toes to please
+Mandarins,
+Would positively flinch
+From venturing to pinch
+Geraldine's.
+[VERSE 8]
+Cinderella's lefts and rights
+To Geraldine's were frights:
+And I trow
+The Damsel, deftly shod,
+Has dutifully trod
+Until now.
+[VERSE 9]
+Come, Gerry, since it suits
+Such a pretty Puss (in Boots)
+These to don,
+Set your dainty hand awhile
+On my shoulder, Dear, and I'll
+Put them on.
+
+--- TITLE: A Garden Lyric
+--- SOURCE: PG2622
+[VERSE 1]
+Dite, Damasippe, deaeque
+Verum ob consilium donent tonsore.
+[VERSE 2]
+We have loitered and laughed in the flowery croft,
+We have met under wintry skies;
+Her voice is the dearest voice, and soft
+Is the light in her wistful eyes;
+It is bliss in the silent woods, among
+Gay crowds, or in any place,
+To mould her mind, to gaze in her young
+Confiding face.
+[VERSE 3]
+For ever may roses divinely blow,
+And wine-dark pansies charm
+By that prim box path where I felt the glow
+Of her dimpled, trusting arm,
+And the sweep of her silk as she turned and smiled
+A smile as pure as her pearls;
+The breeze was in love with the darling Child,
+And coaxed her curls.
+[VERSE 4]
+She showed me her ferns and woodbine sprays,
+Foxglove and jasmine stars,
+A mist of blue in the beds, a blaze
+Of red in the celadon jars:
+And velvety bees in convolvulus bells,
+And roses of bountiful Spring.
+But I said--"Though roses and bees have spells,
+They have thorn, and sting."
+[VERSE 5]
+She showed me ripe peaches behind a net
+As fine as her veil, and fat
+Goldfish a-gape, who lazily met
+For her crumbs--I grudged them that!
+A squirrel, some rabbits with long lop ears,
+And guinea-pigs, tortoise-shell--wee;
+And I told her that eloquent truth inheres
+In all we see.
+[VERSE 6]
+I lifted her doe by its lops, quoth I,
+"Even here deep meaning lies,--
+Why have squirrels these ample tails, and why
+Have rabbits these prominent eyes?"
+She smiled and said, as she twirled her veil,
+"For some nice little cause, no doubt--
+If you lift a guinea-pig up by the tail
+His eyes drop out!"
+
+--- TITLE: Mrs. Smith
+--- SOURCE: PG2622
+[VERSE 1]
+Heigh-ho! they're wed. The cards are dealt,
+Our frolic games are o'er;
+I've laughed, and fooled, and loved. I've felt--
+As I shall feel no more!
+Yon little thatch is where she lives,
+Yon spire is where she met me;--
+I think that if she quite forgives,
+She cannot quite forget me.
+[VERSE 2]
+Last year I trod these fields with Di,--
+Fields fresh with clover and with rye;
+They now seem arid:
+Then Di was fair and single; how
+Unfair it seems on me, for now
+Di's fair,--and married!
+[VERSE 3]
+A blissful swain,--I scorned the song
+Which tells us though young Love is strong,
+The Fates are stronger:
+Then breezes blew a boon to men,
+Then buttercups were bright, and then
+The grass was longer.
+[VERSE 4]
+That day I saw, and much esteemed,
+Di's ankles, that the clover seemed
+Inclined to smother:
+It twitched, and soon untied (for fun)
+The ribbons of her shoes, first one,
+And then the other.
+[VERSE 5]
+I'm told that virgins augur some
+Misfortune if their shoe-strings come
+To grief on Friday:
+And so did Di,--and then her pride
+Decreed that shoe-strings so untied,
+Are "so untidy!"
+[VERSE 6]
+Of course I knelt; with fingers deft
+I tied the right, and tied the left:
+Says Di, "This stubble
+Is very stupid!--as I live
+I'm quite ashamed!--I'm shocked to give
+You so much trouble!"
+[VERSE 7]
+For answer I was fain to sink
+To what we all would say and think
+Were Beauty present:
+"Don't mention such a simple act--
+A trouble? not the least!  In fact
+It's rather pleasant!"
+[VERSE 8]
+I trust that Love will never tease
+Poor little Di, or prove that he's
+A graceless rover.
+She's happy now as Mrs. Smith--
+But less polite when walking with
+Her chosen lover!
+[VERSE 9]
+Heigh-ho!  Although no moral clings
+To Di's blue eyes, and sandal strings,
+We had our quarrels.
+I think that Smith is thought an ass,--
+I know that when they walk in grass
+She wears balmorals.
+
+--- TITLE: The Skeleton in the Cupboard
+--- SOURCE: PG2622
+[VERSE 1]
+The characters of great and small
+Come ready made, we can't bespeak one;
+Their sides are many, too, and all
+(Except ourselves) have got a weak one.
+Some sanguine people love for life,
+Some love their hobby till it flings them.
+How many love a pretty wife
+For love of the eclat she brings them!...
+[VERSE 2]
+A little to relieve my mind
+I've thrown off this disjointed chatter,
+But more because I'm disinclined
+To enter on a painful matter:
+Once I was bashful; I'll allow
+I've blushed for words untimely spoken;
+I still am rather shy, and now...
+And now the ice is fairly broken.
+[VERSE 3]
+We all have secrets: you have one
+Which may n't be quite your charming spouse's;
+We all lock up a Skeleton
+In some grim chamber of our houses;
+Familiars who exhaust their days
+And nights in probing where our smart is,
+And who, for all their spiteful ways,
+Are "silent, unassuming Parties."
+[VERSE 4]
+We hug this Phantom we detest,
+Rarely we let it cross our portals:
+It is a most exacting guest,
+And we are much afflicted mortals.
+Your neighbor Gay, that jovial wight,
+As Dives rich, and brave as Hector,
+Poor Gay steals twenty times a night,
+On shaking knees, to see his Specter.
+[VERSE 5]
+Old Dives fears a pauper fate,
+So hoarding is his ruling passion:--
+Some gloomy souls anticipate
+A waistcoat, straiter than the fashion!
+She childless pines, that lonely wife,
+And secret tears are bitter shedding;
+Hector may tremble all his life,
+And die,--but not of that he's dreading....
+[VERSE 6]
+Ah me, the World!  How fast it spins!
+The beldams dance, the caldron bubbles;
+They shriek, they stir it for our sins,
+And we must drain it for our troubles.
+We toil, we groan; the cry for love
+Mounts up from this poor seething city,
+And yet I know we have above
+A Father, infinite in pity.
+[VERSE 7]
+When Beauty smiles, when Sorrow weeps,
+Where sunbeams play, where shadows darken,
+One inmate of our dwelling keeps
+Its ghastly carnival; but hearken!
+How dry the rattle of the bones!
+That sound was not to make you start meant:
+Stand by!  Your humble servant owns
+The Tenant of this Dark Apartment.
+
+--- TITLE: A Terrible Infant
+--- SOURCE: PG2622
+[VERSE 1]
+I recollect a nurse called Ann,
+Who carried me about the grass,
+And one fine day a fine young man
+Came up, and kissed the pretty lass:
+She did not make the least objection!
+Thinks I, "Aha!
+When I can talk I'll tell Mamma"
+--And that's my earliest recollection.
+
+--- TITLE: A Nice Correspondent
+--- SOURCE: PG2622
+[VERSE 1]
+"There are plenty of roses" (the patriarch speaks)
+"Alas not for me, on your lips and your cheeks;
+Fair maiden rose-laden enough and to spare,
+Spare, spare me that rose that you wear in your hair."
+[VERSE 2]
+The glow and the glory are plighted
+To darkness, for evening is come;
+The lamp in Glebe Cottage is lighted,
+The birds and the sheep-bells are dumb.
+I'm alone, for the others have flitted
+To dine with a neighbor at Kew:
+Alone, but I'm not to be pitied--
+I'm thinking of you!
+[VERSE 3]
+I wish you were here!  Were I duller
+Than dull, you'd be dearer than dear;
+I am dressed in your favorite color--
+Dear Fred, how I wish you were here!
+I am wearing my lazuli necklace,
+The necklace you fastened askew!
+Was there ever so rude or so reckless
+A Darling as you?
+[VERSE 4]
+I want you to come and pass sentence
+On two or three books with a plot;
+Of course you know "Janet's Repentance"?
+I am reading Sir Waverley Scott.
+That story of Edgar and Lucy,
+How thrilling, romantic, and true!
+The Master (his bride was a goosey!)
+Reminds me of you.
+[VERSE 5]
+They tell me Cockaigne has been crowning
+A Poet whose garland endures;--
+It was you that first told me of Browning,--
+That stupid old Browning of yours!
+His vogue and his verve are alarming,
+I'm anxious to give him his due;
+But, Fred, he's not nearly so charming
+A Poet as you!
+[VERSE 6]
+I heard how you shot at The Beeches,
+I saw how you rode Chanticleer,
+I have read the report of your speeches,
+And echoed the echoing cheer.
+There's a whisper of hearts you are breaking,
+Dear Fred, I believe it, I do!
+Small marvel that Folly is making
+Her Idol of you!
+[VERSE 7]
+Alas for the World, and its dearly
+Bought triumph,--its fugitive bliss;
+Sometimes I half wish I were merely
+A plain or a penniless Miss;
+But, perhaps, one is blest with "a measure
+Of pelf," and I'm not sorry, too,
+That I'm pretty, because it's a pleasure,
+My Darling, to you!
+[VERSE 8]
+Your whim is for frolic and fashion,
+Your taste is for letters and art;--
+This rhyme is the commonplace passion
+That glows in a fond woman's heart:
+Lay it by in some sacred deposit
+For relics--we all have a few!
+Love, some day they'll print it, because it
+Was written to You.

@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1904, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 2
 
 --- TITLE: WHEN THE GREAT GRAY SHIPS COME IN
 --- SOURCE: PG47476
@@ -52,3 +54,62 @@ And the long gray miles slip swiftly past in a swirl of seething foam,
 And the people wait at the haven's gate to greet the men who win!
 Thank God for peace! Thank God for peace, when the great gray ships come
     in!
+
+--- TITLE: The Sycophantic Fox and the Gullible Raven
+--- SOURCE: PG2622
+[VERSE 1]
+A raven sat upon a tree,
+And not a word he spoke, for
+His beak contained a piece of Brie,
+Or, maybe, it was Roquefort?
+We'll make it any kind you please--
+At all events, it was a cheese.
+[VERSE 2]
+Beneath the tree's umbrageous limb
+A hungry fox sat smiling;
+He saw the raven watching him,
+And spoke in words beguiling:
+"J'admire," said he, "ton beau plumage,"
+(The which was simply persiflage).
+[VERSE 3]
+Two things there are, no doubt you know,
+To which a fox is used,--
+A rooster that is bound to crow,
+A crow that's bound to roost,
+And whichsoever he espies
+He tells the most unblushing lies.
+[VERSE 4]
+"Sweet fowl," he said, "I understand
+You're more than merely natty:
+I hear you sing to beat the band
+And Adelina Patti.
+Pray render with your liquid tongue
+A bit from 'Gotterdammerung.'"
+[VERSE 5]
+This subtle speech was aimed to please
+The crow, and it succeeded:
+He thought no bird in all the trees
+Could sing as well as he did.
+In flattery completely doused,
+He gave the "Jewel Song" from "Faust."
+[VERSE 6]
+But gravitation's law, of course,
+As Isaac Newton showed it,
+Exerted on the cheese its force,
+And elsewhere soon bestowed it.
+In fact, there is no need to tell
+What happened when to earth it fell.
+[VERSE 7]
+I blush to add that when the bird
+Took in the situation,
+He said one brief, emphatic word,
+Unfit for publication.
+The fox was greatly startled, but
+He only sighed and answered "Tut!"
+[VERSE 8]
+The moral is: A fox is bound
+To be a shameless sinner.
+And also: When the cheese comes round
+You know it's after dinner.
+But (what is only known to few)
+The fox is after dinner, too.

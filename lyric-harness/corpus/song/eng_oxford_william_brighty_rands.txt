@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1880; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 2
+# songs: 6
 
 --- TITLE: The Flowers
 --- SOURCE: PG66619
@@ -81,3 +83,127 @@ And with something at her side;
 Nor till she has lived and died,
 Lived and died, and lived again,
 Will that awful thing seem plain.
+
+--- TITLE: The First Tooth
+--- SOURCE: PG2619
+[VERSE 1]
+There once was a wood, and a very thick wood,
+So thick that to walk was as much as you could;
+But a sunbeam got in, and the trees understood.
+[VERSE 2]
+I went to this wood, at the end of the snows,
+And as I was walking I saw a primrose;
+Only one!  Shall I show you the place where it grows?
+[VERSE 3]
+There once was a house, and a very dark house,
+As dark, I believe, as the hole of a mouse,
+Or a tree in my wood, at the thick of the boughs.
+[VERSE 4]
+I went to this house, and I searched it aright,
+I opened the chambers, and I found a light;
+Only one!  Shall I show you this little lamp bright?
+[VERSE 5]
+There once was a cave, and this very dark cave
+One day took a gift from an incoming wave;
+And I made up my mind to know what the sea gave.
+[VERSE 6]
+I took a lit torch, I walked round the ness
+When the water was lowest; and in a recess
+In my cave was a jewel.  Will nobody guess?
+[VERSE 7]
+O there was a baby, he sat on my knee,
+With a pearl in his mouth that was precious to me,
+His little dark mouth like my cave of the sea!
+[VERSE 8]
+I said to my heart, "And my jewel is bright!
+He blooms like a primrose!  He shines like a light!"
+Put your hand in his mouth!  Do you feel?  He can bite!
+
+--- TITLE: The Reformation of Godfrey Gore
+--- SOURCE: PG2619
+[VERSE 1]
+Godfrey Gordon Gustavus Gore--
+No doubt you have heard the name before--
+Was a boy who never would shut a door!
+[VERSE 2]
+The wind might whistle, the wind might roar,
+And teeth be aching and throats be sore,
+But still he never would shut the door.
+[VERSE 3]
+His father would beg, his mother implore,
+"Godfrey Gordon Gustavus Gore,
+We really do wish you would shut the door!"
+[VERSE 4]
+Their hands they wrung, their hair they tore;
+But Godfrey Gordon Gustavus Gore
+Was deaf as the buoy out at the Nore.
+[VERSE 5]
+When he walked forth the folks would roar,
+"Godfrey Gordon Gustavus Gore,
+Why don't you think to shut the door?"
+[VERSE 6]
+They rigged out a Shutter with sail and oar,
+And threatened to pack off Gustavus Gore
+On a voyage of penance to Singapore.
+[VERSE 7]
+But he begged for mercy, and said, "No more!
+Pray do not send me to Singapore
+On a Shutter, and then I will shut the door!"
+[VERSE 8]
+"You will?" said his parents; "then keep on shore!
+But mind you do!  For the plague is sore
+Of a fellow that never will shut the door,
+Godfrey Gordon Gustavus Gore!"
+
+--- TITLE: The Wonderful World
+--- SOURCE: PG2619
+[VERSE 1]
+Great, wide, beautiful, wonderful World,
+With the wonderful water round you curled,
+And the wonderful grass upon your breast,
+World, you are beautifully dressed.
+[VERSE 2]
+The wonderful air is over me,
+And the wonderful wind is shaking the tree--
+It walks on the water, and whirls the mills,
+And talks to itself on the tops of the hills.
+[VERSE 3]
+You friendly Earth, how far do you go,
+With the wheat-fields that nod and the rivers that flow,
+With cities and gardens, and cliffs and isles,
+And people upon you for thousands of miles?
+[VERSE 4]
+Ah! you are so great, and I am so small,
+I tremble to think of you, World, at all;
+And yet, when I said my prayers to-day,
+A whisper inside me seemed to say,
+"You are more than the Earth, though you are such a dot:
+You can love and think, and the Earth cannot!"
+
+--- TITLE: The Peddler's Caravan
+--- SOURCE: PG2619
+[VERSE 1]
+I wish I lived in a caravan,
+With a horse to drive, like a peddler-man!
+Where he comes from nobody knows,
+Or where he goes to, but on he goes!
+[VERSE 2]
+His caravan has windows two,
+And a chimney of tin, that the smoke comes through;
+He has a wife, with a baby brown,
+And they go riding from town to town.
+[VERSE 3]
+Chairs to mend, and delf to sell!
+He clashes the basins like a bell;
+Tea-trays, baskets ranged in order,
+Plates, with alphabets round the border!
+[VERSE 4]
+The roads are brown, and the sea is green,
+But his house is like a bathing-machine;
+The world is round, and he can ride,
+Rumble and slash, to the other side!
+[VERSE 5]
+With the peddler-man I should like to roam,
+And write a book when I came home;
+All the people would read my book,
+Just like the Travels of Captain Cook!

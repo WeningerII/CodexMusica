@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1599; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1599, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 6
+# songs: 9
 
 --- TITLE: Whilst it is prime
 --- SOURCE: PG66619
@@ -837,3 +839,803 @@ And for Thy sake, that all lyke deare didst buy,
 With love may one another entertayne!
   So let us love, deare Love, lyke as we ought,
 --Love is the lesson which the Lord us taught.
+
+--- TITLE: PROTHALAMION
+--- SOURCE: PG2620
+[VERSE 1]
+Calm was the day, and through the trembling air
+Sweet-breathing Zephyrus did softly play
+A gentle spirit, that lightly did delay
+Hot Titan's beams, which then did glister fair;
+When I (whom sullen care,
+Through discontent of my long fruitless stay
+In Prince's Court, and expectation vain
+Of idle hopes, which still do fly away,
+Like empty shadows, did afflict my brain),
+Walked forth to ease my pain
+Along the shore of silver streaming Thames;
+Whose rutty bank, the which his river hems,
+Was painted all with variable flowers,
+And all the meads adorned with dainty gems,
+Fit to deck maidens' bowers,
+And crown their paramours
+Against the bridal day, which is not long:
+Sweet Thames! run softly, till I end my song.
+[VERSE 2]
+There, in a meadow, by the river's side,
+A flock of nymphs I chanced to espy,
+All lovely daughters of the flood thereby,
+With goodly greenish locks, all loose untied,
+As each had been a bride:
+And each one had a little wicker basket,
+Made of fine twigs, entrailed curiously,
+In which they gathered flowers to fill their flasket,
+And, with fine fingers, cropped full feateously
+The tender stalks on high.
+Of every sort, which in that meadow grew,
+They gathered some; the violet, pallid blue,
+The little daisy, that at evening closes,
+The virgin lily, and the primrose true,
+With store of vermeil roses,
+To deck their bridegroom's posies
+Against the bridal day, which was not long:
+Sweet Thames! run softly, till I end my song.
+[VERSE 3]
+With that I saw two swans of goodly hue
+Come softly swimming down along the Lee;
+Two fairer birds I yet did never see;
+The snow, which doth the top of Pindus strew,
+Did never whiter shew,
+Nor Jove himself, when he a swan would be
+For love of Leda, whiter did appear;
+Yet Leda was, they say, as white as he,
+Yet not so white as these, nor nothing near;
+So purely white they were,
+That even the gentle stream, the which them bare,
+Seemed foul to them, and bade his billows spare
+To wet their silken feathers, lest they might
+Soil their fair plumes with water not so fair,
+And mar their beauties bright,
+That shone as heaven's light,
+Against their bridal day, which was not long:
+Sweet Thames! run softly, till I end my song.
+[VERSE 4]
+Eftsoons the nymphs, which now had flowers their fill,
+Ran all in haste to see that silver brood,
+As they came floating on the crystal flood;
+Whom when they saw, they stood amazed still,
+Their wondering eyes to fill;
+Them seemed they never saw a sight so fair
+Of fowls so lovely, that they sure did deem
+Them heavenly born, or to be that same pair
+Which through the sky draw Venus' silver team;
+For sure they did not seem
+To be begot of any earthly seed,
+But rather angels, or of angels' breed;
+Yet were they bred of summer's heat, they say,
+In sweetest season, when each flower and weed
+The earth did fresh array;
+So fresh they seemed as day,
+Even as their bridal day, which was not long:
+Sweet Thames! run softly, till I end my song.
+[VERSE 5]
+Then forth they all out of their baskets drew
+Great store of flowers, the honor of the field,
+That to the sense did fragrant odors yield,
+All which upon those goodly birds they threw
+And all the waves did strew,
+That like old Peneus' waters they did seem,
+When down along by pleasant Tempe's shore,
+Scattered with flowers, through Thessaly they stream,
+That they appear, through lilies' plenteous store,
+Like a bride's chamber floor:
+Two of those nymphs, meanwhile, two garlands bound
+Of freshest flowers which in that mead they found,
+The which presenting all in trim array,
+Their snowy foreheads therewithal they crowned,
+Whilst one did sing this lay,
+Prepared against that day,
+Against their bridal day, which was not long:
+Sweet Thames! run softly, till I end my song.
+[VERSE 6]
+"Ye gentle birds! the world's fair ornament,
+And heaven's glory whom this happy hour
+Doth lead unto your lover's blissful bower,
+Joy may you have, and gentle hearts' content
+Of your love's couplement;
+And let fair Venus, that is queen of love,
+With her heart-quelling son upon you smile,
+Whose smile, they say, hath virtue to remove
+All love's dislike, and friendship's faulty guile
+For ever to assoil;
+Let endless peace your steadfast hearts accord,
+And blessed plenty wait upon your board;
+And let your bed with pleasures chaste abound,
+That fruitful issue may to you afford,
+Which may your foes confound,
+And make your joys redound
+Upon your bridal day, which is not long":
+Sweet Thames! run softly, till I end my song.
+[VERSE 7]
+So ended she: and all the rest around
+To her redoubled that her undersong,
+Which said their bridal day should not be long:
+And gentle Echo from the neighbor-ground
+Their accents did resound.
+So forth those joyous birds did pass along,
+Adown the Lee, that to them murmured low,
+As he would speak, but that he lacked a tongue,
+Yet did by signs his glad affection show,
+Making his stream run slow.
+And all the fowl which in his flood did dwell
+'Gan flock about these twain, that did excel
+The rest, so far as Cynthia doth shend
+The lesser stars.  So they, enranged well,
+Did on those two attend,
+And their best service lend
+Against their wedding day, which was not long:
+Sweet Thames! run softly, till I end my song.
+[VERSE 8]
+At length they all to merry London came,
+To merry London, my most kindly nurse,
+That to me gave this life's first native source;
+Though from another place I take my name,
+An house of ancient fame:
+There when they came, whereas those bricky towers
+The which on Thames' broad, aged back do ride,
+Where now the studious lawyers have their bowers,
+There whilom wont the Templar Knights to bide,
+Till they decayed through pride:
+Next whereunto there stands a stately place,
+Where oft I gained gifts and goodly grace
+Of that great lord, which therein wont to dwell,
+Whose want too well now feels my friendless case;
+But ah! here fits not well
+Old woes, but joys, to tell
+Against the bridal day, which is not long:
+Sweet Thames! run softly, till I end my song.
+[VERSE 9]
+Yet therein now doth lodge a noble peer,
+Great England's glory, and the world's wide wonder,
+Whose dreadful name late through all Spain did thunder,
+And Hercules' two pillars standing near
+Did make to quake and fear:
+Fair branch of honor, flower of chivalry!
+That fillest England with thy triumph's fame,
+Joy have thou of thy noble victory,
+And endless happiness of thine own name,
+That promiseth the same;
+That through thy prowess, and victorious arms,
+Thy country may be freed from foreign harms;
+And great Elisa's glorious name may ring
+Through all the world, filled with thy wide alarms,
+Which some brave muse may sing
+To ages following,
+Upon the bridal day, which is not long:
+Sweet Thames! run softly, till I end my song.
+[VERSE 10]
+From those high towers this noble lord issuing,
+Like radiant Hesper, when his golden hair
+In the ocean billows he hath bathed fair,
+Descended to the river's open viewing,
+With a great train ensuing.
+Above the rest were goodly to be seen
+Two gentle knights of lovely face and feature
+Beseeming well the bower of any queen,
+With gifts of wit and ornaments of nature,
+Fit for so goodly stature,
+That like the twins of Jove they seemed in sight,
+Which deck the baldrick of the heavens bright;
+They two, forth pacing to the river's side,
+Received those two fair brides, their love's delight;
+Which, at the appointed tide,
+Each one did make his bride
+Against their bridal day, which is not long:
+Sweet Thames! run softly, till I end my song.
+
+--- TITLE: EPITHALAMION
+--- SOURCE: PG2620
+[VERSE 1]
+Ye learned sisters, which have oftentimes
+Been to me aiding, others to adorn,
+Whom ye thought worthy of your graceful rhymes,
+That even the greatest did not greatly scorn
+To hear their names sung in your simple lays,
+But joyed in their praise;
+And when ye list your own mishaps to mourn,
+Which death, or love, or fortune's wreck did raise,
+Your string could soon to sadder tenor turn,
+And teach the woods and waters to lament
+Your doleful dreariment:
+Now lay those sorrowful complaints aside;
+And, having all your heads with garlands crowned,
+Help me mine own love's praises to resound;
+Nor let the same of any be envide:
+So Orpheus did for his own bride!
+So I unto myself alone will sing;
+The woods shall to me answer, and my echo ring.
+[VERSE 2]
+Early, before the world's light-giving lamp
+His golden beam upon the hills doth spread,
+Having dispersed the night's uncheerful damp,
+Do ye awake; and, with fresh lusty-hed,
+Go to the bower of my beloved love,
+My truest turtle dove;
+Bid her awake; for Hymen is awake,
+And long since ready forth his mask to move,
+With his bright Tead that flames with many a flake,
+And many a bachelor to wait on him,
+In their fresh garments trim.
+Bid her awake therefore, and soon her dight,
+For lo! the wished day is come at last,
+That shall, for all the pains and sorrows past,
+Pay to her usury of long delight:
+And, whilst she doth her dight,
+Do ye to her of joy and solace sing,
+That all the woods may answer, and your echo ring.
+[VERSE 3]
+Bring with you all the Nymphs that you can hear,
+Both of the rivers and the forests green,
+And of the sea that neighbors to her near,
+All with gay garlands goodly well beseen.
+And let them also with them bring in hand
+Another gay garland,
+For my fair love, of lilies and of roses,
+Bound truelove wise with a blue silk riband;
+And let them make great store of bridal posies,
+And let them eke bring store of other flowers,
+To deck the bridal bowers.
+And let the ground whereas her foot shall tread,
+For fear the stones her tender foot should wrong,
+Be strewed with fragrant flowers all along,
+And diapered like the discolored mead;
+Which done, do at her chamber door await,
+For she will waken straight;
+The whiles do ye this song unto her sing,
+The woods shall to you answer, and your echo ring.
+[VERSE 4]
+Ye Nymphs of Mulla, which with careful heed
+The silver scaly trouts do tend full well,
+And greedy pikes which use therein to feed
+(Those trouts and pikes all others do excel);
+And ye likewise, which keep the rushy lake,
+Where none do fishes take;
+Bind up the locks the which hang scattered light,
+And in his waters, which your mirror make,
+Behold your faces as the crystal bright,
+That when you come whereas my love doth lie,
+No blemish she may spy.
+And eke, ye lightfoot maids, which keep the deer,
+That on the hoary mountain used to tower;
+And the wild wolves, which seek them to devour,
+With your steel darts do chase from coming near;
+Be also present here,
+To help to deck her, and to help to sing,
+That all the woods may answer, and your echo ring.
+[VERSE 5]
+Wake, now, my love, awake! for it is time;
+The rosy mom long since left Tithon's bed,
+All ready to her silver coach to climb;
+And Phoebus 'gins to show his glorious head.
+Hark, how the cheerful birds do chant their lays
+And carol of love's praise.
+The merry lark her matins sings aloft;
+The thrush replies; the mavis descant plays;
+The ouzel shrills; the ruddock warbles soft;
+So goodly all agree, with sweet consent,
+To this day's merriment.
+Ah! my dear love, why do ye sleep thus long,
+When meeter were that ye should now awake,
+To await the coming of your joyous mate,
+And hearken to the birds' love-learned song,
+The dewy leaves among!
+For they of joy and pleasance to you sing,
+That all the woods them answer, and their echo ring.
+[VERSE 6]
+My love is now awake out of her dreams,
+And her fair eyes, like stars that dimmed were
+With darksome cloud, now show their goodly beams
+More bright than Hesperus his head doth rear.
+Come now, ye damsels, daughters of delight,
+Help quickly her to dight:
+But first come, ye fair hours, which were begot
+In Jove's sweet paradise of Day and Night;
+Which do the seasons of the year allot,
+And all that ever in this world is fair,
+Do make and still repair:
+And ye three handmaids of the Cyprian queen,
+The which do still adorn her beauty's pride,
+Help to adorn my beautifulest bride;
+And as ye her array, still throw between
+Some graces to be seen,
+And, as ye use to Venus, to her sing,
+The whiles the woods shall answer, and your echo ring.
+[VERSE 7]
+Now is my love all ready forth to come:
+Let all the virgins therefore well await:
+And ye fresh boys, that tend upon her groom,
+Prepare yourselves; for he is coming straight;
+Set all your things in seemly good array,
+Fit for so joyful day:
+The joyfulest day that ever sun did see.
+Fair Sun! show forth thy favorable ray,
+And let thy life-full heat not fervent be,
+For fear of burning her sunshiny face,
+Her beauty to disgrace.
+O fairest Phoebus! father of the Muse!
+If ever I did honor thee aright,
+Or sing the thing that might thy mind delight,
+Do not thy servant's simple boon refuse;
+But let this day, let this one day, be mine;
+Let all the rest be thine.
+Then I thy sovereign praises loud will sing,
+That all the woods shall answer, and their echo ring.
+[VERSE 8]
+Hark! how the Minstrels 'gin to shrill aloud
+Their merry music that resounds from far,
+The pipe, the tabor, and the trembling croud,
+That well agree withouten breach or jar.
+But, most of all, the Damsels do delight
+When they their timbrels smite,
+And thereunto do dance and carol sweet,
+That all the senses they do ravish quite;
+The whiles the boys run up and down the street,
+Crying aloud with strong confused noise,
+As if it were one voice,
+Hymen, io Hymen, Hymen, they do shout;
+That even to the heavens their shouting shrill
+Doth reach, and all the firmament doth fill;
+To which the people standing all about,
+As in approvance, do thereto applaud,
+And loud advance her laud;
+And evermore they Hymen, Hymen sing,
+That all the woods them answer, and their echo ring.
+[VERSE 9]
+Lo! where she comes along with portly pace,
+Like Phoebe, from her chamber of the East,
+Arising forth to run her mighty race,
+Clad all in white, that seems a virgin best.
+So well it her beseems, that ye would ween
+Some angel she had been.
+Her long loose yellow locks like golden wire,
+Sprinkled with pearl, and pearling flowers atween,
+Do like a golden mantle her attire;
+And, being crowned with a garland green,
+Seem like some maiden queen.
+Her modest eyes, abashed to behold
+So many gazers as on her do stare,
+Upon the lowly ground affixed are;
+Nor dare lift up her countenance too bold,
+But blush to hear her praises sung so loud,
+So far from being proud.
+Nathless do ye still loud her praises sing,
+That all the woods may answer, and your echo ring.
+[VERSE 10]
+Tell me, ye merchants' daughters, did ye see
+So fair a creature in your town before;
+So sweet, so lovely, and so mild as she,
+Adorned with beauty's grace and virtue's store?
+Her goodly eyes like sapphires shining bright,
+Her forehead ivory white,
+Her cheeks like apples which the sun hath ruddied,
+Her lips like cherries charming men to bite,
+Her breast like to a bowl of cream uncrudded,
+Her paps like lilies budded,
+Her snowy neck like to a marble tower;
+And all her body like a palace fair,
+Ascending up, with many a stately stair,
+To honor's seat and chastity's sweet bower.
+Why stand ye still, ye virgins, in amaze,
+Upon her so to gaze,
+Whiles ye forget your former lay to sing,
+To which the woods did answer, and your echo ring?
+[VERSE 11]
+But if ye saw that which no eyes can see,
+The inward beauty of her lively spright,
+Garnished with heavenly gifts of high degree,
+Much more then would ye wonder at that sight,
+And stand astonished like to those which read
+Medusa's mazeful head.
+There dwells sweet love, and constant chastity,
+Unspotted faith, and comely womanhood,
+Regard of honor, and mild modesty;
+There virtue reigns as queen in royal throne,
+And giveth laws alone,
+The which the base affections do obey,
+And yield their services unto her will;
+Nor thought of thing uncomely ever may
+Thereto approach to tempt her mind to ill.
+Had ye once seen these her celestial treasures,
+And unrevealed pleasures,
+Then would ye wonder, and her praises sing,
+That all the woods should answer, and your echo ring.
+[VERSE 12]
+Open the temple gates unto my love,
+Open them wide that she may enter in,
+And all the posts adorn as doth behove,
+And all the pillars deck with garlands trim,
+For to receive this Saint with honor due,
+That cometh in to you.
+With trembling steps, and humble reverence,
+She cometh in, before the Almighty's view;
+Of her ye virgins learn obedience,
+When so ye come into those holy places,
+To humble your proud faces:
+Bring her up to the high altar, that she may
+The sacred ceremonies there partake,
+The which do endless matrimony make;
+And let the roaring organs loudly play
+The praises of the Lord in lively notes;
+The whiles, with hollow throats,
+The Choristers the joyous Anthems sing,
+That all the woods may answer, and their echo ring.
+[VERSE 13]
+Behold, whiles she before the altar stands,
+Hearing the holy priest that to her speaks,
+And blesseth her with his two happy hands,
+How the red roses flush up in her cheeks,
+And the pure snow, with goodly vermill stain
+Like crimson dyed in grain:
+That even the Angels, which continually
+About the sacred altar do remain,
+Forget their service and about her fly,
+Oft peeping in her face, that seems more fair,
+The more they on it stare.
+But her sad eyes, still fastened on the ground,
+Are governed with goodly modesty,
+That suffers not one look to glance awry,
+Which may let in a little thought unsound.
+Why blush ye, love, to give to me your hand,
+The pledge of all our band?
+Sing, ye sweet Angels, Alleluja sing,
+That all the woods may answer, and your echo ring.
+[VERSE 14]
+Now all is done: bring home the bride again;
+Bring home the triumph of our victory:
+Bring home with you the glory of her gain;
+With joyance bring her and with jollity.
+Never had man more joyful day than this,
+Whom heaven would heap with bliss.
+Make feast therefore now all this live-long day;
+This day for ever to me holy is.
+Pour out the wine without restraint or stay,
+Pour not by cups, but by the belly full,
+Pour out to all that will,
+And sprinkle all the posts and walls with wine,
+That they may sweat, and drunken be withal.
+Crown ye God Bacchus with a coronal,
+And Hymen also crown with wreaths of vine;
+And let the Graces dance unto the rest,
+For they can do it best:
+The whiles the maidens do their carol sing,
+To which the woods shall answer, and their echo ring.
+[VERSE 15]
+Ring ye the bells, ye young men of the town,
+And leave your wonted labors for this day:
+This day is holy; do ye write it down,
+That ye for ever it remember may.
+This day the sun is in his chiefest height,
+With Barnaby the bright,
+From whence declining daily by degrees,
+He somewhat loseth of his heat and light,
+When once the Crab behind his back he sees.
+But for this time it ill ordained was,
+To choose the longest day in all the year,
+And shortest night, when longest fitter were:
+Yet never day so long, but late would pass.
+Ring ye the bells, to make it wear away,
+And bonfires make all day;
+And dance about them, and about them sing,
+That all the woods may answer, and your echo ring.
+[VERSE 16]
+Ah! when will this long weary day have end,
+And lend me leave to come unto my love?
+How slowly do the hours their numbers spend?
+How slowly does sad Time his feathers move?
+Haste thee, O fairest Planet, to thy home,
+Within the Western foam:
+Thy tired steeds long since have need of rest.
+Long though it be, at last I see it gloom,
+And the bright evening-star with golden crest
+Appear out of the East.
+Fair child of beauty! glorious lamp of love!
+That all the host of heaven in ranks dost lead,
+And guidest lovers through the night's sad dread,
+How cheerfully thou lookest from above,
+And seems to laugh atween thy twinkling light,
+As joying in the sight
+Of these glad many, which for joy do sing,
+That all the woods them answer, and their echo ring!
+[VERSE 17]
+Now, cease, ye damsels, your delights fore-past;
+Enough is it that all the day was yours:
+Now day is done, and night is nighing fast,
+Now bring the bride into the bridal bowers.
+The night is come, now soon her disarray,
+And in her bed her lay;
+Lay her in lilies and in violets,
+And silken curtains over her display,
+And odored sheets, and Arras coverlets.
+Behold how goodly my fair love does lie,
+In proud humility!
+Like unto Maia, when as Jove her took
+In Tempe, lying on the flowery grass,
+'Twixt sleep and wake, after she weary was,
+With bathing in the Acidalian brook.
+Now it is night, ye damsels may be gone,
+And leave my love alone,
+And leave likewise your former lay to sing:
+The woods no more shall answer, nor your echo ring.
+[VERSE 18]
+Now welcome, night! thou night so long expected,
+That long day's labor dost at last defray,
+And all my cares, which cruel Love collected,
+Hast summed in one, and cancelled for aye:
+Spread thy broad wing over my love and me,
+That no man may us see;
+And in thy sable mantle us enwrap,
+From fear of peril and foul horror free.
+Let no false treason seek us to entrap,
+Nor any dread disquiet once annoy
+The safety of our joy;
+But let the night be calm, and quietsome,
+Without tempestuous storms or sad affray:
+Like as when Jove with fair Alcmena lay,
+When he begot the great Tirynthian groom:
+Or like as when he with thyself did lie
+And begot Majesty.
+And let the maids and young men cease to sing;
+Nor let the woods them answer, nor their echo ring.
+[VERSE 19]
+Let no lamenting cries, nor doleful tears,
+Be heard all night within, nor yet without:
+Nor let false whispers, breeding hidden fears,
+Break gentle sleep with misconceived doubt.
+Let no deluding dreams, nor dreadful sights,
+Make sudden sad affrights;
+Nor let house-fires, nor lightning's helpless harms,
+Nor let the Puck, nor other evil sprites,
+Nor let mischievous witches with their charms,
+Nor let hobgoblins, names whose sense we see not,
+Fray us with things that be not:
+Let not the screech-owl nor the stork be heard,
+Nor the night raven, that still deadly yells;
+Nor damned ghosts, called up with mighty spells,
+Nor grizzly vultures, make us once afraid:
+Nor let the unpleasant choir of frogs still croaking
+Make us to wish their choking.
+Let none of these their dreary accents sing;
+Nor let the woods them answer, nor their echo ring.
+[VERSE 20]
+But let still Silence true night-watches keep,
+That sacred Peace may in assurance reign,
+And timely Sleep, when it is time to sleep,
+May pour his limbs forth on your pleasant plain;
+The whiles an hundred little winged loves,
+Like divers-feathered doves,
+Shall fly and flutter round about your bed,
+And in the secret dark, that none reproves,
+Their pretty stealths shall work, and snares shall spread
+To filch away sweet snatches of delight,
+Concealed through covert night.
+Ye sons of Venus, play your sports at will!
+For greedy pleasure, careless of your toys,
+Thinks more upon her paradise of joys,
+Then what ye do, albeit good or ill.
+All night therefore attend your merry play,
+For it will soon be day:
+Now none doth hinder you, that say or sing;
+Nor will the woods now answer, nor your echo ring.
+[VERSE 21]
+Who is the same, which at my window peeps?
+Or whose is that fair face that shines so bright?
+Is it not Cynthia, she that never sleeps,
+But walks about high heaven all the night?
+O! fairest goddess, do thou not envy
+My love with me to spy:
+For thou likewise didst love, though now unthought,
+And for a fleece of wool, which privily
+The Latmian shepherd once unto thee brought,
+His pleasures with thee wrought.
+Therefore to us be favorable now;
+And since of women's labors thou hast charge,
+And generation goodly dost enlarge,
+Incline thy will to effect our wishful vow,
+And the chaste womb inform with timely seed,
+That may our comfort breed:
+Till which we cease our hopeful hap to sing;
+Nor let the woods us answer, nor our echo ring.
+[VERSE 22]
+And thou, great Juno! which with awful might
+The laws of wedlock still dost patronize,
+And the religion of the faith first plight
+With sacred rites hast taught to solemnize;
+And eke for comfort often called art
+Of women in their smart;
+Eternally bind thou this lovely band,
+And all thy blessings unto us impart.
+And thou, glad Genius! in whose gentle hand
+The bridal bower and genial bed remain,
+Without blemish or stain;
+And the sweet pleasures of their love's delight
+With secret aid dost succor and supply,
+Till they bring forth the fruitful progeny;
+Send us the timely fruit of this same night.
+And thou, fair Hebe! and thou, Hymen free!
+Grant that it may so be.
+Till which we cease your further praise to sing;
+Nor any woods shall answer, nor your echo ring.
+[VERSE 23]
+And ye high heavens, the temple of the gods,
+In which a thousand torches flaming bright
+Do burn, that to us wretched earthly clods
+In dreadful darkness lend desired light;
+And all ye powers which in the same remain,
+More than we men can feign,
+Pour out your blessing on us plenteously,
+And happy influence upon us rain,
+That-we may raise a large posterity,
+Which from the earth, which they may long possess
+With lasting happiness,
+Up to your haughty palaces may mount;
+And, for the guerdon of their glorious merit,
+May heavenly tabernacles there inherit,
+Of blessed Saints for to increase the count.
+So let us rest, sweet love, in hope of this,
+And cease till then our timely joys to sing:
+The woods no more us answer, nor our echo ring!
+[VERSE 24]
+Song! made in lieu of many ornaments,
+With which my love should duly have been decked,
+Which cutting off through hasty accidents,
+Ye would not stay your due time to expect,
+But promised both to recompense;
+Be unto her a goodly ornament,
+And for short time an endless monument.
+
+--- TITLE: SONNETS
+--- SOURCE: PG2620
+[VERSE 1]
+   III
+The sovereign beauty which I do admire,
+Witness the world how worthy to be praised!
+The light whereof hath kindled heavenly fire
+In my frail spirit, by her from baseness raised;
+That being now with her huge brightness dazed,
+Base thing I can no more endure to view:
+But, looking still on her, I stand amazed
+At wondrous sight of so celestial hue.
+So when my tongue would speak her praises due,
+It stopped is with thought's astonishment;
+And when my pen would write her titles true,
+It ravished is with fancy's wonderment:
+Yet in my heart I then both speak and write
+The wonder that my wit cannot indite.
+[VERSE 2]
+   VIII
+More than most fair, full of the living fire
+Kindled above unto the Maker near;
+No eyes but joys, in which all powers conspire
+That to the world naught else be counted dear;
+Through your bright beams doth not the blinded guest
+Shoot out his darts to base affections wound;
+But angels come to lead frail minds to rest
+In chaste desires, on heavenly beauty bound.
+You frame my thoughts, and fashion me within;
+You stop my tongue, and teach my heart to speak;
+You calm the storm that passion did begin,
+Strong through your cause, but by your virtue weak.
+Dark is the world, where your light shined never;
+Well is he born that may behold you ever.
+[VERSE 3]
+   XXIV
+When I behold that beauty's wonderment,
+And rare perfection of each goodly part,
+Of Nature's still the only complement,
+I honor and admire the Maker's art.
+But when I feel the bitter baleful smart
+Which her fair eyes un'wares do work in me,
+That death out of their shiny beams do dart,
+I think that I a new Pandora see,
+Whom all the gods in council did agree
+Into this sinful world from heaven to send,
+That she to wicked men a scourge should be,
+For all their faults with which they did offend.
+But since ye are my scourge, I will entreat
+That for my faults ye will me gently beat.
+[VERSE 4]
+   XXXIV
+Like as a ship, that through the ocean wide,
+By conduct of some star doth make her way,
+Whenas a storm hath dimmed her trusty guide,
+Out of her course doth wander far astray;
+So I, whose star, that wont with her bright ray
+Me to direct, with clouds is overcast,
+Do wander now, in darkness and dismay,
+Through hidden perils round about me placed;
+Yet hope I well that, when this storm is past,
+My Helice, the lodestar of my life,
+Will shine again, and look on me at last,
+With lovely light to clear my cloudy grief:
+Till then I wander care-full, comfortless,
+In secret sorrow, and sad pensiveness.
+[VERSE 5]
+   LV
+So oft as I her beauty do behold,
+And therewith do her cruelty compare,
+I marvel of what substance was the mould,
+The which her made at once so cruel fair;
+Not earth, for her high thoughts more heavenly are;
+Not water, for her love doth burn like fire;
+Not air, for she is not so light or rare;
+Not fire, for she doth freeze with faint desire.
+Then needs another element inquire
+Whereof she might be made - that is, the sky;
+For to the heaven her haughty looks aspire,
+And eke her mind is pure immortal high.
+Then, since to heaven ye likened are the best,
+Be like in mercy as in all the rest.
+[VERSE 6]
+   LXVIII
+Most glorious Lord of Life! that on this day
+Didst make thy triumph over death and sin,
+And, having harrowed hell, didst bring away
+Captivity thence captive, us to win,
+This joyous day, dear Lord, with joy begin;
+And grant that we, for whom thou diddest die,
+Being with thy dear blood clean washed from sin,
+May live forever in felicity;
+And that thy love we weighing worthily,
+May likewise love thee for the same again,
+And for thy sake, that all 'like dear didst buy,
+With love may one another entertain!
+So let us love, dear Love, like as we ought:
+Love is the lesson which the Lord us taught.
+[VERSE 7]
+   LXX
+Fresh Spring, the herald of love's mighty king,
+In whose coat-armor richly are displayed
+All sorts of flowers the which on earth do spring
+In goodly colors gloriously arrayed;
+Go to my love, where she is careless laid,
+Yet in her winter's bower not well awake;
+Tell her the joyous time will not be stayed,
+Unless she do him by the forelock take;
+Bid her therefore herself soon ready make
+To wait on Love amongst his lovely crew;
+Where everyone that misseth then her mate
+Shall be by him amerced with penance due.
+Make haste, therefore, sweet love, whilst it is prime;
+For none can call again the passed time.
+[VERSE 8]
+   LXXV
+One day I wrote her name upon the strand,
+But came the waves and washed it away:
+Again I wrote it with a second hand,
+But came the tide and made my pains his prey.
+"Vain man," said she, "that dost in vain essay
+A mortal thing so to immortalize;
+For I myself shall like to this decay,
+And eke my name be wiped out likewise."
+"Not so," quoth I; "let baser things devise
+To die in dust, but you shall live by fame;
+My verse your virtues rare shall eternize,
+And in the heavens write your glorious name:
+Where, whenas Death shall all the world subdue,
+Our love shall live, and later life renew."
+[VERSE 9]
+   LXXIX
+Men call you fair, and you do credit it,
+For that yourself ye daily such do see:
+But the true fair, that is the gentle wit
+And virtuous mind, is much more praised of me:
+For all the rest, however fair it be,
+Shall turn to naught and lose that glorious hue;
+But only that is permanent and free
+From frail corruption that doth flesh ensue.
+That is true beauty; that doth argue you
+To be divine, and born of heavenly seed;
+Derived from that fair Spirit from whom all true
+And perfect beauty did at first proceed:
+He only fair, and what he fair hath made;
+All other fair, like flowers, untimely fade.

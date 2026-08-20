@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1560; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1592, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 3
+# songs: 6
 
 --- TITLE: Samela
 --- SOURCE: PG66619
@@ -104,3 +106,117 @@ When thou art old there’s grief enough for thee.
 [VERSE 4]
 Weep not, my wanton, smile upon my knee,
 When thou art old there’s grief enough for thee.
+
+--- TITLE: "FAIR IS MY LOVE FOR APRIL'S IN HER FACE"
+--- SOURCE: PG2620
+[VERSE 1]
+Fair is my love for April's in her face,
+Her lovely breasts September claims his part,
+And lordly July in her eyes takes place,
+But cold December dwelleth in her heart;
+Blest be the months that set my thoughts on fire,
+Accurst that month that hindereth my desire.
+[VERSE 2]
+Like Phoebus' fire, so sparkle both her eyes,
+As air perfumed with amber is her breath,
+Like swelling waves her lovely breasts do rise,
+As earth, her heart, cold, dateth me to death:
+Aye me, poor man, that on the earth do live,
+When unkind earth death and despair doth give!
+[VERSE 3]
+In pomp sits mercy seated in her face,
+Love 'twixt her breasts his trophies doth imprint,
+Her eyes shine favor, courtesy, and grace,
+But touch her heart, ah, that is framed of flint!
+Therefore my harvest in the grass bears grain;
+The rock will wear, washed with a winter's rain.
+
+--- TITLE: PHILLIS AND CORYDON
+--- SOURCE: PG2620
+[VERSE 1]
+Phillis kept sheep along the western plains,
+And Corydon did feed his flocks hard by:
+This shepherd was the flower of all the swains
+That traced the downs of fruitful Thessaly;
+And Phillis, that did far her flocks surpass
+In silver hue, was thought a bonny lass.
+[VERSE 2]
+A bonny lass, quaint in her country 'tire,
+Was lovely Phillis, - Corydon swore so;
+Her locks, her looks, did set the swain on fire,
+He left his lambs, and he began to woo;
+He looked, he sighed, he courted with a kiss,
+No better could the silly swad than this.
+[VERSE 3]
+He little knew to paint a tale of love,
+Shepherds can fancy, but they cannot say:
+Phillis 'gan smile, and wily thought to prove
+What uncouth grief poor Corydon did pay;
+She asked him how his flocks or he did fare,
+Yet pensive thus his sighs did tell his care.
+[VERSE 4]
+The shepherd blushed when Phillis questioned so,
+And swore by Pan it was not for his flocks:
+"'Tis love, fair Phillis, breedeth all this woe,
+My thoughts are trapped within thy lovely locks;
+Thine eye hath pierced, thy face hath set on fire;
+Fair Phillis kindleth Corydon's desire."
+[VERSE 5]
+"Can shepherds love?" said Phillis to the swain.
+"Such saints as Phillis," Corydon replied.
+"Men when they lust can many fancies feign,"
+Said Phillis.  This not Corydon denied,
+That lust had lies; "But love," quoth he, "says truth:
+Thy shepherd loves, then, Phillis, what ensu'th?"
+[VERSE 6]
+Phillis was won, she blushed and hung her head;
+The swain stepped to, and cheered her with a kiss:
+With faith, with troth, they struck the matter dead;
+So used they when men thought not amiss:
+Thus love begun and ended both in one;
+Phillis was loved, and she liked Corydon.
+
+--- TITLE: THE SHEPHERD'S WIFE'S SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Ah, what is love?  It is a pretty thing,
+As sweet unto a shepherd as a king,
+And sweeter, too:
+For kings have cares that wait upon a crown,
+And cares can make the sweetest love to frown:
+Ah then, ah then,
+If country loves such sweet desires do gain,
+What lady would not love a shepherd swain?
+[VERSE 2]
+His flocks are folded; he comes home at night
+As merry as a king in his delight,
+And merrier, too:
+For kings bethink them what the state require,
+Where shepherds, careless, carol by the fire:
+[VERSE 3]
+He kisseth first, then sits as blithe to eat
+His cream and curds, as doth a king his meat,
+And blither, too:
+For kings have often fears when they do sup,
+Where shepherds dread no poison in their cup:
+[VERSE 4]
+To bed he goes, as wanton then, I ween,
+As is a king in dalliance with a queen;
+More wanton, too:
+For kings have many griefs, affects to move,
+Where shepherds have no greater grief than love:
+[VERSE 5]
+Upon his couch of straw he sleeps as sound
+As doth the king upon his bed of down;
+More sounder, too:
+For cares cause kings full oft their sleep to spill,
+Where weary shepherds lie and snort their fill:
+[VERSE 6]
+Thus, with his wife, he spends the year as blithe
+As doth the king at every tide or sithe,
+And blither, too:
+For kings have wars and broils to take in hand,
+Where shepherds laugh and love upon the land:
+Ah then, ah then,
+Since country loves such sweet desires do gain,
+What lady would not love a shepherd swain?

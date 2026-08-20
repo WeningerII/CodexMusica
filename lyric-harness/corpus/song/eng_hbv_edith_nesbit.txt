@@ -1,0 +1,88 @@
+# author: Edith Nesbit (1858-1924)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1924, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1924, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 3
+
+--- TITLE: Child's Song in Spring
+--- SOURCE: PG2619
+[VERSE 1]
+The silver birch is a dainty lady,
+She wears a satin gown;
+The elm tree makes the old churchyard shady,
+She will not live in town.
+[VERSE 2]
+The English oak is a sturdy fellow,
+He gets his green coat late;
+The willow is smart in a suit of yellow,
+While brown the beech trees wait.
+[VERSE 3]
+Such a gay green gown God gives the larches--
+As green as He is good!
+The hazels hold up their arms for arches
+When Spring rides through the wood.
+[VERSE 4]
+The chestnut's proud, and the lilac's pretty,
+The poplar's gentle and tall,
+But the plane tree's kind to the poor dull city--
+I love him best of all!
+
+--- TITLE: Baby Seed Song
+--- SOURCE: PG2619
+[VERSE 1]
+Little brown brother, oh! little brown brother,
+Are you awake in the dark?
+Here we lie cosily, close to each other:
+Hark to the song of the lark--
+"Waken!" the lark says, "waken and dress you;
+Put on your green coats and gay,
+Blue sky will shine on you, sunshine caress you--
+Waken! 'tis morning--'tis May!"
+[VERSE 2]
+Little brown brother, oh! little brown brother,
+What kind of flower will you be?
+I'll be a poppy--all white, like my mother;
+Do be a poppy like me.
+What! you're a sun-flower?  How I shall miss you
+When you're grown golden and high!
+But I shall send all the bees up to kiss you;
+Little brown brother, good-bye.
+
+--- TITLE: A TRAGEDY
+--- SOURCE: PG2620
+[VERSE 1]
+Among his books he sits all day
+To think and read and write;
+He does not smell the new-mown hay,
+The roses red and white.
+[VERSE 2]
+I walk among them all alone,
+His silly, stupid wife;
+The world seems tasteless, dead and done -
+An empty thing is life.
+[VERSE 3]
+At night his window casts a square
+Of light upon the lawn;
+I sometimes walk and watch it there
+Until the chill of dawn.
+[VERSE 4]
+I have no brain to understand
+The books he loves to read;
+I only have a heart and hand
+He does not seem to need.
+[VERSE 5]
+He calls me "Child" - lays on my hair
+Thin fingers, cold and mild;
+Oh! God of Love, who answers prayer,
+I wish I were a child!
+[VERSE 6]
+And no one sees and no one knows
+(He least would know or see),
+That ere Love gathers next year's rose
+Death will have gathered me.

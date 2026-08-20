@@ -5,10 +5,14 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1843; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1843, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1843, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 2
+# songs: 7
 
 --- TITLE: His Books
 --- SOURCE: PG66619
@@ -65,3 +69,404 @@ For lasting shame shall they be written down.
         The thunderbolt aside,
 And, twining olives with her laurel crown,
     Rest in the Bower of Peace.
+
+--- TITLE: God's Judgment on a Wicked Bishop
+--- SOURCE: PG2619
+[VERSE 1]
+The summer and autumn had been so wet,
+That in winter the corn was growing yet:
+'Twas a piteous sight to see, all around,
+The grain lie rotting on the ground.
+[VERSE 2]
+Every day the starving poor
+Crowded around Bishop Hatto's door;
+For he had a plentiful last-year's store,
+And all the neighborhood could tell
+His granaries were furnished well.
+[VERSE 3]
+At last Bishop Hatto appointed a day
+To quiet the poor without delay;
+He bade them to his great barn repair,
+And they should have food for the winter there.
+[VERSE 4]
+Rejoiced such tidings good to hear,
+The poor folk flocked from far and near;
+The great barn was full as it could hold
+Of women and children, and young and old.
+[VERSE 5]
+Then, when he saw it could hold no more,
+Bishop Hatto he made fast the door;
+And, while for mercy on Christ they call,
+He set fire to the barn, and burnt them all.
+[VERSE 6]
+"I' faith, 'tis an excellent bonfire!" quoth he;
+"And the country is greatly obliged to me
+For ridding it, in these times forlorn,
+Of rats that only consume the corn."
+[VERSE 7]
+So then to his palace returned he,
+And he sat down to supper merrily,
+And he slept that night like an innocent man;
+But Bishop Hatto never slept again.
+[VERSE 8]
+In the morning, as he entered the hall,
+Where his picture hung against the wall,
+A sweat like death all over him came,
+For the rats had eaten it out of the frame.
+[VERSE 9]
+As he looked, there came a man from his farm,--
+He had a countenance white with alarm:
+"My Lord, I opened your granaries this morn,
+And the rats had eaten all your corn."
+[VERSE 10]
+Another came running presently,
+And he was pale as pale could be.
+"Fly! my Lord Bishop, fly!" quoth he,
+"Ten thousand rats are coming this way,--
+The Lord forgive you for yesterday!"
+[VERSE 11]
+"I'll go to my tower in the Rhine," replied he;
+"'Tis the safest place in Germany,--
+The walls are high, and the shores are steep,
+And the tide is strong, and the water deep."
+[VERSE 12]
+Bishop Hatto fearfully hastened away,
+And he crossed the Rhine without delay,
+And reached his tower, and barred with care
+All the windows, and doors, and loop-holes there.
+[VERSE 13]
+He laid him down and closed his eyes,
+But soon a scream made him arise;
+He started, and saw two eyes of flame
+On his pillow, from whence the screaming came.
+[VERSE 14]
+He listened and looked,--it was only the cat;
+But the Bishop he grew more fearful for that,
+For she sat screaming, mad with fear,
+At the army of rats that were drawing near.
+[VERSE 15]
+For they have swum over the river so deep,
+And they have climbed the shores so steep,
+And now by thousands up they crawl
+To the holes and the windows in the wall.
+[VERSE 16]
+Down on his knees the Bishop fell,
+And faster and faster his beads did he tell,
+As louder and louder, drawing near,
+The saw of their teeth without he could hear.
+[VERSE 17]
+And in at the windows, and in at the door,
+And through the walls by thousands they pour;
+And down from the ceiling and up through the floor,
+From the right and the left, from behind and before,
+From within and without, from above and below,--
+And all at once to the Bishop they go.
+[VERSE 18]
+They have whetted their teeth against the stones,
+And now they pick the Bishop's bones;
+They gnawed the flesh from every limb,
+For they were sent to do judgment on him!
+
+--- TITLE: The Old Man's Comforts
+--- SOURCE: PG2619
+[VERSE 1]
+"You are old, Father William," the young man cried;
+"The few locks which are left you are gray;
+You are hale, Father William,--a hearty old man:
+Now tell me the reason, I pray."
+[VERSE 2]
+"In the days of my youth," Father William replied,
+"I remembered that youth would fly fast,
+And abused not my health and my vigor at first,
+That I never might need them at last."
+[VERSE 3]
+"You are old, Father William," the young man cried,
+"And pleasures with youth pass away;
+And yet you lament not the days that are gone:
+Now tell me the reason, I pray."
+[VERSE 4]
+"In the days of my youth," Father William replied,
+"I remembered that youth could not last;
+I thought of the future, whatever I did,
+That I never might grieve for the past."
+[VERSE 5]
+"You are old, Father William," the young man cried,
+"And life must be hastening away;
+You are cheerful, and love to converse upon death:
+Now tell me the reason, I pray."
+[VERSE 6]
+"I am cheerful, young man," Father William replied;
+"Let the cause thy attention engage;
+In the days of my youth, I remembered my God,
+And He hath not forgotten my age."
+
+--- TITLE: The Holly-tree
+--- SOURCE: PG2621
+[VERSE 1]
+O reader! hast thou ever stood to see
+The Holly-tree?
+The eye that contemplates it well perceives
+Its glossy leaves
+Ordered by an Intelligence so wise
+As might confound the Atheist's sophistries.
+[VERSE 2]
+Below, a circling fence, its leaves are seen,
+Wrinkled and keen;
+No grazing cattle, through their prickly round,
+Can reach to wound;
+But, as they grow where nothing is to fear,
+Smooth and unarmed the pointless leaves appear.
+[VERSE 3]
+I love to view these things with curious eyes,
+And moralize;
+And in this wisdom of the Holly-tree
+Can emblem see
+Wherewith, perchance, to make a pleasant rhyme,--
+One which may profit in the after-time.
+[VERSE 4]
+Thus, though abroad, perchance, I might appear
+Harsh and austere;
+To those who on my leisure would intrude,
+Reserved and rude;
+Gentle at home amid my friends I'd be,
+Like the high leaves upon the Holly-tree.
+[VERSE 5]
+And should my youth--as youth is apt, I know,--
+Some harshness show,
+All vain asperities I, day by day,
+Would wear away,
+Till the smooth temper of my age should be
+Like the high leaves upon the Holly-tree.
+[VERSE 6]
+And as, when all the summer trees are seen
+So bright and green,
+The Holly-leaves their fadeless hues display
+Less bright than they;
+But when the bare and wintry woods we see,
+What then so cheerful as the Holly-tree?--
+[VERSE 7]
+So, serious should my youth appear among
+The thoughtless throng;
+So would I seem, amid the young and gay,
+More grave than they;
+That in my age as cheerful I might be
+As the green winter of the Holly-tree.
+
+--- TITLE: The Cataract of Lodore
+--- SOURCE: PG2621
+[VERSE 1]
+"How does the water
+Come down at Lodore?"
+My little boy asked me
+Thus, once on a time;
+And moreover he tasked me
+To tell him in rhyme.
+Anon, at the word,
+There first came one daughter,
+And then came another,
+To second and third
+The request of their brother,
+And to hear how the water
+Comes down at Lodore,
+With its rush and its roar,
+As many a time
+They had seen it before.
+So I told them in rhyme,
+For of rhymes I had store;
+And 'twas in my vocation
+For their recreation
+That so I should sing;
+Because I was Laureate
+To them and the King.
+[VERSE 2]
+From its sources which well
+In the tarn on the fell;
+From its fountains
+In the mountains,
+Its rills and its gills;
+Through moss and through brake,
+It runs and it creeps
+For a while, till it sleeps
+In its own little lake.
+And thence at departing,
+Awakening and starting,
+It runs through the reeds,
+And away it proceeds,
+Through meadow and glade,
+In sun and in shade,
+And through the wood-shelter,
+Among crags in its flurry,
+Helter-skelter,
+Hurry-skurry.
+Here it comes sparkling,
+And there it lies darkling;
+Now smoking and frothing
+Its tumult and wrath in,
+Till, in this rapid race
+On which it is bent,
+It reaches the place
+Of its steep descent.
+[VERSE 3]
+The cataract strong
+Then plunges along,
+Striking and raging
+As if a war raging
+Its caverns and rocks among;
+Rising and leaping,
+Sinking and creeping,
+Swelling and sweeping,
+Showering and springing,
+Flying and flinging,
+Writhing and ringing,
+Eddying and whisking,
+Spouting and frisking,
+Turning and twisting,
+Around and around
+With endless rebound:
+Smiting and fighting,
+A sight to delight in;
+Confounding, astounding,
+Dizzying and deafening the ear with its sound.
+[VERSE 4]
+Collecting, projecting,
+Receding and speeding,
+And shocking and rocking,
+And darting and parting,
+And threading and spreading,
+And whizzing and hissing,
+And dripping and skipping,
+And hitting and splitting,
+And shining and twining,
+And rattling and battling,
+And shaking and quaking,
+And pouring and roaring,
+And waving and raving,
+And tossing and crossing,
+And flowing and going,
+And running and stunning,
+And foaming and roaming,
+And dinning and spinning,
+And dropping and hopping,
+And working and jerking,
+And guggling and struggling,
+And heaving and cleaving,
+And moaning and groaning;
+[VERSE 5]
+And glittering and frittering,
+And gathering and feathering,
+And whitening and brightening,
+And quivering and shivering,
+And hurrying and skurrying,
+And thundering and floundering;
+[VERSE 6]
+Dividing and gliding and sliding,
+And falling and brawling and sprawling,
+And driving and riving and striving,
+And sprinkling and twinkling and wrinkling,
+And sounding and bounding and rounding,
+And bubbling and troubling and doubling,
+And grumbling and rumbling and tumbling,
+And clattering and battering and shattering;
+[VERSE 7]
+Retreating and beating and meeting and sheeting,
+Delaying and straying and playing and spraying,
+Advancing and prancing and glancing and dancing,
+Recoiling, turmoiling and toiling and boiling,
+And gleaming and streaming and steaming and beaming,
+And rushing and flushing and brushing and gushing,
+And flapping and rapping and clapping and slapping,
+And curling and whirling and purling and twirling,
+And thumping and plumping and bumping and jumping,
+And dashing and flashing and splashing and clashing;
+And so never ending, but always descending,
+Sounds and motions for ever and ever are blending
+All at once and all o'er, with a mighty uproar,--
+And this way the water comes down at Lodore.
+
+--- TITLE: The Inchcape Rock
+--- SOURCE: PG2621
+[VERSE 1]
+No stir in the air, no stir in the sea,
+The ship was still as she could be;
+Her sails from Heaven received no motion,
+Her keel was steady in the ocean.
+[VERSE 2]
+Without either sign or sound of their shock,
+The waves flowed over the Inchcape Rock;
+So little they rose, so little they fell,
+They did not move the Inchcape Bell.
+[VERSE 3]
+The holy Abbot of Aberbrothok
+Had placed that bell on the Inchcape Rock;
+On a buoy in the storm it floated and swung,
+And over the waves its warning rung.
+[VERSE 4]
+When the rock was hid by the surges' swell,
+The mariners heard the warning bell;
+And then they knew the perilous Rock,
+And blessed the Abbot of Aberbrothok.
+[VERSE 5]
+The Sun in heaven was shining gay,
+All things were joyful on that day;
+The sea-birds screamed as they wheeled around,
+And there was joyance in their sound.
+[VERSE 6]
+The buoy of the Inchcape Bell was seen,
+A darker speck on the ocean green;
+Sir Ralph, the Rover, walked his deck,
+And he fixed his eye on the darker speck.
+[VERSE 7]
+He felt the cheering power of spring,
+It made him whistle, it made him sing;
+His heart was mirthful to excess;
+But the Rover's mirth was wickedness.
+[VERSE 8]
+His eye was on the Inchcape float;
+Quoth he, "My men, put out the boat;
+And row me to the Inchcape Rock,
+And I'll plague the Abbot of Aberbrothok."
+[VERSE 9]
+The boat is lowered, the boatmen row,
+And to the Inchcape Rock they go;
+Sir Ralph bent over from the boat,
+And cut the Bell from the Inchcape float.
+[VERSE 10]
+Down sank the Bell with a gurgling sound;
+The bubbles rose, and burst around.
+Quoth Sir Ralph, "The next who comes to the Rock
+Will not bless the Abbot of Aberbrothok."
+[VERSE 11]
+Sir Ralph, the Rover, sailed away,
+He scoured the seas for many a day;
+And now, grown rich with plundered store,
+He steers his course for Scotland's shore.
+[VERSE 12]
+So thick a haze o'erspreads the sky
+They cannot see the Sun on high;
+The wind hath blown a gale all day;
+At evening it hath died away.
+[VERSE 13]
+On the deck the Rover takes his stand;
+So dark it is they see no land.
+Quoth Sir Ralph, "It will be lighter soon,
+For there is the dawn of the rising Moon."
+[VERSE 14]
+"Canst hear," said one, "the breakers roar?
+For yonder, methinks, should be the shore."
+"Now where we are I cannot tell,
+But I wish we could hear the Inchcape Bell."
+[VERSE 15]
+They hear no sound; the swell is strong;
+Though the wind hath fallen, they drift along,
+Till the vessel strikes with a shivering shock,--
+"O Christ! it is the Inchcape Rock."
+[VERSE 16]
+Sir Ralph, the Rover, tore his hair;
+He cursed himself in his despair.
+The waves rush in on every side;
+The ship is sinking beneath the tide.
+[VERSE 17]
+But, even in his dying fear,
+One dreadful sound he seemed to hear,--
+A sound as if, with the Inchcape Bell,
+The Devil below was ringing his knell.

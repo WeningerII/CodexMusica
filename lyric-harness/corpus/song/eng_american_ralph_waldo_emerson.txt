@@ -6,10 +6,18 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 9
+# songs: 15
 
 --- TITLE: Concord Hymn
 --- SOURCE: PG15553
@@ -474,3 +482,261 @@ My will fulfilled shall be,
   For, in daylight or in dark,
 My thunderbolt has eyes to see
   His way home to the mark.
+
+--- TITLE: Duty
+--- SOURCE: PG2619
+[VERSE 1]
+So nigh is grandeur to our dust,
+So near is God to man,
+When Duty whispers low, "Thou must,"
+The youth replies, "I can."
+
+--- TITLE: Terminus
+--- SOURCE: PG2619
+[VERSE 1]
+It is time to be old,
+To take in sail:--
+The god of bounds,
+Who sets to seas a shore,
+Came to me in his fatal rounds,
+And said: "No more!
+No farther shoot
+Thy broad ambitious branches, and thy root.
+Fancy departs: no more invent;
+Contract thy firmament
+To compass of a tent.
+There's not enough for this and that,
+Make thy option which of two;
+Economize the failing river,
+Not the less revere the Giver,
+Leave the many and hold the few.
+Timely wise accept the terms,
+Soften the fall with wary foot;
+A little while
+Still plan and smile,
+And,--fault of novel germs,--
+Mature the unfallen fruit.
+Curse, if thou wilt, thy sires,
+Bad husbands of their fires,
+Who, when they gave thee breath,
+Failed to bequeath
+The needful sinew stark as once,
+The Baresark marrow to thy bones,
+But left a legacy of ebbing veins,
+Inconstant heat and nerveless reins,--
+Amid the Muses, left thee deaf and dumb,
+Amid the Gladiators, halt and numb."
+[VERSE 2]
+As the bird trims her to the gale,
+I trim myself to the storm of time,
+I man the rudder, reef the sail,
+Obey the voice at eve obeyed at prime:
+"Lowly faithful, banish fear,
+Right onward drive unharmed;
+The port, well worth the cruise, is near,
+And every wave is charmed."
+
+--- TITLE: EROS
+--- SOURCE: PG2620
+[VERSE 1]
+The sense of the world is short, -
+Long and various the report, -
+To love and be beloved;
+Men and gods have not outlearned it;
+And, how oft soe'er they've turned it,
+'Tis not to be improved.
+
+--- TITLE: Song of Nature
+--- SOURCE: PG2621
+[VERSE 1]
+Mine are the night and morning,
+The pits of air, the gull of space,
+The sportive sun, the gibbous moon,
+The innumerable days.
+[VERSE 2]
+I hide in the solar glory,
+I am dumb in the pealing song,
+I rest on the pitch of the torrent,
+In slumber I am strong.
+[VERSE 3]
+No numbers have counted my tallies,
+No tribes my house can fill,
+I sit by the shining Fount of Life
+And pour the deluge still;
+[VERSE 4]
+And ever by delicate powers
+Gathering along the centuries
+From race on race the rarest flowers,
+My wreath shall nothing miss.
+[VERSE 5]
+And many a thousand summers
+My gardens ripened well,
+And light from meliorating stars
+With firmer glory fell.
+[VERSE 6]
+I wrote the past in characters
+Of rock and fire the scroll,
+The building in the coral sea,
+The planting of the coal.
+[VERSE 7]
+And thefts from satellites and rings
+And broken stars I drew,
+And out of spent and aged things
+I formed the world anew;
+[VERSE 8]
+What time the gods kept carnival,
+Tricked out in star and flower,
+And in cramp elf and saurian forms
+They swathed their too much power.
+[VERSE 9]
+Time and Thought were my surveyors,
+They laid their courses well,
+They boiled the sea, and piled the layers
+Of granite, marl and shell.
+[VERSE 10]
+But he, the man-child glorious,--
+Where tarries he the while?
+The rainbow shines his harbinger,
+The sunset gleams his smile.
+[VERSE 11]
+My boreal lights leap upward,
+Forthright my planets roll,
+And still the man-child is not born,
+The summit of the whole.
+[VERSE 12]
+Must time and tide forever run?
+Will never my winds go sleep in the west?
+Will never my wheels which whirl the sun
+And satellites have rest?
+[VERSE 13]
+Too much of donning and doffing,
+Too slow the rainbow fades,
+I weary of my robe of snow,
+My leaves and my cascades;
+[VERSE 14]
+I tire of globes and races,
+Too long the game is played;
+What without him is summer's pomp,
+Or winter's frozen shade?
+[VERSE 15]
+I travail in pain for him,
+My creatures travail and wait;
+His couriers come by squadrons,
+He comes not to the gate.
+[VERSE 16]
+Twice I have moulded an image,
+And thrice outstretched my hand,
+Made one of day and one of night
+And one of the salt sea-sand.
+[VERSE 17]
+One in a Judaean manger,
+And one by Avon stream,
+One over against the mouths of Nile,
+And one in the Academe.
+[VERSE 18]
+I moulded kings and saviors,
+And bards o'er kings to rule;--
+But fell the starry influence short,
+The cup was never full.
+[VERSE 19]
+Yet whirl the glowing wheels once more,
+And mix the bowl again;
+Seethe, Fate! the ancient elements,
+Heat, cold, wet, dry, and peace, and pain.
+[VERSE 20]
+Let war and trade and creeds and song
+Blend, ripen race on race,
+The sunburnt world a man shall breed
+Of all the zones and countless days.
+[VERSE 21]
+No ray is dimmed, no atom worn,
+My oldest force is good as new,
+And the fresh rose on yonder thorn
+Gives back the bending heavens in dew.
+
+--- TITLE: Waldeinsamkeit
+--- SOURCE: PG2621
+[VERSE 1]
+I do not count the hours I spend
+In wandering by the sea;
+The forest is my loyal friend,
+Like God it useth me.
+[VERSE 2]
+In plains that room for shadows make
+Of skirting hills to lie,
+Bound in by streams which give and take
+Their colors from the sky;
+[VERSE 3]
+Or on the mountain-crest sublime,
+Or down the oaken glade,
+O what have I to do with time?
+For this the day was made.
+[VERSE 4]
+Cities of mortals woe-begone
+Fantastic care derides,
+But in the serious landscape lone
+Stern benefit abides.
+[VERSE 5]
+Sheen will tarnish, honey cloy,
+And merry is only a mask of sad,
+But, sober on a fund of joy,
+The woods at heart are glad.
+[VERSE 6]
+There the great Planter plants
+Of fruitful worlds the grain,
+And with a million spells enchants
+The souls that walk in pain.
+[VERSE 7]
+Still on the seeds of all he made
+The rose of beauty burns;
+Through times that wear and forms that fade,
+Immortal youth returns.
+[VERSE 8]
+The black ducks mounting from the lake,
+The pigeon in the pines,
+The bittern's boom, a desert make
+Which no false art refines.
+[VERSE 9]
+Down in yon watery nook,
+Where bearded mists divide,
+The gray old gods whom Chaos knew,
+The sires of Nature, hide.
+[VERSE 10]
+Aloft, in secret veins of air,
+Blows the sweet breath of song,
+O, few to scale those uplands dare,
+Though they to all belong!
+[VERSE 11]
+See thou bring not to field or stone
+The fancies found in books;
+Leave authors' eyes, and fetch your own,
+To brave the landscape's looks.
+[VERSE 12]
+Oblivion here thy wisdom is,
+Thy thrift, the sleep of cares;
+For a proud idleness like this
+Crowns all thy mean affairs.
+
+--- TITLE: Fable
+--- SOURCE: PG2622
+[VERSE 1]
+The mountain and the squirrel
+Had a quarrel,
+And the former called the latter "Little Prig;"
+Bun replied,
+"You are doubtless very big;
+But all sorts of things and weather
+Must be taken in together,
+To make up a year
+And a sphere.
+And I think it no disgrace
+To occupy my place.
+If I'm not so large as you,
+You are not so small as I,
+And not half so spry.
+[VERSE 2]
+I'll not deny you make
+A very pretty squirrel track;
+Talents differ; all is well and wisely put;
+If I cannot carry forests on thy back,
+Neither can you crack a nut.

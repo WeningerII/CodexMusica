@@ -5,6 +5,10 @@
 # licence: public domain — Project Gutenberg text; author died 1875; every edition used was published 1931 or earlier
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1875, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1875, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # edition: Andromeda-and-Other-Poems — 1858 — no imprint in the file; Kingsley, Andromeda and Other Poems, 1858
 # edition: Victorian-Songs--Lyrics-of-the-Affections-and-Nature — 1895 — detected in file: 'Boston 1895' — Victorian Songs, ed. Edmund Gosse
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
@@ -1387,3 +1391,64 @@ Airly Beacon, Airly Beacon;
   O the weary haunt for me,
 All alone on Airly Beacon,
   With his baby on my knee!
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Oh! that we two were Maying
+Down the stream of the soft spring breeze;
+Like children with violets playing
+In the shade of the whispering trees.
+[VERSE 2]
+Oh! that we two sat dreaming
+On the sward of some sheep-trimmed down,
+Watching the white mist steaming
+Over river and mead and town.
+[VERSE 3]
+Oh! that we two lay sleeping
+In our nest in the churchyard sod,
+With our limbs at rest on the quiet earth's breast,
+And our souls at home with God!
+
+--- TITLE: The Last Buccaneer
+--- SOURCE: PG2621
+[VERSE 1]
+Oh, England is a pleasant place for them that's rich and high,
+But England is a cruel place for such poor folks as I;
+And such a port for mariners I ne'er shall see again
+As the pleasant Isle of Aves, beside the Spanish main.
+[VERSE 2]
+There were forty craft in Aves that were both swift and stout,
+All furnished well with small arms and cannons round about;
+And a thousand men in Aves made laws so fair and free
+To choose their valiant captains and obey them loyally.
+[VERSE 3]
+Thence we sailed against the Spaniard with his hoards of plate and gold,
+Which he wrung with cruel tortures from Indian folk of old;
+Likewise the merchant captains, with hearts as hard as stone,
+Who flog men and keelhaul them, and starve them to the bone.
+[VERSE 4]
+Oh, the palms grew high in Aves, and fruits that shone like gold,
+And the colibris and parrots they were gorgeous to behold;
+And the negro maids to Aves from bondage fast did flee,
+To welcome gallant sailors, a-sweeping in from sea.
+[VERSE 5]
+Oh, sweet it was in Aves to hear the landward breeze,
+A-swing with good tobacco in a net between the trees,
+With a negro lass to fan you, while you listened to the roar
+Of the breakers on the reef outside, that never touched the shore.
+[VERSE 6]
+But Scripture saith, an ending to all fine things must be;
+So the King's ships sailed on Aves, and quite put down were we.
+All day we fought like bulldogs, but they burst the booms at night;
+And I fled in a piragua, sore wounded, from the fight.
+[VERSE 7]
+Nine days I floated starving, and a negro lass beside,
+Till for all I tried to cheer her, the poor young thing she died;
+But as I lay a-gasping, a Bristol sail came by,
+And brought me home to England here, to beg until I die.
+[VERSE 8]
+And now I'm old and going--I'm sure I can't tell where;
+One comfort is, this world's so hard, I can't be worse off there:
+If I might but be a sea-dove, I'd fly across the main,
+To the pleasant Isle of Aves, to look at it once again.

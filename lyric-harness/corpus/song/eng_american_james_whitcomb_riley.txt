@@ -2,10 +2,16 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1916, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1916, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1916, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 11
 
 --- TITLE: Bereaved
 --- SOURCE: PG15553
@@ -54,3 +60,382 @@ I've ketched myse'f a-wishin' like--as I dumb on the cheer
 To wind the clock, as I hev done fer mor'n fifty year,--
 A-wishin' 'at the time bed come fer us to go to bed,
 With our last prayers, and our last tears, sence little Wesley's dead!
+
+--- TITLE: The Raggedy Man
+--- SOURCE: PG2619
+[VERSE 1]
+O the Raggedy Man!  He works fer Pa;
+An' he's the goodest man ever you saw!
+He comes to our house every day,
+An' waters the horses, an' feeds 'em hay;
+An' he opens the shed--an' we all ist laugh
+When he drives out our little old wobble-ly calf;
+An' nen--ef our hired girl says he can--
+He milks the cow fer 'Lizabuth Ann.--
+Ain't he a' awful good Raggedy Man?
+Raggedy! Raggedy! Raggedy Man!
+[VERSE 2]
+W'y, the Raggedy Man--he's ist so good
+He splits the kindlin' an' chops the wood;
+An' nen he spades in our garden, too,
+An' does most things 'at boys can't do.--
+He clumbed clean up in our big tree
+An' shooked a' apple down fer me--
+An' nother'n', too, fer 'Lizabuth Ann--
+An' nother'n', too, fer the Raggedy Man.--
+Ain't he a' awful kind Raggedy Man?
+Raggedy! Raggedy! Raggedy Man!
+[VERSE 3]
+An' the Raggedy Man, he knows most rhymes
+An' tells 'em, ef I be good, sometimes:
+Knows 'bout Giunts, an' Griffuns, an' Elves,
+An' the Squidgicum-Squees 'at swallers therselves!
+An', wite by the pump in our pasture-lot,
+He showed me the hole 'at the Wunks is got,
+'At lives 'way deep in the ground, an' can
+Turn into me, er 'Lizabuth Ann!
+Er Ma, er Pa, er the Raggedy Man!
+Ain't he a funny old Raggedy Man?
+Raggedy! Raggedy! Raggedy Man!
+[VERSE 4]
+The Raggedy Man--one time when he
+Was makin' a little bow-n'-orry fer me,
+Says, "When you're big like your Pa is,
+Air you go' to keep a fine store like his--
+An' be a rich merchunt--an' wear fine clothes?--
+Er what air you go' to be, goodness knows?"
+An' nen he laughed at 'Lizabuth Ann,
+An' I says "'M go' to be a Raggedy Man!--
+I'm ist go' to be a nice Raggedy Man!"
+Raggedy! Raggedy! Raggedy Man!
+
+--- TITLE: The Man in the Moon
+--- SOURCE: PG2619
+[VERSE 1]
+Said the Raggedy Man, on a hot afternoon,
+"My!
+Sakes!
+What a lot o' mistakes
+Some little folks makes on The Man in the Moon!
+But people that's b'en up to see him, like me,
+And calls on him frequent and intimately,
+Might drop a few facts that would interest you
+Clean!
+Through!--
+If you wanted 'em to--
+Some actual facts that might interest you!
+[VERSE 2]
+"O The Man in the Moon has a crick in his back;
+Whee!
+Whimm!
+Ain't you sorry for him?
+And a mole on his nose that is purple and black;
+And his eyes are so weak that they water and run
+If he dares to dream even he looks at the sun.--
+So he jes' dreams of stars, as the doctors advise--
+My!
+Eyes!
+But isn't he wise--
+To jes' dream of stars, as the doctors advise?
+[VERSE 3]
+"And The Man in the Moon has a boil on his ear,--
+Whee!
+Whing!
+What a singular thing!
+I know! but these facts are authentic, my dear,--
+There's a boil on his ear; and a corn on his chin,--
+He calls it a dimple--but dimples stick in--
+Yet it might be a dimple turned over, you know!
+Whang!
+Ho!
+Why, certainly so!--
+It might be a dimple turned over, you know!
+[VERSE 4]
+"And The Man in the Moon has a rheumatic knee,--
+Gee!
+Whizz!
+What a pity that is!
+And his toes have worked round where his heels ought to be.
+So whenever he wants to go North he goes South,
+And comes back with porridge crumbs all round his mouth,
+And he brushes them off with a Japanese fan.
+Whing!
+Whann!
+What a marvelous man!
+What a very remarkably marvelous man!
+[VERSE 5]
+"And The Man in the Moon," sighed the Raggedy Man,
+"Gits!
+So!
+Sullonesome, you know,--
+Up there by hisse'f sence creation began!--
+That when I call on him and then come away,
+He grabs me and holds me and begs me to stay,--
+Till--Well! if it wasn't fer Jimmy-cum-Jim,
+Dadd!
+Limb!
+I'd go pardners with him--
+Jes' jump my job here and be pardners with him!"
+
+--- TITLE: Little Orphant Annie
+--- SOURCE: PG2619
+[VERSE 1]
+Little Orphant Annie's come to our house to stay,
+An' wash the cups an' saucers up, an' brush the crumbs away,
+An' shoo the chickens off the porch, an' dust the hearth, an' sweep,
+An' make the fire, an' bake the bread, an' earn her board an'-keep;
+An' all us other children, when the supper things is done,
+We set around the kitchen fire an' has the mostest fun
+A-list'nin' to the witch-tales 'at Annie tells about,
+An' the Gobble-uns 'at gits you
+Ef you
+Don't
+Watch
+Out!
+[VERSE 2]
+Onc't they was a little boy wouldn't say his prayers--
+An' when he went to bed at night, away up stairs,
+His Mammy heered him holler, an' his Daddy heered him bawl,
+An' when they turn't the kivvers down, he wasn't there at all!
+An' they seeked him in the rafter-room, an' cubby-hole, an' press,
+An' seeked him up the chimbly-flue, an' ever'wheres, I guess;
+But all they ever found was thist his pants an' roundabout:
+An' the Gobble-uns 'll git you
+Ef you
+Don't
+Watch
+Out!
+[VERSE 3]
+An' one time a little girl 'ud allus laugh an' grin,
+An' make fun of ever' one, an' all her blood-an'-kin;
+An' onc't when they was "company," an' ole folks was there,
+She mocked 'em an' shocked 'em, an' said she didn't care!
+An' thist as she kicked her heels, an' turn't to run an' hide,
+They was two great big Black Things a-standin' by her side,
+An' they snatched her through the ceilin' 'fore she knowed what
+  she's about!
+An' the Gobble-uns 'll git you
+Ef you
+Don't
+Watch
+Out!
+[VERSE 4]
+An' little Orphant Annie says, when the blaze is blue,
+An' the lamp-wick sputters, an' the wind goes woo-oo!
+An' you hear the crickets quit, an' the moon is gray,
+An' the lightnin'-bugs in dew is all squenched away,--
+You better mind yer parents, an' yer teachers fond and dear,
+An' churish them 'at loves you, an' dry the orphant's tear,
+An' he'p the pore an' needy ones 'at clusters all about,
+Er the Gobble-uns 'll git you
+Ef you
+Don't
+Watch
+Out!
+
+--- TITLE: Our Hired Girl
+--- SOURCE: PG2619
+[VERSE 1]
+Our hired girl, she's 'Lizabuth Ann;
+An' she can cook best things to eat!
+She ist puts dough in our pie-pan,
+An' pours in somepin' 'at's good an' sweet;
+An' nen she salts it all on top
+With cinnamon; an' nen she'll stop
+An' stoop an' slide it, ist as slow,
+In th' old cook-stove, so's 'twon't slop
+An' git all spilled; nen bakes it, so
+It's custard-pie, first thing you know!
+An' nen she'll say,
+"Clear out o' my way!
+They's time fer work, an' time fer play!
+Take yer dough, an' run, child, run!
+Er I cain't git no cookin' done!"
+[VERSE 2]
+When our hired girl 'tends like she's mad,
+An' says folks got to walk the chalk
+When she's around, er wisht they had!
+I play out on our porch an' talk
+To Th' Raggedy Man 'at mows our lawn;
+An' he says, "Whew!" an' nen leans on
+His old crook-scythe, and blinks his eyes,
+An' sniffs all 'round an' says, "I swawn!
+Ef my old nose don't tell me lies,
+It 'pears like I smell custard-pies!"
+An' nen he'll say,
+"Clear out o' my way!
+They's time fer work, an' time for play!
+Take yer dough, an' run, child, run!
+Er she cain't git no cookin' done!"
+[VERSE 3]
+Wunst our hired girl, when she
+Got the supper, an' we all et,
+An' it wuz night, an' Ma an' me
+An' Pa went wher' the "Social" met,--
+An' nen when we come home, an' see
+A light in the kitchen door, an' we
+Heerd a maccordeun, Pa says, "Lan'--
+O'-Gracious, who can her beau be?"
+An' I marched in, an' 'Lizabuth Ann
+Wuz parchin' corn fer The Raggedy Man!
+Better say,
+"Clear out o' the way!
+They's time fer work, an' time fer play!
+Take the hint, an' run, child, run!
+Er we cain't git no courtin' done!"
+
+--- TITLE: A Life-Lesson
+--- SOURCE: PG2619
+[VERSE 1]
+There! little girl, don't cry!
+They have broken your doll, I know;
+And your tea-set blue,
+And your play-house, too,
+Are things of the long ago;
+But childish troubles will soon pass by.--
+There! little girl, don't cry!
+[VERSE 2]
+There! little girl, don't cry!
+They have broken your slate, I know;
+And the glad, wild ways
+Of your school-girl days
+Are things of the long ago;
+But life and love will soon come by.--
+There! little girl, don't cry!
+[VERSE 3]
+There! little girl, don't cry!
+They have broken your heart, I know;
+And the rainbow gleams
+Of your youthful dreams
+Are things of the long ago;
+But Heaven holds all for which you sigh.--
+There! little girl, don't cry!
+
+--- TITLE: The Old Swimmin'-Hole
+--- SOURCE: PG2619
+[VERSE 1]
+Oh! the old swimmin'-hole! whare the crick so still and deep
+Looked like a baby-river that was laying half asleep,
+And the gurgle of the worter round the drift jest below
+Sounded like the laugh of something we onc't ust to know
+Before we could remember anything but the eyes
+Of the angels lookin' out as we left Paradise;
+But the merry days of youth is beyond our controle,
+And it's hard to part ferever with the old swimmin'-hole.
+[VERSE 2]
+Oh! the old swimmin'-hole!  In the happy days of yore,
+When I ust to lean above it on the old sickamore,
+Oh! it showed me a face in its warm sunny tide
+That gazed back at me so gay and glorified,
+It made me love myself as I leaped to caress
+My shadder smilin' up at me with sich tenderness.
+But them days is past and gone, and old Time's tuck his toll
+From the old man come back to the old swimmin'-hole.
+[VERSE 3]
+Oh! the old swimmin'-hole!  In the long, lazy days
+When the hum-drum of school made so many run-a-ways,
+How pleasant was the journey down the old dusty lane,
+Whare the tracks of our bare feet was all printed so plane
+You could tell by the dent of the heel and the sole
+They was lots o' fun on hand at the old swimmin'-hole.
+But the lost joys is past!  Let your tears in sorrow roll
+Like the rain that ust to dapple up the old swimmin'-hole.
+[VERSE 4]
+Thare the bulrushes growed, and the cattails so tall,
+And the sunshine and shadder fell over it all;
+And it mottled the worter with amber and gold
+Tel the glad lilies rocked in the ripples that rolled;
+And the snake-feeder's four gauzy wings fluttered by
+Like the ghost of a daisy dropped out of the sky,
+Or a wownded apple-blossom in the breeze's controle
+As it cut acrost some orchurd to'rds the old swimmin'-hole.
+[VERSE 5]
+Oh! the old swimmin'-hole!  When I last saw the place,
+The scenes was all changed, like the change in my face;
+The bridge of the railroad now crosses the spot
+Whare the old divin'-log lays sunk and fergot.
+And I stray down the banks whare the trees ust to be--
+But never again will theyr shade shelter me!
+And I wish in my sorrow I could strip to the soul,
+And dive off in my grave like the old swimmin'-hole.
+
+--- TITLE: WHEN SHE COMES HOME
+--- SOURCE: PG2620
+[VERSE 1]
+When she comes home again!  A thousand ways
+I fashion, to myself, the tenderness
+Of my glad welcome: I shall tremble - yes;
+And touch her, as when first in the old days
+I touched her girlish hand, nor dared upraise
+Mine eyes, such was my faint heart's sweet distress
+Then silence: and the perfume of her dress:
+The room will sway a little, and a haze
+Cloy eyesight - soul-sight, even - for a space;
+And tears - yes; and the ache here in the throat,
+To know that I so ill deserve the place
+Her arms make for me; and the sobbing note
+I stay with kisses, ere the tearful face
+Again is hidden in the old embrace.
+
+--- TITLE: THE LITTLE RED RIBBON
+--- SOURCE: PG2620
+[VERSE 1]
+The little red ribbon, the ring and the rose!
+The summertime comes, and the summertime goes -
+And never a blossom in all of the land
+As white as the gleam of her beckoning hand!
+[VERSE 2]
+The long winter months, and the glare of the snows;
+The little red ribbon, the ring and the rose!
+And never a glimmer of sun in the skies
+As bright as the light of her glorious eyes!
+[VERSE 3]
+Dreams only are true: but they fade and are gone -
+For her face is not here when I waken at dawn;
+The little red ribbon, the ring and the rose
+Mine only; hers only the dream and repose.
+[VERSE 4]
+I am weary of waiting, and weary of tears,
+And my heart wearies, too, all these desolate years,
+Moaning over the one only song that it knows, -
+The little red ribbon, the ring and the rose!
+
+--- TITLE: "When the Frost is on the Punkin"
+--- SOURCE: PG2621
+[VERSE 1]
+When the frost is on the punkin and the fodder's in the shock,
+And you hear the kyouck and gobble of the struttin' turkey-cock,
+And the clackin' of the guineys, and the cluckin' of the hens,
+And the rooster's hallylooyer as he tiptoes on the fence;
+O, it's then's the times a feller is a-feelin' at his best,
+With the risin' sun to greet him from a night of peaceful rest,
+As he leaves the house, bareheaded and goes out to feed the stock,
+When the frost is on the punkin and the fodder's in the shock.
+[VERSE 2]
+They's something kindo' harty-like about the atmusfere
+When the heat of summer's over and the coolin' fall is here--
+Of course we miss the flowers, and the blossoms on the trees,
+And the mumble of the hummin'-birds and buzzin' of the bees;
+But the air's so appetizin'; and the landscape through the haze
+Of a crisp and sunny morning of the airly autumn days
+Is a pictur' that no painter has the colorin' to mock--
+When the frost is on the punkin and the fodder's in the shock.
+[VERSE 3]
+The husky, rusty russel of the tossels of the corn,
+And the raspin' of the tangled leaves, as golden as the morn;
+The stubble in the furries--kindo' lonesome-like, but still
+A-preachin' sermuns to us of the barns they growed to fill;
+The strawstack in the medder, and the reaper in the shed;
+The hosses in theyr stalls below--the clover overhead!--
+O, it sets my hart a-clickin' like the tickin' of a clock,
+When the frost is on the punkin and the fodder's in the shock.
+[VERSE 4]
+Then your apples all is getherd, and the ones a feller keeps
+Is poured around the celler-floor in red and yeller heaps;
+And your cider-makin's over, and your wimmern-folks is through
+With their mince and apple-butter, and theyr souse and saussage, too!...
+I don't know how to tell it--but ef sich a thing could be
+As the Angels wantin' boardin', and they'd call around on
+me--
+I'd want to 'commodate 'em--all the whole-indurin' flock--
+When the frost is on the punkin and the fodder's in the shock.

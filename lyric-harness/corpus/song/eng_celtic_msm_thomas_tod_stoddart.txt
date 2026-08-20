@@ -4,11 +4,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1880, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('THOMAS TOD STODDART'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 4
+# songs: 5
 
 --- TITLE: ANGLING SONG
 --- SOURCE: PG22515
@@ -157,3 +159,24 @@ And at their country's need,
 With thunders in their lead,
 May the ocean eagles speed
   To her side!
+
+--- TITLE: The Angler's Invitation
+--- SOURCE: PG2621
+[VERSE 1]
+Come when the leaf comes, angle with me,
+Come when the bee hums over the lea,
+Come with the wild flowers--
+Come with the wild showers--
+Come when the singing bird calleth for thee!
+[VERSE 2]
+Then to the stream side, gladly we'll hie,
+Where the gray trout glide silently by,
+Or in some still place
+Over the hill face
+Hurrying onward, drop the light fly.
+[VERSE 3]
+Then, when the dew falls, homeward we'll speed
+To our own loved walls down on the mead,
+There, by the bright hearth,
+Holding our night mirth,
+We'll drink to sweet friendship in need and in deed.

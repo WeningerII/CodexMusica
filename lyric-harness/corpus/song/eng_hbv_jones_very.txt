@@ -1,0 +1,45 @@
+# author: Jones Very (1813-1880)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1880, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: Nature
+--- SOURCE: PG2621
+[VERSE 1]
+The bubbling brook doth leap when I come by,
+Because my feet find measure with its call;
+The birds know when the friend they love is nigh,
+For I am known to them, both great and small.
+The flower that on the lonely hillside grows
+Expects me there when spring its bloom has given;
+And many a tree and bush my wanderings knows,
+And e'en the clouds and silent stars of heaven;
+For he who with his Maker walks aright,
+Shall be their lord as Adam was before;
+His ear shall catch each sound with new delight,
+Each object wear the dress that then it wore;
+And he, as when erect in soul he stood,
+Hear from his Father's lips that all is good.
+
+--- TITLE: The Tree
+--- SOURCE: PG2621
+[VERSE 1]
+I love thee when thy swelling buds appear,
+And one by one their tender leaves unfold,
+As if they knew that warmer suns were near,
+Nor longer sought to hide from winter's cold;
+And when with darker growth thy leaves are seen
+To veil from view the early robin's nest,
+I love to lie beneath thy waving screen,
+With limbs by summer's heat and toil oppressed;
+And when the autumn winds have stripped thee bare,
+And round thee lies the smooth, untrodden snow,
+When naught is thine that made thee once so fair,
+I love to watch thy shadowy form below,
+And through thy leafless arms to look above
+On stars that brighter beam when most we need their love.

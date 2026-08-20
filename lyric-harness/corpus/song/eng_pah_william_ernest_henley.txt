@@ -5,10 +5,16 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1903; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1903, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1903, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1903, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 4
+# songs: 12
 
 --- TITLE: Invictus
 --- SOURCE: PG66619
@@ -146,3 +152,246 @@ There’s the menace of the Word
     On they swung, the drum a-rolling,
     Mum and sour. It looked like fighting,
     And they meant it too, by thunder!"
+
+--- TITLE: "OR EVER THE KNIGHTLY YEARS WERE GONE"
+--- SOURCE: PG2620
+[VERSE 1]
+Or ever the knightly years were gone
+With the old world to the grave,
+I was a King in Babylon
+And you were a Christian Slave.
+[VERSE 2]
+I saw, I took, I cast you by,
+I bent and broke your pride.
+You loved me well, or I heard them lie,
+But your longing was denied.
+Surely I knew that by and by
+You cursed your gods and died.
+[VERSE 3]
+And a myriad suns have set and shone
+Since then upon the grave
+Decreed by the King in Babylon
+To her that had been his Slave.
+[VERSE 4]
+The pride I trampled is now my scathe,
+For it tramples me again.
+The old resentment lasts like death,
+For you love, yet you refrain.
+I break my heart on your hard unfaith,
+And I break my heart in vain.
+[VERSE 5]
+Yet not for an hour do I wish undone
+The deed beyond the grave,
+When I was a King in Babylon
+And you were a Virgin Slave.
+
+--- TITLE: "I TOOK A HANSOM ON TO-DAY"
+--- SOURCE: PG2620
+[VERSE 1]
+I took a hansom on to-day,
+For a round I used to know -
+That I used to take for a woman's sake
+In a fever of to-and-fro.
+[VERSE 2]
+There were the landmarks one and all -
+What did they stand to show?
+Street and square and river were there -
+Where was the ancient woe?
+[VERSE 3]
+Never a hint of a challenging hope
+Nor a hope laid sick and low,
+But a longing dead as its kindred sped
+A thousand years ago!
+
+--- TITLE: The Blackbird
+--- SOURCE: PG2621
+[VERSE 1]
+The nightingale has a lyre of gold;
+The lark's is a clarion call,
+And the blackbird plays but a box-wood flute,
+But I love him best of all.
+[VERSE 2]
+For his song is all of the joy of life,
+And we in the mad, spring weather,
+We too have listened till he sang
+Our hearts and lips together.
+
+--- TITLE: "With Strawberries"
+--- SOURCE: PG2622
+[VERSE 1]
+With strawberries we filled a tray,
+And then we drove away, away
+Along the links beside the sea,
+Where wave and wind were light and free,
+And August felt as fresh as May,
+[VERSE 2]
+And where the springy turf was gay
+With thyme and balm and many a spray
+Of wild roses, you tempted me
+With strawberries!
+[VERSE 3]
+A shadowy sail, silent and gray,
+Stole like a ghost across the bay;
+But none could hear me ask my fee,
+And none could know what came to be.
+Can sweethearts all their thirst allay
+With strawberries?
+
+--- TITLE: Ballade of Ladies' Names
+--- SOURCE: PG2622
+[VERSE 1]
+Brown's for Lalage, Jones for Lelia,
+Robinson's bosom for Beatrice glows,
+Smith is a Hamlet before Ophelia.
+The glamor stays if the reason goes!
+Every lover the years disclose
+Is of a beautiful name made free.
+One befriends, and all others are foes.
+Anna's the name of names for me.
+[VERSE 2]
+Sentiment hallows the vowels of Delia;
+Sweet simplicity breathes from Rose;
+Courtly memories glitter in Celia;
+Rosalind savors of quips and hose,
+Araminta of wits and beaux,
+Prue of puddings, and Coralie
+All of sawdust and spangled shows;
+Anna's the name of names for me.
+[VERSE 3]
+Fie upon Caroline, Madge, Amelia--
+These I reckon the essence of prose!--
+Cavalier Katherine, cold Cornelia,
+Portia's masterful Roman nose,
+Maud's magnificence, Totty's toes,
+Poll and Bet with their twang of the sea,
+Nell's impertinence, Pamela's woes!
+Anna's the name of names for me.
+[VERSE 4]
+ENVOY
+Ruth like a gillyflower smells and blows,
+Sylvia prattles of Arcadee,
+Sybil mystifies, Connie crows,
+Anna's the name of names for me!
+
+--- TITLE: Villon's Straight Tip to all Cross Coves
+--- SOURCE: PG2622
+[VERSE 1]
+Suppose you screeve? or go cheap-jack?
+Or fake the broads? or fig a nag?
+Or thimble-rig? or knap a yack?
+Or pitch a snide? or smash a rag?
+Suppose you duff? or nose and lag?
+Or get the straight, and land your pot?
+How do you melt the multy swag?
+Booze and the blowens cop the lot.
+[VERSE 2]
+Fiddle, or fence, or mace, or mack;
+Or moskeneer, or flash the drag;
+Dead-lurk a crib, or do a crack;
+Pad with a slang, or chuck a fag;
+Bonnet, or tout, or mump and gag;
+Rattle the tats, or mark the spot;
+You can not bag a single stag;
+Booze and the blowens cop the lot.
+[VERSE 3]
+Suppose you try a different tack,
+And on the square you flash your flag?
+At penny-a-lining make your whack,
+Or with the mummers mug and gag?
+For nix, for nix the dibbs you bag!
+At any graft, no matter what,
+Your merry goblins soon stravag:
+Booze and the blowens cop the lot.
+[VERSE 4]
+THE MORAL
+It's up the spout and Charley Wag
+With wipes and tickers and what not,
+Until the squeezer nips your scrag,
+Booze and the blowens cop the lot.
+
+--- TITLE: "As Like the Woman as You Can"
+--- SOURCE: PG2622
+[VERSE 1]
+"As like the Woman as you can"--
+(Thus the New Adam was beguiled)--
+"So shall you touch the Perfect Man"--
+(God in the Garden heard and smiled).
+"Your father perished with his day:
+A clot of passions fierce and blind,
+He fought, he hacked, he crushed his way:
+Your muscles, Child, must be of mind.
+[VERSE 2]
+"The Brute that lurks and irks within,
+How, till you have him gagged and bound,
+Escape the foulest form of Sin?"
+(God in the Garden laughed and frowned).
+"So vile, so rank, the bestial mood
+In which the race is bid to be,
+It wrecks the Rarer Womanhood:
+Live, therefore, you, for Purity!
+[VERSE 3]
+"Take for your mate no gallant croup,
+No girl all grace and natural will:
+To work her mission were to stoop,
+Maybe to lapse, from Well to Ill.
+Choose one of whom your grosser make"--
+(God in the Garden laughed outright)--
+"The true refining touch may take,
+Till both attain to Life's last height.
+[VERSE 4]
+"There, equal, purged of soul and sense,
+Beneficent, high-thinking, just,
+Beyond the appeal of Violence,
+Incapable of common Lust,
+In mental Marriage still prevail"--
+(God in the Garden hid His face)--
+"Till you achieve that Female-Male
+In which shall culminate the race."
+
+--- TITLE: Culture in the Slums
+--- SOURCE: PG2622
+[VERSE 1]
+I.  RONDEAU
+"O crikey, Bill!" she ses to me, she ses.
+"Look sharp," ses she, "with them there sossiges.
+Yea! sharp with them there bags of mysteree!
+For lo!" she ses, "for lo! old pal," ses she,
+"I'm blooming peckish, neither more nor less."
+Was it not prime--I leave you all to guess
+How prime!--to have a Jude in love's distress
+Come spooning round, and murmuring balmilee,
+"O crikey, Bill!"
+[VERSE 2]
+For in such rorty wise doth Love express
+His blooming views, and asks for your address,
+And makes it right, and does the gay and free.
+I kissed her--I did so!  And her and me
+Was pals.  And if that ain't good business,
+"O crikey, Bill!"
+[VERSE 3]
+II.  VILLANELLE
+[VERSE 4]
+Now ain't they utterly too-too
+(She ses, my Missus mine, ses she),
+Them flymy little bits of Blue.
+[VERSE 5]
+Joe, just you kool 'em--nice and skew
+Upon our old meogginee,
+Now ain't they utterly too-too?
+[VERSE 6]
+They're better than a pot'n' a screw,
+They're equal to a Sunday spree,
+Them flymy little bits of Blue!
+[VERSE 7]
+Suppose I put 'em up the flue,
+And booze the profits, Joe?  Not me.
+Now ain't they utterly too-too?
+[VERSE 8]
+I do the 'Igh Art fake, I do.
+Joe, I'm consummate; and I see
+Them flymy little bits of Blue.
+[VERSE 9]
+Which, Joe, is why I ses ter you--
+Aesthetic-like, and limp, and free--
+Now ain't they utterly too-too,
+Them flymy little bits of Blue?

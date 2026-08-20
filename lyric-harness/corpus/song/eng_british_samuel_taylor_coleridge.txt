@@ -5,12 +5,20 @@
 # source: GITenberg/Lyrical-Ballads-with-Other-Poems-1800-Volume-1_8905 8905-8.txt md5 99f54d7b7c03627942fd8d94f975f4d6
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd
 # licence: public domain — Project Gutenberg text; author died 1834; every edition used was published 1931 or earlier
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1834, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1834, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1834, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1834, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # edition: Coleridge-s-Ancient-Mariner-and-Select-Poems — 1908 — detected in file: '1908'
 # edition: Lyrical-Ballads-With-a-Few-Other-Poems--1798- — 1798 — detected in file: '1798'
 # edition: Lyrical-Ballads-with-Other-Poems-1800-Volume-1 — 1800 — detected in file: '1800'; read for its PREFACE and TITLE PAGE, which are what decide this file's contents. NO VERSE IS TAKEN FROM IT.
 # edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1919 — Quiller-Couch's Oxford Book of English Verse 1250-1900; the file's own dateline is the 1250-1900 title span
-# songs: 12
-# lines: 726
+# songs: 19
+# lines: 859
 # attribution: EVERY ITEM CARRIES ITS OWN `--- AUTHOR:` LINE NAMING THE SOURCE
 #       THAT DECIDED IT. This file was rebuilt 2026-08-11 because it did not,
 #       and an attribution that lives only in a FILENAME gets checked exactly
@@ -970,3 +978,173 @@ With lips unbrighten’d, wreathless brow, I stroll:
 And would you learn the spells that drowse my soul?
 Work without Hope draws nectar in a sieve,
 And Hope without an object cannot live.
+
+--- TITLE: Answer to a Child's Question
+--- SOURCE: PG2619
+[VERSE 1]
+Do you ask what the birds say?  The Sparrow, the Dove,
+The Linnet and Thrush say, "I love and I love!"
+In the winter they're silent--the wind is so strong;
+What it says, I don't know, but it sings a loud song.
+But green leaves, and blossoms, and sunny warm weather,
+And singing, and loving--all come back together.
+But the Lark is so brimful of gladness and love,
+The green fields below him, the blue sky above,
+That he sings, and he sings, and for ever sings he--
+"I love my Love, and my Love loves me!"
+
+--- TITLE: "I ASKED MY FAIR, ONE HAPPY DAY"
+--- SOURCE: PG2620
+[VERSE 1]
+I asked my fair, one happy day,
+What I should call her in my lay;
+By what sweet name from Rome or Greece;
+Lalage, Neaera, Chloris,
+Sappho, Lesbia, or Doris,
+Arethusa or Lucrece.
+[VERSE 2]
+"Ah!" replied my gentle fair,
+"Beloved, what are names but air?
+Choose thou whatever suits the line;
+Call me Sappho, call me Chloris,
+Call me Lalage or Doris,
+Only - only call me thine."
+
+--- TITLE: THE EXCHANGE
+--- SOURCE: PG2620
+[VERSE 1]
+We pledged our hearts, my love and I, -
+I in my arms the maiden clasping:
+I could not tell the reason why,
+But oh! I trembled like an aspen.
+[VERSE 2]
+Her father's love she bade me gain;
+I went, and shook like any reed!
+I strove to act the man - in vain!
+We had exchanged our hearts indeed.
+
+--- TITLE: Hymn before Sunrise in the Vale of Chamouni
+--- SOURCE: PG2621
+[VERSE 1]
+Hast thou a charm to stay the morning-star
+In his steep course?  So long he seems to pause
+On thy bald, awful head, O sovereign Blanc!
+The Arve and Arveiron at thy base
+Rave ceaselessly; but thou, most awful Form,
+Risest from forth thy silent sea of pines,
+How silently!  Around thee and above
+Deep is the air and dark, substantial, black,
+An ebon mass: methinks thou piercest it,
+As with a wedge!  But when I look again,
+It is thine own calm home, thy crystal shrine,
+Thy habitation from eternity!
+O dread and silent Mount!  I gazed upon thee,
+Till thou, still present to the bodily sense,
+Didst vanish from my thought: entranced in prayer
+I worshiped the Invisible alone.
+[VERSE 2]
+Yet, like some sweet beguiling melody,
+So sweet, we know not we are listening to it,
+Thou, the meanwhile, wast blending with my thought,
+Yea, with my Life and Life's own secret joy:
+Till the dilating Soul, enrapt, transfused,
+Into the mighty vision passing--there,
+As in her natural form, swelled vast to Heaven!
+[VERSE 3]
+Awake, my soul! not only passive praise
+Thou owest! not alone these swelling tears,
+Mute thanks and secret ecstasy!  Awake,
+Voice of sweet song!  Awake, my Heart, awake!
+Green vales and icy cliffs, all join my Hymn.
+[VERSE 4]
+Thou first and chief, sole sovereign of the Vale!
+O, struggling with the darkness all the night,
+And visited all night by troops of stars,
+Or when they climb the sky or when they sink:
+Companion of the morning-star at dawn,
+Thyself Earth's rosy star, and of the dawn
+Co-herald: wake, O wake, and utter praise!
+Who sank thy sunless pillars deep in Earth?
+Who filled thy countenance with rosy light?
+Who made thee parent of perpetual streams?
+[VERSE 5]
+And you, ye five wild torrents fiercely glad!
+Who called you forth from night and utter death,
+From dark and icy caverns called you forth,
+Down those precipitous, black, jagged rocks,
+For ever shattered and the same for ever?
+Who gave you your invulnerable life,
+Your strength, your speed, your fury, and your joy,
+Unceasing thunder and eternal foam?
+And who commanded (and the silence came),
+Here let the billows stiffen, and have rest?
+[VERSE 6]
+Ye ice-falls! ye that from the mountain's brow
+Adown enormous ravines slope amain--
+Torrents, methinks, that heard a mighty voice,
+And stopped at once amid their maddest plunge!
+Motionless torrents! silent cataracts!
+Who made you glorious as the Gates of Heaven
+Beneath the keen full moon?  Who bade the sun
+Clothe you with rainbows?  Who, with living flowers
+Of loveliest blue, spread garlands at your feet?--
+God! let the torrents, like a shout of nations,
+Answer! and let the ice-plains echo, God!
+God! sing ye meadow-streams with gladsome voice!
+Ye pine-groves, with your soft and soul-like sounds!
+And they too have a voice, yon piles of snow,
+And in their perilous fall shall thunder, God!
+[VERSE 7]
+Ye living flowers that skirt the eternal frost!
+Ye wild goats sporting round the eagle's nest!
+Ye eagles, playmates of the mountain-storm!
+Ye lightnings, the dread arrows of the clouds!
+Ye signs and wonders of the elements!
+Utter forth God, and fill the hills with praise!
+[VERSE 8]
+Thou too, hoar Mount! with thy sky-pointing peaks,
+Oft from whose feet the avalanche, unheard,
+Shoots downward, glittering through the pure serene,
+Into the depth of clouds that veil thy breast--
+Thou too again, stupendous Mountain! thou
+That as I raise my head, awhile bowed low
+In adoration, upward from thy base
+Slow traveling with dim eyes suffused with tears,
+Solemnly seemest, like a vapory cloud,
+To rise before me--Rise, O ever rise!
+Rise like a cloud of incense, from the Earth!
+Thou kingly Spirit throned among the hills,
+Thou dread ambassador from Earth to Heaven,
+Great Hierarch! tell thou the silent sky,
+And tell the stars, and tell yon rising sun,
+Earth, with her thousand voices, praises God.
+
+--- TITLE: Cologne
+--- SOURCE: PG2622
+[VERSE 1]
+In Koln, a town of monks and bones,
+And pavements fanged with murderous stones,
+And rags, and hags, and hideous wenches;
+I counted two and seventy stenches,
+All well defined, and several stinks!
+Ye Nymphs that reign o'er sewers and sinks,
+The river Rhine, it is well known,
+Doth wash your city of Cologne;
+But tell me, Nymphs! what power divine
+Shall henceforth wash the river Rhine?
+
+--- TITLE: Epigram
+--- SOURCE: PG2622
+[VERSE 1]
+Sir, I admit your general rule,
+That every poet is a fool,
+But you yourself may serve to show it,
+That every fool is not a poet.
+
+--- TITLE: Epigram
+--- SOURCE: PG2622
+[VERSE 1]
+"What? rise again with all one's bones,"
+Quoth Giles, "I hope you fib:
+I trusted, when I went to Heaven,
+To go without my rib.

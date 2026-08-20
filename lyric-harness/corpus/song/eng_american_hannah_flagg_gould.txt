@@ -2,6 +2,8 @@
 # region: american
 # source: GITenberg/The-Youth-s-Coronal_11432 11432.txt md5 eba1b2fdd9bb0fa2b75f3ffa86abfa38
 # licence: public domain - Project Gutenberg; edition published 1851 -- Hannah Flagg Gould, The Youth's Coronal
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1865, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -255,3 +257,42 @@ The God who by the lily-pond
   Had drawn his heart above,
 In after life preserved the bond
   Of grateful, holy love.
+
+--- TITLE: The Frost
+--- SOURCE: PG2621
+[VERSE 1]
+The Frost looked forth, one still, clear night,
+And he said, "Now I shall be out of sight;
+So through the valley and over the height
+In silence I'll take my way.
+I will not go like that blustering train,
+The wind and the snow, the hail and the rain,
+Who make so much bustle and noise in vain,
+But I'll be as busy as they!"
+[VERSE 2]
+Then he went to the mountain, and powdered its crest,
+He climbed up the trees, and their boughs he dressed
+With diamonds and pearls, and over the breast
+Of the quivering lake he spread
+A coat of mail, that it need not fear
+The downward point of many a spear
+That he hung on its margin, far and near,
+Where a rock could rear its head.
+[VERSE 3]
+He went to the windows of those who slept,
+And over each pane like a fairy crept;
+Wherever he breathed, wherever he stepped,
+By the light of the moon were seen
+Most beautiful things.  There were flowers and trees,
+There were bevies of birds and swarms of bees,
+There were cities, thrones, temples, and towers, and these
+All pictured in silver sheen!
+[VERSE 4]
+But he did one thing that was hardly fair,--
+He peeped in the cupboard, and, finding there
+That all had forgotten for him to prepare,--
+"Now, just to set them a-thinking,
+I'll bite this basket of fruit," said he;
+"This costly pitcher I'll burst in three,
+And the glass of water they've left for me
+Shall 'tchick!' to tell them I'm drinking."

@@ -11,13 +11,15 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1854, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('JAMES MONTGOMERY'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
 # merged: 2026-08-20 — eng_celtic_msm_james_montgomery.txt (6 items) was the same man and is merged in here, the larger holding. IDENTITY PROVEN FROM THE EDITION'S OWN MEMOIR, not from the shared surname: Irvine 1771, Moravian father, Fulneck, the Sheffield Register and Iris, two imprisonments in the Castle of York (which is what the merged item 'VERSES TO A ROBIN RED-BREAST ... MY PRISON' is about), death at Sheffield 1854 — one life, told once, matching the hymn editions' James Montgomery 1771-1854 at both ends.
 # function-basis: THE FILE-LEVEL DEFAULT IS DELETED ON PURPOSE. It read 'hymn', and resolve_songs() can only FILL from the header, never clear it, so the six merged Minstrel items — a German war-song, an Odd Fellows lodge song, a prison poem — would have silently inherited 'hymn'. The 45 hymn items carry '--- FUNCTION: hymn' each; the six carry nothing, which is the honest undeclared state.
-# songs: 51
+# songs: 53
 
 --- TITLE: Stand up, and bless the Lord
 --- FUNCTION: hymn
@@ -1485,3 +1487,122 @@ Purged the plague-spot from our nation,
   Negroes to their rights restored;
 Slaves no longer,
   _Freemen,--freemen_ of the _Lord_.
+
+--- TITLE: Night
+--- SOURCE: PG2621
+[VERSE 1]
+Night is the time for rest;
+How sweet, when labors close,
+To gather round an aching breast
+The curtain of repose,
+Stretch the tired limbs, and lay the head
+Down on our own delightful bed!
+[VERSE 2]
+Night is the time for dreams;
+The gay romance of life,
+When truth that is, and truth that seems,
+Blend in fantastic strife;
+Ah! visions, less beguiling far
+Than waking dreams by daylight are!
+[VERSE 3]
+Night is the time for toil;
+To plough the classic field,
+Intent to find the buried spoil
+Its wealthy furrows yield;
+Till all is ours that sages taught,
+That poets sang, or heroes wrought.
+[VERSE 4]
+Night is the time to weep;
+To wet with unseen tears
+Those graves of Memory, where sleep
+The joys of other years;
+Hopes, that were Angels at their birth,
+But perished young, like things of earth.
+[VERSE 5]
+Night is the time to watch;
+O'er ocean's dark expanse,
+To hail the Pleiades, or catch
+The full moon's earliest glance,
+That brings into the homesick mind
+All we have loved and left behind.
+[VERSE 6]
+Night is the time for care;
+Brooding on hours misspent,
+To see the spectre of Despair
+Come to our lonely tent;
+Like Brutus, 'midst his slumbering host,
+Summoned to die by Caesar's ghost.
+[VERSE 7]
+Night is the time to think;
+When, from the eye, the soul
+Takes flight; and, on the utmost brink,
+Of yonder starry pole
+Descries beyond the abyss of night
+The dawn of uncreated light.
+[VERSE 8]
+Night is the time to pray;
+Our Saviour oft withdrew
+To desert mountains far away;
+So will his followers do,--
+Steal from the throng to haunts untrod,
+And hold communion there with God.
+[VERSE 9]
+Night is the time for Death;
+When all around is peace,
+Calmly to yield the weary breath,
+From sin and suffering cease,
+Think of heaven's bliss, and give the sign
+To parting friends;--such death be mine!
+
+--- TITLE: A Field Flower
+--- SOURCE: PG2621
+[VERSE 1]
+There is a flower, a little flower
+With silver crest and golden eye,
+That welcomes every changing hour,
+And weathers every sky.
+[VERSE 2]
+The prouder beauties of the field
+In gay but quick succession shine;
+Race after race their honors yield,
+They flourish and decline.
+[VERSE 3]
+But this small flower, to Nature dear,
+While moons and stars their courses run,
+Wreathes the whole circle of the year,
+Companion of the Sun.
+[VERSE 4]
+It smiles upon the lap of May,
+To sultry August spreads its charms,
+Lights pale October on his way,
+And twines December's arms.
+[VERSE 5]
+The purple heath and golden broom
+On moory mountains catch the gale;
+O'er lawns the lily sheds perfume,
+The violet in the vale.
+[VERSE 6]
+But this bold floweret climbs the hill,
+Hides in the forest, haunts the glen,
+Plays on the margin of the rill,
+Peeps round the fox's den.
+[VERSE 7]
+Within the garden's cultured round
+It shares the sweet carnation's bed;
+And blooms on consecrated ground
+In honor of the dead.
+[VERSE 8]
+The lambkin crops its crimson gem;
+The wild bee murmurs on its breast;
+The blue-fly bends its pensile stem
+Light o'er the skylark's nest.
+[VERSE 9]
+'Tis Flora's page,--in every place,
+In every season, fresh and fair;
+It opens with perennial grace,
+And blossoms everywhere.
+[VERSE 10]
+On waste and woodland, rock and plain,
+Its humble buds unheeded rise;
+The Rose has but a summer reign;
+The Daisy never dies!

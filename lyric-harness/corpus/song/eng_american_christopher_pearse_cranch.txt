@@ -4,10 +4,12 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1892, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 3
 
 --- TITLE: Stanzas
 --- SOURCE: PG15553
@@ -94,3 +96,21 @@ O Spirit of immortal truth,
   Thy power alone that circles all
 Can feed the fire as in its youth--
   Can hold the runners lest they fall!
+
+--- TITLE: The Pines and the Sea
+--- SOURCE: PG2621
+[VERSE 1]
+Beyond the low marsh-meadows and the beach,
+Seen through the hoary trunks of windy pines,
+The long blue level of the ocean shines.
+The distant surf, with hoarse, complaining speech,
+Out from its sandy barrier seems to reach;
+And while the sun behind the woods declines,
+The moaning sea with sighing boughs combines,
+And waves and pines make answer, each to each.
+O melancholy soul, whom far and near,
+In life, faith, hope, the same sad undertone
+Pursues from thought to thought! thou needs must hear
+An old refrain, too much, too long thine own:
+'Tis thy mortality infects thine ear;
+The mournful strain was in thyself alone.

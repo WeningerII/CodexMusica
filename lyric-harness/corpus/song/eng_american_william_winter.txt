@@ -2,10 +2,14 @@
 # region: american
 # source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1917, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1917, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own printed by-line credit, per item
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 3
 
 --- TITLE: AFTER ALL
 --- SOURCE: PG54211
@@ -49,3 +53,54 @@ And a pallid, tearless woman
  By the cold hearth sits alone,
 And the old clock in the corner
  Ticks on with a steady drone.
+
+--- TITLE: Age
+--- SOURCE: PG2619
+[VERSE 1]
+Snow and stars, the same as ever
+In the days when I was young,--
+But their silver song, ah never,
+Never now is sung!
+[VERSE 2]
+Cold the stars are, cold the earth is,
+Everything is grim and cold!
+Strange and drear the sound of mirth is--
+Life and I are old!
+
+--- TITLE: THE QUEEN
+--- SOURCE: PG2620
+[VERSE 1]
+He loves not well whose love is bold!
+I would not have thee come too nigh:
+The sun's gold would not seem pure gold
+Unless the sun were in the sky:
+To take him thence and chain him near
+Would make his glory disappear.
+[VERSE 2]
+He keeps his state, - keep thou in thine,
+And shine upon me from afar!
+So shall I bask in light divine,
+That falls from love's own guiding star;
+So shall thy eminence be high,
+And so my passion shall not die;
+[VERSE 3]
+But all my life shall reach its hands
+Of lofty longing toward thy face,
+And be as one who, speechless, stands
+In rapture at some perfect grace!
+My love, my hope, my all shall be
+To look to heaven and look to thee!
+[VERSE 4]
+Thy eyes shall be the heavenly lights,
+Thy voice the gentle summer breeze, -
+What time it sways, on moonlit nights,
+The murmuring tops of leafy trees;
+And I shall touch thy beauteous form
+In June's red roses, rich and warm.
+[VERSE 5]
+But thou thyself shall come not down
+From that pure region far above;
+But keep thy throne and wear thy crown,
+Queen of my heart and queen of love!
+A monarch in thy realm complete,
+And I a monarch - at thy feet!

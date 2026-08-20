@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1896; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1896, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1896, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 3
+# songs: 6
 
 --- TITLE: Summer Dawn
 --- SOURCE: PG66619
@@ -78,3 +82,188 @@ An entrance to that happy place;
 To seek the unforgotten face
 Once seen, once kiss’d, once reft from me
 Anigh the murmuring of the sea.
+
+--- TITLE: PRAISE OF MY LADY
+--- SOURCE: PG2620
+[VERSE 1]
+My lady seems of ivory
+Forehead, straight nose, and cheeks that be
+Hollowed a little mournfully.
+Beata mea Domina!
+[VERSE 2]
+Her forehead, overshadowed much
+By bows of hair, has a wave such
+As God was good to make for me.
+Beata mea Domina!
+[VERSE 3]
+Not greatly long my lady's hair,
+Nor yet with yellow color fair,
+But thick and crisped wonderfully:
+Beata mea Domina!
+[VERSE 4]
+Heavy to make the pale face sad,
+And dark, but dead as though it had
+Been forged by God most wonderfully
+Beata mea Domina!
+[VERSE 5]
+Of some strange metal, thread by thread,
+To stand out from my lady's head,
+Not moving much to tangle me.
+Beata mea Domina!
+[VERSE 6]
+Beneath her brows the lids fall slow,
+The lashes a clear shadow throw
+Where I would wish my lips to be.
+Beata mea Domina!
+[VERSE 7]
+Her great eyes, standing far apart,
+Draw up some memory from her heart,
+And gaze out very mournfully;
+Beata mea Domina!
+[VERSE 8]
+So beautiful and kind they are,
+But most times looking out afar,
+Waiting for something, not for me.
+Beata mea Domina!
+[VERSE 9]
+I wonder if the lashes long
+Are those that do her bright eyes wrong,
+For always half tears seem to be
+Beata mea Domina!
+[VERSE 10]
+Lurking below the underlid,
+Darkening the place where they lie hid:
+If they should rise and flow for me!
+Beata mea Domina!
+[VERSE 11]
+Her full lips being made to kiss,
+Curled up and pensive each one is;
+This makes me faint to stand and see.
+Beata mea Domina!
+[VERSE 12]
+Her lips are not contented now,
+Because the hours pass so slow
+Towards a sweet time: (pray for me),
+Beata mea Domina!
+[VERSE 13]
+Nay, hold thy peace! for who can tell?
+But this at least I know full well,
+Her lips are parted longingly,
+Beata mea Domina!
+[VERSE 14]
+So passionate and swift to move,
+To pluck at any flying love,
+That I grow faint to stand and see.
+Beata mea Domina!
+[VERSE 15]
+Yea! there beneath them is her chin,
+So fine and round, it were a sin
+To feel no weaker when I see
+Beata mea Domina!
+[VERSE 16]
+God's dealings; for with so much care
+And troublous, faint lines wrought in there,
+He finishes her face for me.
+Beata mea Domina!
+[VERSE 17]
+Of her long neck what shall I say?
+What things about her body's sway,
+Like a knight's pennon or slim tree
+Beata mea Domina!
+[VERSE 18]
+Set gently waving in the wind;
+Or her long hands that I may find
+On some day sweet to move o'er me?
+Beata mea Domina!
+[VERSE 19]
+God pity me though, if I missed
+The telling, how along her wrist
+The veins creep, dying languidly
+Beata mea Domina!
+[VERSE 20]
+Inside her tender palm and thin.
+Now give me pardon, dear, wherein
+My voice is weak and vexes thee.
+Beata mea Domina!
+[VERSE 21]
+All men that see her any time,
+I charge you straightly in this rhyme,
+What, and wherever you may be,
+Beata mea Domina!
+[VERSE 22]
+To kneel before her; as for me
+I choke and grow quite faint to see
+My lady moving graciously.
+Beata mea Domina!
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Fair is the night, and fair the day,
+Now April is forgot of May,
+Now into June May falls away:
+Fair day! fair night!  O give me back
+The tide that all fair things did lack
+Except my Love, except my Sweet!
+[VERSE 2]
+Blow back, O wind! thou art not kind,
+Though thou art sweet: thou hast no mind
+Her hair about my Sweet to bind.
+O flowery sward! though thou art bright,
+I praise thee not for thy delight, -
+Thou hast not kissed her silver feet.
+[VERSE 3]
+Thou know'st her not, O rustling tree!
+What dost thou then to shadow me,
+Whose shade her breast did never see?
+O flowers! in vain ye bow adown:
+Ye have not felt her odorous gown
+Brush past your heads my lips to meet.
+[VERSE 4]
+Flow on, great river! thou mayst deem
+That far away, a summer stream,
+Thou saw'st her limbs amidst the gleam,
+And kissed her foot, and kissed her knee:
+Yet get thee swift unto the sea!
+With naught of true thou wilt me greet.
+[VERSE 5]
+And Thou that men call by my name!
+O helpless One! hast thou no shame
+That thou must even look the same
+As while agone, as while agone
+When Thou and She were left alone,
+And hands and lips and tears did meet?
+[VERSE 6]
+Grow weak and pine, lie down to die,
+O body! in thy misery,
+Because short time and sweet goes by.
+O foolish heart! how weak thou art:
+Break, break, because thou needs must part
+From thine own Love, from thine own Sweet!
+
+--- TITLE: March
+--- SOURCE: PG2621
+[VERSE 1]
+Slayer of winter, art thou here again?
+O welcome, thou that bring'st the summer nigh!
+The bitter wind makes not thy victory vain,
+Nor will we mock thee for thy faint blue sky.
+Welcome, O March! whose kindly days and dry
+Make April ready for the throstle's song,
+Thou first redresser of the winter's wrong!
+[VERSE 2]
+Yea, welcome, March! and though I die ere June,
+Yet for the hope of life I give thee praise,
+Striving to swell the burden of the tune
+That even now I hear thy brown birds raise,
+Unmindful of the past or coming days;
+Who sing, "O joy! a new year is begun!
+What happiness to look upon the sun!"
+[VERSE 3]
+O, what begetteth all this storm of bliss,
+But Death himself, who, crying solemnly,
+Even from the heart of sweet Forgetfulness,
+Bids us, "Rejoice! lest pleasureless ye die.
+Within a little time must ye go by.
+Stretch forth your open hands, and, while ye live,
+Take all the gifts that Death and Life may give."

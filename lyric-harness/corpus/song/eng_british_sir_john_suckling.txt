@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd
 # licence: public domain — Project Gutenberg text; author died 1642; every edition used was published 1931 or earlier
-# edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1919 — Quiller-Couch's Oxford Book of English Verse 1250-1900; the file's own dateline is the 1250-1900 title span
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1642, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
-#            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
-#--------------------------------------------------------------------------
+# merged: 2026-08-20 — eng_hbv_john_suckling.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 6
+
 --- TITLE: A Doubt of Martyrdom
 [VERSE 1]
 O for some honest lover’s ghost,
@@ -119,3 +121,153 @@ Far from the main up in the river:
 O think not then but love can do
 As much! for that’s an ocean too,
 Which flows not every day, but ever!
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+I prithee send me back my heart,
+Since I cannot have thine:
+For if from yours you will not part,
+Why then shouldst thou have mine?
+[VERSE 2]
+Yet now I think on't, let it lie,
+To find it were in vain,
+For thou hast a thief in either eye
+Would steal it back again.
+[VERSE 3]
+Why should two hearts in one breast lie,
+And yet not lodge together?
+O love, where is thy sympathy,
+If thus our breasts thou sever?
+[VERSE 4]
+But love is such a mystery,
+I cannot find it out:
+For when I think I'm best resolved,
+I then am most in doubt.
+[VERSE 5]
+Then farewell care, and farewell woe!
+I will no longer pine;
+For I'll believe I have her heart,
+As much as she hath mine.
+
+--- TITLE: A BALLAD UPON A WEDDING
+--- SOURCE: PG2620
+[VERSE 1]
+I tell thee, Dick, where I have been,
+Where I the rarest things have seen;
+Oh, things without compare!
+Such sights again cannot be found
+In any place on English ground,
+Be it at wake or fair.
+[VERSE 2]
+At Charing Cross, hard by the way
+Where we (thou know'st) do sell our hay,
+There is a house with stairs;
+And there did I see coming down
+Such folk as are not in our town,
+Forty at least, in pairs.
+[VERSE 3]
+Amongst the rest, one pest'lent fine
+(His beard no bigger, though, than thine)
+Walked on before the rest;
+Our landlord looks like nothing to him;
+The king (God bless him!) 'twould undo him
+Should he go still so drest.
+[VERSE 4]
+At Course-a-park, without all doubt,
+He should have first been taken out
+By all the maids i' th' town:
+Though lusty Roger there had been,
+Or little George upon the green,
+Or Vincent of the Crown.
+[VERSE 5]
+But wot you what?  The youth was going
+To make an end of all his wooing;
+The parson for him staid:
+Yet by his leave (for all his haste),
+He did not so much wish all past,
+(Perchance) as did the maid.
+[VERSE 6]
+The maid (and thereby hangs a tale)
+For such a maid no Whitsun-ale
+Could ever yet produce:
+No grape that's kindly ripe, could be
+So round, so plump, so soft, as she,
+Nor half so full of juice.
+[VERSE 7]
+Her finger was so small, the ring
+Would not stay on which they did bring;
+It was too wide a peck:
+And to say truth (for out it must)
+It looked like the great collar (just)
+About our young colt's neck.
+[VERSE 8]
+Her feet beneath her petticoat
+Like little mice stole in and out,
+As if they feared the light:
+But oh, she dances such a way!
+No sun upon an Easter-day
+Is half so fine a sight.
+[VERSE 9]
+Her cheeks so rare a white was on,
+No daisy makes comparison;
+Who sees them is undone;
+For streaks of red were mingled there,
+Such as are on a Cath'rine pear,
+The side that's next the sun.
+[VERSE 10]
+Her lips were red; and one was thin
+Compared to that was next her chin
+(Some bee had stung it newly);
+But, Dick, her eyes so guard her face,
+I durst no more upon them gaze,
+Than on the sun in July.
+[VERSE 11]
+Her mouth so small, when she does speak,
+Thou'dst swear her teeth her words did break,
+That they might passage get;
+But she so handled still the matter,
+They came as good as ours, or better,
+And are not spent a whit.
+[VERSE 12]
+Passion o' me! how I run on!
+There's that that would be thought upon,
+I trow, besides the bride:
+The business of the kitchen's great,
+For it is fit that men should eat;
+Nor was it there denied.
+[VERSE 13]
+Just in the nick the cook knocked thrice,
+And all the waiters in a trice
+His summons did obey;
+Each serving-man, with dish in hand,
+Marched boldly up, like our trained-band,
+Presented and away.
+[VERSE 14]
+When all the meat was on the table,
+What man of knife, or teeth, was able
+To stay to be intreated?
+And this the very reason was,
+Before the parson could say grace,
+The company was seated.
+[VERSE 15]
+Now hats fly off, and youths carouse;
+Healths first go round, and then the house,
+The bride's come thick and thick;
+And when 'twas named another's health,
+Perhaps he made it hers by stealth,
+(And who could help it, Dick?)
+[VERSE 16]
+O' th' sudden up they rise and dance;
+Then sit again, and sigh, and glance;
+Then dance again, and kiss.
+Thus sev'ral ways the time did pass,
+Till ev'ry woman wished her place,
+And ev'ry man wished his.
+[VERSE 17]
+By this time all were stol'n aside
+To counsel and undress the bride;
+But that he must not know:
+But yet 'twas thought he guessed her mind,
+And did not mean to stay behind
+Above an hour or so.

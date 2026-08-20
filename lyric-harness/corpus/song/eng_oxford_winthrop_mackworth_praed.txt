@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1839; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1839, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1839, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 8
 
 --- TITLE: Fairy Song
 --- SOURCE: PG66619
@@ -30,3 +34,528 @@ I have taught him to be wise
   For a little maiden’s sake;--
 Lo! he opens his glad eyes.
   Softly, slowly: Minstrel, wake!
+
+--- TITLE: TO HELEN
+--- SOURCE: PG2620
+[VERSE 1]
+If wandering in a wizard's car
+Through yon blue ether, I were able
+To fashion of a little star
+A taper for my Helen's table; -
+"What then?" she asks me with a laugh -
+Why, then, with all heaven's luster glowing,
+It would not gild her path with half
+The light her love o'er mine is throwing!
+
+--- TITLE: THE NEWLY-WEDDED
+--- SOURCE: PG2620
+[VERSE 1]
+Now the rite is duly done,
+Now the word is spoken,
+And the spell has made us one
+Which may ne'er be broken;
+Rest we, dearest, in our home,
+Roam we o'er the heather:
+We shall rest, and we shall roam,
+Shall we not? together.
+[VERSE 2]
+From this hour the summer rose
+Sweeter breathes to charm us;
+From this hour the winter snows
+Lighter fall to harm us:
+Fair or foul - on land or sea -
+Come the wind or weather,
+Best and worst, whate'er they be,
+We shall share together.
+[VERSE 3]
+Death, who friend from friend can part,
+Brother rend from brother,
+Shall but link us, heart and heart,
+Closer to each other:
+We will call his anger play,
+Deem his dart a feather,
+When we meet him on our way
+Hand in hand together.
+
+--- TITLE: To----
+--- SOURCE: PG2622
+[VERSE 1]
+We met but in one giddy dance,
+Good-night joined hands with greeting;
+And twenty thousand things may chance
+Before our second meeting;
+For oh! I have been often told
+That all the world grows older,
+And hearts and hopes to-day so cold,
+To-morrow must be colder.
+[VERSE 2]
+If I have never touched the string
+Beneath your chamber, dear one,
+And never said one civil thing
+When you were by to hear one,--
+If I have made no rhymes about
+Those looks which conquer Stoics,
+And heard those angel tones, without
+One fit of fair heroics,--
+[VERSE 3]
+Yet do not, though the world's cold school
+Some bitter truths has taught me,
+Oh, do not deem me quite the fool
+Which wiser friends have thought me!
+There is one charm I still could feel,
+If no one laughed at feeling;
+One dream my lute could still reveal,--
+If it were worth revealing.
+[VERSE 4]
+But Folly little cares what name
+Of friend or foe she handles,
+When merriment directs the game,
+And midnight dims the candles;
+I know that Folly's breath is weak
+And would not stir a feather;
+But yet I would not have her speak
+Your name and mine together.
+[VERSE 5]
+Oh no! this life is dark and bright,
+Half rapture and half sorrow;
+My heart is very full to-night,
+My cup shall be to-morrow!
+But they shall never know from me,
+On any one condition,
+Whose health made bright my Burgundy,
+Whose beauty was my vision!
+
+--- TITLE: The Vicar
+--- SOURCE: PG2622
+[VERSE 1]
+Some years ago, ere Time and Taste
+Had turned our parish topsy-turvy,
+When Darnel Park was Darnel Waste,
+And roads as little known as scurvy,
+The man who lost his way between
+St. Mary's Hill and Sandy Thicket,
+Was always shown across the Green,
+And guided to the Parson's wicket.
+[VERSE 2]
+Back flew the bolt of lissom lath;
+Fair Margaret, in her tidy kirtle,
+Led the lorn traveller up the path
+Through clean-clipt rows of box and myrtle;
+And Don and Sancho, Tramp and Tray,
+Upon the parlor steps collected,
+Wagged all their tails, and seemed to say,
+"Our master knows you; you're expected!"
+[VERSE 3]
+Up rose the Reverend Doctor Brown,
+Up rose the Doctor's "winsome marrow";
+The lady laid her knitting down,
+Her husband clasped his ponderous Barrow;
+Whate'er the stranger's caste or creed,
+Pundit or papist, saint or sinner,
+He found a stable for his steed,
+And welcome for himself, and dinner.
+[VERSE 4]
+If, when he reached his journey's end,
+And warmed himself in court or college,
+He had not gained an honest friend,
+And twenty curious scraps of knowledge;--
+If he departed as he came,
+With no new light on love or liquor,--
+Good sooth, the traveller was to blame,
+And not the Vicarage, nor the Vicar.
+[VERSE 5]
+His talk was like a stream which runs
+With rapid change from rocks to roses;
+It slipped from politics to puns;
+It passed from Mahomet to Moses;
+Beginning with the laws which keep
+The planets in their radiant courses,
+And ending with some precept deep
+For dressing eels or shoeing horses.
+[VERSE 6]
+He was a shrewd and sound divine,
+Of loud Dissent the mortal terror;
+And when, by dint of page and line,
+He 'stablished Truth, or startled Error,
+The Baptist found him far too deep,
+The Deist sighed with saving sorrow,
+And the lean Levite went to sleep
+And dreamed of tasting pork to-morrow.
+[VERSE 7]
+His sermon never said or showed
+That Earth is foul, that Heaven is gracious,
+Without refreshment on the road
+From Jerome, or from Athanasius;
+And sure a righteous zeal inspired
+The hand and head that penned and planned them,
+For all who understood, admired,
+And some who did not understand them.
+[VERSE 8]
+He wrote, too, in a quiet way,
+Small treatises, and smaller verses,
+And sage remarks on chalk and clay,
+And hints to noble lords and nurses;
+True histories of last year's ghost;
+Lines to a ringlet or a turban;
+And trifles to the Morning Post,
+And nothings for Sylvanus Urban.
+[VERSE 9]
+He did not think all mischief fair,
+Although he had a knack of joking;
+He did not make himself a bear,
+Although he had a taste for smoking;
+And when religious sects ran mad,
+He held, in spite of all his learning,
+That if a man's belief is bad,
+It will not be improved by burning.
+[VERSE 10]
+And he was kind, and loved to sit
+In the low hut or garnished cottage,
+And praise the farmer's homely wit,
+And share the widow's homelier pottage.
+At his approach complaint grew mild,
+And when his hand unbarred the shutter,
+The clammy lips of Fever smiled
+The welcome which they could not utter.
+[VERSE 11]
+He always had a tale for me
+Of Julius Caesar or of Venus;
+From him I learned the rule of three,
+Cat's-cradle, leap-frog, and Quae genus.
+I used to singe his powdered wig,
+To steal the staff he put such trust in,
+And make the puppy dance a jig
+When he began to quote Augustine.
+[VERSE 12]
+Alack, the change!  In vain I look
+For haunts in which my boyhood trifled;
+The level lawn, the trickling brook,
+The trees I climbed, the beds I rifled.
+The church is larger than before,
+You reach it by a carriage entry:
+It holds three hundred people more,
+And pews are fitted up for gentry.
+[VERSE 13]
+Sit in the Vicar's seat; you'll hear
+The doctrine of a gentle Johnian,
+Whose hand is white, whose voice is clear,
+Whose phrase is very Ciceronian.
+Where is the old man laid?  Look down,
+And construe on the slab before you:
+"Hic jacet Gulielmus Brown,
+Vir nulla non donandus lauru."
+
+--- TITLE: The Belle of the Ball-room
+--- SOURCE: PG2622
+[VERSE 1]
+Years, years ago, ere yet my dreams
+Had been of being wise or witty;
+Ere I had done with writing themes,
+Or yawned o'er this infernal Chitty;--
+Years, years ago, while all my joy
+Were in my fowling-piece and filly;
+In short, while I was yet a boy,
+I fell in love with Laura Lilly.
+[VERSE 2]
+I saw her at the County Ball;
+There, when the sounds of flute and fiddle
+Gave signal sweet in that old hall
+Of hands across and down the middle,
+Hers was the subtlest spell by far
+Of all that sets young hearts romancing:
+She was our queen, our rose, our star;
+And then she danced,--oh, heaven, her dancing!
+[VERSE 3]
+Dark was her hair, her hand was white;
+Her voice was exquisitely tender;
+Her eyes were full of liquid light;
+I never saw a waist so slender;
+Her every look, her every smile,
+Shot right and left a score of arrows;
+I thought 'twas Venus from her isle,
+And wondered where she'd left her sparrows.
+[VERSE 4]
+She talked of politics or prayers,--
+Of Southey's prose, or Wordsworth's sonnets,
+Of danglers or of dancing bears,
+Of battles, or the last new bonnets;
+By candle-light, at twelve o'clock,
+To me it mattered not a tittle,
+If those bright lips had quoted Locke,
+I might have thought they murmured Little.
+[VERSE 5]
+Through sunny May, through sultry June,
+I loved her with a love eternal;
+I spoke her praises to the moon,
+I wrote them to the Sunday Journal.
+My mother laughed; I soon found out
+That ancient ladies have no feeling:
+My father frowned; but how should gout
+See any happiness in kneeling?
+[VERSE 6]
+She was the daughter of a dean,
+Rich, fat, and rather apoplectic;
+She had one brother just thirteen,
+Whose color was extremely hectic;
+Her grandmother, for many a year,
+Had fed the parish with her bounty;
+Her second cousin was a peer,
+And lord-lieutenant of the county.
+[VERSE 7]
+But titles and the three-per-cents,
+And mortgages, and great relations,
+And India bonds, and tithes and rents,
+Oh, what are they to love's sensations?
+Black eyes, fair forehead, clustering locks,--
+Such wealth, such honors, Cupid chooses;
+He cares as little for the stocks,
+As Baron Rothschild for the Muses.
+[VERSE 8]
+She sketched; the vale, the wood, the beach,
+Grew lovelier from her pencil's shading;
+She botanized; I envied each
+Young blossom in her boudoir fading:
+She warbled Handel; it was grand,--
+She made the Catilina jealous;
+She touched the organ; I could stand
+For hours and hours to blow the bellows.
+[VERSE 9]
+She kept an album, too, at home,
+Well filled with all an album's glories;
+Paintings of butterflies and Rome,
+Patterns for trimmings, Persian stories,
+Soft songs to Julia's cockatoo,
+Fierce odes to famine and to slaughter,
+And autographs of Prince Leboo,
+And recipes for elder-water.
+[VERSE 10]
+And she was flattered, worshipped, bored;
+Her steps were watched, her dress was noted;
+Her poodle-dog was quite adored;
+Her sayings were extremely quoted.
+She laughed, and every heart was glad,
+As if the taxes were abolished;
+She frowned, and every took was sad,
+As if the opera were demolished.
+[VERSE 11]
+She smiled on many just for fun,--
+I knew that there was nothing in it;
+I was the first, the only one
+Her heart had thought of for a minute.
+I knew it, for she told me so,
+In phrase which was divinely moulded;
+She wrote a charming hand, and oh,
+How sweetly all her notes were folded!
+[VERSE 12]
+Our love was like most other loves,--
+A little glow, a little shiver,
+A rosebud and a pair of gloves,
+And "Fly Not Yet," upon the river;
+Some jealousy of some one's heir,
+Some hopes of dying broken-hearted;
+A miniature, a lock of hair,
+The usual vows,--and then we parted.
+[VERSE 13]
+We parted: months and years rolled by;
+We met again four summers after.
+Our parting was all sob and sigh,--
+Our meeting was all mirth and laughter;
+For, in my heart's most secret cell,
+There had been many other lodgers;
+And she was not the ball-room's belle,
+But only Mrs.--Something--Rogers.
+
+--- TITLE: The Talented Man
+--- SOURCE: PG2622
+[VERSE 1]
+Dear Alice! you'll laugh when you know it,--
+Last week, at the Duchess's ball,
+I danced with the clever new poet,--
+You've heard of him,--Tully St. Paul.
+Miss Jonquil was perfectly frantic;
+I wish you had seen Lady Anne!
+It really was very romantic,
+He is such a talented man!
+[VERSE 2]
+He came up from Brazen Nose College,
+Just caught, as they call it, this spring;
+And his head, love, is stuffed full of knowledge
+Of every conceivable thing.
+Of science and logic he chatters,
+As fine and as fast as he can;
+Though I am no judge of such matters,
+I'm sure he's a talented man.
+[VERSE 3]
+His stories and jests are delightful;--
+Not stories or jests, dear, for you;
+The jests are exceedingly spiteful,
+The stories not always quite true.
+Perhaps to be kind and veracious
+May do pretty well at Lausanne;
+But it never would answer,--good gracious!
+Chez nous--in a talented man.
+[VERSE 4]
+He sneers,--how my Alice would scold him!--
+At the bliss of a sigh or a tear;
+He laughed--only think!--when I told him
+How we cried o'er Trevelyan last year;
+I vow I was quite in a passion;
+I broke all the sticks of my fan;
+But sentiment's quite out of fashion,
+It seems, in a talented man.
+[VERSE 5]
+Lady Bab, who is terribly moral,
+Has told me that Tully is vain,
+And apt--which is silly--to quarrel,
+And fond--which is sad--of champagne.
+I listened, and doubted, dear Alice,
+For I saw, when my Lady began,
+It was only the Dowager's malice;--
+She does hate a talented man!
+[VERSE 6]
+He's hideous, I own it.  But fame, love,
+Is all that these eyes can adore;
+He's lame,--but Lord Byron was lame, love,
+And dumpy,--but so is Tom Moore.
+Then his voice,--such a voice! my sweet creature,
+It's like your Aunt Lucy's toucan:
+But oh! what's a tone or a feature,
+When once one's a talented man?
+[VERSE 7]
+My mother, you know, all the season,
+Has talked of Sir Geoffrey's estate;
+And truly, to do the fool reason,
+He has been less horrid of late.
+But to-day, when we drive in the carriage,
+I'll tell her to lay down her plan;--
+If ever I venture on marriage,
+It must be a talented man!
+[VERSE 8]
+P.S.--I have found, on reflection,
+One fault in my friend,--entre nous;
+Without it, he'd just be perfection;--
+Poor fellow, he has not a sou!
+And so, when he comes in September
+To shoot with my uncle, Sir Dan,
+I've promised mamma to remember
+He's only a talented man!
+
+--- TITLE: A Letter of Advice
+--- SOURCE: PG2622
+[VERSE 1]
+You tell me you're promised a lover,
+My own Araminta, next week;
+Why cannot my fancy discover
+The hue of his coat, and his cheek?
+Alas! if he look like another,
+A vicar, a banker, a beau,
+Be deaf to your father and mother,
+My own Araminta, say "No!"
+[VERSE 2]
+Miss Lane, at her Temple of Fashion,
+Taught us both how to sing and to speak,
+And we loved one another with passion,
+Before we had been there a week:
+You gave me a ring for a token;
+I wear it wherever I go;
+I gave you a chain,--it is broken?
+My own Araminta, say "No!"
+[VERSE 3]
+O think of our favorite cottage,
+And think of our dear Lalla Rookh!
+How we shared with the milkmaids their pottage,
+And drank of the stream from the brook;
+How fondly our loving lips faltered,
+"What further can grandeur bestow?"
+My heart is the same;--is yours altered?
+My own Araminta, say "No!"
+[VERSE 4]
+Remember the thrilling romances
+We read on the bank in the glen;
+Remember the suitors our fancies
+Would picture for both of us then;
+They wore the red cross on their shoulder,
+They had vanquished and pardoned their foe--
+Sweet friend, are you wiser or colder?
+My own Araminta, say "No!"
+[VERSE 5]
+You know, when Lord Rigmarole's carriage,
+Drove off with your cousin Justine,
+You wept, dearest girl, at the marriage,
+And whispered "How base she has been!"
+You said you were sure it would kill you,
+If ever your husband looked so;
+And you will not apostatize,--will you?
+My own Araminta, say "No!"
+[VERSE 6]
+When I heard I was going abroad, love,
+I thought I was going to die;
+We walked arm in arm to the road, love,
+We looked arm in arm to the sky;
+And I said, "When a foreign postilion
+Has hurried me off to the Po,
+Forget not Medora Trevilian:--
+My own Araminta, say "No!"
+[VERSE 7]
+We parted! but sympathy's fetters
+Reach far over valley and hill;
+I muse o'er your exquisite letters,
+And feel that your heart is mine still;
+And he who would share it with me, love,--
+The richest of treasures below,--
+If he's not what Orlando should be, love,
+My own Araminta, say "No!"
+[VERSE 8]
+If he wears a top-boot in his wooing,
+If he comes to you riding a cob,
+If he talks of his baking or brewing,
+If he puts up his feet on the hob,
+If he ever drinks port after dinner,
+If his brow or his breeding is low,
+If he calls himself "Thompson" or "Skinner,"
+My own Araminta, say "No!"
+[VERSE 9]
+If he studies the news in the papers
+While you are preparing the tea,
+If he talks of the damps or the vapors
+While moonlight lies soft on the sea,
+If he's sleepy while you are capricious,
+If he has not a musical "Oh!"
+If he does not call Werther delicious,--
+My own Araminta, say "No!"
+[VERSE 10]
+If he ever Sets foot in the city
+Among the stockbrokers and Jews,
+If he has not a heart full of pity,
+If he don't stand six feet in his shoes,
+If his lips are not redder than roses,
+If his hands are not whiter than snow,
+If he has not the model of noses,--
+My own Araminta, say "No!"
+[VERSE 11]
+If he speaks of a tax or a duty,
+If he does not look grand on his knees,
+If he's blind to a landscape of beauty,
+Hills, valleys, rocks, waters, and trees,
+If he dotes not on desolate towers,
+If he likes not to hear the blast blow,
+If he knows not the language of flowers,--
+My own Araminta, say "No!"
+[VERSE 12]
+He must walk like a god of old story
+Come down from the home of his rest;
+He must smile like the sun in his glory
+On the buds he loves ever the best;
+And oh! from its ivory portal
+Like music his soft speech must flow!--
+If he speak, smile, or walk like a mortal,
+My own Araminta, say "No!"
+[VERSE 13]
+Don't listen to tales of his bounty,
+Don't hear what they say of his birth,
+Don't look at his seat in the county,
+Don't calculate what he is worth;
+But give him a theme to write verse on,
+And see if he turns out his toe;--
+If he's only an excellent person,
+My own Araminta, say "No!"

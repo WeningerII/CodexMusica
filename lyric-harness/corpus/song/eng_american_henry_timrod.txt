@@ -6,6 +6,10 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/Poems-of-Henry-Timrod--with-Memoir_845 845.txt md5 5281d4046e905150bb5243bf47eafe41
 # licence: public domain - Project Gutenberg; edition published 1899 -- Poems of Henry Timrod; with Memoir
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1867, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1867, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -589,3 +593,117 @@ But only when my Katie's voice
 Makes all the listening woods rejoice
 I hear--with cheeks that flush and pale--
 The passion of the nightingale!
+
+--- TITLE: A TRIFLE
+--- SOURCE: PG2620
+[VERSE 1]
+I know not why, but even to me
+My songs seem sweet when read to thee.
+[VERSE 2]
+Perhaps in this the pleasure lies -
+I read my thoughts within thine eyes,
+[VERSE 3]
+And so dare fancy that my art
+May sink as deeply as thy heart.
+[VERSE 4]
+Perhaps I love to make my words
+Sing round thee like so many birds,
+[VERSE 5]
+Or, maybe, they are only sweet
+As they seem offerings at thy feet.
+[VERSE 6]
+Or haply, Lily, when I speak,
+I think, perchance, they touch thy cheek,
+[VERSE 7]
+Or with a yet more precious bliss,
+Die on thy red lips in a kiss.
+[VERSE 8]
+Each reason here  - I cannot tell -
+Or all perhaps may solve the spell.
+[VERSE 9]
+But if she watch when I am by,
+Lily may deeper see than I.
+
+--- TITLE: SERENADE
+--- SOURCE: PG2620
+[VERSE 1]
+Hide, happy damask, from the stars,
+What sleep enfolds behind your veil,
+But open to the fairy cars
+On which the dreams of midnight sail;
+And let the zephyrs rise and fall
+About her in the curtained gloom,
+And then return to tell me all
+The silken secrets of the room.
+[VERSE 2]
+Ah! dearest! may the elves that sway
+Thy fancies come from emerald plots,
+Where they have dozed and dreamed all day
+In hearts of blue forget-me-nots.
+And one perhaps shall whisper thus:
+Awake! and light the darkness, Sweet!
+While thou art reveling with us,
+He watches in the lonely street.
+
+--- TITLE: Spring
+--- SOURCE: PG2621
+[VERSE 1]
+Spring, with that nameless pathos in the air
+Which dwells with all things fair,
+Spring, with her golden suns and silver rain,
+Is with us once again.
+[VERSE 2]
+Out in the lonely woods the jasmine burns
+Its fragrant lamps, and turns
+Into a royal court with green festoons
+The banks of dark lagoons.
+[VERSE 3]
+In the deep heart of every forest tree
+The blood is all aglee,
+And there's a look about the leafless bowers
+As if they dreamed of flowers.
+[VERSE 4]
+Yet still on every side we trace the hand
+Of Winter in the land,
+Save where the maple reddens on the lawn,
+Flushed by the season's dawn;
+[VERSE 5]
+Or where, like those strange semblances we find
+That age to childhood bind,
+The elm puts on, as if in Nature's scorn,
+The brown of Autumn corn.
+[VERSE 6]
+As yet the turf is dark, although you know
+That, not a span below,
+A thousand germs are groping through the gloom,
+And soon will burst their tomb.
+[VERSE 7]
+Already, here and there, on frailest stems
+Appear some azure gems,
+Small as might deck, upon a gala day,
+The forehead of a fay.
+[VERSE 8]
+In gardens you may note amid the dearth,
+The crocus breaking earth;
+And near the snowdrop's tender white and green,
+The violet in its screen.
+[VERSE 9]
+But many gleams and shadows needs must pass
+Along the budding grass,
+And weeks go by, before the enamored South
+Shall kiss the rose's mouth.
+[VERSE 10]
+Still there's a sense of blossoms yet unborn
+In the sweet airs of morn;
+One almost looks to see the very street
+Grow purple at his feet.
+[VERSE 11]
+At times a fragrant breeze comes floating by,
+And brings, you know not why,
+A feeling as when eager crowds await
+Before a palace gate
+[VERSE 12]
+Some wondrous pageant; and you scarce would start,
+If from a beech's heart
+A blue-eyed Dryad, stepping forth, should say,
+"Behold me! I am May!"

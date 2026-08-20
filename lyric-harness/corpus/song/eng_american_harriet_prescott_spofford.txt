@@ -4,10 +4,14 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1921, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1921, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own trailing author credit after each poem; also credited 'Mrs. Harriet Prescott Spofford' in the anthology merged here 2026-08-20 (same person: the editions' own printed dates agree, or the shorter form carries none)
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 6
 
 
 --- TITLE: A Sigh
@@ -146,3 +150,49 @@ No hostile host could give him pause;
   Rivers and mountains could not daunt;
 He never found that hindering word--
   The steadfast man whose name was Grant.
+
+--- TITLE: Only
+--- SOURCE: PG2619
+[VERSE 1]
+Something to live for came to the place,
+Something to die for maybe,
+Something to give even sorrow a grace,
+And yet it was only a baby!
+[VERSE 2]
+Cooing, and laughter, and gurgles, and cries,
+Dimples for tenderest kisses,
+Chaos of hopes, and of raptures, and sighs,
+Chaos of fears and of blisses.
+[VERSE 3]
+Last year, like all years, the rose and the thorn;
+This year a wilderness maybe;
+But heaven stooped under the roof on the morn
+That it brought them only a baby.
+
+--- TITLE: HEREAFTER
+--- SOURCE: PG2620
+[VERSE 1]
+Love, when all the years are silent, vanished quite and laid to rest,
+When you and I are sleeping, folded breathless breast to breast,
+When no morrow is before us, and the long grass tosses o'er us,
+And our grave remains forgotten, or by alien footsteps pressed -
+[VERSE 2]
+Still that love of ours will linger, that great love enrich the earth,
+Sunshine in the heavenly azure, breezes blowing joyous mirth;
+Fragrance fanning off from flowers, melody of summer showers,
+Sparkle of the spicy wood-fires round the happy autumn hearth.
+[VERSE 3]
+That's our love.  But you and I, dear - shall we linger with it yet,
+Mingled in one dew-drop, tangled in one sunbeam's golden net -
+On the violet's purple bosom, I the sheen, but you the blossom,
+Stream on sunset winds, and be the haze with which some hill is wet?
+[VERSE 4]
+Or, beloved - if ascending - when we have endowed the world
+With the best bloom of our being, whither will our way be whirled,
+Through what vast and starry spaces, toward what awful, holy places,
+With a white light on our faces, spirit over spirit furled?
+[VERSE 5]
+Only this our yearning answers: wheresoe'er that way defile,
+Not a film shall part us through the eons of that mighty while,
+In the fair eternal weather, even as phantoms still together,
+Floating, floating, one forever, in the light of God's great smile.

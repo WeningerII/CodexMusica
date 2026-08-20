@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1850; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1922, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1922, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 2
+# songs: 5
 
 --- TITLE: Renouncement
 --- SOURCE: PG66619
@@ -49,3 +53,78 @@ She is so circumspect and right;
   She has her soul to keep.
 She walks--the lady of my delight--
   A shepherdess of sheep.
+
+--- TITLE: "MY HEART SHALL BE THY GARDEN"
+--- SOURCE: PG2620
+[VERSE 1]
+My heart shall be thy garden.  Come, my own,
+Into thy garden; thine be happy hours
+Among my fairest thoughts, my tallest flowers,
+From root to crowning petal, thine alone.
+Thine is the place from where the seeds are sown
+Up to the sky inclosed, with all its showers.
+But ah, the birds, the birds!  Who shall build bowers
+To keep these thine?  O friend, the birds have flown.
+[VERSE 2]
+For as these come and go, and quit our pine
+To follow the sweet season, or, new-corners,
+Sing one song only from our alder-trees,
+My heart has thoughts, which, though thine eyes hold mine.
+Flit to the silent world and other summers,
+With wings that dip beyond the silver seas.
+
+--- TITLE: AT NIGHT
+--- SOURCE: PG2620
+[VERSE 1]
+Home, home from the horizon far and clear,
+Hither the soft wings sweep;
+Flocks of the memories of the day draw near
+The dovecote doors of sleep.
+[VERSE 2]
+Oh which are they that come through sweetest light
+Of all these homing birds?
+Which with the straightest and the swiftest flight?
+Your words to me, your words!
+
+--- TITLE: In Early Spring
+--- SOURCE: PG2621
+[VERSE 1]
+O Spring, I know thee!  Seek for sweet surprise
+In the young children's eyes.
+But I have learnt the years, and know the yet
+Leaf-folded violet.
+Mine ear, awake to silence, can foretell
+The cuckoo's fitful bell.
+I wander in a gray time that encloses
+June and the wild hedge-roses.
+A year's procession of the flowers doth pass
+My feet, along the grass.
+And all you sweet birds silent yet, I know
+The notes that stir you so,
+Your songs yet half devised in the dim dear
+Beginnings of the year.
+In these young days you meditate your part;
+I have it all by heart.
+I know the secrets of the seeds of flowers
+Hidden and warm with showers,
+And how, in kindling Spring, the cuckoo shall
+Alter his interval.
+But not a flower or song I ponder is
+My own, but memory's.
+I shall be silent in those days desired
+Before a world inspired.
+O dear brown birds, compose your old song-phrases,
+Earth, thy familiar daisies.
+[VERSE 2]
+The poet mused upon the dusky height,
+Between two stars towards night,
+His purpose in his heart.  I watched, a space,
+The meaning of his face:
+There was the secret, fled from earth and skies,
+Hid in his gray young eyes.
+My heart and all the Summer wait his choice,
+And wonder for his voice.
+Who shall foretell his songs, and who aspire
+But to divine his lyre?
+Sweet earth, we know thy dimmest mysteries,
+But he is lord of his.

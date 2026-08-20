@@ -3,10 +3,18 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1912; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1912, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1912, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1912, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1912, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 11
 
 --- TITLE: The Odyssey
 --- SOURCE: PG66619
@@ -25,3 +33,333 @@ So gladly from the songs of modern speech
     And through the music of the languid hours
 They hear like Ocean on a western beach
   The surge and thunder of the Odyssey.
+
+--- TITLE: Ballade of Middle Age
+--- SOURCE: PG2619
+[VERSE 1]
+Our youth began with tears and sighs,
+With seeking what we could not find;
+Our verses all were threnodies,
+In elegiacs still we whined;
+Our ears were deaf, our eyes were blind,
+We sought and knew not what we sought.
+We marvel, now we look behind:
+Life's more amusing than we thought!
+[VERSE 2]
+Oh, foolish youth, untimely wise!
+Oh, phantoms of the sickly mind!
+What? not content with seas and skies,
+With rainy clouds and southern wind,
+With common cares and faces kind,
+With pains and joys each morning brought?
+Ah, old, and worn, and tired we find
+Life's more amusing than we thought!
+[VERSE 3]
+Though youth "turns spectre-thin and dies,"
+To mourn for youth we're not inclined;
+We set our souls on salmon flies,
+We whistle where we once repined.
+Confound the woes of human-kind!
+By Heaven we're "well deceived," I wot;
+Who hum, contented or resigned,
+"Life's more amusing than we thought"!
+[VERSE 4]
+O nate mecum, worn and lined
+Our faces show, but that is naught;
+Our hearts are young 'neath wrinkled rind:
+Life's more amusing than we thought!
+
+--- TITLE: LOST LOVE
+--- SOURCE: PG2620
+[VERSE 1]
+Who wins his Love shall lose her,
+Who loses her shall gain,
+For still the spirit wooes her,
+A soul without a stain;
+And Memory still pursues her
+With longings not in vain!
+[VERSE 2]
+He loses her who gains her,
+Who watches day by day
+The dust of time that stains her,
+The griefs that leave her gray,
+The flesh that yet enchains her
+Whose grace hath passed away!
+[VERSE 3]
+Oh, happier he who gains not
+The Love some seem to gain:
+The joy that custom stains not
+Shall still with him remain,
+The loveliness that wanes not,
+The Love that ne'er can wane.
+[VERSE 4]
+In dreams she grows not older
+The lands of Dream among,
+Though all the world wax colder,
+Though all the songs be sung,
+In dreams doth he behold her
+Still fair and kind and young.
+
+--- TITLE: AN OLD TUNE
+--- SOURCE: PG2620
+[VERSE 1]
+There is an air for which I would disown
+Mozart's, Rossini's, Weber's melodies, -
+A sweet sad air that languishes and sighs,
+And keeps its secret charm for me alone.
+[VERSE 2]
+Whene'er I hear that music vague and old,
+Two hundred years are mist that rolls away;
+The thirteenth Louis reigns, and I behold
+A green land golden in the dying day.
+[VERSE 3]
+An old red castle, strong with stony towers,
+And windows gay with many-colored glass;
+Wide plains, and rivers flowing among flowers,
+That bathe the castle basement as they pass.
+[VERSE 4]
+In antique weed, with dark eyes and gold hair,
+A lady looks forth from her window high;
+It may be that I knew and found her fair,
+In some forgotten life, long time gone by.
+
+--- TITLE: ROMANCE
+--- SOURCE: PG2620
+[VERSE 1]
+My Love dwelt in a Northern land.
+A gray tower in a forest green
+Was hers, and far on either hand
+The long wash of the waves was seen,
+And leagues and leagues of yellow sand,
+The woven forest boughs between!
+[VERSE 2]
+And through the silver Northern night
+The sunset slowly died away,
+And herds of strange deer, lily-white,
+Stole forth among the branches gray;
+About the coming of the light,
+They fled like ghosts before the day!
+[VERSE 3]
+I know not if the forest green
+Still girdles round that castle gray;
+I know not if the boughs between
+The white deer vanish ere the day;
+Above my Love the grass is green,
+My heart is colder than the clay!
+
+--- TITLE: Scythe Song
+--- SOURCE: PG2621
+[VERSE 1]
+Mowers, weary and brown, and blithe,
+What is the word methinks ye know,
+Endless over-word that the Scythe
+Sings to the blades of the grass below?
+Scythes that swing in the grass and clover,
+Something, still, they say as they pass;
+What is the word that, over and over,
+Sings the Scythe to the flowers and grass?
+[VERSE 2]
+Hush, ah hush, the Scythes are saying,
+Hush, and heed not, and fall asleep;
+Hush, they say to the grasses swaying,
+Hush, they sing to the clover deep!
+Hush--'tis the lullaby Time is singing--
+Hush, and heed not, for all things pass,
+Hush, ah hush! and the Scythes are swinging
+Over the clover, over the grass!
+
+--- TITLE: Ballade of the Primitive Jest
+--- SOURCE: PG2622
+[VERSE 1]
+I am an ancient Jest!
+Palaeolithic man
+In his arboreal nest
+The sparks of fun would fan;
+My outline did he plan,
+And laughed like one possessed,
+'Twas thus my course began,
+I am a Merry Jest!
+[VERSE 2]
+I am an early Jest!
+Man delved, and built, and span;
+Then wandered South and West
+The peoples Aryan,
+I journeyed in their van;
+The Semites, too, confessed,--
+From Beersheba to Dan,--
+I am a Merry Jest!
+[VERSE 3]
+I am an ancient Jest!
+Through all the human clan,
+Red, black, white, free, oppressed,
+Hilarious I ran!
+I'm found in Lucian,
+In Poggio, and the rest,
+I'm dear to Moll and Nan!
+I am a Merry Jest!
+[VERSE 4]
+ENVOY
+Prince, you may storm and ban--
+Joe Millers are a pest,
+Suppress me if you can!
+I am a Merry Jest!
+
+--- TITLE: Ballade of Dead Ladies
+--- SOURCE: PG2622
+[VERSE 1]
+Nay, tell me now in what strange air
+The Roman Flora dwells to-day,
+Where Archippiada hides, and where
+Beautiful Thais has passed away?
+Whence answers Echo, afield, astray,
+By mere or stream,--around, below?
+Lovelier she than a woman of clay;
+Nay, but where is the last year's snow?
+[VERSE 2]
+Where is wise Heloise, that care
+Brought on Abeilard, and dismay?
+All for her love he found a snare,
+A maimed poor monk in orders gray;
+And where's the Queen who willed to slay
+Buridan, that in a sack must go
+Afloat down Seine,--a perilous way--
+Nay, but where is the last year's snow?
+[VERSE 3]
+Where's that White Queen, a lily rare,
+With her sweet song, the Siren's lay?
+Where's Bertha Broad-foot, Beatrice fair?
+Alys and Ermengarde, where are they?
+Good Joan, whom English did betray
+In Rouen town, and burned her?  No,
+Maiden and Queen, no man may say;
+Nay, but where is the last year's snow?
+[VERSE 4]
+ENVOY
+Prince, all this week thou needst not pray,
+Nor yet this year the thing to know.
+One burden answers, ever and aye,
+"Nay, but where is the last year's snow?"
+
+--- TITLE: Villon's Ballade
+--- SOURCE: PG2622
+[VERSE 1]
+Nay, be you pardoner or cheat,
+Or cogger keen, or mumper shy,
+You'll burn your fingers at the feat,
+And howl like other folks that fry.
+All evil folks that love a lie!
+And where goes gain that greed amasses,
+By wile, and guile, and thievery?
+'Tis all to taverns and to lasses!
+[VERSE 2]
+Rhyme, rail, dance, play the cymbals sweet,
+With game, and shame, and jollity,
+Go jigging through the field and street,
+With myst'ry and morality;
+Win gold at gleek,--and that will fly,
+Where all your gain at passage passes,--
+And that's?  You know as well as I,
+'Tis all to taverns and to lasses!
+[VERSE 3]
+Nay, forth from all such filth retreat,
+Go delve and ditch, in wet or dry,
+Turn groom, give horse and mule their meat,
+If you've no clerkly skill to ply;
+You'll gain enough, with husbandry,
+But--sow hempseed and such wild grasses,
+And where goes all you take thereby?--
+'Tis all to taverns and to lasses!
+[VERSE 4]
+ENVOY
+Your clothes, your hose, your broidery,
+Your linen that the snow surpasses,
+Or ere they're worn, off, off they fly,
+'Tis all to taverns and to lasses!
+
+--- TITLE: Ballade of a Friar
+--- SOURCE: PG2622
+[VERSE 1]
+Some ten or twenty times a day,
+To bustle to the town with speed,
+To dabble in what dirt he may,--
+Le Frere Lubin's the man you need!
+But any sober life to lead
+Upon an exemplary plan,
+Requires a Christian indeed,--
+Le Frere Lubin is not the man!
+[VERSE 2]
+Another's wealth on his to lay,
+With all the craft of guile and greed,
+To leave you bare of pence or pay,--
+Le Frere Lubin's the man you need!
+But watch him with the closest heed,
+And dun him with what force you can,--
+He'll not refund, howe'er you plead,--
+Le Frere Lubin is not the man--
+[VERSE 3]
+An honest girl to lead astray,
+With subtle saw and promised meed,
+Requires no cunning crone and gray,--
+Le Frere Lubin's the man you need!
+He preaches an ascetic creed,
+But,--try him with the water can--
+A dog will drink, whate'er his breed,--
+Le Frere Lubin is not the man!
+[VERSE 4]
+ENVOY
+In good to fail, in ill succeed,
+Le Frere Lubin's the man you need!
+In honest works to lead the van,
+Le Frere Lubin is not the man!
+
+--- TITLE: Man and the Ascidian
+--- SOURCE: PG2622
+[VERSE 1]
+"The Ancestor remote of Man,"
+Says Darwin, "is the Ascidian,"
+A scanty sort of water-beast
+That, ninety million years at least
+Before Gorillas came to be,
+Went swimming up and down the sea.
+[VERSE 2]
+Their ancestors the pious praise,
+And like to imitate their ways;
+How, then, does our first parent live,
+What lesson has his life to give?
+[VERSE 3]
+The Ascidian tadpole, young and gay,
+Doth Life with one bright eye survey,
+His consciousness has easy play.
+He's sensitive to grief and pain,
+Has tail, a spine, and bears a brain,
+And everything that fits the state
+Of creatures we call vertebrate.
+But age comes on; with sudden shock
+He sticks his head against a rock!
+His tail drops off, his eye drops in,
+His brain's absorbed into his skin;
+He does not move, nor feel, nor know
+The tidal water's ebb and flow,
+But still abides, unstirred, alone,
+A sucker sticking to a stone.
+[VERSE 4]
+And we, his children, truly we
+In youth are, like the Tadpole, free.
+And where we would we blithely go,
+Have brains and hearts, and feel and know.
+Then Age comes on!  To Habit we
+Affix ourselves and are not free;
+The Ascidian's rooted to a rock,
+And we are bond-slaves of the clock;
+Our rocks are Medicine--Letters--Law,
+From these our heads we cannot draw:
+Our loves drop off, our hearts drop in,
+And daily thicker grows our skin.
+[VERSE 5]
+Ah, scarce we live, we scarcely know
+The wide world's moving ebb and flow,
+The clanging currents ring and shock,
+But we are rooted to the rock.
+And thus at ending of his span,
+Blind, deaf, and indolent, does Man
+Revert to the Ascidian.

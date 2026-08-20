@@ -6,6 +6,8 @@
 # licence: public domain - Project Gutenberg; Home Book of Verse first published 1912; edition published 1912 -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # source: GITenberg/Little-Ann-and-Other-Poems_42947 42947.txt md5 bf3ff4838f5c3468d9f46513da66b36b
 # licence: public domain - Project Gutenberg; edition published 1883 -- Jane and Ann Taylor, Little Ann and Other Poems (ill. Kate Greenaway)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1824, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -231,3 +233,78 @@ Why should I sleep till beams of morn
 Their light and glory shed?
 Immortal beings were not born
 To waste their time in bed.
+
+--- TITLE: The Philosopher's Scales
+--- SOURCE: PG2622
+[VERSE 1]
+A monk, when his rites sacerdotal were o'er,
+In the depths of his cell with its stone-covered floor,
+Resigning to thought his chimerical brain,
+Once formed the contrivance we now shall explain;
+But whether by magic's or alchemy's powers
+We know not; indeed, 'tis no business of ours.
+[VERSE 2]
+Perhaps it was only by patience and care,
+At last, that he brought his invention to bear.
+In youth 'twas projected, but years stole away,
+And ere 'twas complete he was wrinkled and gray;
+But success is secure, unless energy fails;
+And at length he produced the Philosopher's Scales.
+[VERSE 3]
+"What were they?" you ask.  You shall presently see;
+These scales were not made to weigh sugar and tea.
+Oh no; for such properties wondrous had they,
+That qualities, feelings, and thoughts they could weigh,
+Together with articles small or immense,
+From mountains or planets to atoms of sense.
+[VERSE 4]
+Naught was there so bulky but there it would lay,
+And naught so ethereal but there it would stay,
+And naught so reluctant but in it must go:
+All which some examples more clearly will show.
+[VERSE 5]
+The first thing he weighed was the head of Voltaire,
+Which retained all the wit that had ever been there;
+As a weight, he threw in the torn scrap of a leaf
+Containing the prayer of the penitent thief;
+When the skull rose aloft with so sudden a spell
+That it bounced like a ball on the roof of the cell.
+[VERSE 6]
+One time he put in Alexander the Great,
+With the garment that Dorcas had made, for a weight;
+And though clad in armor from sandals to crown,
+The hero rose up and the garment went down.
+[VERSE 7]
+A long row of almshouses, amply endowed
+By a well-esteemed Pharisee, busy and proud,
+Next loaded one scale; while the other was pressed
+By those mites the poor widow dropped into the chest:
+Up flew the endowment, not weighing an ounce,
+And down, down the farthing-worth came with a bounce.
+[VERSE 8]
+By further experiments (no matter how)
+He found that ten chariots weighed less than one plough;
+A sword with gilt trappings rose up in the scale,
+Though balanced by only a ten-penny nail;
+A shield and a helmet, a buckler and spear,
+Weighed less than a widow's uncrystallized tear.
+[VERSE 9]
+A lord and a lady went up at full sail,
+When a bee chanced to light on the opposite scale;
+Ten doctors, ten lawyers, two courtiers, one earl,
+Ten counsellors' wigs, full of powder and curl,
+All heaped in one balance and swinging from thence,
+Weighed less than a few grains of candor and sense;
+A first-water diamond, with brilliants begirt,
+Than one good potato just washed from the dirt;
+Yet not mountains of silver and gold could suffice
+One pearl to outweigh,--'twas the Pearl of Great Price.
+[VERSE 10]
+Last of all, the whole world was bowled in at the grate,
+With the soul of a beggar to serve for a weight,
+When the former sprang up with so strong a rebuff
+That it made a vast rent and escaped at the roof!
+When balanced in air, it ascended on high,
+And sailed up aloft, a balloon in the sky;
+While the scale with the soul in't so mightily fell
+That it jerked the philosopher out of his cell.

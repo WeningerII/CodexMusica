@@ -1,12 +1,16 @@
 # author: John Sheffield, Duke of Buckinghamshire (1649-1720)
 # region: 
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1720; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1721, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 2
+# merged: 2026-08-20 — eng_hbv_john_sheffield.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 3
 
 --- TITLE: The Reconcilement
 --- SOURCE: PG66619
@@ -55,3 +59,24 @@ But oh! thus all at once to find
 That dread account--both dead and kind!
 What heart can hold? If yet I live,
 ’Tis but to show how much I grieve.
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Come, Celia, let's agree at last
+To love and live in quiet;
+Let's tie the knot so very fast
+That time shall ne'er untie it.
+Love's dearest joys they never prove,
+Who free from quarrels live;
+'Tis sure a god like part of love
+Each other to forgive.
+[VERSE 2]
+When least I seemed concerned I took
+No pleasure, nor had rest;
+And when I feigned an angry look,
+Alas!  I loved you best.
+Say but the same to me, you'll find
+How blest will be our fate;
+Sure to be grateful, to be kind,
+Can never be too late.

@@ -1,0 +1,50 @@
+# author: Emily Huntington Miller (1833-1913)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1913, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1913, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: THE LAND OF HEART'S DESIRE
+--- SOURCE: PG2620
+[VERSE 1]
+"Somewhere," he mused, "its dear enchantments wait,
+That land, so heavenly sweet;
+Yet all the paths we follow, soon or late,
+End in the desert's heat.
+[VERSE 2]
+"And still it lures us to the eager quest,
+And calls us day by day" -
+"But I," she said, her babe upon her breast
+"But I have found the way."
+[VERSE 3]
+"Some time," he sighed, "when youth and joy are spent,
+Our feet the gates may win" -
+"But I," she smiled, with eyes of deep content,
+"But I have entered in."
+
+--- TITLE: The Wood-Dove's Note
+--- SOURCE: PG2621
+[VERSE 1]
+Meadows with yellow cowslips all aglow,
+Glory of sunshine on the uplands bare,
+And faint and far, with sweet elusive flow,
+The Wood-dove's plaintive call,
+"O where! where! where!"
+[VERSE 2]
+Straight with old Omar in the almond grove
+From whitening boughs I breathe the odors rare
+And hear the princess mourning for her love
+With sad unwearied plaint,
+"O where! where! where!"
+[VERSE 3]
+New madrigals in each soft pulsing throat--
+New life upleaping to the brooding air--
+Still the heart answers to that questing note,
+"Soul of the vanished years,
+O where! where! where!"

@@ -4,10 +4,16 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1909, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1909, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1909, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 9
+# songs: 17
 
 --- TITLE: On The Life-mask Of Abraham Lincoln
 --- SOURCE: PG15553
@@ -222,3 +228,210 @@ By false hope lulled (his courage gave us hope!)
 Cherish one tender thought in their sad scope:
   He, looking from the window on this world,
   Found comfort in the moving green of trees.
+
+--- TITLE: "Ah, Be Not False"
+--- SOURCE: PG2619
+[VERSE 1]
+Ah, be not false, sweet Splendor!
+Be true, be good;
+Be wise as thou art tender;
+Be all that Beauty should.
+[VERSE 2]
+Not lightly be thy citadel subdued;
+Not ignobly, not untimely,
+Take praise in solemn mood;
+Take love sublimely.
+
+--- TITLE: "O, LOVE IS NOT A SUMMER MOOD"
+--- SOURCE: PG2620
+[VERSE 1]
+O, love is not a summer mood,
+Nor flying phantom of the brain,
+Nor youthful fever of the blood,
+Nor dream, nor fate, nor circumstance.
+Love is not born of blinded chance,
+Nor bred in simple ignorance.
+[VERSE 2]
+Love is the flower of maidenhood;
+Love is the fruit of mortal pain;
+And she hath winter in her blood.
+True love is steadfast as the skies,
+And once alight, she never flies;
+And love is strong, and love is wise.
+
+--- TITLE: "MY LOVE FOR THEE"
+--- SOURCE: PG2620
+[VERSE 1]
+My love for thee doth march like armed men,
+Against a queenly city they would take.
+Along the army's front its banners shake;
+Across the mountain and the sun-smit plain
+It steadfast sweeps as sweeps the steadfast rain;
+And now the trumpet makes the still air quake,
+And now the thundering cannon doth awake
+Echo on echo, echoing loud again.
+But, lo! the conquest higher than bard e'er sung:
+Instead of answering cannon, proud surrender!
+Joyful the iron gates are open flung
+And, for the conqueror, welcome gay and tender!
+O, bright the invader's path with tribute flowers,
+While comrade flags flame forth on wall and towers!
+
+--- TITLE: SONNETS
+--- SOURCE: PG2620
+[VERSE 1]
+AFTER THE ITALIAN
+[VERSE 2]
+I know not if I love her overmuch;
+But this I know, that when unto her face
+She lifts her hand, which rests there, still, a space,
+Then slowly falls - 'tis I who feel that touch.
+And when she sudden shakes her head, with such
+A look, I soon her secret meaning trace.
+So when she runs I think 'tis I who race.
+Like a poor cripple who has lost his crutch
+I am if she is gone; and when she goes,
+I know not why, for that is a strange art -
+As if myself should from myself depart.
+I know not if I love her more than those
+Who long her light have known; but for the rose
+She covers in her hair, I'd give my heart.
+[VERSE 3]
+I like her gentle hand that sometimes strays,
+To find the place, through the same book with mine;
+I like her feet; and O, those eyes divine!
+And when we say farewell, perhaps she stays
+Love-lingering - then hurries on her ways,
+As if she thought, "To end my pain and thine."
+I like her voice better than new-made wine;
+I like the mandolin whereon she plays.
+And I like, too, the cloak I saw her wear,
+And the red scarf that her white neck doth cover,
+And well I like the door that she comes through;
+I like the ribbon that doth bind her hair -
+But then, in truth, I am that lady's lover,
+And every new day there is something new.
+
+--- TITLE: "Great Nature is an Army Gay"
+--- SOURCE: PG2621
+[VERSE 1]
+Great nature is an army gay,
+Resistless marching on its way;
+I hear the bugles clear and sweet,
+I hear the tread of million feet.
+Across the plain I see it pour;
+It tramples down the waving grass;
+Within the echoing mountain-pass
+I hear a thousand cannon roar.
+It swarms within my garden gate;
+My deepest well it drinketh dry.
+It doth not rest; it doth not wait;
+By night and day it sweepeth by;
+Ceaseless it marcheth by my door;
+It heeds me not, though I implore.
+I know not whence it comes, nor where
+It goes.  For me it doth not care--
+Whether I starve, or eat, or sleep,
+Or live, or die, or sing, or weep.
+And now the banners all are bright,
+Now torn and blackened by the fight.
+Sometimes its laughter shakes the sky,
+Sometimes the groans of those who die.
+Still through the night and through the livelong day
+The infinite army marches on its remorseless way.
+
+--- TITLE: Prelude to "The New Day"
+--- SOURCE: PG2621
+[VERSE 1]
+The night was dark, though sometimes a faint star
+A little while a little space made bright.
+The night was dark and still the dawn seemed far,
+When, o'er the muttering and invisible sea,
+Slowly, within the East, there grew a light
+Which half was starlight, and half seemed to be
+The herald of a greater.  The pale white
+Turned slowly to pale rose, and up the height
+Of heaven slowly climbed.  The gray sea grew
+Rose-colored like the sky.  A white gull flew
+Straight toward the utmost boundary of the East
+Where slowly the rose gathered and increased.
+There was light now, where all was black before:
+It was as on the opening of a door
+By one who in his hand a lamp doth hold
+(Its flame being hidden by the garment's fold),--
+The still air moves, the wide room is less dim.
+More bright the East became, the ocean turned
+Dark and more dark against the brightening sky--
+Sharper against the sky the long sea line.
+The hollows of the breakers on the shore
+Were green like leaves whereon no sun doth shine,
+Though sunlight make the outer branches hoar.
+From rose to red the level heaven burned;
+Then sudden, as if a sword fell from on high,
+A blade of gold flashed on the ocean's rim.
+
+--- TITLE: A Midsummer Song
+--- SOURCE: PG2621
+[VERSE 1]
+O, Father's gone to market-town, he was up before the day,
+And Jamie's after robins, and the man is making hay,
+And whistling down the hollow goes the boy that minds the mill,
+While mother from the kitchen-door is calling with a will:
+"Polly!--Polly!--The cows are in the corn!
+O, where's Polly?"
+[VERSE 2]
+From all the misty morning air there comes a summer sound--
+A murmur as of waters from skies and trees and ground.
+The birds they sing upon the wing, the pigeons bill and coo,
+And over hill and hollow rings again the loud halloo:
+"Polly!--Polly!--The cows are in the corn!
+O, where's Polly?"
+[VERSE 3]
+Above the trees the honey-bees swarm by with buzz and boom,
+And in the field and garden a thousand blossoms bloom.
+Within the farmer's meadow a brown-eyed daisy blows,
+And down at the edge of the hollow a red and thorny rose.
+But Polly!--Polly!--The cows are in the corn!
+O, where's Polly?
+[VERSE 4]
+How strange at such a time of day the mill should stop its clatter!
+The farmer's wife is listening now and wonders what's the matter.
+O, wild the birds are singing in the wood and on the hill,
+While whistling up the hollow goes the boy that minds the mill.
+But Polly!--Polly!--The cows are in the corn!
+O, where's Polly?
+
+--- TITLE: A Song of Early Autumn
+--- SOURCE: PG2621
+[VERSE 1]
+When late in summer the streams run yellow,
+Burst the bridges and spread into bays;
+When berries are black and peaches are mellow,
+And hills are hidden by rainy haze;
+[VERSE 2]
+When the goldenrod is golden still,
+But the heart of the sunflower is darker and sadder;
+When the corn is in stacks on the slope of the hill,
+And slides o'er the path the striped adder;
+[VERSE 3]
+When butterflies flutter from clover to thicket,
+Or wave their wings on the drooping leaf;
+When the breeze comes shrill with the call of the cricket,
+Grasshopper's rasp, and rustle of sheaf;
+[VERSE 4]
+When high in the field the fern-leaves wrinkle,
+And brown is the grass where the mowers have mown;
+When low in the meadow the cow-bells tinkle,
+And small brooks crinkle o'er stock and stone;
+[VERSE 5]
+When heavy and hollow the robin's whistle
+And shadows are deep in the heat of noon;
+When the air is white with the down o' the thistle,
+And the sky is red with the harvest moon;
+[VERSE 6]
+O, then be chary, young Robert and Mary,
+No time let slip, not a moment wait!
+If the fiddle would play it must stop its tuning;
+And they who would wed must be done with their mooning;
+So let the churn rattle, see well to the cattle,
+And pile the wood by the barn-yard gate!

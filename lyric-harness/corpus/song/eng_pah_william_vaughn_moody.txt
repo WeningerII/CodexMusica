@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1910, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 2
+# songs: 3
 
 --- TITLE: ON A SOLDIER FALLEN IN THE PHILIPPINES
 --- SOURCE: PG47476
@@ -308,3 +310,30 @@ We shall discern the right
 And do it, tardily.--O ye who lead,
 Take heed!
 Blindness we may forgive, but baseness we will smite.
+
+--- TITLE: THE SERF'S SECRET
+--- SOURCE: PG2620
+[VERSE 1]
+I know a secret, such a one
+The hawthorn blossoms spider-spun,
+The dew-damp daisies in the grass
+Laugh up to greet me as I pass
+To meet the upland sun.
+[VERSE 2]
+It is that I would rather be
+The little page, on bended knee,
+Who stoops to gather up her train
+Beneath the porch-lamp's ruby rain
+Than hold a realm in fee.
+[VERSE 3]
+It is that in her scornful eye,
+Too hid for courtly sneer to spy,
+I saw, one day, a look which said
+That I, and only I, might shed
+Love-light across her sky.
+[VERSE 4]
+I know a secret, such a one
+The hawthorn blossoms spider-spun,
+The dew-damp daisies in the grass
+Laugh up to greet me as I pass
+To meet the upland sun.

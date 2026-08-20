@@ -1,0 +1,79 @@
+# author: Edward Thurlow, Lord Thurlow (1781-1829)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1829, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1829; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# merged: 2026-08-20 — eng_oxford_edward_thurlow_lord_thurlow.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 3
+
+--- TITLE: "When in the Woods I Wander All Alone"
+--- SOURCE: PG2621
+[VERSE 1]
+When in the woods I wander all alone,
+The woods that are my solace and delight,
+Which I more covet than a prince's throne,
+My toil by day and canopy by night;
+(Light heart, light foot, light food, and slumber light,
+These lights shall light us to old age's gate,
+While monarchs, whom rebellious dreams affright,
+Heavy with fear, death's fearful summons wait;)
+Whilst here I wander, pleased to be alone,
+Weighing in thought the worlds no-happiness,
+I cannot choose but wonder at its moan,
+Since so plain joys the woody life can bless:
+Then live who may where honied words prevail,
+I with the deer, and with the nightingale!
+
+--- TITLE: The Heron
+--- SOURCE: PG2621
+[VERSE 1]
+O melancholy bird, a winter's day
+Thou standest by the margin of the pool,
+And, taught by God, dost thy whole being school
+To Patience, which all evil can allay.
+God has appointed thee the Fish thy prey;
+And given thyself a lesson to the Fool
+Unthrifty, to submit to moral rule,
+And his unthinking course by thee to weigh.
+There need not schools, nor the Professor's chair,
+Though these be good, true wisdom to impart;
+He, who has not enough for these to spare
+Of time, or gold, may yet amend his heart,
+And teach his soul, by brooks and rivers fair:
+Nature is always wise in every part.
+
+--- TITLE: May
+--- SOURCE: PG66619
+[VERSE 1]
+May! queen of blossoms,
+  And fulfilling flowers,
+With what pretty music
+  Shall we charm the hours?
+Wilt thou have pipe and reed,
+Blown in the open mead?
+Or to the lute give heed
+  In the green bowers?
+[VERSE 2]
+Thou hast no need of us,
+  Or pipe or wire;
+Thou hast the golden bee
+  Ripen’d with fire;
+And many thousand more
+Songsters, that thee adore,
+Filling earth’s grassy floor
+  With new desire.
+[VERSE 3]
+Thou hast thy mighty herds,
+  Tame and free-livers;
+Doubt not, thy music too
+  In the deep rivers;
+And the whole plumy flight
+Warbling the day and night--
+Up at the gates of light,
+  See, the lark quivers!

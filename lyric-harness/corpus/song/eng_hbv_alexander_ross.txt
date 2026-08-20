@@ -1,0 +1,61 @@
+# author: Alexander Ross (1699-1784)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1784, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: "WOOED AND MARRIED AND A'"
+--- SOURCE: PG2620
+[VERSE 1]
+The bride cam' out o' the byre,
+And oh, as she dighted her cheeks:
+"Sirs, I'm to be married the night,
+And ha'e neither blankets nor sheets;
+Ha'e neither blankets nor sheets,
+Nor scarce a coverlet too;
+The bride that has a' thing to borrow,
+Has e'en right muckle ado!"
+Wooed and married, and a',
+Married and wooed and a'!
+And was she nae very weel aff,
+That was wooed and married and a'?
+[VERSE 2]
+Out spake the bride's father,
+As he cam' in frae the pleugh:
+"Oh, haud your tongue, my dochter,
+And ye'se get gear eneugh;
+The stirk stands i' the tether,
+And our braw bawsint yaud,
+Will carry ye hame your corn -
+What wad ye be at, ye jaud?"
+[VERSE 3]
+Out spake the bride's mither:
+"What deil needs a' this pride?
+I had nae a plack in my pouch
+That night I was a bride;
+My gown was linsey woolsey,
+And ne'er a sark ava;
+And ye ha'e ribbons and buskins,
+Mair than ane or twa."
+[VERSE 4]
+Out spake the bride's brither,
+As he cam' in wi' the kye:
+"Poor Willie wad ne'er ha'e ta'en ye,
+Had he kent ye as weel as I;
+For ye're baith proud and saucy
+And no for a puir man's wife;
+Gin I canna get a better,
+I'se ne'er tak' ane i' my life."
+[VERSE 5]
+Out spake the bride's sister,
+As she cam' in frae the byre:
+"O gin I were but married,
+It's a' that I desire;
+But we puir folk maun live single,
+And do the best we can;
+I dinna ken what I should want,
+If I could get but a man!"

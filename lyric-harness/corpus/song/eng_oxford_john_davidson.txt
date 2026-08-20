@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1909; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1909, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1909, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 2
+# songs: 4
 
 --- TITLE: Song
 --- SOURCE: PG66619
@@ -84,3 +88,129 @@ That came when the snow came,
 In darkness unfurl’d--
 The wonderful vast rose
 That fill’d all the world.
+
+--- TITLE: BUTTERFLIES
+--- SOURCE: PG2620
+[VERSE 1]
+At sixteen years she knew no care;
+How could she, sweet and pure as light?
+And there pursued her everywhere
+Butterflies all white.
+[VERSE 2]
+A lover looked.  She dropped her eyes
+That glowed like pansies wet with dew;
+And lo, there came from out the skies
+Butterflies all blue.
+[VERSE 3]
+Before she guessed her heart was gone;
+The tale of love was swiftly told;
+And all about her wheeled and shone
+Butterflies all gold.
+[VERSE 4]
+Then he forsook her one sad morn;
+She wept and sobbed, "Oh, love, come back!"
+There only came to her forlorn
+Butterflies all black.
+
+--- TITLE: A Runnable Stag
+--- SOURCE: PG2621
+[VERSE 1]
+When the pods went pop on the broom, green broom
+And apples began to be golden-skinned,
+We harbored a stag in the Priory coomb,
+And we feathered his trail up-wind, up-wind,
+We feathered his trail up-wind--
+A stag of warrant, a stag, a stag,
+A runnable stag, a kingly crop,
+Brow, bay and tray and three on top,
+A stag, a runnable stag.
+[VERSE 2]
+Then the huntsman's horn rang yap, yap, yap,
+And "Forwards" we heard the harborer shout;
+But 'twas only a brocket that broke a gap
+In the beechen underwood, driven out,
+From the underwood antlered out
+By warrant and might of the stag, the stag,
+The runnable stag, whose lordly mind
+Was bent on sleep, though beamed and tined
+He stood, a runnable stag.
+[VERSE 3]
+So we tufted the covert till afternoon
+With Tinkerman's Pup and Bell-of-the-North;
+And hunters were sulky and hounds out of tune
+Before we tufted the right stag forth,
+Before we tufted him forth,
+The stag of warrant, the wily stag,
+The runnable stag with his kingly crop,
+Brow, bay and tray and three on top,
+The royal and runnable stag.
+[VERSE 4]
+It was Bell-of-the-North and Tinkerman's Pup
+That stuck to the scent till the copse was drawn.
+"Tally ho! tally ho!" and the hunt was up,
+The tufters whipped and the pack laid on,
+The resolute pack laid on,
+And the stag of warrant away at last,
+The runnable stag, the same, the same,
+His hoofs on fire, his horns like flame,
+A stag, a runnable stag.
+[VERSE 5]
+"Let your gelding be: if you check or chide
+He stumbles at once and you're out of the hunt;
+For three hundred gentlemen, able to ride,
+On hunters accustomed to bear the brunt,
+Accustomed to bear the brunt,
+Are after the runnable stag, the stag,
+The runnable stag with his kingly crop
+Brow, bay and tray and three on top,
+The right, the runnable stag."
+[VERSE 6]
+By perilous paths in coomb and dell,
+The heather, the rocks, and the river-bed,
+The pace grew hot, for the scent lay well,
+And a runnable stag goes right ahead,
+The quarry went right ahead--
+Ahead, ahead, and fast and far;
+His antlered crest, his cloven hoof,
+Brow, bay and tray and three aloof,
+The stag, the runnable stag.
+[VERSE 7]
+For a matter of twenty miles and more,
+By the densest hedge and the highest wall,
+Through herds of bullocks he baffled the lore
+Of harborer, huntsman, hounds and all,
+Of harborer, hounds and all--
+The stag of warrant, the wily stag,
+For twenty miles, and five and five,
+He ran, and he never was caught alive,
+This stag, this runnable stag.
+[VERSE 8]
+When he turned at bay in the leafy gloom,
+In the emerald gloom where the brook ran deep,
+He heard in the distance the rollers boom,
+And he saw in a vision of peaceful sleep,
+In a wonderful vision of sleep,
+A stag of warrant, a stag, a stag,
+A runnable stag in a jewelled bed,
+Under the sheltering ocean dead,
+A stag, a runnable stag.
+[VERSE 9]
+So a fateful hope lit up his eye,
+And he opened his nostrils wide again,
+And he tossed his branching antlers high
+As he headed the hunt down the Charloch glen,
+As he raced down the echoing glen--
+For five miles more, the stag, the stag,
+For twenty miles, and five and five,
+Not to be caught now, dead or alive,
+The stag, the runnable stag.
+[VERSE 10]
+Three hundred gentlemen, able to ride,
+Three hundred horses as gallant and free,
+Beheld him escape on the evening tide,
+Far out till he sank in the Severn Sea,
+Till he sank in the depths of the sea--
+The stag, the buoyant stag, the stag
+That slept at last in a jewelled bed
+Under the sheltering ocean spread,
+The stag, the runnable stag.

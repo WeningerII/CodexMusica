@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1649; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1649, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 7
+# songs: 8
 
 --- TITLE: Wishes to His Supposed Mistress
 --- SOURCE: PG66619
@@ -528,3 +530,64 @@ And the eternal morrow dawn;
 Then the curtains will be drawn,
 And they wake into a light
 Whose day shall never die in night.
+
+--- TITLE: LOVE'S HOROSCOPE
+--- SOURCE: PG2620
+[VERSE 1]
+Love, brave Virtue's younger brother,
+Erst hath made my heart a mother,
+She consults the anxious spheres,
+To calculate her young son's years;
+She asks if sad or saving powers
+Gave omen to his infant hours;
+She asks each star that then stood by
+If poor Love shall live or die.
+[VERSE 2]
+Ah, my heart! is that the way?
+Are these the beams that rule thy day?
+Thou know'st a face in whose each look
+Beauty lays ope Love's fortune-book,
+On whose fair revolutions wait
+The obsequious motions of Love's fate.
+Ah, my heart! her eyes and she
+Have taught thee new astrology.
+Howe'er Love's native hours were set,
+Whatever starry synod met,
+'Tis in the mercy of her eye,
+If poor Love shall live or die.
+[VERSE 3]
+If those sharp rays, putting on
+Points of death, bid Love be gone; -
+Though the heavens in council sate
+To crown an uncontrolled fate;
+Though their best aspects twined upon
+The kindest constellation,
+Cast amorous glances on its birth,
+And whispered the confederate earth
+To pave his paths with all the good
+That warms the bed of youth and blood: -
+Love has no plea against her eye;
+Beauty frowns, and Love must die.
+[VERSE 4]
+But if her milder influence move,
+And gild the hopes of humble Love; -
+Though heaven's inauspicious eye
+Lay black on Love's nativity;
+Though every diamond in Jove's crown
+Fixed his forehead to a frown; -
+Her eye a strong appeal can give,
+Beauty smiles, and Love shall live.
+[VERSE 5]
+O, if Love shall live, O where,
+But in her eye, or in her ear,
+In her breast, or in her breath,
+Shall I hide poor Love from death?
+For in the life aught else can give,
+Love shall die, although he live.
+[VERSE 6]
+Or, if Love shall die, O where,
+But in her eye, or in her ear,
+In her breath, or in her breast,
+Shall I build his funeral nest?
+While Love shall thus entombed lie,
+Love shall live, although he die!

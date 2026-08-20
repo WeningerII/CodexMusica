@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1887, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1887, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 10
 
 --- TITLE: HOW CYRUS LAID THE CABLE
 --- SOURCE: PG47476
@@ -70,3 +74,303 @@ And may we honor evermore
     The manly, bold, and stable;
 And tell our sons, to make them brave,
     How Cyrus laid the cable!
+
+--- TITLE: "DARLING, TELL ME YES"
+--- SOURCE: PG2620
+[VERSE 1]
+One little minute more, Maud,
+One little whisper more;
+I have a word to speak, Maud,
+I never breathed before.
+What can it be but love, Maud;
+And do I rightly guess
+'Tis pleasant to your ear, Maud?
+O darling! tell me yes!
+[VERSE 2]
+The burden of my heart, Maud,
+There's little need to tell;
+There's little need to say, Maud,
+I've loved you long and well.
+There's language in a sigh, Maud,
+One's meaning to express,
+And yours - was it for me, Maud?
+O darling! tell me yes!
+[VERSE 3]
+My eyes have told my love, Maud,
+And on my burning cheek,
+You've read the tender thought, Maud,
+My lips refused to speak.
+I gave you all my heart, Maud,
+'Tis needless to confess;
+And did you give me yours, Maud?
+O darling! tell me yes!
+[VERSE 4]
+'Tis sad to starve a love, Maud,
+So worshipful and true;
+I know a little cot, Maud,
+Quite large enough for two;
+And you will be my wife, Maud?
+So may you ever bless
+Through all your sunny life, Maud,
+The day you answered yes!
+
+--- TITLE: "DO I LOVE THEE?"
+--- SOURCE: PG2620
+[VERSE 1]
+Do I love thee?  Ask the bee
+If she loves the flowery lea,
+Where the honeysuckle blows
+And the fragrant clover grows.
+As she answers, Yes or No,
+Darling! take my answer so.
+[VERSE 2]
+Do I love thee?  Ask the bird
+When her matin song is heard,
+If she loves the sky so fair,
+Fleecy cloud and liquid air.
+As she answers, Yes, or No,
+Darling! take my answer so.
+[VERSE 3]
+Do I love thee?  Ask the flower
+If she loves the vernal shower,
+Or the kisses of the sun,
+Or the dew, when day is done.
+As she answers, Yes or No,
+Darling! take my answer so.
+
+--- TITLE: TO MY LOVE
+--- SOURCE: PG2620
+[VERSE 1]
+Kiss me softly and speak to me low;
+Malice has ever a vigilant ear;
+What if Malice were lurking near?
+Kiss me, dear!
+Kiss me softly and speak to me low.
+[VERSE 2]
+Kiss me softly and speak to me low;
+Envy, too, has a watchful ear;
+What if Envy should chance to hear?
+Kiss me, dear!
+Kiss me softly and speak to me low,
+[VERSE 3]
+Kiss me softly and speak to me low;
+Trust me, darling, the time is near
+When lovers may love with never a fear;
+Kiss me, dear!
+Kiss me softly and speak to me low.
+
+--- TITLE: TO LESBIA
+--- SOURCE: PG2620
+[VERSE 1]
+Give me kisses!  Do not stay,
+Counting in that careful way.
+All the coins your lips can print
+Never will exhaust the mint.
+Kiss me, then,
+Every moment - and again!
+[VERSE 2]
+Give me kisses!  Do not stop,
+Measuring nectar by the drop.
+Though to millions they amount,
+They will never drain the fount.
+Kiss me, then,
+Every moment - and again!
+[VERSE 3]
+Give me kisses!  All is waste
+Save the luxury we taste;
+And for kissing, - kisses live
+Only when we take or give.
+Kiss me, then,
+Every moment - and again!
+[VERSE 4]
+Give me kisses!  Though their worth
+Far exceeds the gems of earth,
+Never pearls so rich and pure
+Cost so little, I am sure.
+Kiss me, then,
+Every moment - and again!
+[VERSE 5]
+Give me kisses!  Nay, 'tis true
+I am just as rich as you;
+And for every kiss I owe,
+I can pay you back, you know,
+Kiss me, then,
+Every moment - and again!
+
+--- TITLE: "WOULDN'T YOU LIKE TO KNOW"
+--- SOURCE: PG2620
+[VERSE 1]
+I know a girl with teeth of pearl,
+And shoulders white as snow;
+She lives, - ah well,
+I must not tell, -
+Wouldn't you like to know?
+[VERSE 2]
+Her sunny hair is wondrous fair,
+And wavy in its flow;
+Who made it less
+One little tress, -
+Wouldn't you like to know?
+[VERSE 3]
+Her eyes are blue (celestial hue!)
+And dazzling in their glow;
+On whom they beam
+With melting gleam, -
+Wouldn't you like to know?
+[VERSE 4]
+Her lips are red and finely wed,
+Like roses ere they blow;
+What lover sips
+Those dewy lips, -
+Wouldn't you like to know?
+[VERSE 5]
+Her fingers are like lilies fair
+When lilies fairest grow;
+Whose hand they press
+With fond caress, -
+Wouldn't you like to know?
+[VERSE 6]
+Her foot is small, and has a fall
+Like snowflakes on the snow;
+And where it goes
+Beneath the rose, -
+Wouldn't you like to know?
+[VERSE 7]
+She has a name, the sweetest name
+That language can bestow.
+'Twould break the spell
+If I should tell, -
+Wouldn't you like to know?
+
+--- TITLE: "JUSTINE, YOU LOVE ME NOT!"
+--- SOURCE: PG2620
+[VERSE 1]
+I know, Justine, you speak me fair
+As often as we meet;
+And 'tis a luxury, I swear,
+To hear a voice so sweet;
+And yet it does not please me quite,
+The civil way you've got;
+For me you're something too polite -
+Justine, you love me not!
+[VERSE 2]
+I know Justine, you never scold
+At aught that I may do:
+If I am passionate or cold,
+'Tis all the same to you.
+"A charming temper," say the men,
+"To smooth a husband's lot":
+I wish 'twere ruffled now and then -
+Justine you love me not!
+[VERSE 3]
+I know, Justine, you wear a smile
+As beaming as the sun;
+But who supposes all the while
+It shines for only one?
+Though azure skies are fair to see,
+A transient cloudy spot
+In yours would promise more to me -
+Justine, you love me not!
+[VERSE 4]
+I know, Justine, you make my name
+Your eulogistic theme,
+And say - if any chance to blame -
+You hold me in esteem.
+Such words, for all their kindly scope,
+Delight me not a jot;
+Just as you would have praised the Pope -
+Justine, you love me not!
+[VERSE 5]
+I know, Justine - for I have heard
+What friendly voices tell -
+You do not blush to say the word,
+"You like me passing well";
+And thus the fatal sound I hear
+That seals my lonely lot:
+There's nothing now to hope or fear -
+Justine, you love me not!
+
+--- TITLE: The Blind Men and the Elephant
+--- SOURCE: PG2622
+[VERSE 1]
+It was six men of Indostan
+To learning much inclined,
+Who went to see the Elephant
+(Though all of them were blind),
+That each by observation
+Might satisfy his mind.
+[VERSE 2]
+The First approached the Elephant,
+And happening to fall
+Against his broad and sturdy side,
+At once began to bawl:
+"God bless me! but the Elephant
+Is very like a wall!"
+[VERSE 3]
+The Second, feeling of the tusk,
+Cried, "Ho! what have we here
+So very round and smooth and sharp?
+To me 'tis mighty clear
+This wonder of an Elephant
+Is very like a spear!"
+[VERSE 4]
+The Third approached the animal,
+And happening to take
+The squirming trunk within his hands,
+Thus boldly up and spake:
+"I see," quoth he, "the Elephant
+Is very like a snake!"
+[VERSE 5]
+The Fourth reached out an eager hand,
+And felt about the knee.
+"What most this wondrous beast is like
+Is mighty plain," quoth he;
+"'Tis clear enough the Elephant
+Is very like a tree!"
+[VERSE 6]
+The Fifth who chanced to touch the ear,
+Said: "E'en the blindest man
+Can tell what this resembles most;
+Deny the fact who can,
+This marvel of an Elephant
+Is very like a fan!"
+[VERSE 7]
+The Sixth no sooner had begun
+About the beast to grope,
+Than, seizing on the swinging tail
+That fell within his scope,
+"I see," quoth he, "the Elephant
+Is very like a rope!"
+[VERSE 8]
+And so these men of Indostan
+Disputed loud and long,
+Each in his own opinion
+Exceeding stiff and strong,
+Though each was partly in the right,
+And all were in the wrong!
+[VERSE 9]
+MORAL
+So oft in theologic wars,
+The disputants, I ween,
+Rail on in utter ignorance
+Of what each other mean,
+And prate about an Elephant
+Not one of them has seen!
+
+--- TITLE: Too Candid by Half
+--- SOURCE: PG2622
+[VERSE 1]
+As Tom and his wife were discoursing one day
+Of their several faults in a bantering way,
+Said she, "Though my wit you disparage,
+I'm sure, my dear husband, our friends will attest
+This much, at the least, that my judgment is best."
+Quoth Tom, "So they said at our marriage."
+
+--- TITLE: Woman's Will
+--- SOURCE: PG2622
+[VERSE 1]
+Men, dying, make their wills, but wives
+Escape a task so sad;
+Why should they make what all their lives
+The gentle dames have had?

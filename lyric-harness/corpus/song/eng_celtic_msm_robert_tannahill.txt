@@ -3,11 +3,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1810, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('ROBERT TANNAHILL'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 16
+# songs: 17
 
 --- TITLE: JESSIE, THE FLOWER O' DUMBLANE
 --- SOURCE: PG22515
@@ -567,3 +569,36 @@ And now, dear Mary, fare thee well,
 Or in the camp, or on the field,
   I 'll heave a sigh, and think on thee!
       Good night, and joy, &c.
+
+--- TITLE: JESSIE, THE FLOWER O' DUNBLANE
+--- SOURCE: PG2620
+[VERSE 1]
+The sun has gane down o'er the lofty Benlomond
+And left the red clouds to preside o'er the scene,
+While lanely I stray, in the calm simmer gloamin',
+To muse on sweet Jessie, the Flower o' Dunblane.
+[VERSE 2]
+How sweet is the brier, wi' its saft fauldin' blossom,
+And sweet is the birk, wi' its mantle o' green;
+Yet sweeter and fairer, and dear to this bosom,
+Is lovely young Jessie, the Flower o' Dunblane.
+[VERSE 3]
+She's modest as ony, and blithe as she's bonnie;
+For guileless simplicity marks her its ain;
+And far be the villain, divested of feeling,
+Wha'd blight in its bloom the sweet Flower o' Dunblane.
+[VERSE 4]
+Sing on, thou sweet mavis, thy hymn to the e'ening!
+Thou'rt dear to the echoes of Calderwood glen;
+Sae dear to this bosom, sae artless and winning,
+Is charming young Jessie, the Flower o' Dunblane.
+[VERSE 5]
+How lost were my days till I met wi' my Jessie!
+The sports o' the city seemed foolish and vain;
+I ne'er saw a nymph I would ca' my dear lassie
+Till charmed wi' sweet Jessie, the Flower o' Dunblane.
+[VERSE 6]
+Though mine were the station o' loftiest grandeur,
+Amidst its profusion I'd languish in pain,
+And reckon as naething the height o' its splendor,
+If wanting sweet Jessie, the Flower o' Dunblane.

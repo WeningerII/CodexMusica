@@ -466,6 +466,108 @@ is what makes them controls.
 
 ---
 
+## 0.8 · The Home Book of Verse, landed as the safe subset
+
+The four HBV volumes were HELD at Phase 1 because the corpus's licence
+line asserted *"edition published 1912"* and the text refutes it on its
+face: it credits authors dead as late as 1936 and prints "Ford Madox
+**Ford**" in the body while its own index still reads "Hueffer", the
+name he changed in 1919. It is a 1930s printing whose source edition the
+Project Gutenberg header never names.
+
+**Owner's ruling: land the safe subset.** 1,938 items extracted, **1,049
+landed** — 272 new files and 615 items topped up into 191 existing ones.
+Corpus **1,174 → 1,423 files**, songs **7,618 → 8,667**.
+
+### The gate reads the author, never the edition
+
+No claim here rests on the edition date. Each item is admitted on its
+author's OWN printed death year, which this edition sets beside every
+credit, and every item whose admissibility would have depended on the
+unnameable date is **dropped**:
+
+| verdict | items |
+|---|---:|
+| closed death year ≤ 1928 | 1,538 |
+| open or unknown death, born after 1828 | **245** |
+| closed death year ≥ 1929 | **108** |
+| truncated year (unbounded, not small) | **40** |
+| no year printed at all | **7** |
+
+**400 of 1,938 (20.6%) refused**, 489 more dropped as cross-source
+duplicates by the dedup rail. The licence line on every landed item now
+says what it rests on and what it declines to claim.
+
+**AND MY OWN GATE HAD A FALSE-SAFE, CAUGHT BY THE AUDIT.** The first cut
+extracted years with `\d{3,4}` and read Carolyn Wells's `186?--` as
+**the year 186**, concluded *"max printed year 186 ≤ 1828, certainly
+dead"*, and admitted an author who died in **1942**. A truncated year is
+UNBOUNDED, not small — and it is the one shape that turns the gate's
+safest branch into its most dangerous. Any digit run shorter than four
+now refuses outright; 41 items in this batch carry one, every last of
+them a 19th-century birth with no printed death, and not one a genuine
+three-digit medieval year.
+
+**A SECOND DEFECT OF MINE, CAUGHT BY CHECK B.** The top-up path never
+filled the dated licence slot, so the first WRITE put the
+`_HBV_UNDATED` placeholder — a line whose own text reads *"REFUSED …
+should be unreachable"* — into **191 files as 315 licence lines**. The
+new-file path had done it correctly since it was written; the two paths
+disagreed about one thing, which is doctrine 1 inside one function. The
+audit reported it as a licence-regime disagreement, which is the gate
+working.
+
+### Four death-year conflicts, and only one was two people
+
+The death-year rail deferred four authors. **Three were the edition
+contradicting itself in its own pages**, with the corpus already holding
+the correct year and HBV's own majority reading agreeing:
+
+| author | HBV prints | correct |
+|---|---|---|
+| William Cowper | 1731-1800 ×2 **and** 1731-1808 | 1800 |
+| Hartley Coleridge | 1796-1849 **and** 1796-1840 | 1849 |
+| John Godfrey Saxe | 1816-1887 **and** 1816-1877 | 1887 |
+
+Corrected per (author, printed-dates), so the fix cannot reach another
+author or another year — and nothing is DERIVED: each value is one the
+same edition prints elsewhere and the corpus independently records.
+
+**The fourth is a real homonym.** Oxford stages James Thomson
+(1700-1748) of *The Seasons* and *Rule, Britannia*; HBV credits James
+Thomson (1834-1882), "B.V." of *The City of Dreadful Night*. 134 years
+apart, each date printed by its own edition. Routing on the bare name
+would have merged them — the Alexander Hume case exactly, and what the
+rail is for.
+
+### 23 twins merged, and the surname guard earned its place
+
+A near-name scan over the WHOLE corpus found 23 pairs the exact-name
+router could not see — a fuller form in one edition against a shorter
+one already staged (`Alfred Tennyson` / `Alfred Tennyson, Lord
+Tennyson`; `Carolina Nairne` / `Carolina Oliphant, Lady Nairne`).
+Identity is the editions' own printed death years agreeing inside the
+corpus's existing `DEATH_SLACK` of 2 — which is what admits Nairne,
+printed **1763**-1845 in one book and **1766**-1845 in the other.
+
+**A SURNAME GUARD REJECTED THE ONE FALSE POSITIVE** the death year alone
+would have merged: **Frederick William Faber (1814-1863)** and
+**Frederick William Thomas (1811-1864)** share two given names and a
+death year to within a year, and are two men — a hymnwriter and an
+American novelist. Songs are unmoved at 8,667 across all 23 merges: a
+merge rehouses items and removes none.
+
+### The duplication census sees exactly one new cross-file pair
+
+Cross-file variants go 7 → **8**, and the addition is **Jones~Raleigh**:
+Robert Jones's Elizabethan song-book prints a lyric HBV credits to
+Walter Raleigh — the same contested-attribution shape as the
+Jones~Durfey pair beside it, and correctly kept rather than deduped.
+**Everything at the 0.60 dedup floor and above is unmoved through three
+loads: 31 / 24 / 5.**
+
+---
+
 ## 1. The check list
 
 269 files. `FAIL` = a defect. `WARN` = a gap in the record. `NOTE` = a

@@ -6,6 +6,10 @@
 # licence: public domain - Project Gutenberg; Home Book of Verse first published 1912; edition published 1912 -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (filename corrected 2026-08-19: the repo ships 47476-8.txt; bytes verified identical)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1878, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1878, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -616,3 +620,88 @@ With the same love love us, as we give;
   To join and smite and cry
 In the great task, for thee to die,
 And the greater task, for thee to live!
+
+--- TITLE: Storm Song
+--- SOURCE: PG2621
+[VERSE 1]
+The clouds are scudding across the moon;
+A misty light is on the sea;
+The wind in the shrouds has a wintry tune,
+And the foam is flying free.
+[VERSE 2]
+Brothers, a night of terror and gloom
+Speaks in the cloud and gathering roar;
+Thank God, He has given us broad sea-room,
+A thousand miles from shore.
+[VERSE 3]
+Down with the hatches on those who sleep!
+The wild and whistling deck have we;
+Good watch, my brothers, to-night we'll keep,
+While the tempest is on the sea!
+[VERSE 4]
+Though the rigging shriek in his terrible grip,
+And the naked spars be snapped away,
+Lashed to the helm, we'll drive our ship
+In the teeth of the whelming spray!
+[VERSE 5]
+Hark! how the surges o'erleap the deck!
+Hark! how the pitiless tempest raves!
+Ah, daylight will look upon many a wreck
+Drifting over the desert waves.
+[VERSE 6]
+Yet, courage, brothers! we trust the wave,
+With God above us, our guiding chart.
+So, whether to harbor or ocean-grave,
+Be it still with a cheery heart!
+
+--- TITLE: The Promissory Note
+--- SOURCE: PG2622
+[VERSE 1]
+In the lonesome latter years
+(Fatal years!)
+To the dropping of my tears
+Danced the mad and mystic spheres
+In a rounded, reeling rune,
+'Neath the moon,
+To the dripping and the dropping of my tears.
+Ah, my soul is swathed in gloom,
+(Ulalume!)
+In a dim Titanic tomb,
+For my gaunt and gloomy soul
+Ponders o'er the penal scroll,
+O'er the parchment (not a rhyme),
+Out of place,--out of time,--
+I am shredded, shorn, unshifty,
+(Oh, the fifty!)
+And the days have passed, the three,
+Over me!
+And the debit and the credit are as one to him and me!
+[VERSE 2]
+'Twas the random runes I wrote
+At the bottom of the note,
+(Wrote and freely
+Gave to Greeley)
+In the middle of the night,
+In the mellow, moonless night,
+When the stars were out of sight,
+When my pulses, like a knell,
+(Israfel!)
+Danced with dim and dying fays,
+O'er the ruins of my days,
+O'er the dimeless, timeless days,
+When the fifty, drawn at thirty,
+Seeming thrifty, yet the dirty
+Lucre of the market, was the most that I could raise!
+[VERSE 3]
+Fiends controlled it,
+(Let him hold it!)
+Devils held me for the inkstand and the pen;
+Now the days of grace are o'er,
+(Ah, Lenore!)
+I am but as other men;
+What is time, time, time,
+To my rare and runic rhyme,
+To my random, reeling rhyme,
+By the sands along the shore,
+Where the tempest whispers, "Pay him!" and I answer,
+"Nevermore!"

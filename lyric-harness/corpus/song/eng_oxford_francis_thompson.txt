@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1907; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1907, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1907, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 6
 
 --- TITLE: The Poppy
 --- SOURCE: PG66619
@@ -110,3 +114,268 @@ Love! _I_ fall into the claws of Time:
 But lasts within a leavèd rhyme
 All that the world of me esteems--
 My wither’d dreams, my wither’d dreams.
+
+--- TITLE: Ex Ore Infantium
+--- SOURCE: PG2619
+[VERSE 1]
+Little Jesus, wast Thou shy
+Once, and just so small as I?
+And what did it feel like to be
+Out of Heaven, and just like me?
+Didst Thou sometimes think of there,
+And ask where all the angels were?
+I should think that I would cry
+For my house all made of sky;
+I would look about the air,
+And wonder where my angels were;
+And at waking 'twould distress me--
+Not an angel there to dress me!
+[VERSE 2]
+Hadst Thou ever any toys,
+Like us little girls and boys?
+And didst Thou play in Heaven with all
+The angels, that were not too tall,
+With stars for marbles?  Did the things
+Play Can you see me? through their wings?
+[VERSE 3]
+Didst Thou kneel at night to pray,
+And didst Thou join Thy hands, this way?
+And did they tire sometimes, being young,
+And make the prayer seem very long?
+And dost Thou like it best, that we
+Should join our hands to pray to Thee?
+I used to think, before I knew,
+The prayer not said unless we do.
+And did Thy Mother at the night
+Kiss Thee, and fold the clothes in right?
+And didst Thou feel quite good in bed,
+Kissed, and sweet, and Thy prayers said?
+[VERSE 4]
+Thou canst not have forgotten all
+That it feels like to be small:
+And Thou know'st I cannot pray
+To Thee in my father's way--
+When Thou wast so little, say,
+Could'st Thou talk Thy Father's way?--
+So, a little Child, come down
+And hear a child's tongue like Thy own;
+[VERSE 5]
+Take me by the hand and walk,
+And listen to my baby-talk.
+To Thy Father show my prayer
+(He will look, Thou art so fair),
+And say: "O Father, I, Thy Son,
+Bring the prayer of a little one."
+[VERSE 6]
+And He will smile, that children's tongue
+Has not changed since Thou wast young!
+
+--- TITLE: Daisy
+--- SOURCE: PG2619
+[VERSE 1]
+Where the thistle lifts a purple crown
+Six foot out of the turf,
+And the harebell shakes on the windy hill--
+O the breath of the distant surf!--
+[VERSE 2]
+The hills look over on the South,
+And southward dreams the sea;
+And with the sea-breeze hand in hand
+Came innocence and she.
+[VERSE 3]
+Where 'mid the gorse the raspberry
+Red for the gatherer springs,
+Two children did we stray and talk
+Wise, idle, childish things.
+[VERSE 4]
+She listened with big-lipped surprise,
+Breast-deep 'mid flower and spine:
+Her skin was like a grape, whose veins
+Run snow instead of wine.
+[VERSE 5]
+She knew not those sweet words she spake,
+Nor knew her own sweet way;
+But there's never a bird, so sweet a song
+Thronged in whose throat that day!
+[VERSE 6]
+Oh, there were flowers in Storrington
+On the turf and on the spray;
+But the sweetest flower on Sussex hills
+Was the Daisy-flower that day!
+[VERSE 7]
+Her beauty smoothed earth's furrowed face!
+She gave me tokens three:--
+A look, a word of her winsome mouth,
+And a wild raspberry.
+[VERSE 8]
+A berry red, a guileless look,
+A still word,--strings of sand!
+And yet they made my wild, wild heart
+Fly down to her little hand.
+[VERSE 9]
+For standing artless as the air,
+And candid as the skies,
+She took the berries with her hand,
+And the love with her sweet eyes.
+[VERSE 10]
+The fairest things have fleetest end:
+Their scent survives their close,
+But the rose's scent is bitterness
+To him that loved the rose!
+[VERSE 11]
+She looked a little wistfully,
+Then went her sunshine way:--
+The sea's eye had a mist on it,
+And the leaves fell from the day.
+[VERSE 12]
+She went her unremembering way,
+She went and left in me
+The pang of all the partings gone,
+And partings yet to be.
+[VERSE 13]
+She left me marveling why my soul
+Was sad that she was glad;
+At all the sadness in the sweet,
+The sweetness in the sad.
+[VERSE 14]
+Still, still I seemed to see her, still
+Look up with soft replies,
+And take the berries with her hand,
+And the love with her lovely eyes.
+[VERSE 15]
+Nothing begins, and nothing ends,
+That is not paid with moan;
+For we are born in others' pain,
+And perish in our own.
+
+--- TITLE: A May Burden
+--- SOURCE: PG2621
+[VERSE 1]
+Though meadow-ways as I did tread,
+The corn grew in great lustihead,
+And hey! the beeches burgeoned.
+By Goddes fay, by Goddes fay!
+It is the month, the jolly month,
+It is the jolly month of May.
+[VERSE 2]
+God ripe the wines and corn, I say,
+And wenches for the marriage-day,
+And boys to teach love's comely play.
+By Goddes fay, by Goddes fay!
+It is the month, the jolly month,
+It is the jolly month of May.
+[VERSE 3]
+As I went down by lane and lea,
+The daisies reddened so, pardie!
+"Blushets!" I said, "I well do see,
+By Goddes fay, by Goddes fay!
+The thing ye think of in this month,
+Heigho! this jolly month of May."
+[VERSE 4]
+As down I went by rye and oats,
+The blossoms smelt of kisses; throats
+Of birds turned kisses into notes;
+By Goddes fay, by Goddes fay!
+The kiss it is a growing flower,
+I trow, this jolly month of May.
+[VERSE 5]
+God send a mouth to every kiss,
+Seeing the blossom of this bliss
+By gathering doth grow, certes!
+By Goddes fay, by Goddes fay!
+Thy brow-garland pushed all aslant
+Tells--but I tell not, wanton May!
+
+--- TITLE: To a Snowflake
+--- SOURCE: PG2621
+[VERSE 1]
+What heart could have thought you?--
+Past our devisal
+(O filigree petal!)
+Fashioned so purely,
+Fragilely, surely,
+From what Paradisal
+Imagineless metal,
+Too costly for cost?
+Who hammered you, wrought you,
+From argentine vapor?--
+God was my shaper.
+Passing surmisal,
+He hammered, He wrought me,
+From curled silver vapor,
+To lust of His mind:--
+Thou couldst not have thought me!
+So purely, so palely,
+Tinily, surely,
+Mightily, frailly,
+Insculped and embossed,
+With His hammer of wind,
+And His graver of frost."
+
+--- TITLE: To Daisies
+--- SOURCE: PG2621
+[VERSE 1]
+Ah, drops of gold in whitening flame
+Burning, we know your lovely name--
+Daisies, that little children pull!
+Like all weak things, over the strong
+Ye do not know your power for wrong,
+And much abuse your feebleness.
+Daisies, that little children pull,
+As ye are weak, be merciful!
+O hide your eyes! they are to me
+Beautiful insupportably.
+Or be but conscious ye are fair,
+And I your loveliness could bear,
+But, being fair so without art,
+Ye vex the silted memories of my heart!
+[VERSE 2]
+As a pale ghost yearning strays
+With sundered gaze,
+'Mid corporal presences that are
+To it impalpable--such a bar
+Sets you more distant than the morning-star.
+Such wonder is on you, and amaze,
+I look and marvel if I be
+Indeed the phantom, or are ye?
+The light is on your innocence
+Which fell from me.
+The fields ye still inhabit whence
+My world-acquainted treading strays,
+The country where I did commence;
+And though ye shine to me so near,
+So close to gross and visible sense,--
+Between us lies impassable year on year.
+[VERSE 3]
+To other time and far-off place
+Belongs your beauty: silent thus,
+Though to other naught you tell,
+To me your ranks are rumorous
+Of an ancient miracle.
+Vain does my touch your petals graze,
+I touch you not; and though ye blossom here,
+Your roots are fast in alienated days.
+Ye there are anchored, while Time's stream
+Has swept me past them: your white ways
+And infantile delights do seem
+To look in on me like a face,
+Dead and sweet, come back through dream,
+With tears, because for old embrace
+It has no arms.
+[VERSE 4]
+These hands did toy,
+Children, with you, when I was child,
+And in each other's eyes we smiled:
+Not yours, not yours the grievous-fair
+Apparelling
+With which you wet mine eyes; you wear,
+Ah me, the garment of the grace
+I wove you when I was a boy;
+O mine, and not the year's your stolen Spring!
+And since ye wear it,
+Hide your sweet selves!  I cannot bear it.
+For when ye break the cloven earth
+With your young laughter and endearment,
+No blossomy carillon 'tis of mirth
+To me; I see my slaughtered joy
+Bursting its cerement.

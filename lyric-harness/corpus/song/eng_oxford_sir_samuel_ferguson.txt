@@ -1,12 +1,16 @@
 # author: Sir Samuel Ferguson (1810-1886)
 # region: irish
-# region-basis: the edition's own headnotes on nos. 713 and 714, 'FROM THE IRISH'
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1886; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1886, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1886, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 3
+# merged: 2026-08-20 — eng_hbv_samuel_ferguson.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 5
 
 --- TITLE: Cean Dubh Deelish
 --- SOURCE: PG66619
@@ -83,3 +87,178 @@ The cresses on the water and the sorrels are at hand,
 And the cuckoo’s calling daily his note of music bland,
 And the bold thrush sings so bravely his song i’ the forests grand,
         On the fair hills of holy Ireland.
+
+--- TITLE: THE PRETTY GIRL OF LOCH DAN
+--- SOURCE: PG2620
+[VERSE 1]
+The shades of eve had crossed the glen
+That frowns o'er infant Avonmore,
+When, nigh Loch Dan, two weary men,
+We stopped before a cottage door.
+[VERSE 2]
+"God save all here!" my comrade cries,
+And rattles on the raised latch-pin;
+"God save you kindly!" quick replies
+A clear sweet voice, and asks us in.
+[VERSE 3]
+We enter; from the wheel she starts,
+A rosy girl with soil black eyes,
+Her fluttering curtsey takes our hearts,
+Her blushing grace and pleased surprise.
+[VERSE 4]
+Poor Mary, she was quite alone,
+For, all the way to Glenmalure,
+Her mother had that morning gone,
+And left the house in charge with her.
+[VERSE 5]
+But neither household cares, nor yet
+The shame that startled virgins feel,
+Could make the generous girl forget
+Her wonted hospitable zeal.
+[VERSE 6]
+She brought us, in a beechen bowl,
+Sweet milk that smacked of mountain thyme,
+Oat cake, and such a yellow roll
+Of butter, - it gilds all my rhyme!
+[VERSE 7]
+And, while we ate the grateful food
+(With weary limbs on bench reclined),
+Considerate and discreet, she stood
+Apart, and listened to the wind.
+[VERSE 8]
+Kind wishes both our souls engaged,
+From breast to breast spontaneous ran
+The mutual thought, - we stood and pledged
+The modest rose above Loch Dan.
+[VERSE 9]
+"The milk we drink is not more pure,
+Sweet Mary, - bless those budding charms! -
+Than your own generous heart, I'm sure,
+Nor whiter than the breast it warms!"
+[VERSE 10]
+She turned and gazed, unused to hear
+Such language in that homely glen;
+But, Mary, you have naught to fear,
+Though smiled on by two stranger-men.
+[VERSE 11]
+Not for a crown would I alarm
+Your virgin pride by word or sign,
+Nor need a painful blush disarm
+My friend of thoughts as pure as mine.
+[VERSE 12]
+Her simple heart could not but feel
+The words we spoke were free from guile;
+She stooped, she blushed, she fixed her wheel, -
+'Tis all in vain, - she can't but smile!
+[VERSE 13]
+Just like sweet April's dawn appears
+Her modest face, - I see it yet, -
+And though I lived a hundred years
+Methinks I never could forget
+[VERSE 14]
+The pleasure that, despite her heart,
+Fills all her downcast eyes with light;
+The lips reluctantly apart,
+The white teeth struggling into sight,
+[VERSE 15]
+The dimples eddying o'er her cheek, -
+The rosy cheek that won't be still: -
+O, who could blame what flatterers speak,
+Did smiles like this reward their skill?
+[VERSE 16]
+For such another smile, I vow,
+Though loudly beats the midnight rain,
+I'd take the mountain-side e'en now,
+And walk to Luggelaw again!
+
+--- TITLE: The Forging of the Anchor
+--- SOURCE: PG2621
+[VERSE 1]
+Come, see the Dolphin's anchor forged! 'tis at a white heat now--
+The bellows ceased, the flames decreased; though, on the forge's brow,
+The little flames still fitfully play through the sable mound,
+And fitfully you still may see the grim smiths ranking round;
+All clad in leathern panoply, their broad hands only bare,
+Some rest upon their sledges here, some work the windlass there.
+[VERSE 2]
+The windlass strains the tackle-chains--the black mold heaves below;
+And red and deep, a hundred veins burst out at every throe.
+It rises, roars, rends all outright--O Vulcan, what a glow!
+'Tis blinding white, 'tis blasting bright--the high sun shines not so!
+The high sun sees not, on the earth, such fiery fearful show!
+The roof-ribs swarth, the candent hearth, the ruddy lurid row
+[VERSE 3]
+Of smiths that stand, an ardent band, like men before the foe!
+As, quivering through his fleece of flame, the sailing monster slow
+Sinks on the anvil--all about, the faces fiery grow:
+"Hurrah!" they shout, "leap out, leap out!" bang, bang! the sledges go;
+Hurrah! the jetted lightnings are hissing high and low;
+A hailing fount of fire is struck at every squashing blow;
+The leathern mail rebounds the hail; the rattling cinders strow
+The ground around; at every bound the sweltering fountains flow;
+And, thick and loud, the swinking crowd at every stroke pant "ho!"
+[VERSE 4]
+Leap out, leap out, my masters! leap out, and lay on load!
+Let's forge a goodly anchor--a bower thick and broad;
+For a heart of oak is hanging on every blow, I bode;
+And I see the good ship riding, all in a perilous road,--
+The low reef roaring on her lee; the roll of ocean poured
+From stem to stern, sea after sea; the mainmast by the board;
+The bulwarks down; the rudder gone; the boats stove at the chains;
+But courage still, brave mariners--the bower yet remains!
+And not an inch to flinch he deigns--save when ye pitch sky high;
+Then moves his head, as though he said, "Fear nothing--here am I!"
+[VERSE 5]
+Swing in your strokes in order; let foot and hand keep time;
+Your blows make music sweeter far than any steeple's chime.
+But while ye swing your sledges, sing, and let the burthen be--
+The anchor is the anvil king, and royal craftsmen we!
+Strike in, strike in!--the sparks begin to dull their rustling red;
+Our hammers ring with sharper din--our work will soon be sped;
+Our anchor soon must change his bed of fiery rich array
+For a hammock at the roaring bows, or an oozy couch of clay;
+Our anchor soon must change the lay of merry craftsmen here
+For the yeo-heave-o, and the heave-away, and the sighing seamen's cheer--
+When, weighing slow, at eve they go, far, far from love and home;
+And sobbing sweethearts, in a row, wail o'er the ocean--foam.
+[VERSE 6]
+In livid and obdurate gloom, he darkens down at last;
+A shapely one he is, and strong, as e'er from cat was cast.
+O trusted and trustworthy guard! if thou hadst life like me,
+What pleasure would thy toils reward beneath the deep-green sea!
+O deep sea-diver, who might then behold such sights as thou?--
+The hoary monster's palaces!--Methinks what joy 'twere now
+To go plumb-plunging down, amid the assembly of the whales,
+And feel the churned sea round me boil beneath their scourging tails!
+Then deep in tangle-woods to fight the fierce sea-unicorn,
+And send him foiled and bellowing back, for all his ivory horn;
+To leave the subtle sworder-fish of bony blade forlorn;
+And for the ghastly-grinning shark, to laugh his jaws to scorn:
+To leap down on the kraken's back, where 'mid Norwegian isles
+He lies, a lubber anchorage for sudden shallowed miles--
+Till, snorting like an under-sea volcano, off he rolls;
+Meanwhile to swing, a-buffeting the far astonished shoals
+Of his back-browsing ocean-calves; or, haply, in a cove
+Shell-strown, and consecrate of old to some Undine's love,
+To find the long-haired mermaidens; or, hard by icy lands,
+To wrestle with the sea-serpent, upon cerulean sands.
+[VERSE 7]
+O broad-armed fisher of the deep! whose sports can equal thine?
+The Dolphin weighs a thousand tons, that tugs thy cable--line;
+And night by night 'tis thy delight, thy glory day by day,
+Through sable sea and breaker white the giant game to play.
+But, shamer of our little sports! forgive the name I gave:
+A fisher's joy is to destroy--thine office is to save.
+O lodger in the sea-kings' halls! couldst thou but understand
+Whose be the white bones by thy side--or who that dripping band,
+Slow swaying in the heaving wave, that round about thee bend,
+With sounds like breakers in a dream blessing their ancient friend--
+Oh, couldst thou know what heroes glide with larger steps round thee,
+Thine iron side would swell with pride---thou'dst leap within the sea!
+[VERSE 8]
+Give honor to their memories who left the pleasant strand
+To shed their blood so freely for the love of fatherland--
+Who left their chance of quiet age and grassy churchyard grave
+So freely, for a restless bed amid the tossing wave!
+Oh, though our anchor may not be all I have fondly sung,
+Honor him for their memory whose bones he goes among!

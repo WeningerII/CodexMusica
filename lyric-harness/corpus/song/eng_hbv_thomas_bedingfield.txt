@@ -1,0 +1,32 @@
+# author: Thomas Bedingfield (? -1613)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1613, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: THE LOVER'S CHOICE
+--- SOURCE: PG2620
+[VERSE 1]
+You, Damon, covet to possess
+The nymph that sparkles in her dress;
+Would rustling silks and hoops invade,
+And clasp an armful of brocade.
+[VERSE 2]
+Such raise the price of your delight
+Who purchase both their red and white,
+And, pirate-like, surprise your heart
+With colors of adulterate art.
+[VERSE 3]
+Me, Damon, me the maid enchants
+Whose cheeks the hand of nature paints;
+A modest blush adorns her face,
+Her air an unaffected grace.
+[VERSE 4]
+No art she knows, or seeks to know;
+No charm to wealthy pride will owe;
+No gems, no gold she needs to wear;
+She shines intrinsically fair.

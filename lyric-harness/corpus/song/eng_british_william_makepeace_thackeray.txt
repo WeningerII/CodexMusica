@@ -4,10 +4,16 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1863, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1863, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1863, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 11
 
 --- TITLE: AT THE CHURCH GATE.
 --- SOURCE: PG26715
@@ -151,3 +157,442 @@ In the woods of Powhatan,
   Still 'tis told by Indian fires
   How a daughter of their sires
 Saved a captive Englishman.
+
+--- TITLE: The Garret
+--- SOURCE: PG2619
+[VERSE 1]
+With pensive eyes the little room I view,
+Where, in my youth, I weathered it so long;
+With a wild mistress, a stanch friend or two,
+And a light heart still breaking into song:
+Making a mock of life, and all its cares,
+Rich in the glory of my rising sun,
+Lightly I vaulted up four pair of stairs,
+In the brave days when I was twenty-one.
+[VERSE 2]
+Yes; 'tis a garret--let him know't who will--
+There was my bed--full hard it was and small;
+My table there--and I decipher still
+Half a lame couplet charcoaled on the wall.
+Ye joys, that Time hath swept with him away,
+Come to mine eyes, ye dreams of love and fun;
+For you I pawned my watch how many a day,
+In the brave days when I was twenty-one.
+[VERSE 3]
+And see my little Jessy, first of all;
+She comes with pouting lips and sparkling eyes:
+Behold, how roguishly she pins her shawl
+Across the narrow casement, curtain-wise;
+Now by the bed her petticoat glides down,
+And when did woman look the worse in none?
+I have heard since who paid for many a gown,
+In the brave days when I was twenty-one.
+[VERSE 4]
+One jolly evening, when my friends and I
+Made happy music with our songs and cheers,
+A shout of triumph mounted up thus high,
+And distant cannon opened on our ears:
+We rise,--we join in the triumphant strain,--
+Napoleon conquers--Austerlitz is won--
+Tyrants shall never tread us down again,
+In the brave days when I was twenty-one.
+[VERSE 5]
+Let us begone--the place is sad and strange--
+How far, far off, these happy times appear;
+All that I have to live I'd gladly change
+For one such month as I have wasted here--
+To draw long dreams of beauty, love, and power,
+From founts of hope that never will outrun,
+And drink all life's quintessence in an hour,
+Give me the days when I was twenty-one!
+
+--- TITLE: RONSARD TO HIS MISTRESS
+--- SOURCE: PG2620
+[VERSE 1]
+"Quand vous serez bien vieille, le soir a la chandelle
+Assise aupres du feu devisant et filant,
+Direz, chantant mes vers en vous esmerveillant,
+Ronsard m'a celebre du temps que j'etois belle."
+[VERSE 2]
+Some winter night, shut snugly in
+Beside the fagot in the hall,
+I think I see you sit and spin,
+Surrounded by your maidens all.
+Old tales are told, old songs are sung,
+Old days come back to memory;
+You say, "When I was fair and young,
+A poet sang of me!"
+[VERSE 3]
+There's not a maiden in your hall,
+Though tired and sleepy ever so,
+But wakes, as you my name recall,
+And longs the history to know.
+And, as the piteous tale is said,
+Of lady cold and lover true,
+Each, musing, carries it to bed,
+And sighs and envies you!
+[VERSE 4]
+"Our lady's old and feeble now,"
+They'll say: "she once was fresh and fair,
+And yet she spurned her lover's vow,
+And heartless left him to despair.
+The lover lies in silent earth,
+No kindly mate the lady cheers;
+She sits beside a lonely hearth,
+With threescore and ten years!"
+[VERSE 5]
+Ah! dreary thoughts and dreams are those,
+But wherefore yield me to despair,
+While yet the poet's bosom glows,
+While yet the dame is peerless fair!
+Sweet lady mine! while yet 'tis time
+Requite my passion and my truth,
+And gather in their blushing prime
+The roses of your youth!
+
+--- TITLE: SORROWS OF WERTHER
+--- SOURCE: PG2620
+[VERSE 1]
+Werther had a love for Charlotte
+Such as words could never utter;
+Would you know how first he met her?
+She was cutting bread and butter.
+[VERSE 2]
+Charlotte was a married lady,
+And a moral man was Werther,
+And, for all the wealth of Indies,
+Would do nothing for to hurt her.
+[VERSE 3]
+So he sighed and pined and ogled,
+And his passion boiled and bubbled,
+Till he blew his silly brains out,
+And no more was by it troubled.
+[VERSE 4]
+Charlotte, having seen his body
+Borne before her on a shutter,
+Like a well-conducted person,
+Went on cutting bread and butter.
+
+--- TITLE: THE AGE OF WISDOM
+--- SOURCE: PG2620
+[VERSE 1]
+Ho, pretty page, with the dimpled chin,
+That never has known the barber's shear,
+All your wish is woman to win,
+This is the way that boys begin, -
+Wait till you come to Forty Year.
+[VERSE 2]
+Curly gold locks cover foolish brains,
+Billing and cooing is all your cheer;
+Sighing, and singing of midnight strains,
+Under Bonnybell's window-panes, -
+Wait till you come to Forty Year.
+[VERSE 3]
+Forty times over let Michaelmas pass,
+Grizzling hair the brain does clear -
+Then you know a boy is an ass,
+Then you know the worth of a lass,
+Once you have come to Forty Year.
+[VERSE 4]
+Pledge me round; I bid ye declare,
+All good fellows whose beards are gray,
+Did not the fairest of the fair
+Common grow and wearisome ere
+Ever a month was passed away?
+[VERSE 5]
+The reddest lips that ever have kissed,
+The brightest eyes that ever have shone,
+May pray and whisper, and we not list,
+Or look away and never be missed,
+Ere yet ever a month is gone.
+[VERSE 6]
+Gillian's dead, God rest her bier,
+How I loved her twenty years syne!
+Marian's married, but I sit here,
+Alone and merry at Forty Year,
+Dipping my nose in the Gascon wine.
+
+--- TITLE: The Ballad of Bouillabaisse
+--- SOURCE: PG2622
+[VERSE 1]
+A street there is in Paris famous,
+For which no rhyme our language yields,
+Rue Neuve des Petits Champs its name is--
+The New Street of the Little Fields;
+And there's an inn, not rich and splendid,
+But still in comfortable case--
+The which in youth I oft attended,
+To eat a bowl of Bouillabaisse.
+[VERSE 2]
+This Bouillabaisse a noble dish is--
+A sort of soup, or broth, or brew,
+Or hotchpotch of all sorts of fishes,
+That Greenwich never could outdo;
+Green herbs, red peppers, mussels, saffern,
+Soles, onions, garlic, roach, and dace:
+All these you eat at Terre's tavern,
+In that one dish of Bouillabaisse.
+[VERSE 3]
+Indeed, a rich and savory stew 'tis;
+And true philosophers, methinks,
+Who love all sorts of natural beauties,
+Should love good victuals and good drinks.
+And Cordelier or Benedictine
+Might gladly, sure, his lot embrace,
+Nor find a fast-day too afflicting,
+Which served him up a Bouillabaisse.
+[VERSE 4]
+I wonder if the house still there is?
+Yes, here the lamp is as before;
+The smiling, red-cheeked ecaillere is
+Still opening oysters at the door.
+Is Terre still alive and able?
+I recollect his droll grimace;
+He'd come and smile before your table
+And hope you liked your Bouillabaisse.
+[VERSE 5]
+We enter; nothing's changed or older.
+"How's Monsieur Terre, waiter, pray?"
+The waiter stares and shrugs his shoulder;--
+"Monsieur is dead this many a day."
+"It is the lot of saint and sinner.
+So honest Terre's run his race!"
+"What will Monsieur require for dinner?"
+"Say, do you still cook Bouillabaisse?"
+[VERSE 6]
+"Oh, oui, Monsieur," 's the waiter's answer;
+"Quel vin Monsieur desire-t-il?"
+"Tell me a good one." "That I can, Sir;
+The Chambertin with yellow seal."
+"So Terre's gone," I say, and sink in
+My old accustomed corner-place;
+"He's done with feasting and with drinking,
+With Burgundy and Bouillabaisse."
+[VERSE 7]
+My old accustomed corner here is,--
+The table still is in the nook;
+Ah! vanished many a busy year is,
+This well-known chair since last I took,
+When first I saw ye, cari luoghi,
+I'd scarce a beard upon my face,
+And now a grizzled, grim old fogy,
+I sit and wait for Bouillabaisse.
+[VERSE 8]
+Where are you, old companions trusty
+Of early days here met to dine?
+Come, waiter! quick, a flagon crusty--
+I'll pledge them in the good old wine.
+The kind old voices and old faces
+My memory can quick retrace;
+Around the board they take their places,
+And share the wine and Bouillabaisse.
+[VERSE 9]
+There's Jack has made a wondrous marriage;
+There's laughing Tom is laughing yet;
+There's brave Augustus drives his carriage;
+There's poor old Fred in the Gazette;
+On James's head the grass is growing:
+Good Lord! the world has wagged apace
+Since here we set the Claret flowing,
+And drank, and ate the Bouillabaisse.
+[VERSE 10]
+Ah me! how quick the days are flitting!
+I mind me of a time that's gone,
+When here I'd sit, as now I'm sitting,
+In this same place--but not alone.
+A fair young form was nestled near me,
+A dear, dear face looked fondly up,
+And sweetly spoke and smiled to cheer me.
+--There's no one now to share my cup....
+[VERSE 11]
+I drink it as the Fates ordain it.
+Come, fill it, and have done with rhymes;
+Fill up the lonely glass, and drain it
+In memory of dear old times.
+Welcome the wine, whate'er the seal is;
+And sit you down and say your grace
+With thankful heart, whate'er the meal is.
+--Here comes the smoking Bouillabaisse!
+
+--- TITLE: Jolly Jack
+--- SOURCE: PG2622
+[VERSE 1]
+When fierce political debate
+Throughout the isle was storming,
+And Rads attacked the throne and state,
+And Tories the reforming,
+To calm the furious rage of each,
+And right the land demented,
+Heaven sent us Jolly Jack, to teach
+The way to be contented.
+[VERSE 2]
+Jack's bed was straw, 'twas warm and soft,
+His chair, a three-legged stool;
+His broken jug was emptied oft,
+Yet, somehow, always full.
+His mistress' portrait decked the wall,
+His mirror had a crack,
+Yet, gay and glad, though this was all
+His wealth, lived Jolly Jack.
+[VERSE 3]
+To give advice to avarice,
+Teach pride its mean condition,
+And preach good sense to dull pretence,
+Was honest Jack's high mission.
+Our simple statesman found his rule
+Of moral in the flagon,
+And held his philosophic school
+Beneath the "George and Dragon"
+[VERSE 4]
+When village Solons cursed the Lords,
+And called the malt-tax sinful,
+Jack heeded not their angry words,
+But smiled and drank his skinful.
+And when men wasted health and life,
+In search of rank and riches,
+Jack marched aloof the paltry strife,
+And wore his threadbare breeches.
+[VERSE 5]
+"I enter not the Church," he said,
+"But I'll not seek to rob it;"
+So worthy Jack Joe Miller read,
+While others studied Cobbett.
+His talk it was of feast and fun;
+His guide the Almanack;
+From youth to age thus gaily run
+The life of Jolly Jack.
+[VERSE 6]
+And when Jack prayed, as oft he would,
+He humbly thanked his Maker;
+"I am," said he, "O Father good!
+Nor Catholic nor Quaker:
+Give each his creed, let each proclaim
+His catalogue of curses;
+I trust in Thee, and not in them,
+In Thee, and in Thy mercies!
+[VERSE 7]
+"Forgive me if, midst all Thy works,
+No hint I see of damning;
+And think there's faith among the Turks,
+And hope for e'en the Brahmin.
+Harmless my mind is, and my mirth,
+And kindly is my laughter;
+I cannot see the smiling earth,
+And think there's hell hereafter."
+[VERSE 8]
+Jack died; he left no legacy,
+Save that his story teaches:--
+Content to peevish poverty;
+Humility to riches.
+Ye scornful great, ye envious small,
+Come fellow in his track;
+We all were happier, if we all
+Would copy Jolly Jack.
+
+--- TITLE: The King of Brentford
+--- SOURCE: PG2622
+[VERSE 1]
+There was a King in Brentford,--of whom no legends tell,
+But who, without his glory,--could eat and sleep right well.
+His Polly's cotton nightcap--it was his crown of state,
+He slept of evenings early,--and rose of mornings late.
+[VERSE 2]
+All in a fine mud palace,--each day he took four meals,
+And for a guard of honor,--a dog ran at his heels.
+Sometimes to view his kingdoms,--rode forth this monarch good,
+And then a prancing jackass--he royally bestrode.
+[VERSE 3]
+There were no costly habits--with which this King was cursed,
+Except (and where's the harm on't)--a somewhat lively thirst;
+But people must pay taxes,--and Kings must have their sport;
+So out of every gallon--His Grace he took a quart.
+[VERSE 4]
+He pleased the ladies round him,--with manners soft and bland;
+With reason good, they named him,--the father of his land.
+Each year his mighty armies--marched forth in gallant show;
+Their enemies were targets,--their bullets they were tow.
+[VERSE 5]
+He vexed no quiet neighbor,--no useless conquest made,
+But by the laws of pleasure,--his peaceful realm he swayed.
+And in the years he reigned,--through all this country wide,
+There was no cause for weeping,--save when the good man died.
+[VERSE 6]
+The faithful men of Brentford,--do still their King deplore,
+His portrait yet is swinging,--beside an alehouse door.
+And topers, tender-hearted,--regard his honest phiz,
+And envy times departed,--that knew a reign like his.
+
+--- TITLE: The Willow-tree
+--- SOURCE: PG2622
+[VERSE 1]
+Long by the willow-trees
+Vainly they sought her,
+Wild rang the mother's screams
+O'er the gray water:
+"Where is my lovely one?
+Where is my daughter?
+[VERSE 2]
+"Rouse thee, Sir Constable--
+Rouse thee and look;
+Fisherman, bring your net,
+Boatman, your hook.
+Beat in the lily-beds,
+Dive in the brook!"
+[VERSE 3]
+Vainly the constable
+Shouted and called her;
+Vainly the fisherman
+Beat the green alder;
+Vainly he flung the net,
+Never it hauled her!
+[VERSE 4]
+Mother beside the fire
+Sat, her nightcap in;
+Father, in easy chair,
+Gloomily napping,
+When at the window-sill
+Came a light tapping!
+[VERSE 5]
+And a pale countenance
+Looked through the casement.
+Loud beat the mother's heart,
+Sick with amazement,
+And at the vision which
+Came to surprise her,
+Shrieked in an agony--
+"Lor'! it's Elizar!"
+[VERSE 6]
+Yes, 'twas Elizabeth--
+Yes, 'twas their girl;
+Pale was her cheek, and her
+Hair out of curl.
+"Mother," the loving one,
+Blushing exclaimed,
+"Let not your innocent
+Lizzy be blamed.
+[VERSE 7]
+"Yesterday, going to Aunt
+Jones's to tea,
+Mother, dear mother, I
+Forgot the door-key!
+And as the night was cold
+And the way steep,
+Mrs. Jones kept me to
+Breakfast and sleep."
+[VERSE 8]
+Whether her Pa and Ma
+Fully believed her,
+That we shall never know,
+Stern they received her;
+And for the work of that
+Cruel, though short, night
+Sent her to bed without
+Tea for a fortnight.
+[VERSE 9]
+MORAL
+Hey diddle diddlety,
+Cat and the fiddlety,
+Maidens of England, take caution by she!
+Let love and suicide
+Never tempt you aside,
+And always remember to take the door-key.

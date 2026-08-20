@@ -4,10 +4,14 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1887, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1887, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 6
+# songs: 8
 
 --- TITLE: The Fool's Prayer
 --- SOURCE: PG15553
@@ -249,3 +253,43 @@ Out of thy beautiful life there comes a tone
 Of power, of love, of trust, a prophecy,
 Whose fair fulfilment all the earth shall be,
     And all the Future tell.
+
+--- TITLE: THE LOVER'S SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Lend me thy fillet, Love!
+I would no longer see:
+Cover mine eyelids close awhile,
+And make me blind like thee.
+[VERSE 2]
+Then might I pass her sunny face,
+And know not it was fair;
+Then might I hear her voice, nor guess
+Her starry eyes were there.
+[VERSE 3]
+Ah! banished so from stars and sun -
+Why need it be my fate?
+If only she might dream me good
+And wise, and be my mate!
+[VERSE 4]
+Lend her thy fillet, Love!
+Let her no longer see:
+If there is hope for me at all,
+She must be blind like thee.
+
+--- TITLE: A Baker's Duzzen uv Wize Sawz
+--- SOURCE: PG2622
+[VERSE 1]
+Them ez wants, must choose.
+Them ez hez, must lose.
+Them ez knows, won't blab.
+Them ez guesses, will gab.
+Them ez borrows, sorrows.
+Them ez lends, spends.
+Them ez gives, lives.
+Them ez keeps dark, is deep.
+Them ez kin earn; kin keep.
+Them ez aims, hits.
+Them ez hez, gits.
+Them ez waits, win.
+Them ez will, kin.

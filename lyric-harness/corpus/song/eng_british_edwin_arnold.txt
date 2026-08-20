@@ -4,10 +4,14 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1904, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1904, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 5
 
 --- TITLE: SERENADE.
 --- SOURCE: PG26715
@@ -103,3 +107,135 @@ Here on this ridge I do foresee fresh birth.
 Shall link in love." And there was joy on earth;
 Whilst England and Columbia, quitting fear,
 Kissed--and let in the eager waters there.
+
+--- TITLE: Almond Blossom
+--- SOURCE: PG2621
+[VERSE 1]
+Blossom of the almond trees,
+April's gift to April's bees,
+Birthday ornament of Spring,
+Flora's fairest daughterling;
+Coming when no flowerets dare
+Trust the cruel outer air;
+When the royal kingcup bold
+Dares not don his coat of gold;
+And the sturdy black-thorn spray
+Keeps his silver for the May;--
+Coming when no flowerets would,
+Save thy lowly sisterhood,
+Early violets; blue and white,
+Dying for their love of light;--
+Almond blossom, sent to teach us
+That the spring days soon will reach us,
+Lest, with longing over-tried,
+We die, as the violets died;--
+Blossom, clouding all the tree
+With thy crimson broidery,
+Long before a leaf of green
+On the bravest bough is seen;--
+Ah! when winter winds are swinging
+All thy red bells into ringing,
+With a bee in every bell,
+Almond bloom, we greet thee well.
+
+--- TITLE: To a Pair of Egyptian Slippers
+--- SOURCE: PG2622
+[VERSE 1]
+Tiny slippers of gold and green,
+Tied with a mouldering golden cord!
+What pretty feet they must have been
+When Caesar Augustus was Egypt's lord!
+Somebody graceful and fair you were!
+Not many girls could dance in these!
+When did your shoemaker make you, dear,
+Such a nice pair of Egyptian "threes"?
+[VERSE 2]
+Where were you measured?  In Sais, or On,
+Memphis, or Thebes, or Pelusium?
+Fitting them neatly your brown toes upon,
+Lacing them deftly with finger and thumb,
+I seem to see you!--so long ago,
+Twenty-one centuries, less or more!
+And here are your sandals: yet none of us know
+What name, or fortune, or face you bore.
+[VERSE 3]
+Your lips would have laughed, with a rosy scorn,
+If the merchant, or slave-girl, had mockingly said,
+"The feet will pass, but the shoes they have worn
+Two thousand years onward Time's road shall tread,
+And still be footgear as good as new!"
+To think that calf-skin, gilded and stitched,
+Should Rome and the Pharaohs outlive--and you
+Be gone, like a dream, from the world you bewitched!
+[VERSE 4]
+Not that we mourn you! 'Twere too absurd!
+You have been such a very long while away!
+Your dry spiced dust would not value one word
+Of the soft regrets that my verse could say.
+Sorrow and Pleasure, and Love and Hate,
+If you ever felt them, have vaporized hence
+To this odor--so subtle and delicate--
+Of myrrh, and cassia, and frankincense.
+[VERSE 5]
+Of course they embalmed you!  Yet not so sweet
+Were aloes and nard, as the youthful glow
+Which Amenti stole when the small dark feet
+Wearied of treading our world below.
+Look! it was flood-time in valley of Nile,
+Or a very wet day in the Delta, dear!
+When your slippers tripped lightly their latest mile--
+The mud on the soles renders that fact clear.
+[VERSE 6]
+You knew Cleopatra, no doubt!  You saw
+Antony's galleys from Actium come.
+But there! if questions could answers draw
+From lips so many a long age dumb,
+I would not tease you with history,
+Nor vex your heart for the men that were;
+The one point to learn that would fascinate me
+Is, where and what are you to-day, my dear!
+[VERSE 7]
+You died, believing in Horus and Pasht,
+Isis, Osiris, and priestly lore;
+And found, of course, such theories smashed
+By actual fact on the heavenly shore.
+What next did you do?  Did you transmigrate?
+Have we seen you since, all modern and fresh?
+Your charming soul--so I calculate--
+Mislaid its mummy, and sought new flesh.
+[VERSE 8]
+Were you she whom I met at dinner last week,
+With eyes and hair of the Ptolemy black,
+Who still of this find in Fayoum would speak,
+And to Pharaohs and scarabs still carry us back?
+A scent of lotus about her hung,
+And she had such a far-away wistful air
+As of somebody born when the Earth was young;
+And she wore of gilt slippers a lovely pair.
+[VERSE 9]
+Perchance you were married?  These might have been
+Part of your trousseau--the wedding shoes;
+And you laid them aside with the garments green,
+And painted clay Gods which a bride would use;
+And, may be, to-day, by Nile's bright waters
+Damsels of Egypt in gowns of blue--
+Great-great-great--very great--grand-daughters
+Owe their shapely insteps to you!
+[VERSE 10]
+But vainly I beat at the bars of the Past,
+Little green slippers with golden strings!
+For all you can tell is that leather will last
+When loves, and delightings, and beautiful things
+Have vanished; forgotten--No! not quite that!
+I catch some gleam of the grace you wore
+When you finished with Life's daily pit-a-pat,
+And left your shoes at Death's bedroom door.
+[VERSE 11]
+You were born in the Egypt which did not doubt;
+You were never sad with our new-fashioned sorrows:
+You were sure, when your play-days on Earth ran out,
+Of play-times to come, as we of our morrows!
+Oh, wise little Maid of the Delta!  I lay
+Your shoes in your mummy-chest back again,
+And wish that one game we might merrily play
+At "Hunt the Slippers"--to see it all plain.

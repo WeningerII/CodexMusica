@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1903, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 4
 
 --- TITLE: A MERRY BEE.
 --- SOURCE: PG26715
@@ -50,3 +52,26 @@ Then, to end all disputes, I entwined
   The love-stricken blossoms in one;
 But that instant their beauty declined,
   And I wept for the deed I had done!
+
+--- TITLE: Mother Wept
+--- SOURCE: PG2619
+[VERSE 1]
+Mother wept, and father sighed;
+With delight aglow
+Cried the lad, "To-morrow," cried,
+"To the pit I go."
+[VERSE 2]
+Up and down the place he sped,--
+Greeted old and young;
+Far and wide the tidings spread;
+Clapt his hands and sung.
+[VERSE 3]
+Came his cronies; some to gaze
+Wrapped in wonder; some
+Free with counsel; some with praise:
+Some with envy dumb.
+[VERSE 4]
+"May he," many a gossip cried,
+"Be from peril kept."
+Father hid his face and sighed,
+Mother turned and wept.

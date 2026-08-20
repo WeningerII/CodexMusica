@@ -2,10 +2,14 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1909, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1909, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 7
 
 --- TITLE: Childhood
 --- SOURCE: PG15553
@@ -63,3 +67,57 @@ All that thou art not, makes not up the sum
   Of what thou art, beloved, unto me:
 All other voices, wanting thine, are dumb;
   All vision, in thine absence, vacancy.
+
+--- TITLE: Foot Soldiers
+--- SOURCE: PG2619
+[VERSE 1]
+'Tis all the way to Toe-town,
+Beyond the Knee-high hill,
+That Baby has to travel down
+To see the soldiers drill.
+[VERSE 2]
+One, two, three, four, five, a-row--
+A captain and his men--
+And on the other side, you know,
+Are six, seven, eight, nine, ten.
+
+--- TITLE: To a Wood-Violet
+--- SOURCE: PG2621
+[VERSE 1]
+In this secluded shrine,
+O miracle of grace,
+No mortal eye but mine
+Hath looked upon thy face.
+[VERSE 2]
+No shadow but mine own
+Hath screened thee from the sight
+Of Heaven, whose love alone
+Hath led me to thy light.
+[VERSE 3]
+Whereof--as shade to shade
+Is wedded in the sun--
+A moment's glance hath made
+Our souls forever one.
+
+--- TITLE: Overflow
+--- SOURCE: PG2621
+[VERSE 1]
+Hush!
+With sudden gush
+As from a fountain, sings in yonder bush
+The Hermit Thrush.
+[VERSE 2]
+Hark!
+Did ever Lark
+With swifter scintillations fling the spark
+That fires the dark?
+[VERSE 3]
+Again,
+Like April rain
+Of mist and sunshine mingled, moves the strain
+O'er hill and plain.
+[VERSE 4]
+Strong
+As love, O Song,
+In flame or torrent sweep through Life along,
+O'er grief and wrong.

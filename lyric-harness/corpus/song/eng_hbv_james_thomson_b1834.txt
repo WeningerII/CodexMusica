@@ -1,0 +1,27 @@
+# author: James Thomson b1834 (1834-1882)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Let my voice ring out and over the earth,
+Through all the grief and strife,
+With a golden joy in a silver mirth:
+Thank God for life!
+[VERSE 2]
+Let my voice swell out through the great abyss
+To the azure dome above,
+With a chord of faith in the harp of bliss:
+Thank God for Love!
+[VERSE 3]
+Let my voice thrill out beneath and above,
+The whole world through:
+O my Love and Life, O my Life and Love,
+Thank God for you!

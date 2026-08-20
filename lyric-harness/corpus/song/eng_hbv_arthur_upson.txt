@@ -1,0 +1,44 @@
+# author: Arthur Upson (1877-1908)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1908, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: OLD GARDENS
+--- SOURCE: PG2620
+[VERSE 1]
+The white rose tree that spent its musk
+For lovers' sweeter praise,
+The stately walks we sought at dusk,
+Have missed thee many days.
+[VERSE 2]
+Again, with once-familiar feet,
+I tread the old parterre -
+But, ah, its bloom is now less sweet
+Than when thy face was there.
+[VERSE 3]
+I hear the birds of evening call;
+I take the wild perfume;
+I pluck a rose - to let it fall
+And perish in the gloom.
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Flame at the core of the world,
+And flame in the red rose-tree;
+The one is the fire of the ancient spheres,
+The other is Junes to be;
+And, oh, there's a flame that is both their flames
+Here at the heart of me!
+[VERSE 2]
+As strong as the fires of stars,
+As the prophet rose-tree true,
+The fire of my life is tender and wild,
+Its beauty is old and new;
+For out of the infinite past it came
+With the love in the eyes of you!

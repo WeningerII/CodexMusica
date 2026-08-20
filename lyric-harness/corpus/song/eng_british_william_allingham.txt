@@ -4,10 +4,16 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1889, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1889, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1889, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 5
+# songs: 10
 
 --- TITLE: LOVELY MARY DONNELLY.
 --- SOURCE: PG26715
@@ -196,3 +202,220 @@ Wee folk, good folk,
   Trooping all together;
 Green jacket, red cap,
   And white owl’s feather!
+
+--- TITLE: Wishing
+--- SOURCE: PG2619
+[VERSE 1]
+Ring-ting!  I wish I were a Primrose,
+A bright yellow Primrose, blowing in the Spring!
+The stooping bough above me,
+The wandering bee to love me,
+The fern and moss to creep across,
+And the Elm-tree for our King!
+[VERSE 2]
+Nay,--stay!  I wish I were an Elm-tree,
+A great lofty Elm-tree, with green leaves gay!
+The winds would set them dancing,
+The sun and moonshine glance in,
+The Birds would house among the boughs,
+And sweetly sing!
+[VERSE 3]
+O--no!  I wish I were a Robin,
+A Robin or a little Wren, everywhere to go;
+Through forest, field, or garden,
+And ask no leave or pardon,
+Till Winter comes with icy thumbs
+To ruffle up our wing.
+[VERSE 4]
+Well--tell!  Where should I fly to,
+Where go to sleep in the dark wood or dell?
+Before a day was over,
+Home comes the rover,
+For Mother's kiss,--sweeter this
+Than any other thing!
+
+--- TITLE: LOVELY MARY DONNELLY
+--- SOURCE: PG2620
+[VERSE 1]
+Oh, lovely Mary Donnelly, it's you I love the best!
+If fifty girls were round you I'd hardly see the rest.
+Be what it may the time of day, the place be where it will,
+Sweet looks of Mary Donnelly, they bloom before me still.
+[VERSE 2]
+Her eyes like mountain water that's flowing on a rock,
+How clear they are, how dark they are! they give me many a shock.
+Red rowans warm in sunshine and wetted with a shower,
+Could ne'er express the charming lip that has me in its power.
+[VERSE 3]
+Her nose is straight and handsome, her eyebrows lifted up,
+Her chin is very neat and pert, and smooth like a china cup,
+Her hair's the brag of Ireland, so weighty and so fine;
+It's rolling down upon her neck, and gathered in a twine.
+[VERSE 4]
+The dance o' last Whit-Monday night exceeded all before;
+No pretty girl for miles about was missing from the floor;
+But Mary kept the belt of love, and O but she was gay!
+She danced a jig, she sung a song, that took my heart away.
+[VERSE 5]
+When she stood up for dancing, her steps were so complete,
+The music nearly killed itself to listen to her feet;
+The fiddler moaned his blindness, he heard her so much praised,
+But blessed his luck he wasn't deaf when once her voice she raised.
+[VERSE 6]
+And evermore I'm whistling or lilting what you sung,
+Your smile is always in my heart, your name beside my tongue;
+But you've as many sweethearts as you'd count on both your hands,
+And for myself there's not a thumb or little finger stands.
+[VERSE 7]
+Oh, you're the flower o' womankind in country or in town;
+The higher I exalt you, the lower I'm cast down.
+If some great lord should come this way, and see your beauty bright,
+And you to be his lady, I'd own it was but right.
+[VERSE 8]
+O might we live together in a lofty palace hall,
+Where joyful music rises, and where scarlet curtains fall!
+O might we live together in a cottage mean and small,
+With sods of grass the only roof, and mud the only wall!
+[VERSE 9]
+O lovely Mary Donnelly, your beauty's my distress:
+It's far too beauteous to be mine, but I'll never wish it less.
+The proudest place would fit your face, and I am poor and low;
+But blessings be about you, dear, wherever you may go!
+
+--- TITLE: Robin Redbreast
+--- SOURCE: PG2621
+[VERSE 1]
+Good-by, good-by to Summer!
+For Summer's nearly done;--
+The garden smiling faintly,
+Cool breezes in the sun;
+Our thrushes now are silent,
+Our swallows flown away,--
+But Robin's here in coat of brown,
+And scarlet breast-knot gay.
+Robin, Robin Redbreast,
+O Robin dear!
+Robin sings so sweetly
+In the falling of the year.
+[VERSE 2]
+Bright yellow, red, and orange,
+The leaves come down in hosts;
+The trees are Indian princes,
+But soon they'll turn to ghosts;
+The scanty pears and apples
+Hang russet on the bough;
+It's Autumn, Autumn, Autumn late,
+'Twill soon be Winter now.
+Robin, Robin Redbreast,
+O Robin dear!
+And what will this poor Robin do?
+For pinching days are near.
+[VERSE 3]
+The fireside for the cricket,
+The wheat-stack for the mouse,
+When trembling night-winds whistle
+And moan all round the house.
+The frosty ways like iron,
+The branches plumed with snow,--
+Alas! in Winter dead and dark,
+Where can poor Robin go?
+Robin, Robin Redbreast,
+O Robin dear!
+And a crumb of bread for Robin,
+His little heart to cheer!
+
+--- TITLE: The Sailor
+--- SOURCE: PG2621
+[VERSE 1]
+Thou that hast a daughter
+For one to woo and wed,
+Give her to a husband
+With snow upon his head;
+Oh, give her to an old man,
+Though little joy it be,
+Before the best young sailor
+That sails upon the sea!
+[VERSE 2]
+How luckless is the sailor
+When sick and like to die;
+He sees no tender mother,
+No sweetheart standing by.
+Only the captain speaks to him,--
+Stand up, stand up, young man,
+And steer the ship to haven,
+As none beside thee can.
+[VERSE 3]
+Thou says't to me, "Stand, stand up";
+I say to thee, take hold,
+Lift me a little from the deck,
+My hands and feet are cold.
+And let my head, I pray thee,
+With handkerchiefs be bound;
+There, take my love's gold handkerchief,
+And tie it tightly round.
+[VERSE 4]
+Now bring the chart, the doleful chart;
+See, where these mountains meet--
+The clouds are thick around their head,
+The mists around their feet:
+Cast anchor here; 'tis deep and safe
+Within the rocky cleft;
+The little anchor on the right,
+The great one on the left.
+[VERSE 5]
+And now to thee, O captain,
+Most earnestly I pray,
+That they may never bury me
+In church or cloister gray;--
+But on the windy sea-beach,
+At the ending of the land,
+All on the surly sea-beach,
+Deep down into the sand.
+[VERSE 6]
+For there will come the sailors,
+Their voices I shall hear,
+And at casting of the anchor
+The yo-ho loud and clear;
+And at hauling of the anchor
+The yo-ho and the cheer,--
+Farewell, my love, for to thy bay
+I never more may steer!
+
+--- TITLE: Homeward Bound
+--- SOURCE: PG2621
+[VERSE 1]
+Head the ship for England!
+Shake out every sail!
+Blithe leap the billows,
+Merry sings the gale.
+Captain, work the reckoning;
+How many knots a day?--
+Round the world and home again,
+That's the sailor's way!
+[VERSE 2]
+We've traded with the Yankees,
+Brazilians and Chinese;
+We've laughed with dusky beauties
+In shade of tall palm-trees;
+Across the line and Gulf-Stream--
+Round by Table Bay--
+Everywhere and home again,
+That's the sailor's way!
+[VERSE 3]
+Nightly stands the North Star
+Higher on our bow;
+Straight we run for England;
+Our thoughts are in it now.
+Jolly times with friends ashore,
+When we've drawn our pay!--
+All about and home again,
+That's the sailor's way!
+[VERSE 4]
+Tom will to his parents,
+Jack will to his dear,
+Joe to wife and children,
+Bob to pipes and beer;
+Dicky to the dancing-room,
+To hear the fiddles play;--
+Round the world and home again,
+That's the sailor's way!

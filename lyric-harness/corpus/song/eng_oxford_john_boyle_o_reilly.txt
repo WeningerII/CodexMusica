@@ -1,15 +1,20 @@
 # author: John Boyle O’Reilly (1844-1890)
 # region: 
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1890; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1890, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1890, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs; also credited 'John Boyle O'Reilly' in the anthology merged here 2026-08-20 (same person: the editions' own printed dates agree, or the shorter form carries none)
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 8
-
+# merged: 2026-08-20 — eng_hbv_john_boyle_o_reilly.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 10
 
 --- TITLE: A White Rose
 --- SOURCE: PG66619
@@ -545,3 +550,30 @@ Kiss every plank of her! None shall take rank of her;
 Frontward or weatherward, none can eclipse.
 Thunder our thanks to her! Cheer from the banks to her!
 Mayflower! Foremost and best of our ships!
+
+--- TITLE: A WHITE ROSE
+--- SOURCE: PG2620
+[VERSE 1]
+The red rose whispers of passion,
+And the white rose breathes of love;
+Oh, the red rose is a falcon,
+And the white rose is a dove.
+[VERSE 2]
+But I send you a cream white rosebud
+With a flush on its petal tips;
+For the love that is purest and sweetest
+Has a kiss of desire on the lips.
+
+--- TITLE: The Lure
+--- SOURCE: PG2622
+[VERSE 1]
+"What bait do you use," said a Saint to the Devil,
+"When you fish where the souls of men abound?"
+"Well, for special tastes," said the King of Evil,
+"Gold and Fame are the best I've found."
+[VERSE 2]
+"But for general use?" asked the Saint.  "Ah, then,"
+Said the Demon, "I angle for Man, not men,
+And a thing I hate
+Is to change my bait,
+So I fish with a woman the whole year round."

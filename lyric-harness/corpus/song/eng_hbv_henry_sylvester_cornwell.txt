@@ -1,0 +1,27 @@
+# author: Henry Sylvester Cornwell (1831-1886)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1886, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: May
+--- SOURCE: PG2621
+[VERSE 1]
+Come walk with me along this willowed lane,
+Where, like lost coinage from some miser's store,
+The golden dandelions more and more
+Glow, as the warm sun kisses them again!
+For this is May! who with a daisy chain
+Leads on the laughing Hours; for now is o'er
+Long winter's trance.  No longer rise and roar
+His forest-wrenching blasts.  The hopeful swain,
+Along the furrow, sings behind his team;
+Loud pipes the redbreast--troubadour of spring,
+And vocal all the morning copses ring;
+More blue the skies in lucent lakelets gleam;
+And the glad earth, caressed by murmuring showers,
+Wakes like a bride, to deck herself with flowers!

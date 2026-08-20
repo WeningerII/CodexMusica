@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1879; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1879, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 2
 
 --- TITLE: Letty’s Globe
 --- SOURCE: PG66619
@@ -24,4 +26,22 @@ But when we turn’d her sweet unlearnèd eye
 On our own isle, she raised a joyous cry--
 ‘Oh! yes, I see it, Letty’s home is there!’
   And while she hid all England with a kiss,
+Bright over Europe fell her golden hair.
+
+--- TITLE: Letty's Globe
+--- SOURCE: PG2619
+[VERSE 1]
+When Letty had scarce passed her third glad year,
+And her young artless words began to flow,
+One day we gave the child a colored sphere
+Of the wide Earth, that she might mark and know,
+By tint and outline, all its sea and land.
+She patted all the world; old Empires peeped
+Between her baby fingers; her soft hand
+Was welcome at all frontiers.  How she leaped,
+And laughed and prattled in her world-wide bliss!
+But when we turned her sweet unlearned eye
+On our own Isle, she raised a joyous cry,--
+"O yes! I see it, Letty's home is there!"
+And while she hid all England with a kiss,
 Bright over Europe fell her golden hair.

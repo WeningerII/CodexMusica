@@ -2,10 +2,14 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1896, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1896, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 11
 
 --- TITLE: To A Dead Woman
 --- SOURCE: PG15553
@@ -189,3 +193,275 @@ Oh, yon's the way to Arcady,
   To Arcady, to Arcady;
 Oh, yon's the way to Arcady,
   Where all the leaves are merry.
+
+--- TITLE: CANDOR
+--- SOURCE: PG2620
+[VERSE 1]
+I know what you're going to say," she said,
+And she stood up, looking uncommonly tall:
+"You are going to speak of the hectic fall,
+And say you're sorry the summer's dead,
+And no other summer was like it, you know,
+And can I imagine what made it so.
+Now aren't you, honestly?"  "Yes," I said.
+[VERSE 2]
+"I know what you're going to say," she said:
+"You are going to ask if I forget
+That day in June when the woods were wet,
+And you carried me" - here she drooped her head -
+"Over the creek; you are going to say,
+Do I remember that horrid day.
+Now aren't you, honestly?"  "Yes," I said.
+[VERSE 3]
+"I know what you're going to say," she said:
+"You are going to say that since that time
+You have rather tended to run to rhyme,
+And" - her clear glance fell, and her cheek grew red -
+"And have I noticed your tone was queer.
+Why, everybody has seen it here!
+Now aren't you, honestly?"  "Yes," I said.
+[VERSE 4]
+"I know what you're going to say," I said:
+"You're going to say you've been much annoyed;
+And I'm short of tact - you will say, devoid -
+And I'm clumsy and awkward; and call me Ted;
+And I bear abuse like a dear old lamb;
+And you'll have me, anyway, just as I am.
+Now aren't you, honestly?"  "Ye-es," she said.
+
+--- TITLE: YES?
+--- SOURCE: PG2620
+[VERSE 1]
+Is it true, then, my girl, that you mean it -
+The word spoken yesterday night?
+Does that hour seem so sweet now between it
+And this has come day's sober light?
+Have you woke from a moment of rapture
+To remember, regret, and repent,
+And to hate, perchance, him who has trapped your
+Unthinking consent?
+[VERSE 2]
+Who was he, last evening - this fellow
+Whose audacity lent him a charm?
+Have you promised to wed Pulchinello?
+For life taking Figaro's arm?
+Will you have the Court fool of the papers,
+The clown in the journalists' ring,
+Who earns his scant bread by his capers,
+To be your heart's king?
+[VERSE 3]
+When we met quite by chance at the theatre
+And I saw you home under the moon,
+I'd no thought, love, that mischief would be at her
+Tricks with my tongue quite so soon;
+That I should forget fate and fortune
+Make a difference 'twixt Sevres and delf -
+That I'd have the calm nerve to importune
+You, sweet, for yourself.
+[VERSE 4]
+It's appalling, by Jove, the audacious
+Effrontery of that request!
+But you - you grew suddenly gracious,
+And hid your sweet face on my breast.
+Why you did it I cannot conjecture;
+I surprised you, poor child, I dare say,
+Or perhaps - does the moonlight affect your
+Head often that way?
+[VERSE 5]
+. . . . . . . . . . .
+[VERSE 6]
+You're released!  With some wooer replace me
+More worthy to be your life's light;
+From the tablet of memory efface me,
+If you don't mean your Yes of last night.
+But - unless you are anxious to see me a
+Wreck of the pipe and the cup
+In my birthplace and graveyard, Bohemia -
+Love, don't give me up!
+
+--- TITLE: DA CAPO
+--- SOURCE: PG2620
+[VERSE 1]
+Short and sweet, and we've come to the end of it -
+Our poor little love lying cold.
+Shall no sonnet, then, ever be penned of it?
+Nor the joys and pains of it told?
+How fair was its face in the morning,
+How close its caresses at noon,
+How its evening grew chill without warning,
+Unpleasantly soon!
+[VERSE 2]
+I can't say just how we began it -
+In a blush, or a smile, or a sigh;
+Fate took but an instant to plan it;
+It needs but a moment to die.
+Yet - remember that first conversation,
+When the flowers you had dropped at your feet
+I restored.  The familiar quotation
+Was - "Sweets to the sweet."
+[VERSE 3]
+Oh, their delicate perfume has haunted
+My senses a whole season through.
+If there was one soft charm that you wanted
+The violets lent it to you.
+I whispered you, life was but lonely:
+A cue which you graciously took;
+And your eyes learned a look for me only -
+A very nice look.
+[VERSE 4]
+And sometimes your hand would touch my hand,
+With a sweetly particular touch;
+You said many things in a sigh, and
+Made a look express wondrously much.
+We smiled for the mere sake of smiling,
+And laughed for no reason but fun;
+Irrational joys; but beguiling -
+And all that is done!
+[VERSE 5]
+We were idle, and played for a moment
+At a game that now neither will press:
+I cared not to find out what "No" meant;
+Nor your lips to grow yielding with "Yes."
+Love is done with and dead; if there lingers
+A faint and indefinite ghost,
+It is laid with this kiss on your fingers -
+A jest at the most.
+[VERSE 6]
+'Tis a commonplace, stale situation,
+Now the curtain comes down from above
+On the end of our little flirtation -
+A travesty romance; for Love,
+If he climbed in disguise to your lattice,
+Fell dead of the first kisses' pain:
+But one thing is left us now; that is -
+Begin it again.
+
+--- TITLE: "She was a Beauty"
+--- SOURCE: PG2622
+[VERSE 1]
+She was a beauty in the days
+When Madison was President,
+And quite coquettish in her ways,--
+On conquests of the heart intent.
+[VERSE 2]
+Grandpapa, on his right knee bent,
+Wooed her in stiff, old-fashioned phrase,--
+She was a beauty in the days
+When Madison was President.
+[VERSE 3]
+And when your roses where hers went
+Shall go, my Rose, who date from Hayes,
+I hope you'll wear her sweet content
+Of whom tradition lightly says:
+She was a beauty in the days
+When Madison was President.
+
+--- TITLE: "One, Two, Three!"
+--- SOURCE: PG2622
+[VERSE 1]
+It was an old, old, old, old lady,
+And a boy that was half-past three;
+And the way that they played together
+Was beautiful to see.
+[VERSE 2]
+She couldn't go running and jumping,
+And the boy, no more could he;
+For he was a thin little fellow,
+With a thin little twisted knee.
+[VERSE 3]
+They sat in the yellow sunlight,
+Out under the maple tree;
+And the game that they played I'll tell you,
+Just as it was told to me.
+[VERSE 4]
+It was Hide-and-Go-Seek they were playing,
+Though you'd never have known it to be--
+With an old, old, old, old lady,
+And a boy with a twisted knee.
+[VERSE 5]
+The boy would bend his face down
+On his one little sound right knee,
+And he'd guess where she was hiding,
+In guesses One, Two, Three!
+[VERSE 6]
+"You are in the china-closet!"
+He would cry, and laugh with glee--
+It wasn't the china closet,
+But he still had Two and Three.
+[VERSE 7]
+"You are up in papa's big bedroom,
+In the chest with the queer old key!"
+And she said: "You are warm and warmer;
+But you're not quite right," said she.
+[VERSE 8]
+"It can't be the little cupboard
+Where mamma's things used to be--
+So it must be the clothes-press, Gran'ma!"
+And he found her with his Three.
+[VERSE 9]
+Then she covered her face with her fingers,
+That were wrinkled and white and wee,
+And she guessed where the boy was hiding,
+With a One and a Two and a Three.
+[VERSE 10]
+And they never had stirred from their places,
+Right under the maple tree--
+This old, old, old, old lady
+And the boy with the lame little knee--
+This dear, dear, dear old lady,
+And the boy who was half-past three.
+
+--- TITLE: The Chaperon
+--- SOURCE: PG2622
+[VERSE 1]
+I take my chaperon to the play--
+She thinks she's taking me.
+And the gilded youth who owns the box,
+A proud young man is he;
+But how would his young heart be hurt
+If he could only know
+That not for his sweet sake I go
+Nor yet to see the trifling show;
+But to see my chaperon flirt.
+[VERSE 2]
+Her eyes beneath her snowy hair
+They sparkle young as mine;
+There's scarce a wrinkle in her hand
+So delicate and fine.
+And when my chaperon is seen,
+They come from everywhere--
+The dear old boys with silvery hair,
+With old-time grace and old-time air,
+To greet their old-time queen.
+[VERSE 3]
+They bow as my young Midas here
+Will never learn to bow
+(The dancing-masters do not teach
+That gracious reverence now);
+With voices quavering just a bit,
+They play their old parts through,
+They talk of folk who used to woo,
+Of hearts that broke in 'fifty-two--
+Now none the worse for it.
+[VERSE 4]
+And as those aged crickets chirp,
+I watch my chaperon's face,
+And see the dear old features take
+A new and tender grace;
+And in her happy eyes I see
+Her youth awakening bright,
+With all its hope, desire, delight--
+Ah, me!  I wish that I were quite
+As young--as young as she!
+
+--- TITLE: "A Pitcher of Mignonette"
+--- SOURCE: PG2622
+[VERSE 1]
+A pitcher of mignonette
+In a tenement's highest casement,--
+Queer sort of flower-pot--yet
+That pitcher of mignonette
+Is a garden in heaven set,
+To the little sick child in the basement--
+The pitcher of mignonette,
+In the tenement's highest casement.

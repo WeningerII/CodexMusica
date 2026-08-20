@@ -1,0 +1,48 @@
+# author: Phillips Brooks (1835-1893)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1893, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: 'O Little Town of Bethlehem"
+--- SOURCE: PG2619
+[VERSE 1]
+O little town of Bethlehem,
+How still we see thee lie!
+Above thy deep and dreamless sleep
+The silent stars go by;
+Yet in thy dark streets shineth
+The everlasting Light;
+The hopes and fears of all the years
+Are met in thee to-night.
+[VERSE 2]
+For Christ is born of Mary,
+And, gathered all above,
+While mortals sleep, the angels keep
+Their watch of wondering love.
+O morning stars, together
+Proclaim the holy birth!
+And praises sing to God the King,
+And peace to men on earth.
+[VERSE 3]
+How silently, how silently,
+The wondrous gift is given!
+So God imparts to human hearts
+The blessings of His heaven.
+No ear may hear His coming,
+But in this world of sin,
+Where meek souls will receive Him still,
+The dear Christ enters in.
+[VERSE 4]
+O holy Child of Bethlehem!
+Descend to us, we pray;
+Cast out our sin, and enter in,
+Be born in us to-day.
+We hear the Christmas angels
+The great glad tidings tell;
+Oh come to us, abide with us,
+Our Lord Emmanuel!

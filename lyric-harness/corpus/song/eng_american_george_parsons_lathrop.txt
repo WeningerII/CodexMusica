@@ -4,10 +4,12 @@
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1898, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own printed by-line credit, per item
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 3
 
 --- TITLE: KEENAN’S CHARGE
 --- SOURCE: PG54211
@@ -132,3 +134,18 @@ Never again woke the old battle-glow when the bullets their death-note
 Long ago ended the struggle, in union of brotherhood happily stilled;
 Yet from that field of Antietam, in warning and token of love's command,
 See! there is lifted the hand of a baby--Marthy Virginia's hand!
+
+--- TITLE: The Child's Wish Granted
+--- SOURCE: PG2619
+[VERSE 1]
+Do you remember, my sweet, absent son,
+How in the soft June days forever done
+You loved the heavens so warm and clear and high;
+And when I lifted you, soft came your cry,--
+"Put me 'way up--'way, 'way up in blue sky"?
+[VERSE 2]
+I laughed and said I could not;--set you down,
+Your gray eyes wonder-filled beneath that crown
+Of bright hair gladdening me as you raced by.
+Another Father now, more strong than I,
+Has borne you voiceless to your dear blue sky.

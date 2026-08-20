@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1880, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1880, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 3
 
 --- TITLE: THE DEATH OF WARREN
 --- SOURCE: PG47476
@@ -45,3 +49,72 @@ Should the flag of invasion profane evermore
 The blue of our seas or the green of our shore,
 May the hearts of our people reëcho that cry,--
 "'Tis sweet, oh, 'tis sweet for our country to die!"
+
+--- TITLE: Deeds of Kindness
+--- SOURCE: PG2619
+[VERSE 1]
+Suppose the little Cowslip
+Should hang its golden cup
+And say, "I'm such a little flower
+I'd better not grow up!"
+How many a weary traveller
+Would miss its fragrant smell,
+How many a little child would grieve
+To lose it from the dell!
+[VERSE 2]
+Suppose the glistening Dewdrop
+Upon the grass should say,
+"What can a little dewdrop do?
+I'd better roll away!"
+The blade on which it rested,
+Before the day was done,
+Without a drop to moisten it,
+Would wither in the sun.
+[VERSE 3]
+Suppose the little Breezes,
+Upon a summer's day,
+Should think themselves too small to cool
+The traveller on his way:
+Who would not miss the smallest
+And softest ones that blow,
+And think they made a great mistake
+If they were acting so?
+[VERSE 4]
+How many deed of kindness
+A little child can do,
+Although it has but little strength
+And little wisdom too!
+It wants a loving spirit
+Much more than strength, to prove
+How many things a child may do
+For others by its love.
+
+--- TITLE: "A Life on the Ocean Wave"
+--- SOURCE: PG2621
+[VERSE 1]
+A life on the ocean wave,
+A home on the rolling deep,
+Where the scattered waters rave,
+And the winds their revels keep!
+Like an eagle caged, I pine
+On this dull, unchanging shore:
+Oh! give me the flashing brine,
+The spray and the tempest's roar!
+[VERSE 2]
+Once more on the deck I stand
+Of my own swift-gliding craft:
+Set sail! farewell to the land!
+The gale follows fair abaft.
+We shoot through the sparkling foam
+Like an ocean-bird set free;--
+Like the ocean-bird, our home
+We'll find far out on the sea.
+[VERSE 3]
+The land is no longer in view,
+The clouds have begun to frown;
+But with a stout vessel and crew,
+We'll say, Let the storm come down!
+And the song of our hearts shall be,
+While the winds and the waters rave,
+A home on the rolling sea!
+A life on the ocean wave!

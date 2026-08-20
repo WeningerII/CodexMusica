@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1914, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1914, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 3
+# songs: 9
 
 --- TITLE: MOSBY AT HAMILTON
 --- SOURCE: PG47476
@@ -121,3 +125,194 @@ That reach with their horrible wounds for thee to drag thee down to hell;
 Myriad phantoms and spectres, thou warrest against in vain!
 Thou art weighed in the scales and found wanting, the balance of God,
     O Spain!
+
+--- TITLE: MORNING SERENADE
+--- SOURCE: PG2620
+[VERSE 1]
+Awake! the dawn is on the hills!
+Behold, at her cool throat a rose,
+Blue-eyed and beautiful she goes,
+Leaving her steps in daffodils. -
+Awake! arise! and let me see
+Thine eyes, whose deeps epitomize
+All dawns that were or are to be,
+O love, all Heaven in thine eyes! -
+Awake! arise! come down to me!
+[VERSE 2]
+Behold! the dawn is up: behold!
+How all the birds around her float,
+Wild rills of music, note on note,
+Spilling the air with mellow gold. -
+Arise! awake! and, drawing near,
+Let me but hear thee and rejoice!
+Thou, who keep'st captive, sweet and clear,
+All song, O love, within thy voice!
+Arise! awake! and let me hear!
+[VERSE 3]
+See, where she comes, with limbs of day,
+The dawn! with wild-rose hands and feet,
+Within whose veins the sunbeams beat,
+And laughters meet of wind and ray.
+Arise! come down! and, heart to heart,
+Love, let me clasp in thee all these -
+The sunbeam, of which thou art part,
+And all the rapture of the breeze! -
+Arise! come down! loved that thou art!
+
+--- TITLE: "Here is the Place where Loveliness  Keeps House"
+--- SOURCE: PG2621
+[VERSE 1]
+Here is the place where Loveliness keeps house,
+Between the river and the wooded hills,
+Within a valley where the Springtime spills
+Her firstling wind-flowers under blossoming boughs:
+Where Summer sits braiding her warm, white brows
+With bramble-roses; and where Autumn fills
+Her lap with asters; and old Winter frills
+With crimson haw and hip his snowy blouse.
+Here you may meet with Beauty.  Here she sits
+Gazing upon the moon, or all the day
+Tuning a wood-thrush flute, remote, unseen;
+Or when the storm is out, 'tis she who flits
+From rock to rock, a form of flying spray,
+Shouting, beneath the leaves' tumultuous green.
+
+--- TITLE: The Miracle of the Dawn
+--- SOURCE: PG2621
+[VERSE 1]
+What would it mean for you and me
+If dawn should come no more!
+Think of its gold along the sea,
+Its rose above the shore!
+That rose of awful mystery,
+Our souls bow down before.
+[VERSE 2]
+What wonder that the Inca kneeled,
+The Aztec prayed and pled
+And sacrificed to it, and sealed,--
+With rites that long are dead,--
+The marvels that it once revealed
+To them it comforted.
+[VERSE 3]
+What wonder, yea! what awe, behold!
+What rapture and what tears
+Were ours, if wild its rivered gold,--
+That now each day appears,--
+Burst on the world, in darkness rolled,
+Once every thousand years!
+[VERSE 4]
+Think what it means to me and you
+To see it even as God
+Evolved it when the world was new!
+When Light rose, earthquake-shod,
+And slow its gradual splendor grew
+O'er deeps the whirlwind trod.
+[VERSE 5]
+What shoutings then and cymballings
+Arose from depth and height!
+What worship-solemn trumpetings,
+And thunders, burning-white,
+Of winds and waves, and anthemings
+Of Earth received the Light.
+[VERSE 6]
+Think what it meant to see the dawn!
+The dawn, that comes each day!--
+What if the East should ne'er grow wan,
+Should nevermore grow gray!
+That line of rose no more be drawn
+Above the ocean's spray!
+
+--- TITLE: Enchantment
+--- SOURCE: PG2621
+[VERSE 1]
+The deep seclusion of this forest path,--
+O'er which the green boughs weave a canopy;
+Along which bluet and anemone
+Spread dim a carpet; where the Twilight hath
+Her cool abode; and, sweet as aftermath,
+Wood-fragrance roams,--has so enchanted me,
+That yonder blossoming bramble seems to be
+A Sylvan resting, rosy from her bath:
+Has so enspelled me with tradition's dreams,
+That every foam-white stream that, twinkling, flows,
+And every bird that flutters wings of tan,
+Or warbles hidden, to my fancy seems
+A Naiad dancing to a Faun who blows
+Wild woodland music on the pipes of Pan.
+
+--- TITLE: To a Wind-Flower
+--- SOURCE: PG2621
+[VERSE 1]
+Teach me the secret of thy loveliness,
+That, being made wise, I may aspire to be
+As beautiful in thought, and so express
+Immortal truths to earth's mortality;
+Though to my soul ability be less
+Than 'tis to thee, O sweet anemone.
+[VERSE 2]
+Teach me the secret of thy innocence,
+That in simplicity I may grow wise,
+Asking from Art no other recompense
+Than the approval of her own just eyes;
+So may I rise to some fair eminence,
+Though less than thine, O cousin of the skies.
+[VERSE 3]
+Teach me these things, through whose high knowledge, I,--
+When Death hath poured oblivion through my veins,
+And brought me home, as all are brought, to lie
+In that vast house, common to serfs and thanes,--
+I shall not die, I shall not utterly die,
+For beauty born of beauty--that remains.
+
+--- TITLE: Ballad of Low-lie-down
+--- SOURCE: PG2621
+[VERSE 1]
+John-a-Dreams and Harum-Scarum
+Came a-riding into town:
+At the Sign o' the Jug-and-Jorum
+There they met with Low-lie-down.
+[VERSE 2]
+Brave in shoes of Romany leather,
+Bodice blue and gypsy gown,
+And a cap of fur and feather,
+In the inn sat Low-lie-down.
+[VERSE 3]
+Harum-Scarum kissed her lightly;
+Smiled into her eyes of brown:
+Clasped her waist and held her tightly,
+Laughing, "Love me, Low-lie-down!"
+[VERSE 4]
+Then with many an oath and swagger,
+As a man of great renown,
+On the board he clapped his dagger,
+Called for sack and sat him down.
+[VERSE 5]
+So a while they laughed together;
+Then he rose and with a frown
+Sighed, "While still 'tis pheasant weather,
+I must leave thee, Low-lie-down."
+[VERSE 6]
+So away rode Harum-Scarum;
+With a song rode out of town;
+At the Sign o' the Jug-and-Jorum
+Weeping tarried Low-lie-down.
+[VERSE 7]
+Then this John-a-dreams, in tatters,
+In his pocket ne'er a crown,
+Touched her, saying, "Wench, what matters!
+Dry your eyes and, come, sit down.
+[VERSE 8]
+"Here's my hand: we'll roam together,
+Far away from thorp and town.
+Here's my heart,--for any weather,--
+And my dreams, too, Low-lie-down.
+[VERSE 9]
+"Some men call me dreamer, poet:
+Some men call me fool and clown--
+What I am but you shall know it,
+Only you, sweet Low-lie-down."
+[VERSE 10]
+For a little while she pondered:
+Smiled: then said, "Let care go drown!"
+Up and kissed him.... Forth they wandered,
+John-a-dreams and Low-lie-down.

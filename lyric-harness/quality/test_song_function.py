@@ -798,21 +798,27 @@ def _window(fname, n, span=4):
 
 
 EMPTIED_BY_APPARATUS = [
+    # THE ADDRESS IS A LINE NUMBER AND A LINE NUMBER IS AN OFFSET FROM A
+    # MOVING ORIGIN — repinned 2026-08-20 when the HBV safe-subset load
+    # appended items ABOVE ten of these fourteen witnesses. The witnesses
+    # themselves are byte-identical and every one re-located under its own
+    # mark; only the offsets moved. Same defect CLAUDE.md already records
+    # for `data/sources.tsv:NNN` citations, one file over.
     ("eng_british_felicia_hemans.txt", 1793, "VERSE 12", "[_Exeunt omnes._"),
-    ("eng_british_jean_ingelow.txt", 1842, "VERSE 6", "[_Much applause_."),
-    ("eng_british_jean_ingelow.txt", 1888, "VERSE 6",
+    ("eng_british_jean_ingelow.txt", 1846, "VERSE 6", "[_Much applause_."),
+    ("eng_british_jean_ingelow.txt", 1892, "VERSE 6",
      "[_The fiddler and his daughter go away._"),
-    ("eng_british_jean_ingelow.txt", 1942, "VERSE 14",
+    ("eng_british_jean_ingelow.txt", 1946, "VERSE 14",
      "[_More tuning heard outside_."),
-    ("eng_british_robert_herrick.txt", 5945, "VERSE 10",
+    ("eng_british_robert_herrick.txt", 5947, "VERSE 10",
      "[_1 Neatherd plays_"),
-    ("eng_hall_john_gay.txt", 450, "VERSE 2",
+    ("eng_hall_john_gay.txt", 454, "VERSE 2",
      "[Holding _Macheath_, _Peachum_ pulling her."),
-    ("eng_hall_john_gay.txt", 463, "VERSE 2", "[Exeunt."),
-    ("eng_hall_john_gay.txt", 688, "VERSE 2", "[Rises."),
-    ("eng_hall_john_gay.txt", 712, "VERSE 2", "[Drinks."),
-    ("eng_hall_john_gay.txt", 748, "VERSE 6", "[Turns up the empty Bottle."),
-    ("eng_hall_john_gay.txt", 754, "VERSE 9", "[Turns up the empty Pot."),
+    ("eng_hall_john_gay.txt", 467, "VERSE 2", "[Exeunt."),
+    ("eng_hall_john_gay.txt", 692, "VERSE 2", "[Rises."),
+    ("eng_hall_john_gay.txt", 716, "VERSE 2", "[Drinks."),
+    ("eng_hall_john_gay.txt", 752, "VERSE 6", "[Turns up the empty Bottle."),
+    ("eng_hall_john_gay.txt", 758, "VERSE 9", "[Turns up the empty Pot."),
     ("eng_hall_thomas_durfey.txt", 597, "VERSE 12", "[Music:"),
     ("eng_hall_thomas_durfey.txt", 7212, "VERSE 4", "[Music:"),
     ("eng_hall_thomas_durfey.txt", 7255, "VERSE 10", "[Music:"),

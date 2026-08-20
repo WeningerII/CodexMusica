@@ -4,10 +4,16 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 9
 
 --- TITLE: A LITTLE WHILE.
 --- SOURCE: PG26715
@@ -266,3 +272,278 @@ And then she cast her arms along
   The golden barriers,
 And laid her face between her hands,
   And wept. (I heard her tears.)
+
+--- TITLE: A Superscription
+--- SOURCE: PG2619
+[VERSE 1]
+Look in my face; my name is Might-have-been;
+I am also called No-more, Too-late, Farewell;
+Unto thine ear I hold the dead-sea shell
+Cast up thy Life's foam-fretted feet between;
+Unto thine eyes the glass where that is seen
+Which had Life's form and Love's, but by my spell
+Is now a shaken shadow intolerable,
+Of ultimate things unuttered the frail screen.
+Mark me, how still I am!  But should there dart
+One moment through thy soul the soft surprise
+Of that winged Peace which lulls the breath of sighs,--
+Then shalt thou see me smile, and turn apart
+Thy visage to mine ambush at thy heart
+Sleepless with cold commemorative eyes.
+
+--- TITLE: THREE SHADOWS
+--- SOURCE: PG2620
+[VERSE 1]
+I looked and saw your eyes in the shadow of your hair,
+As a traveler sees the stream in the shadow of the wood; -
+And I said, "My faint heart sighs, ah me! to linger there,
+To drink deep and to dream in that sweet solitude."
+[VERSE 2]
+I looked and saw your heart in the shadow of your eyes,
+As a seeker sees the gold in the shadow of the stream;
+And I said, Ah, me! what art should win the immortal prize,
+Whose want must make life cold and Heaven a hollow dream?"
+[VERSE 3]
+I looked and saw your love in the shadow of your heart,
+As a diver sees the pearl in the shadow of the sea;
+And I murmured, not above my breath, but all apart, -
+"Ah! you can love, true girl, and is your love for me?"
+
+--- TITLE: THE SONG OF THE BOWER
+--- SOURCE: PG2620
+[VERSE 1]
+Say, is it day, is it dusk in thy bower,
+Thou whom I long for, who longest for me?
+Oh! be it light, be it night, 'tis Love's hour,
+Love's that is fettered as Love's that is free.
+Free Love has leaped to that innermost chamber,
+Oh! the last time, and the hundred before:
+Fettered Love, motionless, can but remember,
+Yet something that sighs from him passes the door.
+[VERSE 2]
+Nay, but my heart when it flies to thy bower,
+What does it find there that knows it again?
+There it must droop like a shower-beaten flower,
+Red at the rent core and dark with the rain.
+Ah! yet what shelter is still shed above it, -
+What waters still image its leaves torn apart?
+Thy soul is the shade that clings round it to love it,
+And tears are its mirror deep down in thy heart.
+[VERSE 3]
+What were my prize, could I enter thy bower,
+This day, to-morrow, at eve or at morn?
+Large lovely arms and a neck like a tower,
+Bosom then heaving that now lies forlorn.
+Kindled with love-breath, (the sun's kiss is colder!)
+Thy sweetness all near me, so distant to-day;
+My hand round thy neck and thy hand on my shoulder,
+My mouth to thy mouth as the world melts away.
+[VERSE 4]
+What is it keeps me afar from thy bower, -
+My spirit, my body, so fain to be there?
+Waters engulfing or fires that devour? -
+Earth heaped against me or death in the air?
+Nay, but in day-dreams, for terror, for pity,
+The trees wave their heads with an omen to tell;
+Nay, but in night-dreams, throughout the dark city,
+The hours, clashed together, lose count in the bell.
+[VERSE 5]
+Shall I not one day remember thy bower,
+One day when all days are one day to me? -
+Thinking, "I stirred not, and yet had the power,"
+Yearning, "Ah God, if again it might be!"
+Peace, peace! such a small lamp illumes, on this highway,
+So dimly so few steps in front of my feet, -
+Yet shows me that her way is parted from my way. . . .
+Out of sight, beyond light, at what goal may we meet?
+
+--- TITLE: SONNETS
+--- SOURCE: PG2620
+[VERSE 1]
+   IV
+LOVESIGHT
+When do I see thee most, beloved one?
+When in the light the spirits of mine eyes
+Before thy face, their altar, solemnize
+The worship of that Love through thee made known?
+Or when in the dusk hours, (we two alone,)
+Close-kissed and eloquent of still replies
+Thy twilight-hidden glimmering visage lies,
+And my soul only sees thy soul its own?
+O love, my love! if I no more should see
+Thyself, nor on the earth the shadow of thee,
+Nor image of thine eyes in any spring, -
+How then should sound upon Life's darkening slope
+The ground-whirl of the perished leaves of Hope,
+The wind of Death's imperishable wing?
+[VERSE 2]
+   V
+HEART'S HOPE
+By what word's power, the key of paths untrod,
+Shall I the difficult deeps of Love explore,
+Till parted waves of Song yield up the shore
+Even as that sea which Israel crossed dryshod?
+For lo! in some poor rhythmic period,
+Lady, I fain would tell how evermore
+Thy soul I know not from thy body, nor
+Thee from myself, neither our love from God.
+Yea, in God's name, and Love's, and thine, would I
+Draw from one loving heart such evidence
+As to all hearts all things shall signify;
+Tender as dawn's first lull-fire, and intense
+As instantaneous penetrating sense,
+In Spring's birth-hour, of other Springs gone by.
+[VERSE 3]
+   XV
+THE BIRTH-BOND
+Have you not noted, in some family
+Where two were born of a first marriage-bed,
+How still they own their gracious bond, though fed
+And nursed on the forgotten breast and knee? -
+How to their father's children they shall be
+In act and thought of one goodwill; but each
+Shall for the other have, in silence speech,
+And in a word complete community?
+Even so, when first I saw you, seemed it, love,
+That among souls allied to mine was yet
+One nearer kindred than life hinted of.
+O born with me somewhere that men forget,
+And though in years of sight and sound unmet,
+Known for my soul's birth-partner well enough!
+[VERSE 4]
+   XIX
+SILENT NOON
+Your hands lie open in the long fresh grass, -
+The finger-points look through like rosy blooms:
+Your eyes smile peace.  The pasture gleams and glooms
+'Neath billowing skies that scatter and amass.
+All round our nest, far as the eye can pass,
+Are golden kingcup-fields with silver edge
+Where the cow-parsley skirts the hawthorn-hedge.
+'Tis visible silence, still as the hour-glass.
+Deep in the sun-searched growths the dragon-fly
+Hangs like a blue thread loosened from the sky: -
+So this winged hour is dropped to us from above.
+Oh! clasp we to our hearts, for deathless dower,
+This close-companioned inarticulate hour
+When twofold silence was the song of love.
+[VERSE 5]
+   XXVI
+MID-RAPTURE
+Thou lovely and beloved, thou my love;
+Whose kiss seems still the first; whose summoning eyes,
+Even now, as for our love-world's new sunrise,
+Shed very dawn; whose voice, attuned above
+All modulation of the deep-bowered dove,
+Is like a hand laid softly on the soul;
+Whose hand is like a sweet voice to control
+Those worn tired brows it hath the keeping of: -
+What word can answer to thy word, - what gaze
+To thine, which now absorbs within its sphere
+My worshipping face, till I am mirrored there
+Light-circled in a heaven of deep-drawn rays?
+What clasp, what kiss mine inmost heart can prove,
+O lovely and beloved, O my love?
+[VERSE 6]
+   XXXI
+HER GIFTS
+High grace, the dower of queens; and therewithal
+Some wood-born wonder's sweet simplicity;
+A glance like water brimming with the sky
+Or hyacinth-light where forest-shadows fall;
+Such thrilling pallor of cheek as doth enthrall
+The heart; a mouth whose passionate forms imply
+All music and all silence held thereby;
+Deep golden locks, her sovereign coronal;
+A round reared neck, meet column of Love's shrine
+To cling to when the heart takes sanctuary;
+Hands which for ever at Love's bidding be,
+And soft-stirred feet still answering to his sign: -
+These are her gifts, as tongue may tell them o'er.
+Breathe low her name, my soul; for that means more.
+[VERSE 7]
+   XXXIV
+THE DARK GLASS
+Not I myself know all my love for thee:
+How should I reach so far, who cannot weigh
+To-morrow's dower by gage of yesterday?
+Shall birth and death, and all dark names that be
+As doors and windows bared to some loud sea,
+Lash deaf mine ears and blind my face with spray;
+And shall my sense pierce love, - the last relay
+And ultimate outpost of eternity?
+Lo! what am I to Love, the lord of all?
+One murmuring shell he gathers from the sand, -
+One little heart-flame sheltered in his hand.
+Yet through thine eyes he grants me clearest call
+And veriest touch of powers primordial
+That any hour-girt life may understand.
+[VERSE 8]
+   XLIX
+WILLOWWOOD
+I sat with Love upon a woodside well,
+Leaning across the water, I and he;
+Nor ever did he speak nor looked at me,
+But touched his lute wherein was audible
+The certain secret thing he had to tell:
+Only our mirrored eyes met silently
+In the low wave; and that sound came to be
+The passionate voice I knew; and my tears fell.
+And at their fall, his eyes beneath grew hers;
+And with his foot and with his wing-feathers
+He swept the spring that watered my heart's drouth.
+Then the dark ripples spread to waving hair,
+And as I stooped, her own lips rising there
+Bubbled with brimming kisses at my mouth.
+[VERSE 9]
+   LXXVIII
+BODY'S BEAUTY
+Or Adam's first wife, Lilith, it is told
+(The witch he loved before the gift of Eve,)
+That, ere the snake's, her sweet tongue could deceive,
+And her enchanted hair was the first gold.
+And still she sits, young while the earth is old,
+And, subtly of herself contemplative,
+Draws men to watch the bright web she can weave,
+Till heart and body and life are in its hold.
+The rose and poppy are her flowers: for where
+Is he not found, O Lilith! whom shed scent
+And soft-shed kisses and soft sleep shall snare?
+Lo! as that youth's eyes burned at thine, so went
+Thy spell through him, and left his straight neck bent,
+And round his heart one strangling golden hair.
+
+--- TITLE: The Ballad of Dead Ladies
+--- SOURCE: PG2622
+[VERSE 1]
+Tell me now in what hidden way is
+Lady Flora the lovely Roman?
+Where's Hipparchia, and where is Thais,
+Neither of them the fairer woman?
+Where is Echo, beheld of no man,
+Only heard on river and mere,--
+She whose beauty was more than human?...
+But where are the snows of yester-year?
+[VERSE 2]
+Where's Heloise, the learned nun,
+For whose sake Abeilard, I ween,
+Lost manhood and put priesthood on?
+(From Love he won such dule and teen!)
+And where, I pray you, is the Queen
+Who willed that Buridan should steer
+Sewed in a sack's mouth down the Seine?...
+But where are the snows of yester-year?
+[VERSE 3]
+White Queen Blanche, like a queen of lilies,
+With a voice like any mermaiden,--
+Bertha Broadfoot, Beatrice, Alice,
+And Ermengarde the lady of Maine,--
+And that good Joan whom Englishmen
+At Rouen doomed and burned her there,--
+Mother of God, where are they then?...
+But where are the snows of yester-year?
+[VERSE 4]
+Nay, never ask this week, fair lord,
+Where they are gone, nor yet this year,
+Except with this for an overword,--
+But where are the snows of yester-year?

@@ -1,0 +1,61 @@
+# author: Richard Brinsley Sheridan (1751-1816)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1816, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1816, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 3
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Had I a heart for falsehood framed,
+I ne'er could injure you;
+For though your tongue no promise claimed,
+Your charms would make me true:
+Then, lady, dread not here deceit,
+Nor fear to suffer wrong,
+For friends in all the aged you'll meet,
+And lovers in the young.
+[VERSE 2]
+But when they find that you have blessed
+Another with your heart,
+They'll bid aspiring passion rest,
+And act a brother's part:
+Then, lady, dread not here deceit
+Nor fear to suffer wrong;
+For friends in all the aged you'll meet,
+And brothers in the young.
+
+--- TITLE: AIR
+--- SOURCE: PG2620
+[VERSE 1]
+I ne'er could any luster see
+In eyes that would not look on me;
+I ne'er saw nectar on a lip,
+But where my own did hope to sip.
+Has the maid who seeks my heart
+Cheeks of rose, untouched by art?
+I will own the color true
+When yielding blushes aid their hue.
+[VERSE 2]
+Is her hand so soft and pure?
+I must press it, to be sure;
+Nor can I be certain then,
+Till it, grateful, press again.
+Must I, with attentive eye,
+Watch her heaving bosom sigh?
+I will do so, when I see
+That heaving bosom sigh for me.
+
+--- TITLE: Epigram
+--- SOURCE: PG2622
+[VERSE 1]
+"I would," says Fox, "a tax devise
+That shall not fall on me."
+"Then tax receipts," Lord North replies,
+"For those you never see."

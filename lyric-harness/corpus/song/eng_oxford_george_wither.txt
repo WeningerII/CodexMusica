@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1667; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1667, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1667, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 4
+# songs: 6
 
 --- TITLE: I loved a Lass
 --- SOURCE: PG66619
@@ -239,3 +243,108 @@ To him now dead preserve me just
     Extendeth only to this life,
 Yet neither life nor death should end
 The being of a faithful friend.
+
+--- TITLE: "Sleep, Baby, Sleep"
+--- SOURCE: PG2619
+[VERSE 1]
+Sleep, baby, sleep! what ails my dear,
+What ails my darling thus to cry?
+Be still, my child, and lend thine ear,
+To hear me sing thy lullaby.
+My pretty lamb, forbear to weep;
+Be still, my dear; sweet baby, sleep.
+[VERSE 2]
+Thou blessed soul, what canst thou fear?
+What thing to thee can mischief do?
+Thy God is now thy father dear,
+His holy Spouse thy mother too.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+[VERSE 3]
+Though thy conception was in sin,
+A sacred bathing thou hast had;
+And though thy birth unclean hath been,
+A blameless babe thou art now made.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+[VERSE 4]
+While thus thy lullaby I sing,
+For thee great blessings ripening be;
+Thine Eldest Brother is a king,
+And hath a kingdom bought for thee.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+[VERSE 5]
+Sweet baby, sleep, and nothing fear;
+For whosoever thee offends
+By thy protector threatened are,
+And God and angels are thy friends.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+[VERSE 6]
+When God with us was dwelling here,
+In little babes He took delight;
+Such innocents as thou, my dear,
+Are ever precious in His sight.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+[VERSE 7]
+A little infant once was He;
+And strength in weakness then was laid
+Upon His Virgin Mother's knee,
+That power to thee might be conveyed.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+[VERSE 8]
+In this thy frailty and thy need
+He friends and helpers doth prepare,
+Which thee shall cherish, clothe, and feed,
+For of thy weal they tender are.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+[VERSE 9]
+The King of Kings when He was born,
+Had not so much for outward ease;
+By Him such dressings were not worn,
+Nor such like swaddling-clothes as these.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby sleep.
+[VERSE 10]
+Within a manger lodged thy Lord,
+Where oxen lay and asses fed:
+Warm rooms we do to thee afford,
+An easy cradle for a bed.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+[VERSE 11]
+The wants that He did then sustain
+Have purchased wealth, my babe, for thee,
+And by His torments and His pain
+Thy rest and ease secured be.
+My baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+[VERSE 12]
+Thou hast, yet more, to perfect this
+A promise and an earnest got
+Of gaining everlasting bliss,
+Though thou, my babe, perceiv'st it not.
+Sweet baby, then forbear to weep;
+Be still, my babe; sweet baby, sleep.
+
+--- TITLE: A STOLEN KISS
+--- SOURCE: PG2620
+[VERSE 1]
+Now gentle sleep hath closed up those eyes
+Which, waking, kept my boldest thoughts in awe;
+And free access unto that sweet lip lies,
+From which I long the rosy breath to draw.
+Methinks no wrong it were, if I should steal
+From those two melting rubies one poor kiss;
+None sees the theft that would the thief reveal,
+Nor rob I her of aught that she can miss;
+Nay, should I twenty kisses take away,
+There would be little sign I had done so;
+Why then should I this robbery delay?
+O, she may wake, and therewith angry grow!
+Well if she do, I'll back restore that one,
+And twenty hundred thousand more for loan.

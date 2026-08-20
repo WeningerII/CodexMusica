@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1871; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1871, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 2
 
 --- TITLE: The Bride
 --- SOURCE: PG66619
@@ -25,3 +27,21 @@ Have listen’d underneath the postern green,
   And laid fresh flowers, and whisper’d short and soft.
 But she hath made no answer, and the day
 From the clear west is fading fast away.
+
+--- TITLE: THE GYPSY GIRL
+--- SOURCE: PG2619
+[VERSE 1]
+Passing I saw her as she stood beside
+A lonely stream between two barren wolds;
+Her loose vest hung in rudely gathered folds
+On her swart bosom, which in maiden pride
+Pillowed a string of pearls; among her hair
+Twined the light bluebell and the stone-crop gay;
+And not far thence the small encampment lay,
+Curling its wreathed smoke into the air.
+She seemed a child of some sun-favored clime;
+So still, so habited to warmth and rest;
+And in my wayward musings on past time,
+When my thought fills with treasured memories,
+That image nearest borders on the blest
+Creations of pure art that never dies.

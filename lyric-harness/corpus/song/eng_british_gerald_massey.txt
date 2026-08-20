@@ -2,10 +2,14 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1907, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1907, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 1
+# songs: 4
 
 --- TITLE: SONG.
 --- SOURCE: PG26715
@@ -48,3 +52,114 @@ The love she coyly hid at heart
   Was shyly conscious in her eye;
 O! who that looked could help but love?
   Not I, sweet soul, not I.
+
+--- TITLE: Our Wee White Rose
+--- SOURCE: PG2619
+[VERSE 1]
+All in our marriage garden
+Grew, smiling up to God,
+A bonnier flower than ever
+Sucked the green warmth of the sod;
+O, beautiful unfathomably
+Its little life unfurled;
+And crown of all things was our wee
+White Rose of all the world.
+[VERSE 2]
+From out a balmy bosom
+Our bud of beauty grew;
+It fed on smiles for sunshine,
+On tears for daintier dew:
+Aye nestling warm and tenderly,
+Our leaves of love were curled
+So close and close about our wee
+White Rose of all the world.
+[VERSE 3]
+With mystical faint fragrance
+Our house of life she filled;
+Revealed each hour some fairy tower
+Where winged hopes might build!
+We saw--though none like us might see--
+Such precious promise pearled
+Upon the petals of our wee
+White Rose of all the world.
+[VERSE 4]
+But evermore the halo
+Of angel-light increased,
+Like the mystery of moonlight
+That folds some fairy feast.
+Snow-white, snow-soft, snow-silently
+Our darling bud uncurled,
+And dropped in the grave--God's lap--our wee
+White Rose of all the world.
+[VERSE 5]
+Our Rose was but in blossom,
+Our life was but in spring,
+When down the solemn midnight
+We heard the spirits sing,
+"Another bud of infancy
+With holy dews impearled!"
+And in their hands they bore our wee
+White Rose of all the world.
+[VERSE 6]
+You scarce could think so small a thing
+Could leave a loss so large;
+Her little light such shadow fling
+From dawn to sunset's marge.
+In other springs our life may be
+In bannered bloom unfurled,
+But never, never match our wee
+White Rose of all the world.
+
+--- TITLE: PARTING
+--- SOURCE: PG2620
+[VERSE 1]
+Too fair, I may not call thee mine:
+Too dear, I may not see
+Those eyes with bridal beacons shine;
+Yet, Darling, keep for me -
+Empty and hushed, and safe apart, -
+One little corner of thy heart.
+[VERSE 2]
+Thou wilt be happy, dear! and bless
+Thee: happy mayst thou be.
+I would not make thy pleasure less;
+Yet, Darling, keep for me -
+My life to light, my lot to leaven, -
+One little corner of thy Heaven.
+[VERSE 3]
+Good-by, dear heart!  I go to dwell
+A weary way from thee;
+Our first kiss is our last farewell;
+Yet, Darling, keep for me -
+Who wander outside in the night, -
+One little corner of thy light.
+
+--- TITLE: "O, LAY THY HAND IN MINE, DEAR!"
+--- SOURCE: PG2620
+[VERSE 1]
+O, lay thy hand in mine, dear!
+We're growing old;
+But Time hath brought no sign, dear,
+That hearts grow cold.
+'Tis long, long since our new love
+Made life divine;
+But age enricheth true love,
+Like noble wine.
+[VERSE 2]
+And lay thy cheek to mine, dear,
+And take thy rest;
+Mine arms around thee twine, dear,
+And make thy nest.
+A many cares are pressing
+On this dear head;
+But Sorrow's hands in blessing
+Are surely laid.
+[VERSE 3]
+O, lean thy life on mine, dear!
+'Twill shelter thee.
+Thou wert a winsome vine, dear,
+On my young tree:
+And so, till boughs are leafless,
+And songbirds flown,
+We'll twine, then lay us, griefless
+Together down.
