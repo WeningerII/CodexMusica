@@ -101,8 +101,8 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
-> **REPINNED 2026-08-20 (second sitting): 833 findings — 1 FAIL, 231
-> WARN, 601 NOTE**, over **748 files** (~~514 files, 429 NOTE~~, earlier
+> **REPINNED 2026-08-20 (second sitting): 830 findings — 1 FAIL, 231
+> WARN, 598 NOTE**, over **742 files** (~~514 files, 429 NOTE~~, earlier
 > the same day). The **Tier-1 concurrent load** staged every remaining
 > personally-attributed item from five already-licence-ADMITted song
 > anthologies: Southern War Songs (PG37538), American War Ballads vol. 2
@@ -140,6 +140,17 @@ trees present or absent, so there is no excuse for skipping it.
 > `[CHORUS]` blocks, 105 trailing pointers are apparatus and are
 > stripped, the same reading the return machinery gives `&c.`. The
 > affected files were regenerated from the extraction, not patched.
+> AND A SYSTEMATIC NEAR-NAME SCAN AFTER THE LANDING found six
+> cross-book spelling-variant TWIN FILES the exact-name routing had
+> created — George H./George Henry Boker, Harry Macarthy/McCarthy,
+> H. L./Harry L. Flash, Carrie Bell Sinclair with and without 'Miss',
+> Lieut./Robert Falligant (the edition ties both credits to Savannah),
+> Forceythe/Byron Forceythe Willson — each pair identified by the
+> editions' own indexes and merged into one file carrying both credits,
+> so the NET new-file count is 228 and the corpus lands at **616 eng
+> files / 6,352 songs**. The edition's own roster also SEPARATES one
+> near-pair — 'Hewett, John M.' and 'Hewitt, John H.' are two index
+> entries — so those two files stay apart, recorded not resolved.
 > WARN is UNCHANGED at 231 —
 > every new file ships its own per-file `local:` row with the staged
 > md5; the +172 NOTEs are all check G's elision-orthography disclosures

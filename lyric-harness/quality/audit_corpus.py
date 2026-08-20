@@ -2380,7 +2380,12 @@ def main(argv=None):
 #: (582 of the 601), which 19th-century song verse triggers by its
 #: nature ('tis, o'er). FAIL is the same one pre-existing
 #: fas_hafez.LICENSE.txt mislabel.
-PINNED_SHAPE = {"files": 748, "FAIL": 1, "WARN": 231, "NOTE": 601}
+#: REPINNED same sitting: 748 -> 742 files, 601 -> 598 NOTE -- six
+#: cross-book spelling-variant twin files (Boker, Macarthy, Flash,
+#: Sinclair, Falligant, Willson) merged after a systematic near-name
+#: scan, each pair identified by the editions' own indexes (the
+#: Falligant pair by the edition tying both credits to Savannah).
+PINNED_SHAPE = {"files": 742, "FAIL": 1, "WARN": 231, "NOTE": 598}
 
 
 def _verify_shape(files, findings):

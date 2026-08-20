@@ -60,10 +60,11 @@ def test_item_readers():
     # dated); this check is about the READERS agreeing on the live tree.
     # REPINNED 2026-08-20 (Tier-1 concurrent load): 388 -> 622 eng files
     # — 234 new per-author files from the five Tier-1 anthologies.
-    check("the population: 622 eng_ files + 2 controls",
-          len(files) == 624
+    # REPINNED same sitting: 622 -> 616 (six twin files merged).
+    check("the population: 616 eng_ files + 2 controls",
+          len(files) == 618
           and sum(1 for f in files
-                  if os.path.basename(f).startswith("eng_")) == 622)
+                  if os.path.basename(f).startswith("eng_")) == 616)
     n_items = sum(len(CEN.items_of(f)) for f in files
                   if os.path.basename(f).startswith("eng_"))
     # REPINNED 2026-08-19: 4,930 -> 4,979 -> 4,985 — Pass-1 batch 1's 49

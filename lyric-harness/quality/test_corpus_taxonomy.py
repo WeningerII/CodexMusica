@@ -177,7 +177,9 @@ def test_backfilled_corpus():
     # extracted by four parallel agents — each reconciled against its
     # edition's own contents/index — and landed by a single writer
     # behind the containment dedup.
-    check("all 622 eng files are seen", len(files) == 622)
+    # REPINNED same sitting: 622 -> 616 -- six spelling-variant twin files
+    # merged (the editions' own indexes identify each pair).
+    check("all 616 eng files are seen", len(files) == 616)
     bad = []
     for p in files:
         bad.extend(TX.check_file(p, regions, functions))

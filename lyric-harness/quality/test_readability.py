@@ -325,7 +325,7 @@ def test_corpus_song_rate_is_pinned():
     # REPINNED 2026-08-20: 143 -> 388 (the Modern Scottish Minstrel mass
     # load, rev-2 restage)
     # REPINNED 2026-08-20 (Tier-1 concurrent load): 388 -> 622 files.
-    check("622 ENGLISH song files present", len(paths) == 622, f"{len(paths)}")
+    check("616 ENGLISH song files present", len(paths) == 616, f"{len(paths)}")
     check("and the corpus is no longer monolingual, which is why the scope "
           "is now explicit", len(others) > len(paths),
           f"{len(others)} files total across "

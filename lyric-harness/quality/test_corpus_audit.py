@@ -446,13 +446,15 @@ def test_every_declared_source_reaches_a_row():
     files, src = corpus()
     decls = {rel: cf.source_declarations() for rel, cf in files}
     total = sum(len(v) for v in decls.values())
-    check("837 id-shaped `# source:` declarations are checked, over 748 files",
-          total == 837 and len(files) == 748, (total, len(files)))
+    check("834 id-shaped `# source:` declarations are checked, over 742 files",
+          total == 834 and len(files) == 742, (total, len(files)))
     # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
     # files gained their first second source citation.
-    check("70 files declare two or more sources — the case the file-level "
+    # 70 -> 73 same sitting: three twin merges gave their keepers a second
+    # book (Boker, Macarthy, Willson).
+    check("73 files declare two or more sources — the case the file-level "
           "check cannot see",
-          sum(1 for v in decls.values() if len(v) > 1) == 70,
+          sum(1 for v in decls.values() if len(v) > 1) == 73,
           sum(1 for v in decls.values() if len(v) > 1))
     bad = [(rel, d) for rel, cf in files for d, _, _ in src.undeclared_sources(cf)]
     check("every declared `# source:` id reaches a data/sources.tsv row",
@@ -799,8 +801,8 @@ def test_item_level_near_duplication_series():
     files, src = corpus()
     eng = [(r, c) for r, c in files if r.startswith("corpus/song/eng_")]
     recs = AC._item_signatures(eng)
-    check("622 eng_* files and 6,027 items are big enough to judge",
-          len({r for r, _ in eng}) == 622 and len(recs) == 6027,
+    check("616 eng_* files and 6,027 items are big enough to judge",
+          len({r for r, _ in eng}) == 616 and len(recs) == 6027,
           (len({r for r, _ in eng}), len(recs)))
     series = {}
     for cut in (0.30, 0.50, 0.60, 0.80, 1.00):
