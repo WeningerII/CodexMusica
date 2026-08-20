@@ -79,6 +79,57 @@ collisions and two item-level ones.
 > and the cause is a joint or anonymous source whose attribution the extraction
 > had to invent.
 
+## 0.4 · The author dates the mass load derived were reading other people's deaths
+
+**125 committed files carried a `(birth-death)` annotation that no
+evidence supports, and the mechanism is the interesting part.** The
+Modern Scottish Minstrel mass load derived each poet's dates with a
+regex looking for a year near `died`/`death` in that poet's memoir. The
+Minstrel's memoirs are biographical prose about men whose fathers,
+patrons and idols also die in them, so the regex was reading **the wrong
+person's death year** and no rule in it could tell.
+
+Two of the proofs are self-refuting inside the source's own sentence:
+
+| author | recorded | the year actually belongs to |
+|---|---|---|
+| Joanna Baillie | 1762-**1778** | her FATHER — *"After his death, which took place in 1778, his daughters both continued..."* |
+| Allan Cunningham | 1784-**1796** | ROBERT BURNS — *"at the period of Burns' death, in 1796, he was only twelve years old"* |
+
+**IT WAS FOUND BY A RAIL BUILT FOR SOMETHING ELSE.** The Phase-1 lander
+compares the death year an anthology PRINTS against the one the corpus
+records before routing an item to an existing author file — a guard
+against two men sharing a name (Oxford's Alexander Hume, 1560-1609,
+against the corpus's two Minstrel-era Alexander Humes born 1809 and
+1811, which it also caught). Six authors came back contradicted —
+Baillie, Cunningham, Campbell, Lockhart, Wilson, Stoddart — and in all
+six the printed authority is right and the corpus was wrong.
+
+**THE ERROR RATE CANNOT BE BOUNDED FROM INSIDE THE SOURCE, and that is
+why the whole annotation goes rather than the six.** An internal
+heuristic — implausible lifespan, plus a possessive naming somebody
+other than the subject — flags **9 of 125**, and it MISSED four of the
+six the external evidence caught, because Campbell dead at 51 instead of
+67 looks perfectly ordinary. The repo's own instrument for this,
+`data/authority.tsv` (13,997 verified death years behind a provenance
+gate), covers **0 of the 112** — it is populated for the Syriac, Arabic
+and Hebrew cells, not for nineteenth-century Scottish minor poets. So
+there is no bound and no cheap re-derivation, and a derived field with
+an unmeasured error rate presented as fact is the defect, not the
+annotation's absence.
+
+**WITHDRAWN, NOT DELETED (doctrine 17).** Every one of the 125 files
+keeps its own superseded value struck on a `# dates: WITHDRAWN` line
+naming the reason, and the seven with contradicting printed evidence
+carry that evidence, so a later sitting can re-derive from authorities
+rather than rediscover the contradiction. **The licence claim is
+untouched**: these files rest on the parent row's ADMIT reasoning, not
+on per-author dates, and every songwriter in an 1855 anthology is long
+out of any life+70 term — this was an accuracy defect, never an
+admissibility one.
+
+---
+
 ---
 
 ## 1. The check list

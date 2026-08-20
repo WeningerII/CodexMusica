@@ -1,4 +1,5 @@
-# author: John Morrison (d. 1774)
+# author: John Morrison
+# dates: WITHDRAWN 2026-08-20 — this line formerly read '(d. 1774)'. The value was DERIVED by a regex over this edition's memoir prose, a method proven to read OTHER PEOPLE'S dates out of the memoirs, and it is unverifiable from the source. No dates are asserted for this author. quality/RESULTS_CORPUS_AUDIT.md carries the account.
 # region: scottish
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
