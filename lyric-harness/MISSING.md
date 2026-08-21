@@ -2504,10 +2504,27 @@ the count of instruments that COULD have caught this reads 2 and not 4.
 **WHAT IS MISSING IS NOT A THIRD PIN.** Every pin above is correct and each
 caught the drift it was pointed at, which is the design working. What does not
 exist is a way to ask, BEFORE pushing, *which committed figures does this
-working tree move?* — one command over the ~30 instruments under `quality/`
-that hold a `--check` pin, reporting every one whose measured value now
+working tree move?* — one command over the `--check` pins under `quality/`
+(about thirty files hold one), reporting every one whose measured value now
 differs. Today that question is answered by CI, one failing step per round,
 and the round trip is ~12 minutes.
+
+> **AND THE FIRST DRAFT OF THIS PARAGRAPH FAILED CI, which is worth recording
+> rather than quietly fixing.** It counted the pin-holding files with a digit
+> immediately before the word *instruments*, and `npm run check-docs` refused
+> it. The rule is `\d+\s+instruments` in `scripts/check_docs.js:233`, and it
+> is RIGHT: in this repository that phrase is a claim about the CodexMusica
+> catalog's 1,406 playable instruments, and the checker exists because the
+> site advertised 651 of them long after the real figure had moved. The lyric
+> harness calls its auditors *instruments* too, so the word is overloaded
+> across the two halves of one repo and a lyric-harness document may not put a
+> number in front of it. Say "about thirty files", or name the pin.
+>
+> The offending phrase is not quoted here, because it cannot be: the rule
+> reads a quotation exactly as it reads a claim, so the second draft failed
+> too, on the sentence describing the first failure. That is a real limit of a
+> pattern-matched docs checker and not a defect worth fixing — the alternative
+> is a checker that can be silenced by wrapping a false number in quote marks.
 
 **Owed: the question, not the answer.** A sweep that runs each instrument's
 own `--check` and prints the moved figures TOGETHER. It must not repair
