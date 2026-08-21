@@ -3523,6 +3523,39 @@ previous corpus. Twice now the repinning commit's OWN prose contained the
 correction — `RESULTS_MARK_COVERAGE.md` says HBV "adds 5,196 typed blocks"
 three paragraphs above a sentence that compares against the pre-HBV count.
 
+**MEASURED AT SCALE 2026-08-21, over sixteen verification reports folded in one
+sitting, and the entry is stronger than it was filed:** the shape is not
+confined to RESULTS documents and not confined to pins. The same commit-sized
+folds turned up
+
+- **a repair that landed the SAME DAY the entry was filed and never reached
+  it** — `M-19`'s coda clause, corrected in `test_nucleus.py`'s own AMENDED
+  note on 2026-08-11;
+- **an absolute struck in `CLAUDE.md` five days before the entry that rests on
+  it was read** — `M-4a`, closed here;
+- **a MODULE that cites the entry twice in its own text while the entry says
+  the module does not exist** — `G-2` in `fit.py`, and `K-2` in
+  `negative_control.py`'s FIRST LINE;
+- **one file holding one quantity at two values** — `RESULTS_FWER.md`'s guard
+  range, `negative_control.py`'s 143-vs-712 files, `CLAUDE.md`'s floor
+  profiles and its own doctrine-11 index row;
+- **one comparator shift moving two documents at once**, `RESULTS_FWER.md`'s
+  headline and `RESULTS_NULL_SHAPES.md` §3.6, with nothing connecting them;
+- **a test pinning a symbol that does not exist** — `test_fit.py` on
+  `declared_inputs.TimeGrid`, beneath its own comment about entries outliving
+  their subjects;
+- **a generated document whose GENERATOR writes the stale literal back** —
+  `RHYME_CANON.md` §8.5's year count, and `quality/phonology/fin.py` beside
+  `RESULTS_FIN_RHYME.md` §9.
+
+**THE LAST TWO ARE THE ONES A SWEEP TOOL MUST HANDLE AND A PIN CANNOT.** A pin
+compares a committed number to a measured one; it cannot see a number nobody
+committed, a symbol that resolves to nothing, or a literal in a generator. The
+`RESULTS_RHYME_CAPACITY.md` answer above generalises to all three — **name the
+thing that moved, not the value it moved to** — and the generator cases have
+their own corollary: **fix the writer, or the next render restates the day it
+was written.**
+
 **THIS ENTRY IS ITS OWN FIRST INSTANCE.** Filing it moves the count 76 → 77,
 so both pins above move again, in the commit that describes them. That is the
 cheapest possible demonstration and it is deliberate: if the two figures in
