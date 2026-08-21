@@ -2,6 +2,30 @@
 
 Cell BE, 2026-08-11.
 
+> **THE TWO EXAMPLE LYRICS THIS DOCUMENT RUNS ON ARE NOT IN THE REPOSITORY,
+> AND EVERY TRANSCRIPT BELOW THAT USES THEM IS UNREPRODUCIBLE FROM A CLEAN
+> CHECKOUT.** Annotated 2026-08-21, found by asking whether the
+> implementation depends on `CLAUDE.md` (it does not) and mistyping a path
+> that turned out not to exist. `examples/cherokee_bill.txt` and
+> `examples/never_been_to_a_scene.txt` were DELETED ON PURPOSE by commit
+> `11aa19b` (2026-08-12, *"Remove Claude-authored example lyrics from the
+> repo"*) and `examples/` now holds no tracked file at all. That decision is
+> not in question here and is not being reversed; what had never been done is
+> telling the record about it.
+>
+> **What this does and does not mean.** The measurements below were real when
+> they were made and they are not withdrawn — nothing here is known to be
+> wrong. What is gone is the ABILITY TO RE-CHECK them: a verdict of
+> *REPRODUCES EXACTLY* is a claim that someone re-ran the command and got the
+> same answer, and from this checkout nobody can do that any more, so those
+> verdicts are frozen testimony rather than live results (doctrine 17 — kept,
+> and never quoted as though the check were still available). Any command
+> block naming an `examples/` path is a record of a run, not an instruction.
+>
+> **`quality/fixtures/anaphoric.txt` IS NOT A SUBSTITUTE** for the reader
+> tempted to swap it in: it is 26 lines, and `never_been_to_a_scene.txt` was
+> 41 lines / 291 tokens. It reproduces a different item, not this one.
+
 > **WIRED CLOSED 2026-08-11**, later the same day. "Nothing here is
 > committed" no longer holds: `data/opensubtitles_en_50k.tsv`,
 > `data/song_endword_en.tsv` and `data/song_rhymepair_en.tsv` are committed
@@ -201,6 +225,19 @@ band-passing field, so **yield is held constant by construction** and the only
 thing varying is which six.
 
 ```
+# THIS COMMAND CANNOT RUN FROM A CLEAN CHECKOUT, and the reason is worse
+# than a moved path: `scratchpad/cellBE/evaluate.py` was an OPERATOR'S
+# SCRATCH SCRIPT and was never in the repository at all. Annotated
+# 2026-08-21, found by `scripts/check_doc_paths.js` on the run that shipped
+# it. THE TABLE BELOW IS NOT WITHDRAWN — nothing here is known to be wrong,
+# and the six figures are quoted downstream in `data/sources.tsv` — but it
+# is a measurement NO ONE CAN RE-RUN, which is exactly standing rule 3's
+# subject: "any measurement or step used in producing a delivered song goes
+# through a verb, and an improvised script used twice is a defect report,
+# not a convenience". That rule was written for the SONGS; this is the same
+# defect one layer over, in a RESULT. The real repair is to rebuild the
+# evaluator as a verb so the leave-one-author-out comparison re-derives on
+# demand, which is a sitting of its own and is not done here.
 python3 scratchpad/cellBE/evaluate.py
 ```
 

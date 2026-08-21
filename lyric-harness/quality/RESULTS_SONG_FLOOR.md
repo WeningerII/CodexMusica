@@ -2,6 +2,32 @@
 
 Cell BD, 2026-08-11. Everything below is re-derivable by one command:
 
+> **ONE CLAUSE OF THAT OPENING IS FALSE AND IS CORRECTED HERE RATHER THAN
+> QUIETLY EDITED.** "Everything below is re-derivable by one command" holds
+> for the calibration — the two commands under it re-derive every threshold,
+> every held-out rate and every period figure in this document. It does NOT
+> hold for the WORKED EXAMPLES: the before/after transcripts run on
+> `examples/cherokee_bill.txt` and `examples/never_been_to_a_scene.txt`, and
+> both were DELETED ON PURPOSE by commit `11aa19b` (2026-08-12, *"Remove
+> Claude-authored example lyrics from the repo"*). `examples/` holds no
+> tracked file today. That decision is not in question and is not being
+> reversed; what had never been done is telling the record about it.
+> Annotated 2026-08-21.
+>
+> So this document has two halves with two different standings, and the
+> distinction is the point: the CALIBRATION is live and a reader can re-run
+> it, while the ILLUSTRATIONS are frozen testimony — real when they were
+> made, not withdrawn, and no longer checkable from this checkout (doctrine
+> 17). Every command block naming an `examples/` path is a record of a run
+> and not an instruction.
+>
+> **`quality/fixtures/anaphoric.txt` IS NOT A SUBSTITUTE.** It is 26 lines;
+> `never_been_to_a_scene.txt` was 41 lines / 291 tokens. Swapping it in
+> reproduces a different item, which is why `test_floor.py` §13 pins 26 lines
+> and this document quotes 41. The claim the two share — that the harness's
+> own showcase lyric FAILS its own gate on anaphora — is still mechanically
+> pinned, by `test_floor.py` §14, on the fixture that ships.
+
 ```
 python3 quality/song_profile_calibration.py            # the full report
 python3 quality/song_profile_calibration.py --check    # exit 1 if floor.py has drifted
@@ -73,6 +99,9 @@ The brief said the length-sensitive half of the floor never runs on a song.
 Reproduced, exactly:
 
 ```
+# THIS COMMAND CANNOT RUN FROM A CLEAN CHECKOUT — the lyric was
+# deleted by 11aa19b (see the note at the top of this file). What
+# follows is the recorded output of the run, not an invitation.
 $ python3 quality/floor.py examples/cherokee_bill.txt        # BEFORE
 examples/cherokee_bill.txt — 1 section(s)
 === [(untitled)] 28 lines, 327 tokens
@@ -80,6 +109,9 @@ SLOP FLOOR — 0 flag(s), 1 note(s)
   [NOTE] OUT_OF_CALIBRATED_LENGTH: 327 tokens is outside every calibrated
          length; the length-sensitive checks did not run
 
+# THIS COMMAND CANNOT RUN FROM A CLEAN CHECKOUT — the lyric was
+# deleted by 11aa19b (see the note at the top of this file). What
+# follows is the recorded output of the run, not an invitation.
 $ python3 quality/floor.py examples/never_been_to_a_scene.txt   # BEFORE
 === [(untitled)] 41 lines, 291 tokens
 SLOP FLOOR — 0 flag(s), 1 note(s)
@@ -483,9 +515,11 @@ thing that makes any of these numbers mean anything about these songs
 
 ```
 $ python3 quality/floor.py examples/never_been_to_a_scene.txt        # AFTER
-# TRANSCRIPT AS OF 2026-08-13. The elided period clause below is the one
-# §4·R withdrew and the 2026-08-20 repair rewrote; the FINDING, the
-# threshold and the flag are unchanged.
+# THIS COMMAND CANNOT RUN FROM A CLEAN CHECKOUT — the lyric was deleted
+# by 11aa19b (see the note at the top of this file). TRANSCRIPT AS OF
+# 2026-08-13: the elided period clause below is the one §4·R withdrew
+# and the 2026-08-20 repair rewrote; the FINDING, the threshold and
+# the flag are unchanged.
 === [(untitled)] 41 lines, 291 tokens
 SLOP FLOOR — 1 flag(s), 0 note(s)
   [FLAG] ANAPHORA_OVERLOAD: 14 of 41 lines open with the same word

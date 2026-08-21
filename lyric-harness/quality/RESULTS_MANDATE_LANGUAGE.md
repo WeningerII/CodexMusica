@@ -6,6 +6,30 @@ The mandate language could say *these lines must rhyme* and nothing else. It
 had to say three things. This is what it says now, what it refuses, and what
 the numbers did.
 
+> **THE TWO EXAMPLE LYRICS THIS DOCUMENT RUNS ON ARE NOT IN THE REPOSITORY,
+> AND EVERY TRANSCRIPT BELOW THAT USES THEM IS UNREPRODUCIBLE FROM A CLEAN
+> CHECKOUT.** Annotated 2026-08-21, found by asking whether the
+> implementation depends on `CLAUDE.md` (it does not) and mistyping a path
+> that turned out not to exist. `examples/cherokee_bill.txt` and
+> `examples/never_been_to_a_scene.txt` were DELETED ON PURPOSE by commit
+> `11aa19b` (2026-08-12, *"Remove Claude-authored example lyrics from the
+> repo"*) and `examples/` now holds no tracked file at all. That decision is
+> not in question here and is not being reversed; what had never been done is
+> telling the record about it.
+>
+> **What this does and does not mean.** The measurements below were real when
+> they were made and they are not withdrawn — nothing here is known to be
+> wrong. What is gone is the ABILITY TO RE-CHECK them: a verdict of
+> *REPRODUCES EXACTLY* is a claim that someone re-ran the command and got the
+> same answer, and from this checkout nobody can do that any more, so those
+> verdicts are frozen testimony rather than live results (doctrine 17 — kept,
+> and never quoted as though the check were still available). Any command
+> block naming an `examples/` path is a record of a run, not an instruction.
+>
+> **`quality/fixtures/anaphoric.txt` IS NOT A SUBSTITUTE** for the reader
+> tempted to swap it in: it is 26 lines, and `never_been_to_a_scene.txt` was
+> 41 lines / 291 tokens. It reproduces a different item, not this one.
+
 **Everything below is MEASURED. Every figure names the command that produced
 it and the state of the files it was measured against, because two of them
 moved mid-cell.**

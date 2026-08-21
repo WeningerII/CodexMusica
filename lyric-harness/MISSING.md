@@ -34,8 +34,10 @@ villanelle entry and did not act on it.
 **A third form nobody anticipated, found in the corpus 2026-08-10: LINE
 IDENTITY BY REFERENCE.** Printed songsters abbreviate a chorus return as
 `Oh, my poor Nelly Gray, &c.` — a stub that POINTS at the chorus instead of
-reproducing it. There are ~~**941**~~ **777 in the 143 English files and 818
-across all languages** in the staged corpus (`lyric_harness.is_chorus_stub` over
+reproducing it. There are ~~**941**~~ ~~**777 in the 143 English files and 818
+across all languages**~~ **989 in the 1,297 English files and 1,036
+across all languages** in the staged corpus (RE-MEASURED 2026-08-21
+over the loaded tree, same predicate and same exclusions) (`lyric_harness.is_chorus_stub` over
 verse lines only — blank, `#`, `---` and `[` excluded — measured 2026-08-11).
 **The 941 does not reproduce and no rule tried lands on it:** three plausible
 readings give 776 / 777 / 918. Either `is_chorus_stub` tightened after the count
@@ -494,8 +496,10 @@ stated.
 > are TITLE, SOURCE, AUTHOR, GE, RHYME, JU, SECTION, JUAN, RIME, SYLLABLES,
 > FROM and NOTE. The air lives inside free-text TITLE strings.
 >
-> **331 reproduces exactly, and it is a substring count.** Over the 143 English
-> files' 5,006 songs, the number of TITLE strings containing the word `air`
+> **~~331~~ 683 reproduces exactly, and it is a substring count.**
+> RE-MEASURED 2026-08-21 over the loaded tree: across the 1,297 English
+> files' 8,667 songs (~~143 files, 5,006 songs~~ on 2026-08-11), the
+> number of TITLE strings containing the word `air`
 > case-insensitively is **331** — the rule nobody wrote down. It counts *"The
 > Birds Of The Air"*, *"Thrice toss these oaken ashes in the air"*, *"The
 > Measureless Gulfs Of Air Are Full Of Thee"* and *"Divine providence in air,

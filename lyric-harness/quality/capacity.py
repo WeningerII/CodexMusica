@@ -67,6 +67,7 @@ Test:  python3 quality/test_capacity.py
 """
 
 import csv
+import hashlib
 import os
 import re
 import sys
@@ -343,10 +344,75 @@ COLUMNS = ("family", "words", "classes", "chain_hi", "certified",
            "chain_lo", "witness", "examples")
 
 
+#: WHAT THE CERTIFIED HALF DEPENDS ON, AND WHY IT IS RECORDED HERE.
+#: `chain_hi` is tier-1 arithmetic over the pronunciation lexicon and moves
+#: only when the lexicon moves. `chain_lo` is certified THROUGH THE GRADER,
+#: whose tier-2 (MODAL) ban reads two CORPUS-DERIVED tables -- so the certified
+#: floor rides a judge that changes whenever `corpus/song/eng_*` is reloaded
+#: and the tables are rebuilt.
+#:
+#: THAT DEPENDENCE WAS REAL AND UNRECORDED, and it cost a day: `66eb44e`
+#: rebuilt both tables over the loaded corpus (46,881 -> 131,394 and
+#: 39,122 -> 97,129 rows) and every committed witness clique in this artifact
+#: had been certified against the OLD ranking. `test_capacity` §3 went red with
+#: six families carrying banned pairs and 0 drift, and nothing in the artifact,
+#: the record or the checker could say WHY -- the answer took a before/after
+#: re-grade under both tables to establish. Recording the md5s makes the next
+#: rebuild LOCATABLE instead of a surprise: the check below names the moved
+#: table by itself.
+#:
+#: THE FILE LIST IS NOT RE-STATED HERE. It is read from the one place the
+#: eng-song frequency source is declared, so a third table joining the modal
+#: tier cannot be silently left out of this fingerprint (doctrine 1).
+JUDGE_HEADER = "#judge"
+
+
+def judge_files():
+    """-> the tables the tier-2 ban reads, from their single declaration."""
+    from quality.frequency import LAYER
+    return tuple(LAYER._sources["eng-song"].files)
+
+
+def judge_fingerprint():
+    """-> {relpath: md5}. ABSENT is a real state and hashes differently from
+    a present file rather than crashing (the `comparator_fingerprint` rule)."""
+    out = {}
+    for rel in judge_files():
+        try:
+            with open(os.path.join(HERE, "..", rel), "rb") as fh:
+                out[rel] = hashlib.md5(fh.read()).hexdigest()
+        except OSError:
+            out[rel] = "ABSENT"
+    return out
+
+
+def read_judge(path=TABLE_PATH):
+    """-> the judge recorded in the artifact, or None if it predates this.
+
+    None is NOT an empty dict: "this artifact records no judge" and "this
+    artifact was certified against no tables" are different statements, and
+    only the first is true of a table written before 2026-08-21 (doctrine 20).
+    """
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            if not line.startswith("#"):
+                return None
+            if line.startswith(JUDGE_HEADER):
+                out = {}
+                for cell in line.rstrip("\n").split("\t")[1:]:
+                    if "=" in cell:
+                        k, v = cell.split("=", 1)
+                        out[k] = v
+                return out
+    return None
+
+
 def emit_table(rows, path=TABLE_PATH):
     tmp = path + ".part"
     with open(tmp, "w", encoding="utf-8", newline="") as fh:
         w = csv.writer(fh, delimiter="\t")
+        w.writerow([JUDGE_HEADER] +
+                   ["%s=%s" % kv for kv in sorted(judge_fingerprint().items())])
         w.writerow(COLUMNS)
         for r in rows:
             w.writerow([r[c] for c in COLUMNS])
@@ -361,7 +427,8 @@ def read_table(path=TABLE_PATH):
             f"(the certified half grades every deep family through the "
             f"real Reviser and takes ~an hour).")
     with open(path, encoding="utf-8") as fh:
-        rd = csv.reader(fh, delimiter="\t")
+        rd = csv.reader((l for l in fh if not l.startswith("#")),
+                        delimiter="\t")
         header = next(rd)
         assert tuple(header) == COLUMNS, f"unexpected columns: {header}"
         out = []
@@ -414,6 +481,30 @@ def check():
         if summary.get(k) != v:
             bad.append(f"ADOPTED[{k!r}] = {v!r} but the table says "
                        f"{summary.get(k)!r}")
+    # THE JUDGE, ASKED FIRST AND REPORTED AS THE CAUSE. A witness that no
+    # longer passes has two very different explanations -- the artifact is
+    # wrong, or the grader moved underneath it -- and until 2026-08-21 this
+    # check could only ever report the first. Naming the moved table turns
+    # six mysterious family failures into one sentence with a remedy.
+    recorded, current = read_judge(), judge_fingerprint()
+    judge_moved = []
+    if recorded is None:
+        print("  NOTE: this artifact records no judge fingerprint (written "
+              "before 2026-08-21). A moved judge cannot be told apart from a "
+              "bad witness until it is re-derived once.")
+    elif recorded != current:
+        judge_moved = sorted(k for k in set(recorded) | set(current)
+                             if recorded.get(k) != current.get(k))
+        bad.append(
+            "THE JUDGE MOVED, and the witness verdicts below are its "
+            "consequence rather than %d independent findings (doctrine 79): "
+            "%s changed since this artifact was certified. `chain_hi` is "
+            "unaffected -- it is tier-1 arithmetic over the lexicon -- but "
+            "every `chain_lo` was certified through a grader that no longer "
+            "answers the same way. Re-derive: `python3 quality/capacity.py "
+            "--derive --parts=DIR`"
+            % (len(CHECK_SAMPLE), ", ".join(judge_moved)))
+
     by_fam = {r["family"]: r for r in rows}
     for fam in CHECK_SAMPLE:
         r = by_fam.get(fam)
@@ -425,7 +516,9 @@ def check():
         if pairs or drifted:
             bad.append(f"{fam}: committed witness no longer passes the "
                        f"grader (banned pairs {len(pairs)}, drift "
-                       f"{len(drifted)})")
+                       f"{len(drifted)})"
+                       + (" [expected: the judge moved, above]"
+                          if judge_moved else ""))
     for line in bad:
         print(f"  DRIFT: {line}")
     print(f"CAPACITY CHECK: {'FAIL' if bad else 'PASS'} — tier 1 "
