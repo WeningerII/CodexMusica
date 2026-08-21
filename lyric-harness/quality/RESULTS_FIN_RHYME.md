@@ -369,6 +369,33 @@ someone else's layer), 29 `out_of_inventory` (foreign proper names, a correct
 refusal), 538 `non_initial_opening_diphthong` (designed). The Kalevala itself has
 zero unreadable.
 
+> **THE TWO TOTALS ARE AT RISK AND THE SPLIT IS NOT — DISCLOSED 2026-08-21.**
+> An independent re-derivation reports **145,280 / 144,562** against the
+> 145,717 / 144,999 above (−437 on both), while `567 refused`, `151 defective`
+> and the whole by-code split (151 / 29 / 538) reproduce **exactly**. The
+> Finnish corpus is byte-stable — these eleven files were last touched
+> 2026-08-10/11 — so if the totals moved it is an **ingestion or tokeniser**
+> move, not drift in the material: doctrine 58 on the census's own axis, which
+> is precisely what §9 exists to demonstrate. The totals are marked rather
+> than replaced because a second reproduction here reached neither figure (it
+> read 12 files, not eleven, and did not match the unit rule), and **writing a
+> third unverified number into a section about unwritten counting rules would
+> be the defect it documents.** The command that settles it is a census under
+> §9's own stated rule — eleven files, `fin._tokens`, verse lines only.
+>
+> **AND `quality/phonology/fin.py` CARRIES THE IDENTICAL PAIR**, in its own
+> docstring beside the same 139,028: whichever way this resolves, **both sites
+> move in one commit** or the module writes the retired figure straight back
+> the next time anyone quotes it. That is `M-11`'s generator-not-only-artifact
+> rule pointed at prose.
+>
+> **THIS IS THE ONE DOCUMENT OF THE FOUR SWEPT WITH NO RED-CAPABLE RUNNER.**
+> `quality/fin_rhyme_rate.py` has `--verify` (the nine-volume recorded-figures
+> arm) and **no `--check`**, so every headline table here is re-derivable and
+> unpinned: nothing in CI can go red on any of it. `RESULTS_CYM_RHYME.md`,
+> `RESULTS_FWER.md` and `RESULTS_NULL_SHAPES.md` each have a pin that was
+> green while the document drifted; this one does not have the pin.
+
 ---
 
 ## 10 · Open, and which blocker each one is (doctrines 44, 92)

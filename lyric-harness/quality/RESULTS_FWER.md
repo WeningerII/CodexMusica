@@ -23,10 +23,26 @@
 >
 > | family | arm | mute | mean saturation | items with any event | median min-p / cut |
 > |---|---|---:|---:|---:|---:|
-> | scored (what this document reported) | real | 0/20 | 29.1% | 20 | 0.0× |
-> | scored | scramble | 0/20 | 29.0% | 20 | 0.1× |
+> | scored (what this document reported) | real | 0/20 | ~~29.1%~~ **37.9%** | 20 | 0.0× |
+> | scored | scramble | 0/20 | ~~29.0%~~ **38.1%** | 20 | 0.1× |
 > | **candidate (the honest family)** | **real** | **18/20** | **0.0%** | **0** | **1.7×** |
 > | **candidate** | **scramble** | **16/20** | **0.0%** | **0** | **1.7×** |
+>
+> > **THE TWO `scored` CELLS ARE REPINNED 2026-08-21 AND THE ORDERING
+> > REVERSED.** `fwer_family.py --arms` prints 37.9% real against 38.1%
+> > scramble; the document has real ABOVE scramble and head has scramble above
+> > real. **That STRENGTHENS the sentence these cells support** — the scramble
+> > was never a null for this statistic, and it is now measurably the higher of
+> > the two — so nothing downstream is withdrawn. Every `candidate` row, every
+> > mute count and every `min-p / cut` ratio is UNMOVED, which is what locates
+> > the move in the scored family alone.
+> >
+> > **AND `--check` CANNOT CATCH THIS, WHICH IS THE POINT.**
+> > `audit_fwer_fpr.py --check` passes at head and pins `family=candidate`
+> > only. The scored column is the unpinned half of a document whose own pin is
+> > green — `MISSING.md` M-21's finding exactly, and this is its worked
+> > instance: **one comparator shift moved this table AND
+> > `RESULTS_NULL_SHAPES.md` §3.6, and no instrument connects them.**
 >
 > 18 of 20 real sonnets and 16 of 20 scrambles return `cannot tell`; the rest
 > return **0 events**. A median ratio of 1.7× means the smallest p an item could
@@ -134,6 +150,19 @@ somebody remembers (doctrine 58).
 The two `m` columns are the whole finding. The gap is a factor of 15–30, and it
 is not noise: it is the band-pass rate, which is exactly the quantity the
 correction was supposed to be independent of.
+
+> **THE `m` candidate COLUMN IS PINNED AND THE `m` scored COLUMN IS NOT —
+> DISCLOSED 2026-08-21.** `audit_fwer_fpr.py --check` re-derives the candidate
+> family (203 and 176–265 both reproduce at head) and covers **nothing in the
+> `m` scored column**. The scored-family saturation moved 29.1% → 37.9% in this
+> document's own headline table this same day, so the three SONNET cells here
+> — `sonnet 1: 8`, `sonnets 1–8: 7–13`, `lyric.txt: 6` — **are at risk and
+> were not re-derived**. The two QUATRAIN rows were: `fwer_family.py`'s 2×2
+> re-derives `m` scored 6–7 on `REAL`/`SATURATED`.
+> Named rather than quietly left, because the gap between the columns is the
+> finding and half of it is unpinned — the same shape as this file's headline
+> and `MISSING.md` M-21's subject. `python3 quality/fwer_family.py`, read at
+> its per-item table, settles it in about ten minutes of wall time.
 
 ## THE RETRACTION'S BOUNDARY, verified rather than asserted
 
@@ -451,8 +480,25 @@ with 3 events, which is what the tripwire was registered to check.~~
 > band-pass rate measured flush-LEFT at `theta_coda` 0.60, where real verse read
 > ~0.10 and the degenerate fixture 0.43 — both halves of that sentence moved
 > when the band moved and nothing said so. It is now **2× the measured maximum
-> over 30 real sonnets** (0.042–0.076), so a fixture that clears it is a result
-> rather than an input.
+> over 30 real sonnets** ~~(0.042–0.076)~~ **(0.025–0.065)**, so a fixture that
+> clears it is a result rather than an input.
+>
+> > **REPINNED 2026-08-21, AND THIS FILE HELD THE QUANTITY AT TWO VALUES.**
+> > `fwer_family.py --calibrate` prints, over n=30:
+> > `null band-pass rate  min 0.025  p50 0.041  p95 0.065  max 0.065`
+> > `-> max_null_band_pass = 2 x max = 0.129   (TimeDeclaration ships 0.152)`.
+> > This document's own §"Proved red in both directions" already said
+> > *"the shipped value is 0.152, and the 20 sonnets measure 0.025–0.065"* —
+> > added with `--check` on 2026-08-14 — so **one quantity carried two ranges
+> > in one file for a week**, and the sentence a reader meets first was the
+> > stale one.
+> > **AND THE SHIPPED VALUE IS NO LONGER `2 × max`.** 2 × 0.065 is 0.129;
+> > `TimeDeclaration` ships **0.152**, which is 2 × 0.076 — the OLD maximum.
+> > So the guard is LOOSER than its own stated derivation, by the amount the
+> > null moved under it. That is recorded, not retuned: retightening to 0.129
+> > without a preregistration is doctrine 58's error, and the guard being loose
+> > costs a false ADMIT of a degenerate item, never a false refusal of real
+> > verse (real verse tops out at 0.065, well clear of either value).
 >
 > Causes 1 and 2 above are unaffected and both still hold. Cause 1 in particular
 > is worth re-reading beside this retraction: it is the SAME error — a
@@ -593,10 +639,13 @@ in the deleted rap verse, or in any English text. Every sentence in this
 document that said otherwise is struck above. `MISSING.md` L-2 said the event
 set could not tell real sonnets from scrambled text; the correct reading is now
 one step stronger and one step simpler — **at 20 items per arm the two score
-identically (29.1% vs 29.0% at `m` = scored, 0.0% vs 0.0% at `m` = candidate)
+identically (~~29.1% vs 29.0%~~ **37.9% vs 38.1%**, REPINNED 2026-08-21, at
+`m` = scored; 0.0% vs 0.0% at `m` = candidate)
 because an item's smallest attainable p is set by how many chance re-pairings of
 its OWN spans are perfect rhymes, and a word scramble preserves the span
-multiset exactly.** The scramble was never a null for this statistic.
+multiset exactly.** The scramble was never a null for this statistic — and at
+head it scores marginally ABOVE the real arm rather than marginally below,
+which is that sentence made sharper rather than weaker.
 
 ~~**The honest next step is not a second rap corpus and not a fourth
 instrument.** It is `null_samples` and `window` — the two coordinates that
