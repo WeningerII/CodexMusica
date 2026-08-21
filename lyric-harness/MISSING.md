@@ -3762,16 +3762,50 @@ which one that was.
 **Found 2026-08-21. Each is a file whose own header or content contradicts how
 it is marked, and none is visible to any current check.**
 
-**(a) A printed section heading typed as sung verse — 17 blocks.** Measured
-over `corpus/song/eng_*.txt`: 17 one-line `[VERSE]` blocks whose entire lyric
-is a printed heading — `Recitativo` ×8, `Air` ×8, `FINALE` ×1, in
-`eng_celtic_robert_burns.txt` (16) and `eng_oxford_theodore_watts_dunton.txt`
-(1). Burns's *The Jolly Beggars: A Cantata* opens `[VERSE 1]` / `Recitativo` /
-`[VERSE 2]`. **These are apparatus scored as words**: they enter MATTR, the
-rhyme graph and every per-line rate. It is the same object
-`MARK_REFUSED["PART"]` refuses in Finnish, escaping only because the printer
-did not use brackets — and the cantata's *Air* headings are the named-air
-field (`M-11`) printed in the body.
+**(a) APPARATUS TYPED AS SUNG VERSE — 940 blocks in 67 files, and the surveys
+found 17 of them.** Two tradition surveys reported a handful of opera headings
+(`Recitativo`, `Air`) typed as verse. Asking the corpus the general question
+instead — **one-line `[VERSE]` blocks whose single line is apparatus** — the
+population is far larger. Rule stated so the count is re-derivable: a block
+holding exactly one non-blank line, classified by that line's shape.
+
+| what the single line is | blocks | examples |
+|---|---:|---|
+| an ALL-CAPS short label (≤4 words) | 493 | `B. TAYLOR.` · `ETHEL LYNN BEERS` · `EVENÈN IN THE VILLAGE.` |
+| a Roman numeral | 240 | `I.` · `V.` · `II.` |
+| an Arabic numeral or year | 191 | `1845.` · `1847.` |
+| a printed heading word | 16 | `Recitativo` · `Air` |
+| **total** | **940** | across **67** files |
+
+Concentrated: `eng_hall_william_barnes.txt` 224, `fin_eino_leino.txt` 167,
+`eng_american_henry_wadsworth_longfellow.txt` 110.
+
+**THE FOUR CLASSES ARE AT LEAST THREE DIFFERENT OBJECTS, and reading the
+context is what shows it** — so this is a census and not yet a repair list:
+- **POEM TITLES.** `eng_hall_william_barnes.txt` runs `[VERSE 3]` /
+  `BRINGEN WOONE GWAÏN[A] O' ZUNDAYS.` / `[VERSE 4]`. That is a second poem's
+  TITLE inside one `--- TITLE:` item — a false unit (`M-20`'s family) whose
+  title is additionally scored as sung text.
+- **SPEAKER ATTRIBUTIONS.** `eng_american_henry_wadsworth_longfellow.txt`
+  runs `[VERSE 2]` / `MERRY (_within_)` / `[VERSE 3]`. A drama's speaker name
+  plus a stage direction, typed as a verse. **This is exactly the object
+  `MARK_REFUSED["PART"]` refuses in Finnish**, escaping only because an
+  English printer used no bracket — which is `M-24`'s missing language
+  coordinate arriving from the other side.
+- **NUMERALS AND BYLINES.** Stanza numbers, publication years and author
+  attributions, none of them sung.
+
+**ALL 940 ARE SCORED AS WORDS**: they enter MATTR, the function-word ratio,
+the rhyme graph, the endword population and every per-line rate. The Burns
+cantata's `Air` headings are additionally the named-air field (`M-11`) printed
+in the body rather than in a header.
+
+**NOT REPAIRED HERE, and the reason is `M-20`'s.** Deciding what each block is
+requires reading the printing, and the classes want different remedies — a
+title wants an item split, a speaker attribution wants a mark, a numeral wants
+dropping. What is owed first is the discriminator, and it is cheap: a one-line
+`[VERSE]` block whose line matches none of the sung-text shapes is a candidate,
+and the corpus audit can raise it without anyone adjudicating a poem.
 
 **(b) A file that declares a structure it does not carry.**
 `corpus/song/ltc_huajianji.txt`'s header states *"`[VERSE n]` marks a 片
