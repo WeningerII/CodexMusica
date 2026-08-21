@@ -1556,7 +1556,7 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: The 52 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19)
+      - name: The 53 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling, 2026-08-21)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1576,7 +1576,8 @@ jobs:
           # step fails if ANY suite failed, never silently.
           rm -f /tmp/suites-failed
           for f in align band capacity coda controls corpus_audit crosslinguistic cym \
-                   corpus_taxonomy declared_inputs english_text fit floor fwer g2p grid \
+                   corpus_taxonomy declared_inputs english_text expected_drift \
+                   fit floor fwer g2p grid \
                    homeoteleuton homograph ipa ltc mandate_language \
                    matrix meter \
                    meter_bands msa_fin \
@@ -1619,14 +1620,32 @@ jobs:
       # needs the full arm -- which the `nightly` job is now banking in
       # bounded, resumable slices. WHAT CLEARS THIS STEP is that adoption, not
       # an edit here.
-      - name: Song-profile calibration, the checks that do not need the field sweep
+      #
+      # NO LONGER RUN RAW — 2026-08-21. "EXPECTED RED" written in a comment is
+      # read by a human who happens to open this file; it is invisible in the
+      # job status, and a job that is always red teaches every reader to stop
+      # looking at it. MEASURED COST, on this branch: `suites` failed on TWO
+      # steps for days, one the expected drift above and one a REAL regression
+      # in test_capacity, and the status could not tell them apart — the real
+      # one went unexamined for hours because red carried no information.
+      #
+      # `expected_drift.py` makes the ruling MECHANICAL instead of prose: it
+      # runs the same command, and passes only when the observed drift set
+      # EQUALS the declared one. It fails on an undeclared drift (something
+      # new moved) AND on a declared drift that no longer happens (the ruling
+      # is spent and the constant should be repinned) — the second direction
+      # being the one that stops this allowlist from becoming the next stale
+      # file. If the instrument's report changes shape and the parser stops
+      # matching, it RAISES rather than reporting an empty set.
+      # quality/test_expected_drift.py proves all three.
+      - name: Song-profile calibration, against the drift that is RULED (not silenced)
         if: always()
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
           MKL_NUM_THREADS: '1'
           OPENBLAS_NUM_THREADS: '1'
-        run: python3 quality/song_profile_calibration.py --check --without-predictability
+        run: python3 quality/expected_drift.py song_profile_calibration-fast
 
       # The same pattern for the meter bands (DENSITY [5,12] / PROMINENCE
       # [2,7], adopted 2026-08-17 in RESULTS_METER_BANDS_READER.md and
