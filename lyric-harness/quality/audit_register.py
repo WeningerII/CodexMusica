@@ -752,34 +752,80 @@ def _d_authors():
 
 
 def _d_named_airs():
-    """There is no declared air field. That IS the answer."""
-    fields = collections.Counter(re.findall(r"^--- ([A-Z_]+):",
-                                            "\n".join(open(f, encoding="utf-8", errors="replace").read()
-                                                      for f in _song_files("eng_")), re.M))
-    strict = 0
-    for f in _song_files("eng_"):
-        for l in open(f, encoding="utf-8", errors="replace"):
-            if l.startswith("--- TITLE:") and re.search(r"\[[Aa]ir|\([Aa]ir|AIR *[-—:]|Air *[-—:]", l):
-                strict += 1
-    return UNVERIFIABLE, ("no --- AIR: field exists (markers present: %s); the "
-                          "nearest mechanical rule over TITLE strings gives %d"
-                          % (", ".join(sorted(fields)), strict)), \
-        "331 of 5,006 songs carry a named air (6.6%)"
+    """~~There is no declared air field. That IS the answer.~~ THE FIELD WAS
+    THERE, INSIDE ANOTHER ONE — 2026-08-21.
+
+    This row returned `UNVERIFIABLE` on the ground that `--- AIR:` does not
+    exist, and it still does not. What was wrong is the inference: the stagers
+    write the tune into the TITLE VALUE, as `[air: Paddy's Wedding]`, and
+    `quality/grid.split_named_air` now reads it. So the rate M-11 asks for is
+    re-derivable and this row answers.
+
+    TWO NUMERATORS, NEVER SUMMED (doctrine 79). A ci's title IS its 詞牌 and
+    `build_ci_corpus.py:1137` prints one variable into both fields, so an
+    `air == title` restatement is guaranteed by code rather than measured and
+    is not evidence that anybody recorded a tune. It is counted and reported
+    apart from a DISTINCT air, which is the only one M-11's question is about.
+
+    THE SCOPE WAS ALSO WRONG. Both loops read `eng_` only, so the marker
+    inventory this row printed as "the markers present" never saw RHYME, JU,
+    GE, JUAN, SYLLABLES, RIME, FUNCTION, SPLIT or SUNG-EVIDENCE, and the
+    English-only rate could not have falsified an entry about non-English
+    songs. Both read the whole corpus now.
+    """
+    from quality.grid import (named_air_census, AIR_DISTINCT, AIR_RESTATED)
+    files = _song_files()
+    fields = collections.Counter(re.findall(
+        r"^--- ([A-Z_-]+):",
+        "\n".join(open(f, encoding="utf-8", errors="replace").read()
+                  for f in files), re.M))
+    cen = named_air_census(files)
+    eng = cen.get("eng", {})
+    five = ("fas", "fin", "cym", "msa", "san")
+    n5 = sum(cen.get(p, {}).get("songs", 0) for p in five)
+    a5 = sum(cen.get(p, {}).get(AIR_DISTINCT, 0) for p in five)
+    got = ("%d of %d eng songs name an air of their own (%.1f%%); M-11's five "
+           "non-English prefixes name %d over %d songs (%s); %d ci RESTATE "
+           "their own title and are counted apart; no `--- AIR:` line exists "
+           "and none is needed (markers present: %s)"
+           % (eng.get(AIR_DISTINCT, 0), eng.get("songs", 0),
+              100.0 * eng.get(AIR_DISTINCT, 0) / max(1, eng.get("songs", 0)),
+              a5, n5,
+              ", ".join("%s %d" % (p, cen.get(p, {}).get(AIR_DISTINCT, 0))
+                        for p in five),
+              cen.get("ltc", {}).get(AIR_RESTATED, 0),
+              ", ".join(sorted(fields))))
+    # MOVED, not CONFIRMED: 331 of 5,006 was measured on a smaller corpus by a
+    # looser rule, and the register's own ZERO is falsified by the 31.
+    return MOVED, got, "331 of 5,006 songs carry a named air (6.6%)"
 
 
 def _d_chorus_stubs():
     import lyric_harness as LH
-    n = collections.Counter()
+    n, loose = collections.Counter(), collections.Counter()
     for f in _song_files():
         lang = os.path.basename(f)[:3]
         for l in open(f, encoding="utf-8", errors="replace"):
             s = l.strip()
             if not s or s.startswith("#") or s.startswith("---") or s.startswith("["):
                 continue
-            if LH.is_chorus_stub(s):
+            # ASKED WITH THE LANGUAGE THE FILENAME ALREADY DECLARES, which
+            # this loop had computed and thrown away since it was written.
+            # Undeclared, five editorial-prose lines in
+            # `fin_wahanen_laulukirja.txt` ending in a truncated Swedish title
+            # counted as Finnish refrain pointers, and every Welsh `&c.`
+            # counted under English's label. Both are gone at the cost of
+            # moving one argument (BACKLOG 2.4, doctrine 45).
+            if LH.is_chorus_stub(s, language=lang):
                 n[lang] += 1
+            elif LH.is_chorus_stub(s):
+                loose[lang] += 1
     return (CONFIRMED if n["eng"] == 941 else MOVED), \
-        "is_chorus_stub fires on %d eng / %d cym / %d fin lines" % (n["eng"], n["cym"], n["fin"]), \
+        ("is_chorus_stub fires on %d eng / %d cym / %d fin / %d msa lines when "
+         "asked WITH each file's language%s"
+         % (n["eng"], n["cym"], n["fin"], n["msa"],
+            "; %s more match undeclared and are NOT that tradition's pointer"
+            % dict(loose) if loose else "")), \
         "941 stub instances in the staged corpus"
 
 
@@ -912,8 +958,13 @@ def _m4_stub_rows(entries):
 
 def _d_stub_forms():
     import lyric_harness as LH
-    forms = [(f[0], f[1]) for f in getattr(LH, "CHORUS_STUB_FORMS", ())]
-    langs = [f[0] for f in forms]
+    # `f[0]` IS A TUPLE OF LANGUAGES since 2026-08-21 -- `&c.` is attested for
+    # `eng` AND `cym` -- so the declared-language list is flattened rather than
+    # read off one field. Keying on one language per form is exactly the defect
+    # BACKLOG 2.4 was closed on, and it would silently under-report here as a
+    # missing Welsh row.
+    forms = [(tuple(f[0]), f[1]) for f in getattr(LH, "CHORUS_STUB_FORMS", ())]
+    langs = [l for f in forms for l in f[0]]
     rows = _m4_stub_rows(read_entries())
     got = "CHORUS_STUB_FORMS declares %s" % (forms,)
     if not rows:
@@ -927,9 +978,12 @@ def _d_stub_forms():
     for lang, stubs, withdrawn in rows:
         hits = set()
         for s in stubs:
-            m = LH.chorus_stub_match("lorem ipsum " + s)
-            if m:
-                hits.add(m[0])
+            # EVERY language the form is attested for, not the one the table
+            # happened to declare first. M-4's Welsh row names `&c.`; under the
+            # old single-language read this reported hits={'eng'} and the row
+            # was credited to English -- the phantom this function's own
+            # docstring predicted, now answered rather than explained away.
+            hits |= set(LH.chorus_stub_languages("lorem ipsum " + s))
         if not withdrawn:
             named |= hits
         if withdrawn:
@@ -1937,7 +1991,13 @@ PINNED = {
     "cym_total": 29569, "cym_read": 29443,
     "cym_refused": 0, "cym_defective": 126,
     # -- MISSING.md's shape, but NOT its prose (see exclusion 3) ------------
-    "coverage_entries": 75,
+    #    REPINNED 2026-08-21: ~~75~~ 76 entries. `M-20` was filed that day —
+    #    two English poems staged TWICE in their own file, found when the
+    #    named air was split out of the title (BACKLOG 3.2). A new entry is
+    #    the ORDINARY way this figure moves and the pin is what makes filing
+    #    one a decision rather than a diff; `coverage_audited` is unmoved at
+    #    19 because M-20 carries no audited claim of its own yet.
+    "coverage_entries": 76,
     "coverage_audited": 19,
 }
 

@@ -719,7 +719,72 @@ def test_a_derived_cover_is_independent_at_another_theta():
 
 
 def test_findings_are_not_printed_six_times():
+    """BACKLOG 1.5. A floor `Finding` carries one entry in `locations` per
+    PAIR it was found on, and `inspect()` fans it out per entry -- so a line
+    standing in six shared-suffix pairs got the identical SHARED_SUFFIX
+    paragraph six times. That does not hide a finding; it hides the OTHER
+    findings underneath it.
+
+    THIS TEST USED TO PROVE NOTHING, and the repair is the population rather
+    than the assertion. It ran over `song_lines()` and asked whether any
+    brief repeated a finding. Measured 2026-08-21: no floor finding on that
+    song repeats a line at ALL, and SHARED_SUFFIX is not emitted there --
+    so the answer was "no" for want of anything that could have said "yes"
+    (doctrine 20). `SUFFIX_PILEUP` is a draft where the defect reproduces,
+    and check 1 REFUSES if it ever stops reproducing.
+
+    WHAT THIS CAN AND CANNOT CATCH, measured rather than assumed. There are
+    TWO guards and they are REDUNDANT -- `dict.fromkeys(f.locations)` in the
+    fan-out loop, and the `seen` bucket inside `add()`. Disabling either one
+    alone changes NOTHING on this witness (1 block per line either way);
+    disabling BOTH gives 5/4/3/2/1 blocks, the original defect exactly. So no
+    test can kill a single-guard mutation here, this one included, and that
+    is a property of the code and not a gap in the test. It is written down
+    because the reverse inference is the dangerous one: a green suite after
+    deleting one guard is NOT evidence the other is unnecessary, and the pair
+    must not both go.
+    """
     print("\n16. BACKLOG 1.5 — one finding, once")
+
+    # 1. THE WITNESS IS REAL. Named first, so this section fails loudly if the
+    #    floor stops producing a repeated-location finding instead of quietly
+    #    going green over an empty set.
+    m_p = SC.mandate(SUFFIX_PILEUP_SCHEME)
+    fl_p, pseudo_p = R._floor_for(m_p)
+    fan = {f.code: list(f.locations) for f in fl_p.check(SUFFIX_PILEUP, pseudo_p)}
+    ss = fan.get("SHARED_SUFFIX", [])
+    worst = max((ss.count(x) for x in set(ss)), default=0)
+    check("the witness still reproduces the fan-out: one SHARED_SUFFIX "
+          "finding whose locations name a single line many times",
+          worst >= 4,
+          f"SHARED_SUFFIX.locations={ss} — line {max(set(ss), key=ss.count) if ss else None} "
+          f"appears {worst}x over {len(m_p.pairs0())} mandated pairs")
+
+    # 2. ...and a writer is handed it ONCE.
+    per_line = {}
+    for b in R.brief(SUFFIX_PILEUP, SUFFIX_PILEUP_SCHEME):
+        per_line[b.line_no] = sum(1 for f in b.findings
+                                  if f.code == "SHARED_SUFFIX")
+    over = {ln: n for ln, n in per_line.items() if n > 1}
+    check("...but every brief prints it exactly once — with both guards "
+          "disabled this line reads 5, 4, 3, 2, 1",
+          not over, f"blocks per line: {per_line}")
+
+    # 3. The dedupe must not be a silencer. Two DIFFERENT findings on one
+    #    line both survive, or the fix has become its own information loss --
+    #    the same control `test_spans.py` holds the print-layer guard to.
+    codes = {ln: {f.code for f in b.findings}
+             for b in R.brief(SUFFIX_PILEUP, SUFFIX_PILEUP_SCHEME)
+             for ln in [b.line_no]}
+    multi = [ln for ln, cs in codes.items() if len(cs) > 1]
+    check("CONTROL: a line carrying findings of DIFFERENT codes keeps all of "
+          "them — this collapses duplicates, not findings",
+          bool(multi),
+          f"line(s) with >1 distinct code: {multi or 'none'} "
+          f"({ {ln: sorted(cs) for ln, cs in codes.items()} })")
+
+    # 4. The original global invariant, kept: nothing anywhere in the shipped
+    #    song repeats either. This one CAN go vacuous, so it says so.
     lines = song_lines()
     briefs = R.brief(lines, SONG_SCHEME)
     dupes = []
@@ -728,7 +793,10 @@ def test_findings_are_not_printed_six_times():
                 for f in b.findings]
         if len(keys) != len(set(keys)):
             dupes.append(b.line_no)
-    check("no brief repeats an identical finding", not dupes,
+    check("and no brief on the shipped song repeats an identical finding "
+          "(a WEAK check by construction — no finding on that draft repeats "
+          "a line, so it is a smoke test, not the proof; checks 1-2 are)",
+          not dupes,
           f"lines with duplicates: {dupes}" if dupes else
           f"{sum(len(b.findings) for b in briefs)} findings over "
           f"{len(briefs)} flagged line(s)")
@@ -1621,6 +1689,28 @@ def test_modal_rhyme_fires_on_a_passing_pair():
 #: each have another group they answer is the only thing the disjunctive
 #: reading turns on — which is exactly what has to be varied to find out what
 #: the excusal is testing.
+#: BACKLOG 1.5's witness, and the reason it is a PURPOSE-BUILT draft and not
+#: a line of the shipped song: MEASURED 2026-08-21, no floor finding on
+#: `song_lines()` repeats a line at all -- ANAPHORA_OVERLOAD 15 locations 15
+#: distinct, CLICHE_PAIR 3 and 3, and SHARED_SUFFIX, the code the entry is
+#: ABOUT, is not emitted there at all. So §16 asserted "nothing is repeated"
+#: over a population in which nothing COULD be, which is the vacuous shape
+#: doctrine 20 names.
+#:
+#: Six lines in one mandate group, six -ing end words with six different
+#: stems: 15 pairs, all homeoteleuton, and `SHARED_SUFFIX.locations` comes
+#: back [1,1,1,1,1,2,2,2,2,3,3,3,4,4,5] -- one entry per PAIR, which is
+#: exactly the shape that printed line 1's paragraph six times.
+SUFFIX_PILEUP = [
+    "the kettle on the windowsill is singing",
+    "a neighbour up the stairwell keeps on running",
+    "the bell above the chapel door is ringing",
+    "the letter in my coat pocket is burning",
+    "the shutter in the alleyway is swinging",
+    "the engine of the last express is turning",
+]
+SUFFIX_PILEUP_SCHEME = "AAAAAA"
+
 OVERLAP = ["the cat sat on the mat",
            "the dog ran to the moon",
            "the rat wore a hat",

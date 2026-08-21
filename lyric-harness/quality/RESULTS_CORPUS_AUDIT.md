@@ -588,6 +588,18 @@ FAILs — E's two duplications (§0) and D's one mislabelled file. The audit tak
 19 seconds over 26 MB; the calibration takes half a second, with the real
 trees present or absent, so there is no excuse for skipping it.
 
+> **REPINNED 2026-08-21: 1,321 findings — 1 FAIL, 235 WARN, 1,085 NOTE**,
+> over **1,423 files** (~~233 WARN~~ earlier the same day). THIS ONE IS A
+> READER CHANGE, NOT A LOAD, and the signature is that `files`, `FAIL` and
+> `NOTE` are all unmoved while WARN alone gains 2. `_items` read
+> `--- TITLE: X  [air: Y]` whole, so check E could never match a body line
+> against a title carrying an air; splitting the air out (BACKLOG §3.2) gained
+> 2 findings and lost 0. Both are real and both are filed as `MISSING.md`
+> M-20 — Hogg's `LOVE IS LIKE A DIZZINESS` and Rodger's `BEHAVE YOURSEL'
+> BEFORE FOLK` are each staged TWICE in their own file, once with the air and
+> once without, and only the un-aired copy could ever be matched against.
+> Nothing was silenced to meet this pin.
+>
 > **REPINNED 2026-08-20 (second sitting): 830 findings — 1 FAIL, 231
 > WARN, 598 NOTE**, over **742 files** (~~514 files, 429 NOTE~~, earlier
 > the same day, and ~~748 files, 601 NOTE~~ between the two — the

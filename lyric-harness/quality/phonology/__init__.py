@@ -385,6 +385,17 @@ class Phonology:
         return None
 
     def rhymes(self, a, b):
+        """-> True / False / None. None means 'cannot tell', never a guess.
+
+        THE SAME SENTENCE `alliterates` CARRIES TWO LINES UP, and its absence
+        here was the whole defect: two methods of identical shape, one saying
+        what its None means and one silent, so a caller reading this one had
+        no way to tell a refusal from a negative (doctrine 20) and had to
+        pick a reading (doctrine 1). `eng` and `som` INHERIT this — English
+        rhyme is the comparator's question and not this layer's, and som is
+        pitch-accent — so the base's None is a live answer on 2 of the 9
+        modules rather than an unreached default.
+        """
         return None
 
     def declaration(self):

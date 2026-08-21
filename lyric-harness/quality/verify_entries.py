@@ -249,6 +249,8 @@ NO_SHAPE = "NO_SHAPE"
 AMBIGUOUS_SCOPE = "AMBIGUOUS_SCOPE"
 HISTORICAL = "HISTORICAL"
 NO_INSTRUMENT = "NO_INSTRUMENT"
+DISCHARGED = "DISCHARGED"
+SHAPE_RAISED = "SHAPE_RAISED"
 
 #: Statuses that assert the gap is still there, and statuses that assert it is
 #: not. An absence-claim's verdict means opposite things under the two.
@@ -985,6 +987,18 @@ def shape_marker_absent(seg):
 
 TABLE_ROW_RE = re.compile(r"^\|\s*`(\w+_)`\s*\|\s*([\w ]+?)\s*\|\s*\**([\d,]+)\**\s*\|")
 
+#: The header cell that names the column this shape is about. Read rather than
+#: assumed, because the positional rule below is only correct for a two-column
+#: table and cannot tell when it is not looking at one.
+TABLE_SONGS_HEAD = re.compile(r"\bsongs?\b", re.I)
+
+
+def _cells(row):
+    """-> a markdown row's cells. Shared by `CORPUS_TABLE_ROW` and
+    `FLOOR_THRESHOLD`, which each defined it identically until 2026-08-21 --
+    the second definition silently shadowed the first."""
+    return [c.strip() for c in row.strip().strip("|").split("|")]
+
 
 def shape_corpus_table_row(seg):
     """A table row `| \\`fin_\\` | Finnish | 962 |` -- songs staged under one
@@ -995,11 +1009,35 @@ def shape_corpus_table_row(seg):
     commit rather than on a real error, which is why its verdict prints the
     commit it was measured at and the entry it belongs to is expected to pin
     the same way.
+
+    THE COLUMN IS FOUND BY ITS HEADER, and that repair is from 2026-08-21.
+    `TABLE_ROW_RE` reads the THIRD cell, on the assumption that the second one
+    holds a language NAME -- and `[\\w ]+?` matches digits, so a table whose
+    second column is a number shifted the whole read one cell right in silence.
+    M-11's four-column airs table found it: `| \\`cym_\\` | 391 | 13 | 0 |` was
+    reported as claiming 13 songs under `cym_`, and the entry was marked FALSE
+    for a figure it never asserted. When the table carries a header naming a
+    `songs` column, that column is used; a header with none means this row is
+    not making the claim this shape checks, and it is passed over rather than
+    guessed at.
     """
     m = TABLE_ROW_RE.match(seg.text.strip())
     if not m:
         return None
     prefix, claimed = m.group(1), int(m.group(3).replace(",", ""))
+    head = getattr(seg, "table_header", "") or ""
+    if head:
+        hs = _cells(head)
+        idx = [i for i, c in enumerate(hs) if TABLE_SONGS_HEAD.search(c)]
+        if not idx:
+            return None
+        row = _cells(seg.text)
+        if idx[0] >= len(row):
+            return None
+        got = re.search(r"([\d,]+)", row[idx[0]])
+        if not got:
+            return None
+        claimed = int(got.group(1).replace(",", ""))
     if not song_files(prefix):
         return Verdict("CORPUS_TABLE_ROW", REFUSED, "%s = %d" % (prefix, claimed),
                        "no `corpus/song/%s*` files", NO_INSTRUMENT)
@@ -1078,6 +1116,20 @@ def shape_scratch_namespaced(seg):
 
 XREF_RE = re.compile(r"`([A-Z]-\d+[a-z]?)(?:,\s*(OPEN|CLOSED|PARTIAL))?`")
 
+#: A BACKLOG entry declaring that its TASK is finished while the MISSING half's
+#: CAPABILITY is not. Anchored on the id so the declaration cannot cover a
+#: citation it does not name -- an entry citing `K-1, K-3` must discharge each
+#: separately or not at all.
+DISCHARGED_RE = re.compile(
+    r"TASK (?:IS )?DISCHARGED\b[^\n]{0,90}?`?\b([A-Z]-\d+[a-z]?)`?\s+STAYS\s+OPEN",
+    re.I)
+
+#: How much prose the entry must carry after the declaration for it to count.
+#: A bare marker is a green light with no reason attached, and the whole value
+#: of this refusal is that a reader can be handed the list of discharged-but-
+#: undelivered tasks WITH the argument for each.
+DISCHARGE_REASON_CHARS = 120
+
 
 def shape_status_xref(seg):
     """A BACKLOG.md heading cites a MISSING.md entry: `M-6`, `K-1, K-3`, `L-5`.
@@ -1086,6 +1138,36 @@ def shape_status_xref(seg):
     EXISTS, and the two files agree about whether it is done. `DONE`, `CLOSED`,
     `DECIDED` and `BUILT` in a BACKLOG heading are shut; MISSING's `CLOSED` and
     `WITHDRAWN` are shut; everything else is open.
+
+    AND THERE IS A THIRD THING, WHICH THIS CHECK USED TO CALL A LIE.
+    A BACKLOG entry is a TASK; a MISSING entry is a CAPABILITY. They come
+    apart, legitimately and often: the task `measure whether the levers move
+    alpha` is discharged by measuring that none of them do, and the capability
+    `a false-event rate controlled at alpha` stays exactly as missing as it
+    was. Requiring the two statuses to match forces the register to lie in one
+    direction or the other -- and it HAD. BACKLOG 4.1 was left reading OPEN
+    with `TASK DISCHARGED -- L-1 STAYS OPEN` written across its own heading,
+    because saying so in prose was the only way to say it at all; and 2.4, 2.5
+    and 3.1 were marked CLOSED against still-PARTIAL MISSING halves and this
+    shape reported all three FALSE.
+
+    So the declaration the register already wrote once is now READ (doctrine
+    48: a principle is only real once it is mechanical). `TASK DISCHARGED --
+    `M-4` STAYS OPEN`, plus `DISCHARGE_REASON_CHARS` characters of reason after
+    it, turns that one citation's mismatch into a REFUSED/DISCHARGED rather
+    than a FALSE.
+
+    WHAT THE REFUSAL IS NOT is an exemption, and three things keep it honest:
+
+      * it is ONE-DIRECTIONAL. A closed MISSING half under an open BACKLOG
+        entry is still FALSE -- that is a stale register, not a discharge.
+      * a declaration naming an id whose MISSING half is ALREADY SHUT is
+        FALSE, not a pass: the entry is describing a state that has moved on.
+      * every refusal PRINTS, with its reason, under its own kind. The point
+        of the escape hatch is that the register can be asked *what has been
+        discharged and not delivered* and answer with a list, which is a
+        question it could not previously be asked at all (doctrine 20: an
+        empty population reads like a pass, and this one is never empty).
     """
     if seg.kind != "heading" or seg.entry.source != "BACKLOG.md":
         return None
@@ -1098,15 +1180,48 @@ def shape_status_xref(seg):
         return Verdict("STATUS_XREF", FALSE, "cites %s" % ", ".join(ids),
                        "%s has no entry in MISSING.md" % ", ".join(unknown))
     here_shut = seg.entry.status in ("DONE", "CLOSED", "DECIDED", "BUILT")
-    bad = []
+    # `Entry.body` is a list of `(lineno, text)`, not a string -- reading it as
+    # one raised TypeError on every heading this shape had been answering, and
+    # the sweep filed all twelve crashes as refusals and printed PASS. That is
+    # what `SHAPE_RAISED` and the live control below exist for now.
+    whole = "\n".join([seg.entry.heading]
+                      + [t for _ln, t in seg.entry.body])
+    declared = {}
+    for m in DISCHARGED_RE.finditer(whole):
+        declared[m.group(1)] = len(whole) - m.end()
+    stale = [i for i in declared
+             if i in known and known[i].status in SHUT_ISH]
+    if stale:
+        return Verdict("STATUS_XREF", FALSE, "cites %s" % ", ".join(ids),
+                       "declares %s discharged-and-still-open, but MISSING "
+                       "reads %s"
+                       % (", ".join(sorted(stale)),
+                          ", ".join("%s %s" % (i, known[i].status)
+                                    for i in sorted(stale))))
+    bad, refused = [], []
     for i in ids:
         there_shut = known[i].status in SHUT_ISH
-        if here_shut != there_shut:
-            bad.append("%s: BACKLOG %s / MISSING %s"
-                       % (i, seg.entry.status or "open", known[i].status))
+        if here_shut == there_shut:
+            continue
+        if here_shut and i in declared:
+            if declared[i] < DISCHARGE_REASON_CHARS:
+                bad.append("%s: declared discharged with no reason after it "
+                           "(%d chars, %d wanted)"
+                           % (i, declared[i], DISCHARGE_REASON_CHARS))
+            else:
+                refused.append("%s: BACKLOG %s / MISSING %s"
+                               % (i, seg.entry.status, known[i].status))
+            continue
+        bad.append("%s: BACKLOG %s / MISSING %s"
+                   % (i, seg.entry.status or "open", known[i].status))
     if bad:
         return Verdict("STATUS_XREF", FALSE, "cites %s" % ", ".join(ids),
                        "; ".join(bad))
+    if refused:
+        return Verdict("STATUS_XREF", REFUSED, "cites %s" % ", ".join(ids),
+                       "; ".join(refused) + " — the TASK is discharged and "
+                       "the CAPABILITY is not, declared in the entry",
+                       DISCHARGED)
     return Verdict("STATUS_XREF", TRUE, "cites %s" % ", ".join(ids),
                    "every id exists and the two files agree")
 
@@ -1358,10 +1473,6 @@ _FLOOR_ABSENT = {"—", "-", "–", "n/a", "none", ""}
 _FLOOR_MIN_KEYS = 3
 
 
-def _cells(row):
-    return [c.strip() for c in row.strip().strip("|").split("|")]
-
-
 def shape_floor_threshold(seg):
     """A markdown row restating a shipped `floor.py` profile, re-derived from
     the profile itself.
@@ -1555,9 +1666,13 @@ _ALL_ENTRIES = []
 
 
 class _FakeEntry:
-    def __init__(self, ident, status, heading):
+    def __init__(self, ident, status, heading, body=()):
         self.id, self.status, self.heading = ident, status, heading
         self.source = "SELFTEST"
+        #: `(lineno, text)` pairs, the shape `Entry.body` really carries.
+        #: Empty rather than absent because `STATUS_XREF` reads it, and a
+        #: probe that raises AttributeError is a dead control (2026-08-21).
+        self.body = list(body)
 
 
 def _probe(text, ident="X-0", status="OPEN", heading="### X-0 · probe `OPEN`",
@@ -2435,9 +2550,18 @@ def sweep():
                 try:
                     v = fn(seg)
                 except Exception as exc:                        # noqa: BLE001
+                    # A CRASH IS NOT A REFUSAL, and filing it as one is how
+                    # this file went green over a dead shape on 2026-08-21:
+                    # `STATUS_XREF` raised TypeError on every heading it had
+                    # been answering, all 12 crashes landed in NO_INSTRUMENT
+                    # beside the genuine "no coordinate to work from" ones,
+                    # and the run printed PASS. `NO_INSTRUMENT` means the
+                    # shape looked and found nothing to measure against;
+                    # `SHAPE_RAISED` means the shape never looked. They are
+                    # different facts and only one of them fails the run.
                     v = Verdict(name, REFUSED, seg.text[:70],
                                 "%s: %s" % (type(exc).__name__, exc),
-                                NO_INSTRUMENT)
+                                SHAPE_RAISED)
                 if v is None:
                     continue
                 if seg.historical and v.status == FALSE:
@@ -2632,6 +2756,11 @@ def main(argv=None):
     per = collections.defaultdict(lambda: [0, 0])
     for _s, v in answered:
         per[v.shape][0 if v.status == TRUE else 1] += 1
+    #: A DISCHARGED cross-reference is resolved -- the shape read both files
+    #: and both agreed with the entry's declaration -- so it counts toward
+    #: STATUS_XREF's live control even though it lands in `refused`.
+    xref_discharged = sum(1 for _s, v in refused
+                          if v.shape == "STATUS_XREF" and v.kind == DISCHARGED)
     for name, vol, _fn in SHAPES:
         t, f = per.get(name, [0, 0])
         print("    %-22s %3d true  %3d FALSE%s"
@@ -2833,7 +2962,8 @@ def main(argv=None):
         print()
         print("REFUSED SEGMENTS")
         print("-" * 78)
-        for kind in (AMBIGUOUS_SCOPE, NO_INSTRUMENT, HISTORICAL, NO_SHAPE):
+        for kind in (SHAPE_RAISED, AMBIGUOUS_SCOPE, NO_INSTRUMENT,
+                 HISTORICAL, DISCHARGED, NO_SHAPE):
             group = [(s, v) for s, v in refused if v.kind == kind]
             if not group:
                 continue
@@ -2854,8 +2984,29 @@ def main(argv=None):
     for n, r in probes:
         print("  [%s] %s%s" % ("ok  " if r == "ok" else "FAIL", n,
                                "" if r == "ok" else "   " + r))
-    print("  (STATUS_XREF is exercised by the sweep itself: %d live "
-          "cross-references resolved.)" % per.get("STATUS_XREF", [0, 0])[0])
+    # STATUS_XREF's positive control IS this count, and a count is exactly the
+    # control that reads like a pass when its population empties (doctrine 20).
+    # It printed `0 live cross-references resolved.` beside a green RESULT for
+    # one run on 2026-08-21 while the shape was raising on every heading. Zero
+    # is now a FAILING control: the register always contains BACKLOG headings
+    # citing MISSING ids, so none resolving means the reader broke, not that
+    # the citations went away.
+    xref_live = sum(per.get("STATUS_XREF", [0, 0])[:2]) + xref_discharged
+    if xref_live:
+        print("  (STATUS_XREF is exercised by the sweep itself: %d live "
+              "cross-reference(s) resolved — %d true, %d FALSE, %d "
+              "discharged.)"
+              % (xref_live, per.get("STATUS_XREF", [0, 0])[0],
+                 per.get("STATUS_XREF", [0, 0])[1], xref_discharged))
+    else:
+        probes = probes + [("STATUS_XREF live control",
+                            "ZERO cross-references resolved — every BACKLOG "
+                            "heading citing a MISSING id went unanswered, "
+                            "which is a broken reader and not an empty "
+                            "register")]
+        broken = [(n, r) for n, r in probes if r != "ok"]
+        print("  [FAIL] STATUS_XREF live control — ZERO cross-references "
+              "resolved; the shape matched nothing.")
 
     # A prose REFUSAL counts too, and that is the point of returning it rather
     # than skipping the document: an unreadable CLAUDE.md must not read as a

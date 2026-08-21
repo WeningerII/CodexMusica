@@ -389,8 +389,16 @@ zero unreadable.
    `corpus/song/fin_kanteletar_uudempia.txt` from 7078-8.txt line 2361,
    `'sanojen yksialanta (allitteratio) on sattumoissa'`, the word-alliteration is
    by accident. He nominates the rhymed set as a control and says nothing about
-   what its rhyme *is*. The unblock route is `BACKLOG.md` §3.4 — Finno's 1583
-   hymnal on `doria.fi` / `kansalliskirjasto.fi`, never probed.
+   what its rhyme *is*. ~~The unblock route is `BACKLOG.md` §3.4 — Finno's 1583
+   hymnal on `doria.fi` / `kansalliskirjasto.fi`, never probed.~~ **REPOINTED
+   2026-08-21: it WAS probed, on 2026-08-11** (`data/sources.tsv:392`) —
+   twenty-one hosts, all 403 CONNECT, including all five of the Finnish ones
+   this sentence names. Both copies are located and neither is reachable:
+   Hemming's complete hymnal, printed Rostock **1607**, at
+   `digital.slub-dresden.de/werkansicht/dlf/114166/1/`; Finno's c.1583 in one
+   incomplete copy at Uppsala. The route is those two GERMAN and SWEDISH hosts
+   by name, and it also needs OCR of 1607 blackletter, so it is not the cheap
+   unblock this line assumed.
    *Blocker: **cannot obtain**, not hard-to-build — the rule is already
    implemented and measured; what is missing is the tradition's own words to
    check it against.*

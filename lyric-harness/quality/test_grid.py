@@ -16,6 +16,7 @@ from fractions import Fraction as F
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 
+from quality import grid as _G                                    # noqa: E402
 from quality import schemes as S                                  # noqa: E402
 from quality.grid import (Line, Meter, Section, Song, UNDECLARED,  # noqa: E402
                           UnknownFunction, line_pickup, phrase_profile,
@@ -2028,6 +2029,96 @@ def test_two_refusals_that_nothing_had_ever_asserted_can_fire():
           [(a.name, b.name, r.kind) for a, b, r in out])
 
 
+
+#: The whole staged corpus, so the census below is measured and not asserted.
+_SONG_GLOB = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                          "..", "corpus", "song", "*.txt")
+
+#: MEASURED 2026-08-21 over `corpus/song/`. M-11's own five prefixes and their
+#: song counts are the register's, re-derived; the AIRS are the finding.
+_AIR_EXPECT = {"cym": (391, 13), "eng": (8667, 539), "fas": (8350, 0),
+               "fin": (962, 18), "ltc": (10529, 0), "msa": (129, 0),
+               "san": (25, 0)}
+
+
+def test_the_named_air_is_a_coordinate_not_a_substring():
+    print("\n·  BACKLOG 3.2 / M-11 — the named air")
+    # 1. THE SPLIT. The air comes OUT of the title, in both directions.
+    for value, want in (
+            ("CHWI FEIBION DEWRION  [air: Marseillaise]",
+             ("CHWI FEIBION DEWRION", "Marseillaise")),
+            ("MAALLENI.  [air: Ur svenska hjärtans djup en gång]",
+             ("MAALLENI.", "Ur svenska hjärtans djup en gång")),
+            ("\u83e9\u85a9\u883b \u51762  [air: \u83e9\u85a9\u883b]",
+             ("\u83e9\u85a9\u883b \u51762", "\u83e9\u85a9\u883b")),
+            ("THE SPACIOUS FIRMAMENT", ("THE SPACIOUS FIRMAMENT", "")),
+            ("A SONG  [AIR : Rodney ]", ("A SONG", "Rodney"))):
+        got = _G.split_named_air(value)
+        check(f"split: {value[:38]!r}", got == want, f"{got!r}")
+    # 2. THE TWO KINDS, KEPT APART. A ci's title IS its 詞牌 and the stager
+    #    prints one variable into both fields, so `air == title` is guaranteed
+    #    by code rather than measured. Summing it with a real air would answer
+    #    a question M-11 does not ask (doctrine 79).
+    check("an air that differs from the title is DISTINCT",
+          _G.named_air_kind("CHWI FEIBION DEWRION  [air: Marseillaise]")
+          == _G.AIR_DISTINCT)
+    check("an air that restates the title is RESTATED, and `其N` does not "
+          "make it distinct",
+          _G.named_air_kind("\u83e9\u85a9\u883b  [air: \u83e9\u85a9\u883b]")
+          == _G.AIR_RESTATED
+          and _G.named_air_kind("\u83e9\u85a9\u883b \u51767  "
+                                "[air: \u83e9\u85a9\u883b]")
+          == _G.AIR_RESTATED)
+    check("no air at all is neither kind — an empty string, so a caller "
+          "cannot read `unknown` as `none`",
+          _G.named_air_kind("THE SPACIOUS FIRMAMENT") == "")
+    # 3. THE READER CARRIES IT. `MarkedSong.title` used to be the polluted
+    #    string for 11,099 songs.
+    import tempfile
+    fd, tmp = tempfile.mkstemp(suffix=".txt")
+    with os.fdopen(fd, "w", encoding="utf-8") as fh:
+        fh.write("--- TITLE: DAU FYWYD  [air: Rodney]\n[VERSE 1]\nun\n")
+    try:
+        songs = _G.read_marked_songs(tmp, language="cym")
+    finally:
+        os.unlink(tmp)
+    check("read_marked_songs puts the air in its own field and leaves the "
+          "title clean",
+          len(songs) == 1 and songs[0].title == "DAU FYWYD"
+          and songs[0].air == "Rodney",
+          "%r / %r" % (songs[0].title, songs[0].air) if songs else "no song")
+    # 4. THE CENSUS, AND THE ZERO IT FALSIFIES. This is the check that fails
+    #    if the corpus moves, which is the point: M-11's claim is about the
+    #    corpus, so a claim about it that does not read the corpus is not one.
+    import glob
+    cen = _G.named_air_census(sorted(glob.glob(_SONG_GLOB)))
+    check("every staged prefix is in the census — an absent key reads like a "
+          "zero (doctrine 20)",
+          set(cen) == set(_AIR_EXPECT), sorted(cen))
+    for pre, (songs_n, distinct_n) in sorted(_AIR_EXPECT.items()):
+        got = cen.get(pre, {})
+        check("%s: %d songs, %d with an air of their own"
+              % (pre, songs_n, distinct_n),
+              got.get("songs") == songs_n
+              and got.get(_G.AIR_DISTINCT) == distinct_n,
+              "%s" % got)
+    five = ("fas", "fin", "cym", "msa", "san")
+    n_songs = sum(cen[p]["songs"] for p in five)
+    n_air = sum(cen[p][_G.AIR_DISTINCT] for p in five)
+    check("M-11's ZERO is FALSE: its own five prefixes carry 31 named airs "
+          "over 9,857 songs, all Welsh and Finnish",
+          (n_songs, n_air) == (9857, 31)
+          and cen["cym"][_G.AIR_DISTINCT] + cen["fin"][_G.AIR_DISTINCT] == 31,
+          "songs %d airs %d" % (n_songs, n_air))
+    check("...and the 10,529 ci are NOT what falsifies it — every one is a "
+          "RESTATED title, so folding them in would answer another question",
+          cen["ltc"][_G.AIR_RESTATED] == 10529
+          and cen["ltc"][_G.AIR_DISTINCT] == 0
+          and sum(c[_G.AIR_RESTATED] for p, c in cen.items() if p != "ltc")
+          == 0,
+          "ltc %s" % cen["ltc"])
+
+
 def test_function_aliases_are_claims_on_their_own_rows():
     """The world's names for a function resolve — and each claim lives on
     its row (2026-08-18). The bridge gloss had made the middle-8 claim in
@@ -2131,7 +2222,8 @@ if __name__ == "__main__":
                test_a_returns_broken_rhyme_scheme_reaches_the_report,
                test_line_runs_is_surfaced_rather_than_computed_for_nobody,
                test_two_refusals_that_nothing_had_ever_asserted_can_fire,
-               test_function_aliases_are_claims_on_their_own_rows):
+               test_function_aliases_are_claims_on_their_own_rows,
+               test_the_named_air_is_a_coordinate_not_a_substring):
         fn()
     print("=" * 62)
     if FAILURES:

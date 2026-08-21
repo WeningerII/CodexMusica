@@ -875,8 +875,19 @@ def test_item_level_near_duplication_series():
     # supply new cross-references, the same mechanism as the 2026-08-19
     # Watts finds. Recorded, not repaired, per CORPUS_LOADING_PROTOCOL.md.
     # REPINNED 2026-08-20 (HBV): RUN-ON 5 -> 9, the rest unmoved.
-    check("4 CONTENTS pages, 9 RUN-ONs and 5 TITLE echoes remain, all named",
-          shapes == {"CONTENTS": 4, "RUN-ON": 9, "TITLE": 5}, shapes)
+    # REPINNED 2026-08-21: RUN-ON 9 -> 11, and this one is a READER fix rather
+    # than a load. `_items` used to read `--- TITLE: X  [air: Y]` whole, so a
+    # body line could never match a title carrying an air. The two new hits are
+    # REAL and both are DUPLICATE STAGINGS, not run-ons: Hogg's `LOVE IS LIKE A
+    # DIZZINESS` and Rodger's `BEHAVE YOURSEL' BEFORE FOLK` each appear twice
+    # in their own file — same opening line, ~25 shared long lines — once with
+    # the air and once without, and only the un-aired copy could ever be
+    # matched against. The RUN-ON label is imprecise for them (the match falls
+    # deep in the body, which is what that shape keys on) and the finding is
+    # filed as `M-20` rather than silently relabelled here. Nothing was lost:
+    # 19 -> 21 corpus-wide, gained 2, lost 0.
+    check("4 CONTENTS pages, 11 RUN-ONs and 5 TITLE echoes remain, all named",
+          shapes == {"CONTENTS": 4, "RUN-ON": 11, "TITLE": 5}, shapes)
 
 
 def test_check_C_can_actually_fire():

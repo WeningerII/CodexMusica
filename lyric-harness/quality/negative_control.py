@@ -83,54 +83,83 @@ that differ from the observation at all (doctrine 68), and the GAP TO THE
 NULL'S MAX rather than a p (doctrine 57 — at n=200 the smallest p obtainable
 is 0.005 and it says nothing about how far above the observation sat).
 
-THE RUN.  n=200, seed 20260811, cap 8 quatrains per file: 792 quatrains from
-115 files across 6 tradition groups, spanning 15 distinct quatrain schemes
-(ABAB=274, AABB=133, ABCB=133, ABAC=44, AAAA=37, AABA=30, ABCD=27, AAAB=27,
-ABCC=20, AABC=19, ABBB=17, ABBA=12, ABAA=9, ABCA=8, ABBC=2).  Doctrine 58: the
-slice is a coordinate of the number, so it is written next to it.
+THE RUN.  n=200, seed 20260811, cap 8 quatrains per file, RE-DERIVED
+2026-08-21: 4,217 quatrains from 712 files across 9 tradition groups, spanning
+15 distinct quatrain schemes (ABAB=1389, ABCB=841, AABB=697, ABCD=239,
+ABAC=222, AABC=164, AAAB=156, AAAA=131, ABCC=122, AABA=89, ABBA=78, ABBB=27,
+ABBC=25, ABCA=23, ABAA=14).  Doctrine 58: the slice is a coordinate of the
+number, so it is written next to it -- and THE SLICE IS WHAT MOVED.  The table
+below was first written over 792 quatrains from 115 files in 6 groups; the
+corpus has since more than quintupled and gained three tradition groups
+(`eng_hbv`, `eng_oxford`, `eng_pah`), so this is not five stale cells but a
+different population.  The superseded figures are kept in the right-hand
+column rather than deleted (doctrine 17), because two of them say something
+the current run does not.
 
-| arm | observed | null MAX | gap | differ |
-|---|---:|---:|---:|---:|
-| P1 pair count, ALL          | 1523   | 1523   | **+0**      | **0%** |
-| P2 pooled TV, ALL           | 0.2456 | 0.0394 | **+0.2061** | 100% |
-| P2b mean per-item TV, ALL   | 0.5402 | 0.4863 | +0.0539     | 100% |
-| P2 pooled TV, eng_hall      | 0.4170 | 0.1640 | +0.2530     | 100% |
-| P2 pooled TV, eng_hymn      | 0.2831 | 0.0811 | +0.2020     | 100% |
-| P2 pooled TV, eng_british   | 0.2620 | 0.0788 | +0.1832     | 100% |
-| P2 pooled TV, eng_american  | 0.2109 | 0.0979 | +0.1130     | 100% |
-| P2 pooled TV, eng_parlour   | 0.2491 | 0.1503 | +0.0988     | 100% |
-| P2 pooled TV, eng_celtic    | 0.0864 | 0.1174 | **−0.0310** | 100% |
-| P3 chain capture, corpus    | 0.4792 | 0.5875 | **−0.1083** | 100% |
-| P3 chain capture, Whitman   | 0.1733 | 0.1800 | **−0.0067** | 100% |
+| arm | observed | null MAX | gap | differ | WAS (792q/115f/6g) |
+|---|---:|---:|---:|---:|---|
+| P1 pair count, ALL          | 7336   | 7336   | **+0**      | **0%** | 1523 / 1523 / +0 |
+| P2 pooled TV, ALL           | 0.2638 | 0.0188 | **+0.2451** | 100% | 0.2456 / 0.0394 / +0.2061 |
+| P2b mean per-item TV, ALL   | 0.5620 | 0.5052 | +0.0567     | 100% | 0.5402 / 0.4863 / +0.0539 |
+| P2 pooled TV, eng_hall      | 0.4418 | 0.1759 | +0.2658     | 100% | 0.4170 / 0.1640 / +0.2530 |
+| P2 pooled TV, eng_hbv       | 0.3756 | 0.0493 | +0.3263     | 100% | not yet staged |
+| P2 pooled TV, eng_hymn      | 0.3317 | 0.0893 | +0.2424     | 100% | 0.2831 / 0.0811 / +0.2020 |
+| P2 pooled TV, eng_oxford    | 0.3244 | 0.0605 | +0.2639     | 100% | not yet staged |
+| P2 pooled TV, eng_british   | 0.3085 | 0.0585 | +0.2500     | 100% | 0.2620 / 0.0788 / +0.1832 |
+| P2 pooled TV, eng_parlour   | 0.2723 | 0.1518 | +0.1205     | 100% | 0.2491 / 0.1503 / +0.0988 |
+| P2 pooled TV, eng_pah       | 0.2666 | 0.0471 | +0.2195     | 100% | not yet staged |
+| P2 pooled TV, eng_american  | 0.2355 | 0.0405 | +0.1950     | 100% | 0.2109 / 0.0979 / +0.1130 |
+| P2 pooled TV, eng_celtic    | 0.1404 | 0.0422 | **+0.0982** | 100% | 0.0864 / 0.1174 / **−0.0310** |
+| P3 chain capture, corpus    | 0.6250 | 0.6333 | **−0.0083** | 99.5% | 0.4792 / 0.5875 / −0.1083 |
+| P3 chain capture, Whitman   | 0.1067 | 0.1400 | **−0.0333** | 98.5% | 0.1733 / 0.1800 / −0.0067 |
 
-FOUR THINGS THAT TABLE SAYS
+FIVE THINGS THAT TABLE SAYS, and the fifth is the one to read first
 
-  1. K-3 REPRODUCES, AND IT IS WORSE THAN RECORDED.  Whitman's chain capture
-     falls INSIDE its own line-permutation null at n=200 (0.1733 against a
-     null max of 0.1800).  At n=10 the same code prints a gap of +0.0600 and
-     looks like a result; the null's max only reaches the observation once
-     enough replicates are drawn.  Doctrine 30, exactly: a powered null is a
-     different claim from an unpowered one, and the underpowered version of
-     this arm is a positive finding that does not exist.
+  1. K-3 REPRODUCES, AND IT IS WORSE THAN RECORDED -- AND WORSE AGAIN NOW.
+     Whitman's chain capture falls INSIDE its own line-permutation null at
+     n=200 (0.1067 against a null max of 0.1400), and the gap is FIVE TIMES
+     deeper than when this was first measured (−0.0333 against −0.0067).  At
+     n=10 the same code prints a gap of +0.0600 and looks like a result; the
+     null's max only reaches the observation once enough replicates are drawn.
+     Doctrine 30, exactly: a powered null is a different claim from an
+     unpowered one, and the underpowered version of this arm is a positive
+     finding that does not exist.
   2. THE OBVIOUS NULL IS THE IDENTITY MAP HERE TOO.  0 of 200 replicates move
-     the rhyming-pair count, in every stratum.  Finnish (doctrine 63),
-     Persian (68), the relations layer (`relations_null.py`), and now English
-     song: four mechanisms, one failure.  The count is a symmetric function of
-     the four line-final anchors and no permutation of LINES can touch it.
+     the rhyming-pair count, in every stratum, at both corpus sizes.  Finnish
+     (doctrine 63), Persian (68), the relations layer (`relations_null.py`),
+     and now English song: four mechanisms, one failure.  The count is a
+     symmetric function of the four line-final anchors and no permutation of
+     LINES can touch it.
   3. WHAT SURVIVES IS THE POSITION, AND IT IS LARGE.  The pooled distance
-     profile is d1 0.3578 / d2 0.5791 / d3 0.0630 against a null mean of
-     0.4996 / 0.3336 / 0.1668 -- English song puts its rhyme at distance 2 far
-     more, and at distance 3 far less, than its own shuffle allows, at 20.7x
-     the null median and +0.2061 past the null's maximum.
-  4. CHAIN CAPTURE MOVES THE WRONG WAY ON REAL VERSE.  0.4792 observed against
-     a null MEDIAN of 0.5375: shuffling a rhymed quatrain RAISES the share of
+     profile is d1 0.3577 / d2 0.5973 / d3 0.0450 against a null mean of
+     0.4996 / 0.3335 / 0.1669 -- English song puts its rhyme at distance 2 far
+     more, and at distance 3 far less, than its own shuffle allows, at 41.7x
+     the null median and +0.2451 past the null's maximum.  Five times the
+     material moved this the RIGHT way: the observation rose and the null's
+     ceiling fell, which is what a real effect measured with more power does.
+  4. CHAIN CAPTURE MOVES THE WRONG WAY ON REAL VERSE.  0.6250 observed against
+     a null MAX of 0.6333: shuffling a rhymed quatrain RAISES the share of
      lines the chain search captures.  Same direction-inversion
      `relations_null.py` found for internal rhyme, same mechanism -- a
      structured scheme concentrates rhyme into specific pairs, and a shuffle
      scatters end words into positions where a greedy sequential chain can
      pick them up.  So the statistic behind all four recorded Whitman figures
      is not merely underpowered; on the positive corpus it is anti-correlated
-     with the structure it is supposed to detect.
+     with the structure it is supposed to detect.  The corpus arm's gap has
+     narrowed from −0.1083 to −0.0083 with five times the material, so the
+     inversion is smaller than it looked and it has not changed sign.
+  5. `eng_celtic` FLIPPED, AND IT WAS THE REASON P2b EXISTS.  It was the ONE
+     failing stratum -- −0.0310, inside its own null -- and P2b was written
+     to test whether that was cancellation under pooling.  It was not, and
+     that answer stands for the corpus it was asked about.  On the corpus as
+     staged today `eng_celtic` SEPARATES, +0.0982, and the summary line now
+     reads *9 measured, 9 separate under BOTH statistics, 0 under neither*.
+     P2b is kept, because a second independent reduction of the same null is
+     worth having whether or not the stratum that motivated it still fails,
+     and because deleting it would erase the question.  What must NOT be
+     carried forward is the sentence that there IS a failing stratum: there
+     was one, in a smaller corpus, and saying so in the present tense would be
+     quoting a falsified check as live (doctrine 17).
 
 Run: python3 quality/negative_control.py            (all arms, n=200)
      python3 quality/negative_control.py --n=50 --cap=6 --skip-chains

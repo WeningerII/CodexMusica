@@ -103,7 +103,7 @@ WHAT `--write` MAY NOT WRITE, AND WHY THE REMEDY HAD A HOLE IN IT.
 Found 2026-08-14 by an adversary pointed at the REMEDY rather than at the
 check, and measured end to end in a `mutate.build_shadow` tree.
 
-`quality/mutate.py` declares 57 mutations, each anchored on an EXACT text match
+`quality/mutate.py` declares 58 mutations, each anchored on an EXACT text match
 in a source file. A sibling lot's refactor moves the code, the anchor stops
 matching, `mutations_declared()` raises, and `Counter.measure` turns the raise
 into `Refused(COST, ...)`. `--check` goes correctly RED. But `--check`'s own
@@ -630,9 +630,16 @@ def stranded():
             if re.search(r"\brhyme_constraints\b",
                          open(p, encoding="utf-8", errors="replace").read()):
                 (tests if f.startswith("test_") else nontest).append(f)
+    #: "the DECISION is still owed" stood here until 2026-08-21 while
+    #: `MISSING.md` M-16 had read `CLOSED — the decision is taken` since
+    #: 2026-08-11. Two registers, opposite answers, and this was the worse
+    #: half: it is a GENERATOR, so every `--write` re-emitted the stale
+    #: sentence into `BACKLOG.md` and no amount of editing the table could
+    #: fix it. A stale literal in a producer outlives every correction made
+    #: to its output (doctrine 1).
     cell = ("**%d** — %s; `rhyme_constraints.py` is %s lines with a `__main__` "
-            "and %d non-test caller%s (%s), so it is kept on an argument and "
-            "the DECISION is still owed (M-16)"
+            "and %d non-test caller%s (%s), so it is KEPT on the argument "
+            "M-16 records, and that decision is TAKEN rather than owed"
             % (n, tail, "{:,}".format(rc_lines), len(nontest),
                "" if len(nontest) == 1 else "s",
                ", ".join("`%s`" % c for c in nontest) or "none"))
@@ -1131,7 +1138,7 @@ def mutations_declared():
         # verbatim through the laundering path this file now closes.
         #
         # AND `n - applied` IS A COUNT OF MUTATIONS, NOT OF EDITS, which the
-        # message now says on its face. Two of the 57 mutations share their
+        # message now says on its face. Two of the 58 mutations share their
         # anchor with another (M3/M5 and M14/M15 both anchor on one exact line
         # of `lyric_harness.py`), so a single refactor at either site drifts
         # TWO mutations and this count moves by two. `2 of 57` must not be read
@@ -1269,7 +1276,7 @@ def mutations_caught():
     mutations were not re-run at all. The honest artifact would read "24 of 57
     have a verdict, from two runs at two bounds" -- a COVERAGE statement about
     the sweep, not a caught count about the suite -- and the cheap half of
-    that, "do all 57 still apply to the current source", is already measured
+    that, "do all 58 still apply to the current source", is already measured
     by `mutations_declared()` above at `--dry-run` cost.
 
     So: the number stays refused for COST, and the refusal now says what it is

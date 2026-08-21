@@ -579,13 +579,28 @@ membership.
   REPINNED 2026-08-13 from `81 (8.0%)`: the claim is intact — nothing in this
   file moved it — but cell BA's coda-identity fix later moved the baseline
   itself, `81 -> 82`. `mandated`/`judged`/`refused` unchanged at 1064/1014/50.
-* `quality/negative_control.py`'s English arm reproduces, with drift confined
+* ~~`quality/negative_control.py`'s English arm reproduces, with drift confined
   to the two tradition groups whose corpus files were edited since the arm was
   written (`eng_british`, `eng_hymn` — five files changed in `debf64e`).
   `eng_hall`, `eng_american`, `eng_parlour`, `eng_celtic`, P3-corpus and
   P3-Whitman reproduce to four decimals; ALL-stratum TV moves 0.2456 → 0.2477.
   The arm's own docstring table is stale in five cells and the cause is the
-  corpus, not the comparator.
+  corpus, not the comparator.~~
+  **RE-RUN 2026-08-21 AND THIS DIAGNOSIS IS ITSELF SUPERSEDED.** It was not
+  five cells and it was not two groups. The material has gone from **792
+  quatrains / 115 files / 6 tradition groups** to **4,217 / 712 / 9** — three
+  new groups (`eng_hbv`, `eng_oxford`, `eng_pah`) that did not exist when the
+  arm was written — so every cell moved and the slice itself is a different
+  population (doctrine 58). ALL-stratum TV is **0.2638**, not the 0.2477
+  predicted here, against a null MAX that FELL from 0.0394 to 0.0188: gap
+  +0.2061 → **+0.2451**, lift 20.7× → **41.7×**. The docstring table is
+  re-derived with the superseded column kept beside it.
+  **Two of the moves are findings, not drift.** `eng_celtic` was the one
+  failing stratum (−0.0310) and now SEPARATES (+0.0982), so the summary reads
+  *9 measured, 9 separate under both statistics* and P2b's motivating case no
+  longer exists — P2b is kept anyway. And Whitman's P3 gap went −0.0067 to
+  **−0.0333**, five times deeper inside its own null: K-3 does not merely
+  reproduce under more material, it gets worse.
 * Every conclusion of `NULL_AUDIT.md` §1.1 that is a TAXONOMY argument. The
   band still ships on doctrines 3/24; §1 above changes the empirical column
   and touches none of that.

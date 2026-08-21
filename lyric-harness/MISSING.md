@@ -22,6 +22,11 @@ with the constraint named).
 ## A. Notation and scheme representation
 
 ### A-1 · Capital/lowercase refrain notation `OPEN`
+**TESTED WHILE OPEN.** `test_english_text.py` and `test_song_function.py`
+name this entry to PIN THE GAP, not to guard a fix — the citation reads
+"the repo cannot represent it (MISSING.md A-1)". A test that asserts an
+absence is the correct shape for an open entry and must not be read as
+evidence it closed (`quality/triage.py`).
 **Now (verified 2026-08-10):** `quality/schemes.py` `parse()` handles `X` and
 `.` as unrhymed singletons and letters as rhyme classes. Nothing else.
 **Missing:** the standard prosodic convention where **capital = a line repeated
@@ -153,6 +158,19 @@ measurement, the difference between a line that lands and one that drags.
 ## D. Song architecture
 
 ### D-1 · Sections have no FUNCTION `OPEN`
+> **THIS ENTRY'S OWN `Now (verified)` CLAUSE IS FALSE AT HEAD — 2026-08-21.**
+> It reads *"`Section` fields are exactly `name, bars, meter, start_bar`"*.
+> `grid.Section` carries **`function`** as a fifth field, `SECTION_FUNCTIONS`
+> is the declared vocabulary this entry asks for, `song_function_report`
+> grades against it and the `function` verb reaches it from the CLI. How much
+> of the entry that closes is a reading of the rest of it and is NOT decided
+> here; what is decided is that the verified clause must not be quoted as
+> live (doctrine 17).
+>
+> **AND NO INSTRUMENT FOUND THIS — a human reading the queue did.** No test
+> names D-1, so `quality/triage.py` puts it in UNGUARDED, which is that
+> file's OWN stated blind spot: it sorts by whether the tree names an entry
+> and cannot see an entry nothing cites. Recorded here as the worked example.
 **Now (verified):** `Section` fields are exactly `name, bars, meter,
 start_bar`. `name` is a free string.
 **Missing:** a declared section-function vocabulary — intro, verse, pre-chorus,
@@ -264,6 +282,9 @@ matrix takes this to −0.000 and is not shipped.
 ## F. Language coverage
 
 ### F-1 · ~~Eight~~ NINE phonologies, and English IS one now `PARTIAL`
+**TESTED WHILE OPEN.** The phonology suites name this entry as the ROSTER
+they are counting against; the roster grows and the entry stays PARTIAL
+until it stops (`quality/triage.py`).
 ~~**Now:** `cym fas fin ltc msa non san som`. English runs on the old CMUdict
 path and is not a declared module.~~
 **The English half is CLOSED, 2026-08-11.** `quality/phonology/` holds **nine**
@@ -278,6 +299,9 @@ Japanese, Korean, Mandarin, Cantonese, Vietnamese, Thai, Indonesian, Tagalog,
 Yoruba, Swahili, Zulu, Amharic, Irish, Scots Gaelic, Quechua, Nahuatl.
 
 ### F-2 · Whole rhyme MECHANISMS are unrepresented `OPEN`
+**TESTED WHILE OPEN.** `test_declared_inputs.py` pins the ABSENT field —
+"closing R6 means adding the field, which is ordinary scheduled work" —
+so the test tracks the gap rather than guarding a fix (`quality/triage.py`).
 **Missing:** tone-contour rhyme (Cantonese, Vietnamese, Thai, Yoruba,
 Mandarin); pitch accent (Japanese, Norwegian, Swedish, Serbo-Croatian); vowel
 harmony (Turkish, Finnish, Hungarian) as a rhyme constraint; consonant mutation
@@ -340,6 +364,9 @@ silently changes the phonology.
 ## G. Syllable and prosodic fit
 
 ### G-1 · No syllable-to-beat mapping `OPEN`
+**TESTED WHILE OPEN.** `test_fit.py` asserts that the `NO_SETTING` REFUSAL
+names G-1 and is PERMANENT. What is under test is the DISCLOSURE of the
+gap, which is exactly what an open entry should have (`quality/triage.py`).
 **Now:** a `Line` has a duration in beats and no idea how many syllables it
 holds.
 **Missing:** syllable placement on the grid, therefore any check that a line
@@ -360,6 +387,11 @@ It has no relationship to `quality/grid.py`.
 ## H. Semantics and craft
 
 ### H-1 · Nothing measures meaning on the WRITING path `OPEN`
+**TESTED WHILE OPEN.** `quality/phrase_commonplace.py` is the PHRASE SLICE
+of this entry and carries its own suite, which names H-1 as its subject. A
+part delivery with tests is not the entry closing — the concreteness half
+still reaches the discriminator and not the writing path
+(`quality/triage.py`).
 **CORRECTED 2026-08-10 — the original entry was WRONG.** `concreteness.txt` IS
 used: `quality/features.py` computes `concreteness_mean` and
 `concreteness_p90`, and `quality/discriminate.py` consumes them. The true and
@@ -772,6 +804,10 @@ and testing it is an egress block, which doctrine 49 says is a claim about the
 network at a moment rather than about the world.
 
 ### K-6 · ~~Eight non-English phonologies, ZERO songs~~ — **six of the eight now have song text; two still have none** `OPEN`
+**TESTED WHILE OPEN.** `test_readability.py` names K-6 while asserting the
+corpus is no longer monolingual — it tracks PROGRESS on the entry, and the
+entry's own heading says two of the eight still have none
+(`quality/triage.py`).
 **Found 2026-08-10, while closing K-1.** K-1 built a song corpus and every one
 of its 143 files is English. The eight phonology cells (cym fin fas ltc msa non
 san som) between them hold **five** text files, across three languages —
@@ -1009,12 +1045,41 @@ is a result and not an input. **The cell explicitly declined to pick an `m`
 between 6 and 89 that lands the scramble rate on 5%** — an α recovered by
 choosing a family size is a threshold tuned to its own result.
 
-**Still OPEN, and the open part has moved.** The layer cannot control α at the
+~~**Still OPEN, and the open part has moved.** The layer cannot control α at the
 honest family because it cannot produce an event at all: at
 `null_samples = 2000` the Šidák cut on sonnet 1 is **2.53e-4** and the p-value
 floor is **5.00e-4**, so the cut sits BELOW the floor. What is owed is
-`null_samples` and `window`, measured against the candidate family. See
+`null_samples` and `window`, measured against the candidate family.~~ See
 `quality/RESULTS_FWER.md`.
+
+**REPINNED 2026-08-21 — THE OWED MEASUREMENT WAS MADE ON 2026-08-11 AND THIS
+ENTRY NEVER FOLLOWED IT.** `BACKLOG.md` §4.1 was repinned on 2026-08-17 and
+this half was not, so the register carried the discharged and the undischarged
+statement of the same fact side by side for four days.
+
+`quality/time_attainable.py` is the runner and `quality/RESULTS_FWER.md`
+§*THE LEVERS, MEASURED — and the layer cannot speak* is the write-up. **Six
+levers, all dead**, and `null_samples` — the one this paragraph named — is dead
+in the most instructive way: it **RUNS BACKWARDS**. `min_p` goes 3.998e-3 at
+2,000 samples to 4.415e-3 at 200,000, so buying resolution makes the floor
+worse rather than better. The others are `window`, `max_span`, more text, a
+cross-item null (L-2's ask, delivered — see there), and a declared beat, which
+reaches the range and is circular.
+
+**And the struck diagnosis was wrong in an instructive way, which is why it is
+struck rather than deleted (doctrine 17).** `min_p` is not sitting on a
+resolution floor at all — it is reporting a RATE. `_pvalue` returns
+`(ge + 1)/(n_valid + 1)`, and for the best pair in a real sonnet every one of
+the 40–83 draws at or above it is an exact TIE at 1.000 with ZERO strictly
+above: the comparator saturates at a perfect rhyme.
+
+**WHAT KEEPS THIS ENTRY OPEN IS NOT A TASK.** The gap is arithmetic:
+`M_NEEDED = ln(1-α)/ln(1-min_p)` is 18–28 against a median family of 198–217 —
+a factor of about **10**, not the 1.4 the earlier reading suggested. Closing it
+is a redesign of the layer, not a measurement. The BACKLOG half is CLOSED under
+a `TASK DISCHARGED` declaration that `quality/verify_entries.py` now reads;
+this half stays OPEN because the CAPABILITY — a false-event rate controlled at
+α — is exactly as missing as it was.
 
 ### L-2 · Real sonnets do not separate from scrambled text on event rate `OPEN` — EXPLAINED
 ~~10.9% observed vs 9.6% word-scramble (p=0.095).~~ Either the detector is
@@ -1032,8 +1097,37 @@ function of. This is doctrine 63/68's identity-map trap in a fourth place: a
 randomisation that can be run, look rigorous, and test nothing. The word
 scramble was never a null for this statistic, and the 0.095 was reporting that
 rather than reporting Shakespeare.
-**Owed:** a null that destroys the span multiset — across items rather than
-within one.
+~~**Owed:** a null that destroys the span multiset — across items rather than
+within one.~~
+
+**REPINNED 2026-08-21 — THE OWED NULL WAS BUILT TWICE AND IT DOES NOT WORK,
+which is a result and not a debt.** `BACKLOG.md` §4.2 carried the same stale
+`Owed:` line and is now closed under a `TASK DISCHARGED` declaration.
+
+`quality/controls.py:176 cross_item_redeal` is that null, with
+`rime_pool_redeal:253` beside it as the detection floor, driven by
+`quality/negative_control.py:631 arm_spans` whose docstring names this entry.
+`quality/RESULTS_NULL_SHAPES.md` §3 measures it:
+
+| arm | `band_pass` | `min_p` move |
+|---|---:|---:|
+| real verse | 0.0572 | — |
+| word scramble | 0.0601 | 1.15× |
+| **cross-item redeal** | **0.0599** | **0.94×** |
+
+**The purpose-built null PRESERVES the quantity it was commissioned to
+destroy**, over a detection floor spanning 51× (0.00059–0.03040) — so this is
+not an instrument too blunt to see a difference, it is a difference that is not
+there. `RESULTS_FWER.md`'s Lever 5 agrees from the other side: pooled
+perfect-pair rate 0.0028 → 0.00175, `M_NEEDED` 21 → 28, a **1.3× improvement
+against a 9.4× gap**, and at window 2 the scramble saturates HIGHER than real
+verse (3.15% vs 2.68%) — the sign flips.
+
+**WHAT KEEPS THIS ENTRY OPEN IS THE FINDING, NOT A TASK.** Real sonnets still
+do not separate from scrambled text on event rate, all six measured levers are
+dead (L-1), and closing this needs a null that moves the perfect-pair rate by
+about 10× — a redesign of the layer, a declared beat, not a backlog item.
+Guarded by `quality/test_controls.py` and `quality/test_null_shapes.py`.
 
 ### L-3 · The slop floor is calibrated on one form, one language, one generator
 `PARTIAL` — 152 Shakespeare sonnets vs 40 model sonnets, a 400-year register
@@ -1123,7 +1217,7 @@ Four cells were sent to turn 297 staged lyricist names into text. Three have
 reported. Every one of them found a defect in the harness rather than only in
 the world, which is the point of pointing a module at a corpus (doctrine 37).
 
-### M-1 · `ltc.rhymes` uses the 詩 standard on 詞 and calls 45% of real ci rhymes failures `OPEN`
+### M-1 · `ltc.rhymes` uses the 詩 standard on 詞 and calls 45% of real ci rhymes failures `CLOSED`
 **The single most actionable item in this section.** `quality/phonology/ltc.py`
 ships the 平水韻 grouping, which is the standard for 詩. Measured against the
 **欽定詞譜 of 1715** — 817 per-詞牌 files with a 韻/句/叶 marker at every line end,
@@ -1171,7 +1265,74 @@ population this entry never named. `WITHDRAWN` 2026-08-11.**
 `language` (doctrine 45). Doctrine 36 was written about Qieyun → 平水韻 and it
 is true one rung further in.
 
-### M-2 · `data/qieyun_mc.tsv` is keyed on ONE orthographic norm `OPEN`
+**CLOSED 2026-08-21 — the fix shape above is what shipped, and this entry was
+the last place still calling it OPEN.** `MiddleChinese(standard=...)` accepts
+`('qieyun','pingshui','cilin')`, `rhymes()` takes a per-call override, an
+undeclared standard RAISES rather than defaulting, and a key names the standard
+that produced it so two standards can never silently compare equal. All five
+group pairs this entry named as recoverable from practice — 東/冬, 魚/虞,
+支/微, 蕭/豪, 眞/文 — are False under `pingshui` and True under `cilin`.
+
+**MEASURED ON A CORPUS THAT IS ACTUALLY ON DISK, which is the part this entry
+could not do.** M-1's own 47.4% rests on 1,518 ci that were refused on an
+express non-commercial grant, and the paragraphs above already record that the
+run does not survive. The replication is on the admitted 花間集: 413 of 500
+songs matching a 格 exactly across 60 詞牌, scored against the same 1715 spec.
+**韻 78.4% → 94.0% (+15.6 pp) against a 句 control of 1.3% → 3.4% (+2.1 pp)**,
+so the control gap widens 77.1 → 90.6 pp rather than everything lifting
+together (doctrine 71). `python3 quality/test_ltc.py` §6 re-derives all four
+rates and exits 0.
+
+**The withdrawn 26,773 stays withdrawn and C8 stays `n/a`.** Closing this entry
+does not restore that claim — the population it needed is still not on disk,
+and an entry going CLOSED is not a licence to un-withdraw a number (doctrine
+17). What is closed is the DEFECT, which was never the arithmetic.
+
+### M-2 · `data/qieyun_mc.tsv` is keyed on ONE orthographic norm `CLOSED`
+**CLOSED 2026-08-21, AND THE DECLARATION THAT STOOD HERE FOR TWO HOURS WAS
+MINE AND WAS WRONG.** `quality/triage.py` flagged this entry CONTESTED —
+open, and a regression names it — which is exactly the state it was in. It
+was resolved by writing *"the entry as a whole stands"* WITHOUT READING THE
+ENTRY. That is the failure the CONTESTED bucket exists to prevent, committed
+by the same sitting that built the bucket. A declaration is only honest for
+an entry someone has checked; otherwise it is a silencer with a date on it.
+
+**MEASURED, every clause of this entry, 2026-08-21:**
+
+| the entry says | today |
+|---|---|
+| 魂 cannot be looked up | reads, `via` **䰟** |
+| 窗 absent, 窓/牕/窻 present | 窗 reads, `via` **窓** |
+| 19 recoverable by an 異體字 map | **19 of 19 read** |
+| 你 is vernacular, refusal correct | reads `via` **伱** — this entry's own falsified clause |
+| nothing tells an ingestion defect from a correct refusal | `refusal()` returns the KIND |
+| 諄/真/殷/桓/戈 name groups the data does not | authority moved to `data/ltc_rhyme_standards.tsv`, which agrees with the data |
+| the docstring cites 193 rhymes | it cites 58 韻系 and says 193 was never the number in the file |
+
+`data/qieyun_variants.tsv` is the mechanism and it does not touch the CC0
+original: **7,258 rows — 810 RECOVERED** to a variant that is in the rime
+book, **6,255 REFUSED with a declared kind** (後起 4,073, 簡化 2,181, 未載 1),
+and **193 混同** which READ and carry a disclosed `hazard()`. The three
+buckets are counted apart and reconcile to the row count exactly (doctrine
+79). On the 19 arrows plus 你 and 來, `variants=True` reads **21 of 21** and
+`variants=False` reads **1** — which is what the map buys, measured rather
+than asserted.
+
+**THE SHARPEST PART IS THE ONE THIS ENTRY ASKED FOR LAST.** *"Nothing
+currently tells an ingestion defect from a correct refusal"* is answered in
+TWO methods, not one, and the split is finer than the ask: `refusal()`
+answers for a character that does NOT read (後起 = postdates the rime book,
+correct; 簡化 = a simplified form, an ingestion defect), and `hazard()`
+answers for one that DOES read but may be returning another word's rhyme.
+**无, 云 and 丽 — the exact three this entry names as OpenCC's silent
+failures — read, and each discloses its hazard** (无無, 云雲, 麗). The
+loud half and the silent half of the OpenCC problem are separated,
+mechanically.
+
+**What is NOT closed by this and is not claimed:** the simplified-corpus
+figures in this entry (70.95% against 99.03%, 31.7% of line-final positions
+unreadable) were measured on a corpus that is not staged, and are not
+re-derived here.
 **魂 — the character that NAMES the 魂 rhyme group — cannot be looked up**, while
 477 characters carry 魂 as their rhyme label. 窗 is absent; 窓/牕/窻 are present.
 Of the 24 commonest unreadable characters in a real ci corpus, **19 are
@@ -1368,6 +1529,10 @@ population next to the zero, or the next reader inherits a "0" that is true of a
 one-seventh extract.**
 
 ### M-4 · The `&c.` refrain stub is not an English printing convention `PARTIAL`
+**TESTED WHILE OPEN, and the remainder is NAMED: WELSH.** Three of the four
+languages ship in `CHORUS_STUB_FORMS` and return their language as a
+coordinate; `ac ati` matches nothing (measured 2026-08-21). `BACKLOG.md`
+§2.4 carries the same finding (`quality/triage.py`).
 A-1 frames its 941 instances around English songsters. The same mechanism does
 the same job in the same position in other languages, and the code that handles
 the English case knew none of them.
@@ -1378,7 +1543,7 @@ entry were WRONG — corrected below rather than quietly restated.
 |---|---|---:|---|
 | English | `&c.` / `etc.` | 941 | handled by `is_chorus_stub` |
 | Finnish | `j. n. e.` (*ja niin edelleen*) | ~~8~~ **9 at `debf64e`** | `fin_kanteletar` 14 → **0**; ~~all ten `fin_*` 155 → 139~~ `UNVERIFIABLE`, see below |
-| Welsh | `&c.` | 30 (see note) | Mynyddog, foot of a stanza |
+| Welsh | `&c.` | ~~30 (see note)~~ **33, rule stated below** | Mynyddog, foot of a stanza; READ AS WELSH since 2026-08-21 |
 
 **THE FINNISH ROW MOVED WITH THE CORPUS, NOT WITH THE REGISTER — and the
 distinction is the whole reason the verdict is `MOVED` and not `FALSE`.**
@@ -1401,12 +1566,40 @@ from a different question. Doctrine 58 with the RULE as the unwritten
 coordinate. **Owed: the tokeniser, beside the number.** It is not replaced with
 718, because 718 is the answer to a question this row did not ask.
 
-**The Welsh 30 is `UNVERIFIABLE` and no rule tried reproduces it.** A bare
-`&c\.` regex over the five `cym_song_*` files gives **41**, all of them in
-`cym_song_mynyddog.txt`; the register audit reports 33 under a rule it does not
-state. Three values, three unstated tokenisations, and the row is left at 30
-rather than silently moved to whichever number the last person measured —
-doctrine 58, and M-18's population clause. **Owed: the rule, beside the number.**
+**~~The Welsh 30 is `UNVERIFIABLE` and no rule tried reproduces it.~~ THE RULE
+IS STATED AND THE THREE VALUES RECONCILE — 2026-08-21.** The debt this row
+carried was *the rule, beside the number*, and it is paid here rather than by
+picking a value:
+
+> **RULE.** `lyric_harness.is_chorus_stub(line, language="cym")` over the lines
+> of `corpus/song/cym_*.txt` that are not blank and do not begin `#`, `[` or
+> `---`. **33.** Reproduce:
+> `python3 -c "import lyric_harness as L,glob;print(sum(L.is_chorus_stub(l.strip(),language='cym') for f in glob.glob('corpus/song/cym_*.txt') for l in open(f,encoding='utf-8') if l.strip() and l.strip()[0] not in '#[' and not l.startswith('---')))"`
+
+The bare `&c\.` regex's **41** is not a rival count, it is a count of a
+different thing, and it decomposes to the digit: 41 occurrences = **2** on the
+file's own staging header (which quotes `Dyna'i hewyrth, &c.` while explaining
+the convention) + **39** on verse lines, of which **6** are the second `&c.` of
+a line printed `&c., &c.`. 39 − 6 = **33 lines**, and 35 lines contain the
+string at all, 35 − 2 header lines = 33. Every `&c.` on a Welsh verse line in
+this corpus is line-final; there is no third population. Doctrine 58 is
+satisfied by naming the rule, not by moving the number, and the number moved
+only because the rule finally exists.
+
+**AND THE ROW WAS BEING READ UNDER ENGLISH'S LABEL.** Until 2026-08-21 all 33
+answered `('eng', ...)` to `chorus_stub_match`, and answered `None` — *not a
+pointer* — the moment a caller supplied `language='cym'`, which is the silent
+half and the one that puts 33 refrain pointers into rhyme extraction as sung
+text. `CHORUS_STUB_FORMS`' first field is now a SET of the traditions a form is
+attested in, `&c.` is attested for `eng` and `cym` both, and the undeclared
+call answers `(None, gloss)` — *this is a pointer, which tradition printed it
+cannot be told from the line*. See BACKLOG 2.4 and `quality/test_spans.py` §8b.
+
+BACKLOG 2.4 expected the remaining work to be a Welsh WORD for *et cetera*.
+Measured: `ac ati`, `ac yn y blaen` and `a.y.y.b` occur **zero** times
+line-final in the staged Welsh. The entry's premise was falsified by the
+corpus, and the fix is a second attestation on the existing form rather than a
+fourth pattern.
 | Malay | `d. s. b.` / `d.s.b.` | **108 in the SOURCE** | see the reversal below |
 
 **THE MALAY ROW WAS WITHDRAWN ON 2026-08-11 AND THE WITHDRAWAL WAS ITSELF
@@ -1589,7 +1782,7 @@ refuses binaries, so `wikimedia/wikisource` config `20231201.cy` — Welsh
 Wikisource, 1.25 MB, one parquet file — is **named, located and unreadable**.
 Highest-value single Welsh target for whoever next has a parquet-capable channel.
 
-### M-11 · ZERO named airs across EVERY non-English song staged `OPEN`
+### M-11 · ~~ZERO named airs across EVERY non-English song staged~~ — **31, and the field was inside the title all along** `PARTIAL`
 The field this whole round was chasing. ~~ZERO named airs across 8,009
 non-English songs~~ — **the heading carried a denominator that moves and a
 finding that does not**, so it no longer carries the denominator at all. The
@@ -1619,9 +1812,66 @@ largest structural gap left in the corpus.
 > rule and no date, so nobody could tell a drift from a mis-transcription; this
 > is the same defect K-1's `154,346` had. Re-derive with
 > `python3 quality/counters.py` (the `corpus/song/eng_*` row states the rule) or
-> `python3 quality/audit_register.py --slow`. **Neither figure is re-derivable as
+> `python3 quality/audit_register.py --slow`. ~~**Neither figure is re-derivable as
 > a NAMED-AIR rate until `--- AIR:` exists** (§3.2), which is the actual blocker
-> and is unchanged.
+> and is unchanged.~~ **BOTH ARE RE-DERIVABLE AS OF 2026-08-21, AND THE ZERO IS
+> FALSE.** See below.
+
+> **THE ZERO IS FALSE — 31, MEASURED 2026-08-21, AND THE BLOCKER WAS AN
+> INFERENCE RATHER THAN A MISSING FIELD.** `--- AIR:` does not exist and does
+> not need to: the stagers already write the tune into the TITLE VALUE, as
+> `--- TITLE: CHWI FEIBION DEWRION  [air: Marseillaise]`. Nothing SPLIT it, so
+> `MarkedSong.title` read the whole polluted string for 11,099 songs and the
+> air was a substring rather than a coordinate. `quality.grid.split_named_air`
+> and `named_air_census` read it now; re-derive with
+> `python3 quality/audit_register.py --slow` (derivation D5) or
+> `python3 quality/test_grid.py`.
+>
+> | prefix | songs | air of its OWN | air RESTATING the title |
+> |---|---:|---:|---:|
+> | `cym_` | 391 | **13** | 0 |
+> | `fin_` | 962 | **18** | 0 |
+> | `fas_` | 8,350 | 0 | 0 |
+> | `msa_` | 129 | 0 | 0 |
+> | `san_` | 25 | 0 | 0 |
+> | **the five this entry names** | **9,857** | **31** | **0** |
+> | `eng_` | 8,667 | 539 | 0 |
+> | `ltc_` | 10,529 | 0 | 10,529 |
+>
+> **THE 31 ARE WHAT FALSIFIES THE ZERO. THE 10,529 ARE NOT, AND THE TWO ARE
+> NEVER SUMMED** (doctrine 79). A ci's title IS its 詞牌, and
+> `quality/build_ci_corpus.py:1137` prints one variable into both fields, so
+> `air == title` is guaranteed by the stager rather than measured — true, and
+> no evidence that anybody recorded a tune. This entry's own text already drew
+> that line ("the Chinese ci that DO carry a 詞牌 ... are the one admitted
+> file"); the line is now mechanical. The count in that sentence has moved,
+> ~~500~~ **10,529**.
+>
+> Samples, verbatim: `CHWI FEIBION DEWRION  [air: Marseillaise]` ·
+> `DAU FYWYD  [air: Rodney]` ·
+> `MAALLENI.  [air: Ur svenska hjärtans djup en gång]` ·
+> `Juomalaulu.  [air: Sjung om studentens lyckliga dag]`.
+>
+> **THE ENGLISH FIGURE MOVED TOO.** `331 of 5,006 (6.6%)` is now
+> **539 of 8,667 (6.2%)**, and `audit_register` D5 reads the whole corpus
+> rather than `eng_` alone — its marker inventory had never seen RHYME, JU,
+> GE, JUAN, SYLLABLES, RIME, FUNCTION, SPLIT or SUNG-EVIDENCE, so an
+> English-only rate could not have falsified an entry about non-English songs.
+>
+> **TESTED WHILE OPEN** — `quality/test_grid.py` names this entry in 19
+> checks, and every one of them is about the half that CLOSED: whether the air
+> can be read as a coordinate, and what the census returns. None of them
+> touches the half that keeps this entry PARTIAL, which is that three
+> traditions record no air at all for reasons outside this repository. A test
+> naming an open entry is CONTESTED by default (`quality/triage.py`), and this
+> paragraph is the argument that it is not.
+>
+> **WHAT KEEPS THIS ENTRY PARTIAL.** Persian, Malay and Sanskrit still record
+> **0** over 8,504 songs, which is the largest part of the original finding
+> and is untouched: the Persian EPUBs carry no per-poem musical metadata at
+> all (M-13), the Gītagovinda's rāga and tāla headings exist and are refused
+> on licence (M-12), and Welsh prints tunes but no metre index (M-8). The
+> finding was never only about whether a field could be read.
 
 ### M-12 · The admissible copy and the complete copy are DISJOINT `OPEN`
 Doctrine 92. Three instances in one round, and "find a better source" is the
@@ -1789,9 +2039,11 @@ command.** `python3 quality/build_ci_corpus.py --verify-staged` re-derives every
 poem's segmentation from the committed spec with no clones and no network —
 character count, printed break vector, uniqueness of that vector once the 1782
 woodblock's own 片 has voted, and each header against its own punctuation. It
-reports **10,029 poems / 10,029 checked / 0 unverifiable / 10,029 segmentation
-confirmed / 0 defects**, with 5,573 韻/句 partitions unique and 4,456 declared
-ambiguous. `quality/ltc_overlap.py` already rebuilt the rhyme measurement from
+reports **10,029 poems / 10,029 checked / 0 unverifiable / ~~10,029~~ 10,028
+segmentation confirmed + 1 UNEVIDENCED / 0 defects**, with ~~5,573~~ **5,572**
+韻/句 partitions unique and 4,456 declared ambiguous. REPINNED 2026-08-21 when
+the lacuna refusal below shipped: the poem that satisfied the check vacuously
+no longer counts as confirming it, and it held the 5,573rd unique partition. `quality/ltc_overlap.py` already rebuilt the rhyme measurement from
 the `--- RHYME` headers — but it TRUSTS them, and they were the only record of
 where the spec put a line end.
 
@@ -1833,9 +2085,35 @@ where the spec put a line end.
    `ltc_siku_kr4j0032.txt` is 26 of 52, its entire second 片, with 4 of its 8
    mandated 韻 positions on `□`. The character-count match is the ONLY evidence
    the segmentation is right and a lacuna run satisfies it **vacuously**, so
-   that poem should have been refused and was not. `--verify-staged` prints the
-   census; the refusal criterion is not yet in the builder, and re-staging needs
-   the 66 clones.
+   that poem should have been refused and was not.
+
+   **CLOSED 2026-08-21 — AND IT NEEDED NO RE-STAGE.** The refusal was owed to
+   the BUILDER, and re-staging needs the 66 clones, so it went into the
+   VERIFIER instead, which is network-free and clone-free:
+   `_unevidenced_segments` finds any printed segment made ENTIRELY of lacunae,
+   and a poem carrying one is counted `segmentation_unevidenced` rather than
+   `segmentation_confirmed`. The staged text is untouched — it is faithful,
+   and the 1782 woodblock really did lose that 片; what was wrong was calling
+   it CONFIRMED (doctrine 20).
+
+   **THE UNIT IS THE SEGMENT, NOT A RATIO, and the corpus chose it.** A
+   segment holding even one real character evidences its own boundary; a run
+   of `□` fits any 格 wanting a run of that length, so its break is placed by
+   the count alone. Measured over all 10,029: **SIX poems carry a lacuna and
+   exactly ONE has an all-lacuna segment** — 雙雁兒 其2, 4 of 9 segments, 20
+   of 52 characters. The other five (1.1%–3.6% lacuna) keep every break
+   evidenced and stay confirmed. A percentage threshold would have had to be
+   picked; this one is read off what the evidence covers.
+
+   **A STATE, NOT A DEFECT.** It is not in the `defects` dict, so
+   `--verify-staged` still exits 0. Filing it there would hold the gate
+   permanently red on a property of an 18th-century printing, and this repo's
+   own rule is that such a gate is one people learn to skip —
+   `partition_ambiguous`, 4,456 of them, is the standing precedent for a
+   reported state that does not fail. The count is pinned by
+   `quality/test_ltc.py` §15 instead, AT ONE and with the poem named, so a
+   re-stage that adds another, or a criterion that over-fires, reds a check
+   rather than moving a number nobody reads.
 
 **Doctrine 88's cost is now measurable and half of it is paid.** 16,681 of the
 582,677 characters do not read, and `data/qieyun_variants.tsv` files the biggest
@@ -1862,8 +2140,9 @@ Separation 83.5 → 83.4 pp. Recovering 1,089 refused rhyme pairs moved the resu
 −0.1 pp and the control not at all; a map that was manufacturing agreement would
 have lifted both (doctrine 41).
 
-**What is left, in one place.** The lacuna refusal in the builder (needs a
-re-stage); a third orthography witness for the 441 unreached types; declaring
+**What is left, in one place.** ~~The lacuna refusal in the builder (needs a
+re-stage)~~ — **CLOSED 2026-08-21 in the VERIFIER, no re-stage needed**; a
+third orthography witness for the 441 unreached types; declaring
 `&KRnnnn;` and `□` in the staged file headers (needs a re-stage);
 `data/qieyun_variants.tsv`'s cause taxonomy, which is a sibling's file and whose
 verdicts are now contradicted per-row in `data/siku_orthography.tsv` rather than
@@ -2165,5 +2444,35 @@ declared dialect, which this repository does not have.** Until it exists,
 `Declaration.nucleus_agreement` declares the shape with `identity` and
 `licensed` reachable. Doctrine 44's distinction applies — this is "cannot
 obtain", not "hard to build".
+
+### M-20 · Two English poems are staged TWICE in their own file, and the title's air hid it `OPEN`
+**Found 2026-08-21 while splitting the named air out of the title (§3.2), by
+the checker that was already looking.** `quality/audit_corpus.py`'s
+`false_unit_items` compares each item's body lines against the OTHER items'
+titles in the same file. It read `--- TITLE: X  [air: Y]` whole, so an item
+whose title carried an air could never be matched against — and both halves of
+each pair below carry one on exactly one side:
+
+| file | items | shared long lines | opening line |
+|---|---|---:|---|
+| `corpus/song/eng_celtic_james_hogg.txt` | 10 `LOVE IS LIKE A DIZZINESS  [air: Paddy's Wedding]` / 27 `"LOVE IS LIKE A DIZZINESS"` | 25 of 45 / 44 | `I lately lived in quiet ease,` |
+| `corpus/song/eng_celtic_msm_alexander_rodger.txt` | 1 `BEHAVE YOURSEL' BEFORE FOLK  [air: Good-morrow to your night-cap]` / 5 `"BEHAVE YOURSEL' BEFORE FOLK"` | 24 of 45 / 45 | `Behave yoursel' before folk,` |
+
+Same opening line, same poem, staged twice. **The near-duplicate pair check
+does NOT carry them**: Jaccard is 0.39 and 0.36, under `ITEM_OVERLAP_FLOOR`,
+because the two printings differ in stanza count and refrain spelling. So
+these were invisible to both instruments at once, for two different reasons.
+
+**Recorded, not repaired**, per `CORPUS_LOADING_PROTOCOL.md`. What is owed is
+a decision about which printing wins, and that is a reading question rather
+than a mechanical one — `eng_` song counts are inflated by 2 until it is
+taken, and any per-song rate over those two files double-counts one poem.
+
+**The label they surface under is imprecise and is left that way on purpose.**
+`false_unit_items` reports them as `RUN-ON`, whose meaning is *the extractor
+glued the next poem onto the end of this one*. That is not what these are. The
+shape keys on WHERE the match falls, the match falls deep in the body, and
+relabelling by hand inside a pinned test would be writing a judgement into a
+count. `quality/test_corpus_audit.py` pins `RUN-ON 11` with this entry named.
 
 ## Add below this line

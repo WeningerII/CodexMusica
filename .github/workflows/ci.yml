@@ -911,6 +911,13 @@ jobs:
       # (46,860 rows / 1,627,624 bytes against 131,373 / 4,764,993) for three
       # commits, invisible to every instrument here. Fixed by hand, which is
       # the fix that does not stay fixed.
+      - name: Register triage (no OPEN entry is named by a regression without saying why)
+        if: always()
+        working-directory: lyric-harness
+        run: |
+          python3 quality/triage.py --check
+          python3 quality/test_triage.py
+
       - name: data/sources.tsv rows against the files they describe
         if: always()
         working-directory: lyric-harness
@@ -1130,7 +1137,7 @@ jobs:
       # ADVERSARY 4's AIM. Added 2026-08-14. 0.06 CPU-s — the cheapest step in
       # this job and, per CPU-second, the most informative one in the file.
       #
-      # quality/mutate.py declares 57 mutations (33 M-series, 24 Q-series,
+      # quality/mutate.py declares 58 mutations (33 M-series, 25 Q-series,
       # across 7 target files) and every one is anchored on an EXACT TEXT MATCH
       # in the file it mutates — not a name, not a line number, a literal
       # source fragment. So an ordinary, correct, well-reviewed edit to a
@@ -1143,7 +1150,7 @@ jobs:
       #
       # THREE DRIFTED IN 24 HOURS. That is this repo's measured rate, not a
       # hypothetical, and it is why `--dry-run` earns a step of its own:
-      # it re-reads the shipped sources and re-applies all 57 anchors, so it
+      # it re-reads the shipped sources and re-applies all 58 anchors, so it
       # answers "is adversary 4 still pointed at the code?" FROM THE CODE on
       # every run. It is the only carrier of that fact that cannot be silenced
       # by writing a file — a committed score can be repinned, an anchor that
@@ -1157,7 +1164,7 @@ jobs:
       # and a green run reports red. DO NOT PIPE THIS STEP. It is deliberately
       # run bare, and this comment is here so the next person to "just add a
       # `| tail`" finds out from the file rather than from a red build.
-      - name: Mutation anchors still apply (all 57 — adversary 4 is still aimed at the code)
+      - name: Mutation anchors still apply (all 58 — adversary 4 is still aimed at the code)
         if: always()
         working-directory: lyric-harness
         run: python3 quality/mutate.py --dry-run

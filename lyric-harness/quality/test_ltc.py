@@ -744,22 +744,46 @@ def test_the_segmentation_is_re_derivable_offline():
           f"UNVERIFIABLE before data/qindingcipu_aliases.tsv existed: their "
           f"--- GE: header named a tune only a `git clone` of KR4j0086 could "
           f"resolve (doctrine 34, one level in)")
+    #: CONFIRMED + UNEVIDENCED, never CONFIRMED alone. The two are counted
+    #: apart because they are different results (doctrine 20/79), and every
+    #: poem must land in exactly one of them.
     check("every printed line break equals the 格's own line-end vector, and "
           "the 韻/句 marks and the --- RHYME / --- JU headers agree with it",
-          st["segmentation_confirmed"] == st["poems"] and not bad,
-          f"{st['segmentation_confirmed']} confirmed, "
+          st["segmentation_confirmed"] + st["segmentation_unevidenced"]
+          == st["poems"] and not bad,
+          f"{st['segmentation_confirmed']} confirmed + "
+          f"{st['segmentation_unevidenced']} unevidenced = {st['poems']}; "
           f"{st['partition_confirmed']} with a unique 韻/句 partition, "
           f"{st['partition_ambiguous']} declared ambiguous, "
           f"{sum(len(x) for x in bad.values())} defects")
+
+    #: THE VACUOUS PASS IS NOW A NAMED REFUSAL. This check used to end "so it
+    #: should have been refused" — the test recorded the defect and nothing
+    #: acted on it. `_unevidenced_segments` acts on it now, and the count is
+    #: PINNED AT ONE with the poem named so a second cannot arrive unnoticed:
+    #: a re-stage that adds one, or a criterion that starts over-firing,
+    #: reds this line rather than moving a number nobody reads.
+    unev = v.get("unevidenced", [])
+    check("a segment made ENTIRELY of lacunae is refused rather than "
+          "confirmed — the character count is the only evidence the "
+          "segmentation is right, and a run of `□` satisfies it vacuously",
+          st["segmentation_unevidenced"] == 1 and len(unev) == 1
+          and unev[0][1].startswith("雙雁兒 其2")
+          and unev[0][2] == 4 and unev[0][3] == 20,
+          "; ".join("%s %s — %d seg, %d chars" % u for u in unev) or "NONE")
+    check("...and the other five lacuna poems stay CONFIRMED, because their "
+          "`□` sits inside a segment that also holds real characters, so "
+          "every one of their breaks is still evidenced",
+          len(v["lacuna"]) == 6 and st["segmentation_unevidenced"] == 1,
+          f"{len(v['lacuna'])} poems carry a lacuna, 1 has an all-lacuna "
+          f"segment")
     check("the census of positions that are NOT characters is reported rather "
           "than dropped, and it names the poem that is half lacuna",
           st["lacuna_tokens"] > 0 and st["entity_tokens"] > 0
           and max(n for n, _t in v["lacuna"].values()) >= 26,
           f"{st['entity_tokens']} &KRnnnn; in {len(v['entity'])} poems, "
           f"{st['lacuna_tokens']} □/○ in {len(v['lacuna'])}; 雙雁兒 其2's "
-          f"entire second 片 is lacuna, and a lacuna run satisfies the "
-          f"character-count match VACUOUSLY -- which is the only evidence the "
-          f"segmentation is right, so it should have been refused")
+          f"entire second 片 is lacuna")
 
 
 def test_the_grouping_is_handed_over_and_not_only_held():
