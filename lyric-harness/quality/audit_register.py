@@ -578,14 +578,28 @@ def population_report():
     entries = read_entries()
     out = {"malay": {"staged": _msa_staged_population(), "source": _msa_source_population()}}
     quoted = []
+    #: THE LANGUAGE IS A COORDINATE OF THE SCAN TOO — repaired 2026-08-21.
+    #: This used to read each entry WHOLE, and M-4 is about four languages:
+    #: the day its Welsh row gained a stated rule ("39 - 6 = 33 lines, and
+    #: 35 lines contain the string at all"), this scan reported 33 and 35 as
+    #: Malay corpus sizes and section 3 printed them in the INCOMPATIBLE
+    #: list. The checker built to catch substituted populations substituted
+    #: one. The scan is now scoped to paragraphs that name the Malay corpus,
+    #: and the rule is stated here so the next reader can re-derive it: a
+    #: paragraph is a blank-line-separated block; it is in scope iff it
+    #: contains "Malay", "msa" or the staged filename.
+    _MALAY_PARA = re.compile(r"Malay|msa", re.I)
     for ident in ("M-3", "M-4", "N-3"):
         t = entry_text(entries, ident)
-        for m in re.finditer(r"([\d,]+)\s+(?:Malay\s+)?(?:verse\s+)?blocks", t):
-            quoted.append((ident, "blocks", float(m.group(1).replace(",", ""))))
-        for m in re.finditer(r"\(?([\d,]+)\s+lines", t):
-            quoted.append((ident, "lines", float(m.group(1).replace(",", ""))))
-        for m in re.finditer(r"([\d,]+)\s+tokens\)", t):
-            quoted.append((ident, "tokens", float(m.group(1).replace(",", ""))))
+        for para in re.split(r"\n\s*\n", t):
+            if not _MALAY_PARA.search(para):
+                continue
+            for m in re.finditer(r"([\d,]+)\s+(?:Malay\s+)?(?:verse\s+)?blocks", para):
+                quoted.append((ident, "blocks", float(m.group(1).replace(",", ""))))
+            for m in re.finditer(r"\(?([\d,]+)\s+lines", para):
+                quoted.append((ident, "lines", float(m.group(1).replace(",", ""))))
+            for m in re.finditer(r"([\d,]+)\s+tokens\)", para):
+                quoted.append((ident, "tokens", float(m.group(1).replace(",", ""))))
     out["quoted_sizes"] = quoted
     by_unit = collections.defaultdict(set)
     for ident, unit, v in quoted:
@@ -1997,13 +2011,18 @@ PINNED = {
     #    share no string, so no grep finds both and the second is found only
     #    by a CI round going red after the first is repaired. Moving both in
     #    one commit is that entry's own demonstration.
+    #    REPINNED AGAIN 2026-08-21 (third move today): 77 -> 79. The fruit
+    #    sweep split two residues into their own entries — `L-4a` (the song
+    #    profile has a rate and no separation; the generated class is the
+    #    corpus that does not exist) and `F-4a` (the reader flattens the
+    #    letter the transcription kept) — while closing L-4, M-17 and D-1.
     #    The first was: `M-20` was filed that day —
     #    two English poems staged TWICE in their own file, found when the
     #    named air was split out of the title (BACKLOG 3.2). A new entry is
     #    the ORDINARY way this figure moves and the pin is what makes filing
     #    one a decision rather than a diff; `coverage_audited` is unmoved at
     #    19 because M-20 carries no audited claim of its own yet.
-    "coverage_entries": 77,
+    "coverage_entries": 79,
     "coverage_audited": 19,
 }
 

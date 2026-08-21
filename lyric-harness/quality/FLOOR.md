@@ -37,6 +37,8 @@ verse occupied here", not "bad". Positive class 152 Shakespeare sonnets;
 negative class 40 sonnets by one model in the same form and register.
 
 | | section profile | sonnet profile |
+
+> **This table predates the third profile.** `song` (whole lyric sheet, 150–400 tokens, 3,571 human items, tol 1.25) landed 2026-08-11 and is a different kind of calibration — a held-out false-positive rate, no AUC, because no generated song class exists (L-4a). The two columns below are correct for the two stanza profiles and are not the full list.
 |---|---|---|
 | unit | 4-line quatrain (lines 1–4, 5–8, 9–12 of each sonnet) | whole 14-line sonnet |
 | token domain (human p05–p95) | 29–37 | 108–126 |

@@ -308,10 +308,28 @@ question with no declared coordinate between them (doctrine 1). Status is
 **Missing:** rhyme rate per bar, acceleration into a hook, thinning in a
 bridge — rhyme as a rhythmic parameter rather than a per-pair verdict.
 
-### E-5 · The empty/empty coda gift `OPEN`
+### E-5 · The empty/empty coda gift `OPEN` — sized 2026-08-21: the fix has a cheap half and an expensive half, and they are different claims
 **Now (verified by using it):** `now ~ why` scores 0.902 and types RHYME,
 because two vowel-final words get a free 1.0 on the coda channel. The fitted
 matrix takes this to −0.000 and is not shipped.
+
+**SIZED 2026-08-21.** Still live, re-verified (`0.5×0.805 + 0.35×1.0 +
+0.15×1.0 = 0.902`). Two sites, two different questions: the EVIDENCE side
+(`cluster_sim` returns 1.0 for two empty clusters, `lyric_harness.py:1998`,
+weighted 0.35 — the gift) and the AGREEMENT side (`coda_agrees` on
+empty/empty, `:2198` — CORRECT, it is what keeps `see`/`free` a rhyme, a
+quarter of the sonnets' mandated pairs). They are separable, which is the
+opening. A third copy of the scalar rule sits in `redteam_band.py:177-178`.
+**The cheap half (~1.5–2 h): refusal-shaped disclosure** — when both codas
+are empty, report the channel as cannot-tell (`coda: no evidence`) and leave
+`total` and `relation` untouched; the band, the FPR calibration, `test_fwer`
+and the sonnet rate all stay exactly where they are, and the 0.902 becomes
+READABLE (0.35 of it visibly unsupported) instead of silent. **The expensive
+half (8–12 h, M-4a-class): actually moving the scalar** — any change to
+`total` moves `admits()`, and M-4a records what the last band move did to the
+time layer; it drags `test_fwer` ×4, `redteam_band`'s FPR, `eval_matrix` P3
+and the D18 claim pinned at 0.902. Closing this entry means the expensive
+half; the cheap half only makes the gift visible.
 
 ---
 
@@ -386,7 +404,7 @@ obvious source is the lossy one. But Kalliope is NOT uniform: its Scots Ramsay
 substitutes the Danish **æ ligature for Scots `ae`** (`sae` → `sæ`), so Ramsay
 is recorded CONTESTED and was not staged. Check per-file, never per-repository.
 
-### F-4 · A transcription can invent a letter `OPEN`
+### F-4 · A transcription can invent a letter `OPEN` — the instance is closed, the guard is not
 **Verified 2026-08-10, inside a single Gutenberg record.** Barnes exists as two
 files: `21785.txt` (ASCII) flattens the a-diaeresis to the two-letter sequence
 `ae`, printing `Greaeve` and `Feaeir` — **inventing a letter in every affected
@@ -394,6 +412,49 @@ word** — while `21785-8.txt` (ISO-8859-1) keeps the single character. The
 Latin-1 file is staged and the reason is in its header. Doctrine 50 with the
 sharpest instance yet: same text, same repository, same day, and one encoding
 silently changes the phonology.
+
+**THE INSTANCE IS FULLY CLOSED — verified again 2026-08-21.** The finding is
+recorded in triplicate: `data/sources.tsv:113` (the parent row, with both
+transcriptions named and "USE 21785-8.txt"), `data/sources.tsv:122` (the
+staged row), and `corpus/song/eng_hall_william_barnes.txt:12-14` (the header
+warning, in the file itself). The letter survives in the bytes — 3,058 staged
+lines carry `ä`, and the file's only `Greaeve` is line 14, the warning quoting
+the defect.
+
+**WHAT KEEPS THIS OPEN: NOTHING GUARDS A RECURRENCE.** Measured 2026-08-21:
+no check anywhere reads encodings — every `latin-1` in `quality/` is a file
+OPEN, never a validator. `audit_corpus.py`'s Check F is exactly the right
+mechanism and points the wrong way for English: Finnish declares
+`"aeiouyäö"` (a stripped text moves the count), the English channel declares
+plain `"aeiou"`, and flattening `ä`→`ae` RAISES the English vowel count. A
+re-stage from the ASCII transcription that repinned its own md5 would pass
+every existing check. **Owed:** a declared non-ASCII-letter count for the
+`eng` channel (or a per-file orthography assertion) so the flattening drops a
+number to zero and Check F goes red, plus a `check_data_rows` assertion that
+a row declaring ISO-8859-1 stages bytes that are actually non-ASCII. ~2–4 h
+including the eng-range repin.
+
+**AND THE SAME DOCTRINE IS VIOLATED ONE LAYER DOWN, ON THIS VERY FILE — split
+out as F-4a** because it is a different actor with a different blast radius.
+
+### F-4a · The reader flattens the letter the transcription kept `OPEN`
+Found 2026-08-21 while verifying F-4. Staging the Latin-1 Barnes preserved
+`ä`; `lyric_harness.line_tokens` (`lyric_harness.py:1030`) matches
+`[A-Za-z'\-]+`, so the non-ASCII letter BREAKS THE TOKEN:
+`line_tokens('The greäve wer wide, my Jeäne')` →
+`['The', 'gre', 've', 'wer', 'wide', 'my', 'Je', 'ne']` — measured, at head.
+Over the staged file: **5,934 of 13,909 verse lines contain a non-ASCII
+letter; 1,515 carry it in the FINAL word**, the rhyme position, where the
+harness then scores the fragment (`n ~ n` reports `1.0 RHYME`).
+`quality/build_song_frequency.py:71-79` already names this as a declared
+`accent_refusal` — and that disclosure lives in a BUILDER'S DOCSTRING and in
+no register entry, which is how it stayed invisible: F-4 celebrated keeping
+the letter while the tokenizer flattened it downstream, the same doctrine-50
+failure with the reader as the actor. **Not a regex change, a COORDINATE
+change:** `data/song_endword_en.tsv` and `data/song_rhymepair_en.tsv` were
+derived under the current tokenization (doctrine 91), and `fit.py` mirrors
+it, so widening the word class repins both tables and everything calibrated
+on them. ~1 day including the repins, and it should not be started casually.
 
 ---
 
@@ -596,7 +657,24 @@ songwriters in Rogers's *Modern Scottish Minstrel*, ~86 unclaimed
 refrain-bearing hymns in the Otterbein Hymnal, and all fourteen Gilbert &
 Sullivan libretti in GITenberg 808 with ~349 machine-separable number headings.
 
-### K-1a · The printed record is BIASED AGAINST the chorus `OPEN`
+### K-1a · The printed record is BIASED AGAINST the chorus `OPEN` — sized 2026-08-21, and the concentration is WORSE than recorded
+**SIZED 2026-08-21 (re-measured under the shipped rule).** Corpus totals:
+BURDEN 1,580 / REFRAIN 597 / CHORUS 290 over `eng_*` — and **one file,
+D'Urfey's songbook, is 567 of the 1,580 burdens (35.9%); two files are
+52.4%; only 101 of 1,297 files carry any repeat block at all.** The entry's
+"686 from one anthology" understates today's concentration. **No source-type
+coordinate exists** (`sources.tsv` has no such column; `corpus_taxonomy.py`
+has REGION and FUNCTION only, though 5 of the 9 FUNCTION evidence rules are
+already worded in source-type terms, and the filename cohort prefix would
+seed ~90% mechanically). **Smallest honest fix (~2–3 h): print the
+concentration beside the total** — `_d_repeat_blocks` returns the top-3
+contributing files with shares, `counters.py` renders them APPENDED after
+the parsed substring (both consuming regexes survive), and the number
+becomes un-quotable without its stratification, which is what this entry
+asks for. **The full fix — a declared `source_type` third axis with its own
+TSV and evidence rules — is a VOCABULARY DECISION and those are the owner's**
+(`mark_coverage.py` records the precedent); 12–20 h once the vocabulary is
+named, and it should not start before then.
 **Found 2026-08-10 and it is a property of the sources, not the extraction.**
 19th-century anthology editors set lyrics as continuous stanzas and drop the
 chorus; songsters and hymnals keep it. So refrain density in this corpus is a
@@ -1169,9 +1247,45 @@ Guarded by `quality/test_controls.py` and `quality/test_null_shapes.py`.
 `PARTIAL` — 152 Shakespeare sonnets vs 40 model sonnets, a 400-year register
 gap. Its own docstring calls it unvalidated as a general slop detector.
 
-### L-4 · The floor has two length profiles and they are both stanzas `OPEN`
-"4-line quatrain, 29–37 tokens" and "14-line sonnet". Anything else is an
-extrapolation and gets downgraded to a note. This is what shaped the demo song.
+### L-4 · ~~The floor has two length profiles and they are both stanzas~~ — THREE, and the third is a whole lyric sheet `CLOSED` 2026-08-21
+~~"4-line quatrain, 29–37 tokens" and "14-line sonnet". Anything else is an
+extrapolation and gets downgraded to a note.~~ The `song` profile landed
+2026-08-11 (`quality/floor.py:630`) — whole lyric sheet, 150–400 tokens, 3,571
+human items, tolerance 1.25 — so the premise that both profiles are stanzas is
+false and the count is off by one. This is what shaped the demo song:
+unchanged, and still true of the demo.
+
+**WHAT WAS NEVER A GAP.** "Anything else is an extrapolation and gets
+downgraded to a note" is not a defect, it is the DESIGN, stated in the module
+(`quality/floor.py:498`, `:514`) and pinned by six checks in
+`quality/test_floor.py` (`:209`, `:230`, `:350`, `:374`, `:388`). And it has
+been PRICED: out-of-range CLICHE_PAIR fires at 14.74% against 6.35% in band —
+2.3× — and that measurement is what forced `_relation_findings` through
+`sev()` like every other flag (`quality/floor.py:198-215`). A recorded
+limitation with a measured rate and a test that goes red is not an open entry.
+
+**WHAT SURVIVES IS NARROWER AND IT IS NOT ABOUT LENGTH — re-filed as L-4a**
+rather than left inside a headline about profile arithmetic.
+
+**Three stale citations found with this one, all saying "two":**
+`quality/floor.py:568` (a comment four lines above a three-element list),
+`BACKLOG.md`'s Tier-5 row — the one section that is supposed to be
+trustworthy about what does NOT exist — and `quality/FLOOR.md:39`'s
+two-column profile table. All three repinned with this close.
+
+### L-4a · The song profile has no generated class, so it carries a rate and no separation `OPEN`
+Split from L-4's close, 2026-08-21, because it was buried in a headline about
+profile arithmetic and it is not about length at all. `quality/floor.py`'s
+`song` profile ships with `n_generated = 0`: what it has is a false-positive
+rate on held-out human song text — the doctrine-22 statement of a threshold —
+and NO AUC, and `evidence_for` (`quality/floor.py:546`) refuses to let a
+caller borrow one (`quality/test_floor.py:436`, `:448` pin the refusal). So
+the floor can say *this human text does not trip the slop checks* at a known
+rate, and cannot say *the checks separate generated song lyrics from human
+ones*, because no generated song class exists in this repository. What is
+owed is a CORPUS, not a number — M-19's shape exactly. Until one exists this
+entry is doctrine 44's "cannot obtain" for the property, with the floor's own
+docstring (`quality/floor.py:124-131`) as the standing disclosure.
 
 ### L-5 · Doctrine has drifted toward auditing `CLOSED` 2026-08-11
 ~~`CLAUDE.md` carries 76 numbered items~~ ~~**102 numbered items, measured
@@ -1788,7 +1902,24 @@ directory is written by other cells, so the 11 is pinned to `debf64e` and
 re-derived rather than recorded; the live count is measured at run time by
 `python3 quality/verify_entries.py`.
 
-### M-7 · Doctrine 55's fix was right and its dash rule is over-general `OPEN`
+### M-7 · Doctrine 55's fix was right and its dash rule is over-general `OPEN` — sized 2026-08-21, and this entry's own proposed fix does not carry the load
+**SIZED 2026-08-21 (measured, not estimated).** The 72/72 reproduces exactly —
+6 llywelyn + 0 alun + 11 hwiangerddi + 54 mynyddog + 1 twm, medial dashes read
+as caesura by `cym._marked_parts()`. **But the positional rule this entry
+proposes (single + line-final = gwant, medial/paired = editorial) demotes only
+9 of the 72** — the paired shape — because 63 are a single medial dash, and a
+line-final dash never splits anything in the first place. The fix that carries
+the load is the one `relations.mark_printed_caesura(marks=("/","|"))` already
+ships: make the mark set a DECLARED COORDINATE on `cynghanedd`/`_marked_parts`
+(`quality/phonology/cym.py:655` is the whole rule today), defaulting to
+`/` and `|`, with an edition that prints the gwant opting the dash in. Blast
+radius, measured: `cynghanedd_rate.py` pins move (Alun marked 129→104, all
+croes/traws; Twm 5→4) and three tests rewrite (`test_phonology.py:493-497`,
+`test_relations.py:2103-2106`); the 57.1% headline is `caesura='search'` and
+does not move. **~2–3 h, a real sitting, not a quick win** — and note Alun
+prints zero `/` or `|`, so demote-and-declare means Alun must DECLARE the
+gwant to keep any marked reading, which is the honest outcome this entry
+argues for.
 The comma was correctly demoted from caesura to punctuation. In the same change
 the **dash was promoted to gwant on the evidence of one edition**. Across five
 further Welsh files the dash is punctuation **72 times out of 72**, and in the
@@ -2465,8 +2596,10 @@ the provenance of 117 named structures is gone for good.
 **Found 2026-08-11 by `quality/audit_register.py`, and it is the generalisation
 of four separate errors in this file.** Doctrine 58 says a bare n-of-N is a
 coordinate of a setting nobody wrote down. Section M shows the setting is not
-the only unwritten coordinate. Three entries quote **three incompatible sizes
-for one corpus**, none of them saying which object they mean:
+the only unwritten coordinate. Three entries quote ~~three incompatible sizes for one corpus~~ **sizes
+that were incompatible when this was written and are RECONCILED WITH A NAMED
+RESIDUE since 2026-08-11**, none of them, at the time, saying which object
+they meant:
 
 | | blocks | verse lines | tokens |
 |---|---:|---:|---:|
@@ -2474,6 +2607,24 @@ for one corpus**, none of them saying which object they mean:
 | M-3's stated population | 330 | 3,415 | 15,519 |
 | the same 330 blocks under the corpus file's own declared rule | 330 | **3,442** | **15,601** |
 | N-3 / `data/sources.tsv`, all indented blocks | 705 | 5,555 | — |
+
+> **THE LEDGER, 2026-08-21 — what of this entry's debt is paid.**
+> **PAID:** M-3 states population AND tokenisation in one place, citing this
+> entry by name, and decomposes its own 27-line / 82-token gap (72 + 10) with
+> the cause named — a line-level filter, seven swept, none landing;
+> `UNVERIFIABLE` with the missing thing named is that row's terminal state,
+> not an open measurement. M-4's Welsh row got the tighter form on
+> 2026-08-21 — the RULE beside the number with a one-line reproduce command —
+> and is the template. **UNPAID, one row:** M-4's Finnish `155 → 139` names
+> no tokeniser and no reason-code filter; `audit_register.py` D24 already
+> computes all three candidate readings (read / refused / defective) and
+> cannot recover WHICH the row meant, so what is owed is a decision, not a
+> run. **AND THE INSTRUMENT CAUGHT ITSELF:** the population scanner behind
+> this entry's own check read M-4's new Welsh line counts (33, 35) as Malay
+> corpus sizes — it scans three entries for `N lines` with no language
+> coordinate. Fixed 2026-08-21 by scoping the scan to paragraphs that name
+> the Malay corpus; the checker built to catch substituted populations had
+> substituted one.
 
 A factor of seven between the first two, **and the first was used to refute a
 measurement taken on the second** (M-4). Reproducing a number checks the
@@ -2497,8 +2648,12 @@ own total, two figures sharing a denominator that exceeds it, an enumeration
 whose length contradicts its summary — and it re-finds `384 + 300 > 471` from
 the prose alone. **Run it before committing a change to this file.**
 
-**Coverage is the honest part of this entry:** 70 entries, all 70 carry numbers,
-**681 numbers in total**, and 51 entries still have no check at all. This round
+**Coverage is the honest part of this entry:** ~~70 entries, all 70 carry
+numbers, **681 numbers in total**, and 51 entries still have no check at
+all.~~ **REPINNED 2026-08-21, re-derived by `python3 quality/audit_register.py`
+§5: 77 entries, 77 carry numbers, 2,278 numbers in total, 58 with no check** —
+every one of the four figures had moved, in an entry ABOUT numbers whose
+population is a coordinate. This round
 touched roughly a quarter of the register's entries.
 
 ### M-19 · The nucleus threshold cannot be priced on the only corpus we have `OPEN`

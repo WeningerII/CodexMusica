@@ -565,10 +565,14 @@ class Profile:
                 "songwriter, not whether it catches a machine" % f)
 
 
-#: Both profiles come from the SAME two classes -- the 152 sonnets and the 40
-#: generated ones -- measured at two units. The section profile takes the
-#: three quatrains of each sonnet (lines 1-4, 5-8, 9-12), which is the closest
-#: thing to a song section that this corpus contains.
+#: ~~Both profiles~~ THE TWO STANZA PROFILES come from the SAME two classes --
+#: the 152 sonnets and the 40 generated ones -- measured at two units. The
+#: section profile takes the three quatrains of each sonnet (lines 1-4, 5-8,
+#: 9-12), which is the closest thing to a song section that this corpus
+#: contains. The THIRD profile (`song`, added 2026-08-11) is a different kind
+#: of calibration and says so in its own block below; this comment said
+#: "both" for ten days after the list stopped having two members (L-4,
+#: closed 2026-08-21 on exactly that staleness).
 PROFILES = [
     Profile(
         name="section", unit="4-line quatrain, 29-37 tokens",
