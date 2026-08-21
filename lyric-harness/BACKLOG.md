@@ -321,6 +321,17 @@ and this heading did not say so, so the two files disagreed about whether a TIER
 `STATUS_XREF`.
 
 ### 2.4 · The `&c.` refrain stub is not an English convention `M-4`
+**THREE OF FOUR SHIPPED; WELSH DID NOT — MEASURED 2026-08-21.**
+`lyric_harness.CHORUS_STUB_FORMS` declares `eng` (`&c.`/`etc.`), `fin`
+(`j. n. e.`) and `msa` (`d. s. b.`), each returning its LANGUAGE as a
+coordinate through `chorus_stub_match` — which is the fix this entry asks
+for. This entry's own last sentence says *"Welsh makes it four languages"*,
+and `chorus_stub_match('Y gan a ganwyd, ac ati.')` returns `None`. So the
+entry is PARTIAL rather than open or closed, and the remaining work is one
+anchored pattern plus the corpus evidence for it.
+**TESTED WHILE OPEN** — `test_spans.py` §8 guards the three that shipped
+(`quality/triage.py`).
+
 Finnish `j. n. e.` is **100%** of the two Kanteletar files' unreadable tokens
 (16 tokens on 8 stub lines, CONFIRMED to the token); Malay `d. s. b.` is
 **305 of 471** — the row that was withdrawn on 2026-08-11 and reinstated the
@@ -328,7 +339,7 @@ same day, because the withdrawing grep read the 129-block staged extract while
 the claim was about the 705-block source (`M-18`). Both are end-of-line, so the
 existing anchored regex extends directly. Welsh makes it four languages.
 
-### 2.5 · ~~`RelationSchema.traditions` is declared on 77 schemas, populated on 0~~ — **75 of 77 populated** `M-15`
+### 2.5 · ~~`RelationSchema.traditions` is declared on 77 schemas, populated on 0~~ — **75 of 77 populated** `M-15` — `CLOSED 2026-08-21`
 ~~populated on 0~~. Measured by `python3 quality/audit_register.py --provenance`
 (derivation D21): **77 schemas, 75 carrying traditions, 298 distinct `Tradition`
 rows over 319 attachments**. The two with no tradition at all are `blues AAB
@@ -1223,7 +1234,7 @@ never one (doctrine 79).
 | MISSING entries by status | 47 OPEN / 15 PARTIAL / 2 BLOCKED / 11 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
-| public symbols by where they are referenced | **1118** DECLARED-public top-level functions/classes under `quality/` and the root — **186** named by another production module, **299** by tests only, **567** only inside their own module, **11** by nothing anywhere, **55** REFUSED (39 ambiguous, 9 dynamic, 7 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **20** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
+| public symbols by where they are referenced | **1125** DECLARED-public top-level functions/classes under `quality/` and the root — **186** named by another production module, **302** by tests only, **570** only inside their own module, **11** by nothing anywhere, **56** REFUSED (40 ambiguous, 9 dynamic, 7 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **20** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
 | mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |

@@ -22,6 +22,11 @@ with the constraint named).
 ## A. Notation and scheme representation
 
 ### A-1 · Capital/lowercase refrain notation `OPEN`
+**TESTED WHILE OPEN.** `test_english_text.py` and `test_song_function.py`
+name this entry to PIN THE GAP, not to guard a fix — the citation reads
+"the repo cannot represent it (MISSING.md A-1)". A test that asserts an
+absence is the correct shape for an open entry and must not be read as
+evidence it closed (`quality/triage.py`).
 **Now (verified 2026-08-10):** `quality/schemes.py` `parse()` handles `X` and
 `.` as unrhymed singletons and letters as rhyme classes. Nothing else.
 **Missing:** the standard prosodic convention where **capital = a line repeated
@@ -153,6 +158,19 @@ measurement, the difference between a line that lands and one that drags.
 ## D. Song architecture
 
 ### D-1 · Sections have no FUNCTION `OPEN`
+> **THIS ENTRY'S OWN `Now (verified)` CLAUSE IS FALSE AT HEAD — 2026-08-21.**
+> It reads *"`Section` fields are exactly `name, bars, meter, start_bar`"*.
+> `grid.Section` carries **`function`** as a fifth field, `SECTION_FUNCTIONS`
+> is the declared vocabulary this entry asks for, `song_function_report`
+> grades against it and the `function` verb reaches it from the CLI. How much
+> of the entry that closes is a reading of the rest of it and is NOT decided
+> here; what is decided is that the verified clause must not be quoted as
+> live (doctrine 17).
+>
+> **AND NO INSTRUMENT FOUND THIS — a human reading the queue did.** No test
+> names D-1, so `quality/triage.py` puts it in UNGUARDED, which is that
+> file's OWN stated blind spot: it sorts by whether the tree names an entry
+> and cannot see an entry nothing cites. Recorded here as the worked example.
 **Now (verified):** `Section` fields are exactly `name, bars, meter,
 start_bar`. `name` is a free string.
 **Missing:** a declared section-function vocabulary — intro, verse, pre-chorus,
@@ -264,6 +282,9 @@ matrix takes this to −0.000 and is not shipped.
 ## F. Language coverage
 
 ### F-1 · ~~Eight~~ NINE phonologies, and English IS one now `PARTIAL`
+**TESTED WHILE OPEN.** The phonology suites name this entry as the ROSTER
+they are counting against; the roster grows and the entry stays PARTIAL
+until it stops (`quality/triage.py`).
 ~~**Now:** `cym fas fin ltc msa non san som`. English runs on the old CMUdict
 path and is not a declared module.~~
 **The English half is CLOSED, 2026-08-11.** `quality/phonology/` holds **nine**
@@ -278,6 +299,9 @@ Japanese, Korean, Mandarin, Cantonese, Vietnamese, Thai, Indonesian, Tagalog,
 Yoruba, Swahili, Zulu, Amharic, Irish, Scots Gaelic, Quechua, Nahuatl.
 
 ### F-2 · Whole rhyme MECHANISMS are unrepresented `OPEN`
+**TESTED WHILE OPEN.** `test_declared_inputs.py` pins the ABSENT field —
+"closing R6 means adding the field, which is ordinary scheduled work" —
+so the test tracks the gap rather than guarding a fix (`quality/triage.py`).
 **Missing:** tone-contour rhyme (Cantonese, Vietnamese, Thai, Yoruba,
 Mandarin); pitch accent (Japanese, Norwegian, Swedish, Serbo-Croatian); vowel
 harmony (Turkish, Finnish, Hungarian) as a rhyme constraint; consonant mutation
@@ -340,6 +364,9 @@ silently changes the phonology.
 ## G. Syllable and prosodic fit
 
 ### G-1 · No syllable-to-beat mapping `OPEN`
+**TESTED WHILE OPEN.** `test_fit.py` asserts that the `NO_SETTING` REFUSAL
+names G-1 and is PERMANENT. What is under test is the DISCLOSURE of the
+gap, which is exactly what an open entry should have (`quality/triage.py`).
 **Now:** a `Line` has a duration in beats and no idea how many syllables it
 holds.
 **Missing:** syllable placement on the grid, therefore any check that a line
@@ -360,6 +387,11 @@ It has no relationship to `quality/grid.py`.
 ## H. Semantics and craft
 
 ### H-1 · Nothing measures meaning on the WRITING path `OPEN`
+**TESTED WHILE OPEN.** `quality/phrase_commonplace.py` is the PHRASE SLICE
+of this entry and carries its own suite, which names H-1 as its subject. A
+part delivery with tests is not the entry closing — the concreteness half
+still reaches the discriminator and not the writing path
+(`quality/triage.py`).
 **CORRECTED 2026-08-10 — the original entry was WRONG.** `concreteness.txt` IS
 used: `quality/features.py` computes `concreteness_mean` and
 `concreteness_p90`, and `quality/discriminate.py` consumes them. The true and
@@ -772,6 +804,10 @@ and testing it is an egress block, which doctrine 49 says is a claim about the
 network at a moment rather than about the world.
 
 ### K-6 · ~~Eight non-English phonologies, ZERO songs~~ — **six of the eight now have song text; two still have none** `OPEN`
+**TESTED WHILE OPEN.** `test_readability.py` names K-6 while asserting the
+corpus is no longer monolingual — it tracks PROGRESS on the entry, and the
+entry's own heading says two of the eight still have none
+(`quality/triage.py`).
 **Found 2026-08-10, while closing K-1.** K-1 built a song corpus and every one
 of its 143 files is English. The eight phonology cells (cym fin fas ltc msa non
 san som) between them hold **five** text files, across three languages —
@@ -1195,6 +1231,10 @@ and an entry going CLOSED is not a licence to un-withdraw a number (doctrine
 17). What is closed is the DEFECT, which was never the arithmetic.
 
 ### M-2 · `data/qieyun_mc.tsv` is keyed on ONE orthographic norm `OPEN`
+**TESTED WHILE OPEN.** `test_ltc.py` names this entry to record that one of
+its claims is FALSIFIED — 你 is in the rime book under 伱 — while the entry
+as a whole stands. A test that refutes part of an entry is a reason to READ
+the entry, not evidence it closed (`quality/triage.py`).
 **魂 — the character that NAMES the 魂 rhyme group — cannot be looked up**, while
 477 characters carry 魂 as their rhyme label. 窗 is absent; 窓/牕/窻 are present.
 Of the 24 commonest unreadable characters in a real ci corpus, **19 are
@@ -1391,6 +1431,10 @@ population next to the zero, or the next reader inherits a "0" that is true of a
 one-seventh extract.**
 
 ### M-4 · The `&c.` refrain stub is not an English printing convention `PARTIAL`
+**TESTED WHILE OPEN, and the remainder is NAMED: WELSH.** Three of the four
+languages ship in `CHORUS_STUB_FORMS` and return their language as a
+coordinate; `ac ati` matches nothing (measured 2026-08-21). `BACKLOG.md`
+§2.4 carries the same finding (`quality/triage.py`).
 A-1 frames its 941 instances around English songsters. The same mechanism does
 the same job in the same position in other languages, and the code that handles
 the English case knew none of them.

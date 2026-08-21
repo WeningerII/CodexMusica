@@ -911,6 +911,13 @@ jobs:
       # (46,860 rows / 1,627,624 bytes against 131,373 / 4,764,993) for three
       # commits, invisible to every instrument here. Fixed by hand, which is
       # the fix that does not stay fixed.
+      - name: Register triage (no OPEN entry is named by a regression without saying why)
+        if: always()
+        working-directory: lyric-harness
+        run: |
+          python3 quality/triage.py --check
+          python3 quality/test_triage.py
+
       - name: data/sources.tsv rows against the files they describe
         if: always()
         working-directory: lyric-harness
