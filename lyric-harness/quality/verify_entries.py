@@ -818,14 +818,25 @@ def shape_repo_path(seg):
 
 # --- shape 4: STAGED_FILE_COUNT (VOLATILE) --------------------------------
 
+#: THE NUMBER MAY BE COMMA-GROUPED, AND UNTIL 2026-08-21 IT COULD NOT BE.
+#: `\d+` after a `\b` reads "1,297 English files" as **297** -- the word
+#: boundary sits inside the comma, so the thousands digit is silently dropped.
+#: That was found when a repinned entry saying 1,297 was reported FALSE against
+#: a measured 1,297, and it is the less dangerous half of the bug: the same
+#: misread turns a TRUE verdict out of a stale "1,143 English files" the moment
+#: the real count reaches 143. A shape that can pass for the wrong reason is
+#: doctrine 48's subject, and this one could do it in both directions.
+#: House style in this repo groups thousands, so every corpus claim written
+#: after the load was invisible to this check.
+_NUM = (r"\d{1,3}(?:,\d{3})+|\d+|one|two|three|four|five|six|seven|eight|"
+        r"nine|ten|eleven|twelve")
+_LANG = (r"English|Persian|Finnish|Welsh|Malay|Sanskrit|Middle Chinese|Chinese")
 STAGED_RE = re.compile(
-    r"\b(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+"
-    r"(?:of\s+the\s+)?(?:staged\s+)?(English|Persian|Finnish|Welsh|Malay|"
-    r"Sanskrit|Middle Chinese|Chinese)\s+(?:files|texts)\b", re.I)
+    r"\b(" + _NUM + r")\s+"
+    r"(?:of\s+the\s+)?(?:staged\s+)?(" + _LANG + r")\s+(?:files|texts)\b",
+    re.I)
 STAGED_RE2 = re.compile(
-    r"\bthe\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve)\s+"
-    r"staged\s+(English|Persian|Finnish|Welsh|Malay|Sanskrit|Middle Chinese|"
-    r"Chinese)\s+files\b", re.I)
+    r"\bthe\s+(" + _NUM + r")\s+staged\s+(" + _LANG + r")\s+files\b", re.I)
 
 
 def shape_staged_file_count(seg):
@@ -849,7 +860,7 @@ def shape_staged_file_count(seg):
     tok, lang = m.group(1).lower(), m.group(2).lower()
     claimed = NUMWORD.get(tok, None)
     if claimed is None:
-        claimed = int(tok)
+        claimed = int(tok.replace(",", ""))
     prefix = LANG_PREFIX[lang]
     actual = len(song_files(prefix))
     return Verdict("STAGED_FILE_COUNT", TRUE if claimed == actual else FALSE,

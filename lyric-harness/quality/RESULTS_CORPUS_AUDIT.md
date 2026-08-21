@@ -590,7 +590,14 @@ trees present or absent, so there is no excuse for skipping it.
 
 > **REPINNED 2026-08-20 (second sitting): 830 findings — 1 FAIL, 231
 > WARN, 598 NOTE**, over **742 files** (~~514 files, 429 NOTE~~, earlier
-> the same day). The **Tier-1 concurrent load** staged every remaining
+> the same day, and ~~748 files, 601 NOTE~~ between the two — the
+> Tier-1 load's own reading, superseded hours later by `01bc0e67` when
+> six cross-book spelling-variant twins merged and took six files and
+> three NOTEs out with them. THAT PAIR HAD VANISHED RATHER THAN BEEN
+> STRUCK, and `verify_entries.py` failed on it for a day: a superseded
+> pin that is simply absent is indistinguishable from one that never
+> existed, which is the half of doctrine 17 that is easy to skip when
+> the move is small and the same commit is busy doing something else.) The **Tier-1 concurrent load** staged every remaining
 > personally-attributed item from five already-licence-ADMITted song
 > anthologies: Southern War Songs (PG37538), American War Ballads vol. 2
 > (PG54211), the Golden Treasury of American Songs and Lyrics (PG15553),

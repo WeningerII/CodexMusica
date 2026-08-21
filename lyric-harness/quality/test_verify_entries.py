@@ -33,6 +33,7 @@ which is the failure this whole layer exists to catch.
 from __future__ import annotations
 
 import os
+import re
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -40,6 +41,7 @@ ROOT = os.path.dirname(HERE)
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
+import quality.verify_entries as VE  # noqa: E402
 from quality.verify_entries import (           # noqa: E402
     FALSE, PROSE_DOCS, PROSE_SHAPES, REFUSED, TRUE,
     prose_entry, prose_self_test, read_prose, shape_repo_path, sweep_prose,
@@ -224,6 +226,48 @@ def test_shipped_probes():
         check(name, reason == "ok", reason)
 
 
+# ---------------------------------------------------------------------------
+# 7. A comma-grouped count is read whole, in BOTH directions
+# ---------------------------------------------------------------------------
+
+
+def test_comma_grouped_counts_are_read_whole():
+    """`\b\d+` reads "1,297 English files" as 297 — the word boundary sits
+    inside the comma and the thousands digit is silently dropped.
+
+    THE FALSE-FAIL HALF is how it was found (2026-08-21): an entry repinned to
+    the true 1,297 was reported FALSE against a measured 1,297. THE FALSE-PASS
+    HALF is why it is pinned here rather than just fixed — the identical
+    misread turns a stale "1,143 English files" TRUE the moment the real count
+    reaches 143, and a shape that can pass for the wrong reason is worth more
+    than a shape that fails for the wrong reason (doctrine 48). House style in
+    this repo groups thousands, so every corpus claim written after the load
+    was invisible to this check.
+    """
+    print("\n7. a comma-grouped count is read whole")
+    for text, want in (("1,297 English files", 1297),
+                       ("the 1,297 staged English files", 1297),
+                       ("297 English files", 297),
+                       ("143 English files", 143),
+                       ("12,000 Persian texts", 12000)):
+        m = VE.STAGED_RE2.search(text) or VE.STAGED_RE.search(text)
+        got = None
+        if m:
+            tok = m.group(1).lower()
+            got = VE.NUMWORD.get(tok)
+            if got is None:
+                got = int(tok.replace(",", ""))
+        check("%-32s reads as %s" % (repr(text), want), got == want,
+              "got %r" % (got,))
+    # The false-PASS direction, stated as the thing the old pattern could do:
+    old = re.compile(r"\b(\d+)\s+(?:staged\s+)?English\s+files\b", re.I)
+    m = old.search("1,143 English files")
+    check("the OLD pattern would have read '1,143 English files' as 143 — "
+          "a stale claim passing against a real 143",
+          m is not None and m.group(1) == "143",
+          "this is the mutant, not the fix: it must still misread")
+
+
 def main():
     print("=" * 78)
     print("PROSE SCOPE — quality/verify_entries.py")
@@ -234,6 +278,7 @@ def main():
     test_struck_paths_are_not_claims()
     test_scope_is_declared_and_readable()
     test_shipped_probes()
+    test_comma_grouped_counts_are_read_whole()
     print()
     print("=" * 78)
     if _FAILURES:
