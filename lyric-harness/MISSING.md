@@ -3800,4 +3800,66 @@ phrase-layer object, its complement is 重頭, and the boundary's own name is
 (55.9%) two-片 poems have equal-length halves**, so the term is indicatively
 wrong for a majority of the poems those headers describe.
 
+### M-26 · The variation ladder answers VERBATIM to traditions whose variation is not in the words `OPEN`
+**Found 2026-08-21 by two tradition surveys that hit it independently, from
+opposite ends of the Indian subcontinent, and confirmed here by construction.**
+
+`quality/grid.py`'s `VARIATION_KINDS` is 15 named kinds and **every one
+compares WORD CONTENT.** So a return that holds the text fixed and varies
+something else scores **`VERBATIM`** — the strongest available claim that
+nothing changed.
+
+- **Carnatic `sangati`**: the defining device of a kṛti's exposition. It holds
+  the *sāhitya* (the text) fixed and varies the melodic line. Every sangati in
+  a song therefore returns `VERBATIM`.
+- **Hindustani `bol-baant`**: variation by redistributing the SAME words across
+  the tāla. Identical words, different rhythmic placement — `VERBATIM` again.
+
+**THIS IS NOT THE HARNESS OVERREACHING ITS TEXT, IT IS THE HARNESS MISREPORTING
+ITS SILENCE.** Doctrine 93 is satisfied — melody and placement are not in a
+lyric sheet and this layer should not claim them. The defect is that
+`compare_returns` HAS a refusal channel (`Return.refusals`, today
+`STUB_RETURN` / `NO_RHYME_KEY` / `END_WORD_UNREADABLE`, and `NO_RHYME_KEY`
+refuses *"a silent default here would make a claim about a language nobody
+named"*) **and no member of it says "the channel this tradition varies is not
+in the text."** Doctrine 20 exactly: inconclusive-by-construction returned as
+a null, and here as the most positive null the vocabulary has.
+
+**TWO FURTHER GAPS IN THE SAME LADDER, measured by construction rather than
+taken on report — and BOTH ARE NARROWER THAN THE SURVEYS CLAIMED.**
+
+| constructed return | ladder says | `invariant_lines` |
+|---|---|---|
+| all 4 lines return, **order changed** | `ANAPHORIC_RETURN` | `()` |
+| same body, **final line substituted** (ouvert/clos) | `LEXICAL_VARIATION` | `(1, 2, 3)` |
+| *control:* one **interior** line changed | `LEXICAL_VARIATION` | `(1, 3, 4)` |
+| *control:* verbatim | `VERBATIM` | `(1, 2, 3, 4)` |
+
+1. **A RESEQUENCED RETURN HAS NO NAME.** Every line came back and the ladder
+   reports a kind about heads recurring. `invariant_lines` is `()` and that is
+   **defensible** — the field is documented as *"indices WITHIN the section
+   that survived unchanged"*, i.e. positional, and the alignment is
+   order-preserving by construction. So the survey's claim that the field is
+   FALSE is **not** carried here; what is carried is that no kind can say
+   *same lines, resequenced*, and the kind it does report is a positive claim
+   about a different property.
+2. **A SUBSTITUTED CADENCE IS INDISTINGUISHABLE FROM AN INCIDENTAL EDIT.**
+   Rows 2 and 3 of the table are the same verdict on two different objects.
+   The ouvert/clos pair — one body, two endings, open and closed — is a named
+   formal device in the estampie, the virelai, the ballade and the medieval
+   dance repertory generally, and it reports what a typo would.
+   `HEAD_PRESERVED` and `TAIL_PRESERVED` show position IS partly modelled, so
+   this is a missing member rather than a missing axis. The surveys proposed
+   `PARTIAL_RETURN` and `CADENCE_SUBSTITUTED` as the observed and wanted
+   labels respectively; **neither reproduces here** — the observed label is
+   `LEXICAL_VARIATION`, and that is the figure this entry carries.
+
+**WHAT IS OWED, and the cheap half is not the ladder.** The refusal member is
+the cheap half and it is the one that stops a wrong answer: a declared
+`VARIES_OFF_TEXT` refusal, reachable when a tradition declares that its
+variation channel is not the words, turns a false `VERBATIM` into a stated
+`cannot tell`. The two missing KINDS are a preregistration each and neither is
+urgent, because both misreport a shape rather than assert a falsehood. **The
+`VERBATIM` is the one that lies.**
+
 ## Add below this line
