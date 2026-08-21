@@ -1603,6 +1603,22 @@ jobs:
       # Exits 0 on PARTIAL PASS with the counts on the line; proven to exit 1
       # by perturbing floor.py's `mattr_min` 0.7226 -> 0.7500, which it caught
       # and named. The FULL sweep is a different thing and runs nightly.
+      # EXPECTED RED FROM 2026-08-20 UNTIL THE PROFILE IS RE-ADOPTED, and
+      # saying so here is the alternative to silencing it. The closing sitting
+      # re-derived this over the loaded corpus and three thresholds drifted --
+      # mattr 0.7226 -> 0.7128, fwr 0.4716 -> 0.4773, cv 0.1123 -> 0.1094 --
+      # while all five held-out FPRs stayed on target and anaphora's threshold
+      # did not move. That is a corpus change, not a defect, and the check is
+      # doing exactly its job by refusing to pass.
+      #
+      # IT IS NOT REPINNED YET, DELIBERATELY. This pass REFUSES the five
+      # predictability-dependent constants by name; adopting the three that
+      # drifted while leaving `predictability` on its old value would make
+      # floor.py's `song` profile half a description of one corpus and half of
+      # another (doctrine 1). The profile is adopted as a SET, and the set
+      # needs the full arm -- which the `nightly` job is now banking in
+      # bounded, resumable slices. WHAT CLEARS THIS STEP is that adoption, not
+      # an edit here.
       - name: Song-profile calibration, the checks that do not need the field sweep
         if: always()
         working-directory: lyric-harness
@@ -1734,9 +1750,16 @@ jobs:
 
       # song_profile_calibration's memo lives OUTSIDE the repo, at
       # ~/.cache/lyric-harness/song_predictability_v1.tsv, which is what makes
-      # a nightly full --check affordable at all: 2.0-2.2 CPU-HOURS cold
-      # against ~85 CPU-s warm, and it is explicitly resumable. Restoring this
-      # is the difference between a job that finishes and one that times out.
+      # a nightly full --check affordable at all: ~85 CPU-s warm against a
+      # cold cost that is now ~18 CPU-HOURS, and it is explicitly resumable.
+      # Restoring this is the difference between a job that finishes and one
+      # that times out.
+      #
+      # REPINNED 2026-08-20: the cold figure read "2.0-2.2 CPU-HOURS" and was
+      # measured over a 4,930-item corpus. The loading campaign took that to
+      # 8,667 items, and the per-item cost was MEASURED at ~7.5 CPU-s over two
+      # flush intervals -- so cold is ~18 hours, not two, and the step below
+      # pays it in bounded nightly slices rather than pretending it fits.
       - name: Restore the predictability memo
         uses: actions/cache@v4
         with:
@@ -1857,11 +1880,65 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/kalevala_calibration.py --check
 
-      - name: Song-profile calibration, full (warm off the cache above)
+      # THE FULL ARM IS NOW BOUNDED AND RESUMABLE, HANDED HERE BY THE OWNER
+      # 2026-08-20 because it cannot finish anywhere else. The corpus grew
+      # 4,930 -> 8,667 items in the loading campaign, and the cold cost grew
+      # with it: MEASURED at ~7.5 CPU-s per item over two flush intervals, so
+      # ~18 CPU-HOURS cold, against the 2.0-2.2 the comment on the cache step
+      # above still quotes for the old corpus. That does not fit this job's
+      # 240-minute budget and it does not fit a dev container either -- two
+      # attempts there died, one to an orphaned process and one to a container
+      # restart.
+      #
+      # WHY A BOUND MAKES IT FINISHABLE RATHER THAN GIVING UP. The memo flushes
+      # ATOMICALLY EVERY 200 ITEMS and is keyed per item, so a run that is cut
+      # short still advances it permanently; `actions/cache` above restores the
+      # newest previous memo by prefix and saves a fresh one under this run's
+      # id. So each nightly pays a bounded slice, banks it, and the next one
+      # starts further along -- the module's own docstring calls this "payable
+      # in chunks by someone who does not have 2.1 CPU-hours at once", and this
+      # is that sentence wired up. Roughly five nights of slices covers 8,667
+      # items, after which the run completes warm in ~85 CPU-s and STAYS warm.
+      #
+      # THE BOUND IS INSIDE THE STEP, NOT THE JOB, AND THAT IS THE WHOLE TRICK.
+      # If the JOB hits `timeout-minutes` it is cancelled and the cache's post
+      # step can be skipped -- the slice would be computed and thrown away,
+      # every night, forever. A `timeout` inside the step makes the process
+      # exit cleanly well inside the budget, so the post step always runs and
+      # the slice is always banked.
+      #
+      # THREE OUTCOMES, KEPT APART (doctrine 79). 0 = the constants re-derive.
+      # 1 = DRIFT, a real answer and a real failure. 124 = the slice ran out of
+      # time, which is neither: it is progress, and it reports how much.
+      - name: Song-profile calibration, full (bounded slice, resumable memo)
         if: always()
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
           MKL_NUM_THREADS: '1'
           OPENBLAS_NUM_THREADS: '1'
-        run: python3 quality/song_profile_calibration.py --check
+        run: |
+          MEMO=~/.cache/lyric-harness/song_predictability_v1.tsv
+          # `grep -c` EXITS 1 ON A ZERO COUNT, so the obvious
+          # `$(grep -vc ... || echo 0)` yields the two-line string "0\n0" on a
+          # fresh memo and breaks the arithmetic below. Proven locally before
+          # this shipped; the default-expansion form is the one that holds.
+          before=$(grep -vc '^#' "$MEMO" 2>/dev/null); before=${before:-0}
+          set +e
+          timeout 150m python3 quality/song_profile_calibration.py --check
+          rc=$?
+          set -e
+          after=$(grep -vc '^#' "$MEMO" 2>/dev/null); after=${after:-0}
+          echo "memo: $before -> $after items (+$((after - before)) banked this run)"
+          case $rc in
+            0) echo "COMPLETE — the shipped constants re-derive over the whole corpus." ;;
+            1) echo "DRIFT — the constants no longer describe corpus/song/."
+               echo "Argue it and repin as a SET; do not tune to it (doctrine 58)."
+               exit 1 ;;
+            124) echo "BOUNDED SLICE — not a failure and not a pass: the run hit"
+                 echo "its 150m budget with the memo advanced and banked. The next"
+                 echo "nightly resumes from it. A slice that banks ZERO new items"
+                 echo "twice running is the thing to investigate, not this."
+                 [ "$after" -gt "$before" ] || { echo "NO PROGRESS BANKED"; exit 1; } ;;
+            *) echo "UNEXPECTED exit $rc"; exit $rc ;;
+          esac
