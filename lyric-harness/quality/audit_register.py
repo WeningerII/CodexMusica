@@ -2046,6 +2046,16 @@ PINNED = {
     #    profile has a rate and no separation; the generated class is the
     #    corpus that does not exist) and `F-4a` (the reader flattens the
     #    letter the transcription kept) — while closing L-4, M-17 and D-1.
+    #    REPINNED AGAIN 2026-08-21 (fourth move today): 79 -> 84. The Wave A
+    #    tradition surveys filed five entries in one sitting — `M-22` (the
+    #    census tokeniser), `M-23` (no `kind="partition"`), `M-24` (the section
+    #    vocabulary has no language coordinate), `M-25` (three staging
+    #    defects) and `M-26` (the variation ladder answers VERBATIM off-text).
+    #    AND THIS PIN WENT RED IN CI RATHER THAN AT THE DESK, which is `M-21`'s
+    #    own finding happening to the session that widened `M-21`: every one of
+    #    those five commits ran `counters.py --write`, and `counters.py` does
+    #    not touch THIS number. Two media, one fact, no grep that finds both —
+    #    the pin below is the second medium and it was moved four commits late.
     #    The first was: `M-20` was filed that day —
     #    two English poems staged TWICE in their own file, found when the
     #    named air was split out of the title (BACKLOG 3.2). That is what the
@@ -2055,7 +2065,7 @@ PINNED = {
     #    the ORDINARY way this figure moves and the pin is what makes filing
     #    one a decision rather than a diff; `coverage_audited` is unmoved at
     #    19 because M-20 carries no audited claim of its own yet.
-    "coverage_entries": 79,
+    "coverage_entries": 84,
     "coverage_audited": 19,
 }
 
