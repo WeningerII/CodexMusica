@@ -2030,7 +2030,8 @@ def main(argv=None):
         if not bad:
             # Disclosed on the clean path too, so a SHRINKING inventory is
             # visible by eye and not only by an exit code nobody reads: a
-            # deleted mutation leaves 57/57 behind, and only these numbers move
+            # deleted mutation leaves N/N behind at any N, and only these
+            # numbers move
             # (`quality/test_mutation.py` section 1 is what asserts them).
             series = collections.Counter(
                 "M-series" if m.name.startswith("M") else "Q-series"

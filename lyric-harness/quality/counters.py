@@ -103,7 +103,7 @@ WHAT `--write` MAY NOT WRITE, AND WHY THE REMEDY HAD A HOLE IN IT.
 Found 2026-08-14 by an adversary pointed at the REMEDY rather than at the
 check, and measured end to end in a `mutate.build_shadow` tree.
 
-`quality/mutate.py` declares 57 mutations, each anchored on an EXACT text match
+`quality/mutate.py` declares 58 mutations, each anchored on an EXACT text match
 in a source file. A sibling lot's refactor moves the code, the anchor stops
 matching, `mutations_declared()` raises, and `Counter.measure` turns the raise
 into `Refused(COST, ...)`. `--check` goes correctly RED. But `--check`'s own
@@ -1138,7 +1138,7 @@ def mutations_declared():
         # verbatim through the laundering path this file now closes.
         #
         # AND `n - applied` IS A COUNT OF MUTATIONS, NOT OF EDITS, which the
-        # message now says on its face. Two of the 57 mutations share their
+        # message now says on its face. Two of the 58 mutations share their
         # anchor with another (M3/M5 and M14/M15 both anchor on one exact line
         # of `lyric_harness.py`), so a single refactor at either site drifts
         # TWO mutations and this count moves by two. `2 of 57` must not be read
@@ -1276,7 +1276,7 @@ def mutations_caught():
     mutations were not re-run at all. The honest artifact would read "24 of 57
     have a verdict, from two runs at two bounds" -- a COVERAGE statement about
     the sweep, not a caught count about the suite -- and the cheap half of
-    that, "do all 57 still apply to the current source", is already measured
+    that, "do all 58 still apply to the current source", is already measured
     by `mutations_declared()` above at `--dry-run` cost.
 
     So: the number stays refused for COST, and the refusal now says what it is
