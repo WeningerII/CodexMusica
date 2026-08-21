@@ -676,9 +676,35 @@ FALSE against a tree that does not contain it.
 
 ## K. Corpora and evidence
 
-### K-1 · There is no SONG corpus `PARTIAL` — largely closed 2026-08-10
+### K-1 · There is no SONG corpus `PARTIAL` — closed at 143 files; the 1,297-file corpus has never been audited under this entry
 **Was:** Shakespeare's sonnets and Whitman. Neither is a song.
-**Now:** `corpus/song/` at commit `06857f8` — **143 authors, ~~5,006~~ 4,993
+
+> **REPINNED 2026-08-21, AND THE HEADLINE WAS THE WORD `Now`.** Everything in
+> the block below is a claim about the tree at `06857f8` (2026-08-10) and
+> re-derives there exactly — commit-pinning did its job and nothing here is
+> withdrawn. What was false is calling it the corpus: three mass loads have
+> run since, and **this entry's own named-airs paragraph, further down, already
+> measures the 1,297-file tree** while this one describes a 143-file one, with
+> no sentence telling a reader which is which.
+>
+> **LIVE, at HEAD:** `corpus/song/eng_*.txt` is **1,297 files / 8,667 songs /
+> 283,515 sung lines**, with **2,467 marked repeat blocks (1,580 BURDEN, 597
+> REFRAIN, 290 CHORUS)**. The sung-line count is a coordinate of the reader and
+> is stated as `lyric_harness.is_apparatus_line`'s — the one predicate every
+> verb shares — because a hand-spelled filter gives 283,717 over the same files
+> and the two are not the same question (doctrine 58's rule half).
+>
+> **AND THE DIRECTION OF THE DRIFT IS THE FINDING, not the size of it.** Songs
+> rose **+73.6%** (4,993 → 8,667) and sung lines **+84.7%**, while marked
+> repeat blocks moved **2,443 → 2,467, +1.0%** — and inside that total BURDEN
+> *fell* (1,592 → 1,580) and REFRAIN *fell* (604 → 597), with only CHORUS
+> rising (247 → 290). Three mass loads added some 3,700 songs and about a
+> dozen net repeat blocks. **`K-1a`'s finding — that the printed record's
+> chorus is concentrated rather than representative — got WORSE under the
+> loads, not better**, and `K-1a` carries the current triple where this entry
+> does not.
+
+**At `06857f8`:** `corpus/song/` — **143 authors, ~~5,006~~ 4,993
 songs, ~~154,346~~ 153,534 sung lines**,
 with ~~2,454~~ 2,443 marked repeat blocks (1,592 BURDEN,
 604 REFRAIN, 247 CHORUS) and ~~331 songs carrying a named
@@ -716,8 +742,12 @@ stated.
 >
 > **The rule.** A SONG is a `--- TITLE:` line. A SUNG LINE is a non-blank line
 > that does not begin `#`, `---` or `[`. A REPEAT BLOCK is a `[TAG` line with
-> any trailing index stripped. The population is `corpus/song/eng_*.txt`, 143
-> files. The counters row is VOLATILE by declaration — it carries no frozen
+> any trailing index stripped. The population is `corpus/song/eng_*.txt`,
+> ~~143 files~~ **counted at run time — 1,297 today**. That strike is the
+> repair, not a bookkeeping detail: `143` sat inside the RE-DERIVATION
+> INSTRUCTION, so a reader following the rule as written got 1,297 and would
+> conclude the rule had broken rather than that the corpus had grown.
+> The counters row is VOLATILE by declaration — it carries no frozen
 > number in `BACKLOG.md`, only the command — because these move whenever a
 > corpus cell runs, which is exactly what happened below.
 >
@@ -812,25 +842,103 @@ stratifying by source type will be reading the editor.
 verbatim-repeat pointer (`CHORUS. Who's now the traitor? etc.`). Two cells
 found it independently in different centuries and countries.
 
-### K-2 · English is single-author on BOTH sides `PARTIAL`
+### K-2 · ~~English is single-author on BOTH sides~~ — both halves retired `CLOSED`
 **Was:** positive = Shakespeare alone; negative = Whitman alone.
-**Now:** the positive side spans **143 authors across 16 rhyme traditions**, 1567 to
+~~**Now:** the positive side spans **143 authors across 16 rhyme traditions**, 1567 to
 1929. The NEGATIVE side is still Whitman alone, and K-3 shows it never
-separated — so the replacement remains the corpus's own shuffled self.
-**New sub-gap:** `corpus/whitman.txt` is itself structurally impoverished —
-"O Captain! My Captain!" carries the "Fallen cold and dead" burden closing
-every stanza and our file records no refrain marking at all.
+separated — so the replacement remains the corpus's own shuffled self.~~
+
+**CLOSED 2026-08-21, AND THE TITLE WAS FALSE ON BOTH HALVES.**
+- **The positive side** is **1,295 distinct author slugs over 1,297 files** (two
+  authors appear in two cohorts each), not 143. The arm as re-derived
+  2026-08-21 draws **4,217 quatrains from 712 files across 9 tradition groups**
+  in 15 distinct schemes. The *16 rhyme traditions* figure is still exactly 16
+  and is still true — it is `data/lyricists.tsv`'s `tradition` column — but it
+  is **not the axis the arm strata on**, which is the 9 filename cohorts
+  (hbv 258, celtic 256, pah 233, american 208, oxford 194, british 95, hymn 34,
+  parlour 12, hall 7). One number, two axes (doctrine 1).
+- **The negative side is not a text any more.** `quality/negative_control.py`
+  landed 2026-08-11 (`3e0b806`) and its FIRST LINE reads *"THE REPLACEMENT
+  NEGATIVE CONTROL. MISSING.md K-2 / K-3."* The negative is
+  `line_permutation` over the positive corpus's own quatrains — matched by
+  construction — and Whitman is retained as an explicitly LEGACY comparator.
+  "still Whitman alone" was ten days stale relative to a file that names this
+  entry in its opening sentence.
+
+**AND `BACKLOG.md` §3.5 SAID SO IN WRITING BEFORE THIS ENTRY DID.** That half
+reads `CLOSED 2026-08-21`, is tagged `K-2, K-3`, and states *"the positive is
+multi-author, drawn from 1,297 `eng_*` files"* — so the two halves of the
+register held opposite facts about one file. That is the defect `K-6` documents
+about itself and `M-21` names as a class: **the BACKLOG half closed and the
+MISSING half was never told.**
+
+**THE INSTRUMENT ITSELF CARRIED THE SAME SPLIT AND IS REPAIRED IN THIS COMMIT.**
+`negative_control.py`'s docstring §2 said *"143 files, one author each"* while
+its own `THE RUN` block 65 lines below said 712 files over 9 groups. The
+"one author each" half was true only by filename convention — **exactly 5 of
+the 1,297 English files carry a `--- AUTHOR:` line at all** — so the docstring
+asserted a per-file property 1,292 of those files do not state. (Said
+positively on purpose: `CORPUS_MARKER_ABSENT` reads *"no `--- X:` marker"* as
+a claim that the marker is unused ANYWHERE under `corpus/song/`, which is a
+different question and is false here — 10,616 occurrences, nearly all `ltc_`.
+A per-file fraction has to be spelled as one.)
+
+**WHAT SURVIVES BELONGS TO K-3, and is moved there:** `corpus/whitman.txt` is
+structurally impoverished — "O Captain! My Captain!" carries the "Fallen cold
+and dead" burden closing every stanza and our file records no refrain marking
+at all. That is a fact about Whitman, and Whitman is K-3's subject.
 
 ### K-3 · The Whitman negative control does not separate `OPEN`
 **Now (verified):** all four recorded Whitman figures (18.0, 20.0, 21.3, 26.0%)
 fall inside one line-permutation null spanning 6.7–27.3%. Replacement is the
 corpus's own shuffled self, plus a multi-author positive spanning more than one
-scheme.
+scheme — BUILT, and it is `quality/negative_control.py` (2026-08-11).
+**The sub-gap moved here from K-2 when that entry closed, 2026-08-21**, because
+it is a fact about Whitman rather than about the control's authorship:
+`corpus/whitman.txt` is itself structurally impoverished — "O Captain! My
+Captain!" carries the "Fallen cold and dead" burden closing every stanza and
+our file records no refrain marking at all. **This entry stays OPEN as a
+FINDING and not as a task** — the replacement was built; what does not go away
+is that the text this project used as its negative control carries the property
+under test.
 
-### K-4 · Old Norse has a phonology and no licensed corpus `BLOCKED` (doctrine 92: disjoint sets, and the disjointness is contingent on the channel map)
+### K-4 · Old Norse has a phonology and ~~no licensed corpus~~ **ONE licensed corpus nobody has ruled on** `BLOCKED`
 **Constraint:** the only complete Háttatal is inside a 1974 editor's copyright;
 the 1848 edition that clears the gate has OCR that destroyed the consonants a
-hending detector reads.
+hending detector reads. **That is doctrine 92 and it is true OF HÁTTATAL.**
+
+> **RETITLED 2026-08-21 — THE OUTCOME SURVIVES AND THE NAMED CAUSE DOES NOT.**
+> `BLOCKED` is right: `corpus/song/non_*.txt` is **0 files, 0 songs**, confirmed
+> today, and `data/lyricists.tsv` holds 25 `non` rows every one of which is
+> `PENDING_TEXT`. What is false is *no licensed corpus*. **A PD-affirmed,
+> verse-marked-up, ALREADY-MEASURED Old Norse source sits in this repo's own
+> known-good table**: `data/CHANNELS.md` lists `sveinbjornt/sagadb.org` — BSD
+> for the CODE, with *"a separate README sentence affirms the TEXTS public
+> domain"*. The BSD is a decoy covering Perl build scripts; the texts clear on
+> an **express PD affirmation**, quoted verbatim in `data/sources.tsv` row 61:
+> *"All saga source texts are in the public domain."* Machine-readable
+> `<poetry>`/`<line>` markup, 8 `*.on.xml` = 160 poetry blocks / 1,228 verse
+> lines.
+>
+> **AND THIS ENTRY'S OWN §6 ALREADY CONCEDED IT** — *"585 extracted dróttkvætt
+> lines, already measured at 55.63% skothending against a null median of
+> 30.72%. It is `contested=true` and awaiting a human call nobody has made."*
+> A source that has already produced a separating measurement is not "no
+> licensed corpus". The entry was contradicted by a paragraph inside itself.
+>
+> **SO THE BLOCKER IS AN UNMADE OWNER CALL, NOT A LICENCE**, and it is the one
+> blocker here with a zero-search price. It has been waiting since 2026-08-11.
+> The cltk rows corroborate the NARROW reading only: `cltk/non_texts`
+> CC-BY-SA-3.0 covers the Perseus fornaldarsögur and **not** the Snorra-Edda
+> beside it (doctrine 54), and `cltk/old_norse_texts_heimskringla` is
+> byte-identical to it (md5 `c221b3761633838018e24ccf4e43e7fd`). **There is no
+> licensed *Háttatal*. There is a licensed *hending corpus*.** Once the
+> `contested=true` call is made, staging is ~2–4 h from the 8 `*.on.xml` with
+> the metre separation `sources.tsv` already specifies — Egill's lausavísur are
+> dróttkvætt; Höfuðlausn is runhent and Sonatorrek/Arinbjarnarkviða
+> kviðuháttr, so neither carries hendings; all 42 `*.is.xml` are rejected for
+> epenthetic `-ur`. **FOR THE OWNER**, alongside K-1a's `source_type` axis and
+> K-6's status vocabulary.
 
 > **VERIFIED BY EXECUTION 2026-08-11, and both halves reproduce exactly — but
 > the entry named one blocker where there are three, stacked, and priced none
@@ -1126,24 +1234,65 @@ tradition.
 > `corpus/` for the whole non-English corpus — doctrine 48, an entry read as a
 > briefing is an instrument, and this one was pointing at the wrong tree.
 
-**Staged, not sourced:** 297 non-English lyricists now carry rows in
+> **REPINNED 2026-08-21, AND THE SPLIT IN WHAT WENT STALE IS ITSELF THE
+> RESULT.** Every figure this entry DELEGATED to M-11 reproduces **exactly**
+> seven days later — cym 391, fin 962, fas 8,350, ltc 10,529, msa 129, san 25;
+> the five-language subtotal 9,857; `ltc_` 10,529; the non-English total
+> **20,386**; and the per-language file counts 67/31/11/5/2/1 = 117. Every
+> figure this entry KEPT FOR ITSELF drifted: total files **260 → 1,414**, eng
+> files **143 → 1,297**, English songs **4,930 → 8,667**. That is a result
+> about repin discipline and not a bookkeeping slip — the `b560014` decision to
+> delegate is why half of this entry is still true.
+>
+> **THE CLOSING RATIO FALLS AND THE CONCLUSION SURVIVES.** Non-English 20,386
+> against English 4,930 was **4.13:1**; against 8,667 it is **2.35:1**. The
+> corpus is still saturated in the corner this entry calls starved, but the
+> entry's own evidence for it is 43% weaker, and it fell because English grew
+> while the non-English side did not move by a single file. `non_` and `som_`
+> are still zero and still the only two.
+
+**Staged, not sourced:** ~~297~~ **331** non-English lyricists now carry rows in
 `data/lyricists.tsv` with a `lang` column (added in the same commit; the 221
 pre-existing rows are backfilled `eng`, which is the gap stated as data).
-Author-gate outcome:
+Author-gate outcome, **REPINNED 2026-08-21 — 4 of the 8 rows moved and the
+three columns can no longer hold the answer**:
 
-| lang | staged | refused | blocked |
-|---|---:|---:|---:|
-| fas | 76 | 0 | 0 |
-| san | 62 | 0 | 0 |
-| ltc | 59 | 0 | 0 |
-| cym | 35 | 0 | 0 |
-| non | 25 | 0 | 0 |
-| fin | 14 | 0 | 0 |
-| msa | 8 | 0 | 0 |
-| som | 0 | 13 | 5 |
+| lang | rows | SOURCED | SOURCED_BY_PUBLICATION | PENDING_TEXT | NOT_FOUND | other |
+|---|---:|---:|---:|---:|---:|---|
+| fas | 76 | 30 | 0 | 0 | 46 | — |
+| ltc | 76 | 24 | 0 | 0 | 26 | 9 `REFUSED_EDITION`, 17 `FOUND_NOT_ON_LIST` |
+| san | 62 | 2 | 0 | 0 | 60 | — |
+| cym | 40 | 5 | 0 | 0 | 35 | — |
+| fin | 26 | 9 | 12 | 0 | 4 | 1 `COMPOSER_NOT_LYRICIST` |
+| non | 25 | 0 | 0 | 25 | 0 | — |
+| som | 18 | 0 | 0 | 0 | 0 | 14 `REFUSED_DATE`, 4 `BLOCKED_ORTHOGRAPHY` |
+| msa | 8 | 0 | 0 | 8 | 0 | — |
+
+~~| fas | 76 | 0 | 0 | · | san | 62 | 0 | 0 | · | ltc | 59 | 0 | 0 | · |
+cym | 35 | 0 | 0 | · | non | 25 | 0 | 0 | · | fin | 14 | 0 | 0 | ·
+| som | 0 | 13 | 5 |~~ — the superseded `staged / refused / blocked` reading,
+kept rather than deleted (doctrine 17). ltc 59 → 76, cym 35 → 40, fin 14 → 26,
+and som's `13 refused / 5 blocked` is `14 REFUSED_DATE / 4 BLOCKED_ORTHOGRAPHY`.
+
+**AND THE VOCABULARY IS THE REAL FINDING: THREE COLUMNS CANNOT HOLD NINE
+STATUSES.** Four statuses the old table could not express have appeared —
+`REFUSED_EDITION` 9, `FOUND_NOT_ON_LIST` 17, `SOURCED_BY_PUBLICATION` 12,
+`BLOCKED_ORTHOGRAPHY` 4 — and `REFUSED_EDITION` vs `REFUSED_DATE` vs
+`BLOCKED_ORTHOGRAPHY` are three different reasons that a `refused` column would
+sum into one. **FOR THE OWNER**, alongside K-1a's `source_type` axis and K-4's
+sagadb call: name the vocabulary before anyone rebuilds this table, because the
+grouping IS the claim (doctrine 79).
 
 **The author gate is the cheaper of the two gates and clearing it means little
-here.** Every row is `PENDING_TEXT`, never `SOURCED`: for a 14th-century Welsh
+here.** ~~Every row is `PENDING_TEXT`, never `SOURCED`~~ — **STRUCK
+2026-08-21, and it is false in the direction that matters: 82 of the 331
+non-English rows are now sourced** (70 `SOURCED` + 12
+`SOURCED_BY_PUBLICATION`), across cym 5, fas 30, fin 21, ltc 24, san 2.
+`PENDING_TEXT` survives for exactly **msa (8) and non (25)** — and the internal
+check that makes this readable is that those are precisely the two cells with
+no staged text and the two cells whose rows never advanced, while `som` is 0
+`PENDING_TEXT` and 18 of 18 refused-or-blocked. The ARGUMENT below is untouched
+by the strike and is why the entry stays open: for a 14th-century Welsh
 cywydd or a Tang shi the author has been dead for six centuries and the binding
 constraint is the EDITION (doctrine 38) — `provenance.py` keys admission on the
 AUTHOR and models no transcription layer with its own date and rights. Doctrines
