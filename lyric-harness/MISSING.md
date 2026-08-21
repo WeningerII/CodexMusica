@@ -1925,7 +1925,7 @@ words and one phantom alliteration, in the numerator *and* the denominator.
 `CHORUS_STUB_FORMS` is now a declared table of `(language, gloss, pattern)` and
 `chorus_stub_match` reports WHICH convention fired (doctrine 45).
 
-### M-4a · A tighter rhyme band LOOSENS the time layer's correction `OPEN`
+### M-4a · A tighter rhyme band LOOSENS the time layer's correction `CLOSED`
 **Found 2026-08-11, and it is a defect in a fix this repo shipped the day
 before.** Commit `b1d7f64` (tail alignment + `theta_coda` 0.60 → 0.80) was
 validated on the band's false-positive rate and on the sonnet violation rate,
@@ -1971,9 +1971,43 @@ reads "cannot tell" rather than "null". `positive_control.py` and
 `run_positive_control.py` are OUTSIDE the retraction, verified by execution
 rather than by reading: with `rhyme_events` replaced by a raiser, both run to
 completion with a call count of **0**.
-**This entry stays OPEN** because the two remaining causes are unfixed: the
+~~**This entry stays OPEN** because the two remaining causes are unfixed: the
 degenerate-item guard's dependence on the alignment, and the fact that the layer
-now has no attainable event on any item in the repository.
+now has no attainable event on any item in the repository.~~
+
+**CLOSED 2026-08-21 — BOTH REMAINING CAUSES WERE ANSWERED, ONE OF THEM FIVE
+DAYS AGO IN `CLAUDE.md`, AND NOTHING CARRIED IT BACK HERE.** The table above
+stands: it is the record of a real defect at a named commit pair
+(`6c265ad` → `b1d7f64`) and the worked case for reading a baseline that
+contains the change under test. What does not stand is the closing sentence.
+
+1. **The guard's alignment dependence is a DECLARED COORDINATE, not a
+   dependency.** `TimeDeclaration.max_null_band_pass` is **0.152**, not 0.25,
+   and it carries `max_null_band_pass_basis` naming the alignment and the
+   `theta_coda` it was measured at — *"2 x max over 30 Shakespeare sonnets =
+   2 x 0.076, measured 2026-08-11 at alignment=tail, theta_coda=0.80 … the
+   previous value 0.25 was the same quantity measured at alignment=head,
+   theta_coda=0.60."* There is a re-measurement runner
+   (`python3 quality/fwer_family.py --calibrate`) and `test_fwer.py` §5
+   asserts the degenerate item is refused **under BOTH alignments** and real
+   verse clear of the guard under both. **The threshold was stale, not the
+   guard** — which is the diagnosis this entry was reaching for, arrived at
+   from the other side. `python3 quality/test_fwer.py` exits 0 at HEAD.
+2. **"no attainable event on any item in the repository" is precisely the
+   absolute `CLAUDE.md` struck on 2026-08-16.** The pin is **18 `cannot_tell`
+   / 0 `refused` / 2 `answered`** (`quality/audit_fwer_fpr.py --check`), and
+   those 2 are `attainable=True, n_events=0` — **an observed zero, not a
+   refusal**; `quality/time_attainable.py` agrees independently
+   (`32 real | 18/20 mute | ev>0 0`). Two doctrines: **20**, an observed zero
+   is a null and "nothing is attainable" is inconclusive-by-construction, so
+   collapsing them throws away the only two items that answered; and **79**,
+   18 and 2 are two counts and this sentence read them as their sum.
+
+**WHAT IS UNCHANGED, and it is the whole load-bearing claim:** the layer is
+still MUTE, the blocker is still multiplicity, and the family size is still
+the measurement that says so. It was stated in one absolute too many.
+`M-18`'s instance list item 2 — this entry's *"confirmed at clean HEAD"*
+against a HEAD containing the change — is about the AUDIT and is unaffected.
 
 ### M-5 · A printing can spell one sound two ways, and the modernisation check cannot see it `OPEN`
 Every recorded instance of the orthography rule (doctrine 50, CHANNELS.md rule
@@ -2691,8 +2725,48 @@ and **the keep-minus-drop delta is 2 in both runs**, so doctrine 58's second
 instance — that the two separating quatrains are the only two ending in a Skeat
 editorial parenthesis — is CONFIRMED. Four further settings were swept and none
 lands on 82/80, which places the difference **upstream of the rhyme test**: a
-**function-word list nobody wrote down.** That is worse than an unrecorded
-threshold, because a threshold at least announces that it exists.
+~~**function-word list nobody wrote down.** That is worse than an unrecorded
+threshold, because a threshold at least announces that it exists.~~
+
+**REPINNED 2026-08-21 — A FUNCTION-WORD LIST *IS* WRITTEN DOWN, AND IT LANDED
+TEN DAYS AGO IN A FILE THIS ENTRY SITS BESIDE.** `quality/audit_corpus.py:2011`
+carries `_MALAY_FW` (≈130 words) and `_ENGLISH_FW` under the comment *"The two
+closed function-word lists that separate Skeat's Malay from his own English
+translation"* — landed `3e0b806`, **2026-08-11**, the day after this entry was
+filed. It is not decorative: `:2141` applies it as the block classifier and
+`:2148` asserts the result against `RECORDED` — `malay_blocks` **705**,
+`malay_block_lines` **5,555**, `malay_malay_blocks` **330**,
+`malay_malay_lines` **3,442**. The population this entry says nobody wrote down
+is pinned and re-derived on every audit run.
+
+**THREE THINGS IT DOES NOT CLOSE, and the entry stays OPEN on all three.**
+1. **It is a FRESH list and belongs to the 131/129 chain.** `_malay_blocks`'s
+   own docstring says why: *"Re-stated here rather than imported from the
+   extraction script, because a calibration that shares code with the thing it
+   calibrates proves nothing (doctrine 58's fresh-implementation rule)."* That
+   is correct and it means the list recovers **nothing** about the 82/80 run's.
+2. **It is UNREACHABLE from a clone.** `MALAY_SOURCE` (`audit_corpus.py:1909`)
+   is `scratch/src_msa/raw_malay_magic.txt`, which is NOT in this repository,
+   so `calibrate()` returns `UNREACHABLE` and `calibration_failed`
+   deliberately does not fail on it. So 330/3,442 is a pin nobody can
+   re-derive from a
+   checkout: doctrine 77, the exact shape `M-3` records for
+   `extract_pantun.py`.
+3. **"upstream of the rhyme test" is an INFERENCE, not a measurement.** It
+   rests on a four-setting sweep. The old run recorded no intermediate — only
+   its terminal 82/80 — so where the two implementations part is not located,
+   and with the old list gone it cannot be.
+
+**AND THE COMPARISON IS NOT LIKE FOR LIKE, which this entry never said.**
+`corpus/song/msa_skeat_pantun.txt`'s own header records that the 131/129
+becomes **90/88 once monorhyme quatrains are separated out**. 131 counts a
+superset (ABAB + AAAA) and 82 may never have been the same object. **The
+terminal state is `UNVERIFIABLE` with the missing thing named** (M-18's
+ledger): the missing thing is the 82/80 run's function-word list and its block
+count, both unrecorded. **What is owed is a DECISION, not a run** — state which
+count ships, or state that `data/sources.tsv`'s 82/80 is superseded by 90/88.
+That is a corpus-cell call and is parked for the owner, not done here, because
+it moves a `sources.tsv` row and pulls the corpus-audit md5 checks with it.
 
 ---
 
@@ -2810,11 +2884,24 @@ NO REMAINDER — **28** a stressed vowel difference (gone/alone, tongue/song,
 have/grave, blood/good: correct refusals in the declared General American
 dialect, the same sentence this repo already accepts for love/prove), **6**
 CMUdict writing one reduced vowel two ways, **1** a promoted unstressed final.
-**Not one is a General American slant rhyme.** `theta_coda` survived the same
+**Not one is a General American slant rhyme.** ~~`theta_coda` survived the same
 test because what IT cost was S~Z and D~RD — final-obstruent voicing, which
-English has not changed since 1609. The nucleus is where four centuries of sound
-change live, so the sonnet violation rate prices the **`dialect` coordinate**
-there, not the threshold.
+English has not changed since 1609.~~ **STRUCK 2026-08-21 — THE CODA IS NOT
+CLEAN EITHER, AND ITS OWN TEST FILE SAID SO THE DAY THIS ENTRY WAS FILED.**
+`quality/test_nucleus.py:28-38` carries an **AMENDED 2026-08-11** note against
+exactly this sentence: `D~RD` is n=4, not n=2, and it is not obstruent voicing
+at all — it is an **R present on one side**. `RESULTS_CODA_SHAPE.md` tables the
+shape (`D~RD` 4, `0~R` 4, `RT~T` 3, `RTH~TH` 3, `DZ~RDZ` 2) and states **17
+rhotic observations against 9 of final-obstruent voicing**;
+`quality/redteam_band.py` §9 prints the correction on every run. So half the
+coda's own mandated evidence is dialect too, and the contrast this sentence
+drew does not exist. **THE CONCLUSION IS UNCHANGED AND NOW RESTS ON ONE LEG
+INSTEAD OF TWO** — it stands on the nucleus's own 28/6/1 partition with no
+remainder, which is what the amendment's closing sentence says: *"The
+conclusion this file draws … does not depend on the coda being clean, only on
+the nucleus's OWN 28/6/1 partition."* The nucleus is where four centuries of
+sound change live, so the sonnet violation rate prices the **`dialect`
+coordinate** there, not the threshold.
 The scalar's SHAPE is uninformative too: Spearman between `vowel_sim` and each
 pair's lift in mandated positions is +0.02 at n=3,000 and −0.03 at n=6,000, sign
 unstable; `IH~IY` scores 0.902 and is admitted at lift 0.24 while `AY~IY` scores
@@ -2827,7 +2914,7 @@ declared dialect, which this repository does not have.** Until it exists,
 `licensed` reachable. Doctrine 44's distinction applies — this is "cannot
 obtain", not "hard to build".
 
-### M-20 · Two English poems are staged TWICE in their own file, and the title's air hid it `OPEN`
+### M-20 · Poems staged TWICE in their own file, and every instrument that could see it is looking somewhere else `OPEN`
 **Found 2026-08-21 while splitting the named air out of the title (§3.2), by
 the checker that was already looking.** `quality/audit_corpus.py`'s
 `false_unit_items` compares each item's body lines against the OTHER items'
@@ -2847,8 +2934,61 @@ these were invisible to both instruments at once, for two different reasons.
 
 **Recorded, not repaired**, per `CORPUS_LOADING_PROTOCOL.md`. What is owed is
 a decision about which printing wins, and that is a reading question rather
-than a mechanical one — `eng_` song counts are inflated by 2 until it is
-taken, and any per-song rate over those two files double-counts one poem.
+than a mechanical one — ~~`eng_` song counts are inflated by 2 until it is
+taken, and any per-song rate over those two files double-counts one poem.~~
+
+**REPINNED 2026-08-21 — THE SHAPE IS RIGHT AND THE COUNT WAS THE
+INSTRUMENT'S, NOT THE CORPUS'S. THE POPULATION IS 28, NOT 2.** Two is what
+`false_unit_items` happened to surface, and this entry read a checker's yield
+as a census. Asking the corpus directly — items inside ONE file that share a
+normalised title AND a normalised opening line — returns **28 pairs, 27 `eng_`
+and 1 `cym_`**. The rule has to be stated or the number is a threshold nobody
+wrote down (doctrine 58): titles are read through `audit_corpus._items` with
+the air split off, both title and opening line are NFKC-folded to lowercase
+alphanumerics-and-spaces of ANY script, and the opening line is the item's
+first body line that survives that fold. **The ASCII-only spelling of that
+rule returns 31 and three of the extra are false**: `踏莎行 其28` and
+`漁家傲 其28` collapse to `28`, so a normaliser that drops non-Latin script
+manufactures `ltc` duplicates out of two different tune-titles. The count is a
+coordinate of the fold.
+
+**AND 28 IS A FLOOR, PROVEN INSIDE ONE OF THE TWO FILES THIS ENTRY ALREADY
+NAMES.** `corpus/song/eng_celtic_james_hogg.txt` stages `THE WOMEN FOLK`
+twice — items 8 (line 337) and 27 (line 1469, `--- SOURCE: PG2620`) — and it
+is **not** among the 28, because the two printings open `O sarely may I rue
+the day` and `O sairly may I rue the day`. One letter. **Neither side carries
+an air, so the air is not why this one was missed**: `false_unit_items`
+matches bodies against TITLES, neither title occurs in the other's body, and
+that check is structurally blind to this pair whatever the title holds. Two
+blind spots in the instrument, not one.
+
+**THE TWO INSTRUMENTS THAT COULD SEE THIS HAVE ALMOST DISJOINT POPULATIONS,
+AND NEITHER TOTALS THE OTHER.** `item_overlap_pairs` — the near-duplicate
+containment check — surfaces **31** same-file pairs. The title+opening census
+surfaces **28**. **The intersection is ONE** (Rossetti's `Dream-Land` /
+`Dream Land`). The other 27 miss for three named reasons, counted apart
+because they are three different defects (doctrine 79):
+
+| why the near-duplicate check does not carry it | pairs | worked case |
+|---|---:|---|
+| **DROPPED before any comparison** — a side holds fewer than `ITEM_SIG_MIN` 8 distinct body lines over `ITEM_LINE_MIN_CHARS` 12 chars, so it is never in `recs` | 8 | Browning's `Parting at Morning`, 6 lines |
+| **`ITEM_SHARED_MIN` 8** — containment is high and the poem is too short to contribute 8 shared lines | 11 | Landor's `Rose Aylmer` at containment **0.88**, refused on 7 shared lines |
+| **below the `ITEM_OVERLAP_FLOOR` 0.60** — genuinely divergent printings | 8 | Barnes's `The Blackbird` at 0.37 |
+
+**Five of the eleven sit at or above 0.75 containment** (Herrick ×2 and
+O'Reilly at 0.88, Blake's `Infant Joy` at 0.78, Jago at 0.75) and are refused
+by the shared-line minimum alone. So the floor is not what hides this
+population — **a short poem is invisible to that instrument at any
+containment**, which is a third blind spot and the one with the largest yield.
+
+**CAUSE, which this entry did not name.** In 25 of the 28 the second printing
+carries a different `--- SOURCE:` from the first — `PG2620`, `PG2619`,
+`PG66619` against the author file's original PG. These are the concurrent
+anthology loads (`550dfb1` *Mass load: 245 Modern Scottish Minstrel author
+files*, `810cc5e` *Tier-1 concurrent load: 560 songs from five song-framed
+anthologies*) staging a poem an author file already held, not an extractor
+defect. **So `eng_` song counts are inflated by ≥28, not by 2**, and any
+per-song rate over the affected files double-counts.
 
 **The label they surface under is imprecise and is left that way on purpose.**
 `false_unit_items` reports them as `RUN-ON`, whose meaning is *the extractor
@@ -2856,6 +2996,15 @@ glued the next poem onto the end of this one*. That is not what these are. The
 shape keys on WHERE the match falls, the match falls deep in the body, and
 relabelling by hand inside a pinned test would be writing a judgement into a
 count. `quality/test_corpus_audit.py` pins `RUN-ON 11` with this entry named.
+**AND THE REPIN MAKES A NON-JUDGEMENTAL SPLIT AVAILABLE THAT WAS NOT ON THE
+TABLE WHEN THIS WAS PARKED.** The reason for parking stands — nobody should
+adjudicate a printing by hand inside a pinned count — but the discriminator
+turns out to be mechanical and needs no reading: **a double staging has a
+matching OPENING LINE and a run-on does not.** That is computable from data
+already in hand, so `RUN-ON` could split into `RUN-ON` and `DOUBLE-STAGED`
+without anyone judging a text. Recorded as the route; NOT taken here, because
+it moves `RUN-ON 11`, `test_corpus_audit.py:890`'s `shapes` dict and the
+counters/`PINNED` pair in one commit, and the repin is the half going stale.
 
 ### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `OPEN`
 **Found 2026-08-21 by paying the cost twice in one sitting, on consecutive CI

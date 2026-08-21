@@ -599,6 +599,11 @@ trees present or absent, so there is no excuse for skipping it.
 > BEFORE FOLK` are each staged TWICE in their own file, once with the air and
 > once without, and only the un-aired copy could ever be matched against.
 > Nothing was silenced to meet this pin.
+> **AND `+2` IS THIS CHECK'S YIELD, NOT A CENSUS OF THE CORPUS — REPINNED
+> 2026-08-21.** M-20 measures **28** such pairs (27 `eng_`, 1 `cym_`) by
+> asking the items directly, of which check E carries 2 and the near-duplicate
+> containment check carries 1 — a different 1. The reader change is exactly as
+> described; what it is not is a count of how much of this is in the tree.
 >
 > **REPINNED 2026-08-20 (second sitting): 830 findings — 1 FAIL, 231
 > WARN, 598 NOTE**, over **742 files** (~~514 files, 429 NOTE~~, earlier

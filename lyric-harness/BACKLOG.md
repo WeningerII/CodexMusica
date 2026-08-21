@@ -624,6 +624,16 @@ are each staged TWICE in their own file — same opening line, ~25 shared long
 lines — once with the air and once without. The near-duplicate pair check does
 not carry them either (Jaccard 0.39 and 0.36, under the floor), so they were
 invisible to both instruments at once for two different reasons.
+**THE `2` IS THIS CHECKER'S YIELD AND NOT THE POPULATION — REPINNED
+2026-08-21, and `M-20` holds the measurement.** Asking the corpus directly
+(items inside one file sharing a normalised title AND opening line) returns
+**28 pairs, 27 `eng_` and 1 `cym_`**, of which the near-duplicate check
+surfaces exactly **one**. Three named causes with three counts, never summed:
+8 dropped before comparison for holding under `ITEM_SIG_MIN` 8 long lines, 11
+refused by `ITEM_SHARED_MIN` 8 despite containment as high as 0.88, 8 genuinely
+under the 0.60 floor. And 28 is a floor: a third pair in Hogg (`THE WOMEN
+FOLK`) is excluded by one letter (`sarely`/`sairly`). The gain of 2 recorded
+above is exactly right about the SPLIT and says nothing about the corpus.
 
 **GUARDED BY** `quality/test_grid.py`, 19 checks, whose census re-derives every
 figure above from `corpus/song/` rather than pinning it; and
@@ -1570,7 +1580,7 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 40 OPEN / 20 PARTIAL / 2 BLOCKED / 17 CLOSED = 79 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 39 OPEN / 20 PARTIAL / 2 BLOCKED / 18 CLOSED = 79 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is KEPT on the argument M-16 records, and that decision is TAKEN rather than owed | `python3 lyric_harness.py wiring` |
 | public symbols by where they are referenced | **1129** DECLARED-public top-level functions/classes under `quality/` and the root — **188** named by another production module, **307** by tests only, **566** only inside their own module, **11** by nothing anywhere, **57** REFUSED (40 ambiguous, 10 dynamic, 7 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **20** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |

@@ -2048,7 +2048,10 @@ PINNED = {
     #    letter the transcription kept) — while closing L-4, M-17 and D-1.
     #    The first was: `M-20` was filed that day —
     #    two English poems staged TWICE in their own file, found when the
-    #    named air was split out of the title (BACKLOG 3.2). A new entry is
+    #    named air was split out of the title (BACKLOG 3.2). That is what the
+    #    CHECKER surfaced and it is not the population: M-20 was repinned the
+    #    same day to 28 such pairs corpus-wide, of which check E carries 2.
+    #    The figure below does not move on it — one entry either way. A new entry is
     #    the ORDINARY way this figure moves and the pin is what makes filing
     #    one a decision rather than a diff; `coverage_audited` is unmoved at
     #    19 because M-20 carries no audited claim of its own yet.
