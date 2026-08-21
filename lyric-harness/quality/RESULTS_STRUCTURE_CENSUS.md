@@ -8,6 +8,30 @@ population: 143 `eng_*` song files (4,930 items), `sonnets.txt` (152
 items through the oracle's own reader), `whitman.txt` (the 150-line
 negative-control slice). 57 catalog rows × 2 populations × 145 files.
 
+> **THE COMMAND NO LONGER REPRODUCES THE ARTIFACT — DISCLOSED 2026-08-21, and
+> nothing here is withdrawn.** `corpus_files()` globs `corpus/song/eng_*.txt`
+> at run time, and that glob has gone from the **143 files / 4,930 items**
+> declared above to **1,297 files / 8,667 items** at head. So re-running the
+> shipped command today does not re-derive md5 `7d4daf79…` — it would
+> **silently census a 9× population under run 1's filename**, which is the
+> `M-21` shape with a corpus underneath it instead of prose.
+>
+> **Every figure in this document is PINNED TO ITS ARTIFACT and stands**: the
+> md5 is the address, the file is committed, and a claim about a fixed table
+> re-derives forever. What has to move is the RUN-2 registration, which must
+> say which `eng` population it means rather than inheriting a glob —
+> `data/calibration_manifest.tsv` is the mechanism that exists for exactly this
+> and is why it exists. Run 2 also owes an `eng` re-census if it wants an
+> English null that describes the live tree; that is ~11 core-hours and is a
+> separate decision from the cross-tradition arm, which is under 1.
+>
+> **AND THE REGISTRATION'S WORLD-SHAPE PROMISE IS NOT KEPT BY THE CODE** —
+> `MISSING.md` `M-22`. The judge layer is genuinely language-neutral (0
+> exceptions over 7 phonologies) and `pair_counters` tokenises with an
+> ASCII-only reader that shreds `fin`/`san` and empties `ltc`/`fas`. That is
+> the defect that voided Kalevala run 1, latent here because the glob has never
+> reached a non-Latin file.
+
 **Scale, three counts, never summed (doctrine 79):** 417,020,664 pair
 judgings — 4,319,257 endword-cross and 2,996,895 word-within-line pairs,
 each asked 57 questions — of which **7,710,997 TRUE**, **233,898,661

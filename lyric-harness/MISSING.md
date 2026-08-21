@@ -3562,4 +3562,106 @@ cheapest possible demonstration and it is deliberate: if the two figures in
 the table above do not read 77 in the tree you are looking at, this entry has
 gone stale in exactly the way it is about.
 
+### M-22 · The structure census promises to be world-shaped and its tokeniser is ASCII `OPEN`
+**Found 2026-08-21 by three concurrent recon agents on the cross-tradition
+structure question, and it is the defect that ALREADY VOIDED ONE ADOPTION
+RUN, reintroduced one layer over.**
+
+`quality/STRUCTURE_CENSUS_PREREGISTRATION.md:35` promises the schema is
+*"world-shaped from day one so that adding a language later"* adds ROWS and
+never changes the instrument. **The judge layer keeps that promise and the
+tokeniser breaks it.** Measured, all 57 non-comparator rows through all 7
+phonologies: **0 exceptions** — `fin` 3/51/3, `cym` 0/42/15, `ltc` 6/36/15,
+`fas` 0/0/57, `msa` 0/9/48, `san` 22/25/10, `eng` 22/20/15 (true/false/
+refused). `items_of()` splits on the literal `--- TITLE:` byte prefix, which
+every tradition has. **Section marks are not a blocker for any tradition.**
+
+**The English-bound stage is the one that LOOKS neutral.** `pair_counters()`
+calls `lyric_harness.line_tokens`, whose body is
+`re.findall(r"[A-Za-z'\-]+", norm)` — ASCII-only — and never asks the
+phonology for its tokens. Re-derived at head:
+
+```
+väinämöinen   LH -> ['v', 'in', 'm', 'inen']        fin._tokens -> ['väinämöinen']
+pää           LH -> ['p']                           fin._tokens -> ['pää']
+adyāpi tāṃ kanakacampakadāmagaurīṃ
+              LH -> ['ady','pi','t','kanakacampakad','magaur']
+              san._tokens -> ['adyāpi','tāṃ','kanakacampakadāmagaurīṃ']
+```
+
+Over real corpus lines: `ltc` **99.9%** of lines yield ZERO tokens, `fas`
+**100.0%**, `san` **96.6%** mis-tokenised against its native reader, `fin`
+**41.6%**. `eng` is 0.0% — which is why nothing has ever gone red.
+
+**THIS IS DOCTRINE 1's OWN CASE AND THE REPO HAS PAID FOR IT ONCE.**
+`CLAUDE.md` records that Kalevala alliteration run 1 was **VOIDED** because
+*"the ASCII tokenizer had shredded ä/ö, and the fin phonology's `_tokens` was
+the one definition all along."* The census reintroduces the identical
+substitution in a different module. **It is LATENT, not live** — `corpus_files()`
+globs `eng_*.txt`, so the census has never tokenised a non-Latin line and no
+recorded figure moves. It bites the first hour of run 2, which is exactly when
+a registration promising world-shape is cashed.
+
+**FIVE HARD-CODED SITES, and the tokeniser is not one of them** —
+`structure_census.py:57` `RHYME_CONSTRAINED_FAMILIES`, `:59` `OUT_DEFAULT`,
+`:68` the `eng_*` glob, `:200` the `"eng", "eng"` literal columns, `:231`/`:270`
+`PH.get("eng")`. The first four are a rename; the fifth is a parameter. **The
+tokeniser is a sixth site nobody counted**, and it is the only one that fails
+SILENTLY rather than by returning nothing.
+
+**AND `san` IS THE DANGEROUS ONE, not `ltc` or `fas`.** A language that yields
+ZERO tokens announces itself. Sanskrit yields **plausible Latin-looking
+fragments** — `kanakacampakad`, `magaur` — that no reader would flag, and the
+census would emit rates over them. Doctrine 50's shape: an orthographic layer
+silently destroying the constraint the cell measures.
+
+**WHAT IS OWED:** `pair_counters` asks the phonology for its tokens, the way
+`fin_rhyme_rate` and the Kalevala adoption already do. Then the five renames.
+Cost is measured and small — a minimal honest cross-tradition run (cym + san +
+msa + ltc endword-only) is **under 1 core-hour** with per-file checkpointing
+already implemented at `structure_census.py:221-264`.
+
+### M-23 · `Structure` has no `kind="partition"`, and that is the same missing kind four times `OPEN`
+**Found 2026-08-21, and it is the one change that serves every spec-shaped
+structural source this project has located.**
+
+`quality/structures.py` is **pair-judge shaped**: `Structure.judge(a, b, phon)`
+takes two end-words. Verified at head — 58 rows, kinds `comparator` 1 /
+`preset` 9 / `cell` 48, and **`partition` is absent**. Every spec-shaped source
+below is a **partition over line indices**, not a pair relation. The type
+already exists in the RELATION registry — `quality/relations.py:3977`,
+`R105: "scheme declarations as set partitions over line indices"` — so the
+vocabulary is there and the catalog cannot carry it.
+
+| source | in repo? | per-song machine-readable? | gap | cost |
+|---|---|---|---|---|
+| **ltc 欽定詞譜** | yes — `data/qindingcipu_ge.tsv`, 2,286 格 rows | **yes** — `GE`/`RHYME`/`JU` on all **10,029** poems, zero `RHYME: -` | catalog row + census population type | **low** |
+| **fas radif** | detector yes, data no | **no** — recomputed every run | persist per-poem, carry `min_fraction` in the column | low-med |
+| **msa pantun** | schema yes | form tag yes (88 `[PANTUN ABAB]`), halves no | halves are free (always 1-2 / 3-4); the discontinuity is `H-2` | split trivial |
+| **fin chain-song** | pointer yes, structure no | **no** structural header at all | needs an N-ary INCREMENT edge, not a repetition edge; n=9 stubs | med-high |
+
+**THE ltc CASE IS THE ONE THAT SHOULD EMBARRASS US.** A 1715 spec, extracted
+to 2,286 rows, validated against a second independent witness (KR4j0086, the
+四庫's own 御定詞譜), emitted per-poem onto 10,029 staged songs — and its
+**only consumer is `quality/ltc_overlap.py`, a standalone audit script.** The
+corpus ships a perfect spec-derived partition and nothing in the grading path
+can ask about it, because the catalog has no shape for it.
+`ltc_overlap.read_poems` is already exactly the loader needed and should be
+lifted out of an audit script into a shared one.
+
+**NOT ONE ROW, THOUGH — the four are not one shape.** ltc is a rhyme-group
+partition the SPEC declares; fas radif is a shared verbatim line-tail over a
+declared line subset (which would also cover eng refrain, tur redif and the
+Kanteletar's `j. n. e.` in one row); msa is a fixed 2+2 functional bipartition
+INSIDE a four-line unit; fin's chain is incremental, and the increment is the
+whole content. Folding them into one `partition` kind and declaring victory
+would be doctrine 1 in the catalog layer.
+
+**AND `RHYME_CONSTRAINED_FAMILIES` IS A SECOND, QUIETER BLOCKER.**
+`structure_census.py:57` names only `eng_song` and `sonnets`, so **every
+non-English cell would emit `constrained=no`** — false for a ghazal's radif and
+for a cywydd's cynghanedd. Run 2 owes a declared entry per tradition, and the
+registration's own E1 amendment owes `dactylic-rhyme`'s removal from the
+constrained family (its shipped `constrained=yes` tag is VOID for consumers).
+
 ## Add below this line

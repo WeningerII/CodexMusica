@@ -35,6 +35,31 @@ production language whose null table enforcement consumes first. The
 schema below is world-shaped from day one so that adding a language later
 adds ROWS, never changes the instrument.
 
+> **THE SCHEMA KEEPS THAT PROMISE AND THE TOKENISER DOES NOT — AMENDED
+> 2026-08-21, before run 2 rather than after it.** Measured: the judge layer is
+> genuinely language-neutral, all 57 non-comparator rows through all 7
+> phonologies with **0 exceptions**, and `items_of()` splits on the literal
+> `--- TITLE:` prefix that every tradition already carries — so **section marks
+> are not a blocker for any tradition**, and `language`/`phonology` are already
+> columns in the output schema. That half of the promise is real.
+>
+> **`pair_counters()` calls `lyric_harness.line_tokens`, which is ASCII-only
+> and never asks the phonology for its tokens.** `ltc` yields zero tokens on
+> 99.9% of lines, `fas` on 100.0%, `san` mis-tokenises 96.6% of lines into
+> plausible-looking Latin fragments, `fin` 41.6%. **This is the exact
+> substitution that VOIDED Kalevala alliteration run 1** (`CLAUDE.md`: *"the
+> ASCII tokenizer had shredded ä/ö, and the fin phonology's `_tokens` was the
+> one definition all along"*), and adding a language would therefore change
+> the instrument after all.
+>
+> **Run 2 may not begin until `pair_counters` asks the phonology.** Recorded
+> here rather than in the results, because this is a registration promise and a
+> registration is the right place to discover it cannot be kept.
+> `MISSING.md` `M-22` holds the measurement; `M-23` holds the second
+> obligation — `RHYME_CONSTRAINED_FAMILIES` names only `eng_song`/`sonnets`,
+> so every non-English cell would emit `constrained=no`, false for a ghazal's
+> radif and a cywydd's cynghanedd.
+
 ## The reading — one judge, the grader's own
 
 Every pair is judged by `quality.structures.judge(name, a, b, phon)` — the

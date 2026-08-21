@@ -208,6 +208,40 @@ device vs. the span). But one vocabulary naming a phenomenon and its
 neighbour declining to is worth a deliberate answer rather than an
 accident of which module was written first.
 
+> **THE PARKED QUESTION HAS AN ANSWER NOW, AND IT IS `BOTH, AT DIFFERENT
+> LAYERS` — recorded 2026-08-21 from a per-language vocabulary census plus a
+> ~900-term world survey the owner compiled.** The survey's own bucket headers
+> — framing / initiating / medial / goal / contrasting / instrumental /
+> connective / rear-framing — are a **small closed FUNCTION vocabulary that
+> nearly every world name maps into**: sthayi, coro, pallavi, drop, estribillo,
+> mukhda and chorus are all *goal*. That is the GLOBAL layer, and it is closed.
+> The NAMES are per-tradition data rows, attested-or-blank, entering with their
+> first staged song exactly as `CORPUS_LOADING_PROTOCOL.md` already requires.
+>
+> **THE CENSUS IS WHY THIS IS NOT A COIN-FLIP.** Three facts decide it:
+> **(1)** `SECTION_FUNCTIONS` declares 21 functions and the corpus witnesses
+> **4** — one global table is not straining. **(2)** What is representable
+> today is a function of *which English word a stager reached for*: `san` at
+> **2 files** types 4 of 5 marks because someone wrote `BURDEN`/`BURDEN-TAIL`,
+> while the identical Persian radif, transliterated, types at **0%** across
+> 125,059 blocks. A per-tradition NAME table with a global FUNCTION column is
+> precisely the coordinate doctrine 45 says must be declared rather than
+> implied. **(3)** Building the name tables from a term LIST rather than from
+> staged text would populate rows with zero members — measured, 8 of the
+> survey's expected terms (sèist, penillion, toddaid, gwawdodyn, takhallus,
+> matlaʿ, qafiya, anuṣṭubh) occur in **0 files**, and the 4 Finnish `seist`
+> hits are `seistä`. That is the declared-but-unread defect in a taxonomy hat,
+> and the protocol already refuses it.
+>
+> **`RADIF` RESOLVES UNDER THE SAME ANSWER AND IT IS A WRONG-LAYER REFUSAL,
+> not a vocabulary gap.** It is a rhyme device refused by a SECTION table; it
+> belongs beside `Mandate.returns` / `repeat_licence`, which already model
+> licensed repetition, and beside `relations.py`'s `"epistrophe / radif"`
+> family — which **already names English epistrophe, Persian radīf, Turkish
+> redif, Arabic ḥājib and Spanish epífora as five members of one relation**.
+> The cross-tradition table the section layer is missing exists in the relation
+> layer and has for some time.
+
 **(c) BAYT lands on REWRITTEN_RETURN 53,345 times, and that is the
 ladder's shrug.** Its gloss says it has *"two readings the harness
 cannot choose between: a chorus that rewrites, or a mark that groups two
