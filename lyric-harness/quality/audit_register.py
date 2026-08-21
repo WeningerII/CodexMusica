@@ -1991,7 +1991,13 @@ PINNED = {
     "cym_total": 29569, "cym_read": 29443,
     "cym_refused": 0, "cym_defective": 126,
     # -- MISSING.md's shape, but NOT its prose (see exclusion 3) ------------
-    "coverage_entries": 75,
+    #    REPINNED 2026-08-21: ~~75~~ 76 entries. `M-20` was filed that day —
+    #    two English poems staged TWICE in their own file, found when the
+    #    named air was split out of the title (BACKLOG 3.2). A new entry is
+    #    the ORDINARY way this figure moves and the pin is what makes filing
+    #    one a decision rather than a diff; `coverage_audited` is unmoved at
+    #    19 because M-20 carries no audited claim of its own yet.
+    "coverage_entries": 76,
     "coverage_audited": 19,
 }
 
