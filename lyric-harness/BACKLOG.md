@@ -362,10 +362,45 @@ complaint stands only in the sense that "Middle Chinese 同用 rhyme" firing on
 English was never the population problem it was written up as. `requires` is
 populated on only 17 of 77 and that half is unchanged.
 
-### 2.6 · `relations.py` counts have no matched control
+### 2.6 · `relations.py` counts have no matched control — `CLOSED 2026-08-21`
 `search_k` is carried on every span and **nothing consumes it**. `internal
 rhyme` returns 18,290 instances on 200 lines of Poe. Doctrines 56/61 apply
 directly and there is no null.
+
+**ALL THREE CLAUSES ARE ANSWERED, and `quality/relations_null.py` — whose
+first line names this entry — is the answer.**
+
+**The null exists, and it is FIVE nulls rather than one**, each recording what
+it PRESERVES and what it DESTROYS, chosen PER PREDICATE and never per corpus
+(doctrine 75), with the statistic chosen alongside it (doctrine 90) and the
+observation routed through `NULLS['identity']` so a difference between
+observation and replicate can never be the rendering (doctrine 91).
+
+**`search_k` IS consumed.** `relations.search_burden()` reads it, and
+`test_relations.py` pins the discrimination: a SEARCHED rule (`chain rhyme
+(rap)`) reports `mean_k > 1` and a LOOKUP rule (`perfect rhyme`) reports
+`mean_k == 1.0`. The defect that entry named — *"a count obtained by SEARCH
+looked identical to one obtained by lookup"* — is now a failing check if it
+returns.
+
+**THE FINDING IS SHARPER THAN THE ASK, AND IT IS ABOUT THIS REPO'S OWN
+HABIT.** `line_permutation` — the null used for Whitman, the Kalevala,
+Bilhaṇa and the sonnet arms — **is the IDENTITY MAP** for `internal rhyme`,
+`perfect rhyme` and Kalevala alliteration: 0 of 200 replicates differ by so
+much as one instance, because none of the three declares a bounded
+line-distance placement, so permuting whole lines moves no unit's line-final
+status and no line's word multiset. It hands a clean p=1.0000 to anyone who
+reaches for the obvious null. Doctrine 63 caught that shape in Finnish and
+doctrine 68 in Persian; this is the third mechanism, inside this repo's own
+relations layer.
+
+**The 18,290 in the sentence above is superseded and NOT repinned as a
+before/after** — the count reads 20,472 on the current corpus, and the point
+was never the integer: it is that the integer shipped bare. It now ships
+beside its nulls, its lift and the fraction of replicates that differ at all.
+
+Under test in `quality/test_null_shapes.py` (27 checks, §5–8) and
+`quality/test_relations.py`.
 
 ### 2.7 · ~~`fin.py` implements alliteration and nothing else~~ — BOTH SENTENCES WERE FALSE `M-6`, `CLOSED 2026-08-11`
 ~~No `rhymes()`. Nine of the ten staged Finnish files are rhymed strophic verse

@@ -118,6 +118,18 @@ def test_the_citation_scan_discriminates():
     check("...and the window is bounded, so a MISSING far above an unrelated "
           "id does not capture it",
           not m.findall("MISSING.md is the register." + " " * 80 + "K-6"))
+    # BOTH BACKLOG SPELLINGS. `BACKLOG §2.6` was missed by the first draft —
+    # nine citations across four entries use the section sign, including all
+    # three for 2.6, whose own answer names it in its first line. 2.6 sat at
+    # the head of "what is next" while fully built because of one character.
+    b = re.compile(r"BACKLOG(?:\s+|\s*§\s*)(\d+\.\d+)")
+    check("`BACKLOG 2.6` is read",
+          b.findall("see BACKLOG 2.6 for why") == ["2.6"])
+    check("...and so is `BACKLOG §2.6`, the spelling that hid a built entry "
+          "at the head of the queue",
+          b.findall("MATCHED CONTROLS. BACKLOG §2.6.") == ["2.6"])
+    check("...and a bare decimal near the word is NOT read as a citation",
+          not b.findall("the BACKLOG. 2.6 seconds elapsed"))
 
 
 def test_the_signal_was_validated_backwards():

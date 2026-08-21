@@ -264,7 +264,16 @@ def scan(entries):
     """Fill each entry's `tests` and `code` lists. Reads every tracked .py/.js
     ONCE and asks all entries of it, rather than grepping per entry."""
     by_key = {e.key: e for e in entries}
-    b_re = re.compile(r"BACKLOG\s+(\d+\.\d+)")
+    #: `BACKLOG 2.6` AND `BACKLOG §2.6`. The section sign was missed by the
+    #: first draft and it is not a rare spelling: MEASURED 2026-08-21, NINE
+    #: citations across four entries use it, including ALL THREE for 2.6 —
+    #: whose answer, `relations_null.py`, names the entry in its own first
+    #: line. So 2.6 sat at the head of "what is next" while being fully
+    #: built, and the miss was found the same way the CITED bucket was: a
+    #: human read the head of the queue and checked it. A citation scanner
+    #: is only as good as its spellings, and the spellings are a property of
+    #: the repo rather than of the scanner (doctrine 58).
+    b_re = re.compile(r"BACKLOG(?:\s+|\s*§\s*)(\d+\.\d+)")
     m_re = re.compile(r"MISSING(?:\.md)?[^\n]{0,%d}?\b([A-Z]-\d+[a-z]?)\b"
                       % MISSING_NEAR)
     for rel in _tracked("*.py", "*.js", "*.mjs"):
