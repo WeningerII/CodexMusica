@@ -1939,15 +1939,33 @@ cell declined to infer it from syllable counts off a flattened-ASCII
 transcription, which is correct — that would invent the corpus's rarest field
 rather than source it — and it is the largest thing that round did not deliver.
 
-### M-9 · `CHANNELS.md` is written as a blocklist and the policy is an ALLOWLIST `OPEN`
-The gateway denies by default and the proxy enumerates its own denials:
-`curl -sS "$HTTPS_PROXY/__agentproxy/status"` → `recentRelayFailures[]`. 11
+### M-9 · ~~`CHANNELS.md` is written as a blocklist and the policy is an ALLOWLIST~~ — reframed 2026-08-21 `CLOSED` 2026-08-21
+~~The gateway denies by default and the proxy enumerates its own denials~~ —
+**and the second half of that sentence was imprecise in a way the rewrite had
+to fix:** `recentRelayFailures[]` is a failure LOG, empty until you probe, not
+a policy dump; it enumerates nothing on its own (verified 2026-08-21, empty
+before five probes and five `connect_rejected` rows after). 11
 further hosts probed, all denied, including **all four Project Gutenberg
-mirrors** — so GITenberg is not a convenient alternative to Gutenberg, it is the
-only route. Also: `huggingface.co` is 403 at CONNECT (MCP-only) and `hf_fs cat`
+mirrors** — so GITenberg is not a convenient alternative to Gutenberg, it is
+the only route.
+
+**CLOSED by the rewrite this entry asked for.** `data/CHANNELS.md` now opens
+with the allowlist frame (~8 open doors, deny-by-default), carries every
+former blocklist row under KNOWN CLOSED with its probe date, and the rewrite
+surfaced two corrections the blocklist frame had hidden: **`codeload.github.com`
+was never egress-denied** (403 with a 378-byte body and no `connect_rejected`
+— GitHub refuses at the origin, the tunnel opens; a different fact under
+doctrine 49), and **two committed rows disagree about WebFetch rate limits**
+(this file said "no rate limit", `data/sources.tsv:63` records 429 after a
+couple of `/search` hits) — carried as CONTESTED in the file with both
+citations, to be re-probed by whoever next needs the channel rather than
+silently resolved by whichever row a reader saw first.
+
+The Welsh parquet pointer survives in the file's OPEN table: `hf_fs cat`
 refuses binaries, so `wikimedia/wikisource` config `20231201.cy` — Welsh
-Wikisource, 1.25 MB, one parquet file — is **named, located and unreadable**.
-Highest-value single Welsh target for whoever next has a parquet-capable channel.
+Wikisource, one 1,251,259-byte parquet — stays **named, located and
+unreadable**. Highest-value single Welsh target for whoever next has a
+parquet-capable channel.
 
 ### M-11 · ~~ZERO named airs across EVERY non-English song staged~~ — **31, and the field was inside the title all along** `PARTIAL`
 The field this whole round was chasing. ~~ZERO named airs across 8,009
