@@ -619,12 +619,46 @@ def test_the_song_profile_makes_no_separation_claim():
           "a scale")
     check("and states that this does not mean it catches a machine",
           all("not whether it catches a machine" in f.evidence for f in fs))
-    check("the period slope is carried in the finding, not only the docs",
-          all("period" in f.evidence.lower() for f in fs
-              if f.code == "ANAPHORA_OVERLOAD"),
-          "doctrine 11: anaphora's author-level Spearman against birth year "
-          "is +0.275, p_perm 0.0042 over 10,000 label permutations at "
-          "seed 20260811")
+    # WHAT THIS PINS CHANGED ON 2026-08-20, AND THE OLD PIN WAS THE DEFECT.
+    # Until then these three lines asserted that the finding carries a LIVE
+    # period slope -- doctrine 11, author-level Spearman +0.275 against birth
+    # year, p_perm 0.0042 over 10,000 label permutations at seed 20260811,
+    # measured on the 108 dated authors the song profile was calibrated over.
+    # Re-derived over 407 dated authors it does not reproduce: rho -0.008,
+    # p_perm 0.8695. So the shipped finding now carries a WITHDRAWAL and this
+    # section moves with it. Doctrine 17 sets the shape: the struck figure
+    # stays legible and may never stand as a live claim.
+    #
+    # AND THE OLD CHECK COULD NOT HAVE FAILED ON AN EMPTY LIST. It was
+    # `all(... for f in fs if f.code == "ANAPHORA_OVERLOAD")`, which is True
+    # over no findings at all, so a build that stopped emitting the code
+    # entirely would have printed PASS. The population is named first now.
+    an = [f for f in fs if f.code == "ANAPHORA_OVERLOAD"]
+    check("exactly one ANAPHORA_OVERLOAD is under inspection", len(an) == 1,
+          f"got {len(an)} -- an empty list makes every check below vacuous, "
+          "which is what the old `all(... if ...)` spelling did")
+    ev = an[0].evidence if an else ""
+    check("the period question is carried in the finding, not only the docs",
+          "PERIOD" in ev,
+          "doctrine 48: a withdrawal that lives only in "
+          "quality/RESULTS_SONG_FLOOR.md reaches nobody reading the finding")
+    check("and what it carries is a WITHDRAWAL, not a live slope",
+          "PERIOD CAUTION WITHDRAWN" in ev and "-0.008" in ev
+          and "0.8695" in ev,
+          "re-derived over 407 dated authors against the original 108: "
+          "rho -0.008, p_perm 0.8695 -- ABSENT and sign-flipped, not weaker, "
+          "so the caution is withdrawn rather than softened")
+    check("the struck figure is still legible, and marked as struck",
+          "+0.275" in ev and "used to read" in ev,
+          "doctrine 17: a check may be kept after its premise is falsified "
+          "but never quoted as if it were not -- +0.275 stays visible and "
+          "may not stand unqualified")
+    check("and the withdrawal does not read as a clean bill",
+          "472 undated" in ev and "NOT missing at random" in ev
+          and "moved rather than left" in ev,
+          "doctrine 20: 472 of 879 authors are undated and NOT missing at "
+          "random, and `mattr`/`fwr` now carry the slopes -- a failure to "
+          "reproduce, not an acquittal, and the confound relocated")
 
 
 def test_the_song_profile_did_not_swallow_everything():

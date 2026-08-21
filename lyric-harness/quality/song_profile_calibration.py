@@ -1418,6 +1418,18 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     cmp("profile n_generated", float(p.n_generated), 0.0, 0)
     # The period slope is quoted in the profile note AND inside the
     # ANAPHORA_OVERLOAD finding, so it is a shipped constant like any other.
+    #
+    # AND AS OF 2026-08-20 IT IS QUOTED IN BOTH PLACES AS A **STRUCK** VALUE.
+    # Re-derived over 407 dated authors against the 108 it was measured on, the
+    # slope is rho -0.008, p_perm 0.8695 -- absent and sign-flipped -- so both
+    # surfaces now carry a doctrine-17 withdrawal and neither states it as a
+    # live claim (`quality/RESULTS_SONG_FLOOR.md` §4·R).
+    # THE TWO PINS BELOW ARE DELIBERATELY NOT REPINNED, and their DRIFT is the
+    # correct answer rather than a defect: 0.275 is what the SHIPPED constant
+    # says, the corpus now answers -0.008, and this runner's own contract is
+    # that a drift here is argued and repinned in a closing sitting, never
+    # tuned to (doctrine 58). Repinning them is the same sitting that repins
+    # the five thresholds, and it is held open on the predictability arm.
     rho, pp = slopes["anaphora"]
     cmp("anaphora period slope rho", 0.275, rho, 0.01)
     cmp("anaphora period slope p_perm", 0.0042, pp, 0.004)
@@ -1425,11 +1437,17 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     # and owe nothing to how many items were scored, so a sampled run judges
     # them exactly as a full one does. They are the whole of what `--sample`
     # can actually decide, and they are counted as answered in both modes.
+    # THIS GATE SURVIVES THE WITHDRAWAL, and its job changed rather than
+    # ending: doctrine 17 keeps a falsified figure VISIBLE and forbids quoting
+    # it as if it were not falsified, so the note must go on carrying +0.275.
+    # What would now trip it is a later edit that DELETES the struck figure
+    # instead of striking it.
     quoted = "+%.3f" % 0.275
     counts["asked"] += 1
     counts["answered"] += 1
     if quoted not in p.note:
-        bad.append("the profile note no longer quotes rho %s" % quoted)
+        bad.append("the profile note no longer quotes rho %s (it is STRUCK, "
+                   "and doctrine 17 keeps a struck figure legible)" % quoted)
         print("   profile note quotes rho             DRIFT")
     counts["asked"] += 1
     counts["answered"] += 1

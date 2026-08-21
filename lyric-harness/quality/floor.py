@@ -145,13 +145,30 @@ Two limits on it, both measured rather than assumed, both in the profile note:
 
   - The corpus is pre-1931 by construction (the provenance gate). Its
     latest-born author is 1872 and its latest death is 1929, so it contains no
-    song composed by anyone alive in the last century. ANAPHORA carries a real
-    period slope inside that window (author-level Spearman +0.275 against birth
-    year, p_perm 0.0042 over 10,000 label permutations at seed 20260811, which
-    survives Bonferroni over the five checks) -- so this is a THIRD feature
-    caught reading period rather than quality, after the two doctrine 11
-    already names. PREDICTABLE_RHYME is not a fourth: rho -0.018, p_perm
-    0.8572, does not survive.
+    song composed by anyone alive in the last century. ~~ANAPHORA carries a
+    real period slope inside that window (author-level Spearman +0.275 against
+    birth year, p_perm 0.0042 over 10,000 label permutations at seed 20260811,
+    which survives Bonferroni over the five checks) -- so this is a THIRD
+    feature caught reading period rather than quality, after the two doctrine
+    11 already names.~~ WITHDRAWN 2026-08-20 (doctrine 17), and the strike is
+    the finding rather than a tidy-up: re-derived over 407 dated authors
+    against the original 108, the anaphora slope is rho -0.008, p_perm 0.8695.
+    ABSENT and sign-flipped, not weaker. TWO THINGS THAT DO NOT FOLLOW FROM
+    IT. (a) 472 of the 879 in-band authors are UNDATED and dropped from this
+    check alone, and they are not missing at random -- they are the anthology
+    material whose editions print no author dates -- so it is a failure to
+    reproduce on a biased 46% subsample and NOT a clean bill. (b) The confound
+    RELOCATED rather than left: `mattr` -0.228 -> -0.125 and `fwr` +0.090 ->
+    +0.144 both SURVIVE Bonferroni now where they did not at 108 authors, at
+    unchanged signs, so what moved is the power and the IDENTITY of the
+    period-reading feature, not the existence of one (doctrine 11). The same
+    caveat is why they are not adopted here either.
+    `quality/RESULTS_SONG_FLOOR.md` §4·R carries the table and the command.
+    PREDICTABLE_RHYME is not a fourth: rho -0.018, p_perm 0.8572, does not
+    survive. NOTE that "latest-born 1872" is the 108-author calibration
+    population's window; over the loaded tree the in-band dated authors run
+    1340-1888, and every constant in this profile still describes the 143-file
+    corpus until the closing sitting repins it.
   - Threshold transfer across the corpus's own period cohorts fails
     asymmetrically and in the direction that matters here: thresholds fitted on
     earlier-born authors OVER-flag later-born ones (function-word ratio 12.39%
@@ -677,13 +694,25 @@ PROFILES = [
             "5th percentile runs 0.6400 at 50-80 tokens to 0.7719 at 700-1200 "
             "and is only flat above ~150.\n"
             "  * PERIOD. The corpus is pre-1931 by construction; latest birth "
-            "1872, latest death 1929. ANAPHORA has a real period slope inside "
-            "that window -- author-level Spearman +0.275 against birth year, "
-            "p_perm 0.0042 over 10,000 label permutations at seed 20260811, "
-            "which survives Bonferroni over the five checks (cuts at 0.0100). "
-            "That is a THIRD "
-            "feature caught reading period rather than quality (doctrine 11) "
-            "-- PREDICTABLE_RHYME is not a fourth: rho -0.018, p_perm 0.8572, "
+            "1872, latest death 1929 in the 108-author calibration "
+            "population. THIS BULLET USED TO READ that ANAPHORA has a real "
+            "period slope inside that window -- author-level Spearman +0.275 "
+            "against birth year, p_perm 0.0042 over 10,000 label permutations "
+            "at seed 20260811, surviving Bonferroni over the five checks "
+            "(cuts at 0.0100) -- and that this is a THIRD feature caught "
+            "reading period rather than quality (doctrine 11). WITHDRAWN "
+            "2026-08-20: re-derived over 407 dated authors against the "
+            "original 108 it is rho -0.008, p_perm 0.8695. ABSENT and "
+            "sign-flipped, not weaker, so the caution is withdrawn rather "
+            "than softened, and the struck figure is kept legible rather "
+            "than deleted (doctrine 17). NEITHER OF THESE IS CLAIMED: the "
+            "re-derivation drops 472 of 879 in-band authors as UNDATED and "
+            "they are not missing at random, so it is a failure to reproduce "
+            "on a biased 46% subsample and not a clean bill; and `mattr` "
+            "(-0.228 -> -0.125) and `fwr` (+0.090 -> +0.144) DO survive "
+            "Bonferroni now, so the period reading relocated rather than "
+            "left -- and the same caveat is why they are not adopted either. "
+            "PREDICTABLE_RHYME is not a fourth: rho -0.018, p_perm 0.8572, "
             "does not survive, so the fifth check reads no period signal at "
             "all in this band. Cross-cohort "
             "threshold transfer fails asymmetrically: fitted on earlier-born "
@@ -1091,11 +1120,21 @@ class SlopFloor:
                 f"{prof.evidence_for('anaphora')}. "
                 f"POST-HOC: this check was not pre-registered, so it needs its "
                 f"own replication before it is trusted"
-                + (". And on the song corpus it carries a measured PERIOD "
-                   "slope -- author-level Spearman +0.275 against birth year, "
-                   "p_perm 0.0042 over 10,000 label permutations at seed "
-                   "20260811 -- so at this length part of what it reads "
-                   "is when the words were written (doctrine 11)"
+                + (". PERIOD CAUTION WITHDRAWN 2026-08-20 (doctrine 17): "
+                   "this clause used to read that anaphora carries a measured "
+                   "PERIOD slope -- author-level Spearman +0.275 against "
+                   "birth year, p_perm 0.0042 -- and that part of what it "
+                   "reads at this length is WHEN the words were written. "
+                   "Re-derived over 407 dated authors against the original "
+                   "108, it does not reproduce: rho -0.008, p_perm 0.8695. "
+                   "Not weaker, ABSENT and sign-flipped, so the caution is "
+                   "withdrawn rather than softened -- on the wider corpus "
+                   "this check does not look like it is reading the calendar. "
+                   "TWO THINGS THAT ARE NOT CLAIMED: the re-derivation drops "
+                   "472 undated authors and they are NOT missing at random, "
+                   "so this is a failure to reproduce and not a clean bill; "
+                   "and `mattr`/`fwr` DO now carry slopes, so period-reading "
+                   "moved rather than left (doctrine 11)"
                    if prof.name == "song" else "")
                 + f". Deliberate anaphora is "
                 f"a figure — Whitman, the Psalms and every blues refrain trip "
