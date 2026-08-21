@@ -187,11 +187,14 @@ with length, which reproduces METHOD doctrine 15's sonnet-vs-quatrain ordering
 
 ## 2. The thresholds, and their held-out false-positive rate
 
-**Shipped, 150–400 tokens:**
+**Shipped, 150–400 tokens** (the `song` row re-adopted 2026-08-21 over the
+loaded corpus — see §5·A; the superseded values are struck rather than
+overwritten, doctrine 17):
 
 | | `mattr_min` | `function_word_ratio_max` | `anaphora_max` | `line_length_cv_min` | `predictable_pair_fraction_max` |
 |---|---:|---:|---:|---:|---:|
-| song profile | 0.7226 | 0.4716 | 0.3000 | 0.1123 | 0.9286 |
+| song profile | 0.7128 | 0.4773 | 0.3000 | 0.1094 | 0.9286 |
+| ~~song profile, to 2026-08-21~~ | ~~0.7226~~ | ~~0.4716~~ | ~~0.3000~~ | ~~0.1123~~ | ~~0.9286~~ |
 | (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 | 0.8333 |
 | (section, for contrast) | 0.7568 | 0.5161 | 0.5000 | 0.0525 | — |
 

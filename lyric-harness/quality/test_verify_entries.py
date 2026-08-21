@@ -46,7 +46,7 @@ import quality.verify_entries as VE  # noqa: E402
 from quality.verify_entries import (           # noqa: E402
     FALSE, PROSE_DOCS, PROSE_SCOPE, PROSE_SHAPES, REFUSED, ROOT, TRUE,
     prose_entry, prose_self_test, read_prose, shape_capacity_figure,
-    shape_repo_path, sweep_prose,
+    shape_floor_threshold, shape_repo_path, sweep_prose,
 )
 
 #: A path that cannot exist, so the STALE tests can never expire the way a
@@ -203,6 +203,10 @@ def test_scope_is_declared_and_readable():
           "quality/RESULTS_RHYME_CAPACITY.md"
           in PROSE_SHAPES["CAPACITY_FIGURE"],
           "its scope is %s" % (PROSE_SHAPES["CAPACITY_FIGURE"],))
+    check("FLOOR_THRESHOLD likewise reaches the document that restates the "
+          "shipped profile",
+          "quality/RESULTS_SONG_FLOOR.md" in PROSE_SHAPES["FLOOR_THRESHOLD"],
+          "its scope is %s" % (PROSE_SHAPES["FLOOR_THRESHOLD"],))
     check("PROSE_SCOPE is DERIVED from the per-shape scopes, so a scope added "
           "above cannot leave a document unopened by the reader",
           set(PROSE_SCOPE)
@@ -364,6 +368,86 @@ def test_capacity_figures_are_re_derived():
                  " — " + mutant[0].measured.split(" (artifact")[0][:90]
                  if mutant else ""))
 
+# ---------------------------------------------------------------------------
+# 9. THE SHIPPED FLOOR THRESHOLDS, MUTATED IN RESULTS_SONG_FLOOR.md
+#
+# The first mutation below is not hypothetical: it restores the table exactly
+# as it stood before this sitting, when §2 was headed "Shipped, 150-400
+# tokens" and gave three of five cells at their pre-adoption values. Nothing
+# caught it — `floor.py --check` compares the constants to a fresh derivation
+# and `song_profile_calibration.py --check` reads the profile's own `note`
+# docstring; neither reads this table. So the first row here is the regression
+# for a defect that was found by eye, which is the thing this file exists to
+# stop being the method (doctrine 48).
+#
+# The last three are the failures a value-only check would miss: a threshold
+# asserted for a profile that has none, an absence asserted for one that ships
+# a value, and two correct numbers in each other's columns.
+# ---------------------------------------------------------------------------
+
+FLOOR_DOC = "quality/RESULTS_SONG_FLOOR.md"
+
+FLOOR_MUTANTS = [
+    ("| song profile | 0.7128 |", "| song profile | 0.7226 |",
+     "the pre-adoption mattr_min back under the word SHIPPED — the real one"),
+    ("0.7128 | 0.4773 | 0.3000 | 0.1094 | 0.9286 |",
+     "0.7128 | 0.4773 | 0.3000 | 0.1123 | 0.9286 |",
+     "line_length_cv_min back to its pre-adoption value"),
+    ("| (section, for contrast) | 0.7568 | 0.5161 | 0.5000 | 0.0525 | — |",
+     "| (section, for contrast) | 0.7568 | 0.5161 | 0.5000 | 0.0525 | 0.9 |",
+     "a threshold asserted for a profile that ships none"),
+    ("| (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 | 0.8333 |",
+     "| (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 | — |",
+     "an absence asserted for a threshold the profile does ship"),
+    ("| song profile | 0.7128 | 0.4773 |",
+     "| song profile | 0.4773 | 0.7128 |",
+     "two cells swapped — every number right, every column wrong"),
+]
+
+
+def _floor_false(text):
+    segs = prose_entry(FLOOR_DOC, text).segments
+    return [v for v in (shape_floor_threshold(sg) for sg in segs)
+            if v is not None and v.status == FALSE]
+
+
+def test_floor_thresholds_are_re_derived():
+    print("\n9. a shipped floor threshold is re-derived, not retyped")
+    raw = io.open(os.path.join(ROOT, FLOOR_DOC), encoding="utf-8").read()
+    clean = _floor_false(raw)
+    check("the shipped document is clean, so every kill below is the "
+          "mutation and not a standing failure", not clean,
+          "; ".join(v.measured[:80] for v in clean))
+    for old, new, why in FLOOR_MUTANTS:
+        if raw.count(old) != 1:
+            check("anchor %r is still present exactly once" % old[:34], False,
+                  "found %d — the mutation could not be applied, so this row "
+                  "proved nothing" % raw.count(old))
+            continue
+        mutant = _floor_false(raw.replace(old, new))
+        check(why, bool(mutant),
+              mutant[0].measured.split(" (at ")[0][:100] if mutant
+              else "the shape did not notice")
+
+    # THE STRUCK ROW IS NOT A CLAIM. §2 keeps the superseded values visible on
+    # their own row (doctrine 17), and if `_unstrike` ever stopped removing it
+    # this shape would report the document false for having been corrected
+    # properly — the worst possible direction for a staleness gate to fail in.
+    # NOT "0.7226 is absent from the document" — it is legitimately present
+    # in §5·A's shipped/adopted table and in §5's worked example, and asserting
+    # its absence would demand the document delete exactly what doctrine 17
+    # requires it to keep. The property is narrower: the `song` profile is
+    # claimed ONCE, by the live row.
+    verdicts = [v for v in (shape_floor_threshold(sg)
+                            for sg in prose_entry(FLOOR_DOC, raw).segments)
+                if v is not None and v.claim.startswith("song ")]
+    check("the struck 'song profile, to 2026-08-21' row is not read as a "
+          "second live claim — a document is never failed for keeping its "
+          "own superseded values legible",
+          len(verdicts) == 1,
+          "%d live `song` row(s): %s"
+          % (len(verdicts), " || ".join(v.claim[:60] for v in verdicts)))
+
 def main():
     print("=" * 78)
     print("PROSE SCOPE — quality/verify_entries.py")
@@ -376,6 +460,7 @@ def main():
     test_shipped_probes()
     test_comma_grouped_counts_are_read_whole()
     test_capacity_figures_are_re_derived()
+    test_floor_thresholds_are_re_derived()
     print()
     print("=" * 78)
     if _FAILURES:

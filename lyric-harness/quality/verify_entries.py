@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """ENTRY CLAIMS — the sentences in MISSING.md and BACKLOG.md, checked; plus
-two shapes asked of prose documents, each over its own declared scope: every
-backticked repo PATH in the three standing documents, and every per-family
-RHYME-CAPACITY FIGURE quoted anywhere in those three or in
-`quality/RESULTS_RHYME_CAPACITY.md`.
+three shapes asked of prose documents, each over its own declared scope: every
+backticked repo PATH in the three standing documents; every per-family
+RHYME-CAPACITY FIGURE, re-derived from `data/rhyme_capacity_eng.tsv`; and every
+shipped FLOOR THRESHOLD restated in a table, re-derived from
+`quality/floor.py`. The last two reach one RESULTS document apiece.
 
     python3 quality/verify_entries.py                 # check; non-zero on a FALSE claim
     python3 quality/verify_entries.py --refusals      # + every refused claim, by kind
@@ -348,12 +349,20 @@ class Segment:
     checker that skipped headings would have missed half the class.
     """
 
-    def __init__(self, entry, text, lineno, historical=False, kind="prose"):
+    def __init__(self, entry, text, lineno, historical=False, kind="prose",
+                 table_header=""):
         self.entry = entry
         self.text = text
         self.lineno = lineno
         self.historical = historical
         self.kind = kind
+        #: For a `kind="table"` segment, the header row of the table it sits
+        #: in — "" when the table has none. A row alone cannot say WHICH
+        #: quantity a cell holds, so a shape that compares cells to named
+        #: constants has to see the header, and re-opening the file to find it
+        #: would give this module a second idea of where a table starts
+        #: (`_md_blocks`'s own note about exactly that).
+        self.table_header = table_header
 
 
 BLOCK_START = re.compile(r"^\s*(?:[-*+]\s|\d+\.\s|\||>|#)")
@@ -388,6 +397,11 @@ def _segments_of(entry):
         buf.clear()
 
     quoted_before = False
+    #: The header is the row BEFORE the `|---|` separator, so it is only known
+    #: one row late — which is why it is remembered rather than looked ahead
+    #: for. `header` is cleared when the table ends, so a row can never inherit
+    #: the header of a table above it.
+    header, prev_row = "", ""
     for off, raw in lines:
         ln = raw.strip()
         # A `>` blockquote is where both registers put their CORRECTIONS -- the
@@ -401,13 +415,26 @@ def _segments_of(entry):
         if quoted != quoted_before:
             flush()
         quoted_before = quoted
+        if not ln.startswith("|"):
+            # Anything that is not a table row ENDS the table, blank lines
+            # included, so a row can never inherit the header of a table
+            # above it.
+            header, prev_row = "", ""
         if not ln:
             flush()
             historical = False
             continue
         if ln.startswith("|"):
             flush()
-            out.append(Segment(entry, ln, off, kind="table"))
+            # A separator row is dashes, colons, pipes and spaces AND has at
+            # least one dash: `| | |` is a blank DATA row and reading it as a
+            # separator would hand the next rows the wrong header.
+            if "-" in ln and set(ln) <= set("|-: "):
+                header = prev_row          # the row above a separator
+            else:
+                out.append(Segment(entry, ln, off, kind="table",
+                                   table_header=header))
+            prev_row = ln
             continue
         if BLOCK_START.match(ln) or BOLD_OPENER.match(ln) or WAS.search(ln):
             flush()
@@ -1289,6 +1316,127 @@ def shape_capacity_figure(seg):
                    % len(claims))
 
 
+# --- shape 11: FLOOR_THRESHOLD --------------------------------------------
+#
+# THE SAME DEFECT ONE DOCUMENT OVER. `RESULTS_SONG_FLOOR.md` §2 is headed
+# "Shipped, 150-400 tokens" and gave `mattr_min` 0.7226, `fwr` 0.4716 and
+# `cv` 0.1123 — the values before the closing sitting re-adopted the profile
+# over the loaded corpus on 2026-08-21. Three of five cells were wrong under
+# the word SHIPPED, and everything that could have caught it was looking
+# somewhere else: `floor.py --check` compares the constants to a fresh
+# derivation, and `song_profile_calibration.py --check` reads the profile's
+# own `note` docstring. Neither reads this table.
+#
+# A profile constant is DEFINED in `floor.py`. A table that restates one is a
+# second copy (doctrine 1), and the second copy is the one that rots, because
+# nothing runs it.
+
+_FLOOR_PROFILES = None
+
+
+def floor_profiles():
+    """-> {name: profile} from `quality.floor`, imported once (0.07s, no
+    corpus and no lexicon — cheap enough for the fast suite step)."""
+    global _FLOOR_PROFILES
+    if _FLOOR_PROFILES is None:
+        from quality.floor import PROFILES
+        _FLOOR_PROFILES = {p.name: p for p in PROFILES}
+    return _FLOOR_PROFILES
+
+
+#: A cell that says the profile has NO threshold for this feature. `section`
+#: really does lack `predictable_pair_fraction_max`, so an em-dash is a claim
+#: with a truth value and not a blank.
+_FLOOR_ABSENT = {"—", "-", "–", "n/a", "none", ""}
+
+#: How many named percentile keys a header must carry before its rows are read
+#: as threshold claims. THREE, not one: §5's per-run tables head their columns
+#: `mattr` / `fwr` / `cv`, which are the same quantities under working names,
+#: and reading those as the shipped constants would fail this document for
+#: recording the runs that produced them. Requiring the DECLARED KEYS, and
+#: several of them, is what separates "the shipped profile" from "a run".
+_FLOOR_MIN_KEYS = 3
+
+
+def _cells(row):
+    return [c.strip() for c in row.strip().strip("|").split("|")]
+
+
+def shape_floor_threshold(seg):
+    """A markdown row restating a shipped `floor.py` profile, re-derived from
+    the profile itself.
+
+    Fires only on a table whose HEADER names at least three of the declared
+    percentile keys and whose row label names a shipped profile — so `| cut |
+    < 0.7226 | ...` in a worked example, and every per-run table, are left
+    alone. `_unstrike` has already removed the superseded row, so a struck
+    line is never read as a live claim (doctrine 17).
+    """
+    if seg.kind != "table" or not seg.table_header:
+        return None
+    profiles = floor_profiles()
+    head = _cells(seg.table_header)
+    keys = {i: c.strip("`") for i, c in enumerate(head)
+            if c.strip("`") in {k for p in profiles.values()
+                                for k in p.percentiles}}
+    if len(keys) < _FLOOR_MIN_KEYS:
+        return None
+    row = _cells(seg.text)
+    label = row[0].strip("`*_ ").lower() if row else ""
+    hit = [n for n in profiles if re.search(r"\b%s\b" % re.escape(n), label)]
+    #: One name or none. A label matching two profiles is not a row about
+    #: either of them, and choosing between them would be the guess that
+    #: `CAPACITY_FIGURE`'s clique lookup refuses to make.
+    if len(hit) != 1:
+        return None
+    prof = profiles[hit[0]]
+
+    claims, wrong = [], []
+    for i, key in sorted(keys.items()):
+        if i >= len(row):
+            continue
+        cell = row[i].strip("`*")
+        said_absent = cell.lower() in _FLOOR_ABSENT
+        got = prof.percentiles.get(key)
+        claims.append("%s %s %s" % (prof.name, key,
+                                    "—" if said_absent else cell))
+        if said_absent:
+            if got is not None:
+                wrong.append("%s %s: the table says the profile has none, "
+                             "floor.py ships %s" % (prof.name, key, got))
+            continue
+        try:
+            said = float(cell)
+        except ValueError:
+            wrong.append("%s %s: %r is not a number and not an absence "
+                         "marker" % (prof.name, key, cell))
+            continue
+        if got is None:
+            wrong.append("%s %s: the table gives %s, floor.py's profile has "
+                         "no such threshold" % (prof.name, key, cell))
+        #: COMPARED AT THE CELL'S OWN PRECISION. The table writes 0.3000 for a
+        #: constant floor.py holds as 0.3, and `float("0.3000") != 0.3` is
+        #: false only because both are the same double — but 0.7128 written as
+        #: 0.713 would be a real rounding claim, not a defect. The cell decides
+        #: how many places it is asserting (doctrine 91).
+        elif round(got, len(cell.split(".")[1]) if "." in cell else 0) != said:
+            wrong.append("%s %s: the table says %s, floor.py ships %s"
+                         % (prof.name, key, cell, got))
+
+    if not claims:
+        return None
+    short = "; ".join(claims[:4]) + ("; …" if len(claims) > 4 else "")
+    if seg.historical:
+        return Verdict("FLOOR_THRESHOLD", REFUSED, short,
+                       "a `**Was:**` clause", HISTORICAL)
+    if wrong:
+        return Verdict("FLOOR_THRESHOLD", FALSE, short,
+                       "; ".join(wrong) + " (at %s)" % head_commit())
+    return Verdict("FLOOR_THRESHOLD", TRUE, short,
+                   "%d threshold(s) re-derived from quality/floor.py"
+                   % len(claims))
+
+
 DERIV_RE = re.compile(
     r"^  (CONFIRMED|MOVED|FALSE|UNVERIFIABLE|SKIPPED|ERROR)\s+(D\d+)\s+(\S+(?: / \S+)?)\s+(.*?)\n"
     r"\s+register:\s*(.*?)\n\s+measured:\s*(.*?)\n", re.M)
@@ -1351,6 +1499,7 @@ SHAPES = [
     ("STATUS_XREF", False, shape_status_xref),
     ("SCRATCH_NAMESPACED", False, shape_scratch_namespaced),
     ("CAPACITY_FIGURE", False, shape_capacity_figure),
+    ("FLOOR_THRESHOLD", False, shape_floor_threshold),
 ]
 
 #: The shapes whose verdict flips meaning with the entry's STATUS. An absence
@@ -1358,18 +1507,18 @@ SHAPES = [
 #: disagreement even when the claim itself is judged correctly.
 ABSENCE_SHAPES = {"SYMBOL_ABSENT", "CORPUS_MARKER_ABSENT"}
 
-#: The shapes asked of prose documents. TWO, and the docstring at the head of
+#: The shapes asked of prose documents. THREE, and the docstring at the head of
 #: this file records what each of the other eight did when it was run over the
 #: same three documents. This is a declared list and not "every shape that does
 #: not crash": a shape reaches it by being measured over the documents first.
 #: A DOCUMENT SET PER SHAPE, because scope is the thing being widened and the
-#: two shapes do not want the same one. `REPO_PATH_EXISTS` cannot be pointed at
+#: shapes do not want the same one. `REPO_PATH_EXISTS` cannot be pointed at
 #: a RESULTS document: those cite foreign paths, the note above measured 29 red
 #: over them, and a gate that opens red is a gate people learn to skip.
-#: `CAPACITY_FIGURE` has the opposite need — the per-family figures it exists
-#: to re-derive are written in `RESULTS_RHYME_CAPACITY.md` and almost nowhere
-#: else, so scoping it to `PROSE_DOCS` would point it at the one place the
-#: claims are not.
+#: `CAPACITY_FIGURE` and `FLOOR_THRESHOLD` have the opposite need — the
+#: per-family figures and the shipped-threshold tables they exist to re-derive
+#: are written in one RESULTS document each and almost nowhere else, so scoping
+#: them to `PROSE_DOCS` would point them at the one place the claims are not.
 #:
 #: One tuple could not express both, and the earlier one silently expressed the
 #: first. Widening stays per-SHAPE and never per-FILE — this makes the file's
@@ -1378,6 +1527,7 @@ ABSENCE_SHAPES = {"SYMBOL_ABSENT", "CORPUS_MARKER_ABSENT"}
 PROSE_SHAPES = {
     "REPO_PATH_EXISTS": PROSE_DOCS,
     "CAPACITY_FIGURE": PROSE_DOCS + ("quality/RESULTS_RHYME_CAPACITY.md",),
+    "FLOOR_THRESHOLD": PROSE_DOCS + ("quality/RESULTS_SONG_FLOOR.md",),
 }
 
 #: Every document any shape is asked over. Derived, so adding a scope above
@@ -1413,6 +1563,26 @@ class _FakeEntry:
 def _probe(text, ident="X-0", status="OPEN", heading="### X-0 · probe `OPEN`",
            kind="prose"):
     return Segment(_FakeEntry(ident, status, heading), text, 0, kind=kind)
+
+
+def _floor_probe(delta):
+    """-> a shipped-profile table row rendered from `floor.py`: TRUE at delta
+    0, FALSE at delta 1. Rendered for the reason `_capacity_probe` is — a
+    threshold written into this file would be the second copy the shape exists
+    to abolish, and it would go stale at the next adoption.
+
+    The profile is DERIVED (first in sort order) so the control does not break
+    if a profile is renamed or retired, and the header is built from that
+    profile's own key set, which is also what proves the header rule is read
+    from the declaration rather than typed out here (doctrine 1).
+    """
+    prof = floor_profiles()[sorted(floor_profiles())[0]]
+    keys = sorted(prof.percentiles)
+    head = "| | " + " | ".join("`%s`" % k for k in keys) + " |"
+    row = "| %s profile | " % prof.name + " | ".join(
+        "%s" % (prof.percentiles[k] + delta) for k in keys) + " |"
+    return Segment(_FakeEntry("X-0", "OPEN", "### X-0 · probe"), row, 0,
+                   kind="table", table_header=head)
 
 
 def _capacity_probe(delta):
@@ -1487,6 +1657,8 @@ POSITIVE_CONTROLS = [
     # neither can rot.
     ("CAPACITY_FIGURE",
      lambda: _capacity_probe(0), lambda: _capacity_probe(1)),
+    ("FLOOR_THRESHOLD",
+     lambda: _floor_probe(0), lambda: _floor_probe(1)),
 ]
 
 _BY_NAME = {name: fn for name, _v, fn in SHAPES}
@@ -2526,12 +2698,13 @@ def main(argv=None):
           % (", ".join(sorted(PROSE_SHAPES)), ", ".join(PROSE_SCOPE)))
     print("-" * 78)
     print("  a backticked repo path must exist unless the sentence says it "
-          "does not;")
-    print("  a per-family capacity figure must re-derive from "
-          "data/rhyme_capacity_eng.tsv.")
-    print("  Counted apart from the register's triple above: these are not "
-          "claims drawn")
-    print("  from an entry.")
+          "does not; a")
+    print("  per-family capacity figure must re-derive from "
+          "data/rhyme_capacity_eng.tsv; a")
+    print("  shipped floor threshold must re-derive from quality/floor.py. "
+          "Counted apart")
+    print("  from the register's triple above: these are not claims drawn "
+          "from an entry.")
     for rel, why in prose_refusals:
         print("  [REFUSED] %s could not be read — %s" % (rel, why))
         print("            doctrine 20 — this is not a pass. A document this "
@@ -2552,6 +2725,8 @@ def main(argv=None):
         mine = [(sg, v) for sg, v in prose_results if v.shape == name]
         cites = sum(len(set(PATH_RE.findall(sg.text))) for sg, _v in mine) \
             if name == "REPO_PATH_EXISTS" else len(mine)
+        # (for the two derived shapes a verdict IS a segment; only
+        # REPO_PATH_EXISTS can hold several citations in one sentence)
         print("  %-17s %d citation(s) in %d segment(s): %d true, %d FALSE, "
               "%d refused."
               % (name, cites, len(mine),
