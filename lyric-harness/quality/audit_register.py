@@ -769,17 +769,30 @@ def _d_named_airs():
 
 def _d_chorus_stubs():
     import lyric_harness as LH
-    n = collections.Counter()
+    n, loose = collections.Counter(), collections.Counter()
     for f in _song_files():
         lang = os.path.basename(f)[:3]
         for l in open(f, encoding="utf-8", errors="replace"):
             s = l.strip()
             if not s or s.startswith("#") or s.startswith("---") or s.startswith("["):
                 continue
-            if LH.is_chorus_stub(s):
+            # ASKED WITH THE LANGUAGE THE FILENAME ALREADY DECLARES, which
+            # this loop had computed and thrown away since it was written.
+            # Undeclared, five editorial-prose lines in
+            # `fin_wahanen_laulukirja.txt` ending in a truncated Swedish title
+            # counted as Finnish refrain pointers, and every Welsh `&c.`
+            # counted under English's label. Both are gone at the cost of
+            # moving one argument (BACKLOG 2.4, doctrine 45).
+            if LH.is_chorus_stub(s, language=lang):
                 n[lang] += 1
+            elif LH.is_chorus_stub(s):
+                loose[lang] += 1
     return (CONFIRMED if n["eng"] == 941 else MOVED), \
-        "is_chorus_stub fires on %d eng / %d cym / %d fin lines" % (n["eng"], n["cym"], n["fin"]), \
+        ("is_chorus_stub fires on %d eng / %d cym / %d fin / %d msa lines when "
+         "asked WITH each file's language%s"
+         % (n["eng"], n["cym"], n["fin"], n["msa"],
+            "; %s more match undeclared and are NOT that tradition's pointer"
+            % dict(loose) if loose else "")), \
         "941 stub instances in the staged corpus"
 
 
@@ -912,8 +925,13 @@ def _m4_stub_rows(entries):
 
 def _d_stub_forms():
     import lyric_harness as LH
-    forms = [(f[0], f[1]) for f in getattr(LH, "CHORUS_STUB_FORMS", ())]
-    langs = [f[0] for f in forms]
+    # `f[0]` IS A TUPLE OF LANGUAGES since 2026-08-21 -- `&c.` is attested for
+    # `eng` AND `cym` -- so the declared-language list is flattened rather than
+    # read off one field. Keying on one language per form is exactly the defect
+    # BACKLOG 2.4 was closed on, and it would silently under-report here as a
+    # missing Welsh row.
+    forms = [(tuple(f[0]), f[1]) for f in getattr(LH, "CHORUS_STUB_FORMS", ())]
+    langs = [l for f in forms for l in f[0]]
     rows = _m4_stub_rows(read_entries())
     got = "CHORUS_STUB_FORMS declares %s" % (forms,)
     if not rows:
@@ -927,9 +945,12 @@ def _d_stub_forms():
     for lang, stubs, withdrawn in rows:
         hits = set()
         for s in stubs:
-            m = LH.chorus_stub_match("lorem ipsum " + s)
-            if m:
-                hits.add(m[0])
+            # EVERY language the form is attested for, not the one the table
+            # happened to declare first. M-4's Welsh row names `&c.`; under the
+            # old single-language read this reported hits={'eng'} and the row
+            # was credited to English -- the phantom this function's own
+            # docstring predicted, now answered rather than explained away.
+            hits |= set(LH.chorus_stub_languages("lorem ipsum " + s))
         if not withdrawn:
             named |= hits
         if withdrawn:

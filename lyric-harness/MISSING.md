@@ -1485,7 +1485,7 @@ entry were WRONG — corrected below rather than quietly restated.
 |---|---|---:|---|
 | English | `&c.` / `etc.` | 941 | handled by `is_chorus_stub` |
 | Finnish | `j. n. e.` (*ja niin edelleen*) | ~~8~~ **9 at `debf64e`** | `fin_kanteletar` 14 → **0**; ~~all ten `fin_*` 155 → 139~~ `UNVERIFIABLE`, see below |
-| Welsh | `&c.` | 30 (see note) | Mynyddog, foot of a stanza |
+| Welsh | `&c.` | ~~30 (see note)~~ **33, rule stated below** | Mynyddog, foot of a stanza; READ AS WELSH since 2026-08-21 |
 
 **THE FINNISH ROW MOVED WITH THE CORPUS, NOT WITH THE REGISTER — and the
 distinction is the whole reason the verdict is `MOVED` and not `FALSE`.**
@@ -1508,12 +1508,40 @@ from a different question. Doctrine 58 with the RULE as the unwritten
 coordinate. **Owed: the tokeniser, beside the number.** It is not replaced with
 718, because 718 is the answer to a question this row did not ask.
 
-**The Welsh 30 is `UNVERIFIABLE` and no rule tried reproduces it.** A bare
-`&c\.` regex over the five `cym_song_*` files gives **41**, all of them in
-`cym_song_mynyddog.txt`; the register audit reports 33 under a rule it does not
-state. Three values, three unstated tokenisations, and the row is left at 30
-rather than silently moved to whichever number the last person measured —
-doctrine 58, and M-18's population clause. **Owed: the rule, beside the number.**
+**~~The Welsh 30 is `UNVERIFIABLE` and no rule tried reproduces it.~~ THE RULE
+IS STATED AND THE THREE VALUES RECONCILE — 2026-08-21.** The debt this row
+carried was *the rule, beside the number*, and it is paid here rather than by
+picking a value:
+
+> **RULE.** `lyric_harness.is_chorus_stub(line, language="cym")` over the lines
+> of `corpus/song/cym_*.txt` that are not blank and do not begin `#`, `[` or
+> `---`. **33.** Reproduce:
+> `python3 -c "import lyric_harness as L,glob;print(sum(L.is_chorus_stub(l.strip(),language='cym') for f in glob.glob('corpus/song/cym_*.txt') for l in open(f,encoding='utf-8') if l.strip() and l.strip()[0] not in '#[' and not l.startswith('---')))"`
+
+The bare `&c\.` regex's **41** is not a rival count, it is a count of a
+different thing, and it decomposes to the digit: 41 occurrences = **2** on the
+file's own staging header (which quotes `Dyna'i hewyrth, &c.` while explaining
+the convention) + **39** on verse lines, of which **6** are the second `&c.` of
+a line printed `&c., &c.`. 39 − 6 = **33 lines**, and 35 lines contain the
+string at all, 35 − 2 header lines = 33. Every `&c.` on a Welsh verse line in
+this corpus is line-final; there is no third population. Doctrine 58 is
+satisfied by naming the rule, not by moving the number, and the number moved
+only because the rule finally exists.
+
+**AND THE ROW WAS BEING READ UNDER ENGLISH'S LABEL.** Until 2026-08-21 all 33
+answered `('eng', ...)` to `chorus_stub_match`, and answered `None` — *not a
+pointer* — the moment a caller supplied `language='cym'`, which is the silent
+half and the one that puts 33 refrain pointers into rhyme extraction as sung
+text. `CHORUS_STUB_FORMS`' first field is now a SET of the traditions a form is
+attested in, `&c.` is attested for `eng` and `cym` both, and the undeclared
+call answers `(None, gloss)` — *this is a pointer, which tradition printed it
+cannot be told from the line*. See BACKLOG 2.4 and `quality/test_spans.py` §8b.
+
+BACKLOG 2.4 expected the remaining work to be a Welsh WORD for *et cetera*.
+Measured: `ac ati`, `ac yn y blaen` and `a.y.y.b` occur **zero** times
+line-final in the staged Welsh. The entry's premise was falsified by the
+corpus, and the fix is a second attestation on the existing form rather than a
+fourth pattern.
 | Malay | `d. s. b.` / `d.s.b.` | **108 in the SOURCE** | see the reversal below |
 
 **THE MALAY ROW WAS WITHDRAWN ON 2026-08-11 AND THE WITHDRAWAL WAS ITSELF

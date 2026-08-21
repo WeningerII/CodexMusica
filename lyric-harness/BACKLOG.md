@@ -328,26 +328,98 @@ and this heading did not say so, so the two files disagreed about whether a TIER
 2 item was still owed — caught by `python3 quality/verify_entries.py`, shape
 `STATUS_XREF`.
 
-### 2.4 · The `&c.` refrain stub is not an English convention `M-4`
-**THREE OF FOUR SHIPPED; WELSH DID NOT — MEASURED 2026-08-21.**
+### 2.4 · ~~The `&c.` refrain stub is not an English convention~~ — **four traditions, three forms, and the Welsh one was `&c.` all along** `M-4` — `CLOSED 2026-08-21`
+**TASK DISCHARGED — `M-4` STAYS OPEN.** The task this entry set was *read the
+Welsh refrain pointer as Welsh*, and it is done and guarded. M-4 stays PARTIAL
+on a different clause entirely: the Malay `d. s. b.` row's count is
+`UNVERIFIABLE` because PG47873 — the 705-block source it was measured against —
+is not on disk here, and the staged 129-block extract is a different population
+(M-18). No amount of work on the Welsh pointer closes that, and marking M-4
+CLOSED to make the two files agree would erase a real gap.
+
+**WHAT THE ENTRY EXPECTED WAS NOT WHAT THE CORPUS HAD.**
 `lyric_harness.CHORUS_STUB_FORMS` declares `eng` (`&c.`/`etc.`), `fin`
 (`j. n. e.`) and `msa` (`d. s. b.`), each returning its LANGUAGE as a
 coordinate through `chorus_stub_match` — which is the fix this entry asks
 for. This entry's own last sentence says *"Welsh makes it four languages"*,
-and `chorus_stub_match('Y gan a ganwyd, ac ati.')` returns `None`. So the
-entry is PARTIAL rather than open or closed, and the remaining work is one
-anchored pattern plus the corpus evidence for it.
-**TESTED WHILE OPEN** — `test_spans.py` §8 guards the three that shipped
-(`quality/triage.py`).
+and `chorus_stub_match('Y gan a ganwyd, ac ati.')` returns `None` — which
+turned out to be the CORRECT answer, because `ac ati` is not what the Welsh
+corpus prints. ~~So the entry is PARTIAL rather than open or closed, and the
+remaining work is one anchored pattern plus the corpus evidence for it.~~
+~~**TESTED WHILE OPEN** — `test_spans.py` §8 guards the three that shipped
+(`quality/triage.py`).~~ The remaining work was not a pattern; see below.
 
 Finnish `j. n. e.` is **100%** of the two Kanteletar files' unreadable tokens
 (16 tokens on 8 stub lines, CONFIRMED to the token); Malay `d. s. b.` is
 **305 of 471** — the row that was withdrawn on 2026-08-11 and reinstated the
 same day, because the withdrawing grep read the 129-block staged extract while
 the claim was about the 705-block source (`M-18`). Both are end-of-line, so the
-existing anchored regex extends directly. Welsh makes it four languages.
+existing anchored regex extends directly. ~~Welsh makes it four languages.~~
+
+**THE REMAINDER, MEASURED AND CLOSED — 2026-08-21.** This entry asked for one
+more anchored pattern: a Welsh word for *et cetera*. There is none to add.
+`ac ati`, `ac yn y blaen` and `a.y.y.b` occur **0** times line-final in the
+staged Welsh; `&c.` occurs **33**, all in `corpus/song/cym_song_mynyddog.txt`
+(1915 Ab Owen edition), and they are unambiguously Welsh lines —
+`Rhowch, &c.` · `Ond dyma'r gwirionedd, &c.` · `Dysgwch ddweyd "Na," &c.`
+The Welsh printer reached for the same Latin abbreviation an English one would.
+
+So the defect was not a missing form, it was the TABLE'S SHAPE: one language
+per form. Both failures doctrine 45 names followed from it —
+
+    chorus_stub_match("Ond dyma'r gwirionedd, &c.")        -> ('eng', ...)
+    chorus_stub_match("Ond dyma'r gwirionedd, &c.", 'cym') -> None
+
+the first attributing a Welsh line to English, the second telling a caller who
+KNOWS the line is Welsh that it carries no pointer at all — which is how 33
+refrain pointers reach rhyme extraction as if they were sung text.
+
+**THE FIX.** `CHORUS_STUB_FORMS`' first field is a **set of the traditions the
+form is attested in**, not a language. `&c.`/`etc.` is attested for `eng` and
+`cym`; `j. n. e.` for `fin`; `d. s. b.` for `msa`. Declaring a language answers
+with that language and only tries the forms it attests. Leaving it undeclared
+answers `(None, gloss)` when the form is shared — *`None` means cannot tell,
+never a guess*, the contract `Phonology.rhymes` already carries — and still
+answers `stub`, so every caller that only asks IS IT A POINTER is unchanged.
+`chorus_stub_languages(line)` reports the attestation set.
+
+**AND THE SET PAID OUT IN THE OTHER DIRECTION.** Five lines in
+`corpus/song/fin_wahanen_laulukirja.txt` end in `etc.` and are NOT refrain
+pointers — they are truncated source citations in editorial Finnish prose
+(`Mukailtu C. M. Bellmanin teoksesta "Fader Berg i hornet stöter" etc.`).
+**No punctuation rule separates them**, and that was tried: three Welsh and two
+English lines carry the identical `"quoted," &c.` shape and ARE genuine
+pointers (`cym_song_mynyddog.txt:935,947,960`,
+`eng_british_richard_lovelace.txt:1273`, `eng_celtic_msm_richard_gall.txt:189`).
+The refuted rule is kept as a check (doctrine 17) so nobody ships it without
+re-refuting it. What separates them is the coordinate: `etc.` is not attested
+for `fin`, so `language='fin'` drops all five with no heuristic at all.
+
+`quality/audit_register.py` D6 already knew each file's language from its name
+and threw it away. Asked with it, the derivation now reports
+**989 eng / 33 cym / 9 fin / 0 msa**, and names the 5 undeclared fin matches as
+*not that tradition's pointer* instead of counting them. D9 reads Welsh as
+`cym/eng` rather than crediting M-4's Welsh row to English — the phantom
+`_m4_stub_rows`' own docstring predicted, now answered rather than explained.
+
+**GUARDED BY** `quality/test_spans.py` §8b, 19 checks, whose first check
+re-derives the 33 from the file and refuses if the witness stops reproducing.
+Three mutations confirm it is not vacuous: restoring the first-language guess,
+dropping `cym` from the attestation set, and ignoring the declared language
+fail 2, 8 and 9 checks respectively.
 
 ### 2.5 · ~~`RelationSchema.traditions` is declared on 77 schemas, populated on 0~~ — **75 of 77 populated** `M-15` — `CLOSED 2026-08-21`
+**TASK DISCHARGED — `M-15` STAYS OPEN.** The task was *populate the field*, and
+75 of 77 schemas now carry traditions — 298 distinct `Tradition` rows, 319
+attachments, taken from `quality/RHYME_CANON.md` rather than invented from
+schema names. M-15 stays PARTIAL because the fill has a gap of its own, filed
+as M-15a: **every one of the 298 `Tradition.source` values is an `R<n>` pointer
+back into `RHYME_CANON.md`**, which itself carries 611 `from:` references into
+a survey array that is not in this repository, and zero publication years in
+94 KB. From inside a clone the citation graph is closed. Populating the field
+was the task; sourcing it is the capability, and it is still missing. Two
+schemas — `blues AAB stanza` and `refrain by reference` — also still carry
+none.
 ~~populated on 0~~. Measured by `python3 quality/audit_register.py --provenance`
 (derivation D21): **77 schemas, 75 carrying traditions, 298 distinct `Tradition`
 rows over 319 attachments**. The two with no tradition at all are `blues AAB
@@ -462,6 +534,17 @@ were broken that the suite would fail if anyone re-broke.
 ## TIER 3 — corpus and provenance
 
 ### 3.1 · The clean Chinese route `K-7` — `CLOSED 2026-08-21`
+**TASK DISCHARGED — `K-7` STAYS OPEN.** The task was *find and build a clean
+route*, and it was built: 66 `ltc_siku_kr4j*.txt` files, 70 `data/sources.tsv`
+rows, a runner, and a segmentation refusal that closed the last item said to
+need a re-stage. K-7 stays PARTIAL on the thing no route can fix — the
+digitiser of the 4,347 ci and 734 樂府 grants `資料自由使用，但不得為商業用途`,
+an express NON-COMMERCIAL condition, which is a rejection and not a licence
+(doctrine 85). Those texts are located, extracted, validated, measured and
+REFUSED. The capability *the Chinese ci and yuefu are usable* is exactly as
+missing as it was; what changed is that a different, admissible corpus now
+stands beside the refusal (doctrine 92: admissible and complete sources can be
+disjoint).
 4,347 ci and 734 樂府 refused on an express non-commercial grant. The unblock
 route carries **no living copyright**: `kanripo/KR4j` 白文 (文淵閣四庫全書, 1782)
 segmented by the 欽定詞譜 (1715). ~~Needs a build; the pieces are all

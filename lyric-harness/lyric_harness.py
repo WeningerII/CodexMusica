@@ -3201,16 +3201,51 @@ def join_spaced_enclitics(text):
 #: THE CONVENTION IS NOT ENGLISH, so the LANGUAGE IS A COORDINATE (doctrine
 #: 45). The same mechanism, doing the same job in the same position, is spelt
 #: differently in each printing tradition, and a single anonymous regex would
-#: be a checker silently picking a language. Each entry is (language, gloss,
+#: be a checker silently picking a language. Each entry is (LANGUAGES, gloss,
 #: pattern); `chorus_stub_match` returns WHICH one fired.
+#:
+#: THE FIRST FIELD IS A SET, NOT A LANGUAGE, and that is the 2026-08-21 repair.
+#: A form is attested in the printing traditions that USE it, and `&c.` is used
+#: by two of the ones staged here: 989 line-final instances in `eng_*` and 33
+#: in `cym_song_mynyddog.txt`, an 1915 Welsh edition whose printer reached for
+#: the Latin abbreviation exactly as an English one would. Keying the table on
+#: ONE language per form made both of the failures doctrine 45 names:
+#:
+#:   `chorus_stub_match("Ond dyma'r gwirionedd, &c.")`     -> ('eng', ...)
+#:   `chorus_stub_match("Ond dyma'r gwirionedd, &c.", 'cym')` -> None
+#:
+#: the first attributing a Welsh line to English, the second -- the worse one,
+#: because it is silent and it is what a caller who KNOWS the language gets --
+#: telling that caller there is no pointer here at all, which puts 33 refrain
+#: pointers into rhyme extraction as if they were sung text.
+#:
+#: BACKLOG 2.4 expected the remaining work to be a Welsh WORD (`ac ati`). It
+#: is not: `ac ati`, `ac yn y blaen` and `a.y.y.b` occur ZERO times line-final
+#: in the staged Welsh, and `&c.` occurs 33 times. The entry's premise was
+#: falsified by the corpus and the fix is the opposite shape -- not a fourth
+#: pattern, a second attestation on the first one.
+#:
+#: AND THE SET EARNS ITS KEEP IN THE OTHER DIRECTION TOO. Five lines in
+#: `fin_wahanen_laulukirja.txt` end `etc.` and are NOT refrain pointers --
+#: they are truncated source citations in editorial Finnish prose
+#: (`Mukailtu C. M. Bellmanin teoksesta "Fader Berg i hornet stoter" etc.`).
+#: No punctuation rule separates them: three Welsh and two English lines with
+#: the identical `"quoted," &c.` shape ARE genuine pointers. What separates
+#: them is the coordinate -- Finnish printing's pointer is `j. n. e.`, `etc.`
+#: is not attested for `fin`, and so asking with `language='fin'` drops all
+#: five without a heuristic.
 #:
 #: Every pattern is ANCHORED at end of line, because that is where the
 #: abbreviation stands in all of them -- these are not general abbreviation
 #: detectors and must not become them. `j. n. e.` mid-line is a writer using
 #: the phrase, not a printer pointing at a refrain.
 CHORUS_STUB_FORMS = (
-    # `&c.` / `etc.` -- English songsters. 941 instances.
-    ("eng", "&c. / etc. (et cetera)",
+    # `&c.` / `etc.` -- English songsters (941 instances when A-1 counted
+    # them; 989 line-final in the corpus as staged 2026-08-21) AND Welsh
+    # ones (33, all in `cym_song_mynyddog.txt`, e.g. `Rhowch, &c.`,
+    # `Dysgwch ddweyd "Na," &c.`). Latin abbreviation, two printing
+    # traditions, one form.
+    (("eng", "cym"), "&c. / etc. (et cetera)",
      re.compile(r"&c\.?$|&amp;c\.?$|\betc\.?$", re.I)),
     # `j. n. e.` = ja niin edelleen. In the Kanteletar's cumulative chain-songs
     # every verse after the first is abbreviated this way -- a refrain pointer
@@ -3218,7 +3253,7 @@ CHORUS_STUB_FORMS = (
     # unreadable to fin.py; the `e` IS readable and enters the vowel-initial
     # alliteration class as a word Lonnrot never wrote, which is the worse of
     # the two failures because it is silent.
-    ("fin", "j. n. e. (ja niin edelleen)",
+    (("fin",), "j. n. e. (ja niin edelleen)",
      re.compile(r"\bj\.\s*n\.\s*e\.?$", re.I)),
     # `d. s. b.` = dan sebagainya. Recorded in MISSING.md M-4 as ~100
     # instances in the Malay corpus; measured 2026-08-11, this corpus contains
@@ -3226,7 +3261,7 @@ CHORUS_STUB_FORMS = (
     # convention is real in Malay printing and costs nothing while it matches
     # nothing; it is declared here so the next Malay text is read correctly,
     # and it is NOT evidence that the recorded count was right.
-    ("msa", "d. s. b. (dan sebagainya)",
+    (("msa",), "d. s. b. (dan sebagainya)",
      re.compile(r"\bd\.\s*s\.\s*b\.?$", re.I)),
 )
 
@@ -3252,20 +3287,47 @@ CHORUS_STUB = re.compile(
     "|".join(f"(?:{p.pattern})" for _, _, p in CHORUS_STUB_FORMS), re.I)
 
 
-def chorus_stub_match(line, language=None):
-    """-> (language, gloss) of the refrain-pointer convention this line uses,
-    or None.
+def chorus_stub_languages(line):
+    """-> the tuple of languages whose printing attests the pointer on this
+    line, `()` if the line carries no declared pointer.
 
-    `language=None` tries every declared convention and REPORTS which one
-    fired; naming a language restricts the test to that tradition, so a result
-    can say which printing convention it read rather than leaving it implicit.
+    Length > 1 means the FORM is shared -- `&c.` is attested for both `eng`
+    and `cym` -- and therefore that the line alone cannot say which tradition
+    printed it. A caller that needs one answer must supply the language.
     """
     s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
-    for lang, gloss, pat in CHORUS_STUB_FORMS:
-        if language is not None and lang != language:
+    for langs, _, pat in CHORUS_STUB_FORMS:
+        if pat.search(s):
+            return tuple(langs)
+    return ()
+
+
+def chorus_stub_match(line, language=None):
+    """-> (language, gloss) of the refrain-pointer convention this line uses,
+    or None if the line carries no declared pointer.
+
+    NAMING A LANGUAGE restricts the test to the forms that tradition's printing
+    attests, and answers with the language you asked about. This is the call to
+    make whenever the language is known: it is what keeps a Welsh `&c.` from
+    being reported as English, and what drops the five `etc.`-final Finnish
+    citation lines that no punctuation rule separates (see the table above).
+
+    LEAVING IT UNDECLARED answers `(None, gloss)` when the form is attested in
+    more than one tradition -- `None` in the language slot means CANNOT TELL,
+    never a guess, the same contract `Phonology.rhymes` carries. Before
+    2026-08-21 this returned the first-declared language, so every Welsh
+    pointer in the corpus was reported as English by a checker that had never
+    been told the line was Welsh. The tuple is still truthy either way, so
+    `is_chorus_stub` and every caller that only asks IS IT A POINTER are
+    unaffected.
+    """
+    s = _STUB_EDITORIAL_TAIL.sub("", line.strip())
+    for langs, gloss, pat in CHORUS_STUB_FORMS:
+        if language is not None and language not in langs:
             continue
         if pat.search(s):
-            return (lang, gloss)
+            return (language if language is not None
+                    else (langs[0] if len(langs) == 1 else None), gloss)
     return None
 
 
@@ -3276,6 +3338,12 @@ def is_chorus_stub(line, language=None):
     the chorus it points at -- it is not evidence about rhyme, it is a
     pointer. See MISSING.md A-1 and M-4. Use `chorus_stub_match` when the
     answer needs to say which language's convention it recognised.
+
+    PASS THE LANGUAGE WHENEVER IT IS KNOWN. Undeclared, this asks whether ANY
+    tradition's pointer stands at the end of the line, which is a wider
+    question than any single corpus poses: five editorial-prose lines in
+    `fin_wahanen_laulukirja.txt` end in a truncated Swedish title and answer
+    True here, and answer False the moment `language="fin"` is supplied.
     """
     return chorus_stub_match(line, language) is not None
 

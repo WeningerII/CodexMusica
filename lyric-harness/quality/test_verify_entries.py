@@ -448,6 +448,107 @@ def test_floor_thresholds_are_re_derived():
           "%d live `song` row(s): %s"
           % (len(verdicts), " || ".join(v.claim[:60] for v in verdicts)))
 
+
+# --- the discharge escape hatch ------------------------------------------
+
+class _E:
+    """A register entry with a real body, which is what `STATUS_XREF` reads.
+
+    `_FakeEntry` in the shipped file carries no body because no probe needed
+    one until now. This drives the SHIPPED shape -- `shape_status_xref` -- over
+    synthetic entries, never a copy of its logic.
+    """
+
+    def __init__(self, ident, source, status, heading, body=""):
+        self.id, self.source, self.status = ident, source, status
+        self.heading, self.lineno = heading, 0
+        self.body = [(i + 1, ln) for i, ln in enumerate(body.split("\n"))]
+        self.segments = []
+
+
+REASON = ("x" * (VE.DISCHARGE_REASON_CHARS + 20))
+SHORT = "x" * 10
+
+
+def _xref(status, body, missing_status="PARTIAL", ident="Z-9",
+          heading=None):
+    """-> the shipped shape's verdict on a BACKLOG heading citing `ident`."""
+    real = VE._ALL_ENTRIES
+    head = heading or ("### 9.9 · a probe entry `%s`%s"
+                       % (ident, " — `CLOSED`" if status == "CLOSED" else ""))
+    back = _E("9.9", "BACKLOG.md", status, head, body)
+    miss = _E(ident, "MISSING.md", missing_status,
+              "### %s · a probe capability `%s`" % (ident, missing_status))
+    VE._ALL_ENTRIES = [back, miss]
+    try:
+        return VE.shape_status_xref(VE.Segment(back, head, 0, kind="heading"))
+    finally:
+        VE._ALL_ENTRIES = real
+
+
+def test_the_discharge_hatch_is_narrow():
+    print("\n10. STATUS_XREF — a CLOSED task over a still-missing capability")
+    # THE DEFAULT IS STILL FALSE. Nothing below is worth anything if a closed
+    # entry over an open MISSING half stops failing on its own.
+    v = _xref("CLOSED", "no declaration here, just prose")
+    check("a CLOSED entry citing a still-open MISSING id is FALSE with no "
+           "declaration", v.status == VE.FALSE, "%s %s" % (v.status, v.measured))
+    # THE HATCH.
+    v = _xref("CLOSED",
+              "**TASK DISCHARGED — `Z-9` STAYS OPEN.** " + REASON)
+    check("...and REFUSED/DISCHARGED once the entry declares it and says why",
+           v.status == VE.REFUSED and v.kind == VE.DISCHARGED,
+           "%s %s" % (v.status, v.kind))
+    # AND THE FOUR WAYS IT MUST NOT WIDEN.
+    v = _xref("CLOSED", "**TASK DISCHARGED — `Z-9` STAYS OPEN.** " + SHORT)
+    check("a declaration with no reason after it is FALSE — a bare marker is "
+           "a green light with no argument attached",
+           v.status == VE.FALSE and "no reason" in v.measured,
+           "%s %s" % (v.status, v.measured))
+    v = _xref("CLOSED",
+              "**TASK DISCHARGED — `Q-1` STAYS OPEN.** " + REASON)
+    check("a declaration naming a DIFFERENT id does not cover this citation",
+           v.status == VE.FALSE, "%s %s" % (v.status, v.measured))
+    v = _xref("CLOSED", "**TASK DISCHARGED — `Z-9` STAYS OPEN.** " + REASON,
+              missing_status="CLOSED")
+    check("a declaration whose MISSING half has since CLOSED is FALSE, not a "
+           "pass — the entry is describing a state that moved on",
+           v.status == VE.FALSE and "still-open" in v.measured,
+           "%s %s" % (v.status, v.measured))
+    v = _xref("OPEN", "**TASK DISCHARGED — `Z-9` STAYS OPEN.** " + REASON,
+              missing_status="CLOSED")
+    check("the hatch is ONE-DIRECTIONAL: an OPEN entry over a CLOSED MISSING "
+           "half is a stale register and stays FALSE",
+           v.status == VE.FALSE, "%s %s" % (v.status, v.measured))
+    # AND THE LIVE REGISTER REALLY USES IT, so this is not a shape with no
+    # instance (doctrine 20: the three below are why the hatch was built).
+    ents = VE.read_entries()
+    real = VE._ALL_ENTRIES
+    VE._ALL_ENTRIES = ents
+    try:
+        got = {}
+        for e in ents:
+            if e.source != "BACKLOG.md":
+                continue
+            for seg in e.segments:
+                if seg.kind != "heading":
+                    continue
+                vv = VE.shape_status_xref(seg)
+                if vv is not None:
+                    got.setdefault(vv.status, []).append(e.id)
+    finally:
+        VE._ALL_ENTRIES = real
+    check("the shipped shape still ANSWERS live headings — zero resolved is "
+           "a broken reader, not an empty register",
+           len(got.get(VE.TRUE, [])) + len(got.get(VE.REFUSED, [])) >= 8,
+           "TRUE %s | REFUSED %s | FALSE %s"
+           % (got.get(VE.TRUE, []), got.get(VE.REFUSED, []),
+              got.get(VE.FALSE, [])))
+    check("...and the register carries real discharges, so the hatch is not "
+           "a shape with no instance",
+           bool(got.get(VE.REFUSED)), "discharged: %s" % got.get(VE.REFUSED, []))
+
+
 def main():
     print("=" * 78)
     print("PROSE SCOPE — quality/verify_entries.py")
@@ -461,6 +562,7 @@ def main():
     test_comma_grouped_counts_are_read_whole()
     test_capacity_figures_are_re_derived()
     test_floor_thresholds_are_re_derived()
+    test_the_discharge_hatch_is_narrow()
     print()
     print("=" * 78)
     if _FAILURES:

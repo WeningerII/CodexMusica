@@ -48,6 +48,7 @@ and, separately (BACKLOG 2.4), that the refrain-pointer stub is not an English
 printing convention and its language is a declared coordinate.
 """
 
+import re
 import os
 import sys
 
@@ -552,14 +553,135 @@ def _raises(fn, exc):
     return False
 
 
+#: The three Welsh refrain pointers quoted below are VERBATIM lines of
+#: `corpus/song/cym_song_mynyddog.txt`, and the count beside them is what a
+#: line-final scan of the staged Welsh returns. They are re-derived from the
+#: file rather than trusted, because a witness that stops reproducing turns
+#: every check under it into a pass over an empty population (doctrine 20).
+_CYM_SONG = os.path.join(HERE, "..", "corpus", "song",
+                         "cym_song_mynyddog.txt")
+_CYM_WITNESSES = ("Rhowch, &c.",
+                  "Ond dyma'r gwirionedd, &c.",
+                  'Dysgwch ddweyd "Na," &c.')
+_CYM_EXPECTED = 33
+
+
+def _cym_line_final_stubs():
+    """-> every line of the staged Welsh that ends in a declared pointer."""
+    out = []
+    with open(_CYM_SONG, encoding="utf-8", errors="replace") as fh:
+        for ln in fh:
+            t = ln.strip()
+            if not t or t[0] in "#[" or t.startswith("---"):
+                continue
+            if lh.is_chorus_stub(t, language="cym"):
+                out.append(t)
+    return out
+
+
+def test_the_welsh_pointer_is_read_as_welsh():
+    print("\n8b. BACKLOG 2.4 — Welsh prints `&c.`, and it is not English")
+    # 1. THE WITNESS IS REAL. This is the check that refuses if the corpus
+    #    moves out from under everything below it.
+    found = _cym_line_final_stubs()
+    check("the staged Welsh really carries line-final pointers, and the "
+          "quoted witnesses are really in it",
+          len(found) == _CYM_EXPECTED
+          and all(w in found for w in _CYM_WITNESSES),
+          "%d line-final pointers in cym_song_mynyddog.txt; missing "
+          "witnesses: %s" % (len(found),
+                             [w for w in _CYM_WITNESSES if w not in found]
+                             or "none"))
+    # 2. THE ENTRY'S OWN PREMISE, MEASURED AND FALSIFIED. BACKLOG 2.4 expected
+    #    a Welsh WORD for `et cetera`. The corpus has none of the three, so the
+    #    remaining work was never a fourth pattern.
+    txt = open(_CYM_SONG, encoding="utf-8", errors="replace").read()
+    absent = [w for w in ("ac ati", "ac yn y blaen", "a.y.y.b")
+              if re.search(re.escape(w) + r"[\s.,;:\"\']*$",
+                           txt, re.I | re.M)]
+    check("the Welsh WORDS the entry expected occur ZERO times line-final — "
+          "so the fix is a second attestation, not a fourth pattern",
+          not absent, "found line-final: %s" % (absent or "none"))
+    # 3. THE FIX. Named as Welsh, a Welsh pointer answers as Welsh.
+    for w in _CYM_WITNESSES:
+        check("cym: %r -> cym" % w[:34],
+              lh.chorus_stub_match(w, language="cym")
+              == ("cym", "&c. / etc. (et cetera)"),
+              str(lh.chorus_stub_match(w, language="cym")))
+    # 4. AND THE FAILURE IT REPLACES, stated as the thing that must NOT come
+    #    back: a caller who knows the line is Welsh used to be told there is no
+    #    pointer at all, which is how 33 pointers reach rhyme extraction as
+    #    sung text.
+    check("...and a declared Welsh line is never answered `not a stub`",
+          all(lh.is_chorus_stub(w, language="cym") for w in _CYM_WITNESSES))
+    # 5. THE UNDECLARED CALL REFUSES TO PICK. `&c.` is attested in two
+    #    traditions, so the line alone cannot say which printed it.
+    for w in _CYM_WITNESSES[:1] + ("Oh, my poor Nelly Gray, &c.",):
+        got = lh.chorus_stub_match(w)
+        check("undeclared, a SHARED form answers `cannot tell` and still "
+              "answers `stub`: %r" % w[:30],
+              got is not None and got[0] is None
+              and got[1] == "&c. / etc. (et cetera)", str(got))
+    check("...while a form attested in ONE tradition still names it "
+          "undeclared, so this is a refusal and not a blanket None",
+          lh.chorus_stub_match("Va rahalla ra j. n. e.") == (
+              "fin", "j. n. e. (ja niin edelleen)")
+          and lh.chorus_stub_match("dan lain-lain d. s. b.") == (
+              "msa", "d. s. b. (dan sebagainya)"))
+    check("`chorus_stub_languages` reports the attestation set, and `()` for "
+          "a line that carries no pointer",
+          lh.chorus_stub_languages("Rhowch, &c.") == ("eng", "cym")
+          and lh.chorus_stub_languages("Va rahalla ra j. n. e.") == ("fin",)
+          and lh.chorus_stub_languages("The spacious firmament on high,")
+          == ())
+    # 6. THE OTHER DIRECTION, and it is the one the set was worth building
+    #    for. These five lines end in `etc.` and are NOT refrain pointers —
+    #    they are truncated source citations in editorial Finnish prose.
+    fin_false = (
+        'Ruotsinkielisestä: "Toma glas i godt kalas", etc.',
+        'Mukailtu C. M. BellmanIN teoksesta "Fader Berg i hornet stöter" etc.',
+        'Mukailtu C. M. BellmanIN teoksesta "Hjertat mig klämmer" etc.',
+        'Mukailtu C. M. Bellman teoksesta: "Supa klockan öfver tolf" etc.',
+        'Mukailtu C. M. Bellman teoksesta "Käraste Bröder, Systrar och '
+        'vänner" etc.')
+    for line in fin_false:
+        check("a Finnish citation truncation is NOT a Finnish pointer: %r"
+              % line[:40],
+              not lh.is_chorus_stub(line, language="fin"))
+    check("...and they DO match undeclared, which is why the language has to "
+          "be supplied rather than inferred",
+          all(lh.is_chorus_stub(l) for l in fin_false))
+    # 7. THE DISCRIMINATOR THAT DOES NOT WORK, kept because it was tried and
+    #    refuted (doctrine 17). `... "quoted," &c.` looks like the shape that
+    #    separates citation from pointer. It does not: three Welsh and two
+    #    English lines with exactly that shape are genuine pointers. No
+    #    punctuation rule was shipped, and this check exists so nobody ships
+    #    one without re-refuting it.
+    quoted = re.compile(r'[\"”][^\"”]*[\"”]\s*,?\s*(?:&c\.?|etc\.?)$', re.I)
+    check("the `\"quoted,\" &c.` shape does NOT separate citations from "
+          "pointers — 5 real pointers share it, so no heuristic replaces the "
+          "coordinate",
+          bool(quoted.search('Dysgwch ddweyd "Na," &c.'))
+          and lh.is_chorus_stub('Dysgwch ddweyd "Na," &c.', language="cym")
+          and bool(quoted.search('"O come awa, lassie," &c.'))
+          and lh.is_chorus_stub('"O come awa, lassie," &c.', language="eng"),
+          "cym_song_mynyddog.txt:935,947,960 and "
+          "eng_british_richard_lovelace.txt:1273, "
+          "eng_celtic_msm_richard_gall.txt:189")
+
+
 def test_the_refrain_stub_is_not_english():
     print("\n8. BACKLOG 2.4 — the refrain pointer's LANGUAGE is a coordinate")
     eng = ("Oh, my poor Nelly Gray, &c.",
            "Then come, weel speed my pleughman lad, &c",
            "Farewell to the shore, etc.")
     for line in eng:
+        # ASKED WITH THE LANGUAGE. Until 2026-08-21 the undeclared call
+        # answered `("eng", ...)` for every `&c.` in the corpus including the
+        # 33 Welsh ones, and this assertion passed on the guess.
         check(f"eng still recognised: {line[:32]!r}",
-              lh.chorus_stub_match(line) == ("eng", "&c. / etc. (et cetera)"))
+              lh.chorus_stub_match(line, language="eng")
+              == ("eng", "&c. / etc. (et cetera)"))
     # Every `j. n. e.` line in corpus/song/fin_*.txt, verbatim.
     fin = ("Aita mulle päälle kaatui j. n. e. [41]",
            "Pytikästä j. n. e. (vaikka loppumattomaan).",
@@ -591,6 +713,7 @@ def test_the_refrain_stub_is_not_english():
           and lh.chorus_stub_match("Va rahalla ra j. n. e.",
                                    language="fin") is not None,
           "asking for English does not silently answer with Finnish")
+    test_the_welsh_pointer_is_read_as_welsh()
     check("is_chorus_stub keeps its one-argument boolean contract",
           lh.is_chorus_stub("Oh, my poor Nelly Gray, &c.") is True
           and lh.is_chorus_stub("The spacious firmament on high,") is False)
