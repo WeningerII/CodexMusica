@@ -2430,6 +2430,28 @@ MARK_REFUSED = {
     "MUSIC": "editorial apparatus.",
     "GOTHIC": "editorial apparatus.",
     "CYWYDD": "a Welsh METRE name, not a section.",
+    "URLAR": "the GROUND of a pìobaireachd — the theme the variations are "
+             "built on. It IS a span of the performance, which is why it is "
+             "a mark at all; what this vocabulary has no member for is a "
+             "movement in a VARIATION LADDER, and folding it into `verse` "
+             "would say the theme and its ornamented restatements are the "
+             "same kind of thing (`PATTER`'s argument, one tradition over).",
+    "SIUBHAL": "a pìobaireachd variation on the ùrlar. Refused for the same "
+               "reason and with the same regret: the relation it needs is a "
+               "POINTER at the section it elaborates, and the section "
+               "vocabulary has no pointer yet "
+               "(`quality/SECTION_ORDER_PREREGISTRATION.md`).",
+    "TAORLUATH": "a pìobaireachd variation, later in the ladder than the "
+                 "siubhal. Declared here with zero occurrences in this "
+                 "corpus, and the zero is the point: the ladder is INCOMPLETE "
+                 "in the three staged pìobaireachds, so a `rank` over these "
+                 "marks would be ordering a sequence the corpus never shows "
+                 "whole. That measurement is what refused `rank`.",
+    "CRUNLUATH": "the closing pìobaireachd variation, the most ornamented. "
+                 "Same refusal as `SIUBHAL`. Two of the three staged "
+                 "instances print `(FINALE)` after it, which this reader "
+                 "keeps as the mark's ANNOTATION rather than as a second "
+                 "mark — an editor's gloss on a heading is apparatus.",
 }
 
 

@@ -3669,6 +3669,40 @@ carrying ä/ö under `fin`, and 0 under the ASCII reader**.
 a minimal honest cross-tradition run (cym + san + msa + ltc endword-only) is
 **under 1 core-hour** with per-file checkpointing already implemented.
 
+**THE SCOPE IS WIDER THAN THE CENSUS — REPINNED 2026-08-21, and the widening
+came from the owner asking whether printed line numbers were being scored.**
+`line_tokens`'s own docstring says *"This is the ONLY definition of 'the words
+of a line' the rhyme path may use"*, so the ASCII class above is not one
+consumer's mistake — it is the harness's central reading. Measured over all
+**581,468 sung lines** of `corpus/song/`:
+
+| | lines | files |
+|---|---:|---:|
+| `line_tokens` returns **ZERO tokens** | **250,502** (43.1%) | 278 |
+| end word carries a non-ASCII letter and is read as something else | 260,949 | 191 |
+| …of which `eng_*`, where NO other tokeniser is on the path | **2,524** | — |
+
+The 43.1% is every `ltc` and `fas` line in the corpus, and it is NOT the live
+defect: those languages are dispatched to their own phonologies by the
+filename prefix (doctrine 45), so the zero is `line_tokens` being asked a
+question that is not its. **The live defect is the `eng_` slice**, where the
+prefix routes to CMUdict and there is nothing else to fall back to:
+`eng_hall_william_barnes.txt` alone has **1,320 lines whose end word reads as
+two characters or fewer** — `jaÿ` reads `ja`, and that file's own header
+declares the diaeresis "a SEPARATE CHARACTER here" and warns that a
+transcription which flattens it "must NOT be used for any letter- or
+syllable-counted measure". The harness flattens it at read time instead.
+Welsh in `eng`-prefixed files is the same shape: `lân` reads `n`, `tân` reads
+`n`, `Pîl` reads `l` — the rhyme word is a bare consonant.
+
+**AND THE INSTRUMENT THAT FOUND IT WALKED INTO IT.** The sweep below was
+written to answer "what other typography is being scored", it used
+`LH.line_tokens` as its reader, and it therefore reported the ZERO-WIDTH
+NON-JOINER — 26,989 occurrences, in the 22,924 sung lines that carry one —
+as INERT. It is
+inert to a tokeniser that returns nothing for Persian at all. Doctrine 20: a
+measurement made with a blind instrument reads as a null.
+
 ### M-23 · `Structure` has no `kind="partition"`, and that is the same missing kind four times `OPEN`
 **Found 2026-08-21, and it is the one change that serves every spec-shaped
 structural source this project has located.**
@@ -3807,6 +3841,87 @@ dropping. What is owed first is the discriminator, and it is cheap: a one-line
 `[VERSE]` block whose line matches none of the sung-text shapes is a candidate,
 and the corpus audit can raise it without anyone adjudicating a poem.
 
+**THE DISCRIMINATOR IS BUILT — `audit_corpus.py` CHECK H, 2026-08-21 — AND
+EVERY FIGURE IN THE TABLE ABOVE IS SUPERSEDED BY IT.** The table's 940/67 was
+this question asked by a session script whose shape rules were never written
+down, and the rule is the number (doctrine 58). Four ways it was narrow, each
+found by writing the table into a module: no `D` or `M` in the roman class, no
+comma inside the arabic one, a strict character class that dropped every
+dash-joined range (`XLIV.—XLVI.  DA.`), no ornament class at all
+(`*  *  *  *  *`), and no flush at end of file — so a file whose LAST block is
+a one-line `[VERSE]` block was never asked about it, 13 files, silently.
+
+Check H reports **THREE COUNTS AND NEVER SUMS THEM**, which is the other half
+of the repair. Over `corpus/song/`, 72,803 `[VERSE]` blocks:
+
+| | blocks | files |
+|---|---:|---:|
+| one-line `[VERSE]` blocks — the CANDIDATE population | 2,550 | — |
+| MATCHED a declared apparatus shape — charged, WARN | 1,045 | 105 |
+| RESIDUE — reported UNADJUDICATED, never as clean | 1,505 | 48 |
+
+Shapes: `allcaps-label` 512 · `numeral` 445 · `ornament` 72 · `heading-word`
+16. **The residue is the bigger half and the census never saw it**, sampled at
+n=50 (seed 20260821): roughly a quarter is real text — single lines of
+dramatic dialogue, which is a DIFFERENT staging defect — and the rest is
+apparatus in shapes the table deliberately does not spell, because a false
+positive there would be manufactured. THREE CLASSES THE 940 MISSED ENTIRELY,
+and each is a whole file's worth: **`eng_hymn_watts.txt` 444**, every one a
+printed scripture argument (`The nativity of Christ, Luke 1. 30 &c.`);
+**`eng_british_richard_lovelace.txt` 113**, every one a modern editor's
+textual footnote (`Original reads NEERE.`, `i.e. own.`); and
+**`eng_celtic_robert_burns.txt` 186**, subtitles and `Tune--"..."` lines,
+which are the named-air field (`M-11`) printed in the body.
+
+**AND THE CHECK MANUFACTURED A FINDING ON EACH OF ITS FIRST TWO RUNS — same
+defect one script apart, both doctrine 45, neither visible by reading the
+rule.** Run 1 charged `ltc_siku_kr4j0074.txt`'s `欲寄逺憑誰是。`, a sung line of
+a 詞: one whitespace token, no lowercase character, because CHINESE HAS NO
+CASE. Run 2 charged `eng_british_lord_byron.txt`'s `Ζωή μου, σᾶς ἀγαπῶ.` —
+*Maid of Athens*'s Greek refrain, the most sung line in the poem — because the
+lowercase test was the Latin-1 class `[a-zà-öø-ÿ]`. Both are pinned as
+false-positive regressions in `quality/test_corpus_audit.py` §4b, because a
+fix that is not tested is a fix that comes back.
+
+**14 OF THE 940 ARE REPAIRED, AND THEY ARE THE ONLY SUBSET THAT NEEDED NO
+ADJUDICATION.** The pìobaireachd movement headings — `URLAR.`, `SIUBHAL.`,
+`CRUNLUATH (FINALE).` — in `eng_celtic_msm_alexander_macdonald.txt`,
+`eng_celtic_msm_duncan_macintyre.txt` and
+`eng_celtic_msm_robert_mackay_rob_donn.txt` are now MARKS (`[URLAR]`,
+`[SIUBHAL 2]`, `[CRUNLUATH] (FINALE)`), declared in `grid.MARK_REFUSED` with
+the reason: they ARE spans of the performance, and this vocabulary has no
+member for a movement in a VARIATION LADDER, so folding them into `verse`
+would say the theme and its ornamented restatements are the same kind of
+thing (`PATTER`'s argument, one tradition over). The mark is left EMPTY on
+purpose — a movement runs over several printed stanzas and a `Block` carries
+ONE mark, so marking the first stanza would under-read the rest while looking
+like a complete answer. `[VERSE n]` indices under each heading are renumbered
+consecutively; no sung line was added or removed; the three md5s are repinned
+in `data/sources.tsv` with the reason beside them. The repair is visible in
+the check's own numbers as exactly −14 out of the MATCHED half and 0 out of
+the residue, which is the signature of a repair rather than a rule change.
+
+**TESTED WHILE OPEN, and the split is exactly 14 against 1,045.** Check H is
+built, wired into `audit()`, and pinned by `quality/test_corpus_audit.py` §4b
+with five proven mutations (rule broken two ways, flush removed, emission
+stubbed, check unregistered) — so the DISCRIMINATOR this entry asks for is
+finished and has a regression. The entry stays `OPEN` because the
+discriminator is not the repair: 1,045 charged blocks across 105 files are
+still typed as sung verse, the residue of 1,505 is still unadjudicated, and
+the three remedies the classes want — an item split, a mark, a drop — each
+need a reading of the printing that no check can do. Doctrine 17: the built
+half is real and is not quoted as if it closed the entry.
+
+**THIS UNBLOCKS THE POINTER.** `quality/SECTION_ORDER_PREREGISTRATION.md` says
+in as many words: *"1. `M-25(a)` — stage the movement headings as marks rather
+than as verse lyrics. 2. THEN `elaborates` has 14 sections in 3 songs to point
+at."* Step 1 is done, and reading the printing to do it found the reason step
+2's sibling `rank` was refused: in `THE PRAISE OF MORAG` the FIRST movement is
+printed with NO heading at all — the page sets a heading only where the
+movement CHANGES — so the ladder's own head is unmarked in the corpus, and a
+`rank` over these marks would be ordering a sequence the corpus never shows
+whole.
+
 **(b) A file that declares a structure it does not carry.**
 `corpus/song/ltc_huajianji.txt`'s header states *"`[VERSE n]` marks a 片
 (pian) — the stanza the TUNE divides"*, and the file holds **500 poems and
@@ -3895,5 +4010,197 @@ variation channel is not the words, turns a false `VERBATIM` into a stated
 `cannot tell`. The two missing KINDS are a preregistration each and neither is
 urgent, because both misreport a shape rather than assert a falsehood. **The
 `VERBATIM` is the one that lies.**
+
+### M-27 · A footnote letter is the end word of 68 rhyming lines, and 1,166 file headers declare it was stripped `OPEN`
+**Found 2026-08-21 by the owner asking the right question after `M-25(a)`:
+poems carry LINE NUMBERS, usually by fives, and scores carry time signatures
+and tempo marks — is any of that being scored too? Three of the four answers
+are reassuring and the fourth is the sharpest staging defect found so far.**
+
+**THE THREE THAT ARE FINE, AND THE REASON IS ONE DESIGN DECISION.** Measured
+over all **581,468 sung lines** of `corpus/song/` — every line no reader drops
+as `#`/`--- `/`[`:
+
+| what | lines | reaches a measurement? |
+|---|---:|---|
+| a trailing printed line number (`  heart.    10`) | 195 | **no** |
+| a time signature anywhere in a sung line (`4/4`, `6/8`) | **0** | — |
+| a tempo or expression mark (`Andante`, `crescendo`) | 5 | no — all 5 are SUNG WORDS |
+| a page or folio reference (`p. 255`, `vol. i.`) | 41 | no |
+
+`_TOKEN` is `[^\W\d_]+`, **letters only**, so a bare numeral produces no token
+at all: a trailing `10` contributes nothing to the token count, nothing to
+MATTR, nothing to the density band, and `raw_final_token` walks straight past
+it to the real end word. Coleridge's 79, Christina Rossetti's 78 and Keats's
+22 numbered lines are all read correctly. The same rule is why `M-25(a)`'s
+`numeral` class (445 blocks) is the LEAST damaging of its four: those blocks
+add a line to the line count and **no words to any word count**. The time
+signature is a MEASURED ZERO over a named population (doctrine 79) and not an
+absence nobody looked for; the 5 tempo hits are `With his soft crescendo now;`
+and `Nae "lente largo" in the play,` — sung words that happen to be Italian
+musical terms, correctly not apparatus.
+
+**THE ONE THAT IS NOT FINE: a bracketed LETTER is a word to a letters-only
+tokeniser.** 93 markers survive in sung lines across 9 files, and **68 of them
+are the line's END WORD** — the one token a rhyme harness cares most about.
+
+| file | markers | end word wrong |
+|---|---:|---:|
+| `eng_british_lord_byron.txt` | 54 | **54** |
+| `eng_hall_thomas_durfey.txt` | 10 | 6 |
+| `eng_british_robert_herrick.txt` | 9 | 2 |
+| `eng_hall_william_barnes.txt` | 7 | 5 |
+| `eng_british_richard_lovelace.txt` | 5 | 1 |
+| `john_dowland` · `john_wilbye` · `thomas_campion` · `msm_charles_james_finlayson` | 6 | 0 |
+| **total** | **93** | **68** |
+
+What the harness reads, against what the page prints:
+
+```
+It has not been your lot to see,[a]              end word 'a'   not 'see'
+May match the dark-eyed Girl of Cadiz.[d]        end word 'd'   not 'Cadiz'
+And this dark heart is vainly craving[me]        end word 'me'  not 'craving'
+That joint to ashes burnt should be,[E]          end word 'E'   not 'be'
+God speed the Colonel on the hill,[D]            end word 'D'   not 'hill'
+```
+
+Every one is a rhyme-bearing line whose rhyme word has been replaced by a
+Project Gutenberg footnote label, and the labels run in sequence — `a b c d g
+j k l o p q r s`, then `bx by bz ca cb …`, then `le lf lg …` — so Byron's 54
+are 54 pairs whose partner is a letter of the alphabet. **ONE INSTANCE OF
+THIS IS ALREADY IN THE RECORD AND WAS READ AS SOMETHING ELSE**: `CLAUDE.md`'s
+known gap 8 cites Byron's `...lay white on the turf,[mm]` as
+`substitution_report`'s "invented relation #4" — a final token that reads and
+yields no syllable — and files it as a `word_syllable_map` edge case. It is
+that, and it is also the 47th of 54 footnote anchors in one file.
+
+**1,166 FILE HEADERS DECLARE THIS EXACT STRIP AND 9 LEAK.** Byron's own header
+reads *"stripped: PG header/footer, editor's biographical memoirs, `[n]`
+footnote markers and footnote bodies"*. The rule is real and it is 99.2%
+complete; what is missing is anything that CHECKS it, which is why 93
+survivors sat under 1,166 declarations of their absence. Doctrine 93 read the
+other way: the file claims a cleaning, and nothing asks the text whether the
+cleaning happened.
+
+**NOT REPAIRED HERE, AND THE REASON IS THAT THE SHAPE IS THREE OBJECTS —
+`M-25(a)`'s lesson arriving one layer down.** All 93 look like `[x]`:
+
+1. **A FOOTNOTE ANCHOR** → drop it. Byron 54, Barnes 5, Herrick 2.
+2. **THE `œ` LIGATURE written as a bracketed digraph** → expand to the two
+   letters. 13 of these, every one a Latin or Greek word: `Ph[oe]bus`,
+   `ph[oe]nix`, `F[oe]mina`, `C[oe]nosus`, `Mac[oe]nas`. Dropping the bracket
+   here gives `Phbus` and `Fmina`, so the anchor rule is WRONG for them in
+   the other direction.
+3. **AN EDITOR SUPPLYING A LETTER THE COPY LACKS** → keep the letter, drop
+   the brackets. 5: Lovelace's `BARNE[S].`, `to[o] weak`, `[un]numbred`;
+   Dowland's `Her[e] Want of Worth`; Herrick's `courts[t] thou her`.
+
+**AND POSITION DOES NOT SEPARATE THEM — the obvious rule was tested and
+refuted.** "A bracket touching a letter is part of the word, otherwise it is
+an anchor" classifies `Ph[oe]bus` and `to[o]` correctly and then breaks on
+Byron's `craving[me]`, an anchor glued straight to its word with no
+punctuation between. So the discriminator has to be per-file or per-class
+DECLARED, the way `MARK_REFUSED` and `_COUNT_FIELDS` are, and the repair is
+owed a sitting rather than a regex.
+
+**AND IT IS NOT REACHABLE BY CHECK H**, which is why it needed the owner's
+question rather than the instrument: check H asks about a `[VERSE]` block
+holding ONE line, and every one of these 93 sits inside an ordinary multi-line
+stanza. The population is *a token inside a sung line*, not *a block that is
+not a stanza*, and the check that would raise it is a different check.
+
+### M-28 · The printed indent carries the rhyme scheme at 6.19x, and every reader strips it `OPEN`
+**Found 2026-08-21 when the owner, having seen the bracket and numeral
+findings, asked the general question: what about SPACING — indent, offset,
+caesura, end-stop. The answer is that one spacing channel is large, real, and
+read by nothing.**
+
+**THE CENSUS FIRST, so the claim is bounded.** Every character in the
+581,468 sung lines of `corpus/song/` that is neither a letter nor whitespace:
+**73 distinct characters**. Each was given a mechanical verdict — replace it
+with a space, and again delete it, and see whether the token stream or the
+end word moves. **Six of the seventy-three reach a measurement**, and every
+one is an ALREADY DECLARED coordinate:
+
+| char | lines where tokens move | what it is |
+|---|---:|---|
+| `'` U+0027 | 57,765 | the joiner; doctrine 65's Finnish hiatus, Barnes's three apostrophe jobs |
+| `-` U+002D | 26,986 | the joiner; the hyphen-splitting family, 3 recorded rule errors |
+| `’` U+2019 | 10,642 | normalised to `'`; doctrine 26 |
+| `(` `)` | 1,104 (901 END WORDS) | `strip_parens=True` ERASES the span; the `--voices` coordinate |
+| `‘` U+2018 | 478 | NOT in the joiner class, unlike `’` — an asymmetry nobody declared |
+
+**THE OTHER SIXTY-SEVEN ARE INERT**, and four of those negatives are worth
+having in writing because they are the ones a reader would worry about:
+**digits are inert** — `_TOKEN` is letters-only, so the 195 printed line
+numbers (Coleridge 79, Christina Rossetti 78, Keats 22) contribute nothing to
+any token count, nothing to MATTR, nothing to the density band, and
+`raw_final_token` walks straight past them to the real end word; **`*` is
+inert**, so printers' ornaments cost nothing; **`_` is inert**, so italic
+markers do; and there are **0 time signatures** and **0 trailing spaces** in
+the whole sung corpus, with **1** line carrying a tab. Those are measured
+zeroes over a named population, not absences nobody looked for (doctrine 79).
+`[` and `]` are inert TOO — and that is the sharp way to say `M-27`: the
+bracket corrupts nothing, it FAILS TO PROTECT the letters inside it.
+
+**AND THEN THE INDENT, WHICH IS NOT A CHARACTER QUESTION AND IS THE BIG ONE.**
+**73,672 sung lines (12.7%) across 872 files carry a leading indent**, and the
+depths are a ladder rather than a smear — 2 spaces 46,732 · 4 spaces 15,783 ·
+6 spaces 4,298 · 8 spaces 1,949. In printed English verse that ladder IS the
+rhyme scheme set visibly: the compositor indents the b-lines of a ballad
+stanza, the couplet of a sonnet, the short line of a hymn metre.
+
+Measured over the 15,685 `eng_*` blocks of ≥4 sung lines that carry at least
+two indent depths — 528,370 end-word pairs, identical end words excluded
+because identity is not rhyme (doctrine 3), rhyme read as `spelled_rime`,
+which is the tier-1 ban's own class and a LOWER BOUND on rhyme:
+
+```
+  SAME indent depth   287,458 pairs   11.83% share a spelled rime
+  DIFF indent depth   240,912 pairs    1.91% share a spelled rime
+  excess +9.92 pp     ratio 6.19x
+```
+
+**WITH ITS MATCHED NULL, because a ratio without one is not a finding.** The
+null permutes the indent depths WITHIN each block — the same block, the same
+rhyme structure, the same multiset of depths, only the assignment destroyed.
+20 draws, seed 20260821: **excess median −2.58 pp, range −2.71 to −2.49**.
+The observed +9.92 pp is **12.6 pp above the null's maximum**, and the null
+does not straddle zero, so the block structure alone produces a slightly
+NEGATIVE excess and the whole of the positive effect is the assignment.
+
+**NOTHING ON ANY GRADING PATH READS IT, and that is mechanical rather than
+asserted.** `lyric_harness.load_lyric_lines`, `is_apparatus_line`,
+`grid.read_marked_songs` and `readability.read_lines` all `.strip()` before
+anything else sees the line, and `line_tokens` never receives the leading
+space at all. `grep -rn 'lstrip(" ")'` over the tree returns exactly two
+hits, `audit_corpus.py:2216` and `kalevala_rate.py:266`, both STAGING
+heuristics — no reader on the rhyme, meter, or structure path keeps it.
+
+**WHAT THIS IS AND IS NOT.** It is NOT a proposal to infer a mandate from
+whitespace: doctrine 14 forbids a control defined in terms of the quantity it
+controls, and a scheme derived from indentation would be exactly as derived
+as `--cliques` and must be labelled the same way. What it IS: a DECLARED
+coordinate sitting in the bytes that the harness discards before reading, in
+a project whose whole architecture is about not letting a reader silently
+pick a coordinate (doctrine 45). Three uses that cost nothing to state and do
+not require believing the signal is a mandate — a `--- INDENT:` staging field
+so the printing's own grouping survives ingestion; a corpus-audit
+disclosure where the indent and the measured rhyme partition DISAGREE, which
+is the M-20 false-unit detector one channel over; and a control on
+`mandate_from_graph`, since a derived cover that reproduces the printer's
+indentation is a different claim from one that does not.
+
+**THE OTHER THREE SPACING CHANNELS ARE NOT ANSWERED HERE, and the reason each
+is open is different.** CAESURA: Welsh already has it as a declared
+coordinate — `cym.cynghanedd(caesura="marked"|"search")`, the gwant printed
+as `--` — and English has no such mark; the 1,628 lines carrying an internal
+run of 2+ spaces are dominated by Shelley 274, Lovelace 117, Browning 111,
+and are a mix of line-number columns and dramatic speaker gaps, not a caesura
+notation. ENJAMBMENT and END-STOP are a PUNCTUATION question, not a spacing
+one — terminal punctuation is preserved in every staged line and no module
+reads it — and they are the coordinate the meter layer would need before it
+could say anything about a line's boundary, so they belong with the time
+layer's gaps rather than here.
 
 ## Add below this line

@@ -2065,7 +2065,13 @@ PINNED = {
     #    the ORDINARY way this figure moves and the pin is what makes filing
     #    one a decision rather than a diff; `coverage_audited` is unmoved at
     #    19 because M-20 carries no audited claim of its own yet.
-    "coverage_entries": 84,
+    #    REPINNED 2026-08-21, 84 -> 86: `M-27` (a footnote letter is the end
+    #    word of 68 rhyming lines) and `M-28` (the printed indent carries the
+    #    rhyme scheme at 6.19x and every reader strips it), both filed the same
+    #    sitting from the owner's question about what ELSE the corpus is
+    #    scoring. `coverage_audited` is unmoved at 19: neither carries an
+    #    audited claim of its own yet.
+    "coverage_entries": 86,
     "coverage_audited": 19,
 }
 
