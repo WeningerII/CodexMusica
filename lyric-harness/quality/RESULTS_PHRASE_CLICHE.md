@@ -6,6 +6,30 @@ on its own; the other nine (imagery, specificity, metaphor, point of view,
 tense, narrative movement, the turn, register consistency, showing-vs-telling)
 are untouched here on purpose.
 
+> **THE TWO EXAMPLE LYRICS THIS DOCUMENT RUNS ON ARE NOT IN THE REPOSITORY,
+> AND EVERY TRANSCRIPT BELOW THAT USES THEM IS UNREPRODUCIBLE FROM A CLEAN
+> CHECKOUT.** Annotated 2026-08-21, found by asking whether the
+> implementation depends on `CLAUDE.md` (it does not) and mistyping a path
+> that turned out not to exist. `examples/cherokee_bill.txt` and
+> `examples/never_been_to_a_scene.txt` were DELETED ON PURPOSE by commit
+> `11aa19b` (2026-08-12, *"Remove Claude-authored example lyrics from the
+> repo"*) and `examples/` now holds no tracked file at all. That decision is
+> not in question here and is not being reversed; what had never been done is
+> telling the record about it.
+>
+> **What this does and does not mean.** The measurements below were real when
+> they were made and they are not withdrawn — nothing here is known to be
+> wrong. What is gone is the ABILITY TO RE-CHECK them: a verdict of
+> *REPRODUCES EXACTLY* is a claim that someone re-ran the command and got the
+> same answer, and from this checkout nobody can do that any more, so those
+> verdicts are frozen testimony rather than live results (doctrine 17 — kept,
+> and never quoted as though the check were still available). Any command
+> block naming an `examples/` path is a record of a run, not an instruction.
+>
+> **`quality/fixtures/anaphoric.txt` IS NOT A SUBSTITUTE** for the reader
+> tempted to swap it in: it is 26 lines, and `never_been_to_a_scene.txt` was
+> 41 lines / 291 tokens. It reproduces a different item, not this one.
+
 **The result is the second of the two H-1's brief allowed: a measured argument
 that the available corpus cannot support the check, and exactly what it would
 take.** The instrument is built, it runs, and it ships REFUSING. Doctrine 84:
@@ -660,6 +684,9 @@ Both songs in `examples/`, at the two settings that fire at all. Nine firings
 across both songs at n=3 k≥5; **not one is a cliché.**
 
 ```
+# THIS COMMAND CANNOT RUN FROM A CLEAN CHECKOUT — the lyric was
+# deleted by 11aa19b (see the note at the top of this file). What
+# follows is the recorded output of the run, not an invitation.
 $ python3 quality/phrase_commonplace.py --force -n 3 -k 5 examples/cherokee_bill.txt
   line   1    7 authors  'in the name'
             He was Crawford Goldsby: gold in the name and cold in the hand,
@@ -670,6 +697,9 @@ $ python3 quality/phrase_commonplace.py --force -n 3 -k 5 examples/cherokee_bill
   line  26    5 authors  'and that was'
             He said, I came here to die, not make a speech, and that was heard
 
+# THIS COMMAND CANNOT RUN FROM A CLEAN CHECKOUT — the lyric was
+# deleted by 11aa19b (see the note at the top of this file). What
+# follows is the recorded output of the run, not an invitation.
 $ python3 quality/phrase_commonplace.py --force -n 3 -k 5 examples/never_been_to_a_scene.txt
   line  11    6 authors  'and the whole'
             and the whole thing could still be a wrong number
@@ -693,9 +723,15 @@ At n=4 the two songs produce two hits between them, both at 1 author, i.e.
 below any threshold that could ship:
 
 ```
+# THIS COMMAND CANNOT RUN FROM A CLEAN CHECKOUT — the lyric was
+# deleted by 11aa19b (see the note at the top of this file). What
+# follows is the recorded output of the run, not an invitation.
 $ python3 quality/phrase_commonplace.py --force -n 4 -k 1 examples/cherokee_bill.txt
   line  16    1 authors  'went down without a'
   line  21    1 authors  'raised his voice and'
+# THIS COMMAND CANNOT RUN FROM A CLEAN CHECKOUT — the lyric was
+# deleted by 11aa19b (see the note at the top of this file). What
+# follows is the recorded output of the run, not an invitation.
 $ python3 quality/phrase_commonplace.py --force -n 4 -k 1 examples/never_been_to_a_scene.txt
   no line reaches the threshold
 ```
