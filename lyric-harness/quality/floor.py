@@ -628,14 +628,17 @@ PROFILES = [
         note="The domain the ten pre-registered features were run on."),
     Profile(
         name="song", unit="whole lyric sheet, 150-400 tokens",
-        lo=150, hi=400, n_human=1859, n_generated=0,
+        lo=150, hi=400, n_human=3571, n_generated=0,
         tolerance=1.25,
+        #: ADOPTED 2026-08-21 over the loaded corpus, as a SET. The three
+        #: that moved are struck beside their replacements; the two that did
+        #: not are the reason the set could be adopted at all -- see `source=`.
         percentiles={
-            "mattr_min": 0.7226,                # human 5th
-            "function_word_ratio_max": 0.4716,  # human 95th
-            "anaphora_max": 0.3000,             # human 95th
-            "line_length_cv_min": 0.1123,       # human 5th
-            "predictable_pair_fraction_max": 0.9286,  # human 95th
+            "mattr_min": 0.7128,                # human 5th  (~~0.7226~~)
+            "function_word_ratio_max": 0.4773,  # human 95th (~~0.4716~~)
+            "anaphora_max": 0.3000,             # human 95th (unmoved)
+            "line_length_cv_min": 0.1094,       # human 5th  (~~0.1123~~)
+            "predictable_pair_fraction_max": 0.9286,  # human 95th (unmoved)
         },
         #: EMPTY ON PURPOSE. There is no generated song class in this repo, so
         #: there is no separation to report and this profile may not borrow the
@@ -643,21 +646,30 @@ PROFILES = [
         measured_auc={},
         held_out_fpr={
             # (median, 5th percentile of seeds, 95th percentile of seeds)
-            "mattr": (5.43, 1.51, 11.07),
-            "function_word_ratio": (5.23, 1.86, 10.64),
-            "anaphora": (5.01, 1.44, 11.15),
-            "line_length_cv": (5.13, 3.04, 7.81),
-            "predictability": (4.81, 2.52, 7.43),
-            "ANY": (20.79, 12.57, 29.43),
+            #: REPINNED 2026-08-21 with the thresholds, because these are
+            #: measured THROUGH them: an FPR tuple kept from the old cuts
+            #: would describe how often thresholds that no longer ship
+            #: interrupt a corpus that no longer exists. Old values struck
+            #: below each. Author-held out, 200 seeds, 50/50, unchanged.
+            "mattr": (5.02, 2.90, 8.32),          # ~~(5.43, 1.51, 11.07)~~
+            "function_word_ratio": (5.04, 3.18, 7.83),  # ~~(5.23, 1.86, 10.64)~~
+            "anaphora": (4.89, 3.01, 7.49),       # ~~(5.01, 1.44, 11.15)~~
+            "line_length_cv": (5.11, 3.70, 6.56),  # ~~(5.13, 3.04, 7.81)~~
+            "predictability": (4.93, 3.26, 6.46),  # ~~(4.81, 2.52, 7.43)~~
+            "ANY": (19.71, 15.03, 25.05),         # ~~(20.79, 12.57, 29.43)~~
             #: NOT one of the five, and NOT inside "ANY". CLICHE_PAIR is
             #: length-INDEPENDENT -- it borrows no percentile from this
             #: profile and the band is not what makes it fire. What the band
             #: gives it is the only population its interruption rate was ever
             #: measured on, which is why it may only REJECT here (see `sev()`
             #: in `check()`). Same protocol as the five above: author-held
-            #: out, 200 seeds, 50/50. Point estimate 118/1859 = 6.35%, Wilson
-            #: 95% CI [5.33, 7.55], author-cluster bootstrap 6.20%
-            #: [4.02, 9.10]. MEASURED 2026-08-14.
+            #: out, 200 seeds, 50/50. Point estimate 239/3571 = 6.69%
+            #: (~~118/1859 = 6.35%~~). MEASURED 2026-08-14, REPINNED
+            #: 2026-08-21. The Wilson CI [5.33, 7.55] and author-cluster
+            #: bootstrap 6.20% [4.02, 9.10] were computed on the 1,859-item
+            #: band and are NOT re-derived by the runner, so they are left
+            #: naming that population rather than carried forward as if they
+            #: described this one (doctrine 20).
             #:
             #: "ANY" IS NOT RESTATED FOR IT. The union above is over the five
             #: length-sensitive checks and stays that, because those five are
@@ -665,26 +677,41 @@ PROFILES = [
             #: chosen against; folding a sixth in would silently redefine the
             #: one number this profile's note quotes as "one human song in
             #: five trips something".
-            "cliche": (6.36, 4.23, 8.37),
+            "cliche": (6.71, 5.37, 7.94),  # ~~(6.36, 4.23, 8.37)~~
         },
-        source="corpus/song/eng_*.txt: 143 files, one author each, 4,930 "
-               "`--- TITLE:` items, 152,325 sung lines, deduplicated "
-               "2026-08-11. Restricted to items of 150-400 tokens: 1,859 "
-               "items over 108 authors. Thresholds are the 5th/95th percentile "
-               "of that human class, held out BY AUTHOR (50/50, 200 seeds).",
+        source="corpus/song/eng_*.txt: 1,297 files, 1,294 distinct authors, "
+               "8,667 `--- TITLE:` items, 283,534 sung lines. Restricted to "
+               "items of 150-400 tokens: 3,571 items over 879 authors. "
+               "Thresholds are the 5th/95th percentile of that human class, "
+               "held out BY AUTHOR (50/50, 200 seeds). ADOPTED 2026-08-21, "
+               "superseding ~~143 files, 4,930 items, 152,325 sung lines, "
+               "1,859 items over 108 authors~~ (2026-08-11). THE SET WAS "
+               "ADOPTED TOGETHER, AND THAT IS WHY IT WAITED: three thresholds "
+               "moved and two did not, and the two that did not are the ones "
+               "that made it safe -- `predictable_pair_fraction_max` "
+               "re-derives to 0.9286 against a shipped 0.9286, and "
+               "`anaphora_max` to 0.3000 against 0.3000. Repinning the three "
+               "while the fifth still described the 143-file corpus would "
+               "have made this profile half a description of one corpus and "
+               "half of another (doctrine 1), which is exactly why the "
+               "closing sitting was deferred until the predictability arm "
+               "was banked rather than skipped.",
         note=(
             "READ THIS BEFORE QUOTING ANY NUMBER FROM IT.\n"
             "  * It is NOT a separation. The other two profiles separate 152 "
             "Shakespeare sonnets from 40 model sonnets and can quote an AUC. "
             "This one has no generated song class, so it has no AUC and makes "
             "no claim to catch generated text. It only says how often it "
-            "interrupts a human songwriter: per check 4.8-5.4% median, and "
-            "20.79% for the UNION of the five (5th-95th percentile of seeds "
-            "12.57-29.43%). One human song in five trips something. (Four "
-            "checks alone put the union at 17.66% [10.78-25.58]; the rise to "
-            "20.79% is PREDICTABLE_RHYME joining the union below, not corpus "
+            "interrupts a human songwriter: per check 4.89-5.11% median, and "
+            "19.71% for the UNION of the five (5th-95th percentile of seeds "
+            "15.03-25.05%). One human song in five trips something. (Four "
+            "checks alone put the union at 16.81% [12.86-21.47]; the rise to "
+            "19.71% is PREDICTABLE_RHYME joining the union below, not corpus "
             "drift -- a fifth check can only raise a union rate, never lower "
-            "one.)\n"
+            "one, and it did not: 16.81 -> 19.71 on the loaded corpus exactly "
+            "as 17.66 -> 20.79 on the 143-file one.) REPINNED 2026-08-21 from "
+            "~~4.8-5.4% per check, 20.79% union [12.57-29.43], four-check "
+            "17.66% [10.78-25.58]~~.\n"
             "  * The band was chosen by a rule declared before it was read "
             "off: the widest contiguous token range in which every 50-token "
             "sub-bin holds >=100 items and every sub-bin threshold sits within "

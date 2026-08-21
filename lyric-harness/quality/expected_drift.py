@@ -77,43 +77,33 @@ class Instrument:
     declared: dict = field(default_factory=dict)
 
 
-#: THE DECLARED SET. Every entry is the owner's standing ruling that the
-#: corpus has moved ahead of the constants ON PURPOSE, with growth taken
-#: before reconciliation. Task #47 is the sitting that ends all of them at
-#: once, which is why they share a `closed_by`.
-_CLOSING = ("task #47, the closing sitting: re-derive, re-adopt and "
-            "re-snapshot the manifest in one pass once the predictability "
-            "arm has been banked")
-_GROWTH = ("the corpus grew from 143 files / 4,930 items to 1,297 / 8,667 "
-           "while the shipped constants describe the 143-file corpus. "
-           "Doctrine 58: a drift is argued and repinned, never tuned to -- "
-           "and repinning FOUR of the five percentiles while the fifth "
-           "(predictability) is still being banked would make the `song` "
-           "profile half a description of one corpus and half of another "
-           "(doctrine 1)")
-
 INSTRUMENTS = {
     "song_profile_calibration-fast": Instrument(
         argv=("python3", "quality/song_profile_calibration.py",
               "--check", "--without-predictability"),
         drift_re=r"\d+ value\(s\) DRIFTED: (.+)",
-        declared={
-            "threshold mattr": Ruling(_GROWTH, "2026-08-20", _CLOSING),
-            "threshold fwr": Ruling(_GROWTH, "2026-08-20", _CLOSING),
-            "threshold cv": Ruling(_GROWTH, "2026-08-20", _CLOSING),
-            "anaphora period slope rho": Ruling(
-                "the period slope does not reproduce over 407 dated authors "
-                "(rho -0.008, p_perm 0.8695 against +0.275/0.0042 over 108) "
-                "and the WITHDRAWAL has shipped in every message that stated "
-                "it -- but the shipped CONSTANT still says 0.2750, and "
-                "repinning it belongs with the thresholds rather than ahead "
-                "of them. quality/RESULTS_SONG_FLOOR.md §4·R",
-                "2026-08-20", _CLOSING),
-            "anaphora period slope p_perm": Ruling(
-                "the p_perm half of the same withdrawn slope; moves with its "
-                "rho and is never repinned alone",
-                "2026-08-20", _CLOSING),
-        }),
+        #: EMPTY, AND THAT IS THE HEALTHY STATE — 2026-08-21.
+        #:
+        #: This dict held five rulings for about an hour. They excused the
+        #: three thresholds and two period constants that had drifted while
+        #: the closing sitting was deferred, each dated and each pointing at
+        #: task #47 as the thing that would end it. Then the predictability
+        #: arm finished banking, the set was adopted, and every one of those
+        #: five drifts stopped happening.
+        #:
+        #: THE SYMMETRIC HALF IS WHY THEY ARE GONE RATHER THAN LEFT HERE
+        #: HARMLESSLY. A declared drift that no longer occurs FAILS this
+        #: reconciler, on purpose: an allowlist that outlives its reason is
+        #: the staleness it was built to catch, and the entry excusing a
+        #: value that now re-derives is a lie with nobody assigned to notice
+        #: it. So adoption did not merely permit deleting them -- it required
+        #: it, and the gate said so. First real use of that direction, on the
+        #: same day it was built.
+        #:
+        #: An empty set does NOT make this instrument inert: `reconcile`
+        #: passes only when the OBSERVED drift is also empty, so the runner
+        #: still fails the moment anything moves.
+        declared={}),
 }
 
 

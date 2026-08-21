@@ -26,7 +26,7 @@ sys.path.insert(0, os.path.join(HERE, ".."))
 import quality.expected_drift as ED  # noqa: E402
 
 FAILURES = []
-NAME = "song_profile_calibration-fast"
+NAME = "__fixture__"
 
 
 def check(name, ok, detail=""):
@@ -47,11 +47,27 @@ def _with_observed(fake):
     return real
 
 
+#: THE SYMMETRY TEST OWNS ITS OWN DECLARED SET, and the first draft did not.
+#: It read the SHIPPED set, which was five rulings at the time. Hours later
+#: the closing sitting adopted the constants, every ruling became spent and
+#: was deleted, and the shipped set went empty — at which point a test built
+#: on it would have been checking set logic against two empty sets and passing
+#: vacuously. The property under test is about the RECONCILER, not about
+#: whatever happens to be declared today, so the fixture is synthetic.
+_R = ED.Ruling("a synthetic ruling, so this test does not depend on the "
+               "shipped set being non-empty", "2026-08-21",
+               "nothing — it exists only inside this test")
+FIXTURE = ED.Instrument(argv=("true",), drift_re=r"DRIFTED: (.+)",
+                        declared={"alpha": _R, "beta": _R, "gamma": _R})
+
+
 def test_symmetry():
     print("\n1. the allowlist fails in BOTH directions")
-    declared = set(ED.INSTRUMENTS[NAME].declared)
-    check("the declared set is non-empty — a vacuous allowlist would make "
-          "every check below meaningless", bool(declared), str(sorted(declared)))
+    ED.INSTRUMENTS["__fixture__"] = FIXTURE
+    declared = set(FIXTURE.declared)
+    check("the fixture's declared set is non-empty — with an empty one every "
+          "check below would pass on two empty sets",
+          bool(declared), str(sorted(declared)))
 
     real = _with_observed(declared)
     try:
@@ -86,6 +102,13 @@ def test_symmetry():
 
 def test_every_ruling_is_answerable():
     print("\n2. a ruling states a reason, a date and what ends it")
+    shipped = {n: i for n, i in ED.INSTRUMENTS.items() if n != "__fixture__"}
+    live = sum(len(i.declared) for i in shipped.values())
+    check("an EMPTY shipped set is reported, not silently skipped — zero "
+          "declared drift is the healthy state and this says so out loud "
+          "rather than passing on an empty loop (doctrine 20)",
+          True, "%d ruling(s) declared across %d instrument(s)"
+          % (live, len(shipped)))
     for name, inst in sorted(ED.INSTRUMENTS.items()):
         for k, r in sorted(inst.declared.items()):
             check("%s / %s carries all three" % (name, k),
@@ -98,14 +121,23 @@ def test_the_parser():
     print("\n3. the drift parser reads its instrument, and REFUSES when it "
           "cannot")
     import re
-    inst = ED.INSTRUMENTS[NAME]
+    # THE SHIPPED instrument, not the fixture: this section is about whether
+    # the pattern still matches the runner's real report. It compares against
+    # the names IN THE SAMPLE TEXT rather than against `inst.declared`, which
+    # the first draft did — and which quietly became a comparison with the
+    # empty set the moment the closing sitting adopted the constants and
+    # every ruling was deleted. A parser test whose expected value is another
+    # part of the config is not a parser test.
+    inst = ED.INSTRUMENTS["song_profile_calibration-fast"]
     real_line = ("   5 value(s) DRIFTED: threshold mattr, threshold fwr, "
                  "threshold cv, anaphora period slope rho, anaphora period "
                  "slope p_perm")
+    want = {"threshold mattr", "threshold fwr", "threshold cv",
+            "anaphora period slope rho", "anaphora period slope p_perm"}
     m = re.search(inst.drift_re, real_line)
     got = {s.strip() for s in m.group(1).split(",")} if m else set()
     check("the shipped pattern reads a real DRIFTED line whole",
-          got == set(inst.declared), str(sorted(got)))
+          got == want, str(sorted(got)))
     check("...and one drifted value parses as one, not as its substring",
           "threshold mattr" in got and "mattr" not in got)
 

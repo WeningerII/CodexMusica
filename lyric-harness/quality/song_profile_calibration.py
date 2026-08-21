@@ -1431,8 +1431,13 @@ def check_shipped(lo, hi, full, fprs, slopes, sampled=None, resolution=None,
     # tuned to (doctrine 58). Repinning them is the same sitting that repins
     # the five thresholds, and it is held open on the predictability arm.
     rho, pp = slopes["anaphora"]
-    cmp("anaphora period slope rho", 0.275, rho, 0.01)
-    cmp("anaphora period slope p_perm", 0.0042, pp, 0.004)
+    #: REPINNED 2026-08-21 from ~~0.275~~ / ~~0.0042~~ with the rest of the
+    #: profile. The DRIFT these two reported was never a defect -- it was the
+    #: withdrawal arriving at the constants, months after it arrived at the
+    #: prose. The struck pair stays visible in the note (doctrine 17) and the
+    #: structural gate below is what keeps it there.
+    cmp("anaphora period slope rho", -0.008, rho, 0.01)
+    cmp("anaphora period slope p_perm", 0.8695, pp, 0.05)
     # The two below are STRUCTURAL, not statistical: they read floor.py alone
     # and owe nothing to how many items were scored, so a sampled run judges
     # them exactly as a full one does. They are the whole of what `--sample`

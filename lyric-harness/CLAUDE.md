@@ -1132,6 +1132,11 @@ and the corpus byte-identical to it — so the record was wrong on the day it
 was written, not stale since. `quality/floor.py` had been contradicting itself
 twelve lines apart the whole time: the `song` Profile declares `n_human=1859`
 and that same profile's `source=` reads "1,859 items over 108 authors".
+(Both of those quotes are the 2026-08-14 reading and are LEFT AS QUOTED: this
+paragraph is the record of an investigation into which population 1,872 could
+have come from, and rewriting its evidence would destroy the thing it proves.
+The profile itself was re-adopted 2026-08-21 at `n_human=3571`, 3,571 items
+over 879 authors — see `quality/RESULTS_SONG_FLOOR.md` §5·A.)
 **1,872 IS reachable, two ways, and neither of them is this band** — `hi=405`
 instead of 400, or a whitespace `.split()` token count instead of the
 profile's own `QualityFeatures._tokens` — and under BOTH the carrier counts
