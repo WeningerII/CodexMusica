@@ -174,12 +174,69 @@ span, 3:2 resolving at 1/6), `MeterMap` (meter per BAR, not per section), and
 **Still missing:** metric modulation, hemiola, tuplets, swing ratio as a
 continuous value, rubato/senza misura, hypermeter, metric dissonance.
 
-### C-4 · No groove or microtiming `OPEN`
+### C-4 · ~~No groove or microtiming~~ — the groove questions are DECLARED and PERMANENTLY REFUSED BY NAME `PARTIAL`
 **Missing:** pushes, pulls, laid-back and ahead-of-beat placement, syncopation
 measurement, the difference between a line that lands and one that drags.
 
-### C-5 · Tempo is not represented `OPEN`
-**Now:** `Song` has bars and meters, no tempo, no tempo change.
+> **REPINNED 2026-08-21 — `OPEN` was MISPINNED, and the difference is doctrine
+> 20's.** These questions are not unrepresented; they are enumerated, named and
+> **permanently refused**, which is an answer. `quality/fit.py`'s module
+> docstring says so in this entry's own words — *"every groove question in
+> MISSING.md C-4 (pushes, pulls, laid-back placement, syncopation as a
+> measurement rather than as a declared offset) are refused permanently and by
+> name, not approximated"* — and `fit.UNANSWERABLE` carries the sentence as a
+> ROW (*"whether the singer LANDS on the beat, ahead of it or behind it"* /
+> `PERMANENT: MISSING.md C-4 …`). `quality/declared_inputs.py`'s family
+> **R5 offbeat rhyme** is `route="OUTSIDE"`, `status="PERMANENT"`, referencing
+> `MISSING.md C-4, C-5, G-1; doctrine 4`, and it SPECIFIES the input that would
+> answer (`BeatGrid`) while refusing the measurement.
+> `relations.py`'s `offbeat internal rhyme` declares `requires=('beat',)` and
+> returns a typed `Refusal(capability='beat')` rather than a false negative.
+>
+> **WHAT IS TRULY MISSING IS NARROWER: syncopation as a measurable quantity
+> GIVEN a declared grid.** R5 accepts a `BeatGrid` and nothing computes
+> displacement off one; no `groove`/`syncopat` symbol exists in `meter.py` or
+> `grid.py`. C-3's *"swing ratio as a continuous value"* is the live neighbour.
+>
+> **AND A TEST GUARDS THIS ENTRY THAT TRIAGE CANNOT SEE** —
+> `quality/test_fit.py` asserts `"C-4" in whys` over `fit.UNANSWERABLE` and
+> passes. `quality/triage.py`'s `m_win` requires the literal `MISSING` within
+> `MISSING_NEAR` characters of the key, and the assertion names the key bare,
+> so this entry reads as `CITED` (a module names it, no test guards it) when it
+> is `DECLARED` (a test names it and the entry says why). **Same class as the
+> `m_re` fix that moved D-1, one spelling further on**, and it inflates CITED
+> while emptying DECLARED. Recorded here, NOT fixed in this commit: widening
+> the scanner reshuffles all five triage counts, which is its own change.
+
+### C-5 · Tempo is not represented `PARTIAL`
+**Now:** `Song` has bars and meters, no tempo, no tempo change. **That sentence
+is TRUE at head** — `grep -n tempo quality/grid.py` returns nothing.
+
+> **REPINNED 2026-08-21 — AND THE HEADLINE IS THE WRONG SHAPE OF CLAIM.** A
+> tempo field **does** exist: `declared_inputs.BeatGrid.tempo_bpm` (`:546`),
+> read by nothing anywhere in the tree. Beside it sits `fit._no_tempo`
+> (`:184`), a `PERMANENT` refusal whose detail opens *"MISSING.md C-5: `Song`
+> carries bars and meters and no tempo"* — constructed by nothing.
+> `quality/meter.py`'s `note_value` docstring refuses seconds by name for the
+> same reason. **`fit.INERT` (`:313`) already declares both dead and says why**:
+> *"BOTH HALVES OF THE TEMPO STORY ARE UNWIRED, and each is dead in its own
+> direction"* — a declaration with no reader, and a guard with no question.
+> `test_fit.py` re-derives both directions and passes.
+>
+> So this is **not an unrepresented coordinate; it is a declared one with no
+> reader beside a refusal with no caller**, and wiring either half alone closes
+> nothing — it activates the moment one per-second question is asked. `PARTIAL`
+> on `blocker="build"`, not `OPEN`.
+>
+> **A NAME SLIP FOUND ON THE WAY IN, AND FIXED IN THIS COMMIT.** The `INERT`
+> row's `field` read `fit.NO_TEMPO / declared_inputs.TimeGrid.tempo_bpm` and
+> `test_fit.py` PINNED that string — **there is no `TimeGrid` in this tree**;
+> the class is `BeatGrid` (`declared_inputs.py:524`). A test pinning a
+> non-existent symbol name is a check that cannot notice the symbol moving.
+>
+> The triage blind spot recorded under C-4 applies here identically:
+> `test_fit.py` asserts `"C-5" in whys` by bare key, so this entry also reads
+> `CITED` when it is `DECLARED`.
 
 ---
 
@@ -307,19 +364,65 @@ generic path and `fas.rhymes()` independently return None.
 where the phonology carries no prominence — som, msa and fas all decline a
 stress grid — because the anchor rule is a coordinate, not a universal.
 
-### E-2 · English still has five relations `PARTIAL`
-**Now:** `lyric_harness.py` recognises RHYME, REPEAT, RIME_RICHE, ASSONANCE,
-CONSONANCE.
+### E-2 · ~~English still has five relations~~ — the five-relation path is the GRADER's, and it is not the tree's `PARTIAL`
+**Now:** `lyric_harness.py`'s own `score()`/`admits()` band recognises RHYME,
+REPEAT, RIME_RICHE, ASSONANCE, CONSONANCE — **and that is a statement about
+ONE layer, not about English in this repository.** `quality/relations.py`'s
+`REGISTRY` holds **77 schemas**, of which **58 declare a `Tradition(lang='eng')`**
+(59 name "English" in a tradition string). The heading invited a count and the
+count is 58, not five.
 **Now detected by `classify_pair`:** span (masculine/feminine/dactylic and
 UNBOUNDED beyond — the old SPAN dict capped everything 4+ as "extended"),
 identity (distinct/same_word/rich), stress alignment including wrenched,
 length match (equal/additive/subtractive), and all 27 ternary channel cells
 including pararhyme and the two English never named.
-**Still missing:** mosaic/compound and broken boundary detection (the axis
+~~**Still missing:** mosaic/compound and broken boundary detection (the axis
 exists, nothing infers it from text), apocopation, and eye/historical
 realisation — all three need the ORTHOGRAPHY beside the phonology, which no
 caller currently passes. `lyric_harness.py` itself still runs its own
-five-relation path and does not call this.
+five-relation path and does not call this.~~
+
+> **REPINNED 2026-08-21 — THE `Still missing` CLAUSE ATTRIBUTED A
+> `rhyme_types.py` FACT TO THE WHOLE TREE, and it is right about one layer and
+> wrong about the other.** Measured at head against the real `eng` phonology:
+>
+> | schema | what it does when asked |
+> |---|---|
+> | `mosaic rhyme` | **realises** — returns a verdict list |
+> | `compound / phrasal rhyme` | **realises** |
+> | `broken rhyme` | **realises** (`Unit.split_left/split_right`, computed from a trailing hyphen) |
+> | `apocopated rhyme` | **realises** (`unmatched='require_a'`) |
+> | `eye rhyme` | **REFUSES** — `Refusal(capability='orthography', missing=('orthography',))` |
+> | `historical rhyme` | **REFUSES** — `Refusal(capability='earlier')` |
+>
+> So *"all three need the ORTHOGRAPHY"* is a **category error for the first
+> four**: they are phonemic-plus-token questions and they run. It is exactly
+> right for the last two, and those refuse **by named capability** rather than
+> returning a false negative, which is the honest shape. **What was NOT
+> reproduced here** are the agent-reported positive instance counts on
+> purpose-built fixtures (mosaic 2, compound 3, broken 2, apocopated 2); three
+> attempts returned verdict lists with zero positives, so the counts are not
+> carried into this entry. **The structural claim does not rest on them** — a
+> verdict list and a `Refusal` are different return types, and that is what
+> distinguishes the two halves of the table.
+>
+> **THE RESIDUE IS TWO CLAIMS, AND NEITHER IS A MISSING AXIS.**
+> 1. **`rhyme_types.classify_pair`'s `boundary` and `realisation` are declared
+>    parameters with defaults that NO caller infers** — `boundary='simple'`,
+>    `realisation='phonetic'`, pass-through. *"The axis exists, nothing infers
+>    it from text"* is exactly true HERE and exactly false of `relations.py`.
+> 2. **`Stream.alt` is a declared slot (`ALT_SURFACES`) that `build_stream`
+>    never populates** — the only stream builder in the tree structurally
+>    cannot, so `eye rhyme` and `historical rhyme` refuse for want of a
+>    **producer**, not for want of an axis. That is doctrine 44's distinction:
+>    the thing to build is a surface reader, and it is not blocked.
+>
+> **AND THE CLOSING SENTENCE WAS FALSE.** `lyric_harness.py` DOES call this —
+> `RT.classify_pair` at `:5645` (the `types` verb) and `RL.build_stream` /
+> `RL.realise` at `:5985`/`:6037` (the `relations` verb). The true claim is
+> narrower and is the one worth keeping: **the GRADING path — `score`,
+> `admits`, `rhyme_density`, the chains — is five-valued and consults neither.**
+> A CLI verb reaching the 77 schemas is not the grader reaching them.
 
 ### E-3 · ~~Internal rhyme is two-line only~~ Internal rhyme has two windows and neither is declared `PARTIAL`
 **Now:** ~~`internal_matches` supports a pair of lines. No verse-wide or
@@ -334,12 +437,38 @@ returns true verdicts at line distances 1, 2 and 3 on a four-line fixture.
 **Missing (the narrowed claim):** not the graph — the DECLARATION of which
 window a caller is reading. `lyric_harness.internal_matches` takes at most two
 texts and `rhyme_density` calls it only on `lines[idx]`/`lines[idx + 1]`
-(`lyric_harness.py:2990`), so that layer is distance <= 1 structurally while
-`relations.py` is stanza-wide; neither site says so. Two answers to one
-question with no declared coordinate between them (doctrine 1). Status is
-`PARTIAL`, not `CLOSED`: the capability landed, the coordinate did not.
-**Verified 2026-08-16** against `quality/relations.py` and
-`lyric_harness.py:2925,2990`.
+(`lyric_harness.py:3116`), so that layer is distance <= 1 structurally while
+`relations.py` is ~~stanza-wide~~ **SONG-wide**; neither site says so. Two
+answers to one question with no declared coordinate between them (doctrine 1).
+Status is `PARTIAL`, not `CLOSED`: the capability landed, the coordinate did
+not.
+~~**Verified 2026-08-16** against `quality/relations.py` and
+`lyric_harness.py:2925,2990`.~~
+
+> **REPINNED 2026-08-21, THREE CORRECTIONS, AND THE NARROWED CLAIM SURVIVES
+> ALL THREE — it gets wider, not weaker.**
+> 1. **`stanza-wide` is the wrong word and it UNDERSTATES the gap.**
+>    `REGISTRY['internal rhyme'].figure.frame` is `'song'`, and measured across
+>    a blank-line stanza break the schema returns 22 instances of which **8
+>    cross the break** (distances `{0: 13, 1: 1, 3: 1, 4: 7}`). So the two
+>    windows are `<= 1` against **the whole song**, not against a stanza.
+> 2. **THIS ENTRY DRIFTED ITS OWN CITATIONS, WHICH IS THE DEFECT IT IS ABOUT.**
+>    `lyric_harness.py:2925,2990` were correct on 2026-08-16 and are not now —
+>    `:2925` is inside a chain-report dict and `:2990` is a removed-API comment
+>    block. The live sites are **`:3049`** (`def internal_matches`) and
+>    **`:3116`** (`rhyme_density`'s `text_b=lines[idx + 1]`). A line number into
+>    a file under edit is an offset from a moving origin, exactly as the Welsh
+>    paragraph in `CLAUDE.md` records for `data/sources.tsv`.
+> 3. **"TWO WINDOWS" UNDERCOUNTS: THERE IS A THIRD, ON THE SAME FUNCTION.**
+>    `internal_matches(..., max_window=3)` caps the SPAN IN SYLLABLES — a
+>    second undeclared coordinate wearing the same word "window" as the
+>    line-distance one, in one signature. One name, two axes (doctrine 1),
+>    which is this entry's own subject one level in.
+>
+> The close is still small and is still a declaration rather than a capability:
+> a `window=` coordinate on `internal_matches`/`rhyme_density` and a frame
+> statement in the `internal rhyme` schema note. It would be the first test to
+> name E-3, moving it CITED → GUARDED.
 
 ### E-4 · No rhyme density over time `OPEN`
 **Missing:** rhyme rate per bar, acceleration into a hook, thinning in a

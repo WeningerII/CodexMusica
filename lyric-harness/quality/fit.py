@@ -312,7 +312,13 @@ class InertCoordinate:
 
 INERT = (
     InertCoordinate(
-        field="fit.NO_TEMPO / declared_inputs.TimeGrid.tempo_bpm",
+        # `TimeGrid` until 2026-08-21, and there has never been a class of that
+        # name in this tree -- the field is `declared_inputs.BeatGrid.tempo_bpm`
+        # (`declared_inputs.py:546`).  This entry's whole job is to name a dead
+        # coordinate so it cannot be renamed out from under the record, and it
+        # named one that does not exist; `test_fit.py` pinned the wrong string
+        # beside a comment about entries outliving their subjects.
+        field="fit.NO_TEMPO / declared_inputs.BeatGrid.tempo_bpm",
         reason=(
             "BOTH HALVES OF THE TEMPO STORY ARE UNWIRED, and each is dead in "
             "its own direction. `_no_tempo` builds a PERMANENT refusal for "
