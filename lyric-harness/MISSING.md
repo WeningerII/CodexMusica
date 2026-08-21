@@ -3615,11 +3615,59 @@ fragments** — `kanakacampakad`, `magaur` — that no reader would flag, and th
 census would emit rates over them. Doctrine 50's shape: an orthographic layer
 silently destroying the constraint the cell measures.
 
-**WHAT IS OWED:** `pair_counters` asks the phonology for its tokens, the way
-`fin_rhyme_rate` and the Kalevala adoption already do. Then the five renames.
-Cost is measured and small — a minimal honest cross-tradition run (cym + san +
-msa + ltc endword-only) is **under 1 core-hour** with per-file checkpointing
-already implemented at `structure_census.py:221-264`.
+**TESTED WHILE OPEN.** `quality/test_structure_census.py` §7 names this entry
+and the entry stays OPEN, because **the SILENT half is fixed and the three
+renames are not.** Of the sites this entry counts: the tokeniser (the sixth,
+which nobody had counted) and two of the five — the `"eng", "eng"` literal
+columns and the once-per-run `PH.get("eng")` — are closed. The `eng_*` glob,
+`OUT_DEFAULT` and `RHYME_CONSTRAINED_FAMILIES` are run 2's to move, and
+`RHYME_CONSTRAINED_FAMILIES` is `M-23`'s second obligation rather than this
+one's. An entry whose dangerous half is shut is not a closed entry.
+
+**FIXED 2026-08-21, and the shape of the fix is a DECLARED TABLE rather than
+"ask the phonology", because asking is AMBIGUOUS for the one language that
+matters.** `English._tokens` and `LH.line_tokens` are different functions —
+the second erases `(...)` spans first — and **measured, they disagree on
+1,061 of 283,515 eng sung lines (0.374%) across 192 files.** Small, and not
+zero, so the naive swap would have moved `data/structure_census_eng.tsv` and
+its md5 while reading like a pure refactor. `TOKENISER_SITE` declares one site
+per language; `NO_TOKENISER` records **three different reasons** for the three
+that have none, kept apart because doctrine 44 separates *cannot* from *not
+yet*: `ltc` is PERMANENT (one character is one syllable, so WORD is not a unit
+of the language), `cym` and `msa` are BUILDABLE and unbuilt. A language in
+that table REFUSES; it never falls back.
+
+**THREE THINGS THE FIRST DRAFT OF THE TEST GOT WRONG, all found by mutation
+and all the same species as the defect being fixed:**
+1. **The byte-identical control tested an empty population.** It ran on
+   `eng_hymn_cennick.txt`, whose only two `(...)` lines are `# author:` and
+   `# source:` — dropped by `is_apparatus_line` before any tokeniser sees
+   them. Both readings therefore agreed, and the check guarding the 0.374%
+   passed against a fixture that cannot express it. Doctrine 20 inside the
+   check written to stop exactly that.
+2. **Nothing asserted that `pair_counters` USES the resolved tokeniser.**
+   Restoring `toks = LH.line_tokens(line)` inside the loop left every check
+   GREEN, because the refusals fire in the resolver and the positives called
+   the resolver directly. A resolver consulted by nobody is this repo's
+   four-times-filed defect, reproduced inside its own fix.
+3. **The check that catches a rotted site was unreachable.** It sat last;
+   every earlier block calls `tokeniser_for` unguarded, so a rotted site
+   raised out of block (b) and the one check that names the failure never
+   ran. It runs first now and returns early.
+   Also repaired: the resolver could not SPELL `English._tokens` (a class
+   attribute), so the rejected alternative was unexpressible and the control
+   guarding it died as a `ModuleNotFoundError` three frames down instead of
+   refusing in this layer's words.
+
+**PROVEN BY THREE MUTATIONS**, each killed by a named check: restoring the
+ASCII reader inside `pair_counters` fails 2, pointing `eng` at
+`English._tokens` fails 3, and rotting a declared site fails 1 and stops the
+section. `pair_counters` on the real Kanteletar now yields **2,486 endwords
+carrying ä/ö under `fin`, and 0 under the ASCII reader**.
+
+**WHAT IS STILL OWED:** the three renames above. Cost is measured and small —
+a minimal honest cross-tradition run (cym + san + msa + ltc endword-only) is
+**under 1 core-hour** with per-file checkpointing already implemented.
 
 ### M-23 · `Structure` has no `kind="partition"`, and that is the same missing kind four times `OPEN`
 **Found 2026-08-21, and it is the one change that serves every spec-shaped

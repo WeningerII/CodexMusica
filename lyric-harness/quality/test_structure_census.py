@@ -39,6 +39,16 @@ def check(name, cond, detail=""):
 
 SMALL = os.path.join(HERE, "..", "corpus", "song", "eng_hymn_cennick.txt")
 
+#: The smallest eng file whose SUNG lines distinguish `line_tokens` (which
+#: erases `(...)`) from `English._tokens` (which does not).  Section 7's
+#: byte-identical control is worthless without it -- see the note there.
+PARENS = os.path.join(HERE, "..", "corpus", "song",
+                      "eng_british_john_ward.txt")
+
+#: A real Finnish file, for proving `pair_counters` tokenises with the
+#: language's reader rather than merely resolving one.
+FIN_FILE = os.path.join(HERE, "..", "corpus", "song", "fin_kanteletar.txt")
+
 
 def test_rows():
     print("\n1. the censused rows")
@@ -186,10 +196,134 @@ def test_checkpointing():
         shutil.rmtree(d, ignore_errors=True)
 
 
+def test_tokeniser_is_declared():
+    """7. THE TOKENISER IS THE LANGUAGE'S OWN, OR THE LANGUAGE IS REFUSED.
+
+    `pair_counters` called `lyric_harness.line_tokens` — an ASCII-only
+    reader — for every language until 2026-08-21 (`MISSING.md` M-22).  That
+    is the substitution that VOIDED Kalevala alliteration run 1, and it was
+    invisible here because `corpus_files()` globs `eng_*` and English is the
+    one language it reads correctly.
+
+    The section drives `pair_counters` rather than `tokeniser_for` alone,
+    because a table that resolves correctly and is consulted by nobody is
+    the defect this repo has filed four times (`M-22` is itself one).
+    """
+    import lyric_harness as LH
+    print("\n7. the tokeniser is a declared coordinate (M-22)")
+
+    # (0) EVERY DECLARED SITE RESOLVES, AND THIS RUNS FIRST.  A table of
+    # import paths can rot silently.  Written LAST in the section at first,
+    # where it was unreachable: every other block calls `tokeniser_for`
+    # without a guard, so a rotted site raised out of block (b) and the one
+    # check that names the failure never ran.  A check that a crash can skip
+    # is a check that reports nothing on the day it matters.
+    bad = []
+    for lang in CEN.TOKENISER_SITE:
+        try:
+            if not callable(CEN.tokeniser_for(lang)):
+                bad.append(lang)
+        except Exception as exc:                       # noqa: BLE001
+            bad.append(f"{lang}: {str(exc)[:60]}")
+    check("every declared tokeniser site resolves to a callable",
+          not bad, str(bad))
+    if bad:
+        print("     (section 7 stops here — the rest reads a rotted table)")
+        return
+
+    # (a) THE CONTROL, and it is the one that matters: the run-1 population
+    # must be BYTE-IDENTICAL through the new path.  eng resolves to
+    # `line_tokens` BY DECLARATION, not by accident -- `English._tokens` is
+    # a DIFFERENT function (it does not strip `(...)`) and the two disagree
+    # on 1,061 of 283,515 eng sung lines, so "ask the phonology" would have
+    # moved the committed artifact while looking like a refactor.
+    #
+    # THE FIXTURE IS `PARENS`, NOT `SMALL`, AND THAT IS THE WHOLE CHECK.
+    # Written first against `SMALL` and it passed against BOTH readings:
+    # `SMALL`'s only two `(...)` lines are `# author:` and `# source:`,
+    # which `is_apparatus_line` drops before any tokeniser sees them, so
+    # the control was comparing two readings on a population where they
+    # cannot differ -- doctrine 20's "an empty population reads like a
+    # pass", inside the check written to stop exactly that.  `PARENS` is
+    # the smallest eng file whose SUNG lines distinguish them.
+    from quality.phonology.eng import English
+    strip_ec, strip_wl = CEN.pair_counters(PARENS)
+    keep_ec, keep_wl = CEN.pair_counters(PARENS, tokens=English._tokens)
+    # The two readings differ on WORD-WITHIN-LINE and NOT on endword-cross
+    # here, and that is a fact about where a parenthetical sits: erasing
+    # `(...)` removes interior words while a line's LAST word is usually
+    # outside the parens. Asserting on endword-cross alone would have been
+    # the vacuous check a second time, one population over.
+    check("the control fixture can TELL THE TWO READINGS APART",
+          (strip_ec, strip_wl) != (keep_ec, keep_wl) and strip_wl != keep_wl,
+          f"word-within-line {len(strip_wl)} vs {len(keep_wl)} distinct pairs; "
+          f"endword-cross identical ({len(strip_ec)}), as expected")
+    check("eng is byte-identical through the declared path",
+          (strip_ec, strip_wl) == CEN.pair_counters(
+              PARENS, tokens=LH.line_tokens)
+          and CEN.pair_counters(SMALL) == CEN.pair_counters(
+              SMALL, tokens=LH.line_tokens),
+          f"{sum(strip_ec.values())} endword-cross pairs, unmoved")
+    check("eng resolves to line_tokens, not English._tokens",
+          CEN.tokeniser_for("eng") is LH.line_tokens)
+
+    # (b) THE POSITIVE: a language with a declared tokeniser reads its own
+    # words.  `pää` -> ['p'] under the ASCII reader and stays whole here.
+    fin = CEN.tokeniser_for("fin")
+    check("fin reads its own words (ASCII shreds them)",
+          fin("pää") == ["pää"] and LH.line_tokens("pää") == ["p"],
+          f"fin._tokens {fin('pää')} vs line_tokens {LH.line_tokens('pää')}")
+    san = CEN.tokeniser_for("san")
+    check("san reads its own words",
+          len(san("adyāpi tāṃ kanakacampakadāmagaurīṃ")) == 3
+          and len(LH.line_tokens("adyāpi tāṃ kanakacampakadāmagaurīṃ")) == 5,
+          "3 words vs 5 ASCII fragments")
+
+    # AND `pair_counters` MUST ACTUALLY USE IT.  The two checks above prove
+    # the TABLE resolves; they say nothing about the loop that tokenises,
+    # and the first draft of this section proved it: restoring
+    # `toks = LH.line_tokens(line)` inside `pair_counters` left every check
+    # here GREEN, because the refusals fire in the resolver and the positives
+    # called the resolver directly.  A resolver consulted by nobody is the
+    # defect this repo has filed four times.  Driven end to end now, on real
+    # Finnish: under the language's own reader the endwords are whole words
+    # carrying ä/ö; under the ASCII reader they are fragments that carry none.
+    fin_ec, _fin_wl = CEN.pair_counters(FIN_FILE, language="fin")
+    ascii_ec, _ascii_wl = CEN.pair_counters(FIN_FILE, tokens=LH.line_tokens)
+    fin_words = {w for pair in fin_ec for w in pair}
+    ascii_words = {w for pair in ascii_ec for w in pair}
+    non_ascii = {w for w in fin_words if any(ord(c) > 127 for c in w)}
+    check("pair_counters TOKENISES with the language's own reader",
+          fin_ec != ascii_ec and non_ascii
+          and not {w for w in ascii_words if any(ord(c) > 127 for c in w)},
+          f"{len(non_ascii)} endwords carry ä/ö under fin, 0 under ASCII")
+
+    # (c) THE REFUSAL, driven through `pair_counters` itself: a language
+    # with no declared tokeniser REFUSES BY NAME and never falls back.
+    for lang, want in (("ltc", "PERMANENT"), ("cym", "BUILDABLE"),
+                       ("msa", "BUILDABLE")):
+        try:
+            CEN.pair_counters(SMALL, language=lang)
+            check(f"{lang} refuses rather than shredding", False,
+                  "it returned counters — the ASCII fallback is back")
+        except CEN.NoTokeniser as exc:
+            check(f"{lang} refuses rather than shredding, and says why",
+                  want in str(exc) and len(str(exc)) > 120, str(exc)[:72])
+    try:
+        CEN.tokeniser_for("zz")
+        check("an UNDECLARED language refuses too", False)
+    except CEN.NoTokeniser as exc:
+        check("an undeclared language refuses and says nobody has looked",
+              "nobody has looked" in str(exc))
+
+    check("no language is both declared and refused",
+          not (set(CEN.TOKENISER_SITE) & set(CEN.NO_TOKENISER)))
+
+
 if __name__ == "__main__":
     for fn in (test_rows, test_item_readers, test_cell_accounting,
                test_constrained_tag, test_tsv_roundtrip,
-               test_checkpointing):
+               test_checkpointing, test_tokeniser_is_declared):
         fn()
     print("=" * 62)
     if FAILURES:

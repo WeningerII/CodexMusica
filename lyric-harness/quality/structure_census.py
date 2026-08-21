@@ -57,6 +57,155 @@ CONSTRAINED_FAMILY = frozenset({
 RHYME_CONSTRAINED_FAMILIES = frozenset({"eng_song", "sonnets"})
 
 OUT_DEFAULT = os.path.join(ROOT, "data", "structure_census_eng.tsv")
+
+
+# --- THE TOKENISER IS A DECLARED COORDINATE (MISSING.md M-22) --------------
+#
+# `pair_counters` called `lyric_harness.line_tokens` directly until
+# 2026-08-21.  That function is ASCII-only -- `re.findall(r"[A-Za-z'\-]+")` --
+# and it is the RIGHT reader for English and a SHREDDER for everything else.
+# Measured over real corpus lines at the time of the fix:
+#
+#     ltc   99.9% of lines yield ZERO tokens      fas  100.0%
+#     san   96.6% of lines mis-tokenise           fin   41.6%
+#     eng    0.0%                                 -- which is why nothing
+#                                                    had ever gone red
+#
+#     'väinämöinen' -> ['v', 'in', 'm', 'inen']   vs fin._tokens -> whole word
+#     'pää'         -> ['p']
+#     'adyāpi tāṃ kanakacampakadāmagaurīṃ'
+#                   -> ['ady','pi','t','kanakacampakad','magaur']
+#
+# THIS IS THE SUBSTITUTION THAT VOIDED KALEVALA ALLITERATION RUN 1 (CLAUDE.md:
+# "the ASCII tokenizer had shredded ä/ö, and the fin phonology's `_tokens` was
+# the one definition all along, doctrine 1").  It was LATENT here only because
+# `corpus_files()` globs `eng_*`, so the census has never tokenised a
+# non-Latin line and no recorded figure moves.  It would have bitten in run
+# 2's first hour, which is the hour a registration promising world-shape is
+# cashed.
+#
+# WHY A DECLARED TABLE AND NOT "ASK THE PHONOLOGY".  "Ask the phonology" is
+# AMBIGUOUS FOR ENGLISH, which is the one language that matters for
+# reproducing run 1.  `English._tokens` and `LH.line_tokens` are DIFFERENT
+# FUNCTIONS: the second erases `(...)` spans first (`strip_parens=True`).
+# MEASURED over the 283,515 eng sung lines, they disagree on **1,061 lines
+# (0.374%) across 192 files** -- small, and not zero, so a naive swap would
+# have moved `data/structure_census_eng.tsv` and its md5 while looking like a
+# pure refactor.
+#
+# eng therefore keeps `LH.line_tokens`, and that is the right reading on the
+# merits rather than a compatibility fudge: `line_tokens`' own docstring
+# records that `corpus/song/`'s 196 parenthetical files use `(...)` the
+# literary way -- an aside, not sung -- and that `data/song_endword_en.tsv`
+# was built on that reading (doctrine 91: build the population the way the
+# grader reads).  The parenthetical convention is a property of the ENGLISH
+# PRINTED CORPUS, not of the English language.
+#
+# WHAT THE OTHER CORPORA DO WITH `(...)` IS NOT DECIDED HERE, and the load is
+# recorded so the next session decides it with a number rather than a guess:
+# cym 13 of 5,248 sung lines (0.25%), fin 58 of 41,805 (0.14%), fas 79 of
+# 141,732 (0.06%), msa 3 of 513 (0.58%), ltc 0, san 0.  Each phonology's own
+# `_tokens` keeps parentheticals.  Whether that is right is a per-corpus
+# EDITORIAL-CONVENTION question, not a language question, and inventing an
+# answer here would be the same error one layer over.
+
+#: language -> the ONE site whose tokeniser the census reads that language's
+#: lines with.  Spelled as an import path so the declaration is greppable and
+#: so six phonology modules are not imported to run an English census.
+TOKENISER_SITE = {
+    "eng": "lyric_harness.line_tokens",
+    "fin": "quality.phonology.fin._tokens",
+    "san": "quality.phonology.san._tokens",
+    "fas": "quality.phonology.fas.tokens",
+    "non": "quality.phonology.non._tokens",
+    "som": "quality.phonology.som._tokens",
+}
+
+#: language -> why no tokeniser is declared.  THREE DIFFERENT REASONS, kept
+#: apart because doctrine 44 separates "hard to build" from "cannot obtain"
+#: and the remedies differ.  A language in here REFUSES; it never silently
+#: falls back to the ASCII reader, which is the whole defect.
+NO_TOKENISER = {
+    "ltc": ("PERMANENT. One character is one syllable, so WORD is not a unit "
+            "of this language and no tokeniser can exist -- `ltc.py` declares "
+            "none, and `line_tokens` yields 4 tokens from 3,833 lines, all 4 "
+            "scraped out of `&KR1553;` entity markup. The `word-within-line` "
+            "population has no definable members here. An ENDWORD population "
+            "is still definable (a line's end is well defined even where a "
+            "word is not) and is run 2's decision, not this table's."),
+    "cym": ("BUILDABLE, and not built. `cym.py` CONSUMES tokens "
+            "(`readability_census(phon, tokens, ...)`) and never produces "
+            "them. The eight digraphs are already handled inside "
+            "`syllabify`, so this is a tokeniser gap only -- circumflexed "
+            "vowels (ŵ ŷ â î ô û) are what `line_tokens` shreds."),
+    "msa": ("BUILDABLE, and not built. `msa.py` takes tokens as an argument "
+            "and declares no `_tokens`. Note its known apostrophe defect "
+            "(`s'ri` < seri) is live under the ASCII reader, so a tokeniser "
+            "here has a correctness job and not only a coverage one."),
+}
+
+
+class NoTokeniser(Exception):
+    """Raised rather than shredding. A census that cannot read a language's
+    words REFUSES that language by name; it does not report rates over
+    fragments (doctrine 79 -- a refusal is not a failure, and doctrine 20 --
+    'cannot read' and 'read and found nothing' are different answers)."""
+
+
+def language_of(path):
+    """-> the corpus file's language prefix. The two English controls are
+    NAMED rather than prefixed, so they are resolved by name."""
+    base = os.path.basename(path)
+    if base in ("sonnets.txt", "whitman.txt"):
+        return "eng"
+    return base.split("_", 1)[0] if "_" in base else ""
+
+
+def tokeniser_for(language):
+    """-> the declared tokeniser for `language`, or raise `NoTokeniser`."""
+    site = TOKENISER_SITE.get(language)
+    if site is None:
+        why = NO_TOKENISER.get(
+            language,
+            "no tokeniser site is declared for %r, and no reason is recorded "
+            "either -- which means nobody has looked. Declare one or record "
+            "why there cannot be one." % (language,))
+        raise NoTokeniser("%s: %s" % (language, why))
+    import importlib
+    # WALK THE DOTTED PATH, longest importable prefix first, then getattr.
+    # A site may name a MODULE attribute (`quality.phonology.fin._tokens`)
+    # or a CLASS attribute (`quality.phonology.eng.English._tokens`), and
+    # both have to be expressible: `English._tokens` is the reading this
+    # table deliberately does NOT take for eng, and a table that cannot
+    # SPELL the rejected alternative cannot be checked against it. Written
+    # as a bare `rsplit(".", 1)` first, which made the alternative
+    # unspellable and turned the control that guards it into a
+    # ModuleNotFoundError three frames down.
+    parts = site.split(".")
+    obj, seen = None, 0
+    for i in range(len(parts) - 1, 0, -1):
+        try:
+            obj = importlib.import_module(".".join(parts[:i]))
+            seen = i
+            break
+        except ImportError:
+            continue
+    if obj is None:
+        raise NoTokeniser(
+            "%s: no importable module in the declared site %r" % (language, site))
+    for attr in parts[seen:]:
+        obj = getattr(obj, attr, None)
+        if obj is None:
+            raise NoTokeniser(
+                "%s: the declared site %r does not resolve — %r is absent. A "
+                "tokeniser site that has rotted REFUSES in this layer's words "
+                "rather than raising somebody else's AttributeError."
+                % (language, site, attr))
+    if not callable(obj):
+        raise NoTokeniser(
+            "%s: the declared site %r resolves to a non-callable %r"
+            % (language, site, type(obj).__name__))
+    return obj
 COLUMNS = ("language", "phonology", "corpus_file", "family", "structure",
            "kind", "population", "constrained", "n_pairs", "n_true",
            "n_false", "n_refused", "rate_judged")
@@ -117,16 +266,26 @@ def items_of(path):
     return items
 
 
-def pair_counters(path):
+def pair_counters(path, language=None, tokens=None):
     """-> (endword_cross, word_within_line): Counter[(a, b)] per population,
     lowercased spellings, judged in the registration's declared order
-    (line order / word order — matching grade()'s own call order)."""
+    (line order / word order — matching grade()'s own call order).
+
+    THE TOKENISER IS THE LANGUAGE'S OWN (M-22). `language` defaults to the
+    file's prefix and `tokens` to that language's declared site; a language
+    with no declared tokeniser raises `NoTokeniser` rather than falling back
+    to the ASCII reader. Passing `tokens=` is how a caller declares a reading
+    the table does not carry — it is not a way around the refusal, because
+    the caller then owns the choice by name.
+    """
+    if tokens is None:
+        tokens = tokeniser_for(language or language_of(path))
     ec = collections.Counter()
     wl = collections.Counter()
     for item in items_of(path):
         ends = []
         for line in item:
-            toks = LH.line_tokens(line)
+            toks = tokens(line)
             if not toks:
                 continue
             ends.append(toks[-1].lower())
@@ -157,9 +316,9 @@ class Memo:
         return self.d[key]
 
 
-def census_file(path, memo, dedup=True):
+def census_file(path, memo, dedup=True, language=None):
     """-> {(structure, population): [n_pairs, n_true, n_false, n_refused]}"""
-    ec, wl = pair_counters(path)
+    ec, wl = pair_counters(path, language=language)
     out = {}
     for pop, counter in (("endword-cross", ec), ("word-within-line", wl)):
         for row in ROWS:
@@ -189,15 +348,21 @@ def constrained_tag(family, row, pop):
             and family in RHYME_CONSTRAINED_FAMILIES)
 
 
-def rows_for(path, cells):
+def rows_for(path, cells, language=None):
     family = family_of(path)
     base = os.path.basename(path)
+    # The `language`/`phonology` columns were emitted as the LITERAL "eng",
+    # "eng" until 2026-08-21 (M-22) — two of the five hard-coded English
+    # sites, and the two that would have mislabelled every run-2 row while
+    # the table looked world-shaped. They are read off the file now. For the
+    # run-1 population this is BYTE-IDENTICAL: every file in it is eng.
+    lang = language or language_of(path)
     out = []
     for (row, pop), (n, t, f, r) in sorted(cells.items()):
         judged = t + f
         rate = f"{t / judged:.6f}" if judged else ""
         out.append((
-            "eng", "eng", base, family, row, ST.get(row).kind, pop,
+            lang, lang, base, family, row, ST.get(row).kind, pop,
             "yes" if constrained_tag(family, row, pop) else "no",
             str(n), str(t), str(f), str(r), rate))
     return out
@@ -228,7 +393,15 @@ def run(files, out_path, label, parts_dir=None):
     REUSES every finished part. The most any interruption can cost is one
     file. Parts live under TMPDIR keyed by the output's basename, never
     beside a repo artifact."""
-    phon = PH.get("eng")
+    # THE JUDGE PHONOLOGY IS PER FILE (M-22, second half). This was
+    # `PH.get("eng")` once for every file until 2026-08-21 -- a THIRD
+    # hard-coded English site, and the one that would have made the
+    # tokeniser fix DANGEROUS on its own: right words, wrong phonology,
+    # and a run that looks like it worked. Resolving it per file is safe
+    # because the memo below is already per file, and it has to be: the
+    # memo is keyed on (row, a, b) with no phonology in the key, so one
+    # memo shared across two phonologies would return the first
+    # language's verdict for the second language's pair.
     parts = parts_dir or os.path.join(
         os.environ.get("TMPDIR", "/tmp"),
         os.path.basename(out_path) + ".parts")
@@ -250,9 +423,10 @@ def run(files, out_path, label, parts_dir=None):
         # 7 files, which extrapolates to an unbounded-memory full run.
         # Word-level transcription caches live inside the phonology and
         # stay warm across files either way.
-        memo = Memo(phon)
-        cells = census_file(path, memo, dedup=True)
-        rows = rows_for(path, cells)
+        lang = language_of(path)
+        memo = Memo(PH.get(lang))
+        cells = census_file(path, memo, dedup=True, language=lang)
+        rows = rows_for(path, cells, language=lang)
         write_tsv(part + ".tmp", rows)
         os.replace(part + ".tmp", part)
         all_rows.extend(rows)
