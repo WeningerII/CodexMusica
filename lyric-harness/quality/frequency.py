@@ -157,6 +157,22 @@ class FrequencySource:
     may_not_score: str = ""
     #: `data/` files this source loads from, for the provenance echo.
     files: tuple = ()
+    #: HOW `n_types` IS DERIVED, so the integer above stops being a rumor.
+    #:
+    #: `n_types` was hand-kept and nothing re-measured it, which is doctrine
+    #: 58's own case: `66eb44e` rebuilt the eng-song tables over a corpus 9x
+    #: larger and this field went on saying 10,401 for days, invisible to
+    #: every instrument in the repo. Naming the derivation makes it checkable
+    #: by `frequency.py --check`.
+    #:
+    #: Two forms, both `kind:path` relative to the repo root:
+    #:   `rows:F`         data lines in F (blank and `#` excluded, header off)
+    #:   `distinct0:F`    distinct values of F's first tab-separated column
+    #: EMPTY IS A REAL STATE, not a failure: the wordfreq-backed cells count
+    #: types inside a library this repo does not vendor, so there is nothing
+    #: here to re-derive from and the check reports them apart rather than
+    #: passing them silently (doctrine 20).
+    n_types_from: str = ""
 
     def check(self):
         if not self.derived_from_pool:
@@ -516,6 +532,8 @@ LAYER.declare(FrequencySource(
     derived_from_pool=False,
     licence="MIT (hermitdave/FrequencyWords) over OpenSubtitles 2018 (OPUS)",
     n_types=50000,
+    files=("data/opensubtitles_en_50k.tsv",),
+    n_types_from="rows:data/opensubtitles_en_50k.tsv",
     register_note=(
         "SPOKEN English, contemporary. Inverts the web list's pathology "
         "exactly: `moon` outranks `yahoo` 13.7x where the web list had "
@@ -539,6 +557,7 @@ LAYER.declare(FrequencySource(
     #: rebuild is at least VISIBLE from one instrument even though this
     #: integer is still hand-kept.
     n_types=13990,
+    n_types_from="distinct0:data/song_endword_en.tsv",
     pool="corpus/song/eng_*",
     loo_unit="author",
     files=("data/song_endword_en.tsv", "data/song_rhymepair_en.tsv"),
@@ -607,7 +626,83 @@ def unavailable(cell):
     return NO_INDEPENDENT_SOURCE.get(cell)
 
 
+def check_n_types(stream=sys.stdout):
+    """Re-derive every `n_types` that declares HOW, -> exit code.
+
+    THREE COUNTS, NEVER SUMMED (doctrine 79), and the middle one is the point:
+    a cell with no declared derivation is NOT a pass, it is a hand-kept
+    integer nobody can check, and printing it by name is the difference
+    between "checked and fine" and "not asked" (doctrine 20).
+    """
+    import quality.check_data_rows as CDR
+
+    ok = undeclared = bad = 0
+    print("=== n_types, re-derived where the derivation is declared ===",
+          file=stream)
+    for cell in sorted(LAYER.declared()):
+        src = LAYER._sources[cell]
+        if not src.n_types_from:
+            undeclared += 1
+            print("  [not asked] %-11s %8d  — no derivation declared (%s)"
+                  % (cell, src.n_types,
+                     "counts live inside the wordfreq library, which this "
+                     "repo does not vendor" if src.name.startswith("wordfreq")
+                     else "no in-repo file to derive from"), file=stream)
+            continue
+        kind, _, rel = src.n_types_from.partition(":")
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                            "..", rel)
+        if not os.path.exists(path):
+            bad += 1
+            print("  [MISSING  ] %-11s declares %s and the file is absent"
+                  % (cell, src.n_types_from), file=stream)
+            continue
+        if kind == "rows":
+            got = CDR.data_rows(path)
+        elif kind == "distinct0":
+            seen = set()
+            with open(path, encoding="utf-8") as fh:
+                first = True
+                for line in fh:
+                    if line.startswith("#") or not line.strip():
+                        continue
+                    if first:
+                        first = False
+                        continue
+                    seen.add(line.split("\t", 1)[0])
+            got = len(seen)
+        else:
+            bad += 1
+            print("  [REFUSED  ] %-11s unknown derivation kind %r — refusing "
+                  "rather than guessing" % (cell, kind), file=stream)
+            continue
+        if got == src.n_types:
+            ok += 1
+            print("  [ok       ] %-11s %8d  == %s"
+                  % (cell, src.n_types, src.n_types_from), file=stream)
+        else:
+            bad += 1
+            print("  [DRIFT    ] %-11s declares %d, %s gives %d"
+                  % (cell, src.n_types, src.n_types_from, got), file=stream)
+
+    print("  re-derived %d, not asked %d, DRIFTED %d" % (ok, undeclared, bad),
+          file=stream)
+    if ok == 0:
+        print("FAIL — nothing was re-derived, which reads exactly like a "
+              "pass (doctrine 20).", file=stream)
+        return 1
+    if bad:
+        print("FAIL — %d declared count(s) do not re-derive." % bad,
+              file=stream)
+        return 1
+    print("PASS — every declared derivation reproduces its integer.",
+          file=stream)
+    return 0
+
+
 if __name__ == "__main__":
+    if "--check" in sys.argv:
+        sys.exit(check_n_types())
     LAYER.report()
     print(f"\n  cells with NO independent source ({len(NO_INDEPENDENT_SOURCE)}):")
     for c, why in sorted(NO_INDEPENDENT_SOURCE.items()):

@@ -903,6 +903,30 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/counters.py --check
 
+      # THE data/ HALF OF DOCTRINE 34's QUESTION, closed 2026-08-21.
+      # audit_corpus.py check C re-derives the recorded md5 of every file
+      # under corpus/. Nothing did the same for data/ — so when 66eb44e
+      # rebuilt song_endword_en.tsv and song_rhymepair_en.tsv over the loaded
+      # corpus, both sources.tsv rows described the files they replaced
+      # (46,860 rows / 1,627,624 bytes against 131,373 / 4,764,993) for three
+      # commits, invisible to every instrument here. Fixed by hand, which is
+      # the fix that does not stay fixed.
+      - name: data/sources.tsv rows against the files they describe
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/check_data_rows.py
+
+      # And the same shape one layer in: frequency.py's `n_types` was a
+      # hand-kept integer nothing re-measured, so it read 10,401 for days
+      # after the rebuild made it 13,990. Sources that CAN declare how their
+      # count is derived now do; the nine wordfreq-backed cells cannot (the
+      # library is not vendored here) and are reported by name as not asked
+      # rather than passed silently.
+      - name: n_types, re-derived where the derivation is declared
+        if: always()
+        working-directory: lyric-harness
+        run: python3 quality/frequency.py --check
+
       - name: The fitted-matrix artifact against a fresh derivation
         if: always()
         working-directory: lyric-harness
@@ -1556,7 +1580,7 @@ jobs:
       # caught `nc_census` on the run that added it — and `structures` on
       # the run that added THAT. `comm -23 <(ls quality/test_*.py | sed 's|quality/test_||;s|\.py$||'
       # | sort) <(the names in this file, sorted)` is that command.
-      - name: The 53 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling, 2026-08-21)
+      - name: The 54 cheap suites (propose + verify_entries joined 2026-08-15; nc_census + plan + meter_bands 2026-08-17; homeoteleuton + structures in, verbs out to its own sharded job, structure_census with its artifact, screen with the no-private-instruments rule, capacity with the density design's stage 1, 2026-08-18; corpus_taxonomy with the region/function axes and the calibration manifest, 2026-08-19; expected_drift with the declared-drift ruling and data_row_claims with the re-derived provenance numbers, 2026-08-21)
         working-directory: lyric-harness
         env:
           OMP_NUM_THREADS: '1'
@@ -1576,7 +1600,8 @@ jobs:
           # step fails if ANY suite failed, never silently.
           rm -f /tmp/suites-failed
           for f in align band capacity coda controls corpus_audit crosslinguistic cym \
-                   corpus_taxonomy declared_inputs english_text expected_drift \
+                   corpus_taxonomy data_row_claims declared_inputs english_text \
+                   expected_drift \
                    fit floor fwer g2p grid \
                    homeoteleuton homograph ipa ltc mandate_language \
                    matrix meter \
