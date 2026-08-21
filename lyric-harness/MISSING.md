@@ -1896,9 +1896,11 @@ command.** `python3 quality/build_ci_corpus.py --verify-staged` re-derives every
 poem's segmentation from the committed spec with no clones and no network —
 character count, printed break vector, uniqueness of that vector once the 1782
 woodblock's own 片 has voted, and each header against its own punctuation. It
-reports **10,029 poems / 10,029 checked / 0 unverifiable / 10,029 segmentation
-confirmed / 0 defects**, with 5,573 韻/句 partitions unique and 4,456 declared
-ambiguous. `quality/ltc_overlap.py` already rebuilt the rhyme measurement from
+reports **10,029 poems / 10,029 checked / 0 unverifiable / ~~10,029~~ 10,028
+segmentation confirmed + 1 UNEVIDENCED / 0 defects**, with ~~5,573~~ **5,572**
+韻/句 partitions unique and 4,456 declared ambiguous. REPINNED 2026-08-21 when
+the lacuna refusal below shipped: the poem that satisfied the check vacuously
+no longer counts as confirming it, and it held the 5,573rd unique partition. `quality/ltc_overlap.py` already rebuilt the rhyme measurement from
 the `--- RHYME` headers — but it TRUSTS them, and they were the only record of
 where the spec put a line end.
 
@@ -1940,9 +1942,35 @@ where the spec put a line end.
    `ltc_siku_kr4j0032.txt` is 26 of 52, its entire second 片, with 4 of its 8
    mandated 韻 positions on `□`. The character-count match is the ONLY evidence
    the segmentation is right and a lacuna run satisfies it **vacuously**, so
-   that poem should have been refused and was not. `--verify-staged` prints the
-   census; the refusal criterion is not yet in the builder, and re-staging needs
-   the 66 clones.
+   that poem should have been refused and was not.
+
+   **CLOSED 2026-08-21 — AND IT NEEDED NO RE-STAGE.** The refusal was owed to
+   the BUILDER, and re-staging needs the 66 clones, so it went into the
+   VERIFIER instead, which is network-free and clone-free:
+   `_unevidenced_segments` finds any printed segment made ENTIRELY of lacunae,
+   and a poem carrying one is counted `segmentation_unevidenced` rather than
+   `segmentation_confirmed`. The staged text is untouched — it is faithful,
+   and the 1782 woodblock really did lose that 片; what was wrong was calling
+   it CONFIRMED (doctrine 20).
+
+   **THE UNIT IS THE SEGMENT, NOT A RATIO, and the corpus chose it.** A
+   segment holding even one real character evidences its own boundary; a run
+   of `□` fits any 格 wanting a run of that length, so its break is placed by
+   the count alone. Measured over all 10,029: **SIX poems carry a lacuna and
+   exactly ONE has an all-lacuna segment** — 雙雁兒 其2, 4 of 9 segments, 20
+   of 52 characters. The other five (1.1%–3.6% lacuna) keep every break
+   evidenced and stay confirmed. A percentage threshold would have had to be
+   picked; this one is read off what the evidence covers.
+
+   **A STATE, NOT A DEFECT.** It is not in the `defects` dict, so
+   `--verify-staged` still exits 0. Filing it there would hold the gate
+   permanently red on a property of an 18th-century printing, and this repo's
+   own rule is that such a gate is one people learn to skip —
+   `partition_ambiguous`, 4,456 of them, is the standing precedent for a
+   reported state that does not fail. The count is pinned by
+   `quality/test_ltc.py` §15 instead, AT ONE and with the poem named, so a
+   re-stage that adds another, or a criterion that over-fires, reds a check
+   rather than moving a number nobody reads.
 
 **Doctrine 88's cost is now measurable and half of it is paid.** 16,681 of the
 582,677 characters do not read, and `data/qieyun_variants.tsv` files the biggest
@@ -1969,8 +1997,9 @@ Separation 83.5 → 83.4 pp. Recovering 1,089 refused rhyme pairs moved the resu
 −0.1 pp and the control not at all; a map that was manufacturing agreement would
 have lifted both (doctrine 41).
 
-**What is left, in one place.** The lacuna refusal in the builder (needs a
-re-stage); a third orthography witness for the 441 unreached types; declaring
+**What is left, in one place.** ~~The lacuna refusal in the builder (needs a
+re-stage)~~ — **CLOSED 2026-08-21 in the VERIFIER, no re-stage needed**; a
+third orthography witness for the 441 unreached types; declaring
 `&KRnnnn;` and `□` in the staged file headers (needs a re-stage);
 `data/qieyun_variants.tsv`'s cause taxonomy, which is a sibling's file and whose
 verdicts are now contradicted per-row in `data/siku_orthography.tsv` rather than

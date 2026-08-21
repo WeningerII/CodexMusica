@@ -461,10 +461,23 @@ were broken that the suite would fail if anyone re-broke.
 
 ## TIER 3 — corpus and provenance
 
-### 3.1 · The clean Chinese route `K-7`
+### 3.1 · The clean Chinese route `K-7` — `CLOSED 2026-08-21`
 4,347 ci and 734 樂府 refused on an express non-commercial grant. The unblock
 route carries **no living copyright**: `kanripo/KR4j` 白文 (文淵閣四庫全書, 1782)
-segmented by the 欽定詞譜 (1715). Needs a build; the pieces are all reachable.
+segmented by the 欽定詞譜 (1715). ~~Needs a build; the pieces are all
+reachable.~~
+
+**THE BUILD LANDED THREE HOURS AND FIVE MINUTES BEFORE `MISSING.md` K-7 WAS
+WRITTEN TO SAY IT HAD NOT** (`16cb073` 02:14 against `ad7edca` 05:19), and this
+heading was written earlier still (`b5e73f7`, 00:04) and was merely stale. K-7
+carries the full account; the short version is **10,029 ci across 687 詞牌 in
+66 files**, `corpus/song/ltc_siku_kr4j*.txt`, every juan declaring
+`BASEEDITION WYG`, segmented by `data/qindingcipu_ge.tsv` — 2.3× the 4,347 that
+were refused, with no living copyright anywhere in either chain. **The refusal
+still stands and the build re-acquires none of it by any door.**
+
+**K-7 stays `PARTIAL`** and names what is left; one item of it is closed here —
+see below.
 
 ### 3.2 · ZERO named airs across EVERY non-English song staged `M-11` — AND THE FIELD IS NOT DECLARED
 The field the whole sourcing round was chasing. ~~The English corpus has 331 of

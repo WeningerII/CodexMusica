@@ -1404,6 +1404,25 @@ def read_staged(songdir=SONGDIR):
     return out
 
 
+def _unevidenced_segments(p):
+    """-> the printed segments of `p` that are made ENTIRELY of lacunae.
+
+    The staged break vector is checked by character count against the 詞譜's
+    own 格. A `□` occupies a position and carries no identity, so a segment of
+    nothing but `□` fits any 格 wanting a segment of that length and its
+    boundary is placed by the count alone. Such a segment is evidence of
+    nothing; a segment holding even one real character is evidence, which is
+    why the unit here is the SEGMENT rather than the poem or a ratio.
+    """
+    segs, prev = [], 0
+    for m in sorted(p["marks"]):
+        segs.append("".join(p["toks"][prev:m]))
+        prev = m
+    if prev < len(p["toks"]):
+        segs.append("".join(p["toks"][prev:]))
+    return [x for x in segs if x and all(c in "□○" for c in x)]
+
+
 def verify_staged(songdir=SONGDIR, gepath=GE_TSV, aliaspath=ALIAS_TSV):
     """Re-derive every staged poem's segmentation from the 1715 spec.
 
@@ -1436,6 +1455,7 @@ def verify_staged(songdir=SONGDIR, gepath=GE_TSV, aliaspath=ALIAS_TSV):
     poems = read_staged(songdir)
     st = collections.Counter()
     bad = collections.defaultdict(list)
+    unev = []
     lac = collections.Counter()
     ent = collections.Counter()
     for p in poems:
@@ -1473,6 +1493,42 @@ def verify_staged(songdir=SONGDIR, gepath=GE_TSV, aliaspath=ALIAS_TSV):
         if tuple(list(vec)[0]) != printed:
             bad["break_vector_mismatch"].append((p["path"], p["title"]))
             continue
+        # A SEGMENT THAT IS ALL LACUNA EVIDENCES NO BOUNDARY, so a poem
+        # carrying one satisfies the check VACUOUSLY and is not confirmed by
+        # it (doctrine 20: "confirmed" and "unfalsifiable here" are different
+        # results, and the second must not be counted as the first). The
+        # character count is the ONLY evidence the segmentation is right, and
+        # a run of `□` matches any 格 that wants a run of that length -- the
+        # break inside it could sit anywhere.
+        #
+        # MEASURED over the 10,029 staged poems: SIX carry a lacuna at all and
+        # exactly ONE has a segment made only of them -- 雙雁兒 其2 in
+        # ltc_siku_kr4j0032.txt, whose entire second 片 is missing, 4 of 9
+        # segments and 20 of 52 characters, with 4 of its 8 mandated 韻
+        # positions on `□`. The other five have their `□` INSIDE a real
+        # segment, so every one of their breaks is still evidenced by real
+        # characters and they stay confirmed. The criterion is the SEGMENT and
+        # not a percentage for that reason: it asks what the evidence covers,
+        # not how much of the poem is damaged.
+        dead_segs = _unevidenced_segments(p)
+        if dead_segs:
+            # A STATE, NOT A DEFECT, and the distinction decides the exit
+            # code. Nothing here is wrong: the text is staged faithfully and
+            # the 1782 woodblock really did lose that 片. What is wrong would
+            # be calling it CONFIRMED. Filing it in `bad` would take
+            # `--verify-staged` to exit 1 forever on a property of an
+            # 18th-century printing, and this repo's own rule is that a
+            # permanently-red gate is one people learn to skip —
+            # `partition_ambiguous`, 4,456 of them, sets the precedent for a
+            # reported state that does not fail.
+            #
+            # The count is held by `test_ltc.py` instead, which pins it at
+            # ONE and names the poem, so a second cannot appear unnoticed.
+            st["segmentation_unevidenced"] += 1
+            st["unevidenced_segments"] += len(dead_segs)
+            unev.append((os.path.basename(p["path"]), p["title"],
+                         len(dead_segs), sum(len(x) for x in dead_segs)))
+            continue
         st["segmentation_confirmed"] += 1
         # 。 exactly at 韻 and ， exactly at 句, where the partition is unique
         sig = {x["sig"] for x in cands}
@@ -1500,6 +1556,7 @@ def verify_staged(songdir=SONGDIR, gepath=GE_TSV, aliaspath=ALIAS_TSV):
                 bad["ambiguous_partition_undeclared"].append(
                     (p["path"], p["title"]))
     return {"stats": st, "defects": bad, "lacuna": lac, "entity": ent,
+            "unevidenced": unev,
             "poems": poems}
 
 
@@ -1616,7 +1673,18 @@ def report_verify(songdir=SONGDIR):
     print("  CHECKED (詞牌 resolves in a committed table)  %6d" % st["checked"])
     print("  UNVERIFIABLE (詞牌 in neither table)      %6d"
           % st["unverifiable_no_such_tune"])
-    print("  segmentation CONFIRMED against the spec  %6d" % st["segmentation_confirmed"])
+    print("  segmentation CONFIRMED against the spec  %6d"
+          % st["segmentation_confirmed"])
+    # A FOURTH STATE, counted apart and never folded into CONFIRMED
+    # (doctrine 20/79). The break vector matched the 格, and it matched it on
+    # a run of `□` that would have matched any 格 of that length -- so the
+    # check could not have failed and its passing says nothing.
+    print("  segmentation UNEVIDENCED (all-lacuna segment) %2d"
+          % st["segmentation_unevidenced"])
+    for f, t, nseg, nch in v.get("unevidenced", []):
+        print("     %s  %s — %d segment(s), %d char(s) of `□`, so the break "
+              "vector inside them is placed by the count alone"
+              % (f, t.split("  [")[0], nseg, nch))
     print("     of which 韻/句 partition also unique  %6d" % st["partition_confirmed"])
     print("     partition ambiguous (declared so)     %6d" % st["partition_ambiguous"])
     print()
