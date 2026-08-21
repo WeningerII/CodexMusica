@@ -57,16 +57,35 @@ some books and after the AUTHOR ATTRIBUTION at the end in others (the "sung
 after every verse" convention). Both are in the corpus, source order preserved.
 It broke the hymn cell's first parser.
 
-### A-2 · Repetition-with-variation `OPEN`
-**TESTED WHILE OPEN** — `quality/test_song_function.py` names this entry, and
-what it guards is the RETURN half: `compare_returns` over `VARIATION_KINDS`
-answers "the same line or a different one" with a 15-way ladder rather than a
-boolean, which is a large part of this entry's first sentence. Surfaced
-CONTESTED on 2026-08-21 when the citation scanner learned to read multi-key
-headers; whether the remaining clauses (answer lines, call-and-response pairs)
-are also built is NOT decided here — this entry is queued for the same
-measured verification D-1 got, and until that pass runs it stays open on its
-own text.
+### A-2 · Repetition-with-variation `PARTIAL` 2026-08-21
+**VERIFIED CLAUSE BY CLAUSE 2026-08-21 — the pass this entry's own
+declaration promised.** Two clauses are FALSE at head; two are the entry.
+
+| A-2's clause | at head |
+|---|---|
+| a one-word-changed chorus is neither "the same line" nor "a different line" | **FALSE** — `compare_returns` returns `LEXICAL_VARIATION` with `invariant_lines` reported (`grid.py:834`) |
+| no representation for **partial return** | **FALSE** — `PARTIAL_RETURN` is a named member of a **15-way** ladder ("at least one line invariant and nothing above holds"), beside `TRUNCATED_RETURN`, `EXTENDED_RETURN`, `FRAME_PRESERVED`, `HEAD_/TAIL_/HEAD_AND_TAIL_PRESERVED`, `ANAPHORIC_/EPIPHORIC_RETURN`, `RESTATEMENT`, `RHYME_PRESERVING_REWRITE`, `REWRITTEN_RETURN`, `VERBATIM`, `STUB` |
+| no representation for **answer lines** | **TRUE** — the only tree hit is `schemes.py`'s prose about slant rhyme ("line 2 can answer line 1 on the nucleus"), which is a sentence, not a relation |
+| no representation for **call-and-response pairs** | **TRUE** — zero hits repo-wide for `call.and.response`, `antiphon`, `responsorial` outside this file |
+
+**And the 2026-08-10 evidence is DISCHARGED, not merely staged:**
+`test_song_function.py` §7 reads Hanby and Russell **out of the corpus** and
+resolves them to two DIFFERENT named kinds — `RHYME_PRESERVING_REWRITE` and
+`FRAME_PRESERVED` — and both exemplars are cited inside the ladder's own
+glosses, so the corpus evidence became the vocabulary's documentation.
+
+**TESTED WHILE OPEN** — `test_song_function.py` guards the RETURN half above
+(the ladder, and Hanby/Russell read out of the corpus). It does not touch the
+two clauses below, which is why this entry stays open at PARTIAL rather than
+closing on a green suite.
+
+**Still missing, and it is one shape not two:** answer lines and
+call-and-response pairs are both *a relation between two lines within a
+block*, and neither is a RETURN. A return asks *did this come back, and how*;
+these ask *does line B reply to line A*. `relations.py`'s `REGISTRY` is the
+layer that would hold it and has no leader/response axis. See also the
+2026-08-21 vocabulary census: Malay's pembayang/maksud is the same shape one
+tradition over — a functional split INSIDE a quatrain that no layer can hold.
 **Missing:** a chorus that returns with one word changed is neither "the same
 line" nor "a different line". No representation for partial return, answer
 lines, or call-and-response pairs.
@@ -202,15 +221,33 @@ measurement, the difference between a line that lands and one that drags.
 What remains in this area belongs to its neighbours and is already filed
 there: D-3's reprise-across-two-functions clause, D-2's hook, D-4's arc.
 
-### D-2 · "Hook" cannot be represented `OPEN`
-**TESTED WHILE OPEN** — `quality/test_song_function.py` names this entry, and
-`quality/grid.py` exports `Hook`, `HookOccurrence`, `hook_occurrences` and
-`hook_findings`, which is at least "hold one, count its returns, place it".
-Surfaced CONTESTED on 2026-08-21 by the multi-key citation fix; the sentence
-below is at minimum PARTLY false at head, and this entry is queued for the
-same clause-by-clause verification D-1 got. Not closed here because "measure
-its density" and the melodic/sub-line clauses have not been measured against
-the tree, and closing on a skim is how the register got eight entries stale.
+### D-2 · ~~"Hook" cannot be represented~~ — it can be held, counted, placed and read sub-line; density and melody remain `PARTIAL` 2026-08-21
+**VERIFIED CLAUSE BY CLAUSE 2026-08-21. Five of seven are FALSE at head,
+including the sub-line clause the earlier declaration deferred.**
+
+| D-2's clause | at head |
+|---|---|
+| a hook is not a section, it is a FRAGMENT | **FALSE** — `Hook` is a frozen dataclass with ONE field, `text` (`grid.py:1355`); empty raises |
+| possibly inside other sections | **FALSE** — `hook_occurrences` walks `song.lines` and reports the containing `section`/`function` |
+| nothing can hold one | **FALSE** — `Hook` |
+| count its returns | **FALSE** — bar-ordered occurrence list; `HOOK_DOES_NOT_RECUR` at 1 ("a hook is defined by RETURN; one occurrence is a phrase"), `HOOK_ABSENT` at 0 |
+| place it | **FALSE** — `bar`, `beat`, `next_downbeat`, `token_offset`, `has_pickup`, plus `HOOK_CONFINED` and two placement REFUSALS. At LINE granularity, and `grid.py:1389` says why: a mid-line fragment's bars are the line's, because per-syllable placement needs the setting `fit.py`'s `NO_SETTING` refuses |
+| possibly shorter than a line | **FALSE** — a 3-word and a 1-word hook are both found at non-zero `token_offset`; `test_song_function.py:221` |
+| possibly melodic rather than lyric | **TRUE** — `Hook.text` is words matched against `Line.text`; no pitch layer exists (B-1, re-verified absent 2026-08-21) |
+| measure its density | **TRUE** — `grep -i densit quality/grid.py` returns **nothing**. Six `HOOK_` codes and not one is a density measure |
+
+**TESTED WHILE OPEN** — `test_song_function.py` guards the five clauses that
+are FALSE at head (it PASSes the sub-line case by name). Nothing tests density
+or melody, because neither exists; the suite being green says nothing about
+the two rows still marked TRUE.
+
+**Still missing, and they are two different kinds of missing.** DENSITY is not
+hard to build — the occurrences are already in hand, bar-ordered. What is
+absent is the DECLARED COORDINATE (per bar? per section? share of lines?) and
+a band to read it against, and picking one by fiat is the error doctrine 19
+names. MELODIC is doctrine 92's shape: blocked on the same absent SETTING that
+makes `HookOccurrence` report two bar coordinates instead of one, and
+unbuildable before B-1.
 **Missing:** a hook is not a section. It is a FRAGMENT that recurs, possibly
 inside other sections, possibly melodic rather than lyric, possibly shorter
 than a line. Nothing in the model can hold one, count its returns, place it, or
@@ -535,24 +572,105 @@ verse-chorus-bridge sequence, clichéd rhyme-scheme choice itself.
 
 ## I. Generation and workflow
 
-### I-1 · Nothing generates `OPEN`
+### I-1 · ~~Nothing generates~~ — the harness does not WRITE, and that is a DECISION `PARTIAL` 2026-08-21
 **Now:** `quality/revise.py` returns line-scoped briefs; the harness grades.
-**Missing:** any writing loop, melody-first or lyric-first workflow, or way to
-sample a structure from the scheme/grid spaces and write into it.
+~~**Missing:** any writing loop, melody-first or lyric-first workflow, or way to
+sample a structure from the scheme/grid spaces and write into it.~~
 
-### I-2 · No way to sample the space under constraints `OPEN`
+**VERIFIED 2026-08-21: two of the three clauses shipped, and the headline is a
+category error.** *Any writing loop* exists — `quality/loop.py`'s
+`revise_loop(..., propose=, propose_pair=)`, driven from the CLI by
+`--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY`, with
+`quality/propose.py` as the prompt renderer. *A way to sample a structure and
+write into it* exists end to end — `quality/plan.py`'s `make_plan` →
+`writer_brief` → `fill_plan` → `render_song`, with a CLI verb and
+`quality/test_plan.py` pinning the round trip.
+
+**What is left in the middle is the WORDS, and they are outside this tree on
+purpose.** `CLAUDE.md`'s first page ("It never writes for you", "The model
+proposes; these tools grade"), standing rule 2's PLAN → WRITE → REVISE, and
+standing rule 3's NO PRIVATE INSTRUMENTS all put them there; `plan.py`'s own
+docstring says "It writes NO WORDS: the writer is outside the harness" and
+`propose.py` says "NO network code, NO API client". **A gap-register entry for
+a stated design decision is a category error**, and this one has invited a
+session to fix a thing the rules forbid for eleven days.
+
+The accurate sentence is not *the harness writes* — it is **the harness plans,
+grades, and drives a writing loop whose writer is external**. This entry stays
+PARTIAL on exactly one surviving clause: **melody-first**. Nothing in the tree
+can take a tune as input, because there is no pitch or tune object at all
+(B-1, re-verified absent 2026-08-21). "Nothing generates" was true of the tree
+and false of the SYSTEM from the day `plan.py` v2 landed.
+
+### I-2 · No way to sample the space under constraints `PARTIAL` 2026-08-21 — the SAMPLER shipped; the PREDICATE is ruled on hold
 **Missing:** "give me an 11-line scheme with 3 sounds, no adjacencies, at least
 2 section-crossings, and no name" — the spaces are enumerable and there is no
 constrained sampler over them.
+
+**VERIFIED 2026-08-21. The sampler half is closed and the entry's own example
+is the case it was built for.** `quality/plan.py` samples exact-uniform by
+derivation — `_rgs_uniform` over Bell-triangle completion counts,
+`_composition_uniform`, `_sample_meter` — held to their enumerations by
+`quality/test_plan.py` §4 (exact-uniform at n=7, Bell(4)=15) and pinned by an
+AST check that `plan.py` reads no corpus and opens no file. Constraint
+conditioning EXISTS: rejection sampling over the generated grammar,
+conditioned on a declared `ENVELOPE`, on an exact `--lines=N`, and on "at
+least one mandated pair", with refusals that name the envelope. And
+**`EXACT_ENUM_MAX = 10`**, so this entry's *11*-line scheme is precisely the
+case that goes to the Bell sampler with its pool size disclosed — "large
+stanzas are not banned by arithmetic".
+
+**Still missing, and much narrower: the PREDICATE.** Every coordinate the
+example asks to constrain on is already computed — `schemes.SchemeCoordinates`
+carries `n_sounds`, `adjacencies`, `crossings`, `nestings`,
+`section_crossing`, and `identify()` returning `None` is already a call the
+layer makes. What no request can carry is a FILTER over them: `make_plan`
+takes `seed`, `form`, `lines`, and the CLI takes the same.
+
+**And this is neither doctrine 44's "hard to build" nor doctrine 92's "cannot
+obtain" — it is RULED ON HOLD, by name.** `CLAUDE.md`: *"The seed-sweep
+instrument (looping `make_plan` with filters to find a shape) stays manual for
+now BY THE OWNER'S PENDING RULING, and is named here so it cannot become a
+quiet fourth instrument."* Recorded here so a later session does not build it
+as a favour: shipping it silently violates standing rule 3.
 
 ---
 
 ## J. Integration
 
-### J-1 · Codex Musica is not connected `OPEN`
-**Missing:** the MCP server (2,503 traditions, 1,406 instruments, 741 prefaces)
-is in the same workspace and the harness has never called it. The recording and
-the words are being designed in separate universes.
+### J-1 · ~~Codex Musica is not connected~~ — connected 2026-08-18, one client, two DISJOINT families `CLOSED` 2026-08-21
+~~**Missing:** the MCP server (2,503 traditions, 1,406 instruments, 741 prefaces)
+is in the same workspace and the harness has never called it.~~ **The
+connection that shipped is the one standing rule 1 permits, and it runs the
+other way: the CONNECTOR calls the HARNESS.** `mcp/lyric_tools.js` (landed
+2026-08-18) registers five tools — `lyric_screen`, `lyric_plan`, `lyric_grade`,
+`lyric_check`, `lyric_types` — each a subprocess-per-call over
+`lyric_harness.py` with zero shared state, contract-pinned by
+`scripts/check_connector_contract.js`'s allowlist and exercised live in CI
+(`Install connector dependencies` plus a step that stages the harness so
+`mcp/test.mjs` can drive real `python3`).
+
+**"The recording and the words are being designed in separate universes" is
+RETAINED — as the RULE it turned out to be, not as the gap it was filed as.**
+That is standing rule 1: *THE RECIPE ENGINE AND THE LYRICS DO NOT TOUCH.
+EVER … A session that proposes connecting them is repeating a mistake the
+owner has had to correct multiple times.* So this entry spent eleven days
+inviting exactly the mistake the rules forbid, in the register whose job is to
+know what is missing. The two families reach one client and still do not
+touch — proven at the import graph, not merely in prose: `mcp/lyric_tools.js`
+imports node stdlib and zod and nothing from the recipe engine.
+
+**One live consequence carried forward rather than deleted:** the wrap's first
+field failure was doctrine 48 AT THE CONNECTOR — 43 banned pairs presented as
+finished — fixed by mechanical disclosure (`banned_pairs`, the server-written
+`[GRADED — seed N …]` stamp), all connector-side.
+
+**A mechanical caveat for whoever edits this entry.** `verify_entries.py`'s
+`PATH_RE` matches only `py|md|tsv|txt|json` and its ROOT is `lyric-harness/`,
+so `mcp/lyric_tools.js`, `mcp/test.mjs` and `.github/workflows/ci.yml` are
+invisible to `REPO_PATH_EXISTS` — no false red, but no check either. Never
+spell a sibling-tree path with a `.py`/`.md` extension here or the entry goes
+FALSE against a tree that does not contain it.
 
 ---
 
