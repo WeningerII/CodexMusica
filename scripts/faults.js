@@ -381,6 +381,33 @@ record(
   );
 }
 
+// 11b. a documented command names a file that does not exist ->
+//      check_doc_paths.js  (the gate added 2026-08-21 after four RESULTS
+//      documents were found citing two example lyrics that had been deleted
+//      nine days earlier, across 49 citations and 17 "REPRODUCES EXACTLY"
+//      rows, while `npm run check-docs` stayed green throughout)
+{
+  const d = mkenv([
+    'scripts',
+    'references',
+    'api',
+    'src',
+    'AGENTS.md',
+    'llms.txt',
+    'README.md',
+    'SKILL.md',
+  ]);
+  fs.appendFileSync(
+    path.join(d, 'AGENTS.md'),
+    '\n```\npython3 quality/floor.py corpus/song/__docpath_fault__.txt\n```\n'
+  );
+  record(
+    'documented-path-missing -> check_doc_paths.js',
+    gate(d, ['scripts/check_doc_paths.js']),
+    /__docpath_fault__|MISSING|do not exist/i
+  );
+}
+
 // 12. a documented BEHAVIOR drifts from the prose -> check_doc_behaviors.js
 //     (corrupt belting's documented §3d token list — the assertion must catch it)
 {
