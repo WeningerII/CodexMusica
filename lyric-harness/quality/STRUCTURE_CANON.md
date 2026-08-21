@@ -101,6 +101,19 @@ Two more coordinates were named independently: a **tempo/metre** one (Chinese
 banshi and Korean sanjo movements both collapse to `medial`), and a
 **delivery-mode** one (pansori's aniri vs chang — spoken vs sung).
 
+> **THE RANK HALF WAS REGISTERED AND REFUSED THE SAME DAY —
+> `quality/SECTION_ORDER_PREREGISTRATION.md`.** The falsifier was *"adopt
+> `rank` only if the staged corpus shows the ladder RUNNING"*, and the whole
+> population is 3 songs / 14 headings in 3 files. **Two of the three are NOT
+> monotone**: `SIUBHAL → URLAR → SIUBHAL → URLAR → SIUBHAL → CRUNLUATH` and
+> `URLAR → SIUBHAL → URLAR → SIUBHAL → CRUNLUATH`. None is complete —
+> `TAORLUATH` and `CRUNLUATH A-MACH` occur in **0 files**. The literary
+> imitation ALTERNATES ground and variation rather than ascending, so a `rank`
+> field would have flagged two correctly-printed songs as broken. **Refused**
+> (doctrine 6). The POINTER survives and is not built yet, because all 14
+> headings are currently typed `[VERSE]` (`M-25(a)`) and a reader for it today
+> would have zero sections to read.
+
 ---
 
 ## 3. THE CONVERGENCES — one object, many names
