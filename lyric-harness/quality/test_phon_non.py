@@ -43,9 +43,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, ".."))
 sys.path.insert(0, os.path.join(HERE, "..", ".."))
 
-# Imported DIRECTLY rather than through quality.phonology.get(), because the
-# registry line in __init__.py is written by the orchestrator and is not wired
-# yet. The module registers itself on import either way.
+# Imported DIRECTLY rather than through quality.phonology.get(). The module
+# registers itself on import either way, so this is a stylistic choice now.
+# ~~the registry line in __init__.py ... is not wired yet~~ — STALE, struck
+# 2026-08-21: `non` is in `__init__.py`'s import list and has been for some
+# time (doctrine 17).
 from quality.phonology import non  # noqa: E402
 
 FAILURES = []

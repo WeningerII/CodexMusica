@@ -630,9 +630,16 @@ def stranded():
             if re.search(r"\brhyme_constraints\b",
                          open(p, encoding="utf-8", errors="replace").read()):
                 (tests if f.startswith("test_") else nontest).append(f)
+    #: "the DECISION is still owed" stood here until 2026-08-21 while
+    #: `MISSING.md` M-16 had read `CLOSED — the decision is taken` since
+    #: 2026-08-11. Two registers, opposite answers, and this was the worse
+    #: half: it is a GENERATOR, so every `--write` re-emitted the stale
+    #: sentence into `BACKLOG.md` and no amount of editing the table could
+    #: fix it. A stale literal in a producer outlives every correction made
+    #: to its output (doctrine 1).
     cell = ("**%d** — %s; `rhyme_constraints.py` is %s lines with a `__main__` "
-            "and %d non-test caller%s (%s), so it is kept on an argument and "
-            "the DECISION is still owed (M-16)"
+            "and %d non-test caller%s (%s), so it is KEPT on the argument "
+            "M-16 records, and that decision is TAKEN rather than owed"
             % (n, tail, "{:,}".format(rc_lines), len(nontest),
                "" if len(nontest) == 1 else "s",
                ", ".join("`%s`" % c for c in nontest) or "none"))

@@ -281,7 +281,13 @@ predictability table + lazy class under that row's own pairing relation
 today it is True for exactly the sentinel, so `plan.py` — which now samples
 a per-function structure and discloses it in `choices.structures` — has a
 pool of one, a FORCED pick consuming no seed entropy. The CLI
-`--structures` flag is DELIBERATELY DEFERRED to the first calibration
+`--structures` flag was ~~DELIBERATELY DEFERRED~~ **and the deferral ENDED
+with the Kalevala adoption — the flag ships** (`lyric_harness.py`, and
+`test_verbs.py` §39 grades the same draft with and without the declaration).
+The sentence below is the argument for the deferral, kept because it is the
+reason the flag waited for a calibrated row rather than a reason it still
+waits (doctrine 17); struck 2026-08-21. It was deferred to the first
+calibration
 sitting (Kalevala alliteration against the Kanteletar's 28,935 lines): the
 only event that can produce a non-default pick is the same event that
 should ship the spelling, and a flag shipped before any row is calibrated
