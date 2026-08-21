@@ -25,6 +25,7 @@ Sections:
 Run: python3 quality/test_capacity.py
 """
 
+import io
 import os
 import subprocess
 import sys
@@ -199,9 +200,60 @@ def test_the_verb():
           "absent", rc == 2)
 
 
+def test_the_judge_is_recorded():
+    print("\n6. the artifact records the judge it was certified against")
+    import tempfile
+    # THE DEFECT THIS PINS. `chain_lo` is certified THROUGH the grader, whose
+    # tier-2 ban reads two CORPUS-DERIVED tables. On 2026-08-20 `66eb44e`
+    # rebuilt both over the loaded corpus and every committed witness had been
+    # certified against the old ranking: §3 went red with six families
+    # carrying banned pairs and 0 drift, and no instrument could say why. The
+    # cause took a before/after re-grade under both tables to establish. With
+    # the md5s in the artifact it is one line of output.
+    fp = CAP.judge_fingerprint()
+    check("the fingerprint covers exactly the declared eng-song tables",
+          tuple(sorted(fp)) == tuple(sorted(CAP.judge_files())),
+          f"{sorted(fp)} vs {sorted(CAP.judge_files())}")
+    check("...and the file list is READ from that declaration, not re-listed "
+          "here (doctrine 1)",
+          "song_endword_en.tsv" in " ".join(CAP.judge_files()))
+    check("every entry is an md5 or the ABSENT sentinel",
+          all(v == "ABSENT" or (len(v) == 32 and all(c in "0123456789abcdef"
+                                                     for c in v))
+              for v in fp.values()), str(fp))
+
+    rows = [{"family": "AY", "words": 2, "classes": 2, "chain_hi": 2,
+             "certified": 0, "chain_lo": "", "witness": "", "examples": "sky"}]
+    with tempfile.TemporaryDirectory() as d:
+        path = os.path.join(d, "t.tsv")
+        CAP.emit_table(rows, path)
+        check("emit -> read_judge round-trips the fingerprint",
+              CAP.read_judge(path) == fp, str(CAP.read_judge(path)))
+        check("...and the rows still read back past the comment line",
+              len(CAP.read_table(path)) == 1)
+
+        # A MOVED judge must be DETECTABLE and must NAME the table.
+        txt = io.open(path, encoding="utf-8").read()
+        moved = txt.replace(fp[CAP.judge_files()[1]], "0" * 32, 1)
+        io.open(path, "w", encoding="utf-8").write(moved)
+        rec = CAP.read_judge(path)
+        diff = sorted(k for k in set(rec) | set(fp) if rec.get(k) != fp.get(k))
+        check("a moved table is detected, and only that one",
+              diff == [CAP.judge_files()[1]], str(diff))
+
+        # NO judge line is a THIRD state, not an empty one (doctrine 20).
+        io.open(path, "w", encoding="utf-8").write(
+            "\t".join(CAP.COLUMNS) + "\n")
+        check("an artifact with no judge line reads None, not {} — "
+              "'records no judge' and 'certified against nothing' are "
+              "different statements",
+              CAP.read_judge(path) is None, repr(CAP.read_judge(path)))
+
+
 if __name__ == "__main__":
     for fn in (test_the_anchor, test_tier1, test_the_crown,
-               test_determinism_and_bounds, test_the_verb):
+               test_determinism_and_bounds, test_the_verb,
+               test_the_judge_is_recorded):
         fn()
     print("=" * 62)
     if FAILURES:

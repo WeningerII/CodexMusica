@@ -528,9 +528,17 @@ LAYER.declare(FrequencySource(
 #: The instrument doctrine 9 actually names. NOT independent of corpus/song/.
 LAYER.declare(FrequencySource(
     cell="eng-song", name="song:corpus/song/eng_*", derived_from_pool=True,
-    licence="derived here from corpus/song/eng_*, whose 143 files carry their "
-            "own public-domain rows in data/sources.tsv",
-    n_types=10401,
+    licence="derived here from corpus/song/eng_*, whose 1,297 files carry "
+            "their own public-domain rows in data/sources.tsv",
+    #: REPINNED 2026-08-20 from ~~10,401~~ when `66eb44e` rebuilt both tables
+    #: over the loaded corpus (143 -> 1,297 files). NOTHING RE-DERIVES THIS
+    #: FIELD, which is why it sat stale and would have gone on sitting stale:
+    #: a recorded count nothing re-measures is a rumor (doctrine 58). It is
+    #: the distinct-word count of `data/song_endword_en.tsv`, and
+    #: `capacity.check()` now re-reads that file's md5 on every run, so a
+    #: rebuild is at least VISIBLE from one instrument even though this
+    #: integer is still hand-kept.
+    n_types=13990,
     pool="corpus/song/eng_*",
     loo_unit="author",
     files=("data/song_endword_en.tsv", "data/song_rhymepair_en.tsv"),
