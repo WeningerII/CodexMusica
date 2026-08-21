@@ -795,6 +795,17 @@ saturates HIGHER than the real verse** (3.15% against 2.68%). The sign flips.
 Anchors restricted to every k-th grid position — the cheapest honest proxy for
 "a declared tempo", which `CLAUDE.md` known gap 3 names as the layer's blocker.
 
+> **THE 1,859 IN THIS TABLE IS NOT THE SONG PROFILE'S BAND.** Noted
+> 2026-08-21, when the closing sitting repinned `floor.py`'s `song` profile
+> from 1,859 items to 3,571 and a sweep for the old figure landed here. This
+> 1,859 is the **p50 candidate-pair count at beat-2 anchoring** — a median
+> number of pairs per item in the time layer's family-size analysis. It shares
+> an integer with the floor's old band population and nothing else: different
+> quantity, different unit, different corpus question. It must NOT be repinned
+> when a floor constant moves. (Doctrine 91 from the other side: a count is a
+> coordinate of its rendering, so two counts can agree by accident and a
+> global replace is how that accident becomes a defect.)
+
 | beat | p50 pairs | p50 `m_med` | p50 `min_p` | p50 M_NEEDED | m_med/M_NEEDED | ev>0 | ev≥4 | **event phases mod 4** |
 |---|---:|---:|---:|---:|---:|---:|---:|---|
 | none | 7,392 | 198 | 2.50e-3 | 21 | 9.4× | 0/20 | 0/20 | — |
