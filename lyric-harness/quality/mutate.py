@@ -967,6 +967,47 @@ MUTATIONS = [
             "results document. GENEROUS DIRECTION — it only ever removes "
             "findings."),
     ),
+    # BOTH GUARDS AT ONCE, AND THAT IS FORCED RATHER THAN CHOSEN. BACKLOG 1.5
+    # is held by two REDUNDANT guards -- the `seen` bucket keyed on the
+    # finding's content, and `dict.fromkeys` over its locations -- and
+    # MEASURED 2026-08-21 on `test_revise.SUFFIX_PILEUP`, disabling EITHER
+    # one alone changes nothing at all (1 block per line both ways). So a
+    # single-guard mutation is an equivalent mutant that would sit in the
+    # allowlist forever proving nothing, and this one spans the pair. It is
+    # the only mutation this code shape admits, which is itself the finding:
+    # a green suite after deleting one guard is NOT evidence the other is
+    # unnecessary.
+    Mutation(
+        name="QR7", layer="structure", file=REVISE,
+        old="            if key in bucket:\n"
+            "                return\n"
+            "            bucket.add(key)\n"
+            "            per.setdefault(ln, []).append(f)\n"
+            "\n"
+            "        fl, pseudo = self._floor_for(m)\n"
+            "        for f in fl.check(lines, pseudo):\n"
+            "            if f.locations:\n"
+            "                for ln in dict.fromkeys(f.locations):",
+        new="            bucket.add(key)\n"
+            "            per.setdefault(ln, []).append(f)\n"
+            "\n"
+            "        fl, pseudo = self._floor_for(m)\n"
+            "        for f in fl.check(lines, pseudo):\n"
+            "            if f.locations:\n"
+            "                for ln in f.locations:",
+        subset=T_LOOP,
+        rationale=(
+            "BACKLOG 1.5 restored: a floor Finding carries one entry in "
+            "`locations` per PAIR, so a line standing in five shared-suffix "
+            "pairs gets the identical SHARED_SUFFIX paragraph five times. It "
+            "hides no finding of its own — it buries the OTHER findings on "
+            "that line, which are the ones a writer needs. GENEROUS "
+            "DIRECTION: it only ever adds output, so a suite that counts "
+            "findings loosely, or reads only the first block on a line, "
+            "cannot see it. `test_revise.py` §16 checks 1-2 are what catch "
+            "it, on a witness built for the purpose because the shipped song "
+            "has no finding whose locations repeat a line."),
+    ),
 
     # ------------------------------- quality/schemes.py (mandate semantics)
     # `Mandate.requirement` is the closed-set answer the whole loop is built

@@ -1123,7 +1123,7 @@ Four cells were sent to turn 297 staged lyricist names into text. Three have
 reported. Every one of them found a defect in the harness rather than only in
 the world, which is the point of pointing a module at a corpus (doctrine 37).
 
-### M-1 · `ltc.rhymes` uses the 詩 standard on 詞 and calls 45% of real ci rhymes failures `OPEN`
+### M-1 · `ltc.rhymes` uses the 詩 standard on 詞 and calls 45% of real ci rhymes failures `CLOSED`
 **The single most actionable item in this section.** `quality/phonology/ltc.py`
 ships the 平水韻 grouping, which is the standard for 詩. Measured against the
 **欽定詞譜 of 1715** — 817 per-詞牌 files with a 韻/句/叶 marker at every line end,
@@ -1170,6 +1170,29 @@ population this entry never named. `WITHDRAWN` 2026-08-11.**
 `standard='pingshui'|'cilin'`, exactly the move `check_cynghanedd` made for
 `language` (doctrine 45). Doctrine 36 was written about Qieyun → 平水韻 and it
 is true one rung further in.
+
+**CLOSED 2026-08-21 — the fix shape above is what shipped, and this entry was
+the last place still calling it OPEN.** `MiddleChinese(standard=...)` accepts
+`('qieyun','pingshui','cilin')`, `rhymes()` takes a per-call override, an
+undeclared standard RAISES rather than defaulting, and a key names the standard
+that produced it so two standards can never silently compare equal. All five
+group pairs this entry named as recoverable from practice — 東/冬, 魚/虞,
+支/微, 蕭/豪, 眞/文 — are False under `pingshui` and True under `cilin`.
+
+**MEASURED ON A CORPUS THAT IS ACTUALLY ON DISK, which is the part this entry
+could not do.** M-1's own 47.4% rests on 1,518 ci that were refused on an
+express non-commercial grant, and the paragraphs above already record that the
+run does not survive. The replication is on the admitted 花間集: 413 of 500
+songs matching a 格 exactly across 60 詞牌, scored against the same 1715 spec.
+**韻 78.4% → 94.0% (+15.6 pp) against a 句 control of 1.3% → 3.4% (+2.1 pp)**,
+so the control gap widens 77.1 → 90.6 pp rather than everything lifting
+together (doctrine 71). `python3 quality/test_ltc.py` §6 re-derives all four
+rates and exits 0.
+
+**The withdrawn 26,773 stays withdrawn and C8 stays `n/a`.** Closing this entry
+does not restore that claim — the population it needed is still not on disk,
+and an entry going CLOSED is not a licence to un-withdraw a number (doctrine
+17). What is closed is the DEFECT, which was never the arithmetic.
 
 ### M-2 · `data/qieyun_mc.tsv` is keyed on ONE orthographic norm `OPEN`
 **魂 — the character that NAMES the 魂 rhyme group — cannot be looked up**, while

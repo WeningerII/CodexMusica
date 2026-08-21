@@ -207,20 +207,93 @@ marked `source=derived` and NOT INDEPENDENT of the grader (doctrine 14).
 > see that file's own note for the vowel-similarity chain that reproduces the
 > non-transitive shape without depending on this song's own text.
 
-### 1.5 · Duplicate findings in the brief
+### 1.5 · Duplicate findings in the brief `CLOSED 2026-08-21`
 `SHARED_SUFFIX` printed six times identically for one line. Cosmetic, one line
 of code, actively obscures the real findings.
+
+**THE FIX WAS SHIPPED LONG AGO; THE REGRESSION WAS VACUOUS UNTIL TODAY, AND
+THAT IS THE ONLY REASON THIS ENTRY IS INTERESTING.** Two guards hold it —
+`revise.py`'s `seen` bucket inside `inspect()`'s `add()`, and
+`dict.fromkeys(f.locations)` in the fan-out loop — plus
+`lyric_harness.dedupe_findings` at the print layer, which `test_spans.py`
+covers in 5 checks. `test_revise.py` §16 was named for this entry and asked
+whether any brief on `song_lines()` repeated a finding.
+
+**It could not have said yes.** Measured 2026-08-21: no floor finding on that
+song repeats a line at all — ANAPHORA_OVERLOAD 15 locations / 15 distinct,
+CLICHE_PAIR 3 / 3 — and `SHARED_SUFFIX`, the code this entry is ABOUT, is not
+emitted on it. The check passed over a population in which the defect could
+not occur (doctrine 20), and the mutation confirmed it: restoring the original
+`for ln in f.locations` left the section green.
+
+**Repaired by giving it a witness, not by strengthening the assertion.**
+`SUFFIX_PILEUP` is six lines in one mandate group with six `-ing` end words on
+six different stems: 15 pairs, all homeoteleuton, and
+`SHARED_SUFFIX.locations` comes back `[1,1,1,1,1,2,2,2,2,3,3,3,4,4,5]` — one
+entry per PAIR, the exact fan-out shape. §16 check 1 now REFUSES if that ever
+stops reproducing, so the section cannot go quietly vacuous again.
+
+**AND THE TWO GUARDS ARE REDUNDANT, WHICH IS WORTH WRITING DOWN BECAUSE THE
+REVERSE INFERENCE IS DANGEROUS.** Measured on that witness: disabling the
+`seen` bucket alone changes nothing; disabling `dict.fromkeys` alone changes
+nothing; disabling BOTH gives 5 / 4 / 3 / 2 / 1 blocks — the original defect
+exactly. So **a green suite after deleting one guard is not evidence the other
+is unnecessary**, and no single-substitution mutation can ever be caught here.
+`quality/mutate.py` **QR7** spans the pair for that reason, and it is the only
+mutation this code shape admits. Verified by hand at the time of writing —
+disabling both guards reds §16 check 2, and dropping `f.code` from the dedupe
+key reds check 3, the control — and QR7 applies cleanly in the 58/58 dry run;
+the harness's own `--only QR7` pass was still in flight when this landed.
+
+**Not one line of production code changed.** This is a test repair and a record
+repair; the behaviour was already correct.
 
 ---
 
 ## TIER 2 — load-bearing defects with a measured cost
 
-### 2.1 · `ltc.rhymes` uses the 詩 standard on 詞 `M-1`
+### 2.1 · `ltc.rhymes` uses the 詩 standard on 詞 `M-1` — `CLOSED 2026-08-21`
 Returns True on **47.4%** of positions the 欽定詞譜 of 1715 marks as rhymes. As
 shipped it reports Li Qingzhao failing to rhyme. Tabulating the false verdicts
 recovers the 詞林正韻 partition from practice alone. **Fix shape is known:**
 `standard='pingshui'|'cilin'` as a declared coordinate, the move
 `check_cynghanedd` made for `language`.
+
+**SHIPPED, AND THIS HEADING WAS THE LAST PLACE THAT DID NOT SAY SO.**
+`MiddleChinese(standard=...)` takes `('qieyun', 'pingshui', 'cilin')`,
+`rhymes()` takes a per-call override, an undeclared value is REFUSED rather
+than defaulted, and a rhyme key names the standard that produced it
+(`('平水第26部','平')` vs `('詞林第12部','平')`) so two standards' keys can
+never silently compare equal. Every group pair M-1 named as recovered from
+practice flips exactly as predicted — 東/冬, 魚/虞, 支/微, 蕭/豪, 眞/文 are all
+False under `pingshui` and True under `cilin`.
+
+**RE-DERIVED 2026-08-21, `python3 quality/test_ltc.py` §6, exit 0.** Against
+the 欽定詞譜 of 1715 at the 1,844 positions it marks 韻/叶 across 413 of the
+花間集's 500 songs (matching a 格 exactly on length AND 句讀, 60 詞牌):
+
+| | 韻/叶 (mandated) | 句 (control) |
+|---|---:|---:|
+| 平水韻, as shipped | 78.4% (1393/1776) | 1.3% (7/520) |
+| 詞林正韻 + 異體 map | **94.0%** (1723/1833) | 3.4% (18/535) |
+
+**+15.6 pp on the mandated positions against +2.1 on the control** — the gap to
+the control widens 77.1 → 90.6 pp, so this is not a standard that lifted
+everything (doctrine 71). And 廣韻 54.1% < 平水韻 78.4% < 詞林正韻 94.0%: the
+reference work's own granularity is the wrong one for BOTH forms, which is
+doctrine 36 one rung further in than it was written.
+
+**THE 47.4% IN THIS HEADING IS NOT THE FIGURE THAT WAS RE-DERIVED, AND CANNOT
+BE.** It was measured on 1,518 later ci whose corpus was refused on an express
+non-commercial grant (doctrine 85) and is not on disk. Different century of the
+form, different pair construction — the two numbers are not comparable and are
+not presented as a before/after. What replicates is the DIRECTION, the control
+gap, and the 韻 pairs that fail. See `M-1` for the withdrawn denominator.
+
+**Also rejected, by lift (doctrine 61):** merging 平 with 仄 inside a 詞林部
+buys 韻 +0.4 pp against 句 +5.2 pp. 詞林正韻 keeps those halves apart and so
+does this module; where a tune licenses 平仄通叶 that is the TUNE's licence to
+grant, not the phonology's.
 
 ### 2.2 · `qieyun_mc.tsv` is keyed on one orthographic norm `M-2`
 The character that NAMES the 魂 rhyme group cannot be looked up, while 477
@@ -1147,11 +1220,11 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 48 OPEN / 15 PARTIAL / 2 BLOCKED / 10 CLOSED = 75 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 47 OPEN / 15 PARTIAL / 2 BLOCKED / 11 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
 | public symbols by where they are referenced | **1118** DECLARED-public top-level functions/classes under `quality/` and the root — **186** named by another production module, **299** by tests only, **567** only inside their own module, **11** by nothing anywhere, **55** REFUSED (39 ambiguous, 9 dynamic, 7 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **20** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
-| mutations declared | **57 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
+| mutations declared | **58 declared, 1 allowlisted equivalent** (M4 — and the allowlist entry's PREMISE is itself under test) | `python3 quality/counters.py` |
 | mutations caught | REFUSED (cost) — not measured on the cheap path | `python3 quality/test_mutation.py` |
 | `corpus/song/` files | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
 | `corpus/song/eng_*` — K-1's own quantities | MEASURED AT RUNTIME — `python3 quality/counters.py` | `python3 quality/counters.py` |
