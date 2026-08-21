@@ -1907,7 +1907,19 @@ from the first run — do not drift from these either:**, merged into one run.)
    500 songs, whose own last line is 王鵬運's 1893 四印齋 colophon and whose
    chain quotes no restriction at all. **Record the unblock route in the same
    breath as the refusal**: kanripo/KR4j 白文 (文淵閣四庫全書, 1782) segmented by
-   the 欽定詞譜 (1715) reaches the same corpus with no living copyright anywhere.
+   the 欽定詞譜 (1715) ~~reaches the same corpus~~ with no living copyright
+   anywhere.
+   **THE ROUTE IS NO LONGER PROSPECTIVE AND THE CLAUSE WAS WRONG — REPINNED
+   2026-08-21, `BACKLOG.md` §3.1 / `K-7` CLOSED.** It is BUILT: **10,029 ci
+   across 687 詞牌 in 66 `corpus/song/ltc_siku_kr4j*.txt` files**, segmented by
+   `data/qindingcipu_ge.tsv`, 70 `data/sources.tsv` rows — **2.3× the 4,347
+   this doctrine refused**. And it does **not reach "the same corpus"**: §3.1's
+   close states *"the refusal still stands and the build re-acquires none of it
+   by any door."* It reaches a DIFFERENT and admissible corpus. Doctrine 92,
+   one paragraph down, is the correct frame for the pair — the admissible
+   source and the complete source are disjoint here, and an unblock route is
+   worth recording precisely because it is a different set, not because it
+   recovers the refused one.
 
 92. **The admissible source and the complete source can be DISJOINT sets.**
    Doctrine 44 separated "hard to build" from "cannot obtain". This is a third
@@ -1985,7 +1997,17 @@ are legitimate. Five of the seven are pinned by a production MUTATION that
 the repaired check now fails and the old one did not.
 
 - `python3 battery.py` — sonnet oracle (152 sonnets, ABABCDCDEFEFGG),
-  Lear limerick known-answers, Whitman negative control.
+  Lear limerick known-answers, Whitman **legacy** comparator.
+- `python3 quality/negative_control.py` — **THE NEGATIVE CONTROL, and it is
+  not Whitman.** Added here 2026-08-21, because this list is the one place a
+  reader looks for this project's controls and it named only the retired one.
+  Built 2026-08-11 (`MISSING.md` K-2/K-3, `BACKLOG.md` §3.5): the negative is
+  `line_permutation` over the positive corpus's own quatrains — matched by
+  construction — against a multi-author positive of 4,217 quatrains from 712
+  of the 1,297 `eng_*` files across 9 tradition groups. **Whitman is retained
+  as a LEGACY arm and is explicitly not the control**, because
+  `corpus/whitman.txt` carries the property under test as epistrophe and was
+  never eligible for the role (`K-3`, still OPEN as a finding).
 - Current baselines, WITH the conjunctive band: sonnets **8.1%
   violations (82/1014 JUDGED pairs; 73/1014 = 7.2% before `theta_coda`
   was calibrated 0.60 -> 0.80 on 2026-08-11, and 35/1014 = 3.5% pre-band)**
@@ -2140,11 +2162,20 @@ good. Ten pre-registered features (quality/PREREGISTRATION.md), a
 discrimination test (quality/discriminate.py), results in quality/RESULTS.md.
 
 Four things about it you need before you touch it. Its ten features have **no
-demonstrated cross-design signal** (doctrine 10) and two were caught reading
-period rather than quality (doctrine 11), so do not build on them and do not
-cite their earlier numbers. The floor knows two text lengths — a 4-line
-quatrain and a 14-line sonnet — and text outside both gets no length-sensitive
-finding at all (doctrine 15). Relations are keyed on eight axes, of which
+demonstrated cross-design signal** (doctrine 10) and ~~two~~ **one** feature was
+caught reading period rather than quality (doctrine 11 — REPINNED here
+2026-08-21; this file's own index row 11 has carried the strike since
+2026-08-13 and this sentence did not, so the prose and the index of ONE FILE
+disagreed for eight days), so do not build on them and do not
+cite their earlier numbers. The floor knows ~~two~~ **three** text lengths — a
+4-line quatrain, a 14-line sonnet, **and a whole lyric sheet of 150–400
+tokens** — and text outside all three gets no length-sensitive
+finding at all (doctrine 15). **REPINNED 2026-08-21**: `floor.PROFILES` is
+`section` / `sonnet` / `song`, the third landed 2026-08-11 and was re-adopted
+2026-08-21 at `n_human=3571`. `L-4`'s close repinned three other "two"
+citations — `quality/floor.py`, `BACKLOG.md`'s Tier-5 row, `quality/FLOOR.md`
+— and missed this one, while the floor paragraph higher in THIS file already
+carries the 3,571-item re-adoption. Two sentences, one file, opposite counts. Relations are keyed on eight axes, of which
 ANCHOR is declared per MEMBER rather than per pair (doctrine 83). And there are
 **eight** adversaries, not the four this paragraph listed until 2026-08-11 —
 `BACKLOG.md` §0 holds the roster and its statuses, which is where they belong

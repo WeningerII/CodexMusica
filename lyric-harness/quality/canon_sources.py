@@ -114,6 +114,13 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 INDEX_TSV = os.path.join(HERE, "canon_index.tsv")
 CANON_MD = os.path.join(HERE, "RHYME_CANON.md")
 
+#: The publication-year half of `audit_register._EXTERNAL_HINT`, restated here
+#: rather than imported because `audit_register` imports THIS module and the
+#: cycle would be worse than the duplication.  §8.5's own sentence is the one
+#: figure in §8 that used to be transcribed, and it is the one that moved
+#: (0 -> 23): a count nobody recomputes is the defect §8's preamble names.
+_YEAR_TOKEN = re.compile(r"\b(?:1[2-9]\d\d|20[0-2]\d)\b")
+
 #: Exit codes.  Three, not two, for the reason in the module docstring: a check
 #: that FAILED and a check that could not be RUN are different claims and a
 #: caller has to be able to tell them apart without reading the screen.
@@ -1368,8 +1375,22 @@ def _render_section_8(omissions=None):
     w("")
     w("### 8.5 A PRIMARY source, with its date, for the entries that have one")
     w("")
+    # THE ONE TRANSCRIBED FIGURE IN A SECTION WHOSE OWN PREAMBLE SAYS NOTHING
+    # HERE IS TRANSCRIBED -- and it is the figure that moved. Until 2026-08-21
+    # this wrote `zero publication-year tokens across 94 KB` as a literal; the
+    # detector (`audit_register._EXTERNAL_HINT`, reported by `--provenance`)
+    # now counts 23 over 128 KB, so the sentence was false in the present tense
+    # and unfalsifiable by any render. Both quantities are COMPUTED now, so a
+    # later render corrects itself instead of restating 2026-08-11 forever.
+    _whole = (open(CANON_MD, encoding="utf-8").read()
+              if os.path.exists(CANON_MD) else "")
+    _yrs = len(_YEAR_TOKEN.findall(_whole))
+    _kb = len(_whole.encode("utf-8")) // 1024
     w("This file carried **zero publication-year tokens across 94 KB**, which was the sharpest single")
-    w("finding of the provenance audit. **%d** indices resolve to a primary source that is not merely"
+    w("finding of the provenance audit — and it is a claim in the PAST TENSE: today it carries")
+    w("**%d** across **%d KB**, so the finding is preserved as history and the current reading is"
+      % (_yrs, _kb))
+    w("beside it. **%d** indices resolve to a primary source that is not merely"
       % len(PRIMARY_IN_REPO))
     w("named but **stored in this repository and quotable**. Each row is re-checked on every render by")
     w("running the command in its last column against the named file; %d of %d pass today."

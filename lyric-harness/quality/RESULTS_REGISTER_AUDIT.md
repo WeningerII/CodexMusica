@@ -174,16 +174,42 @@ of magnitude. It was never checked.
 **(c) The shipped code already disagrees with the register.**
 
 ```
-python3 quality/audit_register.py --only M-4
+python3 quality/audit_register.py --only M-4        # 2026-08-11
   FALSE  D9  M-4  CHORUS_STUB_FORMS
     CHORUS_STUB_FORMS declares [('eng', '&c. / etc. (et cetera)'),
                                 ('fin', 'j. n. e. (ja niin edelleen)'),
                                 ('msa', 'd. s. b. (dan sebagainya)')]
+
+python3 quality/audit_register.py --only M-4        # 2026-08-21, at head
+  MOVED         D7   M-4   Finnish j. n. e.
+  UNVERIFIABLE  D8   M-4   Malay d. s. b.
+  CONFIRMED     D9   M-4   CHORUS_STUB_FORMS
 ```
 
-`lyric_harness.CHORUS_STUB_FORMS` carries the Malay row, with the right gloss
+~~`lyric_harness.CHORUS_STUB_FORMS` carries the Malay row, with the right gloss
 (*dan sebagainya*, "and so forth") and an anchored line-final pattern. The code
-implements the finding the register withdrew.
+implements the finding the register withdrew.~~
+
+> **D9 FLIPPED FROM `FALSE` TO `CONFIRMED` AND THIS DOCUMENT NARRATES THE
+> `FALSE` IN FOUR PLACES — REPINNED 2026-08-21.** `M-4` restored the Malay
+> row, so **the code and the register now AGREE**, which is exactly why D9
+> confirms; the sentence above says the opposite and was true only until the
+> entry was repaired. `lyric_harness.CHORUS_STUB_FORMS` still carries the
+> Malay row with the right gloss and an anchored line-final pattern — that
+> half never moved.
+>
+> **AND THE SHAPE IS STALE INDEPENDENTLY OF THE VERDICT.** The first field is
+> a **tuple of languages** since 2026-08-21, not a single language: the table
+> reads `[(('eng','cym'), '&c. / etc. (et cetera)'), (('fin',), …),
+> (('msa',), …)]`. A pointer printed in Welsh AND English is attested in both,
+> and the old shape could not say so.
+>
+> **D8 MOVED TOO, AND NOT TO A NUMBER.** It reads **`UNVERIFIABLE`** at head,
+> not `FALSE` — the `108 / 99 / 95` figures need `PG47873` off disk, which is
+> not in this container (§8.5 item 3 already says so). **Any repin of D8 lands
+> on UNVERIFIABLE and never on a replacement count**: a figure nobody can
+> re-derive is not corrected by writing a different figure. D7's `MOVED`
+> figures (8 → 9 occurrences, 16 → 18 tokens) still reproduce and stand.
 
 **(d) And the arithmetic never required withdrawing it.** M-3's own corrected
 table bills the apostrophe rule **76**, not 384, and puts the `b`/`d`/`s`
@@ -354,8 +380,13 @@ which is the point of recording it.
 
 | id | entry | why |
 |---|---|---|
-| D8 | M-4 | `d. s. b.` occurs **108** times in the population M-3 names, 99 in verse, 95 line-final. §1.3 |
-| D9 | M-4 | `CHORUS_STUB_FORMS` ships the Malay row the register struck out. §1.3(c) |
+| ~~D8~~ | M-4 | ~~`d. s. b.` occurs **108** times in the population M-3 names, 99 in verse, 95 line-final. §1.3~~ **→ `UNVERIFIABLE` 2026-08-21: PG47873 is not on disk here, so the count cannot be re-derived either way.** |
+| ~~D9~~ | M-4 | ~~`CHORUS_STUB_FORMS` ships the Malay row the register struck out. §1.3(c)~~ **→ `CONFIRMED` 2026-08-21: M-4 restored the row, so the register no longer strikes it and code and record agree.** |
+
+**BOTH ROWS ARE STRUCK RATHER THAN MOVED TO THEIR NEW SECTIONS**, because this
+table is the record of what the audit found ON ITS RUN DATE and relocating a
+row would destroy the thing it documents (doctrine 17). The live verdicts are
+`python3 quality/audit_register.py --only M-4`.
 
 ### UNVERIFIABLE — the repo does not hold what the claim needs
 
@@ -521,15 +552,31 @@ gone for good.
 ## 6. WHAT THIS AUDIT DID NOT CHECK
 
 ```
-python3 quality/audit_register.py --coverage
+python3 quality/audit_register.py --coverage        # 2026-08-11
   70 entries, 70 carry numbers, 661 numbers in total
   entries with a derivation or a consistency check: 19 of 70
+
+python3 quality/audit_register.py --coverage        # 2026-08-21, at head
+  79 entries, 79 carry numbers, 3177 numbers in total
+  entries with a derivation or a consistency check: 19 of 79
 ```
 
-**Every one of the 70 entries carries at least one number, and 51 of them have
-no check at all.** 26 declared claims and 10 consistency checks reach 19
-entries. So this pass touched roughly a quarter of the register's entries and a
-much smaller share of its 661 numbers. Not audited, and the reason in each case:
+**Every one of the ~~70~~ 79 entries carries at least one number, and ~~51~~
+**60** of them have no check at all.** 26 declared claims and 10 consistency
+checks reach 19 entries — **the audited numerator has not moved at all while
+the denominator grew by nine**, which is the honest shape of this section:
+every entry filed since is unaudited. So this pass touched roughly a quarter of
+the register's entries and a
+much smaller share of its numbers.
+
+> **`numbers_total` IS NOT REPINNED AND MUST NOT BE — DISCLOSED 2026-08-21.**
+> §8.5 item 4 already declares it unpinnable, and it is: three runs ten minutes
+> apart during this sweep gave **2,555 / 2,585 / 2,625** while `MISSING.md` was
+> being edited underneath, and the run above gives 3,177 after this session's
+> folds. It counts numeric tokens in prose under active edit — a quantity whose
+> value depends on when you look. **Repin it as UNPINNED, never to a figure**;
+> 661 is kept above as the 2026-08-11 reading and the head figure is quoted in
+> the command block where it belongs, beside the command that produced it. Not audited, and the reason in each case:
 
 - **B-1, B-2** (Forte set classes, n-TET dyad counts) — pure combinatorics with
   nothing in the repo to run them against. The dyad counts are internally
@@ -651,8 +698,8 @@ now a committed state that has to be argued rather than a hole.
 | D5 K-1/M-11 named airs | UNVERIFIABLE | UNVERIFIABLE | still no `--- AIR:`; the marker list itself moved — `SECTION`, `JUAN`, `SYLLABLES`, `RIME` are gone, `SPLIT` is new. Nearest rule still 318 |
 | D6 A-1 chorus stubs | MOVED 777 eng / 818 all | **MOVED** | 777 eng / 33 cym / 14 fin = **824** all |
 | **D7 M-4 Finnish `j. n. e.`** | **CONFIRMED**, §1.2: *"CONFIRMED to the token"*, *"the best-evidenced quantitative claim in section M"* | **MOVED** | **8 → 9 occurrences, 16 → 18 tokens.** A third file appeared: `fin_wahanen_laulukirja.txt`. §1.2 above is stale and its superlative with it |
-| D8 M-4 Malay `d. s. b.` | FALSE | FALSE | holds — 108 / 99 / 95, the standing calibration pair |
-| D9 M-4 `CHORUS_STUB_FORMS` | FALSE | FALSE | holds |
+| D8 M-4 Malay `d. s. b.` | FALSE | ~~FALSE~~ **UNVERIFIABLE** (2026-08-21) | ~~holds — 108 / 99 / 95, the standing calibration pair~~ — PG47873 is not on disk, so the count is not re-derivable either way |
+| D9 M-4 `CHORUS_STUB_FORMS` | FALSE | ~~FALSE~~ **CONFIRMED** (2026-08-21) | ~~holds~~ — `M-4` restored the Malay row; code and register agree, and the shape is now a tuple of languages per row |
 | D10 K-1 eng statuses | CONFIRMED 142/70, 5 statuses | CONFIRMED | **verdict holds, figures moved: 141/70, and 6 statuses** — `JOINT_ATTRIBUTION_ONLY` is new. Both sides moved together, which is exactly the case a verdict cannot report |
 | **D11 K-5 Somali gate** | **CONFIRMED** 13 REFUSED_DATE / 5 BLOCKED_ORTHOGRAPHY | **MOVED** | **14 / 4** — one row crossed |
 | D12 K-6 non-English table | MOVED 319, 47 SOURCED | **MOVED** | **331**, **70 SOURCED**; `fin` 14 → 26 joined `ltc` and `cym` |
@@ -735,24 +782,44 @@ sentence is now false, which is the one direction of drift this file should be
 glad of. Remediation item 5 is substantially done; §5's text is not struck
 because it is the correct record of the state that motivated the repair.
 
-| §6 coverage | 2026-08-11 | 2026-08-14 |
-|---|---|---|
-| entries | 70 | **75** |
-| numbers in total | 661 | **1,702** |
-| entries with any check | 19 of 70 (27%) | **19 of 75 (25%)** |
+| §6 coverage | 2026-08-11 | 2026-08-14 | 2026-08-21 |
+|---|---|---|---|
+| entries | 70 | **75** | **79** |
+| numbers in total | 661 | **1,702** | *unpinnable — see §6* |
+| entries with any check | 19 of 70 (27%) | **19 of 75 (25%)** | **19 of 79 (24%)** |
 
-**The audited count did not move at all.** Five entries were added, the number
-count nearly tripled, and the check count is the same 19 — so coverage fell.
-§6's *"51 of them have no check at all"* is now **56**.
+**The audited count did not move at all**, and it still has not. Five entries
+were added by 08-14 and four more by 08-21, the number count grew past the
+point of being worth pinning, and the check count is the same **19** in all
+three columns — so coverage fell twice.
+§6's *"51 of them have no check at all"* is ~~**56**~~ **60**.
+
+> **THREE READINGS OF ONE COLUMN AND THE NUMERATOR NEVER MOVES.** That is the
+> finding this table exists for, and it is sharper at three points than it was
+> at two: every entry filed in this register since 2026-08-11 is unaudited,
+> without exception. The denominator is doing all the work.
 
 ### 8.5 · What `--check` pins, and what it deliberately does not
 
 `python3 quality/audit_register.py --check` → **0** pass · **1** a figure moved ·
 **2** cannot tell. Green as committed; **2.5 s wall / 2.5 s CPU**, measured.
 
-It does **not** inherit `main()`'s exit policy, on purpose: D8/D9 will read
+It does **not** inherit `main()`'s exit policy, on purpose: ~~D8/D9 will read
 FALSE until M-4 reinstates the Malay row, and a gate that is red for a reason
-nobody intends to fix this week is a gate people learn to skip.
+nobody intends to fix this week is a gate people learn to skip.~~
+
+> **THE REASON GIVEN EXPIRED — REPINNED 2026-08-21, AND THE POLICY IS RIGHT
+> FOR A BETTER REASON.** M-4 reinstated the Malay row, so neither D8 nor D9
+> reads FALSE any more: D9 is `CONFIRMED` and D8 is `UNVERIFIABLE`. The
+> argument above was that a gate red over a known backlog item gets skipped,
+> and that case is now closed.
+> **The policy survives on D8's new verdict instead, which is the stronger
+> ground:** `UNVERIFIABLE` is not a failure — it is the audit saying the
+> repository does not hold what the claim needs (PG47873 is off disk). A gate
+> that exits non-zero on `cannot tell` charges an absent file to the record it
+> is auditing, which is doctrine 79 in an exit code. The exit split — `0` pass,
+> `1` a figure moved, `2` cannot tell — is what lets a caller act on the
+> difference, and that reason does not expire when a backlog entry closes.
 
 **Pinned** — one-sided, repo-side facts that move only when the thing measured
 moves: the `RHYME_CANON.md` detector counts (117 / 113 / 23 / 611 / 654 / 555),
