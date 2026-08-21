@@ -2652,4 +2652,7 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            "Hook", "HookOccurrence", "hook_occurrences", "hook_findings",
            # reading the corpus's own marks
            "MARK_FUNCTION", "MARK_REFUSED", "ingest_mark", "Block",
-           "MarkedSong", "read_marked_songs"]
+           "MarkedSong", "read_marked_songs",
+           # the named air -- MISSING.md M-11, BACKLOG 3.2
+           "AIR_DISTINCT", "AIR_RESTATED", "split_named_air",
+           "named_air_kind", "named_air_census"]

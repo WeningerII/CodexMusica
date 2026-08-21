@@ -2458,7 +2458,15 @@ def main(argv=None):
 #: year alone would have merged: Frederick William Faber (1814-1863) and
 #: Frederick William Thomas (1811-1864) share two given names and a
 #: death year to within a year, and are two men.
-PINNED_SHAPE = {"files": 1423, "FAIL": 1, "WARN": 233, "NOTE": 1085}
+#: REPINNED 2026-08-21: WARN ~~233~~ **235**, and it is a READER change rather
+#: than a load — `files`, `FAIL` and `NOTE` are all unmoved, which is the
+#: signature of one. `_items` used to read `--- TITLE: X  [air: Y]` whole, so
+#: check E could never match a body line against a title carrying an air. The
+#: two new WARNs are REAL and are filed as `MISSING.md` M-20: Hogg's `LOVE IS
+#: LIKE A DIZZINESS` and Rodger's `BEHAVE YOURSEL' BEFORE FOLK` are each staged
+#: TWICE in their own file, once with the air and once without. Nothing was
+#: silenced to meet this pin and nothing was lost: gained 2, lost 0.
+PINNED_SHAPE = {"files": 1423, "FAIL": 1, "WARN": 235, "NOTE": 1085}
 
 
 def _verify_shape(files, findings):

@@ -121,7 +121,7 @@ CORE = ("M1", "M5", "M9")
 #
 # PER SERIES, not one total, because the two series erode differently. The 33
 # `M*` are the 2026-08-11 band/comparator set in `lyric_harness.py` and
-# `battery.py`; the 24 `Q*` are the quality layer, added 2026-08-13 to close
+# `battery.py`; the ~~24~~ 25 `Q*` are the quality layer, added 2026-08-13 to close
 # doctrine 94's gap, and they are the ones sitting in files five sibling lots
 # edit hourly. One total would let the Q block shrink while the M block grew.
 #
@@ -129,8 +129,22 @@ CORE = ("M1", "M5", "M9")
 # one with a reason is legitimate; both are supposed to edit this line in the
 # same commit that edits the list. That is the entire mechanism -- the
 # deliberate repair touches two files, the silent one touches one.
-DECLARED_TOTAL = 57
-DECLARED_BY_SERIES = {"M": 33, "Q": 24}
+#
+# AND THE MECHANISM WORKED, ON THE SITTING THAT WROTE IT. `QR7` was added to
+# `quality/mutate.py` on 2026-08-21 and this line was NOT moved in that commit,
+# so CI's `test_mutation.py --static` step went red and stayed red across two
+# commits saying `declared 58, pinned 57`. That is exactly the report it is
+# built to make: the list grew and the pin did not, and no other check in the
+# repository would have said so. Moved here on 2026-08-21 with the reason
+# attached, which is the half of the ritual the adding commit skipped.
+#
+# `Q` 24 -> 25 is QR7: it spans BOTH of `revise.py`'s redundant fan-out
+# guards -- the per-line `seen` set and `dict.fromkeys` over `f.locations` --
+# so removing either alone leaves the other covering it, and only a mutation
+# that removes both proves the pair is load-bearing. Caught by
+# `test_revise.py` in a bounded 634s subset run.
+DECLARED_TOTAL = 58
+DECLARED_BY_SERIES = {"M": 33, "Q": 25}
 
 #: The layer vocabulary is CLAUDE.md's own triage rule, and a mutation runner
 #: that only mutates the layer its author was thinking about measures that
