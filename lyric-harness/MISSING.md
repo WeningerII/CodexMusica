@@ -58,6 +58,15 @@ after every verse" convention). Both are in the corpus, source order preserved.
 It broke the hymn cell's first parser.
 
 ### A-2 · Repetition-with-variation `OPEN`
+**TESTED WHILE OPEN** — `quality/test_song_function.py` names this entry, and
+what it guards is the RETURN half: `compare_returns` over `VARIATION_KINDS`
+answers "the same line or a different one" with a 15-way ladder rather than a
+boolean, which is a large part of this entry's first sentence. Surfaced
+CONTESTED on 2026-08-21 when the citation scanner learned to read multi-key
+headers; whether the remaining clauses (answer lines, call-and-response pairs)
+are also built is NOT decided here — this entry is queued for the same
+measured verification D-1 got, and until that pass runs it stays open on its
+own text.
 **Missing:** a chorus that returns with one word changed is neither "the same
 line" nor "a different line". No representation for partial return, answer
 lines, or call-and-response pairs.
@@ -157,35 +166,62 @@ measurement, the difference between a line that lands and one that drags.
 
 ## D. Song architecture
 
-### D-1 · Sections have no FUNCTION `OPEN`
+### D-1 · ~~Sections have no FUNCTION~~ — they have had one since `d944ff7`, and every clause of this entry is satisfied `CLOSED` 2026-08-21
 > **THIS ENTRY'S OWN `Now (verified)` CLAUSE IS FALSE AT HEAD — 2026-08-21.**
 > It reads *"`Section` fields are exactly `name, bars, meter, start_bar`"*.
-> `grid.Section` carries **`function`** as a fifth field, `SECTION_FUNCTIONS`
-> is the declared vocabulary this entry asks for, `song_function_report`
-> grades against it and the `function` verb reaches it from the CLI. How much
-> of the entry that closes is a reading of the rest of it and is NOT decided
-> here; what is decided is that the verified clause must not be quoted as
-> live (doctrine 17).
+> That was the first finding; the reading of the rest, deferred below, is now
+> done, and EVERY sentence closes:
+>
+> | D-1's sentence | at head |
+> |---|---|
+> | fields are exactly `name, bars, meter, start_bar` | FALSE — `function` is the fifth (`grid.py:356`) |
+> | `name` is a free string | TRUE, and deliberately: "deliberately not evidence" (`grid.py:359`) |
+> | Missing: a declared vocabulary of 20 names | FALSE — `SECTION_FUNCTIONS` holds 21 rows and all 20 of this entry's names round-trip through `as_function`, `middle-8` via a declared alias, plus `burden` and `hook` beyond the ask |
+> | nothing can ask *does this song have a pre-chorus* | FALSE — `function_profile` emits `has_prechorus`; `test_song_function.py` PASSes it by name, quoting this entry |
+> | nothing can ask *how many bars until the first chorus* | FALSE — `Song.bars_until` (`grid.py:475`), whose docstring quotes this sentence verbatim; tested by name |
+>
+> The refusal path is built too: `UNDECLARED` is not `verse`, an unknown value
+> raises `UnknownFunction`, and `song_function_report` reports asked/answered/
+> refused as three counts. `BACKLOG.md` already carries the close —
+> *"~~Sections have no FUNCTION (D-1)~~ … `7e802d3` (field first at
+> `d944ff7`)"* — so this is the eighth entry of the day whose work shipped
+> while the register slept, and the second (after M-17) where the OTHER
+> register knew.
 >
 > **AND NO INSTRUMENT FOUND THIS — a human reading the queue did.** No test
 > names D-1, so `quality/triage.py` puts it in UNGUARDED, which is that
 > file's OWN stated blind spot: it sorts by whether the tree names an entry
 > and cannot see an entry nothing cites. Recorded here as the worked example.
-**Now (verified):** `Section` fields are exactly `name, bars, meter,
-start_bar`. `name` is a free string.
-**Missing:** a declared section-function vocabulary — intro, verse, pre-chorus,
-chorus, post-chorus, refrain, bridge, middle-8, breakdown, build, drop, vamp,
-tag, turnaround, interlude, solo, coda, outro, false ending, reprise. Nothing
-can ask "does this song have a pre-chorus" or "how many bars until the first
-chorus".
+> **Half of that sentence is now false for a second reason, fixed 2026-08-21:**
+> `test_song_function.py` DOES name D-1 — its header reads "`MISSING.md` A-1,
+> A-2, D-1, D-2, D-3" — but triage's `m_re` was non-greedy and captured only
+> the FIRST key after the word `MISSING`, so the citation was read as A-1
+> alone. The scanner now collects every key in the window and D-1's decade in
+> UNGUARDED ends the same day the entry closes.
+
+What remains in this area belongs to its neighbours and is already filed
+there: D-3's reprise-across-two-functions clause, D-2's hook, D-4's arc.
 
 ### D-2 · "Hook" cannot be represented `OPEN`
+**TESTED WHILE OPEN** — `quality/test_song_function.py` names this entry, and
+`quality/grid.py` exports `Hook`, `HookOccurrence`, `hook_occurrences` and
+`hook_findings`, which is at least "hold one, count its returns, place it".
+Surfaced CONTESTED on 2026-08-21 by the multi-key citation fix; the sentence
+below is at minimum PARTLY false at head, and this entry is queued for the
+same clause-by-clause verification D-1 got. Not closed here because "measure
+its density" and the melodic/sub-line clauses have not been measured against
+the tree, and closing on a skim is how the register got eight entries stale.
 **Missing:** a hook is not a section. It is a FRAGMENT that recurs, possibly
 inside other sections, possibly melodic rather than lyric, possibly shorter
 than a line. Nothing in the model can hold one, count its returns, place it, or
 measure its density.
 
 ### D-3 · No return/variation structure `PARTIAL`
+**TESTED WHILE OPEN** — `quality/test_song_function.py` guards the built half
+(`compare_returns`, `return_findings`, the ladder) and this entry stays
+PARTIAL on its own "Still missing" clause below, which the 2026-08-21
+verification of D-1 confirmed is real: a reprise ACROSS two declared functions
+is representable but not yet asked anywhere.
 **Was:** how many times a section returns, in what order, with what
 variation; reprise; truncated final chorus; added bar on the last return —
 none of it askable.
@@ -2178,28 +2214,47 @@ overwritten.
 **Work item:** `BACKLOG.md` §3.1 — its "needs a build" is stale by the same three
 hours.
 
-### M-17 · `best_score` names a pair that did not produce the number `OPEN`
+### M-17 · `best_score` names a pair that did not produce the number `CLOSED` 2026-08-21
+**CLOSED FOUR DAYS AFTER ITS OWN WORK ITEM AND NOBODY TOLD IT.** `BACKLOG.md`
+§1.2 has read `M-17, CLOSED 2026-08-17` since the 17th; this half kept saying
+*the adversary is built; the repair is not*, which had been false for four
+days. The seventh already-built-and-unmarked entry of 2026-08-21, and the
+first where the two registers' stale halves were REVERSED from the usual
+direction (the BACKLOG closed first).
+
 **This entry is written because `BACKLOG.md` §1.2 cited `M-17, OPEN` and no
 `M-17` existed** — the same `STATUS_XREF` finding as K-7 above, and the reason a
 cross-reference into this file has to be a checked claim rather than a
 convention.
 
-`best_score` prints a score beside end words that did not produce it: the
-reported pair is the one a later stage selected, not the one the comparator
+`best_score` printed a score beside end words that did not produce it: the
+reported pair was the one a later stage selected, not the one the comparator
 maximised over, so the number, the label and the evidence in a single report
-line can disagree with each other and nothing notices.
+line could disagree with each other and nothing noticed.
 
 **MEASURED.** `quality/audit_spans.py` (adversary 7, landed `a914dc0`,
 `quality/RESULTS_SPANS.md`): of the **1,014 judged** sonnet pairs, **382 report
-lines name a pair that did not produce the number**. Of the 81 violations, 35 do
-and 46 do not. So the defect is not a rare edge — it is more than a third of
-every line the battery prints, and every hand-triaged violation drawn from those
-46 was triaged against the wrong pair.
+lines name a pair that did not produce the number**. ~~Of the 81 violations, 35
+do and 46 do not.~~ **82 / 36 / 46 since cell BA's coda-identity fix —
+`RESULTS_SPANS.md` records the repin and this entry never took it.**
 
-**What is owed:** `best_score` returns the winning span, and the report line
-prints the span it scored rather than the span something else chose. The
-adversary is built; the repair is not.
-**Work item:** `BACKLOG.md` §1.2.
+**THE REPAIR, VERIFIED AT HEAD 2026-08-21.** `best_score` returns a `Scored`
+(`lyric_harness.py:1738`) whose `spans` is an `Attribution` that CANNOT be
+separated from the number — `del`/`pop`/replace all raise (`:1771-1786`).
+`report_pair` checks its own claim (`:1852`); the consumers print it
+(`check_scheme` `:2696`, the graph `:2792`, the chains `:2905`); and the
+writer-facing half this entry never knew about, `Reviser._attribution`, is
+guarded by `test_revise.py` §44. `python3 quality/audit_spans.py --check`
+passes with all six figures pinned, and `test_spans.py`'s thirteen groups
+guard the type, the claim check and the sweep.
+
+**AND THE 382 IS NOT AN OPEN DEFECT — it is the standing geometry of the span
+search, disclosed.** A max over k candidate spans will often win on a span
+that is not the naive end-word pair; the defect was reporting the number
+beside the wrong label IN SILENCE. The fix was disclosure, disclosure is what
+`--check` pins, and a report line that says `NAMED PAIR IS NOT THE EVIDENCE`
+beside the real span is the repaired behaviour, not a residue.
+**Work item:** `BACKLOG.md` §1.2, `CLOSED 2026-08-17`.
 
 ### M-10 · GITenberg enumeration misses about a third by any single method `OPEN`
 Repo-name WebFetch → 5 Welsh holdings; `filename:metadata.yaml "language: cy"`

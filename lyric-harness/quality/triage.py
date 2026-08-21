@@ -78,12 +78,16 @@ THE FOUR BUCKETS, COUNTED APART AND NEVER SUMMED (doctrine 79):
                   weaker signal than CONTESTED and a real one: something was
                   built near enough to this entry to cite it, and nothing
                   guards the result. ADDED AFTER THE FACT, and D-1 is why —
-                  its own `Now (verified)` clause ("`Section` fields are
-                  exactly `name, bars, meter, start_bar`") is false at head,
-                  `grid.Section` has carried `function` for days, and no TEST
-                  names D-1 so the first draft of this file put it at the head
-                  of the queue. `grid.py` cites it. The blind spot was found
-                  by a human reading the queue and is now half-instrumented.
+                  at the time, its own `Now (verified)` clause was false at
+                  head, `grid.Section` had carried `function` for days, and
+                  no TEST appeared to name it, so the first draft of this
+                  file put it at the head of the queue while `grid.py` cited
+                  it. The blind spot was found by a human reading the queue.
+                  D-1 CLOSED 2026-08-21, and the second half of its story
+                  closed the same day: a test HAD named it all along, in a
+                  multi-key header the citation scanner read one key of
+                  (see `m_win` below). The bucket stays; its founding case
+                  is historical, which is what founding cases become.
 
   UNGUARDED       open, and NOTHING in the tree names it — not a test, not a
                   module. **This is the answer to "what is next."** Nothing
@@ -141,7 +145,10 @@ BACKLOG_CLOSED_RE = re.compile(
 #: single word "The" on 2.4 and into nothing at all on 2.2 and 2.6.
 TITLE_TAIL_RE = re.compile(
     r"\s*(?:—|-)?\s*`(?:[A-Z]-\d+[a-z]?|(?:CLOSED|DONE|MET|BUILT|OPEN|"
-    r"PARTIAL|BLOCKED)\b[^`]*)`\s*$")
+    r"PARTIAL|BLOCKED)\b[^`]*)`"
+    # a date, an aside or a doctrine cite may follow the status (the reader
+    # repair above lists the shapes); the title should not carry them either
+    r"(?:\s*\d{4}-\d{2}-\d{2})?(?:\s*[—(-][^`]*)?\s*$")
 
 
 def clean_title(head):
@@ -222,8 +229,22 @@ def _blocks(path, header_re):
     return out
 
 
-MISSING_HEAD = re.compile(
-    r"^### ([A-Z]-\d+[a-z]?) · (.*?)\s*`(OPEN|PARTIAL|BLOCKED|CLOSED)`\s*$")
+#: THE OPENER AND THE STATUS ARE TWO READS, NOT ONE — repaired 2026-08-21.
+#: The first draft demanded `\`STATUS\`` at END OF LINE, and the register's
+#: real headings put things after it: a date (`\`CLOSED\` 2026-08-11`, eleven
+#: entries), an aside (`\`PARTIAL\` — the container exists, ...`), a doctrine
+#: cite (`\`BLOCKED\` (doctrine 44: cannot obtain)`). Eighteen of 77 entries
+#: silently fell out of the population — among them K-7, L-1 and L-2, all
+#: OPEN, which therefore appeared in NO bucket for the whole first day of
+#: this instrument's life. The reader that raises on an EMPTY population had
+#: quietly lost a quarter of a full one, which is doctrine 20 one grain
+#: finer, and it was found only because a heading edited that day stopped
+#: parsing and its entry went missing from a check. The opener is now the
+#: only gate; the status is searched for INSIDE the heading, and a heading
+#: with no status token at all (L-3, at the time of repair) is read as OPEN —
+#: an entry that has not said it is finished must surface, not vanish.
+MISSING_HEAD = re.compile(r"^### ([A-Z]-\d+[a-z]?) · (.*)$")
+MISSING_STATUS = re.compile(r"`(OPEN|PARTIAL|BLOCKED|CLOSED)[^`]*`")
 BACKLOG_HEAD = re.compile(r"^### (\d+\.\d+) · (.*)$")
 
 
@@ -235,8 +256,11 @@ def read_entries():
     """
     out = []
     for m, ln, body in _blocks(MISSING_MD, MISSING_HEAD):
-        out.append(Entry(m.group(1), "MISSING.md", m.group(2).strip(),
-                         m.group(3), ln, body))
+        head = m.group(2)
+        st = MISSING_STATUS.search(head)
+        out.append(Entry(m.group(1), "MISSING.md",
+                         clean_title(head), st.group(1) if st else "OPEN",
+                         ln, body))
     for m, ln, body in _blocks(BACKLOG_MD, BACKLOG_HEAD):
         head = m.group(2)
         status = "CLOSED" if BACKLOG_CLOSED_RE.search(head) else "OPEN"
@@ -274,8 +298,17 @@ def scan(entries):
     #: is only as good as its spellings, and the spellings are a property of
     #: the repo rather than of the scanner (doctrine 58).
     b_re = re.compile(r"BACKLOG(?:\s+|\s*§\s*)(\d+\.\d+)")
-    m_re = re.compile(r"MISSING(?:\.md)?[^\n]{0,%d}?\b([A-Z]-\d+[a-z]?)\b"
-                      % MISSING_NEAR)
+    #: EVERY key in the window, not the first. The old pattern was non-greedy
+    #: up to ONE capture, so "`MISSING.md` A-1, A-2, D-1, D-2, D-3" — the
+    #: header of `test_song_function.py`, and a completely ordinary way to
+    #: cite five entries — was read as citing A-1 alone. D-1 sat in UNGUARDED
+    #: for the whole life of this file while a test named it, and this file's
+    #: own docstring cited D-1 as the proof the CITED bucket was needed.
+    #: MEASURED 2026-08-21: the fix moves D-1, D-2 and D-3 into the named
+    #: population; the lookalike guards below are unchanged because the window
+    #: is the same 40 characters (test_triage.py §3 pins both directions).
+    m_win = re.compile(r"MISSING(?:\.md)?`?([^\n]{0,%d})" % MISSING_NEAR)
+    key_re = re.compile(r"\b([A-Z]-\d+[a-z]?)\b")
     for rel in _tracked("*.py", "*.js", "*.mjs"):
         if os.path.basename(rel) in SELF:
             continue
@@ -284,7 +317,8 @@ def scan(entries):
                         errors="replace").read()
         except OSError:
             continue
-        keys = set(b_re.findall(text)) | set(m_re.findall(text))
+        keys = set(b_re.findall(text)) | {
+            k for w in m_win.findall(text) for k in key_re.findall(w)}
         for k in keys:
             e = by_key.get(k)
             if e is None:
@@ -375,9 +409,9 @@ def main(argv=None):
         print("\nCITED — open, a MODULE names it, no test guards it. Worth a "
               "read before")
         print("starting: something was built near enough to cite the entry. "
-              "D-1 is the")
-        print("worked case — `grid.py` cites it and its own verified clause "
-              "is false at head.")
+              "The founding")
+        print("case was D-1 — cited by `grid.py`, stale at head, CLOSED "
+              "2026-08-21.")
         for e in sorted(buckets["CITED"], key=lambda x: x.tier)[:12]:
             print("  %-6s %-9s %-42s %s"
                   % (e.key, e.status, e.title[:42], ", ".join(e.code[:2])))
