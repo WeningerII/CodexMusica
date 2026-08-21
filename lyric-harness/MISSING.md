@@ -1884,20 +1884,48 @@ answer to none of them:
 - **The Chinese ci and yuefu** — 5,081 songs, express non-commercial. Refused;
   see K-7 and doctrine 85.
 
-### M-13 · The Persian EDITION gate is OPEN on all 30 files `OPEN`
-Every Persian row says so. `ganjoor.net` and `api.ganjoor.net` are
-egress-blocked, and the per-book منبع note — which names the printed edition
-each text was keyed from — lives only there. So the author gate is clear on all
-30 and the edition gate is unanswered on all 30, which is doctrine 80 in its
-plainest form. Also open: `Erfi.epub` (ʿUrfī Shīrāzī, d.1591) is a **corrupt
-zip**; 15 on-list poets are in the EPUB set with **no ghazal section**
-(Firdawsī, Niẓāmī, Jāmī, Khayyām, Rūdakī, Nāṣir Khusraw, Bābā Ṭāhir, ʿUnṣurī,
-Manūchihrī, Farrukhī, Azraqī, Mahsatī, Gurgānī, Abū Saʿīd, Kisāʾī), and Bābā
-Ṭāhir's **do-baytī** (366 poems, a sung Luri form) is present, unstaged, and
-needs its own form declaration. Six further ghazal-bearing poets sit in the same
-EPUBs off the supplied list — Nizārī Quhistānī (d.1320, 1,408 ghazals), ʿAbd
-al-Qādir Gīlānī, Ibn Ḥusām Khūsfī, Mullā Hādī Sabzavārī, Riḍā al-Dīn Ārtīmānī,
-Sulṭān Bāhū — free breadth if the list extends.
+### M-13 · The Persian EDITION gate is OPEN on all ~~30~~ **31** files `OPEN`
+**REPINNED 2026-08-21 to match its BACKLOG half.** `BACKLOG.md` §3.3 was
+brought up to date that day and this entry was not — the same one-half-repinned
+drift M-21 records for a different pair. Three of the four side-clauses below
+were discharged on 2026-08-11; struck here individually, each with where the
+evidence lives, and the HEADLINE stays open because it is true.
+
+Every Persian row says so, and there are **31** now (`ls corpus/song/fas_* |
+wc -l`; `data/sources.tsv:393` states "THE EDITION GATE ON ALL 31 PERSIAN FILES
+THEREFORE STAYS OPEN" in as many words). ~~`ganjoor.net` and `api.ganjoor.net`
+are egress-blocked, and the per-book منبع note — which names the printed
+edition each text was keyed from — lives only there.~~ **The route was FOUND
+and the premise is PARTLY FALSIFIED** (`data/sources.tsv:393`,
+`SEARCH:ganjoor-edition-route-2026-08-11`): the field is reachable in ganjoor's
+open source — `GanjoorPaperSource` + `GET /api/ganjoor/cat/{id}/papersources` —
+and it is a machine-scored `MatchPercent` resemblance unless
+`IsTextOriginalSource`/`HumanReviewed` is set, so it is not the editorial
+statement this entry assumed. Two dead ends measured rather than assumed:
+`ganjoor/ganjoor-db`'s dump has no source column; third-party dumps carry
+`paperSources` NULL 31/31. Six hosts 403-CONNECT. So the author gate is clear
+on all 31 and the edition gate is unanswered on all 31, which is doctrine 80 in
+its plainest form — and closing it needs egress to `api.ganjoor.net` or
+`naskban.ir`, plus an edition COORDINATE to close it into: the only one in code
+is `quality/phonology/ltc.py` `EDITION_TABLES`, Chinese-only.
+
+~~Also open: `Erfi.epub` (ʿUrfī Shīrāzī, d.1591) is a **corrupt zip**~~ —
+**CLOSED as NOT_FOUND, not pending repair** (`data/sources.tsv:394`): 2,920
+bytes, 7 local headers, **0 central-directory entries**. Truncated, not
+damaged; nothing in it to recover.
+
+15 on-list poets are in the EPUB set with **no ghazal section**
+(Firdawsī, Niẓāmī, Jāmī, Khayyām, Rūdakī, Nāṣir Khusraw, ~~Bābā Ṭāhir~~,
+ʿUnṣurī, Manūchihrī, Farrukhī, Azraqī, Mahsatī, Gurgānī, Abū Saʿīd, Kisāʾī) —
+**14 now**, because ~~Bābā Ṭāhir's **do-baytī** (366 poems, a sung Luri form)
+is present, unstaged, and needs its own form declaration~~ **it is STAGED with
+the declaration measured**: `corpus/song/fas_baba_tahir_dobayti.txt`, 366
+poems, 366 `--- SUNG-EVIDENCE: form` blocks, row at `data/sources.tsv:395`,
+AABA 233 against a null max of 3 via `quality/phonology/fas.py`. Six further
+ghazal-bearing poets sit in the same EPUBs off the supplied list — Nizārī
+Quhistānī (d.1320, 1,408 ghazals), ʿAbd al-Qādir Gīlānī, Ibn Ḥusām Khūsfī,
+Mullā Hādī Sabzavārī, Riḍā al-Dīn Ārtīmānī, Sulṭān Bāhū — free breadth if the
+list extends.
 
 ### M-14 · 2 Sanskrit authors is the DCS's ceiling for this property, not a shortfall `OPEN`
 Amaru, Bhartṛhari, Govardhana and every DCS stotra are reachable, CC BY 4.0 and
