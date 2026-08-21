@@ -2475,4 +2475,50 @@ shape keys on WHERE the match falls, the match falls deep in the body, and
 relabelling by hand inside a pinned test would be writing a judgement into a
 count. `quality/test_corpus_audit.py` pins `RUN-ON 11` with this entry named.
 
+### M-21 · One fact about the registers is pinned in two media, and no instrument can be asked which pins a change moves `OPEN`
+**Found 2026-08-21 by paying the cost twice in one sitting, on consecutive CI
+rounds.** Filing `M-20` moved the number of entries in `MISSING.md` from 75 to
+76. That single fact is pinned in **two places, in two different media**:
+
+| pin | medium | how it is repaired |
+|---|---|---|
+| `BACKLOG.md:1573` — the `MISSING entries by status` counters row | a markdown table cell, written between `<!-- COUNTERS -->` markers | `python3 quality/counters.py --write` |
+| `quality/audit_register.py:2000` — `PINNED["coverage_entries"]` | a Python dict literal | hand-edited, with the reason |
+
+**NO GREP FINDS BOTH.** One is prose in a register, one is a constant in an
+auditor; they share no string, no spelling of the figure and no repair
+command. So the second was invisible while the first was being fixed, and it
+was found the only way it could be — by a CI round going red after the first
+repair landed. `counters.py --check` failed at `665c773`; `audit_register.py
+--check` failed at `2d91922`, on the next push. **Two CI rounds, serially, for
+one fact.**
+
+**AND THE FLOORS DO NOT HELP, by construction.** Two other instruments read
+the registers and assert only that the population is non-empty —
+`quality/test_register_audit.py:215` (`len(entries) > 40`) and
+`quality/test_triage.py:43` (`len(ENTRIES) > 60`). Those are doctrine 20
+guards against a reader that has stopped matching, and they are right to be
+floors; a floor cannot see a `+1` and is not meant to. They are named here so
+the count of instruments that COULD have caught this reads 2 and not 4.
+
+**WHAT IS MISSING IS NOT A THIRD PIN.** Every pin above is correct and each
+caught the drift it was pointed at, which is the design working. What does not
+exist is a way to ask, BEFORE pushing, *which committed figures does this
+working tree move?* — one command over the ~30 instruments under `quality/`
+that hold a `--check` pin, reporting every one whose measured value now
+differs. Today that question is answered by CI, one failing step per round,
+and the round trip is ~12 minutes.
+
+**Owed: the question, not the answer.** A sweep that runs each instrument's
+own `--check` and prints the moved figures TOGETHER. It must not repair
+anything — `counters.py`'s own docstring records why a remedy that writes is
+a laundering path (`WHAT --write MAY NOT WRITE`), and a sweep that repaired
+would inherit that hole across thirty instruments at once instead of one.
+
+**THIS ENTRY IS ITS OWN FIRST INSTANCE.** Filing it moves the count 76 → 77,
+so both pins above move again, in the commit that describes them. That is the
+cheapest possible demonstration and it is deliberate: if the two figures in
+the table above do not read 77 in the tree you are looking at, this entry has
+gone stale in exactly the way it is about.
+
 ## Add below this line

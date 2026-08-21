@@ -1991,13 +1991,19 @@ PINNED = {
     "cym_total": 29569, "cym_read": 29443,
     "cym_refused": 0, "cym_defective": 126,
     # -- MISSING.md's shape, but NOT its prose (see exclusion 3) ------------
-    #    REPINNED 2026-08-21: ~~75~~ 76 entries. `M-20` was filed that day —
+    #    REPINNED 2026-08-21, TWICE IN ONE SITTING: ~~75~~ ~~76~~ 77 entries.
+    #    The second move is `M-21`, which is ABOUT this line: the entry count
+    #    is pinned here AND in `BACKLOG.md`'s counters row, in two media that
+    #    share no string, so no grep finds both and the second is found only
+    #    by a CI round going red after the first is repaired. Moving both in
+    #    one commit is that entry's own demonstration.
+    #    The first was: `M-20` was filed that day —
     #    two English poems staged TWICE in their own file, found when the
     #    named air was split out of the title (BACKLOG 3.2). A new entry is
     #    the ORDINARY way this figure moves and the pin is what makes filing
     #    one a decision rather than a diff; `coverage_audited` is unmoved at
     #    19 because M-20 carries no audited claim of its own yet.
-    "coverage_entries": 76,
+    "coverage_entries": 77,
     "coverage_audited": 19,
 }
 
