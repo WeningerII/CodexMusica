@@ -745,13 +745,43 @@ def _d_sung_lines():
 
 
 def _d_repeat_blocks():
-    _, _, tags = _song_stats(_song_files("eng_"))
+    """The corpus-wide repeat-block triple — WITH ITS CONCENTRATION, because
+    the total alone is the biased number K-1a is about.
+
+    MEASURED 2026-08-21: one file, D'Urfey's songbook, carries 567 of the
+    1,580 burdens (35.9%); two files carry 52.4%; only 101 of 1,297 `eng_`
+    files carry any repeat block at all. 19th-century anthology editors set
+    lyrics as continuous stanzas and DROP the chorus; songsters and hymnals
+    keep it — so an unstratified rate over this corpus measures editorial
+    practice as much as the songs. The top contributors are APPENDED after
+    the triple rather than folded into it, so `counters.py`'s and
+    `_k1_claims`'s parsing regexes keep matching the substring they always
+    matched, and the number stops being quotable without its stratification
+    (doctrine 79's shape: counts kept apart, never summed — here, a total
+    kept beside its concentration, never alone).
+    """
+    per_file = collections.Counter()
+    tags = collections.Counter()
+    for f in _song_files("eng_"):
+        _, _, ft = _song_stats([f])
+        n = ft["BURDEN"] + ft["REFRAIN"] + ft["CHORUS"]
+        if n:
+            per_file[os.path.basename(f)] = n
+        tags.update(ft)
     got = (tags["BURDEN"], tags["REFRAIN"], tags["CHORUS"])
+    total = sum(got)
+    top = per_file.most_common(3)
+    conc = ("; CONCENTRATION (K-1a): top files %s of %d blocks in %d "
+            "carrying files"
+            % (", ".join("%s %d (%.1f%%)" % (n, c, 100.0 * c / max(1, total))
+                         for n, c in top),
+               total, len(per_file)))
     c = _k1_claims(read_entries()).get("repeats")
-    detail = "BURDEN %d REFRAIN %d CHORUS %d (sum %d)" % (got + (sum(got),))
+    detail = ("BURDEN %d REFRAIN %d CHORUS %d (sum %d)" % (got + (total,))
+              + conc)
     if c is None:
         return UNVERIFIABLE, detail, "K-1's repeat-block sentence not readable"
-    v = CONFIRMED if (got == c[1:] and sum(got) == c[0]) else MOVED
+    v = CONFIRMED if (got == c[1:] and total == c[0]) else MOVED
     return v, detail, ("%d BURDEN / %d REFRAIN / %d CHORUS, sum %d, per K-1"
                        % (c[1], c[2], c[3], c[0]))
 

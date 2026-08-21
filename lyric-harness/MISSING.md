@@ -331,6 +331,14 @@ time layer; it drags `test_fwer` ×4, `redteam_band`'s FPR, `eval_matrix` P3
 and the D18 claim pinned at 0.902. Closing this entry means the expensive
 half; the cheap half only makes the gift visible.
 
+**DECISION 2026-08-21 (owner): the cheap half is DEFERRED, deliberately.**
+The disclosure does not close the entry, would be partly reworked when the
+scalar moves, and touching the scoring path twice costs more than once. This
+entry waits for a sitting with room for the expensive half done properly —
+the M-4a-class change with the full recalibration — rather than accreting a
+stopgap. Recorded so the next reader knows the cheap half was seen, priced
+and declined, not missed.
+
 ---
 
 ## F. Language coverage
