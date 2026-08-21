@@ -1045,12 +1045,41 @@ is a result and not an input. **The cell explicitly declined to pick an `m`
 between 6 and 89 that lands the scramble rate on 5%** — an α recovered by
 choosing a family size is a threshold tuned to its own result.
 
-**Still OPEN, and the open part has moved.** The layer cannot control α at the
+~~**Still OPEN, and the open part has moved.** The layer cannot control α at the
 honest family because it cannot produce an event at all: at
 `null_samples = 2000` the Šidák cut on sonnet 1 is **2.53e-4** and the p-value
 floor is **5.00e-4**, so the cut sits BELOW the floor. What is owed is
-`null_samples` and `window`, measured against the candidate family. See
+`null_samples` and `window`, measured against the candidate family.~~ See
 `quality/RESULTS_FWER.md`.
+
+**REPINNED 2026-08-21 — THE OWED MEASUREMENT WAS MADE ON 2026-08-11 AND THIS
+ENTRY NEVER FOLLOWED IT.** `BACKLOG.md` §4.1 was repinned on 2026-08-17 and
+this half was not, so the register carried the discharged and the undischarged
+statement of the same fact side by side for four days.
+
+`quality/time_attainable.py` is the runner and `quality/RESULTS_FWER.md`
+§*THE LEVERS, MEASURED — and the layer cannot speak* is the write-up. **Six
+levers, all dead**, and `null_samples` — the one this paragraph named — is dead
+in the most instructive way: it **RUNS BACKWARDS**. `min_p` goes 3.998e-3 at
+2,000 samples to 4.415e-3 at 200,000, so buying resolution makes the floor
+worse rather than better. The others are `window`, `max_span`, more text, a
+cross-item null (L-2's ask, delivered — see there), and a declared beat, which
+reaches the range and is circular.
+
+**And the struck diagnosis was wrong in an instructive way, which is why it is
+struck rather than deleted (doctrine 17).** `min_p` is not sitting on a
+resolution floor at all — it is reporting a RATE. `_pvalue` returns
+`(ge + 1)/(n_valid + 1)`, and for the best pair in a real sonnet every one of
+the 40–83 draws at or above it is an exact TIE at 1.000 with ZERO strictly
+above: the comparator saturates at a perfect rhyme.
+
+**WHAT KEEPS THIS ENTRY OPEN IS NOT A TASK.** The gap is arithmetic:
+`M_NEEDED = ln(1-α)/ln(1-min_p)` is 18–28 against a median family of 198–217 —
+a factor of about **10**, not the 1.4 the earlier reading suggested. Closing it
+is a redesign of the layer, not a measurement. The BACKLOG half is CLOSED under
+a `TASK DISCHARGED` declaration that `quality/verify_entries.py` now reads;
+this half stays OPEN because the CAPABILITY — a false-event rate controlled at
+α — is exactly as missing as it was.
 
 ### L-2 · Real sonnets do not separate from scrambled text on event rate `OPEN` — EXPLAINED
 ~~10.9% observed vs 9.6% word-scramble (p=0.095).~~ Either the detector is
@@ -1068,8 +1097,37 @@ function of. This is doctrine 63/68's identity-map trap in a fourth place: a
 randomisation that can be run, look rigorous, and test nothing. The word
 scramble was never a null for this statistic, and the 0.095 was reporting that
 rather than reporting Shakespeare.
-**Owed:** a null that destroys the span multiset — across items rather than
-within one.
+~~**Owed:** a null that destroys the span multiset — across items rather than
+within one.~~
+
+**REPINNED 2026-08-21 — THE OWED NULL WAS BUILT TWICE AND IT DOES NOT WORK,
+which is a result and not a debt.** `BACKLOG.md` §4.2 carried the same stale
+`Owed:` line and is now closed under a `TASK DISCHARGED` declaration.
+
+`quality/controls.py:176 cross_item_redeal` is that null, with
+`rime_pool_redeal:253` beside it as the detection floor, driven by
+`quality/negative_control.py:631 arm_spans` whose docstring names this entry.
+`quality/RESULTS_NULL_SHAPES.md` §3 measures it:
+
+| arm | `band_pass` | `min_p` move |
+|---|---:|---:|
+| real verse | 0.0572 | — |
+| word scramble | 0.0601 | 1.15× |
+| **cross-item redeal** | **0.0599** | **0.94×** |
+
+**The purpose-built null PRESERVES the quantity it was commissioned to
+destroy**, over a detection floor spanning 51× (0.00059–0.03040) — so this is
+not an instrument too blunt to see a difference, it is a difference that is not
+there. `RESULTS_FWER.md`'s Lever 5 agrees from the other side: pooled
+perfect-pair rate 0.0028 → 0.00175, `M_NEEDED` 21 → 28, a **1.3× improvement
+against a 9.4× gap**, and at window 2 the scramble saturates HIGHER than real
+verse (3.15% vs 2.68%) — the sign flips.
+
+**WHAT KEEPS THIS ENTRY OPEN IS THE FINDING, NOT A TASK.** Real sonnets still
+do not separate from scrambled text on event rate, all six measured levers are
+dead (L-1), and closing this needs a null that moves the perfect-pair rate by
+about 10× — a redesign of the layer, a declared beat, not a backlog item.
+Guarded by `quality/test_controls.py` and `quality/test_null_shapes.py`.
 
 ### L-3 · The slop floor is calibrated on one form, one language, one generator
 `PARTIAL` — 152 Shakespeare sonnets vs 40 model sonnets, a 400-year register

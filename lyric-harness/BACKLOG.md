@@ -629,19 +629,135 @@ invisible to both instruments at once for two different reasons.
 figure above from `corpus/song/` rather than pinning it; and
 `quality/test_corpus_audit.py`, repinned to `RUN-ON 11` with the two named.
 
-### 3.3 · The Persian edition gate is open on all 30 files `M-13`
-`ganjoor.net` is egress-blocked and the per-book منبع note lives only there.
-Also: `Erfi.epub` is a corrupt zip; 15 on-list poets have no ghazal section;
-Bābā Ṭāhir's do-baytī (366 poems, a sung Luri form) is present and unstaged.
+### 3.3 · The Persian edition gate is open on all ~~30~~ **31** files `M-13`
+**THREE OF FOUR CLAUSES DISCHARGED 2026-08-11; THE ENTRY STAYS OPEN AND THE
+DECLARATION WOULD BE WRONG.** This entry does NOT carry a `TASK DISCHARGED`
+marker, deliberately: the fourth clause IS the gate this entry is named for,
+it is open, and it cannot be closed from inside this container. Three clauses
+struck individually below rather than as a block, because they were discharged
+three different ways and only one of them is a dead end.
 
-### 3.4 · Finno's 1583 hymnal — the cheapest open probe left
-Sung by definition, printed four centuries ago, needs no rights argument, and
+~~`ganjoor.net` is egress-blocked and the per-book منبع note lives only there.~~
+**THE ROUTE WAS FOUND AND THE PREMISE IS PARTLY FALSIFIED**
+(`data/sources.tsv:393`). The field is reachable in ganjoor's open source —
+`GanjoorPaperSource` plus `GET /api/ganjoor/cat/{id}/papersources` — and the
+finding is worse than "blocked": the value is a machine-scored `MatchPercent`
+resemblance unless `IsTextOriginalSource` or `HumanReviewed` is set, so it is
+not the editorial statement this entry assumed. Two dead ends were measured
+rather than assumed: `ganjoor/ganjoor-db`'s dump has no source column, and
+third-party dumps carry `paperSources` NULL 31 of 31. Six hosts 403-CONNECT.
+
+~~`Erfi.epub` is a corrupt zip~~ — **CLOSED as NOT_FOUND**, not pending repair
+(`data/sources.tsv:394`, `NOTE:erfi-epub-is-truncated-not-merely-corrupt`):
+2,920 bytes, 7 local headers, **0 central-directory entries**. It is truncated,
+not damaged; there is nothing in it to recover.
+
+~~Bābā Ṭāhir's do-baytī (366 poems, a sung Luri form) is present and unstaged.~~
+**STAGED** — `corpus/song/fas_baba_tahir_dobayti.txt`, 144,360 bytes, 366
+poems, 366 `--- SUNG-EVIDENCE: form` blocks, row at `data/sources.tsv:395`,
+with the form declaration MEASURED via `quality/phonology/fas.py` (AABA 233
+against a null max of 3).
+
+**15 on-list poets still have no ghazal section** (`MISSING.md:1750`), and the
+edition gate is open on all **31** — `ls corpus/song/fas_* | wc -l` is 31, not
+30, and `data/sources.tsv:393` says so in as many words. Closing it needs
+egress to `api.ganjoor.net` or `naskban.ir`, currently 403. There is also no
+edition COORDINATE in code to close it into: `gate_corpora.py` and
+`provenance.py` have no edition gate, and the only one implemented is
+`quality/phonology/ltc.py:220 EDITION_TABLES`, Chinese-only.
+
+### 3.4 · ~~Finno's 1583 hymnal — the cheapest open probe left~~ — **probed, located, egress-blocked, and not cheap** — `CLOSED 2026-08-21`
+~~Sung by definition, printed four centuries ago, needs no rights argument, and
 `doria.fi` / `kansalliskirjasto.fi` were **never probed**. A guess standing
-where a measurement should be.
+where a measurement should be.~~
 
-### 3.5 · The negative control is still Whitman alone `K-2, K-3`
-All four recorded Whitman figures sit inside one line-permutation null. The
-replacement is the corpus's own shuffled self plus a multi-author positive.
+**IT WAS PROBED TEN DAYS BEFORE THIS ENTRY WAS READ AGAIN.**
+`data/sources.tsv:392`, `SEARCH:finnish-hymnal-finno-hemming-2026-08-11`,
+headed *RE-PROBE OF A COMMITTED ROW* and citing doctrine 49 against the
+earlier attempt at `data/sources.tsv:258`. **Twenty-one hosts, all 403
+CONNECT**, read from the proxy's own `recentRelayFailures` rather than
+inferred from an exit code — including both this entry names by name
+(`doria.fi`, `www.doria.fi`, `kansalliskirjasto.fi`,
+`www.kansalliskirjasto.fi`, `digi.kansalliskirjasto.fi`, `finna.fi`,
+`kansalliskirjasto.finna.fi`, `api.finna.fi`) and thirteen more.
+`data/lyricists.tsv:334-336` carry the matching NOT_FOUND rows for Agricola,
+Finno and Hemming. So *never probed* was false, and this entry is a guess
+standing where a measurement already was — the failure it was written to name,
+in the entry itself.
+
+**THE PROBE PAID FOR ITSELF AND CHANGED THE ANSWER.** Both copies are located:
+Hemming's complete hymnal is printed **Rostock 1607, not 1605**, digitised at
+`digital.slub-dresden.de/werkansicht/dlf/114166/1/`, shelfmark
+Lit.var.167,misc.1, title page CC-BY-SA 4.0; Finno's c.1583 survives in ONE
+known copy, incomplete, at Uppsala. That is doctrine 92's third category
+refined — **complete, digitised, rights-free and egress-blocked**, on a GERMAN
+host nobody had probed because the search had been framed as Finnish. It also
+paid out sideways: the same probe found `GITenberg/Wahanen-Laulu-kirja_72965`
+(`data/sources.tsv:390`), now staged as
+`corpus/song/fin_wahanen_laulukirja.txt`, whose 18 named airs are 18 of the 31
+that falsify M-11's ZERO (§3.2).
+
+**AND IT IS NOT THE CHEAPEST PROBE LEFT.** The surviving text is page images
+of 1607 blackletter Finnish, so acquiring it needs egress to
+`digital.slub-dresden.de` or `alvin-portal.org` AND an OCR pass over Fraktur —
+a different order of cost from what this heading claims. The next attempt
+should ask for those two hosts by name.
+
+### 3.5 · ~~The negative control is still Whitman alone~~ — **replaced 2026-08-11; the entry was ten days stale** `K-2, K-3` — `CLOSED 2026-08-21`
+**TASK DISCHARGED — `K-3` STAYS OPEN.** The task was *build the replacement*,
+and it was built the same day this entry was last touched — the entry simply
+never said so. `K-3` stays OPEN because it is a FINDING about Whitman, not a
+task: the Whitman negative control does not separate, and building a better
+control does not make that stop being true. It reproduces and WORSENS under
+power — Whitman P3 = 0.1733 against a null max of 0.1800 at n=200.
+
+~~All four recorded Whitman figures sit inside one line-permutation null. The
+replacement is the corpus's own shuffled self plus a multi-author positive.~~
+
+**BUILT: `quality/negative_control.py`**, 49,805 bytes, whose first line reads
+*THE REPLACEMENT NEGATIVE CONTROL. MISSING.md K-2 / K-3, BACKLOG §3.5.* It is
+exactly the two things this entry specifies: the negative is the corpus's own
+shuffled self (`line_permutation` per quatrain, matched on author, period and
+vocabulary BY CONSTRUCTION rather than by selection), and the positive is
+multi-author, drawn from 1,297 `eng_*` files and reported per tradition group.
+Five arms — `arm_scheme`, `arm_chains`, `arm_whitman`, `arm_spans`,
+`arm_langs` — with Whitman RETAINED as the legacy comparator rather than as
+the control, which is the distinction the entry asks for.
+
+**RUN 2026-08-21** (`--n=20 --cap=2 --skip-chains`): P1 differs 0.0%, the
+identity map the derivation predicts; P2 TV **0.2649 against a null max of
+0.0294**, gap +0.2355; 7 strata measured, all 7 separating under both
+statistics, 15 distinct quatrain schemes. Write-up in
+`quality/RESULTS_NULL_SHAPES.md` §1–§4, guarded by `quality/test_null_shapes.py`
+(27 checks). The *never eligible* finding is staged in code and not only in
+prose: `quality/audit_band_control.py:30` records it and RESULTS_NULL_SHAPES §2
+measures it — 7 of 9 Whitman chain links are same-token REPEATs, 115 distinct
+final tokens over 150 lines.
+
+~~**Owed, and it is bookkeeping:** five cells of `negative_control.py`'s own
+docstring table have drifted with the corpus (`eng_british`, `eng_hymn`, and
+the ALL-stratum TV 0.2456 → 0.2477), already diagnosed at
+`quality/RESULTS_NULL_SHAPES.md:582`.~~
+
+**RE-DERIVED 2026-08-21, AND IT WAS NOT BOOKKEEPING.** The arm was re-run at
+its own declared parameters (n=200, seed 20260811, cap 8) rather than the five
+cells being hand-edited, and the diagnosis above turned out to be stale too:
+not five cells and not two groups, but a different population — **792
+quatrains / 115 files / 6 tradition groups → 4,217 / 712 / 9**, with three
+groups (`eng_hbv`, `eng_oxford`, `eng_pah`) that did not exist when the table
+was written. ALL-stratum TV is **0.2638**, not the predicted 0.2477, and the
+null's MAX FELL from 0.0394 to 0.0188 — gap **+0.2061 → +0.2451**, lift
+20.7× → **41.7×**. More material moved the result the way a real effect moves.
+
+**Two of the moves are findings.** `eng_celtic` was the ONE failing stratum
+(−0.0310, inside its own null) and it is the reason `P2b` was written; it now
+SEPARATES at **+0.0982**, and the summary reads *9 measured, 9 separate under
+BOTH statistics, 0 under neither*. P2b is kept regardless — a second
+independent reduction of the same null is worth having, and deleting it would
+erase the question — but the present-tense claim that a failing stratum EXISTS
+is struck rather than carried (doctrine 17). And Whitman's P3 gap went −0.0067
+to **−0.0333**: `K-3` does not merely reproduce under more power, it gets five
+times worse, which is why that half stays open.
 
 ### 3.6 · Corpus adversary (adversary 5) `BUILT 2026-08-11`
 Systematise doctrines 50/52/53: a runner that checks every `corpus/` file
@@ -659,7 +775,15 @@ column is a path and `python3 quality/verify_entries.py` now checks it.
 
 ## TIER 4 — instrument honesty
 
-### 4.1 · The time layer's α is not controlled `L-1` — CAUSE FOUND, LEVERS MEASURED 2026-08-11, TASK DISCHARGED — `L-1 STAYS OPEN`
+### 4.1 · The time layer's α is not controlled `L-1` — CAUSE FOUND, LEVERS MEASURED 2026-08-11, TASK DISCHARGED — `L-1 STAYS OPEN` — `CLOSED 2026-08-21`
+**AND IT WAS HELD OPEN BY AN INSTRUMENT, NOT BY WORK.** This heading has said
+`TASK DISCHARGED — L-1 STAYS OPEN` since 2026-08-17, in prose, while the entry
+kept reading OPEN — because `quality/verify_entries.py`'s `STATUS_XREF`
+required a BACKLOG entry and its MISSING half to agree about being done, and
+marking this one closed against an open `L-1` reported FALSE. The register was
+lying in the only direction the checker allowed. That declaration is READ now
+(doctrine 48), so the entry can say the true thing: the task is finished, the
+capability is not. Nothing about the work changed on 2026-08-21.
 ~~"5.4% against 5.0%" is n=6; at n=20 it is 9.6%.~~ The guarding test runs three
 sonnets and asserts only `mean < 0.20`, which cannot detect a 2× miss.
 
@@ -717,7 +841,12 @@ L-1 read `OPEN` was caught by `quality/verify_entries.py`'s STATUS_XREF check
 on the first run after the edit, which is the check doing exactly its job: a
 task one can finish is not the same object as a gap one cannot.
 
-### 4.2 · Real sonnets do not separate from scrambled text on event rate `L-2` — MECHANISM FOUND
+### 4.2 · Real sonnets do not separate from scrambled text on event rate `L-2` — MECHANISM FOUND, AND THE OWED NULL DELIVERED — `CLOSED 2026-08-21`
+**TASK DISCHARGED — `L-2` STAYS OPEN.** The task was the mechanism and then
+the null it asked for; both are done, and the null is measured USELESS, which
+is a result and not a reason to keep the task open. `L-2` stays OPEN as a
+capability: real sonnets still do not separate from scrambled text, and every
+lever that could have made them is dead.
 ~~10.9% observed vs 9.6% word-scramble, p=0.095.~~ Until that separates, a null
 placement result cannot distinguish "no periodic organisation" from "nothing to
 organise."
@@ -727,8 +856,30 @@ this statistic.** At 20 items per arm the two score identically — 29.1% vs 29.
 at `m` = scored, 0.0% vs 0.0% at `m` = candidate — because an item's smallest
 attainable p is set by how many chance re-pairings of ITS OWN spans are perfect
 rhymes, and a word scramble preserves the span multiset exactly. Doctrine 63/68
-in a fourth place. **Owed: a null that destroys the span multiset — across items
-rather than within one.**
+in a fourth place. ~~**Owed: a null that destroys the span multiset — across items
+rather than within one.**~~
+
+**THE OWED NULL WAS BUILT TWICE, INDEPENDENTLY, AND MEASURED USELESS —
+REPINNED 2026-08-21.** This entry kept printing an `Owed:` line for something
+that has existed for ten days.
+
+1. `quality/controls.py:176 cross_item_redeal` (with `rime_pool_redeal:253` as
+   the detection floor), driven by `negative_control.py:631 arm_spans`, whose
+   docstring names `MISSING.md` L-2. Result in `RESULTS_NULL_SHAPES.md` §3:
+   real `band_pass` **0.0572**, scramble **0.0601**, cross-item redeal
+   **0.0599** — the purpose-built null PRESERVES the very quantity it was
+   commissioned to destroy, moving `min_p` 0.94× against the scramble's 1.15×,
+   over a detection floor spanning 51× (0.00059–0.03040).
+2. `RESULTS_FWER.md` *Lever 5 — a cross-item null. MISSING L-2's ask,
+   delivered, and it is not enough*: pooled perfect-pair rate 0.0028 → 0.00175,
+   `M_NEEDED` 21 → 28. **A 1.3× improvement against a 9.4× gap**, and at
+   window 2 the scramble SATURATES HIGHER than real verse (3.15% vs 2.68%) —
+   the sign flips.
+
+Green: `quality/test_controls.py`, `quality/test_null_shapes.py` (27 checks).
+
+**No buildable task remains here.** All six measured levers are dead, so
+closing `L-2` is a layer redesign — a declared beat — and not a backlog item.
 
 ### 4.3 · Taxonomy adversary (adversary 6) `BUILT 2026-08-11`
 Every named entry in `RHYME_CANON.md` and `relations.py` must cite a source
