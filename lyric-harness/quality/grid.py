@@ -257,10 +257,21 @@ SECTION_FUNCTIONS = {s.name: s for s in (
           "of it", "returns", "verbatim", ("chorus",)),
     _spec("refrain", "a returning line or couplet INSIDE or after a stanza, "
           "not a standalone section", "returns", "verbatim"),
-    _spec("burden", "a refrain sung by all, often printed before the first "
-          "stanza; kept SEPARATE from `refrain` because the corpus marks the "
-          "two differently and collapsing them would delete a distinction "
-          "1,776 blocks already carry (doctrine 24)",
+    # THE POSITION CLAUSE WAS FALSE AND THE COUNT WAS STALE -- both repaired
+    # 2026-08-21 against the corpus this row describes.  It read "often
+    # printed before the first stanza": MEASURED, **1,580 of 1,580 [BURDEN]
+    # blocks in `corpus/song/eng_*.txt` follow a VERSE block and NOT ONE
+    # stands before the first stanza**.  The marks that do appear there are
+    # REFRAIN and CHORUS.  A gloss is what a later session reads to decide
+    # whether a printing is a burden, so a false positional claim here is a
+    # staging instruction, not a note.  The SEPARATION argument is untouched
+    # and is what the row is for; only the evidence offered for it moved.
+    _spec("burden", "a refrain sung by all, printed AFTER a stanza in every "
+          "staged instance (1,580 of 1,580, measured 2026-08-21 -- the marks "
+          "that open a song are `refrain` and `chorus`); kept SEPARATE from "
+          "`refrain` because the corpus marks the two differently and "
+          "collapsing them would delete a distinction ~~1,776~~ 1,580 blocks "
+          "already carry (doctrine 24)",
           "returns", "verbatim"),
     _spec("bridge", "appears once and CONTRASTS; a middle-8 is a bridge whose "
           "bar count happens to be 8, which this model already records, so it "

@@ -3712,4 +3712,92 @@ for a cywydd's cynghanedd. Run 2 owes a declared entry per tradition, and the
 registration's own E1 amendment owes `dactylic-rhyme`'s removal from the
 constrained family (its shipped `constrained=yes` tag is VOID for consumers).
 
+### M-24 · The section vocabulary is keyed on a bare token, so a mark means whatever the first tradition to claim it meant `OPEN`
+**Found 2026-08-21 by sixteen concurrent tradition-family surveys, and three
+of them hit the same wall independently.**
+
+`quality/grid.py`'s `MARK_REFUSED` holds 13 keys — `BAYT`, `CYWYDD`, `GOTHIC`,
+`MUSIC`, `NOTE`, `PANTUN`, `PART`, `PATTER`, `QUATRAIN`, `RADIF`, `SIDENOTE`,
+`SLOKA`, `VARIANT` — **and every one is a bare uppercase token with no
+language coordinate.** `ingest_mark` resolves a mark to its base token and
+looks it up; it takes no language and cannot.
+
+**THE WORKED CASE, and it is one staging away from live.** `MARK_REFUSED
+["PART"]` reads *"a speaker or role attribution in the Kalevala wedding songs
+(`[PART: Kaason puoli]`), not a section function."* Irish dance music's A-part
+and B-part are ordinary section names. **The moment an Irish tune is staged
+with `[PART A]`, it is refused with a sentence about Finnish wedding songs
+quoted over it** — a true refusal, in the wrong language, about the wrong
+object. Nothing in the table can express that `PART` means one thing in `fin`
+and another in `gle`.
+
+**IT IS ALREADY LIVE ONE LAYER OVER.** `../api/instruments/manman_drum.json` — outside this harness, in the
+CodexMusica tree, and spelled relative to it so the path check resolves
+it rather than reading a true citation as a false one —
+declares `manman_kase` with `match_tokens: ["break"]` — the Haitian drummed
+cue that *starts and stops* an ensemble — while
+`quality/fixtures/string_meter.blueprint.json` declares a section named
+`break`, the English instrumental gap. **One token, two traditions, opposite
+functions.** `as_function(value)` takes one argument; `_FUNCTION_ALIASES`
+guards alias-shadowing and nothing guards two traditions claiming one name.
+
+**AND IT IS NOT ONLY REFUSALS.** The same defect runs through the positive
+table: `SECTION_FUNCTIONS` declares 21 functions on bare names, so `bridge`
+means the POP bridge — declared four ways over (`recurrence="once"`,
+`contrasts_with=("verse","chorus")`, the middle-8 aliases, `bridge_contrast()`
+and `BRIDGE_IS_A_VERSE`) — and **the sonata bridge is a `connective` that
+RECURS**, which the same row cannot also mean. Two more false friends found
+the same day: fugal vs sonata *exposition*, and *stretto* vs *stretta*.
+
+**WHAT IS OWED is a coordinate, not a bigger table:** a mark and a function
+resolve under a declared LANGUAGE (or tradition), the way the phonology
+already dispatches on the filename prefix (doctrine 45). `RESULTS_MARK_
+COVERAGE.md`'s adopted answer — a global closed FUNCTION vocabulary with
+per-tradition NAME rows — is exactly the shape that fixes this, and this entry
+is the mechanical half of it. Until it exists, **every refusal reason in the
+table is true only of the tradition that wrote it**, and no reader is told
+which one that was.
+
+### M-25 · Three staging defects the marks cannot show, found by asking sixteen traditions at once `OPEN`
+**Found 2026-08-21. Each is a file whose own header or content contradicts how
+it is marked, and none is visible to any current check.**
+
+**(a) A printed section heading typed as sung verse — 17 blocks.** Measured
+over `corpus/song/eng_*.txt`: 17 one-line `[VERSE]` blocks whose entire lyric
+is a printed heading — `Recitativo` ×8, `Air` ×8, `FINALE` ×1, in
+`eng_celtic_robert_burns.txt` (16) and `eng_oxford_theodore_watts_dunton.txt`
+(1). Burns's *The Jolly Beggars: A Cantata* opens `[VERSE 1]` / `Recitativo` /
+`[VERSE 2]`. **These are apparatus scored as words**: they enter MATTR, the
+rhyme graph and every per-line rate. It is the same object
+`MARK_REFUSED["PART"]` refuses in Finnish, escaping only because the printer
+did not use brackets — and the cantata's *Air* headings are the named-air
+field (`M-11`) printed in the body.
+
+**(b) A file that declares a structure it does not carry.**
+`corpus/song/ltc_huajianji.txt`'s header states *"`[VERSE n]` marks a 片
+(pian) — the stanza the TUNE divides"*, and the file holds **500 poems and
+exactly 500 `[VERSE]` marks: zero 片 boundaries.** Its 更漏子, a canonical
+雙調 in two equal halves, is one block. All **9,023** real 片 boundaries in
+the corpus are in the 66 `ltc_siku_kr4j*` files. One ltc file states the
+convention and another implements it, and nothing compares the two.
+
+**(c) The boundary has ONE witness, and it is not the spec.** Recorded here
+because it bounds what `M-23` can claim for `ltc`: the 片 break comes from the
+1782 woodblock's full-width space, not from the 欽定詞譜, whose seven columns
+hold no partition above the line. **And the rhyme cannot supply it** —
+measured, **7,374 of 8,982** two-片 poems (82.1%) have ONE rhyme group
+spanning all 片, and **8,971 of 8,982** (99.9%) boundaries sit on a rhyming
+line end indistinguishable from every other 韻. So the ci corpus supports a
+SECTION claim and **specifically refutes a rhyme-partition one**, which is the
+opposite of what `M-23` assumed for this language and is the sharper reading.
+
+**Also measured and not repaired:** `0 of 8,982` two-片 poems show a verbatim
+片1↔片2 return, so nothing in a ci is `goal` — the "換頭 is a bridge the
+vocabulary cannot ask about" worry (`RESULTS_MARK_COVERAGE.md` §5) **dies on
+its own evidence**: 換頭 is the altered opening LINES of the second 片, a
+phrase-layer object, its complement is 重頭, and the boundary's own name is
+過片. The 66 headers use 換頭 where 過片 is the word, and **5,022 of 8,982
+(55.9%) two-片 poems have equal-length halves**, so the term is indicatively
+wrong for a majority of the poems those headers describe.
+
 ## Add below this line
