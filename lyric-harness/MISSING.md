@@ -1230,11 +1230,51 @@ does not restore that claim — the population it needed is still not on disk,
 and an entry going CLOSED is not a licence to un-withdraw a number (doctrine
 17). What is closed is the DEFECT, which was never the arithmetic.
 
-### M-2 · `data/qieyun_mc.tsv` is keyed on ONE orthographic norm `OPEN`
-**TESTED WHILE OPEN.** `test_ltc.py` names this entry to record that one of
-its claims is FALSIFIED — 你 is in the rime book under 伱 — while the entry
-as a whole stands. A test that refutes part of an entry is a reason to READ
-the entry, not evidence it closed (`quality/triage.py`).
+### M-2 · `data/qieyun_mc.tsv` is keyed on ONE orthographic norm `CLOSED`
+**CLOSED 2026-08-21, AND THE DECLARATION THAT STOOD HERE FOR TWO HOURS WAS
+MINE AND WAS WRONG.** `quality/triage.py` flagged this entry CONTESTED —
+open, and a regression names it — which is exactly the state it was in. It
+was resolved by writing *"the entry as a whole stands"* WITHOUT READING THE
+ENTRY. That is the failure the CONTESTED bucket exists to prevent, committed
+by the same sitting that built the bucket. A declaration is only honest for
+an entry someone has checked; otherwise it is a silencer with a date on it.
+
+**MEASURED, every clause of this entry, 2026-08-21:**
+
+| the entry says | today |
+|---|---|
+| 魂 cannot be looked up | reads, `via` **䰟** |
+| 窗 absent, 窓/牕/窻 present | 窗 reads, `via` **窓** |
+| 19 recoverable by an 異體字 map | **19 of 19 read** |
+| 你 is vernacular, refusal correct | reads `via` **伱** — this entry's own falsified clause |
+| nothing tells an ingestion defect from a correct refusal | `refusal()` returns the KIND |
+| 諄/真/殷/桓/戈 name groups the data does not | authority moved to `data/ltc_rhyme_standards.tsv`, which agrees with the data |
+| the docstring cites 193 rhymes | it cites 58 韻系 and says 193 was never the number in the file |
+
+`data/qieyun_variants.tsv` is the mechanism and it does not touch the CC0
+original: **7,258 rows — 810 RECOVERED** to a variant that is in the rime
+book, **6,255 REFUSED with a declared kind** (後起 4,073, 簡化 2,181, 未載 1),
+and **193 混同** which READ and carry a disclosed `hazard()`. The three
+buckets are counted apart and reconcile to the row count exactly (doctrine
+79). On the 19 arrows plus 你 and 來, `variants=True` reads **21 of 21** and
+`variants=False` reads **1** — which is what the map buys, measured rather
+than asserted.
+
+**THE SHARPEST PART IS THE ONE THIS ENTRY ASKED FOR LAST.** *"Nothing
+currently tells an ingestion defect from a correct refusal"* is answered in
+TWO methods, not one, and the split is finer than the ask: `refusal()`
+answers for a character that does NOT read (後起 = postdates the rime book,
+correct; 簡化 = a simplified form, an ingestion defect), and `hazard()`
+answers for one that DOES read but may be returning another word's rhyme.
+**无, 云 and 丽 — the exact three this entry names as OpenCC's silent
+failures — read, and each discloses its hazard** (无無, 云雲, 麗). The
+loud half and the silent half of the OpenCC problem are separated,
+mechanically.
+
+**What is NOT closed by this and is not claimed:** the simplified-corpus
+figures in this entry (70.95% against 99.03%, 31.7% of line-final positions
+unreadable) were measured on a corpus that is not staged, and are not
+re-derived here.
 **魂 — the character that NAMES the 魂 rhyme group — cannot be looked up**, while
 477 characters carry 魂 as their rhyme label. 窗 is absent; 窓/牕/窻 are present.
 Of the 24 commonest unreadable characters in a real ci corpus, **19 are

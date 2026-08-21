@@ -68,8 +68,15 @@ def test_the_status_vocabulary():
     # MEASURED off BACKLOG.md, not assumed: missing BUILT put `3.6 Corpus
     # adversary` — whose heading says BUILT 2026-08-11 — at the head of the
     # queue, and missing DECIDED did the same for 4.4.
+    # CLOSED-SIDE ONLY, and that is the repair rather than a fresher literal.
+    # This list read `("2.2", True)` until 2.2 closed four hours later, which
+    # is the pinned-literal defect this whole sitting has been removing —
+    # committed inside the test written to remove it. A CLOSED entry stays
+    # closed (doctrine 17 keeps the marker), so these four are stable; whether
+    # any given entry is OPEN is exactly the volatile fact, and it is asserted
+    # as a POPULATION below instead of per key.
     for key, want in (("3.6", False), ("4.4", False), ("1.5", False),
-                      ("2.1", False), ("2.2", True), ("2.6", True)):
+                      ("2.1", False)):
         e = BY.get(key)
         if e is None:
             check("BACKLOG %s is in the population" % key, False)
@@ -77,6 +84,11 @@ def test_the_status_vocabulary():
         check("BACKLOG %s reads %s" % (key, "OPEN" if want else "closed"),
               e.is_open is want, "status=%s title=%r" % (e.status,
                                                         e.title[:44]))
+    opens = [e for e in ENTRIES if e.source == "BACKLOG.md" and e.is_open]
+    check("...and the OPEN side is asserted as a population, not per key — "
+          "some BACKLOG entry still reads open",
+          bool(opens), "%d open: %s"
+          % (len(opens), ", ".join(e.key for e in opens[:6])))
     check("a heading's own code spans survive into the title — stripping "
           "from the first backtick turned 2.4's title into the word 'The'",
           BY["2.2"].title.startswith("`qieyun_mc.tsv`"),
@@ -130,6 +142,17 @@ def test_the_signal_was_validated_backwards():
           not BY["2.1"].tests and bool(BY["M-1"].tests),
           "2.1 tests=%s | M-1 tests=%s"
           % (BY["2.1"].tests or "none", ", ".join(BY["M-1"].tests)))
+    # THE SELF-REFERENCE GUARD, and it earned itself the same day. THIS FILE
+    # names 2.1 in the check above — to assert nothing names it — and for one
+    # commit the scan counted that as a citation, making the check refute
+    # itself. `triage.SELF` excludes the instrument AND its suite.
+    check("neither this file nor triage.py is counted as evidence about any "
+          "entry",
+          not any(os.path.basename(f) in T.SELF
+                  for e in ENTRIES for f in e.tests + e.code),
+          "offenders: %s"
+          % sorted({f for e in ENTRIES for f in e.tests + e.code
+                    if os.path.basename(f) in T.SELF}))
 
 
 def test_the_escape_hatch_is_two_sided():

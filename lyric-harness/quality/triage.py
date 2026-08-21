@@ -58,6 +58,18 @@ THE FOUR BUCKETS, COUNTED APART AND NEVER SUMMED (doctrine 79):
                   correct tests of an open entry and they are declared, not
                   silenced.
 
+                  **A DECLARATION IS A CLAIM THAT SOMEBODY READ THE ENTRY,
+                  and the first sitting to use this bucket got that wrong.**
+                  Nine entries were contested on 2026-08-21 and M-2 was
+                  declared with the words "the entry as a whole stands"
+                  WITHOUT the entry being read. It did not stand: every
+                  clause of it had shipped -- the 異體字 map, the refusal
+                  taxonomy, the group-name authority -- and it closed two
+                  hours later. Declaring is CHEAPER than checking and looks
+                  identical afterwards, which is the whole hazard. If the
+                  entry has not been read, it is still CONTESTED; leave it
+                  red.
+
   GUARDED         closed, and a test names it. The healthy shape, and it is
                   printed rather than dropped: a bucket that only ever
                   reports problems cannot be told from one that is broken.
@@ -140,6 +152,15 @@ def clean_title(head):
         prev = head
         head = TITLE_TAIL_RE.sub("", head)
     return head.strip(" —-")
+
+#: THIS INSTRUMENT AND ITS OWN SUITE ARE NOT EVIDENCE ABOUT ANY ENTRY. Both
+#: name entry ids constantly — as worked examples in prose, and as FIXTURES in
+#: the tests — and counting that as a citation makes the queue self-confirming.
+#: `triage.py` was excluded from the first draft; `test_triage.py` was NOT, and
+#: within a day it had credited itself with guarding `BACKLOG 2.1`, which it
+#: mentions only to assert that NOTHING names 2.1. A test that discusses an
+#: entry is not a regression for it.
+SELF = ("triage.py", "test_triage.py")
 
 #: A MISSING id cited in code must have the word MISSING near it. MEASURED:
 #: without that requirement `A-1` matches the `[A-1]` REFRAIN NOTATION in
@@ -247,9 +268,7 @@ def scan(entries):
     m_re = re.compile(r"MISSING(?:\.md)?[^\n]{0,%d}?\b([A-Z]-\d+[a-z]?)\b"
                       % MISSING_NEAR)
     for rel in _tracked("*.py", "*.js", "*.mjs"):
-        if os.path.basename(rel) in ("triage.py",):
-            # This file names every id it has ever discussed; counting its own
-            # prose as evidence would make the queue self-confirming.
+        if os.path.basename(rel) in SELF:
             continue
         try:
             text = open(os.path.join(ROOT, rel), encoding="utf-8",

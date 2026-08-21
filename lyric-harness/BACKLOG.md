@@ -295,7 +295,15 @@ buys 韻 +0.4 pp against 句 +5.2 pp. 詞林正韻 keeps those halves apart and 
 does this module; where a tune licenses 平仄通叶 that is the TUNE's licence to
 grant, not the phonology's.
 
-### 2.2 · `qieyun_mc.tsv` is keyed on one orthographic norm `M-2`
+### 2.2 · `qieyun_mc.tsv` is keyed on one orthographic norm `M-2` — `CLOSED 2026-08-21`
+**SHIPPED AS `data/qieyun_variants.tsv`, and the CC0 original is untouched.**
+All 19 異體字 arrows read (`variants=True` reads 21 of 21 on the arrows plus
+你 and 來; `variants=False` reads 1), 魂 resolves `via` 䰟, and the refusal
+this entry's last sentence asks for is TWO methods rather than one —
+`refusal()` for a character that does not read, `hazard()` for one that
+reads and may be another word's. See `MISSING.md` M-2 for the full table and
+for the declaration that stood here wrongly for two hours.
+
 The character that NAMES the 魂 rhyme group cannot be looked up, while 477
 characters carry 魂 as their label. ~~**23**~~ **19 of the 24 commonest
 unreadable characters are recoverable by an 異體字 map** to a variant already in
@@ -1231,7 +1239,7 @@ never one (doctrine 79).
 <!-- COUNTERS -->
 | counter | measured | measured by |
 |---|---|---|
-| MISSING entries by status | 47 OPEN / 15 PARTIAL / 2 BLOCKED / 11 CLOSED = 75 entries | `python3 quality/counters.py` |
+| MISSING entries by status | 46 OPEN / 15 PARTIAL / 2 BLOCKED / 12 CLOSED = 75 entries | `python3 quality/counters.py` |
 | doctrines | **95**, a contiguous run 1–95 with no number in both files (20 in `CLAUDE.md`, 75 in `quality/METHOD.md`) | `python3 quality/verify_doctrines.py` |
 | stranded modules | **0** — every production module is imported or has a `__main__`; `rhyme_constraints.py` is 1,652 lines with a `__main__` and 1 non-test caller (`relations.py`), so it is kept on an argument and the DECISION is still owed (M-16) | `python3 lyric_harness.py wiring` |
 | public symbols by where they are referenced | **1125** DECLARED-public top-level functions/classes under `quality/` and the root — **186** named by another production module, **302** by tests only, **570** only inside their own module, **11** by nothing anywhere, **56** REFUSED (40 ambiguous, 9 dynamic, 7 shadowed). Reference, NOT execution: a symbol whose only caller is itself dead still counts named. DECLARED: the population is `__all__` where the module declares one, so a lot adding a public `def` moves the total only where there is no `__all__` to omit it — **20** public top-level defs are outside this count for that reason and are listed in the evidence. This row is a READING OF THE TREE AT RUN TIME and it moves: the NOWHERE bucket is a queue under active repair, not a settled property — so a FAIL here is that movement, cleared by `--write`, and the figures are quotable only with the run that produced them | `python3 quality/counters.py` |
