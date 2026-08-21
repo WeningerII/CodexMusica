@@ -247,6 +247,64 @@ is a different cell's to move.
 
 ---
 
+## 4·R — REPINNED 2026-08-20 at the frozen corpus, and the confounded
+feature is NOT the one this section named
+
+The closing sitting re-derived §4 over the loaded corpus: **407 dated
+authors, born 1340-1888, median 1810** against the **108, born
+1563-1872** below. Nothing here is tuned; the same command, the same
+seed, the same null, a corpus 3.8x wider on the author axis.
+
+| check | rho @108 | p @108 | rho @407 | p @407 | |
+|---|---:|---:|---:|---:|---|
+| `mattr` | −0.228 | 0.0180 | **−0.125** | **0.0103** | **now SURVIVES** |
+| `fwr` | +0.090 | 0.3503 | **+0.144** | **0.0046** | **now SURVIVES** |
+| `anaphora` | **+0.275** | **0.0042** | −0.008 | 0.8695 | **GONE** |
+| `cv` | +0.171 | 0.0734 | +0.090 | 0.0712 | still does not survive |
+
+**THE HEADLINE: anaphora's period slope does not reproduce.** It was
++0.275 at p 0.0042 and is −0.008 at p 0.8695 — not weaker, ABSENT, and
+sign-flipped. The sentence below, *"So anaphora is a third feature
+caught reading period rather than quality"*, is the claim this repin
+withdraws. It is kept visible rather than deleted (doctrine 17), and
+the `ANAPHORA_OVERLOAD` finding text still carries it, which is now a
+stale claim inside a shipped message and is named here so it can be
+repaired deliberately rather than discovered.
+
+**AND THE CONFOUND DID NOT VANISH — IT RELOCATED.** `mattr` and `fwr`
+both survive Bonferroni now, at the same SIGNS they already had and
+with 3.8x the authors: what changed is the power, not the direction.
+§4b agrees independently on `fwr` — EARLY→LATE threshold transfer at
+**11.87% observed against a 5.88% null median, p 0.0005 SURVIVES**. So
+the population of period-reading features is still about two; the
+IDENTITY of them is what this corpus overturns.
+
+**THE POPULATION CAVEAT, STATED RATHER THAN BURIED.** 407 of 879
+in-band authors carry printed dates; **472 are UNDATED and dropped from
+this check alone**. They are not missing at random — they are
+disproportionately the anthology material whose editions print no dates
+for their authors, plus the 125 Modern Scottish Minstrel files whose
+derived dates were WITHDRAWN. So this is a correlation over a BIASED
+46% subsample, and it is quoted as one. It is enough to withdraw the
+anaphora claim (an effect that large should not evaporate on a wider,
+better-powered sample) and it is NOT enough to adopt `mattr`/`fwr` as
+settled period confounds. Doctrine 11's own count is the owner's to
+move; this section reports the measurement.
+
+**NO CONSTANT IS REPINNED ON THIS RUN, AND THAT IS A DECISION.** The
+`--check` answered 15 of 20 and REFUSED 5 — every predictability-
+dependent one — because the expensive half needs the item cache and the
+container this ran in restarts before it can finish. Three thresholds
+drifted (`mattr` 0.7226→0.7128, `fwr` 0.4716→0.4773, `cv`
+0.1123→0.1094) while all five held-out FPRs stayed on target and
+`anaphora` did not move at all. Adopting three of the five and leaving
+`predictability` at its old value would make `floor.py`'s `song`
+profile half a description of one corpus and half of another — one
+question, two answers, in one object (doctrine 1). The profile is
+adopted as a SET or not at all, so it is not adopted here.
+
+---
+
 ## 4. The period confound, measured (doctrine 11)
 
 The corpus is pre-1931 by construction. In the band: **108 authors, born
