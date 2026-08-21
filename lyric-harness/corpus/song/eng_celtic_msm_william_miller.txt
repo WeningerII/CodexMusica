@@ -3,11 +3,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1872, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('WILLIAM MILLER'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 1
+# songs: 2
 
 --- TITLE: YE COWE A'  [air: Comin' through the rye]
 --- SOURCE: PG22515
@@ -39,3 +41,26 @@ Quo' she, "I 'd need anither week to mak a gown mair braw;"
 "The gown ye hae, we 'll mak it do!" "Oh, ye cowe a'!
     Oh, ye cowe a'!" quo' she; "oh, ye cowe a'!
 But wilfu' folk maun hae their way--oh, ye cowe a'!"
+
+--- TITLE: WILLIE WINKIE
+--- SOURCE: PG2619
+[VERSE 1]
+Wee Willie Winkie rins through the town,
+Upstairs and doon stairs, in his nicht-gown,
+Tirlin' at the window, cryin' at the lock,
+"Are the weans in their bed?--for it's noo ten o'clock."
+[VERSE 2]
+Hey, Willie Winkie! are ye comin' ben?
+The cat's singin' gay thrums to the sleepin' hen,
+The doug's speldered on the floor, and disna gie a cheep;
+But here's a waukrife laddie, that winna fa' asleep.
+[VERSE 3]
+Onything but sleep, ye rogue!--glowrin' like the moon,
+Rattlin' in an airn jug wi' an airn spoon,
+Rumblin', tumblin' roun' about, crawin' like a cock,
+Skirlin' like a kenna-what--wauknin' sleepin' folk!
+[VERSE 4]
+Hey, Willie Winkie! the wean's in a creel!
+Waumblin' aff a bodie's knee like a vera eel,
+Ruggin' at the cat's lug, and ravellin' a' her thrums:
+Hey, Willie Winkie!--See, there he comes!

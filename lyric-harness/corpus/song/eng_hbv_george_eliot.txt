@@ -1,0 +1,79 @@
+# author: George Eliot (1819-1880)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1880, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1880, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: "I Am Lonely"
+--- SOURCE: PG2619
+[VERSE 1]
+The world is great: the birds all fly from me,
+The stars are golden fruit upon a tree
+All out of reach: my little sister went,
+And I am lonely.
+[VERSE 2]
+The world is great: I tried to mount the hill
+Above the pines, where the light lies so still,
+But it rose higher: little Lisa went
+And I am lonely.
+[VERSE 3]
+The world is great: the wind comes rushing by.
+I wonder where it comes from; sea birds cry
+And hurt my heart: my little sister went,
+And I am lonely.
+[VERSE 4]
+The world is great: the people laugh and talk,
+And make loud holiday: how fast they walk!
+I'm lame, they push me: little Lisa went,
+And I am lonely.
+
+--- TITLE: TWO LOVERS
+--- SOURCE: PG2620
+[VERSE 1]
+Two lovers by a moss-grown spring:
+They leaned soft cheeks together there,
+Mingled the dark and sunny hair,
+And heard the wooing thrashes sing.
+O budding time!
+O love's blest prime!
+[VERSE 2]
+Two wedded from the portal stept:
+The bells made happy carolings,
+The air was soft as fanning wings,
+White petals on the pathway slept.
+O pure-eyed bride!
+O tender pride!
+[VERSE 3]
+Two faces o'er a cradle bent:
+Two hands above the head were locked:
+These pressed each other while they rocked,
+Those watched a life that love had sent.
+O solemn hour!
+O hidden power!
+[VERSE 4]
+Two parents by the evening fire:
+The red light fell about their knees
+On heads that rose by slow degrees
+Like buds upon the lily spire.
+O patient life!
+O tender strife!
+[VERSE 5]
+The two still sat together there,
+The red light shone about their knees;
+But all the heads by slow degrees
+Had gone and left that lonely pair.
+O voyage fast!
+O vanished past!
+[VERSE 6]
+The red light shone upon the floor
+And made the space between them wide;
+They drew their chairs up side by side,
+Their pale cheeks joined, and said, "Once more!"
+O memories!
+O past that is!

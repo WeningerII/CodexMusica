@@ -6,6 +6,10 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1878, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1878, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -853,3 +857,97 @@ And thou, the new-beginning age,
   Warned by the past, and not in vain,
 Write on a fairer, whiter page,
   The record of thy happier reign.
+
+--- TITLE: The Gladness of Nature
+--- SOURCE: PG2619
+[VERSE 1]
+Is this a time to be cloudy and sad,
+When our mother Nature laughs around;
+When even the deep blue heavens look glad,
+And gladness breathes from the blossoming ground?
+[VERSE 2]
+There are notes of joy from the hang-bird and wren,
+And the gossip of swallows through all the sky;
+The ground-squirrel gaily chirps by his den,
+And the wilding bee hums merrily by.
+[VERSE 3]
+The clouds are at play in the azure space
+And their shadows at play on the bright-green vale,
+And here they stretch to the frolic chase,
+And there they roll on the easy gale.
+[VERSE 4]
+There's a dance of leaves in that aspen bower,
+There's a titter of winds in that beechen tree,
+There's a smile on the fruit, and a smile on the flower,
+And a laugh from the brook that runs to the sea.
+[VERSE 5]
+And look at the broad-faced sun, how he smiles
+On the dewy earth that smiles in his ray,
+On the leaping waters and gay young isles;
+Ay, look, and he'll smile thy gloom away.
+
+--- TITLE: The Snow-Shower
+--- SOURCE: PG2621
+[VERSE 1]
+Stand here by my side and turn, I pray,
+On the lake below thy gentle eyes;
+The clouds hang over it, heavy and gray,
+And dark and silent the water lies;
+And out of that frozen mist the snow
+In wavering flakes begins to flow;
+Flake after flake
+They sink in the dark and silent lake.
+[VERSE 2]
+See how in a living swarm they come
+From the chambers beyond that misty veil;
+Some hover in air awhile, and some
+Rush prone from the sky like summer hail.
+All, dropping swiftly, or settling slow,
+Meet, and are still in the depths below;
+Flake after flake
+Dissolved in the dark and silent lake.
+[VERSE 3]
+Here delicate snow-stars, out of the cloud,
+Come floating downward in airy play,
+Like spangles dropped from the glistening crowd
+That whiten by night the Milky Way;
+There broader and burlier masses fall;
+The sullen water buries them all,--
+Flake after flake,--
+All drowned in the dark and silent lake.
+[VERSE 4]
+And some, as on tender wings they glide
+From their chilly birth-cloud, dim and gray,
+Are joined in their fall, and, side by side,
+Come clinging along their unsteady way;
+As friend with friend, or husband with wife,
+Makes hand in hand the passage of life;
+Each mated flake
+Soon sinks in the dark and silent lake.
+[VERSE 5]
+Lo! while we are gazing, in swifter haste
+Stream down the snows, till the air is white,
+As, myriads by myriads madly chased,
+They fling themselves from their shadowy height.
+The fair, frail creatures of middle sky,
+What speed they make, with their grave so nigh;
+Flake after flake
+To lie in the dark and silent lake.
+[VERSE 6]
+I see in thy gentle eyes a tear;
+They turn to me in sorrowful thought;
+Thou thinkest of friends, the good and dear,
+Who were for a time, and now are not;
+Like these fair children of cloud and frost,
+That glisten a moment and then are lost,--
+Flake after flake,--
+All lost in the dark and silent lake.
+[VERSE 7]
+Yet look again, for the clouds divide;
+A gleam of blue on the water lies;
+And far away, on the mountain-side,
+A sunbeam falls from the opening skies;
+But the hurrying host that flew between
+The cloud and the water no more is seen;
+Flake after flake,
+At rest in the dark and silent lake.

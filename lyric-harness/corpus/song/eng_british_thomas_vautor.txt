@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Lyrics-from-the-Song-Books-of-the-Elizabethan-Age_27129 27129-8.txt md5 479c1f1520efae34eb3d4d8303ba2274 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1887 (London: John C. Nimmo) -- Lyrics from the Song-Books of the Elizabethan Age, ed. A. H. Bullen
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1616, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own 'From COMPOSER's _Book_, YEAR' heading and first-line index credit; the credited person is the song-book's composer, the edition's own attribution structure
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 3
 
 --- TITLE: Mother, I will have a husband
 --- SOURCE: PG27129
@@ -43,3 +45,16 @@ Thy note, that forth so freely rolls,
 With shrill command the mouse controls,
 And sings a dirge for dying souls,
     Te whit, te whoo!
+
+--- TITLE: "Sweet Suffolk Owl"
+--- SOURCE: PG2621
+[VERSE 1]
+Sweet Suffolk owl, so trimly dight
+With feathers, like a lady bright;
+Thou sing'st alone, sitting by night,
+"Te whit!  Te whoo!"
+[VERSE 2]
+Thy note that forth so freely rolls
+With shrill command the mouse controls;
+And sings a dirge for dying souls.
+"Te whit!  Te whoo!"

@@ -1,0 +1,38 @@
+# author: Sarah M. B. Piatt (1836-1919)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1919, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: Into the World and Out
+--- SOURCE: PG2619
+[VERSE 1]
+Into the world he looked with sweet surprise;
+The children laughed so when they saw his eyes.
+[VERSE 2]
+Into the world a rosy hand in doubt
+He reached--a pale hand took one rosebud out.
+[VERSE 3]
+"And that was all--quite all!"  No, surely!  But
+The children cried so when his eyes were shut.
+
+--- TITLE: After Wings
+--- SOURCE: PG2619
+[VERSE 1]
+This was your butterfly, you see,--
+His fine wings made him vain:
+The caterpillars crawl, but he
+Passed them in rich disdain.--
+My pretty boy says, "Let him be
+Only a worm again!"
+[VERSE 2]
+O child, when things have learned to wear
+Wings once, they must be fain
+To keep them always high and fair:
+Think of the creeping pain
+Which even a butterfly must bear
+To be a worm again!

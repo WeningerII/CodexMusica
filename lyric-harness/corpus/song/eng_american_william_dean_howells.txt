@@ -6,10 +6,12 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1920, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 4
 
 --- TITLE: In August
 --- SOURCE: PG15553
@@ -74,3 +76,61 @@ While the day and the night out of heaven shed their glory,
     Oh, soft be the gales when they go
     Through the pines on the summit where they blow,
 Chanting solemn music for the souls that passed below.
+
+--- TITLE: The Song the Oriole Sings
+--- SOURCE: PG2621
+[VERSE 1]
+There is a bird that comes and sings
+In a professor's garden-trees;
+Upon the English oak he swings,
+And tilts and tosses in the breeze.
+[VERSE 2]
+I know his name, I know his note,
+That so with rapture takes my soul;
+Like flame the gold beneath his throat,
+His glossy cope is black as coal.
+[VERSE 3]
+O oriole, it is the song
+You sang me from the cottonwood,
+Too young to feel that I was young,
+Too glad to guess if life were good.
+[VERSE 4]
+And while I hark, before my door,
+Adown the dusty Concord Road,
+The blue Miami flows once more
+As by the cottonwood it flowed.
+[VERSE 5]
+And on the bank that rises steep,
+And pours a thousand tiny rills,
+From death and absence laugh and leap
+My school-mates to their flutter-mills.
+[VERSE 6]
+The blackbirds jangle in the tops
+Of hoary-antlered sycamores;
+The timorous killdee starts and stops
+Among the drift-wood on the shores.
+[VERSE 7]
+Below, the bridge--a noonday fear
+Of dust and shadow shot with sun--
+Stretches its gloom from pier to pier,
+Far unto alien coasts unknown.
+[VERSE 8]
+And on these alien coasts, above,
+Where silver ripples break the stream's
+Long blue, from some roof-sheltering grove
+A hidden parrot scolds and screams.
+[VERSE 9]
+Ah, nothing, nothing!  Commonest things:
+A touch, a glimpse, a sound, a breath--
+It is a song the oriole sings--
+And all the rest belongs to death.
+[VERSE 10]
+But oriole, my oriole,
+Were some bright seraph sent from bliss
+With songs of heaven to win my soul
+From simple memories such as this,
+[VERSE 11]
+What could he tell to tempt my ear
+From you?  What high thing could there be,
+So tenderly and sweetly dear
+As my lost boyhood is to me?

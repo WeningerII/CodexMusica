@@ -3,10 +3,16 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1918, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1918, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1918, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 2
+# songs: 6
 
 --- TITLE: THE WHITE SHIPS AND THE RED
 --- SOURCE: PG47476
@@ -168,3 +174,156 @@ And your memory shine like the morning-star.
 Brave and dear,
 Shield us here.
 Farewell!"
+
+--- TITLE: Gates and Doors
+--- SOURCE: PG2619
+[VERSE 1]
+There was a gentle hostler
+(And blessed be his name!)
+He opened up the stable
+The night Our Lady came.
+Our Lady and St. Joseph,
+He gave them food and bed,
+And Jesus Christ has given him
+A glory round his head.
+[VERSE 2]
+So let the gate swing open
+However poor the yard,
+Lest weary People visit you
+And find their Passage barred.
+Unlatch the door at midnight
+And let your lantern's glow
+Shine out to guide the traveler's feet
+To you across the snow.
+[VERSE 3]
+There was a courteous hostler
+(He is in Heaven to-night)
+He held Our Lady's bridle
+And helped her to alight.
+He spread clean straw before her
+Whereon she might lie down,
+And Jesus Christ has given him
+An everlasting crown.
+[VERSE 4]
+Unlock the door this evening
+And let your gate swing wide,
+Let all who ask for shelter
+Come speedily inside.
+What if your yard be narrow?
+What if your house be small?
+There is a Guest is coming
+Will glorify it all.
+[VERSE 5]
+There was a joyous hostler
+Who knelt on Christmas morn
+Beside the radiant manger
+Wherein his Lord was born.
+His heart was full of laughter,
+His soul was full of bliss
+When Jesus, on His Mother's lap,
+Gave him His hand to kiss.
+[VERSE 6]
+Unbar your heart this evening
+And keep no stranger out,
+Take from your soul's great portal
+The barrier of doubt.
+To humble folk and weary
+Give hearty welcoming,
+Your breast shall be to-morrow
+The cradle of a King.
+
+--- TITLE: BALLADE OF MY LADY'S BEAUTY
+--- SOURCE: PG2620
+[VERSE 1]
+Squire Adam had two wives, they say,
+Two wives had he for his delight;
+He kissed and clypt them all the day,
+And clypt and kissed them all the night.
+Now Eve like ocean foam was white,
+And Lilith, roses dipped in wine,
+But though they were a goodly sight,
+No lady is so fair as mine.
+[VERSE 2]
+To Venus some folk tribute pay,
+And Queen of Beauty she is hight,
+And Sainte Marie the world doth sway,
+In cerule napery bedight.
+My wonderment these twain invite,
+Their comeliness it is divine;
+And yet I say in their despite,
+No lady is so fair as mine.
+[VERSE 3]
+Dame Helen caused a grievous fray,
+For love of her brave men did fight,
+The eyes of her made sages fey
+And put their hearts in woeful plight.
+To her no rhymes will I indite,
+For her no garlands will I twine;
+Though she be made of flowers and light,
+No lady is so fair as mine.
+[VERSE 4]
+L'ENVOI
+Prince Eros, Lord of lovely might,
+Who on Olympus doth recline,
+Do I not tell the truth aright?
+No lady is so fair as mine.
+
+--- TITLE: THE KING'S BALLAD
+--- SOURCE: PG2620
+[VERSE 1]
+Good my King, in your garden close,
+(Hark to the thrush's trilling)
+Why so sad when the maiden rose
+Love at your feet is spilling?
+Golden the air and honey-sweet,
+Sapphire the sky, it is not meet
+Sorrowful faces should flowers greet,
+(Hark to the thrush's trilling).
+[VERSE 2]
+All alone walks the King to-day.
+(Hark to the thrush's trilling)
+Far from his throne he steals away
+Loneness and quiet willing.
+Roses and tulips and lilies fair
+Smile for his pleasure everywhere,
+Yet of their joyance he takes no share,
+(Hark to the thrush's trilling).
+[VERSE 3]
+Ladies wait in the palace, Sire,
+(Hark to the thrush's trilling)
+Red and white for the king's desire,
+Love-warm and sweet and thrilling;
+Breasts of moonshine and hair of night,
+Glances amorous, soft and bright,
+Nothing is lacking for your delight,
+(Hark to the thrush's trilling).
+[VERSE 4]
+Kneels the King in a grassy place,
+(Hark to the thrush's trilling)
+Little flowers under his face
+With his warm tears are filling.
+Says the King, "Here my heart lies dead
+Where my fair love is buried,
+Would I were lying here instead!"
+(Hark to the thrush's trilling).
+
+--- TITLE: Trees
+--- SOURCE: PG2621
+[VERSE 1]
+I think that I shall never see
+A poem lovely as a tree.
+[VERSE 2]
+A tree whose hungry mouth is pressed
+Against the earth's sweet flowing breast;
+[VERSE 3]
+A tree that looks at God all day
+And lifts her leafy arms to pray;
+[VERSE 4]
+A tree that may in summer wear
+A nest of robins in her hair;
+[VERSE 5]
+Upon whose bosom snow has lain;
+Who intimately lives with rain.
+[VERSE 6]
+Poems are made by fools like me,
+But only God can make a tree.

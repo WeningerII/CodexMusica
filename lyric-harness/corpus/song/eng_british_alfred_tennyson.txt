@@ -1,4 +1,4 @@
-# author: Alfred Tennyson (1809-1892)
+# author: Alfred Tennyson, Lord Tennyson (1809-1892)
 # region: english
 # source: GITenberg/The-Princess_791 791-8.txt md5 6107cce200518a3205bedd6e63bbf545
 # source: GITenberg/Maud-and-Other-Poems_56913 56913-0.txt md5 551fbdce3b0cf16366af83cf48e65e17
@@ -8,15 +8,16 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
-# edition: The-Princess — 1847 — no imprint in the file; Tennyson, The Princess, 1847
-# edition: Maud-and-Other-Poems — 1859 — detected in file: '1859.' — Maud, and Other Poems
-# edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1919 — Quiller-Couch's Oxford Book of English Verse 1250-1900; the file's own dateline is the 1250-1900 title span
-# note: The interlude SONGS of The Princess, lifted out of the blank verse that
-#       surrounds them by taking the short rhymed blocks only; plus the lyrics of
-#       the Maud volume.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1892, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1892, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1892, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
-#            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
-#--------------------------------------------------------------------------
+# merged: 2026-08-20 — eng_oxford_alfred_tennyson_lord_tennyson.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 42
+
 --- TITLE: As through the land at eve we went
 [VERSE 1]
 As through the land at eve we went,
@@ -535,3 +536,1673 @@ Whatever harmonies of law
 Thy work is thine--the single note
 From that deep chord which Hampden smote
   Will vibrate to the doom.
+
+--- TITLE: Minnie and Winnie
+--- SOURCE: PG2619
+[VERSE 1]
+Minnie and Winnie slept in a shell.
+Sleep, little ladies!  And they slept well.
+[VERSE 2]
+Pink was the shell within, silver without;
+Sounds of the great sea wandered about.
+[VERSE 3]
+Sleep, little ladies!  Wake not soon!
+Echo on echo dies to the moon.
+[VERSE 4]
+Two bright stars peeped into the shell.
+"What are they dreaming of?  Who can tell?"
+[VERSE 5]
+Started a green linnet out of the croft;
+Wake, little ladies!  The sun is aloft.
+
+--- TITLE: "What Does Little Birdie Say?"
+--- SOURCE: PG2619
+[VERSE 1]
+What does little birdie say
+In her nest at peep of day?
+Let me fly, says little birdie,
+Mother, let me fly away.
+Birdie, rest a little longer,
+Till the little wings are stronger.
+So she rests a little longer,
+Then she flies away.
+[VERSE 2]
+What does little baby say,
+In her bed at peep of day?
+Baby says, like little birdie,
+Let me rise and fly away.
+Baby, sleep a little longer,
+Till the little limbs are stronger,
+If she sleeps a little longer,
+Baby too shall fly away.
+
+--- TITLE: In the Children's Hospital
+--- SOURCE: PG2619
+[VERSE 1]
+Our doctor had called in another, I never had seen him before,
+But he sent a chill to my heart when I saw him come in at the door,
+Fresh from the surgery-schools of France and of other lands--
+Harsh red hair, big voice, big chest, big merciless hands!
+Wonderful cures he had done, O yes, but they said too of him
+He was happier using the knife than in trying to save the limb,
+And that I can well believe, for he looked so coarse and so red,
+I could think he was one of those who would break their jests on the dead,
+And mangle the living dog that had loved him and fawned  at his knee--
+Drenched with the hellish oorali--that ever such things should be!
+[VERSE 2]
+Here was a boy--I am sure that some of our children would die
+But for the voice of love, and the smile, and the comforting eye--
+Here was a boy in the ward, every bone seemed out of its place--
+Caught in a mill and crushed--it was all but a hopeless case:
+And he handled him gently enough; but his voice and his face were not kind,
+And it was but a hopeless case, he had seen it and made up his mind,
+And he said to me roughly "The lad will need little more of your care."
+"All the more need," I told him, "to seek the Lord Jesus in prayer;
+They are all His children here, and I pray for them all as my own:"
+But he turned to me, "Ay, good woman, can prayer set a broken bone?"
+Then he muttered half to himself, but I know that I heard him say,
+"All very well--but the good Lord Jesus has had his day."
+[VERSE 3]
+Had? has it come?  It has only dawned.  It will come by and by.
+O, how could I serve in the wards if the hope of the world were a lie?
+How could I bear with the sights and the loathsome smells of disease
+But that He said "Ye do it to me, when ye do it to these"?
+[VERSE 4]
+So he went.  And we passed to this ward where the younger children are laid:
+Here is the cot of our orphan, our darling, our meek little maid;
+Empty you see just now!  We have lost her who loved her so much--
+Patient of pain though as quick as a sensitive plant to the touch;
+Hers was the prettiest prattle, it often moved me to tears,
+Hers was the gratefullest heart I have found in a child of her years--
+Nay you remember our Emmie; you used to send her the flowers;
+How she would smile at 'em, play with 'em, talk to 'em hours after hours!
+[VERSE 5]
+They that can wander at will where the works of the Lord are revealed
+Little guess what joy can be got from a cowslip out of the field;
+Flowers to these "spirits in prison" are all they can know of the spring,
+They freshen and sweeten the wards like the waft of an angel's wing;
+And she lay with a flower in one hand and her thin hands crossed on
+  her breast--
+Wan, but as pretty as heart can desire, and we thought her at rest,
+Quietly sleeping--so quiet, our doctor said, "Poor little dear,
+Nurse, I must do it to-morrow; she'll never live through it, I fear."
+[VERSE 6]
+I walked with our kindly old doctor as far as the head of the stair,
+Then I returned to the ward; the child didn't see I was there.
+[VERSE 7]
+Never since I was nurse, had I been so grieved and so vexed!
+Emmie had heard him.  Softly she called from her cot to the next,
+"He says I shall never live through it; O Annie, what shall I do?"
+Annie considered.  "If I," said the wise little Annie, "was you,
+I should cry to the dear Lord Jesus to help me, for, Emmie, you see,
+It's all in the picture there: 'Little children should come to Me.'"--
+(Meaning the print that you gave us, I find that it always can please
+Our children, the dear Lord Jesus with children about His knees.)
+"Yes, and I will," said Emmie, "but then if I call to the Lord,
+How should He know that it's me? such a lot of beds in the ward?"
+That was a puzzle for Annie.  Again she considered and said:
+"Emmie, you put out your arms, and you leave 'em outside on the bed--
+The Lord has so much to see to! but, Emmie, you tell it Him plain,
+It's the little girl with her arms lying out on the counterpane."
+[VERSE 8]
+I had sat three nights by the child--I could not watch her for four--
+My brain had begun to reel--I felt I could do it no more.
+That was my sleeping-night, but I thought that it never would pass.
+There was a thunderclap once, and a clatter of hail on the glass,
+And there was a phantom cry that I heard as I tossed about,
+The motherless bleat of a lamb in the storm and the darkness without;
+My sleep was broken besides with dreams of the dreadful knife
+And fears for our delicate Emmie who scarce would escape with her life;
+Then in the gray of the morning it seemed she stood by me and smiled,
+And the doctor came at his hour, and we went to see the child.
+[VERSE 9]
+He had brought his ghastly tools: we believed her asleep again--
+Her dear, long, lean, little arms lying out on the counterpane;--
+Say that His day is done! Ah, why should we care what they say?
+The Lord of the children had heard her, and Emmie had passed away.
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+O, let the solid ground,
+Not fail beneath my feet
+Before my life has found
+What some have found so sweet;
+Then let come what come may,
+What matter if I go mad,
+I shall have had my day.
+[VERSE 2]
+Let the sweet heavens endure,
+Not close and darken above me
+Before I am quite quite sure
+That there is one to love me!
+Then let come what come may
+To a life that has been so sad,
+I shall have had my day.
+
+--- TITLE: "A VOICE BY THE CEDAR TREE"
+--- SOURCE: PG2620
+[VERSE 1]
+I
+A voice by the cedar tree,
+In the meadow under the Hall!
+She is singing an air that is known to me,
+A passionate ballad gallant and gay,
+A martial song like a trumpet's call!
+Singing alone in the morning of life,
+In the happy morning of life and of May,
+Singing of men that in battle array,
+Ready in heart and ready in hand,
+March with banner and bugle and fife
+To the death, for their native land.
+[VERSE 2]
+II
+Maud with her exquisite face,
+And wild voice pealing up to the sunny sky,
+And feet like sunny gems on an English green,
+Maud in the light of her youth and her grace,
+Singing of Death, and of Honor that cannot die,
+Till I well could weep for a time so sordid and mean,
+And myself so languid and base.
+[VERSE 3]
+III
+Silence, beautiful voice!
+Be still, for you only trouble the mind
+With a joy in which I cannot rejoice,
+A glory I shall not find.
+Still!  I will hear you no more,
+For your sweetness hardly leaves me a choice
+But to move to the meadow and fall before
+Her feet on the meadow grass, and adore,
+Not her, who is neither courtly nor kind,
+Not her, not her, but a voice.
+
+--- TITLE: LILIAN
+--- SOURCE: PG2620
+[VERSE 1]
+Airy, fairy Lilian,
+Flitting, fairy Lilian,
+When I ask her if she love me,
+Clasps her tiny hand above me,
+Laughing all she can;
+She'll not tell me if she love me,
+Cruel little Lilian.
+[VERSE 2]
+When my passion seeks
+Pleasance in love-sighs,
+She, looking through and through me,
+Thoroughly to undo me,
+Smiling, never speaks:
+So innocent-arch, so cunning-simple,
+From beneath her gathered wimple
+Glancing with black-beaded eyes,
+Till the lightning laughters dimple
+The baby-roses in her cheeks;
+Then away she flies.
+[VERSE 3]
+Prithee weep, May Lilian!
+Gaiety without eclipse
+Wearieth me, May Lilian:
+Through my very heart it thrilleth,
+When from crimson-threaded lips
+Silver-treble laughter thrilleth:
+Prithee weep, May Lilian!
+[VERSE 4]
+Praying all I can,
+If prayers will not hush thee,
+Airy Lilian,
+Like a rose-leaf I will crush thee,
+Fairy Lilian.
+
+--- TITLE: SONG OF THE MILKMAID
+--- SOURCE: PG2620
+[VERSE 1]
+Shame upon you, Robin,
+Shame upon you now!
+Kiss me would you? with my hands
+Milking the cow?
+Daisies grow again,
+Kingcups blow again,
+And you came and kissed me milking the cow.
+[VERSE 2]
+Robin came behind me,
+Kissed me well, I vow;
+Cuff him could I? with my hands
+Milking the cow?
+Swallows fly again,
+Cuckoos cry again,
+And you came and kissed me milking the cow.
+[VERSE 3]
+Come, Robin, Robin,
+Come and kiss me now;
+Help it can I? with my hands
+Milking the cow?
+Ringdoves coo again,
+All things woo again,
+Come behind and kiss me milking the cow!
+
+--- TITLE: LADY CLARA VERE DE VERE
+--- SOURCE: PG2620
+[VERSE 1]
+Lady Clara Vere de Vere,
+Of me you shall not win renown:
+You thought to break a country heart
+For pastime, ere you went to town.
+At me you smiled, but unbeguiled
+I saw the snare, and I retired:
+The daughter of a hundred earls,
+You are not one to be desired.
+[VERSE 2]
+Lady Clara Vere de Vere,
+I know you proud to bear your name,
+Your pride is yet no mate for mine,
+Too proud to care from whence I came.
+Nor would I break for your sweet sake
+A heart that dotes on truer charms.
+A simple maiden in her flower
+Is worth a hundred coats-of-arms.
+[VERSE 3]
+Lady Clara Vere de Vere,
+Some meeker pupil you must find,
+For, were you queen of all that is,
+I could not stoop to such a mind.
+You sought to prove how I could love,
+And my disdain is my reply.
+The lion on your old stone gates
+Is not more cold to you than I.
+[VERSE 4]
+Lady Clara Vere de Vere,
+You put strange memories in my head.
+Not thrice your branching limes have blown
+Since I beheld young Laurence dead.
+O, your sweet eyes, your low replies!
+A great enchantress you may be;
+But there was that across his throat
+Which you had hardly cared to see.
+[VERSE 5]
+Lady Clara Vere de Vere,
+When thus he met his mother's view,
+She had the passions of her kind,
+She spake some certain truths of you.
+Indeed I heard one bitter word
+That scarce is fit for you to hear;
+Her manners had not that repose
+Which stamps the caste of Vere de Vere,
+[VERSE 6]
+Lady Clara Vere de Vere,
+There stands a specter in your hall;
+The guilt of blood is at your door;
+You changed a wholesome heart to gall.
+You held your course without remorse,
+To make him trust his modest worth,
+And, last, you fixed a vacant stare,
+And slew him with your noble birth.
+[VERSE 7]
+Trust me, Clara Vere de Vere,
+From yon blue heavens above us bent,
+The gardener Adam and his wife
+Smile at the claims of long descent.
+Howe'er it be, it seems to me,
+'Tis only noble to be good.
+Kind hearts are more than coronets,
+And simple faith than Norman blood.
+[VERSE 8]
+I know you, Clara Vere de Vere;
+You pine among your halls and towers:
+The languid light of your proud eyes
+Is wearied of the rolling hours.
+In glowing health, with boundless wealth,
+But sickening of a vague disease,
+You know so ill to deal with time,
+You needs must play such pranks as these.
+[VERSE 9]
+Clara, Clara Vere de Vere,
+If time be heavy on your hands,
+Are there no beggars at your gate,
+Nor any poor about your lands?
+O, teach the orphan-boy to read,
+Or teach the orphan-girl to sew,
+Pray Heaven for a human heart,
+And let the foolish yeoman go.
+
+--- TITLE: "O SWALLOW, SWALLOW, FLYING SOUTH"
+--- SOURCE: PG2620
+[VERSE 1]
+O Swallow, Swallow, flying, flying South,
+Fly to her, and fall upon her gilded eaves,
+And tell her, tell her what I tell to thee.
+[VERSE 2]
+O, tell her, Swallow, thou that knowest each,
+That bright and fierce and fickle is the South,
+And dark and true and tender is the North.
+[VERSE 3]
+O Swallow, Swallow, if I could follow, and light
+Upon her lattice, I would pipe and trill,
+And cheep and twitter twenty million loves.
+[VERSE 4]
+O, were I thou that she might take me in,
+And lay me on her bosom, and her heart
+Would rock the snowy cradle till I died!
+[VERSE 5]
+Why lingereth she to clothe her heart with love,
+Delaying as the tender ash delays
+To clothe herself, when all the woods are green?
+[VERSE 6]
+O, tell her, Swallow, that thy brood is flown;
+Say to her, I do but wanton in the South,
+But in the North long since my nest is made.
+[VERSE 7]
+O, tell her, brief is life but love is long,
+And brief the sun of summer in the North,
+And brief the moon of beauty in the South.
+[VERSE 8]
+O Swallow, flying from the golden woods,
+Fly to her, and pipe and woo her, and make her mine,
+And tell her, tell her, that I follow thee.
+
+--- TITLE: THE BEGGAR MAID
+--- SOURCE: PG2620
+[VERSE 1]
+Her arms across her breast she laid;
+She was more fair than words can say:
+Bare footed came the beggar maid
+Before the king Cophetua.
+In robe and crown the king stepped down,
+To meet and greet her on her way;
+"It is no wonder," said the lords,
+"She is more beautiful than day."
+[VERSE 2]
+As shines the moon in clouded skies,
+She in her poor attire was seen:
+One praised her ankles, one her eyes,
+One her dark hair and lovesome mien.
+So sweet a face, such angel grace,
+In all that land had never been:
+Cophetua sware a royal oath:
+"This beggar maid shall be my queen!"
+
+--- TITLE: THE LETTERS
+--- SOURCE: PG2620
+[VERSE 1]
+Still on the tower stood the vane,
+A black yew gloomed the stagnant air;
+I peered athwart the chancel pane,
+And saw the altar cold and bare.
+A clog of lead was round my feet,
+A band of pain across my brow;
+"Cold altar, heaven and earth shall meet
+Before you hear my marriage vow."
+[VERSE 2]
+I turned and hummed a bitter song
+That mocked the wholesome human heart,
+And then we met in wrath and wrong,
+We met, but only meant to part.
+Full cold my greeting was and dry;
+She faintly smiled, she hardly moved;
+I saw, with half-unconscious eye,
+She wore the colors I approved.
+[VERSE 3]
+She took the little ivory chest,
+With half a sigh she turned the key,
+Then raised her head with lips compressed,
+And gave my letters back to me;
+And gave the trinkets and the rings,
+My gifts, when gifts of mine could please.
+As looks a father on the things
+Of his dead son, I looked on these.
+[VERSE 4]
+She told me all her friends had said;
+I raged against the public liar.
+She talked as if her love were dead;
+But in my words were seeds of fire.
+"No more of love, your sex is known;
+I never will be twice deceived.
+Henceforth I trust the man alone;
+The woman cannot be believed.
+[VERSE 5]
+"Through slander, meanest spawn of hell, -
+And woman's slander is the worst, -
+And you, whom once I loved so well,
+Through you my life will be accursed."
+I spoke with heart and heat and force,
+I shook her breast with vague alarms -
+Like torrents from a mountain source
+We rushed into each other's arms.
+[VERSE 6]
+We parted; sweetly gleamed the stars,
+And sweet the vapor-braided blue;
+Low breezes fanned the belfry bars,
+As homeward by the church I drew.
+The very graves appeared to smile,
+So fresh they rose in shadowed swells;
+"Dark porch," I said, "and silent aisle,
+There comes a sound of marriage bells."
+
+--- TITLE: Early Spring
+--- SOURCE: PG2621
+[VERSE 1]
+Once more the Heavenly Power
+Makes all things new,
+And domes the red-plowed hills
+With loving blue;
+The blackbirds have their wills,
+The throstles too.
+[VERSE 2]
+Opens a door in Heaven;
+From skies of glass
+A Jacob's ladder falls
+On greening grass,
+And o'er the mountain-walls
+Young angels pass.
+[VERSE 3]
+Before them fleets the shower,
+And burst the buds,
+And shine the level lands,
+And flash the floods;
+The stars are from their hands
+Flung through the woods,
+[VERSE 4]
+The woods with living airs
+How softly fanned,
+Light airs from where the deep,
+All down the sand,
+Is breathing in his sleep,
+Heard by the land.
+[VERSE 5]
+O, follow, leaping blood,
+The season's lure!
+O heart, look down and up,
+Serene, secure,
+Warm as the crocus cup,
+Like snow-drops, pure!
+[VERSE 6]
+Past, Future glimpse and fade
+Through some slight spell,
+A gleam from yonder vale,
+Some far blue fell;
+And sympathies, how frail,
+In sound and smell!
+[VERSE 7]
+Till at thy chuckled note,
+Thou twinkling bird,
+The fairy fancies range,
+And, lightly stirred,
+Ring little bells of change
+From word to word.
+[VERSE 8]
+For now the Heavenly Power
+Makes all things new,
+And thaws the cold, and fills
+The flower with dew;
+The blackbirds have their wills,
+The poets too.
+
+--- TITLE: Spring, from "In Memoriam"
+--- SOURCE: PG2621
+[VERSE 1]
+LXXXIII
+Dip down upon the northern shore,
+O sweet new-year, delaying long;
+Thou doest expectant Nature wrong,
+Delaying long, delay no more.
+[VERSE 2]
+What stays thee from the clouded noons,
+Thy sweetness from its proper place?
+Can trouble live with April days,
+Or sadness in the summer moons?
+[VERSE 3]
+Bring orchis, bring the fox-glove spire,
+The little speedwell's darling blue,
+Deep tulips dashed with fiery dew,
+Laburnums, dropping-wells of fire.
+[VERSE 4]
+O thou, new-year, delaying long,
+Delayest the sorrow in my blood,
+That longs to burst a frozen bud,
+And flood a fresher throat with song.
+[VERSE 5]
+CXV
+Now fades the last long streak of snow,
+Now burgeons every maze of quick
+About the flowering squares, and thick
+By ashen roots the violets blow.
+[VERSE 6]
+Now rings the woodland loud and long,
+The distance takes a lovelier hue,
+And drowned in yonder living blue
+The lark becomes a sightless song.
+[VERSE 7]
+Now dance the lights on lawn and lea,
+The flocks are whiter down the vale,
+And milkier every milky sail,
+On winding stream or distant sea;
+[VERSE 8]
+Where now the seamew pipes, or dives
+In yonder greening gleam, and fly
+The happy birds, that change their sky
+To build and brood, that live their lives
+[VERSE 9]
+From land to land; and in my breast
+Spring wakens too: and my regret
+Become an April violet,
+And buds and blossoms like the rest.
+
+--- TITLE: The Death of the Old Year
+--- SOURCE: PG2621
+[VERSE 1]
+Full knee-deep lies the winter snow,
+And the winter winds are wearily sighing:
+Toll ye the church-bell sad and slow,
+And tread softly and speak low,
+For the old year lies a-dying.
+Old year, you must not die;
+You came to us so readily,
+You lived with us so steadily,
+Old year, you shall not die.
+[VERSE 2]
+He lieth still, he doth not move;
+He will not see the dawn of day.
+He hath no other life above,
+He gave me a friend, and a true true-love,
+And the New-year will take 'em away.
+Old year, you must not go;
+So long as you have been with us,
+Such joy as you have seen with us,
+Old year, you shall not go.
+[VERSE 3]
+He frothed his bumpers to the brim;
+A jollier year we shall not see.
+But though his eyes are waxing dim,
+And though his foes speak ill of him,
+He was a friend to me.
+Old year, you shall not die;
+We did so laugh and cry with you,
+I've half a mind to die with you,
+Old year, if you must die.
+[VERSE 4]
+He was full of joke and jest,
+But all his merry quips are o'er.
+To see him die, across the waste
+His son and heir doth ride post-haste,
+But he'll be dead before.
+Every one for his own.
+The night is starry and cold, my friend,
+And the New-year, blithe and bold, my friend,
+Comes up to take his own.
+[VERSE 5]
+How hard he breathes! over the snow
+I heard just now the crowing cock.
+The shadows flicker to and fro:
+The cricket chirps; the light burns low;
+'Tis nearly twelve o'clock.
+Shake hands before you die.
+Old year, we'll dearly rue for you.
+What is it we can do for you?
+Speak out before you die.
+[VERSE 6]
+His face is growing sharp and thin.
+Alack! our friend is gone.
+Close up his eyes; tie up his chin;
+Step from the corpse, and let him in
+That standeth there alone,
+And waiteth at the door.
+There's a new foot on the floor, my friend,
+And a new face at the door, my friend,
+A new face at the door.
+
+--- TITLE: The Brook's Song
+--- SOURCE: PG2621
+[VERSE 1]
+I come from haunts of coot and hern,
+I make a sudden sally,
+And sparkle out among the fern,
+To bicker down a valley.
+[VERSE 2]
+By thirty hills I hurry down,
+Or slip between the ridges,
+By twenty thorps, a little town,
+And half a hundred bridges.
+[VERSE 3]
+Till last by Philip's farm I flow
+To join the brimming river,
+For men may come and men may go,
+But I go on for ever.
+[VERSE 4]
+I chatter over stony ways,
+In little sharps and trebles,
+I bubble into eddying bays,
+I babble on the pebbles.
+[VERSE 5]
+With many a curve my banks I fret
+By many a field and fallow,
+And many a fairy foreland set
+With willow-weed and mallow.
+[VERSE 6]
+I chatter, chatter, as I flow
+To join the brimming river,
+For men may come and men may go,
+But I go on for ever.
+[VERSE 7]
+I wind about, and in and out,
+With here a blossom sailing,
+And here and there a lusty trout,
+And here and there a grayling,
+[VERSE 8]
+And here and there a foamy flake
+Upon me, as I travel
+With many a silvery water-break
+Above the golden gravel,
+[VERSE 9]
+And draw them all along, and flow
+To join the brimming river,
+For men may come and men may go,
+But I go on for ever.
+[VERSE 10]
+I steal by lawns and grassy plots,
+I slide by hazel covers;
+I move the sweet forget-me-nots
+That grow for happy lovers.
+[VERSE 11]
+I slip, I slide, I gloom, I glance,
+Among my skimming swallows;
+I make the netted sunbeam dance
+Against my sandy shallows.
+[VERSE 12]
+I murmur under moon and stars
+In brambly wildernesses;
+I linger by my shingly bars;
+I loiter round my cresses;
+[VERSE 13]
+And out again I curve and flow
+To join the brimming river,
+For men may come and men may go,
+But I go on for ever.
+
+--- TITLE: The Eagle
+--- SOURCE: PG2621
+[VERSE 1]
+He clasps the crag with crooked hands;
+Close to the sun in lonely lands,
+Ringed with the azure world, he stands.
+[VERSE 2]
+The wrinkled sea beneath him crawls;
+He watches from his mountain walls,
+And like a thunderbolt he falls.
+
+--- TITLE: Song: the Owl
+--- SOURCE: PG2621
+[VERSE 1]
+When cats run home and light is come,
+And dew is cold upon the ground,
+And the far-off stream is dumb,
+And the whirring sail goes round,
+And the whirring sail goes round;
+Alone and warming his five wits,
+The white owl in the belfry sits.
+[VERSE 2]
+When merry milkmaids click the latch,
+And rarely smells the new-mown hay,
+And the cock hath sung beneath the thatch
+Twice or thrice his roundelay,
+Twice or thrice his roundelay;
+Alone and warming his five wits,
+The white owl in the belfry sits.
+
+--- TITLE: The Throstle
+--- SOURCE: PG2621
+[VERSE 1]
+"Summer is coming, summer is coming,
+I know it, I know it, I know it.
+Light again, leaf again, life again, love again,"
+Yes, my wild little Poet.
+[VERSE 2]
+Sing the new year in under the blue.
+Last year you sang it as gladly.
+"New, new, new, new!"  Is it then so new
+That you should carol so madly?
+[VERSE 3]
+"Love again, song again, nest again, young again,"
+Never a prophet so crazy!
+And hardly a daisy as yet, little friend,
+See, there is hardly a daisy.
+[VERSE 4]
+"Here again, here, here, here, happy year!"
+O warble unchidden, unbidden!
+Summer is coming, is coming, my dear,
+And all the winters are hidden.
+
+--- TITLE: Mariana
+--- SOURCE: PG66619
+[VERSE 1]
+With blackest moss the flower-plots
+  Were thickly crusted, one and all:
+The rusted nails fell from the knots
+  That held the pear to the gable-wall.
+The broken sheds look’d sad and strange:
+  Unlifted was the clinking latch;
+  Weeded and worn the ancient thatch
+Upon the lonely moated grange.
+    She only said, ‘My life is dreary,
+      He cometh not,’ she said;
+    She said, ‘I am aweary, aweary,
+      I would that I were dead!’
+[VERSE 2]
+Her tears fell with the dews at even;
+  Her tears fell ere the dews were dried;
+She could not look on the sweet heaven,
+  Either at morn or eventide.
+After the flitting of the bats,
+  When thickest dark did trance the sky,
+  She drew her casement-curtain by,
+And glanced athwart the glooming flats.
+    She only said, ‘The night is dreary,
+      He cometh not,’ she said;
+    She said, ‘I am aweary, aweary,
+      I would that I were dead!’
+[VERSE 3]
+Upon the middle of the night,
+  Waking she heard the night-fowl crow:
+The cock sung out an hour ere light:
+  From the dark fen the oxen’s low
+Came to her: without hope of change,
+  In sleep she seem’d to walk forlorn,
+  Till cold winds woke the gray-eyed morn
+About the lonely moated grange.
+    She only said, ‘The day is dreary,
+      He cometh not,’ she said;
+    She said, ‘I am aweary, aweary,
+      I would that I were dead!’
+[VERSE 4]
+About a stone-cast from the wall
+  A sluice with blacken’d waters slept,
+And o’er it many, round and small,
+  The cluster’d marish-mosses crept.
+Hard by a poplar shook alway,
+  All silver-green with gnarlèd bark:
+  For leagues no other tree did mark
+The level waste, the rounding gray.
+    She only said, ‘My life is dreary,
+      He cometh not,’ she said;
+    She said, ‘I am aweary, aweary,
+      I would that I were dead!’
+[VERSE 5]
+And ever when the moon was low,
+  And the shrill winds were up and away,
+In the white curtain, to and fro,
+  She saw the gusty shadow sway.
+But when the moon was very low,
+  And wild winds bound within their cell,
+  The shadow of the poplar fell
+Upon her bed, across her brow.
+    She only said, ‘The night is dreary,
+      He cometh not,’ she said;
+    She said, ‘I am aweary, aweary,
+      I would that I were dead!’
+[VERSE 6]
+All day within the dreamy house,
+  The doors upon their hinges creak’d;
+The blue fly sung in the pane; the mouse
+  Behind the mouldering wainscot shriek’d,
+Or from the crevice peer’d about.
+  Old faces glimmer’d thro’ the doors,
+  Old footsteps trod the upper floors,
+Old voices call’d her from without.
+    She only said, ‘My life is dreary,
+      He cometh not,’ she said;
+    She said, ‘I am aweary, aweary,’
+      I would that I were dead!’
+[VERSE 7]
+The sparrow’s chirrup on the roof,
+  The slow clock ticking, and the sound
+Which to the wooing wind aloof
+  The poplar made, did all confound
+Her sense; but most she loathed the hour
+  When the thick-moted sunbeam lay
+  Athwart the chambers, and the day
+Was sloping toward his western bower.
+    Then, said she, ‘I am very dreary,
+      He will not come,’ she said;
+    She wept, ‘I am aweary, aweary,
+      O God, that I were dead!’
+
+--- TITLE: The Lady of Shalott
+--- SOURCE: PG66619
+[VERSE 1]
+On either side the river lie
+Long fields of barley and of rye,
+That clothe the wold and meet the sky;
+And thro’ the field the road runs by
+            To many-tower’d Camelot;
+And up and down the people go,
+Gazing where the lilies blow
+Round an island there below,
+            The island of Shalott.
+[VERSE 2]
+Willows whiten, aspens quiver,
+Little breezes dusk and shiver
+Thro’ the wave that runs for ever
+By the island in the river
+            Flowing down to Camelot.
+Four gray walls, and four gray towers,
+Overlook a space of flowers,
+And the silent isle imbowers
+            The Lady of Shalott.
+[VERSE 3]
+By the margin, willow-veil’d,
+Slide the heavy barges trail’d
+By slow horses; and unhail’d
+The shallop flitteth silken-sail’d
+            Skimming down to Camelot:
+But who hath seen her wave her hand?
+Or at the casement seen her stand?
+Or is she known in all the land,
+            The Lady of Shalott?
+[VERSE 4]
+Only reapers, reaping early
+In among the bearded barley,
+Hear a song that echoes cheerly
+From the river winding clearly,
+            Down to tower’d Camelot:
+And by the moon the reaper weary,
+Piling sheaves in uplands airy,
+Listening, whispers ‘’Tis the fairy
+            Lady of Shalott.’
+[VERSE 5]
+There she weaves by night and day
+A magic web with colours gay.
+She has heard a whisper say,
+A curse is on her if she stay
+            To look down to Camelot.
+She knows not what the curse may be,
+And so she weaveth steadily,
+And little other care hath she,
+            The Lady of Shalott.
+[VERSE 6]
+And moving thro’ a mirror clear
+That hangs before her all the year,
+Shadows of the world appear.
+There she sees the highway near
+            Winding down to Camelot:
+There the river eddy whirls,
+And there the surly village-churls,
+And the red cloaks of market girls,
+            Pass onward from Shalott.
+[VERSE 7]
+Sometimes a troop of damsels glad,
+An abbot on an ambling pad,
+Sometimes a curly shepherd-lad,
+Or long-hair’d page in crimson clad,
+            Goes by to tower’d Camelot;
+And sometimes thro’ the mirror blue
+The knights come riding two and two:
+She hath no loyal knight and true,
+            The Lady of Shalott.
+[VERSE 8]
+But in her web she still delights
+To weave the mirror’s magic sights,
+For often thro’ the silent nights
+A funeral, with plumes and lights,
+            And music, went to Camelot:
+Or when the moon was overhead,
+Came two young lovers lately wed;
+‘I am half sick of shadows,’ said
+            The Lady of Shalott.
+[VERSE 9]
+A bow-shot from her bower-eaves,
+He rode between the barley-sheaves,
+The sun came dazzling thro’ the leaves,
+And flamed upon the brazen greaves
+            Of bold Sir Lancelot.
+A red-cross knight for ever kneel’d
+To a lady in his shield,
+That sparkled on the yellow field,
+            Beside remote Shalott.
+[VERSE 10]
+The gemmy bridle glitter’d free,
+Like to some branch of stars we see
+Hung in the golden Galaxy.
+The bridle bells rang merrily
+            As he rode down to Camelot;
+And from his blazon’d baldric slung
+A mighty silver bugle hung,
+And as he rode his armour rung,
+            Beside remote Shalott.
+[VERSE 11]
+All in the blue unclouded weather
+Thick-jewell’d shone the saddle-leather,
+The helmet and the helmet-feather
+Burn’d like one burning flame together,
+            As he rode down to Camelot.
+As often thro’ the purple night,
+Below the starry clusters bright,
+Some bearded meteor, trailing light,
+            Moves over still Shalott.
+[VERSE 12]
+His broad clear brow in sunlight glow’d;
+On burnish’d hooves his war-horse trode;
+From underneath his helmet flow’d
+His coal-black curls as on he rode,
+            As he rode down to Camelot.
+From the bank and from the river
+He flash’d into the crystal mirror,
+‘Tirra lirra,’ by the river
+            Sang Sir Lancelot.
+[VERSE 13]
+She left the web, she left the loom,
+She made three paces thro’ the room,
+She saw the water-lily bloom,
+She saw the helmet and the plume,
+            She look’d down to Camelot.
+Out flew the web and floated wide;
+The mirror crack’d from side to side;
+‘The curse is come upon me!’ cried
+            The Lady of Shalott.
+[VERSE 14]
+In the stormy east-wind straining,
+The pale yellow woods were waning,
+The broad stream in his banks complaining,
+Heavily the low sky raining
+            Over tower’d Camelot;
+Down she came and found a boat
+Beneath a willow left afloat,
+And round about the prow she wrote
+            _The Lady of Shalott_.
+[VERSE 15]
+And down the river’s dim expanse--
+Like some bold seer in a trance,
+Seeing all his own mischance--
+With a glassy countenance
+            Did she look to Camelot.
+And at the closing of the day
+She loosed the chain, and down she lay;
+The broad stream bore her far away,
+            The Lady of Shalott.
+[VERSE 16]
+Lying, robed in snowy white
+That loosely flew to left and right--
+The leaves upon her falling light--
+Thro’ the noises of the night
+            She floated down to Camelot;
+And as the boat-head wound along
+The willowy hills and fields among,
+They heard her singing her last song,
+            The Lady of Shalott.
+[VERSE 17]
+Heard a carol, mournful, holy,
+Chanted loudly, chanted lowly,
+Till her blood was frozen slowly,
+And her eyes were darkened wholly,
+            Turn’d to tower’d Camelot;
+For ere she reach’d upon the tide
+The first house by the water-side,
+Singing in her song she died,
+            The Lady of Shalott.
+[VERSE 18]
+Under tower and balcony,
+By garden-wall and gallery,
+A gleaming shape she floated by,
+Dead-pale between the houses high,
+            Silent into Camelot.
+Out upon the wharfs they came,
+Knight and burgher, lord and dame,
+And round the prow they read her name,
+            _The Lady of Shalott_.
+[VERSE 19]
+Who is this? and what is here?
+And in the lighted palace near
+Died the sound of royal cheer;
+And they cross’d themselves for fear,
+            All the knights at Camelot:
+But Lancelot mused a little space;
+He said, ‘She has a lovely face;
+God in His mercy lend her grace,
+            The Lady of Shalott.’
+
+--- TITLE: The Miller’s Daughter
+--- SOURCE: PG66619
+[VERSE 1]
+It is the miller’s daughter,
+  And she is grown so dear, so dear,
+That I would be the jewel
+  That trembles in her ear:
+For hid in ringlets day and night,
+I’d touch her neck so warm and white.
+[VERSE 2]
+And I would be the girdle
+  About her dainty dainty waist,
+And her heart would beat against me,
+  In sorrow and in rest:
+And I should know if it beat right,
+I’d clasp it round so close and tight.
+[VERSE 3]
+And I would be the necklace,
+  And all day long to fall and rise
+Upon her balmy bosom,
+  With her laughter or her sighs:
+And I would lie so light, so light,
+I scarce should be unclasp’d at night.
+
+--- TITLE: Song of the Lotos-Eaters
+--- SOURCE: PG66619
+[VERSE 1]
+There is sweet music here that softer falls
+Than petals from blown roses on the grass,
+Or night-dews on still waters between walls
+Of shadowy granite, in a gleaming pass;
+Music that gentlier on the spirit lies,
+Than tired eyelids upon tired eyes;
+Music that brings sweet sleep down from the blissful skies.
+Here are cool mosses deep,
+And thro’ the moss the ivies creep,
+And in the stream the long-leaved flowers weep,
+And from the craggy ledge the poppy hangs in sleep.
+[VERSE 2]
+Why are we weigh’d upon with heaviness,
+And utterly consumed with sharp distress,
+While all things else have rest from weariness?
+All things have rest: why should we toil alone,
+We only toil, who are the first of things,
+And make perpetual moan,
+Still from one sorrow to another thrown:
+Nor ever fold our wings,
+And cease from wanderings,
+Nor steep our brows in slumber’s holy balm;
+Nor harken what the inner spirit sings,
+‘There is no joy but calm!’--
+Why should we only toil, the roof and crown of things?
+[VERSE 3]
+Lo! in the middle of the wood,
+The folded leaf is woo’d from out the bud
+With winds upon the branch, and there
+Grows green and broad, and takes no care,
+Sun-steep’d at noon, and in the moon
+Nightly dew-fed; and turning yellow
+Falls, and floats adown the air.
+Lo! sweeten’d with the summer light,
+The full-juiced apple, waxing over-mellow,
+Drops in a silent autumn night.
+All its allotted length of days,
+The flower ripens in its place,
+Ripens and fades, and falls, and hath no toil,
+Fast-rooted in the fruitful soil.
+[VERSE 4]
+Hateful is the dark-blue sky,
+Vaulted o’er the dark-blue sea.
+Death is the end of life; ah, why
+Should life all labour be?
+Let us alone. Time driveth onward fast,
+And in a little while our lips are dumb.
+Let us alone. What is it that will last?
+All things are taken from us, and become
+Portions and parcels of the dreadful Past.
+Let us alone. What pleasure can we have
+To war with evil? Is there any peace
+In ever climbing up the climbing wave?
+All things have rest, and ripen toward the grave
+In silence; ripen, fall and cease:
+Give us long rest or death, dark death, or dreamful ease.
+[VERSE 5]
+How sweet it were, hearing the downward stream,
+With half-shut eyes ever to seem
+Falling asleep in a half-dream!
+To dream and dream, like yonder amber light,
+Which will not leave the myrrh-bush on the height;
+To hear each other’s whisper’d speech;
+Eating the Lotos day by day,
+To watch the crisping ripples on the beach,
+And tender curving lines of creamy spray;
+To lend our hearts and spirits wholly
+To the influence of mild-minded melancholy;
+To muse and brood and live again in memory,
+With those old faces of our infancy
+Heap’d over with a mound of grass,
+Two handfuls of white dust, shut in an urn of brass!
+[VERSE 6]
+Dear is the memory of our wedded lives,
+And dear the last embraces of our wives
+And their warm tears: but all hath suffer’d change;
+For surely now our household hearths are cold:
+Our sons inherit us: our looks are strange:
+And we should come like ghosts to trouble joy.
+Or else the island princes over-bold
+Have eat our substance, and the minstrel sings
+Before them of the ten years’ war in Troy,
+And our great deeds, as half-forgotten things.
+Is there confusion in the little isle?
+Let what is broken so remain.
+The Gods are hard to reconcile:
+’Tis hard to settle order once again.
+There _is_ confusion worse than death,
+Trouble on trouble, pain on pain,
+Long labour unto agèd breath,
+Sore task to hearts worn out with many wars
+And eyes grown dim with gazing on the pilot-stars.
+But, propt on beds of amaranth and moly,
+How sweet (while warm airs lull us, blowing lowly)
+With half-dropt eyelids still,
+Beneath a heaven dark and holy,
+To watch the long bright river drawing slowly
+His waters from the purple hill--
+To hear the dewy echoes calling
+From cave to cave thro’ the thick-twinèd vine--
+To watch the emerald-colour’d water falling
+Thro’ many a wov’n acanthus-wreath divine!
+Only to hear and see the far-off sparkling brine,
+Only to hear were sweet, stretch’d out beneath the pine.
+[VERSE 7]
+The Lotos blooms below the barren peak:
+The Lotos blows by every winding creek:
+All day the wind breathes low with mellower tone:
+Thro’ every hollow cave and alley lone
+Round and round the spicy downs the yellow Lotos-dust is blown.
+We have had enough of action, and of motion we,
+Roll’d to starboard, roll’d to larboard, when the surge was seething free,
+Where the wallowing monster spouted his foam-fountains in the sea.
+Let us swear an oath, and keep it with an equal mind,
+In the hollow Lotos-land to live and lie reclined
+On the hills like Gods together, careless of mankind.
+For they lie beside their nectar, and the bolts are hurl’d
+Far below them in the valleys, and the clouds are lightly curl’d
+Round their golden houses, girdled with the gleaming world:
+Where they smile in secret, looking over wasted lands,
+Blight and famine, plague and earthquake, roaring deeps and fiery sands,
+Clanging fights, and flaming towns, and sinking ships, and praying hands.
+But they smile, they find a music centred in a doleful song
+Steaming up, a lamentation and an ancient tale of wrong,
+Like a tale of little meaning tho’ the words are strong;
+Chanted from an ill-used race of men that cleave the soil,
+Sow the seed, and reap the harvest with enduring toil,
+Storing yearly little dues of wheat, and wine and oil;
+Till they perish and they suffer--some, ’tis whisper’d--down in hell
+Suffer endless anguish, others in Elysian valleys dwell,
+Resting weary limbs at last on beds of asphodel.
+Surely, surely, slumber is more sweet than toil, the shore
+Than labour in the deep mid-ocean, wind and wave and oar;
+O rest ye, brother mariners, we will not wander more.
+
+--- TITLE: St. Agnes’ Eve
+--- SOURCE: PG66619
+[VERSE 1]
+Deep on the convent-roof the snows
+  Are sparkling to the moon:
+My breath to heaven like vapour goes:
+  May my soul follow soon!
+The shadows of the convent-towers
+  Slant down the snowy sward,
+Still creeping with the creeping hours
+  That lead me to my Lord:
+Make Thou my spirit pure and clear
+  As are the frosty skies,
+Or this first snowdrop of the year
+  That in my bosom lies.
+[VERSE 2]
+As these white robes are soil’d and dark,
+  To yonder shining ground;
+As this pale taper’s earthly spark,
+  To yonder argent round;
+So shows my soul before the Lamb,
+  My spirit before Thee;
+So in mine earthly house I am,
+  To that I hope to be.
+Break up the heavens, O Lord! and far,
+  Thro’ all yon starlight keen,
+Draw me, thy bride, a glittering star,
+  In raiment white and clean.
+[VERSE 3]
+He lifts me to the golden doors;
+  The flashes come and go;
+All heaven bursts her starry floors,
+  And strows her lights below,
+And deepens on and up! the gates
+  Roll back, and far within
+For me the Heavenly Bridegroom waits,
+  To make me pure of sin.
+The sabbaths of Eternity,
+  One sabbath deep and wide--
+A light upon the shining sea--
+  The Bridegroom with his bride!
+
+--- TITLE: Come down, O Maid
+--- SOURCE: PG66619
+[VERSE 1]
+Come down, O maid, from yonder mountain height:
+What pleasure lives in height (the shepherd sang).
+In height and cold, the splendour of the hills?
+But cease to move so near the Heavens, and cease
+To glide a sunbeam by the blasted Pine,
+To sit a star upon the sparkling spire;
+And come, for Love is of the valley, come,
+For Love is of the valley, come thou down
+And find him; by the happy threshold, he,
+Or hand in hand with Plenty in the maize,
+Or red with spirted purple of the vats,
+Or foxlike in the vine; nor cares to walk
+With Death and Morning on the silver horns,
+Nor wilt thou snare him in the white ravine,
+Nor find him dropt upon the firths of ice,
+That huddling slant in furrow-cloven falls
+To roll the torrent out of dusky doors:
+But follow; let the torrent dance thee down
+To find him in the valley; let the wild
+Lean-headed Eagles yelp alone, and leave
+The monstrous ledges there to slope, and spill
+Their thousand wreaths of dangling water-smoke,
+That like a broken purpose waste in air:
+So waste not thou; but come; for all the vales
+Await thee; azure pillars of the hearth
+Arise to thee; the children call, and I
+Thy shepherd pipe, and sweet is every sound,
+Sweeter thy voice, but every sound is sweet;
+Myriads of rivulets hurrying thro’ the lawn,
+The moan of doves in immemorial elms,
+And murmuring of innumerable bees.
+
+--- TITLE: From ‘In Memoriam’
+--- SOURCE: PG66619
+[VERSE 1]
+Fair ship, that from the Italian shore
+    Sailest the placid ocean-plains
+    With my lost Arthur’s loved remains,
+Spread thy full wings, and waft him o’er.
+[VERSE 2]
+So draw him home to those that mourn
+    In vain; a favourable speed
+    Ruffle thy mirror’d mast, and lead
+Thro’ prosperous floods his holy urn.
+[VERSE 3]
+All night no ruder air perplex
+    Thy sliding keel, till Phosphor, bright
+    As our pure love, thro’ early light
+Shall glimmer on the dewy decks.
+[VERSE 4]
+Sphere all your lights around, above;
+    Sleep, gentle heavens, before the prow;
+    Sleep, gentle winds, as he sleeps now,
+My friend, the brother of my love;
+[VERSE 5]
+My Arthur, whom I shall not see
+    Till all my widow’d race be run;
+    Dear as the mother to the son,
+More than my brothers are to me.
+[VERSE 6]
+I hear the noise about thy keel;
+    I hear the bell struck in the night;
+    I see the cabin-window bright;
+I see the sailor at the wheel.
+[VERSE 7]
+Thou bring’st the sailor to his wife,
+    And travell’d men from foreign lands;
+    And letters unto trembling hands;
+And, thy dark freight, a vanish’d life.
+[VERSE 8]
+So bring him: we have idle dreams:
+    This look of quiet flatters thus
+    Our home-bred fancies: O to us,
+The fools of habit, sweeter seems
+[VERSE 9]
+To rest beneath the clover sod,
+    That takes the sunshine and the rains,
+    Or where the kneeling hamlet drains
+The chalice of the grapes of God;
+[VERSE 10]
+Than if with thee the roaring wells
+    Should gulf him fathom-deep in brine;
+    And hands so often clasp’d in mine,
+Should toss with tangle and with shells.
+[VERSE 11]
+Calm is the morn without a sound,
+    Calm as to suit a calmer grief,
+    And only thro’ the faded leaf
+The chestnut pattering to the ground:
+[VERSE 12]
+Calm and deep peace on this high wold,
+    And on these dews that drench the furze,
+    And all the silvery gossamers
+That twinkle into green and gold:
+[VERSE 13]
+Calm and still light on yon great plain
+    That sweeps with all its autumn bowers,
+    And crowded farms and lessening towers,
+To mingle with the bounding main:
+[VERSE 14]
+Calm and deep peace in this wide air,
+    These leaves that redden to the fall;
+    And in my heart, if calm at all,
+If any calm, a calm despair:
+[VERSE 15]
+Calm on the seas, and silver sleep,
+    And waves that sway themselves in rest,
+    And dead calm in that noble breast
+Which heaves but with the heaving deep.
+[VERSE 16]
+To-night the winds begin to rise
+    And roar from yonder dropping day:
+    The last red leaf is whirl’d away,
+The rooks are blown about the skies;
+[VERSE 17]
+The forest crack’d, the waters curl’d,
+    The cattle huddled on the lea;
+    And wildly dash’d on tower and tree
+The sunbeam strikes along the world:
+[VERSE 18]
+And but for fancies, which aver
+    That all thy motions gently pass
+    Athwart a plane of molten glass,
+I scarce could brook the strain and stir
+[VERSE 19]
+That makes the barren branches loud;
+    And but for fear it is not so,
+    The wild unrest that lives in woe
+Would dote and pore on yonder cloud
+[VERSE 20]
+That rises upward always higher,
+    And onward drags a labouring breast,
+    And topples round the dreary west,
+A looming bastion fringed with fire.
+[VERSE 21]
+Thou comest, much wept for: such a breeze
+    Compell’d thy canvas, and my prayer
+    Was as the whisper of an air
+To breathe thee over lonely seas.
+[VERSE 22]
+For I in spirit saw thee move
+    Thro’ circles of the bounding sky,
+    Week after week: the days go by:
+Come quick, thou bringest all I love.
+[VERSE 23]
+Henceforth, wherever thou mayst roam
+    My blessing, like a line of light,
+    Is on the waters day and night,
+And like a beacon guards thee home.
+[VERSE 24]
+So may whatever tempest mars
+    Mid-ocean, spare thee, sacred bark;
+    And balmy drops in summer dark
+Slide from the bosom of the stars.
+[VERSE 25]
+So kind an office hath been done,
+    Such precious relics brought by thee;
+    The dust of him I shall not see
+Till all my widow’d race be run.
+[VERSE 26]
+Now, sometimes in my sorrow shut,
+    Or breaking into song by fits,
+    Alone, alone, to where he sits,
+The Shadow cloak’d from head to foot,
+[VERSE 27]
+Who keeps the keys of all the creeds,
+    I wander, often falling lame,
+    And looking back to whence I came,
+Or on to where the pathway leads;
+And crying, How changed from where it ran
+    Thro’ lands where not a leaf was dumb;
+    But all the lavish hills would hum
+The murmur of a happy Pan:
+[VERSE 28]
+When each by turns was guide to each,
+    And Fancy light from Fancy caught,
+    And Thought leapt out to wed with Thought
+Ere Thought could wed itself with Speech;
+[VERSE 29]
+And all we met was fair and good,
+    And all was good that Time could bring,
+    And all the secret of the Spring
+Moved in the chambers of the blood;
+[VERSE 30]
+And many an old philosophy
+    On Argive heights divinely sang,
+    And round us all the thicket rang
+To many a flute of Arcady.
+[VERSE 31]
+How fares it with the happy dead?
+    For here the man is more and more;
+    But he forgets the days before
+God shut the doorways of his head.
+[VERSE 32]
+The days have vanish’d, tone and tint,
+    And yet perhaps the hoarding sense
+    Gives out at times (he knows not whence)
+A little flash, a mystic hint;
+[VERSE 33]
+And in the long harmonious years
+    (If Death so taste Lethean springs)
+    May some dim touch of earthly things
+Surprise thee ranging with thy peers.
+[VERSE 34]
+If such a dreamy touch should fall,
+    O turn thee round, resolve the doubt;
+    My guardian angel will speak out
+In that high place, and tell thee all.
+[VERSE 35]
+The wish, that of the living whole
+    No life may fail beyond the grave,
+    Derives it not from what we have
+The likest God within the soul?
+[VERSE 36]
+Are God and Nature then at strife,
+    That Nature lends such evil dreams?
+    So careful of the type she seems,
+So careless of the single life;
+[VERSE 37]
+That I, considering everywhere
+    Her secret meaning in her deeds,
+    And finding that of fifty seeds
+She often brings but one to bear,
+[VERSE 38]
+I falter where I firmly trod,
+    And falling with my weight of cares
+    Upon the great world’s altar-stairs
+That slope thro’ darkness up to God,
+[VERSE 39]
+I stretch lame hands of faith, and grope,
+    And gather dust and chaff, and call
+    To what I feel is Lord of all,
+And faintly trust the larger hope.
+[VERSE 40]
+‘So careful of the type?’ but no.
+    From scarpèd cliff and quarried stone
+    She cries, ‘A thousand types are gone
+I care for nothing, all shall go.
+[VERSE 41]
+Thou makest thine appeal to me:
+    I bring to life, I bring to death:
+    The spirit does but mean the breath:
+I know no more.’ And he, shall he,
+[VERSE 42]
+Man, her last work, who seem’d so fair,
+    Such splendid purpose in his eyes,
+    Who roll’d the psalm to wintry skies,
+Who built him fanes of fruitless prayer,
+[VERSE 43]
+Who trusted God was love indeed
+    And love Creation’s final law--
+    Tho’ Nature, red in tooth and claw
+With ravine, shriek’d against his creed--
+[VERSE 44]
+Who loved, who suffer’d countless ills,
+    Who battled for the True, the Just,
+    Be blown about the desert dust,
+Or seal’d within the iron hills?
+[VERSE 45]
+No more? A monster then, a dream,
+    A discord. Dragons of the prime,
+    That tare each other in their slime,
+Were mellow music matched with him.
+[VERSE 46]
+O life as futile, then as frail!
+    O for thy voice to soothe and bless!
+    What hope of answer, or redress?
+Behind the veil, behind the veil.
+[VERSE 47]
+Unwatch’d, the garden bough shall sway,
+    The tender blossom flutter down;
+    Unloved, that beech will gather brown,
+This maple burn itself away;
+Unloved, the sunflower, shining fair,
+    Ray round with flames her disk of seed,
+    And many a rose-carnation feed
+With summer spice the humming air;
+[VERSE 48]
+Unloved, by many a sandy bar,
+    The brook shall babble down the plain,
+    At noon or when the lesser wain
+Is twisting round the polar star;
+[VERSE 49]
+Uncared for, gird the windy grove,
+    And flood the haunts of hern and crake;
+    Or into silver arrows break
+The sailing moon in creek and cove;
+[VERSE 50]
+Till from the garden and the wild
+    A fresh association blow,
+    And year by year the landscape grow
+Familiar to the stranger’s child;
+[VERSE 51]
+As year by year the labourer tills
+    His wonted glebe, or lops the glades;
+    And year by year our memory fades
+From all the circle of the hills.
+[VERSE 52]
+Now fades the last long streak of snow,
+    Now burgeons every maze of quick
+    About the flowering squares, and thick
+By ashen roots the violets blow.
+[VERSE 53]
+Now rings the woodland loud and long,
+    The distance takes a lovelier hue,
+    And drown’d in yonder living blue
+The lark becomes a sightless song.
+[VERSE 54]
+Now dance the lights on lawn and lea,
+    The flocks are whiter down the vale,
+    And milkier every milky sail
+On winding stream or distant sea;
+[VERSE 55]
+Where now the seamew pipes, or dives
+    In yonder greening gleam, and fly
+    The happy birds, that change their sky
+To build and brood; that live their lives
+[VERSE 56]
+From land to land; and in my breast
+    Spring wakens too; and my regret
+    Becomes an April violet,
+And buds and blossoms like the rest.
+[VERSE 57]
+Love is and was my Lord and King,
+    And in his presence I attend
+    To hear the tidings of my friend,
+Which every hour his couriers bring.
+[VERSE 58]
+Love is and was my King and Lord,
+    And will be, tho’ as yet I keep
+    Within his court on earth, and sleep
+Encompass’d by his faithful guard,
+[VERSE 59]
+And hear at times a sentinel
+    Who moves about from place to place,
+    And whispers to the worlds of space,
+In the deep night, that all is well.
+
+--- TITLE: Maud
+--- SOURCE: PG66619
+[VERSE 1]
+Come into the garden, Maud,
+  For the black bat, Night, has flown,
+Come into the garden, Maud,
+  I am here at the gate alone;
+And the woodbine spices are wafted abroad,
+  And the musk of the roses blown.
+[VERSE 2]
+For a breeze of morning moves,
+  And the planet of Love is on high,
+Beginning to faint in the light that she loves
+  On a bed of daffodil sky,
+To faint in the light of the sun she loves,
+  To faint in his light, and to die.
+[VERSE 3]
+All night have the roses heard
+  The flute, violin, bassoon;
+All night has the casement jessamine stirr’d
+  To the dancers dancing in tune;
+Till a silence fell with the waking bird,
+  And a hush with the setting moon.
+[VERSE 4]
+I said to the lily, ‘There is but one
+  With whom she has heart to be gay.
+When will the dancers leave her alone?
+  She is weary of dance and play.’
+Now half to the setting moon are gone,
+  And half to the rising day;
+Low on the sand and loud on the stone
+  The last wheel echoes away.
+[VERSE 5]
+I said to the rose, ‘The brief night goes
+  In babble and revel and wine.
+[VERSE 6]
+O young lord-lover, what sighs are those
+  For one that will never be thine?
+But mine, but mine,’ so I sware to the rose,
+  ‘For ever and ever, mine.’
+[VERSE 7]
+And the soul of the rose went into my blood,
+  As the music clash’d in the hall;
+And long by the garden lake I stood,
+  For I heard your rivulet fall
+From the lake to the meadow and on to the wood,
+  Our wood, that is dearer than all;
+[VERSE 8]
+From the meadow your walks have left so sweet
+  That whenever a March-wind sighs
+He sets the jewel-print of your feet
+  In violets blue as your eyes,
+To the woody hollows in which we meet
+  And the valleys of Paradise.
+[VERSE 9]
+The slender acacia would not shake
+  One long milk-bloom on the tree;
+The white lake-blossom fell into the lake,
+  As the pimpernel dozed on the lea;
+But the rose was awake all night for your sake,
+  Knowing your promise to me;
+The lilies and roses were all awake,
+  They sigh’d for the dawn and thee.
+[VERSE 10]
+Queen rose of the rosebud garden of girls,
+  Come hither, the dances are done,
+In gloss of satin and glimmer of pearls,
+  Queen lily and rose in one;
+Shine out, little head, sunning over with curls.
+  To the flowers, and be their sun.
+[VERSE 11]
+There has fallen a splendid tear
+  From the passion-flower at the gate.
+She is coming, my dove, my dear;
+  She is coming, my life, my fate;
+The red rose cries, ‘She is near, she is near;’
+  And the white rose weeps, ‘She is late,’
+The larkspur listens, ‘I hear, I hear;’
+  And the lily whispers, ‘I wait.’
+[VERSE 12]
+She is coming, my own, my sweet;
+  Were it ever so airy a tread,
+My heart would hear her and beat,
+  Were it earth in an earthy bed;
+My dust would hear her and beat,
+  Had I lain for a century dead;
+Would start and tremble under her feet,
+  And blossom in purple and red.
+
+--- TITLE: O that ’twere possible
+--- SOURCE: PG66619
+[VERSE 1]
+O that ’twere possible
+After long grief and pain
+To find the arms of my true love
+Round me once again!...
+[VERSE 2]
+A shadow flits before me,
+Not thou, but like to thee:
+Ah, Christ! that it were possible
+For one short hour to see
+The souls we loved, that they might tell us
+What and where they be!

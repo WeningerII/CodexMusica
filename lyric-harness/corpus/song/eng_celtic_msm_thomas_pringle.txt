@@ -3,11 +3,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1834, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('THOMAS PRINGLE'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 5
+# songs: 6
 
 --- TITLE: FAREWELL TO BONNIE TEVIOTDALE
 --- SOURCE: PG22515
@@ -191,3 +193,107 @@ Time, and change, and trouble,
   Weaker ties unbind,
 But the bands redouble
   True affection twined.
+
+--- TITLE: "Afar in the Desert"
+--- SOURCE: PG2621
+[VERSE 1]
+Afar in the desert I love to ride,
+With the silent Bush-boy alone by my side.
+When the sorrows of life the soul o'ercast,
+And, sick of the present, I cling to the past;
+When the eye is suffused with regretful tears,
+From the fond recollections of former years;
+And shadows of things that have long since fled
+Flit over the brain, like the ghosts of the dead:
+Bright visions of glory that vanished too soon;
+Day-dreams that departed ere manhood's noon;
+Attachments by fate or falsehood reft;
+Companions of early days lost or left--
+And my native land--whose magical name
+Thrills to the heart like electric flame;
+The home of my childhood; the haunts of my prime;
+All the passions and scenes of that rapturous time
+When the feelings were young, and the world was new,
+Like the fresh bowers of Eden unfolding to view;
+All--all now forsaken--forgotten--foregone!
+And I--a lone exile remembered of none--
+My high aims abandoned,--my good acts undone--
+Aweary of all that is under the sun--
+With that sadness of heart which no stranger may scan,
+I fly to the desert afar from man.
+[VERSE 2]
+Afar in the desert I love to ride,
+With the silent Bush-boy alone by my side,
+When the wild turmoil of this wearisome life,
+With its scenes of oppression, corruption, and strife--
+The proud man's frown, and the base man's fear--
+The scorner's laugh, and the sufferer's tear--
+And malice, and meanness, and falsehood, and folly,
+Dispose me to musing and dark melancholy;
+When my bosom is full, and my thoughts are high,
+And my soul is sick with the bondman's sigh--
+Oh! then there is freedom, and joy, and pride,
+Afar in the desert alone to ride!
+There is rapture to vault on the champing steed,
+And to bound away with the eagle's speed,
+With the death-fraught firelock in my hand--
+The only law of the Desert Land!
+[VERSE 3]
+Afar in the desert I love to ride,
+With the silent Bush-boy alone by my side.
+Away--away from the dwellings of men,
+By the wild deer's haunt, by the buffalo's glen;
+By valleys remote where the oribi plays,
+Where the gnu, the gazelle, and the hartebeest graze,
+And the kudu and eland unhunted recline
+By the skirts of gray forest o'erhung with wild vine:
+Where the elephant browses at peace in his wood,
+And the river-horse gambols unscared in the flood,
+And the mighty rhinoceros wallows at will
+In the fen where the wild ass is drinking his fill.
+[VERSE 4]
+Afar in the desert I love to ride,
+With the silent Bush-boy alone by my side.
+O'er the brown karroo, where the bleating cry
+Of the springbok's fawn sounds plaintively:
+And the timorous quagga's shrill whistling neigh
+Is heard by the fountain at twilight gray;
+Where the zebra wantonly tosses his mane,
+With wild hoof scouring the desolate plain;
+And the fleet-footed ostrich over the waste
+Speeds like a horseman who travels in haste,
+Hieing away to the home of her rest,
+Where she and her mate have scooped their nest,
+Far hid from the pitiless plunderer's view
+In the pathless depths of the parched karroo.
+[VERSE 5]
+Afar in the desert I love to ride,
+With the silent Bush-boy alone by my side.
+Away--away--in the wilderness vast
+Where the white man's foot hath never passed,
+And the quivered Coranna or Bechuan
+Hath rarely crossed with his roving clan:
+A region of emptiness, howling and drear,
+Which man hath abandoned from famine and fear;
+Which the snake and the lizard inhabit alone,
+With the twilight bat from the yawning stone;
+Where grass, nor herb, nor shrub takes root,
+Save poisonous thorns that pierce the foot;
+And the bitter melon, for food and drink,
+Is the pilgrim's fare by the salt-lake's brink;
+A region of drought, where no river glides,
+Nor rippling brook with osiered sides;
+Where sedgy pool, nor bubbling fount,
+Nor tree, nor cloud, nor misty mount,
+Appears, to refresh the aching eye;
+But the barren earth and the burning sky,
+And the blank horizon, round and round,
+Spread--void of living sight or sound.
+And here, while the night-winds round me sigh,
+And the stars burn bright in the midnight sky,
+As I sit apart by the desert stone,
+Like Elijah at Horeb's cave, alone,
+"A still small voice" comes through the wild,
+Like a father consoling his fretful child,
+Which banishes bitterness, wrath, and fear,
+Saying--Man is distant, but God is near!

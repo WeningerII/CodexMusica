@@ -2,6 +2,8 @@
 # region: english
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd
 # licence: public domain — Project Gutenberg text; author died 1640; every edition used was published 1931 or earlier
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1639, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1919 — Quiller-Couch's Oxford Book of English Verse 1250-1900; the file's own dateline is the 1250-1900 title span
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
 #            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
@@ -139,3 +141,23 @@ But now his empire ends, and we
 From fire and wounding darts are free;
 His brand, his bow, let no man fear:
 The flames, the arrows, all lie here.
+
+--- TITLE: MEDIOCRITY IN LOVE REJECTED
+--- SOURCE: PG2620
+[VERSE 1]
+Give me more love, or more disdain:
+The torrid, or the frozen zone
+Bring equal ease unto my pain;
+The temperate affords me none:
+Either extreme, of love or hate,
+Is sweeter than a calm estate.
+[VERSE 2]
+Give me a storm; if it be love,
+Like Danae in that golden shower,
+I'll swim in pleasure; if it prove
+Disdain, that torrent will devour
+My vulture-hopes; and he's possessed
+Of heaven, that's but from hell released.
+[VERSE 3]
+Then crown my joys, or cure my pain:
+Give me more love, or more disdain.

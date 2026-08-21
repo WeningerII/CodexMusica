@@ -4,10 +4,14 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1900, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1900, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 8
 
 --- TITLE: Hunting-song
 --- SOURCE: PG15553
@@ -141,3 +145,189 @@ But not go down to the sea in ships
 To battle with the free;
 For England and America
 Will keep and hold the sea!
+
+--- TITLE: CHANSON DE ROSEMONDE
+--- SOURCE: PG2620
+[VERSE 1]
+The dawn is lonely for the sun,
+And chill and drear;
+The one lone star is pale and wan
+As one in fear.
+[VERSE 2]
+But when day strides across the hills,
+The warm blood rushes through
+The bared soft bosom of the blue
+And all the glad east thrills.
+[VERSE 3]
+Oh, come, my king!  The hounds of joy
+Are waiting for thy horn
+To chase the doe of heart's desire
+Across the heights of morn.
+[VERSE 4]
+Oh, come, my Sun, and let me know
+The rapture of the day!
+Oh, come, my love! Oh, come, my love!
+Thou art so long away!
+
+--- TITLE: THE TWO LOVERS
+--- SOURCE: PG2620
+[VERSE 1]
+The lover of her body said:
+"She is more beautiful than night, -
+But like the kisses of the dead
+Is my despair and my delight."
+[VERSE 2]
+The lover of her soul replied:
+"She is more wonderful than death, -
+But bitter as the aching tide
+Is all the speech of love she saith."
+[VERSE 3]
+The lover of her body said:
+"To know one secret of her heart,
+For all the joy that I have had,
+Is past the reach of all my art."
+[VERSE 4]
+The lover of her soul replied:
+"The secrets of her heart are mine, -
+Save how she lives, a riven bride,
+Between the dust and the divine."
+[VERSE 5]
+The lover of her body sware:
+"Though she should hate me, wit you well,
+Rather than yield one kiss of her
+I give my soul to burn in hell."
+[VERSE 6]
+The lover of her soul cried out:
+"Rather than leave her to your greed,
+I would that I were walled about
+With death, - and death were death indeed!"
+[VERSE 7]
+The lover of her body wept,
+And got no good of all his gain,
+Knowing that in her heart she kept
+The penance of the other's pain.
+[VERSE 8]
+The lover of her soul went mad,
+But when he did himself to death,
+Despite of all the woe he had,
+He smiled as one who vanquisheth.
+
+--- TITLE: LOVE IN THE WINDS
+--- SOURCE: PG2620
+[VERSE 1]
+When I am standing on a mountain crest,
+Or hold the tiller in the dashing spray,
+My love of you leaps foaming in my breast,
+Shouts with the winds and sweeps to their foray;
+My heart bounds with the horses of the sea,
+And plunges in the wild ride of the night,
+Flaunts in the teeth of tempest the large glee
+That rides out Fate and welcomes gods to fight.
+Ho, love, I laugh aloud for love of you,
+Glad that our love is fellow to rough weather, -
+No fretful orchid hothoused from the dew,
+But hale and hardy as the highland heather,
+Rejoicing in the wind that stings and thrills,
+Comrade of ocean, playmate of the hills.
+
+--- TITLE: The Wander-Lovers
+--- SOURCE: PG2621
+[VERSE 1]
+Down the world with Marna!
+That's the life for me!
+Wandering with the wandering wind,
+Vagabond and unconfined!
+Roving with the roving rain
+Its unboundaried domain!
+Kith and kin of wander-kind,
+Children of the sea!
+[VERSE 2]
+Petrels of the sea-drift!
+Swallows of the lea!
+Arabs of the whole wide girth
+Of the wind-encircled earth!
+In all climes we pitch our tents,
+Cronies of the elements,
+With the secret lords of birth
+Intimate and free.
+[VERSE 3]
+All the seaboard knows us
+From Fundy to the Keys;
+Every bend and every creek
+Of abundant Chesapeake;
+Ardise hills and Newport coves
+And the far-off orange groves,
+Where Floridian oceans break,
+Tropic tiger seas.
+[VERSE 4]
+Down the world with Marna,
+Tarrying there and here!
+Just as much at home in Spain
+As in Tangier or Touraine!
+Shakespeare's Avon knows us well,
+And the crags of Neufchatel;
+And the ancient Nile is fain
+Of our coming near.
+[VERSE 5]
+Down the world with Marna,
+Daughter of the air!
+Marna of the subtle grace,
+And the vision in her face!
+Moving in the measures trod
+By the angels before God!
+With her sky-blue eyes amaze
+And her sea-blue hair!
+[VERSE 6]
+Marna with the trees' life
+In her veins a-stir!
+Marna of the aspen heart
+Where the sudden quivers start!
+Quick-responsive, subtle, wild!
+Artless as an artless child,
+Spite of all her reach of art!
+Oh, to roam with her!
+[VERSE 7]
+Marna with the wind's will,
+Daughter of the sea!
+Marna of the quick disdain,
+Starting at the dream of stain!
+At a smile with love aglow,
+At a frown a statued woe,
+Standing pinnacled in pain
+Till a kiss sets free!
+[VERSE 8]
+Down the world with Marna,
+Daughter of the fire!
+Marna of the deathless hope,
+Still alert to win new scope
+Where the wings of life may spread
+For a flight unhazarded!
+Dreaming of the speech to cope
+With the heart's desire!
+[VERSE 9]
+Marna of the far quest
+After the divine!
+Striving ever for some goal
+Past the blunder-god's control!
+Dreaming of potential years
+When no day shall dawn in fears!
+That's the Marna of my soul,
+Wander-bride of mine!
+
+--- TITLE: The Sea-Gipsy
+--- SOURCE: PG2621
+[VERSE 1]
+I am fevered with the sunset,
+I am fretful with the bay,
+For the wander-thirst is on me
+And my soul is in Cathay.
+[VERSE 2]
+There's a schooner in the offing,
+With her topsails shot with fire,
+And my heart has gone aboard her
+For the Islands of Desire.
+[VERSE 3]
+I must forth again to-morrow!
+With the sunset I must be
+Hull down on the trail of rapture
+In the wonder of the Sea.

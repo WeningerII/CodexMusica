@@ -1,0 +1,240 @@
+# author: George Macdonald (1824-1905)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1905, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1905, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1905; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# merged: 2026-08-20 — eng_oxford_george_macdonald.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 6
+
+--- TITLE: Baby
+--- SOURCE: PG2619
+[VERSE 1]
+Where did you come from, baby dear?
+Out of the everywhere into the here.
+[VERSE 2]
+Where did you get those eyes so blue?
+Out of the sky as I came through.
+[VERSE 3]
+What makes the light in them sparkle and spin?
+Some of the starry spikes left in.
+[VERSE 4]
+Where did you get that little tear?
+I found it waiting when I got here.
+[VERSE 5]
+What makes your forehead so smooth and high?
+A soft hand stroked it as I went by.
+[VERSE 6]
+What makes your cheek like a warm white rose?
+I saw something better than any one knows.
+[VERSE 7]
+Whence that three-cornered smile of bliss?
+Three angels gave me at once a kiss.
+[VERSE 8]
+Where did you get this pearly ear?
+God spoke, and it came out to hear.
+[VERSE 9]
+Where did you get those arms and hands?
+Love made itself into bonds and bands.
+[VERSE 10]
+Feet, where did you come, you darling things?
+From the same box as the cherubs' wings.
+[VERSE 11]
+How did they all just come to be you?
+God thought about me, and so I grew.
+[VERSE 12]
+But how did you come to us, you dear?
+God thought about you, and so I am here.
+
+--- TITLE: The Wind and the Moon
+--- SOURCE: PG2619
+[VERSE 1]
+Said the Wind to the Moon, "I will blow you out;
+You stare
+In the air
+Like a ghost in a chair,
+Always looking what I am about--
+I hate to be watched; I'll blow you out."
+[VERSE 2]
+The Wind blew hard, and out went the Moon.
+So, deep
+On a heap
+Of clouds to sleep,
+Down lay the Wind, and slumbered soon,
+Muttering low, "I've done for that Moon."
+[VERSE 3]
+He turned in his bed; she was there again!
+On high
+In the sky,
+With her one ghost eye,
+The Moon shone white and alive and plain.
+Said the Wind, "I will blow you out again."
+[VERSE 4]
+The Wind blew hard, and the Moon grew dim.
+"With my sledge,
+And my wedge,
+I have knocked off her edge!
+If only I blow right fierce and grim,
+The creature will soon be dimmer than dim."
+[VERSE 5]
+He blew and he blew, and she thinned to a thread.
+"One puff
+More's enough
+To blow her to snuff!
+One good puff more where the last was bred,
+And glimmer, glimmer, glum will go the thread."
+[VERSE 6]
+He blew a great blast, and the thread was gone.
+In the air
+Nowhere
+Was a moonbeam bare;
+Far off and harmless the shy stars shone--
+Sure and certain the Moon was gone!
+[VERSE 7]
+The Wind he took to his revels once more;
+On down,
+In town,
+Like a merry-mad clown,
+He leaped and halloed with whistle and roar--
+"What's that?" The glimmering thread once more!
+[VERSE 8]
+He flew in a rage--he danced and blew;
+But in vain
+Was the pain
+Of his bursting brain;
+For still the broader the Moon-scrap grew,
+The broader he swelled his big cheeks and blew.
+[VERSE 9]
+Slowly she grew--till she filled the night,
+And shone
+On her throne
+In the sky alone,
+A matchless, wonderful silvery light,
+Radiant and lovely, the queen of the night.
+[VERSE 10]
+Said the Wind: "What a marvel of power am I!
+With my breath,
+Good faith!
+I blew her to death--
+First blew her away right out of the sky--
+Then blew her in; what strength have I!
+[VERSE 11]
+But the Moon she knew nothing about the affair;
+For high
+In the sky,
+With her one white eye,
+Motionless, miles above the air,
+She had never heard the great Wind blare.
+
+--- TITLE: Little White Lily
+--- SOURCE: PG2619
+[VERSE 1]
+Little White Lily sat by a stone,
+Drooping and waiting till the sun shone.
+Little White Lily sunshine has fed;
+Little White Lily is lifting her head.
+[VERSE 2]
+Little White Lily said: "It is good,
+Little White Lily's clothing and food."
+Little White Lily dressed like a bride!
+Shining with whiteness, and crowned beside!
+[VERSE 3]
+Little White Lily drooping with pain,
+Waiting and waiting for the wet rain,
+Little White Lily holdeth her cup;
+Rain is fast falling and filling it up.
+[VERSE 4]
+Little White Lily said: "Good again,
+When I am thirsty to have the nice rain.
+Now I am stronger, now I am cool;
+Heat cannot burn me, my veins are so full."
+[VERSE 5]
+Little White Lily smells very sweet;
+On her head sunshine, rain at her feet.
+Thanks to the sunshine, thanks to the rain,
+Little White Lily is happy again.
+
+--- TITLE: Sir Lark and King Sun: A Parable
+--- SOURCE: PG2619
+[VERSE 1]
+"Good morrow, my lord!" in the sky alone,
+Sang the lark, as the sun ascended his throne.
+"Shine on me, my lord; I only am come,
+Of all your servants, to welcome you home.
+I have flown right up, a whole hour, I swear,
+To catch the first shine of your golden hair."
+[VERSE 2]
+"Must I thank you, then," said the king, "Sir Lark,
+For flying so high and hating the dark?
+You ask a full cup for half a thirst:
+Half was love of me, and half love to be first.
+There's many a bird makes no such haste,
+But waits till I come: that's as much to my taste."
+[VERSE 3]
+And King Sun hid his head in a turban of cloud,
+And Sir Lark stopped singing, quite vexed and cowed;
+But he flew up higher, and thought, "Anon
+The wrath of the king will be over and gone;
+And his crown, shining out of its cloudy fold,
+Will change my brown feathers to a glory of gold."
+[VERSE 4]
+So he flew--with the strength of a lark he flew;
+But, as he rose, the cloud rose too;
+And not one gleam of the golden hair
+Came through the depths of the misty air;
+Till, weary with flying, with sighing sore,
+The strong sun-seeker could do no more.
+[VERSE 5]
+His wings had had no chrism of gold:
+And his feathers felt withered and worn and old;
+He faltered, and sank, and dropped like a stone.
+And there on her nest, where he left her, alone
+Sat his little wife on her little eggs,
+Keeping them warm with wings and legs.
+[VERSE 6]
+Did I say alone?  Ah, no such thing!
+Full in her face was shining the king.
+"Welcome, Sir Lark! You look tired," said he;
+"Up is not always the best way to me.
+While you have been singing so high and away,
+I've been shining to your little wife all day."
+[VERSE 7]
+He had set his crown all about the nest,
+And out of the midst shone her little brown breast;
+And so glorious was she in russet gold,
+That for wonder and awe Sir Lark grew cold.
+He popped his head under her wing, and lay
+As still as a stone, till King Sun was away.
+
+--- TITLE: Epigram
+--- SOURCE: PG2622
+[VERSE 1]
+Here lie I, Martin Elginbrodde;
+Hae mercy o' my soul, Lord God,
+As I wad do were I Lord God,
+And ye were Martin Elginbrodde.
+
+--- TITLE: That Holy Thing
+--- SOURCE: PG66619
+[VERSE 1]
+They all were looking for a king
+  To slay their foes and lift them high:
+Thou cam’st, a little baby thing
+    That made a woman cry.
+[VERSE 2]
+O Son of Man, to right my lot
+  Naught but Thy presence can avail;
+Yet on the road Thy wheels are not,
+    Nor on the sea Thy sail!
+[VERSE 3]
+My how or when Thou wilt not heed,
+  But come down Thine own secret stair,
+That Thou mayst answer all my need--
+    Yea, every bygone prayer.

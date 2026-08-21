@@ -4,11 +4,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1852, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('ROBERT LOCHORE'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 4
+# songs: 5
 
 --- TITLE: NOW, JENNY LASS  [air: Garryowen]
 --- SOURCE: PG22515
@@ -174,3 +176,42 @@ Awa' as a pilgrim, far distant I 'll wander,
   'Mang faces unkent, till the day that I dee.
 Ye shepherds, adieu! but tell Mary to ponder,
   To think on her vows, an' to think upon me.
+
+--- TITLE: MARRIAGE AND THE CARE O'T
+--- SOURCE: PG2620
+[VERSE 1]
+Quoth Rab to Kate, My sonsy dear,
+I've wooed ye mair than ha' a year,
+An' if ye'd wed me ne'er cou'd speer,
+Wi' blateness, an' the care o't.
+Now to the point: sincere I'm wi't:
+Will ye be my ha'f-marrow, sweet?
+Shake han's, and say a bargain be't
+An' ne'er think on the care o't.
+[VERSE 2]
+Na, na, quo' Kate, I winna wed,
+O' sic a snare I'll aye be rede;
+How mony, thochtless, are misled
+By marriage, an' the care o't!
+A single life's a life o' glee,
+A wife ne'er think to mak' o' me,
+Frae toil an' sorrow I'll keep free,
+An' a' the dool an' care o't.
+[VERSE 3]
+Weel, weel, said Robin, in reply,
+Ye ne'er again shall me deny,
+Ye may a toothless maiden die
+For me, I'll tak' nae care o't.
+Fareweel for ever! - aff I hie; -
+Sae took his leave without a sigh;
+Oh! stop, quo' Kate, I'm yours, I'll try
+The married life, an' care o't.
+[VERSE 4]
+Rab wheel't about, to Kate cam' back,
+An' ga'e her mou' a hearty smack,
+Syne lengthened out a lovin' crack
+'Bout marriage an' the care o't.
+Though as she thocht she didna speak,
+An' lookit unco mim an' meek,
+Yet blithe was she wi' Rab to cleek,
+In marriage, wi' the care o't.

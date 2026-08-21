@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1868, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 4
+# songs: 5
 
 --- TITLE: BARON RENFREW'S BALL
 --- SOURCE: PG47476
@@ -287,3 +289,48 @@ As they proved on many a bloody day,
 When, with wounds still raw and bayonets wet,
 The chiefs of the two great armies met
     Beneath the old apple-tree.
+
+--- TITLE: JANETTE'S HAIR
+--- SOURCE: PG2620
+[VERSE 1]
+Oh, loosen the snood that you wear, Janette,
+Let me tangle a hand in your hair - my pet;
+For the world to me had no daintier sight
+Than your brown hair veiling your shoulders white;
+Your beautiful dark brown hair - my pet.
+[VERSE 2]
+It was brown with a golden gloss, Janette,
+It was finer than silk of the floss - my pet;
+'Twas a beautiful mist falling down to your wrist,
+'Twas a thing to be braided, and jewelled, and kissed -
+'Twas the loveliest hair in the world - my pet.
+[VERSE 3]
+My arm was the arm of a clown, Janette,
+It was sinewy, bristled, and brown - my pet;
+But warmly and softly it loved to caress
+Your round white neck and your wealth of tress,
+Your beautiful plenty of hair - my pet.
+[VERSE 4]
+Your eyes had a swimming glory, Janette.
+Revealing the old, dear story - my pet;
+They were gray with that chastened tinge of the sky
+When the trout leaps quickest to snap the fly,
+And they matched with your golden hair - my pet.
+[VERSE 5]
+Your lips - but I have no words, Janette -
+They were fresh as the twitter of birds - my pet,
+When the spring is young, and the roses are wet,
+With the dewdrops in each red bosom set,
+And they suited your gold brown hair - my pet.
+[VERSE 6]
+Oh, you tangled my life in your hair, Janette,
+'Twas a silken and golden snare - my pet;
+But, so gentle the bondage, my soul did implore
+The right to continue your slave evermore,
+With my fingers enmeshed in your hair - my pet.
+[VERSE 7]
+Thus ever I dream what you were, Janette,
+With your lips, and your eyes, and your hair - my pet,
+In the darkness of desolate years I moan,
+And my tears fall bitterly over the stone
+That covers your golden hair - my pet.

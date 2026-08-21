@@ -10,6 +10,12 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1882, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -2412,3 +2418,463 @@ Our hearts, our hopes, are all with thee,
 Our hearts, our hopes, our prayers, our tears,
 Our faith triumphant o'er our fears,
 Are all with thee,--are all with thee!
+
+--- TITLE: "There Was a Little Girl"
+--- SOURCE: PG2619
+[VERSE 1]
+There was a little girl, who had a little curl
+Right in the middle of her forehead,
+And when she was good she was very, very good,
+But when she was bad she was horrid.
+[VERSE 2]
+She stood on her head, on her little trundle-bed,
+With nobody by for to hinder;
+She screamed and she squalled, she yelled and she bawled,
+And drummed her little heels against the winder.
+[VERSE 3]
+Her mother heard the noise, and thought it was the boys
+Playing in the empty attic,
+She rushed upstairs, and caught her unawares,
+And spanked her, most emphatic.
+
+--- TITLE: Christmas Bells
+--- SOURCE: PG2619
+[VERSE 1]
+I heard the bells on Christmas Day
+Their old, familiar carols play,
+And wild and sweet
+The words repeat
+Of peace on earth, good-will to men!
+[VERSE 2]
+And thought how, as the day had come,
+The belfries of all Christendom
+Had rolled along
+The unbroken song
+Of peace on earth, good-will to men!
+[VERSE 3]
+Till, ringing, singing on its way,
+The world revolved from night to day,
+A voice, a chime,
+A chant sublime
+Of peace on earth, good-will to men!
+[VERSE 4]
+Then from each black, accursed mouth
+The cannon thundered in the South,
+And with the sound
+The carols drowned
+Of peace on earth, good-will to men!
+[VERSE 5]
+It was as if an earthquake rent
+The hearth-stones of a continent,
+And made forlorn
+The households born
+Of peace on earth, good-will to men!
+[VERSE 6]
+And in despair I bowed my head;
+"There is no peace on earth," I said,
+"For hate is strong,
+And mocks the song
+Of peace on earth, good-will to men!"
+[VERSE 7]
+Then pealed the bells more loud and deep:
+"God is not dead, nor doth He sleep!
+The Wrong shall fail,
+The Right prevail,
+With peace on earth, good-will to men!"
+
+--- TITLE: The Three Kings
+--- SOURCE: PG2619
+[VERSE 1]
+Three Kings came riding from far away,
+Melchior and Gaspar and Baltasar;
+Three Wise Men out of the East were they,
+And they travelled by night and they slept by day,
+For their guide was a beautiful, wonderful star.
+[VERSE 2]
+The star was so beautiful, large and clear,
+That all the other stars of the sky
+Became a white mist in the atmosphere;
+And by this they knew that the coming was near
+Of the Prince foretold in the prophecy.
+[VERSE 3]
+Three caskets they bore on their saddle-bows,
+Three caskets of gold with golden keys;
+Their robes were of crimson silk, with rows
+Of bells and pomegranates and furbelows,
+Their turbans like blossoming almond-trees.
+[VERSE 4]
+And so the Three Kings rode into the West,
+Through the dusk of night, over hill and dell,
+And sometimes they nodded with beard on breast,
+And sometimes talked, as they paused to rest,
+With the people they met at some wayside well.
+[VERSE 5]
+"Of the child that is born," said Baltasar,
+"Good people, I pray you, tell us the news,
+For we in the East have seen his star,
+And have ridden fast, and have ridden far,
+To find and worship the King of the Jews."
+[VERSE 6]
+And the people answered, "You ask in vain;
+We know of no king but Herod the Great!"
+They thought the Wise Men were men insane,
+As they spurred their horses across the plain
+Like riders in haste, and who cannot wait.
+[VERSE 7]
+And when they came to Jerusalem,
+Herod the Great, who had heard this thing,
+Sent for the Wise Men and questioned them;
+And said, "Go down unto Bethlehem,
+And bring me tidings of this new king."
+[VERSE 8]
+So they rode away, and the star stood still,
+The only one in the gray of morn;
+Yes, it stopped,--it stood still of its own free will,
+Right over Bethlehem on the hill,
+The city of David, where Christ was born.
+[VERSE 9]
+And the Three Kings rode through the gate and the guard,
+Through the silent street, till their horses turned
+And neighed as they entered the great inn-yard;
+But the windows were closed, and the doors were barred,
+And only a light in the stable burned.
+[VERSE 10]
+And cradled there in the scented hay,
+In the air made sweet by the breath of kine,
+The little child in the manger lay,
+The Child that would be King one day
+Of a kingdom not human, but divine.
+[VERSE 11]
+His mother, Mary of Nazareth,
+Sat watching beside his place of rest,
+Watching the even flow of his breath,
+For the joy of life and the terror of death
+Were mingled together in her breast.
+[VERSE 12]
+They laid their offerings at his feet:
+The gold was their tribute to a King;
+The frankincense, with its odor sweet,
+Was for the Priest, the Paraclete;
+The myrrh for the body's burying.
+[VERSE 13]
+And the mother wondered and bowed her head,
+And sat as still as a statue of stone;
+Her heart was troubled yet comforted,
+Remembering what the Angel had said
+Of an endless reign and of David's throne.
+[VERSE 14]
+Then the Kings rode out of the city gate,
+With a clatter of hoofs in proud array;
+But they went not back to Herod the Great,
+For they knew his malice and feared his hate,
+And returned to their homes by another way.
+
+--- TITLE: The Children's Hour
+--- SOURCE: PG2619
+[VERSE 1]
+Between the dark and the daylight,
+When the night is beginning to lower,
+Comes a pause in the day's occupations,
+That is known as the Children's Hour.
+[VERSE 2]
+I hear in the chamber above me
+The patter of little feet,
+The sound of a door that is opened,
+And voices soft and sweet.
+[VERSE 3]
+From my study I see in the lamplight,
+Descending the broad hall stair,
+Grave Alice, and laughing Allegra,
+And Edith with golden hair.
+[VERSE 4]
+A whisper, and then a silence:
+Yet I know by their merry eyes
+They are plotting and planning together
+To take me by surprise.
+[VERSE 5]
+A sudden rush from the stairway,
+A sudden raid from the hall!
+By three doors left unguarded
+They enter my castle wall!
+[VERSE 6]
+They climb up into my turret
+O'er the arms and back of my chair;
+If I try to escape, they surround me;
+They seem to be everywhere.
+[VERSE 7]
+They almost devour me with kisses,
+Their arms about me entwine,
+Till I think of the Bishop of Bingen
+In his Mouse-Tower on the Rhine!
+[VERSE 8]
+Do you think, O blue-eyed banditti,
+Because you have scaled the wall,
+Such an old mustache as I am
+Is not a match for you all!
+[VERSE 9]
+I have you fast in my fortress,
+And will not let you depart,
+But put you down into the dungeon
+In the round-tower of my heart.
+[VERSE 10]
+And there will I keep you forever,
+Yes, forever and a day,
+Till the walls shall crumble to ruin,
+And moulder in dust away.
+
+--- TITLE: Maidenhood
+--- SOURCE: PG2619
+[VERSE 1]
+Maiden! with the meek, brown eyes,
+In whose orbs a shadow lies
+Like the dusk in evening skies!
+[VERSE 2]
+Thou whose locks outshine the sun,
+Golden tresses, wreathed in one,
+As the braided streamlets run!
+[VERSE 3]
+Standing, with reluctant feet,
+Where the brook and river meet,
+Womanhood and childhood fleet!
+[VERSE 4]
+Gazing, with, a timid glance,
+On the brooklet's swift advance,
+On the river's broad expanse!
+[VERSE 5]
+Deep and still, that gliding stream
+Beautiful to thee must seem,
+As the river of a dream.
+[VERSE 6]
+Then why pause with indecision,
+When bright angels in thy vision
+Beckon thee to fields Elysian?
+[VERSE 7]
+Seest thou shadows sailing by,
+As the dove, with startled eye,
+Sees the falcon's shadow fly?
+[VERSE 8]
+Hearest thou voices on the shore,
+That our ears perceive no more,
+Deafened by the cataract's roar?
+[VERSE 9]
+Oh, thou child of many prayers!
+Life hath quicksands,--Life hath snares!
+Care and age come unawares!
+[VERSE 10]
+Like the swell of some sweet tune,
+Morning rises into noon,
+May glides onward into June.
+[VERSE 11]
+Childhood is the bough, where slumbered
+Birds and blossoms many-numbered;--
+Age, that bough with snows encumbered.
+[VERSE 12]
+Gather, then, each flower that grows,
+When the young heart overflows,
+To embalm that tent of snows.
+[VERSE 13]
+Bear a lily in thy hand;
+Gates of brass cannot withstand
+One touch of that magic wand.
+[VERSE 14]
+Bear through sorrow, wrong, and ruth,
+In thy heart the dew of youth,
+On thy lips the smile of truth.
+[VERSE 15]
+Oh, that dew, like balm, shall steal
+Into wounds that cannot heal,
+Even as sleep our eyes doth seal;
+[VERSE 16]
+And that smile, like sunshine, dart
+Into many a sunless heart
+For a smile of God thou art.
+
+--- TITLE: ENDYMION
+--- SOURCE: PG2620
+[VERSE 1]
+The rising moon has hid the stars;
+Her level rays, like golden bars,
+Lie on the landscape green,
+With shadows brown between.
+[VERSE 2]
+And silver white the river gleams,
+As if Diana, in her dreams
+Had dropped her silver bow
+Upon the meadows low.
+[VERSE 3]
+On such a tranquil night as this,
+She woke Endymion with a kiss,
+When, sleeping in the grove,
+He dreamed not of her love.
+[VERSE 4]
+Like Dian's kiss, unasked, unsought,
+Love gives itself, but is not bought;
+Nor voice, nor sound betrays
+Its deep, impassioned gaze.
+[VERSE 5]
+It comes, - the beautiful, the free,
+The crown of all humanity, -
+In silence and alone
+To seek the elected one.
+[VERSE 6]
+It lifts the boughs, whose shadows deep
+Are life's oblivion, the soul's sleep,
+And kisses the closed eyes
+Of him who slumbering lies.
+[VERSE 7]
+O weary hearts!  O slumbering eyes!
+O drooping souls, whose destinies
+Are fraught with fear and pain,
+Ye shall be loved again!
+[VERSE 8]
+No one is so accursed by fate,
+No one so utterly desolate,
+But some heart, though unknown,
+Responds unto his own.
+[VERSE 9]
+Responds, - as if with unseen wings,
+An angel touched its quivering strings;
+And whispers, in its song,
+"Where hast thou stayed so long?"
+
+--- TITLE: SERENADE
+--- SOURCE: PG2620
+[VERSE 1]
+Stars of the summer night!
+Far in yon azure deeps,
+Hide, hide your golden light!
+She sleeps!
+My lady sleeps!
+Sleeps!
+[VERSE 2]
+Moon of the summer night!
+Far down yon western steeps,
+Sink, sink in silver light!
+She sleeps!
+My lady sleeps!
+Sleeps!
+[VERSE 3]
+Wind of the summer night!
+Where yonder woodbine creeps,
+Fold, fold thy pinions light!
+She sleeps!
+My lady sleeps!
+Sleeps!
+[VERSE 4]
+Dreams of the summer night!
+Tell her, her lover keeps
+Watch! while in slumbers light
+She sleeps!
+My lady sleeps!
+Sleeps!
+
+--- TITLE: Hymn to the Night
+--- SOURCE: PG2621
+[VERSE 1]
+I heard the trailing garments of the Night
+Sweep through her marble halls!
+I saw her sable skirts all fringed with light
+From the celestial walls!
+[VERSE 2]
+I felt her presence, by its spell of might,
+Stoop o'er me from above;
+The calm, majestic presence of the Night,
+As of the one I love.
+[VERSE 3]
+I heard the sounds of sorrow and delight,
+The manifold, soft chimes,
+That fill the haunted chambers of the Night,
+Like some old poet's rhymes.
+[VERSE 4]
+From the cool cisterns of the midnight air
+My spirit drank repose;
+The fountain of perpetual peace flows there,--
+From those deep cisterns flows.
+[VERSE 5]
+O holy Night! from thee I learn to bear
+What man has borne before!
+Thou layest thy finger on the lips of Care,
+And they complain no more.
+[VERSE 6]
+Peace! Peace! Orestes-like I breathe this prayer!
+Descend with broad-winged flight,
+The welcome, the thrice-prayed for, the most fair,
+The best-beloved Night!
+
+--- TITLE: Flowers
+--- SOURCE: PG2621
+[VERSE 1]
+Spare full well, in language quaint and olden
+One who dwelleth by the castled Rhine,
+When he called the flowers, so blue and golden,
+Stars, that in earth's firmament do shine.
+[VERSE 2]
+Stars they are, wherein we read our history,
+As astrologers and seers of eld;
+Yet not wrapped about with awful mystery,
+Like the burning stars, which they beheld.
+[VERSE 3]
+Wondrous truths, and manifold as wondrous,
+God hath written in those stars above;
+But not less in the bright flowerets under us
+Stands the revelation of his love.
+[VERSE 4]
+Bright and glorious is that revelation,
+Writ all over this great world of ours;
+Making evident our own creation,
+In these stars of earth, these golden flowers.
+[VERSE 5]
+And the Poet, faithful and far-seeing,
+See, alike in stars and flowers, a part
+Of the self-same, universal being,
+Which is throbbing in his brain and heart.
+[VERSE 6]
+Gorgeous flowerets in the sunlight shining,
+Blossoms flaunting in the eye of day,
+Tremulous leaves, with soft and silver lining,
+Buds that open only to decay;
+[VERSE 7]
+Brilliant hopes, all woven in gorgeous tissues,
+Flaunting gayly in the golden light;
+Large desires, with most uncertain issues,
+Tender wishes, blossoming at night!
+[VERSE 8]
+These in flowers and men are more than seeming;
+Workings are they of the self-same powers
+Which the Poet, in no idle dreaming,
+Seeth in himself and in the flowers.
+[VERSE 9]
+Everywhere about us are they glowing,
+Some like stars, to tell us Spring is born;
+Others, their blue eyes with tears o'erflowing,
+Stand like Ruth amid the golden corn;
+[VERSE 10]
+Not alone in Spring's armorial bearing,
+And in Summer's green-emblazoned field,
+But in arms of brave old Autumn's wearing,
+In the centre of his brazen shield;
+[VERSE 11]
+Not alone in meadows and green alleys,
+On the mountain-top, and by the brink
+Of sequestered pools in woodland valleys,
+Where the slaves of nature stoop to drink;
+[VERSE 12]
+Not alone in her vast dome of glory,
+Not on graves of bird and beast alone,
+But in old cathedrals, high and hoary,
+On the tombs of heroes, carved in stone;
+[VERSE 13]
+In the cottage of the rudest peasant;
+In ancestral homes, whose crumbling towers,
+Speaking of the Past unto the Present,
+Tell us of the ancient Games of Flowers;
+[VERSE 14]
+In all places, then, and in all seasons,
+Flowers expand their light and soul-like wings,
+Teaching us, by most persuasive reasons,
+How akin they are to human things.
+[VERSE 15]
+And with childlike, credulous affection,
+We behold their tender buds expand;
+Emblems of our own great resurrection,
+Emblems of the bright and better land.

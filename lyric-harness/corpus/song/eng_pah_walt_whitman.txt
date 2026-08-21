@@ -5,10 +5,12 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1892; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1892, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 3
+# songs: 5
 
 --- TITLE: The Imprisoned Soul
 --- SOURCE: PG66619
@@ -78,3 +80,66 @@ And courtesies to the regiments, the guidons moving by.
 What is it fateful woman, so blear, hardly human?
 Why wag your head with turban bound, yellow, red and green?
 Are the things so strange and marvellous you see or have seen?
+
+--- TITLE: To the Man-of-War-Bird
+--- SOURCE: PG2621
+[VERSE 1]
+Thou who hast slept all night upon the storm,
+Waking renewed on thy prodigious pinions,
+(Burst the wild storm? above it thou ascended'st,
+And rested on the sky, thy slave that cradled thee,)
+Now a blue point, far, far in heaven floating,
+As to the light emerging here on deck I watch thee,
+(Myself a speck, a point on the world's floating vast.)
+[VERSE 2]
+Far, far at sea,
+After the night's fierce drifts have strewn the shore with wrecks,
+With re-appearing day as now so happy and serene,
+The rosy and elastic dawn, the flashing sun,
+The limpid spread of air cerulean,
+Thou also re-appearest.
+[VERSE 3]
+Thou born to match the gale, (thou art all wings,)
+To cope with heaven and earth and sea and hurricane,
+Thou ship of air that never furl'st thy sails,
+Days, even weeks untired and onward, through spaces, realms gyrating,
+At dusk that look'st on Senegal, at morn America,
+That sport'st amid the lightning-flash and thunder-cloud,
+In them, in thy experiences, hadst thou my soul,
+What joys! what joys were thine!
+
+--- TITLE: Song for all Seas, all Ships
+--- SOURCE: PG2621
+[VERSE 1]
+I
+To-day a rude brief recitative,
+Of ships sailing the seas, each with its special flag or ship-signal,
+Of unnamed heroes in the ships--of waves spreading and spreading
+  far as the eye can reach,
+Of dashing spray, and the winds piping and blowing,
+And out of these a chant for the sailors of all nations, Fitful,
+  like a surge.
+[VERSE 2]
+Of sea-captains young or old, and the mates, and of all intrepid sailors,
+Of the few, very choice, taciturn, whom fate can never surprise nor
+  death dismay,
+Picked sparingly without noise by thee, old ocean, chosen by thee,
+Thou sea that pickest and cullest the race in time, and unitest nations,
+Suckled by thee, old husky nurse, embodying thee,
+Indomitable, untamed as thee.
+[VERSE 3]
+(Ever the heroes on water or on land, by ones or twos appearing,
+Ever the stock preserved and never lost, though rare, enough for
+  seed preserved.)
+[VERSE 4]
+II
+Flaunt out, O sea, your separate flags of nations!
+Flaunt out visible as ever the various ship-signals!
+But do you reserve especially for yourself and for the soul of man one
+  flag above all the rest,
+A spiritual woven signal for all nations, emblem of man elate above death,
+Token of all brave captains and all intrepid sailors and mates,
+And all that went down doing their duty,
+Reminiscent of them, twined from all intrepid captains young or old,
+A pennant universal, subtly waving all time, o'er all brave sailors,
+All seas, all ships.

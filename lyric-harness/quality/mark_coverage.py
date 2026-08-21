@@ -168,8 +168,16 @@ def scan(root=SONG_DIR):
 #: The headline figures, pinned so drift is a failing command rather than
 #: something a later reader has to notice.  Repin WITH the reason, and
 #: keep the superseded value visible (doctrine 17).
+#: REPINNED 2026-08-20 (HBV safe subset + 23 twin merges): typed
+#: 71,748 -> 76,944 and NOTHING ELSE MOVED. The Home Book of Verse marks
+#: its blocks `[VERSE n]` throughout, so it adds 5,196 typed blocks and
+#: not one new refused mark — decided, undecided, apparatus and the
+#: witnessed-function count are all byte-identical across a load of
+#: 1,049 items. The typed share rises 36.4% -> 38.0%, which is the
+#: honest direction and a small one: the refusal is Persian, and no
+#: amount of English anthology moves it.
 PINNED = {
-    "typed": 71748, "decided": 125490, "undecided": 32, "apparatus": 59,
+    "typed": 76944, "decided": 125490, "undecided": 32, "apparatus": 59,
     "declared_functions": 21, "witnessed": 4,
 }
 

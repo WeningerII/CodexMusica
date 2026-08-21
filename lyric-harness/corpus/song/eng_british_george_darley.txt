@@ -4,10 +4,12 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1846, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 7
+# songs: 10
 
 --- TITLE: MAY DAY.
 --- SOURCE: PG26715
@@ -211,3 +213,97 @@ The thousand car-borne cherubim,
   The wandering eleven,
 All join to chant the dirge of him
   Who fell just now from Heaven.
+
+--- TITLE: "IT IS NOT BEAUTY I DEMAND"
+--- SOURCE: PG2620
+[VERSE 1]
+It is not Beauty I demand,
+A crystal brow, the moon's despair,
+Nor the snow's daughter, a white hand,
+Nor mermaid's yellow pride of hair:
+[VERSE 2]
+Tell me not of your starry eyes,
+Your lips that seem on roses fed,
+Your breasts, where Cupid tumbling lies
+Nor sleeps for kissing of his bed: -
+[VERSE 3]
+A bloomy pair of vermeil cheeks
+Like Hebe's in her ruddiest hours,
+A breath that softer music speaks
+Than summer winds a-wooing flowers, -
+[VERSE 4]
+These are but gauds: nay, what are lips?
+Coral beneath the ocean-stream,
+Whose brink when your adventurer sips
+Full oft he perisheth on them.
+[VERSE 5]
+And what are cheeks but ensigns oft
+That wave hot youth to fields of blood?
+Did Helen's breast, though ne'er so soft,
+Do Greece or Ilium any good?
+[VERSE 6]
+Eyes can with baleful ardor burn;
+Poison can breathe, that erst perfumed;
+There's many a white hand holds an urn
+With lovers' hearts to dust consumed.
+[VERSE 7]
+For crystal brows - there's naught within;
+They are but empty cells for pride;
+He who the Siren's hair would win
+Is mostly strangled in the tide.
+[VERSE 8]
+Give me, instead of Beauty's bust,
+A tender heart, a loyal mind
+Which with temptation I could trust,
+Yet never linked with error find, -
+[VERSE 9]
+One in whose gentle bosom I
+Could pour my secret heart of woes,
+Like the care-burthened honey-fly
+That hides his murmurs in the rose, -
+[VERSE 10]
+My earthly Comforter! whose love
+So indefeasible might be
+That, when my spirit won above,
+Hers could not stay, for sympathy.
+
+--- TITLE: THE FLOWER OF BEAUTY
+--- SOURCE: PG2620
+[VERSE 1]
+Sweet in her green dell the flower of beauty slumbers,
+Lulled by the faint breezes sighing through her hair;
+Sleeps she, and hears not the melancholy numbers
+Breathed to my sad lute amid the lonely air?
+[VERSE 2]
+Down from the high cliffs the rivulet is teeming
+To wind round the willow-banks that lure him from above:
+Oh that, in tears from my rocky prison streaming,
+I too could glide to the bower of my love!
+[VERSE 3]
+Ah, where the woodbines with sleepy arms have wound her,
+Opes she her eyelids at the dream of my lay,
+Listening like the dove, while the fountains echo round her,
+To her lost mate's call in the forest far away?
+[VERSE 4]
+Come, then, my bird! for the peace thou ever bearest,
+Still Heaven's messenger of comfort be to me;
+Come! this fond bosom, my faithfulest, my fairest,
+Bleeds with its death-wound, - but deeper yet for thee.
+
+--- TITLE: LAST NIGHT
+--- SOURCE: PG2620
+[VERSE 1]
+I sat with one I love last night,
+She sang to me an olden strain;
+In former times it woke delight,
+Last night - but pain.
+[VERSE 2]
+Last night we saw the stars arise,
+But clouds soon dimmed the ether blue:
+And when we sought each other's eyes
+Tears dimmed them too!
+[VERSE 3]
+We paced along our favorite walk,
+But paced in silence broken-hearted:
+Of old we used to smile and talk;
+Last night - we parted.

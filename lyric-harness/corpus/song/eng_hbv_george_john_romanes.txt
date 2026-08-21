@@ -1,0 +1,27 @@
+# author: George John Romanes (1848-1894)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1894, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: Simple Nature
+--- SOURCE: PG2621
+[VERSE 1]
+Be it not mine to steal the cultured flower
+From any garden of the rich and great,
+Nor seek with care, through many a weary hour,
+Some novel form of wonder to create.
+Enough for me the leafy woods to rove,
+And gather simple cups of morning dew,
+Or, in the fields and meadows that I love,
+Find beauty in their bells of every hue.
+Thus round my cottage floats a fragrant air,
+And though the rustic plot be humbly laid,
+Yet, like the lilies gladly growing there,
+I have not toiled, but take what God has made.
+My Lord Ambition passed, and smiled in scorn;
+I plucked a rose, and, lo! it had no thorn.

@@ -1,0 +1,519 @@
+# author: Edward Robert Bulwer Lytton, Earl of Lytton (1831-1892)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1891, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1892; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# merged: 2026-08-20 — eng_oxford_edward_robert_bulwer_lytton_earl_of_lytton.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 6
+
+--- TITLE: SINCE WE PARTED
+--- SOURCE: PG2620
+[VERSE 1]
+Since we parted yester eve,
+I do love thee, love, believe,
+Twelve times dearer, twelve hours longer, -
+One dream deeper, one night stronger,
+One sun surer, - thus much more
+Than I loved thee, love, before.
+
+--- TITLE: THE CHESS-BOARD
+--- SOURCE: PG2620
+[VERSE 1]
+My little love, do you remember,
+Ere we were grown so sadly wise,
+Those evenings in the bleak December,
+Curtained warm from the snowy weather,
+When you and I played chess together,
+Checkmated by each other's eyes?
+[VERSE 2]
+Ah! still I see your soft white hand
+Hovering warm o'er Queen and Knight;
+Brave Pawns in valiant battle stand;
+The double Castles guard the wings;
+The Bishop, bent on distant things,
+Moves, sliding, through the fight.
+[VERSE 3]
+Our fingers touch; our glances meet,
+And falter; falls your golden hair
+Against my cheek; your bosom sweet
+Is heaving.  Down the field, your Queen
+Rides slow, her soldiery all between,
+And checks me unaware.
+[VERSE 4]
+Ah me! the little battle's done:
+Dispersed is all its chivalry.
+Full many a move, since then, have we
+'Mid Life's perplexing chequers made,
+And many a game with Fortune played; -
+What is it we have won?
+This, this at least, - if this alone:
+[VERSE 5]
+That never, never, never more,
+As in those old still nights of yore
+(Ere we were grown so sadly wise),
+Can you and I shut out the skies,
+Shut out the world and wintry weather,
+And, eyes exchanging warmth with eyes,
+Play chess, as then we played together!
+
+--- TITLE: AUX ITALIENS
+--- SOURCE: PG2620
+[VERSE 1]
+At Paris it was, at the Opera there; -
+And she looked like a queen in a book that night,
+With the wreath of pearl in her raven hair,
+And the brooch on her breast, so bright.
+[VERSE 2]
+Of all the operas that Verdi wrote,
+The best, to my taste, is the Trovatore;
+And Mario can soothe with a tenor note
+The souls in Purgatory.
+[VERSE 3]
+The moon on the tower slept soft as snow:
+And who was not thrilled in the strangest way,
+As we heard him sing, while the gas burned low,
+"Non ti scordar di me"?
+[VERSE 4]
+The Emperor there, in his box of state,
+Looked grave, as if he had just then seen
+The red flag wave from the city-gate
+Where his eagles in bronze had been.
+[VERSE 5]
+The Empress, too, had a tear in her eye.
+You'd have said that her fancy had gone back again,
+For one moment, under the old blue sky,
+To the old glad life in Spain.
+[VERSE 6]
+Well! there in our front-row box we sat,
+Together, my bride-betrothed and I;
+My gaze was fixed on my opera-hat,
+And hers on the stage hard by.
+[VERSE 7]
+And both were silent, and both were sad.
+Like a queen she leaned on her full white arm,
+With that regal, indolent air she had;
+So confident of her charm!
+[VERSE 8]
+I have not a doubt she was thinking then
+Of her former lord, good soul that he was!
+Who died the richest and roundest of men,
+The Marquis of Carabas.
+[VERSE 9]
+I hope that, to get to the kingdom of heaven,
+Through a needle's eye he had not to pass.
+I wish him well, for the jointure given
+To my lady of Carabas.
+[VERSE 10]
+Meanwhile, I was thinking of my first love,
+As I had not been thinking of aught for years,
+Till over my eyes there began to move
+Something that felt like tears.
+[VERSE 11]
+I thought of the dress that she wore last time,
+When we stood, 'neath the cypress-trees, together,
+In that lost land, in that soft clime,
+In the crimson evening weather;
+[VERSE 12]
+Of that muslin dress (for the eve was hot),
+And her warm white neck in its golden chain,
+And her full, soft hair, just tied in a knot,
+And falling loose again;
+[VERSE 13]
+And the jasmine-flower in her fair young breast,
+(O the faint, sweet smell of that jasmine-flower!)
+And the one bird singing alone to his nest,
+And the one star over the tower.
+[VERSE 14]
+I thought of our little quarrels and strife,
+And the letter that brought me back my ring.
+And it all seemed then, in the waste of life,
+Such a very little thing!
+[VERSE 15]
+For I thought of her grave below the hill,
+Which the sentinel cypress-tree stands over;
+And I thought . . . "were she only living still,
+How I could forgive her, and love her!"
+[VERSE 16]
+And I swear, as I thought of her thus, in that hour,
+And of how, after all, old things were best,
+That I smelt the smell of that jasmine-flower
+Which she used to wear in her breast.
+[VERSE 17]
+It smelt so faint, and it smelt so sweet,
+It made me creep, and it made me cold!
+Like the scent that steals from the crumbling sheet
+Where a mummy is half unrolled.
+[VERSE 18]
+And I turned, and looked.  She was sitting there
+In a dim box, over the stage; and dressed
+In that muslin dress with that full soft hair,
+And that jasmine in her breast!
+[VERSE 19]
+I was here; and she was there;
+And the glittering horseshoe curved between: -
+From my bride-betrothed, with her raven hair,
+And her sumptuous scornful mien,
+[VERSE 20]
+To my early love, with her eyes downcast,
+And over her primrose face the shade
+(In short from the Future back to the Past).
+There was but a step to be made.
+[VERSE 21]
+To my early love from my future bride
+One moment I looked.  Then I stole to the door,
+I traversed the passage; and down at her side
+I was sitting, a moment more.
+[VERSE 22]
+My thinking of her, or the music's strain,
+Or something which never will be expressed,
+Had brought her back from the grave again,
+With the jasmine in her breast.
+[VERSE 23]
+She is not dead, and she is not wed!
+But she loves me now, and she loved me then!
+And the very first word that her sweet lips said,
+My heart grew youthful again.
+[VERSE 24]
+The Marchioness there, of Carabas,
+She is wealthy, and young, and handsome still,
+And but for her . . . well, we'll let that pass,
+She may marry whomever she will.
+[VERSE 25]
+But I will marry my own first love,
+With her primrose face: for old things are best,
+And the flower in her bosom, I prize it above
+The brooch in my lady's breast.
+[VERSE 26]
+The world is filled with folly and sin,
+And Love must cling where it can, I say:
+For Beauty is easy enough to win;
+But one isn't loved every day.
+[VERSE 27]
+And I think, in the lives of most women and men,
+There's a moment when all would go smooth and even,
+If only the dead could find out when
+To come back, and be forgiven.
+[VERSE 28]
+But O the smell of that jasmine-flower!
+And O that music! and O the way
+That voice rang out from the donjon tower,
+Non ti scordar di me,
+Non ti scordar di me!
+
+--- TITLE: THE PORTRAIT
+--- SOURCE: PG2620
+[VERSE 1]
+Midnight past!  Not a sound of aught
+Through the silent house, but the wind at his prayers.
+I sat by the dying fire, and thought
+Of the dear dead woman up-stairs.
+[VERSE 2]
+A night of tears! for the gusty rain
+Had ceased, but the eaves were dripping yet;
+And the moon looked forth, as though in pain,
+With her face all white and wet:
+[VERSE 3]
+Nobody with me, my watch to keep,
+But the friend of my bosom, the man I love:
+And grief had sent him fast to sleep
+In the chamber up above.
+[VERSE 4]
+Nobody else, in the country place
+All round, that knew of my loss beside,
+But the good young Priest with the Raphael-face,
+Who confessed her when she died.
+[VERSE 5]
+That good young Priest is of gentle nerve,
+And my grief had moved him beyond control;
+For his lip grew white, as I could observe,
+When he speeded her parting soul.
+[VERSE 6]
+I sat by the dreary hearth alone:
+I thought of the pleasant days of yore:
+I said, "The staff of my life is gone:
+The woman I loved is no more.
+[VERSE 7]
+"On her cold dead bosom my portrait lies,
+Which next to her heart she used to wear -
+Haunting it o'er with her tender eyes
+When my own face was not there.
+[VERSE 8]
+"It is set all round with rubies red,
+And pearls which a Pen might have kept.
+For each ruby there my heart hath bled:
+For each pearl my eyes have wept."
+[VERSE 9]
+And I said - The thing is precious to me:
+They will bury her soon in the churchyard clay;
+It lies on her heart, and lost must be
+If I do not take it away."
+[VERSE 10]
+I lighted my lamp at the dying flame,
+And crept up the stairs that creaked for fright,
+Till into the chamber of death I came,
+Where she lay all in white.
+[VERSE 11]
+The moon shone over her winding-sheet,
+There stark she lay on her carven bed:
+Seven burning tapers about her feet,
+And seven about her head.
+[VERSE 12]
+As I stretched my hand, I held my breath;
+I turned as I drew the curtains apart:
+I dared not look on the face of death:
+I knew where to find her heart.
+[VERSE 13]
+I thought at first, as my touch fell there,
+It had warmed that heart to life, with love;
+For the thing I touched was warm, I swear,
+And I could feel it move.
+[VERSE 14]
+'Twas the hand of a man, that was moving slow
+O'er the heart of the dead, - from the other side:
+And at once the sweat broke over my brow:
+"Who is robbing the corpse?" I cried.
+[VERSE 15]
+Opposite me by the tapers' light,
+The friend of my bosom, the man I loved,
+Stood over the corpse, and all as white,
+And neither of us moved.
+[VERSE 16]
+"What do you here, my friend?". . .The man
+Looked first at me, and then at the dead.
+"There is a portrait here," he began:
+"There is.  It is mine," I said.
+[VERSE 17]
+Said the friend of my bosom, "Yours, no doubt,
+The portrait was, till a month ago,
+When this suffering angel took that out,
+And placed mine there, I know."
+[VERSE 18]
+"This woman, she loved me well," said I.
+"A month ago," said my friend to me:
+"And in your throat," I groaned, "you lie!"
+He answered, . . . "Let us see."
+[VERSE 19]
+"Enough!" I returned, "let the dead decide:
+And whosesoever the portrait prove,
+His shall it be, when the cause is tried,
+Where Death is arraigned by Love."
+[VERSE 20]
+We found the portrait there, in its place:
+We opened it by the tapers' shine:
+The gems were all unchanged: the face
+Was - neither his nor mine.
+[VERSE 21]
+"One nail drives out another, at least!
+The face of the portrait there," I cried,
+"Is our friend's, the Raphael-faced young Priest,
+Who confessed her when she died."
+[VERSE 22]
+The setting is all of rubies red,
+And pearls which a Peri might have kept.
+For each ruby there my heart hath bled:
+For each pearl my eyes have wept.
+
+--- TITLE: A Night in Italy
+--- SOURCE: PG66619
+[VERSE 1]
+Sweet are the rosy memories of the lips
+  That first kiss’d ours, albeit they kiss no more:
+Sweet is the sight of sunset-sailing ships,
+  Altho’ they leave us on a lonely shore:
+Sweet are familiar songs, tho’ Music dips
+  Her hollow shell in Thought’s forlornest wells:
+  And sweet, tho’ sad, the sound of midnight bells
+When the oped casement with the night-rain drips.
+[VERSE 2]
+There is a pleasure which is born of pain:
+  The grave of all things hath its violet.
+Else why, thro’ days which never come again,
+  Roams Hope with that strange longing, like Regret?
+Why put the posy in the cold dead hand?
+  Why plant the rose above the lonely grave?
+  Why bring the corpse across the salt sea-wave?
+Why deem the dead more near in native land?
+[VERSE 3]
+Thy name hath been a silence in my life
+  So long, it falters upon language now,
+O more to me than sister or than wife,
+  Once ... and now--nothing! It is hard to know
+That such things have been, and are not; and yet
+  Life loiters, keeps a pulse at even measure,
+  And goes upon its business and its pleasure,
+And knows not all the depths of its regret....
+[VERSE 4]
+Ah, could the memory cast her spots, as do
+  The snake’s brood theirs in spring! and be once more
+Wholly renew’d, to dwell i’ the time that’s new,
+  With no reiterance of those pangs of yore.
+Peace, peace! My wild song will go wandering
+  Too wantonly, down paths a private pain
+  Hath trodden bare. What was it jarr’d the strain?
+Some crush’d illusion, left with crumpled wing
+[VERSE 5]
+Tangled in Music’s web of twinèd strings--
+  That started that false note, and crack’d the tune
+In its beginning. Ah, forgotten things
+  Stumble back strangely! and the ghost of June
+Stands by December’s fire, cold, cold! and puts
+  The last spark out.--How could I sing aright
+  With those old airs haunting me all the night
+And those old steps that sound when daylight shuts?
+[VERSE 6]
+For back she comes, and moves reproachfully,
+  The mistress of my moods, and looks bereft
+(Cruel to the last!) as tho’ ’twere I, not she,
+  That did the wrong, and broke the spell, and left
+Memory comfortless.--Away! away!
+  Phantoms, about whose brows the bindweed clings,
+  Hopeless regret! In thinking of these things
+Some men have lost their minds, and others may.
+[VERSE 7]
+Yet, O for one deep draught in this dull hour!
+  One deep, deep draught of the departed time!
+O for one brief strong pulse of ancient power,
+  To beat and breathe thro’ all the valves of rhyme!
+Thou, Memory, with thy downward eyes, that art
+  The cup-bearer of gods, pour deep and long,
+  Brim all the vacant chalices of song
+With health! Droop down thine urn. I hold my heart
+One draught of what I shall not taste again
+  Save when my brain with thy dark wine is brimm’d,--
+One draught! and then straight onward, spite of pain,
+  And spite of all things changed, with gaze undimm’d,
+Love’s footsteps thro’ the waning Past to explore
+  Undaunted; and to carve in the wan light
+  Of Hope’s last outposts, on Song’s utmost height,
+The sad resemblance of an hour or more.
+[VERSE 8]
+Midnight, and love, and youth, and Italy!
+  Love in the land where love most lovely seems!
+Land of my love, tho’ I be far from thee,
+  Lend, for love’s sake, the light of thy moonbeams,
+The spirit of thy cypress-groves and all
+  Thy dark-eyed beauty for a little while
+  To my desire. Yet once more let her smile
+Fall o’er me: o’er me let her long hair fall....
+[VERSE 9]
+Under the blessèd darkness unreproved
+  We were alone, in that best hour of time
+Which first reveal’d to us how much we loved,
+  ’Neath the thick starlight. The young night sublime
+Hung trembling o’er us. At her feet I knelt,
+  And gazed up from her feet into her eyes.
+  Her face was bow’d: we breathed each other’s sighs:
+We did not speak: not move: we look’d: we felt.
+[VERSE 10]
+The night said not a word. The breeze was dead.
+  The leaf lay without whispering on the tree,
+As I lay at her feet. Droop’d was her head:
+  One hand in mine: and one still pensively
+Went wandering through my hair. We were together.
+  How? Where? What matter? Somewhere in a dream,
+  Drifting, slow drifting down a wizard stream:
+Whither? Together: then what matter whither?
+[VERSE 11]
+It was enough for me to clasp her hand:
+  To blend with her love-looks my own: no more.
+Enough (with thoughts like ships that cannot land,
+  Blown by faint winds about a magic shore)
+To realize, in each mysterious feeling,
+  The droop of the warm cheek so near my own:
+  The cool white arm about my shoulder thrown:
+Those exquisite fair feet where I was kneeling.
+[VERSE 12]
+How little know they life’s divinest bliss,
+  That know not to possess and yet refrain!
+Let the young Psyche roam, a fleeting kiss:
+  Grasp it--a few poor grains of dust remain.
+See how those floating flowers, the butterflies,
+  Hover the garden thro’, and take no root!
+  Desire for ever hath a flying foot:
+Free pleasure comes and goes beneath the skies.
+[VERSE 13]
+Close not thy hand upon the innocent joy
+  That trusts itself within thy reach. It may,
+Or may not, linger. Thou canst but destroy
+  The wingèd wanderer. Let it go or stay.
+Love thou the rose, yet leave it on its stem.
+  Think! Midas starved by turning all to gold.
+  Blessèd are those that spare, and that withhold;
+Because the whole world shall be trusted them.
+[VERSE 14]
+The foolish Faun pursues the unwilling Nymph
+  That culls her flowers beside the precipice
+Or dips her shining ankles in the lymph:
+  But, just when she must perish or be his,
+Heaven puts an arm out. She is safe. The shore
+  Gains some new fountain; or the lilied lawn
+  A rarer sort of rose: but ah, poor Faun!
+To thee she shall be changed for evermore.
+[VERSE 15]
+Chase not too close the fading rapture. Leave
+  To Love his long auroras, slowly seen.
+Be ready to release as to receive.
+  Deem those the nearest, soul to soul, between
+Whose lips yet lingers reverence on a sigh.
+  Judge what thy sense can reach not, most thine own,
+  If once thy soul hath seized it. The unknown
+Is life to love, religion, poetry.
+[VERSE 16]
+The moon had set. There was not any light,
+  Save of the lonely legion’d watch-stars pale
+In outer air, and what by fits made bright
+  Hot oleanders in a rosy vale
+Searched by the lamping fly, whose little spark
+  Went in and out, like passion’s bashful hope.
+  Meanwhile the sleepy globe began to slope
+A ponderous shoulder sunward thro’ the dark.
+[VERSE 17]
+And the night pass’d in beauty like a dream.
+  Aloof in those dark heavens paused Destiny,
+With her last star descending in the gleam
+  Of the cold morrow, from the emptied sky.
+The hour, the distance from her old self, all
+  The novelty and loneness of the place
+  Had left a lovely awe on that fair face,
+And all the land grew strange and magical.
+[VERSE 18]
+As droops some billowy cloud to the crouch’d hill,
+  Heavy with all heaven’s tears, for all earth’s care,
+She droop’d unto me, without force or will,
+  And sank upon my bosom, murmuring there
+A woman’s inarticulate passionate words.
+  O moment of all moments upon earth!
+  O life’s supreme! How worth, how wildly worth,
+Whole worlds of flame, to know this world affords.
+[VERSE 19]
+What even Eternity can not restore!
+  When all the ends of life take hands and meet
+Round centres of sweet fire. Ah, never more,
+  Ah never, shall the bitter with the sweet
+Be mingled so in the pale after-years!
+  One hour of life immortal spirits possess.
+  This drains the world, and leaves but weariness,
+And parching passion, and perplexing tears.
+[VERSE 20]
+Sad is it, that we cannot even keep
+  That hour to sweeten life’s last toil: but Youth
+Grasps all, and leaves us: and when we would weep,
+  We dare not let our tears fall, lest, in truth,
+They fall upon our work which must be done.
+  And so we bind up our torn hearts from breaking:
+  Our eyes from weeping, and our brows from aching:
+And follow the long pathway all alone.
+
+--- TITLE: The Last Wish
+--- SOURCE: PG66619
+[VERSE 1]
+Since all that I can ever do for thee
+Is to do nothing, this my prayer must be:
+That thou mayst never guess nor ever see
+The all-endured this nothing-done costs me.

@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1905, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 3
 
 --- TITLE: MILES KEOGH'S HORSE
 --- SOURCE: PG47476
@@ -82,3 +84,78 @@ Shall prove to a callous people
   That the sense of a soldier's worth,
 That the love of comrades, the honor of arms,
   Have not yet perished from earth.
+
+--- TITLE: THE WHITE FLAG
+--- SOURCE: PG2620
+[VERSE 1]
+I sent my love two roses, - one
+As white as driven snow,
+And one a blushing royal red,
+A flaming Jacqueminot.
+[VERSE 2]
+I meant to touch and test my fate;
+That night I should divine,
+The moment I should see my love,
+If her true heart were mine.
+[VERSE 3]
+For if she holds me dear, I said,
+She'll wear my blushing rose;
+If not, she'll wear my cold Lamarque,
+As white as winter's snows.
+[VERSE 4]
+My heart sank when I met her: sure
+I had been overbold,
+For on her breast my pale rose lay
+In virgin whiteness cold.
+[VERSE 5]
+Yet with low words she greeted me,
+With smiles divinely tender;
+Upon her cheek the red rose dawned, -
+The white rose meant surrender.
+
+--- TITLE: A WOMAN'S LOVE
+--- SOURCE: PG2620
+[VERSE 1]
+A sentinel angel, sitting high in glory,
+Heard this shrill wail ring out from Purgatory:
+"Have mercy, mighty angel, hear my story!
+[VERSE 2]
+"I loved, - and, blind with passionate love, I fell.
+Love brought me down to death, and death to Hell;
+For God is just, and death for sin is well.
+[VERSE 3]
+"I do not rage against His high decree,
+Nor for myself do ask that grace shall be;
+But for my love on earth who mourns for me.
+[VERSE 4]
+"Great Spirit!  Let me see my love again
+And comfort him one hour, and I were fain
+To pay a thousand years of fire and pain."
+[VERSE 5]
+Then said the pitying angel, "Nay, repent
+That wild vow!  Look, the dial-finger's bent
+Down to the last hour of thy punishment!"
+[VERSE 6]
+But still she wailed, "I pray thee, let me go!
+I cannot rise to peace and leave him so.
+O, let me soothe him in his bitter woe!"
+[VERSE 7]
+The brazen gates ground sullenly ajar,
+And upwards, joyous, like a rising star,
+She rose and vanished in the ether far.
+[VERSE 8]
+But soon adown the dying sunset sailing,
+And like a wounded bird her pinions trailing,
+She fluttered back, with broken-hearted wailing,
+[VERSE 9]
+She sobbed, "I found him by the summer sea
+Reclined, his head upon a maiden's knee, -
+She curled his hair and kissed him.  Woe is me!"
+[VERSE 10]
+She wept, "Now let my punishment begin!
+I have been fond and foolish.  Let me in
+To expiate my sorrow and my sin."
+[VERSE 11]
+The angel answered, "Nay, sad soul, go higher!
+To be deceived in your true heart's desire
+Was bitterer than a thousand years of fire!"

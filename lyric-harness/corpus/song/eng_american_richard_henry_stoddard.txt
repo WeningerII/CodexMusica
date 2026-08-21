@@ -4,10 +4,16 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1903, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1903, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1903, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 9
+# songs: 12
 
 --- TITLE: Song
 --- SOURCE: PG15553
@@ -558,3 +564,88 @@ For many a year and many an age,
 While History on her ample page
     The virtues shall enroll
     Of that Paternal Soul.
+
+--- TITLE: Threescore and Ten
+--- SOURCE: PG2619
+[VERSE 1]
+Who reach their threescore years and ten,
+As I have mine, without a sigh,
+Are either more or less than men--
+Not such am I.
+[VERSE 2]
+I am not of them; life to me
+Has been a strange, bewildering dream,
+Wherein I knew not things that be
+From things that seem.
+[VERSE 3]
+I thought, I hoped, I knew one thing,
+And had one gift, when I was young--
+The impulse and the power to sing,
+And so I sung.
+[VERSE 4]
+To have a place in the high choir
+Of poets, and deserve the same--
+What more could mortal man desire
+Than poet's fame?
+[VERSE 5]
+I sought it long, but never found;
+The choir so full was and so strong
+The jubilant voices there, they drowned
+My simple song.
+[VERSE 6]
+Men would not hear me then, and now
+I care not, I accept my fate,
+When white hairs thatch the furrowed brow
+Crowns come too late!
+[VERSE 7]
+The best of life went long ago
+From me; it was not much at best;
+Only the love that young hearts know,
+The dear unrest.
+[VERSE 8]
+Back on my past, through gathering tears,
+Once more I cast my eyes, and see
+Bright shapes that in my better years
+Surrounded me!
+[VERSE 9]
+They left me here, they left me there,
+Went down dark pathways, one by one--
+The wise, the great, the young, the fair;
+But I went on.
+[VERSE 10]
+And I go on!  And bad or good,
+The old allotted years of men
+I have endured as best I could,
+Threescore and ten!
+
+--- TITLE: THE DYING LOVER
+--- SOURCE: PG2620
+[VERSE 1]
+The grass that is under me now
+Will soon be over me, Sweet;
+When you walk this way again
+I shall not hear your feet.
+[VERSE 2]
+You may walk this way again,
+And shed your tears like dew;
+They will be no more to me then
+Than mine are now to you!
+
+--- TITLE: The Sea
+--- SOURCE: PG2621
+[VERSE 1]
+Through the night, through the night,
+In the saddest unrest,
+Wrapped in white, all in white,
+With her babe on her breast,
+Walks the mother so pale,
+Staring out on the gale,
+Through the night!
+[VERSE 2]
+Through the night, through the night,
+Where the sea lifts the wreck,
+Land in sight, close in sight,
+On the surf-flooded deck,
+Stands the father so brave,
+Driving on to his grave
+Through the night!

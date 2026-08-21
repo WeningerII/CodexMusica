@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1758; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1758, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 4
 
 --- TITLE: Peggy
 --- SOURCE: PG66619
@@ -46,3 +48,93 @@ By a’ the rest, that she sings best;
     And in her sangs are tauld
   With innocence the wale of sense,
     At wawking of the fauld.
+
+--- TITLE: MY PEGGY
+--- SOURCE: PG2620
+[VERSE 1]
+My Peggy is a young thing,
+Just entered in her teens,
+Fair as the day, and sweet as May,
+Fair as the day, and always gay:
+My Peggy is a young thing,
+And I'm na very auld,
+Yet weel I like to meet her at
+The wauking o' the fauld.
+[VERSE 2]
+My Peggy speaks sae sweetly
+Whene'er we meet alane,
+I wish nae mair to lay my care,
+I wish nae mair o' a' that's rare:
+My Peggy speaks sae sweetly,
+To a' the lave I'm cauld;
+But she gars a' my spirits glow
+At wauking o' the fauld.
+[VERSE 3]
+My Peggy smiles sae kindly
+Whene'er I whisper love,
+That I look doun on a' the toun,
+That I look doun upon a croun:
+My Peggy smiles sae kindly,
+It makes me blithe and bauld,
+And naething gi'es me sic delight
+As waulking o' the fauld.
+[VERSE 4]
+My Peggy sings sae saftly,
+When on my pipe I play;
+By a' the rest it is confessed,
+By a' the rest that she sings best:
+My Peggy sings sae saftly,
+And in her sangs are tauld,
+Wi' innocence the wale o' sense,
+At wauking o' the fauld.
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+At setting day and rising morn,
+Wi' soul that still shall love thee,
+I'll ask o' Heaven thy safe return,
+Wi' a' that can improve thee.
+I'll visit aft the birken bush
+Where first thou kindly tauld me
+Sweet tales o' love, and hid my blush,
+Whilst round thou didst infauld me.
+[VERSE 2]
+To a' our haunts I will repair,
+By greenwood, shaw, or fountain,
+Or where the summer day I'd share
+Wi' thee upon yon mountain:
+There will I tell the trees an' flooers,
+From thoughts unfeigned an' tender;
+By vows you're mine, by love is yours
+A heart that cannot wander.
+
+--- TITLE: LOCHABER NO MORE
+--- SOURCE: PG2620
+[VERSE 1]
+Farewell to Lochaber, an' farewell my Jean,
+Where heartsome wi' thee I hae mony day been;
+For Lochaber no more, Lochaber no more!
+We'll maybe return to Lochaber no more!
+These tears that I shed, they are a' for my dear,
+An' no for the dangers attending on weir,
+Though borne on rough seas to a far bloody shore,
+Maybe to return to Lochaber no more.
+[VERSE 2]
+Though hurricanes rise, an' rise every wind,
+They'll ne'er mak' a tempest like that in my mind;
+Though loudest o' thunders on louder waves roar,
+That's naething like leaving my love on the shore.
+To leave thee behind me my heart is sair pained;
+By ease that's inglorious no fame can be gained;
+An' beauty an' love's the reward o' the brave,
+An' I must deserve it before I can crave.
+[VERSE 3]
+Then glory, my Jeanie, maun plead my excuse;
+Since honor commands me, how can I refuse?
+Without it I ne'er can have merit for thee,
+An' without thy favor I'd better not be,
+I gae, then, my lass, to win honor an' fame,
+An' if I should luck to come gloriously hame,
+I'll bring a heart to thee wi' love running o'er,
+An' then I'll leave thee an' Lochaber no more.

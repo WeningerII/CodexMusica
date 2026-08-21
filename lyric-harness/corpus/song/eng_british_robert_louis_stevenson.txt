@@ -4,6 +4,10 @@
 # licence: public domain — Project Gutenberg text; author died 1894; every edition used was published 1931 or earlier
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1894, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1894, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # edition: A-Child-s-Garden-of-Verses — 1885 — no imprint in the file; A Child's Garden of Verses, 1885
 # note: A Child's Garden of Verses complete.
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
@@ -1667,3 +1671,159 @@ This be the verse you grave for me:
 _Here he lies where he long’d to be;_
 _Home is the sailor, home from sea,_
   _And the hunter home from the hill._
+
+--- TITLE: Whole Duty of Children
+--- SOURCE: PG2619
+[VERSE 1]
+A child should always say what's true
+And speak when he is spoken to,
+And behave mannerly at table;
+At least as far as he is able.
+
+--- TITLE: "Trusty, Dusky, Vivid, True"
+--- SOURCE: PG2619
+[VERSE 1]
+Trusty, dusky, vivid, true,
+With eyes of gold and bramble-dew,
+Steel true and blade straight
+The great Artificer made my mate.
+[VERSE 2]
+Honor, anger, valor, fire,
+A love that life could never tire,
+Death quench, or evil stir,
+The mighty Master gave to her.
+[VERSE 3]
+Teacher, tender comrade, wife,
+A fellow-farer true through life,
+Heart-whole and soul-free,
+The August Father gave to me.
+
+--- TITLE: A Lad That is Gone
+--- SOURCE: PG2619
+[VERSE 1]
+Sing me a song of a lad that is gone;
+Say, could that lad be I?
+Merry of soul he sailed on a day
+Over the sea to Skye.
+[VERSE 2]
+Mull was astern, Rum on the port,
+Eigg on the starboard bow;
+Glory of youth glowed in his soul:
+Where is that glory now?
+[VERSE 3]
+Sing me a song of a lad that is gone;
+Say, could that lad be I?
+Merry of soul he sailed on a day
+Over the sea to Skye.
+[VERSE 4]
+Give me again all that was there,
+Give me the sun that shone!
+Give me the eyes, give me the soul,
+Give me the lad that's gone!
+[VERSE 5]
+Sing me a song of a lad that is gone;
+Say, could that lad be I?
+Merry of soul he sailed on a day
+Over the sea to Skye.
+[VERSE 6]
+Billow and breeze, islands and seas,
+Mountains of rain and sun,
+All that was good, all that was fair,
+All that was me is gone.
+
+--- TITLE: Christmas at Sea
+--- SOURCE: PG2621
+[VERSE 1]
+The sheets were frozen hard, and they cut the naked hand;
+The decks were like a slide, where a seaman scarce could stand;
+The wind was a nor'-wester, blowing squally off the sea;
+And cliffs and spouting breakers were the only things a-lee.
+[VERSE 2]
+They heard the surf a-roaring before the break of day;
+But 'twas only with the peep of light we saw how ill we lay.
+We tumbled every hand on deck instanter, with a shout,
+And we gave her the maintops'l, and stood by to go about.
+[VERSE 3]
+All day we tacked and tacked between the South Head and the North;
+All day we hauled the frozen sheets, and got no further forth;
+All day as cold as charity, in bitter pain and dread,
+For very life and nature we tacked from head to head.
+[VERSE 4]
+We gave the South a wider berth, for there the tide-race roared;
+But every tack we made brought the North Head close aboard;
+So's we saw the cliffs and houses, and the breakers running high,
+And the coastguard in his garden, with his glass against his eye.
+[VERSE 5]
+The frost was on the village roofs as white as ocean foam;
+The good red fires were burning bright in every 'longshore home;
+The windows sparkled clear, and the chimneys volleyed out;
+And I vow we sniffed the victuals as the vessel went about.
+[VERSE 6]
+The bells upon the church were rung with a mighty jovial cheer;
+For it's just that I should tell you how (of all days in the year)
+This day of our adversity was blessed Christmas morn,
+And the house above the coastguard's was the house where I was born.
+[VERSE 7]
+O well I saw the pleasant room, the pleasant faces there,
+My mother's silver spectacles, my father's silver hair;
+And well I saw the firelight, like a flight of homely elves,
+Go dancing round the china-plates that stand upon the shelves.
+[VERSE 8]
+And well I knew the talk they had, the talk that was of me,
+Of the shadow on the household and the son that went to sea;
+And O the wicked fool I seemed, in every kind of way,
+To be here and hauling frozen ropes on blessed Christmas Day.
+[VERSE 9]
+They lit the high sea-light, and the dark began to fall.
+"All hands to loose topgallant sails," I heard the captain call.
+"By the Lord, she'll never stand it," our first mate, Jackson, cried.
+"It's the one way or the other, Mr. Jackson," he replied.
+[VERSE 10]
+She staggered to her bearings, but the sails were new and good,
+And the ship smelt up to windward, just as though she understood.
+As the winter's day was ending, in the entry of the night,
+We cleared the weary headland, and passed below the light.
+[VERSE 11]
+And they heaved a mighty breath, every soul on board but me,
+As they saw her nose again pointing handsome out to sea;
+But all that I could think of, in the darkness and the cold,
+Was just that I was leaving home and my folks were growing old.
+
+--- TITLE: The Vagabond
+--- SOURCE: PG2621
+[VERSE 1]
+Give to me the life I love,
+Let the lave go by me,
+Give the jolly heaven above
+And the byway nigh me.
+Bed in the bush with stars to see,
+Bread I dip in the river--
+There's the life for a man like me,
+There's the life for ever.
+[VERSE 2]
+Let the blow fall soon or late,
+Let what will be o'er me;
+Give the face of earth around
+And the road before me.
+Wealth I seek not, hope nor love,
+Nor a friend to know me;
+All I seek, the heaven above
+And the road below me.
+[VERSE 3]
+Or let autumn fall on me
+Where afield I linger,
+Silencing the bird on tree,
+Biting the blue finger.
+White as meal the frosty field--
+Warm the fireside haven--
+Not to autumn will I yield,
+Not to winter even!
+[VERSE 4]
+Let the blow fall soon or late,
+Let what will be o'er me;
+Give the face of earth around,
+And the road before me.
+Wealth I ask not, hope nor love,
+Nor a friend to know me;
+All I ask, the heaven above
+And the road below me.

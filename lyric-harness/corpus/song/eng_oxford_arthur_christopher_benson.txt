@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1862; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1925, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 2
 
 --- TITLE: The Phœnix
 --- SOURCE: PG66619
@@ -30,3 +32,60 @@ So rare the light, so rich the sight,
   Those pilgrim men, on profit bent,
 Drop hands and eyes and merchandise,
   And are with gazing most content.
+
+--- TITLE: Knapweed
+--- SOURCE: PG2621
+[VERSE 1]
+By copse and hedgerow, waste and wall,
+He thrusts his cushions red;
+O'er burdock rank, o'er thistles tall,
+He rears his hardy head:
+Within, without, the strong leaves press,
+He screens the mossy stone,
+Lord of a narrow wilderness,
+Self-centred and alone.
+[VERSE 2]
+He numbers no observant friends,
+He soothes no childish woes,
+Yet nature nurtures him, and tends
+As duly as the rose;
+He drinks the blessed dew of heaven,
+The wind is in his ears,
+To guard his growth the planets seven
+Swing in their airy spheres.
+[VERSE 3]
+The spirits of the fields and woods
+Throb in his sturdy veins:
+He drinks the secret, stealing floods,
+And swills the volleying rains:
+And when the bird's note showers and breaks
+The wood's green heart within,
+He stirs his plumy brow and wakes
+To draw the sunlight in.
+[VERSE 4]
+Mute sheep that pull the grasses soft
+Crop close and pass him by,
+Until he stands alone, aloft,
+In surly majesty.
+No fly so keen, no bee so bold,
+To pierce that knotted zone;
+He frowns as though he guarded gold,
+And yet he garners none.
+[VERSE 5]
+And so when autumn winds blow late,
+And whirl the chilly wave,
+He bows before the common fate,
+And drops beside his grave.
+None ever owed him thanks or said
+"A gift of gracious heaven."
+Down in the mire he droops his head;
+Forgotten, not forgiven.
+[VERSE 6]
+Smile on, brave weed! let none inquire
+What made or bade thee rise:
+Toss thy tough fingers high and higher
+To flout the drenching skies.
+Let others toil for others' good,
+And miss or mar their own;
+Thou hast brave health and fortitude
+To live and die alone!

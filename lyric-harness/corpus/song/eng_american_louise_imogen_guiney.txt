@@ -4,10 +4,14 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1920, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1920, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 4
 
 --- TITLE: The Kings
 --- SOURCE: PG15553
@@ -89,3 +93,55 @@ Now the curse is allayed, now the dragon is down,
 Now we see, clear enough, looking back at the onset,
 Christianity's flood-tide and Chivalry's sunset
 In the old broken heart of our hanged John Brown!
+
+--- TITLE: Tryste Noel
+--- SOURCE: PG2619
+[VERSE 1]
+The Ox he openeth wide the Doore,
+And from the Snowe he calls her inne,
+And he hath seen her Smile therefor,
+Our Ladye without Sinne.
+Now soone from Sleep
+A Starre shall leap,
+And soone arrive both King and Hinde:
+Amen, Amen:
+But O, the Place co'd I but finde!
+[VERSE 2]
+The Ox hath hushed his voyce and bent
+Trewe eyes of Pitty ore the Mow,
+And on his lovelie Neck, forspent,
+The Blessed layes her Browe.
+Around her feet
+Full Warme and Sweete
+His bowerie Breath doth meeklie dwell:
+Amen, Amen:
+But sore am I with Vaine Travel!
+[VERSE 3]
+The Ox is host in Judah stall
+And Host of more than onelie one,
+For close she gathereth withal
+Our Lorde her littel Sonne.
+Glad Hinde and King
+Their Gyfte may bring,
+But wo'd to-night my Teares were there,
+Amen, Amen:
+Between her Bosom and His hayre!
+
+--- TITLE: OF JOAN'S YOUTH
+--- SOURCE: PG2620
+[VERSE 1]
+I would unto my fair restore
+A simple thing:
+The flushing cheek she had before!
+Out-velveting
+No more, no more,
+On our sad shore,
+The carmine grape, the moth's auroral wing.
+[VERSE 2]
+Ah, say how winds in flooding grass
+Unmoor the rose;
+Or guileful ways the salmon pass
+To sea, disclose;
+For so, alas,
+With Love, alas,
+With fatal, fatal Love a girlhood goes.

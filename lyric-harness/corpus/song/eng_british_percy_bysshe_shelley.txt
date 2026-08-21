@@ -3,6 +3,12 @@
 # source: GITenberg/The-Complete-Poetical-Works-of-Percy-Bysshe-Shelley-Volume-3_4799 4799.txt md5 ee7dc48bd5ddcb751091cfcb2148b8c1
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd
 # licence: public domain — Project Gutenberg text; author died 1822; every edition used was published 1931 or earlier
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1822, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1822, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1822, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # edition: The-Complete-Poetical-Works-of-Percy-Bysshe-Shelley-Volume-3 — 1914 — detected in file: '1914'; Shelley's Complete Poetical Works, ed. Hutchinson
 # edition: The-Oxford-Book-of-English-Verse-1250-1900 — 1919 — Quiller-Couch's Oxford Book of English Verse 1250-1900; the file's own dateline is the 1250-1900 title span
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
@@ -2908,3 +2914,374 @@ The desire of the moth for the star,
   Of the night for the morrow,
 The devotion to something afar
   From the sphere of our sorrow?
+
+--- TITLE: Time Long Past
+--- SOURCE: PG2619
+[VERSE 1]
+Like the ghost of a dear friend dead
+Is Time long past.
+A tone which is now forever fled,
+A hope which is now forever past,
+A love so sweet it could not last,
+Was Time long past.
+[VERSE 2]
+There were sweet dreams in the night
+Of Time long past:
+And, was it sadness or delight,
+Each day a shadow onward cast
+Which made us wish it yet might last,--
+That Time long past.
+[VERSE 3]
+There is regret, almost remorse,
+For Time long past.
+'Tis like a child's beloved corse
+A father watches, till at last
+Beauty is like remembrance, cast
+From Time long past.
+
+--- TITLE: "I FEAR THY KISSES, GENTLE MAIDEN"
+--- SOURCE: PG2620
+[VERSE 1]
+I fear thy kisses, gentle maiden;
+Thou needest not fear mine;
+My spirit is too deeply laden
+Ever to burthen thine.
+[VERSE 2]
+I fear thy mien, thy tones, thy motion;
+Thou needest not fear mine;
+Innocent is the heart's devotion
+With which I worship thine.
+
+--- TITLE: LOVE'S PHILOSOPHY
+--- SOURCE: PG2620
+[VERSE 1]
+The fountains mingle with the river,
+And the rivers with the ocean,
+The winds of heaven mix forever
+With a sweet emotion;
+Nothing in the world is single;
+All things by a law divine
+In one another's being mingle; -
+Why not I with thine?
+[VERSE 2]
+See the mountains kiss high heaven,
+And the waves clasp one another;
+No sister flower would be forgiven
+If it disdained its brother;
+And the sunlight clasps the earth,
+And the moonbeams kiss the sea;
+What are all these kissings worth,
+If thou kiss not me?
+
+--- TITLE: GOOD-NIGHT
+--- SOURCE: PG2620
+[VERSE 1]
+Good-night? ah! no; the hour is ill
+Which severs those it should unite;
+Let us remain together still,
+Then it will be good night.
+[VERSE 2]
+How can I call the lone night good,
+Though thy sweet wishes wing its flight?
+Be it not said, thought, understood,
+Then it will be good night.
+[VERSE 3]
+To hearts which near each other move
+From evening close to morning light,
+The night is good; because, my love,
+They never say good-night.
+
+--- TITLE: Hymn of Apollo
+--- SOURCE: PG2621
+[VERSE 1]
+The sleepless Hours who watch me as I lie,
+Curtained with star-inwoven tapestries,
+From the broad moonlight of the sky,
+Fanning the busy dreams from my dim eyes,--
+Waken me when their Mother, the gray Dawn,
+Tells them that dreams and that the moon is gone.
+[VERSE 2]
+Then I arise, and climbing Heaven's blue dome,
+I walk over the mountains and the waves,
+Leaving my robe upon the ocean foam;
+My footsteps pave the clouds with fire; the caves
+Are filled with my bright presence, and the air
+Leaves the green Earth to my embraces bare.
+[VERSE 3]
+The sunbeams are my shafts, with which I kill
+Deceit, that loves the night and fears the day;
+All men who do or even imagine ill
+Fly me, and from the glory of my ray
+Good minds and open actions take new might,
+Until diminished by the reign of Night.
+[VERSE 4]
+I feed the clouds, the rainbows, and the flowers,
+With their ethereal colors; the Moon's globe,
+And the pure stars in their eternal bowers,
+Are cinctured with my power as with a robe;
+Whatever lamps on Earth or Heaven may shine,
+Are portions of one power, which is mine.
+[VERSE 5]
+I stand at noon upon the peak of Heaven;
+Then with unwilling steps I wander down
+Into the clouds of the Atlantic even;
+For grief that I depart they weep and frown:
+What look is more delightful than the smile
+With which I soothe them from the western isle?
+[VERSE 6]
+I am the eye with which the Universe
+Beholds itself, and knows it is divine;
+All harmony of instrument or verse,
+All prophecy, all medicine, is mine,
+All light of art or nature;--to my song
+Victory and praise in its own right belong.
+
+--- TITLE: Autumn: a Dirge
+--- SOURCE: PG2621
+[VERSE 1]
+The warm sun is failing; the bleak wind is wailing;
+The bare boughs are sighing; the pale flowers are dying;
+And the Year
+On the earth, her death-bed, in a shroud of leaves dead,
+Is lying.
+Come, months, come away,
+From November to May;
+In your saddest array
+Follow the bier
+Of the dead, cold Year,
+And like dim shadows watch by her sepulchre.
+[VERSE 2]
+The chill rain is falling; the nipped worm is crawling;
+The rivers are swelling; the thunder is knelling
+For the Year;
+The blithe swallows are flown, and the lizards each gone
+To his dwelling;
+Come, months, come away;
+Put on white, black, and gray;
+Let your light sisters play--
+Ye, follow the bier
+Of the dead, cold Year,
+And make her grave green with tear on tear.
+
+--- TITLE: Dirge for the Year
+--- SOURCE: PG2621
+[VERSE 1]
+"Orphan Hours, the Year is dead:
+Come and sigh, come and weep."
+"Merry Hours, smile instead,
+For the Year is but asleep.
+See, it smiles as it is sleeping,
+Mocking your untimely weeping."
+[VERSE 2]
+"As an earthquake rocks a corse
+In its coffin in the clay,
+So white Winter, that rough nurse,
+Rocks the death-cold Year to-day;
+Solemn Hours! wail aloud
+For your mother in her shroud."
+[VERSE 3]
+"As the wild air stirs and sways
+The tree-swung cradle of a child,
+So the breath of these rude days
+Rocks the Year:--be calm and mild,
+Trembling Hours; she will arise
+With new love within her eyes.
+[VERSE 4]
+"January gray is here,
+Like a sexton by her grave;
+February bears the bier;
+March with grief doth howl and rave,
+And April weeps--but, O, ye Hours,
+Follow with May's fairest flowers."
+
+--- TITLE: Arethusa
+--- SOURCE: PG2621
+[VERSE 1]
+Arethusa arose
+From her couch of snows
+In the Acroceraunian mountains,--
+From cloud and from crag,
+With many a jag,
+Shepherding her bright fountains.
+She leapt down the rocks
+With her rainbow locks
+Streaming among the streams;
+Her steps paved with green
+The downward ravine
+Which slopes to the western gleams:
+And gliding and springing,
+She went, ever singing,
+In murmurs as soft as sleep;
+The Earth seemed to love her,
+And Heaven smiled above her,
+As she lingered towards the deep.
+[VERSE 2]
+Then Alpheus bold,
+On his glacier cold,
+With his trident the mountains strook,
+And opened a chasm
+In the rocks;--with the spasm
+All Erymanthus shook.
+And the black south wind
+It unsealed behind
+The urns of the silent snow,
+And earthquake and thunder
+Did rend in sunder
+The bars of the springs below:
+And the beard and the hair
+Of the River-god were
+Seen through the torrent's sweep,
+As he followed the light
+Of the fleet nymph's flight
+To the brink of the Dorian deep.
+[VERSE 3]
+"Oh, save me!  Oh, guide me!
+And bid the deep hide me!
+For he grasps me now by the hair!"
+The loud Ocean heard,
+To its blue depth stirred,
+And divided at her prayer;
+And under the water
+The Earth's white daughter
+Fled like a sunny beam;
+Behind her descended,
+Her billows, unblended
+With the brackish Dorian stream.
+Like a gloomy stain
+On the emerald main,
+Alpheus rushed behind,--
+As an eagle pursuing
+A dove to its ruin
+Down the streams of the cloudy wind.
+[VERSE 4]
+Under the bowers
+Where the Ocean Powers
+Sit on their pearled thrones;
+Through the coral woods
+Of the weltering floods,
+Over heaps of unvalued stones;
+Through the dim beams
+Which amid the streams
+Weave a network of colored light;
+And under the caves
+Where the shadowy waves
+Are as green as the forest's night:--
+Outspeeding the shark,
+And the swordfish dark,--
+Under the Ocean's foam,
+And up through the rifts
+Of the mountain clifts,
+They passed to their Dorian home.
+[VERSE 5]
+And now from their fountains
+In Enna's mountains,
+Down one vale where the morning basks,
+Like friends once parted
+Grown single-hearted,
+They ply their watery tasks.
+At sunrise they leap
+From their cradles steep
+In the cave of the shelving hill;
+At noontide they flow
+Through the woods below
+And the meadows of asphodel;
+And at night they sleep
+In the rocking deep
+Beneath the Ortygian shore;--
+Like spirits that lie
+In the azure sky.
+When they love but live no more.
+
+--- TITLE: The Cloud
+--- SOURCE: PG2621
+[VERSE 1]
+I bring fresh showers for the thirsting flowers
+From the seas and the streams;
+I bear light shade for the leaves when laid
+In their noonday dreams.
+From my wings are shaken the dews that waken
+The sweet buds every one,
+When rocked to rest on their mother's breast,
+As she dances about the sun.
+I wield the flail of the lashing hail,
+And whiten the green plains under;
+And then again I dissolve it in rain,
+And laugh as I pass in thunder.
+[VERSE 2]
+I sift the snow on the mountains below,
+And their great pines groan aghast;
+And all the night 'tis my pillow white,
+While I sleep in the arms of the blast.
+Sublime on the towers of my skiey bowers
+Lightning my pilot sits;
+In a cavern under is fettered the thunder,
+It struggles and howls at fits.
+[VERSE 3]
+Over earth and ocean, with gentle motion,
+This pilot is guiding me,
+Lured by the love of the Genii that move
+In the depths of the purple sea;
+Over the rills, and the crags, and the hills,
+Over the lakes and the plains,
+Wherever he dream, under mountain or stream,
+The Spirit he loves remains;
+And I all the while bask in heaven's blue smile,
+Whilst he is dissolving in rains.
+[VERSE 4]
+The sanguine Sunrise, with his meteor eyes,
+And his burning plumes outspread,
+Leaps on the back of my sailing rack,
+When the morning star shines dead,
+As on the jag of a mountain-crag,
+Which an earthquake rocks and swings,
+An eagle alit one moment may sit
+In the light of its golden wings.
+And, when Sunset may breathe, from the lit sea beneath,
+Its ardors of rest and of love,
+And the crimson pall of eve may fall
+From the depth of heaven above,
+With wings folded I rest on mine airy nest,
+As still as a brooding dove.
+[VERSE 5]
+That orbed maiden with white fire laden,
+Whom mortals call the Moon,
+Glides glimmering o'er my fleece-like floor,
+By the midnight breezes strewn;
+And wherever the beat of her unseen feet,
+Which only the angels hear,
+May have broken the woof of my tent's thin roof,
+The Stars peep behind her and peer.
+And I laugh to see them whirl and flee
+Like a swarm of golden bees,
+When I widen the rent in my wind-built tent,
+Till the calm rivers, lakes, and seas,
+Like strips of the sky fallen through me on high,
+Are each paved with the moon and these.
+[VERSE 6]
+I bind the Sun's throne with a burning zone,
+And the Moon's with a girdle of pearl;
+The volcanoes are dim, and the Stars reel and swim,
+When the Whirlwinds my banner unfurl.
+From cape to cape, with a bridge-like shape,
+Over a torrent sea,
+Sunbeam-proof, I hang like a roof;
+The mountains its columns be.
+The triumphal arch through which I march,
+With hurricane, fire, and snow,
+When the Powers of the air are chained to my chair,
+Is the million-colored bow;
+The Sphere-fire above its soft colors wove,
+While the moist Earth was laughing below.
+[VERSE 7]
+I am the daughter of Earth and Water,
+And the nursling of the Sky:
+I pass through the pores of the ocean and shores;
+I change, but I cannot die.
+For after the rain, when with never a stain
+The pavilion of heaven is bare,
+And the winds and sunbeams with their convex gleams
+Build up the blue dome of air,
+I silently laugh at my own cenotaph,
+And out of the caverns of rain,
+Like a child from the womb, like a ghost from the tomb
+I arise, and unbuild it again.

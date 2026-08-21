@@ -1,0 +1,32 @@
+# author: Isaac Bickerstaff (?--1812?)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1812, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 1
+
+--- TITLE: "There was a Jolly Miller"
+--- SOURCE: PG2619
+[VERSE 1]
+There was a jolly miller once lived on the river Dee;
+He danced and sang from morn till night, no lark so blithe as he;
+And this the burden of his song forever used to be:--
+"I care for nobody, no not I, if nobody cares for me.
+[VERSE 2]
+"I live by my mill, God bless her! she's kindred, child, and wife;
+I would not change my station for any other in life;
+No lawyer, surgeon, or doctor e'er had a groat from me;
+I care for nobody, no not I if nobody cares for me."
+[VERSE 3]
+When spring begins his merry career, oh, how his heart grows gay;
+No summer's drought alarms his fear, nor winter's cold decay;
+No foresight mars the miller's joy, who's wont to sing and say,
+"Let others toil from year to year, I live from day to day."
+[VERSE 4]
+Thus, like the miller, bold and free, let us rejoice and sing;
+The days of youth are made for glee, and time is on the wing;
+This song shall pass from me to thee, along the jovial ring;
+Let heart and voice and all agree to say, "Long live the king."

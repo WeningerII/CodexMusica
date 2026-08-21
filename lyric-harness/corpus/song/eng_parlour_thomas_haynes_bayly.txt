@@ -4,6 +4,12 @@
 # licence: public domain -- Project Gutenberg edition, express PD statement; underlying edition Beadle's Dime Song Book No. 3, published 1860 ("Entered according to Act of Congress, in the year 1860")
 # source: GITenberg/Beadle-s-Dime-Song-Book-No-4-A-Collection-of-New-and-Popular-Comic-and-Sentimental-Songs_50041 50041-0.txt md5 c895a7628fb41bc95ada822735c47cce
 # licence: public domain -- Project Gutenberg edition, express PD statement; underlying edition Beadle's Dime Song Book No. 4, published 1860 ("Entered according to Act of Congress, in the year 1860")
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1839, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1839, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1839, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # structure: [VERSE n] / [CHORUS] marked from the source. "&c." in the source is an abbreviated chorus return and is marked as such.
 
 --- TITLE: I’ll Hang my Harp on a Willow-Tree
@@ -89,3 +95,87 @@ What would I not give to wander,
 Where my old companions dwell;
 Absence makes the heart grow fonder,
 Isle of beauty, fare thee well!
+
+--- TITLE: "Oh! Where Do Fairies Hide Their Heads?"
+--- SOURCE: PG2619
+[VERSE 1]
+Oh! where do fairies hide their heads,
+When snow lies on the hills,
+When frost has spoiled their mossy beds,
+And crystallized their rills?
+Beneath the moon they cannot trip
+In circles o'er the plain;
+And draughts of dew they cannot sip,
+Till green leaves come again.
+[VERSE 2]
+Perhaps, in small, blue diving-bells
+They plunge beneath the waves,
+Inhabiting the wreathed shells
+That lie in coral caves.
+Perhaps, in red Vesuvius
+Carousals they maintain;
+And cheer their little spirits thus,
+Till green leaves come again.
+[VERSE 3]
+When they return, there will be mirth
+And music in the air.
+And fairy wings upon the earth,
+And mischief everywhere.
+The maids, to keep the elves aloof,
+Will bar the doors in vain;
+No key-hole will he fairy-proof
+When green leaves come again.
+
+--- TITLE: "DO YOU REMEMBER"
+--- SOURCE: PG2620
+[VERSE 1]
+Do you remember when you heard
+My lips breathe love's first faltering word?
+You do, sweet - don't you?
+When, having wandered all the day,
+Linked arm in arm, I dared to say,
+"You'll love me - won't you?"
+[VERSE 2]
+And when you blushed and could not speak,
+I fondly kissed your glowing cheek,
+Did that affront you?
+Oh, surely not - your eye expressed
+No wrath - but said, perhaps in jest,
+"You'll love me - won't you?"
+[VERSE 3]
+I'm sure my eyes replied, "I will."
+And you believe that promise still,
+You do, sweet - don't you?
+Yes, yes! when age has made our eyes
+Unfit for questions or replies,
+You'll love me - won't you?
+
+--- TITLE: "I'd be a Butterfly"
+--- SOURCE: PG2622
+[VERSE 1]
+I'd be a Butterfly born in a bower,
+Where roses and lilies and violets meet;
+Roving for ever from flower to flower,
+And kissing all buds that are pretty and sweet!
+I'd never languish for wealth, or for power,
+I'd never sigh to see slaves at my feet:
+I'd be a Butterfly born in a bower,
+Kissing all buds that are pretty and sweet.
+[VERSE 2]
+O could I pilfer the wand of a fairy,
+I'd have a pair of those beautiful wings;
+Their summer days' ramble is sportive and airy,
+They sleep in a rose when the nightingale sings.
+Those who have wealth must be watchful and wary;
+Power, alas! naught but misery brings!
+I'd be a Butterfly, sportive and airy,
+Rocked in a rose when the nightingale sings!
+[VERSE 3]
+What, though you tell me each gay little rover
+Shrinks from the breath of the first autumn day:
+Surely 'tis better when summer is over
+To die when all fair things are fading away.
+Some in life's winter may toil to discover
+Means of procuring a weary delay--
+I'd be a butterfly; living, a rover,
+Dying when fair things are fading away!

@@ -3,11 +3,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1846, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('ALEXANDER RODGER'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 5
+# songs: 6
 
 --- TITLE: SWEET BET OF ABERDEEN
 --- SOURCE: PG22515
@@ -235,3 +237,74 @@ One grave shall hold us, side by side,
   One shroud our clay shall cover;
 And one then may we mount and glide,
   Through realms of love, for ever.
+
+--- TITLE: "BEHAVE YOURSEL' BEFORE FOLK"
+--- SOURCE: PG2620
+[VERSE 1]
+Behave yoursel' before folk,
+Behave yoursel' before folk,
+And dinna be sae rude to me,
+As kiss me sae before folk.
+[VERSE 2]
+It wadna gi'e me meikle pain,
+Gin we were seen and heard by nane,
+To tak' a kiss, or grant you ane;
+But guidsake! no before folk.
+Behave yoursel' before folk.
+Behave yoursel' before folk;
+Whate'er ye do, when out o' view,
+Be cautious aye before folk.
+[VERSE 3]
+Consider, lad, how folk will crack,
+And what a great affair they'll mak'
+O' naething but a simple smack,
+That's gi'en or ta'en before folk.
+Behave yoursel' before folk,
+Behave yoursel' before folk;
+Nor gi'e the tongue o' auld or young
+Occasion to come o'er folk.
+[VERSE 4]
+It's no through hatred o' a kiss,
+That I sae plainly tell you this;
+But, losh! I tak' it sair amiss
+To be sae teased before folk.
+Behave yoursel' before folk,
+Behave yoursel' before folk;
+When we're our lane ye may tak' ane,
+But fient a ane before folk.
+[VERSE 5]
+I'm sure wi' you I've been as free
+As ony modest lass should be;
+But yet it doesna do to see
+Sic freedom used before folk.
+Behave yoursel' before folk,
+Behave yoursel' before folk;
+I'll ne'er submit again to it -
+So mind you that - before folk.
+[VERSE 6]
+Ye tell me that my face is fair;
+It may be sae - I dinna care -
+But ne'er again gar't blush sae sair
+As ye ha'e done before folk.
+Behave yoursel' before folk,
+Behave yoursel' before folk;
+Nor heat my cheeks wi' your mad freaks,
+But aye be douce before folk.
+[VERSE 7]
+Ye tell me that my lips are sweet,
+Sic tales, I doubt, are a' deceit;
+At ony rate, it's hardly meet
+To pree their sweets before folk.
+Behave yoursel' before folk,
+Behave yoursel' before folk;
+Gin that's the case, there's time, and place,
+But surely no before folk.
+[VERSE 8]
+But, gin you really do insist
+That I should suffer to be kissed,
+Gae, get a license frae the priest,
+And mak' me yours before folk.
+Behave yoursel' before folk,
+Behave yoursel' before folk;
+And when we're ane, baith flesh and bane,
+Ye may tak' ten - before folk.

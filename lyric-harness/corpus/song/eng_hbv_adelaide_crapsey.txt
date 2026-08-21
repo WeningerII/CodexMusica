@@ -1,0 +1,42 @@
+# author: Adelaide Crapsey (1878-1914)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1914, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1914, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: Rose-Marie of the Angels
+--- SOURCE: PG2619
+[VERSE 1]
+Little Sister Rose-Marie,
+Will thy feet as willing-light
+Run through Paradise, I wonder,
+As they run the blue skies under,
+Willing feet, so airy-light?
+[VERSE 2]
+Little Sister Rose-Marie,
+Will thy voice as bird-note clear
+Lift and ripple over Heaven
+As its mortal sound is given,
+Swift bird-voice, so young and clear?
+[VERSE 3]
+How God will be glad of thee,
+Little Sister Rose-Marie!
+
+--- TITLE: DIRGE
+--- SOURCE: PG2620
+[VERSE 1]
+Never the nightingale,
+Oh, my dear,
+Never again the lark
+Thou wilt hear;
+Though dusk and the morning still
+Tap at thy window-sill,
+Though ever love call and call
+Thou wilt not hear at all,
+My dear, my dear.

@@ -4,10 +4,12 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1890, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 3
 
 --- TITLE: PARTING AND MEETING AGAIN.
 --- SOURCE: PG26715
@@ -201,3 +203,41 @@ The Lombard shall be Elspie’s man,
 Nort shall take the lawyer’s hand;
 The priest shall swear another vow:
 We’ll dance again the saraband!
+
+--- TITLE: LOVE'S CALENDAR
+--- SOURCE: PG2620
+[VERSE 1]
+That gusty spring, each afternoon
+By the ivied cot I passed,
+And noted at that lattice soon
+Her fair face downward cast;
+Still in the same place seated there,
+So diligent, so very fair.
+[VERSE 2]
+Oft-times I said I knew her not,
+Yet that way round would go,
+Until, when evenings lengthened out,
+And bloomed the may-hedge row,
+I met her by the wayside well,
+Whose waters, maybe, broke the spell.
+[VERSE 3]
+For, leaning on her pail, she prayed,
+I'd lift it to her head.
+So did I; but I'm much afraid
+Some wasteful drops were shed,
+And that we blushed, as face to face
+Needs must we stand the shortest space.
+[VERSE 4]
+Then when the sunset mellowed through
+The ears of rustling grain,
+When lattices wide open flew,
+When ash-leaves fell like rain,
+As well as I she knew the hour
+At morn or eve I neared her bower.
+[VERSE 5]
+And now that snow o'erlays the thatch,
+Each starlit eve within
+The door she waits, I raise the latch,
+And kiss her lifted chin;
+Nor do I think we've blushed again,
+For Love hath made but one of twain.

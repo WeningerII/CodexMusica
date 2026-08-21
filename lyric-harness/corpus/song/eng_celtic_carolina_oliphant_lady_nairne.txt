@@ -6,20 +6,14 @@
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1845; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
 #          rights_url creativecommons.org/about/pdm
-# edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel; or, The Songs of Scotland of the Past Half
-#          Century', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857 (title page reproduced in the file).
-#          Editor Rogers d. 1890. Pre-1931 edition; no modern editorial layer.
-# orthography: Scots, UNNORMALISED. NOTE THE EDITION'S TYPOGRAPHY: Rogers prints a SPACE before enclitic
-#          's / 'll / 're ("There 's high and low", "Wha 'll buy caller herrin'"). That space is the 1855
-#          compositor's convention, NOT modern spelling, and it has been left in place. A whitespace
-#          tokeniser will therefore see "'s" as its own token here but not in the Burns file.
-#          The apostrophe in a' o' wi' frae marks ELISION, as in Burns.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1845, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1845, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # structure: [VERSE n] / [CHORUS] / [REFRAIN]; [REFRAIN] is the abbreviated refrain cue ('Wha 'll buy
-#          caller herrin'? &c.') the edition prints at the foot of each stanza.
 # stripped: PG header/footer, editor's biographical memoirs, [n] footnote markers and footnote bodies,
-#          glossary, tables of contents
-# tune: 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
-
+# merged: 2026-08-20 — eng_hbv_carolina_nairne.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 41
 
 --- TITLE: THE PLEUGHMAN
 [VERSE 1]
@@ -1369,3 +1363,61 @@ Now fare-ye-weel, my ain John,
 This warld’s cares are vain, John,
 We’ll meet, and we’ll be fain,
   In the land o’ the leal.
+
+--- TITLE: Lullaby
+--- SOURCE: PG2619
+[VERSE 1]
+Baloo, loo, lammy, now baloo, my dear,
+Does wee lammy ken that its daddy's no here?
+Ye're rocking full sweetly on mammy's warm knee,
+But daddy's a-rocking upon the salt sea.
+[VERSE 2]
+Now hushaby, lammy, now hushaby, dear;
+Now hushaby, lammy, for mother is near.
+The wild wind is raving, and mammy's heart's sair;
+The wild wind is raving, and ye dinna care.
+[VERSE 3]
+Sing baloo, loo, lammy, sing baloo, my dear;
+Sing baloo, loo, lammy, for mother is here.
+My wee bairnie's dozing, it's dozing now fine,
+And O may its wakening be blither than mine!
+
+--- TITLE: THE LASS O' GOWRIE
+--- SOURCE: PG2620
+[VERSE 1]
+'Twas on a simmer's afternoon,
+A wee afore the sun gaed doun,
+A lassie wi' a braw new goun
+Cam' owre the hills to Gowrie.
+The rosebud washed in simmer's shower
+Bloomed fresh within the sunny bower;
+But Kitty was the fairest flower
+That e'er was seen in Gowrie.
+[VERSE 2]
+To see her cousin she cam' there;
+And oh! the scene was passing fair,
+For what in Scotland can compare
+Wi' the Carse o' Gowrie?
+The sun was setting on the Tay,
+The blue hills melting into gray,
+The mavis and the blackbird's lay
+Were sweetly heard in Gowrie.
+[VERSE 3]
+O lang the lassie I had wooed,
+And truth and constancy had vowed,
+But could nae speed wi' her I lo'ed
+Until she saw fair Gowrie.
+I pointed to my faither's ha' -
+Yon bonnie bield ayont the shaw,
+Sae loun that there nae blast could blaw: -
+Wad she no bide in Gowrie?
+[VERSE 4]
+Her faither was baith glad and wae;
+Her mither she wad naething say;
+The bairnies thocht they wad get play
+If Kitty gaed to Gowrie.
+She whiles did smile, she whiles did greet;
+[VERSE 5]
+The blush and tear were on her cheek;
+She naething said, and hung her head; -
+But now she's Leddy Gowrie.

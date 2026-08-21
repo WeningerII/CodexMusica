@@ -8,6 +8,14 @@
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1891, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1891, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1891, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1891, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -1929,3 +1937,299 @@ Among the Nations bright beyond compare?
     We reck not what we gave thee;
     We will not dare to doubt thee,
 But ask whatever else, and we will dare!
+
+--- TITLE: The Heritage
+--- SOURCE: PG2619
+[VERSE 1]
+Thee rich man's son inherits lands,
+And piles of brick and stone, and gold,
+And he inherits soft white hands,
+And tender flesh that fears the cold,
+Nor dares to wear a garment old;
+A heritage, it seems to me,
+One scarce would wish to hold in fee.
+[VERSE 2]
+The rich man's son inherits cares;
+The bank may break, the factory burn,
+A breath may burst his bubble shares,
+And soft white hands could hardly earn
+A living that would serve his turn;
+A heritage, it seems to me,
+One scarce would wish to hold in fee.
+[VERSE 3]
+The rich man's son inherits wants,
+His stomach craves for dainty fare;
+With sated heart, he hears the pants
+Of toiling hinds with brown arms bare,
+And wearies in his easy-chair;
+A heritage, it seems to me,
+One scarce would wish to hold in fee.
+[VERSE 4]
+What doth the poor man's son inherit?
+Stout muscles and a sinewy heart,
+A hardy frame, a hardier spirit,
+King of two hands, he does his part
+In every useful toil and art;
+A heritage, it seems to me,
+A king might wish to hold in fee.
+[VERSE 5]
+What doth the poor man's son inherit?
+Wishes o'erjoyed with humble things,
+A rank adjudged by toil-won merit,
+Content that from employment springs,
+A heart that in his labor sings;
+A heritage, it seems to me,
+A king might wish to hold in fee.
+[VERSE 6]
+What doth the poor man's son inherit?
+A patience learned of being poor,
+Courage, if sorrow come, to bear it,
+A fellow-feeling that is sure
+To make the outcast bless his door;
+A heritage, it seems to me,
+A king might wish to hold in fee.
+[VERSE 7]
+O rich man's son! there is a toil
+That with all others level stands;
+Large charity doth never soil,
+But only whiten, soft white hands;
+This is the best crop from thy lands,
+A heritage, it seems to me,
+Worth being rich to hold in fee.
+[VERSE 8]
+O poor man's son! scorn not thy state;
+There is worse weariness than thine,
+In merely being rich and great;
+Toil only gives the soul to shine,
+And makes rest fragrant and benign;
+A heritage, it seems to me,
+Worth being poor to hold in fee.
+[VERSE 9]
+Both, heirs to some six feet of sod,
+Are equal in the earth at last;
+Both, children of the same dear God,
+Prove title to your heirship vast
+By record of a well-filled past;
+A heritage, it seems to me,
+Well worth a life to hold in fee.
+
+--- TITLE: The First Snow-fall
+--- SOURCE: PG2619
+[VERSE 1]
+The snow had begun in the gloaming,
+And busily all the night
+Had been heaping field and highway
+With a silence deep and white.
+[VERSE 2]
+Every pine and fir and hemlock
+Wore ermine too dear for an earl,
+And the poorest twig on the elm-tree
+Was ridged inch deep with pearl.
+[VERSE 3]
+From sheds new-roofed with Carrara
+Came Chanticleer's muffled crow,
+The stiff rails softened to swan's-down,
+And still fluttered down the snow.
+[VERSE 4]
+I stood and watched by the window
+The noiseless work of the sky,
+And the sudden flurries of snow-birds,
+Like brown leaves whirling by.
+[VERSE 5]
+I thought of a mound in sweet Auburn
+Where a little headstone stood;
+How the flakes were folding it gently,
+As did robins the babes in the wood.
+[VERSE 6]
+Up spoke our own little Mabel,
+Saying, "Father, who makes it snow?"
+And I told of the good All-father
+Who cares for us here below.
+[VERSE 7]
+Again I looked at the snow-fall,
+And thought of the leaden sky
+That arched o'er our first great sorrow,
+When that mound was heaped so high.
+[VERSE 8]
+I remembered the gradual patience
+That fell from that cloud like snow,
+Flake by flake, healing and hiding
+The scar that renewed our woe.
+[VERSE 9]
+And again to the child I whispered,
+"The snow that husheth all,
+Darling, the merciful Father
+Alone can make it fall"
+[VERSE 10]
+Then, with eyes that saw not, I kissed her;
+And she, kissing back, could not know
+That my kiss was given to her sister,
+Folded close under deepening snow.
+
+--- TITLE: AUF WIEDERSEHEN
+--- SOURCE: PG2620
+[VERSE 1]
+The little gate was reached at last,
+Half hid in lilacs down the lane;
+She pushed it wide, and, as she passed,
+A wistful look she backward cast,
+And said, - "Auf wiedersehen!"
+[VERSE 2]
+With hand on latch, a vision white
+Lingered reluctant, and again
+Half doubting if she did aright,
+Soft as the dews that fell that night,
+She said, - "Auf wiedersehen!"
+[VERSE 3]
+The lamp's clear gleam flits up the stair;
+I linger in delicious pain;
+Ah, in that chamber, whose rich air
+To breathe in thought I scarcely dare,
+Thinks she, - "Auf wiedersehen?" . . .
+[VERSE 4]
+'Tis thirteen years; once more I press
+The turf that silences the lane;
+I hear the rustle of her dress,
+I smell the lilacs, and - ah, yes,
+I hear, - "Auf wiedersehen!"
+[VERSE 5]
+Sweet piece of bashful maiden art!
+The English words had seemed too fain,
+But these - they drew us heart to heart,
+Yet held us tenderly apart;
+She said, - "Auf wiedersehen!"
+
+--- TITLE: June, from "The Vision of Sir Launfal"
+--- SOURCE: PG2621
+[VERSE 1]
+Over his keys the musing organist,
+Beginning doubtfully and far away,
+First lets his fingers wander as they list,
+And builds a bridge from Dreamland for his lay:
+Then, as the touch of his loved instrument
+Gives hope and fervor, nearer draws his theme,
+First guessed by faint auroral flushes sent
+Along the wavering vista of his dream.
+[VERSE 2]
+Not only around our infancy
+Doth heaven with all its splendors lie;
+Daily, with souls that cringe and plot,
+We Sinais climb and know it not.
+[VERSE 3]
+Over our manhood bend the skies;
+Against our fallen and traitor lives
+The great winds utter prophecies;
+With our faint hearts the mountain strives;
+Its arms outstretched, the druid wood
+Waits with its benedicite;
+And to our age's drowsy blood
+Still shouts the inspiring sea.
+[VERSE 4]
+Earth gets its price for what Earth gives us;
+The beggar is taxed for a corner to die in,
+The priest hath his fee who comes and shrives us,
+We bargain for the graves we lie in;
+At the devil's booth are all things sold,
+Each ounce of dross costs its ounce of gold;
+For a cap and bells our lives we pay,
+Bubbles we buy with a whole soul's tasking:
+'Tis heaven alone that is given away,
+'Tis only God may be had for the asking;
+No price is set on the lavish summer;
+June may be had by the poorest corner.
+And what is so rare as a day in June?
+Then, if ever, come perfect days;
+Then Heaven tries earth if it be in tune,
+And over it softly her warm ear lays;
+Whether we look, or whether we listen,
+We hear life murmur, or see it glisten;
+Every clod feels a stir of might,
+An instinct within it that reaches and towers,
+And, groping blindly above it for light,
+Climbs to a soul in grass and flowers;
+The flush of life may well be seen
+Thrilling back over hills and valleys;
+The cowslip startles in meadows green,
+The buttercup catches the sun in its chalice,
+And there's never a leaf nor a blade too mean
+To be some happy creature's palace;
+The little bird sits at his door in the sun,
+Atilt like a blossom among the leaves,
+And lets his illumined being o'errun
+With the deluge of summer it receives;
+His mate feels the eggs beneath her wings,
+And the heart in her dumb breast flutters and sings;
+He sings to the wide world and she to her nest,--
+In the nice ear of Nature which song is the best?
+[VERSE 5]
+Now is the high-tide of the year,
+And whatever of life hath ebbed away
+Comes flooding back with a ripply cheer,
+Into every bare inlet and creek and bay;
+Now the heart is so full that a drop overfills it,
+We are happy now because God wills it;
+No matter how barren the past may have been,
+'Tis enough for us now that the leaves are green;
+We sit in the warm shade and feel right well
+How the sap creeps up and the blossoms swell;
+We may shut our eyes, but we cannot help knowing
+That skies are clear and grass is growing;
+The breeze comes whispering in our ear,
+That dandelions are blossoming near,
+That maize has sprouted, that streams are flowing,
+That the river is bluer than the sky,
+That the robin is plastering his house hard by;
+And if the breeze kept the good news back,
+For other couriers we should not lack;
+We could guess it all by yon heifer's lowing,
+And hark! how clear bold chanticleer,
+Warmed with the new wine of the year,
+Tells all in his lusty crowing!
+
+--- TITLE: Without and Within
+--- SOURCE: PG2622
+[VERSE 1]
+My coachman, in the moonlight there,
+Looks through the side-light of the door;
+I hear him with his brethren swear,
+As I could do,--but only more.
+[VERSE 2]
+Flattening his nose against the pane,
+He envies me my brilliant lot,
+Breathes on his aching fists in vain,
+And dooms me to a place more hot.
+[VERSE 3]
+He sees me in to supper go,
+A silken wonder by my side,
+Bare arms, bare shoulders, and a row
+Of flounces, for the door too wide.
+[VERSE 4]
+He thinks how happy is my arm
+'Neath its white-gloved and jewelled load;
+And wishes me some dreadful harm,
+Hearing the merry corks explode.
+[VERSE 5]
+Meanwhile I inly curse the bore
+Of hunting still the same old coon,
+And envy him, outside the door,
+In golden quiets of the moon.
+[VERSE 6]
+The winter wind is not so cold
+As the bright smile he sees me win
+Nor the host's oldest wine so old
+As our poor gabble sour and thin.
+[VERSE 7]
+I envy him the ungyved prance
+With which his freezing feet he warms,
+And drag my lady's-chains and dance
+The galley-slave of dreary forms.
+[VERSE 8]
+Oh, could, he have my share of din,
+And I his quiet!--past a doubt
+'Twould still be one man bored within,
+And just another bored without.
+[VERSE 9]
+Nay, when, once paid my mortal fee,
+Some idler on my headstone grim
+Traces the moss-blurred name, will he
+Think me the happier, or I him?

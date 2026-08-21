@@ -4,11 +4,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1854, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('JOHN WILSON'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 3
+# songs: 4
 
 --- TITLE: MARY GRAY'S SONG
 --- SOURCE: PG22515
@@ -173,3 +175,21 @@ Dear Sleep, farewell! hour, hour, hour, hour,
   Will slowly bring on the gleam of morrow;
 But thou art Joy's faithful paramour,
   And lie wilt thou not in the arms of Sorrow.
+
+--- TITLE: The Evening Cloud
+--- SOURCE: PG2621
+[VERSE 1]
+A cloud lay cradled near the setting sun,
+A gleam of crimson tinged its braided snow;
+Long had I watched the glory moving on
+O'er the still radiance of the lake below.
+Tranquil its spirit seemed, and floated slow!
+Even in its very motion there was rest;
+While every breath of eve that chanced to blow
+Wafted the traveller to the beauteous west.
+Emblem, methought, of the departed soul!
+To whose white robe the gleam of bliss is given,
+And by the breath of mercy made to roll
+Right onwards to the golden gates of heaven,
+Where to the eye of faith it peaceful lies,
+And tells to man his glorious destinies.

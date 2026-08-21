@@ -4,10 +4,14 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1928, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1928, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 4
 
 --- TITLE: SONG FOR THE LUTE.
 --- SOURCE: PG26715
@@ -66,3 +70,70 @@ And crystals of a carven moon declining.
 He sees the ecstatic Human from him stealing;
   Reels from the joy experience brought,
 And dares not clutch what Love was half revealing.
+
+--- TITLE: THE MISSIVE
+--- SOURCE: PG2620
+[VERSE 1]
+I that tremble at your feet
+Am a rose;
+Nothing dewier or more sweet
+Buds or blows;
+He that plucked me, he that threw me
+Breathed in fire his whole soul through me.
+[VERSE 2]
+How the cold air is infused
+With the scent!
+See, this satin leaf is bruised -
+Bruised and bent,
+Lift me, lift the wounded blossom,
+Soothe it at your rosier bosom!
+[VERSE 3]
+Frown not with averted eyes!
+Joy's a flower
+That is born a god, and dies
+In an hour.
+Take me, for the Summer closes,
+And your life is but a rose's.
+
+--- TITLE: Impression
+--- SOURCE: PG2622
+[VERSE 1]
+In these restrained and careful times
+Our knowledge petrifies our rhymes;
+Ah! for that reckless fire men had
+When it was witty to be mad;
+[VERSE 2]
+When wild conceits were piled in scores,
+And lit by flaming metaphors,
+When all was crazed and out of tune,--
+Yet throbbed with music of the moon.
+[VERSE 3]
+If we could dare to write as ill
+As some whose voices haunt us still,
+Even we, perchance, might call our own
+Their deep enchanting undertone.
+[VERSE 4]
+We are too diffident and nice,
+Too learned and too over-wise,
+Too much afraid of faults to be
+The flutes of bold sincerity.
+[VERSE 5]
+For, as this sweet life passes by,
+We blink and nod with critic eye;
+We've no words rude enough to give
+Its charm so frank and fugitive.
+[VERSE 6]
+The green and scarlet of the Park,
+The undulating streets at dark,
+The brown smoke blown across the blue,
+This colored city we walk through;--
+[VERSE 7]
+The pallid faces full of pain,
+The field-smell of the passing wain,
+The laughter, longing, perfume, strife,
+The daily spectacle of life;--
+[VERSE 8]
+Ah! how shall this be given to rhyme,
+By rhymesters of a knowing time?
+Ah! for the age when verse was clad,
+Being godlike, to be bad and mad.

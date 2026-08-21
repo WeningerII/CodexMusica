@@ -1,12 +1,26 @@
-# author: Oliver Wendell Holmes (1809-1894)
-# region: 
-# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# author: Oliver Wendell Holmes Sr. (1809-1894)
+# region: american
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1894, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1894, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1894, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1894, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
+# source: GITenberg/The-Poetical-Works-of-Oliver-Wendell-Holmes---Complete_7400 7400.txt md5 1d63cb8afc58c591bcc77e7b990fcfdc
+# licence: public domain - Project Gutenberg; edition published 1895 -- The Poetical Works of Oliver Wendell Holmes, Complete
+# source: GITenberg/American-War-Ballads-and-Lyrics-Volume-2-of-2-A-Collection-of-the-Songs-and-Ballads-of-the-Co__54211 54211-0.txt md5 30abc6753b3a24cffb9ef94adf54ecf7 (Pass-1 same-gate top-up 2026-08-19)
+# licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
+# source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
+# licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 10
+# merged: 2026-08-20 — eng_american_oliver_wendell_holmes_sr.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 26
 
 --- TITLE: A BALLAD OF THE BOSTON TEA-PARTY
 --- SOURCE: PG47476
@@ -800,3 +814,968 @@ Till Freedom finds the world her own!
     While the ocean tides return,
     Ever shall the circling sun
     Find the Many still are One!
+
+--- TITLE: The Old Man Dreams
+--- SOURCE: PG2619
+[VERSE 1]
+Oh for one hour of youthful joy!
+Give back my twentieth spring!
+I'd rather laugh, a bright-haired boy,
+Than reign, a gray-beard king.
+[VERSE 2]
+Off with the spoils of wrinkled age!
+Away with Learning's crown!
+Tear out life's Wisdom-written page,
+And dash its trophies down!
+[VERSE 3]
+One moment let my life-blood stream
+From boyhood's fount of flame!
+Give me one giddy, reeling dream
+Of life all love and fame!
+[VERSE 4]
+My listening angel heard the prayer,
+And, calmly smiling, said,
+"If I but touch thy silvered hair,
+Thy hasty wish hath sped.
+[VERSE 5]
+"But is there nothing in thy track
+To bid thee fondly stay,
+While the swift seasons hurry back
+To find the wished-for day?"
+[VERSE 6]
+"Ah, truest soul of womankind!
+Without thee what were life?
+One bliss I cannot leave behind:
+I'll take--my--precious--wife!"
+[VERSE 7]
+The angel took a sapphire pen
+And wrote in rainbow dew,
+The man would be a boy again,
+And be a husband, too!
+[VERSE 8]
+"And is there nothing yet unsaid,
+Before the change appears?
+Remember, all their gifts have fled
+With those dissolving years."
+[VERSE 9]
+"Why, yes;" for memory would recall
+My fond paternal joys;
+"I could not bear to leave them all--
+I'll take--my--girl--and--boys."
+[VERSE 10]
+The smiling angel dropped his pen,--
+"Why, this will never do;
+The man would be a boy again,
+And be a father, too!"
+[VERSE 11]
+And so I laughed,--my laughter woke
+The household with its noise,--
+And wrote my dream, when morning broke,
+To please the gray-haired boys.
+
+--- TITLE: LA GRISETTE
+--- SOURCE: PG2620
+[VERSE 1]
+Ah, Clemence! when I saw thee last
+Trip down the Rue de Seine,
+And turning, when thy form had passed,
+I said, "We meet again, -
+I dreamed not in that idle glance
+Thy latest image came,
+And only left to memory's trance
+A shadow and a name.
+[VERSE 2]
+The few strange words my lips had taught
+Thy timid voice to speak,
+Their gentler signs, which often brought
+Fresh roses to thy cheek,
+The trailing of thy long loose hair
+Bent o'er my couch of pain,
+All, all returned, more sweet, more fair;
+Oh, had we met again!
+[VERSE 3]
+I walked where saint and virgin keep
+The vigil lights of Heaven,
+I knew that thou hadst woes to weep,
+And sins to be forgiven;
+I watched where Genevieve was laid,
+I knelt by Mary's shrine,
+Beside me low, soft voices prayed;
+Alas! but where was thine?
+[VERSE 4]
+And when the morning sun was bright,
+When wind and wave were calm,
+And flamed, in thousand-tinted light,
+The rose of Notre Dame,
+I wandered through the haunts of men,
+From Boulevard to Quai,
+Till, frowning o'er Saint Etienne,
+The Pantheon's shadow lay.
+[VERSE 5]
+In vain, in vain; we meet no more,
+Nor dream what fates befall;
+And long upon the stranger's shore
+My voice on thee may call,
+When years have clothed the line in moss
+That tells thy name and days,
+And withered, on thy simple cross,
+The wreaths of Pere-la-Chaise!
+
+--- TITLE: To an Insect
+--- SOURCE: PG2621
+[VERSE 1]
+I love to hear thine earnest voice,
+Wherever thou art hid,
+Thou testy little dogmatist,
+Thou pretty Katydid!
+Thou mindest me of gentlefolks,--
+Old gentlefolks are they,--
+Thou say'st an undisputed thing
+In such a solemn way.
+[VERSE 2]
+Thou art a female, Katydid!
+I know it by the trill
+That quivers through thy piercing notes,
+So petulant and shrill;
+I think there is a knot of you
+Beneath the hollow tree,--
+A knot of spinster Katydids,--
+Do Katydids drink tea?
+[VERSE 3]
+Oh, tell me where did Katy live,
+And what did Katy do?
+And was she very fair and young,
+And yet so wicked, too?
+Did Katy love a naughty man,
+Or kiss more cheeks than one?
+I warrant Katy did no more
+Than many a Kate has done.
+[VERSE 4]
+Dear me!  I'll tell you all about
+My fuss with little Jane,
+And Ann, with whom I used to walk
+So often down the lane,
+And all that tore their locks of black,
+Or wet their eyes of blue,--
+Pray tell me, sweetest Katydid,
+What did poor Katy do?
+[VERSE 5]
+Ah no! the living oak shall crash,
+That stood for ages still,
+The rock shall rend its mossy base
+And thunder down the hill,
+Before the little Katydid
+Shall add one word, to tell
+The mystic story of the maid
+Whose name she knows so well.
+[VERSE 6]
+Peace to the ever-murmuring race!
+And when the latest one
+Shall fold in death her feeble wings
+Beneath the autumn sun,
+Then shall she raise her fainting voice,
+And lift her drooping lid,
+And then the child of future years
+Shall hear what Katy did.
+
+--- TITLE: Dorothy Q
+--- SOURCE: PG2622
+[VERSE 1]
+Grandmother's mother: her age, I guess,
+Thirteen summers, or something less:
+Girlish bust, but womanly air;
+Smooth, square forehead with uprolled hair;
+Lips that lover has never kissed;
+Taper fingers and slender wrist;
+Hanging sleeves of stiff brocade;
+So they painted the little maid.
+[VERSE 2]
+On her hand a parrot green
+Sits unmoving and broods serene.
+Hold up the canvas full in view,--
+Look! there's a rent the light shines through,
+Dark with a century's fringe of dust,--
+That was a Red-Coat's rapier-thrust!
+Such is the tale the lady old,
+Dorothy's daughter's daughter, told.
+[VERSE 3]
+Who the painter was none may tell,--
+One whose best was not over well;
+Hard and dry, it must be confessed,
+Flat as a rose that has long been pressed;
+Yet in her cheek the hues are bright,
+Dainty colors of red and white,
+And in her slender shape are seen
+Hint and promise of stately mien.
+[VERSE 4]
+Look not on her with eyes of scorn,--
+Dorothy Q. was a lady born!
+Ay! since the galloping Normans came,
+England's annals have known her name;
+And still to the three-hilled rebel town
+Dear is that ancient name's renown,
+For many a civic wreath they won,
+The youthful sire and the gray-haired son.
+[VERSE 5]
+O Damsel Dorothy! Dorothy Q.!
+Strange is the gift that I owe to you;
+Such a gift as never a king
+Save to daughter or son might bring,--
+All my tenure of heart and hand,
+All my title to house and land;
+Mother and sister and child and wife
+And joy and sorrow and death and life!
+[VERSE 6]
+What if a hundred years ago
+Those close-shut lips had answered No,
+When forth the tremulous question came
+That cost the maiden her Norman name,
+And under the folds that look so still
+The bodice swelled with the bosom's thrill?
+Should I be I, or would it be
+One tenth another, to nine tenths me?
+[VERSE 7]
+Soft is the breath of a maiden's YES:
+Not the light gossamer stirs with less;
+But never a cable that holds so fast
+Through all the battles of wave and blast,
+And never an echo of speech or song
+That lives in the babbling air so long!
+There were tones in the voice that whispered then
+You may hear to-day in a hundred men.
+[VERSE 8]
+O lady and lover, how faint and far
+Your images hover,--and here we are
+Solid and stirring in flesh and bone,--
+Edward's and Dorothy's--all their own,--
+A goodly record for Time to show
+Of a syllable spoken so long ago!--
+Shall I bless you, Dorothy, or forgive
+For the tender whisper that bade me live?
+[VERSE 9]
+It shall be a blessing, my little maid!
+I will heal the stab of the Red-Coat's blade,
+And freshen the gold of the tarnished frame,
+And gild with a rhyme your household name;
+So you shall smile on us brave and bright
+As first you greeted the morning's light,
+And live untroubled by woes and fears
+Through a second youth of a hundred years.
+
+--- TITLE: My Aunt
+--- SOURCE: PG2622
+[VERSE 1]
+My aunt! my dear unmarried aunt!
+Long years have o'er her flown;
+Yet still she strains the aching clasp
+That binds her virgin zone;
+I know it hurts her,--though she looks
+As cheerful as she can;
+Her waist is ampler than her life,
+For life is but a span.
+[VERSE 2]
+My aunt! my poor deluded aunt!
+Her hair is almost gray;
+Why will she train that winter curl
+In such a spring-like way?
+How can she lay her glasses down,
+And say she reads as well,
+When, through a double convex lens,
+She just makes out to spell?
+[VERSE 3]
+Her father,--grandpapa! forgive
+This erring lip its smiles,--
+Vowed she should make the finest girl
+Within a hundred miles;
+He sent her to a stylish school;
+'Twas in her thirteenth June;
+And with her, as the rules required,
+"Two towels and a spoon."
+[VERSE 4]
+They braced my aunt against a board,
+To make her straight and tall;
+They laced her up, they starved her down,
+To make her light and small;
+They pinched her feet, they singed her hair,
+They screwed it up with pins;--
+Oh, never mortal suffered more
+In penance for her sins.
+[VERSE 5]
+So, when my precious aunt was done,
+My grandsire brought her back;
+(By daylight, lest some rabid youth
+Might follow on the track;)
+"Ah!" said my grandsire, as he shook
+Some powder in his pan,
+"What could this lovely creature do
+Against a desperate man!"
+[VERSE 6]
+Alas! nor chariot, nor barouche,
+Nor bandit cavalcade,
+Tore from the trembling father's arms
+His all-accomplished maid.
+For her how happy had it been!
+And Heaven had spared to me
+To see one sad, ungathered rose
+On my ancestral tree.
+
+--- TITLE: Contentment
+--- SOURCE: PG2622
+[VERSE 1]
+Little I ask; my wants are few;
+I only wish a hut of stone,
+(A very plain brown stone will do,)
+That I may call my own;--
+And close at hand is such a one,
+In yonder street that fronts the sun.
+[VERSE 2]
+Plain food is quite enough for me;
+Three courses are as good as ten;--
+If Nature can subsist on three,
+Thank Heaven for three.  Amen!
+I always thought cold victual nice;--
+My choice would be vanilla-ice.
+[VERSE 3]
+I care not much for gold or land;--
+Give me a mortgage here and there,--
+Some good bank-stock, some note of hand,
+Or trifling railroad share,--
+I only ask that Fortune send
+A little more than I shall spend.
+[VERSE 4]
+Honors are silly toys, I know,
+And titles are but empty names;
+I would, perhaps, be Plenipo,--
+But only near St. James;
+I'm very sure I should not care
+To fill our Gubernator's chair.
+[VERSE 5]
+Jewels are baubles; 'tis a sin
+To care for such unfruitful things;--
+One good-sized diamond in a pin,--
+Some, not so large, in rings,--
+A ruby, and a pearl, or so,
+Will do for me;--I laugh at show.
+[VERSE 6]
+My dame should dress in cheap attire;
+(Good heavy silks are never dear;)--
+I own perhaps I might desire
+Some shawls of true Cashmere,--
+Some marrowy crapes of China silk,
+Like wrinkled skins on scalded milk.
+[VERSE 7]
+I would not have the horse I drive
+So fast that folks must stop and stare;
+An easy gait--two forty-five--
+Suits me; I do not care;--
+Perhaps, far just a single spurt,
+Some seconds less would do no hurt.
+[VERSE 8]
+Of pictures, I should like to own
+Titians and Raphaels three or four,--
+I love so much their style and tone,--
+One Turner, and no more,
+(A landscape,--foreground golden dirt,--
+The sunshine painted with a squirt.)
+[VERSE 9]
+Of books but few,--some fifty score
+For daily use, and bound for wear;
+The rest upon an upper floor;--
+Some little luxury there
+Of red morocco's gilded gleam,
+And vellum rich as country cream.
+[VERSE 10]
+Busts, cameos, gems,--such things as these,
+Which others often show for pride,
+I value for their power to please,
+And selfish churls deride;--
+One Stradivarius, I confess,
+Two meerschaums, I would fain possess.
+[VERSE 11]
+Wealth's wasteful tricks I will not learn,
+Nor ape the glittering upstart fool;--
+Shall not carved tables serve my turn,
+But all must be of buhl?
+Give grasping pomp its double share,--
+I ask but one recumbent chair.
+[VERSE 12]
+Thus humble let me live and die,
+Nor long for Midas' golden touch;
+If Heaven more generous gifts deny,
+I shall not miss them much,--
+Too grateful for the blessing lent
+Of simple tastes and mind content!
+
+--- TITLE: The Deacon's Masterpiece, or the Wonderful "One-Hoss Shay"
+--- SOURCE: PG2622
+[VERSE 1]
+Have you heard of the wonderful one-hoss shay,
+That was built in such a logical way
+It ran a hundred years to a day,
+And then, of a sudden, it--ah, but stay,
+I'll tell you what happened without delay,
+Scaring the parson into fits,
+Frightening people out of their wits,--
+Have you ever heard of that, I say?
+[VERSE 2]
+Seventeen hundred and fifty-five.
+Georgius Secundus was then alive,--
+Snuffy old drone from the German hive.
+That was the year when Lisbon-town
+Saw the earth open and gulp her down,
+And Braddock's army was done so brown,
+Left without a scalp to its crown.
+It was on the terrible Earthquake-day
+That the Deacon finished the one-hoss shay.
+[VERSE 3]
+Now in building of chaises, I tell you what,
+There is always somewhere a weakest spot,--
+In hub, tire, felloe, in spring or thill,
+In panel, or crossbar, or floor, or sill,
+In screw, bolt, thoroughbrace,--lurking still,
+Find it somewhere you must and will,--
+Above or below, or within or without,--
+And that's the reason, beyond a doubt,
+That a chaise breaks down, but doesn't wear out.
+[VERSE 4]
+But the Deacon swore (as Deacons do,
+With an "I dew vum," or an "I tell yeou,")
+He would build one shay to beat the taown
+'N' the keounty 'n' all the kentry raoun';
+It should be so built that it couldn' break daown:
+"Fur," said the Deacon, "'t's mighty plain
+Thut the weakes' place mus' stan' the strain;
+'N' the way t' fix it, uz I maintain,
+Is only jest
+T' make that place uz strong uz the rest."
+[VERSE 5]
+So the Deacon inquired of the village folk
+Where he could find the strongest oak,
+That couldn't be split nor bent nor broke,--
+That was for spokes and floor and sills;
+He sent for lancewood to make the thills;
+The crossbars were ash, from the straightest trees,
+The panels of white-wood, that cuts like cheese,
+But lasts like iron for things like these;
+The hubs of logs from the "Settler's ellum,"--
+Last of its timber,--they couldn't sell 'em,
+Never an axe had seen their chips,
+And the wedges flew from between their lips,
+Their blunt ends frizzled like celery-tips;
+Step and prop-iron, bolt and screw,
+Spring, tire, axle, and linchpin too,
+Steel of the finest, bright and blue;
+Thoroughbrace bison-skin, thick and wide;
+Boot, top, dasher, from tough old hide
+Found in the pit when the tanner died.
+That was the way he "put her through."
+There! said the Deacon, "naow she'll dew!"
+[VERSE 6]
+Do!  I tell you, I rather guess
+She was a wonder, and nothing less!
+Colts grew horses, beards turned gray,
+Deacon and deaconess dropped away,
+Children and grandchildren--where were they?
+But there stood the stout old one-hoss shay
+As fresh as on Lisbon-earthquake-day!
+[VERSE 7]
+EIGHTEEN HUNDRED;--it came and found
+The Deacon's masterpiece strong and sound.
+Eighteen hundred increased by ten;
+"Hahnsum kerridge" they called it then.
+Eighteen hundred and twenty came;--
+Running as usual; much the same.
+Thirty and Forty at last arrive,
+And then come Fifty, and Fifty-Five.
+[VERSE 8]
+Little of all we value here
+Wakes on the morn of its hundredth year
+Without both feeling and looking queer.
+In fact, there's nothing that keeps its youth,
+So far as I know, but a tree and truth.
+(This is a moral that runs at large;
+Take it.--You're welcome.--No extra charge.)
+[VERSE 9]
+FIRST OF November,--the Earthquake-day,--
+There are traces of age in the one-hoss shay.
+A general flavor of mild decay,
+But nothing local, as one may say.
+There couldn't be,--for the Deacon's art
+Had made it so like in every part
+That there wasn't a chance for one to start.
+For the wheels were just as strong as the thills,
+And the floor was just as strong as the sills,
+And the panels just as strong as the floor,
+And the whipple-tree neither less nor more,
+And the back-crossbar as strong as the fore,
+And spring and axle and hub encore.
+And yet, as a whole, it is past a doubt
+In another hour it will be worn out!
+[VERSE 10]
+First of November, Fifty-five!
+This morning the parson takes a drive.
+Now, small boys, get out of the way!
+Here comes the wonderful one-hoss shay,
+Drawn by a rat-railed, ewe-necked bay.
+"Huddup!" said the parson.--Off went they.
+[VERSE 11]
+The parson was working his Sunday's text,-
+Had got to fifthly, and stopped perplexed
+At what the--Moses--was coming next.
+All at once the horse stood still,
+Close by the meet'n'-house on the hill.
+First a shiver, and then a thrill,
+Then something decidedly like a spill,--
+And the parson was sitting upon a rock,
+At half past nine by the meet'n'-house clock,--
+Just the hour of the Earthquake shock!
+What do you think the parson found,
+When he got up and stared around?
+The poor old chaise in a heap or mound,
+As if it had been to the mill and ground!
+You see, of course, if you're not a dunce,
+How it went to pieces all at once,--
+All at once, and nothing first,--
+Just as bubbles do when they burst.
+[VERSE 12]
+End of the wonderful one-hoss shay.
+Logic is logic.  That's all I say.
+
+--- TITLE: THE LAST LEAF
+--- SOURCE: PG7400
+[VERSE 1]
+This poem was suggested by the appearance in one of our
+streets of a venerable relic of the Revolution, said to be one
+of the party who threw the tea overboard in Boston Harbor. He
+was a fine monumental specimen in his cocked hat and knee
+breeches, with his buckled shoes and his sturdy cane. The smile
+with which I, as a young man, greeted him, meant no disrespect to
+an honored fellow-citizen whose costume was out of date, but whose
+patriotism never changed with years. I do not recall any earlier
+example of this form of verse, which was commended by the fastidious
+Edgar Allan Poe, who made a copy of the whole poem which I have
+in his own handwriting. Good Abraham Lincoln had a great liking
+for the poem, and repeated it from memory to Governor Andrew,
+as the governor himself told me.
+
+[VERSE 2]
+I SAW him once before,
+As he passed by the door,
+And again
+The pavement stones resound,
+As he totters o'er the ground
+With his cane.
+
+[VERSE 3]
+They say that in his prime,
+Ere the pruning-knife of Time
+Cut him down,
+Not a better man was found
+By the Crier on his round
+Through the town.
+
+[VERSE 4]
+But now he walks the streets,
+And he looks at all he meets
+Sad and wan,
+And he shakes his feeble head,
+That it seems as if he said,
+"They are gone."
+
+[VERSE 5]
+The mossy marbles rest
+On the lips that he has prest
+In their bloom,
+And the names he loved to hear
+Have been carved for many a year
+On the tomb.
+
+[VERSE 6]
+My grandmamma has said--
+Poor old lady, she is dead
+Long ago--
+That he had a Roman nose,
+And his cheek was like a rose
+In the snow.
+
+[VERSE 7]
+But now his nose is thin,
+And it rests upon his chin
+Like a staff,
+And a crook is in his back,
+And a melancholy crack
+In his laugh.
+
+[VERSE 8]
+I know it is a sin
+For me to sit and grin
+At him here;
+But the old three-cornered hat,
+And the breeches, and all that,
+Are so queer!
+
+[VERSE 9]
+And if I should live to be
+The last leaf upon the tree
+In the spring,
+Let them smile, as I do now,
+At the old forsaken bough
+Where I cling.
+
+--- TITLE: THE BOYS
+--- SOURCE: PG7400
+[VERSE 1]
+HAS there any old fellow got mixed with the boys?
+If there has, take him out, without making a noise.
+Hang the Almanac's cheat and the Catalogue's spite!
+Old Time is a liar! We're twenty to-night!
+
+[VERSE 2]
+We're twenty! We're twenty! Who says we are more?
+He's tipsy,--young jackanapes!--show him the door!
+"Gray temples at twenty?"--Yes! white if we please;
+Where the snow-flakes fall thickest there's nothing can freeze!
+
+[VERSE 3]
+Was it snowing I spoke of? Excuse the mistake!
+Look close,--you will see not a sign of a flake!
+We want some new garlands for those we have shed,--
+And these are white roses in place of the red.
+
+[VERSE 4]
+We've a trick, we young fellows, you may have been told,
+Of talking (in public) as if we were old:--
+That boy we call "Doctor," and this we call "Judge;"
+It 's a neat little fiction,--of course it 's all fudge.
+
+[VERSE 5]
+That fellow's the "Speaker,"--the one on the right;
+"Mr. Mayor," my young one, how are you to-night?
+That's our "Member of Congress," we say when we chaff;
+There's the "Reverend" What's his name?--don't make me laugh.
+
+[VERSE 6]
+That boy with the grave mathematical look
+Made believe he had written a wonderful book,
+And the ROYAL SOCIETY thought it was true!
+So they chose him right in; a good joke it was, too!
+
+[VERSE 7]
+There's a boy, we pretend, with a three-decker brain,
+That could harness a team with a logical chain;
+When he spoke for our manhood in syllabled fire,
+We called him "The Justice," but now he's "The Squire."
+
+[VERSE 8]
+And there's a nice youngster of excellent pith,--
+Fate tried to conceal him by naming him Smith;
+But he shouted a song for the brave and the free,--
+Just read on his medal, "My country," "of thee!"
+
+[VERSE 9]
+You hear that boy laughing?--You think he's all fun;
+But the angels laugh, too, at the good he has done;
+The children laugh loud as they troop to his call,
+And the poor man that knows him laughs loudest of all!
+
+[VERSE 10]
+Yes, we 're boys,--always playing with tongue or with pen,--
+And I sometimes have asked,--Shall we ever be men?
+Shall we always be youthful, and laughing, and gay,
+Till the last dear companion drops smiling away?
+
+[VERSE 11]
+Then here's to our boyhood, its gold and its gray!
+The stars of its winter, the dews of its May!
+And when we have done with our life-lasting toys,
+Dear Father, take care of thy children, THE BOYS!
+
+--- TITLE: UNION AND LIBERTY
+--- SOURCE: PG7400
+[VERSE 1]
+FLAG of the heroes who left us their glory,
+Borne through their battle-fields' thunder and flame,
+Blazoned in song and illumined in story,
+Wave o'er us all who inherit their fame!
+
+[VERSE 2]
+Up with our banner bright,
+Sprinkled with starry light,
+Spread its fair emblems from mountain to shore,
+While through the sounding sky
+Loud rings the Nation's cry,--
+UNION AND LIBERTY! ONE EVERMORE!
+
+--- TITLE: A SONG OF OTHER DAYS
+--- SOURCE: PG7400
+[VERSE 1]
+As o'er the glacier's frozen sheet
+Breathes soft the Alpine rose,
+So through life's desert springing sweet
+The flower of friendship grows;
+And as where'er the roses grow
+Some rain or dew descends,
+'T is nature's law that wine should flow
+To wet the lips of friends.
+Then once again, before we part,
+My empty glass shall ring;
+And he that has the warmest heart
+Shall loudest laugh and sing.
+
+[VERSE 2]
+They say we were not born to eat;
+But gray-haired sages think
+It means, Be moderate in your meat,
+And partly live to drink.
+For baser tribes the rivers flow
+That know not wine or song;
+Man wants but little drink below,
+But wants that little strong.
+Then once again, etc.
+
+[VERSE 3]
+If one bright drop is like the gem
+That decks a monarch's crown,
+One goblet holds a diadem
+Of rubies melted down!
+A fig for Caesar's blazing brow,
+But, like the Egyptian queen,
+Bid each dissolving jewel glow
+My thirsty lips between.
+Then once again, etc.
+
+[VERSE 4]
+The Grecian's mound, the Roman's urn,
+Are silent when we call,
+Yet still the purple grapes return
+To cluster on the wall;
+It was a bright Immortal's head
+They circled with the vine,
+And o'er their best and bravest dead
+They poured the dark-red wine.
+Then once again, etc.
+
+[VERSE 5]
+Methinks o'er every sparkling glass
+Young Eros waves his wings,
+And echoes o'er its dimples pass
+From dead Anacreon's strings;
+And, tossing round its beaded brim
+Their locks of floating gold,
+With bacchant dance and choral hymn
+Return the nymphs of old.
+Then once again, etc.
+
+[VERSE 6]
+A welcome then to joy and mirth,
+From hearts as fresh as ours,
+To scatter o'er the dust of earth
+Their sweetly mingled flowers;
+'T is Wisdom's self the cup that fills
+In spite of Folly's frown,
+And Nature, from her vine-clad hills,
+That rains her life-blood down!
+Then once again, before we part,
+My empty glass shall ring;
+And he that has the warmest heart
+Shall loudest laugh and sing.
+
+--- TITLE: THE VOICELESS
+--- SOURCE: PG7400
+[VERSE 1]
+WE count the broken lyres that rest
+Where the sweet wailing singers slumber,
+But o'er their silent sister's breast
+The wild-flowers who will stoop to number?
+A few can touch the magic string,
+And noisy Fame is proud to win them:--
+Alas for those that never sing,
+But die with all their music in them!
+
+[VERSE 2]
+Nay, grieve not for the dead alone
+Whose song has told their hearts' sad story,--
+Weep for the voiceless, who have known
+The cross without the crown of glory
+Not where Leucadian breezes sweep
+O'er Sappho's memory-haunted billow,
+But where the glistening night-dews weep
+On nameless sorrow's churchyard pillow.
+
+[VERSE 3]
+O hearts that break and give no sign
+Save whitening lip and fading tresses,
+Till Death pours out his longed-for wine
+Slow-dropped from Misery's crushing presses,--
+If singing breath or echoing chord
+To every hidden pang were given,
+What endless melodies were poured,
+As sad as earth, as sweet as heaven!
+
+--- TITLE: NEVER OR NOW
+--- SOURCE: PG54211
+[VERSE 1]
+    Listen, young heroes! your country is calling!
+      Time strikes the hour for the brave and the true!
+    Now, while the foremost are fighting and falling,
+      Fill up the ranks that have opened for you!
+[VERSE 2]
+    You whom the fathers made free and defended,
+      Stain not the scroll that emblazons their fame!
+    You whose fair heritage spotless descended,
+      Leave not your children a birthright of shame!
+[VERSE 3]
+    Stay not for questions while Freedom stands gasping!
+      Wait not till Honor lies wrapped in his pall!
+    Brief the lips’ meeting be, swift the hands clasping:
+      “Off for the wars!” is enough for them all.
+[VERSE 4]
+    Break from the arms that would fondly caress you!
+      Hark! ’t is the bugle-blast, sabres are drawn!
+    Mothers shall pray for you, fathers shall bless you,
+      Maidens shall weep for you when you are gone!
+[VERSE 5]
+    Never or now! cries the blood of a nation,
+      Poured on the turf where the red rose should bloom;
+    Now is the day and the hour of salvation,--
+      Never or now! peals the trumpet of doom!
+[VERSE 6]
+    Never or now! roars the hoarse-throated cannon
+      Through the black canopy blotting the skies;
+    Never or now! flaps the shell-blasted pennon
+      O’er the deep ooze where the _Cumberland_ lies!
+[VERSE 7]
+    From the foul dens where our brothers are dying,
+      Aliens and foes in the land of their birth,--
+    From the rank swamps where our martyrs are lying,
+      Pleading in vain for a handful of earth,--
+[VERSE 8]
+    From the hot plains where they perish outnumbered,
+      Furrowed and ridged by the battle-field’s plough,
+    Comes the loud summons; too long you have slumbered,
+      Hear the last Angel-trump--Never or Now!
+
+--- TITLE: Old Ironsides
+--- SOURCE: PG15553
+[VERSE 1]
+Ay, tear her tattered ensign down!
+  Long has it waved on high,
+And many an eye has danced to see
+  That banner in the sky;
+Beneath it rung the battle shout,
+  And burst the cannon's roar;--
+The meteor of the ocean air
+  Shall sweep the clouds no more.
+[VERSE 2]
+Her deck, once red with heroes' blood,
+  Where knelt the vanquished foe,
+When winds were hurrying o'er the flood,
+  And waves were white below,
+No more shall feel the victor's tread,
+  Or know the conquered knee;
+The harpies of the shore shall pluck
+  The eagle of the sea!
+[VERSE 3]
+Oh, better that her shattered hulk
+  Should sink beneath the wave!
+Her thunders shook the mighty deep,
+  And there should be her grave;
+[VERSE 4]
+Nail to the mast her holy flag,
+  Set every threadbare sail,
+And give her to the god of storms,
+  The lightning, and the gale!
+
+--- TITLE: Under the Violets
+--- SOURCE: PG15553
+[VERSE 1]
+Her hands are cold; her face is white;
+  No more her pulses come and go;
+Her eyes are shut to life and light;--
+  Fold the white vesture, snow on snow,
+  And lay her where the violets blow.
+[VERSE 2]
+But not beneath a graven stone,
+  To plead for tears with alien eyes;
+A slender cross of wood alone
+  Shall say, that here a maiden lies
+  In peace beneath the peaceful skies.
+[VERSE 3]
+And gray old trees of hugest limb
+  Shall wheel their circling shadows round
+To make the scorching sunlight dim
+  That drinks the greenness from the ground,
+  And drop their dead leaves on her mound.
+[VERSE 4]
+When o'er their boughs the squirrels run,
+  And through their leaves the robins call,
+And, ripening in the autumn sun,
+  The acorns and the chestnuts fall,
+  Doubt not that she will heed them all.
+[VERSE 5]
+For her the morning choir shall sing
+  Its matins from the branches high,
+And every minstrel voice of Spring,
+  That trills beneath the April sky,
+  Shall greet her with its earliest cry.
+[VERSE 6]
+When, turning round their dial-track,
+  Eastward the lengthening shadows pass,
+Her little mourners, clad in black,
+  The crickets, sliding through the grass,
+  Shall pipe for her an evening mass.
+[VERSE 7]
+At last the rootlets of the trees
+  Shall find the prison where she lies,
+And bear the buried dust they seize
+  In leaves and blossoms to the skies.
+  So may the soul that warmed it rise!
+[VERSE 8]
+If any, born of kindlier blood,
+  Should ask, What maiden lies below?
+Say only this: A tender bud,
+  That tried to blossom in the snow,
+  Lies withered where the violets blow.
+
+--- TITLE: The Chambered Nautilus
+--- SOURCE: PG15553
+[VERSE 1]
+This is the ship of pearl, which, poets feign,
+     Sails the unshadowed main,--
+     The venturous bark that flings
+On the sweet summer wind its purpled wings
+In gulfs enchanted, where the Siren sings,
+     And coral reefs lie bare,
+Where the cold sea-maids rise to sun their streaming hair.
+[VERSE 2]
+Its webs of living gauze no more unfurl;
+     Wrecked is the ship of pearl!
+     And every chambered cell,
+Where its dim dreaming life was wont to dwell,
+As the frail tenant shaped his growing shell,
+     Before thee lies revealed,--
+Its irised ceiling rent, its sunless crypt unsealed!
+[VERSE 3]
+Year after year beheld the silent toil
+     That spread his lustrous coil;
+     Still, as the spiral grew,
+He left the past year's dwelling for the new,
+Stole with soft step its shining archway through,
+    Built up its idle door,
+Stretched in his last-found home, and knew the old no more.
+[VERSE 4]
+Thanks for the heavenly message brought by thee,
+    Child of the wandering sea,
+    Cast from her lap, forlorn!
+From thy dead lips a clearer note is born
+Than ever Triton blew from wreathed horn!
+    While on mine ear it rings,
+Through the deep caves of thought I hear a voice that sings:
+[VERSE 5]
+Build thee more stately mansions, O my soul,
+    As the swift seasons roll!
+   Leave thy low-vaulted past!
+Let each new temple, nobler than the last,
+Shut thee from heaven with a dome more vast,
+    Till thou at length art free,
+Leaving thine outgrown shell by life's unresting sea!

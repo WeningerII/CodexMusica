@@ -2417,7 +2417,29 @@ def main(argv=None):
 #: (7,618 either way) because no item was dropped -- only the file
 #: holding them changed, which is why `songs` is absent from this pin
 #: and `files` is not.
-PINNED_SHAPE = {"files": 1174, "FAIL": 1, "WARN": 231, "NOTE": 901}
+#: REPINNED 2026-08-20 (HBV safe subset): 1174 -> 1446 files, WARN
+#: 231 -> 236, NOTE 901 -> 1097. The Home Book of Verse landed under the
+#: owner's safe-subset ruling -- 272 new files and 615 items topped up
+#: into 191 existing ones, 1,049 items of the 1,938 extracted. 400
+#: (20.6%) were REFUSED by the gate because their admissibility would
+#: have rested on an edition date nobody can name, and 489 more were
+#: cross-source duplicates the dedup rail already held. The NOTE rise is
+#: check G's orthography notes over 272 new files; the WARN rise is
+#: check C on the 36 topped-up files that carry no local row of their
+#: own and route through their header's parent row instead.
+#: REPINNED same sitting: 1446 -> 1423 files, WARN 236 -> 233, NOTE
+#: 1097 -> 1085 — a near-name twin scan over the WHOLE corpus merged 23
+#: pairs the exact-name router could not see (a fuller form in one
+#: edition against a shorter one already staged: `Alfred Tennyson` and
+#: `Alfred Tennyson, Lord Tennyson`; `Carolina Nairne` and `Carolina
+#: Oliphant, Lady Nairne`). Identity is the editions' OWN PRINTED DEATH
+#: YEARS agreeing inside the corpus's existing DEATH_SLACK of 2 — which
+#: is what admits Nairne, printed 1763-1845 in one book and 1766-1845 in
+#: the other. A SURNAME GUARD rejected the one false positive the death
+#: year alone would have merged: Frederick William Faber (1814-1863) and
+#: Frederick William Thomas (1811-1864) share two given names and a
+#: death year to within a year, and are two men.
+PINNED_SHAPE = {"files": 1423, "FAIL": 1, "WARN": 233, "NOTE": 1085}
 
 
 def _verify_shape(files, findings):

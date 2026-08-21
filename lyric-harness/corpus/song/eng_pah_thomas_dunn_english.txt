@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1902, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 11
+# songs: 12
 
 --- TITLE: THE FALL OF MAUBILA
 --- SOURCE: PG47476
@@ -1710,3 +1712,51 @@ Give them three cheers and a tiger!
   Let the flags wave as they come!
 Give them the blare of the trumpet!
   Give them the roll of the drum!
+
+--- TITLE: Ben Bolt
+--- SOURCE: PG2619
+[VERSE 1]
+Don't you remember sweet Alice, Ben Bolt,--
+Sweet Alice whose hair was so Brown,
+Who wept with delight when you gave her a smile,
+And trembled with fear at your frown?
+In the old churchyard in the valley, Ben Bolt,
+In a corner obscure and alone,
+They have fitted a slab of the granite so gray,
+And Alice lies under the stone.
+[VERSE 2]
+Under the hickory tree, Ben Bolt,
+Which stood at the foot of the hill,
+Together we've lain in the noonday shade,
+And listened to Appleton's mill.
+The mill-wheel has fallen to pieces, Ben Bolt,
+The rafters have tumbled in,
+And a quiet which crawls round the walls as you gaze
+Has followed the olden din.
+[VERSE 3]
+Do you mind of the cabin of logs, Ben Bolt.
+At the edge of the pathless wood,
+And the button-ball tree with its motley limbs,
+Which nigh by the doorstep stood?
+The cabin to ruin has gone, Ben Bolt,
+The tree you would seek for in vain;
+And where once the lords of the forest waved
+Are grass and the golden grain.
+[VERSE 4]
+And don't you remember the school, Ben Bolt,
+With the master so cruel and grim,
+And the shaded nook in the running brook
+Where the children went to swim?
+Grass grows on the master's grave, Ben Bolt,
+The spring of the brook is dry,
+And of all the boys who were schoolmates then
+There are only you and I.
+[VERSE 5]
+There is change in the things I loved, Ben Bolt,
+They have changed from the old to the new;
+But I feel in the deeps of my spirit the truth,
+There never was change in you.
+Twelvemonths twenty have passed, Ben Bolt,
+Since first we were friends--yet I hail
+Your presence a blessing, your friendship a truth,
+Ben Bolt of the salt-sea gale.

@@ -3,10 +3,16 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1915, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1915, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1915, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 7
 
 --- TITLE: THE LAST RESERVATION
 --- SOURCE: PG47476
@@ -50,3 +56,143 @@ Moved on--to make room for the growth in the West
     Of a brave Christian nation,
 Moved on--and, thank God, forever at rest
     In the last reservation.
+
+--- TITLE: To Critics
+--- SOURCE: PG2619
+[VERSE 1]
+When I was seventeen I heard
+From each censorious tongue,
+"I'd not do that if I were you;
+You see you're rather young."
+[VERSE 2]
+Now that I number forty years,
+I'm quite as often told
+Of this or that I shouldn't do
+Because I'm quite too old.
+[VERSE 3]
+O carping world!  If there's an age
+Where youth and manhood keep
+An equal poise, alas!  I must
+Have passed it in my sleep.
+
+--- TITLE: GROWING OLD
+--- SOURCE: PG2620
+[VERSE 1]
+Sweet sixteen is shy and cold,
+Calls me "sir," and thinks me old;
+Hears in an embarrassed way
+All the compliments I pay;
+[VERSE 2]
+Finds my homage quite a bore,
+Will not smile on me, and more
+To her taste she finds the noise
+And the chat of callow boys.
+[VERSE 3]
+Not the lines around my eye,
+Deepening as the years go by;
+Not white hairs that strew my head,
+Nor my less elastic tread;
+[VERSE 4]
+Cares I find, nor joys I miss,
+Make me feel my years like this: -
+Sweet sixteen is shy and cold,
+Calls me "sir," and thinks me old.
+
+--- TITLE: TIME'S REVENGE
+--- SOURCE: PG2620
+[VERSE 1]
+When I was ten and she fifteen -
+Ah, me! how fair I thought her.
+She treated with disdainful mien
+The homage that I brought her,
+And, in a patronizing way,
+Would of my shy advances say:
+"It's really quite absurd, you see;
+He's very much too young for me."
+[VERSE 2]
+I'm twenty now, she twenty-five -
+Well, well! how old she's growing.
+I fancy that my suit might thrive
+If pressed again; but, owing
+To great discrepancy in age,
+Her marked attentions don't engage
+My young affections, for, you see,
+She's really quite too old for me.
+
+--- TITLE: IN EXPLANATION
+--- SOURCE: PG2620
+[VERSE 1]
+Her lips were so near
+That - what else could I do?
+You'll be angry, I fear.
+But her lips were so near -
+Well, I can't make it clear,
+Or explain it to you.
+But - her lips were so near
+That - what else could I do?
+
+--- TITLE: THE PRIME OF LIFE
+--- SOURCE: PG2620
+[VERSE 1]
+Just as I thought I was growing old,
+Ready to sit in my easy chair,
+To watch the world with a heart grown cold,
+And smile at a folly I would not share,
+[VERSE 2]
+Rose came by with a smile for me,
+And I am thinking that forty year
+Isn't the age that it seems to be,
+When two pretty brown eyes are near.
+[VERSE 3]
+Bless me! of life it is just the prime,
+A fact that I hope she will understand;
+And forty year is a perfect rhyme
+To dark brown eyes and a pretty hand.
+[VERSE 4]
+These gray hairs are by chance, you see -
+Boys are sometimes gray, I am told:
+Rose came by with a smile for me,
+Just as I thought I was getting old.
+
+--- TITLE: On the Fly-leaf of a Book of Old Plays
+--- SOURCE: PG2622
+[VERSE 1]
+At Cato's Head in Russell Street
+These leaves she sat a-stitching;
+I fancy she was trim and neat,
+Blue-eyed and quite bewitching.
+[VERSE 2]
+Before her on the street below,
+All powder, ruffs, and laces,
+There strutted idle London beaux
+To ogle pretty faces;
+[VERSE 3]
+While, filling many a Sedan chair
+With monstrous hoop and feather,
+In paint and powder London's fair
+Went trooping past together.
+[VERSE 4]
+Swift, Addison, and Pope, mayhap
+They sauntered slowly past her,
+Or printer's boy, with gown and cap,
+For Steele, went trotting faster.
+[VERSE 5]
+For beau nor wit had she a look;
+Nor lord nor lady minding,
+She bent her head above this book,
+Attentive to her binding.
+[VERSE 6]
+And one stray thread of golden hair,
+Caught on her nimble fingers,
+Was stitched within this volume, where
+Until to-day it lingers.
+[VERSE 7]
+Past and forgotten, beaux and fair,
+Wigs, powder, all outdated;
+A queer antique, the Sedan chair,
+Pope, stiff and antiquated.
+[VERSE 8]
+Yet as I turn these odd, old plays,
+This single stray lock finding,
+I'm back in those forgotten days,
+And watch her at her binding.

@@ -4,10 +4,16 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1921, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1921, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1921, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 19
 
 --- TITLE: THE LADIES OF ST. JAMES'S.
 --- SOURCE: PG26715
@@ -144,3 +150,800 @@ We may in loftier aims excel
 And, like men waking from a spell,
 Grow stronger, nobler, than before,
 When there is Peace.
+
+--- TITLE: To a Greek Girl
+--- SOURCE: PG2619
+[VERSE 1]
+With breath of thyme and bees that hum,
+Across the years you seem to come,--
+Across the years with nymph-like head,
+And wind-blown brows unfilleted;
+A girlish shape that slips the bud
+In lines of unspoiled symmetry;
+A girlish shape that stirs the blood
+With pulse of Spring, Autonoe!
+[VERSE 2]
+Where'er you pass,--where'er you go,
+I hear the pebbly rillet flow;
+Where'er you go,--where'er you pass,
+There comes a gladness on the grass;
+You bring blithe airs where'er you tread,--
+Blithe airs that blow from down and sea;
+You wake in me a Pan not dead,--
+Not wholly dead!--Autonoe!
+[VERSE 3]
+How sweet with you on some green sod
+To wreathe the rustic garden-god;
+How sweet beneath the chestnut's shade
+With you to weave a basket-braid;
+To watch across the stricken chords
+Your rosy-twinkling fingers flee;
+To woo you in soft woodland words,
+With woodland pipe, Autonoe!
+[VERSE 4]
+In vain,--in vain!  The years divide:
+Where Thamis rolls a murky tide,
+I sit and fill my painful reams,
+And see you only in my dreams;--
+A vision, like Alcestis, brought
+From under-lands of Memory,--
+A dream of Form in days of Thought,--
+A dream,--a dream, Autonoe!
+
+--- TITLE: Growing Gray
+--- SOURCE: PG2619
+[VERSE 1]
+A little more toward the light;--
+Me miserable!  Here's one that's white;
+And one that's turning;
+Adieu to song and "salad days;"
+My Muse, let's go at once to Jay's,
+And order mourning.
+[VERSE 2]
+We must reform our rhymes, my Dear,--
+Renounce the gay for the severe,--
+Be grave, not witty;
+We have, no more, the right to find
+That Pyrrha's hair is neatly twined,--
+That Chloe's pretty.
+[VERSE 3]
+Young Love's for us a farce that's played;
+Light canzonet and serenade
+No more may tempt us;
+Gray hairs but ill accord with dreams;
+From aught but sour didactic themes
+Our years exempt us.
+[VERSE 4]
+Indeed! you really fancy so?
+You think for one white streak we grow
+At once satiric?
+A fiddlestick!  Each hair's a string
+To which our ancient Muse shall sing
+A younger lyric.
+[VERSE 5]
+The heart's still sound.  Shall "cakes and ale"
+Grow rare to youth because we rail
+At schoolboy dishes?
+Perish the thought!  'Tis ours to chant
+When neither Time nor Tide can grant
+Belief with wishes.
+
+--- TITLE: The Paradox of Time
+--- SOURCE: PG2619
+[VERSE 1]
+"Le temps s'en va, le temps s'en va, ma dame!
+Las! le temps non: mais nous nous en allons!"
+[VERSE 2]
+Time goes, you say?  Ah no!
+Alas, Time stays, we go;
+Or else, were this not so,
+What need to chain the hours,
+For Youth were always ours?
+Time goes, you say?--ah no!
+[VERSE 3]
+Ours is the eyes' deceit
+Of men whose flying feet
+Lead through some landscape low;
+We pass, and think we see
+The earth's fixed surface flee:--
+Alas, Time stays--we go!
+[VERSE 4]
+Once in the days of old,
+Your locks were curling gold,
+And mine had shamed the crow.
+Now, in the self-same stage,
+We've reached the silver age;
+Time goes, you say?--ah no!
+[VERSE 5]
+Once, when my voice was strong,
+I filled the woods with song
+To praise your "rose" and "snow";
+My bird, that sang, is dead;
+Where are your roses fled?
+Alas, Time stays--we go!
+[VERSE 6]
+See, in what traversed ways,
+What backward Fate delays
+The hopes we used to know;
+Where are our old desires?--
+Ah, where those vanished fires?
+Time goes, you say?--ah no!
+[VERSE 7]
+How far, how far, O sweet,
+The past behind our feet
+Lies in the even-glow!
+Now, on the forward way,
+Let us fold hands, and pray;
+Alas, Time stays,--we go!
+
+--- TITLE: A SONG OF THE FOUR SEASONS
+--- SOURCE: PG2620
+[VERSE 1]
+When Spring comes laughing
+By vale and hill,
+By wind-flower walking
+And daffodil, -
+Sing stars of morning,
+Sing morning skies,
+Sing blue of speedwell, -
+And my Love's eyes.
+[VERSE 2]
+When comes the Summer,
+Full-leaved and strong,
+And gay birds gossip
+The orchard long, -
+Sing hid, sweet honey
+That no bee sips;
+Sing red, red roses, -
+And my Love's lips.
+[VERSE 3]
+When Autumn scatters
+The leaves again,
+And piled sheaves bury
+The broad-wheeled wain, -
+Sing flutes of harvest
+Where men rejoice;
+Sing rounds of reapers, -
+And my Love's voice.
+[VERSE 4]
+But when comes Winter
+With hail and storm,
+And red fire roaring
+And ingle warm, -
+Sing first sad going
+Of friends that part;
+Then sing glad meeting, -
+And my Love's heart.
+
+--- TITLE: THE WANDERER
+--- SOURCE: PG2620
+[VERSE 1]
+Love comes back to his vacant dwelling, -
+The old, old Love that we knew of yore!
+We see him stand by the open door,
+With his great eyes sad, and his bosom swelling.
+[VERSE 2]
+He makes as though in our arms repelling,
+He fain would lie as he lay before; -
+Love comes back to his vacant dwelling, -
+The old, old Love that we knew of yore!
+[VERSE 3]
+Ah, who shall keep us from over-spelling
+That sweet forgotten, forbidden lore!
+E'en as we doubt in our hearts once more,
+With a rush of tears to our eyelids welling,
+Love comes back to his vacant dwelling.
+
+--- TITLE: On the Hurry of This Time
+--- SOURCE: PG2622
+[VERSE 1]
+With slower pen men used to write,
+Of old, when "letters" were "polite";
+In Anna's or in George's days,
+They could afford to turn a phrase,
+Or trim a struggling theme aright.
+[VERSE 2]
+They knew not steam; electric light
+Not yet had dazed their calmer sight;--
+They meted out both blame and praise
+With slower pen.
+[VERSE 3]
+Too swiftly now the Hours take flight!
+What's read at morn is dead at night:
+Scant space have we for Art's delays,
+Whose breathless thought so briefly stays,
+We may not work--ah! would we might!--
+With slower pen.
+
+--- TITLE: "Good-Night, Babette!"
+--- SOURCE: PG2622
+[VERSE 1]
+Scene.--A small neat Room.  In a high Voltaire Chair sits a white-haired old Gentleman.
+[VERSE 2]
+Monsieur Vieuxbois           Babette
+[VERSE 3]
+   M. Vieuxbois (turning querulously)
+Day of my life!  Where can she get!
+Babette!  I say!  Babette!--Babette!
+[VERSE 4]
+   Babette (entering hurriedly)
+Coming, M'sieu'!  If M'sieu' speaks
+So loud, he won't be well for weeks!
+[VERSE 5]
+   M. Vieuxbois
+Where have you been?
+[VERSE 6]
+   Babette
+Why M'sieu' knows:--
+April!... Ville d'Avray!... Ma'am'selle Rose!
+[VERSE 7]
+   M. Vieuxbois
+Ah! I am old,--and I forget.
+Was the place growing green, Babette?
+[VERSE 8]
+   Babette
+But of a greenness!--yes, M'sieu'!
+And then the sky so blue!--so blue!
+And when I dropped my immortelle,
+How the birds sang!
+(Lifting her apron to her eyes)
+This poor Ma'am'selle!
+[VERSE 9]
+   M. Vieuxbois
+You're a good girl, Babette, but she,--
+She was an Angel, verily.
+Sometimes I think I see her yet
+Stand smiling by the cabinet;
+And once, I know, she peeped and laughed
+Betwixt the curtains...
+Where's the draught?
+(She gives him a cup)
+Now I shall sleep, I think, Babette;--
+Sing me your Norman chansonnette.
+[VERSE 10]
+   Babette (sings)
+"Once at the Angelus,
+(Ere I was dead),
+Angels all glorious
+Came to my bed;
+Angels in blue and white
+Crowned on the Head."
+[VERSE 11]
+   M. Vieuxbois (drowsily)
+"She was an Angel"... "Once she laughed"...
+What, was I dreaming?
+Where's the draught?
+[VERSE 12]
+   Babette (showing the empty cup)
+The draught, M'sieu'?
+[VERSE 13]
+   M. Vieuxbois
+How I forget!
+I am so old!  But sing, Babette!
+[VERSE 14]
+   Babette (sings)
+"One was the Friend I left
+Stark in the Snow;
+One was the Wife that died
+Long,--long ago;
+One was the Love I lost...
+How could she know?"
+[VERSE 15]
+   M. Vieuxbois (murmuring)
+Ah, Paul!... old Paul!... Eulalie too!
+And Rose... And O! "the sky so blue!"
+[VERSE 16]
+   Babette (sings)
+"One had my Mother's eyes,
+Wistful and mild;
+One had my Father's face;
+One was a Child:
+All of them bent to me,--
+Bent down and smiled!"
+(He is asleep!)
+[VERSE 17]
+   M. Vieuxbois (almost inaudibly)
+"How I forget!"
+"I am so old!"... "Good-night, Babette!"
+
+--- TITLE: A Dialogue from Plato
+--- SOURCE: PG2622
+[VERSE 1]
+I'd "read" three hours.  Both notes and text
+Were fast a mist becoming;
+In bounced a vagrant bee, perplexed,
+And filled the room with humming,
+[VERSE 2]
+Then out.  The casement's leafage sways,
+And, parted light, discloses
+Miss Di., with hat and book,--a maze
+Of muslin mixed with roses.
+[VERSE 3]
+"You're reading Greek?" "I am--and you?"
+"O, mine's a mere romancer!"
+"So Plato is." "Then read him--do;
+And I'll read mine for answer."
+[VERSE 4]
+I read: "My Plato (Plato, too--
+That wisdom thus should harden!)
+Declares 'blue eyes look doubly blue
+Beneath a Dolly Varden.'"
+[VERSE 5]
+She smiled.  "My book in turn avers
+(No author's name is stated)
+That sometimes those Philosophers
+Are sadly mistranslated."
+[VERSE 6]
+"But hear,--the next's in stronger style:
+The Cynic School asserted
+That two red lips which part and smile
+May not be controverted!"
+[VERSE 7]
+She smiled once more.  "My book, I find,
+Observes some modern doctors
+Would make the Cynics out a kind
+Of album-verse concoctors."
+[VERSE 8]
+Then I: "Why not?  'Ephesian law,
+No less than time's tradition,
+Enjoined fair speech on all who saw
+Diana's apparition."
+[VERSE 9]
+She blushed,--this time.  "If Plato's page
+No wiser precept teaches,
+Then I'd renounce that doubtful sage,
+And walk to Burnham Beeches."
+[VERSE 10]
+"Agreed," I said.  "For Socrates
+(I find he too is talking)
+Thinks Learning can't remain at ease
+When Beauty goes a-walking."
+[VERSE 11]
+She read no more.  I leapt the sill:
+The sequel's scarce essential--
+Nay, more than this, I hold it still
+Profoundly confidential.
+
+--- TITLE: The Cure's Progress
+--- SOURCE: PG2622
+[VERSE 1]
+Monsieur the Cure down the street
+Comes with his kind old face,--
+With his coat worn bare, and his straggling hair,
+And his green umbrella-case.
+[VERSE 2]
+You may see him pass by the little "Grande Place",
+And the tiny "Hotel-de-Ville";
+He smiles, as he goes, to the fleuriste Rose,
+And the pompier Theophile.
+[VERSE 3]
+He turns, as a rule, through the "Marche" cool,
+Where the noisy fish-wives call;
+And his compliment pays to the "Belle Therese",
+As she knits in her dusky stall.
+[VERSE 4]
+There's a letter to drop at the locksmith's shop,
+And Toto, the locksmith's niece,
+Has jubilant hopes, for the Cure gropes
+In his tails for a pain d'epice.
+[VERSE 5]
+There's a little dispute with a merchant of fruit,
+Who is said to be heterodox,
+That will ended be with a "Ma foi, oui!"
+And a pinch from the Cure's box.
+[VERSE 6]
+There is also a word that no one heard
+To the furrier's daughter Lou.;
+And a pale cheek fed with a flickering red,
+And a "Ben Dieu garde M'sieu'!"
+[VERSE 7]
+But a grander way for the Sous-Prefet,
+And a bow for Ma'am'selle Anne;
+And a mock "off-hat" to the Notary's cat,
+And a nod to the Sacristan:--
+[VERSE 8]
+For ever through life the Cure goes
+With a smile on his kind old face--
+With his coat worn bare, and his straggling hair,
+And his green umbrella-case.
+
+--- TITLE: A Gentleman of the Old School
+--- SOURCE: PG2622
+[VERSE 1]
+He lived in that past Georgian day,
+When men were less inclined to say
+That "Time is Gold," and overlay
+With toil their pleasure;
+He held some land, and dwelt thereon,--
+Where, I forget,--the house is gone;
+His Christian name, I think, was John,--
+His surname, Leisure.
+[VERSE 2]
+Reynolds has painted him,--a face
+Filled with a fine, old-fashioned grace,
+Fresh-colored, frank, with ne'er a trace
+Of trouble shaded;
+The eyes are blue, the hair is dressed
+In plainest way,--one hand is pressed
+Deep in a flapped canary vest,
+With buds brocaded.
+[VERSE 3]
+He wears a brown old Brunswick coat,
+With silver buttons,--round his throat,
+A soft cravat;--in all you note
+An elder fashion,--
+A strangeness, which, to us who shine
+In shapely hats,--whose coats combine
+All harmonies of hue and line,
+Inspires compassion.
+[VERSE 4]
+He lived so long ago, you see!
+Men were untravelled then, but we,
+Like Ariel, post o'er land and sea
+With careless parting;
+He found it quite enough for him
+To smoke his pipe in "garden trim,"
+And watch, about the fish tank's brim,
+The swallows darting.
+[VERSE 5]
+He liked the well-wheel's creaking tongue,--
+He liked the thrush that fed her young,--
+He liked the drone of flies among
+His netted peaches;
+He liked to watch the sunlight fall
+Athwart his ivied orchard wall;
+Or pause to catch the cuckoo's call
+Beyond the beeches.
+[VERSE 6]
+His were the times of Paint and Patch,
+And yet no Ranelagh could match
+The sober doves that round his thatch
+Spread tails and sidled;
+He liked their ruffling, puffed content;
+For him their drowsy wheelings meant
+More than a Mall of Beaux that bent,
+Or Belles that bridled.
+[VERSE 7]
+Not that, in truth, when life began
+He shunned the flutter of the fan;
+He too had maybe "pinked his man"
+In Beauty's quarrel;
+But now his "fervent youth" had flown
+Where lost things go; and he was grown
+As staid and slow-paced as his own
+Old hunter, Sorrel.
+[VERSE 8]
+Yet still he loved the chase, and held
+That no composer's score excelled
+The merry horn, when Sweetlip swelled
+Its jovial riot;
+But most his measured words of praise
+Caressed the angler's easy ways,--
+His idly meditative days,--
+His rustic diet.
+[VERSE 9]
+Not that his "meditating" rose
+Beyond a sunny summer doze;
+He never troubled his repose
+With fruitless prying;
+But held, as law for high and low,
+What God withholds no man can know,
+And smiled away enquiry so,
+Without replying.
+[VERSE 10]
+We read--alas, how much we read!--
+The jumbled strifes of creed and creed
+With endless controversies feed
+Our groaning tables;
+His books--and they sufficed him--were
+Cotton's Montaigne, The Grave of Blair,
+A "Walton"--much the worse for wear,
+And Aesop's Fables.
+[VERSE 11]
+One more--The Bible.  Not that he
+Had searched its page as deep as we;
+No sophistries could make him see
+Its slender credit;
+It may be that he could not count
+The sires and sons to Jesse's fount,--
+He liked the "Sermon on the Mount,"--
+And more, he read it.
+[VERSE 12]
+Once he had loved, but failed to wed,
+A red-cheeked lass who long was dead;
+His ways were far too slow, he said,
+To quite forget her;
+And still when time had turned him gray,
+The earliest hawthorn buds in May
+Would find his lingering feet astray,
+Where first he met her.
+[VERSE 13]
+"In Coelo Quies" heads the stone
+On Leisure's grave,--now little known,
+A tangle of wild-rose has grown
+So thick across it;
+The "Benefactions" still declare
+He left the clerk an elbow-chair,
+And "12 Pence Yearly to Prepare
+A Christmas Posset."
+[VERSE 14]
+Lie softly, Leisure!  Doubtless you,
+With too serene a conscience drew
+Your easy breath, and slumbered through
+The gravest issue;
+But we, to whom our age allows
+Scarce space to wipe our weary brows,
+Look down upon your narrow house,
+Old friend, and miss you!
+
+--- TITLE: On a Fan
+--- SOURCE: PG2622
+[VERSE 1]
+Chicken-skin, delicate, white,
+Painted by Carlo Vanloo,
+Loves in a riot of light,
+Roses and vaporous blue;
+Hark to the dainty frou-frou!
+Picture above, if you can,
+Eyes that could melt as the dew,--
+This was the Pompadour's fan!
+[VERSE 2]
+See how they rise at the sight,
+Thronging the Ceil de Boeuf through,
+Courtiers as butterflies bright,
+Beauties that Fragonard drew,
+Talon-rouge, falbala, queue,
+Cardinal, Duke,--to a man,
+Eager to sigh or to sue,--
+This was the Pompadour's fan!
+[VERSE 3]
+Ah, but things more than polite
+Hung on this toy, voyez-vous!
+Matters of state and of might,
+Things that great ministers do;
+Things that, maybe, overthrew
+Those in whose brains they began;
+Here was the sign and the cue,--
+This was the Pompadour's fan!
+[VERSE 4]
+ENVOY
+Where are the secrets it knew?
+Weavings of plot and of plan?
+--But where is the Pompadour, too?
+This was the Pompadour's Fan!
+
+--- TITLE: "When I Saw You Last, Rose"
+--- SOURCE: PG2622
+[VERSE 1]
+When I saw you last, Rose,
+You were only so high;--
+How fast the time goes!
+[VERSE 2]
+Like a bud ere it blows,
+You just peeped at the sky,
+When I saw you last, Rose!
+[VERSE 3]
+Now your petals unclose,
+Now your May-time is nigh;--
+How fast the time goes!
+[VERSE 4]
+And a life,--how it grows!
+You were scarcely so shy,
+When I saw you last, Rose!
+[VERSE 5]
+In your bosom it shows
+There's a guest on the sly;
+(How fast the time goes!)
+[VERSE 6]
+Is it Cupid?  Who knows!
+Yet you used not to sigh,
+When I saw you last, Rose;--
+How fast the time goes!
+
+--- TITLE: Urceus Exit
+--- SOURCE: PG2622
+[VERSE 1]
+I intended an Ode,
+And it turned to a Sonnet.
+It began a la mode,
+I intended an Ode;
+But Rose crossed the road
+In her latest new bonnet;
+I intended an Ode;
+And it turned to a Sonnet.
+
+--- TITLE: A Kiss
+--- SOURCE: PG2622
+[VERSE 1]
+Rose kissed me to-day.
+Will she kiss me to-morrow?
+Let it be as it may,
+Rose kissed me to-day
+But the pleasure gives way
+To a savor of sorrow;--
+Rose kissed me to-day,--
+Will she kiss me to-morrow?
+
+--- TITLE: A Dead Letter
+--- SOURCE: PG2622
+[VERSE 1]
+I
+I drew it from its china tomb;--
+It came out feebly scented
+With some thin ghost of past perfume
+That dust and days had lent it.
+[VERSE 2]
+An old, old letter,--folded still!
+To read with due composure,
+I sought the sun-lit window-sill,
+Above the gray enclosure,
+[VERSE 3]
+That, glimmering in the sultry haze,
+Faint-flowered, dimly shaded,
+Slumbered like Goldsmith's Madam Blaize,
+Bedizened and brocaded.
+[VERSE 4]
+A queer old place!  You'd surely say
+Some tea-board garden-maker
+Had planned it in Dutch William's day
+To please some florist Quaker,
+[VERSE 5]
+So trim it was.  The yew-trees still,
+With pious care perverted,
+Grew in the same grim shapes; and still
+The lipless dolphin spurted;
+[VERSE 6]
+Still in his wonted state abode
+The broken-nosed Apollo;
+And still the cypress-arbor showed
+The same umbrageous hollow.
+[VERSE 7]
+Only,--as fresh young Beauty gleams
+From coffee-colored laces,
+So peeped from its old-fashioned dreams
+The fresher modern traces;
+[VERSE 8]
+For idle mallet, hoop, and ball
+Upon the lawn were lying;
+A magazine, a tumbled shawl,
+Round which the swifts were flying;
+[VERSE 9]
+And, tossed beside the Guelder rose,
+A heap of rainbow knitting,
+Where, blinking in her pleased repose,
+A Persian cat was sitting.
+[VERSE 10]
+"A place to love in,--live,--for aye,
+If we too, like Tithonus,
+Could find some God to stretch the gray
+Scant life the Fates have thrown us;
+[VERSE 11]
+"But now by steam we run our race,
+With buttoned heart and pocket,
+Our Love's a gilded, surplus grace,--
+Just like an empty locket!
+[VERSE 12]
+"'The time is out of joint.'  Who will,
+May strive to make it better;
+For me, this warm old window-sill,
+And this old dusty letter."
+[VERSE 13]
+II
+"Dear John (the letter ran), it can't, can't be,
+For Father's gone to Chorley Fair with Sam,
+And Mother's storing Apples,--Prue and Me
+Up to our Elbows making Damson Jam:
+But we shall meet before a Week is gone,--
+''Tis a long Lane that has no Turning,' John!
+[VERSE 14]
+"Only till Sunday next, and then you'll wait
+Behind the White-Thorn, by the broken Stile--
+We can go round and catch them at the Gate,
+All to Ourselves, for nearly one long Mile;
+Dear Prue won't look, and Father he'll go on,
+And Sam's two Eyes are all for Cissy, John!
+[VERSE 15]
+"John, she's so smart,--with every Ribbon new,
+Flame-colored Sack, and Crimson Padesoy:
+As proud as proud; and has the Vapors too,
+Just like My Lady;--calls poor Sam a Boy,
+And vows no Sweet-heart's worth the Thinking-on
+Till he's past Thirty... I know better, John!
+[VERSE 16]
+"My Dear, I don't think that I thought of much
+Before we knew each other, I and you;
+And now, why, John, your least, least Finger-touch,
+Gives me enough to think a Summer through.
+See, for I send you Something!  There, 'tis gone!
+Look in this corner,--mind you find it, John!
+[VERSE 17]
+III
+This was the matter of the note,--
+A long-forgot deposit,
+Dropped in an Indian dragon's throat
+Deep in a fragrant closet,
+[VERSE 18]
+Piled with a dapper Dresden world,--
+Beaux, beauties, prayers, and poses,--
+Bonzes with squat legs undercurled,
+And great jars filled with roses.
+[VERSE 19]
+Ah, heart that wrote! Ah, lips that kissed!
+You had no thought or presage
+Into what keeping you dismissed
+Your simple old-world message!
+[VERSE 20]
+A reverent one.  Though we to-day
+Distrust beliefs and powers,
+The artless, ageless things you say
+Are fresh as May's own flowers....
+[VERSE 21]
+I need not search too much to find
+Whose lot it was to send it,
+That feel upon me yet the kind,
+Soft hand of her who penned it;
+[VERSE 22]
+And see, through two-score years of smoke,
+In by-gone, quaint apparel,
+Shine from yon time-black Norway oak
+The face of Patience Caryl,--
+[VERSE 23]
+The pale, smooth forehead, silver-tressed;
+The gray gown, primly flowered;
+The spotless, stately coif whose crest
+Like Hector's horse-plume towered;
+[VERSE 24]
+And still the sweet half-solemn look
+Where some past thought was clinging,
+As when one shuts a serious book
+To hear the thrushes singing.
+[VERSE 25]
+I kneel to you!  Of those you were,
+Whose kind old hearts grow mellow,--
+Whose fair old faces grow more fair,
+As Point and Flanders yellow;
+[VERSE 26]
+Whom some old store of garnered grief,
+Their placid temples shading,
+Crowns like a wreath of autumn leaf
+With tender tints of fading.
+[VERSE 27]
+Peace to your soul!  You died unwed--
+Despite this loving letter.
+And what of John?  The less that's said
+Of John, I think, the better.
+
+--- TITLE: The Ballad of Imitation
+--- SOURCE: PG2622
+[VERSE 1]
+If they hint, O Musician, the piece that you played
+Is naught but a copy of Chopin or Spohr;
+That the ballad you sing is but merely "conveyed"
+From the stock of the Ames and the Purcells of yore;
+That there's nothing, in short, in the words or the score,
+That is not as out-worn as the "Wandering Jew";
+Make answer--Beethoven could scarcely do more--
+That the man who plants cabbages imitates, too!
+[VERSE 2]
+If they tell you, Sir Artist, your light and your shade
+Are simply "adapted" from other men's lore;
+That--plainly to speak of a "spade" as a "spade"--
+You've "stolen" your grouping from three or from four;
+That (however the writer the truth may deplore),
+'Twas Gainsborough painted your "Little Boy Blue";
+Smile only serenely--though cut to the core--
+For the man who plants cabbages imitates, too!
+[VERSE 3]
+And you too, my Poet, be never dismayed
+If they whisper your Epic--"Sir Eperon d'Or"--
+Is nothing but Tennyson thinly arrayed
+In a tissue that's taken from Morris's store;
+That no one, in fact, but a child could ignore
+That you "lift" or "accommodate" all that you do;
+Take heart--though your Pegasus' withers be sore--
+For the man who plants cabbages imitates, too!
+[VERSE 4]
+POSTCRIPTUM.--And you, whom we all so adore,
+Dear Critics, whose verdicts are always so new!--
+One word in your ear.  There were Critics before....
+And the man who plants cabbages imitates, too!

@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1687; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1687, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1687, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 3
+# songs: 5
 
 --- TITLE: On a Girdle
 --- SOURCE: PG66619
@@ -69,3 +73,79 @@ Stronger by weakness, wiser men become
 As they draw near to their eternal home.
 Leaving the old, both worlds at once they view
 That stand upon the threshold of the new.
+
+--- TITLE: On Her Coming To London
+--- SOURCE: PG2619
+[VERSE 1]
+What's she, so late from Penshurst come,
+More gorgeous than the mid-day sun,
+That all the world amazes?
+Sure 'tis some angel from above,
+Or 'tis the Cyprian Queen of Love
+Attended by the Graces.
+[VERSE 2]
+Or is't not Juno, Heaven's great dame,
+Or Pallas armed, as on she came
+To assist the Greeks in fight,
+Or Cynthia, that huntress bold,
+Or from old Tithon's bed so cold,
+Aurora chasing night?
+[VERSE 3]
+No, none of those, yet one that shall
+Compare, perhaps exceed them all,
+For beauty, wit, and birth;
+As good as great, as chaste as fair,
+A brighter nymph none breathes the air,
+Or treads upon the earth.
+[VERSE 4]
+'Tis Dorothee, a maid high-born,
+And lovely as the blushing morn,
+Of noble Sidney's race;
+Oh! could you see into her mind,
+The beauties there locked-up outshine
+The beauties of her face.
+[VERSE 5]
+Fair Dorothea, sent from heaven
+To add more wonders to the seven,
+And glad each eye and ear,
+Crown of her sex, the Muse's port,
+The glory of our English court,
+The brightness of our sphere.
+[VERSE 6]
+To welcome her the Spring breathes forth
+Elysian sweets, March strews the earth
+With violets and posies,
+The sun renews his darting fires,
+April puts on her best attires,
+And May her crown of roses.
+[VERSE 7]
+Go, happy maid, increase the store
+Of graces born with you, and more
+Add to their number still;
+So neither all-consuming age,
+Nor envy's blast, nor fortune's rage
+Shall ever work you ill.
+
+--- TITLE: TO FLAVIA
+--- SOURCE: PG2620
+[VERSE 1]
+'Tis not your beauty can engage
+My wary heart;
+The sun, in all his pride and rage,
+Has not that art;
+And yet he shines as bright as you,
+If brightness could our souls subdue.
+[VERSE 2]
+'Tis not the pretty things you say,
+Nor those you write,
+Which can make Thyrsis' heart your prey:
+For that delight,
+The graces of a well-taught mind,
+In some of our own sex we find.
+[VERSE 3]
+No, Flavia, 'tis your love I fear;
+Love's surest darts,
+Those which so seldom fail him, are
+Headed with hearts:
+Their very shadows make us yield;
+Dissemble well, and win the field!

@@ -4,14 +4,13 @@
 # licence: public domain — Project Gutenberg text; author died 1883; every edition used was published 1931 or earlier
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1883; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
-# edition: The-Rubaiyat-of-Omar-Khayyam — 1859 — no imprint in the file; FitzGerald's Rubaiyat 1st ed. 1859, 5th ed. 1889 — the Gutenberg text prints both
-# note: The Rubaiyat is a TRANSLATION (from the Persian of Omar Khayyam) but the
-#       English quatrains are FitzGerald's own composition and are the reason he
-#       is on the lyricist list. Staged as the two editions the Gutenberg text
-#       prints, each quatrain a stanza.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1883, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1883, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # structure: [VERSE n] stanza, [BURDEN] a line-group repeated verbatim at stanza end,
-#            [CHORUS] a whole stanza repeated verbatim, [REFRAIN] a repeated stanza head.
-#--------------------------------------------------------------------------
+# merged: 2026-08-20 — eng_hbv_edward_fitzgerald.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 5
 
 --- TITLE: Rubaiyat of Omar Khayyam (First Edition, 1859)
 [VERSE 1]
@@ -975,3 +974,144 @@ I jump up like mad,
   Break the old pipe in twain,
 And away to the meadows,
   The meadows again!
+
+--- TITLE: BECAUSE
+--- SOURCE: PG2620
+[VERSE 1]
+Sweet Nea! - for your lovely sake
+I weave these rambling numbers,
+Because I've lain an hour awake,
+And can't compose my slumbers;
+Because your beauty's gentle light
+Is round my pillow beaming,
+And flings, I know not why, to-night,
+Some witchery o'er my dreaming!
+[VERSE 2]
+Because we've passed some joyous days,
+And danced some merry dances;
+Because we love old Beaumont's plays,
+And old Froissart's romances!
+Because whene'er I hear your words
+Some pleasant feeling lingers;
+Because I think your heart has cords
+That vibrate to your fingers.
+[VERSE 3]
+Because you've got those long, soft curls,
+I've sworn should deck my goddess;
+Because you're not, like other girls,
+All bustle blush, and bodice!
+Because your eyes are deep and blue,
+Your fingers long and rosy;
+Because a little child and you
+Would make one's home so cosy!
+[VERSE 4]
+Because your little tiny nose
+Turns up so pert and funny;
+Because I know you choose your beaux
+More for their mirth than money;
+Because I think you'd rather twirl
+A waltz, with me to guide you,
+Than talk small nonsense with an earl,
+And a coronet beside you!
+[VERSE 5]
+Because you don't object to walk,
+And are not given to fainting;
+Because you have not learned to talk
+Of flowers, and Poonah-painting;
+Because I think you'd scarce refuse
+To sew one on a button;
+Because I know you sometimes choose
+To dine on simple mutton!
+[VERSE 6]
+Because I think I'm just so weak
+As, some of those fine morrows,
+To ask you if you'll let me speak
+My story - and my sorrows;
+Because the rest's a simple thing,
+A matter quickly over
+A church - a priest - a sigh - a ring -
+And a chaise-and-four to Dover.
+
+--- TITLE: Chivalry at a Discount
+--- SOURCE: PG2622
+[VERSE 1]
+Fair cousin mine! the golden days
+Of old romance are over;
+And minstrels now care naught for bays,
+Nor damsels for a lover;
+And hearts are cold, and lips are mute
+That kindled once with passion,
+And now we've neither lance nor lute,
+And tilting's out of fashion.
+[VERSE 2]
+Yet weeping Beauty mourns the time
+When Love found words in flowers;
+When softest test sighs were breathed in rhyme,
+And sweetest songs in bowers;
+Now wedlock is a sober thing--
+No more of chains or forges!--
+A plain young man--a plain gold ring--
+The curate--and St. George's.
+[VERSE 3]
+Then every cross-bow had a string,
+And every heart a fetter;
+And making love was quite the thing,
+And making verses better;
+And maiden-aunts were never seen,
+And gallant beaux were plenty;
+And lasses married at sixteen,
+And died at one-and-twenty.
+[VERSE 4]
+Then hawking was a noble sport,
+And chess a pretty science;
+And huntsmen learned to blow a morte,
+And heralds a defiance;
+And knights and spearmen showed their might,
+And timid hinds took warning;
+And hypocras was warmed at night,
+And coursers in the morning.
+[VERSE 5]
+Then plumes and pennons were prepared,
+And patron-saints were lauded;
+And noble deeds were bravely dared,
+And noble dames applauded;
+And Beauty played the leech's part,
+And wounds were healed with syrup;
+And warriors sometimes lost a heart,
+But never lost a stirrup.
+[VERSE 6]
+Then there was no such thing as Fear,
+And no such word as Reason;
+And Faith was like a pointed spear,
+And Fickleness was treason;
+And hearts were soft, though blows were hard;
+But when the fight was over,
+A brimming goblet cheered the board,
+His Lady's smile the lover.
+[VERSE 7]
+Ay, those were golden days!  The moon
+Had then her true adorers;
+And there were lyres and lutes in tune,
+And no such thing as snorers;
+And lovers swam, and held at naught
+Streams broader than the Mersey;
+And fifty thousand would have fought
+For a smile from Lady Jersey.
+[VERSE 8]
+Then people wore an iron vest,
+And bad no use for tailors;
+And the artizans who lived the best
+Were armorers and nailers;
+And steel was measured by the ell
+And trousers lined with leather;
+And jesters wore a cap and bell,
+And knights a cap and feather.
+[VERSE 9]
+Then single folks might live at ease,
+And married ones might sever;
+Uncommon doctors had their fees,
+But Doctor's Commons never;
+O! had we in those times been bred,
+Fair cousin, for thy glances,
+Instead of breaking Priscian's head,
+I had been breaking lances!

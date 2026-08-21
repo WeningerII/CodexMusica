@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1916, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 5
 
 --- TITLE: COLUMBUS AT THE CONVENT
 --- SOURCE: PG47476
@@ -52,3 +54,306 @@ And so his guest he comforted.
 Who cheered the stranger's darkest days,
 And helped him on his way, what praise
   And gratitude are due!
+
+--- TITLE: Midsummer
+--- SOURCE: PG2621
+[VERSE 1]
+Around this lovely valley rise
+The purple hills of Paradise.
+[VERSE 2]
+O, softly on yon banks of haze,
+Her rosy face the Summer lays!
+[VERSE 3]
+Becalmed along the azure sky,
+The argosies of cloudland lie,
+Whose shores, with many a shining rift,
+Far off their pearl-white peaks uplift.
+[VERSE 4]
+Through all the long midsummer-day
+The meadow-sides are sweet with hay.
+I seek the coolest sheltered seat,
+Just where the field and forest meet,-
+Where grow the pine-trees tall and bland,
+The ancient oaks austere and grand,
+And fringy roots and pebbles fret
+The ripples of the rivulet.
+[VERSE 5]
+I watch the mowers, as they go
+Through the tall grass, a white-sleeved row.
+With even stroke their scythes they swing,
+In tune their merry whetstones ring.
+Behind the nimble youngsters run,
+And toss the thick swaths in the sun.
+The cattle graze, while, warm and still,
+Slopes the broad pasture, basks the hill,
+And bright, where summer breezes break,
+The green wheat crinkles like a lake.
+[VERSE 6]
+The butterfly and humblebee
+Come to the pleasant woods with me;
+Quickly before me runs the quail,
+Her chickens skulk behind the rail;
+High up the lone wood-pigeon sits,
+And the woodpecker pecks and flits.
+Sweet woodland music sinks and swells,
+The brooklet rings its tinkling bells,
+The swarming insects drone and hum,
+The partridge beats its throbbing drum.
+The squirrel leaps among the boughs,
+And chatters in his leafy house.
+The oriole flashes by; and, look!
+Into the mirror of the brook,
+Where the vain bluebird trims his coat,
+Two tiny feathers fall and float.
+[VERSE 7]
+As silently, as tenderly,
+The down of peace descends on me.
+O, this is peace! I have no need
+Of friend to talk, of book to read:
+A dear Companion here abides;
+Close to my thrilling heart He hides;
+The holy silence is His Voice:
+I lie and listen, and rejoice.
+
+--- TITLE: Midwinter
+--- SOURCE: PG2621
+[VERSE 1]
+The speckled sky is dim with snow,
+The light flakes falter and fall slow;
+Athwart the hill-top, rapt and pale,
+Silently drops a silvery veil;
+And all the valley is shut in
+By flickering curtains gray and thin.
+[VERSE 2]
+But cheerily the chickadee
+Singeth to me on fence and tree;
+The snow sails round him as he sings,
+White as the down of angels' wings.
+[VERSE 3]
+I watch the slow flakes as they fall
+On bank and brier and broken wall;
+Over the orchard, waste and brown,
+All noiselessly they settle down,
+Tipping the apple-boughs, and each
+Light quivering twig of plum and peach.
+[VERSE 4]
+On turf and curb and bower-roof
+The snow-storm spreads its ivory woof;
+It paves with pearl the garden-walk;
+And lovingly round tattered stalk
+And shivering stem its magic weaves
+A mantle fair as lily-leaves.
+[VERSE 5]
+The hooded beehive, small and low,
+Stands like a maiden in the snow;
+And the old door-slab is half hid
+Under an alabaster lid.
+All day it snows: the sheeted post
+Gleams in the dimness like a ghost;
+All day the blasted oak has stood
+A muffled wizard of the wood;
+Garland and airy cap adorn
+The sumach and the wayside thorn,
+And clustering spangles lodge and shine
+In the dark tresses of the pine.
+[VERSE 6]
+The ragged bramble, dwarfed and old,
+Shrinks like a beggar in the cold;
+In surplice white the cedar stands,
+And blesses him with priestly hands.
+[VERSE 7]
+Still cheerily the chickadee
+Singeth to me on fence and tree:
+But in my inmost ear is heard
+The music of a holier bird;
+And heavenly thoughts, as soft and white
+As snow-flakes, on my soul alight,
+Clothing with love my lonely heart,
+Healing with peace each bruised part,
+Till all my being seems to be
+Transfigured by their purity.
+
+--- TITLE: The Pewee
+--- SOURCE: PG2621
+[VERSE 1]
+The listening Dryads hushed the woods;
+The boughs were thick, and thin and few
+The golden ribbons fluttering through;
+Their sun-embroidered, leafy hoods
+The lindens lifted to the blue:
+Only a little forest-brook
+The farthest hem of silence shook:
+When in the hollow shades I heard,--
+Was it a spirit, or a bird?
+Or, strayed from Eden, desolate,
+Some Peri calling to her mate,
+Whom nevermore her mate would cheer?
+Pe-ri! pe-ri! peer!"
+[VERSE 2]
+Through rocky clefts the brooklet fell
+With plashy pour, that scarce was sound,
+But only quiet less profound,
+A stillness fresh and audible:
+A yellow leaflet to the ground
+Whirled noiselessly: with wing of gloss
+A hovering sunbeam brushed the moss,
+And, wavering brightly over it,
+Sat like a butterfly alit:
+The owlet in his open door
+Stared roundly: while the breezes bore
+The plaint to far-off places drear,--
+"Pe-ree! pe-ree! peer!"
+[VERSE 3]
+To trace it in its green retreat
+I sought among the boughs in vain;
+And followed still the wandering strain,
+So melancholy and so sweet
+The dim-eyed violets yearned with pain.
+'Twas now a sorrow in the air,
+Some nymph's immortalized despair
+Haunting the woods and waterfalls;
+And now, at long, sad intervals,
+Sitting unseen in dusky shade,
+His plaintive pipe some fairy played,
+With long-drawn cadence thin and clear,--
+"Pe-wee! pe-wee! peer!"
+[VERSE 4]
+Long-drawn and clear its closes were,--
+As if the hand of Music through
+The somber robe of Silence drew
+A thread of golden gossamer:
+So pure a flute the fairy blew.
+Like beggared princes of the wood,
+In silver rags the birches stood;
+The hemlocks, lordly counselors,
+Were dumb; the sturdy servitors,
+In beechen jackets patched and gray,
+Seemed waiting spellbound all the day
+That low, entrancing note to hear,--
+"Pe-wee! pe-wee! peer!"
+[VERSE 5]
+I quit the search, and sat me down
+Beside the brook, irresolute,
+And watched a little bird in suit
+Of sober olive, soft and brown,
+Perched in the maple-branches, mute:
+With greenish gold its vest was fringed,
+Its tiny cap was ebon-tinged,
+With ivory pale its wings were barred,
+And its dark eyes were tender-starred.
+"Dear bird," I said, "what is thy name?"
+And thrice the mournful answer came,
+So faint and far, and yet so near,--
+"Pe-wee! pe-wee! peer!"
+[VERSE 6]
+For so I found my forest bird,--
+The pewee of the loneliest woods,
+Sole singer in these solitudes,
+Which never robin's whistle stirred,
+Where never bluebird's plume intrudes.
+Quick darting through the dewy morn,
+The redstart trilled his twittering horn,
+And vanished in thick boughs: at even,
+Like liquid pearls fresh showered from heaven,
+The high notes of the lone wood-thrush
+Fall on the forest's holy hush:
+But thou all day complainest here,--
+"Pe-wee! pe-wee! peer!"
+[VERSE 7]
+Hast thou, too, in thy little breast,
+Strange longings for a happier lot,--
+For love, for life, thou know'st not what,--
+A yearning, and a vague unrest,
+For something still which thou hast not?--
+Thou soul of some benighted child
+That perished, crying in the wild!
+Or lost, forlorn, and wandering maid,
+By love allured, by love betrayed,
+Whose spirit with her latest sigh
+Arose, a little winged cry,
+Above her chill and mossy bier!
+"Dear me! dear me! dear!"
+[VERSE 8]
+Ah, no such piercing sorrow mars
+The pewee's life of cheerful ease!
+He sings, or leaves his song to seize
+An insect sporting in the bars
+Of mild bright light that gild the trees.
+A very poet he!  For him
+All pleasant places still and dim:
+His heart, a spark of heavenly fire,
+Burns with undying, sweet desire:
+And so he sings; and so his song,
+Though heard not by the hurrying throng,
+Is solace to the pensive ear:
+Pewee! pewee! peer!
+
+--- TITLE: The Cup
+--- SOURCE: PG2621
+[VERSE 1]
+The cup I sing is a cup of gold
+Many and many a century old,
+Sculptured fair, and over-filled
+With wine of a generous vintage, spilled
+In crystal currents and foaming tides
+All round its luminous, pictured sides.
+Old Time enameled and embossed
+This ancient cup at an infinite cost.
+Its frame he wrought of metal that run
+Red from the furnace of the sun.
+Ages on ages slowly rolled
+Before the glowing mass was cold,
+And still he toiled at the antique mold,--
+Turning it fast in his fashioning hand,
+Tracing circle, layer, and band,
+Carving figures quaint and strange,
+Pursuing, through many a wondrous change,
+The symmetry of a plan divine.
+At last he poured the lustrous wine,
+Crowned high the radiant wave with light,
+And held aloft the goblet bright,
+Half in shadow, and wreathed in mist
+Of purple, amber, and amethyst.
+[VERSE 2]
+This is the goblet from whose brink
+All creatures that have life must drink:
+Foemen and lovers, haughty lord,
+And sallow beggar with lips abhorred.
+The new-born infant, ere it gain
+The mother's breast, this wine must drain.
+The oak with its subtle juice is fed,
+The rose drinks till her cheeks are red,
+And the dimpled, dainty violet sips
+The limpid stream with loving lips.
+It holds the blood of sun and star,
+And all pure essences that are:
+No fruit so high on the heavenly vine,
+Whose golden hanging clusters shine
+On the far-off shadowy midnight hills,
+But some sweet influence it distils
+That slideth down the silvery rills.
+Here Wisdom drowned her dangerous thought,
+The early gods their secrets brought;
+Beauty, in quivering lines of light,
+Ripples before the ravished sight:
+And the unseen mystic spheres combine
+To charm the cup and drug the wine.
+[VERSE 3]
+All day I drink of the wine, and deep
+In its stainless waves my senses steep;
+All night my peaceful soul lies drowned
+In hollows of the cup profound;
+Again each morn I clamber up
+The emerald crater of the cup,
+On massive knobs of jasper stand
+And view the azure ring expand:
+I watch the foam-wreaths toss and swim
+In the wine that o'erruns the jeweled rim:--
+Edges of chrysolite emerge,
+Dawn-tinted, from the misty surge:
+My thrilled, uncovered front I lave,
+My eager senses kiss the wave,
+And drain, with its viewless draught, the lore
+That kindles the bosom's secret core,
+And the fire that maddens the poet's brain
+With wild sweet ardor and heavenly pain.

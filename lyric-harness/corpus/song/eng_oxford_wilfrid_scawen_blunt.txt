@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1840; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1922, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1922, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 8
+# songs: 12
 
 --- TITLE: Song
 --- SOURCE: PG66619
@@ -234,3 +238,145 @@ The voices of these robbers of the heath
 Sound in each ear and chill the passer-by.
 --What have we done to thee, thou monstrous Time?
 What have we done to Death that we must die?
+
+--- TITLE: TO MANON
+--- SOURCE: PG2620
+[VERSE 1]
+If I had chosen thee, thou shouldst have been
+A virgin proud, untamed, immaculate,
+Chaste as the morning star, a saint, a queen,
+Scarred by no wars, no violence of hate.
+Thou shouldst have been of soul commensurate
+With thy fair body, brave and virtuous
+And kind and just; and if of poor estate,
+At least an honest woman for my house.
+I would have had thee come of honored blood
+And honorable nurture.  Thou shouldst bear
+Sons to my pride and daughters to my heart,
+And men should hold thee happy, wise, and good.
+Lo, thou art none of this, but only fair,
+Yet must I love thee, dear, and as thou art.
+
+--- TITLE: TO ONE WHO WOULD MAKE A CONFESSION
+--- SOURCE: PG2620
+[VERSE 1]
+On! leave the past to bury its own dead.
+The past is naught to us, the present all.
+What need of last year's leaves to strew Love's bed?
+What need of ghosts to grace a festival?
+I would not, if I could, those days recall,
+Those days not ours.  For us the feast is spread,
+The lamps are lit, and music plays withal.
+Then let us love and leave the rest unsaid.
+This island is our home.  Around it roar
+Great gulfs and oceans, channels, straits and seas.
+What matter in what wreck we reached the shore,
+So we both reached it?  We can mock at these.
+Oh leave the past, if past indeed there be;
+I would not know it; I would know but thee.
+
+--- TITLE: THE PLEASURES OF LOVE
+--- SOURCE: PG2620
+[VERSE 1]
+I do not care for kisses.  'Tis a debt
+We paid for the first privilege of love.
+These are the rains of April which have wet
+Our fallow hearts and forced their germs to move.
+Now the green corn has sprouted.  Each new day
+Brings better pleasures, a more dear surprise,
+The blade, the ear, the harvest - and our way
+Leads through a region wealthy grown and wise.
+We now compare our fortunes.  Each his store
+Displays to kindred eyes of garnered grain,
+Two happy farmers, learned in love's lore,
+Who weigh and touch and argue and complain -
+Dear endless argument!  Yet sometimes we
+Even as we argue kiss.  There! Let it be.
+
+--- TITLE: The Old Squire
+--- SOURCE: PG2621
+[VERSE 1]
+I like the hunting of the hare
+Better than that of the fox;
+I like the joyous morning air,
+And the crowing of the cocks.
+[VERSE 2]
+I like the calm of the early fields,
+The ducks asleep by the lake,
+The quiet hour which nature yields
+Before mankind is awake.
+[VERSE 3]
+I like the pheasants and feeding things
+Of the unsuspicious morn;
+I like the flap of the wood-pigeon's wings
+As she rises from the corn.
+[VERSE 4]
+I like the blackbird's shriek, and his rush
+From the turnips as I pass by,
+And the partridge hiding her head in a bush,
+For her young ones cannot fly.
+[VERSE 5]
+I like these things, and I like to ride,
+When all the world is in bed,
+To the top of the hill where the sky grows wide,
+And where the sun grows red.
+[VERSE 6]
+The beagles at my horse-heels trot
+In silence after me;
+There's Ruby, Roger, Diamond, Dot,
+Old Slut and Margery,--
+[VERSE 7]
+A score of names well used, and dear,
+The names my childhood knew;
+The horn with which I rouse their cheer,
+Is the horn my father blew.
+[VERSE 8]
+I like the hunting of the hare
+Better than that of the fox;
+The new world still is all less fair
+Than the old world it mocks.
+[VERSE 9]
+I covet not a wider range
+Than these dear manors give;
+I take my pleasures without change,
+And as I lived I live.
+[VERSE 10]
+I leave my neighbors to their thought;
+My choice it is, and pride,
+On my own lands to find my sport,
+In my own fields to ride.
+[VERSE 11]
+The hare herself no better loves
+The field where she was bred,
+Than I the habit of these groves,
+My own inherited.
+[VERSE 12]
+I know my quarries every one,
+The meuse where she sits low;
+The road she chose to-day was run
+A hundred years ago.
+[VERSE 13]
+The lags, the gills, the forest ways,
+The hedgerows one and all,
+These are the kingdoms of my chase,
+And bounded by my wall;
+[VERSE 14]
+Nor has the world a better thing,
+Though one should search it round,
+Than thus to live one's own sole king,
+Upon one's own sole ground.
+[VERSE 15]
+I like the hunting of the hare;
+It brings me, day by day,
+The memory of old days as fair,
+With dead men passed away.
+[VERSE 16]
+To these, as homeward still I ply
+And pass the churchyard gate,
+Where all are laid as I must lie
+I stop and raise my hat.
+[VERSE 17]
+I like the hunting of the hare;
+New sports I hold in scorn.
+I like to be as my fathers were,
+In the days ere I was born.

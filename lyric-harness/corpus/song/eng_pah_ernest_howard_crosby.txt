@@ -1,12 +1,16 @@
 # author: Ernest Howard Crosby (1856-1906)
 # region: 
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1907, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# merged: 2026-08-20 — eng_hbv_ernest_crosby.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 2
 
 --- TITLE: "REBELS"
 --- SOURCE: PG47476
@@ -65,3 +69,21 @@ Or if you will persist to fight
   With all a soldier's pride,
 Why, then be rebels for the right
   By Aguinaldo's side!
+
+--- TITLE: In the Garden
+--- SOURCE: PG2619
+[VERSE 1]
+I spied beside the garden bed
+A tiny lass of ours,
+Who stopped and bent her sunny head
+Above the red June flowers.
+[VERSE 2]
+Pushing the leaves and thorns apart,
+She singled out a rose,
+And in its inmost crimson heart,
+Enraptured, plunged her nose.
+[VERSE 3]
+"O dear, dear rose, come, tell me true--
+Come, tell me true," said she,
+"If I smell just as sweet to you
+As you smell sweet to me!"

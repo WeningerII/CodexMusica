@@ -6,11 +6,13 @@
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1851, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('JOANNA BAILLIE'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 13
+# songs: 14
 
 --- TITLE: THE MAID OF LLANWELLYN
 --- SOURCE: PG22515
@@ -627,3 +629,27 @@ Noon lulls us in a gloomy den,
   And night is grown our day;
 Uprouse ye then, my merry men!
   And use it as ye may.
+
+--- TITLE: WAKE, LADY!
+--- SOURCE: PG2620
+[VERSE 1]
+Up! quit thy bower! late wears the hour,
+Long have the rooks cawed round the tower;
+O'er flower and tree loud hums the bee,
+And the wild kid sports merrily.
+The sun is bright, the sky is clear:
+Wake, lady, wake! and hasten here.
+[VERSE 2]
+Up! maiden fair, and bind thy hair,
+And rouse thee in the breezy air!
+The lulling stream that soothed thy dream
+Is dancing in the sunny beam.
+Waste not these hours, so fresh and gay;
+Leave thy soft couch, and haste away!
+[VERSE 3]
+Up!  Time will tell the morning bell
+Its service-sound has chimed well;
+The aged crone keeps house alone,
+The reapers to the fields are gone.
+Lose not these hours, so cool and gay:
+Lo! while thou sleep'st they haste away!

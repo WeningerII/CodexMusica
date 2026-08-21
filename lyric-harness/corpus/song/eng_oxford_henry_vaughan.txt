@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1695; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1695, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1695, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 4
+# songs: 6
 
 --- TITLE: The Retreat
 --- SOURCE: PG66619
@@ -149,3 +153,71 @@ Either disperse these mists, which blot and fill
     My perspective still as they pass:
 Or else remove me hence unto that hill,
           Where I shall need no glass.
+
+--- TITLE: Man
+--- SOURCE: PG2619
+[VERSE 1]
+Weighing the steadfastness and state
+Of some mean things which here below reside,
+Where birds, like watchful clocks, the noiseless date
+And intercourse of times divide.
+Where bees at night get home and hive, and flowers,
+Early as well as late,
+Rise with the sun, and set in the same bowers;
+[VERSE 2]
+I would, said I, my God would give
+The staidness of these things to man! for these
+To His divine appointments ever cleave,
+And no new business breaks their peace;
+The birds nor sow nor reap, yet sup and dine,
+The flowers without clothes live,
+Yet Solomon was never dressed so fine.
+[VERSE 3]
+Man hath still either toys, or care;
+He hath no root, nor to one place is tied,
+But ever restless and irregular
+About this earth doth run and ride;
+He knows he hath a home, but scarce knows where;
+He says it is so far,
+That he hath quite forgot how to go there.
+[VERSE 4]
+He knocks at all doors, strays and roams;
+Nay, hath not so much wit as some stones have,
+Which in the darkest nights point to their homes
+By some hid sense their Maker gave;
+Man is the shuttle, to whose winding quest
+And passage through these looms
+God ordered motion, but ordained no rest.
+
+--- TITLE: A SONG TO AMORET
+--- SOURCE: PG2620
+[VERSE 1]
+If I were dead, and, in my place,
+Some fresher youth designed
+To warm thee, with new fires; and grace
+Those arms I left behind:
+[VERSE 2]
+Were he as faithful as the Sun,
+That's wedded to the Sphere;
+His blood as chaste and temperate run,
+As April's mildest tear;
+[VERSE 3]
+Or were he rich; and, with his heap
+And spacious share of earth,
+Could make divine affection cheap,
+And court his golden birth;
+[VERSE 4]
+For all these arts, I'd not believe
+(No! though he should be thine!),
+The mighty Amorist could give
+So rich a heart as mine!
+[VERSE 5]
+Fortune and beauty thou might'st find,
+And greater men than I;
+But my true resolved mind
+They never shall come nigh.
+[VERSE 6]
+For I not for an hour did love,
+Or for a day desire,
+But with my soul had from above
+This endless holy fire.

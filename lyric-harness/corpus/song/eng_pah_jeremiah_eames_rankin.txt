@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1904, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 2
+# songs: 3
 
 --- TITLE: THE WORD OF GOD TO LEYDEN CAME
 --- SOURCE: PG47476
@@ -124,3 +126,31 @@ Lift up, lift up thy torch on high,
   Fairest of Freedom's daughters!
 Flash it against thine own blue sky,
   Flash it across the waters!
+
+--- TITLE: The Babie
+--- SOURCE: PG2619
+[VERSE 1]
+Nae shoon to hide her tiny taes,
+Nae stockin' on her feet;
+Her supple ankles white as snaw,
+Or early blossoms sweet.
+[VERSE 2]
+Her simple dress o' sprinkled pink,
+Her double, dimplit chin,
+Her puckered lips, an' baumy mou',
+With na ane tooth within.
+[VERSE 3]
+Her een sae like her mither's een,
+Twa gentle, liquid things;
+Her face is like an angel's face,--
+We're glad she has nae wings.
+[VERSE 4]
+She is the buddin' of our luve,
+A giftie God gied us:
+We maun na luve the gift owre weel,
+'Twad be nae blessin' thus.
+[VERSE 5]
+We still maun luve the Giver mair,
+An' see Him in the given;
+An' sae she'll lead us up to Him,
+Our babie straight frae Heaven.

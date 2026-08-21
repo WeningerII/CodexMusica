@@ -3,10 +3,16 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1616; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1616, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1616, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1616, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 42
+# songs: 48
 
 --- TITLE: Silvia
 --- SOURCE: PG66619
@@ -891,3 +897,126 @@ Buy terms divine in selling hours of dross;
 Within be fed, without be rich no more:
   So shalt thou feed on Death, that feeds on men;
   And Death once dead, there’s no more dying then.
+
+--- TITLE: "When That I Was and a Little Tiny Boy"
+--- SOURCE: PG2619
+[VERSE 1]
+When that I was and a little tiny boy,
+With hey, ho, the wind and the rain,
+A foolish thing was but a toy,
+For the rain it raineth every day.
+[VERSE 2]
+But when I came to man's estate,
+With hey, ho, the wind and the rain,
+'Gainst knaves and thieves men shut their gate,
+For the rain it raineth every day.
+[VERSE 3]
+But when I came, alas! to wive,
+With hey, ho, the wind and the rain,
+By swaggering could I never thrive,
+For the rain it raineth every day.
+[VERSE 4]
+But when I came unto my beds,
+With hey, ho, the wind and the rain,
+With toss-pots still had drunken heads;
+For the rain it raineth every day.
+[VERSE 5]
+A great while ago the world begun,
+With hey, ho, the wind and the rain,
+But that's all one, our play is done,
+And we'll strive to please you every day.
+
+--- TITLE: "TAKE, O TAKE THOSE LIPS AWAY"
+--- SOURCE: PG2620
+[VERSE 1]
+Take, O take those lips away,
+That so sweetly were forsworn,
+And those eyes, the break of day,
+Lights that do mislead the morn;
+But my kisses bring again,
+Seals of love, but sealed in vain.
+[VERSE 2]
+Hide, O hide those hills of snow,
+Which thy frozen bosom bears,
+On whose tops the pinks that grow
+Are of those that April wears!
+But first set my poor heart free,
+Bound in those icy chains by thee.
+
+--- TITLE: "HARK, HARK, THE LARK"
+--- SOURCE: PG2620
+[VERSE 1]
+Hark, hark! the lark at heaven's gate sings,
+And Phoebus 'gins arise,
+His steeds to water at those springs
+On chaliced flowers that lies;
+And winking Mary-buds begin
+To ope their golden eyes:
+With everything that pretty bin,
+My lady sweet, arise:
+Arise, arise.
+
+--- TITLE: "CRABBED AGE AND YOUTH"
+--- SOURCE: PG2620
+[VERSE 1]
+Crabbed Age and Youth
+Cannot live together:
+Youth is full of pleasance,
+Age is full of care;
+Youth like summer morn,
+Age like winter weather;
+Youth like summer brave,
+Age like winter bare.
+Youth is full of sport,
+Age's breath is short;
+Youth is nimble, Age is lame;
+Youth is hot and bold,
+Age is weak and cold;
+Youth is wild, and Age is tame.
+Age, I do abhor thee;
+Youth, I do adore thee;
+O, my Love, my Love is young!
+Age, I do defy thee:
+O, sweet shepherd, hie thee!
+For methinks thou stay'st too long.
+
+--- TITLE: "SIGH NO MORE, LADIES"
+--- SOURCE: PG2620
+[VERSE 1]
+Sigh no more, ladies, sigh no more,
+Men were deceivers ever;
+One foot in sea, and one on shore;
+To one thing constant never.
+Then sigh not so,
+But let them go,
+And be you blithe and bonny,
+Converting all your sounds of woe
+Into Hey nonny, nonny.
+[VERSE 2]
+Sing no more ditties, sing no moe
+Of dumps so dull and heavy;
+The fraud of men was ever so,
+Since summer first was leavy.
+Then sigh not so,
+But let them go,
+And be you blithe and bonny,
+Converting all your sounds of woe
+Into Hey nonny, nonny.
+
+--- TITLE: "When Daffodils begin to Peer"
+--- SOURCE: PG2621
+[VERSE 1]
+When daffodils begin to peer,
+With heigh! the doxy, over the dale,
+Why, then comes in the sweet o' the year;
+For the red blood reigns in the winter's pale.
+[VERSE 2]
+The white sheet bleaching on the hedge,
+With heigh! the sweet birds, O, how they sing!
+Doth set my pugging tooth on edge;
+For a quart of ale is a dish for a king.
+[VERSE 3]
+The, lark, that tirra-lirra chants,
+With heigh! with heigh! the thrush and the jay,
+Are summer songs for me and my aunts,
+While we lie tumbling in the hay.

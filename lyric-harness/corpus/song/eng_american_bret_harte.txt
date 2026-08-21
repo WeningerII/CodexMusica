@@ -4,10 +4,14 @@
 # licence: public domain - Project Gutenberg; edition published 1889 -- American War Ballads and Lyrics, Vol. 2, ed. G. C. Eggleston
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1902, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1902, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own printed by-line credit, per item
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 4
+# songs: 7
 
 --- TITLE: JOHN BURNS OF GETTYSBURG
 --- SOURCE: PG54211
@@ -243,3 +247,209 @@ It is I--O love, what bliss!
 Dost thou answer to my kiss?
 O sweetheart! what is this
         Lieth there so cold?
+
+--- TITLE: The Mountain Heart's-Ease
+--- SOURCE: PG2621
+[VERSE 1]
+By scattered rocks and turbid waters shifting,
+By furrowed glade and dell,
+To feverish men thy calm, sweet face uplifting,
+Thou stayest them to tell
+[VERSE 2]
+The delicate thought that cannot find expression,
+For ruder speech too fair,
+That, like thy petals, trembles in possession,
+And scatters on the air.
+[VERSE 3]
+The miner pauses in his rugged labor,
+And, leaning on his spade,
+Laughingly calls unto his comrade-neighbor
+To see thy charms displayed.
+[VERSE 4]
+But in his eyes a mist unwonted rises,
+And for a moment clear
+Some sweet home face his foolish thought surprises
+And passes in a tear,--
+[VERSE 5]
+Some boyish vision of his Eastern village,
+Of uneventful toil,
+Where golden harvests followed quiet tillage
+Above a peaceful soil.
+[VERSE 6]
+One moment only, for the pick, uplifting,
+Through root and fibre cleaves,
+And on the muddy current slowly drifting
+Are swept thy bruised leaves.
+[VERSE 7]
+And yet, O poet, in thy homely fashion,
+Thy work thou dost fulfil,
+For on the turbid current of his passion
+Thy face is shining still!
+
+--- TITLE: Her Letter
+--- SOURCE: PG2622
+[VERSE 1]
+I'm sitting alone by the fire,
+Dressed just as I came from the dance,
+In a robe even you would admire,--
+It cost a cool thousand in France;
+I'm be-diamonded out of all reason,
+My hair is done up in a cue:
+In short, sir, "the belle of the season"
+Is wasting an hour upon you.
+[VERSE 2]
+A dozen engagements I've broken;
+I left in the midst of a set;
+Likewise a proposal, half spoken,
+That waits--on the stairs--for me yet.
+They say he'll be rich,--when he grows up,--
+And then he adores me indeed;
+And you, sir, are turning your nose up,
+Three thousand miles off, as you read.
+[VERSE 3]
+"And how do I like my position?"
+"And what do I think of New York?"
+"And now, in my higher ambition,
+With whom do I waltz, flirt, or talk?"
+"And isn't it nice to have riches,
+And diamonds and silks, and all that?"
+"And aren't they a change to the ditches
+And tunnels of Poverty Flat?"
+[VERSE 4]
+Well, yes,--if you saw us out driving
+Each day in the Park, four-in-hand,
+If you saw poor dear mamma contriving
+To look supernaturally grand,--
+If you saw papa's picture, as taken
+By Brady, and tinted at that,--
+You'd never suspect he sold bacon
+And flour at Poverty Flat.
+[VERSE 5]
+And yet, just this moment, when sitting
+In the glare of the grand chandelier,--
+In the bustle and glitter befitting
+The "finest soiree of the year,"--
+In the mists of a gaze de Chambery,
+And the hum of the smallest of talk,--
+Somehow, Joe, I thought of the "Ferry,"
+And the dance that we had on "The Fork;"
+[VERSE 6]
+Of Harrison's bar, with its muster
+Of flags festooned over the wall;
+Of the candles that shed their soft lustre
+And tallow on head-dress and shawl;
+Of the steps that we took to one fiddle,
+Of the dress of my queer vis-a-vis;
+And how I once went down the middle
+With the man that shot Sandy McGee.
+[VERSE 7]
+Of the moon that was quietly sleeping
+On the hill, when the time came to go;
+Of the few baby peaks that were peeping
+From under their bedclothes of snow;
+Of that ride,--that to me was the rarest,
+Of--the something you said at the gate.
+Ah! Joe, then I wasn't an heiress
+To "the best-paying lead in the State."
+[VERSE 8]
+Well, well, it's all past; yet it's funny
+To think, as I stood in the glare
+Of fashion and beauty and money,
+That I should be thinking, right there,
+Of some one who breasted high water,
+And swam the North Fork, and all that,
+Just to dance with old Folinsbee's daughter,
+The Lily of Poverty Flat.
+[VERSE 9]
+But goodness! what nonsense I'm writing!
+(Mamma says my taste still is low),
+Instead of my triumphs reciting,--
+I'm spooning on Joseph,--heigh-ho!
+And I'm to be "finished" by travel,--
+Whatever's the meaning of that.
+Oh, why did papa strike pay gravel
+In drifting on Poverty Flat?
+[VERSE 10]
+Good-night!--here's the end of my paper;
+Good-night!--if the longitude please,--
+For maybe, while wasting my taper,
+Your sun's climbing over the trees.
+But know, if you haven't got riches,
+And are poor, dearest Joe, and all that,
+That my heart's somewhere there in the ditches,
+And you've struck it,--on Poverty Flat
+
+--- TITLE: Mrs. Judge Jenkins
+--- SOURCE: PG2622
+[VERSE 1]
+Maud Muller all that summer day
+Raked the meadow sweet with hay;
+[VERSE 2]
+Yet, looking down the distant lane,
+She hoped the Judge would come again.
+[VERSE 3]
+But when he came, with smile and bow,
+Maud only blushed, and stammered, "Ha-ow?"
+[VERSE 4]
+And spoke of her "pa," and wondered whether
+He'd give consent they should wed together.
+[VERSE 5]
+Old Muller burst in tears, and then
+Begged that the Judge would lend him "ten";
+[VERSE 6]
+For trade was dull and wages low,
+And the "craps," this year, were somewhat slow.
+[VERSE 7]
+And ere the languid summer died,
+Sweet Maud became the Judge's bride.
+[VERSE 8]
+But on the day that they were mated,
+Maud's brother Bob was intoxicated;
+[VERSE 9]
+And Maud's relations, twelve in all,
+Were very drunk at the Judge's hall;
+[VERSE 10]
+And when the summer came again,
+The young bride bore him babies twain;
+[VERSE 11]
+And the Judge was blest, but thought it strange
+That bearing children made such a change.
+[VERSE 12]
+For Maud grew broad, and red, and stout,
+And the waist that his arm once clasped about
+[VERSE 13]
+Was more than he now could span; and he
+Sighed as he pondered, ruefully,
+[VERSE 14]
+How that which in Maud was native grace
+In Mrs. Jenkins was out of place;
+[VERSE 15]
+And thought of the twins, and wished that they
+Looked less like the men who raked the hay
+[VERSE 16]
+On Muller's farm, and dreamed with pain
+Of the day he wandered down the lane.
+[VERSE 17]
+And, looking down that dreary track,
+He half regretted that he came back.
+[VERSE 18]
+For, had he waited, he might have wed
+Some maiden fair and thoroughbred;
+[VERSE 19]
+For there be women as fair as she,
+Whose verbs and nouns do more agree.
+[VERSE 20]
+Alas for maiden! alas for judge!
+And the sentimental,--that's one-half "fudge";
+[VERSE 21]
+For Maud soon thought the Judge a bore,
+With all his learning and all his lore;
+[VERSE 22]
+And the Judge would have bartered Maud's fair face
+For more refinement and social grace.
+[VERSE 23]
+If, of all words of tongue and pen,
+The saddest are, "It might have been,"
+[VERSE 24]
+More sad are these we daily see:
+"It is, but hadn't ought to be."

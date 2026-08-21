@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1721; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1721, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1721, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 7
+# songs: 13
 
 --- TITLE: The Question to Lisetta
 --- SOURCE: PG66619
@@ -198,3 +202,137 @@ If his bones lie in earth, roll in sea, fly in air,
   To Fate we must yield, and the thing is the same;
 And if passing thou giv’st him a smile or a tear,
   He cares not--yet, prithee, be kind to his fame.
+
+--- TITLE: TO CHLOE JEALOUS
+--- SOURCE: PG2620
+[VERSE 1]
+Dear Chloe, how blubbered is that pretty face!
+Thy cheek all on fire, and thy hair all uncurled:
+Prithee quit this caprice; and (as old Falstaff says),
+Let us e'en talk a little like folks of this world.
+[VERSE 2]
+How canst thou presume thou hast leave to destroy
+The beauties which Venus but lent to thy keeping?
+Those looks were designed to inspire love and joy:
+More ordinary eyes may serve people for weeping.
+[VERSE 3]
+To be vexed at a trifle or two that I writ,
+Your judgment at once, and my passion you wrong:
+You take that for fact, which will scarce be found wit:
+Od's life! must one swear to the truth of a song?
+[VERSE 4]
+What I speak, my fair Chloe, and what I write, shows
+The difference there is betwixt nature and art:
+I court others in verse, but I love thee in prose:
+And they have my whimsies, but thou hast my heart.
+[VERSE 5]
+The god of us verse-men (you know, Child) the sun,
+How after his journeys he sets up his rest;
+If at morning o'er earth 'tis his fancy to run;
+At night he reclines on his Thetis's breast.
+[VERSE 6]
+So when I am wearied with wandering all day,
+To thee, my delight, in the evening I come:
+No matter what beauties I saw in my way:
+They were but my visits, but thou art my home.
+[VERSE 7]
+Then finish, dear Chloe, this pastoral war;
+And let us, like Horace and Lydia, agree:
+For thou art a girl as much brighter than her,
+As he was a poet sublimer than me.
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+In vain you tell your parting lover,
+You wish fair winds may waft him over.
+Alas! what winds can happy prove
+That bear me far from what I love?
+Alas! what dangers on the main
+Can equal those that I sustain
+From slighted vows, and cold disdain?
+[VERSE 2]
+Be gentle, and in pity choose
+To wish the wildest tempests loose:
+That, thrown again upon the coast,
+Where first my shipwrecked heart was lost,
+I may once more repeat my pain;
+Once more in dying notes complain
+Of slighted vows and cold disdain.
+
+--- TITLE: A Reasonable Affliction
+--- SOURCE: PG2622
+[VERSE 1]
+On his death-bed poor Lubin lies:
+His spouse is in despair;
+With frequent cries, and mutual sighs,
+They both express their care.
+[VERSE 2]
+"A different cause," says Parson Sly,
+"The same effect may give:
+Poor Lubin fears that he may die;
+His wife, that he may live."
+
+--- TITLE: The Female Phaeton
+--- SOURCE: PG2622
+[VERSE 1]
+Thus Kitty, beautiful and young,
+And wild as colt untamed,
+Bespoke the fair from whence she sprung,
+With little rage inflamed:
+[VERSE 2]
+Inflamed with rage at sad restraint,
+Which wise mamma ordained;
+And sorely vexed to play the saint,
+Whilst wit and beauty reigned:
+[VERSE 3]
+"Shall I thumb holy books, confined
+With Abigails, forsaken?
+Kitty's for other things designed,
+Or I am much mistaken.
+[VERSE 4]
+"Must Lady Jenny frisk about,
+And visit with her cousins?
+At balls must she make all the rout,
+And bring home hearts by dozens?
+[VERSE 5]
+"What has she better, pray, than I,
+What hidden charms to boast,
+That all mankind for her should die,
+Whilst I am scarce a toast?
+[VERSE 6]
+"Dearest mamma! for once let me,
+Unchained, my fortune try;
+I'll have my earl as well as she,
+Or know the reason why.
+[VERSE 7]
+"I'll soon with Jenny's pride quit score,
+Make all her lovers fall:
+They'll grieve I was not loosed before;
+She, I was loosed at all."
+[VERSE 8]
+Fondness prevailed, mamma gave way;
+Kitty, at heart's desire,
+Obtained the chariot for a day,
+And set the world on fire.
+
+--- TITLE: The Remedy Worse than the Disease
+--- SOURCE: PG2622
+[VERSE 1]
+I sent for Ratcliffe; was so ill,
+That other doctors gave me over:
+He felt my pulse, prescribed his pill,
+And I was likely to recover.
+[VERSE 2]
+But, when the wit began to wheeze,
+And wine had warmed the politician,
+Cured yesterday of my disease,
+I died last night of my physician.
+
+--- TITLE: Epigram
+--- SOURCE: PG2622
+[VERSE 1]
+Nobles and heralds, by your leave,
+Here lies what once was Matthew Prior,
+The son of Adam and of Eve;
+Can Bourbon or Nassau claim higher?

@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1895, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 6
 
 --- TITLE: Little Boy Blue
 --- SOURCE: PG15553
@@ -91,3 +93,171 @@ So shut your eyes while Mother sings
       Wynken,
       Blynken,
       And Nod.
+
+--- TITLE: The Sugar-Plum Tree
+--- SOURCE: PG2619
+[VERSE 1]
+Have you ever heard of the Sugar-Plum Tree?
+'Tis a marvel of great renown!
+It blooms on the shore of the Lollypop sea
+In the garden of Shut-Eye Town;
+The fruit that it bears is so wondrously sweet
+(As those who have tasted it say)
+That good little children have only to eat
+Of that fruit to be happy next day.
+[VERSE 2]
+When you've got to the tree, you would have a hard time
+To capture the fruit which I sing;
+The tree is so tall that no person could climb
+To the boughs where the sugar-plums swing!
+But up in that tree sits a chocolate cat,
+And a gingerbread dog prowls below--
+And this is the way you contrive to get at
+Those sugar-plums tempting you so:
+[VERSE 3]
+You say but the word to that gingerbread dog
+And he barks with such terrible zest
+That the chocolate cat is at once all agog,
+As her swelling proportions attest.
+And the chocolate cat goes cavorting around
+From this leafy limb unto that,
+And the sugar-plums tumble, of course, to the ground--
+Hurrah for that chocolate cat!
+[VERSE 4]
+There are marshmallows, gumdrops, and peppermint canes,
+With stripings of scarlet or gold,
+And you carry away of the treasure that rains,
+As much as your apron can hold!
+So come, little child, cuddle closer to me
+In your dainty white nightcap and gown,
+And I'll rock you away to that Sugar-Plum Tree
+In the garden of Shut-Eye Town.
+
+--- TITLE: SEEIN' THINGS
+--- SOURCE: PG2619
+[VERSE 1]
+I ain't afeard uv snakes, or toads, or bugs, or worms, or mice,
+An' things 'at girls are skeered uv I think are awful nice!
+I'm pretty brave, I guess; an' yet I hate to go to bed,
+For, when I'm tucked up warm an' snug an' when my prayers are said,
+Mother tells me "Happy Dreams!" an' takes away the light,
+An' leaves me lyin' all alone an' seein' things at night!
+[VERSE 2]
+Sometimes they're in the corner, sometimes they're by the door,
+Sometimes they're all a-standin' in the middle uv the floor;
+Sometimes they are a-sittin' down, sometimes they're walkin' round
+So softly and so creepylike they never make a sound!
+Sometimes they are as black as ink, an' other times they're white--
+But the color ain't no difference when you see things at night!
+[VERSE 3]
+Once, when I licked a feller 'at had just moved on our street,
+An' father sent me up to bed without a bite to eat,
+I woke up in the dark an' saw things standin' in a row,
+A-lookin' at me cross-eyed an' p'intin' at me--so!
+Oh, my! I wuz so skeered that time I never slep' a mite--
+It's almost alluz when I'm bad I see things at night!
+[VERSE 4]
+Lucky thing I ain't a girl, or I'd be skeered to death!
+Bein' I'm a boy, I duck my head an' hold my breath;
+An' I am, oh, so sorry I'm a naughty boy, an' then
+I promise to be better an' I say my prayers again!
+Gran'ma tells me that's the only way to make it right
+When a feller has been wicked an' sees things at night!
+[VERSE 5]
+An' so, when other naughty boys would coax me into sin,
+I try to skwush the Tempter's voice 'at urges me within;
+An' when they's pie for supper, or cakes 'at's big an' nice,
+I want to--but I do not pass my plate f'r them things twice!
+No, ruther let Starvation wipe me slowly out o' sight
+Than I should keep a-livin' on an' seein' things at night!
+
+--- TITLE: The Duel
+--- SOURCE: PG2619
+[VERSE 1]
+The gingham dog and the calico cat
+Side by side on the table sat;
+'Twas half past twelve, and (what do you think!)
+Nor one nor t'other had slept a wink!
+The old Dutch clock and the Chinese plate
+Appeared to know as sure as fate
+There was going to be a terrible spat.
+(I wasn't there: I simply state
+What was told to me by the Chinese plate!)
+[VERSE 2]
+The gingham dog went, "Bow-wow-wow!"
+And the calico cat replied, "Mee-ow!"
+The air was littered, an hour or so,
+With bits of gingham and calico,
+While the old Dutch clock in the chimney-place
+Up with its hands before its face,
+For it always dreaded a family row!
+(Now mind; I'm only telling you
+What the old Dutch clock declares is true!)
+[VERSE 3]
+The Chinese plate looked very blue,
+And wailed, "Oh, dear! what shall we do!"
+But the gingham dog and the calico cat
+Wallowed this way and tumbled that,
+Employing every tooth and claw
+In the awfullest way you ever saw--
+And, oh! how the gingham and calico flew!
+(Don't fancy I exaggerate--
+I got my news from the Chinese plate!)
+[VERSE 4]
+Next morning, where the two had sat
+They found no trace of dog or cat:
+And some folks think unto this day
+That burglars stole that pair away!
+But the truth about the cat and pup
+Is this: they ate each other up!
+Now what do you really think of that!
+(The old Dutch clock it told me so,
+And that is how I came to know.)
+
+--- TITLE: Jest 'Fore Christmas
+--- SOURCE: PG2619
+[VERSE 1]
+Father calls me William, sister calls me Will,
+Mother calls me Willie, but the fellers call me Bill!
+Mighty glad I ain't a girl--ruther be a boy,
+Without them sashes, curls, an' things that's worn by Fauntleroy!
+Love to chawnk green apples an' go swimmin' in the lake--
+Hate to take the castor-ile they give for belly-ache!
+'Most all the time, the whole year round, there ain't no flies on me,
+But jest 'fore Christmas I'm as good as I kin be!
+[VERSE 2]
+Got a yeller dog named Sport, sick him on the cat;
+First thing she knows she doesn't know where she is at!
+Got a clipper sled, an' when us kids goes out to slide,
+'Long comes the grocery cart an' we all hook a ride!
+But sometimes when the grocery man is worrited an' cross,
+He reaches at us with his whip, an' larrups up his hoss,
+An' then I laff an' holler, "Oh, ye never teched me!"
+But jest 'fore Christmas I'm as good as I kin be!
+[VERSE 3]
+Gran'ma says she hopes that when I git to be a man,
+I'll be a missionarer like her oldest brother, Dan,
+As was et up by the cannibuls that lives in Ceylon's Isle,
+Where every prospeck pleases, an' only man is vile!
+But gran'ma she has never been to see a Wild West show,
+Nor read the Life of Daniel Boone, or else I guess she'd know
+That Buff'lo Bill and cow-boys is good enough for me!
+Excep' jest 'fore Christmas, when I'm good as I kin be!
+[VERSE 4]
+And then old Sport he hangs around, so solemn-like an' still,
+His eyes they keep a-sayin': "What's the matter, little Bill?"
+The old cat sneaks down off her perch an' wonders what's become
+Of them two enemies of hern that used to make things hum!
+But I am so perlite an' 'tend so earnestly to biz,
+That mother says to father: "How improved our Willie is!"
+But father, havin' been a boy hisself, suspicions me
+When jest 'fore Christmas, I'm as good as I kin be!
+[VERSE 5]
+For Christmas, with its lots an' lots of candies, cakes an' toys,
+Was made, they say, for proper kids an' not for naughty boys;
+So wash yer face an' bresh yer hair, an' mind yer p's an' q's,
+An' don't bust out yer pantaloons, an' don't wear out yer shoes;
+Say "Yessum" to the ladies, an' "Yessur" to the men,
+An' when they's company, don't pass yer plate for pie again;
+But, thinking of the things yer'd like to see upon that tree,
+Jest 'fore Christmas be as good as yer kin be!

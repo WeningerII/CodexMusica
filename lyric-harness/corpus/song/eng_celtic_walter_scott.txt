@@ -5,6 +5,10 @@
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.',
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1832; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1832, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1832, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 #          rights_url creativecommons.org/about/pdm
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel; or, The Songs of Scotland of the Past Half
 #          Century', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857 (title page reproduced in the file).
@@ -835,3 +839,63 @@ Speak not for those a separate doom
 Whom fate made Brothers in the tomb;
 But search the land of living men,
 Where wilt thou find their like agen?’
+
+--- TITLE: Lullaby of an Infant Chief
+--- SOURCE: PG2619
+[VERSE 1]
+O, hush thee, my babie, thy sire was a knight,
+Thy mother a lady, both lovely and bright;
+The woods and the glens, from the towers which we see,
+They are all belonging, dear babie, to thee.
+O ho ro, i ri ri, cadul gu lo.
+[VERSE 2]
+O, fear not the bugle, though loudly it blows,
+It calls but the warders that guard thy repose;
+Their bows would be bended, their blades would be red,
+Ere the step of a foeman draws near to thy bed.
+O ho ro, i ri ri, cadul gu lo.
+[VERSE 3]
+O, hush thee, my babie, the time soon will come,
+When thy sleep shall be broken by trumpet and drum;
+Then hush thee, my darling, take rest while you may,
+For strife comes with manhood, and waking with day.
+O ho ro, i ri ri, cadul gu lo.
+
+--- TITLE: JOCK OF HAZELDEAN
+--- SOURCE: PG2620
+[VERSE 1]
+"Why weep ye by the tide, ladie?
+Why weep ye by the tide?
+I'll wed ye to my youngest son,
+And ye sall be his bride:
+And ye sall be his bride, ladie,
+Sae comely to be seen" -
+But aye she loot the tears down fa'
+For Jock of Hazeldean.
+[VERSE 2]
+"Now let this wilfu' grief be done,
+And dry that cheek so pale;
+Young Frank is chief of Errington
+And lord of Langley-dale;
+His step is first in peaceful ha',
+His sword in battle keen" -
+But aye she loot the tears down fa'
+For Jock of Hazeldean.
+[VERSE 3]
+"A chain of gold ye sall not lack,
+Nor braid to bind your hair,
+Nor mettled hound, nor managed hawk,
+Nor palfrey fresh and fair;
+And you the foremost o' them a'
+Shall ride our forest-queen" -
+But aye she loot the tears down fa'
+For Jock of Hazeldean.
+[VERSE 4]
+The kirk was decked at morning-tide,
+The tapers glimmered fair;
+The priest and bridegroom wait the bride,
+And dame and knight are there:
+They sought her baith by bower and ha';
+The ladie was not seen!
+She's o'er the Border, and awa'
+Wi' Jock of Hazeldean.

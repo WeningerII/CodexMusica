@@ -330,7 +330,7 @@ def test_corpus_song_rate_is_pinned():
     # readability RATE below is unmoved: the merge rehoused 6 items and
     # changed no verse byte, so only the file count moves. That the rates
     # hold across a merge is the check that it was a merge.
-    check("1048 ENGLISH song files present", len(paths) == 1048, f"{len(paths)}")
+    check("1297 ENGLISH song files present", len(paths) == 1297, f"{len(paths)}")
     check("and the corpus is no longer monolingual, which is why the scope "
           "is now explicit", len(others) > len(paths),
           f"{len(others)} files total across "
@@ -440,33 +440,33 @@ def test_corpus_song_rate_is_pinned():
     # anthologies are mostly standard literary English (American, Victorian,
     # Elizabethan), so the Scots concentration the mass load created is
     # diluted, not repaired.
-    check("countable lines 249254 — VERSE ONLY, now that apparatus lines "
+    check("countable lines 282745 — VERSE ONLY, now that apparatus lines "
           "are excluded at the source instead of subtracted by hand, and "
           "under the CENTRE's `---` rather than a second `--- ` of our own",
-          r["lines_countable"] == 249254,
+          r["lines_countable"] == 282745,
           f"{r['lines_countable']}  (179193 before the Tier-1 load; 153224 "
           f"before the mass load; 151894 before Pass-1)")
-    check("unreadable end word, cause TOKEN, 14665 — the Scots share grew, "
+    check("unreadable end word, cause TOKEN, 15958 — the Scots share grew, "
           "and so did CMUdict's honest refusal count",
-          r["unreadable_final_token"] == 14665,
+          r["unreadable_final_token"] == 15958,
           f"{r['unreadable_final_token']} ({r['rate_token']:.4%})  "
           f"(11658 before the Tier-1 load; 9094 before the mass load)")
-    check("rate on that quantity is 5.88% — DOWN again from 6.23%: the "
-          "Phase-1 anthologies are standard literary English, diluting the "
-          "Scots concentration further",
-          abs(r["rate_token"] - 0.058836) < 1e-5,
+    check("rate on that quantity is 5.64% — DOWN again from 5.88%: the "
+          "Home Book of Verse safe subset is standard literary English, "
+          "diluting the Scots concentration further",
+          abs(r["rate_token"] - 0.056440) < 1e-5,
           f"{r['rate_token']:.4%}  (6.5065% before the Tier-1 load; 5.9351% "
           f"before the mass load)")
-    check("unreadable end word, cause PIECE, 233 — the price of the hyphen "
+    check("unreadable end word, cause PIECE, 260 — the price of the hyphen "
           "refusal on VERSE lines alone",
-          r["unreadable_final_piece"] == 233,
+          r["unreadable_final_piece"] == 260,
           f"{r['unreadable_final_piece']}  (201 before the Phase-1 load)")
-    check("so the end-word refusal rate is 5.98% AFTER the rule and 5.88% "
+    check("so the end-word refusal rate is 5.74% AFTER the rule and 5.64% "
           "before it, and both are printed",
-          r["unreadable_final"] == 14898 and abs(r["rate"] - 0.059770) < 1e-5,
+          r["unreadable_final"] == 16218 and abs(r["rate"] - 0.057359) < 1e-5,
           f"{r['unreadable_final']} ({r['rate']:.4%})")
-    check("14185 of those would have had the rhyme word SUBSTITUTED by an "
-          "earlier word", r["substituted_end_word"] == 14185,
+    check("15405 of those would have had the rhyme word SUBSTITUTED by an "
+          "earlier word", r["substituted_end_word"] == 15405,
           f"{r['substituted_end_word']}  (11788 before the Phase-1 load)")
     # THE SUBSET CLAIM, PINNED 2026-08-14 — and it is pinned because it is
     # FALSE. `substitution_report`'s docstring called itself "a strict subset
@@ -481,18 +481,18 @@ def test_corpus_song_rate_is_pinned():
     # second is the population NOTHING in this module reached before the
     # wiring. If `substituted_silent` ever moves, either the corpus changed
     # or `line_anchors` did, and both are things a reader needs told.
-    check("14183 + 2, not 14185 + 0 — the substitution is NOT a subset of "
+    check("15403 + 2, not 15405 + 0 — the substitution is NOT a subset of "
           "the unreadable-final lines, and the 2 are the only lines in this "
           "module that no other finding reaches",
-          r["substituted_flagged"] == 14183 and r["substituted_silent"] == 2,
+          r["substituted_flagged"] == 15403 and r["substituted_silent"] == 2,
           f"{r['substituted_flagged']} already flagged as a LINE by "
           f"UNREADABLE_END_WORD (the gap there was only the WORD) + "
           f"{r['substituted_silent']} reached by nothing "
           f"(Byron's `...on the turf,[mm]` and D'Urfey's `_Sh----_`)")
     check("and the complement is the larger half and is not a defect: 715 "
           "unreadable-final lines are NOT substitutions",
-          r["unreadable_final"] - r["substituted_flagged"] == 715
-          and r["unreadable_final_piece"] == 233,
+          r["unreadable_final"] - r["substituted_flagged"] == 815
+          and r["unreadable_final_piece"] == 260,
           f"{r['unreadable_final'] - r['substituted_flagged']} = 233 cause "
           f"PIECE (`hill-zide` keeps its own token in the syllable map, so "
           f"nothing is substituted) + 482 where no earlier word read either")
@@ -520,14 +520,14 @@ def test_corpus_song_rate_is_pinned():
     # unexplained by an earlier token. 0 is what "derived by POSITION" means
     # measured rather than asserted, and it is the direct successor to the
     # 328 of 328.
-    check("the hyphen population is 438 end tokens with a read piece and an "
+    check("the hyphen population is 487 end tokens with a read piece and an "
           "unread piece (CLAUDE.md's 323 was this figure at the 143-file "
           "corpus)",
-          r["final_piece_population"] == 438,
+          r["final_piece_population"] == 487,
           f"{r['final_piece_population']}")
-    check("split 233 ANCHOR-layer (refused) + 205 REPORT-layer (label "
+    check("split 260 ANCHOR-layer (refused) + 227 REPORT-layer (label "
           "overstates, never refused)",
-          r["unreadable_final_piece"] == 233 and r["label_overstates"] == 205,
+          r["unreadable_final_piece"] == 260 and r["label_overstates"] == 227,
           f"{r['unreadable_final_piece']} + {r['label_overstates']}")
     check("0 of 323 have an end-word piece misfiled as interior — the "
           "328-of-328 defect, measured at zero",

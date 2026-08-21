@@ -1,7 +1,14 @@
 # RESULTS — mark coverage: what the section vocabulary cannot type
 
-`quality/mark_coverage.py`, run 2026-08-20 over `corpus/song/` at 1,174
-files. Re-derived by `python3 quality/mark_coverage.py --check` (exit 1
+`quality/mark_coverage.py`, run 2026-08-20 over `corpus/song/` at 1,423
+files. **REPINNED 2026-08-20** after the Home Book of Verse safe subset
+landed: typed 71,748 -> 76,944 and ~~36.4%~~ -> 38.0%, and **nothing
+else moved at all**. HBV marks its blocks `[VERSE n]` throughout, so it
+adds 5,196 typed blocks and not one new refused mark — decided,
+undecided, apparatus and the witnessed-function count are byte-identical
+across a load of 1,049 items. The refusal is Persian, and no amount of
+English anthology moves it: that invariance is the sharper half of this
+repin. Re-derived by `python3 quality/mark_coverage.py --check` (exit 1
 on drift; an off-by-one on any pinned figure fails it, proven by
 mutation).
 
@@ -15,17 +22,17 @@ owner's.
 
 ## 0. THE HEADLINE
 
-**Typed is the minority. 36.4% of marked blocks in this corpus reach a
-declared section function; 63.6% are refused.**
+**Typed is the minority. 38.0% of marked blocks in this corpus reach a
+declared section function; 62.0% are refused.**
 
 | bucket | blocks | share |
 |---|---:|---:|
-| **typed** — reaches a declared function | 71,748 | 36.36% |
-| **decided** — refused *with a written reason* | 125,490 | 63.59% |
+| **typed** — reaches a declared function | 76,944 | 38.00% |
+| **decided** — refused *with a written reason* | 125,490 | 61.96% |
 | **undecided** — refused, no row either way | 32 | 0.02% |
 | **apparatus** — a bare numeral | 59 | 0.03% |
 
-197,329 marked blocks over 36 distinct marks. **Four counts, never
+202,525 marked blocks over 36 distinct marks. **Four counts, never
 summed** (doctrine 79): a decided refusal is a position the vocabulary
 has taken, an undecided one is a gap nobody has looked at, and adding
 them would report the second as though someone had thought about it.
@@ -58,7 +65,7 @@ pairs"* — but it had never been counted.
 | lang | typed | decided | undecided | apparatus |
 |---|---:|---:|---:|---:|
 | fas | 0 | 125,059 | 0 | 0 |
-| eng | 44,926 | 38 | 30 | 59 |
+| eng | 50,122 | 38 | 30 | 59 |
 | ltc | 19,552 | 0 | 0 | 0 |
 | fin | 5,979 | 127 | 0 | 0 |
 | cym | 810 | 1 | 0 | 0 |
@@ -211,7 +218,7 @@ python3 quality/mark_coverage.py --check    # re-derive against the pins
 python3 quality/mark_coverage.py --json     # the whole scan
 ```
 
-`--check` pins typed 71,748 / decided 125,490 / undecided 32 /
+`--check` pins typed 76,944 / decided 125,490 / undecided 32 /
 apparatus 59, declared 21, witnessed 4. It exits 1 on drift and names
 the moved figure; an off-by-one on any of them fails it, verified by
 mutation.

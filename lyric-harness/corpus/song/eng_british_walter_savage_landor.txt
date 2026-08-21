@@ -6,10 +6,16 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1864, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1864, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1864, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 28
+# songs: 39
 
 --- TITLE: ROSE AYLMER.
 --- SOURCE: PG26715
@@ -447,3 +453,239 @@ Shall hail thee. Many are the sons of song
 Whom thou hast heard upon thy native plains
 Worthy to sing of thee: the hour is come;
 Take we our seats and let the dirge begin.
+
+--- TITLE: To Youth
+--- SOURCE: PG2619
+[VERSE 1]
+Where art thou gone, light-ankled Youth?
+With wing at either shoulder,
+And smile that never left thy mouth
+Until the Hours grew colder:
+[VERSE 2]
+Then somewhat seemed to whisper near
+That thou and I must part;
+I doubted it; I felt no fear,
+No weight upon the heart.
+[VERSE 3]
+If aught befell it, Love was by
+And rolled it off again;
+So, if there ever was a sigh,
+'Twas not a sigh of pain.
+[VERSE 4]
+I may not call thee back; but thou
+Returnest when the hand
+Of gentle Sleep waves o'er my brow
+His poppy-crested wand;
+[VERSE 5]
+Then smiling eyes bend over mine,
+Then lips once pressed invite;
+But sleep hath given a silent sign,
+And both, alas! take flight.
+
+--- TITLE: "Around the Child"
+--- SOURCE: PG2619
+[VERSE 1]
+Around the child bend all the three
+Sweet Graces--Faith, Hope, Charity.
+Around the man bend other faces
+Pride, Envy, Malice, are his Graces.
+
+--- TITLE: The One White Hair
+--- SOURCE: PG2619
+[VERSE 1]
+The wisest of the wise
+Listen to pretty lies
+And love to hear'em told.
+Doubt not that Solomon
+Listened to many a one,--
+Some in his youth, and more when he grew old.
+[VERSE 2]
+I never was among
+The choir of Wisdom's song,
+But pretty lies loved I
+As much as any king,
+When youth was on the wing,
+And (must it then be told?) when youth had quite gone by.
+[VERSE 3]
+Alas! and I have not
+The pleasant hour forgot
+When one pert lady said,
+"O Walter! I am quite
+Bewildered with affright!
+I see (sit quiet now) a white hair on your head!"
+[VERSE 4]
+Another more benign
+Snipped it away from mine,
+And in her own dark hair
+Pretended it was found...
+She leaped, and twirled it round...
+Fair as she was, she never was so fair!
+
+--- TITLE: To Age
+--- SOURCE: PG2619
+[VERSE 1]
+Welcome, old friend!  These many years
+Have we lived door by door:
+The Fates have laid aside their shears
+Perhaps for some few more.
+[VERSE 2]
+I was indocile at an age
+When better boys were taught,
+But thou at length hast made me sage,
+If I am sage in aught.
+[VERSE 3]
+Little I know from other men,
+Too little they from me,
+But thou hast pointed well the pen
+That writes these lines to thee.
+[VERSE 4]
+Thanks for expelling Fear and Hope,
+One vile, the other vain;
+One's scourge, the other's telescope,
+I shall not see again:
+[VERSE 5]
+Rather what lies before my feet
+My notice shall engage.--
+He who hath braved Youth's dizzy heat
+Dreads not the frost of Age.
+
+--- TITLE: Years
+--- SOURCE: PG2619
+[VERSE 1]
+Years, many parti-colored years,
+Some have crept on, and some have flown
+Since first before me fell those tears
+I never could see fall alone.
+[VERSE 2]
+Years, not so many, are to come,
+Years not so varied, when from you
+One more will fall: when, carried home,
+I see it not, nor hear Adieu.
+
+--- TITLE: ROSE AYLMER
+--- SOURCE: PG2620
+[VERSE 1]
+Ah, what avails the sceptered race!
+Ah, what the form divine!
+What every virtue, every grace!
+Rose Aylmer, all were thine.
+[VERSE 2]
+Rose Aylmer, whom these wakeful eyes
+May weep, but never see,
+A night of memories and sighs
+I consecrate to thee.
+
+--- TITLE: DEFIANCE
+--- SOURCE: PG2620
+[VERSE 1]
+Catch her and hold her if you can -
+See, she defies you with her fan,
+Shuts, opens, and then holds it spread
+In threatening guise above your head.
+Ah! why did you not start before
+She reached the porch and closed the door?
+Simpleton! will you never learn
+That girls and time will not return;
+Of each you should have made the most;
+Once gone, they are forever lost.
+In vain your knuckles knock your brow,
+In vain will you remember how
+Like a slim brook the gamesome maid
+Sparkled, and ran into the shade.
+
+--- TITLE: THE TEST
+--- SOURCE: PG2620
+[VERSE 1]
+I held her hand, the pledge of bliss,
+Her hand that trembled and withdrew;
+She bent her head before my kiss . . .
+My heart was sure that hers was true.
+Now I have told her I must part,
+She shakes my hand, she bids adieu,
+Nor shuns the kiss.  Alas, my heart!
+Hers never was the heart for you.
+
+--- TITLE: Time to be Wise
+--- SOURCE: PG2622
+[VERSE 1]
+Yes; I write verses now and then,
+But blunt and flaccid is my pen,
+No longer talked of by young men
+As rather clever:
+In the last quarter are my eyes,
+You see it by their form and size;
+Is it not time then to be wise?
+Or now or never.
+[VERSE 2]
+Fairest that ever sprang from Eve!
+While Time allows the short reprieve,
+Just look at me! would you believe
+'Twas once a lover?
+I cannot clear the five-bar gate;
+But, trying first its timber's state,
+Climb stiffly up, take breath, and wait
+To trundle over.
+[VERSE 3]
+Through gallopade I cannot swing
+The entangling blooms of Beauty's spring:
+I cannot say the tender thing,
+Be't true or false,
+And am beginning to opine
+Those girls are only half-divine
+Whose waists yon wicked boys entwine
+In giddy waltz.
+[VERSE 4]
+I fear that arm above that shoulder;
+I wish them wiser, graver, older,
+Sedater, and no harm if colder,
+And panting less.
+Ah! people were not half so wild
+In former days, when, starchly mild,
+Upon her high-heeled Essex smiled
+The brave Queen Bess.
+
+--- TITLE: Advice
+--- SOURCE: PG2622
+[VERSE 1]
+To write as your sweet mother does
+Is all you wish to do.
+Play, sing, and smile for others, Rose!
+Let others write for you.
+[VERSE 2]
+Or mount again your Dartmoor gray,
+And I will walk beside,
+Until we reach that quiet bay
+Which only hears the tide.
+[VERSE 3]
+Then wave at me your pencil, then
+At distance bid me stand,
+Before the caverned cliff, again
+The creature of your hand.
+[VERSE 4]
+And bid me then go past the nook
+To sketch me less in size;
+There are but few content to look
+So little in your eyes.
+[VERSE 5]
+Delight us with the gifts you have,
+And wish for none beyond:
+To some be gay, to some be grave,
+To one (blest youth!) be fond.
+[VERSE 6]
+Pleasures there are how close to Pain
+And better unpossessed!
+Let poetry's too throbbing vein
+Lie quiet in your breast.
+
+--- TITLE: Plays
+--- SOURCE: PG2622
+[VERSE 1]
+Alas, how soon the hours are over
+Counted us out to play the lover!
+And how much narrower is the stage
+Allotted us to play the sage!
+[VERSE 2]
+But when we play the fool, how wide
+The theatre expands! beside,
+How long the audience sits before us!
+How many prompters! what a chorus!

@@ -3,11 +3,15 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1877, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1877, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('JAMES BALLANTINE'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 12
+# songs: 15
 
 --- TITLE: NAEBODY'S BAIRN
 --- SOURCE: PG22515
@@ -301,3 +305,117 @@ Then, oh! shew the widow the smile on your face,
 She 's aft puir in gear, but she 's aft rich in grace;
 Be kind to the widow, her Friend is on high,
 You 'll meet wi' the widow again in the sky.
+
+--- TITLE: Creep Afore Ye Gang
+--- SOURCE: PG2619
+[VERSE 1]
+Creep awa', my bairnie, creep afore ye gang,
+Cock ye baith your lugs to your auld Grannie's sang:
+Gin ye gang as far ye will think the road lang,
+Creep awa', my bairnie, creep afore ye gang.
+[VERSE 2]
+Creep awa', my bairnie, ye're ower young to learn
+To tot up and down yet, my bonnie wee bairn;
+Better creepin' cannie, than fa'in' wi' a bang,
+Duntin' a' your wee brow,--creep afore ye gang.
+[VERSE 3]
+Ye'll creep, an' ye'll hotch, an' ye'll nod to your mither,
+Watchin' ilka step o' your wee dousy brither;
+Rest ye on the floor till your wee limbs grow strang,
+An' ye'll be a braw chiel yet,--creep afore ye gang.
+[VERSE 4]
+The wee birdie fa's when it tries ower soon to flee,
+Folks are sure to tumble, when they climb ower hie;
+They wha canna walk right are sure to come to wrang,
+Creep awa', my bairnie, creep afore ye gang.
+
+--- TITLE: Castles in the Air
+--- SOURCE: PG2619
+[VERSE 1]
+The bonnie, bonnie bairn who sits poking in the ase,
+Glowering in the fire wi' his wee round face,
+Laughing at the fuffin' lowe--what sees he there?
+Ha! the young dreamer's bigging castles in the air.
+[VERSE 2]
+His wee chubby face and his touzie curly pow
+Are laughing and nodding to the dancing lowe;
+He'll brown his rosy cheeks, and singe his sunny hair,
+Glowering at the imps wi' their castles in the air.
+[VERSE 3]
+He sees muckle castles towering to the moon;
+He sees little sodgers pu'ing them a' doun;
+Warlds whommlin' up and doun, bleezing wi' a flare,--
+See how he loups as they glimmer in the air!
+[VERSE 4]
+For a' sae sage he looks, what can the laddie ken?
+He's thinking upon naething, like mony mighty men:
+A wee thing mak's us think, a sma' thing mak's us stare,--
+There are mair folk than him bigging castles in the air.
+[VERSE 5]
+Sic a night in winter may weel mak' him cauld:
+His chin upon his buffy hand will soon mak' him auld;
+His brow is brent sae braid--O pray that daddy Care
+Wad let the wean alane wi' his castles in the air!
+[VERSE 6]
+He'll glower at the fire, and he'll keek at the light;
+But mony sparkling stars are swallowed up by Night:
+Aulder e'en than his are glamored by a glare,--
+Hearts are broken, heads are turned, wi' castles in the air.
+
+--- TITLE: MUCKLE-MOU'D MEG
+--- SOURCE: PG2620
+[VERSE 1]
+"Oh, what hae ye brought us hame now, my brave lord,
+Strappit flaught owre his braid saddle-bow?
+Some bauld Border reiver to feast at our board,
+An' harry our pantry, I trow.
+He's buirdly an' stalwart in lith an' in limb;
+Gin ye were his master in war
+The field was a saft eneugh litter for him,
+Ye needna hae brought him sae far.
+Then saddle an' munt again, harness an' dunt again,
+An' when ye gae hunt again, strike higher game."
+[VERSE 2]
+"Hoot, whisht ye, my dame, for he comes o' gude kin,
+An' boasts o' a lang pedigree;
+This night he maun share o' our gude cheer within,
+At morning's gray dawn he maun dee.
+He's gallant Wat Scott, heir o' proud Harden Ha',
+Wha ettled our lands clear to sweep;
+But now he is snug in auld Elibank's paw,
+An' shall swing frae our donjon-keep.
+Though saddle an' munt again, harness an' dunt again,
+I'll ne'er when I hunt again strike higher game."
+[VERSE 3]
+"Is this young Wat Scott? an' wad ye rax his craig,
+When our daughter is fey for a man?
+Gae, gaur the loun marry our muckle-mou'd Meg
+Or we'll ne'er get the jaud aff our han'!"
+"Od! hear our gudewife, she wad fain save your life;
+Wat Scott, will ye marry or hang?"
+But Meg's muckle mou set young Wat's heart agrue.
+Wat swore to the woodie he'd gang.
+Ne'er saddle nor munt again, harness nor dunt again,
+Wat ne'er shall hunt again, ne'er see his hame.
+[VERSE 4]
+Syne muckle-mou'd Meg pressed in close to his side,
+An' blinkit fu' sleely and kind,
+But aye as Wat glowered at his braw proffered bride,
+He shook like a leaf in the wind.
+"A bride or a gallows, a rope or a wife!"
+The morning dawned sunny and clear -
+Wat boldly strode forward to part wi' his life,
+Till he saw Meggy shedding a tear;
+Then saddle an' munt again, harness an' dunt again,
+Fain wad Wat hunt again, fain wad be hame.
+[VERSE 5]
+Meg's tear touched his bosom, the gibbet frowned high,
+An' slowly Wat strode to his doom;
+He gae a glance round wi' a tear in his eye,
+Meg shone like a star through the gloom.
+She rushed to his arms, they were wed on the spot,
+An' lo'ed ither muckle and lang;
+Nae bauld border laird had a wife like Wat Scott;
+'Twas better to marry than hang.
+So saddle an' munt again, harness an' dunt again,
+Elibank hunt again, Wat's snug at hame.

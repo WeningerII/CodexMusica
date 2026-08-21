@@ -4,11 +4,13 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1854, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('JOHN GIBSON LOCKHART'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 3
+# songs: 4
 
 --- TITLE: BROADSWORDS OF SCOTLAND  [air: Oh, the roast beef of Old England]
 --- SOURCE: PG22515
@@ -201,3 +203,21 @@ The hearts that would have given their blood like water
   Beat heavily beyond the Atlantic roar!
     Fair these broad meads--these hoary woods are grand;
     But we are exiles from our fathers' land!
+
+--- TITLE: THE WANDERING KNIGHT'S SONG
+--- SOURCE: PG2620
+[VERSE 1]
+My ornaments are arms,
+My pastime is in war,
+My bed is cold upon the wold,
+My lamp yon star.
+[VERSE 2]
+My journeyings are long,
+My slumbers short and broken;
+From hill to hill I wander still,
+Kissing thy token.
+[VERSE 3]
+I ride from land to land,
+I sail from sea to sea;
+Some day more kind I fate may find,
+Some night, kiss thee.

@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1878, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 2
 
 --- TITLE: THE DEFENCE OF LAWRENCE
 --- SOURCE: PG47476
@@ -82,3 +84,78 @@ And some, who lingered, said they heard
   Such wondrous music pass
 As though a seraph's voice had stirred
   The pulses of the grass.
+
+--- TITLE: AN OLD MAN'S IDYL
+--- SOURCE: PG2620
+[VERSE 1]
+By the waters of Life we sat together,
+Hand in hand, in the golden days
+Of the beautiful early summer weather,
+When skies were purple and breath was praise,
+When the heart kept tune to the carol of birds,
+And the birds kept tune to the songs which ran
+Through shimmer of flowers on grassy swards,
+And trees with voices aeolian.
+[VERSE 2]
+By the rivers of Life we walked together,
+I and my darling, unafraid;
+And lighter than any linnet's feather
+The burdens of being on us weighed;
+And Love's sweet miracles o'er us threw
+Mantles of joy outlasting Time,
+And up from the rosy morrows grew
+A sound that seemed like a marriage chime.
+[VERSE 3]
+In the gardens of Life we strayed together,
+And the luscious apples were ripe and red,
+And the languid lilac, and honeyed heather
+Swooned with the fragrance which they shed;
+And under the trees the angels walked,
+And up in the air a sense of wings
+Awed us tenderly while we talked
+Softly in sacred communings.
+[VERSE 4]
+In the meadows of Life we strayed together,
+Watching the waving harvests grow,
+And under the benison of the Father
+Our hearts, like the lambs, skipped to and fro;
+And the cowslip, hearing our low replies,
+Broidered fairer the emerald banks,
+And glad tears shone in the daisy's eyes,
+And the timid violet glistened thanks.
+[VERSE 5]
+Who was with us, and what was round us,
+Neither myself nor my darling guessed;
+Only we knew that something crowned us
+Out from the heavens with crowns of rest;
+Only we knew that something bright
+Lingered lovingly where we stood,
+Clothed with the incandescent light
+Of something higher than humanhood.
+[VERSE 6]
+Oh, the riches Love doth inherit!
+Oh, the alchemy which doth change
+Dross of body and dregs of spirit
+Into sanctities rare and strange!
+My flesh is feeble, and dry, and old,
+My darling's beautiful hair is gray;
+But our elixir and precious gold
+Laugh at the footsteps of decay.
+[VERSE 7]
+Harms of the world have come unto us,
+Cups of sorrow we yet shall drain;
+But we have a secret which doth show us
+Wonderful rainbows in the rain.
+And we hear the tread of the years move by,
+And the sun is setting behind the hills;
+But my darling does not fear to die,
+And I am happy in what God wills.
+[VERSE 8]
+So we sit by our household fires together,
+Dreaming the dreams of long ago;
+Then it was balmy, sunny weather,
+And now the valleys are laid in snow;
+Icicles hang from the slippery eaves,
+The wind blows cold, - 'tis growing late;
+Well, well! we have garnered all our sheaves,
+I and my darling, and we wait.

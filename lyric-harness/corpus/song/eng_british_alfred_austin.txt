@@ -4,10 +4,14 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1913, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1913, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 4
 
 --- TITLE: A NIGHT IN JUNE.
 --- SOURCE: PG26715
@@ -115,3 +119,74 @@ For you are lords of a strong young land and we are lords of the main.
     The tale of an ancient wrong,
 And our friendship shall last long as love doth last and be stronger than
     death is strong."
+
+--- TITLE: Mother-Song from "Prince Lucifer"
+--- SOURCE: PG2619
+[VERSE 1]
+White little hands!
+Pink little feet!
+Dimpled all over,
+Sweet, sweet, sweet!
+What dost thou wail for?
+The unknown? the unseen?
+The ills that are coming,
+The joys that have been?
+[VERSE 2]
+Cling to me closer,
+Closer and closer,
+Till the pain that is purer
+Hath banished the grosser.
+Drain, drain at the stream, love,
+Thy hunger is freeing,
+That was born in a dream, love,
+Along with thy being!
+[VERSE 3]
+Little fingers that feel
+For their home on my breast,
+Little lips that appeal
+For their nurture, their rest!
+Why, why dost thou weep, dear?
+Nay, stifle thy cries,
+Till the dew of thy sleep, dear,
+Lies soft on thine eyes.
+
+--- TITLE: AGATHA
+--- SOURCE: PG2620
+[VERSE 1]
+She wanders in the April woods,
+That glisten with the fallen shower;
+She leans her face against the buds,
+She stops, she stoops, she plucks a flower.
+She feels the ferment of the hour:
+She broodeth when the ringdove broods;
+The sun and flying clouds have power
+Upon her cheek and changing moods.
+She cannot think she is alone,
+As o'er her senses warmly steal
+Floods of unrest she fears to own.
+And almost dreads to feel.
+[VERSE 2]
+Along the summer woodlands wide
+Anew she roams, no more alone;
+The joy she feared is at her side,
+Spring's blushing secret now is known.
+The thrush's ringing note hath died;
+But glancing eye and glowing tone
+Fall on her from her god, her guide.
+She knows not, asks not, what the goal,
+She only feels she moves towards bliss,
+And yields her pure unquestioning soul
+To touch and fondling kiss.
+[VERSE 3]
+And still she haunts those woodland ways,
+Though all fond fancy finds there now
+To mind of spring or summer days,
+Are sodden trunk and songless bough.
+The past sits widowed on her brow,
+Homeward she wends with wintry gaze,
+To walls that house a hollow vow,
+To hearth where love hath ceased to blaze:
+Watches the clammy twilight wane,
+With grief too fixed for woe or tear;
+And, with her forehead 'gainst the pane,
+Envies the dying year.

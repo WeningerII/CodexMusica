@@ -295,7 +295,9 @@ def test_backfilled_corpus():
     # (7,618 both sides): a twin merge changes which FILE holds an item,
     # never whether the item is held, and pinning the two together would
     # hide that distinction the first time a merge did drop something.
-    check("all 1048 eng files are seen", len(files) == 1048)
+    # REPINNED 2026-08-20 (HBV safe subset): 1048 -> 1320 (+272), then
+    # 1320 -> 1297 when the near-name twin scan merged 23 pairs.
+    check("all 1297 eng files are seen", len(files) == 1297)
     bad = []
     for p in files:
         bad.extend(TX.check_file(p, regions, functions))
@@ -326,7 +328,11 @@ def test_backfilled_corpus():
     # and died Sheffield, schooled in Antrim — and the table makes region
     # single-valued), so one 'english' and one 'scottish' declaration
     # left and one stated blank arrived.
-    check("620 files declare a region and 428 declare a stated blank — "
+    # REPINNED 2026-08-20 (HBV): declared UNMOVED at 620, stated blanks
+    # 428 -> 700. Every HBV file is blank for the same reason Oxford and
+    # PAH are -- the edition prints no tradition -- so the declared half
+    # cannot move and the blank half moves by the whole batch.
+    check("620 files declare a region and 677 declare a stated blank — "
           "every file answers the axis, none is silently empty",
           len(declared) == 620
           and all(b in basis for b in headers if b not in set(declared)),
@@ -364,17 +370,20 @@ def test_backfilled_corpus():
     # REPINNED 2026-08-20 (Montgomery twin): undeclared_region
     # 896 -> 947 (+51, the merged file's whole holding), songs UNCHANGED
     # at 7,618 — the merge moved items between files and dropped none.
-    check("the report counts the corpus: 7,618 songs, 947 honestly "
+    # REPINNED 2026-08-20 (HBV safe subset): 7,618 -> 8,667 songs
+    # (+1,049 landed of 1,938 extracted: 400 refused by the safe gate,
+    # 489 cross-source duplicates), undeclared_region 947 -> 1,589.
+    check("the report counts the corpus: 8,667 songs, 1,538 honestly "
           "undeclared regions, undeclared functions counted APART "
           "(evidence-or-blank leaves most songs untagged)",
-          r["songs"] == 7618 and r["undeclared_region"] == 947
+          r["songs"] == 8667 and r["undeclared_region"] == 1538
           and r["undeclared_function"] > 3000
           and r["undeclared_function"] + sum(r["multi_tag"].values())
           == r["songs"])
     check("region totals plus the undeclared partition the corpus — the "
           "axis is single-valued, and a blank is counted, never dropped",
-          sum(r["by_region"].values()) + r["undeclared_region"] == 7618
-          and sum(r["by_region"].values()) == 6671)
+          sum(r["by_region"].values()) + r["undeclared_region"] == 8667
+          and sum(r["by_region"].values()) == 7129)
 
 
 def test_manifest():

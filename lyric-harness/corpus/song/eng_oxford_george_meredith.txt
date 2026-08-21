@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1909; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1909, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 5
+# songs: 7
 
 --- TITLE: Love in the Valley
 --- SOURCE: PG66619
@@ -447,3 +449,57 @@ He reach’d a middle height, and at the stars,
 Which are the brain of heaven, he look’d, and sank.
 Around the ancient track march’d, rank on rank,
   The army of unalterable law.
+
+--- TITLE: MARIAN
+--- SOURCE: PG2620
+[VERSE 1]
+She can be as wise as we,
+And wiser when she wishes;
+She can knit with cunning wit,
+And dress the homely dishes.
+She can flourish staff or pen,
+And deal a wound that lingers;
+She can talk the talk of men,
+And touch with thrilling fingers.
+[VERSE 2]
+Match her ye across the sea,
+Natures fond and fiery;
+Ye who zest the turtle's nest
+With the eagle's eyrie.
+Soft and loving is her soul,
+Swift and lofty soaring;
+Mixing with its dove-like dole
+Passionate adoring.
+[VERSE 3]
+Such a she who'll match with me?
+In flying or pursuing,
+Subtle wiles are in her smiles
+To set the world a-wooing.
+She is steadfast as a star,
+And yet the maddest maiden:
+She can wage a gallant war,
+And give the peace of Eden.
+
+--- TITLE: LINES
+--- SOURCE: PG2620
+[VERSE 1]
+Love within the lover's breast
+Burns like Hesper in the West,
+O'er the ashes of the sun,
+Till the day and night are done;
+Then, when dawn drives up his car -
+Lo! it is the morning star.
+[VERSE 2]
+Love! thy love pours down on mine,
+As the sunlight on the vine,
+As the snow rill on the vale,
+As the salt breeze on the sail;
+As the song unto the bird
+On my lips thy name is heard.
+[VERSE 3]
+As a dewdrop on the rose
+In thy heart my passion glows;
+As a skylark to the sky,
+Up into thy breast I fly;
+As a sea-shell of the sea
+Ever shall I sing of thee.

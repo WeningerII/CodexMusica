@@ -1,0 +1,84 @@
+# author: Rosamund Marriott Watson (1863-1911)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1911, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1911, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 3
+
+--- TITLE: Ave Atque Vale
+--- SOURCE: PG2619
+[VERSE 1]
+Farewell my Youth! for now we needs must part,
+For here the paths divide;
+Here hand from hand must sever, heart from heart,--
+Divergence deep and wide.
+[VERSE 2]
+You'll wear no withered roses for my sake,
+Though I go mourning for you all day long,
+Finding no magic more in bower or brake,
+No melody in song.
+[VERSE 3]
+Gray Eld must travel in my company
+To seal this severance more fast and sure.
+A joyless fellowship, i' faith, 'twill be,
+Yet must we fare together, I and he,
+Till I shall tread the footpath way no more.
+[VERSE 4]
+But when a blackbird pipes among the boughs,
+On some dim, iridescent day in spring,
+Then I may dream you are remembering
+Our ancient vows.
+[VERSE 5]
+Or when some joy foregone, some fate forsworn,
+Looks through the dark eyes of the violet,
+I may re-cross the set, forbidden bourne,
+I may forget
+Our long, long parting for a little while,
+Dream of the golden splendors of your smile,
+Dream you remember yet.
+
+--- TITLE: OMNIA SOMNIA
+--- SOURCE: PG2619
+[VERSE 1]
+Dawn drives the dreams away, yet some abide.
+Once, in a tide of pale and sunless weather,
+I dreamed I wandered on a bare hillside,
+When suddenly the birds sang all together.
+[VERSE 2]
+Still it was Winter, even in the dream;
+There was no leaf nor bud nor young grass springing;
+The skies shone cold above the frost-bound stream:
+It was not Spring, and yet the birds were singing.
+[VERSE 3]
+Blackbird and thrush and plaintive willow-wren,
+Chaffinch and lark and linnet, all were calling;
+A golden web of music held me then,
+Innumerable voices, rising, falling.
+[VERSE 4]
+O, never do the birds of April sing
+More sweet than in that dream I still remember:
+Perchance the heart may keep its songs of Spring
+Even through the wintry dream of life's December.
+
+--- TITLE: REQUIESCAT
+--- SOURCE: PG2620
+[VERSE 1]
+Bury me deep when I am dead,
+Far from the woods where sweet birds sing;
+Lap me in sullen stone and lead,
+Lest my poor dust should feel the Spring.
+[VERSE 2]
+Never a flower be near me set,
+Nor starry cup nor slender stem,
+Anemone nor violet,
+Lest my poor dust remember them.
+[VERSE 3]
+And you - wherever you may fare -
+Dearer than birds, or flowers, or dew -
+Never, ah me, pass never there,
+Lest my poor dust should dream of you.

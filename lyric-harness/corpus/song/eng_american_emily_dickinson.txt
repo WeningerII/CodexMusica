@@ -2,10 +2,12 @@
 # region: american
 # source: GITenberg/The-Golden-Treasury-of-American-Songs-and-Lyrics_15553 15553.txt md5 a3b03513163c9554badc67b59db41a79 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1886, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 5
 
 --- TITLE: Parting
 --- SOURCE: PG15553
@@ -74,3 +76,38 @@ Permit a child to join,
 Thy sacred emblems to partake,
 Thy consecrated bread to break,
 Taste thine immortal wine!
+
+--- TITLE: The Waking Year
+--- SOURCE: PG2621
+[VERSE 1]
+A lady red upon the hill
+Her annual secret keeps;
+A lady white within the field
+In placid lily sleeps!
+[VERSE 2]
+The tidy breezes with their brooms
+Sweep vale, and hill, and tree!
+Prithee, my pretty housewives!
+Who may expected be?
+[VERSE 3]
+The neighbors do not yet suspect!
+The woods exchange a smile,--
+Orchard, and buttercup, and bird,
+In such a little while!
+[VERSE 4]
+And yet how still the landscape stands,
+How nonchalant the wood,
+As if the resurrection
+Were nothing very odd!
+
+--- TITLE: Autumn
+--- SOURCE: PG2621
+[VERSE 1]
+The morns are meeker than they were,
+The nuts are getting brown;
+The berry's cheek is plumper,
+The rose is out of town.
+The maple wears a gayer scarf,
+The field a scarlet gown.
+Lest I should be old-fashioned,
+I'll put a trinket on.

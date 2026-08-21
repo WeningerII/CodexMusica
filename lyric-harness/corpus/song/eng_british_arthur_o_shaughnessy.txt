@@ -2,10 +2,12 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1881, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 2
+# songs: 6
 
 --- TITLE: A LOVE SYMPHONY.
 --- SOURCE: PG26715
@@ -67,3 +69,159 @@ She went up slowly to the gate;
   And there, just as of yore,
 She turned back at the last to wait,
   And say farewell once more.
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Has summer come without the rose,
+Or left the bird behind?
+Is the blue changed above thee,
+O world! or am I blind?
+Will you change every flower that grows,
+Or only change this spot,
+Where she who said, I love thee,
+Now says, I love thee not?
+[VERSE 2]
+The skies seemed true above thee,
+The rose true on the tree;
+The bird seemed true the summer through,
+But all proved false to me.
+World! is there one good thing in you,
+Life, love, or death - or what?
+Since lips that sang, I love thee,
+Have said, I love thee not?
+[VERSE 3]
+I think the sun's kiss will scarce fall
+Into one flower's gold cup;
+I think the bird will miss me,
+And give the summer up.
+O sweet place! desolate in tall
+Wild grass, have you forgot
+How her lips loved to kiss me,
+Now that they kiss me not?
+[VERSE 4]
+Be false or fair above me,
+Come back with any face,
+Summer! - do I care what you do?
+You cannot change one place -
+The grass, the leaves, the earth, the dew,
+The grave I make the spot -
+Here, where she used to love me,
+Here, where she loves me not.
+
+--- TITLE: "IF SHE BUT KNEW"
+--- SOURCE: PG2620
+[VERSE 1]
+If she but knew that I am weeping
+Still for her sake,
+That love and sorrow grow with keeping
+Till they must break,
+My heart that breaking will adore her,
+Be hers and die;
+If she might hear me once implore her,
+Would she not sigh?
+[VERSE 2]
+If she but knew that it would save me
+Her voice to hear,
+Saying she pitied me, forgave me,
+Must she forbear?
+If she were told that I was dying,
+Would she be dumb?
+Could she content herself with sighing?
+Would she not come?
+
+--- TITLE: ENCHAINMENT
+--- SOURCE: PG2620
+[VERSE 1]
+I went to her who loveth me no more,
+And prayed her bear with me, if so she might;
+For I had found day after day too sore,
+And tears that would not cease night after night.
+And so I prayed her, weeping, that she bore
+To let me be with her a little; yea,
+To soothe myself a little with her sight,
+Who loved me once, ah many a night and day.
+[VERSE 2]
+Then she who loveth me no more, maybe
+She pitied somewhat: and I took a chain
+To bind myself to her, and her to me;
+Yea, so that I might call her mine again.
+Lo! she forbade me not; but I and she
+Fettered her fair limbs, and her neck more fair,
+Chained the fair wasted white of love's domain.
+And put gold fetters on her golden hair.
+[VERSE 3]
+Oh! the vain joy it is to see her lie
+Beside me once again; beyond release,
+Her hair, her hand, her body, till she die,
+All mine, for me to do with what I please!
+For, after all, I find no chain whereby
+To chain her heart to love me as before,
+Nor fetter for her lips, to make them cease
+From saying still she loveth me no more.
+
+--- TITLE: SARRAZINE'S SONG TO HER DEAD LOVER
+--- SOURCE: PG2620
+[VERSE 1]
+Hath any loved you well, down there,
+Summer or winter through?
+Down there, have you found any fair
+Laid in the grave with you?
+Is death's long kiss a richer kiss
+Than mine was wont to be -
+Or have you gone to some far bliss
+And quite forgotten me?
+[VERSE 2]
+What soft enamoring of sleep
+Hath you in some soft way?
+What charmed death holdeth you with deep
+Strange lure by night and day?
+- A little space below the grass,
+Out of the sun and shade;
+But worlds away from me, alas,
+Down there where you are laid?
+[VERSE 3]
+My bright hair's waved and wasted gold,
+What is it now to thee -
+Whether the rose-red life I hold
+Or white death holdeth me?
+Down there you love the grave's own green,
+And evermore you rave
+Of some sweet seraph you have seen
+Or dreamt of in the grave.
+[VERSE 4]
+There you shall lie as you have lain,
+Though in the world above,
+Another life you live again,
+Loving again your love:
+Is it not sweet beneath the palm?
+Is not the warm day rife
+With some long mystic golden calm
+Better than love and life?
+[VERSE 5]
+The broad quaint odorous leaves like hands
+Weaving the fair day through,
+Weave sleep no burnished bird withstands,
+While death weaves sleep for you;
+And many a strange rich breathing sound
+Ravishes morn and noon:
+And in that place you must have found
+Death a delicious swoon.
+[VERSE 6]
+Hold me no longer for a word
+I used to say or sing:
+Ah, long ago you must have heard
+So many a sweeter thing:
+For rich earth must have reached your heart
+And turned the faith to flowers;
+And warm wind stolen, part by part,
+Your soul through faithless hours.
+[VERSE 7]
+And many a soft seed must have won
+Soil of some yielding thought,
+To bring a bloom up to the sun
+That else had ne'er been brought;
+And, doubtless, many a passionate hue
+Hath made that place more fair,
+Making some passionate part of you
+Faithless to me down there.

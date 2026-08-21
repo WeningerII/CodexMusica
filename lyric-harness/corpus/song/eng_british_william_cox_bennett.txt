@@ -2,10 +2,16 @@
 # region: english
 # source: GITenberg/Victorian-Songs--Lyrics-of-the-Affections-and-Nature_26715 26715-8.txt md5 581b19667a6a120d8f336a3c4f206734 (Tier-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1895, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1895, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1895, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 3
+# songs: 7
 
 --- TITLE: CRADLE SONG.
 --- SOURCE: PG26715
@@ -70,3 +76,115 @@ All sweet things with life have done;
 Sweet, till dawns the morning sun,
 Sleep then kiss those blue eyes dry!
       Lullaby! O lullaby!
+
+--- TITLE: Baby May
+--- SOURCE: PG2619
+[VERSE 1]
+Cheeks as soft as July peaches,
+Lips whose dewy scarlet teaches
+Poppies paleness--round large eyes
+Ever great with new surprise,
+Minutes filled with shadeless gladness,
+Minutes just as brimmed with sadness,
+Happy smiles and wailing cries,
+Crows and laughs and tearful eyes,
+Lights and shadows swifter born
+Than on wind-swept Autumn corn,
+Ever some new tiny notion
+Making every limb all motion--
+Catching up of legs and arms,
+Throwings back and small alarms,
+Clutching fingers--straightening jerks,
+Twining feet whose each toe works,
+Kickings up and straining risings,
+Mother's ever new surprisings,
+Hands all wants and looks all wonder
+At all things the heavens under,
+Tiny scorns of smiled reprovings
+That have more of love than lovings,
+Mischiefs done with such a winning
+Archness, that we prize such sinning,
+Breakings dire of plates and glasses,
+Graspings small at all that passes,
+Pullings off of all that's able
+To be caught from tray or table;
+Silences--small meditations,
+Deep as thoughts of cares for nations,
+Breaking into wisest speeches
+In a tongue that nothing teaches,
+All the thoughts of whose possessing
+Must be wooed to light by guessing;
+Slumbers--such sweet angel-seemings,
+That we'd ever have such dreamings,
+Till from sleep we see thee breaking,
+And we'd always have thee waking;
+Wealth for which we know no measure,
+Pleasure high above all pleasure,
+Gladness brimming over gladness,
+Joy in care--delight in sadness,
+Loveliness beyond completeness,
+Sweetness distancing all sweetness,
+Beauty all that beauty may be--
+That's May Bennett, that's my baby.
+
+--- TITLE: A WIFE'S SONG
+--- SOURCE: PG2620
+[VERSE 1]
+O well I love the Spring,
+When the sweet, sweet hawthorn blows;
+And well I love the Summer,
+And the coming of the rose;
+But dearer are the changing leaf,
+And the year upon the wane,
+For O, they bring the blessed time
+That brings him home again.
+[VERSE 2]
+November may be dreary,
+December's days may be
+As full of gloom to others
+As once they were to me;
+But O, to hear the tempest
+Beat loud against the pane!
+For the roaring wind and the blessed time
+That brings him home again.
+
+--- TITLE: Summer Invocation
+--- SOURCE: PG2621
+[VERSE 1]
+O gentle, gentle summer rain,
+Let not the silver lily pine,
+The drooping lily pine in vain
+To feel that dewy touch of thine,--
+To drink thy freshness once again,
+O gentle, gentle summer rain!
+[VERSE 2]
+In heat the landscape quivering lies;
+The cattle pant beneath the tree;
+Through parching air and purple skies
+The earth looks up, in vain, for thee;
+For thee--for thee, it looks in vain
+O gentle, gentle summer rain.
+[VERSE 3]
+Come thou, and brim the meadow streams,
+And soften all the hills with mist,
+O falling dew! from burning dreams
+By thee shall herb and flower be kissed,
+And Earth shall bless thee yet again,
+O gentle, gentle summer rain.
+
+--- TITLE: To a Cricket
+--- SOURCE: PG2621
+[VERSE 1]
+Voice of summer, keen and shrill,
+Chirping round my winter fire,
+Of thy song I never tire,
+Weary others as they will,
+For thy song with summer's filled--
+Filled with sunshine, filled with June;
+Firelight echo of that noon
+Heard in fields when all is stilled
+In the golden light of May,
+Bringing scents of new-mown hay,
+Bees, and birds, and flowers away,
+Prithee, haunt my fireside still,
+Voice of summer, keen and shrill.

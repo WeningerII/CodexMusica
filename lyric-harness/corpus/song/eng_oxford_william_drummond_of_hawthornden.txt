@@ -1,12 +1,20 @@
 # author: William Drummond, of Hawthornden (1585-1649)
 # region: 
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1649; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1649, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1649, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1649, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 9
+# merged: 2026-08-20 — eng_hbv_william_drummond.txt merged in; near-name twin of one author, confirmed by the editions' OWN PRINTED DEATH YEARS agreeing (<=2 years' slack, the corpus's own DEATH_SLACK rail). The surname guard rejected Faber~Thomas, who share two given names and a death year and are two men.
+# songs: 14
 
 --- TITLE: Invocation
 --- SOURCE: PG66619
@@ -190,3 +198,85 @@ Repent, repent, and from old errors turn!’
 --Who listen’d to his voice, obey’d his cry?
   Only the echoes, which he made relent,
   Rung from their marble caves ‘Repent! Repent!’
+
+--- TITLE: The Angels
+--- SOURCE: PG2619
+[VERSE 1]
+Run, shepherds, run where Bethlehem blest appears.
+We bring the best of news; be not dismayed:
+A Saviour there is born more old than years,
+Amidst heaven's rolling heights this earth who stayed.
+In a poor cottage inned, a virgin maid,
+A weakling did him bear, who all upbears;
+There is he poorly swaddled, in manger laid,
+To whom too narrow swaddlings are our spheres:
+Run, shepherds, run, and solemnize his birth.
+This is that night--no, day, grown great with bliss,
+In which the power of Satan broken is:
+In heaven be glory, peace unto the earth!
+Thus singing, through the air the angels swarm,
+And cope of stars re-echoed the same.
+
+--- TITLE: OF PHYLLIS
+--- SOURCE: PG2620
+[VERSE 1]
+In petticoat of green,
+Her hair about her eyne,
+Phyllis beneath an oak
+Sat milking her fair flock:
+Among that sweet-strained moisture, rare delight,
+Her hand seemed milk in milk, it was so white.
+
+--- TITLE: The Book of the World
+--- SOURCE: PG2621
+[VERSE 1]
+Of this fair volume which we World do name,
+If we the sheets and leaves could turn with care,
+Of him who it corrects, and did it frame,
+We clear might read the art and wisdom rare;
+Find out his power which wildest powers doth tame,
+His providence extending everywhere,
+His justice which proud rebels doth not spare,
+In every page, no, period of the same.
+But silly we, like foolish children, rest
+Well pleased with colored vellum, leaves of gold,
+Fair dangling ribbons, leaving what is best,
+On the great Writer's sense ne'er taking hold;
+Or, if by chance we stay our minds on aught,
+It is some picture on the margin wrought.
+
+--- TITLE: To the Nightingale
+--- SOURCE: PG2621
+[VERSE 1]
+Dear chorister, who from those shadows sends,
+Ere that the blushing morn dare show her light,
+Such sad lamenting strains, that night attends,
+Become all ear, stars stay to hear thy plight:
+If one whose grief even reach of thought transcends,
+Who ne'er, not in a dream, did taste delight,
+May thee importune who like care pretends,
+And seems to joy in woe, in woe's despite;
+Tell me (so may thou fortune milder try,
+And long, long sing) for what thou thus complains,
+Since, winter gone, the sun in dappled sky
+Now smiles on meadows, mountains, woods, and plains?
+The bird, as if my questions did her move,
+With trembling wings sobbed forth, I love!  I love!"
+
+--- TITLE: "Thrice Happy He"
+--- SOURCE: PG2621
+[VERSE 1]
+Thrice happy he, who by some shady grove,
+Far from the clamorous world, doth live his own;
+Though solitary, who is not alone,
+But doth converse with that eternal love.
+O how more sweet is birds' harmonious moan,
+Or the soft sobbings of the widowed dove,
+Than those smooth whisperings near a prince's throne,
+Which good make doubtful, do the evil approve!
+Or how more sweet is Zephyr's wholesome breath,
+And sighs perfumed which do the flowers unfold,
+Than that applause vain honor doth bequeath!
+How sweet are streams to poison drunk in gold!
+The world is full of horrors, falsehoods, slights;
+Woods' silent shades have only true delights.

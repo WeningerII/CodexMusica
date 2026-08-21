@@ -4,10 +4,18 @@
 # licence: public domain — Project Gutenberg text; edition published 1895 (Boston) -- Victorian Songs, ed. Edmund Gosse
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain — Project Gutenberg text; every edition used was published 1931 or earlier; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1845, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1845, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1845, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1845, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own per-song author credit, cross-checked against its first-line index
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 13
+# songs: 21
 
 --- TITLE: BALLAD.
 --- SOURCE: PG26715
@@ -506,3 +514,284 @@ Owning her weakness,
   Her evil behaviour,
 And leaving, with meekness,
   Her sins to her Saviour!
+
+--- TITLE: Queen Mab
+--- SOURCE: PG2619
+[VERSE 1]
+A little fairy comes at night,
+Her eyes are blue, her hair is brown,
+With silver spots upon her wings,
+And from the moon she flutters down.
+[VERSE 2]
+She has a little silver wand,
+And when a good child goes to bed
+She waves her hand from right to left,
+And makes a circle round its head.
+[VERSE 3]
+And then it dreams of pleasant things,
+Of fountains filled with fairy fish,
+And trees that bear delicious fruit,
+And bow their branches at a wish:
+[VERSE 4]
+Of arbors filled with dainty scents
+From lovely flowers that never fade;
+Bright flies that glitter in the sun,
+And glow-worms shining in the shade:
+[VERSE 5]
+And talking birds with gifted tongues,
+For singing songs and telling tales,
+And pretty dwarfs to show the way
+Through fairy hills and fairy dales.
+[VERSE 6]
+But when a bad child goes to bed,
+From left to right she weaves her rings,
+And then it dreams all through the night
+Of only ugly horrid things!
+[VERSE 7]
+Then lions come with glaring eyes,
+And tigers growl, a dreadful noise,
+And ogres draw their cruel knives,
+To shed the blood of girls and boys.
+[VERSE 8]
+Then stormy waves rush on to drown,
+Or raging flames come scorching round,
+Fierce dragons hover in the air,
+And serpents crawl along the ground.
+[VERSE 9]
+Then wicked children wake and weep,
+And wish the long black gloom away;
+But good ones love the dark, and find
+The night as pleasant as the day.
+
+--- TITLE: A Parental Ode to My Son
+--- SOURCE: PG2619
+[VERSE 1]
+Thou happy, happy elf!
+(But stop,--first let me kiss away that tear!)
+Thou tiny image of myself!
+(My love, he's poking peas into his ear!)
+Thou merry, laughing sprite,
+With spirits feather-light,
+Untouched by sorrow, and unsoiled by sin,--
+(My dear, the child is swallowing a pin!)
+[VERSE 2]
+Thou little tricksy Puck!
+With antic toys so funnily bestuck,
+Light as the singing bird that wings the air,--
+(The door! the door! he'll tumble down the stair!)
+Thou darling of thy sire!
+(Why, Jane, he'll set his pinafore afire!)
+Thou imp of mirth and joy!
+In Love's dear chain so strong and bright a link,
+Thou idol of thy parents,--(Drat the boy!
+There goes my ink!)
+[VERSE 3]
+Thou cherub,--but of earth;
+Fit playfellow for Fays, by moonlight pale,
+In harmless sport and mirth,
+(That dog will bite him, if he pulls its tail!)
+Thou human humming-bee, extracting honey
+From every blossom in the world that blows,
+Singing in youth's Elysium ever sunny.--
+(Another tumble!  That's his precious nose!)
+[VERSE 4]
+Thy father's pride and hope!
+(He'll break the mirror with that skipping-rope!)
+With pure heart newly stamped from nature's mint,
+(Where did he learn that squint?)
+Thou young domestic dove!
+(He'll have that jug off with another shove!)
+Dear nursling of the hymeneal nest!
+(Are these torn clothes his best?)
+Little epitome of man!
+(He'll climb upon the table, that's his plan!)
+Touched with the beauteous tints of dawning life,--
+(He's got a knife!)
+[VERSE 5]
+Thou enviable being!
+No storms, no clouds, in thy blue sky foreseeing,
+Play on, play on,
+My elfin John!
+Toss the light ball, bestride the stick,--
+(I knew so many cakes would make him sick!)
+With fancies, buoyant as the thistle-down,
+Prompting the face grotesque, and antic brisk,
+With many a lamb-like frisk!
+(He's got the scissors, snipping at your gown!)
+[VERSE 6]
+Thou pretty opening rose!
+(Go to your mother, child, and wipe your nose!)
+Balmy and breathing music like the South,--
+(He really brings my heart into my mouth!)
+Fresh as the morn, and brilliant as its star,--
+(I wish that window had an iron bar!)
+Bold as the hawk, yet gentle as the dove;--
+(I'll tell you what, my love,
+I cannot write unless he's sent above.)
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+A lake and a fairy boat
+To sail in the moonlight clear, -
+And merrily we would float
+From the dragons that watch us here!
+[VERSE 2]
+Thy gown should be snow-white silk,
+And strings of orient pearls,
+Like gossamers dipped in milk,
+Should twine with thy raven curls.
+[VERSE 3]
+Red rubies should deck thy hands,
+And diamonds be thy dower -
+But fairies have broke their wands,
+And wishing has lost its power!
+
+--- TITLE: SERENADE
+--- SOURCE: PG2620
+[VERSE 1]
+Ah, sweet, thou little knowest how
+I wake and passionate watches keep;
+And yet, while I address thee now,
+Methinks thou smilest in thy sleep.
+'Tis sweet enough to make me weep,
+That tender thought of love and thee,
+That while the world is hushed so deep,
+Thy soul's perhaps awake to me!
+[VERSE 2]
+Sleep on, sleep on, sweet bride of sleep!
+With golden visions for thy dower,
+While I this midnight vigil keep,
+And bless thee in thy silent bower;
+To me 'tis sweeter than the power
+Of sleep, and fairy dreams unfurled,
+That I alone, at this still hour,
+In patient love outwatch the world.
+
+--- TITLE: THE WATER LADY
+--- SOURCE: PG2620
+[VERSE 1]
+Alas, the moon should ever beam
+To show what man should never see!
+I saw a maiden on a stream,
+And fair was she!
+[VERSE 2]
+I stayed awhile, to see her throw
+Her tresses back, that all beset
+The fair horizon of her brow
+With clouds of jet.
+[VERSE 3]
+I stayed a little while to view
+Her cheek, that wore, in place of red,
+The bloom of water, tender blue,
+Daintily spread.
+[VERSE 4]
+I stayed to watch, a little space,
+Her parted lips if she would sing;
+The waters closed above her face
+With many a ring.
+[VERSE 5]
+And still I stayed a little more:
+Alas, she never comes again!
+I throw my flowers from the shore,
+And watch in vain.
+[VERSE 6]
+I know my life will fade away,
+I know that I must vainly pine,
+For I am made of mortal clay,
+But she's divine!
+
+--- TITLE: Flowers
+--- SOURCE: PG2621
+[VERSE 1]
+I will not have the mad Clytie,
+Whose head is turned by the sun;
+The tulip is a courtly quean,
+Whom, therefore, I will shun:
+The cowslip is a country wench,
+The violet is a nun;--
+But I will woo the dainty rose,
+The queen of every one.
+[VERSE 2]
+The pea is but a wanton witch,
+In too much haste to wed,
+And clasps her rings on every hand;
+The wolfsbane I should dread;
+Nor will I dreary rosemarye,
+That always mourns the dead;
+But I will woo the dainty rose,
+With her cheeks of tender red.
+[VERSE 3]
+The lily is all in white, like a saint,
+And so is no mate for me;
+And the daisy's cheek is tipped with a blush,
+She is of such low degree;
+Jasmine is sweet, and has many loves,
+And the broom's betrothed to the bee;--
+But I will plight with the dainty rose,
+For fairest of all is she.
+
+--- TITLE: "I'm not a Single Man"
+--- SOURCE: PG2622
+[VERSE 1]
+A pretty task, Miss S---, to ask
+A Benedictine pen,
+That cannot quite at freedom write
+Like those of other men.
+No lover's plaint my Muse must paint
+To fill this page's span,
+But be correct and recollect
+I'm not a single man.
+[VERSE 2]
+Pray only think, for pen and ink
+How hard to get along,
+That may not turn on words that burn,
+Or Love, the life of song!
+Nine Muses, if I chooses, I
+May woo all in a clan;
+But one Miss S--- I daren't address--
+I'm not a single man.
+[VERSE 3]
+Scribblers unwed, with little head,
+May eke it out with heart
+And in their lays it often plays
+A rare first-fiddle part.
+They make a kiss to rhyme with bliss,
+But if I so began,
+I have my fears about my ears--
+I'm not a single man.
+[VERSE 4]
+Upon your cheek I may not speak,
+Nor on your lip be warm,
+I must be wise about your eyes,
+And formal with your form;
+Of all that sort of thing, in short,
+On T. H. Bayly's plan,
+I must not twine a single line--
+I'm not a single man.
+[VERSE 5]
+A watchman's part compels my heart
+To keep you off its beat,
+And I might dare as soon to swear
+At you, as at your feet.
+I can't expire in passion's fire
+As other poets can--
+My life (she's by) won't let me die--
+I'm not a single man.
+[VERSE 6]
+Shut out from love, denied a dove,
+Forbidden bow and dart;
+Without a groan to call my own,
+With neither hand nor heart;
+To Hymen vowed, and not allowed
+To flirt e'en with your fan,
+Here end, as just a friend, I must--
+I'm not a single man.
+
+--- TITLE: Epigram
+--- SOURCE: PG2622
+[VERSE 1]
+After such years of dissension and strife,
+Some wonder that Peter should weep for his wife;
+But his tears on her grave are nothing surprising,--
+He's laying her dust, for fear of its rising.

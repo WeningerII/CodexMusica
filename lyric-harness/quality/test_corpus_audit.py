@@ -452,17 +452,22 @@ def test_every_declared_source_reaches_a_row():
     # makes exactly the same set of provenance claims through one fewer
     # file. Two counts, moving independently, which is why this check
     # states both (doctrine 79).
-    check("1367 id-shaped `# source:` declarations are checked, over 1174 "
-          "files", total == 1367 and len(files) == 1174, (total, len(files)))
+    # REPINNED 2026-08-20 (HBV safe subset + twin merges): 1,367 -> 2,007
+    # declarations over 1,174 -> 1,423 files. Both move now, unlike the
+    # Montgomery merge where only the file count did: HBV added 272 files
+    # AND gave 191 existing ones a second book.
+    check("2007 id-shaped `# source:` declarations are checked, over 1423 "
+          "files", total == 2007 and len(files) == 1423, (total, len(files)))
     # REPINNED 2026-08-20 (Tier-1): 62 -> 70 — eight of the 18 topped-up
     # files gained their first second source citation.
     # 70 -> 73 same sitting: three twin merges gave their keepers a second
     # book (Boker, Macarthy, Willson).
     # 73 -> 144 (Phase-1): Oxford/PAH items topped up 84 existing files
     # and 19 twin merges gave their keepers another book.
-    check("144 files declare two or more sources — the case the file-level "
+    # REPINNED 2026-08-20 (HBV): 144 -> 316.
+    check("316 files declare two or more sources — the case the file-level "
           "check cannot see",
-          sum(1 for v in decls.values() if len(v) > 1) == 144,
+          sum(1 for v in decls.values() if len(v) > 1) == 316,
           sum(1 for v in decls.values() if len(v) > 1))
     bad = [(rel, d) for rel, cf in files for d, _, _ in src.undeclared_sources(cf)]
     check("every declared `# source:` id reaches a data/sources.tsv row",
@@ -819,8 +824,10 @@ def test_item_level_near_duplication_series():
     # REPINNED 2026-08-20 (Montgomery twin): 1049 -> 1048 files, items
     # UNCHANGED at 7,258 — a twin merge rehouses items, it does not
     # remove any.
-    check("1048 eng_* files and 7,258 items are big enough to judge",
-          len({r for r, _ in eng}) == 1048 and len(recs) == 7258,
+    # REPINNED 2026-08-20 (HBV): 1,048 -> 1,297 eng files, 7,258 ->
+    # 8,258 items.
+    check("1297 eng_* files and 8,258 items are big enough to judge",
+          len({r for r, _ in eng}) == 1297 and len(recs) == 8258,
           (len({r for r, _ in eng}), len(recs)))
     series = {}
     for cut in (0.30, 0.50, 0.60, 0.80, 1.00):
@@ -836,22 +843,30 @@ def test_item_level_near_duplication_series():
     # This is the merge showing up in the duplication census exactly where
     # it should, which is the check doing its job rather than drifting.
     check("NO cross-file item duplication survives at the audit's own 0.60 "
-          "floor or above — below it sit exactly the 7 named cross-source "
+          "floor or above — below it sit exactly the 8 named cross-source "
           "variant printings (Pagan~Burns, Home~Hogg, Mackay~Russell, "
-          "Fontaine~Beers x2, Jones~Durfey, and Durfey's _Pills_ "
-          "reprinting the Earl of Dorset's song, which Oxford prints "
-          "under Dorset). Montgomery~Montgomery left this list by MERGER, "
-          "not by deletion — it is now within-file",
+          "Fontaine~Beers x2, Jones~Durfey, Jones~Raleigh, and Durfey's "
+          "_Pills_ reprinting the Earl of Dorset's song, which Oxford "
+          "prints under Dorset). Montgomery~Montgomery left this list by "
+          "MERGER, not by deletion — it is now within-file. THE ONE HBV "
+          "ADDED is Jones~Raleigh: Robert Jones's Elizabethan song-book "
+          "prints a lyric the Home Book of Verse credits to Walter "
+          "Raleigh, which is the same contested-attribution shape as "
+          "Jones~Durfey beside it and is correctly kept, not deduped",
           series[0.60][2] == 0 and series[0.80][2] == 0
-          and series[1.00][2] == 0 and series[0.30][2] == 7
+          and series[1.00][2] == 0 and series[0.30][2] == 8
           and series[0.50][2] == 4, series)
-    check("the within-file series is 46 / 39 / 31 / 24 / 5",
+    check("the within-file series is 68 / 54 / 31 / 24 / 5",
           [series[c][1] for c in (0.30, 0.50, 0.60, 0.80, 1.00)]
-          == [46, 39, 31, 24, 5], series)
-    check("the TOTAL series is unmoved at 53 / 43 / 31 / 24 / 5 — the "
-          "merge moved a pair between the two counts and created none",
+          == [68, 54, 31, 24, 5], series)
+    # The total MOVED here, unlike the Montgomery sitting: HBV is new
+    # material, so new within-file pairs are expected. What must NOT move
+    # is the 0.60 floor and above, and it does not — 31 / 24 / 5 through
+    # every load so far.
+    check("the TOTAL series is 76 / 58 / 31 / 24 / 5, and everything at "
+          "the 0.60 dedup floor and above is UNMOVED across three loads",
           [series[c][0] for c in (0.30, 0.50, 0.60, 0.80, 1.00)]
-          == [53, 43, 31, 24, 5], series)
+          == [76, 58, 31, 24, 5], series)
     shapes = {}
     for _rel, _i, _t, _n, shape, _h in AC.false_unit_items(eng):
         shapes[shape.split(" ")[0]] = shapes.get(shape.split(" ")[0], 0) + 1
@@ -859,8 +874,9 @@ def test_item_level_near_duplication_series():
     # PRE-EXISTING files (Jean Ingelow, Watts) — the mass load's own titles
     # supply new cross-references, the same mechanism as the 2026-08-19
     # Watts finds. Recorded, not repaired, per CORPUS_LOADING_PROTOCOL.md.
-    check("4 CONTENTS pages, 5 RUN-ONs and 5 TITLE echoes remain, all named",
-          shapes == {"CONTENTS": 4, "RUN-ON": 5, "TITLE": 5}, shapes)
+    # REPINNED 2026-08-20 (HBV): RUN-ON 5 -> 9, the rest unmoved.
+    check("4 CONTENTS pages, 9 RUN-ONs and 5 TITLE echoes remain, all named",
+          shapes == {"CONTENTS": 4, "RUN-ON": 9, "TITLE": 5}, shapes)
 
 
 def test_check_C_can_actually_fire():

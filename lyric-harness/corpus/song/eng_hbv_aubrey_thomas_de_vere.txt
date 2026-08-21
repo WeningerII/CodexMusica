@@ -1,0 +1,130 @@
+# author: Aubrey Thomas De Vere (1814-1902)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1902, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1902, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1902, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 5
+
+--- TITLE: Human Life
+--- SOURCE: PG2619
+[VERSE 1]
+Sad is our youth, for it is ever going,
+Crumbling away beneath our very feet;
+Sad is our life, for onward it is flowing,
+In current unperceived because so fleet;
+Sad are our hopes for they were sweet in sowing,
+But tares, self-sown, have overtopped the wheat;
+Sad are our joys, for they were sweet in blowing;
+And still, O still, their dying breath is sweet:
+And sweet is youth, although it hath bereft us
+Of that which made our childhood sweeter still;
+And sweet our life's decline, for it hath left us
+A nearer Good to cure an older Ill:
+And sweet are all things, when we learn to prize them
+Not for their sake, but His who grants them or denies them.
+
+--- TITLE: "FLOWERS I WOULD BRING"
+--- SOURCE: PG2620
+[VERSE 1]
+Flowers I would bring if flowers could make thee fairer,
+And music, if the Muse were dear to thee;
+(For loving these would make thee love the bearer)
+But sweetest songs forget their melody,
+And loveliest flowers would but conceal the wearer: -
+A rose I marked, and might have plucked; but she
+Blushed as she bent, imploring me to spare her,
+Nor spoil her beauty by such rivalry.
+Alas! and with what gifts shall I pursue thee,
+What offerings bring, what treasures lay before thee;
+When earth with all her floral train doth woo thee,
+And all old poets and old songs adore thee;
+And love to thee is naught; from passionate mood
+Secured by joy's complacent plenitude!
+
+--- TITLE: LOVE'S SPITE
+--- SOURCE: PG2620
+[VERSE 1]
+You take a town you cannot keep;
+And, forced in turn to fly,
+O'er ruins you have made shall leap
+Your deadliest enemy!
+Her love is yours - and be it so -
+But can you keep it?  No, no, no!
+[VERSE 2]
+Upon her brow we gazed with awe,
+And loved, and wished to love, in vain
+But when the snow begins to thaw
+We shun with scorn the miry plain.
+Women with grace may yield: but she
+Appeared some Virgin Deity.
+[VERSE 3]
+Bright was her soul as Dian's crest
+Whitening on Vesta's fane its sheen:
+Cold looked she as the waveless breast
+Of some stone Dian at thirteen.
+Men loved: but hope they deemed to be
+A sweet Impossibility!
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Sing the old song, amid the sounds dispersing
+That burden treasured in your hearts too long;
+Sing it, with voice low-breathed, but never name her:
+She will not hear you, in her turrets nursing
+High thoughts, too high to mate with mortal song -
+Bend o'er her, gentle Heaven, but do not claim her!
+[VERSE 2]
+In twilight caves, and secret lonelinesses,
+She shades the bloom of her unearthly days;
+And the soft winds alone have power to woo her:
+Far off we catch the dark gleam of her tresses;
+And wild birds haunt the wood-walks where she strays,
+Intelligible music warbling to her.
+[VERSE 3]
+That Spirit charged to follow and defend her, -
+He also, doubtless, suffers this love-pain;
+And she, perhaps, is sad, hearing his sighing:
+And yet that face is not so sad as tender;
+Like some sweet singer's, when her sweetest strain
+From the heaved heart is gradually dying!
+
+--- TITLE: Evening Melody
+--- SOURCE: PG2621
+[VERSE 1]
+O that the pines which crown yon steep
+Their fires might ne'er surrender!
+O that yon fervid knoll might keep,
+While lasts the world, its splendor!
+[VERSE 2]
+Pale poplars on the breeze that lean,
+And in the sunset shiver,
+O that your golden stems might screen
+For aye yon glassy river!
+[VERSE 3]
+That yon white bird on homeward wing
+Soft-sliding without motion,
+And now in blue air vanishing
+Like snow-flake lost in ocean,
+[VERSE 4]
+Beyond our sight might never flee,
+Yet forward still be flying;
+And all the dying day might be
+Immortal in its dying!
+[VERSE 5]
+Pellucid thus in saintly trance,
+Thus mute in expectation,
+What waits the earth?  Deliverance?
+Ah no!  Transfiguration!
+[VERSE 6]
+She dreams of that "New Earth" divine,
+Conceived of seed immortal;
+She sings "Not mine the holier shrine,
+Yet mine the steps and portal!"

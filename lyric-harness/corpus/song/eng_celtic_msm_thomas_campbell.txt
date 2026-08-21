@@ -4,11 +4,17 @@
 # source: GITenberg/The-Modern-Scottish-Minstrel-Volumes-I-VI.The-Songs-of-Scotland-of-the-Past-Half-Century_22515
 #         file 22515-8.txt (ISO-8859-1)  md5 66194d7b11d9f00b68037b7a63fe9a0f
 # licence: public domain -- PG ebook #22515, GITenberg metadata.yaml rights: 'Public domain in the USA.'; the parent data/sources.tsv row carries the ADMIT reasoning (1855 edition, editor d. 1890, every songwriter d. before 1890)
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1844, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1844, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1844, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # edition: Charles Rogers (ed.), 'The Modern Scottish Minstrel', Edinburgh: Adam & Charles Black, 6 vols, 1855-1857
 # attribution: the edition's own author-section heading ('THOMAS CAMPBELL'); author name printed as the edition prints it
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'TUNE--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: editor's biographical memoir, [n] footnote markers and footnote bodies, inter-song editorial prose, italic music/air credit lines
-# songs: 5
+# songs: 12
 
 --- TITLE: YE MARINERS OF ENGLAND
 --- SOURCE: PG22515
@@ -253,3 +259,235 @@ We 're the sons of sires that baffled
   Crown'd and mitred tyranny;
 They defied the field and scaffold
   For their birthrights--so will we!
+
+--- TITLE: The River of Life
+--- SOURCE: PG2619
+[VERSE 1]
+The more we live, more brief appear
+Our life's succeeding stages:
+A day to childhood seems a year,
+And years like passing ages.
+[VERSE 2]
+The gladsome current of our youth,
+Ere passion yet disorders,
+Steals, lingering like a river smooth
+Along its grassy borders.
+[VERSE 3]
+But as the careworn cheek grows wan,
+And sorrow's shafts fly thicker,
+Ye Stars, that measure life to man,
+Why seem your courses quicker?
+[VERSE 4]
+When joys have lost their bloom and breath,
+And life itself is vapid,
+Why, as we reach the Falls of Death,
+Feel we its tide more rapid?
+[VERSE 5]
+It may be strange--yet who would change
+Time's course to slower speeding,
+When one by one our friends have gone
+And left our bosoms bleeding?
+[VERSE 6]
+Heaven gives our years of fading strength
+Indemnifying fleetness;
+And those of youth, a seeming length,
+Proportioned to their sweetness.
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+How delicious is the winning
+Of a kiss at Love's beginning,
+When two mutual hearts are sighing
+For the knot there's no untying!
+[VERSE 2]
+Yet remember, 'midst your wooing,
+Love has bliss, but Love has ruing;
+Other smiles may make you fickle,
+Tears for other charms may trickle.
+[VERSE 3]
+Love he comes, and Love he tarries,
+Just as fate or fancy carries;
+Longest stays, when sorest chidden;
+Laughs and flies, when pressed and bidden.
+[VERSE 4]
+Bind the sea to slumber stilly,
+Bind its odor to the lily,
+Bind the aspen ne'er to quiver,
+Then bind Love to last forever!
+[VERSE 5]
+Love's a fire that needs renewal
+Of fresh beauty for its fuel:
+Love's wing moults when caged and captured,
+Only free, he soars enraptured.
+[VERSE 6]
+Can you keep the bee from ranging,
+Or the ringdove's neck from changing?
+No! nor fettered Love from dying
+In the knot there's no untying.
+
+--- TITLE: MARGARET AND DORA
+--- SOURCE: PG2620
+[VERSE 1]
+Margaret's beauteous - Grecian arts
+Ne'er drew form completer,
+Yet why, in my hearts of hearts,
+Hold I Dora's sweeter?
+[VERSE 2]
+Dora's eyes of heavenly blue
+Pass all painting's reach,
+Ringdoves' notes are discord to
+The music of her speech.
+[VERSE 3]
+Artists! Margaret's smile receive,
+And on canvas show it;
+But for perfect worship leave
+Dora to her poet.
+
+--- TITLE: SONG
+--- SOURCE: PG2620
+[VERSE 1]
+Earl March looked on his dying child,
+And, smit with grief to view her -
+The youth, he cried, whom I exiled
+Shall be restored to woo her.
+[VERSE 2]
+She's at the window many an hour
+His coming to discover;
+And he looked up to Ellen's bower
+And she looked on her lover -
+[VERSE 3]
+But ah! so pale, he knew her not,
+Though her smile on him was dwelling!
+And I am then forgot - forgot?
+It broke the heart of Ellen.
+[VERSE 4]
+In vain he weeps, in vain he sighs,
+Her cheek is cold as ashes;
+Nor love's own kiss shall wake those eyes
+To lift their silken lashes.
+
+--- TITLE: Song to the Evening Star
+--- SOURCE: PG2621
+[VERSE 1]
+Star that bringest home the bee,
+And sett'st the weary laborer free!
+If any star shed peace, 'tis thou
+That send'st it from above,
+Appearing when Heaven's breath and brow
+Are sweet as hers we love.
+[VERSE 2]
+Come to the luxuriant skies,
+Whilst the landscape's odors rise,
+Whilst far-off lowing herds are heard
+And songs when toil is done,
+From cottages whose smoke unstirred
+Curls yellow in the sun.
+[VERSE 3]
+Star of love's soft interviews,
+Parted lovers on thee muse;
+Their remembrancer in Heaven
+Of thrilling vows thou art,
+Too delicious to be riven
+By absence from the heart.
+
+--- TITLE: The Beech Tree's Petition
+--- SOURCE: PG2621
+[VERSE 1]
+O leave this barren spot to me!
+Spare, woodman, spare the beechen tree!
+Though bush or floweret never grow
+My dark unwarming shade below;
+Nor summer bud perfume the dew
+Of rosy blush, or yellow hue;
+Nor fruits of autumn, blossom-born,
+My green and glossy leaves adorn;
+Nor murmuring tribes from me derive
+Th' ambrosial amber of the hive;
+Yet leave this barren spot to me:
+Spare, woodman, spare the beechen tree!
+[VERSE 2]
+Thrice twenty summers I have seen
+The sky grow bright, the forest green;
+And many a wintry wind have stood
+In bloomless, fruitless solitude,
+Since childhood in my pleasant bower
+First spent its sweet and sportive hour;
+Since youthful lovers in my shade
+Their vows of truth and rapture made,
+And on my trunk's surviving frame
+Carved many a long-forgotten name.
+Oh! by the sighs of gentle sound,
+First breathed upon this sacred ground;
+By all that Love has whispered here,
+Or Beauty heard with ravished ear;
+As Love's own altar honor me:
+Spare, woodman, spare the beechen tree!
+
+--- TITLE: To the Rainbow
+--- SOURCE: PG2621
+[VERSE 1]
+Triumphal arch, that fill'st the sky
+When storms prepare to part,
+I ask not proud Philosophy
+To teach me what thou art;--
+[VERSE 2]
+Still seem; as to my childhood's sight,
+A midway station given
+For happy spirits to alight
+Betwixt the earth and heaven.
+[VERSE 3]
+Can all that Optics teach unfold
+Thy form to please me so,
+As when I dreamt of gems and gold
+Hid in thy radiant bow?
+[VERSE 4]
+When Science from Creation's face
+Enchantment's veil withdraws,
+What lovely visions yield their place
+To cold material laws!
+[VERSE 5]
+And yet, fair bow, no fabling dreams,
+But words of the Most High,
+Have told why first thy robe of beams
+Was woven in the sky.
+[VERSE 6]
+When o'er the green, undeluged earth
+Heaven's covenant thou didst shine,
+How came the world's gray fathers forth
+To watch thy sacred sign!
+[VERSE 7]
+And when its yellow luster smiled
+O'er mountains yet untrod,
+Each mother held aloft her child
+To bless the bow of God.
+[VERSE 8]
+Methinks, thy jubilee to keep,
+The first-made anthem rang
+On earth, delivered from the deep,
+And the first poet sang.
+[VERSE 9]
+Nor ever shall the Muse's eye
+Unraptured greet thy beam;
+Theme of primeval prophecy,
+Be still the prophet's theme!
+[VERSE 10]
+The earth to thee her incense yields,
+The lark thy welcome sings,
+When, glittering in the freshened fields,
+The snowy mushroom springs.
+[VERSE 11]
+How glorious is thy girdle, cast
+O'er mountain, tower, and town,
+Or mirrored in the ocean vast,
+A thousand fathoms down!
+[VERSE 12]
+As fresh in yon horizon dark,
+As young thy beauties seem,
+As when the eagle from the ark
+First sported in thy beam:
+[VERSE 13]
+For, faithful to its sacred page,
+Heaven still rebuilds thy span;
+Nor lets the type grow pale with age,
+That first spoke peace to man.

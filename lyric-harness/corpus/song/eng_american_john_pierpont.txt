@@ -4,6 +4,8 @@
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
 # source: GITenberg/Poems-of-American-Patriotism_6316 6316.txt md5 c5d0e430471ca913f603bcee22f83d8b
 # licence: public domain - Project Gutenberg; revised/extended edition dated July 4, 1922; edition published 1922 -- Poems of American Patriotism, ed. Brander Matthews
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1866, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
 # structure: [VERSE n] / [CHORUS] mark stanza roles as printed in the source.
 #   [CHORUS] appears only where the source itself prints CHORUS/REFRAIN.
 #   'refrain-note' lines record an unlabelled recurring burden.
@@ -235,3 +237,76 @@ Great God! when we do this
 Exclude us from thy bliss;
 At us let angels hiss
     From heaven that fell!
+
+--- TITLE: My Child
+--- SOURCE: PG2619
+[VERSE 1]
+I cannot make him dead!
+His fair sunshiny head
+Is ever bounding round my study chair;
+Yet when my eyes, now dim
+With tears, I turn to him,
+The vision vanishes,--he is not there!
+[VERSE 2]
+I walk my parlor floor,
+And, through the open door,
+I hear a footfall on the chamber stair;
+I'm stepping toward the hall
+To give my boy a call;
+And then bethink me that--he is not there!
+[VERSE 3]
+I thread the crowded street;
+A satchelled lad I meet,
+With the same beaming eyes and colored hair;
+And, as he's running by,
+Follow him with my eye,
+Scarcely believing that--he is not there!
+[VERSE 4]
+I know his face is hid
+Under the coffin-lid;
+Closed are his eyes; cold is his forehead fair;
+My hand that marble felt;
+O'er it in prayer I knelt;
+Yet my heart whispers that--he is not there!
+[VERSE 5]
+I cannot make him dead!
+When passing by the bed,
+So long watched over with parental care,
+My spirit and my eye,
+Seek him inquiringly,
+Before the thought comes that--he is not there!
+[VERSE 6]
+When, at the cool gray break
+Of day, from sleep I wake,
+With my first breathing of the morning air
+My soul goes up, with joy,
+To Him who gave my boy;
+Then comes the sad thought that--he is not there!
+[VERSE 7]
+When at the day's calm close,
+Before we seek repose,
+I'm with his mother, offering up our prayer;
+Whate'er I may be saying,
+I am, in spirit, praying
+For our boy's spirit, though--he is not there!
+[VERSE 8]
+Not there!--Where, then, is he?
+The form I used to see
+Was but the raiment that he used to wear.
+The grave, that now doth press
+Upon that cast-off dress,
+Is but his wardrobe locked;--he is not there!
+[VERSE 9]
+He lives!--In all the past
+He lives; nor, to the last,
+Of seeing him again will I despair;
+In dreams I see him now;
+And on his angel brow,
+I see it written, "Thou shalt see me there!"
+[VERSE 10]
+Yes, we all live to God!
+Father, thy chastening rod
+So help us, thine afflicted ones, to bear,
+That, in the spirit-land,
+Meeting at thy right hand,
+'Twill be our heaven to find that--he is there!

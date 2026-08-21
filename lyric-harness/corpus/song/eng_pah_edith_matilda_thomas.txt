@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1925, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 3
+# songs: 5
 
 --- TITLE: PONCE DE LEON
 --- SOURCE: PG47476
@@ -95,3 +97,94 @@ Build them a monument whom to death-sleep, in their sleep, ye betrayed!
   Proud and stern let it be--
                     Cuba free!
 So, only, the stain shall be razed--so, only, the great debt be paid!
+
+--- TITLE: Patmos
+--- SOURCE: PG2621
+[VERSE 1]
+All around him Patmos lies,
+Who hath spirit-gifted eyes,
+Who his happy sight can suit
+To the great and the minute.
+Doubt not but he holds in view
+A new earth and heaven new;
+Doubt not but his ear doth catch
+Strain nor voice nor reed can match:
+Many a silver, sphery note
+Shall within his hearing float.
+All around him Patmos lies,
+Who unto God's priestess flies:
+Thou, O Nature, bid him see,
+Through all guises worn by thee,
+A divine apocalypse.
+Manifold his fellowships:
+Now the rocks their archives ope;
+Voiceless creatures tell their hope
+In a language symbol-wrought;
+Groves to him sigh out their thought;
+Musings of the flower and grass
+Through his quiet spirit pass.
+'Twixt new earth and heaven new
+He hath traced and holds the clue,
+Number his delights ye may not;
+Fleets the year but these decay not.
+Now the freshets of the rain,
+Bounding on from hill to plain,
+Show him earthly streams have rise
+In the bosom of the skies.
+Now he feels the morning thrill,
+As upmounts, unseen and still,
+Dew the wing of evening drops.
+Now the frost, that meets and stops
+Summer's feet in tender sward,
+Greets him, breathing heavenward.
+Hieroglyphics writes the snow,
+Through the silence falling slow;
+Types of star and petaled bloom
+A white missal-page illume.
+By these floating symbols fine,
+Heaven-truth shall be divine.
+[VERSE 2]
+All around him Patmos lies,
+Who hath spirit-gifted eyes;
+He need not afar remove,
+He need not the times reprove,
+Who would hold perpetual lease
+Of an isle in seas of peace.
+
+--- TITLE: Moly
+--- SOURCE: PG2621
+[VERSE 1]
+The root is hard to loose
+From hold of earth by mortals; but God's power
+Can all things do.  'Tis black, but bears a flower
+As white as milk.
+--Chapman's Homer
+[VERSE 2]
+Traveler, pluck a stem of moly,
+If thou touch at Circe's isle,--
+Hermes' moly, growing solely
+To undo enchanter's wile!
+When she proffers thee her chalice,--
+Wine and spices mixed with malice,--
+When she smites thee with her staff,
+To transform thee, do thou laugh!
+Safe thou art if thou but bear
+The least leaf of moly rare.
+Close it grows beside her portal,
+Springing from a stock immortal,--
+Yes! and often has the Witch
+Sought to tear it from its niche;
+But to thwart her cruel will
+The wise God renews it still.
+Though it grows in soil perverse,
+Heaven hath been its jealous nurse,
+And a flower of snowy mark
+Springs from root and sheathing dark;
+Kingly safeguard, only herb
+That can brutish passion curb!
+Some do think its name should be
+Shield-Heart, White Integrity.
+Traveler, pluck a stem of moly,
+If thou touch at Circe's isle,--
+Hermes' moly, growing solely
+To undo enchanter's wile!

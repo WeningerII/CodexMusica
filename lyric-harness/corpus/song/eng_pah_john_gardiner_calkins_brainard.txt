@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1828, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 2
 
 --- TITLE: ON THE DEATH OF COMMODORE OLIVER H. PERRY
 --- SOURCE: PG47476
@@ -52,3 +54,27 @@ The feeble cord would not be swept in vain;
   And though the sound might never reach thy grave,
 Yet there are spirits here that to the strain
 Would send a still small voice responsive back again.
+
+--- TITLE: "I SAW TWO CLOUDS AT MORNING"
+--- SOURCE: PG2620
+[VERSE 1]
+I saw two clouds at morning,
+Tinged by the rising sun,
+And in the dawn they floated on,
+And mingled into one;
+I thought that morning cloud was blest,
+It moved so sweetly to the west.
+[VERSE 2]
+I saw two summer currents
+Flow smoothly to their meeting,
+And join their course, with silent force,
+In peace each other greeting;
+Calm was their course through banks of green,
+While dimpling eddies played between.
+[VERSE 3]
+Such be your gentle motion,
+Till life's last pulse shall beat;
+Like summer's beam, and summer's stream,
+Float on, in joy, to meet
+A calmer sea, where storms shall cease,
+A purer sky, where all is peace.

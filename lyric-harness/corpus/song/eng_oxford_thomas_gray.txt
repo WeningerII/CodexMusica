@@ -3,10 +3,12 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1771; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1771, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 4
+# songs: 5
 
 --- TITLE: Elegy written in a Country Churchyard
 --- SOURCE: PG66619
@@ -414,3 +416,61 @@ Know, one false step is ne’er retrieved,
 Not all that tempts your wand’ring eyes
 And heedless hearts, is lawful prize;
   Nor all that glisters, gold.
+
+--- TITLE: An Ode on the Spring
+--- SOURCE: PG2621
+[VERSE 1]
+Lo! where the rosy-bosomed Hours,
+Fair Venus' train, appear,
+Disclose the long-expecting flowers,
+And wake the purple year!
+The Attic warbler pours her throat
+Responsive to the cuckoo's note,
+The untaught harmony of spring:
+While, whispering pleasure as they fly,
+Cool Zephyrs through the clear blue sky
+Their gathered fragrance fling.
+[VERSE 2]
+Where'er the oak's thick branches stretch
+A broader browner shade,
+Where'er the rude and moss-grown beech
+O'er-canopies the glade,
+Beside some water's rushy brink
+With me the Muse shall sit, and think
+(At ease reclined in rustic state)
+How vain the ardor of the crowd,
+How low, how little are the proud,
+How indigent the great!
+[VERSE 3]
+Still is the toiling hand of Care:
+The panting herds repose:
+Yet, hark, how through the peopled air
+The busy murmur glows!
+The insect-youth are on the wing,
+Eager to taste the honied spring
+And float amid the liquid noon;
+Some lightly o'er the current skim,
+Some show their gaily-gilded trim
+Quick-glancing to the sun.
+[VERSE 4]
+To Contemplation's sober eye
+Such is the race of Man:
+And they that creep, and they that fly,
+Shall end where they began.
+Alike the Busy and the Gay
+But flutter through life's little day,
+In Fortune's varying colors dressed:
+Brushed by the hand of rough Mischance,
+Or chilled by Age, their airy dance
+They leave, in dust to rest.
+[VERSE 5]
+Methinks I hear, in accents low,
+The sportive kind reply:
+Poor moralist! and what art thou?
+A solitary fly!
+Thy joys no glittering female meets,
+No hive hast thou of hoarded sweets,
+No painted plumage to display;
+On hasty wings thy youth is flown;
+Thy sun is set, thy spring is gone--
+We frolic, while 'tis May.

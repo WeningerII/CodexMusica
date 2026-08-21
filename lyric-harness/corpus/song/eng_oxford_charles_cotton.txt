@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/The-Oxford-Book-of-English-Verse-1250-1900_66619 66619-0.txt md5 8452deb48555b64dde8df60ddfa3a2bd (Phase-1 concurrent load 2026-08-20)
 # licence: public domain -- author d. 1687; the volume's own title page prints '_Impression of 1931_' and '_First edition, 1900_', so the edition is <=1931 on its own face
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1687, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1687, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own ALLCAPS author-section heading with printed dates, above the numbered poems it governs
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 1
+# songs: 3
 
 --- TITLE: To Cœlia
 --- SOURCE: PG66619
@@ -37,3 +41,132 @@ My infant love could humbly wait
   When, young, it scarce knew how
 To plead; but grown to man’s estate,
   He is impatient now.
+
+--- TITLE: LES AMOURS
+--- SOURCE: PG2620
+[VERSE 1]
+She that I pursue, still flies me;
+Her that follows me, I fly;
+She that I still court, denies me;
+Her that courts me, I deny;
+Thus in one web we're subtly wove,
+And yet we mutiny in love.
+[VERSE 2]
+She that can save me, must not do it;
+She that cannot, fain would do;
+Her love is bound, yet I still woo it;
+Hers by love is bound in woe:
+Yet how can I of love complain,
+Since I have love for love again?
+[VERSE 3]
+This is thy work, imperious Child,
+Thine's this labyrinth of love,
+That thus hast our desires beguiled,
+Nor seest how thine arrows rove.
+Then, prithee, to compose this stir,
+Make her love me, or me love her.
+[VERSE 4]
+But, if irrevocable are
+Those keen shafts that wound us so,
+Let me prevail with thee thus far,
+That thou once more take thy bow;
+Wound her hard heart, and by my troth,
+I'll be content to take them both.
+
+--- TITLE: The Retirement
+--- SOURCE: PG2621
+[VERSE 1]
+Farewell, thou busy world, and may
+We never meet again;
+Here I can eat and sleep and pray,
+And do more good in one short day
+Than he who his whole age outwears
+Upon the most conspicuous theaters,
+Where naught but vanity and vice appears.
+[VERSE 2]
+Good God! how sweet are all things here!
+How beautiful the fields appear!
+How cleanly do we feed and lie!
+Lord! what good hours do we keep!
+How quietly we sleep!
+What peace, what unanimity!
+How innocent from the lewd fashion
+Is all our business, all our recreation!
+[VERSE 3]
+O, how happy here's our leisure!
+O, how innocent our pleasure!
+O ye valleys!  O ye mountains!
+O ye groves, and crystal fountains!
+How I love, at liberty,
+By turns to come and visit ye!
+Dear solitude, the soul's best friend,
+That man acquainted with himself dost make,
+And all his Maker's wonders to attend,
+With thee I here converse at will,
+And would be glad to do so still,
+For it is thou alone that keep'st the soul awake.
+[VERSE 4]
+How calm and quiet a delight
+Is it, alone,
+To read and meditate and write,
+By none offended, and offending none!
+To walk, ride, sit, or sleep at one's own ease;
+And, pleasing a man's self, none other to displease.
+[VERSE 5]
+O my beloved nymph, fair Dove,
+Princess of rivers, how I love
+Upon thy flowery banks to lie,
+And view thy silver stream,
+When gilded by a Summer's beam!
+And in it all thy wanton fry
+Playing at liberty,
+And, with my angle, upon them
+The all of treachery
+I ever learned industriously to try!
+[VERSE 6]
+Such streams Rome's yellow Tiber cannot show,
+The Iberian Tagus, or Ligurian Po;
+The Maese, the Danube, and the Rhine,
+Are puddle-water, all, compared with thine;
+And Loire's pure streams yet too polluted are
+With thine, much purer, to compare;
+The rapid Garonne and the winding Seine
+Are both too mean,
+Beloved Dove, with thee
+To vie priority;
+Nay, Tame and Isis, when conjoined, submit,
+And lay their trophies at thy silver feet.
+[VERSE 7]
+O my beloved rocks, that rise
+To awe the earth and brave the skies!
+From some aspiring mountain's crown
+How dearly do I love,
+Giddy with pleasure to look down;
+And from the vales to view the noble heights above;
+O my beloved caves! from dog-star's heat,
+And all anxieties, my safe retreat;
+What safety, privacy, what true delight,
+In the artificial light
+Your gloomy entrails make,
+Have I taken, do I take!
+How oft, when grief has made me fly,
+To hide me from society
+E'en of my dearest friends, have I,
+In your recesses' friendly shade,
+All my sorrows open laid,
+And my most secret woes intrusted to your privacy!
+[VERSE 8]
+Lord! would men let me alone,
+What an over-happy one
+Should I think myself to be--
+Might I in this desert place,
+(Which most men in discourse disgrace)
+Live but undisturbed and free!
+Here, in this despised recess,
+Would I, maugre Winter's cold,
+And the Summer's worst excess,
+Try to live out to sixty full years old,
+And, all the while,
+Without an envious eye
+On any thriving under Fortune's smile,
+Contented live, and then contented die.

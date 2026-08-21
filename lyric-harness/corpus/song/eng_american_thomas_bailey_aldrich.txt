@@ -4,10 +4,16 @@
 # licence: public domain - Project Gutenberg; title page MDCCCXCIX (L.C. Page, Boston); edition published 1899 -- The Golden Treasury of American Songs and Lyrics, ed. F. L. Knowles
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1907, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1907, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# source: GITenberg/The-Home-Book-of-Verse---Volume-4_2622 2622.txt md5 3c040b48ba2ce137aaacafba83480ec9 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1907, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 4
 # attribution: the edition's own trailing author credit after each poem
 # structure: [VERSE n] / [CHORUS] / [REFRAIN] as printed; 'AIR--"X"' lines hoisted into the TITLE line as [air: X]
 # stripped: footnote markers and bodies, page numbers, editorial prose, illustration captions
-# songs: 11
+# songs: 18
 
 --- TITLE: Destiny
 --- SOURCE: PG15553
@@ -435,3 +441,319 @@ And trampled in the dust. For so of old
 The thronging Goth and Vandal trampled Rome,
 And where the temples of the Cæsars stood
 The lean wolf unmolested made her lair.
+
+--- TITLE: Baby Bell
+--- SOURCE: PG2619
+[VERSE 1]
+Have you not heard the poets tell
+How came the dainty Baby Bell
+Into this world of ours?
+The gates of heaven were left ajar:
+With folded hands and dreamy eyes,
+Wandering out of Paradise,
+She saw this planet, like a star,
+Hung in the glistening depths of even--
+Its bridges, running to and fro,
+O'er which the white-winged Angels go,
+Bearing the holy Dead to heaven.
+She touched a bridge of flowers--those feet,
+So light they did not bend the bells
+Of the celestial asphodels,
+They fell like dew upon the flowers:
+Then all the air grew strangely sweet.
+And thus came dainty Baby Bell
+Into this world of ours.
+[VERSE 2]
+She came and brought delicious May;
+The swallows built beneath the eaves;
+Like sunlight, in and out the leaves
+The robins went, the livelong day;
+The lily swung its noiseless bell;
+And on the porch the slender vine
+Held out its cups of fairy wine.
+How tenderly the twilights fell!
+Oh, earth was full of singing-birds
+And opening springtide flowers,
+When the dainty Baby Bell
+Came to this world of ours.
+[VERSE 3]
+O Baby, dainty Baby Bell,
+How fair she grew from day to day!
+What woman-nature filled her eyes,
+What poetry within them lay--
+Those deep and tender twilight eyes,
+So full of meaning, pure and bright
+As if she yet stood in the light
+Of those oped gates of Paradise.
+And so we loved her more and more:
+Ah, never in our hearts before
+Was love so lovely born:
+We felt we had a link between
+This real world and that unseen--
+The land beyond the morn;
+And for the love of those dear eyes,
+For love of her whom God led forth,
+(The mother's being ceased on earth
+When Baby came from Paradise,)--
+For love of Him who smote our lives,
+And woke the chords of joy and pain,
+We said, Dear Christ!--our hearts bowed down
+Like violets after rain.
+[VERSE 4]
+And now the orchards, which were white
+And pink with blossoms when she came,
+Were rich in autumn's mellow prime;
+The clustered apples burnt like flame,
+The folded chestnut burst its shell,
+The grapes hung purpling, range on range;
+And time wrought just as rich a change
+In little Baby Bell.
+Her lissome form more perfect grew,
+And in her features we could trace,
+In softened curves, her mother's face.
+Her angel-nature ripened too:
+We thought her lovely when she came,
+But she was holy, saintly now...
+Around her pale angelic brow
+We saw a slender ring of flame.
+[VERSE 5]
+God's hand had taken away the seal
+That held the portals of her speech;
+And oft she said a few strange words
+Whose meaning lay beyond our reach.
+She never was a child to us,
+We never held her being's key;
+We could not teach her holy things
+Who was Christ's self in purity.
+[VERSE 6]
+It came upon us by degrees,
+We saw its shadow ere it fell--
+The knowledge that our God had sent
+His messenger for Baby Bell.
+We shuddered with unlanguaged pain,
+And all our hopes were changed to fears,
+And all our thoughts ran into tears
+Like sunshine into rain.
+We cried aloud in our belief,
+"Oh, smite us gently, gently, God!
+Teach us to bend and kiss the rod,
+And perfect grow through grief."
+Ah! how we loved her, God can tell;
+Her heart was folded deep in ours.
+Our hearts are broken, Baby Bell!
+[VERSE 7]
+At last he came, the messenger,
+The messenger from unseen lands:
+And what did dainty Baby Bell?
+She only crossed her little hands,
+She only looked more meek and fair!
+We parted back her silken hair,
+We wove the roses round her brow--
+White buds, the summer's drifted snow--
+Wrapped her from head to foot in flowers...
+And thus went dainty Baby Bell
+Out of this world of ours.
+
+--- TITLE: NOCTURNE
+--- SOURCE: PG2620
+[VERSE 1]
+Up to her chamber window
+A slight wire trellis goes,
+And up this Romeo's ladder
+Clambers a bold white rose.
+[VERSE 2]
+I lounge in the ilex shadows,
+I see the lady lean,
+Unclasping her silken girdle,
+The curtain's folds between.
+[VERSE 3]
+She smiles on her white-rose lover,
+She reaches out her hand
+And helps him in at the window -
+I see it where I stand!
+[VERSE 4]
+To her scarlet lip she holds him,
+And kisses him many a time -
+Ah, me! it was he that won her
+Because he dared to climb!
+
+--- TITLE: PALABRAS CARINOSAS
+--- SOURCE: PG2620
+[VERSE 1]
+Good-night!  I have to say good-night
+To such a host of peerless things!
+Good-night unto the slender hand
+All queenly with its weight of rings;
+Good-night to fond, uplifted eyes,
+Good-night to chestnut braids of hair,
+Good-night unto the perfect mouth,
+And all the sweetness nestled there -
+The snowy hand detains me, then
+I'll have to say Good-night again!
+[VERSE 2]
+But there will come a time, my love,
+When, if I read our stars aright,
+I shall not linger by this porch
+With my farewells.  Till then, good-night!
+You wish the time were now?  And I.
+You do not blush to wish it so?
+You would have blushed yourself to death
+To own so much a year ago -
+What, both these snowy hands! ah, then
+I'll have to say Good-night again!
+
+--- TITLE: L'EAU DORMANTE
+--- SOURCE: PG2620
+[VERSE 1]
+Curled up and sitting on her feet,
+Within the window's deep embrasure,
+Is Lydia; and across the street,
+A lad, with eyes of roguish azure,
+Watches her buried in her book.
+In vain he tries to win a look,
+And from the trellis over there
+Blows sundry kisses through the air,
+Which miss the mark, and fall unseen,
+Uncared for.  Lydia is thirteen.
+[VERSE 2]
+My lad, if you, without abuse,
+Will take advice from one who's wiser,
+And put his wisdom to more use
+Than ever yet did your adviser;
+If you will let, as none will do,
+Another's heartbreak serve for two,
+You'll have a care, some four years hence,
+How you lounge there by yonder fence
+And blow those kisses through that screen -
+For Lydia will be seventeen.
+
+--- TITLE: "FOREVER AND A DAY"
+--- SOURCE: PG2620
+[VERSE 1]
+I little know or care
+If the blackbird on the bough
+Is filling all the air
+With his soft crescendo now;
+For she is gone away,
+And when she went she took
+The springtime in her look,
+The peachblow on her cheek,
+The laughter from the brook,
+The blue from out the May -
+And what she calls a week
+Is forever and a day!
+[VERSE 2]
+It's little that I mind
+How the blossoms, pink or white,
+At every touch of wind
+Fall a-trembling with delight;
+For in the leafy lane,
+Beneath the garden-boughs,
+And through the silent house
+One thing alone I seek.
+Until she come again
+The May is not the May,
+And what she calls a week
+Is forever and a day!
+
+--- TITLE: Thalia
+--- SOURCE: PG2622
+[VERSE 1]
+I say it under the rose--
+ oh, thanks!--yes, under the laurel,
+We part lovers, not foes;
+ we are not going to quarrel.
+[VERSE 2]
+We have too long been friends
+ on foot and in gilded coaches,
+Now that the whole thing ends,
+ to spoil our kiss with reproaches.
+[VERSE 3]
+I leave you; my soul is wrung;
+ I pause, look back from the portal--
+Ah, I no more am young,
+ and you, child, you are immortal!
+[VERSE 4]
+Mine is the glacier's way,
+ yours is the blossom's weather--
+When were December and May
+ known to be happy together?
+[VERSE 5]
+Before my kisses grow tame,
+ before my moodiness grieve you,
+While yet my heart is flame,
+ and I all lover, I leave you.
+[VERSE 6]
+So, in the coming time,
+ when you count the rich years over,
+Think of me in my prime,
+ and not as a white-haired lover,
+[VERSE 7]
+Fretful, pierced with regret,
+ the wraith of a dead Desire
+Thrumming a cracked spinet
+ by a slowly dying fire.
+[VERSE 8]
+When, at last, I am cold--
+ years hence, if the gods so will it--
+Say, "He was true as gold,"
+ and wear a rose in your fillet!
+[VERSE 9]
+Others, tender as I,
+ will come and sue for caresses,
+Woo you, win you, and die--
+ mind you, a rose in your tresses!
+[VERSE 10]
+Some Melpomene woo,
+ some hold Clio the nearest;
+You, sweet Comedy--you
+ were ever sweetest and dearest!
+[VERSE 11]
+Nay, it is time to go.
+ When writing your tragic sister
+Say to that child of woe
+ how sorry I was I missed her.
+[VERSE 12]
+Really, I cannot stay,
+ though "parting is such sweet sorrow"...
+Perhaps I will, on my way
+ down-town, look in to-morrow!
+
+--- TITLE: The World's Way
+--- SOURCE: PG2622
+[VERSE 1]
+At Haroun's court it chanced, upon a time,
+An Arab poet made this pleasant rhyme:
+[VERSE 2]
+"The new moon is a horseshoe, wrought of God,
+Wherewith the Sultan's stallion shall be shod."
+[VERSE 3]
+On hearing this, the Sultan smiled, and gave
+The man a gold-piece.  Sing again, O slave!
+[VERSE 4]
+Above his lute the happy singer bent,
+And turned another gracious compliment.
+[VERSE 5]
+And, as before, the smiling Sultan gave
+The man a sekkah.  Sing again, O slave!
+[VERSE 6]
+Again the verse came, fluent as a rill
+That wanders, silver-footed, down a hill.
+[VERSE 7]
+The Sultan, listening, nodded as before,
+Still gave the gold, and still demanded more.
+[VERSE 8]
+The nimble fancy that had climbed so high
+Grew weary with its climbing by and by:
+[VERSE 9]
+Strange discords rose; the sense went quite amiss;
+The singer's rhymes refused to meet and kiss:
+[VERSE 10]
+Invention flagged, the lute had got unstrung,
+And twice he sang the song already sung.
+[VERSE 11]
+The Sultan, furious, called a mute, and said,
+O Musta, straightway whip me off his head!
+[VERSE 12]
+Poets! not in Arabia alone
+You get beheaded when your skill is gone.

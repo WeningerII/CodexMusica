@@ -1,0 +1,54 @@
+# author: Gustav Kobbe (1857-1918)
+# region: 
+# region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1918, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-2_2620 2620.txt md5 2ebb72a03c928eacc355203b2386597f (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1918, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 2
+# attribution: the edition's own per-poem author credit, cross-checked against its table of contents
+# structure: [VERSE n] as printed; stanza breaks as the edition sets them
+# stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
+# songs: 2
+
+--- TITLE: To a Little Girl
+--- SOURCE: PG2619
+[VERSE 1]
+Her eyes are like forget-me-nots,
+So loving, kind and true;
+Her lips are like a pink sea-shell
+Just as the sun shines through;
+Her hair is like the waving grain
+In summer's golden light;
+And, best of all, her little soul
+Is, like a lily, white.
+
+--- TITLE: FROM THE HARBOR HILL
+--- SOURCE: PG2620
+[VERSE 1]
+"Is it a sail?" she asked.
+"No," I said.
+"Only a white sea-gull with its pinions spread."
+[VERSE 2]
+"Is it a spar?" she asked.
+"No," said I.
+"Only the slender light-house tower against the sky."
+[VERSE 3]
+"Flutters a pennant there?"
+"No," I said.
+"Only a shred of cloud in the sunset red."
+[VERSE 4]
+"Surely a hull, a hull!"
+"Where?" I cried.
+"Only a rock half-bared by the ebbing tide."
+[VERSE 5]
+"Wait you a ship?" I asked.
+"Aye!" quoth she.
+"The Harbor Belle; her mate comes home to marry me.
+[VERSE 6]
+"Surely the good ship hath
+Met no harm?"
+Was it the west wind wailed or the babe on her arm?
+[VERSE 7]
+"The Harbor Belle!" she urged.
+Naught said I. -
+For I knew o'er the grave o' the Harbor Belle the sea-gulls fly.

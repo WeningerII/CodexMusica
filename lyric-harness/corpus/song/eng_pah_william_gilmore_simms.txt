@@ -3,10 +3,14 @@
 # region-basis: UNDECLARED — this edition prints no nationality or tradition for its authors, and data/song_regions.tsv's rule is 'author's tradition; edition origin as tiebreak only', so a region taken from the edition's origin would be the Taylor-sisters defect. Blank is the taxonomy's honest undeclared state, not a gap to fill later by guessing.
 # source: GITenberg/Poems-of-American-History_47476 47476-8.txt md5 8066e20ffa0ea5545750e0c8b92a34ac (Phase-1 concurrent load 2026-08-20)
 # licence: public domain - Project Gutenberg; 'COPYRIGHT, 1908 AND 1922, BY BURTON EGBERT STEVENSON'; edition published 1922 -- Poems of American History, ed. B. E. Stevenson
+# source: GITenberg/The-Home-Book-of-Verse---Volume-1_2619 2619.txt md5 cc5e9f7b88436840e62b5ae53ca193e8 (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1870, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 1
+# source: GITenberg/The-Home-Book-of-Verse---Volume-3_2621 2621.txt md5 eb6c09aaf19652a5a3947ad98a6a88cc (Phase-1 concurrent load 2026-08-20)
+# licence: public domain -- author d. 1870, as this edition's own printed credit gives it; NO claim is made about the edition date: the PG text is a 1930s printing naming no source edition (it credits authors dead as late as 1936 and prints 'Ford Madox Ford' against its own index's 'Hueffer'), so this item rests on its author being long dead and not on the impression -- The Home Book of Verse, ed. B. E. Stevenson, vol. 3
 # attribution: the edition's own per-poem author credit, cross-checked against its INDEX OF AUTHORS
 # structure: [VERSE n] as printed; stanza breaks as the edition sets them
 # stripped: editor's apparatus, footnote markers and bodies, glossary lines, page numbers, indexes
-# songs: 2
+# songs: 4
 
 --- TITLE: THE SWAMP FOX
 --- SOURCE: PG47476
@@ -184,3 +188,58 @@ More dreadful the doom that on treason
   Avenges the wrongs of the state;
 And the oak-tree for many a season
   Bears fruit for the vultures of fate!
+
+--- TITLE: The Grape-Vine Swing
+--- SOURCE: PG2619
+[VERSE 1]
+Lithe and long as the serpent train,
+Springing and clinging from tree to tree,
+Now darting upward, now down again,
+With a twist and a twirl that are strange to see;
+Never took serpent a deadlier hold,
+Never the cougar a wilder spring,
+Strangling the oak with the boa's fold,
+Spanning the beach with the condor's wing.
+[VERSE 2]
+Yet no foe that we fear to seek,--
+The boy leaps wild to thy rude embrace;
+Thy bulging arms bear as soft a cheek
+As ever on lover's breast found place;
+On thy waving train is a playful hold
+Thou shalt never to lighter grasp persuade;
+While a maiden sits in thy drooping fold,
+And swings and sings in the noonday shade!
+[VERSE 3]
+O giant strange of our Southern woods!
+I dream of thee still in the well-known spot,
+Though our vessel strains o'er the ocean floods,
+And the Northern forest beholds thee not;
+I think of thee still with a sweet regret,
+As the cordage yields to my playful grasp,--
+Dost thou spring and cling in our woodlands yet?
+Does the maiden still swing in thy giant clasp?
+
+--- TITLE: Song in March
+--- SOURCE: PG2621
+[VERSE 1]
+Now are the winds about us in their glee,
+Tossing the slender tree;
+Whirling the sands about his furious car,
+March cometh from afar;
+Breaks the sealed magic of old Winter's dreams,
+And rends his glassy streams;
+Chafing with potent airs, he fiercely takes
+Their fetters from the lakes,
+And, with a power by queenly Spring supplied,
+Wakens the slumbering tide.
+[VERSE 2]
+With a wild love he seeks young Summer's charms
+And clasps her to his arms;
+Lifting his shield between, he drives away
+Old Winter from his prey;--
+The ancient tyrant whom he boldly braves,
+Goes howling to his caves;
+And, to his northern realm compelled to fly,
+Yields up the victory;
+Melted are all his bands, o'erthrown his towers,
+And March comes bringing flowers.
