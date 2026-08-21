@@ -1,12 +1,17 @@
 # RESULTS — mark coverage: what the section vocabulary cannot type
 
-`quality/mark_coverage.py`, run 2026-08-20 over `corpus/song/` at 1,423
-files. **REPINNED 2026-08-20** after the Home Book of Verse safe subset
+`quality/mark_coverage.py`, run 2026-08-20 over `corpus/song/` at
+~~1,423~~ **1,414** files (1,423 was the count BEFORE the same commit's
+23 twin merges; `corpus/song/` has not changed since). **REPINNED 2026-08-20** after the Home Book of Verse safe subset
 landed: typed 71,748 -> 76,944 and ~~36.4%~~ -> 38.0%, and **nothing
 else moved at all**. HBV marks its blocks `[VERSE n]` throughout, so it
 adds 5,196 typed blocks and not one new refused mark — decided,
 undecided, apparatus and the witnessed-function count are byte-identical
-across a load of 1,049 items. The refusal is Persian, and no amount of
+across a load of 1,049 items. **~~and nothing else moved at all~~ —
+STRUCK 2026-08-21: two UNPINNED figures moved with it, `[VERSE]` by
+5,197 and the rhyme channel by 4,147, and the invariance claim was made
+over the four buckets `--check` covers rather than over the document.
+Scope an invariance to what is pinned, or pin what it is scoped to.** The refusal is Persian, and no amount of
 English anthology moves it: that invariance is the sharper half of this
 repin. Re-derived by `python3 quality/mark_coverage.py --check` (exit 1
 on drift; an off-by-one on any pinned figure fails it, proven by
@@ -37,9 +42,41 @@ summed** (doctrine 79): a decided refusal is a position the vocabulary
 has taken, an undecided one is a gap nobody has looked at, and adding
 them would report the second as though someone had thought about it.
 
-**The single most common section mark in this corpus is one the
+~~**The single most common section mark in this corpus is one the
 vocabulary refuses to type.** `[BAYT]` appears 70,866 times against
-`[VERSE]`'s 68,976.
+`[VERSE]`'s 68,976.~~
+
+**STRUCK 2026-08-21: THIS SENTENCE WAS FALSE ON THE DAY IT WAS REPINNED,
+AND THE PINNED CHECK CANNOT SEE IT.** `[VERSE]` is **74,173**, not
+68,976 — 68,976 is the PRE-HBV count, and the repin above says in its
+own words that HBV "adds 5,196 typed blocks". 68,976 + 5,196 = 74,172,
+i.e. the number this sentence compares against was superseded by the
+same edit that wrote the paragraph above it. **`[VERSE]` 74,173 beats
+`[BAYT]` 70,866: the most common section mark is TYPED.**
+
+`VERSE` is not in `PINNED`, so `mark_coverage.py --check` passes green
+over it — a false headline under a passing gate, which is this
+document's own subject one level up.
+
+**WHAT SURVIVES, and it is most of the point:**
+
+* `[BAYT]` at 70,866 outnumbers **every typed mark except `VERSE`** —
+  `BURDEN`, the next one, is 1,753.
+* The bucket split is untouched and pinned: **38.0% typed against 62.0%
+  refused**, and **99.7%** of decided refusals are `fas`.
+* The refusal is Persian and no English anthology moves it. That half of
+  the repin's claim holds; what does not hold is "nothing else moved at
+  all" — `[VERSE]` moved by 5,197 and the rhyme channel by 4,147, and
+  neither is pinned, so neither was seen.
+
+**AND THE COMPARISON HAS A SECOND TRAP, walked into on 2026-08-21 by a
+reader of this document.** `[VERSE n]` is **47,655 in `eng_` alone** and
+74,173 corpus-wide (eng 47,655 · ltc 19,552 · fin 5,944 · cym 780 · san
+242). Comparing the English-only count against `[BAYT]`'s corpus-wide
+70,866 makes the struck sentence look true again by summing two
+different populations — doctrine 79, in a paragraph that invokes
+doctrine 79 three lines above. **State the population beside the mark or
+the comparison is not a comparison.**
 
 And the second headline, which is about the vocabulary rather than the
 corpus:
@@ -138,7 +175,11 @@ instances placed on the 15-way `VARIATION_KINDS` ladder.
 Sanskrit, Finnish and Malay; handing it the English phonology would be
 doctrine 45's error — a checker silently picking a phonology and making
 a claim it never states. The rhyme channel therefore answers
-**cannot_tell 156,286, told 0**. The refusal is the finding, not a gap.
+**cannot_tell ~~156,286~~ 160,433, told 0**. The refusal is the finding,
+not a gap. (Repinned 2026-08-21: the count moved with the HBV load and
+this figure is not in `PINNED` either. **`told 0` — the finding — is
+untouched**, which is why the drift is a bookkeeping fault and not a
+result.)
 
 | mark | recurs | ladder (top kinds) |
 |---|---|---|

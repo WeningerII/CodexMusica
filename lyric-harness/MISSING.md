@@ -2914,6 +2914,37 @@ anything — `counters.py`'s own docstring records why a remedy that writes is
 a laundering path (`WHAT --write MAY NOT WRITE`), and a sweep that repaired
 would inherit that hole across thirty instruments at once instead of one.
 
+**AND THE SHAPE HAS A SECOND, LARGER FORM: A GREEN CHECK OVER A FALSE
+SENTENCE — measured 2026-08-21 across eight RESULTS documents.** The pins
+above are one fact in two media. The wider defect is one fact in a PIN and in
+PROSE, where the pin passes and the prose is wrong, because **the pin is
+narrower than the document**:
+
+| document | its `--check` | what drifted beside it |
+|---|---|---|
+| `RESULTS_MARK_COVERAGE.md` | PASS on 6 buckets | its **headline sentence was false the day it was repinned** — `[VERSE]` 68,976 is the pre-HBV count against a live 74,173, and `VERSE` is not in `PINNED` |
+| `RESULTS_FWER.md` | PASS, pins `family=candidate` | the `scored` column moved 29.1% → 37.9% and **the comparison's sign flipped** |
+| `RESULTS_CYM_RHYME.md` | PASS on 48 counts across seven sections | §0's cross-document quote inverted, and its seven `data/sources.tsv` LINE NUMBERS are no longer the rows they name |
+| `RESULTS_FIN_RHYME.md` | **has no `--check`** | §7 and §9 moved; `quality/phonology/fin.py`'s docstring carries the identical stale pair, so a quote writes it back |
+| `RESULTS_SONG_FLOOR.md` | PARTIAL PASS | §2 says 108 authors where §5·A says 879, with a whole FPR table measured through cuts that no longer ship |
+| `RESULTS_NULL_SHAPES.md` | 27 checks pass | nine figures moved, including 17.3% asserted as "today" three times beside 10.7% asserted as "today" twice |
+| `RESULTS_SPANS.md` | PASS on all six | drifted only where it declares in advance that it will |
+| `RESULTS_RHYME_CAPACITY.md` | PASS | **no drift at all** |
+
+**THE ONE THAT DID NOT DRIFT IS THE ANSWER.** `RESULTS_RHYME_CAPACITY.md`
+holds because its one corpus-derived quantity carries the JUDGE'S MD5 in the
+artifact itself (`#judge` header). It names the **moved file**, not the moved
+number — so a stale figure cannot survive a corpus change, no matter how much
+prose sits beside it. Every other document pins numbers and lets the prose
+around them rot. That is the cheapest of the four mechanisms observed and the
+only one that works without widening the pin to cover the whole document.
+
+**AND THE MECHANISM IS ALWAYS THE SAME:** a repin edits the figures its
+`--check` covers and leaves the figures one screen away describing the
+previous corpus. Twice now the repinning commit's OWN prose contained the
+correction — `RESULTS_MARK_COVERAGE.md` says HBV "adds 5,196 typed blocks"
+three paragraphs above a sentence that compares against the pre-HBV count.
+
 **THIS ENTRY IS ITS OWN FIRST INSTANCE.** Filing it moves the count 76 → 77,
 so both pins above move again, in the commit that describes them. That is the
 cheapest possible demonstration and it is deliberate: if the two figures in
