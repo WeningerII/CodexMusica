@@ -549,6 +549,43 @@ def test_the_discharge_hatch_is_narrow():
            bool(got.get(VE.REFUSED)), "discharged: %s" % got.get(VE.REFUSED, []))
 
 
+
+def test_the_corpus_table_column_is_found_by_its_header():
+    print("\n11. CORPUS_TABLE_ROW — which cell holds the count")
+    HEAD2 = "| prefix | language | songs |"
+    HEAD4 = "| prefix | songs | air of its OWN | air RESTATING the title |"
+
+    def row(text, header):
+        e = _E("M-11", "MISSING.md", "PARTIAL", "### M-11 · probe `PARTIAL`")
+        return VE.shape_corpus_table_row(
+            VE.Segment(e, text, 0, kind="table", table_header=header))
+
+    # THE TWO-COLUMN SHAPE STILL READS THE WAY IT ALWAYS DID.
+    v = row("| `fin_` | Finnish | 962 |", HEAD2)
+    check("the classic `| prefix | language | songs |` row still answers",
+          v is not None and v.status == VE.TRUE, str(v and v.measured))
+    v = row("| `fin_` | Finnish | 999999 |", HEAD2)
+    check("...and a wrong count in it is still FALSE",
+          v is not None and v.status == VE.FALSE, str(v and v.measured))
+    # THE DEFECT. `[\w ]+?` matches digits, so a numeric second column shifted
+    # the read one cell right and M-11's airs table was marked FALSE for a
+    # figure it never asserted (`| `cym_` | 391 | 13 | 0 |` read as 13 songs).
+    v = row("| `cym_` | 391 | 13 | 0 |", HEAD4)
+    check("a FOUR-column table is read by its header, not by position — the "
+          "391 is the song count and the 13 is the airs",
+          v is not None and v.status == VE.TRUE and "391" in v.claim,
+          str(v and (v.claim, v.measured)))
+    v = row("| `cym_` | 999999 | 13 | 0 |", HEAD4)
+    check("...and it still FAILS on a wrong count in the right column, so "
+          "this is a re-aim and not an exemption",
+          v is not None and v.status == VE.FALSE, str(v and v.measured))
+    # AND A TABLE WITH NO SONGS COLUMN IS PASSED OVER RATHER THAN GUESSED AT.
+    v = row("| `cym_` | 13 | 0 |", "| prefix | airs | restated |")
+    check("a table whose header names no `songs` column returns None — this "
+          "row is not making the claim this shape checks",
+          v is None, str(v and (v.status, v.measured)))
+
+
 def main():
     print("=" * 78)
     print("PROSE SCOPE — quality/verify_entries.py")
@@ -563,6 +600,7 @@ def main():
     test_capacity_figures_are_re_derived()
     test_floor_thresholds_are_re_derived()
     test_the_discharge_hatch_is_narrow()
+    test_the_corpus_table_column_is_found_by_its_header()
     print()
     print("=" * 78)
     if _FAILURES:

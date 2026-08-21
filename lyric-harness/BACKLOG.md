@@ -562,7 +562,8 @@ still stands and the build re-acquires none of it by any door.**
 **K-7 stays `PARTIAL`** and names what is left; one item of it is closed here —
 see below.
 
-### 3.2 · ZERO named airs across EVERY non-English song staged `M-11` — AND THE FIELD IS NOT DECLARED
+### 3.2 · ~~ZERO named airs across EVERY non-English song staged~~ — **31, and `--- AIR:` was NOT the blocker** `M-11` — `CLOSED 2026-08-21`
+**TASK DISCHARGED — `M-11` STAYS OPEN.** The task was *make the named-air rate re-derivable and find out whether the ZERO holds*. Both are done: the rate is a command, and the ZERO is false by 31. M-11 stays PARTIAL because its finding was never only about readability — Persian, Malay and Sanskrit still record **0** over 8,504 songs, and each for a reason no reader can fix (M-13's EPUBs carry no per-poem musical metadata, M-12's rāga and tāla headings are refused on licence, M-8's Welsh metre index does not exist).
 The field the whole sourcing round was chasing. ~~The English corpus has 331 of
 5,006.~~ ~~8,009 non-English songs~~ — **the denominator has moved and the ZERO
 has not**, which is why this heading no longer carries one: `M-11` records the
@@ -579,6 +580,54 @@ re-derivable until `--- AIR:` exists.** Declaring it is a one-line change to the
 stagers and it makes two recorded numbers checkable.
 The Gītagovinda's rāga/tāla headings exist and are CC BY-**NC**-SA
 (doctrine 92: the admissible copy and the complete copy are disjoint).
+
+**`--- AIR:` WAS NOT ADDED, AND THAT IS THE FINDING — 2026-08-21.** This entry
+had already located the `[air: NAME]` convention and measured it (318 then,
+**539** now over a grown `eng_`), and still concluded that a `--- AIR:` line
+was needed before anything was re-derivable. It was not. The value is present,
+in every case, in the title. What was missing is that **nothing SPLIT it**, so
+`grid.MarkedSong.title` read `'CHWI FEIBION DEWRION  [air: Marseillaise]'` for
+11,099 songs — the air was a substring of another coordinate rather than a
+coordinate (doctrine 45). Writing a second line carrying the same string into
+29,053 staged titles would have made a duplicate copy of one fact, which is
+the defect this codebase spends most of its time deleting. If the owner wants
+the literal field anyway it is a mechanical follow-on from
+`split_named_air`; it is not a prerequisite for anything.
+
+**SHIPPED.** `quality/grid.py` gains `split_named_air`, `named_air_kind`,
+`named_air_census` and `MarkedSong.air`; `quality/audit_corpus.py:_items`
+splits it too; `audit_register` D5 stops returning `UNVERIFIABLE` and reads
+the whole corpus rather than `eng_` alone.
+
+**MEASURED, two numerators, never summed** (doctrine 79):
+
+| | songs | air of its OWN | air RESTATING the title |
+|---|---:|---:|---:|
+| M-11's five (`fas` `fin` `cym` `msa` `san`) | 9,857 | **31** | 0 |
+| `eng_` | 8,667 | 539 | 0 |
+| `ltc_` | 10,529 | 0 | 10,529 |
+
+The 31 are Welsh (13) and Finnish (18) — `DAU FYWYD  [air: Rodney]`,
+`MAALLENI.  [air: Ur svenska hjärtans djup en gång]`. The 10,529 are **not**
+what falsifies the ZERO: a ci's title IS its 詞牌 and
+`quality/build_ci_corpus.py:1137` prints one variable into both fields, so the
+equality is guaranteed by the stager and is not evidence that anybody recorded
+a tune. Counting them in would answer a different question from the one M-11
+asks, and M-11's own text already drew that line before it was mechanical.
+
+**AND THE SPLIT FOUND SOMETHING ELSE, filed as `M-20`.**
+`audit_corpus.false_unit_items` compares body lines against other items'
+titles, and a title with an air glued on could never be matched. Splitting it
+gains 2 findings and loses 0 (19 → 21 corpus-wide, RUN-ON 9 → 11 over `eng_`):
+Hogg's `LOVE IS LIKE A DIZZINESS` and Rodger's `BEHAVE YOURSEL' BEFORE FOLK`
+are each staged TWICE in their own file — same opening line, ~25 shared long
+lines — once with the air and once without. The near-duplicate pair check does
+not carry them either (Jaccard 0.39 and 0.36, under the floor), so they were
+invisible to both instruments at once for two different reasons.
+
+**GUARDED BY** `quality/test_grid.py`, 19 checks, whose census re-derives every
+figure above from `corpus/song/` rather than pinning it; and
+`quality/test_corpus_audit.py`, repinned to `RUN-ON 11` with the two named.
 
 ### 3.3 · The Persian edition gate is open on all 30 files `M-13`
 `ganjoor.net` is egress-blocked and the per-book منبع note lives only there.

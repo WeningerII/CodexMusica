@@ -168,6 +168,14 @@ ROOT = os.path.dirname(HERE)
 if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
+# AFTER the path insert, because this file is RUN as a script as often as it is
+# imported -- `python3 quality/audit_corpus.py` has no `quality` package on the
+# path until the two lines above run. A module-header import here exits 1 on a
+# traceback, and this file's ordinary exit code is ALSO 1 (it exits 1 when it
+# has findings), so the crash was indistinguishable from a normal run until the
+# outputs were diffed.
+from quality.grid import split_named_air                       # noqa: E402
+
 SOURCES_TSV = os.path.join(ROOT, "data", "sources.tsv")
 CORPUS_DIR = os.path.join(ROOT, "corpus")
 
@@ -1354,14 +1362,25 @@ ITEM_MIN_LINES = 4
 
 def _items(cf):
     """-> [(title, [body lines])].  The `--- TITLE:` block is the unit every
-    staged file in this corpus writes."""
+    staged file in this corpus writes.
+
+    THE TITLE IS SPLIT FROM ITS AIR, 2026-08-21. The stagers write the tune
+    into the title value as `[air: Paddy's Wedding]`, and reading the whole
+    string as the title made `false_unit_items` compare body lines against a
+    title with metadata glued to it. Two real duplicate stagings were hidden
+    by exactly that: Hogg's `LOVE IS LIKE A DIZZINESS` and Rodger's
+    `BEHAVE YOURSEL' BEFORE FOLK` each appear TWICE in their own file, once
+    with the air and once without, and only the un-aired copy could ever
+    match. Splitting gains 2 findings and loses none (19 -> 21 over the whole
+    corpus, RUN-ON 9 -> 11 over `eng_`).
+    """
     cur, body, out = None, [], []
     for l in cf._lines:
         s = l.rstrip()
         if s.startswith("--- TITLE:"):
             if cur is not None:
                 out.append((cur, body))
-            cur, body = s[10:].strip(), []
+            cur, body = split_named_air(s[10:])[0], []
         elif cur is not None and s.strip() and not _MARKER.match(s):
             body.append(s.strip())
     if cur is not None:

@@ -987,6 +987,18 @@ def shape_marker_absent(seg):
 
 TABLE_ROW_RE = re.compile(r"^\|\s*`(\w+_)`\s*\|\s*([\w ]+?)\s*\|\s*\**([\d,]+)\**\s*\|")
 
+#: The header cell that names the column this shape is about. Read rather than
+#: assumed, because the positional rule below is only correct for a two-column
+#: table and cannot tell when it is not looking at one.
+TABLE_SONGS_HEAD = re.compile(r"\bsongs?\b", re.I)
+
+
+def _cells(row):
+    """-> a markdown row's cells. Shared by `CORPUS_TABLE_ROW` and
+    `FLOOR_THRESHOLD`, which each defined it identically until 2026-08-21 --
+    the second definition silently shadowed the first."""
+    return [c.strip() for c in row.strip().strip("|").split("|")]
+
 
 def shape_corpus_table_row(seg):
     """A table row `| \\`fin_\\` | Finnish | 962 |` -- songs staged under one
@@ -997,11 +1009,35 @@ def shape_corpus_table_row(seg):
     commit rather than on a real error, which is why its verdict prints the
     commit it was measured at and the entry it belongs to is expected to pin
     the same way.
+
+    THE COLUMN IS FOUND BY ITS HEADER, and that repair is from 2026-08-21.
+    `TABLE_ROW_RE` reads the THIRD cell, on the assumption that the second one
+    holds a language NAME -- and `[\\w ]+?` matches digits, so a table whose
+    second column is a number shifted the whole read one cell right in silence.
+    M-11's four-column airs table found it: `| \\`cym_\\` | 391 | 13 | 0 |` was
+    reported as claiming 13 songs under `cym_`, and the entry was marked FALSE
+    for a figure it never asserted. When the table carries a header naming a
+    `songs` column, that column is used; a header with none means this row is
+    not making the claim this shape checks, and it is passed over rather than
+    guessed at.
     """
     m = TABLE_ROW_RE.match(seg.text.strip())
     if not m:
         return None
     prefix, claimed = m.group(1), int(m.group(3).replace(",", ""))
+    head = getattr(seg, "table_header", "") or ""
+    if head:
+        hs = _cells(head)
+        idx = [i for i, c in enumerate(hs) if TABLE_SONGS_HEAD.search(c)]
+        if not idx:
+            return None
+        row = _cells(seg.text)
+        if idx[0] >= len(row):
+            return None
+        got = re.search(r"([\d,]+)", row[idx[0]])
+        if not got:
+            return None
+        claimed = int(got.group(1).replace(",", ""))
     if not song_files(prefix):
         return Verdict("CORPUS_TABLE_ROW", REFUSED, "%s = %d" % (prefix, claimed),
                        "no `corpus/song/%s*` files", NO_INSTRUMENT)
@@ -1435,10 +1471,6 @@ _FLOOR_ABSENT = {"—", "-", "–", "n/a", "none", ""}
 #: recording the runs that produced them. Requiring the DECLARED KEYS, and
 #: several of them, is what separates "the shipped profile" from "a run".
 _FLOOR_MIN_KEYS = 3
-
-
-def _cells(row):
-    return [c.strip() for c in row.strip().strip("|").split("|")]
 
 
 def shape_floor_threshold(seg):

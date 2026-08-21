@@ -79,6 +79,7 @@ to say that a chorus came back with one word changed.
 
 import itertools
 import json
+import os
 import re
 import unicodedata
 from collections import Counter
@@ -2442,6 +2443,10 @@ class Block:
 @dataclass
 class MarkedSong:
     title: str = ""
+    #: The tune this song was sung to, when the staged header names one.
+    #: `""` when it does not -- never `None`, so a caller cannot mistake
+    #: "no air was recorded" for "the air is unknown to this reader".
+    air: str = ""
     path: str = ""
     language: str = ""
     blocks: list = field(default_factory=list)
@@ -2501,6 +2506,73 @@ def ingest_mark(mark):
                    f"purpose so that additions are decisions."))
 
 
+#: THE NAMED AIR, WHICH WAS NEVER MISSING -- IT WAS INSIDE ANOTHER COORDINATE.
+#: `MISSING.md` M-11 records ZERO named airs across every non-English song
+#: staged and names `--- AIR:` as the blocker. There is no `--- AIR:` line in
+#: `corpus/song/` and there does not need to be: the stagers already write the
+#: tune, into the TITLE VALUE, as `--- TITLE: CHWI FEIBION DEWRION  [air:
+#: Marseillaise]`. Adding a second line carrying the same string would be the
+#: duplicate copy this codebase keeps deleting; what was actually wrong is that
+#: nothing SPLIT it, so `MarkedSong.title` read
+#: `'CHWI FEIBION DEWRION  [air: Marseillaise]'` for 11,099 songs and the air
+#: was a substring rather than a coordinate (doctrine 45).
+AIR_IN_TITLE = re.compile(r"\s*\[\s*air\s*:\s*([^\]]*)\]\s*", re.I)
+
+
+def split_named_air(value):
+    """-> `(title, air)` for a `--- TITLE:` value. `air` is `""` if none.
+
+    The air is REMOVED from the title, because leaving it in both places is
+    what made the two disagree. Everything else in the value is preserved,
+    including the ci convention's `其N` disambiguator.
+    """
+    m = AIR_IN_TITLE.search(value)
+    if not m:
+        return value.strip(), ""
+    return (value[:m.start()] + " " + value[m.end():]).strip(), m.group(1).strip()
+
+
+#: A ci's title IS its 詞牌 -- `build_ci_corpus.py` prints one variable into
+#: both fields -- so `air == title` is guaranteed by the stager rather than
+#: measured, and it is not independent evidence that anybody recorded a tune.
+#: Counted apart from a DISTINCT air and never summed with it (doctrine 79):
+#: they answer two different questions and M-11 asks only the second.
+AIR_RESTATED = "restated"
+AIR_DISTINCT = "distinct"
+
+
+def named_air_kind(title_value):
+    """-> `AIR_DISTINCT`, `AIR_RESTATED`, or `""` when no air is named."""
+    title, air = split_named_air(title_value)
+    if not air:
+        return ""
+    head = re.sub(r"\s*\u5176\s*\d+\s*$", "", title).strip()
+    return AIR_RESTATED if air in (title, head) else AIR_DISTINCT
+
+
+def named_air_census(paths):
+    """-> `{prefix: {AIR_DISTINCT: n, AIR_RESTATED: n, "songs": n}}`.
+
+    The rate M-11 asks for, re-derivable by command, with its two numerators
+    kept apart. A prefix with songs and no airs reports zeros rather than
+    being absent from the mapping -- an absent key reads like a pass.
+    """
+    out = {}
+    for path in paths:
+        prefix = os.path.basename(path)[:3]
+        cell = out.setdefault(prefix, {AIR_DISTINCT: 0, AIR_RESTATED: 0,
+                                       "songs": 0})
+        with open(path, encoding="utf-8", errors="replace") as fh:
+            for line in fh:
+                if not line.startswith("--- TITLE:"):
+                    continue
+                cell["songs"] += 1
+                kind = named_air_kind(line[len("--- TITLE:"):])
+                if kind:
+                    cell[kind] += 1
+    return out
+
+
 def read_marked_songs(path, language=""):
     """-> [MarkedSong] from one `corpus/song/*.txt` file.
 
@@ -2541,7 +2613,8 @@ def read_marked_songs(path, language=""):
         for n, raw in enumerate(f, 1):
             line = raw.rstrip("\n")
             if line.startswith("--- TITLE:"):
-                cur = MarkedSong(title=line[len("--- TITLE:"):].strip(),
+                _t, _air = split_named_air(line[len("--- TITLE:"):])
+                cur = MarkedSong(title=_t, air=_air,
                                  path=path, language=language)
                 songs.append(cur)
                 continue

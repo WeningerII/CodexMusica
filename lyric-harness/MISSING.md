@@ -1724,7 +1724,7 @@ refuses binaries, so `wikimedia/wikisource` config `20231201.cy` — Welsh
 Wikisource, 1.25 MB, one parquet file — is **named, located and unreadable**.
 Highest-value single Welsh target for whoever next has a parquet-capable channel.
 
-### M-11 · ZERO named airs across EVERY non-English song staged `OPEN`
+### M-11 · ~~ZERO named airs across EVERY non-English song staged~~ — **31, and the field was inside the title all along** `PARTIAL`
 The field this whole round was chasing. ~~ZERO named airs across 8,009
 non-English songs~~ — **the heading carried a denominator that moves and a
 finding that does not**, so it no longer carries the denominator at all. The
@@ -1754,9 +1754,66 @@ largest structural gap left in the corpus.
 > rule and no date, so nobody could tell a drift from a mis-transcription; this
 > is the same defect K-1's `154,346` had. Re-derive with
 > `python3 quality/counters.py` (the `corpus/song/eng_*` row states the rule) or
-> `python3 quality/audit_register.py --slow`. **Neither figure is re-derivable as
+> `python3 quality/audit_register.py --slow`. ~~**Neither figure is re-derivable as
 > a NAMED-AIR rate until `--- AIR:` exists** (§3.2), which is the actual blocker
-> and is unchanged.
+> and is unchanged.~~ **BOTH ARE RE-DERIVABLE AS OF 2026-08-21, AND THE ZERO IS
+> FALSE.** See below.
+
+> **THE ZERO IS FALSE — 31, MEASURED 2026-08-21, AND THE BLOCKER WAS AN
+> INFERENCE RATHER THAN A MISSING FIELD.** `--- AIR:` does not exist and does
+> not need to: the stagers already write the tune into the TITLE VALUE, as
+> `--- TITLE: CHWI FEIBION DEWRION  [air: Marseillaise]`. Nothing SPLIT it, so
+> `MarkedSong.title` read the whole polluted string for 11,099 songs and the
+> air was a substring rather than a coordinate. `quality.grid.split_named_air`
+> and `named_air_census` read it now; re-derive with
+> `python3 quality/audit_register.py --slow` (derivation D5) or
+> `python3 quality/test_grid.py`.
+>
+> | prefix | songs | air of its OWN | air RESTATING the title |
+> |---|---:|---:|---:|
+> | `cym_` | 391 | **13** | 0 |
+> | `fin_` | 962 | **18** | 0 |
+> | `fas_` | 8,350 | 0 | 0 |
+> | `msa_` | 129 | 0 | 0 |
+> | `san_` | 25 | 0 | 0 |
+> | **the five this entry names** | **9,857** | **31** | **0** |
+> | `eng_` | 8,667 | 539 | 0 |
+> | `ltc_` | 10,529 | 0 | 10,529 |
+>
+> **THE 31 ARE WHAT FALSIFIES THE ZERO. THE 10,529 ARE NOT, AND THE TWO ARE
+> NEVER SUMMED** (doctrine 79). A ci's title IS its 詞牌, and
+> `quality/build_ci_corpus.py:1137` prints one variable into both fields, so
+> `air == title` is guaranteed by the stager rather than measured — true, and
+> no evidence that anybody recorded a tune. This entry's own text already drew
+> that line ("the Chinese ci that DO carry a 詞牌 ... are the one admitted
+> file"); the line is now mechanical. The count in that sentence has moved,
+> ~~500~~ **10,529**.
+>
+> Samples, verbatim: `CHWI FEIBION DEWRION  [air: Marseillaise]` ·
+> `DAU FYWYD  [air: Rodney]` ·
+> `MAALLENI.  [air: Ur svenska hjärtans djup en gång]` ·
+> `Juomalaulu.  [air: Sjung om studentens lyckliga dag]`.
+>
+> **THE ENGLISH FIGURE MOVED TOO.** `331 of 5,006 (6.6%)` is now
+> **539 of 8,667 (6.2%)**, and `audit_register` D5 reads the whole corpus
+> rather than `eng_` alone — its marker inventory had never seen RHYME, JU,
+> GE, JUAN, SYLLABLES, RIME, FUNCTION, SPLIT or SUNG-EVIDENCE, so an
+> English-only rate could not have falsified an entry about non-English songs.
+>
+> **TESTED WHILE OPEN** — `quality/test_grid.py` names this entry in 19
+> checks, and every one of them is about the half that CLOSED: whether the air
+> can be read as a coordinate, and what the census returns. None of them
+> touches the half that keeps this entry PARTIAL, which is that three
+> traditions record no air at all for reasons outside this repository. A test
+> naming an open entry is CONTESTED by default (`quality/triage.py`), and this
+> paragraph is the argument that it is not.
+>
+> **WHAT KEEPS THIS ENTRY PARTIAL.** Persian, Malay and Sanskrit still record
+> **0** over 8,504 songs, which is the largest part of the original finding
+> and is untouched: the Persian EPUBs carry no per-poem musical metadata at
+> all (M-13), the Gītagovinda's rāga and tāla headings exist and are refused
+> on licence (M-12), and Welsh prints tunes but no metre index (M-8). The
+> finding was never only about whether a field could be read.
 
 ### M-12 · The admissible copy and the complete copy are DISJOINT `OPEN`
 Doctrine 92. Three instances in one round, and "find a better source" is the
@@ -2329,5 +2386,35 @@ declared dialect, which this repository does not have.** Until it exists,
 `Declaration.nucleus_agreement` declares the shape with `identity` and
 `licensed` reachable. Doctrine 44's distinction applies — this is "cannot
 obtain", not "hard to build".
+
+### M-20 · Two English poems are staged TWICE in their own file, and the title's air hid it `OPEN`
+**Found 2026-08-21 while splitting the named air out of the title (§3.2), by
+the checker that was already looking.** `quality/audit_corpus.py`'s
+`false_unit_items` compares each item's body lines against the OTHER items'
+titles in the same file. It read `--- TITLE: X  [air: Y]` whole, so an item
+whose title carried an air could never be matched against — and both halves of
+each pair below carry one on exactly one side:
+
+| file | items | shared long lines | opening line |
+|---|---|---:|---|
+| `corpus/song/eng_celtic_james_hogg.txt` | 10 `LOVE IS LIKE A DIZZINESS  [air: Paddy's Wedding]` / 27 `"LOVE IS LIKE A DIZZINESS"` | 25 of 45 / 44 | `I lately lived in quiet ease,` |
+| `corpus/song/eng_celtic_msm_alexander_rodger.txt` | 1 `BEHAVE YOURSEL' BEFORE FOLK  [air: Good-morrow to your night-cap]` / 5 `"BEHAVE YOURSEL' BEFORE FOLK"` | 24 of 45 / 45 | `Behave yoursel' before folk,` |
+
+Same opening line, same poem, staged twice. **The near-duplicate pair check
+does NOT carry them**: Jaccard is 0.39 and 0.36, under `ITEM_OVERLAP_FLOOR`,
+because the two printings differ in stanza count and refrain spelling. So
+these were invisible to both instruments at once, for two different reasons.
+
+**Recorded, not repaired**, per `CORPUS_LOADING_PROTOCOL.md`. What is owed is
+a decision about which printing wins, and that is a reading question rather
+than a mechanical one — `eng_` song counts are inflated by 2 until it is
+taken, and any per-song rate over those two files double-counts one poem.
+
+**The label they surface under is imprecise and is left that way on purpose.**
+`false_unit_items` reports them as `RUN-ON`, whose meaning is *the extractor
+glued the next poem onto the end of this one*. That is not what these are. The
+shape keys on WHERE the match falls, the match falls deep in the body, and
+relabelling by hand inside a pinned test would be writing a judgement into a
+count. `quality/test_corpus_audit.py` pins `RUN-ON 11` with this entry named.
 
 ## Add below this line

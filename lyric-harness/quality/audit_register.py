@@ -752,19 +752,52 @@ def _d_authors():
 
 
 def _d_named_airs():
-    """There is no declared air field. That IS the answer."""
-    fields = collections.Counter(re.findall(r"^--- ([A-Z_]+):",
-                                            "\n".join(open(f, encoding="utf-8", errors="replace").read()
-                                                      for f in _song_files("eng_")), re.M))
-    strict = 0
-    for f in _song_files("eng_"):
-        for l in open(f, encoding="utf-8", errors="replace"):
-            if l.startswith("--- TITLE:") and re.search(r"\[[Aa]ir|\([Aa]ir|AIR *[-—:]|Air *[-—:]", l):
-                strict += 1
-    return UNVERIFIABLE, ("no --- AIR: field exists (markers present: %s); the "
-                          "nearest mechanical rule over TITLE strings gives %d"
-                          % (", ".join(sorted(fields)), strict)), \
-        "331 of 5,006 songs carry a named air (6.6%)"
+    """~~There is no declared air field. That IS the answer.~~ THE FIELD WAS
+    THERE, INSIDE ANOTHER ONE — 2026-08-21.
+
+    This row returned `UNVERIFIABLE` on the ground that `--- AIR:` does not
+    exist, and it still does not. What was wrong is the inference: the stagers
+    write the tune into the TITLE VALUE, as `[air: Paddy's Wedding]`, and
+    `quality/grid.split_named_air` now reads it. So the rate M-11 asks for is
+    re-derivable and this row answers.
+
+    TWO NUMERATORS, NEVER SUMMED (doctrine 79). A ci's title IS its 詞牌 and
+    `build_ci_corpus.py:1137` prints one variable into both fields, so an
+    `air == title` restatement is guaranteed by code rather than measured and
+    is not evidence that anybody recorded a tune. It is counted and reported
+    apart from a DISTINCT air, which is the only one M-11's question is about.
+
+    THE SCOPE WAS ALSO WRONG. Both loops read `eng_` only, so the marker
+    inventory this row printed as "the markers present" never saw RHYME, JU,
+    GE, JUAN, SYLLABLES, RIME, FUNCTION, SPLIT or SUNG-EVIDENCE, and the
+    English-only rate could not have falsified an entry about non-English
+    songs. Both read the whole corpus now.
+    """
+    from quality.grid import (named_air_census, AIR_DISTINCT, AIR_RESTATED)
+    files = _song_files()
+    fields = collections.Counter(re.findall(
+        r"^--- ([A-Z_-]+):",
+        "\n".join(open(f, encoding="utf-8", errors="replace").read()
+                  for f in files), re.M))
+    cen = named_air_census(files)
+    eng = cen.get("eng", {})
+    five = ("fas", "fin", "cym", "msa", "san")
+    n5 = sum(cen.get(p, {}).get("songs", 0) for p in five)
+    a5 = sum(cen.get(p, {}).get(AIR_DISTINCT, 0) for p in five)
+    got = ("%d of %d eng songs name an air of their own (%.1f%%); M-11's five "
+           "non-English prefixes name %d over %d songs (%s); %d ci RESTATE "
+           "their own title and are counted apart; no `--- AIR:` line exists "
+           "and none is needed (markers present: %s)"
+           % (eng.get(AIR_DISTINCT, 0), eng.get("songs", 0),
+              100.0 * eng.get(AIR_DISTINCT, 0) / max(1, eng.get("songs", 0)),
+              a5, n5,
+              ", ".join("%s %d" % (p, cen.get(p, {}).get(AIR_DISTINCT, 0))
+                        for p in five),
+              cen.get("ltc", {}).get(AIR_RESTATED, 0),
+              ", ".join(sorted(fields))))
+    # MOVED, not CONFIRMED: 331 of 5,006 was measured on a smaller corpus by a
+    # looser rule, and the register's own ZERO is falsified by the 31.
+    return MOVED, got, "331 of 5,006 songs carry a named air (6.6%)"
 
 
 def _d_chorus_stubs():
