@@ -558,6 +558,71 @@ across four languages. This is four more inside ENGLISH ALONE, and the count
 is now high enough that per-language is too coarse — it has to be per-DIALECT,
 declared, like everything else in `quality/phonology/`.
 
+> **VERIFIED AND RE-SCOPED 2026-08-21. `OPEN` stands — nothing shipped that
+> closes it — but the entry reads as "nothing exists" in one direction and
+> understates the live defect in the other. It is TWO coordinates with
+> DIFFERENT remedies (doctrine 44) and they should not be closed together.**
+>
+> **THE LIVE DEFECT: the two readers fail on the SAME staged line in OPPOSITE
+> directions, and nothing discloses it.** Measured on one Barnes line —
+>
+> ```
+> relations.tokenise : ['The','greäve','wer','wide','my','Jeäne','an',
+>                       'a-vallen','o','the','sky',"i'th",'hall','ithin','twer']
+> lyric_harness.line_tokens : ['The','gre','ve','wer','wide','my','Je','ne',
+>                       "an'",'a-vallen',"o'",'the','sky',"i'th'",'hall',
+>                       "'ithin","'twer"]
+> ```
+>
+> `relations.tokenise` KEEPS the diaeresis and DROPS every elision mark
+> (`an'`→`an`, `o'`→`o`, `'ithin`→`ithin`, `'twer`→`twer`), erasing jobs (i)
+> and (ii) above. `line_tokens` KEEPS all four marks and SHREDS the diaeresis
+> into two fragments (`greäve` → `gre`, `ve`). **One file, two readers,
+> opposite failures.** That is doctrine 1 on the same reader pair `F-4a` is
+> filed against, and `F-4a`'s premise re-derives at head (**5,963 of the staged
+> Barnes lines carry a non-ASCII letter**). `line_tokens` does normalise U+2019
+> first (doctrine 26), so **the Lancashire half is safe and the Dorset half is
+> not** — Waugh's curly apostrophes survive and Barnes's vowels do not.
+>
+> **THE DENOMINATOR THE ASK WAS MISSING**, over the staged Barnes, measured
+> 2026-08-21 — and the patterns are given because the count is a coordinate of
+> them, which is this entry's own subject: **8,008** final-elision tokens
+> (`\b\w+'` before space or punctuation), **553** apheresis tokens
+> (`(?<![\w'])'\w+`), **1,666** `a-` hyphen participles (`\ba-\w+`). An
+> independent count under slightly different patterns returned 7,982 / 541 /
+> 1,663 — a 0.3% disagreement about what a dialect mark IS, which is exactly
+> the undeclared coordinate this entry names.
+>
+> **REPIN THE HEADLINE EXAMPLE.** `i'th` / `o'th` — the one-token-two-elisions
+> case — is **1 line in Waugh and 13 in D'Urfey**. The double-elision example
+> lives in the 18th-c STAGE file, not the Lancashire one this entry attributes
+> it to.
+>
+> **THE DECLARATION IS ALREADY WRITTEN AND IS READ BY NOTHING.** All three
+> dialect files carry a `# orthography:` header, and Barnes's spells out all
+> three apostrophe jobs verbatim, including *"A tokeniser that treats hyphen as
+> a word break destroys it."* **No `.py` in the tree reads `orthography:`**,
+> and `data/song_regions.tsv` has one English row (`english`) that Barnes,
+> Waugh and Gay all declare — **there is no dialect axis at all**. The seam
+> exists: `build_stream(tokeniser=)` is injectable and no caller anywhere
+> passes a dialect tokeniser.
+>
+> **AND THE PHONOLOGY HALF IS BUILT AND PROVABLY INERT**, which is the
+> direction the entry understates. `relations.ALT_SURFACES` carries `poet`,
+> `Stream.provides('poet')` has its branch, and the `dialect rhyme` schema
+> fires on love/prove against a fixture dialect stream. `test_relations.py`
+> states the blocker in its own words — *"the blocker is a SOURCED dialect
+> phonology, and this repo has none"* — and `declared_inputs.PeriodPhonology`
+> (R2) is the declared carrier, requiring period + reconstruction + source.
+> **So ORTHOGRAPHY is a BUILD with a seam already in place, and PHONOLOGY is a
+> built mechanism blocked on an OBTAINABLE source.** Two remedies, one entry.
+>
+> **DO NOT CLOSE THIS BY WIDENING `line_tokens`** — that is `F-4a`'s job and it
+> costs the `song_endword_en.tsv` / `song_rhymepair_en.tsv` repins. The
+> orthography half belongs behind `build_stream(tokeniser=)`, where
+> `relations.py` imports nothing from `lyric_harness` (P10) and no shipped
+> table is derived, so the blast radius is zero.
+
 ### F-5 · An EDITION can retokenise a language `OPEN`
 **Verified 2026-08-10.** Rogers's 1855 *Modern Scottish Minstrel* sets a SPACE
 before enclitics — `There 's high and low`, `Wha 'll buy caller herrin'` — 189
@@ -643,11 +708,40 @@ holds.
 **Missing:** syllable placement on the grid, therefore any check that a line
 fits, is crammed, or leaves the bar empty.
 
-### G-2 · No prosodic fit — the central songwriting problem `OPEN`
+### G-2 · ~~No prosodic fit~~ — the METRIC half is delivered; melodic, vowel-length and the rest are the residue `PARTIAL`
 **Missing:** whether lyric stress agrees with melodic/metric accent, whether a
 long vowel sits on a long note, whether a phrase breathes, whether a word is
-broken across a rest. This is the thing that makes a lyric singable and nothing
-here touches it.
+broken across a rest. This is the thing that makes a lyric singable and
+~~nothing here touches it.~~
+
+> **REPINNED `OPEN` → `PARTIAL` 2026-08-21, AND THIS IS A SHARPER `D-1` THAN
+> `D-1` WAS: `quality/fit.py` CITES THIS ENTRY TWICE IN ITS OWN TEXT** — once
+> in its module docstring (`:14`) and once in its refusal table (`:2075`) —
+> so the module knew and the register did not, which is the whole shape of the
+> CITED bucket `quality/triage.py` files it under. `lyric_harness.py:6141`
+> names it too. The closing sentence is FALSE at head: `fit.py` exports
+> **15 `ANSWERABLE` rows and 7 `UNANSWERABLE` rows**, and its findings are
+> folded into the same set rhyme findings live in, so `SLOTS_EXCEEDED` is a
+> hard flag ON THE REVISION LOOP.
+>
+> Clause by clause, because the four are in four different states:
+>
+> | clause | at head |
+> |---|---|
+> | stress agrees with **metric** accent | **DELIVERED** — five codes: `PROMINENCE_EXCEEDS_HEADS` (unconditional pigeonhole), `HEADS_EXCEED_UNITS`, `PROMINENCE_CANNOT_ALIGN` (the maximum over every order-preserving setting a declared `Subdivision` permits), `PROMINENCE_OFF_HEAD` (declared `BeatGrid`), `EVEN_DIVISION_LANDINGS` (declared `Isochrony`) |
+> | stress agrees with **melodic** accent | open, and **not this entry's** — there is no tune to accent, which is `B-1` |
+> | a long vowel on a long note | open and **blocked on `F-2`**, said so by the module: the note-VALUE half is already exact (`_frac_value_name`); the vowel-length half needs `Syllable` to carry length |
+> | whether a phrase breathes / a word broken across a rest | open, **PERMANENT without a declared setting** — `fit.py`'s own row says melisma and rest *"IS the setting, and it comes from notation, not from text"* |
+>
+> **AND THE CALIBRATED PROMINENCE BAND [2, 7] IS NOT OPT-IN** — it runs on
+> every `inspect()` with no blueprint declared at all. So the first clause is
+> reaching drafts that never asked for meter.
+>
+> **THE BOUNDARY THIS LAYER IS BUILT ON, recorded so the entry stops implying
+> otherwise:** every verdict here is a function of the DECLARATION (doctrine
+> 4), never of a performance. **"Singable" is not a claim this layer will ever
+> make**, and the residue is 3 clauses of which 2 are blocked on another
+> entry's coordinate rather than on work this entry names.
 
 ### G-3 · Meter templates are unconnected to the bar grid `PARTIAL`
 **Now:** `lyric_harness.py meter TEMPLATE` checks a stress template on text.
@@ -677,8 +771,65 @@ the rhyme-pair level.
 
 ### H-2 · The pembayang/maksud property is unmeasured `OPEN`
 **Missing:** the Malay pantun carries rhyme ACROSS a deliberate semantic break.
-We found the property, quoted Skeat's own footnote describing it, extracted 82
-quatrains — and never measured the discontinuity, which is the interesting part.
+We found the property, quoted Skeat's own footnote describing it, extracted ~~82
+quatrains~~ — and never measured the discontinuity, which is the interesting part.
+
+> **REPINNED 2026-08-21. `OPEN` is right and the entry reads as "nothing to
+> build on", which is false twice over — there are TWO hooks, at different
+> layers, and one of them is fenced BY A TEST.**
+>
+> **THE POPULATION WAS THE WRONG ONE.** `82` is `data/sources.tsv`'s
+> *permissive extraction* figure (737 segments → 82 exact ABAB), not the staged
+> file. `corpus/song/msa_skeat_pantun.txt` holds **129 `--- TITLE:` blocks over
+> 1,357 lines, of which 126 are exactly four sung lines and 3 are three** —
+> re-derived through `audit_corpus._items`, the corpus reader. Naming the file
+> rather than the extraction is what makes the number re-derivable, and 126 is
+> the denominator any statistic here reports over.
+>
+> **HOOK 1 — the split is already exposed, and deliberately fenced.**
+> `msa.abab()` returns `{"pembayang": lines[:2], "maksud": lines[2:], "pairs",
+> "confirmed", "syllables"}`, under its own module prohibition: *"This module
+> makes no semantic measurement and must not be extended to make one."*
+> `quality/test_phon_msa.py` §13 **pins the fence** — *"no semantic field is
+> offered"* asserts the absence of `meaning`/`semantic`/`similarity`/`topic`
+> keys. So the halves are handed over and the measurement must live OUTSIDE
+> `msa.py`; that is a design decision already taken, not an obstacle.
+>
+> **HOOK 2 — `relations.py`'s `sense` capability exists at the WRONG GRAIN.**
+> The `pantun ABAB` schema declares the rhyme and says the discontinuity is
+> *"a sense-channel MUST-DIFFER this schema cannot state without a sense
+> resource"*. Unlike the `poet` precedent, `sense` is **not branchless**:
+> `Stream.provides('sense')` has its branch and `IdentityRule("sense", DIFFER)`
+> is already used by antanaclasis. What is missing is the grain — sense lives
+> on the per-TOKEN identity axis and this property is about two HALVES. There
+> is no span-pair semantic distance and no sense channel reader.
+> `declared_inputs.SenseAnnotation` (R3) demands a named inventory, annotator
+> and source, and no Malay sense inventory exists here. **That route is the
+> expensive one and is not what this entry is waiting on.**
+>
+> **THE CHEAP MEASUREMENT NEEDS NO SENSE RESOURCE AND IS BUILDABLE TODAY.**
+> Lexical overlap between the two halves under msa's own tokeniser, reported as
+> a distribution over the 126 quatrains, against a null that **re-pairs halves
+> across quatrains** — the same doctrine-14 shape `audit_kalevala_null.py` and
+> `audit_band_control.py` already use. **That null controls the function-word
+> floor automatically, which is why no Malay stopword list is needed**, and
+> that is the decision to write down rather than discover twice (`N-3` is what
+> an unrecorded Malay function-word list costs).
+>
+> **STATE THE CONFOUND BEFORE ANYONE RUNS IT:** lines 1&3 and 2&4 are
+> **rhyme-bound**, so their end words are not independent of each other. The
+> statistic excludes end words, or reports with and without as two counts that
+> are never summed (doctrine 79).
+>
+> **AND THIS WOULD BE THE msa CELL'S FIRST RESULT** — there is no
+> `RESULTS_MSA*.md` and no rate script, while cym / fin / kalevala / hafez /
+> prasa / tang each ship a `*_rate.py --check` beside an `audit_*_null.py`. The
+> templates are in-tree. Preregister first, per the house pattern, and declare
+> in the registration what it cannot claim: Skeat's fn.[431] is the only
+> attestation, the source's own caveat is that this is charm verse *using* the
+> form rather than a curated anthology, n=126 is small, and **a null is a
+> result** (doctrines 20/31) — said before the run so it cannot be read as a
+> failure after it.
 
 ### H-3 · No structural cliché beyond the grid `PARTIAL`
 **Now:** `stanza_lock()` names ~~five~~ **six** grid clichés. That is the only
