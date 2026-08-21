@@ -395,8 +395,17 @@ def test_manifest():
           "(exit 0)", p.returncode == 0, p.stdout[-200:])
     from quality import corpus_manifest as CM
     rec = CM.read_manifest()
-    check("the manifest covers the audit's own population (269 files)",
-          len(rec) == 269)
+    # DERIVED, NOT RETYPED. This carried the literal 269 — the audit's
+    # population before the corpus load — and went stale the moment the
+    # manifest was re-snapshotted at 1,423, which is how it surfaced. Two
+    # copies of one number is doctrine 1's case, and the remedy is not a
+    # fresher literal (that is the same defect with a later date, doctrine
+    # 58): the audit already declares its own population and this reads it.
+    from quality.audit_corpus import PINNED_SHAPE
+    want = PINNED_SHAPE["files"]
+    check("the manifest covers the audit's own population (%d files)" % want,
+          len(rec) == want, "manifest %d, audit's pinned shape %d"
+          % (len(rec), want))
     live = {rel for rel, _md5, _n in CM.scan()}
     check("manifest files and live files are the same set",
           set(rec) == live)

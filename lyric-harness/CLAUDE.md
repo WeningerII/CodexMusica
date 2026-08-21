@@ -154,7 +154,11 @@ earned-chain ceiling is its spelling-class count (tier 1: an earned
 scheme group needs distinct spellings), and the certified floor is a
 witness clique built THROUGH `Reviser.inspect` and stored word for
 word. Headlines: 162 families sustain a 12-chain, 81 a 20-chain, the
-deepest certified chain is 40 (EY) at the declared construction cap —
+deepest certified chain is 40, held by NINE families at the declared
+construction cap (`AE-K`, `AE-N`, `AO-L`, `EH-L`, `EY`, `EY-T-AH-D`,
+`EY-T-ER`, `EY-T-IH-NG`, `IH-Z-AH-M`) — ~~40 (EY)~~ named one of a sorted
+tie, and 40 measures the CAP rather than the language: those nine are
+bounded BELOW at 40 and their true ceilings are unmeasured —
 the long dense verse switches sound families because English forces
 it. Artifact `data/rhyme_capacity_eng.tsv`; `capacity` verb reads it;
 `--check` re-derives tier 1 exactly and re-grades the sample witnesses
