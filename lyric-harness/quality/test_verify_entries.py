@@ -32,6 +32,7 @@ which is the failure this whole layer exists to catch.
 
 from __future__ import annotations
 
+import io
 import os
 import re
 import sys
@@ -43,8 +44,9 @@ if ROOT not in sys.path:
 
 import quality.verify_entries as VE  # noqa: E402
 from quality.verify_entries import (           # noqa: E402
-    FALSE, PROSE_DOCS, PROSE_SHAPES, REFUSED, TRUE,
-    prose_entry, prose_self_test, read_prose, shape_repo_path, sweep_prose,
+    FALSE, PROSE_DOCS, PROSE_SCOPE, PROSE_SHAPES, REFUSED, ROOT, TRUE,
+    prose_entry, prose_self_test, read_prose, shape_capacity_figure,
+    shape_repo_path, sweep_prose,
 )
 
 #: A path that cannot exist, so the STALE tests can never expire the way a
@@ -190,15 +192,28 @@ def test_scope_is_declared_and_readable():
     check("CLAUDE.md, README.md and quality/METHOD.md are all in scope",
           set(PROSE_DOCS) >= {"CLAUDE.md", "README.md", "quality/METHOD.md"},
           "PROSE_DOCS is %s" % (PROSE_DOCS,))
-    check("only REPO_PATH_EXISTS is asked of them",
-          tuple(PROSE_SHAPES) == ("REPO_PATH_EXISTS",),
-          "PROSE_SHAPES is %s" % (PROSE_SHAPES,))
+    check("REPO_PATH_EXISTS is asked of exactly those three and no RESULTS "
+          "document — it answers 29 FALSE over the wider set, and a gate that "
+          "opens red is one people learn to skip",
+          PROSE_SHAPES["REPO_PATH_EXISTS"] == PROSE_DOCS,
+          "its scope is %s" % (PROSE_SHAPES["REPO_PATH_EXISTS"],))
+    check("CAPACITY_FIGURE reaches PAST them to the document that actually "
+          "quotes the figures — a per-shape scope, which is the rule the file "
+          "states about itself",
+          "quality/RESULTS_RHYME_CAPACITY.md"
+          in PROSE_SHAPES["CAPACITY_FIGURE"],
+          "its scope is %s" % (PROSE_SHAPES["CAPACITY_FIGURE"],))
+    check("PROSE_SCOPE is DERIVED from the per-shape scopes, so a scope added "
+          "above cannot leave a document unopened by the reader",
+          set(PROSE_SCOPE)
+          == {r for d in PROSE_SHAPES.values() for r in d},
+          "PROSE_SCOPE is %s" % (PROSE_SCOPE,))
 
     entries, refusals = read_prose()
     check("every declared document is readable at HEAD",
           not refusals, "refused: %s" % (refusals,))
     check("every declared document yields segments",
-          len(entries) == len(PROSE_DOCS)
+          len(entries) == len(PROSE_SCOPE)
           and all(e.segments for e in entries),
           "segment counts %s" % [(e.id, len(e.segments)) for e in entries])
 
@@ -213,6 +228,14 @@ def test_scope_is_declared_and_readable():
     check("and it is green having read a real population",
           len(results) >= 50 and not refused,
           "%d verdict(s), refusals %s" % (len(results), refused))
+    # EACH SHAPE SEPARATELY. A pooled ">= 50" is satisfied by REPO_PATH_EXISTS
+    # alone, so it would stay green with CAPACITY_FIGURE matching nothing at
+    # all — which is the shape of failure this whole file is about (doctrine
+    # 79: counts kept apart, never summed).
+    for name in sorted(PROSE_SHAPES):
+        n = sum(1 for _s, v in results if v.shape == name)
+        check("...and %s fired on a real population of its own" % name, n > 0,
+              "%d verdict(s)" % n)
 
 
 # ---------------------------------------------------------------------------
@@ -268,6 +291,79 @@ def test_comma_grouped_counts_are_read_whole():
           "this is the mutant, not the fix: it must still misread")
 
 
+# ---------------------------------------------------------------------------
+# 8. THE CAPACITY FIGURES, MUTATED IN THE DOCUMENTS THAT ACTUALLY CARRY THEM
+#
+# Not a synthetic fixture, and the difference is the point. The other sections
+# here drive fabricated sentences through the reader, which is right for
+# testing the READER. This one takes the SHIPPED documents, changes one digit
+# or drops one family, and requires the shape to go FALSE — because the failure
+# being guarded against is not "the shape is wrong", it is "the shape stopped
+# matching the way this repo writes its sentences" and no fixture can catch
+# that.
+#
+# Every mutation below is a real defect this repo has had or narrowly avoided:
+# the first four are the exact figures that went stale on 2026-08-21 when the
+# modal tables were rebuilt, restored to their pre-rebuild values.
+# ---------------------------------------------------------------------------
+
+#: (document, the shipped text, the mutant, what the mutant would mean).
+#: The anchor must appear EXACTLY ONCE — an anchor that stops matching would
+#: silently drop a mutation from the sweep and take the count down with it, so
+#: a miss is a FAILURE here rather than a skip (doctrine 20).
+CAPACITY_MUTANTS = [
+    ("quality/RESULTS_RHYME_CAPACITY.md",
+     "34 classes, certified", "35 classes, certified",
+     "AY-ER's spelling-class ceiling off by one"),
+    ("quality/RESULTS_RHYME_CAPACITY.md",
+     "certified ~~33~~ **31**", "certified ~~33~~ **30**",
+     "EH-R's certified floor off by one"),
+    ("quality/RESULTS_RHYME_CAPACITY.md",
+     "IY: attempts 40", "IY: attempts 41",
+     "the attempt bound quoted above CERTIFY_ATTEMPT_CAP"),
+    ("quality/RESULTS_RHYME_CAPACITY.md",
+     "**27**-word clique", "**28**-word clique",
+     "the `capacity fire` clique back to its pre-rebuild size"),
+    ("quality/RESULTS_RHYME_CAPACITY.md",
+     "IY: 228 classes", "IY: 229 classes",
+     "the second family of a semicolon list, which is the elliptical form"),
+    ("quality/RESULTS_RHYME_CAPACITY.md",
+     "`EY-T-IH-NG` and `IH-Z-AH-M`", "and `IH-Z-AH-M`",
+     "one family dropped from the tie at 40"),
+    ("quality/RESULTS_RHYME_CAPACITY.md",
+     "held by NINE families", "held by EIGHT families",
+     "the spelled tie count wrong while the named list stays right"),
+    ("CLAUDE.md",
+     "chain is 40, held by NINE", "chain is 39, held by NINE",
+     "the tie DEPTH moved, so those nine no longer hold it"),
+]
+
+
+def _capacity_false(rel, text):
+    """-> the FALSE verdicts the shape returns over one document's text."""
+    segs = prose_entry(rel, text).segments
+    return [v for v in (shape_capacity_figure(sg) for sg in segs)
+            if v is not None and v.status == FALSE]
+
+
+def test_capacity_figures_are_re_derived():
+    print("\n8. a per-family capacity figure is re-derived, not retyped")
+    for rel, old, new, why in CAPACITY_MUTANTS:
+        raw = io.open(os.path.join(ROOT, rel), encoding="utf-8").read()
+        if raw.count(old) != 1:
+            check("anchor %r is still in %s exactly once" % (old[:34], rel),
+                  False, "found %d — the mutation could not be applied, so "
+                         "this row proved nothing" % raw.count(old))
+            continue
+        clean = _capacity_false(rel, raw)
+        mutant = _capacity_false(rel, raw.replace(old, new))
+        check("%s: %s" % (rel.split("/")[-1], why),
+              not clean and mutant,
+              "shipped %d FALSE, mutated %d FALSE%s"
+              % (len(clean), len(mutant),
+                 " — " + mutant[0].measured.split(" (artifact")[0][:90]
+                 if mutant else ""))
+
 def main():
     print("=" * 78)
     print("PROSE SCOPE — quality/verify_entries.py")
@@ -279,6 +375,7 @@ def main():
     test_scope_is_declared_and_readable()
     test_shipped_probes()
     test_comma_grouped_counts_are_read_whole()
+    test_capacity_figures_are_re_derived()
     print()
     print("=" * 78)
     if _FAILURES:

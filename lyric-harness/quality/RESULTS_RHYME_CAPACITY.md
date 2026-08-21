@@ -129,8 +129,8 @@ cause this time took re-grading the witnesses under both tables.
    other road — a derived fact now, not a stylistic observation.
 2. **Secondary-stress clusters are the deep water.** Under the judge's
    own rules the -ate/-ee/-ine families are tier-1 deep (EY-T: 192
-   classes; IY: 228), because the spelled rime anchors at the PRIMARY
-   and digs a distinct string per word (dictate -ictate, rotate
+   classes; IY: 228 classes), because the spelled rime anchors at the
+   PRIMARY and digs a distinct string per word (dictate -ictate, rotate
    -otate). Tier 1 barely binds there; the modal tier is what pinches.
 3. **The modal tier costs real chain length.** AY-ER (fire's family):
    34 classes, certified ~~28~~ **27**. IY: attempts 40, certified ~~37~~
