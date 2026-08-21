@@ -266,10 +266,37 @@ seed, the same null, a corpus 3.8x wider on the author axis.
 +0.275 at p 0.0042 and is −0.008 at p 0.8695 — not weaker, ABSENT, and
 sign-flipped. The sentence below, *"So anaphora is a third feature
 caught reading period rather than quality"*, is the claim this repin
-withdraws. It is kept visible rather than deleted (doctrine 17), and
-the `ANAPHORA_OVERLOAD` finding text still carries it, which is now a
+withdraws. It is kept visible rather than deleted (doctrine 17).
+
+**AND THE SHIPPED MESSAGES CARRYING IT ARE REPAIRED — 2026-08-20, the
+same day, and this paragraph is what asked for it.** It used to end
+*"the `ANAPHORA_OVERLOAD` finding text still carries it, which is now a
 stale claim inside a shipped message and is named here so it can be
-repaired deliberately rather than discovered.
+repaired deliberately rather than discovered"* — a correct diagnosis
+left as a to-do, which is the shape doctrine 48 is about. Three
+surfaces stated the withdrawn slope as live and all three now carry the
+withdrawal with the struck figure legible beside it: the
+`ANAPHORA_OVERLOAD` finding's own evidence (`quality/floor.py`, the
+only one a writer reads), the `song` profile's shipped `note`, and
+`floor.py`'s module docstring. `quality/test_floor.py` §15 moved with
+them — it used to assert the LIVE slope, and now asserts that the
+finding carries a withdrawal, that `+0.275` appears only as struck, and
+that the two non-claims below are stated; 3 of its 5 checks go red
+against the pre-repair message, proven by mutation, and the 2 that
+survive are the controls. The old check was also vacuous by
+construction (`all(... for f in fs if f.code == ...)` is True over no
+findings), and the population is named first now.
+
+**WHAT IS NOT REPAIRED, ON PURPOSE.**
+`song_profile_calibration.py --check` still pins rho 0.275 and p_perm
+0.0042 as this profile's shipped constants, so it DRIFTS against the
+loaded corpus — which is that runner's contract working, not a defect:
+a drift is argued and repinned in a closing sitting, never tuned to
+(doctrine 58). Repinning those two is the same sitting that repins the
+five thresholds, and it is held open on the predictability arm. The
+structural gate requiring the note to quote `+0.275` is KEPT and its
+job has changed: what would trip it now is an edit that DELETES the
+struck figure instead of striking it.
 
 **AND THE CONFOUND DID NOT VANISH — IT RELOCATED.** `mattr` and `fwr`
 both survive Bonferroni now, at the same SIGNS they already had and
@@ -456,6 +483,9 @@ thing that makes any of these numbers mean anything about these songs
 
 ```
 $ python3 quality/floor.py examples/never_been_to_a_scene.txt        # AFTER
+# TRANSCRIPT AS OF 2026-08-13. The elided period clause below is the one
+# §4·R withdrew and the 2026-08-20 repair rewrote; the FINDING, the
+# threshold and the flag are unchanged.
 === [(untitled)] 41 lines, 291 tokens
 SLOP FLOOR — 1 flag(s), 0 note(s)
   [FLAG] ANAPHORA_OVERLOAD: 14 of 41 lines open with the same word
