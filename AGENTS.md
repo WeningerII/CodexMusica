@@ -147,6 +147,7 @@ The JSON endpoints above serve the **default** recipe per tradition — read-onl
 **full engine** runs from the repo and does much more: blend multiple genres, add/remove
 instruments, swap part variants, axis-target search, and add/edit/delete catalog
 entities. An agent with a shell gets all of it: <!-- @promise: documented-commands-run -->
+Every file path those commands name is checked to exist, in this file and in every `*.md` the repository tracks — including the `$ python3 …` transcripts under `lyric-harness/`. A path that is gone on purpose has to say so where it is cited, so a deleted fixture cannot go on reading as a runnable example. <!-- @promise: documented-paths-exist -->
 
 ```sh
 git clone https://github.com/WeningerII/CodexMusica

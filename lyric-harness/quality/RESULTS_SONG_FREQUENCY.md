@@ -225,6 +225,19 @@ band-passing field, so **yield is held constant by construction** and the only
 thing varying is which six.
 
 ```
+# THIS COMMAND CANNOT RUN FROM A CLEAN CHECKOUT, and the reason is worse
+# than a moved path: `scratchpad/cellBE/evaluate.py` was an OPERATOR'S
+# SCRATCH SCRIPT and was never in the repository at all. Annotated
+# 2026-08-21, found by `scripts/check_doc_paths.js` on the run that shipped
+# it. THE TABLE BELOW IS NOT WITHDRAWN — nothing here is known to be wrong,
+# and the six figures are quoted downstream in `data/sources.tsv` — but it
+# is a measurement NO ONE CAN RE-RUN, which is exactly standing rule 3's
+# subject: "any measurement or step used in producing a delivered song goes
+# through a verb, and an improvised script used twice is a defect report,
+# not a convenience". That rule was written for the SONGS; this is the same
+# defect one layer over, in a RESULT. The real repair is to rebuild the
+# evaluator as a verb so the leave-one-author-out comparison re-derives on
+# demand, which is a sitting of its own and is not done here.
 python3 scratchpad/cellBE/evaluate.py
 ```
 

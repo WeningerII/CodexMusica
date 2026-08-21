@@ -51,6 +51,14 @@ module.exports = [
     claim: 'every documented CLI command exits 0',
   },
   {
+    id: 'documented-paths-exist',
+    doc: 'AGENTS.md',
+    gate: 'check_doc_paths.js',
+    claim:
+      'every file path cited in a documented command exists, is ' +
+      'git-ignored, or is declared unreproducible in the document',
+  },
+  {
     id: 'documented-behaviors',
     doc: 'SKILL.md',
     gate: 'check_doc_behaviors.js',
