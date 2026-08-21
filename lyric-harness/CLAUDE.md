@@ -154,7 +154,11 @@ earned-chain ceiling is its spelling-class count (tier 1: an earned
 scheme group needs distinct spellings), and the certified floor is a
 witness clique built THROUGH `Reviser.inspect` and stored word for
 word. Headlines: 162 families sustain a 12-chain, 81 a 20-chain, the
-deepest certified chain is 40 (EY) at the declared construction cap —
+deepest certified chain is 40, held by NINE families at the declared
+construction cap (`AE-K`, `AE-N`, `AO-L`, `EH-L`, `EY`, `EY-T-AH-D`,
+`EY-T-ER`, `EY-T-IH-NG`, `IH-Z-AH-M`) — ~~40 (EY)~~ named one of a sorted
+tie, and 40 measures the CAP rather than the language: those nine are
+bounded BELOW at 40 and their true ceilings are unmeasured —
 the long dense verse switches sound families because English forces
 it. Artifact `data/rhyme_capacity_eng.tsv`; `capacity` verb reads it;
 `--check` re-derives tier 1 exactly and re-grades the sample witnesses
@@ -1132,6 +1136,11 @@ and the corpus byte-identical to it — so the record was wrong on the day it
 was written, not stale since. `quality/floor.py` had been contradicting itself
 twelve lines apart the whole time: the `song` Profile declares `n_human=1859`
 and that same profile's `source=` reads "1,859 items over 108 authors".
+(Both of those quotes are the 2026-08-14 reading and are LEFT AS QUOTED: this
+paragraph is the record of an investigation into which population 1,872 could
+have come from, and rewriting its evidence would destroy the thing it proves.
+The profile itself was re-adopted 2026-08-21 at `n_human=3571`, 3,571 items
+over 879 authors — see `quality/RESULTS_SONG_FLOOR.md` §5·A.)
 **1,872 IS reachable, two ways, and neither of them is this band** — `hi=405`
 instead of 400, or a whitespace `.split()` token count instead of the
 profile's own `QualityFeatures._tokens` — and under BOTH the carrier counts

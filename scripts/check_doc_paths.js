@@ -136,7 +136,10 @@ function isIgnored(rel) {
     execFileSync('git', ['check-ignore', '-q', '--', rel], { cwd: ROOT, stdio: 'ignore' });
     ignored = true;
   } catch {
-    /* git check-ignore exits 1 when the path is NOT ignored */
+    // git check-ignore exits 1 when the path is NOT ignored — and it also
+    // fails outside a checkout, where the question cannot be answered at all.
+    // Both land here as "not ignored", which is the CONSERVATIVE direction:
+    // an absent file then FAILS rather than being quietly excused.
   }
   ignoredCache.set(rel, ignored);
   return ignored;

@@ -203,6 +203,17 @@ authors) instead of 150–400 (1,859, 108), so every threshold there is a
 percentile of a different population; 25 through 100 all return the shipped
 band.
 
+> **THIS WHOLE SWEEP WAS RUN ON THE 143-FILE CORPUS AND IS NOT RE-DERIVED
+> HERE.** The band population it names — 150–400 (1,859 items, 108 authors) —
+> and the cut it quotes (0.7226) are the readings of that corpus. The closing
+> sitting adopted 150–400 (3,571 items, 879 authors) with `mattr_min` at
+> 0.7128 on 2026-08-21. The window sweep was NOT re-run, so nothing above is
+> repinned: it describes the population it was measured on, and re-measuring
+> it is a separate job from saying which population was measured (doctrine
+> 91). What the adoption does confirm is the sweep's own conclusion — the
+> band rule still returns 150–400 on a corpus 1.9x longer, and window 50 is
+> still inside the admissible set.
+
 **Admissible windows are [1, 22] ∪ [40, 93].** A window is admissible only if
 every item in a profile's calibration set falls on the *same* side of the
 `len(words) <= window` fallback; otherwise one profile reports a mixture of

@@ -585,12 +585,17 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # The sweep, the admissible set [1,22] u [40,93] and the reason 50 is
     # kept rather than retuned are `quality.floor.CALIBRATION["mattr_window"]`.
     check("the five song thresholds are the recorded corpus percentiles",
-          song.percentiles == {"mattr_min": 0.7226,
-                               "function_word_ratio_max": 0.4716,
+          song.percentiles == {"mattr_min": 0.7128,
+                               "function_word_ratio_max": 0.4773,
                                "anaphora_max": 0.3000,
-                               "line_length_cv_min": 0.1123,
+                               "line_length_cv_min": 0.1094,
                                "predictable_pair_fraction_max": 0.9286},
-          "150-400 tokens, 1,859 items, 108 authors, MATTR window 50; "
+          "ADOPTED 2026-08-21 over the loaded corpus: 150-400 tokens, 3,571 "
+          "items, 879 authors, MATTR window 50 (~~1,859 items, 108 "
+          "authors~~). Three moved -- mattr 0.7226 -> 0.7128, fwr 0.4716 -> "
+          "0.4773, cv 0.1123 -> 0.1094 -- and TWO DID NOT, which is what made "
+          "the set adoptable: predictability re-derived to 0.9286 against a "
+          "shipped 0.9286 and anaphora to 0.3000 against 0.3000. "
           "quality/RESULTS_SONG_FLOOR.md carries the commands")
 
 

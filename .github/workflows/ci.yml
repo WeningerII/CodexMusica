@@ -893,7 +893,7 @@ jobs:
         working-directory: lyric-harness
         run: python3 quality/verify_doctrines.py
 
-      - name: Entry claims (the sentences in MISSING.md and BACKLOG.md, checked)
+      - name: Entry claims (the sentences in MISSING.md and BACKLOG.md, checked; plus repo paths and per-family rhyme-capacity figures quoted in prose)
         if: always()
         working-directory: lyric-harness
         run: python3 quality/verify_entries.py

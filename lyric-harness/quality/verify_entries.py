@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
-"""ENTRY CLAIMS — the sentences in MISSING.md and BACKLOG.md, checked; and
-every backticked repo PATH in the three standing prose documents.
+"""ENTRY CLAIMS — the sentences in MISSING.md and BACKLOG.md, checked; plus
+three shapes asked of prose documents, each over its own declared scope: every
+backticked repo PATH in the three standing documents; every per-family
+RHYME-CAPACITY FIGURE, re-derived from `data/rhyme_capacity_eng.tsv`; and every
+shipped FLOOR THRESHOLD restated in a table, re-derived from
+`quality/floor.py`. The last two reach one RESULTS document apiece.
 
     python3 quality/verify_entries.py                 # check; non-zero on a FALSE claim
     python3 quality/verify_entries.py --refusals      # + every refused claim, by kind
@@ -215,8 +219,11 @@ MISSING_MD = os.path.join(ROOT, "MISSING.md")
 BACKLOG_MD = os.path.join(ROOT, "BACKLOG.md")
 SONG_DIR = os.path.join(ROOT, "corpus", "song")
 
-#: The standing prose documents, swept for `PROSE_SHAPES` only. These three and
-#: not a glob over `*.md`: the RESULTS documents are a laboratory notebook, and
+#: The standing prose documents. This is `REPO_PATH_EXISTS`'s scope and the
+#: DEFAULT one; `PROSE_SHAPES` below assigns each shape its own, and
+#: `CAPACITY_FIGURE` reaches one RESULTS document past this tuple. These three
+#: and not a glob over `*.md`: the RESULTS documents are a laboratory
+#: notebook, and
 #: a path in one of them is as often a URL, a path inside somebody else's
 #: repository, or a scratch file that is uncommitted by construction as it is a
 #: claim about this tree. MEASURED before it was declared, at b560014 and with
@@ -342,12 +349,20 @@ class Segment:
     checker that skipped headings would have missed half the class.
     """
 
-    def __init__(self, entry, text, lineno, historical=False, kind="prose"):
+    def __init__(self, entry, text, lineno, historical=False, kind="prose",
+                 table_header=""):
         self.entry = entry
         self.text = text
         self.lineno = lineno
         self.historical = historical
         self.kind = kind
+        #: For a `kind="table"` segment, the header row of the table it sits
+        #: in — "" when the table has none. A row alone cannot say WHICH
+        #: quantity a cell holds, so a shape that compares cells to named
+        #: constants has to see the header, and re-opening the file to find it
+        #: would give this module a second idea of where a table starts
+        #: (`_md_blocks`'s own note about exactly that).
+        self.table_header = table_header
 
 
 BLOCK_START = re.compile(r"^\s*(?:[-*+]\s|\d+\.\s|\||>|#)")
@@ -382,6 +397,11 @@ def _segments_of(entry):
         buf.clear()
 
     quoted_before = False
+    #: The header is the row BEFORE the `|---|` separator, so it is only known
+    #: one row late — which is why it is remembered rather than looked ahead
+    #: for. `header` is cleared when the table ends, so a row can never inherit
+    #: the header of a table above it.
+    header, prev_row = "", ""
     for off, raw in lines:
         ln = raw.strip()
         # A `>` blockquote is where both registers put their CORRECTIONS -- the
@@ -395,13 +415,26 @@ def _segments_of(entry):
         if quoted != quoted_before:
             flush()
         quoted_before = quoted
+        if not ln.startswith("|"):
+            # Anything that is not a table row ENDS the table, blank lines
+            # included, so a row can never inherit the header of a table
+            # above it.
+            header, prev_row = "", ""
         if not ln:
             flush()
             historical = False
             continue
         if ln.startswith("|"):
             flush()
-            out.append(Segment(entry, ln, off, kind="table"))
+            # A separator row is dashes, colons, pipes and spaces AND has at
+            # least one dash: `| | |` is a blank DATA row and reading it as a
+            # separator would hand the next rows the wrong header.
+            if "-" in ln and set(ln) <= set("|-: "):
+                header = prev_row          # the row above a separator
+            else:
+                out.append(Segment(entry, ln, off, kind="table",
+                                   table_header=header))
+            prev_row = ln
             continue
         if BLOCK_START.match(ln) or BOLD_OPENER.match(ln) or WAS.search(ln):
             flush()
@@ -463,8 +496,11 @@ def _backlog_status(heading):
     return m.group(1) if m else None
 
 
-def read_prose():
-    """-> ([Entry], [(rel, reason)]) over `PROSE_DOCS`, one Entry per document.
+def read_prose(docs=None):
+    """-> ([Entry], [(rel, reason)]) over `docs`, one Entry per document.
+
+    Defaults to `PROSE_SCOPE` — every document ANY shape is asked over, derived
+    from the per-shape scopes rather than retyped beside them.
 
     THE SAME BLOCK RULE, REUSED AND NOT RE-INVENTED. A prose document has no
     `### ` entries -- CLAUDE.md and README.md have none at all -- so there is
@@ -486,8 +522,9 @@ def read_prose():
     opened -- doctrine 20, and the same refusal `pin_moves()` makes about a
     depth-1 checkout.
     """
+    docs = PROSE_SCOPE if docs is None else docs
     entries, refused = [], []
-    for rel in PROSE_DOCS:
+    for rel in docs:
         try:
             raw = open(os.path.join(ROOT, rel), encoding="utf-8").read()
         except OSError as exc:
@@ -1076,6 +1113,330 @@ def shape_status_xref(seg):
 
 # --- the 26 derivations another instrument already owns ---------------------
 
+# --- shape 10: CAPACITY_FIGURE --------------------------------------------
+#
+# WHY A TENTH SHAPE. On 2026-08-21 the two tables the tier-2 MODAL ban reads
+# were rebuilt, every certified witness in `data/rhyme_capacity_eng.tsv` had to
+# be re-derived, and three per-family figures quoted in prose moved: AY-ER
+# 28 -> 27, IY 37 -> 34, EH-R 33 -> 31. `capacity.py --check` did not catch
+# them and COULD NOT: it re-derives the six `ADOPTED` headline constants, and
+# not one of those moved. What moved were the numbers written out in sentences.
+#
+# Repinning them by hand was the fourth retyped number found stale that day,
+# and a fresher literal is the same defect with a later date (doctrine 58). So
+# the sentences are read and re-derived against the artifact instead. Doctrine
+# 1: the table is where a per-family figure is defined, and prose quoting one
+# is a second copy or it is nothing.
+
+_CAPACITY_ROWS = None
+
+
+def capacity_rows():
+    """-> {family: row} from `data/rhyme_capacity_eng.tsv`, read once.
+
+    THE ARTIFACT, NOT `capacity.ADOPTED`. ADOPTED holds six headline constants
+    and `capacity.py --check` already re-derives those; the table is the only
+    place a PER-FAMILY figure exists, and per-family is what prose quotes.
+
+    No lexicon, no grader, no CMUdict: `read_table` parses a committed TSV.
+    That is what keeps this a cheap shape runnable in the 0.05 CPU-s suite
+    step instead of a derivation behind `--slow`.
+    """
+    global _CAPACITY_ROWS
+    if _CAPACITY_ROWS is None:
+        from quality import capacity as C
+        _CAPACITY_ROWS = {r["family"]: r for r in C.read_table()}
+    return _CAPACITY_ROWS
+
+
+#: DIGITS ONLY, and not the shared `_NUM`. `_NUM` alternates in the spelled
+#: numbers `one|two|...` with no word boundary, so a backward scan for "the
+#: last number before `held by`" would find the `one` inside "not one" and
+#: read a tie depth of 1. The spelled form is handled separately below,
+#: where it is anchored to the word `famil...` and cannot drift.
+_CAP_DIGITS = r"\d{1,3}(?:,\d{3})*"
+
+_WORDNUM = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6,
+            "seven": 7, "eight": 8, "nine": 9, "ten": 10, "eleven": 11,
+            "twelve": 12}
+
+#: A family key is uppercase ARPABET joined by hyphens -- `AY-ER`,
+#: `EY-T-IH-NG`, and the bare vowels `EY`, `IY`. The pattern is loose ON
+#: PURPOSE, because it is not the filter: MEMBERSHIP IN THE ARTIFACT is. A
+#: token that looks like a family and names none is not this shape's business,
+#: and guessing at one would produce exactly the noise doctrine 61 warns about.
+#: (Checked 2026-08-21: of the 12,387 keys, none collides with a common
+#: uppercase English word, and the shortest are the 14 ARPABET vowels.)
+_CAP_FAM = r"`?([A-Z][A-Z0-9]*(?:-[A-Z0-9]+)*)`?"
+
+#: `AY-ER (fire's family): 34 classes, certified 27`. The COLON binds a family
+#: to its figures and the clause stops at the next `.` or `;`, so the following
+#: family's numbers can never be read as this one's -- which matters because
+#: this repo writes them in a row: "AY-ER ...: 34 classes, certified 27. IY:
+#: attempts 40, certified 34."
+CAP_CLAUSE_RE = re.compile(
+    _CAP_FAM + r"(?:\s*\([^)]{0,60}\))?\s*:\s*([^.;]{0,90})")
+
+#: "`capacity fire` prints the 27-word clique."
+CAP_CLIQUE_RE = re.compile(
+    r"`capacity\s+([a-z']+)`[^.]{0,70}?(?:\*\*)?(" + _CAP_DIGITS +
+    r")(?:\*\*)?-word\s+clique")
+
+CAP_HELD_RE = re.compile(r"held by\b", re.I)
+CAP_COUNTWORD_RE = re.compile(
+    r"\b(" + "|".join(sorted(_WORDNUM)) + r")\s+famil", re.I)
+
+
+def _cap_attempts(row):
+    """-> what "attempts N" claims: the certifier's own bound on this family.
+
+    `CERTIFY_ATTEMPT_CAP` is a DECLARED CONSTRUCTION BOUND, not a property of
+    the language, so a family deeper than the cap is attempted at the cap. A
+    sentence saying "IY: attempts 40" is quoting the bound, and reading it as
+    IY's 228 classes would call a true sentence false.
+    """
+    from quality import capacity as C
+    return min(row["chain_hi"], C.CERTIFY_ATTEMPT_CAP)
+
+
+#: (the word in the clause, its pattern, the artifact's answer).
+CAP_FIELDS = (
+    ("classes", re.compile(r"(" + _CAP_DIGITS + r")\s*(?:\*\*)?\s*classes"),
+     lambda r: r["chain_hi"]),
+    ("attempts", re.compile(r"attempts\s+(?:\*\*)?(" + _CAP_DIGITS + r")"),
+     _cap_attempts),
+    ("certified", re.compile(r"certified\s+(?:\*\*)?(" + _CAP_DIGITS + r")"),
+     lambda r: r["chain_lo"]),
+)
+
+
+def shape_capacity_figure(seg):
+    """A per-family capacity figure quoted in prose, re-derived from the
+    committed artifact. Three claim kinds, each one a sentence this repo has
+    actually written:
+
+      `AY-ER (fire's family): 34 classes, certified 27`   chain_hi, chain_lo
+      `IY: attempts 40, certified 34`                     the attempt bound
+      "40 ... held by NINE families ... `AE-K`, `AE-N`"   the tie at a depth
+
+    The tie is checked as a SET when the families are named and as a COUNT when
+    only the count is written out, and as BOTH when the sentence carries
+    both -- CLAUDE.md's does. They are different claims about one fact, and a
+    shape answering only the easier one would let the other rot.
+
+    A segment carrying no recognised family figure returns None. This shape
+    does NOT widen into "every number near a family name": the colon, the three
+    keywords and membership in the artifact are all required, together.
+    """
+    rows = capacity_rows()
+    claims, wrong, refused = [], [], []
+
+    for m in CAP_CLAUSE_RE.finditer(seg.text):
+        row = rows.get(m.group(1))
+        if row is None:
+            continue
+        for word, pat, answer in CAP_FIELDS:
+            mm = pat.search(m.group(2))
+            if not mm:
+                continue
+            said = int(mm.group(1).replace(",", ""))
+            got = answer(row)
+            claims.append("%s %s %d" % (m.group(1), word, said))
+            if got != said:
+                wrong.append("%s %s: prose %d, artifact %s"
+                             % (m.group(1), word, said, got))
+
+    for m in CAP_CLIQUE_RE.finditer(seg.text):
+        word, said = m.group(1), int(m.group(2).replace(",", ""))
+        claims.append("`capacity %s` clique %d" % (word, said))
+        #: AMBIGUITY REFUSES rather than taking the first match. `check_data_
+        #: rows`'s struck-text guard was found passing by luck on exactly this
+        #: move -- `.search` happened to reach the live value first in every
+        #: current row -- so a shape that picks a winner out of several is a
+        #: shape that will one day pick wrong and stay green.
+        owners = [f for f, r in rows.items()
+                  if word in str(r["examples"]).split()]
+        if len(owners) != 1:
+            refused.append("`capacity %s`: %d families list %r among their "
+                           "examples, so the artifact cannot say which clique "
+                           "the command prints" % (word, len(owners), word))
+            continue
+        got = len(str(rows[owners[0]]["witness"]).split())
+        if got != said:
+            wrong.append("`capacity %s` (%s): prose %d words, artifact %d"
+                         % (word, owners[0], said, got))
+
+    for m in CAP_HELD_RE.finditer(seg.text):
+        #: The depth is the number NEAREST to "held by" going backwards, not
+        #: the first in the sentence. CLAUDE.md writes "162 families sustain a
+        #: 12-chain, 81 a 20-chain, the deepest certified chain is 40, held by
+        #: NINE families" -- a lazy forward match reads 162 and calls a true
+        #: sentence false.
+        back = seg.text[max(0, m.start() - 90):m.start()]
+        nums = re.findall(_CAP_DIGITS, back)
+        if not nums:
+            continue
+        depth = int(nums[-1].replace(",", ""))
+        want = sorted(f for f, r in rows.items()
+                      if r["certified"] and (r["chain_lo"] or 0) == depth)
+        after = seg.text[m.end():m.end() + 300]
+        named = sorted(f for f in re.findall(r"`([A-Z][A-Z0-9-]*)`",
+                                             re.split(r"[.—]", after)[0])
+                       if f in rows)
+        if named:
+            claims.append("%d held by %s" % (depth, ", ".join(named)))
+            if named != want:
+                wrong.append("held-by-%d: prose names %s; artifact %s"
+                             % (depth, ", ".join(named),
+                                ", ".join(want) or "no certified family"))
+        cw = CAP_COUNTWORD_RE.search(after[:60])
+        if cw:
+            said = _WORDNUM[cw.group(1).lower()]
+            claims.append("%d held by %s families" % (depth, cw.group(1)))
+            if said != len(want):
+                wrong.append("held-by-%d: prose says %s (%d) famil%s; "
+                             "artifact has %d" % (depth, cw.group(1), said,
+                                         "y" if said == 1 else "ies",
+                                         len(want)))
+
+    if not claims:
+        return None
+    short = "; ".join(claims[:4]) + ("; …" if len(claims) > 4 else "")
+    if seg.historical:
+        return Verdict("CAPACITY_FIGURE", REFUSED, short,
+                       "a `**Was:**` clause", HISTORICAL)
+    if wrong:
+        return Verdict("CAPACITY_FIGURE", FALSE, short,
+                       "; ".join(wrong) + " (artifact at %s)" % head_commit())
+    if refused:
+        return Verdict("CAPACITY_FIGURE", REFUSED, short,
+                       "; ".join(refused), AMBIGUOUS_SCOPE)
+    return Verdict("CAPACITY_FIGURE", TRUE, short,
+                   "%d figure(s) re-derived from data/rhyme_capacity_eng.tsv"
+                   % len(claims))
+
+
+# --- shape 11: FLOOR_THRESHOLD --------------------------------------------
+#
+# THE SAME DEFECT ONE DOCUMENT OVER. `RESULTS_SONG_FLOOR.md` §2 is headed
+# "Shipped, 150-400 tokens" and gave `mattr_min` 0.7226, `fwr` 0.4716 and
+# `cv` 0.1123 — the values before the closing sitting re-adopted the profile
+# over the loaded corpus on 2026-08-21. Three of five cells were wrong under
+# the word SHIPPED, and everything that could have caught it was looking
+# somewhere else: `floor.py --check` compares the constants to a fresh
+# derivation, and `song_profile_calibration.py --check` reads the profile's
+# own `note` docstring. Neither reads this table.
+#
+# A profile constant is DEFINED in `floor.py`. A table that restates one is a
+# second copy (doctrine 1), and the second copy is the one that rots, because
+# nothing runs it.
+
+_FLOOR_PROFILES = None
+
+
+def floor_profiles():
+    """-> {name: profile} from `quality.floor`, imported once (0.07s, no
+    corpus and no lexicon — cheap enough for the fast suite step)."""
+    global _FLOOR_PROFILES
+    if _FLOOR_PROFILES is None:
+        from quality.floor import PROFILES
+        _FLOOR_PROFILES = {p.name: p for p in PROFILES}
+    return _FLOOR_PROFILES
+
+
+#: A cell that says the profile has NO threshold for this feature. `section`
+#: really does lack `predictable_pair_fraction_max`, so an em-dash is a claim
+#: with a truth value and not a blank.
+_FLOOR_ABSENT = {"—", "-", "–", "n/a", "none", ""}
+
+#: How many named percentile keys a header must carry before its rows are read
+#: as threshold claims. THREE, not one: §5's per-run tables head their columns
+#: `mattr` / `fwr` / `cv`, which are the same quantities under working names,
+#: and reading those as the shipped constants would fail this document for
+#: recording the runs that produced them. Requiring the DECLARED KEYS, and
+#: several of them, is what separates "the shipped profile" from "a run".
+_FLOOR_MIN_KEYS = 3
+
+
+def _cells(row):
+    return [c.strip() for c in row.strip().strip("|").split("|")]
+
+
+def shape_floor_threshold(seg):
+    """A markdown row restating a shipped `floor.py` profile, re-derived from
+    the profile itself.
+
+    Fires only on a table whose HEADER names at least three of the declared
+    percentile keys and whose row label names a shipped profile — so `| cut |
+    < 0.7226 | ...` in a worked example, and every per-run table, are left
+    alone. `_unstrike` has already removed the superseded row, so a struck
+    line is never read as a live claim (doctrine 17).
+    """
+    if seg.kind != "table" or not seg.table_header:
+        return None
+    profiles = floor_profiles()
+    head = _cells(seg.table_header)
+    keys = {i: c.strip("`") for i, c in enumerate(head)
+            if c.strip("`") in {k for p in profiles.values()
+                                for k in p.percentiles}}
+    if len(keys) < _FLOOR_MIN_KEYS:
+        return None
+    row = _cells(seg.text)
+    label = row[0].strip("`*_ ").lower() if row else ""
+    hit = [n for n in profiles if re.search(r"\b%s\b" % re.escape(n), label)]
+    #: One name or none. A label matching two profiles is not a row about
+    #: either of them, and choosing between them would be the guess that
+    #: `CAPACITY_FIGURE`'s clique lookup refuses to make.
+    if len(hit) != 1:
+        return None
+    prof = profiles[hit[0]]
+
+    claims, wrong = [], []
+    for i, key in sorted(keys.items()):
+        if i >= len(row):
+            continue
+        cell = row[i].strip("`*")
+        said_absent = cell.lower() in _FLOOR_ABSENT
+        got = prof.percentiles.get(key)
+        claims.append("%s %s %s" % (prof.name, key,
+                                    "—" if said_absent else cell))
+        if said_absent:
+            if got is not None:
+                wrong.append("%s %s: the table says the profile has none, "
+                             "floor.py ships %s" % (prof.name, key, got))
+            continue
+        try:
+            said = float(cell)
+        except ValueError:
+            wrong.append("%s %s: %r is not a number and not an absence "
+                         "marker" % (prof.name, key, cell))
+            continue
+        if got is None:
+            wrong.append("%s %s: the table gives %s, floor.py's profile has "
+                         "no such threshold" % (prof.name, key, cell))
+        #: COMPARED AT THE CELL'S OWN PRECISION. The table writes 0.3000 for a
+        #: constant floor.py holds as 0.3, and `float("0.3000") != 0.3` is
+        #: false only because both are the same double — but 0.7128 written as
+        #: 0.713 would be a real rounding claim, not a defect. The cell decides
+        #: how many places it is asserting (doctrine 91).
+        elif round(got, len(cell.split(".")[1]) if "." in cell else 0) != said:
+            wrong.append("%s %s: the table says %s, floor.py ships %s"
+                         % (prof.name, key, cell, got))
+
+    if not claims:
+        return None
+    short = "; ".join(claims[:4]) + ("; …" if len(claims) > 4 else "")
+    if seg.historical:
+        return Verdict("FLOOR_THRESHOLD", REFUSED, short,
+                       "a `**Was:**` clause", HISTORICAL)
+    if wrong:
+        return Verdict("FLOOR_THRESHOLD", FALSE, short,
+                       "; ".join(wrong) + " (at %s)" % head_commit())
+    return Verdict("FLOOR_THRESHOLD", TRUE, short,
+                   "%d threshold(s) re-derived from quality/floor.py"
+                   % len(claims))
+
+
 DERIV_RE = re.compile(
     r"^  (CONFIRMED|MOVED|FALSE|UNVERIFIABLE|SKIPPED|ERROR)\s+(D\d+)\s+(\S+(?: / \S+)?)\s+(.*?)\n"
     r"\s+register:\s*(.*?)\n\s+measured:\s*(.*?)\n", re.M)
@@ -1137,6 +1498,8 @@ SHAPES = [
     ("CORPUS_TABLE_ROW", True, shape_corpus_table_row),
     ("STATUS_XREF", False, shape_status_xref),
     ("SCRATCH_NAMESPACED", False, shape_scratch_namespaced),
+    ("CAPACITY_FIGURE", False, shape_capacity_figure),
+    ("FLOOR_THRESHOLD", False, shape_floor_threshold),
 ]
 
 #: The shapes whose verdict flips meaning with the entry's STATUS. An absence
@@ -1144,11 +1507,32 @@ SHAPES = [
 #: disagreement even when the claim itself is judged correctly.
 ABSENCE_SHAPES = {"SYMBOL_ABSENT", "CORPUS_MARKER_ABSENT"}
 
-#: The shapes asked of `PROSE_DOCS`. ONE, and the docstring at the head of this
-#: file records what each of the other eight did when it was run over the same
-#: three documents. This is a declared list and not "every shape that does not
-#: crash": a shape reaches it by being measured over the documents first.
-PROSE_SHAPES = ("REPO_PATH_EXISTS",)
+#: The shapes asked of prose documents. THREE, and the docstring at the head of
+#: this file records what each of the other eight did when it was run over the
+#: same three documents. This is a declared list and not "every shape that does
+#: not crash": a shape reaches it by being measured over the documents first.
+#: A DOCUMENT SET PER SHAPE, because scope is the thing being widened and the
+#: shapes do not want the same one. `REPO_PATH_EXISTS` cannot be pointed at
+#: a RESULTS document: those cite foreign paths, the note above measured 29 red
+#: over them, and a gate that opens red is a gate people learn to skip.
+#: `CAPACITY_FIGURE` and `FLOOR_THRESHOLD` have the opposite need — the
+#: per-family figures and the shipped-threshold tables they exist to re-derive
+#: are written in one RESULTS document each and almost nowhere else, so scoping
+#: them to `PROSE_DOCS` would point them at the one place the claims are not.
+#:
+#: One tuple could not express both, and the earlier one silently expressed the
+#: first. Widening stays per-SHAPE and never per-FILE — this makes the file's
+#: own stated rule mechanical instead of a convention (doctrine 48). A shape
+#: earns each document by being run over it and shown not to misfire.
+PROSE_SHAPES = {
+    "REPO_PATH_EXISTS": PROSE_DOCS,
+    "CAPACITY_FIGURE": PROSE_DOCS + ("quality/RESULTS_RHYME_CAPACITY.md",),
+    "FLOOR_THRESHOLD": PROSE_DOCS + ("quality/RESULTS_SONG_FLOOR.md",),
+}
+
+#: Every document any shape is asked over. Derived, so adding a scope above
+#: cannot leave a document unread by the reader that opens them.
+PROSE_SCOPE = tuple(sorted({r for d in PROSE_SHAPES.values() for r in d}))
 
 _ALL_ENTRIES = []
 
@@ -1179,6 +1563,43 @@ class _FakeEntry:
 def _probe(text, ident="X-0", status="OPEN", heading="### X-0 · probe `OPEN`",
            kind="prose"):
     return Segment(_FakeEntry(ident, status, heading), text, 0, kind=kind)
+
+
+def _floor_probe(delta):
+    """-> a shipped-profile table row rendered from `floor.py`: TRUE at delta
+    0, FALSE at delta 1. Rendered for the reason `_capacity_probe` is — a
+    threshold written into this file would be the second copy the shape exists
+    to abolish, and it would go stale at the next adoption.
+
+    The profile is DERIVED (first in sort order) so the control does not break
+    if a profile is renamed or retired, and the header is built from that
+    profile's own key set, which is also what proves the header rule is read
+    from the declaration rather than typed out here (doctrine 1).
+    """
+    prof = floor_profiles()[sorted(floor_profiles())[0]]
+    keys = sorted(prof.percentiles)
+    head = "| | " + " | ".join("`%s`" % k for k in keys) + " |"
+    row = "| %s profile | " % prof.name + " | ".join(
+        "%s" % (prof.percentiles[k] + delta) for k in keys) + " |"
+    return Segment(_FakeEntry("X-0", "OPEN", "### X-0 · probe"), row, 0,
+                   kind="table", table_header=head)
+
+
+def _capacity_probe(delta):
+    """-> a probe sentence rendered from the artifact: TRUE at delta 0, FALSE
+    at delta 1.
+
+    The family is DERIVED — the first certified one in sort order — rather than
+    named here, so a control does not break the day a family stops being
+    certified. What it asserts is the artifact's own `certified` figure, which
+    makes the TRUE side true by construction and the FALSE side false by
+    construction, for any table this shape will ever be pointed at.
+    """
+    rows = capacity_rows()
+    fam = sorted(f for f, r in rows.items() if r["certified"])[0]
+    return _probe("%s: %d classes, certified %d"
+                  % (fam, rows[fam]["chain_hi"],
+                     (rows[fam]["chain_lo"] or 0) + delta))
 
 
 #: (shape name, a segment it must call TRUE, a segment it must call FALSE).
@@ -1223,6 +1644,21 @@ POSITIVE_CONTROLS = [
     ("SCRATCH_NAMESPACED",
      _probe("written to `scratchpad/cellAJ/measure_ocr.py`"),
      _probe("written to `scratchpad/fetch.sh`")),
+    # RENDERED, NOT WRITTEN DOWN, and it is the one control in this list that
+    # HAS to be. Every other probe is a fixed string because a control pinned
+    # to a live defect expires the moment somebody fixes the defect. A FIGURE
+    # control has the mirror-image problem: a hard-coded `certified 27` in the
+    # checker IS the frozen number this shape exists to catch, one layer up,
+    # and it would go stale on the next re-derivation — taking the control
+    # dark exactly when the shape starts mattering. So both sides are rendered
+    # from the artifact at call time: the TRUE side states what the table says
+    # and is therefore always true, the FALSE side states that plus one and is
+    # therefore always false. Neither can be closed by anyone's later fix and
+    # neither can rot.
+    ("CAPACITY_FIGURE",
+     lambda: _capacity_probe(0), lambda: _capacity_probe(1)),
+    ("FLOOR_THRESHOLD",
+     lambda: _floor_probe(0), lambda: _floor_probe(1)),
 ]
 
 _BY_NAME = {name: fn for name, _v, fn in SHAPES}
@@ -1320,6 +1756,17 @@ def self_test():
         for want, seg in ((TRUE, t_seg), (FALSE, f_seg)):
             if seg is None:
                 continue
+            if callable(seg):
+                # A RENDERED control (see CAPACITY_FIGURE above). Built here
+                # rather than at import so a missing artifact surfaces as a
+                # named probe failure instead of an import error that takes
+                # the whole register check down with it.
+                try:
+                    seg = seg()
+                except Exception as exc:                        # noqa: BLE001
+                    problems.append("%s probe could not be rendered — %s: %s"
+                                    % (want, type(exc).__name__, exc))
+                    continue
             try:
                 v = fn(seg)
             except Exception as exc:                            # noqa: BLE001
@@ -2005,7 +2452,8 @@ def sweep():
 
 
 def sweep_prose():
-    """-> (results, refusals) — `PROSE_SHAPES` over every segment of PROSE_DOCS.
+    """-> (results, refusals) — each shape in `PROSE_SHAPES` over every segment
+    of the documents ITS OWN scope names.
 
     Separate from `sweep()` and not a widening of it, which is the whole design
     and not a convenience. `sweep()`'s asked/answered/refused triple answers
@@ -2021,11 +2469,18 @@ def sweep_prose():
     check down with it.
     """
     entries, refusals = read_prose()
-    fns = [(n, fn) for n, _v, fn in SHAPES if n in PROSE_SHAPES]
+    fns = {n: fn for n, _v, fn in SHAPES if n in PROSE_SHAPES}
+    # rel -> the shapes declared over it, so a document is read ONCE and each
+    # shape still sees only the documents it earned.
+    asked = {}
+    for name, docs in PROSE_SHAPES.items():
+        for rel in docs:
+            asked.setdefault(rel, []).append(name)
     results = []
     for e in entries:
         for seg in e.segments:
-            for name, fn in fns:
+            for name in sorted(asked.get(e.id, ())):
+                fn = fns[name]
                 try:
                     v = fn(seg)
                 except Exception as exc:                        # noqa: BLE001
@@ -2087,23 +2542,27 @@ def main(argv=None):
                          "exit 0 — the population the doctrine 17 check "
                          "derives its expectations from")
     ap.add_argument("--prose", action="store_true",
-                    help="print every repo path the prose documents cite and "
-                         "the verdict on each, and exit 0 — the population "
-                         "REPO_PATH_EXISTS reads outside the two registers")
+                    help="print every claim the prose documents make under "
+                         "`PROSE_SHAPES` and the verdict on each, and exit "
+                         "0 — the population those shapes read outside the "
+                         "two registers")
     a = ap.parse_args(argv)
 
     if a.prose:
         results, refusals = sweep_prose()
-        print("PROSE DOCUMENTS — %s" % ", ".join(PROSE_DOCS))
-        print("shapes asked: %s" % ", ".join(PROSE_SHAPES))
+        print("PROSE DOCUMENTS — %s" % ", ".join(PROSE_SCOPE))
+        for _n, _d in sorted(PROSE_SHAPES.items()):
+            print("shape asked: %-18s over %s" % (_n, ", ".join(_d)))
         for rel, why in refusals:
             print("  [REFUSED] %s could not be read — %s" % (rel, why))
         for seg, v in results:
             print("\n  [%-5s] %s:%d" % (v.status, seg.entry.source, seg.lineno))
-            print("      paths : %s" % v.claim)
+            # `claim`, not `paths`: two shapes are asked here now and only
+            # one of them is about paths.
+            print("      claim : %s" % v.claim)
             print("      repo  : %s" % v.measured)
         print("\n%d citation(s) over %d document(s)."
-              % (len(results), len(PROSE_DOCS) - len(refusals)))
+              % (len(results), len(PROSE_SCOPE) - len(refusals)))
         return 0
 
     if a.pins:
@@ -2235,31 +2694,49 @@ def main(argv=None):
     prose_false = [(s, v) for s, v in prose_results if v.status == FALSE]
     prose_true = [(s, v) for s, v in prose_results if v.status == TRUE]
     print()
-    print("REPO PATHS IN PROSE — %s, over %s"
-          % (", ".join(PROSE_SHAPES), ", ".join(PROSE_DOCS)))
+    print("CLAIMS IN PROSE — %s, over %s"
+          % (", ".join(sorted(PROSE_SHAPES)), ", ".join(PROSE_SCOPE)))
     print("-" * 78)
-    print("  a backticked repo path in one of those documents must exist, "
-          "unless the")
-    print("  sentence says in so many words that it does not. Counted apart "
-          "from the")
-    print("  register's triple above: these are not claims drawn from an "
-          "entry.")
+    print("  a backticked repo path must exist unless the sentence says it "
+          "does not; a")
+    print("  per-family capacity figure must re-derive from "
+          "data/rhyme_capacity_eng.tsv; a")
+    print("  shipped floor threshold must re-derive from quality/floor.py. "
+          "Counted apart")
+    print("  from the register's triple above: these are not claims drawn "
+          "from an entry.")
     for rel, why in prose_refusals:
         print("  [REFUSED] %s could not be read — %s" % (rel, why))
         print("            doctrine 20 — this is not a pass. A document this "
               "check never")
         print("            opened cannot be reported clean.")
-    # SEGMENTS and PATHS are different counts and the report gives both: one
-    # sentence can cite four paths, so "94 checked" against 117 actual
+    # SEGMENTS and CITATIONS are different counts and the report gives both:
+    # one sentence can cite four paths, so "94 checked" against 117 actual
     # citations would understate the population by a quarter (doctrine 91 — a
     # count is a coordinate of the rendering).
-    prose_paths = sum(len(set(PATH_RE.findall(s.text))) for s, _v in prose_results)
-    print("  %d path citation(s) in %d segment(s): %d segment(s) true, %d FALSE."
-          % (prose_paths, len(prose_results), len(prose_true), len(prose_false)))
-    if not prose_results and not prose_refusals:
-        print("    [dead] no prose document cites a repo path at all — so "
-              "nothing here")
-        print("           proves the scope reads them; see the probes below.")
+    #
+    # PER SHAPE, NEVER POOLED (doctrine 79). Two shapes are asked here over two
+    # different document sets, and one total would say nothing about either:
+    # a capacity shape that stopped matching would vanish into the path count,
+    # which is the silence this whole file exists to break. Each shape also
+    # reports its own DEAD state, because "0 claims" reads exactly like "0
+    # failures" (doctrine 20).
+    for name in sorted(PROSE_SHAPES):
+        mine = [(sg, v) for sg, v in prose_results if v.shape == name]
+        cites = sum(len(set(PATH_RE.findall(sg.text))) for sg, _v in mine) \
+            if name == "REPO_PATH_EXISTS" else len(mine)
+        # (for the two derived shapes a verdict IS a segment; only
+        # REPO_PATH_EXISTS can hold several citations in one sentence)
+        print("  %-17s %d citation(s) in %d segment(s): %d true, %d FALSE, "
+              "%d refused."
+              % (name, cites, len(mine),
+                 sum(1 for _s, v in mine if v.status == TRUE),
+                 sum(1 for _s, v in mine if v.status == FALSE),
+                 sum(1 for _s, v in mine if v.status == REFUSED)))
+        if not mine and not prose_refusals:
+            print("    [dead] %s matched NOTHING over %s — so nothing here "
+                  "proves the" % (name, ", ".join(PROSE_SHAPES[name])))
+            print("           scope reads them; see the probes below.")
     for seg, v in prose_false:
         print("\n  [FAIL] %s:%d" % (seg.entry.source, seg.lineno))
         print("         doc says : %s" % v.claim)

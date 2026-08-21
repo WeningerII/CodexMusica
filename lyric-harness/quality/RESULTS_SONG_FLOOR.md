@@ -187,11 +187,14 @@ with length, which reproduces METHOD doctrine 15's sonnet-vs-quatrain ordering
 
 ## 2. The thresholds, and their held-out false-positive rate
 
-**Shipped, 150–400 tokens:**
+**Shipped, 150–400 tokens** (the `song` row re-adopted 2026-08-21 over the
+loaded corpus — see §5·A; the superseded values are struck rather than
+overwritten, doctrine 17):
 
 | | `mattr_min` | `function_word_ratio_max` | `anaphora_max` | `line_length_cv_min` | `predictable_pair_fraction_max` |
 |---|---:|---:|---:|---:|---:|
-| song profile | 0.7226 | 0.4716 | 0.3000 | 0.1123 | 0.9286 |
+| song profile | 0.7128 | 0.4773 | 0.3000 | 0.1094 | 0.9286 |
+| ~~song profile, to 2026-08-21~~ | ~~0.7226~~ | ~~0.4716~~ | ~~0.3000~~ | ~~0.1123~~ | ~~0.9286~~ |
 | (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 | 0.8333 |
 | (section, for contrast) | 0.7568 | 0.5161 | 0.5000 | 0.0525 | — |
 
@@ -276,6 +279,68 @@ longer exists. Threshold 0.9286 (human 95th percentile), held-out FPR 4.81%
 median [2.52–7.43%] — see §2's table above. The section profile still has no
 reading at this check: it never measured a threshold at its own length, which
 is a different cell's to move.
+
+---
+
+## 5·A — ADOPTED 2026-08-21: the closing sitting, and the two constants
+that did not move are why it could happen at all
+
+The profile is re-adopted over the loaded corpus. **1,297 files, 1,294
+distinct authors, 8,667 items, 283,534 sung lines**; restricted to 150–400
+tokens, **3,571 items over 879 authors** (~~143 files, 4,930 items, 152,325
+lines, 1,859 items over 108 authors~~). Same command, same seeds, same
+author-held-out protocol; a corpus 1.9× longer on lines and 8.1× on authors.
+
+| constant | shipped | adopted | |
+|---|---:|---:|---|
+| band lo / hi (tokens) | 150 / 400 | 150 / 400 | unmoved |
+| `mattr_min` | 0.7226 | **0.7128** | moved |
+| `function_word_ratio_max` | 0.4716 | **0.4773** | moved |
+| `anaphora_max` | 0.3000 | 0.3000 | **unmoved** |
+| `line_length_cv_min` | 0.1123 | **0.1094** | moved |
+| `predictable_pair_fraction_max` | 0.9286 | 0.9286 | **unmoved** |
+| held-out FPR ANY | 20.79% | **19.71%** | moved |
+| anaphora period rho / p_perm | 0.2750 / 0.0042 | **−0.008 / 0.8695** | moved |
+
+**THE HEADLINE IS THE TWO UNMOVED ROWS, NOT THE FOUR MOVED ONES.** The
+closing sitting had been deferred on one argument: adopting the thresholds
+that drifted while `predictable_pair_fraction_max` still described the
+143-file corpus would make this profile half a description of one corpus and
+half of another (doctrine 1). That was never a claim that predictability
+*would* move — it was a refusal to find out later. It re-derives to **0.9286
+against a shipped 0.9286**, and `anaphora_max` to 0.3000 against 0.3000. So
+the objection is answered rather than waived, and the set is adopted as a set.
+
+**The band rule survived a corpus 1.9× longer.** 150–400 is what it returns
+on 3,571 items exactly as on 1,859 — the widest contiguous range where every
+50-token sub-bin holds ≥100 items and every sub-bin threshold sits within
+0.02 of the band-wide one. That is the strongest evidence in this document
+that the band was a property of English song and not of one anthology
+sample.
+
+**What it cost to get here, stated because it bounds the next one.** The
+predictability arm is 96% of a cold run: 9,072 CPU-seconds over 8,667 items,
+against 26 seconds for the four cheap features. The memo now holds 8,663
+entries under fingerprint `1ca985c44f5a`, so the next re-derivation is
+minutes. The fingerprint covers `lyric_harness.py`, `quality/features.py`,
+CMUdict and the frequency lexicon — editing any of them discards the cache,
+which is the correct direction to be wrong in.
+
+**AND THE FIVE DECLARED DRIFTS ARE NOW SPENT.** `quality/expected_drift.py`
+held a dated ruling for each of the five values above that had drifted while
+the sitting was deferred. Adoption did not merely permit deleting them — it
+**required** it: that reconciler fails on a declared drift that no longer
+occurs, because an allowlist outliving its reason is the staleness it was
+built to catch. First real use of that direction, hours after it was built.
+
+**Not claimed.** The four moved thresholds are percentiles of a wider corpus,
+not evidence that the earlier ones were wrong; the FPR tuples were repinned
+WITH them because they are measured through the thresholds and a tuple kept
+from the old cuts would describe how often thresholds that no longer ship
+interrupt a corpus that no longer exists. The Wilson CI and author-cluster
+bootstrap on `CLICHE_PAIR` were computed on the 1,859-item band and are NOT
+re-derived by the runner, so they still name that population. The MATTR
+window sweep in `quality/FLOOR.md` was not re-run either, and says so.
 
 ---
 
