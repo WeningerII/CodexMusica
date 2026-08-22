@@ -412,6 +412,63 @@ def test_the_reported_cause_is_the_suites_own():
         shutil.rmtree(d, ignore_errors=True)
 
 
+def test_the_bounds_are_declared_and_reachable():
+    """3d. THE BOUND IS A PER-SUITE TABLE, AND IT MAY ONLY RAISE.
+
+    One global 420s excluded the four most expensive suites in the repository
+    and the summary called all four already-red (`MISSING.md` M-30). Raised
+    2026-08-22 on measurement rather than by feel: `suite_sweep.py` timed the
+    whole tree, the four outliers got bounds at ~2x their serial runtime, and
+    the global default moved 420 -> 600 into the real gap between
+    `test_revise.py` (309s) and `test_loop.py` (428s).
+
+    A TABLE AND NOT ONE BIG NUMBER: raising the global ceiling to cover
+    `test_verbs` would give a genuinely hung two-second suite half an hour to
+    hang in, which is the one thing a bound exists to prevent.
+    """
+    print("\n3d. the bounds are declared per suite, and only ever raise")
+    check("every SUITE_TIMEOUT key names a file that exists — a bound on a "
+          "renamed suite is a declared coordinate pointing at nothing",
+          all(os.path.exists(os.path.join(HERE, "..", k))
+              for k in mutate.SUITE_TIMEOUT),
+          str([k for k in mutate.SUITE_TIMEOUT
+               if not os.path.exists(os.path.join(HERE, "..", k))]))
+    check("every entry RAISES above the default, or it is doing nothing",
+          all(v > mutate.DEFAULT_TIMEOUT
+              for v in mutate.SUITE_TIMEOUT.values()),
+          str({k: v for k, v in mutate.SUITE_TIMEOUT.items()
+               if v <= mutate.DEFAULT_TIMEOUT}))
+    # THE SEMANTICS, which are the part a caller has to be able to predict:
+    # `--timeout N` means AT LEAST N FOR EVERYTHING, and a table nobody read
+    # can never quietly lower it.
+    slow = os.path.join("quality", "test_verbs.py")
+    fast = os.path.join("quality", "test_band.py")
+    check("a listed suite gets its own, larger bound",
+          mutate.bound_for(slow) == mutate.SUITE_TIMEOUT[slow])
+    check("an unlisted suite gets the default",
+          mutate.bound_for(fast) == mutate.DEFAULT_TIMEOUT)
+    check("`--timeout` raises the floor for an unlisted suite",
+          mutate.bound_for(fast, 900) == 900)
+    check("...and NEVER lowers a listed one below its declared bound",
+          mutate.bound_for(slow, 100) == mutate.SUITE_TIMEOUT[slow],
+          "%ds" % mutate.bound_for(slow, 100))
+    check("a `--timeout` above every entry raises those too",
+          mutate.bound_for(slow, 9000) == 9000)
+
+    # AND THE TABLE MUST GO STALE LOUDLY. `suite_sweep` measures the tree; if
+    # a suite outgrows its ceiling the mutation sweep silently drops it again,
+    # which is the whole of M-30. This does not RE-TIME the tree — that costs
+    # an hour — it pins that the four suites measured over the default are
+    # exactly the four that carry an entry, so a fifth outgrowing it is a
+    # visible edit here rather than a silent exclusion there.
+    MEASURED_OVER_DEFAULT = {"test_verbs", "test_discriminate",
+                             "test_capacity", "test_loop"}
+    listed = {os.path.basename(k)[:-3] for k in mutate.SUITE_TIMEOUT}
+    check("the listed suites are exactly the ones measured above the default "
+          "on 2026-08-22 — a fifth is an edit here, not a silent drop there",
+          listed == MEASURED_OVER_DEFAULT, str(listed ^ MEASURED_OVER_DEFAULT))
+
+
 # ---------------------------------------------------------------------------
 # The run
 # ---------------------------------------------------------------------------
@@ -701,6 +758,7 @@ if __name__ == "__main__":
     test_M1_is_declared_verbatim()
     test_the_three_way_outcome()
     test_the_reported_cause_is_the_suites_own()
+    test_the_bounds_are_declared_and_reachable()
     if a.static:
         # THE TRIPWIRE WAS WELDED TO THE SWEEP, WHICH IS WHY NOBODY RAN IT.
         # Sections 1-3 read the mutation list and seven source files and cost

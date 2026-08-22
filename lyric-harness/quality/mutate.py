@@ -1521,7 +1521,53 @@ class Gate:
 GATE = Gate()
 
 
-def run_test(tree, rel_path, timeout=420):
+#: PER-SUITE BOUNDS, in seconds, each with the measurement that set it.
+#:
+#: THE BOUND WAS ONE GLOBAL 420s AND IT EXCLUDED THE FOUR MOST EXPENSIVE
+#: SUITES IN THE REPOSITORY (`MISSING.md` M-30). That is not a coincidence: a
+#: fixed bound excludes exactly the suites that do the most work, and those
+#: are the ones whose absence from a mutation sweep costs most. The run of
+#: 2026-08-22 closed `53/61 green, 8 excluded as already-red` — four of the
+#: eight were bounds, and `test_capacity` missed by thirty-five seconds while
+#: `test_loop` missed by eight.
+#:
+#: A TABLE AND NOT ONE BIG NUMBER, deliberately. Raising the global bound to
+#: cover `test_verbs` would give a genuinely HUNG two-second suite half an
+#: hour to hang in, and the whole point of a bound is to hear about that
+#: quickly. The 57 ordinary suites keep a tight ceiling; the four outliers get
+#: one matched to what they were measured to need.
+#:
+#: THE NUMBERS ARE ~2x THE MEASURED SERIAL RUNTIME, and the factor is not
+#: decoration: these run inside a mutation sweep at width `cpu_count()`, so
+#: wall clock moves with load in a way a serial sweep does not see. Measured
+#: 2026-08-22 by `quality/suite_sweep.py` over the whole tree.
+SUITE_TIMEOUT = {
+    os.path.join("quality", "test_verbs.py"): 3000,        # measured 1,469s
+    os.path.join("quality", "test_discriminate.py"): 1800,  # measured   892s
+    os.path.join("quality", "test_capacity.py"): 1000,      # measured   455s
+    os.path.join("quality", "test_loop.py"): 900,           # measured   428s
+}
+
+#: The global ceiling for everything else. RAISED 420 -> 600 on the same
+#: measurement: the slowest suite NOT in the table above is `test_revise.py`
+#: at 309s, so 420 left it 36% of headroom on a loaded machine and 600 leaves
+#: it 94%. Nothing in the tree measures between 309s and 428s, so this number
+#: sits in a real gap rather than beside a cliff.
+DEFAULT_TIMEOUT = 600
+
+
+def bound_for(rel_path, default=None):
+    """-> the seconds this suite gets. NEVER below `default`.
+
+    A per-suite entry may only RAISE the ceiling, so `--timeout N` still means
+    *at least N for everything* and a caller who raises the global bound is
+    never quietly overridden downward by a table they did not read.
+    """
+    default = DEFAULT_TIMEOUT if default is None else default
+    return max(SUITE_TIMEOUT.get(rel_path, 0), default)
+
+
+def run_test(tree, rel_path, timeout=None):
     """-> (status, seconds, tail-of-output). status in PASS/FAIL/ERROR/TIMEOUT.
 
     FAIL and ERROR are distinguished because they are different evidence: FAIL
@@ -1529,6 +1575,7 @@ def run_test(tree, rel_path, timeout=420):
     mutant broke the file badly enough that it could not run. Both count as
     caught; only FAIL means somebody wrote a check.
     """
+    timeout = bound_for(rel_path, timeout)
     env = dict(os.environ)
     env["PYTHONHASHSEED"] = str(SEED)          # doctrine 66
     env["PYTHONDONTWRITEBYTECODE"] = "1"       # no shared/stale bytecode
@@ -1539,7 +1586,10 @@ def run_test(tree, rel_path, timeout=420):
         p = subprocess.run([sys.executable, rel_path], cwd=tree, env=env,
                            capture_output=True, timeout=timeout)
     except subprocess.TimeoutExpired:
-        return "TIMEOUT", round(time.time() - t0, 1), "timed out"
+        # THE BOUND IS NAMED. It is per-suite now, so "timed out" alone leaves
+        # a reader guessing which ceiling was in force (`MISSING.md` M-30).
+        return ("TIMEOUT", round(time.time() - t0, 1),
+                "timed out after %ds (this suite's declared bound)" % timeout)
     finally:
         GATE.release_shared()
     dt = round(time.time() - t0, 1)
@@ -1564,7 +1614,7 @@ def run_test(tree, rel_path, timeout=420):
     return status, dt, " | ".join(tail[-3:])[:400]
 
 
-def confirm_failure(tree, rel_path, timeout=420, attempts=3):
+def confirm_failure(tree, rel_path, timeout=None, attempts=3):
     """Re-run a failing test with the machine to itself. -> (verdict, detail).
 
     `verdict` is one of three, and the third one was being read as the first:
@@ -1591,6 +1641,7 @@ def confirm_failure(tree, rel_path, timeout=420, attempts=3):
     catch load-sensitive costs an escalation to the rest of the inventory and a
     line in the report; calling a load flake a catch reports a hole as covered.
     """
+    timeout = bound_for(rel_path, timeout)
     last = "failed on every isolated re-run"
     timed_out = 0
     for _ in range(max(1, attempts)):
@@ -1642,7 +1693,7 @@ def source_fingerprint():
 
 
 def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
-             timeout=420):
+             timeout=None):
     """Which tests are GREEN right now. A test red at baseline is excluded
     from the detector set: it fails either way, so it distinguishes nothing."""
     fp = source_fingerprint()
@@ -1718,8 +1769,8 @@ def baseline(tests, jobs, cache_path, force=False, confirm_all=False,
                  if r["status"] not in ("PASS", "TIMEOUT"))
     print(f"baseline: {len(green)}/{len(tests)} green, "
           f"{len(red)} excluded as already-red, "
-          f"{len(unrunnable)} excluded as UNRUNNABLE in {timeout}s "
-          f"(not red — inconclusive, doctrine 20)")
+          f"{len(unrunnable)} excluded as UNRUNNABLE at their own declared "
+          f"bound (not red — inconclusive, doctrine 20)")
     if unrunnable:
         print("  UNRUNNABLE: " + ", ".join(unrunnable))
         print("  Every mutation only these could catch is UNGUARDED in this "
@@ -1782,7 +1833,7 @@ def apply_mutation(tree, mut):
 
 
 def run_mutation(mut, green, jobs, mode, base, confirm_all=False,
-                 timeout=420):
+                 timeout=None):
     """-> result dict. Runs the declared subset; escalates to the full green
     suite if the subset finds nothing, because a SURVIVOR is a finding and a
     finding has to be checked against everything before it is reported."""
@@ -2081,7 +2132,7 @@ def main(argv=None):
                          "files. SURVIVED then means 'survived these', not "
                          "'survived the suite', and the report says so at the "
                          "top of the table")
-    ap.add_argument("--timeout", type=int, default=420,
+    ap.add_argument("--timeout", type=int, default=DEFAULT_TIMEOUT,
                     help="seconds one test file may take. Raise it on a "
                          "loaded machine: a timeout is now a REFUSAL, not a "
                          "catch, so a tight limit buys indeterminate "
