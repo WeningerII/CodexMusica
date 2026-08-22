@@ -53,8 +53,81 @@ CONSTRAINED_FAMILY = frozenset({
     "perfect-rhyme-(last-stressed-syllable)",
     "rime-riche-(last-stressed-syllable)"})
 
-#: Corpora whose endword population is rhyme-constrained by tradition.
-RHYME_CONSTRAINED_FAMILIES = frozenset({"eng_song", "sonnets"})
+#: family -> (is its endword population rhyme-constrained by tradition?, why).
+#:
+#: THREE STATES, NOT TWO (`MISSING.md` M-23, doctrine 20). This was a
+#: `frozenset` of two names, so `constrained_tag` answered a plain False for
+#: every family outside it — and False is a CLAIM: *this corpus's end words
+#: are not rhyme-constrained*. That is true of `whitman`, which is the
+#: declared negative control and was chosen for it. It is FALSE of a ghazal,
+#: whose radif is the constraint, and of a cywydd, whose cynghanedd is. Run 1
+#: never noticed because run 1 is English: every row in
+#: `data/structure_census_eng.tsv` is one of the three families below.
+#:
+#: A family with no row is `undeclared` — nobody has looked — and that is
+#: reported as itself rather than as a measured negative. Run 2 owes a row per
+#: tradition; what this table changes is that the owing is now VISIBLE in the
+#: artifact instead of being spelled `no`.
+RHYME_CONSTRAINED = {
+    "eng_song": (True,
+                 "the English song corpus: end rhyme is the tradition's own "
+                 "organising constraint, and the registration names it."),
+    "sonnets": (True,
+                "152 Shakespeare sonnets, ABABCDCDEFEFGG declared. The "
+                "endword population is constrained by the form itself."),
+    "whitman": (False,
+                "THE DECLARED NEGATIVE CONTROL, and the only row here whose "
+                "False is a measurement rather than a default. Free verse: "
+                "the registration requires it to be incidental on every row, "
+                "and E1 is the comparison that reads it."),
+}
+
+#: Derived, for the readers that want membership rather than the reason. Never
+#: typed beside the table (doctrine 1).
+RHYME_CONSTRAINED_FAMILIES = frozenset(
+    f for f, (v, _r) in RHYME_CONSTRAINED.items() if v)
+
+#: structure row -> why a REGISTERED AMENDMENT struck its `constrained` tag.
+#:
+#: `quality/RESULTS_STRUCTURE_CENSUS.md` records E1 failing on
+#: `dactylic-rhyme` and amends the expectation: the row leaves the
+#: constrained-family expectation, E1 re-reads over the remaining five (PASS,
+#: 5 of 5), and *"the artifact's `constrained=yes` tag on dactylic-rhyme cells
+#: is VOID for consumers"*. That sentence lived in prose ONLY: the shipped
+#: table still carries 144 `constrained=yes` dactylic rows and nothing a
+#: consumer runs says they are struck. Doctrine 48 — a principle that lives
+#: only in prose gets followed exactly as often as someone remembers it — and
+#: doctrine 17, which is about not quoting a falsified check as live.
+#:
+#: THE TAG IS NOT REWRITTEN, DELIBERATELY. The artifact is a DATED SNAPSHOT
+#: and the code that produced it must keep describing it; the amendment's own
+#: text defers the drop to run 2's registration. So the row stays in
+#: `CONSTRAINED_FAMILY`, the 144 cells keep their tag, and what changes is
+#: that a consumer is TOLD — `void_reason` is the mechanism, and
+#: `test_structure_census.py` §4b is what fails if the two ever disagree.
+VOID_CONSTRAINED_ROWS = {
+    "dactylic-rhyme":
+        "STRUCK by E1's registered amendment (quality/"
+        "RESULTS_STRUCTURE_CENSUS.md). The judge is sound — it answers "
+        "glamorous/amorous TRUE and night/delight FALSE on constructed "
+        "dactyls — and the zeros are the corpora's: the sonnets are iambic "
+        "pentameter, so a line CANNOT end on a dactylic-stressed word "
+        "(0 of 12,926 judged pairs is a metrical fact, not a failure), and "
+        "the tradition's dactylic rhyme is characteristically MOSAIC, which "
+        "an endword population of single words cannot hold. A phase-2 "
+        "calibration may draw NEITHER SIGNAL NOR NULL from this row's tag.",
+}
+
+
+def void_reason(row):
+    """-> the amendment that struck this row's `constrained` tag, or `""`.
+
+    THE ENTRY POINT FOR A CONSUMER OF `data/structure_census_eng.tsv`. Reading
+    the `constrained` column alone is not enough: 144 of its `yes` cells are
+    struck, and the strike is a registered amendment rather than a fact about
+    the cell. Ask this before quoting a tag.
+    """
+    return VOID_CONSTRAINED_ROWS.get(row, "")
 
 OUT_DEFAULT = os.path.join(ROOT, "data", "structure_census_eng.tsv")
 
@@ -344,8 +417,29 @@ def census_file(path, memo, dedup=True, language=None):
 
 
 def constrained_tag(family, row, pop):
-    return (pop == "endword-cross" and row in CONSTRAINED_FAMILY
-            and family in RHYME_CONSTRAINED_FAMILIES)
+    """-> "yes" | "no" | "undeclared". The cell's `constrained` column.
+
+    RETURNS A STRING AND NOT A BOOL, and the change is not cosmetic: under a
+    two-state answer an undeclared family was reported `no`, which is a claim
+    about a tradition nobody had examined (doctrine 20). `undeclared` is the
+    third state and it is what every non-English family gets today.
+
+    THE FIRST TWO CONDITIONS STAY BINARY ON PURPOSE. Whether the cell is an
+    end-rhyme cell at all — the population and the structure row — is settled
+    by two declared tables in this file, so a cell that is not one is `no` and
+    not `undeclared`: that question WAS asked and the answer is no. Only the
+    CORPUS half can be unexamined.
+
+    CALLERS MUST NOT USE THIS IN A BOOLEAN CONTEXT — `"no"` is truthy, so a
+    surviving `if constrained_tag(...)` would silently tag every cell `yes`.
+    `test_structure_census.py` §4 asserts on the AST that no caller does.
+    """
+    if pop != "endword-cross" or row not in CONSTRAINED_FAMILY:
+        return "no"
+    declared = RHYME_CONSTRAINED.get(family)
+    if declared is None:
+        return "undeclared"
+    return "yes" if declared[0] else "no"
 
 
 def rows_for(path, cells, language=None):
@@ -363,7 +457,7 @@ def rows_for(path, cells, language=None):
         rate = f"{t / judged:.6f}" if judged else ""
         out.append((
             lang, lang, base, family, row, ST.get(row).kind, pop,
-            "yes" if constrained_tag(family, row, pop) else "no",
+            constrained_tag(family, row, pop),
             str(n), str(t), str(f), str(r), rate))
     return out
 

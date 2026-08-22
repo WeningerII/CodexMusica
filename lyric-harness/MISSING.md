@@ -3945,6 +3945,54 @@ for a cywydd's cynghanedd. Run 2 owes a declared entry per tradition, and the
 registration's own E1 amendment owes `dactylic-rhyme`'s removal from the
 constrained family (its shipped `constrained=yes` tag is VOID for consumers).
 
+**THE QUIETER BLOCKER IS SHUT — 2026-08-22 — AND THE ENTRY STAYS OPEN ON THE
+`partition` KIND, WHICH IS ITS SUBJECT.** `constrained_tag` returns
+`"yes" | "no" | "undeclared"` instead of a bool. A family with no declared row
+now reads `undeclared`; the two-state answer spelled it `no`, which is a CLAIM
+— *this corpus's end words are not rhyme-constrained* — true of `whitman`,
+which was chosen for exactly that, and false of a ghazal (doctrine 20).
+`RHYME_CONSTRAINED` is a table of `(verdict, reason)` and `whitman`'s False now
+carries its reason, so a measured negative and an unexamined one are different
+values rather than one word.
+
+**IT MOVES NO SHIPPED ROW, and that is asserted rather than argued.** All
+16,530 rows of `data/structure_census_eng.tsv` recompute to the value they
+already carry (864 `yes`, 15,666 `no`), because every family in the run-1
+artifact is one of the three declared ones. A coordinate was added and no
+recorded value moved.
+
+**AND THE E1 AMENDMENT IS MECHANICAL NOW INSTEAD OF PROSE.**
+`RESULTS_STRUCTURE_CENSUS.md` states *"the artifact's `constrained=yes` tag on
+dactylic-rhyme cells is VOID for consumers"* — and the shipped table carries
+**144 such cells, 16.7% of all 864 `yes` rows**, with nothing a consumer RUNS
+saying they are struck. `VOID_CONSTRAINED_ROWS` and `void_reason(row)` are the
+mechanism (doctrine 48; doctrine 17 on not quoting a falsified check as live).
+**The tag itself is deliberately NOT rewritten** — the artifact is a dated
+snapshot, the amendment's own text defers the drop to run 2's registration, and
+rewriting it here would make the code stop describing the table it produced. So
+the row STAYS in `CONSTRAINED_FAMILY` and the test pins it there, which is what
+stops a later tidy-up silently moving 144 recorded cells.
+
+**AND THE MEASUREMENT FOUND SOMETHING THIS ENTRY UNDERSTATES: THE FAMILY IS
+PER-FILE.** `family_of` collapses `eng_*` to one `eng_song` and returns the
+FILENAME STEM for everything else, so the tree holds **124 undeclared families
+— one per non-English file**: `fas_hafez_ganjoor`, `ltc_siku_kr4j0031`,
+`cym_song_alun`, each its own "corpus". So run 2's owed rows are not a dozen
+traditions but a table that grows with every staging, and "a declared entry per
+tradition" cannot be written against this key at all. Whether the constrained
+question is asked of the FILE or of the TRADITION is itself the undeclared
+coordinate, and it is owed before the rows are.
+
+**TESTED WHILE OPEN.** `quality/test_structure_census.py` §4/§4b name M-23
+while the entry stays OPEN, because they test the quieter blocker and the
+amendment's reachability. They test nothing about the `partition` kind, the
+four spec-shaped sources, or the `ltc_overlap.read_poems` lift — which is what
+this entry is actually about, and what keeps it open. Three mutations prove the
+sections: restoring the two-state tag reds 4, restoring the
+`"yes" if tag(...) else "no"` call site reds the truthiness guard (`"no"` is
+truthy, so every cell would tag `yes` and no example-based check would catch
+it), and emptying the void table reds 2.
+
 ### M-24 · The section vocabulary is keyed on a bare token, so a mark means whatever the first tradition to claim it meant `PARTIAL`
 **Found 2026-08-21 by sixteen concurrent tradition-family surveys, and three
 of them hit the same wall independently.**

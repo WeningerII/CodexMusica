@@ -15,6 +15,7 @@ Sections:
 Run: python3 quality/test_structure_census.py
 """
 
+import ast
 import os
 import re
 import sys
@@ -152,23 +153,143 @@ def test_cell_accounting():
 
 
 def test_constrained_tag():
-    print("\n4. the constrained tag is the registration's, exactly")
+    """4. THE TAG HAS THREE STATES (`MISSING.md` M-23, doctrine 20).
+
+    It had two, and `False` is a CLAIM — *this corpus's end words are not
+    rhyme-constrained*. True of `whitman`, which was chosen for it. False of
+    a ghazal, whose radif IS the constraint, and of a cywydd's cynghanedd.
+    Run 1 could not see it because run 1 is English.
+
+    EVERY ASSERTION BELOW COMPARES THE STRING. The function returned a bool
+    and returns `"yes"`/`"no"`/`"undeclared"` now, and `"no"` is TRUTHY — so
+    the old `not CEN.constrained_tag(...)` spelling would have gone silently
+    false under the change while reading exactly as it always did.
+    """
+    print("\n4. the constrained tag has three states, and `no` is a claim")
     check("end-rhyme family x endword-cross x rhyme-constrained corpora "
-          "-> constrained",
+          "-> yes",
           CEN.constrained_tag("eng_song", "masculine-rhyme",
-                              "endword-cross")
+                              "endword-cross") == "yes"
           and CEN.constrained_tag("sonnets", "feminine-rhyme",
-                                  "endword-cross"))
+                                  "endword-cross") == "yes")
     check("whitman is incidental on EVERY row — the declared negative "
           "control; within-line and non-family rows are incidental "
           "everywhere",
-          not CEN.constrained_tag("whitman", "masculine-rhyme",
-                                  "endword-cross")
-          and not CEN.constrained_tag("eng_song", "masculine-rhyme",
-                                      "word-within-line")
-          and not CEN.constrained_tag("eng_song",
-                                      "kalevala-alliteration",
-                                      "endword-cross"))
+          CEN.constrained_tag("whitman", "masculine-rhyme",
+                              "endword-cross") == "no"
+          and CEN.constrained_tag("eng_song", "masculine-rhyme",
+                                  "word-within-line") == "no"
+          and CEN.constrained_tag("eng_song", "kalevala-alliteration",
+                                  "endword-cross") == "no")
+
+    # THE THIRD STATE, AND IT IS UNREACHABLE FROM THE SHIPPED ARTIFACT — which
+    # is exactly why it has to be constructed here. Every family in
+    # `data/structure_census_eng.tsv` is one of the three declared ones, so a
+    # section that only read real rows would pass identically before and after
+    # (doctrine 20, one layer up, inside the check written about doctrine 20).
+    for fam in ("fas_hafez_ganjoor", "cym_song_alun", "san_bilhana_"
+                "caurapancasika", "ltc_huajianji"):
+        check("an undeclared corpus reads `undeclared`, not `no` (%s)" % fam,
+              CEN.constrained_tag(fam, "masculine-rhyme",
+                                  "endword-cross") == "undeclared")
+
+    # WHITMAN'S `no` IS A DECLARATION AND A GHAZAL'S IS NOT — the whole point
+    # of the split, asserted at the table rather than only at the function.
+    check("whitman's False carries a written reason, so it is a measurement "
+          "and not a default",
+          CEN.RHYME_CONSTRAINED["whitman"][0] is False
+          and len(CEN.RHYME_CONSTRAINED["whitman"][1]) > 60)
+    check("every declared family carries a reason, not a bare verdict",
+          all(len(r) > 40 for _v, r in CEN.RHYME_CONSTRAINED.values()),
+          str([f for f, (_v, r) in CEN.RHYME_CONSTRAINED.items()
+               if len(r) <= 40]))
+    check("the membership set is DERIVED from the table, not typed beside it",
+          CEN.RHYME_CONSTRAINED_FAMILIES == frozenset(
+              f for f, (v, _r) in CEN.RHYME_CONSTRAINED.items() if v))
+
+    # AND THE TRUTHINESS TRAP, ON THE AST. `"no"` is truthy; one surviving
+    # `if constrained_tag(...)` would tag every non-family cell `yes` and no
+    # example-based check would catch it, because the function's own answers
+    # are all correct.
+    src = ast.parse(open(CEN.__file__, encoding="utf-8").read())
+
+    def _calls_it(node):
+        return any(isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+                   and n.func.id == "constrained_tag" for n in ast.walk(node))
+
+    boolean_uses = []
+    for n in ast.walk(src):
+        tests = []
+        if isinstance(n, (ast.If, ast.While, ast.IfExp)):
+            tests = [n.test]
+        elif isinstance(n, ast.BoolOp):
+            tests = list(n.values)
+        elif isinstance(n, ast.UnaryOp) and isinstance(n.op, ast.Not):
+            tests = [n.operand]
+        elif isinstance(n, ast.comprehension):
+            tests = list(n.ifs)
+        for t in tests:
+            if _calls_it(t):
+                boolean_uses.append(getattr(t, "lineno", "?"))
+    check("no caller reads `constrained_tag` in a boolean context — `no` is "
+          "truthy and would tag every cell `yes`",
+          not boolean_uses, "lines %s" % boolean_uses)
+    check("...and the guard is not vacuous: the module does call it",
+          _calls_it(src))
+
+
+def test_the_struck_tag_says_so():
+    """4b. A REGISTERED AMENDMENT VOIDED 144 SHIPPED CELLS AND ONLY PROSE
+    SAID SO (`MISSING.md` M-23).
+
+    `RESULTS_STRUCTURE_CENSUS.md` records E1 failing on `dactylic-rhyme` and
+    states *"the artifact's `constrained=yes` tag on dactylic-rhyme cells is
+    VOID for consumers"*. The shipped table still carries those cells with
+    `yes` in the column, and nothing a consumer RUNS said they were struck.
+    Doctrine 48, and doctrine 17 on not quoting a falsified check as live.
+
+    THE TAG IS DELIBERATELY NOT REWRITTEN: the artifact is a dated snapshot,
+    the amendment's own text defers the drop to run 2's registration, and
+    rewriting it here would make the code stop describing the table it
+    produced. What is asserted is that the strike is REACHABLE.
+    """
+    print("\n4b. the tag E1 struck says so mechanically, not only in prose")
+    check("`dactylic-rhyme`'s tag is struck, and the reason names the "
+          "amendment",
+          "amendment" in CEN.void_reason("dactylic-rhyme").lower(),
+          CEN.void_reason("dactylic-rhyme")[:60])
+    check("the five rows E1 re-read over are NOT struck",
+          not any(CEN.void_reason(r) for r in
+                  ("masculine-rhyme", "feminine-rhyme", "perfect-rhyme",
+                   "perfect-rhyme-(last-stressed-syllable)",
+                   "rime-riche-(last-stressed-syllable)")))
+    # THE DEFERRAL IS ASSERTED AS A DEFERRAL. A later lot that "tidies" the
+    # row out of CONSTRAINED_FAMILY would silently move 144 shipped cells
+    # from `yes` to `no` and make this module stop describing its own
+    # artifact — so the membership is pinned WITH the strike, not against it.
+    check("the struck row is still IN the constrained family, because the "
+          "artifact it describes still tags it",
+          "dactylic-rhyme" in CEN.CONSTRAINED_FAMILY)
+
+    art = os.path.join(HERE, "..", "data", "structure_census_eng.tsv")
+    rows = CEN.read_tsv(art)
+    col = {c: i for i, c in enumerate(CEN.COLUMNS)}
+    struck = [r for r in rows if CEN.void_reason(r[col["structure"]])
+              and r[col["constrained"]] == "yes"]
+    check("the shipped artifact carries exactly the 144 struck `yes` cells "
+          "the amendment describes",
+          len(struck) == 144, "%d struck of %d rows" % (len(struck),
+                                                        len(rows)))
+    # THE CONTROL, and it is what makes the three-state change safe to ship:
+    # recomputing every shipped row's tag with the new function must return
+    # the artifact's own value, or this commit moved a dated snapshot.
+    moved = [r for r in rows
+             if CEN.constrained_tag(r[col["family"]], r[col["structure"]],
+                                    r[col["population"]])
+             != r[col["constrained"]]]
+    check("the three-state tag reproduces EVERY shipped row — a coordinate "
+          "was added and no recorded value moved",
+          not moved, "%d row(s) moved: %s" % (len(moved), moved[:1]))
 
 
 def test_tsv_roundtrip():
@@ -362,10 +483,30 @@ def test_tokeniser_is_declared():
           not (set(CEN.TOKENISER_SITE) & set(CEN.NO_TOKENISER)))
 
 
+def _every_section_runs(listed):
+    """A RUNNER LIST IS A POPULATION NOBODY WROTE DOWN, and its failure mode
+    is silent: a section written, correct, and simply absent from the tuple
+    below prints nothing and the suite still says every check passed.
+    MEASURED ON THIS REPO, 2026-08-21: `test_readability.py` §10 was written,
+    was right, never ran, and the file reported `111 PASS, all pass`.
+
+    Asked FIRST, so a missing section is named before any section runs.
+    """
+    have = {k for k, v in globals().items()
+            if k.startswith("test_") and callable(v)}
+    missing = sorted(have - {f.__name__ for f in listed})
+    print("\n0. every test_* function in this file is in the runner list")
+    check("no section is defined and executed by nothing", not missing,
+          str(missing))
+
+
 if __name__ == "__main__":
-    for fn in (test_rows, test_item_readers, test_cell_accounting,
-               test_constrained_tag, test_tsv_roundtrip,
-               test_checkpointing, test_tokeniser_is_declared):
+    SECTIONS = (test_rows, test_item_readers, test_cell_accounting,
+                test_constrained_tag, test_the_struck_tag_says_so,
+                test_tsv_roundtrip, test_checkpointing,
+                test_tokeniser_is_declared)
+    _every_section_runs(SECTIONS)
+    for fn in SECTIONS:
         fn()
     print("=" * 62)
     if FAILURES:
