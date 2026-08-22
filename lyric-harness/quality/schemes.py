@@ -1411,6 +1411,26 @@ class Mandate:
     #: A GROUP MAY NOT DECLARE BOTH a structure and a relation: that is two
     #: judges for one group, and `mandate()` refuses it (doctrine 1).
     relations: tuple = ()
+    #: THE MANDATE-LEVEL RELATION, and the route `relations` becomes the
+    #: DEFAULT by (owner's instruction 2026-08-22, "wire Mandate.relations as
+    #: the default route").
+    #:
+    #: `relations` is per GROUP, so declaring one named relation over a whole
+    #: song meant repeating it once per group and re-repeating it whenever a
+    #: group was added -- a declaration that has to be maintained in n places
+    #: is one that will disagree with itself. This is the same name declared
+    #: ONCE, and `relation_of` falls back to it for every group that does not
+    #: override.
+    #:
+    #: RESOLUTION ORDER, and it is the only order that lets a song be mostly
+    #: one relation with exceptions: the group's own `relations[k]`, else this,
+    #: else "" -- which still means the coarse `Declaration.admit` path, so a
+    #: mandate that declares neither is byte-for-byte the old object.
+    #:
+    #: Validated at DECLARATION time through the same `resolve_relation` every
+    #: per-group name goes through, so a typo refuses when the mandate is
+    #: written rather than answering a different question at grade time.
+    default_relation: str = ""
     #: 1-based lines in no group at all -- declared free, mandating nothing
     free: tuple = ()
     source: str = "declared"          # "declared" | "derived"
@@ -1452,6 +1472,27 @@ class Mandate:
         from quality import structures as _ST
         return _ST.DEFAULT
 
+    def __post_init__(self):
+        """VALIDATE THE MANDATE-LEVEL RELATION AT DECLARATION TIME.
+
+        The per-group `relations` are resolved by `_normalise_relations` on
+        the `mandate()` path, but `Mandate` is also constructed directly --
+        by `plan.py`, by tests, by any caller holding groups already -- so a
+        `default_relation` validated only in the factory would be unchecked on
+        every direct construction.  It is checked HERE, which is the one place
+        every construction passes through.
+
+        A name that does not resolve refuses the MANDATE, not the pair: a
+        relation that does not exist, silently graded as the coarse default,
+        is a different question answered without saying so (doctrine 20), and
+        that is worse at declaration time than at grade time because the
+        writer is still holding the sentence they got wrong.
+        """
+        if self.default_relation:
+            from quality import rhyme_types as _RT
+            object.__setattr__(self, "default_relation",
+                               _resolve_relation(_RT, self.default_relation))
+
     def relation_of(self, group_index):
         """-> the declared relation NAME for one group, or "" for default.
 
@@ -1468,7 +1509,11 @@ class Mandate:
         four-name table."""
         if group_index < len(self.relations) and self.relations[group_index]:
             return self.relations[group_index]
-        return ""
+        # THE MANDATE-LEVEL DEFAULT (2026-08-22).  A group that declares
+        # nothing takes the song's relation if one was declared; only a
+        # mandate declaring NEITHER falls through to the coarse admit set, so
+        # every caller that never learned this field is unaffected.
+        return self.default_relation or ""
 
     def pairs(self):
         """-> [(i, j, group_index)], 1-based, i < j. THE mandate, expanded.
@@ -2219,7 +2264,7 @@ def _normalise_scope(raw, n_lines, groups, returns):
 
 def mandate(spec, n_lines=None, source="declared", origin=None,
             returns=None, scope=None, rule=None, carry_returns=True,
-            structures=None, relations=None):
+            structures=None, relations=None, default_relation=None):
     """Anything that can name a song's requirements -> a `Mandate`.
 
     Accepted, and all of them are the SAME kind of object once here:
@@ -2252,6 +2297,12 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
     with no mandate has been given nothing to check against, and saying
     "nothing flagged" about it is a vacuous pass (doctrine 20).
     """
+    # WHETHER THE CALLER SUPPLIED ONE, captured BEFORE the default is
+    # applied — `rule = rule or ReturnRule()` makes `rule` non-None for the
+    # rest of this function, so a later `if rule is None` can never fire and
+    # the re-open path below could not tell "no rule declared" from "the
+    # default declared" (`MISSING.md` M-53). Silence is not a declaration.
+    rule_declared = rule is not None
     rule = rule or ReturnRule()
     extra_returns = []
 
@@ -2278,19 +2329,37 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
         spec = m
 
     if isinstance(spec, Mandate) and (returns or scope
-                                      or structures is not None):
+                                      or structures is not None
+                                      or relations is not None
+                                      or default_relation is not None):
         # `structures` re-opens the same way `returns`/`scope` do — before
         # it joined this condition, `mandate(m, structures={...})` fell
         # through to the idempotence branch below and DROPPED the
         # declaration in silence, the exact defect family `--returns=`
         # beside `--groups=` was (a declared coordinate consumed and
         # ignored, byte-identical to not declaring it).
+        #
+        # AND `relations` HAD THE IDENTICAL HOLE, SHIPPED THE SAME DAY IT
+        # WAS BUILT AND FOUND 2026-08-22 WIRING THE DEFAULT ROUTE
+        # (`MISSING.md` M-50). MEASURED: `mandate(mandate('ABAB'),
+        # relations={'A': 'type:qafiya'})` returned `relations=()` and
+        # compared EQUAL to the mandate it re-opened — the declaration was
+        # not refused, not carried, and not recorded in `origin`. The
+        # comment three lines up named this exact family while the line it
+        # is attached to had the same hole one coordinate over, which is
+        # why the guard is now a list of every re-openable coordinate
+        # rather than a list of the ones somebody remembered.
         # re-open an existing mandate to add the statements it lacked
         n = spec.n_lines if n_lines is None else n_lines
         rets = list(spec.returns)
         if returns is not None:
             rets += _list_returns(returns)
-        norm = _normalise_returns(rets, n, rule)
+        # THE RE-OPEN READS THE MANDATE'S OWN RULE unless one is declared
+        # here, for both the normalisation and the stored field — a return
+        # renormalised under the default is a return judged by a rule its
+        # writer replaced.
+        eff_rule = rule if rule_declared else spec.rule
+        norm = _normalise_returns(rets, n, eff_rule)
         # THE RE-OPEN PATH IS CHECKED THE SAME WAY THE BUILD PATH IS. It used
         # to take `scope` on trust -- not even the 1..n bound the constructor
         # below enforces -- so `mandate(mandate('ABAB'), scope=[1, 2])` built
@@ -2301,15 +2370,38 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
         # `structures` joined the condition above this literal said
         # "+ returns" unconditionally, which a structures-only re-open
         # would have made a false statement about its own provenance.
+        # EVERY re-openable coordinate is named here, and the list is the
+        # same list as the guard above. `relations` was in neither, so a
+        # relations-only re-open printed `origin: ... + ` — a trailing
+        # conjunction with nothing after it, which is what a provenance
+        # string looks like when it is describing a coordinate nobody told
+        # it about.
         added = [word for word, given in (("returns", returns),
                                           ("scope", scope),
-                                          ("structures", structures))
+                                          ("structures", structures),
+                                          ("relations", relations),
+                                          ("default_relation",
+                                           default_relation))
                  if given is not None]
         return Mandate(n_lines=n, groups=spec.groups, labels=spec.labels,
+                       default_relation=(spec.default_relation
+                                         if default_relation is None
+                                         else default_relation),
                        free=spec.free, source=spec.source,
                        origin=spec.origin + " + " + " + ".join(added),
                        returns=norm,
-                       scope=sc, rule=rule,
+                       scope=sc,
+                       # THE RULE IS CARRIED, NOT RE-DEFAULTED (2026-08-22,
+                       # `MISSING.md` M-53). This read `rule=rule` — the
+                       # PARAMETER, `None` on every re-open that does not
+                       # re-declare one — so re-opening a mandate to add any
+                       # coordinate silently reset its `ReturnRule` to the
+                       # default. MEASURED: a mandate built with
+                       # `return_rhyme='positional'` comes back `'union'`.
+                       # Same shape as `relations` one field over: the
+                       # re-open path treats an omitted argument as a
+                       # DECLARATION OF THE DEFAULT rather than as silence.
+                       rule=eff_rule,
                        structures=(_st_spec := (
                            spec.structures if structures is None
                            else _normalise_structures(
@@ -2408,7 +2500,11 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                    structures=(_st := _normalise_structures(
                        structures, labels, len(groups))),
                    relations=_normalise_relations(relations, labels,
-                                                  len(groups), _st))
+                                                  len(groups), _st),
+                   # VALIDATED BY `Mandate.__post_init__`, not here, because
+                   # `Mandate` is also constructed directly and a check that
+                   # lives only in the factory is not a check on the field.
+                   default_relation=default_relation or "")
 
 
 def _normalise_structures(structures, labels, n_groups):
@@ -2512,11 +2608,36 @@ def _resolve_relation(_RT, name):
     """The vocabulary's refusal, re-raised as THIS layer's — the same move
     `_resolve_structure` makes, and for the same reason: `mandate()` has
     exactly one refusal type and a `RelationRefused` escaping it would be the
-    right refusal in the wrong layer's words."""
+    right refusal in the wrong layer's words.
+
+    THE STORED FORM IS NAMESPACED, AND THAT IS THE FIX OF 2026-08-22
+    (`MISSING.md` M-49). This returned `resolve_relation(name)[0]` — the BARE
+    canonical name — and dropped the `kind` beside it. 26 of the 131 distinct
+    declarable names live in TWO namespaces (`type` and `schema`), which is
+    the whole reason M-37 made a namespace mandatory, so the bare name is a
+    LOSSY store: `relations={"A": "type:rime riche"}` resolved at the door,
+    stored `'rime riche'`, and `grade()` — which re-resolves through
+    `satisfies_relation` — got back the M-37 ambiguity refusal on every pair
+    in that group. MEASURED over the whole vocabulary by re-resolving each
+    stored value: **52 of the 157 namespaced declarations REFUSED at grade
+    time**, 105 survived. Accepted at the door and refused at the judge is
+    the worst of the three possible answers, because the declaration reads
+    as taken.
+
+    The invariant this restores, and the reason the shape is uniform rather
+    than namespaced-only-when-ambiguous: THE STORED VALUE MUST RE-RESOLVE TO
+    THE SAME JUDGE. A bare name satisfies that for 105 of 157 declarations
+    and a namespaced one for all 157, so storing two shapes by ambiguity
+    would make the store's spelling a function of the vocabulary's current
+    contents — a name gaining a `schema` twin later would silently change
+    what an untouched mandate stores (doctrine 1)."""
     try:
-        return _RT.resolve_relation(name)[0]
+        canon, kind = _RT.resolve_relation(name)
     except _RT.RelationRefused as e:
         raise NoMandate(str(e)) from e
+    # `resolve_relation` answers "named" where the namespace is spelled
+    # `type`; every other kind IS its namespace.
+    return f"{'type' if kind == 'named' else kind}:{canon}"
 
 
 def _resolve_structure(_ST, name):

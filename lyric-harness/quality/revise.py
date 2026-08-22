@@ -911,8 +911,20 @@ class Reviser:
         # old path. A NAMED relation costs one `classify_pair` per pair
         # (~1.3 ms, measured 2026-08-22); a coarse CLASS is answered from the
         # score that was computed anyway.
+        #
+        # THE GATE ASKS BOTH COORDINATES (2026-08-22, owner's instruction
+        # "wire Mandate.relations as the default route"). It read
+        # `m.relations` alone, and `Mandate.default_relation` — the SAME
+        # declaration made once for the whole song instead of once per group
+        # — left this None, so `want` was "" on every pair and a mandate
+        # that declared its relation at the mandate level was graded by the
+        # coarse `admit` set in silence. A declared coordinate read by
+        # nothing is the defect this whole route exists to end, and shipping
+        # the field without this line would have re-created it in the act of
+        # closing it.
         _RT = None
-        if getattr(m, "relations", ()) and any(m.relations):
+        if ((getattr(m, "relations", ()) and any(m.relations))
+                or getattr(m, "default_relation", "")):
             from quality import rhyme_types as _RT_mod
             _RT = _RT_mod
         for (i, j, k) in pairs:

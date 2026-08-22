@@ -4295,6 +4295,15 @@ the quality layer (each says which module answered):
                           row each group DEMANDS (quality/structures.py names()
                           lists the 58; world aliases resolve) -- shipped by
                           the Kalevala adoption 2026-08-18
+                          --relations=LABEL:NAME,... declares which RELATION
+                          each group demands, and --relation=NAME declares
+                          one for the whole mandate (every group that does
+                          not override). The vocabulary is
+                          quality.rhyme_types.relation_vocabulary() -- 4
+                          coarse classes and every named cell -- and a name
+                          in two namespaces must say which (type:NAME /
+                          schema:NAME / class:NAME, M-37). A group may not
+                          declare BOTH a structure and a relation.
                           SCHEME_VIOLATION for being exactly identical), or
                           --cliques (the song's own graph structure).
                           With NO mandate it REFUSES: nothing declared means
@@ -7109,12 +7118,14 @@ def main():
         _no_unknown_flags_or_refuse(
             [a for a in args
              if a.split("=", 1)[0] not in ("--groups", "--returns",
-                                           "--cliques", "--structures")],
+                                           "--cliques", "--structures",
+                                           "--relations", "--relation")],
             ("--blueprint=B", "--profile=" + "|".join(sorted(PROFILES)),
              "--subdivision N", "--isochronous",
              "--propose=stub|replay:PATH|defer:PATH|call:MODULE:FACTORY",
              "--pursue=CODE,CODE", "--groups=", "--returns=", "--cliques",
-             "--structures=LABEL:NAME,..."),
+             "--structures=LABEL:NAME,...", "--relations=LABEL:NAME,...",
+             "--relation=NAME"),
             cmd)
 
         def _mandate_arg(args, at, lines):
@@ -7192,6 +7203,10 @@ def main():
                     flags.append(("--returns=", tok.split("=", 1)[1]))
                 elif tok.startswith("--structures="):
                     flags.append(("--structures=", tok.split("=", 1)[1]))
+                elif tok.startswith("--relations="):
+                    flags.append(("--relations=", tok.split("=", 1)[1]))
+                elif tok.startswith("--relation="):
+                    flags.append(("--relation=", tok.split("=", 1)[1]))
                 else:
                     tail.append(tok)
 
@@ -7200,6 +7215,17 @@ def main():
                 _refuse("the same mandate spelling was handed in more than "
                         "once, and this reader will not choose between them",
                         detail=[f"handed in: {' '.join(names)}"])
+            # `--relation=` IS NOT A MANDATE SPELLING. It says nothing about
+            # which lines answer which — it names the RELATION every group
+            # is judged under — so it is split out here, after the duplicate
+            # check has seen it and before the mutual-exclusion rules below,
+            # which are about spellings that each declare a whole cover.
+            # Leaving it in `flags` made `brief FILE AABB --relation=...`
+            # refuse as "a letter scheme beside a flag", which is the rule
+            # working on the wrong member.
+            dflt = next((v for n, v in flags if n == "--relation="), None)
+            flags = [(n, v) for n, v in flags if n != "--relation="]
+            names = [n for n, _ in flags]
             if "--cliques" in names and len(flags) > 1:
                 _refuse("--cliques cannot be combined with another mandate "
                         "spelling",
@@ -7242,21 +7268,73 @@ def main():
                     out[int(key) - 1 if key.isdigit() else key] = name.strip()
                 return out
 
+            def _rels(raw):
+                # --relations=B:cynghanedd lusg,A:type:qafiya — a group
+                # LABEL (A, B, ...) or a 1-based group index, a colon, and a
+                # relation NAME. The name may itself carry a namespace
+                # (`type:` / `schema:` / `class:`), which is why the split is
+                # on the FIRST colon only: 26 of the 131 declarable names
+                # live in two namespaces and M-37 made saying which one
+                # mandatory, so `A:type:qafiya` has to survive the parse.
+                # Validation is the vocabulary's — an unknown name refuses
+                # through `_normalise_relations` as NoMandate.
+                out = {}
+                for part in raw.split(","):
+                    part = part.strip()
+                    if not part:
+                        continue
+                    if ":" not in part:
+                        _refuse(f"--relations entry {part!r} has no ':' — "
+                                f"the spelling is LABEL:NAME (group label "
+                                f"or 1-based index, then a relation name, "
+                                f"which may itself be namespaced as "
+                                f"type:NAME / schema:NAME / class:NAME)")
+                    key, name = part.split(":", 1)
+                    key = key.strip()
+                    out[int(key) - 1 if key.isdigit() else key] = name.strip()
+                return out
+
             by = dict(flags)
+            # THE MANDATE-LEVEL RELATION, declared ONCE for the whole song
+            # (owner's instruction 2026-08-22, "wire Mandate.relations as
+            # the default route"). It is not a fifth mandate SPELLING — it
+            # declares nothing about which lines answer which — so it does
+            # not join the mutual-exclusion rules above and instead rides
+            # whatever cover the other flags built. `_finish` is the one
+            # place it is applied, because every branch below returns a
+            # different SHAPE and applying it per branch is four chances to
+            # forget one (which is exactly how `relations=` came to be
+            # dropped on the re-open path, `MISSING.md` M-50).
+
+            def _finish(spec, rest):
+                if dflt is None:
+                    return spec, rest
+                if spec is None:
+                    # No mandate at all. The refusal that fires downstream is
+                    # about the MANDATE, and it is the right one — a relation
+                    # with no groups to speak about declares nothing.
+                    return spec, rest
+                return (SC.mandate(spec, n_lines=len(lines),
+                                   default_relation=dflt),
+                        rest)
+
             if not flags:
-                # No flag: the mandate is the FIRST positional, as it always
-                # was — a letter string, or None so the refusal can fire.
+                # No mandate SPELLING: the mandate is the FIRST positional,
+                # as it always was — a letter string, or None so the refusal
+                # can fire. `_finish` is a no-op when no `--relation=` was
+                # declared, so this path stays byte-identical.
                 spec = tail[0] if tail else None
-                return spec, tail[1:]
+                return _finish(spec, tail[1:])
             if "--cliques" in by:
                 # The song's OWN structure. `mandate_from_graph` marks it
                 # source="derived", so the brief says out loud that its groups
                 # band-pass BY CONSTRUCTION (doctrine 14).
-                return rv.mandate_from_graph(lines), tail
+                return _finish(rv.mandate_from_graph(lines), tail)
             st = _structs(by["--structures="]) if "--structures=" in by \
                 else None
+            rl = _rels(by["--relations="]) if "--relations=" in by else None
             if tail and not tail[0].lstrip("-").replace(",", "").isdigit():
-                if set(by) == {"--structures="}:
+                if set(by) <= {"--structures=", "--relations="} and set(by):
                     # A letter string WITH --structures= is expressible and
                     # NOT the conflict the refusal below closes: the letter
                     # fully determines the cover and its labels, and
@@ -7264,8 +7342,11 @@ def main():
                     # declaring new ones. Built here because
                     # `Reviser.mandate()` forwards no structures= of its own
                     # — the same reason the returns spelling builds early.
-                    return (SC.mandate(tail[0], n_lines=len(lines),
-                                       structures=st), tail[1:])
+                    # `--relations=` annotates the same way and joins the
+                    # same branch (2026-08-22).
+                    return _finish(SC.mandate(tail[0], n_lines=len(lines),
+                                              structures=st, relations=rl),
+                                   tail[1:])
                 # A letter string BESIDE a flag. Refused rather than ignored:
                 # silently dropping it is the very defect this block closes.
                 _refuse(f"mandate {tail[0]!r} was handed in beside "
@@ -7279,10 +7360,11 @@ def main():
 
             g = _groups(by["--groups="]) if "--groups=" in by else []
             r = _groups(by["--returns="]) if "--returns=" in by else []
-            if st is not None and not (g or r):
-                _refuse("--structures= was handed in with no groups to "
-                        "annotate — declare the mandate it speaks about "
-                        "(a letter scheme, --groups= and/or --returns=)")
+            for flag, val in (("--structures=", st), ("--relations=", rl)):
+                if val is not None and not (g or r):
+                    _refuse(f"{flag} was handed in with no groups to "
+                            f"annotate — declare the mandate it speaks about "
+                            f"(a letter scheme, --groups= and/or --returns=)")
             # `--returns=` groups are REQUIRE_RETURN — identity REQUIRED,
             # REPEAT is the requirement and not a violation (doctrine 3's
             # second half). `--groups=` groups are plain REQUIRE_RHYME. Both
@@ -7291,14 +7373,16 @@ def main():
             # hold two different requirement kinds at once, and
             # `Reviser.mandate()` forwards no `returns=` of its own.
             if r:
-                return (SC.mandate(g + r, n_lines=len(lines), returns=r,
-                                   structures=st),
-                        tail)
-            if st is not None:
-                # --groups= with --structures=: built here for the same
-                # reason the returns branch builds here.
-                return SC.mandate(g, n_lines=len(lines), structures=st), tail
-            return g, tail                       # --groups= alone, as before
+                return _finish(SC.mandate(g + r, n_lines=len(lines),
+                                          returns=r, structures=st,
+                                          relations=rl),
+                               tail)
+            if st is not None or rl is not None:
+                # --groups= with --structures= / --relations=: built here for
+                # the same reason the returns branch builds here.
+                return _finish(SC.mandate(g, n_lines=len(lines),
+                                          structures=st, relations=rl), tail)
+            return _finish(g, tail)              # --groups= alone, as before
 
         def _say_derived(m):
             """Doctrine 14, out loud. A cover read off the rhyme graph is
@@ -7320,6 +7404,45 @@ def main():
                 print(f"  NO LETTER SCHEME EXISTS: lines "
                       f"{m.overlapping_lines()} are in more than one group, "
                       f"and a letter is a property of a LINE (doctrine 2).")
+
+        def _say_relation(m):
+            """THE DECLARED RELATION, OUT LOUD (2026-08-22).
+
+            MEASURED before this existed: `brief FILE --groups=1,2` and
+            `brief FILE --groups=1,2 --relation=type:rime riche` on a draft
+            the relation is SATISFIED by are BYTE-IDENTICAL, md5
+            `9e8f3f418504`. That is the worst available shape and this file
+            says so about `--isochronus` twelve hundred lines up: a caller
+            who typed the flag and got a clean report cannot tell it was
+            read from it being dropped, and the only run that would tell
+            them is one where the draft happens to FAIL.
+
+            So the coordinate is announced whenever one is declared, on the
+            same argument `_say_blueprint` is: the disclosure is about the
+            CALL, not about the draft, so it is a printed line and never a
+            `Finding` (a caller scans `whole` for things wrong with the
+            song). Nothing is printed when nothing was declared — the coarse
+            `Declaration.admit` path is the default and announcing a default
+            on every run buries the line that matters."""
+            if m is None or isinstance(m, (str, list)):
+                return                     # a bare spec: no relation on it
+            dflt_ = getattr(m, "default_relation", "")
+            per = [(m.labels[k], r)
+                   for k, r in enumerate(getattr(m, "relations", ()) or ())
+                   if r]
+            if not (dflt_ or per):
+                return
+            if dflt_:
+                print(f"  RELATION: every group is judged under "
+                      f"{dflt_!r} unless it declares its own — the named "
+                      f"engine's own coordinate, not the scalar "
+                      f"comparator's admit set.")
+            for lab, rel in per:
+                print(f"  RELATION: group {lab!r} is judged under {rel!r}.")
+            if not dflt_:
+                print(f"  ...and every OTHER group takes the coarse admit "
+                      f"set, which is what a mandate declaring no relation "
+                      f"has always used.")
 
         def _print_brief_report(lines, scheme, blueprint):
             """`brief`'s own report, factored out so `song` can print the
@@ -7677,6 +7800,7 @@ def main():
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme)
+                _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
                 _print_brief_report(lines, scheme, bp_path)
@@ -7794,6 +7918,7 @@ def main():
                          if l.strip() and not is_apparatus_line(l)])
                 scheme, _tail = _mandate_arg(args, 3, lines)
                 _say_derived(scheme)
+                _say_relation(scheme)
                 if scheme is not None:
                     print(f"  BLUEPRINT: {song_bp_path} — meter and "
                           f"song-function join the rhyme/floor finding set"
@@ -7823,6 +7948,7 @@ def main():
                 after = load_lyric_lines(args[2])
                 scheme, tail = _mandate_arg(args, 3, before)
                 _say_derived(scheme)
+                _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
                     # BOTH SIDES, BEFORE THE VERDICT THAT COMPARES THEM.
@@ -7904,6 +8030,7 @@ def main():
                 lines = load_lyric_lines(args[1])
                 scheme, _tail = _mandate_arg(args, 2, lines)
                 _say_derived(scheme)
+                _say_relation(scheme)
                 if scheme is not None:
                     _say_blueprint()
                 propose, propose_pair, say_proposer = _resolve_proposer(

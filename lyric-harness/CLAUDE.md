@@ -245,6 +245,59 @@ survey (quality/RHYME_CANON.md) and the engine's 49 named types are the
 palette, and the door was admitting 2. Validated at declaration time;
 near-only refuses. `quality/test_homeoteleuton.py`, 4 mutations proven.
 
+**THE RELATION IS THE DEFAULT ROUTE NOW, AND THE DOOR IT REPLACES ADMITTED
+TWO (2026-08-22, owner's instruction).** `Declaration.admit` is ONE global set
+answering "what satisfies ANY mandate anywhere", so widening it makes every
+requirement in every song LOOSER — which is why it still holds
+`("RHYME", "RIME_RICHE")` and why the answer was never to widen it.
+`Mandate.relations` is per GROUP and therefore richer AND STRICTER: a group
+declaring `class:ASSONANCE` is NOT satisfied by a perfect rhyme. What shipped
+this sitting is the half that makes it a route rather than a field:
+**`Mandate.default_relation`** — the same name declared ONCE for the whole
+song, with `relation_of` resolving group's own -> mandate's -> `""` (the coarse
+path, so a mandate declaring neither is byte-for-byte the old object) — and
+**`--relations=LABEL:NAME,...` / `--relation=NAME` on the command line**, which
+is the first spelling of ANY relation coordinate reachable without dropping to
+Python. Validated at DECLARATION time through `Mandate.__post_init__`, which is
+the one place every construction passes through (`mandate()` is not: `plan.py`,
+the tests and the re-open path all build `Mandate` directly).
+**FOUR DEFECTS FELL OUT OF WIRING IT AND THREE WERE LIVE.** (1) `MISSING.md`
+M-49 — the store held a relation's BARE canonical name and `grade()`
+re-resolves it, so the 26 names living in BOTH the `type` and `schema`
+namespaces (the whole reason M-37 made the namespace mandatory) were ACCEPTED
+AT THE DOOR AND REFUSED AT THE JUDGE: **52 of 157 declarations, measured by
+round-tripping the entire vocabulary**, now 0. The store is namespaced, so the
+invariant is structural — *the stored value re-resolves to the same judge*.
+(2) M-50 — `mandate()`'s re-open guard named `returns`/`scope`/`structures` and
+not `relations`, so `mandate(m, relations={...})` compared EQUAL to
+`mandate(m)`: a declared coordinate consumed and ignored, three lines under a
+comment describing that exact defect in the coordinate next door. (3) The
+CLI's own copy of the same family, caught by measurement rather than reading:
+`brief FILE --groups=1,2` and the same command with `--relation=type:rime
+riche` were **BYTE-IDENTICAL** on a draft the relation is satisfied by
+(md5 `9e8f3f418504`), so a caller could not tell the flag was read from it
+being dropped. `_say_relation` announces the coordinate whenever one is
+declared and prints nothing when none is — a line about the CALL, never a
+`Finding`, the same shape `_say_blueprint` has. (4) M-53, found by testing
+that the new CLI path — which RE-OPENS whatever cover the other flags built —
+preserves what it is not declaring: `mandate()` opens with `rule = rule or
+ReturnRule()`, so the parameter is non-`None` for the rest of the function and
+the re-open branch's `rule=rule` **read silence as a declaration of the
+default**. MEASURED: a mandate built with `return_rhyme='positional'` comes
+back `'union'` from every re-open — `returns`, `scope`, `structures`, and the
+two this sitting added. That coordinate decides whether a return class's rhyme
+obligations are read as a UNION with its group's or POSITIONALLY, so
+re-defaulting it re-judges the song. The repair had to move UPWARD rather than
+sideways: a `if rule is None` guard inside the branch measured `False` on all
+four paths, because it was testing a variable the function had already
+overwritten.
+**THE FAMILY, STATED ONCE:** the re-open branch could not distinguish *not
+declared* from *declared as the default* (`rule`), and could not distinguish
+*not declared* from *not re-openable* (`relations`). One branch, two ways of
+reading an omitted argument as a statement.
+`quality/test_mandate_relation.py` §6 (9 checks, three mutations killing 8 / 3
+/ 5) and §7 (10 checks, the re-open mutation killing 5).
+
 **THE STRUCTURE CATALOG IS WIRED — MANDATE, GRADER AND PLANNER READ ONE
 TABLE (2026-08-18).** Phase A/B built the 58 rows (`quality/structures.py`:
 1 comparator sentinel, 9 presets, 48 named axis cells, world aliases); this

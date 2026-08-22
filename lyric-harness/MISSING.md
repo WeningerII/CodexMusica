@@ -6651,4 +6651,311 @@ derived from the corpus's own rhyme placement would be circular** and doctrine
 14 forbids it — the whole value here is that the air is an INDEPENDENT witness,
 the same property that makes the printed indent worth reading in `M-28`.
 
+### M-49 · the mandate stored a relation's BARE name and `grade()` re-resolves it, so 52 of 157 declarations were accepted at the door and refused at the judge `CLOSED` 2026-08-22
+**Found wiring the owner's "wire `Mandate.relations` as the default route",
+by asking whether the value a mandate KEEPS is the value the judge READS.**
+
+`schemes._resolve_relation` returned `resolve_relation(name)[0]` — the
+canonical name — and threw away the `kind` beside it. `grade()` does not hold
+that kind either: it passes the stored string to `satisfies_relation`, which
+**re-resolves it from scratch**. So the store had to round-trip, and for a
+fifth of the vocabulary it does not.
+
+**MEASURED over the whole vocabulary**, by resolving every namespaced
+declaration and re-resolving what it stored:
+
+| | before | after |
+|---|---:|---:|
+| declarations that survive the store | 105 | **157** |
+| declarations REFUSED at grade time | **52** | 0 |
+
+The 52 are the two namespaces of the **26 names that live in both `type` and
+`schema`** — which is not a coincidence, it is the whole reason M-37 made the
+namespace mandatory. `alliteration`, `assonance`, `consonance`, `cross rhyme`,
+`cynghanedd lusg`, `interlaced rhyme`, `internal rhyme`, `mosaic rhyme`,
+`pararhyme`, `rime riche`, `semirhyme`, `wrenched rhyme` and fourteen others.
+Four of them are cells the owner nominated poets for this same day.
+
+**ACCEPTED AT THE DOOR AND REFUSED AT THE JUDGE IS THE WORST OF THE THREE
+AVAILABLE ANSWERS.** A refusal at declaration time is a working validator; a
+clean grade is a working judge; this was neither, and it reads as taken — the
+mandate is built, the origin records the declaration, and every pair in that
+group comes back `SCHEME_UNREADABLE` with a message about namespaces the
+writer already resolved.
+
+**THE FIX IS THE STORED SHAPE, NOT A SECOND LOOKUP TABLE.** `_resolve_relation`
+returns `f"{ns}:{canon}"`, so the invariant is structural: *the stored value
+re-resolves to the same judge.* Uniformly namespaced rather than
+namespaced-only-when-ambiguous, because the second rule makes the store's
+spelling a function of the vocabulary's current contents — a name gaining a
+`schema` twin later would silently change what an untouched mandate holds
+(doctrine 1).
+
+**AND IT IS WHY IDEMPOTENCE MATTERED.** `Mandate.__post_init__` validates, so
+every `dataclasses.replace` — the re-open path's own move — re-validates. Under
+the bare store, re-opening a mandate that had already been ACCEPTED refused it.
+`quality/test_mandate_relation.py` §6 pins both, and the mutation that restores
+the bare store reds 8 checks.
+
+### M-50 · `mandate()`'s re-open guard did not name `relations`, so a re-declared relation was byte-identical to declaring nothing `CLOSED` 2026-08-22
+**Found in the same sitting, three lines below a comment describing this exact
+defect in the coordinate next door.**
+
+`mandate(spec, ...)` re-opens an existing `Mandate` only when
+`returns or scope or structures is not None`. `relations` was in neither that
+guard nor the `added` list that builds `origin`. MEASURED:
+
+```
+m  = mandate('ABAB')
+m2 = mandate(m, relations={'A': 'type:qafiya'})
+m2.relations  -> ()
+m2 == m       -> True
+```
+
+Not refused, not carried, not recorded. The comment attached to that very line
+reads *"before it joined this condition, `mandate(m, structures={...})` fell
+through to the idempotence branch below and DROPPED the declaration in
+silence, the exact defect family `--returns=` beside `--groups=` was"* — and
+the line it annotates had the identical hole one coordinate over, shipped the
+day `relations` was built. **A guard written as a list of the coordinates
+somebody remembered is a guard that goes stale every time one is added**; it
+is now the list of every re-openable coordinate, and `origin` names each of
+them (a relations-only re-open printed `letter scheme 'ABAB' + ` — a trailing
+conjunction with nothing after it, which is what a provenance string looks
+like when it is describing something nobody told it about).
+
+### M-51 · a bad `--structures=` / `--relations=` name refuses under the headline "this verb was given nothing to check against" `OPEN`
+**Found 2026-08-22 exercising the new CLI refusals; PRE-EXISTING and not
+introduced by that work — `--structures=` has had it since it shipped.**
+
+Both coordinates raise `NoMandate`, and every CLI surface routes `NoMandate`
+to the shared no-mandate refusal, whose headline is *"this verb was given
+nothing to check against."* That sentence is FALSE here: a mandate WAS given,
+and what failed is a name inside it. Measured, both spellings:
+
+```
+brief FILE --groups=1,2 --structures=A:no-such-row
+  REFUSED — this verb was given nothing to check against.
+  'no-such-row' is not a declared structure or alias — ...
+```
+
+The DETAIL line is correct, so nothing is silently wrong and the exit code is
+right; the headline is a refusal naming the wrong layer, which is the family
+`UndecodableLyricFile` and the `NoMandate`-in-`fit`'s-words fixes both belong
+to. **NOT FIXED HERE** because the shared path serves several verbs and moving
+it is test churn that belongs in its own sitting rather than riding a wiring
+commit. The remedy is a second refusal shape — *the mandate is declared and a
+name in it is not* — carrying the same exit code.
+
+### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `OPEN`
+**Raised by the owner 2026-08-22 — "is it possible to work on getting us the
+'17 declared and never printed' parsed and working instead of just the 4
+section functions currently in use?" — and MEASURED before answering, because
+the two halves of that question have opposite answers.**
+
+**HALF ONE: THE 17 ARE NOT A PARSING PROBLEM.** Searched over the WHOLE
+corpus, every bracketed mark, any spelling, case-insensitive, with `_`
+matching space or hyphen:
+
+| | printed marks |
+|---|---:|
+| `bridge`, `intro`, `outro`, `prechorus`, `postchorus`, `hook`, `coda`, `tag`, `vamp`, `solo`, `interlude`, `reprise`, `build`, `breakdown`, `turnaround`, `false_ending` | **0** |
+| `drop` | 1, and it is `[Sidenote: His shipmates drop down dead.]` |
+
+**0 of 17.** Adding rows to `grid.MARK_FUNCTION` for them would add seventeen
+rows that match zero lines — a vocabulary with no members, which is the
+declared-but-unread defect the corpus taxonomy's own protocol already refuses
+("a value with zero members is the declared-but-unread defect in a taxonomy
+hat"). The lever is the CORPUS, not the reader, and doctrine 44 is the frame:
+this is neither hard to build nor impossible to obtain — the marks are simply
+not in the texts we hold, because `[BRIDGE]` is a lead-sheet convention and
+this corpus is printed verse.
+
+**HALF TWO: AND THERE IS A LARGE PARSING PROBLEM, ON A DIFFERENT SET.**
+Census of every `^\[...\]$` line under `corpus/`:
+
+| | count |
+|---|---:|
+| distinct marks printed | **55** |
+| mapped by `MARK_FUNCTION` | 5 |
+| **UNMAPPED** | **50** |
+| mapped LINES | 77,067 |
+| **unmapped LINES** | **125,465** |
+
+**62% of every bracketed mark in this corpus reaches no function.** The
+unmapped set is not noise — it sorts into four kinds, and only the fourth is
+apparatus:
+
+| kind | marks | lines |
+|---|---|---:|
+| FORM, not function | `BAYT`, `RADIF`, `SLOKA`, `PANTUN ABAB`, `QUATRAIN AAAA`, `CYWYDD` | 125,332 |
+| a tradition's own SECTION names | `URLAR`, `SIUBHAL` (piobaireachd ground and variation, 3 files each) | 11 |
+| VOICE / ROLE parts | `PART: KAASON PUOLI`, `PART: KOSIOMIEHEN PUOLI`, `PART: MORSIAMELLE TUTTAVILTANSA`, `PART: KAASO`, `PART: MORSIAN LÄHTIESSÄNSÄ` (Finnish wedding song) | 53 |
+| apparatus | `SIDENOTE: …`, `MUSIC: …`, dates, poem titles | ~30 |
+
+`RADIF` is the sharpest case and it is 54,193 lines: the radif IS the
+returning element of a ghazal, this repo already has a `refrain` function and
+a whole `repeat_licence="refrain"` machinery for it, and the two have never
+been introduced. `URLAR`/`SIUBHAL` are a section vocabulary the 21-name table
+does not contain at all.
+
+**AND THE OWNER'S FOLLOW-UP INVERTED THE PREMISE — MEASURED 2026-08-22.**
+Asked whether the missing attestation stops us USING these functions while
+writing rather than only reading them: it does not, and it never did. Asking
+`plan.make_plan` directly over every form and 40 seeds each, rather than
+reading the docs:
+
+| | functions |
+|---|---|
+| **writes AND printed** | `verse`, `chorus` |
+| **writes, NEVER printed** | `bridge` `intro` `outro` `prechorus` `coda` `tag` `vamp` `solo` `interlude` `build` `breakdown` `drop` |
+| **printed, never written** | `burden` `refrain` |
+| neither | `false_ending` `hook` `postchorus` `reprise` `turnaround` |
+
+**The planner emits 14 of 21, and 12 of those are among the 17 this entry
+opened on.** It writes bridges and outros today — `interlude`/`solo` as
+zero-line instrumentals, `chorus`/`tag` as verbatim returners.
+
+**SO THE CORPUS GATES A THIRD THING, and naming it is the point of this
+paragraph: CALIBRATION.** Not reading, not writing — saying what a bridge
+DOES that a verse does not. `Structure.calibrated` is the exact precedent: a
+declared row grades CORRECTNESS and emits `STRUCTURE_UNCALIBRATED` to say out
+loud that laziness is NOT graded, and it is True for exactly one row today. A
+`[BRIDGE]`-marked corpus would not let us write bridges; it would let us say a
+given bridge FAILS TO CONTRAST, which is currently a convention threshold at
+an uncalibrated 0.90 (`grid.stanza_lock`, `BRIDGE_IS_A_VERSE`).
+
+**AND THE REVERSE GAP IS THE CHEAP ONE.** `burden` (1,753 marked lines, 35
+files) and `refrain` (709, 40) are the most heavily ATTESTED functions in the
+corpus and the planner writes NEITHER. The corpus holds them and the writer
+cannot ask for them; the writer holds bridges and the corpus cannot show one.
+Closing that direction needs no new text at all.
+
+**WHAT IS OWED, and the order matters.** (1) The 50 unmapped marks are
+TRIAGED — form / section / voice / apparatus — as a declared table, because
+today they are one undifferentiated silence and "this mark names no function"
+and "this mark is not a function" are different answers (doctrine 20). (2)
+Only the SECTION kind may map to `SECTION_FUNCTIONS`; a form mark mapped to a
+function would put the form layer's answer in the function layer's slot, which
+is the `same_object_as` defect of M-48 one layer over. (3) The VOICE kind
+needs a coordinate of its own — it is not a section function, and `--voices`
+already establishes that this repo treats a voice as a declared reading. (4)
+The 17 stay unwitnessed until a text prints them, and the entry says so rather
+than closing on a parser that would report them found — but the entry now also
+says that unwitnessed does not mean unusable, because the planner has been
+using twelve of them all along. (5) `burden` and `refrain` reach the planner's
+recurrence vocabulary, which costs nothing and is owed by the measurement
+above. (6) `URLAR`, `SIUBHAL`, `CRUNLUATH` (piobaireachd ground, variation and
+crowning) and `PATTER` (music hall) are SECTION FUNCTIONS THE 21-NAME TABLE
+DOES NOT CONTAIN — they are not marks to map onto an existing function, they
+are four functions missing from the vocabulary, and each is a thing the
+planner could then emit.
+
+### M-53 · `mandate()`'s re-open path re-defaulted the `ReturnRule`, so re-opening a mandate to add any coordinate silently replaced the rule its writer declared `CLOSED` 2026-08-22
+**Found in the same sitting as M-50, by testing that the CLI's new
+`--relation=` path — which re-opens whatever cover the other flags built —
+preserves everything it is not declaring.**
+
+`mandate()` opens with `rule = rule or ReturnRule()`, so the parameter is
+non-`None` for the whole rest of the function. The re-open branch then passed
+that value to BOTH `_normalise_returns(rets, n, rule)` and the stored
+`rule=rule` field. **Silence was read as a declaration of the default.**
+MEASURED, on a mandate built with a non-default rule:
+
+```
+r  = ReturnRule(return_verbatim='verbatim', return_rhyme='positional')
+m  = mandate([[1,3],[2,4]], n_lines=4, returns=[[2,4]], rule=r)
+m.rule                                   -> return_rhyme='positional'
+mandate(m, structures={'A': ...}).rule   -> return_rhyme='union'
+```
+
+It fires on **every** re-open coordinate — `returns`, `scope`, `structures`,
+and the `relations` / `default_relation` this sitting added — because they
+all reach the same branch. And it moves a real judgement: `return_rhyme`
+decides whether a return class's rhyme obligations are read as a UNION with
+the group's or POSITIONALLY, which is the difference between a returning
+chorus's lines each answering their own slot and all of them answering all of
+them.
+
+**THE FIX IS TO CAPTURE WHETHER THE CALLER SUPPLIED ONE, BEFORE THE DEFAULT
+IS APPLIED.** `rule_declared = rule is not None`, read once, ahead of the
+`or`. A later `if rule is None` cannot work here and the first attempt at this
+fix used exactly that and measured `False` on all four paths — the guard was
+testing a variable the function had already overwritten, which is why the
+repair had to move upward rather than sideways. An explicit rule on the
+re-open still wins, and a fresh build with no rule still gets the default:
+both pinned.
+
+**SAME SHAPE AS M-50 ONE FIELD OVER, AND THAT IS THE ENTRY.** The re-open
+path could not distinguish *not declared* from *declared as the default* for
+`rule`, and could not distinguish *not declared* from *not re-openable* for
+`relations`. One branch, two ways of reading an omitted argument as a
+statement.
+
+### M-54 · "an outro is last" is enforced by CONTROL FLOW and stated nowhere, so no grader can check it and no table can extend it `OPEN`
+**Raised by the owner 2026-08-22, asking whether the section vocabulary is
+machine-readable to the order of "outro is at the end… in a way that does not
+bar novel move-37 song structures", and naming constraint propagation as the
+shape. The instinct is right and is better than what is built.**
+
+**THE BEHAVIOUR IS CORRECT — MEASURED.** Over 300 seeds of
+`plan.make_plan(form='verse-chorus')`: **84 plans contain an outro and it is
+last in 84 of 84.**
+
+**AND THE RULE IS NOWHERE.** `plan._sample_pattern` produces it structurally:
+
+```python
+if rng.random() < 0.5:
+    funcs.append("intro")          # BEFORE the cell loop
+...
+ending = rng.choice((None, "outro", "coda"))
+if ending:
+    funcs.append(ending)           # AFTER the cell loop
+```
+
+`grid.FunctionSpec` carries `name`, `gloss`, `recurrence`, `returns_as`,
+`contrasts_with`, `aliases` — **and no position field**. `outro`'s gloss says
+*"closes the song and does not recur"*; `recurrence='once'` is the machine-
+readable half of that sentence and **"closes the song" is the half that stayed
+prose**. Doctrine 1's own shape: a rule enforced by the order of two
+`append` calls cannot be disagreed with in a coordinate, because it is not in
+one.
+
+**THREE COSTS, and none is hypothetical.** (1) NOTHING CAN CONSULT IT — the
+grader has no `SECTION_OUT_OF_POSITION`, so a hand-written blueprint with an
+outro in the middle grades clean. (2) THE ROSTER CANNOT BE EXTENDED BY A TABLE
+ROW: adding `urlar`/`siubhal`/`crunluath` (`M-52`) means editing control flow,
+not declaring their positions. (3) `_CELLS` IS A TABLE THE V2 REWRITE WAS
+MEANT TO DELETE — 12 hardcoded runs whose own comment claims they are *"a
+short run the vocabulary's own adjacencies license"*, while **the vocabulary
+has no adjacency field**. That derivation is ASSERTED, not performed
+(doctrine 45), and it is the same table shape standing rule 2 records the
+owner catching in v1.
+
+**THE SPLIT THAT MUST SURVIVE THE FIX, and it is the owner's own condition.**
+A position rule is either DEFINITIONAL or CONVENTIONAL and the two get
+opposite treatment:
+
+| | example | where it goes |
+|---|---|---|
+| **HARD / definitional** | an outro is LAST; a prechorus precedes a chorus; a build points at a drop | a DECLARED coordinate on `FunctionSpec`, pruning the planner's space and giving the grader a flag |
+| **SOFT / conventional** | verse-chorus-verse-chorus-bridge-chorus | `FormConvention` only, a NOTE, never the planner (doctrine 6, and the "move 37" ban) |
+
+Enforcing the hard half costs ZERO novelty: a section labelled `outro` that is
+not last is not a novel structure, it is a MISLABELLED SECTION. Enforcing the
+soft half is precisely the bias the v2 planner was rewritten to remove.
+
+**WHAT IS OWED.** (1) A declared position/adjacency coordinate on
+`FunctionSpec` — at minimum `position ∈ {first, last, free}` and a `precedes`
+/`follows` set, every row quoting its own gloss as the evidence. (2)
+`_sample_pattern` DERIVES from it instead of hardcoding, and `_CELLS` either
+derives from the adjacency sets or its comment stops claiming it does
+(doctrine 45 — a checker that silently picks is the bug; so is a generator
+that silently derives). (3) A grader finding, so a hand-written blueprint is
+held to the same rule the planner is. (4) The sampler must stay UNIFORM OVER
+SOLUTIONS: a greedy left-to-right collapse re-introduces exactly the
+enumeration bias v2's own smoke run found (weighting a cycle by how many
+groupings it admits), so the constraint layer prunes the space and the
+sampler still draws by derivation, never by walking the tree.
+
 ## Add below this line
