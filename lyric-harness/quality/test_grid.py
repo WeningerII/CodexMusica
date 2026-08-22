@@ -2985,6 +2985,48 @@ def test_the_cli_reads_the_marks_it_used_to_delete():
           "the `frame=\"stanza\"` schemas",
           _split(fst) == (23, 31), _split(fst))
 
+    # -- 8. THE CALL SITE, and not only the function. Everything above builds
+    #    its own stream from `relation_ground`, so it would all still pass
+    #    with the verb reverted to `build_stream(raw, phon, stanzas=None)`.
+    #    This runs the verb and reads what it says, which is the only check
+    #    here that fails if the SUPPLY is dropped from the caller.
+    import subprocess
+    d = tempfile.mkdtemp()
+    try:
+        marked = os.path.join(d, "marked.txt")
+        with open(marked, "w", encoding="utf-8") as fh:
+            fh.write("[VERSE 1]\nthe night\nthe light\n"
+                     "[CHORUS]\nthe day\nthe way\n")
+        p = subprocess.run([sys.executable, "lyric_harness.py", "relations",
+                            marked], cwd=root, capture_output=True, text=True,
+                           timeout=900)
+        check("the VERB grounds on the page and says so — this is the check "
+              "that fails if `sections=`/`stanzas=` are dropped from the "
+              "call site while `relation_ground` keeps working",
+              p.returncode == 0
+              and "stanza ground: printed_breaks" in p.stdout
+              and "2 distinct stanza(s)" in p.stdout
+              and "2 distinct Unit.section over the units" in p.stdout,
+              (p.returncode,
+               [l for l in p.stdout.splitlines()
+                if "stanza ground" in l or "section coordinate" in l][:2]))
+        plainf = os.path.join(d, "plain.txt")
+        with open(plainf, "w", encoding="utf-8") as fh:
+            fh.write("a cat sat\na hat fell\n")
+        p2 = subprocess.run([sys.executable, "lyric_harness.py", "relations",
+                             plainf], cwd=root, capture_output=True,
+                            text=True, timeout=900)
+        check("CONTROL — the same verb on a page that declares nothing "
+              "reports NO ground and names the fallback, so the two runs are "
+              "distinguishable in the output and not only in the code",
+              p2.returncode == 0
+              and "stanza ground: none" in p2.stdout
+              and "FALLBACK" in p2.stdout
+              and "0 [MARK] row(s)" in p2.stdout,
+              [l for l in p2.stdout.splitlines() if "stanza ground" in l][:1])
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
 
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
