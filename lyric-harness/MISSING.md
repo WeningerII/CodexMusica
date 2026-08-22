@@ -6945,9 +6945,39 @@ Enforcing the hard half costs ZERO novelty: a section labelled `outro` that is
 not last is not a novel structure, it is a MISLABELLED SECTION. Enforcing the
 soft half is precisely the bias the v2 planner was rewritten to remove.
 
+**AND THE OBVIOUS DERIVATION IS WRONG — MEASURED BEFORE PROPOSING IT.** The
+cheap version of the fix is to read the position out of each gloss by keyword,
+since the glosses do state it in prose. Run over all 21, that claims a
+position or an adjacency for **11 of 21**, and **four of the eleven are
+false**:
+
+| function | keyword derivation | why it is wrong |
+|---|---|---|
+| `false_ending` | `last` (matched *close*) | *"a close the song comes back from"* — it is precisely NOT last; something follows it BY DEFINITION. The sign is inverted. |
+| `turnaround` | `last` (matched *end*) | *"carries the end of one section into the next"* — a SEAM, not the song's end. Wrong scope. |
+| `vamp` | `first` (matched *open*) | *"a repeating figure held open"* — a different sense of the word entirely. |
+| `tag` | `last` (matched *closing*) | *"closing a section **or the song**"* — genuinely ambiguous, and both readings are live in one gloss. |
+
+Only `intro` (first), `outro` (last) and `coda` (last) survive as unambiguous.
+**So the position table must be HAND-DECLARED per row with the gloss quoted as
+its evidence, and REFUSE where the gloss does not decide** — deriving it by
+pattern would be `_CELLS`'s own defect one layer over: a derivation asserted
+rather than performed (doctrine 45), and this time with four measured errors
+in it rather than an unfalsifiable claim.
+
+**THE ADJACENCY HALF HAS A SECOND PROBLEM: the TARGETS are prose too.**
+`drop`'s gloss is *"the arrival a build points at"* — it names `build`, in
+English, inside a sentence. `postchorus` *"returns immediately after the
+chorus"*, `prechorus` *"lifts from verse into chorus"*, `burden` *"printed
+AFTER a stanza"*. Every one of those is a real, checkable relation written
+where no checker can reach it, which is this entry's whole subject restated
+one field over.
+
 **WHAT IS OWED.** (1) A declared position/adjacency coordinate on
-`FunctionSpec` — at minimum `position ∈ {first, last, free}` and a `precedes`
-/`follows` set, every row quoting its own gloss as the evidence. (2)
+`FunctionSpec` — at minimum `position ∈ {first, last, free, refused}` and
+`precedes`/`follows` as NAME SETS rather than prose, every row quoting its own
+gloss as the evidence and `refused` used wherever the gloss does not decide
+(`tag` is the worked case: it must refuse rather than pick, doctrine 20). (2)
 `_sample_pattern` DERIVES from it instead of hardcoding, and `_CELLS` either
 derives from the adjacency sets or its comment stops claiming it does
 (doctrine 45 — a checker that silently picks is the bug; so is a generator
