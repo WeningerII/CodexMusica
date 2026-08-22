@@ -3966,6 +3966,73 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-45 · A replicate draw that produced no VALUE is counted nowhere, so a p is drawn at an n nobody printed `OPEN`
+**Found independently by TWO agents in the same batch — one re-running the
+stanza-framed schemas, one measuring the poet cells — which is why it is filed
+at this weight. Mechanism confirmed here by reading both runners; the sweep was
+NOT re-run to reproduce their per-row counts, because the machine was busy, and
+their figures are quoted as theirs.**
+
+`sweep` (`relations_null.py:1453-1460`) and `run_many` (`:762-769`) carry the
+identical shape:
+
+```python
+if vals is None:                  # the whole realise() refused
+    r.refused_replicates += 1     # COUNTED
+for r, v in zip(out, vals):
+    if not isinstance(r, R.Refusal) and v is not None:
+        r.values.append(v)        # v is None -> dropped, NO counter touched
+```
+
+**Two ways a replicate can fail to yield a number and only one is counted.**
+A whole-`realise` refusal increments `refused_replicates`. A single STATISTIC
+returning `None` — no denominator, the schema found no instance to take a
+fraction of — is dropped and nothing records it. So `len(values) < n` while
+`refused_replicates == 0`, and **`p` is computed over `values`**, which means
+the p is honestly drawn at the smaller n and the row does not say so.
+
+**Measured by the agents, kept as their numbers:** 1,225 draws over 55 of 368
+rows in the re-null; 1,635 draws over 44 of 232 rows in the poet-cell run.
+The worst single row reported is `monai · local_fraction@2 · global_redeal ·
+fas` at **used n = 50, `refused_replicates` = 0** — a p drawn at 50 wearing an
+`n=200`.
+
+**PARTIALLY DISCLOSED ALREADY, and that is the interesting part.** `Result`'s
+own repr prints `n=… used=… refused=…`, so the SHORTFALL is visible to anyone
+reading a row. What is wrong is the attribution: `refused=0` says none were
+refused, and the missing draws are therefore invisible as a KIND. This is
+doctrine 27 one layer in — a count kept apart, reported as zero — and doctrine
+79's rule that a refusal is not a failure, applied to the wrong one of two
+refusals.
+
+**It also means §A's "all 1,508 refused replicate draws are one schema"
+(`epistrophe / radif`) cannot see this path**, so that sentence is true of the
+counted kind and silent about the uncounted one.
+
+**Remedy:** a second counter beside `refused_replicates` — the two are
+different questions and must never be summed — and `p` reported against the
+`used` n rather than the requested one. Neither is applied; both move recorded
+rows.
+
+### M-46 · `local_fraction@0` runs on 20 of 77 schemas where it cannot move, and looks like a clean null `OPEN`
+**Found by the re-null agent. `_GAP_FORCED` (`relations_null.py:950-958`) has
+no row for `both_line_final`.**
+
+Two line-final spans cannot share a line, so the forced gap is `(1, None)`
+exactly as `different_lines` is — but with no row, `forced_gap` returns
+`(0, None)`, `statistic_degeneracy` returns `None`, and `local_fraction@0`
+runs anyway. **Measured: 64 rows, all observed 0.0, 0 of 64 moved.**
+
+That is precisely the *"`p=1.0000`, 0% differing, looking like a clean null"*
+case `statistic_degeneracy`'s own docstring says the function exists to catch.
+**28 of the 77 schemas declare `both_line_final`** (measured under M-42), so
+the recorded panel's 2,344 rows carry the same dead statistic wherever those
+schemas were swept.
+
+**Remedy is one row in the table**, and it is not applied here because
+`EXTENSION_LEDGER` reads `forced_gap` and a repin of a frozen ledger is its own
+sitting.
+
 ### M-44 · The named-relation judge reached 4 of 80 names, because it STAMPED a position instead of judging at the name's own coordinate `PARTIAL`
 **Raised by an agent's M-35 work, and the diagnosis below is the third one I
 tried — the first two were wrong and the measurements are what corrected
