@@ -1,0 +1,66 @@
+# THE BRACKETED MARKS THIS CORPUS PRINTS, TRIAGED BY KIND (M-52).
+# A CLOSED SET, re-derived by `python3 quality/section_marks.py --check`.
+# `kind` is the question the mark answers, and the four are NOT one:
+#   function  -- what this section is FOR; `maps_to` is a SECTION_FUNCTIONS key
+#   movement  -- a level ABOVE the section: it GROUPS sections
+#   form      -- a verse-form or prosodic unit, never a section function
+#   voice     -- WHO sings, not what the span is for
+#   apparatus -- not sung and not structural
+#   refused   -- the corpus does not decide (doctrine 20)
+# `lines` and `files` are MEASURED, not typed; --check re-derives both.
+mark	kind	maps_to	lines	files	note
+VERSE	function	verse	74319	1388	the narrative section; `grid.MARK_FUNCTION` has read it since that table was written
+BAYT	form		70866	31	Persian/Arabic couplet -- the ghazal's prosodic unit, not a section
+RADIF	form		54193	30	the ghazal's repeated post-rhyme element. RETURNING material, and `refrain` is the function it is closest to -- see M-52
+BURDEN	function	burden	1753	35	a refrain sung by all; MEASURED 1,580 of 1,580 staged instances follow a verse block. Kept separate from refrain because the corpus marks the two differently
+REFRAIN	function	refrain	709	40	a returning line or couplet -- its own gloss says NOT a standalone section (M-56), so the function it maps to is a sub-section object
+CHORUS	function	chorus	267	64	the returning section; a mark that also OPENS songs, unlike burden
+SLOKA	form		144	1	Sanskrit two-line stanza -- a prosodic unit
+PANTUN ABAB	form		88	1	Malay quatrain form, naming its own rhyme scheme
+QUATRAIN AAAA	form		41	1	a four-line stanza naming its own rhyme scheme
+BURDEN-TAIL	function	burden	19	1	the tail of a burden, mapped to the same function as the burden itself
+VARIANT	apparatus		18	1	Lonnrot's own numbered alternative readings, declared in the file's own header
+PART: KAASON PUOLI	voice		16	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+PART: KOSIOMIEHEN PUOLI	voice		14	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+PART: MORSIAMELLE TUTTAVILTANSA	voice		14	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+GOTHIC: ECLOGUE.	apparatus		13	1	a genre label printed as a heading (Barnes)
+SIUBHAL	movement		6	3	piobaireachd variation. Same measured shape as URLAR
+PART: KAASO	voice		5	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+URLAR	movement		5	3	piobaireachd ground -- the theme. MEASURED: in 3 of 3 files every one of these marks is immediately followed by a [VERSE n], so it GROUPS verses rather than being one
+PART: MORSIAN LÄHTIESSÄNSÄ	voice		4	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+PATTER	function		3	1	music-hall patter. A REAL section function the 21-name table does not contain -- the file's own note records the printed heading 'PATTER-TRIO.' and records that nothing else was tagged because that would be an editorial guess
+1852.	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+1853.	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+CRUNLUATH	movement		1	1	piobaireachd crowning variation; printed [CRUNLUATH] (FINALE) and followed by a [VERSE n]
+CYWYDD	form		1	1	Welsh strict-metre form
+FIRST PUBLISHED, _POEMS_, 1816.	apparatus		1	1	a poem TITLE or epigraph printed in brackets
+HEAR RED, RED ROSE	apparatus		1	1	a poem TITLE or epigraph printed in brackets
+MUSIC: _1 N._,   _2D._   _3D._   _4TH._	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+MUSIC: _ALL SHAKE HANDS._	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+MUSIC: _CHO. OF ALL._	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+MUSIC: _FIRST NOSE._	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+PART: KAASON POOLI	voice		1	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+PART: KOSIOMIELEN PUOLI	voice		1	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+PART: KYLÄLÄISET LOMMAAVAT MORSIANTA	voice		1	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+PART: MORSIAMELLE SULHON HEIMO	voice		1	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+PART: MORSIAMEN KOTIVÄKI	voice		1	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+PART: MORSIAMEN LOMMAAJAT	voice		1	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+PART: SULHOLLE KOTIVÄKI	voice		1	1	a declared VOICE/ROLE part in a Finnish wedding song -- who sings, not what the section is for
+SIDENOTE: A FLASH OF JOY;	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: AT THE RISING OF THE MOON.	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: HIS SHIPMATES DROP DOWN DEAD.	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: JUNE 17,	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: LIKE VESSEL, LIKE CREW!	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: MAY 29,	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: NOV.,	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: OCT. 19,	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: ONE AFTER ANOTHER,	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: SEPT.,	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+SIDENOTE: THE CURSE IS FINALLY EXPIATED.	apparatus		1	1	printer's apparatus -- a marginal note, a stage/music direction, or a date
+TEMPAT ANU	refused		1	1	Malay, printed lowercase, one occurrence. 'such-and-such a place' reads as a slot the singer fills, but one instance decides nothing -- REFUSED rather than guessed
+TERMINUS	apparatus		1	1	a poem TITLE or epigraph printed in brackets
+THE CENTENARIAN	apparatus		1	1	a poem TITLE or epigraph printed in brackets
+WRITTEN IN PLATTE CANYON, COLORADO	apparatus		1	1	a poem TITLE or epigraph printed in brackets
+ZÔÊ/ MOU, SA~S A)GAPÔ~.	apparatus		1	1	a poem TITLE or epigraph printed in brackets
+_MOTHER SINGS TO THE INFANT_.	apparatus		1	1	a poem TITLE or epigraph printed in brackets
+_WEEPING._	apparatus		1	1	a poem TITLE or epigraph printed in brackets

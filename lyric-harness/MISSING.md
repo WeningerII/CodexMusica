@@ -6747,7 +6747,7 @@ it is test churn that belongs in its own sitting rather than riding a wiring
 commit. The remedy is a second refusal shape — *the mandate is declared and a
 name in it is not* — carrying the same exit code.
 
-### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `OPEN`
+### M-52 · 17 of the 21 declared section functions are printed NOWHERE, and 62% of the marks that ARE printed reach no function at all `PARTIAL`
 **Raised by the owner 2026-08-22 — "is it possible to work on getting us the
 '17 declared and never printed' parsed and working instead of just the 4
 section functions currently in use?" — and MEASURED before answering, because
@@ -6850,6 +6850,69 @@ crowning) and `PATTER` (music hall) are SECTION FUNCTIONS THE 21-NAME TABLE
 DOES NOT CONTAIN — they are not marks to map onto an existing function, they
 are four functions missing from the vocabulary, and each is a thing the
 planner could then emit.
+
+---
+
+**TRIAGED AND GATED 2026-08-22. `data/section_marks.tsv` is the closed table,
+`quality/section_marks.py --check` re-derives every count from the corpus, and
+`quality/test_section_marks.py` is 13 checks over 5 sections.**
+
+| kind | marks | lines |
+|---|---:|---:|
+| `function` — what the section is FOR; `maps_to` names a vocabulary key | 6 | 77,070 |
+| `form` — a verse-form or prosodic unit, never a function | 6 | **125,333** |
+| `voice` — WHO sings, not what the span is for | 12 | 60 |
+| `apparatus` — not sung, not structural | 27 | 56 |
+| `movement` — a level ABOVE the section | 3 | 12 |
+| `refused` — the corpus does not decide | 1 | 1 |
+
+**NEVER SUMMED** (doctrine 79): a form mark and a function mark are not two of
+the same thing, and the headline that added them is the 62% this entry opened
+on.
+
+**AND THE 62% TURNS OUT TO BE ONE FACT.** `[BAYT]` (70,866) and `[RADIF]`
+(54,193) are **>90% of the entire `form` mass**. The corpus's marked bulk is
+PERSIAN PROSODY and its only reader was an English song-form table. That is
+the whole of the number, and it is not a backlog of fifty small omissions.
+
+**THREE CORRECTIONS TO THIS ENTRY'S OWN EARLIER TEXT, all by measurement:**
+
+1. ~~`URLAR`, `SIUBHAL`, `CRUNLUATH` and `PATTER` are SECTION FUNCTIONS THE
+   21-NAME TABLE DOES NOT CONTAIN~~ — **FALSE for three of the four.** In
+   **3 of 3 files** every piobaireachd mark is IMMEDIATELY followed by a
+   `[VERSE n]`, and one is printed `[CRUNLUATH] (FINALE)` above `[VERSE 7]`.
+   They GROUP verses: a level ABOVE the section, which this model has no
+   layer for at all. Filing them as functions would have put a container in
+   the contained layer's table. Only **`PATTER`** is a missing function, and
+   its file's own note carries the evidence — a printed `PATTER-TRIO.`
+   heading, plus the record that nothing else in the file was tagged
+   *"because that would be an editorial guess"*.
+2. `[RADIF]` is **`form`, not a `refrain`.** This entry proposed introducing
+   it to the refrain machinery; a radif is the ghazal's repeated post-rhyme
+   ELEMENT, not a span with a job, and mapping it would make a prosodic unit
+   a section — M-56's error one table over.
+3. `[VARIANT]` is Lönnrot's numbered alternative readings, declared in the
+   Kanteletar file's own header — apparatus, not a return kind.
+
+**THE GATE IS THE POINT.** `--check` walks the corpus, re-derives every
+`lines` and `files` cell, refuses a row whose `maps_to` is not a declared
+function, refuses a NON-function row that carries a `maps_to` at all, refuses
+a row with no note, and cross-checks `grid.MARK_FUNCTION` against the table so
+a mark cannot be a function to the reader and apparatus to the census
+(doctrine 1). A corpus load printing a NEW mark turns it RED instead of
+joining the 62%.
+
+**STILL OPEN, and it is why this is PARTIAL:**
+1. **`PATTER` is not in the vocabulary yet.** The evidence is in hand and the
+   row is written; adding a 22nd function is a vocabulary change.
+2. **There is no MOVEMENT layer.** Three marks in three files is thin, and
+   inventing a layer for twelve lines would be worse than recording that the
+   level exists — but the model currently cannot represent a group of
+   sections at all.
+3. **The VOICE coordinate is unbuilt.** Twelve `PART:` marks, and `--voices`
+   already establishes that a voice is a declared reading in this repo.
+4. **`burden` and `refrain` still do not reach the planner** — the reverse
+   gap this entry measured, and it needs no new text.
 
 ### M-53 · `mandate()`'s re-open path re-defaulted the `ReturnRule`, so re-opening a mandate to add any coordinate silently replaced the rule its writer declared `CLOSED` 2026-08-22
 **Found in the same sitting as M-50, by testing that the CLI's new
