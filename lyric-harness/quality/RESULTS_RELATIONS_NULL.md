@@ -60,7 +60,29 @@ and §B's warning that every row is a best-of over 4 statistics × 4 nulls ×
 > UNALTERED as promised, and its own copies of those rows (its §"ADMISSIBLE"
 > tables, `monorhyme / leash` 268/41 among them) are superseded by this
 > paragraph rather than by an edit. Nothing else in either section is
-> affected: no other row reads `Unit.stanza`.
+> affected: ~~no other row reads `Unit.stanza`.~~
+>
+> **THAT LAST CLAUSE WAS FALSE AND IS WITHDRAWN, 2026-08-22.** FIVE schemas
+> read `Unit.stanza` — `analysed rhyme`, `monorhyme / leash`,
+> `dvitiyakshara-prasa`, `monai`, `blues AAB stanza` — and this document
+> struck only the two that CLEARED. The correction was applied to the ROWS
+> rather than to the COORDINATE, which is the same mistake one level up from
+> the defect it was correcting. The other three are classified below through a
+> frame that could not vary and are flagged in place:
+>
+> * **§A.3.1 "swept, and at or below chance (19)"** carries `analysed rhyme`
+>   and `dvitiyakshara-prasa`. Re-measured through the printed ground:
+>   `analysed rhyme` eng 26→4, non 93→3, san 98→5, and **fin and cym move
+>   from a number to a REFUSAL**; `dvitiyakshara-prasa` moves on all six
+>   slices where it fires and refuses on two.
+> * **§A.3.3 "runs, and finds nothing (8)"** carries `blues AAB stanza`, which
+>   now REFUSES on the two groundless cells rather than being asked there —
+>   the difference doctrine 20 is entirely about.
+>
+> So **§A.0's 19, 8 and 50 are built on superseded classifications.** They are
+> left as recorded and flagged rather than re-typed: the re-run that decides
+> where the three land is M-39's first remaining piece, and a count edited
+> ahead of its measurement is what this document is written against.
 
 ---
 
@@ -251,7 +273,7 @@ be enforcing the null.
 `reverse rhyme` · `additive rhyme` · `subtractive rhyme` ·
 `apocopated rhyme` · `enjambed rhyme` · `cross rhyme` · `interlaced rhyme` ·
 `linked rhyme` · `head rhyme (positional)` · `epistrophe / radif` ·
-`epanalepsis` · `analysed rhyme` · `dvitiyakshara-prasa` ·
+`epanalepsis` · `analysed rhyme`† · `dvitiyakshara-prasa`† ·
 `cynghanedd draws` · `cynghanedd groes o gyswllt` ·
 `Middle Chinese end rhyme (同用 group)`
 
@@ -266,6 +288,12 @@ scatters that material into the positions the schema counts.
 has been asked at all** — it fires 25 instances on 花間集 and its own null
 beats it.
 
+† **MEASURED OVER A COLLAPSED STANZA FRAME (M-39).** These three are
+`frame="stanza"` and their classification here was drawn before the frame had
+a ground. Their observations move on every cell that grounds and become
+REFUSALS on `fin` and `cym`, which supply no ground at all. The bucket they
+belong in is decided by the re-run, not by this table; see the header note.
+
 **A.3.2 SWEPT, and no randomisation moved them (3).** `rhyming reduplication`
 (25 instances, six slices, 24 rows) · `exact reduplication` (7 instances, four
 slices, 16 rows) · `ablaut reduplication` (2 instances, one slice, 4 rows).
@@ -279,7 +307,7 @@ under it.
 **A.3.3 RUNS, and finds nothing on this panel (8).** `paroemion` ·
 `amphisbaenic rhyme` · `broken rhyme` · `qafiya (before the radif)` ·
 `anadiplosis` · `cynghanedd groes` · `平仄 tonal template` ·
-`blues AAB stanza`. A null against an observation of zero is inconclusive by
+`blues AAB stanza`†. A null against an observation of zero is inconclusive by
 construction: the observation sits at the statistic's floor and no replicate
 can go lower. The remedy is a text the relation occurs in, and for at least
 one of these the 40-line limit is the likelier cause than the language —

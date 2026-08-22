@@ -503,6 +503,49 @@ def s12_the_page_derivation_never_runs_on_a_token_join():
           f"{st2.supply('stanza')}")
 
 
+def s13_the_census_keeps_the_refusal_kind():
+    """M-43.  `Stream.supply` is three-valued and `Refusal.kind` carries the
+    distinction out; `Coverage` used to throw it away at the layer that
+    produces every panel and ledger number."""
+    print("\n§13 the census keeps WHY it refused (M-43)")
+    from quality.phonology import get as _gp
+    sl = {x.name: x for x in N.PANEL}["eng"]
+    lines, stanzas, src, _ref, refusal = sl.read_grounded(ROOT)
+    if refusal is not None:
+        return check("§13 the eng slice is readable", False, str(refusal))
+    st = N._stream_of([R.tokenise(l) for l in lines], _gp("eng"), "eng",
+                      sl.prepare(), stanzas, src)
+    check("§13 the DECLARATION STEP RAN and the refrain frame is EMPTY, not "
+          "absent — the state this section exists for",
+          st.supply("refrain_tail").state == "empty"
+          and st.supply("refrain_tail").source == "computed",
+          f"{st.supply('refrain_tail')}")
+    sub = {k: v for k, v in R.REGISTRY.items()
+           if k in ("epistrophe / radif", "antanaclasis")}
+    rows = {c.schema: c for c in N.coverage(st, schemas=sub)}
+    vac, cap = rows["epistrophe / radif"], rows["antanaclasis"]
+    check("§13 both still refuse with the SAME verdict, so no frozen ledger "
+          "column moves",
+          vac.verdict == cap.verdict == "cannot_obtain")
+    check("§13 ...and the census now says WHY they differ",
+          vac.refusal_kind == "vacuous_frame"
+          and vac.vacuous == ("refrain_tail",)
+          and cap.refusal_kind == "capability" and cap.vacuous == (),
+          f"vacuous={vac.refusal_kind!r} capability={cap.refusal_kind!r} — "
+          f"both read '' before M-43, so a declared-and-empty frame and a "
+          f"resource nobody has produced a byte-identical row")
+    check("§13 ...and the REMEDIES differ, which is the point (doctrine 44)",
+          vac.remedy != cap.remedy
+          and not vac.remedy.startswith("declare the capability")
+          and "refrain_tail" in vac.remedy and "EMPTY" in vac.remedy,
+          f"vacuous remedy is {vac.remedy!r}; before M-43 it was the same "
+          f"string as the capability case, {cap.remedy!r} — telling a reader "
+          f"to declare a capability the slice header already prints as "
+          f"DECLARED. (The test asserts the remedy does not OPEN with the "
+          f"instruction, not that the word is absent: the correct text says "
+          f"`declaring it again changes nothing`.)")
+
+
 def main():
     print("=" * 74)
     print("RELATIONS NULLS · SECTION 9 (THE PANEL) — regressions")
@@ -519,6 +562,7 @@ def main():
     s10_missing_complete()
     s11_refused_replicates()
     s12_the_page_derivation_never_runs_on_a_token_join()
+    s13_the_census_keeps_the_refusal_kind()
     print("\n" + "=" * 74)
     print(f"  {len(PASS)} passed, {len(FAIL)} failed")
     if FAIL:

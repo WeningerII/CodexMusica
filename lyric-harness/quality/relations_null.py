@@ -1105,6 +1105,32 @@ class Coverage:
     #: (doctrine 44). Defaults to () so every existing construction site is
     #: unchanged and no frozen ledger column moves.
     missing: tuple = ()
+    #: WHY THE REFUSAL, IN `Refusal`'s OWN THREE-VALUED VOCABULARY (M-43).
+    #: `Stream.supply` is three-valued on purpose -- `absent` (nobody declared
+    #: a source), `empty` (a source WAS declared and the instrument marked
+    #: nothing), `present` -- and `Refusal.kind` carries that distinction out
+    #: as `capability` against `vacuous_frame`.  This record threw it away.
+    #:
+    #: MEASURED on the eng panel cell with its declaration step run:
+    #: `antanaclasis` refuses `kind='capability'` because no sense inventory
+    #: exists anywhere, and `epistrophe / radif` refuses
+    #: `kind='vacuous_frame'` because `mark_refrain_tail` RAN
+    #: (`refrain_source='computed'`) and found no shared tail.  Both arrived
+    #: here as a byte-identical `cannot_obtain` row, and `remedy` told a
+    #: reader to "declare the capability on the stream" for a capability the
+    #: slice header already prints as DECLARED.  That is doctrine 20's own
+    #: sentence -- found nothing against never looked -- inside the census
+    #: written to enforce it, and doctrine 44's too, since the two have
+    #: opposite remedies.
+    #:
+    #: ADDITIVE ON PURPOSE.  The verdict does not move, so no frozen ledger
+    #: column moves; what changes is that the difference is now sayable.
+    refusal_kind: str = ""
+    #: The capabilities that were DECLARED and came back empty, from
+    #: `Refusal.vacuous`.  Never summed with `missing`: one is a gap a
+    #: declaration can close and the other is a declaration that closed and
+    #: found nothing.
+    vacuous: tuple = ()
 
     @property
     def remedy(self):
@@ -1119,10 +1145,17 @@ class Coverage:
                            (", ".join(self.detail.split("|")) or "?") +
                            "; every randomisation in NULLS is the identity "
                            "map here",
-            "cannot_obtain": ("declare the capability on the stream"
-                              if self.capability not in NEVER_PROVIDED
-                              else "BUILD it: " +
-                              NEVER_PROVIDED.get(self.capability, "")),
+            "cannot_obtain": (
+                # M-43: THE VACUOUS CASE FIRST, because for it the other two
+                # answers are both false -- the capability IS declared, and
+                # there is nothing to build.
+                ("a TEXT the declared instrument can find something in: "
+                 + ", ".join(self.vacuous) + " was declared and came back "
+                 "EMPTY, so declaring it again changes nothing")
+                if self.refusal_kind == "vacuous_frame"
+                else "declare the capability on the stream"
+                if self.capability not in NEVER_PROVIDED
+                else "BUILD it: " + NEVER_PROVIDED.get(self.capability, "")),
             "no_instance": "a text the relation occurs in; on this one the "
                            "observation is 0 and no replicate can go lower",
             "too_expensive": "compute, or a shorter slice — nothing about "
@@ -1177,7 +1210,9 @@ def coverage(stream=None, schemas=None, chans=None, statistics=None,
             if isinstance(res, R.Refusal):
                 out.append(Coverage(name, "cannot_obtain", pairs, dropped,
                                     capability=res.capability, seconds=secs,
-                                    missing=tuple(res.missing)))
+                                    missing=tuple(res.missing),
+                                    refusal_kind=getattr(res, "kind", ""),
+                                    vacuous=tuple(getattr(res, "vacuous", ()))))
                 continue
             inst = sum(1 for i in res if i.verdict is True)
             if inst == 0:

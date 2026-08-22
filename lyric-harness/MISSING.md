@@ -3966,6 +3966,49 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-43 · The census threw away WHY a schema refused, in the layer that makes every panel number `CLOSED` 2026-08-22
+**Found 2026-08-22 by an agent sweeping the tree for the M-39 laundering
+family, and it is the sharpest thing that sweep returned: the defect is inside
+the instrument written to prevent it.**
+
+`Stream.supply` is three-valued ON PURPOSE — `absent` (nobody declared a
+source), `empty` (a source WAS declared and the instrument marked nothing),
+`present` — and `Refusal.kind` carries that out as `capability` against
+`vacuous_frame`. `Coverage` recorded neither.
+
+**MEASURED on the eng panel cell with its declaration step run:**
+
+| schema | `Refusal.kind` | what it means | `Coverage` before |
+|---|---|---|---|
+| `antanaclasis` | `capability` | no sense inventory exists anywhere | `cannot_obtain` |
+| `epistrophe / radif` | `vacuous_frame` | `mark_refrain_tail` **RAN** (`refrain_source='computed'`) and found no shared tail | `cannot_obtain` |
+
+Byte-identical rows, and the printed remedy for both was *"declare the
+capability on the stream"* — **for a capability the slice header prints as
+`DECLARED refrain:all_lines` two lines above.** That is doctrine 20's own
+sentence, found-nothing against never-looked, inside the census; and doctrine
+44's, since the two have opposite remedies and one of them is unreachable.
+`relation_report` and `capability_report` both split this correctly. `coverage`
+was the single consumer that did not — and it is the one the panel and the
+ledger are built from.
+
+**CLOSED, ADDITIVELY.** `Coverage` gains `refusal_kind` and `vacuous`,
+populated from the `Refusal`; `remedy` answers the vacuous case first, because
+for it the other two answers are both false — the capability IS declared and
+there is nothing to build. The remedy now reads *"a TEXT the declared
+instrument can find something in: refrain_tail was declared and came back
+EMPTY, so declaring it again changes nothing."* **The verdict does not move,
+so no frozen ledger column moves** and `--verify` still reports LEDGER HOLDS.
+Pinned in `quality/test_relations_null.py` §13, both directions.
+
+**THE SCOPE THIS DOES NOT CLOSE.** `LEDGER_CANNOT_OBTAIN` still splits two
+ways, declarable against never-provided, and there are now demonstrably
+**three** states in that bucket. Re-splitting it moves a frozen pin and wants
+its own sitting. The agent also notes the pin `(29, 2)` is safe only because
+`ledger_census` runs with no `prepare` step, so no frame is declared-and-empty
+on the ledger slice — safe by accident of the harness rather than by
+construction, and worth knowing.
+
 ### M-42 · Two of the four nulls are ONE randomisation for 28 of the 77 schemas `OPEN`
 **Found 2026-08-22 by an agent re-running the stanza-framed schemas, and
 verified here independently before filing. It qualifies the published
