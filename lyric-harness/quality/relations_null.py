@@ -492,6 +492,18 @@ class Result:
     search_mean_k: float = 1.0
     search_max_k: int = 1
     scope: str = ""
+    #: REPLICATES THE SCHEMA REFUSED ON, and it is a THIRD count beside the n
+    #: asked for and the len(values) obtained (doctrine 79).  A null can
+    #: destroy the very frame the schema requires -- `global_redeal` scatters
+    #: the shared trailing run a refrain tail is computed from, and after
+    #: 2026-08-22 `Stream.supply` correctly reports a declared-but-EMPTY frame
+    #: as vacuous, so `realise()` refuses on that replicate.  Dropping such a
+    #: draw silently is doctrine 27's error one layer out: the null then
+    #: consists only of replicates that survived the schema's own gate, and a
+    #: row can print `n=200` while its distribution holds twelve numbers.
+    #: `p` and `resolution` already divide by `len(values)`, so they are
+    #: honest; what was invisible is HOW MANY draws never reached them.
+    refused_replicates: int = 0
 
     @property
     def differing(self):
@@ -549,17 +561,31 @@ class Result:
                 f"{self.lift:.3f}x   {p}\n"
                 f"    replicates differing from the observation "
                 f"{self.differing * 100:.1f}%{deg}   n={self.replicates} "
+                f"used={len(self.values)} refused={self.refused_replicates} "
                 f"seed={self.seed}")
 
 
-def _stream_of(toks, phon, language):
+def _stream_of(toks, phon, language, prepare=None):
     """One replicate's token grid -> one Stream.  Split out of
     `_statistics_of` so that a WHOLE-REGISTRY pass (`sweep`, section 7) can
     build the stream ONCE per replicate and ask 60 schemas of it, instead of
-    rebuilding the same stream 60 times."""
+    rebuilding the same stream 60 times.
+
+    `prepare` is the DECLARATION STEP (section 9), a `stream -> None` callable
+    run on the freshly built stream.  It is threaded here and nowhere else so
+    that the observation and every replicate are prepared IDENTICALLY: a
+    caesura that is SEARCHED has to be searched again on each replicate or the
+    null is not run under the same search (doctrine 56), and a refrain tail
+    that is COMPUTED from the song has to be recomputed on each replicate or
+    the null preserves by hand what it is supposed to destroy.  Default None
+    keeps every pre-existing caller byte-identical.
+    """
     lines = [" ".join(t) for t in toks]
-    return R.build_stream(lines, phon, declaration={"language": language},
-                          stanzas=R.stanzas_from_blank_lines(lines))
+    st = R.build_stream(lines, phon, declaration={"language": language},
+                        stanzas=R.stanzas_from_blank_lines(lines))
+    if prepare is not None:
+        prepare(st)
+    return st
 
 
 def _measure(st, schema, statistics, chans=None, keep="all"):
@@ -590,7 +616,7 @@ def _measure(st, schema, statistics, chans=None, keep="all"):
 
 
 def _statistics_of(toks, phon, schema, statistics, language, chans=None,
-                   keep="all"):
+                   keep="all", prepare=None):
     """EVERY statistic from ONE realise() pass over one replicate.
 
     Statistics are computed together and not one arm at a time, because the
@@ -600,7 +626,7 @@ def _statistics_of(toks, phon, schema, statistics, language, chans=None,
     and `local_fraction` would have been measured on different replicates of
     the same seed and could not have been read against each other.
     """
-    st = _stream_of(toks, phon, language)
+    st = _stream_of(toks, phon, language, prepare)
     vals, refusal = _measure(st, schema, statistics, chans, keep)
     return vals, st, refusal
 
@@ -612,7 +638,8 @@ def _statistic_of(toks, phon, schema, statistic, language, chans=None):
 
 
 def run_many(lines, phon, schema, statistics, null="line_permutation",
-             n=200, seed=SEED, language="", chans=None, tokeniser=R.tokenise):
+             n=200, seed=SEED, language="", chans=None, tokeniser=R.tokenise,
+             prepare=None):
     """One null, EVERY statistic, off one set of replicates.  -> [Result].
 
     `lines` are RAW text lines.  They are tokenised once and every replicate is
@@ -630,7 +657,7 @@ def run_many(lines, phon, schema, statistics, null="line_permutation",
 
     obs, st0, refusal = _statistics_of(
         NULLS["identity"].fn(toks, random.Random(seed)),
-        phon, schema, stats, language, chans)
+        phon, schema, stats, language, chans, prepare=prepare)
     if refusal is not None:
         return [refusal for _ in stats]
     burden = R.search_burden(schema, st0)
@@ -651,9 +678,13 @@ def run_many(lines, phon, schema, statistics, null="line_permutation",
             scope=R.tradition_scope(schema, language)))
     for k in range(n):
         rng = random.Random(seed + 1 + k)
-        vals, _, _ = _statistics_of(null.fn(toks, rng), phon, schema, stats,
-                                    language, chans)
+        vals, _, refused = _statistics_of(null.fn(toks, rng), phon, schema,
+                                          stats, language, chans,
+                                          prepare=prepare)
         if vals is None:
+            for r in out:
+                if not isinstance(r, R.Refusal):
+                    r.refused_replicates += 1
             continue
         for r, v in zip(out, vals):
             if not isinstance(r, R.Refusal) and v is not None:
@@ -985,6 +1016,17 @@ class Coverage:
     capability: str = ""
     instances: int = -1     # -1 = not measured (no stream supplied)
     seconds: float = -1.0
+    #: EVERY capability the stream did not supply, not only the first.
+    #: `Refusal.capability` is `missing[0]` and `missing[0]` is ALPHABETICAL,
+    #: so a schema wanting `('prominence', 'quotient:manner')` reports
+    #: `prominence` -- the capability a different phonology already supplies --
+    #: and hides the quotient, which no declaration in this repo can supply at
+    #: all. `Refusal`'s own docstring records that inversion; carrying the
+    #: complete set here is what lets section 9 report the blocker that holds
+    #: on EVERY slice rather than the cheapest one on the first slice
+    #: (doctrine 44). Defaults to () so every existing construction site is
+    #: unchanged and no frozen ledger column moves.
+    missing: tuple = ()
 
     @property
     def remedy(self):
@@ -1056,7 +1098,8 @@ def coverage(stream=None, schemas=None, chans=None, statistics=None,
             secs = time.time() - t0
             if isinstance(res, R.Refusal):
                 out.append(Coverage(name, "cannot_obtain", pairs, dropped,
-                                    capability=res.capability, seconds=secs))
+                                    capability=res.capability, seconds=secs,
+                                    missing=tuple(res.missing)))
                 continue
             inst = sum(1 for i in res if i.verdict is True)
             if inst == 0:
@@ -1157,7 +1200,8 @@ SWEEP_STATISTICS = ("count", "local_fraction@0", "local_fraction@2",
 
 def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
           keep=("true", "none"), tokeniser=R.tokenise, budget=2.0,
-          statistics=None, progress=None, derived_only=False):
+          statistics=None, progress=None, derived_only=False, prepare=None,
+          nulls=None):
     """EVERY schema that produced an observation, under EVERY null, off ONE
     set of replicates per null.
 
@@ -1197,6 +1241,20 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
     `quality/test_null_shapes.py` §7 pins that equality, because a second
     runner that quietly disagrees with the first is a worse defect than no
     second runner.
+
+    `prepare` IS THE DECLARATION STEP AND IT RUNS ON EVERY REPLICATE
+    (section 9).  Three of this registry's capabilities are supplied not by a
+    corpus and not by a phonology but by a CALL -- `search_caesura`,
+    `mark_printed_caesura`, `mark_refrain_tail` -- and each derives its frame
+    from the text in front of it.  Preparing only the observation would build
+    the null's streams without the frame (every caesura schema would refuse on
+    every replicate and the sweep would silently report a schema with an
+    observation and no null), and preparing the observation ONCE and copying
+    the frame onto the replicates would be worse: it would hand the null the
+    poet's own caesura placements, i.e. preserve by hand the exact coordinate
+    the randomisation exists to destroy.  So the callable is threaded to
+    `_stream_of` and re-run per replicate, which is doctrine 56's "a null under
+    the same search" made mechanical rather than promised.
     """
     toks = [tokeniser(l) for l in lines if l.strip()]
     # Doctrine 91, and it is also what makes a sweep row and a `run_many` row
@@ -1204,7 +1262,7 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
     # seed, so the observation and the replicates differ in the permutation
     # and in nothing else -- including nothing about how the stream was built.
     st0 = _stream_of(NULLS["identity"].fn(toks, random.Random(seed)), phon,
-                     language)
+                     language, prepare)
     census = coverage(st0, schemas=schemas, chans=chans,
                       statistics=statistics or SWEEP_STATISTICS,
                       budget=budget, keep=keep, progress=progress)
@@ -1219,7 +1277,21 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
     #: {null name: [(schema, [statistic, ...]), ...]} — the transpose of the
     #: census, because the replicate is drawn per NULL and shared across every
     #: schema that reads it.
+    # `nulls` RESTRICTS THE RUN TO NAMED RANDOMISATIONS AND IS NOT A FILTER ON
+    # THE FINDING.  The replicate seed is derived from the replicate INDEX, so
+    # a run of one null and a run of four draw the SAME permutations for that
+    # null (doctrine 66): chunking by null is resumability, not a different
+    # experiment, exactly as `main`'s `--null=` is for the hand-written arms.
+    # It exists because one schema can dominate a slice -- `chain rhyme (rap)`
+    # is 8.40 s per realise() pass on the panel's Sanskrit cell against a 0.02 s
+    # median -- and a four-null run of that slice is hours in one process.
     every = tuple(x for x in NULLS if x != "identity")
+    if nulls is not None:
+        unknown = [x for x in nulls if x not in NULLS or x == "identity"]
+        if unknown:
+            raise KeyError(f"unknown null(s) {unknown}; NULLS has "
+                           f"{sorted(x for x in NULLS if x != 'identity')}")
+        every = tuple(x for x in every if x in nulls)
     plan = {}
     for c in live:
         admissible = [sn for sn in (statistics or SWEEP_STATISTICS)
@@ -1258,12 +1330,15 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
             rows[sname] = (sch, stats, row)
         for k in range(n):
             rng = random.Random(seed + 1 + k)
-            st = _stream_of(nl.fn(toks, rng), phon, language)
+            st = _stream_of(nl.fn(toks, rng), phon, language, prepare)
             if progress:
                 progress(f"{nl_name} replicate {k + 1}/{n}")
             for sname, (sch, stats, row) in rows.items():
                 vals, refusal = _measure(st, sch, stats, chans, keep)
                 if vals is None:
+                    for r in row:
+                        if not isinstance(r, R.Refusal):
+                            r.refused_replicates += 1
                     continue
                 for r, v in zip(row, vals):
                     if not isinstance(r, R.Refusal) and v is not None:
@@ -1960,6 +2035,737 @@ def sensitivity(lines, phon, schema, statistic, language, chans=None,
     return None if vals is None else vals[0]
 
 
+# ---------------------------------------------------------------------------
+# 9. THE PANEL — ALL 77, EACH ASKED IN ITS OWN DECLARED TRADITION
+# ---------------------------------------------------------------------------
+#
+# WHAT WAS WRONG WITH 34.  Sections 6-8 sort the registry into six verdicts and
+# `sweep()` runs the live ones, but everything above this line happens on ONE
+# SLICE — 40 lines of Poe under the `eng` phonology, with NOTHING DECLARED.
+# That single coordinate decides three separate things at once, and only one of
+# them is a property of a schema:
+#
+#   * THE LANGUAGE.  `cynghanedd lusg` is a Welsh rule and `pantun ABAB` a
+#     Malay one.  Asked of Poe they are `tradition_scope() == 'rule_shape'`:
+#     the rule shape matched and the tradition did not (doctrine 43).  A null
+#     on such a row is a real measurement of a real number and it is NOT a
+#     measurement of the relation the canon names.
+#   * THE DECLARATION.  26 of the 77 REFUSE on that slice for want of a
+#     capability, and `Stream.provides` answers False for `caesura` and
+#     `refrain_tail` on every stream nobody prepared — even though this repo
+#     SHIPS the three calls that supply them (`search_caesura`,
+#     `mark_printed_caesura`, `mark_refrain_tail`).  Seven schemas were counted
+#     as CANNOT OBTAIN for the want of a function call in the runner.
+#   * THE READER.  `_read` drops `#` headers and `[SECTION]` rows and keeps
+#     `--- TITLE:` rows, which are the corpus's OWN marker convention (the
+#     taxonomy's `--- REGION:`/`--- FUNCTION:` overrides are the same shape).
+#     MEASURED: 2 of the ledger slice's 40 lines are `--- TITLE: THE RAVEN.`
+#     and its blank-separated twin, so the recorded 34-schema sweep tokenised
+#     `TITLE`, `THE` and `RAVEN` as verse.  On the panel's other slices it is
+#     not a rounding error: 20 of 40 rows of `msa_skeat_pantun.txt` and 18 of
+#     40 of `ltc_huajianji.txt` are marker rows.
+#
+# SO THE PANEL IS THREE DECLARATIONS AND NOT ONE TEXT.  Each `Slice` names a
+# corpus, a language, a limit, a READER and a tuple of DECLARATION STEPS, and
+# every one of those five is a coordinate of every number the slice produces
+# (doctrine 58).  `sweep(prepare=...)` re-runs the declaration steps on every
+# replicate, so a SEARCHED caesura is searched again under the null (doctrine
+# 56) and a COMPUTED refrain tail is recomputed under it rather than being
+# carried over from the observation.
+#
+# WHAT THE PANEL DOES NOT DO, AND WHY EACH REFUSAL IS NAMED RATHER THAN FIXED.
+# It declares only capabilities this repository can already supply from its own
+# code and its own phonologies.  It does NOT hand `relations.py` a stemmer to
+# satisfy `morphology`, a gloss table to satisfy `sense`, a word list to
+# satisfy `lexicon`, or a hand-written consonant partition to satisfy
+# `quotient:manner`.  Each of those would make a schema fire while measuring
+# nothing it is named for — `relations.UNPROVIDABLE` records that exact move
+# for `frequency` ("every perfect rhyme in the text, labelled trite") and the
+# argument does not weaken when the missing resource is easier to fake.
+# Doctrine 58: argue the number, do not tune the measurement to meet it.  Every
+# schema the panel cannot reach is printed BY NAME with the capability it is
+# waiting on and the blocker that capability is (doctrine 20: an absent schema
+# and a schema that found nothing must not look the same).
+
+
+def _read_slice(path, limit=None):
+    """The PANEL's reader.  As `_read`, and it additionally drops rows opening
+    with `---`.
+
+    KEPT SEPARATE FROM `_read` ON PURPOSE.  `_read` is the ledger's reader and
+    `LEDGER_SLICE` is recorded through it; changing it would move every frozen
+    verdict in `EXTENSION_LEDGER` at once, and a ledger re-recorded in the same
+    commit that changed what it measures has verified nothing.  So the two
+    readers coexist, the panel says which one it used, and the DIFFERENCE
+    between them on the shared eng slice is measured and reported rather than
+    absorbed (`panel_reader_delta`).
+
+    `---` IS THE CORPUS'S OWN MARKER CONVENTION, not a guess: `--- TITLE:`,
+    `--- SOURCE:`, `--- RIME:`, `--- SYLLABLES:`, `--- AUTHOR:`, `--- JUAN:`
+    are written by the loaders in `quality/`, and CLAUDE.md's taxonomy section
+    declares `--- REGION:` and `--- FUNCTION:` as per-song overrides of the
+    same shape.  A marker row is not a line of verse and it never was.
+    """
+    out = []
+    for l in open(path, encoding="utf-8"):
+        l = l.rstrip()
+        if not l.strip():
+            continue
+        t = l.lstrip()
+        if t.startswith("#") or t.startswith("[") or t.startswith("---"):
+            continue
+        out.append(l)
+        if limit and len(out) >= limit:
+            break
+    return out
+
+
+def _read_dcs(path, limit=None):
+    """`corpus/san_dcs_verse.txt` is a SEVEN-COLUMN TSV, not a text file.
+
+    Column 7 is `pada1 " | " pada2` and the ` | ` is the file's own recovered
+    pāda boundary (its header says so, and `quality/prasa_rate.read_slice`
+    parses it the same way).  Read naively by `_read` the first six columns —
+    text name, chapter FILENAME, verse number, half, metre name, criterion —
+    tokenise as Sanskrit words, so `Gītagovinda` would have been the most
+    frequent word in the slice and `conllu` a rhyme partner.  One PĀDA per
+    line is also the frame `dvitiyakshara-prasa` needs: the relation is
+    second-syllable agreement BETWEEN pādas.
+    """
+    out = []
+    for raw in open(path, encoding="utf-8"):
+        if raw.startswith("#") or not raw.strip():
+            continue
+        f = raw.rstrip("\n").split("\t")
+        if len(f) < 7:
+            continue
+        for pada in f[6].split(" | "):
+            if pada.strip():
+                out.append(pada.strip())
+                if limit and len(out) >= limit:
+                    return out
+    return out
+
+
+def _read_one_song(path, limit=None):
+    """The FIRST song only, bounded by the corpus's own `---` marker rows.
+
+    A FRAME IS NOT A SLICE LENGTH, and this reader exists because the
+    difference is measurable.  `mark_refrain_tail` computes the shared
+    trailing run over a declared rhyme-bearing subset and needs it in
+    `min_fraction` of that subset; run over 40 lines of Ḥāfiẓ — two and a bit
+    ghazals, each with its OWN radif — it finds none, `refrain_source` is set
+    to `computed` with an EMPTY population, and `Stream.supply` correctly
+    calls that VACUOUS rather than present.  Over ONE ghazal it finds `ها` on
+    6 of the 8 rhyme-bearing lines and `epistrophe / radif` returns 15
+    instances.  The relation is a property of a SONG, so the slice has to be
+    one; taking more text makes the schema report nothing, which is a fact
+    about the frame and not about Persian (doctrine 28).
+    """
+    out, started = [], False
+    for l in open(path, encoding="utf-8"):
+        l = l.rstrip()
+        if not l.strip():
+            continue
+        t = l.lstrip()
+        if t.startswith("---"):
+            if started:
+                break
+            started = True
+            continue
+        if t.startswith("#") or t.startswith("["):
+            continue
+        if started:
+            out.append(l)
+            if limit and len(out) >= limit:
+                break
+    return out
+
+
+READERS = {"plain": _read_slice, "dcs_tsv": _read_dcs,
+           "one_song": _read_one_song}
+
+
+# --- THE DECLARATION STEPS ------------------------------------------------
+#
+# One entry per capability this repo can supply from its own code, with the
+# call that supplies it.  Each is `stream -> None`, is run on the observation
+# and on every replicate, and is named in the slice record so that a number is
+# never reported without the declaration that made it reachable.
+
+
+def _declare_caesura_searched(st):
+    R.search_caesura(st)
+
+
+def _declare_caesura_printed_gwant(st):
+    # doctrine 55's third mark. `mark_printed_caesura`'s own note measures the
+    # cost of the default: 0 of 1,558 lines of `cym_alun_strict.txt` carry `/`
+    # or `|` and 228 print the gwant `--`.
+    R.mark_printed_caesura(st, marks=("--", "/", "|"))
+
+
+def _declare_refrain_all_lines(st):
+    R.mark_refrain_tail(st)
+
+
+def _declare_refrain_alternate(st):
+    # `mark_refrain_tail`'s own docstring: over a whole ghazal with lines=None
+    # the fraction is ALWAYS zero, because only the second hemistich of each
+    # bayt carries the rhyme (both do in the maṭlaʿ). The declared subset is
+    # `[0] + range(1, n, 2)` and it is a convention of the FORM, not a
+    # parameter anybody swept.
+    R.mark_refrain_tail(st, lines=[0] + list(range(1, len(st.lines), 2)))
+
+
+DECLARATIONS = {
+    "caesura:searched": (
+        _declare_caesura_searched, "caesura",
+        "every word boundary is a candidate and k is carried on the span; the "
+        "null runs the same search on every replicate (doctrine 56)"),
+    "caesura:printed_gwant": (
+        _declare_caesura_printed_gwant, "caesura",
+        "PRINTED only, marks ('--','/','|') — the gwant included, which the "
+        "default omits (doctrine 55)"),
+    "refrain:all_lines": (
+        _declare_refrain_all_lines, "refrain_tail",
+        "the shared trailing token run over ALL lines, min_count=2 "
+        "min_fraction=0.6 — `mark_refrain_tail`'s recorded defaults"),
+    "refrain:alternate": (
+        _declare_refrain_alternate, "refrain_tail",
+        "the same, over the declared rhyme-bearing subset [0] + odd lines, "
+        "which is the ghazal/bayt convention"),
+}
+
+
+def declaration_step(names):
+    """-> a `stream -> None` callable running the named steps in order, or
+    None where none are named.  Refuses an unknown name at BUILD time rather
+    than silently declaring nothing, because a step nobody ran and a step that
+    does not exist are the same output otherwise."""
+    names = tuple(names)
+    for n in names:
+        if n not in DECLARATIONS:
+            raise KeyError(
+                f"unknown declaration step {n!r}; DECLARATIONS has "
+                f"{sorted(DECLARATIONS)}. A slice that names a step this file "
+                f"does not implement would report a capability as absent when "
+                f"what is absent is the call.")
+    if not names:
+        return None
+
+    def prepare(st):
+        for n in names:
+            DECLARATIONS[n][0](st)
+    return prepare
+
+
+@dataclass(frozen=True)
+class Slice:
+    """One panel cell.  FIVE coordinates, all of them stated (doctrine 58).
+
+    `language` is the phonology AND the tradition axis: `tradition_scope` is
+    asked of it per schema, so a row's `scope` says whether the relation was
+    measured inside the tradition that names it.
+    """
+    name: str
+    path: str
+    language: str
+    limit: int
+    reader: str = "plain"
+    declare: tuple = ()
+    note: str = ""
+
+    def read(self, root):
+        full = os.path.join(root, self.path)
+        if not os.path.exists(full):
+            return None, R.Refusal(
+                f"panel slice {self.name}", "corpus",
+                f"{self.path} is absent. REFUSED rather than skipped: a panel "
+                f"cell that vanishes silently makes 'this schema found "
+                f"nothing' and 'this schema was never asked' the same output "
+                f"(doctrine 20).")
+        return READERS[self.reader](full, self.limit), None
+
+    def prepare(self):
+        return declaration_step(self.declare)
+
+
+#: THE PANEL.  ONE SLICE PER LANGUAGE FOR WHICH THIS REPO HAS BOTH A PHONOLOGY
+#: MODULE AND AN ADMISSIBLE CORPUS — eight of the nine (`som` has a phonology
+#: and no corpus file, and `quality/phonology/som.py`'s own gabay cell is the
+#: repo's recorded NOT-FOUND, doctrine 39).
+#:
+#: ONE SLICE PER LANGUAGE AND NOT THE BEST OF SEVERAL, on purpose.  Sweeping a
+#: schema over every text in `corpus/` and reporting the one where it beat its
+#: null is an argmax over a swept parameter, and doctrine 19 says such a thing
+#: is biased toward whichever end of the sweep has the most freedom.  The
+#: language axis is DERIVED from the schema's own `traditions` tuple rather
+#: than chosen, and the per-language text is the one this repo's existing
+#: instruments already read for that language (named per row).
+#:
+#: THE LIMIT IS 40 EVERYWHERE, which is the ledger slice's own limit, so the
+#: eng row is comparable line-for-line with the superseded 34-schema sweep and
+#: the other seven are comparable with it and with each other.  A slice is a
+#: coordinate: at 40 lines a relation that needs a long text to fire will read
+#: NO INSTANCE here, and that is a statement about this panel and not about
+#: the relation (doctrine 20).
+PANEL = (
+    Slice("eng", "corpus/song/eng_american_edgar_allan_poe.txt", "eng", 40,
+          declare=("caesura:searched", "refrain:all_lines"),
+          note="the ledger slice's text and limit, read by `_read_slice` and "
+               "with the two declarable frames supplied"),
+    Slice("fin", "corpus/fin_kalevala.txt", "fin", 40,
+          declare=("caesura:searched", "refrain:all_lines"),
+          note="the Kalevala arm's own text (the arm reads 400 lines; the "
+               "panel reads 40, and the arm's figures are not restated here)"),
+    Slice("cym", "corpus/cym_alun_strict.txt", "cym", 40,
+          declare=("caesura:searched", "refrain:all_lines"),
+          note="doctrine 56's own Welsh edition — the 1,558 lines "
+               "`search_caesura` reports mean_k 4.02 on"),
+    Slice("cym_cynghanedd",
+          "corpus/song/cym_cynghanedd_llywelyn_goch_cywydd.txt", "cym", 40,
+          declare=("caesura:searched", "refrain:all_lines"),
+          note="THE SECOND CYM CELL, and it is declared for a stated reason "
+               "rather than to widen a search: a cywydd marwnad is the form "
+               "the cynghanedd schemas are ABOUT, and running them only on a "
+               "lyric would report 'no instance' about the instrument"),
+    Slice("non", "corpus/song/non_egils_saga_hofudlausn.txt", "non", 40,
+          declare=("caesura:searched", "refrain:all_lines"),
+          note="Höfuðlausn — the skothending/aðalhending text doctrines 53 "
+               "and 60 are written about"),
+    Slice("san", "corpus/san_dcs_verse.txt", "san", 40, reader="dcs_tsv",
+          declare=("caesura:searched", "refrain:all_lines"),
+          note="one recovered PĀDA per line; the prāsa cell's own slice"),
+    Slice("msa", "corpus/song/msa_skeat_pantun.txt", "msa", 40,
+          declare=("caesura:searched", "refrain:all_lines"),
+          note="Skeat's pantun quatrains — `pantun ABAB`'s own tradition"),
+    Slice("ltc", "corpus/song/ltc_huajianji.txt", "ltc", 40,
+          declare=("caesura:searched", "refrain:all_lines"),
+          note="花間集 — the only language whose phonology declares a quotient, "
+               "so the only slice on which `Middle Chinese end rhyme "
+               "(同用 group)` can be asked at all"),
+    Slice("fas", "corpus/song/fas_hafez_ganjoor.txt", "fas", 40,
+          reader="one_song", declare=("caesura:searched", "refrain:alternate"),
+          note="Ḥāfiẓ, غزل شمارهٔ ۱ ALONE (14 lines, not 40) — the refrain is a "
+               "property of one ghazal and the step takes that ghazal's "
+               "declared rhyme-bearing subset. This is the ONLY panel cell on "
+               "which `refrain_tail` has a non-empty population, so it is the "
+               "only cell where `epistrophe / radif` and `qafiya` can be "
+               "asked at all"),
+)
+
+
+def panel_reader_delta(root=None, slice_name="eng"):
+    """MEASURE what the panel's reader changed on the slice it shares with the
+    ledger.  -> {'ledger_lines', 'panel_lines', 'dropped', 'verdicts_moved'}.
+
+    Doctrine 58 says a count is a coordinate of its rendering; this says how
+    big that coordinate is here instead of asserting it is small.  Called by
+    `--panel` and pinned in `quality/test_relations_null.py` §2.
+    """
+    from quality.phonology import get as get_phonology
+    root = root or os.path.dirname(HERE)
+    sl = {s.name: s for s in PANEL}[slice_name]
+    full = os.path.join(root, sl.path)
+    if not os.path.exists(full):
+        return None
+    a = _read(full, sl.limit)
+    b = _read_slice(full, sl.limit)
+    phon = get_phonology(sl.language)
+    va, vb = {}, {}
+    for lines, into in ((a, va), (b, vb)):
+        st = _stream_of([R.tokenise(l) for l in lines if l.strip()], phon,
+                        sl.language)
+        for c in coverage(st, budget=None):
+            into[c.schema] = c.verdict
+    moved = sorted(k for k in va if va[k] != vb.get(k))
+    return {"ledger_lines": len(a), "panel_lines": len(b),
+            "dropped": [l for l in a if l.lstrip().startswith("---")],
+            "verdicts_moved": [(k, va[k], vb[k]) for k in moved]}
+
+
+# --- WHAT "CLEARS ITS OWN NULL" MEANS, WRITTEN ONCE -----------------------
+
+
+def cleared(r):
+    """Does this row's observation beat its own matched control?  TWO
+    conditions, and dropping either one is the defect this file exists to
+    catch.
+
+      1. THE NULL MOVED.  `differing > 0` — at least one replicate differs
+         from the observation.  A row where no replicate moved has no
+         experiment under it and its `p=1.0000` means nothing (doctrine
+         63/68), so it is neither admissible nor a negative result: it is
+         inconclusive by construction (doctrine 20).
+      2. THE OBSERVATION IS STRICTLY ABOVE THE NULL'S MAX.  Not above the
+         median, and not "p < 0.05" — at these replicate counts the smallest
+         attainable p IS 1/(n+1), so a p at the floor reports the RESOLUTION
+         and not the effect (doctrine 57).  The gap to the MAX is the number
+         that survives that, and it is the one recorded.
+
+    Note which way this cuts: it is the STRICTER of the two readings this repo
+    has quoted under the word "the null" (doctrine 91), so nothing enters the
+    admissible set by being compared against a median.
+    """
+    if isinstance(r, R.Refusal) or not r.values:
+        return False
+    return r.differing > 0.0 and r.gap_to_max > 0
+
+
+def expected_false_clears(rows, replicates):
+    """How many rows would clear a null they have no relationship to.
+
+    A row clears when the observation exceeds all `n` replicates.  Under H0 the
+    observation is exchangeable with them, so that happens with probability
+    1/(n+1) per row.  With `rows` rows the expected count is rows/(n+1).  This
+    is not a correction and it is not applied to anything — it is the size of
+    the admissible set that costs nothing to obtain, printed beside the size
+    obtained, because a set assembled by taking the best of 4 statistics x 4
+    nulls x 9 slices is an argmax and doctrine 19 says an argmax over a swept
+    parameter has to be read against the freedom the sweep had.
+    """
+    return rows / float(replicates + 1)
+
+
+def expected_false_clears_over(rows):
+    """The same arithmetic PER ROW, because `len(values)` is not always the n
+    that was asked for: a null that destroys the frame a schema requires makes
+    that replicate REFUSE, and the row's distribution is then smaller than the
+    run's n (`Result.refused_replicates`).  Summing 1/(used+1) over the rows
+    charges each row its own resolution instead of the run's nominal one."""
+    return sum(expected_false_clears(1, len(r.values)) for r in rows
+               if not isinstance(r, R.Refusal) and r.values)
+
+
+# --- THE RUN --------------------------------------------------------------
+
+
+PANEL_VERDICTS = (
+    "admissible_in_tradition",
+    "admissible_out_of_tradition",
+    "swept_below_or_at_chance",
+    "swept_null_never_moved",
+    "no_instance",
+    "cannot_obtain_declarable",
+    "cannot_obtain_never_provided",
+    "too_expensive",
+)
+
+
+@dataclass
+class PanelRow:
+    """One schema's standing across the whole panel.  EIGHT counts and never
+    one (doctrine 79 generalised): a schema that refuses for want of a
+    resource nobody has, a schema that fires and cannot be moved by any
+    randomisation, a schema that fires and sits below chance, and a schema
+    that clears its null are four different findings with four different
+    remedies, and summing them into "43 with no null" charges the wrong layer
+    for most of it."""
+    schema: str
+    verdict: str = ""
+    best: object = None          # the cleared Result with the largest lift
+    slices_run: tuple = ()       # slice names where a live row was produced
+    slices_refused: tuple = ()   # (slice name, capability)
+    capability: str = ""
+    rows: int = 0                # live sweep rows over the whole panel
+    moved_rows: int = 0          # of those, rows where the null moved
+    cleared_rows: int = 0        # of those, rows above the null's max
+    refused_replicates: int = 0  # draws the schema refused on, summed
+    instances: int = -1          # max over the panel
+    detail: str = ""
+
+
+#: WHY A DECLARABLE CAPABILITY IS STILL NOT DECLARED, one line per capability,
+#: and the line is the whole content of the verdict.  `Stream.provides` has a
+#: branch for every one of these, so none is a `NEVER_PROVIDED` build — the
+#: blocker is that supplying it HONESTLY needs an input this repo does not
+#: have, and supplying it dishonestly is the move `relations.UNPROVIDABLE`
+#: measured and refused for `frequency`.
+BLOCKERS = {
+    "sense": "a sense inventory. `antanaclasis` is one word in two SENSES; "
+             "with any resource that keys on the token it degenerates to "
+             "`repetition`, which is a different schema already in this "
+             "registry. Blocker: obtain (no sense resource here; "
+             "`data/nltk/` carries taggers and tokenizers, not WordNet).",
+    "morphology": "a lemmatiser/segmenter. `homoioteleuton` and `polyptoton` "
+                  "compare morpheme roots and affix classes; a suffix-strip "
+                  "written here would decide both verdicts by its own "
+                  "heuristic and report them as morphology. Blocker: build "
+                  "(the resource is a callable a caller declares; nothing in "
+                  "this repo is one).",
+    "lexicon": "a lexeme inventory. `holorhyme` compares LEXEME SEQUENCES "
+               "across a whole line and `rhyming slang` a declared slang "
+               "lexicon; keying either on lowercased token text makes "
+               "`lexeme` an alias of `token` and collapses a declared "
+               "coordinate. Blocker: obtain.",
+    "quotient:manner": "a manner-of-articulation partition of the consonant "
+                       "inventory. `_quotient_of` reads it from "
+                       "`declaration['quotients']` or from `phon.quotients`, "
+                       "and NO phonology in this repo declares one — `ltc` "
+                       "declares 同用 and is the only module with the field "
+                       "at all. Blocker: build, and it belongs in a "
+                       "phonology, not in a null runner.",
+    "quotient:vowel_class": "a Welsh vowel-class partition for `proest`. Same "
+                            "mechanism and same blocker as "
+                            "`quotient:manner`; `quality/phonology/cym.py` "
+                            "declares no `quotients`.",
+    "orthography": "a second stream under the `orthography` surface. `eye "
+                   "rhyme` compares SPELLINGS, so the surface has to be a "
+                   "declaration and not the phonemic stream wearing a label. "
+                   "Blocker: build.",
+    "earlier": "a SOURCED earlier-period phonology. "
+               "`declared_inputs.PeriodPhonology` refuses to construct "
+               "without a named reconstruction, which is the correct "
+               "refusal. Blocker: obtain.",
+    "poet": "a SOURCED dialect phonology, the same family as `earlier`. The "
+            "surface itself is reachable (`poet` joined `ALT_SURFACES` "
+            "2026-08-13); the data is not. Blocker: obtain.",
+    "delivered": "a DELIVERED surface — what the singer actually sang, "
+                 "against what the page prints. `wrenched rhyme` and "
+                 "`transformative / bent rhyme` are defined by the "
+                 "difference between the two. Blocker: obtain.",
+    "sung": "a sung surface, same family as `delivered`. Blocker: obtain.",
+    "lifts": "a metrical LIFT map. `Stream.provides('lifts')` reads "
+             "`frames.lift_source`, and MEASURED over this repository "
+             "NOTHING assigns it: there is no scanner, no declarer and no "
+             "caller, so `alliterative long line` and `fourth lift must not "
+             "alliterate` refuse on every stream anything here can build. "
+             "Blocker: build — and unlike `caesura` and `refrain_tail`, "
+             "which this panel supplies from `search_caesura` and "
+             "`mark_refrain_tail`, there is no function to call.",
+    "beat": "a beat grid. `frames.beat` is doctrine 4's declared-inert field "
+            "and stays None ON PURPOSE, so `offbeat internal rhyme` refuses "
+            "by design rather than by omission. Blocker: disjoint.",
+}
+
+
+def panel_sweep(root=None, n=25, budget=None, panel=None, progress=None,
+                seed=SEED, statistics=None, nulls=None):
+    """Run every panel slice.  -> (rows, per_slice), where `rows` is a flat
+    list of `Result`/`Refusal` tagged by slice and `per_slice` is
+    {slice name: (Slice, census, refusal)}.
+
+    Every slice is run at the SAME `n` and the same `seed`, so a replicate
+    index means the same thing on every cell and a schema's rows across the
+    panel differ in the text and the declaration and in nothing else.
+    """
+    from quality.phonology import get as get_phonology
+    root = root or os.path.dirname(HERE)
+    out, per_slice = [], {}
+    for sl in (panel or PANEL):
+        lines, refusal = sl.read(root)
+        if refusal is not None:
+            per_slice[sl.name] = (sl, None, refusal)
+            continue
+        phon = get_phonology(sl.language)
+        if progress:
+            progress(f"slice {sl.name}: {len(lines)} lines")
+        results, census = sweep(
+            lines, phon, sl.language, n=n, seed=seed, budget=budget,
+            prepare=sl.prepare(), progress=progress, statistics=statistics,
+            nulls=nulls)
+        per_slice[sl.name] = (sl, census, None)
+        for r in results:
+            out.append((sl.name, r))
+    return out, per_slice
+
+
+def panel_census(rows, per_slice):
+    """Fold the panel into ONE verdict per schema.  -> [PanelRow] in registry
+    order, and the eight verdicts PARTITION `R.REGISTRY` — every declared
+    schema gets exactly one row whether or not any slice could ask it, which
+    is the whole of doctrine 20 at this scale: an absent schema and a schema
+    that found nothing must not look the same.
+    """
+    live = {}
+    for sname, r in rows:
+        if isinstance(r, R.Refusal):
+            continue
+        live.setdefault(r.schema, []).append((sname, r))
+    cens = {}
+    for sname, (_sl, census, refusal) in per_slice.items():
+        if census is None:
+            continue
+        for c in census:
+            cens.setdefault(c.schema, []).append((sname, c))
+    out = []
+    for name in R.REGISTRY:
+        mine = live.get(name, [])
+        rows_here = [r for _s, r in mine]
+        moved = [r for r in rows_here if r.values and r.differing > 0.0]
+        clears = [r for r in rows_here if cleared(r)]
+        in_trad = [r for r in clears if r.scope == "in_tradition"]
+        cs = cens.get(name, [])
+        inst = max([c.instances for _s, c in cs] or [-1])
+        refused = tuple((s, c.capability, tuple(c.missing or (c.capability,)))
+                        for s, c in cs if c.verdict == "cannot_obtain")
+        pr = PanelRow(
+            schema=name,
+            best=(max(in_trad or clears, key=lambda r: r.lift)
+                  if clears else None),
+            slices_run=tuple(sorted({s for s, _r in mine})),
+            slices_refused=refused,
+            rows=len(rows_here), moved_rows=len(moved),
+            cleared_rows=len(clears), instances=inst,
+            refused_replicates=sum(r.refused_replicates for r in rows_here))
+        if in_trad:
+            pr.verdict = "admissible_in_tradition"
+        elif clears:
+            pr.verdict = "admissible_out_of_tradition"
+            pr.detail = ("cleared its null only where "
+                         "`tradition_scope` is not `in_tradition`: the rule "
+                         "shape matched and the tradition did not "
+                         "(doctrine 43)")
+        elif moved:
+            pr.verdict = "swept_below_or_at_chance"
+        elif rows_here:
+            pr.verdict = "swept_null_never_moved"
+            pr.detail = ("ran and fired on the panel and NO randomisation in "
+                         "`NULLS` moved the statistic on any replicate of any "
+                         "slice. This is `cannot_fail` MEASURED rather than "
+                         "derived; the remedy is a new randomisation that "
+                         "destroys " +
+                         (", ".join(sorted({
+                             c for _s, cv in cs
+                             for c in (cv.detail.split("|") if cv.detail
+                                       else [])})) or "the coordinate this "
+                          "schema reads"))
+        elif any(c.verdict == "too_expensive" for _s, c in cs):
+            pr.verdict = "too_expensive"
+        elif refused and len(refused) == len(cs):
+            # THE INTERSECTION, NOT THE UNION, and the difference is doctrine
+            # 44's whole point.  `historical rhyme` needs ('earlier',
+            # 'prominence'); on the eng slice `prominence` is supplied and only
+            # `earlier` is missing, on the msa and fas slices BOTH are.  The
+            # union would report a prominence blocker that a different
+            # phonology already closes; the intersection is the set missing on
+            # EVERY slice, which is the blocker that actually holds.
+            per = [set(m) for _s, _c, m in refused]
+            always = set.intersection(*per) if per else set()
+            caps = always or set().union(*per)
+            pr.capability = "+".join(sorted(caps))
+            hard = sorted(c for c in caps if c in NEVER_PROVIDED)
+            pr.verdict = ("cannot_obtain_never_provided" if hard
+                          else "cannot_obtain_declarable")
+            pr.detail = (("NEVER PROVIDED — " + NEVER_PROVIDED[hard[0]])
+                         if hard else
+                         " · ".join(BLOCKERS.get(c, "no blocker recorded for "
+                                                 + c) for c in sorted(caps)))
+            extra = sorted(set().union(*per) - caps)
+            if extra:
+                pr.detail += (f"  [also missing on some slices and not on "
+                              f"others, so not the blocker: "
+                              f"{', '.join(extra)}]")
+        elif cs:
+            pr.verdict = "no_instance"
+        else:
+            pr.verdict = "no_instance"
+            pr.detail = ("no panel slice could be read at all — every cell "
+                         "REFUSED on a missing corpus")
+        out.append(pr)
+    return out
+
+
+def report_panel(rows, per_slice, cens, n):
+    """Print the panel: the slices, the eight-way split, and the ADMISSIBLE
+    SET with the statistic, the null and the lift each schema cleared on."""
+    print("\n" + "=" * 74)
+    print("THE PANEL — the slices, and what each declared")
+    print("=" * 74)
+    for sl in PANEL:
+        got = per_slice.get(sl.name)
+        if got is None or got[2] is not None:
+            why = got[2].detail if got else "not run"
+            print(f"  {sl.name:15} REFUSED — {why}")
+            continue
+        _s, census, _r = got
+        live = sum(1 for c in census if c.verdict in
+                   ("controlled", "extendable", "cannot_fail"))
+        print(f"  {sl.name:15} {sl.path}")
+        print(f"  {'':15} lang {sl.language} · first {sl.limit} lines · "
+              f"reader {sl.reader} · live {live}/{len(census)}")
+        for d in sl.declare:
+            print(f"  {'':15} DECLARED {d}: {DECLARATIONS[d][2]}")
+        print(f"  {'':15} {sl.note}")
+    by = {v: [c for c in cens if c.verdict == v] for v in PANEL_VERDICTS}
+    total_rows = sum(c.rows for c in cens)
+    moved_rows = sum(c.moved_rows for c in cens)
+    clear_rows = sum(c.cleared_rows for c in cens)
+    live = [r for _s, r in rows
+            if not isinstance(r, R.Refusal) and r.values
+            and r.differing > 0.0]
+    refused_reps = sum(c.refused_replicates for c in cens)
+    print("\n" + "=" * 74)
+    print("THE EIGHT-WAY SPLIT — one verdict per declared schema")
+    print("=" * 74)
+    print(f"  schemas declared {len(cens)}   ·   rows {total_rows}   ·   "
+          f"rows whose null MOVED {moved_rows}   ·   rows ABOVE the null max "
+          f"{clear_rows}")
+    print(f"  expected clears with no effect at n={n}: "
+          f"{expected_false_clears_over(live):.1f} of the {moved_rows} "
+          f"moved rows (doctrine 19/57 — the freedom the sweep had, printed "
+          f"beside what it found; charged per row at its OWN used n)")
+    print(f"  replicate draws the schema REFUSED on, over the whole panel: "
+          f"{refused_reps} (doctrine 27/79 — a draw the instrument could not "
+          f"answer is a third count, never a silent drop)")
+    for v in PANEL_VERDICTS:
+        got = by[v]
+        print(f"\n  -- {v.upper()}  ({len(got)})")
+        for c in got:
+            if c.best is not None:
+                b = c.best
+                print(f"     {c.schema}: {b.statistic} under {b.null} on "
+                      f"slice(s) {'/'.join(c.slices_run)} — observed "
+                      f"{b.observed:.6g}, null max {b.null_max:.6g}, GAP "
+                      f"{b.gap_to_max:+.6g}, lift {b.lift:.2f}x, "
+                      f"{b.differing * 100:.0f}% differing, scope {b.scope}")
+                print(f"        {c.cleared_rows} of {c.moved_rows} moved rows "
+                      f"(of {c.rows}) clear")
+            elif c.capability:
+                print(f"     {c.schema}: needs {c.capability!r}")
+                print(f"        {c.detail}")
+            else:
+                tail = (f"  max instances over the panel {c.instances}"
+                        if c.instances >= 0 else "")
+                print(f"     {c.schema}: {c.moved_rows} moved of {c.rows} "
+                      f"row(s) over {len(c.slices_run)} slice(s){tail}")
+                if c.detail:
+                    print(f"        {c.detail}")
+    print("\n  THE EIGHT ARE A PARTITION AND EACH HAS A DIFFERENT REMEDY.")
+    return by
+
+
+def _main_panel(root, n, budget, progress):
+    """`--panel`: every declared schema, over the whole panel."""
+    print("=" * 74)
+    print(f"RELATIONS NULLS · PANEL — all {len(R.REGISTRY)} schemas, "
+          f"{len(PANEL)} slices, seed {SEED}, replicates {n}")
+    print("=" * 74)
+    t0 = _now()
+    rows, per_slice = panel_sweep(root=root, n=n, budget=budget,
+                                  progress=progress)
+    cens = panel_census(rows, per_slice)
+    print(f"\n  panel wall clock {_now() - t0:.1f}s")
+    delta = panel_reader_delta(root)
+    if delta:
+        print("\n  READER DELTA on the shared eng slice (doctrine 58): "
+              f"{delta['ledger_lines']} lines by `_read`, "
+              f"{delta['panel_lines']} by `_read_slice`; dropped "
+              f"{len(delta['dropped'])} marker row(s) "
+              f"{[d[:34] for d in delta['dropped']]}; census verdicts moved "
+              f"{len(delta['verdicts_moved'])}: {delta['verdicts_moved']}")
+    report_panel(rows, per_slice, cens, n)
+    print("\n" + "=" * 74)
+    print("EVERY ROW THAT CLEARED ITS OWN NULL, in full")
+    print("=" * 74)
+    for sname, r in rows:
+        if cleared(r):
+            print(f"\n  [slice {sname}]")
+            print("  " + r.line().replace("\n", "\n  "))
+    return 0
+
+
 USAGE = """quality/relations_null.py - matched controls for relations.py
 
   (no argument)          the three hand-written ARMS, n=200, ~25 min.  Prints
@@ -1976,6 +2782,15 @@ USAGE = """quality/relations_null.py - matched controls for relations.py
                          --n=, --limit= and --budget=.
   --sensitivity          the planted-locality detection floor per schema
                          (doctrines 31/76), printed beside the sweep
+  --panel                ALL 77 schemas over the whole PANEL (section 9): one
+                         slice per language this repo has a phonology AND a
+                         corpus for, with the declarable frames declared and
+                         re-declared on every replicate.  Prints the eight-way
+                         split and the ADMISSIBLE SET.  Bound it with --n= and
+                         --budget=; hours at n=25, and it takes no --corpus=
+                         (the panel IS the population, and a caller who can
+                         re-point it can re-point what the admissible set is
+                         a set OVER)
   --verify               DIFF the frozen EXTENSION_LEDGER against a fresh
                          census on the ledger's own pinned slice.  Exit 1 on
                          any marker that moved, exit 2 if the slice is
@@ -2019,12 +2834,14 @@ def main(argv=()):
     """
     from quality.phonology import get as get_phonology
     n, only_arm, only_null = 200, None, None
+    n_given = False
     mode, corpus, lang, limit = "arms", None, "eng", None
     budget, brief = 2.0, False
     deep, record = False, False
     for a in argv:
         if a.startswith("--n="):
             n = int(a.split("=", 1)[1])
+            n_given = True
         elif a.startswith("--arm="):
             only_arm = int(a.split("=", 1)[1])
         elif a.startswith("--null="):
@@ -2043,12 +2860,21 @@ def main(argv=()):
             deep = True
         elif a == "--record":
             record = True
-        elif a in ("--coverage", "--sweep", "--sensitivity", "--verify"):
+        elif a in ("--coverage", "--sweep", "--sensitivity", "--verify",
+                   "--panel"):
             mode = a[2:]
         elif a in ("-h", "--help"):
             print(USAGE)
             return 0
     root = os.path.dirname(HERE)
+    if mode == "panel":
+        # BUDGET DEFAULTS TO None HERE and to 2.0 everywhere else, for section
+        # 6's own recorded reason: TOO EXPENSIVE is a wall clock reading and
+        # does not reproduce, so a schema must not leave the admissible set
+        # because the machine was loaded. Pass --budget= to bound a run.
+        return _main_panel(root, n if n_given else 25,
+                           None if budget == 2.0 else budget,
+                           lambda m: print(f"    .. {m}", flush=True))
     if mode == "verify":
         return _main_verify(root, deep, record)
     if mode in ("coverage", "sweep", "sensitivity"):
