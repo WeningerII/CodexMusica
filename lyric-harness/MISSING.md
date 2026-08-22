@@ -3990,6 +3990,48 @@ Two different relations that share an English name. **This is the
 best-evidenced step-8 item on the ladder**: the survey named it, named its
 poets, and nobody built it.
 
+**WHAT E44 WOULD COST TO BUILD, MEASURED RATHER THAN GUESSED (2026-08-22).**
+The obvious worry is that terza rima needs machinery this module does not
+have, because `aba bcb cdc` is a relation BETWEEN ADJACENT STANZAS — the `b`
+of tercet *n* is the outer rhyme of tercet *n+1* — and `_frame_key` PARTITIONS
+by `Unit.stanza`, so a `frame="stanza"` figure structurally cannot reach the
+next stanza. That worry is half right and the half that is wrong is the
+useful half.
+
+`Placement._raw` implements **26 kinds**. Two are section-aware
+(`same_section`, `different_sections`) and **none is stanza-aware, and none is
+ordinal**: there is no `adjacent_stanzas` and no `stanza_gap_at_most`. But the
+pattern for a cross-frame relation already ships — `linked rhyme` is
+`frame='song'` with an `across_line_break` placement, which is the same shape
+one frame up. So **E44 is ONE new placement kind away, not a machinery
+rewrite**, and the kind is a few lines because `_raw` already receives the
+stream and `Unit.stanza` is right there.
+
+**AND IT IS M-39 THAT MAKES IT BUILDABLE.** Before the stanza ground landed,
+every unit of every stream carried `stanza == 0`, so an `adjacent_stanzas`
+placement would have been INERT everywhere — answering the same thing on every
+text, exactly as `different_sections` did for its whole life until the section
+coordinate was supplied. Building E44 on top of a collapsed frame would have
+produced a schema that fires on anything.
+
+**ONE DESIGN CONSTRAINT, AND IT IS THE SAME TRAP ONE LAYER OVER.**
+`RelationSchema.capabilities()` collects `p.requires` from each declared
+`Placement`, which means a schema could use a stanza-ordinal placement and
+simply FORGET to declare `requires=("stanza",)` — and it would then run
+against an ungrounded stream, read `u.stanza == 0` for every unit, and answer
+TRUE everywhere. That is precisely the defect M-39 closed for `figure.frame`,
+arriving from the placement side. So the requirement must be derived from the
+KIND, in `capabilities()`, the way `stanza` is now derived from
+`figure.frame` — never left to the declaring schema to remember. A checker
+whose caller picks the coordinate is the bug (doctrine 45).
+
+**SEQUENCED, NOT DONE.** Adding the schema moves the registry 77 -> 78 and
+that cascades: `EXTENSION_LEDGER` gains a row, `LEDGER_CANNOT_OBTAIN` and the
+EXTENDABLE headline move, `relation_shapes.py --check` repins, `panel_census`
+partitions over a different registry, and every printed "77" in the tree wants
+reading. That is a settled-tree job and it is deliberately not being done
+while measurement runs are in flight against the 77.
+
 **FINDING 2 — THE EIGHT THAT LEFT THE ADMISSIBLE SET AT n=200 DID NOT LEAVE
 FOR ONE REASON, AND ONLY THREE ARE CORPUS PROBLEMS.** Kept apart because the
 remedies are different (doctrine 44):
@@ -4196,7 +4238,26 @@ instances — one leash per stanza** instead of 6 across the lot.
    marks its sections and prints no blank line still refuses there. The panel
    reads both because its readers see the marks; the CLI does not, and that
    asymmetry is real and is not yet closed.
-3. **The ledger slice stays ungrounded on purpose.** `_read` keeps `---` rows
+3. **`section` HAS NO CAPABILITY GATE, and the hole is the mirror of the one
+   this entry just closed.** Measured: `Stream.supply('section')` falls through
+   to the catch-all — *"`Stream.supply` has no branch for this name, so no
+   declaration can supply it"* — so it answers `absent` for the wrong reason,
+   by not knowing the name rather than by finding no coordinate. Today that is
+   LATENT and not live: zero schemas declare `same_section` or
+   `different_sections` (measured). It goes live the moment step 8 adds one,
+   and then the failure is silent in the worst way — a schema declaring a
+   section placement WITHOUT `requires=("section",)` would run against
+   `Unit.section == ""` on every unit and answer TRUE everywhere, which is
+   precisely what `figure.frame` did before this entry. Two halves to the fix,
+   and both are M-39's own shape: `Frames.section_source` mirroring
+   `stanza_source`, with the population being the distinct non-empty
+   `Unit.section` values; and `capabilities()` deriving `section` from the
+   placement KIND rather than trusting the declaring schema to have remembered
+   it. Deliberately NOT done in the same sitting as the stanza half: the
+   function it changes is the one being wired into production right now, and a
+   coordinate changed underneath its first caller is how the stanza half got
+   its bug.
+4. **The ledger slice stays ungrounded on purpose.** `_read` keeps `---` rows
    as verse and `EXTENSION_LEDGER` is recorded through it, so grounding it in
    the same commit that changed what it measures would verify nothing. The
    five are repinned there as CANNOT OBTAIN, which is true of that reader.
