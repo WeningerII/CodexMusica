@@ -1619,6 +1619,71 @@ class RelationRefused(ValueError):
     grading it as the default would be a silently different question."""
 
 
+#: THE THREE NAMESPACES.  Ruled by the owner 2026-08-22 on `MISSING.md`
+#: M-37: a declaration says WHICH vocabulary it means.
+#:
+#: WHY.  26 of `relations.REGISTRY`'s 77 schema names are also names in the
+#: table below, and where both judges answer they DISAGREE on 6 of 102
+#: measured cells in both directions -- `syllabic rhyme` says no to
+#: mother/brother as a CELL (the cell excludes a rhyme whose stressed
+#: syllable also agrees) and yes as a SCHEMA.  Worse, the class/cell line was
+#: carried by CAPITALISATION alone: `ASSONANCE` resolved to the coarse class
+#: and `assonance` to the cell, two different relations one shift key apart.
+#:
+#: THE RULE.  An explicit prefix is always unambiguous.  A BARE name resolves
+#: only when it names an entry in exactly ONE namespace; naming entries in
+#: two or three REFUSES and prints every prefixed form, because picking one
+#: would make a mandate mean whichever resolver ran first (doctrine 1/45).
+#: Exact match is tried across all three before any case-insensitive pass, so
+#: `ASSONANCE` stays the class and `assonance` -- exact in both `type` and
+#: `schema` -- refuses rather than silently keeping its old reading.
+NAMESPACES = ("class", "type", "schema")
+
+_SCHEMA_NAMES = None
+
+
+def schema_relation_names():
+    """-> the `relations.REGISTRY` names, as a frozenset, imported LAZILY.
+
+    `relations.py` does not import this module at module level (checked), so
+    a lazy import here is safe in the one direction that matters and keeps
+    `rhyme_types` loadable without the 4,000-line registry.
+    """
+    global _SCHEMA_NAMES
+    if _SCHEMA_NAMES is None:
+        from quality import relations as _R
+        _SCHEMA_NAMES = frozenset(_R.REGISTRY)
+    return _SCHEMA_NAMES
+
+
+def namespaced_vocabulary():
+    """-> {namespace: frozenset(names)} for all three."""
+    named = {n for names in NAMED.values() for n in names}
+    return {"class": frozenset(CLASS_RELATIONS),
+            "type": frozenset(named),
+            "schema": schema_relation_names()}
+
+
+def relation_ambiguities():
+    """-> {name: (namespace, ...)} for every name in more than one.
+
+    MEASURED 2026-08-22: **26 names, every one of them (schema, type)**.
+    The coarse classes do NOT appear here, because they are spelled in
+    capitals and this compares exactly -- `ASSONANCE` and `assonance` are
+    different strings. That is not reassurance, it is the finding: the
+    class/cell line is carried by CAPITALISATION, so the pair is one shift
+    key from colliding, and `resolve_relation`'s case-insensitive fallback
+    is where it would. Which is why that fallback carries the same ambiguity
+    refusal as the exact pass rather than a first-match win.
+    """
+    v = namespaced_vocabulary()
+    out = {}
+    for ns, names in v.items():
+        for n in names:
+            out.setdefault(n, []).append(ns)
+    return {n: tuple(sorted(k)) for n, k in out.items() if len(k) > 1}
+
+
 def relation_vocabulary():
     """-> {name: kind}, kind in {"class", "named"}.
 
@@ -1660,16 +1725,56 @@ def resolve_relation(name):
             "a declared relation must be a non-empty name; an empty slot "
             "means DEFAULT and is handled by the caller, not here.")
     key = name.strip()
-    vocab = relation_vocabulary()
-    if key in vocab:
-        return key, vocab[key]
-    # Case-insensitive second pass, because the two vocabularies spell
-    # themselves differently (`RHYME` shouts, `perfect rhyme` does not) and a
-    # writer should not have to know which table a name came from.
-    low = {k.lower(): k for k in vocab}
-    if key.lower() in low:
-        hit = low[key.lower()]
-        return hit, vocab[hit]
+    v = namespaced_vocabulary()
+
+    # 1. AN EXPLICIT PREFIX IS ALWAYS UNAMBIGUOUS and is tried first.
+    if ":" in key:
+        ns, _, rest = key.partition(":")
+        ns, rest = ns.strip().lower(), rest.strip()
+        if ns not in v:
+            raise RelationRefused(
+                f"{name!r} names namespace {ns!r}; the declared namespaces "
+                f"are {list(NAMESPACES)}.")
+        if rest in v[ns]:
+            return rest, ("named" if ns == "type" else ns)
+        low = {x.lower(): x for x in v[ns]}
+        if rest.lower() in low:
+            hit = low[rest.lower()]
+            return hit, ("named" if ns == "type" else ns)
+        raise RelationRefused(
+            f"{rest!r} is not a name in the {ns!r} namespace.")
+
+    # 2. A BARE NAME: exact across all three, and AMBIGUITY REFUSES.
+    hits = [ns for ns in NAMESPACES if key in v[ns]]
+    if len(hits) > 1:
+        raise RelationRefused(
+            f"{name!r} names a relation in {len(hits)} namespaces "
+            f"({', '.join(hits)}) and they do not agree -- MEASURED, the "
+            f"type and schema judges disagree on 6 of 102 answerable cells "
+            f"in both directions (`MISSING.md` M-37). Say which: "
+            f"{', '.join(f'{ns}:{key}' for ns in hits)}. REFUSED rather "
+            f"than resolved by table order (doctrine 1/45).")
+    if len(hits) == 1:
+        ns = hits[0]
+        return key, ("named" if ns == "type" else ns)
+
+    # 3. Only now case-insensitively, under the same ambiguity rule -- the
+    #    vocabularies spell themselves differently (`RHYME` shouts, `perfect
+    #    rhyme` does not) and a writer should not have to know which.
+    ci = []
+    for ns in NAMESPACES:
+        low = {x.lower(): x for x in v[ns]}
+        if key.lower() in low:
+            ci.append((ns, low[key.lower()]))
+    if len(ci) > 1:
+        raise RelationRefused(
+            f"{name!r} matches a relation in {len(ci)} namespaces once case "
+            f"is ignored ({', '.join(ns for ns, _ in ci)}). Say which: "
+            f"{', '.join(f'{ns}:{hit}' for ns, hit in ci)}.")
+    if len(ci) == 1:
+        ns, hit = ci[0]
+        return hit, ("named" if ns == "type" else ns)
+
     raise RelationRefused(
         f"{name!r} is not a declarable relation. The vocabulary is the "
         f"{len(CLASS_RELATIONS)} coarse classes {list(CLASS_RELATIONS)} and "
@@ -1732,6 +1837,25 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
     pays for one.
     """
     canon, kind = resolve_relation(name)
+    if kind == "schema":
+        # A MANDATE MAY NAME A SCHEMA; NOTHING HERE CAN JUDGE ONE YET.
+        # `relations.REGISTRY`'s schemas are span/placement/figure objects
+        # evaluated by `realise()` over a whole STREAM, not per-pair
+        # predicates, so routing them is step 3 proper and is gated on the
+        # null sweep: a schema that does not beat its own null must not
+        # become enforceable (the whole point of step 0). Refusing here
+        # keeps `schema:` a declarable coordinate that cannot silently
+        # grade as something else in the meantime.
+        raise RelationRefused(
+            f"{canon!r} resolves in the `schema` namespace, and this judge "
+            f"reads per-pair coordinates from `classify_pair`. A "
+            f"`RelationSchema` is evaluated by `relations.realise()` over a "
+            f"whole stream; routing that into a mandate is step 3 and is "
+            f"gated on the null sweep. Declare `type:{canon}` if you mean "
+            f"the named cell." if canon in namespaced_vocabulary()["type"]
+            else f"{canon!r} resolves in the `schema` namespace, which no "
+                 f"per-pair judge can evaluate yet (step 3, gated on the "
+                 f"null sweep).")
     if kind == "class":
         return coarse == canon
     if phon is None:

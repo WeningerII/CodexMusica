@@ -3956,7 +3956,7 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
-### M-37 · 26 relation names mean two different things, and the two judges disagree `OPEN`
+### M-37 · 26 relation names mean two different things, and the two judges disagree `CLOSED` 2026-08-22
 **Found 2026-08-22 on the first move of step 3 — "route the pair-shaped
 schemas through the new mandate; this is wiring" — by asking, before wiring
 anything, whether the names were already taken.**
@@ -4032,6 +4032,53 @@ a function written that morning to enforce doctrine 20. It now REFUSES and
 names the surface it would need. Pinned in `test_mandate_relation.py` §5,
 both directions: the three names refuse, and the 47 phonetic keys still
 answer.
+
+---
+
+**RULED 2026-08-22 BY THE OWNER: NAMESPACE THE VOCABULARIES.** A declaration
+says which vocabulary it means. Three namespaces are declared —
+`class:` · `type:` · `schema:` — and `resolve_relation` now:
+
+- takes an explicit prefix as **always unambiguous**;
+- resolves a **bare** name only when it names an entry in exactly ONE
+  namespace, so the 51 schema-only and 54 type-only names cost nothing;
+- **REFUSES a bare name in two**, printing every prefixed form, because
+  picking one would make a mandate mean whichever table was consulted first
+  (doctrine 1/45);
+- tries EXACT match across all three **before** any case-insensitive pass,
+  and carries the same ambiguity refusal into that pass.
+
+**AND THE RULING CAUGHT A SHARPER VERSION OF THE PROBLEM THAN THIS ENTRY
+FILED.** Measured while implementing: `relation_ambiguities()` returns **26
+names, every one of them `(schema, type)`** — the coarse classes escape the
+list *only because they are spelled in capitals*. `ASSONANCE` resolved to the
+class and `assonance` to the cell: two different relations one shift key
+apart, and the case-insensitive fallback was where they would have met. That
+fallback now refuses on ambiguity instead of taking a first match, so the
+capitalisation is no longer load-bearing.
+
+**THE `schema:` NAMESPACE IS DECLARABLE AND NOT YET JUDGEABLE, and that is
+step 3's gate rather than this entry's gap.** `satisfies_relation` refuses a
+`schema:` name outright: a `RelationSchema` is a span/placement/figure object
+evaluated by `realise()` over a whole STREAM, not a per-pair predicate, so
+routing it is step 3 proper — and step 3 is gated on the null sweep, because
+a schema that does not beat its own null must not become enforceable. The
+refusal names `type:` as the alternative when the same word exists there.
+
+**WHAT THIS ENTRY DOES NOT CLAIM.** Namespacing makes each name mean ONE
+thing; it does not reconcile the two judges. Where a name exists in both
+namespaces they still disagree on 6 of 102 answerable cells, and
+`type:syllabic rhyme` and `schema:syllabic rhyme` remain two different
+questions. That is now visible in the declaration rather than hidden in
+resolver order, which is what the ruling bought. Adjudicating which of the
+two a tradition MEANS, name by name, is not owed by this entry and is not
+done.
+
+Pinned in `test_mandate_relation.py` §1: the three namespaces, the 26
+ambiguities with their exact namespace pair, bare refusal on three names
+with both prefixed forms in the message, prefixed resolution in all three,
+bare resolution still working for the unambiguous, the exact-before-case
+ordering, an undeclared namespace refusing, and the `schema:` judge refusal.
 
 ### M-36 · 17 of the 77 relations can never be nulled, and the reasons are twelve declared capabilities `BLOCKED`
 **Filed 2026-08-22 as step 7 of the owner's relation ladder: declare what

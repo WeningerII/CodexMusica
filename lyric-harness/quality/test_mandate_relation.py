@@ -83,10 +83,57 @@ def test_vocabulary():
     check("no name is both a coarse class and a named cell — one "
           "declaration cannot mean two things",
           RT.relation_collisions() == (), RT.relation_collisions())
-    check("resolution is case-insensitive across the two tables, which "
-          "spell themselves differently",
+    check("resolution is case-insensitive across the tables, which spell "
+          "themselves differently",
           RT.resolve_relation("rhyme")[0] == "RHYME"
           and RT.resolve_relation("QAFIYA")[0] == "qafiya")
+
+    # THE NAMESPACES — owner's ruling 2026-08-22 on M-37.
+    check("three namespaces are declared", RT.NAMESPACES ==
+          ("class", "type", "schema"), RT.NAMESPACES)
+    amb = RT.relation_ambiguities()
+    check("26 names are in more than one namespace, and every one of them is "
+          "(schema, type) — the classes escape only because they are spelled "
+          "in capitals, which is a finding and not a reassurance",
+          len(amb) == 26 and set(amb.values()) == {("schema", "type")},
+          (len(amb), sorted(set(amb.values()))))
+    for bare in ("assonance", "syllabic rhyme", "consonance"):
+        try:
+            RT.resolve_relation(bare)
+            check("bare %r refuses" % bare, False, "it resolved")
+        except RT.RelationRefused as e:
+            check("a bare name in two namespaces REFUSES and prints both "
+                  "prefixed forms — picking one would make a mandate mean "
+                  "whichever table was consulted first (%r)" % bare,
+                  "namespaces" in str(e) and "type:" in str(e)
+                  and "schema:" in str(e))
+    check("an explicit prefix is unambiguous in every namespace",
+          RT.resolve_relation("type:assonance") == ("assonance", "named")
+          and RT.resolve_relation("schema:assonance") == ("assonance", "schema")
+          and RT.resolve_relation("class:ASSONANCE") == ("ASSONANCE", "class"))
+    check("...and the 51 schema-only and 54 type-only names still resolve "
+          "BARE, so namespacing costs nothing where nothing is ambiguous",
+          RT.resolve_relation("perfect rhyme")[1] == "schema"
+          and RT.resolve_relation("qafiya")[1] == "named")
+    check("EXACT match is tried across all three before any case-insensitive "
+          "pass, so `ASSONANCE` stays the class while `assonance` refuses — "
+          "the two are one shift key apart and must not silently swap",
+          RT.resolve_relation("ASSONANCE") == ("ASSONANCE", "class"))
+    try:
+        RT.resolve_relation("nosuchns:qafiya")
+        check("an undeclared namespace refuses", False, "it resolved")
+    except RT.RelationRefused as e:
+        check("an undeclared namespace refuses against the declared list",
+              "declared namespaces" in str(e))
+    try:
+        RT.satisfies_relation("schema:perfect rhyme", "RHYME", "night",
+                              "light", _phon(), position="end")
+        check("the schema namespace refuses at the JUDGE", False, "it answered")
+    except RT.RelationRefused as e:
+        check("a `schema:` name is declarable but NOT judgeable yet — a "
+              "RelationSchema is evaluated over a whole stream, and routing "
+              "it is gated on the null sweep, so it refuses rather than "
+              "grading as something else", "schema" in str(e))
     try:
         RT.resolve_relation("no such relation")
         check("an unknown name REFUSES", False, "it resolved")
@@ -226,7 +273,11 @@ def test_position_is_declared():
           RT.REALISATION == ("phonetic", "eye", "historical")
           and sum(1 for k in RT.NAMED if k[6] != "phonetic") == 2,
           RT.REALISATION)
-    for nm in ("eye rhyme", "sight rhyme", "historical rhyme"):
+    # PREFIXED, because `eye rhyme` and `historical rhyme` are ALSO schema
+    # names and a bare form now refuses for AMBIGUITY first (the namespace
+    # ruling). Naming the namespace is what isolates the realisation rule —
+    # which is the ruling working, not a workaround.
+    for nm in ("type:eye rhyme", "type:sight rhyme", "type:historical rhyme"):
         try:
             RT.satisfies_relation(nm, "RHYME", "night", "light", _phon(),
                                   position="end")
