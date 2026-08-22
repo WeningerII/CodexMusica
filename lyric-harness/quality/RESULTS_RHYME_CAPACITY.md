@@ -122,11 +122,45 @@ cause this time took re-grading the witnesses under both tables.
 
 ## The findings
 
-1. **English is narrow, and the marvel verse is forced switching.** A
-   sustained single-sound earned run of 12+ lines exists in 162
-   families out of 12,387 (1.3%); 20+ in 81 (0.65%). The ten-plus-line
-   dense verse changes sound families because the lexicon leaves no
-   other road — a derived fact now, not a stylistic observation.
+1. **~~English is narrow, and the marvel verse is forced switching.~~
+   ENGLISH IS NARROW *UNDER PERFECT RHYME*, and that qualifier is the whole
+   sentence.** A sustained single-sound earned run of 12+ lines exists in 162
+   families out of 12,387 (1.3%); 20+ in 81 (0.65%). Under perfect rhyme the
+   ten-plus-line dense verse changes sound families because the lexicon leaves
+   no other road — a derived fact, not a stylistic observation.
+
+   > **SCOPED 2026-08-22, and the qualifier is not a hedge — it is two orders
+   > of magnitude.** §"The objects" declares a FAMILY to be a perfect-rhyme
+   > class, so the METHOD was never wrong; this FINDING dropped the coordinate
+   > and rendered the number as a fact about English (doctrine 58: a count is
+   > a coordinate of its rendering). Re-measured over the identical population
+   > (39,969 words; the shipped 12,387 reproduces exactly, which is the
+   > control):
+   >
+   > | equivalence key | families | singletons | max | mean | median |
+   > |---|---:|---:|---:|---:|---:|
+   > | **perfect rhyme** (shipped) | 12,387 | 8,131 | 399 | 3.2 | 1 |
+   > | assonance (anchor nucleus) | **15** | **0** | 5,269 | 2,664.6 | **2,382** |
+   > | consonance (anchor-to-end consonants) | 3,527 | 1,905 | 2,002 | 11.3 | 1 |
+   > | rime riche (whole word, onset in) | 37,462 | 35,471 | 7 | 1.1 | 1 |
+   >
+   > Under perfect rhyme the median family holds ONE word and 8,131 of 12,387
+   > are singletons. Under assonance there are **fifteen families, none of
+   > them a singleton, and the median holds 2,382 words** — fifteen being
+   > about the stressed vowel inventory of English, which is the sanity check
+   > that the key is the right one. "The lexicon leaves no other road" is
+   > true of one road.
+   >
+   > **WHAT THIS DOES NOT OVERTURN.** The certified figures — `chain_lo`, the
+   > witness words, the modal-tier cost in finding 3 — are earned through the
+   > GRADER and are untouched: a family of 2,382 words is not 2,382 usable
+   > partners, because the homeoteleuton ban, the modal tier and the judge all
+   > still cut it, and none of that was re-run here. What moves is the OBJECT
+   > the narrowness sentence is about. And the four keys above are the obvious
+   > phonological rendering of each relation, mine and not the repo's judge —
+   > `classify_pair` may cut any of them finer. That caveat does not touch the
+   > finding, which is that the count is a function of a relation this
+   > sentence did not name.
 2. **Secondary-stress clusters are the deep water.** Under the judge's
    own rules the -ate/-ee/-ine families are tier-1 deep (EY-T: 192
    classes; IY: 228 classes), because the spelled rime anchors at the

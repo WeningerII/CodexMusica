@@ -3966,6 +3966,74 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-41 · The capacity ceiling is derived under ONE relation, and its headline says "English" `OPEN`
+**Found 2026-08-22 while looking for ladder step 5 ("capacity per relation").
+`quality/capacity.py` contains ZERO occurrences of `relation`, `ASSONANCE`,
+`CONSONANCE` or `RIME_RICHE` — the whole layer is relation-blind, and its own
+docstring says why without noticing that it is saying it: "A FAMILY is a
+perfect-rhyme equivalence class."**
+
+**THE METHOD IS SCOPED AND THE CONCLUSION IS NOT.**
+`quality/RESULTS_RHYME_CAPACITY.md` §"The objects" declares the family to be a
+perfect-rhyme class, so nothing is hidden. Then finding 1 reads **"English is
+narrow, and the marvel verse is forced switching… a derived fact now, not a
+stylistic observation"**, and that sentence has dropped the coordinate. It is
+a derived fact about PERFECT RHYME. Doctrine 58: a count is a coordinate of
+its rendering, and this rendering makes a claim about a language.
+
+**MEASURED over the identical population — 39,969 words, and the shipped
+12,387 reproduces exactly, which is the control that makes the rest
+comparable:**
+
+| equivalence key | families | singletons | max | mean | median |
+|---|---:|---:|---:|---:|---:|
+| **perfect rhyme** (shipped) | 12,387 | 8,131 | 399 | 3.2 | 1 |
+| assonance (anchor nucleus) | **15** | **0** | 5,269 | 2,664.6 | **2,382** |
+| consonance (anchor-to-end consonants) | 3,527 | 1,905 | 2,002 | 11.3 | 1 |
+| rime riche (whole word, onset in) | 37,462 | 35,471 | 7 | 1.1 | 1 |
+
+Under perfect rhyme the median family holds ONE word and two thirds of all
+families are singletons. Under assonance there are **fifteen families, not one
+of them a singleton, and the median holds 2,382 words**. Fifteen is about the
+stressed vowel inventory of English, which is the sanity check that the key is
+the right one rather than an artefact. **The object the narrowness sentence is
+about moves by more than two orders of magnitude depending on a relation the
+sentence does not name.**
+
+**WHY THIS IS THE SAME DEFECT AS M-39 AND NOT A SEPARATE ONE.** A coordinate
+that decides a number, chosen once, correctly, in the method — and then not
+carried on the number. `_stream_of` chose a stanza frame and did not record
+which; `capacity.py` chooses a relation and does not carry it. In both cases
+the code is right and the reported claim is wider than what was measured.
+
+**WHAT THIS DOES NOT OVERTURN, and the distinction is load-bearing.** The
+CERTIFIED figures are untouched. `chain_lo`, the witness words and finding 3's
+modal-tier costs are earned THROUGH THE GRADER, and a family of 2,382 words is
+emphatically not 2,382 usable partners — the homeoteleuton ban, the modal tier
+and the judge all still cut it, and NONE of that was re-run here. Only the
+family COUNT was re-measured. The four keys above are also the obvious
+phonological rendering of each relation, written by me and not by
+`rhyme_types.classify_pair`, which may cut any of them finer. Neither caveat
+touches the finding: the count is a function of a relation, and the headline
+does not name it.
+
+**REMEDY, which is ladder step 5 and is not done here.** `families()` takes
+the relation as a declared coordinate instead of hardcoding `_rime_key`;
+`derive()` and the emitted table carry it; the artifact gains a relation
+column so two capacity numbers can never be read against each other without
+the reader seeing they are about different relations. The expensive half is
+the CERTIFICATION — `certify()` runs the grader per family and the suite is a
+430-second pole already — so a per-relation certified table is a real cost and
+wants an owner's ruling on which relations are worth paying for. **The cheap
+half — carrying the coordinate, and refusing to print a capacity that does not
+name its relation — is not blocked by that and should land first.**
+
+**Why it matters:** this is the number that tells a writer what English can
+sustain. Told under perfect rhyme alone it says the language is narrow and the
+dense verse is forced to switch families. That is true, and it is one road of
+several, and the owner's whole complaint about the grader admitting two
+relations out of 601 is the same complaint arriving at the capacity layer.
+
 ### M-40 · Eight admissible-set failures are eight facts about the TEXT, and the survey already names a chain rhyme nobody built `OPEN`
 **Raised 2026-08-22 by the owner, reading the n=200 admissible set and asking
 where the missing corpora would come from. Two separable findings; the second
