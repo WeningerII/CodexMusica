@@ -245,6 +245,33 @@ survey (quality/RHYME_CANON.md) and the engine's 49 named types are the
 palette, and the door was admitting 2. Validated at declaration time;
 near-only refuses. `quality/test_homeoteleuton.py`, 4 mutations proven.
 
+**THE DOOR AND THE ROUTE ARE NOT ALTERNATIVES, AND THIS SESSION'S OWN PROSE
+CONFUSED THEM — WRITTEN DOWN 2026-08-22 BECAUSE THE OWNER CAUGHT IT.** Asked
+why fixing the named judge mattered when "we still only have acknowledged
+rhyme and rime riche", and the question was fair: this file and this session
+both kept saying *"still at the door with 2 and 4"* as though `admit` were the
+binding constraint, in the same sitting that built the thing which BYPASSES
+it. Those two sentences do not sit together.
+**MEASURED, and it settles it.** `sun`/`much` is `ASSONANCE`:
+`brief FILE --groups=1,2` reports `SCHEME_VIOLATION`; the identical command
+with `--relation=class:ASSONANCE` **PASSES**. When a mandate declares a
+relation, `grade()` routes through `satisfies_relation` and **never consults
+`admits()`**. The 2-name door governs exactly one case — the one where nobody
+said anything.
+**TWO MECHANISMS, FOUR DAYS APART, ANSWERING ONE COMPLAINT.**
+`Declaration.admit` (2026-08-18) is the counterweight to the homoeoteleuton
+ban: a declared, widenable set, maximum FOUR
+(`ADMITTABLE_RELATIONS`), so the ban cannot quietly close rhyme classes. It
+stays at two on purpose — it is ONE GLOBAL SET answering "what satisfies ANY
+mandate anywhere", so widening it makes every requirement in every song
+LOOSER. The relation route is the other answer and the better one: per group,
+so it is richer AND stricter at once. **The door was never raised because
+raising it is the wrong move; the route around it was built instead.**
+**SO A HOLE IN THE ROUTE IS NOT A SECOND-ORDER PROBLEM** — it is a hole in the
+only path past the door, which is why `MISSING.md` M-58 (the named judge is
+monosyllable-only for 69 of its 76 names) outranks both the null sweep and any
+widening of `admit`.
+
 **THE RELATION IS THE DEFAULT ROUTE NOW, AND THE DOOR IT REPLACES ADMITTED
 TWO (2026-08-22, owner's instruction).** `Declaration.admit` is ONE global set
 answering "what satisfies ANY mandate anywhere", so widening it makes every
