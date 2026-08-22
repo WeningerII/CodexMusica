@@ -6973,6 +6973,14 @@ AFTER a stanza"*. Every one of those is a real, checkable relation written
 where no checker can reach it, which is this entry's whole subject restated
 one field over.
 
+**AND `_sample_pattern` CARRIES A SECOND RULE WITH NO EVIDENCE.**
+`rng.choice((None, "outro", "coda"))` makes `outro` and `coda` **mutually
+exclusive** — a song may have neither, or one, and never both. Nothing in
+either gloss says so (`outro`: *"closes the song and does not recur"*; `coda`:
+*"a closing section with its own material"*), and a song can plainly carry a
+coda followed by an outro. A rule with no warrant, enforced by the shape of a
+tuple, in the same function as the one this entry opened on.
+
 **WHAT IS OWED.** (1) A declared position/adjacency coordinate on
 `FunctionSpec` — at minimum `position ∈ {first, last, free, refused}` and
 `precedes`/`follows` as NAME SETS rather than prose, every row quoting its own
@@ -6987,5 +6995,145 @@ SOLUTIONS: a greedy left-to-right collapse re-introduces exactly the
 enumeration bias v2's own smoke run found (weighting a cycle by how many
 groupings it admits), so the constraint layer prunes the space and the
 sampler still draws by derivation, never by walking the tree.
+
+### M-55 · there is no way to DECLARE which section functions a song wants, so the planner's roster is sampled and never asked for `OPEN`
+**Raised by the owner 2026-08-22: "ok I do want a chorus and a post chorus
+because this song xyz and because of that a pre chorus would mess that up."
+That sentence fits neither layer M-54 named, and the gap is that a THIRD layer
+was missing from the analysis.**
+
+| layer | example | who owns it | enforcement |
+|---|---|---|---|
+| **1 VOCABULARY** — definitional | a prechorus requires a chorus | `grid.SECTION_FUNCTIONS` | prunes the planner; a grader FLAG |
+| **2 DECLARATION** — this song | "chorus and postchorus, no prechorus" | the writer | restricts the roster before sampling |
+| **3 CONVENTION** — statistical | verse-chorus-verse-chorus-bridge | `grid.FormConvention` | a NOTE, never the planner |
+
+**LAYER 2 HAS NO IMPLEMENTATION.** `plan.make_plan(seed, form=...)` takes a
+seed and a form name; the roster comes from `GENERATOR_ROSTER` and
+`_sample_pattern` draws from it. `PLAN_FORMS` is a ONE-MEMBER tuple
+(`'verse-chorus'`), so `form=` is not the lever either. Measured over 120 seeds
+x every form: the writer has no way to say which functions they want, and
+therefore no way to say which they do NOT.
+
+**IT IS NOT THE SAME AS EITHER NEIGHBOUR, and that is the entry.** "no
+prechorus" is not definitional — a song with prechorus, chorus and postchorus
+is ordinary, so the vocabulary must not forbid it. And it is not conventional —
+it is not a tendency to be noted, it is an instruction. It is a DECLARATION,
+the same species as `--groups=` and `--structures=`, and this project's answer
+to a declaration that cannot be spelled has been the same every time: a
+coordinate the caller can set (doctrine 1).
+
+**IT COMES AFTER M-54 AND MUST BE CHECKED AGAINST IT.** A roster declaring a
+prechorus and no chorus has to REFUSE, and that refusal is only expressible
+once the definitional `requires` edges exist. Shipping layer 2 first would give
+the writer a door onto a space with no walls.
+
+`quality/SECTION_CONSTRAINTS_DESIGN.md` §2 holds the three-layer table and §7
+the build order.
+
+### M-56 · two of the twenty-one "section functions" declare in their own glosses that they are NOT sections `OPEN`
+**Found 2026-08-22 deriving the section-constraint table, by reading all 21
+glosses rather than the four the work needed.**
+
+- `refrain` — *"a returning line or couplet INSIDE or after a stanza, **not a
+  standalone section**"*
+- `hook` — *"a section that IS the hook. A hook is properly a **FRAGMENT**
+  (`MISSING.md` D-2) and `Hook` below is the object for that"*
+
+So `grid.SECTION_FUNCTIONS` is **19 sections and 2 sub-section objects sharing
+one table**, and each of the two says so in the field a reader would consult.
+`hook`'s gloss even names the object that should hold it.
+
+**THE COST IS NOT COSMETIC.** (1) Both are among the functions
+`plan._sample_pattern` cannot emit, and this is part of why — a fragment has no
+section-sized slot to be sampled into. (2) Any position or adjacency coordinate
+(M-54) applied to them answers a question about the wrong KIND of object: "is a
+refrain first or last" has no answer when a refrain sits INSIDE a stanza.
+(3) `refrain` is the second-most attested mark in the corpus (709 lines, 40
+files) and `burden` — 1,753 lines — is kept deliberately separate from it
+*"because the corpus marks the two differently"*, so the distinction is real
+and load-bearing while the CATEGORY is wrong for one of them.
+
+**NOT FIXED BY DELETION.** Both are needed and both are attested; what is wrong
+is that one table answers two questions. The remedy is a declared KIND on the
+row — `section` vs `fragment` — so every downstream reader can ask rather than
+assume, and so M-54's coordinates are only applied to the rows they can mean
+anything for. `verify_entries`/`corpus_taxonomy` are the precedent: a closed
+vocabulary whose members carry their own definition.
+
+### M-57 · `FunctionSpec.aliases` models SYNONYMY, and three of its five claims are SUBSUMPTION — so the specialisation is accepted at the door and discarded `OPEN`
+**Raised by the owner 2026-08-22: "While all middle eights are bridges, not all
+bridges are middle eights… same deal with refrain and chorus if I'm not
+mistaken… just for efficiency's sake." Measured, and the efficiency instinct is
+right: subsumption is what lets a dialect name exist without a 22nd row. What
+is wrong is that the field modelling it is symmetric.**
+
+**THE REPO ALREADY DREW THE HARDER LINE AND STOPPED ONE SHORT.**
+`grid._FUNCTION_SPELLINGS` is spelling variants only (`pre-chorus` →
+`prechorus`) and its own comment says *"NOT a synonym table: `middle8 → bridge`
+would be a CLAIM, and claims live in the vocabulary above WITH a gloss."* That
+distinction is correct and is not the defect. The defect is one level in:
+`FunctionSpec.aliases` is documented as *"a genre dialect naming **the same
+function**"* — **synonymy, a symmetric relation** — and it is carrying claims
+that are not symmetric.
+
+**MEASURED.** `Section(bars=N, function="middle-eight")` for N in 8, 4 and 13:
+
+```
+bars= 8  -> function='bridge'
+bars= 4  -> function='bridge'
+bars=13  -> function='bridge'
+```
+
+The bridge row's own gloss argues a middle-8 needs no row *"whose bar count
+happens to be 8, **which this model already records**"*. The model records **a**
+bar count and **never checks it against the claim the alias made**, and the
+claim itself is not kept — after resolution nothing can ask "was this declared
+as a middle-eight?". So the door accepted a SPECIALISATION and stored the
+GENUS.
+
+**THIS IS `MISSING.md` M-49's DEFECT IN A DIFFERENT TABLE.** There,
+`type:rime riche` resolved and stored `rime riche`, losing the namespace, and
+the judge re-resolved the lossy value. Here `middle-eight` resolves and stores
+`bridge`, losing the specialisation, and nothing can recover it. One shape, two
+vocabularies, found within an hour of each other and only because someone was
+looking at the second one.
+
+**THE SUBSUMPTION EDGES, and they are already written in prose.**
+
+| specific | genus | where it is stated today | how it is stored |
+|---|---|---|---|
+| `middle-eight` | `bridge` | the bridge gloss | ALIAS — lossy |
+| `middle-8` | `bridge` | same | ALIAS — lossy |
+| `departure-section` | `bridge` | the bridge row | ALIAS — probably a true synonym |
+| `burden` | `refrain` | the burden gloss: *"**a refrain** sung by all, printed AFTER a stanza"* | a SEPARATE ROW |
+| `instrumental-break` | `interlude` | the interlude row | ALIAS — probably a true synonym |
+
+`burden` is the interesting one and it is the OPPOSITE error: the subsumption
+is real and stated (*"a refrain sung by all"*) and the two are correctly kept
+as separate rows, because *"the corpus marks the two differently and collapsing
+them would delete a distinction 1,580 blocks already carry"* — which is right.
+But the table can then say only that they are UNRELATED, when what is true is
+that one is a kind of the other. **Both directions of the same missing
+relation:** an alias asserts identity where there is specialisation; separate
+rows assert independence where there is specialisation.
+
+**AND `refrain`/`chorus` IS NOT ONE OF THEM — checked rather than assumed.**
+The owner's "same deal with refrain and chorus if I'm not mistaken" does not
+hold: `chorus` is *"the returning **section**"* and `refrain` is *"a returning
+line or couplet INSIDE or after a stanza, **not a standalone section**"*. They
+are SIBLINGS under returning material, not parent and child — different KINDS
+of object (see M-56), which is a stronger separation than subsumption, not a
+weaker one. The real edge in that family is `burden ⊂ refrain`.
+
+**WHAT IS OWED.** (1) `specialises` as its own field — asymmetric, naming the
+genus, with the gloss quoted — separate from `aliases`, which keeps only TRUE
+synonyms (doctrine 1: one field, one question). (2) The specialisation's own
+DIFFERENTIA recorded beside it, because that is the whole content of the claim:
+`middle-eight` is `bridge` + `bars == 8`. (3) Resolution KEEPS what was
+declared, so a section declared `middle-eight` can be checked against its
+differentia and a mismatch REFUSES rather than silently widening to the genus.
+(4) `burden` gains `specialises='refrain'` while staying its own row — the two
+statements are compatible and the table currently makes them look exclusive.
 
 ## Add below this line

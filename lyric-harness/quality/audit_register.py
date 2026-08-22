@@ -2129,7 +2129,7 @@ PINNED = {
     #    declared four layers deep and supplied by nobody), found by asking
     #    whether the relation layer was already leaning on a structure layer
     #    before treating the structure work as a change of subject. It was.
-    "coverage_entries": 112,  # M-49..M-54 filed 2026-08-22 wiring
+    "coverage_entries": 115,  # M-49..M-57 filed 2026-08-22 wiring
                               # the relation route (97..106 superseded)
     "coverage_audited": 19,
 }
