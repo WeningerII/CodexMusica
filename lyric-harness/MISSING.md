@@ -3486,11 +3486,65 @@ and the round trip is ~12 minutes.
 > pattern-matched docs checker and not a defect worth fixing — the alternative
 > is a checker that can be silenced by wrapping a false number in quote marks.
 
-**Owed: the question, not the answer.** A sweep that runs each instrument's
+**BUILT 2026-08-22 — `quality/pin_sweep.py`, TESTED WHILE OPEN.**
+
+    python3 quality/pin_sweep.py                  every instrument
+    python3 quality/pin_sweep.py --only 'audit*'  a subset
+    python3 quality/pin_sweep.py --json           machine-readable
+
+**About thirty pin-holding files, discovered by a SCAN and not by a list**
+(the phrasing is forced: this entry's own blockquote records that
+`scripts/check_docs.js` refuses a digit before the word this repo also uses
+for the CodexMusica catalog's playable instruments — and the first draft of
+THIS paragraph failed on exactly that, inside the entry documenting the rule,
+which is the third time the trap has been sprung by a sentence about the
+trap), because a
+hand-written roster is a population nobody wrote down whose failure mode is
+silent: a new instrument would simply not be swept and the sweep would keep
+printing a clean bill over a shrinking fraction of the pins. THREE COUNTS,
+NEVER SUMMED — HOLDS / MOVED / **CANNOT RUN**, and the third is the one that
+matters, because an instrument that needs a tree or a warm cache that is not
+here has not passed (doctrine 20). IT REPAIRS NOTHING, and that is asserted on
+the AST by `quality/test_pin_sweep.py` rather than promised in prose: no live
+string literal in the module may contain `--write`, `--rebaseline`, `--adopt`,
+`--fix` or `--repair` (doctrine 48).
+
+**IT FOUND THREE DEFECTS ON ITS FIRST TWO RUNS AND ALL THREE WERE ITS OWN OR
+MINE, which is what a first run should do.**
+1. **A drift in the working tree, on the FIRST invocation.** `counters.py
+   --check` reported `public symbols by where they are referenced` moved
+   1140 → 1146 — six public symbols added minutes earlier by the tokeniser and
+   indent work, never re-written. That is exactly the question M-21 asks, and
+   it was answered in 27 seconds instead of a CI round.
+2. **`quality.pin_sweep.sweep` named by NOTHING** — reported by that same
+   `counters.py` run, on the sweep itself. `main()` had re-implemented
+   `sweep()`'s loop beside it: one question, two readings, in one file
+   (doctrine 1), found by the instrument written to find exactly that.
+   `main` calls `sweep` now, and `test_pin_sweep.py` §6 pins it on the AST.
+3. **TWO FALSE VERDICTS on the first full run, and they are OPPOSITE errors,
+   which is why one fix would not have caught the other.**
+   `audit_corpus.py --check` takes a VALUE (a check letter), so a bare
+   `--check` is an argparse error at exit 2 and the sweep filed a
+   MANUFACTURED MOVED against an instrument it had never asked — its pin flag
+   is `--verify-shape`, now in a declared `CHECK_ARGV` table. And
+   `audit_joint_auc_null.py --check` prints `RESULT: REFUSED (not a pass, not
+   a failure -- doctrine 20)` on a cold cache and exits non-zero, which the
+   conservative default read as MOVED — **the exact collapse this module's own
+   docstring forbids, pointed the other way.** An instrument that states its
+   own verdict is believed over a code table now (doctrine 1: the instrument
+   owns its vocabulary). Both are pinned as false-positive regressions.
+
+**THE ENTRY STAYS OPEN** on the half it names last: this is the QUESTION, and
+the sweep is only as complete as `CHECK_ARGV` is. Every instrument whose pin
+check is not a bare `--check` needs a row, and today exactly one is known
+because exactly one has been caught — the rest are `HOLDS` on a flag that may
+or may not be asking about a pin, and nothing yet proves which.
+
+~~**Owed: the question, not the answer.** A sweep that runs each instrument's
 own `--check` and prints the moved figures TOGETHER. It must not repair
 anything — `counters.py`'s own docstring records why a remedy that writes is
 a laundering path (`WHAT --write MAY NOT WRITE`), and a sweep that repaired
-would inherit that hole across thirty instruments at once instead of one.
+would inherit that hole across thirty instruments at once instead of one.~~
 
 **AND THE SHAPE HAS A SECOND, LARGER FORM: A GREEN CHECK OVER A FALSE
 SENTENCE — measured 2026-08-21 across eight RESULTS documents.** The pins
