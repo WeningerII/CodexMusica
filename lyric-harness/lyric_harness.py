@@ -989,7 +989,7 @@ class RelationGround:
     """
     lines: list              # the line vector `build_stream` is handed
     sections: list           # per line, from `grid.sections_from_marks`
-    line_status: tuple       # per line; "" | SECTION_MARKER_STATUS | SONG_BREAK
+    line_status: tuple       # per line: "", a section marker, a song break
     exclude_status: tuple    # the statuses that contribute NO units
     stanzas: object          # a per-line group index, or None -> derive
     stanza_source: str       # "" -> `build_stream` names its own
@@ -1037,10 +1037,12 @@ def relation_ground(text_lines, language=""):
          `blank_lines` over an all-zero vector. That difference is
          `relations.build_stream`'s own documented rule, this reader does not
          overrule it from the caller, and `quality/test_grid.py` pins it by
-         name so it is visible rather than surprising. A text that DOES print marks never reaches this
-         branch, because for such a text "the marks supplied no break" is a
-         fact about the marks and answering it with the blank lines would be
-         the silent coordinate-pick doctrine 45 forbids.
+         name so it is visible rather than surprising.
+
+         A TEXT THAT DOES PRINT MARKS NEVER REACHES THIS BRANCH. For such a
+         text "the marks supplied no break" is a fact about the marks, and
+         answering it with the blank lines instead would be the silent
+         coordinate-pick doctrine 45 forbids.
 
     `sections` is supplied on every path, marks or no marks. On a text with no
     marks it is all-`""`, which is byte-identical to the field's historical
@@ -6325,9 +6327,14 @@ def main():
         # schemas out and print `schemas finding something: 0   refusing on a
         # capability eng does not have: 0` at exit 0 -- the SAME SHAPE as a
         # genuine null, wrapped in the two paragraphs about how to read these
-        # counts, and reachable by no other flag (no filter gives 25/26 on
-        # this repo's own fixture). Two changes, and they are different
-        # fixes:
+        # counts, and reachable by no other flag (no filter gives ~~25/26~~
+        # 23/31 on this repo's own fixture -- REPINNED 2026-08-22 by M-39's
+        # second half, which found that `quality/fixtures/song.txt` prints
+        # three marks `grid.MARK_OPENS_GROUP` does not declare, so its stanza
+        # ground is now REFUSED WHOLE and the five `frame="stanza"` schemas
+        # refuse on it. The superseded pair is kept in view because what the
+        # sentence needs is a number no flag can produce, and both are).
+        # Two changes, and they are different fixes:
         #
         #   * A FILTER THAT SELECTED NOTHING REFUSES. It is not a null and
         #     must not be printed in a null's shape.
