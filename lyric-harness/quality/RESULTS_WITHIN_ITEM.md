@@ -96,18 +96,30 @@ And the same four fits taken over **200 cross-validation seeds** instead of the
 one hard-coded seed every figure above is a single draw from
 (`audit_joint_auc_null.PINNED`, measured 2026-08-13):
 
-| feature set | Exp 1 median | Exp 2 median |
-|---|---|---|
-| ABSOLUTE | 0.638 | 0.967 |
-| WITHIN-ITEM | 0.640 | 0.900 |
+| feature set | Exp 1 median | Exp 2 median | reading |
+|---|---|---|---|
+| ABSOLUTE | **0.635** | **0.961** | cold 2026-08-22, M-31 |
+| WITHIN-ITEM | **0.623** | **0.906** | cold 2026-08-22, M-31 |
+| ~~ABSOLUTE~~ | ~~0.638~~ | ~~0.967~~ | cold 2026-08-13, **SUPERSEDED** |
+| ~~WITHIN-ITEM~~ | ~~0.640~~ | ~~0.900~~ | cold 2026-08-13, **SUPERSEDED** |
 
-> **THESE FOUR MEDIANS ARE NOT REPINNED, AND EVERY COMPARISON AGAINST THEM
-> BELOW IS THEREFORE A CURRENT DRAW AGAINST A STALE NULL.**
-> `audit_joint_auc_null.PINNED` was measured 2026-08-13, against the sentinel
-> M-31 corrected. Re-running it is 200 cross-validation fits per cell and is a
-> sitting of its own; until it is run, the seed-distribution arguments below
-> hold their DIRECTION (which is all they were ever used for) and none of their
-> margins should be read as measured. Recorded rather than quietly compared.
+> **REPINNED 2026-08-22, AND A WARNING PRINTED HERE EARLIER THE SAME DAY WAS
+> WRONG.** That warning said these four were "NOT repinned", that every
+> comparison against them was "a current draw against a stale null", and that
+> re-running them was "200 cross-validation fits per cell and a sitting of its
+> own". **`audit_joint_auc_null.py --check` re-measures them on every run**,
+> and it did. The re-run looks expensive only from a COLD feature cache, where
+> 384 extractions dominate; warm, the fits are the whole cost. The warning was
+> a statement about a cache state mistaken for a statement about the
+> measurement, and it is struck rather than deleted because it stood in this
+> file for part of a day (doctrine 17).
+>
+> **ALL FOUR MOVED, BY DIFFERENT AMOUNTS**: abs Exp 1 −0.003, abs Exp 2 −0.006,
+> **wi Exp 1 −0.017**, wi Exp 2 +0.006. The within-item Exp 1 median fell by
+> exactly the −0.017 its observed AUC fell (0.638 → 0.621), so that arm's whole
+> distribution translated down together rather than the recorded draw wandering
+> inside a fixed one. That is the thing a separately-pinned median exists to
+> see, and it changes P2's verdict below.
 
 ### The hit and wrong-sign tallies are still WARM, and are not repinned here
 
@@ -208,12 +220,11 @@ what the 0.960 was made of, and what remains is still not quality.
 
 The verdict does not rest on the single seed either, which is the check
 doctrine 73 requires and which P1 passes: at the median of 200 CV seeds the
-same comparison is **0.967 → 0.900**, an error ratio of 3.03x. *(That median
-pair is 2026-08-13 and is NOT repinned — see the warning above the medians
-table. It agreed with the 2026-08-13 single-seed reading to two figures; it no
-longer agrees with the 2026-08-22 one, 3.03x against 2.58x, and the honest
-reading of that is that the seed check has not been re-run rather than that the
-two disagree.)*
+same comparison is ~~**0.967 → 0.900**, an error ratio of 3.03x~~
+**0.961 → 0.906, an error ratio of 2.41x** (repinned 2026-08-22, M-31).
+*The seed check and the single seed now AGREE again — 2.41x at the median
+against 2.58x at the recorded seed — where before the repin they read 3.03x
+against 2.58x. The disagreement was the stale median, not the statistic.*
 
 **P2 — Exp 1 AUC must hold or improve on 0.659. The scored verdict was FAILED;
 it is an artifact of the cross-validation seed, cold as well as warm.**
@@ -241,12 +252,35 @@ the minority class one seed is a coin flip. Over 200 seeds:
 |---|---|---|---|
 | warm (NULL_AUDIT §1.3, 2026-08-13, warm cache) | 0.603 | 0.606 | **holds** (+0.003) |
 | cold (`audit_joint_auc_null.PINNED`, 2026-08-13) | 0.638 | 0.640 | **holds** (+0.002) |
+| **cold, M-31 sentinel corrected (2026-08-22)** | **0.635** | **0.623** | **FAILS (−0.012)** |
 
-**Doctrine 73 replicates cold.** Both levels moved by ~0.035 and the sign of
+~~**Doctrine 73 replicates cold.** Both levels moved by ~0.035 and the sign of
 the difference did not: at the median seed the within-item set is marginally
 *above* the absolute one in Experiment 1, so "hold or improve" holds, in both
 readings, and the recorded FAILED is a property of `SEED` rather than of the
-respecification.
+respecification.~~
+
+**STRUCK 2026-08-22 — THE SIGN MOVED, AND THIS IS THE HEADLINE CHANGE OF THAT
+REPIN.** The paragraph rested on the difference between the two medians being
+positive, and it was, twice: +0.003 warm and +0.002 cold. Under the corrected
+sentinel it is **−0.012**. The within-item Exp 1 median fell 0.640 → 0.623
+while the absolute one barely moved, 0.638 → 0.635, because M-31's defect lived
+in a frequency feature and `wi_freq_delta` carries more of the within-item
+set's weight than `content_word_freq_mean` carries of the absolute set's.
+
+**So P2 now fails at the median as well as at the recorded seed, and the
+doctrine-73 rescue of it is withdrawn.** What survives is the narrower claim
+that never depended on the sign: at n = 15 in the minority class one CV seed is
+a coin flip, so neither the recorded pass nor the recorded failure is a property
+of the respecification. What does NOT survive is "the respecification holds or
+improves once you look past the seed" — measured, it does not.
+
+**AND THE MARGINS WERE ALWAYS TOO SMALL TO CARRY THIS.** +0.003, +0.002, −0.012
+are all inside the noise this document spends its length warning about. The
+right reading of the three rows together is not "it held twice and now fails"
+but *this comparison has never been resolvable at this sample size*, and the
+first two readings said "holds" on a margin that a single upstream bug fix was
+able to invert. Recorded as a warning about the statistic, not only as a repin.
 
 On the warm reading NULL_AUDIT could say why: the recorded 0.659 was an
 85th-percentile seed draw and the recorded 0.604 a 49th-percentile one, so the
@@ -254,21 +288,20 @@ comparison was scored between a lucky draw and an average one. **Those two
 percentiles are warm and are not restated cold** — only the medians are pinned
 cold, not the full seed distributions — so what can be said cold is the
 weaker and sufficient thing: the recorded absolute draw (0.717) sits well
-above its own seed median (0.638, **+0.085**), the recorded within-item draw
-(**0.621**) sits slightly *below* its own (0.640, **−0.019**), and the
+above its own seed median (**0.635**, **+0.088**), the recorded within-item draw
+(**0.621**) sits essentially *at* its own (**0.623**, **−0.002**), and the
 difference between the two recorded draws is therefore not a difference between
 the two feature sets.
 
-> **REPINNED 2026-08-22 (M-31), AND THE ARGUMENT GOT STRONGER, WHICH IS ITSELF
-> A REASON TO DISTRUST IT HERE.** The draws were 0.717 and 0.638 against medians
-> of 0.638 and 0.640; they are now 0.723 and 0.621 against the SAME medians,
-> because the medians were not re-measured. So the gap between "lucky draw" and
-> "unlucky draw" widened by exactly the amount the repin moved the draws, with
-> no new information about the nulls. The conclusion — that the recorded
-> difference is a property of `SEED` — is the same one the 2026-08-13 figures
-> supported and does not depend on the widening; the widening itself should not
-> be quoted until `audit_joint_auc_null` is re-run cold against the corrected
-> sentinel.
+> **REPINNED 2026-08-22 (M-31), MEDIANS AND DRAWS TOGETHER.** An earlier note
+> here warned that the draws had moved while the medians had not, and that the
+> resulting widening "should not be quoted until `audit_joint_auc_null` is
+> re-run". It has been re-run — it re-measures on every `--check` — so both
+> sides are now the same reading and the comparison is measured rather than
+> mixed. The absolute draw sits +0.088 above its median; the within-item draw
+> sits −0.002 from its own, which is nearer the 2026-08-13 story ("essentially
+> at") than the mixed reading was. The conclusion is unchanged and now rests on
+> two figures taken under one sentinel.
 
 ~~*(0.638 appears twice above and it is not a typo: it is both the ABSOLUTE
 set's Experiment 1 seed median and the WITHIN-ITEM set's observed Experiment 1
@@ -340,13 +373,21 @@ the size of the effect moved.
 
 But the feature set was not rescued. After respecification, cold:
 
-- **Experiment 1 sits at 0.638** at n=15, which does not come close to
-  excluding chance — and at the median seed the two feature sets are
-  indistinguishable (0.638 vs 0.640).
-- **Experiment 2 remains at 0.891**, so the within-item features still carry
-  substantial style signal that is not quality.
-- **The hit counts are 1/8 in each experiment on the warm reading and have not
-  been re-derived cold.**
+- **Experiment 1 sits at ~~0.638~~ 0.621** at n=15, which does not come close
+  to excluding chance — and at the median seed the two feature sets are
+  ~~indistinguishable (0.638 vs 0.640)~~ **separated the WRONG WAY for P2
+  (0.635 absolute vs 0.623 within-item)**. Repinned 2026-08-22 (M-31). The
+  conclusion is unchanged and one of its two supports is not: "does not come
+  close to excluding chance" stands; "indistinguishable at the median" does
+  not, and the direction of the difference now runs against the
+  respecification. See P2 above.
+- **Experiment 2 remains at ~~0.891~~ 0.896**, so the within-item features
+  still carry substantial style signal that is not quality.
+- ~~**The hit counts are 1/8 in each experiment on the warm reading and have
+  not been re-derived cold.**~~ **RE-DERIVED COLD 2026-08-22**: Experiment 1 is
+  **1/8**, Experiment 2 is **2/8** — `wi_predictability_advantage` joins
+  `wi_freq_delta` there. The wrong-sign count is 4/8 at both readings. See the
+  cold tally table above.
 
 Per the falsification clause written in advance: *"A result where Exp 2 falls to
 near chance and Exp 1 also falls to near chance is not a failure of this

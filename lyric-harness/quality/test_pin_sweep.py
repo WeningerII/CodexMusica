@@ -178,10 +178,38 @@ def test_the_two_false_verdicts_the_first_full_run_produced():
           not PS._SAYS_REFUSED.search(
               "RESULT: FAIL\n  [FAIL] committed 84, measured 86"), None)
     # END TO END, on the two real instruments.
-    row = PS.run_one("quality/audit_joint_auc_null.py", timeout=300)
-    check("audit_joint_auc_null reads CANNOT RUN and carries its own words "
-          "as the reason", row["verdict"] == "CANNOT RUN" and row["evidence"],
-          (row["verdict"], row["evidence"][:1]))
+    #
+    # THIS ARM USED TO ASSERT `CANNOT RUN` UNCONDITIONALLY, AND THAT WAS A
+    # FACT ABOUT A GITIGNORED FILE (found 2026-08-22 by the mutation sweep,
+    # which filed it BASELINE-RED). `audit_joint_auc_null.py --check` refuses
+    # only when `data/feature_cache.json` is cold or fingerprint-mismatched;
+    # warm, it runs and returns a real verdict. The cache is gitignored, so CI
+    # is always cold and this assertion was permanently, accidentally green --
+    # while anyone who had just run the discrimination suite got a red for a
+    # reason that had nothing to do with the sweep. A suite that can only pass
+    # in one environment is not testing the thing it names.
+    #
+    # BOTH ARMS ARE PINNED, AND NEITHER IS A SKIP. The cache state is read
+    # FIRST, from the same loader the instrument uses, so this is a prediction
+    # and not a tautology: cold MUST refuse (the rule under test -- an
+    # instrument's own word for inconclusive beats its exit code), and warm
+    # MUST NOT refuse (the rule cannot swallow an instrument that ran).
+    from quality.discriminate import cache_identity, load_cache
+    _ent, _fp, _status = load_cache(cache_identity())
+    warm = _status == "fingerprint match" and bool(_ent)
+    print("     (feature cache is %s: %s)"
+          % ("WARM" if warm else "COLD", _status))
+    row = PS.run_one("quality/audit_joint_auc_null.py", timeout=900)
+    if warm:
+        check("audit_joint_auc_null RAN — warm, it returns a real verdict "
+              "and the refusal rule does NOT swallow it",
+              row["verdict"] in ("HOLDS", "MOVED"),
+              (row["verdict"], row["evidence"][:1]))
+    else:
+        check("audit_joint_auc_null reads CANNOT RUN and carries its own "
+              "words as the reason",
+              row["verdict"] == "CANNOT RUN" and row["evidence"],
+              (row["verdict"], row["evidence"][:1]))
 
 
 def test_it_runs_one_instrument_end_to_end():

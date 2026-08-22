@@ -523,12 +523,22 @@ mismatch discards the cache and prints the coordinate that moved.
 
 Over 200 cross-validation seeds rather than the one hard-coded seed every
 figure above is a single draw from (`audit_joint_auc_null.PINNED`, 2026-08-13):
-Exp 1 median **0.638**, Exp 2 median **0.967**. The recorded Exp 1 draw of
-~~0.717~~ **0.723** sits well above its own median, which is doctrine 73's point
-and is why the seed distribution is pinned separately from the headline. *(The
-draw is repinned 2026-08-22 for M-31; the median is not re-measured against the
-corrected sentinel, so the comparison is a current draw against a
-2026-08-13 null and is weaker than it looks by exactly that much.)*
+Exp 1 median ~~0.638~~ **0.635**, Exp 2 median ~~0.967~~ **0.961**. The
+recorded Exp 1 draw of ~~0.717~~ **0.723** sits well above its own median
+(**+0.088**), which is doctrine 73's point and is why the seed distribution is
+pinned separately from the headline.
+
+**REPINNED 2026-08-22 — MEDIANS AND DRAW TOGETHER (`MISSING.md` M-31, M-33).**
+An earlier note here said the medians were "not re-measured against the
+corrected sentinel". That was wrong: `audit_joint_auc_null.py --check`
+re-measures them on every run, and it did. All four moved — abs Exp 1 −0.003,
+abs Exp 2 −0.006, wi Exp 1 **−0.017**, wi Exp 2 +0.006 — so the comparison
+above is now taken under one sentinel rather than mixed. **And the separate pin
+earned its keep**: `wi_exp1`'s median fell by exactly the −0.017 its observed
+AUC fell, meaning that arm's whole distribution translated down rather than the
+draw wandering inside a fixed one. That movement is invisible to any check
+watching only the headline, and it overturns a conclusion in
+`RESULTS_WITHIN_ITEM.md` — see P2 there.
 
 ## The ten features, cold
 
@@ -681,14 +691,19 @@ of its sentences is dented.** That doctrine reads "the quality layer has NO
 demonstrated cross-design signal", supported by "1/8 hits in each experiment,
 Exp 1 at 0.604 (n=15, does not exclude chance), Exp 2 still 0.877."
 
-- The two AUCs are warm. Cold they are **0.638** and **0.891**. They need a
-  repin in `METHOD.md`, which this document does not own.
-- "1/8 hits in each experiment" is a tally over permutation p-values, and no p
+- The two AUCs are warm. Cold they are ~~**0.638** and **0.891**~~ **0.621** and
+  **0.896** (repinned 2026-08-22, M-31). They need a repin in `METHOD.md`,
+  which this document does not own.
+- ~~"1/8 hits in each experiment" is a tally over permutation p-values, and no p
   has been re-run cold. It is not re-verified, and two of the eight within-item
-  AUCs it rests on moved.
+  AUCs it rests on moved.~~ **RE-RUN COLD 2026-08-22**: every permutation p in
+  both feature sets was measured in the 1,108s full run. The within-item tally
+  is **1/8** in Experiment 1 and **2/8** in Experiment 2 — so the doctrine's
+  "1/8 in each experiment" is now wrong in one half, and the extra hit is
+  `wi_predictability_advantage`, which the cold reading reinstated.
 - The layer-level claim survives, on numbers that did not move in its favour:
-  Experiment 1's joint AUC is 0.638 within-item and ~~0.717~~ **0.723** absolute
-  at n = 15;
+  Experiment 1's joint AUC is ~~0.638~~ **0.621** within-item and ~~0.717~~
+  **0.723** absolute at n = 15;
   `quality/NULL_AUDIT.md` §1.3 measured that neither beats its own
   label-permutation null's MAXIMUM, and the within-item one is not separated
   from that null at all (p = 0.13). That audit is warm and has not been re-run
@@ -724,12 +739,18 @@ corpus, and the second cell that would test it has still not been run.
   20,000 shuffles per feature, so `test_discriminate.py` pins all forty-four
   AUCs and deliberately pins no p (doctrine 57) — a cold p is measured when the
   full run is made, not guarded between runs.
-- **`quality/NULL_AUDIT.md` §1.3's label-permutation nulls and seed
-  distributions**, measured warm 2026-08-13 — and, separately, measured against
-  the frequency sentinel that M-31 corrected. Every comparison of a current draw
-  against one of those medians in this file or in `RESULTS_WITHIN_ITEM.md` is a
-  cold observation against a stale null, and is flagged where it is made. This
-  is the largest thing in the discrimination arm that has NOT been re-run.
+- ~~**`quality/NULL_AUDIT.md` §1.3's label-permutation nulls and seed
+  distributions**, measured warm 2026-08-13 ... the largest thing in the
+  discrimination arm that has NOT been re-run.~~
+  **NARROWED 2026-08-22.** The SEED DISTRIBUTIONS are re-run and repinned:
+  `audit_joint_auc_null.py --check` re-measures all four medians every time it
+  runs, and it did, cold and fingerprint-matched. What is still warm is the
+  narrower thing — **`NULL_AUDIT.md` §1.3's own label-permutation nulls**, the
+  null median/min/max and empirical p, which are Monte Carlo draws and are
+  deliberately not pinned at all (doctrine 57). Those remain the largest
+  un-re-run figures in this arm, and §1.3's 0.751 / 0.750 null maxima are still
+  the warm ones wherever this file or `RESULTS_WITHIN_ITEM.md` compares a cold
+  observation against them.
 - Doctrine 20 for all of it: an instrument that has not fired is not an
   instrument that fired and found nothing.
 

@@ -4048,6 +4048,62 @@ still passes and measures nothing. Doctrine 58 catching itself — a recorded
 count became a threshold nobody wrote down, and then the recording moved. All
 three of that document's predictions have now had their comparator withdrawn.
 
+**AND A FOURTH SITE, IN CODE, FOUND BY THE MUTATION SWEEP AND NOT BY ANY
+GREP.** `quality/audit_joint_auc_null.py` carried all four observed AUCs as
+string literals — `"0.717", "0.964"` and `"0.638", "0.891"` — every one
+superseded by M-31. The sweep filed `test_pin_sweep.py` BASELINE-RED, and the
+evidence line was the instrument's own: `[FAIL] observed AUC RECORDED 0.717,
+measured 0.723`. Repinned to 0.723/0.960 and 0.621/0.896.
+
+**AND REPINNING IT MOVED SOMETHING THIS ENTRY DID NOT EXPECT: ALL FOUR SEED
+MEDIANS.** `audit_joint_auc_null.PINNED` also pins the median of the true-label
+AUC over CV seeds 0..199 — deterministic, and pinned SEPARATELY from the
+observed AUC on the stated ground that *"the whole seed distribution can shift
+while the one recorded draw sits still, and that movement is invisible to any
+check that watches only the headline."* Measured:
+
+| arm | committed | measured | Δ |
+|---|---:|---:|---:|
+| abs_exp1 | 0.638 | **0.635** | −0.003 |
+| abs_exp2 | 0.967 | **0.961** | −0.006 |
+| wi_exp1 | 0.640 | **0.623** | **−0.017** |
+| wi_exp2 | 0.900 | **0.906** | +0.006 |
+
+`wi_exp1`'s median fell by exactly the −0.017 its observed AUC fell, so that
+arm's whole distribution translated down together. The separate pin earned its
+keep on its first real test.
+
+**THAT OVERTURNS A CONCLUSION.** `RESULTS_WITHIN_ITEM.md`'s doctrine-73 rescue
+of P2 rested on the within-item Exp 1 median sitting *above* the absolute one —
++0.003 warm, +0.002 cold. Corrected, it is **−0.012**. P2 now fails at the
+median as well as at the recorded seed, and the rescue is withdrawn in place.
+What survives is only the narrower claim that one CV seed at n = 15 is a coin
+flip. The deeper reading is recorded there too: +0.003, +0.002 and −0.012 are
+all inside the noise that document spends its length warning about, so the
+right verdict is *this comparison has never been resolvable at this sample
+size* — and the first two readings said "holds" on a margin a single upstream
+bug fix could invert.
+
+**AND I TOLD THE OWNER THE OPPOSITE, TWICE, EARLIER THE SAME DAY.** I wrote
+into both RESULTS documents that these medians were "NOT re-measured against
+the corrected sentinel" and that re-running them was "200 cross-validation fits
+per cell, a sitting of its own". `--check` re-measures them on every run. The
+claim was true only of a COLD feature cache, where 384 extractions dominate the
+cost; warm, the fits are the whole of it. **A statement about a cache state,
+mistaken for a statement about the measurement** — which is this entry's own
+shape, one layer down. Both warnings are struck in place.
+
+**THE SUITE THAT SHOULD HAVE CAUGHT IT WAS GREEN FOR THE WRONG REASON.**
+`test_pin_sweep.py` asserted that `audit_joint_auc_null` reads `CANNOT RUN` —
+true only when `data/feature_cache.json` is cold. That file is **gitignored**,
+so CI is always cold and the assertion was permanently, accidentally green,
+while anyone who had just run the discrimination suite got a red for a reason
+unrelated to the sweep. **A suite that can only pass in one environment is not
+testing the thing it names.** Both arms are pinned now, the cache state is read
+first from the same loader the instrument uses so the assertion is a prediction
+rather than a tautology, and the state is printed on every run. Both arms were
+verified to fire: cold gives `CANNOT RUN`, warm gives `HOLDS`.
+
 **Scope, measured 2026-08-22:** `RESULTS.md` alone carries the absolute joint
 pair in twelve places; `RESULTS_WITHIN_ITEM.md` was stale throughout and is
 repinned in the same commit. `CLAUDE.md` doctrine 7 was repinned separately on
