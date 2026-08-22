@@ -3966,6 +3966,51 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-47 · Apparatus survives into LINE-FINAL position in 35 corpus files, which is the one position end rhyme reads `OPEN`
+**Two instances found by the poet-cell agent, both reproduced here verbatim,
+then sized across the whole corpus rather than filed as two anecdotes.**
+
+**REPRODUCED:**
+
+* `corpus/song/eng_british_percy_bysshe_shelley.txt` — Gutenberg publication
+  notes are wrapped inside a `[VERSE 1]` block. The reader drops the
+  `[`-opening row and **keeps its continuation**, so the first kept line of the
+  file is `'1818.]'`. Every character is a digit or punctuation, so it
+  tokenises to `[]` — which is the same line that reopened M-39.
+* `corpus/song/eng_british_lord_byron.txt` — footnote markers survive: the
+  kept line `'It has not been your lot to see,[a]'` has line-final token
+  **`a`**, not `see`. Two such lines in the first 40.
+
+**SIZED over all 1,421 `corpus/song/*.txt`:**
+
+| shape | files | lines |
+|---|---:|---:|
+| a trailing footnote marker on a kept line | **11** | 132 |
+| a kept line ending in a stray `]` | **24** | 137 |
+
+**WHY THE SMALL NUMBER IS NOT THE POINT.** ~2.5% of files, ~269 lines — and
+every one of them lands on the LINE-FINAL token, which is the single position
+`both_line_final` schemas read and the position every end-rhyme statistic in
+this repo is taken over. A footnote letter in final position does not merely
+add noise: it REPLACES the rhyme word, so the pair the poet wrote is not
+measured at all and a pair the printer never wrote is measured instead.
+
+**IT REACHES WORK ALREADY DONE.** `eng_british_lord_byron.txt` is one of the
+eight nominated poet cells in M-40, so the agent's own poet-cell census read
+it — the agent flagged that itself rather than reporting the number quietly.
+And `cym_song_alun.txt` and `cym_song_mynyddog.txt` are both in the stray-`]`
+list; `mynyddog` is the file M-40(d) nominates for a Welsh `cynghanedd lusg`
+cell, so this wants fixing BEFORE that cell is declared, not after.
+
+**REMEDY, and it is a reader question rather than a corpus one.** Nothing here
+argues for editing 1,421 staged files. The apparatus is recognisable —
+`is_apparatus_line` already exists and already catches the opening row; what it
+does not do is follow a wrapped apparatus block to its continuation, or strip a
+trailing footnote marker from a line that is otherwise verse. Both are one rule
+each, and both belong beside the existing one so the drop rule stays in one
+place (doctrine 1). Not applied: it moves every end-rhyme number on 35 files,
+including a panel cell, and wants its own sitting with the re-runs named.
+
 ### M-45 · A replicate draw that produced no VALUE is counted nowhere, so a p is drawn at an n nobody printed `OPEN`
 **Found independently by TWO agents in the same batch — one re-running the
 stanza-framed schemas, one measuring the poet cells — which is why it is filed
