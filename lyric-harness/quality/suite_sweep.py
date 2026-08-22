@@ -136,6 +136,29 @@ _FAILING_ROLLUP = re.compile(r"^\s*\d+ FAILING:.*$", re.M)
 _TRACEBACK = re.compile(r"^Traceback \(most recent call last\):", re.M)
 
 
+def head_revision(root=ROOT):
+    """-> the short commit this tree is at, or `""` when it cannot be read.
+
+    A SWEEP OVER A MOVING TREE IS NOT A MEASUREMENT OF ANY ONE COMMIT, and
+    this module found that out by being used: the first full run of it took
+    about ninety minutes while its own author kept committing, so suite 5 was
+    graded against a tree that suite 55 never saw. The population disclosure
+    below already reports a tree that GREW; nothing reported a tree that
+    CHANGED, and that is the more misleading of the two — the count still
+    reads N of N.
+
+    Stderr is captured, because a probe that fails must not leave a line for
+    some later reader to mistake for a cause (`MISSING.md` M-30's seventh).
+    """
+    try:
+        p = subprocess.run(["git", "-C", root, "rev-parse", "--short", "HEAD"],
+                           stdout=subprocess.PIPE, stderr=subprocess.DEVNULL,
+                           text=True, timeout=30)
+        return p.stdout.strip() if p.returncode == 0 else ""
+    except (OSError, subprocess.SubprocessError):
+        return ""
+
+
 def discover(root=ROOT, only=None):
     """-> [rel, ...] sorted.  The population, read from the tree RIGHT NOW.
 
@@ -281,6 +304,7 @@ def main(argv=None):
 
     found = discover(ROOT, a.only)
     started_at = time.time()
+    head_at_start = head_revision()
     if not a.json:
         print("SUITE SWEEP -- %d suite(s), each running its own default arm"
               % len(found))
@@ -310,10 +334,15 @@ def main(argv=None):
         # the loop this replaces reported 60 of 60 over a population that had
         # stopped being the tree forty minutes earlier.
         appeared = [f for f in discover(ROOT, a.only) if f not in found]
+        head_now = head_revision()
+        moved = bool(head_at_start and head_now and head_now != head_at_start)
         if a.json:
             print(json.dumps({"counts": counts, "rows": rows,
                               "partial": partial, "not_reached": unreached,
                               "appeared_during_run": appeared,
+                              "head_at_start": head_at_start,
+                              "head_at_end": head_now,
+                              "tree_moved_during_run": moved,
                               "excluded": EXCLUDED}, indent=2))
             return counts
         print("\n" + "=" * 70)
@@ -330,6 +359,14 @@ def main(argv=None):
         print("  CANNOT RUN %3d   inconclusive by construction, NOT a pass "
               "(doctrine 20)" % counts["CANNOT RUN"])
         print("  three counts, never summed (doctrine 79)")
+        if moved:
+            print("\n  THE TREE MOVED UNDER THIS RUN: %s -> %s. Every verdict "
+                  "above is against WHATEVER WAS ON DISK when that suite ran, "
+                  "so this is not a reading of either commit — the early "
+                  "suites and the late ones did not grade the same code."
+                  % (head_at_start, head_now))
+        elif head_at_start:
+            print("\n  tree: %s throughout" % head_at_start)
         if appeared:
             print("\n  THE TREE GREW UNDER THIS RUN and these were never "
                   "covered by it (%d):" % len(appeared))

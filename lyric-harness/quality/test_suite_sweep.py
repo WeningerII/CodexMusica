@@ -92,12 +92,26 @@ def test_the_sweep_cannot_repair():
     # THE MODULE PASSES NO ARGUMENTS AT ALL, which is the stronger contract:
     # a suite's default arm is the arm CI runs, and running a cheaper one
     # would report a pass for a question nobody asked.
-    src = ast.parse(open(SS.__file__, encoding="utf-8").read())
-    argv_literals = [s for s in live if s.startswith("--")
-                     and s not in ("--only", "--timeout", "--json")]
-    check("the only `--` literals are this module's OWN flags",
-          not argv_literals, str(argv_literals[:4]))
-    del src
+    # DECLARED, WITH THE REASON, rather than a looser rule. The guard's point
+    # is that NOTHING is passed to a SUITE, and a blanket "no `--` literals"
+    # is how that is made mechanical — so an exception is admitted by being
+    # written down, not by widening the test. This one is the git probe that
+    # names the revision the sweep graded, which runs `git`, never a suite.
+    ALLOWED = {
+        "--only": "this module's own flag",
+        "--timeout": "this module's own flag",
+        "--json": "this module's own flag",
+        "--short": "`git rev-parse --short HEAD` in `head_revision`, which "
+                   "runs GIT and never a suite (added 2026-08-22 with the "
+                   "tree-moved disclosure)",
+    }
+    argv_literals = [x for x in live if x.startswith("--") and x not in ALLOWED]
+    check("every `--` literal in the module is declared, and none of them "
+          "reaches a suite", not argv_literals, str(argv_literals[:4]))
+    check("...and the declaration is not padding: every allowed flag is "
+          "actually present in the module",
+          all(f in live for f in ALLOWED),
+          str([f for f in ALLOWED if f not in live]))
 
 
 def test_discovery_and_exclusions():
@@ -276,6 +290,49 @@ def test_a_suite_that_lies_about_its_own_exit_code():
         shutil.rmtree(d, ignore_errors=True)
 
 
+def test_the_tree_it_graded_is_disclosed():
+    """A SWEEP OVER A MOVING TREE IS NOT A MEASUREMENT OF ANY ONE COMMIT.
+
+    Found by USING this module: its own first full run took about ninety
+    minutes while its author kept committing, so suite 5 was graded against a
+    tree suite 55 never saw — and the summary still read `N of N`. The
+    population disclosure already reports a tree that GREW; nothing reported a
+    tree that CHANGED, which is the more misleading of the two because the
+    count looks complete either way.
+    """
+    print("\n7. the sweep says WHICH tree it graded, not only how many")
+    head = SS.head_revision()
+    check("the revision is readable from a checkout, and it is a short hash",
+          bool(head) and 6 <= len(head) <= 12 and " " not in head,
+          repr(head))
+    # A PROBE THAT FAILS MUST LEAVE NO LINE FOR A LATER READER TO MISREAD
+    # (`MISSING.md` M-30's seventh, where exactly such a line became the
+    # published cause of an unrelated failure). Outside a checkout this must
+    # answer "" QUIETLY.
+    d = tempfile.mkdtemp()
+    try:
+        import subprocess
+        code = ("import sys; sys.path.insert(0, %r)\n"
+                "from quality import suite_sweep as SS\n"
+                "print(repr(SS.head_revision(%r)))\n"
+                % (os.path.join(HERE, ".."), d))
+        p = subprocess.run([sys.executable, "-c", code], capture_output=True,
+                           text=True, timeout=60)
+        check("outside a checkout it answers '' rather than raising",
+              p.returncode == 0 and p.stdout.strip() == "''",
+              "%r / %r" % (p.stdout.strip(), p.stderr.strip()[:60]))
+        check("...and it writes NOTHING to stderr — a failed probe must not "
+              "leave a line a later reader can mistake for a cause",
+              not p.stderr.strip(), repr(p.stderr.strip()[:80]))
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+    # AND THE SUMMARY MUST BE ABLE TO SAY IT, or the reading is computed and
+    # dropped — this repo's most-filed defect.
+    live = _live_string_constants(SS.__file__)
+    check("the summary can say the tree MOVED under the run",
+          any("TREE MOVED" in s for s in live))
+
+
 def test_main_calls_sweep_and_rereads_the_tree():
     print("\n6. main calls sweep(), and the population is re-read at the end")
     tree = ast.parse(open(SS.__file__, encoding="utf-8").read())
@@ -312,7 +369,8 @@ for fn in (test_the_sweep_cannot_repair,
            test_red_before_the_bound_is_still_red,
            test_a_crash_is_not_a_refusal,
            test_a_suite_that_lies_about_its_own_exit_code,
-           test_main_calls_sweep_and_rereads_the_tree):
+           test_main_calls_sweep_and_rereads_the_tree,
+           test_the_tree_it_graded_is_disclosed):
     fn()
 
 print("\n" + "=" * 70)
