@@ -367,6 +367,51 @@ def test_the_three_way_outcome():
           not whole, str([m.name for m in whole]))
 
 
+def test_the_reported_cause_is_the_suites_own():
+    """3c. A FAILING SUITE'S CAUSE IS ITS OWN VERDICT, NOT STRAY STDERR.
+
+    `run_test` reported `stderr or stdout` as the tail, so ANY line a suite's
+    subprocesses wrote to stderr became the stated reason it was red.
+    MEASURED 2026-08-22 on this repo's own baseline: `verify_entries.py`'s
+    best-effort `git rev-parse` probe did not redirect stderr, so outside a
+    checkout every run of it printed `fatal: not a git repository` while
+    exiting perfectly normally — and that line was reported as WHY
+    `quality/test_verify_entries.py` had failed, sending a reader after a git
+    problem that was not the failure. Both ends are fixed: the probe captures
+    its stderr, and the tail prefers the suite's own `N FAILING:` roll-up.
+    """
+    print("\n3c. a failing suite's reported cause is its own verdict")
+    import shutil
+    import tempfile
+    d = tempfile.mkdtemp()
+    try:
+        os.makedirs(os.path.join(d, "quality"))
+        probe = os.path.join(d, "quality", "test_zz_cause.py")
+        with open(probe, "w", encoding="utf-8") as fh:
+            fh.write("import sys\n"
+                     "sys.stderr.write('fatal: a red herring\\n')\n"
+                     "print('  FAIL  the real reason')\n"
+                     "print('1 FAILING: the real reason')\n"
+                     "sys.exit(1)\n")
+        st, _dt, tail = mutate.run_test(d, "quality/test_zz_cause.py",
+                                        timeout=60)
+        check("a red suite is FAIL", st == "FAIL", st)
+        check("its reported cause is its OWN roll-up, not the stray stderr",
+              "the real reason" in tail and "red herring" not in tail, tail)
+
+        # THE CONTROL: a suite that CRASHES prints no roll-up, and there
+        # stderr IS the evidence — the fix must not blind the ERROR path.
+        crash = os.path.join(d, "quality", "test_zz_crash.py")
+        with open(crash, "w", encoding="utf-8") as fh:
+            fh.write("import quality_module_that_is_not_there\n")
+        st2, _d2, tail2 = mutate.run_test(d, "quality/test_zz_crash.py",
+                                          timeout=60)
+        check("a crash is still ERROR and still reports its traceback",
+              st2 == "ERROR" and "ModuleNotFoundError" in tail2, tail2[:70])
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 # ---------------------------------------------------------------------------
 # The run
 # ---------------------------------------------------------------------------
@@ -655,6 +700,7 @@ if __name__ == "__main__":
     test_every_mutation_still_applies()
     test_M1_is_declared_verbatim()
     test_the_three_way_outcome()
+    test_the_reported_cause_is_the_suites_own()
     if a.static:
         # THE TRIPWIRE WAS WELDED TO THE SWEEP, WHICH IS WHY NOBODY RAN IT.
         # Sections 1-3 read the mutation list and seven source files and cost

@@ -4035,10 +4035,36 @@ The shadow run of `test_triage` prints `REFUSED — the register was not readabl
 from here; no section ran` and exits 0, so it re-enters the mutation baseline
 without ever claiming to have graded a register it could not see.
 
-**FOUR INSTANCES, FOUR CAUSES, ONE SENTENCE.** A bound, a correct refusal, a
-load flake and an unguarded `[0]` all arrived at the summary spelled
-`already-red`, and all four cost the same thing: a suite silently absent from
-the adversary that grades the tests.
+**AND THE CENSUS IS SEVEN.** The unbounded run's own baseline named, in full:
+`test_capacity` (TIMEOUT, 430s vs the 420s bound), `test_discriminate`
+(TIMEOUT, 890s), `test_loop` (TIMEOUT, 436s), `test_provenance` (a correct
+refusal spelled FAIL), `test_propose` (red under the baseline's own
+parallelism, unconfirmed), `test_triage` (ERROR, an unguarded `[0]`), and
+`test_verify_entries`. **SEVEN SUITES DROPPED FROM THE MUTATION BASELINE AND
+NOT ONE OF THEM FOR HAVING A RED CHECK** — and the summary called all seven
+already-red.
+
+**THE SEVENTH IS A DIAGNOSTIC DEFECT AND IT HID ITS OWN CAUSE.**
+`test_verify_entries` was reported red with `fatal: not a git repository` —
+which is NOT why it failed. `run_test`'s tail was `stderr or stdout`, so ANY
+line a suite's subprocesses wrote to stderr became the stated reason it was
+red, and `verify_entries.py`'s best-effort `git rev-parse --short HEAD` probe
+— already correctly guarded, already answering `"unknown"` on failure — simply
+did not redirect stderr. A harmless line from a probe that worked became the
+published cause of an unrelated failure. **BOTH ENDS FIXED**: the probe
+captures its stderr, and the tail prefers the suite's own `N FAILING:` roll-up
+when there is one, falling back to stderr for a CRASH, where stderr genuinely
+is the evidence. `quality/test_mutation.py` §3c drives a constructed suite that
+writes a red herring to stderr AND a real roll-up, and requires the roll-up to
+be the reported cause; its control requires a crashing suite to still report
+its traceback, so the fix cannot blind the ERROR path. At head the suite passes
+in a real shadow tree, so the underlying red was transient — which is exactly
+what the baseline's new re-confirmation is for.
+
+**SEVEN INSTANCES, FIVE CAUSES, ONE SENTENCE.** A bound, a correct refusal, a
+load flake, an unguarded `[0]` and a stray stderr line all arrived at the
+summary spelled `already-red`, and all of them cost the same thing: a suite
+silently absent from the adversary that grades the tests.
 
 **TESTED WHILE OPEN**, and `PARTIAL` rather than closed for one reason: **the
 bound itself is still unmeasured.** 420s excludes `test_capacity` (430s) and

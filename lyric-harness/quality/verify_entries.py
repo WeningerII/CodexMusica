@@ -288,8 +288,17 @@ def head_commit():
     if _HEAD is not None:
         return _HEAD
     try:
+        # STDERR IS CAPTURED, not left to leak (`MISSING.md` M-30). This is a
+        # BEST-EFFORT probe -- the `except` below already answers "unknown" --
+        # but it did not redirect stderr, so outside a checkout every run of
+        # this module printed `fatal: not a git repository` to the process's
+        # stderr while exiting perfectly normally. `mutate.run_test` reports
+        # the tail of STDERR as a failing suite's cause, so that harmless line
+        # became the stated reason for an unrelated failure and sent a reader
+        # after a git problem that was not one.
         _HEAD = subprocess.run(["git", "-C", ROOT, "rev-parse", "--short", "HEAD"],
-                               stdout=subprocess.PIPE, text=True,
+                               stdout=subprocess.PIPE,
+                               stderr=subprocess.DEVNULL, text=True,
                                timeout=30).stdout.strip() or "unknown"
     except Exception:                                            # noqa: BLE001
         _HEAD = "unknown"

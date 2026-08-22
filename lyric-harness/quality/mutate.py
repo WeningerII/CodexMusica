@@ -162,6 +162,7 @@ import concurrent.futures as futures
 import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -1547,7 +1548,19 @@ def run_test(tree, rel_path, timeout=420):
     err = (p.stderr or b"").decode("utf-8", "replace")
     out = (p.stdout or b"").decode("utf-8", "replace")
     status = "ERROR" if "Traceback (most recent call last)" in err else "FAIL"
-    tail = (err.strip() or out.strip()).splitlines()
+    # THE SUITE'S OWN VERDICT OUTRANKS INCIDENTAL STDERR (`MISSING.md` M-30).
+    # The tail was `stderr or stdout`, so ANY line a suite's subprocesses wrote
+    # to stderr became the stated cause of its failure. Measured: a best-effort
+    # `git rev-parse` probe in `verify_entries.py` printed `fatal: not a git
+    # repository` while exiting normally, and that line was reported as why
+    # `quality/test_verify_entries.py` was red -- sending a reader after a git
+    # problem that was not the failure. Every suite here prints its own
+    # `N FAILING: ...` roll-up; when one is present it IS the cause.
+    rollup = [l for l in out.splitlines() if re.match(r"^\s*\d+ FAILING:", l)]
+    if rollup:
+        tail = rollup
+    else:
+        tail = (err.strip() or out.strip()).splitlines()
     return status, dt, " | ".join(tail[-3:])[:400]
 
 
