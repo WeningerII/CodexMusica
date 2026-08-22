@@ -7321,4 +7321,93 @@ differentia and a mismatch REFUSES rather than silently widening to the genus.
 (4) `burden` gains `specialises='refrain'` while staying its own row — the two
 statements are compatible and the table currently makes them look exclusive.
 
+### M-58 · the named-relation judge is MONOSYLLABLE-ONLY — 69 of 76 names are reachable at a 1-syllable key and nowhere else, so every polysyllabic pair that stands in the declared relation is graded a VIOLATION `OPEN`
+**Found 2026-08-22 by WRITING A SONG through the path M-55 had just opened,
+after the owner asked whether anything besides the null sweep bars us from
+using this. Something does, and it is larger than the null sweep.**
+
+**HOW IT SURFACED.** A plan declaring `--relation=type:rime riche`, two groups
+screened CLEAN through the `screen` verb, eight lines written to the plan's
+shape, graded by the plan's own `GRADE IT` line:
+
+```
+FINDING [FLAG] SCHEME_VIOLATION: L3 and L7 are both in group B [3, 7]
+                                 but do not rhyme
+```
+
+L3/L7 are `cellar` / `seller`. The `types` verb on that very pair:
+
+```
+agreement (onset,nucleus,coda) per syllable: ((True,True,True),(True,True,True))
+cells: [('identical sound', 'rime riche'), ('identical sound', 'rime riche')]
+```
+
+**The engine's own analysis calls it rime riche on every channel of every
+syllable, and the grade calls it a violation.**
+
+**THE MECHANISM, and it is one tuple.** `NAMED` carries exactly ONE key for
+`rime riche` and its `cells` coordinate is `((1, 1, 1),)` — a tuple of length
+ONE, i.e. a single syllable. `classify_pair("cellar","seller")` returns
+agreement of length TWO. `satisfies_relation` iterates the keys carrying the
+name and matches none, so it answers **False** — not `None`, which would be a
+refusal, but a flat NO (doctrine 79's exact failure mode: the writer is
+charged for a pair the engine cannot represent rather than told it cannot
+represent it).
+
+**MEASURED, and the direction is perfectly clean:**
+
+| pair | syllables | `type:rime riche` at `position='end'` |
+|---|---:|---|
+| `rain`/`reign` | 1 | **True** |
+| `rain`/`rein` | 1 | **True** |
+| `hoard`/`horde` | 1 | **True** |
+| `bore`/`boar` | 1 | **True** |
+| `cellar`/`seller` | 2 | **False** |
+| `flour`/`flower` | 2 | **False** |
+
+**THE SIZE OF IT, censused over the whole registry:**
+
+| | |
+|---|---:|
+| `NAMED` keys total | 49 |
+| keys whose `cells` tuple is 1 syllable | **45** |
+| keys at 2 / 3 / 4 syllables | 2 / 1 / 1 |
+| distinct names in `NAMED` | 76 |
+| **names reachable ONLY at a 1-syllable key** | **69** |
+
+So the named-relation layer this campaign spent two days making reachable is
+**monosyllable-only for 69 of its 76 names**. `multisyllabic rhyme` is in the
+vocabulary; most of the vocabulary cannot judge a multisyllabic pair.
+
+**THIS IS NOT THE NULL SWEEP AND IT IS NOT DOWNSTREAM OF IT.** The sweep
+gates the 77 `schema:` names (step 3 of the relation ladder). This is the 76
+`type:` names that ALREADY answer — the half that was supposed to work.
+
+**AND THE `screen` VERB DOES NOT PREDICT THE GRADE**, which is the usability
+half and its own doctrine-1 problem: `screen cellar seller` reports
+`RIME_RICHE 1.000 CLEAN` because it reads the COARSE relation from `score()`,
+while the grade asks the NAMED cell. Both directions are live on one draft —
+`rain`/`reign` screens as `RHYME` and satisfies `type:rime riche`;
+`cellar`/`seller` screens as `RIME_RICHE` and violates it. A writer screening
+before writing, which standing rule 3 makes mandatory, is given an answer to a
+different question than the one that will grade them.
+
+**WHAT IS OWED, and the first two are separable.**
+1. **A polysyllabic pair the judge cannot represent must REFUSE, not fail**
+   (doctrine 79). That is a one-branch change and it stops the harness
+   charging a writer for its own gap — but it converts 69 names from "wrong"
+   to "cannot answer", which is honest and not yet useful.
+2. **The registry needs keys at more than one syllable count**, or `cells`
+   needs to stop being an exact-match coordinate for names whose definition
+   does not turn on syllable count. `rime riche` means IDENTICAL SOUND,
+   DIFFERENT WORD at any length; the 1-syllable key is an accident of how the
+   cells were enumerated, not a claim anyone made.
+3. **`screen` must answer the question the grade will ask** — take the active
+   `--relation` and report the NAMED verdict, or say out loud that it is
+   reporting the coarse class instead.
+4. The `plan` verb's printed `GRADE IT` line names the `--out=` path as the
+   BLUEPRINT, and `--out=` writes a PLAN unless `--fill` is given — so the one
+   command the planner tells a writer to run REFUSES on the plan-first path.
+   Filed here because it was found in the same run; it is independent.
+
 ## Add below this line
