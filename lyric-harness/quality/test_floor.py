@@ -584,15 +584,33 @@ def test_the_song_profile_was_not_tuned_to_the_examples():
     # 108 quoted below, so the OTHER four thresholds move with it as well.
     # The sweep, the admissible set [1,22] u [40,93] and the reason 50 is
     # kept rather than retuned are `quality.floor.CALIBRATION["mattr_window"]`.
+    # REPINNED 2026-08-22, `mattr_min` ONLY: 0.7128 -> 0.7118, and it is a
+    # READER FIX and not a load. `features.py._tokens` matched `[A-Za-z'\-]+`
+    # until 2026-08-21, so Barnes's `A-baggèn` was two tokens and `jaÿ` was a
+    # letter short; MATTR is a TYPE-token ratio and was being computed over a
+    # text nobody printed. The eng token total falls -0.420% as fragments
+    # merge back into words, and the band's 5th percentile follows.
+    #
+    # THE OTHER FOUR RE-DERIVE EXACTLY, which is what makes this one
+    # coordinate moving rather than the set being re-adopted: MATTR is the
+    # only one of the five that counts TYPES, so it is the only one a
+    # tokenisation change can touch.
+    #
+    # THIS CHECK DID NOT FIND IT AND COULD NOT: it pins the CONSTANT against
+    # itself, so it moves only when someone edits `floor.py`. The drift was
+    # found by `quality/pin_sweep.py` (`MISSING.md` M-21) through
+    # `expected_drift.py`, which re-DERIVES. A pin and a re-derivation are
+    # different instruments and this file holds the first kind.
     check("the five song thresholds are the recorded corpus percentiles",
-          song.percentiles == {"mattr_min": 0.7128,
+          song.percentiles == {"mattr_min": 0.7118,
                                "function_word_ratio_max": 0.4773,
                                "anaphora_max": 0.3000,
                                "line_length_cv_min": 0.1094,
                                "predictable_pair_fraction_max": 0.9286},
           "ADOPTED 2026-08-21 over the loaded corpus: 150-400 tokens, 3,571 "
           "items, 879 authors, MATTR window 50 (~~1,859 items, 108 "
-          "authors~~). Three moved -- mattr 0.7226 -> 0.7128, fwr 0.4716 -> "
+          "authors~~). Three moved -- mattr 0.7226 -> 0.7128 -> 0.7118 (the "
+          "second step is the 2026-08-22 tokeniser repin), fwr 0.4716 -> "
           "0.4773, cv 0.1123 -> 0.1094 -- and TWO DID NOT, which is what made "
           "the set adoptable: predictability re-derived to 0.9286 against a "
           "shipped 0.9286 and anaphora to 0.3000 against 0.3000. "

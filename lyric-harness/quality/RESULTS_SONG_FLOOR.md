@@ -189,11 +189,32 @@ with length, which reproduces METHOD doctrine 15's sonnet-vs-quatrain ordering
 
 **Shipped, 150–400 tokens** (the `song` row re-adopted 2026-08-21 over the
 loaded corpus — see §5·A; the superseded values are struck rather than
-overwritten, doctrine 17):
+overwritten, doctrine 17).
+
+**AND `mattr_min` MOVED AGAIN ON 2026-08-22, ALONE, FOR A READER FIX AND NOT
+A LOAD: 0.7128 → 0.7118.** `quality/features.py`'s `_tokens` matched
+`[A-Za-z'\-]+` until 2026-08-21, so Barnes's `A-baggèn` was TWO tokens and
+`jaÿ` was a letter short — MATTR is a TYPE-token ratio and it was being
+computed over a text nobody printed. With `lyric_harness.LATIN_SCRIPT` as the
+declared repertoire the eng token total falls 1,873,325 → 1,865,465
+(**−0.420%**) as fragments merge back into the words they came from, and the
+band's 5th percentile follows. **THE OTHER FOUR RE-DERIVE EXACTLY**, which is
+what makes this one coordinate moving rather than the set being re-adopted:
+MATTR is the only one of the five that counts TYPES, so it is the only one a
+tokenisation change can reach.
+
+**NO TEST FOUND IT AND THE REASON IS INSTRUMENTAL.** `test_floor.py` pins the
+CONSTANT against itself, so it moves only when someone edits `floor.py`;
+`test_discriminate.py` passed and the held-out AUCs are unmoved. The drift was
+found by `quality/pin_sweep.py` (`MISSING.md` M-21, built the same day) on its
+first full run, through `expected_drift.py`, which RE-DERIVES. A pin and a
+re-derivation are different instruments, and only the second can see a
+constant that has stopped describing its corpus.
 
 | | `mattr_min` | `function_word_ratio_max` | `anaphora_max` | `line_length_cv_min` | `predictable_pair_fraction_max` |
 |---|---:|---:|---:|---:|---:|
-| song profile | 0.7128 | 0.4773 | 0.3000 | 0.1094 | 0.9286 |
+| song profile | 0.7118 | 0.4773 | 0.3000 | 0.1094 | 0.9286 |
+| ~~song profile, to 2026-08-22~~ | ~~0.7128~~ | 0.4773 | 0.3000 | 0.1094 | 0.9286 |
 | ~~song profile, to 2026-08-21~~ | ~~0.7226~~ | ~~0.4716~~ | ~~0.3000~~ | ~~0.1123~~ | ~~0.9286~~ |
 | (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 | 0.8333 |
 | (section, for contrast) | 0.7568 | 0.5161 | 0.5000 | 0.0525 | — |

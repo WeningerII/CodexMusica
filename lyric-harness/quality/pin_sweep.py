@@ -96,6 +96,13 @@ _IS_TEST = re.compile(r"(^|/)test_[^/]*\.py$")
 #: the difference is written down.
 CHECK_ARGV = {
     "quality/audit_corpus.py": ["--verify-shape"],
+    #: `expected_drift.py --check` needs the INSTRUMENT to check; bare, it
+    #: refuses with `no instrument '--check' is declared`. Found the same way
+    #: as the row above -- by the first full run -- and it was worth finding:
+    #: the invocation below is what surfaced a REAL drift in a calibrated
+    #: floor threshold that no test suite saw (`mattr` 0.7128 -> 0.7118,
+    #: moved by the 2026-08-21 tokeniser repertoire fix).
+    "quality/expected_drift.py": ["song_profile_calibration-fast"],
 }
 
 #: An instrument's OWN word for "I could not answer".  Read from its output,

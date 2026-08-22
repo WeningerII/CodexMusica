@@ -32,7 +32,7 @@ declared section function; 62.0% are refused.**
 
 | bucket | blocks | share |
 |---|---:|---:|
-| **typed** — reaches a declared function | 76,944 | 38.00% |
+| **typed** — reaches a declared function | 76,930 | 37.99% |
 | **decided** — refused *with a written reason* | 125,490 | 61.96% |
 | **undecided** — refused, no row either way | 32 | 0.02% |
 | **apparatus** — a bare numeral | 59 | 0.03% |
@@ -293,7 +293,18 @@ python3 quality/mark_coverage.py --check    # re-derive against the pins
 python3 quality/mark_coverage.py --json     # the whole scan
 ```
 
-`--check` pins typed 76,944 / decided 125,490 / undecided 32 /
+**REPINNED 2026-08-22: typed ~~76,944~~ 76,930, decided ~~125,490~~ 125,504 —
+exactly −14 and +14, and the sign of each is the finding.** The 14
+pìobaireachd movement headings (`URLAR`/`SIUBHAL`/`CRUNLUATH`) were `[VERSE
+n]` blocks whose entire lyric was the heading (`MISSING.md` M-25(a)), so they
+counted TYPED. Staged as marks and declared in `grid.MARK_REFUSED` they are
+DECIDED: refused with a written reason. **`undecided` is UNMOVED at 32**,
+which is the half that matters — nothing was added to the pile nobody has
+considered. Found by `quality/pin_sweep.py` on its first full run, not by a
+suite: this figure re-DERIVES from the corpus, and the edit that moved it
+landed in a commit whose gates were all green.
+
+`--check` pins typed 76,930 / decided 125,504 / undecided 32 /
 apparatus 59, declared 21, witnessed 4. It exits 1 on drift and names
 the moved figure; an off-by-one on any of them fails it, verified by
 mutation.

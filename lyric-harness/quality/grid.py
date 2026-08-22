@@ -2455,6 +2455,97 @@ MARK_REFUSED = {
 }
 
 
+#: A MARK POINTS AT THE MARK IT IS A VARIATION OF.
+#:
+#: `quality/SECTION_ORDER_PREREGISTRATION.md` registered TWO fields and its
+#: falsifier fired on one of them. `rank` -- a position in the monotone ladder
+#: urlar < siubhal < taorluath < crunluath < crunluath a-mach -- is REFUSED:
+#: two of the three staged pìobaireachds are NOT monotone, none is complete,
+#: and `TAORLUATH`/`CRUNLUATH A-MACH` have zero attestation anywhere in the
+#: corpus. What the literary imitation does is ALTERNATE (ground, variation,
+#: ground, variation, close), so a `rank` check would have failed two of three
+#: songs that are printed exactly as their editor set them (doctrine 6).
+#:
+#: `elaborates` SURVIVED that falsifier and this is it. The relation holds
+#: regardless of sequence, and it is what makes the alternation readable
+#: rather than random.
+#:
+#: IT IS ON THE MARK AND NOT ON `FunctionSpec`, AND THE REGISTRATION SAID
+#: `FunctionSpec`. The registration was written while all 14 headings were
+#: still typed `[VERSE n]` with the heading as the block's whole lyric
+#: (`MISSING.md` M-25(a)); staging them as marks is what gave the field a
+#: population, and it put that population on the MARK. Declaring three new
+#: SECTION FUNCTIONS instead would mean folding a pìobaireachd movement into
+#: a vocabulary the canon survey says it strains -- the exact move
+#: `MARK_REFUSED` exists to decline. Recorded rather than retargeted in
+#: silence (doctrine 17).
+#:
+#: MEASURED over the whole population, 9 elaborating sections in 3 songs:
+#: every target is PRESENT, and 8 of 9 are grounded BEFORE the elaboration.
+#: The one exception is `THE PRAISE OF MORAG`, whose opening siubhal precedes
+#: its urlar because the page prints the first movement with NO HEADING AT
+#: ALL -- a heading appears only where the movement changes.
+MARK_ELABORATES = {
+    "SIUBHAL": "URLAR",
+    "TAORLUATH": "URLAR",
+    "CRUNLUATH": "URLAR",
+    "CRUNLUATH A-MACH": "URLAR",
+}
+
+
+def elaboration_findings(song):
+    """-> (findings, counts) for one `MarkedSong`.
+
+    THREE COUNTS, NEVER SUMMED (doctrine 79):
+
+      grounded_before  the mark it elaborates appears EARLIER in the song
+      grounded_after   the target appears, but only later -- a legitimate
+                       shape (a variation-first opening), not a defect
+      ungrounded       the target never appears at all
+
+    ONLY `ungrounded` IS A FINDING. Ordering is a DISCLOSURE and not a
+    charge: an editor who opens on a variation has departed from nothing, and
+    doctrine 6 says a convention a writer may depart from cannot be what
+    fails a check. `ELABORATION_UNGROUNDED` is different in kind -- the
+    section says it varies something the song does not contain, which is a
+    factual claim and false.
+
+    SEVERITY IS NOT SET HERE AND CANNOT BE: `GridFinding` carries `code`,
+    `message` and `evidence` and no severity at all, because in this module
+    severity is the CONSUMER's decision (`Reviser._function_findings` is
+    where a grid finding becomes a note or a flag). The first draft of this
+    docstring said "and it is a NOTE", which was a claim about an object
+    that has no such field -- one question answered in two places, with one
+    of the answers imaginary (doctrine 1).
+
+    MEASURED CORPUS-WIDE: `ungrounded` is **0 of 9**. That zero is over a
+    named population and is not evidence the check works, so
+    `quality/test_grid.py` plants the defect to prove it fires (doctrine 94 --
+    a positive-case suite cannot find a rule that is too generous).
+    """
+    order = [b.base for b in song.blocks]
+    out = []
+    counts = {"grounded_before": 0, "grounded_after": 0, "ungrounded": 0}
+    for i, base in enumerate(order):
+        target = MARK_ELABORATES.get(base)
+        if target is None:
+            continue
+        if target not in order:
+            counts["ungrounded"] += 1
+            out.append(GridFinding(
+                "ELABORATION_UNGROUNDED",
+                "`%s` elaborates `%s`, and no `%s` appears in this song"
+                % (base, target, target),
+                "the mark declares itself a variation OF something the song "
+                "does not contain. Unlike the ORDER of the two, which is an "
+                "editor's choice, this is a factual claim and it is false"))
+        elif target in order[:i]:
+            counts["grounded_before"] += 1
+        else:
+            counts["grounded_after"] += 1
+    return out, counts
+
+
 @dataclass
 class Block:
     """One marked block of a printed song, as the source marked it."""
@@ -2717,6 +2808,7 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            "VARIATION_KINDS", "VariationDeclaration", "Return",
            "compare_returns", "normalise_line", "tokens",
            "indent_partition",
+           "MARK_ELABORATES", "elaboration_findings",
            "rime_orthographic", "rime_cmudict",
            # the hook -- MISSING.md D-2
            "Hook", "HookOccurrence", "hook_occurrences", "hook_findings",

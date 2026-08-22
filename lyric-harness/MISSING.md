@@ -3534,6 +3534,38 @@ MINE, which is what a first run should do.**
    own verdict is believed over a code table now (doctrine 1: the instrument
    owns its vocabulary). Both are pinned as false-positive regressions.
 
+**AND THE FIRST FULL RUN FOUND THE LARGER SHAPE THE ENTRY DID NOT KNOW ABOUT:
+SOME PINS ARE ASKED BY NOTHING AT ALL.** M-21 was filed about a fact pinned in
+two media where NO GREP FINDS BOTH. Measured now over the whole population:
+
+| | files |
+|---|---:|
+| pin-holding files the sweep discovers | **30** |
+| named with `--check`/`--verify-shape` in `.github/workflows/ci.yml` | 23 |
+| asked TRANSITIVELY by a CI test that invokes the check | 2 (`corpus_manifest`, `corpus_taxonomy`) |
+| **asked by NOTHING that gates** | **5** |
+
+The five are `audit_tang_null.py`, `kalevala_rate.py`,
+`run_positive_control.py`, `expected_drift.py` and `phrase_commonplace.py`.
+**`phrase_commonplace.py` is the worked case and it is worse than a gap in
+CI**: it HAS a test, `quality/test_phrase_commonplace.py`, that suite PASSES,
+and the suite never invokes `--check` or reads `PINNED` at all. So its pins —
+`authors` 143, `tokens` 991,751, `nlines` 152,154, MEASURED 2026-08-14 over
+the pre-mass-load English corpus — now read **1,297 / 1,885,292 / 283,301**
+against a corpus that grew underneath them, and nothing was ever going to go
+red. A test that names a module and does not ask its pins looks exactly like
+one that asks them and passes.
+
+**THOSE FIGURES ARE NOT REPINNED HERE, and that is a decision rather than an
+omission.** `phrase_commonplace.py`'s header says its result was "REFUSED as a
+rejection on the evidence it produced", and its own comment says the pins are
+"everything EXACT over a FIXED corpus at fixed thresholds". Repinning them
+would mean re-running §1–§9, the two nulls and the period control over a
+corpus nine times the size and re-adopting the refusal — a research sitting,
+not bookkeeping, and doctrine 58 says do not tune the statistic to meet the
+number. What is owed is the re-run; what this entry now carries is that
+somebody has to decide to do it, which nobody could have known before.
+
 **THE ENTRY STAYS OPEN** on the half it names last: this is the QUESTION, and
 the sweep is only as complete as `CHECK_ARGV` is. Every instrument whose pin
 check is not a bare `--check` needs a row, and today exactly one is known

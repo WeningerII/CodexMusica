@@ -98,10 +98,20 @@ def scan(root=SONG_DIR):
     recur = collections.defaultdict(lambda: {"songs": 0, "recurring": 0})
     ladder = collections.defaultdict(collections.Counter)
     rhyme_told = collections.Counter()
+    #: THE ELABORATION POINTER, counted in the SAME pass for the reason this
+    #: module already gives: a second sweep would derive the population from a
+    #: second definition of what a block is (doctrine 1).
+    elab = collections.Counter()
+    elab_findings = []
 
     for path in sorted(glob.glob(os.path.join(root, "*.txt"))):
         lang = _lang(path)
         for song in GR.read_marked_songs(path, language=lang):
+            _ef, _ec = GR.elaboration_findings(song)
+            for _k, _v in _ec.items():
+                elab[_k] += _v
+            for _f in _ef:
+                elab_findings.append((path.split("/")[-1], song.title, _f))
             seen = collections.defaultdict(list)
             for b in song.blocks:
                 if not b.base:
@@ -162,6 +172,8 @@ def scan(root=SONG_DIR):
         "unwitnessed_functions": sorted(
             set(GR.SECTION_FUNCTIONS) - set(witnessed)),
         "rhyme_channel": dict(rhyme_told),
+        "elaboration": dict(elab),
+        "elaboration_findings": [(f, t, x.code) for f, t, x in elab_findings],
     }
 
 
@@ -177,7 +189,21 @@ def scan(root=SONG_DIR):
 #: honest direction and a small one: the refusal is Persian, and no
 #: amount of English anthology moves it.
 PINNED = {
-    "typed": 76944, "decided": 125490, "undecided": 32, "apparatus": 59,
+    #: REPINNED 2026-08-22: typed ~~76,944~~ **76,930**, decided ~~125,490~~
+    #: **125,504**. EXACTLY -14 AND +14, and the sign of each is the finding.
+    #: The 14 pìobaireachd movement headings (`URLAR`/`SIUBHAL`/`CRUNLUATH`,
+    #: three `eng_celtic_msm_*` files) were `[VERSE n]` blocks whose whole
+    #: lyric was the heading -- `MISSING.md` M-25(a) -- so this module counted
+    #: them TYPED, reaching the `verse` function. Staged as marks and declared
+    #: in `grid.MARK_REFUSED`, they are now DECIDED: refused WITH a written
+    #: reason. That is the good direction across this module's own axis, and
+    #: `undecided` is UNMOVED at 32, which is the half that matters --
+    #: nothing new was added to the pile nobody has thought about.
+    #:
+    #: FOUND BY `quality/pin_sweep.py` on its first full run, not by a suite:
+    #: this figure is re-DERIVED from the corpus, and the corpus edit that
+    #: moved it landed in a commit whose gates were all green.
+    "typed": 76930, "decided": 125504, "undecided": 32, "apparatus": 59,
     "declared_functions": 21, "witnessed": 4,
 }
 
@@ -279,6 +305,31 @@ def report(root=SONG_DIR):
         print(f"\n    {k}: recurs in {v['songs_with_recurrence']:,} of "
               f"{v['songs']:,} songs ({rate:.0%})")
         print(f"      ladder: {top}")
+    e = s["elaboration"]
+    n_elab = sum(e.values())
+    print("\n  THE ELABORATION POINTER (`grid.MARK_ELABORATES`), which is the "
+          "half of")
+    print("  `SECTION_ORDER_PREREGISTRATION.md` that SURVIVED its falsifier — "
+          "`rank` was")
+    print("  REFUSED because two of three staged pìobaireachds are not "
+          "monotone and the")
+    print("  ladder's top two rungs have zero attestation anywhere:")
+    if not n_elab:
+        print("    NO population — no staged mark points at another. That is "
+              "an absence of")
+        print("    population and not a rate of zero (doctrine 20).")
+    else:
+        print("    %s elaborating section(s), THREE COUNTS, NEVER SUMMED"
+              % _fmt(n_elab))
+        for k in ("grounded_before", "grounded_after", "ungrounded"):
+            print("      %-16s %s" % (k, _fmt(e.get(k, 0))))
+        print("    only `ungrounded` is a finding, and it is a NOTE: the "
+              "ORDER of a")
+        print("    variation and its ground is an editor's choice (doctrine "
+              "6), while a")
+        print("    ground that never appears is a factual claim and false.")
+        for f, t, code in s["elaboration_findings"][:5]:
+            print("      %s  %s — %s" % (code, f, t[:40]))
     rc = s["rhyme_channel"]
     print(f"\n    rhyme channel over every comparison: "
           f"cannot_tell {_fmt(rc.get('cannot_tell', 0))}, "

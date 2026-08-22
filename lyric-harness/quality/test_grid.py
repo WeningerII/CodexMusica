@@ -9,6 +9,7 @@ it owned was about words.
 Run: python3 quality/test_grid.py
 """
 
+import glob
 import os
 import tempfile
 import sys
@@ -2251,6 +2252,86 @@ def test_the_printed_indent_survives_ingestion():
                                        lines=["a", "b"])))
 
 
+def test_the_elaboration_pointer_and_the_rank_that_was_refused():
+    """`quality/SECTION_ORDER_PREREGISTRATION.md`, both halves.
+
+    The registration proposed TWO fields and its falsifier fired on one.
+    `rank` -- a position in the ladder urlar < siubhal < taorluath <
+    crunluath < crunluath a-mach -- is REFUSED: two of three staged
+    pìobaireachds are NOT monotone, none is complete, and the top two rungs
+    have zero attestation anywhere in the corpus. `elaborates` survived, and
+    this pins it.
+
+    THE UNGROUNDED CHECK FIRES ZERO TIMES ON THE SHIPPED CORPUS, so the
+    defect is PLANTED here. Doctrine 94: a positive-case suite cannot find a
+    rule that is too generous, and 0 of 9 is a measurement about this corpus
+    rather than evidence the rule works."""
+    print("\ntest: the elaboration pointer, and the rank that was refused")
+
+    # THE REFUSED HALF, PINNED AS REFUSED (doctrine 17: a falsified proposal
+    # is recorded, never quietly reintroduced).
+    check("no `rank` field was adopted on any section function",
+          not any(hasattr(v, "rank") for v in _G.SECTION_FUNCTIONS.values()),
+          [k for k, v in _G.SECTION_FUNCTIONS.items() if hasattr(v, "rank")])
+    check("the ladder's top two rungs are declared but unattested — the "
+          "measurement that refused `rank`",
+          {"TAORLUATH", "CRUNLUATH A-MACH"} <= set(_G.MARK_ELABORATES),
+          sorted(_G.MARK_ELABORATES))
+
+    # THE ADOPTED HALF, ON THE REAL POPULATION.
+    song_dir = os.path.join(os.path.dirname(os.path.dirname(
+        os.path.abspath(__file__))), "corpus", "song")
+    tot = {"grounded_before": 0, "grounded_after": 0, "ungrounded": 0}
+    found = 0
+    for path in sorted(glob.glob(os.path.join(song_dir, "*.txt"))):
+        for song in _G.read_marked_songs(path):
+            fs, c = _G.elaboration_findings(song)
+            for k, v in c.items():
+                tot[k] += v
+            found += len(fs)
+    check("9 elaborating sections corpus-wide, 8 grounded BEFORE and 1 after",
+          tot == {"grounded_before": 8, "grounded_after": 1, "ungrounded": 0},
+          tot)
+    check("...and the one grounded AFTER is not charged: `THE PRAISE OF "
+          "MORAG` opens on a siubhal because the page prints its first "
+          "movement with NO heading at all",
+          found == 0, found)
+
+    # THE PLANTED DEFECT. A song whose siubhal varies an urlar it never has.
+    tmp = tempfile.mkdtemp(prefix="grid_elab_")
+    path = os.path.join(tmp, "eng_planted_elab.txt")
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("# lang: eng\n\n--- TITLE: NO GROUND\n"
+                "[SIUBHAL]\n[VERSE 1]\nAway with all but Morag,\n")
+    song = _G.read_marked_songs(path)[0]
+    fs, c = _G.elaboration_findings(song)
+    check("a siubhal with no urlar anywhere in the song IS reported",
+          len(fs) == 1 and fs[0].code == "ELABORATION_UNGROUNDED",
+          [(x.code, x.message) for x in fs])
+    # SEVERITY IS THE CONSUMER'S, and asserting it here would be asserting a
+    # field this object does not have. The first draft of this check read
+    # `fs[0].severity == "note"`; `GridFinding` is `code`/`message`/
+    # `evidence`, so it raised rather than passing — which is the good
+    # outcome, and the pin is on what the object DOES carry.
+    check("it carries a message and evidence, so a reader is told what the "
+          "claim was and why it is false — an empty evidence string under a "
+          "finding is a verdict with no reason",
+          fs and fs[0].message and fs[0].evidence,
+          fs and (fs[0].message, fs[0].evidence[:40]))
+    check("the counts say ungrounded 1 and nothing else",
+          c == {"grounded_before": 0, "grounded_after": 0, "ungrounded": 1}, c)
+
+    # THE CONTROL: add the ground and the finding goes away.
+    with open(path, "w", encoding="utf-8") as f:
+        f.write("# lang: eng\n\n--- TITLE: WITH GROUND\n"
+                "[URLAR]\n[VERSE 1]\nWe would strike the note of joy,\n"
+                "[SIUBHAL]\n[VERSE 2]\nAway with all but Morag,\n")
+    fs2, c2 = _G.elaboration_findings(_G.read_marked_songs(path)[0])
+    check("with the urlar present the finding is gone and the count moves to "
+          "grounded_before",
+          not fs2 and c2["grounded_before"] == 1, (fs2, c2))
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -2284,7 +2365,8 @@ if __name__ == "__main__":
                test_two_refusals_that_nothing_had_ever_asserted_can_fire,
                test_function_aliases_are_claims_on_their_own_rows,
                test_the_named_air_is_a_coordinate_not_a_substring,
-               test_the_printed_indent_survives_ingestion):
+               test_the_printed_indent_survives_ingestion,
+               test_the_elaboration_pointer_and_the_rank_that_was_refused):
         fn()
     print("=" * 62)
     if FAILURES:

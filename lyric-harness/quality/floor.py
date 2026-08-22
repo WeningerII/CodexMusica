@@ -637,8 +637,33 @@ PROFILES = [
         #: ADOPTED 2026-08-21 over the loaded corpus, as a SET. The three
         #: that moved are struck beside their replacements; the two that did
         #: not are the reason the set could be adopted at all -- see `source=`.
+        #:
+        #: REPINNED 2026-08-22, `mattr_min` ONLY: 0.7128 -> 0.7118, and the
+        #: cause is a READER FIX rather than a load. `features.py._tokens`
+        #: matched `[A-Za-z'\-]+` until 2026-08-21, so Barnes's `A-baggèn`
+        #: was TWO tokens and `jaÿ` was one letter short -- MATTR is a
+        #: type-token ratio and it was being computed over a text nobody
+        #: printed. `lyric_harness.LATIN_SCRIPT` is the declared repertoire
+        #: now; the eng token total falls 1,873,325 -> 1,865,465 (-0.420%) as
+        #: fragments merge back into the words they came from, and the 5th
+        #: percentile of the band moves with it.
+        #:
+        #: THE OTHER FOUR ARE UNMOVED, which is what makes this a repin of one
+        #: coordinate rather than a re-adoption of the set: `fwr` 0.4773,
+        #: `anaphora` 0.3000, `cv` 0.1094 and `predictable_pair` 0.9286 all
+        #: re-derive exactly. MATTR is the only one of the five that counts
+        #: TYPES, so it is the only one a tokenisation change can move.
+        #:
+        #: AND NO TEST SAW IT. `test_floor.py` pins the CONSTANT and passed;
+        #: `test_discriminate.py` passed; the held-out AUCs are unmoved. It
+        #: was found by `quality/pin_sweep.py` -- `MISSING.md` M-21's answer,
+        #: built the same day -- on its first full run, through
+        #: `expected_drift.py`, whose own words are "Either argue and declare
+        #: it here, or repin the constant." This is the repin: the corrected
+        #: reader gives the true MATTR of this corpus, so the constant moves
+        #: rather than the drift being ruled.
         percentiles={
-            "mattr_min": 0.7128,                # human 5th  (~~0.7226~~)
+            "mattr_min": 0.7118,                # human 5th  (~~0.7226~~ ~~0.7128~~)
             "function_word_ratio_max": 0.4773,  # human 95th (~~0.4716~~)
             "anaphora_max": 0.3000,             # human 95th (unmoved)
             "line_length_cv_min": 0.1094,       # human 5th  (~~0.1123~~)
