@@ -2115,7 +2115,12 @@ PINNED = {
     #    earlier. The claim was true when measured and false when made --
     #    which is this instrument's whole subject, committed against itself.
     #    Recorded rather than quietly folded into the count.
-    "coverage_entries": 94,
+    #    REPINNED 2026-08-22, 94 -> 95: `M-37` (26 relation names mean two
+    #    different things, and the two judges disagree), found on the first
+    #    move of step 3 by asking whether the names were already taken. This
+    #    repin was taken AFTER the entry was filed rather than before -- the
+    #    ordering the note above records getting wrong.
+    "coverage_entries": 95,
     "coverage_audited": 19,
 }
 

@@ -1698,6 +1698,24 @@ def resolve_relation(name):
 #: rather than a default, because a checker silently picking a coordinate is
 #: the bug (doctrine 45) -- and 'end' is exactly the value that would be wrong
 #: for the internal, head, leonine, cross and holorhyme relations.
+def _realisations_of(canon):
+    """-> the realisation axis values at which this name is reachable."""
+    return tuple(sorted({k[6] for k, names in NAMED.items()
+                         if canon in names}))
+
+
+def _reachable_phonetically(canon):
+    """Can `classify_pair` on a phonemic stream ever produce this name?
+
+    A coarse CLASS always can -- it is read off the score, not the cells.
+    A named cell can only if some key carrying it sits at realisation
+    'phonetic'.
+    """
+    if canon in CLASS_RELATIONS:
+        return True
+    return "phonetic" in _realisations_of(canon)
+
+
 def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
                        position=None):
     """Does this pair stand in the declared relation?
@@ -1721,6 +1739,25 @@ def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
             f"{canon!r} is a NAMED type and needs a phonology to classify "
             f"the pair; only the coarse classes {list(CLASS_RELATIONS)} can "
             f"be judged from the score alone.")
+    # A NAME ONLY REACHABLE AT A NON-PHONETIC REALISATION CANNOT BE JUDGED
+    # HERE, AND ANSWERING `False` FOR IT WAS A DEFECT IN THIS FUNCTION.
+    # MEASURED 2026-08-22, after `relations.py`'s schema of the same name
+    # REFUSED on all 12 test pairs while this returned a flat False on all
+    # 12: the `realisation` axis is ('phonetic', 'eye', 'historical') and
+    # `classify_pair` reads a PHONEMIC stream, so it can only ever produce
+    # 'phonetic'. The two `eye`/`historical` cells are therefore unreachable
+    # by construction and a `False` about them says "I never looked" in the
+    # words of "I looked and it is not so" -- doctrine 20, in code shipped
+    # this same day. The remedy is a REFUSAL naming the surface.
+    if not _reachable_phonetically(canon):
+        raise RelationRefused(
+            f"{canon!r} is only reachable at a NON-PHONETIC realisation "
+            f"({', '.join(_realisations_of(canon))}), and `classify_pair` "
+            f"reads a phonemic stream. Judging it needs that surface "
+            f"declared -- `relations.declare_orthography` for the eye, a "
+            f"sourced earlier-period phonology for the historical. REFUSED "
+            f"rather than answered False: this function cannot see the "
+            f"channel the relation is defined on (doctrine 20/79).")
     if position is None:
         raise RelationRefused(
             f"{canon!r} is a NAMED type and the caller must declare the "

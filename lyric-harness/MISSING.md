@@ -3956,6 +3956,83 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-37 · 26 relation names mean two different things, and the two judges disagree `OPEN`
+**Found 2026-08-22 on the first move of step 3 — "route the pair-shaped
+schemas through the new mandate; this is wiring" — by asking, before wiring
+anything, whether the names were already taken.**
+
+They were. `quality/relations.REGISTRY` declares 77 schema names;
+`quality/rhyme_types.relation_vocabulary()` declares 80. **26 names are in
+both**, and 12 of those 26 are pair-shaped, i.e. exactly the ones step 3
+would route:
+
+> additive rhyme · apocopated rhyme · assonance · consonance · eye rhyme ·
+> historical rhyme · pararhyme · rime riche · semirhyme · subtractive rhyme ·
+> syllabic rhyme · wrenched rhyme
+
+**MEASURED**, 12 colliding pair-shaped names × 12 real English pairs = 144
+cells, each judged twice — once by `satisfies_relation` (a per-pair predicate
+over `classify_pair`) and once by `realise()` on a two-line stream carrying
+the pair as end words (verified to match the end words and not the shared
+`the`):
+
+| | cells |
+|---|---:|
+| both answer, and AGREE | **96** |
+| both REFUSE (honest agreement) | **24** |
+| both answer and **DISAGREE** | **6** |
+| one answers, the other REFUSES | **18** |
+
+The six that disagree, in both directions:
+
+| name | pair | `rhyme_types` | schema |
+|---|---|---|---|
+| consonance | river/forever | False | **True** |
+| subtractive rhyme | skies/arise | **True** | False |
+| subtractive rhyme | day/away | **True** | False |
+| syllabic rhyme | mother/brother | False | **True** |
+| syllabic rhyme | river/forever | False | **True** |
+| syllabic rhyme | water/daughter | False | **True** |
+
+`syllabic rhyme` is the clearest: the cell means the FINAL UNSTRESSED
+syllable agrees *and the stressed one does not* — mother/brother is a
+feminine rhyme, so the cell says no. The schema fires on the final
+unstressed syllable alone and says yes. One name, two questions, and the
+answer flips on a pair any writer would use.
+
+And 12 of the 18 one-sided refusals are `wrenched rhyme`, where the
+divergence is not a bug in either: `rhyme_types` asks a phonemic
+forced-stress question; the schema asks a page-versus-performance question
+and refuses without the `delivered` surface. **Two genuinely different
+questions wearing one name.**
+
+**SO STEP 3 IS NOT WIRING.** Adding the pair-shaped schema names to the
+mandate vocabulary would make 12 declarations ambiguous — `relations={'A':
+'syllabic rhyme'}` would mean one thing or the other depending on which
+resolver ran first, which is the branch-order dependency `mandate()` already
+refuses for structure-plus-relation. The reconciliation comes first.
+**Missing:** a ruling on what a colliding name MEANS, and a mechanism that
+makes it one thing. Three shapes exist and this entry takes none of them:
+namespace the two vocabularies so a declaration says which it means; make
+the schema the authority and retire the cell where they collide; or refuse
+the 26 collisions outright until each is adjudicated one at a time.
+**Why it matters:** every collision is a name a writer would reach for
+first. These are not exotic — `assonance`, `consonance`, `pararhyme`,
+`internal rhyme`, `eye rhyme`.
+
+**AND THE MEASUREMENT FOUND A DEFECT IN CODE SHIPPED THE SAME MORNING,
+already fixed.** Before the fix the split read 42 one-sided refusals, and 24
+of them were `eye rhyme` and `historical rhyme`: the schema refused on all 12
+pairs each while `satisfies_relation` answered a flat **False** on all 12.
+The `realisation` axis is `('phonetic', 'eye', 'historical')` and only 2 of
+the 49 `NAMED` keys sit off `phonetic`, so `classify_pair` — which reads a
+PHONEMIC stream — can never produce them. A `False` there said "I never
+looked" in the words of "I looked and it is not so", which is doctrine 20 in
+a function written that morning to enforce doctrine 20. It now REFUSES and
+names the surface it would need. Pinned in `test_mandate_relation.py` §5,
+both directions: the three names refuse, and the 47 phonetic keys still
+answer.
+
 ### M-36 · 17 of the 77 relations can never be nulled, and the reasons are twelve declared capabilities `BLOCKED`
 **Filed 2026-08-22 as step 7 of the owner's relation ladder: declare what
 cannot be done, with the constraint named, rather than leaving it looking

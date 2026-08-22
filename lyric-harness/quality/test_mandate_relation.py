@@ -218,6 +218,30 @@ def test_position_is_declared():
     except RT.RelationRefused as e:
         check("an undeclared position value REFUSES against the declared "
               "vocabulary", "not in the declared vocabulary" in str(e))
+    # FOUND 2026-08-22 by comparing this judge against `relations.py`'s
+    # schema of the same name: the schema REFUSED on all 12 test pairs while
+    # this answered a flat False on all 12.
+    check("the realisation axis is exactly ('phonetic','eye','historical') "
+          "and only TWO of the 49 keys sit off 'phonetic'",
+          RT.REALISATION == ("phonetic", "eye", "historical")
+          and sum(1 for k in RT.NAMED if k[6] != "phonetic") == 2,
+          RT.REALISATION)
+    for nm in ("eye rhyme", "sight rhyme", "historical rhyme"):
+        try:
+            RT.satisfies_relation(nm, "RHYME", "night", "light", _phon(),
+                                  position="end")
+            check("%s REFUSES rather than answering False" % nm, False,
+                  "it answered")
+        except RT.RelationRefused as e:
+            check("%s is only reachable at a non-phonetic realisation, so it "
+                  "REFUSES rather than answering False — `classify_pair` "
+                  "reads a phonemic stream and cannot see the channel the "
+                  "relation is defined on (doctrine 20/79)" % nm,
+                  "NON-PHONETIC" in str(e))
+    check("...and the rule does NOT swallow the 47 phonetic keys: a "
+          "masculine rhyme still answers, and answers True",
+          RT.satisfies_relation("masculine rhyme", "RHYME", "night", "light",
+                                _phon(), position="end") is True)
 
 
 if __name__ == "__main__":
