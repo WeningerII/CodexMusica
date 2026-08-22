@@ -4470,14 +4470,24 @@ instances — one leash per stanza** instead of 6 across the lot.
    so will their nulls, since both are drawn through the same frame — so
    `RESULTS_RELATIONS_NULL.md` §A.1's `monorhyme / leash` row is now a number
    whose frame is superseded, and it is struck there rather than quoted.
-2. **`sections=` is still supplied by nobody.** `stanza_ground` supplies the
-   STANZA; `Unit.section` and the two placement predicates remain unreached,
-   and no schema declares either kind (step 8 territory, a new schema). The
-   CLI grounds on BLANK LINES only — `is_apparatus_line` has already dropped
-   the `[VERSE n]` rows by the time `build_stream` is called, so a lyric that
-   marks its sections and prints no blank line still refuses there. The panel
-   reads both because its readers see the marks; the CLI does not, and that
-   asymmetry is real and is not yet closed.
+2. ~~**`sections=` is still supplied by nobody.**~~ **CLOSED 2026-08-22.**
+   `lyric_harness.relation_ground(text_lines, language)` keeps the two
+   apparatus kinds that CARRY A COORDINATE — the `[MARK]` row and the `---`
+   row — gives each a line status, and drops the rest; the `relations` verb
+   passes `sections=`, `stanzas=`, `stanza_source=`, `line_status=` and
+   `exclude_status=`, and discloses both grounds on every run. **`Unit.section`
+   is populated in production for the first time.** Measured on
+   `corpus/song/eng_american_a_g_knight.txt`: source `blank_lines` →
+   `printed_breaks`, `supply('stanza')` n=1 → **n=8**, distinct `Unit.section`
+   1 → **8**, and the two dead predicates flip from True/False to
+   **False/True**. Unit counts are untouched (256 before and after) — the kept
+   rows contribute no words and are recorded in `excluded_lines`. A sweep of
+   40 random `eng_*` corpus files found **zero refused-class crossings**: every
+   file moves `blank_lines` → `printed_breaks`, only `found` moves, and
+   `refused` is identical on all forty.
+
+   *Still open under this number:* no schema declares `same_section` or
+   `different_sections` — that is step 8, a new schema, not this.
 3. **THE REFUSAL WAS BYPASSABLE FOR SEVEN HOURS, AND THE HOLE WAS IN THE
    READER.** `_stream_of` hands `build_stream` a JOIN OF TOKENS and calls it
    `text_lines`; `stanzas_from_blank_lines` reads a blank line as the
@@ -4529,6 +4539,29 @@ that an undeclared text supplies NO ground and that a stanza-framed schema
 refuses on it; `quality/test_relations_null.py` §9 pins the nine slices'
 grounds by name. None of the three names the unreached half, and the entry
 closes when the five null rows are re-run and `sections=` has a caller.
+
+**TWO CONSEQUENCES THAT ARE A VOCABULARY RULING, NOT A FIX.** Supplying the
+ground means `MARK_OPENS_GROUP` now decides real texts, and it refuses whole
+where a mark is undeclared. Two live cases, neither papered over:
+
+* **This repo's own example lyric refuses.** `quality/fixtures/song.txt`
+  prints `[pre]`, `[bridge]`, `[outro]`; the table declares none of them, so
+  its stanza ground is refused whole and the verb reports 23 found / 31
+  refused where it reported ~~25/26~~. `bridge` and `outro` ARE declared
+  `SECTION_FUNCTIONS` in `grid.py`, and the table already carries the
+  precedent `"PATTER": True — "a music-hall function" — a function is a span`.
+  Adding three rows would clear it. **They were deliberately not added**: `PRE`
+  is not even a declared spelling of `prechorus`, and every existing row
+  quotes a decision already written in the file. Adding rows to make a fixture
+  pass is the move this table exists to prevent.
+* **`corpus/song/fin_kanteletar.txt` refuses.** Its 2,405 marks include
+  `[PART …]`, which `MARK_OPENS_GROUP` omits on purpose — its `MARK_REFUSED`
+  reason settles that it is not a FUNCTION and says nothing about whether a
+  change of speaker begins a metrical group. So the ground goes whole where
+  blank lines would have supplied 2,326 groups. **That is now the same answer
+  the null panel already gives for `fin`**, which is exactly the asymmetry
+  this piece was opened to close — the two readers finally agree — but it is a
+  large behavioural consequence and it is the owner's to accept or overturn.
 
 **Why it matters:** `verse` and `chorus` are not decoration here. They are the
 frame five relation schemas quantify over, and until this entry the frame was
