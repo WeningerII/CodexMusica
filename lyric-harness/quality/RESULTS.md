@@ -36,7 +36,29 @@ wrong sign below is a failed prediction and is reported as one.
 | pre-registered hits | 2/10 | 4/10 |
 | wrong-sign features | 0 | 5 |
 | **joint held-out AUC** — pre-fix, 2026-08-09, **SUPERSEDED** twice | **0.709** | **0.971** |
-| **joint held-out AUC** — cold, current, measured 2026-08-13 | **0.717** | **0.964** |
+| **joint held-out AUC** — cold, current, measured 2026-08-22 | **0.723** | **0.960** |
+| ~~joint held-out AUC — cold, measured 2026-08-13~~ | ~~0.717~~ | ~~0.964~~ |
+
+**REPINNED 2026-08-22 — `MISSING.md` M-31.** `features.py` carried
+`MAX_RANK = 20000`, the size of `wordfreq20k.txt`, after the frequency source
+was swapped to a 50k list. A sentinel that is not past the end of the list is
+not a sentinel: an out-of-vocabulary word scored 20,000 came back commoner
+than 60% of English, so feature 10 — the RARITY of the content vocabulary —
+ran backwards on exactly the words a lyric reaches for. Cold re-run, 892s, no
+cache.
+
+**ONLY THE FREQUENCY FEATURE AND THE JOINTS CONTAINING IT MOVED**, which is
+the control on this repin: all four predictability-only joints and every other
+per-feature AUC in all four arms came back inside tolerance (5e-4). Had
+anything else drifted, the fix would have touched more than it should.
+
+**THE TWO LARGE FALLS ARE A DOWNGRADE AND ARE RECORDED AS ONE.**
+`content_word_freq_mean` on human-vs-generated falls ~~0.807~~ **0.707**, and
+`wi_freq_delta` falls ~~0.639~~ **0.544** — barely above chance. Under the
+stale sentinel this feature was partly measuring whether a text contains words
+outside a 20,000-word list — an out-of-vocabulary RATE, which tracks the label
+— rather than the rarity it names. Removing that removes real discriminative
+power, and the power was spurious. Nothing was tuned to recover it.
 
 **Detecting bad writing works. Ranking good writing barely does.** That gap —
 0.971 against 0.709 on the pre-fix reading, **0.964 against 0.717 cold** — is
@@ -53,7 +75,8 @@ has to make.
 >
 > The sentence's own subject is the Exp 2 − Exp 1 gap across the two readings
 > it names, and that arithmetic does not produce 0.062 under any pairing:
-> pre-fix 0.971 − 0.709 = 0.262, cold 0.964 − 0.717 = 0.247, narrowing
+> pre-fix 0.971 − 0.709 = 0.262, cold 0.964 − 0.717 = 0.247, and with the
+> M-31 sentinel corrected 0.960 − 0.723 = 0.237, narrowing
 > **0.015** (0.0143 with the cold pair taken at the precision
 > `test_discriminate.py` pins and the pre-fix pair at the three decimals that
 > are the only reading the record has for it). Bringing in

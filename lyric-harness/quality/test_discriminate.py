@@ -270,11 +270,55 @@ def close(name, got, want, note=""):
 # measurement to meet them.
 # ---------------------------------------------------------------------------
 
+#: REPINNED 2026-08-22 — EIGHT FIGURES, AND THE PATTERN IS THE CONTROL.
+#: `MISSING.md` M-31: `features.py`'s `MAX_RANK = 20000` was the size of
+#: `wordfreq20k.txt`, the frequency list this project read until the source
+#: was swapped, and the constant stayed behind. Against a live list of 49,999
+#: ranked to 49,998 an out-of-vocabulary word scored 20,000 came back COMMONER
+#: than 60% of English, so feature 10 (RARITY of the content vocabulary) ran
+#: backwards. The sentinel is derived from the list now.
+#:
+#: WHAT MOVED IS EXACTLY WHAT THE FIX TOUCHES AND NOTHING ELSE, which is the
+#: check that this repin is a correction and not a drift:
+#:
+#:   abs_exp1  joint_all              ~~0.716809~~ 0.723077   +6.27e-03
+#:   abs_exp1  content_word_freq_mean ~~0.517949~~ 0.523077   +5.13e-03
+#:   abs_exp2  joint_all              ~~0.964474~~ 0.959704   -4.77e-03
+#:   abs_exp2  content_word_freq_mean ~~0.806579~~ 0.706743   -9.98e-02
+#:   wi_exp1   joint_all              ~~0.637607~~ 0.621083   -1.65e-02
+#:   wi_exp1   wi_freq_delta          ~~0.638746~~ 0.544160   -9.46e-02
+#:   wi_exp2   joint_all              ~~0.890954~~ 0.896053   +5.10e-03
+#:   wi_exp2   wi_freq_delta          ~~0.600000~~ 0.633717   +3.37e-02
+#:
+#: The four `joint_solo` (predictability-only) figures are UNCHANGED and
+#: passed — they do not read the frequency feature. So did every other
+#: per-feature AUC in all four arms. Only the frequency feature and the joints
+#: that contain it moved; had anything else drifted, the fix would have
+#: touched more than it should.
+#:
+#: THE HONEST READING OF THE TWO BIG FALLS. `content_word_freq_mean` on
+#: human-vs-generated drops 0.807 -> 0.707 and `wi_freq_delta` drops 0.639 ->
+#: 0.544, which is barely above chance. Under the stale sentinel this feature
+#: was partly measuring WHETHER A TEXT CONTAINS WORDS OUTSIDE A 20,000-WORD
+#: LIST — an out-of-vocabulary RATE, which tracks the label — rather than the
+#: rarity it names. Removing that removes real discriminative power, and the
+#: power was spurious. This is a DOWNGRADE recorded as a downgrade
+#: (doctrine 17), not a number tuned to look better.
+#:
+#: DOCTRINE 7 IS UNAFFECTED AND ITS OWN TEXT SAYS WHY. The headline pair moves
+#: 0.717/0.964 -> 0.723/0.960 and the gap rejection-minus-selection goes
+#: ~~0.247~~ 0.237. Rejection still beats selection by nearly a quarter of an
+#: AUC, and that doctrine "never rested on the third decimal".
+#:
+#: Cold run, 892s, no cache (the key changed with `RESOURCE_FILES`, so every
+#: feature was recomputed). Every value here is an exact concordant-pair
+#: fraction: 1269/1755, 918/1755, 5835/6080, 4297/6080, 1090/1755, 955/1755,
+#: 5448/6080, 3853/6080.
 PINNED = {
     "abs_exp1": {
         "label": "ABSOLUTE (original ten) / Exp 1  survived vs forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 10,
-        "joint_all": 0.7168091168091167, "joint_solo": 0.70997150997151,
+        "joint_all": 0.7230769230769231, "joint_solo": 0.70997150997151,
         "features": {
             "rhyme_predictability_mean": 0.26153846153846155,
             "rhyme_predictability_min": 0.35014245014245016,
@@ -292,13 +336,13 @@ PINNED = {
             "mattr": 0.3658119658119658,
             "function_word_ratio": 0.5358974358974359,
             "syntactic_inversion_rate": 0.582905982905983,
-            "content_word_freq_mean": 0.517948717948718,
+            "content_word_freq_mean": 0.5230769230769231,
         },
     },
     "abs_exp2": {
         "label": "ABSOLUTE (original ten) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 10,
-        "joint_all": 0.9644736842105264, "joint_solo": 0.6476973684210526,
+        "joint_all": 0.959703947368421, "joint_solo": 0.6476973684210526,
         "features": {
             "rhyme_predictability_mean": 0.33963815789473684,
             "rhyme_predictability_min": 0.3355263157894737,
@@ -322,19 +366,19 @@ PINNED = {
             "mattr": 0.8695723684210527,
             "function_word_ratio": 0.13519736842105262,
             "syntactic_inversion_rate": 0.8330592105263158,
-            "content_word_freq_mean": 0.8065789473684211,
+            "content_word_freq_mean": 0.7067434210526315,
         },
     },
     "wi_exp1": {
         "label": "WITHIN-ITEM (respecified eight) / Exp 1  survived vs "
                  "forgotten",
         "n_pos": 15, "n_neg": 117, "n_features": 8,
-        "joint_all": 0.6376068376068376, "joint_solo": 0.7185185185185186,
+        "joint_all": 0.6210826210826211, "joint_solo": 0.7185185185185186,
         "features": {
             "wi_predictability_advantage": 0.26153846153846155,
             "wi_concreteness_delta": 0.5094017094017094,
             "wi_abstract_delta": 0.5817663817663817,
-            "wi_freq_delta": 0.6387464387464388,
+            "wi_freq_delta": 0.5441595441595442,
             "wi_function_delta": 0.39373219373219376,
             "wi_binding_excess": 0.5333333333333333,
             "wi_type_ratio": 0.656980056980057,
@@ -344,12 +388,12 @@ PINNED = {
     "wi_exp2": {
         "label": "WITHIN-ITEM (respecified eight) / Exp 2  human vs generated",
         "n_pos": 152, "n_neg": 40, "n_features": 8,
-        "joint_all": 0.890953947368421, "joint_solo": 0.6523026315789475,
+        "joint_all": 0.8960526315789473, "joint_solo": 0.6523026315789475,
         "features": {
             "wi_predictability_advantage": 0.33963815789473684,
             "wi_concreteness_delta": 0.3817434210526316,
             "wi_abstract_delta": 0.43133223684210525,
-            "wi_freq_delta": 0.6,
+            "wi_freq_delta": 0.6337171052631579,
             "wi_function_delta": 0.6799342105263158,
             "wi_binding_excess": 0.5796052631578947,
             "wi_type_ratio": 0.103125,

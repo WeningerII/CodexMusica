@@ -501,8 +501,11 @@ def test_predictability_is_demoted():
           "REPINNED 2026-08-14: 0.560 was a warm reading and 'which is "
           "chance' was arithmetic on it. This pin required 0.560 until then, "
           "so the string and the test moved together or not at all")
+    # REPINNED 2026-08-22 with the ten-feature joint: 0.964 -> 0.960
+    # (`MISSING.md` M-31). The pin and the string move together or not at
+    # all, which is the same discipline the 0.560 check two above records.
     check("it names what the number is a coordinate of",
-          all("0.964" in f.evidence for f in fs) and bool(fs),
+          all("0.960" in f.evidence for f in fs) and bool(fs),
           "doctrine 58: 0.648 is only readable against the ten-feature "
           "joint on the SAME human-vs-generated split")
 

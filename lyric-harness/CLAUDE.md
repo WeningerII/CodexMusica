@@ -1838,14 +1838,24 @@ from the first run — do not drift from these either:**, merged into one run.)
    exchange rate between surprise and clarity is not derivable; it is a
    genre's answer, so it belongs in a declaration, not in a constant.
 
-7. **Rejection, not selection.** Detecting bad writing held-out at AUC **0.964**;
-   ranking good writing at **0.717**. Enforce a floor, do not order the permitted
-   region. REPINNED 2026-08-14 from ~~0.971~~ / ~~0.709~~, which were the
+7. **Rejection, not selection.** Detecting bad writing held-out at AUC **0.960**;
+   ranking good writing at **0.723**. Enforce a floor, do not order the permitted
+   region. REPINNED 2026-08-22 from ~~0.964~~ / ~~0.717~~ — `MISSING.md` M-31,
+   a stale out-of-vocabulary sentinel left behind by the frequency-source swap,
+   which had feature 10 scoring an unknown word as commoner than 60% of
+   English. The gap goes ~~0.247~~ **0.237** and the argument is untouched.
+   The two per-feature falls are larger and are recorded as a DOWNGRADE, not
+   softened: `content_word_freq_mean` on human-vs-generated ~~0.807~~ 0.707 and
+   `wi_freq_delta` ~~0.639~~ 0.544, because under the stale sentinel that
+   feature was partly measuring an out-of-vocabulary RATE, which tracks the
+   label, rather than the rarity it names. Also REPINNED 2026-08-14 from
+   ~~0.971~~ / ~~0.709~~, which were the
    PRE-OOV-FIX reading of 2026-08-09 and have been superseded TWICE: pre-fix
-   0.709/0.971, warm post-fix 0.659/0.975, COLD 0.717/0.964. The cold pair is
-   `quality/test_discriminate.py`'s `abs_exp1`/`abs_exp2` joint AUCs, 69/69
-   green on two independent full cold runs. **The argument is unchanged and the
-   gap is what carries it** — 0.247 cold against 0.262 pre-fix, so rejection
+   0.709/0.971, warm post-fix 0.659/0.975, cold 0.717/0.964, and cold with the
+   sentinel corrected 0.723/0.960. The pair is
+   `quality/test_discriminate.py`'s `abs_exp1`/`abs_exp2` joint AUCs. **The
+   argument is unchanged and the gap is what carries it** — 0.237 today, 0.247
+   before the sentinel fix, 0.262 pre-fix, so rejection
    still beats selection by a quarter of an AUC and this doctrine never rested
    on the third decimal.
 
