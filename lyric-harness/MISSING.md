@@ -3975,14 +3975,48 @@ is **MORE COMMON** words, and the gloss says **rarer**.
 following the word and not the parenthetical, and the AUC is computed with
 that direction applied.
 
-**SO THE FEATURE'S RECORDED RESULT IS EITHER A SUCCESS OR A FAILED PREDICTION,
-AND WHICH ONE DEPENDS ON WHICH HALF OF ONE TABLE CELL IS THE COMMITMENT.** Its
-strongest arm is human-vs-generated at **0.707** (repinned 2026-08-22, M-31).
-Under the coded direction that is a success. Under the glossed one it is the
-predicted sign inverted — which the preregistration says counts as a FAILED
-prediction — and it has been carried as a success for as long as the feature
-set has existed. Doctrine 1: one coordinate, two readings, and here the two
-readings disagree about the verdict rather than about a number.
+**~~SO THE FEATURE'S RECORDED RESULT IS EITHER A SUCCESS OR A FAILED
+PREDICTION ... and it has been carried as a success for as long as the feature
+set has existed.~~ STRUCK WITHIN THE HOUR, AND THE CORRECTION INVERTS IT.**
+That paragraph rested on my claim that *"the AUC is computed with that
+direction applied"*, and it is FALSE. `discriminate.py:489` computes the AUC
+RAW and uses `DIRECTION` only to judge the sign afterwards —
+`observed = "higher" if auc > 0.5 else "lower"`, then
+`observed == predicted` — and a significant result whose sign disagrees is
+printed **`WRONG SIGN`**. So the instrument has detected this all along, and
+`quality/RESULTS.md` has carried the verdict since the original run:
+
+> ` xcontent_word_freq_mean            0.887   0.0000      lower  WRONG SIGN`
+
+**THE DEFECT IS THE MIRROR IMAGE OF WHAT THIS ENTRY FIRST CLAIMED.** Nothing
+was carried as a success. Feature 10 has been recorded as a FAILED PREDICTION
+for the life of the project — and the class means say the data follows the
+GLOSS, not the coded direction. MEASURED 2026-08-22 through the shipped
+`discriminate.compute` path, not fresh code:
+
+| arm | class | n | mean rank | median |
+|---|---|---:|---:|---:|
+| Exp 2 | HUMAN | 152 | **6525.3** | 6338.0 |
+| Exp 2 | GENERATED | 40 | **5121.6** | 5278.1 |
+| Exp 1 | SURVIVED | 15 | **6625.0** | 6489.2 |
+| Exp 1 | FORGOTTEN | 117 | **6388.3** | 6175.8 |
+
+Human verse uses **RARER** content words than generated, and survived uses
+rarer than forgotten — both in the direction the parenthetical *"(rarer
+words)"* predicted, and both against the coded `lower`.
+
+**SO THE LIVE QUESTION IS WHETHER A HIT HAS BEEN RECORDED AS A FAILURE.** If
+the commitment was `LOWER`, feature 10 is a failed prediction, exactly as
+recorded. If the commitment was `(rarer words)` — the half the data matches —
+then feature 10 is a **HIT that has been printed as `WRONG SIGN` on every run
+this project has ever made**, and the count of features clearing FDR with the
+predicted sign is wrong by one. That count is not decorative: the
+preregistration's own falsifier is *"If **zero** features clear FDR with the
+predicted sign in Experiment 1, the survival-oracle thesis has failed its
+cheapest available test."*
+
+Doctrine 1 still: one coordinate, two readings, disagreeing about the verdict
+rather than about a number. What changed is which way the error runs.
 
 **EXPERIMENT 1 CANNOT ARBITRATE IT, BY THE DOCUMENT'S OWN DECLARATION.** The
 analysis plan states, before any result and expressly so it could not be
@@ -4007,12 +4041,21 @@ design.
 
 **WHAT IS OWED, and it is a reading of intent rather than a measurement:**
 decide which half of the cell was the commitment, strike the other in place
-(doctrine 17), and state whether feature 10's recorded separations are
-successes or failed predictions under that reading. The class means — does
-human verse actually use commoner or rarer content words than generated verse
-— tell you which way the DATA runs, and that is necessary but not sufficient:
-the preregistration's question is what was PREDICTED, and the data cannot
-answer that.
+(doctrine 17), and re-state feature 10's verdict under that reading. The class
+means above say which way the DATA runs and that is necessary but not
+sufficient — the preregistration's question is what was PREDICTED, and no
+measurement can answer that. **The data agreeing with the gloss is exactly
+what makes this urgent rather than academic:** the cheap resolution ("the
+coded direction is the commitment, the gloss was loose prose") is the one that
+keeps a possible HIT recorded as a failure, so it is the reading that must be
+argued for rather than defaulted to.
+
+**AND IT IS NOT ONLY FEATURE 10.** Experiment 2 records FOUR `WRONG SIGN`
+verdicts — `concreteness_mean`, `concreteness_p90`, `abstract_noun_ratio`,
+`syntactic_inversion_rate` — beside this one. This entry makes no claim about
+those: their preregistration cells carry no contradicting gloss, so their
+signs are simply failed predictions and are correctly recorded. What feature
+10 has that they do not is a cell that says both things at once.
 
 **NOT CLOSED BY THE M-31 REPIN.** M-31 corrected the stale out-of-vocabulary
 sentinel and moved this feature's numbers; it did not touch what the numbers
