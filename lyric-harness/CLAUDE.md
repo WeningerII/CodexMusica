@@ -298,6 +298,51 @@ reading an omitted argument as a statement.
 `quality/test_mandate_relation.py` §6 (9 checks, three mutations killing 8 / 3
 / 5) and §7 (10 checks, the re-open mutation killing 5).
 
+**THE WRITER CAN NOW SAY WHAT THEY WANT, AND IT REACHES THE CONNECTOR
+(2026-08-22, `MISSING.md` M-55).** M-54 gave the vocabulary its definitional
+constraints and `FormConvention` has always held the statistical ones. The
+layer BETWEEN them did not exist: *"I want a chorus and a postchorus, and
+because of that a prechorus would mess that up"* is neither definitional nor
+conventional — it is a DECLARATION about THIS song, and there was no way to
+spell it. `make_plan` took a seed, a form and a line count; the roster came
+from `GENERATOR_ROSTER` and nothing else.
+**`--relation=NAME` AND `--functions=a,b,c`, AND NEITHER IS SAMPLED.** The
+planner does not pick a relation: putting `type:pararhyme` on a group nobody
+asked for is the "move 37" ban pointed at rhyme instead of at shape. It
+CARRIES what was declared — into `plan["relation"]`, into the `GRADE IT` line
+`grading_command` prints, and into the report as its own disclosure, because
+a plan that dropped the coordinate would otherwise look exactly like one that
+never had it.
+**THE ROSTER IS AN ALLOW-LIST CHECKED AGAINST M-54's `requires` BEFORE ANY
+SHAPE IS DRAWN**, which is what makes the two entries one mechanism rather
+than two tables: `plan --functions=prechorus,verse` REFUSES, quoting the
+gloss — *"'prechorus' REQUIRES ['chorus'] by definition ('lifts from verse
+into chorus'). A section that cannot stand in the relation its own name
+states is not a novel structure, it is a mislabelled one."* Three more
+refusals at plan time: an undeclared relation, a BARE name living in two
+namespaces (M-37), and a function the vocabulary declares that this GENERATOR
+cannot build (`refrain`, whose own gloss says it is not a standalone section
+— M-56 surfacing as a buildability problem). Enforced by REJECTION, so the
+draw stays uniform over the admissible set.
+**A ROSTER PERMITS, IT DOES NOT COMPEL** — `functions_unused` names every
+requested function this seed's draw did not reach, because silence would let
+a writer believe they got a section they did not (doctrine 20).
+**AND THE CONNECTOR SHIPPED IN THE SAME COMMIT.** That is the half that
+matters: `--structures` has been accepted by the CLI since 2026-08-18 and
+reachable from `mcp/lyric_tools.js` by NOTHING, which is this file's own
+most-repeated defect sitting at the outermost layer. `lyric_plan` and
+`lyric_grade` gain `relation` and `functions`; `planArgs` passes them; the
+grade picks `plan.relation` off the ARTIFACT exactly as it already does
+`plan.groups` and `plan.returns`, because the plan is the one object that
+records what was asked for and grading against anything else would be a
+second statement of the mandate (doctrine 1). `lyric_check` takes `relation`
+DIRECTLY, since it builds its own mandate rather than reading a plan — same
+coordinate, and the difference is which object is the mandate.
+`quality/test_plan.py` §9, 10 checks. **One pre-existing red is NOT this
+change and was verified by reverting**: `mcp/test.mjs`'s `grade returns two
+blocks` fails byte-identically before and after, because `data/cmudict.dict`
+is unfetched in this container so the harness cannot grade.
+
 **WHERE A SECTION MAY GO IS A DECLARED COORDINATE NOW (2026-08-22,
 `MISSING.md` M-54).** "An outro is last" was true of every plan the planner
 produced and was stated in NO coordinate: `plan._sample_pattern` enforced it

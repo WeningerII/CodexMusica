@@ -4341,7 +4341,8 @@ the quality layer (each says which module answered):
                           --subdivision does, and every failure to meet the
                           contract is a printed refusal, never a traceback
                           and never a silent downgrade to the stub
-  plan --seed=N [--form=verse-chorus] [--lines=N] [--fill=DRAFT]
+  plan --seed=N [--form=verse-chorus] [--lines=N] [--relation=NAME]
+       [--functions=a,b,c] [--fill=DRAFT]
        [--out=PATH]      the PLANNING phase: a request in, a blueprint and
                           a mandate out (quality/plan.py). Structure from a
                           declared pattern grammar, schemes from the FULL
@@ -6127,6 +6128,15 @@ def main():
         nlines = _flag_value(rest, "--lines")
         fill = _flag_value(rest, "--fill")
         out_path = _flag_value(rest, "--out")
+        # THE WRITER'S DECLARATION (`MISSING.md` M-55). Neither is sampled:
+        # the planner does not pick a relation, because putting
+        # `type:pararhyme` on a group nobody asked for is the "move 37" ban
+        # pointed at rhyme. What it does is CARRY what the writer declared
+        # into the plan artifact and into the GRADE IT line.
+        relation = _flag_value(rest, "--relation")
+        funcs_raw = _flag_value(rest, "--functions")
+        rest = _strip_flag(rest, "--relation")
+        rest = _strip_flag(rest, "--functions")
         rest = _strip_flag(rest, "--seed")
         rest = _strip_flag(rest, "--form")
         rest = _strip_flag(rest, "--lines")
@@ -6135,7 +6145,9 @@ def main():
         if rest:
             _refuse(f"plan does not take {rest[0]!r}",
                     detail=["usage: plan --seed=N [--form=verse-chorus] "
-                            "[--lines=N] [--fill=DRAFT] [--out=PATH]",
+                            "[--lines=N] [--relation=NAME] "
+                            "[--functions=a,b,c] [--fill=DRAFT] "
+                            "[--out=PATH]",
                             "an unrecognised flag is refused rather than "
                             "ignored -- a flag silently not read leaves a "
                             "plan that looks exactly like one you never "
@@ -6144,7 +6156,10 @@ def main():
             the_plan = PLN.make_plan(
                 seed=int(seed) if seed is not None else None,
                 form=form,
-                lines=int(nlines) if nlines is not None else None)
+                lines=int(nlines) if nlines is not None else None,
+                relation=relation,
+                functions=[x for x in (funcs_raw or "").split(",") if x.strip()]
+                or None)
         except PLN.PlanRefused as e:
             _refuse(str(e))
         except ValueError:
@@ -6155,6 +6170,23 @@ def main():
               f"{len(the_plan['sections'])} section(s): "
               f"{'-'.join(pat['functions'])}")
         print(f"    (pattern drawn from {pat['chosen_from']})")
+        # DECLARED, OUT LOUD. Silence here would make `plan --seed=3` and
+        # `plan --seed=3 --relation=type:rime riche` look identical on a run
+        # where the relation happens not to change the sampled shape — the
+        # byte-identical shape `_say_relation` was written to end one verb
+        # over.
+        if the_plan.get("relation"):
+            print(f"  RELATION: every mandated group is judged under "
+                  f"{the_plan['relation']!r} — DECLARED, not sampled; the "
+                  f"planner never picks a relation.")
+        if the_plan.get("functions"):
+            print(f"  ROSTER: {', '.join(the_plan['functions'])} — an "
+                  f"ALLOW-LIST, checked against each function's own "
+                  f"`requires` before any shape was drawn.")
+            if the_plan.get("functions_unused"):
+                print(f"    NOT USED by this seed's draw: "
+                      f"{', '.join(the_plan['functions_unused'])} — a roster "
+                      f"permits, it does not compel.")
         m = the_plan["choices"]["meter"]["value"]
         print(f"  METER: {m['beats']}/{m['unit']} as "
               f"{tuple(m['groups'])} -- "

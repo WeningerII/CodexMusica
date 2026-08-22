@@ -399,9 +399,17 @@ def _edges():
 PATTERN_ATTEMPTS = 200
 
 
-def _sample_pattern(rng):
+def _sample_pattern(rng, roster=None):
     """-> ordered tuple of function names. Once-functions once, edges at
     the edges, everything else free.
+
+    `roster` is THE WRITER'S ALLOW-LIST (`MISSING.md` M-55): when given, no
+    function outside it may appear. It is enforced by REJECTION, the same way
+    the placement constraints are, so the draw stays uniform over the
+    admissible set rather than being steered function by function. A roster
+    the cell grammar cannot satisfy exhausts the attempts and REFUSES, which
+    is the honest answer -- a planner that quietly widened the roster to find
+    a plan would be answering a different request (doctrine 20).
 
     THE EDGES AND THE ADMISSIBILITY TEST ARE BOTH DERIVED FROM THE VOCABULARY
     (M-54). What was hardcoded: `funcs.append("intro")` before the cell loop
@@ -419,18 +427,38 @@ def _sample_pattern(rng):
     """
     first_fns, last_fns = _edges()
     from quality import grid as _GR
+    # PRUNE THE PROPOSAL, DO NOT STEER THE DRAW. Drawing uniformly from the
+    # cells a roster admits is uniform over the admissible set -- the same
+    # argument rejection sampling rests on, with the rejections done once
+    # here instead of once per attempt. Rejecting cell by cell instead was
+    # measured and it is not a tuning question, it is a correctness one:
+    # `--functions=verse,chorus,outro` admits 3 of the 12 cells, so a
+    # 2-6 cell body survives at ~0.25^n and REFUSED on an ordinary request.
+    cells = _CELLS if roster is None else tuple(
+        c for c in _CELLS if all(f in roster for f in c))
+    if not cells:
+        raise PlanRefused(
+            f"the declared roster {sorted(roster)} admits NONE of the "
+            f"{len(_CELLS)} cells the pattern grammar is built from, so no "
+            f"body can be drawn from it at all. The buildable functions are "
+            f"{sorted(set().union(*_CELLS))} plus the edges "
+            f"{sorted(set(first_fns) | set(last_fns))}.")
+    openers = (None,) + tuple(f for f in first_fns
+                              if roster is None or f in roster)
+    enders = (None,) + tuple(f for f in last_fns
+                             if roster is None or f in roster)
     for _ in range(PATTERN_ATTEMPTS):
         funcs = []
         # An opener, drawn uniformly over the boundary='first' rows plus the
         # no-opener case, so adding a row to that table widens this draw.
-        opener = rng.choice((None,) + first_fns)
+        opener = rng.choice(openers)
         if opener:
             funcs.append(opener)
         n_cells = rng.randint(*ENVELOPE["body_cells"])
         bridge_used = False
         for _ in range(n_cells):
             while True:
-                cell = _CELLS[rng.randrange(len(_CELLS))]
+                cell = cells[rng.randrange(len(cells))]
                 if "bridge" in cell and bridge_used:
                     continue
                 break
@@ -442,22 +470,40 @@ def _sample_pattern(rng):
         # the old `rng.choice((None, "outro", "coda"))` preserved as an
         # EXPLICIT declared choice rather than silently kept in a tuple's
         # shape, and the ruling on whether to lift it is M-54's open half.
-        ending = rng.choice((None,) + last_fns)
+        ending = rng.choice(enders)
         if ending:
             funcs.append(ending)
         if not _GR.placement_findings(list(funcs)):
             return tuple(funcs)
     raise PlanRefused(
-        f"no admissible section pattern in {PATTERN_ATTEMPTS} draws. The "
-        f"placement constraints on `grid.SECTION_FUNCTIONS` and the cell "
-        f"grammar `_CELLS` do not intersect — REFUSED rather than returning "
-        f"a pattern the vocabulary's own definitions reject (doctrine 20).")
+        f"no admissible section pattern in {PATTERN_ATTEMPTS} draws"
+        + (f" under the declared roster {sorted(roster)}" if roster else "")
+        + f". The placement constraints on `grid.SECTION_FUNCTIONS`"
+        + (", the declared roster," if roster else "")
+        + f" and the cell grammar `_CELLS` do not intersect — REFUSED rather "
+        f"than returning a pattern the vocabulary's own definitions reject, "
+        f"or quietly widening a roster the writer declared (doctrine 20).")
 
 
 # ---------------------------------------------------------------- plan
 
-def make_plan(seed, form="verse-chorus", lines=None):
-    """A request -> the plan dict. Refuses rather than guessing."""
+def make_plan(seed, form="verse-chorus", lines=None, relation=None,
+              functions=None):
+    """A request -> the plan dict. Refuses rather than guessing.
+
+    `relation` and `functions` are THE WRITER'S DECLARATION (`MISSING.md`
+    M-55) and neither is sampled. The planner does not pick a relation: doing
+    so would put `type:pararhyme` on a group nobody asked for, which is the
+    "move 37" ban pointed at rhyme instead of at shape. What the planner does
+    is CARRY a declaration into the plan artifact, so the one command that
+    grades the draft names the relation the writer chose.
+
+    THREE LAYERS, AND ONLY THE MIDDLE ONE IS HERE (design doc §2):
+    the VOCABULARY says a prechorus requires a chorus and that is
+    definitional; the CONVENTION says verse-chorus-verse-chorus and is never
+    enforced; and this is the DECLARATION — "chorus and postchorus, no
+    prechorus" — which is neither, and had no way to be spelled at all.
+    """
     if seed is None:
         raise PlanRefused(
             "plan requires --seed=N — the pattern, the meter and every "
@@ -480,13 +526,70 @@ def make_plan(seed, form="verse-chorus", lines=None):
             f"VOLUNTEERS, not what the graders accept — declare a "
             f"blueprint and mandate by hand for a shape outside it.")
 
+    # THE DECLARED RELATION, validated HERE rather than at grade time. It is
+    # resolved through the same `rhyme_types.resolve_relation` every mandate
+    # uses, so a typo refuses while the writer is still holding the sentence
+    # they got wrong, and the stored form is the namespaced one that
+    # re-resolves to the same judge (`MISSING.md` M-49).
+    if relation:
+        from quality import schemes as _SC
+        try:
+            relation = _SC.mandate("AA", n_lines=2,
+                                   default_relation=relation).default_relation
+        except _SC.NoMandate as e:
+            raise PlanRefused(f"--relation={relation!r} is not declarable: "
+                              f"{e}")
+
+    # THE DECLARED ROSTER. A song may ask for the functions it wants, and the
+    # request is CHECKED against the vocabulary's own definitional
+    # constraints: asking for a prechorus and no chorus REFUSES, because the
+    # word means before-the-chorus and a roster that cannot contain one is
+    # not a novel structure, it is a contradiction (M-54's `requires`).
+    roster = None
+    if functions:
+        from quality import grid as _GR
+        want = []
+        for f in functions:
+            f = str(f).strip()
+            if not f:
+                continue
+            try:
+                want.append(_GR.as_function(f))
+            except Exception:
+                raise PlanRefused(
+                    f"--functions names {f!r} and there is no such section "
+                    f"function. The vocabulary is "
+                    f"`quality.grid.SECTION_FUNCTIONS` — "
+                    f"{len(_GR.SECTION_FUNCTIONS)} names.")
+        unbuildable = sorted(set(want) - set(GENERATOR_ROSTER))
+        if unbuildable:
+            raise PlanRefused(
+                f"--functions names {unbuildable}, which the vocabulary "
+                f"declares but this planner cannot BUILD. Its roster is "
+                f"{sorted(GENERATOR_ROSTER)} — a declaration the generator "
+                f"cannot honour is refused rather than silently dropped "
+                f"(doctrine 20).")
+        have = set(want)
+        for f in want:
+            sp = _GR.SECTION_FUNCTIONS[f]
+            missing = [r for r in sp.requires if r not in have]
+            if missing:
+                raise PlanRefused(
+                    f"--functions asks for {f!r} and not for {missing} — and "
+                    f"{f!r} REQUIRES {missing} by definition "
+                    f"({sp.placement_evidence!r}). A section that cannot "
+                    f"stand in the relation its own name states is not a "
+                    f"novel structure, it is a mislabelled one. Declare "
+                    f"{missing} too, or drop {f!r}.")
+        roster = tuple(want)
+
     rng = random.Random(seed)
 
     # REJECTION SAMPLING over the generated grammar: uniform over the
     # space, CONDITIONED on the envelope (and on --lines when given).
     # Deterministic — the retries are the same rng stream.
     for _attempt in range(500):
-        funcs = _sample_pattern(rng)
+        funcs = _sample_pattern(rng, roster)
         s_lo, s_hi = ENVELOPE["sections"]
         if not s_lo <= len(funcs) <= s_hi:
             continue
@@ -637,6 +740,16 @@ def make_plan(seed, form="verse-chorus", lines=None):
         "sections": sections,
         "line_slots": line_slots,
         "hook_slot": hook_slot,
+        # THE WRITER'S DECLARATION, echoed so the grading command can name
+        # it and so a reader of a stored plan can see what was asked for --
+        # `""` and `[]` mean NOBODY SAID, never "the default was chosen".
+        "relation": relation or "",
+        "functions": list(roster) if roster else [],
+        #: requested functions the sampled pattern did NOT use. A DISCLOSURE,
+        #: not a failure: a roster is an allow-list, and a plan that happens
+        #: not to reach `bridge` this seed has not disobeyed anything. Silence
+        #: here would let a writer believe they got a section they did not.
+        "functions_unused": sorted(set(roster) - set(funcs)) if roster else [],
         "groups": ";".join(",".join(str(x) for x in g) for g in groups),
         "returns": ";".join(f"{a},{b}" for a, b in returns),
         "subdivision": sub,
@@ -752,5 +865,11 @@ def grading_command(plan, draft_path="DRAFT.txt", bp_path="BP.json"):
         parts.append(f"'--groups={plan['groups']}'")
     if plan["returns"]:
         parts.append(f"'--returns={plan['returns']}'")
+    # THE DECLARED RELATION REACHES THE GRADE (M-55). Without this line the
+    # writer declares a relation, the plan records it, and the one command
+    # that grades the draft asks the coarse `Declaration.admit` set instead —
+    # a declared coordinate read by nothing, one layer out from M-54's.
+    if plan.get("relation"):
+        parts.append(f"'--relation={plan['relation']}'")
     parts.append(f"--subdivision {plan['subdivision']}")
     return " ".join(parts)

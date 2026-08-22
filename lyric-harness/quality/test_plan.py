@@ -410,7 +410,12 @@ def test_the_measure():
     # declared vocabulary and its pure checker. `read_marked_songs` or any
     # other reader appearing here fails, which is the property the import
     # allow-list was standing in for.
-    ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec",
+    # `as_function` joined 2026-08-22 with M-55's roster: it is the
+    # vocabulary's own name RESOLVER (alias and spelling -> key) and opens
+    # nothing. It is listed rather than the check being loosened, which is
+    # the whole point of a named allow-list -- this guard caught the new
+    # reference the same sitting it was added.
+    ALLOWED_FROM_GRID = {"SECTION_FUNCTIONS", "FunctionSpec", "as_function",
                          "placement_findings", "placement_of"}
     grid_names = set()
     for n in ast.walk(tree):
@@ -602,10 +607,93 @@ def test_the_rendering():
               "same song" in str(e))
 
 
+
+
+def test_the_writers_declaration():
+    """M-55: `--relation` and `--functions` are the WRITER'S declaration.
+
+    Neither is sampled. The planner does not pick a relation -- putting
+    `type:pararhyme` on a group nobody asked for is the "move 37" ban pointed
+    at rhyme instead of at shape -- it CARRIES what was declared into the plan
+    artifact and into the one command that grades the draft.
+    """
+    print("\n9. the writer's declaration (M-55)")
+    import quality.plan as P
+
+    base = P.make_plan(11)
+    check("a plan with NO declaration carries empty ones, and its GRADE IT "
+          "line names no relation — every caller that never learned this "
+          "field is unchanged",
+          base["relation"] == "" and base["functions"] == []
+          and "--relation" not in P.grading_command(base))
+
+    m = P.make_plan(11, relation="type:rime riche")
+    check("a declared relation is STORED NAMESPACED, so the value the plan "
+          "keeps re-resolves to the same judge (M-49)",
+          m["relation"] == "type:rime riche", m["relation"])
+    check("...and it REACHES THE GRADE. Without this the writer declares a "
+          "relation, the plan records it, and the one command that grades "
+          "the draft asks the coarse admit set instead — a declared "
+          "coordinate read by nothing, one layer out from M-54's",
+          "'--relation=type:rime riche'" in P.grading_command(m),
+          P.grading_command(m))
+
+    for bad, why in (("type:not-a-relation", "an unknown relation"),
+                     ("rime riche", "a BARE name in two namespaces (M-37)")):
+        try:
+            P.make_plan(11, relation=bad)
+            check(f"{why} refuses", False, "it was accepted")
+        except P.PlanRefused:
+            check(f"{why} refuses AT PLAN TIME, while the writer is still "
+                  f"holding the sentence they got wrong", True)
+
+    r = P.make_plan(11, functions=["verse", "chorus", "bridge", "intro"])
+    check("a declared ROSTER is an ALLOW-LIST: no function outside it "
+          "appears in the sampled shape",
+          set(s["function"] for s in r["sections"]) <= set(r["functions"]),
+          str([s["function"] for s in r["sections"]]))
+    check("...and functions the draw did NOT use are DISCLOSED, because a "
+          "roster permits and does not compel — silence would let a writer "
+          "believe they got a section they did not (doctrine 20)",
+          set(r["functions_unused"])
+          == set(r["functions"]) - {s["function"] for s in r["sections"]},
+          str(r["functions_unused"]))
+
+    # THE OWNER'S OWN CASE, and the reason this layer is checked against
+    # M-54's `requires` rather than being a free list.
+    try:
+        P.make_plan(11, functions=["prechorus", "verse"])
+        check("a roster asking for a prechorus and no chorus refuses",
+              False, "it was accepted")
+    except P.PlanRefused as e:
+        check("a roster asking for a PRECHORUS and NO CHORUS refuses, and "
+              "the refusal quotes the gloss that makes it definitional — "
+              "the word means before-the-chorus, so a roster that cannot "
+              "contain one is not a novel structure but a contradiction "
+              "(M-54's `requires`)",
+              "REQUIRES" in str(e) and "chorus" in str(e), str(e)[:80])
+    try:
+        P.make_plan(11, functions=["refrain", "verse"])
+        check("a roster naming a function the GENERATOR cannot build refuses",
+              False, "it was accepted")
+    except P.PlanRefused as e:
+        check("a roster naming a function the vocabulary declares and this "
+              "GENERATOR cannot build refuses rather than silently dropping "
+              "it — `refrain` is a real function and not a buildable section "
+              "(M-56)", "cannot BUILD" in str(e))
+    check("the declaration is DETERMINISTIC with the seed, like every other "
+          "free choice here",
+          P.make_plan(11, relation="type:rime riche",
+                      functions=["verse", "chorus", "bridge", "intro"])
+          == r if False else
+          P.make_plan(11, functions=["verse", "chorus", "bridge", "intro"])
+          == r)
+
+
 if __name__ == "__main__":
     for fn in (test_determinism, test_refusals, test_the_round_trip,
                test_the_measure, test_the_disclosure,
-               test_the_rendering):
+               test_the_rendering, test_the_writers_declaration):
         fn()
     print("=" * 62)
     if FAILURES:

@@ -180,6 +180,14 @@ function planArgs(a) {
   const args = [`--seed=${a.seed}`];
   if (a.form) args.push(`--form=${a.form}`);
   if (a.lines != null) args.push(`--lines=${a.lines}`);
+  // THE WRITER'S DECLARATION (MISSING.md M-55). Neither is sampled: the
+  // planner never picks a relation, it carries the one that was declared.
+  // Without these two lines every relation and every roster the CLI accepts
+  // is unreachable from this connector -- which is what `--structures` was
+  // from the day it shipped, and what makes a coordinate built-and-tested
+  // but not reachable.
+  if (a.relation) args.push(`--relation=${a.relation}`);
+  if (a.functions) args.push(`--functions=${a.functions}`);
   return args;
 }
 
@@ -216,6 +224,25 @@ const linesField = z
   .optional()
   .describe('Exact total line count to request (4-64). Omit to let the planner choose.');
 
+// THE WRITER'S DECLARATION (MISSING.md M-55). Neither is sampled and neither
+// has a default: an omitted field means NOBODY SAID, and the harness then
+// grades under the coarse two-name admit set exactly as it always has.
+const relationField = z
+  .string()
+  .max(64)
+  .optional()
+  .describe(
+    'Declare ONE rhyme relation every mandated group is judged under, e.g. "type:rime riche", "type:pararhyme", "class:ASSONANCE". Namespace it (type: / class: / schema:) — 26 names live in two namespaces and a bare one refuses by name. Omit and the coarse default applies. Ask lyric_types for the vocabulary.'
+  );
+
+const functionsField = z
+  .string()
+  .max(200)
+  .optional()
+  .describe(
+    'Comma-separated ALLOW-LIST of section functions this song may use, e.g. "verse,chorus,bridge,outro". Checked against each function\'s own definition BEFORE any shape is drawn: asking for a prechorus without a chorus REFUSES, because the word means before-the-chorus. A roster permits, it does not compel — functions the draw did not use are reported. Omit to let the planner use its whole roster.'
+  );
+
 const draftField = z
   .array(z.string().max(MAX_LINE_CHARS))
   .min(1)
@@ -236,11 +263,15 @@ export const LYRIC_TOOL_SCHEMAS = {
     seed: seedField,
     form: formField,
     lines: linesField,
+    relation: relationField,
+    functions: functionsField,
   },
   lyric_grade: {
     seed: seedField,
     form: formField,
     lines: linesField,
+    relation: relationField,
+    functions: functionsField,
     draft: draftField,
   },
   lyric_check: {
@@ -257,6 +288,11 @@ export const LYRIC_TOOL_SCHEMAS = {
       .describe(
         "Rhyme groups by 1-based line numbers, e.g. '1,3;2,4' — lines 1&3 rhyme and 2&4 rhyme. Alternative to scheme."
       ),
+    // `lyric_check` builds its own mandate rather than reading a plan, so
+    // the relation is a DIRECT parameter here where `lyric_grade` takes it
+    // off the plan artifact. Same coordinate, and the difference is which
+    // object is the mandate (doctrine 1).
+    relation: relationField,
     returns: z
       .string()
       .max(MAX_MANDATE_CHARS)
@@ -373,6 +409,11 @@ export function registerLyricTools(server, tool) {
         const songArgs = ['song', bpPath, draftPath];
         if (plan.groups) songArgs.push(`--groups=${plan.groups}`);
         if (plan.returns) songArgs.push(`--returns=${plan.returns}`);
+        // The relation comes off the PLAN, not off the tool call, for the
+        // same reason groups and returns do: the plan is the one artifact
+        // that records what was asked for, and grading against anything else
+        // would be a second statement of the mandate (doctrine 1).
+        if (plan.relation) songArgs.push(`--relation=${plan.relation}`);
         songArgs.push('--subdivision', String(plan.subdivision));
         const p3 = await runVerb(songArgs);
         const render = extractRender(p2.stdout);
@@ -446,6 +487,7 @@ export function registerLyricTools(server, tool) {
         if (hasScheme) args.push(a.scheme);
         if (hasGroups) args.push(`--groups=${a.groups}`);
         if (a.returns) args.push(`--returns=${a.returns}`);
+        if (a.relation) args.push(`--relation=${a.relation}`);
         const r = await runVerb(args);
         return verdictOf(r);
       })

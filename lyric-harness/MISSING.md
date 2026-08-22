@@ -6914,6 +6914,9 @@ joining the 62%.
 4. **`burden` and `refrain` still do not reach the planner** — the reverse
    gap this entry measured, and it needs no new text.
 
+TESTED WHILE OPEN: `quality/test_section_marks.py`, and
+`quality/section_marks.py --check` in CI.
+
 ### M-53 · `mandate()`'s re-open path re-defaulted the `ReturnRule`, so re-opening a mandate to add any coordinate silently replaced the rule its writer declared `CLOSED` 2026-08-22
 **Found in the same sitting as M-50, by testing that the CLI's new
 `--relation=` path — which re-opens whatever cover the other flags built —
@@ -7127,7 +7130,7 @@ enumeration bias v2's own smoke run found (weighting a cycle by how many
 groupings it admits), so the constraint layer prunes the space and the
 sampler still draws by derivation, never by walking the tree.
 
-### M-55 · there is no way to DECLARE which section functions a song wants, so the planner's roster is sampled and never asked for `OPEN`
+### M-55 · there is no way to DECLARE which section functions a song wants, so the planner's roster is sampled and never asked for `CLOSED` 2026-08-22
 **Raised by the owner 2026-08-22: "ok I do want a chorus and a post chorus
 because this song xyz and because of that a pre chorus would mess that up."
 That sentence fits neither layer M-54 named, and the gap is that a THIRD layer
@@ -7161,6 +7164,57 @@ the writer a door onto a space with no walls.
 
 `quality/SECTION_CONSTRAINTS_DESIGN.md` §2 holds the three-layer table and §7
 the build order.
+
+---
+
+**BUILT 2026-08-22, AND THE CONNECTOR SHIPPED WITH IT** — which is the half
+that matters, because a declaration reachable only from the CLI is the
+"built-and-tested was not the reachable" family this repo has closed six times.
+
+`make_plan(seed, form, lines, relation=None, functions=None)`. NEITHER IS
+SAMPLED: the planner does not pick a relation, because putting
+`type:pararhyme` on a group nobody asked for is the "move 37" ban pointed at
+rhyme instead of at shape. It CARRIES what the writer declared.
+
+| surface | what it gained |
+|---|---|
+| `quality/plan.py` | `relation=` / `functions=`, validated at plan time; `plan["relation"]`, `plan["functions"]`, `plan["functions_unused"]` |
+| `grading_command` | emits `'--relation=…'`, so the one command that grades the draft names it |
+| the `plan` verb | `--relation=NAME` / `--functions=a,b,c`, with a RELATION and ROSTER disclosure line |
+| `mcp/lyric_tools.js` | `relation` + `functions` on `lyric_plan` and `lyric_grade`; `relation` on `lyric_check` (which builds its own mandate rather than reading a plan); `planArgs` passes them and the grade picks `plan.relation` up off the artifact |
+
+**THE ROSTER IS AN ALLOW-LIST, CHECKED AGAINST M-54's `requires` BEFORE ANY
+SHAPE IS DRAWN.** The owner's own case is the worked example:
+
+```
+plan --seed=11 --functions=prechorus,verse
+  REFUSED — --functions asks for 'prechorus' and not for ['chorus'] — and
+  'prechorus' REQUIRES ['chorus'] by definition ('lifts from verse into
+  chorus'). A section that cannot stand in the relation its own name states
+  is not a novel structure, it is a mislabelled one.
+```
+
+Three more refusals, all at plan time: an undeclared relation, a BARE name
+living in two namespaces (M-37), and a function the vocabulary declares that
+this GENERATOR cannot build (`refrain` — M-56's kind problem surfacing as a
+buildability one).
+
+**A ROSTER PERMITS, IT DOES NOT COMPEL**, and that is disclosed rather than
+left to be noticed: `functions_unused` names every requested function the
+draw did not reach, because silence would let a writer believe they got a
+section they did not (doctrine 20). Enforced by REJECTION, so the draw stays
+uniform over the admissible set rather than being steered function by
+function.
+
+**MEASURED, with no declaration:** `plan["relation"] == ""`,
+`plan["functions"] == []`, and `grading_command` names no relation — every
+caller that never learned these fields is unchanged.
+
+**ONE THING THE CONNECTOR SUITE SHOWS AND IT IS NOT THIS.**
+`mcp/test.mjs` fails one check (`grade returns two blocks`) BEFORE and AFTER
+this change, byte-identically: `data/cmudict.dict` is not fetched in this
+container, so the harness cannot grade and the render is absent. An
+environment artifact, verified by reverting.
 
 ### M-56 · two of the twenty-one "section functions" declare in their own glosses that they are NOT sections `OPEN`
 **Found 2026-08-22 deriving the section-constraint table, by reading all 21
