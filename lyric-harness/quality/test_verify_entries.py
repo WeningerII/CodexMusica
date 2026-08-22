@@ -43,6 +43,7 @@ if ROOT not in sys.path:
     sys.path.insert(0, ROOT)
 
 import quality.verify_entries as VE  # noqa: E402
+from quality import floor as FLOOR  # noqa: E402
 from quality.verify_entries import (           # noqa: E402
     FALSE, PROSE_DOCS, PROSE_SCOPE, PROSE_SHAPES, REFUSED, ROOT, TRUE,
     prose_entry, prose_self_test, read_prose, shape_capacity_figure,
@@ -387,11 +388,36 @@ def test_capacity_figures_are_re_derived():
 
 FLOOR_DOC = "quality/RESULTS_SONG_FLOOR.md"
 
+#: THE ANCHORS ARE DERIVED FROM THE SHIPPED CONSTANT, NOT TYPED BESIDE IT.
+#: They were typed, and on 2026-08-22 `mattr_min` was repinned 0.7128 ->
+#: 0.7118 (`quality/floor.py`, the fifth-percentile repin) — so three of the
+#: five rows below stopped matching the document, could not be applied, and
+#: reported `the mutation could not be applied, so this row proved nothing`.
+#: That message is honest and it is the wrong finding: nothing was wrong with
+#: the document, the ANCHOR had gone stale, and a suite whose anchors rot on
+#: every repin is a suite that goes quiet exactly when a threshold moves —
+#: which is the one moment it exists for. `_SONG` reads the live values, so
+#: the anchor tracks the repin by construction (doctrine 1: one definition).
+#:
+#: THIS IS NOT DOCTRINE 14. The quantity under test is whether the DOCUMENT'S
+#: reader notices a wrong cell; the constant is only how the row is located.
+#: And the case where the two disagree is not swallowed — see the derived
+#: anchor check in §9, which now reports a doc that has drifted from
+#: `floor.py` as exactly that, by name.
+_SONG = {k: v for k, v in
+         [(p.name, p.percentiles) for p in FLOOR.PROFILES]}["song"]
+_MATTR = f"{_SONG['mattr_min']:.4f}"
+_FWR = f"{_SONG['function_word_ratio_max']:.4f}"
+_ROW = (f"{_MATTR} | {_FWR} | {_SONG['anaphora_max']:.4f} | "
+        f"{_SONG['line_length_cv_min']:.4f} | "
+        f"{_SONG['predictable_pair_fraction_max']:.4f} |")
+
 FLOOR_MUTANTS = [
-    ("| song profile | 0.7128 |", "| song profile | 0.7226 |",
+    (f"| song profile | {_MATTR} |", "| song profile | 0.7226 |",
      "the pre-adoption mattr_min back under the word SHIPPED — the real one"),
-    ("0.7128 | 0.4773 | 0.3000 | 0.1094 | 0.9286 |",
-     "0.7128 | 0.4773 | 0.3000 | 0.1123 | 0.9286 |",
+    (_ROW,
+     f"{_MATTR} | {_FWR} | {_SONG['anaphora_max']:.4f} | 0.1123 | "
+     f"{_SONG['predictable_pair_fraction_max']:.4f} |",
      "line_length_cv_min back to its pre-adoption value"),
     ("| (section, for contrast) | 0.7568 | 0.5161 | 0.5000 | 0.0525 | — |",
      "| (section, for contrast) | 0.7568 | 0.5161 | 0.5000 | 0.0525 | 0.9 |",
@@ -399,8 +425,8 @@ FLOOR_MUTANTS = [
     ("| (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 | 0.8333 |",
      "| (sonnet, for contrast) | 0.7557 | 0.4788 | 0.2857 | 0.0939 | — |",
      "an absence asserted for a threshold the profile does ship"),
-    ("| song profile | 0.7128 | 0.4773 |",
-     "| song profile | 0.4773 | 0.7128 |",
+    (f"| song profile | {_MATTR} | {_FWR} |",
+     f"| song profile | {_FWR} | {_MATTR} |",
      "two cells swapped — every number right, every column wrong"),
 ]
 
@@ -420,9 +446,17 @@ def test_floor_thresholds_are_re_derived():
           "; ".join(v.measured[:80] for v in clean))
     for old, new, why in FLOOR_MUTANTS:
         if raw.count(old) != 1:
-            check("anchor %r is still present exactly once" % old[:34], False,
-                  "found %d — the mutation could not be applied, so this row "
-                  "proved nothing" % raw.count(old))
+            # THE ANCHORS ARE DERIVED FROM `floor.py`, so a miss is not a
+            # rotted test — it is the DOCUMENT no longer quoting the shipped
+            # constant, which is this file's own subject. Said in those words
+            # rather than as "the mutation could not be applied", because the
+            # two send a reader to different files.
+            check("the document still quotes the shipped value %r" % old[:34],
+                  False,
+                  "found %d occurrence(s) — `quality/floor.py` and %s "
+                  "disagree, or a row was reworded; the mutation could not "
+                  "be applied, so this row proved nothing"
+                  % (raw.count(old), FLOOR_DOC))
             continue
         mutant = _floor_false(raw.replace(old, new))
         check(why, bool(mutant),
