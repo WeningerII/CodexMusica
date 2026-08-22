@@ -561,6 +561,28 @@ class Brief:
         return "\n".join(out)
 
 
+
+def _relation_phonology():
+    """-> the phonology the declared-relation judge reads.
+
+    `Reviser` carries NO language coordinate — checked 2026-08-22, it has no
+    `lang`/`language` attribute anywhere — so this resolves English, exactly
+    as `structures.Structure.judge` already does with `phon or PH.get("eng")`.
+
+    IT IS A NAMED FUNCTION RATHER THAN AN INLINE DEFAULT ON PURPOSE. Doctrine
+    45 says language is a coordinate and a checker silently picking one is
+    the bug; this path does pick one, and putting the pick behind a name
+    makes it a single visible site to fix when `Reviser` learns a language,
+    instead of a literal buried in a branch. `MISSING.md` M-4 owns the
+    coordinate itself. Recorded rather than hidden: a mandate declaring
+    `cynghanedd lusg` on a Welsh draft is being judged by the English
+    phonology today, and that is wrong in a way this comment is the only
+    warning of.
+    """
+    from quality import phonology as _PH
+    return _PH.get("eng")
+
+
 class Reviser:
     """Grades a draft, briefs a revision, and verifies the result."""
 
@@ -884,6 +906,15 @@ class Reviser:
         if getattr(m, "structures", ()) and any(m.structures):
             from quality import structures as _ST_mod
             _ST = _ST_mod
+        # THE DECLARED RELATION, same lazy discipline: a mandate that never
+        # learned the coordinate pays nothing and takes the byte-identical
+        # old path. A NAMED relation costs one `classify_pair` per pair
+        # (~1.3 ms, measured 2026-08-22); a coarse CLASS is answered from the
+        # score that was computed anyway.
+        _RT = None
+        if getattr(m, "relations", ()) and any(m.relations):
+            from quality import rhyme_types as _RT_mod
+            _RT = _RT_mod
         for (i, j, k) in pairs:
             if (i, j) in refused:
                 unknown.add((i, k))
@@ -893,12 +924,70 @@ class Reviser:
             rel = s["relation"]
             why = None
             struct = m.structure_of(k) if _ST is not None else None
+            want = m.relation_of(k) if _RT is not None else ""
             if rel == "REPEAT":
                 # Identity is its own question under EVERY structure — the
                 # returns/licence machinery owns it, and an identical word
                 # trivially "satisfying" an alliteration demand is exactly
                 # the laziness that machinery exists to adjudicate.
                 why = "REPEAT not rhyme (identical word)"
+            elif want:
+                # THE GROUP DECLARED WHAT RELATION IT WANTS. This is the
+                # coordinate `admits()` could never carry: `admits()` is ONE
+                # global set answering "what satisfies ANY mandate", so
+                # widening it makes every requirement looser. Asked per
+                # group, the same question is STRICTER — a group declaring
+                # ASSONANCE is not satisfied by a perfect rhyme.
+                #
+                # POSITION IS DECLARED, NOT ASSUMED. 31 of the 49 named types
+                # require one and `classify_pair` cannot know it (M-34). A
+                # mandate's groups are end-rhyme groups by construction, so
+                # 'end' is the honest value here and is passed explicitly —
+                # a checker picking it silently would be the bug (doctrine
+                # 45), and it is exactly the wrong value for the internal,
+                # head, leonine, cross and holorhyme relations, which this
+                # path therefore cannot yet mandate.
+                try:
+                    ok = _RT.satisfies_relation(
+                        want, rel, endwords[i - 1], endwords[j - 1],
+                        _relation_phonology(), position="end")
+                except _RT.RelationRefused as e:
+                    refusals.append({
+                        "lines": (i, j),
+                        "endwords": (endwords[i - 1], endwords[j - 1]),
+                        "unreadable": [],
+                        "groups": [m.labels[k]],
+                        "reason": (f"the declared relation {want!r} cannot be "
+                                   f"judged here: {e} — REFUSED, not failed "
+                                   f"(doctrine 79)")})
+                    refused.add((i, j))
+                    unknown.add((i, k))
+                    unknown.add((j, k))
+                    continue
+                if ok is None:
+                    # The phonology could not read a member, or the
+                    # classification is indeterminate. A refusal, never a no
+                    # — reading it as a failure charges the writer for a word
+                    # the engine cannot pronounce (doctrine 79).
+                    refusals.append({
+                        "lines": (i, j),
+                        "endwords": (endwords[i - 1], endwords[j - 1]),
+                        "unreadable": [],
+                        "groups": [m.labels[k]],
+                        "reason": (f"the declared relation {want!r} has no "
+                                   f"coordinates in this pair (a member the "
+                                   f"phonology refuses, or an indeterminate "
+                                   f"classification) — REFUSED, not failed "
+                                   f"(doctrine 79)")})
+                    refused.add((i, j))
+                    unknown.add((i, k))
+                    unknown.add((j, k))
+                    continue
+                if not ok:
+                    why = (f"does not satisfy the declared relation {want!r} "
+                           f"— judged by the named-type engine at that "
+                           f"relation's own coordinate, not by the scalar "
+                           f"comparator's admit set")
             elif _ST is not None and struct != _ST.DEFAULT:
                 sv = _ST.judge(struct, endwords[i - 1], endwords[j - 1])
                 if sv is None:

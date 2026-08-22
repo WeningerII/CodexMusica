@@ -2098,7 +2098,13 @@ PINNED = {
     #    in seven sentences that were not marked superseded, plus a second
     #    document the repin never touched at all. `coverage_audited` unmoved
     #    at 19.
-    "coverage_entries": 91,
+    #    REPINNED 2026-08-22, 91 -> 92: `M-34` (the named-type engine can
+    #    never name a masculine rhyme, and it explains the emptiness as a
+    #    fact about the vocabulary), found while wiring the mandate's
+    #    declared-relation coordinate -- by asking `classify_pair` for the
+    #    name of a pair whose name I already knew. `coverage_audited`
+    #    unmoved at 19.
+    "coverage_entries": 92,
     "coverage_audited": 19,
 }
 

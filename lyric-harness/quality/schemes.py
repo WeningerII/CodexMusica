@@ -1389,6 +1389,28 @@ class Mandate:
     #: frozen instance built by code that bypassed `mandate()` still answers
     #: through `structure_of`, which resolves absence to the default.
     structures: tuple = ()
+    #: declared RELATION per group, index-aligned with `groups` — WHAT
+    #: relation a pair in that group must stand in. `()` or a "" slot means
+    #: the DEFAULT: the coarse `Declaration.admit` set, the historical path,
+    #: byte-for-byte. Added 2026-08-22.
+    #:
+    #: WHY THIS EXISTS AND WHY IT IS NOT A WIDER GLOBAL SET. `admits()` is
+    #: ONE set answering "what counts as satisfying ANY rhyme mandate
+    #: anywhere" — two members by default, four by an explicit
+    #: `Declaration.admit`. Widening THAT would make every rhyme requirement
+    #: in every song satisfiable by assonance: looser, not richer. A
+    #: per-group relation is richer AND STRICTER — a group declaring
+    #: `CONSONANCE` is not satisfied by a perfect rhyme unless it says so.
+    #:
+    #: THE VOCABULARY IS `quality.rhyme_types.relation_vocabulary()`: the 4
+    #: coarse classes, judged free from the score, and the named types, which
+    #: cost one `classify_pair` (~1.3 ms/pair, measured) and are paid for
+    #: ONLY by groups that declare one — the same lazy discipline
+    #: `structures` uses.
+    #:
+    #: A GROUP MAY NOT DECLARE BOTH a structure and a relation: that is two
+    #: judges for one group, and `mandate()` refuses it (doctrine 1).
+    relations: tuple = ()
     #: 1-based lines in no group at all -- declared free, mandating nothing
     free: tuple = ()
     source: str = "declared"          # "declared" | "derived"
@@ -1429,6 +1451,24 @@ class Mandate:
             return self.structures[group_index]
         from quality import structures as _ST
         return _ST.DEFAULT
+
+    def relation_of(self, group_index):
+        """-> the declared relation NAME for one group, or "" for default.
+
+        `relations` is index-aligned with `groups`, the same convention
+        `labels` and `structures` use, and a shorter tuple reads as default
+        for the tail. Absence has ONE meaning here — the historical
+        `Declaration.admit` path — so a mandate widened by one group does not
+        silently shift every later group's declaration (doctrine 66).
+
+        Unlike `structure_of` this returns "" rather than a default NAME,
+        because the default is not a row in this vocabulary: it is the coarse
+        admit SET, which is a different kind of object. Saying so with "" is
+        honest; inventing a name for it would put a fifth thing in a
+        four-name table."""
+        if group_index < len(self.relations) and self.relations[group_index]:
+            return self.relations[group_index]
+        return ""
 
     def pairs(self):
         """-> [(i, j, group_index)], 1-based, i < j. THE mandate, expanded.
@@ -2179,7 +2219,7 @@ def _normalise_scope(raw, n_lines, groups, returns):
 
 def mandate(spec, n_lines=None, source="declared", origin=None,
             returns=None, scope=None, rule=None, carry_returns=True,
-            structures=None):
+            structures=None, relations=None):
     """Anything that can name a song's requirements -> a `Mandate`.
 
     Accepted, and all of them are the SAME kind of object once here:
@@ -2270,10 +2310,14 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
                        origin=spec.origin + " + " + " + ".join(added),
                        returns=norm,
                        scope=sc, rule=rule,
-                       structures=(spec.structures if structures is None
-                                   else _normalise_structures(
-                                       structures, spec.labels,
-                                       len(spec.groups))))
+                       structures=(_st_spec := (
+                           spec.structures if structures is None
+                           else _normalise_structures(
+                               structures, spec.labels, len(spec.groups)))),
+                       relations=(spec.relations if relations is None
+                                  else _normalise_relations(
+                                      relations, spec.labels,
+                                      len(spec.groups), _st_spec)))
 
     if spec is None:
         raise NoMandate(
@@ -2361,8 +2405,10 @@ def mandate(spec, n_lines=None, source="declared", origin=None,
     return Mandate(n_lines=n, groups=groups, labels=labels, free=free,
                    source=source, origin=org, returns=rets, scope=sc,
                    rule=rule,
-                   structures=_normalise_structures(structures, labels,
-                                                    len(groups)))
+                   structures=(_st := _normalise_structures(
+                       structures, labels, len(groups))),
+                   relations=_normalise_relations(relations, labels,
+                                                  len(groups), _st))
 
 
 def _normalise_structures(structures, labels, n_groups):
@@ -2404,6 +2450,73 @@ def _normalise_structures(structures, labels, n_groups):
         for k, name in enumerate(seq):
             out[k] = _resolve_structure(_ST, name) if name else ""
     return tuple(out)
+
+
+def _normalise_relations(relations, labels, n_groups, structures=()):
+    """{label_or_index: name} | [name...] | None -> the index-aligned tuple.
+
+    Every name resolves through `quality.rhyme_types.resolve_relation` or the
+    whole mandate REFUSES — a relation that does not exist, graded as the
+    default, would be a silently different question (doctrine 20). A label
+    that names no group refuses the same way. "" slots mean default.
+
+    AND A GROUP MAY NOT DECLARE BOTH a structure and a relation. Both are
+    judges over the same pairs, and letting one win would make the mandate's
+    meaning depend on `grade()`'s branch order rather than on what was
+    written (doctrine 1). Refused here, at the declaration site.
+    """
+    if not relations:
+        return ()
+    from quality import rhyme_types as _RT
+    out = [""] * n_groups
+    if isinstance(relations, dict):
+        lab_to_idx = {lab: k for k, lab in enumerate(labels)}
+        for key, name in relations.items():
+            if isinstance(key, int):
+                idx = key
+            elif key in lab_to_idx:
+                idx = lab_to_idx[key]
+            else:
+                raise NoMandate(
+                    f"relations declares group {key!r} and the mandate has "
+                    f"no such group label; its labels are {list(labels)}. An "
+                    f"unmatched declaration is refused, never dropped "
+                    f"(doctrine 20).")
+            if not (0 <= idx < n_groups):
+                raise NoMandate(
+                    f"relations declares group index {idx} and the mandate "
+                    f"has {n_groups} group(s).")
+            out[idx] = _resolve_relation(_RT, name) if name else ""
+    else:
+        seq = list(relations)
+        if len(seq) > n_groups:
+            raise NoMandate(
+                f"relations declares {len(seq)} entries for {n_groups} "
+                f"group(s) — they must be the same mandate.")
+        for k, name in enumerate(seq):
+            out[k] = _resolve_relation(_RT, name) if name else ""
+    for k, rel in enumerate(out):
+        st = structures[k] if k < len(structures) else ""
+        if rel and st:
+            lab = labels[k] if k < len(labels) else k
+            raise NoMandate(
+                f"group {lab!r} declares BOTH a structure ({st!r}) and a "
+                f"relation ({rel!r}). Those are two judges over the same "
+                f"pairs, and which one answered would depend on grade()'s "
+                f"branch order rather than on what was written. Declare one "
+                f"(doctrine 1) — REFUSED, not silently resolved.")
+    return tuple(out)
+
+
+def _resolve_relation(_RT, name):
+    """The vocabulary's refusal, re-raised as THIS layer's — the same move
+    `_resolve_structure` makes, and for the same reason: `mandate()` has
+    exactly one refusal type and a `RelationRefused` escaping it would be the
+    right refusal in the wrong layer's words."""
+    try:
+        return _RT.resolve_relation(name)[0]
+    except _RT.RelationRefused as e:
+        raise NoMandate(str(e)) from e
 
 
 def _resolve_structure(_ST, name):

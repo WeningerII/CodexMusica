@@ -3956,6 +3956,140 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-35 · A pair can stand in many relations at once, and the mandate can hold one per group — with identical groups silently deduped `OPEN`
+**Filed 2026-08-22 at the owner's observation, mid-build of the declared
+relation coordinate: "each poem and song are actually N dimensional webs".
+Measured before writing, and the measurement sharpens the claim rather than
+just confirming it.**
+
+**HOW MANY NAMED TYPES ONE PAIR OCCUPIES, measured over the declared
+`POSITION` vocabulary and all ten `PRESETS`:**
+
+| pair | distinct named types | where the multiplicity comes from |
+|---|---:|---|
+| `night`/`light` | **9** | end 4 · internal 1 · leonine 1 · cross 2 · holorhyme 1 |
+| `love`/`move` | **4** | end 2 · internal 2 |
+| `mother`/`brother` | **2** | end 2 |
+
+**BUT THE DIMENSIONS ARE NOT WHAT THEY LOOK LIKE, AND THIS IS THE PART WORTH
+GETTING RIGHT.** At a FIXED coordinate a pair occupies exactly ONE cell. The
+four names at `night`/`light` end position — `masculine rhyme`, `single
+rhyme`, `qafiya`, `antya-prasa` — are **synonyms for one relation**, four
+traditions' words for the same cell, not four relations. The genuine
+multiplicity has two axes and they are both coordinates the PAIR does not fix:
+
+- **position** — the same two words are a `masculine rhyme` at line end, an
+  `internal rhyme` mid-line, a `leonine rhyme` across a caesura, a `cross
+  rhyme` between hemistichs. Same phonology, different relation.
+- **anchor/preset** — which syllable the comparison is anchored at.
+  `--preset=perfect-rhyme` and the default name different types for one pair.
+
+So a song is a web, and its edges are labelled by **(position, anchor)**, not
+by "several types stacked at one place".
+
+**WHAT THE OBJECT CAN AND CANNOT HOLD TODAY, measured:**
+
+```
+mandate([[1,2],[1,2]])    -> groups=((1,2),)          pairs=[(1,2,0)]
+mandate([[1,2],[1,2,3]])  -> groups=((1,2),(1,2,3))   pairs=[(1,2,0),(1,2,1), ...]
+```
+
+`Mandate.groups` may overlap and `pairs()` carries a group index, so **one pair
+already grades under two groups** — and with the 2026-08-22 relation
+coordinate, under two different relations. The web is half there. But **two
+groups over the IDENTICAL line set silently dedupe to one**, so "grade lines
+1 and 2 as both a masculine rhyme and an assonance" is inexpressible except by
+padding one group with a spare line to keep it distinct. That is a workaround,
+not a representation, and a reader of the padded mandate would not know why the
+extra line is there.
+
+**THE CODEBASE ALREADY HALF-AGREES WITH THE OWNER.** `RelationSchema.figure`
+is `Figure(nodes, edges, quantifier, k, fraction, frame)` — the 77 schemas are
+already declared as GRAPHS, with 12 of them carrying 3- and 4-node figures,
+`forall`, `fraction` and `exists_k`. `revise.mandate_from_graph` exists. What
+has not caught up is `Mandate`, which is still a cover over line groups with
+one judge each.
+
+**Missing:** a representation where the unit is a labelled EDGE — (position
+pair, relation, anchor) — with parallel edges permitted between the same two
+positions, rather than a cover of line groups with one relation apiece. The
+node is probably a POSITION (a line-and-anchor site) rather than a line, since
+`internal` and `leonine` relations do not live at line granularity at all.
+**Why it matters:** every count this layer produces — capacity, density, the
+relation null, the earned-partner artifact — is currently a count over pairs
+under one relation. If a pair legitimately occupies several, then "how many
+rhymes does this song have" has no answer until the question says which axis it
+is counting along, and the numbers already banked do not say.
+**Scope, and the honest bound:** this is step 4 of the owner's approved
+ladder, and this entry makes step 4 LARGER than it was scoped — not just an
+arity extension for the 12 non-pair figures, but multiplicity: parallel edges.
+The 2026-08-22 relation coordinate is unaffected and correct as far as it goes:
+one relation per group, groups may overlap, and nothing here needs undoing.
+
+### M-34 · The named-type engine can never name a masculine rhyme, and it explains the emptiness as a fact about the vocabulary `PARTIAL`
+**Found 2026-08-22 while wiring the mandate's declared-relation coordinate, by
+asking `classify_pair` for the name of a pair I already knew the name of.**
+
+```
+$ python3 lyric_harness.py types night -- light
+  position: None
+  NAMES: UNNAMED at this coordinate — the space is larger than the vocabulary,
+         and that is the point of it being a space
+```
+
+`night`/`light` is a **masculine rhyme**, one of the most named relations there
+is. The sentence is not wrong about the space being larger than the vocabulary.
+It is wrong about why THIS coordinate is unnamed.
+
+**MEASURED: 31 of the 49 `NAMED` keys require a non-None `position`** — `end`
+22, `internal` 4, `head` 2, `leonine` 1, `cross` 1, `holorhyme` 1 — and the
+other 18 are position-free. `classify_pair(w1, w2, phon)` takes two bare words
+and no line, so it leaves `position=None`, and **those 31 can never match on
+that path.** The verb reports a permanent structural gap in the shape of a
+finding about the vocabulary. Supplying the coordinate is enough:
+
+| pair | `position=None` | `position='end'` |
+|---|---|---|
+| `night`/`light` | `()` | `('masculine rhyme', 'single rhyme', 'qafiya', 'antya-prasa')` |
+| `mother`/`brother` | `()` | `('feminine rhyme', 'double rhyme')` |
+| `love`/`move` | `()` | `('consonance', 'slant rhyme (consonant)')` |
+
+**IT IS NOT TOTAL, AND THE PARTIAL EXPOSURE IS WHY IT SURVIVED.** Two of the
+ten presets DO name — `--preset=perfect-rhyme` gives `perfect rhyme (last
+stressed syllable)` and `--preset=cynghanedd-lusg` gives `cynghanedd lusg`,
+because their anchors determine a position implicitly. So the verb is not
+visibly broken; it names things sometimes. Five more presets raise
+`Indeterminate` on this pair. The default path — no preset, or
+`--preset=english-end-rhyme` — is the one that can never name, and it is the
+one a reader will use.
+
+**AND A SECOND NAME TABLE SITS BESIDE THE FIRST.** `t.cells()` reads
+`CELL_NAMES` — **8 entries, 13 names**, per-syllable channel-agreement labels —
+while `NAMED` holds **49 coordinates, 76 names**. They overlap on 6. So
+`cells()` prints `('perfect rhyme', 'full rhyme', 'true rhyme')` for a pair
+whose `names()` is `()`, and a reader has no way to know those come from
+different vocabularies answering different questions. Doctrine 1: one question,
+two tables, and the accessor a caller reaches for first is the smaller one.
+
+**PARTIAL, because the mandate path is fixed and the verb is not.**
+`quality/rhyme_types.satisfies_relation()` now takes `position` as a REQUIRED
+argument on the named path and refuses without it (doctrine 45 — a checker
+picking a coordinate for you is the bug), and `grade()` passes `'end'`
+explicitly because a mandate's groups are line-final by construction. That
+reaches the 22 `end` types plus the 18 position-free ones — **40 of 49**.
+
+**Missing:** the `types` verb still cannot declare a position, so it still
+prints `UNNAMED` for a masculine rhyme; a `--position=` flag over the declared
+`POSITION` vocabulary would close it. And the message must stop explaining a
+missing coordinate as a property of the space.
+**Why it matters:** this is the engine the whole relation ladder is being built
+on, and its most-used entry point answers "no name" to two thirds of its own
+vocabulary while sounding like it has thought about it.
+**Not blocking the ladder:** the 9 types needing `internal`, `head`, `leonine`,
+`cross` or `holorhyme` are unreachable from an end-rhyme mandate by definition,
+and that is a real bound on step 1 rather than a defect — recorded so the
+count 40, not 49, is the one quoted.
+
 ### M-33 · One joint AUC pair lives in twelve places in one document, and a careful repin left seven of them stale `OPEN`
 **Found 2026-08-22 while repinning `quality/RESULTS.md` for M-32, by grepping
 for a figure I was about to cite beside and finding it stale in seven sentences

@@ -1578,6 +1578,181 @@ def alliterates(a, b, phon, preset="kalevala-alliteration", **kw):
     return None if t is None else t.alliterates()
 
 
+# ---------------------------------------------------------------------------
+# THE DECLARABLE RELATION VOCABULARY  (the mandate coordinate)
+# ---------------------------------------------------------------------------
+#
+# WHAT THIS EXISTS FOR.  Until 2026-08-22 a `Mandate` could not say WHICH
+# relation it wanted.  There was one GLOBAL set -- `lyric_harness`'s
+# `RHYME_RELATIONS`, two members, widened to four only by an explicit
+# `Declaration.admit` -- and it answered "what counts as satisfying ANY rhyme
+# mandate anywhere".  The owner's reading of that, 2026-08-22, is the one this
+# block acts on: the palette was not small because the SET was small, it was
+# small because a mandate could not name what it wanted.  A world survey of
+# 601 named relations, ~117 canonical structures and the 49 named types below
+# all sat behind a door that admitted two.
+#
+# AND WIDENING THE GLOBAL SET WOULD HAVE MADE IT WORSE, not better.  Turning
+# ASSONANCE on by default means every rhyme requirement in every song becomes
+# satisfiable by assonance -- the sun/much leak restored, LOOSER rather than
+# richer.  A per-group declared relation is simultaneously richer and
+# STRICTER: a group that declares CONSONANCE is not satisfied by a perfect
+# rhyme unless it says so.
+#
+# TWO GRANULARITIES, ONE QUESTION, ONE TABLE.  A declaration may name either
+# a coarse relation CLASS -- what `lyric_harness.score()` already emits per
+# pair, free -- or one of the 49 NAMED types, which costs a `classify_pair`
+# (~1.3 ms/pair, measured 2026-08-22 over 400 calls).  Both answer "what
+# relation must this pair stand in", so they share one field and one
+# resolver; which one answered is REPORTED, never guessed.
+
+#: The coarse classes `score()` puts in `s["relation"]`.  Declared here rather
+#: than imported so this module stays free of `lyric_harness` (it is imported
+#: BY that module), and pinned by `test_rhyme_types.py` against the real set
+#: so the two cannot drift into two vocabularies (doctrine 1).
+CLASS_RELATIONS = ("RHYME", "RIME_RICHE", "ASSONANCE", "CONSONANCE")
+
+
+class RelationRefused(ValueError):
+    """A declared relation that resolves to nothing.  A refusal, not a
+    failure: the mandate named a question this engine cannot ask, and
+    grading it as the default would be a silently different question."""
+
+
+def relation_vocabulary():
+    """-> {name: kind}, kind in {"class", "named"}.
+
+    DERIVED FROM `NAMED`, never re-typed.  Every synonym in every cell is a
+    legal declaration, because a tradition's own word for a relation is the
+    word a writer will reach for -- `qafiya` and `masculine rhyme` name one
+    cell and both resolve to it.
+    """
+    vocab = {n: "class" for n in CLASS_RELATIONS}
+    for names in NAMED.values():
+        for n in names:
+            # A name colliding with a coarse class would make one declaration
+            # mean two things; the class wins and the collision is reported by
+            # `relation_collisions()` rather than resolved silently.
+            vocab.setdefault(n, "named")
+    return vocab
+
+
+def relation_collisions():
+    """-> the names that are BOTH a coarse class and a named cell.
+
+    Expected empty.  It is a function rather than an assertion because a
+    collision is a fact about two tables that a suite should assert about,
+    and an import-time raise would make the whole engine unloadable over a
+    vocabulary question."""
+    named = {n for names in NAMED.values() for n in names}
+    return tuple(sorted(named & set(CLASS_RELATIONS)))
+
+
+def resolve_relation(name):
+    """-> (canonical_name, kind).  Raises `RelationRefused` on anything else.
+
+    There is no fuzzy match and no default.  A mandate that names a relation
+    this engine cannot judge must REFUSE, because grading it under the
+    default would report a clean draft on the strength of a question nobody
+    asked (doctrine 20)."""
+    if not isinstance(name, str) or not name.strip():
+        raise RelationRefused(
+            "a declared relation must be a non-empty name; an empty slot "
+            "means DEFAULT and is handled by the caller, not here.")
+    key = name.strip()
+    vocab = relation_vocabulary()
+    if key in vocab:
+        return key, vocab[key]
+    # Case-insensitive second pass, because the two vocabularies spell
+    # themselves differently (`RHYME` shouts, `perfect rhyme` does not) and a
+    # writer should not have to know which table a name came from.
+    low = {k.lower(): k for k in vocab}
+    if key.lower() in low:
+        hit = low[key.lower()]
+        return hit, vocab[hit]
+    raise RelationRefused(
+        f"{name!r} is not a declarable relation. The vocabulary is the "
+        f"{len(CLASS_RELATIONS)} coarse classes {list(CLASS_RELATIONS)} and "
+        f"every name of the {len(NAMED)} cells this engine can classify "
+        f"({sum(1 for v in relation_vocabulary().values() if v == 'named')} "
+        f"distinct names) -- ask "
+        f"`quality.rhyme_types.relation_vocabulary()`. REFUSED rather than "
+        f"graded as the default: a relation that does not exist, judged as "
+        f"the default, is a silently different question (doctrine 20).")
+
+
+#: POSITION IS THE COORDINATE THAT MAKES `NAMED` REACHABLE, and
+#: `classify_pair` cannot know it.  MEASURED 2026-08-22: **31 of the 49
+#: `NAMED` keys require a non-None `position`** ('end' 22, 'internal' 4,
+#: 'head' 2, 'leonine' 1, 'cross' 1, 'holorhyme' 1); the other 18 are
+#: position-free.  `classify_pair` takes two bare words and no line, so it
+#: leaves `position=None` and those 31 can never match -- which is why
+#: `lyric_harness.py types night -- light` reports `NAMES: UNNAMED at this
+#: coordinate` for a masculine rhyme.  See `MISSING.md` M-34: the emptiness is
+#: permanent on that path and is explained there as a fact about the
+#: vocabulary rather than about a missing coordinate.
+#:
+#: A MANDATE KNOWS IT.  An end-rhyme group's pairs are line-final by
+#: construction, so `grade()` can supply 'end' honestly and reach the 22 + 18
+#: = 40 types available there.  It is a REQUIRED argument on the named path
+#: rather than a default, because a checker silently picking a coordinate is
+#: the bug (doctrine 45) -- and 'end' is exactly the value that would be wrong
+#: for the internal, head, leonine, cross and holorhyme relations.
+def satisfies_relation(name, coarse, a=None, b=None, phon=None, preset=None,
+                       position=None):
+    """Does this pair stand in the declared relation?
+
+    -> True / False / None, and **None is a REFUSAL, not a no** (doctrine 79)
+    -- the phonology could not read a member, or the classification is
+    indeterminate. A caller that reads None as False charges a writer for a
+    word the engine could not pronounce.
+
+    `coarse` is `score()`'s `s["relation"]` for the pair. A CLASS relation is
+    answered from it alone and costs nothing. A NAMED relation costs one
+    `classify_pair`, which is why the members and the phonology are only
+    required on that path -- a mandate that declares no named relation never
+    pays for one.
+    """
+    canon, kind = resolve_relation(name)
+    if kind == "class":
+        return coarse == canon
+    if phon is None:
+        raise RelationRefused(
+            f"{canon!r} is a NAMED type and needs a phonology to classify "
+            f"the pair; only the coarse classes {list(CLASS_RELATIONS)} can "
+            f"be judged from the score alone.")
+    if position is None:
+        raise RelationRefused(
+            f"{canon!r} is a NAMED type and the caller must declare the "
+            f"POSITION the pair stands in -- one of {list(POSITION)}. "
+            f"`classify_pair` takes two bare words and cannot know it, and "
+            f"31 of the {len(NAMED)} named types require it, so leaving it "
+            f"unset would silently answer 'no name here' for two thirds of "
+            f"the vocabulary (doctrine 45: a checker picking a coordinate "
+            f"for you is the bug).")
+    if position not in POSITION:
+        raise RelationRefused(
+            f"position {position!r} is not in the declared vocabulary "
+            f"{list(POSITION)}.")
+    try:
+        t = classify_pair(a, b, phon, **({"preset": preset} if preset else {}))
+    except Indeterminate:
+        return None
+    if t is None:
+        return None
+    if t.position is None:
+        import dataclasses as _dc
+        t = _dc.replace(t, position=position)
+    elif t.position != position:
+        # The classifier DID determine a position and the caller declared a
+        # different one. Two answers to one question: refuse rather than let
+        # either win silently (doctrine 1).
+        raise RelationRefused(
+            f"the classifier read position {t.position!r} and the caller "
+            f"declared {position!r}. One coordinate, two answers -- REFUSED.")
+    return canon in t.names()
+
+
 __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "LENGTH", "REALISATION", "CELL_NAMES", "RhymeType",
            "agreement_cells", "classify_pair", "verdict", "Indeterminate",
@@ -1589,4 +1764,7 @@ __all__ = ["CHANNELS", "SPAN", "IDENTITY", "STRESS", "POSITION", "BOUNDARY",
            "PENULTIMATE_PROMINENT", "SECOND_AKSARA", "LINE_PENULT",
            "PROMINENT_ONSET_SEARCH", "PROMINENT_SEARCH", "WELSH_PENULT",
            "PERFECT_ANCHOR", "SYLLABIC_ANCHOR", "APOCOPATED_ANCHOR",
-           "FREE", "AXIS_INDEX"]
+           "FREE", "AXIS_INDEX", "CLASS_RELATIONS",
+           "RelationRefused", "relation_vocabulary",
+           "relation_collisions", "resolve_relation",
+           "satisfies_relation"]
