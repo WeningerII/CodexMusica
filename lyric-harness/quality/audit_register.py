@@ -2120,7 +2120,12 @@ PINNED = {
     #    move of step 3 by asking whether the names were already taken. This
     #    repin was taken AFTER the entry was filed rather than before -- the
     #    ordering the note above records getting wrong.
-    "coverage_entries": 95,
+    #    REPINNED 2026-08-22, 95 -> 96: `M-38` (one quantifier coordinate,
+    #    two modules, two spellings -- and `exists_k` counts different
+    #    objects in each), found by relation_shapes.py's author while
+    #    reading all 77 schemas and verified here before filing. Checked
+    #    AFTER the entry, as the note above says it should be.
+    "coverage_entries": 96,
     "coverage_audited": 19,
 }
 

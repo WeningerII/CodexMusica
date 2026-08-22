@@ -3956,6 +3956,64 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-38 · One quantifier coordinate, two modules, two spellings — and `exists_k` counts different objects in each `OPEN`
+**Found 2026-08-22 by `quality/relation_shapes.py`'s author while reading all
+77 schemas, and verified here before filing. Step 4 of the relation ladder is
+an arity/quantifier extension, so it walks straight into this.**
+
+Two modules declare the same coordinate and neither knows about the other:
+
+| | field | vocabulary |
+|---|---|---|
+| `quality/relations.py:1842` | `Figure.quantifier` | `exists` · `exists_k` · `forall` · `fraction` |
+| `quality/rhyme_constraints.py:682` | `Selection.quantifier` | `pair` · `exists_k` · `forall` · `count_fraction` |
+
+Two of the four names differ for one concept (`exists`/`pair`,
+`fraction`/`count_fraction`) and two are **shared** — and the shared ones are
+the problem, because sharing a name is what makes the difference invisible.
+
+**`exists_k` COUNTS A DIFFERENT OBJECT IN EACH.**
+
+```
+relations.py:2518        nodes = {e.a.idx for e in es} | {e.b.idx for e in es}
+                         if len(nodes) >= fig.k:            # distinct MEMBERS
+
+rhyme_constraints.py:1124    if len(fs) >= s.k - 1:         # found FIGURES
+```
+
+One counts distinct member positions and tests `>= k`; the other counts
+found figures in a frame and tests `>= k - 1`. **Two independent
+differences** — the object counted, and the threshold — under one name.
+
+**AND THEY AGREE TODAY ONLY BECAUSE EVERY DECLARATION USES k = 2.** Measured:
+`rhyme_constraints` has exactly two `Selection("exists_k", k=2, …)` and no
+other value; `relations.REGISTRY` has three `exists_k` figures — `Kalevala
+alliteration (strong)`, `Kalevala alliteration (weak)`, `alliterative long
+line` — all `k=2`, all `nodes=2`. At k = 2 the two formulas coincide: `>= 2`
+distinct members and `>= 1` figure both mean "at least one pair". **k = 2 is
+the only value at which they must.**
+
+**WHAT IS NOT MEASURED, AND IS RECORDED AS UNMEASURED.** Nobody has run
+either branch at k >= 3, because no declaration asks for it. So the
+divergence is LATENT rather than observed: the formulas are different, the
+single value in use hides it, and there is no test on either side that would
+notice. This entry claims the code difference and the k=2 coincidence — both
+verified — and claims nothing about which is right above 2. Neither
+`Selection.k`'s field comment nor `_select`'s docstring explains the `k - 1`,
+so the intent behind it is `CANNOT TELL` from the source (doctrine 20/28).
+
+**Missing:** one declaration of the quantifier vocabulary that both modules
+read, and a decision on what `k` COUNTS — members or figures — stated once.
+**Why it matters:** step 4 extends `Mandate`'s arity to the 12 non-pair
+figures, which are precisely the `forall`, `fraction` and 3-/4-node cases.
+Building a third implementation beside these two is the obvious next move and
+is exactly the wrong one. The reconciliation belongs before step 4, not after.
+**Related:** `M-37` (the same disease in the NAME space, ruled and closed by
+namespacing) and the classifier's other finding that `Figure.nodes`,
+`Figure.edges` and `Figure.template` are declared on all 77 and read by
+nothing — the fields step 4 needs are inert, and the quantifier they would be
+read alongside is doubly declared.
+
 ### M-37 · 26 relation names mean two different things, and the two judges disagree `CLOSED` 2026-08-22
 **Found 2026-08-22 on the first move of step 3 — "route the pair-shaped
 schemas through the new mandate; this is wiring" — by asking, before wiring
