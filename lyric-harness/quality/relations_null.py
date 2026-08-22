@@ -174,6 +174,43 @@ poet's end rhyme and it moves the wrong way" -- was not a fact about
 17 schemas clear their own null on at least one statistic; `perfect rhyme`
 is +219 at 27.9x, and that is what a real one looks like.
 
+THAT WHOLE PARAGRAPH IS THE 34-SCHEMA READING AND IT IS SUPERSEDED BY SECTION
+9's PANEL, 2026-08-22.  It is kept here rather than overwritten (doctrine 17)
+because every figure in it is still true OF ITS OWN POPULATION -- one 40-line
+English slice at n=10, read by `_read`, with nothing declared -- and because
+two of its coordinates turned out to be doing work nobody had counted.  The
+panel is 77 schemas over NINE SLICES in EIGHT LANGUAGES at n=200, with the
+declarable frames declared and re-declared on every replicate: 2,344 rows,
+56,723 CPU-seconds.  `quality/RESULTS_RELATIONS_NULL.md` is the write-up and
+carries the table of what moved.  The headlines:
+
+  * 50 of the 77 are SWEPT.  17 clear their own null INSIDE THEIR OWN DECLARED
+    TRADITION and are named there; 11 more clear only where
+    `tradition_scope` is not `in_tradition`, and the two sets are never summed
+    (doctrine 43/79).  19 are swept and sit at or below chance; 3 fire and no
+    randomisation in `NULLS` moves them at all.
+  * THE 27 THAT ARE NOT SWEPT ARE THREE FINDINGS: 8 NO INSTANCE, 17 refusing
+    on a capability a declaration could carry that no honest input here can
+    fill, 2 on a capability `Stream.supply` has no branch for.  All 27 are
+    named with their capability, because an absent schema and a schema that
+    found nothing must not look the same (doctrine 20).
+  * 899 of 2,344 rows (38.4%) are the null returning the observation exactly,
+    203 of them `line_permutation` x `count` -- finding 1 across eight
+    languages rather than three arms.  Of the 1,445 rows that moved, 1,308
+    (90.5%) sit at or BELOW the null's max, superseding 126 of 181.
+  * CANNOT FAIL IS NO LONGER INCONCLUSIVE BY CONSTRUCTION.  `OFF_MENU_MOVERS`
+    below records that the verdict "has never been measured on a text where
+    its schemas fire".  It has now: the three reduplications fire on six
+    slices and 0 of 200 replicates move them on any of 44 rows.
+  * TWO COORDINATES OF THE 34-SCHEMA READING WERE UNCOUNTED.  `_read` keeps
+    `--- TITLE:` marker rows, and 2 of the ledger slice's 40 lines are marker
+    rows, so `TITLE`, `THE` and `RAVEN` were tokenised as verse; dropping them
+    moves two census verdicts (`apocopated rhyme` and `light rhyme`, NO
+    INSTANCE -> EXTENDABLE).  And `caesura`/`refrain_tail` were counted as
+    CANNOT OBTAIN when what was absent was a CALL -- `search_caesura` alone
+    takes the English slice's refusals 26 -> 22.  `_read` is deliberately
+    unchanged: `EXTENSION_LEDGER` is recorded through it (see section 9).
+
 AND EVERY NUMBER IN THE SIX-WAY TABLE ABOVE WAS, UNTIL SECTION 7b, A COMMENT
 NO CODE READ.  `coverage()` re-derives the verdicts on every run and compares
 them to nothing, so `EXTENDABLE 31` could not be wrong: a schema that acquired
@@ -188,6 +225,7 @@ asks the DERIVATION to answer to a MEASUREMENT rather than the other way round
 (doctrine 68).
 
 Run: python3 quality/relations_null.py             (all three arms, ~25 min)
+     python3 quality/relations_null.py --panel     (section 9, all 77, hours)
      python3 quality/relations_null.py --arm=0 --null=global_redeal
      python3 quality/relations_null.py --coverage  (the census, instant)
      python3 quality/relations_null.py --verify    (the ledger, ~5 s, CI)
@@ -1283,7 +1321,8 @@ def sweep(lines, phon, language, schemas=None, n=25, seed=SEED, chans=None,
     # null (doctrine 66): chunking by null is resumability, not a different
     # experiment, exactly as `main`'s `--null=` is for the hand-written arms.
     # It exists because one schema can dominate a slice -- `chain rhyme (rap)`
-    # is 8.40 s per realise() pass on the panel's Sanskrit cell against a 0.02 s
+    # is 8.40 s per realise() pass on the panel's Sanskrit cell against a
+    # 0.02 s
     # median -- and a four-null run of that slice is hours in one process.
     every = tuple(x for x in NULLS if x != "identity")
     if nulls is not None:
@@ -2054,8 +2093,14 @@ def sensitivity(lines, phon, schema, statistic, language, chans=None,
 #     capability, and `Stream.provides` answers False for `caesura` and
 #     `refrain_tail` on every stream nobody prepared — even though this repo
 #     SHIPS the three calls that supply them (`search_caesura`,
-#     `mark_printed_caesura`, `mark_refrain_tail`).  Seven schemas were counted
-#     as CANNOT OBTAIN for the want of a function call in the runner.
+#     `mark_printed_caesura`, `mark_refrain_tail`).  MEASURED: `search_caesura`
+#     alone takes the English slice's refusals 26 -> 22 (`leonine rhyme` and
+#     three cynghanedd schemas), and the one-ghazal Persian cell is the only
+#     place `mark_refrain_tail` finds a non-empty population, which is what
+#     lets `epistrophe / radif` be asked at all.  So SIX schemas were counted
+#     CANNOT OBTAIN for want of a function call in the runner, and a seventh --
+#     `Middle Chinese end rhyme (同用 group)` -- for want of a slice in the one
+#     language whose phonology declares the quotient it needs.
 #   * THE READER.  `_read` drops `#` headers and `[SECTION]` rows and keeps
 #     `--- TITLE:` rows, which are the corpus's OWN marker convention (the
 #     taxonomy's `--- REGION:`/`--- FUNCTION:` overrides are the same shape).
@@ -2347,7 +2392,8 @@ PANEL = (
                "(同用 group)` can be asked at all"),
     Slice("fas", "corpus/song/fas_hafez_ganjoor.txt", "fas", 40,
           reader="one_song", declare=("caesura:searched", "refrain:alternate"),
-          note="Ḥāfiẓ, غزل شمارهٔ ۱ ALONE (14 lines, not 40) — the refrain is a "
+          note="Ḥāfiẓ, غزل شمارهٔ ۱ ALONE (14 lines, not 40) — the refrain "
+               "is a "
                "property of one ghazal and the step takes that ghazal's "
                "declared rhyme-bearing subset. This is the ONLY panel cell on "
                "which `refrain_tail` has a non-empty population, so it is the "

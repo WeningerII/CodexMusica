@@ -2956,6 +2956,112 @@ def indent_partition(block):
     return tuple(out)
 
 
+# ---------------------------------------------------------------------------
+# THE SECTION COORDINATE, SUPPLIED  (`MISSING.md` M-39)
+# ---------------------------------------------------------------------------
+#
+# WHAT WAS INERT.  `relations.build_stream` has taken a `sections=` argument
+# since it was written; `relations.Unit.section` is populated from it; two
+# `Placement` kinds -- `different_sections` and `same_section` -- read it.
+# MEASURED 2026-08-22: **zero callers anywhere pass `sections=`**, so every
+# `Unit.section` is `""`, so one of those predicates is always True and the
+# other always False -- and **zero of the 77 schemas declare either kind**.
+# Four layers of declared-and-unreached, which is `SpanRule.terminator`
+# (defect P2) and M-15's shape a third time.
+#
+# WHY THE PARSER LIVES HERE AND NOT THERE.  `relations.py` serves nine
+# languages and ships no vocabulary -- it declined to ship a rime rule for
+# the same reason (doctrine 45/65). The section MARK vocabulary is this
+# module's: `MARK_FUNCTION`, `MARK_REFUSED` and `ingest_mark` already read it,
+# already know that `VERSE 1` is a verse, and already REFUSE `BAYT` and
+# `RADIF` for English because those marks belong to other traditions. So the
+# coordinate is derived HERE, from the declared table, and handed across --
+# `relations` stays the engine and this stays the vocabulary.
+
+#: The corpus's printed section mark. MEASURED over `corpus/song/*.txt`:
+#: `[VERSE n]` 74,318 · `[BAYT n]` 70,866 · `[RADIF]` 54,193 · `[BURDEN]`
+#: 1,753 · `[REFRAIN]` 709 · `[CHORUS]` 267 · `[SLOKA]` 144 and a tail of
+#: nine more. The bracket is the convention; what is INSIDE it is adjudicated
+#: by `ingest_mark`, never by this pattern.
+SECTION_MARK = re.compile(r"^\s*\[([^\]]+)\]\s*$")
+
+SECTION_MARKER_STATUS = "section_marker"
+
+
+def sections_from_marks(text_lines, language=""):
+    """-> (sections, line_status), both one entry per line, for `build_stream`.
+
+    `sections` is a per-line SECTION IDENTITY and `line_status` marks the
+    marker lines themselves so a caller can pass
+    `exclude_status=(SECTION_MARKER_STATUS,)` and keep them out of the token
+    stream. That matters on its own: `build_stream` tokenises whatever it is
+    given, so an unfiltered `[CHORUS]` becomes the WORD `CHORUS` and can
+    stand in a `repetition` with the next one. Every caller that matters
+    filters first today, which makes this latent rather than live -- but the
+    filtering lives in each caller instead of in the coordinate, and that is
+    the arrangement that eventually gets one caller wrong.
+
+    THE IDENTITY IS PER OCCURRENCE, and that is a choice worth stating: a
+    second `[CHORUS]` is a DIFFERENT section here (`CHORUS#3`), not the same
+    one returning. `different_sections` and `same_section` are placement
+    predicates about whether a pair crosses a printed block boundary, and the
+    per-occurrence reading is the one that answers that. The OTHER reading --
+    that both choruses are one thing recurring -- is a question about
+    FUNCTION, it is what `MARK_FUNCTION` and the returns machinery already
+    answer, and it is deliberately NOT supplied through this field
+    (doctrine 1: one coordinate, one question).
+
+    A mark this module REFUSES for the declared language keeps its base in the
+    identity and is reported by `section_census`; it is not silently dropped
+    and not silently accepted (doctrine 79). Lines before the first mark get
+    `""` -- undeclared, which is honest and is exactly what the field's
+    historical default already meant.
+    """
+    sections, status = [], []
+    cur, k = "", 0
+    for raw in text_lines:
+        m = SECTION_MARK.match(raw or "")
+        if m:
+            base, _n, _fn, _ref = ingest_mark(m.group(1).strip(), language)
+            cur = "%s#%d" % (base, k)
+            k += 1
+            status.append(SECTION_MARKER_STATUS)
+        else:
+            status.append("")
+        sections.append(cur)
+    return sections, status
+
+
+def section_census(text_lines, language=""):
+    """-> {'marks': n, 'sections': n, 'functions': {...}, 'refused': {...},
+    'lines_before_first_mark': n} -- what a text's section marks ARE.
+
+    The three counts are kept apart (doctrine 79): a mark this language
+    declares, a mark another tradition owns and this one REFUSES, and the
+    lines that sit under no mark at all.
+    """
+    marks = funcs = 0
+    refused, fn = {}, {}
+    before, seen = 0, False
+    for raw in text_lines:
+        m = SECTION_MARK.match(raw or "")
+        if not m:
+            if not seen:
+                before += 1
+            continue
+        seen = True
+        marks += 1
+        base, _n, function, ref = ingest_mark(m.group(1).strip(), language)
+        if ref is not None:
+            refused[base] = refused.get(base, 0) + 1
+        elif function:
+            funcs += 1
+            fn[function] = fn.get(function, 0) + 1
+    return {"marks": marks, "sections": marks, "functions": fn,
+            "declared_functions": funcs, "refused": refused,
+            "lines_before_first_mark": before}
+
+
 __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            "song_from_blueprint",
            "uniformity", "stanza_lock", "phrase_profile", "line_pickup",
@@ -2979,4 +3085,7 @@ __all__ = ["Meter", "Line", "Section", "Song", "GridFinding",
            "MarkedSong", "read_marked_songs",
            # the named air -- MISSING.md M-11, BACKLOG 3.2
            "AIR_DISTINCT", "AIR_RESTATED", "split_named_air",
-           "named_air_kind", "named_air_census"]
+           "named_air_kind", "named_air_census",
+           # the section coordinate -- MISSING.md M-39
+           "SECTION_MARK", "SECTION_MARKER_STATUS",
+           "sections_from_marks", "section_census"]

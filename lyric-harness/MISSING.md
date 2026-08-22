@@ -3956,6 +3956,89 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-39 · The section coordinate is declared four layers deep and supplied by nobody `PARTIAL`
+**Found 2026-08-22 on the owner's question of whether to take the structure
+work while the null sweep ran — by checking whether the relation layer was
+already leaning on a structure layer, rather than assuming it was a change of
+subject. It was leaning on one, and the one it leans on is empty.**
+
+**FOUR LAYERS, EACH DECLARED, THE LAST ONE UNREACHED:**
+
+1. `relations.build_stream(text_lines, phon, sections=None, …)` — the
+   parameter has existed since the function was written. **Zero callers
+   anywhere pass it** (grepped).
+2. `relations.Unit.section` — populated from that parameter, therefore `""`
+   on every unit of every stream this repo has ever built.
+3. `Placement` kinds `different_sections` and `same_section` — implemented,
+   and they read `Unit.section`. Against `""` everywhere, one is
+   **always False** and the other **always True**.
+4. **Zero of the 77 schemas declare either kind** (measured).
+
+That is `SpanRule.terminator` (defect P2) and M-15 a third time: a coordinate
+declared, threaded, read by a predicate, and reached by nothing.
+
+**AND THE STREAM EATS THE MARKER AS A WORD.** `build_stream` tokenises
+whatever it is handed, so an unfiltered section line becomes verse:
+
+```
+raw:   ['[VERSE 1]','the night','the light','','[CHORUS]','the day','the way']
+units: ['VERSE', 'the', 'night', 'the', 'light', 'CHORUS', 'CHORUS', 'the']
+```
+
+`CHORUS`/`CHORUS` is a `repetition` instance. Every caller that matters
+filters first — `lyric_harness.is_apparatus_line` catches both bracket marks
+and `---` rows, and the null sweep's `_read_slice` drops them — so this is
+**latent rather than live**. But the filtering lives in each caller instead of
+in the coordinate, which is the arrangement that eventually gets one caller
+wrong.
+
+**WHAT IS SUPPLIED NOW.** `quality/grid.sections_from_marks(lines, language)`
+returns `(sections, line_status)` for `build_stream`, and
+`grid.section_census()` reports what a text's marks ARE. The parser lives in
+`grid.py` because that module owns the vocabulary — `MARK_FUNCTION`,
+`MARK_REFUSED` and `ingest_mark` already know that `VERSE 1` is a verse and
+already REFUSE `BAYT` and `RADIF` for English because those marks belong to
+other traditions. `relations.py` serves nine languages and ships no
+vocabulary; it declined to ship a rime rule for the same reason (doctrine
+45/65). Verified end to end: markers leave the token stream via the existing
+`exclude_status` machinery, `Unit.section` reads `VERSE#0` / `CHORUS#1`, and
+the two dead predicates answer — `same_section` False and
+`different_sections` True across a verse/chorus boundary.
+
+**THE IDENTITY IS PER OCCURRENCE, AND THAT IS A CHOICE.** A second `[CHORUS]`
+is a DIFFERENT section (`CHORUS#3`), not the same one returning. The two
+placement predicates ask whether a pair crosses a printed block boundary, and
+per-occurrence is the reading that answers that. The other reading — both
+choruses as one thing recurring — is a question about FUNCTION, is what
+`MARK_FUNCTION` and the returns machinery already answer, and is deliberately
+NOT carried in this field (doctrine 1).
+
+**MEASURED MARK VOCABULARY**, over `corpus/song/*.txt`: `[VERSE n]` 74,318 ·
+`[BAYT n]` 70,866 · `[RADIF]` 54,193 · `[BURDEN]` 1,753 · `[REFRAIN]` 709 ·
+`[CHORUS]` 267 · `[SLOKA]` 144 · `[PANTUN ABAB]` 88 · `[NOTE]` 48 ·
+`[QUATRAIN AAAA]` 41 · `[BURDEN-TAIL]` 19 · `[VARIANT n]` 18 · `[URLAR]` 3 ·
+`[SIUBHAL]` 3.
+
+**AND IT HAS A LIVE CONSEQUENCE THE NULL RUN ALREADY PAID.** `Figure.frame`
+is `stanza` on 5 schemas and `line_pair` on 1. The panel's reader drops blank
+lines along with the apparatus rows, and `_stream_of` derives stanzas FROM
+blank lines — so **every panel slice is one stanza**. Measured on the real
+slice: 24 lines, 0 blanks, 1 distinct stanza, 1 distinct `Unit.section`. Six
+of the 77 were nulled over a frame that could not vary, and their rows in
+`quality/RESULTS_RELATIONS_NULL.md` are the weakest in that run.
+
+**PARTIAL, and this is what remains.** The coordinate is suppliable and the
+parser is tested; **nothing supplies it yet in production** — `build_stream`'s
+callers still pass nothing, `_stream_of` still derives stanzas from blank
+lines, and no schema declares either section placement. Three separable
+pieces: wire the callers, ground the stanza frame on sections rather than
+blank lines and re-run the six affected schemas, and decide whether any schema
+SHOULD declare `different_sections` (which is step 8 territory, a new schema,
+not this).
+**Why it matters:** `verse` and `chorus` are not decoration here. They are the
+frame six relation schemas quantify over, currently supplied by blank-line
+guessing and thrown away before the sweep sees it.
+
 ### M-38 · One quantifier coordinate, two modules, two spellings — and `exists_k` counts different objects in each `PARTIAL`
 **Found 2026-08-22 by `quality/relation_shapes.py`'s author while reading all
 77 schemas, and verified here before filing. Step 4 of the relation ladder is

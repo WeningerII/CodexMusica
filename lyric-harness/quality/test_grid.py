@@ -2581,6 +2581,77 @@ def test_the_elaboration_pointer_and_the_rank_that_was_refused():
           not fs2 and c2["grounded_before"] == 1, (fs2, c2))
 
 
+def test_the_section_coordinate_is_supplied():
+    """`MISSING.md` M-39. `relations.build_stream` has taken `sections=`
+    since it was written, `Unit.section` is populated from it, two Placement
+    kinds read it — and nobody ever passed one. This is the supply, and it
+    lives here because this module owns the mark vocabulary."""
+    print("\n·  M-39 — the section coordinate, supplied")
+    raw = ["[VERSE 1]", "the night", "the light",
+           "[CHORUS]", "the day", "the way",
+           "[VERSE 2]", "the sea"]
+    sec, status = _G.sections_from_marks(raw, "eng")
+    check("a marker line is labelled so a caller can exclude it",
+          status[0] == _G.SECTION_MARKER_STATUS and status[1] == "",
+          status[:2])
+    check("every line carries its section, and the identity is PER "
+          "OCCURRENCE — a second [VERSE] is a different section, which is "
+          "what the placement predicates ask",
+          (sec[1], sec[4], sec[7]) == ("VERSE#0", "CHORUS#1", "VERSE#2"),
+          (sec[1], sec[4], sec[7]))
+    check("lines before the first mark are UNDECLARED, not guessed",
+          _G.sections_from_marks(["a line", "[VERSE 1]", "b"], "eng")[0][0]
+          == "")
+    cen = _G.section_census(raw, "eng")
+    check("the census counts marks and functions from the DECLARED table",
+          cen["marks"] == 3 and cen["functions"] == {"verse": 2, "chorus": 1},
+          cen)
+    # A MARK THIS LANGUAGE REFUSES IS KEPT APART, never dropped and never
+    # accepted (doctrine 79) -- BAYT is Persian and MARK_REFUSED says so.
+    ref = _G.section_census(["[BAYT 1]", "a line"], "eng")
+    check("a mark another tradition owns is REFUSED and counted apart, not "
+          "silently accepted as an English section function",
+          ref["refused"] == {"BAYT": 1} and ref["functions"] == {}, ref)
+    check("...and it still gets a section identity, so the line is not "
+          "orphaned by the refusal",
+          _G.sections_from_marks(["[BAYT 1]", "a"], "eng")[0][1] == "BAYT#0")
+    # END TO END: the coordinate reaches the two predicates that read it.
+    from quality import relations as _R
+    import lyric_harness as _LH
+    phon = _LH._phonology_or_refuse("eng")
+    st = _R.build_stream(raw, phon, sections=sec, line_status=status,
+                         exclude_status=(_G.SECTION_MARKER_STATUS,))
+    check("the marker is OUT of the token stream — unfiltered it becomes the "
+          "WORD `CHORUS` and can stand in a `repetition`",
+          "CHORUS" not in [u.token_text for u in st.units]
+          and "VERSE" not in [u.token_text for u in st.units])
+    check("...and the loss is RECORDED, not silent",
+          [e[2] for e in st.excluded_lines]
+          == ["[VERSE 1]", "[CHORUS]", "[VERSE 2]"],
+          st.excluded_lines)
+    check("Unit.section is real for the first time",
+          len({u.section for u in st.units}) == 3,
+          sorted({u.section for u in st.units}))
+    a = _R.Span(idx=(0,), anchor_pos=0, direction=1, unit="token")
+    b = _R.Span(idx=(len(st.units) - 1,), anchor_pos=0, direction=1,
+                unit="token")
+    same = _R.Placement(kind="same_section", args=(), polarity=True,
+                        requires=()).holds(a, b, st)
+    diff = _R.Placement(kind="different_sections", args=(), polarity=True,
+                        requires=()).holds(a, b, st)
+    check("the two predicates ANSWER, and answer differently — against the "
+          "historical all-`\"\"` stream one was always True and the other "
+          "always False", (same, diff) == (False, True), (same, diff))
+    st0 = _R.build_stream(raw, phon)
+    a0 = _R.Span(idx=(0,), anchor_pos=0, direction=1, unit="token")
+    b0 = _R.Span(idx=(len(st0.units) - 1,), anchor_pos=0, direction=1,
+                 unit="token")
+    check("...and WITHOUT the supply they still collapse, which is the "
+          "defect this pins rather than a second passing case",
+          _R.Placement(kind="different_sections", args=(), polarity=True,
+                       requires=()).holds(a0, b0, st0) is False)
+
+
 if __name__ == "__main__":
     for fn in (test_the_model_cannot_express_a_stanza,
                test_meter_is_arbitrary,
@@ -2617,7 +2688,8 @@ if __name__ == "__main__":
                test_the_printed_indent_survives_ingestion,
                test_a_return_that_varies_off_the_text,
                test_a_refusal_is_true_in_a_language,
-               test_the_elaboration_pointer_and_the_rank_that_was_refused):
+               test_the_elaboration_pointer_and_the_rank_that_was_refused,
+               test_the_section_coordinate_is_supplied):
         fn()
     print("=" * 62)
     if FAILURES:

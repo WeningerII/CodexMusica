@@ -115,7 +115,8 @@ def s1_partition():
     cens = N.panel_census([], {})
     names = [c.schema for c in cens]
     check("§1 every declared schema gets exactly one row (empty panel)",
-          sorted(names) == sorted(R.REGISTRY) and len(names) == len(set(names)),
+          sorted(names) == sorted(R.REGISTRY)
+          and len(names) == len(set(names)),
           f"{len(names)} rows for {len(R.REGISTRY)} schemas")
     check("§1 every verdict is one of PANEL_VERDICTS",
           all(c.verdict in N.PANEL_VERDICTS for c in cens),
@@ -205,7 +206,8 @@ def s4_prepare_per_replicate():
     phon = get_phonology("eng")
     prep = N.declaration_step(("caesura:searched",))
     got, _cens = N.sweep(FIXTURE, phon, "eng",
-                         schemas={"leonine rhyme": R.REGISTRY["leonine rhyme"]},
+                         schemas={"leonine rhyme":
+                                  R.REGISTRY["leonine rhyme"]},
                          n=n, budget=None, prepare=prep)
     live = [r for r in got if not isinstance(r, R.Refusal)]
     check("§4 with `prepare`, the caesura schema produces rows",
@@ -333,7 +335,8 @@ def s9_blockers():
         supplied_by_some_slice |= {c for c in needed if st.provides(c)}
     unreachable = needed - supplied_by_some_slice
     missing_entry = sorted(c for c in unreachable
-                           if c not in N.BLOCKERS and c not in N.NEVER_PROVIDED)
+                           if c not in N.BLOCKERS
+                           and c not in N.NEVER_PROVIDED)
     check("§9 every capability NO panel slice supplies has a recorded "
           "blocker",
           not missing_entry, str(missing_entry))

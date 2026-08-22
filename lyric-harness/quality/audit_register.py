@@ -2125,7 +2125,11 @@ PINNED = {
     #    objects in each), found by relation_shapes.py's author while
     #    reading all 77 schemas and verified here before filing. Checked
     #    AFTER the entry, as the note above says it should be.
-    "coverage_entries": 96,
+    #    REPINNED 2026-08-22, 96 -> 97: `M-39` (the section coordinate is
+    #    declared four layers deep and supplied by nobody), found by asking
+    #    whether the relation layer was already leaning on a structure layer
+    #    before treating the structure work as a change of subject. It was.
+    "coverage_entries": 97,
     "coverage_audited": 19,
 }
 
