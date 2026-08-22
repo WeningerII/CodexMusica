@@ -302,9 +302,22 @@ def test_the_tree_it_graded_is_disclosed():
     """
     print("\n7. the sweep says WHICH tree it graded, not only how many")
     head = SS.head_revision()
-    check("the revision is readable from a checkout, and it is a short hash",
-          bool(head) and 6 <= len(head) <= 12 and " " not in head,
-          repr(head))
+    # CONDITIONAL, AND THE CONDITION IS THE SECTION'S OWN SUBJECT. The first
+    # draft asserted this unconditionally and went red inside the shadow tree
+    # `quality/mutate.py` builds — which is not a checkout, which is the exact
+    # thing the next check is about. A section that demands a checkout in
+    # order to test a probe designed to survive not having one is the
+    # checkout assumption this whole sitting has been removing
+    # (`MISSING.md` M-30), committed inside the check written against it.
+    # Found by the mutation sweep, on the commit that added it.
+    if head:
+        check("read from a checkout, the revision is a short hash",
+              6 <= len(head) <= 12 and " " not in head, repr(head))
+    else:
+        print("  REFUSED  the revision is readable from a checkout")
+        print("          not a git work tree, so there is no revision to "
+              "read. The probe answering '' IS the behaviour the next two "
+              "checks pin (doctrine 20).")
     # A PROBE THAT FAILS MUST LEAVE NO LINE FOR A LATER READER TO MISREAD
     # (`MISSING.md` M-30's seventh, where exactly such a line became the
     # published cause of an unrelated failure). Outside a checkout this must

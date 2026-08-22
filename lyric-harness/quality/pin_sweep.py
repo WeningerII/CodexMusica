@@ -146,7 +146,14 @@ EXIT_MEANING = {
     "quality/corpus_manifest.py": {0: "HOLDS", 3: "MOVED"},
     "quality/audit_corpus.py": {0: "HOLDS", 1: "MOVED"},
     "quality/counters.py": {0: "HOLDS", 1: "MOVED"},
-    "quality/triage.py": {0: "HOLDS", 1: "MOVED"},
+    # 2 ADDED 2026-08-22 with `triage.NotAGitCheckout`. That module scans the
+    # register through `git ls-files`, and outside a work tree it now REFUSES
+    # at 2 rather than answering that the whole register is UNGUARDED
+    # (`MISSING.md` M-30). Without this row the conservative default below
+    # reads a 2 as MOVED — a figure moved — which is precisely the collapse
+    # of "cannot tell" into an answer that this sweep exists to prevent.
+    # Found by the mutation sweep, which runs the suites in a SHADOW TREE.
+    "quality/triage.py": {0: "HOLDS", 1: "MOVED", 2: "CANNOT RUN"},
 }
 
 #: THE CONSERVATIVE DEFAULT, and the direction it errs in is the whole

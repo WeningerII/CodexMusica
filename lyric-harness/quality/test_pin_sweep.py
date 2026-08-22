@@ -192,10 +192,24 @@ def test_it_runs_one_instrument_end_to_end():
     check("the row carries the instrument, an exit code, a verdict and a time",
           set(row) >= {"instrument", "exit", "verdict", "seconds"}
           and row["verdict"] in ("HOLDS", "MOVED", "CANNOT RUN"), row)
-    check("triage.py's committed figures reproduce at HEAD",
-          row["verdict"] == "HOLDS", (row["verdict"], row["exit"]))
-    check("a HOLDS row carries no evidence — evidence is for what moved",
-          row["evidence"] == [], row["evidence"])
+    # THE VERDICT DEPENDS ON WHETHER THIS IS A CHECKOUT, and pinning HOLDS
+    # unconditionally made this section red inside the SHADOW TREE that
+    # `quality/mutate.py` builds to grade the suites — where `triage.py`
+    # cannot read its own population and now REFUSES at 2 rather than
+    # reporting the whole register UNGUARDED (`MISSING.md` M-30). Asserting
+    # HOLDS there demands a checkout in order to test a sweep whose entire
+    # subject is telling a refusal from an answer. Both arms are pinned, so
+    # neither environment is the one nobody checked.
+    if row["verdict"] == "CANNOT RUN":
+        check("outside a checkout triage REFUSES and the sweep reads it as "
+              "CANNOT RUN — not MOVED, which is what the conservative "
+              "default would have made of exit 2",
+              row["exit"] == 2 and row["evidence"], (row["exit"], row["evidence"][:1]))
+    else:
+        check("triage.py's committed figures reproduce at HEAD",
+              row["verdict"] == "HOLDS", (row["verdict"], row["exit"]))
+        check("a HOLDS row carries no evidence — evidence is for what moved",
+              row["evidence"] == [], row["evidence"])
 
 
 def test_an_interrupted_sweep_reports_what_it_ran():
