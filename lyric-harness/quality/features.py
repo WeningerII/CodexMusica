@@ -253,7 +253,26 @@ class QualityFeatures:
         "mattr": "higher",
         "function_word_ratio": "lower",
         "syntactic_inversion_rate": "lower",
-        "content_word_freq_mean": "lower",
+        # CORRECTED 2026-08-22 BY OWNER RULING (`MISSING.md` M-32): ~~lower~~
+        # **higher**. `quality/PREREGISTRATION.md` committed this feature as
+        # "**LOWER** (rarer words)", and the two halves of that cell point
+        # opposite ways — `freq_rank` is 0-based ascending by commonness, so
+        # LOWER is MORE COMMON and the gloss says rarer. The ruling is that
+        # the GLOSS was the commitment, so the prediction is RARER WORDS and
+        # the direction that encodes it is `higher`.
+        #
+        # THE RESPECIFICATION ALREADY AGREED WITH THE GLOSS, which is the
+        # corroboration and not the reason: `within_item.WithinItemFeatures`
+        # declares `wi_freq_delta: "higher"` for the same quantity measured
+        # marked-minus-unmarked, and has since it was written. The two
+        # modules had disagreed with each other about one prediction the
+        # whole time (doctrine 1).
+        #
+        # IT MOVES NO AUC. `permutation_test` is direction-free and
+        # `joint_classifier` fits logistic regression on raw values, so every
+        # figure is unchanged; what moves is `dir_ok`, the printed verdict,
+        # and the count of features clearing FDR with the predicted sign.
+        "content_word_freq_mean": "higher",
     }
 
     def __init__(self, lex=None, decl=None, mattr_window=MATTR_WINDOW):

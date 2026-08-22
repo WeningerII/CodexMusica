@@ -125,6 +125,21 @@ from lyric_harness import (Lexicon, line_tokens, fold_apostrophes,      # noqa
                            unread_final_piece, syllabify, anchor)
 
 SONG = os.path.join(ROOT, "corpus", "song")
+
+#: THE DECLARED POPULATION.  Named once so `corpus_manifest.py` can ASK this
+#: module which files the rhyme-position tables were built over instead of
+#: re-typing the prefix: a second copy of a population is a second definition
+#: of the question (doctrine 1), and the copy is what goes stale when a load
+#: stages a new language prefix.
+CORPUS_PREFIX = "eng_"
+
+
+def corpus_files(song_dir=None):
+    """-> the sorted paths these tables are built over."""
+    d = song_dir or SONG
+    return sorted(os.path.join(d, f) for f in os.listdir(d)
+                  if f.startswith(CORPUS_PREFIX) and f.endswith(".txt"))
+
 DATA = os.path.join(ROOT, "data")
 
 END_TSV = os.path.join(DATA, "song_endword_en.tsv")
@@ -219,8 +234,7 @@ class SongFrequencyBuilder:
         end = collections.Counter()
         pair = collections.Counter()
         stats = collections.Counter()
-        files = sorted(f for f in os.listdir(SONG)
-                       if f.startswith("eng_") and f.endswith(".txt"))
+        files = [os.path.basename(p) for p in corpus_files()]
         for base in files:
             author = base[:-4]
             item_ends = []

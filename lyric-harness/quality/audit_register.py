@@ -2091,7 +2091,14 @@ PINNED = {
     #    the feature flips between them), found by asking whether feature 10
     #    earns its place and finding the question unanswerable as posed.
     #    `coverage_audited` unmoved at 19.
-    "coverage_entries": 90,
+    #    REPINNED 2026-08-22, 90 -> 91: `M-33` (one joint AUC pair lives in
+    #    twelve places in one document, and a careful repin left seven of them
+    #    stale), found while repinning `RESULTS.md` for the M-32 ruling -- by
+    #    grepping for a figure I was about to cite beside, and finding it stale
+    #    in seven sentences that were not marked superseded, plus a second
+    #    document the repin never touched at all. `coverage_audited` unmoved
+    #    at 19.
+    "coverage_entries": 91,
     "coverage_audited": 19,
 }
 

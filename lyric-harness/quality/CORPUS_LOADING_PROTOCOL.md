@@ -128,6 +128,27 @@ songs into a corpus whose checks are green-by-coincidence. The nightly
 lanes still measure the LIVE tree; rewiring them to the manifest
 snapshot is its own future sitting and is NOT licensed by this file.
 
+**AND THE CLOSING SITTING MUST RUN `quality/suite_sweep.py`, NOT ONLY THE
+`--check` LANES.** Added 2026-08-22, after the Old Norse batch (K-4) left
+**two** suites red that no `--check` lane could see: `test_corpus_taxonomy`
+§6, because the manifest had drifted, and `test_grid`'s named-air census,
+because the staging introduced a language prefix the census pins by name.
+Corpus-SHAPE pins live in suites — per-prefix counts, populations,
+censuses — while `--check` lanes guard corpus-CALIBRATED constants, and a
+load moves both. The two were found separately and by accident, one of them
+only because the mutation sweep happened to run; the sweep is the
+instrument that finds them on purpose.
+
+**Ask `corpus_manifest.py --check` which adoptions the drift actually
+touches before re-deriving anything.** Its drift report now names, per
+calibrated adoption, which drifted files fall inside that adoption's
+population — asked from each owning module, never re-typed there. A batch
+whose files land outside every population (the Old Norse one did: all four
+populations are `eng_`-scoped) owes **no** re-derivation, and the report
+says so in those words. That verdict is not the same claim as "re-derived
+and nothing moved", and the report REFUSES rather than reporting a clean
+when a population cannot be asked.
+
 ## What the loading sessions must not do
 
 - No licence/provenance verdicts without the owner (see Pass 2).

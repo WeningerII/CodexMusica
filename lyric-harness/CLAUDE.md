@@ -1858,6 +1858,17 @@ from the first run — do not drift from these either:**, merged into one run.)
    before the sentinel fix, 0.262 pre-fix, so rejection
    still beats selection by a quarter of an AUC and this doctrine never rested
    on the third decimal.
+   **AMENDED 2026-08-22 — `MISSING.md` M-32, by owner ruling, and it moves
+   neither number in this doctrine.** `content_word_freq_mean`'s preregistered
+   cell said **LOWER** and glossed it *(rarer words)*, which are opposite
+   claims about a frequency RANK; the owner ruled the gloss was the
+   commitment. The feature's declared direction is now `higher`, so its
+   Experiment 2 verdict goes `WRONG SIGN` → **HIT (FDR)**, the headline hit
+   count 4/10 → **5/10** and the wrong-sign count 5 → **4**. No AUC moves —
+   the permutation test is direction-free and the joint classifier fits on raw
+   values — so 0.960 / 0.723 and the 0.237 gap are the same figures either
+   side of the ruling. The DOWNGRADE above is unaffected and stands: the AUC
+   did fall from 0.807, and a feature can be a hit and a weaker one at once.
 
 9. **Optimizing toward the phonetic maximum is the slop direction.** Handing a
    model "L2-L4 below theta" makes it reach for the highest-scoring rhyme,

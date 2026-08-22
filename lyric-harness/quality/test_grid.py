@@ -2051,6 +2051,14 @@ _SONG_GLOB = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 #: song counts are the register's, re-derived; the AIRS are the finding.
 _AIR_EXPECT = {"cym": (391, 13), "eng": (8667, 539), "fas": (8350, 0),
                "fin": (962, 18), "ltc": (10529, 0), "msa": (129, 0),
+               # ADDED 2026-08-22 with the K-4 Old Norse staging: 160 vísur,
+               # ZERO named airs, and the zero is a reading rather than an
+               # absence — skaldic verse quoted inside saga prose carries no
+               # tune direction, because it was spoken in a narrative and not
+               # sung to a known air. The prefix is pinned precisely so that
+               # stays a measured zero: an absent key would read the same
+               # (doctrine 20), which is the whole point of the check above.
+               "non": (160, 0),
                "san": (25, 0)}
 
 

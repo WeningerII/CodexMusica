@@ -46,6 +46,74 @@ MANIFEST = os.path.join(ROOT, "data", "calibration_manifest.tsv")
 #: plain walk is the population — matching audit_corpus's own walk.
 
 
+#: THE CALIBRATED POPULATIONS.  quality/CORPUS_LOADING_PROTOCOL.md names four
+#: corpus-derived adoptions and says a load's closing sitting must "re-derive
+#: and re-adopt" them.  But a drift that lands OUTSIDE every one of those
+#: populations owes no re-derivation at all — and until this table existed,
+#: the two states were indistinguishable in the output: "I re-derived and
+#: nothing moved" and "the glob never looked at those files" both showed up
+#: as a green --check lane and a manifest --write.  That is the shape this
+#: repo keeps filing against itself, so the difference is forced here.
+#:
+#: Each entry names the module that OWNS the population and is ASKED for it —
+#: never told.  A re-typed glob here would be a second definition of the
+#: question (doctrine 1), and the copy is what goes stale the first time a
+#: load stages a new language prefix, which is exactly the case this table
+#: exists to adjudicate.
+CALIBRATED = (
+    ("meter bands", "quality.meter_bands"),
+    ("the song floor profile", "quality.song_profile_calibration"),
+    ("the rhyme-position tables", "quality.build_song_frequency"),
+    ("structure-census chance rates", "quality.structure_census"),
+)
+
+
+def _population(modname):
+    """-> the set of repo-relative paths that module measures.
+
+    Asks the module, three ways, in the order of decreasing directness: a
+    `corpus_files()` accessor, then a declared `CORPUS_GLOB`.  A module that
+    answers neither is a REFUSAL, not an empty set — an unaskable population
+    is indistinguishable from a population nothing entered, and guessing
+    which is exactly the error this table exists to prevent.
+    """
+    import glob as _glob
+    import importlib
+    if ROOT not in sys.path:
+        sys.path.insert(0, ROOT)
+    mod = importlib.import_module(modname)
+    if hasattr(mod, "corpus_files"):
+        paths = mod.corpus_files()
+    elif hasattr(mod, "CORPUS_GLOB"):
+        paths = _glob.glob(os.path.join(ROOT, mod.CORPUS_GLOB))
+    else:
+        raise LookupError(
+            f"{modname} declares no corpus_files() and no CORPUS_GLOB, so "
+            f"its population cannot be ASKED. Declare one there; do not "
+            f"re-type its glob here.")
+    return {os.path.relpath(os.path.abspath(p), ROOT) for p in paths}
+
+
+def readoption_owed(drifted):
+    """-> ([(adoption, [rel])], [(adoption, error)]) for the drifted files.
+
+    The first list is the adoptions a re-derivation is OWED to; the second is
+    the ones that could not be asked.  An unaskable population is reported,
+    never counted as clean.
+    """
+    hits, unaskable = [], []
+    for label, modname in CALIBRATED:
+        try:
+            pop = _population(modname)
+        except Exception as exc:                     # noqa: BLE001 — reported
+            unaskable.append((label, f"{type(exc).__name__}: {exc}"))
+            continue
+        inside = sorted(set(drifted) & pop)
+        if inside:
+            hits.append((label, inside))
+    return hits, unaskable
+
+
 def scan():
     rows = []
     for dirpath, _dirs, files in os.walk(CORPUS):
@@ -101,6 +169,31 @@ def check():
     for rel in changed:
         print(f"  CHANGED  {rel} (recorded {recorded[rel][0][:8]}… "
               f"measured {live[rel][0][:8]}…)")
+
+    drifted = new + changed        # a GONE file cannot be re-measured
+    hits, unaskable = readoption_owed(drifted)
+    print()
+    if unaskable:
+        for label, err in unaskable:
+            print(f"  UNASKABLE  {label} — {err}")
+        print("  RE-ADOPTION VERDICT WITHHELD: a population that cannot be "
+              "asked is not a population nothing entered.")
+    elif hits:
+        print("  RE-ADOPTION IS OWED — the drift lands inside:")
+        for label, inside in hits:
+            print(f"    {label}: {len(inside)} file(s)")
+            for rel in inside[:8]:
+                print(f"      {rel}")
+            if len(inside) > 8:
+                print(f"      … and {len(inside) - 8} more")
+    else:
+        print(f"  NO RE-ADOPTION IS OWED BY THIS DRIFT: all "
+              f"{len(drifted)} drifted file(s) fall OUTSIDE every one of the "
+              f"{len(CALIBRATED)} calibrated populations, so no adopted "
+              f"constant can have moved.")
+        print("  This is NOT the same claim as 're-derived, nothing "
+              "changed' — nothing was re-derived, because nothing looked. "
+              "--write is licensed on that ground and no other.")
     return 3
 
 

@@ -3956,7 +3956,110 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
-### M-32 · Feature 10's committed direction and its own gloss point opposite ways, and the verdict on the feature flips between them `OPEN`
+### M-33 · One joint AUC pair lives in twelve places in one document, and a careful repin left seven of them stale `OPEN`
+**Found 2026-08-22 while repinning `quality/RESULTS.md` for M-32, by grepping
+for a figure I was about to cite beside and finding it stale in seven sentences
+that were not marked superseded.**
+
+`MISSING.md` M-31's cold re-run moved the absolute joint held-out AUCs from
+0.717 / 0.964 to **0.723 / 0.960**. That repin updated the headline table. It
+did not update:
+
+| line at HEAD | site in `RESULTS.md` | what it said |
+|---:|---|---|
+| 64 | the two-numbers argument | "**0.964 against 0.717 cold**", gap "0.247 … narrowed by 0.015" |
+| 288 | the cold-rows pointer | "Cold, the last two rows read **0.717** / **0.964**" |
+| 360 | the 0.975 parenthetical | "cold it is 0.964" |
+| 366 | the Exp 1 fall parenthetical | "cold, that fit reads **0.717**" |
+| 416 | "The joint held-out AUCs, cold" | a row labelled **COLD, current** carrying 0.717 / 0.964 |
+| 424 | the seed-median comparison | "The recorded Exp 1 draw of 0.717" |
+| 560 | the doctrine-73 recap | "0.717 absolute at n = 15" |
+
+**COUNTED, not estimated:** `git show HEAD:quality/RESULTS.md | grep -c
+'0\.717\|0\.964'` returns **11**, plus the live current row M-31 added, so the
+absolute joint pair is written in **twelve** places in one document. M-31
+handled two of them (added the live row, struck the superseded headline row);
+**three** are inside blockquotes that record superseded readings on purpose
+(doctrine 17) and are correct as history; **seven** — the table above — were
+left stale, one of them a table row whose own third column read **"COLD,
+current"**. All seven are repinned in the same commit as this entry.
+
+**AND A SEVENTH SITE HAD AN ARITHMETIC SLIP OF ITS OWN.** The blockquote that
+withdraws the unreproducible "0.062" figure — a paragraph whose entire subject
+is a number that does not check out — had the M-31 pair appended to it without
+recomputing the quantity it exists to state: it read *"0.960 − 0.723 = 0.237,
+narrowing **0.015**"*, and 0.262 − 0.237 is **0.025**. Corrected in place, with
+the seven gaps now on record re-checked against the 0.062 claim (none produces
+it; the nearest is still 0.063).
+
+**THE DEFECT IS NOT THE STALE DIGITS, IT IS THAT NOTHING COULD HAVE CAUGHT
+THEM.** `quality/test_discriminate.py` pins these AUCs to 5e-4 and would go red
+the instant the *measurement* drifted. Nothing relates that pin to the eleven
+places `RESULTS.md` writes the same number in prose, so a repin is a manual
+grep and a manual grep is a thing that gets tired. This is doctrine 1 at
+document scale: one quantity, eleven copies, and only one of them mechanical.
+
+**WHY THE OBVIOUS FIX IS NOT OBVIOUS.** A checker that greps `RESULTS.md` for
+any pinned figure and demands it match would go red on every superseded reading
+the document keeps ON PURPOSE — doctrine 17 requires those to stay visible, so
+a naive check would either fail permanently or force their deletion, and a
+permanently red gate is one nobody reads. The distinction the checker has to
+make is between a figure quoted as LIVE and one quoted as HISTORY, and the
+document currently marks that only in prose (`SUPERSEDED`, `~~struck~~`,
+blockquotes). Making it mechanical means giving the live/history distinction a
+declared form, which is a sitting of its own.
+
+**Missing:** an instrument that relates `test_discriminate.PINNED` to the prose
+that cites it, and a declared way for a document to say "this figure is quoted
+as a superseded reading" that the instrument can read.
+**Why it matters:** every headline number in this repo is repinned by hand
+across documents that are the deliverable. M-31's sweep was careful and still
+missed six sites plus an arithmetic slip; the next one will miss a different
+six. A number that is right in the pin and wrong in the sentence a reader
+actually reads is wrong.
+**AND THE SWEEP FOUND A SECOND DOCUMENT THE REPIN NEVER TOUCHED AT ALL.**
+`git log -- quality/RESULTS_WITHIN_ITEM.md` shows its last commit predates
+`bd68dff`, the M-31 repin. That file's head-to-head table labelled
+**"COLD — current, measured 2026-08-13"** carried 0.717 / 0.964 and 0.638 /
+0.891 against live values of 0.723 / 0.960 and **0.621** / **0.896**, and the
+staleness reached its conclusions, not only its tables:
+
+- **P1's error-ratio** read "~3.1x the error"; at the M-31 figures it is
+  **~2.6x**. Third reading of one quantity — 4.9x warm, 3.1x cold 08-13, 2.6x
+  cold 08-22 — and every correction so far has made the fall look SMALLER,
+  which is worth knowing about a claim whose load-bearing word is
+  *substantial*.
+- **P2's fall** read 0.079; it is **0.102**. Verdict unchanged, size not.
+- **A stated non-coincidence stopped being one.** The document carried a note
+  explaining that 0.638 appearing twice was not a typo — it was both a seed
+  median and an observed AUC. The observed AUC is now 0.621, so the note
+  explains something that is no longer on the page.
+- **A seed-distribution argument got stronger for no reason.** The recorded
+  draws moved (0.717 → 0.723, 0.638 → 0.621) while the medians they are
+  compared against did not, because `audit_joint_auc_null` was not re-run. The
+  argument's conclusion is unaffected; its margins are now a cold observation
+  against a stale null and say so in place.
+
+**AND ONE PRE-REGISTERED PREDICTION LOST ITS COMPARATOR ENTIRELY** — see M-32.
+`PREREGISTRATION_WITHIN_ITEM.md`'s P3 is *"Exp 2 wrong-sign count must fall
+below five"*, and the *five* was the absolute arm's count frozen into a digit.
+M-32's ruling moved that count to four, so P3 now reads 4 → 4: the literal test
+still passes and measures nothing. Doctrine 58 catching itself — a recorded
+count became a threshold nobody wrote down, and then the recording moved. All
+three of that document's predictions have now had their comparator withdrawn.
+
+**Scope, measured 2026-08-22:** `RESULTS.md` alone carries the absolute joint
+pair in twelve places; `RESULTS_WITHIN_ITEM.md` was stale throughout and is
+repinned in the same commit. `CLAUDE.md` doctrine 7 was repinned separately on
+2026-08-22 and is current. `NULL_AUDIT.md` is **not** stale in this sense —
+checked: it carries none of the cold pairs, because §1.3 audits the WARM
+0.659 → 0.604 claim and labels itself warm throughout. Its exposure is the
+other one: its label-permutation nulls and 200-seed medians were measured
+against the sentinel M-31 corrected and have not been re-run, which makes it
+the largest unre-run thing in this arm and the reason every median comparison
+in the two `RESULTS` documents now carries a warning where it is made.
+
+### M-32 · Feature 10's committed direction and its own gloss point opposite ways, and the verdict on the feature flips between them `CLOSED` 2026-08-22
 **Found 2026-08-22 by asking whether feature 10 earns its place, and finding
 that the question cannot be answered as posed.**
 
@@ -4050,6 +4153,11 @@ coded direction is the commitment, the gloss was loose prose") is the one that
 keeps a possible HIT recorded as a failure, so it is the reading that must be
 argued for rather than defaulted to.
 
+**IN EXPERIMENT 1 THE RULING CHANGES NOTHING BUT A COLUMN LABEL.** `WRONG
+SIGN` is printed only for an FDR-significant result (`discriminate.py:508`), and
+feature 10's Experiment 1 p is 0.7788, so it read *null* before the ruling and
+reads *null* after. Only the `dir` column moves there.
+
 **AND IT IS NOT ONLY FEATURE 10.** Experiment 2 records FOUR `WRONG SIGN`
 verdicts — `concreteness_mean`, `concreteness_p90`, `abstract_noun_ratio`,
 `syntactic_inversion_rate` — beside this one. This entry makes no claim about
@@ -4061,6 +4169,89 @@ signs are simply failed predictions and are correctly recorded. What feature
 sentinel and moved this feature's numbers; it did not touch what the numbers
 were predicted to be. The two are independent, and this one is older — it has
 been true since the feature set was registered.
+
+---
+
+**RULED 2026-08-22 BY THE OWNER: *the gloss was the commitment — treat it as a
+hit.*** This entry asked which half of the cell was predicted, said plainly
+that no measurement could answer it, and named the cheap resolution as the one
+that must be argued for rather than defaulted to. The owner took the other
+half. `(rarer words)` is the commitment; **LOWER** is struck.
+
+**WHAT WAS CHANGED.**
+- `quality/features.py` — `DIRECTION["content_word_freq_mean"]` = `"higher"`,
+  with the ruling recorded at the line.
+- `quality/PREREGISTRATION.md` — row 10 struck in place (doctrine 17) and an
+  amendment section added carrying the doctrine-19 warning below.
+- `quality/RESULTS.md` — the Experiment 2 sign table, both hit counts, the
+  wrong-sign count, and the cold tables repinned; the two 2026-08-09 run
+  transcripts left verbatim and annotated rather than rewritten.
+
+**WHAT MOVED, AND WHAT DID NOT.** `permutation_test` is direction-free and
+`joint_classifier` fits logistic regression on raw values, so **no AUC moves**
+— verified against the re-run: Exp 2 feature 10 is 0.707 before and after, the
+joints are 0.960 / 0.723 before and after, and the within-item half is
+untouched to the digit. What moves is `dir_ok`, the printed verdict, the FDR
+hit count, and the cache identity (`DIRECTION` is inside `cache_identity`).
+
+| | before | after |
+|---|---|---|
+| Exp 2, feature 10 | `0.707 0.0001 lower WRONG SIGN` | `0.707 0.0001 higher HIT (FDR)` |
+| Exp 2, hits at q=0.10 | 4/10 | **5/10** |
+| Exp 2, wrong-sign | 5 | **4** |
+| Exp 1, feature 10 | `0.523 0.7788 lower null` | `0.523 0.7788 higher null` — only the `dir` column moves |
+| Exp 1, hits at q=0.10 | 2/10 | 2/10 |
+
+**THE RESPECIFICATION HAD ALREADY SIDED WITH THE GLOSS, AND NOBODY NOTICED.**
+`within_item.WithinItemFeatures.DIRECTION["wi_freq_delta"]` has read `"higher"`
+since it was written. So the two modules that encode this one prediction have
+**disagreed with each other for the entire life of the feature set**, and
+nothing compared them — the absolute half graded a rank as if lower were rarer
+and the within-item half graded it as if higher were. The ruling makes them
+agree. That the respecification, written later and independently, reached for
+the gloss is corroboration for the reading the owner took.
+
+**AND A SECOND SYMPTOM OF THE SAME ROOT ERROR, FOUND WHILE REPINNING.**
+`quality/RESULTS.md`'s findings list carried:
+
+> *"I predicted human writing uses rarer vocabulary. The opposite: the
+> generated sonnets reach for rarer words than Shakespeare does ... the failure
+> mode is over-reaching, not under-reaching."*
+
+**That paragraph read its own number backwards.** `permutation_test` scores the
+FIRST arm and Experiment 2's first arm is `rows_h` — human — so an AUC above
+0.5 says human is HIGHER on mean rank, and higher rank is RARER. The class
+means say it without any convention to get wrong: human 6,525.3, generated
+5,121.6. The conclusion drawn from it is the exact reverse of the measurement,
+and the "folk intuition is false" reading with it. Struck in place in
+`RESULTS.md`.
+
+One confusion — reading a **rank** as if it were a **frequency** — produced
+both symptoms: the boldface `LOWER`, and this paragraph. The gloss is the only
+part of the original commitment that never had it.
+
+**DOCTRINE 19 WARNING, RECORDED IN THREE PLACES AND NOT SOFTENED HERE.** This
+amendment was made *after* the sign was known and it **runs in the amender's
+favour**: it makes the headline hit count larger and the wrong-sign count
+smaller. It is corroborated (the respecification, the class means, the prose
+error running the same way) but corroboration found afterwards is not
+preregistration, and this row should be read as weaker than the nine that were
+never amended.
+
+**AND IT COST SOMETHING, WHICH IS THE HALF SUCH WARNINGS USUALLY OMIT.**
+`RESULTS.md` §2 argued the monoculture trap on *five* features inverting
+between designs, one clause of which was "uses more common words". Feature 10
+does not invert under the amended direction — HIT in Exp 2, *null* in Exp 1 —
+so that section now rests on **four**, and the struck clause was never a
+reading of the data at all. The demonstration is weaker by exactly that much
+and says so in place.
+
+**WHAT THIS ENTRY DOES NOT TOUCH.** The other four `WRONG SIGN` verdicts stand:
+their preregistration cells carry no contradicting gloss, so their signs are
+failed predictions and are correctly recorded. And the ruling does not make
+feature 10 a hit in Experiment 1 — 0.523 is |Δ| = 0.023, inside the band the
+analysis plan declared undetectable in advance at n = 15 vs 117, so it is not
+evidence about the feature in either direction (doctrine 20).
 
 ### M-31 · A source swap left its sentinel behind, and 60% of English scored as rarer than a word nobody has heard of `CLOSED` 2026-08-22
 **Found 2026-08-22 while executing the owner's ruling to refuse

@@ -196,6 +196,18 @@ from quality.features import FUNCTION_TAGS, QualityFeatures, _tagger  # noqa: E4
 from quality.floor import FloorDeclaration, PROFILES, SlopFloor  # noqa: E402
 
 ROOT = os.path.join(HERE, "..")
+
+#: THE DECLARED POPULATION.  Named once so `corpus_manifest.py` can ASK this
+#: module which files it measures instead of re-typing the glob: a second
+#: copy of a population is a second definition of the question (doctrine 1),
+#: and the copy is what goes stale when a load stages a new language prefix.
+CORPUS_GLOB = os.path.join("corpus", "song", "eng_*.txt")
+
+
+def corpus_files(root=None):
+    """-> the sorted paths this calibration measures."""
+    return sorted(glob.glob(os.path.join(root or ROOT, CORPUS_GLOB)))
+
 #: The item unit and the marker rule are quality/audit_corpus.py's, verbatim,
 #: so this and the corpus audit cannot disagree about what an item is.
 _MARKER = re.compile(r"^(#|--- |\[)")
@@ -544,8 +556,7 @@ def n_all_items():
     off the corpus rather than out of a docstring that could go stale the same
     way this file's runtime figure did.
     """
-    return sum(1 for p in sorted(glob.glob(os.path.join(ROOT, "corpus", "song",
-                                                        "eng_*.txt")))
+    return sum(1 for p in corpus_files()
                for _, body in items_in(p) if body)
 
 
@@ -622,7 +633,7 @@ def population(verbose=True, qf=None, with_predictability=True, scorer=None,
         scorer = Scorer(PredictabilityCache(enabled=False).open(), qf)
     elif qf is not None and scorer._qf is None:
         scorer._qf = qf
-    files = sorted(glob.glob(os.path.join(ROOT, "corpus", "song", "eng_*.txt")))
+    files = corpus_files()
     raw = []
     for p in files:
         a, born, died = author_of(p)
