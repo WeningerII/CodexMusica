@@ -3956,6 +3956,69 @@ instances in this entry are one shape at three depths: the census read English
 with the wrong reader, the typography sweep read Persian with a blind one, and
 the test read its own wrong answer out of a module entitled to stop giving it.
 
+### M-32 · Feature 10's committed direction and its own gloss point opposite ways, and the verdict on the feature flips between them `OPEN`
+**Found 2026-08-22 by asking whether feature 10 earns its place, and finding
+that the question cannot be answered as posed.**
+
+`quality/PREREGISTRATION.md` commits the ten features with their directions,
+under a rule it states in the same breath: *"Direction is committed now; a
+feature that separates with the **wrong** sign counts as a failed prediction,
+not a success."* Feature 10's row reads:
+
+> | 10 | `content_word_freq_mean` — mean corpus frequency rank of content words | **LOWER** (rarer words) |
+
+**THE TWO HALVES OF THAT CELL POINT OPPOSITE WAYS.** `Lexicon.freq_rank` is
+0-based and ascending by commonness — measured: `the` 2, `and` 7, `love` 122,
+`melancholy` 11,547, `thistle` 35,537 — so a LOWER `content_word_freq_mean`
+is **MORE COMMON** words, and the gloss says **rarer**.
+`quality/features.py` encodes `DIRECTION["content_word_freq_mean"] = "lower"`,
+following the word and not the parenthetical, and the AUC is computed with
+that direction applied.
+
+**SO THE FEATURE'S RECORDED RESULT IS EITHER A SUCCESS OR A FAILED PREDICTION,
+AND WHICH ONE DEPENDS ON WHICH HALF OF ONE TABLE CELL IS THE COMMITMENT.** Its
+strongest arm is human-vs-generated at **0.707** (repinned 2026-08-22, M-31).
+Under the coded direction that is a success. Under the glossed one it is the
+predicted sign inverted — which the preregistration says counts as a FAILED
+prediction — and it has been carried as a success for as long as the feature
+set has existed. Doctrine 1: one coordinate, two readings, and here the two
+readings disagree about the verdict rather than about a number.
+
+**EXPERIMENT 1 CANNOT ARBITRATE IT, BY THE DOCUMENT'S OWN DECLARATION.** The
+analysis plan states, before any result and expressly so it could not be
+retrofitted: *"with 15 vs 119, only large effects (|AUC − 0.5| > ~0.20) are
+detectable. A null here is *weak* evidence of absence and must be reported
+that way."* Feature 10's Exp 1 AUC is **0.523** — |AUC − 0.5| = **0.023**, an
+order of magnitude inside the zone the design says it cannot see into. Reading
+that number as evidence against the feature would be quoting a null the
+preregistration declared unreadable in advance (doctrine 20). The same is true
+of most of the ten, which is why this entry is about the DECLARATION and not
+about feature 10's worth.
+
+**AND THE OBVIOUS WAY TO ANSWER "DOES IT EARN ITS PLACE" IS FORBIDDEN BY THE
+SAME DOCUMENT.** A leave-one-out over the ten would be a criterion chosen
+AFTER seeing the numbers, and the preregistration already declares its own —
+a two-sided permutation test at 20,000 shuffles, Benjamini-Hochberg at
+q = 0.10 across all ten — and closes the door explicitly: *"No feature outside
+this list may be reported as a finding. Anything discovered later is
+exploratory and must be labelled as such."* Dropping a feature on a rule
+invented for the occasion is doctrine 19's shape at the level of the study
+design.
+
+**WHAT IS OWED, and it is a reading of intent rather than a measurement:**
+decide which half of the cell was the commitment, strike the other in place
+(doctrine 17), and state whether feature 10's recorded separations are
+successes or failed predictions under that reading. The class means — does
+human verse actually use commoner or rarer content words than generated verse
+— tell you which way the DATA runs, and that is necessary but not sufficient:
+the preregistration's question is what was PREDICTED, and the data cannot
+answer that.
+
+**NOT CLOSED BY THE M-31 REPIN.** M-31 corrected the stale out-of-vocabulary
+sentinel and moved this feature's numbers; it did not touch what the numbers
+were predicted to be. The two are independent, and this one is older — it has
+been true since the feature set was registered.
+
 ### M-31 · A source swap left its sentinel behind, and 60% of English scored as rarer than a word nobody has heard of `CLOSED` 2026-08-22
 **Found 2026-08-22 while executing the owner's ruling to refuse
 `wordfreq20k.txt`, by asking what still READ it rather than by reading the

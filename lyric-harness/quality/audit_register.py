@@ -2086,7 +2086,12 @@ PINNED = {
     #    nobody has heard of), found while executing the owner's ruling to
     #    refuse `wordfreq20k.txt` -- by asking what still READ it rather than
     #    by reading the licence. `coverage_audited` unmoved at 19.
-    "coverage_entries": 89,
+    #    REPINNED 2026-08-22, 89 -> 90: `M-32` (feature 10's committed
+    #    direction and its own gloss point opposite ways, and the verdict on
+    #    the feature flips between them), found by asking whether feature 10
+    #    earns its place and finding the question unanswerable as posed.
+    #    `coverage_audited` unmoved at 19.
+    "coverage_entries": 90,
     "coverage_audited": 19,
 }
 
