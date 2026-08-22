@@ -916,6 +916,171 @@ def is_apparatus_line(line):
     return s.startswith("[") or s.startswith("---") or s.startswith("#")
 
 
+# ---------------------------------------------------------------------------
+# THE PRINTED COORDINATES A LYRIC HANDS TO `relations.build_stream`
+# (`MISSING.md` M-39, the half the stanza commit left open)
+#
+# `is_apparatus_line` above is a DROP rule, and for every verb but one that is
+# what is wanted: apparatus is not sung, so it is not scored. The `relations`
+# verb is the exception, and the asymmetry M-39 recorded is exactly this:
+#
+#   > The CLI grounds on BLANK LINES only -- `is_apparatus_line` has already
+#   > dropped the `[VERSE n]` rows by the time `build_stream` is called, so a
+#   > lyric that marks its sections and prints no blank line still refuses
+#   > there. The panel reads both because its readers see the marks; the CLI
+#   > does not.
+#
+# MEASURED 2026-08-22 on `corpus/song/eng_american_a_g_knight.txt` -- eight
+# printed `[VERSE n]` / `[CHORUS]` marks, ONE blank line, and that one before
+# the first stanza. The verb reported `Frames.stanza_source = 'blank_lines'`
+# with ONE distinct stanza over 256 units, which is the collapse M-39 is
+# about wearing the label of a source: the five `frame="stanza"` schemas ran
+# and printed numbers over a frame the text had told nobody about, while the
+# text's own eight boundaries sat in lines the reader had already deleted.
+#
+# TWO APPARATUS KINDS CARRY A COORDINATE AND ARE THEREFORE KEPT, with a
+# DECLARED STATUS instead of a deletion:
+#
+#   * the `[MARK]` row -- `quality/grid.sections_from_marks` reads it as the
+#     per-line SECTION identity and `grid.stanza_ground` reads it as a group
+#     break, and `grid` owns that vocabulary (`MARK_FUNCTION`, `MARK_REFUSED`,
+#     `MARK_OPENS_GROUP`) because `relations.py` serves nine languages and
+#     ships none. The dependency runs one way and stays that way: this module
+#     imports `grid`, `grid` imports this one for `line_indent`, and
+#     `relations` imports neither.
+#   * the `---` row -- the corpus's own SONG boundary, and
+#     `grid.GROUP_BREAK_PREFIX` reads it as the third break kind. Dropping it
+#     before asking for the ground would filter away one third of the evidence
+#     the function documents itself as reading.
+#
+# Everything else `is_apparatus_line` catches -- a `#` comment, a bracket with
+# no closing `]` -- is DROPPED as before. It carries no coordinate, and
+# keeping it would be worse than cosmetic: `stanza_ground` reads any non-blank
+# line it cannot classify as CONTENT, so nine lines of `# author:` header
+# would become a stanza of the song.
+#
+# THE KEPT ROWS CONTRIBUTE NO WORDS. They leave the token stream through
+# `build_stream(exclude_status=...)`, which is the machinery a chorus stub
+# already uses (defect P10): the line keeps its index and its entry in
+# `Stream.lines`, and the loss is recorded in `excluded_lines` rather than
+# being silent. Deleting them instead would be the live half of M-39's other
+# finding -- an unfiltered `[CHORUS]` tokenises to the WORD `CHORUS`, and two
+# of them stand in a `repetition`.
+# ---------------------------------------------------------------------------
+
+#: The status this reader puts on a `---` row. `grid.SECTION_MARKER_STATUS` is
+#: the other, and it is `grid`'s to name because `grid` is what produces it.
+#: Both are excluded from the token stream and neither is deleted from the
+#: line vector, which is the whole difference between a line that carries no
+#: words and a line that was never there.
+SONG_BREAK_STATUS = "song_break"
+
+
+@dataclass
+class RelationGround:
+    """What a lyric's OWN PRINTING declares to `relations.build_stream`.
+
+    Every field is a coordinate the text supplied, or the recorded absence of
+    one. `stanza_source` is the field that makes the fallback visible: it says
+    `printed_breaks` where the page's marks and breaks supplied the frame,
+    `none` where they were refused, and `""` where this reader declared
+    nothing and `build_stream` may name its own derivation (`blank_lines` or
+    `none`).
+    """
+    lines: list              # the line vector `build_stream` is handed
+    sections: list           # per line, from `grid.sections_from_marks`
+    line_status: tuple       # per line; "" | SECTION_MARKER_STATUS | SONG_BREAK
+    exclude_status: tuple    # the statuses that contribute NO units
+    stanzas: object          # a per-line group index, or None -> derive
+    stanza_source: str       # "" -> `build_stream` names its own
+    refused_marks: tuple     # marks `grid.MARK_OPENS_GROUP` does not declare
+    marks: int               # `[MARK]` rows kept
+    breaks: int              # `---` rows kept
+    dropped: int             # apparatus rows carrying no coordinate, deleted
+
+    @property
+    def verse_lines(self):
+        """The SUNG lines -- what `lines N` has always counted."""
+        return [l for l, st in zip(self.lines, self.line_status)
+                if l.strip() and not st]
+
+
+def relation_ground(text_lines, language=""):
+    """-> `RelationGround` for `relations.build_stream`. M-39's second half.
+
+    THE GROUND IS ASKED FOR ONCE, FROM THE PAGE, and the three answers are
+    kept apart (doctrine 79):
+
+      1. `grid.stanza_ground` returns a vector -- the marks, the `---` rows
+         and the blank lines agreed on where the groups are, and the source is
+         `printed_breaks`.
+      2. It REFUSES, because the text printed a `[MARK]` that
+         `grid.MARK_OPENS_GROUP` does not declare. The ground is then refused
+         WHOLE and `stanza_source` is `none`: a vector built from the marks
+         this table CAN read would silently merge the groups the undeclared
+         one opens, and a frame that is right about four marks and silent
+         about a fifth is not a partial answer but a wrong one. Falling back
+         to the blank lines here would be working around a refusal that was
+         made on purpose -- the blank lines are a DIFFERENT instrument and
+         nothing has checked that they agree with the marks.
+      3. It supplies nothing and refuses nothing, and the text printed no
+         `[MARK]` at all. THAT is where the blank-line derivation is the
+         fallback, and it is `build_stream`'s own: `stanzas=None` lets it
+         record `blank_lines` where it had a blank line to read and `none`
+         where it did not. A text that DOES print marks never reaches this
+         branch, because for such a text "the marks supplied no break" is a
+         fact about the marks and answering it with the blank lines would be
+         the silent coordinate-pick doctrine 45 forbids.
+
+    `sections` is supplied on every path, marks or no marks. On a text with no
+    marks it is all-`""`, which is byte-identical to the field's historical
+    default -- so this argument reaching `build_stream` costs an unmarked
+    lyric nothing and gives a marked one `Unit.section` for the first time.
+    """
+    from quality import grid as GR
+    lines, dropped = [], 0
+    for raw in text_lines:
+        s = (raw or "").rstrip()
+        t = s.strip()
+        if GR.SECTION_MARK.match(s) or t.startswith(GR.GROUP_BREAK_PREFIX):
+            lines.append(s)
+        elif is_apparatus_line(s):
+            dropped += 1
+        else:
+            lines.append(s)
+    sections, status = GR.sections_from_marks(lines, language)
+    # `sections_from_marks` labels the `[MARK]` rows; the `---` rows are this
+    # reader's own and are labelled here rather than there, because `grid`
+    # owns the mark vocabulary and this module owns the drop rule.
+    status = tuple(
+        st or (SONG_BREAK_STATUS
+               if l.strip().startswith(GR.GROUP_BREAK_PREFIX) else "")
+        for st, l in zip(status, lines))
+    marks = sum(1 for st in status if st == GR.SECTION_MARKER_STATUS)
+    breaks = sum(1 for st in status if st == SONG_BREAK_STATUS)
+    ground, source, refused = GR.stanza_ground(lines, language)
+    if ground is not None:
+        stanzas, stanza_source = ground, source
+    elif refused or marks:
+        # THE REFUSAL, CARRIED THROUGH `stanza_source` AND NOT THROUGH THE
+        # VECTOR. `build_stream` has no "refused" input: `stanzas=False` would
+        # record `collapsed` and `stanzas=None` would let the blank lines
+        # answer, and both of those are claims. Naming the source `none` is
+        # the one spelling that makes `Stream.supply('stanza')` answer
+        # `absent`, which is what a stanza-framed schema refuses on. The
+        # all-zero vector below is inert: nothing reads `Unit.stanza` without
+        # first passing that gate.
+        stanzas, stanza_source = [0] * len(lines), "none"
+    else:
+        stanzas, stanza_source = None, ""
+    return RelationGround(lines=lines, sections=sections, line_status=status,
+                          exclude_status=(GR.SECTION_MARKER_STATUS,
+                                          SONG_BREAK_STATUS),
+                          stanzas=stanzas, stanza_source=stanza_source,
+                          refused_marks=refused, marks=marks, breaks=breaks,
+                          dropped=dropped)
+
+
 class UndecodableLyricFile(Exception):
     """A file this harness was told to read as text is not valid UTF-8.
 
@@ -6108,14 +6273,25 @@ def main():
         # has one definition, so this verb alone turned an undecodable file
         # into a raw `UnicodeDecodeError` at exit 1 after every sibling had
         # learned to refuse it. What that function does NOT do is drop blank
-        # lines -- it returns the text -- so the split and both filters below
+        # lines -- it returns the text -- so the split and the filtering below
         # stay here, where the stanza frame needs them.
-        raw = [l.rstrip() for l in read_lyric_text(keep[0]).splitlines()
-               if not is_apparatus_line(l)]
-        lines = [l for l in raw if l.strip()]
+        #
+        # AND THE `[MARK]` ROWS ARE KEPT TOO, 2026-08-22, which is the half of
+        # M-39 the stanza commit left open. `is_apparatus_line` deleted them
+        # BEFORE `build_stream` was called, so this verb ground on blank lines
+        # alone and a lyric that marks its sections and prints no blank line
+        # refused here while the null panel -- whose readers see the marks --
+        # framed the same text seven ways. `relation_ground` above is the one
+        # place that rule now lives; see its comment for which apparatus kinds
+        # carry a coordinate and which are still dropped.
+        ground = relation_ground(
+            [l.rstrip() for l in read_lyric_text(keep[0]).splitlines()], lang)
+        raw = ground.lines
+        lines = ground.verse_lines
         phon = _phonology_or_refuse(lang)
-        # `stanzas=None` AND NOT THE PRE-COMPUTED DERIVATION (M-39,
-        # 2026-08-22).  This read
+        # `stanzas=` IS THE PAGE'S OWN GROUND WHERE THE PAGE HAS ONE (M-39,
+        # 2026-08-22), and `stanzas=None` -- NOT the pre-computed derivation --
+        # where it does not.  Until this entry the line read
         #
         #     stanzas=RL.stanzas_from_blank_lines(raw)
         #
@@ -6125,12 +6301,15 @@ def main():
         # all-zero vector labelled as the caller's declaration, and they ran
         # over one frame and printed a number.  `relations_null._stream_of`
         # carried the same line and it is what collapsed the whole null panel.
-        # Passing None lets `build_stream` record `blank_lines` where it had a
-        # blank line to read and `none` where it did not, and the schemas
-        # REFUSE on the second (doctrine 20).  `raw` still keeps the blank
-        # lines, which is what the paragraph above is about, so a text that
-        # prints its stanzas still frames as it did.
-        st = RL.build_stream(raw, phon, stanzas=None)
+        # `stanza_source` now names WHICH of the three answers happened on
+        # this text -- `printed_breaks`, `none` (refused whole), or
+        # `build_stream`'s own `blank_lines`/`none` -- and the verb prints it,
+        # because a fallback nobody can see is the laundering this closed.
+        st = RL.build_stream(raw, phon, sections=ground.sections,
+                             stanzas=ground.stanzas,
+                             stanza_source=ground.stanza_source,
+                             line_status=ground.line_status,
+                             exclude_status=ground.exclude_status)
         # --schema= IS A SUBSTRING FILTER OVER THE POPULATION THE TWO COUNTS
         # BELOW ARE TAKEN FROM, and an unmatched value used to filter all 77
         # schemas out and print `schemas finding something: 0   refusing on a
@@ -6167,6 +6346,39 @@ def main():
         print(f"  phonology {lang}   lines {len(lines)}   "
               f"units {len(st.units)}   UNREADABLE tokens "
               f"{len(st.unreadable)}")
+        # THE TWO COORDINATES THE PAGE SUPPLIED, SAID OUT LOUD (M-39). An
+        # instrument that found nothing and one that never looked must not
+        # print the same thing, and until 2026-08-22 this verb printed neither
+        # -- it ground on blank lines it could not name and dropped the marks
+        # before it looked.
+        sup = st.supply("stanza")
+        print(f"  section coordinate: {ground.marks} [MARK] row(s) and "
+              f"{ground.breaks} `---` row(s) KEPT (excluded from the token "
+              f"stream, not deleted), {ground.dropped} apparatus row(s) "
+              f"dropped; {len({u.section for u in st.units})} distinct "
+              f"Unit.section over the units")
+        if ground.refused_marks:
+            print(f"  stanza ground: REFUSED WHOLE — "
+                  f"{', '.join(ground.refused_marks)} — the text prints a "
+                  f"[MARK] `quality/grid.MARK_OPENS_GROUP` does not declare, "
+                  f"and a ground built from the marks it CAN read would "
+                  f"silently merge the groups that one opens. The five "
+                  f"frame=\"stanza\" schemas REFUSE below rather than "
+                  f"quantify over a frame that is wrong about a mark; the "
+                  f"blank lines are NOT substituted, because nothing has "
+                  f"checked that they agree with the marks (doctrine 45).")
+        elif ground.marks and ground.stanza_source == "none":
+            print(f"  stanza ground: NONE — the text prints "
+                  f"{ground.marks} [MARK] row(s) and not one of them opens a "
+                  f"group, so its own marks placed no boundary. The blank "
+                  f"lines are not asked instead: that would answer a fact "
+                  f"about the marks with a different instrument.")
+        else:
+            print(f"  stanza ground: {st.frames.stanza_source} — "
+                  f"supply('stanza') {sup.state}, {sup.n} distinct stanza(s)"
+                  + ("" if ground.stanza_source else
+                     "  [FALLBACK: the page printed no [MARK], so this is "
+                     "`build_stream`'s own blank-line derivation]"))
         print(f"  schema filter: "
               + (f"{want!r} — {len(selected)} of {len(all_schemas)} "
                  f"schemas asked (SUBSTRING match on the name). The two "
