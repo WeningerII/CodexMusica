@@ -218,7 +218,20 @@ PINNED = {
     #: FOUND BY `quality/pin_sweep.py` on its first full run, not by a suite:
     #: this figure is re-DERIVED from the corpus, and the corpus edit that
     #: moved it landed in a commit whose gates were all green.
-    "typed": 76930, "decided": 125504, "undecided": 32, "apparatus": 59,
+    #: REPINNED 2026-08-22 (second time today): typed ~~76,930~~ **77,090**,
+    #: +160 and nothing else moved.  The K-4 Old Norse load added 160 songs,
+    #: each carrying one `[VERSE 1]`, and `non` measures 160 typed / 0
+    #: decided / 0 undecided — the whole drift, attributable to one prefix.
+    #: `decided`, `undecided` and `apparatus` are UNMOVED, which is the half
+    #: that matters: the load added nothing to the pile nobody has considered.
+    #:
+    #: FOUND BY AN AUDIT AGENT, NOT BY THE CLOSING SITTING.  This is the THIRD
+    #: gate the Old Norse load left red that no `--check` in the standard set
+    #: catches — after `test_corpus_taxonomy` §6 and `test_grid`'s air census.
+    #: `CORPUS_LOADING_PROTOCOL.md` already requires `suite_sweep.py` in the
+    #: closing sitting for exactly that reason; `mark_coverage --check` is not
+    #: in it and re-derives from the corpus, so it drifts silently on any load.
+    "typed": 77090, "decided": 125504, "undecided": 32, "apparatus": 59,
     "declared_functions": 21, "witnessed": 4,
 }
 

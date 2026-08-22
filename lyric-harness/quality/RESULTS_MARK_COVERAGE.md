@@ -32,12 +32,33 @@ declared section function; 62.0% are refused.**
 
 | bucket | blocks | share |
 |---|---:|---:|
-| **typed** — reaches a declared function | 76,930 | 37.99% |
-| **decided** — refused *with a written reason* | 125,490 | 61.96% |
+| **typed** — reaches a declared function | ~~76,930~~ **77,090** | 38.03% |
+| **decided** — refused *with a written reason* | ~~125,490~~ **125,504** | 61.92% |
 | **undecided** — refused, no row either way | 32 | 0.02% |
 | **apparatus** — a bare numeral | 59 | 0.03% |
 
-202,525 marked blocks over 36 distinct marks. **Four counts, never
+~~202,525~~ **202,685** marked blocks over ~~36~~ **39** distinct marks.
+
+> **REPINNED 2026-08-22 (second time today), and the TABLE was carrying a
+> figure its own repin note had already superseded.** Two separate things:
+>
+> 1. **`typed` +160, from the K-4 Old Norse load.** `non` measures 160 typed /
+>    0 decided / 0 undecided — 160 songs, one `[VERSE 1]` each. The whole
+>    drift is one prefix. `decided`, `undecided` and `apparatus` are UNMOVED,
+>    which is the half that matters: the load added nothing to the pile nobody
+>    has considered.
+> 2. **`decided` was already stale HERE.** The note below repinned it
+>    125,490 → 125,504 on 2026-08-22 and this table was not updated with it,
+>    so the table and the note under it disagreed, and the stated total
+>    (202,525) matched neither. That is a hand-kept index of a derived figure,
+>    which is the thing `--check` exists to end — and `--check` did not catch
+>    it, because it reads the CODE pin and not this table.
+>
+> Found by an audit agent, not by the load's closing sitting. This is the
+> **third** gate the Old Norse load left red that no `--check` in the standard
+> set catches, after `test_corpus_taxonomy` §6 and `test_grid`'s air census.
+
+**Four counts, never
 summed** (doctrine 79): a decided refusal is a position the vocabulary
 has taken, an undecided one is a gap nobody has looked at, and adding
 them would report the second as though someone had thought about it.
@@ -304,7 +325,7 @@ considered. Found by `quality/pin_sweep.py` on its first full run, not by a
 suite: this figure re-DERIVES from the corpus, and the edit that moved it
 landed in a commit whose gates were all green.
 
-`--check` pins typed 76,930 / decided 125,504 / undecided 32 /
+`--check` pins typed ~~76,930~~ **77,090** / decided 125,504 / undecided 32 /
 apparatus 59, declared 21, witnessed 4. It exits 1 on drift and names
 the moved figure; an off-by-one on any of them fails it, verified by
 mutation.
